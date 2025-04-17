@@ -145728,10 +145728,10 @@ declare hidden void @_ZN4gpui3app10entity_map18double_lease_panic17hb3a7e6849ad7
 declare void @_ZN4gpui3app10entity_map9EntityMap20assert_valid_context17h1dea754e2ee9924cE(ptr noalias noundef readonly align 8 dereferenceable(40), ptr noalias noundef readonly align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #53
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #53
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #53
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #53
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #54

@@ -3525,7 +3525,7 @@ declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #8
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

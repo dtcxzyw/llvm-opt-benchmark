@@ -132505,7 +132505,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #47
 declare i64 @llvm.umax.i64(i64, i64) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #46
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #46

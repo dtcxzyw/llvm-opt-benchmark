@@ -107394,7 +107394,7 @@ declare hidden noundef ptr @"_ZN9extension9wasm_host3wit12since_v0_0_11_68_$LT$i
 declare i64 @llvm.umin.i64(i64, i64) #43
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #43
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #43
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #44

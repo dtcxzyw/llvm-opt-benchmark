@@ -20035,7 +20035,7 @@ declare hidden void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$c
 declare hidden void @"_ZN4core3ptr91drop_in_place$LT$gpui..app..entity_map..Model$LT$project..buffer_store..BufferStore$GT$$GT$17h11404b88b83ba151E"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #49
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #49
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #50

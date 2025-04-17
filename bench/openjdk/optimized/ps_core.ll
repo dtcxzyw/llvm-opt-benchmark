@@ -1303,7 +1303,7 @@ define internal fastcc range(i32 0, 2) i32 @read_lib_segments(ptr noundef nonnul
 declare i64 @llvm.smin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #12
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13

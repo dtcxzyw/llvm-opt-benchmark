@@ -4614,7 +4614,7 @@ declare ptr @strcpy(ptr noalias returned writeonly, ptr noalias readonly capture
 declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #18
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19

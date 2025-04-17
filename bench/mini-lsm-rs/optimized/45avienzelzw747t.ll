@@ -13641,10 +13641,10 @@ declare i32 @llvm.umin.i32(i32, i32) #37
 declare i64 @llvm.umin.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #37
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #37
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #37
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

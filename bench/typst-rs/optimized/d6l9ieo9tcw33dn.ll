@@ -200340,10 +200340,10 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare void @llvm.experimental.noalias.scope.decl(metadata) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i16(i16, i16) #47
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i16(i16, i16) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i16(i16, i16) #47
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i16(i16, i16) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smax.i16(i16, i16) #47
@@ -200373,7 +200373,7 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #47
 declare i16 @llvm.abs.i16(i16, i1 immarg) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #47
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #47

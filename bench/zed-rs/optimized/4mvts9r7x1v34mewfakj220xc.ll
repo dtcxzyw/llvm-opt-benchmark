@@ -32238,10 +32238,10 @@ declare hidden noundef nonnull align 8 ptr @_ZN5serde2de5Error15unknown_variant1
 declare i64 @llvm.umin.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #36
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #36
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #37

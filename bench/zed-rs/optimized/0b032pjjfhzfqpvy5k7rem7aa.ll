@@ -15648,8 +15648,8 @@ _ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830
 
 59:                                               ; preds = %43, %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.thread.i.i.i.i, %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.i.i.i.i, %30
   %.sroa.0.2.i.i.i = phi i8 [ %.sroa.0.1.i.i.i, %30 ], [ %52, %43 ], [ 1, %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.thread.i.i.i.i ], [ %spec.select.i.i.i.i, %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.i.i.i.i ]
-  %60 = add i8 %.sroa.0.2.i.i.i, -3
-  %switch.i = icmp ult i8 %60, -2
+  %60 = add nsw i8 %.sroa.0.2.i.i.i, -3
+  %switch.i = icmp samesign ult i8 %60, -2
   %61 = zext i1 %switch.i to i64
   %62 = add nuw i64 %.sroa.09.078, %61
   %63 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %6, i64 %62
@@ -15945,8 +15945,8 @@ _ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830
 
 63:                                               ; preds = %51, %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.i.i.i.i, %39
   %.sroa.0.2.i.i.i = phi i8 [ %.sroa.0.1.i.i.i, %39 ], [ %59, %51 ], [ %spec.select.i.i.i.i, %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.i.i.i.i ]
-  %64 = add i8 %.sroa.0.2.i.i.i, -3
-  %switch.i = icmp ult i8 %64, -2
+  %64 = add nsw i8 %.sroa.0.2.i.i.i, -3
+  %switch.i = icmp samesign ult i8 %64, -2
   br i1 %switch.i, label %.._crit_edge.loopexit_crit_edge, label %.thread
 
 .._crit_edge.loopexit_crit_edge:                  ; preds = %63
@@ -33949,7 +33949,7 @@ declare hidden { ptr, i64 } @"_ZN5alloc4sync22Arc$LT$$u5b$T$u5d$$GT$15from_iter_
 declare hidden noundef i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17hea700f13ddbbf977E"(ptr noalias noundef nonnull readonly align 8, i64 noundef, ptr noalias noundef nonnull readonly align 8, i64 noundef) unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #43
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #43
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #43

@@ -107835,7 +107835,7 @@ declare void @llvm.assume(i1 noundef) #24
 declare i32 @llvm.abs.i32(i32, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #25
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25

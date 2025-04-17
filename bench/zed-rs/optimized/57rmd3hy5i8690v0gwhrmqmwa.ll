@@ -60946,7 +60946,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$
   %22 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$alloc..sync..Arc$LT$std..path..Path$GT$$RP$$GT$17haa710dbd1d4e31bbE"(ptr noalias noundef align 8 dereferenceable(48) %8) #46
-          to label %80 unwind label %78, !noalias !14859
+          to label %81 unwind label %79, !noalias !14859
 
 23:                                               ; preds = %16
   %24 = icmp eq ptr %19, null
@@ -60993,7 +60993,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$
   %42 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr125drop_in_place$LT$$LP$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$alloc..sync..Arc$LT$std..path..Path$GT$$RP$$GT$17haa710dbd1d4e31bbE"(ptr noalias noundef align 8 dereferenceable(48) %6) #46
-          to label %80 unwind label %78
+          to label %81 unwind label %79
 
 43:                                               ; preds = %36
   %44 = icmp eq ptr %39, null
@@ -61040,7 +61040,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$
 "_ZN14semantic_index10SemanticDb12load_results28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8c8378c97312369E.exit.i": ; preds = %60, %53
   %.sroa.0.0.i = phi i8 [ %65, %60 ], [ %58, %53 ]
   %66 = icmp eq i8 %.sroa.0.0.i, 0
-  br i1 %66, label %67, label %"_ZN14semantic_index10SemanticDb12load_results28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2e0caa6266a1d373E.exit"
+  br i1 %66, label %67, label %71
 
 67:                                               ; preds = %"_ZN14semantic_index10SemanticDb12load_results28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8c8378c97312369E.exit.i"
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -61052,31 +61052,35 @@ define internal fastcc noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$
   %70 = call noundef range(i8 -1, 2) i8 @_ZN3std4path18compare_components17h5f4ebbd8e9dc344dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %3), !range !295
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !14861
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !14861
-  %71 = icmp eq i8 %70, 0
-  br i1 %71, label %72, label %"_ZN14semantic_index10SemanticDb12load_results28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2e0caa6266a1d373E.exit"
+  br label %71
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %74 = load i64, ptr %73, align 8, !alias.scope !14856, !noalias !14859, !noundef !4
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %76 = load i64, ptr %75, align 8, !alias.scope !14859, !noalias !14856, !noundef !4
-  %77 = call i8 @llvm.ucmp.i8.i64(i64 %74, i64 %76)
+71:                                               ; preds = %67, %"_ZN14semantic_index10SemanticDb12load_results28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8c8378c97312369E.exit.i"
+  %.sroa.0.1.i = phi i8 [ %70, %67 ], [ %.sroa.0.0.i, %"_ZN14semantic_index10SemanticDb12load_results28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8c8378c97312369E.exit.i" ]
+  %72 = icmp eq i8 %.sroa.0.1.i, 0
+  br i1 %72, label %73, label %"_ZN14semantic_index10SemanticDb12load_results28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2e0caa6266a1d373E.exit"
+
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %75 = load i64, ptr %74, align 8, !alias.scope !14856, !noalias !14859, !noundef !4
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %77 = load i64, ptr %76, align 8, !alias.scope !14859, !noalias !14856, !noundef !4
+  %78 = call i8 @llvm.ucmp.i8.i64(i64 %75, i64 %77)
   br label %"_ZN14semantic_index10SemanticDb12load_results28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2e0caa6266a1d373E.exit"
 
-78:                                               ; preds = %41, %21
-  %79 = landingpad { ptr, i32 }
+79:                                               ; preds = %41, %21
+  %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #47
   unreachable
 
-80:                                               ; preds = %41, %21
+81:                                               ; preds = %41, %21
   %.pn.i = phi { ptr, i32 } [ %22, %21 ], [ %42, %41 ]
   resume { ptr, i32 } %.pn.i
 
-"_ZN14semantic_index10SemanticDb12load_results28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2e0caa6266a1d373E.exit": ; preds = %51, %52, %"_ZN14semantic_index10SemanticDb12load_results28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8c8378c97312369E.exit.i", %67, %72
-  %.sroa.0.2.i = phi i8 [ %77, %72 ], [ %70, %67 ], [ %.sroa.0.0.i, %"_ZN14semantic_index10SemanticDb12load_results28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd8c8378c97312369E.exit.i" ], [ -1, %52 ], [ 1, %51 ]
-  %81 = icmp eq i8 %.sroa.0.2.i, -1
-  ret i1 %81
+"_ZN14semantic_index10SemanticDb12load_results28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2e0caa6266a1d373E.exit": ; preds = %51, %52, %71, %73
+  %.sroa.0.2.i = phi i8 [ %78, %73 ], [ %.sroa.0.1.i, %71 ], [ -1, %52 ], [ 1, %51 ]
+  %82 = icmp eq i8 %.sroa.0.2.i, -1
+  ret i1 %82
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -65715,10 +65719,10 @@ declare hidden void @_ZN7similar6common21capture_diff_deadline17ha592c83064f5341
 declare hidden void @_ZN7similar6common21capture_diff_deadline17hf6056cc2413c6245E(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), i8 noundef, ptr noalias noundef readonly align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(32), i64 noundef, i64 noundef, i64, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #43
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #43
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #43
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #43
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #43

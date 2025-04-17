@@ -4580,7 +4580,7 @@ declare hidden void @"_ZN4core3ptr124drop_in_place$LT$$u5b$sum_tree..SumTree$LT$
 declare hidden void @"_ZN4core3ptr67drop_in_place$LT$$u5b$sum_tree..SumTree$LT$rope..Chunk$GT$$u5d$$GT$17h8d711fd136fae564E.llvm.12005364958220619190"(ptr noalias noundef nonnull align 8, i64 noundef) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #29
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #30

@@ -31406,7 +31406,7 @@ declare hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
 declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h333bf9727591cb1bE"(ptr noundef nonnull align 8, ptr noundef nonnull align 8) unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #29
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #29

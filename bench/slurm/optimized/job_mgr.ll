@@ -45436,13 +45436,13 @@ declare double @llvm.fabs.f64(double) #26
 declare i16 @llvm.umax.i16(i16, i16) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i16(i16, i16) #26
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.fabs.f80(x86_fp80) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #26
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #26

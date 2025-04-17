@@ -9123,7 +9123,7 @@ declare i32 @llvm.umax.i32(i32, i32) #20
 declare i64 @llvm.smin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #20
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #20

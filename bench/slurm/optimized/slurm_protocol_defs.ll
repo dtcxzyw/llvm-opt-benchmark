@@ -13946,19 +13946,19 @@ declare i32 @slurmdb_find_selected_step_in_list(ptr noundef, ptr noundef) #7
 declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i64(i64, i64) #23
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i16(i16, i16) #23
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #23
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #23
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #23
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #23

@@ -6299,7 +6299,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h893057fee2f061e0E(p
   %30 = sext i32 %29 to i64
   %31 = icmp eq i32 %29, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %31, i64 %28, i64 %30
-  %32 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i, i64 0)
+  %32 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i, i64 0)
   switch i8 %32, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i [
     i8 -1, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i
     i8 0, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i
@@ -6367,7 +6367,7 @@ _ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i: ; preds
   %55 = sext i32 %54 to i64
   %56 = icmp eq i32 %54, 0
   %spec.store.select.i.i.i.i.i.i.i31 = select i1 %56, i64 %53, i64 %55
-  %57 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i31, i64 0)
+  %57 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i31, i64 0)
   switch i8 %57, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread4.i35 [
     i8 -1, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.thread.i38
     i8 0, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.exit.i32
@@ -12552,7 +12552,7 @@ declare hidden void @_ZN7channel13channel_store4init17hce65de3428504f5cE(ptr noa
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #36
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #37

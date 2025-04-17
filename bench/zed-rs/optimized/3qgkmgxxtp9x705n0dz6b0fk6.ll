@@ -114783,7 +114783,7 @@ _ZN4gpui8platform5linux8platform24is_within_click_distance17h8b6563f0f0aed9b4E.e
   %506 = bitcast float %505 to i32
   %507 = call noundef i8 @llvm.scmp.i8.i32(i32 %506, i32 1084227584)
   %508 = add nsw i8 %507, -3
-  %switch7.i = icmp ult i8 %508, -2
+  %switch7.i = icmp samesign ult i8 %508, -2
   br i1 %switch7.i, label %509, label %_ZN4gpui8platform5linux8platform24is_within_click_distance17h8b6563f0f0aed9b4E.exit.thread
 
 509:                                              ; preds = %_ZN4gpui8platform5linux8platform24is_within_click_distance17h8b6563f0f0aed9b4E.exit
@@ -130464,7 +130464,7 @@ _ZN4gpui8platform5linux8platform24is_within_click_distance17h8b6563f0f0aed9b4E.e
   %1053 = bitcast float %1052 to i32
   %1054 = call noundef i8 @llvm.scmp.i8.i32(i32 %1053, i32 1084227584)
   %1055 = add nsw i8 %1054, -3
-  %switch7.i = icmp ult i8 %1055, -2
+  %switch7.i = icmp samesign ult i8 %1055, -2
   br i1 %switch7.i, label %1056, label %.critedge591
 
 1056:                                             ; preds = %_ZN4gpui8platform5linux8platform24is_within_click_distance17h8b6563f0f0aed9b4E.exit
@@ -140346,7 +140346,7 @@ declare i8 @llvm.umin.i8(i8, i8) #62
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #63
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #62
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #62
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #64

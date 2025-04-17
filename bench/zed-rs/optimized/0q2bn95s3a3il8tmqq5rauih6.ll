@@ -164415,13 +164415,13 @@ declare hidden void @"_ZN92_$LT$ui..components..button..button_like..ButtonLike$
 declare i64 @llvm.umin.i64(i64, i64) #78
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #78
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #78
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #78
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #78
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #78
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #78
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #78

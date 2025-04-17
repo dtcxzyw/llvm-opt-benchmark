@@ -35552,7 +35552,7 @@ declare hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17h3d2756
 declare hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17h6f1119cc4bf564edE.llvm.3606196232097133016(ptr noalias noundef align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 8 dereferenceable(24), i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #37
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #37

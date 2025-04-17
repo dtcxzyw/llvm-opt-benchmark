@@ -2147,7 +2147,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i16 @llvm.umax.i16(i16, i16) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i16(i16, i16) #15
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @wcslen(ptr captures(none)) local_unnamed_addr #18

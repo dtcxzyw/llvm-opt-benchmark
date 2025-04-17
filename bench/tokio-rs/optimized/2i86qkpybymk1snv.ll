@@ -11116,7 +11116,7 @@ declare hidden { i64, i32 } @_ZN5tokio4time5clock10with_clock17he3856ee9ad98972d
 declare void @llvm.experimental.noalias.scope.decl(metadata) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #29
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #29

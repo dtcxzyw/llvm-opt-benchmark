@@ -55217,7 +55217,7 @@ declare hidden void @"_ZN4core3ptr68drop_in_place$LT$async_channel..Channel$LT$w
 declare hidden void @"_ZN4core3ptr97drop_in_place$LT$alloc..sync..ArcInner$LT$futures_channel..oneshot..Inner$LT$$LP$$RP$$GT$$GT$$GT$17h5835c9c695f91566E"(ptr noalias noundef align 8 dereferenceable(72)) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #31
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32

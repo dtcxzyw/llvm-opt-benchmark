@@ -24405,10 +24405,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #25
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #25
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #25

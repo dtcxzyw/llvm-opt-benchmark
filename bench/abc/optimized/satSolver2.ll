@@ -9688,7 +9688,7 @@ declare i32 @llvm.smax.i32(i32, i32) #24
 declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #24
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #26

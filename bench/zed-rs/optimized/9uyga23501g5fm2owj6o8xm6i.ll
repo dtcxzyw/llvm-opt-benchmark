@@ -14944,10 +14944,10 @@ declare hidden void @"_ZN4core3ptr52drop_in_place$LT$$u5b$text..FragmentSummary$
 declare hidden void @"_ZN4core3ptr70drop_in_place$LT$$u5b$sum_tree..SumTree$LT$text..Fragment$GT$$u5d$$GT$17hae51329f7204a604E.llvm.10886058016107208188"(ptr noalias noundef nonnull align 8, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #26
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #26
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27

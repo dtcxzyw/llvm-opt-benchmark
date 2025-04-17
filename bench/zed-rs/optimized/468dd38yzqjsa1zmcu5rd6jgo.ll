@@ -13292,7 +13292,7 @@ declare noundef nonnull ptr @_ZN3std6thread7current17he9fd31ca1606f337E() unname
 declare hidden noundef ptr @_ZN4core3ops8function6FnOnce9call_once17h6f1589f97ad4b322E.llvm.7318205546729875364(ptr noalias noundef align 8 dereferenceable_or_null(8)) unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #31
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #31

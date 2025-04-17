@@ -67725,13 +67725,13 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #53
 declare i64 @llvm.umax.i64(i64, i64) #51
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #51
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #51
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #51
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #51
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #51
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

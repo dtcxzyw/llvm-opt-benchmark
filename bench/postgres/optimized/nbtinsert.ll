@@ -3646,7 +3646,7 @@ declare i32 @_bt_get_endpoint(ptr noundef, i32 noundef, i1 noundef zeroext) loca
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #8
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #8

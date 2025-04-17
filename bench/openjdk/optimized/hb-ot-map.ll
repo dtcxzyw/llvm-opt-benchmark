@@ -3409,10 +3409,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i16(i16, i16) #11
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #11
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13

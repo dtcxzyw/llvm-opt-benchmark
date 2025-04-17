@@ -122,7 +122,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut1
   %52 = sext i32 %51 to i64
   %53 = icmp eq i32 %51, 0
   %spec.store.select.i.i.i.i.i.i.i = select i1 %53, i64 %50, i64 %52
-  %.0.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i, i64 0)
+  %.0.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i, i64 0)
   br label %_ZN4core3cmp10PartialOrd2lt17h14bc09c7fe3972cbE.exit
 
 _ZN4core3cmp10PartialOrd2lt17h14bc09c7fe3972cbE.exit: ; preds = %14, %18, %21, %31, %45
@@ -2307,7 +2307,7 @@ _ZN4core5slice4sort20provide_sorted_batch17hc7a5229d5ab0b3c2E.exit: ; preds = %.
   %236 = sext i32 %235 to i64
   %237 = icmp eq i32 %235, 0
   %spec.store.select.i.i.i.i.i.i.i.i81 = select i1 %237, i64 %234, i64 %236
-  %.0.i.i.i.i.i.i.i.i82 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i81, i64 0)
+  %.0.i.i.i.i.i.i.i.i82 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i81, i64 0)
   br label %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit83
 
 _ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit83: ; preds = %198, %202, %205, %215, %229
@@ -2423,7 +2423,7 @@ _ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit83: ; preds = %198,
   %294 = sext i32 %293 to i64
   %295 = icmp eq i32 %293, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %295, i64 %292, i64 %294
-  %.0.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i, i64 0)
+  %.0.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i, i64 0)
   br label %_ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h8d77d178888f143fE.exit: ; preds = %256, %260, %263, %273, %287
@@ -7052,7 +7052,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h05
   %60 = sext i32 %59 to i64
   %61 = icmp eq i32 %59, 0
   %spec.store.select.i.i.i.i.i.i.i.i.i = select i1 %61, i64 %58, i64 %60
-  %.0.i.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i.i, i64 0)
+  %.0.i.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i.i, i64 0)
   br label %62
 
 62:                                               ; preds = %55, %45, %37, %35
@@ -10747,7 +10747,7 @@ declare i64 @llvm.umin.i64(i64, i64) #24
 declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #24
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #24

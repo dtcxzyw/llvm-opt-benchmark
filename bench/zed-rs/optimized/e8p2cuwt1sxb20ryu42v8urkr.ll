@@ -127416,16 +127416,16 @@ declare hidden void @_ZN9html5ever4util3str17to_escaped_string17h8eb9bb5dc428c1c
 declare noundef nonnull align 8 ptr @"_ZN82_$LT$serde_json..value..ser..RawValueEmitter$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17hed129f9c09972ffeE"(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #41
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #41
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #41
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #41
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #42

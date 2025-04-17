@@ -57775,10 +57775,10 @@ declare hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv1
 declare i64 @llvm.umin.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #52
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #52
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #53

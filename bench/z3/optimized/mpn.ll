@@ -2159,7 +2159,7 @@ define internal void @_GLOBAL__sub_I_mpn.cpp() #13 section ".text.startup" {
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #14
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

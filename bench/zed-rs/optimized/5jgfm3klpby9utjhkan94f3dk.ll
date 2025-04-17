@@ -15763,7 +15763,7 @@ declare void @"_ZN86_$LT$std..sys..sync..once..futex..CompletionGuard$u20$as$u20
 declare hidden void @"_ZN4core3ptr81drop_in_place$LT$anyhow..error..ErrorImpl$LT$tempfile..file..PersistError$GT$$GT$17h9f745077085707b9E"(ptr noalias noundef align 8 dereferenceable(96)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #34
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #35

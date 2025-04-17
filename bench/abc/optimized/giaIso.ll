@@ -7863,7 +7863,7 @@ declare i32 @llvm.smax.i32(i32, i32) #23
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #23
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24

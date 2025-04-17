@@ -22365,7 +22365,7 @@ declare hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hc9172d90
 declare hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17hba9ad52f22db5bd7E.llvm.9703273269600088984(ptr noundef, ptr noundef, ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #30
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #31

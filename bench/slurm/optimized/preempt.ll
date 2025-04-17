@@ -905,10 +905,10 @@ slurm_job_get_grace_time.exit:                    ; preds = %18, %21
 declare i64 @time(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #7
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i64(i64, i64) #7
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #7

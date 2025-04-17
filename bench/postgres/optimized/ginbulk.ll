@@ -429,7 +429,7 @@ declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnam
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #7
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8

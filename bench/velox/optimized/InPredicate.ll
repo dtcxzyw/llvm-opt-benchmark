@@ -51257,10 +51257,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #35
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i8(i8, i8) #33
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i8(i8, i8) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #33
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #33

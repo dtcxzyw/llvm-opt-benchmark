@@ -2578,7 +2578,7 @@ tailrecurse:                                      ; preds = %8
 declare void @je_ckh_delete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #10
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11

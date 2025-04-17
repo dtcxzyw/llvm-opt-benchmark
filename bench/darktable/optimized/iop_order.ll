@@ -4879,7 +4879,7 @@ declare ptr @g_list_first(ptr noundef) local_unnamed_addr #3
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #13
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14

@@ -62052,7 +62052,7 @@ declare hidden void @"_ZN9zune_jpeg3mcu58_$LT$impl$u20$zune_jpeg..decoder..JpegD
 declare hidden void @"_ZN9zune_jpeg8mcu_prog58_$LT$impl$u20$zune_jpeg..decoder..JpegDecoder$LT$T$GT$$GT$28decode_mcu_ycbcr_progressive17h60adf1ea9dbd012bE.llvm.16247273651722951349"(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), ptr noalias noundef align 8 dereferenceable(29136), ptr noalias noundef nonnull align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #42
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #42
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #42

@@ -9089,7 +9089,7 @@ declare hidden void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$brotli_d
 declare void @llvm.experimental.noalias.scope.decl(metadata) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #48
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #48

@@ -133281,13 +133281,13 @@ declare hidden void @"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
 declare hidden { i1, i8 } @_ZN6atomic3ops23atomic_compare_exchange17h2ba3dedded92e744E.llvm.933925041898046037(ptr noundef, i8 noundef, i8 noundef, i8 noundef, i8 noundef) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #68
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #68
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #68
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #68
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #68
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #69

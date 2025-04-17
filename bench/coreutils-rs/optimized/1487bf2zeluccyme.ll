@@ -10651,7 +10651,7 @@ define hidden void @_ZN7uu_sort7sort_by17hc498c2e2c29736b3E(ptr noalias noundef 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(160) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef range(i8 -1, 2) i8 @_ZN7uu_sort10compare_by17hf350e8ed154bc332E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(160) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = alloca [8 x i8], align 8
   %7 = alloca [8 x i8], align 8
   %8 = alloca { { ptr, i64 }, ptr }, align 8
@@ -12746,13 +12746,13 @@ declare i64 @llvm.umax.i64(i64, i64) #26
 declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #26
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i8(i8, i8) #26
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8, i8) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #26
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #26
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -15342,7 +15342,7 @@ declare hidden noundef nonnull align 8 ptr @"_ZN7bincode5error97_$LT$impl$u20$se
 declare hidden noundef nonnull align 8 ptr @"_ZN7bincode5error98_$LT$impl$u20$serde..ser..Error$u20$for$u20$alloc..boxed..Box$LT$bincode..error..ErrorKind$GT$$GT$6custom17hedec9553ab15be2aE"(ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #39
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #39

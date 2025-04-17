@@ -110660,7 +110660,7 @@ declare hidden noundef ptr @_ZN4gpui6window13WindowContext11paint_layer17hdd44c3
 declare hidden noundef i64 @_ZN4gpui6window13WindowContext14request_layout17hb08879338810f2c4E(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(552), i64 noundef, i64) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #64
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #64
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #64

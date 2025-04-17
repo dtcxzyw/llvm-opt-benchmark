@@ -3173,7 +3173,7 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #17
 declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #18
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18

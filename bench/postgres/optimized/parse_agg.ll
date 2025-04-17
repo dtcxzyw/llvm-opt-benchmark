@@ -3239,7 +3239,7 @@ declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #9
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9

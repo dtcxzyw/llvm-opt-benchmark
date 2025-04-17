@@ -2592,7 +2592,7 @@ define internal fastcc { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usiz
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i8 -1, 3) i8 @"_ZN108_$LT$alloc..vec..Vec$LT$T$C$A1$GT$$u20$as$u20$core..cmp..PartialOrd$LT$alloc..vec..Vec$LT$T$C$A2$GT$$GT$$GT$11partial_cmp17h2d052f632eb1774eE.llvm.4626617337515605756"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #8 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN108_$LT$alloc..vec..Vec$LT$T$C$A1$GT$$u20$as$u20$core..cmp..PartialOrd$LT$alloc..vec..Vec$LT$T$C$A2$GT$$GT$$GT$11partial_cmp17h2d052f632eb1774eE.llvm.4626617337515605756"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -91469,7 +91469,7 @@ define hidden void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIte
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
-define hidden noundef range(i8 -1, 3) i8 @"_ZN63_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h58333cea7fd95d46E.llvm.4626617337515605756"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #16 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN63_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h58333cea7fd95d46E.llvm.4626617337515605756"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #16 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20559)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20562)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -91486,7 +91486,7 @@ define hidden noundef range(i8 -1, 3) i8 @"_ZN63_$LT$alloc..string..String$u20$a
   %13 = sext i32 %12 to i64
   %14 = icmp eq i32 %12, 0
   %spec.store.select.i.i.i = select i1 %14, i64 %11, i64 %13
-  %15 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i, i64 0)
+  %15 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i, i64 0)
   ret i8 %15
 }
 
@@ -119797,10 +119797,10 @@ declare hidden void @_ZN8zvariant10serialized4data4Data21deserialize_with_seed17
 declare i64 @llvm.umin.i64(i64, i64) #57
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #57
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #57
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #57
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #57
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #57
@@ -119809,13 +119809,13 @@ declare i8 @llvm.umin.i8(i8, i8) #57
 declare i64 @llvm.umax.i64(i64, i64) #57
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i16(i16, i16) #57
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i16(i16, i16) #57
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i16(i16, i16) #57
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i16(i16, i16) #57
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #57
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #57
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #58

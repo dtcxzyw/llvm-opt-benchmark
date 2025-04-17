@@ -5520,7 +5520,7 @@ declare ptr @xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i64(i64, i64) #16
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #16

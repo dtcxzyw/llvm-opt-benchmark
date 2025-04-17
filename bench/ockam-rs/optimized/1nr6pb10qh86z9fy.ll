@@ -10516,7 +10516,7 @@ default.unreachable205:                           ; preds = %"_ZN61_$LT$ockam_ab
   %65 = sext i32 %64 to i64
   %66 = icmp eq i32 %64, 0
   %spec.store.select.i.i.i = select i1 %66, i64 %63, i64 %65
-  %.0.i.i.i = call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i, i64 0)
+  %.0.i.i.i = call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i, i64 0)
   br label %128
 
 67:                                               ; preds = %44
@@ -10693,7 +10693,7 @@ default.unreachable205:                           ; preds = %"_ZN61_$LT$ockam_ab
   %126 = sext i32 %125 to i64
   %127 = icmp eq i32 %125, 0
   %spec.store.select.i.i.i76 = select i1 %127, i64 %124, i64 %126
-  %.0.i.i.i77 = call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i76, i64 0)
+  %.0.i.i.i77 = call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i76, i64 0)
   br label %128
 
 128:                                              ; preds = %97, %119, %58, %113
@@ -12163,7 +12163,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #28
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #28
@@ -12172,7 +12172,7 @@ declare i64 @llvm.umax.i64(i64, i64) #28
 declare i64 @llvm.umin.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #28
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #28
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

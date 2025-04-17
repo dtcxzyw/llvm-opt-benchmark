@@ -139109,7 +139109,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #55
 declare i16 @llvm.umax.i16(i16, i16) #53
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #53
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #53
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

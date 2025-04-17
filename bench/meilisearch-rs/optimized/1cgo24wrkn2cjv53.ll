@@ -152590,7 +152590,7 @@ declare hidden void @"_ZN10rayon_core4join12join_context28_$u7b$$u7b$closure$u7d
 declare hidden void @_ZN10rayon_core8registry8Registry9in_worker17hd6b3f8a6a801f8caE.llvm.12408969533158119881(ptr dead_on_unwind noalias noundef writable sret([96 x i8]) align 8 captures(none) dereferenceable(96), ptr noundef nonnull align 128, ptr noalias noundef align 8 captures(none) dereferenceable(232)) unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #41
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #41

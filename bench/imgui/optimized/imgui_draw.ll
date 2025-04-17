@@ -32781,7 +32781,7 @@ declare i32 @llvm.umin.i32(i32, i32) #40
 declare i32 @llvm.umax.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #40
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #40

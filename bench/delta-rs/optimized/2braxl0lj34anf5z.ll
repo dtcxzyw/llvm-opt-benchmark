@@ -152487,7 +152487,7 @@ default.unreachable43:                            ; preds = %2
   %100 = sext i32 %99 to i64
   %101 = icmp eq i32 %99, 0
   %spec.store.select.i.i.i = select i1 %101, i64 %98, i64 %100
-  %.0.i.i.i = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i, i64 0)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i, i64 0)
   br label %"_ZN80_$LT$chrono..naive..datetime..NaiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h582e410e077a7586E.exit"
 
 102:                                              ; preds = %23
@@ -152505,7 +152505,7 @@ default.unreachable43:                            ; preds = %2
   %109 = sext i32 %108 to i64
   %110 = icmp eq i32 %108, 0
   %spec.store.select.i.i.i40 = select i1 %110, i64 %107, i64 %109
-  %.0.i.i.i41 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i40, i64 0)
+  %.0.i.i.i41 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i40, i64 0)
   br label %"_ZN80_$LT$chrono..naive..datetime..NaiveDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h582e410e077a7586E.exit"
 
 111:                                              ; preds = %25
@@ -157174,19 +157174,19 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #64
 declare i64 @llvm.usub.sat.i64(i64, i64) #62
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #62
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #62
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #62
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #62
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #62
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #62
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #62
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #62
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i8(i8, i8) #62
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8, i8) #62
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #62

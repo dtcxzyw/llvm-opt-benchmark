@@ -11985,7 +11985,7 @@ declare hidden void @_ZN4gpui7element10AnyElement3new17hf4832028fa82e7c9E(ptr de
 declare hidden noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17h591db76eda1475c5E(ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #39
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #39

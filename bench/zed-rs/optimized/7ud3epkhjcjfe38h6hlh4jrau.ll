@@ -159887,7 +159887,7 @@ declare hidden void @_ZN8zvariant10serialized4data4Data21deserialize_with_seed17
 declare i64 @llvm.umin.i64(i64, i64) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i16(i16, i16) #48
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i16(i16, i16) #48
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #48

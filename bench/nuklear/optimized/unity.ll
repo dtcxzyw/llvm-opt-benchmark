@@ -82085,7 +82085,7 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #51
 declare i64 @llvm.umax.i64(i64, i64) #51
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #51
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #51
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #51

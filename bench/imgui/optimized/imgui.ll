@@ -86855,7 +86855,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %46, %50, %_ZN5ImGui
 declare i32 @llvm.smin.i32(i32, i32) #60
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #60
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #60
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #60

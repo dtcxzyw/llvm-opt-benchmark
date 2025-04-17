@@ -25356,7 +25356,7 @@ define internal void @_GLOBAL__sub_I_persistence.cpp() #35 section ".text.startu
 declare void @llvm.assume(i1 noundef) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #37
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #37

@@ -208,10 +208,10 @@ define internal void @"_ZN9grpc_core11ChannelArgs5Value3$_18__invokeEPv"(ptr rea
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @"_ZN9grpc_core11ChannelArgs5Value3$_28__invokeEPvS3_"(ptr noundef %0, ptr noundef %1) #3 align 2 {
+define internal noundef range(i32 -1, 2) i32 @"_ZN9grpc_core11ChannelArgs5Value3$_28__invokeEPvS3_"(ptr noundef %0, ptr noundef %1) #3 align 2 {
   %3 = ptrtoint ptr %0 to i64
   %4 = ptrtoint ptr %1 to i64
-  %.0.i.i = tail call noundef i32 @llvm.scmp.i32.i64(i64 %3, i64 %4)
+  %.0.i.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %3, i64 %4)
   ret i32 %.0.i.i
 }
 
@@ -11645,7 +11645,7 @@ declare i64 @llvm.umin.i64(i64, i64) #34
 declare void @llvm.experimental.noalias.scope.decl(metadata) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i64(i64, i64) #34
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #34
@@ -11654,10 +11654,10 @@ declare i16 @llvm.umax.i16(i16, i16) #34
 declare i64 @llvm.umax.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #34
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #34
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #34
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

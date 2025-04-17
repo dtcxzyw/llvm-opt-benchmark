@@ -962,16 +962,16 @@ _ZNK3nix9DrvOutputltERKS0_.exit.thread:           ; preds = %_ZNKSt8__detail10_S
 declare noundef zeroext i1 @_ZNK3nix4HashltERKS0_(ptr noundef nonnull align 8 dereferenceable(73), ptr noundef nonnull align 8 dereferenceable(73)) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #6
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #6
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i8(i8, i8) #6
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8, i8) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #6
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7

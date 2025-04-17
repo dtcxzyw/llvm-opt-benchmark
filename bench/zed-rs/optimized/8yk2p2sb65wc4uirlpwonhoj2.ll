@@ -35233,7 +35233,7 @@ declare i64 @llvm.umin.i64(i64, i64) #40
 declare double @llvm.fabs.f64(double) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #40
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #40

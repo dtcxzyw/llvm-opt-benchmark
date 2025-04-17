@@ -130966,16 +130966,16 @@ declare hidden void @_ZN4gpui8executor18ForegroundExecutor5spawn17ha93e6f45e85d7
 declare noundef align 8 dereferenceable(16) ptr @_ZN4gpui3app10AppContext19foreground_executor17he6ab2249f94452e8E(ptr noalias noundef readonly align 8 dereferenceable(1176)) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #59
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #59
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #59
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #59
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #59
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #59
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #59
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #60

@@ -102422,7 +102422,7 @@ default.unreachable62:                            ; preds = %2
   %83 = sext i32 %82 to i64
   %84 = icmp eq i32 %82, 0
   %spec.store.select.i.i.i = select i1 %84, i64 %81, i64 %83
-  %.0.i.i.i = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i, i64 0)
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i, i64 0)
   br label %42
 
 85:                                               ; preds = %19
@@ -102472,7 +102472,7 @@ default.unreachable62:                            ; preds = %2
   %113 = sext i32 %112 to i64
   %114 = icmp eq i32 %112, 0
   %spec.store.select.i.i.i60 = select i1 %114, i64 %111, i64 %113
-  %.0.i.i.i61 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i60, i64 0)
+  %.0.i.i.i61 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i60, i64 0)
   br label %42
 
 115:                                              ; preds = %29
@@ -115718,22 +115718,22 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #38
 declare i64 @llvm.abs.i64(i64, i1 immarg) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #36
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i8(i8, i8) #36
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i8(i8, i8) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.abs.i8(i8, i1 immarg) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i128(i128, i128) #36
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i128(i128, i128) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #36
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i16(i16, i16) #36
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i16(i16, i16) #36
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

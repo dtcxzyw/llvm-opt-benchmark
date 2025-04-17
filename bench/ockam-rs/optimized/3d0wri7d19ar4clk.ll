@@ -6992,7 +6992,7 @@ declare hidden void @"_ZN178_$LT$ockam_core..error..inner.._..$LT$impl$u20$serde
 declare void @llvm.experimental.noalias.scope.decl(metadata) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #33
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #33

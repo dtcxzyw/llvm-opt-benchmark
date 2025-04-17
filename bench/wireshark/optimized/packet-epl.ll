@@ -7670,7 +7670,7 @@ declare i32 @llvm.umin.i32(i32, i32) #19
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i16(i16, i16) #19
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #19

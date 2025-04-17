@@ -28548,7 +28548,7 @@ declare hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17ha1124c
 declare hidden void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h8dd49703e2588d90E.llvm.495310588694779438"(ptr dead_on_unwind noalias noundef writable sret([72 x i8]) align 8 captures(none) dereferenceable(72), ptr noalias noundef align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i8(i8, i8) #33
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8, i8) #33
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #34

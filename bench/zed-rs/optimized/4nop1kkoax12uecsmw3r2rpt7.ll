@@ -43350,7 +43350,7 @@ declare hidden { i64, i64 } @_ZN9zstd_safe4CCtx10end_stream17h65ac2b15a8665d6bE.
 declare double @llvm.fabs.f64(double) #50
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #50
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #50
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #50

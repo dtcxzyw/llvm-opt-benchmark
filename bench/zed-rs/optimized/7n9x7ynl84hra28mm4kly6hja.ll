@@ -16426,10 +16426,10 @@ declare hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..
 declare hidden void @"_ZN4core3ptr98drop_in_place$LT$futures_channel..mpsc..UnboundedInner$LT$alacritty_terminal..event..Event$GT$$GT$17hcb8b3c0755611cc6E"(ptr noalias noundef align 8 dereferenceable(56)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #40
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #40
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #40

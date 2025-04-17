@@ -240286,10 +240286,10 @@ declare i32 @llvm.smin.i32(i32, i32) #31
 declare i32 @llvm.smax.i32(i32, i32) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #31
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i8(i8, i8) #31
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i8(i8, i8) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshr.i32(i32, i32, i32) #31
@@ -240301,25 +240301,25 @@ declare i16 @llvm.fshr.i16(i16, i16, i16) #31
 declare i8 @llvm.fshr.i8(i8, i8, i8) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #31
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.abs.i8(i8, i1 immarg) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i8(i8, i8) #31
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i8(i8, i8) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i16(i16, i16) #31
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i16(i16, i16) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i64(i64, i64) #31
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i128(i128, i128) #31
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i128(i128, i128) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #31

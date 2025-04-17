@@ -18754,7 +18754,7 @@ declare noundef align 8 dereferenceable(16) ptr @_ZN4gpui3app10AppContext19foreg
 declare hidden noundef zeroext i1 @_ZN6editor21selections_collection20SelectionsCollection11change_with17hd751703269946f58E(ptr noalias noundef align 8 dereferenceable(320), ptr noalias noundef align 8 dereferenceable(1176), ptr noalias noundef align 8 captures(none) dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #30
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #31

@@ -34075,7 +34075,7 @@ declare hidden void @"_ZN91_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT
 declare hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h88502bd2bd9913ffE.llvm.14582701375544310392"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #36
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #37

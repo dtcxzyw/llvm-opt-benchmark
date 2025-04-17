@@ -19194,7 +19194,7 @@ define internal void @_GLOBAL__sub_I_built_path.cc() #20 section ".text.startup"
 declare void @llvm.assume(i1 noundef) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #22
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

@@ -44485,7 +44485,7 @@ declare noundef i32 @_ZN2OT4cff138lookup_expert_subset_charset_for_glyphEj(i32 n
 declare void @hb_font_funcs_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #18
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

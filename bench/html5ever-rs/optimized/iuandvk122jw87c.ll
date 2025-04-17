@@ -315,7 +315,7 @@ declare hidden void @"_ZN4core3ptr69drop_in_place$LT$html5ever..tokenizer..char_
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #13
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13

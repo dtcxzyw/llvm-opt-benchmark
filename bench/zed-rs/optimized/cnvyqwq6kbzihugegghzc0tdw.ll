@@ -179391,13 +179391,13 @@ declare hidden void @_ZN4gpui8executor5Scope5spawn17h0b260d5c2d2eba04E(ptr noali
 declare i64 @llvm.umin.i64(i64, i64) #76
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #76
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #76
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #76
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #76
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #76
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #76
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #76
@@ -179406,7 +179406,7 @@ declare i64 @llvm.umax.i64(i64, i64) #76
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #77
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #76
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #76
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #78

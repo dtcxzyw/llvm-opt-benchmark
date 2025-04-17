@@ -30301,16 +30301,16 @@ declare void @_ZN11tree_sitter4Tree21root_node_with_offset17h9dff736013a70a34E(p
 declare { i64, i64 } @_ZN11tree_sitter4Node10byte_range17h25dc0d8a86c6f8faE(ptr noalias noundef readonly align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #64
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #64
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #64
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #64
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #64
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #64
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #64
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #64
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #65

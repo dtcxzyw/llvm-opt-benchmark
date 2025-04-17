@@ -15510,7 +15510,7 @@ declare hidden void @"_ZN88_$LT$gpui..text_system..font_features..FontFeatures$u
 declare hidden void @"_ZN5theme8settings1_83_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$theme..settings..ThemeSelection$GT$9serialize17h9fa456f872054c8eE"(ptr dead_on_unwind noalias noundef writable sret([72 x i8]) align 8 captures(none) dereferenceable(72), ptr noalias noundef readonly align 8 dereferenceable(56)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #36
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #36
@@ -15519,7 +15519,7 @@ declare i64 @llvm.umin.i64(i64, i64) #36
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #36
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #38

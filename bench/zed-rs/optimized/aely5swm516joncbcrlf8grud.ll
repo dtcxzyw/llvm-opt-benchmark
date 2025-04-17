@@ -9746,7 +9746,7 @@ declare hidden void @"_ZN4core3ptr81drop_in_place$LT$gpui..app..entity_map..Mode
 declare hidden void @"_ZN4core3ptr93drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17hc88ecfb526788792E"(ptr noalias noundef align 8 dereferenceable(104)) unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #32
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #32

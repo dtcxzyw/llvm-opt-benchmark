@@ -8626,7 +8626,7 @@ _ZN4llvm3pdb18SymbolDenseMapInfo7isEqualERKNS_8codeview8CVRecordINS2_10SymbolKin
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #23
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24

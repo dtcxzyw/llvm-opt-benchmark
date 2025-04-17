@@ -26271,7 +26271,7 @@ declare hidden noundef zeroext i1 @"_ZN91_$LT$tracing..instrument..Instrumented$
 declare hidden noundef zeroext i1 @"_ZN91_$LT$tracing..instrument..Instrumented$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc1e8bb1c60d0778bE"(ptr noundef nonnull align 8, ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i8(i8, i8) #32
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8, i8) #32
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #33

@@ -70436,7 +70436,7 @@ declare i32 @llvm.smin.i32(i32, i32) #52
 declare float @llvm.sqrt.f32(float) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #52
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #54

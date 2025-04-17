@@ -2479,10 +2479,10 @@ declare i16 @llvm.umin.i16(i16, i16) #11
 declare i16 @llvm.umax.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i8(i8, i8) #11
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8, i8) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i16(i16, i16) #11
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i16(i16, i16) #11
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

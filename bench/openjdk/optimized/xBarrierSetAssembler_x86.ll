@@ -3509,7 +3509,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #7
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7

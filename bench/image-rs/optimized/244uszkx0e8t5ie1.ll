@@ -24771,7 +24771,7 @@ declare i64 @llvm.umin.i64(i64, i64) #32
 declare void @llvm.experimental.noalias.scope.decl(metadata) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #32
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #32
@@ -24780,10 +24780,10 @@ declare i32 @llvm.umin.i32(i32, i32) #32
 declare i64 @llvm.usub.sat.i64(i64, i64) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #32
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i16(i16, i16) #32
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i16(i16, i16) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #32

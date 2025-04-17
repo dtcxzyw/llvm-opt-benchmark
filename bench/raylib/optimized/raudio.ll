@@ -122477,7 +122477,7 @@ declare i32 @llvm.umax.i32(i32, i32) #79
 declare i32 @llvm.bitreverse.i32(i32) #79
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #79
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #79
 
 declare float @exp2f(float) local_unnamed_addr
 
@@ -122503,7 +122503,7 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #79
 declare i32 @llvm.usub.sat.i32(i32, i32) #79
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i16(i16, i16) #79
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #79
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #79

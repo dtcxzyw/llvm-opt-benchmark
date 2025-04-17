@@ -176038,7 +176038,7 @@ declare hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN7slotmap5bas
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h46fd663113434a84E"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24), i64 noundef, i1 noundef zeroext) unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #52
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #52
@@ -176047,7 +176047,7 @@ declare i64 @llvm.umin.i64(i64, i64) #52
 declare i32 @llvm.umin.i32(i32, i32) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #52
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #52
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #53

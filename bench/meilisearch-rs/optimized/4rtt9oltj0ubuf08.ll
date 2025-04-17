@@ -139762,7 +139762,7 @@ declare hidden void @_ZN10rayon_core5spawn5spawn17hb22852a9fc960e94E(ptr noalias
 declare hidden void @"_ZN11meilisearch11import_dump28_$u7b$$u7b$closure$u7d$$u7d$17h034f79e74ed47dd3E.llvm.12408969533158119881"(ptr noalias noundef nonnull readonly align 1, ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #50
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #50
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #50

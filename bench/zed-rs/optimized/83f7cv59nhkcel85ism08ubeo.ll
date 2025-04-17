@@ -126781,7 +126781,7 @@ declare hidden { i64, ptr } @"_ZN86_$LT$async_tar..archive..Archive$LT$R$GT$$u20
 declare { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options7Options10memory_mut17h8f271e42cf0b09deE(ptr noalias noundef readonly align 8 dereferenceable(32), ptr noundef nonnull align 8) unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #43
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #43
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #43

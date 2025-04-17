@@ -4425,7 +4425,7 @@ define hidden range(i64 0, 38) i64 @ssl_cipher_get_record_split_len(ptr noundef 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #14
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #14
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15

@@ -3471,7 +3471,7 @@ declare ptr @commit_list_append(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i64(i64, i64) #15
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15

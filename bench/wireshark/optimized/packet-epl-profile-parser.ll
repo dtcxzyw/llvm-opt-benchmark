@@ -1317,7 +1317,7 @@ declare ptr @g_array_remove_index(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #12
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

@@ -7487,7 +7487,7 @@ declare i32 @llvm.smin.i32(i32, i32) #21
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #21
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22

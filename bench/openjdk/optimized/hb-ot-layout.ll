@@ -88756,7 +88756,7 @@ _ZN2OT21hb_ot_apply_context_tD2Ev.exit:           ; preds = %52, %47, %22, %6
 declare i32 @llvm.smax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #22
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #22

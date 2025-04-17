@@ -12,7 +12,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..Pa
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #1
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #1
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

@@ -2177,7 +2177,7 @@ declare ptr @g_string_insert(ptr noundef, i64 noundef, ptr noundef) local_unname
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #14
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14

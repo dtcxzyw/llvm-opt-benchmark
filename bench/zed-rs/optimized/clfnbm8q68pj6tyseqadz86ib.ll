@@ -7629,7 +7629,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN9html5ever9tokenizer21Tokenizer$LT
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
-define hidden noundef range(i8 -1, 3) i8 @"_ZN74_$LT$indexed_docs..store..PackageName$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2caba5656256979bE.llvm.204215390286363894"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #3 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN74_$LT$indexed_docs..store..PackageName$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2caba5656256979bE.llvm.204215390286363894"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1694)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1697)
   %3 = load ptr, ptr %0, align 8, !alias.scope !1694, !noalias !1697, !nonnull !4, !noundef !4
@@ -8056,7 +8056,7 @@ declare hidden void @"_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$alloc..v
 declare hidden void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$indexed_docs..providers..rustdoc..item..RustdocItem$GT$$GT$17h621a14222e175a87E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #31
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #31
@@ -8065,7 +8065,7 @@ declare i64 @llvm.umin.i64(i64, i64) #31
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #31
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #33

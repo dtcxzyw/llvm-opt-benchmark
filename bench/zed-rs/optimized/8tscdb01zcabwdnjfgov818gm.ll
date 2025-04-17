@@ -53937,7 +53937,7 @@ declare hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17h6a03f6
 declare { i64, ptr } @"_ZN75_$LT$async_std..fs..file..File$u20$as$u20$futures_io..if_std..AsyncSeek$GT$9poll_seek17h7890fd15cbd9531eE"(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(32), i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #28
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #28

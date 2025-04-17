@@ -1229,7 +1229,7 @@ declare void @SetLatch(ptr noundef) local_unnamed_addr #2
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #8
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9

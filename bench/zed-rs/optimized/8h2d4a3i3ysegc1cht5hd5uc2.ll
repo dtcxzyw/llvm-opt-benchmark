@@ -271,7 +271,7 @@ define hidden noundef zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17hdf7017d
   %12 = sext i32 %11 to i64
   %13 = icmp eq i32 %11, 0
   %spec.store.select.i.i.i.i.i = select i1 %13, i64 %10, i64 %12
-  %14 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i, i64 0)
+  %14 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i, i64 0)
   switch i8 %14, label %"_ZN4core5tuple65_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$$LP$U$C$T$RP$$GT$2lt17hf5745566e4ae7dc8E.llvm.302656264734468722.exit" [
     i8 -1, label %switch.edge.i
     i8 0, label %15
@@ -1456,7 +1456,7 @@ define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec
   %29 = sext i32 %28 to i64
   %30 = icmp eq i32 %28, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %30, i64 %27, i64 %29
-  %31 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i, i64 0)
+  %31 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i, i64 0)
   switch i8 %31, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit [
     i8 -1, label %switch.edge.i.i
     i8 0, label %32
@@ -1494,7 +1494,7 @@ _ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722
   %41 = sext i32 %40 to i64
   %42 = icmp eq i32 %40, 0
   %spec.store.select.i.i.i.i.i.i21 = select i1 %42, i64 %39, i64 %41
-  %43 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i21, i64 0)
+  %43 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i21, i64 0)
   switch i8 %43, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit._ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit26_crit_edge [
     i8 -1, label %switch.edge.i.i25
     i8 0, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit26
@@ -1526,7 +1526,7 @@ _ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722
   %51 = sext i32 %50 to i64
   %52 = icmp eq i32 %50, 0
   %spec.store.select.i.i.i.i.i.i36 = select i1 %52, i64 %49, i64 %51
-  %53 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i36, i64 0)
+  %53 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i36, i64 0)
   switch i8 %53, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit41 [
     i8 -1, label %switch.edge.i.i40
     i8 0, label %54
@@ -2863,7 +2863,7 @@ define hidden noundef range(i64 0, 576460752303423488) i64 @_ZN4core5slice4sort6
   %22 = sext i32 %21 to i64
   %23 = icmp eq i32 %21, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %23, i64 %20, i64 %22
-  %24 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i, i64 0)
+  %24 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i, i64 0)
   switch i8 %24, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit [
     i8 -1, label %switch.edge.i.i
     i8 0, label %25
@@ -2901,7 +2901,7 @@ _ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722
   %34 = sext i32 %33 to i64
   %35 = icmp eq i32 %33, 0
   %spec.store.select.i.i.i.i.i.i11 = select i1 %35, i64 %32, i64 %34
-  %36 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i11, i64 0)
+  %36 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i11, i64 0)
   switch i8 %36, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit._ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit16_crit_edge [
     i8 -1, label %switch.edge.i.i15
     i8 0, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit16
@@ -2933,7 +2933,7 @@ _ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722
   %44 = sext i32 %43 to i64
   %45 = icmp eq i32 %43, 0
   %spec.store.select.i.i.i.i.i.i26 = select i1 %45, i64 %42, i64 %44
-  %46 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i26, i64 0)
+  %46 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i26, i64 0)
   switch i8 %46, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit31 [
     i8 -1, label %switch.edge.i.i30
     i8 0, label %47
@@ -3726,7 +3726,7 @@ define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317hf9
   %13 = sext i32 %12 to i64
   %14 = icmp eq i32 %12, 0
   %spec.store.select.i.i.i.i.i.i = select i1 %14, i64 %11, i64 %13
-  %15 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i, i64 0)
+  %15 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i, i64 0)
   switch i8 %15, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit [
     i8 -1, label %switch.edge.i.i
     i8 0, label %16
@@ -3764,7 +3764,7 @@ _ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722
   %25 = sext i32 %24 to i64
   %26 = icmp eq i32 %24, 0
   %spec.store.select.i.i.i.i.i.i10 = select i1 %26, i64 %23, i64 %25
-  %27 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i10, i64 0)
+  %27 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i10, i64 0)
   switch i8 %27, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit._ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit15_crit_edge [
     i8 -1, label %switch.edge.i.i14
     i8 0, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit15
@@ -3796,7 +3796,7 @@ _ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722
   %35 = sext i32 %34 to i64
   %36 = icmp eq i32 %34, 0
   %spec.store.select.i.i.i.i.i.i25 = select i1 %36, i64 %33, i64 %35
-  %37 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i25, i64 0)
+  %37 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i25, i64 0)
   switch i8 %37, label %_ZN4core3ops8function5FnMut8call_mut17hdf7017d75566aa18E.llvm.302656264734468722.exit30 [
     i8 -1, label %switch.edge.i.i29
     i8 0, label %38
@@ -3925,7 +3925,7 @@ define hidden noundef zeroext i1 @"_ZN4core5tuple65_$LT$impl$u20$core..cmp..Part
   %11 = sext i32 %10 to i64
   %12 = icmp eq i32 %10, 0
   %spec.store.select.i.i.i.i = select i1 %12, i64 %9, i64 %11
-  %13 = tail call noundef range(i8 -1, 3) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i, i64 0)
+  %13 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i, i64 0)
   switch i8 %13, label %18 [
     i8 -1, label %switch.edge
     i8 0, label %14
@@ -18066,7 +18066,7 @@ declare hidden { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17ha2facaf
 declare { ptr, i64 } @"_ZN85_$LT$gpui..shared_string..SharedString$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h45adb032eb61c820E"(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #34
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #35

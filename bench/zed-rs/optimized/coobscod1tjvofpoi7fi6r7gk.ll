@@ -73664,7 +73664,7 @@ declare hidden void @_ZN14language_model8registry33register_language_model_provi
 declare void @_ZN14language_model8registry21LanguageModelRegistry19unregister_provider17h3f864e4ec62405a3E(ptr noalias noundef align 8 dereferenceable(80), ptr noalias noundef align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #38
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #38

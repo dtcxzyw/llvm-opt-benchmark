@@ -9196,7 +9196,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #33
 declare i64 @llvm.usub.sat.i64(i64, i64) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #32
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #32
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

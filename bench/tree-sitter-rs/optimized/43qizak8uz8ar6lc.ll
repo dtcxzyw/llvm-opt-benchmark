@@ -31735,10 +31735,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #64
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #65
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #62
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #62
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #62
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #62
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #62

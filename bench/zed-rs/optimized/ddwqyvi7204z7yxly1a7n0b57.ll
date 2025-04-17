@@ -67586,7 +67586,7 @@ declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..
 declare hidden void @_ZN9rich_text8RichText37set_tooltip_builder_for_custom_ranges17h1911b8a518feb2e0E(ptr noalias noundef align 8 dereferenceable(128), ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #57
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #57
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #57

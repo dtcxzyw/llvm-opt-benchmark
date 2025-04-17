@@ -154936,7 +154936,7 @@ define void @_ZN7project14task_inventory9Inventory22delete_previously_used17hc68
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i8 @_ZN7project14task_inventory19task_lru_comparator17hf87ee434e628eb98E(ptr noalias noundef readonly align 8 dereferenceable(608) %0, ptr noalias noundef readonly align 8 dereferenceable(608) %1) unnamed_addr #2 {
+define hidden noundef range(i8 -1, 2) i8 @_ZN7project14task_inventory19task_lru_comparator17hf87ee434e628eb98E(ptr noalias noundef readonly align 8 dereferenceable(608) %0, ptr noalias noundef readonly align 8 dereferenceable(608) %1) unnamed_addr #2 {
 switch.lookup:
   %2 = alloca [32 x i8], align 8
   %3 = alloca [32 x i8], align 8
@@ -163844,7 +163844,7 @@ define hidden void @"_ZN78_$LT$project..task_inventory..TaskSourceKind$u20$as$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i8 @"_ZN74_$LT$project..task_inventory..TaskSourceKind$u20$as$u20$core..cmp..Ord$GT$3cmp17hd0f139f222825317E.llvm.877204494124398451"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #0 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN74_$LT$project..task_inventory..TaskSourceKind$u20$as$u20$core..cmp..Ord$GT$3cmp17hd0f139f222825317E.llvm.877204494124398451"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %1) unnamed_addr #0 {
   %3 = alloca [64 x i8], align 8
   %4 = alloca [64 x i8], align 8
   %5 = alloca [64 x i8], align 8
@@ -168853,19 +168853,19 @@ declare hidden void @_ZN4gpui8executor18ForegroundExecutor5spawn17h707bde078b53f
 declare hidden void @_ZN4gpui8executor18ForegroundExecutor5spawn17hb791121658d351fdE(ptr dead_on_unwind noalias noundef writable sret([48 x i8]) align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 captures(none) dereferenceable(192)) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #52
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #52
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #52
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #52
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #52
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #53

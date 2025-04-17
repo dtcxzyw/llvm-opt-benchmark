@@ -2390,7 +2390,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i64(i64, i64) #6
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #6
@@ -2399,7 +2399,7 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #6
 declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i16(i16, i16) #6
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i16(i16, i16) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7

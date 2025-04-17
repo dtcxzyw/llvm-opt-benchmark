@@ -1296,7 +1296,7 @@ _ZNK6icu_7716CollationWeights9incWeightEji.exit:  ; preds = %30, %17
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #10
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

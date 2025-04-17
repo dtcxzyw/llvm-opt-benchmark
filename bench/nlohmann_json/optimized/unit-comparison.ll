@@ -20087,19 +20087,19 @@ define linkonce_odr dso_local i8 @_ZNK8nlohmann23json_abi_ldvcmp_v3_11_310basic_
   %3 = load i8, ptr %0, align 8, !tbaa !85
   %4 = load i8, ptr %1, align 8, !tbaa !85
   %5 = icmp eq i8 %3, %4
-  br i1 %5, label %6, label %134
+  br i1 %5, label %6, label %136
 
 6:                                                ; preds = %2
-  switch i8 %3, label %133 [
+  switch i8 %3, label %135 [
     i8 2, label %7
     i8 1, label %29
     i8 0, label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
-    i8 3, label %66
-    i8 4, label %81
-    i8 5, label %87
-    i8 6, label %93
-    i8 7, label %99
-    i8 8, label %110
+    i8 3, label %68
+    i8 4, label %83
+    i8 5, label %89
+    i8 6, label %95
+    i8 7, label %101
+    i8 8, label %112
   ]
 
 7:                                                ; preds = %6
@@ -20153,292 +20153,293 @@ define linkonce_odr dso_local i8 @_ZNK8nlohmann23json_abi_ldvcmp_v3_11_310basic_
   %40 = icmp eq ptr %35, %36
   br i1 %40, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %29, %58
-  %.sroa.010.021.i = phi ptr [ %59, %58 ], [ %35, %29 ]
-  %.sroa.05.020.i = phi ptr [ %60, %58 ], [ %38, %29 ]
-  %41 = icmp eq ptr %.sroa.05.020.i, %39
+.lr.ph.i:                                         ; preds = %29, %62
+  %.sroa.010.016.i = phi ptr [ %63, %62 ], [ %35, %29 ]
+  %.sroa.05.015.i = phi ptr [ %64, %62 ], [ %38, %29 ]
+  %41 = icmp eq ptr %.sroa.05.015.i, %39
   br i1 %41, label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit, label %42
 
 42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.010.021.i, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i, i64 40
   %44 = load i64, ptr %43, align 8, !tbaa !236
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.05.020.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.05.015.i, i64 40
   %46 = load i64, ptr %45, align 8, !tbaa !236
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %44)
   %47 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
   br i1 %47, label %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i: ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.05.020.i, i64 32
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.010.021.i, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.05.015.i, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i, i64 32
   %50 = load ptr, ptr %48, align 8, !tbaa !233
   %51 = load ptr, ptr %49, align 8, !tbaa !233
   %52 = tail call i32 @memcmp(ptr noundef %51, ptr noundef %50, i64 noundef %.sroa.speculated.i.i.i.i.i) #28
   %.not.i.i.i.i.i = icmp eq i32 %52, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i, label %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit18.i
+  br i1 %.not.i.i.i.i.i, label %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i, label %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.thread.i
+
+_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.thread.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
+  %53 = tail call i8 @llvm.scmp.i8.i32(i32 %52, i32 0)
+  br label %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.i
 
 _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %42
-  %53 = icmp eq i64 %44, %46
-  br i1 %53, label %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.i, label %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit18.i.split.loop.exit
+  %54 = sub i64 %44, %46
+  %spec.select7.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %54, i64 -2147483648)
+  %.08.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i, i64 2147483647)
+  %.0.i6.i.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i.i to i32
+  %55 = tail call i8 @llvm.scmp.i8.i32(i32 %.0.i6.i.i.i.i.i, i32 0)
+  %56 = icmp eq i64 %44, %46
+  br i1 %56, label %57, label %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.i
 
-_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.i: ; preds = %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.010.021.i, i64 64
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.05.020.i, i64 64
-  %56 = tail call i8 @_ZNK8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEssERKSD_(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %55) #28
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %58, label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
+57:                                               ; preds = %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.05.015.i, i64 64
+  %60 = tail call i8 @_ZNK8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEssERKSD_(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %59) #28
+  br label %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.i
 
-58:                                               ; preds = %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.i
-  %59 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.021.i) #33
-  %60 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.020.i) #33
-  %61 = icmp eq ptr %59, %36
-  br i1 %61, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !251
+_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.i: ; preds = %57, %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i, %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.thread.i
+  %.sroa.04.1.i.i = phi i8 [ %55, %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i ], [ %60, %57 ], [ %53, %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.thread.i ]
+  %61 = icmp eq i8 %.sroa.04.1.i.i, 0
+  br i1 %61, label %62, label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-._crit_edge.i:                                    ; preds = %58, %29
-  %.sroa.05.0.lcssa.i = phi ptr [ %38, %29 ], [ %60, %58 ]
-  %62 = icmp ne ptr %.sroa.05.0.lcssa.i, %39
-  %63 = sext i1 %62 to i8
+62:                                               ; preds = %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.i
+  %63 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.016.i) #33
+  %64 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.015.i) #33
+  %65 = icmp eq ptr %63, %36
+  br i1 %65, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !251
+
+._crit_edge.i:                                    ; preds = %62, %29
+  %.sroa.05.0.lcssa.i = phi ptr [ %38, %29 ], [ %64, %62 ]
+  %66 = icmp ne ptr %.sroa.05.0.lcssa.i, %39
+  %67 = sext i1 %66 to i8
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit18.i.split.loop.exit: ; preds = %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i
-  %64 = sub i64 %44, %46
-  %spec.select7.i.i.i.i.i.i.le = tail call i64 @llvm.smax.i64(i64 %64, i64 -2147483648)
-  %.08.i.i.i.i.i.i.le = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.i.le, i64 2147483647)
-  %.0.i6.i.i.i.i.i.le = trunc nsw i64 %.08.i.i.i.i.i.i.le to i32
-  br label %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit18.i
-
-_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit18.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i, %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit18.i.split.loop.exit
-  %.0.i.i.i.i24.i = phi i32 [ %.0.i6.i.i.i.i.i.le, %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit18.i.split.loop.exit ], [ %52, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i ]
-  %65 = tail call i8 @llvm.scmp.i8.i32(i32 %.0.i.i.i.i24.i, i32 0)
-  br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
-
-66:                                               ; preds = %6
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !50
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
+68:                                               ; preds = %6
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !50
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %72 = load i64, ptr %71, align 8, !tbaa !236
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !50
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %74 = load i64, ptr %73, align 8, !tbaa !236
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %74, i64 %72)
-  %75 = icmp eq i64 %.sroa.speculated.i.i, 0
-  br i1 %75, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %76 = load i64, ptr %75, align 8, !tbaa !236
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %76, i64 %74)
+  %77 = icmp eq i64 %.sroa.speculated.i.i, 0
+  br i1 %77, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %66
-  %76 = load ptr, ptr %70, align 8, !tbaa !233
-  %77 = load ptr, ptr %68, align 8, !tbaa !233
-  %78 = tail call i32 @memcmp(ptr noundef %77, ptr noundef %76, i64 noundef %.sroa.speculated.i.i) #28
-  %.not.i.i = icmp eq i32 %78, 0
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %68
+  %78 = load ptr, ptr %72, align 8, !tbaa !233
+  %79 = load ptr, ptr %70, align 8, !tbaa !233
+  %80 = tail call i32 @memcmp(ptr noundef %79, ptr noundef %78, i64 noundef %.sroa.speculated.i.i) #28
+  %.not.i.i = icmp eq i32 %80, 0
   br i1 %.not.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i, label %_ZStssIcSt11char_traitsIcESaIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEERKNSt7__cxx1112basic_stringIT_S3_T1_EESB_.exit
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %66
-  %79 = sub i64 %72, %74
-  %spec.select7.i.i.i = tail call i64 @llvm.smax.i64(i64 %79, i64 -2147483648)
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %68
+  %81 = sub i64 %74, %76
+  %spec.select7.i.i.i = tail call i64 @llvm.smax.i64(i64 %81, i64 -2147483648)
   %.08.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i, i64 2147483647)
   %.0.i6.i.i = trunc nsw i64 %.08.i.i.i to i32
   br label %_ZStssIcSt11char_traitsIcESaIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEERKNSt7__cxx1112basic_stringIT_S3_T1_EESB_.exit
 
 _ZStssIcSt11char_traitsIcESaIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEERKNSt7__cxx1112basic_stringIT_S3_T1_EESB_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i
-  %.0.i.i = phi i32 [ %78, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.0.i6.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i ]
-  %80 = tail call i8 @llvm.scmp.i8.i32(i32 %.0.i.i, i32 0)
+  %.0.i.i = phi i32 [ %80, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.0.i6.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i ]
+  %82 = tail call i8 @llvm.scmp.i8.i32(i32 %.0.i.i, i32 0)
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-81:                                               ; preds = %6
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = load i8, ptr %82, align 8, !tbaa !50, !range !26, !noundef !27
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
+83:                                               ; preds = %6
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %85 = load i8, ptr %84, align 8, !tbaa !50, !range !26, !noundef !27
-  %86 = tail call i8 @llvm.ucmp.i8.i8(i8 %83, i8 %85)
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %87 = load i8, ptr %86, align 8, !tbaa !50, !range !26, !noundef !27
+  %88 = tail call i8 @llvm.ucmp.i8.i8(i8 %85, i8 %87)
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-87:                                               ; preds = %6
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %89 = load i64, ptr %88, align 8, !tbaa !50
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
+89:                                               ; preds = %6
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %91 = load i64, ptr %90, align 8, !tbaa !50
-  %92 = tail call i8 @llvm.scmp.i8.i64(i64 %89, i64 %91)
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %93 = load i64, ptr %92, align 8, !tbaa !50
+  %94 = tail call i8 @llvm.scmp.i8.i64(i64 %91, i64 %93)
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-93:                                               ; preds = %6
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %95 = load i64, ptr %94, align 8, !tbaa !50
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
+95:                                               ; preds = %6
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !50
-  %98 = tail call i8 @llvm.ucmp.i8.i64(i64 %95, i64 %97)
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %99 = load i64, ptr %98, align 8, !tbaa !50
+  %100 = tail call i8 @llvm.ucmp.i8.i64(i64 %97, i64 %99)
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-99:                                               ; preds = %6
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %101 = load double, ptr %100, align 8, !tbaa !50
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
+101:                                              ; preds = %6
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %103 = load double, ptr %102, align 8, !tbaa !50
-  %104 = fcmp oeq double %101, %103
-  %105 = select i1 %104, i8 0, i8 2
-  %106 = fcmp ogt double %101, %103
-  %107 = select i1 %106, i8 1, i8 %105
-  %108 = fcmp olt double %101, %103
-  %109 = select i1 %108, i8 -1, i8 %107
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %105 = load double, ptr %104, align 8, !tbaa !50
+  %106 = fcmp oeq double %103, %105
+  %107 = select i1 %106, i8 0, i8 2
+  %108 = fcmp ogt double %103, %105
+  %109 = select i1 %108, i8 1, i8 %107
+  %110 = fcmp olt double %103, %105
+  %111 = select i1 %110, i8 -1, i8 %109
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-110:                                              ; preds = %6
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !50
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 8
+112:                                              ; preds = %6
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !50
-  %115 = load ptr, ptr %112, align 8, !tbaa !211
-  %116 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %117 = load ptr, ptr %116, align 8, !tbaa !211
-  %118 = load ptr, ptr %114, align 8, !tbaa !211
-  %119 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %120 = load ptr, ptr %119, align 8, !tbaa !211
-  %121 = ptrtoint ptr %117 to i64
-  %122 = ptrtoint ptr %115 to i64
-  %123 = sub i64 %121, %122
-  %124 = ptrtoint ptr %120 to i64
-  %125 = ptrtoint ptr %118 to i64
-  %126 = sub i64 %124, %125
-  %127 = tail call i8 @llvm.scmp.i8.i64(i64 %123, i64 %126)
-  %..i.i.i = tail call i64 @llvm.smin.i64(i64 %123, i64 %126)
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %116 = load ptr, ptr %115, align 8, !tbaa !50
+  %117 = load ptr, ptr %114, align 8, !tbaa !211
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %119 = load ptr, ptr %118, align 8, !tbaa !211
+  %120 = load ptr, ptr %116, align 8, !tbaa !211
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %122 = load ptr, ptr %121, align 8, !tbaa !211
+  %123 = ptrtoint ptr %119 to i64
+  %124 = ptrtoint ptr %117 to i64
+  %125 = sub i64 %123, %124
+  %126 = ptrtoint ptr %122 to i64
+  %127 = ptrtoint ptr %120 to i64
+  %128 = sub i64 %126, %127
+  %129 = tail call i8 @llvm.scmp.i8.i64(i64 %125, i64 %128)
+  %..i.i.i = tail call i64 @llvm.smin.i64(i64 %125, i64 %128)
   %.not.i.i63 = icmp eq i64 %..i.i.i, 0
-  br i1 %.not.i.i63, label %132, label %128
+  br i1 %.not.i.i63, label %134, label %130
 
-128:                                              ; preds = %110
-  %129 = tail call i32 @memcmp(ptr noundef nonnull %115, ptr noundef nonnull %118, i64 noundef %..i.i.i) #28
-  %130 = tail call i8 @llvm.scmp.i8.i32(i32 %129, i32 0)
-  %131 = icmp eq i32 %129, 0
-  br i1 %131, label %132, label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
+130:                                              ; preds = %112
+  %131 = tail call i32 @memcmp(ptr noundef nonnull %117, ptr noundef nonnull %120, i64 noundef %..i.i.i) #28
+  %132 = tail call i8 @llvm.scmp.i8.i32(i32 %131, i32 0)
+  %133 = icmp eq i32 %131, 0
+  br i1 %133, label %134, label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-132:                                              ; preds = %128, %110
+134:                                              ; preds = %130, %112
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-133:                                              ; preds = %6
+135:                                              ; preds = %6
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-134:                                              ; preds = %2
-  %135 = icmp eq i8 %3, 5
-  %136 = icmp eq i8 %4, 7
-  %or.cond = and i1 %135, %136
-  br i1 %or.cond, label %137, label %149
+136:                                              ; preds = %2
+  %137 = icmp eq i8 %3, 5
+  %138 = icmp eq i8 %4, 7
+  %or.cond = and i1 %137, %138
+  br i1 %or.cond, label %139, label %151
 
-137:                                              ; preds = %134
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %139 = load i64, ptr %138, align 8, !tbaa !50
-  %140 = sitofp i64 %139 to double
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %142 = load double, ptr %141, align 8, !tbaa !50
-  %143 = fcmp oeq double %142, %140
-  %144 = select i1 %143, i8 0, i8 2
-  %145 = fcmp olt double %142, %140
-  %146 = select i1 %145, i8 1, i8 %144
-  %147 = fcmp ogt double %142, %140
-  %148 = select i1 %147, i8 -1, i8 %146
+139:                                              ; preds = %136
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %141 = load i64, ptr %140, align 8, !tbaa !50
+  %142 = sitofp i64 %141 to double
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %144 = load double, ptr %143, align 8, !tbaa !50
+  %145 = fcmp oeq double %144, %142
+  %146 = select i1 %145, i8 0, i8 2
+  %147 = fcmp olt double %144, %142
+  %148 = select i1 %147, i8 1, i8 %146
+  %149 = fcmp ogt double %144, %142
+  %150 = select i1 %149, i8 -1, i8 %148
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-149:                                              ; preds = %134
-  %150 = icmp eq i8 %3, 7
-  %151 = icmp eq i8 %4, 5
-  %or.cond3 = and i1 %150, %151
-  br i1 %or.cond3, label %152, label %164
+151:                                              ; preds = %136
+  %152 = icmp eq i8 %3, 7
+  %153 = icmp eq i8 %4, 5
+  %or.cond3 = and i1 %152, %153
+  br i1 %or.cond3, label %154, label %166
 
-152:                                              ; preds = %149
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %154 = load double, ptr %153, align 8, !tbaa !50
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %156 = load i64, ptr %155, align 8, !tbaa !50
-  %157 = sitofp i64 %156 to double
-  %158 = fcmp oeq double %154, %157
-  %159 = select i1 %158, i8 0, i8 2
-  %160 = fcmp ogt double %154, %157
-  %161 = select i1 %160, i8 1, i8 %159
-  %162 = fcmp olt double %154, %157
-  %163 = select i1 %162, i8 -1, i8 %161
+154:                                              ; preds = %151
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %156 = load double, ptr %155, align 8, !tbaa !50
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %158 = load i64, ptr %157, align 8, !tbaa !50
+  %159 = sitofp i64 %158 to double
+  %160 = fcmp oeq double %156, %159
+  %161 = select i1 %160, i8 0, i8 2
+  %162 = fcmp ogt double %156, %159
+  %163 = select i1 %162, i8 1, i8 %161
+  %164 = fcmp olt double %156, %159
+  %165 = select i1 %164, i8 -1, i8 %163
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-164:                                              ; preds = %149
-  %165 = icmp eq i8 %3, 6
-  %or.cond5 = and i1 %165, %136
-  br i1 %or.cond5, label %166, label %178
+166:                                              ; preds = %151
+  %167 = icmp eq i8 %3, 6
+  %or.cond5 = and i1 %167, %138
+  br i1 %or.cond5, label %168, label %180
 
-166:                                              ; preds = %164
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %168 = load i64, ptr %167, align 8, !tbaa !50
-  %169 = uitofp i64 %168 to double
-  %170 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %171 = load double, ptr %170, align 8, !tbaa !50
-  %172 = fcmp oeq double %171, %169
-  %173 = select i1 %172, i8 0, i8 2
-  %174 = fcmp olt double %171, %169
-  %175 = select i1 %174, i8 1, i8 %173
-  %176 = fcmp ogt double %171, %169
-  %177 = select i1 %176, i8 -1, i8 %175
+168:                                              ; preds = %166
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %170 = load i64, ptr %169, align 8, !tbaa !50
+  %171 = uitofp i64 %170 to double
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %173 = load double, ptr %172, align 8, !tbaa !50
+  %174 = fcmp oeq double %173, %171
+  %175 = select i1 %174, i8 0, i8 2
+  %176 = fcmp olt double %173, %171
+  %177 = select i1 %176, i8 1, i8 %175
+  %178 = fcmp ogt double %173, %171
+  %179 = select i1 %178, i8 -1, i8 %177
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-178:                                              ; preds = %164
-  %179 = icmp eq i8 %4, 6
-  %or.cond7 = and i1 %150, %179
-  br i1 %or.cond7, label %180, label %192
+180:                                              ; preds = %166
+  %181 = icmp eq i8 %4, 6
+  %or.cond7 = and i1 %152, %181
+  br i1 %or.cond7, label %182, label %194
 
-180:                                              ; preds = %178
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %182 = load double, ptr %181, align 8, !tbaa !50
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %184 = load i64, ptr %183, align 8, !tbaa !50
-  %185 = uitofp i64 %184 to double
-  %186 = fcmp oeq double %182, %185
-  %187 = select i1 %186, i8 0, i8 2
-  %188 = fcmp ogt double %182, %185
-  %189 = select i1 %188, i8 1, i8 %187
-  %190 = fcmp olt double %182, %185
-  %191 = select i1 %190, i8 -1, i8 %189
+182:                                              ; preds = %180
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %184 = load double, ptr %183, align 8, !tbaa !50
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %186 = load i64, ptr %185, align 8, !tbaa !50
+  %187 = uitofp i64 %186 to double
+  %188 = fcmp oeq double %184, %187
+  %189 = select i1 %188, i8 0, i8 2
+  %190 = fcmp ogt double %184, %187
+  %191 = select i1 %190, i8 1, i8 %189
+  %192 = fcmp olt double %184, %187
+  %193 = select i1 %192, i8 -1, i8 %191
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-192:                                              ; preds = %178
-  %or.cond9 = and i1 %165, %151
-  br i1 %or.cond9, label %193, label %199
+194:                                              ; preds = %180
+  %or.cond9 = and i1 %167, %153
+  br i1 %or.cond9, label %195, label %201
 
-193:                                              ; preds = %192
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %195 = load i64, ptr %194, align 8, !tbaa !50
-  %196 = getelementptr inbounds nuw i8, ptr %1, i64 8
+195:                                              ; preds = %194
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %197 = load i64, ptr %196, align 8, !tbaa !50
-  %198 = tail call i8 @llvm.scmp.i8.i64(i64 %195, i64 %197)
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %199 = load i64, ptr %198, align 8, !tbaa !50
+  %200 = tail call i8 @llvm.scmp.i8.i64(i64 %197, i64 %199)
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-199:                                              ; preds = %192
-  %or.cond11 = and i1 %135, %179
-  br i1 %or.cond11, label %200, label %206
+201:                                              ; preds = %194
+  %or.cond11 = and i1 %137, %181
+  br i1 %or.cond11, label %202, label %208
 
-200:                                              ; preds = %199
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %202 = load i64, ptr %201, align 8, !tbaa !50
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 8
+202:                                              ; preds = %201
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %204 = load i64, ptr %203, align 8, !tbaa !50
-  %205 = tail call i8 @llvm.scmp.i8.i64(i64 %202, i64 %204)
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %206 = load i64, ptr %205, align 8, !tbaa !50
+  %207 = tail call i8 @llvm.scmp.i8.i64(i64 %204, i64 %206)
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-206:                                              ; preds = %199
-  %207 = tail call noundef zeroext i1 @_ZN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE18compares_unorderedERKSD_SF_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext false) #28
-  br i1 %207, label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit, label %208
+208:                                              ; preds = %201
+  %209 = tail call noundef zeroext i1 @_ZN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE18compares_unorderedERKSD_SF_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext false) #28
+  br i1 %209, label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit, label %210
 
-208:                                              ; preds = %206
-  %209 = icmp ult i8 %3, 9
-  %210 = icmp ult i8 %4, 9
-  %or.cond.i = and i1 %209, %210
-  br i1 %or.cond.i, label %211, label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
+210:                                              ; preds = %208
+  %211 = icmp ult i8 %3, 9
+  %212 = icmp ult i8 %4, 9
+  %or.cond.i = and i1 %211, %212
+  br i1 %or.cond.i, label %213, label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-211:                                              ; preds = %208
-  %212 = zext nneg i8 %4 to i64
-  %213 = zext nneg i8 %3 to i64
-  %214 = getelementptr inbounds nuw [9 x i8], ptr @_ZZN8nlohmann23json_abi_ldvcmp_v3_11_36detailssENS1_7value_tES2_E5order, i64 0, i64 %213
-  %215 = load i8, ptr %214, align 1, !tbaa !50
-  %216 = getelementptr inbounds nuw [9 x i8], ptr @_ZZN8nlohmann23json_abi_ldvcmp_v3_11_36detailssENS1_7value_tES2_E5order, i64 0, i64 %212
+213:                                              ; preds = %210
+  %214 = zext nneg i8 %4 to i64
+  %215 = zext nneg i8 %3 to i64
+  %216 = getelementptr inbounds nuw [9 x i8], ptr @_ZZN8nlohmann23json_abi_ldvcmp_v3_11_36detailssENS1_7value_tES2_E5order, i64 0, i64 %215
   %217 = load i8, ptr %216, align 1, !tbaa !50
-  %218 = tail call i8 @llvm.ucmp.i8.i8(i8 %215, i8 %217)
+  %218 = getelementptr inbounds nuw [9 x i8], ptr @_ZZN8nlohmann23json_abi_ldvcmp_v3_11_36detailssENS1_7value_tES2_E5order, i64 0, i64 %214
+  %219 = load i8, ptr %218, align 1, !tbaa !50
+  %220 = tail call i8 @llvm.ucmp.i8.i8(i8 %217, i8 %219)
   br label %_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit
 
-_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit: ; preds = %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.i, %.lr.ph.i, %20, %.lr.ph, %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit18.i, %._crit_edge.i, %211, %208, %128, %132, %._crit_edge, %206, %6, %200, %193, %180, %166, %152, %137, %133, %99, %93, %87, %81, %_ZStssIcSt11char_traitsIcESaIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEERKNSt7__cxx1112basic_stringIT_S3_T1_EESB_.exit
-  %.sroa.0.0 = phi i8 [ 2, %133 ], [ %109, %99 ], [ %98, %93 ], [ %92, %87 ], [ %86, %81 ], [ %80, %_ZStssIcSt11char_traitsIcESaIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEERKNSt7__cxx1112basic_stringIT_S3_T1_EESB_.exit ], [ %148, %137 ], [ %163, %152 ], [ %177, %166 ], [ %191, %180 ], [ %198, %193 ], [ %205, %200 ], [ %3, %6 ], [ 2, %206 ], [ %28, %._crit_edge ], [ %127, %132 ], [ %130, %128 ], [ %218, %211 ], [ 2, %208 ], [ %63, %._crit_edge.i ], [ %65, %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit18.i ], [ %21, %20 ], [ 1, %.lr.ph ], [ 1, %.lr.ph.i ], [ %56, %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.i ]
+_ZSt33lexicographical_compare_three_wayIN9__gnu_cxx17__normal_iteratorIPKN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerES6_IhSaIhEEvEES6_ISG_SaISG_EEEESL_NSt8__detail10_Synth3wayEEDTclfp3_defp_defp1_EET_SP_T0_SQ_T1_.exit: ; preds = %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.i, %.lr.ph.i, %20, %.lr.ph, %._crit_edge.i, %213, %210, %130, %134, %._crit_edge, %208, %6, %202, %195, %182, %168, %154, %139, %135, %101, %95, %89, %83, %_ZStssIcSt11char_traitsIcESaIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEERKNSt7__cxx1112basic_stringIT_S3_T1_EESB_.exit
+  %.sroa.0.0 = phi i8 [ 2, %135 ], [ %111, %101 ], [ %100, %95 ], [ %94, %89 ], [ %88, %83 ], [ %82, %_ZStssIcSt11char_traitsIcESaIcEEDTclsr8__detailE21__char_traits_cmp_catIT0_ELi0EEERKNSt7__cxx1112basic_stringIT_S3_T1_EESB_.exit ], [ %150, %139 ], [ %165, %154 ], [ %179, %168 ], [ %193, %182 ], [ %200, %195 ], [ %207, %202 ], [ %3, %6 ], [ 2, %208 ], [ %28, %._crit_edge ], [ %129, %134 ], [ %132, %130 ], [ %220, %213 ], [ 2, %210 ], [ %67, %._crit_edge.i ], [ %21, %20 ], [ 1, %.lr.ph ], [ %.sroa.04.1.i.i, %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann23json_abi_ldvcmp_v3_11_310basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEvEEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.i ], [ 1, %.lr.ph.i ]
   ret i8 %.sroa.0.0
 }
 
@@ -54788,19 +54789,19 @@ __cxx_global_var_init.1.exit:                     ; preds = %10
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i8(i8, i8) #25
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i8(i8, i8) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #25
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #25
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #25
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #25

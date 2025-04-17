@@ -154991,13 +154991,13 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #54
 declare double @llvm.fabs.f64(double) #54
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #54
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #54
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #55
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #54
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #54
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #56

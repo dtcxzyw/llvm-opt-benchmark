@@ -23368,7 +23368,7 @@ declare hidden void @_ZN4util21log_error_with_caller17hda0fee01be1f7fdaE(ptr noa
 declare hidden noundef i8 @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h7216a48bf53db3eeE.llvm.3340968823083299432"(ptr noundef nonnull align 8, ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #27
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #28

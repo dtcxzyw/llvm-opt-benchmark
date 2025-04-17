@@ -3069,8 +3069,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
 
 59:                                               ; preds = %56, %52
   %.0.i.i.i.i27 = phi i8 [ %.0.i.i.i.i.i, %56 ], [ %spec.select.i.i.i.i, %52 ]
-  %60 = add i8 %.0.i.i.i.i27, -3
-  %switch.i.i = icmp ult i8 %60, -2
+  %60 = add nsw i8 %.0.i.i.i.i27, -3
+  %switch.i.i = icmp samesign ult i8 %60, -2
   br i1 %switch.i.i, label %.loopexit, label %.thread24.i
 
 .thread24.i:                                      ; preds = %59, %54
@@ -3093,8 +3093,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
 
 64:                                               ; preds = %20, %26, %28, %30
   %.0.i.i.i = phi i8 [ %.0.i.i.i.i, %30 ], [ -1, %20 ], [ 1, %28 ], [ %spec.select.i.i.i, %26 ]
-  %65 = add i8 %.0.i.i.i, -3
-  %switch.i = icmp ult i8 %65, -2
+  %65 = add nsw i8 %.0.i.i.i, -3
+  %switch.i = icmp samesign ult i8 %65, -2
   %66 = zext i1 %switch.i to i64
   %67 = add nuw i64 %.042, %66
   %68 = getelementptr inbounds { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { i32, i32 }, i64 }, ptr %6, i64 %67
@@ -3699,8 +3699,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
 
 39:                                               ; preds = %36, %32
   %.0.i.i.i.i = phi i8 [ %.0.i.i.i.i.i, %36 ], [ %spec.select.i.i.i.i, %32 ]
-  %40 = add i8 %.0.i.i.i.i, -3
-  %switch.i.i = icmp ult i8 %40, -2
+  %40 = add nsw i8 %.0.i.i.i.i, -3
+  %switch.i.i = icmp samesign ult i8 %40, -2
   br i1 %switch.i.i, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hc38bb4194c6460f8E.llvm.11083375685992158394.exit", label %.thread24.i
 
 .thread24.i:                                      ; preds = %39, %34
@@ -4100,8 +4100,8 @@ define hidden noundef range(i64 0, -1) i64 @"_ZN5alloc11collections11binary_heap
 
 29:                                               ; preds = %25, %21
   %.0.i.i.i = phi i8 [ %.0.i.i.i.i, %25 ], [ %spec.select.i.i.i, %21 ]
-  %30 = add i8 %.0.i.i.i, -3
-  %switch.i = icmp ult i8 %30, -2
+  %30 = add nsw i8 %.0.i.i.i, -3
+  %switch.i = icmp samesign ult i8 %30, -2
   br i1 %switch.i, label %.thread, label %.thread24
 
 .thread24:                                        ; preds = %23, %29
@@ -31608,7 +31608,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #59
 declare i64 @llvm.umin.i64(i64, i64) #57
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #57
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #57
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #57

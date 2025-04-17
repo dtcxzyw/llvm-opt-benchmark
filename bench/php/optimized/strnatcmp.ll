@@ -381,7 +381,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #1
 declare ptr @__ctype_toupper_loc() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #2
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #2

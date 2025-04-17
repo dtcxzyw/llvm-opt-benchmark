@@ -1554,7 +1554,7 @@ declare hidden { i64, i64 } @_ZN12regex_syntax3hir7literal3Seq15min_literal_len1
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #19
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #19

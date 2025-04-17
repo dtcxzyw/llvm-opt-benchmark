@@ -47949,7 +47949,7 @@ declare i64 @llvm.umin.i64(i64, i64) #40
 declare i32 @llvm.umax.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #40
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #40
@@ -47982,25 +47982,25 @@ declare i64 @llvm.uadd.sat.i64(i64, i64) #40
 declare i64 @llvm.usub.sat.i64(i64, i64) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i8(i8, i8) #40
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i8(i8, i8) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i8(i8, i8) #40
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i8(i8, i8) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i16(i16, i16) #40
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i16(i16, i16) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i16(i16, i16) #40
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #40
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i64(i64, i64) #40
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64, i64) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #40
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #40

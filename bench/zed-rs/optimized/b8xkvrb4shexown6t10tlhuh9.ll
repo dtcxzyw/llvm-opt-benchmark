@@ -34744,10 +34744,10 @@ declare hidden { i64, ptr } @_ZN3std2io4copy17stack_buffer_copy17haf3cb329ca3519
 declare hidden { i64, ptr } @_ZN3std2io4copy17stack_buffer_copy17hf4204c143bf7758aE.llvm.2598247465398355875(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef nonnull align 1) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #59
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #59
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #59
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #59
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #59

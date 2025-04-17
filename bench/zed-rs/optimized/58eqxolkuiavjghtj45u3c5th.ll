@@ -15725,7 +15725,7 @@ declare hidden noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContex
 declare hidden noundef align 8 dereferenceable(80) ptr @_ZN8settings14settings_store13SettingsStore3get17hd43e72f4137cbabdE(ptr noalias noundef readonly align 8 dereferenceable(328), ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #32
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #32

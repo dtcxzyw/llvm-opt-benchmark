@@ -473,13 +473,13 @@ declare i64 @hash_bytes_uint32_extended(i32 noundef, i64 noundef) local_unnamed_
 declare i64 @llvm.bswap.i64(i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #5
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ucmp.i64.i64(i64, i64) #5
+declare range(i64 -1, 2) i64 @llvm.ucmp.i64.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5

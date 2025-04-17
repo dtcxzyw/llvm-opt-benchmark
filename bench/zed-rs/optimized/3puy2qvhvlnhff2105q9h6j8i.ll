@@ -189798,7 +189798,7 @@ declare hidden void @"_ZN97_$LT$$RF$mut$u20$zvariant..dbus..de..Deserializer$LT$
 declare hidden void @"_ZN98_$LT$zvariant..tuple..DynamicTuple$LT$$LP$T0$C$$RP$$GT$$u20$as$u20$zvariant..type..DynamicType$GT$17dynamic_signature17h33f6c429c655db52E"(ptr dead_on_unwind noalias noundef writable sret([40 x i8]) align 8 captures(none) dereferenceable(40), ptr noalias noundef readonly align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #49
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #49

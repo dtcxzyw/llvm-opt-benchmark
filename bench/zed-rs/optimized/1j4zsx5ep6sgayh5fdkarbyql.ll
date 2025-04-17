@@ -42207,7 +42207,7 @@ define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2le17ha98d68eaed98f4ad
   %10 = xor i32 %9, %4
   %11 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %7, i32 %10)
   %12 = add nsw i8 %11, -3
-  %switch = icmp ult i8 %12, -2
+  %switch = icmp samesign ult i8 %12, -2
   ret i1 %switch
 }
 
@@ -131428,7 +131428,7 @@ define hidden { float, float } @"_ZN4gpui8geometry14Point$LT$T$GT$3min17h05faa28
   %10 = xor i32 %9, %4
   %11 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %7, i32 %10)
   %12 = add nsw i8 %11, -3
-  %switch.i = icmp ult i8 %12, -2
+  %switch.i = icmp samesign ult i8 %12, -2
   %.sroa.0.0.v = select i1 %switch.i, i32 %3, i32 %4
   %.sroa.0.0 = bitcast i32 %.sroa.0.0.v to float
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -131449,7 +131449,7 @@ define hidden { float, float } @"_ZN4gpui8geometry14Point$LT$T$GT$3min17h05faa28
   %22 = xor i32 %21, %16
   %23 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %19, i32 %22)
   %24 = add nsw i8 %23, -3
-  %switch.i3 = icmp ult i8 %24, -2
+  %switch.i3 = icmp samesign ult i8 %24, -2
   %.sroa.01.0.v = select i1 %switch.i3, i32 %15, i32 %16
   %.sroa.01.0 = bitcast i32 %.sroa.01.0.v to float
   %25 = insertvalue { float, float } poison, float %.sroa.0.0, 0
@@ -132194,7 +132194,7 @@ define hidden void @"_ZN4gpui8geometry15Bounds$LT$T$GT$9intersect17h6975a55622ff
   %49 = xor i32 %48, %42
   %50 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %46, i32 %49)
   %51 = add nsw i8 %50, -3
-  %switch.i.i = icmp ult i8 %51, -2
+  %switch.i.i = icmp samesign ult i8 %51, -2
   %.sroa.0.0.i5 = select i1 %switch.i.i, float %27, float %37
   %52 = ashr i32 %33, 31
   %53 = lshr i32 %52, 1
@@ -132204,7 +132204,7 @@ define hidden void @"_ZN4gpui8geometry15Bounds$LT$T$GT$9intersect17h6975a55622ff
   %57 = xor i32 %56, %43
   %58 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %54, i32 %57)
   %59 = add nsw i8 %58, -3
-  %switch.i3.i = icmp ult i8 %59, -2
+  %switch.i3.i = icmp samesign ult i8 %59, -2
   %.sroa.01.0.i7 = select i1 %switch.i3.i, float %31, float %41
   %60 = fsub float %.sroa.0.0.i5, %.sroa.0.0.i
   %61 = fsub float %.sroa.01.0.i7, %.sroa.01.0.i
@@ -132304,7 +132304,7 @@ define hidden void @"_ZN4gpui8geometry15Bounds$LT$T$GT$5union17h1f92ac3f2369683f
   %11 = xor i32 %10, %5
   %12 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %8, i32 %11)
   %13 = add nsw i8 %12, -3
-  %switch.i.i = icmp ult i8 %13, -2
+  %switch.i.i = icmp samesign ult i8 %13, -2
   %.sroa.0.0.v.i = select i1 %switch.i.i, i32 %4, i32 %5
   %.sroa.0.0.i = bitcast i32 %.sroa.0.0.v.i to float
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -132325,7 +132325,7 @@ define hidden void @"_ZN4gpui8geometry15Bounds$LT$T$GT$5union17h1f92ac3f2369683f
   %23 = xor i32 %22, %17
   %24 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %20, i32 %23)
   %25 = add nsw i8 %24, -3
-  %switch.i3.i = icmp ult i8 %25, -2
+  %switch.i3.i = icmp samesign ult i8 %25, -2
   %.sroa.01.0.v.i = select i1 %switch.i3.i, i32 %16, i32 %17
   %.sroa.01.0.i = bitcast i32 %.sroa.01.0.v.i to float
   %26 = bitcast i32 %4 to float
@@ -132597,7 +132597,7 @@ define hidden noundef zeroext i1 @"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17
   %19 = xor i32 %18, %16
   %20 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %7, i32 %19)
   %21 = add nsw i8 %20, -3
-  %switch.i5 = icmp ult i8 %21, -2
+  %switch.i5 = icmp samesign ult i8 %21, -2
   br i1 %switch.i5, label %22, label %44
 
 22:                                               ; preds = %11
@@ -132631,7 +132631,7 @@ define hidden noundef zeroext i1 @"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17
   %41 = xor i32 %40, %38
   %42 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %29, i32 %41)
   %43 = add nsw i8 %42, -3
-  %switch.i7 = icmp ult i8 %43, -2
+  %switch.i7 = icmp samesign ult i8 %43, -2
   br label %44
 
 44:                                               ; preds = %11, %2, %22, %33
@@ -132937,7 +132937,7 @@ define hidden noundef zeroext i1 @"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17
   %6 = xor i32 %5, %3
   %7 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %6, i32 0)
   %8 = add nsw i8 %7, -3
-  %switch.i = icmp ult i8 %8, -2
+  %switch.i = icmp samesign ult i8 %8, -2
   br i1 %switch.i, label %17, label %9
 
 9:                                                ; preds = %1
@@ -132948,7 +132948,7 @@ define hidden noundef zeroext i1 @"_ZN4gpui8geometry15Bounds$LT$T$GT$8is_empty17
   %14 = xor i32 %13, %11
   %15 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %14, i32 0)
   %16 = add nsw i8 %15, -3
-  %switch.i3 = icmp ult i8 %16, -2
+  %switch.i3 = icmp samesign ult i8 %16, -2
   br label %17
 
 17:                                               ; preds = %1, %9
@@ -165409,13 +165409,13 @@ declare hidden void @_ZN4gpui8platform5linux8platform20reveal_path_internal17h95
 declare i64 @llvm.umin.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #52
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #52
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #52
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #52

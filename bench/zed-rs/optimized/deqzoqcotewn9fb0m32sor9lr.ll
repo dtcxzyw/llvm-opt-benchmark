@@ -27547,7 +27547,7 @@ declare hidden noundef nonnull ptr @_ZN14async_executor8Executor5spawn17hc8d659c
 declare hidden noundef nonnull ptr @_ZN14async_executor8Executor5spawn17hf0bf6fffb35f975bE(ptr noundef nonnull align 8, ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #40
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #40
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #41

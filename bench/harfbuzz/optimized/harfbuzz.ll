@@ -326703,7 +326703,7 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #57
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #56
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #56
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #56
@@ -326739,7 +326739,7 @@ declare i8 @llvm.umax.i8(i8, i8) #56
 declare i8 @llvm.umin.i8(i8, i8) #56
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i16(i16, i16) #56
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #56
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #56

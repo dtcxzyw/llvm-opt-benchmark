@@ -44,7 +44,7 @@ define range(i32 -1, 2) i32 @wmem_compare_uint(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #3
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4

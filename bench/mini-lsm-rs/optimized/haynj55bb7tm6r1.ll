@@ -8744,10 +8744,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #45
 declare void @llvm.experimental.noalias.scope.decl(metadata) #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #45
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #45
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #45
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #45
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #45

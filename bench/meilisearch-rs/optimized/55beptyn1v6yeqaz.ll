@@ -42220,10 +42220,10 @@ declare void @"_ZN73_$LT$arroy..node..UnalignedF32Slice$u20$as$u20$alloc..borrow
 declare { ptr, i64 } @"_ZN5arroy4node115_$LT$impl$u20$core..borrow..Borrow$LT$arroy..node..UnalignedF32Slice$GT$$u20$for$u20$alloc..vec..Vec$LT$f32$GT$$GT$6borrow17h4de65bcb70fc0a1eE"(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #28
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i16(i16, i16) #28
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i16(i16, i16) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #29

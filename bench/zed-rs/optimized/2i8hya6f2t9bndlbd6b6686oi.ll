@@ -57490,7 +57490,7 @@ declare void @_ZN8wasmtime7runtime9component9resources18HostResourceTables27gues
 declare hidden { i64, ptr } @"_ZN8wasmtime7runtime9component4func7options21LowerContext$LT$T$GT$7realloc17h846dae93e5f61f98E"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, i64 noundef, i32 noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #31
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #31

@@ -173860,7 +173860,7 @@ define hidden noundef zeroext i1 @_ZN4gpui8platform5linux8platform24is_within_cl
   %12 = bitcast float %11 to i32
   %13 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %12, i32 1084227584)
   %14 = add nsw i8 %13, -3
-  %switch7 = icmp ult i8 %14, -2
+  %switch7 = icmp samesign ult i8 %14, -2
   br label %15
 
 15:                                               ; preds = %4, %9
@@ -177581,7 +177581,7 @@ declare float @llvm.fabs.f32(float) #28
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i32(i32, i32) #35
+declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #36

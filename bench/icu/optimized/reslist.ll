@@ -6664,7 +6664,7 @@ declare void @llvm.assume(i1 noundef) #30
 declare i16 @llvm.bswap.i16(i16) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.scmp.i32.i32(i32, i32) #31
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #31

@@ -41937,7 +41937,7 @@ declare hidden noundef double @"_ZN118_$LT$rand..distributions..uniform..Uniform
 declare hidden noundef ptr @_ZN3std2io5Write9write_fmt17h72305c4e81af9d17E(ptr noalias noundef nonnull align 1, ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #44
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #44
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #44

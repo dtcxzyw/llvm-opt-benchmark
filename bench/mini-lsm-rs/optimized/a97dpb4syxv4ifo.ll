@@ -10636,7 +10636,7 @@ declare hidden void @"_ZN4core3ptr92drop_in_place$LT$std..io..Write..write_fmt..
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #25
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32, i32) #25
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

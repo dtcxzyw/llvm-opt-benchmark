@@ -54274,7 +54274,7 @@ declare { i64, ptr } @"_ZN75_$LT$async_std..fs..file..File$u20$as$u20$futures_io
 declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h686c0b7aeff6f41dE"(ptr noundef nonnull align 8, ptr noundef nonnull align 8) unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #39
+declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #39

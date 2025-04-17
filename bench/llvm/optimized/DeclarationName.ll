@@ -4543,7 +4543,7 @@ _ZN4llvm22DefaultFoldingSetTraitIN5clang6detail24CXXLiteralOperatorIdNameEE11Com
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i32(i32, i32) #16
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16
