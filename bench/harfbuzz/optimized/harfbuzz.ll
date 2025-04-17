@@ -184978,7 +184978,7 @@ define linkonce_odr dso_local void @_ZNK2OT6Layout9GSUB_impl20SingleSubstFormat1
   %20 = tail call i16 @llvm.bswap.i16(i16 %18)
   %21 = zext i16 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
-  %.0.i.i = select i1 %19, ptr @_hb_NullPool, ptr %22, !prof !64
+  %.0.i.i = select i1 %19, ptr @_hb_NullPool, ptr %22
   %23 = load i16, ptr %.0.i.i, align 1, !tbaa !109
   %24 = tail call noundef i16 @llvm.bswap.i16(i16 %23)
   switch i16 %24, label %_ZNK2OT6Layout6Common8Coverage14get_populationEv.exit.thread45 [
@@ -224302,7 +224302,7 @@ define internal fastcc noundef zeroext i1 @"_ZorI13hb_map_iter_tI16hb_filter_ite
   %11 = tail call i16 @llvm.bswap.i16(i16 %.val1.i.i.i.i.i.i8.i)
   %12 = zext i16 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.121.0.copyload.i, i64 %12
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i9.i = select i1 %10, ptr @_hb_NullPool, ptr %13, !prof !64
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i9.i = select i1 %10, ptr @_hb_NullPool, ptr %13
   %.val2.i.i.i.i.i = load i16, ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i9.i, align 1, !tbaa !109
   %14 = tail call noundef i16 @llvm.bswap.i16(i16 %.val2.i.i.i.i.i)
   %15 = icmp ult i16 %14, 2
@@ -226893,7 +226893,7 @@ define internal fastcc noundef zeroext i1 @"_ZorI13hb_map_iter_tI16hb_filter_ite
   %12 = tail call i16 @llvm.bswap.i16(i16 %.val1.i.i.i.i.i.i7.i)
   %13 = zext i16 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.121.0.copyload.i, i64 %13
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i8.i = select i1 %11, ptr @_hb_NullPool, ptr %14, !prof !64
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i8.i = select i1 %11, ptr @_hb_NullPool, ptr %14
   %15 = load i16, ptr %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i8.i, align 1, !tbaa !109
   %16 = tail call noundef i16 @llvm.bswap.i16(i16 %15)
   %17 = zext i16 %16 to i64

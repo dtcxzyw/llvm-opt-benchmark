@@ -45467,7 +45467,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit52:               ; preds = %185, %187, %188
   %195 = zext nneg i32 %194 to i64
   %196 = lshr i64 -1, %195
   %197 = icmp eq i32 %5, 0
-  %spec.select.i = select i1 %197, i64 0, i64 %196, !prof !271
+  %spec.select.i = select i1 %197, i64 0, i64 %196
   %198 = and i64 %.0.i, %spec.select.i
   store i64 %198, ptr %19, align 8, !tbaa !84
   %199 = getelementptr inbounds nuw i8, ptr %20, i64 8
