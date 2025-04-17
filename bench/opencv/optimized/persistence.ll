@@ -13086,7 +13086,7 @@ _ZN2cv8FileNode3ptrEv.exit:                       ; preds = %_ZNK2cv8FileNode7is
   br label %_ZN2cv8FileNode3ptrEv.exit.thread
 
 _ZN2cv8FileNode3ptrEv.exit.thread:                ; preds = %.thread, %_ZNK2cv8FileNode7isNamedEv.exit.thread, %43, %56, %_ZN2cv8FileNode3ptrEv.exit, %61
-  %63 = phi ptr [ %62, %61 ], [ inttoptr (i64 1 to ptr), %_ZN2cv8FileNode3ptrEv.exit ], [ %60, %56 ], [ inttoptr (i64 1 to ptr), %43 ], [ inttoptr (i64 1 to ptr), %_ZNK2cv8FileNode7isNamedEv.exit.thread ], [ %55, %.thread ]
+  %63 = phi ptr [ %62, %61 ], [ inttoptr (i64 1 to ptr), %_ZN2cv8FileNode3ptrEv.exit ], [ %60, %56 ], [ null, %43 ], [ inttoptr (i64 1 to ptr), %_ZNK2cv8FileNode7isNamedEv.exit.thread ], [ %55, %.thread ]
   %.0.i578588 = phi i1 [ true, %61 ], [ false, %_ZN2cv8FileNode3ptrEv.exit ], [ false, %56 ], [ false, %43 ], [ false, %_ZNK2cv8FileNode7isNamedEv.exit.thread ], [ false, %.thread ]
   %64 = phi i32 [ 4, %61 ], [ 0, %_ZN2cv8FileNode3ptrEv.exit ], [ 0, %56 ], [ 0, %43 ], [ 0, %_ZNK2cv8FileNode7isNamedEv.exit.thread ], [ 0, %.thread ]
   %65 = zext nneg i32 %64 to i64

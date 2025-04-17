@@ -430,78 +430,74 @@ define hidden void @_ZNK2cv10xobjdetect14CvLBPEvaluator13writeFeaturesERNS_11Fil
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %.not.i.i.i.i, label %.thread, label %15
+  br i1 %.not.i.i.i.i, label %.thread, label %13
 
 .thread:                                          ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr null, i64 %11
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store ptr %13, ptr %14, align 8, !tbaa !57
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EEC2ERKS5_.exit
 
-15:                                               ; preds = %3
-  %16 = sdiv exact i64 %11, 100
-  %17 = icmp ugt i64 %16, 92233720368547758
-  br i1 %17, label %.noexc.i.i, label %18, !prof !58
+13:                                               ; preds = %3
+  %14 = sdiv exact i64 %11, 100
+  %15 = icmp ugt i64 %14, 92233720368547758
+  br i1 %15, label %.noexc.i.i, label %16, !prof !57
 
-.noexc.i.i:                                       ; preds = %15
+.noexc.i.i:                                       ; preds = %13
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #19
   unreachable
 
-18:                                               ; preds = %15
-  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #20
-  store ptr %19, ptr %4, align 8, !tbaa !45
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %19, ptr %20, align 8, !tbaa !56
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %11
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %21, ptr %22, align 8, !tbaa !57
+16:                                               ; preds = %13
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #20
+  store ptr %17, ptr %4, align 8, !tbaa !45
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %17, ptr %18, align 8, !tbaa !56
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %11
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %19, ptr %20, align 8, !tbaa !58
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %18, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i ], [ %19, %18 ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i ], [ %8, %18 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %16, %.lr.ph.i.i.i.i.i
+  %.09.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i ], [ %17, %16 ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i.i.i ], [ %8, %16 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %.09.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(100) %.sroa.04.08.i.i.i.i.i, i64 100, i1 false), !tbaa.struct !59
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 100
-  %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 100
-  %.not.i.i.i.i.i = icmp eq ptr %23, %7
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 100
+  %22 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 100
+  %.not.i.i.i.i.i = icmp eq ptr %21, %7
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EEC2ERKS5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !61
 
 _ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EEC2ERKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.thread
-  %25 = phi ptr [ %12, %.thread ], [ %20, %.lr.ph.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %24, %.lr.ph.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %25, align 8, !tbaa !56
+  %23 = phi ptr [ %12, %.thread ], [ %18, %.lr.ph.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %22, %.lr.ph.i.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %23, align 8, !tbaa !56
   invoke void @_ZN2cv10xobjdetect14_writeFeaturesINS0_14CvLBPEvaluator7FeatureEEEvSt6vectorIT_SaIS5_EERNS_11FileStorageERKNS_3MatE(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
-          to label %26 unwind label %29
+          to label %24 unwind label %27
 
-26:                                               ; preds = %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EEC2ERKS5_.exit
-  %27 = load ptr, ptr %4, align 8, !tbaa !45
-  %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EED2Ev.exit, label %28
+24:                                               ; preds = %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EEC2ERKS5_.exit
+  %25 = load ptr, ptr %4, align 8, !tbaa !45
+  %.not.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EED2Ev.exit, label %26
 
-28:                                               ; preds = %26
-  call void @_ZdlPv(ptr noundef nonnull %27) #17
+26:                                               ; preds = %24
+  call void @_ZdlPv(ptr noundef nonnull %25) #17
   br label %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EED2Ev.exit
 
-_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EED2Ev.exit: ; preds = %26, %28
+_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EED2Ev.exit: ; preds = %24, %26
   ret void
 
-29:                                               ; preds = %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EEC2ERKS5_.exit
-  %30 = landingpad { ptr, i32 }
+27:                                               ; preds = %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EEC2ERKS5_.exit
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %4, align 8, !tbaa !45
-  %.not.i.i.i4 = icmp eq ptr %31, null
-  br i1 %.not.i.i.i4, label %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EED2Ev.exit5, label %32
+  %29 = load ptr, ptr %4, align 8, !tbaa !45
+  %.not.i.i.i4 = icmp eq ptr %29, null
+  br i1 %.not.i.i.i4, label %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EED2Ev.exit5, label %30
 
-32:                                               ; preds = %29
-  call void @_ZdlPv(ptr noundef nonnull %31) #17
+30:                                               ; preds = %27
+  call void @_ZdlPv(ptr noundef nonnull %29) #17
   br label %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EED2Ev.exit5
 
-_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EED2Ev.exit5: ; preds = %29, %32
-  resume { ptr, i32 } %30
+_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EED2Ev.exit5: ; preds = %27, %30
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -939,7 +935,7 @@ define hidden void @_ZN2cv10xobjdetect14CvLBPEvaluator16generateFeaturesEv(ptr n
   %88 = add nuw nsw i32 %83, %.01982
   %89 = add nuw nsw i32 %83, %45
   %90 = load ptr, ptr %8, align 8, !tbaa !56
-  %91 = load ptr, ptr %9, align 8, !tbaa !57
+  %91 = load ptr, ptr %9, align 8, !tbaa !58
   %.not.i.i = icmp eq ptr %90, %91
   br i1 %.not.i.i, label %95, label %92
 
@@ -1097,7 +1093,7 @@ _ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EE17_M_realloc_inser
   store ptr %108, ptr %7, align 8, !tbaa !45
   store ptr %112, ptr %8, align 8, !tbaa !56
   %114 = getelementptr inbounds nuw %"class.cv::xobjdetect::CvLBPEvaluator::Feature", ptr %108, i64 %106
-  store ptr %114, ptr %9, align 8, !tbaa !57
+  store ptr %114, ptr %9, align 8, !tbaa !58
   br label %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt6vectorIN2cv10xobjdetect14CvLBPEvaluator7FeatureESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %92, %.lr.ph.split, %67
@@ -2053,8 +2049,8 @@ attributes #20 = { builtin allocsize(0) }
 !54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
 !56 = !{!40, !41, i64 8}
-!57 = !{!40, !41, i64 16}
-!58 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!57 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!58 = !{!40, !41, i64 16}
 !59 = !{i64 0, i64 4, !46, i64 4, i64 4, !46, i64 8, i64 4, !46, i64 12, i64 4, !46, i64 16, i64 64, !60, i64 80, i64 4, !46, i64 84, i64 4, !46, i64 88, i64 4, !46, i64 92, i64 4, !46, i64 96, i64 4, !46}
 !60 = !{!13, !13, i64 0}
 !61 = distinct !{!61, !55}

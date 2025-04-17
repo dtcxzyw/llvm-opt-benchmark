@@ -7835,20 +7835,20 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i35.i: ; preds = %55
 
 .noexc43.i:                                       ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i35.i
   store i32 0, ptr %57, align 4, !tbaa !49
-  br i1 %48, label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge8.i.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i37.i
+  br i1 %48, label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge.i.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i37.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i37.i: ; preds = %.noexc43.i
   %58 = getelementptr i8, ptr %57, i64 4
   tail call void @llvm.memset.p0.i64(ptr align 4 %58, i8 0, i64 %49, i1 false), !tbaa !49
-  br label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge8.i.i
+  br label %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge.i.i
 
-._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge8.i.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i37.i, %.noexc43.i
+._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge.i.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i37.i, %.noexc43.i
   %59 = getelementptr inbounds nuw i32, ptr %57, i64 %45
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
-_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge8.i.i, %54
-  %.sroa.29.2.i = phi ptr [ null, %54 ], [ %59, %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge8.i.i ]
-  %.sroa.648.2.i = phi ptr [ null, %54 ], [ %57, %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge8.i.i ]
+_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge.i.i, %54
+  %.sroa.29.2.i = phi ptr [ null, %54 ], [ %59, %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge.i.i ]
+  %.sroa.648.2.i = phi ptr [ null, %54 ], [ %57, %._ZNSt6vectorIiSaIiEE6resizeEm.exit_crit_edge.i.i ]
   %60 = ptrtoint ptr %.sroa.29.2.i to i64
   %61 = ptrtoint ptr %.sroa.648.2.i to i64
   %62 = sub i64 %60, %61
@@ -9605,8 +9605,8 @@ _ZN5faiss19MultiIndexQuantizerC2Eimm.exit:        ; preds = %5
   store ptr getelementptr inbounds nuw inrange(-16, 184) (i8, ptr @_ZTVN5faiss20MultiIndexQuantizer2E, i64 16), ptr %0, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  %.not24 = icmp eq i64 %2, 0
-  br i1 %.not24, label %._crit_edge, label %20
+  %.not = icmp eq i64 %2, 0
+  br i1 %.not, label %._crit_edge, label %20
 
 20:                                               ; preds = %_ZN5faiss19MultiIndexQuantizerC2Eimm.exit
   invoke void @_ZNSt6vectorIPN5faiss5IndexESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %2)

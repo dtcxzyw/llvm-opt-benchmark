@@ -3218,7 +3218,7 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE18RuntimeFunctionX645cloneEv(ptr de
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %13 = load i8, ptr %12, align 8, !tbaa !47, !range !15, !noundef !16
   %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %15, label %37
+  br i1 %14, label %15, label %36
 
 15:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %10, ptr noundef nonnull align 8 dereferenceable(49) %11, i64 6, i1 false)
@@ -3230,52 +3230,50 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE18RuntimeFunctionX645cloneEv(ptr de
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i64 0, ptr %24, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %19, %20
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.i.i.thread, label %26
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.i.i.thread, label %25
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.i.i.thread: ; preds = %15
-  %24 = getelementptr inbounds i8, ptr null, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  store ptr %24, ptr %25, align 8, !tbaa !58
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   br label %_ZN2tl6detail24expected_operations_baseIN4LIEF2PE18RuntimeFunctionX6413unwind_info_tE11lief_errorsE14construct_withIRKNS0_18expected_copy_baseIS5_S6_Lb0EEEEEvOT_.exit.i.i.i.i.i.i.i
 
-26:                                               ; preds = %15
-  %27 = icmp slt i64 %23, 0
-  br i1 %27, label %28, label %29, !prof !246
+25:                                               ; preds = %15
+  %26 = icmp slt i64 %23, 0
+  br i1 %26, label %27, label %28, !prof !246
 
-28:                                               ; preds = %26
+27:                                               ; preds = %25
   tail call void @_ZSt17__throw_bad_allocv() #25
   unreachable
 
-29:                                               ; preds = %26
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #23
-  store ptr %30, ptr %16, align 8, !tbaa !54
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %23
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %31, ptr %32, align 8, !tbaa !58
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %20, i64 %23, i1 false)
+28:                                               ; preds = %25
+  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #23
+  store ptr %29, ptr %16, align 8, !tbaa !54
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %23
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store ptr %30, ptr %31, align 8, !tbaa !58
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %20, i64 %23, i1 false)
   br label %_ZN2tl6detail24expected_operations_baseIN4LIEF2PE18RuntimeFunctionX6413unwind_info_tE11lief_errorsE14construct_withIRKNS0_18expected_copy_baseIS5_S6_Lb0EEEEEvOT_.exit.i.i.i.i.i.i.i
 
-_ZN2tl6detail24expected_operations_baseIN4LIEF2PE18RuntimeFunctionX6413unwind_info_tE11lief_errorsE14construct_withIRKNS0_18expected_copy_baseIS5_S6_Lb0EEEEEvOT_.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.i.i.thread, %29
-  %33 = phi ptr [ %24, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.i.i.thread ], [ %31, %29 ]
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %33, ptr %34, align 8, !tbaa !57
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
+_ZN2tl6detail24expected_operations_baseIN4LIEF2PE18RuntimeFunctionX6413unwind_info_tE11lief_errorsE14construct_withIRKNS0_18expected_copy_baseIS5_S6_Lb0EEEEEvOT_.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.i.i.thread, %28
+  %32 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.i.i.i.i.i.i.i.i.thread ], [ %30, %28 ]
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr %32, ptr %33, align 8, !tbaa !57
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   br label %_ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exit
 
-37:                                               ; preds = %2
-  %38 = load i32, ptr %11, align 8, !tbaa !247
-  store i32 %38, ptr %10, align 8, !tbaa !247
+36:                                               ; preds = %2
+  %37 = load i32, ptr %11, align 8, !tbaa !247
+  store i32 %37, ptr %10, align 8, !tbaa !247
   br label %_ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exit: ; preds = %37, %_ZN2tl6detail24expected_operations_baseIN4LIEF2PE18RuntimeFunctionX6413unwind_info_tE11lief_errorsE14construct_withIRKNS0_18expected_copy_baseIS5_S6_Lb0EEEEEvOT_.exit.i.i.i.i.i.i.i
-  %storemerge.i.i.i.i.i.i.i = phi i8 [ 0, %37 ], [ 1, %_ZN2tl6detail24expected_operations_baseIN4LIEF2PE18RuntimeFunctionX6413unwind_info_tE11lief_errorsE14construct_withIRKNS0_18expected_copy_baseIS5_S6_Lb0EEEEEvOT_.exit.i.i.i.i.i.i.i ]
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store i8 %storemerge.i.i.i.i.i.i.i, ptr %39, align 8, !tbaa !47
+_ZNSt10unique_ptrIN4LIEF2PE18RuntimeFunctionX64ESt14default_deleteIS2_EED2Ev.exit: ; preds = %36, %_ZN2tl6detail24expected_operations_baseIN4LIEF2PE18RuntimeFunctionX6413unwind_info_tE11lief_errorsE14construct_withIRKNS0_18expected_copy_baseIS5_S6_Lb0EEEEEvOT_.exit.i.i.i.i.i.i.i
+  %storemerge.i.i.i.i.i.i.i = phi i8 [ 0, %36 ], [ 1, %_ZN2tl6detail24expected_operations_baseIN4LIEF2PE18RuntimeFunctionX6413unwind_info_tE11lief_errorsE14construct_withIRKNS0_18expected_copy_baseIS5_S6_Lb0EEEEEvOT_.exit.i.i.i.i.i.i.i ]
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store i8 %storemerge.i.i.i.i.i.i.i, ptr %38, align 8, !tbaa !47
   store ptr %3, ptr %0, align 8, !tbaa !248
   ret void
 }

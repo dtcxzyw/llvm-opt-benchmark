@@ -216,12 +216,7 @@ define hidden void @_ZN8reslimit3popEv(ptr noundef nonnull align 8 captures(none
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !27
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %._ZN6vectorImLb0EjE4backEv.exit_crit_edge, label %12
-
-._ZN6vectorImLb0EjE4backEv.exit_crit_edge:        ; preds = %8
-  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !28
-  %.pre1 = add i32 %.pre, -1
-  br label %_ZN6vectorImLb0EjE4backEv.exit
+  br i1 %11, label %_ZN6vectorImLb0EjE4backEv.exit, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds i8, ptr %10, i64 -4
@@ -230,9 +225,9 @@ define hidden void @_ZN8reslimit3popEv(ptr noundef nonnull align 8 captures(none
   %16 = zext i32 %15 to i64
   br label %_ZN6vectorImLb0EjE4backEv.exit
 
-_ZN6vectorImLb0EjE4backEv.exit:                   ; preds = %._ZN6vectorImLb0EjE4backEv.exit_crit_edge, %12
-  %.pre-phi = phi i32 [ %.pre1, %._ZN6vectorImLb0EjE4backEv.exit_crit_edge ], [ %15, %12 ]
-  %.0.i.i = phi i64 [ 4294967295, %._ZN6vectorImLb0EjE4backEv.exit_crit_edge ], [ %16, %12 ]
+_ZN6vectorImLb0EjE4backEv.exit:                   ; preds = %8, %12
+  %.pre-phi = phi i32 [ %15, %12 ], [ undef, %8 ]
+  %.0.i.i = phi i64 [ %16, %12 ], [ 4294967295, %8 ]
   %17 = getelementptr inbounds nuw i64, ptr %10, i64 %.0.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !29
   store i64 %18, ptr %4, align 8, !tbaa !24
@@ -325,38 +320,32 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge, label %8
 
-_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !28
-  %.pre5 = add i32 %.pre, -1
-  %.pre6 = zext i32 %.pre5 to i64
-  br label %13
-
 8:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %9 = getelementptr inbounds i8, ptr %6, i64 -4
   %10 = load i32, ptr %9, align 4, !tbaa !28
   %11 = add i32 %10, -1
   %12 = zext i32 %11 to i64
-  br label %13
+  br label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge
 
-13:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge, %8
-  %.pre-phi7 = phi i64 [ %.pre6, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge ], [ %12, %8 ]
-  %.pre-phi = phi i32 [ %.pre5, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge ], [ %11, %8 ]
-  %.0.i.i = phi i64 [ 4294967295, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge ], [ %12, %8 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %.0.i.i
-  %15 = load ptr, ptr %14, align 8, !tbaa !31
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !23
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !23
-  %20 = add i64 %19, %17
-  store i64 %20, ptr %18, align 8, !tbaa !23
-  %21 = getelementptr inbounds i8, ptr %6, i64 -4
-  %22 = getelementptr inbounds nuw ptr, ptr %6, i64 %.pre-phi7
-  %23 = load ptr, ptr %22, align 8, !tbaa !31
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i64 0, ptr %24, align 8, !tbaa !23
-  store i32 %.pre-phi, ptr %21, align 4, !tbaa !28
-  %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #23
+_ZNSt10lock_guardISt5mutexEC2ERS0_.exit._crit_edge: ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %8
+  %.pre-phi7 = phi i64 [ %12, %8 ], [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.pre-phi = phi i32 [ %11, %8 ], [ undef, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.0.i.i = phi i64 [ %12, %8 ], [ 4294967295, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %.0.i.i
+  %14 = load ptr, ptr %13, align 8, !tbaa !31
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load i64, ptr %15, align 8, !tbaa !23
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = load i64, ptr %17, align 8, !tbaa !23
+  %19 = add i64 %18, %16
+  store i64 %19, ptr %17, align 8, !tbaa !23
+  %20 = getelementptr inbounds i8, ptr %6, i64 -4
+  %21 = getelementptr inbounds nuw ptr, ptr %6, i64 %.pre-phi7
+  %22 = load ptr, ptr %21, align 8, !tbaa !31
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i64 0, ptr %23, align 8, !tbaa !23
+  store i32 %.pre-phi, ptr %20, align 4, !tbaa !28
+  %24 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #23
   ret void
 }
 

@@ -431,38 +431,36 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE15AuxiliarySymbol5cloneEv(ptr dead_
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 0, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %10, %11
-  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread, label %17
+  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread, label %16
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread: ; preds = %2
-  %15 = getelementptr inbounds i8, ptr null, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr %15, ptr %16, align 8, !tbaa !43
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   br label %_ZN4LIEF2PE15AuxiliarySymbolC2ERKS1_.exit
 
-17:                                               ; preds = %2
-  %18 = icmp slt i64 %14, 0
-  br i1 %18, label %19, label %20, !prof !56
+16:                                               ; preds = %2
+  %17 = icmp slt i64 %14, 0
+  br i1 %17, label %18, label %19, !prof !56
 
-19:                                               ; preds = %17
+18:                                               ; preds = %16
   tail call void @_ZSt17__throw_bad_allocv() #13
   unreachable
 
-20:                                               ; preds = %17
-  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #12
-  store ptr %21, ptr %7, align 8, !tbaa !40
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %14
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %22, ptr %23, align 8, !tbaa !43
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %11, i64 %14, i1 false)
+19:                                               ; preds = %16
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #12
+  store ptr %20, ptr %7, align 8, !tbaa !40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %14
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %21, ptr %22, align 8, !tbaa !43
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %11, i64 %14, i1 false)
   br label %_ZN4LIEF2PE15AuxiliarySymbolC2ERKS1_.exit
 
-_ZN4LIEF2PE15AuxiliarySymbolC2ERKS1_.exit:        ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread, %20
-  %24 = phi ptr [ %15, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread ], [ %22, %20 ]
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %24, ptr %25, align 8, !tbaa !42
+_ZN4LIEF2PE15AuxiliarySymbolC2ERKS1_.exit:        ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread, %19
+  %23 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread ], [ %21, %19 ]
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %23, ptr %24, align 8, !tbaa !42
   store ptr %3, ptr %0, align 8, !tbaa !50
   ret void
 }

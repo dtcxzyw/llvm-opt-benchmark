@@ -9953,7 +9953,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN2qe12interpolator8pingpongERNS_10
   %.pre2.i65 = load i32, ptr %.phi.trans.insert.i64, align 4, !tbaa !69
   br label %34
 
-34:                                               ; preds = %.noexc66, %22
+34:                                               ; preds = %22, %.noexc66
   %35 = phi i32 [ %.pre2.i65, %.noexc66 ], [ %26, %22 ]
   %36 = phi ptr [ %.pre.i63, %.noexc66 ], [ %.pre.i, %22 ]
   %37 = getelementptr inbounds i8, ptr %36, i64 -4
@@ -9993,7 +9993,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN2qe12interpolator8pingpongERNS_10
   %.pre2.i81 = load i32, ptr %.phi.trans.insert.i80, align 4, !tbaa !69
   br label %54
 
-54:                                               ; preds = %47, %.noexc82
+54:                                               ; preds = %.noexc82, %47
   %55 = phi i32 [ %.pre2.i81, %.noexc82 ], [ %49, %47 ]
   %56 = phi ptr [ %.pre.i79, %.noexc82 ], [ %45, %47 ]
   %57 = getelementptr inbounds i8, ptr %56, i64 -4
@@ -10026,7 +10026,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN2qe12interpolator8pingpongERNS_10
   %.pre2.i97 = load i32, ptr %.phi.trans.insert.i96, align 4, !tbaa !69
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit110
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit110: ; preds = %.noexc98, %54
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit110: ; preds = %54, %.noexc98
   %69 = phi i32 [ %.pre2.i97, %.noexc98 ], [ %61, %54 ]
   %70 = phi ptr [ %.pre.i95, %.noexc98 ], [ %56, %54 ]
   %71 = getelementptr inbounds i8, ptr %70, i64 -4

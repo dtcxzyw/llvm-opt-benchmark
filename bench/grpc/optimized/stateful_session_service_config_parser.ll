@@ -324,7 +324,7 @@ define noundef ptr @_ZN9grpc_core33StatefulSessionMethodParsedConfig12CookieConf
   %.sroa.1023.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %.sroa.1023.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i16 40, ptr %.sroa.11.0..sroa_idx, align 8
+  store i16 0, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.1224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 50
   store i8 1, ptr %.sroa.1224.0..sroa_idx, align 2
   %.sroa.1426.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -334,7 +334,7 @@ define noundef ptr @_ZN9grpc_core33StatefulSessionMethodParsedConfig12CookieConf
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %.sroa.16.0..sroa_idx, align 8
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i16 72, ptr %.sroa.17.0..sroa_idx, align 8
+  store i16 0, ptr %.sroa.17.0..sroa_idx, align 8
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 82
   store i8 1, ptr %.sroa.18.0..sroa_idx, align 2
   %.sroa.1928.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -461,7 +461,7 @@ define noundef ptr @_ZN9grpc_core33StatefulSessionMethodParsedConfig10JsonLoader
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_33StatefulSessionMethodParsedConfig12CookieConfigESaIS5_EEEEE6value_E, ptr %9, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 8, ptr %.sroa.5.0..sroa_idx, align 8
+  store i16 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 18
   store i8 1, ptr %.sroa.6.0..sroa_idx, align 2
   %.sroa.72.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -1067,7 +1067,7 @@ define linkonce_odr void @_ZNK9grpc_core11json_detail10AutoLoaderINS_33StatefulS
   %.sroa.1023.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %.sroa.1023.0..sroa_idx.i, align 8
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i16 40, ptr %.sroa.11.0..sroa_idx.i, align 8
+  store i16 0, ptr %.sroa.11.0..sroa_idx.i, align 8
   %.sroa.1224.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 50
   store i8 1, ptr %.sroa.1224.0..sroa_idx.i, align 2
   %.sroa.1426.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -1077,7 +1077,7 @@ define linkonce_odr void @_ZNK9grpc_core11json_detail10AutoLoaderINS_33StatefulS
   %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 72
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %.sroa.16.0..sroa_idx.i, align 8
   %.sroa.17.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store i16 72, ptr %.sroa.17.0..sroa_idx.i, align 8
+  store i16 0, ptr %.sroa.17.0..sroa_idx.i, align 8
   %.sroa.18.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 82
   store i8 1, ptr %.sroa.18.0..sroa_idx.i, align 2
   %.sroa.1928.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 88
@@ -1463,7 +1463,7 @@ define linkonce_odr void @_ZNK9grpc_core11json_detail10AutoLoaderINS_33StatefulS
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt6vectorINS_33StatefulSessionMethodParsedConfig12CookieConfigESaIS5_EEEEE6value_E, ptr %13, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i16 8, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store i16 0, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 18
   store i8 1, ptr %.sroa.6.0..sroa_idx.i, align 2
   %.sroa.72.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24

@@ -4535,11 +4535,7 @@ define linkonce_odr dso_local void @_ZN12CleanVisitor11setCppWidthEP7AstNode(ptr
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !87
   %.not.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i, label %._ZN12CleanVisitor8cppWidthEP7AstNode.exit_crit_edge, label %_ZNK7AstNode5widthEv.exit.i
-
-._ZN12CleanVisitor8cppWidthEP7AstNode.exit_crit_edge: ; preds = %2
-  %.pre = load i32, ptr inttoptr (i64 152 to ptr), align 8, !tbaa !126
-  br label %_ZN12CleanVisitor8cppWidthEP7AstNode.exit
+  br i1 %.not.i.i, label %_ZN12CleanVisitor8cppWidthEP7AstNode.exit.thread, label %_ZNK7AstNode5widthEv.exit.i
 
 _ZNK7AstNode5widthEv.exit.i:                      ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
@@ -4556,67 +4552,68 @@ _ZNK7AstNode10widthWordsEv.exit.i:                ; preds = %_ZNK7AstNode5widthE
   %13 = and i32 %12, 2147483616
   br label %_ZN12CleanVisitor8cppWidthEP7AstNode.exit
 
-_ZN12CleanVisitor8cppWidthEP7AstNode.exit:        ; preds = %._ZN12CleanVisitor8cppWidthEP7AstNode.exit_crit_edge, %_ZNK7AstNode5widthEv.exit.i, %_ZNK7AstNode5widthEv.exit4.i, %_ZNK7AstNode10widthWordsEv.exit.i
-  %14 = phi i32 [ %9, %_ZNK7AstNode10widthWordsEv.exit.i ], [ %9, %_ZNK7AstNode5widthEv.exit.i ], [ %9, %_ZNK7AstNode5widthEv.exit4.i ], [ %.pre, %._ZN12CleanVisitor8cppWidthEP7AstNode.exit_crit_edge ]
-  %.0.i = phi i32 [ %13, %_ZNK7AstNode10widthWordsEv.exit.i ], [ 32, %_ZNK7AstNode5widthEv.exit.i ], [ 64, %_ZNK7AstNode5widthEv.exit4.i ], [ 32, %._ZN12CleanVisitor8cppWidthEP7AstNode.exit_crit_edge ]
-  %.not = icmp eq i32 %14, %.0.i
-  br i1 %.not, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit, label %15
+_ZN12CleanVisitor8cppWidthEP7AstNode.exit:        ; preds = %_ZNK7AstNode5widthEv.exit.i, %_ZNK7AstNode5widthEv.exit4.i, %_ZNK7AstNode10widthWordsEv.exit.i
+  %.0.i = phi i32 [ %13, %_ZNK7AstNode10widthWordsEv.exit.i ], [ 32, %_ZNK7AstNode5widthEv.exit.i ], [ 64, %_ZNK7AstNode5widthEv.exit4.i ]
+  %.not = icmp eq i32 %9, %.0.i
+  br i1 %.not, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit, label %_ZN12CleanVisitor8cppWidthEP7AstNode.exit.thread
 
-15:                                               ; preds = %_ZN12CleanVisitor8cppWidthEP7AstNode.exit
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 136
-  %17 = load i32, ptr %16, align 8, !tbaa !127
-  %18 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4, !tbaa !16
-  %19 = icmp ne i32 %17, %18
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %21 = load i64, ptr %20, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %.not.i25 = icmp eq i64 %21, 0
-  %.not.i = select i1 %19, i1 true, i1 %.not.i25
-  br i1 %.not.i, label %_ZNK7AstNode8widthMinEv.exit, label %23
+_ZN12CleanVisitor8cppWidthEP7AstNode.exit.thread: ; preds = %2, %_ZN12CleanVisitor8cppWidthEP7AstNode.exit
+  %.0.i28 = phi i32 [ %.0.i, %_ZN12CleanVisitor8cppWidthEP7AstNode.exit ], [ 32, %2 ]
+  %14 = phi i32 [ %9, %_ZN12CleanVisitor8cppWidthEP7AstNode.exit ], [ undef, %2 ]
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 136
+  %16 = load i32, ptr %15, align 8, !tbaa !127
+  %17 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4, !tbaa !16
+  %18 = icmp ne i32 %16, %17
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %20 = load i64, ptr %19, align 8
+  %21 = inttoptr i64 %20 to ptr
+  %.not.i25 = icmp eq i64 %20, 0
+  %.not.i = select i1 %18, i1 true, i1 %.not.i25
+  br i1 %.not.i, label %_ZNK7AstNode8widthMinEv.exit, label %22
 
-23:                                               ; preds = %15
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  %.sroa.0.0.copyload.i.i.i = load i16, ptr %24, align 8, !tbaa !96
-  %25 = add i16 %.sroa.0.0.copyload.i.i.i, -53
-  %spec.select.i.i = icmp ult i16 %25, 27
+22:                                               ; preds = %_ZN12CleanVisitor8cppWidthEP7AstNode.exit.thread
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  %.sroa.0.0.copyload.i.i.i = load i16, ptr %23, align 8, !tbaa !96
+  %24 = add i16 %.sroa.0.0.copyload.i.i.i, -53
+  %spec.select.i.i = icmp ult i16 %24, 27
   br i1 %spec.select.i.i, label %_ZN7AstNode11privateCastI12AstNodeDTypePS_EEPT_S2_.exit, label %_ZNK7AstNode8widthMinEv.exit
 
-_ZN7AstNode11privateCastI12AstNodeDTypePS_EEPT_S2_.exit: ; preds = %23
-  %.not.i21 = icmp eq ptr %7, %22
-  br i1 %.not.i21, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit, label %26
+_ZN7AstNode11privateCastI12AstNodeDTypePS_EEPT_S2_.exit: ; preds = %22
+  %.not.i21 = icmp eq ptr %7, %21
+  br i1 %.not.i21, label %_ZN7AstNode6dtypepEP12AstNodeDType.exit, label %25
 
-26:                                               ; preds = %_ZN7AstNode11privateCastI12AstNodeDTypePS_EEPT_S2_.exit
-  store ptr %22, ptr %6, align 8, !tbaa !87
-  %27 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !76
-  %28 = add i64 %27, 1
-  store i64 %28, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !76
+25:                                               ; preds = %_ZN7AstNode11privateCastI12AstNodeDTypePS_EEPT_S2_.exit
+  store ptr %21, ptr %6, align 8, !tbaa !87
+  %26 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !76
+  %27 = add i64 %26, 1
+  store i64 %27, ptr @_ZN7AstNode12s_editCntGblE, align 8, !tbaa !76
   br label %_ZN7AstNode6dtypepEP12AstNodeDType.exit
 
-_ZNK7AstNode8widthMinEv.exit:                     ; preds = %15, %23
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 156
-  %30 = load i32, ptr %29, align 4, !tbaa !88
-  %.not.i.i23 = icmp eq i32 %30, 0
-  %31 = select i1 %.not.i.i23, i32 %14, i32 %30
-  tail call void @_ZN7AstNode13dtypeChgWidthEii(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %.0.i, i32 noundef %31)
-  %32 = load ptr, ptr %6, align 8, !tbaa !87
-  %.not20 = icmp eq ptr %32, %7
-  br i1 %.not20, label %33, label %37, !prof !4
+_ZNK7AstNode8widthMinEv.exit:                     ; preds = %_ZN12CleanVisitor8cppWidthEP7AstNode.exit.thread, %22
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 156
+  %29 = load i32, ptr %28, align 4, !tbaa !88
+  %.not.i.i23 = icmp eq i32 %29, 0
+  %30 = select i1 %.not.i.i23, i32 %14, i32 %29
+  tail call void @_ZN7AstNode13dtypeChgWidthEii(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %.0.i28, i32 noundef %30)
+  %31 = load ptr, ptr %6, align 8, !tbaa !87
+  %.not20 = icmp eq ptr %31, %7
+  br i1 %.not20, label %32, label %36, !prof !4
 
-33:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit
-  %34 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.1, i32 noundef 76)
-  %35 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @.str.17)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %36) #26
+32:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit
+  %33 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.1, i32 noundef 76)
+  %34 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull @.str.17)
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %35) #26
   unreachable
 
-37:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit
-  %38 = ptrtoint ptr %32 to i64
-  store i64 %38, ptr %20, align 8, !tbaa !14
-  %39 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4, !tbaa !16
-  store i32 %39, ptr %16, align 8, !tbaa !127
+36:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit
+  %37 = ptrtoint ptr %31 to i64
+  store i64 %37, ptr %19, align 8, !tbaa !14
+  %38 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4, !tbaa !16
+  store i32 %38, ptr %15, align 8, !tbaa !127
   br label %_ZN7AstNode6dtypepEP12AstNodeDType.exit
 
-_ZN7AstNode6dtypepEP12AstNodeDType.exit:          ; preds = %26, %_ZN7AstNode11privateCastI12AstNodeDTypePS_EEPT_S2_.exit, %37, %_ZN12CleanVisitor8cppWidthEP7AstNode.exit
+_ZN7AstNode6dtypepEP12AstNodeDType.exit:          ; preds = %25, %_ZN7AstNode11privateCastI12AstNodeDTypePS_EEPT_S2_.exit, %36, %_ZN12CleanVisitor8cppWidthEP7AstNode.exit
   ret void
 }
 

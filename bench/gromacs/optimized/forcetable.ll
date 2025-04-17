@@ -262,12 +262,12 @@ define void @_Z29generateEwaldCorrectionTablesidfPFdddE(ptr dead_on_unwind noali
 _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: ; preds = %12
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
-  %.phi.trans.insert163 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !18
+  %.phi.trans.insert162 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.pre163 = load ptr, ptr %.phi.trans.insert162, align 8, !tbaa !18
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = ptrtoint ptr %.pre to i64
-  %20 = ptrtoint ptr %.pre164 to i64
+  %20 = ptrtoint ptr %.pre163 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 2
   %23 = icmp ult i64 %22, %16
@@ -283,7 +283,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   br i1 %27, label %28, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit122
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw float, ptr %.pre164, i64 %16
+  %29 = getelementptr inbounds nuw float, ptr %.pre163, i64 %16
   %.not.i.i120 = icmp eq ptr %.pre, %29
   br i1 %.not.i.i120, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit122, label %30
 
@@ -311,8 +311,8 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit12
           to label %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit125_crit_edge unwind label %64
 
 ._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit125_crit_edge: ; preds = %42
-  %.pre165 = load ptr, ptr %31, align 8, !tbaa !18
-  %.pre166 = load ptr, ptr %34, align 8, !tbaa !17
+  %.pre164 = load ptr, ptr %31, align 8, !tbaa !18
+  %.pre165 = load ptr, ptr %34, align 8, !tbaa !17
   br label %.lr.ph
 
 44:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit122
@@ -329,8 +329,8 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit12
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %44, %46, %48, %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit125_crit_edge
-  %49 = phi ptr [ %.pre166, %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit125_crit_edge ], [ %47, %48 ], [ %35, %46 ], [ %35, %44 ]
-  %50 = phi ptr [ %.pre165, %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit125_crit_edge ], [ %36, %48 ], [ %36, %46 ], [ %36, %44 ]
+  %49 = phi ptr [ %.pre165, %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit125_crit_edge ], [ %47, %48 ], [ %35, %46 ], [ %35, %44 ]
+  %50 = phi ptr [ %.pre164, %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit125_crit_edge ], [ %36, %48 ], [ %36, %46 ], [ %36, %44 ]
   %51 = load ptr, ptr %14, align 8, !tbaa !18
   %52 = load ptr, ptr %17, align 8, !tbaa !18
   %53 = add nsw i32 %1, -1

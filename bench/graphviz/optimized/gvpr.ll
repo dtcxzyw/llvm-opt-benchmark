@@ -1238,35 +1238,35 @@ scanArgs.exit:                                    ; preds = %strs_detach.exit.i.
   %350 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @gverrorf, ptr %350, align 8, !tbaa !47
   %.not140 = icmp eq ptr %2, null
-  br i1 %.not140, label %354, label %351
+  br i1 %.not140, label %.thread, label %352
 
-351:                                              ; preds = %344
-  %352 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %353 = load i32, ptr %352, align 8, !tbaa !48
-  br label %355
+.thread:                                          ; preds = %344
+  %351 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i32 0, ptr %351, align 8, !tbaa !48
+  br label %358
 
-354:                                              ; preds = %344
-  %.pre609 = load i32, ptr inttoptr (i64 40 to ptr), align 8, !tbaa !48
-  br label %355
-
-355:                                              ; preds = %354, %351
-  %356 = phi i32 [ %.pre609, %354 ], [ %353, %351 ]
-  %.sink = phi i32 [ 0, %354 ], [ %353, %351 ]
+352:                                              ; preds = %344
+  %353 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %354 = load i32, ptr %353, align 8, !tbaa !49
+  %355 = and i32 %354, 1
+  %356 = icmp eq i32 %355, 0
   %357 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 %.sink, ptr %357, align 8, !tbaa !52
-  %358 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %359 = and i32 %356, 1
-  %.not141 = icmp eq i32 %359, 0
-  %spec.select812 = select i1 %.not141, ptr @gvexitf, ptr null
+  store i32 %354, ptr %357, align 8, !tbaa !48
+  %spec.select814 = select i1 %356, ptr @gvexitf, ptr null
+  br label %358
+
+358:                                              ; preds = %352, %.thread
+  %.sink606 = phi ptr [ @gvexitf, %.thread ], [ %spec.select814, %352 ]
+  %359 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %360 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %spec.select812, ptr %360, align 8, !tbaa !53
+  store ptr %.sink606, ptr %360, align 8, !tbaa !53
   %361 = call ptr @openGPRState(ptr noundef nonnull %8) #24
   %362 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %361, ptr %362, align 8, !tbaa !18
   %363 = icmp eq ptr %361, null
   br i1 %363, label %965, label %364
 
-364:                                              ; preds = %355
+364:                                              ; preds = %358
   %365 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %366 = load ptr, ptr %365, align 8, !tbaa !54
   %.not142 = icmp eq ptr %366, null
@@ -1290,7 +1290,7 @@ scanArgs.exit:                                    ; preds = %strs_detach.exit.i.
 375:                                              ; preds = %368
   %376 = load ptr, ptr %362, align 8, !tbaa !18
   call void @initGPRState(ptr noundef %376) #24
-  %377 = load i32, ptr %358, align 8, !tbaa !48
+  %377 = load i32, ptr %359, align 8, !tbaa !49
   %378 = and i32 %377, 2
   %.not143 = icmp eq i32 %378, 0
   br i1 %.not143, label %381, label %379
@@ -2555,7 +2555,7 @@ traverse.exit:                                    ; preds = %.loopexit.i.i, %837
   br i1 %.not140, label %919, label %882
 
 882:                                              ; preds = %881
-  %883 = load i32, ptr %358, align 8, !tbaa !48
+  %883 = load i32, ptr %359, align 8, !tbaa !49
   %884 = and i32 %883, 2
   %.not160 = icmp eq i32 %884, 0
   br i1 %.not160, label %919, label %885
@@ -2713,8 +2713,8 @@ chkClose.exit:                                    ; preds = %935, %933, %925
   %964 = call ptr @exeval(ptr noundef %963, ptr noundef nonnull %960, ptr noundef nonnull %956) #24
   br label %965
 
-965:                                              ; preds = %.loopexit, %961, %383, %368, %355, %339, %scanArgs.exit
-  %.0 = phi i32 [ %.sroa.28.3, %scanArgs.exit ], [ 1, %339 ], [ 1, %355 ], [ 1, %368 ], [ %389, %383 ], [ 0, %961 ], [ 0, %.loopexit ]
+965:                                              ; preds = %.loopexit, %961, %383, %368, %358, %339, %scanArgs.exit
+  %.0 = phi i32 [ %.sroa.28.3, %scanArgs.exit ], [ 1, %339 ], [ 1, %358 ], [ 1, %368 ], [ %389, %383 ], [ 0, %961 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #24
   ret i32 %.0
 }
@@ -3976,24 +3976,24 @@ attributes #32 = { cold noreturn nounwind }
 !45 = !{!9, !15, i64 88}
 !46 = !{!42, !15, i64 16}
 !47 = !{!42, !5, i64 24}
-!48 = !{!49, !12, i64 40}
-!49 = !{!"", !50, i64 0, !51, i64 8, !50, i64 16, !5, i64 24, !5, i64 32, !12, i64 40, !5, i64 48}
-!50 = !{!"p2 _ZTS8Agraph_s", !5, i64 0}
-!51 = !{!"long", !6, i64 0}
-!52 = !{!42, !12, i64 40}
+!48 = !{!42, !12, i64 40}
+!49 = !{!50, !12, i64 40}
+!50 = !{!"", !51, i64 0, !52, i64 8, !51, i64 16, !5, i64 24, !5, i64 32, !12, i64 40, !5, i64 48}
+!51 = !{!"p2 _ZTS8Agraph_s", !5, i64 0}
+!52 = !{!"long", !6, i64 0}
 !53 = !{!42, !5, i64 32}
-!54 = !{!49, !5, i64 48}
+!54 = !{!50, !5, i64 48}
 !55 = !{!56, !12, i64 136}
-!56 = !{!"", !57, i64 0, !57, i64 8, !57, i64 16, !57, i64 24, !58, i64 32, !59, i64 40, !5, i64 48, !5, i64 56, !11, i64 64, !11, i64 72, !4, i64 80, !12, i64 88, !60, i64 96, !60, i64 104, !61, i64 112, !12, i64 120, !12, i64 124, !15, i64 128, !12, i64 136, !5, i64 144, !51, i64 152, !6, i64 160}
+!56 = !{!"", !57, i64 0, !57, i64 8, !57, i64 16, !57, i64 24, !58, i64 32, !59, i64 40, !5, i64 48, !5, i64 56, !11, i64 64, !11, i64 72, !4, i64 80, !12, i64 88, !60, i64 96, !60, i64 104, !61, i64 112, !12, i64 120, !12, i64 124, !15, i64 128, !12, i64 136, !5, i64 144, !52, i64 152, !6, i64 160}
 !57 = !{!"p1 _ZTS8Agraph_s", !5, i64 0}
 !58 = !{!"p1 _ZTS7Agobj_s", !5, i64 0}
 !59 = !{!"p1 _ZTS8Exdisc_s", !5, i64 0}
 !60 = !{!"p1 _ZTS8Agnode_s", !5, i64 0}
 !61 = !{!"p1 _ZTS8Agedge_s", !5, i64 0}
-!62 = !{!49, !50, i64 0}
+!62 = !{!50, !51, i64 0}
 !63 = !{!9, !12, i64 100}
 !64 = !{!65, !67, i64 16}
-!65 = !{!"", !14, i64 0, !66, i64 8, !67, i64 16, !51, i64 24, !5, i64 32, !67, i64 40, !67, i64 48}
+!65 = !{!"", !14, i64 0, !66, i64 8, !67, i64 16, !52, i64 24, !5, i64 32, !67, i64 40, !67, i64 48}
 !66 = !{!"p1 _ZTS6Expr_s", !5, i64 0}
 !67 = !{!"p1 _ZTS8Exnode_s", !5, i64 0}
 !68 = !{!65, !66, i64 8}
@@ -4005,13 +4005,13 @@ attributes #32 = { cold noreturn nounwind }
 !74 = !{!56, !11, i64 72}
 !75 = !{!9, !12, i64 64}
 !76 = !{!56, !57, i64 8}
-!77 = !{!65, !51, i64 24}
+!77 = !{!65, !52, i64 24}
 !78 = !{!56, !58, i64 32}
 !79 = !{!65, !67, i64 40}
 !80 = !{!65, !5, i64 32}
 !81 = !{!56, !60, i64 96}
 !82 = !{!83, !67, i64 0}
-!83 = !{!"", !67, i64 0, !14, i64 8, !51, i64 16, !51, i64 24, !5, i64 32, !5, i64 40}
+!83 = !{!"", !67, i64 0, !14, i64 8, !52, i64 16, !52, i64 24, !5, i64 32, !5, i64 40}
 !84 = !{!83, !14, i64 8}
 !85 = !{!56, !57, i64 16}
 !86 = !{!56, !12, i64 120}
@@ -4019,13 +4019,13 @@ attributes #32 = { cold noreturn nounwind }
 !88 = distinct !{!88, !22}
 !89 = !{!56, !57, i64 24}
 !90 = !{!56, !12, i64 88}
-!91 = !{!83, !51, i64 16}
+!91 = !{!83, !52, i64 16}
 !92 = !{!83, !5, i64 32}
 !93 = !{!94, !67, i64 0}
 !94 = !{!"", !67, i64 0, !67, i64 8}
 !95 = !{!94, !67, i64 8}
 !96 = distinct !{!96, !22}
-!97 = !{!83, !51, i64 24}
+!97 = !{!83, !52, i64 24}
 !98 = !{!83, !5, i64 40}
 !99 = distinct !{!99, !22}
 !100 = distinct !{!100, !22}
@@ -4043,20 +4043,20 @@ attributes #32 = { cold noreturn nounwind }
 !112 = !{!113, !60, i64 56}
 !113 = !{!"Agedge_s", !114, i64 0, !116, i64 24, !116, i64 40, !60, i64 56}
 !114 = !{!"Agobj_s", !115, i64 0, !108, i64 16}
-!115 = !{!"Agtag_s", !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !51, i64 8}
+!115 = !{!"Agtag_s", !12, i64 0, !12, i64 0, !12, i64 0, !12, i64 0, !52, i64 8}
 !116 = !{!"dtlink_s_", !117, i64 0, !6, i64 8}
 !117 = !{!"p1 _ZTS9dtlink_s_", !5, i64 0}
 !118 = distinct !{!118, !22}
 !119 = !{!120, !6, i64 17}
 !120 = !{!"", !5, i64 0, !5, i64 8, !6, i64 16, !6, i64 17}
 !121 = distinct !{!121, !22}
-!122 = !{!49, !51, i64 8}
-!123 = !{!49, !50, i64 16}
+!122 = !{!50, !52, i64 8}
+!123 = !{!50, !51, i64 16}
 !124 = !{!57, !57, i64 0}
 !125 = distinct !{!125, !22}
 !126 = !{!65, !67, i64 48}
 !127 = !{!128, !5, i64 128}
-!128 = !{!"Exdisc_s", !51, i64 0, !51, i64 8, !129, i64 16, !15, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !130, i64 120, !5, i64 128}
+!128 = !{!"Exdisc_s", !52, i64 0, !52, i64 8, !129, i64 16, !15, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !130, i64 120, !5, i64 128}
 !129 = !{!"p1 _ZTS6Exid_s", !5, i64 0}
 !130 = !{!"p1 int", !5, i64 0}
 !131 = distinct !{!131, !22}

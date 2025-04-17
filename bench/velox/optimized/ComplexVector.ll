@@ -2181,16 +2181,12 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %nonNullRows, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i = icmp eq ptr %36, %37
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i.thread, label %cond.true.i.i.i.i.i
 
 invoke.cont.i.i.thread:                           ; preds = %if.end
   %_M_finish.i.i.i.i883 = getelementptr inbounds nuw i8, ptr %nonNullRows, i64 8
-  %add.ptr.i.i.i.i884 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
-  %_M_end_of_storage.i.i.i.i885 = getelementptr inbounds nuw i8, ptr %nonNullRows, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nonNullRows, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i884, ptr %_M_end_of_storage.i.i.i.i885, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nonNullRows, i8 0, i64 24, i1 false)
   br label %_ZN8facebook5velox17SelectivityVectorC2ERKS1_.exit
 
 cond.true.i.i.i.i.i:                              ; preds = %if.end
@@ -2213,7 +2209,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %cond.true.i.i.i.i.i
   br label %_ZN8facebook5velox17SelectivityVectorC2ERKS1_.exit
 
 _ZN8facebook5velox17SelectivityVectorC2ERKS1_.exit: ; preds = %invoke.cont.i.i.thread, %if.then.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i887 = phi ptr [ %add.ptr.i.i.i.i884, %invoke.cont.i.i.thread ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i887 = phi ptr [ null, %invoke.cont.i.i.thread ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i886 = phi ptr [ %_M_finish.i.i.i.i883, %invoke.cont.i.i.thread ], [ %_M_finish.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i887, ptr %_M_finish.i.i.i.i886, align 8
   %size_.i = getelementptr inbounds nuw i8, ptr %nonNullRows, i64 24
@@ -4450,10 +4446,6 @@ if.then156:                                       ; preds = %invoke.cont154
 
 invoke.cont.i.i781.thread:                        ; preds = %if.then156
   %_M_finish.i.i.i.i783890 = getelementptr inbounds nuw i8, ptr %nullRows, i64 8
-  %add.ptr.i.i.i.i784891 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i775
-  %_M_end_of_storage.i.i.i.i785892 = getelementptr inbounds nuw i8, ptr %nullRows, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %nullRows, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i784891, ptr %_M_end_of_storage.i.i.i.i785892, align 8
   br label %invoke.cont157
 
 cond.true.i.i.i.i.i777:                           ; preds = %if.then156
@@ -4482,7 +4474,7 @@ if.then.i.i.i.i.i.i.i.i.i.i790:                   ; preds = %_ZNSt16allocator_tr
   br label %invoke.cont157
 
 invoke.cont157:                                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i790, %invoke.cont.i.i781.thread
-  %add.ptr.i.i.i.i784894 = phi ptr [ %add.ptr.i.i.i.i784891, %invoke.cont.i.i781.thread ], [ %add.ptr.i.i.i.i784, %if.then.i.i.i.i.i.i.i.i.i.i790 ]
+  %add.ptr.i.i.i.i784894 = phi ptr [ null, %invoke.cont.i.i781.thread ], [ %add.ptr.i.i.i.i784, %if.then.i.i.i.i.i.i.i.i.i.i790 ]
   %_M_finish.i.i.i.i783893 = phi ptr [ %_M_finish.i.i.i.i783890, %invoke.cont.i.i781.thread ], [ %_M_finish.i.i.i.i783, %if.then.i.i.i.i.i.i.i.i.i.i790 ]
   store ptr %add.ptr.i.i.i.i784894, ptr %_M_finish.i.i.i.i783893, align 8
   %size_.i792 = getelementptr inbounds nuw i8, ptr %nullRows, i64 24

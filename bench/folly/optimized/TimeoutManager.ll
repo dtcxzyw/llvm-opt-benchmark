@@ -1063,18 +1063,17 @@ define void @_ZN5folly14TimeoutManager16clearCobTimeoutsEv(ptr noundef nonnull r
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %7 = phi ptr [ %13, %.lr.ph ], [ %4, %.preheader ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 -272
-  %9 = load ptr, ptr %8, align 16, !tbaa !7
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 16 dereferenceable(288) %8) #27
-  %12 = load ptr, ptr %2, align 8, !tbaa !19
-  %13 = load ptr, ptr %12, align 8, !tbaa !13
-  %.not.i.i = icmp eq ptr %13, null
-  %14 = icmp eq ptr %13, %12
-  %15 = or i1 %.not.i.i, %14
-  br i1 %15, label %.loopexit, label %.lr.ph, !llvm.loop !64
+  %7 = phi ptr [ %12, %.lr.ph ], [ %4, %.preheader ]
+  %8 = load ptr, ptr %7, align 16, !tbaa !7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void %10(ptr noundef nonnull align 16 dereferenceable(288) %7) #27
+  %11 = load ptr, ptr %2, align 8, !tbaa !19
+  %12 = load ptr, ptr %11, align 8, !tbaa !13
+  %.not.i.i = icmp eq ptr %12, null
+  %13 = icmp eq ptr %12, %11
+  %14 = or i1 %.not.i.i, %13
+  br i1 %14, label %.loopexit, label %.lr.ph, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   ret void
@@ -1096,34 +1095,33 @@ define void @_ZN5folly14TimeoutManagerD2Ev(ptr noundef nonnull align 8 captures(
   br i1 %6, label %_ZN5folly14TimeoutManager16clearCobTimeoutsEv.exit.thread3, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %7 = phi ptr [ %13, %.lr.ph.i ], [ %4, %.preheader.i ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 -272
-  %9 = load ptr, ptr %8, align 16, !tbaa !7
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 16 dereferenceable(288) %8) #27
-  %12 = load ptr, ptr %2, align 8, !tbaa !19
-  %13 = load ptr, ptr %12, align 8, !tbaa !13
-  %.not.i.i.i = icmp eq ptr %13, null
-  %14 = icmp eq ptr %13, %12
-  %15 = or i1 %.not.i.i.i, %14
-  br i1 %15, label %_ZN5folly14TimeoutManager16clearCobTimeoutsEv.exit.thread3, label %.lr.ph.i, !llvm.loop !64
+  %7 = phi ptr [ %12, %.lr.ph.i ], [ %4, %.preheader.i ]
+  %8 = load ptr, ptr %7, align 16, !tbaa !7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8
+  tail call void %10(ptr noundef nonnull align 16 dereferenceable(288) %7) #27
+  %11 = load ptr, ptr %2, align 8, !tbaa !19
+  %12 = load ptr, ptr %11, align 8, !tbaa !13
+  %.not.i.i.i = icmp eq ptr %12, null
+  %13 = icmp eq ptr %12, %11
+  %14 = or i1 %.not.i.i.i, %13
+  br i1 %14, label %_ZN5folly14TimeoutManager16clearCobTimeoutsEv.exit.thread3, label %.lr.ph.i, !llvm.loop !64
 
 _ZN5folly14TimeoutManager16clearCobTimeoutsEv.exit.thread3: ; preds = %.lr.ph.i, %.preheader.i
-  %16 = phi ptr [ %4, %.preheader.i ], [ %13, %.lr.ph.i ]
-  %17 = phi ptr [ %3, %.preheader.i ], [ %12, %.lr.ph.i ]
-  %.not7.i.i.i.i.i.i = icmp eq ptr %16, %17
+  %15 = phi ptr [ %4, %.preheader.i ], [ %12, %.lr.ph.i ]
+  %16 = phi ptr [ %3, %.preheader.i ], [ %11, %.lr.ph.i ]
+  %.not7.i.i.i.i.i.i = icmp eq ptr %15, %16
   br i1 %.not7.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5folly14TimeoutManager11CobTimeoutsEEclEPS2_.exit.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN5folly14TimeoutManager16clearCobTimeoutsEv.exit.thread3, %.lr.ph.i.i.i.i.i.i
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %18, %.lr.ph.i.i.i.i.i.i ], [ %16, %_ZN5folly14TimeoutManager16clearCobTimeoutsEv.exit.thread3 ]
-  %18 = load ptr, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !13
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i.i ], [ %15, %_ZN5folly14TimeoutManager16clearCobTimeoutsEv.exit.thread3 ]
+  %17 = load ptr, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %.not.i.i.i.i.i.i = icmp eq ptr %18, %17
+  %.not.i.i.i.i.i.i = icmp eq ptr %17, %16
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5folly14TimeoutManager11CobTimeoutsEEclEPS2_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !66
 
 _ZNKSt14default_deleteIN5folly14TimeoutManager11CobTimeoutsEEclEPS2_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN5folly14TimeoutManager16clearCobTimeoutsEv.exit.thread3
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 16) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 16) #29
   br label %_ZNSt10unique_ptrIN5folly14TimeoutManager11CobTimeoutsESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly14TimeoutManager11CobTimeoutsESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5folly14TimeoutManager11CobTimeoutsEEclEPS2_.exit.i

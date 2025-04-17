@@ -1362,10 +1362,6 @@ invoke.cont16:                                    ; preds = %invoke.cont15
 
 invoke.cont.i.thread:                             ; preds = %invoke.cont16
   %_M_finish.i.i.i42 = getelementptr inbounds nuw i8, ptr %agg.tmp18, i64 8
-  %add.ptr.i.i.i1243 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i.i44 = getelementptr inbounds nuw i8, ptr %agg.tmp18, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i1243, ptr %_M_end_of_storage.i.i.i44, align 8
   br label %invoke.cont20
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont16
@@ -1394,7 +1390,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.thread
-  %add.ptr.i.i.i1246 = phi ptr [ %add.ptr.i.i.i1243, %invoke.cont.i.thread ], [ %add.ptr.i.i.i12, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i1246 = phi ptr [ null, %invoke.cont.i.thread ], [ %add.ptr.i.i.i12, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i45 = phi ptr [ %_M_finish.i.i.i42, %invoke.cont.i.thread ], [ %_M_finish.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i1246, ptr %_M_finish.i.i.i45, align 8
   invoke void @_ZN8proxygen18HTTPServerAcceptorC1ERKNS_21AcceptorConfigurationERKSt10shared_ptrINS_16HTTPCodecFactoryEESt6vectorIPNS_21RequestHandlerFactoryESaISB_EERKNS_17HTTPServerOptionsE(ptr noundef nonnull align 8 dereferenceable(1992) %call17, ptr noundef nonnull align 8 dereferenceable(761) %conf, ptr noundef nonnull align 8 dereferenceable(16) %codecFactory, ptr noundef nonnull %agg.tmp18, ptr noundef nonnull align 16 dereferenceable(312) %opts)

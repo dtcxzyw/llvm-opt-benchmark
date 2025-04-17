@@ -1397,7 +1397,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %493, %497
   %522 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %525 unwind label %4191
+          to label %525 unwind label %4187
 
 523:                                              ; preds = %492, %491
   %524 = landingpad { ptr, i32 }
@@ -1412,7 +1412,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %493, %497
 526:                                              ; preds = %525, %489
   %.pn.pn = phi { ptr, i32 } [ %.pn, %525 ], [ %490, %489 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %85) #21
-  br label %4183
+  br label %4179
 
 527:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit
   %528 = landingpad { ptr, i32 }
@@ -1505,7 +1505,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit546:          ; preds = %531, %535
   %561 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %564 unwind label %4191
+          to label %564 unwind label %4187
 
 562:                                              ; preds = %530, %529
   %563 = landingpad { ptr, i32 }
@@ -1520,7 +1520,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit546:          ; preds = %531, %535
 565:                                              ; preds = %564, %527
   %.pn267.pn = phi { ptr, i32 } [ %.pn267, %564 ], [ %528, %527 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %89) #21
-  br label %4183
+  br label %4179
 
 566:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit546
   %567 = landingpad { ptr, i32 }
@@ -1622,7 +1622,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit550:          ; preds = %570, %574
   %602 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %605 unwind label %4191
+          to label %605 unwind label %4187
 
 603:                                              ; preds = %569, %568
   %604 = landingpad { ptr, i32 }
@@ -1637,7 +1637,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit550:          ; preds = %570, %574
 606:                                              ; preds = %605, %566
   %.pn270.pn = phi { ptr, i32 } [ %.pn270, %605 ], [ %567, %566 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %93) #21
-  br label %4183
+  br label %4179
 
 607:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit550
   %608 = landingpad { ptr, i32 }
@@ -1742,7 +1742,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit551:          ; preds = %614, %618
   %644 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %647 unwind label %4191
+          to label %647 unwind label %4187
 
 645:                                              ; preds = %613, %612
   %646 = landingpad { ptr, i32 }
@@ -1757,7 +1757,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit551:          ; preds = %614, %618
 648:                                              ; preds = %647, %607
   %.pn274.pn = phi { ptr, i32 } [ %.pn274, %647 ], [ %608, %607 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %97) #21
-  br label %4183
+  br label %4179
 
 649:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit551
   %650 = landingpad { ptr, i32 }
@@ -1858,7 +1858,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit555:          ; preds = %653, %657
   %685 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %688 unwind label %4191
+          to label %688 unwind label %4187
 
 686:                                              ; preds = %652, %651
   %687 = landingpad { ptr, i32 }
@@ -1873,12 +1873,12 @@ _ZN5Catch16AssertionHandlerD2Ev.exit555:          ; preds = %653, %657
 689:                                              ; preds = %688, %649
   %.pn277.pn = phi { ptr, i32 } [ %.pn277, %688 ], [ %650, %649 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %104) #21
-  br label %4183
+  br label %4179
 
 690:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit555
   %691 = landingpad { ptr, i32 }
           cleanup
-  br label %4175
+  br label %4171
 
 692:                                              ; preds = %667
   %693 = landingpad { ptr, i32 }
@@ -1971,7 +1971,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit559:          ; preds = %696, %700
   %726 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %729 unwind label %4191
+          to label %729 unwind label %4187
 
 727:                                              ; preds = %695, %694
   %728 = landingpad { ptr, i32 }
@@ -1986,7 +1986,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit559:          ; preds = %696, %700
 730:                                              ; preds = %729, %692
   %.pn280.pn = phi { ptr, i32 } [ %.pn280, %729 ], [ %693, %692 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %109) #21
-  br label %4175
+  br label %4171
 
 731:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit559
   %732 = landingpad { ptr, i32 }
@@ -2078,7 +2078,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit563:          ; preds = %735, %739
   %764 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %767 unwind label %4191
+          to label %767 unwind label %4187
 
 765:                                              ; preds = %734, %733
   %766 = landingpad { ptr, i32 }
@@ -2093,7 +2093,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit563:          ; preds = %735, %739
 768:                                              ; preds = %767, %731
   %.pn283.pn = phi { ptr, i32 } [ %.pn283, %767 ], [ %732, %731 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %113) #21
-  br label %4175
+  br label %4171
 
 769:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit563
   %770 = landingpad { ptr, i32 }
@@ -2195,7 +2195,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit567:          ; preds = %773, %777
   %805 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %808 unwind label %4191
+          to label %808 unwind label %4187
 
 806:                                              ; preds = %772, %771
   %807 = landingpad { ptr, i32 }
@@ -2210,7 +2210,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit567:          ; preds = %773, %777
 809:                                              ; preds = %808, %769
   %.pn286.pn = phi { ptr, i32 } [ %.pn286, %808 ], [ %770, %769 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %117) #21
-  br label %4175
+  br label %4171
 
 810:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit567
   %811 = landingpad { ptr, i32 }
@@ -2315,7 +2315,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit569:          ; preds = %817, %821
   %847 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %850 unwind label %4191
+          to label %850 unwind label %4187
 
 848:                                              ; preds = %816, %815
   %849 = landingpad { ptr, i32 }
@@ -2330,7 +2330,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit569:          ; preds = %817, %821
 851:                                              ; preds = %850, %810
   %.pn290.pn = phi { ptr, i32 } [ %.pn290, %850 ], [ %811, %810 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %121) #21
-  br label %4175
+  br label %4171
 
 852:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit569
   %853 = landingpad { ptr, i32 }
@@ -2428,7 +2428,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit573:          ; preds = %856, %860
   %887 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %890 unwind label %4191
+          to label %890 unwind label %4187
 
 888:                                              ; preds = %855, %854
   %889 = landingpad { ptr, i32 }
@@ -2443,7 +2443,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit573:          ; preds = %856, %860
 891:                                              ; preds = %890, %852
   %.pn293.pn = phi { ptr, i32 } [ %.pn293, %890 ], [ %853, %852 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %128) #21
-  br label %4175
+  br label %4171
 
 892:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit573
   %893 = landingpad { ptr, i32 }
@@ -2535,7 +2535,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit577:          ; preds = %896, %900
   %925 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %928 unwind label %4191
+          to label %928 unwind label %4187
 
 926:                                              ; preds = %895, %894
   %927 = landingpad { ptr, i32 }
@@ -2550,7 +2550,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit577:          ; preds = %896, %900
 929:                                              ; preds = %928, %892
   %.pn296.pn = phi { ptr, i32 } [ %.pn296, %928 ], [ %893, %892 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %133) #21
-  br label %4167
+  br label %4163
 
 930:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit577
   %931 = landingpad { ptr, i32 }
@@ -2643,7 +2643,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit581:          ; preds = %934, %938
   %964 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %967 unwind label %4191
+          to label %967 unwind label %4187
 
 965:                                              ; preds = %933, %932
   %966 = landingpad { ptr, i32 }
@@ -2658,7 +2658,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit581:          ; preds = %934, %938
 968:                                              ; preds = %967, %930
   %.pn299.pn = phi { ptr, i32 } [ %.pn299, %967 ], [ %931, %930 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %137) #21
-  br label %4167
+  br label %4163
 
 969:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit581
   %970 = landingpad { ptr, i32 }
@@ -2760,7 +2760,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit585:          ; preds = %973, %977
   %1005 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1008 unwind label %4191
+          to label %1008 unwind label %4187
 
 1006:                                             ; preds = %972, %971
   %1007 = landingpad { ptr, i32 }
@@ -2775,7 +2775,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit585:          ; preds = %973, %977
 1009:                                             ; preds = %1008, %969
   %.pn302.pn = phi { ptr, i32 } [ %.pn302, %1008 ], [ %970, %969 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %141) #21
-  br label %4167
+  br label %4163
 
 1010:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit585
   %1011 = landingpad { ptr, i32 }
@@ -2880,7 +2880,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit587:          ; preds = %1017, %1021
   %1047 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1050 unwind label %4191
+          to label %1050 unwind label %4187
 
 1048:                                             ; preds = %1016, %1015
   %1049 = landingpad { ptr, i32 }
@@ -2895,7 +2895,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit587:          ; preds = %1017, %1021
 1051:                                             ; preds = %1050, %1010
   %.pn306.pn = phi { ptr, i32 } [ %.pn306, %1050 ], [ %1011, %1010 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %145) #21
-  br label %4167
+  br label %4163
 
 1052:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit587
   %1053 = landingpad { ptr, i32 }
@@ -2993,7 +2993,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit591:          ; preds = %1056, %1060
   %1087 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1090 unwind label %4191
+          to label %1090 unwind label %4187
 
 1088:                                             ; preds = %1055, %1054
   %1089 = landingpad { ptr, i32 }
@@ -3008,7 +3008,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit591:          ; preds = %1056, %1060
 1091:                                             ; preds = %1090, %1052
   %.pn309.pn = phi { ptr, i32 } [ %.pn309, %1090 ], [ %1053, %1052 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %152) #21
-  br label %4167
+  br label %4163
 
 1092:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit591
   %1093 = landingpad { ptr, i32 }
@@ -3101,7 +3101,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit595:          ; preds = %1096, %1100
   %1126 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1129 unwind label %4191
+          to label %1129 unwind label %4187
 
 1127:                                             ; preds = %1095, %1094
   %1128 = landingpad { ptr, i32 }
@@ -3116,7 +3116,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit595:          ; preds = %1096, %1100
 1130:                                             ; preds = %1129, %1092
   %.pn312.pn = phi { ptr, i32 } [ %.pn312, %1129 ], [ %1093, %1092 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %157) #21
-  br label %4159
+  br label %4155
 
 1131:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit595
   %1132 = landingpad { ptr, i32 }
@@ -3209,7 +3209,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit599:          ; preds = %1135, %1139
   %1165 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1168 unwind label %4191
+          to label %1168 unwind label %4187
 
 1166:                                             ; preds = %1134, %1133
   %1167 = landingpad { ptr, i32 }
@@ -3224,7 +3224,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit599:          ; preds = %1135, %1139
 1169:                                             ; preds = %1168, %1131
   %.pn315.pn = phi { ptr, i32 } [ %.pn315, %1168 ], [ %1132, %1131 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %161) #21
-  br label %4159
+  br label %4155
 
 1170:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit599
   %1171 = landingpad { ptr, i32 }
@@ -3326,7 +3326,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit603:          ; preds = %1174, %1178
   %1206 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1209 unwind label %4191
+          to label %1209 unwind label %4187
 
 1207:                                             ; preds = %1173, %1172
   %1208 = landingpad { ptr, i32 }
@@ -3341,7 +3341,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit603:          ; preds = %1174, %1178
 1210:                                             ; preds = %1209, %1170
   %.pn318.pn = phi { ptr, i32 } [ %.pn318, %1209 ], [ %1171, %1170 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %165) #21
-  br label %4159
+  br label %4155
 
 1211:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit603
   %1212 = landingpad { ptr, i32 }
@@ -3434,7 +3434,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit605:          ; preds = %1218, %1222
   %1243 = extractvalue { ptr, i32 } %1242, 0
   %1244 = call ptr @__cxa_begin_catch(ptr %1243) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %176)
-          to label %1254 unwind label %1310
+          to label %1254 unwind label %1309
 
 1245:                                             ; preds = %1236
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %63) #21
@@ -3445,7 +3445,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit605:          ; preds = %1218, %1222
   %1247 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1250 unwind label %4191
+          to label %1250 unwind label %4187
 
 1248:                                             ; preds = %1217, %1216
   %1249 = landingpad { ptr, i32 }
@@ -3460,22 +3460,22 @@ _ZN5Catch16AssertionHandlerD2Ev.exit605:          ; preds = %1218, %1222
 1251:                                             ; preds = %1250, %1211
   %.pn322.pn = phi { ptr, i32 } [ %.pn322, %1250 ], [ %1212, %1211 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %169) #21
-  br label %4159
+  br label %4155
 
 1252:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit605
   %1253 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %178) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %177) #21
-  br label %1315
+  br label %1314
 
 1254:                                             ; preds = %.body606
   invoke void @__cxa_end_catch()
-          to label %1255 unwind label %1312
+          to label %1255 unwind label %1311
 
 1255:                                             ; preds = %1254, %1245
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %176)
-          to label %1256 unwind label %1312
+          to label %1256 unwind label %1311
 
 1256:                                             ; preds = %1255
   %1257 = getelementptr inbounds nuw i8, ptr %176, i64 58
@@ -3513,8011 +3513,7999 @@ _ZN5Catch16AssertionHandlerD2Ev.exit609:          ; preds = %1256, %1260
   %1276 = sub i64 %1274, %1275
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1270, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %1272, %1273
-  br i1 %.not.i.i.i.i.i, label %.noexc610.thread, label %1280
+  br i1 %.not.i.i.i.i.i, label %.noexc610.thread, label %1279
 
 .noexc610.thread:                                 ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit609
   %1277 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  %1278 = getelementptr inbounds i8, ptr null, i64 %1276
-  %1279 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1270, i8 0, i64 16, i1 false)
-  store ptr %1278, ptr %1279, align 8, !tbaa !114
-  br label %1287
+  %1278 = getelementptr inbounds nuw i8, ptr %180, i64 24
+  br label %1286
 
-1280:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit609
-  %1281 = icmp ugt i64 %1276, 9223372036854775800
-  br i1 %1281, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i, !prof !115
+1279:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit609
+  %1280 = icmp ugt i64 %1276, 9223372036854775800
+  br i1 %1280, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i, !prof !114
 
-.noexc.i.i.i:                                     ; preds = %1280
+.noexc.i.i.i:                                     ; preds = %1279
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc unwind label %1316
+          to label %.noexc unwind label %1315
 
 .noexc:                                           ; preds = %.noexc.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i: ; preds = %1280
-  %1282 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1276) #24
-          to label %1283 unwind label %1316
+_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i: ; preds = %1279
+  %1281 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1276) #24
+          to label %1282 unwind label %1315
 
-1283:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i
-  store ptr %1282, ptr %1270, align 8, !tbaa !113
-  %1284 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  store ptr %1282, ptr %1284, align 8, !tbaa !112
-  %1285 = getelementptr inbounds nuw i8, ptr %1282, i64 %1276
-  %1286 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  store ptr %1285, ptr %1286, align 8, !tbaa !114
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1282, ptr align 8 %1273, i64 %1276, i1 false)
-  br label %1287
+1282:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i
+  store ptr %1281, ptr %1270, align 8, !tbaa !113
+  %1283 = getelementptr inbounds nuw i8, ptr %180, i64 16
+  store ptr %1281, ptr %1283, align 8, !tbaa !112
+  %1284 = getelementptr inbounds nuw i8, ptr %1281, i64 %1276
+  %1285 = getelementptr inbounds nuw i8, ptr %180, i64 24
+  store ptr %1284, ptr %1285, align 8, !tbaa !115
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1281, ptr align 8 %1273, i64 %1276, i1 false)
+  br label %1286
 
-1287:                                             ; preds = %1283, %.noexc610.thread
-  %1288 = phi ptr [ %1279, %.noexc610.thread ], [ %1286, %1283 ]
-  %1289 = phi ptr [ %1278, %.noexc610.thread ], [ %1285, %1283 ]
-  %1290 = phi ptr [ %1277, %.noexc610.thread ], [ %1284, %1283 ]
-  store ptr %1289, ptr %1290, align 8, !tbaa !112
-  %1291 = getelementptr inbounds nuw i8, ptr %180, i64 32
-  %1292 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %1293 = load ptr, ptr %1292, align 8, !tbaa !116
-  store ptr %1293, ptr %1291, align 8, !tbaa !116
+1286:                                             ; preds = %1282, %.noexc610.thread
+  %1287 = phi ptr [ %1278, %.noexc610.thread ], [ %1285, %1282 ]
+  %1288 = phi ptr [ null, %.noexc610.thread ], [ %1284, %1282 ]
+  %1289 = phi ptr [ %1277, %.noexc610.thread ], [ %1283, %1282 ]
+  store ptr %1288, ptr %1289, align 8, !tbaa !112
+  %1290 = getelementptr inbounds nuw i8, ptr %180, i64 32
+  %1291 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %1292 = load ptr, ptr %1291, align 8, !tbaa !116
+  store ptr %1292, ptr %1290, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %181) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %182) #21
   store ptr @.str.24, ptr %182, align 8
-  %1294 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  store i64 7, ptr %1294, align 8
+  %1293 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  store i64 7, ptr %1293, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %183) #21
   store ptr @.str, ptr %183, align 8, !tbaa !19
-  %1295 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  store i64 79, ptr %1295, align 8, !tbaa !23
+  %1294 = getelementptr inbounds nuw i8, ptr %183, i64 8
+  store i64 79, ptr %1294, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef nonnull @.str.45) #21
-  %1296 = load ptr, ptr %184, align 8
-  %1297 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %1298 = load i64, ptr %1297, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %181, ptr noundef nonnull align 8 dereferenceable(16) %182, ptr noundef nonnull align 8 dereferenceable(16) %183, ptr %1296, i64 %1298, i32 noundef 1)
-          to label %1299 unwind label %1318
+  %1295 = load ptr, ptr %184, align 8
+  %1296 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %1297 = load i64, ptr %1296, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %181, ptr noundef nonnull align 8 dereferenceable(16) %182, ptr noundef nonnull align 8 dereferenceable(16) %183, ptr %1295, i64 %1297, i32 noundef 1)
+          to label %1298 unwind label %1317
 
-1299:                                             ; preds = %1287
+1298:                                             ; preds = %1286
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %183) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %182) #21
-  %1300 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %180, ptr noundef nonnull %83) #21
-  %1301 = xor i1 %1300, true
-  %1302 = zext i1 %1301 to i8
+  %1299 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %180, ptr noundef nonnull %83) #21
+  %1300 = xor i1 %1299, true
+  %1301 = zext i1 %1300 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62) #21
-  %1303 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i8 0, ptr %1303, align 8, !tbaa !24, !alias.scope !117
-  %1304 = getelementptr inbounds nuw i8, ptr %62, i64 9
-  store i8 %1302, ptr %1304, align 1, !tbaa !30, !alias.scope !117
+  %1302 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store i8 0, ptr %1302, align 8, !tbaa !24, !alias.scope !117
+  %1303 = getelementptr inbounds nuw i8, ptr %62, i64 9
+  store i8 %1301, ptr %1303, align 1, !tbaa !30, !alias.scope !117
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %62, align 8, !tbaa !4, !alias.scope !117
-  %1305 = getelementptr inbounds nuw i8, ptr %62, i64 10
-  store i8 %1302, ptr %1305, align 2, !tbaa !31, !alias.scope !117
+  %1304 = getelementptr inbounds nuw i8, ptr %62, i64 10
+  store i8 %1301, ptr %1304, align 2, !tbaa !31, !alias.scope !117
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %181, ptr noundef nonnull align 8 dereferenceable(10) %62)
-          to label %1309 unwind label %.body611
+          to label %1308 unwind label %.body611
 
-.body611:                                         ; preds = %1299
-  %1306 = landingpad { ptr, i32 }
+.body611:                                         ; preds = %1298
+  %1305 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %62) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #21
-  %1307 = extractvalue { ptr, i32 } %1306, 0
-  %1308 = call ptr @__cxa_begin_catch(ptr %1307) #21
+  %1306 = extractvalue { ptr, i32 } %1305, 0
+  %1307 = call ptr @__cxa_begin_catch(ptr %1306) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %181)
-          to label %1320 unwind label %1376
+          to label %1319 unwind label %1374
 
-1309:                                             ; preds = %1299
+1308:                                             ; preds = %1298
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %62) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #21
-  br label %1321
+  br label %1320
 
-1310:                                             ; preds = %.body606
-  %1311 = landingpad { ptr, i32 }
+1309:                                             ; preds = %.body606
+  %1310 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1314 unwind label %4191
+          to label %1313 unwind label %4187
 
-1312:                                             ; preds = %1255, %1254
-  %1313 = landingpad { ptr, i32 }
+1311:                                             ; preds = %1255, %1254
+  %1312 = landingpad { ptr, i32 }
           cleanup
+  br label %1313
+
+1313:                                             ; preds = %1309, %1311
+  %.pn325 = phi { ptr, i32 } [ %1312, %1311 ], [ %1310, %1309 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %176) #21
   br label %1314
 
-1314:                                             ; preds = %1310, %1312
-  %.pn325 = phi { ptr, i32 } [ %1313, %1312 ], [ %1311, %1310 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %176) #21
-  br label %1315
-
-1315:                                             ; preds = %1314, %1252
-  %.pn325.pn = phi { ptr, i32 } [ %.pn325, %1314 ], [ %1253, %1252 ]
+1314:                                             ; preds = %1313, %1252
+  %.pn325.pn = phi { ptr, i32 } [ %.pn325, %1313 ], [ %1253, %1252 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %176) #21
-  br label %4159
+  br label %4155
 
-1316:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i, %.noexc.i.i.i
-  %1317 = landingpad { ptr, i32 }
+1315:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i, %.noexc.i.i.i
+  %1316 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit906
 
-1318:                                             ; preds = %1287
-  %1319 = landingpad { ptr, i32 }
+1317:                                             ; preds = %1286
+  %1318 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %183) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %182) #21
-  br label %1381
+  br label %1379
 
-1320:                                             ; preds = %.body611
+1319:                                             ; preds = %.body611
   invoke void @__cxa_end_catch()
-          to label %1321 unwind label %1378
+          to label %1320 unwind label %1376
 
-1321:                                             ; preds = %1320, %1309
+1320:                                             ; preds = %1319, %1308
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %181)
-          to label %1322 unwind label %1378
+          to label %1321 unwind label %1376
 
-1322:                                             ; preds = %1321
-  %1323 = getelementptr inbounds nuw i8, ptr %181, i64 58
-  %1324 = load i8, ptr %1323, align 2, !tbaa !33, !range !40, !noundef !41
-  %1325 = trunc nuw i8 %1324 to i1
-  br i1 %1325, label %_ZN5Catch16AssertionHandlerD2Ev.exit614, label %1326
+1321:                                             ; preds = %1320
+  %1322 = getelementptr inbounds nuw i8, ptr %181, i64 58
+  %1323 = load i8, ptr %1322, align 2, !tbaa !33, !range !40, !noundef !41
+  %1324 = trunc nuw i8 %1323 to i1
+  br i1 %1324, label %_ZN5Catch16AssertionHandlerD2Ev.exit614, label %1325
 
-1326:                                             ; preds = %1322
-  %1327 = getelementptr inbounds nuw i8, ptr %181, i64 64
-  %1328 = load ptr, ptr %1327, align 8, !tbaa !42
-  %1329 = load ptr, ptr %1328, align 8, !tbaa !4
-  %1330 = getelementptr inbounds nuw i8, ptr %1329, i64 112
-  %1331 = load ptr, ptr %1330, align 8
-  invoke void %1331(ptr noundef nonnull align 8 dereferenceable(8) %1328, ptr noundef nonnull align 8 dereferenceable(72) %181)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit614 unwind label %1332
+1325:                                             ; preds = %1321
+  %1326 = getelementptr inbounds nuw i8, ptr %181, i64 64
+  %1327 = load ptr, ptr %1326, align 8, !tbaa !42
+  %1328 = load ptr, ptr %1327, align 8, !tbaa !4
+  %1329 = getelementptr inbounds nuw i8, ptr %1328, i64 112
+  %1330 = load ptr, ptr %1329, align 8
+  invoke void %1330(ptr noundef nonnull align 8 dereferenceable(8) %1327, ptr noundef nonnull align 8 dereferenceable(72) %181)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit614 unwind label %1331
 
-1332:                                             ; preds = %1326
-  %1333 = landingpad { ptr, i32 }
+1331:                                             ; preds = %1325
+  %1332 = landingpad { ptr, i32 }
           catch ptr null
-  %1334 = extractvalue { ptr, i32 } %1333, 0
-  call void @__clang_call_terminate(ptr %1334) #22
+  %1333 = extractvalue { ptr, i32 } %1332, 0
+  call void @__clang_call_terminate(ptr %1333) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit614:          ; preds = %1322, %1326
+_ZN5Catch16AssertionHandlerD2Ev.exit614:          ; preds = %1321, %1325
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %181) #21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %185) #21
-  %1335 = load i8, ptr %108, align 8, !tbaa !7
-  store i8 %1335, ptr %185, align 8, !tbaa !7
-  %1336 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %1337 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %1338 = load ptr, ptr %1337, align 8, !tbaa !112
-  %1339 = load ptr, ptr %666, align 8, !tbaa !113
+  %1334 = load i8, ptr %108, align 8, !tbaa !7
+  store i8 %1334, ptr %185, align 8, !tbaa !7
+  %1335 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %1336 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %1337 = load ptr, ptr %1336, align 8, !tbaa !112
+  %1338 = load ptr, ptr %666, align 8, !tbaa !113
+  %1339 = ptrtoint ptr %1337 to i64
   %1340 = ptrtoint ptr %1338 to i64
-  %1341 = ptrtoint ptr %1339 to i64
-  %1342 = sub i64 %1340, %1341
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1336, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i615 = icmp eq ptr %1338, %1339
-  br i1 %.not.i.i.i.i.i615, label %.noexc620.thread, label %1346
+  %1341 = sub i64 %1339, %1340
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1335, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i615 = icmp eq ptr %1337, %1338
+  br i1 %.not.i.i.i.i.i615, label %.noexc620.thread, label %1344
 
 .noexc620.thread:                                 ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit614
-  %1343 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %1344 = getelementptr inbounds i8, ptr null, i64 %1342
-  %1345 = getelementptr inbounds nuw i8, ptr %185, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1336, i8 0, i64 16, i1 false)
-  store ptr %1344, ptr %1345, align 8, !tbaa !114
-  br label %1353
+  %1342 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  %1343 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  br label %1351
 
-1346:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit614
-  %1347 = icmp ugt i64 %1342, 9223372036854775800
-  br i1 %1347, label %.noexc.i.i.i618, label %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i616, !prof !115
+1344:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit614
+  %1345 = icmp ugt i64 %1341, 9223372036854775800
+  br i1 %1345, label %.noexc.i.i.i618, label %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i616, !prof !114
 
-.noexc.i.i.i618:                                  ; preds = %1346
+.noexc.i.i.i618:                                  ; preds = %1344
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc619 unwind label %1382
+          to label %.noexc619 unwind label %1380
 
 .noexc619:                                        ; preds = %.noexc.i.i.i618
   unreachable
 
-_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i616: ; preds = %1346
-  %1348 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1342) #24
-          to label %1349 unwind label %1382
+_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i616: ; preds = %1344
+  %1346 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1341) #24
+          to label %1347 unwind label %1380
 
-1349:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i616
-  store ptr %1348, ptr %1336, align 8, !tbaa !113
-  %1350 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  store ptr %1348, ptr %1350, align 8, !tbaa !112
-  %1351 = getelementptr inbounds nuw i8, ptr %1348, i64 %1342
-  %1352 = getelementptr inbounds nuw i8, ptr %185, i64 24
-  store ptr %1351, ptr %1352, align 8, !tbaa !114
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1348, ptr align 8 %1339, i64 %1342, i1 false)
-  br label %1353
+1347:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i616
+  store ptr %1346, ptr %1335, align 8, !tbaa !113
+  %1348 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  store ptr %1346, ptr %1348, align 8, !tbaa !112
+  %1349 = getelementptr inbounds nuw i8, ptr %1346, i64 %1341
+  %1350 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  store ptr %1349, ptr %1350, align 8, !tbaa !115
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1346, ptr align 8 %1338, i64 %1341, i1 false)
+  br label %1351
 
-1353:                                             ; preds = %1349, %.noexc620.thread
-  %1354 = phi ptr [ %1345, %.noexc620.thread ], [ %1352, %1349 ]
-  %1355 = phi ptr [ %1344, %.noexc620.thread ], [ %1351, %1349 ]
-  %1356 = phi ptr [ %1343, %.noexc620.thread ], [ %1350, %1349 ]
-  store ptr %1355, ptr %1356, align 8, !tbaa !112
-  %1357 = getelementptr inbounds nuw i8, ptr %185, i64 32
-  %1358 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %1359 = load ptr, ptr %1358, align 8, !tbaa !116
-  store ptr %1359, ptr %1357, align 8, !tbaa !116
+1351:                                             ; preds = %1347, %.noexc620.thread
+  %1352 = phi ptr [ %1343, %.noexc620.thread ], [ %1350, %1347 ]
+  %1353 = phi ptr [ null, %.noexc620.thread ], [ %1349, %1347 ]
+  %1354 = phi ptr [ %1342, %.noexc620.thread ], [ %1348, %1347 ]
+  store ptr %1353, ptr %1354, align 8, !tbaa !112
+  %1355 = getelementptr inbounds nuw i8, ptr %185, i64 32
+  %1356 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  %1357 = load ptr, ptr %1356, align 8, !tbaa !116
+  store ptr %1357, ptr %1355, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %186) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %187) #21
   store ptr @.str.24, ptr %187, align 8
-  %1360 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  store i64 7, ptr %1360, align 8
+  %1358 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  store i64 7, ptr %1358, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %188) #21
   store ptr @.str, ptr %188, align 8, !tbaa !19
-  %1361 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  store i64 82, ptr %1361, align 8, !tbaa !23
+  %1359 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  store i64 82, ptr %1359, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef nonnull @.str.46) #21
-  %1362 = load ptr, ptr %189, align 8
-  %1363 = getelementptr inbounds nuw i8, ptr %189, i64 8
-  %1364 = load i64, ptr %1363, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %186, ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef nonnull align 8 dereferenceable(16) %188, ptr %1362, i64 %1364, i32 noundef 1)
-          to label %1365 unwind label %1384
+  %1360 = load ptr, ptr %189, align 8
+  %1361 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %1362 = load i64, ptr %1361, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %186, ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef nonnull align 8 dereferenceable(16) %188, ptr %1360, i64 %1362, i32 noundef 1)
+          to label %1363 unwind label %1382
 
-1365:                                             ; preds = %1353
+1363:                                             ; preds = %1351
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %188) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %187) #21
-  %1366 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %185, ptr noundef nonnull %83) #21
-  %1367 = xor i1 %1366, true
-  %1368 = zext i1 %1367 to i8
+  %1364 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %185, ptr noundef nonnull %83) #21
+  %1365 = xor i1 %1364, true
+  %1366 = zext i1 %1365 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61) #21
-  %1369 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i8 0, ptr %1369, align 8, !tbaa !24, !alias.scope !120
-  %1370 = getelementptr inbounds nuw i8, ptr %61, i64 9
-  store i8 %1368, ptr %1370, align 1, !tbaa !30, !alias.scope !120
+  %1367 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store i8 0, ptr %1367, align 8, !tbaa !24, !alias.scope !120
+  %1368 = getelementptr inbounds nuw i8, ptr %61, i64 9
+  store i8 %1366, ptr %1368, align 1, !tbaa !30, !alias.scope !120
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %61, align 8, !tbaa !4, !alias.scope !120
-  %1371 = getelementptr inbounds nuw i8, ptr %61, i64 10
-  store i8 %1368, ptr %1371, align 2, !tbaa !31, !alias.scope !120
+  %1369 = getelementptr inbounds nuw i8, ptr %61, i64 10
+  store i8 %1366, ptr %1369, align 2, !tbaa !31, !alias.scope !120
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %186, ptr noundef nonnull align 8 dereferenceable(10) %61)
-          to label %1375 unwind label %.body622
+          to label %1373 unwind label %.body622
 
-.body622:                                         ; preds = %1365
-  %1372 = landingpad { ptr, i32 }
+.body622:                                         ; preds = %1363
+  %1370 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %61) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61) #21
-  %1373 = extractvalue { ptr, i32 } %1372, 0
-  %1374 = call ptr @__cxa_begin_catch(ptr %1373) #21
+  %1371 = extractvalue { ptr, i32 } %1370, 0
+  %1372 = call ptr @__cxa_begin_catch(ptr %1371) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %186)
-          to label %1386 unwind label %1417
+          to label %1384 unwind label %1415
 
-1375:                                             ; preds = %1365
+1373:                                             ; preds = %1363
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %61) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61) #21
-  br label %1387
+  br label %1385
 
-1376:                                             ; preds = %.body611
-  %1377 = landingpad { ptr, i32 }
+1374:                                             ; preds = %.body611
+  %1375 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1380 unwind label %4191
+          to label %1378 unwind label %4187
 
-1378:                                             ; preds = %1321, %1320
-  %1379 = landingpad { ptr, i32 }
+1376:                                             ; preds = %1320, %1319
+  %1377 = landingpad { ptr, i32 }
           cleanup
-  br label %1380
+  br label %1378
 
-1380:                                             ; preds = %1376, %1378
-  %.pn328 = phi { ptr, i32 } [ %1379, %1378 ], [ %1377, %1376 ]
+1378:                                             ; preds = %1374, %1376
+  %.pn328 = phi { ptr, i32 } [ %1377, %1376 ], [ %1375, %1374 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %181) #21
-  br label %1381
+  br label %1379
 
-1381:                                             ; preds = %1380, %1318
-  %.pn328.pn = phi { ptr, i32 } [ %.pn328, %1380 ], [ %1319, %1318 ]
+1379:                                             ; preds = %1378, %1317
+  %.pn328.pn = phi { ptr, i32 } [ %.pn328, %1378 ], [ %1318, %1317 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %181) #21
-  br label %4152
+  br label %4148
 
-1382:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i616, %.noexc.i.i.i618
-  %1383 = landingpad { ptr, i32 }
+1380:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i616, %.noexc.i.i.i618
+  %1381 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit904
 
-1384:                                             ; preds = %1353
-  %1385 = landingpad { ptr, i32 }
+1382:                                             ; preds = %1351
+  %1383 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %188) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %187) #21
-  br label %1422
+  br label %1420
 
-1386:                                             ; preds = %.body622
+1384:                                             ; preds = %.body622
   invoke void @__cxa_end_catch()
-          to label %1387 unwind label %1419
+          to label %1385 unwind label %1417
 
-1387:                                             ; preds = %1386, %1375
+1385:                                             ; preds = %1384, %1373
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %186)
-          to label %1388 unwind label %1419
+          to label %1386 unwind label %1417
 
-1388:                                             ; preds = %1387
-  %1389 = getelementptr inbounds nuw i8, ptr %186, i64 58
-  %1390 = load i8, ptr %1389, align 2, !tbaa !33, !range !40, !noundef !41
-  %1391 = trunc nuw i8 %1390 to i1
-  br i1 %1391, label %_ZN5Catch16AssertionHandlerD2Ev.exit625, label %1392
+1386:                                             ; preds = %1385
+  %1387 = getelementptr inbounds nuw i8, ptr %186, i64 58
+  %1388 = load i8, ptr %1387, align 2, !tbaa !33, !range !40, !noundef !41
+  %1389 = trunc nuw i8 %1388 to i1
+  br i1 %1389, label %_ZN5Catch16AssertionHandlerD2Ev.exit625, label %1390
 
-1392:                                             ; preds = %1388
-  %1393 = getelementptr inbounds nuw i8, ptr %186, i64 64
-  %1394 = load ptr, ptr %1393, align 8, !tbaa !42
-  %1395 = load ptr, ptr %1394, align 8, !tbaa !4
-  %1396 = getelementptr inbounds nuw i8, ptr %1395, i64 112
-  %1397 = load ptr, ptr %1396, align 8
-  invoke void %1397(ptr noundef nonnull align 8 dereferenceable(8) %1394, ptr noundef nonnull align 8 dereferenceable(72) %186)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit625 unwind label %1398
+1390:                                             ; preds = %1386
+  %1391 = getelementptr inbounds nuw i8, ptr %186, i64 64
+  %1392 = load ptr, ptr %1391, align 8, !tbaa !42
+  %1393 = load ptr, ptr %1392, align 8, !tbaa !4
+  %1394 = getelementptr inbounds nuw i8, ptr %1393, i64 112
+  %1395 = load ptr, ptr %1394, align 8
+  invoke void %1395(ptr noundef nonnull align 8 dereferenceable(8) %1392, ptr noundef nonnull align 8 dereferenceable(72) %186)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit625 unwind label %1396
 
-1398:                                             ; preds = %1392
-  %1399 = landingpad { ptr, i32 }
+1396:                                             ; preds = %1390
+  %1397 = landingpad { ptr, i32 }
           catch ptr null
-  %1400 = extractvalue { ptr, i32 } %1399, 0
-  call void @__clang_call_terminate(ptr %1400) #22
+  %1398 = extractvalue { ptr, i32 } %1397, 0
+  call void @__clang_call_terminate(ptr %1398) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit625:          ; preds = %1388, %1392
+_ZN5Catch16AssertionHandlerD2Ev.exit625:          ; preds = %1386, %1390
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %186) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %190) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %191) #21
   store ptr @.str.24, ptr %191, align 8
-  %1401 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  store i64 7, ptr %1401, align 8
+  %1399 = getelementptr inbounds nuw i8, ptr %191, i64 8
+  store i64 7, ptr %1399, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %192) #21
   store ptr @.str, ptr %192, align 8, !tbaa !19
-  %1402 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  store i64 83, ptr %1402, align 8, !tbaa !23
+  %1400 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  store i64 83, ptr %1400, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %193, ptr noundef nonnull @.str.47) #21
-  %1403 = load ptr, ptr %193, align 8
-  %1404 = getelementptr inbounds nuw i8, ptr %193, i64 8
-  %1405 = load i64, ptr %1404, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %190, ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef nonnull align 8 dereferenceable(16) %192, ptr %1403, i64 %1405, i32 noundef 1)
-          to label %1406 unwind label %1423
+  %1401 = load ptr, ptr %193, align 8
+  %1402 = getelementptr inbounds nuw i8, ptr %193, i64 8
+  %1403 = load i64, ptr %1402, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %190, ptr noundef nonnull align 8 dereferenceable(16) %191, ptr noundef nonnull align 8 dereferenceable(16) %192, ptr %1401, i64 %1403, i32 noundef 1)
+          to label %1404 unwind label %1421
 
-1406:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit625
+1404:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit625
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %192) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %191) #21
-  %1407 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %185, ptr noundef nonnull %83) #21
-  %1408 = xor i1 %1407, true
-  %1409 = zext i1 %1408 to i8
+  %1405 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %185, ptr noundef nonnull %83) #21
+  %1406 = xor i1 %1405, true
+  %1407 = zext i1 %1406 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60) #21
-  %1410 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i8 0, ptr %1410, align 8, !tbaa !24, !alias.scope !123
-  %1411 = getelementptr inbounds nuw i8, ptr %60, i64 9
-  store i8 %1409, ptr %1411, align 1, !tbaa !30, !alias.scope !123
+  %1408 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store i8 0, ptr %1408, align 8, !tbaa !24, !alias.scope !123
+  %1409 = getelementptr inbounds nuw i8, ptr %60, i64 9
+  store i8 %1407, ptr %1409, align 1, !tbaa !30, !alias.scope !123
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %60, align 8, !tbaa !4, !alias.scope !123
-  %1412 = getelementptr inbounds nuw i8, ptr %60, i64 10
-  store i8 %1409, ptr %1412, align 2, !tbaa !31, !alias.scope !123
+  %1410 = getelementptr inbounds nuw i8, ptr %60, i64 10
+  store i8 %1407, ptr %1410, align 2, !tbaa !31, !alias.scope !123
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %190, ptr noundef nonnull align 8 dereferenceable(10) %60)
-          to label %1416 unwind label %.body626
+          to label %1414 unwind label %.body626
 
-.body626:                                         ; preds = %1406
-  %1413 = landingpad { ptr, i32 }
+.body626:                                         ; preds = %1404
+  %1411 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %60) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #21
-  %1414 = extractvalue { ptr, i32 } %1413, 0
-  %1415 = call ptr @__cxa_begin_catch(ptr %1414) #21
+  %1412 = extractvalue { ptr, i32 } %1411, 0
+  %1413 = call ptr @__cxa_begin_catch(ptr %1412) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %190)
-          to label %1425 unwind label %1455
+          to label %1423 unwind label %1453
 
-1416:                                             ; preds = %1406
+1414:                                             ; preds = %1404
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %60) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #21
-  br label %1426
+  br label %1424
 
-1417:                                             ; preds = %.body622
+1415:                                             ; preds = %.body622
+  %1416 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %1419 unwind label %4187
+
+1417:                                             ; preds = %1385, %1384
   %1418 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__cxa_end_catch()
-          to label %1421 unwind label %4191
+  br label %1419
 
-1419:                                             ; preds = %1387, %1386
-  %1420 = landingpad { ptr, i32 }
-          cleanup
-  br label %1421
-
-1421:                                             ; preds = %1417, %1419
-  %.pn331 = phi { ptr, i32 } [ %1420, %1419 ], [ %1418, %1417 ]
+1419:                                             ; preds = %1415, %1417
+  %.pn331 = phi { ptr, i32 } [ %1418, %1417 ], [ %1416, %1415 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %186) #21
-  br label %1422
+  br label %1420
 
-1422:                                             ; preds = %1421, %1384
-  %.pn331.pn = phi { ptr, i32 } [ %.pn331, %1421 ], [ %1385, %1384 ]
+1420:                                             ; preds = %1419, %1382
+  %.pn331.pn = phi { ptr, i32 } [ %.pn331, %1419 ], [ %1383, %1382 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %186) #21
-  br label %4145
+  br label %4141
 
-1423:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit625
-  %1424 = landingpad { ptr, i32 }
+1421:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit625
+  %1422 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %192) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %191) #21
-  br label %1460
+  br label %1458
 
-1425:                                             ; preds = %.body626
+1423:                                             ; preds = %.body626
   invoke void @__cxa_end_catch()
-          to label %1426 unwind label %1457
+          to label %1424 unwind label %1455
 
-1426:                                             ; preds = %1425, %1416
+1424:                                             ; preds = %1423, %1414
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %190)
-          to label %1427 unwind label %1457
+          to label %1425 unwind label %1455
 
-1427:                                             ; preds = %1426
-  %1428 = getelementptr inbounds nuw i8, ptr %190, i64 58
-  %1429 = load i8, ptr %1428, align 2, !tbaa !33, !range !40, !noundef !41
-  %1430 = trunc nuw i8 %1429 to i1
-  br i1 %1430, label %_ZN5Catch16AssertionHandlerD2Ev.exit629, label %1431
+1425:                                             ; preds = %1424
+  %1426 = getelementptr inbounds nuw i8, ptr %190, i64 58
+  %1427 = load i8, ptr %1426, align 2, !tbaa !33, !range !40, !noundef !41
+  %1428 = trunc nuw i8 %1427 to i1
+  br i1 %1428, label %_ZN5Catch16AssertionHandlerD2Ev.exit629, label %1429
 
-1431:                                             ; preds = %1427
-  %1432 = getelementptr inbounds nuw i8, ptr %190, i64 64
-  %1433 = load ptr, ptr %1432, align 8, !tbaa !42
-  %1434 = load ptr, ptr %1433, align 8, !tbaa !4
-  %1435 = getelementptr inbounds nuw i8, ptr %1434, i64 112
-  %1436 = load ptr, ptr %1435, align 8
-  invoke void %1436(ptr noundef nonnull align 8 dereferenceable(8) %1433, ptr noundef nonnull align 8 dereferenceable(72) %190)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit629 unwind label %1437
+1429:                                             ; preds = %1425
+  %1430 = getelementptr inbounds nuw i8, ptr %190, i64 64
+  %1431 = load ptr, ptr %1430, align 8, !tbaa !42
+  %1432 = load ptr, ptr %1431, align 8, !tbaa !4
+  %1433 = getelementptr inbounds nuw i8, ptr %1432, i64 112
+  %1434 = load ptr, ptr %1433, align 8
+  invoke void %1434(ptr noundef nonnull align 8 dereferenceable(8) %1431, ptr noundef nonnull align 8 dereferenceable(72) %190)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit629 unwind label %1435
 
-1437:                                             ; preds = %1431
-  %1438 = landingpad { ptr, i32 }
+1435:                                             ; preds = %1429
+  %1436 = landingpad { ptr, i32 }
           catch ptr null
-  %1439 = extractvalue { ptr, i32 } %1438, 0
-  call void @__clang_call_terminate(ptr %1439) #22
+  %1437 = extractvalue { ptr, i32 } %1436, 0
+  call void @__clang_call_terminate(ptr %1437) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit629:          ; preds = %1427, %1431
+_ZN5Catch16AssertionHandlerD2Ev.exit629:          ; preds = %1425, %1429
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %190) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %194) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %195) #21
   store ptr @.str.24, ptr %195, align 8
-  %1440 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  store i64 7, ptr %1440, align 8
+  %1438 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  store i64 7, ptr %1438, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %196) #21
   store ptr @.str, ptr %196, align 8, !tbaa !19
-  %1441 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  store i64 84, ptr %1441, align 8, !tbaa !23
+  %1439 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  store i64 84, ptr %1439, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %197, ptr noundef nonnull @.str.48) #21
-  %1442 = load ptr, ptr %197, align 8
-  %1443 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %1444 = load i64, ptr %1443, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %194, ptr noundef nonnull align 8 dereferenceable(16) %195, ptr noundef nonnull align 8 dereferenceable(16) %196, ptr %1442, i64 %1444, i32 noundef 1)
-          to label %1445 unwind label %1461
+  %1440 = load ptr, ptr %197, align 8
+  %1441 = getelementptr inbounds nuw i8, ptr %197, i64 8
+  %1442 = load i64, ptr %1441, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %194, ptr noundef nonnull align 8 dereferenceable(16) %195, ptr noundef nonnull align 8 dereferenceable(16) %196, ptr %1440, i64 %1442, i32 noundef 1)
+          to label %1443 unwind label %1459
 
-1445:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit629
+1443:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit629
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %196) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %195) #21
-  %1446 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %185, ptr noundef nonnull %83) #21
-  %1447 = zext i1 %1446 to i8
+  %1444 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %185, ptr noundef nonnull %83) #21
+  %1445 = zext i1 %1444 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59) #21
-  %1448 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i8 0, ptr %1448, align 8, !tbaa !24, !alias.scope !126
-  %1449 = getelementptr inbounds nuw i8, ptr %59, i64 9
-  store i8 %1447, ptr %1449, align 1, !tbaa !30, !alias.scope !126
+  %1446 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store i8 0, ptr %1446, align 8, !tbaa !24, !alias.scope !126
+  %1447 = getelementptr inbounds nuw i8, ptr %59, i64 9
+  store i8 %1445, ptr %1447, align 1, !tbaa !30, !alias.scope !126
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %59, align 8, !tbaa !4, !alias.scope !126
-  %1450 = getelementptr inbounds nuw i8, ptr %59, i64 10
-  store i8 %1447, ptr %1450, align 2, !tbaa !31, !alias.scope !126
+  %1448 = getelementptr inbounds nuw i8, ptr %59, i64 10
+  store i8 %1445, ptr %1448, align 2, !tbaa !31, !alias.scope !126
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %194, ptr noundef nonnull align 8 dereferenceable(10) %59)
-          to label %1454 unwind label %.body630
+          to label %1452 unwind label %.body630
 
-.body630:                                         ; preds = %1445
-  %1451 = landingpad { ptr, i32 }
+.body630:                                         ; preds = %1443
+  %1449 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %59) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #21
-  %1452 = extractvalue { ptr, i32 } %1451, 0
-  %1453 = call ptr @__cxa_begin_catch(ptr %1452) #21
+  %1450 = extractvalue { ptr, i32 } %1449, 0
+  %1451 = call ptr @__cxa_begin_catch(ptr %1450) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %194)
-          to label %1463 unwind label %1496
+          to label %1461 unwind label %1494
 
-1454:                                             ; preds = %1445
+1452:                                             ; preds = %1443
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %59) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #21
-  br label %1464
+  br label %1462
 
-1455:                                             ; preds = %.body626
+1453:                                             ; preds = %.body626
+  %1454 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %1457 unwind label %4187
+
+1455:                                             ; preds = %1424, %1423
   %1456 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__cxa_end_catch()
-          to label %1459 unwind label %4191
+  br label %1457
 
-1457:                                             ; preds = %1426, %1425
-  %1458 = landingpad { ptr, i32 }
-          cleanup
-  br label %1459
-
-1459:                                             ; preds = %1455, %1457
-  %.pn334 = phi { ptr, i32 } [ %1458, %1457 ], [ %1456, %1455 ]
+1457:                                             ; preds = %1453, %1455
+  %.pn334 = phi { ptr, i32 } [ %1456, %1455 ], [ %1454, %1453 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %190) #21
-  br label %1460
+  br label %1458
 
-1460:                                             ; preds = %1459, %1423
-  %.pn334.pn = phi { ptr, i32 } [ %.pn334, %1459 ], [ %1424, %1423 ]
+1458:                                             ; preds = %1457, %1421
+  %.pn334.pn = phi { ptr, i32 } [ %.pn334, %1457 ], [ %1422, %1421 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %190) #21
-  br label %4145
+  br label %4141
 
-1461:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit629
-  %1462 = landingpad { ptr, i32 }
+1459:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit629
+  %1460 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %196) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %195) #21
-  br label %1501
+  br label %1499
 
-1463:                                             ; preds = %.body630
+1461:                                             ; preds = %.body630
   invoke void @__cxa_end_catch()
-          to label %1464 unwind label %1498
+          to label %1462 unwind label %1496
 
-1464:                                             ; preds = %1463, %1454
+1462:                                             ; preds = %1461, %1452
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %194)
-          to label %1465 unwind label %1498
+          to label %1463 unwind label %1496
 
-1465:                                             ; preds = %1464
-  %1466 = getelementptr inbounds nuw i8, ptr %194, i64 58
-  %1467 = load i8, ptr %1466, align 2, !tbaa !33, !range !40, !noundef !41
-  %1468 = trunc nuw i8 %1467 to i1
-  br i1 %1468, label %_ZN5Catch16AssertionHandlerD2Ev.exit633, label %1469
+1463:                                             ; preds = %1462
+  %1464 = getelementptr inbounds nuw i8, ptr %194, i64 58
+  %1465 = load i8, ptr %1464, align 2, !tbaa !33, !range !40, !noundef !41
+  %1466 = trunc nuw i8 %1465 to i1
+  br i1 %1466, label %_ZN5Catch16AssertionHandlerD2Ev.exit633, label %1467
 
-1469:                                             ; preds = %1465
-  %1470 = getelementptr inbounds nuw i8, ptr %194, i64 64
-  %1471 = load ptr, ptr %1470, align 8, !tbaa !42
-  %1472 = load ptr, ptr %1471, align 8, !tbaa !4
-  %1473 = getelementptr inbounds nuw i8, ptr %1472, i64 112
-  %1474 = load ptr, ptr %1473, align 8
-  invoke void %1474(ptr noundef nonnull align 8 dereferenceable(8) %1471, ptr noundef nonnull align 8 dereferenceable(72) %194)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit633 unwind label %1475
+1467:                                             ; preds = %1463
+  %1468 = getelementptr inbounds nuw i8, ptr %194, i64 64
+  %1469 = load ptr, ptr %1468, align 8, !tbaa !42
+  %1470 = load ptr, ptr %1469, align 8, !tbaa !4
+  %1471 = getelementptr inbounds nuw i8, ptr %1470, i64 112
+  %1472 = load ptr, ptr %1471, align 8
+  invoke void %1472(ptr noundef nonnull align 8 dereferenceable(8) %1469, ptr noundef nonnull align 8 dereferenceable(72) %194)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit633 unwind label %1473
 
-1475:                                             ; preds = %1469
-  %1476 = landingpad { ptr, i32 }
+1473:                                             ; preds = %1467
+  %1474 = landingpad { ptr, i32 }
           catch ptr null
-  %1477 = extractvalue { ptr, i32 } %1476, 0
-  call void @__clang_call_terminate(ptr %1477) #22
+  %1475 = extractvalue { ptr, i32 } %1474, 0
+  call void @__clang_call_terminate(ptr %1475) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit633:          ; preds = %1465, %1469
+_ZN5Catch16AssertionHandlerD2Ev.exit633:          ; preds = %1463, %1467
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %194) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %198) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %199) #21
   store ptr @.str.24, ptr %199, align 8
-  %1478 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  store i64 7, ptr %1478, align 8
+  %1476 = getelementptr inbounds nuw i8, ptr %199, i64 8
+  store i64 7, ptr %1476, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %200) #21
   store ptr @.str, ptr %200, align 8, !tbaa !19
-  %1479 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  store i64 85, ptr %1479, align 8, !tbaa !23
+  %1477 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  store i64 85, ptr %1477, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef nonnull @.str.49) #21
-  %1480 = load ptr, ptr %201, align 8
-  %1481 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %1482 = load i64, ptr %1481, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %198, ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %200, ptr %1480, i64 %1482, i32 noundef 1)
-          to label %1483 unwind label %1502
+  %1478 = load ptr, ptr %201, align 8
+  %1479 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  %1480 = load i64, ptr %1479, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %198, ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %200, ptr %1478, i64 %1480, i32 noundef 1)
+          to label %1481 unwind label %1500
 
-1483:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit633
+1481:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit633
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %200) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %199) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %202) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %203) #21
-  %1484 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %185) #21
-  store ptr %1484, ptr %203, align 8, !tbaa !49
+  %1482 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %185) #21
+  store ptr %1482, ptr %203, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %204) #21
   store ptr null, ptr %204, align 8, !tbaa !50
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58)
-  %1485 = icmp eq ptr %1484, null
+  %1483 = icmp eq ptr %1482, null
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull @.str.90) #21, !noalias !129
-  %1486 = load ptr, ptr %58, align 8, !noalias !129
-  %1487 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %1488 = load i64, ptr %1487, align 8, !noalias !129
-  %1489 = zext i1 %1485 to i8
-  %1490 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  store i8 1, ptr %1490, align 8, !tbaa !24, !alias.scope !129
-  %1491 = getelementptr inbounds nuw i8, ptr %202, i64 9
-  store i8 %1489, ptr %1491, align 1, !tbaa !30, !alias.scope !129
+  %1484 = load ptr, ptr %58, align 8, !noalias !129
+  %1485 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %1486 = load i64, ptr %1485, align 8, !noalias !129
+  %1487 = zext i1 %1483 to i8
+  %1488 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  store i8 1, ptr %1488, align 8, !tbaa !24, !alias.scope !129
+  %1489 = getelementptr inbounds nuw i8, ptr %202, i64 9
+  store i8 %1487, ptr %1489, align 1, !tbaa !30, !alias.scope !129
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKPKN5vcpkg19IReadBinaryProviderERKDnEE, i64 16), ptr %202, align 8, !tbaa !4, !alias.scope !129
-  %1492 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  store ptr %203, ptr %1492, align 8, !tbaa !55, !alias.scope !129
-  %1493 = getelementptr inbounds nuw i8, ptr %202, i64 24
-  store ptr %1486, ptr %1493, align 8, !tbaa !56, !alias.scope !129
+  %1490 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  store ptr %203, ptr %1490, align 8, !tbaa !55, !alias.scope !129
+  %1491 = getelementptr inbounds nuw i8, ptr %202, i64 24
+  store ptr %1484, ptr %1491, align 8, !tbaa !56, !alias.scope !129
   %.sroa.2.0..sroa_idx.i.i634 = getelementptr inbounds nuw i8, ptr %202, i64 32
-  store i64 %1488, ptr %.sroa.2.0..sroa_idx.i.i634, align 8, !tbaa !57, !alias.scope !129
-  %1494 = getelementptr inbounds nuw i8, ptr %202, i64 40
-  store ptr %204, ptr %1494, align 8, !tbaa !58, !alias.scope !129
+  store i64 %1486, ptr %.sroa.2.0..sroa_idx.i.i634, align 8, !tbaa !57, !alias.scope !129
+  %1492 = getelementptr inbounds nuw i8, ptr %202, i64 40
+  store ptr %204, ptr %1492, align 8, !tbaa !58, !alias.scope !129
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58)
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %198, ptr noundef nonnull align 8 dereferenceable(10) %202)
-          to label %1495 unwind label %1504
+          to label %1493 unwind label %1502
 
-1495:                                             ; preds = %1483
+1493:                                             ; preds = %1481
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %202) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %204) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %203) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %202) #21
-  br label %1508
+  br label %1506
 
-1496:                                             ; preds = %.body630
-  %1497 = landingpad { ptr, i32 }
+1494:                                             ; preds = %.body630
+  %1495 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1500 unwind label %4191
+          to label %1498 unwind label %4187
 
-1498:                                             ; preds = %1464, %1463
-  %1499 = landingpad { ptr, i32 }
+1496:                                             ; preds = %1462, %1461
+  %1497 = landingpad { ptr, i32 }
           cleanup
-  br label %1500
+  br label %1498
 
-1500:                                             ; preds = %1496, %1498
-  %.pn337 = phi { ptr, i32 } [ %1499, %1498 ], [ %1497, %1496 ]
+1498:                                             ; preds = %1494, %1496
+  %.pn337 = phi { ptr, i32 } [ %1497, %1496 ], [ %1495, %1494 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %194) #21
-  br label %1501
+  br label %1499
 
-1501:                                             ; preds = %1500, %1461
-  %.pn337.pn = phi { ptr, i32 } [ %.pn337, %1500 ], [ %1462, %1461 ]
+1499:                                             ; preds = %1498, %1459
+  %.pn337.pn = phi { ptr, i32 } [ %.pn337, %1498 ], [ %1460, %1459 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %194) #21
-  br label %4145
+  br label %4141
 
-1502:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit633
-  %1503 = landingpad { ptr, i32 }
+1500:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit633
+  %1501 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %200) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %199) #21
-  br label %1543
+  br label %1541
 
-1504:                                             ; preds = %1483
-  %1505 = landingpad { ptr, i32 }
+1502:                                             ; preds = %1481
+  %1503 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %202) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %204) #21
-  %.65148 = extractvalue { ptr, i32 } %1505, 0
+  %.65148 = extractvalue { ptr, i32 } %1503, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %203) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %202) #21
-  %1506 = call ptr @__cxa_begin_catch(ptr %.65148) #21
+  %1504 = call ptr @__cxa_begin_catch(ptr %.65148) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %198)
+          to label %1505 unwind label %1536
+
+1505:                                             ; preds = %1502
+  invoke void @__cxa_end_catch()
+          to label %1506 unwind label %1538
+
+1506:                                             ; preds = %1505, %1493
+  invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %198)
           to label %1507 unwind label %1538
 
-1507:                                             ; preds = %1504
-  invoke void @__cxa_end_catch()
-          to label %1508 unwind label %1540
+1507:                                             ; preds = %1506
+  %1508 = getelementptr inbounds nuw i8, ptr %198, i64 58
+  %1509 = load i8, ptr %1508, align 2, !tbaa !33, !range !40, !noundef !41
+  %1510 = trunc nuw i8 %1509 to i1
+  br i1 %1510, label %_ZN5Catch16AssertionHandlerD2Ev.exit635, label %1511
 
-1508:                                             ; preds = %1507, %1495
-  invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %198)
-          to label %1509 unwind label %1540
+1511:                                             ; preds = %1507
+  %1512 = getelementptr inbounds nuw i8, ptr %198, i64 64
+  %1513 = load ptr, ptr %1512, align 8, !tbaa !42
+  %1514 = load ptr, ptr %1513, align 8, !tbaa !4
+  %1515 = getelementptr inbounds nuw i8, ptr %1514, i64 112
+  %1516 = load ptr, ptr %1515, align 8
+  invoke void %1516(ptr noundef nonnull align 8 dereferenceable(8) %1513, ptr noundef nonnull align 8 dereferenceable(72) %198)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit635 unwind label %1517
 
-1509:                                             ; preds = %1508
-  %1510 = getelementptr inbounds nuw i8, ptr %198, i64 58
-  %1511 = load i8, ptr %1510, align 2, !tbaa !33, !range !40, !noundef !41
-  %1512 = trunc nuw i8 %1511 to i1
-  br i1 %1512, label %_ZN5Catch16AssertionHandlerD2Ev.exit635, label %1513
-
-1513:                                             ; preds = %1509
-  %1514 = getelementptr inbounds nuw i8, ptr %198, i64 64
-  %1515 = load ptr, ptr %1514, align 8, !tbaa !42
-  %1516 = load ptr, ptr %1515, align 8, !tbaa !4
-  %1517 = getelementptr inbounds nuw i8, ptr %1516, i64 112
-  %1518 = load ptr, ptr %1517, align 8
-  invoke void %1518(ptr noundef nonnull align 8 dereferenceable(8) %1515, ptr noundef nonnull align 8 dereferenceable(72) %198)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit635 unwind label %1519
-
-1519:                                             ; preds = %1513
-  %1520 = landingpad { ptr, i32 }
+1517:                                             ; preds = %1511
+  %1518 = landingpad { ptr, i32 }
           catch ptr null
-  %1521 = extractvalue { ptr, i32 } %1520, 0
-  call void @__clang_call_terminate(ptr %1521) #22
+  %1519 = extractvalue { ptr, i32 } %1518, 0
+  call void @__clang_call_terminate(ptr %1519) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit635:          ; preds = %1509, %1513
+_ZN5Catch16AssertionHandlerD2Ev.exit635:          ; preds = %1507, %1511
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %198) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %205) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %206) #21
   store ptr @.str.24, ptr %206, align 8
-  %1522 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  store i64 7, ptr %1522, align 8
+  %1520 = getelementptr inbounds nuw i8, ptr %206, i64 8
+  store i64 7, ptr %1520, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %207) #21
   store ptr @.str, ptr %207, align 8, !tbaa !19
-  %1523 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  store i64 86, ptr %1523, align 8, !tbaa !23
+  %1521 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  store i64 86, ptr %1521, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %208, ptr noundef nonnull @.str.50) #21
-  %1524 = load ptr, ptr %208, align 8
-  %1525 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  %1526 = load i64, ptr %1525, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %205, ptr noundef nonnull align 8 dereferenceable(16) %206, ptr noundef nonnull align 8 dereferenceable(16) %207, ptr %1524, i64 %1526, i32 noundef 1)
-          to label %1527 unwind label %1544
+  %1522 = load ptr, ptr %208, align 8
+  %1523 = getelementptr inbounds nuw i8, ptr %208, i64 8
+  %1524 = load i64, ptr %1523, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %205, ptr noundef nonnull align 8 dereferenceable(16) %206, ptr noundef nonnull align 8 dereferenceable(16) %207, ptr %1522, i64 %1524, i32 noundef 1)
+          to label %1525 unwind label %1542
 
-1527:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit635
+1525:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit635
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %207) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %206) #21
-  %1528 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %185) #21
-  %1529 = xor i1 %1528, true
-  %1530 = zext i1 %1529 to i8
+  %1526 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %185) #21
+  %1527 = xor i1 %1526, true
+  %1528 = zext i1 %1527 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57) #21
-  %1531 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i8 0, ptr %1531, align 8, !tbaa !24, !alias.scope !132
-  %1532 = getelementptr inbounds nuw i8, ptr %57, i64 9
-  store i8 %1530, ptr %1532, align 1, !tbaa !30, !alias.scope !132
+  %1529 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store i8 0, ptr %1529, align 8, !tbaa !24, !alias.scope !132
+  %1530 = getelementptr inbounds nuw i8, ptr %57, i64 9
+  store i8 %1528, ptr %1530, align 1, !tbaa !30, !alias.scope !132
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %57, align 8, !tbaa !4, !alias.scope !132
-  %1533 = getelementptr inbounds nuw i8, ptr %57, i64 10
-  store i8 %1530, ptr %1533, align 2, !tbaa !31, !alias.scope !132
+  %1531 = getelementptr inbounds nuw i8, ptr %57, i64 10
+  store i8 %1528, ptr %1531, align 2, !tbaa !31, !alias.scope !132
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %205, ptr noundef nonnull align 8 dereferenceable(10) %57)
-          to label %1537 unwind label %.body636
+          to label %1535 unwind label %.body636
 
-.body636:                                         ; preds = %1527
-  %1534 = landingpad { ptr, i32 }
+.body636:                                         ; preds = %1525
+  %1532 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %57) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #21
-  %1535 = extractvalue { ptr, i32 } %1534, 0
-  %1536 = call ptr @__cxa_begin_catch(ptr %1535) #21
+  %1533 = extractvalue { ptr, i32 } %1532, 0
+  %1534 = call ptr @__cxa_begin_catch(ptr %1533) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %205)
-          to label %1546 unwind label %1602
+          to label %1544 unwind label %1599
 
-1537:                                             ; preds = %1527
+1535:                                             ; preds = %1525
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %57) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #21
-  br label %1547
+  br label %1545
 
-1538:                                             ; preds = %1504
+1536:                                             ; preds = %1502
+  %1537 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %1540 unwind label %4187
+
+1538:                                             ; preds = %1506, %1505
   %1539 = landingpad { ptr, i32 }
           cleanup
-  invoke void @__cxa_end_catch()
-          to label %1542 unwind label %4191
+  br label %1540
 
-1540:                                             ; preds = %1508, %1507
-  %1541 = landingpad { ptr, i32 }
-          cleanup
-  br label %1542
-
-1542:                                             ; preds = %1538, %1540
-  %.pn341 = phi { ptr, i32 } [ %1541, %1540 ], [ %1539, %1538 ]
+1540:                                             ; preds = %1536, %1538
+  %.pn341 = phi { ptr, i32 } [ %1539, %1538 ], [ %1537, %1536 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %198) #21
-  br label %1543
+  br label %1541
 
-1543:                                             ; preds = %1542, %1502
-  %.pn341.pn = phi { ptr, i32 } [ %.pn341, %1542 ], [ %1503, %1502 ]
+1541:                                             ; preds = %1540, %1500
+  %.pn341.pn = phi { ptr, i32 } [ %.pn341, %1540 ], [ %1501, %1500 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %198) #21
-  br label %4145
+  br label %4141
 
-1544:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit635
-  %1545 = landingpad { ptr, i32 }
+1542:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit635
+  %1543 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %207) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %206) #21
-  br label %1607
+  br label %1604
 
-1546:                                             ; preds = %.body636
+1544:                                             ; preds = %.body636
   invoke void @__cxa_end_catch()
-          to label %1547 unwind label %1604
+          to label %1545 unwind label %1601
 
-1547:                                             ; preds = %1546, %1537
+1545:                                             ; preds = %1544, %1535
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %205)
-          to label %1548 unwind label %1604
+          to label %1546 unwind label %1601
 
-1548:                                             ; preds = %1547
-  %1549 = getelementptr inbounds nuw i8, ptr %205, i64 58
-  %1550 = load i8, ptr %1549, align 2, !tbaa !33, !range !40, !noundef !41
-  %1551 = trunc nuw i8 %1550 to i1
-  br i1 %1551, label %_ZN5Catch16AssertionHandlerD2Ev.exit639, label %1552
+1546:                                             ; preds = %1545
+  %1547 = getelementptr inbounds nuw i8, ptr %205, i64 58
+  %1548 = load i8, ptr %1547, align 2, !tbaa !33, !range !40, !noundef !41
+  %1549 = trunc nuw i8 %1548 to i1
+  br i1 %1549, label %_ZN5Catch16AssertionHandlerD2Ev.exit639, label %1550
 
-1552:                                             ; preds = %1548
-  %1553 = getelementptr inbounds nuw i8, ptr %205, i64 64
-  %1554 = load ptr, ptr %1553, align 8, !tbaa !42
-  %1555 = load ptr, ptr %1554, align 8, !tbaa !4
-  %1556 = getelementptr inbounds nuw i8, ptr %1555, i64 112
-  %1557 = load ptr, ptr %1556, align 8
-  invoke void %1557(ptr noundef nonnull align 8 dereferenceable(8) %1554, ptr noundef nonnull align 8 dereferenceable(72) %205)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit639 unwind label %1558
+1550:                                             ; preds = %1546
+  %1551 = getelementptr inbounds nuw i8, ptr %205, i64 64
+  %1552 = load ptr, ptr %1551, align 8, !tbaa !42
+  %1553 = load ptr, ptr %1552, align 8, !tbaa !4
+  %1554 = getelementptr inbounds nuw i8, ptr %1553, i64 112
+  %1555 = load ptr, ptr %1554, align 8
+  invoke void %1555(ptr noundef nonnull align 8 dereferenceable(8) %1552, ptr noundef nonnull align 8 dereferenceable(72) %205)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit639 unwind label %1556
 
-1558:                                             ; preds = %1552
-  %1559 = landingpad { ptr, i32 }
+1556:                                             ; preds = %1550
+  %1557 = landingpad { ptr, i32 }
           catch ptr null
-  %1560 = extractvalue { ptr, i32 } %1559, 0
-  call void @__clang_call_terminate(ptr %1560) #22
+  %1558 = extractvalue { ptr, i32 } %1557, 0
+  call void @__clang_call_terminate(ptr %1558) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit639:          ; preds = %1548, %1552
+_ZN5Catch16AssertionHandlerD2Ev.exit639:          ; preds = %1546, %1550
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %205) #21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %209) #21
-  %1561 = load i8, ptr %132, align 8, !tbaa !7
-  store i8 %1561, ptr %209, align 8, !tbaa !7
-  %1562 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  %1563 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  %1564 = load ptr, ptr %1563, align 8, !tbaa !112
-  %1565 = load ptr, ptr %869, align 8, !tbaa !113
-  %1566 = ptrtoint ptr %1564 to i64
-  %1567 = ptrtoint ptr %1565 to i64
-  %1568 = sub i64 %1566, %1567
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1562, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i640 = icmp eq ptr %1564, %1565
-  br i1 %.not.i.i.i.i.i640, label %.noexc645.thread, label %1572
+  %1559 = load i8, ptr %132, align 8, !tbaa !7
+  store i8 %1559, ptr %209, align 8, !tbaa !7
+  %1560 = getelementptr inbounds nuw i8, ptr %209, i64 8
+  %1561 = getelementptr inbounds nuw i8, ptr %132, i64 16
+  %1562 = load ptr, ptr %1561, align 8, !tbaa !112
+  %1563 = load ptr, ptr %869, align 8, !tbaa !113
+  %1564 = ptrtoint ptr %1562 to i64
+  %1565 = ptrtoint ptr %1563 to i64
+  %1566 = sub i64 %1564, %1565
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1560, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i640 = icmp eq ptr %1562, %1563
+  br i1 %.not.i.i.i.i.i640, label %.noexc645.thread, label %1569
 
 .noexc645.thread:                                 ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit639
-  %1569 = getelementptr inbounds nuw i8, ptr %209, i64 16
-  %1570 = getelementptr inbounds i8, ptr null, i64 %1568
-  %1571 = getelementptr inbounds nuw i8, ptr %209, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1562, i8 0, i64 16, i1 false)
-  store ptr %1570, ptr %1571, align 8, !tbaa !114
-  br label %1579
+  %1567 = getelementptr inbounds nuw i8, ptr %209, i64 16
+  %1568 = getelementptr inbounds nuw i8, ptr %209, i64 24
+  br label %1576
 
-1572:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit639
-  %1573 = icmp ugt i64 %1568, 9223372036854775800
-  br i1 %1573, label %.noexc.i.i.i643, label %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i641, !prof !115
+1569:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit639
+  %1570 = icmp ugt i64 %1566, 9223372036854775800
+  br i1 %1570, label %.noexc.i.i.i643, label %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i641, !prof !114
 
-.noexc.i.i.i643:                                  ; preds = %1572
+.noexc.i.i.i643:                                  ; preds = %1569
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc644 unwind label %1608
+          to label %.noexc644 unwind label %1605
 
 .noexc644:                                        ; preds = %.noexc.i.i.i643
   unreachable
 
-_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i641: ; preds = %1572
-  %1574 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1568) #24
-          to label %1575 unwind label %1608
+_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i641: ; preds = %1569
+  %1571 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1566) #24
+          to label %1572 unwind label %1605
 
-1575:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i641
-  store ptr %1574, ptr %1562, align 8, !tbaa !113
-  %1576 = getelementptr inbounds nuw i8, ptr %209, i64 16
-  store ptr %1574, ptr %1576, align 8, !tbaa !112
-  %1577 = getelementptr inbounds nuw i8, ptr %1574, i64 %1568
-  %1578 = getelementptr inbounds nuw i8, ptr %209, i64 24
-  store ptr %1577, ptr %1578, align 8, !tbaa !114
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1574, ptr align 8 %1565, i64 %1568, i1 false)
-  br label %1579
+1572:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i641
+  store ptr %1571, ptr %1560, align 8, !tbaa !113
+  %1573 = getelementptr inbounds nuw i8, ptr %209, i64 16
+  store ptr %1571, ptr %1573, align 8, !tbaa !112
+  %1574 = getelementptr inbounds nuw i8, ptr %1571, i64 %1566
+  %1575 = getelementptr inbounds nuw i8, ptr %209, i64 24
+  store ptr %1574, ptr %1575, align 8, !tbaa !115
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1571, ptr align 8 %1563, i64 %1566, i1 false)
+  br label %1576
 
-1579:                                             ; preds = %1575, %.noexc645.thread
-  %1580 = phi ptr [ %1571, %.noexc645.thread ], [ %1578, %1575 ]
-  %1581 = phi ptr [ %1570, %.noexc645.thread ], [ %1577, %1575 ]
-  %1582 = phi ptr [ %1569, %.noexc645.thread ], [ %1576, %1575 ]
-  store ptr %1581, ptr %1582, align 8, !tbaa !112
-  %1583 = getelementptr inbounds nuw i8, ptr %209, i64 32
-  %1584 = getelementptr inbounds nuw i8, ptr %132, i64 32
-  %1585 = load ptr, ptr %1584, align 8, !tbaa !116
-  store ptr %1585, ptr %1583, align 8, !tbaa !116
+1576:                                             ; preds = %1572, %.noexc645.thread
+  %1577 = phi ptr [ %1568, %.noexc645.thread ], [ %1575, %1572 ]
+  %1578 = phi ptr [ null, %.noexc645.thread ], [ %1574, %1572 ]
+  %1579 = phi ptr [ %1567, %.noexc645.thread ], [ %1573, %1572 ]
+  store ptr %1578, ptr %1579, align 8, !tbaa !112
+  %1580 = getelementptr inbounds nuw i8, ptr %209, i64 32
+  %1581 = getelementptr inbounds nuw i8, ptr %132, i64 32
+  %1582 = load ptr, ptr %1581, align 8, !tbaa !116
+  store ptr %1582, ptr %1580, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %210) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %211) #21
   store ptr @.str.24, ptr %211, align 8
-  %1586 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  store i64 7, ptr %1586, align 8
+  %1583 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  store i64 7, ptr %1583, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %212) #21
   store ptr @.str, ptr %212, align 8, !tbaa !19
-  %1587 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  store i64 89, ptr %1587, align 8, !tbaa !23
+  %1584 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  store i64 89, ptr %1584, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %213, ptr noundef nonnull @.str.51) #21
-  %1588 = load ptr, ptr %213, align 8
-  %1589 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %1590 = load i64, ptr %1589, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %210, ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull align 8 dereferenceable(16) %212, ptr %1588, i64 %1590, i32 noundef 1)
-          to label %1591 unwind label %1610
+  %1585 = load ptr, ptr %213, align 8
+  %1586 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  %1587 = load i64, ptr %1586, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %210, ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull align 8 dereferenceable(16) %212, ptr %1585, i64 %1587, i32 noundef 1)
+          to label %1588 unwind label %1607
 
-1591:                                             ; preds = %1579
+1588:                                             ; preds = %1576
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %212) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %211) #21
-  %1592 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %209, ptr noundef nonnull %83) #21
-  %1593 = xor i1 %1592, true
-  %1594 = zext i1 %1593 to i8
+  %1589 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %209, ptr noundef nonnull %83) #21
+  %1590 = xor i1 %1589, true
+  %1591 = zext i1 %1590 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #21
-  %1595 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i8 0, ptr %1595, align 8, !tbaa !24, !alias.scope !135
-  %1596 = getelementptr inbounds nuw i8, ptr %56, i64 9
-  store i8 %1594, ptr %1596, align 1, !tbaa !30, !alias.scope !135
+  %1592 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store i8 0, ptr %1592, align 8, !tbaa !24, !alias.scope !135
+  %1593 = getelementptr inbounds nuw i8, ptr %56, i64 9
+  store i8 %1591, ptr %1593, align 1, !tbaa !30, !alias.scope !135
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %56, align 8, !tbaa !4, !alias.scope !135
-  %1597 = getelementptr inbounds nuw i8, ptr %56, i64 10
-  store i8 %1594, ptr %1597, align 2, !tbaa !31, !alias.scope !135
+  %1594 = getelementptr inbounds nuw i8, ptr %56, i64 10
+  store i8 %1591, ptr %1594, align 2, !tbaa !31, !alias.scope !135
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %210, ptr noundef nonnull align 8 dereferenceable(10) %56)
-          to label %1601 unwind label %.body647
+          to label %1598 unwind label %.body647
 
-.body647:                                         ; preds = %1591
-  %1598 = landingpad { ptr, i32 }
+.body647:                                         ; preds = %1588
+  %1595 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %56) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #21
-  %1599 = extractvalue { ptr, i32 } %1598, 0
-  %1600 = call ptr @__cxa_begin_catch(ptr %1599) #21
+  %1596 = extractvalue { ptr, i32 } %1595, 0
+  %1597 = call ptr @__cxa_begin_catch(ptr %1596) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %210)
-          to label %1612 unwind label %1642
+          to label %1609 unwind label %1639
 
-1601:                                             ; preds = %1591
+1598:                                             ; preds = %1588
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %56) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #21
-  br label %1613
+  br label %1610
 
-1602:                                             ; preds = %.body636
-  %1603 = landingpad { ptr, i32 }
+1599:                                             ; preds = %.body636
+  %1600 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1606 unwind label %4191
+          to label %1603 unwind label %4187
 
-1604:                                             ; preds = %1547, %1546
-  %1605 = landingpad { ptr, i32 }
+1601:                                             ; preds = %1545, %1544
+  %1602 = landingpad { ptr, i32 }
           cleanup
-  br label %1606
+  br label %1603
 
-1606:                                             ; preds = %1602, %1604
-  %.pn344 = phi { ptr, i32 } [ %1605, %1604 ], [ %1603, %1602 ]
+1603:                                             ; preds = %1599, %1601
+  %.pn344 = phi { ptr, i32 } [ %1602, %1601 ], [ %1600, %1599 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %205) #21
-  br label %1607
+  br label %1604
 
-1607:                                             ; preds = %1606, %1544
-  %.pn344.pn = phi { ptr, i32 } [ %.pn344, %1606 ], [ %1545, %1544 ]
+1604:                                             ; preds = %1603, %1542
+  %.pn344.pn = phi { ptr, i32 } [ %.pn344, %1603 ], [ %1543, %1542 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %205) #21
-  br label %4145
+  br label %4141
 
-1608:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i641, %.noexc.i.i.i643
-  %1609 = landingpad { ptr, i32 }
+1605:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i641, %.noexc.i.i.i643
+  %1606 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit902
 
-1610:                                             ; preds = %1579
-  %1611 = landingpad { ptr, i32 }
+1607:                                             ; preds = %1576
+  %1608 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %212) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %211) #21
-  br label %1647
+  br label %1644
 
-1612:                                             ; preds = %.body647
+1609:                                             ; preds = %.body647
   invoke void @__cxa_end_catch()
-          to label %1613 unwind label %1644
+          to label %1610 unwind label %1641
 
-1613:                                             ; preds = %1612, %1601
+1610:                                             ; preds = %1609, %1598
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %210)
-          to label %1614 unwind label %1644
+          to label %1611 unwind label %1641
 
-1614:                                             ; preds = %1613
-  %1615 = getelementptr inbounds nuw i8, ptr %210, i64 58
-  %1616 = load i8, ptr %1615, align 2, !tbaa !33, !range !40, !noundef !41
-  %1617 = trunc nuw i8 %1616 to i1
-  br i1 %1617, label %_ZN5Catch16AssertionHandlerD2Ev.exit650, label %1618
+1611:                                             ; preds = %1610
+  %1612 = getelementptr inbounds nuw i8, ptr %210, i64 58
+  %1613 = load i8, ptr %1612, align 2, !tbaa !33, !range !40, !noundef !41
+  %1614 = trunc nuw i8 %1613 to i1
+  br i1 %1614, label %_ZN5Catch16AssertionHandlerD2Ev.exit650, label %1615
 
-1618:                                             ; preds = %1614
-  %1619 = getelementptr inbounds nuw i8, ptr %210, i64 64
-  %1620 = load ptr, ptr %1619, align 8, !tbaa !42
-  %1621 = load ptr, ptr %1620, align 8, !tbaa !4
-  %1622 = getelementptr inbounds nuw i8, ptr %1621, i64 112
-  %1623 = load ptr, ptr %1622, align 8
-  invoke void %1623(ptr noundef nonnull align 8 dereferenceable(8) %1620, ptr noundef nonnull align 8 dereferenceable(72) %210)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit650 unwind label %1624
+1615:                                             ; preds = %1611
+  %1616 = getelementptr inbounds nuw i8, ptr %210, i64 64
+  %1617 = load ptr, ptr %1616, align 8, !tbaa !42
+  %1618 = load ptr, ptr %1617, align 8, !tbaa !4
+  %1619 = getelementptr inbounds nuw i8, ptr %1618, i64 112
+  %1620 = load ptr, ptr %1619, align 8
+  invoke void %1620(ptr noundef nonnull align 8 dereferenceable(8) %1617, ptr noundef nonnull align 8 dereferenceable(72) %210)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit650 unwind label %1621
 
-1624:                                             ; preds = %1618
-  %1625 = landingpad { ptr, i32 }
+1621:                                             ; preds = %1615
+  %1622 = landingpad { ptr, i32 }
           catch ptr null
-  %1626 = extractvalue { ptr, i32 } %1625, 0
-  call void @__clang_call_terminate(ptr %1626) #22
+  %1623 = extractvalue { ptr, i32 } %1622, 0
+  call void @__clang_call_terminate(ptr %1623) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit650:          ; preds = %1614, %1618
+_ZN5Catch16AssertionHandlerD2Ev.exit650:          ; preds = %1611, %1615
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %210) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %214) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %215) #21
   store ptr @.str.24, ptr %215, align 8
-  %1627 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  store i64 7, ptr %1627, align 8
+  %1624 = getelementptr inbounds nuw i8, ptr %215, i64 8
+  store i64 7, ptr %1624, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %216) #21
   store ptr @.str, ptr %216, align 8, !tbaa !19
-  %1628 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  store i64 90, ptr %1628, align 8, !tbaa !23
+  %1625 = getelementptr inbounds nuw i8, ptr %216, i64 8
+  store i64 90, ptr %1625, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %217, ptr noundef nonnull @.str.52) #21
-  %1629 = load ptr, ptr %217, align 8
-  %1630 = getelementptr inbounds nuw i8, ptr %217, i64 8
-  %1631 = load i64, ptr %1630, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %214, ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %216, ptr %1629, i64 %1631, i32 noundef 1)
-          to label %1632 unwind label %1648
+  %1626 = load ptr, ptr %217, align 8
+  %1627 = getelementptr inbounds nuw i8, ptr %217, i64 8
+  %1628 = load i64, ptr %1627, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %214, ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %216, ptr %1626, i64 %1628, i32 noundef 1)
+          to label %1629 unwind label %1645
 
-1632:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit650
+1629:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit650
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %216) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %215) #21
-  %1633 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %209, ptr noundef nonnull %83) #21
-  %1634 = zext i1 %1633 to i8
+  %1630 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %209, ptr noundef nonnull %83) #21
+  %1631 = zext i1 %1630 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55) #21
-  %1635 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store i8 0, ptr %1635, align 8, !tbaa !24, !alias.scope !138
-  %1636 = getelementptr inbounds nuw i8, ptr %55, i64 9
-  store i8 %1634, ptr %1636, align 1, !tbaa !30, !alias.scope !138
+  %1632 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i8 0, ptr %1632, align 8, !tbaa !24, !alias.scope !138
+  %1633 = getelementptr inbounds nuw i8, ptr %55, i64 9
+  store i8 %1631, ptr %1633, align 1, !tbaa !30, !alias.scope !138
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %55, align 8, !tbaa !4, !alias.scope !138
-  %1637 = getelementptr inbounds nuw i8, ptr %55, i64 10
-  store i8 %1634, ptr %1637, align 2, !tbaa !31, !alias.scope !138
+  %1634 = getelementptr inbounds nuw i8, ptr %55, i64 10
+  store i8 %1631, ptr %1634, align 2, !tbaa !31, !alias.scope !138
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %214, ptr noundef nonnull align 8 dereferenceable(10) %55)
-          to label %1641 unwind label %.body651
+          to label %1638 unwind label %.body651
 
-.body651:                                         ; preds = %1632
-  %1638 = landingpad { ptr, i32 }
+.body651:                                         ; preds = %1629
+  %1635 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %55) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #21
-  %1639 = extractvalue { ptr, i32 } %1638, 0
-  %1640 = call ptr @__cxa_begin_catch(ptr %1639) #21
+  %1636 = extractvalue { ptr, i32 } %1635, 0
+  %1637 = call ptr @__cxa_begin_catch(ptr %1636) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %214)
-          to label %1650 unwind label %1681
+          to label %1647 unwind label %1678
 
-1641:                                             ; preds = %1632
+1638:                                             ; preds = %1629
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %55) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #21
-  br label %1651
+  br label %1648
 
-1642:                                             ; preds = %.body647
-  %1643 = landingpad { ptr, i32 }
+1639:                                             ; preds = %.body647
+  %1640 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1646 unwind label %4191
+          to label %1643 unwind label %4187
 
-1644:                                             ; preds = %1613, %1612
-  %1645 = landingpad { ptr, i32 }
+1641:                                             ; preds = %1610, %1609
+  %1642 = landingpad { ptr, i32 }
           cleanup
-  br label %1646
+  br label %1643
 
-1646:                                             ; preds = %1642, %1644
-  %.pn347 = phi { ptr, i32 } [ %1645, %1644 ], [ %1643, %1642 ]
+1643:                                             ; preds = %1639, %1641
+  %.pn347 = phi { ptr, i32 } [ %1642, %1641 ], [ %1640, %1639 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %210) #21
-  br label %1647
+  br label %1644
 
-1647:                                             ; preds = %1646, %1610
-  %.pn347.pn = phi { ptr, i32 } [ %.pn347, %1646 ], [ %1611, %1610 ]
+1644:                                             ; preds = %1643, %1607
+  %.pn347.pn = phi { ptr, i32 } [ %.pn347, %1643 ], [ %1608, %1607 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %210) #21
-  br label %4138
+  br label %4134
 
-1648:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit650
-  %1649 = landingpad { ptr, i32 }
+1645:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit650
+  %1646 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %216) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %215) #21
-  br label %1686
+  br label %1683
 
-1650:                                             ; preds = %.body651
+1647:                                             ; preds = %.body651
   invoke void @__cxa_end_catch()
-          to label %1651 unwind label %1683
+          to label %1648 unwind label %1680
 
-1651:                                             ; preds = %1650, %1641
+1648:                                             ; preds = %1647, %1638
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %214)
-          to label %1652 unwind label %1683
+          to label %1649 unwind label %1680
 
-1652:                                             ; preds = %1651
-  %1653 = getelementptr inbounds nuw i8, ptr %214, i64 58
-  %1654 = load i8, ptr %1653, align 2, !tbaa !33, !range !40, !noundef !41
-  %1655 = trunc nuw i8 %1654 to i1
-  br i1 %1655, label %_ZN5Catch16AssertionHandlerD2Ev.exit654, label %1656
+1649:                                             ; preds = %1648
+  %1650 = getelementptr inbounds nuw i8, ptr %214, i64 58
+  %1651 = load i8, ptr %1650, align 2, !tbaa !33, !range !40, !noundef !41
+  %1652 = trunc nuw i8 %1651 to i1
+  br i1 %1652, label %_ZN5Catch16AssertionHandlerD2Ev.exit654, label %1653
 
-1656:                                             ; preds = %1652
-  %1657 = getelementptr inbounds nuw i8, ptr %214, i64 64
-  %1658 = load ptr, ptr %1657, align 8, !tbaa !42
-  %1659 = load ptr, ptr %1658, align 8, !tbaa !4
-  %1660 = getelementptr inbounds nuw i8, ptr %1659, i64 112
-  %1661 = load ptr, ptr %1660, align 8
-  invoke void %1661(ptr noundef nonnull align 8 dereferenceable(8) %1658, ptr noundef nonnull align 8 dereferenceable(72) %214)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit654 unwind label %1662
+1653:                                             ; preds = %1649
+  %1654 = getelementptr inbounds nuw i8, ptr %214, i64 64
+  %1655 = load ptr, ptr %1654, align 8, !tbaa !42
+  %1656 = load ptr, ptr %1655, align 8, !tbaa !4
+  %1657 = getelementptr inbounds nuw i8, ptr %1656, i64 112
+  %1658 = load ptr, ptr %1657, align 8
+  invoke void %1658(ptr noundef nonnull align 8 dereferenceable(8) %1655, ptr noundef nonnull align 8 dereferenceable(72) %214)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit654 unwind label %1659
 
-1662:                                             ; preds = %1656
-  %1663 = landingpad { ptr, i32 }
+1659:                                             ; preds = %1653
+  %1660 = landingpad { ptr, i32 }
           catch ptr null
-  %1664 = extractvalue { ptr, i32 } %1663, 0
-  call void @__clang_call_terminate(ptr %1664) #22
+  %1661 = extractvalue { ptr, i32 } %1660, 0
+  call void @__clang_call_terminate(ptr %1661) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit654:          ; preds = %1652, %1656
+_ZN5Catch16AssertionHandlerD2Ev.exit654:          ; preds = %1649, %1653
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %214) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %218) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %219) #21
   store ptr @.str.24, ptr %219, align 8
-  %1665 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  store i64 7, ptr %1665, align 8
+  %1662 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  store i64 7, ptr %1662, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %220) #21
   store ptr @.str, ptr %220, align 8, !tbaa !19
-  %1666 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  store i64 91, ptr %1666, align 8, !tbaa !23
+  %1663 = getelementptr inbounds nuw i8, ptr %220, i64 8
+  store i64 91, ptr %1663, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull @.str.53) #21
-  %1667 = load ptr, ptr %221, align 8
-  %1668 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  %1669 = load i64, ptr %1668, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %218, ptr noundef nonnull align 8 dereferenceable(16) %219, ptr noundef nonnull align 8 dereferenceable(16) %220, ptr %1667, i64 %1669, i32 noundef 1)
-          to label %1670 unwind label %1687
+  %1664 = load ptr, ptr %221, align 8
+  %1665 = getelementptr inbounds nuw i8, ptr %221, i64 8
+  %1666 = load i64, ptr %1665, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %218, ptr noundef nonnull align 8 dereferenceable(16) %219, ptr noundef nonnull align 8 dereferenceable(16) %220, ptr %1664, i64 %1666, i32 noundef 1)
+          to label %1667 unwind label %1684
 
-1670:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit654
+1667:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit654
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %220) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %219) #21
-  %1671 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %209, ptr noundef nonnull %83) #21
-  %1672 = xor i1 %1671, true
-  %1673 = zext i1 %1672 to i8
+  %1668 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %209, ptr noundef nonnull %83) #21
+  %1669 = xor i1 %1668, true
+  %1670 = zext i1 %1669 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54) #21
-  %1674 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i8 0, ptr %1674, align 8, !tbaa !24, !alias.scope !141
-  %1675 = getelementptr inbounds nuw i8, ptr %54, i64 9
-  store i8 %1673, ptr %1675, align 1, !tbaa !30, !alias.scope !141
+  %1671 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store i8 0, ptr %1671, align 8, !tbaa !24, !alias.scope !141
+  %1672 = getelementptr inbounds nuw i8, ptr %54, i64 9
+  store i8 %1670, ptr %1672, align 1, !tbaa !30, !alias.scope !141
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %54, align 8, !tbaa !4, !alias.scope !141
-  %1676 = getelementptr inbounds nuw i8, ptr %54, i64 10
-  store i8 %1673, ptr %1676, align 2, !tbaa !31, !alias.scope !141
+  %1673 = getelementptr inbounds nuw i8, ptr %54, i64 10
+  store i8 %1670, ptr %1673, align 2, !tbaa !31, !alias.scope !141
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %218, ptr noundef nonnull align 8 dereferenceable(10) %54)
-          to label %1680 unwind label %.body655
+          to label %1677 unwind label %.body655
 
-.body655:                                         ; preds = %1670
-  %1677 = landingpad { ptr, i32 }
+.body655:                                         ; preds = %1667
+  %1674 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %54) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #21
-  %1678 = extractvalue { ptr, i32 } %1677, 0
-  %1679 = call ptr @__cxa_begin_catch(ptr %1678) #21
+  %1675 = extractvalue { ptr, i32 } %1674, 0
+  %1676 = call ptr @__cxa_begin_catch(ptr %1675) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %218)
-          to label %1689 unwind label %1722
+          to label %1686 unwind label %1719
 
-1680:                                             ; preds = %1670
+1677:                                             ; preds = %1667
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %54) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #21
-  br label %1690
+  br label %1687
 
-1681:                                             ; preds = %.body651
-  %1682 = landingpad { ptr, i32 }
+1678:                                             ; preds = %.body651
+  %1679 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1685 unwind label %4191
+          to label %1682 unwind label %4187
 
-1683:                                             ; preds = %1651, %1650
-  %1684 = landingpad { ptr, i32 }
+1680:                                             ; preds = %1648, %1647
+  %1681 = landingpad { ptr, i32 }
           cleanup
-  br label %1685
+  br label %1682
 
-1685:                                             ; preds = %1681, %1683
-  %.pn350 = phi { ptr, i32 } [ %1684, %1683 ], [ %1682, %1681 ]
+1682:                                             ; preds = %1678, %1680
+  %.pn350 = phi { ptr, i32 } [ %1681, %1680 ], [ %1679, %1678 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %214) #21
-  br label %1686
+  br label %1683
 
-1686:                                             ; preds = %1685, %1648
-  %.pn350.pn = phi { ptr, i32 } [ %.pn350, %1685 ], [ %1649, %1648 ]
+1683:                                             ; preds = %1682, %1645
+  %.pn350.pn = phi { ptr, i32 } [ %.pn350, %1682 ], [ %1646, %1645 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %214) #21
-  br label %4138
+  br label %4134
 
-1687:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit654
-  %1688 = landingpad { ptr, i32 }
+1684:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit654
+  %1685 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %220) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %219) #21
-  br label %1727
+  br label %1724
 
-1689:                                             ; preds = %.body655
+1686:                                             ; preds = %.body655
   invoke void @__cxa_end_catch()
-          to label %1690 unwind label %1724
+          to label %1687 unwind label %1721
 
-1690:                                             ; preds = %1689, %1680
+1687:                                             ; preds = %1686, %1677
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %218)
-          to label %1691 unwind label %1724
+          to label %1688 unwind label %1721
 
-1691:                                             ; preds = %1690
-  %1692 = getelementptr inbounds nuw i8, ptr %218, i64 58
-  %1693 = load i8, ptr %1692, align 2, !tbaa !33, !range !40, !noundef !41
-  %1694 = trunc nuw i8 %1693 to i1
-  br i1 %1694, label %_ZN5Catch16AssertionHandlerD2Ev.exit658, label %1695
+1688:                                             ; preds = %1687
+  %1689 = getelementptr inbounds nuw i8, ptr %218, i64 58
+  %1690 = load i8, ptr %1689, align 2, !tbaa !33, !range !40, !noundef !41
+  %1691 = trunc nuw i8 %1690 to i1
+  br i1 %1691, label %_ZN5Catch16AssertionHandlerD2Ev.exit658, label %1692
 
-1695:                                             ; preds = %1691
-  %1696 = getelementptr inbounds nuw i8, ptr %218, i64 64
-  %1697 = load ptr, ptr %1696, align 8, !tbaa !42
-  %1698 = load ptr, ptr %1697, align 8, !tbaa !4
-  %1699 = getelementptr inbounds nuw i8, ptr %1698, i64 112
-  %1700 = load ptr, ptr %1699, align 8
-  invoke void %1700(ptr noundef nonnull align 8 dereferenceable(8) %1697, ptr noundef nonnull align 8 dereferenceable(72) %218)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit658 unwind label %1701
+1692:                                             ; preds = %1688
+  %1693 = getelementptr inbounds nuw i8, ptr %218, i64 64
+  %1694 = load ptr, ptr %1693, align 8, !tbaa !42
+  %1695 = load ptr, ptr %1694, align 8, !tbaa !4
+  %1696 = getelementptr inbounds nuw i8, ptr %1695, i64 112
+  %1697 = load ptr, ptr %1696, align 8
+  invoke void %1697(ptr noundef nonnull align 8 dereferenceable(8) %1694, ptr noundef nonnull align 8 dereferenceable(72) %218)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit658 unwind label %1698
 
-1701:                                             ; preds = %1695
-  %1702 = landingpad { ptr, i32 }
+1698:                                             ; preds = %1692
+  %1699 = landingpad { ptr, i32 }
           catch ptr null
-  %1703 = extractvalue { ptr, i32 } %1702, 0
-  call void @__clang_call_terminate(ptr %1703) #22
+  %1700 = extractvalue { ptr, i32 } %1699, 0
+  call void @__clang_call_terminate(ptr %1700) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit658:          ; preds = %1691, %1695
+_ZN5Catch16AssertionHandlerD2Ev.exit658:          ; preds = %1688, %1692
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %218) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %222) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %223) #21
   store ptr @.str.24, ptr %223, align 8
-  %1704 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  store i64 7, ptr %1704, align 8
+  %1701 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  store i64 7, ptr %1701, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %224) #21
   store ptr @.str, ptr %224, align 8, !tbaa !19
-  %1705 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  store i64 92, ptr %1705, align 8, !tbaa !23
+  %1702 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  store i64 92, ptr %1702, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %225, ptr noundef nonnull @.str.54) #21
-  %1706 = load ptr, ptr %225, align 8
-  %1707 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  %1708 = load i64, ptr %1707, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %222, ptr noundef nonnull align 8 dereferenceable(16) %223, ptr noundef nonnull align 8 dereferenceable(16) %224, ptr %1706, i64 %1708, i32 noundef 1)
-          to label %1709 unwind label %1728
+  %1703 = load ptr, ptr %225, align 8
+  %1704 = getelementptr inbounds nuw i8, ptr %225, i64 8
+  %1705 = load i64, ptr %1704, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %222, ptr noundef nonnull align 8 dereferenceable(16) %223, ptr noundef nonnull align 8 dereferenceable(16) %224, ptr %1703, i64 %1705, i32 noundef 1)
+          to label %1706 unwind label %1725
 
-1709:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit658
+1706:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit658
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %224) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %223) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %226) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %227) #21
-  %1710 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %209) #21
-  store ptr %1710, ptr %227, align 8, !tbaa !49
+  %1707 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %209) #21
+  store ptr %1707, ptr %227, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %228) #21
   store ptr %83, ptr %228, align 8, !tbaa !87
   call void @llvm.experimental.noalias.scope.decl(metadata !144)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53)
-  %1711 = icmp eq ptr %1710, %83
+  %1708 = icmp eq ptr %1707, %83
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull @.str.90) #21, !noalias !144
-  %1712 = load ptr, ptr %53, align 8, !noalias !144
-  %1713 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %1714 = load i64, ptr %1713, align 8, !noalias !144
-  %1715 = zext i1 %1711 to i8
-  %1716 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  store i8 1, ptr %1716, align 8, !tbaa !24, !alias.scope !144
-  %1717 = getelementptr inbounds nuw i8, ptr %226, i64 9
-  store i8 %1715, ptr %1717, align 1, !tbaa !30, !alias.scope !144
+  %1709 = load ptr, ptr %53, align 8, !noalias !144
+  %1710 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %1711 = load i64, ptr %1710, align 8, !noalias !144
+  %1712 = zext i1 %1708 to i8
+  %1713 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  store i8 1, ptr %1713, align 8, !tbaa !24, !alias.scope !144
+  %1714 = getelementptr inbounds nuw i8, ptr %226, i64 9
+  store i8 %1712, ptr %1714, align 1, !tbaa !30, !alias.scope !144
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKPKN5vcpkg19IReadBinaryProviderERKP25KnowNothingBinaryProviderEE, i64 16), ptr %226, align 8, !tbaa !4, !alias.scope !144
-  %1718 = getelementptr inbounds nuw i8, ptr %226, i64 16
-  store ptr %227, ptr %1718, align 8, !tbaa !55, !alias.scope !144
-  %1719 = getelementptr inbounds nuw i8, ptr %226, i64 24
-  store ptr %1712, ptr %1719, align 8, !tbaa !56, !alias.scope !144
+  %1715 = getelementptr inbounds nuw i8, ptr %226, i64 16
+  store ptr %227, ptr %1715, align 8, !tbaa !55, !alias.scope !144
+  %1716 = getelementptr inbounds nuw i8, ptr %226, i64 24
+  store ptr %1709, ptr %1716, align 8, !tbaa !56, !alias.scope !144
   %.sroa.2.0..sroa_idx.i.i659 = getelementptr inbounds nuw i8, ptr %226, i64 32
-  store i64 %1714, ptr %.sroa.2.0..sroa_idx.i.i659, align 8, !tbaa !57, !alias.scope !144
-  %1720 = getelementptr inbounds nuw i8, ptr %226, i64 40
-  store ptr %228, ptr %1720, align 8, !tbaa !92, !alias.scope !144
+  store i64 %1711, ptr %.sroa.2.0..sroa_idx.i.i659, align 8, !tbaa !57, !alias.scope !144
+  %1717 = getelementptr inbounds nuw i8, ptr %226, i64 40
+  store ptr %228, ptr %1717, align 8, !tbaa !92, !alias.scope !144
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53)
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %222, ptr noundef nonnull align 8 dereferenceable(10) %226)
-          to label %1721 unwind label %1730
+          to label %1718 unwind label %1727
 
-1721:                                             ; preds = %1709
+1718:                                             ; preds = %1706
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %226) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %228) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %227) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %226) #21
-  br label %1734
+  br label %1731
 
-1722:                                             ; preds = %.body655
-  %1723 = landingpad { ptr, i32 }
+1719:                                             ; preds = %.body655
+  %1720 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1726 unwind label %4191
+          to label %1723 unwind label %4187
 
-1724:                                             ; preds = %1690, %1689
-  %1725 = landingpad { ptr, i32 }
+1721:                                             ; preds = %1687, %1686
+  %1722 = landingpad { ptr, i32 }
           cleanup
-  br label %1726
+  br label %1723
 
-1726:                                             ; preds = %1722, %1724
-  %.pn353 = phi { ptr, i32 } [ %1725, %1724 ], [ %1723, %1722 ]
+1723:                                             ; preds = %1719, %1721
+  %.pn353 = phi { ptr, i32 } [ %1722, %1721 ], [ %1720, %1719 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %218) #21
-  br label %1727
+  br label %1724
 
-1727:                                             ; preds = %1726, %1687
-  %.pn353.pn = phi { ptr, i32 } [ %.pn353, %1726 ], [ %1688, %1687 ]
+1724:                                             ; preds = %1723, %1684
+  %.pn353.pn = phi { ptr, i32 } [ %.pn353, %1723 ], [ %1685, %1684 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %218) #21
-  br label %4138
+  br label %4134
 
-1728:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit658
-  %1729 = landingpad { ptr, i32 }
+1725:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit658
+  %1726 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %224) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %223) #21
-  br label %1769
+  br label %1766
 
-1730:                                             ; preds = %1709
-  %1731 = landingpad { ptr, i32 }
+1727:                                             ; preds = %1706
+  %1728 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %226) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %228) #21
-  %.79162 = extractvalue { ptr, i32 } %1731, 0
+  %.79162 = extractvalue { ptr, i32 } %1728, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %227) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %226) #21
-  %1732 = call ptr @__cxa_begin_catch(ptr %.79162) #21
+  %1729 = call ptr @__cxa_begin_catch(ptr %.79162) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %222)
-          to label %1733 unwind label %1764
+          to label %1730 unwind label %1761
 
-1733:                                             ; preds = %1730
+1730:                                             ; preds = %1727
   invoke void @__cxa_end_catch()
-          to label %1734 unwind label %1766
+          to label %1731 unwind label %1763
 
-1734:                                             ; preds = %1733, %1721
+1731:                                             ; preds = %1730, %1718
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %222)
-          to label %1735 unwind label %1766
+          to label %1732 unwind label %1763
 
-1735:                                             ; preds = %1734
-  %1736 = getelementptr inbounds nuw i8, ptr %222, i64 58
-  %1737 = load i8, ptr %1736, align 2, !tbaa !33, !range !40, !noundef !41
-  %1738 = trunc nuw i8 %1737 to i1
-  br i1 %1738, label %_ZN5Catch16AssertionHandlerD2Ev.exit660, label %1739
+1732:                                             ; preds = %1731
+  %1733 = getelementptr inbounds nuw i8, ptr %222, i64 58
+  %1734 = load i8, ptr %1733, align 2, !tbaa !33, !range !40, !noundef !41
+  %1735 = trunc nuw i8 %1734 to i1
+  br i1 %1735, label %_ZN5Catch16AssertionHandlerD2Ev.exit660, label %1736
 
-1739:                                             ; preds = %1735
-  %1740 = getelementptr inbounds nuw i8, ptr %222, i64 64
-  %1741 = load ptr, ptr %1740, align 8, !tbaa !42
-  %1742 = load ptr, ptr %1741, align 8, !tbaa !4
-  %1743 = getelementptr inbounds nuw i8, ptr %1742, i64 112
-  %1744 = load ptr, ptr %1743, align 8
-  invoke void %1744(ptr noundef nonnull align 8 dereferenceable(8) %1741, ptr noundef nonnull align 8 dereferenceable(72) %222)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit660 unwind label %1745
+1736:                                             ; preds = %1732
+  %1737 = getelementptr inbounds nuw i8, ptr %222, i64 64
+  %1738 = load ptr, ptr %1737, align 8, !tbaa !42
+  %1739 = load ptr, ptr %1738, align 8, !tbaa !4
+  %1740 = getelementptr inbounds nuw i8, ptr %1739, i64 112
+  %1741 = load ptr, ptr %1740, align 8
+  invoke void %1741(ptr noundef nonnull align 8 dereferenceable(8) %1738, ptr noundef nonnull align 8 dereferenceable(72) %222)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit660 unwind label %1742
 
-1745:                                             ; preds = %1739
-  %1746 = landingpad { ptr, i32 }
+1742:                                             ; preds = %1736
+  %1743 = landingpad { ptr, i32 }
           catch ptr null
-  %1747 = extractvalue { ptr, i32 } %1746, 0
-  call void @__clang_call_terminate(ptr %1747) #22
+  %1744 = extractvalue { ptr, i32 } %1743, 0
+  call void @__clang_call_terminate(ptr %1744) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit660:          ; preds = %1735, %1739
+_ZN5Catch16AssertionHandlerD2Ev.exit660:          ; preds = %1732, %1736
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %222) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %229) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %230) #21
   store ptr @.str.24, ptr %230, align 8
-  %1748 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  store i64 7, ptr %1748, align 8
+  %1745 = getelementptr inbounds nuw i8, ptr %230, i64 8
+  store i64 7, ptr %1745, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %231) #21
   store ptr @.str, ptr %231, align 8, !tbaa !19
-  %1749 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  store i64 93, ptr %1749, align 8, !tbaa !23
+  %1746 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  store i64 93, ptr %1746, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %232, ptr noundef nonnull @.str.55) #21
-  %1750 = load ptr, ptr %232, align 8
-  %1751 = getelementptr inbounds nuw i8, ptr %232, i64 8
-  %1752 = load i64, ptr %1751, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %229, ptr noundef nonnull align 8 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(16) %231, ptr %1750, i64 %1752, i32 noundef 1)
-          to label %1753 unwind label %1770
+  %1747 = load ptr, ptr %232, align 8
+  %1748 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  %1749 = load i64, ptr %1748, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %229, ptr noundef nonnull align 8 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(16) %231, ptr %1747, i64 %1749, i32 noundef 1)
+          to label %1750 unwind label %1767
 
-1753:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit660
+1750:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit660
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %231) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %230) #21
-  %1754 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %209) #21
-  %1755 = xor i1 %1754, true
-  %1756 = zext i1 %1755 to i8
+  %1751 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %209) #21
+  %1752 = xor i1 %1751, true
+  %1753 = zext i1 %1752 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52) #21
-  %1757 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i8 0, ptr %1757, align 8, !tbaa !24, !alias.scope !147
-  %1758 = getelementptr inbounds nuw i8, ptr %52, i64 9
-  store i8 %1756, ptr %1758, align 1, !tbaa !30, !alias.scope !147
+  %1754 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store i8 0, ptr %1754, align 8, !tbaa !24, !alias.scope !147
+  %1755 = getelementptr inbounds nuw i8, ptr %52, i64 9
+  store i8 %1753, ptr %1755, align 1, !tbaa !30, !alias.scope !147
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %52, align 8, !tbaa !4, !alias.scope !147
-  %1759 = getelementptr inbounds nuw i8, ptr %52, i64 10
-  store i8 %1756, ptr %1759, align 2, !tbaa !31, !alias.scope !147
+  %1756 = getelementptr inbounds nuw i8, ptr %52, i64 10
+  store i8 %1753, ptr %1756, align 2, !tbaa !31, !alias.scope !147
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %229, ptr noundef nonnull align 8 dereferenceable(10) %52)
-          to label %1763 unwind label %.body661
+          to label %1760 unwind label %.body661
 
-.body661:                                         ; preds = %1753
-  %1760 = landingpad { ptr, i32 }
+.body661:                                         ; preds = %1750
+  %1757 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %52) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #21
-  %1761 = extractvalue { ptr, i32 } %1760, 0
-  %1762 = call ptr @__cxa_begin_catch(ptr %1761) #21
+  %1758 = extractvalue { ptr, i32 } %1757, 0
+  %1759 = call ptr @__cxa_begin_catch(ptr %1758) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %229)
-          to label %1772 unwind label %1828
+          to label %1769 unwind label %1824
 
-1763:                                             ; preds = %1753
+1760:                                             ; preds = %1750
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %52) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #21
-  br label %1773
+  br label %1770
 
-1764:                                             ; preds = %1730
-  %1765 = landingpad { ptr, i32 }
+1761:                                             ; preds = %1727
+  %1762 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1768 unwind label %4191
+          to label %1765 unwind label %4187
 
-1766:                                             ; preds = %1734, %1733
-  %1767 = landingpad { ptr, i32 }
+1763:                                             ; preds = %1731, %1730
+  %1764 = landingpad { ptr, i32 }
           cleanup
-  br label %1768
+  br label %1765
 
-1768:                                             ; preds = %1764, %1766
-  %.pn357 = phi { ptr, i32 } [ %1767, %1766 ], [ %1765, %1764 ]
+1765:                                             ; preds = %1761, %1763
+  %.pn357 = phi { ptr, i32 } [ %1764, %1763 ], [ %1762, %1761 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %222) #21
-  br label %1769
+  br label %1766
 
-1769:                                             ; preds = %1768, %1728
-  %.pn357.pn = phi { ptr, i32 } [ %.pn357, %1768 ], [ %1729, %1728 ]
+1766:                                             ; preds = %1765, %1725
+  %.pn357.pn = phi { ptr, i32 } [ %.pn357, %1765 ], [ %1726, %1725 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %222) #21
-  br label %4138
+  br label %4134
 
-1770:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit660
-  %1771 = landingpad { ptr, i32 }
+1767:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit660
+  %1768 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %231) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %230) #21
-  br label %1833
+  br label %1829
 
-1772:                                             ; preds = %.body661
+1769:                                             ; preds = %.body661
   invoke void @__cxa_end_catch()
-          to label %1773 unwind label %1830
+          to label %1770 unwind label %1826
 
-1773:                                             ; preds = %1772, %1763
+1770:                                             ; preds = %1769, %1760
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %229)
-          to label %1774 unwind label %1830
+          to label %1771 unwind label %1826
 
-1774:                                             ; preds = %1773
-  %1775 = getelementptr inbounds nuw i8, ptr %229, i64 58
-  %1776 = load i8, ptr %1775, align 2, !tbaa !33, !range !40, !noundef !41
-  %1777 = trunc nuw i8 %1776 to i1
-  br i1 %1777, label %_ZN5Catch16AssertionHandlerD2Ev.exit664, label %1778
+1771:                                             ; preds = %1770
+  %1772 = getelementptr inbounds nuw i8, ptr %229, i64 58
+  %1773 = load i8, ptr %1772, align 2, !tbaa !33, !range !40, !noundef !41
+  %1774 = trunc nuw i8 %1773 to i1
+  br i1 %1774, label %_ZN5Catch16AssertionHandlerD2Ev.exit664, label %1775
 
-1778:                                             ; preds = %1774
-  %1779 = getelementptr inbounds nuw i8, ptr %229, i64 64
-  %1780 = load ptr, ptr %1779, align 8, !tbaa !42
-  %1781 = load ptr, ptr %1780, align 8, !tbaa !4
-  %1782 = getelementptr inbounds nuw i8, ptr %1781, i64 112
-  %1783 = load ptr, ptr %1782, align 8
-  invoke void %1783(ptr noundef nonnull align 8 dereferenceable(8) %1780, ptr noundef nonnull align 8 dereferenceable(72) %229)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit664 unwind label %1784
+1775:                                             ; preds = %1771
+  %1776 = getelementptr inbounds nuw i8, ptr %229, i64 64
+  %1777 = load ptr, ptr %1776, align 8, !tbaa !42
+  %1778 = load ptr, ptr %1777, align 8, !tbaa !4
+  %1779 = getelementptr inbounds nuw i8, ptr %1778, i64 112
+  %1780 = load ptr, ptr %1779, align 8
+  invoke void %1780(ptr noundef nonnull align 8 dereferenceable(8) %1777, ptr noundef nonnull align 8 dereferenceable(72) %229)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit664 unwind label %1781
 
-1784:                                             ; preds = %1778
-  %1785 = landingpad { ptr, i32 }
+1781:                                             ; preds = %1775
+  %1782 = landingpad { ptr, i32 }
           catch ptr null
-  %1786 = extractvalue { ptr, i32 } %1785, 0
-  call void @__clang_call_terminate(ptr %1786) #22
+  %1783 = extractvalue { ptr, i32 } %1782, 0
+  call void @__clang_call_terminate(ptr %1783) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit664:          ; preds = %1774, %1778
+_ZN5Catch16AssertionHandlerD2Ev.exit664:          ; preds = %1771, %1775
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %229) #21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %233) #21
-  %1787 = load i8, ptr %156, align 8, !tbaa !7
-  store i8 %1787, ptr %233, align 8, !tbaa !7
-  %1788 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  %1789 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  %1790 = load ptr, ptr %1789, align 8, !tbaa !112
-  %1791 = load ptr, ptr %1069, align 8, !tbaa !113
-  %1792 = ptrtoint ptr %1790 to i64
-  %1793 = ptrtoint ptr %1791 to i64
-  %1794 = sub i64 %1792, %1793
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1788, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i665 = icmp eq ptr %1790, %1791
-  br i1 %.not.i.i.i.i.i665, label %.noexc670.thread, label %1798
+  %1784 = load i8, ptr %156, align 8, !tbaa !7
+  store i8 %1784, ptr %233, align 8, !tbaa !7
+  %1785 = getelementptr inbounds nuw i8, ptr %233, i64 8
+  %1786 = getelementptr inbounds nuw i8, ptr %156, i64 16
+  %1787 = load ptr, ptr %1786, align 8, !tbaa !112
+  %1788 = load ptr, ptr %1069, align 8, !tbaa !113
+  %1789 = ptrtoint ptr %1787 to i64
+  %1790 = ptrtoint ptr %1788 to i64
+  %1791 = sub i64 %1789, %1790
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1785, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i665 = icmp eq ptr %1787, %1788
+  br i1 %.not.i.i.i.i.i665, label %.noexc670.thread, label %1794
 
 .noexc670.thread:                                 ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit664
-  %1795 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  %1796 = getelementptr inbounds i8, ptr null, i64 %1794
-  %1797 = getelementptr inbounds nuw i8, ptr %233, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1788, i8 0, i64 16, i1 false)
-  store ptr %1796, ptr %1797, align 8, !tbaa !114
-  br label %1805
+  %1792 = getelementptr inbounds nuw i8, ptr %233, i64 16
+  %1793 = getelementptr inbounds nuw i8, ptr %233, i64 24
+  br label %1801
 
-1798:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit664
-  %1799 = icmp ugt i64 %1794, 9223372036854775800
-  br i1 %1799, label %.noexc.i.i.i668, label %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i666, !prof !115
+1794:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit664
+  %1795 = icmp ugt i64 %1791, 9223372036854775800
+  br i1 %1795, label %.noexc.i.i.i668, label %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i666, !prof !114
 
-.noexc.i.i.i668:                                  ; preds = %1798
+.noexc.i.i.i668:                                  ; preds = %1794
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc669 unwind label %1834
+          to label %.noexc669 unwind label %1830
 
 .noexc669:                                        ; preds = %.noexc.i.i.i668
   unreachable
 
-_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i666: ; preds = %1798
-  %1800 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1794) #24
-          to label %1801 unwind label %1834
+_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i666: ; preds = %1794
+  %1796 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1791) #24
+          to label %1797 unwind label %1830
 
-1801:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i666
-  store ptr %1800, ptr %1788, align 8, !tbaa !113
-  %1802 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  store ptr %1800, ptr %1802, align 8, !tbaa !112
-  %1803 = getelementptr inbounds nuw i8, ptr %1800, i64 %1794
-  %1804 = getelementptr inbounds nuw i8, ptr %233, i64 24
-  store ptr %1803, ptr %1804, align 8, !tbaa !114
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1800, ptr align 8 %1791, i64 %1794, i1 false)
-  br label %1805
+1797:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i666
+  store ptr %1796, ptr %1785, align 8, !tbaa !113
+  %1798 = getelementptr inbounds nuw i8, ptr %233, i64 16
+  store ptr %1796, ptr %1798, align 8, !tbaa !112
+  %1799 = getelementptr inbounds nuw i8, ptr %1796, i64 %1791
+  %1800 = getelementptr inbounds nuw i8, ptr %233, i64 24
+  store ptr %1799, ptr %1800, align 8, !tbaa !115
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %1796, ptr align 8 %1788, i64 %1791, i1 false)
+  br label %1801
 
-1805:                                             ; preds = %1801, %.noexc670.thread
-  %1806 = phi ptr [ %1797, %.noexc670.thread ], [ %1804, %1801 ]
-  %1807 = phi ptr [ %1796, %.noexc670.thread ], [ %1803, %1801 ]
-  %1808 = phi ptr [ %1795, %.noexc670.thread ], [ %1802, %1801 ]
-  store ptr %1807, ptr %1808, align 8, !tbaa !112
-  %1809 = getelementptr inbounds nuw i8, ptr %233, i64 32
-  %1810 = getelementptr inbounds nuw i8, ptr %156, i64 32
-  %1811 = load ptr, ptr %1810, align 8, !tbaa !116
-  store ptr %1811, ptr %1809, align 8, !tbaa !116
+1801:                                             ; preds = %1797, %.noexc670.thread
+  %1802 = phi ptr [ %1793, %.noexc670.thread ], [ %1800, %1797 ]
+  %1803 = phi ptr [ null, %.noexc670.thread ], [ %1799, %1797 ]
+  %1804 = phi ptr [ %1792, %.noexc670.thread ], [ %1798, %1797 ]
+  store ptr %1803, ptr %1804, align 8, !tbaa !112
+  %1805 = getelementptr inbounds nuw i8, ptr %233, i64 32
+  %1806 = getelementptr inbounds nuw i8, ptr %156, i64 32
+  %1807 = load ptr, ptr %1806, align 8, !tbaa !116
+  store ptr %1807, ptr %1805, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %234) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %235) #21
   store ptr @.str.24, ptr %235, align 8
-  %1812 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store i64 7, ptr %1812, align 8
+  %1808 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  store i64 7, ptr %1808, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %236) #21
   store ptr @.str, ptr %236, align 8, !tbaa !19
-  %1813 = getelementptr inbounds nuw i8, ptr %236, i64 8
-  store i64 96, ptr %1813, align 8, !tbaa !23
+  %1809 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  store i64 96, ptr %1809, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %237, ptr noundef nonnull @.str.56) #21
-  %1814 = load ptr, ptr %237, align 8
-  %1815 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  %1816 = load i64, ptr %1815, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %234, ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef nonnull align 8 dereferenceable(16) %236, ptr %1814, i64 %1816, i32 noundef 1)
-          to label %1817 unwind label %1836
+  %1810 = load ptr, ptr %237, align 8
+  %1811 = getelementptr inbounds nuw i8, ptr %237, i64 8
+  %1812 = load i64, ptr %1811, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %234, ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef nonnull align 8 dereferenceable(16) %236, ptr %1810, i64 %1812, i32 noundef 1)
+          to label %1813 unwind label %1832
 
-1817:                                             ; preds = %1805
+1813:                                             ; preds = %1801
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %236) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %235) #21
-  %1818 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %233, ptr noundef nonnull %83) #21
-  %1819 = xor i1 %1818, true
-  %1820 = zext i1 %1819 to i8
+  %1814 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %233, ptr noundef nonnull %83) #21
+  %1815 = xor i1 %1814, true
+  %1816 = zext i1 %1815 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51) #21
-  %1821 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i8 0, ptr %1821, align 8, !tbaa !24, !alias.scope !150
-  %1822 = getelementptr inbounds nuw i8, ptr %51, i64 9
-  store i8 %1820, ptr %1822, align 1, !tbaa !30, !alias.scope !150
+  %1817 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i8 0, ptr %1817, align 8, !tbaa !24, !alias.scope !150
+  %1818 = getelementptr inbounds nuw i8, ptr %51, i64 9
+  store i8 %1816, ptr %1818, align 1, !tbaa !30, !alias.scope !150
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %51, align 8, !tbaa !4, !alias.scope !150
-  %1823 = getelementptr inbounds nuw i8, ptr %51, i64 10
-  store i8 %1820, ptr %1823, align 2, !tbaa !31, !alias.scope !150
+  %1819 = getelementptr inbounds nuw i8, ptr %51, i64 10
+  store i8 %1816, ptr %1819, align 2, !tbaa !31, !alias.scope !150
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %234, ptr noundef nonnull align 8 dereferenceable(10) %51)
-          to label %1827 unwind label %.body672
+          to label %1823 unwind label %.body672
 
-.body672:                                         ; preds = %1817
-  %1824 = landingpad { ptr, i32 }
+.body672:                                         ; preds = %1813
+  %1820 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %51) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #21
-  %1825 = extractvalue { ptr, i32 } %1824, 0
-  %1826 = call ptr @__cxa_begin_catch(ptr %1825) #21
+  %1821 = extractvalue { ptr, i32 } %1820, 0
+  %1822 = call ptr @__cxa_begin_catch(ptr %1821) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %234)
-          to label %1838 unwind label %1869
+          to label %1834 unwind label %1865
 
-1827:                                             ; preds = %1817
+1823:                                             ; preds = %1813
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %51) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #21
-  br label %1839
+  br label %1835
 
-1828:                                             ; preds = %.body661
-  %1829 = landingpad { ptr, i32 }
+1824:                                             ; preds = %.body661
+  %1825 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1832 unwind label %4191
+          to label %1828 unwind label %4187
 
-1830:                                             ; preds = %1773, %1772
-  %1831 = landingpad { ptr, i32 }
+1826:                                             ; preds = %1770, %1769
+  %1827 = landingpad { ptr, i32 }
           cleanup
-  br label %1832
+  br label %1828
 
-1832:                                             ; preds = %1828, %1830
-  %.pn360 = phi { ptr, i32 } [ %1831, %1830 ], [ %1829, %1828 ]
+1828:                                             ; preds = %1824, %1826
+  %.pn360 = phi { ptr, i32 } [ %1827, %1826 ], [ %1825, %1824 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %229) #21
-  br label %1833
+  br label %1829
 
-1833:                                             ; preds = %1832, %1770
-  %.pn360.pn = phi { ptr, i32 } [ %.pn360, %1832 ], [ %1771, %1770 ]
+1829:                                             ; preds = %1828, %1767
+  %.pn360.pn = phi { ptr, i32 } [ %.pn360, %1828 ], [ %1768, %1767 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %229) #21
-  br label %4138
+  br label %4134
 
-1834:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i666, %.noexc.i.i.i668
-  %1835 = landingpad { ptr, i32 }
+1830:                                             ; preds = %_ZNSt16allocator_traitsISaIPKN5vcpkg19IReadBinaryProviderEEE8allocateERS4_m.exit.i.i.i.i.i666, %.noexc.i.i.i668
+  %1831 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit900
 
-1836:                                             ; preds = %1805
-  %1837 = landingpad { ptr, i32 }
+1832:                                             ; preds = %1801
+  %1833 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %236) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %235) #21
-  br label %1874
+  br label %1870
 
-1838:                                             ; preds = %.body672
+1834:                                             ; preds = %.body672
   invoke void @__cxa_end_catch()
-          to label %1839 unwind label %1871
+          to label %1835 unwind label %1867
 
-1839:                                             ; preds = %1838, %1827
+1835:                                             ; preds = %1834, %1823
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %234)
-          to label %1840 unwind label %1871
+          to label %1836 unwind label %1867
 
-1840:                                             ; preds = %1839
-  %1841 = getelementptr inbounds nuw i8, ptr %234, i64 58
-  %1842 = load i8, ptr %1841, align 2, !tbaa !33, !range !40, !noundef !41
-  %1843 = trunc nuw i8 %1842 to i1
-  br i1 %1843, label %_ZN5Catch16AssertionHandlerD2Ev.exit675, label %1844
+1836:                                             ; preds = %1835
+  %1837 = getelementptr inbounds nuw i8, ptr %234, i64 58
+  %1838 = load i8, ptr %1837, align 2, !tbaa !33, !range !40, !noundef !41
+  %1839 = trunc nuw i8 %1838 to i1
+  br i1 %1839, label %_ZN5Catch16AssertionHandlerD2Ev.exit675, label %1840
 
-1844:                                             ; preds = %1840
-  %1845 = getelementptr inbounds nuw i8, ptr %234, i64 64
-  %1846 = load ptr, ptr %1845, align 8, !tbaa !42
-  %1847 = load ptr, ptr %1846, align 8, !tbaa !4
-  %1848 = getelementptr inbounds nuw i8, ptr %1847, i64 112
-  %1849 = load ptr, ptr %1848, align 8
-  invoke void %1849(ptr noundef nonnull align 8 dereferenceable(8) %1846, ptr noundef nonnull align 8 dereferenceable(72) %234)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit675 unwind label %1850
+1840:                                             ; preds = %1836
+  %1841 = getelementptr inbounds nuw i8, ptr %234, i64 64
+  %1842 = load ptr, ptr %1841, align 8, !tbaa !42
+  %1843 = load ptr, ptr %1842, align 8, !tbaa !4
+  %1844 = getelementptr inbounds nuw i8, ptr %1843, i64 112
+  %1845 = load ptr, ptr %1844, align 8
+  invoke void %1845(ptr noundef nonnull align 8 dereferenceable(8) %1842, ptr noundef nonnull align 8 dereferenceable(72) %234)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit675 unwind label %1846
 
-1850:                                             ; preds = %1844
-  %1851 = landingpad { ptr, i32 }
+1846:                                             ; preds = %1840
+  %1847 = landingpad { ptr, i32 }
           catch ptr null
-  %1852 = extractvalue { ptr, i32 } %1851, 0
-  call void @__clang_call_terminate(ptr %1852) #22
+  %1848 = extractvalue { ptr, i32 } %1847, 0
+  call void @__clang_call_terminate(ptr %1848) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit675:          ; preds = %1840, %1844
+_ZN5Catch16AssertionHandlerD2Ev.exit675:          ; preds = %1836, %1840
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %234) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %238) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %239) #21
   store ptr @.str.24, ptr %239, align 8
-  %1853 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  store i64 7, ptr %1853, align 8
+  %1849 = getelementptr inbounds nuw i8, ptr %239, i64 8
+  store i64 7, ptr %1849, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %240) #21
   store ptr @.str, ptr %240, align 8, !tbaa !19
-  %1854 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  store i64 97, ptr %1854, align 8, !tbaa !23
+  %1850 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  store i64 97, ptr %1850, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %241, ptr noundef nonnull @.str.57) #21
-  %1855 = load ptr, ptr %241, align 8
-  %1856 = getelementptr inbounds nuw i8, ptr %241, i64 8
-  %1857 = load i64, ptr %1856, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %238, ptr noundef nonnull align 8 dereferenceable(16) %239, ptr noundef nonnull align 8 dereferenceable(16) %240, ptr %1855, i64 %1857, i32 noundef 1)
-          to label %1858 unwind label %1875
+  %1851 = load ptr, ptr %241, align 8
+  %1852 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %1853 = load i64, ptr %1852, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %238, ptr noundef nonnull align 8 dereferenceable(16) %239, ptr noundef nonnull align 8 dereferenceable(16) %240, ptr %1851, i64 %1853, i32 noundef 1)
+          to label %1854 unwind label %1871
 
-1858:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit675
+1854:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit675
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %240) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %239) #21
-  %1859 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %233, ptr noundef nonnull %83) #21
-  %1860 = xor i1 %1859, true
-  %1861 = zext i1 %1860 to i8
+  %1855 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %233, ptr noundef nonnull %83) #21
+  %1856 = xor i1 %1855, true
+  %1857 = zext i1 %1856 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #21
-  %1862 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i8 0, ptr %1862, align 8, !tbaa !24, !alias.scope !153
-  %1863 = getelementptr inbounds nuw i8, ptr %50, i64 9
-  store i8 %1861, ptr %1863, align 1, !tbaa !30, !alias.scope !153
+  %1858 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i8 0, ptr %1858, align 8, !tbaa !24, !alias.scope !153
+  %1859 = getelementptr inbounds nuw i8, ptr %50, i64 9
+  store i8 %1857, ptr %1859, align 1, !tbaa !30, !alias.scope !153
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %50, align 8, !tbaa !4, !alias.scope !153
-  %1864 = getelementptr inbounds nuw i8, ptr %50, i64 10
-  store i8 %1861, ptr %1864, align 2, !tbaa !31, !alias.scope !153
+  %1860 = getelementptr inbounds nuw i8, ptr %50, i64 10
+  store i8 %1857, ptr %1860, align 2, !tbaa !31, !alias.scope !153
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %238, ptr noundef nonnull align 8 dereferenceable(10) %50)
-          to label %1868 unwind label %.body676
+          to label %1864 unwind label %.body676
 
-.body676:                                         ; preds = %1858
-  %1865 = landingpad { ptr, i32 }
+.body676:                                         ; preds = %1854
+  %1861 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %50) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #21
-  %1866 = extractvalue { ptr, i32 } %1865, 0
-  %1867 = call ptr @__cxa_begin_catch(ptr %1866) #21
+  %1862 = extractvalue { ptr, i32 } %1861, 0
+  %1863 = call ptr @__cxa_begin_catch(ptr %1862) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %238)
-          to label %1877 unwind label %1908
+          to label %1873 unwind label %1904
 
-1868:                                             ; preds = %1858
+1864:                                             ; preds = %1854
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %50) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #21
-  br label %1878
-
-1869:                                             ; preds = %.body672
-  %1870 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %1873 unwind label %4191
-
-1871:                                             ; preds = %1839, %1838
-  %1872 = landingpad { ptr, i32 }
-          cleanup
-  br label %1873
-
-1873:                                             ; preds = %1869, %1871
-  %.pn363 = phi { ptr, i32 } [ %1872, %1871 ], [ %1870, %1869 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %234) #21
   br label %1874
 
-1874:                                             ; preds = %1873, %1836
-  %.pn363.pn = phi { ptr, i32 } [ %.pn363, %1873 ], [ %1837, %1836 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %234) #21
-  br label %4131
+1865:                                             ; preds = %.body672
+  %1866 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %1869 unwind label %4187
 
-1875:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit675
-  %1876 = landingpad { ptr, i32 }
+1867:                                             ; preds = %1835, %1834
+  %1868 = landingpad { ptr, i32 }
+          cleanup
+  br label %1869
+
+1869:                                             ; preds = %1865, %1867
+  %.pn363 = phi { ptr, i32 } [ %1868, %1867 ], [ %1866, %1865 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %234) #21
+  br label %1870
+
+1870:                                             ; preds = %1869, %1832
+  %.pn363.pn = phi { ptr, i32 } [ %.pn363, %1869 ], [ %1833, %1832 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %234) #21
+  br label %4127
+
+1871:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit675
+  %1872 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %240) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %239) #21
-  br label %1913
+  br label %1909
 
-1877:                                             ; preds = %.body676
+1873:                                             ; preds = %.body676
   invoke void @__cxa_end_catch()
-          to label %1878 unwind label %1910
+          to label %1874 unwind label %1906
 
-1878:                                             ; preds = %1877, %1868
+1874:                                             ; preds = %1873, %1864
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %238)
-          to label %1879 unwind label %1910
+          to label %1875 unwind label %1906
 
-1879:                                             ; preds = %1878
-  %1880 = getelementptr inbounds nuw i8, ptr %238, i64 58
-  %1881 = load i8, ptr %1880, align 2, !tbaa !33, !range !40, !noundef !41
-  %1882 = trunc nuw i8 %1881 to i1
-  br i1 %1882, label %_ZN5Catch16AssertionHandlerD2Ev.exit679, label %1883
+1875:                                             ; preds = %1874
+  %1876 = getelementptr inbounds nuw i8, ptr %238, i64 58
+  %1877 = load i8, ptr %1876, align 2, !tbaa !33, !range !40, !noundef !41
+  %1878 = trunc nuw i8 %1877 to i1
+  br i1 %1878, label %_ZN5Catch16AssertionHandlerD2Ev.exit679, label %1879
 
-1883:                                             ; preds = %1879
-  %1884 = getelementptr inbounds nuw i8, ptr %238, i64 64
-  %1885 = load ptr, ptr %1884, align 8, !tbaa !42
-  %1886 = load ptr, ptr %1885, align 8, !tbaa !4
-  %1887 = getelementptr inbounds nuw i8, ptr %1886, i64 112
-  %1888 = load ptr, ptr %1887, align 8
-  invoke void %1888(ptr noundef nonnull align 8 dereferenceable(8) %1885, ptr noundef nonnull align 8 dereferenceable(72) %238)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit679 unwind label %1889
+1879:                                             ; preds = %1875
+  %1880 = getelementptr inbounds nuw i8, ptr %238, i64 64
+  %1881 = load ptr, ptr %1880, align 8, !tbaa !42
+  %1882 = load ptr, ptr %1881, align 8, !tbaa !4
+  %1883 = getelementptr inbounds nuw i8, ptr %1882, i64 112
+  %1884 = load ptr, ptr %1883, align 8
+  invoke void %1884(ptr noundef nonnull align 8 dereferenceable(8) %1881, ptr noundef nonnull align 8 dereferenceable(72) %238)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit679 unwind label %1885
 
-1889:                                             ; preds = %1883
-  %1890 = landingpad { ptr, i32 }
+1885:                                             ; preds = %1879
+  %1886 = landingpad { ptr, i32 }
           catch ptr null
-  %1891 = extractvalue { ptr, i32 } %1890, 0
-  call void @__clang_call_terminate(ptr %1891) #22
+  %1887 = extractvalue { ptr, i32 } %1886, 0
+  call void @__clang_call_terminate(ptr %1887) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit679:          ; preds = %1879, %1883
+_ZN5Catch16AssertionHandlerD2Ev.exit679:          ; preds = %1875, %1879
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %238) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %242) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %243) #21
   store ptr @.str.24, ptr %243, align 8
-  %1892 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  store i64 7, ptr %1892, align 8
+  %1888 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  store i64 7, ptr %1888, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %244) #21
   store ptr @.str, ptr %244, align 8, !tbaa !19
-  %1893 = getelementptr inbounds nuw i8, ptr %244, i64 8
-  store i64 98, ptr %1893, align 8, !tbaa !23
+  %1889 = getelementptr inbounds nuw i8, ptr %244, i64 8
+  store i64 98, ptr %1889, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %245, ptr noundef nonnull @.str.58) #21
-  %1894 = load ptr, ptr %245, align 8
-  %1895 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  %1896 = load i64, ptr %1895, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %242, ptr noundef nonnull align 8 dereferenceable(16) %243, ptr noundef nonnull align 8 dereferenceable(16) %244, ptr %1894, i64 %1896, i32 noundef 1)
-          to label %1897 unwind label %1914
+  %1890 = load ptr, ptr %245, align 8
+  %1891 = getelementptr inbounds nuw i8, ptr %245, i64 8
+  %1892 = load i64, ptr %1891, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %242, ptr noundef nonnull align 8 dereferenceable(16) %243, ptr noundef nonnull align 8 dereferenceable(16) %244, ptr %1890, i64 %1892, i32 noundef 1)
+          to label %1893 unwind label %1910
 
-1897:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit679
+1893:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit679
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %244) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %243) #21
-  %1898 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %233, ptr noundef nonnull %83) #21
-  %1899 = xor i1 %1898, true
-  %1900 = zext i1 %1899 to i8
+  %1894 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %233, ptr noundef nonnull %83) #21
+  %1895 = xor i1 %1894, true
+  %1896 = zext i1 %1895 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49) #21
-  %1901 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i8 0, ptr %1901, align 8, !tbaa !24, !alias.scope !156
-  %1902 = getelementptr inbounds nuw i8, ptr %49, i64 9
-  store i8 %1900, ptr %1902, align 1, !tbaa !30, !alias.scope !156
+  %1897 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i8 0, ptr %1897, align 8, !tbaa !24, !alias.scope !156
+  %1898 = getelementptr inbounds nuw i8, ptr %49, i64 9
+  store i8 %1896, ptr %1898, align 1, !tbaa !30, !alias.scope !156
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %49, align 8, !tbaa !4, !alias.scope !156
-  %1903 = getelementptr inbounds nuw i8, ptr %49, i64 10
-  store i8 %1900, ptr %1903, align 2, !tbaa !31, !alias.scope !156
+  %1899 = getelementptr inbounds nuw i8, ptr %49, i64 10
+  store i8 %1896, ptr %1899, align 2, !tbaa !31, !alias.scope !156
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %242, ptr noundef nonnull align 8 dereferenceable(10) %49)
-          to label %1907 unwind label %.body680
+          to label %1903 unwind label %.body680
 
-.body680:                                         ; preds = %1897
-  %1904 = landingpad { ptr, i32 }
+.body680:                                         ; preds = %1893
+  %1900 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %49) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #21
-  %1905 = extractvalue { ptr, i32 } %1904, 0
-  %1906 = call ptr @__cxa_begin_catch(ptr %1905) #21
+  %1901 = extractvalue { ptr, i32 } %1900, 0
+  %1902 = call ptr @__cxa_begin_catch(ptr %1901) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %242)
-          to label %1916 unwind label %1949
+          to label %1912 unwind label %1945
 
-1907:                                             ; preds = %1897
+1903:                                             ; preds = %1893
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %49) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #21
-  br label %1917
-
-1908:                                             ; preds = %.body676
-  %1909 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %1912 unwind label %4191
-
-1910:                                             ; preds = %1878, %1877
-  %1911 = landingpad { ptr, i32 }
-          cleanup
-  br label %1912
-
-1912:                                             ; preds = %1908, %1910
-  %.pn366 = phi { ptr, i32 } [ %1911, %1910 ], [ %1909, %1908 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %238) #21
   br label %1913
 
-1913:                                             ; preds = %1912, %1875
-  %.pn366.pn = phi { ptr, i32 } [ %.pn366, %1912 ], [ %1876, %1875 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %238) #21
-  br label %4131
+1904:                                             ; preds = %.body676
+  %1905 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %1908 unwind label %4187
 
-1914:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit679
-  %1915 = landingpad { ptr, i32 }
+1906:                                             ; preds = %1874, %1873
+  %1907 = landingpad { ptr, i32 }
+          cleanup
+  br label %1908
+
+1908:                                             ; preds = %1904, %1906
+  %.pn366 = phi { ptr, i32 } [ %1907, %1906 ], [ %1905, %1904 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %238) #21
+  br label %1909
+
+1909:                                             ; preds = %1908, %1871
+  %.pn366.pn = phi { ptr, i32 } [ %.pn366, %1908 ], [ %1872, %1871 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %238) #21
+  br label %4127
+
+1910:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit679
+  %1911 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %244) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %243) #21
-  br label %1954
+  br label %1950
 
-1916:                                             ; preds = %.body680
+1912:                                             ; preds = %.body680
   invoke void @__cxa_end_catch()
-          to label %1917 unwind label %1951
+          to label %1913 unwind label %1947
 
-1917:                                             ; preds = %1916, %1907
+1913:                                             ; preds = %1912, %1903
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %242)
-          to label %1918 unwind label %1951
+          to label %1914 unwind label %1947
 
-1918:                                             ; preds = %1917
-  %1919 = getelementptr inbounds nuw i8, ptr %242, i64 58
-  %1920 = load i8, ptr %1919, align 2, !tbaa !33, !range !40, !noundef !41
-  %1921 = trunc nuw i8 %1920 to i1
-  br i1 %1921, label %_ZN5Catch16AssertionHandlerD2Ev.exit683, label %1922
+1914:                                             ; preds = %1913
+  %1915 = getelementptr inbounds nuw i8, ptr %242, i64 58
+  %1916 = load i8, ptr %1915, align 2, !tbaa !33, !range !40, !noundef !41
+  %1917 = trunc nuw i8 %1916 to i1
+  br i1 %1917, label %_ZN5Catch16AssertionHandlerD2Ev.exit683, label %1918
 
-1922:                                             ; preds = %1918
-  %1923 = getelementptr inbounds nuw i8, ptr %242, i64 64
-  %1924 = load ptr, ptr %1923, align 8, !tbaa !42
-  %1925 = load ptr, ptr %1924, align 8, !tbaa !4
-  %1926 = getelementptr inbounds nuw i8, ptr %1925, i64 112
-  %1927 = load ptr, ptr %1926, align 8
-  invoke void %1927(ptr noundef nonnull align 8 dereferenceable(8) %1924, ptr noundef nonnull align 8 dereferenceable(72) %242)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit683 unwind label %1928
+1918:                                             ; preds = %1914
+  %1919 = getelementptr inbounds nuw i8, ptr %242, i64 64
+  %1920 = load ptr, ptr %1919, align 8, !tbaa !42
+  %1921 = load ptr, ptr %1920, align 8, !tbaa !4
+  %1922 = getelementptr inbounds nuw i8, ptr %1921, i64 112
+  %1923 = load ptr, ptr %1922, align 8
+  invoke void %1923(ptr noundef nonnull align 8 dereferenceable(8) %1920, ptr noundef nonnull align 8 dereferenceable(72) %242)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit683 unwind label %1924
 
-1928:                                             ; preds = %1922
-  %1929 = landingpad { ptr, i32 }
+1924:                                             ; preds = %1918
+  %1925 = landingpad { ptr, i32 }
           catch ptr null
-  %1930 = extractvalue { ptr, i32 } %1929, 0
-  call void @__clang_call_terminate(ptr %1930) #22
+  %1926 = extractvalue { ptr, i32 } %1925, 0
+  call void @__clang_call_terminate(ptr %1926) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit683:          ; preds = %1918, %1922
+_ZN5Catch16AssertionHandlerD2Ev.exit683:          ; preds = %1914, %1918
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %242) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %246) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %247) #21
   store ptr @.str.24, ptr %247, align 8
-  %1931 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  store i64 7, ptr %1931, align 8
+  %1927 = getelementptr inbounds nuw i8, ptr %247, i64 8
+  store i64 7, ptr %1927, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %248) #21
   store ptr @.str, ptr %248, align 8, !tbaa !19
-  %1932 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  store i64 99, ptr %1932, align 8, !tbaa !23
+  %1928 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  store i64 99, ptr %1928, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %249, ptr noundef nonnull @.str.59) #21
-  %1933 = load ptr, ptr %249, align 8
-  %1934 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  %1935 = load i64, ptr %1934, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %246, ptr noundef nonnull align 8 dereferenceable(16) %247, ptr noundef nonnull align 8 dereferenceable(16) %248, ptr %1933, i64 %1935, i32 noundef 1)
-          to label %1936 unwind label %1955
+  %1929 = load ptr, ptr %249, align 8
+  %1930 = getelementptr inbounds nuw i8, ptr %249, i64 8
+  %1931 = load i64, ptr %1930, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %246, ptr noundef nonnull align 8 dereferenceable(16) %247, ptr noundef nonnull align 8 dereferenceable(16) %248, ptr %1929, i64 %1931, i32 noundef 1)
+          to label %1932 unwind label %1951
 
-1936:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit683
+1932:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit683
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %248) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %247) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %250) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %251) #21
-  %1937 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %233) #21
-  store ptr %1937, ptr %251, align 8, !tbaa !49
+  %1933 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %233) #21
+  store ptr %1933, ptr %251, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %252) #21
   store ptr null, ptr %252, align 8, !tbaa !50
   call void @llvm.experimental.noalias.scope.decl(metadata !159)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48)
-  %1938 = icmp eq ptr %1937, null
+  %1934 = icmp eq ptr %1933, null
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull @.str.90) #21, !noalias !159
-  %1939 = load ptr, ptr %48, align 8, !noalias !159
-  %1940 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %1941 = load i64, ptr %1940, align 8, !noalias !159
-  %1942 = zext i1 %1938 to i8
-  %1943 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  store i8 1, ptr %1943, align 8, !tbaa !24, !alias.scope !159
-  %1944 = getelementptr inbounds nuw i8, ptr %250, i64 9
-  store i8 %1942, ptr %1944, align 1, !tbaa !30, !alias.scope !159
+  %1935 = load ptr, ptr %48, align 8, !noalias !159
+  %1936 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %1937 = load i64, ptr %1936, align 8, !noalias !159
+  %1938 = zext i1 %1934 to i8
+  %1939 = getelementptr inbounds nuw i8, ptr %250, i64 8
+  store i8 1, ptr %1939, align 8, !tbaa !24, !alias.scope !159
+  %1940 = getelementptr inbounds nuw i8, ptr %250, i64 9
+  store i8 %1938, ptr %1940, align 1, !tbaa !30, !alias.scope !159
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKPKN5vcpkg19IReadBinaryProviderERKDnEE, i64 16), ptr %250, align 8, !tbaa !4, !alias.scope !159
-  %1945 = getelementptr inbounds nuw i8, ptr %250, i64 16
-  store ptr %251, ptr %1945, align 8, !tbaa !55, !alias.scope !159
-  %1946 = getelementptr inbounds nuw i8, ptr %250, i64 24
-  store ptr %1939, ptr %1946, align 8, !tbaa !56, !alias.scope !159
+  %1941 = getelementptr inbounds nuw i8, ptr %250, i64 16
+  store ptr %251, ptr %1941, align 8, !tbaa !55, !alias.scope !159
+  %1942 = getelementptr inbounds nuw i8, ptr %250, i64 24
+  store ptr %1935, ptr %1942, align 8, !tbaa !56, !alias.scope !159
   %.sroa.2.0..sroa_idx.i.i684 = getelementptr inbounds nuw i8, ptr %250, i64 32
-  store i64 %1941, ptr %.sroa.2.0..sroa_idx.i.i684, align 8, !tbaa !57, !alias.scope !159
-  %1947 = getelementptr inbounds nuw i8, ptr %250, i64 40
-  store ptr %252, ptr %1947, align 8, !tbaa !58, !alias.scope !159
+  store i64 %1937, ptr %.sroa.2.0..sroa_idx.i.i684, align 8, !tbaa !57, !alias.scope !159
+  %1943 = getelementptr inbounds nuw i8, ptr %250, i64 40
+  store ptr %252, ptr %1943, align 8, !tbaa !58, !alias.scope !159
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48)
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %246, ptr noundef nonnull align 8 dereferenceable(10) %250)
-          to label %1948 unwind label %1957
+          to label %1944 unwind label %1953
 
-1948:                                             ; preds = %1936
+1944:                                             ; preds = %1932
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %250) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %252) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %251) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %250) #21
-  br label %1961
+  br label %1957
 
-1949:                                             ; preds = %.body680
-  %1950 = landingpad { ptr, i32 }
+1945:                                             ; preds = %.body680
+  %1946 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1953 unwind label %4191
+          to label %1949 unwind label %4187
 
-1951:                                             ; preds = %1917, %1916
-  %1952 = landingpad { ptr, i32 }
+1947:                                             ; preds = %1913, %1912
+  %1948 = landingpad { ptr, i32 }
           cleanup
-  br label %1953
+  br label %1949
 
-1953:                                             ; preds = %1949, %1951
-  %.pn369 = phi { ptr, i32 } [ %1952, %1951 ], [ %1950, %1949 ]
+1949:                                             ; preds = %1945, %1947
+  %.pn369 = phi { ptr, i32 } [ %1948, %1947 ], [ %1946, %1945 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %242) #21
-  br label %1954
+  br label %1950
 
-1954:                                             ; preds = %1953, %1914
-  %.pn369.pn = phi { ptr, i32 } [ %.pn369, %1953 ], [ %1915, %1914 ]
+1950:                                             ; preds = %1949, %1910
+  %.pn369.pn = phi { ptr, i32 } [ %.pn369, %1949 ], [ %1911, %1910 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %242) #21
-  br label %4131
+  br label %4127
 
-1955:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit683
-  %1956 = landingpad { ptr, i32 }
+1951:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit683
+  %1952 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %248) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %247) #21
-  br label %1995
+  br label %1991
 
-1957:                                             ; preds = %1936
-  %1958 = landingpad { ptr, i32 }
+1953:                                             ; preds = %1932
+  %1954 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %250) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %252) #21
-  %.93176 = extractvalue { ptr, i32 } %1958, 0
+  %.93176 = extractvalue { ptr, i32 } %1954, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %251) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %250) #21
-  %1959 = call ptr @__cxa_begin_catch(ptr %.93176) #21
+  %1955 = call ptr @__cxa_begin_catch(ptr %.93176) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %246)
-          to label %1960 unwind label %1990
+          to label %1956 unwind label %1986
 
-1960:                                             ; preds = %1957
+1956:                                             ; preds = %1953
   invoke void @__cxa_end_catch()
-          to label %1961 unwind label %1992
+          to label %1957 unwind label %1988
 
-1961:                                             ; preds = %1960, %1948
+1957:                                             ; preds = %1956, %1944
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %246)
-          to label %1962 unwind label %1992
+          to label %1958 unwind label %1988
 
-1962:                                             ; preds = %1961
-  %1963 = getelementptr inbounds nuw i8, ptr %246, i64 58
-  %1964 = load i8, ptr %1963, align 2, !tbaa !33, !range !40, !noundef !41
-  %1965 = trunc nuw i8 %1964 to i1
-  br i1 %1965, label %_ZN5Catch16AssertionHandlerD2Ev.exit685, label %1966
+1958:                                             ; preds = %1957
+  %1959 = getelementptr inbounds nuw i8, ptr %246, i64 58
+  %1960 = load i8, ptr %1959, align 2, !tbaa !33, !range !40, !noundef !41
+  %1961 = trunc nuw i8 %1960 to i1
+  br i1 %1961, label %_ZN5Catch16AssertionHandlerD2Ev.exit685, label %1962
 
-1966:                                             ; preds = %1962
-  %1967 = getelementptr inbounds nuw i8, ptr %246, i64 64
-  %1968 = load ptr, ptr %1967, align 8, !tbaa !42
-  %1969 = load ptr, ptr %1968, align 8, !tbaa !4
-  %1970 = getelementptr inbounds nuw i8, ptr %1969, i64 112
-  %1971 = load ptr, ptr %1970, align 8
-  invoke void %1971(ptr noundef nonnull align 8 dereferenceable(8) %1968, ptr noundef nonnull align 8 dereferenceable(72) %246)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit685 unwind label %1972
+1962:                                             ; preds = %1958
+  %1963 = getelementptr inbounds nuw i8, ptr %246, i64 64
+  %1964 = load ptr, ptr %1963, align 8, !tbaa !42
+  %1965 = load ptr, ptr %1964, align 8, !tbaa !4
+  %1966 = getelementptr inbounds nuw i8, ptr %1965, i64 112
+  %1967 = load ptr, ptr %1966, align 8
+  invoke void %1967(ptr noundef nonnull align 8 dereferenceable(8) %1964, ptr noundef nonnull align 8 dereferenceable(72) %246)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit685 unwind label %1968
 
-1972:                                             ; preds = %1966
-  %1973 = landingpad { ptr, i32 }
+1968:                                             ; preds = %1962
+  %1969 = landingpad { ptr, i32 }
           catch ptr null
-  %1974 = extractvalue { ptr, i32 } %1973, 0
-  call void @__clang_call_terminate(ptr %1974) #22
+  %1970 = extractvalue { ptr, i32 } %1969, 0
+  call void @__clang_call_terminate(ptr %1970) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit685:          ; preds = %1962, %1966
+_ZN5Catch16AssertionHandlerD2Ev.exit685:          ; preds = %1958, %1962
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %246) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %253) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %254) #21
   store ptr @.str.24, ptr %254, align 8
-  %1975 = getelementptr inbounds nuw i8, ptr %254, i64 8
-  store i64 7, ptr %1975, align 8
+  %1971 = getelementptr inbounds nuw i8, ptr %254, i64 8
+  store i64 7, ptr %1971, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %255) #21
   store ptr @.str, ptr %255, align 8, !tbaa !19
-  %1976 = getelementptr inbounds nuw i8, ptr %255, i64 8
-  store i64 100, ptr %1976, align 8, !tbaa !23
+  %1972 = getelementptr inbounds nuw i8, ptr %255, i64 8
+  store i64 100, ptr %1972, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef nonnull @.str.60) #21
-  %1977 = load ptr, ptr %256, align 8
-  %1978 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  %1979 = load i64, ptr %1978, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %253, ptr noundef nonnull align 8 dereferenceable(16) %254, ptr noundef nonnull align 8 dereferenceable(16) %255, ptr %1977, i64 %1979, i32 noundef 1)
-          to label %1980 unwind label %1996
+  %1973 = load ptr, ptr %256, align 8
+  %1974 = getelementptr inbounds nuw i8, ptr %256, i64 8
+  %1975 = load i64, ptr %1974, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %253, ptr noundef nonnull align 8 dereferenceable(16) %254, ptr noundef nonnull align 8 dereferenceable(16) %255, ptr %1973, i64 %1975, i32 noundef 1)
+          to label %1976 unwind label %1992
 
-1980:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit685
+1976:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit685
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %255) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %254) #21
-  %1981 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %233) #21
-  %1982 = zext i1 %1981 to i8
+  %1977 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %233) #21
+  %1978 = zext i1 %1977 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47) #21
-  %1983 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i8 0, ptr %1983, align 8, !tbaa !24, !alias.scope !162
-  %1984 = getelementptr inbounds nuw i8, ptr %47, i64 9
-  store i8 %1982, ptr %1984, align 1, !tbaa !30, !alias.scope !162
+  %1979 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i8 0, ptr %1979, align 8, !tbaa !24, !alias.scope !162
+  %1980 = getelementptr inbounds nuw i8, ptr %47, i64 9
+  store i8 %1978, ptr %1980, align 1, !tbaa !30, !alias.scope !162
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %47, align 8, !tbaa !4, !alias.scope !162
-  %1985 = getelementptr inbounds nuw i8, ptr %47, i64 10
-  store i8 %1982, ptr %1985, align 2, !tbaa !31, !alias.scope !162
+  %1981 = getelementptr inbounds nuw i8, ptr %47, i64 10
+  store i8 %1978, ptr %1981, align 2, !tbaa !31, !alias.scope !162
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %253, ptr noundef nonnull align 8 dereferenceable(10) %47)
-          to label %1989 unwind label %.body686
+          to label %1985 unwind label %.body686
 
-.body686:                                         ; preds = %1980
-  %1986 = landingpad { ptr, i32 }
+.body686:                                         ; preds = %1976
+  %1982 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %47) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #21
-  %1987 = extractvalue { ptr, i32 } %1986, 0
-  %1988 = call ptr @__cxa_begin_catch(ptr %1987) #21
+  %1983 = extractvalue { ptr, i32 } %1982, 0
+  %1984 = call ptr @__cxa_begin_catch(ptr %1983) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %253)
-          to label %1998 unwind label %2038
+          to label %1994 unwind label %2034
 
-1989:                                             ; preds = %1980
+1985:                                             ; preds = %1976
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %47) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #21
-  br label %1999
-
-1990:                                             ; preds = %1957
-  %1991 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %1994 unwind label %4191
-
-1992:                                             ; preds = %1961, %1960
-  %1993 = landingpad { ptr, i32 }
-          cleanup
-  br label %1994
-
-1994:                                             ; preds = %1990, %1992
-  %.pn373 = phi { ptr, i32 } [ %1993, %1992 ], [ %1991, %1990 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %246) #21
   br label %1995
 
-1995:                                             ; preds = %1994, %1955
-  %.pn373.pn = phi { ptr, i32 } [ %.pn373, %1994 ], [ %1956, %1955 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %246) #21
-  br label %4131
+1986:                                             ; preds = %1953
+  %1987 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %1990 unwind label %4187
 
-1996:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit685
-  %1997 = landingpad { ptr, i32 }
+1988:                                             ; preds = %1957, %1956
+  %1989 = landingpad { ptr, i32 }
+          cleanup
+  br label %1990
+
+1990:                                             ; preds = %1986, %1988
+  %.pn373 = phi { ptr, i32 } [ %1989, %1988 ], [ %1987, %1986 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %246) #21
+  br label %1991
+
+1991:                                             ; preds = %1990, %1951
+  %.pn373.pn = phi { ptr, i32 } [ %.pn373, %1990 ], [ %1952, %1951 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %246) #21
+  br label %4127
+
+1992:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit685
+  %1993 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %255) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %254) #21
-  br label %2043
+  br label %2039
 
-1998:                                             ; preds = %.body686
+1994:                                             ; preds = %.body686
   invoke void @__cxa_end_catch()
-          to label %1999 unwind label %2040
+          to label %1995 unwind label %2036
 
-1999:                                             ; preds = %1998, %1989
+1995:                                             ; preds = %1994, %1985
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %253)
-          to label %2000 unwind label %2040
+          to label %1996 unwind label %2036
 
-2000:                                             ; preds = %1999
-  %2001 = getelementptr inbounds nuw i8, ptr %253, i64 58
-  %2002 = load i8, ptr %2001, align 2, !tbaa !33, !range !40, !noundef !41
-  %2003 = trunc nuw i8 %2002 to i1
-  br i1 %2003, label %_ZN5Catch16AssertionHandlerD2Ev.exit689, label %2004
+1996:                                             ; preds = %1995
+  %1997 = getelementptr inbounds nuw i8, ptr %253, i64 58
+  %1998 = load i8, ptr %1997, align 2, !tbaa !33, !range !40, !noundef !41
+  %1999 = trunc nuw i8 %1998 to i1
+  br i1 %1999, label %_ZN5Catch16AssertionHandlerD2Ev.exit689, label %2000
 
-2004:                                             ; preds = %2000
-  %2005 = getelementptr inbounds nuw i8, ptr %253, i64 64
-  %2006 = load ptr, ptr %2005, align 8, !tbaa !42
-  %2007 = load ptr, ptr %2006, align 8, !tbaa !4
-  %2008 = getelementptr inbounds nuw i8, ptr %2007, i64 112
-  %2009 = load ptr, ptr %2008, align 8
-  invoke void %2009(ptr noundef nonnull align 8 dereferenceable(8) %2006, ptr noundef nonnull align 8 dereferenceable(72) %253)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit689 unwind label %2010
+2000:                                             ; preds = %1996
+  %2001 = getelementptr inbounds nuw i8, ptr %253, i64 64
+  %2002 = load ptr, ptr %2001, align 8, !tbaa !42
+  %2003 = load ptr, ptr %2002, align 8, !tbaa !4
+  %2004 = getelementptr inbounds nuw i8, ptr %2003, i64 112
+  %2005 = load ptr, ptr %2004, align 8
+  invoke void %2005(ptr noundef nonnull align 8 dereferenceable(8) %2002, ptr noundef nonnull align 8 dereferenceable(72) %253)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit689 unwind label %2006
 
-2010:                                             ; preds = %2004
-  %2011 = landingpad { ptr, i32 }
+2006:                                             ; preds = %2000
+  %2007 = landingpad { ptr, i32 }
           catch ptr null
-  %2012 = extractvalue { ptr, i32 } %2011, 0
-  call void @__clang_call_terminate(ptr %2012) #22
+  %2008 = extractvalue { ptr, i32 } %2007, 0
+  call void @__clang_call_terminate(ptr %2008) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit689:          ; preds = %2000, %2004
+_ZN5Catch16AssertionHandlerD2Ev.exit689:          ; preds = %1996, %2000
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %253) #21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %257) #21
-  %2013 = load i8, ptr %180, align 8, !tbaa !7
-  store i8 %2013, ptr %257, align 8, !tbaa !7
-  %2014 = getelementptr inbounds nuw i8, ptr %257, i64 8
-  %2015 = load ptr, ptr %1270, align 8, !tbaa !113
-  store ptr %2015, ptr %2014, align 8, !tbaa !113
-  %2016 = getelementptr inbounds nuw i8, ptr %257, i64 16
-  %2017 = load ptr, ptr %1290, align 8, !tbaa !112
-  store ptr %2017, ptr %2016, align 8, !tbaa !112
-  %2018 = getelementptr inbounds nuw i8, ptr %257, i64 24
-  %2019 = load ptr, ptr %1288, align 8, !tbaa !114
-  store ptr %2019, ptr %2018, align 8, !tbaa !114
+  %2009 = load i8, ptr %180, align 8, !tbaa !7
+  store i8 %2009, ptr %257, align 8, !tbaa !7
+  %2010 = getelementptr inbounds nuw i8, ptr %257, i64 8
+  %2011 = load ptr, ptr %1270, align 8, !tbaa !113
+  store ptr %2011, ptr %2010, align 8, !tbaa !113
+  %2012 = getelementptr inbounds nuw i8, ptr %257, i64 16
+  %2013 = load ptr, ptr %1289, align 8, !tbaa !112
+  store ptr %2013, ptr %2012, align 8, !tbaa !112
+  %2014 = getelementptr inbounds nuw i8, ptr %257, i64 24
+  %2015 = load ptr, ptr %1287, align 8, !tbaa !115
+  store ptr %2015, ptr %2014, align 8, !tbaa !115
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1270, i8 0, i64 24, i1 false)
-  %2020 = getelementptr inbounds nuw i8, ptr %257, i64 32
-  %2021 = load ptr, ptr %1291, align 8, !tbaa !116
-  store ptr %2021, ptr %2020, align 8, !tbaa !116
+  %2016 = getelementptr inbounds nuw i8, ptr %257, i64 32
+  %2017 = load ptr, ptr %1290, align 8, !tbaa !116
+  store ptr %2017, ptr %2016, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %258) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %259) #21
   store ptr @.str.24, ptr %259, align 8
-  %2022 = getelementptr inbounds nuw i8, ptr %259, i64 8
-  store i64 7, ptr %2022, align 8
+  %2018 = getelementptr inbounds nuw i8, ptr %259, i64 8
+  store i64 7, ptr %2018, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %260) #21
   store ptr @.str, ptr %260, align 8, !tbaa !19
-  %2023 = getelementptr inbounds nuw i8, ptr %260, i64 8
-  store i64 104, ptr %2023, align 8, !tbaa !23
+  %2019 = getelementptr inbounds nuw i8, ptr %260, i64 8
+  store i64 104, ptr %2019, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %261, ptr noundef nonnull @.str.61) #21
-  %2024 = load ptr, ptr %261, align 8
-  %2025 = getelementptr inbounds nuw i8, ptr %261, i64 8
-  %2026 = load i64, ptr %2025, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %258, ptr noundef nonnull align 8 dereferenceable(16) %259, ptr noundef nonnull align 8 dereferenceable(16) %260, ptr %2024, i64 %2026, i32 noundef 1)
-          to label %2027 unwind label %2044
+  %2020 = load ptr, ptr %261, align 8
+  %2021 = getelementptr inbounds nuw i8, ptr %261, i64 8
+  %2022 = load i64, ptr %2021, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %258, ptr noundef nonnull align 8 dereferenceable(16) %259, ptr noundef nonnull align 8 dereferenceable(16) %260, ptr %2020, i64 %2022, i32 noundef 1)
+          to label %2023 unwind label %2040
 
-2027:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit689
+2023:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit689
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %260) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %259) #21
-  %2028 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %257, ptr noundef nonnull %83) #21
-  %2029 = xor i1 %2028, true
-  %2030 = zext i1 %2029 to i8
+  %2024 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %257, ptr noundef nonnull %83) #21
+  %2025 = xor i1 %2024, true
+  %2026 = zext i1 %2025 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46) #21
-  %2031 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i8 0, ptr %2031, align 8, !tbaa !24, !alias.scope !165
-  %2032 = getelementptr inbounds nuw i8, ptr %46, i64 9
-  store i8 %2030, ptr %2032, align 1, !tbaa !30, !alias.scope !165
+  %2027 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store i8 0, ptr %2027, align 8, !tbaa !24, !alias.scope !165
+  %2028 = getelementptr inbounds nuw i8, ptr %46, i64 9
+  store i8 %2026, ptr %2028, align 1, !tbaa !30, !alias.scope !165
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %46, align 8, !tbaa !4, !alias.scope !165
-  %2033 = getelementptr inbounds nuw i8, ptr %46, i64 10
-  store i8 %2030, ptr %2033, align 2, !tbaa !31, !alias.scope !165
+  %2029 = getelementptr inbounds nuw i8, ptr %46, i64 10
+  store i8 %2026, ptr %2029, align 2, !tbaa !31, !alias.scope !165
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %258, ptr noundef nonnull align 8 dereferenceable(10) %46)
-          to label %2037 unwind label %.body690
+          to label %2033 unwind label %.body690
 
-.body690:                                         ; preds = %2027
-  %2034 = landingpad { ptr, i32 }
+.body690:                                         ; preds = %2023
+  %2030 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %46) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #21
-  %2035 = extractvalue { ptr, i32 } %2034, 0
-  %2036 = call ptr @__cxa_begin_catch(ptr %2035) #21
+  %2031 = extractvalue { ptr, i32 } %2030, 0
+  %2032 = call ptr @__cxa_begin_catch(ptr %2031) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %258)
-          to label %2046 unwind label %2086
+          to label %2042 unwind label %2082
 
-2037:                                             ; preds = %2027
+2033:                                             ; preds = %2023
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %46) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #21
-  br label %2047
-
-2038:                                             ; preds = %.body686
-  %2039 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2042 unwind label %4191
-
-2040:                                             ; preds = %1999, %1998
-  %2041 = landingpad { ptr, i32 }
-          cleanup
-  br label %2042
-
-2042:                                             ; preds = %2038, %2040
-  %.pn376 = phi { ptr, i32 } [ %2041, %2040 ], [ %2039, %2038 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %253) #21
   br label %2043
 
-2043:                                             ; preds = %2042, %1996
-  %.pn376.pn = phi { ptr, i32 } [ %.pn376, %2042 ], [ %1997, %1996 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %253) #21
-  br label %4131
+2034:                                             ; preds = %.body686
+  %2035 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2038 unwind label %4187
 
-2044:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit689
-  %2045 = landingpad { ptr, i32 }
+2036:                                             ; preds = %1995, %1994
+  %2037 = landingpad { ptr, i32 }
+          cleanup
+  br label %2038
+
+2038:                                             ; preds = %2034, %2036
+  %.pn376 = phi { ptr, i32 } [ %2037, %2036 ], [ %2035, %2034 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %253) #21
+  br label %2039
+
+2039:                                             ; preds = %2038, %1992
+  %.pn376.pn = phi { ptr, i32 } [ %.pn376, %2038 ], [ %1993, %1992 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %253) #21
+  br label %4127
+
+2040:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit689
+  %2041 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %260) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %259) #21
-  br label %2091
+  br label %2087
 
-2046:                                             ; preds = %.body690
+2042:                                             ; preds = %.body690
   invoke void @__cxa_end_catch()
-          to label %2047 unwind label %2088
+          to label %2043 unwind label %2084
 
-2047:                                             ; preds = %2046, %2037
+2043:                                             ; preds = %2042, %2033
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %258)
-          to label %2048 unwind label %2088
+          to label %2044 unwind label %2084
 
-2048:                                             ; preds = %2047
-  %2049 = getelementptr inbounds nuw i8, ptr %258, i64 58
-  %2050 = load i8, ptr %2049, align 2, !tbaa !33, !range !40, !noundef !41
-  %2051 = trunc nuw i8 %2050 to i1
-  br i1 %2051, label %_ZN5Catch16AssertionHandlerD2Ev.exit693, label %2052
+2044:                                             ; preds = %2043
+  %2045 = getelementptr inbounds nuw i8, ptr %258, i64 58
+  %2046 = load i8, ptr %2045, align 2, !tbaa !33, !range !40, !noundef !41
+  %2047 = trunc nuw i8 %2046 to i1
+  br i1 %2047, label %_ZN5Catch16AssertionHandlerD2Ev.exit693, label %2048
 
-2052:                                             ; preds = %2048
-  %2053 = getelementptr inbounds nuw i8, ptr %258, i64 64
-  %2054 = load ptr, ptr %2053, align 8, !tbaa !42
-  %2055 = load ptr, ptr %2054, align 8, !tbaa !4
-  %2056 = getelementptr inbounds nuw i8, ptr %2055, i64 112
-  %2057 = load ptr, ptr %2056, align 8
-  invoke void %2057(ptr noundef nonnull align 8 dereferenceable(8) %2054, ptr noundef nonnull align 8 dereferenceable(72) %258)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit693 unwind label %2058
+2048:                                             ; preds = %2044
+  %2049 = getelementptr inbounds nuw i8, ptr %258, i64 64
+  %2050 = load ptr, ptr %2049, align 8, !tbaa !42
+  %2051 = load ptr, ptr %2050, align 8, !tbaa !4
+  %2052 = getelementptr inbounds nuw i8, ptr %2051, i64 112
+  %2053 = load ptr, ptr %2052, align 8
+  invoke void %2053(ptr noundef nonnull align 8 dereferenceable(8) %2050, ptr noundef nonnull align 8 dereferenceable(72) %258)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit693 unwind label %2054
 
-2058:                                             ; preds = %2052
-  %2059 = landingpad { ptr, i32 }
+2054:                                             ; preds = %2048
+  %2055 = landingpad { ptr, i32 }
           catch ptr null
-  %2060 = extractvalue { ptr, i32 } %2059, 0
-  call void @__clang_call_terminate(ptr %2060) #22
+  %2056 = extractvalue { ptr, i32 } %2055, 0
+  call void @__clang_call_terminate(ptr %2056) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit693:          ; preds = %2048, %2052
+_ZN5Catch16AssertionHandlerD2Ev.exit693:          ; preds = %2044, %2048
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %258) #21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %262) #21
-  %2061 = load i8, ptr %185, align 8, !tbaa !7
-  store i8 %2061, ptr %262, align 8, !tbaa !7
-  %2062 = getelementptr inbounds nuw i8, ptr %262, i64 8
-  %2063 = load ptr, ptr %1336, align 8, !tbaa !113
-  store ptr %2063, ptr %2062, align 8, !tbaa !113
-  %2064 = getelementptr inbounds nuw i8, ptr %262, i64 16
-  %2065 = load ptr, ptr %1356, align 8, !tbaa !112
-  store ptr %2065, ptr %2064, align 8, !tbaa !112
-  %2066 = getelementptr inbounds nuw i8, ptr %262, i64 24
-  %2067 = load ptr, ptr %1354, align 8, !tbaa !114
-  store ptr %2067, ptr %2066, align 8, !tbaa !114
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1336, i8 0, i64 24, i1 false)
-  %2068 = getelementptr inbounds nuw i8, ptr %262, i64 32
-  %2069 = load ptr, ptr %1357, align 8, !tbaa !116
-  store ptr %2069, ptr %2068, align 8, !tbaa !116
+  %2057 = load i8, ptr %185, align 8, !tbaa !7
+  store i8 %2057, ptr %262, align 8, !tbaa !7
+  %2058 = getelementptr inbounds nuw i8, ptr %262, i64 8
+  %2059 = load ptr, ptr %1335, align 8, !tbaa !113
+  store ptr %2059, ptr %2058, align 8, !tbaa !113
+  %2060 = getelementptr inbounds nuw i8, ptr %262, i64 16
+  %2061 = load ptr, ptr %1354, align 8, !tbaa !112
+  store ptr %2061, ptr %2060, align 8, !tbaa !112
+  %2062 = getelementptr inbounds nuw i8, ptr %262, i64 24
+  %2063 = load ptr, ptr %1352, align 8, !tbaa !115
+  store ptr %2063, ptr %2062, align 8, !tbaa !115
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1335, i8 0, i64 24, i1 false)
+  %2064 = getelementptr inbounds nuw i8, ptr %262, i64 32
+  %2065 = load ptr, ptr %1355, align 8, !tbaa !116
+  store ptr %2065, ptr %2064, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %263) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %264) #21
   store ptr @.str.24, ptr %264, align 8
-  %2070 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  store i64 7, ptr %2070, align 8
+  %2066 = getelementptr inbounds nuw i8, ptr %264, i64 8
+  store i64 7, ptr %2066, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %265) #21
   store ptr @.str, ptr %265, align 8, !tbaa !19
-  %2071 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  store i64 107, ptr %2071, align 8, !tbaa !23
+  %2067 = getelementptr inbounds nuw i8, ptr %265, i64 8
+  store i64 107, ptr %2067, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %266, ptr noundef nonnull @.str.62) #21
-  %2072 = load ptr, ptr %266, align 8
-  %2073 = getelementptr inbounds nuw i8, ptr %266, i64 8
-  %2074 = load i64, ptr %2073, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %263, ptr noundef nonnull align 8 dereferenceable(16) %264, ptr noundef nonnull align 8 dereferenceable(16) %265, ptr %2072, i64 %2074, i32 noundef 1)
-          to label %2075 unwind label %2092
+  %2068 = load ptr, ptr %266, align 8
+  %2069 = getelementptr inbounds nuw i8, ptr %266, i64 8
+  %2070 = load i64, ptr %2069, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %263, ptr noundef nonnull align 8 dereferenceable(16) %264, ptr noundef nonnull align 8 dereferenceable(16) %265, ptr %2068, i64 %2070, i32 noundef 1)
+          to label %2071 unwind label %2088
 
-2075:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit693
+2071:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit693
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %265) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %264) #21
-  %2076 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef nonnull %83) #21
-  %2077 = xor i1 %2076, true
-  %2078 = zext i1 %2077 to i8
+  %2072 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef nonnull %83) #21
+  %2073 = xor i1 %2072, true
+  %2074 = zext i1 %2073 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45) #21
-  %2079 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i8 0, ptr %2079, align 8, !tbaa !24, !alias.scope !168
-  %2080 = getelementptr inbounds nuw i8, ptr %45, i64 9
-  store i8 %2078, ptr %2080, align 1, !tbaa !30, !alias.scope !168
+  %2075 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store i8 0, ptr %2075, align 8, !tbaa !24, !alias.scope !168
+  %2076 = getelementptr inbounds nuw i8, ptr %45, i64 9
+  store i8 %2074, ptr %2076, align 1, !tbaa !30, !alias.scope !168
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %45, align 8, !tbaa !4, !alias.scope !168
-  %2081 = getelementptr inbounds nuw i8, ptr %45, i64 10
-  store i8 %2078, ptr %2081, align 2, !tbaa !31, !alias.scope !168
+  %2077 = getelementptr inbounds nuw i8, ptr %45, i64 10
+  store i8 %2074, ptr %2077, align 2, !tbaa !31, !alias.scope !168
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %263, ptr noundef nonnull align 8 dereferenceable(10) %45)
-          to label %2085 unwind label %.body694
+          to label %2081 unwind label %.body694
 
-.body694:                                         ; preds = %2075
-  %2082 = landingpad { ptr, i32 }
+.body694:                                         ; preds = %2071
+  %2078 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %45) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #21
-  %2083 = extractvalue { ptr, i32 } %2082, 0
-  %2084 = call ptr @__cxa_begin_catch(ptr %2083) #21
+  %2079 = extractvalue { ptr, i32 } %2078, 0
+  %2080 = call ptr @__cxa_begin_catch(ptr %2079) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %263)
-          to label %2094 unwind label %2125
+          to label %2090 unwind label %2121
 
-2085:                                             ; preds = %2075
+2081:                                             ; preds = %2071
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %45) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #21
-  br label %2095
-
-2086:                                             ; preds = %.body690
-  %2087 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2090 unwind label %4191
-
-2088:                                             ; preds = %2047, %2046
-  %2089 = landingpad { ptr, i32 }
-          cleanup
-  br label %2090
-
-2090:                                             ; preds = %2086, %2088
-  %.pn379 = phi { ptr, i32 } [ %2089, %2088 ], [ %2087, %2086 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %258) #21
   br label %2091
 
-2091:                                             ; preds = %2090, %2044
-  %.pn379.pn = phi { ptr, i32 } [ %.pn379, %2090 ], [ %2045, %2044 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %258) #21
-  br label %4124
+2082:                                             ; preds = %.body690
+  %2083 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2086 unwind label %4187
 
-2092:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit693
-  %2093 = landingpad { ptr, i32 }
+2084:                                             ; preds = %2043, %2042
+  %2085 = landingpad { ptr, i32 }
+          cleanup
+  br label %2086
+
+2086:                                             ; preds = %2082, %2084
+  %.pn379 = phi { ptr, i32 } [ %2085, %2084 ], [ %2083, %2082 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %258) #21
+  br label %2087
+
+2087:                                             ; preds = %2086, %2040
+  %.pn379.pn = phi { ptr, i32 } [ %.pn379, %2086 ], [ %2041, %2040 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %258) #21
+  br label %4120
+
+2088:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit693
+  %2089 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %265) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %264) #21
-  br label %2130
+  br label %2126
 
-2094:                                             ; preds = %.body694
+2090:                                             ; preds = %.body694
   invoke void @__cxa_end_catch()
-          to label %2095 unwind label %2127
+          to label %2091 unwind label %2123
 
-2095:                                             ; preds = %2094, %2085
+2091:                                             ; preds = %2090, %2081
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %263)
-          to label %2096 unwind label %2127
+          to label %2092 unwind label %2123
 
-2096:                                             ; preds = %2095
-  %2097 = getelementptr inbounds nuw i8, ptr %263, i64 58
-  %2098 = load i8, ptr %2097, align 2, !tbaa !33, !range !40, !noundef !41
-  %2099 = trunc nuw i8 %2098 to i1
-  br i1 %2099, label %_ZN5Catch16AssertionHandlerD2Ev.exit697, label %2100
+2092:                                             ; preds = %2091
+  %2093 = getelementptr inbounds nuw i8, ptr %263, i64 58
+  %2094 = load i8, ptr %2093, align 2, !tbaa !33, !range !40, !noundef !41
+  %2095 = trunc nuw i8 %2094 to i1
+  br i1 %2095, label %_ZN5Catch16AssertionHandlerD2Ev.exit697, label %2096
 
-2100:                                             ; preds = %2096
-  %2101 = getelementptr inbounds nuw i8, ptr %263, i64 64
-  %2102 = load ptr, ptr %2101, align 8, !tbaa !42
-  %2103 = load ptr, ptr %2102, align 8, !tbaa !4
-  %2104 = getelementptr inbounds nuw i8, ptr %2103, i64 112
-  %2105 = load ptr, ptr %2104, align 8
-  invoke void %2105(ptr noundef nonnull align 8 dereferenceable(8) %2102, ptr noundef nonnull align 8 dereferenceable(72) %263)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit697 unwind label %2106
+2096:                                             ; preds = %2092
+  %2097 = getelementptr inbounds nuw i8, ptr %263, i64 64
+  %2098 = load ptr, ptr %2097, align 8, !tbaa !42
+  %2099 = load ptr, ptr %2098, align 8, !tbaa !4
+  %2100 = getelementptr inbounds nuw i8, ptr %2099, i64 112
+  %2101 = load ptr, ptr %2100, align 8
+  invoke void %2101(ptr noundef nonnull align 8 dereferenceable(8) %2098, ptr noundef nonnull align 8 dereferenceable(72) %263)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit697 unwind label %2102
 
-2106:                                             ; preds = %2100
-  %2107 = landingpad { ptr, i32 }
+2102:                                             ; preds = %2096
+  %2103 = landingpad { ptr, i32 }
           catch ptr null
-  %2108 = extractvalue { ptr, i32 } %2107, 0
-  call void @__clang_call_terminate(ptr %2108) #22
+  %2104 = extractvalue { ptr, i32 } %2103, 0
+  call void @__clang_call_terminate(ptr %2104) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit697:          ; preds = %2096, %2100
+_ZN5Catch16AssertionHandlerD2Ev.exit697:          ; preds = %2092, %2096
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %263) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %267) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %268) #21
   store ptr @.str.24, ptr %268, align 8
-  %2109 = getelementptr inbounds nuw i8, ptr %268, i64 8
-  store i64 7, ptr %2109, align 8
+  %2105 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  store i64 7, ptr %2105, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %269) #21
   store ptr @.str, ptr %269, align 8, !tbaa !19
-  %2110 = getelementptr inbounds nuw i8, ptr %269, i64 8
-  store i64 108, ptr %2110, align 8, !tbaa !23
+  %2106 = getelementptr inbounds nuw i8, ptr %269, i64 8
+  store i64 108, ptr %2106, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %270, ptr noundef nonnull @.str.63) #21
-  %2111 = load ptr, ptr %270, align 8
-  %2112 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  %2113 = load i64, ptr %2112, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %267, ptr noundef nonnull align 8 dereferenceable(16) %268, ptr noundef nonnull align 8 dereferenceable(16) %269, ptr %2111, i64 %2113, i32 noundef 1)
-          to label %2114 unwind label %2131
+  %2107 = load ptr, ptr %270, align 8
+  %2108 = getelementptr inbounds nuw i8, ptr %270, i64 8
+  %2109 = load i64, ptr %2108, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %267, ptr noundef nonnull align 8 dereferenceable(16) %268, ptr noundef nonnull align 8 dereferenceable(16) %269, ptr %2107, i64 %2109, i32 noundef 1)
+          to label %2110 unwind label %2127
 
-2114:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit697
+2110:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit697
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %269) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %268) #21
-  %2115 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef nonnull %83) #21
-  %2116 = xor i1 %2115, true
-  %2117 = zext i1 %2116 to i8
+  %2111 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef nonnull %83) #21
+  %2112 = xor i1 %2111, true
+  %2113 = zext i1 %2112 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #21
-  %2118 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i8 0, ptr %2118, align 8, !tbaa !24, !alias.scope !171
-  %2119 = getelementptr inbounds nuw i8, ptr %44, i64 9
-  store i8 %2117, ptr %2119, align 1, !tbaa !30, !alias.scope !171
+  %2114 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i8 0, ptr %2114, align 8, !tbaa !24, !alias.scope !171
+  %2115 = getelementptr inbounds nuw i8, ptr %44, i64 9
+  store i8 %2113, ptr %2115, align 1, !tbaa !30, !alias.scope !171
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %44, align 8, !tbaa !4, !alias.scope !171
-  %2120 = getelementptr inbounds nuw i8, ptr %44, i64 10
-  store i8 %2117, ptr %2120, align 2, !tbaa !31, !alias.scope !171
+  %2116 = getelementptr inbounds nuw i8, ptr %44, i64 10
+  store i8 %2113, ptr %2116, align 2, !tbaa !31, !alias.scope !171
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %267, ptr noundef nonnull align 8 dereferenceable(10) %44)
-          to label %2124 unwind label %.body698
+          to label %2120 unwind label %.body698
 
-.body698:                                         ; preds = %2114
-  %2121 = landingpad { ptr, i32 }
+.body698:                                         ; preds = %2110
+  %2117 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %44) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #21
-  %2122 = extractvalue { ptr, i32 } %2121, 0
-  %2123 = call ptr @__cxa_begin_catch(ptr %2122) #21
+  %2118 = extractvalue { ptr, i32 } %2117, 0
+  %2119 = call ptr @__cxa_begin_catch(ptr %2118) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %267)
-          to label %2133 unwind label %2163
+          to label %2129 unwind label %2159
 
-2124:                                             ; preds = %2114
+2120:                                             ; preds = %2110
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %44) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #21
-  br label %2134
-
-2125:                                             ; preds = %.body694
-  %2126 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2129 unwind label %4191
-
-2127:                                             ; preds = %2095, %2094
-  %2128 = landingpad { ptr, i32 }
-          cleanup
-  br label %2129
-
-2129:                                             ; preds = %2125, %2127
-  %.pn382 = phi { ptr, i32 } [ %2128, %2127 ], [ %2126, %2125 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %263) #21
   br label %2130
 
-2130:                                             ; preds = %2129, %2092
-  %.pn382.pn = phi { ptr, i32 } [ %.pn382, %2129 ], [ %2093, %2092 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %263) #21
-  br label %4117
+2121:                                             ; preds = %.body694
+  %2122 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2125 unwind label %4187
 
-2131:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit697
-  %2132 = landingpad { ptr, i32 }
+2123:                                             ; preds = %2091, %2090
+  %2124 = landingpad { ptr, i32 }
+          cleanup
+  br label %2125
+
+2125:                                             ; preds = %2121, %2123
+  %.pn382 = phi { ptr, i32 } [ %2124, %2123 ], [ %2122, %2121 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %263) #21
+  br label %2126
+
+2126:                                             ; preds = %2125, %2088
+  %.pn382.pn = phi { ptr, i32 } [ %.pn382, %2125 ], [ %2089, %2088 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %263) #21
+  br label %4113
+
+2127:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit697
+  %2128 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %269) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %268) #21
-  br label %2168
+  br label %2164
 
-2133:                                             ; preds = %.body698
+2129:                                             ; preds = %.body698
   invoke void @__cxa_end_catch()
-          to label %2134 unwind label %2165
+          to label %2130 unwind label %2161
 
-2134:                                             ; preds = %2133, %2124
+2130:                                             ; preds = %2129, %2120
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %267)
-          to label %2135 unwind label %2165
+          to label %2131 unwind label %2161
 
-2135:                                             ; preds = %2134
-  %2136 = getelementptr inbounds nuw i8, ptr %267, i64 58
-  %2137 = load i8, ptr %2136, align 2, !tbaa !33, !range !40, !noundef !41
-  %2138 = trunc nuw i8 %2137 to i1
-  br i1 %2138, label %_ZN5Catch16AssertionHandlerD2Ev.exit701, label %2139
+2131:                                             ; preds = %2130
+  %2132 = getelementptr inbounds nuw i8, ptr %267, i64 58
+  %2133 = load i8, ptr %2132, align 2, !tbaa !33, !range !40, !noundef !41
+  %2134 = trunc nuw i8 %2133 to i1
+  br i1 %2134, label %_ZN5Catch16AssertionHandlerD2Ev.exit701, label %2135
 
-2139:                                             ; preds = %2135
-  %2140 = getelementptr inbounds nuw i8, ptr %267, i64 64
-  %2141 = load ptr, ptr %2140, align 8, !tbaa !42
-  %2142 = load ptr, ptr %2141, align 8, !tbaa !4
-  %2143 = getelementptr inbounds nuw i8, ptr %2142, i64 112
-  %2144 = load ptr, ptr %2143, align 8
-  invoke void %2144(ptr noundef nonnull align 8 dereferenceable(8) %2141, ptr noundef nonnull align 8 dereferenceable(72) %267)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit701 unwind label %2145
+2135:                                             ; preds = %2131
+  %2136 = getelementptr inbounds nuw i8, ptr %267, i64 64
+  %2137 = load ptr, ptr %2136, align 8, !tbaa !42
+  %2138 = load ptr, ptr %2137, align 8, !tbaa !4
+  %2139 = getelementptr inbounds nuw i8, ptr %2138, i64 112
+  %2140 = load ptr, ptr %2139, align 8
+  invoke void %2140(ptr noundef nonnull align 8 dereferenceable(8) %2137, ptr noundef nonnull align 8 dereferenceable(72) %267)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit701 unwind label %2141
 
-2145:                                             ; preds = %2139
-  %2146 = landingpad { ptr, i32 }
+2141:                                             ; preds = %2135
+  %2142 = landingpad { ptr, i32 }
           catch ptr null
-  %2147 = extractvalue { ptr, i32 } %2146, 0
-  call void @__clang_call_terminate(ptr %2147) #22
+  %2143 = extractvalue { ptr, i32 } %2142, 0
+  call void @__clang_call_terminate(ptr %2143) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit701:          ; preds = %2135, %2139
+_ZN5Catch16AssertionHandlerD2Ev.exit701:          ; preds = %2131, %2135
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %267) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %271) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %272) #21
   store ptr @.str.24, ptr %272, align 8
-  %2148 = getelementptr inbounds nuw i8, ptr %272, i64 8
-  store i64 7, ptr %2148, align 8
+  %2144 = getelementptr inbounds nuw i8, ptr %272, i64 8
+  store i64 7, ptr %2144, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %273) #21
   store ptr @.str, ptr %273, align 8, !tbaa !19
-  %2149 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  store i64 109, ptr %2149, align 8, !tbaa !23
+  %2145 = getelementptr inbounds nuw i8, ptr %273, i64 8
+  store i64 109, ptr %2145, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %274, ptr noundef nonnull @.str.64) #21
-  %2150 = load ptr, ptr %274, align 8
-  %2151 = getelementptr inbounds nuw i8, ptr %274, i64 8
-  %2152 = load i64, ptr %2151, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %271, ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull align 8 dereferenceable(16) %273, ptr %2150, i64 %2152, i32 noundef 1)
-          to label %2153 unwind label %2169
+  %2146 = load ptr, ptr %274, align 8
+  %2147 = getelementptr inbounds nuw i8, ptr %274, i64 8
+  %2148 = load i64, ptr %2147, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %271, ptr noundef nonnull align 8 dereferenceable(16) %272, ptr noundef nonnull align 8 dereferenceable(16) %273, ptr %2146, i64 %2148, i32 noundef 1)
+          to label %2149 unwind label %2165
 
-2153:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit701
+2149:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit701
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %273) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %272) #21
-  %2154 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef nonnull %83) #21
-  %2155 = zext i1 %2154 to i8
+  %2150 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %262, ptr noundef nonnull %83) #21
+  %2151 = zext i1 %2150 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43) #21
-  %2156 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i8 0, ptr %2156, align 8, !tbaa !24, !alias.scope !174
-  %2157 = getelementptr inbounds nuw i8, ptr %43, i64 9
-  store i8 %2155, ptr %2157, align 1, !tbaa !30, !alias.scope !174
+  %2152 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store i8 0, ptr %2152, align 8, !tbaa !24, !alias.scope !174
+  %2153 = getelementptr inbounds nuw i8, ptr %43, i64 9
+  store i8 %2151, ptr %2153, align 1, !tbaa !30, !alias.scope !174
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %43, align 8, !tbaa !4, !alias.scope !174
-  %2158 = getelementptr inbounds nuw i8, ptr %43, i64 10
-  store i8 %2155, ptr %2158, align 2, !tbaa !31, !alias.scope !174
+  %2154 = getelementptr inbounds nuw i8, ptr %43, i64 10
+  store i8 %2151, ptr %2154, align 2, !tbaa !31, !alias.scope !174
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %271, ptr noundef nonnull align 8 dereferenceable(10) %43)
-          to label %2162 unwind label %.body702
+          to label %2158 unwind label %.body702
 
-.body702:                                         ; preds = %2153
-  %2159 = landingpad { ptr, i32 }
+.body702:                                         ; preds = %2149
+  %2155 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %43) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #21
-  %2160 = extractvalue { ptr, i32 } %2159, 0
-  %2161 = call ptr @__cxa_begin_catch(ptr %2160) #21
+  %2156 = extractvalue { ptr, i32 } %2155, 0
+  %2157 = call ptr @__cxa_begin_catch(ptr %2156) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %271)
-          to label %2171 unwind label %2204
+          to label %2167 unwind label %2200
 
-2162:                                             ; preds = %2153
+2158:                                             ; preds = %2149
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %43) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #21
-  br label %2172
-
-2163:                                             ; preds = %.body698
-  %2164 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2167 unwind label %4191
-
-2165:                                             ; preds = %2134, %2133
-  %2166 = landingpad { ptr, i32 }
-          cleanup
-  br label %2167
-
-2167:                                             ; preds = %2163, %2165
-  %.pn385 = phi { ptr, i32 } [ %2166, %2165 ], [ %2164, %2163 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %267) #21
   br label %2168
 
-2168:                                             ; preds = %2167, %2131
-  %.pn385.pn = phi { ptr, i32 } [ %.pn385, %2167 ], [ %2132, %2131 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %267) #21
-  br label %4117
+2159:                                             ; preds = %.body698
+  %2160 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2163 unwind label %4187
 
-2169:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit701
-  %2170 = landingpad { ptr, i32 }
+2161:                                             ; preds = %2130, %2129
+  %2162 = landingpad { ptr, i32 }
+          cleanup
+  br label %2163
+
+2163:                                             ; preds = %2159, %2161
+  %.pn385 = phi { ptr, i32 } [ %2162, %2161 ], [ %2160, %2159 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %267) #21
+  br label %2164
+
+2164:                                             ; preds = %2163, %2127
+  %.pn385.pn = phi { ptr, i32 } [ %.pn385, %2163 ], [ %2128, %2127 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %267) #21
+  br label %4113
+
+2165:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit701
+  %2166 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %273) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %272) #21
-  br label %2209
+  br label %2205
 
-2171:                                             ; preds = %.body702
+2167:                                             ; preds = %.body702
   invoke void @__cxa_end_catch()
-          to label %2172 unwind label %2206
+          to label %2168 unwind label %2202
 
-2172:                                             ; preds = %2171, %2162
+2168:                                             ; preds = %2167, %2158
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %271)
-          to label %2173 unwind label %2206
+          to label %2169 unwind label %2202
 
-2173:                                             ; preds = %2172
-  %2174 = getelementptr inbounds nuw i8, ptr %271, i64 58
-  %2175 = load i8, ptr %2174, align 2, !tbaa !33, !range !40, !noundef !41
-  %2176 = trunc nuw i8 %2175 to i1
-  br i1 %2176, label %_ZN5Catch16AssertionHandlerD2Ev.exit705, label %2177
+2169:                                             ; preds = %2168
+  %2170 = getelementptr inbounds nuw i8, ptr %271, i64 58
+  %2171 = load i8, ptr %2170, align 2, !tbaa !33, !range !40, !noundef !41
+  %2172 = trunc nuw i8 %2171 to i1
+  br i1 %2172, label %_ZN5Catch16AssertionHandlerD2Ev.exit705, label %2173
 
-2177:                                             ; preds = %2173
-  %2178 = getelementptr inbounds nuw i8, ptr %271, i64 64
-  %2179 = load ptr, ptr %2178, align 8, !tbaa !42
-  %2180 = load ptr, ptr %2179, align 8, !tbaa !4
-  %2181 = getelementptr inbounds nuw i8, ptr %2180, i64 112
-  %2182 = load ptr, ptr %2181, align 8
-  invoke void %2182(ptr noundef nonnull align 8 dereferenceable(8) %2179, ptr noundef nonnull align 8 dereferenceable(72) %271)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit705 unwind label %2183
+2173:                                             ; preds = %2169
+  %2174 = getelementptr inbounds nuw i8, ptr %271, i64 64
+  %2175 = load ptr, ptr %2174, align 8, !tbaa !42
+  %2176 = load ptr, ptr %2175, align 8, !tbaa !4
+  %2177 = getelementptr inbounds nuw i8, ptr %2176, i64 112
+  %2178 = load ptr, ptr %2177, align 8
+  invoke void %2178(ptr noundef nonnull align 8 dereferenceable(8) %2175, ptr noundef nonnull align 8 dereferenceable(72) %271)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit705 unwind label %2179
 
-2183:                                             ; preds = %2177
-  %2184 = landingpad { ptr, i32 }
+2179:                                             ; preds = %2173
+  %2180 = landingpad { ptr, i32 }
           catch ptr null
-  %2185 = extractvalue { ptr, i32 } %2184, 0
-  call void @__clang_call_terminate(ptr %2185) #22
+  %2181 = extractvalue { ptr, i32 } %2180, 0
+  call void @__clang_call_terminate(ptr %2181) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit705:          ; preds = %2173, %2177
+_ZN5Catch16AssertionHandlerD2Ev.exit705:          ; preds = %2169, %2173
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %271) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %275) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %276) #21
   store ptr @.str.24, ptr %276, align 8
-  %2186 = getelementptr inbounds nuw i8, ptr %276, i64 8
-  store i64 7, ptr %2186, align 8
+  %2182 = getelementptr inbounds nuw i8, ptr %276, i64 8
+  store i64 7, ptr %2182, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %277) #21
   store ptr @.str, ptr %277, align 8, !tbaa !19
-  %2187 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  store i64 110, ptr %2187, align 8, !tbaa !23
+  %2183 = getelementptr inbounds nuw i8, ptr %277, i64 8
+  store i64 110, ptr %2183, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %278, ptr noundef nonnull @.str.65) #21
-  %2188 = load ptr, ptr %278, align 8
-  %2189 = getelementptr inbounds nuw i8, ptr %278, i64 8
-  %2190 = load i64, ptr %2189, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %275, ptr noundef nonnull align 8 dereferenceable(16) %276, ptr noundef nonnull align 8 dereferenceable(16) %277, ptr %2188, i64 %2190, i32 noundef 1)
-          to label %2191 unwind label %2210
+  %2184 = load ptr, ptr %278, align 8
+  %2185 = getelementptr inbounds nuw i8, ptr %278, i64 8
+  %2186 = load i64, ptr %2185, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %275, ptr noundef nonnull align 8 dereferenceable(16) %276, ptr noundef nonnull align 8 dereferenceable(16) %277, ptr %2184, i64 %2186, i32 noundef 1)
+          to label %2187 unwind label %2206
 
-2191:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit705
+2187:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit705
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %277) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %276) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %279) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %280) #21
-  %2192 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %262) #21
-  store ptr %2192, ptr %280, align 8, !tbaa !49
+  %2188 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %262) #21
+  store ptr %2188, ptr %280, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %281) #21
   store ptr null, ptr %281, align 8, !tbaa !50
   call void @llvm.experimental.noalias.scope.decl(metadata !177)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42)
-  %2193 = icmp eq ptr %2192, null
+  %2189 = icmp eq ptr %2188, null
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull @.str.90) #21, !noalias !177
-  %2194 = load ptr, ptr %42, align 8, !noalias !177
-  %2195 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %2196 = load i64, ptr %2195, align 8, !noalias !177
-  %2197 = zext i1 %2193 to i8
-  %2198 = getelementptr inbounds nuw i8, ptr %279, i64 8
-  store i8 1, ptr %2198, align 8, !tbaa !24, !alias.scope !177
-  %2199 = getelementptr inbounds nuw i8, ptr %279, i64 9
-  store i8 %2197, ptr %2199, align 1, !tbaa !30, !alias.scope !177
+  %2190 = load ptr, ptr %42, align 8, !noalias !177
+  %2191 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %2192 = load i64, ptr %2191, align 8, !noalias !177
+  %2193 = zext i1 %2189 to i8
+  %2194 = getelementptr inbounds nuw i8, ptr %279, i64 8
+  store i8 1, ptr %2194, align 8, !tbaa !24, !alias.scope !177
+  %2195 = getelementptr inbounds nuw i8, ptr %279, i64 9
+  store i8 %2193, ptr %2195, align 1, !tbaa !30, !alias.scope !177
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKPKN5vcpkg19IReadBinaryProviderERKDnEE, i64 16), ptr %279, align 8, !tbaa !4, !alias.scope !177
-  %2200 = getelementptr inbounds nuw i8, ptr %279, i64 16
-  store ptr %280, ptr %2200, align 8, !tbaa !55, !alias.scope !177
-  %2201 = getelementptr inbounds nuw i8, ptr %279, i64 24
-  store ptr %2194, ptr %2201, align 8, !tbaa !56, !alias.scope !177
+  %2196 = getelementptr inbounds nuw i8, ptr %279, i64 16
+  store ptr %280, ptr %2196, align 8, !tbaa !55, !alias.scope !177
+  %2197 = getelementptr inbounds nuw i8, ptr %279, i64 24
+  store ptr %2190, ptr %2197, align 8, !tbaa !56, !alias.scope !177
   %.sroa.2.0..sroa_idx.i.i706 = getelementptr inbounds nuw i8, ptr %279, i64 32
-  store i64 %2196, ptr %.sroa.2.0..sroa_idx.i.i706, align 8, !tbaa !57, !alias.scope !177
-  %2202 = getelementptr inbounds nuw i8, ptr %279, i64 40
-  store ptr %281, ptr %2202, align 8, !tbaa !58, !alias.scope !177
+  store i64 %2192, ptr %.sroa.2.0..sroa_idx.i.i706, align 8, !tbaa !57, !alias.scope !177
+  %2198 = getelementptr inbounds nuw i8, ptr %279, i64 40
+  store ptr %281, ptr %2198, align 8, !tbaa !58, !alias.scope !177
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42)
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %275, ptr noundef nonnull align 8 dereferenceable(10) %279)
-          to label %2203 unwind label %2212
+          to label %2199 unwind label %2208
 
-2203:                                             ; preds = %2191
+2199:                                             ; preds = %2187
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %279) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %281) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %280) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %279) #21
-  br label %2216
+  br label %2212
 
-2204:                                             ; preds = %.body702
-  %2205 = landingpad { ptr, i32 }
+2200:                                             ; preds = %.body702
+  %2201 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2208 unwind label %4191
+          to label %2204 unwind label %4187
 
-2206:                                             ; preds = %2172, %2171
-  %2207 = landingpad { ptr, i32 }
+2202:                                             ; preds = %2168, %2167
+  %2203 = landingpad { ptr, i32 }
           cleanup
-  br label %2208
+  br label %2204
 
-2208:                                             ; preds = %2204, %2206
-  %.pn388 = phi { ptr, i32 } [ %2207, %2206 ], [ %2205, %2204 ]
+2204:                                             ; preds = %2200, %2202
+  %.pn388 = phi { ptr, i32 } [ %2203, %2202 ], [ %2201, %2200 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %271) #21
-  br label %2209
+  br label %2205
 
-2209:                                             ; preds = %2208, %2169
-  %.pn388.pn = phi { ptr, i32 } [ %.pn388, %2208 ], [ %2170, %2169 ]
+2205:                                             ; preds = %2204, %2165
+  %.pn388.pn = phi { ptr, i32 } [ %.pn388, %2204 ], [ %2166, %2165 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %271) #21
-  br label %4117
+  br label %4113
 
-2210:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit705
-  %2211 = landingpad { ptr, i32 }
+2206:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit705
+  %2207 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %277) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %276) #21
-  br label %2251
+  br label %2247
 
-2212:                                             ; preds = %2191
-  %2213 = landingpad { ptr, i32 }
+2208:                                             ; preds = %2187
+  %2209 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %279) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %281) #21
-  %.109192 = extractvalue { ptr, i32 } %2213, 0
+  %.109192 = extractvalue { ptr, i32 } %2209, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %280) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %279) #21
-  %2214 = call ptr @__cxa_begin_catch(ptr %.109192) #21
+  %2210 = call ptr @__cxa_begin_catch(ptr %.109192) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %275)
-          to label %2215 unwind label %2246
+          to label %2211 unwind label %2242
 
-2215:                                             ; preds = %2212
+2211:                                             ; preds = %2208
   invoke void @__cxa_end_catch()
-          to label %2216 unwind label %2248
+          to label %2212 unwind label %2244
 
-2216:                                             ; preds = %2215, %2203
+2212:                                             ; preds = %2211, %2199
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %275)
-          to label %2217 unwind label %2248
+          to label %2213 unwind label %2244
 
-2217:                                             ; preds = %2216
-  %2218 = getelementptr inbounds nuw i8, ptr %275, i64 58
-  %2219 = load i8, ptr %2218, align 2, !tbaa !33, !range !40, !noundef !41
-  %2220 = trunc nuw i8 %2219 to i1
-  br i1 %2220, label %_ZN5Catch16AssertionHandlerD2Ev.exit707, label %2221
+2213:                                             ; preds = %2212
+  %2214 = getelementptr inbounds nuw i8, ptr %275, i64 58
+  %2215 = load i8, ptr %2214, align 2, !tbaa !33, !range !40, !noundef !41
+  %2216 = trunc nuw i8 %2215 to i1
+  br i1 %2216, label %_ZN5Catch16AssertionHandlerD2Ev.exit707, label %2217
 
-2221:                                             ; preds = %2217
-  %2222 = getelementptr inbounds nuw i8, ptr %275, i64 64
-  %2223 = load ptr, ptr %2222, align 8, !tbaa !42
-  %2224 = load ptr, ptr %2223, align 8, !tbaa !4
-  %2225 = getelementptr inbounds nuw i8, ptr %2224, i64 112
-  %2226 = load ptr, ptr %2225, align 8
-  invoke void %2226(ptr noundef nonnull align 8 dereferenceable(8) %2223, ptr noundef nonnull align 8 dereferenceable(72) %275)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit707 unwind label %2227
+2217:                                             ; preds = %2213
+  %2218 = getelementptr inbounds nuw i8, ptr %275, i64 64
+  %2219 = load ptr, ptr %2218, align 8, !tbaa !42
+  %2220 = load ptr, ptr %2219, align 8, !tbaa !4
+  %2221 = getelementptr inbounds nuw i8, ptr %2220, i64 112
+  %2222 = load ptr, ptr %2221, align 8
+  invoke void %2222(ptr noundef nonnull align 8 dereferenceable(8) %2219, ptr noundef nonnull align 8 dereferenceable(72) %275)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit707 unwind label %2223
 
-2227:                                             ; preds = %2221
-  %2228 = landingpad { ptr, i32 }
+2223:                                             ; preds = %2217
+  %2224 = landingpad { ptr, i32 }
           catch ptr null
-  %2229 = extractvalue { ptr, i32 } %2228, 0
-  call void @__clang_call_terminate(ptr %2229) #22
+  %2225 = extractvalue { ptr, i32 } %2224, 0
+  call void @__clang_call_terminate(ptr %2225) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit707:          ; preds = %2217, %2221
+_ZN5Catch16AssertionHandlerD2Ev.exit707:          ; preds = %2213, %2217
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %275) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %282) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %283) #21
   store ptr @.str.24, ptr %283, align 8
-  %2230 = getelementptr inbounds nuw i8, ptr %283, i64 8
-  store i64 7, ptr %2230, align 8
+  %2226 = getelementptr inbounds nuw i8, ptr %283, i64 8
+  store i64 7, ptr %2226, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %284) #21
   store ptr @.str, ptr %284, align 8, !tbaa !19
-  %2231 = getelementptr inbounds nuw i8, ptr %284, i64 8
-  store i64 111, ptr %2231, align 8, !tbaa !23
+  %2227 = getelementptr inbounds nuw i8, ptr %284, i64 8
+  store i64 111, ptr %2227, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %285, ptr noundef nonnull @.str.66) #21
-  %2232 = load ptr, ptr %285, align 8
-  %2233 = getelementptr inbounds nuw i8, ptr %285, i64 8
-  %2234 = load i64, ptr %2233, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %282, ptr noundef nonnull align 8 dereferenceable(16) %283, ptr noundef nonnull align 8 dereferenceable(16) %284, ptr %2232, i64 %2234, i32 noundef 1)
-          to label %2235 unwind label %2252
+  %2228 = load ptr, ptr %285, align 8
+  %2229 = getelementptr inbounds nuw i8, ptr %285, i64 8
+  %2230 = load i64, ptr %2229, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %282, ptr noundef nonnull align 8 dereferenceable(16) %283, ptr noundef nonnull align 8 dereferenceable(16) %284, ptr %2228, i64 %2230, i32 noundef 1)
+          to label %2231 unwind label %2248
 
-2235:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit707
+2231:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit707
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %284) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %283) #21
-  %2236 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %262) #21
-  %2237 = xor i1 %2236, true
-  %2238 = zext i1 %2237 to i8
+  %2232 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %262) #21
+  %2233 = xor i1 %2232, true
+  %2234 = zext i1 %2233 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #21
-  %2239 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i8 0, ptr %2239, align 8, !tbaa !24, !alias.scope !180
-  %2240 = getelementptr inbounds nuw i8, ptr %41, i64 9
-  store i8 %2238, ptr %2240, align 1, !tbaa !30, !alias.scope !180
+  %2235 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i8 0, ptr %2235, align 8, !tbaa !24, !alias.scope !180
+  %2236 = getelementptr inbounds nuw i8, ptr %41, i64 9
+  store i8 %2234, ptr %2236, align 1, !tbaa !30, !alias.scope !180
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %41, align 8, !tbaa !4, !alias.scope !180
-  %2241 = getelementptr inbounds nuw i8, ptr %41, i64 10
-  store i8 %2238, ptr %2241, align 2, !tbaa !31, !alias.scope !180
+  %2237 = getelementptr inbounds nuw i8, ptr %41, i64 10
+  store i8 %2234, ptr %2237, align 2, !tbaa !31, !alias.scope !180
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %282, ptr noundef nonnull align 8 dereferenceable(10) %41)
-          to label %2245 unwind label %.body708
+          to label %2241 unwind label %.body708
 
-.body708:                                         ; preds = %2235
-  %2242 = landingpad { ptr, i32 }
+.body708:                                         ; preds = %2231
+  %2238 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %41) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #21
-  %2243 = extractvalue { ptr, i32 } %2242, 0
-  %2244 = call ptr @__cxa_begin_catch(ptr %2243) #21
+  %2239 = extractvalue { ptr, i32 } %2238, 0
+  %2240 = call ptr @__cxa_begin_catch(ptr %2239) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %282)
-          to label %2254 unwind label %2294
+          to label %2250 unwind label %2290
 
-2245:                                             ; preds = %2235
+2241:                                             ; preds = %2231
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %41) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #21
-  br label %2255
-
-2246:                                             ; preds = %2212
-  %2247 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2250 unwind label %4191
-
-2248:                                             ; preds = %2216, %2215
-  %2249 = landingpad { ptr, i32 }
-          cleanup
-  br label %2250
-
-2250:                                             ; preds = %2246, %2248
-  %.pn392 = phi { ptr, i32 } [ %2249, %2248 ], [ %2247, %2246 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %275) #21
   br label %2251
 
-2251:                                             ; preds = %2250, %2210
-  %.pn392.pn = phi { ptr, i32 } [ %.pn392, %2250 ], [ %2211, %2210 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %275) #21
-  br label %4117
+2242:                                             ; preds = %2208
+  %2243 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2246 unwind label %4187
 
-2252:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit707
-  %2253 = landingpad { ptr, i32 }
+2244:                                             ; preds = %2212, %2211
+  %2245 = landingpad { ptr, i32 }
+          cleanup
+  br label %2246
+
+2246:                                             ; preds = %2242, %2244
+  %.pn392 = phi { ptr, i32 } [ %2245, %2244 ], [ %2243, %2242 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %275) #21
+  br label %2247
+
+2247:                                             ; preds = %2246, %2206
+  %.pn392.pn = phi { ptr, i32 } [ %.pn392, %2246 ], [ %2207, %2206 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %275) #21
+  br label %4113
+
+2248:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit707
+  %2249 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %284) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %283) #21
-  br label %2299
+  br label %2295
 
-2254:                                             ; preds = %.body708
+2250:                                             ; preds = %.body708
   invoke void @__cxa_end_catch()
-          to label %2255 unwind label %2296
+          to label %2251 unwind label %2292
 
-2255:                                             ; preds = %2254, %2245
+2251:                                             ; preds = %2250, %2241
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %282)
-          to label %2256 unwind label %2296
+          to label %2252 unwind label %2292
 
-2256:                                             ; preds = %2255
-  %2257 = getelementptr inbounds nuw i8, ptr %282, i64 58
-  %2258 = load i8, ptr %2257, align 2, !tbaa !33, !range !40, !noundef !41
-  %2259 = trunc nuw i8 %2258 to i1
-  br i1 %2259, label %_ZN5Catch16AssertionHandlerD2Ev.exit711, label %2260
+2252:                                             ; preds = %2251
+  %2253 = getelementptr inbounds nuw i8, ptr %282, i64 58
+  %2254 = load i8, ptr %2253, align 2, !tbaa !33, !range !40, !noundef !41
+  %2255 = trunc nuw i8 %2254 to i1
+  br i1 %2255, label %_ZN5Catch16AssertionHandlerD2Ev.exit711, label %2256
 
-2260:                                             ; preds = %2256
-  %2261 = getelementptr inbounds nuw i8, ptr %282, i64 64
-  %2262 = load ptr, ptr %2261, align 8, !tbaa !42
-  %2263 = load ptr, ptr %2262, align 8, !tbaa !4
-  %2264 = getelementptr inbounds nuw i8, ptr %2263, i64 112
-  %2265 = load ptr, ptr %2264, align 8
-  invoke void %2265(ptr noundef nonnull align 8 dereferenceable(8) %2262, ptr noundef nonnull align 8 dereferenceable(72) %282)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit711 unwind label %2266
+2256:                                             ; preds = %2252
+  %2257 = getelementptr inbounds nuw i8, ptr %282, i64 64
+  %2258 = load ptr, ptr %2257, align 8, !tbaa !42
+  %2259 = load ptr, ptr %2258, align 8, !tbaa !4
+  %2260 = getelementptr inbounds nuw i8, ptr %2259, i64 112
+  %2261 = load ptr, ptr %2260, align 8
+  invoke void %2261(ptr noundef nonnull align 8 dereferenceable(8) %2258, ptr noundef nonnull align 8 dereferenceable(72) %282)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit711 unwind label %2262
 
-2266:                                             ; preds = %2260
-  %2267 = landingpad { ptr, i32 }
+2262:                                             ; preds = %2256
+  %2263 = landingpad { ptr, i32 }
           catch ptr null
-  %2268 = extractvalue { ptr, i32 } %2267, 0
-  call void @__clang_call_terminate(ptr %2268) #22
+  %2264 = extractvalue { ptr, i32 } %2263, 0
+  call void @__clang_call_terminate(ptr %2264) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit711:          ; preds = %2256, %2260
+_ZN5Catch16AssertionHandlerD2Ev.exit711:          ; preds = %2252, %2256
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %282) #21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %286) #21
-  %2269 = load i8, ptr %209, align 8, !tbaa !7
-  store i8 %2269, ptr %286, align 8, !tbaa !7
-  %2270 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  %2271 = load ptr, ptr %1562, align 8, !tbaa !113
-  store ptr %2271, ptr %2270, align 8, !tbaa !113
-  %2272 = getelementptr inbounds nuw i8, ptr %286, i64 16
-  %2273 = load ptr, ptr %1582, align 8, !tbaa !112
-  store ptr %2273, ptr %2272, align 8, !tbaa !112
-  %2274 = getelementptr inbounds nuw i8, ptr %286, i64 24
-  %2275 = load ptr, ptr %1580, align 8, !tbaa !114
-  store ptr %2275, ptr %2274, align 8, !tbaa !114
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1562, i8 0, i64 24, i1 false)
-  %2276 = getelementptr inbounds nuw i8, ptr %286, i64 32
-  %2277 = load ptr, ptr %1583, align 8, !tbaa !116
-  store ptr %2277, ptr %2276, align 8, !tbaa !116
+  %2265 = load i8, ptr %209, align 8, !tbaa !7
+  store i8 %2265, ptr %286, align 8, !tbaa !7
+  %2266 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  %2267 = load ptr, ptr %1560, align 8, !tbaa !113
+  store ptr %2267, ptr %2266, align 8, !tbaa !113
+  %2268 = getelementptr inbounds nuw i8, ptr %286, i64 16
+  %2269 = load ptr, ptr %1579, align 8, !tbaa !112
+  store ptr %2269, ptr %2268, align 8, !tbaa !112
+  %2270 = getelementptr inbounds nuw i8, ptr %286, i64 24
+  %2271 = load ptr, ptr %1577, align 8, !tbaa !115
+  store ptr %2271, ptr %2270, align 8, !tbaa !115
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1560, i8 0, i64 24, i1 false)
+  %2272 = getelementptr inbounds nuw i8, ptr %286, i64 32
+  %2273 = load ptr, ptr %1580, align 8, !tbaa !116
+  store ptr %2273, ptr %2272, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %287) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %288) #21
   store ptr @.str.24, ptr %288, align 8
-  %2278 = getelementptr inbounds nuw i8, ptr %288, i64 8
-  store i64 7, ptr %2278, align 8
+  %2274 = getelementptr inbounds nuw i8, ptr %288, i64 8
+  store i64 7, ptr %2274, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %289) #21
   store ptr @.str, ptr %289, align 8, !tbaa !19
-  %2279 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  store i64 114, ptr %2279, align 8, !tbaa !23
+  %2275 = getelementptr inbounds nuw i8, ptr %289, i64 8
+  store i64 114, ptr %2275, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %290, ptr noundef nonnull @.str.67) #21
-  %2280 = load ptr, ptr %290, align 8
-  %2281 = getelementptr inbounds nuw i8, ptr %290, i64 8
-  %2282 = load i64, ptr %2281, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %287, ptr noundef nonnull align 8 dereferenceable(16) %288, ptr noundef nonnull align 8 dereferenceable(16) %289, ptr %2280, i64 %2282, i32 noundef 1)
-          to label %2283 unwind label %2300
+  %2276 = load ptr, ptr %290, align 8
+  %2277 = getelementptr inbounds nuw i8, ptr %290, i64 8
+  %2278 = load i64, ptr %2277, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %287, ptr noundef nonnull align 8 dereferenceable(16) %288, ptr noundef nonnull align 8 dereferenceable(16) %289, ptr %2276, i64 %2278, i32 noundef 1)
+          to label %2279 unwind label %2296
 
-2283:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit711
+2279:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit711
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %289) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %288) #21
-  %2284 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %286, ptr noundef nonnull %83) #21
-  %2285 = xor i1 %2284, true
-  %2286 = zext i1 %2285 to i8
+  %2280 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %286, ptr noundef nonnull %83) #21
+  %2281 = xor i1 %2280, true
+  %2282 = zext i1 %2281 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #21
-  %2287 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i8 0, ptr %2287, align 8, !tbaa !24, !alias.scope !183
-  %2288 = getelementptr inbounds nuw i8, ptr %40, i64 9
-  store i8 %2286, ptr %2288, align 1, !tbaa !30, !alias.scope !183
+  %2283 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store i8 0, ptr %2283, align 8, !tbaa !24, !alias.scope !183
+  %2284 = getelementptr inbounds nuw i8, ptr %40, i64 9
+  store i8 %2282, ptr %2284, align 1, !tbaa !30, !alias.scope !183
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %40, align 8, !tbaa !4, !alias.scope !183
-  %2289 = getelementptr inbounds nuw i8, ptr %40, i64 10
-  store i8 %2286, ptr %2289, align 2, !tbaa !31, !alias.scope !183
+  %2285 = getelementptr inbounds nuw i8, ptr %40, i64 10
+  store i8 %2282, ptr %2285, align 2, !tbaa !31, !alias.scope !183
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %287, ptr noundef nonnull align 8 dereferenceable(10) %40)
-          to label %2293 unwind label %.body712
+          to label %2289 unwind label %.body712
 
-.body712:                                         ; preds = %2283
-  %2290 = landingpad { ptr, i32 }
+.body712:                                         ; preds = %2279
+  %2286 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %40) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #21
-  %2291 = extractvalue { ptr, i32 } %2290, 0
-  %2292 = call ptr @__cxa_begin_catch(ptr %2291) #21
+  %2287 = extractvalue { ptr, i32 } %2286, 0
+  %2288 = call ptr @__cxa_begin_catch(ptr %2287) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %287)
-          to label %2302 unwind label %2332
+          to label %2298 unwind label %2328
 
-2293:                                             ; preds = %2283
+2289:                                             ; preds = %2279
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %40) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #21
-  br label %2303
-
-2294:                                             ; preds = %.body708
-  %2295 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2298 unwind label %4191
-
-2296:                                             ; preds = %2255, %2254
-  %2297 = landingpad { ptr, i32 }
-          cleanup
-  br label %2298
-
-2298:                                             ; preds = %2294, %2296
-  %.pn395 = phi { ptr, i32 } [ %2297, %2296 ], [ %2295, %2294 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %282) #21
   br label %2299
 
-2299:                                             ; preds = %2298, %2252
-  %.pn395.pn = phi { ptr, i32 } [ %.pn395, %2298 ], [ %2253, %2252 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %282) #21
-  br label %4117
+2290:                                             ; preds = %.body708
+  %2291 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2294 unwind label %4187
 
-2300:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit711
-  %2301 = landingpad { ptr, i32 }
+2292:                                             ; preds = %2251, %2250
+  %2293 = landingpad { ptr, i32 }
+          cleanup
+  br label %2294
+
+2294:                                             ; preds = %2290, %2292
+  %.pn395 = phi { ptr, i32 } [ %2293, %2292 ], [ %2291, %2290 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %282) #21
+  br label %2295
+
+2295:                                             ; preds = %2294, %2248
+  %.pn395.pn = phi { ptr, i32 } [ %.pn395, %2294 ], [ %2249, %2248 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %282) #21
+  br label %4113
+
+2296:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit711
+  %2297 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %289) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %288) #21
-  br label %2337
+  br label %2333
 
-2302:                                             ; preds = %.body712
+2298:                                             ; preds = %.body712
   invoke void @__cxa_end_catch()
-          to label %2303 unwind label %2334
+          to label %2299 unwind label %2330
 
-2303:                                             ; preds = %2302, %2293
+2299:                                             ; preds = %2298, %2289
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %287)
-          to label %2304 unwind label %2334
+          to label %2300 unwind label %2330
 
-2304:                                             ; preds = %2303
-  %2305 = getelementptr inbounds nuw i8, ptr %287, i64 58
-  %2306 = load i8, ptr %2305, align 2, !tbaa !33, !range !40, !noundef !41
-  %2307 = trunc nuw i8 %2306 to i1
-  br i1 %2307, label %_ZN5Catch16AssertionHandlerD2Ev.exit715, label %2308
+2300:                                             ; preds = %2299
+  %2301 = getelementptr inbounds nuw i8, ptr %287, i64 58
+  %2302 = load i8, ptr %2301, align 2, !tbaa !33, !range !40, !noundef !41
+  %2303 = trunc nuw i8 %2302 to i1
+  br i1 %2303, label %_ZN5Catch16AssertionHandlerD2Ev.exit715, label %2304
 
-2308:                                             ; preds = %2304
-  %2309 = getelementptr inbounds nuw i8, ptr %287, i64 64
-  %2310 = load ptr, ptr %2309, align 8, !tbaa !42
-  %2311 = load ptr, ptr %2310, align 8, !tbaa !4
-  %2312 = getelementptr inbounds nuw i8, ptr %2311, i64 112
-  %2313 = load ptr, ptr %2312, align 8
-  invoke void %2313(ptr noundef nonnull align 8 dereferenceable(8) %2310, ptr noundef nonnull align 8 dereferenceable(72) %287)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit715 unwind label %2314
+2304:                                             ; preds = %2300
+  %2305 = getelementptr inbounds nuw i8, ptr %287, i64 64
+  %2306 = load ptr, ptr %2305, align 8, !tbaa !42
+  %2307 = load ptr, ptr %2306, align 8, !tbaa !4
+  %2308 = getelementptr inbounds nuw i8, ptr %2307, i64 112
+  %2309 = load ptr, ptr %2308, align 8
+  invoke void %2309(ptr noundef nonnull align 8 dereferenceable(8) %2306, ptr noundef nonnull align 8 dereferenceable(72) %287)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit715 unwind label %2310
 
-2314:                                             ; preds = %2308
-  %2315 = landingpad { ptr, i32 }
+2310:                                             ; preds = %2304
+  %2311 = landingpad { ptr, i32 }
           catch ptr null
-  %2316 = extractvalue { ptr, i32 } %2315, 0
-  call void @__clang_call_terminate(ptr %2316) #22
+  %2312 = extractvalue { ptr, i32 } %2311, 0
+  call void @__clang_call_terminate(ptr %2312) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit715:          ; preds = %2304, %2308
+_ZN5Catch16AssertionHandlerD2Ev.exit715:          ; preds = %2300, %2304
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %287) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %291) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %292) #21
   store ptr @.str.24, ptr %292, align 8
-  %2317 = getelementptr inbounds nuw i8, ptr %292, i64 8
-  store i64 7, ptr %2317, align 8
+  %2313 = getelementptr inbounds nuw i8, ptr %292, i64 8
+  store i64 7, ptr %2313, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %293) #21
   store ptr @.str, ptr %293, align 8, !tbaa !19
-  %2318 = getelementptr inbounds nuw i8, ptr %293, i64 8
-  store i64 115, ptr %2318, align 8, !tbaa !23
+  %2314 = getelementptr inbounds nuw i8, ptr %293, i64 8
+  store i64 115, ptr %2314, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %294, ptr noundef nonnull @.str.68) #21
-  %2319 = load ptr, ptr %294, align 8
-  %2320 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  %2321 = load i64, ptr %2320, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %291, ptr noundef nonnull align 8 dereferenceable(16) %292, ptr noundef nonnull align 8 dereferenceable(16) %293, ptr %2319, i64 %2321, i32 noundef 1)
-          to label %2322 unwind label %2338
+  %2315 = load ptr, ptr %294, align 8
+  %2316 = getelementptr inbounds nuw i8, ptr %294, i64 8
+  %2317 = load i64, ptr %2316, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %291, ptr noundef nonnull align 8 dereferenceable(16) %292, ptr noundef nonnull align 8 dereferenceable(16) %293, ptr %2315, i64 %2317, i32 noundef 1)
+          to label %2318 unwind label %2334
 
-2322:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit715
+2318:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit715
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %293) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %292) #21
-  %2323 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %286, ptr noundef nonnull %83) #21
-  %2324 = zext i1 %2323 to i8
+  %2319 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %286, ptr noundef nonnull %83) #21
+  %2320 = zext i1 %2319 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #21
-  %2325 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i8 0, ptr %2325, align 8, !tbaa !24, !alias.scope !186
-  %2326 = getelementptr inbounds nuw i8, ptr %39, i64 9
-  store i8 %2324, ptr %2326, align 1, !tbaa !30, !alias.scope !186
+  %2321 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i8 0, ptr %2321, align 8, !tbaa !24, !alias.scope !186
+  %2322 = getelementptr inbounds nuw i8, ptr %39, i64 9
+  store i8 %2320, ptr %2322, align 1, !tbaa !30, !alias.scope !186
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %39, align 8, !tbaa !4, !alias.scope !186
-  %2327 = getelementptr inbounds nuw i8, ptr %39, i64 10
-  store i8 %2324, ptr %2327, align 2, !tbaa !31, !alias.scope !186
+  %2323 = getelementptr inbounds nuw i8, ptr %39, i64 10
+  store i8 %2320, ptr %2323, align 2, !tbaa !31, !alias.scope !186
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %291, ptr noundef nonnull align 8 dereferenceable(10) %39)
-          to label %2331 unwind label %.body716
+          to label %2327 unwind label %.body716
 
-.body716:                                         ; preds = %2322
-  %2328 = landingpad { ptr, i32 }
+.body716:                                         ; preds = %2318
+  %2324 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %39) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #21
-  %2329 = extractvalue { ptr, i32 } %2328, 0
-  %2330 = call ptr @__cxa_begin_catch(ptr %2329) #21
+  %2325 = extractvalue { ptr, i32 } %2324, 0
+  %2326 = call ptr @__cxa_begin_catch(ptr %2325) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %291)
-          to label %2340 unwind label %2371
+          to label %2336 unwind label %2367
 
-2331:                                             ; preds = %2322
+2327:                                             ; preds = %2318
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %39) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #21
-  br label %2341
-
-2332:                                             ; preds = %.body712
-  %2333 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2336 unwind label %4191
-
-2334:                                             ; preds = %2303, %2302
-  %2335 = landingpad { ptr, i32 }
-          cleanup
-  br label %2336
-
-2336:                                             ; preds = %2332, %2334
-  %.pn398 = phi { ptr, i32 } [ %2335, %2334 ], [ %2333, %2332 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %287) #21
   br label %2337
 
-2337:                                             ; preds = %2336, %2300
-  %.pn398.pn = phi { ptr, i32 } [ %.pn398, %2336 ], [ %2301, %2300 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %287) #21
-  br label %4110
+2328:                                             ; preds = %.body712
+  %2329 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2332 unwind label %4187
 
-2338:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit715
-  %2339 = landingpad { ptr, i32 }
+2330:                                             ; preds = %2299, %2298
+  %2331 = landingpad { ptr, i32 }
+          cleanup
+  br label %2332
+
+2332:                                             ; preds = %2328, %2330
+  %.pn398 = phi { ptr, i32 } [ %2331, %2330 ], [ %2329, %2328 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %287) #21
+  br label %2333
+
+2333:                                             ; preds = %2332, %2296
+  %.pn398.pn = phi { ptr, i32 } [ %.pn398, %2332 ], [ %2297, %2296 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %287) #21
+  br label %4106
+
+2334:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit715
+  %2335 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %293) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %292) #21
-  br label %2376
+  br label %2372
 
-2340:                                             ; preds = %.body716
+2336:                                             ; preds = %.body716
   invoke void @__cxa_end_catch()
-          to label %2341 unwind label %2373
+          to label %2337 unwind label %2369
 
-2341:                                             ; preds = %2340, %2331
+2337:                                             ; preds = %2336, %2327
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %291)
-          to label %2342 unwind label %2373
+          to label %2338 unwind label %2369
 
-2342:                                             ; preds = %2341
-  %2343 = getelementptr inbounds nuw i8, ptr %291, i64 58
-  %2344 = load i8, ptr %2343, align 2, !tbaa !33, !range !40, !noundef !41
-  %2345 = trunc nuw i8 %2344 to i1
-  br i1 %2345, label %_ZN5Catch16AssertionHandlerD2Ev.exit719, label %2346
+2338:                                             ; preds = %2337
+  %2339 = getelementptr inbounds nuw i8, ptr %291, i64 58
+  %2340 = load i8, ptr %2339, align 2, !tbaa !33, !range !40, !noundef !41
+  %2341 = trunc nuw i8 %2340 to i1
+  br i1 %2341, label %_ZN5Catch16AssertionHandlerD2Ev.exit719, label %2342
 
-2346:                                             ; preds = %2342
-  %2347 = getelementptr inbounds nuw i8, ptr %291, i64 64
-  %2348 = load ptr, ptr %2347, align 8, !tbaa !42
-  %2349 = load ptr, ptr %2348, align 8, !tbaa !4
-  %2350 = getelementptr inbounds nuw i8, ptr %2349, i64 112
-  %2351 = load ptr, ptr %2350, align 8
-  invoke void %2351(ptr noundef nonnull align 8 dereferenceable(8) %2348, ptr noundef nonnull align 8 dereferenceable(72) %291)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit719 unwind label %2352
+2342:                                             ; preds = %2338
+  %2343 = getelementptr inbounds nuw i8, ptr %291, i64 64
+  %2344 = load ptr, ptr %2343, align 8, !tbaa !42
+  %2345 = load ptr, ptr %2344, align 8, !tbaa !4
+  %2346 = getelementptr inbounds nuw i8, ptr %2345, i64 112
+  %2347 = load ptr, ptr %2346, align 8
+  invoke void %2347(ptr noundef nonnull align 8 dereferenceable(8) %2344, ptr noundef nonnull align 8 dereferenceable(72) %291)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit719 unwind label %2348
 
-2352:                                             ; preds = %2346
-  %2353 = landingpad { ptr, i32 }
+2348:                                             ; preds = %2342
+  %2349 = landingpad { ptr, i32 }
           catch ptr null
-  %2354 = extractvalue { ptr, i32 } %2353, 0
-  call void @__clang_call_terminate(ptr %2354) #22
+  %2350 = extractvalue { ptr, i32 } %2349, 0
+  call void @__clang_call_terminate(ptr %2350) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit719:          ; preds = %2342, %2346
+_ZN5Catch16AssertionHandlerD2Ev.exit719:          ; preds = %2338, %2342
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %291) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %295) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %296) #21
   store ptr @.str.24, ptr %296, align 8
-  %2355 = getelementptr inbounds nuw i8, ptr %296, i64 8
-  store i64 7, ptr %2355, align 8
+  %2351 = getelementptr inbounds nuw i8, ptr %296, i64 8
+  store i64 7, ptr %2351, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %297) #21
   store ptr @.str, ptr %297, align 8, !tbaa !19
-  %2356 = getelementptr inbounds nuw i8, ptr %297, i64 8
-  store i64 116, ptr %2356, align 8, !tbaa !23
+  %2352 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  store i64 116, ptr %2352, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %298, ptr noundef nonnull @.str.69) #21
-  %2357 = load ptr, ptr %298, align 8
-  %2358 = getelementptr inbounds nuw i8, ptr %298, i64 8
-  %2359 = load i64, ptr %2358, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %295, ptr noundef nonnull align 8 dereferenceable(16) %296, ptr noundef nonnull align 8 dereferenceable(16) %297, ptr %2357, i64 %2359, i32 noundef 1)
-          to label %2360 unwind label %2377
+  %2353 = load ptr, ptr %298, align 8
+  %2354 = getelementptr inbounds nuw i8, ptr %298, i64 8
+  %2355 = load i64, ptr %2354, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %295, ptr noundef nonnull align 8 dereferenceable(16) %296, ptr noundef nonnull align 8 dereferenceable(16) %297, ptr %2353, i64 %2355, i32 noundef 1)
+          to label %2356 unwind label %2373
 
-2360:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit719
+2356:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit719
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %297) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %296) #21
-  %2361 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %286, ptr noundef nonnull %83) #21
-  %2362 = xor i1 %2361, true
-  %2363 = zext i1 %2362 to i8
+  %2357 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %286, ptr noundef nonnull %83) #21
+  %2358 = xor i1 %2357, true
+  %2359 = zext i1 %2358 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38) #21
-  %2364 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i8 0, ptr %2364, align 8, !tbaa !24, !alias.scope !189
-  %2365 = getelementptr inbounds nuw i8, ptr %38, i64 9
-  store i8 %2363, ptr %2365, align 1, !tbaa !30, !alias.scope !189
+  %2360 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i8 0, ptr %2360, align 8, !tbaa !24, !alias.scope !189
+  %2361 = getelementptr inbounds nuw i8, ptr %38, i64 9
+  store i8 %2359, ptr %2361, align 1, !tbaa !30, !alias.scope !189
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %38, align 8, !tbaa !4, !alias.scope !189
-  %2366 = getelementptr inbounds nuw i8, ptr %38, i64 10
-  store i8 %2363, ptr %2366, align 2, !tbaa !31, !alias.scope !189
+  %2362 = getelementptr inbounds nuw i8, ptr %38, i64 10
+  store i8 %2359, ptr %2362, align 2, !tbaa !31, !alias.scope !189
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %295, ptr noundef nonnull align 8 dereferenceable(10) %38)
-          to label %2370 unwind label %.body720
+          to label %2366 unwind label %.body720
 
-.body720:                                         ; preds = %2360
-  %2367 = landingpad { ptr, i32 }
+.body720:                                         ; preds = %2356
+  %2363 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %38) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #21
-  %2368 = extractvalue { ptr, i32 } %2367, 0
-  %2369 = call ptr @__cxa_begin_catch(ptr %2368) #21
+  %2364 = extractvalue { ptr, i32 } %2363, 0
+  %2365 = call ptr @__cxa_begin_catch(ptr %2364) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %295)
-          to label %2379 unwind label %2412
+          to label %2375 unwind label %2408
 
-2370:                                             ; preds = %2360
+2366:                                             ; preds = %2356
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %38) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #21
-  br label %2380
-
-2371:                                             ; preds = %.body716
-  %2372 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2375 unwind label %4191
-
-2373:                                             ; preds = %2341, %2340
-  %2374 = landingpad { ptr, i32 }
-          cleanup
-  br label %2375
-
-2375:                                             ; preds = %2371, %2373
-  %.pn401 = phi { ptr, i32 } [ %2374, %2373 ], [ %2372, %2371 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %291) #21
   br label %2376
 
-2376:                                             ; preds = %2375, %2338
-  %.pn401.pn = phi { ptr, i32 } [ %.pn401, %2375 ], [ %2339, %2338 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %291) #21
-  br label %4110
+2367:                                             ; preds = %.body716
+  %2368 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2371 unwind label %4187
 
-2377:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit719
-  %2378 = landingpad { ptr, i32 }
+2369:                                             ; preds = %2337, %2336
+  %2370 = landingpad { ptr, i32 }
+          cleanup
+  br label %2371
+
+2371:                                             ; preds = %2367, %2369
+  %.pn401 = phi { ptr, i32 } [ %2370, %2369 ], [ %2368, %2367 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %291) #21
+  br label %2372
+
+2372:                                             ; preds = %2371, %2334
+  %.pn401.pn = phi { ptr, i32 } [ %.pn401, %2371 ], [ %2335, %2334 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %291) #21
+  br label %4106
+
+2373:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit719
+  %2374 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %297) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %296) #21
-  br label %2417
+  br label %2413
 
-2379:                                             ; preds = %.body720
+2375:                                             ; preds = %.body720
   invoke void @__cxa_end_catch()
-          to label %2380 unwind label %2414
+          to label %2376 unwind label %2410
 
-2380:                                             ; preds = %2379, %2370
+2376:                                             ; preds = %2375, %2366
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %295)
-          to label %2381 unwind label %2414
+          to label %2377 unwind label %2410
 
-2381:                                             ; preds = %2380
-  %2382 = getelementptr inbounds nuw i8, ptr %295, i64 58
-  %2383 = load i8, ptr %2382, align 2, !tbaa !33, !range !40, !noundef !41
-  %2384 = trunc nuw i8 %2383 to i1
-  br i1 %2384, label %_ZN5Catch16AssertionHandlerD2Ev.exit723, label %2385
+2377:                                             ; preds = %2376
+  %2378 = getelementptr inbounds nuw i8, ptr %295, i64 58
+  %2379 = load i8, ptr %2378, align 2, !tbaa !33, !range !40, !noundef !41
+  %2380 = trunc nuw i8 %2379 to i1
+  br i1 %2380, label %_ZN5Catch16AssertionHandlerD2Ev.exit723, label %2381
 
-2385:                                             ; preds = %2381
-  %2386 = getelementptr inbounds nuw i8, ptr %295, i64 64
-  %2387 = load ptr, ptr %2386, align 8, !tbaa !42
-  %2388 = load ptr, ptr %2387, align 8, !tbaa !4
-  %2389 = getelementptr inbounds nuw i8, ptr %2388, i64 112
-  %2390 = load ptr, ptr %2389, align 8
-  invoke void %2390(ptr noundef nonnull align 8 dereferenceable(8) %2387, ptr noundef nonnull align 8 dereferenceable(72) %295)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit723 unwind label %2391
+2381:                                             ; preds = %2377
+  %2382 = getelementptr inbounds nuw i8, ptr %295, i64 64
+  %2383 = load ptr, ptr %2382, align 8, !tbaa !42
+  %2384 = load ptr, ptr %2383, align 8, !tbaa !4
+  %2385 = getelementptr inbounds nuw i8, ptr %2384, i64 112
+  %2386 = load ptr, ptr %2385, align 8
+  invoke void %2386(ptr noundef nonnull align 8 dereferenceable(8) %2383, ptr noundef nonnull align 8 dereferenceable(72) %295)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit723 unwind label %2387
 
-2391:                                             ; preds = %2385
-  %2392 = landingpad { ptr, i32 }
+2387:                                             ; preds = %2381
+  %2388 = landingpad { ptr, i32 }
           catch ptr null
-  %2393 = extractvalue { ptr, i32 } %2392, 0
-  call void @__clang_call_terminate(ptr %2393) #22
+  %2389 = extractvalue { ptr, i32 } %2388, 0
+  call void @__clang_call_terminate(ptr %2389) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit723:          ; preds = %2381, %2385
+_ZN5Catch16AssertionHandlerD2Ev.exit723:          ; preds = %2377, %2381
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %295) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %299) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %300) #21
   store ptr @.str.24, ptr %300, align 8
-  %2394 = getelementptr inbounds nuw i8, ptr %300, i64 8
-  store i64 7, ptr %2394, align 8
+  %2390 = getelementptr inbounds nuw i8, ptr %300, i64 8
+  store i64 7, ptr %2390, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %301) #21
   store ptr @.str, ptr %301, align 8, !tbaa !19
-  %2395 = getelementptr inbounds nuw i8, ptr %301, i64 8
-  store i64 117, ptr %2395, align 8, !tbaa !23
+  %2391 = getelementptr inbounds nuw i8, ptr %301, i64 8
+  store i64 117, ptr %2391, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %302, ptr noundef nonnull @.str.70) #21
-  %2396 = load ptr, ptr %302, align 8
-  %2397 = getelementptr inbounds nuw i8, ptr %302, i64 8
-  %2398 = load i64, ptr %2397, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %299, ptr noundef nonnull align 8 dereferenceable(16) %300, ptr noundef nonnull align 8 dereferenceable(16) %301, ptr %2396, i64 %2398, i32 noundef 1)
-          to label %2399 unwind label %2418
+  %2392 = load ptr, ptr %302, align 8
+  %2393 = getelementptr inbounds nuw i8, ptr %302, i64 8
+  %2394 = load i64, ptr %2393, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %299, ptr noundef nonnull align 8 dereferenceable(16) %300, ptr noundef nonnull align 8 dereferenceable(16) %301, ptr %2392, i64 %2394, i32 noundef 1)
+          to label %2395 unwind label %2414
 
-2399:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit723
+2395:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit723
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %301) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %300) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %303) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %304) #21
-  %2400 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %286) #21
-  store ptr %2400, ptr %304, align 8, !tbaa !49
+  %2396 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %286) #21
+  store ptr %2396, ptr %304, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %305) #21
   store ptr %83, ptr %305, align 8, !tbaa !87
   call void @llvm.experimental.noalias.scope.decl(metadata !192)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
-  %2401 = icmp eq ptr %2400, %83
+  %2397 = icmp eq ptr %2396, %83
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull @.str.90) #21, !noalias !192
-  %2402 = load ptr, ptr %37, align 8, !noalias !192
-  %2403 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %2404 = load i64, ptr %2403, align 8, !noalias !192
-  %2405 = zext i1 %2401 to i8
-  %2406 = getelementptr inbounds nuw i8, ptr %303, i64 8
-  store i8 1, ptr %2406, align 8, !tbaa !24, !alias.scope !192
-  %2407 = getelementptr inbounds nuw i8, ptr %303, i64 9
-  store i8 %2405, ptr %2407, align 1, !tbaa !30, !alias.scope !192
+  %2398 = load ptr, ptr %37, align 8, !noalias !192
+  %2399 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %2400 = load i64, ptr %2399, align 8, !noalias !192
+  %2401 = zext i1 %2397 to i8
+  %2402 = getelementptr inbounds nuw i8, ptr %303, i64 8
+  store i8 1, ptr %2402, align 8, !tbaa !24, !alias.scope !192
+  %2403 = getelementptr inbounds nuw i8, ptr %303, i64 9
+  store i8 %2401, ptr %2403, align 1, !tbaa !30, !alias.scope !192
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKPKN5vcpkg19IReadBinaryProviderERKP25KnowNothingBinaryProviderEE, i64 16), ptr %303, align 8, !tbaa !4, !alias.scope !192
-  %2408 = getelementptr inbounds nuw i8, ptr %303, i64 16
-  store ptr %304, ptr %2408, align 8, !tbaa !55, !alias.scope !192
-  %2409 = getelementptr inbounds nuw i8, ptr %303, i64 24
-  store ptr %2402, ptr %2409, align 8, !tbaa !56, !alias.scope !192
+  %2404 = getelementptr inbounds nuw i8, ptr %303, i64 16
+  store ptr %304, ptr %2404, align 8, !tbaa !55, !alias.scope !192
+  %2405 = getelementptr inbounds nuw i8, ptr %303, i64 24
+  store ptr %2398, ptr %2405, align 8, !tbaa !56, !alias.scope !192
   %.sroa.2.0..sroa_idx.i.i724 = getelementptr inbounds nuw i8, ptr %303, i64 32
-  store i64 %2404, ptr %.sroa.2.0..sroa_idx.i.i724, align 8, !tbaa !57, !alias.scope !192
-  %2410 = getelementptr inbounds nuw i8, ptr %303, i64 40
-  store ptr %305, ptr %2410, align 8, !tbaa !92, !alias.scope !192
+  store i64 %2400, ptr %.sroa.2.0..sroa_idx.i.i724, align 8, !tbaa !57, !alias.scope !192
+  %2406 = getelementptr inbounds nuw i8, ptr %303, i64 40
+  store ptr %305, ptr %2406, align 8, !tbaa !92, !alias.scope !192
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %299, ptr noundef nonnull align 8 dereferenceable(10) %303)
-          to label %2411 unwind label %2420
+          to label %2407 unwind label %2416
 
-2411:                                             ; preds = %2399
+2407:                                             ; preds = %2395
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %303) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %305) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %304) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %303) #21
-  br label %2424
+  br label %2420
 
-2412:                                             ; preds = %.body720
-  %2413 = landingpad { ptr, i32 }
+2408:                                             ; preds = %.body720
+  %2409 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2416 unwind label %4191
+          to label %2412 unwind label %4187
 
-2414:                                             ; preds = %2380, %2379
-  %2415 = landingpad { ptr, i32 }
+2410:                                             ; preds = %2376, %2375
+  %2411 = landingpad { ptr, i32 }
           cleanup
-  br label %2416
+  br label %2412
 
-2416:                                             ; preds = %2412, %2414
-  %.pn404 = phi { ptr, i32 } [ %2415, %2414 ], [ %2413, %2412 ]
+2412:                                             ; preds = %2408, %2410
+  %.pn404 = phi { ptr, i32 } [ %2411, %2410 ], [ %2409, %2408 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %295) #21
-  br label %2417
+  br label %2413
 
-2417:                                             ; preds = %2416, %2377
-  %.pn404.pn = phi { ptr, i32 } [ %.pn404, %2416 ], [ %2378, %2377 ]
+2413:                                             ; preds = %2412, %2373
+  %.pn404.pn = phi { ptr, i32 } [ %.pn404, %2412 ], [ %2374, %2373 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %295) #21
-  br label %4110
+  br label %4106
 
-2418:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit723
-  %2419 = landingpad { ptr, i32 }
+2414:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit723
+  %2415 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %301) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %300) #21
-  br label %2459
+  br label %2455
 
-2420:                                             ; preds = %2399
-  %2421 = landingpad { ptr, i32 }
+2416:                                             ; preds = %2395
+  %2417 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %303) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %305) #21
-  %.122205 = extractvalue { ptr, i32 } %2421, 0
+  %.122205 = extractvalue { ptr, i32 } %2417, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %304) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %303) #21
-  %2422 = call ptr @__cxa_begin_catch(ptr %.122205) #21
+  %2418 = call ptr @__cxa_begin_catch(ptr %.122205) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %299)
-          to label %2423 unwind label %2454
+          to label %2419 unwind label %2450
 
-2423:                                             ; preds = %2420
+2419:                                             ; preds = %2416
   invoke void @__cxa_end_catch()
-          to label %2424 unwind label %2456
+          to label %2420 unwind label %2452
 
-2424:                                             ; preds = %2423, %2411
+2420:                                             ; preds = %2419, %2407
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %299)
-          to label %2425 unwind label %2456
+          to label %2421 unwind label %2452
 
-2425:                                             ; preds = %2424
-  %2426 = getelementptr inbounds nuw i8, ptr %299, i64 58
-  %2427 = load i8, ptr %2426, align 2, !tbaa !33, !range !40, !noundef !41
-  %2428 = trunc nuw i8 %2427 to i1
-  br i1 %2428, label %_ZN5Catch16AssertionHandlerD2Ev.exit725, label %2429
+2421:                                             ; preds = %2420
+  %2422 = getelementptr inbounds nuw i8, ptr %299, i64 58
+  %2423 = load i8, ptr %2422, align 2, !tbaa !33, !range !40, !noundef !41
+  %2424 = trunc nuw i8 %2423 to i1
+  br i1 %2424, label %_ZN5Catch16AssertionHandlerD2Ev.exit725, label %2425
 
-2429:                                             ; preds = %2425
-  %2430 = getelementptr inbounds nuw i8, ptr %299, i64 64
-  %2431 = load ptr, ptr %2430, align 8, !tbaa !42
-  %2432 = load ptr, ptr %2431, align 8, !tbaa !4
-  %2433 = getelementptr inbounds nuw i8, ptr %2432, i64 112
-  %2434 = load ptr, ptr %2433, align 8
-  invoke void %2434(ptr noundef nonnull align 8 dereferenceable(8) %2431, ptr noundef nonnull align 8 dereferenceable(72) %299)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit725 unwind label %2435
+2425:                                             ; preds = %2421
+  %2426 = getelementptr inbounds nuw i8, ptr %299, i64 64
+  %2427 = load ptr, ptr %2426, align 8, !tbaa !42
+  %2428 = load ptr, ptr %2427, align 8, !tbaa !4
+  %2429 = getelementptr inbounds nuw i8, ptr %2428, i64 112
+  %2430 = load ptr, ptr %2429, align 8
+  invoke void %2430(ptr noundef nonnull align 8 dereferenceable(8) %2427, ptr noundef nonnull align 8 dereferenceable(72) %299)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit725 unwind label %2431
 
-2435:                                             ; preds = %2429
-  %2436 = landingpad { ptr, i32 }
+2431:                                             ; preds = %2425
+  %2432 = landingpad { ptr, i32 }
           catch ptr null
-  %2437 = extractvalue { ptr, i32 } %2436, 0
-  call void @__clang_call_terminate(ptr %2437) #22
+  %2433 = extractvalue { ptr, i32 } %2432, 0
+  call void @__clang_call_terminate(ptr %2433) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit725:          ; preds = %2425, %2429
+_ZN5Catch16AssertionHandlerD2Ev.exit725:          ; preds = %2421, %2425
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %299) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %306) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %307) #21
   store ptr @.str.24, ptr %307, align 8
-  %2438 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  store i64 7, ptr %2438, align 8
+  %2434 = getelementptr inbounds nuw i8, ptr %307, i64 8
+  store i64 7, ptr %2434, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %308) #21
   store ptr @.str, ptr %308, align 8, !tbaa !19
-  %2439 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  store i64 118, ptr %2439, align 8, !tbaa !23
+  %2435 = getelementptr inbounds nuw i8, ptr %308, i64 8
+  store i64 118, ptr %2435, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %309, ptr noundef nonnull @.str.71) #21
-  %2440 = load ptr, ptr %309, align 8
-  %2441 = getelementptr inbounds nuw i8, ptr %309, i64 8
-  %2442 = load i64, ptr %2441, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %306, ptr noundef nonnull align 8 dereferenceable(16) %307, ptr noundef nonnull align 8 dereferenceable(16) %308, ptr %2440, i64 %2442, i32 noundef 1)
-          to label %2443 unwind label %2460
+  %2436 = load ptr, ptr %309, align 8
+  %2437 = getelementptr inbounds nuw i8, ptr %309, i64 8
+  %2438 = load i64, ptr %2437, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %306, ptr noundef nonnull align 8 dereferenceable(16) %307, ptr noundef nonnull align 8 dereferenceable(16) %308, ptr %2436, i64 %2438, i32 noundef 1)
+          to label %2439 unwind label %2456
 
-2443:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit725
+2439:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit725
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %308) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %307) #21
-  %2444 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %286) #21
-  %2445 = xor i1 %2444, true
-  %2446 = zext i1 %2445 to i8
+  %2440 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %286) #21
+  %2441 = xor i1 %2440, true
+  %2442 = zext i1 %2441 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #21
-  %2447 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i8 0, ptr %2447, align 8, !tbaa !24, !alias.scope !195
-  %2448 = getelementptr inbounds nuw i8, ptr %36, i64 9
-  store i8 %2446, ptr %2448, align 1, !tbaa !30, !alias.scope !195
+  %2443 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store i8 0, ptr %2443, align 8, !tbaa !24, !alias.scope !195
+  %2444 = getelementptr inbounds nuw i8, ptr %36, i64 9
+  store i8 %2442, ptr %2444, align 1, !tbaa !30, !alias.scope !195
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %36, align 8, !tbaa !4, !alias.scope !195
-  %2449 = getelementptr inbounds nuw i8, ptr %36, i64 10
-  store i8 %2446, ptr %2449, align 2, !tbaa !31, !alias.scope !195
+  %2445 = getelementptr inbounds nuw i8, ptr %36, i64 10
+  store i8 %2442, ptr %2445, align 2, !tbaa !31, !alias.scope !195
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %306, ptr noundef nonnull align 8 dereferenceable(10) %36)
-          to label %2453 unwind label %.body726
+          to label %2449 unwind label %.body726
 
-.body726:                                         ; preds = %2443
-  %2450 = landingpad { ptr, i32 }
+.body726:                                         ; preds = %2439
+  %2446 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %36) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #21
-  %2451 = extractvalue { ptr, i32 } %2450, 0
-  %2452 = call ptr @__cxa_begin_catch(ptr %2451) #21
+  %2447 = extractvalue { ptr, i32 } %2446, 0
+  %2448 = call ptr @__cxa_begin_catch(ptr %2447) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %306)
-          to label %2462 unwind label %2502
+          to label %2458 unwind label %2498
 
-2453:                                             ; preds = %2443
+2449:                                             ; preds = %2439
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %36) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #21
-  br label %2463
-
-2454:                                             ; preds = %2420
-  %2455 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2458 unwind label %4191
-
-2456:                                             ; preds = %2424, %2423
-  %2457 = landingpad { ptr, i32 }
-          cleanup
-  br label %2458
-
-2458:                                             ; preds = %2454, %2456
-  %.pn408 = phi { ptr, i32 } [ %2457, %2456 ], [ %2455, %2454 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %299) #21
   br label %2459
 
-2459:                                             ; preds = %2458, %2418
-  %.pn408.pn = phi { ptr, i32 } [ %.pn408, %2458 ], [ %2419, %2418 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %299) #21
-  br label %4110
+2450:                                             ; preds = %2416
+  %2451 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2454 unwind label %4187
 
-2460:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit725
-  %2461 = landingpad { ptr, i32 }
+2452:                                             ; preds = %2420, %2419
+  %2453 = landingpad { ptr, i32 }
+          cleanup
+  br label %2454
+
+2454:                                             ; preds = %2450, %2452
+  %.pn408 = phi { ptr, i32 } [ %2453, %2452 ], [ %2451, %2450 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %299) #21
+  br label %2455
+
+2455:                                             ; preds = %2454, %2414
+  %.pn408.pn = phi { ptr, i32 } [ %.pn408, %2454 ], [ %2415, %2414 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %299) #21
+  br label %4106
+
+2456:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit725
+  %2457 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %308) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %307) #21
-  br label %2507
+  br label %2503
 
-2462:                                             ; preds = %.body726
+2458:                                             ; preds = %.body726
   invoke void @__cxa_end_catch()
-          to label %2463 unwind label %2504
+          to label %2459 unwind label %2500
 
-2463:                                             ; preds = %2462, %2453
+2459:                                             ; preds = %2458, %2449
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %306)
-          to label %2464 unwind label %2504
+          to label %2460 unwind label %2500
 
-2464:                                             ; preds = %2463
-  %2465 = getelementptr inbounds nuw i8, ptr %306, i64 58
-  %2466 = load i8, ptr %2465, align 2, !tbaa !33, !range !40, !noundef !41
-  %2467 = trunc nuw i8 %2466 to i1
-  br i1 %2467, label %_ZN5Catch16AssertionHandlerD2Ev.exit729, label %2468
+2460:                                             ; preds = %2459
+  %2461 = getelementptr inbounds nuw i8, ptr %306, i64 58
+  %2462 = load i8, ptr %2461, align 2, !tbaa !33, !range !40, !noundef !41
+  %2463 = trunc nuw i8 %2462 to i1
+  br i1 %2463, label %_ZN5Catch16AssertionHandlerD2Ev.exit729, label %2464
 
-2468:                                             ; preds = %2464
-  %2469 = getelementptr inbounds nuw i8, ptr %306, i64 64
-  %2470 = load ptr, ptr %2469, align 8, !tbaa !42
-  %2471 = load ptr, ptr %2470, align 8, !tbaa !4
-  %2472 = getelementptr inbounds nuw i8, ptr %2471, i64 112
-  %2473 = load ptr, ptr %2472, align 8
-  invoke void %2473(ptr noundef nonnull align 8 dereferenceable(8) %2470, ptr noundef nonnull align 8 dereferenceable(72) %306)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit729 unwind label %2474
+2464:                                             ; preds = %2460
+  %2465 = getelementptr inbounds nuw i8, ptr %306, i64 64
+  %2466 = load ptr, ptr %2465, align 8, !tbaa !42
+  %2467 = load ptr, ptr %2466, align 8, !tbaa !4
+  %2468 = getelementptr inbounds nuw i8, ptr %2467, i64 112
+  %2469 = load ptr, ptr %2468, align 8
+  invoke void %2469(ptr noundef nonnull align 8 dereferenceable(8) %2466, ptr noundef nonnull align 8 dereferenceable(72) %306)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit729 unwind label %2470
 
-2474:                                             ; preds = %2468
-  %2475 = landingpad { ptr, i32 }
+2470:                                             ; preds = %2464
+  %2471 = landingpad { ptr, i32 }
           catch ptr null
-  %2476 = extractvalue { ptr, i32 } %2475, 0
-  call void @__clang_call_terminate(ptr %2476) #22
+  %2472 = extractvalue { ptr, i32 } %2471, 0
+  call void @__clang_call_terminate(ptr %2472) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit729:          ; preds = %2464, %2468
+_ZN5Catch16AssertionHandlerD2Ev.exit729:          ; preds = %2460, %2464
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %306) #21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %310) #21
-  %2477 = load i8, ptr %233, align 8, !tbaa !7
-  store i8 %2477, ptr %310, align 8, !tbaa !7
-  %2478 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  %2479 = load ptr, ptr %1788, align 8, !tbaa !113
-  store ptr %2479, ptr %2478, align 8, !tbaa !113
-  %2480 = getelementptr inbounds nuw i8, ptr %310, i64 16
-  %2481 = load ptr, ptr %1808, align 8, !tbaa !112
-  store ptr %2481, ptr %2480, align 8, !tbaa !112
-  %2482 = getelementptr inbounds nuw i8, ptr %310, i64 24
-  %2483 = load ptr, ptr %1806, align 8, !tbaa !114
-  store ptr %2483, ptr %2482, align 8, !tbaa !114
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1788, i8 0, i64 24, i1 false)
-  %2484 = getelementptr inbounds nuw i8, ptr %310, i64 32
-  %2485 = load ptr, ptr %1809, align 8, !tbaa !116
-  store ptr %2485, ptr %2484, align 8, !tbaa !116
+  %2473 = load i8, ptr %233, align 8, !tbaa !7
+  store i8 %2473, ptr %310, align 8, !tbaa !7
+  %2474 = getelementptr inbounds nuw i8, ptr %310, i64 8
+  %2475 = load ptr, ptr %1785, align 8, !tbaa !113
+  store ptr %2475, ptr %2474, align 8, !tbaa !113
+  %2476 = getelementptr inbounds nuw i8, ptr %310, i64 16
+  %2477 = load ptr, ptr %1804, align 8, !tbaa !112
+  store ptr %2477, ptr %2476, align 8, !tbaa !112
+  %2478 = getelementptr inbounds nuw i8, ptr %310, i64 24
+  %2479 = load ptr, ptr %1802, align 8, !tbaa !115
+  store ptr %2479, ptr %2478, align 8, !tbaa !115
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1785, i8 0, i64 24, i1 false)
+  %2480 = getelementptr inbounds nuw i8, ptr %310, i64 32
+  %2481 = load ptr, ptr %1805, align 8, !tbaa !116
+  store ptr %2481, ptr %2480, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %311) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %312) #21
   store ptr @.str.24, ptr %312, align 8
-  %2486 = getelementptr inbounds nuw i8, ptr %312, i64 8
-  store i64 7, ptr %2486, align 8
+  %2482 = getelementptr inbounds nuw i8, ptr %312, i64 8
+  store i64 7, ptr %2482, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %313) #21
   store ptr @.str, ptr %313, align 8, !tbaa !19
-  %2487 = getelementptr inbounds nuw i8, ptr %313, i64 8
-  store i64 121, ptr %2487, align 8, !tbaa !23
+  %2483 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  store i64 121, ptr %2483, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %314, ptr noundef nonnull @.str.72) #21
-  %2488 = load ptr, ptr %314, align 8
-  %2489 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  %2490 = load i64, ptr %2489, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %311, ptr noundef nonnull align 8 dereferenceable(16) %312, ptr noundef nonnull align 8 dereferenceable(16) %313, ptr %2488, i64 %2490, i32 noundef 1)
-          to label %2491 unwind label %2508
+  %2484 = load ptr, ptr %314, align 8
+  %2485 = getelementptr inbounds nuw i8, ptr %314, i64 8
+  %2486 = load i64, ptr %2485, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %311, ptr noundef nonnull align 8 dereferenceable(16) %312, ptr noundef nonnull align 8 dereferenceable(16) %313, ptr %2484, i64 %2486, i32 noundef 1)
+          to label %2487 unwind label %2504
 
-2491:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit729
+2487:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit729
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %313) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %312) #21
-  %2492 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %310, ptr noundef nonnull %83) #21
-  %2493 = xor i1 %2492, true
-  %2494 = zext i1 %2493 to i8
+  %2488 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %310, ptr noundef nonnull %83) #21
+  %2489 = xor i1 %2488, true
+  %2490 = zext i1 %2489 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #21
-  %2495 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i8 0, ptr %2495, align 8, !tbaa !24, !alias.scope !198
-  %2496 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  store i8 %2494, ptr %2496, align 1, !tbaa !30, !alias.scope !198
+  %2491 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i8 0, ptr %2491, align 8, !tbaa !24, !alias.scope !198
+  %2492 = getelementptr inbounds nuw i8, ptr %35, i64 9
+  store i8 %2490, ptr %2492, align 1, !tbaa !30, !alias.scope !198
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %35, align 8, !tbaa !4, !alias.scope !198
-  %2497 = getelementptr inbounds nuw i8, ptr %35, i64 10
-  store i8 %2494, ptr %2497, align 2, !tbaa !31, !alias.scope !198
+  %2493 = getelementptr inbounds nuw i8, ptr %35, i64 10
+  store i8 %2490, ptr %2493, align 2, !tbaa !31, !alias.scope !198
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %311, ptr noundef nonnull align 8 dereferenceable(10) %35)
-          to label %2501 unwind label %.body730
+          to label %2497 unwind label %.body730
 
-.body730:                                         ; preds = %2491
-  %2498 = landingpad { ptr, i32 }
+.body730:                                         ; preds = %2487
+  %2494 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %35) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #21
-  %2499 = extractvalue { ptr, i32 } %2498, 0
-  %2500 = call ptr @__cxa_begin_catch(ptr %2499) #21
+  %2495 = extractvalue { ptr, i32 } %2494, 0
+  %2496 = call ptr @__cxa_begin_catch(ptr %2495) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %311)
-          to label %2510 unwind label %2541
+          to label %2506 unwind label %2537
 
-2501:                                             ; preds = %2491
+2497:                                             ; preds = %2487
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %35) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #21
-  br label %2511
-
-2502:                                             ; preds = %.body726
-  %2503 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2506 unwind label %4191
-
-2504:                                             ; preds = %2463, %2462
-  %2505 = landingpad { ptr, i32 }
-          cleanup
-  br label %2506
-
-2506:                                             ; preds = %2502, %2504
-  %.pn411 = phi { ptr, i32 } [ %2505, %2504 ], [ %2503, %2502 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %306) #21
   br label %2507
 
-2507:                                             ; preds = %2506, %2460
-  %.pn411.pn = phi { ptr, i32 } [ %.pn411, %2506 ], [ %2461, %2460 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %306) #21
-  br label %4110
+2498:                                             ; preds = %.body726
+  %2499 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2502 unwind label %4187
 
-2508:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit729
-  %2509 = landingpad { ptr, i32 }
+2500:                                             ; preds = %2459, %2458
+  %2501 = landingpad { ptr, i32 }
+          cleanup
+  br label %2502
+
+2502:                                             ; preds = %2498, %2500
+  %.pn411 = phi { ptr, i32 } [ %2501, %2500 ], [ %2499, %2498 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %306) #21
+  br label %2503
+
+2503:                                             ; preds = %2502, %2456
+  %.pn411.pn = phi { ptr, i32 } [ %.pn411, %2502 ], [ %2457, %2456 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %306) #21
+  br label %4106
+
+2504:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit729
+  %2505 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %313) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %312) #21
-  br label %2546
+  br label %2542
 
-2510:                                             ; preds = %.body730
+2506:                                             ; preds = %.body730
   invoke void @__cxa_end_catch()
-          to label %2511 unwind label %2543
+          to label %2507 unwind label %2539
 
-2511:                                             ; preds = %2510, %2501
+2507:                                             ; preds = %2506, %2497
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %311)
-          to label %2512 unwind label %2543
+          to label %2508 unwind label %2539
 
-2512:                                             ; preds = %2511
-  %2513 = getelementptr inbounds nuw i8, ptr %311, i64 58
-  %2514 = load i8, ptr %2513, align 2, !tbaa !33, !range !40, !noundef !41
-  %2515 = trunc nuw i8 %2514 to i1
-  br i1 %2515, label %_ZN5Catch16AssertionHandlerD2Ev.exit733, label %2516
+2508:                                             ; preds = %2507
+  %2509 = getelementptr inbounds nuw i8, ptr %311, i64 58
+  %2510 = load i8, ptr %2509, align 2, !tbaa !33, !range !40, !noundef !41
+  %2511 = trunc nuw i8 %2510 to i1
+  br i1 %2511, label %_ZN5Catch16AssertionHandlerD2Ev.exit733, label %2512
 
-2516:                                             ; preds = %2512
-  %2517 = getelementptr inbounds nuw i8, ptr %311, i64 64
-  %2518 = load ptr, ptr %2517, align 8, !tbaa !42
-  %2519 = load ptr, ptr %2518, align 8, !tbaa !4
-  %2520 = getelementptr inbounds nuw i8, ptr %2519, i64 112
-  %2521 = load ptr, ptr %2520, align 8
-  invoke void %2521(ptr noundef nonnull align 8 dereferenceable(8) %2518, ptr noundef nonnull align 8 dereferenceable(72) %311)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit733 unwind label %2522
+2512:                                             ; preds = %2508
+  %2513 = getelementptr inbounds nuw i8, ptr %311, i64 64
+  %2514 = load ptr, ptr %2513, align 8, !tbaa !42
+  %2515 = load ptr, ptr %2514, align 8, !tbaa !4
+  %2516 = getelementptr inbounds nuw i8, ptr %2515, i64 112
+  %2517 = load ptr, ptr %2516, align 8
+  invoke void %2517(ptr noundef nonnull align 8 dereferenceable(8) %2514, ptr noundef nonnull align 8 dereferenceable(72) %311)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit733 unwind label %2518
 
-2522:                                             ; preds = %2516
-  %2523 = landingpad { ptr, i32 }
+2518:                                             ; preds = %2512
+  %2519 = landingpad { ptr, i32 }
           catch ptr null
-  %2524 = extractvalue { ptr, i32 } %2523, 0
-  call void @__clang_call_terminate(ptr %2524) #22
+  %2520 = extractvalue { ptr, i32 } %2519, 0
+  call void @__clang_call_terminate(ptr %2520) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit733:          ; preds = %2512, %2516
+_ZN5Catch16AssertionHandlerD2Ev.exit733:          ; preds = %2508, %2512
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %311) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %315) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %316) #21
   store ptr @.str.24, ptr %316, align 8
-  %2525 = getelementptr inbounds nuw i8, ptr %316, i64 8
-  store i64 7, ptr %2525, align 8
+  %2521 = getelementptr inbounds nuw i8, ptr %316, i64 8
+  store i64 7, ptr %2521, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %317) #21
   store ptr @.str, ptr %317, align 8, !tbaa !19
-  %2526 = getelementptr inbounds nuw i8, ptr %317, i64 8
-  store i64 122, ptr %2526, align 8, !tbaa !23
+  %2522 = getelementptr inbounds nuw i8, ptr %317, i64 8
+  store i64 122, ptr %2522, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %318, ptr noundef nonnull @.str.73) #21
-  %2527 = load ptr, ptr %318, align 8
-  %2528 = getelementptr inbounds nuw i8, ptr %318, i64 8
-  %2529 = load i64, ptr %2528, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %315, ptr noundef nonnull align 8 dereferenceable(16) %316, ptr noundef nonnull align 8 dereferenceable(16) %317, ptr %2527, i64 %2529, i32 noundef 1)
-          to label %2530 unwind label %2547
+  %2523 = load ptr, ptr %318, align 8
+  %2524 = getelementptr inbounds nuw i8, ptr %318, i64 8
+  %2525 = load i64, ptr %2524, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %315, ptr noundef nonnull align 8 dereferenceable(16) %316, ptr noundef nonnull align 8 dereferenceable(16) %317, ptr %2523, i64 %2525, i32 noundef 1)
+          to label %2526 unwind label %2543
 
-2530:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit733
+2526:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit733
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %317) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %316) #21
-  %2531 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %310, ptr noundef nonnull %83) #21
-  %2532 = xor i1 %2531, true
-  %2533 = zext i1 %2532 to i8
+  %2527 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %310, ptr noundef nonnull %83) #21
+  %2528 = xor i1 %2527, true
+  %2529 = zext i1 %2528 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #21
-  %2534 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i8 0, ptr %2534, align 8, !tbaa !24, !alias.scope !201
-  %2535 = getelementptr inbounds nuw i8, ptr %34, i64 9
-  store i8 %2533, ptr %2535, align 1, !tbaa !30, !alias.scope !201
+  %2530 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i8 0, ptr %2530, align 8, !tbaa !24, !alias.scope !201
+  %2531 = getelementptr inbounds nuw i8, ptr %34, i64 9
+  store i8 %2529, ptr %2531, align 1, !tbaa !30, !alias.scope !201
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %34, align 8, !tbaa !4, !alias.scope !201
-  %2536 = getelementptr inbounds nuw i8, ptr %34, i64 10
-  store i8 %2533, ptr %2536, align 2, !tbaa !31, !alias.scope !201
+  %2532 = getelementptr inbounds nuw i8, ptr %34, i64 10
+  store i8 %2529, ptr %2532, align 2, !tbaa !31, !alias.scope !201
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %315, ptr noundef nonnull align 8 dereferenceable(10) %34)
-          to label %2540 unwind label %.body734
+          to label %2536 unwind label %.body734
 
-.body734:                                         ; preds = %2530
-  %2537 = landingpad { ptr, i32 }
+.body734:                                         ; preds = %2526
+  %2533 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %34) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #21
-  %2538 = extractvalue { ptr, i32 } %2537, 0
-  %2539 = call ptr @__cxa_begin_catch(ptr %2538) #21
+  %2534 = extractvalue { ptr, i32 } %2533, 0
+  %2535 = call ptr @__cxa_begin_catch(ptr %2534) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %315)
-          to label %2549 unwind label %2580
+          to label %2545 unwind label %2576
 
-2540:                                             ; preds = %2530
+2536:                                             ; preds = %2526
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %34) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #21
-  br label %2550
-
-2541:                                             ; preds = %.body730
-  %2542 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2545 unwind label %4191
-
-2543:                                             ; preds = %2511, %2510
-  %2544 = landingpad { ptr, i32 }
-          cleanup
-  br label %2545
-
-2545:                                             ; preds = %2541, %2543
-  %.pn414 = phi { ptr, i32 } [ %2544, %2543 ], [ %2542, %2541 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %311) #21
   br label %2546
 
-2546:                                             ; preds = %2545, %2508
-  %.pn414.pn = phi { ptr, i32 } [ %.pn414, %2545 ], [ %2509, %2508 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %311) #21
-  br label %4103
+2537:                                             ; preds = %.body730
+  %2538 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2541 unwind label %4187
 
-2547:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit733
-  %2548 = landingpad { ptr, i32 }
+2539:                                             ; preds = %2507, %2506
+  %2540 = landingpad { ptr, i32 }
+          cleanup
+  br label %2541
+
+2541:                                             ; preds = %2537, %2539
+  %.pn414 = phi { ptr, i32 } [ %2540, %2539 ], [ %2538, %2537 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %311) #21
+  br label %2542
+
+2542:                                             ; preds = %2541, %2504
+  %.pn414.pn = phi { ptr, i32 } [ %.pn414, %2541 ], [ %2505, %2504 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %311) #21
+  br label %4099
+
+2543:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit733
+  %2544 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %317) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %316) #21
-  br label %2585
+  br label %2581
 
-2549:                                             ; preds = %.body734
+2545:                                             ; preds = %.body734
   invoke void @__cxa_end_catch()
-          to label %2550 unwind label %2582
+          to label %2546 unwind label %2578
 
-2550:                                             ; preds = %2549, %2540
+2546:                                             ; preds = %2545, %2536
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %315)
-          to label %2551 unwind label %2582
+          to label %2547 unwind label %2578
 
-2551:                                             ; preds = %2550
-  %2552 = getelementptr inbounds nuw i8, ptr %315, i64 58
-  %2553 = load i8, ptr %2552, align 2, !tbaa !33, !range !40, !noundef !41
-  %2554 = trunc nuw i8 %2553 to i1
-  br i1 %2554, label %_ZN5Catch16AssertionHandlerD2Ev.exit737, label %2555
+2547:                                             ; preds = %2546
+  %2548 = getelementptr inbounds nuw i8, ptr %315, i64 58
+  %2549 = load i8, ptr %2548, align 2, !tbaa !33, !range !40, !noundef !41
+  %2550 = trunc nuw i8 %2549 to i1
+  br i1 %2550, label %_ZN5Catch16AssertionHandlerD2Ev.exit737, label %2551
 
-2555:                                             ; preds = %2551
-  %2556 = getelementptr inbounds nuw i8, ptr %315, i64 64
-  %2557 = load ptr, ptr %2556, align 8, !tbaa !42
-  %2558 = load ptr, ptr %2557, align 8, !tbaa !4
-  %2559 = getelementptr inbounds nuw i8, ptr %2558, i64 112
-  %2560 = load ptr, ptr %2559, align 8
-  invoke void %2560(ptr noundef nonnull align 8 dereferenceable(8) %2557, ptr noundef nonnull align 8 dereferenceable(72) %315)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit737 unwind label %2561
+2551:                                             ; preds = %2547
+  %2552 = getelementptr inbounds nuw i8, ptr %315, i64 64
+  %2553 = load ptr, ptr %2552, align 8, !tbaa !42
+  %2554 = load ptr, ptr %2553, align 8, !tbaa !4
+  %2555 = getelementptr inbounds nuw i8, ptr %2554, i64 112
+  %2556 = load ptr, ptr %2555, align 8
+  invoke void %2556(ptr noundef nonnull align 8 dereferenceable(8) %2553, ptr noundef nonnull align 8 dereferenceable(72) %315)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit737 unwind label %2557
 
-2561:                                             ; preds = %2555
-  %2562 = landingpad { ptr, i32 }
+2557:                                             ; preds = %2551
+  %2558 = landingpad { ptr, i32 }
           catch ptr null
-  %2563 = extractvalue { ptr, i32 } %2562, 0
-  call void @__clang_call_terminate(ptr %2563) #22
+  %2559 = extractvalue { ptr, i32 } %2558, 0
+  call void @__clang_call_terminate(ptr %2559) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit737:          ; preds = %2551, %2555
+_ZN5Catch16AssertionHandlerD2Ev.exit737:          ; preds = %2547, %2551
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %315) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %319) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %320) #21
   store ptr @.str.24, ptr %320, align 8
-  %2564 = getelementptr inbounds nuw i8, ptr %320, i64 8
-  store i64 7, ptr %2564, align 8
+  %2560 = getelementptr inbounds nuw i8, ptr %320, i64 8
+  store i64 7, ptr %2560, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %321) #21
   store ptr @.str, ptr %321, align 8, !tbaa !19
-  %2565 = getelementptr inbounds nuw i8, ptr %321, i64 8
-  store i64 123, ptr %2565, align 8, !tbaa !23
+  %2561 = getelementptr inbounds nuw i8, ptr %321, i64 8
+  store i64 123, ptr %2561, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %322, ptr noundef nonnull @.str.74) #21
-  %2566 = load ptr, ptr %322, align 8
-  %2567 = getelementptr inbounds nuw i8, ptr %322, i64 8
-  %2568 = load i64, ptr %2567, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %319, ptr noundef nonnull align 8 dereferenceable(16) %320, ptr noundef nonnull align 8 dereferenceable(16) %321, ptr %2566, i64 %2568, i32 noundef 1)
-          to label %2569 unwind label %2586
+  %2562 = load ptr, ptr %322, align 8
+  %2563 = getelementptr inbounds nuw i8, ptr %322, i64 8
+  %2564 = load i64, ptr %2563, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %319, ptr noundef nonnull align 8 dereferenceable(16) %320, ptr noundef nonnull align 8 dereferenceable(16) %321, ptr %2562, i64 %2564, i32 noundef 1)
+          to label %2565 unwind label %2582
 
-2569:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit737
+2565:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit737
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %321) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %320) #21
-  %2570 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %310, ptr noundef nonnull %83) #21
-  %2571 = xor i1 %2570, true
-  %2572 = zext i1 %2571 to i8
+  %2566 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %310, ptr noundef nonnull %83) #21
+  %2567 = xor i1 %2566, true
+  %2568 = zext i1 %2567 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #21
-  %2573 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i8 0, ptr %2573, align 8, !tbaa !24, !alias.scope !204
-  %2574 = getelementptr inbounds nuw i8, ptr %33, i64 9
-  store i8 %2572, ptr %2574, align 1, !tbaa !30, !alias.scope !204
+  %2569 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store i8 0, ptr %2569, align 8, !tbaa !24, !alias.scope !204
+  %2570 = getelementptr inbounds nuw i8, ptr %33, i64 9
+  store i8 %2568, ptr %2570, align 1, !tbaa !30, !alias.scope !204
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %33, align 8, !tbaa !4, !alias.scope !204
-  %2575 = getelementptr inbounds nuw i8, ptr %33, i64 10
-  store i8 %2572, ptr %2575, align 2, !tbaa !31, !alias.scope !204
+  %2571 = getelementptr inbounds nuw i8, ptr %33, i64 10
+  store i8 %2568, ptr %2571, align 2, !tbaa !31, !alias.scope !204
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %319, ptr noundef nonnull align 8 dereferenceable(10) %33)
-          to label %2579 unwind label %.body738
+          to label %2575 unwind label %.body738
 
-.body738:                                         ; preds = %2569
-  %2576 = landingpad { ptr, i32 }
+.body738:                                         ; preds = %2565
+  %2572 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %33) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #21
-  %2577 = extractvalue { ptr, i32 } %2576, 0
-  %2578 = call ptr @__cxa_begin_catch(ptr %2577) #21
+  %2573 = extractvalue { ptr, i32 } %2572, 0
+  %2574 = call ptr @__cxa_begin_catch(ptr %2573) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %319)
-          to label %2588 unwind label %2621
+          to label %2584 unwind label %2617
 
-2579:                                             ; preds = %2569
+2575:                                             ; preds = %2565
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %33) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #21
-  br label %2589
-
-2580:                                             ; preds = %.body734
-  %2581 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2584 unwind label %4191
-
-2582:                                             ; preds = %2550, %2549
-  %2583 = landingpad { ptr, i32 }
-          cleanup
-  br label %2584
-
-2584:                                             ; preds = %2580, %2582
-  %.pn417 = phi { ptr, i32 } [ %2583, %2582 ], [ %2581, %2580 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %315) #21
   br label %2585
 
-2585:                                             ; preds = %2584, %2547
-  %.pn417.pn = phi { ptr, i32 } [ %.pn417, %2584 ], [ %2548, %2547 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %315) #21
-  br label %4103
+2576:                                             ; preds = %.body734
+  %2577 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2580 unwind label %4187
 
-2586:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit737
-  %2587 = landingpad { ptr, i32 }
+2578:                                             ; preds = %2546, %2545
+  %2579 = landingpad { ptr, i32 }
+          cleanup
+  br label %2580
+
+2580:                                             ; preds = %2576, %2578
+  %.pn417 = phi { ptr, i32 } [ %2579, %2578 ], [ %2577, %2576 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %315) #21
+  br label %2581
+
+2581:                                             ; preds = %2580, %2543
+  %.pn417.pn = phi { ptr, i32 } [ %.pn417, %2580 ], [ %2544, %2543 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %315) #21
+  br label %4099
+
+2582:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit737
+  %2583 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %321) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %320) #21
-  br label %2626
+  br label %2622
 
-2588:                                             ; preds = %.body738
+2584:                                             ; preds = %.body738
   invoke void @__cxa_end_catch()
-          to label %2589 unwind label %2623
+          to label %2585 unwind label %2619
 
-2589:                                             ; preds = %2588, %2579
+2585:                                             ; preds = %2584, %2575
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %319)
-          to label %2590 unwind label %2623
+          to label %2586 unwind label %2619
 
-2590:                                             ; preds = %2589
-  %2591 = getelementptr inbounds nuw i8, ptr %319, i64 58
-  %2592 = load i8, ptr %2591, align 2, !tbaa !33, !range !40, !noundef !41
-  %2593 = trunc nuw i8 %2592 to i1
-  br i1 %2593, label %_ZN5Catch16AssertionHandlerD2Ev.exit741, label %2594
+2586:                                             ; preds = %2585
+  %2587 = getelementptr inbounds nuw i8, ptr %319, i64 58
+  %2588 = load i8, ptr %2587, align 2, !tbaa !33, !range !40, !noundef !41
+  %2589 = trunc nuw i8 %2588 to i1
+  br i1 %2589, label %_ZN5Catch16AssertionHandlerD2Ev.exit741, label %2590
 
-2594:                                             ; preds = %2590
-  %2595 = getelementptr inbounds nuw i8, ptr %319, i64 64
-  %2596 = load ptr, ptr %2595, align 8, !tbaa !42
-  %2597 = load ptr, ptr %2596, align 8, !tbaa !4
-  %2598 = getelementptr inbounds nuw i8, ptr %2597, i64 112
-  %2599 = load ptr, ptr %2598, align 8
-  invoke void %2599(ptr noundef nonnull align 8 dereferenceable(8) %2596, ptr noundef nonnull align 8 dereferenceable(72) %319)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit741 unwind label %2600
+2590:                                             ; preds = %2586
+  %2591 = getelementptr inbounds nuw i8, ptr %319, i64 64
+  %2592 = load ptr, ptr %2591, align 8, !tbaa !42
+  %2593 = load ptr, ptr %2592, align 8, !tbaa !4
+  %2594 = getelementptr inbounds nuw i8, ptr %2593, i64 112
+  %2595 = load ptr, ptr %2594, align 8
+  invoke void %2595(ptr noundef nonnull align 8 dereferenceable(8) %2592, ptr noundef nonnull align 8 dereferenceable(72) %319)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit741 unwind label %2596
 
-2600:                                             ; preds = %2594
-  %2601 = landingpad { ptr, i32 }
+2596:                                             ; preds = %2590
+  %2597 = landingpad { ptr, i32 }
           catch ptr null
-  %2602 = extractvalue { ptr, i32 } %2601, 0
-  call void @__clang_call_terminate(ptr %2602) #22
+  %2598 = extractvalue { ptr, i32 } %2597, 0
+  call void @__clang_call_terminate(ptr %2598) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit741:          ; preds = %2590, %2594
+_ZN5Catch16AssertionHandlerD2Ev.exit741:          ; preds = %2586, %2590
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %319) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %323) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %324) #21
   store ptr @.str.24, ptr %324, align 8
-  %2603 = getelementptr inbounds nuw i8, ptr %324, i64 8
-  store i64 7, ptr %2603, align 8
+  %2599 = getelementptr inbounds nuw i8, ptr %324, i64 8
+  store i64 7, ptr %2599, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %325) #21
   store ptr @.str, ptr %325, align 8, !tbaa !19
-  %2604 = getelementptr inbounds nuw i8, ptr %325, i64 8
-  store i64 124, ptr %2604, align 8, !tbaa !23
+  %2600 = getelementptr inbounds nuw i8, ptr %325, i64 8
+  store i64 124, ptr %2600, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %326, ptr noundef nonnull @.str.75) #21
-  %2605 = load ptr, ptr %326, align 8
-  %2606 = getelementptr inbounds nuw i8, ptr %326, i64 8
-  %2607 = load i64, ptr %2606, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %323, ptr noundef nonnull align 8 dereferenceable(16) %324, ptr noundef nonnull align 8 dereferenceable(16) %325, ptr %2605, i64 %2607, i32 noundef 1)
-          to label %2608 unwind label %2627
+  %2601 = load ptr, ptr %326, align 8
+  %2602 = getelementptr inbounds nuw i8, ptr %326, i64 8
+  %2603 = load i64, ptr %2602, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %323, ptr noundef nonnull align 8 dereferenceable(16) %324, ptr noundef nonnull align 8 dereferenceable(16) %325, ptr %2601, i64 %2603, i32 noundef 1)
+          to label %2604 unwind label %2623
 
-2608:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit741
+2604:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit741
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %325) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %324) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %327) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %328) #21
-  %2609 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %310) #21
-  store ptr %2609, ptr %328, align 8, !tbaa !49
+  %2605 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %310) #21
+  store ptr %2605, ptr %328, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %329) #21
   store ptr null, ptr %329, align 8, !tbaa !50
   call void @llvm.experimental.noalias.scope.decl(metadata !207)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)
-  %2610 = icmp eq ptr %2609, null
+  %2606 = icmp eq ptr %2605, null
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull @.str.90) #21, !noalias !207
-  %2611 = load ptr, ptr %32, align 8, !noalias !207
-  %2612 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %2613 = load i64, ptr %2612, align 8, !noalias !207
-  %2614 = zext i1 %2610 to i8
-  %2615 = getelementptr inbounds nuw i8, ptr %327, i64 8
-  store i8 1, ptr %2615, align 8, !tbaa !24, !alias.scope !207
-  %2616 = getelementptr inbounds nuw i8, ptr %327, i64 9
-  store i8 %2614, ptr %2616, align 1, !tbaa !30, !alias.scope !207
+  %2607 = load ptr, ptr %32, align 8, !noalias !207
+  %2608 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %2609 = load i64, ptr %2608, align 8, !noalias !207
+  %2610 = zext i1 %2606 to i8
+  %2611 = getelementptr inbounds nuw i8, ptr %327, i64 8
+  store i8 1, ptr %2611, align 8, !tbaa !24, !alias.scope !207
+  %2612 = getelementptr inbounds nuw i8, ptr %327, i64 9
+  store i8 %2610, ptr %2612, align 1, !tbaa !30, !alias.scope !207
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKPKN5vcpkg19IReadBinaryProviderERKDnEE, i64 16), ptr %327, align 8, !tbaa !4, !alias.scope !207
-  %2617 = getelementptr inbounds nuw i8, ptr %327, i64 16
-  store ptr %328, ptr %2617, align 8, !tbaa !55, !alias.scope !207
-  %2618 = getelementptr inbounds nuw i8, ptr %327, i64 24
-  store ptr %2611, ptr %2618, align 8, !tbaa !56, !alias.scope !207
+  %2613 = getelementptr inbounds nuw i8, ptr %327, i64 16
+  store ptr %328, ptr %2613, align 8, !tbaa !55, !alias.scope !207
+  %2614 = getelementptr inbounds nuw i8, ptr %327, i64 24
+  store ptr %2607, ptr %2614, align 8, !tbaa !56, !alias.scope !207
   %.sroa.2.0..sroa_idx.i.i742 = getelementptr inbounds nuw i8, ptr %327, i64 32
-  store i64 %2613, ptr %.sroa.2.0..sroa_idx.i.i742, align 8, !tbaa !57, !alias.scope !207
-  %2619 = getelementptr inbounds nuw i8, ptr %327, i64 40
-  store ptr %329, ptr %2619, align 8, !tbaa !58, !alias.scope !207
+  store i64 %2609, ptr %.sroa.2.0..sroa_idx.i.i742, align 8, !tbaa !57, !alias.scope !207
+  %2615 = getelementptr inbounds nuw i8, ptr %327, i64 40
+  store ptr %329, ptr %2615, align 8, !tbaa !58, !alias.scope !207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32)
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %323, ptr noundef nonnull align 8 dereferenceable(10) %327)
-          to label %2620 unwind label %2629
+          to label %2616 unwind label %2625
 
-2620:                                             ; preds = %2608
+2616:                                             ; preds = %2604
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %327) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %329) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %328) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %327) #21
-  br label %2633
+  br label %2629
 
-2621:                                             ; preds = %.body738
-  %2622 = landingpad { ptr, i32 }
+2617:                                             ; preds = %.body738
+  %2618 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2625 unwind label %4191
+          to label %2621 unwind label %4187
 
-2623:                                             ; preds = %2589, %2588
-  %2624 = landingpad { ptr, i32 }
+2619:                                             ; preds = %2585, %2584
+  %2620 = landingpad { ptr, i32 }
           cleanup
-  br label %2625
+  br label %2621
 
-2625:                                             ; preds = %2621, %2623
-  %.pn420 = phi { ptr, i32 } [ %2624, %2623 ], [ %2622, %2621 ]
+2621:                                             ; preds = %2617, %2619
+  %.pn420 = phi { ptr, i32 } [ %2620, %2619 ], [ %2618, %2617 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %319) #21
-  br label %2626
+  br label %2622
 
-2626:                                             ; preds = %2625, %2586
-  %.pn420.pn = phi { ptr, i32 } [ %.pn420, %2625 ], [ %2587, %2586 ]
+2622:                                             ; preds = %2621, %2582
+  %.pn420.pn = phi { ptr, i32 } [ %.pn420, %2621 ], [ %2583, %2582 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %319) #21
-  br label %4103
+  br label %4099
 
-2627:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit741
-  %2628 = landingpad { ptr, i32 }
+2623:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit741
+  %2624 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %325) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %324) #21
-  br label %2667
+  br label %2663
 
-2629:                                             ; preds = %2608
-  %2630 = landingpad { ptr, i32 }
+2625:                                             ; preds = %2604
+  %2626 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %327) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %329) #21
-  %.135218 = extractvalue { ptr, i32 } %2630, 0
+  %.135218 = extractvalue { ptr, i32 } %2626, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %328) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %327) #21
-  %2631 = call ptr @__cxa_begin_catch(ptr %.135218) #21
+  %2627 = call ptr @__cxa_begin_catch(ptr %.135218) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %323)
-          to label %2632 unwind label %2662
+          to label %2628 unwind label %2658
 
-2632:                                             ; preds = %2629
+2628:                                             ; preds = %2625
   invoke void @__cxa_end_catch()
-          to label %2633 unwind label %2664
+          to label %2629 unwind label %2660
 
-2633:                                             ; preds = %2632, %2620
+2629:                                             ; preds = %2628, %2616
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %323)
-          to label %2634 unwind label %2664
+          to label %2630 unwind label %2660
 
-2634:                                             ; preds = %2633
-  %2635 = getelementptr inbounds nuw i8, ptr %323, i64 58
-  %2636 = load i8, ptr %2635, align 2, !tbaa !33, !range !40, !noundef !41
-  %2637 = trunc nuw i8 %2636 to i1
-  br i1 %2637, label %_ZN5Catch16AssertionHandlerD2Ev.exit743, label %2638
+2630:                                             ; preds = %2629
+  %2631 = getelementptr inbounds nuw i8, ptr %323, i64 58
+  %2632 = load i8, ptr %2631, align 2, !tbaa !33, !range !40, !noundef !41
+  %2633 = trunc nuw i8 %2632 to i1
+  br i1 %2633, label %_ZN5Catch16AssertionHandlerD2Ev.exit743, label %2634
 
-2638:                                             ; preds = %2634
-  %2639 = getelementptr inbounds nuw i8, ptr %323, i64 64
-  %2640 = load ptr, ptr %2639, align 8, !tbaa !42
-  %2641 = load ptr, ptr %2640, align 8, !tbaa !4
-  %2642 = getelementptr inbounds nuw i8, ptr %2641, i64 112
-  %2643 = load ptr, ptr %2642, align 8
-  invoke void %2643(ptr noundef nonnull align 8 dereferenceable(8) %2640, ptr noundef nonnull align 8 dereferenceable(72) %323)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit743 unwind label %2644
+2634:                                             ; preds = %2630
+  %2635 = getelementptr inbounds nuw i8, ptr %323, i64 64
+  %2636 = load ptr, ptr %2635, align 8, !tbaa !42
+  %2637 = load ptr, ptr %2636, align 8, !tbaa !4
+  %2638 = getelementptr inbounds nuw i8, ptr %2637, i64 112
+  %2639 = load ptr, ptr %2638, align 8
+  invoke void %2639(ptr noundef nonnull align 8 dereferenceable(8) %2636, ptr noundef nonnull align 8 dereferenceable(72) %323)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit743 unwind label %2640
 
-2644:                                             ; preds = %2638
-  %2645 = landingpad { ptr, i32 }
+2640:                                             ; preds = %2634
+  %2641 = landingpad { ptr, i32 }
           catch ptr null
-  %2646 = extractvalue { ptr, i32 } %2645, 0
-  call void @__clang_call_terminate(ptr %2646) #22
+  %2642 = extractvalue { ptr, i32 } %2641, 0
+  call void @__clang_call_terminate(ptr %2642) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit743:          ; preds = %2634, %2638
+_ZN5Catch16AssertionHandlerD2Ev.exit743:          ; preds = %2630, %2634
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %323) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %330) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %331) #21
   store ptr @.str.24, ptr %331, align 8
-  %2647 = getelementptr inbounds nuw i8, ptr %331, i64 8
-  store i64 7, ptr %2647, align 8
+  %2643 = getelementptr inbounds nuw i8, ptr %331, i64 8
+  store i64 7, ptr %2643, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %332) #21
   store ptr @.str, ptr %332, align 8, !tbaa !19
-  %2648 = getelementptr inbounds nuw i8, ptr %332, i64 8
-  store i64 125, ptr %2648, align 8, !tbaa !23
+  %2644 = getelementptr inbounds nuw i8, ptr %332, i64 8
+  store i64 125, ptr %2644, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %333, ptr noundef nonnull @.str.76) #21
-  %2649 = load ptr, ptr %333, align 8
-  %2650 = getelementptr inbounds nuw i8, ptr %333, i64 8
-  %2651 = load i64, ptr %2650, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %330, ptr noundef nonnull align 8 dereferenceable(16) %331, ptr noundef nonnull align 8 dereferenceable(16) %332, ptr %2649, i64 %2651, i32 noundef 1)
-          to label %2652 unwind label %2668
+  %2645 = load ptr, ptr %333, align 8
+  %2646 = getelementptr inbounds nuw i8, ptr %333, i64 8
+  %2647 = load i64, ptr %2646, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %330, ptr noundef nonnull align 8 dereferenceable(16) %331, ptr noundef nonnull align 8 dereferenceable(16) %332, ptr %2645, i64 %2647, i32 noundef 1)
+          to label %2648 unwind label %2664
 
-2652:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit743
+2648:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit743
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %332) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %331) #21
-  %2653 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %310) #21
-  %2654 = zext i1 %2653 to i8
+  %2649 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %310) #21
+  %2650 = zext i1 %2649 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #21
-  %2655 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i8 0, ptr %2655, align 8, !tbaa !24, !alias.scope !210
-  %2656 = getelementptr inbounds nuw i8, ptr %31, i64 9
-  store i8 %2654, ptr %2656, align 1, !tbaa !30, !alias.scope !210
+  %2651 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i8 0, ptr %2651, align 8, !tbaa !24, !alias.scope !210
+  %2652 = getelementptr inbounds nuw i8, ptr %31, i64 9
+  store i8 %2650, ptr %2652, align 1, !tbaa !30, !alias.scope !210
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %31, align 8, !tbaa !4, !alias.scope !210
-  %2657 = getelementptr inbounds nuw i8, ptr %31, i64 10
-  store i8 %2654, ptr %2657, align 2, !tbaa !31, !alias.scope !210
+  %2653 = getelementptr inbounds nuw i8, ptr %31, i64 10
+  store i8 %2650, ptr %2653, align 2, !tbaa !31, !alias.scope !210
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %330, ptr noundef nonnull align 8 dereferenceable(10) %31)
-          to label %2661 unwind label %.body744
+          to label %2657 unwind label %.body744
 
-.body744:                                         ; preds = %2652
-  %2658 = landingpad { ptr, i32 }
+.body744:                                         ; preds = %2648
+  %2654 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %31) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #21
-  %2659 = extractvalue { ptr, i32 } %2658, 0
-  %2660 = call ptr @__cxa_begin_catch(ptr %2659) #21
+  %2655 = extractvalue { ptr, i32 } %2654, 0
+  %2656 = call ptr @__cxa_begin_catch(ptr %2655) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %330)
-          to label %2670 unwind label %2719
+          to label %2666 unwind label %2715
 
-2661:                                             ; preds = %2652
+2657:                                             ; preds = %2648
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %31) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #21
-  br label %2671
-
-2662:                                             ; preds = %2629
-  %2663 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2666 unwind label %4191
-
-2664:                                             ; preds = %2633, %2632
-  %2665 = landingpad { ptr, i32 }
-          cleanup
-  br label %2666
-
-2666:                                             ; preds = %2662, %2664
-  %.pn424 = phi { ptr, i32 } [ %2665, %2664 ], [ %2663, %2662 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %323) #21
   br label %2667
 
-2667:                                             ; preds = %2666, %2627
-  %.pn424.pn = phi { ptr, i32 } [ %.pn424, %2666 ], [ %2628, %2627 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %323) #21
-  br label %4103
+2658:                                             ; preds = %2625
+  %2659 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2662 unwind label %4187
 
-2668:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit743
-  %2669 = landingpad { ptr, i32 }
+2660:                                             ; preds = %2629, %2628
+  %2661 = landingpad { ptr, i32 }
+          cleanup
+  br label %2662
+
+2662:                                             ; preds = %2658, %2660
+  %.pn424 = phi { ptr, i32 } [ %2661, %2660 ], [ %2659, %2658 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %323) #21
+  br label %2663
+
+2663:                                             ; preds = %2662, %2623
+  %.pn424.pn = phi { ptr, i32 } [ %.pn424, %2662 ], [ %2624, %2623 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %323) #21
+  br label %4099
+
+2664:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit743
+  %2665 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %332) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %331) #21
-  br label %2724
+  br label %2720
 
-2670:                                             ; preds = %.body744
+2666:                                             ; preds = %.body744
   invoke void @__cxa_end_catch()
-          to label %2671 unwind label %2721
+          to label %2667 unwind label %2717
 
-2671:                                             ; preds = %2670, %2661
+2667:                                             ; preds = %2666, %2657
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %330)
-          to label %2672 unwind label %2721
+          to label %2668 unwind label %2717
 
-2672:                                             ; preds = %2671
-  %2673 = getelementptr inbounds nuw i8, ptr %330, i64 58
-  %2674 = load i8, ptr %2673, align 2, !tbaa !33, !range !40, !noundef !41
-  %2675 = trunc nuw i8 %2674 to i1
-  br i1 %2675, label %_ZN5Catch16AssertionHandlerD2Ev.exit747, label %2676
+2668:                                             ; preds = %2667
+  %2669 = getelementptr inbounds nuw i8, ptr %330, i64 58
+  %2670 = load i8, ptr %2669, align 2, !tbaa !33, !range !40, !noundef !41
+  %2671 = trunc nuw i8 %2670 to i1
+  br i1 %2671, label %_ZN5Catch16AssertionHandlerD2Ev.exit747, label %2672
 
-2676:                                             ; preds = %2672
-  %2677 = getelementptr inbounds nuw i8, ptr %330, i64 64
-  %2678 = load ptr, ptr %2677, align 8, !tbaa !42
-  %2679 = load ptr, ptr %2678, align 8, !tbaa !4
-  %2680 = getelementptr inbounds nuw i8, ptr %2679, i64 112
-  %2681 = load ptr, ptr %2680, align 8
-  invoke void %2681(ptr noundef nonnull align 8 dereferenceable(8) %2678, ptr noundef nonnull align 8 dereferenceable(72) %330)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit747 unwind label %2682
+2672:                                             ; preds = %2668
+  %2673 = getelementptr inbounds nuw i8, ptr %330, i64 64
+  %2674 = load ptr, ptr %2673, align 8, !tbaa !42
+  %2675 = load ptr, ptr %2674, align 8, !tbaa !4
+  %2676 = getelementptr inbounds nuw i8, ptr %2675, i64 112
+  %2677 = load ptr, ptr %2676, align 8
+  invoke void %2677(ptr noundef nonnull align 8 dereferenceable(8) %2674, ptr noundef nonnull align 8 dereferenceable(72) %330)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit747 unwind label %2678
 
-2682:                                             ; preds = %2676
-  %2683 = landingpad { ptr, i32 }
+2678:                                             ; preds = %2672
+  %2679 = landingpad { ptr, i32 }
           catch ptr null
-  %2684 = extractvalue { ptr, i32 } %2683, 0
-  call void @__clang_call_terminate(ptr %2684) #22
+  %2680 = extractvalue { ptr, i32 } %2679, 0
+  call void @__clang_call_terminate(ptr %2680) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit747:          ; preds = %2672, %2676
+_ZN5Catch16AssertionHandlerD2Ev.exit747:          ; preds = %2668, %2672
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %330) #21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %334) #21
-  %2685 = getelementptr inbounds nuw i8, ptr %334, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2685, i8 0, i64 32, i1 false)
-  %2686 = load i8, ptr %108, align 8, !tbaa !7
-  store i8 %2686, ptr %334, align 8, !tbaa !7
-  %2687 = load ptr, ptr %1337, align 8, !tbaa !112
-  %2688 = load ptr, ptr %666, align 8, !tbaa !113
-  %2689 = ptrtoint ptr %2687 to i64
-  %2690 = ptrtoint ptr %2688 to i64
-  %2691 = sub i64 %2689, %2690
-  %2692 = getelementptr inbounds nuw i8, ptr %334, i64 24
-  %.not = icmp eq ptr %2687, %2688
-  br i1 %.not, label %2697, label %2693
+  %2681 = getelementptr inbounds nuw i8, ptr %334, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2681, i8 0, i64 32, i1 false)
+  %2682 = load i8, ptr %108, align 8, !tbaa !7
+  store i8 %2682, ptr %334, align 8, !tbaa !7
+  %2683 = load ptr, ptr %1336, align 8, !tbaa !112
+  %2684 = load ptr, ptr %666, align 8, !tbaa !113
+  %2685 = ptrtoint ptr %2683 to i64
+  %2686 = ptrtoint ptr %2684 to i64
+  %2687 = sub i64 %2685, %2686
+  %2688 = getelementptr inbounds nuw i8, ptr %334, i64 24
+  %.not = icmp eq ptr %2683, %2684
+  br i1 %.not, label %2693, label %2689
 
-2693:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit747
-  %2694 = icmp ugt i64 %2691, 9223372036854775800
-  br i1 %2694, label %.invoke, label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i, !prof !115
+2689:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit747
+  %2690 = icmp ugt i64 %2687, 9223372036854775800
+  br i1 %2690, label %.invoke, label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i, !prof !114
 
-_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %2693
-  %2695 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %2691) #24
-          to label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i unwind label %2725
+_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %2689
+  %2691 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %2687) #24
+          to label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i unwind label %2721
 
 _ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2695, ptr align 8 %2688, i64 %2691, i1 false)
-  store ptr %2695, ptr %2685, align 8, !tbaa !113
-  %2696 = getelementptr inbounds nuw i8, ptr %2695, i64 %2691
-  store ptr %2696, ptr %2692, align 8, !tbaa !114
-  br label %2697
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2691, ptr align 8 %2684, i64 %2687, i1 false)
+  store ptr %2691, ptr %2681, align 8, !tbaa !113
+  %2692 = getelementptr inbounds nuw i8, ptr %2691, i64 %2687
+  store ptr %2692, ptr %2688, align 8, !tbaa !115
+  br label %2693
 
-2697:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit747, %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i
-  %2698 = phi ptr [ %2695, %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ null, %_ZN5Catch16AssertionHandlerD2Ev.exit747 ]
-  %2699 = getelementptr inbounds nuw i8, ptr %2698, i64 %2691
-  %2700 = getelementptr inbounds nuw i8, ptr %334, i64 16
-  store ptr %2699, ptr %2700, align 8, !tbaa !112
-  %2701 = load ptr, ptr %1358, align 8, !tbaa !116
-  %2702 = getelementptr inbounds nuw i8, ptr %334, i64 32
-  store ptr %2701, ptr %2702, align 8, !tbaa !116
+2693:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit747, %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i
+  %2694 = phi ptr [ %2691, %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ null, %_ZN5Catch16AssertionHandlerD2Ev.exit747 ]
+  %2695 = getelementptr inbounds nuw i8, ptr %2694, i64 %2687
+  %2696 = getelementptr inbounds nuw i8, ptr %334, i64 16
+  store ptr %2695, ptr %2696, align 8, !tbaa !112
+  %2697 = load ptr, ptr %1356, align 8, !tbaa !116
+  %2698 = getelementptr inbounds nuw i8, ptr %334, i64 32
+  store ptr %2697, ptr %2698, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %335) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %336) #21
   store ptr @.str.24, ptr %336, align 8
-  %2703 = getelementptr inbounds nuw i8, ptr %336, i64 8
-  store i64 7, ptr %2703, align 8
+  %2699 = getelementptr inbounds nuw i8, ptr %336, i64 8
+  store i64 7, ptr %2699, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %337) #21
   store ptr @.str, ptr %337, align 8, !tbaa !19
-  %2704 = getelementptr inbounds nuw i8, ptr %337, i64 8
-  store i64 130, ptr %2704, align 8, !tbaa !23
+  %2700 = getelementptr inbounds nuw i8, ptr %337, i64 8
+  store i64 130, ptr %2700, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %338, ptr noundef nonnull @.str.77) #21
-  %2705 = load ptr, ptr %338, align 8
-  %2706 = getelementptr inbounds nuw i8, ptr %338, i64 8
-  %2707 = load i64, ptr %2706, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %335, ptr noundef nonnull align 8 dereferenceable(16) %336, ptr noundef nonnull align 8 dereferenceable(16) %337, ptr %2705, i64 %2707, i32 noundef 1)
-          to label %2708 unwind label %2727
+  %2701 = load ptr, ptr %338, align 8
+  %2702 = getelementptr inbounds nuw i8, ptr %338, i64 8
+  %2703 = load i64, ptr %2702, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %335, ptr noundef nonnull align 8 dereferenceable(16) %336, ptr noundef nonnull align 8 dereferenceable(16) %337, ptr %2701, i64 %2703, i32 noundef 1)
+          to label %2704 unwind label %2723
 
-2708:                                             ; preds = %2697
+2704:                                             ; preds = %2693
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %337) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %336) #21
-  %2709 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %2710 = xor i1 %2709, true
-  %2711 = zext i1 %2710 to i8
+  %2705 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %2706 = xor i1 %2705, true
+  %2707 = zext i1 %2706 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #21
-  %2712 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i8 0, ptr %2712, align 8, !tbaa !24, !alias.scope !213
-  %2713 = getelementptr inbounds nuw i8, ptr %30, i64 9
-  store i8 %2711, ptr %2713, align 1, !tbaa !30, !alias.scope !213
+  %2708 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i8 0, ptr %2708, align 8, !tbaa !24, !alias.scope !213
+  %2709 = getelementptr inbounds nuw i8, ptr %30, i64 9
+  store i8 %2707, ptr %2709, align 1, !tbaa !30, !alias.scope !213
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %30, align 8, !tbaa !4, !alias.scope !213
-  %2714 = getelementptr inbounds nuw i8, ptr %30, i64 10
-  store i8 %2711, ptr %2714, align 2, !tbaa !31, !alias.scope !213
+  %2710 = getelementptr inbounds nuw i8, ptr %30, i64 10
+  store i8 %2707, ptr %2710, align 2, !tbaa !31, !alias.scope !213
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %335, ptr noundef nonnull align 8 dereferenceable(10) %30)
-          to label %2718 unwind label %.body749
+          to label %2714 unwind label %.body749
 
-.body749:                                         ; preds = %2708
-  %2715 = landingpad { ptr, i32 }
+.body749:                                         ; preds = %2704
+  %2711 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %30) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #21
-  %2716 = extractvalue { ptr, i32 } %2715, 0
-  %2717 = call ptr @__cxa_begin_catch(ptr %2716) #21
+  %2712 = extractvalue { ptr, i32 } %2711, 0
+  %2713 = call ptr @__cxa_begin_catch(ptr %2712) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %335)
-          to label %2729 unwind label %2760
+          to label %2725 unwind label %2756
 
-2718:                                             ; preds = %2708
+2714:                                             ; preds = %2704
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %30) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #21
-  br label %2730
+  br label %2726
 
-2719:                                             ; preds = %.body744
-  %2720 = landingpad { ptr, i32 }
+2715:                                             ; preds = %.body744
+  %2716 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2723 unwind label %4191
+          to label %2719 unwind label %4187
 
-2721:                                             ; preds = %2671, %2670
+2717:                                             ; preds = %2667, %2666
+  %2718 = landingpad { ptr, i32 }
+          cleanup
+  br label %2719
+
+2719:                                             ; preds = %2715, %2717
+  %.pn427 = phi { ptr, i32 } [ %2718, %2717 ], [ %2716, %2715 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %330) #21
+  br label %2720
+
+2720:                                             ; preds = %2719, %2664
+  %.pn427.pn = phi { ptr, i32 } [ %.pn427, %2719 ], [ %2665, %2664 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %330) #21
+  br label %4099
+
+2721:                                             ; preds = %.invoke, %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i953, %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i932, %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i
   %2722 = landingpad { ptr, i32 }
           cleanup
-  br label %2723
+  br label %4092
 
-2723:                                             ; preds = %2719, %2721
-  %.pn427 = phi { ptr, i32 } [ %2722, %2721 ], [ %2720, %2719 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %330) #21
-  br label %2724
-
-2724:                                             ; preds = %2723, %2668
-  %.pn427.pn = phi { ptr, i32 } [ %.pn427, %2723 ], [ %2669, %2668 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %330) #21
-  br label %4103
-
-2725:                                             ; preds = %.invoke, %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i953, %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i932, %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i
-  %2726 = landingpad { ptr, i32 }
-          cleanup
-  br label %4096
-
-2727:                                             ; preds = %2697
-  %2728 = landingpad { ptr, i32 }
+2723:                                             ; preds = %2693
+  %2724 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %337) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %336) #21
-  br label %2765
+  br label %2761
 
-2729:                                             ; preds = %.body749
+2725:                                             ; preds = %.body749
   invoke void @__cxa_end_catch()
-          to label %2730 unwind label %2762
+          to label %2726 unwind label %2758
 
-2730:                                             ; preds = %2729, %2718
+2726:                                             ; preds = %2725, %2714
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %335)
-          to label %2731 unwind label %2762
+          to label %2727 unwind label %2758
 
-2731:                                             ; preds = %2730
-  %2732 = getelementptr inbounds nuw i8, ptr %335, i64 58
-  %2733 = load i8, ptr %2732, align 2, !tbaa !33, !range !40, !noundef !41
-  %2734 = trunc nuw i8 %2733 to i1
-  br i1 %2734, label %_ZN5Catch16AssertionHandlerD2Ev.exit752, label %2735
+2727:                                             ; preds = %2726
+  %2728 = getelementptr inbounds nuw i8, ptr %335, i64 58
+  %2729 = load i8, ptr %2728, align 2, !tbaa !33, !range !40, !noundef !41
+  %2730 = trunc nuw i8 %2729 to i1
+  br i1 %2730, label %_ZN5Catch16AssertionHandlerD2Ev.exit752, label %2731
 
-2735:                                             ; preds = %2731
-  %2736 = getelementptr inbounds nuw i8, ptr %335, i64 64
-  %2737 = load ptr, ptr %2736, align 8, !tbaa !42
-  %2738 = load ptr, ptr %2737, align 8, !tbaa !4
-  %2739 = getelementptr inbounds nuw i8, ptr %2738, i64 112
-  %2740 = load ptr, ptr %2739, align 8
-  invoke void %2740(ptr noundef nonnull align 8 dereferenceable(8) %2737, ptr noundef nonnull align 8 dereferenceable(72) %335)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit752 unwind label %2741
+2731:                                             ; preds = %2727
+  %2732 = getelementptr inbounds nuw i8, ptr %335, i64 64
+  %2733 = load ptr, ptr %2732, align 8, !tbaa !42
+  %2734 = load ptr, ptr %2733, align 8, !tbaa !4
+  %2735 = getelementptr inbounds nuw i8, ptr %2734, i64 112
+  %2736 = load ptr, ptr %2735, align 8
+  invoke void %2736(ptr noundef nonnull align 8 dereferenceable(8) %2733, ptr noundef nonnull align 8 dereferenceable(72) %335)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit752 unwind label %2737
 
-2741:                                             ; preds = %2735
-  %2742 = landingpad { ptr, i32 }
+2737:                                             ; preds = %2731
+  %2738 = landingpad { ptr, i32 }
           catch ptr null
-  %2743 = extractvalue { ptr, i32 } %2742, 0
-  call void @__clang_call_terminate(ptr %2743) #22
+  %2739 = extractvalue { ptr, i32 } %2738, 0
+  call void @__clang_call_terminate(ptr %2739) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit752:          ; preds = %2731, %2735
+_ZN5Catch16AssertionHandlerD2Ev.exit752:          ; preds = %2727, %2731
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %335) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %339) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %340) #21
   store ptr @.str.24, ptr %340, align 8
-  %2744 = getelementptr inbounds nuw i8, ptr %340, i64 8
-  store i64 7, ptr %2744, align 8
+  %2740 = getelementptr inbounds nuw i8, ptr %340, i64 8
+  store i64 7, ptr %2740, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %341) #21
   store ptr @.str, ptr %341, align 8, !tbaa !19
-  %2745 = getelementptr inbounds nuw i8, ptr %341, i64 8
-  store i64 131, ptr %2745, align 8, !tbaa !23
+  %2741 = getelementptr inbounds nuw i8, ptr %341, i64 8
+  store i64 131, ptr %2741, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %342, ptr noundef nonnull @.str.78) #21
-  %2746 = load ptr, ptr %342, align 8
-  %2747 = getelementptr inbounds nuw i8, ptr %342, i64 8
-  %2748 = load i64, ptr %2747, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %339, ptr noundef nonnull align 8 dereferenceable(16) %340, ptr noundef nonnull align 8 dereferenceable(16) %341, ptr %2746, i64 %2748, i32 noundef 1)
-          to label %2749 unwind label %2766
+  %2742 = load ptr, ptr %342, align 8
+  %2743 = getelementptr inbounds nuw i8, ptr %342, i64 8
+  %2744 = load i64, ptr %2743, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %339, ptr noundef nonnull align 8 dereferenceable(16) %340, ptr noundef nonnull align 8 dereferenceable(16) %341, ptr %2742, i64 %2744, i32 noundef 1)
+          to label %2745 unwind label %2762
 
-2749:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit752
+2745:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit752
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %341) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %340) #21
-  %2750 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %2751 = xor i1 %2750, true
-  %2752 = zext i1 %2751 to i8
+  %2746 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %2747 = xor i1 %2746, true
+  %2748 = zext i1 %2747 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #21
-  %2753 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i8 0, ptr %2753, align 8, !tbaa !24, !alias.scope !216
-  %2754 = getelementptr inbounds nuw i8, ptr %29, i64 9
-  store i8 %2752, ptr %2754, align 1, !tbaa !30, !alias.scope !216
+  %2749 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i8 0, ptr %2749, align 8, !tbaa !24, !alias.scope !216
+  %2750 = getelementptr inbounds nuw i8, ptr %29, i64 9
+  store i8 %2748, ptr %2750, align 1, !tbaa !30, !alias.scope !216
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %29, align 8, !tbaa !4, !alias.scope !216
-  %2755 = getelementptr inbounds nuw i8, ptr %29, i64 10
-  store i8 %2752, ptr %2755, align 2, !tbaa !31, !alias.scope !216
+  %2751 = getelementptr inbounds nuw i8, ptr %29, i64 10
+  store i8 %2748, ptr %2751, align 2, !tbaa !31, !alias.scope !216
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %339, ptr noundef nonnull align 8 dereferenceable(10) %29)
-          to label %2759 unwind label %.body753
+          to label %2755 unwind label %.body753
 
-.body753:                                         ; preds = %2749
-  %2756 = landingpad { ptr, i32 }
+.body753:                                         ; preds = %2745
+  %2752 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %29) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #21
-  %2757 = extractvalue { ptr, i32 } %2756, 0
-  %2758 = call ptr @__cxa_begin_catch(ptr %2757) #21
+  %2753 = extractvalue { ptr, i32 } %2752, 0
+  %2754 = call ptr @__cxa_begin_catch(ptr %2753) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %339)
-          to label %2768 unwind label %2798
+          to label %2764 unwind label %2794
 
-2759:                                             ; preds = %2749
+2755:                                             ; preds = %2745
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %29) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #21
-  br label %2769
-
-2760:                                             ; preds = %.body749
-  %2761 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2764 unwind label %4191
-
-2762:                                             ; preds = %2730, %2729
-  %2763 = landingpad { ptr, i32 }
-          cleanup
-  br label %2764
-
-2764:                                             ; preds = %2760, %2762
-  %.pn430 = phi { ptr, i32 } [ %2763, %2762 ], [ %2761, %2760 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %335) #21
   br label %2765
 
-2765:                                             ; preds = %2764, %2727
-  %.pn430.pn = phi { ptr, i32 } [ %.pn430, %2764 ], [ %2728, %2727 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %335) #21
-  br label %4096
+2756:                                             ; preds = %.body749
+  %2757 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2760 unwind label %4187
 
-2766:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit752
-  %2767 = landingpad { ptr, i32 }
+2758:                                             ; preds = %2726, %2725
+  %2759 = landingpad { ptr, i32 }
+          cleanup
+  br label %2760
+
+2760:                                             ; preds = %2756, %2758
+  %.pn430 = phi { ptr, i32 } [ %2759, %2758 ], [ %2757, %2756 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %335) #21
+  br label %2761
+
+2761:                                             ; preds = %2760, %2723
+  %.pn430.pn = phi { ptr, i32 } [ %.pn430, %2760 ], [ %2724, %2723 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %335) #21
+  br label %4092
+
+2762:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit752
+  %2763 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %341) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %340) #21
-  br label %2803
+  br label %2799
 
-2768:                                             ; preds = %.body753
+2764:                                             ; preds = %.body753
   invoke void @__cxa_end_catch()
-          to label %2769 unwind label %2800
+          to label %2765 unwind label %2796
 
-2769:                                             ; preds = %2768, %2759
+2765:                                             ; preds = %2764, %2755
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %339)
-          to label %2770 unwind label %2800
+          to label %2766 unwind label %2796
 
-2770:                                             ; preds = %2769
-  %2771 = getelementptr inbounds nuw i8, ptr %339, i64 58
-  %2772 = load i8, ptr %2771, align 2, !tbaa !33, !range !40, !noundef !41
-  %2773 = trunc nuw i8 %2772 to i1
-  br i1 %2773, label %_ZN5Catch16AssertionHandlerD2Ev.exit756, label %2774
+2766:                                             ; preds = %2765
+  %2767 = getelementptr inbounds nuw i8, ptr %339, i64 58
+  %2768 = load i8, ptr %2767, align 2, !tbaa !33, !range !40, !noundef !41
+  %2769 = trunc nuw i8 %2768 to i1
+  br i1 %2769, label %_ZN5Catch16AssertionHandlerD2Ev.exit756, label %2770
 
-2774:                                             ; preds = %2770
-  %2775 = getelementptr inbounds nuw i8, ptr %339, i64 64
-  %2776 = load ptr, ptr %2775, align 8, !tbaa !42
-  %2777 = load ptr, ptr %2776, align 8, !tbaa !4
-  %2778 = getelementptr inbounds nuw i8, ptr %2777, i64 112
-  %2779 = load ptr, ptr %2778, align 8
-  invoke void %2779(ptr noundef nonnull align 8 dereferenceable(8) %2776, ptr noundef nonnull align 8 dereferenceable(72) %339)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit756 unwind label %2780
+2770:                                             ; preds = %2766
+  %2771 = getelementptr inbounds nuw i8, ptr %339, i64 64
+  %2772 = load ptr, ptr %2771, align 8, !tbaa !42
+  %2773 = load ptr, ptr %2772, align 8, !tbaa !4
+  %2774 = getelementptr inbounds nuw i8, ptr %2773, i64 112
+  %2775 = load ptr, ptr %2774, align 8
+  invoke void %2775(ptr noundef nonnull align 8 dereferenceable(8) %2772, ptr noundef nonnull align 8 dereferenceable(72) %339)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit756 unwind label %2776
 
-2780:                                             ; preds = %2774
-  %2781 = landingpad { ptr, i32 }
+2776:                                             ; preds = %2770
+  %2777 = landingpad { ptr, i32 }
           catch ptr null
-  %2782 = extractvalue { ptr, i32 } %2781, 0
-  call void @__clang_call_terminate(ptr %2782) #22
+  %2778 = extractvalue { ptr, i32 } %2777, 0
+  call void @__clang_call_terminate(ptr %2778) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit756:          ; preds = %2770, %2774
+_ZN5Catch16AssertionHandlerD2Ev.exit756:          ; preds = %2766, %2770
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %339) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %343) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %344) #21
   store ptr @.str.24, ptr %344, align 8
-  %2783 = getelementptr inbounds nuw i8, ptr %344, i64 8
-  store i64 7, ptr %2783, align 8
+  %2779 = getelementptr inbounds nuw i8, ptr %344, i64 8
+  store i64 7, ptr %2779, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %345) #21
   store ptr @.str, ptr %345, align 8, !tbaa !19
-  %2784 = getelementptr inbounds nuw i8, ptr %345, i64 8
-  store i64 132, ptr %2784, align 8, !tbaa !23
+  %2780 = getelementptr inbounds nuw i8, ptr %345, i64 8
+  store i64 132, ptr %2780, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %346, ptr noundef nonnull @.str.79) #21
-  %2785 = load ptr, ptr %346, align 8
-  %2786 = getelementptr inbounds nuw i8, ptr %346, i64 8
-  %2787 = load i64, ptr %2786, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %343, ptr noundef nonnull align 8 dereferenceable(16) %344, ptr noundef nonnull align 8 dereferenceable(16) %345, ptr %2785, i64 %2787, i32 noundef 1)
-          to label %2788 unwind label %2804
+  %2781 = load ptr, ptr %346, align 8
+  %2782 = getelementptr inbounds nuw i8, ptr %346, i64 8
+  %2783 = load i64, ptr %2782, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %343, ptr noundef nonnull align 8 dereferenceable(16) %344, ptr noundef nonnull align 8 dereferenceable(16) %345, ptr %2781, i64 %2783, i32 noundef 1)
+          to label %2784 unwind label %2800
 
-2788:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit756
+2784:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit756
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %345) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %344) #21
-  %2789 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %2790 = zext i1 %2789 to i8
+  %2785 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %2786 = zext i1 %2785 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #21
-  %2791 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i8 0, ptr %2791, align 8, !tbaa !24, !alias.scope !219
-  %2792 = getelementptr inbounds nuw i8, ptr %28, i64 9
-  store i8 %2790, ptr %2792, align 1, !tbaa !30, !alias.scope !219
+  %2787 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i8 0, ptr %2787, align 8, !tbaa !24, !alias.scope !219
+  %2788 = getelementptr inbounds nuw i8, ptr %28, i64 9
+  store i8 %2786, ptr %2788, align 1, !tbaa !30, !alias.scope !219
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %28, align 8, !tbaa !4, !alias.scope !219
-  %2793 = getelementptr inbounds nuw i8, ptr %28, i64 10
-  store i8 %2790, ptr %2793, align 2, !tbaa !31, !alias.scope !219
+  %2789 = getelementptr inbounds nuw i8, ptr %28, i64 10
+  store i8 %2786, ptr %2789, align 2, !tbaa !31, !alias.scope !219
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %343, ptr noundef nonnull align 8 dereferenceable(10) %28)
-          to label %2797 unwind label %.body757
+          to label %2793 unwind label %.body757
 
-.body757:                                         ; preds = %2788
-  %2794 = landingpad { ptr, i32 }
+.body757:                                         ; preds = %2784
+  %2790 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %28) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #21
-  %2795 = extractvalue { ptr, i32 } %2794, 0
-  %2796 = call ptr @__cxa_begin_catch(ptr %2795) #21
+  %2791 = extractvalue { ptr, i32 } %2790, 0
+  %2792 = call ptr @__cxa_begin_catch(ptr %2791) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %343)
-          to label %2806 unwind label %2839
+          to label %2802 unwind label %2835
 
-2797:                                             ; preds = %2788
+2793:                                             ; preds = %2784
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %28) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #21
-  br label %2807
-
-2798:                                             ; preds = %.body753
-  %2799 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2802 unwind label %4191
-
-2800:                                             ; preds = %2769, %2768
-  %2801 = landingpad { ptr, i32 }
-          cleanup
-  br label %2802
-
-2802:                                             ; preds = %2798, %2800
-  %.pn433 = phi { ptr, i32 } [ %2801, %2800 ], [ %2799, %2798 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %339) #21
   br label %2803
 
-2803:                                             ; preds = %2802, %2766
-  %.pn433.pn = phi { ptr, i32 } [ %.pn433, %2802 ], [ %2767, %2766 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %339) #21
-  br label %4096
+2794:                                             ; preds = %.body753
+  %2795 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2798 unwind label %4187
 
-2804:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit756
-  %2805 = landingpad { ptr, i32 }
+2796:                                             ; preds = %2765, %2764
+  %2797 = landingpad { ptr, i32 }
+          cleanup
+  br label %2798
+
+2798:                                             ; preds = %2794, %2796
+  %.pn433 = phi { ptr, i32 } [ %2797, %2796 ], [ %2795, %2794 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %339) #21
+  br label %2799
+
+2799:                                             ; preds = %2798, %2762
+  %.pn433.pn = phi { ptr, i32 } [ %.pn433, %2798 ], [ %2763, %2762 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %339) #21
+  br label %4092
+
+2800:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit756
+  %2801 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %345) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %344) #21
-  br label %2844
+  br label %2840
 
-2806:                                             ; preds = %.body757
+2802:                                             ; preds = %.body757
   invoke void @__cxa_end_catch()
-          to label %2807 unwind label %2841
+          to label %2803 unwind label %2837
 
-2807:                                             ; preds = %2806, %2797
+2803:                                             ; preds = %2802, %2793
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %343)
-          to label %2808 unwind label %2841
+          to label %2804 unwind label %2837
 
-2808:                                             ; preds = %2807
-  %2809 = getelementptr inbounds nuw i8, ptr %343, i64 58
-  %2810 = load i8, ptr %2809, align 2, !tbaa !33, !range !40, !noundef !41
-  %2811 = trunc nuw i8 %2810 to i1
-  br i1 %2811, label %_ZN5Catch16AssertionHandlerD2Ev.exit760, label %2812
+2804:                                             ; preds = %2803
+  %2805 = getelementptr inbounds nuw i8, ptr %343, i64 58
+  %2806 = load i8, ptr %2805, align 2, !tbaa !33, !range !40, !noundef !41
+  %2807 = trunc nuw i8 %2806 to i1
+  br i1 %2807, label %_ZN5Catch16AssertionHandlerD2Ev.exit760, label %2808
 
-2812:                                             ; preds = %2808
-  %2813 = getelementptr inbounds nuw i8, ptr %343, i64 64
-  %2814 = load ptr, ptr %2813, align 8, !tbaa !42
-  %2815 = load ptr, ptr %2814, align 8, !tbaa !4
-  %2816 = getelementptr inbounds nuw i8, ptr %2815, i64 112
-  %2817 = load ptr, ptr %2816, align 8
-  invoke void %2817(ptr noundef nonnull align 8 dereferenceable(8) %2814, ptr noundef nonnull align 8 dereferenceable(72) %343)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit760 unwind label %2818
+2808:                                             ; preds = %2804
+  %2809 = getelementptr inbounds nuw i8, ptr %343, i64 64
+  %2810 = load ptr, ptr %2809, align 8, !tbaa !42
+  %2811 = load ptr, ptr %2810, align 8, !tbaa !4
+  %2812 = getelementptr inbounds nuw i8, ptr %2811, i64 112
+  %2813 = load ptr, ptr %2812, align 8
+  invoke void %2813(ptr noundef nonnull align 8 dereferenceable(8) %2810, ptr noundef nonnull align 8 dereferenceable(72) %343)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit760 unwind label %2814
 
-2818:                                             ; preds = %2812
-  %2819 = landingpad { ptr, i32 }
+2814:                                             ; preds = %2808
+  %2815 = landingpad { ptr, i32 }
           catch ptr null
-  %2820 = extractvalue { ptr, i32 } %2819, 0
-  call void @__clang_call_terminate(ptr %2820) #22
+  %2816 = extractvalue { ptr, i32 } %2815, 0
+  call void @__clang_call_terminate(ptr %2816) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit760:          ; preds = %2808, %2812
+_ZN5Catch16AssertionHandlerD2Ev.exit760:          ; preds = %2804, %2808
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %343) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %347) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %348) #21
   store ptr @.str.24, ptr %348, align 8
-  %2821 = getelementptr inbounds nuw i8, ptr %348, i64 8
-  store i64 7, ptr %2821, align 8
+  %2817 = getelementptr inbounds nuw i8, ptr %348, i64 8
+  store i64 7, ptr %2817, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %349) #21
   store ptr @.str, ptr %349, align 8, !tbaa !19
-  %2822 = getelementptr inbounds nuw i8, ptr %349, i64 8
-  store i64 133, ptr %2822, align 8, !tbaa !23
+  %2818 = getelementptr inbounds nuw i8, ptr %349, i64 8
+  store i64 133, ptr %2818, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %350, ptr noundef nonnull @.str.80) #21
-  %2823 = load ptr, ptr %350, align 8
-  %2824 = getelementptr inbounds nuw i8, ptr %350, i64 8
-  %2825 = load i64, ptr %2824, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %347, ptr noundef nonnull align 8 dereferenceable(16) %348, ptr noundef nonnull align 8 dereferenceable(16) %349, ptr %2823, i64 %2825, i32 noundef 1)
-          to label %2826 unwind label %2845
+  %2819 = load ptr, ptr %350, align 8
+  %2820 = getelementptr inbounds nuw i8, ptr %350, i64 8
+  %2821 = load i64, ptr %2820, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %347, ptr noundef nonnull align 8 dereferenceable(16) %348, ptr noundef nonnull align 8 dereferenceable(16) %349, ptr %2819, i64 %2821, i32 noundef 1)
+          to label %2822 unwind label %2841
 
-2826:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit760
+2822:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit760
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %349) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %348) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %351) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %352) #21
-  %2827 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
-  store ptr %2827, ptr %352, align 8, !tbaa !49
+  %2823 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
+  store ptr %2823, ptr %352, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %353) #21
   store ptr null, ptr %353, align 8, !tbaa !50
   call void @llvm.experimental.noalias.scope.decl(metadata !222)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
-  %2828 = icmp eq ptr %2827, null
+  %2824 = icmp eq ptr %2823, null
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull @.str.90) #21, !noalias !222
-  %2829 = load ptr, ptr %27, align 8, !noalias !222
-  %2830 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %2831 = load i64, ptr %2830, align 8, !noalias !222
-  %2832 = zext i1 %2828 to i8
-  %2833 = getelementptr inbounds nuw i8, ptr %351, i64 8
-  store i8 1, ptr %2833, align 8, !tbaa !24, !alias.scope !222
-  %2834 = getelementptr inbounds nuw i8, ptr %351, i64 9
-  store i8 %2832, ptr %2834, align 1, !tbaa !30, !alias.scope !222
+  %2825 = load ptr, ptr %27, align 8, !noalias !222
+  %2826 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %2827 = load i64, ptr %2826, align 8, !noalias !222
+  %2828 = zext i1 %2824 to i8
+  %2829 = getelementptr inbounds nuw i8, ptr %351, i64 8
+  store i8 1, ptr %2829, align 8, !tbaa !24, !alias.scope !222
+  %2830 = getelementptr inbounds nuw i8, ptr %351, i64 9
+  store i8 %2828, ptr %2830, align 1, !tbaa !30, !alias.scope !222
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKPKN5vcpkg19IReadBinaryProviderERKDnEE, i64 16), ptr %351, align 8, !tbaa !4, !alias.scope !222
-  %2835 = getelementptr inbounds nuw i8, ptr %351, i64 16
-  store ptr %352, ptr %2835, align 8, !tbaa !55, !alias.scope !222
-  %2836 = getelementptr inbounds nuw i8, ptr %351, i64 24
-  store ptr %2829, ptr %2836, align 8, !tbaa !56, !alias.scope !222
+  %2831 = getelementptr inbounds nuw i8, ptr %351, i64 16
+  store ptr %352, ptr %2831, align 8, !tbaa !55, !alias.scope !222
+  %2832 = getelementptr inbounds nuw i8, ptr %351, i64 24
+  store ptr %2825, ptr %2832, align 8, !tbaa !56, !alias.scope !222
   %.sroa.2.0..sroa_idx.i.i761 = getelementptr inbounds nuw i8, ptr %351, i64 32
-  store i64 %2831, ptr %.sroa.2.0..sroa_idx.i.i761, align 8, !tbaa !57, !alias.scope !222
-  %2837 = getelementptr inbounds nuw i8, ptr %351, i64 40
-  store ptr %353, ptr %2837, align 8, !tbaa !58, !alias.scope !222
+  store i64 %2827, ptr %.sroa.2.0..sroa_idx.i.i761, align 8, !tbaa !57, !alias.scope !222
+  %2833 = getelementptr inbounds nuw i8, ptr %351, i64 40
+  store ptr %353, ptr %2833, align 8, !tbaa !58, !alias.scope !222
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %347, ptr noundef nonnull align 8 dereferenceable(10) %351)
-          to label %2838 unwind label %2847
+          to label %2834 unwind label %2843
 
-2838:                                             ; preds = %2826
+2834:                                             ; preds = %2822
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %351) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %353) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %352) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %351) #21
-  br label %2851
+  br label %2847
 
-2839:                                             ; preds = %.body757
-  %2840 = landingpad { ptr, i32 }
+2835:                                             ; preds = %.body757
+  %2836 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %2843 unwind label %4191
+          to label %2839 unwind label %4187
 
-2841:                                             ; preds = %2807, %2806
-  %2842 = landingpad { ptr, i32 }
+2837:                                             ; preds = %2803, %2802
+  %2838 = landingpad { ptr, i32 }
           cleanup
-  br label %2843
+  br label %2839
 
-2843:                                             ; preds = %2839, %2841
-  %.pn436 = phi { ptr, i32 } [ %2842, %2841 ], [ %2840, %2839 ]
+2839:                                             ; preds = %2835, %2837
+  %.pn436 = phi { ptr, i32 } [ %2838, %2837 ], [ %2836, %2835 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %343) #21
-  br label %2844
+  br label %2840
 
-2844:                                             ; preds = %2843, %2804
-  %.pn436.pn = phi { ptr, i32 } [ %.pn436, %2843 ], [ %2805, %2804 ]
+2840:                                             ; preds = %2839, %2800
+  %.pn436.pn = phi { ptr, i32 } [ %.pn436, %2839 ], [ %2801, %2800 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %343) #21
-  br label %4096
+  br label %4092
 
-2845:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit760
-  %2846 = landingpad { ptr, i32 }
+2841:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit760
+  %2842 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %349) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %348) #21
-  br label %2886
+  br label %2882
 
-2847:                                             ; preds = %2826
-  %2848 = landingpad { ptr, i32 }
+2843:                                             ; preds = %2822
+  %2844 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %351) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %353) #21
-  %.148231 = extractvalue { ptr, i32 } %2848, 0
+  %.148231 = extractvalue { ptr, i32 } %2844, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %352) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %351) #21
-  %2849 = call ptr @__cxa_begin_catch(ptr %.148231) #21
+  %2845 = call ptr @__cxa_begin_catch(ptr %.148231) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %347)
-          to label %2850 unwind label %2881
+          to label %2846 unwind label %2877
 
-2850:                                             ; preds = %2847
+2846:                                             ; preds = %2843
   invoke void @__cxa_end_catch()
-          to label %2851 unwind label %2883
+          to label %2847 unwind label %2879
 
-2851:                                             ; preds = %2850, %2838
+2847:                                             ; preds = %2846, %2834
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %347)
-          to label %2852 unwind label %2883
+          to label %2848 unwind label %2879
 
-2852:                                             ; preds = %2851
-  %2853 = getelementptr inbounds nuw i8, ptr %347, i64 58
-  %2854 = load i8, ptr %2853, align 2, !tbaa !33, !range !40, !noundef !41
-  %2855 = trunc nuw i8 %2854 to i1
-  br i1 %2855, label %_ZN5Catch16AssertionHandlerD2Ev.exit762, label %2856
+2848:                                             ; preds = %2847
+  %2849 = getelementptr inbounds nuw i8, ptr %347, i64 58
+  %2850 = load i8, ptr %2849, align 2, !tbaa !33, !range !40, !noundef !41
+  %2851 = trunc nuw i8 %2850 to i1
+  br i1 %2851, label %_ZN5Catch16AssertionHandlerD2Ev.exit762, label %2852
 
-2856:                                             ; preds = %2852
-  %2857 = getelementptr inbounds nuw i8, ptr %347, i64 64
-  %2858 = load ptr, ptr %2857, align 8, !tbaa !42
-  %2859 = load ptr, ptr %2858, align 8, !tbaa !4
-  %2860 = getelementptr inbounds nuw i8, ptr %2859, i64 112
-  %2861 = load ptr, ptr %2860, align 8
-  invoke void %2861(ptr noundef nonnull align 8 dereferenceable(8) %2858, ptr noundef nonnull align 8 dereferenceable(72) %347)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit762 unwind label %2862
+2852:                                             ; preds = %2848
+  %2853 = getelementptr inbounds nuw i8, ptr %347, i64 64
+  %2854 = load ptr, ptr %2853, align 8, !tbaa !42
+  %2855 = load ptr, ptr %2854, align 8, !tbaa !4
+  %2856 = getelementptr inbounds nuw i8, ptr %2855, i64 112
+  %2857 = load ptr, ptr %2856, align 8
+  invoke void %2857(ptr noundef nonnull align 8 dereferenceable(8) %2854, ptr noundef nonnull align 8 dereferenceable(72) %347)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit762 unwind label %2858
 
-2862:                                             ; preds = %2856
-  %2863 = landingpad { ptr, i32 }
+2858:                                             ; preds = %2852
+  %2859 = landingpad { ptr, i32 }
           catch ptr null
-  %2864 = extractvalue { ptr, i32 } %2863, 0
-  call void @__clang_call_terminate(ptr %2864) #22
+  %2860 = extractvalue { ptr, i32 } %2859, 0
+  call void @__clang_call_terminate(ptr %2860) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit762:          ; preds = %2852, %2856
+_ZN5Catch16AssertionHandlerD2Ev.exit762:          ; preds = %2848, %2852
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %347) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %354) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %355) #21
   store ptr @.str.24, ptr %355, align 8
-  %2865 = getelementptr inbounds nuw i8, ptr %355, i64 8
-  store i64 7, ptr %2865, align 8
+  %2861 = getelementptr inbounds nuw i8, ptr %355, i64 8
+  store i64 7, ptr %2861, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %356) #21
   store ptr @.str, ptr %356, align 8, !tbaa !19
-  %2866 = getelementptr inbounds nuw i8, ptr %356, i64 8
-  store i64 134, ptr %2866, align 8, !tbaa !23
+  %2862 = getelementptr inbounds nuw i8, ptr %356, i64 8
+  store i64 134, ptr %2862, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %357, ptr noundef nonnull @.str.81) #21
-  %2867 = load ptr, ptr %357, align 8
-  %2868 = getelementptr inbounds nuw i8, ptr %357, i64 8
-  %2869 = load i64, ptr %2868, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %354, ptr noundef nonnull align 8 dereferenceable(16) %355, ptr noundef nonnull align 8 dereferenceable(16) %356, ptr %2867, i64 %2869, i32 noundef 1)
-          to label %2870 unwind label %2887
+  %2863 = load ptr, ptr %357, align 8
+  %2864 = getelementptr inbounds nuw i8, ptr %357, i64 8
+  %2865 = load i64, ptr %2864, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %354, ptr noundef nonnull align 8 dereferenceable(16) %355, ptr noundef nonnull align 8 dereferenceable(16) %356, ptr %2863, i64 %2865, i32 noundef 1)
+          to label %2866 unwind label %2883
 
-2870:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit762
+2866:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit762
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %356) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %355) #21
-  %2871 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
-  %2872 = xor i1 %2871, true
-  %2873 = zext i1 %2872 to i8
+  %2867 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
+  %2868 = xor i1 %2867, true
+  %2869 = zext i1 %2868 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #21
-  %2874 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i8 0, ptr %2874, align 8, !tbaa !24, !alias.scope !225
-  %2875 = getelementptr inbounds nuw i8, ptr %26, i64 9
-  store i8 %2873, ptr %2875, align 1, !tbaa !30, !alias.scope !225
+  %2870 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i8 0, ptr %2870, align 8, !tbaa !24, !alias.scope !225
+  %2871 = getelementptr inbounds nuw i8, ptr %26, i64 9
+  store i8 %2869, ptr %2871, align 1, !tbaa !30, !alias.scope !225
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %26, align 8, !tbaa !4, !alias.scope !225
-  %2876 = getelementptr inbounds nuw i8, ptr %26, i64 10
-  store i8 %2873, ptr %2876, align 2, !tbaa !31, !alias.scope !225
+  %2872 = getelementptr inbounds nuw i8, ptr %26, i64 10
+  store i8 %2869, ptr %2872, align 2, !tbaa !31, !alias.scope !225
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %354, ptr noundef nonnull align 8 dereferenceable(10) %26)
-          to label %2880 unwind label %.body763
+          to label %2876 unwind label %.body763
 
-.body763:                                         ; preds = %2870
-  %2877 = landingpad { ptr, i32 }
+.body763:                                         ; preds = %2866
+  %2873 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %26) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #21
-  %2878 = extractvalue { ptr, i32 } %2877, 0
-  %2879 = call ptr @__cxa_begin_catch(ptr %2878) #21
+  %2874 = extractvalue { ptr, i32 } %2873, 0
+  %2875 = call ptr @__cxa_begin_catch(ptr %2874) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %354)
-          to label %2889 unwind label %2958
+          to label %2885 unwind label %2954
 
-2880:                                             ; preds = %2870
+2876:                                             ; preds = %2866
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %26) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #21
-  br label %2890
-
-2881:                                             ; preds = %2847
-  %2882 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2885 unwind label %4191
-
-2883:                                             ; preds = %2851, %2850
-  %2884 = landingpad { ptr, i32 }
-          cleanup
-  br label %2885
-
-2885:                                             ; preds = %2881, %2883
-  %.pn440 = phi { ptr, i32 } [ %2884, %2883 ], [ %2882, %2881 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %347) #21
   br label %2886
 
-2886:                                             ; preds = %2885, %2845
-  %.pn440.pn = phi { ptr, i32 } [ %.pn440, %2885 ], [ %2846, %2845 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %347) #21
-  br label %4096
+2877:                                             ; preds = %2843
+  %2878 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2881 unwind label %4187
 
-2887:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit762
-  %2888 = landingpad { ptr, i32 }
+2879:                                             ; preds = %2847, %2846
+  %2880 = landingpad { ptr, i32 }
+          cleanup
+  br label %2881
+
+2881:                                             ; preds = %2877, %2879
+  %.pn440 = phi { ptr, i32 } [ %2880, %2879 ], [ %2878, %2877 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %347) #21
+  br label %2882
+
+2882:                                             ; preds = %2881, %2841
+  %.pn440.pn = phi { ptr, i32 } [ %.pn440, %2881 ], [ %2842, %2841 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %347) #21
+  br label %4092
+
+2883:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit762
+  %2884 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %356) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %355) #21
-  br label %2963
+  br label %2959
 
-2889:                                             ; preds = %.body763
+2885:                                             ; preds = %.body763
   invoke void @__cxa_end_catch()
-          to label %2890 unwind label %2960
+          to label %2886 unwind label %2956
 
-2890:                                             ; preds = %2889, %2880
+2886:                                             ; preds = %2885, %2876
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %354)
-          to label %2891 unwind label %2960
+          to label %2887 unwind label %2956
 
-2891:                                             ; preds = %2890
-  %2892 = getelementptr inbounds nuw i8, ptr %354, i64 58
-  %2893 = load i8, ptr %2892, align 2, !tbaa !33, !range !40, !noundef !41
-  %2894 = trunc nuw i8 %2893 to i1
-  br i1 %2894, label %_ZN5Catch16AssertionHandlerD2Ev.exit766, label %2895
+2887:                                             ; preds = %2886
+  %2888 = getelementptr inbounds nuw i8, ptr %354, i64 58
+  %2889 = load i8, ptr %2888, align 2, !tbaa !33, !range !40, !noundef !41
+  %2890 = trunc nuw i8 %2889 to i1
+  br i1 %2890, label %_ZN5Catch16AssertionHandlerD2Ev.exit766, label %2891
 
-2895:                                             ; preds = %2891
-  %2896 = getelementptr inbounds nuw i8, ptr %354, i64 64
-  %2897 = load ptr, ptr %2896, align 8, !tbaa !42
-  %2898 = load ptr, ptr %2897, align 8, !tbaa !4
-  %2899 = getelementptr inbounds nuw i8, ptr %2898, i64 112
-  %2900 = load ptr, ptr %2899, align 8
-  invoke void %2900(ptr noundef nonnull align 8 dereferenceable(8) %2897, ptr noundef nonnull align 8 dereferenceable(72) %354)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit766 unwind label %2901
+2891:                                             ; preds = %2887
+  %2892 = getelementptr inbounds nuw i8, ptr %354, i64 64
+  %2893 = load ptr, ptr %2892, align 8, !tbaa !42
+  %2894 = load ptr, ptr %2893, align 8, !tbaa !4
+  %2895 = getelementptr inbounds nuw i8, ptr %2894, i64 112
+  %2896 = load ptr, ptr %2895, align 8
+  invoke void %2896(ptr noundef nonnull align 8 dereferenceable(8) %2893, ptr noundef nonnull align 8 dereferenceable(72) %354)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit766 unwind label %2897
 
-2901:                                             ; preds = %2895
-  %2902 = landingpad { ptr, i32 }
+2897:                                             ; preds = %2891
+  %2898 = landingpad { ptr, i32 }
           catch ptr null
-  %2903 = extractvalue { ptr, i32 } %2902, 0
-  call void @__clang_call_terminate(ptr %2903) #22
+  %2899 = extractvalue { ptr, i32 } %2898, 0
+  call void @__clang_call_terminate(ptr %2899) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit766:          ; preds = %2891, %2895
+_ZN5Catch16AssertionHandlerD2Ev.exit766:          ; preds = %2887, %2891
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %354) #21
-  %2904 = load i8, ptr %132, align 8, !tbaa !7
-  store i8 %2904, ptr %334, align 8, !tbaa !7
-  %2905 = load ptr, ptr %1563, align 8, !tbaa !112
-  %2906 = load ptr, ptr %869, align 8, !tbaa !113
-  %2907 = ptrtoint ptr %2905 to i64
+  %2900 = load i8, ptr %132, align 8, !tbaa !7
+  store i8 %2900, ptr %334, align 8, !tbaa !7
+  %2901 = load ptr, ptr %1561, align 8, !tbaa !112
+  %2902 = load ptr, ptr %869, align 8, !tbaa !113
+  %2903 = ptrtoint ptr %2901 to i64
+  %2904 = ptrtoint ptr %2902 to i64
+  %2905 = sub i64 %2903, %2904
+  %2906 = load ptr, ptr %2688, align 8, !tbaa !115
+  %2907 = load ptr, ptr %2681, align 8, !tbaa !113
   %2908 = ptrtoint ptr %2906 to i64
-  %2909 = sub i64 %2907, %2908
-  %2910 = load ptr, ptr %2692, align 8, !tbaa !114
-  %2911 = load ptr, ptr %2685, align 8, !tbaa !113
-  %2912 = ptrtoint ptr %2910 to i64
-  %2913 = ptrtoint ptr %2911 to i64
-  %2914 = sub i64 %2912, %2913
-  %2915 = icmp ugt i64 %2909, %2914
-  br i1 %2915, label %2916, label %2922
+  %2909 = ptrtoint ptr %2907 to i64
+  %2910 = sub i64 %2908, %2909
+  %2911 = icmp ugt i64 %2905, %2910
+  br i1 %2911, label %2912, label %2918
 
-2916:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit766
-  %2917 = icmp ugt i64 %2909, 9223372036854775800
-  br i1 %2917, label %.invoke, label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i932, !prof !115
+2912:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit766
+  %2913 = icmp ugt i64 %2905, 9223372036854775800
+  br i1 %2913, label %.invoke, label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i932, !prof !114
 
-_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i932: ; preds = %2916
-  %2918 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %2909) #24
-          to label %.noexc938 unwind label %2725
+_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i932: ; preds = %2912
+  %2914 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %2905) #24
+          to label %.noexc938 unwind label %2721
 
 .noexc938:                                        ; preds = %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i932
-  %.not.i.i.i.i.i.i.i.i.i.i933 = icmp eq ptr %2905, %2906
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i933, label %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i934, label %2919
+  %.not.i.i.i.i.i.i.i.i.i.i933 = icmp eq ptr %2901, %2902
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i933, label %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i934, label %2915
 
-2919:                                             ; preds = %.noexc938
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2918, ptr align 8 %2906, i64 %2909, i1 false)
+2915:                                             ; preds = %.noexc938
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2914, ptr align 8 %2902, i64 %2905, i1 false)
   br label %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i934
 
-_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i934: ; preds = %2919, %.noexc938
-  %.not.i.i935 = icmp eq ptr %2911, null
-  br i1 %.not.i.i935, label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i936, label %2920
+_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i934: ; preds = %2915, %.noexc938
+  %.not.i.i935 = icmp eq ptr %2907, null
+  br i1 %.not.i.i935, label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i936, label %2916
 
-2920:                                             ; preds = %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i934
-  call void @_ZdlPvm(ptr noundef nonnull %2911, i64 noundef %2914) #25
+2916:                                             ; preds = %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i934
+  call void @_ZdlPvm(ptr noundef nonnull %2907, i64 noundef %2910) #25
   br label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i936
 
-_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i936: ; preds = %2920, %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i934
-  store ptr %2918, ptr %2685, align 8, !tbaa !113
-  %2921 = getelementptr inbounds nuw i8, ptr %2918, i64 %2909
-  store ptr %2921, ptr %2692, align 8, !tbaa !114
-  br label %2938
+_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i936: ; preds = %2916, %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i934
+  store ptr %2914, ptr %2681, align 8, !tbaa !113
+  %2917 = getelementptr inbounds nuw i8, ptr %2914, i64 %2905
+  store ptr %2917, ptr %2688, align 8, !tbaa !115
+  br label %2934
 
-2922:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit766
-  %2923 = load ptr, ptr %2700, align 8, !tbaa !112
-  %2924 = ptrtoint ptr %2923 to i64
-  %2925 = sub i64 %2924, %2913
-  %.not24.i919 = icmp ult i64 %2925, %2909
-  br i1 %.not24.i919, label %2928, label %2926
+2918:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit766
+  %2919 = load ptr, ptr %2696, align 8, !tbaa !112
+  %2920 = ptrtoint ptr %2919 to i64
+  %2921 = sub i64 %2920, %2909
+  %.not24.i919 = icmp ult i64 %2921, %2905
+  br i1 %.not24.i919, label %2924, label %2922
 
-2926:                                             ; preds = %2922
-  %.not.i.i.i.i.i.i920 = icmp eq ptr %2905, %2906
-  br i1 %.not.i.i.i.i.i.i920, label %2938, label %2927
+2922:                                             ; preds = %2918
+  %.not.i.i.i.i.i.i920 = icmp eq ptr %2901, %2902
+  br i1 %.not.i.i.i.i.i.i920, label %2934, label %2923
 
-2927:                                             ; preds = %2926
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %2911, ptr align 8 %2906, i64 %2909, i1 false)
-  br label %2938
+2923:                                             ; preds = %2922
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %2907, ptr align 8 %2902, i64 %2905, i1 false)
+  br label %2934
 
-2928:                                             ; preds = %2922
-  %.not.i.i.i.i.i25.i921 = icmp eq ptr %2923, %2911
-  br i1 %.not.i.i.i.i.i25.i921, label %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i929, label %2929
+2924:                                             ; preds = %2918
+  %.not.i.i.i.i.i25.i921 = icmp eq ptr %2919, %2907
+  br i1 %.not.i.i.i.i.i25.i921, label %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i929, label %2925
 
-2929:                                             ; preds = %2928
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %2911, ptr align 8 %2906, i64 %2925, i1 false)
+2925:                                             ; preds = %2924
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %2907, ptr align 8 %2902, i64 %2921, i1 false)
   %.pre.i922 = load ptr, ptr %869, align 8, !tbaa !113
-  %.pre26.i923 = load ptr, ptr %2700, align 8, !tbaa !112
-  %.pre27.i924 = load ptr, ptr %2685, align 8, !tbaa !113
-  %.pre28.i925 = load ptr, ptr %1563, align 8, !tbaa !112
+  %.pre26.i923 = load ptr, ptr %2696, align 8, !tbaa !112
+  %.pre27.i924 = load ptr, ptr %2681, align 8, !tbaa !113
+  %.pre28.i925 = load ptr, ptr %1561, align 8, !tbaa !112
   %.pre29.i926 = ptrtoint ptr %.pre26.i923 to i64
   %.pre30.i927 = ptrtoint ptr %.pre27.i924 to i64
   %.pre32.i928 = sub i64 %.pre29.i926, %.pre30.i927
   br label %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i929
 
-_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i929: ; preds = %2929, %2928
-  %.pre-phi33.i930 = phi i64 [ 0, %2928 ], [ %.pre32.i928, %2929 ]
-  %2930 = phi ptr [ %2905, %2928 ], [ %.pre28.i925, %2929 ]
-  %2931 = phi ptr [ %2923, %2928 ], [ %.pre26.i923, %2929 ]
-  %2932 = phi ptr [ %2906, %2928 ], [ %.pre.i922, %2929 ]
-  %2933 = getelementptr inbounds nuw i8, ptr %2932, i64 %.pre-phi33.i930
-  %.not.i.i.i.i.i.i.i.i.i931 = icmp eq ptr %2930, %2933
-  br i1 %.not.i.i.i.i.i.i.i.i.i931, label %2938, label %2934
+_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i929: ; preds = %2925, %2924
+  %.pre-phi33.i930 = phi i64 [ 0, %2924 ], [ %.pre32.i928, %2925 ]
+  %2926 = phi ptr [ %2901, %2924 ], [ %.pre28.i925, %2925 ]
+  %2927 = phi ptr [ %2919, %2924 ], [ %.pre26.i923, %2925 ]
+  %2928 = phi ptr [ %2902, %2924 ], [ %.pre.i922, %2925 ]
+  %2929 = getelementptr inbounds nuw i8, ptr %2928, i64 %.pre-phi33.i930
+  %.not.i.i.i.i.i.i.i.i.i931 = icmp eq ptr %2926, %2929
+  br i1 %.not.i.i.i.i.i.i.i.i.i931, label %2934, label %2930
 
-2934:                                             ; preds = %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i929
-  %2935 = ptrtoint ptr %2930 to i64
-  %2936 = ptrtoint ptr %2933 to i64
-  %2937 = sub i64 %2935, %2936
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %2931, ptr align 8 %2933, i64 %2937, i1 false)
-  br label %2938
+2930:                                             ; preds = %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i929
+  %2931 = ptrtoint ptr %2926 to i64
+  %2932 = ptrtoint ptr %2929 to i64
+  %2933 = sub i64 %2931, %2932
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %2927, ptr align 8 %2929, i64 %2933, i1 false)
+  br label %2934
 
-2938:                                             ; preds = %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i936, %2926, %2927, %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i929, %2934
-  %2939 = load ptr, ptr %2685, align 8, !tbaa !113
-  %2940 = getelementptr inbounds nuw i8, ptr %2939, i64 %2909
-  store ptr %2940, ptr %2700, align 8, !tbaa !112
-  %2941 = load ptr, ptr %1584, align 8, !tbaa !116
-  store ptr %2941, ptr %2702, align 8, !tbaa !116
+2934:                                             ; preds = %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i936, %2922, %2923, %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i929, %2930
+  %2935 = load ptr, ptr %2681, align 8, !tbaa !113
+  %2936 = getelementptr inbounds nuw i8, ptr %2935, i64 %2905
+  store ptr %2936, ptr %2696, align 8, !tbaa !112
+  %2937 = load ptr, ptr %1581, align 8, !tbaa !116
+  store ptr %2937, ptr %2698, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %358) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %359) #21
   store ptr @.str.24, ptr %359, align 8
-  %2942 = getelementptr inbounds nuw i8, ptr %359, i64 8
-  store i64 7, ptr %2942, align 8
+  %2938 = getelementptr inbounds nuw i8, ptr %359, i64 8
+  store i64 7, ptr %2938, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %360) #21
   store ptr @.str, ptr %360, align 8, !tbaa !19
-  %2943 = getelementptr inbounds nuw i8, ptr %360, i64 8
-  store i64 136, ptr %2943, align 8, !tbaa !23
+  %2939 = getelementptr inbounds nuw i8, ptr %360, i64 8
+  store i64 136, ptr %2939, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %361, ptr noundef nonnull @.str.77) #21
-  %2944 = load ptr, ptr %361, align 8
-  %2945 = getelementptr inbounds nuw i8, ptr %361, i64 8
-  %2946 = load i64, ptr %2945, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %358, ptr noundef nonnull align 8 dereferenceable(16) %359, ptr noundef nonnull align 8 dereferenceable(16) %360, ptr %2944, i64 %2946, i32 noundef 1)
-          to label %2947 unwind label %2964
+  %2940 = load ptr, ptr %361, align 8
+  %2941 = getelementptr inbounds nuw i8, ptr %361, i64 8
+  %2942 = load i64, ptr %2941, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %358, ptr noundef nonnull align 8 dereferenceable(16) %359, ptr noundef nonnull align 8 dereferenceable(16) %360, ptr %2940, i64 %2942, i32 noundef 1)
+          to label %2943 unwind label %2960
 
-2947:                                             ; preds = %2938
+2943:                                             ; preds = %2934
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %360) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %359) #21
-  %2948 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %2949 = xor i1 %2948, true
-  %2950 = zext i1 %2949 to i8
+  %2944 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %2945 = xor i1 %2944, true
+  %2946 = zext i1 %2945 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #21
-  %2951 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i8 0, ptr %2951, align 8, !tbaa !24, !alias.scope !228
-  %2952 = getelementptr inbounds nuw i8, ptr %25, i64 9
-  store i8 %2950, ptr %2952, align 1, !tbaa !30, !alias.scope !228
+  %2947 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i8 0, ptr %2947, align 8, !tbaa !24, !alias.scope !228
+  %2948 = getelementptr inbounds nuw i8, ptr %25, i64 9
+  store i8 %2946, ptr %2948, align 1, !tbaa !30, !alias.scope !228
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %25, align 8, !tbaa !4, !alias.scope !228
-  %2953 = getelementptr inbounds nuw i8, ptr %25, i64 10
-  store i8 %2950, ptr %2953, align 2, !tbaa !31, !alias.scope !228
+  %2949 = getelementptr inbounds nuw i8, ptr %25, i64 10
+  store i8 %2946, ptr %2949, align 2, !tbaa !31, !alias.scope !228
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %358, ptr noundef nonnull align 8 dereferenceable(10) %25)
-          to label %2957 unwind label %.body769
+          to label %2953 unwind label %.body769
 
-.body769:                                         ; preds = %2947
-  %2954 = landingpad { ptr, i32 }
+.body769:                                         ; preds = %2943
+  %2950 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %25) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #21
-  %2955 = extractvalue { ptr, i32 } %2954, 0
-  %2956 = call ptr @__cxa_begin_catch(ptr %2955) #21
+  %2951 = extractvalue { ptr, i32 } %2950, 0
+  %2952 = call ptr @__cxa_begin_catch(ptr %2951) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %358)
-          to label %2966 unwind label %2996
+          to label %2962 unwind label %2992
 
-2957:                                             ; preds = %2947
+2953:                                             ; preds = %2943
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %25) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #21
-  br label %2967
-
-2958:                                             ; preds = %.body763
-  %2959 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %2962 unwind label %4191
-
-2960:                                             ; preds = %2890, %2889
-  %2961 = landingpad { ptr, i32 }
-          cleanup
-  br label %2962
-
-2962:                                             ; preds = %2958, %2960
-  %.pn443 = phi { ptr, i32 } [ %2961, %2960 ], [ %2959, %2958 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %354) #21
   br label %2963
 
-2963:                                             ; preds = %2962, %2887
-  %.pn443.pn = phi { ptr, i32 } [ %.pn443, %2962 ], [ %2888, %2887 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %354) #21
-  br label %4096
+2954:                                             ; preds = %.body763
+  %2955 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2958 unwind label %4187
 
-2964:                                             ; preds = %2938
-  %2965 = landingpad { ptr, i32 }
+2956:                                             ; preds = %2886, %2885
+  %2957 = landingpad { ptr, i32 }
+          cleanup
+  br label %2958
+
+2958:                                             ; preds = %2954, %2956
+  %.pn443 = phi { ptr, i32 } [ %2957, %2956 ], [ %2955, %2954 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %354) #21
+  br label %2959
+
+2959:                                             ; preds = %2958, %2883
+  %.pn443.pn = phi { ptr, i32 } [ %.pn443, %2958 ], [ %2884, %2883 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %354) #21
+  br label %4092
+
+2960:                                             ; preds = %2934
+  %2961 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %360) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %359) #21
-  br label %3001
+  br label %2997
 
-2966:                                             ; preds = %.body769
+2962:                                             ; preds = %.body769
   invoke void @__cxa_end_catch()
-          to label %2967 unwind label %2998
+          to label %2963 unwind label %2994
 
-2967:                                             ; preds = %2966, %2957
+2963:                                             ; preds = %2962, %2953
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %358)
-          to label %2968 unwind label %2998
+          to label %2964 unwind label %2994
 
-2968:                                             ; preds = %2967
-  %2969 = getelementptr inbounds nuw i8, ptr %358, i64 58
-  %2970 = load i8, ptr %2969, align 2, !tbaa !33, !range !40, !noundef !41
-  %2971 = trunc nuw i8 %2970 to i1
-  br i1 %2971, label %_ZN5Catch16AssertionHandlerD2Ev.exit772, label %2972
+2964:                                             ; preds = %2963
+  %2965 = getelementptr inbounds nuw i8, ptr %358, i64 58
+  %2966 = load i8, ptr %2965, align 2, !tbaa !33, !range !40, !noundef !41
+  %2967 = trunc nuw i8 %2966 to i1
+  br i1 %2967, label %_ZN5Catch16AssertionHandlerD2Ev.exit772, label %2968
 
-2972:                                             ; preds = %2968
-  %2973 = getelementptr inbounds nuw i8, ptr %358, i64 64
-  %2974 = load ptr, ptr %2973, align 8, !tbaa !42
-  %2975 = load ptr, ptr %2974, align 8, !tbaa !4
-  %2976 = getelementptr inbounds nuw i8, ptr %2975, i64 112
-  %2977 = load ptr, ptr %2976, align 8
-  invoke void %2977(ptr noundef nonnull align 8 dereferenceable(8) %2974, ptr noundef nonnull align 8 dereferenceable(72) %358)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit772 unwind label %2978
+2968:                                             ; preds = %2964
+  %2969 = getelementptr inbounds nuw i8, ptr %358, i64 64
+  %2970 = load ptr, ptr %2969, align 8, !tbaa !42
+  %2971 = load ptr, ptr %2970, align 8, !tbaa !4
+  %2972 = getelementptr inbounds nuw i8, ptr %2971, i64 112
+  %2973 = load ptr, ptr %2972, align 8
+  invoke void %2973(ptr noundef nonnull align 8 dereferenceable(8) %2970, ptr noundef nonnull align 8 dereferenceable(72) %358)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit772 unwind label %2974
 
-2978:                                             ; preds = %2972
-  %2979 = landingpad { ptr, i32 }
+2974:                                             ; preds = %2968
+  %2975 = landingpad { ptr, i32 }
           catch ptr null
-  %2980 = extractvalue { ptr, i32 } %2979, 0
-  call void @__clang_call_terminate(ptr %2980) #22
+  %2976 = extractvalue { ptr, i32 } %2975, 0
+  call void @__clang_call_terminate(ptr %2976) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit772:          ; preds = %2968, %2972
+_ZN5Catch16AssertionHandlerD2Ev.exit772:          ; preds = %2964, %2968
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %358) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %362) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %363) #21
   store ptr @.str.24, ptr %363, align 8
-  %2981 = getelementptr inbounds nuw i8, ptr %363, i64 8
-  store i64 7, ptr %2981, align 8
+  %2977 = getelementptr inbounds nuw i8, ptr %363, i64 8
+  store i64 7, ptr %2977, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %364) #21
   store ptr @.str, ptr %364, align 8, !tbaa !19
-  %2982 = getelementptr inbounds nuw i8, ptr %364, i64 8
-  store i64 137, ptr %2982, align 8, !tbaa !23
+  %2978 = getelementptr inbounds nuw i8, ptr %364, i64 8
+  store i64 137, ptr %2978, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %365, ptr noundef nonnull @.str.82) #21
-  %2983 = load ptr, ptr %365, align 8
-  %2984 = getelementptr inbounds nuw i8, ptr %365, i64 8
-  %2985 = load i64, ptr %2984, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %362, ptr noundef nonnull align 8 dereferenceable(16) %363, ptr noundef nonnull align 8 dereferenceable(16) %364, ptr %2983, i64 %2985, i32 noundef 1)
-          to label %2986 unwind label %3002
+  %2979 = load ptr, ptr %365, align 8
+  %2980 = getelementptr inbounds nuw i8, ptr %365, i64 8
+  %2981 = load i64, ptr %2980, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %362, ptr noundef nonnull align 8 dereferenceable(16) %363, ptr noundef nonnull align 8 dereferenceable(16) %364, ptr %2979, i64 %2981, i32 noundef 1)
+          to label %2982 unwind label %2998
 
-2986:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit772
+2982:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit772
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %364) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %363) #21
-  %2987 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %2988 = zext i1 %2987 to i8
+  %2983 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %2984 = zext i1 %2983 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #21
-  %2989 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i8 0, ptr %2989, align 8, !tbaa !24, !alias.scope !231
-  %2990 = getelementptr inbounds nuw i8, ptr %24, i64 9
-  store i8 %2988, ptr %2990, align 1, !tbaa !30, !alias.scope !231
+  %2985 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i8 0, ptr %2985, align 8, !tbaa !24, !alias.scope !231
+  %2986 = getelementptr inbounds nuw i8, ptr %24, i64 9
+  store i8 %2984, ptr %2986, align 1, !tbaa !30, !alias.scope !231
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %24, align 8, !tbaa !4, !alias.scope !231
-  %2991 = getelementptr inbounds nuw i8, ptr %24, i64 10
-  store i8 %2988, ptr %2991, align 2, !tbaa !31, !alias.scope !231
+  %2987 = getelementptr inbounds nuw i8, ptr %24, i64 10
+  store i8 %2984, ptr %2987, align 2, !tbaa !31, !alias.scope !231
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %362, ptr noundef nonnull align 8 dereferenceable(10) %24)
-          to label %2995 unwind label %.body773
+          to label %2991 unwind label %.body773
 
-.body773:                                         ; preds = %2986
-  %2992 = landingpad { ptr, i32 }
+.body773:                                         ; preds = %2982
+  %2988 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %24) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #21
-  %2993 = extractvalue { ptr, i32 } %2992, 0
-  %2994 = call ptr @__cxa_begin_catch(ptr %2993) #21
+  %2989 = extractvalue { ptr, i32 } %2988, 0
+  %2990 = call ptr @__cxa_begin_catch(ptr %2989) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %362)
-          to label %3004 unwind label %3035
+          to label %3000 unwind label %3031
 
-2995:                                             ; preds = %2986
+2991:                                             ; preds = %2982
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %24) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #21
-  br label %3005
-
-2996:                                             ; preds = %.body769
-  %2997 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3000 unwind label %4191
-
-2998:                                             ; preds = %2967, %2966
-  %2999 = landingpad { ptr, i32 }
-          cleanup
-  br label %3000
-
-3000:                                             ; preds = %2996, %2998
-  %.pn446 = phi { ptr, i32 } [ %2999, %2998 ], [ %2997, %2996 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %358) #21
   br label %3001
 
-3001:                                             ; preds = %3000, %2964
-  %.pn446.pn = phi { ptr, i32 } [ %.pn446, %3000 ], [ %2965, %2964 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %358) #21
-  br label %4096
+2992:                                             ; preds = %.body769
+  %2993 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %2996 unwind label %4187
 
-3002:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit772
-  %3003 = landingpad { ptr, i32 }
+2994:                                             ; preds = %2963, %2962
+  %2995 = landingpad { ptr, i32 }
+          cleanup
+  br label %2996
+
+2996:                                             ; preds = %2992, %2994
+  %.pn446 = phi { ptr, i32 } [ %2995, %2994 ], [ %2993, %2992 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %358) #21
+  br label %2997
+
+2997:                                             ; preds = %2996, %2960
+  %.pn446.pn = phi { ptr, i32 } [ %.pn446, %2996 ], [ %2961, %2960 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %358) #21
+  br label %4092
+
+2998:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit772
+  %2999 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %364) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %363) #21
-  br label %3040
+  br label %3036
 
-3004:                                             ; preds = %.body773
+3000:                                             ; preds = %.body773
   invoke void @__cxa_end_catch()
-          to label %3005 unwind label %3037
+          to label %3001 unwind label %3033
 
-3005:                                             ; preds = %3004, %2995
+3001:                                             ; preds = %3000, %2991
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %362)
-          to label %3006 unwind label %3037
+          to label %3002 unwind label %3033
 
-3006:                                             ; preds = %3005
-  %3007 = getelementptr inbounds nuw i8, ptr %362, i64 58
-  %3008 = load i8, ptr %3007, align 2, !tbaa !33, !range !40, !noundef !41
-  %3009 = trunc nuw i8 %3008 to i1
-  br i1 %3009, label %_ZN5Catch16AssertionHandlerD2Ev.exit776, label %3010
+3002:                                             ; preds = %3001
+  %3003 = getelementptr inbounds nuw i8, ptr %362, i64 58
+  %3004 = load i8, ptr %3003, align 2, !tbaa !33, !range !40, !noundef !41
+  %3005 = trunc nuw i8 %3004 to i1
+  br i1 %3005, label %_ZN5Catch16AssertionHandlerD2Ev.exit776, label %3006
 
-3010:                                             ; preds = %3006
-  %3011 = getelementptr inbounds nuw i8, ptr %362, i64 64
-  %3012 = load ptr, ptr %3011, align 8, !tbaa !42
-  %3013 = load ptr, ptr %3012, align 8, !tbaa !4
-  %3014 = getelementptr inbounds nuw i8, ptr %3013, i64 112
-  %3015 = load ptr, ptr %3014, align 8
-  invoke void %3015(ptr noundef nonnull align 8 dereferenceable(8) %3012, ptr noundef nonnull align 8 dereferenceable(72) %362)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit776 unwind label %3016
+3006:                                             ; preds = %3002
+  %3007 = getelementptr inbounds nuw i8, ptr %362, i64 64
+  %3008 = load ptr, ptr %3007, align 8, !tbaa !42
+  %3009 = load ptr, ptr %3008, align 8, !tbaa !4
+  %3010 = getelementptr inbounds nuw i8, ptr %3009, i64 112
+  %3011 = load ptr, ptr %3010, align 8
+  invoke void %3011(ptr noundef nonnull align 8 dereferenceable(8) %3008, ptr noundef nonnull align 8 dereferenceable(72) %362)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit776 unwind label %3012
 
-3016:                                             ; preds = %3010
-  %3017 = landingpad { ptr, i32 }
+3012:                                             ; preds = %3006
+  %3013 = landingpad { ptr, i32 }
           catch ptr null
-  %3018 = extractvalue { ptr, i32 } %3017, 0
-  call void @__clang_call_terminate(ptr %3018) #22
+  %3014 = extractvalue { ptr, i32 } %3013, 0
+  call void @__clang_call_terminate(ptr %3014) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit776:          ; preds = %3006, %3010
+_ZN5Catch16AssertionHandlerD2Ev.exit776:          ; preds = %3002, %3006
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %362) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %366) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %367) #21
   store ptr @.str.24, ptr %367, align 8
-  %3019 = getelementptr inbounds nuw i8, ptr %367, i64 8
-  store i64 7, ptr %3019, align 8
+  %3015 = getelementptr inbounds nuw i8, ptr %367, i64 8
+  store i64 7, ptr %3015, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %368) #21
   store ptr @.str, ptr %368, align 8, !tbaa !19
-  %3020 = getelementptr inbounds nuw i8, ptr %368, i64 8
-  store i64 138, ptr %3020, align 8, !tbaa !23
+  %3016 = getelementptr inbounds nuw i8, ptr %368, i64 8
+  store i64 138, ptr %3016, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %369, ptr noundef nonnull @.str.83) #21
-  %3021 = load ptr, ptr %369, align 8
-  %3022 = getelementptr inbounds nuw i8, ptr %369, i64 8
-  %3023 = load i64, ptr %3022, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %366, ptr noundef nonnull align 8 dereferenceable(16) %367, ptr noundef nonnull align 8 dereferenceable(16) %368, ptr %3021, i64 %3023, i32 noundef 1)
-          to label %3024 unwind label %3041
+  %3017 = load ptr, ptr %369, align 8
+  %3018 = getelementptr inbounds nuw i8, ptr %369, i64 8
+  %3019 = load i64, ptr %3018, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %366, ptr noundef nonnull align 8 dereferenceable(16) %367, ptr noundef nonnull align 8 dereferenceable(16) %368, ptr %3017, i64 %3019, i32 noundef 1)
+          to label %3020 unwind label %3037
 
-3024:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit776
+3020:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit776
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %368) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %367) #21
-  %3025 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3026 = xor i1 %3025, true
-  %3027 = zext i1 %3026 to i8
+  %3021 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3022 = xor i1 %3021, true
+  %3023 = zext i1 %3022 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #21
-  %3028 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i8 0, ptr %3028, align 8, !tbaa !24, !alias.scope !234
-  %3029 = getelementptr inbounds nuw i8, ptr %23, i64 9
-  store i8 %3027, ptr %3029, align 1, !tbaa !30, !alias.scope !234
+  %3024 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i8 0, ptr %3024, align 8, !tbaa !24, !alias.scope !234
+  %3025 = getelementptr inbounds nuw i8, ptr %23, i64 9
+  store i8 %3023, ptr %3025, align 1, !tbaa !30, !alias.scope !234
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %23, align 8, !tbaa !4, !alias.scope !234
-  %3030 = getelementptr inbounds nuw i8, ptr %23, i64 10
-  store i8 %3027, ptr %3030, align 2, !tbaa !31, !alias.scope !234
+  %3026 = getelementptr inbounds nuw i8, ptr %23, i64 10
+  store i8 %3023, ptr %3026, align 2, !tbaa !31, !alias.scope !234
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %366, ptr noundef nonnull align 8 dereferenceable(10) %23)
-          to label %3034 unwind label %.body777
+          to label %3030 unwind label %.body777
 
-.body777:                                         ; preds = %3024
-  %3031 = landingpad { ptr, i32 }
+.body777:                                         ; preds = %3020
+  %3027 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %23) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #21
-  %3032 = extractvalue { ptr, i32 } %3031, 0
-  %3033 = call ptr @__cxa_begin_catch(ptr %3032) #21
+  %3028 = extractvalue { ptr, i32 } %3027, 0
+  %3029 = call ptr @__cxa_begin_catch(ptr %3028) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %366)
-          to label %3043 unwind label %3076
+          to label %3039 unwind label %3072
 
-3034:                                             ; preds = %3024
+3030:                                             ; preds = %3020
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %23) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #21
-  br label %3044
-
-3035:                                             ; preds = %.body773
-  %3036 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3039 unwind label %4191
-
-3037:                                             ; preds = %3005, %3004
-  %3038 = landingpad { ptr, i32 }
-          cleanup
-  br label %3039
-
-3039:                                             ; preds = %3035, %3037
-  %.pn449 = phi { ptr, i32 } [ %3038, %3037 ], [ %3036, %3035 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %362) #21
   br label %3040
 
-3040:                                             ; preds = %3039, %3002
-  %.pn449.pn = phi { ptr, i32 } [ %.pn449, %3039 ], [ %3003, %3002 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %362) #21
-  br label %4096
+3031:                                             ; preds = %.body773
+  %3032 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3035 unwind label %4187
 
-3041:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit776
-  %3042 = landingpad { ptr, i32 }
+3033:                                             ; preds = %3001, %3000
+  %3034 = landingpad { ptr, i32 }
+          cleanup
+  br label %3035
+
+3035:                                             ; preds = %3031, %3033
+  %.pn449 = phi { ptr, i32 } [ %3034, %3033 ], [ %3032, %3031 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %362) #21
+  br label %3036
+
+3036:                                             ; preds = %3035, %2998
+  %.pn449.pn = phi { ptr, i32 } [ %.pn449, %3035 ], [ %2999, %2998 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %362) #21
+  br label %4092
+
+3037:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit776
+  %3038 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %368) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %367) #21
-  br label %3081
+  br label %3077
 
-3043:                                             ; preds = %.body777
+3039:                                             ; preds = %.body777
   invoke void @__cxa_end_catch()
-          to label %3044 unwind label %3078
+          to label %3040 unwind label %3074
 
-3044:                                             ; preds = %3043, %3034
+3040:                                             ; preds = %3039, %3030
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %366)
-          to label %3045 unwind label %3078
+          to label %3041 unwind label %3074
 
-3045:                                             ; preds = %3044
-  %3046 = getelementptr inbounds nuw i8, ptr %366, i64 58
-  %3047 = load i8, ptr %3046, align 2, !tbaa !33, !range !40, !noundef !41
-  %3048 = trunc nuw i8 %3047 to i1
-  br i1 %3048, label %_ZN5Catch16AssertionHandlerD2Ev.exit780, label %3049
+3041:                                             ; preds = %3040
+  %3042 = getelementptr inbounds nuw i8, ptr %366, i64 58
+  %3043 = load i8, ptr %3042, align 2, !tbaa !33, !range !40, !noundef !41
+  %3044 = trunc nuw i8 %3043 to i1
+  br i1 %3044, label %_ZN5Catch16AssertionHandlerD2Ev.exit780, label %3045
 
-3049:                                             ; preds = %3045
-  %3050 = getelementptr inbounds nuw i8, ptr %366, i64 64
-  %3051 = load ptr, ptr %3050, align 8, !tbaa !42
-  %3052 = load ptr, ptr %3051, align 8, !tbaa !4
-  %3053 = getelementptr inbounds nuw i8, ptr %3052, i64 112
-  %3054 = load ptr, ptr %3053, align 8
-  invoke void %3054(ptr noundef nonnull align 8 dereferenceable(8) %3051, ptr noundef nonnull align 8 dereferenceable(72) %366)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit780 unwind label %3055
+3045:                                             ; preds = %3041
+  %3046 = getelementptr inbounds nuw i8, ptr %366, i64 64
+  %3047 = load ptr, ptr %3046, align 8, !tbaa !42
+  %3048 = load ptr, ptr %3047, align 8, !tbaa !4
+  %3049 = getelementptr inbounds nuw i8, ptr %3048, i64 112
+  %3050 = load ptr, ptr %3049, align 8
+  invoke void %3050(ptr noundef nonnull align 8 dereferenceable(8) %3047, ptr noundef nonnull align 8 dereferenceable(72) %366)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit780 unwind label %3051
 
-3055:                                             ; preds = %3049
-  %3056 = landingpad { ptr, i32 }
+3051:                                             ; preds = %3045
+  %3052 = landingpad { ptr, i32 }
           catch ptr null
-  %3057 = extractvalue { ptr, i32 } %3056, 0
-  call void @__clang_call_terminate(ptr %3057) #22
+  %3053 = extractvalue { ptr, i32 } %3052, 0
+  call void @__clang_call_terminate(ptr %3053) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit780:          ; preds = %3045, %3049
+_ZN5Catch16AssertionHandlerD2Ev.exit780:          ; preds = %3041, %3045
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %366) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %370) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %371) #21
   store ptr @.str.24, ptr %371, align 8
-  %3058 = getelementptr inbounds nuw i8, ptr %371, i64 8
-  store i64 7, ptr %3058, align 8
+  %3054 = getelementptr inbounds nuw i8, ptr %371, i64 8
+  store i64 7, ptr %3054, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %372) #21
   store ptr @.str, ptr %372, align 8, !tbaa !19
-  %3059 = getelementptr inbounds nuw i8, ptr %372, i64 8
-  store i64 139, ptr %3059, align 8, !tbaa !23
+  %3055 = getelementptr inbounds nuw i8, ptr %372, i64 8
+  store i64 139, ptr %3055, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %373, ptr noundef nonnull @.str.84) #21
-  %3060 = load ptr, ptr %373, align 8
-  %3061 = getelementptr inbounds nuw i8, ptr %373, i64 8
-  %3062 = load i64, ptr %3061, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %370, ptr noundef nonnull align 8 dereferenceable(16) %371, ptr noundef nonnull align 8 dereferenceable(16) %372, ptr %3060, i64 %3062, i32 noundef 1)
-          to label %3063 unwind label %3082
+  %3056 = load ptr, ptr %373, align 8
+  %3057 = getelementptr inbounds nuw i8, ptr %373, i64 8
+  %3058 = load i64, ptr %3057, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %370, ptr noundef nonnull align 8 dereferenceable(16) %371, ptr noundef nonnull align 8 dereferenceable(16) %372, ptr %3056, i64 %3058, i32 noundef 1)
+          to label %3059 unwind label %3078
 
-3063:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit780
+3059:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit780
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %372) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %371) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %374) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %375) #21
-  %3064 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
-  store ptr %3064, ptr %375, align 8, !tbaa !49
+  %3060 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
+  store ptr %3060, ptr %375, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %376) #21
   store ptr %83, ptr %376, align 8, !tbaa !87
   call void @llvm.experimental.noalias.scope.decl(metadata !237)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
-  %3065 = icmp eq ptr %3064, %83
+  %3061 = icmp eq ptr %3060, %83
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull @.str.90) #21, !noalias !237
-  %3066 = load ptr, ptr %22, align 8, !noalias !237
-  %3067 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %3068 = load i64, ptr %3067, align 8, !noalias !237
-  %3069 = zext i1 %3065 to i8
-  %3070 = getelementptr inbounds nuw i8, ptr %374, i64 8
-  store i8 1, ptr %3070, align 8, !tbaa !24, !alias.scope !237
-  %3071 = getelementptr inbounds nuw i8, ptr %374, i64 9
-  store i8 %3069, ptr %3071, align 1, !tbaa !30, !alias.scope !237
+  %3062 = load ptr, ptr %22, align 8, !noalias !237
+  %3063 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %3064 = load i64, ptr %3063, align 8, !noalias !237
+  %3065 = zext i1 %3061 to i8
+  %3066 = getelementptr inbounds nuw i8, ptr %374, i64 8
+  store i8 1, ptr %3066, align 8, !tbaa !24, !alias.scope !237
+  %3067 = getelementptr inbounds nuw i8, ptr %374, i64 9
+  store i8 %3065, ptr %3067, align 1, !tbaa !30, !alias.scope !237
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKPKN5vcpkg19IReadBinaryProviderERKP25KnowNothingBinaryProviderEE, i64 16), ptr %374, align 8, !tbaa !4, !alias.scope !237
-  %3072 = getelementptr inbounds nuw i8, ptr %374, i64 16
-  store ptr %375, ptr %3072, align 8, !tbaa !55, !alias.scope !237
-  %3073 = getelementptr inbounds nuw i8, ptr %374, i64 24
-  store ptr %3066, ptr %3073, align 8, !tbaa !56, !alias.scope !237
+  %3068 = getelementptr inbounds nuw i8, ptr %374, i64 16
+  store ptr %375, ptr %3068, align 8, !tbaa !55, !alias.scope !237
+  %3069 = getelementptr inbounds nuw i8, ptr %374, i64 24
+  store ptr %3062, ptr %3069, align 8, !tbaa !56, !alias.scope !237
   %.sroa.2.0..sroa_idx.i.i781 = getelementptr inbounds nuw i8, ptr %374, i64 32
-  store i64 %3068, ptr %.sroa.2.0..sroa_idx.i.i781, align 8, !tbaa !57, !alias.scope !237
-  %3074 = getelementptr inbounds nuw i8, ptr %374, i64 40
-  store ptr %376, ptr %3074, align 8, !tbaa !92, !alias.scope !237
+  store i64 %3064, ptr %.sroa.2.0..sroa_idx.i.i781, align 8, !tbaa !57, !alias.scope !237
+  %3070 = getelementptr inbounds nuw i8, ptr %374, i64 40
+  store ptr %376, ptr %3070, align 8, !tbaa !92, !alias.scope !237
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %370, ptr noundef nonnull align 8 dereferenceable(10) %374)
-          to label %3075 unwind label %3084
+          to label %3071 unwind label %3080
 
-3075:                                             ; preds = %3063
+3071:                                             ; preds = %3059
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %374) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %376) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %375) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %374) #21
-  br label %3088
+  br label %3084
 
-3076:                                             ; preds = %.body777
-  %3077 = landingpad { ptr, i32 }
+3072:                                             ; preds = %.body777
+  %3073 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %3080 unwind label %4191
+          to label %3076 unwind label %4187
 
-3078:                                             ; preds = %3044, %3043
-  %3079 = landingpad { ptr, i32 }
+3074:                                             ; preds = %3040, %3039
+  %3075 = landingpad { ptr, i32 }
           cleanup
-  br label %3080
+  br label %3076
 
-3080:                                             ; preds = %3076, %3078
-  %.pn452 = phi { ptr, i32 } [ %3079, %3078 ], [ %3077, %3076 ]
+3076:                                             ; preds = %3072, %3074
+  %.pn452 = phi { ptr, i32 } [ %3075, %3074 ], [ %3073, %3072 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %366) #21
-  br label %3081
+  br label %3077
 
-3081:                                             ; preds = %3080, %3041
-  %.pn452.pn = phi { ptr, i32 } [ %.pn452, %3080 ], [ %3042, %3041 ]
+3077:                                             ; preds = %3076, %3037
+  %.pn452.pn = phi { ptr, i32 } [ %.pn452, %3076 ], [ %3038, %3037 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %366) #21
-  br label %4096
+  br label %4092
 
-3082:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit780
-  %3083 = landingpad { ptr, i32 }
+3078:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit780
+  %3079 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %372) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %371) #21
-  br label %3123
+  br label %3119
 
-3084:                                             ; preds = %3063
-  %3085 = landingpad { ptr, i32 }
+3080:                                             ; preds = %3059
+  %3081 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %374) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %376) #21
-  %.160243 = extractvalue { ptr, i32 } %3085, 0
+  %.160243 = extractvalue { ptr, i32 } %3081, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %375) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %374) #21
-  %3086 = call ptr @__cxa_begin_catch(ptr %.160243) #21
+  %3082 = call ptr @__cxa_begin_catch(ptr %.160243) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %370)
-          to label %3087 unwind label %3118
+          to label %3083 unwind label %3114
 
-3087:                                             ; preds = %3084
+3083:                                             ; preds = %3080
   invoke void @__cxa_end_catch()
-          to label %3088 unwind label %3120
+          to label %3084 unwind label %3116
 
-3088:                                             ; preds = %3087, %3075
+3084:                                             ; preds = %3083, %3071
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %370)
-          to label %3089 unwind label %3120
+          to label %3085 unwind label %3116
 
-3089:                                             ; preds = %3088
-  %3090 = getelementptr inbounds nuw i8, ptr %370, i64 58
-  %3091 = load i8, ptr %3090, align 2, !tbaa !33, !range !40, !noundef !41
-  %3092 = trunc nuw i8 %3091 to i1
-  br i1 %3092, label %_ZN5Catch16AssertionHandlerD2Ev.exit782, label %3093
+3085:                                             ; preds = %3084
+  %3086 = getelementptr inbounds nuw i8, ptr %370, i64 58
+  %3087 = load i8, ptr %3086, align 2, !tbaa !33, !range !40, !noundef !41
+  %3088 = trunc nuw i8 %3087 to i1
+  br i1 %3088, label %_ZN5Catch16AssertionHandlerD2Ev.exit782, label %3089
 
-3093:                                             ; preds = %3089
-  %3094 = getelementptr inbounds nuw i8, ptr %370, i64 64
-  %3095 = load ptr, ptr %3094, align 8, !tbaa !42
-  %3096 = load ptr, ptr %3095, align 8, !tbaa !4
-  %3097 = getelementptr inbounds nuw i8, ptr %3096, i64 112
-  %3098 = load ptr, ptr %3097, align 8
-  invoke void %3098(ptr noundef nonnull align 8 dereferenceable(8) %3095, ptr noundef nonnull align 8 dereferenceable(72) %370)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit782 unwind label %3099
+3089:                                             ; preds = %3085
+  %3090 = getelementptr inbounds nuw i8, ptr %370, i64 64
+  %3091 = load ptr, ptr %3090, align 8, !tbaa !42
+  %3092 = load ptr, ptr %3091, align 8, !tbaa !4
+  %3093 = getelementptr inbounds nuw i8, ptr %3092, i64 112
+  %3094 = load ptr, ptr %3093, align 8
+  invoke void %3094(ptr noundef nonnull align 8 dereferenceable(8) %3091, ptr noundef nonnull align 8 dereferenceable(72) %370)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit782 unwind label %3095
 
-3099:                                             ; preds = %3093
-  %3100 = landingpad { ptr, i32 }
+3095:                                             ; preds = %3089
+  %3096 = landingpad { ptr, i32 }
           catch ptr null
-  %3101 = extractvalue { ptr, i32 } %3100, 0
-  call void @__clang_call_terminate(ptr %3101) #22
+  %3097 = extractvalue { ptr, i32 } %3096, 0
+  call void @__clang_call_terminate(ptr %3097) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit782:          ; preds = %3089, %3093
+_ZN5Catch16AssertionHandlerD2Ev.exit782:          ; preds = %3085, %3089
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %370) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %377) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %378) #21
   store ptr @.str.24, ptr %378, align 8
-  %3102 = getelementptr inbounds nuw i8, ptr %378, i64 8
-  store i64 7, ptr %3102, align 8
+  %3098 = getelementptr inbounds nuw i8, ptr %378, i64 8
+  store i64 7, ptr %3098, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %379) #21
   store ptr @.str, ptr %379, align 8, !tbaa !19
-  %3103 = getelementptr inbounds nuw i8, ptr %379, i64 8
-  store i64 140, ptr %3103, align 8, !tbaa !23
+  %3099 = getelementptr inbounds nuw i8, ptr %379, i64 8
+  store i64 140, ptr %3099, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %380, ptr noundef nonnull @.str.81) #21
-  %3104 = load ptr, ptr %380, align 8
-  %3105 = getelementptr inbounds nuw i8, ptr %380, i64 8
-  %3106 = load i64, ptr %3105, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %377, ptr noundef nonnull align 8 dereferenceable(16) %378, ptr noundef nonnull align 8 dereferenceable(16) %379, ptr %3104, i64 %3106, i32 noundef 1)
-          to label %3107 unwind label %3124
+  %3100 = load ptr, ptr %380, align 8
+  %3101 = getelementptr inbounds nuw i8, ptr %380, i64 8
+  %3102 = load i64, ptr %3101, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %377, ptr noundef nonnull align 8 dereferenceable(16) %378, ptr noundef nonnull align 8 dereferenceable(16) %379, ptr %3100, i64 %3102, i32 noundef 1)
+          to label %3103 unwind label %3120
 
-3107:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit782
+3103:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit782
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %379) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %378) #21
-  %3108 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
-  %3109 = xor i1 %3108, true
-  %3110 = zext i1 %3109 to i8
+  %3104 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
+  %3105 = xor i1 %3104, true
+  %3106 = zext i1 %3105 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #21
-  %3111 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i8 0, ptr %3111, align 8, !tbaa !24, !alias.scope !240
-  %3112 = getelementptr inbounds nuw i8, ptr %21, i64 9
-  store i8 %3110, ptr %3112, align 1, !tbaa !30, !alias.scope !240
+  %3107 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i8 0, ptr %3107, align 8, !tbaa !24, !alias.scope !240
+  %3108 = getelementptr inbounds nuw i8, ptr %21, i64 9
+  store i8 %3106, ptr %3108, align 1, !tbaa !30, !alias.scope !240
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %21, align 8, !tbaa !4, !alias.scope !240
-  %3113 = getelementptr inbounds nuw i8, ptr %21, i64 10
-  store i8 %3110, ptr %3113, align 2, !tbaa !31, !alias.scope !240
+  %3109 = getelementptr inbounds nuw i8, ptr %21, i64 10
+  store i8 %3106, ptr %3109, align 2, !tbaa !31, !alias.scope !240
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %377, ptr noundef nonnull align 8 dereferenceable(10) %21)
-          to label %3117 unwind label %.body783
+          to label %3113 unwind label %.body783
 
-.body783:                                         ; preds = %3107
-  %3114 = landingpad { ptr, i32 }
+.body783:                                         ; preds = %3103
+  %3110 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %21) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #21
-  %3115 = extractvalue { ptr, i32 } %3114, 0
-  %3116 = call ptr @__cxa_begin_catch(ptr %3115) #21
+  %3111 = extractvalue { ptr, i32 } %3110, 0
+  %3112 = call ptr @__cxa_begin_catch(ptr %3111) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %377)
-          to label %3126 unwind label %3195
+          to label %3122 unwind label %3191
 
-3117:                                             ; preds = %3107
+3113:                                             ; preds = %3103
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %21) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #21
-  br label %3127
-
-3118:                                             ; preds = %3084
-  %3119 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3122 unwind label %4191
-
-3120:                                             ; preds = %3088, %3087
-  %3121 = landingpad { ptr, i32 }
-          cleanup
-  br label %3122
-
-3122:                                             ; preds = %3118, %3120
-  %.pn456 = phi { ptr, i32 } [ %3121, %3120 ], [ %3119, %3118 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %370) #21
   br label %3123
 
-3123:                                             ; preds = %3122, %3082
-  %.pn456.pn = phi { ptr, i32 } [ %.pn456, %3122 ], [ %3083, %3082 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %370) #21
-  br label %4096
+3114:                                             ; preds = %3080
+  %3115 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3118 unwind label %4187
 
-3124:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit782
-  %3125 = landingpad { ptr, i32 }
+3116:                                             ; preds = %3084, %3083
+  %3117 = landingpad { ptr, i32 }
+          cleanup
+  br label %3118
+
+3118:                                             ; preds = %3114, %3116
+  %.pn456 = phi { ptr, i32 } [ %3117, %3116 ], [ %3115, %3114 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %370) #21
+  br label %3119
+
+3119:                                             ; preds = %3118, %3078
+  %.pn456.pn = phi { ptr, i32 } [ %.pn456, %3118 ], [ %3079, %3078 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %370) #21
+  br label %4092
+
+3120:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit782
+  %3121 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %379) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %378) #21
-  br label %3200
+  br label %3196
 
-3126:                                             ; preds = %.body783
+3122:                                             ; preds = %.body783
   invoke void @__cxa_end_catch()
-          to label %3127 unwind label %3197
+          to label %3123 unwind label %3193
 
-3127:                                             ; preds = %3126, %3117
+3123:                                             ; preds = %3122, %3113
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %377)
-          to label %3128 unwind label %3197
+          to label %3124 unwind label %3193
 
-3128:                                             ; preds = %3127
-  %3129 = getelementptr inbounds nuw i8, ptr %377, i64 58
-  %3130 = load i8, ptr %3129, align 2, !tbaa !33, !range !40, !noundef !41
-  %3131 = trunc nuw i8 %3130 to i1
-  br i1 %3131, label %_ZN5Catch16AssertionHandlerD2Ev.exit786, label %3132
+3124:                                             ; preds = %3123
+  %3125 = getelementptr inbounds nuw i8, ptr %377, i64 58
+  %3126 = load i8, ptr %3125, align 2, !tbaa !33, !range !40, !noundef !41
+  %3127 = trunc nuw i8 %3126 to i1
+  br i1 %3127, label %_ZN5Catch16AssertionHandlerD2Ev.exit786, label %3128
 
-3132:                                             ; preds = %3128
-  %3133 = getelementptr inbounds nuw i8, ptr %377, i64 64
-  %3134 = load ptr, ptr %3133, align 8, !tbaa !42
-  %3135 = load ptr, ptr %3134, align 8, !tbaa !4
-  %3136 = getelementptr inbounds nuw i8, ptr %3135, i64 112
-  %3137 = load ptr, ptr %3136, align 8
-  invoke void %3137(ptr noundef nonnull align 8 dereferenceable(8) %3134, ptr noundef nonnull align 8 dereferenceable(72) %377)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit786 unwind label %3138
+3128:                                             ; preds = %3124
+  %3129 = getelementptr inbounds nuw i8, ptr %377, i64 64
+  %3130 = load ptr, ptr %3129, align 8, !tbaa !42
+  %3131 = load ptr, ptr %3130, align 8, !tbaa !4
+  %3132 = getelementptr inbounds nuw i8, ptr %3131, i64 112
+  %3133 = load ptr, ptr %3132, align 8
+  invoke void %3133(ptr noundef nonnull align 8 dereferenceable(8) %3130, ptr noundef nonnull align 8 dereferenceable(72) %377)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit786 unwind label %3134
 
-3138:                                             ; preds = %3132
-  %3139 = landingpad { ptr, i32 }
+3134:                                             ; preds = %3128
+  %3135 = landingpad { ptr, i32 }
           catch ptr null
-  %3140 = extractvalue { ptr, i32 } %3139, 0
-  call void @__clang_call_terminate(ptr %3140) #22
+  %3136 = extractvalue { ptr, i32 } %3135, 0
+  call void @__clang_call_terminate(ptr %3136) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit786:          ; preds = %3128, %3132
+_ZN5Catch16AssertionHandlerD2Ev.exit786:          ; preds = %3124, %3128
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %377) #21
-  %3141 = load i8, ptr %156, align 8, !tbaa !7
-  store i8 %3141, ptr %334, align 8, !tbaa !7
-  %3142 = load ptr, ptr %1789, align 8, !tbaa !112
-  %3143 = load ptr, ptr %1069, align 8, !tbaa !113
-  %3144 = ptrtoint ptr %3142 to i64
+  %3137 = load i8, ptr %156, align 8, !tbaa !7
+  store i8 %3137, ptr %334, align 8, !tbaa !7
+  %3138 = load ptr, ptr %1786, align 8, !tbaa !112
+  %3139 = load ptr, ptr %1069, align 8, !tbaa !113
+  %3140 = ptrtoint ptr %3138 to i64
+  %3141 = ptrtoint ptr %3139 to i64
+  %3142 = sub i64 %3140, %3141
+  %3143 = load ptr, ptr %2688, align 8, !tbaa !115
+  %3144 = load ptr, ptr %2681, align 8, !tbaa !113
   %3145 = ptrtoint ptr %3143 to i64
-  %3146 = sub i64 %3144, %3145
-  %3147 = load ptr, ptr %2692, align 8, !tbaa !114
-  %3148 = load ptr, ptr %2685, align 8, !tbaa !113
-  %3149 = ptrtoint ptr %3147 to i64
-  %3150 = ptrtoint ptr %3148 to i64
-  %3151 = sub i64 %3149, %3150
-  %3152 = icmp ugt i64 %3146, %3151
-  br i1 %3152, label %3153, label %3159
+  %3146 = ptrtoint ptr %3144 to i64
+  %3147 = sub i64 %3145, %3146
+  %3148 = icmp ugt i64 %3142, %3147
+  br i1 %3148, label %3149, label %3155
 
-3153:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit786
-  %3154 = icmp ugt i64 %3146, 9223372036854775800
-  br i1 %3154, label %.invoke, label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i953, !prof !115
+3149:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit786
+  %3150 = icmp ugt i64 %3142, 9223372036854775800
+  br i1 %3150, label %.invoke, label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i953, !prof !114
 
-.invoke:                                          ; preds = %2693, %3153, %2916
+.invoke:                                          ; preds = %2689, %3149, %2912
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.cont unwind label %2725
+          to label %.cont unwind label %2721
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i953: ; preds = %3153
-  %3155 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %3146) #24
-          to label %.noexc959 unwind label %2725
+_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i953: ; preds = %3149
+  %3151 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %3142) #24
+          to label %.noexc959 unwind label %2721
 
 .noexc959:                                        ; preds = %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE11_M_allocateEm.exit.i.i953
-  %.not.i.i.i.i.i.i.i.i.i.i954 = icmp eq ptr %3142, %3143
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i954, label %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i955, label %3156
+  %.not.i.i.i.i.i.i.i.i.i.i954 = icmp eq ptr %3138, %3139
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i954, label %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i955, label %3152
 
-3156:                                             ; preds = %.noexc959
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3155, ptr align 8 %3143, i64 %3146, i1 false)
+3152:                                             ; preds = %.noexc959
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3151, ptr align 8 %3139, i64 %3142, i1 false)
   br label %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i955
 
-_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i955: ; preds = %3156, %.noexc959
-  %.not.i.i956 = icmp eq ptr %3148, null
-  br i1 %.not.i.i956, label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i957, label %3157
+_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i955: ; preds = %3152, %.noexc959
+  %.not.i.i956 = icmp eq ptr %3144, null
+  br i1 %.not.i.i956, label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i957, label %3153
 
-3157:                                             ; preds = %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i955
-  call void @_ZdlPvm(ptr noundef nonnull %3148, i64 noundef %3151) #25
+3153:                                             ; preds = %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i955
+  call void @_ZdlPvm(ptr noundef nonnull %3144, i64 noundef %3147) #25
   br label %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i957
 
-_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i957: ; preds = %3157, %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i955
-  store ptr %3155, ptr %2685, align 8, !tbaa !113
-  %3158 = getelementptr inbounds nuw i8, ptr %3155, i64 %3146
-  store ptr %3158, ptr %2692, align 8, !tbaa !114
-  br label %3175
+_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i957: ; preds = %3153, %_ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit.i955
+  store ptr %3151, ptr %2681, align 8, !tbaa !113
+  %3154 = getelementptr inbounds nuw i8, ptr %3151, i64 %3142
+  store ptr %3154, ptr %2688, align 8, !tbaa !115
+  br label %3171
 
-3159:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit786
-  %3160 = load ptr, ptr %2700, align 8, !tbaa !112
-  %3161 = ptrtoint ptr %3160 to i64
-  %3162 = sub i64 %3161, %3150
-  %.not24.i940 = icmp ult i64 %3162, %3146
-  br i1 %.not24.i940, label %3165, label %3163
+3155:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit786
+  %3156 = load ptr, ptr %2696, align 8, !tbaa !112
+  %3157 = ptrtoint ptr %3156 to i64
+  %3158 = sub i64 %3157, %3146
+  %.not24.i940 = icmp ult i64 %3158, %3142
+  br i1 %.not24.i940, label %3161, label %3159
 
-3163:                                             ; preds = %3159
-  %.not.i.i.i.i.i.i941 = icmp eq ptr %3142, %3143
-  br i1 %.not.i.i.i.i.i.i941, label %3175, label %3164
+3159:                                             ; preds = %3155
+  %.not.i.i.i.i.i.i941 = icmp eq ptr %3138, %3139
+  br i1 %.not.i.i.i.i.i.i941, label %3171, label %3160
 
-3164:                                             ; preds = %3163
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %3148, ptr align 8 %3143, i64 %3146, i1 false)
-  br label %3175
+3160:                                             ; preds = %3159
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %3144, ptr align 8 %3139, i64 %3142, i1 false)
+  br label %3171
 
-3165:                                             ; preds = %3159
-  %.not.i.i.i.i.i25.i942 = icmp eq ptr %3160, %3148
-  br i1 %.not.i.i.i.i.i25.i942, label %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i950, label %3166
+3161:                                             ; preds = %3155
+  %.not.i.i.i.i.i25.i942 = icmp eq ptr %3156, %3144
+  br i1 %.not.i.i.i.i.i25.i942, label %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i950, label %3162
 
-3166:                                             ; preds = %3165
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %3148, ptr align 8 %3143, i64 %3162, i1 false)
+3162:                                             ; preds = %3161
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %3144, ptr align 8 %3139, i64 %3158, i1 false)
   %.pre.i943 = load ptr, ptr %1069, align 8, !tbaa !113
-  %.pre26.i944 = load ptr, ptr %2700, align 8, !tbaa !112
-  %.pre27.i945 = load ptr, ptr %2685, align 8, !tbaa !113
-  %.pre28.i946 = load ptr, ptr %1789, align 8, !tbaa !112
+  %.pre26.i944 = load ptr, ptr %2696, align 8, !tbaa !112
+  %.pre27.i945 = load ptr, ptr %2681, align 8, !tbaa !113
+  %.pre28.i946 = load ptr, ptr %1786, align 8, !tbaa !112
   %.pre29.i947 = ptrtoint ptr %.pre26.i944 to i64
   %.pre30.i948 = ptrtoint ptr %.pre27.i945 to i64
   %.pre32.i949 = sub i64 %.pre29.i947, %.pre30.i948
   br label %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i950
 
-_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i950: ; preds = %3166, %3165
-  %.pre-phi33.i951 = phi i64 [ 0, %3165 ], [ %.pre32.i949, %3166 ]
-  %3167 = phi ptr [ %3142, %3165 ], [ %.pre28.i946, %3166 ]
-  %3168 = phi ptr [ %3160, %3165 ], [ %.pre26.i944, %3166 ]
-  %3169 = phi ptr [ %3143, %3165 ], [ %.pre.i943, %3166 ]
-  %3170 = getelementptr inbounds nuw i8, ptr %3169, i64 %.pre-phi33.i951
-  %.not.i.i.i.i.i.i.i.i.i952 = icmp eq ptr %3167, %3170
-  br i1 %.not.i.i.i.i.i.i.i.i.i952, label %3175, label %3171
+_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i950: ; preds = %3162, %3161
+  %.pre-phi33.i951 = phi i64 [ 0, %3161 ], [ %.pre32.i949, %3162 ]
+  %3163 = phi ptr [ %3138, %3161 ], [ %.pre28.i946, %3162 ]
+  %3164 = phi ptr [ %3156, %3161 ], [ %.pre26.i944, %3162 ]
+  %3165 = phi ptr [ %3139, %3161 ], [ %.pre.i943, %3162 ]
+  %3166 = getelementptr inbounds nuw i8, ptr %3165, i64 %.pre-phi33.i951
+  %.not.i.i.i.i.i.i.i.i.i952 = icmp eq ptr %3163, %3166
+  br i1 %.not.i.i.i.i.i.i.i.i.i952, label %3171, label %3167
 
-3171:                                             ; preds = %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i950
-  %3172 = ptrtoint ptr %3167 to i64
-  %3173 = ptrtoint ptr %3170 to i64
-  %3174 = sub i64 %3172, %3173
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %3168, ptr align 8 %3170, i64 %3174, i1 false)
-  br label %3175
+3167:                                             ; preds = %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i950
+  %3168 = ptrtoint ptr %3163 to i64
+  %3169 = ptrtoint ptr %3166 to i64
+  %3170 = sub i64 %3168, %3169
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %3164, ptr align 8 %3166, i64 %3170, i1 false)
+  br label %3171
 
-3175:                                             ; preds = %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i957, %3163, %3164, %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i950, %3171
-  %3176 = load ptr, ptr %2685, align 8, !tbaa !113
-  %3177 = getelementptr inbounds nuw i8, ptr %3176, i64 %3146
-  store ptr %3177, ptr %2700, align 8, !tbaa !112
-  %3178 = load ptr, ptr %1810, align 8, !tbaa !116
-  store ptr %3178, ptr %2702, align 8, !tbaa !116
+3171:                                             ; preds = %_ZNSt12_Vector_baseIPKN5vcpkg19IReadBinaryProviderESaIS3_EE13_M_deallocateEPS3_m.exit.i957, %3159, %3160, %_ZSt4copyIPPKN5vcpkg19IReadBinaryProviderES4_ET0_T_S6_S5_.exit.i950, %3167
+  %3172 = load ptr, ptr %2681, align 8, !tbaa !113
+  %3173 = getelementptr inbounds nuw i8, ptr %3172, i64 %3142
+  store ptr %3173, ptr %2696, align 8, !tbaa !112
+  %3174 = load ptr, ptr %1806, align 8, !tbaa !116
+  store ptr %3174, ptr %2698, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %381) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %382) #21
   store ptr @.str.24, ptr %382, align 8
-  %3179 = getelementptr inbounds nuw i8, ptr %382, i64 8
-  store i64 7, ptr %3179, align 8
+  %3175 = getelementptr inbounds nuw i8, ptr %382, i64 8
+  store i64 7, ptr %3175, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %383) #21
   store ptr @.str, ptr %383, align 8, !tbaa !19
-  %3180 = getelementptr inbounds nuw i8, ptr %383, i64 8
-  store i64 142, ptr %3180, align 8, !tbaa !23
+  %3176 = getelementptr inbounds nuw i8, ptr %383, i64 8
+  store i64 142, ptr %3176, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %384, ptr noundef nonnull @.str.77) #21
-  %3181 = load ptr, ptr %384, align 8
-  %3182 = getelementptr inbounds nuw i8, ptr %384, i64 8
-  %3183 = load i64, ptr %3182, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %381, ptr noundef nonnull align 8 dereferenceable(16) %382, ptr noundef nonnull align 8 dereferenceable(16) %383, ptr %3181, i64 %3183, i32 noundef 1)
-          to label %3184 unwind label %3201
+  %3177 = load ptr, ptr %384, align 8
+  %3178 = getelementptr inbounds nuw i8, ptr %384, i64 8
+  %3179 = load i64, ptr %3178, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %381, ptr noundef nonnull align 8 dereferenceable(16) %382, ptr noundef nonnull align 8 dereferenceable(16) %383, ptr %3177, i64 %3179, i32 noundef 1)
+          to label %3180 unwind label %3197
 
-3184:                                             ; preds = %3175
+3180:                                             ; preds = %3171
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %383) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %382) #21
-  %3185 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3186 = xor i1 %3185, true
-  %3187 = zext i1 %3186 to i8
+  %3181 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3182 = xor i1 %3181, true
+  %3183 = zext i1 %3182 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #21
-  %3188 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i8 0, ptr %3188, align 8, !tbaa !24, !alias.scope !243
-  %3189 = getelementptr inbounds nuw i8, ptr %20, i64 9
-  store i8 %3187, ptr %3189, align 1, !tbaa !30, !alias.scope !243
+  %3184 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i8 0, ptr %3184, align 8, !tbaa !24, !alias.scope !243
+  %3185 = getelementptr inbounds nuw i8, ptr %20, i64 9
+  store i8 %3183, ptr %3185, align 1, !tbaa !30, !alias.scope !243
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %20, align 8, !tbaa !4, !alias.scope !243
-  %3190 = getelementptr inbounds nuw i8, ptr %20, i64 10
-  store i8 %3187, ptr %3190, align 2, !tbaa !31, !alias.scope !243
+  %3186 = getelementptr inbounds nuw i8, ptr %20, i64 10
+  store i8 %3183, ptr %3186, align 2, !tbaa !31, !alias.scope !243
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %381, ptr noundef nonnull align 8 dereferenceable(10) %20)
-          to label %3194 unwind label %.body789
+          to label %3190 unwind label %.body789
 
-.body789:                                         ; preds = %3184
-  %3191 = landingpad { ptr, i32 }
+.body789:                                         ; preds = %3180
+  %3187 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %20) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #21
-  %3192 = extractvalue { ptr, i32 } %3191, 0
-  %3193 = call ptr @__cxa_begin_catch(ptr %3192) #21
+  %3188 = extractvalue { ptr, i32 } %3187, 0
+  %3189 = call ptr @__cxa_begin_catch(ptr %3188) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %381)
-          to label %3203 unwind label %3234
+          to label %3199 unwind label %3230
 
-3194:                                             ; preds = %3184
+3190:                                             ; preds = %3180
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %20) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #21
-  br label %3204
-
-3195:                                             ; preds = %.body783
-  %3196 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3199 unwind label %4191
-
-3197:                                             ; preds = %3127, %3126
-  %3198 = landingpad { ptr, i32 }
-          cleanup
-  br label %3199
-
-3199:                                             ; preds = %3195, %3197
-  %.pn459 = phi { ptr, i32 } [ %3198, %3197 ], [ %3196, %3195 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %377) #21
   br label %3200
 
-3200:                                             ; preds = %3199, %3124
-  %.pn459.pn = phi { ptr, i32 } [ %.pn459, %3199 ], [ %3125, %3124 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %377) #21
-  br label %4096
+3191:                                             ; preds = %.body783
+  %3192 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3195 unwind label %4187
 
-3201:                                             ; preds = %3175
-  %3202 = landingpad { ptr, i32 }
+3193:                                             ; preds = %3123, %3122
+  %3194 = landingpad { ptr, i32 }
+          cleanup
+  br label %3195
+
+3195:                                             ; preds = %3191, %3193
+  %.pn459 = phi { ptr, i32 } [ %3194, %3193 ], [ %3192, %3191 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %377) #21
+  br label %3196
+
+3196:                                             ; preds = %3195, %3120
+  %.pn459.pn = phi { ptr, i32 } [ %.pn459, %3195 ], [ %3121, %3120 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %377) #21
+  br label %4092
+
+3197:                                             ; preds = %3171
+  %3198 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %383) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %382) #21
-  br label %3239
+  br label %3235
 
-3203:                                             ; preds = %.body789
+3199:                                             ; preds = %.body789
   invoke void @__cxa_end_catch()
-          to label %3204 unwind label %3236
+          to label %3200 unwind label %3232
 
-3204:                                             ; preds = %3203, %3194
+3200:                                             ; preds = %3199, %3190
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %381)
-          to label %3205 unwind label %3236
+          to label %3201 unwind label %3232
 
-3205:                                             ; preds = %3204
-  %3206 = getelementptr inbounds nuw i8, ptr %381, i64 58
-  %3207 = load i8, ptr %3206, align 2, !tbaa !33, !range !40, !noundef !41
-  %3208 = trunc nuw i8 %3207 to i1
-  br i1 %3208, label %_ZN5Catch16AssertionHandlerD2Ev.exit792, label %3209
+3201:                                             ; preds = %3200
+  %3202 = getelementptr inbounds nuw i8, ptr %381, i64 58
+  %3203 = load i8, ptr %3202, align 2, !tbaa !33, !range !40, !noundef !41
+  %3204 = trunc nuw i8 %3203 to i1
+  br i1 %3204, label %_ZN5Catch16AssertionHandlerD2Ev.exit792, label %3205
 
-3209:                                             ; preds = %3205
-  %3210 = getelementptr inbounds nuw i8, ptr %381, i64 64
-  %3211 = load ptr, ptr %3210, align 8, !tbaa !42
-  %3212 = load ptr, ptr %3211, align 8, !tbaa !4
-  %3213 = getelementptr inbounds nuw i8, ptr %3212, i64 112
-  %3214 = load ptr, ptr %3213, align 8
-  invoke void %3214(ptr noundef nonnull align 8 dereferenceable(8) %3211, ptr noundef nonnull align 8 dereferenceable(72) %381)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit792 unwind label %3215
+3205:                                             ; preds = %3201
+  %3206 = getelementptr inbounds nuw i8, ptr %381, i64 64
+  %3207 = load ptr, ptr %3206, align 8, !tbaa !42
+  %3208 = load ptr, ptr %3207, align 8, !tbaa !4
+  %3209 = getelementptr inbounds nuw i8, ptr %3208, i64 112
+  %3210 = load ptr, ptr %3209, align 8
+  invoke void %3210(ptr noundef nonnull align 8 dereferenceable(8) %3207, ptr noundef nonnull align 8 dereferenceable(72) %381)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit792 unwind label %3211
 
-3215:                                             ; preds = %3209
-  %3216 = landingpad { ptr, i32 }
+3211:                                             ; preds = %3205
+  %3212 = landingpad { ptr, i32 }
           catch ptr null
-  %3217 = extractvalue { ptr, i32 } %3216, 0
-  call void @__clang_call_terminate(ptr %3217) #22
+  %3213 = extractvalue { ptr, i32 } %3212, 0
+  call void @__clang_call_terminate(ptr %3213) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit792:          ; preds = %3205, %3209
+_ZN5Catch16AssertionHandlerD2Ev.exit792:          ; preds = %3201, %3205
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %381) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %385) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %386) #21
   store ptr @.str.24, ptr %386, align 8
-  %3218 = getelementptr inbounds nuw i8, ptr %386, i64 8
-  store i64 7, ptr %3218, align 8
+  %3214 = getelementptr inbounds nuw i8, ptr %386, i64 8
+  store i64 7, ptr %3214, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %387) #21
   store ptr @.str, ptr %387, align 8, !tbaa !19
-  %3219 = getelementptr inbounds nuw i8, ptr %387, i64 8
-  store i64 143, ptr %3219, align 8, !tbaa !23
+  %3215 = getelementptr inbounds nuw i8, ptr %387, i64 8
+  store i64 143, ptr %3215, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %388, ptr noundef nonnull @.str.78) #21
-  %3220 = load ptr, ptr %388, align 8
-  %3221 = getelementptr inbounds nuw i8, ptr %388, i64 8
-  %3222 = load i64, ptr %3221, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %385, ptr noundef nonnull align 8 dereferenceable(16) %386, ptr noundef nonnull align 8 dereferenceable(16) %387, ptr %3220, i64 %3222, i32 noundef 1)
-          to label %3223 unwind label %3240
+  %3216 = load ptr, ptr %388, align 8
+  %3217 = getelementptr inbounds nuw i8, ptr %388, i64 8
+  %3218 = load i64, ptr %3217, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %385, ptr noundef nonnull align 8 dereferenceable(16) %386, ptr noundef nonnull align 8 dereferenceable(16) %387, ptr %3216, i64 %3218, i32 noundef 1)
+          to label %3219 unwind label %3236
 
-3223:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit792
+3219:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit792
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %387) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %386) #21
-  %3224 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3225 = xor i1 %3224, true
-  %3226 = zext i1 %3225 to i8
+  %3220 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3221 = xor i1 %3220, true
+  %3222 = zext i1 %3221 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #21
-  %3227 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i8 0, ptr %3227, align 8, !tbaa !24, !alias.scope !246
-  %3228 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  store i8 %3226, ptr %3228, align 1, !tbaa !30, !alias.scope !246
+  %3223 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i8 0, ptr %3223, align 8, !tbaa !24, !alias.scope !246
+  %3224 = getelementptr inbounds nuw i8, ptr %19, i64 9
+  store i8 %3222, ptr %3224, align 1, !tbaa !30, !alias.scope !246
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %19, align 8, !tbaa !4, !alias.scope !246
-  %3229 = getelementptr inbounds nuw i8, ptr %19, i64 10
-  store i8 %3226, ptr %3229, align 2, !tbaa !31, !alias.scope !246
+  %3225 = getelementptr inbounds nuw i8, ptr %19, i64 10
+  store i8 %3222, ptr %3225, align 2, !tbaa !31, !alias.scope !246
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %385, ptr noundef nonnull align 8 dereferenceable(10) %19)
-          to label %3233 unwind label %.body793
+          to label %3229 unwind label %.body793
 
-.body793:                                         ; preds = %3223
-  %3230 = landingpad { ptr, i32 }
+.body793:                                         ; preds = %3219
+  %3226 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %19) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #21
-  %3231 = extractvalue { ptr, i32 } %3230, 0
-  %3232 = call ptr @__cxa_begin_catch(ptr %3231) #21
+  %3227 = extractvalue { ptr, i32 } %3226, 0
+  %3228 = call ptr @__cxa_begin_catch(ptr %3227) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %385)
-          to label %3242 unwind label %3273
+          to label %3238 unwind label %3269
 
-3233:                                             ; preds = %3223
+3229:                                             ; preds = %3219
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %19) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #21
-  br label %3243
-
-3234:                                             ; preds = %.body789
-  %3235 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3238 unwind label %4191
-
-3236:                                             ; preds = %3204, %3203
-  %3237 = landingpad { ptr, i32 }
-          cleanup
-  br label %3238
-
-3238:                                             ; preds = %3234, %3236
-  %.pn462 = phi { ptr, i32 } [ %3237, %3236 ], [ %3235, %3234 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %381) #21
   br label %3239
 
-3239:                                             ; preds = %3238, %3201
-  %.pn462.pn = phi { ptr, i32 } [ %.pn462, %3238 ], [ %3202, %3201 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %381) #21
-  br label %4096
+3230:                                             ; preds = %.body789
+  %3231 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3234 unwind label %4187
 
-3240:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit792
-  %3241 = landingpad { ptr, i32 }
+3232:                                             ; preds = %3200, %3199
+  %3233 = landingpad { ptr, i32 }
+          cleanup
+  br label %3234
+
+3234:                                             ; preds = %3230, %3232
+  %.pn462 = phi { ptr, i32 } [ %3233, %3232 ], [ %3231, %3230 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %381) #21
+  br label %3235
+
+3235:                                             ; preds = %3234, %3197
+  %.pn462.pn = phi { ptr, i32 } [ %.pn462, %3234 ], [ %3198, %3197 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %381) #21
+  br label %4092
+
+3236:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit792
+  %3237 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %387) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %386) #21
-  br label %3278
+  br label %3274
 
-3242:                                             ; preds = %.body793
+3238:                                             ; preds = %.body793
   invoke void @__cxa_end_catch()
-          to label %3243 unwind label %3275
+          to label %3239 unwind label %3271
 
-3243:                                             ; preds = %3242, %3233
+3239:                                             ; preds = %3238, %3229
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %385)
-          to label %3244 unwind label %3275
+          to label %3240 unwind label %3271
 
-3244:                                             ; preds = %3243
-  %3245 = getelementptr inbounds nuw i8, ptr %385, i64 58
-  %3246 = load i8, ptr %3245, align 2, !tbaa !33, !range !40, !noundef !41
-  %3247 = trunc nuw i8 %3246 to i1
-  br i1 %3247, label %_ZN5Catch16AssertionHandlerD2Ev.exit796, label %3248
+3240:                                             ; preds = %3239
+  %3241 = getelementptr inbounds nuw i8, ptr %385, i64 58
+  %3242 = load i8, ptr %3241, align 2, !tbaa !33, !range !40, !noundef !41
+  %3243 = trunc nuw i8 %3242 to i1
+  br i1 %3243, label %_ZN5Catch16AssertionHandlerD2Ev.exit796, label %3244
 
-3248:                                             ; preds = %3244
-  %3249 = getelementptr inbounds nuw i8, ptr %385, i64 64
-  %3250 = load ptr, ptr %3249, align 8, !tbaa !42
-  %3251 = load ptr, ptr %3250, align 8, !tbaa !4
-  %3252 = getelementptr inbounds nuw i8, ptr %3251, i64 112
-  %3253 = load ptr, ptr %3252, align 8
-  invoke void %3253(ptr noundef nonnull align 8 dereferenceable(8) %3250, ptr noundef nonnull align 8 dereferenceable(72) %385)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit796 unwind label %3254
+3244:                                             ; preds = %3240
+  %3245 = getelementptr inbounds nuw i8, ptr %385, i64 64
+  %3246 = load ptr, ptr %3245, align 8, !tbaa !42
+  %3247 = load ptr, ptr %3246, align 8, !tbaa !4
+  %3248 = getelementptr inbounds nuw i8, ptr %3247, i64 112
+  %3249 = load ptr, ptr %3248, align 8
+  invoke void %3249(ptr noundef nonnull align 8 dereferenceable(8) %3246, ptr noundef nonnull align 8 dereferenceable(72) %385)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit796 unwind label %3250
 
-3254:                                             ; preds = %3248
-  %3255 = landingpad { ptr, i32 }
+3250:                                             ; preds = %3244
+  %3251 = landingpad { ptr, i32 }
           catch ptr null
-  %3256 = extractvalue { ptr, i32 } %3255, 0
-  call void @__clang_call_terminate(ptr %3256) #22
+  %3252 = extractvalue { ptr, i32 } %3251, 0
+  call void @__clang_call_terminate(ptr %3252) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit796:          ; preds = %3244, %3248
+_ZN5Catch16AssertionHandlerD2Ev.exit796:          ; preds = %3240, %3244
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %385) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %389) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %390) #21
   store ptr @.str.24, ptr %390, align 8
-  %3257 = getelementptr inbounds nuw i8, ptr %390, i64 8
-  store i64 7, ptr %3257, align 8
+  %3253 = getelementptr inbounds nuw i8, ptr %390, i64 8
+  store i64 7, ptr %3253, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %391) #21
   store ptr @.str, ptr %391, align 8, !tbaa !19
-  %3258 = getelementptr inbounds nuw i8, ptr %391, i64 8
-  store i64 144, ptr %3258, align 8, !tbaa !23
+  %3254 = getelementptr inbounds nuw i8, ptr %391, i64 8
+  store i64 144, ptr %3254, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %392, ptr noundef nonnull @.str.83) #21
-  %3259 = load ptr, ptr %392, align 8
-  %3260 = getelementptr inbounds nuw i8, ptr %392, i64 8
-  %3261 = load i64, ptr %3260, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %389, ptr noundef nonnull align 8 dereferenceable(16) %390, ptr noundef nonnull align 8 dereferenceable(16) %391, ptr %3259, i64 %3261, i32 noundef 1)
-          to label %3262 unwind label %3279
+  %3255 = load ptr, ptr %392, align 8
+  %3256 = getelementptr inbounds nuw i8, ptr %392, i64 8
+  %3257 = load i64, ptr %3256, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %389, ptr noundef nonnull align 8 dereferenceable(16) %390, ptr noundef nonnull align 8 dereferenceable(16) %391, ptr %3255, i64 %3257, i32 noundef 1)
+          to label %3258 unwind label %3275
 
-3262:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit796
+3258:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit796
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %391) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %390) #21
-  %3263 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3264 = xor i1 %3263, true
-  %3265 = zext i1 %3264 to i8
+  %3259 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3260 = xor i1 %3259, true
+  %3261 = zext i1 %3260 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #21
-  %3266 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i8 0, ptr %3266, align 8, !tbaa !24, !alias.scope !249
-  %3267 = getelementptr inbounds nuw i8, ptr %18, i64 9
-  store i8 %3265, ptr %3267, align 1, !tbaa !30, !alias.scope !249
+  %3262 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i8 0, ptr %3262, align 8, !tbaa !24, !alias.scope !249
+  %3263 = getelementptr inbounds nuw i8, ptr %18, i64 9
+  store i8 %3261, ptr %3263, align 1, !tbaa !30, !alias.scope !249
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %18, align 8, !tbaa !4, !alias.scope !249
-  %3268 = getelementptr inbounds nuw i8, ptr %18, i64 10
-  store i8 %3265, ptr %3268, align 2, !tbaa !31, !alias.scope !249
+  %3264 = getelementptr inbounds nuw i8, ptr %18, i64 10
+  store i8 %3261, ptr %3264, align 2, !tbaa !31, !alias.scope !249
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %389, ptr noundef nonnull align 8 dereferenceable(10) %18)
-          to label %3272 unwind label %.body797
+          to label %3268 unwind label %.body797
 
-.body797:                                         ; preds = %3262
-  %3269 = landingpad { ptr, i32 }
+.body797:                                         ; preds = %3258
+  %3265 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %18) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #21
-  %3270 = extractvalue { ptr, i32 } %3269, 0
-  %3271 = call ptr @__cxa_begin_catch(ptr %3270) #21
+  %3266 = extractvalue { ptr, i32 } %3265, 0
+  %3267 = call ptr @__cxa_begin_catch(ptr %3266) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %389)
-          to label %3281 unwind label %3314
+          to label %3277 unwind label %3310
 
-3272:                                             ; preds = %3262
+3268:                                             ; preds = %3258
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %18) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #21
-  br label %3282
-
-3273:                                             ; preds = %.body793
-  %3274 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3277 unwind label %4191
-
-3275:                                             ; preds = %3243, %3242
-  %3276 = landingpad { ptr, i32 }
-          cleanup
-  br label %3277
-
-3277:                                             ; preds = %3273, %3275
-  %.pn465 = phi { ptr, i32 } [ %3276, %3275 ], [ %3274, %3273 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %385) #21
   br label %3278
 
-3278:                                             ; preds = %3277, %3240
-  %.pn465.pn = phi { ptr, i32 } [ %.pn465, %3277 ], [ %3241, %3240 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %385) #21
-  br label %4096
+3269:                                             ; preds = %.body793
+  %3270 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3273 unwind label %4187
 
-3279:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit796
-  %3280 = landingpad { ptr, i32 }
+3271:                                             ; preds = %3239, %3238
+  %3272 = landingpad { ptr, i32 }
+          cleanup
+  br label %3273
+
+3273:                                             ; preds = %3269, %3271
+  %.pn465 = phi { ptr, i32 } [ %3272, %3271 ], [ %3270, %3269 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %385) #21
+  br label %3274
+
+3274:                                             ; preds = %3273, %3236
+  %.pn465.pn = phi { ptr, i32 } [ %.pn465, %3273 ], [ %3237, %3236 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %385) #21
+  br label %4092
+
+3275:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit796
+  %3276 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %391) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %390) #21
-  br label %3319
+  br label %3315
 
-3281:                                             ; preds = %.body797
+3277:                                             ; preds = %.body797
   invoke void @__cxa_end_catch()
-          to label %3282 unwind label %3316
+          to label %3278 unwind label %3312
 
-3282:                                             ; preds = %3281, %3272
+3278:                                             ; preds = %3277, %3268
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %389)
-          to label %3283 unwind label %3316
+          to label %3279 unwind label %3312
 
-3283:                                             ; preds = %3282
-  %3284 = getelementptr inbounds nuw i8, ptr %389, i64 58
-  %3285 = load i8, ptr %3284, align 2, !tbaa !33, !range !40, !noundef !41
-  %3286 = trunc nuw i8 %3285 to i1
-  br i1 %3286, label %_ZN5Catch16AssertionHandlerD2Ev.exit800, label %3287
+3279:                                             ; preds = %3278
+  %3280 = getelementptr inbounds nuw i8, ptr %389, i64 58
+  %3281 = load i8, ptr %3280, align 2, !tbaa !33, !range !40, !noundef !41
+  %3282 = trunc nuw i8 %3281 to i1
+  br i1 %3282, label %_ZN5Catch16AssertionHandlerD2Ev.exit800, label %3283
 
-3287:                                             ; preds = %3283
-  %3288 = getelementptr inbounds nuw i8, ptr %389, i64 64
-  %3289 = load ptr, ptr %3288, align 8, !tbaa !42
-  %3290 = load ptr, ptr %3289, align 8, !tbaa !4
-  %3291 = getelementptr inbounds nuw i8, ptr %3290, i64 112
-  %3292 = load ptr, ptr %3291, align 8
-  invoke void %3292(ptr noundef nonnull align 8 dereferenceable(8) %3289, ptr noundef nonnull align 8 dereferenceable(72) %389)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit800 unwind label %3293
+3283:                                             ; preds = %3279
+  %3284 = getelementptr inbounds nuw i8, ptr %389, i64 64
+  %3285 = load ptr, ptr %3284, align 8, !tbaa !42
+  %3286 = load ptr, ptr %3285, align 8, !tbaa !4
+  %3287 = getelementptr inbounds nuw i8, ptr %3286, i64 112
+  %3288 = load ptr, ptr %3287, align 8
+  invoke void %3288(ptr noundef nonnull align 8 dereferenceable(8) %3285, ptr noundef nonnull align 8 dereferenceable(72) %389)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit800 unwind label %3289
 
-3293:                                             ; preds = %3287
-  %3294 = landingpad { ptr, i32 }
+3289:                                             ; preds = %3283
+  %3290 = landingpad { ptr, i32 }
           catch ptr null
-  %3295 = extractvalue { ptr, i32 } %3294, 0
-  call void @__clang_call_terminate(ptr %3295) #22
+  %3291 = extractvalue { ptr, i32 } %3290, 0
+  call void @__clang_call_terminate(ptr %3291) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit800:          ; preds = %3283, %3287
+_ZN5Catch16AssertionHandlerD2Ev.exit800:          ; preds = %3279, %3283
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %389) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %393) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %394) #21
   store ptr @.str.24, ptr %394, align 8
-  %3296 = getelementptr inbounds nuw i8, ptr %394, i64 8
-  store i64 7, ptr %3296, align 8
+  %3292 = getelementptr inbounds nuw i8, ptr %394, i64 8
+  store i64 7, ptr %3292, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %395) #21
   store ptr @.str, ptr %395, align 8, !tbaa !19
-  %3297 = getelementptr inbounds nuw i8, ptr %395, i64 8
-  store i64 145, ptr %3297, align 8, !tbaa !23
+  %3293 = getelementptr inbounds nuw i8, ptr %395, i64 8
+  store i64 145, ptr %3293, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %396, ptr noundef nonnull @.str.80) #21
-  %3298 = load ptr, ptr %396, align 8
-  %3299 = getelementptr inbounds nuw i8, ptr %396, i64 8
-  %3300 = load i64, ptr %3299, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %393, ptr noundef nonnull align 8 dereferenceable(16) %394, ptr noundef nonnull align 8 dereferenceable(16) %395, ptr %3298, i64 %3300, i32 noundef 1)
-          to label %3301 unwind label %3320
+  %3294 = load ptr, ptr %396, align 8
+  %3295 = getelementptr inbounds nuw i8, ptr %396, i64 8
+  %3296 = load i64, ptr %3295, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %393, ptr noundef nonnull align 8 dereferenceable(16) %394, ptr noundef nonnull align 8 dereferenceable(16) %395, ptr %3294, i64 %3296, i32 noundef 1)
+          to label %3297 unwind label %3316
 
-3301:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit800
+3297:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit800
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %395) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %394) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %397) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %398) #21
-  %3302 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
-  store ptr %3302, ptr %398, align 8, !tbaa !49
+  %3298 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
+  store ptr %3298, ptr %398, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %399) #21
   store ptr null, ptr %399, align 8, !tbaa !50
   call void @llvm.experimental.noalias.scope.decl(metadata !252)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
-  %3303 = icmp eq ptr %3302, null
+  %3299 = icmp eq ptr %3298, null
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull @.str.90) #21, !noalias !252
-  %3304 = load ptr, ptr %17, align 8, !noalias !252
-  %3305 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %3306 = load i64, ptr %3305, align 8, !noalias !252
-  %3307 = zext i1 %3303 to i8
-  %3308 = getelementptr inbounds nuw i8, ptr %397, i64 8
-  store i8 1, ptr %3308, align 8, !tbaa !24, !alias.scope !252
-  %3309 = getelementptr inbounds nuw i8, ptr %397, i64 9
-  store i8 %3307, ptr %3309, align 1, !tbaa !30, !alias.scope !252
+  %3300 = load ptr, ptr %17, align 8, !noalias !252
+  %3301 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %3302 = load i64, ptr %3301, align 8, !noalias !252
+  %3303 = zext i1 %3299 to i8
+  %3304 = getelementptr inbounds nuw i8, ptr %397, i64 8
+  store i8 1, ptr %3304, align 8, !tbaa !24, !alias.scope !252
+  %3305 = getelementptr inbounds nuw i8, ptr %397, i64 9
+  store i8 %3303, ptr %3305, align 1, !tbaa !30, !alias.scope !252
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKPKN5vcpkg19IReadBinaryProviderERKDnEE, i64 16), ptr %397, align 8, !tbaa !4, !alias.scope !252
-  %3310 = getelementptr inbounds nuw i8, ptr %397, i64 16
-  store ptr %398, ptr %3310, align 8, !tbaa !55, !alias.scope !252
-  %3311 = getelementptr inbounds nuw i8, ptr %397, i64 24
-  store ptr %3304, ptr %3311, align 8, !tbaa !56, !alias.scope !252
+  %3306 = getelementptr inbounds nuw i8, ptr %397, i64 16
+  store ptr %398, ptr %3306, align 8, !tbaa !55, !alias.scope !252
+  %3307 = getelementptr inbounds nuw i8, ptr %397, i64 24
+  store ptr %3300, ptr %3307, align 8, !tbaa !56, !alias.scope !252
   %.sroa.2.0..sroa_idx.i.i801 = getelementptr inbounds nuw i8, ptr %397, i64 32
-  store i64 %3306, ptr %.sroa.2.0..sroa_idx.i.i801, align 8, !tbaa !57, !alias.scope !252
-  %3312 = getelementptr inbounds nuw i8, ptr %397, i64 40
-  store ptr %399, ptr %3312, align 8, !tbaa !58, !alias.scope !252
+  store i64 %3302, ptr %.sroa.2.0..sroa_idx.i.i801, align 8, !tbaa !57, !alias.scope !252
+  %3308 = getelementptr inbounds nuw i8, ptr %397, i64 40
+  store ptr %399, ptr %3308, align 8, !tbaa !58, !alias.scope !252
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %393, ptr noundef nonnull align 8 dereferenceable(10) %397)
-          to label %3313 unwind label %3322
+          to label %3309 unwind label %3318
 
-3313:                                             ; preds = %3301
+3309:                                             ; preds = %3297
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %397) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %399) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %398) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %397) #21
-  br label %3326
+  br label %3322
 
-3314:                                             ; preds = %.body797
-  %3315 = landingpad { ptr, i32 }
+3310:                                             ; preds = %.body797
+  %3311 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %3318 unwind label %4191
+          to label %3314 unwind label %4187
 
-3316:                                             ; preds = %3282, %3281
-  %3317 = landingpad { ptr, i32 }
+3312:                                             ; preds = %3278, %3277
+  %3313 = landingpad { ptr, i32 }
           cleanup
-  br label %3318
+  br label %3314
 
-3318:                                             ; preds = %3314, %3316
-  %.pn468 = phi { ptr, i32 } [ %3317, %3316 ], [ %3315, %3314 ]
+3314:                                             ; preds = %3310, %3312
+  %.pn468 = phi { ptr, i32 } [ %3313, %3312 ], [ %3311, %3310 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %389) #21
-  br label %3319
+  br label %3315
 
-3319:                                             ; preds = %3318, %3279
-  %.pn468.pn = phi { ptr, i32 } [ %.pn468, %3318 ], [ %3280, %3279 ]
+3315:                                             ; preds = %3314, %3275
+  %.pn468.pn = phi { ptr, i32 } [ %.pn468, %3314 ], [ %3276, %3275 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %389) #21
-  br label %4096
+  br label %4092
 
-3320:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit800
-  %3321 = landingpad { ptr, i32 }
+3316:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit800
+  %3317 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %395) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %394) #21
-  br label %3360
+  br label %3356
 
-3322:                                             ; preds = %3301
-  %3323 = landingpad { ptr, i32 }
+3318:                                             ; preds = %3297
+  %3319 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %397) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %399) #21
-  %.172255 = extractvalue { ptr, i32 } %3323, 0
+  %.172255 = extractvalue { ptr, i32 } %3319, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %398) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %397) #21
-  %3324 = call ptr @__cxa_begin_catch(ptr %.172255) #21
+  %3320 = call ptr @__cxa_begin_catch(ptr %.172255) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %393)
-          to label %3325 unwind label %3355
+          to label %3321 unwind label %3351
 
-3325:                                             ; preds = %3322
+3321:                                             ; preds = %3318
   invoke void @__cxa_end_catch()
-          to label %3326 unwind label %3357
+          to label %3322 unwind label %3353
 
-3326:                                             ; preds = %3325, %3313
+3322:                                             ; preds = %3321, %3309
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %393)
-          to label %3327 unwind label %3357
+          to label %3323 unwind label %3353
 
-3327:                                             ; preds = %3326
-  %3328 = getelementptr inbounds nuw i8, ptr %393, i64 58
-  %3329 = load i8, ptr %3328, align 2, !tbaa !33, !range !40, !noundef !41
-  %3330 = trunc nuw i8 %3329 to i1
-  br i1 %3330, label %_ZN5Catch16AssertionHandlerD2Ev.exit802, label %3331
+3323:                                             ; preds = %3322
+  %3324 = getelementptr inbounds nuw i8, ptr %393, i64 58
+  %3325 = load i8, ptr %3324, align 2, !tbaa !33, !range !40, !noundef !41
+  %3326 = trunc nuw i8 %3325 to i1
+  br i1 %3326, label %_ZN5Catch16AssertionHandlerD2Ev.exit802, label %3327
 
-3331:                                             ; preds = %3327
-  %3332 = getelementptr inbounds nuw i8, ptr %393, i64 64
-  %3333 = load ptr, ptr %3332, align 8, !tbaa !42
-  %3334 = load ptr, ptr %3333, align 8, !tbaa !4
-  %3335 = getelementptr inbounds nuw i8, ptr %3334, i64 112
-  %3336 = load ptr, ptr %3335, align 8
-  invoke void %3336(ptr noundef nonnull align 8 dereferenceable(8) %3333, ptr noundef nonnull align 8 dereferenceable(72) %393)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit802 unwind label %3337
+3327:                                             ; preds = %3323
+  %3328 = getelementptr inbounds nuw i8, ptr %393, i64 64
+  %3329 = load ptr, ptr %3328, align 8, !tbaa !42
+  %3330 = load ptr, ptr %3329, align 8, !tbaa !4
+  %3331 = getelementptr inbounds nuw i8, ptr %3330, i64 112
+  %3332 = load ptr, ptr %3331, align 8
+  invoke void %3332(ptr noundef nonnull align 8 dereferenceable(8) %3329, ptr noundef nonnull align 8 dereferenceable(72) %393)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit802 unwind label %3333
 
-3337:                                             ; preds = %3331
-  %3338 = landingpad { ptr, i32 }
+3333:                                             ; preds = %3327
+  %3334 = landingpad { ptr, i32 }
           catch ptr null
-  %3339 = extractvalue { ptr, i32 } %3338, 0
-  call void @__clang_call_terminate(ptr %3339) #22
+  %3335 = extractvalue { ptr, i32 } %3334, 0
+  call void @__clang_call_terminate(ptr %3335) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit802:          ; preds = %3327, %3331
+_ZN5Catch16AssertionHandlerD2Ev.exit802:          ; preds = %3323, %3327
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %393) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %400) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %401) #21
   store ptr @.str.24, ptr %401, align 8
-  %3340 = getelementptr inbounds nuw i8, ptr %401, i64 8
-  store i64 7, ptr %3340, align 8
+  %3336 = getelementptr inbounds nuw i8, ptr %401, i64 8
+  store i64 7, ptr %3336, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %402) #21
   store ptr @.str, ptr %402, align 8, !tbaa !19
-  %3341 = getelementptr inbounds nuw i8, ptr %402, i64 8
-  store i64 146, ptr %3341, align 8, !tbaa !23
+  %3337 = getelementptr inbounds nuw i8, ptr %402, i64 8
+  store i64 146, ptr %3337, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %403, ptr noundef nonnull @.str.85) #21
-  %3342 = load ptr, ptr %403, align 8
-  %3343 = getelementptr inbounds nuw i8, ptr %403, i64 8
-  %3344 = load i64, ptr %3343, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %400, ptr noundef nonnull align 8 dereferenceable(16) %401, ptr noundef nonnull align 8 dereferenceable(16) %402, ptr %3342, i64 %3344, i32 noundef 1)
-          to label %3345 unwind label %3361
+  %3338 = load ptr, ptr %403, align 8
+  %3339 = getelementptr inbounds nuw i8, ptr %403, i64 8
+  %3340 = load i64, ptr %3339, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %400, ptr noundef nonnull align 8 dereferenceable(16) %401, ptr noundef nonnull align 8 dereferenceable(16) %402, ptr %3338, i64 %3340, i32 noundef 1)
+          to label %3341 unwind label %3357
 
-3345:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit802
+3341:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit802
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %402) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %401) #21
-  %3346 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
-  %3347 = zext i1 %3346 to i8
+  %3342 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
+  %3343 = zext i1 %3342 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #21
-  %3348 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i8 0, ptr %3348, align 8, !tbaa !24, !alias.scope !255
-  %3349 = getelementptr inbounds nuw i8, ptr %16, i64 9
-  store i8 %3347, ptr %3349, align 1, !tbaa !30, !alias.scope !255
+  %3344 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i8 0, ptr %3344, align 8, !tbaa !24, !alias.scope !255
+  %3345 = getelementptr inbounds nuw i8, ptr %16, i64 9
+  store i8 %3343, ptr %3345, align 1, !tbaa !30, !alias.scope !255
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %16, align 8, !tbaa !4, !alias.scope !255
-  %3350 = getelementptr inbounds nuw i8, ptr %16, i64 10
-  store i8 %3347, ptr %3350, align 2, !tbaa !31, !alias.scope !255
+  %3346 = getelementptr inbounds nuw i8, ptr %16, i64 10
+  store i8 %3343, ptr %3346, align 2, !tbaa !31, !alias.scope !255
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %400, ptr noundef nonnull align 8 dereferenceable(10) %16)
-          to label %3354 unwind label %.body803
+          to label %3350 unwind label %.body803
 
-.body803:                                         ; preds = %3345
-  %3351 = landingpad { ptr, i32 }
+.body803:                                         ; preds = %3341
+  %3347 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %16) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #21
-  %3352 = extractvalue { ptr, i32 } %3351, 0
-  %3353 = call ptr @__cxa_begin_catch(ptr %3352) #21
+  %3348 = extractvalue { ptr, i32 } %3347, 0
+  %3349 = call ptr @__cxa_begin_catch(ptr %3348) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %400)
-          to label %3363 unwind label %3406
+          to label %3359 unwind label %3402
 
-3354:                                             ; preds = %3345
+3350:                                             ; preds = %3341
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %16) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #21
-  br label %3364
-
-3355:                                             ; preds = %3322
-  %3356 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3359 unwind label %4191
-
-3357:                                             ; preds = %3326, %3325
-  %3358 = landingpad { ptr, i32 }
-          cleanup
-  br label %3359
-
-3359:                                             ; preds = %3355, %3357
-  %.pn472 = phi { ptr, i32 } [ %3358, %3357 ], [ %3356, %3355 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %393) #21
   br label %3360
 
-3360:                                             ; preds = %3359, %3320
-  %.pn472.pn = phi { ptr, i32 } [ %.pn472, %3359 ], [ %3321, %3320 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %393) #21
-  br label %4096
+3351:                                             ; preds = %3318
+  %3352 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3355 unwind label %4187
 
-3361:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit802
-  %3362 = landingpad { ptr, i32 }
+3353:                                             ; preds = %3322, %3321
+  %3354 = landingpad { ptr, i32 }
+          cleanup
+  br label %3355
+
+3355:                                             ; preds = %3351, %3353
+  %.pn472 = phi { ptr, i32 } [ %3354, %3353 ], [ %3352, %3351 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %393) #21
+  br label %3356
+
+3356:                                             ; preds = %3355, %3316
+  %.pn472.pn = phi { ptr, i32 } [ %.pn472, %3355 ], [ %3317, %3316 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %393) #21
+  br label %4092
+
+3357:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit802
+  %3358 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %402) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %401) #21
-  br label %3411
+  br label %3407
 
-3363:                                             ; preds = %.body803
+3359:                                             ; preds = %.body803
   invoke void @__cxa_end_catch()
-          to label %3364 unwind label %3408
+          to label %3360 unwind label %3404
 
-3364:                                             ; preds = %3363, %3354
+3360:                                             ; preds = %3359, %3350
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %400)
-          to label %3365 unwind label %3408
+          to label %3361 unwind label %3404
 
-3365:                                             ; preds = %3364
-  %3366 = getelementptr inbounds nuw i8, ptr %400, i64 58
-  %3367 = load i8, ptr %3366, align 2, !tbaa !33, !range !40, !noundef !41
-  %3368 = trunc nuw i8 %3367 to i1
-  br i1 %3368, label %_ZN5Catch16AssertionHandlerD2Ev.exit806, label %3369
+3361:                                             ; preds = %3360
+  %3362 = getelementptr inbounds nuw i8, ptr %400, i64 58
+  %3363 = load i8, ptr %3362, align 2, !tbaa !33, !range !40, !noundef !41
+  %3364 = trunc nuw i8 %3363 to i1
+  br i1 %3364, label %_ZN5Catch16AssertionHandlerD2Ev.exit806, label %3365
 
-3369:                                             ; preds = %3365
-  %3370 = getelementptr inbounds nuw i8, ptr %400, i64 64
-  %3371 = load ptr, ptr %3370, align 8, !tbaa !42
-  %3372 = load ptr, ptr %3371, align 8, !tbaa !4
-  %3373 = getelementptr inbounds nuw i8, ptr %3372, i64 112
-  %3374 = load ptr, ptr %3373, align 8
-  invoke void %3374(ptr noundef nonnull align 8 dereferenceable(8) %3371, ptr noundef nonnull align 8 dereferenceable(72) %400)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit806 unwind label %3375
+3365:                                             ; preds = %3361
+  %3366 = getelementptr inbounds nuw i8, ptr %400, i64 64
+  %3367 = load ptr, ptr %3366, align 8, !tbaa !42
+  %3368 = load ptr, ptr %3367, align 8, !tbaa !4
+  %3369 = getelementptr inbounds nuw i8, ptr %3368, i64 112
+  %3370 = load ptr, ptr %3369, align 8
+  invoke void %3370(ptr noundef nonnull align 8 dereferenceable(8) %3367, ptr noundef nonnull align 8 dereferenceable(72) %400)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit806 unwind label %3371
 
-3375:                                             ; preds = %3369
-  %3376 = landingpad { ptr, i32 }
+3371:                                             ; preds = %3365
+  %3372 = landingpad { ptr, i32 }
           catch ptr null
-  %3377 = extractvalue { ptr, i32 } %3376, 0
-  call void @__clang_call_terminate(ptr %3377) #22
+  %3373 = extractvalue { ptr, i32 } %3372, 0
+  call void @__clang_call_terminate(ptr %3373) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit806:          ; preds = %3365, %3369
+_ZN5Catch16AssertionHandlerD2Ev.exit806:          ; preds = %3361, %3365
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %400) #21
-  %3378 = load i8, ptr %108, align 8, !tbaa !7
-  store i8 %3378, ptr %334, align 8, !tbaa !7
-  %3379 = load ptr, ptr %2685, align 8, !tbaa !113
-  %3380 = load ptr, ptr %2692, align 8, !tbaa !114
-  %3381 = load ptr, ptr %666, align 8, !tbaa !113
-  store ptr %3381, ptr %2685, align 8, !tbaa !113
-  %3382 = load ptr, ptr %1337, align 8, !tbaa !112
-  store ptr %3382, ptr %2700, align 8, !tbaa !112
-  %3383 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %3384 = load ptr, ptr %3383, align 8, !tbaa !114
-  store ptr %3384, ptr %2692, align 8, !tbaa !114
-  %.not.i.i.i.i.i.i = icmp eq ptr %3379, null
+  %3374 = load i8, ptr %108, align 8, !tbaa !7
+  store i8 %3374, ptr %334, align 8, !tbaa !7
+  %3375 = load ptr, ptr %2681, align 8, !tbaa !113
+  %3376 = load ptr, ptr %2688, align 8, !tbaa !115
+  %3377 = load ptr, ptr %666, align 8, !tbaa !113
+  store ptr %3377, ptr %2681, align 8, !tbaa !113
+  %3378 = load ptr, ptr %1336, align 8, !tbaa !112
+  store ptr %3378, ptr %2696, align 8, !tbaa !112
+  %3379 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %3380 = load ptr, ptr %3379, align 8, !tbaa !115
+  store ptr %3380, ptr %2688, align 8, !tbaa !115
+  %.not.i.i.i.i.i.i = icmp eq ptr %3375, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %666, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5vcpkg11CacheStatusaSEOS0_.exit, label %3385
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5vcpkg11CacheStatusaSEOS0_.exit, label %3381
 
-3385:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit806
-  %3386 = ptrtoint ptr %3380 to i64
-  %3387 = ptrtoint ptr %3379 to i64
-  %3388 = sub i64 %3386, %3387
-  call void @_ZdlPvm(ptr noundef nonnull %3379, i64 noundef %3388) #25
+3381:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit806
+  %3382 = ptrtoint ptr %3376 to i64
+  %3383 = ptrtoint ptr %3375 to i64
+  %3384 = sub i64 %3382, %3383
+  call void @_ZdlPvm(ptr noundef nonnull %3375, i64 noundef %3384) #25
   br label %_ZN5vcpkg11CacheStatusaSEOS0_.exit
 
-_ZN5vcpkg11CacheStatusaSEOS0_.exit:               ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit806, %3385
-  %3389 = load ptr, ptr %1358, align 8, !tbaa !116
-  store ptr %3389, ptr %2702, align 8, !tbaa !116
+_ZN5vcpkg11CacheStatusaSEOS0_.exit:               ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit806, %3381
+  %3385 = load ptr, ptr %1356, align 8, !tbaa !116
+  store ptr %3385, ptr %2698, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %404) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %405) #21
   store ptr @.str.24, ptr %405, align 8
-  %3390 = getelementptr inbounds nuw i8, ptr %405, i64 8
-  store i64 7, ptr %3390, align 8
+  %3386 = getelementptr inbounds nuw i8, ptr %405, i64 8
+  store i64 7, ptr %3386, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %406) #21
   store ptr @.str, ptr %406, align 8, !tbaa !19
-  %3391 = getelementptr inbounds nuw i8, ptr %406, i64 8
-  store i64 150, ptr %3391, align 8, !tbaa !23
+  %3387 = getelementptr inbounds nuw i8, ptr %406, i64 8
+  store i64 150, ptr %3387, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %407, ptr noundef nonnull @.str.77) #21
-  %3392 = load ptr, ptr %407, align 8
-  %3393 = getelementptr inbounds nuw i8, ptr %407, i64 8
-  %3394 = load i64, ptr %3393, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %404, ptr noundef nonnull align 8 dereferenceable(16) %405, ptr noundef nonnull align 8 dereferenceable(16) %406, ptr %3392, i64 %3394, i32 noundef 1)
-          to label %3395 unwind label %3412
+  %3388 = load ptr, ptr %407, align 8
+  %3389 = getelementptr inbounds nuw i8, ptr %407, i64 8
+  %3390 = load i64, ptr %3389, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %404, ptr noundef nonnull align 8 dereferenceable(16) %405, ptr noundef nonnull align 8 dereferenceable(16) %406, ptr %3388, i64 %3390, i32 noundef 1)
+          to label %3391 unwind label %3408
 
-3395:                                             ; preds = %_ZN5vcpkg11CacheStatusaSEOS0_.exit
+3391:                                             ; preds = %_ZN5vcpkg11CacheStatusaSEOS0_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %406) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %405) #21
-  %3396 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3397 = xor i1 %3396, true
-  %3398 = zext i1 %3397 to i8
+  %3392 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3393 = xor i1 %3392, true
+  %3394 = zext i1 %3393 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #21
-  %3399 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i8 0, ptr %3399, align 8, !tbaa !24, !alias.scope !258
-  %3400 = getelementptr inbounds nuw i8, ptr %15, i64 9
-  store i8 %3398, ptr %3400, align 1, !tbaa !30, !alias.scope !258
+  %3395 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i8 0, ptr %3395, align 8, !tbaa !24, !alias.scope !258
+  %3396 = getelementptr inbounds nuw i8, ptr %15, i64 9
+  store i8 %3394, ptr %3396, align 1, !tbaa !30, !alias.scope !258
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %15, align 8, !tbaa !4, !alias.scope !258
-  %3401 = getelementptr inbounds nuw i8, ptr %15, i64 10
-  store i8 %3398, ptr %3401, align 2, !tbaa !31, !alias.scope !258
+  %3397 = getelementptr inbounds nuw i8, ptr %15, i64 10
+  store i8 %3394, ptr %3397, align 2, !tbaa !31, !alias.scope !258
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %404, ptr noundef nonnull align 8 dereferenceable(10) %15)
-          to label %3405 unwind label %.body807
+          to label %3401 unwind label %.body807
 
-.body807:                                         ; preds = %3395
-  %3402 = landingpad { ptr, i32 }
+.body807:                                         ; preds = %3391
+  %3398 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %15) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #21
-  %3403 = extractvalue { ptr, i32 } %3402, 0
-  %3404 = call ptr @__cxa_begin_catch(ptr %3403) #21
+  %3399 = extractvalue { ptr, i32 } %3398, 0
+  %3400 = call ptr @__cxa_begin_catch(ptr %3399) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %404)
-          to label %3414 unwind label %3445
+          to label %3410 unwind label %3441
 
-3405:                                             ; preds = %3395
+3401:                                             ; preds = %3391
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %15) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #21
-  br label %3415
-
-3406:                                             ; preds = %.body803
-  %3407 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3410 unwind label %4191
-
-3408:                                             ; preds = %3364, %3363
-  %3409 = landingpad { ptr, i32 }
-          cleanup
-  br label %3410
-
-3410:                                             ; preds = %3406, %3408
-  %.pn475 = phi { ptr, i32 } [ %3409, %3408 ], [ %3407, %3406 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %400) #21
   br label %3411
 
-3411:                                             ; preds = %3410, %3361
-  %.pn475.pn = phi { ptr, i32 } [ %.pn475, %3410 ], [ %3362, %3361 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %400) #21
-  br label %4096
+3402:                                             ; preds = %.body803
+  %3403 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3406 unwind label %4187
 
-3412:                                             ; preds = %_ZN5vcpkg11CacheStatusaSEOS0_.exit
-  %3413 = landingpad { ptr, i32 }
+3404:                                             ; preds = %3360, %3359
+  %3405 = landingpad { ptr, i32 }
+          cleanup
+  br label %3406
+
+3406:                                             ; preds = %3402, %3404
+  %.pn475 = phi { ptr, i32 } [ %3405, %3404 ], [ %3403, %3402 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %400) #21
+  br label %3407
+
+3407:                                             ; preds = %3406, %3357
+  %.pn475.pn = phi { ptr, i32 } [ %.pn475, %3406 ], [ %3358, %3357 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %400) #21
+  br label %4092
+
+3408:                                             ; preds = %_ZN5vcpkg11CacheStatusaSEOS0_.exit
+  %3409 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %406) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %405) #21
-  br label %3450
+  br label %3446
 
-3414:                                             ; preds = %.body807
+3410:                                             ; preds = %.body807
   invoke void @__cxa_end_catch()
-          to label %3415 unwind label %3447
+          to label %3411 unwind label %3443
 
-3415:                                             ; preds = %3414, %3405
+3411:                                             ; preds = %3410, %3401
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %404)
-          to label %3416 unwind label %3447
+          to label %3412 unwind label %3443
 
-3416:                                             ; preds = %3415
-  %3417 = getelementptr inbounds nuw i8, ptr %404, i64 58
-  %3418 = load i8, ptr %3417, align 2, !tbaa !33, !range !40, !noundef !41
-  %3419 = trunc nuw i8 %3418 to i1
-  br i1 %3419, label %_ZN5Catch16AssertionHandlerD2Ev.exit810, label %3420
+3412:                                             ; preds = %3411
+  %3413 = getelementptr inbounds nuw i8, ptr %404, i64 58
+  %3414 = load i8, ptr %3413, align 2, !tbaa !33, !range !40, !noundef !41
+  %3415 = trunc nuw i8 %3414 to i1
+  br i1 %3415, label %_ZN5Catch16AssertionHandlerD2Ev.exit810, label %3416
 
-3420:                                             ; preds = %3416
-  %3421 = getelementptr inbounds nuw i8, ptr %404, i64 64
-  %3422 = load ptr, ptr %3421, align 8, !tbaa !42
-  %3423 = load ptr, ptr %3422, align 8, !tbaa !4
-  %3424 = getelementptr inbounds nuw i8, ptr %3423, i64 112
-  %3425 = load ptr, ptr %3424, align 8
-  invoke void %3425(ptr noundef nonnull align 8 dereferenceable(8) %3422, ptr noundef nonnull align 8 dereferenceable(72) %404)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit810 unwind label %3426
+3416:                                             ; preds = %3412
+  %3417 = getelementptr inbounds nuw i8, ptr %404, i64 64
+  %3418 = load ptr, ptr %3417, align 8, !tbaa !42
+  %3419 = load ptr, ptr %3418, align 8, !tbaa !4
+  %3420 = getelementptr inbounds nuw i8, ptr %3419, i64 112
+  %3421 = load ptr, ptr %3420, align 8
+  invoke void %3421(ptr noundef nonnull align 8 dereferenceable(8) %3418, ptr noundef nonnull align 8 dereferenceable(72) %404)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit810 unwind label %3422
 
-3426:                                             ; preds = %3420
-  %3427 = landingpad { ptr, i32 }
+3422:                                             ; preds = %3416
+  %3423 = landingpad { ptr, i32 }
           catch ptr null
-  %3428 = extractvalue { ptr, i32 } %3427, 0
-  call void @__clang_call_terminate(ptr %3428) #22
+  %3424 = extractvalue { ptr, i32 } %3423, 0
+  call void @__clang_call_terminate(ptr %3424) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit810:          ; preds = %3416, %3420
+_ZN5Catch16AssertionHandlerD2Ev.exit810:          ; preds = %3412, %3416
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %404) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %408) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %409) #21
   store ptr @.str.24, ptr %409, align 8
-  %3429 = getelementptr inbounds nuw i8, ptr %409, i64 8
-  store i64 7, ptr %3429, align 8
+  %3425 = getelementptr inbounds nuw i8, ptr %409, i64 8
+  store i64 7, ptr %3425, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %410) #21
   store ptr @.str, ptr %410, align 8, !tbaa !19
-  %3430 = getelementptr inbounds nuw i8, ptr %410, i64 8
-  store i64 151, ptr %3430, align 8, !tbaa !23
+  %3426 = getelementptr inbounds nuw i8, ptr %410, i64 8
+  store i64 151, ptr %3426, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %411, ptr noundef nonnull @.str.78) #21
-  %3431 = load ptr, ptr %411, align 8
-  %3432 = getelementptr inbounds nuw i8, ptr %411, i64 8
-  %3433 = load i64, ptr %3432, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %408, ptr noundef nonnull align 8 dereferenceable(16) %409, ptr noundef nonnull align 8 dereferenceable(16) %410, ptr %3431, i64 %3433, i32 noundef 1)
-          to label %3434 unwind label %3451
+  %3427 = load ptr, ptr %411, align 8
+  %3428 = getelementptr inbounds nuw i8, ptr %411, i64 8
+  %3429 = load i64, ptr %3428, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %408, ptr noundef nonnull align 8 dereferenceable(16) %409, ptr noundef nonnull align 8 dereferenceable(16) %410, ptr %3427, i64 %3429, i32 noundef 1)
+          to label %3430 unwind label %3447
 
-3434:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit810
+3430:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit810
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %410) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %409) #21
-  %3435 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3436 = xor i1 %3435, true
-  %3437 = zext i1 %3436 to i8
+  %3431 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3432 = xor i1 %3431, true
+  %3433 = zext i1 %3432 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #21
-  %3438 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i8 0, ptr %3438, align 8, !tbaa !24, !alias.scope !261
-  %3439 = getelementptr inbounds nuw i8, ptr %14, i64 9
-  store i8 %3437, ptr %3439, align 1, !tbaa !30, !alias.scope !261
+  %3434 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i8 0, ptr %3434, align 8, !tbaa !24, !alias.scope !261
+  %3435 = getelementptr inbounds nuw i8, ptr %14, i64 9
+  store i8 %3433, ptr %3435, align 1, !tbaa !30, !alias.scope !261
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %14, align 8, !tbaa !4, !alias.scope !261
-  %3440 = getelementptr inbounds nuw i8, ptr %14, i64 10
-  store i8 %3437, ptr %3440, align 2, !tbaa !31, !alias.scope !261
+  %3436 = getelementptr inbounds nuw i8, ptr %14, i64 10
+  store i8 %3433, ptr %3436, align 2, !tbaa !31, !alias.scope !261
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %408, ptr noundef nonnull align 8 dereferenceable(10) %14)
-          to label %3444 unwind label %.body811
+          to label %3440 unwind label %.body811
 
-.body811:                                         ; preds = %3434
-  %3441 = landingpad { ptr, i32 }
+.body811:                                         ; preds = %3430
+  %3437 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %14) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #21
-  %3442 = extractvalue { ptr, i32 } %3441, 0
-  %3443 = call ptr @__cxa_begin_catch(ptr %3442) #21
+  %3438 = extractvalue { ptr, i32 } %3437, 0
+  %3439 = call ptr @__cxa_begin_catch(ptr %3438) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %408)
-          to label %3453 unwind label %3483
+          to label %3449 unwind label %3479
 
-3444:                                             ; preds = %3434
+3440:                                             ; preds = %3430
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %14) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #21
-  br label %3454
-
-3445:                                             ; preds = %.body807
-  %3446 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3449 unwind label %4191
-
-3447:                                             ; preds = %3415, %3414
-  %3448 = landingpad { ptr, i32 }
-          cleanup
-  br label %3449
-
-3449:                                             ; preds = %3445, %3447
-  %.pn478 = phi { ptr, i32 } [ %3448, %3447 ], [ %3446, %3445 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %404) #21
   br label %3450
 
-3450:                                             ; preds = %3449, %3412
-  %.pn478.pn = phi { ptr, i32 } [ %.pn478, %3449 ], [ %3413, %3412 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %404) #21
-  br label %4096
+3441:                                             ; preds = %.body807
+  %3442 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3445 unwind label %4187
 
-3451:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit810
-  %3452 = landingpad { ptr, i32 }
+3443:                                             ; preds = %3411, %3410
+  %3444 = landingpad { ptr, i32 }
+          cleanup
+  br label %3445
+
+3445:                                             ; preds = %3441, %3443
+  %.pn478 = phi { ptr, i32 } [ %3444, %3443 ], [ %3442, %3441 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %404) #21
+  br label %3446
+
+3446:                                             ; preds = %3445, %3408
+  %.pn478.pn = phi { ptr, i32 } [ %.pn478, %3445 ], [ %3409, %3408 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %404) #21
+  br label %4092
+
+3447:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit810
+  %3448 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %410) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %409) #21
-  br label %3488
+  br label %3484
 
-3453:                                             ; preds = %.body811
+3449:                                             ; preds = %.body811
   invoke void @__cxa_end_catch()
-          to label %3454 unwind label %3485
+          to label %3450 unwind label %3481
 
-3454:                                             ; preds = %3453, %3444
+3450:                                             ; preds = %3449, %3440
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %408)
-          to label %3455 unwind label %3485
+          to label %3451 unwind label %3481
 
-3455:                                             ; preds = %3454
-  %3456 = getelementptr inbounds nuw i8, ptr %408, i64 58
-  %3457 = load i8, ptr %3456, align 2, !tbaa !33, !range !40, !noundef !41
-  %3458 = trunc nuw i8 %3457 to i1
-  br i1 %3458, label %_ZN5Catch16AssertionHandlerD2Ev.exit814, label %3459
+3451:                                             ; preds = %3450
+  %3452 = getelementptr inbounds nuw i8, ptr %408, i64 58
+  %3453 = load i8, ptr %3452, align 2, !tbaa !33, !range !40, !noundef !41
+  %3454 = trunc nuw i8 %3453 to i1
+  br i1 %3454, label %_ZN5Catch16AssertionHandlerD2Ev.exit814, label %3455
 
-3459:                                             ; preds = %3455
-  %3460 = getelementptr inbounds nuw i8, ptr %408, i64 64
-  %3461 = load ptr, ptr %3460, align 8, !tbaa !42
-  %3462 = load ptr, ptr %3461, align 8, !tbaa !4
-  %3463 = getelementptr inbounds nuw i8, ptr %3462, i64 112
-  %3464 = load ptr, ptr %3463, align 8
-  invoke void %3464(ptr noundef nonnull align 8 dereferenceable(8) %3461, ptr noundef nonnull align 8 dereferenceable(72) %408)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit814 unwind label %3465
+3455:                                             ; preds = %3451
+  %3456 = getelementptr inbounds nuw i8, ptr %408, i64 64
+  %3457 = load ptr, ptr %3456, align 8, !tbaa !42
+  %3458 = load ptr, ptr %3457, align 8, !tbaa !4
+  %3459 = getelementptr inbounds nuw i8, ptr %3458, i64 112
+  %3460 = load ptr, ptr %3459, align 8
+  invoke void %3460(ptr noundef nonnull align 8 dereferenceable(8) %3457, ptr noundef nonnull align 8 dereferenceable(72) %408)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit814 unwind label %3461
 
-3465:                                             ; preds = %3459
-  %3466 = landingpad { ptr, i32 }
+3461:                                             ; preds = %3455
+  %3462 = landingpad { ptr, i32 }
           catch ptr null
-  %3467 = extractvalue { ptr, i32 } %3466, 0
-  call void @__clang_call_terminate(ptr %3467) #22
+  %3463 = extractvalue { ptr, i32 } %3462, 0
+  call void @__clang_call_terminate(ptr %3463) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit814:          ; preds = %3455, %3459
+_ZN5Catch16AssertionHandlerD2Ev.exit814:          ; preds = %3451, %3455
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %408) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %412) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %413) #21
   store ptr @.str.24, ptr %413, align 8
-  %3468 = getelementptr inbounds nuw i8, ptr %413, i64 8
-  store i64 7, ptr %3468, align 8
+  %3464 = getelementptr inbounds nuw i8, ptr %413, i64 8
+  store i64 7, ptr %3464, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %414) #21
   store ptr @.str, ptr %414, align 8, !tbaa !19
-  %3469 = getelementptr inbounds nuw i8, ptr %414, i64 8
-  store i64 152, ptr %3469, align 8, !tbaa !23
+  %3465 = getelementptr inbounds nuw i8, ptr %414, i64 8
+  store i64 152, ptr %3465, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %415, ptr noundef nonnull @.str.79) #21
-  %3470 = load ptr, ptr %415, align 8
-  %3471 = getelementptr inbounds nuw i8, ptr %415, i64 8
-  %3472 = load i64, ptr %3471, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %412, ptr noundef nonnull align 8 dereferenceable(16) %413, ptr noundef nonnull align 8 dereferenceable(16) %414, ptr %3470, i64 %3472, i32 noundef 1)
-          to label %3473 unwind label %3489
+  %3466 = load ptr, ptr %415, align 8
+  %3467 = getelementptr inbounds nuw i8, ptr %415, i64 8
+  %3468 = load i64, ptr %3467, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %412, ptr noundef nonnull align 8 dereferenceable(16) %413, ptr noundef nonnull align 8 dereferenceable(16) %414, ptr %3466, i64 %3468, i32 noundef 1)
+          to label %3469 unwind label %3485
 
-3473:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit814
+3469:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit814
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %414) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %413) #21
-  %3474 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3475 = zext i1 %3474 to i8
+  %3470 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3471 = zext i1 %3470 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #21
-  %3476 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i8 0, ptr %3476, align 8, !tbaa !24, !alias.scope !264
-  %3477 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  store i8 %3475, ptr %3477, align 1, !tbaa !30, !alias.scope !264
+  %3472 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i8 0, ptr %3472, align 8, !tbaa !24, !alias.scope !264
+  %3473 = getelementptr inbounds nuw i8, ptr %13, i64 9
+  store i8 %3471, ptr %3473, align 1, !tbaa !30, !alias.scope !264
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %13, align 8, !tbaa !4, !alias.scope !264
-  %3478 = getelementptr inbounds nuw i8, ptr %13, i64 10
-  store i8 %3475, ptr %3478, align 2, !tbaa !31, !alias.scope !264
+  %3474 = getelementptr inbounds nuw i8, ptr %13, i64 10
+  store i8 %3471, ptr %3474, align 2, !tbaa !31, !alias.scope !264
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %412, ptr noundef nonnull align 8 dereferenceable(10) %13)
-          to label %3482 unwind label %.body815
+          to label %3478 unwind label %.body815
 
-.body815:                                         ; preds = %3473
-  %3479 = landingpad { ptr, i32 }
+.body815:                                         ; preds = %3469
+  %3475 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %13) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #21
-  %3480 = extractvalue { ptr, i32 } %3479, 0
-  %3481 = call ptr @__cxa_begin_catch(ptr %3480) #21
+  %3476 = extractvalue { ptr, i32 } %3475, 0
+  %3477 = call ptr @__cxa_begin_catch(ptr %3476) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %412)
-          to label %3491 unwind label %3524
+          to label %3487 unwind label %3520
 
-3482:                                             ; preds = %3473
+3478:                                             ; preds = %3469
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %13) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #21
-  br label %3492
-
-3483:                                             ; preds = %.body811
-  %3484 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3487 unwind label %4191
-
-3485:                                             ; preds = %3454, %3453
-  %3486 = landingpad { ptr, i32 }
-          cleanup
-  br label %3487
-
-3487:                                             ; preds = %3483, %3485
-  %.pn481 = phi { ptr, i32 } [ %3486, %3485 ], [ %3484, %3483 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %408) #21
   br label %3488
 
-3488:                                             ; preds = %3487, %3451
-  %.pn481.pn = phi { ptr, i32 } [ %.pn481, %3487 ], [ %3452, %3451 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %408) #21
-  br label %4096
+3479:                                             ; preds = %.body811
+  %3480 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3483 unwind label %4187
 
-3489:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit814
-  %3490 = landingpad { ptr, i32 }
+3481:                                             ; preds = %3450, %3449
+  %3482 = landingpad { ptr, i32 }
+          cleanup
+  br label %3483
+
+3483:                                             ; preds = %3479, %3481
+  %.pn481 = phi { ptr, i32 } [ %3482, %3481 ], [ %3480, %3479 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %408) #21
+  br label %3484
+
+3484:                                             ; preds = %3483, %3447
+  %.pn481.pn = phi { ptr, i32 } [ %.pn481, %3483 ], [ %3448, %3447 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %408) #21
+  br label %4092
+
+3485:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit814
+  %3486 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %414) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %413) #21
-  br label %3529
+  br label %3525
 
-3491:                                             ; preds = %.body815
+3487:                                             ; preds = %.body815
   invoke void @__cxa_end_catch()
-          to label %3492 unwind label %3526
+          to label %3488 unwind label %3522
 
-3492:                                             ; preds = %3491, %3482
+3488:                                             ; preds = %3487, %3478
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %412)
-          to label %3493 unwind label %3526
+          to label %3489 unwind label %3522
 
-3493:                                             ; preds = %3492
-  %3494 = getelementptr inbounds nuw i8, ptr %412, i64 58
-  %3495 = load i8, ptr %3494, align 2, !tbaa !33, !range !40, !noundef !41
-  %3496 = trunc nuw i8 %3495 to i1
-  br i1 %3496, label %_ZN5Catch16AssertionHandlerD2Ev.exit818, label %3497
+3489:                                             ; preds = %3488
+  %3490 = getelementptr inbounds nuw i8, ptr %412, i64 58
+  %3491 = load i8, ptr %3490, align 2, !tbaa !33, !range !40, !noundef !41
+  %3492 = trunc nuw i8 %3491 to i1
+  br i1 %3492, label %_ZN5Catch16AssertionHandlerD2Ev.exit818, label %3493
 
-3497:                                             ; preds = %3493
-  %3498 = getelementptr inbounds nuw i8, ptr %412, i64 64
-  %3499 = load ptr, ptr %3498, align 8, !tbaa !42
-  %3500 = load ptr, ptr %3499, align 8, !tbaa !4
-  %3501 = getelementptr inbounds nuw i8, ptr %3500, i64 112
-  %3502 = load ptr, ptr %3501, align 8
-  invoke void %3502(ptr noundef nonnull align 8 dereferenceable(8) %3499, ptr noundef nonnull align 8 dereferenceable(72) %412)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit818 unwind label %3503
+3493:                                             ; preds = %3489
+  %3494 = getelementptr inbounds nuw i8, ptr %412, i64 64
+  %3495 = load ptr, ptr %3494, align 8, !tbaa !42
+  %3496 = load ptr, ptr %3495, align 8, !tbaa !4
+  %3497 = getelementptr inbounds nuw i8, ptr %3496, i64 112
+  %3498 = load ptr, ptr %3497, align 8
+  invoke void %3498(ptr noundef nonnull align 8 dereferenceable(8) %3495, ptr noundef nonnull align 8 dereferenceable(72) %412)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit818 unwind label %3499
 
-3503:                                             ; preds = %3497
-  %3504 = landingpad { ptr, i32 }
+3499:                                             ; preds = %3493
+  %3500 = landingpad { ptr, i32 }
           catch ptr null
-  %3505 = extractvalue { ptr, i32 } %3504, 0
-  call void @__clang_call_terminate(ptr %3505) #22
+  %3501 = extractvalue { ptr, i32 } %3500, 0
+  call void @__clang_call_terminate(ptr %3501) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit818:          ; preds = %3493, %3497
+_ZN5Catch16AssertionHandlerD2Ev.exit818:          ; preds = %3489, %3493
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %412) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %416) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %417) #21
   store ptr @.str.24, ptr %417, align 8
-  %3506 = getelementptr inbounds nuw i8, ptr %417, i64 8
-  store i64 7, ptr %3506, align 8
+  %3502 = getelementptr inbounds nuw i8, ptr %417, i64 8
+  store i64 7, ptr %3502, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %418) #21
   store ptr @.str, ptr %418, align 8, !tbaa !19
-  %3507 = getelementptr inbounds nuw i8, ptr %418, i64 8
-  store i64 153, ptr %3507, align 8, !tbaa !23
+  %3503 = getelementptr inbounds nuw i8, ptr %418, i64 8
+  store i64 153, ptr %3503, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %419, ptr noundef nonnull @.str.80) #21
-  %3508 = load ptr, ptr %419, align 8
-  %3509 = getelementptr inbounds nuw i8, ptr %419, i64 8
-  %3510 = load i64, ptr %3509, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %416, ptr noundef nonnull align 8 dereferenceable(16) %417, ptr noundef nonnull align 8 dereferenceable(16) %418, ptr %3508, i64 %3510, i32 noundef 1)
-          to label %3511 unwind label %3530
+  %3504 = load ptr, ptr %419, align 8
+  %3505 = getelementptr inbounds nuw i8, ptr %419, i64 8
+  %3506 = load i64, ptr %3505, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %416, ptr noundef nonnull align 8 dereferenceable(16) %417, ptr noundef nonnull align 8 dereferenceable(16) %418, ptr %3504, i64 %3506, i32 noundef 1)
+          to label %3507 unwind label %3526
 
-3511:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit818
+3507:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit818
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %418) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %417) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %420) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %421) #21
-  %3512 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
-  store ptr %3512, ptr %421, align 8, !tbaa !49
+  %3508 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
+  store ptr %3508, ptr %421, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %422) #21
   store ptr null, ptr %422, align 8, !tbaa !50
   call void @llvm.experimental.noalias.scope.decl(metadata !267)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
-  %3513 = icmp eq ptr %3512, null
+  %3509 = icmp eq ptr %3508, null
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull @.str.90) #21, !noalias !267
-  %3514 = load ptr, ptr %12, align 8, !noalias !267
-  %3515 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %3516 = load i64, ptr %3515, align 8, !noalias !267
-  %3517 = zext i1 %3513 to i8
-  %3518 = getelementptr inbounds nuw i8, ptr %420, i64 8
-  store i8 1, ptr %3518, align 8, !tbaa !24, !alias.scope !267
-  %3519 = getelementptr inbounds nuw i8, ptr %420, i64 9
-  store i8 %3517, ptr %3519, align 1, !tbaa !30, !alias.scope !267
+  %3510 = load ptr, ptr %12, align 8, !noalias !267
+  %3511 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %3512 = load i64, ptr %3511, align 8, !noalias !267
+  %3513 = zext i1 %3509 to i8
+  %3514 = getelementptr inbounds nuw i8, ptr %420, i64 8
+  store i8 1, ptr %3514, align 8, !tbaa !24, !alias.scope !267
+  %3515 = getelementptr inbounds nuw i8, ptr %420, i64 9
+  store i8 %3513, ptr %3515, align 1, !tbaa !30, !alias.scope !267
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKPKN5vcpkg19IReadBinaryProviderERKDnEE, i64 16), ptr %420, align 8, !tbaa !4, !alias.scope !267
-  %3520 = getelementptr inbounds nuw i8, ptr %420, i64 16
-  store ptr %421, ptr %3520, align 8, !tbaa !55, !alias.scope !267
-  %3521 = getelementptr inbounds nuw i8, ptr %420, i64 24
-  store ptr %3514, ptr %3521, align 8, !tbaa !56, !alias.scope !267
+  %3516 = getelementptr inbounds nuw i8, ptr %420, i64 16
+  store ptr %421, ptr %3516, align 8, !tbaa !55, !alias.scope !267
+  %3517 = getelementptr inbounds nuw i8, ptr %420, i64 24
+  store ptr %3510, ptr %3517, align 8, !tbaa !56, !alias.scope !267
   %.sroa.2.0..sroa_idx.i.i819 = getelementptr inbounds nuw i8, ptr %420, i64 32
-  store i64 %3516, ptr %.sroa.2.0..sroa_idx.i.i819, align 8, !tbaa !57, !alias.scope !267
-  %3522 = getelementptr inbounds nuw i8, ptr %420, i64 40
-  store ptr %422, ptr %3522, align 8, !tbaa !58, !alias.scope !267
+  store i64 %3512, ptr %.sroa.2.0..sroa_idx.i.i819, align 8, !tbaa !57, !alias.scope !267
+  %3518 = getelementptr inbounds nuw i8, ptr %420, i64 40
+  store ptr %422, ptr %3518, align 8, !tbaa !58, !alias.scope !267
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %416, ptr noundef nonnull align 8 dereferenceable(10) %420)
-          to label %3523 unwind label %3532
+          to label %3519 unwind label %3528
 
-3523:                                             ; preds = %3511
+3519:                                             ; preds = %3507
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %420) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %422) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %421) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %420) #21
-  br label %3536
+  br label %3532
 
-3524:                                             ; preds = %.body815
-  %3525 = landingpad { ptr, i32 }
+3520:                                             ; preds = %.body815
+  %3521 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %3528 unwind label %4191
+          to label %3524 unwind label %4187
 
-3526:                                             ; preds = %3492, %3491
-  %3527 = landingpad { ptr, i32 }
+3522:                                             ; preds = %3488, %3487
+  %3523 = landingpad { ptr, i32 }
           cleanup
-  br label %3528
+  br label %3524
 
-3528:                                             ; preds = %3524, %3526
-  %.pn484 = phi { ptr, i32 } [ %3527, %3526 ], [ %3525, %3524 ]
+3524:                                             ; preds = %3520, %3522
+  %.pn484 = phi { ptr, i32 } [ %3523, %3522 ], [ %3521, %3520 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %412) #21
-  br label %3529
+  br label %3525
 
-3529:                                             ; preds = %3528, %3489
-  %.pn484.pn = phi { ptr, i32 } [ %.pn484, %3528 ], [ %3490, %3489 ]
+3525:                                             ; preds = %3524, %3485
+  %.pn484.pn = phi { ptr, i32 } [ %.pn484, %3524 ], [ %3486, %3485 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %412) #21
-  br label %4096
+  br label %4092
 
-3530:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit818
-  %3531 = landingpad { ptr, i32 }
+3526:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit818
+  %3527 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %418) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %417) #21
-  br label %3571
+  br label %3567
 
-3532:                                             ; preds = %3511
-  %3533 = landingpad { ptr, i32 }
+3528:                                             ; preds = %3507
+  %3529 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %420) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %422) #21
-  %.184264 = extractvalue { ptr, i32 } %3533, 0
+  %.184264 = extractvalue { ptr, i32 } %3529, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %421) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %420) #21
-  %3534 = call ptr @__cxa_begin_catch(ptr %.184264) #21
+  %3530 = call ptr @__cxa_begin_catch(ptr %.184264) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %416)
-          to label %3535 unwind label %3566
+          to label %3531 unwind label %3562
 
-3535:                                             ; preds = %3532
+3531:                                             ; preds = %3528
   invoke void @__cxa_end_catch()
-          to label %3536 unwind label %3568
+          to label %3532 unwind label %3564
 
-3536:                                             ; preds = %3535, %3523
+3532:                                             ; preds = %3531, %3519
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %416)
-          to label %3537 unwind label %3568
+          to label %3533 unwind label %3564
 
-3537:                                             ; preds = %3536
-  %3538 = getelementptr inbounds nuw i8, ptr %416, i64 58
-  %3539 = load i8, ptr %3538, align 2, !tbaa !33, !range !40, !noundef !41
-  %3540 = trunc nuw i8 %3539 to i1
-  br i1 %3540, label %_ZN5Catch16AssertionHandlerD2Ev.exit820, label %3541
+3533:                                             ; preds = %3532
+  %3534 = getelementptr inbounds nuw i8, ptr %416, i64 58
+  %3535 = load i8, ptr %3534, align 2, !tbaa !33, !range !40, !noundef !41
+  %3536 = trunc nuw i8 %3535 to i1
+  br i1 %3536, label %_ZN5Catch16AssertionHandlerD2Ev.exit820, label %3537
 
-3541:                                             ; preds = %3537
-  %3542 = getelementptr inbounds nuw i8, ptr %416, i64 64
-  %3543 = load ptr, ptr %3542, align 8, !tbaa !42
-  %3544 = load ptr, ptr %3543, align 8, !tbaa !4
-  %3545 = getelementptr inbounds nuw i8, ptr %3544, i64 112
-  %3546 = load ptr, ptr %3545, align 8
-  invoke void %3546(ptr noundef nonnull align 8 dereferenceable(8) %3543, ptr noundef nonnull align 8 dereferenceable(72) %416)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit820 unwind label %3547
+3537:                                             ; preds = %3533
+  %3538 = getelementptr inbounds nuw i8, ptr %416, i64 64
+  %3539 = load ptr, ptr %3538, align 8, !tbaa !42
+  %3540 = load ptr, ptr %3539, align 8, !tbaa !4
+  %3541 = getelementptr inbounds nuw i8, ptr %3540, i64 112
+  %3542 = load ptr, ptr %3541, align 8
+  invoke void %3542(ptr noundef nonnull align 8 dereferenceable(8) %3539, ptr noundef nonnull align 8 dereferenceable(72) %416)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit820 unwind label %3543
 
-3547:                                             ; preds = %3541
-  %3548 = landingpad { ptr, i32 }
+3543:                                             ; preds = %3537
+  %3544 = landingpad { ptr, i32 }
           catch ptr null
-  %3549 = extractvalue { ptr, i32 } %3548, 0
-  call void @__clang_call_terminate(ptr %3549) #22
+  %3545 = extractvalue { ptr, i32 } %3544, 0
+  call void @__clang_call_terminate(ptr %3545) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit820:          ; preds = %3537, %3541
+_ZN5Catch16AssertionHandlerD2Ev.exit820:          ; preds = %3533, %3537
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %416) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %423) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %424) #21
   store ptr @.str.24, ptr %424, align 8
-  %3550 = getelementptr inbounds nuw i8, ptr %424, i64 8
-  store i64 7, ptr %3550, align 8
+  %3546 = getelementptr inbounds nuw i8, ptr %424, i64 8
+  store i64 7, ptr %3546, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %425) #21
   store ptr @.str, ptr %425, align 8, !tbaa !19
-  %3551 = getelementptr inbounds nuw i8, ptr %425, i64 8
-  store i64 154, ptr %3551, align 8, !tbaa !23
+  %3547 = getelementptr inbounds nuw i8, ptr %425, i64 8
+  store i64 154, ptr %3547, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %426, ptr noundef nonnull @.str.81) #21
-  %3552 = load ptr, ptr %426, align 8
-  %3553 = getelementptr inbounds nuw i8, ptr %426, i64 8
-  %3554 = load i64, ptr %3553, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %423, ptr noundef nonnull align 8 dereferenceable(16) %424, ptr noundef nonnull align 8 dereferenceable(16) %425, ptr %3552, i64 %3554, i32 noundef 1)
-          to label %3555 unwind label %3572
+  %3548 = load ptr, ptr %426, align 8
+  %3549 = getelementptr inbounds nuw i8, ptr %426, i64 8
+  %3550 = load i64, ptr %3549, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %423, ptr noundef nonnull align 8 dereferenceable(16) %424, ptr noundef nonnull align 8 dereferenceable(16) %425, ptr %3548, i64 %3550, i32 noundef 1)
+          to label %3551 unwind label %3568
 
-3555:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit820
+3551:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit820
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %425) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %424) #21
-  %3556 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
-  %3557 = xor i1 %3556, true
-  %3558 = zext i1 %3557 to i8
+  %3552 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
+  %3553 = xor i1 %3552, true
+  %3554 = zext i1 %3553 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #21
-  %3559 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i8 0, ptr %3559, align 8, !tbaa !24, !alias.scope !270
-  %3560 = getelementptr inbounds nuw i8, ptr %11, i64 9
-  store i8 %3558, ptr %3560, align 1, !tbaa !30, !alias.scope !270
+  %3555 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i8 0, ptr %3555, align 8, !tbaa !24, !alias.scope !270
+  %3556 = getelementptr inbounds nuw i8, ptr %11, i64 9
+  store i8 %3554, ptr %3556, align 1, !tbaa !30, !alias.scope !270
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %11, align 8, !tbaa !4, !alias.scope !270
-  %3561 = getelementptr inbounds nuw i8, ptr %11, i64 10
-  store i8 %3558, ptr %3561, align 2, !tbaa !31, !alias.scope !270
+  %3557 = getelementptr inbounds nuw i8, ptr %11, i64 10
+  store i8 %3554, ptr %3557, align 2, !tbaa !31, !alias.scope !270
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %423, ptr noundef nonnull align 8 dereferenceable(10) %11)
-          to label %3565 unwind label %.body821
+          to label %3561 unwind label %.body821
 
-.body821:                                         ; preds = %3555
-  %3562 = landingpad { ptr, i32 }
+.body821:                                         ; preds = %3551
+  %3558 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %11) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #21
-  %3563 = extractvalue { ptr, i32 } %3562, 0
-  %3564 = call ptr @__cxa_begin_catch(ptr %3563) #21
+  %3559 = extractvalue { ptr, i32 } %3558, 0
+  %3560 = call ptr @__cxa_begin_catch(ptr %3559) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %423)
-          to label %3574 unwind label %3617
+          to label %3570 unwind label %3613
 
-3565:                                             ; preds = %3555
+3561:                                             ; preds = %3551
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %11) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #21
-  br label %3575
-
-3566:                                             ; preds = %3532
-  %3567 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3570 unwind label %4191
-
-3568:                                             ; preds = %3536, %3535
-  %3569 = landingpad { ptr, i32 }
-          cleanup
-  br label %3570
-
-3570:                                             ; preds = %3566, %3568
-  %.pn488 = phi { ptr, i32 } [ %3569, %3568 ], [ %3567, %3566 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %416) #21
   br label %3571
 
-3571:                                             ; preds = %3570, %3530
-  %.pn488.pn = phi { ptr, i32 } [ %.pn488, %3570 ], [ %3531, %3530 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %416) #21
-  br label %4096
+3562:                                             ; preds = %3528
+  %3563 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3566 unwind label %4187
 
-3572:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit820
-  %3573 = landingpad { ptr, i32 }
+3564:                                             ; preds = %3532, %3531
+  %3565 = landingpad { ptr, i32 }
+          cleanup
+  br label %3566
+
+3566:                                             ; preds = %3562, %3564
+  %.pn488 = phi { ptr, i32 } [ %3565, %3564 ], [ %3563, %3562 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %416) #21
+  br label %3567
+
+3567:                                             ; preds = %3566, %3526
+  %.pn488.pn = phi { ptr, i32 } [ %.pn488, %3566 ], [ %3527, %3526 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %416) #21
+  br label %4092
+
+3568:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit820
+  %3569 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %425) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %424) #21
-  br label %3622
+  br label %3618
 
-3574:                                             ; preds = %.body821
+3570:                                             ; preds = %.body821
   invoke void @__cxa_end_catch()
-          to label %3575 unwind label %3619
+          to label %3571 unwind label %3615
 
-3575:                                             ; preds = %3574, %3565
+3571:                                             ; preds = %3570, %3561
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %423)
-          to label %3576 unwind label %3619
+          to label %3572 unwind label %3615
 
-3576:                                             ; preds = %3575
-  %3577 = getelementptr inbounds nuw i8, ptr %423, i64 58
-  %3578 = load i8, ptr %3577, align 2, !tbaa !33, !range !40, !noundef !41
-  %3579 = trunc nuw i8 %3578 to i1
-  br i1 %3579, label %_ZN5Catch16AssertionHandlerD2Ev.exit824, label %3580
+3572:                                             ; preds = %3571
+  %3573 = getelementptr inbounds nuw i8, ptr %423, i64 58
+  %3574 = load i8, ptr %3573, align 2, !tbaa !33, !range !40, !noundef !41
+  %3575 = trunc nuw i8 %3574 to i1
+  br i1 %3575, label %_ZN5Catch16AssertionHandlerD2Ev.exit824, label %3576
 
-3580:                                             ; preds = %3576
-  %3581 = getelementptr inbounds nuw i8, ptr %423, i64 64
-  %3582 = load ptr, ptr %3581, align 8, !tbaa !42
-  %3583 = load ptr, ptr %3582, align 8, !tbaa !4
-  %3584 = getelementptr inbounds nuw i8, ptr %3583, i64 112
-  %3585 = load ptr, ptr %3584, align 8
-  invoke void %3585(ptr noundef nonnull align 8 dereferenceable(8) %3582, ptr noundef nonnull align 8 dereferenceable(72) %423)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit824 unwind label %3586
+3576:                                             ; preds = %3572
+  %3577 = getelementptr inbounds nuw i8, ptr %423, i64 64
+  %3578 = load ptr, ptr %3577, align 8, !tbaa !42
+  %3579 = load ptr, ptr %3578, align 8, !tbaa !4
+  %3580 = getelementptr inbounds nuw i8, ptr %3579, i64 112
+  %3581 = load ptr, ptr %3580, align 8
+  invoke void %3581(ptr noundef nonnull align 8 dereferenceable(8) %3578, ptr noundef nonnull align 8 dereferenceable(72) %423)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit824 unwind label %3582
 
-3586:                                             ; preds = %3580
-  %3587 = landingpad { ptr, i32 }
+3582:                                             ; preds = %3576
+  %3583 = landingpad { ptr, i32 }
           catch ptr null
-  %3588 = extractvalue { ptr, i32 } %3587, 0
-  call void @__clang_call_terminate(ptr %3588) #22
+  %3584 = extractvalue { ptr, i32 } %3583, 0
+  call void @__clang_call_terminate(ptr %3584) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit824:          ; preds = %3576, %3580
+_ZN5Catch16AssertionHandlerD2Ev.exit824:          ; preds = %3572, %3576
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %423) #21
-  %3589 = load i8, ptr %132, align 8, !tbaa !7
-  store i8 %3589, ptr %334, align 8, !tbaa !7
-  %3590 = load ptr, ptr %2685, align 8, !tbaa !113
-  %3591 = load ptr, ptr %2692, align 8, !tbaa !114
-  %3592 = load ptr, ptr %869, align 8, !tbaa !113
-  store ptr %3592, ptr %2685, align 8, !tbaa !113
-  %3593 = load ptr, ptr %1563, align 8, !tbaa !112
-  store ptr %3593, ptr %2700, align 8, !tbaa !112
-  %3594 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  %3595 = load ptr, ptr %3594, align 8, !tbaa !114
-  store ptr %3595, ptr %2692, align 8, !tbaa !114
-  %.not.i.i.i.i.i.i825 = icmp eq ptr %3590, null
+  %3585 = load i8, ptr %132, align 8, !tbaa !7
+  store i8 %3585, ptr %334, align 8, !tbaa !7
+  %3586 = load ptr, ptr %2681, align 8, !tbaa !113
+  %3587 = load ptr, ptr %2688, align 8, !tbaa !115
+  %3588 = load ptr, ptr %869, align 8, !tbaa !113
+  store ptr %3588, ptr %2681, align 8, !tbaa !113
+  %3589 = load ptr, ptr %1561, align 8, !tbaa !112
+  store ptr %3589, ptr %2696, align 8, !tbaa !112
+  %3590 = getelementptr inbounds nuw i8, ptr %132, i64 24
+  %3591 = load ptr, ptr %3590, align 8, !tbaa !115
+  store ptr %3591, ptr %2688, align 8, !tbaa !115
+  %.not.i.i.i.i.i.i825 = icmp eq ptr %3586, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %869, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i.i825, label %_ZN5vcpkg11CacheStatusaSEOS0_.exit826, label %3596
+  br i1 %.not.i.i.i.i.i.i825, label %_ZN5vcpkg11CacheStatusaSEOS0_.exit826, label %3592
 
-3596:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit824
-  %3597 = ptrtoint ptr %3591 to i64
-  %3598 = ptrtoint ptr %3590 to i64
-  %3599 = sub i64 %3597, %3598
-  call void @_ZdlPvm(ptr noundef nonnull %3590, i64 noundef %3599) #25
+3592:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit824
+  %3593 = ptrtoint ptr %3587 to i64
+  %3594 = ptrtoint ptr %3586 to i64
+  %3595 = sub i64 %3593, %3594
+  call void @_ZdlPvm(ptr noundef nonnull %3586, i64 noundef %3595) #25
   br label %_ZN5vcpkg11CacheStatusaSEOS0_.exit826
 
-_ZN5vcpkg11CacheStatusaSEOS0_.exit826:            ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit824, %3596
-  %3600 = load ptr, ptr %1584, align 8, !tbaa !116
-  store ptr %3600, ptr %2702, align 8, !tbaa !116
+_ZN5vcpkg11CacheStatusaSEOS0_.exit826:            ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit824, %3592
+  %3596 = load ptr, ptr %1581, align 8, !tbaa !116
+  store ptr %3596, ptr %2698, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %427) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %428) #21
   store ptr @.str.24, ptr %428, align 8
-  %3601 = getelementptr inbounds nuw i8, ptr %428, i64 8
-  store i64 7, ptr %3601, align 8
+  %3597 = getelementptr inbounds nuw i8, ptr %428, i64 8
+  store i64 7, ptr %3597, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %429) #21
   store ptr @.str, ptr %429, align 8, !tbaa !19
-  %3602 = getelementptr inbounds nuw i8, ptr %429, i64 8
-  store i64 156, ptr %3602, align 8, !tbaa !23
+  %3598 = getelementptr inbounds nuw i8, ptr %429, i64 8
+  store i64 156, ptr %3598, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %430, ptr noundef nonnull @.str.77) #21
-  %3603 = load ptr, ptr %430, align 8
-  %3604 = getelementptr inbounds nuw i8, ptr %430, i64 8
-  %3605 = load i64, ptr %3604, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %427, ptr noundef nonnull align 8 dereferenceable(16) %428, ptr noundef nonnull align 8 dereferenceable(16) %429, ptr %3603, i64 %3605, i32 noundef 1)
-          to label %3606 unwind label %3623
+  %3599 = load ptr, ptr %430, align 8
+  %3600 = getelementptr inbounds nuw i8, ptr %430, i64 8
+  %3601 = load i64, ptr %3600, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %427, ptr noundef nonnull align 8 dereferenceable(16) %428, ptr noundef nonnull align 8 dereferenceable(16) %429, ptr %3599, i64 %3601, i32 noundef 1)
+          to label %3602 unwind label %3619
 
-3606:                                             ; preds = %_ZN5vcpkg11CacheStatusaSEOS0_.exit826
+3602:                                             ; preds = %_ZN5vcpkg11CacheStatusaSEOS0_.exit826
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %429) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %428) #21
-  %3607 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3608 = xor i1 %3607, true
-  %3609 = zext i1 %3608 to i8
+  %3603 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3604 = xor i1 %3603, true
+  %3605 = zext i1 %3604 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #21
-  %3610 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i8 0, ptr %3610, align 8, !tbaa !24, !alias.scope !273
-  %3611 = getelementptr inbounds nuw i8, ptr %10, i64 9
-  store i8 %3609, ptr %3611, align 1, !tbaa !30, !alias.scope !273
+  %3606 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i8 0, ptr %3606, align 8, !tbaa !24, !alias.scope !273
+  %3607 = getelementptr inbounds nuw i8, ptr %10, i64 9
+  store i8 %3605, ptr %3607, align 1, !tbaa !30, !alias.scope !273
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %10, align 8, !tbaa !4, !alias.scope !273
-  %3612 = getelementptr inbounds nuw i8, ptr %10, i64 10
-  store i8 %3609, ptr %3612, align 2, !tbaa !31, !alias.scope !273
+  %3608 = getelementptr inbounds nuw i8, ptr %10, i64 10
+  store i8 %3605, ptr %3608, align 2, !tbaa !31, !alias.scope !273
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %427, ptr noundef nonnull align 8 dereferenceable(10) %10)
-          to label %3616 unwind label %.body827
+          to label %3612 unwind label %.body827
 
-.body827:                                         ; preds = %3606
-  %3613 = landingpad { ptr, i32 }
+.body827:                                         ; preds = %3602
+  %3609 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %10) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #21
-  %3614 = extractvalue { ptr, i32 } %3613, 0
-  %3615 = call ptr @__cxa_begin_catch(ptr %3614) #21
+  %3610 = extractvalue { ptr, i32 } %3609, 0
+  %3611 = call ptr @__cxa_begin_catch(ptr %3610) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %427)
-          to label %3625 unwind label %3655
+          to label %3621 unwind label %3651
 
-3616:                                             ; preds = %3606
+3612:                                             ; preds = %3602
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %10) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #21
-  br label %3626
-
-3617:                                             ; preds = %.body821
-  %3618 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3621 unwind label %4191
-
-3619:                                             ; preds = %3575, %3574
-  %3620 = landingpad { ptr, i32 }
-          cleanup
-  br label %3621
-
-3621:                                             ; preds = %3617, %3619
-  %.pn491 = phi { ptr, i32 } [ %3620, %3619 ], [ %3618, %3617 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %423) #21
   br label %3622
 
-3622:                                             ; preds = %3621, %3572
-  %.pn491.pn = phi { ptr, i32 } [ %.pn491, %3621 ], [ %3573, %3572 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %423) #21
-  br label %4096
+3613:                                             ; preds = %.body821
+  %3614 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3617 unwind label %4187
 
-3623:                                             ; preds = %_ZN5vcpkg11CacheStatusaSEOS0_.exit826
-  %3624 = landingpad { ptr, i32 }
+3615:                                             ; preds = %3571, %3570
+  %3616 = landingpad { ptr, i32 }
+          cleanup
+  br label %3617
+
+3617:                                             ; preds = %3613, %3615
+  %.pn491 = phi { ptr, i32 } [ %3616, %3615 ], [ %3614, %3613 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %423) #21
+  br label %3618
+
+3618:                                             ; preds = %3617, %3568
+  %.pn491.pn = phi { ptr, i32 } [ %.pn491, %3617 ], [ %3569, %3568 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %423) #21
+  br label %4092
+
+3619:                                             ; preds = %_ZN5vcpkg11CacheStatusaSEOS0_.exit826
+  %3620 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %429) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %428) #21
-  br label %3660
+  br label %3656
 
-3625:                                             ; preds = %.body827
+3621:                                             ; preds = %.body827
   invoke void @__cxa_end_catch()
-          to label %3626 unwind label %3657
+          to label %3622 unwind label %3653
 
-3626:                                             ; preds = %3625, %3616
+3622:                                             ; preds = %3621, %3612
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %427)
-          to label %3627 unwind label %3657
+          to label %3623 unwind label %3653
 
-3627:                                             ; preds = %3626
-  %3628 = getelementptr inbounds nuw i8, ptr %427, i64 58
-  %3629 = load i8, ptr %3628, align 2, !tbaa !33, !range !40, !noundef !41
-  %3630 = trunc nuw i8 %3629 to i1
-  br i1 %3630, label %_ZN5Catch16AssertionHandlerD2Ev.exit830, label %3631
+3623:                                             ; preds = %3622
+  %3624 = getelementptr inbounds nuw i8, ptr %427, i64 58
+  %3625 = load i8, ptr %3624, align 2, !tbaa !33, !range !40, !noundef !41
+  %3626 = trunc nuw i8 %3625 to i1
+  br i1 %3626, label %_ZN5Catch16AssertionHandlerD2Ev.exit830, label %3627
 
-3631:                                             ; preds = %3627
-  %3632 = getelementptr inbounds nuw i8, ptr %427, i64 64
-  %3633 = load ptr, ptr %3632, align 8, !tbaa !42
-  %3634 = load ptr, ptr %3633, align 8, !tbaa !4
-  %3635 = getelementptr inbounds nuw i8, ptr %3634, i64 112
-  %3636 = load ptr, ptr %3635, align 8
-  invoke void %3636(ptr noundef nonnull align 8 dereferenceable(8) %3633, ptr noundef nonnull align 8 dereferenceable(72) %427)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit830 unwind label %3637
+3627:                                             ; preds = %3623
+  %3628 = getelementptr inbounds nuw i8, ptr %427, i64 64
+  %3629 = load ptr, ptr %3628, align 8, !tbaa !42
+  %3630 = load ptr, ptr %3629, align 8, !tbaa !4
+  %3631 = getelementptr inbounds nuw i8, ptr %3630, i64 112
+  %3632 = load ptr, ptr %3631, align 8
+  invoke void %3632(ptr noundef nonnull align 8 dereferenceable(8) %3629, ptr noundef nonnull align 8 dereferenceable(72) %427)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit830 unwind label %3633
 
-3637:                                             ; preds = %3631
-  %3638 = landingpad { ptr, i32 }
+3633:                                             ; preds = %3627
+  %3634 = landingpad { ptr, i32 }
           catch ptr null
-  %3639 = extractvalue { ptr, i32 } %3638, 0
-  call void @__clang_call_terminate(ptr %3639) #22
+  %3635 = extractvalue { ptr, i32 } %3634, 0
+  call void @__clang_call_terminate(ptr %3635) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit830:          ; preds = %3627, %3631
+_ZN5Catch16AssertionHandlerD2Ev.exit830:          ; preds = %3623, %3627
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %427) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %431) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %432) #21
   store ptr @.str.24, ptr %432, align 8
-  %3640 = getelementptr inbounds nuw i8, ptr %432, i64 8
-  store i64 7, ptr %3640, align 8
+  %3636 = getelementptr inbounds nuw i8, ptr %432, i64 8
+  store i64 7, ptr %3636, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %433) #21
   store ptr @.str, ptr %433, align 8, !tbaa !19
-  %3641 = getelementptr inbounds nuw i8, ptr %433, i64 8
-  store i64 157, ptr %3641, align 8, !tbaa !23
+  %3637 = getelementptr inbounds nuw i8, ptr %433, i64 8
+  store i64 157, ptr %3637, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %434, ptr noundef nonnull @.str.82) #21
-  %3642 = load ptr, ptr %434, align 8
-  %3643 = getelementptr inbounds nuw i8, ptr %434, i64 8
-  %3644 = load i64, ptr %3643, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %431, ptr noundef nonnull align 8 dereferenceable(16) %432, ptr noundef nonnull align 8 dereferenceable(16) %433, ptr %3642, i64 %3644, i32 noundef 1)
-          to label %3645 unwind label %3661
+  %3638 = load ptr, ptr %434, align 8
+  %3639 = getelementptr inbounds nuw i8, ptr %434, i64 8
+  %3640 = load i64, ptr %3639, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %431, ptr noundef nonnull align 8 dereferenceable(16) %432, ptr noundef nonnull align 8 dereferenceable(16) %433, ptr %3638, i64 %3640, i32 noundef 1)
+          to label %3641 unwind label %3657
 
-3645:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit830
+3641:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit830
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %433) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %432) #21
-  %3646 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3647 = zext i1 %3646 to i8
+  %3642 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3643 = zext i1 %3642 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #21
-  %3648 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 0, ptr %3648, align 8, !tbaa !24, !alias.scope !276
-  %3649 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  store i8 %3647, ptr %3649, align 1, !tbaa !30, !alias.scope !276
+  %3644 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 0, ptr %3644, align 8, !tbaa !24, !alias.scope !276
+  %3645 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  store i8 %3643, ptr %3645, align 1, !tbaa !30, !alias.scope !276
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %9, align 8, !tbaa !4, !alias.scope !276
-  %3650 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i8 %3647, ptr %3650, align 2, !tbaa !31, !alias.scope !276
+  %3646 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  store i8 %3643, ptr %3646, align 2, !tbaa !31, !alias.scope !276
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %431, ptr noundef nonnull align 8 dereferenceable(10) %9)
-          to label %3654 unwind label %.body831
+          to label %3650 unwind label %.body831
 
-.body831:                                         ; preds = %3645
-  %3651 = landingpad { ptr, i32 }
+.body831:                                         ; preds = %3641
+  %3647 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %9) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #21
-  %3652 = extractvalue { ptr, i32 } %3651, 0
-  %3653 = call ptr @__cxa_begin_catch(ptr %3652) #21
+  %3648 = extractvalue { ptr, i32 } %3647, 0
+  %3649 = call ptr @__cxa_begin_catch(ptr %3648) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %431)
-          to label %3663 unwind label %3694
+          to label %3659 unwind label %3690
 
-3654:                                             ; preds = %3645
+3650:                                             ; preds = %3641
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %9) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #21
-  br label %3664
-
-3655:                                             ; preds = %.body827
-  %3656 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3659 unwind label %4191
-
-3657:                                             ; preds = %3626, %3625
-  %3658 = landingpad { ptr, i32 }
-          cleanup
-  br label %3659
-
-3659:                                             ; preds = %3655, %3657
-  %.pn494 = phi { ptr, i32 } [ %3658, %3657 ], [ %3656, %3655 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %427) #21
   br label %3660
 
-3660:                                             ; preds = %3659, %3623
-  %.pn494.pn = phi { ptr, i32 } [ %.pn494, %3659 ], [ %3624, %3623 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %427) #21
-  br label %4096
+3651:                                             ; preds = %.body827
+  %3652 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3655 unwind label %4187
 
-3661:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit830
-  %3662 = landingpad { ptr, i32 }
+3653:                                             ; preds = %3622, %3621
+  %3654 = landingpad { ptr, i32 }
+          cleanup
+  br label %3655
+
+3655:                                             ; preds = %3651, %3653
+  %.pn494 = phi { ptr, i32 } [ %3654, %3653 ], [ %3652, %3651 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %427) #21
+  br label %3656
+
+3656:                                             ; preds = %3655, %3619
+  %.pn494.pn = phi { ptr, i32 } [ %.pn494, %3655 ], [ %3620, %3619 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %427) #21
+  br label %4092
+
+3657:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit830
+  %3658 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %433) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %432) #21
-  br label %3699
+  br label %3695
 
-3663:                                             ; preds = %.body831
+3659:                                             ; preds = %.body831
   invoke void @__cxa_end_catch()
-          to label %3664 unwind label %3696
+          to label %3660 unwind label %3692
 
-3664:                                             ; preds = %3663, %3654
+3660:                                             ; preds = %3659, %3650
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %431)
-          to label %3665 unwind label %3696
+          to label %3661 unwind label %3692
 
-3665:                                             ; preds = %3664
-  %3666 = getelementptr inbounds nuw i8, ptr %431, i64 58
-  %3667 = load i8, ptr %3666, align 2, !tbaa !33, !range !40, !noundef !41
-  %3668 = trunc nuw i8 %3667 to i1
-  br i1 %3668, label %_ZN5Catch16AssertionHandlerD2Ev.exit834, label %3669
+3661:                                             ; preds = %3660
+  %3662 = getelementptr inbounds nuw i8, ptr %431, i64 58
+  %3663 = load i8, ptr %3662, align 2, !tbaa !33, !range !40, !noundef !41
+  %3664 = trunc nuw i8 %3663 to i1
+  br i1 %3664, label %_ZN5Catch16AssertionHandlerD2Ev.exit834, label %3665
 
-3669:                                             ; preds = %3665
-  %3670 = getelementptr inbounds nuw i8, ptr %431, i64 64
-  %3671 = load ptr, ptr %3670, align 8, !tbaa !42
-  %3672 = load ptr, ptr %3671, align 8, !tbaa !4
-  %3673 = getelementptr inbounds nuw i8, ptr %3672, i64 112
-  %3674 = load ptr, ptr %3673, align 8
-  invoke void %3674(ptr noundef nonnull align 8 dereferenceable(8) %3671, ptr noundef nonnull align 8 dereferenceable(72) %431)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit834 unwind label %3675
+3665:                                             ; preds = %3661
+  %3666 = getelementptr inbounds nuw i8, ptr %431, i64 64
+  %3667 = load ptr, ptr %3666, align 8, !tbaa !42
+  %3668 = load ptr, ptr %3667, align 8, !tbaa !4
+  %3669 = getelementptr inbounds nuw i8, ptr %3668, i64 112
+  %3670 = load ptr, ptr %3669, align 8
+  invoke void %3670(ptr noundef nonnull align 8 dereferenceable(8) %3667, ptr noundef nonnull align 8 dereferenceable(72) %431)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit834 unwind label %3671
 
-3675:                                             ; preds = %3669
-  %3676 = landingpad { ptr, i32 }
+3671:                                             ; preds = %3665
+  %3672 = landingpad { ptr, i32 }
           catch ptr null
-  %3677 = extractvalue { ptr, i32 } %3676, 0
-  call void @__clang_call_terminate(ptr %3677) #22
+  %3673 = extractvalue { ptr, i32 } %3672, 0
+  call void @__clang_call_terminate(ptr %3673) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit834:          ; preds = %3665, %3669
+_ZN5Catch16AssertionHandlerD2Ev.exit834:          ; preds = %3661, %3665
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %431) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %435) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %436) #21
   store ptr @.str.24, ptr %436, align 8
-  %3678 = getelementptr inbounds nuw i8, ptr %436, i64 8
-  store i64 7, ptr %3678, align 8
+  %3674 = getelementptr inbounds nuw i8, ptr %436, i64 8
+  store i64 7, ptr %3674, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %437) #21
   store ptr @.str, ptr %437, align 8, !tbaa !19
-  %3679 = getelementptr inbounds nuw i8, ptr %437, i64 8
-  store i64 158, ptr %3679, align 8, !tbaa !23
+  %3675 = getelementptr inbounds nuw i8, ptr %437, i64 8
+  store i64 158, ptr %3675, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %438, ptr noundef nonnull @.str.83) #21
-  %3680 = load ptr, ptr %438, align 8
-  %3681 = getelementptr inbounds nuw i8, ptr %438, i64 8
-  %3682 = load i64, ptr %3681, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %435, ptr noundef nonnull align 8 dereferenceable(16) %436, ptr noundef nonnull align 8 dereferenceable(16) %437, ptr %3680, i64 %3682, i32 noundef 1)
-          to label %3683 unwind label %3700
+  %3676 = load ptr, ptr %438, align 8
+  %3677 = getelementptr inbounds nuw i8, ptr %438, i64 8
+  %3678 = load i64, ptr %3677, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %435, ptr noundef nonnull align 8 dereferenceable(16) %436, ptr noundef nonnull align 8 dereferenceable(16) %437, ptr %3676, i64 %3678, i32 noundef 1)
+          to label %3679 unwind label %3696
 
-3683:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit834
+3679:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit834
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %437) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %436) #21
-  %3684 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3685 = xor i1 %3684, true
-  %3686 = zext i1 %3685 to i8
+  %3680 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3681 = xor i1 %3680, true
+  %3682 = zext i1 %3681 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
-  %3687 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 0, ptr %3687, align 8, !tbaa !24, !alias.scope !279
-  %3688 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  store i8 %3686, ptr %3688, align 1, !tbaa !30, !alias.scope !279
+  %3683 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i8 0, ptr %3683, align 8, !tbaa !24, !alias.scope !279
+  %3684 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  store i8 %3682, ptr %3684, align 1, !tbaa !30, !alias.scope !279
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %8, align 8, !tbaa !4, !alias.scope !279
-  %3689 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  store i8 %3686, ptr %3689, align 2, !tbaa !31, !alias.scope !279
+  %3685 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  store i8 %3682, ptr %3685, align 2, !tbaa !31, !alias.scope !279
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %435, ptr noundef nonnull align 8 dereferenceable(10) %8)
-          to label %3693 unwind label %.body835
+          to label %3689 unwind label %.body835
 
-.body835:                                         ; preds = %3683
-  %3690 = landingpad { ptr, i32 }
+.body835:                                         ; preds = %3679
+  %3686 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %8) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #21
-  %3691 = extractvalue { ptr, i32 } %3690, 0
-  %3692 = call ptr @__cxa_begin_catch(ptr %3691) #21
+  %3687 = extractvalue { ptr, i32 } %3686, 0
+  %3688 = call ptr @__cxa_begin_catch(ptr %3687) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %435)
-          to label %3702 unwind label %3735
+          to label %3698 unwind label %3731
 
-3693:                                             ; preds = %3683
+3689:                                             ; preds = %3679
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %8) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #21
-  br label %3703
-
-3694:                                             ; preds = %.body831
-  %3695 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3698 unwind label %4191
-
-3696:                                             ; preds = %3664, %3663
-  %3697 = landingpad { ptr, i32 }
-          cleanup
-  br label %3698
-
-3698:                                             ; preds = %3694, %3696
-  %.pn497 = phi { ptr, i32 } [ %3697, %3696 ], [ %3695, %3694 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %431) #21
   br label %3699
 
-3699:                                             ; preds = %3698, %3661
-  %.pn497.pn = phi { ptr, i32 } [ %.pn497, %3698 ], [ %3662, %3661 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %431) #21
-  br label %4096
+3690:                                             ; preds = %.body831
+  %3691 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3694 unwind label %4187
 
-3700:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit834
-  %3701 = landingpad { ptr, i32 }
+3692:                                             ; preds = %3660, %3659
+  %3693 = landingpad { ptr, i32 }
+          cleanup
+  br label %3694
+
+3694:                                             ; preds = %3690, %3692
+  %.pn497 = phi { ptr, i32 } [ %3693, %3692 ], [ %3691, %3690 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %431) #21
+  br label %3695
+
+3695:                                             ; preds = %3694, %3657
+  %.pn497.pn = phi { ptr, i32 } [ %.pn497, %3694 ], [ %3658, %3657 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %431) #21
+  br label %4092
+
+3696:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit834
+  %3697 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %437) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %436) #21
-  br label %3740
+  br label %3736
 
-3702:                                             ; preds = %.body835
+3698:                                             ; preds = %.body835
   invoke void @__cxa_end_catch()
-          to label %3703 unwind label %3737
+          to label %3699 unwind label %3733
 
-3703:                                             ; preds = %3702, %3693
+3699:                                             ; preds = %3698, %3689
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %435)
-          to label %3704 unwind label %3737
+          to label %3700 unwind label %3733
 
-3704:                                             ; preds = %3703
-  %3705 = getelementptr inbounds nuw i8, ptr %435, i64 58
-  %3706 = load i8, ptr %3705, align 2, !tbaa !33, !range !40, !noundef !41
-  %3707 = trunc nuw i8 %3706 to i1
-  br i1 %3707, label %_ZN5Catch16AssertionHandlerD2Ev.exit838, label %3708
+3700:                                             ; preds = %3699
+  %3701 = getelementptr inbounds nuw i8, ptr %435, i64 58
+  %3702 = load i8, ptr %3701, align 2, !tbaa !33, !range !40, !noundef !41
+  %3703 = trunc nuw i8 %3702 to i1
+  br i1 %3703, label %_ZN5Catch16AssertionHandlerD2Ev.exit838, label %3704
 
-3708:                                             ; preds = %3704
-  %3709 = getelementptr inbounds nuw i8, ptr %435, i64 64
-  %3710 = load ptr, ptr %3709, align 8, !tbaa !42
-  %3711 = load ptr, ptr %3710, align 8, !tbaa !4
-  %3712 = getelementptr inbounds nuw i8, ptr %3711, i64 112
-  %3713 = load ptr, ptr %3712, align 8
-  invoke void %3713(ptr noundef nonnull align 8 dereferenceable(8) %3710, ptr noundef nonnull align 8 dereferenceable(72) %435)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit838 unwind label %3714
+3704:                                             ; preds = %3700
+  %3705 = getelementptr inbounds nuw i8, ptr %435, i64 64
+  %3706 = load ptr, ptr %3705, align 8, !tbaa !42
+  %3707 = load ptr, ptr %3706, align 8, !tbaa !4
+  %3708 = getelementptr inbounds nuw i8, ptr %3707, i64 112
+  %3709 = load ptr, ptr %3708, align 8
+  invoke void %3709(ptr noundef nonnull align 8 dereferenceable(8) %3706, ptr noundef nonnull align 8 dereferenceable(72) %435)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit838 unwind label %3710
 
-3714:                                             ; preds = %3708
-  %3715 = landingpad { ptr, i32 }
+3710:                                             ; preds = %3704
+  %3711 = landingpad { ptr, i32 }
           catch ptr null
-  %3716 = extractvalue { ptr, i32 } %3715, 0
-  call void @__clang_call_terminate(ptr %3716) #22
+  %3712 = extractvalue { ptr, i32 } %3711, 0
+  call void @__clang_call_terminate(ptr %3712) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit838:          ; preds = %3704, %3708
+_ZN5Catch16AssertionHandlerD2Ev.exit838:          ; preds = %3700, %3704
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %435) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %439) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %440) #21
   store ptr @.str.24, ptr %440, align 8
-  %3717 = getelementptr inbounds nuw i8, ptr %440, i64 8
-  store i64 7, ptr %3717, align 8
+  %3713 = getelementptr inbounds nuw i8, ptr %440, i64 8
+  store i64 7, ptr %3713, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %441) #21
   store ptr @.str, ptr %441, align 8, !tbaa !19
-  %3718 = getelementptr inbounds nuw i8, ptr %441, i64 8
-  store i64 159, ptr %3718, align 8, !tbaa !23
+  %3714 = getelementptr inbounds nuw i8, ptr %441, i64 8
+  store i64 159, ptr %3714, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %442, ptr noundef nonnull @.str.84) #21
-  %3719 = load ptr, ptr %442, align 8
-  %3720 = getelementptr inbounds nuw i8, ptr %442, i64 8
-  %3721 = load i64, ptr %3720, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %439, ptr noundef nonnull align 8 dereferenceable(16) %440, ptr noundef nonnull align 8 dereferenceable(16) %441, ptr %3719, i64 %3721, i32 noundef 1)
-          to label %3722 unwind label %3741
+  %3715 = load ptr, ptr %442, align 8
+  %3716 = getelementptr inbounds nuw i8, ptr %442, i64 8
+  %3717 = load i64, ptr %3716, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %439, ptr noundef nonnull align 8 dereferenceable(16) %440, ptr noundef nonnull align 8 dereferenceable(16) %441, ptr %3715, i64 %3717, i32 noundef 1)
+          to label %3718 unwind label %3737
 
-3722:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit838
+3718:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit838
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %441) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %440) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %443) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %444) #21
-  %3723 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
-  store ptr %3723, ptr %444, align 8, !tbaa !49
+  %3719 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
+  store ptr %3719, ptr %444, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %445) #21
   store ptr %83, ptr %445, align 8, !tbaa !87
   call void @llvm.experimental.noalias.scope.decl(metadata !282)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  %3724 = icmp eq ptr %3723, %83
+  %3720 = icmp eq ptr %3719, %83
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.90) #21, !noalias !282
-  %3725 = load ptr, ptr %7, align 8, !noalias !282
-  %3726 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %3727 = load i64, ptr %3726, align 8, !noalias !282
-  %3728 = zext i1 %3724 to i8
-  %3729 = getelementptr inbounds nuw i8, ptr %443, i64 8
-  store i8 1, ptr %3729, align 8, !tbaa !24, !alias.scope !282
-  %3730 = getelementptr inbounds nuw i8, ptr %443, i64 9
-  store i8 %3728, ptr %3730, align 1, !tbaa !30, !alias.scope !282
+  %3721 = load ptr, ptr %7, align 8, !noalias !282
+  %3722 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %3723 = load i64, ptr %3722, align 8, !noalias !282
+  %3724 = zext i1 %3720 to i8
+  %3725 = getelementptr inbounds nuw i8, ptr %443, i64 8
+  store i8 1, ptr %3725, align 8, !tbaa !24, !alias.scope !282
+  %3726 = getelementptr inbounds nuw i8, ptr %443, i64 9
+  store i8 %3724, ptr %3726, align 1, !tbaa !30, !alias.scope !282
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKPKN5vcpkg19IReadBinaryProviderERKP25KnowNothingBinaryProviderEE, i64 16), ptr %443, align 8, !tbaa !4, !alias.scope !282
-  %3731 = getelementptr inbounds nuw i8, ptr %443, i64 16
-  store ptr %444, ptr %3731, align 8, !tbaa !55, !alias.scope !282
-  %3732 = getelementptr inbounds nuw i8, ptr %443, i64 24
-  store ptr %3725, ptr %3732, align 8, !tbaa !56, !alias.scope !282
+  %3727 = getelementptr inbounds nuw i8, ptr %443, i64 16
+  store ptr %444, ptr %3727, align 8, !tbaa !55, !alias.scope !282
+  %3728 = getelementptr inbounds nuw i8, ptr %443, i64 24
+  store ptr %3721, ptr %3728, align 8, !tbaa !56, !alias.scope !282
   %.sroa.2.0..sroa_idx.i.i839 = getelementptr inbounds nuw i8, ptr %443, i64 32
-  store i64 %3727, ptr %.sroa.2.0..sroa_idx.i.i839, align 8, !tbaa !57, !alias.scope !282
-  %3733 = getelementptr inbounds nuw i8, ptr %443, i64 40
-  store ptr %445, ptr %3733, align 8, !tbaa !92, !alias.scope !282
+  store i64 %3723, ptr %.sroa.2.0..sroa_idx.i.i839, align 8, !tbaa !57, !alias.scope !282
+  %3729 = getelementptr inbounds nuw i8, ptr %443, i64 40
+  store ptr %445, ptr %3729, align 8, !tbaa !92, !alias.scope !282
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %439, ptr noundef nonnull align 8 dereferenceable(10) %443)
-          to label %3734 unwind label %3743
+          to label %3730 unwind label %3739
 
-3734:                                             ; preds = %3722
+3730:                                             ; preds = %3718
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %443) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %445) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %444) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %443) #21
-  br label %3747
+  br label %3743
 
-3735:                                             ; preds = %.body835
-  %3736 = landingpad { ptr, i32 }
+3731:                                             ; preds = %.body835
+  %3732 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %3739 unwind label %4191
+          to label %3735 unwind label %4187
 
-3737:                                             ; preds = %3703, %3702
-  %3738 = landingpad { ptr, i32 }
+3733:                                             ; preds = %3699, %3698
+  %3734 = landingpad { ptr, i32 }
           cleanup
-  br label %3739
+  br label %3735
 
-3739:                                             ; preds = %3735, %3737
-  %.pn500 = phi { ptr, i32 } [ %3738, %3737 ], [ %3736, %3735 ]
+3735:                                             ; preds = %3731, %3733
+  %.pn500 = phi { ptr, i32 } [ %3734, %3733 ], [ %3732, %3731 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %435) #21
-  br label %3740
+  br label %3736
 
-3740:                                             ; preds = %3739, %3700
-  %.pn500.pn = phi { ptr, i32 } [ %.pn500, %3739 ], [ %3701, %3700 ]
+3736:                                             ; preds = %3735, %3696
+  %.pn500.pn = phi { ptr, i32 } [ %.pn500, %3735 ], [ %3697, %3696 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %435) #21
-  br label %4096
+  br label %4092
 
-3741:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit838
-  %3742 = landingpad { ptr, i32 }
+3737:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit838
+  %3738 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %441) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %440) #21
-  br label %3782
+  br label %3778
 
-3743:                                             ; preds = %3722
-  %3744 = landingpad { ptr, i32 }
+3739:                                             ; preds = %3718
+  %3740 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %443) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %445) #21
-  %.196 = extractvalue { ptr, i32 } %3744, 0
+  %.196 = extractvalue { ptr, i32 } %3740, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %444) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %443) #21
-  %3745 = call ptr @__cxa_begin_catch(ptr %.196) #21
+  %3741 = call ptr @__cxa_begin_catch(ptr %.196) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %439)
-          to label %3746 unwind label %3777
+          to label %3742 unwind label %3773
 
-3746:                                             ; preds = %3743
+3742:                                             ; preds = %3739
   invoke void @__cxa_end_catch()
-          to label %3747 unwind label %3779
+          to label %3743 unwind label %3775
 
-3747:                                             ; preds = %3746, %3734
+3743:                                             ; preds = %3742, %3730
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %439)
-          to label %3748 unwind label %3779
+          to label %3744 unwind label %3775
 
-3748:                                             ; preds = %3747
-  %3749 = getelementptr inbounds nuw i8, ptr %439, i64 58
-  %3750 = load i8, ptr %3749, align 2, !tbaa !33, !range !40, !noundef !41
-  %3751 = trunc nuw i8 %3750 to i1
-  br i1 %3751, label %_ZN5Catch16AssertionHandlerD2Ev.exit840, label %3752
+3744:                                             ; preds = %3743
+  %3745 = getelementptr inbounds nuw i8, ptr %439, i64 58
+  %3746 = load i8, ptr %3745, align 2, !tbaa !33, !range !40, !noundef !41
+  %3747 = trunc nuw i8 %3746 to i1
+  br i1 %3747, label %_ZN5Catch16AssertionHandlerD2Ev.exit840, label %3748
 
-3752:                                             ; preds = %3748
-  %3753 = getelementptr inbounds nuw i8, ptr %439, i64 64
-  %3754 = load ptr, ptr %3753, align 8, !tbaa !42
-  %3755 = load ptr, ptr %3754, align 8, !tbaa !4
-  %3756 = getelementptr inbounds nuw i8, ptr %3755, i64 112
-  %3757 = load ptr, ptr %3756, align 8
-  invoke void %3757(ptr noundef nonnull align 8 dereferenceable(8) %3754, ptr noundef nonnull align 8 dereferenceable(72) %439)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit840 unwind label %3758
+3748:                                             ; preds = %3744
+  %3749 = getelementptr inbounds nuw i8, ptr %439, i64 64
+  %3750 = load ptr, ptr %3749, align 8, !tbaa !42
+  %3751 = load ptr, ptr %3750, align 8, !tbaa !4
+  %3752 = getelementptr inbounds nuw i8, ptr %3751, i64 112
+  %3753 = load ptr, ptr %3752, align 8
+  invoke void %3753(ptr noundef nonnull align 8 dereferenceable(8) %3750, ptr noundef nonnull align 8 dereferenceable(72) %439)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit840 unwind label %3754
 
-3758:                                             ; preds = %3752
-  %3759 = landingpad { ptr, i32 }
+3754:                                             ; preds = %3748
+  %3755 = landingpad { ptr, i32 }
           catch ptr null
-  %3760 = extractvalue { ptr, i32 } %3759, 0
-  call void @__clang_call_terminate(ptr %3760) #22
+  %3756 = extractvalue { ptr, i32 } %3755, 0
+  call void @__clang_call_terminate(ptr %3756) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit840:          ; preds = %3748, %3752
+_ZN5Catch16AssertionHandlerD2Ev.exit840:          ; preds = %3744, %3748
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %439) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %446) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %447) #21
   store ptr @.str.24, ptr %447, align 8
-  %3761 = getelementptr inbounds nuw i8, ptr %447, i64 8
-  store i64 7, ptr %3761, align 8
+  %3757 = getelementptr inbounds nuw i8, ptr %447, i64 8
+  store i64 7, ptr %3757, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %448) #21
   store ptr @.str, ptr %448, align 8, !tbaa !19
-  %3762 = getelementptr inbounds nuw i8, ptr %448, i64 8
-  store i64 160, ptr %3762, align 8, !tbaa !23
+  %3758 = getelementptr inbounds nuw i8, ptr %448, i64 8
+  store i64 160, ptr %3758, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %449, ptr noundef nonnull @.str.81) #21
-  %3763 = load ptr, ptr %449, align 8
-  %3764 = getelementptr inbounds nuw i8, ptr %449, i64 8
-  %3765 = load i64, ptr %3764, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %446, ptr noundef nonnull align 8 dereferenceable(16) %447, ptr noundef nonnull align 8 dereferenceable(16) %448, ptr %3763, i64 %3765, i32 noundef 1)
-          to label %3766 unwind label %3783
+  %3759 = load ptr, ptr %449, align 8
+  %3760 = getelementptr inbounds nuw i8, ptr %449, i64 8
+  %3761 = load i64, ptr %3760, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %446, ptr noundef nonnull align 8 dereferenceable(16) %447, ptr noundef nonnull align 8 dereferenceable(16) %448, ptr %3759, i64 %3761, i32 noundef 1)
+          to label %3762 unwind label %3779
 
-3766:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit840
+3762:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit840
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %448) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %447) #21
-  %3767 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
-  %3768 = xor i1 %3767, true
-  %3769 = zext i1 %3768 to i8
+  %3763 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
+  %3764 = xor i1 %3763, true
+  %3765 = zext i1 %3764 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
-  %3770 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 0, ptr %3770, align 8, !tbaa !24, !alias.scope !285
-  %3771 = getelementptr inbounds nuw i8, ptr %6, i64 9
-  store i8 %3769, ptr %3771, align 1, !tbaa !30, !alias.scope !285
+  %3766 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i8 0, ptr %3766, align 8, !tbaa !24, !alias.scope !285
+  %3767 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  store i8 %3765, ptr %3767, align 1, !tbaa !30, !alias.scope !285
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %6, align 8, !tbaa !4, !alias.scope !285
-  %3772 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  store i8 %3769, ptr %3772, align 2, !tbaa !31, !alias.scope !285
+  %3768 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  store i8 %3765, ptr %3768, align 2, !tbaa !31, !alias.scope !285
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %446, ptr noundef nonnull align 8 dereferenceable(10) %6)
-          to label %3776 unwind label %.body841
+          to label %3772 unwind label %.body841
 
-.body841:                                         ; preds = %3766
-  %3773 = landingpad { ptr, i32 }
+.body841:                                         ; preds = %3762
+  %3769 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %6) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
-  %3774 = extractvalue { ptr, i32 } %3773, 0
-  %3775 = call ptr @__cxa_begin_catch(ptr %3774) #21
+  %3770 = extractvalue { ptr, i32 } %3769, 0
+  %3771 = call ptr @__cxa_begin_catch(ptr %3770) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %446)
-          to label %3785 unwind label %3828
+          to label %3781 unwind label %3824
 
-3776:                                             ; preds = %3766
+3772:                                             ; preds = %3762
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %6) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
-  br label %3786
-
-3777:                                             ; preds = %3743
-  %3778 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3781 unwind label %4191
-
-3779:                                             ; preds = %3747, %3746
-  %3780 = landingpad { ptr, i32 }
-          cleanup
-  br label %3781
-
-3781:                                             ; preds = %3777, %3779
-  %.pn504 = phi { ptr, i32 } [ %3780, %3779 ], [ %3778, %3777 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %439) #21
   br label %3782
 
-3782:                                             ; preds = %3781, %3741
-  %.pn504.pn = phi { ptr, i32 } [ %.pn504, %3781 ], [ %3742, %3741 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %439) #21
-  br label %4096
+3773:                                             ; preds = %3739
+  %3774 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3777 unwind label %4187
 
-3783:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit840
-  %3784 = landingpad { ptr, i32 }
+3775:                                             ; preds = %3743, %3742
+  %3776 = landingpad { ptr, i32 }
+          cleanup
+  br label %3777
+
+3777:                                             ; preds = %3773, %3775
+  %.pn504 = phi { ptr, i32 } [ %3776, %3775 ], [ %3774, %3773 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %439) #21
+  br label %3778
+
+3778:                                             ; preds = %3777, %3737
+  %.pn504.pn = phi { ptr, i32 } [ %.pn504, %3777 ], [ %3738, %3737 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %439) #21
+  br label %4092
+
+3779:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit840
+  %3780 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %448) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %447) #21
-  br label %3833
+  br label %3829
 
-3785:                                             ; preds = %.body841
+3781:                                             ; preds = %.body841
   invoke void @__cxa_end_catch()
-          to label %3786 unwind label %3830
+          to label %3782 unwind label %3826
 
-3786:                                             ; preds = %3785, %3776
+3782:                                             ; preds = %3781, %3772
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %446)
-          to label %3787 unwind label %3830
+          to label %3783 unwind label %3826
 
-3787:                                             ; preds = %3786
-  %3788 = getelementptr inbounds nuw i8, ptr %446, i64 58
-  %3789 = load i8, ptr %3788, align 2, !tbaa !33, !range !40, !noundef !41
-  %3790 = trunc nuw i8 %3789 to i1
-  br i1 %3790, label %_ZN5Catch16AssertionHandlerD2Ev.exit844, label %3791
+3783:                                             ; preds = %3782
+  %3784 = getelementptr inbounds nuw i8, ptr %446, i64 58
+  %3785 = load i8, ptr %3784, align 2, !tbaa !33, !range !40, !noundef !41
+  %3786 = trunc nuw i8 %3785 to i1
+  br i1 %3786, label %_ZN5Catch16AssertionHandlerD2Ev.exit844, label %3787
 
-3791:                                             ; preds = %3787
-  %3792 = getelementptr inbounds nuw i8, ptr %446, i64 64
-  %3793 = load ptr, ptr %3792, align 8, !tbaa !42
-  %3794 = load ptr, ptr %3793, align 8, !tbaa !4
-  %3795 = getelementptr inbounds nuw i8, ptr %3794, i64 112
-  %3796 = load ptr, ptr %3795, align 8
-  invoke void %3796(ptr noundef nonnull align 8 dereferenceable(8) %3793, ptr noundef nonnull align 8 dereferenceable(72) %446)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit844 unwind label %3797
+3787:                                             ; preds = %3783
+  %3788 = getelementptr inbounds nuw i8, ptr %446, i64 64
+  %3789 = load ptr, ptr %3788, align 8, !tbaa !42
+  %3790 = load ptr, ptr %3789, align 8, !tbaa !4
+  %3791 = getelementptr inbounds nuw i8, ptr %3790, i64 112
+  %3792 = load ptr, ptr %3791, align 8
+  invoke void %3792(ptr noundef nonnull align 8 dereferenceable(8) %3789, ptr noundef nonnull align 8 dereferenceable(72) %446)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit844 unwind label %3793
 
-3797:                                             ; preds = %3791
-  %3798 = landingpad { ptr, i32 }
+3793:                                             ; preds = %3787
+  %3794 = landingpad { ptr, i32 }
           catch ptr null
-  %3799 = extractvalue { ptr, i32 } %3798, 0
-  call void @__clang_call_terminate(ptr %3799) #22
+  %3795 = extractvalue { ptr, i32 } %3794, 0
+  call void @__clang_call_terminate(ptr %3795) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit844:          ; preds = %3787, %3791
+_ZN5Catch16AssertionHandlerD2Ev.exit844:          ; preds = %3783, %3787
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %446) #21
-  %3800 = load i8, ptr %156, align 8, !tbaa !7
-  store i8 %3800, ptr %334, align 8, !tbaa !7
-  %3801 = load ptr, ptr %2685, align 8, !tbaa !113
-  %3802 = load ptr, ptr %2692, align 8, !tbaa !114
-  %3803 = load ptr, ptr %1069, align 8, !tbaa !113
-  store ptr %3803, ptr %2685, align 8, !tbaa !113
-  %3804 = load ptr, ptr %1789, align 8, !tbaa !112
-  store ptr %3804, ptr %2700, align 8, !tbaa !112
-  %3805 = getelementptr inbounds nuw i8, ptr %156, i64 24
-  %3806 = load ptr, ptr %3805, align 8, !tbaa !114
-  store ptr %3806, ptr %2692, align 8, !tbaa !114
-  %.not.i.i.i.i.i.i845 = icmp eq ptr %3801, null
+  %3796 = load i8, ptr %156, align 8, !tbaa !7
+  store i8 %3796, ptr %334, align 8, !tbaa !7
+  %3797 = load ptr, ptr %2681, align 8, !tbaa !113
+  %3798 = load ptr, ptr %2688, align 8, !tbaa !115
+  %3799 = load ptr, ptr %1069, align 8, !tbaa !113
+  store ptr %3799, ptr %2681, align 8, !tbaa !113
+  %3800 = load ptr, ptr %1786, align 8, !tbaa !112
+  store ptr %3800, ptr %2696, align 8, !tbaa !112
+  %3801 = getelementptr inbounds nuw i8, ptr %156, i64 24
+  %3802 = load ptr, ptr %3801, align 8, !tbaa !115
+  store ptr %3802, ptr %2688, align 8, !tbaa !115
+  %.not.i.i.i.i.i.i845 = icmp eq ptr %3797, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1069, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i.i845, label %_ZN5vcpkg11CacheStatusaSEOS0_.exit846, label %3807
+  br i1 %.not.i.i.i.i.i.i845, label %_ZN5vcpkg11CacheStatusaSEOS0_.exit846, label %3803
 
-3807:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit844
-  %3808 = ptrtoint ptr %3802 to i64
-  %3809 = ptrtoint ptr %3801 to i64
-  %3810 = sub i64 %3808, %3809
-  call void @_ZdlPvm(ptr noundef nonnull %3801, i64 noundef %3810) #25
+3803:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit844
+  %3804 = ptrtoint ptr %3798 to i64
+  %3805 = ptrtoint ptr %3797 to i64
+  %3806 = sub i64 %3804, %3805
+  call void @_ZdlPvm(ptr noundef nonnull %3797, i64 noundef %3806) #25
   br label %_ZN5vcpkg11CacheStatusaSEOS0_.exit846
 
-_ZN5vcpkg11CacheStatusaSEOS0_.exit846:            ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit844, %3807
-  %3811 = load ptr, ptr %1810, align 8, !tbaa !116
-  store ptr %3811, ptr %2702, align 8, !tbaa !116
+_ZN5vcpkg11CacheStatusaSEOS0_.exit846:            ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit844, %3803
+  %3807 = load ptr, ptr %1806, align 8, !tbaa !116
+  store ptr %3807, ptr %2698, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %450) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %451) #21
   store ptr @.str.24, ptr %451, align 8
-  %3812 = getelementptr inbounds nuw i8, ptr %451, i64 8
-  store i64 7, ptr %3812, align 8
+  %3808 = getelementptr inbounds nuw i8, ptr %451, i64 8
+  store i64 7, ptr %3808, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %452) #21
   store ptr @.str, ptr %452, align 8, !tbaa !19
-  %3813 = getelementptr inbounds nuw i8, ptr %452, i64 8
-  store i64 162, ptr %3813, align 8, !tbaa !23
+  %3809 = getelementptr inbounds nuw i8, ptr %452, i64 8
+  store i64 162, ptr %3809, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %453, ptr noundef nonnull @.str.77) #21
-  %3814 = load ptr, ptr %453, align 8
-  %3815 = getelementptr inbounds nuw i8, ptr %453, i64 8
-  %3816 = load i64, ptr %3815, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %450, ptr noundef nonnull align 8 dereferenceable(16) %451, ptr noundef nonnull align 8 dereferenceable(16) %452, ptr %3814, i64 %3816, i32 noundef 1)
-          to label %3817 unwind label %3834
+  %3810 = load ptr, ptr %453, align 8
+  %3811 = getelementptr inbounds nuw i8, ptr %453, i64 8
+  %3812 = load i64, ptr %3811, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %450, ptr noundef nonnull align 8 dereferenceable(16) %451, ptr noundef nonnull align 8 dereferenceable(16) %452, ptr %3810, i64 %3812, i32 noundef 1)
+          to label %3813 unwind label %3830
 
-3817:                                             ; preds = %_ZN5vcpkg11CacheStatusaSEOS0_.exit846
+3813:                                             ; preds = %_ZN5vcpkg11CacheStatusaSEOS0_.exit846
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %452) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %451) #21
-  %3818 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3819 = xor i1 %3818, true
-  %3820 = zext i1 %3819 to i8
+  %3814 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3815 = xor i1 %3814, true
+  %3816 = zext i1 %3815 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
-  %3821 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 0, ptr %3821, align 8, !tbaa !24, !alias.scope !288
-  %3822 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  store i8 %3820, ptr %3822, align 1, !tbaa !30, !alias.scope !288
+  %3817 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i8 0, ptr %3817, align 8, !tbaa !24, !alias.scope !288
+  %3818 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  store i8 %3816, ptr %3818, align 1, !tbaa !30, !alias.scope !288
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %5, align 8, !tbaa !4, !alias.scope !288
-  %3823 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  store i8 %3820, ptr %3823, align 2, !tbaa !31, !alias.scope !288
+  %3819 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  store i8 %3816, ptr %3819, align 2, !tbaa !31, !alias.scope !288
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %450, ptr noundef nonnull align 8 dereferenceable(10) %5)
-          to label %3827 unwind label %.body847
+          to label %3823 unwind label %.body847
 
-.body847:                                         ; preds = %3817
-  %3824 = landingpad { ptr, i32 }
+.body847:                                         ; preds = %3813
+  %3820 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
-  %3825 = extractvalue { ptr, i32 } %3824, 0
-  %3826 = call ptr @__cxa_begin_catch(ptr %3825) #21
+  %3821 = extractvalue { ptr, i32 } %3820, 0
+  %3822 = call ptr @__cxa_begin_catch(ptr %3821) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %450)
-          to label %3836 unwind label %3867
+          to label %3832 unwind label %3863
 
-3827:                                             ; preds = %3817
+3823:                                             ; preds = %3813
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
-  br label %3837
-
-3828:                                             ; preds = %.body841
-  %3829 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3832 unwind label %4191
-
-3830:                                             ; preds = %3786, %3785
-  %3831 = landingpad { ptr, i32 }
-          cleanup
-  br label %3832
-
-3832:                                             ; preds = %3828, %3830
-  %.pn507 = phi { ptr, i32 } [ %3831, %3830 ], [ %3829, %3828 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %446) #21
   br label %3833
 
-3833:                                             ; preds = %3832, %3783
-  %.pn507.pn = phi { ptr, i32 } [ %.pn507, %3832 ], [ %3784, %3783 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %446) #21
-  br label %4096
+3824:                                             ; preds = %.body841
+  %3825 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3828 unwind label %4187
 
-3834:                                             ; preds = %_ZN5vcpkg11CacheStatusaSEOS0_.exit846
-  %3835 = landingpad { ptr, i32 }
+3826:                                             ; preds = %3782, %3781
+  %3827 = landingpad { ptr, i32 }
+          cleanup
+  br label %3828
+
+3828:                                             ; preds = %3824, %3826
+  %.pn507 = phi { ptr, i32 } [ %3827, %3826 ], [ %3825, %3824 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %446) #21
+  br label %3829
+
+3829:                                             ; preds = %3828, %3779
+  %.pn507.pn = phi { ptr, i32 } [ %.pn507, %3828 ], [ %3780, %3779 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %446) #21
+  br label %4092
+
+3830:                                             ; preds = %_ZN5vcpkg11CacheStatusaSEOS0_.exit846
+  %3831 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %452) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %451) #21
-  br label %3872
+  br label %3868
 
-3836:                                             ; preds = %.body847
+3832:                                             ; preds = %.body847
   invoke void @__cxa_end_catch()
-          to label %3837 unwind label %3869
+          to label %3833 unwind label %3865
 
-3837:                                             ; preds = %3836, %3827
+3833:                                             ; preds = %3832, %3823
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %450)
-          to label %3838 unwind label %3869
+          to label %3834 unwind label %3865
 
-3838:                                             ; preds = %3837
-  %3839 = getelementptr inbounds nuw i8, ptr %450, i64 58
-  %3840 = load i8, ptr %3839, align 2, !tbaa !33, !range !40, !noundef !41
-  %3841 = trunc nuw i8 %3840 to i1
-  br i1 %3841, label %_ZN5Catch16AssertionHandlerD2Ev.exit850, label %3842
+3834:                                             ; preds = %3833
+  %3835 = getelementptr inbounds nuw i8, ptr %450, i64 58
+  %3836 = load i8, ptr %3835, align 2, !tbaa !33, !range !40, !noundef !41
+  %3837 = trunc nuw i8 %3836 to i1
+  br i1 %3837, label %_ZN5Catch16AssertionHandlerD2Ev.exit850, label %3838
 
-3842:                                             ; preds = %3838
-  %3843 = getelementptr inbounds nuw i8, ptr %450, i64 64
-  %3844 = load ptr, ptr %3843, align 8, !tbaa !42
-  %3845 = load ptr, ptr %3844, align 8, !tbaa !4
-  %3846 = getelementptr inbounds nuw i8, ptr %3845, i64 112
-  %3847 = load ptr, ptr %3846, align 8
-  invoke void %3847(ptr noundef nonnull align 8 dereferenceable(8) %3844, ptr noundef nonnull align 8 dereferenceable(72) %450)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit850 unwind label %3848
+3838:                                             ; preds = %3834
+  %3839 = getelementptr inbounds nuw i8, ptr %450, i64 64
+  %3840 = load ptr, ptr %3839, align 8, !tbaa !42
+  %3841 = load ptr, ptr %3840, align 8, !tbaa !4
+  %3842 = getelementptr inbounds nuw i8, ptr %3841, i64 112
+  %3843 = load ptr, ptr %3842, align 8
+  invoke void %3843(ptr noundef nonnull align 8 dereferenceable(8) %3840, ptr noundef nonnull align 8 dereferenceable(72) %450)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit850 unwind label %3844
 
-3848:                                             ; preds = %3842
-  %3849 = landingpad { ptr, i32 }
+3844:                                             ; preds = %3838
+  %3845 = landingpad { ptr, i32 }
           catch ptr null
-  %3850 = extractvalue { ptr, i32 } %3849, 0
-  call void @__clang_call_terminate(ptr %3850) #22
+  %3846 = extractvalue { ptr, i32 } %3845, 0
+  call void @__clang_call_terminate(ptr %3846) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit850:          ; preds = %3838, %3842
+_ZN5Catch16AssertionHandlerD2Ev.exit850:          ; preds = %3834, %3838
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %450) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %454) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %455) #21
   store ptr @.str.24, ptr %455, align 8
-  %3851 = getelementptr inbounds nuw i8, ptr %455, i64 8
-  store i64 7, ptr %3851, align 8
+  %3847 = getelementptr inbounds nuw i8, ptr %455, i64 8
+  store i64 7, ptr %3847, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %456) #21
   store ptr @.str, ptr %456, align 8, !tbaa !19
-  %3852 = getelementptr inbounds nuw i8, ptr %456, i64 8
-  store i64 163, ptr %3852, align 8, !tbaa !23
+  %3848 = getelementptr inbounds nuw i8, ptr %456, i64 8
+  store i64 163, ptr %3848, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %457, ptr noundef nonnull @.str.78) #21
-  %3853 = load ptr, ptr %457, align 8
-  %3854 = getelementptr inbounds nuw i8, ptr %457, i64 8
-  %3855 = load i64, ptr %3854, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %454, ptr noundef nonnull align 8 dereferenceable(16) %455, ptr noundef nonnull align 8 dereferenceable(16) %456, ptr %3853, i64 %3855, i32 noundef 1)
-          to label %3856 unwind label %3873
+  %3849 = load ptr, ptr %457, align 8
+  %3850 = getelementptr inbounds nuw i8, ptr %457, i64 8
+  %3851 = load i64, ptr %3850, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %454, ptr noundef nonnull align 8 dereferenceable(16) %455, ptr noundef nonnull align 8 dereferenceable(16) %456, ptr %3849, i64 %3851, i32 noundef 1)
+          to label %3852 unwind label %3869
 
-3856:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit850
+3852:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit850
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %456) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %455) #21
-  %3857 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3858 = xor i1 %3857, true
-  %3859 = zext i1 %3858 to i8
+  %3853 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3854 = xor i1 %3853, true
+  %3855 = zext i1 %3854 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
-  %3860 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 0, ptr %3860, align 8, !tbaa !24, !alias.scope !291
-  %3861 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  store i8 %3859, ptr %3861, align 1, !tbaa !30, !alias.scope !291
+  %3856 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 0, ptr %3856, align 8, !tbaa !24, !alias.scope !291
+  %3857 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  store i8 %3855, ptr %3857, align 1, !tbaa !30, !alias.scope !291
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %4, align 8, !tbaa !4, !alias.scope !291
-  %3862 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  store i8 %3859, ptr %3862, align 2, !tbaa !31, !alias.scope !291
+  %3858 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  store i8 %3855, ptr %3858, align 2, !tbaa !31, !alias.scope !291
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %454, ptr noundef nonnull align 8 dereferenceable(10) %4)
-          to label %3866 unwind label %.body851
+          to label %3862 unwind label %.body851
 
-.body851:                                         ; preds = %3856
-  %3863 = landingpad { ptr, i32 }
+.body851:                                         ; preds = %3852
+  %3859 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
-  %3864 = extractvalue { ptr, i32 } %3863, 0
-  %3865 = call ptr @__cxa_begin_catch(ptr %3864) #21
+  %3860 = extractvalue { ptr, i32 } %3859, 0
+  %3861 = call ptr @__cxa_begin_catch(ptr %3860) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %454)
-          to label %3875 unwind label %3906
+          to label %3871 unwind label %3902
 
-3866:                                             ; preds = %3856
+3862:                                             ; preds = %3852
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %4) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
-  br label %3876
-
-3867:                                             ; preds = %.body847
-  %3868 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3871 unwind label %4191
-
-3869:                                             ; preds = %3837, %3836
-  %3870 = landingpad { ptr, i32 }
-          cleanup
-  br label %3871
-
-3871:                                             ; preds = %3867, %3869
-  %.pn510 = phi { ptr, i32 } [ %3870, %3869 ], [ %3868, %3867 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %450) #21
   br label %3872
 
-3872:                                             ; preds = %3871, %3834
-  %.pn510.pn = phi { ptr, i32 } [ %.pn510, %3871 ], [ %3835, %3834 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %450) #21
-  br label %4096
+3863:                                             ; preds = %.body847
+  %3864 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3867 unwind label %4187
 
-3873:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit850
-  %3874 = landingpad { ptr, i32 }
+3865:                                             ; preds = %3833, %3832
+  %3866 = landingpad { ptr, i32 }
+          cleanup
+  br label %3867
+
+3867:                                             ; preds = %3863, %3865
+  %.pn510 = phi { ptr, i32 } [ %3866, %3865 ], [ %3864, %3863 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %450) #21
+  br label %3868
+
+3868:                                             ; preds = %3867, %3830
+  %.pn510.pn = phi { ptr, i32 } [ %.pn510, %3867 ], [ %3831, %3830 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %450) #21
+  br label %4092
+
+3869:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit850
+  %3870 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %456) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %455) #21
-  br label %3911
+  br label %3907
 
-3875:                                             ; preds = %.body851
+3871:                                             ; preds = %.body851
   invoke void @__cxa_end_catch()
-          to label %3876 unwind label %3908
+          to label %3872 unwind label %3904
 
-3876:                                             ; preds = %3875, %3866
+3872:                                             ; preds = %3871, %3862
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %454)
-          to label %3877 unwind label %3908
+          to label %3873 unwind label %3904
 
-3877:                                             ; preds = %3876
-  %3878 = getelementptr inbounds nuw i8, ptr %454, i64 58
-  %3879 = load i8, ptr %3878, align 2, !tbaa !33, !range !40, !noundef !41
-  %3880 = trunc nuw i8 %3879 to i1
-  br i1 %3880, label %_ZN5Catch16AssertionHandlerD2Ev.exit854, label %3881
+3873:                                             ; preds = %3872
+  %3874 = getelementptr inbounds nuw i8, ptr %454, i64 58
+  %3875 = load i8, ptr %3874, align 2, !tbaa !33, !range !40, !noundef !41
+  %3876 = trunc nuw i8 %3875 to i1
+  br i1 %3876, label %_ZN5Catch16AssertionHandlerD2Ev.exit854, label %3877
 
-3881:                                             ; preds = %3877
-  %3882 = getelementptr inbounds nuw i8, ptr %454, i64 64
-  %3883 = load ptr, ptr %3882, align 8, !tbaa !42
-  %3884 = load ptr, ptr %3883, align 8, !tbaa !4
-  %3885 = getelementptr inbounds nuw i8, ptr %3884, i64 112
-  %3886 = load ptr, ptr %3885, align 8
-  invoke void %3886(ptr noundef nonnull align 8 dereferenceable(8) %3883, ptr noundef nonnull align 8 dereferenceable(72) %454)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit854 unwind label %3887
+3877:                                             ; preds = %3873
+  %3878 = getelementptr inbounds nuw i8, ptr %454, i64 64
+  %3879 = load ptr, ptr %3878, align 8, !tbaa !42
+  %3880 = load ptr, ptr %3879, align 8, !tbaa !4
+  %3881 = getelementptr inbounds nuw i8, ptr %3880, i64 112
+  %3882 = load ptr, ptr %3881, align 8
+  invoke void %3882(ptr noundef nonnull align 8 dereferenceable(8) %3879, ptr noundef nonnull align 8 dereferenceable(72) %454)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit854 unwind label %3883
 
-3887:                                             ; preds = %3881
-  %3888 = landingpad { ptr, i32 }
+3883:                                             ; preds = %3877
+  %3884 = landingpad { ptr, i32 }
           catch ptr null
-  %3889 = extractvalue { ptr, i32 } %3888, 0
-  call void @__clang_call_terminate(ptr %3889) #22
+  %3885 = extractvalue { ptr, i32 } %3884, 0
+  call void @__clang_call_terminate(ptr %3885) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit854:          ; preds = %3877, %3881
+_ZN5Catch16AssertionHandlerD2Ev.exit854:          ; preds = %3873, %3877
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %454) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %458) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %459) #21
   store ptr @.str.24, ptr %459, align 8
-  %3890 = getelementptr inbounds nuw i8, ptr %459, i64 8
-  store i64 7, ptr %3890, align 8
+  %3886 = getelementptr inbounds nuw i8, ptr %459, i64 8
+  store i64 7, ptr %3886, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %460) #21
   store ptr @.str, ptr %460, align 8, !tbaa !19
-  %3891 = getelementptr inbounds nuw i8, ptr %460, i64 8
-  store i64 164, ptr %3891, align 8, !tbaa !23
+  %3887 = getelementptr inbounds nuw i8, ptr %460, i64 8
+  store i64 164, ptr %3887, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %461, ptr noundef nonnull @.str.83) #21
-  %3892 = load ptr, ptr %461, align 8
-  %3893 = getelementptr inbounds nuw i8, ptr %461, i64 8
-  %3894 = load i64, ptr %3893, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %458, ptr noundef nonnull align 8 dereferenceable(16) %459, ptr noundef nonnull align 8 dereferenceable(16) %460, ptr %3892, i64 %3894, i32 noundef 1)
-          to label %3895 unwind label %3912
+  %3888 = load ptr, ptr %461, align 8
+  %3889 = getelementptr inbounds nuw i8, ptr %461, i64 8
+  %3890 = load i64, ptr %3889, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %458, ptr noundef nonnull align 8 dereferenceable(16) %459, ptr noundef nonnull align 8 dereferenceable(16) %460, ptr %3888, i64 %3890, i32 noundef 1)
+          to label %3891 unwind label %3908
 
-3895:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit854
+3891:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit854
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %460) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %459) #21
-  %3896 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
-  %3897 = xor i1 %3896, true
-  %3898 = zext i1 %3897 to i8
+  %3892 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 dereferenceable(40) %334, ptr noundef nonnull %83) #21
+  %3893 = xor i1 %3892, true
+  %3894 = zext i1 %3893 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #21
-  %3899 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i8 0, ptr %3899, align 8, !tbaa !24, !alias.scope !294
-  %3900 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  store i8 %3898, ptr %3900, align 1, !tbaa !30, !alias.scope !294
+  %3895 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i8 0, ptr %3895, align 8, !tbaa !24, !alias.scope !294
+  %3896 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  store i8 %3894, ptr %3896, align 1, !tbaa !30, !alias.scope !294
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %3, align 8, !tbaa !4, !alias.scope !294
-  %3901 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  store i8 %3898, ptr %3901, align 2, !tbaa !31, !alias.scope !294
+  %3897 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  store i8 %3894, ptr %3897, align 2, !tbaa !31, !alias.scope !294
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %458, ptr noundef nonnull align 8 dereferenceable(10) %3)
-          to label %3905 unwind label %.body855
+          to label %3901 unwind label %.body855
 
-.body855:                                         ; preds = %3895
-  %3902 = landingpad { ptr, i32 }
+.body855:                                         ; preds = %3891
+  %3898 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %3) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #21
-  %3903 = extractvalue { ptr, i32 } %3902, 0
-  %3904 = call ptr @__cxa_begin_catch(ptr %3903) #21
+  %3899 = extractvalue { ptr, i32 } %3898, 0
+  %3900 = call ptr @__cxa_begin_catch(ptr %3899) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %458)
-          to label %3914 unwind label %3947
+          to label %3910 unwind label %3943
 
-3905:                                             ; preds = %3895
+3901:                                             ; preds = %3891
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %3) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #21
-  br label %3915
-
-3906:                                             ; preds = %.body851
-  %3907 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3910 unwind label %4191
-
-3908:                                             ; preds = %3876, %3875
-  %3909 = landingpad { ptr, i32 }
-          cleanup
-  br label %3910
-
-3910:                                             ; preds = %3906, %3908
-  %.pn513 = phi { ptr, i32 } [ %3909, %3908 ], [ %3907, %3906 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %454) #21
   br label %3911
 
-3911:                                             ; preds = %3910, %3873
-  %.pn513.pn = phi { ptr, i32 } [ %.pn513, %3910 ], [ %3874, %3873 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %454) #21
-  br label %4096
+3902:                                             ; preds = %.body851
+  %3903 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3906 unwind label %4187
 
-3912:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit854
-  %3913 = landingpad { ptr, i32 }
+3904:                                             ; preds = %3872, %3871
+  %3905 = landingpad { ptr, i32 }
+          cleanup
+  br label %3906
+
+3906:                                             ; preds = %3902, %3904
+  %.pn513 = phi { ptr, i32 } [ %3905, %3904 ], [ %3903, %3902 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %454) #21
+  br label %3907
+
+3907:                                             ; preds = %3906, %3869
+  %.pn513.pn = phi { ptr, i32 } [ %.pn513, %3906 ], [ %3870, %3869 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %454) #21
+  br label %4092
+
+3908:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit854
+  %3909 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %460) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %459) #21
-  br label %3952
+  br label %3948
 
-3914:                                             ; preds = %.body855
+3910:                                             ; preds = %.body855
   invoke void @__cxa_end_catch()
-          to label %3915 unwind label %3949
+          to label %3911 unwind label %3945
 
-3915:                                             ; preds = %3914, %3905
+3911:                                             ; preds = %3910, %3901
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %458)
-          to label %3916 unwind label %3949
+          to label %3912 unwind label %3945
 
-3916:                                             ; preds = %3915
-  %3917 = getelementptr inbounds nuw i8, ptr %458, i64 58
-  %3918 = load i8, ptr %3917, align 2, !tbaa !33, !range !40, !noundef !41
-  %3919 = trunc nuw i8 %3918 to i1
-  br i1 %3919, label %_ZN5Catch16AssertionHandlerD2Ev.exit858, label %3920
+3912:                                             ; preds = %3911
+  %3913 = getelementptr inbounds nuw i8, ptr %458, i64 58
+  %3914 = load i8, ptr %3913, align 2, !tbaa !33, !range !40, !noundef !41
+  %3915 = trunc nuw i8 %3914 to i1
+  br i1 %3915, label %_ZN5Catch16AssertionHandlerD2Ev.exit858, label %3916
 
-3920:                                             ; preds = %3916
-  %3921 = getelementptr inbounds nuw i8, ptr %458, i64 64
-  %3922 = load ptr, ptr %3921, align 8, !tbaa !42
-  %3923 = load ptr, ptr %3922, align 8, !tbaa !4
-  %3924 = getelementptr inbounds nuw i8, ptr %3923, i64 112
-  %3925 = load ptr, ptr %3924, align 8
-  invoke void %3925(ptr noundef nonnull align 8 dereferenceable(8) %3922, ptr noundef nonnull align 8 dereferenceable(72) %458)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit858 unwind label %3926
+3916:                                             ; preds = %3912
+  %3917 = getelementptr inbounds nuw i8, ptr %458, i64 64
+  %3918 = load ptr, ptr %3917, align 8, !tbaa !42
+  %3919 = load ptr, ptr %3918, align 8, !tbaa !4
+  %3920 = getelementptr inbounds nuw i8, ptr %3919, i64 112
+  %3921 = load ptr, ptr %3920, align 8
+  invoke void %3921(ptr noundef nonnull align 8 dereferenceable(8) %3918, ptr noundef nonnull align 8 dereferenceable(72) %458)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit858 unwind label %3922
 
-3926:                                             ; preds = %3920
-  %3927 = landingpad { ptr, i32 }
+3922:                                             ; preds = %3916
+  %3923 = landingpad { ptr, i32 }
           catch ptr null
-  %3928 = extractvalue { ptr, i32 } %3927, 0
-  call void @__clang_call_terminate(ptr %3928) #22
+  %3924 = extractvalue { ptr, i32 } %3923, 0
+  call void @__clang_call_terminate(ptr %3924) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit858:          ; preds = %3916, %3920
+_ZN5Catch16AssertionHandlerD2Ev.exit858:          ; preds = %3912, %3916
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %458) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %462) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %463) #21
   store ptr @.str.24, ptr %463, align 8
-  %3929 = getelementptr inbounds nuw i8, ptr %463, i64 8
-  store i64 7, ptr %3929, align 8
+  %3925 = getelementptr inbounds nuw i8, ptr %463, i64 8
+  store i64 7, ptr %3925, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %464) #21
   store ptr @.str, ptr %464, align 8, !tbaa !19
-  %3930 = getelementptr inbounds nuw i8, ptr %464, i64 8
-  store i64 165, ptr %3930, align 8, !tbaa !23
+  %3926 = getelementptr inbounds nuw i8, ptr %464, i64 8
+  store i64 165, ptr %3926, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %465, ptr noundef nonnull @.str.80) #21
-  %3931 = load ptr, ptr %465, align 8
-  %3932 = getelementptr inbounds nuw i8, ptr %465, i64 8
-  %3933 = load i64, ptr %3932, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %462, ptr noundef nonnull align 8 dereferenceable(16) %463, ptr noundef nonnull align 8 dereferenceable(16) %464, ptr %3931, i64 %3933, i32 noundef 1)
-          to label %3934 unwind label %3953
+  %3927 = load ptr, ptr %465, align 8
+  %3928 = getelementptr inbounds nuw i8, ptr %465, i64 8
+  %3929 = load i64, ptr %3928, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %462, ptr noundef nonnull align 8 dereferenceable(16) %463, ptr noundef nonnull align 8 dereferenceable(16) %464, ptr %3927, i64 %3929, i32 noundef 1)
+          to label %3930 unwind label %3949
 
-3934:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit858
+3930:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit858
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %464) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %463) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %466) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %467) #21
-  %3935 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
-  store ptr %3935, ptr %467, align 8, !tbaa !49
+  %3931 = call noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
+  store ptr %3931, ptr %467, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %468) #21
   store ptr null, ptr %468, align 8, !tbaa !50
   call void @llvm.experimental.noalias.scope.decl(metadata !297)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %3936 = icmp eq ptr %3935, null
+  %3932 = icmp eq ptr %3931, null
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.90) #21, !noalias !297
-  %3937 = load ptr, ptr %2, align 8, !noalias !297
-  %3938 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3939 = load i64, ptr %3938, align 8, !noalias !297
-  %3940 = zext i1 %3936 to i8
-  %3941 = getelementptr inbounds nuw i8, ptr %466, i64 8
-  store i8 1, ptr %3941, align 8, !tbaa !24, !alias.scope !297
-  %3942 = getelementptr inbounds nuw i8, ptr %466, i64 9
-  store i8 %3940, ptr %3942, align 1, !tbaa !30, !alias.scope !297
+  %3933 = load ptr, ptr %2, align 8, !noalias !297
+  %3934 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %3935 = load i64, ptr %3934, align 8, !noalias !297
+  %3936 = zext i1 %3932 to i8
+  %3937 = getelementptr inbounds nuw i8, ptr %466, i64 8
+  store i8 1, ptr %3937, align 8, !tbaa !24, !alias.scope !297
+  %3938 = getelementptr inbounds nuw i8, ptr %466, i64 9
+  store i8 %3936, ptr %3938, align 1, !tbaa !30, !alias.scope !297
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKPKN5vcpkg19IReadBinaryProviderERKDnEE, i64 16), ptr %466, align 8, !tbaa !4, !alias.scope !297
-  %3943 = getelementptr inbounds nuw i8, ptr %466, i64 16
-  store ptr %467, ptr %3943, align 8, !tbaa !55, !alias.scope !297
-  %3944 = getelementptr inbounds nuw i8, ptr %466, i64 24
-  store ptr %3937, ptr %3944, align 8, !tbaa !56, !alias.scope !297
+  %3939 = getelementptr inbounds nuw i8, ptr %466, i64 16
+  store ptr %467, ptr %3939, align 8, !tbaa !55, !alias.scope !297
+  %3940 = getelementptr inbounds nuw i8, ptr %466, i64 24
+  store ptr %3933, ptr %3940, align 8, !tbaa !56, !alias.scope !297
   %.sroa.2.0..sroa_idx.i.i859 = getelementptr inbounds nuw i8, ptr %466, i64 32
-  store i64 %3939, ptr %.sroa.2.0..sroa_idx.i.i859, align 8, !tbaa !57, !alias.scope !297
-  %3945 = getelementptr inbounds nuw i8, ptr %466, i64 40
-  store ptr %468, ptr %3945, align 8, !tbaa !58, !alias.scope !297
+  store i64 %3935, ptr %.sroa.2.0..sroa_idx.i.i859, align 8, !tbaa !57, !alias.scope !297
+  %3941 = getelementptr inbounds nuw i8, ptr %466, i64 40
+  store ptr %468, ptr %3941, align 8, !tbaa !58, !alias.scope !297
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %462, ptr noundef nonnull align 8 dereferenceable(10) %466)
-          to label %3946 unwind label %3955
+          to label %3942 unwind label %3951
 
-3946:                                             ; preds = %3934
+3942:                                             ; preds = %3930
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %466) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %468) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %467) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %466) #21
-  br label %3959
+  br label %3955
 
-3947:                                             ; preds = %.body855
-  %3948 = landingpad { ptr, i32 }
+3943:                                             ; preds = %.body855
+  %3944 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %3951 unwind label %4191
+          to label %3947 unwind label %4187
 
-3949:                                             ; preds = %3915, %3914
-  %3950 = landingpad { ptr, i32 }
+3945:                                             ; preds = %3911, %3910
+  %3946 = landingpad { ptr, i32 }
           cleanup
-  br label %3951
+  br label %3947
 
-3951:                                             ; preds = %3947, %3949
-  %.pn516 = phi { ptr, i32 } [ %3950, %3949 ], [ %3948, %3947 ]
+3947:                                             ; preds = %3943, %3945
+  %.pn516 = phi { ptr, i32 } [ %3946, %3945 ], [ %3944, %3943 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %458) #21
-  br label %3952
+  br label %3948
 
-3952:                                             ; preds = %3951, %3912
-  %.pn516.pn = phi { ptr, i32 } [ %.pn516, %3951 ], [ %3913, %3912 ]
+3948:                                             ; preds = %3947, %3908
+  %.pn516.pn = phi { ptr, i32 } [ %.pn516, %3947 ], [ %3909, %3908 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %458) #21
-  br label %4096
+  br label %4092
 
-3953:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit858
-  %3954 = landingpad { ptr, i32 }
+3949:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit858
+  %3950 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %464) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %463) #21
-  br label %3993
+  br label %3989
 
-3955:                                             ; preds = %3934
-  %3956 = landingpad { ptr, i32 }
+3951:                                             ; preds = %3930
+  %3952 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %466) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %468) #21
-  %.208 = extractvalue { ptr, i32 } %3956, 0
+  %.208 = extractvalue { ptr, i32 } %3952, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %467) #21
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %466) #21
-  %3957 = call ptr @__cxa_begin_catch(ptr %.208) #21
+  %3953 = call ptr @__cxa_begin_catch(ptr %.208) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %462)
-          to label %3958 unwind label %3988
+          to label %3954 unwind label %3984
 
-3958:                                             ; preds = %3955
+3954:                                             ; preds = %3951
   invoke void @__cxa_end_catch()
-          to label %3959 unwind label %3990
+          to label %3955 unwind label %3986
 
-3959:                                             ; preds = %3958, %3946
+3955:                                             ; preds = %3954, %3942
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %462)
-          to label %3960 unwind label %3990
+          to label %3956 unwind label %3986
 
-3960:                                             ; preds = %3959
-  %3961 = getelementptr inbounds nuw i8, ptr %462, i64 58
-  %3962 = load i8, ptr %3961, align 2, !tbaa !33, !range !40, !noundef !41
-  %3963 = trunc nuw i8 %3962 to i1
-  br i1 %3963, label %_ZN5Catch16AssertionHandlerD2Ev.exit860, label %3964
+3956:                                             ; preds = %3955
+  %3957 = getelementptr inbounds nuw i8, ptr %462, i64 58
+  %3958 = load i8, ptr %3957, align 2, !tbaa !33, !range !40, !noundef !41
+  %3959 = trunc nuw i8 %3958 to i1
+  br i1 %3959, label %_ZN5Catch16AssertionHandlerD2Ev.exit860, label %3960
 
-3964:                                             ; preds = %3960
-  %3965 = getelementptr inbounds nuw i8, ptr %462, i64 64
-  %3966 = load ptr, ptr %3965, align 8, !tbaa !42
-  %3967 = load ptr, ptr %3966, align 8, !tbaa !4
-  %3968 = getelementptr inbounds nuw i8, ptr %3967, i64 112
-  %3969 = load ptr, ptr %3968, align 8
-  invoke void %3969(ptr noundef nonnull align 8 dereferenceable(8) %3966, ptr noundef nonnull align 8 dereferenceable(72) %462)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit860 unwind label %3970
+3960:                                             ; preds = %3956
+  %3961 = getelementptr inbounds nuw i8, ptr %462, i64 64
+  %3962 = load ptr, ptr %3961, align 8, !tbaa !42
+  %3963 = load ptr, ptr %3962, align 8, !tbaa !4
+  %3964 = getelementptr inbounds nuw i8, ptr %3963, i64 112
+  %3965 = load ptr, ptr %3964, align 8
+  invoke void %3965(ptr noundef nonnull align 8 dereferenceable(8) %3962, ptr noundef nonnull align 8 dereferenceable(72) %462)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit860 unwind label %3966
 
-3970:                                             ; preds = %3964
-  %3971 = landingpad { ptr, i32 }
+3966:                                             ; preds = %3960
+  %3967 = landingpad { ptr, i32 }
           catch ptr null
-  %3972 = extractvalue { ptr, i32 } %3971, 0
-  call void @__clang_call_terminate(ptr %3972) #22
+  %3968 = extractvalue { ptr, i32 } %3967, 0
+  call void @__clang_call_terminate(ptr %3968) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit860:          ; preds = %3960, %3964
+_ZN5Catch16AssertionHandlerD2Ev.exit860:          ; preds = %3956, %3960
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %462) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %469) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %470) #21
   store ptr @.str.24, ptr %470, align 8
-  %3973 = getelementptr inbounds nuw i8, ptr %470, i64 8
-  store i64 7, ptr %3973, align 8
+  %3969 = getelementptr inbounds nuw i8, ptr %470, i64 8
+  store i64 7, ptr %3969, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %471) #21
   store ptr @.str, ptr %471, align 8, !tbaa !19
-  %3974 = getelementptr inbounds nuw i8, ptr %471, i64 8
-  store i64 166, ptr %3974, align 8, !tbaa !23
+  %3970 = getelementptr inbounds nuw i8, ptr %471, i64 8
+  store i64 166, ptr %3970, align 8, !tbaa !23
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %472, ptr noundef nonnull @.str.85) #21
-  %3975 = load ptr, ptr %472, align 8
-  %3976 = getelementptr inbounds nuw i8, ptr %472, i64 8
-  %3977 = load i64, ptr %3976, align 8
-  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %469, ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %471, ptr %3975, i64 %3977, i32 noundef 1)
-          to label %3978 unwind label %3994
+  %3971 = load ptr, ptr %472, align 8
+  %3972 = getelementptr inbounds nuw i8, ptr %472, i64 8
+  %3973 = load i64, ptr %3972, align 8
+  invoke void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %469, ptr noundef nonnull align 8 dereferenceable(16) %470, ptr noundef nonnull align 8 dereferenceable(16) %471, ptr %3971, i64 %3973, i32 noundef 1)
+          to label %3974 unwind label %3990
 
-3978:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit860
+3974:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit860
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %471) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %470) #21
-  %3979 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
-  %3980 = zext i1 %3979 to i8
+  %3975 = call noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull align 8 dereferenceable(40) %334) #21
+  %3976 = zext i1 %3975 to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #21
-  %3981 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 0, ptr %3981, align 8, !tbaa !24, !alias.scope !300
-  %3982 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 %3980, ptr %3982, align 1, !tbaa !30, !alias.scope !300
+  %3977 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 0, ptr %3977, align 8, !tbaa !24, !alias.scope !300
+  %3978 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  store i8 %3976, ptr %3978, align 1, !tbaa !30, !alias.scope !300
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch9UnaryExprIbEE, i64 16), ptr %1, align 8, !tbaa !4, !alias.scope !300
-  %3983 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 %3980, ptr %3983, align 2, !tbaa !31, !alias.scope !300
+  %3979 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  store i8 %3976, ptr %3979, align 2, !tbaa !31, !alias.scope !300
   invoke void @_ZN5Catch16AssertionHandler10handleExprERKNS_20ITransientExpressionE(ptr noundef nonnull align 8 dereferenceable(72) %469, ptr noundef nonnull align 8 dereferenceable(10) %1)
-          to label %3987 unwind label %.body861
+          to label %3983 unwind label %.body861
 
-.body861:                                         ; preds = %3978
-  %3984 = landingpad { ptr, i32 }
+.body861:                                         ; preds = %3974
+  %3980 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %1) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #21
-  %3985 = extractvalue { ptr, i32 } %3984, 0
-  %3986 = call ptr @__cxa_begin_catch(ptr %3985) #21
+  %3981 = extractvalue { ptr, i32 } %3980, 0
+  %3982 = call ptr @__cxa_begin_catch(ptr %3981) #21
   invoke void @_ZN5Catch16AssertionHandler33handleUnexpectedInflightExceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %469)
-          to label %3996 unwind label %4090
+          to label %3992 unwind label %4086
 
-3987:                                             ; preds = %3978
+3983:                                             ; preds = %3974
   call void @_ZN5Catch20ITransientExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(11) %1) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #21
-  br label %3997
-
-3988:                                             ; preds = %3955
-  %3989 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %3992 unwind label %4191
-
-3990:                                             ; preds = %3959, %3958
-  %3991 = landingpad { ptr, i32 }
-          cleanup
-  br label %3992
-
-3992:                                             ; preds = %3988, %3990
-  %.pn520 = phi { ptr, i32 } [ %3991, %3990 ], [ %3989, %3988 ]
-  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %462) #21
   br label %3993
 
-3993:                                             ; preds = %3992, %3953
-  %.pn520.pn = phi { ptr, i32 } [ %.pn520, %3992 ], [ %3954, %3953 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %462) #21
-  br label %4096
+3984:                                             ; preds = %3951
+  %3985 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %3988 unwind label %4187
 
-3994:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit860
-  %3995 = landingpad { ptr, i32 }
+3986:                                             ; preds = %3955, %3954
+  %3987 = landingpad { ptr, i32 }
+          cleanup
+  br label %3988
+
+3988:                                             ; preds = %3984, %3986
+  %.pn520 = phi { ptr, i32 } [ %3987, %3986 ], [ %3985, %3984 ]
+  call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %462) #21
+  br label %3989
+
+3989:                                             ; preds = %3988, %3949
+  %.pn520.pn = phi { ptr, i32 } [ %.pn520, %3988 ], [ %3950, %3949 ]
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %462) #21
+  br label %4092
+
+3990:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit860
+  %3991 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %471) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %470) #21
-  br label %4095
+  br label %4091
 
-3996:                                             ; preds = %.body861
+3992:                                             ; preds = %.body861
   invoke void @__cxa_end_catch()
-          to label %3997 unwind label %4092
+          to label %3993 unwind label %4088
 
-3997:                                             ; preds = %3996, %3987
+3993:                                             ; preds = %3992, %3983
   invoke void @_ZN5Catch16AssertionHandler8completeEv(ptr noundef nonnull align 8 dereferenceable(72) %469)
-          to label %3998 unwind label %4092
+          to label %3994 unwind label %4088
 
-3998:                                             ; preds = %3997
-  %3999 = getelementptr inbounds nuw i8, ptr %469, i64 58
-  %4000 = load i8, ptr %3999, align 2, !tbaa !33, !range !40, !noundef !41
-  %4001 = trunc nuw i8 %4000 to i1
-  br i1 %4001, label %_ZN5Catch16AssertionHandlerD2Ev.exit864, label %4002
+3994:                                             ; preds = %3993
+  %3995 = getelementptr inbounds nuw i8, ptr %469, i64 58
+  %3996 = load i8, ptr %3995, align 2, !tbaa !33, !range !40, !noundef !41
+  %3997 = trunc nuw i8 %3996 to i1
+  br i1 %3997, label %_ZN5Catch16AssertionHandlerD2Ev.exit864, label %3998
 
-4002:                                             ; preds = %3998
-  %4003 = getelementptr inbounds nuw i8, ptr %469, i64 64
-  %4004 = load ptr, ptr %4003, align 8, !tbaa !42
-  %4005 = load ptr, ptr %4004, align 8, !tbaa !4
-  %4006 = getelementptr inbounds nuw i8, ptr %4005, i64 112
-  %4007 = load ptr, ptr %4006, align 8
-  invoke void %4007(ptr noundef nonnull align 8 dereferenceable(8) %4004, ptr noundef nonnull align 8 dereferenceable(72) %469)
-          to label %_ZN5Catch16AssertionHandlerD2Ev.exit864 unwind label %4008
+3998:                                             ; preds = %3994
+  %3999 = getelementptr inbounds nuw i8, ptr %469, i64 64
+  %4000 = load ptr, ptr %3999, align 8, !tbaa !42
+  %4001 = load ptr, ptr %4000, align 8, !tbaa !4
+  %4002 = getelementptr inbounds nuw i8, ptr %4001, i64 112
+  %4003 = load ptr, ptr %4002, align 8
+  invoke void %4003(ptr noundef nonnull align 8 dereferenceable(8) %4000, ptr noundef nonnull align 8 dereferenceable(72) %469)
+          to label %_ZN5Catch16AssertionHandlerD2Ev.exit864 unwind label %4004
 
-4008:                                             ; preds = %4002
-  %4009 = landingpad { ptr, i32 }
+4004:                                             ; preds = %3998
+  %4005 = landingpad { ptr, i32 }
           catch ptr null
-  %4010 = extractvalue { ptr, i32 } %4009, 0
-  call void @__clang_call_terminate(ptr %4010) #22
+  %4006 = extractvalue { ptr, i32 } %4005, 0
+  call void @__clang_call_terminate(ptr %4006) #22
   unreachable
 
-_ZN5Catch16AssertionHandlerD2Ev.exit864:          ; preds = %3998, %4002
+_ZN5Catch16AssertionHandlerD2Ev.exit864:          ; preds = %3994, %3998
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %469) #21
-  %4011 = load ptr, ptr %2685, align 8, !tbaa !113
-  %.not.i.i.i.i = icmp eq ptr %4011, null
-  br i1 %.not.i.i.i.i, label %_ZN5vcpkg11CacheStatusD2Ev.exit, label %4012
+  %4007 = load ptr, ptr %2681, align 8, !tbaa !113
+  %.not.i.i.i.i = icmp eq ptr %4007, null
+  br i1 %.not.i.i.i.i, label %_ZN5vcpkg11CacheStatusD2Ev.exit, label %4008
 
-4012:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit864
-  %4013 = load ptr, ptr %2692, align 8, !tbaa !114
-  %4014 = ptrtoint ptr %4013 to i64
-  %4015 = ptrtoint ptr %4011 to i64
-  %4016 = sub i64 %4014, %4015
-  call void @_ZdlPvm(ptr noundef nonnull %4011, i64 noundef %4016) #25
+4008:                                             ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit864
+  %4009 = load ptr, ptr %2688, align 8, !tbaa !115
+  %4010 = ptrtoint ptr %4009 to i64
+  %4011 = ptrtoint ptr %4007 to i64
+  %4012 = sub i64 %4010, %4011
+  call void @_ZdlPvm(ptr noundef nonnull %4007, i64 noundef %4012) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit
 
-_ZN5vcpkg11CacheStatusD2Ev.exit:                  ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit864, %4012
+_ZN5vcpkg11CacheStatusD2Ev.exit:                  ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit864, %4008
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %334) #21
-  %4017 = load ptr, ptr %2478, align 8, !tbaa !113
-  %.not.i.i.i.i865 = icmp eq ptr %4017, null
-  br i1 %.not.i.i.i.i865, label %_ZN5vcpkg11CacheStatusD2Ev.exit866, label %4018
+  %4013 = load ptr, ptr %2474, align 8, !tbaa !113
+  %.not.i.i.i.i865 = icmp eq ptr %4013, null
+  br i1 %.not.i.i.i.i865, label %_ZN5vcpkg11CacheStatusD2Ev.exit866, label %4014
 
-4018:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit
-  %4019 = load ptr, ptr %2482, align 8, !tbaa !114
-  %4020 = ptrtoint ptr %4019 to i64
-  %4021 = ptrtoint ptr %4017 to i64
-  %4022 = sub i64 %4020, %4021
-  call void @_ZdlPvm(ptr noundef nonnull %4017, i64 noundef %4022) #25
+4014:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit
+  %4015 = load ptr, ptr %2478, align 8, !tbaa !115
+  %4016 = ptrtoint ptr %4015 to i64
+  %4017 = ptrtoint ptr %4013 to i64
+  %4018 = sub i64 %4016, %4017
+  call void @_ZdlPvm(ptr noundef nonnull %4013, i64 noundef %4018) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit866
 
-_ZN5vcpkg11CacheStatusD2Ev.exit866:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit, %4018
+_ZN5vcpkg11CacheStatusD2Ev.exit866:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit, %4014
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %310) #21
-  %4023 = load ptr, ptr %2270, align 8, !tbaa !113
-  %.not.i.i.i.i867 = icmp eq ptr %4023, null
-  br i1 %.not.i.i.i.i867, label %_ZN5vcpkg11CacheStatusD2Ev.exit868, label %4024
+  %4019 = load ptr, ptr %2266, align 8, !tbaa !113
+  %.not.i.i.i.i867 = icmp eq ptr %4019, null
+  br i1 %.not.i.i.i.i867, label %_ZN5vcpkg11CacheStatusD2Ev.exit868, label %4020
 
-4024:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit866
-  %4025 = load ptr, ptr %2274, align 8, !tbaa !114
-  %4026 = ptrtoint ptr %4025 to i64
-  %4027 = ptrtoint ptr %4023 to i64
-  %4028 = sub i64 %4026, %4027
-  call void @_ZdlPvm(ptr noundef nonnull %4023, i64 noundef %4028) #25
+4020:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit866
+  %4021 = load ptr, ptr %2270, align 8, !tbaa !115
+  %4022 = ptrtoint ptr %4021 to i64
+  %4023 = ptrtoint ptr %4019 to i64
+  %4024 = sub i64 %4022, %4023
+  call void @_ZdlPvm(ptr noundef nonnull %4019, i64 noundef %4024) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit868
 
-_ZN5vcpkg11CacheStatusD2Ev.exit868:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit866, %4024
+_ZN5vcpkg11CacheStatusD2Ev.exit868:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit866, %4020
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %286) #21
-  %4029 = load ptr, ptr %2062, align 8, !tbaa !113
-  %.not.i.i.i.i869 = icmp eq ptr %4029, null
-  br i1 %.not.i.i.i.i869, label %_ZN5vcpkg11CacheStatusD2Ev.exit870, label %4030
+  %4025 = load ptr, ptr %2058, align 8, !tbaa !113
+  %.not.i.i.i.i869 = icmp eq ptr %4025, null
+  br i1 %.not.i.i.i.i869, label %_ZN5vcpkg11CacheStatusD2Ev.exit870, label %4026
 
-4030:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit868
-  %4031 = load ptr, ptr %2066, align 8, !tbaa !114
-  %4032 = ptrtoint ptr %4031 to i64
-  %4033 = ptrtoint ptr %4029 to i64
-  %4034 = sub i64 %4032, %4033
-  call void @_ZdlPvm(ptr noundef nonnull %4029, i64 noundef %4034) #25
+4026:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit868
+  %4027 = load ptr, ptr %2062, align 8, !tbaa !115
+  %4028 = ptrtoint ptr %4027 to i64
+  %4029 = ptrtoint ptr %4025 to i64
+  %4030 = sub i64 %4028, %4029
+  call void @_ZdlPvm(ptr noundef nonnull %4025, i64 noundef %4030) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit870
 
-_ZN5vcpkg11CacheStatusD2Ev.exit870:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit868, %4030
+_ZN5vcpkg11CacheStatusD2Ev.exit870:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit868, %4026
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %262) #21
-  %4035 = load ptr, ptr %2014, align 8, !tbaa !113
-  %.not.i.i.i.i871 = icmp eq ptr %4035, null
-  br i1 %.not.i.i.i.i871, label %_ZN5vcpkg11CacheStatusD2Ev.exit872, label %4036
+  %4031 = load ptr, ptr %2010, align 8, !tbaa !113
+  %.not.i.i.i.i871 = icmp eq ptr %4031, null
+  br i1 %.not.i.i.i.i871, label %_ZN5vcpkg11CacheStatusD2Ev.exit872, label %4032
 
-4036:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit870
-  %4037 = load ptr, ptr %2018, align 8, !tbaa !114
-  %4038 = ptrtoint ptr %4037 to i64
-  %4039 = ptrtoint ptr %4035 to i64
-  %4040 = sub i64 %4038, %4039
-  call void @_ZdlPvm(ptr noundef nonnull %4035, i64 noundef %4040) #25
+4032:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit870
+  %4033 = load ptr, ptr %2014, align 8, !tbaa !115
+  %4034 = ptrtoint ptr %4033 to i64
+  %4035 = ptrtoint ptr %4031 to i64
+  %4036 = sub i64 %4034, %4035
+  call void @_ZdlPvm(ptr noundef nonnull %4031, i64 noundef %4036) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit872
 
-_ZN5vcpkg11CacheStatusD2Ev.exit872:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit870, %4036
+_ZN5vcpkg11CacheStatusD2Ev.exit872:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit870, %4032
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %257) #21
-  %4041 = load ptr, ptr %1788, align 8, !tbaa !113
-  %.not.i.i.i.i873 = icmp eq ptr %4041, null
-  br i1 %.not.i.i.i.i873, label %_ZN5vcpkg11CacheStatusD2Ev.exit874, label %4042
+  %4037 = load ptr, ptr %1785, align 8, !tbaa !113
+  %.not.i.i.i.i873 = icmp eq ptr %4037, null
+  br i1 %.not.i.i.i.i873, label %_ZN5vcpkg11CacheStatusD2Ev.exit874, label %4038
 
-4042:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit872
-  %4043 = load ptr, ptr %1806, align 8, !tbaa !114
-  %4044 = ptrtoint ptr %4043 to i64
-  %4045 = ptrtoint ptr %4041 to i64
-  %4046 = sub i64 %4044, %4045
-  call void @_ZdlPvm(ptr noundef nonnull %4041, i64 noundef %4046) #25
+4038:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit872
+  %4039 = load ptr, ptr %1802, align 8, !tbaa !115
+  %4040 = ptrtoint ptr %4039 to i64
+  %4041 = ptrtoint ptr %4037 to i64
+  %4042 = sub i64 %4040, %4041
+  call void @_ZdlPvm(ptr noundef nonnull %4037, i64 noundef %4042) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit874
 
-_ZN5vcpkg11CacheStatusD2Ev.exit874:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit872, %4042
+_ZN5vcpkg11CacheStatusD2Ev.exit874:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit872, %4038
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %233) #21
-  %4047 = load ptr, ptr %1562, align 8, !tbaa !113
-  %.not.i.i.i.i875 = icmp eq ptr %4047, null
-  br i1 %.not.i.i.i.i875, label %_ZN5vcpkg11CacheStatusD2Ev.exit876, label %4048
+  %4043 = load ptr, ptr %1560, align 8, !tbaa !113
+  %.not.i.i.i.i875 = icmp eq ptr %4043, null
+  br i1 %.not.i.i.i.i875, label %_ZN5vcpkg11CacheStatusD2Ev.exit876, label %4044
 
-4048:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit874
-  %4049 = load ptr, ptr %1580, align 8, !tbaa !114
-  %4050 = ptrtoint ptr %4049 to i64
-  %4051 = ptrtoint ptr %4047 to i64
-  %4052 = sub i64 %4050, %4051
-  call void @_ZdlPvm(ptr noundef nonnull %4047, i64 noundef %4052) #25
+4044:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit874
+  %4045 = load ptr, ptr %1577, align 8, !tbaa !115
+  %4046 = ptrtoint ptr %4045 to i64
+  %4047 = ptrtoint ptr %4043 to i64
+  %4048 = sub i64 %4046, %4047
+  call void @_ZdlPvm(ptr noundef nonnull %4043, i64 noundef %4048) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit876
 
-_ZN5vcpkg11CacheStatusD2Ev.exit876:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit874, %4048
+_ZN5vcpkg11CacheStatusD2Ev.exit876:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit874, %4044
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %209) #21
-  %4053 = load ptr, ptr %1336, align 8, !tbaa !113
-  %.not.i.i.i.i877 = icmp eq ptr %4053, null
-  br i1 %.not.i.i.i.i877, label %_ZN5vcpkg11CacheStatusD2Ev.exit878, label %4054
+  %4049 = load ptr, ptr %1335, align 8, !tbaa !113
+  %.not.i.i.i.i877 = icmp eq ptr %4049, null
+  br i1 %.not.i.i.i.i877, label %_ZN5vcpkg11CacheStatusD2Ev.exit878, label %4050
 
-4054:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit876
-  %4055 = load ptr, ptr %1354, align 8, !tbaa !114
-  %4056 = ptrtoint ptr %4055 to i64
-  %4057 = ptrtoint ptr %4053 to i64
-  %4058 = sub i64 %4056, %4057
-  call void @_ZdlPvm(ptr noundef nonnull %4053, i64 noundef %4058) #25
+4050:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit876
+  %4051 = load ptr, ptr %1352, align 8, !tbaa !115
+  %4052 = ptrtoint ptr %4051 to i64
+  %4053 = ptrtoint ptr %4049 to i64
+  %4054 = sub i64 %4052, %4053
+  call void @_ZdlPvm(ptr noundef nonnull %4049, i64 noundef %4054) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit878
 
-_ZN5vcpkg11CacheStatusD2Ev.exit878:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit876, %4054
+_ZN5vcpkg11CacheStatusD2Ev.exit878:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit876, %4050
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %185) #21
-  %4059 = load ptr, ptr %1270, align 8, !tbaa !113
-  %.not.i.i.i.i879 = icmp eq ptr %4059, null
-  br i1 %.not.i.i.i.i879, label %_ZN5vcpkg11CacheStatusD2Ev.exit880, label %4060
+  %4055 = load ptr, ptr %1270, align 8, !tbaa !113
+  %.not.i.i.i.i879 = icmp eq ptr %4055, null
+  br i1 %.not.i.i.i.i879, label %_ZN5vcpkg11CacheStatusD2Ev.exit880, label %4056
 
-4060:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit878
-  %4061 = load ptr, ptr %1288, align 8, !tbaa !114
-  %4062 = ptrtoint ptr %4061 to i64
-  %4063 = ptrtoint ptr %4059 to i64
-  %4064 = sub i64 %4062, %4063
-  call void @_ZdlPvm(ptr noundef nonnull %4059, i64 noundef %4064) #25
+4056:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit878
+  %4057 = load ptr, ptr %1287, align 8, !tbaa !115
+  %4058 = ptrtoint ptr %4057 to i64
+  %4059 = ptrtoint ptr %4055 to i64
+  %4060 = sub i64 %4058, %4059
+  call void @_ZdlPvm(ptr noundef nonnull %4055, i64 noundef %4060) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit880
 
-_ZN5vcpkg11CacheStatusD2Ev.exit880:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit878, %4060
+_ZN5vcpkg11CacheStatusD2Ev.exit880:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit878, %4056
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %180) #21
-  %4065 = load ptr, ptr %1069, align 8, !tbaa !113
-  %.not.i.i.i.i881 = icmp eq ptr %4065, null
-  br i1 %.not.i.i.i.i881, label %_ZN5vcpkg11CacheStatusD2Ev.exit882, label %4066
+  %4061 = load ptr, ptr %1069, align 8, !tbaa !113
+  %.not.i.i.i.i881 = icmp eq ptr %4061, null
+  br i1 %.not.i.i.i.i881, label %_ZN5vcpkg11CacheStatusD2Ev.exit882, label %4062
 
-4066:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit880
-  %4067 = load ptr, ptr %3805, align 8, !tbaa !114
-  %4068 = ptrtoint ptr %4067 to i64
-  %4069 = ptrtoint ptr %4065 to i64
-  %4070 = sub i64 %4068, %4069
-  call void @_ZdlPvm(ptr noundef nonnull %4065, i64 noundef %4070) #25
+4062:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit880
+  %4063 = load ptr, ptr %3801, align 8, !tbaa !115
+  %4064 = ptrtoint ptr %4063 to i64
+  %4065 = ptrtoint ptr %4061 to i64
+  %4066 = sub i64 %4064, %4065
+  call void @_ZdlPvm(ptr noundef nonnull %4061, i64 noundef %4066) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit882
 
-_ZN5vcpkg11CacheStatusD2Ev.exit882:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit880, %4066
+_ZN5vcpkg11CacheStatusD2Ev.exit882:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit880, %4062
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %156) #21
-  %4071 = load ptr, ptr %869, align 8, !tbaa !113
-  %.not.i.i.i.i883 = icmp eq ptr %4071, null
-  br i1 %.not.i.i.i.i883, label %_ZN5vcpkg11CacheStatusD2Ev.exit884, label %4072
+  %4067 = load ptr, ptr %869, align 8, !tbaa !113
+  %.not.i.i.i.i883 = icmp eq ptr %4067, null
+  br i1 %.not.i.i.i.i883, label %_ZN5vcpkg11CacheStatusD2Ev.exit884, label %4068
 
-4072:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit882
-  %4073 = load ptr, ptr %3594, align 8, !tbaa !114
-  %4074 = ptrtoint ptr %4073 to i64
-  %4075 = ptrtoint ptr %4071 to i64
-  %4076 = sub i64 %4074, %4075
-  call void @_ZdlPvm(ptr noundef nonnull %4071, i64 noundef %4076) #25
+4068:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit882
+  %4069 = load ptr, ptr %3590, align 8, !tbaa !115
+  %4070 = ptrtoint ptr %4069 to i64
+  %4071 = ptrtoint ptr %4067 to i64
+  %4072 = sub i64 %4070, %4071
+  call void @_ZdlPvm(ptr noundef nonnull %4067, i64 noundef %4072) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit884
 
-_ZN5vcpkg11CacheStatusD2Ev.exit884:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit882, %4072
+_ZN5vcpkg11CacheStatusD2Ev.exit884:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit882, %4068
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %132) #21
-  %4077 = load ptr, ptr %666, align 8, !tbaa !113
-  %.not.i.i.i.i885 = icmp eq ptr %4077, null
-  br i1 %.not.i.i.i.i885, label %_ZN5vcpkg11CacheStatusD2Ev.exit886, label %4078
+  %4073 = load ptr, ptr %666, align 8, !tbaa !113
+  %.not.i.i.i.i885 = icmp eq ptr %4073, null
+  br i1 %.not.i.i.i.i885, label %_ZN5vcpkg11CacheStatusD2Ev.exit886, label %4074
 
-4078:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit884
-  %4079 = load ptr, ptr %3383, align 8, !tbaa !114
-  %4080 = ptrtoint ptr %4079 to i64
-  %4081 = ptrtoint ptr %4077 to i64
-  %4082 = sub i64 %4080, %4081
-  call void @_ZdlPvm(ptr noundef nonnull %4077, i64 noundef %4082) #25
+4074:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit884
+  %4075 = load ptr, ptr %3379, align 8, !tbaa !115
+  %4076 = ptrtoint ptr %4075 to i64
+  %4077 = ptrtoint ptr %4073 to i64
+  %4078 = sub i64 %4076, %4077
+  call void @_ZdlPvm(ptr noundef nonnull %4073, i64 noundef %4078) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit886
 
-_ZN5vcpkg11CacheStatusD2Ev.exit886:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit884, %4078
+_ZN5vcpkg11CacheStatusD2Ev.exit886:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit884, %4074
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %108) #21
-  %4083 = load ptr, ptr %473, align 8, !tbaa !113
-  %.not.i.i.i.i887 = icmp eq ptr %4083, null
-  br i1 %.not.i.i.i.i887, label %_ZN5vcpkg11CacheStatusD2Ev.exit888, label %4084
+  %4079 = load ptr, ptr %473, align 8, !tbaa !113
+  %.not.i.i.i.i887 = icmp eq ptr %4079, null
+  br i1 %.not.i.i.i.i887, label %_ZN5vcpkg11CacheStatusD2Ev.exit888, label %4080
 
-4084:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit886
-  %4085 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  %4086 = load ptr, ptr %4085, align 8, !tbaa !114
-  %4087 = ptrtoint ptr %4086 to i64
-  %4088 = ptrtoint ptr %4083 to i64
-  %4089 = sub i64 %4087, %4088
-  call void @_ZdlPvm(ptr noundef nonnull %4083, i64 noundef %4089) #25
+4080:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit886
+  %4081 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %4082 = load ptr, ptr %4081, align 8, !tbaa !115
+  %4083 = ptrtoint ptr %4082 to i64
+  %4084 = ptrtoint ptr %4079 to i64
+  %4085 = sub i64 %4083, %4084
+  call void @_ZdlPvm(ptr noundef nonnull %4079, i64 noundef %4085) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit888
 
-_ZN5vcpkg11CacheStatusD2Ev.exit888:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit886, %4084
+_ZN5vcpkg11CacheStatusD2Ev.exit888:               ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit886, %4080
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %84) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #21
   ret void
 
-4090:                                             ; preds = %.body861
-  %4091 = landingpad { ptr, i32 }
+4086:                                             ; preds = %.body861
+  %4087 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %4094 unwind label %4191
+          to label %4090 unwind label %4187
 
-4092:                                             ; preds = %3997, %3996
-  %4093 = landingpad { ptr, i32 }
+4088:                                             ; preds = %3993, %3992
+  %4089 = landingpad { ptr, i32 }
           cleanup
-  br label %4094
+  br label %4090
 
-4094:                                             ; preds = %4090, %4092
-  %.pn523 = phi { ptr, i32 } [ %4093, %4092 ], [ %4091, %4090 ]
+4090:                                             ; preds = %4086, %4088
+  %.pn523 = phi { ptr, i32 } [ %4089, %4088 ], [ %4087, %4086 ]
   call void @_ZN5Catch16AssertionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %469) #21
-  br label %4095
+  br label %4091
 
-4095:                                             ; preds = %4094, %3994
-  %.pn523.pn = phi { ptr, i32 } [ %.pn523, %4094 ], [ %3995, %3994 ]
+4091:                                             ; preds = %4090, %3990
+  %.pn523.pn = phi { ptr, i32 } [ %.pn523, %4090 ], [ %3991, %3990 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %469) #21
-  br label %4096
+  br label %4092
 
-4096:                                             ; preds = %4095, %3993, %3952, %3911, %3872, %3833, %3782, %3740, %3699, %3660, %3622, %3571, %3529, %3488, %3450, %3411, %3360, %3319, %3278, %3239, %3200, %3123, %3081, %3040, %3001, %2963, %2886, %2844, %2803, %2765, %2725
-  %.pn523.pn.pn = phi { ptr, i32 } [ %.pn523.pn, %4095 ], [ %.pn520.pn, %3993 ], [ %.pn516.pn, %3952 ], [ %.pn513.pn, %3911 ], [ %.pn510.pn, %3872 ], [ %.pn507.pn, %3833 ], [ %.pn504.pn, %3782 ], [ %.pn500.pn, %3740 ], [ %.pn497.pn, %3699 ], [ %.pn494.pn, %3660 ], [ %.pn491.pn, %3622 ], [ %.pn488.pn, %3571 ], [ %.pn484.pn, %3529 ], [ %.pn481.pn, %3488 ], [ %.pn478.pn, %3450 ], [ %.pn475.pn, %3411 ], [ %.pn472.pn, %3360 ], [ %.pn468.pn, %3319 ], [ %.pn465.pn, %3278 ], [ %.pn462.pn, %3239 ], [ %2726, %2725 ], [ %.pn459.pn, %3200 ], [ %.pn456.pn, %3123 ], [ %.pn452.pn, %3081 ], [ %.pn449.pn, %3040 ], [ %.pn446.pn, %3001 ], [ %.pn443.pn, %2963 ], [ %.pn440.pn, %2886 ], [ %.pn436.pn, %2844 ], [ %.pn433.pn, %2803 ], [ %.pn430.pn, %2765 ]
-  %4097 = load ptr, ptr %2685, align 8, !tbaa !113
-  %.not.i.i.i.i889 = icmp eq ptr %4097, null
-  br i1 %.not.i.i.i.i889, label %_ZN5vcpkg11CacheStatusD2Ev.exit890, label %4098
+4092:                                             ; preds = %4091, %3989, %3948, %3907, %3868, %3829, %3778, %3736, %3695, %3656, %3618, %3567, %3525, %3484, %3446, %3407, %3356, %3315, %3274, %3235, %3196, %3119, %3077, %3036, %2997, %2959, %2882, %2840, %2799, %2761, %2721
+  %.pn523.pn.pn = phi { ptr, i32 } [ %.pn523.pn, %4091 ], [ %.pn520.pn, %3989 ], [ %.pn516.pn, %3948 ], [ %.pn513.pn, %3907 ], [ %.pn510.pn, %3868 ], [ %.pn507.pn, %3829 ], [ %.pn504.pn, %3778 ], [ %.pn500.pn, %3736 ], [ %.pn497.pn, %3695 ], [ %.pn494.pn, %3656 ], [ %.pn491.pn, %3618 ], [ %.pn488.pn, %3567 ], [ %.pn484.pn, %3525 ], [ %.pn481.pn, %3484 ], [ %.pn478.pn, %3446 ], [ %.pn475.pn, %3407 ], [ %.pn472.pn, %3356 ], [ %.pn468.pn, %3315 ], [ %.pn465.pn, %3274 ], [ %.pn462.pn, %3235 ], [ %2722, %2721 ], [ %.pn459.pn, %3196 ], [ %.pn456.pn, %3119 ], [ %.pn452.pn, %3077 ], [ %.pn449.pn, %3036 ], [ %.pn446.pn, %2997 ], [ %.pn443.pn, %2959 ], [ %.pn440.pn, %2882 ], [ %.pn436.pn, %2840 ], [ %.pn433.pn, %2799 ], [ %.pn430.pn, %2761 ]
+  %4093 = load ptr, ptr %2681, align 8, !tbaa !113
+  %.not.i.i.i.i889 = icmp eq ptr %4093, null
+  br i1 %.not.i.i.i.i889, label %_ZN5vcpkg11CacheStatusD2Ev.exit890, label %4094
 
-4098:                                             ; preds = %4096
-  %4099 = load ptr, ptr %2692, align 8, !tbaa !114
-  %4100 = ptrtoint ptr %4099 to i64
-  %4101 = ptrtoint ptr %4097 to i64
-  %4102 = sub i64 %4100, %4101
-  call void @_ZdlPvm(ptr noundef nonnull %4097, i64 noundef %4102) #25
+4094:                                             ; preds = %4092
+  %4095 = load ptr, ptr %2688, align 8, !tbaa !115
+  %4096 = ptrtoint ptr %4095 to i64
+  %4097 = ptrtoint ptr %4093 to i64
+  %4098 = sub i64 %4096, %4097
+  call void @_ZdlPvm(ptr noundef nonnull %4093, i64 noundef %4098) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit890
 
-_ZN5vcpkg11CacheStatusD2Ev.exit890:               ; preds = %4096, %4098
+_ZN5vcpkg11CacheStatusD2Ev.exit890:               ; preds = %4092, %4094
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %334) #21
-  br label %4103
+  br label %4099
 
-4103:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit890, %2724, %2667, %2626, %2585, %2546
-  %.pn523.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit890 ], [ %.pn427.pn, %2724 ], [ %.pn424.pn, %2667 ], [ %.pn420.pn, %2626 ], [ %.pn417.pn, %2585 ], [ %.pn414.pn, %2546 ]
-  %4104 = load ptr, ptr %2478, align 8, !tbaa !113
-  %.not.i.i.i.i891 = icmp eq ptr %4104, null
-  br i1 %.not.i.i.i.i891, label %_ZN5vcpkg11CacheStatusD2Ev.exit892, label %4105
+4099:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit890, %2720, %2663, %2622, %2581, %2542
+  %.pn523.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit890 ], [ %.pn427.pn, %2720 ], [ %.pn424.pn, %2663 ], [ %.pn420.pn, %2622 ], [ %.pn417.pn, %2581 ], [ %.pn414.pn, %2542 ]
+  %4100 = load ptr, ptr %2474, align 8, !tbaa !113
+  %.not.i.i.i.i891 = icmp eq ptr %4100, null
+  br i1 %.not.i.i.i.i891, label %_ZN5vcpkg11CacheStatusD2Ev.exit892, label %4101
 
-4105:                                             ; preds = %4103
-  %4106 = load ptr, ptr %2482, align 8, !tbaa !114
-  %4107 = ptrtoint ptr %4106 to i64
-  %4108 = ptrtoint ptr %4104 to i64
-  %4109 = sub i64 %4107, %4108
-  call void @_ZdlPvm(ptr noundef nonnull %4104, i64 noundef %4109) #25
+4101:                                             ; preds = %4099
+  %4102 = load ptr, ptr %2478, align 8, !tbaa !115
+  %4103 = ptrtoint ptr %4102 to i64
+  %4104 = ptrtoint ptr %4100 to i64
+  %4105 = sub i64 %4103, %4104
+  call void @_ZdlPvm(ptr noundef nonnull %4100, i64 noundef %4105) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit892
 
-_ZN5vcpkg11CacheStatusD2Ev.exit892:               ; preds = %4103, %4105
+_ZN5vcpkg11CacheStatusD2Ev.exit892:               ; preds = %4099, %4101
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %310) #21
-  br label %4110
+  br label %4106
 
-4110:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit892, %2507, %2459, %2417, %2376, %2337
-  %.pn523.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit892 ], [ %.pn411.pn, %2507 ], [ %.pn408.pn, %2459 ], [ %.pn404.pn, %2417 ], [ %.pn401.pn, %2376 ], [ %.pn398.pn, %2337 ]
-  %4111 = load ptr, ptr %2270, align 8, !tbaa !113
-  %.not.i.i.i.i893 = icmp eq ptr %4111, null
-  br i1 %.not.i.i.i.i893, label %_ZN5vcpkg11CacheStatusD2Ev.exit894, label %4112
+4106:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit892, %2503, %2455, %2413, %2372, %2333
+  %.pn523.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit892 ], [ %.pn411.pn, %2503 ], [ %.pn408.pn, %2455 ], [ %.pn404.pn, %2413 ], [ %.pn401.pn, %2372 ], [ %.pn398.pn, %2333 ]
+  %4107 = load ptr, ptr %2266, align 8, !tbaa !113
+  %.not.i.i.i.i893 = icmp eq ptr %4107, null
+  br i1 %.not.i.i.i.i893, label %_ZN5vcpkg11CacheStatusD2Ev.exit894, label %4108
 
-4112:                                             ; preds = %4110
-  %4113 = load ptr, ptr %2274, align 8, !tbaa !114
-  %4114 = ptrtoint ptr %4113 to i64
-  %4115 = ptrtoint ptr %4111 to i64
-  %4116 = sub i64 %4114, %4115
-  call void @_ZdlPvm(ptr noundef nonnull %4111, i64 noundef %4116) #25
+4108:                                             ; preds = %4106
+  %4109 = load ptr, ptr %2270, align 8, !tbaa !115
+  %4110 = ptrtoint ptr %4109 to i64
+  %4111 = ptrtoint ptr %4107 to i64
+  %4112 = sub i64 %4110, %4111
+  call void @_ZdlPvm(ptr noundef nonnull %4107, i64 noundef %4112) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit894
 
-_ZN5vcpkg11CacheStatusD2Ev.exit894:               ; preds = %4110, %4112
+_ZN5vcpkg11CacheStatusD2Ev.exit894:               ; preds = %4106, %4108
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %286) #21
-  br label %4117
+  br label %4113
 
-4117:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit894, %2299, %2251, %2209, %2168, %2130
-  %.pn523.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit894 ], [ %.pn395.pn, %2299 ], [ %.pn392.pn, %2251 ], [ %.pn388.pn, %2209 ], [ %.pn385.pn, %2168 ], [ %.pn382.pn, %2130 ]
-  %4118 = load ptr, ptr %2062, align 8, !tbaa !113
-  %.not.i.i.i.i895 = icmp eq ptr %4118, null
-  br i1 %.not.i.i.i.i895, label %_ZN5vcpkg11CacheStatusD2Ev.exit896, label %4119
+4113:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit894, %2295, %2247, %2205, %2164, %2126
+  %.pn523.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit894 ], [ %.pn395.pn, %2295 ], [ %.pn392.pn, %2247 ], [ %.pn388.pn, %2205 ], [ %.pn385.pn, %2164 ], [ %.pn382.pn, %2126 ]
+  %4114 = load ptr, ptr %2058, align 8, !tbaa !113
+  %.not.i.i.i.i895 = icmp eq ptr %4114, null
+  br i1 %.not.i.i.i.i895, label %_ZN5vcpkg11CacheStatusD2Ev.exit896, label %4115
 
-4119:                                             ; preds = %4117
-  %4120 = load ptr, ptr %2066, align 8, !tbaa !114
-  %4121 = ptrtoint ptr %4120 to i64
-  %4122 = ptrtoint ptr %4118 to i64
-  %4123 = sub i64 %4121, %4122
-  call void @_ZdlPvm(ptr noundef nonnull %4118, i64 noundef %4123) #25
+4115:                                             ; preds = %4113
+  %4116 = load ptr, ptr %2062, align 8, !tbaa !115
+  %4117 = ptrtoint ptr %4116 to i64
+  %4118 = ptrtoint ptr %4114 to i64
+  %4119 = sub i64 %4117, %4118
+  call void @_ZdlPvm(ptr noundef nonnull %4114, i64 noundef %4119) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit896
 
-_ZN5vcpkg11CacheStatusD2Ev.exit896:               ; preds = %4117, %4119
+_ZN5vcpkg11CacheStatusD2Ev.exit896:               ; preds = %4113, %4115
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %262) #21
-  br label %4124
+  br label %4120
 
-4124:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit896, %2091
-  %.pn523.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit896 ], [ %.pn379.pn, %2091 ]
-  %4125 = load ptr, ptr %2014, align 8, !tbaa !113
-  %.not.i.i.i.i897 = icmp eq ptr %4125, null
-  br i1 %.not.i.i.i.i897, label %_ZN5vcpkg11CacheStatusD2Ev.exit898, label %4126
+4120:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit896, %2087
+  %.pn523.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit896 ], [ %.pn379.pn, %2087 ]
+  %4121 = load ptr, ptr %2010, align 8, !tbaa !113
+  %.not.i.i.i.i897 = icmp eq ptr %4121, null
+  br i1 %.not.i.i.i.i897, label %_ZN5vcpkg11CacheStatusD2Ev.exit898, label %4122
 
-4126:                                             ; preds = %4124
-  %4127 = load ptr, ptr %2018, align 8, !tbaa !114
-  %4128 = ptrtoint ptr %4127 to i64
-  %4129 = ptrtoint ptr %4125 to i64
-  %4130 = sub i64 %4128, %4129
-  call void @_ZdlPvm(ptr noundef nonnull %4125, i64 noundef %4130) #25
+4122:                                             ; preds = %4120
+  %4123 = load ptr, ptr %2014, align 8, !tbaa !115
+  %4124 = ptrtoint ptr %4123 to i64
+  %4125 = ptrtoint ptr %4121 to i64
+  %4126 = sub i64 %4124, %4125
+  call void @_ZdlPvm(ptr noundef nonnull %4121, i64 noundef %4126) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit898
 
-_ZN5vcpkg11CacheStatusD2Ev.exit898:               ; preds = %4124, %4126
+_ZN5vcpkg11CacheStatusD2Ev.exit898:               ; preds = %4120, %4122
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %257) #21
-  br label %4131
+  br label %4127
 
-4131:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit898, %2043, %1995, %1954, %1913, %1874
-  %.pn523.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit898 ], [ %.pn376.pn, %2043 ], [ %.pn373.pn, %1995 ], [ %.pn369.pn, %1954 ], [ %.pn366.pn, %1913 ], [ %.pn363.pn, %1874 ]
-  %4132 = load ptr, ptr %1788, align 8, !tbaa !113
-  %.not.i.i.i.i899 = icmp eq ptr %4132, null
-  br i1 %.not.i.i.i.i899, label %_ZN5vcpkg11CacheStatusD2Ev.exit900, label %4133
+4127:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit898, %2039, %1991, %1950, %1909, %1870
+  %.pn523.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit898 ], [ %.pn376.pn, %2039 ], [ %.pn373.pn, %1991 ], [ %.pn369.pn, %1950 ], [ %.pn366.pn, %1909 ], [ %.pn363.pn, %1870 ]
+  %4128 = load ptr, ptr %1785, align 8, !tbaa !113
+  %.not.i.i.i.i899 = icmp eq ptr %4128, null
+  br i1 %.not.i.i.i.i899, label %_ZN5vcpkg11CacheStatusD2Ev.exit900, label %4129
 
-4133:                                             ; preds = %4131
-  %4134 = load ptr, ptr %1806, align 8, !tbaa !114
-  %4135 = ptrtoint ptr %4134 to i64
-  %4136 = ptrtoint ptr %4132 to i64
-  %4137 = sub i64 %4135, %4136
-  call void @_ZdlPvm(ptr noundef nonnull %4132, i64 noundef %4137) #25
+4129:                                             ; preds = %4127
+  %4130 = load ptr, ptr %1802, align 8, !tbaa !115
+  %4131 = ptrtoint ptr %4130 to i64
+  %4132 = ptrtoint ptr %4128 to i64
+  %4133 = sub i64 %4131, %4132
+  call void @_ZdlPvm(ptr noundef nonnull %4128, i64 noundef %4133) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit900
 
-_ZN5vcpkg11CacheStatusD2Ev.exit900:               ; preds = %4133, %4131, %1834
-  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1835, %1834 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn, %4131 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn, %4133 ]
+_ZN5vcpkg11CacheStatusD2Ev.exit900:               ; preds = %4129, %4127, %1830
+  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1831, %1830 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn, %4127 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn, %4129 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %233) #21
-  br label %4138
+  br label %4134
 
-4138:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit900, %1833, %1769, %1727, %1686, %1647
-  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit900 ], [ %.pn360.pn, %1833 ], [ %.pn357.pn, %1769 ], [ %.pn353.pn, %1727 ], [ %.pn350.pn, %1686 ], [ %.pn347.pn, %1647 ]
-  %4139 = load ptr, ptr %1562, align 8, !tbaa !113
-  %.not.i.i.i.i901 = icmp eq ptr %4139, null
-  br i1 %.not.i.i.i.i901, label %_ZN5vcpkg11CacheStatusD2Ev.exit902, label %4140
+4134:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit900, %1829, %1766, %1724, %1683, %1644
+  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit900 ], [ %.pn360.pn, %1829 ], [ %.pn357.pn, %1766 ], [ %.pn353.pn, %1724 ], [ %.pn350.pn, %1683 ], [ %.pn347.pn, %1644 ]
+  %4135 = load ptr, ptr %1560, align 8, !tbaa !113
+  %.not.i.i.i.i901 = icmp eq ptr %4135, null
+  br i1 %.not.i.i.i.i901, label %_ZN5vcpkg11CacheStatusD2Ev.exit902, label %4136
 
-4140:                                             ; preds = %4138
-  %4141 = load ptr, ptr %1580, align 8, !tbaa !114
-  %4142 = ptrtoint ptr %4141 to i64
-  %4143 = ptrtoint ptr %4139 to i64
-  %4144 = sub i64 %4142, %4143
-  call void @_ZdlPvm(ptr noundef nonnull %4139, i64 noundef %4144) #25
+4136:                                             ; preds = %4134
+  %4137 = load ptr, ptr %1577, align 8, !tbaa !115
+  %4138 = ptrtoint ptr %4137 to i64
+  %4139 = ptrtoint ptr %4135 to i64
+  %4140 = sub i64 %4138, %4139
+  call void @_ZdlPvm(ptr noundef nonnull %4135, i64 noundef %4140) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit902
 
-_ZN5vcpkg11CacheStatusD2Ev.exit902:               ; preds = %4140, %4138, %1608
-  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1609, %1608 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4138 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4140 ]
+_ZN5vcpkg11CacheStatusD2Ev.exit902:               ; preds = %4136, %4134, %1605
+  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1606, %1605 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4134 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4136 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %209) #21
-  br label %4145
+  br label %4141
 
-4145:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit902, %1607, %1543, %1501, %1460, %1422
-  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit902 ], [ %.pn344.pn, %1607 ], [ %.pn341.pn, %1543 ], [ %.pn337.pn, %1501 ], [ %.pn334.pn, %1460 ], [ %.pn331.pn, %1422 ]
-  %4146 = load ptr, ptr %1336, align 8, !tbaa !113
-  %.not.i.i.i.i903 = icmp eq ptr %4146, null
-  br i1 %.not.i.i.i.i903, label %_ZN5vcpkg11CacheStatusD2Ev.exit904, label %4147
+4141:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit902, %1604, %1541, %1499, %1458, %1420
+  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit902 ], [ %.pn344.pn, %1604 ], [ %.pn341.pn, %1541 ], [ %.pn337.pn, %1499 ], [ %.pn334.pn, %1458 ], [ %.pn331.pn, %1420 ]
+  %4142 = load ptr, ptr %1335, align 8, !tbaa !113
+  %.not.i.i.i.i903 = icmp eq ptr %4142, null
+  br i1 %.not.i.i.i.i903, label %_ZN5vcpkg11CacheStatusD2Ev.exit904, label %4143
 
-4147:                                             ; preds = %4145
-  %4148 = load ptr, ptr %1354, align 8, !tbaa !114
-  %4149 = ptrtoint ptr %4148 to i64
-  %4150 = ptrtoint ptr %4146 to i64
-  %4151 = sub i64 %4149, %4150
-  call void @_ZdlPvm(ptr noundef nonnull %4146, i64 noundef %4151) #25
+4143:                                             ; preds = %4141
+  %4144 = load ptr, ptr %1352, align 8, !tbaa !115
+  %4145 = ptrtoint ptr %4144 to i64
+  %4146 = ptrtoint ptr %4142 to i64
+  %4147 = sub i64 %4145, %4146
+  call void @_ZdlPvm(ptr noundef nonnull %4142, i64 noundef %4147) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit904
 
-_ZN5vcpkg11CacheStatusD2Ev.exit904:               ; preds = %4147, %4145, %1382
-  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1383, %1382 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4145 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4147 ]
+_ZN5vcpkg11CacheStatusD2Ev.exit904:               ; preds = %4143, %4141, %1380
+  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1381, %1380 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4141 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4143 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %185) #21
-  br label %4152
+  br label %4148
 
-4152:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit904, %1381
-  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit904 ], [ %.pn328.pn, %1381 ]
-  %4153 = load ptr, ptr %1270, align 8, !tbaa !113
-  %.not.i.i.i.i905 = icmp eq ptr %4153, null
-  br i1 %.not.i.i.i.i905, label %_ZN5vcpkg11CacheStatusD2Ev.exit906, label %4154
+4148:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit904, %1379
+  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit904 ], [ %.pn328.pn, %1379 ]
+  %4149 = load ptr, ptr %1270, align 8, !tbaa !113
+  %.not.i.i.i.i905 = icmp eq ptr %4149, null
+  br i1 %.not.i.i.i.i905, label %_ZN5vcpkg11CacheStatusD2Ev.exit906, label %4150
 
-4154:                                             ; preds = %4152
-  %4155 = load ptr, ptr %1288, align 8, !tbaa !114
-  %4156 = ptrtoint ptr %4155 to i64
-  %4157 = ptrtoint ptr %4153 to i64
-  %4158 = sub i64 %4156, %4157
-  call void @_ZdlPvm(ptr noundef nonnull %4153, i64 noundef %4158) #25
+4150:                                             ; preds = %4148
+  %4151 = load ptr, ptr %1287, align 8, !tbaa !115
+  %4152 = ptrtoint ptr %4151 to i64
+  %4153 = ptrtoint ptr %4149 to i64
+  %4154 = sub i64 %4152, %4153
+  call void @_ZdlPvm(ptr noundef nonnull %4149, i64 noundef %4154) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit906
 
-_ZN5vcpkg11CacheStatusD2Ev.exit906:               ; preds = %4154, %4152, %1316
-  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1317, %1316 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4152 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4154 ]
+_ZN5vcpkg11CacheStatusD2Ev.exit906:               ; preds = %4150, %4148, %1315
+  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1316, %1315 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4148 ], [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %4150 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %180) #21
-  br label %4159
+  br label %4155
 
-4159:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit906, %1315, %1251, %1210, %1169, %1130
-  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit906 ], [ %.pn325.pn, %1315 ], [ %.pn322.pn, %1251 ], [ %.pn318.pn, %1210 ], [ %.pn315.pn, %1169 ], [ %.pn312.pn, %1130 ]
-  %4160 = load ptr, ptr %1069, align 8, !tbaa !113
-  %.not.i.i.i.i907 = icmp eq ptr %4160, null
-  br i1 %.not.i.i.i.i907, label %_ZN5vcpkg11CacheStatusD2Ev.exit908, label %4161
+4155:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit906, %1314, %1251, %1210, %1169, %1130
+  %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit906 ], [ %.pn325.pn, %1314 ], [ %.pn322.pn, %1251 ], [ %.pn318.pn, %1210 ], [ %.pn315.pn, %1169 ], [ %.pn312.pn, %1130 ]
+  %4156 = load ptr, ptr %1069, align 8, !tbaa !113
+  %.not.i.i.i.i907 = icmp eq ptr %4156, null
+  br i1 %.not.i.i.i.i907, label %_ZN5vcpkg11CacheStatusD2Ev.exit908, label %4157
 
-4161:                                             ; preds = %4159
-  %4162 = getelementptr inbounds nuw i8, ptr %156, i64 24
-  %4163 = load ptr, ptr %4162, align 8, !tbaa !114
-  %4164 = ptrtoint ptr %4163 to i64
-  %4165 = ptrtoint ptr %4160 to i64
-  %4166 = sub i64 %4164, %4165
-  call void @_ZdlPvm(ptr noundef nonnull %4160, i64 noundef %4166) #25
+4157:                                             ; preds = %4155
+  %4158 = getelementptr inbounds nuw i8, ptr %156, i64 24
+  %4159 = load ptr, ptr %4158, align 8, !tbaa !115
+  %4160 = ptrtoint ptr %4159 to i64
+  %4161 = ptrtoint ptr %4156 to i64
+  %4162 = sub i64 %4160, %4161
+  call void @_ZdlPvm(ptr noundef nonnull %4156, i64 noundef %4162) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit908
 
-_ZN5vcpkg11CacheStatusD2Ev.exit908:               ; preds = %4159, %4161
+_ZN5vcpkg11CacheStatusD2Ev.exit908:               ; preds = %4155, %4157
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %156) #21
-  br label %4167
+  br label %4163
 
-4167:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit908, %1091, %1051, %1009, %968, %929
+4163:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit908, %1091, %1051, %1009, %968, %929
   %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit908 ], [ %.pn309.pn, %1091 ], [ %.pn306.pn, %1051 ], [ %.pn302.pn, %1009 ], [ %.pn299.pn, %968 ], [ %.pn296.pn, %929 ]
-  %4168 = load ptr, ptr %869, align 8, !tbaa !113
-  %.not.i.i.i.i909 = icmp eq ptr %4168, null
-  br i1 %.not.i.i.i.i909, label %_ZN5vcpkg11CacheStatusD2Ev.exit910, label %4169
+  %4164 = load ptr, ptr %869, align 8, !tbaa !113
+  %.not.i.i.i.i909 = icmp eq ptr %4164, null
+  br i1 %.not.i.i.i.i909, label %_ZN5vcpkg11CacheStatusD2Ev.exit910, label %4165
 
-4169:                                             ; preds = %4167
-  %4170 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  %4171 = load ptr, ptr %4170, align 8, !tbaa !114
-  %4172 = ptrtoint ptr %4171 to i64
-  %4173 = ptrtoint ptr %4168 to i64
-  %4174 = sub i64 %4172, %4173
-  call void @_ZdlPvm(ptr noundef nonnull %4168, i64 noundef %4174) #25
+4165:                                             ; preds = %4163
+  %4166 = getelementptr inbounds nuw i8, ptr %132, i64 24
+  %4167 = load ptr, ptr %4166, align 8, !tbaa !115
+  %4168 = ptrtoint ptr %4167 to i64
+  %4169 = ptrtoint ptr %4164 to i64
+  %4170 = sub i64 %4168, %4169
+  call void @_ZdlPvm(ptr noundef nonnull %4164, i64 noundef %4170) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit910
 
-_ZN5vcpkg11CacheStatusD2Ev.exit910:               ; preds = %4167, %4169
+_ZN5vcpkg11CacheStatusD2Ev.exit910:               ; preds = %4163, %4165
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %132) #21
-  br label %4175
+  br label %4171
 
-4175:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit910, %891, %851, %809, %768, %730, %690
+4171:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit910, %891, %851, %809, %768, %730, %690
   %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit910 ], [ %.pn293.pn, %891 ], [ %.pn290.pn, %851 ], [ %.pn286.pn, %809 ], [ %.pn283.pn, %768 ], [ %.pn280.pn, %730 ], [ %691, %690 ]
-  %4176 = load ptr, ptr %666, align 8, !tbaa !113
-  %.not.i.i.i.i911 = icmp eq ptr %4176, null
-  br i1 %.not.i.i.i.i911, label %_ZN5vcpkg11CacheStatusD2Ev.exit912, label %4177
+  %4172 = load ptr, ptr %666, align 8, !tbaa !113
+  %.not.i.i.i.i911 = icmp eq ptr %4172, null
+  br i1 %.not.i.i.i.i911, label %_ZN5vcpkg11CacheStatusD2Ev.exit912, label %4173
 
-4177:                                             ; preds = %4175
-  %4178 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %4179 = load ptr, ptr %4178, align 8, !tbaa !114
-  %4180 = ptrtoint ptr %4179 to i64
-  %4181 = ptrtoint ptr %4176 to i64
-  %4182 = sub i64 %4180, %4181
-  call void @_ZdlPvm(ptr noundef nonnull %4176, i64 noundef %4182) #25
+4173:                                             ; preds = %4171
+  %4174 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %4175 = load ptr, ptr %4174, align 8, !tbaa !115
+  %4176 = ptrtoint ptr %4175 to i64
+  %4177 = ptrtoint ptr %4172 to i64
+  %4178 = sub i64 %4176, %4177
+  call void @_ZdlPvm(ptr noundef nonnull %4172, i64 noundef %4178) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit912
 
-_ZN5vcpkg11CacheStatusD2Ev.exit912:               ; preds = %4175, %4177
+_ZN5vcpkg11CacheStatusD2Ev.exit912:               ; preds = %4171, %4173
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %108) #21
-  br label %4183
+  br label %4179
 
-4183:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit912, %689, %648, %606, %565, %526
+4179:                                             ; preds = %_ZN5vcpkg11CacheStatusD2Ev.exit912, %689, %648, %606, %565, %526
   %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN5vcpkg11CacheStatusD2Ev.exit912 ], [ %.pn277.pn, %689 ], [ %.pn274.pn, %648 ], [ %.pn270.pn, %606 ], [ %.pn267.pn, %565 ], [ %.pn.pn, %526 ]
-  %4184 = load ptr, ptr %473, align 8, !tbaa !113
-  %.not.i.i.i.i913 = icmp eq ptr %4184, null
-  br i1 %.not.i.i.i.i913, label %_ZN5vcpkg11CacheStatusD2Ev.exit914, label %4185
+  %4180 = load ptr, ptr %473, align 8, !tbaa !113
+  %.not.i.i.i.i913 = icmp eq ptr %4180, null
+  br i1 %.not.i.i.i.i913, label %_ZN5vcpkg11CacheStatusD2Ev.exit914, label %4181
 
-4185:                                             ; preds = %4183
-  %4186 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  %4187 = load ptr, ptr %4186, align 8, !tbaa !114
-  %4188 = ptrtoint ptr %4187 to i64
-  %4189 = ptrtoint ptr %4184 to i64
-  %4190 = sub i64 %4188, %4189
-  call void @_ZdlPvm(ptr noundef nonnull %4184, i64 noundef %4190) #25
+4181:                                             ; preds = %4179
+  %4182 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %4183 = load ptr, ptr %4182, align 8, !tbaa !115
+  %4184 = ptrtoint ptr %4183 to i64
+  %4185 = ptrtoint ptr %4180 to i64
+  %4186 = sub i64 %4184, %4185
+  call void @_ZdlPvm(ptr noundef nonnull %4180, i64 noundef %4186) #25
   br label %_ZN5vcpkg11CacheStatusD2Ev.exit914
 
-_ZN5vcpkg11CacheStatusD2Ev.exit914:               ; preds = %4183, %4185
+_ZN5vcpkg11CacheStatusD2Ev.exit914:               ; preds = %4179, %4181
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %84) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %83) #21
   resume { ptr, i32 } %.pn523.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 
-4191:                                             ; preds = %4090, %3988, %3947, %3906, %3867, %3828, %3777, %3735, %3694, %3655, %3617, %3566, %3524, %3483, %3445, %3406, %3355, %3314, %3273, %3234, %3195, %3118, %3076, %3035, %2996, %2958, %2881, %2839, %2798, %2760, %2719, %2662, %2621, %2580, %2541, %2502, %2454, %2412, %2371, %2332, %2294, %2246, %2204, %2163, %2125, %2086, %2038, %1990, %1949, %1908, %1869, %1828, %1764, %1722, %1681, %1642, %1602, %1538, %1496, %1455, %1417, %1376, %1310, %1246, %1205, %1164, %1125, %1086, %1046, %1004, %963, %924, %886, %846, %804, %763, %725, %684, %643, %601, %560, %521
-  %4192 = landingpad { ptr, i32 }
+4187:                                             ; preds = %4086, %3984, %3943, %3902, %3863, %3824, %3773, %3731, %3690, %3651, %3613, %3562, %3520, %3479, %3441, %3402, %3351, %3310, %3269, %3230, %3191, %3114, %3072, %3031, %2992, %2954, %2877, %2835, %2794, %2756, %2715, %2658, %2617, %2576, %2537, %2498, %2450, %2408, %2367, %2328, %2290, %2242, %2200, %2159, %2121, %2082, %2034, %1986, %1945, %1904, %1865, %1824, %1761, %1719, %1678, %1639, %1599, %1536, %1494, %1453, %1415, %1374, %1309, %1246, %1205, %1164, %1125, %1086, %1046, %1004, %963, %924, %886, %846, %804, %763, %725, %684, %643, %601, %560, %521
+  %4188 = landingpad { ptr, i32 }
           catch ptr null
-  %4193 = extractvalue { ptr, i32 } %4192, 0
-  call void @__clang_call_terminate(ptr %4193) #22
+  %4189 = extractvalue { ptr, i32 } %4188, 0
+  call void @__clang_call_terminate(ptr %4189) #22
   unreachable
 }
 
@@ -18422,7 +18410,7 @@ _ZN5vcpkg9ExpectedTISt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsI
 
 310:                                              ; preds = %.lr.ph.i.i.i
   %311 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 64
-  %312 = load ptr, ptr %311, align 8, !tbaa !114
+  %312 = load ptr, ptr %311, align 8, !tbaa !115
   %313 = ptrtoint ptr %312 to i64
   %314 = ptrtoint ptr %309 to i64
   %315 = sub i64 %313, %314
@@ -28107,7 +28095,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5vcpkg11FeatureSpecESaIS1_EEC2
 9:                                                ; preds = %2
   %10 = sdiv exact i64 %8, 72
   %11 = icmp ugt i64 %10, 128102389400760775
-  br i1 %11, label %.noexc.i, label %_ZNSt16allocator_traitsISaIN5vcpkg11FeatureSpecEEE8allocateERS2_m.exit.i.i.i, !prof !115
+  br i1 %11, label %.noexc.i, label %_ZNSt16allocator_traitsISaIN5vcpkg11FeatureSpecEEE8allocateERS2_m.exit.i.i.i, !prof !114
 
 .noexc.i:                                         ; preds = %9
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #23
@@ -29194,7 +29182,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %25 = icmp ult i64 %24, 16
   tail call void @llvm.assume(i1 %25)
   %.not22.i = icmp eq ptr %1, %0
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %26, !prof !115
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %26, !prof !114
 
 26:                                               ; preds = %21
   switch i64 %24, label %29 [
@@ -29843,7 +29831,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %26 = icmp ult i64 %25, 16
   tail call void @llvm.assume(i1 %26)
   %.not22.i.i = icmp eq ptr %1, %0
-  br i1 %.not22.i.i, label %_ZN5vcpkg4PathaSEOS0_.exit, label %27, !prof !115
+  br i1 %.not22.i.i, label %_ZN5vcpkg4PathaSEOS0_.exit, label %27, !prof !114
 
 27:                                               ; preds = %22
   switch i64 %25, label %30 [
@@ -32865,7 +32853,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableINSt7__cxx1112basic_stringI
 
 8:                                                ; preds = %.lr.ph.i.i
   %9 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !114
+  %10 = load ptr, ptr %9, align 8, !tbaa !115
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
@@ -35259,8 +35247,8 @@ attributes #26 = { nounwind willreturn memory(read) }
 !111 = distinct !{!111, !"_ZNK5Catch7ExprLhsIbE13makeUnaryExprEv"}
 !112 = !{!14, !15, i64 8}
 !113 = !{!14, !15, i64 0}
-!114 = !{!14, !15, i64 16}
-!115 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!114 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!115 = !{!14, !15, i64 16}
 !116 = !{!8, !18, i64 32}
 !117 = !{!118}
 !118 = distinct !{!118, !119, !"_ZNK5Catch7ExprLhsIbE13makeUnaryExprEv: argument 0"}

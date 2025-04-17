@@ -1169,7 +1169,7 @@ define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_12
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIbEEE6value_E, ptr %13, align 8
   %.sroa.564.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i16 16, ptr %.sroa.564.0..sroa_idx.i, align 8
+  store i16 0, ptr %.sroa.564.0..sroa_idx.i, align 8
   %.sroa.665.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 18
   store i8 1, ptr %.sroa.665.0..sroa_idx.i, align 2
   %.sroa.867.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -1179,7 +1179,7 @@ define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_12
   %.sroa.1069.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %.sroa.1069.0..sroa_idx.i, align 8
   %.sroa.1170.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i16 24, ptr %.sroa.1170.0..sroa_idx.i, align 8
+  store i16 0, ptr %.sroa.1170.0..sroa_idx.i, align 8
   %.sroa.1271.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 50
   store i8 1, ptr %.sroa.1271.0..sroa_idx.i, align 2
   %.sroa.1473.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 56
@@ -1189,7 +1189,7 @@ define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_12
   %.sroa.1675.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 72
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %.sroa.1675.0..sroa_idx.i, align 8
   %.sroa.1776.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store i16 32, ptr %.sroa.1776.0..sroa_idx.i, align 8
+  store i16 0, ptr %.sroa.1776.0..sroa_idx.i, align 8
   %.sroa.1877.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 82
   store i8 1, ptr %.sroa.1877.0..sroa_idx.i, align 2
   %.sroa.2079.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 88
@@ -1199,7 +1199,7 @@ define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_12
   %.sroa.2281.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 104
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %.sroa.2281.0..sroa_idx.i, align 8
   %.sroa.2382.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 112
-  store i16 40, ptr %.sroa.2382.0..sroa_idx.i, align 8
+  store i16 0, ptr %.sroa.2382.0..sroa_idx.i, align 8
   %.sroa.2483.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 114
   store i8 1, ptr %.sroa.2483.0..sroa_idx.i, align 2
   %.sroa.2685.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 120
@@ -1209,7 +1209,7 @@ define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_12
   %.sroa.2887.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 136
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %.sroa.2887.0..sroa_idx.i, align 8
   %.sroa.2988.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 144
-  store i16 48, ptr %.sroa.2988.0..sroa_idx.i, align 8
+  store i16 0, ptr %.sroa.2988.0..sroa_idx.i, align 8
   %.sroa.3089.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 146
   store i8 1, ptr %.sroa.3089.0..sroa_idx.i, align 2
   %.sroa.3291.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 152
@@ -1219,7 +1219,7 @@ define internal void @_ZNK9grpc_core11json_detail10AutoLoaderINS_12_GLOBAL__N_12
   %.sroa.34.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 168
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderIfEEE6value_E, ptr %.sroa.34.0..sroa_idx.i, align 8
   %.sroa.35.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 176
-  store i16 56, ptr %.sroa.35.0..sroa_idx.i, align 8
+  store i16 0, ptr %.sroa.35.0..sroa_idx.i, align 8
   %.sroa.36.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 178
   store i8 1, ptr %.sroa.36.0..sroa_idx.i, align 2
   %.sroa.3792.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 184

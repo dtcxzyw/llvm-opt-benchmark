@@ -44212,19 +44212,13 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %buffers_.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN4asio12const_bufferESaIS1_EEC2ERKS3_.exit.i.i.thread, label %cond.true.i.i.i.i.i.i
 
 _ZNSt6vectorIN4asio12const_bufferESaIS1_EEC2ERKS3_.exit.i.i.thread: ; preds = %entry
-  %_M_finish.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %add.ptr.i.i.i.i.i11 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  store i64 0, ptr %buffers_.i, align 8
-  store ptr %add.ptr.i.i.i.i.i11, ptr %_M_end_of_storage.i.i.i.i.i12, align 8
-  store ptr null, ptr %_M_finish.i.i.i.i.i10, align 8
   %total_consumed_.i.i18 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %total_consumed_.i.i18, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffers_.i, i8 0, i64 24, i1 false)
   br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4asio12const_bufferESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i
 
 cond.true.i.i.i.i.i.i:                            ; preds = %entry

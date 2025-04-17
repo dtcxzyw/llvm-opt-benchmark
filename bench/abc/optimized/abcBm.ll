@@ -6911,7 +6911,7 @@ declare void @sat_solver_store_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @Abc_NtkBmSat(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
   switch i32 %5, label %.thread [
-    i32 0, label %121
+    i32 0, label %120
     i32 1, label %7
   ]
 
@@ -7134,109 +7134,108 @@ Vec_PtrPush.exit93:                               ; preds = %.Vec_PtrGrow.exit11
   br i1 %114, label %23, label %.critedge._crit_edge, !llvm.loop !143
 
 .critedge._crit_edge:                             ; preds = %Vec_PtrPush.exit93, %.critedge.preheader
-  %115 = load ptr, ptr inttoptr (i64 256 to ptr), align 256, !tbaa !113
-  %116 = tail call ptr @Abc_AigMiter(ptr noundef %115, ptr noundef nonnull %8, i32 noundef 0) #12
+  %115 = tail call ptr @Abc_AigMiter(ptr noundef undef, ptr noundef nonnull %8, i32 noundef 0) #12
   %.val80 = load ptr, ptr inttoptr (i64 48 to ptr), align 16, !tbaa !3
-  %117 = getelementptr i8, ptr %.val80, i64 8
-  %.val80.val = load ptr, ptr %117, align 8, !tbaa !27
-  %118 = load ptr, ptr %.val80.val, align 8, !tbaa !28
-  tail call void @Abc_ObjAddFanin(ptr noundef %118, ptr noundef %116) #12
-  %119 = load ptr, ptr %11, align 8, !tbaa !27
-  %.not.i = icmp eq ptr %119, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %120
+  %116 = getelementptr i8, ptr %.val80, i64 8
+  %.val80.val = load ptr, ptr %116, align 8, !tbaa !27
+  %117 = load ptr, ptr %.val80.val, align 8, !tbaa !28
+  tail call void @Abc_ObjAddFanin(ptr noundef %117, ptr noundef %115) #12
+  %118 = load ptr, ptr %11, align 8, !tbaa !27
+  %.not.i = icmp eq ptr %118, null
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %119
 
-120:                                              ; preds = %.critedge._crit_edge
-  tail call void @free(ptr noundef nonnull %119) #12
+119:                                              ; preds = %.critedge._crit_edge
+  tail call void @free(ptr noundef nonnull %118) #12
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge._crit_edge, %120
+Vec_PtrFree.exit:                                 ; preds = %.critedge._crit_edge, %119
   tail call void @free(ptr noundef nonnull %8) #12
   br label %.thread
 
-121:                                              ; preds = %6
-  %122 = tail call ptr @Abc_NtkMiterBm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %.thread, label %125
+120:                                              ; preds = %6
+  %121 = tail call ptr @Abc_NtkMiterBm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %.thread, label %124
 
-.thread:                                          ; preds = %6, %Vec_PtrFree.exit, %121
-  %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3)
-  br label %151
-
-125:                                              ; preds = %121
-  %126 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %122) #12
-  switch i32 %126, label %135 [
-    i32 0, label %127
-    i32 1, label %134
-  ]
-
-127:                                              ; preds = %125
-  %.not74 = icmp eq ptr %4, null
-  br i1 %.not74, label %133, label %128
-
-128:                                              ; preds = %127
-  %129 = tail call ptr @Abc_NtkVerifyGetCleanModel(ptr noundef nonnull %122, i32 noundef 1) #12
-  %130 = getelementptr inbounds nuw i8, ptr %122, i64 304
-  store ptr %129, ptr %130, align 8, !tbaa !138
-  tail call void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef %129, ptr noundef nonnull %4)
-  %131 = load ptr, ptr %130, align 8, !tbaa !138
-  %.not75 = icmp eq ptr %131, null
-  br i1 %.not75, label %133, label %132
-
-132:                                              ; preds = %128
-  tail call void @free(ptr noundef nonnull %131) #12
-  store ptr null, ptr %130, align 8, !tbaa !138
-  br label %133
-
-133:                                              ; preds = %132, %128, %127
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %122) #12
-  br label %151
-
-134:                                              ; preds = %125
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %122) #12
-  br label %151
-
-135:                                              ; preds = %125
-  %136 = tail call ptr @Abc_NtkMulti(ptr noundef nonnull %122, i32 noundef 0, i32 noundef 100, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %122) #12
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %138, label %140
-
-138:                                              ; preds = %135
-  %139 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
-  br label %151
-
-140:                                              ; preds = %135
-  %141 = tail call i32 @Abc_NtkMiterSat(ptr noundef nonnull %136, i64 noundef 10000, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #12
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %146, label %142
-
-142:                                              ; preds = %140
-  %143 = getelementptr inbounds nuw i8, ptr %136, i64 304
-  %144 = load ptr, ptr %143, align 8, !tbaa !138
-  %.not72 = icmp eq ptr %144, null
-  br i1 %.not72, label %146, label %145
-
-145:                                              ; preds = %142
-  tail call void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %144, ptr noundef nonnull %4)
-  br label %146
-
-146:                                              ; preds = %145, %142, %140
-  %147 = getelementptr inbounds nuw i8, ptr %136, i64 304
-  %148 = load ptr, ptr %147, align 8, !tbaa !138
-  %.not73 = icmp eq ptr %148, null
-  br i1 %.not73, label %150, label %149
-
-149:                                              ; preds = %146
-  tail call void @free(ptr noundef nonnull %148) #12
-  store ptr null, ptr %147, align 8, !tbaa !138
+.thread:                                          ; preds = %6, %Vec_PtrFree.exit, %120
+  %123 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3)
   br label %150
 
-150:                                              ; preds = %146, %149
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %136) #12
-  br label %151
+124:                                              ; preds = %120
+  %125 = tail call i32 @Abc_NtkMiterIsConstant(ptr noundef nonnull %121) #12
+  switch i32 %125, label %134 [
+    i32 0, label %126
+    i32 1, label %133
+  ]
 
-151:                                              ; preds = %150, %138, %134, %133, %.thread
-  %.0 = phi i32 [ -1, %.thread ], [ 0, %133 ], [ 1, %134 ], [ -1, %138 ], [ %141, %150 ]
+126:                                              ; preds = %124
+  %.not74 = icmp eq ptr %4, null
+  br i1 %.not74, label %132, label %127
+
+127:                                              ; preds = %126
+  %128 = tail call ptr @Abc_NtkVerifyGetCleanModel(ptr noundef nonnull %121, i32 noundef 1) #12
+  %129 = getelementptr inbounds nuw i8, ptr %121, i64 304
+  store ptr %128, ptr %129, align 8, !tbaa !138
+  tail call void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef %128, ptr noundef nonnull %4)
+  %130 = load ptr, ptr %129, align 8, !tbaa !138
+  %.not75 = icmp eq ptr %130, null
+  br i1 %.not75, label %132, label %131
+
+131:                                              ; preds = %127
+  tail call void @free(ptr noundef nonnull %130) #12
+  store ptr null, ptr %129, align 8, !tbaa !138
+  br label %132
+
+132:                                              ; preds = %131, %127, %126
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %121) #12
+  br label %150
+
+133:                                              ; preds = %124
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %121) #12
+  br label %150
+
+134:                                              ; preds = %124
+  %135 = tail call ptr @Abc_NtkMulti(ptr noundef nonnull %121, i32 noundef 0, i32 noundef 100, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %121) #12
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %137, label %139
+
+137:                                              ; preds = %134
+  %138 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
+  br label %150
+
+139:                                              ; preds = %134
+  %140 = tail call i32 @Abc_NtkMiterSat(ptr noundef nonnull %135, i64 noundef 10000, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null) #12
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %145, label %141
+
+141:                                              ; preds = %139
+  %142 = getelementptr inbounds nuw i8, ptr %135, i64 304
+  %143 = load ptr, ptr %142, align 8, !tbaa !138
+  %.not72 = icmp eq ptr %143, null
+  br i1 %.not72, label %145, label %144
+
+144:                                              ; preds = %141
+  tail call void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %143, ptr noundef nonnull %4)
+  br label %145
+
+145:                                              ; preds = %144, %141, %139
+  %146 = getelementptr inbounds nuw i8, ptr %135, i64 304
+  %147 = load ptr, ptr %146, align 8, !tbaa !138
+  %.not73 = icmp eq ptr %147, null
+  br i1 %.not73, label %149, label %148
+
+148:                                              ; preds = %145
+  tail call void @free(ptr noundef nonnull %147) #12
+  store ptr null, ptr %146, align 8, !tbaa !138
+  br label %149
+
+149:                                              ; preds = %145, %148
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %135) #12
+  br label %150
+
+150:                                              ; preds = %149, %137, %133, %132, %.thread
+  %.0 = phi i32 [ -1, %.thread ], [ 0, %132 ], [ 1, %133 ], [ -1, %137 ], [ %140, %149 ]
   ret i32 %.0
 }
 

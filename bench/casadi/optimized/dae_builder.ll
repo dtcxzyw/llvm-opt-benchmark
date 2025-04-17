@@ -33823,38 +33823,36 @@ _ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_t
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %24, align 8
   %.not.i.i.i.i2 = icmp eq ptr %19, %20
-  br i1 %.not.i.i.i.i2, label %.thread, label %26
+  br i1 %.not.i.i.i.i2, label %.thread, label %25
 
 .thread:                                          ; preds = %_ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %24 = getelementptr inbounds i8, ptr null, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store ptr %24, ptr %25, align 8, !tbaa !101
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit
 
-26:                                               ; preds = %_ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %27 = icmp ugt i64 %23, 9223372036854775800
-  br i1 %27, label %.noexc.i.i, label %28, !prof !196
+25:                                               ; preds = %_ZNK6casadi18DaeBuilderInternal8variableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %26 = icmp ugt i64 %23, 9223372036854775800
+  br i1 %26, label %.noexc.i.i, label %27, !prof !196
 
-.noexc.i.i:                                       ; preds = %26
+.noexc.i.i:                                       ; preds = %25
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
   unreachable
 
-28:                                               ; preds = %26
-  %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #30
-  store ptr %29, ptr %0, align 8, !tbaa !98
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %23
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %30, ptr %31, align 8, !tbaa !101
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %29, ptr align 8 %20, i64 %23, i1 false)
+27:                                               ; preds = %25
+  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #30
+  store ptr %28, ptr %0, align 8, !tbaa !98
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %23
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %29, ptr %30, align 8, !tbaa !101
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %20, i64 %23, i1 false)
   br label %_ZNSt6vectorIxSaIxEEC2ERKS1_.exit
 
-_ZNSt6vectorIxSaIxEEC2ERKS1_.exit:                ; preds = %.thread, %28
-  %32 = phi ptr [ %24, %.thread ], [ %30, %28 ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %32, ptr %33, align 8, !tbaa !102
+_ZNSt6vectorIxSaIxEEC2ERKS1_.exit:                ; preds = %.thread, %27
+  %31 = phi ptr [ null, %.thread ], [ %29, %27 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %31, ptr %32, align 8, !tbaa !102
   ret void
 }
 

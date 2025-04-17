@@ -1784,56 +1784,53 @@ _ZNSt10unique_ptrIN5draco23PredictionSchemeDecoderIiNS0_37PredictionSchemeWrapDe
   %40 = sub i64 %38, %39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %36, %37
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.noexc4.i.i.thread, label %44
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.noexc4.i.i.thread, label %42
 
 .noexc4.i.i.thread:                               ; preds = %_ZNSt10unique_ptrIN5draco23PredictionSchemeDecoderIiNS0_37PredictionSchemeWrapDecodingTransformIiiEEEESt14default_deleteIS4_EED2Ev.exit
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %42 = getelementptr inbounds i8, ptr null, i64 %40
-  %43 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  store ptr %42, ptr %43, align 8, !tbaa !56
-  br label %51
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, i8 0, i64 24, i1 false)
+  br label %49
 
-44:                                               ; preds = %_ZNSt10unique_ptrIN5draco23PredictionSchemeDecoderIiNS0_37PredictionSchemeWrapDecodingTransformIiiEEEESt14default_deleteIS4_EED2Ev.exit
-  %45 = icmp ugt i64 %40, 9223372036854775804
-  br i1 %45, label %.noexc.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, !prof !133
+42:                                               ; preds = %_ZNSt10unique_ptrIN5draco23PredictionSchemeDecoderIiNS0_37PredictionSchemeWrapDecodingTransformIiiEEEESt14default_deleteIS4_EED2Ev.exit
+  %43 = icmp ugt i64 %40, 9223372036854775804
+  br i1 %43, label %.noexc.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, !prof !133
 
-.noexc.i.i.i.i.i.i:                               ; preds = %44
+.noexc.i.i.i.i.i.i:                               ; preds = %42
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc unwind label %54
+          to label %.noexc unwind label %52
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %44
-  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #22
-          to label %47 unwind label %54
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i: ; preds = %42
+  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #22
+          to label %45 unwind label %52
 
-47:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i
-  store ptr %46, ptr %33, align 8, !tbaa !55
-  %48 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  store ptr %46, ptr %48, align 8, !tbaa !132
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %40
-  %50 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  store ptr %49, ptr %50, align 8, !tbaa !56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %46, ptr align 4 %37, i64 %40, i1 false)
-  br label %51
+45:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i
+  store ptr %44, ptr %33, align 8, !tbaa !55
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store ptr %44, ptr %46, align 8, !tbaa !132
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %40
+  %48 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  store ptr %47, ptr %48, align 8, !tbaa !56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %44, ptr align 4 %37, i64 %40, i1 false)
+  br label %49
 
-51:                                               ; preds = %47, %.noexc4.i.i.thread
-  %52 = phi ptr [ %42, %.noexc4.i.i.thread ], [ %49, %47 ]
-  %53 = phi ptr [ %41, %.noexc4.i.i.thread ], [ %48, %47 ]
-  store ptr %52, ptr %53, align 8, !tbaa !132
+49:                                               ; preds = %45, %.noexc4.i.i.thread
+  %50 = phi ptr [ null, %.noexc4.i.i.thread ], [ %47, %45 ]
+  %51 = phi ptr [ %41, %.noexc4.i.i.thread ], [ %46, %45 ]
+  store ptr %50, ptr %51, align 8, !tbaa !132
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco28PredictionSchemeDeltaDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %30, align 8, !tbaa !3
   br label %.critedge.sink.split
 
-54:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i
-  %55 = landingpad { ptr, i32 }
+52:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i
+  %53 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef 64) #21
-  resume { ptr, i32 } %55
+  resume { ptr, i32 } %53
 
-.critedge.sink.split:                             ; preds = %5, %51
-  %.sink = phi ptr [ %30, %51 ], [ null, %5 ]
+.critedge.sink.split:                             ; preds = %5, %49
+  %.sink = phi ptr [ %30, %49 ], [ null, %5 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !57
   br label %.critedge
 
@@ -1934,13 +1931,13 @@ define linkonce_odr void @_ZN5draco26CreateMeshPredictionSchemeINS_11MeshDecoder
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5draco34MeshPredictionSchemeDecoderFactoryIiE15DispatchFunctorINS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEELNS_29PredictionSchemeTransformTypeE1EEclENS_22PredictionSchemeMethodEPKNS_14PointAttributeERKS4_RKS7_t(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.20") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i16 noundef zeroext %6) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %174 [
+  switch i32 %2, label %164 [
     i32 1, label %8
-    i32 2, label %36
-    i32 4, label %64
-    i32 3, label %99
-    i32 5, label %135
-    i32 6, label %170
+    i32 2, label %34
+    i32 4, label %60
+    i32 3, label %93
+    i32 5, label %127
+    i32 6, label %160
   ]
 
 8:                                                ; preds = %7
@@ -1960,392 +1957,377 @@ define linkonce_odr void @_ZN5draco34MeshPredictionSchemeDecoderFactoryIiE15Disp
   %19 = sub i64 %17, %18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, %16
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.noexc4.i.i.i.thread, label %23
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.noexc4.i.i.i.thread, label %21
 
 .noexc4.i.i.i.thread:                             ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %21 = getelementptr inbounds i8, ptr null, i64 %19
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  store ptr %21, ptr %22, align 8, !tbaa !56
-  br label %30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  br label %28
 
-23:                                               ; preds = %8
-  %24 = icmp ugt i64 %19, 9223372036854775804
-  br i1 %24, label %.noexc.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, !prof !133
+21:                                               ; preds = %8
+  %22 = icmp ugt i64 %19, 9223372036854775804
+  br i1 %22, label %.noexc.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, !prof !133
 
-.noexc.i.i.i.i.i.i.i:                             ; preds = %23
+.noexc.i.i.i.i.i.i.i:                             ; preds = %21
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc unwind label %34
+          to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %23
-  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #22
-          to label %26 unwind label %34
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %21
+  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #22
+          to label %24 unwind label %32
 
-26:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i
-  store ptr %25, ptr %12, align 8, !tbaa !55
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %25, ptr %27, align 8, !tbaa !132
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %19
-  %29 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store ptr %28, ptr %29, align 8, !tbaa !56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %25, ptr align 4 %16, i64 %19, i1 false)
-  br label %30
+24:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i
+  store ptr %23, ptr %12, align 8, !tbaa !55
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store ptr %23, ptr %25, align 8, !tbaa !132
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %19
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store ptr %26, ptr %27, align 8, !tbaa !56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %16, i64 %19, i1 false)
+  br label %28
 
-30:                                               ; preds = %26, %.noexc4.i.i.i.thread
-  %31 = phi ptr [ %21, %.noexc4.i.i.i.thread ], [ %28, %26 ]
-  %32 = phi ptr [ %20, %.noexc4.i.i.i.thread ], [ %27, %26 ]
-  store ptr %31, ptr %32, align 8, !tbaa !132
-  %33 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !159
+28:                                               ; preds = %24, %.noexc4.i.i.i.thread
+  %29 = phi ptr [ null, %.noexc4.i.i.i.thread ], [ %26, %24 ]
+  %30 = phi ptr [ %20, %.noexc4.i.i.i.thread ], [ %25, %24 ]
+  store ptr %29, ptr %30, align 8, !tbaa !132
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !159
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco40MeshPredictionSchemeParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %9, align 8, !tbaa !3
-  br label %174
+  br label %164
 
-34:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i
-  %35 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i
+  %33 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 96) #21
-  br label %175
+  br label %165
 
-36:                                               ; preds = %7
-  %37 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %37, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %3, ptr %38, align 8, !tbaa !125
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !132
-  %44 = load ptr, ptr %41, align 8, !tbaa !55
-  %45 = ptrtoint ptr %43 to i64
-  %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %43, %44
-  br i1 %.not.i.i.i.i.i.i.i.i.i30, label %.noexc4.i.i.i32.thread, label %51
+34:                                               ; preds = %7
+  %35 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %35, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store ptr %3, ptr %36, align 8, !tbaa !125
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !132
+  %42 = load ptr, ptr %39, align 8, !tbaa !55
+  %43 = ptrtoint ptr %41 to i64
+  %44 = ptrtoint ptr %42 to i64
+  %45 = sub i64 %43, %44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %41, %42
+  br i1 %.not.i.i.i.i.i.i.i.i.i30, label %.noexc4.i.i.i32.thread, label %47
 
-.noexc4.i.i.i32.thread:                           ; preds = %36
-  %48 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  %49 = getelementptr inbounds i8, ptr null, i64 %47
-  %50 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  store ptr %49, ptr %50, align 8, !tbaa !56
-  br label %58
+.noexc4.i.i.i32.thread:                           ; preds = %34
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
+  br label %54
 
-51:                                               ; preds = %36
-  %52 = icmp ugt i64 %47, 9223372036854775804
-  br i1 %52, label %.noexc.i.i.i.i.i.i.i34, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31, !prof !133
+47:                                               ; preds = %34
+  %48 = icmp ugt i64 %45, 9223372036854775804
+  br i1 %48, label %.noexc.i.i.i.i.i.i.i34, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31, !prof !133
 
-.noexc.i.i.i.i.i.i.i34:                           ; preds = %51
+.noexc.i.i.i.i.i.i.i34:                           ; preds = %47
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc35 unwind label %62
+          to label %.noexc35 unwind label %58
 
 .noexc35:                                         ; preds = %.noexc.i.i.i.i.i.i.i34
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31: ; preds = %51
-  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #22
-          to label %54 unwind label %62
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31: ; preds = %47
+  %49 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #22
+          to label %50 unwind label %58
 
-54:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31
-  store ptr %53, ptr %40, align 8, !tbaa !55
-  %55 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  store ptr %53, ptr %55, align 8, !tbaa !132
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %47
-  %57 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  store ptr %56, ptr %57, align 8, !tbaa !56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %53, ptr align 4 %44, i64 %47, i1 false)
-  br label %58
+50:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31
+  store ptr %49, ptr %38, align 8, !tbaa !55
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  store ptr %49, ptr %51, align 8, !tbaa !132
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %45
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 56
+  store ptr %52, ptr %53, align 8, !tbaa !56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %49, ptr align 4 %42, i64 %45, i1 false)
+  br label %54
 
-58:                                               ; preds = %54, %.noexc4.i.i.i32.thread
-  %59 = phi ptr [ %49, %.noexc4.i.i.i32.thread ], [ %56, %54 ]
-  %60 = phi ptr [ %48, %.noexc4.i.i.i32.thread ], [ %55, %54 ]
-  store ptr %59, ptr %60, align 8, !tbaa !132
-  %61 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !159
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco45MeshPredictionSchemeMultiParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %37, align 8, !tbaa !3
-  br label %174
+54:                                               ; preds = %50, %.noexc4.i.i.i32.thread
+  %55 = phi ptr [ null, %.noexc4.i.i.i32.thread ], [ %52, %50 ]
+  %56 = phi ptr [ %46, %.noexc4.i.i.i32.thread ], [ %51, %50 ]
+  store ptr %55, ptr %56, align 8, !tbaa !132
+  %57 = getelementptr inbounds nuw i8, ptr %35, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !159
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco45MeshPredictionSchemeMultiParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %35, align 8, !tbaa !3
+  br label %164
 
-62:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31, %.noexc.i.i.i.i.i.i.i34
-  %63 = landingpad { ptr, i32 }
+58:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31, %.noexc.i.i.i.i.i.i.i34
+  %59 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 96) #21
-  br label %175
+  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef 96) #21
+  br label %165
 
-64:                                               ; preds = %7
-  %65 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #22
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %65, align 8, !tbaa !3
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %3, ptr %66, align 8, !tbaa !125
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 40
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !132
-  %72 = load ptr, ptr %69, align 8, !tbaa !55
-  %73 = ptrtoint ptr %71 to i64
-  %74 = ptrtoint ptr %72 to i64
-  %75 = sub i64 %73, %74
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i37 = icmp eq ptr %71, %72
-  br i1 %.not.i.i.i.i.i.i.i.i.i37, label %.noexc4.i.i.i39.thread, label %79
+60:                                               ; preds = %7
+  %61 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %61, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr %3, ptr %62, align 8, !tbaa !125
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %67 = load ptr, ptr %66, align 8, !tbaa !132
+  %68 = load ptr, ptr %65, align 8, !tbaa !55
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i37 = icmp eq ptr %67, %68
+  br i1 %.not.i.i.i.i.i.i.i.i.i37, label %.noexc4.i.i.i39.thread, label %73
 
-.noexc4.i.i.i39.thread:                           ; preds = %64
-  %76 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %77 = getelementptr inbounds i8, ptr null, i64 %75
-  %78 = getelementptr inbounds nuw i8, ptr %65, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
-  store ptr %77, ptr %78, align 8, !tbaa !56
+.noexc4.i.i.i39.thread:                           ; preds = %60
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   br label %_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i
 
-79:                                               ; preds = %64
-  %80 = icmp ugt i64 %75, 9223372036854775804
-  br i1 %80, label %.noexc.i.i.i.i.i.i.i41, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38, !prof !133
+73:                                               ; preds = %60
+  %74 = icmp ugt i64 %71, 9223372036854775804
+  br i1 %74, label %.noexc.i.i.i.i.i.i.i41, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38, !prof !133
 
-.noexc.i.i.i.i.i.i.i41:                           ; preds = %79
+.noexc.i.i.i.i.i.i.i41:                           ; preds = %73
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc42 unwind label %97
+          to label %.noexc42 unwind label %91
 
 .noexc42:                                         ; preds = %.noexc.i.i.i.i.i.i.i41
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38: ; preds = %79
-  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #22
-          to label %82 unwind label %97
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38: ; preds = %73
+  %75 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %71) #22
+          to label %76 unwind label %91
 
-82:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38
-  store ptr %81, ptr %68, align 8, !tbaa !55
-  %83 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  store ptr %81, ptr %83, align 8, !tbaa !132
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 %75
-  %85 = getelementptr inbounds nuw i8, ptr %65, i64 56
-  store ptr %84, ptr %85, align 8, !tbaa !56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %81, ptr align 4 %72, i64 %75, i1 false)
+76:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38
+  store ptr %75, ptr %64, align 8, !tbaa !55
+  %77 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  store ptr %75, ptr %77, align 8, !tbaa !132
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 %71
+  %79 = getelementptr inbounds nuw i8, ptr %61, i64 56
+  store ptr %78, ptr %79, align 8, !tbaa !56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %75, ptr align 4 %68, i64 %71, i1 false)
   br label %_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i
 
-_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i: ; preds = %.noexc4.i.i.i39.thread, %82
-  %86 = phi ptr [ %77, %.noexc4.i.i.i39.thread ], [ %84, %82 ]
-  %87 = phi ptr [ %76, %.noexc4.i.i.i39.thread ], [ %83, %82 ]
-  store ptr %86, ptr %87, align 8, !tbaa !132
-  %88 = getelementptr inbounds nuw i8, ptr %65, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !159
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco56MeshPredictionSchemeConstrainedMultiParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %65, align 8, !tbaa !3
-  br label %89
+_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i: ; preds = %.noexc4.i.i.i39.thread, %76
+  %80 = phi ptr [ null, %.noexc4.i.i.i39.thread ], [ %78, %76 ]
+  %81 = phi ptr [ %72, %.noexc4.i.i.i39.thread ], [ %77, %76 ]
+  store ptr %80, ptr %81, align 8, !tbaa !132
+  %82 = getelementptr inbounds nuw i8, ptr %61, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !159
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco56MeshPredictionSchemeConstrainedMultiParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %61, align 8, !tbaa !3
+  br label %83
 
-89:                                               ; preds = %89, %_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i
-  %.idx.i = phi i64 [ 96, %_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i ], [ %.add.i, %89 ]
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i
+83:                                               ; preds = %83, %_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i
+  %.idx.i = phi i64 [ 96, %_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i ], [ %.add.i, %83 ]
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i
   store ptr null, ptr %.ptr.i, align 8, !tbaa !164
-  %90 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
-  store i32 0, ptr %90, align 8, !tbaa !167
-  %91 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 16
-  store ptr null, ptr %91, align 8, !tbaa !164
-  %92 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 24
-  store i32 0, ptr %92, align 8, !tbaa !167
-  %93 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 32
-  store ptr null, ptr %93, align 8, !tbaa !168
+  %84 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
+  store i32 0, ptr %84, align 8, !tbaa !167
+  %85 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 16
+  store ptr null, ptr %85, align 8, !tbaa !164
+  %86 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 24
+  store i32 0, ptr %86, align 8, !tbaa !167
+  %87 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 32
+  store ptr null, ptr %87, align 8, !tbaa !168
   %.add.i = add nuw nsw i64 %.idx.i, 40
-  %94 = icmp eq i64 %.add.i, 256
-  br i1 %94, label %95, label %89
+  %88 = icmp eq i64 %.add.i, 256
+  br i1 %88, label %89, label %83
 
-95:                                               ; preds = %89
-  %96 = getelementptr inbounds nuw i8, ptr %65, i64 256
-  store i32 0, ptr %96, align 8, !tbaa !171
-  br label %174
+89:                                               ; preds = %83
+  %90 = getelementptr inbounds nuw i8, ptr %61, i64 256
+  store i32 0, ptr %90, align 8, !tbaa !171
+  br label %164
 
-97:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38, %.noexc.i.i.i.i.i.i.i41
-  %98 = landingpad { ptr, i32 }
+91:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38, %.noexc.i.i.i.i.i.i.i41
+  %92 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef 264) #21
-  br label %175
+  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef 264) #21
+  br label %165
 
-99:                                               ; preds = %7
-  %100 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #22
-  %101 = zext i16 %6 to i32
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %100, align 8, !tbaa !3
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store ptr %3, ptr %102, align 8, !tbaa !125
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %103, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 40
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %106 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %107 = load ptr, ptr %106, align 8, !tbaa !132
-  %108 = load ptr, ptr %105, align 8, !tbaa !55
-  %109 = ptrtoint ptr %107 to i64
-  %110 = ptrtoint ptr %108 to i64
-  %111 = sub i64 %109, %110
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i44 = icmp eq ptr %107, %108
-  br i1 %.not.i.i.i.i.i.i.i.i.i44, label %.noexc4.i.i.i46.thread, label %115
+93:                                               ; preds = %7
+  %94 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #22
+  %95 = zext i16 %6 to i32
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %94, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store ptr %3, ptr %96, align 8, !tbaa !125
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %97, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %101 = load ptr, ptr %100, align 8, !tbaa !132
+  %102 = load ptr, ptr %99, align 8, !tbaa !55
+  %103 = ptrtoint ptr %101 to i64
+  %104 = ptrtoint ptr %102 to i64
+  %105 = sub i64 %103, %104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i44 = icmp eq ptr %101, %102
+  br i1 %.not.i.i.i.i.i.i.i.i.i44, label %.noexc4.i.i.i46.thread, label %107
 
-.noexc4.i.i.i46.thread:                           ; preds = %99
-  %112 = getelementptr inbounds nuw i8, ptr %100, i64 48
-  %113 = getelementptr inbounds i8, ptr null, i64 %111
-  %114 = getelementptr inbounds nuw i8, ptr %100, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
-  store ptr %113, ptr %114, align 8, !tbaa !56
-  br label %122
+.noexc4.i.i.i46.thread:                           ; preds = %93
+  %106 = getelementptr inbounds nuw i8, ptr %94, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
+  br label %114
 
-115:                                              ; preds = %99
-  %116 = icmp ugt i64 %111, 9223372036854775804
-  br i1 %116, label %.noexc.i.i.i.i.i.i.i49, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45, !prof !133
+107:                                              ; preds = %93
+  %108 = icmp ugt i64 %105, 9223372036854775804
+  br i1 %108, label %.noexc.i.i.i.i.i.i.i49, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45, !prof !133
 
-.noexc.i.i.i.i.i.i.i49:                           ; preds = %115
+.noexc.i.i.i.i.i.i.i49:                           ; preds = %107
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc50 unwind label %133
+          to label %.noexc50 unwind label %125
 
 .noexc50:                                         ; preds = %.noexc.i.i.i.i.i.i.i49
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45: ; preds = %115
-  %117 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %111) #22
-          to label %118 unwind label %133
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45: ; preds = %107
+  %109 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %105) #22
+          to label %110 unwind label %125
 
-118:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45
-  store ptr %117, ptr %104, align 8, !tbaa !55
-  %119 = getelementptr inbounds nuw i8, ptr %100, i64 48
-  store ptr %117, ptr %119, align 8, !tbaa !132
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 %111
-  %121 = getelementptr inbounds nuw i8, ptr %100, i64 56
-  store ptr %120, ptr %121, align 8, !tbaa !56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %117, ptr align 4 %108, i64 %111, i1 false)
-  br label %122
+110:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45
+  store ptr %109, ptr %98, align 8, !tbaa !55
+  %111 = getelementptr inbounds nuw i8, ptr %94, i64 48
+  store ptr %109, ptr %111, align 8, !tbaa !132
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 %105
+  %113 = getelementptr inbounds nuw i8, ptr %94, i64 56
+  store ptr %112, ptr %113, align 8, !tbaa !56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %109, ptr align 4 %102, i64 %105, i1 false)
+  br label %114
 
-122:                                              ; preds = %118, %.noexc4.i.i.i46.thread
-  %123 = phi ptr [ %113, %.noexc4.i.i.i46.thread ], [ %120, %118 ]
-  %124 = phi ptr [ %112, %.noexc4.i.i.i46.thread ], [ %119, %118 ]
-  store ptr %123, ptr %124, align 8, !tbaa !132
-  %125 = getelementptr inbounds nuw i8, ptr %100, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !159
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco36MeshPredictionSchemeTexCoordsDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %100, align 8, !tbaa !3
-  %126 = getelementptr inbounds nuw i8, ptr %100, i64 96
-  %127 = getelementptr inbounds nuw i8, ptr %100, i64 128
-  store ptr null, ptr %127, align 8, !tbaa !164
-  %128 = getelementptr inbounds nuw i8, ptr %100, i64 136
-  store i32 0, ptr %128, align 8, !tbaa !167
-  %129 = getelementptr inbounds nuw i8, ptr %100, i64 144
-  store ptr null, ptr %129, align 8, !tbaa !164
-  %130 = getelementptr inbounds nuw i8, ptr %100, i64 152
-  store i32 0, ptr %130, align 8, !tbaa !167
-  %131 = getelementptr inbounds nuw i8, ptr %100, i64 160
-  store ptr null, ptr %131, align 8, !tbaa !168
-  %132 = getelementptr inbounds nuw i8, ptr %100, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %126, i8 0, i64 28, i1 false)
-  store i32 %101, ptr %132, align 8, !tbaa !175
-  br label %174
+114:                                              ; preds = %110, %.noexc4.i.i.i46.thread
+  %115 = phi ptr [ null, %.noexc4.i.i.i46.thread ], [ %112, %110 ]
+  %116 = phi ptr [ %106, %.noexc4.i.i.i46.thread ], [ %111, %110 ]
+  store ptr %115, ptr %116, align 8, !tbaa !132
+  %117 = getelementptr inbounds nuw i8, ptr %94, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !159
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco36MeshPredictionSchemeTexCoordsDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %94, align 8, !tbaa !3
+  %118 = getelementptr inbounds nuw i8, ptr %94, i64 96
+  %119 = getelementptr inbounds nuw i8, ptr %94, i64 128
+  store ptr null, ptr %119, align 8, !tbaa !164
+  %120 = getelementptr inbounds nuw i8, ptr %94, i64 136
+  store i32 0, ptr %120, align 8, !tbaa !167
+  %121 = getelementptr inbounds nuw i8, ptr %94, i64 144
+  store ptr null, ptr %121, align 8, !tbaa !164
+  %122 = getelementptr inbounds nuw i8, ptr %94, i64 152
+  store i32 0, ptr %122, align 8, !tbaa !167
+  %123 = getelementptr inbounds nuw i8, ptr %94, i64 160
+  store ptr null, ptr %123, align 8, !tbaa !168
+  %124 = getelementptr inbounds nuw i8, ptr %94, i64 168
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %118, i8 0, i64 28, i1 false)
+  store i32 %95, ptr %124, align 8, !tbaa !175
+  br label %164
 
-133:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45, %.noexc.i.i.i.i.i.i.i49
-  %134 = landingpad { ptr, i32 }
+125:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45, %.noexc.i.i.i.i.i.i.i49
+  %126 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %100, i64 noundef 176) #21
-  br label %175
+  tail call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 176) #21
+  br label %165
 
-135:                                              ; preds = %7
-  %136 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #22
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %136, align 8, !tbaa !3
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store ptr %3, ptr %137, align 8, !tbaa !125
-  %138 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %138, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
-  %139 = getelementptr inbounds nuw i8, ptr %136, i64 40
-  %140 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %141 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %142 = load ptr, ptr %141, align 8, !tbaa !132
-  %143 = load ptr, ptr %140, align 8, !tbaa !55
-  %144 = ptrtoint ptr %142 to i64
-  %145 = ptrtoint ptr %143 to i64
-  %146 = sub i64 %144, %145
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %142, %143
-  br i1 %.not.i.i.i.i.i.i.i.i.i52, label %.noexc4.i.i.i54.thread, label %150
+127:                                              ; preds = %7
+  %128 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %128, align 8, !tbaa !3
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  store ptr %3, ptr %129, align 8, !tbaa !125
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %130, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 40
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %134 = load ptr, ptr %133, align 8, !tbaa !132
+  %135 = load ptr, ptr %132, align 8, !tbaa !55
+  %136 = ptrtoint ptr %134 to i64
+  %137 = ptrtoint ptr %135 to i64
+  %138 = sub i64 %136, %137
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %134, %135
+  br i1 %.not.i.i.i.i.i.i.i.i.i52, label %.noexc4.i.i.i54.thread, label %140
 
-.noexc4.i.i.i54.thread:                           ; preds = %135
-  %147 = getelementptr inbounds nuw i8, ptr %136, i64 48
-  %148 = getelementptr inbounds i8, ptr null, i64 %146
-  %149 = getelementptr inbounds nuw i8, ptr %136, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, i8 0, i64 16, i1 false)
-  store ptr %148, ptr %149, align 8, !tbaa !56
-  br label %157
+.noexc4.i.i.i54.thread:                           ; preds = %127
+  %139 = getelementptr inbounds nuw i8, ptr %128, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
+  br label %147
 
-150:                                              ; preds = %135
-  %151 = icmp ugt i64 %146, 9223372036854775804
-  br i1 %151, label %.noexc.i.i.i.i.i.i.i57, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53, !prof !133
+140:                                              ; preds = %127
+  %141 = icmp ugt i64 %138, 9223372036854775804
+  br i1 %141, label %.noexc.i.i.i.i.i.i.i57, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53, !prof !133
 
-.noexc.i.i.i.i.i.i.i57:                           ; preds = %150
+.noexc.i.i.i.i.i.i.i57:                           ; preds = %140
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc58 unwind label %168
+          to label %.noexc58 unwind label %158
 
 .noexc58:                                         ; preds = %.noexc.i.i.i.i.i.i.i57
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53: ; preds = %150
-  %152 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %146) #22
-          to label %153 unwind label %168
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53: ; preds = %140
+  %142 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %138) #22
+          to label %143 unwind label %158
 
-153:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53
-  store ptr %152, ptr %139, align 8, !tbaa !55
-  %154 = getelementptr inbounds nuw i8, ptr %136, i64 48
-  store ptr %152, ptr %154, align 8, !tbaa !132
-  %155 = getelementptr inbounds nuw i8, ptr %152, i64 %146
-  %156 = getelementptr inbounds nuw i8, ptr %136, i64 56
-  store ptr %155, ptr %156, align 8, !tbaa !56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %152, ptr align 4 %143, i64 %146, i1 false)
-  br label %157
+143:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53
+  store ptr %142, ptr %131, align 8, !tbaa !55
+  %144 = getelementptr inbounds nuw i8, ptr %128, i64 48
+  store ptr %142, ptr %144, align 8, !tbaa !132
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %138
+  %146 = getelementptr inbounds nuw i8, ptr %128, i64 56
+  store ptr %145, ptr %146, align 8, !tbaa !56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %142, ptr align 4 %135, i64 %138, i1 false)
+  br label %147
 
-157:                                              ; preds = %153, %.noexc4.i.i.i54.thread
-  %158 = phi ptr [ %148, %.noexc4.i.i.i54.thread ], [ %155, %153 ]
-  %159 = phi ptr [ %147, %.noexc4.i.i.i54.thread ], [ %154, %153 ]
-  store ptr %158, ptr %159, align 8, !tbaa !132
-  %160 = getelementptr inbounds nuw i8, ptr %136, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !159
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco44MeshPredictionSchemeTexCoordsPortableDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %136, align 8, !tbaa !3
-  %161 = getelementptr inbounds nuw i8, ptr %136, i64 96
-  %162 = getelementptr inbounds nuw i8, ptr %136, i64 120
-  store ptr null, ptr %162, align 8, !tbaa !164
-  %163 = getelementptr inbounds nuw i8, ptr %136, i64 128
-  store i32 0, ptr %163, align 8, !tbaa !167
-  %164 = getelementptr inbounds nuw i8, ptr %136, i64 136
-  store ptr null, ptr %164, align 8, !tbaa !164
-  %165 = getelementptr inbounds nuw i8, ptr %136, i64 144
-  store i32 0, ptr %165, align 8, !tbaa !167
-  %166 = getelementptr inbounds nuw i8, ptr %136, i64 152
-  store ptr null, ptr %166, align 8, !tbaa !168
-  %167 = getelementptr inbounds nuw i8, ptr %136, i64 160
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %161, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !159
-  br label %174
+147:                                              ; preds = %143, %.noexc4.i.i.i54.thread
+  %148 = phi ptr [ null, %.noexc4.i.i.i54.thread ], [ %145, %143 ]
+  %149 = phi ptr [ %139, %.noexc4.i.i.i54.thread ], [ %144, %143 ]
+  store ptr %148, ptr %149, align 8, !tbaa !132
+  %150 = getelementptr inbounds nuw i8, ptr %128, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !159
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco44MeshPredictionSchemeTexCoordsPortableDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEE, i64 16), ptr %128, align 8, !tbaa !3
+  %151 = getelementptr inbounds nuw i8, ptr %128, i64 96
+  %152 = getelementptr inbounds nuw i8, ptr %128, i64 120
+  store ptr null, ptr %152, align 8, !tbaa !164
+  %153 = getelementptr inbounds nuw i8, ptr %128, i64 128
+  store i32 0, ptr %153, align 8, !tbaa !167
+  %154 = getelementptr inbounds nuw i8, ptr %128, i64 136
+  store ptr null, ptr %154, align 8, !tbaa !164
+  %155 = getelementptr inbounds nuw i8, ptr %128, i64 144
+  store i32 0, ptr %155, align 8, !tbaa !167
+  %156 = getelementptr inbounds nuw i8, ptr %128, i64 152
+  store ptr null, ptr %156, align 8, !tbaa !168
+  %157 = getelementptr inbounds nuw i8, ptr %128, i64 160
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %151, i8 0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !159
+  br label %164
 
-168:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53, %.noexc.i.i.i.i.i.i.i57
-  %169 = landingpad { ptr, i32 }
+158:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53, %.noexc.i.i.i.i.i.i.i57
+  %159 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 192) #21
-  br label %175
+  tail call void @_ZdlPvm(ptr noundef nonnull %128, i64 noundef 192) #21
+  br label %165
 
-170:                                              ; preds = %7
-  %171 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22
-  invoke void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(208) %171, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %174 unwind label %172
+160:                                              ; preds = %7
+  %161 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22
+  invoke void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_24MeshAttributeCornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(208) %161, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %164 unwind label %162
 
-172:                                              ; preds = %170
-  %173 = landingpad { ptr, i32 }
+162:                                              ; preds = %160
+  %163 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %171, i64 noundef 208) #21
-  br label %175
+  tail call void @_ZdlPvm(ptr noundef nonnull %161, i64 noundef 208) #21
+  br label %165
 
-174:                                              ; preds = %7, %170, %157, %122, %95, %58, %30
-  %.sink = phi ptr [ %136, %157 ], [ %100, %122 ], [ %65, %95 ], [ %37, %58 ], [ %9, %30 ], [ %171, %170 ], [ null, %7 ]
+164:                                              ; preds = %7, %160, %147, %114, %89, %54, %28
+  %.sink = phi ptr [ %128, %147 ], [ %94, %114 ], [ %61, %89 ], [ %35, %54 ], [ %9, %28 ], [ %161, %160 ], [ null, %7 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !57
   ret void
 
-175:                                              ; preds = %172, %168, %133, %97, %62, %34
-  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %63, %62 ], [ %98, %97 ], [ %134, %133 ], [ %169, %168 ], [ %173, %172 ]
+165:                                              ; preds = %162, %158, %125, %91, %58, %32
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %59, %58 ], [ %92, %91 ], [ %126, %125 ], [ %159, %158 ], [ %163, %162 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -10695,13 +10677,13 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5draco34MeshPredictionSchemeDecoderFactoryIiE15DispatchFunctorINS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEELNS_29PredictionSchemeTransformTypeE1EEclENS_22PredictionSchemeMethodEPKNS_14PointAttributeERKS4_RKS7_t(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.20") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i16 noundef zeroext %6) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %2, label %174 [
+  switch i32 %2, label %164 [
     i32 1, label %8
-    i32 2, label %36
-    i32 4, label %64
-    i32 3, label %99
-    i32 5, label %135
-    i32 6, label %170
+    i32 2, label %34
+    i32 4, label %60
+    i32 3, label %93
+    i32 5, label %127
+    i32 6, label %160
   ]
 
 8:                                                ; preds = %7
@@ -10721,392 +10703,377 @@ define linkonce_odr void @_ZN5draco34MeshPredictionSchemeDecoderFactoryIiE15Disp
   %19 = sub i64 %17, %18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, %16
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.noexc4.i.i.i.thread, label %23
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.noexc4.i.i.i.thread, label %21
 
 .noexc4.i.i.i.thread:                             ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %21 = getelementptr inbounds i8, ptr null, i64 %19
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  store ptr %21, ptr %22, align 8, !tbaa !56
-  br label %30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  br label %28
 
-23:                                               ; preds = %8
-  %24 = icmp ugt i64 %19, 9223372036854775804
-  br i1 %24, label %.noexc.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, !prof !133
+21:                                               ; preds = %8
+  %22 = icmp ugt i64 %19, 9223372036854775804
+  br i1 %22, label %.noexc.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, !prof !133
 
-.noexc.i.i.i.i.i.i.i:                             ; preds = %23
+.noexc.i.i.i.i.i.i.i:                             ; preds = %21
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc unwind label %34
+          to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %23
-  %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #22
-          to label %26 unwind label %34
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %21
+  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #22
+          to label %24 unwind label %32
 
-26:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i
-  store ptr %25, ptr %12, align 8, !tbaa !55
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %25, ptr %27, align 8, !tbaa !132
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %19
-  %29 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store ptr %28, ptr %29, align 8, !tbaa !56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %25, ptr align 4 %16, i64 %19, i1 false)
-  br label %30
+24:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i
+  store ptr %23, ptr %12, align 8, !tbaa !55
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store ptr %23, ptr %25, align 8, !tbaa !132
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %19
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store ptr %26, ptr %27, align 8, !tbaa !56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %16, i64 %19, i1 false)
+  br label %28
 
-30:                                               ; preds = %26, %.noexc4.i.i.i.thread
-  %31 = phi ptr [ %21, %.noexc4.i.i.i.thread ], [ %28, %26 ]
-  %32 = phi ptr [ %20, %.noexc4.i.i.i.thread ], [ %27, %26 ]
-  store ptr %31, ptr %32, align 8, !tbaa !132
-  %33 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !417
+28:                                               ; preds = %24, %.noexc4.i.i.i.thread
+  %29 = phi ptr [ null, %.noexc4.i.i.i.thread ], [ %26, %24 ]
+  %30 = phi ptr [ %20, %.noexc4.i.i.i.thread ], [ %25, %24 ]
+  store ptr %29, ptr %30, align 8, !tbaa !132
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !417
   store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco40MeshPredictionSchemeParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %9, align 8, !tbaa !3
-  br label %174
+  br label %164
 
-34:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i
-  %35 = landingpad { ptr, i32 }
+32:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i
+  %33 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 96) #21
-  br label %175
+  br label %165
 
-36:                                               ; preds = %7
-  %37 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %37, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %3, ptr %38, align 8, !tbaa !125
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !132
-  %44 = load ptr, ptr %41, align 8, !tbaa !55
-  %45 = ptrtoint ptr %43 to i64
-  %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %43, %44
-  br i1 %.not.i.i.i.i.i.i.i.i.i30, label %.noexc4.i.i.i32.thread, label %51
+34:                                               ; preds = %7
+  %35 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %35, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store ptr %3, ptr %36, align 8, !tbaa !125
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !132
+  %42 = load ptr, ptr %39, align 8, !tbaa !55
+  %43 = ptrtoint ptr %41 to i64
+  %44 = ptrtoint ptr %42 to i64
+  %45 = sub i64 %43, %44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %41, %42
+  br i1 %.not.i.i.i.i.i.i.i.i.i30, label %.noexc4.i.i.i32.thread, label %47
 
-.noexc4.i.i.i32.thread:                           ; preds = %36
-  %48 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  %49 = getelementptr inbounds i8, ptr null, i64 %47
-  %50 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  store ptr %49, ptr %50, align 8, !tbaa !56
-  br label %58
+.noexc4.i.i.i32.thread:                           ; preds = %34
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
+  br label %54
 
-51:                                               ; preds = %36
-  %52 = icmp ugt i64 %47, 9223372036854775804
-  br i1 %52, label %.noexc.i.i.i.i.i.i.i34, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31, !prof !133
+47:                                               ; preds = %34
+  %48 = icmp ugt i64 %45, 9223372036854775804
+  br i1 %48, label %.noexc.i.i.i.i.i.i.i34, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31, !prof !133
 
-.noexc.i.i.i.i.i.i.i34:                           ; preds = %51
+.noexc.i.i.i.i.i.i.i34:                           ; preds = %47
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc35 unwind label %62
+          to label %.noexc35 unwind label %58
 
 .noexc35:                                         ; preds = %.noexc.i.i.i.i.i.i.i34
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31: ; preds = %51
-  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #22
-          to label %54 unwind label %62
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31: ; preds = %47
+  %49 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #22
+          to label %50 unwind label %58
 
-54:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31
-  store ptr %53, ptr %40, align 8, !tbaa !55
-  %55 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  store ptr %53, ptr %55, align 8, !tbaa !132
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %47
-  %57 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  store ptr %56, ptr %57, align 8, !tbaa !56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %53, ptr align 4 %44, i64 %47, i1 false)
-  br label %58
+50:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31
+  store ptr %49, ptr %38, align 8, !tbaa !55
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  store ptr %49, ptr %51, align 8, !tbaa !132
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %45
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 56
+  store ptr %52, ptr %53, align 8, !tbaa !56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %49, ptr align 4 %42, i64 %45, i1 false)
+  br label %54
 
-58:                                               ; preds = %54, %.noexc4.i.i.i32.thread
-  %59 = phi ptr [ %49, %.noexc4.i.i.i32.thread ], [ %56, %54 ]
-  %60 = phi ptr [ %48, %.noexc4.i.i.i32.thread ], [ %55, %54 ]
-  store ptr %59, ptr %60, align 8, !tbaa !132
-  %61 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !417
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco45MeshPredictionSchemeMultiParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %37, align 8, !tbaa !3
-  br label %174
+54:                                               ; preds = %50, %.noexc4.i.i.i32.thread
+  %55 = phi ptr [ null, %.noexc4.i.i.i32.thread ], [ %52, %50 ]
+  %56 = phi ptr [ %46, %.noexc4.i.i.i32.thread ], [ %51, %50 ]
+  store ptr %55, ptr %56, align 8, !tbaa !132
+  %57 = getelementptr inbounds nuw i8, ptr %35, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !417
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco45MeshPredictionSchemeMultiParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %35, align 8, !tbaa !3
+  br label %164
 
-62:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31, %.noexc.i.i.i.i.i.i.i34
-  %63 = landingpad { ptr, i32 }
+58:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i31, %.noexc.i.i.i.i.i.i.i34
+  %59 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 96) #21
-  br label %175
+  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef 96) #21
+  br label %165
 
-64:                                               ; preds = %7
-  %65 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #22
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %65, align 8, !tbaa !3
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %3, ptr %66, align 8, !tbaa !125
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %67, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 40
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !132
-  %72 = load ptr, ptr %69, align 8, !tbaa !55
-  %73 = ptrtoint ptr %71 to i64
-  %74 = ptrtoint ptr %72 to i64
-  %75 = sub i64 %73, %74
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i37 = icmp eq ptr %71, %72
-  br i1 %.not.i.i.i.i.i.i.i.i.i37, label %.noexc4.i.i.i39.thread, label %79
+60:                                               ; preds = %7
+  %61 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %61, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr %3, ptr %62, align 8, !tbaa !125
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %67 = load ptr, ptr %66, align 8, !tbaa !132
+  %68 = load ptr, ptr %65, align 8, !tbaa !55
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i37 = icmp eq ptr %67, %68
+  br i1 %.not.i.i.i.i.i.i.i.i.i37, label %.noexc4.i.i.i39.thread, label %73
 
-.noexc4.i.i.i39.thread:                           ; preds = %64
-  %76 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %77 = getelementptr inbounds i8, ptr null, i64 %75
-  %78 = getelementptr inbounds nuw i8, ptr %65, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
-  store ptr %77, ptr %78, align 8, !tbaa !56
+.noexc4.i.i.i39.thread:                           ; preds = %60
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   br label %_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i
 
-79:                                               ; preds = %64
-  %80 = icmp ugt i64 %75, 9223372036854775804
-  br i1 %80, label %.noexc.i.i.i.i.i.i.i41, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38, !prof !133
+73:                                               ; preds = %60
+  %74 = icmp ugt i64 %71, 9223372036854775804
+  br i1 %74, label %.noexc.i.i.i.i.i.i.i41, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38, !prof !133
 
-.noexc.i.i.i.i.i.i.i41:                           ; preds = %79
+.noexc.i.i.i.i.i.i.i41:                           ; preds = %73
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc42 unwind label %97
+          to label %.noexc42 unwind label %91
 
 .noexc42:                                         ; preds = %.noexc.i.i.i.i.i.i.i41
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38: ; preds = %79
-  %81 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #22
-          to label %82 unwind label %97
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38: ; preds = %73
+  %75 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %71) #22
+          to label %76 unwind label %91
 
-82:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38
-  store ptr %81, ptr %68, align 8, !tbaa !55
-  %83 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  store ptr %81, ptr %83, align 8, !tbaa !132
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 %75
-  %85 = getelementptr inbounds nuw i8, ptr %65, i64 56
-  store ptr %84, ptr %85, align 8, !tbaa !56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %81, ptr align 4 %72, i64 %75, i1 false)
+76:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38
+  store ptr %75, ptr %64, align 8, !tbaa !55
+  %77 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  store ptr %75, ptr %77, align 8, !tbaa !132
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 %71
+  %79 = getelementptr inbounds nuw i8, ptr %61, i64 56
+  store ptr %78, ptr %79, align 8, !tbaa !56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %75, ptr align 4 %68, i64 %71, i1 false)
   br label %_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i
 
-_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i: ; preds = %.noexc4.i.i.i39.thread, %82
-  %86 = phi ptr [ %77, %.noexc4.i.i.i39.thread ], [ %84, %82 ]
-  %87 = phi ptr [ %76, %.noexc4.i.i.i39.thread ], [ %83, %82 ]
-  store ptr %86, ptr %87, align 8, !tbaa !132
-  %88 = getelementptr inbounds nuw i8, ptr %65, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !417
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco56MeshPredictionSchemeConstrainedMultiParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %65, align 8, !tbaa !3
-  br label %89
+_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i: ; preds = %.noexc4.i.i.i39.thread, %76
+  %80 = phi ptr [ null, %.noexc4.i.i.i39.thread ], [ %78, %76 ]
+  %81 = phi ptr [ %72, %.noexc4.i.i.i39.thread ], [ %77, %76 ]
+  store ptr %80, ptr %81, align 8, !tbaa !132
+  %82 = getelementptr inbounds nuw i8, ptr %61, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !417
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco56MeshPredictionSchemeConstrainedMultiParallelogramDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %61, align 8, !tbaa !3
+  br label %83
 
-89:                                               ; preds = %89, %_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i
-  %.idx.i = phi i64 [ 96, %_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i ], [ %.add.i, %89 ]
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i
+83:                                               ; preds = %83, %_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i
+  %.idx.i = phi i64 [ 96, %_ZN5draco27MeshPredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_.exit.i ], [ %.add.i, %83 ]
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i
   store ptr null, ptr %.ptr.i, align 8, !tbaa !164
-  %90 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
-  store i32 0, ptr %90, align 8, !tbaa !167
-  %91 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 16
-  store ptr null, ptr %91, align 8, !tbaa !164
-  %92 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 24
-  store i32 0, ptr %92, align 8, !tbaa !167
-  %93 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 32
-  store ptr null, ptr %93, align 8, !tbaa !168
+  %84 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
+  store i32 0, ptr %84, align 8, !tbaa !167
+  %85 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 16
+  store ptr null, ptr %85, align 8, !tbaa !164
+  %86 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 24
+  store i32 0, ptr %86, align 8, !tbaa !167
+  %87 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 32
+  store ptr null, ptr %87, align 8, !tbaa !168
   %.add.i = add nuw nsw i64 %.idx.i, 40
-  %94 = icmp eq i64 %.add.i, 256
-  br i1 %94, label %95, label %89
+  %88 = icmp eq i64 %.add.i, 256
+  br i1 %88, label %89, label %83
 
-95:                                               ; preds = %89
-  %96 = getelementptr inbounds nuw i8, ptr %65, i64 256
-  store i32 0, ptr %96, align 8, !tbaa !419
-  br label %174
+89:                                               ; preds = %83
+  %90 = getelementptr inbounds nuw i8, ptr %61, i64 256
+  store i32 0, ptr %90, align 8, !tbaa !419
+  br label %164
 
-97:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38, %.noexc.i.i.i.i.i.i.i41
-  %98 = landingpad { ptr, i32 }
+91:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i38, %.noexc.i.i.i.i.i.i.i41
+  %92 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %65, i64 noundef 264) #21
-  br label %175
+  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef 264) #21
+  br label %165
 
-99:                                               ; preds = %7
-  %100 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #22
-  %101 = zext i16 %6 to i32
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %100, align 8, !tbaa !3
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  store ptr %3, ptr %102, align 8, !tbaa !125
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %103, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 40
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %106 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %107 = load ptr, ptr %106, align 8, !tbaa !132
-  %108 = load ptr, ptr %105, align 8, !tbaa !55
-  %109 = ptrtoint ptr %107 to i64
-  %110 = ptrtoint ptr %108 to i64
-  %111 = sub i64 %109, %110
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i44 = icmp eq ptr %107, %108
-  br i1 %.not.i.i.i.i.i.i.i.i.i44, label %.noexc4.i.i.i46.thread, label %115
+93:                                               ; preds = %7
+  %94 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #22
+  %95 = zext i16 %6 to i32
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %94, align 8, !tbaa !3
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store ptr %3, ptr %96, align 8, !tbaa !125
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %97, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %101 = load ptr, ptr %100, align 8, !tbaa !132
+  %102 = load ptr, ptr %99, align 8, !tbaa !55
+  %103 = ptrtoint ptr %101 to i64
+  %104 = ptrtoint ptr %102 to i64
+  %105 = sub i64 %103, %104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i44 = icmp eq ptr %101, %102
+  br i1 %.not.i.i.i.i.i.i.i.i.i44, label %.noexc4.i.i.i46.thread, label %107
 
-.noexc4.i.i.i46.thread:                           ; preds = %99
-  %112 = getelementptr inbounds nuw i8, ptr %100, i64 48
-  %113 = getelementptr inbounds i8, ptr null, i64 %111
-  %114 = getelementptr inbounds nuw i8, ptr %100, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
-  store ptr %113, ptr %114, align 8, !tbaa !56
-  br label %122
+.noexc4.i.i.i46.thread:                           ; preds = %93
+  %106 = getelementptr inbounds nuw i8, ptr %94, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
+  br label %114
 
-115:                                              ; preds = %99
-  %116 = icmp ugt i64 %111, 9223372036854775804
-  br i1 %116, label %.noexc.i.i.i.i.i.i.i49, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45, !prof !133
+107:                                              ; preds = %93
+  %108 = icmp ugt i64 %105, 9223372036854775804
+  br i1 %108, label %.noexc.i.i.i.i.i.i.i49, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45, !prof !133
 
-.noexc.i.i.i.i.i.i.i49:                           ; preds = %115
+.noexc.i.i.i.i.i.i.i49:                           ; preds = %107
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc50 unwind label %133
+          to label %.noexc50 unwind label %125
 
 .noexc50:                                         ; preds = %.noexc.i.i.i.i.i.i.i49
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45: ; preds = %115
-  %117 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %111) #22
-          to label %118 unwind label %133
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45: ; preds = %107
+  %109 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %105) #22
+          to label %110 unwind label %125
 
-118:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45
-  store ptr %117, ptr %104, align 8, !tbaa !55
-  %119 = getelementptr inbounds nuw i8, ptr %100, i64 48
-  store ptr %117, ptr %119, align 8, !tbaa !132
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 %111
-  %121 = getelementptr inbounds nuw i8, ptr %100, i64 56
-  store ptr %120, ptr %121, align 8, !tbaa !56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %117, ptr align 4 %108, i64 %111, i1 false)
-  br label %122
+110:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45
+  store ptr %109, ptr %98, align 8, !tbaa !55
+  %111 = getelementptr inbounds nuw i8, ptr %94, i64 48
+  store ptr %109, ptr %111, align 8, !tbaa !132
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 %105
+  %113 = getelementptr inbounds nuw i8, ptr %94, i64 56
+  store ptr %112, ptr %113, align 8, !tbaa !56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %109, ptr align 4 %102, i64 %105, i1 false)
+  br label %114
 
-122:                                              ; preds = %118, %.noexc4.i.i.i46.thread
-  %123 = phi ptr [ %113, %.noexc4.i.i.i46.thread ], [ %120, %118 ]
-  %124 = phi ptr [ %112, %.noexc4.i.i.i46.thread ], [ %119, %118 ]
-  store ptr %123, ptr %124, align 8, !tbaa !132
-  %125 = getelementptr inbounds nuw i8, ptr %100, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !417
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco36MeshPredictionSchemeTexCoordsDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %100, align 8, !tbaa !3
-  %126 = getelementptr inbounds nuw i8, ptr %100, i64 96
-  %127 = getelementptr inbounds nuw i8, ptr %100, i64 128
-  store ptr null, ptr %127, align 8, !tbaa !164
-  %128 = getelementptr inbounds nuw i8, ptr %100, i64 136
-  store i32 0, ptr %128, align 8, !tbaa !167
-  %129 = getelementptr inbounds nuw i8, ptr %100, i64 144
-  store ptr null, ptr %129, align 8, !tbaa !164
-  %130 = getelementptr inbounds nuw i8, ptr %100, i64 152
-  store i32 0, ptr %130, align 8, !tbaa !167
-  %131 = getelementptr inbounds nuw i8, ptr %100, i64 160
-  store ptr null, ptr %131, align 8, !tbaa !168
-  %132 = getelementptr inbounds nuw i8, ptr %100, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %126, i8 0, i64 28, i1 false)
-  store i32 %101, ptr %132, align 8, !tbaa !422
-  br label %174
+114:                                              ; preds = %110, %.noexc4.i.i.i46.thread
+  %115 = phi ptr [ null, %.noexc4.i.i.i46.thread ], [ %112, %110 ]
+  %116 = phi ptr [ %106, %.noexc4.i.i.i46.thread ], [ %111, %110 ]
+  store ptr %115, ptr %116, align 8, !tbaa !132
+  %117 = getelementptr inbounds nuw i8, ptr %94, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !417
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco36MeshPredictionSchemeTexCoordsDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %94, align 8, !tbaa !3
+  %118 = getelementptr inbounds nuw i8, ptr %94, i64 96
+  %119 = getelementptr inbounds nuw i8, ptr %94, i64 128
+  store ptr null, ptr %119, align 8, !tbaa !164
+  %120 = getelementptr inbounds nuw i8, ptr %94, i64 136
+  store i32 0, ptr %120, align 8, !tbaa !167
+  %121 = getelementptr inbounds nuw i8, ptr %94, i64 144
+  store ptr null, ptr %121, align 8, !tbaa !164
+  %122 = getelementptr inbounds nuw i8, ptr %94, i64 152
+  store i32 0, ptr %122, align 8, !tbaa !167
+  %123 = getelementptr inbounds nuw i8, ptr %94, i64 160
+  store ptr null, ptr %123, align 8, !tbaa !168
+  %124 = getelementptr inbounds nuw i8, ptr %94, i64 168
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %118, i8 0, i64 28, i1 false)
+  store i32 %95, ptr %124, align 8, !tbaa !422
+  br label %164
 
-133:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45, %.noexc.i.i.i.i.i.i.i49
-  %134 = landingpad { ptr, i32 }
+125:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i45, %.noexc.i.i.i.i.i.i.i49
+  %126 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %100, i64 noundef 176) #21
-  br label %175
+  tail call void @_ZdlPvm(ptr noundef nonnull %94, i64 noundef 176) #21
+  br label %165
 
-135:                                              ; preds = %7
-  %136 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #22
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %136, align 8, !tbaa !3
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store ptr %3, ptr %137, align 8, !tbaa !125
-  %138 = getelementptr inbounds nuw i8, ptr %136, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %138, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
-  %139 = getelementptr inbounds nuw i8, ptr %136, i64 40
-  %140 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %141 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %142 = load ptr, ptr %141, align 8, !tbaa !132
-  %143 = load ptr, ptr %140, align 8, !tbaa !55
-  %144 = ptrtoint ptr %142 to i64
-  %145 = ptrtoint ptr %143 to i64
-  %146 = sub i64 %144, %145
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %142, %143
-  br i1 %.not.i.i.i.i.i.i.i.i.i52, label %.noexc4.i.i.i54.thread, label %150
+127:                                              ; preds = %7
+  %128 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #22
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEEE, i64 16), ptr %128, align 8, !tbaa !3
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  store ptr %3, ptr %129, align 8, !tbaa !125
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %130, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 24, i1 false)
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 40
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %134 = load ptr, ptr %133, align 8, !tbaa !132
+  %135 = load ptr, ptr %132, align 8, !tbaa !55
+  %136 = ptrtoint ptr %134 to i64
+  %137 = ptrtoint ptr %135 to i64
+  %138 = sub i64 %136, %137
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %134, %135
+  br i1 %.not.i.i.i.i.i.i.i.i.i52, label %.noexc4.i.i.i54.thread, label %140
 
-.noexc4.i.i.i54.thread:                           ; preds = %135
-  %147 = getelementptr inbounds nuw i8, ptr %136, i64 48
-  %148 = getelementptr inbounds i8, ptr null, i64 %146
-  %149 = getelementptr inbounds nuw i8, ptr %136, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, i8 0, i64 16, i1 false)
-  store ptr %148, ptr %149, align 8, !tbaa !56
-  br label %157
+.noexc4.i.i.i54.thread:                           ; preds = %127
+  %139 = getelementptr inbounds nuw i8, ptr %128, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
+  br label %147
 
-150:                                              ; preds = %135
-  %151 = icmp ugt i64 %146, 9223372036854775804
-  br i1 %151, label %.noexc.i.i.i.i.i.i.i57, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53, !prof !133
+140:                                              ; preds = %127
+  %141 = icmp ugt i64 %138, 9223372036854775804
+  br i1 %141, label %.noexc.i.i.i.i.i.i.i57, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53, !prof !133
 
-.noexc.i.i.i.i.i.i.i57:                           ; preds = %150
+.noexc.i.i.i.i.i.i.i57:                           ; preds = %140
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #23
-          to label %.noexc58 unwind label %168
+          to label %.noexc58 unwind label %158
 
 .noexc58:                                         ; preds = %.noexc.i.i.i.i.i.i.i57
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53: ; preds = %150
-  %152 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %146) #22
-          to label %153 unwind label %168
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53: ; preds = %140
+  %142 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %138) #22
+          to label %143 unwind label %158
 
-153:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53
-  store ptr %152, ptr %139, align 8, !tbaa !55
-  %154 = getelementptr inbounds nuw i8, ptr %136, i64 48
-  store ptr %152, ptr %154, align 8, !tbaa !132
-  %155 = getelementptr inbounds nuw i8, ptr %152, i64 %146
-  %156 = getelementptr inbounds nuw i8, ptr %136, i64 56
-  store ptr %155, ptr %156, align 8, !tbaa !56
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %152, ptr align 4 %143, i64 %146, i1 false)
-  br label %157
+143:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53
+  store ptr %142, ptr %131, align 8, !tbaa !55
+  %144 = getelementptr inbounds nuw i8, ptr %128, i64 48
+  store ptr %142, ptr %144, align 8, !tbaa !132
+  %145 = getelementptr inbounds nuw i8, ptr %142, i64 %138
+  %146 = getelementptr inbounds nuw i8, ptr %128, i64 56
+  store ptr %145, ptr %146, align 8, !tbaa !56
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %142, ptr align 4 %135, i64 %138, i1 false)
+  br label %147
 
-157:                                              ; preds = %153, %.noexc4.i.i.i54.thread
-  %158 = phi ptr [ %148, %.noexc4.i.i.i54.thread ], [ %155, %153 ]
-  %159 = phi ptr [ %147, %.noexc4.i.i.i54.thread ], [ %154, %153 ]
-  store ptr %158, ptr %159, align 8, !tbaa !132
-  %160 = getelementptr inbounds nuw i8, ptr %136, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !417
-  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco44MeshPredictionSchemeTexCoordsPortableDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %136, align 8, !tbaa !3
-  %161 = getelementptr inbounds nuw i8, ptr %136, i64 96
-  %162 = getelementptr inbounds nuw i8, ptr %136, i64 120
-  store ptr null, ptr %162, align 8, !tbaa !164
-  %163 = getelementptr inbounds nuw i8, ptr %136, i64 128
-  store i32 0, ptr %163, align 8, !tbaa !167
-  %164 = getelementptr inbounds nuw i8, ptr %136, i64 136
-  store ptr null, ptr %164, align 8, !tbaa !164
-  %165 = getelementptr inbounds nuw i8, ptr %136, i64 144
-  store i32 0, ptr %165, align 8, !tbaa !167
-  %166 = getelementptr inbounds nuw i8, ptr %136, i64 152
-  store ptr null, ptr %166, align 8, !tbaa !168
-  %167 = getelementptr inbounds nuw i8, ptr %136, i64 160
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %161, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !417
-  br label %174
+147:                                              ; preds = %143, %.noexc4.i.i.i54.thread
+  %148 = phi ptr [ null, %.noexc4.i.i.i54.thread ], [ %145, %143 ]
+  %149 = phi ptr [ %139, %.noexc4.i.i.i54.thread ], [ %144, %143 ]
+  store ptr %148, ptr %149, align 8, !tbaa !132
+  %150 = getelementptr inbounds nuw i8, ptr %128, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %150, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !417
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN5draco44MeshPredictionSchemeTexCoordsPortableDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEE, i64 16), ptr %128, align 8, !tbaa !3
+  %151 = getelementptr inbounds nuw i8, ptr %128, i64 96
+  %152 = getelementptr inbounds nuw i8, ptr %128, i64 120
+  store ptr null, ptr %152, align 8, !tbaa !164
+  %153 = getelementptr inbounds nuw i8, ptr %128, i64 128
+  store i32 0, ptr %153, align 8, !tbaa !167
+  %154 = getelementptr inbounds nuw i8, ptr %128, i64 136
+  store ptr null, ptr %154, align 8, !tbaa !164
+  %155 = getelementptr inbounds nuw i8, ptr %128, i64 144
+  store i32 0, ptr %155, align 8, !tbaa !167
+  %156 = getelementptr inbounds nuw i8, ptr %128, i64 152
+  store ptr null, ptr %156, align 8, !tbaa !168
+  %157 = getelementptr inbounds nuw i8, ptr %128, i64 160
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %151, i8 0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %157, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !417
+  br label %164
 
-168:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53, %.noexc.i.i.i.i.i.i.i57
-  %169 = landingpad { ptr, i32 }
+158:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i53, %.noexc.i.i.i.i.i.i.i57
+  %159 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef 192) #21
-  br label %175
+  tail call void @_ZdlPvm(ptr noundef nonnull %128, i64 noundef 192) #21
+  br label %165
 
-170:                                              ; preds = %7
-  %171 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22
-  invoke void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(208) %171, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %174 unwind label %172
+160:                                              ; preds = %7
+  %161 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22
+  invoke void @_ZN5draco42MeshPredictionSchemeGeometricNormalDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEENS_24MeshPredictionSchemeDataINS_11CornerTableEEEEC2EPKNS_14PointAttributeERKS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(208) %161, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %164 unwind label %162
 
-172:                                              ; preds = %170
-  %173 = landingpad { ptr, i32 }
+162:                                              ; preds = %160
+  %163 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %171, i64 noundef 208) #21
-  br label %175
+  tail call void @_ZdlPvm(ptr noundef nonnull %161, i64 noundef 208) #21
+  br label %165
 
-174:                                              ; preds = %7, %170, %157, %122, %95, %58, %30
-  %.sink = phi ptr [ %136, %157 ], [ %100, %122 ], [ %65, %95 ], [ %37, %58 ], [ %9, %30 ], [ %171, %170 ], [ null, %7 ]
+164:                                              ; preds = %7, %160, %147, %114, %89, %54, %28
+  %.sink = phi ptr [ %128, %147 ], [ %94, %114 ], [ %61, %89 ], [ %35, %54 ], [ %9, %28 ], [ %161, %160 ], [ null, %7 ]
   store ptr %.sink, ptr %0, align 8, !tbaa !57
   ret void
 
-175:                                              ; preds = %172, %168, %133, %97, %62, %34
-  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %63, %62 ], [ %98, %97 ], [ %134, %133 ], [ %169, %168 ], [ %173, %172 ]
+165:                                              ; preds = %162, %158, %125, %91, %58, %32
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %59, %58 ], [ %92, %91 ], [ %126, %125 ], [ %159, %158 ], [ %163, %162 ]
   resume { ptr, i32 } %.pn
 }
 

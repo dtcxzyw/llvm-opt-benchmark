@@ -5823,8 +5823,8 @@ lpad630.thread:                                   ; preds = %_ZN5eastl10VectorBa
           cleanup
   br label %ehcleanup741
 
-_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit: ; preds = %invoke.cont628, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904
-  %tempBuffer.sroa.0.2 = phi ptr [ %call.i.i.i.i.i1922, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904 ], [ null, %invoke.cont628 ]
+_ZN5eastl6vectorIZ8TestSortvE17StableSortTestObjNS_9allocatorEE6resizeEm.exit: ; preds = %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904, %invoke.cont628
+  %tempBuffer.sroa.0.2 = phi ptr [ null, %invoke.cont628 ], [ %call.i.i.i.i.i1922, %_ZN5eastl10VectorBaseIZ8TestSortvE17StableSortTestObjNS_9allocatorEE10DoAllocateEm.exit.i.i1904 ]
   %521 = load i32, ptr @gEASTL_TestLevel, align 4
   %cmp6366981 = icmp sgt i32 %521, -6
   br i1 %cmp6366981, label %for.body637.lr.ph, label %for.end734

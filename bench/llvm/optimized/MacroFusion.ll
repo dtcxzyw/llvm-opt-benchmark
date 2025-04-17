@@ -598,7 +598,7 @@ declare noundef zeroext i1 @_ZN4llvm17ScheduleDAGInstrs7addEdgeEPNS_5SUnitERKNS_
 define dso_local void @_ZN4llvm28createMacroFusionDAGMutationENS_8ArrayRefIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS8_EEEb(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %0, ptr readonly captures(none) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL17EnableMacroFusion, i64 120), align 8, !tbaa !34, !range !52, !noundef !53
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %17
+  br i1 %6, label %7, label %19
 
 7:                                                ; preds = %4
   %8 = xor i1 %3, true
@@ -606,29 +606,29 @@ define dso_local void @_ZN4llvm28createMacroFusionDAGMutationENS_8ArrayRefIPFbRK
   %10 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14, !noalias !65
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_111MacroFusionE, i64 16), ptr %10, align 8, !tbaa !3, !noalias !65
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %11, align 8, !noalias !65
-  %.idx.i.i = shl nuw nsw i64 %2, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !noalias !65
   %.not.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit, label %12
 
 12:                                               ; preds = %7
+  %.idx.i.i = shl nuw nsw i64 %2, 3
   %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i.i) #14, !noalias !65
   store ptr %13, ptr %11, align 8, !tbaa !68, !noalias !65
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %14, ptr %15, align 8, !tbaa !70, !noalias !65
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr readonly align 8 %1, i64 %.idx.i.i, i1 false), !noalias !65
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit: ; preds = %12, %7
-  %.pn.i = phi ptr [ %13, %12 ], [ null, %7 ]
-  %.sink.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 %.idx.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %.sink.i, ptr %14, align 8, !tbaa !70, !noalias !65
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %.sink.i, ptr %15, align 8, !tbaa !71, !noalias !65
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 %9, ptr %16, align 8, !tbaa !72, !noalias !65
-  br label %17
+  %16 = phi ptr [ %14, %12 ], [ null, %7 ]
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %16, ptr %17, align 8, !tbaa !71, !noalias !65
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i8 %9, ptr %18, align 8, !tbaa !72, !noalias !65
+  br label %19
 
-17:                                               ; preds = %4, %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit
+19:                                               ; preds = %4, %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit
   %storemerge = phi ptr [ %10, %_ZNSt10unique_ptrIN12_GLOBAL__N_111MacroFusionESt14default_deleteIS1_EED2Ev.exit ], [ null, %4 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !78
   ret void

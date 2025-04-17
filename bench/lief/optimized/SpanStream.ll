@@ -83,7 +83,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %2
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %9, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %10, %9 ]
-  %.sink.i = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %11, %9 ]
+  %.sroa.9.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %11, %9 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %12 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #11, !noalias !15
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -96,11 +96,11 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %9, %_ZNSt6vectorIhS
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %.sroa.0.0, ptr %16, align 8, !tbaa !26, !noalias !15
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %.sink.i, ptr %17, align 8, !tbaa !28, !noalias !15
+  store ptr %.sroa.9.0, ptr %17, align 8, !tbaa !28, !noalias !15
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr %.sink.i, ptr %18, align 8, !tbaa !29, !noalias !15
+  store ptr %.sroa.9.0, ptr %18, align 8, !tbaa !29, !noalias !15
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %20 = ptrtoint ptr %.sink.i to i64
+  %20 = ptrtoint ptr %.sroa.9.0 to i64
   %21 = ptrtoint ptr %.sroa.0.0 to i64
   %22 = sub i64 %20, %21
   store i64 %22, ptr %19, align 8, !tbaa !30, !noalias !15

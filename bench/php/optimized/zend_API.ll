@@ -4177,14 +4177,10 @@ zend_parse_arg_str_ex.exit289.thread.i:           ; preds = %207, %zend_parse_ar
   br i1 %.not405.i, label %zend_parse_arg_path_str.exit.thread.i, label %225, !prof !45
 
 zend_parse_arg_path_str.exit.i:                   ; preds = %zend_parse_arg_str_ex.exit289.thread.i
-  br i1 %211, label %zend_parse_arg_path_str.exit.i.thread, label %zend_parse_arg_path_str.exit.i.zend_parse_arg_path_str.exit.thread.i_crit_edge, !prof !98
+  br i1 %211, label %zend_parse_arg_path_str.exit.i.thread, label %zend_parse_arg_path_str.exit.thread.i, !prof !98
 
-zend_parse_arg_path_str.exit.i.zend_parse_arg_path_str.exit.thread.i_crit_edge: ; preds = %zend_parse_arg_path_str.exit.i
-  %.pre32 = load i64, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !96
-  br label %zend_parse_arg_path_str.exit.thread.i
-
-zend_parse_arg_path_str.exit.thread.i:            ; preds = %zend_parse_arg_path_str.exit.i.zend_parse_arg_path_str.exit.thread.i_crit_edge, %218
-  %223 = phi i64 [ %.pre32, %zend_parse_arg_path_str.exit.i.zend_parse_arg_path_str.exit.thread.i_crit_edge ], [ %221, %218 ]
+zend_parse_arg_path_str.exit.thread.i:            ; preds = %zend_parse_arg_path_str.exit.i, %218
+  %223 = phi i64 [ %221, %218 ], [ undef, %zend_parse_arg_path_str.exit.i ]
   %224 = getelementptr inbounds nuw i8, ptr %217, i64 24
   br label %zend_parse_arg_path_str.exit.i.thread
 

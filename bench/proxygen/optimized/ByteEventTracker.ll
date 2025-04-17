@@ -112,57 +112,26 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define void @_ZN8proxygen16ByteEventTrackerD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen16ByteEventTrackerE, i64 16), ptr %this, align 8
   %m_header.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_header.i.i, align 8
-  %tobool.not.i2.i = icmp eq ptr %0, null
-  %cmp.i3.i = icmp eq ptr %0, %m_header.i.i
-  %1 = or i1 %tobool.not.i2.i, %cmp.i3.i
-  br i1 %1, label %_ZN8proxygen16ByteEventTracker15drainByteEventsEv.exit, label %while.body.lr.ph.i
+  %tobool.not.i.i = icmp eq ptr %0, null
+  %cmp.i.i = icmp eq ptr %0, %m_header.i.i
+  %1 = or i1 %tobool.not.i.i, %cmp.i.i
+  tail call void @llvm.assume(i1 %1)
+  br i1 %cmp.i.i, label %_ZN5boost9intrusive4listIN8proxygen9ByteEventEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit, label %while.body.i.i.i.i
 
-while.body.lr.ph.i:                               ; preds = %entry
-  %byteEvents_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  br label %while.body.i
-
-while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %2 = phi ptr [ %0, %while.body.lr.ph.i ], [ %7, %while.body.i ]
-  %3 = load ptr, ptr %2, align 8
-  %prev_.i5.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %prev_.i5.i.i.i, align 8
-  store ptr %3, ptr %4, align 8
-  %prev_.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %4, ptr %prev_.i.i.i.i, align 8
-  %5 = load i64, ptr %byteEvents_.i, align 8
-  %dec.i.i.i = add i64 %5, -1
-  store i64 %dec.i.i.i, ptr %byteEvents_.i, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %vtable.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 8
-  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
-  %6 = load ptr, ptr %vfn.i.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i) #14
-  %7 = load ptr, ptr %m_header.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %7, null
-  %cmp.i.i = icmp eq ptr %7, %m_header.i.i
-  %8 = or i1 %tobool.not.i.i, %cmp.i.i
-  br i1 %8, label %_ZN8proxygen16ByteEventTracker15drainByteEventsEv.exit, label %while.body.i, !llvm.loop !4
-
-_ZN8proxygen16ByteEventTracker15drainByteEventsEv.exit: ; preds = %while.body.i, %entry
-  %9 = phi ptr [ %0, %entry ], [ %7, %while.body.i ]
-  %cmp.i.not6.i.i.i.i = icmp eq ptr %9, %m_header.i.i
-  br i1 %cmp.i.not6.i.i.i.i, label %_ZN5boost9intrusive4listIN8proxygen9ByteEventEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit, label %while.body.i.i.i.i
-
-while.body.i.i.i.i:                               ; preds = %_ZN8proxygen16ByteEventTracker15drainByteEventsEv.exit, %while.body.i.i.i.i
-  %it.sroa.0.07.i.i.i.i = phi ptr [ %10, %while.body.i.i.i.i ], [ %9, %_ZN8proxygen16ByteEventTracker15drainByteEventsEv.exit ]
-  %10 = load ptr, ptr %it.sroa.0.07.i.i.i.i, align 8
+while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
+  %it.sroa.0.07.i.i.i.i = phi ptr [ %2, %while.body.i.i.i.i ], [ %0, %entry ]
+  %2 = load ptr, ptr %it.sroa.0.07.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.sroa.0.07.i.i.i.i, i8 0, i64 16, i1 false)
-  %cmp.i.not.i.i.i.i = icmp eq ptr %10, %m_header.i.i
-  br i1 %cmp.i.not.i.i.i.i, label %_ZN5boost9intrusive4listIN8proxygen9ByteEventEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !6
+  %cmp.i.not.i.i.i.i = icmp eq ptr %2, %m_header.i.i
+  br i1 %cmp.i.not.i.i.i.i, label %_ZN5boost9intrusive4listIN8proxygen9ByteEventEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit, label %while.body.i.i.i.i, !llvm.loop !4
 
-_ZN5boost9intrusive4listIN8proxygen9ByteEventEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit: ; preds = %while.body.i.i.i.i, %_ZN8proxygen16ByteEventTracker15drainByteEventsEv.exit
+_ZN5boost9intrusive4listIN8proxygen9ByteEventEJNS0_11member_hookIS3_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS3_8listHookEEEEENS0_18constant_time_sizeILb1EEEEED2Ev.exit: ; preds = %while.body.i.i.i.i, %entry
   %byteEvents_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %byteEvents_, i8 0, i64 24, i1 false)
   ret void
@@ -172,8 +141,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #14
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -183,18 +152,18 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen16ByteEventTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen16ByteEventTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 {
 entry:
-  tail call void @_ZN8proxygen16ByteEventTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #14
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZN8proxygen16ByteEventTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #17
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8proxygen16ByteEventTracker6absorbEOS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16ByteEventTracker6absorbEOS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %other) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i9.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %m_header.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 24
@@ -280,40 +249,33 @@ _ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen9ByteEventENS0_16list_memb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen16ByteEventTracker17processByteEventsESt10shared_ptrIS0_Em(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 16)) %this, ptr noundef readonly captures(none) %self, i64 noundef %bytesWritten) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen16ByteEventTracker17processByteEventsESt10shared_ptrIS0_Em(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 16)) %this, ptr noundef readonly captures(none) %self, i64 noundef %bytesWritten) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp55 = alloca %"class.google::LogMessage", align 8
   %bytesWritten_9 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %bytesWritten, ptr %bytesWritten_9, align 8
-  %byteEvents_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_header.i143 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_header.i143, align 8
-  %tobool.not.i20 = icmp eq ptr %0, null
-  %cmp.i21 = icmp eq ptr %0, %m_header.i143
-  %1 = or i1 %tobool.not.i20, %cmp.i21
-  br i1 %1, label %while.end73, label %land.rhs.lr.ph
+  %tobool.not.i = icmp eq ptr %0, null
+  %cmp.i = icmp eq ptr %0, %m_header.i143
+  %1 = or i1 %tobool.not.i, %cmp.i
+  br i1 %1, label %while.end73, label %land.rhs
 
-land.rhs.lr.ph:                                   ; preds = %entry
-  %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  br label %land.rhs
-
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %cleanup.done68
-  %2 = phi ptr [ %0, %land.rhs.lr.ph ], [ %20, %cleanup.done68 ]
-  %add.ptr.i120 = getelementptr inbounds i8, ptr %2, i64 -8
-  %byteOffset_ = getelementptr inbounds nuw i8, ptr %2, i64 16
+land.rhs:                                         ; preds = %entry
+  %byteOffset_ = getelementptr inbounds nuw i8, ptr %0, i64 24
   %bf.load = load i64, ptr %byteOffset_, align 8
   %bf.lshr = lshr i64 %bf.load, 5
   %cmp14.not = icmp ugt i64 %bf.lshr, %bytesWritten
   br i1 %cmp14.not, label %while.end73, label %while.body15
 
 while.body15:                                     ; preds = %land.rhs
-  %vtable = load ptr, ptr %add.ptr.i120, align 8
+  %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %3 = load ptr, ptr %vfn, align 8
-  %call18 = call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i120)
+  %2 = load ptr, ptr %vfn, align 8
+  %call18 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %bf.load19 = load i64, ptr %byteOffset_, align 8
-  %4 = trunc i64 %bf.load19 to i32
-  %bf.cast = and i32 %4, 7
+  %3 = trunc i64 %bf.load19 to i32
+  %bf.cast = and i32 %3, 7
   switch i32 %bf.cast, label %sw.epilog [
     i32 3, label %sw.bb
     i32 0, label %sw.bb20
@@ -323,81 +285,85 @@ while.body15:                                     ; preds = %land.rhs
   ]
 
 sw.bb:                                            ; preds = %while.body15
-  call void @_ZN8proxygen15HTTPTransaction23onEgressHeaderFirstByteEv(ptr noundef nonnull align 8 dereferenceable(912) %call18)
+  tail call void @_ZN8proxygen15HTTPTransaction23onEgressHeaderFirstByteEv(ptr noundef nonnull align 8 dereferenceable(912) %call18)
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %while.body15
-  call void @_ZN8proxygen15HTTPTransaction21onEgressBodyFirstByteEv(ptr noundef nonnull align 8 dereferenceable(912) %call18)
+  tail call void @_ZN8proxygen15HTTPTransaction21onEgressBodyFirstByteEv(ptr noundef nonnull align 8 dereferenceable(912) %call18)
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %while.body15
-  call void @_ZN8proxygen15HTTPTransaction20onEgressBodyLastByteEv(ptr noundef nonnull align 8 dereferenceable(912) %call18)
+  tail call void @_ZN8proxygen15HTTPTransaction20onEgressBodyLastByteEv(ptr noundef nonnull align 8 dereferenceable(912) %call18)
   br label %sw.epilog
 
 sw.bb22:                                          ; preds = %while.body15
-  call void @_ZN8proxygen15HTTPTransaction19onEgressTrackedByteEv(ptr noundef nonnull align 8 dereferenceable(912) %call18)
+  tail call void @_ZN8proxygen15HTTPTransaction19onEgressTrackedByteEv(ptr noundef nonnull align 8 dereferenceable(912) %call18)
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %while.body15
-  %vtable24 = load ptr, ptr %add.ptr.i120, align 8
+  %vtable24 = load ptr, ptr %0, align 8
   %vfn25 = getelementptr inbounds nuw i8, ptr %vtable24, i64 24
-  %5 = load ptr, ptr %vfn25, align 8
-  %call26 = call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i120)
-  %6 = load ptr, ptr %callback_, align 8
-  %tobool.not = icmp eq ptr %6, null
+  %4 = load ptr, ptr %vfn25, align 8
+  %call26 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(64) %0)
+  %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %5 = load ptr, ptr %callback_, align 8
+  %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %sw.epilog, label %if.then
 
 if.then:                                          ; preds = %sw.bb23
-  %vtable28 = load ptr, ptr %6, align 8
+  %vtable28 = load ptr, ptr %5, align 8
   %vfn29 = getelementptr inbounds nuw i8, ptr %vtable28, i64 16
-  %7 = load ptr, ptr %vfn29, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %call26) #14
+  %6 = load ptr, ptr %vfn29, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %call26) #17
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb23, %if.then, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb, %while.body15
   %vtable31 = load ptr, ptr %this, align 8
   %vfn32 = getelementptr inbounds nuw i8, ptr %vtable31, i64 40
-  %8 = load ptr, ptr %vfn32, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i120)
-  %9 = load ptr, ptr %callback_, align 8
-  %tobool34.not = icmp eq ptr %9, null
+  %7 = load ptr, ptr %vfn32, align 8
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(64) %0)
+  %callback_33 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %8 = load ptr, ptr %callback_33, align 8
+  %tobool34.not = icmp eq ptr %8, null
   br i1 %tobool34.not, label %if.end39, label %if.then35
 
 if.then35:                                        ; preds = %sw.epilog
-  %vtable37 = load ptr, ptr %9, align 8
+  %vtable37 = load ptr, ptr %8, align 8
   %vfn38 = getelementptr inbounds nuw i8, ptr %vtable37, i64 24
-  %10 = load ptr, ptr %vfn38, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i120) #14
+  %9 = load ptr, ptr %vfn38, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(64) %0) #17
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then35, %sw.epilog
-  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %11 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i.not = icmp eq ptr %11, null
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i.not = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.not, label %if.end44, label %_ZNKSt8functionIFvRN8proxygen9ByteEventEEEclES2_.exit
 
 _ZNKSt8functionIFvRN8proxygen9ByteEventEEEclES2_.exit: ; preds = %if.end39
-  %callback_40 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %12 = load ptr, ptr %_M_invoker.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %callback_40, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i120)
+  %callback_40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = load ptr, ptr %_M_invoker.i, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(32) %callback_40, ptr noundef nonnull align 8 dereferenceable(64) %0)
   br label %if.end44
 
 if.end44:                                         ; preds = %_ZNKSt8functionIFvRN8proxygen9ByteEventEEEclES2_.exit, %if.end39
-  %13 = load ptr, ptr @_ZZN8proxygen16ByteEventTracker17processByteEventsESt10shared_ptrIS0_EmE8vlocal__, align 8
-  %cmp45 = icmp eq ptr %13, null
+  %12 = load ptr, ptr @_ZZN8proxygen16ByteEventTracker17processByteEventsESt10shared_ptrIS0_EmE8vlocal__, align 8
+  %cmp45 = icmp eq ptr %12, null
   br i1 %cmp45, label %cond.true46, label %cond.end50
 
 cond.true46:                                      ; preds = %if.end44
-  %call47 = call noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef nonnull @_ZZN8proxygen16ByteEventTracker17processByteEventsESt10shared_ptrIS0_EmE8vlocal__, ptr noundef nonnull @_ZN3fLI7FLAGS_vE, ptr noundef nonnull @.str, i32 noundef 5)
-  br i1 %call47, label %cond.false53, label %cleanup.done68
+  %call47 = tail call noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef nonnull @_ZZN8proxygen16ByteEventTracker17processByteEventsESt10shared_ptrIS0_EmE8vlocal__, ptr noundef nonnull @_ZN3fLI7FLAGS_vE, ptr noundef nonnull @.str, i32 noundef 5)
+  br label %cond.false53
 
 cond.end50:                                       ; preds = %if.end44
-  %14 = load i32, ptr %13, align 4
-  %cmp49 = icmp sgt i32 %14, 4
-  br i1 %cmp49, label %cond.false53, label %cleanup.done68
+  %13 = load i32, ptr %12, align 4
+  %cmp49 = icmp sgt i32 %13, 4
+  br label %cond.false53
 
-cond.false53:                                     ; preds = %cond.true46, %cond.end50
+cond.false53:                                     ; preds = %cond.end50, %cond.true46
+  %cmp49.sink = phi i1 [ %cmp49, %cond.end50 ], [ %call47, %cond.true46 ]
+  tail call void @llvm.assume(i1 %cmp49.sink)
   call void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp55, ptr noundef nonnull @.str, i32 noundef 74)
   %call59 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp55)
           to label %invoke.cont58 unwind label %lpad57
@@ -407,56 +373,33 @@ invoke.cont58:                                    ; preds = %cond.false53
           to label %invoke.cont60 unwind label %lpad57
 
 invoke.cont60:                                    ; preds = %invoke.cont58
-  %call63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(8) %call61, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i120)
+  %call63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(8) %call61, ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %cleanup.action67 unwind label %lpad57
 
 cleanup.action67:                                 ; preds = %invoke.cont60
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp55) #14
-  br label %cleanup.done68
-
-cleanup.done68:                                   ; preds = %cond.true46, %cond.end50, %cleanup.action67
-  %15 = load ptr, ptr %m_header.i143, align 8
-  %16 = load ptr, ptr %15, align 8
-  %prev_.i5.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %prev_.i5.i.i, align 8
-  store ptr %16, ptr %17, align 8
-  %prev_.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %17, ptr %prev_.i.i.i, align 8
-  %18 = load i64, ptr %byteEvents_, align 8
-  %dec.i.i = add i64 %18, -1
-  store i64 %dec.i.i, ptr %byteEvents_, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 -8
-  %vtable.i.i = load ptr, ptr %add.ptr.i.i, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %19 = load ptr, ptr %vfn.i.i, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i) #14
-  %20 = load ptr, ptr %m_header.i143, align 8
-  %tobool.not.i = icmp eq ptr %20, null
-  %cmp.i = icmp eq ptr %20, %m_header.i143
-  %21 = or i1 %tobool.not.i, %cmp.i
-  br i1 %21, label %while.end73, label %land.rhs, !llvm.loop !7
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp55) #17
+  unreachable
 
 lpad57:                                           ; preds = %invoke.cont60, %invoke.cont58, %cond.false53
-  %22 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp55) #14
-  resume { ptr, i32 } %22
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp55) #17
+  resume { ptr, i32 } %14
 
-while.end73:                                      ; preds = %land.rhs, %cleanup.done68, %entry
+while.end73:                                      ; preds = %entry, %land.rhs
   %_M_refcount.i = getelementptr inbounds nuw i8, ptr %self, i64 8
-  %23 = load ptr, ptr %_M_refcount.i, align 8
-  %tobool.not.i.i18 = icmp eq ptr %23, null
+  %15 = load ptr, ptr %_M_refcount.i, align 8
+  %tobool.not.i.i18 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i18, label %_ZNKSt12__shared_ptrIN8proxygen16ByteEventTrackerELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %while.end73
-  %_M_use_count.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %24 = load atomic i32, ptr %_M_use_count.i.i.i monotonic, align 8
-  %25 = icmp eq i32 %24, 1
+  %_M_use_count.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %16 = load atomic i32, ptr %_M_use_count.i.i.i monotonic, align 8
+  %17 = icmp eq i32 %16, 1
   br label %_ZNKSt12__shared_ptrIN8proxygen16ByteEventTrackerELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit
 
 _ZNKSt12__shared_ptrIN8proxygen16ByteEventTrackerELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit: ; preds = %while.end73, %cond.true.i.i
-  %cond.i.i = phi i1 [ %25, %cond.true.i.i ], [ false, %while.end73 ]
+  %cond.i.i = phi i1 [ %17, %cond.true.i.i ], [ false, %while.end73 ]
   ret i1 %cond.i.i
 }
 
@@ -465,7 +408,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #9
+declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #10
 
 declare void @_ZN8proxygen15HTTPTransaction23onEgressHeaderFirstByteEv(ptr noundef nonnull align 8 dereferenceable(912)) local_unnamed_addr #0
 
@@ -484,52 +427,20 @@ declare void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 derefere
 ; Function Attrs: nounwind
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define noundef i64 @_ZN8proxygen16ByteEventTracker15drainByteEventsEv(ptr noundef nonnull align 8 captures(address) dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
+define noundef i64 @_ZN8proxygen16ByteEventTracker15drainByteEventsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_header.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_header.i, align 8
-  %tobool.not.i2 = icmp eq ptr %0, null
-  %cmp.i3 = icmp eq ptr %0, %m_header.i
-  %1 = or i1 %tobool.not.i2, %cmp.i3
-  br i1 %1, label %while.end, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %entry
-  %byteEvents_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  br label %while.body
-
-while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %2 = phi ptr [ %0, %while.body.lr.ph ], [ %7, %while.body ]
-  %numEvents.04 = phi i64 [ 0, %while.body.lr.ph ], [ %inc, %while.body ]
-  %3 = load ptr, ptr %2, align 8
-  %prev_.i5.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %prev_.i5.i.i, align 8
-  store ptr %3, ptr %4, align 8
-  %prev_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %4, ptr %prev_.i.i.i, align 8
-  %5 = load i64, ptr %byteEvents_, align 8
-  %dec.i.i = add i64 %5, -1
-  store i64 %dec.i.i, ptr %byteEvents_, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %vtable.i.i = load ptr, ptr %add.ptr.i.i, align 8
-  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
-  %6 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i) #14
-  %inc = add i64 %numEvents.04, 1
-  %7 = load ptr, ptr %m_header.i, align 8
-  %tobool.not.i = icmp eq ptr %7, null
-  %cmp.i = icmp eq ptr %7, %m_header.i
-  %8 = or i1 %tobool.not.i, %cmp.i
-  br i1 %8, label %while.end, label %while.body, !llvm.loop !4
-
-while.end:                                        ; preds = %while.body, %entry
-  %numEvents.0.lcssa = phi i64 [ 0, %entry ], [ %inc, %while.body ]
-  ret i64 %numEvents.0.lcssa
+  %tobool.not.i = icmp eq ptr %0, null
+  %cmp.i = icmp eq ptr %0, %m_header.i
+  %1 = or i1 %tobool.not.i, %cmp.i
+  tail call void @llvm.assume(i1 %1)
+  ret i64 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen16ByteEventTracker16addLastByteEventEPNS_15HTTPTransactionEmSt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %txn, i64 noundef %byteNo, ptr noundef %callback) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16ByteEventTracker16addLastByteEventEPNS_15HTTPTransactionEmSt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %txn, i64 noundef %byteNo, ptr noundef %callback) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %agg.tmp = alloca %"class.std::function", align 8
@@ -566,11 +477,11 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %cleanup.action unwind label %terminate.lpad
 
 cleanup.action:                                   ; preds = %invoke.cont10
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #14
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #17
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
-  %call17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
+  %call17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
           to label %invoke.cont16 unwind label %terminate.lpad
 
 invoke.cont16:                                    ; preds = %cleanup.done
@@ -609,7 +520,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #15
+  call void @__clang_call_terminate(ptr %8) #18
   unreachable
 
 invoke.cont18:                                    ; preds = %invoke.cont.i, %invoke.cont16
@@ -629,7 +540,7 @@ terminate.lpad.i.i7:                              ; preds = %if.then.i.i5
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #15
+  call void @__clang_call_terminate(ptr %11) #18
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %invoke.cont19, %if.then.i.i5
@@ -656,17 +567,17 @@ terminate.lpad:                                   ; preds = %invoke.cont18, %cle
 terminate.lpad.body:                              ; preds = %lpad.i, %if.then.i.i, %terminate.lpad
   %eh.lpad-body = phi { ptr, i32 } [ %14, %terminate.lpad ], [ %5, %if.then.i.i ], [ %5, %lpad.i ]
   %15 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %15) #15
+  call void @__clang_call_terminate(ptr %15) #18
   unreachable
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8proxygen20TransactionByteEventC2EmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %byteNo, i32 noundef %eventType, ptr noundef %txn, ptr noundef %callback) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8proxygen20TransactionByteEventC2EmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %byteNo, i32 noundef %eventType, ptr noundef %txn, ptr noundef %callback) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
@@ -704,7 +615,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #15
+  call void @__clang_call_terminate(ptr %6) #18
   unreachable
 
 common.resume:                                    ; preds = %lpad3, %lpad.body, %if.then.i.i13, %lpad.i, %if.then.i.i
@@ -748,7 +659,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #15
+  call void @__clang_call_terminate(ptr %12) #18
   unreachable
 
 invoke.cont:                                      ; preds = %if.then.i.i3
@@ -767,7 +678,7 @@ terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #15
+  call void @__clang_call_terminate(ptr %16) #18
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit, %invoke.cont, %if.then.i.i7
@@ -793,18 +704,18 @@ terminate.lpad.i.i15:                             ; preds = %if.then.i.i13
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #15
+  call void @__clang_call_terminate(ptr %19) #18
   unreachable
 
 lpad3:                                            ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #14
+  call void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #17
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen16ByteEventTracker19addTrackedByteEventEPNS_15HTTPTransactionEmSt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %txn, i64 noundef %byteNo, ptr noundef %callback) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16ByteEventTracker19addTrackedByteEventEPNS_15HTTPTransactionEmSt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %txn, i64 noundef %byteNo, ptr noundef %callback) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %agg.tmp = alloca %"class.std::function", align 8
@@ -841,11 +752,11 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %cleanup.action unwind label %terminate.lpad
 
 cleanup.action:                                   ; preds = %invoke.cont10
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #14
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp6) #17
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
-  %call17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
+  %call17 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
           to label %invoke.cont16 unwind label %terminate.lpad
 
 invoke.cont16:                                    ; preds = %cleanup.done
@@ -884,7 +795,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #15
+  call void @__clang_call_terminate(ptr %8) #18
   unreachable
 
 invoke.cont18:                                    ; preds = %invoke.cont.i, %invoke.cont16
@@ -904,7 +815,7 @@ terminate.lpad.i.i7:                              ; preds = %if.then.i.i5
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #15
+  call void @__clang_call_terminate(ptr %11) #18
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %invoke.cont19, %if.then.i.i5
@@ -931,12 +842,12 @@ terminate.lpad:                                   ; preds = %invoke.cont18, %cle
 terminate.lpad.body:                              ; preds = %lpad.i, %if.then.i.i, %terminate.lpad
   %eh.lpad-body = phi { ptr, i32 } [ %14, %terminate.lpad ], [ %5, %if.then.i.i ], [ %5, %lpad.i ]
   %15 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %15) #15
+  call void @__clang_call_terminate(ptr %15) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16ByteEventTracker16addPingByteEventEmNSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEmSt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %pingSize, i64 %timestamp.coerce, i64 noundef %bytesScheduled, ptr noundef %callback) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16ByteEventTracker16addPingByteEventEmNSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEmSt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %pingSize, i64 %timestamp.coerce, i64 noundef %bytesScheduled, ptr noundef %callback) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %ref.tmp11 = alloca %"class.google::LogMessage", align 8
@@ -964,7 +875,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %cl
   %i.sroa.0.0113 = phi ptr [ %m_header.i.i204, %for.body.lr.ph ], [ %13, %cleanup.done51 ]
   %prev_.i.i574 = getelementptr inbounds nuw i8, ptr %i.sroa.0.0113, i64 8
   %1 = load ptr, ptr %prev_.i.i574, align 8
-  %byteOffset_ = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %byteOffset_ = getelementptr inbounds nuw i8, ptr %1, i64 24
   %bf.load = load i64, ptr %byteOffset_, align 8
   %bf.lshr = lshr i64 %bf.load, 5
   %cmp = icmp ugt i64 %bf.lshr, %bytesScheduled
@@ -995,8 +906,7 @@ invoke.cont:                                      ; preds = %cond.false9
 
 invoke.cont13:                                    ; preds = %invoke.cont
   %4 = load ptr, ptr %prev_.i.i574, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  %call18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i.i)
+  %call18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull align 8 dereferenceable(64) %4)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont13
@@ -1005,7 +915,7 @@ invoke.cont17:                                    ; preds = %invoke.cont13
 
 invoke.cont33:                                    ; preds = %invoke.cont17
   %5 = load ptr, ptr %prev_.i.i574, align 8
-  %byteOffset_24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %byteOffset_24 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %bf.load25 = load i64, ptr %byteOffset_24, align 8
   %bf.cast = and i64 %bf.load25, 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
@@ -1033,7 +943,7 @@ terminate.lpad.i.i.i49:                           ; preds = %if.then.i.i.i46
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #15
+  call void @__clang_call_terminate(ptr %8) #18
   unreachable
 
 _ZN8proxygen9ByteEventD2Ev.exit:                  ; preds = %cleanup.action, %if.then.i.i.i46
@@ -1049,23 +959,23 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i50
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #15
+  call void @__clang_call_terminate(ptr %11) #18
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %_ZN8proxygen9ByteEventD2Ev.exit, %if.then.i.i50
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp11) #14
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp11) #17
   br label %cleanup.done51
 
 cleanup.done51:                                   ; preds = %cond.true, %cond.end, %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit
   %12 = load ptr, ptr %prev_.i.i574, align 8
-  %byteOffset_57 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %byteOffset_57 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %bf.load58 = load i64, ptr %byteOffset_57, align 8
   %bf.lshr5943 = add i64 %bf.load58, %add2795
   store i64 %bf.lshr5943, ptr %byteOffset_57, align 8
   %13 = load ptr, ptr %prev_.i.i574, align 8
   %14 = load ptr, ptr %m_header.i.i204, align 8
   %cmp.i.not = icmp eq ptr %13, %14
-  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !6
 
 lpad:                                             ; preds = %invoke.cont17, %invoke.cont13, %invoke.cont, %cond.false9
   %15 = landingpad { ptr, i32 }
@@ -1075,7 +985,7 @@ lpad:                                             ; preds = %invoke.cont17, %inv
 cleanup.action47:                                 ; preds = %invoke.cont33
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp21) #14
+  call void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp21) #17
   %.pre = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i52 = icmp eq ptr %.pre, null
   br i1 %tobool.not.i.i52, label %cleanup.action54, label %if.then.i.i53
@@ -1088,17 +998,17 @@ terminate.lpad.i.i55:                             ; preds = %if.then.i.i53
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #15
+  call void @__clang_call_terminate(ptr %18) #18
   unreachable
 
 cleanup.action54:                                 ; preds = %if.then.i.i53, %cleanup.action47, %lpad
   %.pn38.pn = phi { ptr, i32 } [ %15, %lpad ], [ %16, %cleanup.action47 ], [ %16, %if.then.i.i53 ]
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp11) #14
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp11) #17
   br label %common.resume
 
 for.end:                                          ; preds = %cleanup.done51, %for.body, %entry
   %i.sroa.0.0.lcssa = phi ptr [ %m_header.i.i204, %entry ], [ %i.sroa.0.0113, %for.body ], [ %13, %cleanup.done51 ]
-  %call64 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
+  %call64 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
   %_M_manager.i.i57 = getelementptr inbounds nuw i8, ptr %agg.tmp66, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp66, i64 24
   %_M_manager.i.i.i58 = getelementptr inbounds nuw i8, ptr %callback, i64 16
@@ -1134,7 +1044,7 @@ terminate.lpad.i.i62:                             ; preds = %if.then.i.i60
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #15
+  call void @__clang_call_terminate(ptr %25) #18
   unreachable
 
 invoke.cont68:                                    ; preds = %invoke.cont.i, %for.end
@@ -1154,7 +1064,7 @@ terminate.lpad.i.i68:                             ; preds = %if.then.i.i66
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #15
+  call void @__clang_call_terminate(ptr %28) #18
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit70: ; preds = %invoke.cont72, %if.then.i.i66
@@ -1188,12 +1098,12 @@ terminate.lpad.i.i75:                             ; preds = %if.then.i.i73
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #15
+  call void @__clang_call_terminate(ptr %34) #18
   unreachable
 
 cleanup.action76:                                 ; preds = %if.then.i.i73, %lpad71, %if.then.i.i60, %lpad.i
   %.pn = phi { ptr, i32 } [ %22, %if.then.i.i60 ], [ %22, %lpad.i ], [ %31, %lpad71 ], [ %31, %if.then.i.i73 ]
-  call void @_ZdlPv(ptr noundef nonnull %call64) #16
+  call void @_ZdlPv(ptr noundef nonnull %call64) #19
   br label %common.resume
 
 if.else83:                                        ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit70
@@ -1215,7 +1125,7 @@ if.else89:                                        ; preds = %if.else83
   %36 = load ptr, ptr %i.sroa.0.0.lcssa, align 8
   %prev_.i.i590 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %37 = load ptr, ptr %prev_.i.i590, align 8
-  %byteOffset_93 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %byteOffset_93 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %bf.load94 = load i64, ptr %byteOffset_93, align 8
   %bf.lshr95 = lshr i64 %bf.load94, 5
   %cmp.i = icmp ugt i64 %bf.lshr95, %bytesScheduled
@@ -1247,18 +1157,18 @@ common.resume:                                    ; preds = %cleanup.action54, %
 lpad.i.i83:                                       ; preds = %invoke.cont4.i.i, %invoke.cont2.i.i, %invoke.cont1.i.i, %if.else.i
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #14
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #17
   br label %common.resume
 
 _ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont4.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #14
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
   store ptr %call6.i.i, ptr %_result, align 8
   %cmp.i85.not = icmp eq ptr %call6.i.i, null
   br i1 %cmp.i85.not, label %_ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge, label %while.body
 
 _ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge: ; preds = %_ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  %.pre115 = load ptr, ptr %prev_.i.i590, align 8, !noalias !9
+  %.pre115 = load ptr, ptr %prev_.i.i590, align 8, !noalias !7
   br label %while.end
 
 while.body:                                       ; preds = %_ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
@@ -1267,23 +1177,23 @@ while.body:                                       ; preds = %_ZN6google12Check_G
           to label %invoke.cont103 unwind label %lpad102
 
 invoke.cont103:                                   ; preds = %while.body
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp101) #15
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp101) #18
   unreachable
 
 lpad102:                                          ; preds = %while.body
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp101) #15
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp101) #18
   unreachable
 
 while.end:                                        ; preds = %if.else89, %_ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge
   %41 = phi ptr [ %.pre115, %_ZN6google12Check_GTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge ], [ %37, %if.else89 ]
   %memptr.offset.i.i86 = getelementptr inbounds nuw i8, ptr %call64, i64 8
   %prev_.i6.i.i88 = getelementptr inbounds nuw i8, ptr %call64, i64 16
-  store ptr %41, ptr %prev_.i6.i.i88, align 8, !noalias !9
-  store ptr %36, ptr %memptr.offset.i.i86, align 8, !noalias !9
-  store ptr %memptr.offset.i.i86, ptr %prev_.i.i590, align 8, !noalias !9
-  store ptr %memptr.offset.i.i86, ptr %41, align 8, !noalias !9
+  store ptr %41, ptr %prev_.i6.i.i88, align 8, !noalias !7
+  store ptr %36, ptr %memptr.offset.i.i86, align 8, !noalias !7
+  store ptr %memptr.offset.i.i86, ptr %prev_.i.i590, align 8, !noalias !7
+  store ptr %memptr.offset.i.i86, ptr %41, align 8, !noalias !7
   br label %if.end111
 
 if.end111:                                        ; preds = %if.then87, %while.end, %if.then81
@@ -1295,7 +1205,7 @@ if.end111:                                        ; preds = %if.then87, %while.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8proxygen9ByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1312,7 +1222,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #15
+  tail call void @__clang_call_terminate(ptr %2) #18
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %entry, %if.then.i.i
@@ -1320,7 +1230,7 @@ _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8proxygen13PingByteEventC2EmNSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEESt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %byteOffset, i64 %pingRequestReceivedTime.coerce, ptr noundef %callback) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8proxygen13PingByteEventC2EmNSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEESt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %byteOffset, i64 %pingRequestReceivedTime.coerce, ptr noundef %callback) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
@@ -1358,7 +1268,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #15
+  call void @__clang_call_terminate(ptr %6) #18
   unreachable
 
 common.resume:                                    ; preds = %if.then.i.i12, %lpad.body, %lpad.i, %if.then.i.i
@@ -1400,7 +1310,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #15
+  call void @__clang_call_terminate(ptr %11) #18
   unreachable
 
 invoke.cont:                                      ; preds = %if.then.i.i2
@@ -1419,7 +1329,7 @@ terminate.lpad.i.i8:                              ; preds = %if.then.i.i6
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #15
+  call void @__clang_call_terminate(ptr %15) #18
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit, %invoke.cont, %if.then.i.i6
@@ -1441,17 +1351,17 @@ terminate.lpad.i.i14:                             ; preds = %if.then.i.i12
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #15
+  call void @__clang_call_terminate(ptr %18) #18
   unreachable
 }
 
 declare void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16ByteEventTracker21addFirstBodyByteEventEmPNS_15HTTPTransactionESt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, ptr noundef %txn, ptr noundef %callback) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16ByteEventTracker21addFirstBodyByteEventEmPNS_15HTTPTransactionESt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, ptr noundef %txn, ptr noundef %callback) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
-  %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
+  %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %callback, i64 16
@@ -1487,7 +1397,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #15
+  call void @__clang_call_terminate(ptr %6) #18
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i, %entry
@@ -1520,7 +1430,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #15
+  call void @__clang_call_terminate(ptr %11) #18
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %invoke.cont3, %if.then.i.i4
@@ -1541,20 +1451,20 @@ terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #15
+  call void @__clang_call_terminate(ptr %15) #18
   unreachable
 
 cleanup.action:                                   ; preds = %if.then.i.i10, %lpad2, %if.then.i.i, %lpad.i
   %.pn = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %12, %lpad2 ], [ %12, %if.then.i.i10 ]
-  call void @_ZdlPv(ptr noundef nonnull %call) #16
+  call void @_ZdlPv(ptr noundef nonnull %call) #19
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16ByteEventTracker23addFirstHeaderByteEventEmPNS_15HTTPTransactionESt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, ptr noundef %txn, ptr noundef %callback) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16ByteEventTracker23addFirstHeaderByteEventEmPNS_15HTTPTransactionESt8functionIFvRNS_9ByteEventEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, ptr noundef %txn, ptr noundef %callback) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
-  %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
+  %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #20
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %callback, i64 16
@@ -1590,7 +1500,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #15
+  call void @__clang_call_terminate(ptr %6) #18
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i, %entry
@@ -1623,7 +1533,7 @@ terminate.lpad.i.i6:                              ; preds = %if.then.i.i4
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #15
+  call void @__clang_call_terminate(ptr %11) #18
   unreachable
 
 _ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit: ; preds = %invoke.cont3, %if.then.i.i4
@@ -1644,53 +1554,53 @@ terminate.lpad.i.i12:                             ; preds = %if.then.i.i10
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #15
+  call void @__clang_call_terminate(ptr %15) #18
   unreachable
 
 cleanup.action:                                   ; preds = %if.then.i.i10, %lpad2, %if.then.i.i, %lpad.i
   %.pn = phi { ptr, i32 } [ %3, %if.then.i.i ], [ %3, %lpad.i ], [ %12, %lpad2 ], [ %12, %if.then.i.i10 ]
-  call void @_ZdlPv(ptr noundef nonnull %call) #16
+  call void @_ZdlPv(ptr noundef nonnull %call) #19
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8proxygen16ByteEventTracker26onByteEventWrittenToSocketERKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN8proxygen16ByteEventTracker26onByteEventWrittenToSocketERKNS_9ByteEventE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN8proxygen16ByteEventTracker28disableSocketTimestampEventsEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 {
+define linkonce_odr noundef i64 @_ZN8proxygen16ByteEventTracker28disableSocketTimestampEventsEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8proxygen16ByteEventTracker14addTxByteEventEmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN8proxygen16ByteEventTracker14addTxByteEventEmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #6 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8proxygen16ByteEventTracker15addAckByteEventEmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN8proxygen16ByteEventTracker15addAckByteEventEmNS_9ByteEvent9EventTypeEPNS_15HTTPTransactionESt8functionIFvRS1_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #6 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN8proxygen16ByteEventTracker7preSendEPbS1_S1_m(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #3 comdat align 2 {
+define linkonce_odr noundef i64 @_ZN8proxygen16ByteEventTracker7preSendEPbS1_S1_m(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #6 comdat align 2 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8proxygen16ByteEventTracker13setTTLBAStatsEPNS_10TTLBAStatsE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0) unnamed_addr #3 comdat align 2 {
+define linkonce_odr void @_ZN8proxygen16ByteEventTracker13setTTLBAStatsEPNS_10TTLBAStatsE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0) unnamed_addr #6 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8proxygen15HTTPTransaction26incrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8proxygen15HTTPTransaction26incrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %_result = alloca %"struct.google::CheckOpString", align 8
@@ -1722,11 +1632,11 @@ invoke.cont4.i.i:                                 ; preds = %invoke.cont2.i.i
 lpad.i.i:                                         ; preds = %invoke.cont4.i.i, %invoke.cont2.i.i, %invoke.cont1.i.i, %if.else.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #14
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #17
   resume { ptr, i32 } %2
 
 _ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %invoke.cont4.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #14
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
   store ptr %call6.i.i, ptr %_result, align 8
   %cmp.i1.not = icmp eq ptr %call6.i.i, null
@@ -1742,13 +1652,13 @@ while.body:                                       ; preds = %_ZN6google12Check_L
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %while.body
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #15
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #18
   unreachable
 
 lpad:                                             ; preds = %while.body
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #15
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp7) #18
   unreachable
 
 while.end:                                        ; preds = %entry, %_ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge
@@ -1759,7 +1669,7 @@ while.end:                                        ; preds = %entry, %_ZN6google1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8proxygen20TransactionByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8proxygen20TransactionByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen20TransactionByteEventE, i64 16), ptr %this, align 8
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1783,7 +1693,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #15
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 
 _ZN8proxygen9ByteEventD2Ev.exit:                  ; preds = %invoke.cont, %if.then.i.i.i
@@ -1793,12 +1703,12 @@ terminate.lpad:                                   ; preds = %entry
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #15
+  tail call void @__clang_call_terminate(ptr %5) #18
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8proxygen20TransactionByteEventD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8proxygen20TransactionByteEventD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen20TransactionByteEventE, i64 16), ptr %this, align 8
   %txn_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1822,23 +1732,23 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #15
+  tail call void @__clang_call_terminate(ptr %3) #18
   unreachable
 
 terminate.lpad.i:                                 ; preds = %entry
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #15
+  tail call void @__clang_call_terminate(ptr %5) #18
   unreachable
 
 _ZN8proxygen20TransactionByteEventD2Ev.exit:      ; preds = %invoke.cont.i, %if.then.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK8proxygen20TransactionByteEvent14getTransactionEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNK8proxygen20TransactionByteEvent14getTransactionEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 {
 entry:
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %txn_, align 8
@@ -1846,13 +1756,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN8proxygen9ByteEvent10getLatencyEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 {
+define linkonce_odr noundef i64 @_ZN8proxygen9ByteEvent10getLatencyEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 comdat align 2 {
 entry:
   ret i64 -1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8proxygen9ByteEventD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8proxygen9ByteEventD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen9ByteEventE, i64 16), ptr %this, align 8
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1869,16 +1779,16 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #15
+  tail call void @__clang_call_terminate(ptr %2) #18
   unreachable
 
 _ZN8proxygen9ByteEventD2Ev.exit:                  ; preds = %entry, %if.then.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK8proxygen9ByteEvent14getTransactionEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNK8proxygen9ByteEvent14getTransactionEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 comdat align 2 {
 entry:
   ret ptr null
 }
@@ -1893,7 +1803,7 @@ declare noundef ptr @_ZN6google4base21CheckOpMessageBuilder9NewStringB5cxx11Ev(p
 declare void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8proxygen15HTTPTransaction26decrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN8proxygen15HTTPTransaction26decrementPendingByteEventsEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %dg = alloca %"class.folly::DelayedDestructionBase::DestructorGuard", align 8
@@ -1935,11 +1845,11 @@ invoke.cont3.i.i:                                 ; preds = %invoke.cont1.i.i
 lpad.i.i:                                         ; preds = %invoke.cont3.i.i, %invoke.cont1.i.i, %invoke.cont.i.i, %.noexc
   %3 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #14
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #17
   br label %lpad.body
 
 invoke.cont5:                                     ; preds = %invoke.cont3.i.i
-  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #14
+  call void @_ZN6google4base21CheckOpMessageBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %comb.i.i) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %comb.i.i)
   store ptr %call5.i.i, ptr %_result, align 8
   %cmp.i1.not = icmp eq ptr %call5.i.i, null
@@ -1958,7 +1868,7 @@ invoke.cont11:                                    ; preds = %while.body
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10) #15
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10) #18
   unreachable
 
 lpad:                                             ; preds = %if.else.i, %while.body
@@ -1968,13 +1878,13 @@ lpad:                                             ; preds = %if.else.i, %while.b
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %4, %lpad ], [ %3, %lpad.i.i ]
-  call void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %dg) #14
+  call void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %dg) #17
   resume { ptr, i32 } %eh.lpad-body
 
 lpad12:                                           ; preds = %invoke.cont11
   %5 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10) #15
+  call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10) #18
   unreachable
 
 if.then.i:                                        ; preds = %entry, %invoke.cont5.while.end_crit_edge
@@ -1999,7 +1909,7 @@ terminate.lpad.i:                                 ; preds = %if.then6.i
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #15
+  call void @__clang_call_terminate(ptr %10) #18
   unreachable
 
 _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.i, %if.then6.i
@@ -2007,7 +1917,7 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -2038,47 +1948,53 @@ terminate.lpad:                                   ; preds = %if.then6
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #15
+  tail call void @__clang_call_terminate(ptr %6) #18
   unreachable
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ByteEventTracker.cpp() #12 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_ByteEventTracker.cpp() #14 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold nofree noreturn }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { builtin nounwind }
-attributes #17 = { builtin allocsize(0) }
+attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { builtin nounwind }
+attributes #20 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -2089,8 +2005,6 @@ attributes #17 = { builtin allocsize(0) }
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen9ByteEventENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS4_: %agg.result"}
-!11 = distinct !{!11, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen9ByteEventENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS4_"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen9ByteEventENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS4_: %agg.result"}
+!9 = distinct !{!9, !"_ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen9ByteEventENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEEmLb1EvE6insertENS0_13list_iteratorISA_Lb1EEERS4_"}

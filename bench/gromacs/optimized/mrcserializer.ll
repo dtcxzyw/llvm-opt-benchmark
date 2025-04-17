@@ -36,80 +36,77 @@ define void @_ZN3gmx28serializeMrcDensityMapHeaderEPNS_11ISerializerERKNS_19MrcD
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %.not.i.i.i.i.i, label %.thread, label %15
+  br i1 %.not.i.i.i.i.i, label %.thread, label %14
 
 .thread:                                          ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 1024
-  %13 = getelementptr inbounds i8, ptr null, i64 %11
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 1032
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store ptr %13, ptr %14, align 8, !tbaa !11
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1032
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   br label %_ZN3gmx19MrcDensityMapHeaderC2ERKS0_.exit
 
-15:                                               ; preds = %2
-  %16 = icmp slt i64 %11, 0
-  br i1 %16, label %.noexc.i.i.i, label %17, !prof !12
+14:                                               ; preds = %2
+  %15 = icmp slt i64 %11, 0
+  br i1 %15, label %.noexc.i.i.i, label %16, !prof !11
 
-.noexc.i.i.i:                                     ; preds = %15
+.noexc.i.i.i:                                     ; preds = %14
   tail call void @_ZSt17__throw_bad_allocv() #10
   unreachable
 
-17:                                               ; preds = %15
-  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #11
-  store ptr %18, ptr %4, align 8, !tbaa !10
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 1024
-  store ptr %18, ptr %19, align 8, !tbaa !4
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %11
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 1032
-  store ptr %20, ptr %21, align 8, !tbaa !11
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %8, i64 %11, i1 false)
+16:                                               ; preds = %14
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #11
+  store ptr %17, ptr %4, align 8, !tbaa !10
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 1024
+  store ptr %17, ptr %18, align 8, !tbaa !4
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %11
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 1032
+  store ptr %19, ptr %20, align 8, !tbaa !12
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %8, i64 %11, i1 false)
   br label %_ZN3gmx19MrcDensityMapHeaderC2ERKS0_.exit
 
-_ZN3gmx19MrcDensityMapHeaderC2ERKS0_.exit:        ; preds = %.thread, %17
-  %22 = phi ptr [ %14, %.thread ], [ %21, %17 ]
-  %23 = phi ptr [ %13, %.thread ], [ %20, %17 ]
-  %24 = phi ptr [ %12, %.thread ], [ %19, %17 ]
-  store ptr %23, ptr %24, align 8, !tbaa !4
+_ZN3gmx19MrcDensityMapHeaderC2ERKS0_.exit:        ; preds = %.thread, %16
+  %21 = phi ptr [ %13, %.thread ], [ %20, %16 ]
+  %22 = phi ptr [ null, %.thread ], [ %19, %16 ]
+  %23 = phi ptr [ %12, %.thread ], [ %18, %16 ]
+  store ptr %22, ptr %23, align 8, !tbaa !4
   invoke fastcc void @_ZN3gmx12_GLOBAL__N_121doMrcDensityMapHeaderEPNS_11ISerializerEPNS_19MrcDensityMapHeaderE(ptr noundef %0, ptr noundef nonnull %3)
-          to label %25 unwind label %32
+          to label %24 unwind label %31
 
-25:                                               ; preds = %_ZN3gmx19MrcDensityMapHeaderC2ERKS0_.exit
-  %26 = load ptr, ptr %4, align 8, !tbaa !10
-  %.not.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i, label %_ZN3gmx19MrcDensityMapHeaderD2Ev.exit, label %27
+24:                                               ; preds = %_ZN3gmx19MrcDensityMapHeaderC2ERKS0_.exit
+  %25 = load ptr, ptr %4, align 8, !tbaa !10
+  %.not.i.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i.i, label %_ZN3gmx19MrcDensityMapHeaderD2Ev.exit, label %26
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %22, align 8, !tbaa !11
-  %29 = ptrtoint ptr %28 to i64
-  %30 = ptrtoint ptr %26 to i64
-  %31 = sub i64 %29, %30
-  call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %31) #12
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %21, align 8, !tbaa !12
+  %28 = ptrtoint ptr %27 to i64
+  %29 = ptrtoint ptr %25 to i64
+  %30 = sub i64 %28, %29
+  call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %30) #12
   br label %_ZN3gmx19MrcDensityMapHeaderD2Ev.exit
 
-_ZN3gmx19MrcDensityMapHeaderD2Ev.exit:            ; preds = %25, %27
+_ZN3gmx19MrcDensityMapHeaderD2Ev.exit:            ; preds = %24, %26
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %3) #9
   ret void
 
-32:                                               ; preds = %_ZN3gmx19MrcDensityMapHeaderC2ERKS0_.exit
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %_ZN3gmx19MrcDensityMapHeaderC2ERKS0_.exit
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %34 = load ptr, ptr %4, align 8, !tbaa !10
-  %.not.i.i.i.i3 = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i3, label %_ZN3gmx19MrcDensityMapHeaderD2Ev.exit4, label %35
+  %33 = load ptr, ptr %4, align 8, !tbaa !10
+  %.not.i.i.i.i3 = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i3, label %_ZN3gmx19MrcDensityMapHeaderD2Ev.exit4, label %34
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %22, align 8, !tbaa !11
-  %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %34 to i64
-  %39 = sub i64 %37, %38
-  call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %39) #12
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %21, align 8, !tbaa !12
+  %36 = ptrtoint ptr %35 to i64
+  %37 = ptrtoint ptr %33 to i64
+  %38 = sub i64 %36, %37
+  call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %38) #12
   br label %_ZN3gmx19MrcDensityMapHeaderD2Ev.exit4
 
-_ZN3gmx19MrcDensityMapHeaderD2Ev.exit4:           ; preds = %32, %35
+_ZN3gmx19MrcDensityMapHeaderD2Ev.exit4:           ; preds = %31, %34
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %3) #9
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -612,7 +609,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !11
+  %13 = load ptr, ptr %12, align 8, !tbaa !12
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
   %16 = icmp sgt i64 %8, -1
@@ -686,7 +683,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 %1
   store ptr %39, ptr %3, align 8, !tbaa !4
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 %29
-  store ptr %40, ptr %12, align 8, !tbaa !11
+  store ptr %40, ptr %12, align 8, !tbaa !12
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 41:                                               ; preds = %2
@@ -762,7 +759,7 @@ define void @_ZN3gmx30deserializeMrcDensityMapHeaderEPNS_11ISerializerE(ptr dead
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %26 = load ptr, ptr %25, align 8, !tbaa !11
+  %26 = load ptr, ptr %25, align 8, !tbaa !12
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %23 to i64
   %29 = sub i64 %27, %28
@@ -812,8 +809,8 @@ attributes #12 = { builtin nounwind }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
 !10 = !{!5, !6, i64 0}
-!11 = !{!5, !6, i64 16}
-!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = !{!5, !6, i64 16}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"vtable pointer", !9, i64 0}
 !15 = !{!16, !16, i64 0}

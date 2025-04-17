@@ -11239,10 +11239,7 @@ _ZN8QuantLib10DayCounterC2ERKS0_.exit:            ; preds = %entry, %if.then.i.i
 
 invoke.cont.i.thread:                             ; preds = %_ZN8QuantLib10DayCounterC2ERKS0_.exit
   %_M_finish.i.i.i96 = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 8
-  %add.ptr.i.i.i97 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i98 = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i97, ptr %_M_end_of_storage.i.i.i98, align 8, !tbaa !65
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %_ZN8QuantLib10DayCounterC2ERKS0_.exit
@@ -12683,10 +12680,7 @@ _ZN8QuantLib10DayCounterC2ERKS0_.exit:            ; preds = %entry, %if.then.i.i
 
 invoke.cont.i.thread:                             ; preds = %_ZN8QuantLib10DayCounterC2ERKS0_.exit
   %_M_finish.i.i.i100 = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 8
-  %add.ptr.i.i.i101 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i102 = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i101, ptr %_M_end_of_storage.i.i.i102, align 8, !tbaa !65
   br label %invoke.cont7
 
 cond.true.i.i.i.i:                                ; preds = %_ZN8QuantLib10DayCounterC2ERKS0_.exit
@@ -13326,10 +13320,7 @@ _ZN8QuantLib10DayCounterC2ERKS0_.exit:            ; preds = %entry, %if.then.i.i
 
 invoke.cont.i.thread:                             ; preds = %_ZN8QuantLib10DayCounterC2ERKS0_.exit
   %_M_finish.i.i.i18 = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 8
-  %add.ptr.i.i.i19 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i20 = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i19, ptr %_M_end_of_storage.i.i.i20, align 8, !tbaa !65
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %_ZN8QuantLib10DayCounterC2ERKS0_.exit
@@ -13616,10 +13607,7 @@ _ZN8QuantLib10DayCounterC2ERKS0_.exit:            ; preds = %entry, %if.then.i.i
 
 invoke.cont.i.thread:                             ; preds = %_ZN8QuantLib10DayCounterC2ERKS0_.exit
   %_M_finish.i.i.i22 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 8
-  %add.ptr.i.i.i23 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i24 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i23, ptr %_M_end_of_storage.i.i.i24, align 8, !tbaa !65
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %_ZN8QuantLib10DayCounterC2ERKS0_.exit

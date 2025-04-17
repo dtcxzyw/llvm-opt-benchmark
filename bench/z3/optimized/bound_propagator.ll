@@ -1030,12 +1030,7 @@ _ZNK6vectorIN16bound_propagator10trail_infoELb0EjE4sizeEv.exit.i: ; preds = %1
   %11 = add i32 %.01415.i, -1
   %12 = load ptr, ptr %2, align 8, !tbaa !67
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge.i, label %14
-
-._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge.i: ; preds = %10
-  %.pre.i = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !69
-  %.pre16.i = add i32 %.pre.i, -1
-  br label %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit.i
+  br i1 %13, label %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit.i, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %12, i64 -4
@@ -1044,9 +1039,9 @@ _ZNK6vectorIN16bound_propagator10trail_infoELb0EjE4sizeEv.exit.i: ; preds = %1
   %18 = zext i32 %17 to i64
   br label %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit.i
 
-_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit.i: ; preds = %14, %._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre16.i, %._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge.i ], [ %17, %14 ]
-  %.0.i.i.i = phi i64 [ 4294967295, %._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge.i ], [ %18, %14 ]
+_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit.i: ; preds = %14, %10
+  %.pre-phi.i = phi i32 [ %17, %14 ], [ undef, %10 ]
+  %.0.i.i.i = phi i64 [ %18, %14 ], [ 4294967295, %10 ]
   %19 = getelementptr inbounds nuw %"class.bound_propagator::trail_info", ptr %12, i64 %.0.i.i.i
   %20 = load i32, ptr %19, align 4, !tbaa !78
   %21 = lshr i32 %20, 1
@@ -1069,8 +1064,8 @@ _ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit.i: ; preds = %14, 
   tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %31, ptr noundef nonnull align 8 dereferenceable(16) %32)
   %33 = load ptr, ptr %9, align 8, !tbaa !81
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %33, i64 noundef 64, ptr noundef nonnull %28)
-  %.not24 = icmp eq i32 %11, 0
-  br i1 %.not24, label %_ZN16bound_propagator10undo_trailEj.exit, label %10, !llvm.loop !82
+  %.not23 = icmp eq i32 %11, 0
+  br i1 %.not23, label %_ZN16bound_propagator10undo_trailEj.exit, label %10, !llvm.loop !82
 
 _ZN16bound_propagator10undo_trailEj.exit:         ; preds = %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit.i, %1, %_ZNK6vectorIN16bound_propagator10trail_infoELb0EjE4sizeEv.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1091,12 +1086,12 @@ _ZN6vectorIN16bound_propagator10constraintELb0EjE3endEv.exit.i: ; preds = %_ZN16
   br label %43
 
 ._crit_edge.i:                                    ; preds = %_ZN16bound_propagator14del_constraintERNS_10constraintE.exit.i
-  %.pre.i3 = load ptr, ptr %34, align 8, !tbaa !74
-  %.not.i.i = icmp eq ptr %.pre.i3, null
-  br i1 %.not.i.i, label %_ZN6vectorIN16bound_propagator10constraintELb0EjE8finalizeEv.exit, label %_ZN16bound_propagator20del_constraints_coreEv.exit.thread20
+  %.pre.i = load ptr, ptr %34, align 8, !tbaa !74
+  %.not.i.i = icmp eq ptr %.pre.i, null
+  br i1 %.not.i.i, label %_ZN6vectorIN16bound_propagator10constraintELb0EjE8finalizeEv.exit, label %_ZN16bound_propagator20del_constraints_coreEv.exit.thread19
 
-_ZN16bound_propagator20del_constraints_coreEv.exit.thread20: ; preds = %._crit_edge.i
-  %42 = getelementptr inbounds i8, ptr %.pre.i3, i64 -4
+_ZN16bound_propagator20del_constraints_coreEv.exit.thread19: ; preds = %._crit_edge.i
+  %42 = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   store i32 0, ptr %42, align 4, !tbaa !69
   br label %_ZN16bound_propagator20del_constraints_coreEv.exit
 
@@ -1123,9 +1118,9 @@ _ZN16bound_propagator14del_constraintERNS_10constraintE.exit.i: ; preds = %49, %
   %.not.i2 = icmp eq ptr %50, %40
   br i1 %.not.i2, label %._crit_edge.i, label %43
 
-_ZN16bound_propagator20del_constraints_coreEv.exit: ; preds = %_ZN6vectorIN16bound_propagator10constraintELb0EjE3endEv.exit.i, %_ZN16bound_propagator20del_constraints_coreEv.exit.thread20
-  %.pr23 = phi ptr [ %.pre.i3, %_ZN16bound_propagator20del_constraints_coreEv.exit.thread20 ], [ %35, %_ZN6vectorIN16bound_propagator10constraintELb0EjE3endEv.exit.i ]
-  %51 = getelementptr inbounds i8, ptr %.pr23, i64 -8
+_ZN16bound_propagator20del_constraints_coreEv.exit: ; preds = %_ZN6vectorIN16bound_propagator10constraintELb0EjE3endEv.exit.i, %_ZN16bound_propagator20del_constraints_coreEv.exit.thread19
+  %.pr22 = phi ptr [ %.pre.i, %_ZN16bound_propagator20del_constraints_coreEv.exit.thread19 ], [ %35, %_ZN6vectorIN16bound_propagator10constraintELb0EjE3endEv.exit.i ]
+  %51 = getelementptr inbounds i8, ptr %.pr22, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %51)
   br label %_ZN6vectorIN16bound_propagator10constraintELb0EjE8finalizeEv.exit
 
@@ -1133,8 +1128,8 @@ _ZN6vectorIN16bound_propagator10constraintELb0EjE8finalizeEv.exit: ; preds = %._
   store ptr null, ptr %34, align 8, !tbaa !74
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %53 = load ptr, ptr %52, align 8, !tbaa !73
-  %.not.i.i5 = icmp eq ptr %53, null
-  br i1 %.not.i.i5, label %_ZN6vectorIcLb0EjE8finalizeEv.exit, label %54
+  %.not.i.i4 = icmp eq ptr %53, null
+  br i1 %.not.i.i4, label %_ZN6vectorIcLb0EjE8finalizeEv.exit, label %54
 
 54:                                               ; preds = %_ZN6vectorIN16bound_propagator10constraintELb0EjE8finalizeEv.exit
   %55 = getelementptr inbounds i8, ptr %53, i64 -8
@@ -1145,46 +1140,46 @@ _ZN6vectorIcLb0EjE8finalizeEv.exit:               ; preds = %_ZN6vectorIN16bound
   store ptr null, ptr %52, align 8, !tbaa !73
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %57 = load ptr, ptr %56, align 8, !tbaa !73
-  %.not.i.i6 = icmp eq ptr %57, null
-  br i1 %.not.i.i6, label %_ZN6vectorIcLb0EjE8finalizeEv.exit7, label %58
+  %.not.i.i5 = icmp eq ptr %57, null
+  br i1 %.not.i.i5, label %_ZN6vectorIcLb0EjE8finalizeEv.exit6, label %58
 
 58:                                               ; preds = %_ZN6vectorIcLb0EjE8finalizeEv.exit
   %59 = getelementptr inbounds i8, ptr %57, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %59)
-  br label %_ZN6vectorIcLb0EjE8finalizeEv.exit7
+  br label %_ZN6vectorIcLb0EjE8finalizeEv.exit6
 
-_ZN6vectorIcLb0EjE8finalizeEv.exit7:              ; preds = %_ZN6vectorIcLb0EjE8finalizeEv.exit, %58
+_ZN6vectorIcLb0EjE8finalizeEv.exit6:              ; preds = %_ZN6vectorIcLb0EjE8finalizeEv.exit, %58
   store ptr null, ptr %56, align 8, !tbaa !73
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %61 = load ptr, ptr %60, align 8, !tbaa !72
-  %.not.i.i8 = icmp eq ptr %61, null
-  br i1 %.not.i.i8, label %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit, label %62
+  %.not.i.i7 = icmp eq ptr %61, null
+  br i1 %.not.i.i7, label %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit, label %62
 
-62:                                               ; preds = %_ZN6vectorIcLb0EjE8finalizeEv.exit7
+62:                                               ; preds = %_ZN6vectorIcLb0EjE8finalizeEv.exit6
   %63 = getelementptr inbounds i8, ptr %61, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %63)
   br label %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit
 
-_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit: ; preds = %_ZN6vectorIcLb0EjE8finalizeEv.exit7, %62
+_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit: ; preds = %_ZN6vectorIcLb0EjE8finalizeEv.exit6, %62
   store ptr null, ptr %60, align 8, !tbaa !72
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %65 = load ptr, ptr %64, align 8, !tbaa !72
-  %.not.i.i9 = icmp eq ptr %65, null
-  br i1 %.not.i.i9, label %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit10, label %66
+  %.not.i.i8 = icmp eq ptr %65, null
+  br i1 %.not.i.i8, label %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit9, label %66
 
 66:                                               ; preds = %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit
   %67 = getelementptr inbounds i8, ptr %65, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %67)
-  br label %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit10
+  br label %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit9
 
-_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit10: ; preds = %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit, %66
+_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit9: ; preds = %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit, %66
   store ptr null, ptr %64, align 8, !tbaa !72
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %69 = load ptr, ptr %68, align 8, !tbaa !68
-  %.not.i.i11 = icmp eq ptr %69, null
-  br i1 %.not.i.i11, label %_ZN6vectorI7svectorIjjELb1EjE8finalizeEv.exit, label %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.i.i.i
+  %.not.i.i10 = icmp eq ptr %69, null
+  br i1 %.not.i.i10, label %_ZN6vectorI7svectorIjjELb1EjE8finalizeEv.exit, label %_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.i.i.i
 
-_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.i.i.i: ; preds = %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit10
+_ZNK6vectorI7svectorIjjELb1EjE4sizeEv.exit.i.i.i: ; preds = %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit9
   %70 = getelementptr inbounds i8, ptr %69, i64 -4
   %71 = load i32, ptr %70, align 4, !tbaa !69
   %.not6.i.i.i.i.i.i = icmp eq i32 %71, 0
@@ -1225,11 +1220,11 @@ _ZN6vectorI7svectorIjjELb1EjE16destroy_elementsEv.exit.i.i: ; preds = %_ZN6vecto
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %81)
   br label %_ZN6vectorI7svectorIjjELb1EjE8finalizeEv.exit
 
-_ZN6vectorI7svectorIjjELb1EjE8finalizeEv.exit:    ; preds = %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit10, %_ZN6vectorI7svectorIjjELb1EjE16destroy_elementsEv.exit.i.i
+_ZN6vectorI7svectorIjjELb1EjE8finalizeEv.exit:    ; preds = %_ZN6vectorIPN16bound_propagator5boundELb0EjE8finalizeEv.exit9, %_ZN6vectorI7svectorIjjELb1EjE16destroy_elementsEv.exit.i.i
   store ptr null, ptr %68, align 8, !tbaa !68
   %82 = load ptr, ptr %2, align 8, !tbaa !67
-  %.not.i.i12 = icmp eq ptr %82, null
-  br i1 %.not.i.i12, label %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE8finalizeEv.exit, label %83
+  %.not.i.i11 = icmp eq ptr %82, null
+  br i1 %.not.i.i11, label %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE8finalizeEv.exit, label %83
 
 83:                                               ; preds = %_ZN6vectorI7svectorIjjELb1EjE8finalizeEv.exit
   %84 = getelementptr inbounds i8, ptr %82, i64 -8
@@ -1242,8 +1237,8 @@ _ZN6vectorIN16bound_propagator10trail_infoELb0EjE8finalizeEv.exit: ; preds = %_Z
   store i32 0, ptr %85, align 8, !tbaa !56
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %87 = load ptr, ptr %86, align 8, !tbaa !65
-  %.not.i.i13 = icmp eq ptr %87, null
-  br i1 %.not.i.i13, label %_ZN6vectorIjLb0EjE8finalizeEv.exit, label %88
+  %.not.i.i12 = icmp eq ptr %87, null
+  br i1 %.not.i.i12, label %_ZN6vectorIjLb0EjE8finalizeEv.exit, label %88
 
 88:                                               ; preds = %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE8finalizeEv.exit
   %89 = getelementptr inbounds i8, ptr %87, i64 -8
@@ -1254,27 +1249,27 @@ _ZN6vectorIjLb0EjE8finalizeEv.exit:               ; preds = %_ZN6vectorIN16bound
   store ptr null, ptr %86, align 8, !tbaa !65
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %91 = load ptr, ptr %90, align 8, !tbaa !65
-  %.not.i.i14 = icmp eq ptr %91, null
-  br i1 %.not.i.i14, label %_ZN6vectorIjLb0EjE8finalizeEv.exit15, label %92
+  %.not.i.i13 = icmp eq ptr %91, null
+  br i1 %.not.i.i13, label %_ZN6vectorIjLb0EjE8finalizeEv.exit14, label %92
 
 92:                                               ; preds = %_ZN6vectorIjLb0EjE8finalizeEv.exit
   %93 = getelementptr inbounds i8, ptr %91, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %93)
-  br label %_ZN6vectorIjLb0EjE8finalizeEv.exit15
+  br label %_ZN6vectorIjLb0EjE8finalizeEv.exit14
 
-_ZN6vectorIjLb0EjE8finalizeEv.exit15:             ; preds = %_ZN6vectorIjLb0EjE8finalizeEv.exit, %92
+_ZN6vectorIjLb0EjE8finalizeEv.exit14:             ; preds = %_ZN6vectorIjLb0EjE8finalizeEv.exit, %92
   store ptr null, ptr %90, align 8, !tbaa !65
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %95 = load ptr, ptr %94, align 8, !tbaa !65
-  %.not.i.i16 = icmp eq ptr %95, null
-  br i1 %.not.i.i16, label %_ZN6vectorIjLb0EjE8finalizeEv.exit17, label %96
+  %.not.i.i15 = icmp eq ptr %95, null
+  br i1 %.not.i.i15, label %_ZN6vectorIjLb0EjE8finalizeEv.exit16, label %96
 
-96:                                               ; preds = %_ZN6vectorIjLb0EjE8finalizeEv.exit15
+96:                                               ; preds = %_ZN6vectorIjLb0EjE8finalizeEv.exit14
   %97 = getelementptr inbounds i8, ptr %95, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %97)
-  br label %_ZN6vectorIjLb0EjE8finalizeEv.exit17
+  br label %_ZN6vectorIjLb0EjE8finalizeEv.exit16
 
-_ZN6vectorIjLb0EjE8finalizeEv.exit17:             ; preds = %_ZN6vectorIjLb0EjE8finalizeEv.exit15, %96
+_ZN6vectorIjLb0EjE8finalizeEv.exit16:             ; preds = %_ZN6vectorIjLb0EjE8finalizeEv.exit14, %96
   store ptr null, ptr %94, align 8, !tbaa !65
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 0, ptr %98, align 8, !tbaa !29
@@ -1282,15 +1277,15 @@ _ZN6vectorIjLb0EjE8finalizeEv.exit17:             ; preds = %_ZN6vectorIjLb0EjE8
   store i32 -1, ptr %99, align 4, !tbaa !57
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %101 = load ptr, ptr %100, align 8, !tbaa !66
-  %.not.i.i18 = icmp eq ptr %101, null
-  br i1 %.not.i.i18, label %_ZN6vectorIN16bound_propagator5scopeELb0EjE8finalizeEv.exit, label %102
+  %.not.i.i17 = icmp eq ptr %101, null
+  br i1 %.not.i.i17, label %_ZN6vectorIN16bound_propagator5scopeELb0EjE8finalizeEv.exit, label %102
 
-102:                                              ; preds = %_ZN6vectorIjLb0EjE8finalizeEv.exit17
+102:                                              ; preds = %_ZN6vectorIjLb0EjE8finalizeEv.exit16
   %103 = getelementptr inbounds i8, ptr %101, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %103)
   br label %_ZN6vectorIN16bound_propagator5scopeELb0EjE8finalizeEv.exit
 
-_ZN6vectorIN16bound_propagator5scopeELb0EjE8finalizeEv.exit: ; preds = %_ZN6vectorIjLb0EjE8finalizeEv.exit17, %102
+_ZN6vectorIN16bound_propagator5scopeELb0EjE8finalizeEv.exit: ; preds = %_ZN6vectorIjLb0EjE8finalizeEv.exit16, %102
   store ptr null, ptr %100, align 8, !tbaa !66
   ret void
 }
@@ -2307,12 +2302,7 @@ _ZNK6vectorIN16bound_propagator10trail_infoELb0EjE4sizeEv.exit: ; preds = %2
   %13 = add i32 %.01415, -1
   %14 = load ptr, ptr %3, align 8, !tbaa !67
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge, label %16
-
-._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge: ; preds = %12
-  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !69
-  %.pre16 = add i32 %.pre, -1
-  br label %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit
+  br i1 %15, label %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %14, i64 -4
@@ -2321,9 +2311,9 @@ _ZNK6vectorIN16bound_propagator10trail_infoELb0EjE4sizeEv.exit: ; preds = %2
   %20 = zext i32 %19 to i64
   br label %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit
 
-_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit: ; preds = %._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge, %16
-  %.pre-phi = phi i32 [ %.pre16, %._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge ], [ %19, %16 ]
-  %.0.i.i = phi i64 [ 4294967295, %._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge ], [ %20, %16 ]
+_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit: ; preds = %12, %16
+  %.pre-phi = phi i32 [ %19, %16 ], [ undef, %12 ]
+  %.0.i.i = phi i64 [ %20, %16 ], [ 4294967295, %12 ]
   %21 = getelementptr inbounds nuw %"class.bound_propagator::trail_info", ptr %14, i64 %.0.i.i
   %22 = load i32, ptr %21, align 4, !tbaa !78
   %23 = lshr i32 %22, 1
@@ -2396,12 +2386,7 @@ _ZNK6vectorIN16bound_propagator10trail_infoELb0EjE4sizeEv.exit.i: ; preds = %_ZN
   %24 = add i32 %.01415.i, -1
   %25 = load ptr, ptr %14, align 8, !tbaa !67
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge.i, label %27
-
-._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge.i: ; preds = %23
-  %.pre.i = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !69
-  %.pre16.i = add i32 %.pre.i, -1
-  br label %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit.i
+  br i1 %26, label %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit.i, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds i8, ptr %25, i64 -4
@@ -2410,9 +2395,9 @@ _ZNK6vectorIN16bound_propagator10trail_infoELb0EjE4sizeEv.exit.i: ; preds = %_ZN
   %31 = zext i32 %30 to i64
   br label %_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit.i
 
-_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit.i: ; preds = %27, %._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre16.i, %._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge.i ], [ %30, %27 ]
-  %.0.i.i.i = phi i64 [ 4294967295, %._ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit_crit_edge.i ], [ %31, %27 ]
+_ZN6vectorIN16bound_propagator10trail_infoELb0EjE4backEv.exit.i: ; preds = %27, %23
+  %.pre-phi.i = phi i32 [ %30, %27 ], [ undef, %23 ]
+  %.0.i.i.i = phi i64 [ %31, %27 ], [ 4294967295, %23 ]
   %32 = getelementptr inbounds nuw %"class.bound_propagator::trail_info", ptr %25, i64 %.0.i.i.i
   %33 = load i32, ptr %32, align 4, !tbaa !78
   %34 = lshr i32 %33, 1

@@ -934,15 +934,15 @@ define hidden void @_ZN3ade15ExecutionEngine16createExecutableERKNS_5GraphE(ptr 
   %6 = load ptr, ptr %1, align 8, !tbaa !82
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !82
-  %.not40 = icmp eq ptr %6, %8
-  br i1 %.not40, label %_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.thread, label %.lr.ph
+  %.not38 = icmp eq ptr %6, %8
+  br i1 %.not38, label %_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit, label %.lr.ph
 
-_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.thread.loopexit: ; preds = %_ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30
+_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.loopexit: ; preds = %_ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30
   %9 = inttoptr i64 %40 to ptr
-  br label %_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.thread
+  br label %_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.thread: ; preds = %_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.thread.loopexit, %3
-  %10 = phi ptr [ %9, %_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.thread.loopexit ], [ null, %3 ]
+_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.loopexit, %3
+  %10 = phi ptr [ %9, %_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.loopexit ], [ null, %3 ]
   store ptr %10, ptr %0, align 8, !tbaa !97
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
   ret void
@@ -951,9 +951,9 @@ _ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.thread
   %11 = phi i64 [ %40, %_ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30 ], [ 0, %3 ]
   %12 = phi ptr [ %41, %_ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30 ], [ null, %3 ]
   %13 = phi ptr [ %42, %_ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30 ], [ null, %3 ]
-  %.sroa.033.041 = phi ptr [ %43, %_ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30 ], [ %6, %3 ]
+  %.sroa.033.039 = phi ptr [ %43, %_ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30 ], [ %6, %3 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
-  %14 = load ptr, ptr %.sroa.033.041, align 8, !tbaa !55
+  %14 = load ptr, ptr %.sroa.033.039, align 8, !tbaa !55
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
@@ -962,8 +962,8 @@ _ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.thread
 
 18:                                               ; preds = %.lr.ph
   %19 = load ptr, ptr %5, align 8, !tbaa !100
-  %.not39 = icmp eq ptr %19, null
-  br i1 %.not39, label %_ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30, label %20
+  %.not37 = icmp eq ptr %19, null
+  br i1 %.not37, label %_ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30, label %20
 
 20:                                               ; preds = %18
   %.not.i25 = icmp eq ptr %13, null
@@ -1007,15 +1007,15 @@ _ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EE5resetEPS1_.exit
           to label %36 unwind label %28
 
 36:                                               ; preds = %_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EE5resetEPS1_.exit
-  %.pr37 = load ptr, ptr %5, align 8, !tbaa !100
-  %.not.i28 = icmp eq ptr %.pr37, null
+  %.pr = load ptr, ptr %5, align 8, !tbaa !100
+  %.not.i28 = icmp eq ptr %.pr, null
   br i1 %.not.i28, label %_ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30, label %_ZNKSt14default_deleteIN3ade17BackendExecutableEEclEPS1_.exit.i29
 
 _ZNKSt14default_deleteIN3ade17BackendExecutableEEclEPS1_.exit.i29: ; preds = %36
-  %37 = load ptr, ptr %.pr37, align 8, !tbaa !3
+  %37 = load ptr, ptr %.pr, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %.pr37) #25
+  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #25
   br label %_ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30
 
 _ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30: ; preds = %18, %36, %_ZNKSt14default_deleteIN3ade17BackendExecutableEEclEPS1_.exit.i29
@@ -1023,9 +1023,9 @@ _ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit30: 
   %41 = phi ptr [ %12, %18 ], [ %35, %36 ], [ %35, %_ZNKSt14default_deleteIN3ade17BackendExecutableEEclEPS1_.exit.i29 ]
   %42 = phi ptr [ %13, %18 ], [ %35, %36 ], [ %35, %_ZNKSt14default_deleteIN3ade17BackendExecutableEEclEPS1_.exit.i29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.033.041, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.033.039, i64 8
   %.not = icmp eq ptr %43, %8
-  br i1 %.not, label %_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.thread.loopexit, label %.lr.ph
+  br i1 %.not, label %_ZNSt10unique_ptrIN3ade14ExecutableImplESt14default_deleteIS1_EED2Ev.exit.loopexit, label %.lr.ph
 
 _ZNSt10unique_ptrIN3ade17BackendExecutableESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN3ade17BackendExecutableEEclEPS1_.exit.i, %28, %26
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %29, %28 ], [ %29, %_ZNKSt14default_deleteIN3ade17BackendExecutableEEclEPS1_.exit.i ]

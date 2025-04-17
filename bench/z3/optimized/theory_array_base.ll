@@ -9191,11 +9191,7 @@ _ZN3smt17theory_array_base7mg_findEi.exit:        ; preds = %.lr.ph.i, %64, %67
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %89 = load ptr, ptr %88, align 8, !tbaa !577
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %._ZNK4decl18get_num_parametersEv.exit_crit_edge, label %91
-
-._ZNK4decl18get_num_parametersEv.exit_crit_edge:  ; preds = %87
-  %.pre = load ptr, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !586
-  br label %_ZNK4decl18get_num_parametersEv.exit
+  br i1 %90, label %_ZNK4decl18get_num_parametersEv.exit, label %91
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -9210,9 +9206,9 @@ _ZN3smt17theory_array_base7mg_findEi.exit:        ; preds = %.lr.ph.i, %64, %67
   %99 = zext i32 %98 to i64
   br label %_ZNK4decl18get_num_parametersEv.exit
 
-_ZNK4decl18get_num_parametersEv.exit:             ; preds = %._ZNK4decl18get_num_parametersEv.exit_crit_edge, %91, %95
-  %100 = phi ptr [ %.pre, %._ZNK4decl18get_num_parametersEv.exit_crit_edge ], [ %93, %95 ], [ null, %91 ]
-  %101 = phi i64 [ 4294967295, %._ZNK4decl18get_num_parametersEv.exit_crit_edge ], [ %99, %95 ], [ 4294967295, %91 ]
+_ZNK4decl18get_num_parametersEv.exit:             ; preds = %87, %91, %95
+  %100 = phi ptr [ %93, %95 ], [ null, %91 ], [ undef, %87 ]
+  %101 = phi i64 [ %99, %95 ], [ 4294967295, %91 ], [ 4294967295, %87 ]
   %102 = getelementptr inbounds nuw %class.parameter, ptr %100, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load i8, ptr %103, align 8, !tbaa !685

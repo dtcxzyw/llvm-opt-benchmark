@@ -328,8 +328,8 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %31
   %41 = load ptr, ptr %3, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
-  %.not107 = icmp eq i32 %43, 0
-  br i1 %.not107, label %._crit_edge106.thread, label %.lr.ph105
+  %.not108 = icmp eq i32 %43, 0
+  br i1 %.not108, label %._crit_edge106.thread, label %.lr.ph105
 
 .lr.ph105:                                        ; preds = %_ZNSt6vectorIbSaIbEE6resizeEmb.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -356,39 +356,39 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %31
   br label %225
 
 52:                                               ; preds = %.lr.ph105, %.loopexit98
-  %indvars.iv115 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next116, %.loopexit98 ]
+  %indvars.iv116 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next117, %.loopexit98 ]
   %53 = phi ptr [ %41, %.lr.ph105 ], [ %143, %.loopexit98 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 208
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw %struct.aiFace, ptr %55, i64 %indvars.iv115
+  %56 = getelementptr inbounds nuw %struct.aiFace, ptr %55, i64 %indvars.iv116
   %57 = load i32, ptr %56, align 8
   %58 = icmp ult i32 %57, 3
   br i1 %58, label %.preheader, label %73
 
 .preheader:                                       ; preds = %52
-  %.not109 = icmp eq i32 %57, 0
-  br i1 %.not109, label %.loopexit98, label %.lr.ph103
+  %.not110 = icmp eq i32 %57, 0
+  br i1 %.not110, label %.loopexit98, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %.preheader
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
   br label %60
 
 60:                                               ; preds = %.lr.ph103, %65
-  %indvars.iv112 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next113, %65 ]
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next114, %65 ]
   %61 = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv112
+  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv113
   %63 = load i32, ptr %62, align 4
   %64 = invoke fastcc noundef i32 @"_ZZN6Assimp21GenFaceNormalsProcess18GenMeshFaceNormalsEP6aiMeshENK3$_0clEjRK10aiVector3tIfE"(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %63, ptr noundef nonnull align 4 dereferenceable(12) %8)
           to label %65 unwind label %71
 
 65:                                               ; preds = %60
   %66 = load ptr, ptr %59, align 8
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv112
+  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv113
   store i32 %64, ptr %67, align 4
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %68 = load i32, ptr %56, align 8
   %69 = zext i32 %68 to i64
-  %70 = icmp samesign ult i64 %indvars.iv.next113, %69
+  %70 = icmp samesign ult i64 %indvars.iv.next114, %69
   br i1 %70, label %60, label %.loopexit98, !llvm.loop !7
 
 71:                                               ; preds = %60
@@ -504,12 +504,12 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %31
   br label %225
 
 .loopexit98:                                      ; preds = %65, %.preheader, %._crit_edge
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %143 = load ptr, ptr %3, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load i32, ptr %144, align 8
   %146 = zext i32 %145 to i64
-  %147 = icmp samesign ult i64 %indvars.iv.next116, %146
+  %147 = icmp samesign ult i64 %indvars.iv.next117, %146
   br i1 %147, label %52, label %._crit_edge106, !llvm.loop !9
 
 148:                                              ; preds = %._crit_edge106

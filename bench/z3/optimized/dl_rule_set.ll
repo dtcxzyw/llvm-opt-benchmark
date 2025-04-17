@@ -6586,12 +6586,7 @@ _ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_manager
   store ptr %75, ptr %68, align 8, !tbaa !84
   %77 = load ptr, ptr %56, align 8, !tbaa !80
   %78 = icmp eq ptr %77, null
-  br i1 %78, label %._ZN6vectorIPN7datalog4ruleELb0EjE4backEv.exit_crit_edge.i, label %79
-
-._ZN6vectorIPN7datalog4ruleELb0EjE4backEv.exit_crit_edge.i: ; preds = %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4backEv.exit
-  %.pre.i = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !83
-  %.pre2.i = add i32 %.pre.i, -1
-  br label %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE8pop_backEv.exit
+  br i1 %78, label %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE8pop_backEv.exit, label %79
 
 79:                                               ; preds = %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4backEv.exit
   %80 = getelementptr inbounds i8, ptr %77, i64 -4
@@ -6600,9 +6595,9 @@ _ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_manager
   %83 = zext i32 %82 to i64
   br label %_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE8pop_backEv.exit
 
-_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE8pop_backEv.exit: ; preds = %._ZN6vectorIPN7datalog4ruleELb0EjE4backEv.exit_crit_edge.i, %79
-  %.pre-phi.i = phi i32 [ %.pre2.i, %._ZN6vectorIPN7datalog4ruleELb0EjE4backEv.exit_crit_edge.i ], [ %82, %79 ]
-  %.0.i.i.i22 = phi i64 [ 4294967295, %._ZN6vectorIPN7datalog4ruleELb0EjE4backEv.exit_crit_edge.i ], [ %83, %79 ]
+_ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE8pop_backEv.exit: ; preds = %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4backEv.exit, %79
+  %.pre-phi.i = phi i32 [ %82, %79 ], [ undef, %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4backEv.exit ]
+  %.0.i.i.i22 = phi i64 [ %83, %79 ], [ 4294967295, %_ZNK15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerEEE4backEv.exit ]
   %84 = getelementptr inbounds nuw ptr, ptr %77, i64 %.0.i.i.i22
   %85 = load ptr, ptr %84, align 8, !tbaa !84
   %86 = getelementptr inbounds i8, ptr %77, i64 -4
@@ -9530,12 +9525,7 @@ _ZN6vectorIP13obj_hashtableI9func_declELb0EjE9push_backERKS3_.exit: ; preds = %2
 223:                                              ; preds = %_ZN6vectorIP9func_declLb0EjE4backEv.exit66, %_ZN6vectorIP13obj_hashtableI9func_declELb0EjE9push_backERKS3_.exit
   %224 = load ptr, ptr %109, align 8, !tbaa !125
   %225 = icmp eq ptr %224, null
-  br i1 %225, label %._ZN6vectorIP9func_declLb0EjE4backEv.exit66_crit_edge, label %226
-
-._ZN6vectorIP9func_declLb0EjE4backEv.exit66_crit_edge: ; preds = %223
-  %.pre141 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !83
-  %.pre142 = add i32 %.pre141, -1
-  br label %_ZN6vectorIP9func_declLb0EjE4backEv.exit66
+  br i1 %225, label %_ZN6vectorIP9func_declLb0EjE4backEv.exit66, label %226
 
 226:                                              ; preds = %223
   %227 = getelementptr inbounds i8, ptr %224, i64 -4
@@ -9544,9 +9534,9 @@ _ZN6vectorIP13obj_hashtableI9func_declELb0EjE9push_backERKS3_.exit: ; preds = %2
   %230 = zext i32 %229 to i64
   br label %_ZN6vectorIP9func_declLb0EjE4backEv.exit66
 
-_ZN6vectorIP9func_declLb0EjE4backEv.exit66:       ; preds = %._ZN6vectorIP9func_declLb0EjE4backEv.exit66_crit_edge, %226
-  %.pre-phi = phi i32 [ %.pre142, %._ZN6vectorIP9func_declLb0EjE4backEv.exit66_crit_edge ], [ %229, %226 ]
-  %.0.i.i65 = phi i64 [ 4294967295, %._ZN6vectorIP9func_declLb0EjE4backEv.exit66_crit_edge ], [ %230, %226 ]
+_ZN6vectorIP9func_declLb0EjE4backEv.exit66:       ; preds = %223, %226
+  %.pre-phi = phi i32 [ %229, %226 ], [ undef, %223 ]
+  %.0.i.i65 = phi i64 [ %230, %226 ], [ 4294967295, %223 ]
   %231 = getelementptr inbounds nuw ptr, ptr %224, i64 %.0.i.i65
   %232 = load ptr, ptr %231, align 8, !tbaa !53
   %233 = getelementptr inbounds i8, ptr %224, i64 -4

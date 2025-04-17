@@ -4642,12 +4642,7 @@ _ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4backEv.
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %18 = load ptr, ptr %17, align 8, !tbaa !127
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %._ZN6vectorIP9func_declLb0EjE4backEv.exit_crit_edge.i, label %20
-
-._ZN6vectorIP9func_declLb0EjE4backEv.exit_crit_edge.i: ; preds = %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4backEv.exit
-  %.pre.i = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !128
-  %.pre2.i = add i32 %.pre.i, -1
-  br label %_ZN6vectorIP9func_declLb0EjE4backEv.exit.i
+  br i1 %19, label %_ZN6vectorIP9func_declLb0EjE4backEv.exit.i, label %20
 
 20:                                               ; preds = %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4backEv.exit
   %21 = getelementptr inbounds i8, ptr %18, i64 -4
@@ -4656,9 +4651,9 @@ _ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4backEv.
   %24 = zext i32 %23 to i64
   br label %_ZN6vectorIP9func_declLb0EjE4backEv.exit.i
 
-_ZN6vectorIP9func_declLb0EjE4backEv.exit.i:       ; preds = %20, %._ZN6vectorIP9func_declLb0EjE4backEv.exit_crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre2.i, %._ZN6vectorIP9func_declLb0EjE4backEv.exit_crit_edge.i ], [ %23, %20 ]
-  %.0.i.i.i1 = phi i64 [ 4294967295, %._ZN6vectorIP9func_declLb0EjE4backEv.exit_crit_edge.i ], [ %24, %20 ]
+_ZN6vectorIP9func_declLb0EjE4backEv.exit.i:       ; preds = %20, %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4backEv.exit
+  %.pre-phi.i = phi i32 [ %23, %20 ], [ undef, %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4backEv.exit ]
+  %.0.i.i.i1 = phi i64 [ %24, %20 ], [ 4294967295, %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4backEv.exit ]
   %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %.0.i.i.i1
   %26 = load ptr, ptr %25, align 8, !tbaa !142
   %27 = getelementptr inbounds i8, ptr %18, i64 -4
@@ -6266,12 +6261,7 @@ define linkonce_odr hidden void @_ZN16push_back_vectorI10ref_vectorI4expr11ast_m
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !141
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge.i, label %7
-
-._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge.i: ; preds = %1
-  %.pre.i = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !128
-  %.pre2.i = add i32 %.pre.i, -1
-  br label %_ZN6vectorIP4exprLb0EjE4backEv.exit.i
+  br i1 %6, label %_ZN6vectorIP4exprLb0EjE4backEv.exit.i, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %5, i64 -4
@@ -6280,9 +6270,9 @@ define linkonce_odr hidden void @_ZN16push_back_vectorI10ref_vectorI4expr11ast_m
   %11 = zext i32 %10 to i64
   br label %_ZN6vectorIP4exprLb0EjE4backEv.exit.i
 
-_ZN6vectorIP4exprLb0EjE4backEv.exit.i:            ; preds = %7, %._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre2.i, %._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge.i ], [ %10, %7 ]
-  %.0.i.i.i = phi i64 [ 4294967295, %._ZN6vectorIP4exprLb0EjE4backEv.exit_crit_edge.i ], [ %11, %7 ]
+_ZN6vectorIP4exprLb0EjE4backEv.exit.i:            ; preds = %7, %1
+  %.pre-phi.i = phi i32 [ %10, %7 ], [ undef, %1 ]
+  %.0.i.i.i = phi i64 [ %11, %7 ], [ 4294967295, %1 ]
   %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0.i.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !165
   %14 = getelementptr inbounds i8, ptr %5, i64 -4

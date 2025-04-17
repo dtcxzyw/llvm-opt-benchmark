@@ -2187,10 +2187,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %invoke.cont202, %if
 
 invoke.cont.i250.thread:                          ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
   %_M_finish.i.i.i252484 = getelementptr inbounds nuw i8, ptr %agg.tmp204, i64 8
-  %add.ptr.i.i.i253485 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i245
   %_M_end_of_storage.i.i.i254486 = getelementptr inbounds nuw i8, ptr %agg.tmp204, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp204, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i253485, ptr %_M_end_of_storage.i.i.i254486, align 8, !tbaa !89
   br label %invoke.cont206
 
 cond.true.i.i.i.i247:                             ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
@@ -2220,7 +2217,7 @@ if.then.i.i.i.i.i.i.i.i.i259:                     ; preds = %_ZNSt16allocator_tr
 
 invoke.cont206:                                   ; preds = %if.then.i.i.i.i.i.i.i.i.i259, %invoke.cont.i250.thread
   %_M_end_of_storage.i.i.i254489 = phi ptr [ %_M_end_of_storage.i.i.i254486, %invoke.cont.i250.thread ], [ %_M_end_of_storage.i.i.i254, %if.then.i.i.i.i.i.i.i.i.i259 ]
-  %add.ptr.i.i.i253488 = phi ptr [ %add.ptr.i.i.i253485, %invoke.cont.i250.thread ], [ %add.ptr.i.i.i253, %if.then.i.i.i.i.i.i.i.i.i259 ]
+  %add.ptr.i.i.i253488 = phi ptr [ null, %invoke.cont.i250.thread ], [ %add.ptr.i.i.i253, %if.then.i.i.i.i.i.i.i.i.i259 ]
   %_M_finish.i.i.i252487 = phi ptr [ %_M_finish.i.i.i252484, %invoke.cont.i250.thread ], [ %_M_finish.i.i.i252, %if.then.i.i.i.i.i.i.i.i.i259 ]
   store ptr %add.ptr.i.i.i253488, ptr %_M_finish.i.i.i252487, align 8, !tbaa !70
   invoke void @_ZN8QuantLib15CalibratedModel19CalibrationFunctionC2EPS0_RKSt6vectorIN5boost10shared_ptrINS_17CalibrationHelperEEESaIS7_EES3_IdSaIdEERKNS_10ProjectionE(ptr noundef nonnull align 8 dereferenceable(144) %f, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(24) %instruments, ptr noundef nonnull %agg.tmp204, ptr noundef nonnull align 8 dereferenceable(88) %proj)
@@ -4032,10 +4029,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %invoke.cont4, %if.t
 
 invoke.cont.i.thread:                             ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
   %_M_finish.i.i.i72 = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 8
-  %add.ptr.i.i.i1373 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i11
   %_M_end_of_storage.i.i.i1474 = getelementptr inbounds nuw i8, ptr %agg.tmp5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i1373, ptr %_M_end_of_storage.i.i.i1474, align 8, !tbaa !89
   br label %invoke.cont7
 
 cond.true.i.i.i.i:                                ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
@@ -4065,7 +4059,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
 
 invoke.cont7:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.thread
   %_M_end_of_storage.i.i.i1477 = phi ptr [ %_M_end_of_storage.i.i.i1474, %invoke.cont.i.thread ], [ %_M_end_of_storage.i.i.i14, %if.then.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i.i.i1376 = phi ptr [ %add.ptr.i.i.i1373, %invoke.cont.i.thread ], [ %add.ptr.i.i.i13, %if.then.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i1376 = phi ptr [ null, %invoke.cont.i.thread ], [ %add.ptr.i.i.i13, %if.then.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i75 = phi ptr [ %_M_finish.i.i.i72, %invoke.cont.i.thread ], [ %_M_finish.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i1376, ptr %_M_finish.i.i.i75, align 8, !tbaa !70
   invoke void @_ZN8QuantLib15CalibratedModel19CalibrationFunctionC2EPS0_RKSt6vectorIN5boost10shared_ptrINS_17CalibrationHelperEEESaIS7_EES3_IdSaIdEERKNS_10ProjectionE(ptr noundef nonnull align 8 dereferenceable(144) %f, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(24) %instruments, ptr noundef nonnull %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(88) %p)

@@ -154,25 +154,22 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node9TimerWrap13TimerClosedCbEP11uv_handle_s(ptr noundef %handle) #3 align 2 {
 entry:
-  %0 = ptrtoint ptr %handle to i64
-  %sub.i.i = add i64 %0, -48
-  %1 = inttoptr i64 %sub.i.i to ptr
-  %cmp.not.i = icmp eq i64 %sub.i.i, 0
+  %cmp.not.i = icmp eq ptr %handle, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node9TimerWrapESt14default_deleteIS1_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %entry
-  %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %2 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
+  %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %handle, i64 32
+  %0 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNKSt14default_deleteIN4node9TimerWrapEEclEPS1_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i.i
-  %fn_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %call.i.i.i.i.i = tail call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(32) %fn_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %fn_.i.i.i, i32 noundef 3) #13
+  %fn_.i.i.i = getelementptr inbounds nuw i8, ptr %handle, i64 16
+  %call.i.i.i.i.i = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %fn_.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %fn_.i.i.i, i32 noundef 3) #13
   br label %_ZNKSt14default_deleteIN4node9TimerWrapEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN4node9TimerWrapEEclEPS1_.exit.i: ; preds = %if.then.i.i.i.i.i, %delete.notnull.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %handle) #15
   br label %_ZNSt10unique_ptrIN4node9TimerWrapESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9TimerWrapESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9TimerWrapEEclEPS1_.exit.i
@@ -200,12 +197,9 @@ declare i32 @uv_timer_start(ptr noundef, ptr noundef, i64 noundef, i64 noundef) 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node9TimerWrap9OnTimeoutEP10uv_timer_s(ptr noundef %timer) #3 align 2 {
 entry:
-  %0 = ptrtoint ptr %timer to i64
-  %sub.i.i = add i64 %0, -48
-  %1 = inttoptr i64 %sub.i.i to ptr
-  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %2 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %timer, i64 32
+  %0 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFvvEEclEv.exit
 
 if.then.i:                                        ; preds = %entry
@@ -213,10 +207,10 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %entry
-  %fn_ = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %3 = load ptr, ptr %_M_invoker.i, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(32) %fn_) #13
+  %fn_ = getelementptr inbounds nuw i8, ptr %timer, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %timer, i64 40
+  %1 = load ptr, ptr %_M_invoker.i, align 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(32) %fn_) #13
   ret void
 }
 

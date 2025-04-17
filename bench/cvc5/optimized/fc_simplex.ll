@@ -6663,103 +6663,103 @@ define linkonce_odr hidden void @_ZN4cvc58internal13DenseMultiset21removeOneOfEv
 
 _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %1
   %.not.i.i.i = icmp eq ptr %5, %3
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %.lr.ph
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %_ZNSt6vectorIjSaIjEEC2IN9__gnu_cxx17__normal_iteratorIPKjS1_EEvEET_S8_RKS0_.exit
 
-.lr.ph:                                           ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i
+_ZNSt6vectorIjSaIjEEC2IN9__gnu_cxx17__normal_iteratorIPKjS1_EEvEET_S8_RKS0_.exit: ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #30
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %10, ptr align 4 %3, i64 %8, i1 false)
-  %.sroa.11.0 = getelementptr inbounds nuw i8, ptr %10, i64 %8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %14
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br label %15
 
-._crit_edge:                                      ; preds = %_ZN4cvc58internal13DenseMultiset9removeOneEj.exit
+.loopexit:                                        ; preds = %_ZN4cvc58internal13DenseMultiset9removeOneEj.exit
   call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %8) #27
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i, %._crit_edge
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i, %.loopexit
   ret void
 
-14:                                               ; preds = %.lr.ph, %_ZN4cvc58internal13DenseMultiset9removeOneEj.exit
-  %.sroa.013.024 = phi ptr [ %10, %.lr.ph ], [ %51, %_ZN4cvc58internal13DenseMultiset9removeOneEj.exit ]
-  %15 = load i32, ptr %.sroa.013.024, align 4, !tbaa !13
-  %16 = zext i32 %15 to i64
-  %17 = load ptr, ptr %12, align 8, !tbaa !128
-  %18 = load ptr, ptr %11, align 8, !tbaa !71
-  %19 = ptrtoint ptr %17 to i64
+15:                                               ; preds = %_ZNSt6vectorIjSaIjEEC2IN9__gnu_cxx17__normal_iteratorIPKjS1_EEvEET_S8_RKS0_.exit, %_ZN4cvc58internal13DenseMultiset9removeOneEj.exit
+  %.sroa.013.024 = phi ptr [ %10, %_ZNSt6vectorIjSaIjEEC2IN9__gnu_cxx17__normal_iteratorIPKjS1_EEvEET_S8_RKS0_.exit ], [ %52, %_ZN4cvc58internal13DenseMultiset9removeOneEj.exit ]
+  %16 = load i32, ptr %.sroa.013.024, align 4, !tbaa !13
+  %17 = zext i32 %16 to i64
+  %18 = load ptr, ptr %13, align 8, !tbaa !128
+  %19 = load ptr, ptr %12, align 8, !tbaa !71
   %20 = ptrtoint ptr %18 to i64
-  %21 = sub i64 %19, %20
-  %22 = ashr exact i64 %21, 2
-  %.not.i.i.i7 = icmp ugt i64 %22, %16
+  %21 = ptrtoint ptr %19 to i64
+  %22 = sub i64 %20, %21
+  %23 = ashr exact i64 %22, 2
+  %.not.i.i.i7 = icmp ugt i64 %23, %17
   br i1 %.not.i.i.i7, label %_ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.i.i, label %_ZN4cvc58internal13DenseMultiset9removeOneEj.exit
 
-_ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.i.i:  ; preds = %14
-  %23 = getelementptr inbounds nuw i32, ptr %18, i64 %16
-  %24 = load i32, ptr %23, align 4, !tbaa !13
-  %.not.i.i = icmp eq i32 %24, -1
+_ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.i.i:  ; preds = %15
+  %24 = getelementptr inbounds nuw i32, ptr %19, i64 %17
+  %25 = load i32, ptr %24, align 4, !tbaa !13
+  %.not.i.i = icmp eq i32 %25, -1
   br i1 %.not.i.i, label %_ZN4cvc58internal13DenseMultiset9removeOneEj.exit, label %_ZNK4cvc58internal13DenseMultiset5countEj.exit.i
 
 _ZNK4cvc58internal13DenseMultiset5countEj.exit.i: ; preds = %_ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.i.i
-  %25 = load ptr, ptr %13, align 8, !tbaa !71
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %16
-  %27 = load i32, ptr %26, align 4, !tbaa !13
-  switch i32 %27, label %49 [
+  %26 = load ptr, ptr %14, align 8, !tbaa !71
+  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %17
+  %28 = load i32, ptr %27, align 4, !tbaa !13
+  switch i32 %28, label %50 [
     i32 0, label %_ZN4cvc58internal13DenseMultiset9removeOneEj.exit
-    i32 1, label %28
+    i32 1, label %29
   ]
 
-28:                                               ; preds = %_ZNK4cvc58internal13DenseMultiset5countEj.exit.i
-  %29 = load ptr, ptr %4, align 8, !tbaa !119
-  %30 = getelementptr inbounds i8, ptr %29, i64 -4
-  %31 = load i32, ptr %30, align 4, !tbaa !13
-  %32 = zext i32 %24 to i64
-  %33 = load ptr, ptr %0, align 8, !tbaa !71
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %32
-  store i32 %31, ptr %34, align 4, !tbaa !13
-  %35 = zext i32 %31 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %18, i64 %35
-  store i32 %24, ptr %36, align 4, !tbaa !13
-  %37 = ptrtoint ptr %29 to i64
-  %38 = ptrtoint ptr %33 to i64
-  %39 = sub i64 %37, %38
-  %40 = lshr exact i64 %39, 2
-  %41 = trunc i64 %40 to i32
-  %42 = add i32 %41, -1
-  %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %33, i64 %43
-  store i32 %15, ptr %44, align 4, !tbaa !13
-  store i32 %42, ptr %23, align 4, !tbaa !13
-  %45 = load i32, ptr %30, align 4, !tbaa !13
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %18, i64 %46
-  store i32 -1, ptr %47, align 4, !tbaa !13
-  %48 = getelementptr inbounds nuw i32, ptr %25, i64 %46
-  store i32 0, ptr %48, align 4, !tbaa !13
-  store ptr %30, ptr %4, align 8, !tbaa !128
+29:                                               ; preds = %_ZNK4cvc58internal13DenseMultiset5countEj.exit.i
+  %30 = load ptr, ptr %4, align 8, !tbaa !119
+  %31 = getelementptr inbounds i8, ptr %30, i64 -4
+  %32 = load i32, ptr %31, align 4, !tbaa !13
+  %33 = zext i32 %25 to i64
+  %34 = load ptr, ptr %0, align 8, !tbaa !71
+  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %33
+  store i32 %32, ptr %35, align 4, !tbaa !13
+  %36 = zext i32 %32 to i64
+  %37 = getelementptr inbounds nuw i32, ptr %19, i64 %36
+  store i32 %25, ptr %37, align 4, !tbaa !13
+  %38 = ptrtoint ptr %30 to i64
+  %39 = ptrtoint ptr %34 to i64
+  %40 = sub i64 %38, %39
+  %41 = lshr exact i64 %40, 2
+  %42 = trunc i64 %41 to i32
+  %43 = add i32 %42, -1
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw i32, ptr %34, i64 %44
+  store i32 %16, ptr %45, align 4, !tbaa !13
+  store i32 %43, ptr %24, align 4, !tbaa !13
+  %46 = load i32, ptr %31, align 4, !tbaa !13
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw i32, ptr %19, i64 %47
+  store i32 -1, ptr %48, align 4, !tbaa !13
+  %49 = getelementptr inbounds nuw i32, ptr %26, i64 %47
+  store i32 0, ptr %49, align 4, !tbaa !13
+  store ptr %31, ptr %4, align 8, !tbaa !128
   br label %_ZN4cvc58internal13DenseMultiset9removeOneEj.exit
 
-49:                                               ; preds = %_ZNK4cvc58internal13DenseMultiset5countEj.exit.i
+50:                                               ; preds = %_ZNK4cvc58internal13DenseMultiset5countEj.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #26
-  %50 = add i32 %27, -1
-  store i32 %50, ptr %2, align 4, !tbaa !13
-  invoke void @_ZN4cvc58internal8DenseMapIjE3setEjRKj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %15, ptr noundef nonnull align 4 dereferenceable(4) %2)
+  %51 = add i32 %28, -1
+  store i32 %51, ptr %2, align 4, !tbaa !13
+  invoke void @_ZN4cvc58internal8DenseMapIjE3setEjRKj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %.noexc unwind label %.body
 
-.noexc:                                           ; preds = %49
+.noexc:                                           ; preds = %50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #26
   br label %_ZN4cvc58internal13DenseMultiset9removeOneEj.exit
 
-_ZN4cvc58internal13DenseMultiset9removeOneEj.exit: ; preds = %.noexc, %28, %_ZNK4cvc58internal13DenseMultiset5countEj.exit.i, %_ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.i.i, %14
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.013.024, i64 4
-  %.not = icmp eq ptr %51, %.sroa.11.0
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !494
+_ZN4cvc58internal13DenseMultiset9removeOneEj.exit: ; preds = %.noexc, %29, %_ZNK4cvc58internal13DenseMultiset5countEj.exit.i, %_ZNK4cvc58internal8DenseMapIjE5isKeyEj.exit.i.i, %15
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.013.024, i64 4
+  %.not = icmp eq ptr %52, %11
+  br i1 %.not, label %.loopexit, label %15, !llvm.loop !494
 
-.body:                                            ; preds = %49
-  %52 = landingpad { ptr, i32 }
+.body:                                            ; preds = %50
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %8) #27
-  resume { ptr, i32 } %52
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

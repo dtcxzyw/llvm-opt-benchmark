@@ -2043,11 +2043,7 @@ _ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev.exit: ; preds = %entry, %_ZN9_
   store ptr %16, ptr %_M_refcount.i.i11, align 8
   store ptr null, ptr %provider, align 8
   %youngGen_ = getelementptr inbounds nuw i8, ptr %this, i64 800
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %youngGen_, i8 0, i64 16, i1 false)
-  %level_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 816
-  store ptr inttoptr (i64 86016 to ptr), ptr %level_.i.i, align 8
-  %effectiveEnd_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 824
-  store ptr inttoptr (i64 4194304 to ptr), ptr %effectiveEnd_.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %youngGen_, i8 0, i64 32, i1 false)
   %youngGenFinalizables_ = getelementptr inbounds nuw i8, ptr %this, i64 840
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %youngGenFinalizables_, i8 0, i64 24, i1 false)
   %ygSizeFactor_ = getelementptr inbounds nuw i8, ptr %this, i64 864
@@ -2203,9 +2199,9 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %_ZNSt10lock_guardIS
 
 if.end:                                           ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
   call void @_ZN6hermes2vm14AlignedStorageC1EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(32) %newYoungGen) #34
-  %level_.i.i22 = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 16
+  %level_.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp23, i64 16
   %level_3.i.i = getelementptr inbounds nuw i8, ptr %newYoungGen, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %level_.i.i22, ptr noundef nonnull align 8 dereferenceable(16) %level_3.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %level_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %level_3.i.i, i64 16, i1 false)
   call void @_ZN6hermes2vm7HadesGC11setYoungGenENS1_11HeapSegmentE(ptr nonnull sret(%"class.hermes::vm::HadesGC::HeapSegment") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(8152) %this, ptr noundef nonnull %agg.tmp23)
   call void @_ZN6hermes2vm18AlignedHeapSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.ensured) #34
   call void @_ZN6hermes2vm18AlignedHeapSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23) #34
@@ -2242,16 +2238,16 @@ _ZSt3maxImET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
   store double 5.000000e-01, ptr %targetSizeBytes_.i, align 8
   %ref.tmp.sroa.2.0.targetSizeBytes_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %this, i64 968
   store double %conv.i, ptr %ref.tmp.sroa.2.0.targetSizeBytes_.sroa_idx.i, align 8
-  %bf.load.i24 = load i8, ptr %HasError.i, align 8
-  %bf.cast.i25 = trunc i8 %bf.load.i24 to i1
-  br i1 %bf.cast.i25, label %_ZN4llvh7ErrorOrIN6hermes2vm7HadesGC11HeapSegmentEED2Ev.exit, label %if.then.i
+  %bf.load.i23 = load i8, ptr %HasError.i, align 8
+  %bf.cast.i24 = trunc i8 %bf.load.i23 to i1
+  br i1 %bf.cast.i24, label %_ZN4llvh7ErrorOrIN6hermes2vm7HadesGC11HeapSegmentEED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZSt3maxImET_St16initializer_listIS0_E.exit
   call void @_ZN6hermes2vm18AlignedHeapSegmentD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %newYoungGen) #34
   br label %_ZN4llvh7ErrorOrIN6hermes2vm7HadesGC11HeapSegmentEED2Ev.exit
 
 _ZN4llvh7ErrorOrIN6hermes2vm7HadesGC11HeapSegmentEED2Ev.exit: ; preds = %_ZSt3maxImET_St16initializer_listIS0_E.exit, %if.then.i
-  %call1.i.i.i.i26 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %gcMutex_) #34
+  %call1.i.i.i.i25 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %gcMutex_) #34
   ret void
 }
 

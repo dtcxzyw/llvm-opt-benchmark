@@ -2448,7 +2448,7 @@ _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit: ; preds = %51
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !537
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %.noexc, %58
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %58, %.noexc
   %66 = phi i64 [ %65, %.noexc ], [ %60, %58 ]
   %67 = phi ptr [ %.pre.i, %.noexc ], [ %52, %58 ]
   %68 = phi i32 [ %.pre2.i, %.noexc ], [ %57, %58 ]

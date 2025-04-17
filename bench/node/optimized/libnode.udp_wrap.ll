@@ -5945,14 +5945,11 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @uv_udp_recv_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7UDPWrap7OnAllocEP11uv_handle_smP8uv_buf_t(ptr noundef %handle, i64 noundef %suggested_size, ptr noundef writeonly captures(none) %buf) #3 align 2 {
+define dso_local void @_ZN4node7UDPWrap7OnAllocEP11uv_handle_smP8uv_buf_t(ptr noundef readonly captures(none) %handle, i64 noundef %suggested_size, ptr noundef writeonly captures(none) %buf) #3 align 2 {
 entry:
-  %0 = ptrtoint ptr %handle to i64
-  %sub.i.i = add i64 %0, -120
-  %1 = inttoptr i64 %sub.i.i to ptr
-  %listener_.i = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %2 = load ptr, ptr %listener_.i, align 8
-  %cmp.not.i = icmp eq ptr %2, null
+  %listener_.i = getelementptr inbounds nuw i8, ptr %handle, i64 96
+  %0 = load ptr, ptr %listener_.i, align 8
+  %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %do.body4.i, label %_ZNK4node11UDPWrapBase8listenerEv.exit
 
 do.body4.i:                                       ; preds = %entry
@@ -5961,27 +5958,24 @@ do.body4.i:                                       ; preds = %entry
   unreachable
 
 _ZNK4node11UDPWrapBase8listenerEv.exit:           ; preds = %entry
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %3 = load ptr, ptr %vfn, align 8
-  %call4 = tail call { ptr, i64 } %3(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %suggested_size) #20
-  %4 = extractvalue { ptr, i64 } %call4, 0
-  %5 = extractvalue { ptr, i64 } %call4, 1
-  store ptr %4, ptr %buf, align 8
+  %1 = load ptr, ptr %vfn, align 8
+  %call4 = tail call { ptr, i64 } %1(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %suggested_size) #20
+  %2 = extractvalue { ptr, i64 } %call4, 0
+  %3 = extractvalue { ptr, i64 } %call4, 1
+  store ptr %2, ptr %buf, align 8
   %ref.tmp2.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 8
-  store i64 %5, ptr %ref.tmp2.sroa.2.0..sroa_idx, align 8
+  store i64 %3, ptr %ref.tmp2.sroa.2.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7UDPWrap6OnRecvEP8uv_udp_slPK8uv_buf_tPK8sockaddrj(ptr noundef %handle, i64 noundef %nread, ptr noundef %buf, ptr noundef %addr, i32 noundef %flags) #3 align 2 {
+define dso_local void @_ZN4node7UDPWrap6OnRecvEP8uv_udp_slPK8uv_buf_tPK8sockaddrj(ptr noundef readonly captures(none) %handle, i64 noundef %nread, ptr noundef %buf, ptr noundef %addr, i32 noundef %flags) #3 align 2 {
 entry:
-  %0 = ptrtoint ptr %handle to i64
-  %sub.i.i = add i64 %0, -120
-  %1 = inttoptr i64 %sub.i.i to ptr
-  %listener_.i = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %2 = load ptr, ptr %listener_.i, align 8
-  %cmp.not.i = icmp eq ptr %2, null
+  %listener_.i = getelementptr inbounds nuw i8, ptr %handle, i64 96
+  %0 = load ptr, ptr %listener_.i, align 8
+  %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %do.body4.i, label %_ZNK4node11UDPWrapBase8listenerEv.exit
 
 do.body4.i:                                       ; preds = %entry
@@ -5990,10 +5984,10 @@ do.body4.i:                                       ; preds = %entry
   unreachable
 
 _ZNK4node11UDPWrapBase8listenerEv.exit:           ; preds = %entry
-  %vtable = load ptr, ptr %2, align 8
+  %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
-  %3 = load ptr, ptr %vfn, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %nread, ptr noundef nonnull align 8 dereferenceable(16) %buf, ptr noundef %addr, i32 noundef %flags) #20
+  %1 = load ptr, ptr %vfn, align 8
+  tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %nread, ptr noundef nonnull align 8 dereferenceable(16) %buf, ptr noundef %addr, i32 noundef %flags) #20
   ret void
 }
 
@@ -7366,12 +7360,9 @@ define internal void @"_ZZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddrEN3$_08__inv
 entry:
   %handle.i = getelementptr inbounds nuw i8, ptr %req, i64 64
   %0 = load ptr, ptr %handle.i, align 8
-  %1 = ptrtoint ptr %0 to i64
-  %sub.i.i.i = add i64 %1, -120
-  %2 = inttoptr i64 %sub.i.i.i to ptr
-  %listener_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %3 = load ptr, ptr %listener_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %3, null
+  %listener_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %1 = load ptr, ptr %listener_.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %do.body4.i.i, label %"_ZZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddrENK3$_0clEP13uv_udp_send_si.exit"
 
 do.body4.i.i:                                     ; preds = %entry
@@ -7380,13 +7371,10 @@ do.body4.i.i:                                     ; preds = %entry
   unreachable
 
 "_ZZN4node7UDPWrap4SendEP8uv_buf_tmPK8sockaddrENK3$_0clEP13uv_udp_send_si.exit": ; preds = %entry
-  %4 = ptrtoint ptr %req to i64
-  %sub.i.i.i.i = add i64 %4, -88
-  %5 = inttoptr i64 %sub.i.i.i.i to ptr
-  %vtable.i = load ptr, ptr %3, align 8
+  %vtable.i = load ptr, ptr %1, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
-  %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %5, i32 noundef %status) #20
+  %2 = load ptr, ptr %vfn.i, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %req, i32 noundef %status) #20
   ret void
 }
 
@@ -7563,14 +7551,11 @@ declare void @_ZN4node21LowMemoryNotificationEv() local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node24MakeLibuvRequestCallbackI13uv_udp_send_sPFvPS1_iEE7WrapperES2_i(ptr noundef %req, i32 noundef %args) #3 comdat align 2 {
 entry:
-  %0 = ptrtoint ptr %req to i64
-  %sub.i.i.i = add i64 %0, -88
-  %1 = inttoptr i64 %sub.i.i.i to ptr
-  %cmp.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i = icmp eq ptr %req, null
   br i1 %cmp.i, label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_udp_send_sEELb0EEC2EPS3_.exit, label %_ZNK4node17BaseObjectPtrImplINS_7ReqWrapI13uv_udp_send_sEELb0EE12pointer_dataEv.exit.i
 
 _ZNK4node17BaseObjectPtrImplINS_7ReqWrapI13uv_udp_send_sEELb0EE12pointer_dataEv.exit.i: ; preds = %entry
-  %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
+  %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #20
   %cmp2.not.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp2.not.i, label %do.body6.i, label %do.end8.i
 
@@ -7580,13 +7565,13 @@ do.body6.i:                                       ; preds = %_ZNK4node17BaseObje
   unreachable
 
 do.end8.i:                                        ; preds = %_ZNK4node17BaseObjectPtrImplINS_7ReqWrapI13uv_udp_send_sEELb0EE12pointer_dataEv.exit.i
-  tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
+  tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #20
   br label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_udp_send_sEELb0EEC2EPS3_.exit
 
 _ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_udp_send_sEELb0EEC2EPS3_.exit: ; preds = %entry, %do.end8.i
-  %call.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
-  %2 = load i32, ptr %call.i, align 8
-  %cmp.not.i = icmp eq i32 %2, 0
+  %call.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #20
+  %0 = load i32, ptr %call.i, align 8
+  %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %do.body4.i, label %_ZN4node10BaseObject6DetachEv.exit
 
 do.body4.i:                                       ; preds = %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_udp_send_sEELb0EEC2EPS3_.exit
@@ -7595,18 +7580,18 @@ do.body4.i:                                       ; preds = %_ZN4node17BaseObjec
   unreachable
 
 _ZN4node10BaseObject6DetachEv.exit:               ; preds = %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_udp_send_sEELb0EEC2EPS3_.exit
-  %call6.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
+  %call6.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #20
   %is_detached.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 9
   store i8 1, ptr %is_detached.i, align 1
-  %realm_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %4 = load ptr, ptr %env_.i.i, align 8
-  %request_waiting_.i = getelementptr inbounds nuw i8, ptr %4, i64 2236
-  %5 = load i32, ptr %request_waiting_.i, align 4
-  %dec.i = add nsw i32 %5, -1
+  %realm_.i = getelementptr inbounds nuw i8, ptr %req, i64 16
+  %1 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %2 = load ptr, ptr %env_.i.i, align 8
+  %request_waiting_.i = getelementptr inbounds nuw i8, ptr %2, i64 2236
+  %3 = load i32, ptr %request_waiting_.i, align 4
+  %dec.i = add nsw i32 %3, -1
   store i32 %dec.i, ptr %request_waiting_.i, align 4
-  %cmp.i2 = icmp slt i32 %5, 1
+  %cmp.i2 = icmp slt i32 %3, 1
   br i1 %cmp.i2, label %do.body5.i, label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_udp_send_sEELb0EED2Ev.exit
 
 do.body5.i:                                       ; preds = %_ZN4node10BaseObject6DetachEv.exit
@@ -7615,10 +7600,10 @@ do.body5.i:                                       ; preds = %_ZN4node10BaseObjec
   unreachable
 
 _ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_udp_send_sEELb0EED2Ev.exit: ; preds = %_ZN4node10BaseObject6DetachEv.exit
-  %original_callback_ = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %6 = load ptr, ptr %original_callback_, align 8
-  tail call void %6(ptr noundef %req, i32 noundef %args) #20
-  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
+  %original_callback_ = getelementptr inbounds nuw i8, ptr %req, i64 80
+  %4 = load ptr, ptr %original_callback_, align 8
+  tail call void %4(ptr noundef nonnull %req, i32 noundef %args) #20
+  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #20
   ret void
 }
 

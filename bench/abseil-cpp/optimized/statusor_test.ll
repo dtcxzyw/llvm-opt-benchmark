@@ -54406,7 +54406,7 @@ define internal fastcc void @_ZN4absl8StatusOrIN12_GLOBAL__N_113InPlaceHelperEE7
   %.val = load i64, ptr %0, align 8, !tbaa !29
   %4 = icmp eq i64 %.val, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %4, label %6, label %.noexc3.i.i.i.i9
+  br i1 %4, label %6, label %.noexc3.i.i.i.i8
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -54468,20 +54468,20 @@ _ZN4absl17internal_statusor12StatusOrDataIN12_GLOBAL__N_113InPlaceHelperEE9MakeV
   store i64 %16, ptr %7, align 8, !tbaa !27
   br label %_ZN4absl6StatusD2Ev.exit
 
-.noexc3.i.i.i.i9:                                 ; preds = %3
+.noexc3.i.i.i.i8:                                 ; preds = %3
   %23 = load i64, ptr %2, align 8, !tbaa !27
   store ptr null, ptr %2, align 8, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
   %24 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #33
           to label %27 unwind label %25
 
-25:                                               ; preds = %.noexc3.i.i.i.i9
+25:                                               ; preds = %.noexc3.i.i.i.i8
   %26 = landingpad { ptr, i32 }
           cleanup
   %.not.i4.i.i10 = icmp eq i64 %23, 0
   br i1 %.not.i4.i.i10, label %common.resume, label %common.resume.sink.split
 
-27:                                               ; preds = %.noexc3.i.i.i.i9
+27:                                               ; preds = %.noexc3.i.i.i.i8
   store ptr %24, ptr %5, align 8, !tbaa !755
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24

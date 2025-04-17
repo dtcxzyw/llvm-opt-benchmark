@@ -3532,7 +3532,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit38
   %.pre80.pre = load ptr, ptr %11, align 8, !tbaa !314
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %.noexc44, %147
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %147, %.noexc44
   %.pre80 = phi ptr [ %.pre80.pre, %.noexc44 ], [ %.pre8081, %147 ]
   %154 = phi i32 [ %.pre2.i43, %.noexc44 ], [ %149, %147 ]
   %155 = phi ptr [ %.pre.i41, %.noexc44 ], [ %145, %147 ]

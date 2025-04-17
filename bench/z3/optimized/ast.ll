@@ -39043,7 +39043,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   %exitcond.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !542
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %.noexc, %64
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %64, %.noexc
   %93 = phi i32 [ %.pre2.i, %.noexc ], [ %66, %64 ]
   %94 = phi ptr [ %.pre.i, %.noexc ], [ %62, %64 ]
   %95 = getelementptr inbounds i8, ptr %94, i64 -4
@@ -39159,7 +39159,7 @@ _ZN6vectorISt4pairIjjELb0EjE9push_backEOS1_.exit: ; preds = %120, %126
   %.pre2.i52 = load i32, ptr %.phi.trans.insert.i51, align 4, !tbaa !24
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit65
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit65: ; preds = %.noexc53, %137
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit65: ; preds = %137, %.noexc53
   %144 = phi i32 [ %.pre2.i52, %.noexc53 ], [ %139, %137 ]
   %145 = phi ptr [ %.pre.i50, %.noexc53 ], [ %135, %137 ]
   %146 = getelementptr inbounds i8, ptr %145, i64 -4

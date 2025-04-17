@@ -4498,9 +4498,8 @@ _ZNSt6vectorIN6google8protobuf27FieldOptions_EditionDefaultESaIS2_EE17_S_check_i
 
 _ZNSt12_Vector_baseIN6google8protobuf27FieldOptions_EditionDefaultESaIS2_EE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorIN6google8protobuf27FieldOptions_EditionDefaultESaIS2_EE17_S_check_init_lenEmRKS3_.exit
   store ptr null, ptr %this, align 8
-  %add.ptr5 = getelementptr inbounds nuw %"class.google::protobuf::FieldOptions_EditionDefault", ptr null, i64 %sub.ptr.div.i.i.i
   %_M_end_of_storage6 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %add.ptr5, ptr %_M_end_of_storage6, align 8
+  store ptr null, ptr %_M_end_of_storage6, align 8
   br label %_ZSt22__uninitialized_copy_aIN6google8protobuf8internal19RepeatedPtrIteratorIKNS1_27FieldOptions_EditionDefaultEEEPS4_S4_ET0_T_S9_S8_RSaIT1_E.exit
 
 for.body.i.i.i.i.preheader:                       ; preds = %_ZNSt6vectorIN6google8protobuf27FieldOptions_EditionDefaultESaIS2_EE17_S_check_init_lenEmRKS3_.exit

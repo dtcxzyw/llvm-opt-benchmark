@@ -1166,10 +1166,7 @@ _ZN5boost10shared_ptrIN8QuantLib11HestonModelEEC2INS1_10BatesModelEEERKNS0_IT_EE
 
 invoke.cont.i.thread:                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib11HestonModelEEC2INS1_10BatesModelEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
   %_M_finish.i.i.i194 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 8
-  %add.ptr.i.i.i195 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i196 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i195, ptr %_M_end_of_storage.i.i.i196, align 8, !tbaa !90
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %_ZN5boost10shared_ptrIN8QuantLib11HestonModelEEC2INS1_10BatesModelEEERKNS0_IT_EENS_6detail24sp_enable_if_convertibleIS6_S2_E4typeE.exit
@@ -1646,10 +1643,6 @@ _ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit.i: ; preds = %if.then.
 
 invoke.cont.i.i.thread:                           ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit.i
   %_M_finish.i.i.i.i202 = getelementptr inbounds nuw i8, ptr %agg.tmp28, i64 24
-  %add.ptr.i.i.i.i203 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i
-  %_M_end_of_storage.i.i.i.i204 = getelementptr inbounds nuw i8, ptr %agg.tmp28, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bcSet.i, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i203, ptr %_M_end_of_storage.i.i.i.i204, align 8, !tbaa !117
   br label %invoke.cont.i76
 
 cond.true.i.i.i.i.i:                              ; preds = %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit.i

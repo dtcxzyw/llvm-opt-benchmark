@@ -753,7 +753,7 @@ consume_eos.exit:                                 ; preds = %16, %.critedge, %12
 define dso_local ptr @parse_stmt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
-  switch i32 %3, label %176 [
+  switch i32 %3, label %173 [
     i32 17, label %4
     i32 83, label %6
     i32 84, label %6
@@ -789,161 +789,161 @@ define dso_local ptr @parse_stmt(ptr noundef %0) local_unnamed_addr #0 {
     i32 70, label %6
     i32 64, label %6
     i32 65, label %6
-    i32 143, label %59
-    i32 127, label %61
-    i32 137, label %61
-    i32 111, label %61
-    i32 136, label %63
-    i32 128, label %65
-    i32 144, label %67
-    i32 115, label %69
-    i32 139, label %71
-    i32 117, label %73
-    i32 123, label %75
-    i32 124, label %77
-    i32 125, label %77
-    i32 112, label %79
-    i32 109, label %81
-    i32 108, label %85
-    i32 133, label %87
-    i32 106, label %89
-    i32 114, label %91
-    i32 152, label %95
-    i32 147, label %97
-    i32 161, label %99
-    i32 167, label %101
-    i32 176, label %103
-    i32 166, label %105
-    i32 165, label %107
-    i32 1, label %109
-    i32 2, label %109
-    i32 74, label %109
-    i32 73, label %109
-    i32 75, label %109
-    i32 3, label %109
-    i32 4, label %109
-    i32 5, label %109
-    i32 6, label %109
-    i32 37, label %109
-    i32 80, label %109
-    i32 78, label %109
-    i32 145, label %109
-    i32 146, label %109
-    i32 148, label %109
-    i32 68, label %109
-    i32 169, label %109
-    i32 151, label %109
-    i32 154, label %109
-    i32 159, label %109
-    i32 163, label %109
-    i32 164, label %109
-    i32 67, label %109
-    i32 170, label %109
-    i32 171, label %109
-    i32 172, label %109
-    i32 173, label %109
-    i32 174, label %109
-    i32 175, label %109
-    i32 183, label %109
-    i32 181, label %109
-    i32 179, label %109
-    i32 184, label %109
-    i32 182, label %109
-    i32 121, label %109
-    i32 77, label %109
-    i32 43, label %109
-    i32 19, label %109
-    i32 20, label %109
-    i32 47, label %109
-    i32 134, label %109
-    i32 51, label %109
-    i32 22, label %109
-    i32 53, label %109
-    i32 79, label %109
-    i32 27, label %109
-    i32 76, label %109
-    i32 140, label %109
-    i32 105, label %142
-    i32 0, label %144
-    i32 7, label %146
-    i32 8, label %146
-    i32 10, label %146
-    i32 11, label %146
-    i32 12, label %146
-    i32 13, label %146
-    i32 14, label %146
-    i32 15, label %146
-    i32 16, label %146
-    i32 18, label %146
-    i32 21, label %146
-    i32 23, label %146
-    i32 29, label %146
-    i32 30, label %146
-    i32 32, label %146
-    i32 33, label %146
-    i32 34, label %146
-    i32 35, label %146
-    i32 36, label %146
-    i32 38, label %146
-    i32 39, label %146
-    i32 40, label %146
-    i32 42, label %146
-    i32 46, label %146
-    i32 48, label %146
-    i32 49, label %146
-    i32 50, label %146
-    i32 52, label %146
-    i32 61, label %146
-    i32 58, label %146
-    i32 60, label %146
-    i32 59, label %146
-    i32 63, label %146
-    i32 62, label %146
-    i32 118, label %146
-    i32 57, label %146
-    i32 119, label %146
-    i32 126, label %146
-    i32 130, label %146
-    i32 131, label %146
-    i32 132, label %146
-    i32 120, label %146
-    i32 138, label %146
-    i32 122, label %146
-    i32 142, label %146
-    i32 113, label %146
-    i32 186, label %146
-    i32 187, label %146
-    i32 81, label %146
-    i32 149, label %146
-    i32 153, label %146
-    i32 150, label %146
-    i32 157, label %146
-    i32 158, label %146
-    i32 54, label %146
-    i32 31, label %146
-    i32 28, label %146
-    i32 107, label %146
-    i32 45, label %146
-    i32 56, label %146
-    i32 155, label %146
-    i32 156, label %146
-    i32 185, label %146
-    i32 41, label %146
-    i32 129, label %146
-    i32 116, label %146
-    i32 168, label %146
-    i32 162, label %146
-    i32 44, label %146
-    i32 135, label %146
-    i32 26, label %151
-    i32 24, label %151
-    i32 25, label %151
-    i32 55, label %151
-    i32 141, label %156
-    i32 110, label %156
-    i32 9, label %163
-    i32 189, label %168
-    i32 188, label %172
+    i32 143, label %56
+    i32 127, label %58
+    i32 137, label %58
+    i32 111, label %58
+    i32 136, label %60
+    i32 128, label %62
+    i32 144, label %64
+    i32 115, label %66
+    i32 139, label %68
+    i32 117, label %70
+    i32 123, label %72
+    i32 124, label %74
+    i32 125, label %74
+    i32 112, label %76
+    i32 109, label %78
+    i32 108, label %82
+    i32 133, label %84
+    i32 106, label %86
+    i32 114, label %88
+    i32 152, label %92
+    i32 147, label %94
+    i32 161, label %96
+    i32 167, label %98
+    i32 176, label %100
+    i32 166, label %102
+    i32 165, label %104
+    i32 1, label %106
+    i32 2, label %106
+    i32 74, label %106
+    i32 73, label %106
+    i32 75, label %106
+    i32 3, label %106
+    i32 4, label %106
+    i32 5, label %106
+    i32 6, label %106
+    i32 37, label %106
+    i32 80, label %106
+    i32 78, label %106
+    i32 145, label %106
+    i32 146, label %106
+    i32 148, label %106
+    i32 68, label %106
+    i32 169, label %106
+    i32 151, label %106
+    i32 154, label %106
+    i32 159, label %106
+    i32 163, label %106
+    i32 164, label %106
+    i32 67, label %106
+    i32 170, label %106
+    i32 171, label %106
+    i32 172, label %106
+    i32 173, label %106
+    i32 174, label %106
+    i32 175, label %106
+    i32 183, label %106
+    i32 181, label %106
+    i32 179, label %106
+    i32 184, label %106
+    i32 182, label %106
+    i32 121, label %106
+    i32 77, label %106
+    i32 43, label %106
+    i32 19, label %106
+    i32 20, label %106
+    i32 47, label %106
+    i32 134, label %106
+    i32 51, label %106
+    i32 22, label %106
+    i32 53, label %106
+    i32 79, label %106
+    i32 27, label %106
+    i32 76, label %106
+    i32 140, label %106
+    i32 105, label %139
+    i32 0, label %141
+    i32 7, label %143
+    i32 8, label %143
+    i32 10, label %143
+    i32 11, label %143
+    i32 12, label %143
+    i32 13, label %143
+    i32 14, label %143
+    i32 15, label %143
+    i32 16, label %143
+    i32 18, label %143
+    i32 21, label %143
+    i32 23, label %143
+    i32 29, label %143
+    i32 30, label %143
+    i32 32, label %143
+    i32 33, label %143
+    i32 34, label %143
+    i32 35, label %143
+    i32 36, label %143
+    i32 38, label %143
+    i32 39, label %143
+    i32 40, label %143
+    i32 42, label %143
+    i32 46, label %143
+    i32 48, label %143
+    i32 49, label %143
+    i32 50, label %143
+    i32 52, label %143
+    i32 61, label %143
+    i32 58, label %143
+    i32 60, label %143
+    i32 59, label %143
+    i32 63, label %143
+    i32 62, label %143
+    i32 118, label %143
+    i32 57, label %143
+    i32 119, label %143
+    i32 126, label %143
+    i32 130, label %143
+    i32 131, label %143
+    i32 132, label %143
+    i32 120, label %143
+    i32 138, label %143
+    i32 122, label %143
+    i32 142, label %143
+    i32 113, label %143
+    i32 186, label %143
+    i32 187, label %143
+    i32 81, label %143
+    i32 149, label %143
+    i32 153, label %143
+    i32 150, label %143
+    i32 157, label %143
+    i32 158, label %143
+    i32 54, label %143
+    i32 31, label %143
+    i32 28, label %143
+    i32 107, label %143
+    i32 45, label %143
+    i32 56, label %143
+    i32 155, label %143
+    i32 156, label %143
+    i32 185, label %143
+    i32 41, label %143
+    i32 129, label %143
+    i32 116, label %143
+    i32 168, label %143
+    i32 162, label %143
+    i32 44, label %143
+    i32 135, label %143
+    i32 26, label %148
+    i32 24, label %148
+    i32 25, label %148
+    i32 55, label %148
+    i32 141, label %153
+    i32 110, label %153
+    i32 9, label %160
+    i32 189, label %165
+    i32 188, label %169
   ]
 
 4:                                                ; preds = %1
@@ -953,352 +953,346 @@ define dso_local ptr @parse_stmt(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   %7 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %..critedge_crit_edge.i, label %9
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  br i1 %8, label %.critedge.thread.i, label %10
 
-..critedge_crit_edge.i:                           ; preds = %6
-  %.pre.i = load i16, ptr inttoptr (i64 16 to ptr), align 16
-  br label %.critedge.i
-
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %11 = load i16, ptr %10, align 8
+10:                                               ; preds = %6
+  %11 = load i16, ptr %9, align 8
   %12 = and i16 %11, 255
   %.not.i = icmp eq i16 %12, 0
   br i1 %.not.i, label %13, label %.critedge.i
 
-13:                                               ; preds = %9
+13:                                               ; preds = %10
   %14 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-.critedge.i:                                      ; preds = %9, %..critedge_crit_edge.i
-  %15 = phi i16 [ %.pre.i, %..critedge_crit_edge.i ], [ %11, %9 ]
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %trunc.i = trunc i16 %15 to i8
+.critedge.i:                                      ; preds = %10
+  %trunc.i = trunc i16 %11 to i8
   switch i8 %trunc.i, label %.thread.i [
-    i8 29, label %17
-    i8 62, label %25
+    i8 29, label %.critedge.thread.i
+    i8 62, label %22
   ]
 
-17:                                               ; preds = %.critedge.i
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load i16, ptr %20, align 8
-  %22 = and i16 %21, 255
-  %23 = icmp eq i16 %22, 62
-  br i1 %23, label %24, label %.thread.i
+.critedge.thread.i:                               ; preds = %.critedge.i, %6
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load i16, ptr %17, align 8
+  %19 = and i16 %18, 255
+  %20 = icmp eq i16 %19, 62
+  br i1 %20, label %21, label %.thread.i
 
-24:                                               ; preds = %17
+21:                                               ; preds = %.critedge.thread.i
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.parse_decl_or_expr_stmt, ptr noundef nonnull @.str.10, i32 noundef 913) #6
   unreachable
 
-25:                                               ; preds = %.critedge.i
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call fastcc ptr @parse_decl_stmt_after_type(ptr noundef nonnull %0, ptr noundef %27)
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %.critedge2.i, label %30
+22:                                               ; preds = %.critedge.i
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = tail call fastcc ptr @parse_decl_stmt_after_type(ptr noundef nonnull %0, ptr noundef %24)
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %.critedge2.i, label %27
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  %32 = load i8, ptr %31, align 4
-  %.not40.i = icmp eq i8 %32, 0
-  br i1 %.not40.i, label %33, label %.critedge2.i
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  %29 = load i8, ptr %28, align 4
+  %.not40.i = icmp eq i8 %29, 0
+  br i1 %.not40.i, label %30, label %.critedge2.i
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr @poisoned_ast, align 8
+30:                                               ; preds = %27
+  %31 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-.critedge2.i:                                     ; preds = %30, %25
-  %35 = load i32, ptr %2, align 8
-  %36 = icmp eq i32 %35, 9
-  br i1 %36, label %41, label %37
+.critedge2.i:                                     ; preds = %27, %22
+  %32 = load i32, ptr %2, align 8
+  %33 = icmp eq i32 %32, 9
+  br i1 %33, label %38, label %34
 
-37:                                               ; preds = %.critedge2.i
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %39 = load i64, ptr %38, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %39, ptr noundef nonnull @.str.11) #5
-  %40 = load ptr, ptr @poisoned_ast, align 8
+34:                                               ; preds = %.critedge2.i
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %36 = load i64, ptr %35, align 8
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %36, ptr noundef nonnull @.str.11) #5
+  %37 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-41:                                               ; preds = %.critedge2.i
+38:                                               ; preds = %.critedge2.i
   tail call void @advance(ptr noundef nonnull %0) #5
   br label %parse_decl_or_expr_stmt.exit
 
-.thread.i:                                        ; preds = %17, %.critedge.i
-  %42 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %44 = load i64, ptr %43, align 8
-  store i64 %44, ptr %42, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  store i8 19, ptr %45, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store ptr %7, ptr %46, align 8
-  %47 = load i32, ptr %2, align 8
-  switch i32 %47, label %.thread41.i [
-    i32 64, label %48
-    i32 9, label %58
+.thread.i:                                        ; preds = %.critedge.thread.i, %.critedge.i
+  %39 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %41 = load i64, ptr %40, align 8
+  store i64 %41, ptr %39, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 12
+  store i8 19, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store ptr %7, ptr %43, align 8
+  %44 = load i32, ptr %2, align 8
+  switch i32 %44, label %.thread41.i [
+    i32 64, label %45
+    i32 9, label %55
   ]
 
-48:                                               ; preds = %.thread.i
-  %49 = load i16, ptr %16, align 8
-  %50 = and i16 %49, 255
-  %51 = icmp eq i16 %50, 34
-  br i1 %51, label %52, label %.thread41.i
+45:                                               ; preds = %.thread.i
+  %46 = load i16, ptr %9, align 8
+  %47 = and i16 %46, 255
+  %48 = icmp eq i16 %47, 34
+  br i1 %48, label %49, label %.thread41.i
 
-52:                                               ; preds = %48
-  %53 = load i64, ptr %43, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %53, ptr noundef nonnull @.str.16) #5
+49:                                               ; preds = %45
+  %50 = load i64, ptr %40, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %50, ptr noundef nonnull @.str.16) #5
+  %51 = load ptr, ptr @poisoned_ast, align 8
+  br label %parse_decl_or_expr_stmt.exit
+
+.thread41.i:                                      ; preds = %45, %.thread.i
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %53 = load i64, ptr %52, align 8
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %53, ptr noundef nonnull @.str.11) #5
   %54 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-.thread41.i:                                      ; preds = %48, %.thread.i
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %56 = load i64, ptr %55, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %56, ptr noundef nonnull @.str.11) #5
-  %57 = load ptr, ptr @poisoned_ast, align 8
-  br label %parse_decl_or_expr_stmt.exit
-
-58:                                               ; preds = %.thread.i
+55:                                               ; preds = %.thread.i
   tail call void @advance(ptr noundef nonnull %0) #5
   br label %parse_decl_or_expr_stmt.exit
 
-59:                                               ; preds = %1
-  %60 = tail call fastcc ptr @parse_var_stmt(ptr noundef nonnull %0)
+56:                                               ; preds = %1
+  %57 = tail call fastcc ptr @parse_var_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-61:                                               ; preds = %1, %1, %1
-  %62 = tail call fastcc ptr @parse_declaration_stmt(ptr noundef nonnull %0)
+58:                                               ; preds = %1, %1, %1
+  %59 = tail call fastcc ptr @parse_declaration_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-63:                                               ; preds = %1
-  %64 = tail call fastcc ptr @parse_return_stmt(ptr noundef nonnull %0)
+60:                                               ; preds = %1
+  %61 = tail call fastcc ptr @parse_return_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-65:                                               ; preds = %1
-  %66 = tail call fastcc ptr @parse_if_stmt(ptr noundef nonnull %0)
+62:                                               ; preds = %1
+  %63 = tail call fastcc ptr @parse_if_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-67:                                               ; preds = %1
-  %68 = tail call fastcc ptr @parse_while_stmt(ptr noundef nonnull %0)
+64:                                               ; preds = %1
+  %65 = tail call fastcc ptr @parse_while_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-69:                                               ; preds = %1
-  %70 = tail call fastcc ptr @parse_defer_stmt(ptr noundef nonnull %0)
+66:                                               ; preds = %1
+  %67 = tail call fastcc ptr @parse_defer_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-71:                                               ; preds = %1
-  %72 = tail call fastcc ptr @parse_switch_stmt(ptr noundef nonnull %0)
+68:                                               ; preds = %1
+  %69 = tail call fastcc ptr @parse_switch_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-73:                                               ; preds = %1
-  %74 = tail call fastcc ptr @parse_do_stmt(ptr noundef nonnull %0)
+70:                                               ; preds = %1
+  %71 = tail call fastcc ptr @parse_do_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-75:                                               ; preds = %1
-  %76 = tail call fastcc ptr @parse_for_stmt(ptr noundef nonnull %0)
+72:                                               ; preds = %1
+  %73 = tail call fastcc ptr @parse_for_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-77:                                               ; preds = %1, %1
-  %78 = tail call fastcc ptr @parse_foreach_stmt(ptr noundef nonnull %0)
+74:                                               ; preds = %1, %1
+  %75 = tail call fastcc ptr @parse_foreach_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-79:                                               ; preds = %1
-  %80 = tail call fastcc ptr @parse_continue_stmt(ptr noundef nonnull %0)
+76:                                               ; preds = %1
+  %77 = tail call fastcc ptr @parse_continue_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-81:                                               ; preds = %1
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %83 = load i64, ptr %82, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %83, ptr noundef nonnull @.str.1) #5
+78:                                               ; preds = %1
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %80 = load i64, ptr %79, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %80, ptr noundef nonnull @.str.1) #5
   tail call void @advance(ptr noundef nonnull %0) #5
-  %84 = load ptr, ptr @poisoned_ast, align 8
+  %81 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-85:                                               ; preds = %1
-  %86 = tail call fastcc ptr @parse_break_stmt(ptr noundef nonnull %0)
+82:                                               ; preds = %1
+  %83 = tail call fastcc ptr @parse_break_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-87:                                               ; preds = %1
-  %88 = tail call fastcc ptr @parse_nextcase_stmt(ptr noundef nonnull %0)
+84:                                               ; preds = %1
+  %85 = tail call fastcc ptr @parse_nextcase_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-89:                                               ; preds = %1
-  %90 = tail call fastcc ptr @parse_asm_block_stmt(ptr noundef nonnull %0)
+86:                                               ; preds = %1
+  %87 = tail call fastcc ptr @parse_asm_block_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-91:                                               ; preds = %1
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %93 = load i64, ptr %92, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %93, ptr noundef nonnull @.str.2) #5
+88:                                               ; preds = %1
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %90 = load i64, ptr %89, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %90, ptr noundef nonnull @.str.2) #5
   tail call void @advance(ptr noundef nonnull %0) #5
-  %94 = load ptr, ptr @poisoned_ast, align 8
+  %91 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-95:                                               ; preds = %1
-  %96 = tail call ptr @parse_ct_echo_stmt(ptr noundef nonnull %0)
+92:                                               ; preds = %1
+  %93 = tail call ptr @parse_ct_echo_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-97:                                               ; preds = %1
-  %98 = tail call ptr @parse_ct_assert_stmt(ptr noundef nonnull %0)
+94:                                               ; preds = %1
+  %95 = tail call ptr @parse_ct_assert_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-99:                                               ; preds = %1
-  %100 = tail call ptr @parse_ct_error_stmt(ptr noundef nonnull %0)
+96:                                               ; preds = %1
+  %97 = tail call ptr @parse_ct_error_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-101:                                              ; preds = %1
-  %102 = tail call fastcc ptr @parse_ct_if_stmt(ptr noundef nonnull %0)
+98:                                               ; preds = %1
+  %99 = tail call fastcc ptr @parse_ct_if_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-103:                                              ; preds = %1
-  %104 = tail call fastcc ptr @parse_ct_switch_stmt(ptr noundef nonnull %0)
+100:                                              ; preds = %1
+  %101 = tail call fastcc ptr @parse_ct_switch_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-105:                                              ; preds = %1
-  %106 = tail call fastcc ptr @parse_ct_foreach_stmt(ptr noundef nonnull %0)
+102:                                              ; preds = %1
+  %103 = tail call fastcc ptr @parse_ct_foreach_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-107:                                              ; preds = %1
-  %108 = tail call fastcc ptr @parse_ct_for_stmt(ptr noundef nonnull %0)
+104:                                              ; preds = %1
+  %105 = tail call fastcc ptr @parse_ct_for_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-109:                                              ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %111 = load i64, ptr %110, align 8
-  %112 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
-  store i64 %111, ptr %112, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 12
-  store i8 19, ptr %113, align 4
-  %114 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %.critedge.i52, label %116
+106:                                              ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %108 = load i64, ptr %107, align 8
+  %109 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  store i64 %108, ptr %109, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 12
+  store i8 19, ptr %110, align 4
+  %111 = tail call ptr @parse_expr(ptr noundef nonnull %0) #5
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %.critedge.i52, label %113
 
-116:                                              ; preds = %109
-  %117 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %118 = load i16, ptr %117, align 8
-  %119 = and i16 %118, 255
-  %.not.i51 = icmp eq i16 %119, 0
-  br i1 %.not.i51, label %120, label %.critedge.i52
+113:                                              ; preds = %106
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %115 = load i16, ptr %114, align 8
+  %116 = and i16 %115, 255
+  %.not.i51 = icmp eq i16 %116, 0
+  br i1 %.not.i51, label %117, label %.critedge.i52
 
-120:                                              ; preds = %116
-  %121 = load ptr, ptr @poisoned_ast, align 8
+117:                                              ; preds = %113
+  %118 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-.critedge.i52:                                    ; preds = %116, %109
-  %122 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  store ptr %114, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %124 = load i64, ptr %112, align 8
-  %125 = load i64, ptr %123, align 8
-  %.not.unshifted.i.i = xor i64 %125, %124
+.critedge.i52:                                    ; preds = %113, %106
+  %119 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  store ptr %111, ptr %119, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %121 = load i64, ptr %109, align 8
+  %122 = load i64, ptr %120, align 8
+  %.not.unshifted.i.i = xor i64 %122, %121
   %.not.i.i = icmp ult i64 %.not.unshifted.i.i, 4294967296
-  br i1 %.not.i.i, label %127, label %126
+  br i1 %.not.i.i, label %124, label %123
 
-126:                                              ; preds = %.critedge.i52
-  %.sroa.33.0.extract.shift.i.i = lshr i64 %124, 16
+123:                                              ; preds = %.critedge.i52
+  %.sroa.33.0.extract.shift.i.i = lshr i64 %121, 16
   br label %extend_span_with_token.exit.i
 
-127:                                              ; preds = %.critedge.i52
-  %.sroa.4.0.extract.shift.i.i = lshr i64 %124, 24
-  %128 = trunc i64 %125 to i32
-  %129 = lshr i32 %128, 24
-  %130 = lshr i32 %128, 16
-  %131 = trunc i64 %.sroa.4.0.extract.shift.i.i to i32
-  %132 = sub i32 %130, %131
-  %133 = add i32 %132, %129
-  %134 = zext i32 %133 to i64
+124:                                              ; preds = %.critedge.i52
+  %.sroa.4.0.extract.shift.i.i = lshr i64 %121, 24
+  %125 = trunc i64 %122 to i32
+  %126 = lshr i32 %125, 24
+  %127 = lshr i32 %125, 16
+  %128 = trunc i64 %.sroa.4.0.extract.shift.i.i to i32
+  %129 = sub i32 %127, %128
+  %130 = add i32 %129, %126
+  %131 = zext i32 %130 to i64
   br label %extend_span_with_token.exit.i
 
-extend_span_with_token.exit.i:                    ; preds = %127, %126
-  %.sroa.311.0.i.i = phi i64 [ %.sroa.33.0.extract.shift.i.i, %126 ], [ %134, %127 ]
+extend_span_with_token.exit.i:                    ; preds = %124, %123
+  %.sroa.311.0.i.i = phi i64 [ %.sroa.33.0.extract.shift.i.i, %123 ], [ %131, %124 ]
   %.sroa.311.0.insert.ext.i.i = shl nuw i64 %.sroa.311.0.i.i, 16
   %.sroa.311.0.insert.shift.i.i = and i64 %.sroa.311.0.insert.ext.i.i, 16711680
-  %135 = and i64 %124, -16711681
-  %.sroa.010.0.insert.insert.i.i = or disjoint i64 %.sroa.311.0.insert.shift.i.i, %135
-  store i64 %.sroa.010.0.insert.insert.i.i, ptr %112, align 8
-  %136 = load i32, ptr %2, align 8
-  %137 = icmp eq i32 %136, 9
-  br i1 %137, label %141, label %138
+  %132 = and i64 %121, -16711681
+  %.sroa.010.0.insert.insert.i.i = or disjoint i64 %.sroa.311.0.insert.shift.i.i, %132
+  store i64 %.sroa.010.0.insert.insert.i.i, ptr %109, align 8
+  %133 = load i32, ptr %2, align 8
+  %134 = icmp eq i32 %133, 9
+  br i1 %134, label %138, label %135
+
+135:                                              ; preds = %extend_span_with_token.exit.i
+  %136 = load i64, ptr %120, align 8
+  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %136, ptr noundef nonnull @.str.11) #5
+  %137 = load ptr, ptr @poisoned_ast, align 8
+  br label %parse_decl_or_expr_stmt.exit
 
 138:                                              ; preds = %extend_span_with_token.exit.i
-  %139 = load i64, ptr %123, align 8
-  tail call void (i64, ptr, ...) @sema_error_at_after(i64 %139, ptr noundef nonnull @.str.11) #5
-  %140 = load ptr, ptr @poisoned_ast, align 8
-  br label %parse_decl_or_expr_stmt.exit
-
-141:                                              ; preds = %extend_span_with_token.exit.i
   tail call void @advance(ptr noundef nonnull %0) #5
   br label %parse_decl_or_expr_stmt.exit
 
-142:                                              ; preds = %1
-  %143 = tail call fastcc ptr @parse_assert_stmt(ptr noundef nonnull %0)
+139:                                              ; preds = %1
+  %140 = tail call fastcc ptr @parse_assert_stmt(ptr noundef nonnull %0)
   br label %parse_decl_or_expr_stmt.exit
 
-144:                                              ; preds = %1
+141:                                              ; preds = %1
   tail call void @advance(ptr noundef nonnull %0) #5
-  %145 = load ptr, ptr @poisoned_ast, align 8
+  %142 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-146:                                              ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %148 = tail call ptr @token_type_to_string(i32 noundef %3) #5
-  %149 = load i64, ptr %147, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %149, ptr noundef nonnull @.str.3, ptr noundef %148) #5
+143:                                              ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %145 = tail call ptr @token_type_to_string(i32 noundef %3) #5
+  %146 = load i64, ptr %144, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %146, ptr noundef nonnull @.str.3, ptr noundef %145) #5
   tail call void @advance(ptr noundef nonnull %0) #5
-  %150 = load ptr, ptr @poisoned_ast, align 8
+  %147 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-151:                                              ; preds = %1, %1, %1, %1
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %153 = tail call ptr @token_type_to_string(i32 noundef %3) #5
-  %154 = load i64, ptr %152, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %154, ptr noundef nonnull @.str.4, ptr noundef %153) #5
+148:                                              ; preds = %1, %1, %1, %1
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %150 = tail call ptr @token_type_to_string(i32 noundef %3) #5
+  %151 = load i64, ptr %149, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %151, ptr noundef nonnull @.str.4, ptr noundef %150) #5
   tail call void @advance(ptr noundef nonnull %0) #5
-  %155 = load ptr, ptr @poisoned_ast, align 8
+  %152 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-156:                                              ; preds = %1, %1
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %158 = tail call ptr @token_type_to_string(i32 noundef %3) #5
-  %159 = load i32, ptr %2, align 8
-  %160 = tail call ptr @token_type_to_string(i32 noundef %159) #5
-  %161 = load i64, ptr %157, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %161, ptr noundef nonnull @.str.5, ptr noundef %158, ptr noundef %160) #5
+153:                                              ; preds = %1, %1
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %155 = tail call ptr @token_type_to_string(i32 noundef %3) #5
+  %156 = load i32, ptr %2, align 8
+  %157 = tail call ptr @token_type_to_string(i32 noundef %156) #5
+  %158 = load i64, ptr %154, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %158, ptr noundef nonnull @.str.5, ptr noundef %155, ptr noundef %157) #5
   tail call void @advance(ptr noundef nonnull %0) #5
-  %162 = load ptr, ptr @poisoned_ast, align 8
+  %159 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-163:                                              ; preds = %1
+160:                                              ; preds = %1
   tail call void @advance(ptr noundef nonnull %0) #5
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %165 = load i64, ptr %164, align 8
-  %166 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
-  store i64 %165, ptr %166, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 12
-  store i8 24, ptr %167, align 4
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %162 = load i64, ptr %161, align 8
+  %163 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
+  store i64 %162, ptr %163, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 12
+  store i8 24, ptr %164, align 4
   br label %parse_decl_or_expr_stmt.exit
 
-168:                                              ; preds = %1
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %170 = load i64, ptr %169, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %170, ptr noundef nonnull @.str.6) #5
-  %171 = load ptr, ptr @poisoned_ast, align 8
+165:                                              ; preds = %1
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %167 = load i64, ptr %166, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %167, ptr noundef nonnull @.str.6) #5
+  %168 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-172:                                              ; preds = %1
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %174 = load i64, ptr %173, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %174, ptr noundef nonnull @.str.7) #5
-  %175 = load ptr, ptr @poisoned_ast, align 8
+169:                                              ; preds = %1
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %171 = load i64, ptr %170, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %171, ptr noundef nonnull @.str.7) #5
+  %172 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_decl_or_expr_stmt.exit
 
-176:                                              ; preds = %1
+173:                                              ; preds = %1
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.parse_stmt, ptr noundef nonnull @.str.10, i32 noundef 1414) #6
   unreachable
 
-parse_decl_or_expr_stmt.exit:                     ; preds = %141, %138, %120, %58, %.thread41.i, %52, %41, %37, %33, %13, %172, %168, %163, %156, %151, %146, %144, %142, %107, %105, %103, %101, %99, %97, %95, %91, %89, %87, %85, %81, %79, %77, %75, %73, %71, %69, %67, %65, %63, %61, %59, %4
-  %.0 = phi ptr [ %175, %172 ], [ %171, %168 ], [ %166, %163 ], [ %162, %156 ], [ %155, %151 ], [ %150, %146 ], [ %145, %144 ], [ %143, %142 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %95 ], [ %94, %91 ], [ %90, %89 ], [ %88, %87 ], [ %86, %85 ], [ %84, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %5, %4 ], [ %28, %41 ], [ %40, %37 ], [ %34, %33 ], [ %54, %52 ], [ %42, %58 ], [ %57, %.thread41.i ], [ %14, %13 ], [ %112, %141 ], [ %140, %138 ], [ %121, %120 ]
+parse_decl_or_expr_stmt.exit:                     ; preds = %138, %135, %117, %55, %.thread41.i, %49, %38, %34, %30, %13, %169, %165, %160, %153, %148, %143, %141, %139, %104, %102, %100, %98, %96, %94, %92, %88, %86, %84, %82, %78, %76, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %4
+  %.0 = phi ptr [ %172, %169 ], [ %168, %165 ], [ %163, %160 ], [ %159, %153 ], [ %152, %148 ], [ %147, %143 ], [ %142, %141 ], [ %140, %139 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %78 ], [ %77, %76 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %5, %4 ], [ %25, %38 ], [ %37, %34 ], [ %31, %30 ], [ %51, %49 ], [ %39, %55 ], [ %54, %.thread41.i ], [ %14, %13 ], [ %109, %138 ], [ %137, %135 ], [ %118, %117 ]
   ret ptr %.0
 }
 
@@ -2025,7 +2019,7 @@ parse_optional_label.exit.thread74:               ; preds = %9, %parse_optional_
 
 28:                                               ; preds = %parse_optional_label.exit.thread74
   %29 = load ptr, ptr @poisoned_ast, align 8
-  br label %85
+  br label %83
 
 .critedge:                                        ; preds = %parse_optional_label.exit.thread74
   %30 = load ptr, ptr @decl_arena, align 8
@@ -2049,7 +2043,7 @@ parse_optional_label.exit.thread74:               ; preds = %9, %parse_optional_
   %42 = load i64, ptr %2, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %42, ptr noundef nonnull @.str.12, ptr noundef %41) #5
   %43 = load ptr, ptr @poisoned_ast, align 8
-  br label %85
+  br label %83
 
 .critedge69:                                      ; preds = %.critedge67
   tail call void @advance(ptr noundef nonnull %0) #5
@@ -2070,12 +2064,12 @@ parse_optional_label.exit.thread74:               ; preds = %9, %parse_optional_
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr @poisoned_ast, align 8
-  br label %85
+  br label %83
 
 .critedge2:                                       ; preds = %.critedge69, %.split
   %.sink = phi i64 [ %50, %.split ], [ 0, %.critedge69 ]
-  %.sink79 = load ptr, ptr @expr_arena, align 8
-  %53 = ptrtoint ptr %.sink79 to i64
+  %.sink80 = load ptr, ptr @expr_arena, align 8
+  %53 = ptrtoint ptr %.sink80 to i64
   %54 = sub i64 %.sink, %53
   %phi.call.in = sdiv exact i64 %54, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -2090,7 +2084,7 @@ parse_optional_label.exit.thread74:               ; preds = %9, %parse_optional_
   %60 = load i64, ptr %2, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %60, ptr noundef nonnull @.str.12, ptr noundef %59) #5
   %61 = load ptr, ptr @poisoned_ast, align 8
-  br label %85
+  br label %83
 
 .critedge71:                                      ; preds = %.critedge2
   tail call void @advance(ptr noundef nonnull %0) #5
@@ -2098,51 +2092,44 @@ parse_optional_label.exit.thread74:               ; preds = %9, %parse_optional_
   %63 = load i32, ptr %62, align 4
   %64 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.critedge71..critedge4_crit_edge, label %66
-
-.critedge71..critedge4_crit_edge:                 ; preds = %.critedge71
-  %.pre = load i8, ptr inttoptr (i64 12 to ptr), align 4
-  br label %.critedge4
+  br i1 %65, label %.critedge4.thread, label %66
 
 66:                                               ; preds = %.critedge71
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %68 = load i8, ptr %67, align 4
-  %.not64 = icmp eq i8 %68, 0
-  br i1 %.not64, label %69, label %.critedge4
+  switch i8 %68, label %.critedge4.thread [
+    i8 0, label %69
+    i8 6, label %75
+  ]
 
 69:                                               ; preds = %66
   %70 = load ptr, ptr @poisoned_ast, align 8
-  br label %85
+  br label %83
 
-.critedge4:                                       ; preds = %.critedge71..critedge4_crit_edge, %66
-  %71 = phi i8 [ %.pre, %.critedge71..critedge4_crit_edge ], [ %68, %66 ]
-  %.not65 = icmp eq i8 %71, 6
-  br i1 %.not65, label %77, label %72
+.critedge4.thread:                                ; preds = %66, %.critedge71
+  %71 = load i32, ptr %62, align 4
+  %.not66 = icmp eq i32 %63, %71
+  br i1 %.not66, label %75, label %72
 
-72:                                               ; preds = %.critedge4
-  %73 = load i32, ptr %62, align 4
-  %.not66 = icmp eq i32 %63, %73
-  br i1 %.not66, label %77, label %74
+72:                                               ; preds = %.critedge4.thread
+  %73 = load i64, ptr %64, align 8
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %73, ptr noundef nonnull @.str.20) #5
+  %74 = load ptr, ptr @poisoned_ast, align 8
+  br label %83
 
-74:                                               ; preds = %72
-  %75 = load i64, ptr %64, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %75, ptr noundef nonnull @.str.20) #5
-  %76 = load ptr, ptr @poisoned_ast, align 8
-  br label %85
+75:                                               ; preds = %66, %.critedge4.thread
+  %76 = load ptr, ptr @ast_arena, align 8
+  %77 = ptrtoint ptr %64 to i64
+  %78 = ptrtoint ptr %76 to i64
+  %79 = sub i64 %77, %78
+  %80 = sdiv exact i64 %79, 48
+  %81 = trunc i64 %80 to i32
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  store i32 %81, ptr %82, align 4
+  br label %83
 
-77:                                               ; preds = %72, %.critedge4
-  %78 = load ptr, ptr @ast_arena, align 8
-  %79 = ptrtoint ptr %64 to i64
-  %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %79, %80
-  %82 = sdiv exact i64 %81, 48
-  %83 = trunc i64 %82 to i32
-  %84 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 %83, ptr %84, align 4
-  br label %85
-
-85:                                               ; preds = %77, %74, %69, %58, %51, %40, %28
-  %.057 = phi ptr [ %76, %74 ], [ %4, %77 ], [ %70, %69 ], [ %61, %58 ], [ %52, %51 ], [ %43, %40 ], [ %29, %28 ]
+83:                                               ; preds = %75, %72, %69, %58, %51, %40, %28
+  %.057 = phi ptr [ %74, %72 ], [ %4, %75 ], [ %70, %69 ], [ %61, %58 ], [ %52, %51 ], [ %43, %40 ], [ %29, %28 ]
   ret ptr %.057
 }
 

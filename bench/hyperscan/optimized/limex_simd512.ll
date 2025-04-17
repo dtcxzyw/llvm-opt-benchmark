@@ -8570,61 +8570,56 @@ define hidden noundef signext i8 @nfaExecLimEx512_B_Reverse(ptr noundef %0, i64 
   br i1 %.not.i32.not, label %68, label %repeatHasMatch.exit.thread54
 
 68:                                               ; preds = %49
-  %69 = getelementptr inbounds nuw %union.RepeatControl, ptr null, i64 %indvars.iv
-  %70 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %71 = load i32, ptr %70, align 4
-  %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw i8, ptr null, i64 %72
-  %74 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %75 = load i8, ptr %74, align 4
-  switch i8 %75, label %repeatHasMatch.exit.thread [
-    i8 0, label %76
+  %69 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %70 = load i8, ptr %69, align 4
+  switch i8 %70, label %repeatHasMatch.exit.thread [
+    i8 0, label %71
     i8 7, label %repeatHasMatch.exit.thread54
-    i8 6, label %84
-    i8 3, label %78
-    i8 4, label %80
-    i8 5, label %82
+    i8 6, label %79
+    i8 3, label %73
+    i8 4, label %75
+    i8 5, label %77
   ]
 
-76:                                               ; preds = %68
-  %77 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %74, ptr noundef %69, ptr noundef %73, i64 noundef 1) #11
+71:                                               ; preds = %68
+  %72 = tail call i32 @repeatHasMatchRing(ptr noundef nonnull %69, ptr noundef null, ptr noundef null, i64 noundef 1) #11
   br label %repeatHasMatch.exit
 
-78:                                               ; preds = %68
-  %79 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %74, ptr noundef %69, ptr noundef %73, i64 noundef 1) #11
+73:                                               ; preds = %68
+  %74 = tail call i32 @repeatHasMatchRange(ptr noundef nonnull %69, ptr noundef null, ptr noundef null, i64 noundef 1) #11
   br label %repeatHasMatch.exit
 
-80:                                               ; preds = %68
-  %81 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %74, ptr noundef %69, i64 noundef 1) #11
+75:                                               ; preds = %68
+  %76 = tail call i32 @repeatHasMatchBitmap(ptr noundef nonnull %69, ptr noundef null, i64 noundef 1) #11
   br label %repeatHasMatch.exit
 
-82:                                               ; preds = %68
-  %83 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %74, ptr noundef %69, ptr noundef %73, i64 noundef 1) #11
+77:                                               ; preds = %68
+  %78 = tail call i32 @repeatHasMatchSparseOptimalP(ptr noundef nonnull %69, ptr noundef null, ptr noundef null, i64 noundef 1) #11
   br label %repeatHasMatch.exit
 
-84:                                               ; preds = %68
-  %85 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %74, ptr noundef %69, i64 noundef 1) #11
+79:                                               ; preds = %68
+  %80 = tail call i32 @repeatHasMatchTrailer(ptr noundef nonnull %69, ptr noundef null, i64 noundef 1) #11
   br label %repeatHasMatch.exit
 
-repeatHasMatch.exit:                              ; preds = %76, %78, %80, %82, %84
-  %.0.i33 = phi i32 [ %85, %84 ], [ %83, %82 ], [ %81, %80 ], [ %79, %78 ], [ %77, %76 ]
+repeatHasMatch.exit:                              ; preds = %71, %73, %75, %77, %79
+  %.0.i33 = phi i32 [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ]
   %.not20.i = icmp eq i32 %.0.i33, 1
   br i1 %.not20.i, label %repeatHasMatch.exit.thread54, label %repeatHasMatch.exit.thread
 
 repeatHasMatch.exit.thread:                       ; preds = %68, %repeatHasMatch.exit
   %.0.i37 = select i1 %58, ptr %10, ptr %45
-  %86 = load <4 x i64>, ptr %.0.i37, align 32
-  %87 = xor <4 x i64> %66, splat (i64 -1)
-  %88 = and <4 x i64> %86, %87
-  store <4 x i64> %88, ptr %.0.i37, align 32
+  %81 = load <4 x i64>, ptr %.0.i37, align 32
+  %82 = xor <4 x i64> %66, splat (i64 -1)
+  %83 = and <4 x i64> %81, %82
+  store <4 x i64> %83, ptr %.0.i37, align 32
   br label %repeatHasMatch.exit.thread54
 
 repeatHasMatch.exit.thread54:                     ; preds = %68, %repeatHasMatch.exit.thread, %repeatHasMatch.exit, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %89 = load i32, ptr %46, align 4
-  %90 = zext i32 %89 to i64
-  %91 = icmp samesign ult i64 %indvars.iv.next, %90
-  br i1 %91, label %49, label %lazyTug512.exit.loopexit
+  %84 = load i32, ptr %46, align 4
+  %85 = zext i32 %84 to i64
+  %86 = icmp samesign ult i64 %indvars.iv.next, %85
+  br i1 %86, label %49, label %lazyTug512.exit.loopexit
 
 lazyTug512.exit.loopexit:                         ; preds = %repeatHasMatch.exit.thread54
   %.sroa.042.0.copyload.pre = load <4 x i64>, ptr %10, align 64
@@ -8634,27 +8629,27 @@ lazyTug512.exit.loopexit:                         ; preds = %repeatHasMatch.exit
 lazyTug512.exit:                                  ; preds = %lazyTug512.exit.loopexit, %37
   %.sroa.443.0.copyload = phi <4 x i64> [ %.sroa.443.0.copyload.pre, %lazyTug512.exit.loopexit ], [ %44, %37 ]
   %.sroa.042.0.copyload = phi <4 x i64> [ %.sroa.042.0.copyload.pre, %lazyTug512.exit.loopexit ], [ %43, %37 ]
-  %92 = or <4 x i64> %.sroa.443.0.copyload, %.sroa.042.0.copyload
-  %93 = bitcast <4 x i64> %92 to <32 x i8>
-  %94 = icmp ne <32 x i8> %93, zeroinitializer
-  %95 = bitcast <32 x i1> %94 to i32
-  %.not58 = icmp eq i32 %95, 0
-  br i1 %.not58, label %102, label %96, !prof !74
+  %87 = or <4 x i64> %.sroa.443.0.copyload, %.sroa.042.0.copyload
+  %88 = bitcast <4 x i64> %87 to <32 x i8>
+  %89 = icmp ne <32 x i8> %88, zeroinitializer
+  %90 = bitcast <32 x i1> %89 to i32
+  %.not58 = icmp eq i32 %90, 0
+  br i1 %.not58, label %97, label %91, !prof !74
 
-96:                                               ; preds = %lazyTug512.exit
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %98 = load i32, ptr %97, align 32
-  %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw i8, ptr %17, i64 %99
-  %101 = call fastcc signext i8 @moProcessAcceptsNoSquash512(ptr noundef nonnull %17, ptr noundef %10, ptr noundef %9, ptr noundef nonnull %100, i64 noundef 0, ptr noundef %6, ptr noundef %7)
-  br label %102
+91:                                               ; preds = %lazyTug512.exit
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %93 = load i32, ptr %92, align 32
+  %94 = zext i32 %93 to i64
+  %95 = getelementptr inbounds nuw i8, ptr %17, i64 %94
+  %96 = call fastcc signext i8 @moProcessAcceptsNoSquash512(ptr noundef nonnull %17, ptr noundef %10, ptr noundef %9, ptr noundef nonnull %95, i64 noundef 0, ptr noundef %6, ptr noundef %7)
+  br label %97
 
-102:                                              ; preds = %96, %lazyTug512.exit
+97:                                               ; preds = %91, %lazyTug512.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
   br label %moNfaTestEod512.exit
 
-moNfaTestEod512.exit:                             ; preds = %102, %32, %29, %27
+moNfaTestEod512.exit:                             ; preds = %97, %32, %29, %27
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %11) #11
   ret i8 0
 }

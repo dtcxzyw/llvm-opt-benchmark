@@ -7770,12 +7770,9 @@ _ZNSt8functionIFvRN4node9HistogramEEED2Ev.exit:   ; preds = %_ZN4node17BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node17IntervalHistogram7TimerCBEP10uv_timer_s(ptr noundef %handle) #3 align 2 {
 entry:
-  %0 = ptrtoint ptr %handle to i64
-  %sub.i.i = add i64 %0, -144
-  %1 = inttoptr i64 %sub.i.i to ptr
-  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %2 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %handle, i64 128
+  %0 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFvRN4node9HistogramEEEclES2_.exit
 
 if.then.i:                                        ; preds = %entry
@@ -7783,12 +7780,12 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNKSt8functionIFvRN4node9HistogramEEEclES2_.exit: ; preds = %entry
-  %on_interval_ = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %3 = load ptr, ptr %add.ptr, align 8
-  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %4 = load ptr, ptr %_M_invoker.i, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(32) %on_interval_, ptr noundef nonnull align 8 dereferenceable(80) %3) #16
+  %on_interval_ = getelementptr inbounds nuw i8, ptr %handle, i64 112
+  %add.ptr = getelementptr inbounds nuw i8, ptr %handle, i64 88
+  %1 = load ptr, ptr %add.ptr, align 8
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %handle, i64 136
+  %2 = load ptr, ptr %_M_invoker.i, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %on_interval_, ptr noundef nonnull align 8 dereferenceable(80) %1) #16
   ret void
 }
 

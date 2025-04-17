@@ -1080,10 +1080,7 @@ entry:
 
 invoke.cont.i.thread:                             ; preds = %entry
   %_M_finish.i.i.i203 = getelementptr inbounds nuw i8, ptr %leg, i64 8
-  %add.ptr.i.i.i204 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i205 = getelementptr inbounds nuw i8, ptr %leg, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leg, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i204, ptr %_M_end_of_storage.i.i.i205, align 8, !tbaa !76
   br label %invoke.cont2
 
 cond.true.i.i.i.i:                                ; preds = %entry
@@ -1599,10 +1596,7 @@ invoke.cont104:                                   ; preds = %if.end102
 
 invoke.cont.i81.thread:                           ; preds = %invoke.cont104
   %_M_finish.i.i.i83176 = getelementptr inbounds nuw i8, ptr %agg.tmp106, i64 8
-  %add.ptr.i.i.i84177 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i76
   %_M_end_of_storage.i.i.i85178 = getelementptr inbounds nuw i8, ptr %agg.tmp106, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp106, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i84177, ptr %_M_end_of_storage.i.i.i85178, align 8, !tbaa !76
   br label %invoke.cont108
 
 cond.true.i.i.i.i78:                              ; preds = %invoke.cont104

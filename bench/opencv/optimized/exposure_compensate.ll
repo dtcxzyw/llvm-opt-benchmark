@@ -4996,8 +4996,8 @@ define void @_ZN2cv6detail19ChannelsCompensator4feedERKSt6vectorINS_6Point_IiEES
 _ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE5clearEv.exit: ; preds = %._crit_edge, %23
   %24 = load ptr, ptr %11, align 8, !tbaa !87
   %25 = load ptr, ptr %2, align 8, !tbaa !88
-  %.not102 = icmp eq ptr %24, %25
-  br i1 %.not102, label %60, label %26
+  %.not103 = icmp eq ptr %24, %25
+  br i1 %.not103, label %60, label %26
 
 26:                                               ; preds = %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EE5clearEv.exit
   %27 = ptrtoint ptr %24 to i64
@@ -6063,34 +6063,34 @@ _ZN2cv4Mat_INS_3VecIfLi3EEEEC2EONS_3MatE.exit:    ; preds = %26
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #25
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7) #25
   %32 = icmp sgt i32 %.sroa.3.0.extract.trunc, 0
-  br i1 %32, label %.preheader31.lr.ph, label %._crit_edge37
+  br i1 %32, label %.preheader29.lr.ph, label %._crit_edge35
 
-.preheader31.lr.ph:                               ; preds = %_ZN2cv4Mat_INS_3VecIfLi3EEEEC2EONS_3MatE.exit
+.preheader29.lr.ph:                               ; preds = %_ZN2cv4Mat_INS_3VecIfLi3EEEEC2EONS_3MatE.exit
   %33 = icmp sgt i32 %.sroa.015.0.extract.trunc, 0
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %35 = load ptr, ptr %34, align 8
-  br i1 %33, label %.preheader31.lr.ph.split.us, label %._crit_edge37
+  br i1 %33, label %.preheader29.lr.ph.split.us, label %._crit_edge35
 
-.preheader31.lr.ph.split.us:                      ; preds = %.preheader31.lr.ph
+.preheader29.lr.ph.split.us:                      ; preds = %.preheader29.lr.ph
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %37 = load ptr, ptr %36, align 8
   %38 = load i64, ptr %37, align 8, !tbaa !153
   %wide.trip.count = and i64 %4, 2147483647
-  br label %.preheader31.us
+  br label %.preheader29.us
 
-.preheader31.us:                                  ; preds = %._crit_edge.us, %.preheader31.lr.ph.split.us
-  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %._crit_edge.us ], [ 0, %.preheader31.lr.ph.split.us ]
-  %.02135.us = phi i32 [ %50, %._crit_edge.us ], [ %3, %.preheader31.lr.ph.split.us ]
-  %39 = mul i64 %38, %indvars.iv48
+.preheader29.us:                                  ; preds = %._crit_edge.us, %.preheader29.lr.ph.split.us
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %._crit_edge.us ], [ 0, %.preheader29.lr.ph.split.us ]
+  %.02133.us = phi i32 [ %50, %._crit_edge.us ], [ %3, %.preheader29.lr.ph.split.us ]
+  %39 = mul i64 %38, %indvars.iv46
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 %39
-  %41 = sext i32 %.02135.us to i64
+  %41 = sext i32 %.02133.us to i64
   br label %.preheader.us
 
 42:                                               ; preds = %43
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %indvars.iv.next43 = add nsw i64 %indvars.iv42, 1
-  %exitcond47.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count
-  br i1 %exitcond47.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !245
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %indvars.iv.next41 = add nsw i64 %indvars.iv40, 1
+  %exitcond45.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
+  br i1 %exitcond45.not, label %._crit_edge.us, label %.preheader.us, !llvm.loop !245
 
 43:                                               ; preds = %.preheader.us, %43
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %43 ]
@@ -6103,35 +6103,35 @@ _ZN2cv4Mat_INS_3VecIfLi3EEEEC2EONS_3MatE.exit:    ; preds = %26
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %42, label %43, !llvm.loop !246
 
-.preheader.us:                                    ; preds = %.preheader31.us, %42
-  %indvars.iv42 = phi i64 [ %41, %.preheader31.us ], [ %indvars.iv.next43, %42 ]
-  %indvars.iv40 = phi i64 [ 0, %.preheader31.us ], [ %indvars.iv.next41, %42 ]
-  %48 = getelementptr inbounds nuw %"class.cv::Scalar_", ptr %.sroa.0.0, i64 %indvars.iv42
-  %49 = getelementptr inbounds nuw %"class.cv::Vec.49", ptr %40, i64 %indvars.iv40
+.preheader.us:                                    ; preds = %.preheader29.us, %42
+  %indvars.iv40 = phi i64 [ %41, %.preheader29.us ], [ %indvars.iv.next41, %42 ]
+  %indvars.iv38 = phi i64 [ 0, %.preheader29.us ], [ %indvars.iv.next39, %42 ]
+  %48 = getelementptr inbounds nuw %"class.cv::Scalar_", ptr %.sroa.0.0, i64 %indvars.iv40
+  %49 = getelementptr inbounds nuw %"class.cv::Vec.49", ptr %40, i64 %indvars.iv38
   br label %43
 
 ._crit_edge.us:                                   ; preds = %42
-  %50 = trunc nsw i64 %indvars.iv.next43 to i32
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %.sroa.3.0.extract.shift
-  br i1 %exitcond52.not, label %._crit_edge37.thread, label %.preheader31.us, !llvm.loop !247
+  %50 = trunc nsw i64 %indvars.iv.next41 to i32
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %.sroa.3.0.extract.shift
+  br i1 %exitcond50.not, label %._crit_edge35.thread, label %.preheader29.us, !llvm.loop !247
 
-._crit_edge37.thread:                             ; preds = %._crit_edge.us
+._crit_edge35.thread:                             ; preds = %._crit_edge.us
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #25
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #25
   br label %51
 
-._crit_edge37:                                    ; preds = %.preheader31.lr.ph, %_ZN2cv4Mat_INS_3VecIfLi3EEEEC2EONS_3MatE.exit
+._crit_edge35:                                    ; preds = %.preheader29.lr.ph, %_ZN2cv4Mat_INS_3VecIfLi3EEEEC2EONS_3MatE.exit
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #25
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #25
   %.not.i.i.i = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EED2Ev.exit, label %51
 
-51:                                               ; preds = %._crit_edge37.thread, %._crit_edge37
+51:                                               ; preds = %._crit_edge35.thread, %._crit_edge35
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #27
   br label %_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EED2Ev.exit:   ; preds = %._crit_edge37, %51
+_ZNSt6vectorIN2cv7Scalar_IdEESaIS2_EED2Ev.exit:   ; preds = %._crit_edge35, %51
   ret void
 
 52:                                               ; preds = %_ZNK2cv6detail19ChannelsCompensator5gainsEv.exit

@@ -4097,108 +4097,102 @@ define linkonce_odr dso_local void @_ZN7testing8ValuesInIN9__gnu_cxx17__normal_i
 
 11:                                               ; preds = %3
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #34
-          to label %.noexc.i.i unwind label %21
+          to label %.noexc.i.i unwind label %19
 
 .noexc.i.i:                                       ; preds = %11
   unreachable
 
 _ZNSt6vectorIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i: ; preds = %3
   %.not.i.i.i.i = icmp eq ptr %2, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE11_M_allocateEm.exit.thread.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
-
-_ZNSt12_Vector_baseIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE11_M_allocateEm.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i
-  %12 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %12, ptr %13, align 8, !tbaa !42
-  br label %30
+  br i1 %.not.i.i.i.i, label %28, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %_ZNSt6vectorIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i
-  %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i.i) #36
-          to label %.noexc5.i.i unwind label %21
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i.i) #36
+          to label %.noexc5.i.i unwind label %19
 
 .noexc5.i.i:                                      ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i
-  store ptr %14, ptr %5, align 8, !tbaa !58
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %reass.sub.fr.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %15, ptr %16, align 8, !tbaa !42
-  %17 = add i64 %reass.sub.fr.i.i, -20
-  %18 = urem i64 %17, 20
-  %19 = sub nuw i64 %17, %18
-  %20 = add i64 %19, 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %14, ptr align 4 %1, i64 %20, i1 false)
-  %scevgep.i.i.i = getelementptr i8, ptr %14, i64 %20
-  br label %30
+  store ptr %12, ptr %5, align 8, !tbaa !58
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %reass.sub.fr.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %13, ptr %14, align 8, !tbaa !42
+  %15 = add i64 %reass.sub.fr.i.i, -20
+  %16 = urem i64 %15, 20
+  %17 = sub nuw i64 %15, %16
+  %18 = add i64 %17, 20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr align 4 %1, i64 %18, i1 false)
+  %scevgep.i.i.i = getelementptr i8, ptr %12, i64 %18
+  br label %28
 
-21:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i, %11
-  %22 = landingpad { ptr, i32 }
+19:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i, %11
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %5, align 8, !tbaa !58
-  %.not.i.i6.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i6.i.i, label %.body, label %24
+  %21 = load ptr, ptr %5, align 8, !tbaa !58
+  %.not.i.i6.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i6.i.i, label %.body, label %22
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !42
-  %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %23 to i64
-  %29 = sub i64 %27, %28
-  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %29) #33
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %24 = load ptr, ptr %23, align 8, !tbaa !42
+  %25 = ptrtoint ptr %24 to i64
+  %26 = ptrtoint ptr %21 to i64
+  %27 = sub i64 %25, %26
+  tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %27) #33
   br label %.body
 
-30:                                               ; preds = %.noexc5.i.i, %_ZNSt12_Vector_baseIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE11_M_allocateEm.exit.thread.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i, %.noexc5.i.i ], [ null, %_ZNSt12_Vector_baseIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE11_M_allocateEm.exit.thread.i.i.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %31, align 8, !tbaa !118
+28:                                               ; preds = %.noexc5.i.i, %_ZNSt6vectorIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i, %.noexc5.i.i ], [ null, %_ZNSt6vectorIN4absl28log_uniform_int_distributionIiE10param_typeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i ]
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %29, align 8, !tbaa !118
   store ptr %4, ptr %0, align 8, !tbaa !119
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %32, align 8, !tbaa !47
-  %33 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-          to label %_ZN7testing8internal14ParamGeneratorIN4absl28log_uniform_int_distributionIiE10param_typeEEC2EPNS0_23ParamGeneratorInterfaceIS5_EE.exit unwind label %34
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %30, align 8, !tbaa !47
+  %31 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
+          to label %_ZN7testing8internal14ParamGeneratorIN4absl28log_uniform_int_distributionIiE10param_typeEEC2EPNS0_23ParamGeneratorInterfaceIS5_EE.exit unwind label %32
 
-34:                                               ; preds = %30
-  %35 = landingpad { ptr, i32 }
+32:                                               ; preds = %28
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  %37 = tail call ptr @__cxa_begin_catch(ptr %36) #35
-  %38 = load ptr, ptr %4, align 8, !tbaa !28
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %4) #35
+  %34 = extractvalue { ptr, i32 } %33, 0
+  %35 = tail call ptr @__cxa_begin_catch(ptr %34) #35
+  %36 = load ptr, ptr %4, align 8, !tbaa !28
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = load ptr, ptr %37, align 8
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %4) #35
   invoke void @__cxa_rethrow() #34
-          to label %46 unwind label %41
+          to label %44 unwind label %39
 
-41:                                               ; preds = %34
-  %42 = landingpad { ptr, i32 }
+39:                                               ; preds = %32
+  %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %43
+          to label %common.resume unwind label %41
 
-common.resume:                                    ; preds = %41, %.body
-  %common.resume.op = phi { ptr, i32 } [ %22, %.body ], [ %42, %41 ]
+common.resume:                                    ; preds = %39, %.body
+  %common.resume.op = phi { ptr, i32 } [ %20, %.body ], [ %40, %39 ]
   resume { ptr, i32 } %common.resume.op
 
-43:                                               ; preds = %41
-  %44 = landingpad { ptr, i32 }
+41:                                               ; preds = %39
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #37
+  %43 = extractvalue { ptr, i32 } %42, 0
+  tail call void @__clang_call_terminate(ptr %43) #37
   unreachable
 
-46:                                               ; preds = %34
+44:                                               ; preds = %32
   unreachable
 
-_ZN7testing8internal14ParamGeneratorIN4absl28log_uniform_int_distributionIiE10param_typeEEC2EPNS0_23ParamGeneratorInterfaceIS5_EE.exit: ; preds = %30
-  %47 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 1, ptr %47, align 8, !tbaa !54
-  %48 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  store i32 1, ptr %48, align 4, !tbaa !56
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal23ParamGeneratorInterfaceIN4absl28log_uniform_int_distributionIiE10param_typeEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %33, align 8, !tbaa !28
-  %49 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %4, ptr %49, align 8, !tbaa !122
-  store ptr %33, ptr %32, align 8, !tbaa !47
+_ZN7testing8internal14ParamGeneratorIN4absl28log_uniform_int_distributionIiE10param_typeEEC2EPNS0_23ParamGeneratorInterfaceIS5_EE.exit: ; preds = %28
+  %45 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i32 1, ptr %45, align 8, !tbaa !54
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  store i32 1, ptr %46, align 4, !tbaa !56
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal23ParamGeneratorInterfaceIN4absl28log_uniform_int_distributionIiE10param_typeEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %31, align 8, !tbaa !28
+  %47 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store ptr %4, ptr %47, align 8, !tbaa !122
+  store ptr %31, ptr %30, align 8, !tbaa !47
   ret void
 
-.body:                                            ; preds = %21, %24
+.body:                                            ; preds = %19, %22
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 32) #33
   br label %common.resume
 }

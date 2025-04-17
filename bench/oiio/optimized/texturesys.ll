@@ -4149,9 +4149,6 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
   br i1 %.not104, label %.split.us, label %.split
 
 .thread:                                          ; preds = %15
-  %81 = zext nneg i32 %11 to i64
-  %82 = getelementptr inbounds nuw float, ptr null, i64 %81
-  %83 = getelementptr inbounds nuw float, ptr %82, i64 %81
   %.not104144 = icmp eq ptr %13, null
   br i1 %.not104144, label %.split.us.split.preheader, label %.split.split.preheader
 
@@ -4159,11 +4156,11 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
   br i1 %80, label %.split.us.split.us.preheader, label %.split.us.split.preheader
 
 .split.us.split.preheader:                        ; preds = %.thread, %.split.us
-  %84 = phi ptr [ %72, %.split.us ], [ null, %.thread ]
-  %85 = getelementptr inbounds nuw i8, ptr %3, i64 384
-  %86 = getelementptr inbounds nuw i8, ptr %3, i64 256
-  %87 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %88 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %81 = phi ptr [ %72, %.split.us ], [ null, %.thread ]
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 384
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 256
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %.split.us.split
 
 .split.us.split.us.preheader:                     ; preds = %.split.us
@@ -4173,113 +4170,113 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
 .split.us.split.us:                               ; preds = %.split.us.split.us.preheader, %..loopexit_crit_edge.us.us
   %indvars.iv141 = phi i64 [ 0, %.split.us.split.us.preheader ], [ %indvars.iv.next142, %..loopexit_crit_edge.us.us ]
   %.099110.us.us = phi i8 [ 1, %.split.us.split.us.preheader ], [ %.1.us.us, %..loopexit_crit_edge.us.us ]
-  %.0100109.us.us = phi i64 [ 1, %.split.us.split.us.preheader ], [ %119, %..loopexit_crit_edge.us.us ]
-  %89 = and i64 %.0100109.us.us, %4
-  %.not103.us.us = icmp eq i64 %89, 0
+  %.0100109.us.us = phi i64 [ 1, %.split.us.split.us.preheader ], [ %116, %..loopexit_crit_edge.us.us ]
+  %86 = and i64 %.0100109.us.us, %4
+  %.not103.us.us = icmp eq i64 %86, 0
   br i1 %.not103.us.us, label %..loopexit_crit_edge.us.us, label %.lr.ph108.us.us
 
 .lr.ph108.us.us:                                  ; preds = %.split.us.split.us
-  %90 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %indvars.iv141
-  %91 = load float, ptr %90, align 4, !tbaa !98
-  store float %91, ptr %21, align 8, !tbaa !240
-  %92 = getelementptr inbounds nuw [16 x float], ptr %76, i64 0, i64 %indvars.iv141
-  %93 = load float, ptr %92, align 4, !tbaa !98
-  store float %93, ptr %22, align 4, !tbaa !241
-  %94 = getelementptr inbounds nuw [16 x float], ptr %77, i64 0, i64 %indvars.iv141
-  %95 = load float, ptr %94, align 4, !tbaa !98
-  store float %95, ptr %24, align 4, !tbaa !243
-  %96 = getelementptr inbounds nuw [16 x float], ptr %78, i64 0, i64 %indvars.iv141
-  %97 = load float, ptr %96, align 4, !tbaa !98
-  store float %97, ptr %25, align 8, !tbaa !244
-  %98 = getelementptr inbounds nuw [16 x float], ptr %79, i64 0, i64 %indvars.iv141
-  %99 = load float, ptr %98, align 4, !tbaa !98
-  store float %99, ptr %29, align 8, !tbaa !264
-  %100 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv141
-  %101 = load float, ptr %100, align 4, !tbaa !98
-  %102 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv141
-  %103 = load float, ptr %102, align 4, !tbaa !98
-  %104 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv141
-  %105 = load float, ptr %104, align 4, !tbaa !98
-  %106 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv141
-  %107 = load float, ptr %106, align 4, !tbaa !98
-  %108 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv141
-  %109 = load float, ptr %108, align 4, !tbaa !98
-  %110 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv141
-  %111 = load float, ptr %110, align 4, !tbaa !98
-  %112 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7textureEPNS0_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS0_13TextureOpt_v2EffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(76) %16, float noundef %101, float noundef %103, float noundef %105, float noundef %107, float noundef %109, float noundef %111, i32 noundef %11, ptr noundef nonnull %72, ptr noundef null, ptr noundef null)
-  %113 = icmp ne i8 %.099110.us.us, 0
-  %114 = select i1 %112, i1 %113, i1 false
+  %87 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %indvars.iv141
+  %88 = load float, ptr %87, align 4, !tbaa !98
+  store float %88, ptr %21, align 8, !tbaa !240
+  %89 = getelementptr inbounds nuw [16 x float], ptr %76, i64 0, i64 %indvars.iv141
+  %90 = load float, ptr %89, align 4, !tbaa !98
+  store float %90, ptr %22, align 4, !tbaa !241
+  %91 = getelementptr inbounds nuw [16 x float], ptr %77, i64 0, i64 %indvars.iv141
+  %92 = load float, ptr %91, align 4, !tbaa !98
+  store float %92, ptr %24, align 4, !tbaa !243
+  %93 = getelementptr inbounds nuw [16 x float], ptr %78, i64 0, i64 %indvars.iv141
+  %94 = load float, ptr %93, align 4, !tbaa !98
+  store float %94, ptr %25, align 8, !tbaa !244
+  %95 = getelementptr inbounds nuw [16 x float], ptr %79, i64 0, i64 %indvars.iv141
+  %96 = load float, ptr %95, align 4, !tbaa !98
+  store float %96, ptr %29, align 8, !tbaa !264
+  %97 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv141
+  %98 = load float, ptr %97, align 4, !tbaa !98
+  %99 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv141
+  %100 = load float, ptr %99, align 4, !tbaa !98
+  %101 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv141
+  %102 = load float, ptr %101, align 4, !tbaa !98
+  %103 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv141
+  %104 = load float, ptr %103, align 4, !tbaa !98
+  %105 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv141
+  %106 = load float, ptr %105, align 4, !tbaa !98
+  %107 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv141
+  %108 = load float, ptr %107, align 4, !tbaa !98
+  %109 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7textureEPNS0_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS0_13TextureOpt_v2EffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(76) %16, float noundef %98, float noundef %100, float noundef %102, float noundef %104, float noundef %106, float noundef %108, i32 noundef %11, ptr noundef nonnull %72, ptr noundef null, ptr noundef null)
+  %110 = icmp ne i8 %.099110.us.us, 0
+  %111 = select i1 %109, i1 %110, i1 false
   %invariant.gep = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv141
-  br label %115
+  br label %112
 
-115:                                              ; preds = %.lr.ph108.us.us, %115
-  %indvars.iv136 = phi i64 [ 0, %.lr.ph108.us.us ], [ %indvars.iv.next137, %115 ]
-  %116 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv136
-  %117 = load float, ptr %116, align 4, !tbaa !98
+112:                                              ; preds = %.lr.ph108.us.us, %112
+  %indvars.iv136 = phi i64 [ 0, %.lr.ph108.us.us ], [ %indvars.iv.next137, %112 ]
+  %113 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv136
+  %114 = load float, ptr %113, align 4, !tbaa !98
   %.idx = shl nsw i64 %indvars.iv136, 6
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  store float %117, ptr %gep, align 4, !tbaa !98
+  store float %114, ptr %gep, align 4, !tbaa !98
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %..loopexit_crit_edge.us.us.loopexit, label %115, !llvm.loop !265
+  br i1 %exitcond140.not, label %..loopexit_crit_edge.us.us.loopexit, label %112, !llvm.loop !265
 
-..loopexit_crit_edge.us.us.loopexit:              ; preds = %115
-  %118 = zext i1 %114 to i8
+..loopexit_crit_edge.us.us.loopexit:              ; preds = %112
+  %115 = zext i1 %111 to i8
   br label %..loopexit_crit_edge.us.us
 
 ..loopexit_crit_edge.us.us:                       ; preds = %..loopexit_crit_edge.us.us.loopexit, %.split.us.split.us
-  %.1.us.us = phi i8 [ %.099110.us.us, %.split.us.split.us ], [ %118, %..loopexit_crit_edge.us.us.loopexit ]
+  %.1.us.us = phi i8 [ %.099110.us.us, %.split.us.split.us ], [ %115, %..loopexit_crit_edge.us.us.loopexit ]
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %119 = shl i64 %.0100109.us.us, 1
+  %116 = shl i64 %.0100109.us.us, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next142, 16
   br i1 %exitcond143.not, label %.split114.us, label %.split.us.split.us, !llvm.loop !266
 
-.split.us.split:                                  ; preds = %.split.us.split.preheader, %147
-  %indvars.iv133 = phi i64 [ 0, %.split.us.split.preheader ], [ %indvars.iv.next134, %147 ]
-  %.099110.us = phi i8 [ 1, %.split.us.split.preheader ], [ %.1.us, %147 ]
-  %.0100109.us = phi i64 [ 1, %.split.us.split.preheader ], [ %148, %147 ]
-  %120 = and i64 %.0100109.us, %4
-  %.not103.us = icmp eq i64 %120, 0
-  br i1 %.not103.us, label %147, label %.loopexit.us
+.split.us.split:                                  ; preds = %.split.us.split.preheader, %144
+  %indvars.iv133 = phi i64 [ 0, %.split.us.split.preheader ], [ %indvars.iv.next134, %144 ]
+  %.099110.us = phi i8 [ 1, %.split.us.split.preheader ], [ %.1.us, %144 ]
+  %.0100109.us = phi i64 [ 1, %.split.us.split.preheader ], [ %145, %144 ]
+  %117 = and i64 %.0100109.us, %4
+  %.not103.us = icmp eq i64 %117, 0
+  br i1 %.not103.us, label %144, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.split.us.split
-  %121 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %indvars.iv133
-  %122 = load float, ptr %121, align 4, !tbaa !98
-  store float %122, ptr %21, align 8, !tbaa !240
-  %123 = getelementptr inbounds nuw [16 x float], ptr %88, i64 0, i64 %indvars.iv133
-  %124 = load float, ptr %123, align 4, !tbaa !98
-  store float %124, ptr %22, align 4, !tbaa !241
-  %125 = getelementptr inbounds nuw [16 x float], ptr %87, i64 0, i64 %indvars.iv133
-  %126 = load float, ptr %125, align 4, !tbaa !98
-  store float %126, ptr %24, align 4, !tbaa !243
-  %127 = getelementptr inbounds nuw [16 x float], ptr %86, i64 0, i64 %indvars.iv133
-  %128 = load float, ptr %127, align 4, !tbaa !98
-  store float %128, ptr %25, align 8, !tbaa !244
-  %129 = getelementptr inbounds nuw [16 x float], ptr %85, i64 0, i64 %indvars.iv133
-  %130 = load float, ptr %129, align 4, !tbaa !98
-  store float %130, ptr %29, align 8, !tbaa !264
-  %131 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv133
-  %132 = load float, ptr %131, align 4, !tbaa !98
-  %133 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv133
-  %134 = load float, ptr %133, align 4, !tbaa !98
-  %135 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv133
-  %136 = load float, ptr %135, align 4, !tbaa !98
-  %137 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv133
-  %138 = load float, ptr %137, align 4, !tbaa !98
-  %139 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv133
-  %140 = load float, ptr %139, align 4, !tbaa !98
-  %141 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv133
-  %142 = load float, ptr %141, align 4, !tbaa !98
-  %143 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7textureEPNS0_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS0_13TextureOpt_v2EffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(76) %16, float noundef %132, float noundef %134, float noundef %136, float noundef %138, float noundef %140, float noundef %142, i32 noundef %11, ptr noundef %84, ptr noundef null, ptr noundef null)
-  %144 = icmp ne i8 %.099110.us, 0
-  %145 = select i1 %143, i1 %144, i1 false
-  %146 = zext i1 %145 to i8
-  br label %147
+  %118 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %indvars.iv133
+  %119 = load float, ptr %118, align 4, !tbaa !98
+  store float %119, ptr %21, align 8, !tbaa !240
+  %120 = getelementptr inbounds nuw [16 x float], ptr %85, i64 0, i64 %indvars.iv133
+  %121 = load float, ptr %120, align 4, !tbaa !98
+  store float %121, ptr %22, align 4, !tbaa !241
+  %122 = getelementptr inbounds nuw [16 x float], ptr %84, i64 0, i64 %indvars.iv133
+  %123 = load float, ptr %122, align 4, !tbaa !98
+  store float %123, ptr %24, align 4, !tbaa !243
+  %124 = getelementptr inbounds nuw [16 x float], ptr %83, i64 0, i64 %indvars.iv133
+  %125 = load float, ptr %124, align 4, !tbaa !98
+  store float %125, ptr %25, align 8, !tbaa !244
+  %126 = getelementptr inbounds nuw [16 x float], ptr %82, i64 0, i64 %indvars.iv133
+  %127 = load float, ptr %126, align 4, !tbaa !98
+  store float %127, ptr %29, align 8, !tbaa !264
+  %128 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv133
+  %129 = load float, ptr %128, align 4, !tbaa !98
+  %130 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv133
+  %131 = load float, ptr %130, align 4, !tbaa !98
+  %132 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv133
+  %133 = load float, ptr %132, align 4, !tbaa !98
+  %134 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv133
+  %135 = load float, ptr %134, align 4, !tbaa !98
+  %136 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv133
+  %137 = load float, ptr %136, align 4, !tbaa !98
+  %138 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv133
+  %139 = load float, ptr %138, align 4, !tbaa !98
+  %140 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7textureEPNS0_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS0_13TextureOpt_v2EffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(76) %16, float noundef %129, float noundef %131, float noundef %133, float noundef %135, float noundef %137, float noundef %139, i32 noundef %11, ptr noundef %81, ptr noundef null, ptr noundef null)
+  %141 = icmp ne i8 %.099110.us, 0
+  %142 = select i1 %140, i1 %141, i1 false
+  %143 = zext i1 %142 to i8
+  br label %144
 
-147:                                              ; preds = %.loopexit.us, %.split.us.split
-  %.1.us = phi i8 [ %.099110.us, %.split.us.split ], [ %146, %.loopexit.us ]
+144:                                              ; preds = %.loopexit.us, %.split.us.split
+  %.1.us = phi i8 [ %.099110.us, %.split.us.split ], [ %143, %.loopexit.us ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %148 = shl i64 %.0100109.us, 1
+  %145 = shl i64 %.0100109.us, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next134, 16
   br i1 %exitcond135.not, label %.split114.us, label %.split.us.split, !llvm.loop !266
 
@@ -4287,13 +4284,13 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
   br i1 %80, label %.split.split.us.preheader, label %.split.split.preheader
 
 .split.split.preheader:                           ; preds = %.thread, %.split
-  %149 = phi ptr [ %72, %.split ], [ null, %.thread ]
-  %150 = phi ptr [ %74, %.split ], [ %82, %.thread ]
-  %151 = phi ptr [ %75, %.split ], [ %83, %.thread ]
-  %152 = getelementptr inbounds nuw i8, ptr %3, i64 384
-  %153 = getelementptr inbounds nuw i8, ptr %3, i64 256
-  %154 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %155 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %146 = phi ptr [ %72, %.split ], [ null, %.thread ]
+  %147 = phi ptr [ %74, %.split ], [ null, %.thread ]
+  %148 = phi ptr [ %75, %.split ], [ null, %.thread ]
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 384
+  %150 = getelementptr inbounds nuw i8, ptr %3, i64 256
+  %151 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %.split.split
 
 .split.split.us.preheader:                        ; preds = %.split
@@ -4303,127 +4300,127 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
 .split.split.us:                                  ; preds = %.split.split.us.preheader, %..loopexit105_crit_edge.us
   %indvars.iv130 = phi i64 [ 0, %.split.split.us.preheader ], [ %indvars.iv.next131, %..loopexit105_crit_edge.us ]
   %.099110.us116 = phi i8 [ 1, %.split.split.us.preheader ], [ %.1.us119, %..loopexit105_crit_edge.us ]
-  %.0100109.us117 = phi i64 [ 1, %.split.split.us.preheader ], [ %195, %..loopexit105_crit_edge.us ]
-  %156 = and i64 %.0100109.us117, %4
-  %.not103.us118 = icmp eq i64 %156, 0
+  %.0100109.us117 = phi i64 [ 1, %.split.split.us.preheader ], [ %192, %..loopexit105_crit_edge.us ]
+  %153 = and i64 %.0100109.us117, %4
+  %.not103.us118 = icmp eq i64 %153, 0
   br i1 %.not103.us118, label %..loopexit105_crit_edge.us, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.split.split.us
-  %157 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %indvars.iv130
-  %158 = load float, ptr %157, align 4, !tbaa !98
-  store float %158, ptr %21, align 8, !tbaa !240
-  %159 = getelementptr inbounds nuw [16 x float], ptr %76, i64 0, i64 %indvars.iv130
-  %160 = load float, ptr %159, align 4, !tbaa !98
-  store float %160, ptr %22, align 4, !tbaa !241
-  %161 = getelementptr inbounds nuw [16 x float], ptr %77, i64 0, i64 %indvars.iv130
-  %162 = load float, ptr %161, align 4, !tbaa !98
-  store float %162, ptr %24, align 4, !tbaa !243
-  %163 = getelementptr inbounds nuw [16 x float], ptr %78, i64 0, i64 %indvars.iv130
-  %164 = load float, ptr %163, align 4, !tbaa !98
-  store float %164, ptr %25, align 8, !tbaa !244
-  %165 = getelementptr inbounds nuw [16 x float], ptr %79, i64 0, i64 %indvars.iv130
-  %166 = load float, ptr %165, align 4, !tbaa !98
-  store float %166, ptr %29, align 8, !tbaa !264
-  %167 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv130
-  %168 = load float, ptr %167, align 4, !tbaa !98
-  %169 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv130
-  %170 = load float, ptr %169, align 4, !tbaa !98
-  %171 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv130
-  %172 = load float, ptr %171, align 4, !tbaa !98
-  %173 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv130
-  %174 = load float, ptr %173, align 4, !tbaa !98
-  %175 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv130
-  %176 = load float, ptr %175, align 4, !tbaa !98
-  %177 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv130
-  %178 = load float, ptr %177, align 4, !tbaa !98
-  %179 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7textureEPNS0_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS0_13TextureOpt_v2EffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(76) %16, float noundef %168, float noundef %170, float noundef %172, float noundef %174, float noundef %176, float noundef %178, i32 noundef %11, ptr noundef nonnull %72, ptr noundef nonnull %74, ptr noundef nonnull %75)
-  %180 = icmp ne i8 %.099110.us116, 0
-  %181 = select i1 %179, i1 %180, i1 false
-  br label %182
+  %154 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %indvars.iv130
+  %155 = load float, ptr %154, align 4, !tbaa !98
+  store float %155, ptr %21, align 8, !tbaa !240
+  %156 = getelementptr inbounds nuw [16 x float], ptr %76, i64 0, i64 %indvars.iv130
+  %157 = load float, ptr %156, align 4, !tbaa !98
+  store float %157, ptr %22, align 4, !tbaa !241
+  %158 = getelementptr inbounds nuw [16 x float], ptr %77, i64 0, i64 %indvars.iv130
+  %159 = load float, ptr %158, align 4, !tbaa !98
+  store float %159, ptr %24, align 4, !tbaa !243
+  %160 = getelementptr inbounds nuw [16 x float], ptr %78, i64 0, i64 %indvars.iv130
+  %161 = load float, ptr %160, align 4, !tbaa !98
+  store float %161, ptr %25, align 8, !tbaa !244
+  %162 = getelementptr inbounds nuw [16 x float], ptr %79, i64 0, i64 %indvars.iv130
+  %163 = load float, ptr %162, align 4, !tbaa !98
+  store float %163, ptr %29, align 8, !tbaa !264
+  %164 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv130
+  %165 = load float, ptr %164, align 4, !tbaa !98
+  %166 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv130
+  %167 = load float, ptr %166, align 4, !tbaa !98
+  %168 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv130
+  %169 = load float, ptr %168, align 4, !tbaa !98
+  %170 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv130
+  %171 = load float, ptr %170, align 4, !tbaa !98
+  %172 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv130
+  %173 = load float, ptr %172, align 4, !tbaa !98
+  %174 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv130
+  %175 = load float, ptr %174, align 4, !tbaa !98
+  %176 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7textureEPNS0_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS0_13TextureOpt_v2EffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(76) %16, float noundef %165, float noundef %167, float noundef %169, float noundef %171, float noundef %173, float noundef %175, i32 noundef %11, ptr noundef nonnull %72, ptr noundef nonnull %74, ptr noundef nonnull %75)
+  %177 = icmp ne i8 %.099110.us116, 0
+  %178 = select i1 %176, i1 %177, i1 false
+  br label %179
 
-182:                                              ; preds = %.lr.ph.us, %182
-  %indvars.iv126 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next127, %182 ]
-  %183 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv126
-  %184 = load float, ptr %183, align 4, !tbaa !98
-  %185 = shl nsw i64 %indvars.iv126, 4
-  %186 = add nuw nsw i64 %185, %indvars.iv130
-  %187 = getelementptr inbounds nuw float, ptr %12, i64 %186
-  store float %184, ptr %187, align 4, !tbaa !98
-  %188 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv126
+179:                                              ; preds = %.lr.ph.us, %179
+  %indvars.iv126 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next127, %179 ]
+  %180 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv126
+  %181 = load float, ptr %180, align 4, !tbaa !98
+  %182 = shl nsw i64 %indvars.iv126, 4
+  %183 = add nuw nsw i64 %182, %indvars.iv130
+  %184 = getelementptr inbounds nuw float, ptr %12, i64 %183
+  store float %181, ptr %184, align 4, !tbaa !98
+  %185 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv126
+  %186 = load float, ptr %185, align 4, !tbaa !98
+  %187 = getelementptr inbounds nuw float, ptr %13, i64 %183
+  store float %186, ptr %187, align 4, !tbaa !98
+  %188 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv126
   %189 = load float, ptr %188, align 4, !tbaa !98
-  %190 = getelementptr inbounds nuw float, ptr %13, i64 %186
+  %190 = getelementptr inbounds nuw float, ptr %14, i64 %183
   store float %189, ptr %190, align 4, !tbaa !98
-  %191 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv126
-  %192 = load float, ptr %191, align 4, !tbaa !98
-  %193 = getelementptr inbounds nuw float, ptr %14, i64 %186
-  store float %192, ptr %193, align 4, !tbaa !98
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond129.not, label %..loopexit105_crit_edge.us.loopexit, label %182, !llvm.loop !267
+  br i1 %exitcond129.not, label %..loopexit105_crit_edge.us.loopexit, label %179, !llvm.loop !267
 
-..loopexit105_crit_edge.us.loopexit:              ; preds = %182
-  %194 = zext i1 %181 to i8
+..loopexit105_crit_edge.us.loopexit:              ; preds = %179
+  %191 = zext i1 %178 to i8
   br label %..loopexit105_crit_edge.us
 
 ..loopexit105_crit_edge.us:                       ; preds = %..loopexit105_crit_edge.us.loopexit, %.split.split.us
-  %.1.us119 = phi i8 [ %.099110.us116, %.split.split.us ], [ %194, %..loopexit105_crit_edge.us.loopexit ]
+  %.1.us119 = phi i8 [ %.099110.us116, %.split.split.us ], [ %191, %..loopexit105_crit_edge.us.loopexit ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %195 = shl i64 %.0100109.us117, 1
+  %192 = shl i64 %.0100109.us117, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next131, 16
   br i1 %exitcond132.not, label %.split114.us, label %.split.split.us, !llvm.loop !266
 
-.split114.us:                                     ; preds = %..loopexit105_crit_edge.us, %..loopexit_crit_edge.us.us, %224, %147
-  %.us-phi = phi i8 [ %.1.us, %147 ], [ %.1, %224 ], [ %.1.us.us, %..loopexit_crit_edge.us.us ], [ %.1.us119, %..loopexit105_crit_edge.us ]
-  %196 = trunc nuw i8 %.us-phi to i1
+.split114.us:                                     ; preds = %..loopexit105_crit_edge.us, %..loopexit_crit_edge.us.us, %221, %144
+  %.us-phi = phi i8 [ %.1.us, %144 ], [ %.1, %221 ], [ %.1.us.us, %..loopexit_crit_edge.us.us ], [ %.1.us119, %..loopexit105_crit_edge.us ]
+  %193 = trunc nuw i8 %.us-phi to i1
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16) #6
-  ret i1 %196
+  ret i1 %193
 
-.split.split:                                     ; preds = %.split.split.preheader, %224
-  %indvars.iv = phi i64 [ 0, %.split.split.preheader ], [ %indvars.iv.next, %224 ]
-  %.099110 = phi i8 [ 1, %.split.split.preheader ], [ %.1, %224 ]
-  %.0100109 = phi i64 [ 1, %.split.split.preheader ], [ %225, %224 ]
-  %197 = and i64 %.0100109, %4
-  %.not103 = icmp eq i64 %197, 0
-  br i1 %.not103, label %224, label %.loopexit105
+.split.split:                                     ; preds = %.split.split.preheader, %221
+  %indvars.iv = phi i64 [ 0, %.split.split.preheader ], [ %indvars.iv.next, %221 ]
+  %.099110 = phi i8 [ 1, %.split.split.preheader ], [ %.1, %221 ]
+  %.0100109 = phi i64 [ 1, %.split.split.preheader ], [ %222, %221 ]
+  %194 = and i64 %.0100109, %4
+  %.not103 = icmp eq i64 %194, 0
+  br i1 %.not103, label %221, label %.loopexit105
 
 .loopexit105:                                     ; preds = %.split.split
-  %198 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %indvars.iv
-  %199 = load float, ptr %198, align 4, !tbaa !98
-  store float %199, ptr %21, align 8, !tbaa !240
-  %200 = getelementptr inbounds nuw [16 x float], ptr %155, i64 0, i64 %indvars.iv
-  %201 = load float, ptr %200, align 4, !tbaa !98
-  store float %201, ptr %22, align 4, !tbaa !241
-  %202 = getelementptr inbounds nuw [16 x float], ptr %154, i64 0, i64 %indvars.iv
-  %203 = load float, ptr %202, align 4, !tbaa !98
-  store float %203, ptr %24, align 4, !tbaa !243
-  %204 = getelementptr inbounds nuw [16 x float], ptr %153, i64 0, i64 %indvars.iv
-  %205 = load float, ptr %204, align 4, !tbaa !98
-  store float %205, ptr %25, align 8, !tbaa !244
-  %206 = getelementptr inbounds nuw [16 x float], ptr %152, i64 0, i64 %indvars.iv
-  %207 = load float, ptr %206, align 4, !tbaa !98
-  store float %207, ptr %29, align 8, !tbaa !264
-  %208 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
-  %209 = load float, ptr %208, align 4, !tbaa !98
-  %210 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
-  %211 = load float, ptr %210, align 4, !tbaa !98
-  %212 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
-  %213 = load float, ptr %212, align 4, !tbaa !98
-  %214 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
-  %215 = load float, ptr %214, align 4, !tbaa !98
-  %216 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
-  %217 = load float, ptr %216, align 4, !tbaa !98
-  %218 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
-  %219 = load float, ptr %218, align 4, !tbaa !98
-  %220 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7textureEPNS0_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS0_13TextureOpt_v2EffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(76) %16, float noundef %209, float noundef %211, float noundef %213, float noundef %215, float noundef %217, float noundef %219, i32 noundef %11, ptr noundef %149, ptr noundef %150, ptr noundef %151)
-  %221 = icmp ne i8 %.099110, 0
-  %222 = select i1 %220, i1 %221, i1 false
-  %223 = zext i1 %222 to i8
-  br label %224
+  %195 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %indvars.iv
+  %196 = load float, ptr %195, align 4, !tbaa !98
+  store float %196, ptr %21, align 8, !tbaa !240
+  %197 = getelementptr inbounds nuw [16 x float], ptr %152, i64 0, i64 %indvars.iv
+  %198 = load float, ptr %197, align 4, !tbaa !98
+  store float %198, ptr %22, align 4, !tbaa !241
+  %199 = getelementptr inbounds nuw [16 x float], ptr %151, i64 0, i64 %indvars.iv
+  %200 = load float, ptr %199, align 4, !tbaa !98
+  store float %200, ptr %24, align 4, !tbaa !243
+  %201 = getelementptr inbounds nuw [16 x float], ptr %150, i64 0, i64 %indvars.iv
+  %202 = load float, ptr %201, align 4, !tbaa !98
+  store float %202, ptr %25, align 8, !tbaa !244
+  %203 = getelementptr inbounds nuw [16 x float], ptr %149, i64 0, i64 %indvars.iv
+  %204 = load float, ptr %203, align 4, !tbaa !98
+  store float %204, ptr %29, align 8, !tbaa !264
+  %205 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %206 = load float, ptr %205, align 4, !tbaa !98
+  %207 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %208 = load float, ptr %207, align 4, !tbaa !98
+  %209 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %210 = load float, ptr %209, align 4, !tbaa !98
+  %211 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %212 = load float, ptr %211, align 4, !tbaa !98
+  %213 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %214 = load float, ptr %213, align 4, !tbaa !98
+  %215 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
+  %216 = load float, ptr %215, align 4, !tbaa !98
+  %217 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7textureEPNS0_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS0_13TextureOpt_v2EffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(76) %16, float noundef %206, float noundef %208, float noundef %210, float noundef %212, float noundef %214, float noundef %216, i32 noundef %11, ptr noundef %146, ptr noundef %147, ptr noundef %148)
+  %218 = icmp ne i8 %.099110, 0
+  %219 = select i1 %217, i1 %218, i1 false
+  %220 = zext i1 %219 to i8
+  br label %221
 
-224:                                              ; preds = %.loopexit105, %.split.split
-  %.1 = phi i8 [ %.099110, %.split.split ], [ %223, %.loopexit105 ]
+221:                                              ; preds = %.loopexit105, %.split.split
+  %.1 = phi i8 [ %.099110, %.split.split ], [ %220, %.loopexit105 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %225 = shl i64 %.0100109, 1
+  %222 = shl i64 %.0100109, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.split114.us, label %.split.split, !llvm.loop !266
 }

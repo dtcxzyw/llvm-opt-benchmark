@@ -7447,68 +7447,65 @@ define internal fastcc ptr @parse_try_unwrap(ptr noundef %0) unnamed_addr #1 {
   tail call void @advance(ptr noundef %0) #8
   %5 = tail call fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef 5)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %..critedge_crit_edge, label %7
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  br i1 %6, label %.critedge.thread, label %8
 
-..critedge_crit_edge:                             ; preds = %1
-  %.pre = load i16, ptr inttoptr (i64 16 to ptr), align 16
-  br label %.critedge
-
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load i16, ptr %8, align 8
+8:                                                ; preds = %1
+  %9 = load i16, ptr %7, align 8
   %10 = and i16 %9, 255
   %.not = icmp eq i16 %10, 0
   br i1 %.not, label %11, label %.critedge
 
-11:                                               ; preds = %7
+11:                                               ; preds = %8
   %12 = load ptr, ptr @poisoned_expr, align 8
   br label %72
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %7
-  %13 = phi i16 [ %.pre, %..critedge_crit_edge ], [ %9, %7 ]
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = and i16 %13, 255
-  %16 = icmp eq i16 %15, 62
-  br i1 %16, label %17, label %30
+.critedge:                                        ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %14 = and i16 %9, 255
+  %15 = icmp eq i16 %14, 62
+  br i1 %15, label %16, label %.critedge.thread
 
-17:                                               ; preds = %.critedge
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %19, ptr %21, align 8
-  %22 = tail call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef 5)
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %.critedge2, label %24
+16:                                               ; preds = %.critedge
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %18, ptr %20, align 8
+  %21 = tail call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef 5)
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %.critedge2, label %23
 
-24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %26 = load i16, ptr %25, align 8
-  %27 = and i16 %26, 255
-  %.not41 = icmp eq i16 %27, 0
-  br i1 %.not41, label %28, label %.critedge2
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %25 = load i16, ptr %24, align 8
+  %26 = and i16 %25, 255
+  %.not41 = icmp eq i16 %26, 0
+  br i1 %.not41, label %27, label %.critedge2
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr @poisoned_expr, align 8
+27:                                               ; preds = %23
+  %28 = load ptr, ptr @poisoned_expr, align 8
   br label %72
 
-.critedge2:                                       ; preds = %17, %24
-  store ptr %22, ptr %20, align 8
-  br label %32
+.critedge2:                                       ; preds = %16, %23
+  store ptr %21, ptr %19, align 8
+  br label %31
 
-30:                                               ; preds = %.critedge
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %5, ptr %31, align 8
-  br label %32
+.critedge.thread:                                 ; preds = %1, %.critedge
+  %29 = phi ptr [ %13, %.critedge ], [ %7, %1 ]
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %5, ptr %30, align 8
+  br label %31
 
-32:                                               ; preds = %30, %.critedge2
-  %33 = phi ptr [ %5, %30 ], [ %22, %.critedge2 ]
-  %34 = load i16, ptr %14, align 8
+31:                                               ; preds = %.critedge.thread, %.critedge2
+  %32 = phi ptr [ %29, %.critedge.thread ], [ %13, %.critedge2 ]
+  %33 = phi ptr [ %5, %.critedge.thread ], [ %21, %.critedge2 ]
+  %34 = load i16, ptr %32, align 8
   %35 = and i16 %34, 255
   %36 = icmp eq i16 %35, 62
   br i1 %36, label %37, label %45
 
-37:                                               ; preds = %32
+37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %39 = load i16, ptr %38, align 8
   %40 = and i16 %39, 255
@@ -7522,7 +7519,7 @@ define internal fastcc ptr @parse_try_unwrap(ptr noundef %0) unnamed_addr #1 {
   %44 = load ptr, ptr @poisoned_expr, align 8
   br label %72
 
-45:                                               ; preds = %37, %32
+45:                                               ; preds = %37, %31
   %46 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 10) #8
   br i1 %46, label %47, label %57
 
@@ -7580,8 +7577,8 @@ extend_span_with_token.exit:                      ; preds = %62, %63
   store i64 %.sroa.010.0.insert.insert.i, ptr %58, align 8
   br label %72
 
-72:                                               ; preds = %extend_span_with_token.exit, %54, %41, %28, %11
-  %.0 = phi ptr [ %44, %41 ], [ %4, %extend_span_with_token.exit ], [ %55, %54 ], [ %29, %28 ], [ %12, %11 ]
+72:                                               ; preds = %extend_span_with_token.exit, %54, %41, %27, %11
+  %.0 = phi ptr [ %44, %41 ], [ %4, %extend_span_with_token.exit ], [ %55, %54 ], [ %28, %27 ], [ %12, %11 ]
   ret ptr %.0
 }
 

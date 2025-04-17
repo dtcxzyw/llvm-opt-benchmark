@@ -825,12 +825,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit62:   ; preds = %_ZNK6vectorIN3sat7l
   br i1 %103, label %_ZNK6vectorIN3sat7literalELb0EjE5emptyEv.exit.thread, label %104
 
 104:                                              ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit62
-  br i1 %93, label %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge, label %105
-
-._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge: ; preds = %104
-  %.pre200 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !19
-  %.pre212 = add i32 %.pre200, -1
-  br label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit
+  br i1 %93, label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit, label %105
 
 105:                                              ; preds = %104
   %106 = getelementptr inbounds i8, ptr %92, i64 -4
@@ -839,9 +834,9 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit62:   ; preds = %_ZNK6vectorIN3sat7l
   %109 = zext i32 %108 to i64
   br label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit
 
-_ZN6vectorIN3sat7literalELb0EjE4backEv.exit:      ; preds = %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge, %105
-  %.pre-phi = phi i32 [ %.pre212, %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge ], [ %108, %105 ]
-  %.0.i.i = phi i64 [ 4294967295, %._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge ], [ %109, %105 ]
+_ZN6vectorIN3sat7literalELb0EjE4backEv.exit:      ; preds = %104, %105
+  %.pre-phi = phi i32 [ %108, %105 ], [ undef, %104 ]
+  %.0.i.i = phi i64 [ %109, %105 ], [ 4294967295, %104 ]
   %110 = getelementptr inbounds nuw %"class.sat::literal", ptr %92, i64 %.0.i.i
   %111 = load i32, ptr %110, align 4, !tbaa !19
   %112 = getelementptr inbounds i8, ptr %92, i64 -4
@@ -1976,12 +1971,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit: ; preds = %65, %71
   %79 = add i32 %74, 1
   store i32 %79, ptr %76, align 4, !tbaa !19
   %80 = icmp eq ptr %72, null
-  br i1 %80, label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge, label %81
-
-_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge: ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
-  %.pre20 = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !19
-  %.pre21 = add i32 %.pre20, -1
-  br label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit
+  br i1 %80, label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit, label %81
 
 81:                                               ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
   %82 = getelementptr inbounds i8, ptr %72, i64 -4
@@ -1990,9 +1980,9 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit._ZN6vectorIN3sat7literalELb
   %85 = zext i32 %84 to i64
   br label %_ZN6vectorIN3sat7literalELb0EjE4backEv.exit
 
-_ZN6vectorIN3sat7literalELb0EjE4backEv.exit:      ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge, %81
-  %.pre-phi = phi i32 [ %.pre21, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge ], [ %84, %81 ]
-  %.0.i.i17 = phi i64 [ 4294967295, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit._ZN6vectorIN3sat7literalELb0EjE4backEv.exit_crit_edge ], [ %85, %81 ]
+_ZN6vectorIN3sat7literalELb0EjE4backEv.exit:      ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit, %81
+  %.pre-phi = phi i32 [ %84, %81 ], [ undef, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ]
+  %.0.i.i17 = phi i64 [ %85, %81 ], [ 4294967295, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ]
   %86 = getelementptr inbounds nuw %"class.sat::literal", ptr %72, i64 %.0.i.i17
   %87 = getelementptr inbounds nuw %"class.sat::literal", ptr %72, i64 %49
   %88 = load i32, ptr %86, align 4, !tbaa !19

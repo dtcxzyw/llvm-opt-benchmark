@@ -38982,12 +38982,8 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread:         ; preds = %invoke.cont16
   br label %invoke.cont28
 
 for.end50.thread:                                 ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %_M_finish.i.i.i39232 = getelementptr inbounds nuw i8, ptr %inlined_string_indices, i64 8
-  %_M_end_of_storage.i.i.i41234 = getelementptr inbounds nuw i8, ptr %inlined_string_indices, i64 16
-  store i64 0, ptr %inlined_string_indices, align 8
-  store ptr null, ptr %_M_end_of_storage.i.i.i41234, align 8
-  store ptr null, ptr %_M_finish.i.i.i39232, align 8
-  %_M_finish.i105294 = getelementptr inbounds nuw i8, ptr %fields, i64 8
+  %_M_finish.i105291 = getelementptr inbounds nuw i8, ptr %fields, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %inlined_string_indices, i8 0, i64 24, i1 false)
   br label %invoke.cont58
 
 invoke.cont28:                                    ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread, %for.inc48
@@ -39205,20 +39201,20 @@ if.else10.i97:                                    ; preds = %_ZNK6google8protobu
   %file_.i.i77 = getelementptr inbounds nuw i8, ptr %add.ptr.i47, i64 16
   %36 = load ptr, ptr %file_.i.i77, align 8
   %extensions_11.i.i78 = getelementptr inbounds nuw i8, ptr %36, i64 120
-  %.sink.i.i69238288 = load ptr, ptr %extensions_11.i.i78, align 8
-  %sub.ptr.rhs.cast13.i.i71239289 = ptrtoint ptr %.sink.i.i69238288 to i64
-  %sub.ptr.sub14.i.i72240290 = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i.i71239289
-  %retval.0.in.i.i73241291 = sdiv exact i64 %sub.ptr.sub14.i.i72240290, 88
-  %sext.i74242292 = shl i64 %retval.0.in.i.i73241291, 32
-  %37 = ashr exact i64 %sext.i74242292, 30
-  %arrayidx.i75243293 = getelementptr inbounds i8, ptr %30, i64 %37
+  %.sink.i.i69238285 = load ptr, ptr %extensions_11.i.i78, align 8
+  %sub.ptr.rhs.cast13.i.i71239286 = ptrtoint ptr %.sink.i.i69238285 to i64
+  %sub.ptr.sub14.i.i72240287 = sub i64 %sub.ptr.lhs.cast12.i, %sub.ptr.rhs.cast13.i.i71239286
+  %retval.0.in.i.i73241288 = sdiv exact i64 %sub.ptr.sub14.i.i72240287, 88
+  %sext.i74242289 = shl i64 %retval.0.in.i.i73241288, 32
+  %37 = ashr exact i64 %sext.i74242289, 30
+  %arrayidx.i75243290 = getelementptr inbounds i8, ptr %30, i64 %37
   %file_.i98 = getelementptr inbounds nuw i8, ptr %add.ptr.i47, i64 16
   %38 = load ptr, ptr %file_.i98, align 8
   %extensions_11.i99 = getelementptr inbounds nuw i8, ptr %38, i64 120
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %if.else10.i97, %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit7.i88, %if.then.i100
-  %.in = phi ptr [ %arrayidx.i75243293, %if.else10.i97 ], [ %arrayidx.i75243, %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit7.i88 ], [ %arrayidx.i75, %if.then.i100 ]
+  %.in = phi ptr [ %arrayidx.i75243290, %if.else10.i97 ], [ %arrayidx.i75243, %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit7.i88 ], [ %arrayidx.i75, %if.then.i100 ]
   %.sink.in.i90 = phi ptr [ %extensions_11.i99, %if.else10.i97 ], [ %extensions_.i89, %_ZNK6google8protobuf15FieldDescriptor15extension_scopeEv.exit7.i88 ], [ %fields_.i.i81, %if.then.i100 ]
   %39 = load i32, ptr %.in, align 4
   %.sink.i91 = load ptr, ptr %.sink.in.i90, align 8
@@ -39416,7 +39412,7 @@ for.inc.i29.i.i.i:                                ; preds = %while.body.i.i33.i.
   br i1 %cmp.i1.not.i32.i.i.i, label %invoke.cont58, label %for.body.i20.i.i.i, !llvm.loop !114
 
 invoke.cont58:                                    ; preds = %for.inc.i29.i.i.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i", %for.end50.thread, %if.else.i.i.i, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i", %for.end50
-  %_M_finish.i105296 = phi ptr [ %_M_finish.i105294, %for.end50.thread ], [ %_M_finish.i105, %if.else.i.i.i ], [ %_M_finish.i105, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i" ], [ %_M_finish.i105, %for.end50 ], [ %_M_finish.i105, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %_M_finish.i105, %for.inc.i29.i.i.i ]
+  %_M_finish.i105293 = phi ptr [ %_M_finish.i105291, %for.end50.thread ], [ %_M_finish.i105, %if.else.i.i.i ], [ %_M_finish.i105, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_SH_T0_.exit.i.i.i" ], [ %_M_finish.i105, %for.end50 ], [ %_M_finish.i105, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10Reflection18CreateTcParseTableEvE3$_0EEEvT_T0_.exit.i.i.i.i" ], [ %_M_finish.i105, %for.inc.i29.i.i.i ]
   %73 = load ptr, ptr %this, align 8
   store i8 0, ptr %ref.tmp60, align 1
   %uses_codegen = getelementptr inbounds nuw i8, ptr %ref.tmp60, i64 1
@@ -39519,7 +39515,7 @@ _ZNK6google8protobuf8internal17TailCallTableInfo15NumToEntryTable6size16Ev.exit:
   %add89 = or disjoint i32 %conv83.mask, 2
   %sub.i116 = add i32 %add89, %size.0.lcssa.i
   %and.i117 = and i32 %sub.i116, -4
-  %87 = load ptr, ptr %_M_finish.i105296, align 8
+  %87 = load ptr, ptr %_M_finish.i105293, align 8
   %88 = load ptr, ptr %fields, align 8
   %sub.ptr.lhs.cast.i119 = ptrtoint ptr %87 to i64
   %sub.ptr.rhs.cast.i120 = ptrtoint ptr %88 to i64
@@ -39566,7 +39562,7 @@ invoke.cont109:                                   ; preds = %_ZNK6google8protobu
   %conv125 = trunc i32 %97 to i16
   %cond128 = select i1 %cmp.i137.not, i16 0, i16 %conv125
   %98 = load ptr, ptr %fields, align 8
-  %99 = load ptr, ptr %_M_finish.i105296, align 8
+  %99 = load ptr, ptr %_M_finish.i105293, align 8
   %cmp.i.i140 = icmp eq ptr %98, %99
   br i1 %cmp.i.i140, label %cond.end135, label %cond.false131
 

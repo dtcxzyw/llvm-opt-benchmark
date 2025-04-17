@@ -353,21 +353,21 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
 16:                                               ; preds = %thread-pre-split, %zend_parse_arg_str_ex.exit.thread
   %17 = phi ptr [ %.pr, %thread-pre-split ], [ %14, %zend_parse_arg_str_ex.exit.thread ]
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %..critedge_crit_edge, label %18
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  br i1 %.not.i, label %.critedge.thread, label %19
 
-..critedge_crit_edge:                             ; preds = %16
-  %.pre = load i64, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !15
-  br label %.critedge
+.critedge.thread:                                 ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  br label %36
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
+19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !15
-  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #14
+  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #14
   %.not = icmp eq i64 %21, %22
   br i1 %.not, label %.critedge, label %23, !prof !7
 
-23:                                               ; preds = %zend_parse_arg_str_ex.exit, %18
+23:                                               ; preds = %zend_parse_arg_str_ex.exit, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   br label %24
 
@@ -377,110 +377,111 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   %.045.ph = phi ptr [ %10, %23 ], [ null, %8 ]
   %.0.ph = phi i32 [ 1, %23 ], [ 0, %8 ]
   call void @zend_wrong_parameter_error(i32 noundef %.047.ph, i32 noundef %.0.ph, ptr noundef null, i32 noundef %.046.ph, ptr noundef %.045.ph) #12
-  br label %68
+  br label %69
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %18
-  %25 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %21, %18 ]
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
+.critedge:                                        ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  %27 = icmp ugt i64 %25, 255
-  br i1 %27, label %zend_string_alloc.exit, label %37
+  %26 = icmp ugt i64 %21, 255
+  br i1 %26, label %zend_string_alloc.exit, label %36
 
 zend_string_alloc.exit:                           ; preds = %.critedge
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef 255) #12
-  %28 = and i64 %25, -8
-  %29 = add i64 %28, 32
-  %30 = call noalias ptr @_emalloc(i64 noundef %29) #15
-  store i32 1, ptr %30, align 4, !tbaa !10
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i32 22, ptr %31, align 4, !tbaa !4
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i64 0, ptr %32, align 8, !tbaa !12
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store i64 %25, ptr %33, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 1 %26, i64 %25, i1 false)
-  %35 = getelementptr inbounds nuw [1 x i8], ptr %34, i64 0, i64 %25
-  store i8 0, ptr %35, align 1, !tbaa !4
-  store ptr %30, ptr %1, align 8, !tbaa !4
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 262, ptr %36, align 8, !tbaa !4
-  br label %68
+  %27 = and i64 %21, -8
+  %28 = add i64 %27, 32
+  %29 = call noalias ptr @_emalloc(i64 noundef %28) #15
+  store i32 1, ptr %29, align 4, !tbaa !10
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store i32 22, ptr %30, align 4, !tbaa !4
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i64 0, ptr %31, align 8, !tbaa !12
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store i64 %21, ptr %32, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %25, i64 %21, i1 false)
+  %34 = getelementptr inbounds nuw [1 x i8], ptr %33, i64 0, i64 %21
+  store i8 0, ptr %34, align 1, !tbaa !4
+  store ptr %29, ptr %1, align 8, !tbaa !4
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 262, ptr %35, align 8, !tbaa !4
+  br label %69
 
-37:                                               ; preds = %.critedge
+36:                                               ; preds = %.critedge.thread, %.critedge
+  %37 = phi ptr [ %18, %.critedge.thread ], [ %25, %.critedge ]
+  %38 = phi i64 [ undef, %.critedge.thread ], [ %21, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
-  %38 = call ptr @php_network_gethostbyname(ptr noundef nonnull %26) #12
-  %.not.i58 = icmp eq ptr %38, null
-  br i1 %.not.i58, label %zend_string_alloc.exit.i, label %39
+  %39 = call ptr @php_network_gethostbyname(ptr noundef nonnull %37) #12
+  %.not.i58 = icmp eq ptr %39, null
+  br i1 %.not.i58, label %zend_string_alloc.exit.i, label %40
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !27
-  %.0.copyload.i = load ptr, ptr %41, align 8
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !27
+  %.0.copyload.i = load ptr, ptr %42, align 8
   %.not14.i = icmp eq ptr %.0.copyload.i, null
-  br i1 %.not14.i, label %zend_string_alloc.exit.i, label %42
+  br i1 %.not14.i, label %zend_string_alloc.exit.i, label %43
 
-42:                                               ; preds = %39
-  %43 = load i32, ptr %.0.copyload.i, align 4
-  store i32 %43, ptr %3, align 4
-  %44 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 16) #12
-  %.not15.i = icmp eq ptr %44, null
+43:                                               ; preds = %40
+  %44 = load i32, ptr %.0.copyload.i, align 4
+  store i32 %44, ptr %3, align 4
+  %45 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 16) #12
+  %.not15.i = icmp eq ptr %45, null
   br i1 %.not15.i, label %zend_string_alloc.exit56, label %zend_string_alloc.exit.i
 
-zend_string_alloc.exit56:                         ; preds = %42
+zend_string_alloc.exit56:                         ; preds = %43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef nonnull %26) #12
-  %45 = and i64 %25, 248
-  %46 = add nuw nsw i64 %45, 32
-  %47 = call noalias ptr @_emalloc(i64 noundef %46) #15
-  store i32 1, ptr %47, align 4, !tbaa !10
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store i32 22, ptr %48, align 4, !tbaa !4
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i64 0, ptr %49, align 8, !tbaa !12
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i64 %25, ptr %50, align 8, !tbaa !15
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 1 %26, i64 %25, i1 false)
-  %52 = getelementptr inbounds nuw [1 x i8], ptr %51, i64 0, i64 %25
-  store i8 0, ptr %52, align 1, !tbaa !4
-  store ptr %47, ptr %1, align 8, !tbaa !4
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 262, ptr %53, align 8, !tbaa !4
-  br label %68
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef nonnull %37) #12
+  %46 = and i64 %38, 248
+  %47 = add nuw nsw i64 %46, 32
+  %48 = call noalias ptr @_emalloc(i64 noundef %47) #15
+  store i32 1, ptr %48, align 4, !tbaa !10
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store i32 22, ptr %49, align 4, !tbaa !4
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i64 0, ptr %50, align 8, !tbaa !12
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store i64 %38, ptr %51, align 8, !tbaa !15
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %52, ptr nonnull align 1 %37, i64 %38, i1 false)
+  %53 = getelementptr inbounds nuw [1 x i8], ptr %52, i64 0, i64 %38
+  store i8 0, ptr %53, align 1, !tbaa !4
+  store ptr %48, ptr %1, align 8, !tbaa !4
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 262, ptr %54, align 8, !tbaa !4
+  br label %69
 
-zend_string_alloc.exit.i:                         ; preds = %42, %39, %37
-  %.sink119 = phi ptr [ %26, %37 ], [ %26, %39 ], [ %44, %42 ]
-  %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink119) #14
-  %55 = and i64 %54, -8
-  %56 = add i64 %55, 32
-  %57 = call noalias ptr @_emalloc(i64 noundef %56) #15
-  store i32 1, ptr %57, align 4, !tbaa !10
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i32 22, ptr %58, align 4, !tbaa !4
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i64 0, ptr %59, align 8, !tbaa !12
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i64 %54, ptr %60, align 8, !tbaa !15
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 1 %.sink119, i64 %54, i1 false)
-  %62 = getelementptr inbounds nuw [1 x i8], ptr %61, i64 0, i64 %54
-  store i8 0, ptr %62, align 1, !tbaa !4
+zend_string_alloc.exit.i:                         ; preds = %43, %40, %36
+  %.sink119 = phi ptr [ %37, %36 ], [ %37, %40 ], [ %45, %43 ]
+  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink119) #14
+  %56 = and i64 %55, -8
+  %57 = add i64 %56, 32
+  %58 = call noalias ptr @_emalloc(i64 noundef %57) #15
+  store i32 1, ptr %58, align 4, !tbaa !10
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  store i32 22, ptr %59, align 4, !tbaa !4
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store i64 0, ptr %60, align 8, !tbaa !12
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  store i64 %55, ptr %61, align 8, !tbaa !15
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %62, ptr nonnull align 1 %.sink119, i64 %55, i1 false)
+  %63 = getelementptr inbounds nuw [1 x i8], ptr %62, i64 0, i64 %55
+  store i8 0, ptr %63, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
-  store ptr %57, ptr %1, align 8, !tbaa !4
-  %63 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !4
-  %65 = and i32 %64, 64
-  %.not53 = icmp eq i32 %65, 0
-  %66 = select i1 %.not53, i32 262, i32 6
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %66, ptr %67, align 8, !tbaa !4
-  br label %68
+  store ptr %58, ptr %1, align 8, !tbaa !4
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %65 = load i32, ptr %64, align 4, !tbaa !4
+  %66 = and i32 %65, 64
+  %.not53 = icmp eq i32 %66, 0
+  %67 = select i1 %.not53, i32 262, i32 6
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %67, ptr %68, align 8, !tbaa !4
+  br label %69
 
-68:                                               ; preds = %24, %zend_string_alloc.exit.i, %zend_string_alloc.exit56, %zend_string_alloc.exit
+69:                                               ; preds = %24, %zend_string_alloc.exit.i, %zend_string_alloc.exit56, %zend_string_alloc.exit
   ret void
 }
 
@@ -524,21 +525,21 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
 16:                                               ; preds = %thread-pre-split, %zend_parse_arg_str_ex.exit.thread
   %17 = phi ptr [ %.pr, %thread-pre-split ], [ %14, %zend_parse_arg_str_ex.exit.thread ]
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %..critedge_crit_edge, label %18
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  br i1 %.not.i, label %.critedge.thread, label %19
 
-..critedge_crit_edge:                             ; preds = %16
-  %.pre = load i64, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !15
-  br label %.critedge
+.critedge.thread:                                 ; preds = %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  br label %29
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
+19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !15
-  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #14
+  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #14
   %.not = icmp eq i64 %21, %22
   br i1 %.not, label %.critedge, label %23, !prof !7
 
-23:                                               ; preds = %zend_parse_arg_str_ex.exit, %18
+23:                                               ; preds = %zend_parse_arg_str_ex.exit, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   br label %24
 
@@ -550,30 +551,30 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   call void @zend_wrong_parameter_error(i32 noundef %.049.ph, i32 noundef %.046.ph, ptr noundef null, i32 noundef %.050.ph, ptr noundef %.047.ph) #12
   br label %.loopexit
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %18
-  %25 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %21, %18 ]
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
+.critedge:                                        ; preds = %19
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  %27 = icmp ugt i64 %25, 255
-  br i1 %27, label %28, label %30
+  %26 = icmp ugt i64 %21, 255
+  br i1 %26, label %27, label %29
 
-28:                                               ; preds = %.critedge
+27:                                               ; preds = %.critedge
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, i32 noundef 255) #12
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %29, align 8, !tbaa !4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %28, align 8, !tbaa !4
   br label %.loopexit
 
-30:                                               ; preds = %.critedge
-  %31 = call ptr @php_network_gethostbyname(ptr noundef nonnull %26) #12
+29:                                               ; preds = %.critedge.thread, %.critedge
+  %30 = phi ptr [ %18, %.critedge.thread ], [ %25, %.critedge ]
+  %31 = call ptr @php_network_gethostbyname(ptr noundef nonnull %30) #12
   %.not55 = icmp eq ptr %31, null
   br i1 %.not55, label %32, label %34
 
-32:                                               ; preds = %30
+32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %33, align 8, !tbaa !4
   br label %.loopexit
 
-34:                                               ; preds = %30
+34:                                               ; preds = %29
   %35 = call ptr @_zend_new_array_0() #12
   store ptr %35, ptr %1, align 8, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -594,7 +595,7 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not57, label %41, label %42
 
 41:                                               ; preds = %.lr.ph
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef nonnull %26) #12
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef nonnull %30) #12
   br label %44
 
 42:                                               ; preds = %.lr.ph
@@ -609,7 +610,7 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   %.not56 = icmp eq ptr %.0.copyload, null
   br i1 %.not56, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %44, %34, %24, %32, %28
+.loopexit:                                        ; preds = %44, %34, %24, %32, %27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   ret void

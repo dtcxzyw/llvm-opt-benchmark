@@ -12538,7 +12538,7 @@ define dso_local void @_ZN4absl24synchronization_internal32GraphCycles_IntegerOv
           to label %8 unwind label %15
 
 8:                                                ; preds = %1
-  %9 = invoke i64 @_ZN4absl24synchronization_internal11GraphCycles5GetIdEPv(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull inttoptr (i64 1 to ptr))
+  %9 = invoke i64 @_ZN4absl24synchronization_internal11GraphCycles5GetIdEPv(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null)
           to label %10 unwind label %17
 
 10:                                               ; preds = %8
@@ -12723,7 +12723,7 @@ _ZN7testing7MessageD2Ev.exit35:                   ; preds = %_ZNKSt14default_del
           to label %71 unwind label %17
 
 71:                                               ; preds = %70
-  %72 = invoke i64 @_ZN4absl24synchronization_internal11GraphCycles5GetIdEPv(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull inttoptr (i64 2 to ptr))
+  %72 = invoke i64 @_ZN4absl24synchronization_internal11GraphCycles5GetIdEPv(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null)
           to label %73 unwind label %78
 
 73:                                               ; preds = %71
@@ -12731,7 +12731,7 @@ _ZN7testing7MessageD2Ev.exit35:                   ; preds = %_ZNKSt14default_del
           to label %75 unwind label %78
 
 75:                                               ; preds = %73
-  invoke void @_ZN4absl24synchronization_internal11GraphCycles10RemoveNodeEPv(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull inttoptr (i64 2 to ptr))
+  invoke void @_ZN4absl24synchronization_internal11GraphCycles10RemoveNodeEPv(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef null)
           to label %76 unwind label %78
 
 76:                                               ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %75

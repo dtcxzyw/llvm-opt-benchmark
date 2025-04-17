@@ -1517,10 +1517,7 @@ invoke.cont123:                                   ; preds = %if.end122
 
 invoke.cont.i76.thread:                           ; preds = %invoke.cont123
   %_M_finish.i.i.i191 = getelementptr inbounds nuw i8, ptr %agg.tmp125, i64 8
-  %add.ptr.i.i.i77192 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i73
   %_M_end_of_storage.i.i.i78193 = getelementptr inbounds nuw i8, ptr %agg.tmp125, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp125, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i77192, ptr %_M_end_of_storage.i.i.i78193, align 8, !tbaa !93
   br label %invoke.cont127
 
 cond.true.i.i.i.i:                                ; preds = %invoke.cont123

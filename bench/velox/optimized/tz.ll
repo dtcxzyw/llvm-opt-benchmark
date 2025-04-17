@@ -5941,11 +5941,15 @@ _ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; pre
 
 for.body.i.i.i.i.preheader.i.i:                   ; preds = %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
   %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i.i) #28
-          to label %for.body.i.i.i.i.i.i unwind label %catch
+          to label %call5.i.i.i.i.noexc.i unwind label %catch
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.preheader.i.i, %for.body.i.i.i.i.i.i
-  %__cur.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i1.i, %for.body.i.i.i.i.preheader.i.i ]
-  %__first.sroa.0.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %0, %for.body.i.i.i.i.preheader.i.i ]
+call5.i.i.i.i.noexc.i:                            ; preds = %for.body.i.i.i.i.preheader.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
+  br label %for.body.i.i.i.i.i.i
+
+for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.noexc.i
+  %__cur.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i1.i, %call5.i.i.i.i.noexc.i ]
+  %__first.sroa.0.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %0, %call5.i.i.i.i.noexc.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(88) %__cur.08.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(88) %__first.sroa.0.07.i.i.i.i.i.i) #27
   %transitions_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i.i, i64 32
   %transitions_3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.07.i.i.i.i.i.i, i64 32
@@ -5988,12 +5992,12 @@ invoke.cont21.loopexit:                           ; preds = %for.body.i.i.i.i.i.
   %.pre4 = load ptr, ptr %_M_finish.i, align 8
   br label %invoke.cont21
 
-invoke.cont21:                                    ; preds = %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i, %invoke.cont21.loopexit
-  %9 = phi ptr [ %.pre4, %invoke.cont21.loopexit ], [ %1, %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
-  %10 = phi ptr [ %.pre, %invoke.cont21.loopexit ], [ %0, %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
-  %11 = phi ptr [ %call5.i.i.i.i1.i, %invoke.cont21.loopexit ], [ null, %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
-  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %invoke.cont21.loopexit ], [ null, %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 %sub.ptr.sub.i.i.i.i.i.i
+invoke.cont21:                                    ; preds = %invoke.cont21.loopexit, %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
+  %9 = phi ptr [ %1, %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %.pre4, %invoke.cont21.loopexit ]
+  %10 = phi ptr [ %0, %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %.pre, %invoke.cont21.loopexit ]
+  %11 = phi ptr [ null, %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %add.ptr.i.i, %invoke.cont21.loopexit ]
+  %12 = phi ptr [ null, %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %call5.i.i.i.i1.i, %invoke.cont21.loopexit ]
+  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN4date9time_zoneESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %invoke.cont21.loopexit ]
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %10, ptr %ref.tmp, align 8
@@ -6001,9 +6005,9 @@ invoke.cont21:                                    ; preds = %_ZNSt6vectorIN4date
   %_M_end_of_storage.i4.i.i = getelementptr inbounds nuw i8, ptr %__c, i64 16
   %13 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
   store ptr %13, ptr %_M_end_of_storage.i.i.i, align 8
-  store ptr %11, ptr %__c, align 8
+  store ptr %12, ptr %__c, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i.i, ptr %_M_finish.i, align 8
-  store ptr %12, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %11, ptr %_M_end_of_storage.i4.i.i, align 8
   call void @_ZNSt6vectorIN4date9time_zoneESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #27
   br label %return
 

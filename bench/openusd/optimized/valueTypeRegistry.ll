@@ -549,61 +549,57 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i: ; preds 
   %26 = sub i64 %24, %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !7
   %.not.i.i.i.i.i = icmp eq ptr %22, %23
-  br i1 %.not.i.i.i.i.i, label %.noexc2.thread.i, label %30
+  br i1 %.not.i.i.i.i.i, label %.noexc2.thread.i, label %28
 
 .noexc2.thread.i:                                 ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = getelementptr inbounds i8, ptr null, i64 %26
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !7
-  store ptr %28, ptr %29, align 8, !alias.scope !7
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry11GetAllTypesEv.exit
 
-30:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i
-  %31 = icmp ugt i64 %26, 9223372036854775800
-  br i1 %31, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameEEE8allocateERS2_m.exit.i.i.i.i.i
+28:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit.i
+  %29 = icmp ugt i64 %26, 9223372036854775800
+  br i1 %29, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameEEE8allocateERS2_m.exit.i.i.i.i.i
 
-.noexc.i.i.i:                                     ; preds = %30
+.noexc.i.i.i:                                     ; preds = %28
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #22
           to label %.noexc.i unwind label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit4.i, !noalias !7
 
 .noexc.i:                                         ; preds = %.noexc.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameEEE8allocateERS2_m.exit.i.i.i.i.i: ; preds = %30
-  %32 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #19
+_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameEEE8allocateERS2_m.exit.i.i.i.i.i: ; preds = %28
+  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #19
           to label %.noexc2.i unwind label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit4.i, !noalias !7
 
 .noexc2.i:                                        ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameEEE8allocateERS2_m.exit.i.i.i.i.i
-  store ptr %32, ptr %0, align 8, !alias.scope !7
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %30, ptr %0, align 8, !alias.scope !7
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %30, ptr %31, align 8, !alias.scope !7
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %26
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %32, ptr %33, align 8, !alias.scope !7
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 %26
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %34, ptr %35, align 8, !alias.scope !7
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc2.i
-  %.09.i.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i.i ], [ %32, %.noexc2.i ]
-  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i ], [ %23, %.noexc2.i ]
-  %36 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !noalias !7
-  store i64 %36, ptr %.09.i.i.i.i.i.i, align 8, !noalias !7
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %37, %22
+  %.09.i.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i.i ], [ %30, %.noexc2.i ]
+  %.sroa.04.08.i.i.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i.i.i ], [ %23, %.noexc2.i ]
+  %34 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !noalias !7
+  store i64 %34, ptr %.09.i.i.i.i.i.i, align 8, !noalias !7
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %35, %22
   br i1 %.not.i.i.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry11GetAllTypesEv.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !12
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit4.i: ; preds = %_ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameEEE8allocateERS2_m.exit.i.i.i.i.i, %.noexc.i.i.i
-  %39 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %40 = atomicrmw sub ptr %3, i64 4 seq_cst, align 8, !noalias !7
-  resume { ptr, i32 } %39
+  %38 = atomicrmw sub ptr %3, i64 4 seq_cst, align 8, !noalias !7
+  resume { ptr, i32 } %37
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18Registry11GetAllTypesEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc2.thread.i
-  %41 = phi ptr [ %27, %.noexc2.thread.i ], [ %33, %.lr.ph.i.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.noexc2.thread.i ], [ %38, %.lr.ph.i.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %41, align 8, !alias.scope !7
-  %42 = atomicrmw sub ptr %3, i64 4 seq_cst, align 8, !noalias !7
+  %39 = phi ptr [ %27, %.noexc2.thread.i ], [ %31, %.lr.ph.i.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.noexc2.thread.i ], [ %36, %.lr.ph.i.i.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %39, align 8, !alias.scope !7
+  %40 = atomicrmw sub ptr %3, i64 4 seq_cst, align 8, !noalias !7
   ret void
 }
 

@@ -3401,82 +3401,80 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof17ProfileSymbolList4readEPKhm
   br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit.us, label %_ZN4llvm9StringRefC2EPKc.exit
 
 _ZN4llvm9StringRefC2EPKc.exit.us:                 ; preds = %.lr.ph, %_ZN4llvm9StringRefC2EPKc.exit.us
-  %.022.us = phi i64 [ %13, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ 0, %.lr.ph ]
-  %12 = getelementptr inbounds nuw i8, ptr null, i64 %.022.us
+  %.022.us = phi i64 [ %12, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store ptr %12, ptr %6, align 8
-  store i64 0, ptr %10, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #23, !noalias !226
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #23, !noalias !226
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIS2_S4_S6_S8_Lb0EEEbERKS2_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.248") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(1) %4), !noalias !226
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #23, !noalias !226
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #23, !noalias !226
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %13 = add nuw i64 %.022.us, 1
-  %14 = icmp ult i64 %13, %2
-  %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileSymbolListCutOff, i64 120), align 8
-  %16 = icmp ult i64 %13, %15
-  %or.cond.us = select i1 %14, i1 %16, i1 false
+  %12 = add nuw i64 %.022.us, 1
+  %13 = icmp ult i64 %12, %2
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileSymbolListCutOff, i64 120), align 8
+  %15 = icmp ult i64 %12, %14
+  %or.cond.us = select i1 %13, i1 %15, i1 false
   br i1 %or.cond.us, label %_ZN4llvm9StringRefC2EPKc.exit.us, label %.critedge, !llvm.loop !229
 
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %.lr.ph, %_ZN4llvm9StringRefC2EPKc.exit
-  %.022 = phi i64 [ %20, %_ZN4llvm9StringRefC2EPKc.exit ], [ 0, %.lr.ph ]
-  %.01121 = phi i64 [ %21, %_ZN4llvm9StringRefC2EPKc.exit ], [ 0, %.lr.ph ]
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.022
-  %18 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #23
+  %.022 = phi i64 [ %19, %_ZN4llvm9StringRefC2EPKc.exit ], [ 0, %.lr.ph ]
+  %.01121 = phi i64 [ %20, %_ZN4llvm9StringRefC2EPKc.exit ], [ 0, %.lr.ph ]
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.022
+  %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store ptr %17, ptr %6, align 8
-  store i64 %18, ptr %10, align 8
+  store ptr %16, ptr %6, align 8
+  store i64 %17, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #23, !noalias !226
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #23, !noalias !226
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIS2_S4_S6_S8_Lb0EEEbERKS2_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.248") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(1) %4), !noalias !226
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #23, !noalias !226
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #23, !noalias !226
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %19 = add nuw i64 %.022, 1
-  %20 = add i64 %19, %18
-  %21 = add nuw i64 %.01121, 1
-  %22 = icmp ult i64 %20, %2
-  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileSymbolListCutOff, i64 120), align 8
-  %24 = icmp ult i64 %21, %23
-  %or.cond = select i1 %22, i1 %24, i1 false
+  %18 = add nuw i64 %.022, 1
+  %19 = add i64 %18, %17
+  %20 = add nuw i64 %.01121, 1
+  %21 = icmp ult i64 %19, %2
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL23ProfileSymbolListCutOff, i64 120), align 8
+  %23 = icmp ult i64 %20, %22
+  %or.cond = select i1 %21, i1 %23, i1 false
   br i1 %or.cond, label %_ZN4llvm9StringRefC2EPKc.exit, label %.critedge, !llvm.loop !229
 
 .critedge:                                        ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvm9StringRefC2EPKc.exit.us, %3
-  %25 = phi i64 [ %8, %3 ], [ %15, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ %23, %_ZN4llvm9StringRefC2EPKc.exit ]
-  %.011.lcssa = phi i64 [ 0, %3 ], [ %13, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ %21, %_ZN4llvm9StringRefC2EPKc.exit ]
-  %.0.lcssa = phi i64 [ 0, %3 ], [ %13, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ %20, %_ZN4llvm9StringRefC2EPKc.exit ]
+  %24 = phi i64 [ %8, %3 ], [ %14, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ %22, %_ZN4llvm9StringRefC2EPKc.exit ]
+  %.011.lcssa = phi i64 [ 0, %3 ], [ %12, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ %20, %_ZN4llvm9StringRefC2EPKc.exit ]
+  %.0.lcssa = phi i64 [ 0, %3 ], [ %12, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ %19, %_ZN4llvm9StringRefC2EPKc.exit ]
   %.not = icmp eq i64 %.0.lcssa, %2
-  %.not12 = icmp eq i64 %.011.lcssa, %25
+  %.not12 = icmp eq i64 %.011.lcssa, %24
   %or.cond19 = select i1 %.not, i1 true, i1 %.not12
-  %26 = load atomic i8, ptr @_ZGVZN4llvm19sampleprof_categoryEvE13ErrorCategory acquire, align 8
-  %27 = icmp eq i8 %26, 0
-  br i1 %or.cond19, label %31, label %28
+  %25 = load atomic i8, ptr @_ZGVZN4llvm19sampleprof_categoryEvE13ErrorCategory acquire, align 8
+  %26 = icmp eq i8 %25, 0
+  br i1 %or.cond19, label %30, label %27
 
-28:                                               ; preds = %.critedge
-  br i1 %27, label %29, label %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit, !prof !63
+27:                                               ; preds = %.critedge
+  br i1 %26, label %28, label %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit, !prof !63
 
-29:                                               ; preds = %28
-  %30 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm19sampleprof_categoryEvE13ErrorCategory) #23
-  %.not.i.i.i = icmp eq i32 %30, 0
+28:                                               ; preds = %27
+  %29 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm19sampleprof_categoryEvE13ErrorCategory) #23
+  %.not.i.i.i = icmp eq i32 %29, 0
   br i1 %.not.i.i.i, label %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit, label %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit.sink.split
 
-31:                                               ; preds = %.critedge
-  br i1 %27, label %32, label %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit, !prof !63
+30:                                               ; preds = %.critedge
+  br i1 %26, label %31, label %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit, !prof !63
 
-32:                                               ; preds = %31
-  %33 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm19sampleprof_categoryEvE13ErrorCategory) #23
-  %.not.i.i.i14 = icmp eq i32 %33, 0
+31:                                               ; preds = %30
+  %32 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm19sampleprof_categoryEvE13ErrorCategory) #23
+  %.not.i.i.i14 = icmp eq i32 %32, 0
   br i1 %.not.i.i.i14, label %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit, label %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit.sink.split
 
-_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit.sink.split: ; preds = %32, %29
-  %.sroa.017.0.ph = phi i32 [ 5, %29 ], [ 0, %32 ]
-  %34 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3_V214error_categoryD2Ev, ptr nonnull @_ZZN4llvm19sampleprof_categoryEvE13ErrorCategory, ptr nonnull @__dso_handle) #23
+_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit.sink.split: ; preds = %31, %28
+  %.sroa.017.0.ph = phi i32 [ 5, %28 ], [ 0, %31 ]
+  %33 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3_V214error_categoryD2Ev, ptr nonnull @_ZZN4llvm19sampleprof_categoryEvE13ErrorCategory, ptr nonnull @__dso_handle) #23
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm19sampleprof_categoryEvE13ErrorCategory) #23
   br label %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit
 
-_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit: ; preds = %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit.sink.split, %32, %31, %29, %28
-  %.sroa.017.0 = phi i32 [ 5, %28 ], [ 5, %29 ], [ 0, %31 ], [ 0, %32 ], [ %.sroa.017.0.ph, %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit.sink.split ]
+_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit: ; preds = %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit.sink.split, %31, %30, %28, %27
+  %.sroa.017.0 = phi i32 [ 5, %27 ], [ 5, %28 ], [ 0, %30 ], [ 0, %31 ], [ %.sroa.017.0.ph, %_ZNSt10error_codeC2IN4llvm16sampleprof_errorEvEET_.exit.sink.split ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.017.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr @_ZZN4llvm19sampleprof_categoryEvE13ErrorCategory, 1
   ret { i32, ptr } %.fca.1.insert

@@ -4238,11 +4238,11 @@ _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE5clearEv.exit102.i: ; preds = %
   %331 = sub nuw nsw i64 %321, %328
   tail call void @_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %315, i64 noundef %331)
   %.pre.i = load ptr, ptr %22, align 8, !tbaa !58
-  %.pre448.i = load ptr, ptr %0, align 8, !tbaa !32
-  %.pre449.i = load ptr, ptr %307, align 8, !tbaa !134
-  %.pre450.i = load ptr, ptr %305, align 8, !tbaa !131
+  %.pre449.i = load ptr, ptr %0, align 8, !tbaa !32
+  %.pre450.i = load ptr, ptr %307, align 8, !tbaa !134
+  %.pre451.i = load ptr, ptr %305, align 8, !tbaa !131
   %.pre464.i = ptrtoint ptr %.pre.i to i64
-  %.pre465.i = ptrtoint ptr %.pre448.i to i64
+  %.pre465.i = ptrtoint ptr %.pre449.i to i64
   %.pre467.i = sub i64 %.pre464.i, %.pre465.i
   %.pre469.i = ashr exact i64 %.pre467.i, 5
   br label %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit.i
@@ -4262,9 +4262,9 @@ _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE5clearEv.exit102.i: ; preds = %
 
 _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit.i: ; preds = %336, %334, %332, %330
   %.pre-phi470.i = phi i64 [ %.pre469.i, %330 ], [ %321, %332 ], [ %321, %334 ], [ %321, %336 ]
-  %337 = phi ptr [ %.pre450.i, %330 ], [ %306, %332 ], [ %306, %334 ], [ %306, %336 ]
-  %338 = phi ptr [ %.pre449.i, %330 ], [ %306, %332 ], [ %306, %334 ], [ %306, %336 ]
-  %339 = phi ptr [ %.pre448.i, %330 ], [ %317, %332 ], [ %317, %334 ], [ %317, %336 ]
+  %337 = phi ptr [ %.pre451.i, %330 ], [ %306, %332 ], [ %306, %334 ], [ %306, %336 ]
+  %338 = phi ptr [ %.pre450.i, %330 ], [ %306, %332 ], [ %306, %334 ], [ %306, %336 ]
+  %339 = phi ptr [ %.pre449.i, %330 ], [ %317, %332 ], [ %317, %334 ], [ %317, %336 ]
   %340 = phi ptr [ %.pre.i, %330 ], [ %316, %332 ], [ %316, %334 ], [ %316, %336 ]
   %341 = ptrtoint ptr %338 to i64
   %342 = ptrtoint ptr %337 to i64
@@ -4276,10 +4276,10 @@ _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit.i: ; preds = %33
 346:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit.i
   %347 = sub nuw nsw i64 %.pre-phi470.i, %344
   tail call void @_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %305, i64 noundef %347)
-  %.pre451.i = load ptr, ptr %22, align 8, !tbaa !58
-  %.pre452.i = load ptr, ptr %0, align 8, !tbaa !32
-  %.pre471.i = ptrtoint ptr %.pre451.i to i64
-  %.pre473.i = ptrtoint ptr %.pre452.i to i64
+  %.pre452.i = load ptr, ptr %22, align 8, !tbaa !58
+  %.pre453.i = load ptr, ptr %0, align 8, !tbaa !32
+  %.pre471.i = ptrtoint ptr %.pre452.i to i64
+  %.pre473.i = ptrtoint ptr %.pre453.i to i64
   %.pre475.i = sub i64 %.pre471.i, %.pre473.i
   %.pre477.i = ashr exact i64 %.pre475.i, 5
   br label %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit105.i
@@ -4299,8 +4299,8 @@ _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit.i: ; preds = %33
 
 _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit105.i: ; preds = %352, %350, %348, %346
   %.pre-phi478.i = phi i64 [ %.pre477.i, %346 ], [ %.pre-phi470.i, %348 ], [ %.pre-phi470.i, %350 ], [ %.pre-phi470.i, %352 ]
-  %353 = phi ptr [ %.pre452.i, %346 ], [ %339, %348 ], [ %339, %350 ], [ %339, %352 ]
-  %354 = phi ptr [ %.pre451.i, %346 ], [ %340, %348 ], [ %340, %350 ], [ %340, %352 ]
+  %353 = phi ptr [ %.pre453.i, %346 ], [ %339, %348 ], [ %339, %350 ], [ %339, %352 ]
+  %354 = phi ptr [ %.pre452.i, %346 ], [ %340, %348 ], [ %340, %350 ], [ %340, %352 ]
   %355 = load ptr, ptr %312, align 8, !tbaa !134
   %356 = load ptr, ptr %310, align 8, !tbaa !131
   %357 = ptrtoint ptr %355 to i64
@@ -4313,10 +4313,10 @@ _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit105.i: ; preds = 
 362:                                              ; preds = %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit105.i
   %363 = sub nuw nsw i64 %.pre-phi478.i, %360
   tail call void @_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %310, i64 noundef %363)
-  %.pre453.i = load ptr, ptr %22, align 8, !tbaa !58
-  %.pre454.i = load ptr, ptr %0, align 8, !tbaa !32
-  %.pre479.i = ptrtoint ptr %.pre453.i to i64
-  %.pre481.i = ptrtoint ptr %.pre454.i to i64
+  %.pre454.i = load ptr, ptr %22, align 8, !tbaa !58
+  %.pre455.i = load ptr, ptr %0, align 8, !tbaa !32
+  %.pre479.i = ptrtoint ptr %.pre454.i to i64
+  %.pre481.i = ptrtoint ptr %.pre455.i to i64
   %.pre483.i = sub i64 %.pre479.i, %.pre481.i
   %.pre485.i = ashr exact i64 %.pre483.i, 5
   br label %_ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit107.i
@@ -4336,8 +4336,8 @@ _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit105.i: ; preds = 
 
 _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit107.i: ; preds = %368, %366, %364, %362
   %.pre-phi486.i = phi i64 [ %.pre485.i, %362 ], [ %.pre-phi478.i, %364 ], [ %.pre-phi478.i, %366 ], [ %.pre-phi478.i, %368 ]
-  %369 = phi ptr [ %.pre454.i, %362 ], [ %353, %364 ], [ %353, %366 ], [ %353, %368 ]
-  %370 = phi ptr [ %.pre453.i, %362 ], [ %354, %364 ], [ %354, %366 ], [ %354, %368 ]
+  %369 = phi ptr [ %.pre455.i, %362 ], [ %353, %364 ], [ %353, %366 ], [ %353, %368 ]
+  %370 = phi ptr [ %.pre454.i, %362 ], [ %354, %364 ], [ %354, %366 ], [ %354, %368 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %.not352.i = icmp eq ptr %370, %369
@@ -4367,9 +4367,9 @@ _ZNSt6vectorIN4Luau7CodeGen11RegisterSetESaIS2_EE6resizeEm.exit107.i: ; preds = 
 
 380:                                              ; preds = %._crit_edge.i6
   invoke void @_ZNSt6vectorIhSaIhEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPhS1_EEmRKh(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr null, i64 noundef %.lcssa266.i, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge457.i unwind label %1441
+          to label %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge.i unwind label %1441
 
-._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge457.i: ; preds = %380
+._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge.i: ; preds = %380
   %.pre458.i = load ptr, ptr %22, align 8, !tbaa !58
   %.pre459.i = load ptr, ptr %0, align 8, !tbaa !32
   br label %_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i
@@ -6435,13 +6435,13 @@ _ZN4Luau7CodeGenL24computeBlockLiveInRegSetERNS0_10IrFunctionERKNS0_7IrBlockERNS
   %1426 = getelementptr inbounds nuw %"struct.Luau::CodeGen::RegisterSet", ptr %1425, i64 %.085323.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %1426, ptr noundef nonnull align 8 dereferenceable(34) %5, i64 34, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  %.pre455.i = load ptr, ptr %22, align 8, !tbaa !58
-  %.pre456.i = load ptr, ptr %0, align 8, !tbaa !32
+  %.pre456.i = load ptr, ptr %22, align 8, !tbaa !58
+  %.pre457.i = load ptr, ptr %0, align 8, !tbaa !32
   br label %1427
 
 1427:                                             ; preds = %_ZN4Luau7CodeGenL24computeBlockLiveInRegSetERNS0_10IrFunctionERKNS0_7IrBlockERNS0_11RegisterSetERSt6bitsetILm256EE.exit.i, %381
-  %1428 = phi ptr [ %382, %381 ], [ %.pre456.i, %_ZN4Luau7CodeGenL24computeBlockLiveInRegSetERNS0_10IrFunctionERKNS0_7IrBlockERNS0_11RegisterSetERSt6bitsetILm256EE.exit.i ]
-  %1429 = phi ptr [ %383, %381 ], [ %.pre455.i, %_ZN4Luau7CodeGenL24computeBlockLiveInRegSetERNS0_10IrFunctionERKNS0_7IrBlockERNS0_11RegisterSetERSt6bitsetILm256EE.exit.i ]
+  %1428 = phi ptr [ %382, %381 ], [ %.pre457.i, %_ZN4Luau7CodeGenL24computeBlockLiveInRegSetERNS0_10IrFunctionERKNS0_7IrBlockERNS0_11RegisterSetERSt6bitsetILm256EE.exit.i ]
+  %1429 = phi ptr [ %383, %381 ], [ %.pre456.i, %_ZN4Luau7CodeGenL24computeBlockLiveInRegSetERNS0_10IrFunctionERKNS0_7IrBlockERNS0_11RegisterSetERSt6bitsetILm256EE.exit.i ]
   %1430 = add nuw i64 %.085323.i, 1
   %1431 = ptrtoint ptr %1429 to i64
   %1432 = ptrtoint ptr %1428 to i64
@@ -6450,12 +6450,12 @@ _ZN4Luau7CodeGenL24computeBlockLiveInRegSetERNS0_10IrFunctionERKNS0_7IrBlockERNS
   %1435 = icmp ult i64 %1430, %1434
   br i1 %1435, label %381, label %._crit_edge.i6, !llvm.loop !150
 
-_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i:          ; preds = %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge457.i, %._crit_edge.i6
-  %1436 = phi ptr [ %.pre459.i, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge457.i ], [ %377, %._crit_edge.i6 ]
-  %1437 = phi ptr [ %.pre458.i, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge457.i ], [ %378, %._crit_edge.i6 ]
+_ZNSt6vectorIhSaIhEE6resizeEmRKh.exit.i:          ; preds = %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge.i, %._crit_edge.i6
+  %1436 = phi ptr [ %.pre459.i, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge.i ], [ %377, %._crit_edge.i6 ]
+  %1437 = phi ptr [ %.pre458.i, %._ZNSt6vectorIhSaIhEE6resizeEmRKh.exit_crit_edge.i ], [ %378, %._crit_edge.i6 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #13
-  %.not353.i = icmp eq ptr %1437, %1436
-  br i1 %.not353.i, label %.loopexit.i8, label %.lr.ph328.i
+  %.not354.i = icmp eq ptr %1437, %1436
+  br i1 %.not354.i, label %.loopexit.i8, label %.lr.ph328.i
 
 .preheader157.i:                                  ; preds = %1471
   %1438 = icmp eq ptr %.sroa.0142.2.i, %.sroa.11.1.i

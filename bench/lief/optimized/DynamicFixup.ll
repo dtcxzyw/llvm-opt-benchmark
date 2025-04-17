@@ -687,8 +687,8 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %3
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %38, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
+  %.sroa.9.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %40, %38 ]
   %.sroa.067.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %39, %38 ]
-  %.sink.i = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %40, %38 ]
   %41 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22, !noalias !15
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 0, ptr %42, align 8, !tbaa !18, !noalias !15
@@ -696,9 +696,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %38, %_ZNSt6vectorIh
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %.sroa.067.0, ptr %43, align 8, !tbaa !23, !noalias !15
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr %.sink.i, ptr %44, align 8, !tbaa !25, !noalias !15
+  store ptr %.sroa.9.0, ptr %44, align 8, !tbaa !25, !noalias !15
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store ptr %.sink.i, ptr %45, align 8, !tbaa !26, !noalias !15
+  store ptr %.sroa.9.0, ptr %45, align 8, !tbaa !26, !noalias !15
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %47 = load i64, ptr %46, align 8, !tbaa !27
   switch i64 %47, label %122 [
@@ -718,8 +718,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %38, %_ZNSt6vectorIh
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #23
   call void @_ZN4LIEF2PE16FunctionOverride5parseERNS0_6ParserERNS_10SpanStreamE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.60") align 8 %12, ptr noundef nonnull align 1 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   %51 = load ptr, ptr %12, align 8, !tbaa !42
-  %.not79 = icmp eq ptr %51, null
-  br i1 %.not79, label %55, label %52
+  %.not82 = icmp eq ptr %51, null
+  br i1 %.not82, label %55, label %52
 
 52:                                               ; preds = %48
   store ptr null, ptr %12, align 8, !tbaa !42
@@ -746,19 +746,19 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %38, %_ZNSt6vectorIh
   br i1 %.not.i25, label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit.sink.split
 
 _ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit.sink.split: ; preds = %55, %52
-  %.sink89 = phi ptr [ %54, %52 ], [ %59, %55 ]
+  %.sink92 = phi ptr [ %54, %52 ], [ %59, %55 ]
   %.sink.ph = phi ptr [ %13, %52 ], [ %15, %55 ]
-  %.sroa.070.0.ph = phi ptr [ %41, %52 ], [ null, %55 ]
+  %.sroa.073.0.ph = phi ptr [ %41, %52 ], [ null, %55 ]
   %.sroa.6.0.ph = phi i64 [ 4294967296, %52 ], [ 0, %55 ]
-  %60 = load ptr, ptr %.sink89, align 8, !tbaa !21
+  %60 = load ptr, ptr %.sink92, align 8, !tbaa !21
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(12) %.sink89) #23
+  call void %62(ptr noundef nonnull align 8 dereferenceable(12) %.sink92) #23
   br label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit.sink.split, %55, %52
   %.sink = phi ptr [ %13, %52 ], [ %15, %55 ], [ %.sink.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit.sink.split ]
-  %.sroa.070.0 = phi ptr [ %41, %52 ], [ null, %55 ], [ %.sroa.070.0.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit.sink.split ]
+  %.sroa.073.0 = phi ptr [ %41, %52 ], [ null, %55 ], [ %.sroa.073.0.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit.sink.split ]
   %.sroa.6.0 = phi i64 [ 4294967296, %52 ], [ 0, %55 ], [ %.sroa.6.0.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit.sink.split ]
   store ptr null, ptr %.sink, align 8, !tbaa !45
   %63 = load ptr, ptr %12, align 8, !tbaa !42
@@ -786,8 +786,8 @@ _ZNSt10unique_ptrIN4LIEF2PE16FunctionOverrideESt14default_deleteIS2_EED2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #23
   call void @_ZN4LIEF2PE18DynamicFixupARM64X5parseERNS0_6ParserERNS_10SpanStreamE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.68") align 8 %16, ptr noundef nonnull align 1 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   %70 = load ptr, ptr %16, align 8, !tbaa !47
-  %.not78 = icmp eq ptr %70, null
-  br i1 %.not78, label %74, label %71
+  %.not81 = icmp eq ptr %70, null
+  br i1 %.not81, label %74, label %71
 
 71:                                               ; preds = %67
   store ptr null, ptr %16, align 8, !tbaa !47
@@ -814,21 +814,21 @@ _ZNSt10unique_ptrIN4LIEF2PE16FunctionOverrideESt14default_deleteIS2_EED2Ev.exit:
   br i1 %.not.i32, label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit31, label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit31.sink.split
 
 _ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit31.sink.split: ; preds = %74, %71
-  %.sink94 = phi ptr [ %73, %71 ], [ %78, %74 ]
-  %.sink81.ph = phi ptr [ %17, %71 ], [ %19, %74 ]
-  %.sroa.070.2.ph = phi ptr [ %41, %71 ], [ null, %74 ]
+  %.sink97 = phi ptr [ %73, %71 ], [ %78, %74 ]
+  %.sink84.ph = phi ptr [ %17, %71 ], [ %19, %74 ]
+  %.sroa.073.2.ph = phi ptr [ %41, %71 ], [ null, %74 ]
   %.sroa.6.2.ph = phi i64 [ 4294967296, %71 ], [ 0, %74 ]
-  %79 = load ptr, ptr %.sink94, align 8, !tbaa !21
+  %79 = load ptr, ptr %.sink97, align 8, !tbaa !21
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(12) %.sink94) #23
+  call void %81(ptr noundef nonnull align 8 dereferenceable(12) %.sink97) #23
   br label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit31
 
 _ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit31: ; preds = %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit31.sink.split, %74, %71
-  %.sink81 = phi ptr [ %17, %71 ], [ %19, %74 ], [ %.sink81.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit31.sink.split ]
-  %.sroa.070.2 = phi ptr [ %41, %71 ], [ null, %74 ], [ %.sroa.070.2.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit31.sink.split ]
+  %.sink84 = phi ptr [ %17, %71 ], [ %19, %74 ], [ %.sink84.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit31.sink.split ]
+  %.sroa.073.2 = phi ptr [ %41, %71 ], [ null, %74 ], [ %.sroa.073.2.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit31.sink.split ]
   %.sroa.6.2 = phi i64 [ 4294967296, %71 ], [ 0, %74 ], [ %.sroa.6.2.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit31.sink.split ]
-  store ptr null, ptr %.sink81, align 8, !tbaa !45
+  store ptr null, ptr %.sink84, align 8, !tbaa !45
   %82 = load ptr, ptr %16, align 8, !tbaa !47
   %.not.i35 = icmp eq ptr %82, null
   br i1 %.not.i35, label %_ZNSt10unique_ptrIN4LIEF2PE18DynamicFixupARM64XESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4LIEF2PE18DynamicFixupARM64XEEclEPS2_.exit.i
@@ -848,8 +848,8 @@ _ZNSt10unique_ptrIN4LIEF2PE18DynamicFixupARM64XESt14default_deleteIS2_EED2Ev.exi
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #23
   call void @_ZN4LIEF2PE23DynamicFixupARM64Kernel5parseERNS0_6ParserERNS_10SpanStreamE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.76") align 8 %20, ptr noundef nonnull align 1 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   %87 = load ptr, ptr %20, align 8, !tbaa !49
-  %.not77 = icmp eq ptr %87, null
-  br i1 %.not77, label %91, label %88
+  %.not80 = icmp eq ptr %87, null
+  br i1 %.not80, label %91, label %88
 
 88:                                               ; preds = %86
   store ptr null, ptr %20, align 8, !tbaa !49
@@ -876,21 +876,21 @@ _ZNSt10unique_ptrIN4LIEF2PE18DynamicFixupARM64XESt14default_deleteIS2_EED2Ev.exi
   br i1 %.not.i39, label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit38, label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit38.sink.split
 
 _ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit38.sink.split: ; preds = %91, %88
-  %.sink99 = phi ptr [ %90, %88 ], [ %95, %91 ]
-  %.sink82.ph = phi ptr [ %21, %88 ], [ %23, %91 ]
-  %.sroa.070.3.ph = phi ptr [ %41, %88 ], [ null, %91 ]
+  %.sink102 = phi ptr [ %90, %88 ], [ %95, %91 ]
+  %.sink85.ph = phi ptr [ %21, %88 ], [ %23, %91 ]
+  %.sroa.073.3.ph = phi ptr [ %41, %88 ], [ null, %91 ]
   %.sroa.6.3.ph = phi i64 [ 4294967296, %88 ], [ 0, %91 ]
-  %96 = load ptr, ptr %.sink99, align 8, !tbaa !21
+  %96 = load ptr, ptr %.sink102, align 8, !tbaa !21
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load ptr, ptr %97, align 8
-  call void %98(ptr noundef nonnull align 8 dereferenceable(12) %.sink99) #23
+  call void %98(ptr noundef nonnull align 8 dereferenceable(12) %.sink102) #23
   br label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit38
 
 _ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit38: ; preds = %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit38.sink.split, %91, %88
-  %.sink82 = phi ptr [ %21, %88 ], [ %23, %91 ], [ %.sink82.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit38.sink.split ]
-  %.sroa.070.3 = phi ptr [ %41, %88 ], [ null, %91 ], [ %.sroa.070.3.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit38.sink.split ]
+  %.sink85 = phi ptr [ %21, %88 ], [ %23, %91 ], [ %.sink85.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit38.sink.split ]
+  %.sroa.073.3 = phi ptr [ %41, %88 ], [ null, %91 ], [ %.sroa.073.3.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit38.sink.split ]
   %.sroa.6.3 = phi i64 [ 4294967296, %88 ], [ 0, %91 ], [ %.sroa.6.3.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit38.sink.split ]
-  store ptr null, ptr %.sink82, align 8, !tbaa !45
+  store ptr null, ptr %.sink85, align 8, !tbaa !45
   %99 = load ptr, ptr %20, align 8, !tbaa !49
   %.not.i42 = icmp eq ptr %99, null
   br i1 %.not.i42, label %_ZNSt10unique_ptrIN4LIEF2PE23DynamicFixupARM64KernelESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4LIEF2PE23DynamicFixupARM64KernelEEclEPS2_.exit.i
@@ -944,21 +944,21 @@ _ZNSt10unique_ptrIN4LIEF2PE23DynamicFixupARM64KernelESt14default_deleteIS2_EED2E
   br i1 %.not.i46, label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit45, label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit45.sink.split
 
 _ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit45.sink.split: ; preds = %110, %107
-  %.sink104 = phi ptr [ %109, %107 ], [ %114, %110 ]
-  %.sink83.ph = phi ptr [ %25, %107 ], [ %27, %110 ]
-  %.sroa.070.4.ph = phi ptr [ %41, %107 ], [ null, %110 ]
+  %.sink107 = phi ptr [ %109, %107 ], [ %114, %110 ]
+  %.sink86.ph = phi ptr [ %25, %107 ], [ %27, %110 ]
+  %.sroa.073.4.ph = phi ptr [ %41, %107 ], [ null, %110 ]
   %.sroa.6.4.ph = phi i64 [ 4294967296, %107 ], [ 0, %110 ]
-  %115 = load ptr, ptr %.sink104, align 8, !tbaa !21
+  %115 = load ptr, ptr %.sink107, align 8, !tbaa !21
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = load ptr, ptr %116, align 8
-  call void %117(ptr noundef nonnull align 8 dereferenceable(12) %.sink104) #23
+  call void %117(ptr noundef nonnull align 8 dereferenceable(12) %.sink107) #23
   br label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit45
 
 _ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit45: ; preds = %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit45.sink.split, %110, %107
-  %.sink83 = phi ptr [ %25, %107 ], [ %27, %110 ], [ %.sink83.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit45.sink.split ]
-  %.sroa.070.4 = phi ptr [ %41, %107 ], [ null, %110 ], [ %.sroa.070.4.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit45.sink.split ]
+  %.sink86 = phi ptr [ %25, %107 ], [ %27, %110 ], [ %.sink86.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit45.sink.split ]
+  %.sroa.073.4 = phi ptr [ %41, %107 ], [ null, %110 ], [ %.sroa.073.4.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit45.sink.split ]
   %.sroa.6.4 = phi i64 [ 4294967296, %107 ], [ 0, %110 ], [ %.sroa.6.4.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit45.sink.split ]
-  store ptr null, ptr %.sink83, align 8, !tbaa !45
+  store ptr null, ptr %.sink86, align 8, !tbaa !45
   %118 = load ptr, ptr %24, align 8, !tbaa !51
   %.not.i49 = icmp eq ptr %118, null
   br i1 %.not.i49, label %_ZNSt10unique_ptrIN4LIEF2PE27DynamicFixupControlTransferESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4LIEF2PE27DynamicFixupControlTransferEEclEPS2_.exit.i
@@ -978,8 +978,8 @@ _ZNSt10unique_ptrIN4LIEF2PE27DynamicFixupControlTransferESt14default_deleteIS2_E
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #23
   call void @_ZN4LIEF2PE19DynamicFixupGeneric5parseERNS0_6ParserERNS_10SpanStreamE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.92") align 8 %28, ptr noundef nonnull align 1 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   %123 = load ptr, ptr %28, align 8, !tbaa !53
-  %.not80 = icmp eq ptr %123, null
-  br i1 %.not80, label %127, label %124
+  %.not83 = icmp eq ptr %123, null
+  br i1 %.not83, label %127, label %124
 
 124:                                              ; preds = %122
   store ptr null, ptr %28, align 8, !tbaa !53
@@ -1006,21 +1006,21 @@ _ZNSt10unique_ptrIN4LIEF2PE27DynamicFixupControlTransferESt14default_deleteIS2_E
   br i1 %.not.i53, label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit52, label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit52.sink.split
 
 _ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit52.sink.split: ; preds = %127, %124
-  %.sink109 = phi ptr [ %126, %124 ], [ %131, %127 ]
-  %.sink84.ph = phi ptr [ %29, %124 ], [ %31, %127 ]
-  %.sroa.070.5.ph = phi ptr [ %41, %124 ], [ null, %127 ]
+  %.sink112 = phi ptr [ %126, %124 ], [ %131, %127 ]
+  %.sink87.ph = phi ptr [ %29, %124 ], [ %31, %127 ]
+  %.sroa.073.5.ph = phi ptr [ %41, %124 ], [ null, %127 ]
   %.sroa.6.5.ph = phi i64 [ 4294967296, %124 ], [ 0, %127 ]
-  %132 = load ptr, ptr %.sink109, align 8, !tbaa !21
+  %132 = load ptr, ptr %.sink112, align 8, !tbaa !21
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %134 = load ptr, ptr %133, align 8
-  call void %134(ptr noundef nonnull align 8 dereferenceable(12) %.sink109) #23
+  call void %134(ptr noundef nonnull align 8 dereferenceable(12) %.sink112) #23
   br label %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit52
 
 _ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit52: ; preds = %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit52.sink.split, %127, %124
-  %.sink84 = phi ptr [ %29, %124 ], [ %31, %127 ], [ %.sink84.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit52.sink.split ]
-  %.sroa.070.5 = phi ptr [ %41, %124 ], [ null, %127 ], [ %.sroa.070.5.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit52.sink.split ]
+  %.sink87 = phi ptr [ %29, %124 ], [ %31, %127 ], [ %.sink87.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit52.sink.split ]
+  %.sroa.073.5 = phi ptr [ %41, %124 ], [ null, %127 ], [ %.sroa.073.5.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit52.sink.split ]
   %.sroa.6.5 = phi i64 [ 4294967296, %124 ], [ 0, %127 ], [ %.sroa.6.5.ph, %_ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EED2Ev.exit52.sink.split ]
-  store ptr null, ptr %.sink84, align 8, !tbaa !45
+  store ptr null, ptr %.sink87, align 8, !tbaa !45
   %135 = load ptr, ptr %28, align 8, !tbaa !53
   %.not.i56 = icmp eq ptr %135, null
   br i1 %.not.i56, label %_ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupGenericESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4LIEF2PE19DynamicFixupGenericEEclEPS2_.exit.i
@@ -1037,22 +1037,22 @@ _ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupGenericESt14default_deleteIS2_EED2Ev.ex
   br label %139
 
 139:                                              ; preds = %_ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupGenericESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4LIEF2PE27DynamicFixupControlTransferESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4LIEF2PE23DynamicFixupARM64KernelESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4LIEF2PE18DynamicFixupARM64XESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4LIEF2PE16FunctionOverrideESt14default_deleteIS2_EED2Ev.exit
-  %.sroa.070.1 = phi ptr [ %.sroa.070.0, %_ZNSt10unique_ptrIN4LIEF2PE16FunctionOverrideESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.070.2, %_ZNSt10unique_ptrIN4LIEF2PE18DynamicFixupARM64XESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.070.3, %_ZNSt10unique_ptrIN4LIEF2PE23DynamicFixupARM64KernelESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.070.4, %_ZNSt10unique_ptrIN4LIEF2PE27DynamicFixupControlTransferESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.070.5, %_ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupGenericESt14default_deleteIS2_EED2Ev.exit ]
+  %.sroa.073.1 = phi ptr [ %.sroa.073.0, %_ZNSt10unique_ptrIN4LIEF2PE16FunctionOverrideESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.073.2, %_ZNSt10unique_ptrIN4LIEF2PE18DynamicFixupARM64XESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.073.3, %_ZNSt10unique_ptrIN4LIEF2PE23DynamicFixupARM64KernelESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.073.4, %_ZNSt10unique_ptrIN4LIEF2PE27DynamicFixupControlTransferESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.073.5, %_ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupGenericESt14default_deleteIS2_EED2Ev.exit ]
   %.sroa.6.1 = phi i64 [ %.sroa.6.0, %_ZNSt10unique_ptrIN4LIEF2PE16FunctionOverrideESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.6.2, %_ZNSt10unique_ptrIN4LIEF2PE18DynamicFixupARM64XESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.6.3, %_ZNSt10unique_ptrIN4LIEF2PE23DynamicFixupARM64KernelESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.6.4, %_ZNSt10unique_ptrIN4LIEF2PE27DynamicFixupControlTransferESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.6.5, %_ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupGenericESt14default_deleteIS2_EED2Ev.exit ]
-  %.not.i57 = icmp eq ptr %.sroa.070.1, null
+  %.not.i57 = icmp eq ptr %.sroa.073.1, null
   br i1 %.not.i57, label %_ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupUnknownESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4LIEF2PE19DynamicFixupUnknownEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4LIEF2PE19DynamicFixupUnknownEEclEPS2_.exit.i: ; preds = %139
-  %140 = load ptr, ptr %.sroa.070.1, align 8, !tbaa !21
+  %140 = load ptr, ptr %.sroa.073.1, align 8, !tbaa !21
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = load ptr, ptr %141, align 8
-  call void %142(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.070.1) #23
+  call void %142(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.073.1) #23
   br label %_ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupUnknownESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupUnknownESt14default_deleteIS2_EED2Ev.exit: ; preds = %139, %_ZNKSt14default_deleteIN4LIEF2PE19DynamicFixupUnknownEEclEPS2_.exit.i
   %.sroa.6.0.insert.ext = and i64 %.sroa.6.1, 1095216660480
-  %.sroa.076.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.ext, 11
-  ret i64 %.sroa.076.0.insert.insert
+  %.sroa.079.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.ext, 11
+  ret i64 %.sroa.079.0.insert.insert
 }
 
 declare hidden void @_ZN4LIEF2PE16FunctionOverride5parseERNS0_6ParserERNS_10SpanStreamE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.60") align 8, ptr noundef nonnull align 1, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
@@ -29154,38 +29154,36 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE19DynamicFixupUnknown5cloneEv(ptr d
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 0, ptr %15, align 8
   %.not.i.i.i.i.i = icmp eq ptr %10, %11
-  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread, label %17
+  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread, label %16
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread: ; preds = %2
-  %15 = getelementptr inbounds i8, ptr null, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr %15, ptr %16, align 8, !tbaa !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   br label %_ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupUnknownESt14default_deleteIS2_EED2Ev.exit
 
-17:                                               ; preds = %2
-  %18 = icmp slt i64 %14, 0
-  br i1 %18, label %19, label %20, !prof !148
+16:                                               ; preds = %2
+  %17 = icmp slt i64 %14, 0
+  br i1 %17, label %18, label %19, !prof !148
 
-19:                                               ; preds = %17
+18:                                               ; preds = %16
   tail call void @_ZSt17__throw_bad_allocv() #21
   unreachable
 
-20:                                               ; preds = %17
-  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #22
-  store ptr %21, ptr %7, align 8, !tbaa !23
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %14
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %22, ptr %23, align 8, !tbaa !26
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %11, i64 %14, i1 false)
+19:                                               ; preds = %16
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #22
+  store ptr %20, ptr %7, align 8, !tbaa !23
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %14
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %21, ptr %22, align 8, !tbaa !26
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %11, i64 %14, i1 false)
   br label %_ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupUnknownESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupUnknownESt14default_deleteIS2_EED2Ev.exit: ; preds = %20, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread
-  %24 = phi ptr [ %15, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread ], [ %22, %20 ]
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %24, ptr %25, align 8, !tbaa !25
+_ZNSt10unique_ptrIN4LIEF2PE19DynamicFixupUnknownESt14default_deleteIS2_EED2Ev.exit: ; preds = %19, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread
+  %23 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread ], [ %21, %19 ]
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %23, ptr %24, align 8, !tbaa !25
   store ptr %3, ptr %0, align 8, !tbaa !44
   ret void
 }

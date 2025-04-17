@@ -838,7 +838,7 @@ define linkonce_odr noundef ptr @_ZN9grpc_core22TlsChannelCredsFactory9TlsConfig
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %9, align 8
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 16, ptr %.sroa.534.0..sroa_idx, align 8
+  store i16 0, ptr %.sroa.534.0..sroa_idx, align 8
   %.sroa.635.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 18
   store i8 1, ptr %.sroa.635.0..sroa_idx, align 2
   %.sroa.837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -848,7 +848,7 @@ define linkonce_odr noundef ptr @_ZN9grpc_core22TlsChannelCredsFactory9TlsConfig
   %.sroa.1039.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %.sroa.1039.0..sroa_idx, align 8
   %.sroa.1140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i16 48, ptr %.sroa.1140.0..sroa_idx, align 8
+  store i16 0, ptr %.sroa.1140.0..sroa_idx, align 8
   %.sroa.1241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 50
   store i8 1, ptr %.sroa.1241.0..sroa_idx, align 2
   %.sroa.1443.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -858,7 +858,7 @@ define linkonce_odr noundef ptr @_ZN9grpc_core22TlsChannelCredsFactory9TlsConfig
   %.sroa.1645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE6value_E, ptr %.sroa.1645.0..sroa_idx, align 8
   %.sroa.1746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store i16 80, ptr %.sroa.1746.0..sroa_idx, align 8
+  store i16 0, ptr %.sroa.1746.0..sroa_idx, align 8
   %.sroa.1847.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 82
   store i8 1, ptr %.sroa.1847.0..sroa_idx, align 2
   %.sroa.2049.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -868,7 +868,7 @@ define linkonce_odr noundef ptr @_ZN9grpc_core22TlsChannelCredsFactory9TlsConfig
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 104
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderINS_8DurationEEEE6value_E, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 112
-  store i16 112, ptr %.sroa.23.0..sroa_idx, align 8
+  store i16 0, ptr %.sroa.23.0..sroa_idx, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 114
   store i8 1, ptr %.sroa.24.0..sroa_idx, align 2
   %.sroa.2550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 120

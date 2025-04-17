@@ -60,31 +60,30 @@ define noundef ptr @_ZN5boost6fibers4algo11round_robin9pick_nextEv(ptr noundef n
   br i1 %5, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = ptrtoint ptr %3 to i64
-  %8 = add i64 %7, -160
-  %9 = inttoptr i64 %8 to ptr
-  %10 = load ptr, ptr %3, align 8, !tbaa !8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !3
-  store ptr %10, ptr %12, align 8, !tbaa !8
-  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %12, ptr %13, align 8, !tbaa !3
+  %7 = load ptr, ptr %3, align 8, !tbaa !8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %7, ptr %9, align 8, !tbaa !8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %9, ptr %10, align 8, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %14 = add i64 %7, 72
-  %15 = icmp ult i64 %8, %14
-  br i1 %15, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit
+  %11 = ptrtoint ptr %3 to i64
+  %12 = add i64 %11, 232
+  %13 = inttoptr i64 %12 to ptr
+  %14 = icmp ult ptr %3, %13
+  br i1 %14, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
-  %.06.i = phi ptr [ %18, %.lr.ph.i ], [ %9, %6 ]
+  %.06.i = phi ptr [ %17, %.lr.ph.i ], [ %3, %6 ]
   tail call void @llvm.prefetch.p0(ptr %.06.i, i32 1, i32 1, i32 1)
-  %16 = ptrtoint ptr %.06.i to i64
-  %17 = add i64 %16, 256
-  %18 = inttoptr i64 %17 to ptr
-  %19 = icmp ult i64 %17, %14
-  br i1 %19, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit, !llvm.loop !9
+  %15 = ptrtoint ptr %.06.i to i64
+  %16 = add i64 %15, 256
+  %17 = inttoptr i64 %16 to ptr
+  %18 = icmp ult i64 %16, %12
+  br i1 %18, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit, !llvm.loop !9
 
 _ZN5boost7context6detail14prefetch_rangeEPvm.exit: ; preds = %.lr.ph.i, %6, %1
-  %.0 = phi ptr [ null, %1 ], [ %9, %6 ], [ %9, %.lr.ph.i ]
+  %.0 = phi ptr [ null, %1 ], [ %3, %6 ], [ %3, %.lr.ph.i ]
   ret ptr %.0
 }
 

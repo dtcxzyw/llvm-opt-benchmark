@@ -10991,15 +10991,15 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   %.0.i.i.i.i.i.ph = phi ptr [ %22, %.noexc12 ], [ %21, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %25 = load ptr, ptr %1, align 8, !tbaa !295
   %wide.trip.count = zext nneg i32 %.028 to i64
-  br label %44
+  br label %42
 
-._crit_edge:                                      ; preds = %44, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %.0.i.i.i.i.i38 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %.0.i.i.i.i.i.ph, %44 ]
-  %.sroa.016.035 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %20, %44 ]
+._crit_edge:                                      ; preds = %42, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+  %.0.i.i.i.i.i38 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %.0.i.i.i.i.i.ph, %42 ]
+  %.sroa.016.035 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %20, %42 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !299)
   %26 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
-          to label %.noexc13 unwind label %52
+          to label %.noexc13 unwind label %50
 
 .noexc13:                                         ; preds = %._crit_edge
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test11ConvParam_tEEE, i64 16), ptr %26, align 8, !tbaa !19, !noalias !302
@@ -11014,90 +11014,84 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit
 
 33:                                               ; preds = %.noexc13
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.77) #32
-          to label %.noexc.i.i.i.i unwind label %40, !noalias !302
+          to label %.noexc.i.i.i.i unwind label %38, !noalias !302
 
 .noexc.i.i.i.i:                                   ; preds = %33
   unreachable
 
 _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i: ; preds = %.noexc13
   %.not.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i38, %.sroa.016.035
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i.i, label %36
+  br i1 %.not.i.i.i.i.i.i, label %45, label %34
 
-_ZNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
-  %34 = getelementptr inbounds i8, ptr null, i64 %30
-  %35 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr %34, ptr %35, align 8, !tbaa !303, !noalias !302
-  br label %47
+34:                                               ; preds = %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
+  %35 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #29
+          to label %.noexc5.i.i.i.i unwind label %38, !noalias !302
 
-36:                                               ; preds = %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
-  %37 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #29
-          to label %.noexc5.i.i.i.i unwind label %40, !noalias !302
+.noexc5.i.i.i.i:                                  ; preds = %34
+  store ptr %35, ptr %27, align 8, !tbaa !303, !noalias !302
+  %36 = getelementptr inbounds i8, ptr %35, i64 %30
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  store ptr %36, ptr %37, align 8, !tbaa !305, !noalias !302
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %.sroa.016.035, i64 %30, i1 false), !noalias !302
+  br label %45
 
-.noexc5.i.i.i.i:                                  ; preds = %36
-  store ptr %37, ptr %27, align 8, !tbaa !305, !noalias !302
-  %38 = getelementptr inbounds i8, ptr %37, i64 %30
-  %39 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr %38, ptr %39, align 8, !tbaa !303, !noalias !302
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr align 8 %.sroa.016.035, i64 %30, i1 false), !noalias !302
-  br label %47
-
-40:                                               ; preds = %36, %33
-  %41 = landingpad { ptr, i32 }
+38:                                               ; preds = %34, %33
+  %39 = landingpad { ptr, i32 }
           cleanup
-  %42 = load ptr, ptr %27, align 8, !tbaa !305, !noalias !302
-  %.not.i.i6.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i6.i.i.i.i, label %.body.i.i, label %43
+  %40 = load ptr, ptr %27, align 8, !tbaa !303, !noalias !302
+  %.not.i.i6.i.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i6.i.i.i.i, label %.body.i.i, label %41
 
-43:                                               ; preds = %40
-  tail call void @_ZdlPv(ptr noundef nonnull %42) #30, !noalias !302
+41:                                               ; preds = %38
+  tail call void @_ZdlPv(ptr noundef nonnull %40) #30, !noalias !302
   br label %.body.i.i
 
-.body.i.i:                                        ; preds = %43, %40
+.body.i.i:                                        ; preds = %41, %38
   tail call void @_ZdlPv(ptr noundef nonnull %26) #30, !noalias !302
   br label %.body
 
-44:                                               ; preds = %.lr.ph, %44
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw %"struct.opencv_test::ConvParam_t", ptr %25, i64 %indvars.iv
-  %46 = getelementptr inbounds nuw %"struct.opencv_test::ConvParam_t", ptr %20, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %46, ptr noundef nonnull align 8 dereferenceable(88) %45, i64 88, i1 false), !tbaa.struct !292
+42:                                               ; preds = %.lr.ph, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %43 = getelementptr inbounds nuw %"struct.opencv_test::ConvParam_t", ptr %25, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw %"struct.opencv_test::ConvParam_t", ptr %20, i64 %indvars.iv
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %44, ptr noundef nonnull align 8 dereferenceable(88) %43, i64 88, i1 false), !tbaa.struct !292
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !306
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !306
 
-47:                                               ; preds = %.noexc5.i.i.i.i, %_ZNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i.i
-  %48 = phi ptr [ %34, %_ZNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i.i ], [ %38, %.noexc5.i.i.i.i ]
-  %49 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %48, ptr %49, align 8, !tbaa !307, !noalias !302
+45:                                               ; preds = %.noexc5.i.i.i.i, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
+  %46 = phi ptr [ %36, %.noexc5.i.i.i.i ], [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i ]
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store ptr %46, ptr %47, align 8, !tbaa !307, !noalias !302
   store ptr %26, ptr %0, align 8, !tbaa !184, !alias.scope !302
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %50, ptr %50, align 8, !tbaa !177, !alias.scope !302
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %48, ptr %48, align 8, !tbaa !177, !alias.scope !302
   %.not.i.i.i = icmp eq ptr %.sroa.016.035, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit, label %51
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit, label %49
 
-51:                                               ; preds = %47
+49:                                               ; preds = %45
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.016.035) #30
   br label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit: ; preds = %47, %51
+_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit: ; preds = %45, %49
   ret void
 
-52:                                               ; preds = %._crit_edge
-  %53 = landingpad { ptr, i32 }
+50:                                               ; preds = %._crit_edge
+  %51 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.body.i.i, %52
-  %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %41, %.body.i.i ]
+.body:                                            ; preds = %.body.i.i, %50
+  %eh.lpad-body = phi { ptr, i32 } [ %51, %50 ], [ %39, %.body.i.i ]
   %.not.i.i.i14 = icmp eq ptr %.sroa.016.035, null
-  br i1 %.not.i.i.i14, label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit15, label %54
+  br i1 %.not.i.i.i14, label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit15, label %52
 
-54:                                               ; preds = %.body
+52:                                               ; preds = %.body
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.016.035) #30
   br label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit15
 
-_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit15: ; preds = %.body, %54, %17
-  %.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %54 ]
+_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit15: ; preds = %.body, %52, %17
+  %.pn.pn = phi { ptr, i32 } [ %18, %17 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %52 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -11659,7 +11653,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define linkonce_odr hidden void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test11ConvParam_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test11ConvParam_tEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !305
+  %3 = load ptr, ptr %2, align 8, !tbaa !303
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit, label %4
 
@@ -11675,7 +11669,7 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit: ; preds = %1, %4
 define linkonce_odr hidden void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test11ConvParam_tEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test11ConvParam_tEEE, i64 16), ptr %0, align 8, !tbaa !19
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !305
+  %3 = load ptr, ptr %2, align 8, !tbaa !303
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test11ConvParam_tEED2Ev.exit, label %4
 
@@ -23634,9 +23628,9 @@ attributes #34 = { nounwind willreturn memory(read) }
 !300 = distinct !{!300, !301, !"_ZN7testing8ValuesInIN9__gnu_cxx17__normal_iteratorIPKN11opencv_test11ConvParam_tESt6vectorIS4_SaIS4_EEEEEENS_8internal14ParamGeneratorINSB_14IteratorTraitsIT_E10value_typeEEESE_SE_: argument 0"}
 !301 = distinct !{!301, !"_ZN7testing8ValuesInIN9__gnu_cxx17__normal_iteratorIPKN11opencv_test11ConvParam_tESt6vectorIS4_SaIS4_EEEEEENS_8internal14ParamGeneratorINSB_14IteratorTraitsIT_E10value_typeEEESE_SE_"}
 !302 = !{!300, !297}
-!303 = !{!304, !290, i64 16}
+!303 = !{!304, !290, i64 0}
 !304 = !{!"_ZTSNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE17_Vector_impl_dataE", !290, i64 0, !290, i64 8, !290, i64 16}
-!305 = !{!304, !290, i64 0}
+!305 = !{!304, !290, i64 16}
 !306 = distinct !{!306, !56}
 !307 = !{!304, !290, i64 8}
 !308 = !{!309, !310, i64 0}

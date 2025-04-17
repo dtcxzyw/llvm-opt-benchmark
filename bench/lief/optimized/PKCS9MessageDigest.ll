@@ -169,39 +169,36 @@ define linkonce_odr hidden void @_ZNK4LIEF2PE18PKCS9MessageDigest5cloneEv(ptr de
   %14 = sub i64 %12, %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %10, %11
-  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread, label %18
+  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread, label %16
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread: ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %16 = getelementptr inbounds i8, ptr null, i64 %14
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr %16, ptr %17, align 8, !tbaa !19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   br label %_ZN4LIEF2PE18PKCS9MessageDigestC2ERKS1_.exit
 
-18:                                               ; preds = %2
-  %19 = icmp slt i64 %14, 0
-  br i1 %19, label %20, label %21, !prof !24
+16:                                               ; preds = %2
+  %17 = icmp slt i64 %14, 0
+  br i1 %17, label %18, label %19, !prof !24
 
-20:                                               ; preds = %18
+18:                                               ; preds = %16
   tail call void @_ZSt17__throw_bad_allocv() #14
   unreachable
 
-21:                                               ; preds = %18
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #13
-  store ptr %22, ptr %7, align 8, !tbaa !6
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %22, ptr %23, align 8, !tbaa !11
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %14
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %24, ptr %25, align 8, !tbaa !19
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %11, i64 %14, i1 false)
+19:                                               ; preds = %16
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #13
+  store ptr %20, ptr %7, align 8, !tbaa !6
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %20, ptr %21, align 8, !tbaa !11
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %14
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %22, ptr %23, align 8, !tbaa !19
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %11, i64 %14, i1 false)
   br label %_ZN4LIEF2PE18PKCS9MessageDigestC2ERKS1_.exit
 
-_ZN4LIEF2PE18PKCS9MessageDigestC2ERKS1_.exit:     ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread, %21
-  %26 = phi ptr [ %16, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread ], [ %24, %21 ]
-  %27 = phi ptr [ %15, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread ], [ %23, %21 ]
-  store ptr %26, ptr %27, align 8, !tbaa !11
+_ZN4LIEF2PE18PKCS9MessageDigestC2ERKS1_.exit:     ; preds = %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread, %19
+  %24 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread ], [ %22, %19 ]
+  %25 = phi ptr [ %15, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.i.i.thread ], [ %21, %19 ]
+  store ptr %24, ptr %25, align 8, !tbaa !11
   store ptr %3, ptr %0, align 8, !tbaa !25
   ret void
 }

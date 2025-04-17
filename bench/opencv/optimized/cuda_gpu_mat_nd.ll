@@ -1660,138 +1660,134 @@ define void @_ZNK2cv4cuda8GpuMatNDclESt6vectorIiSaIiEENS_5RangeES5_(ptr dead_on_
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %10, %11
-  br i1 %.not.i.i.i.i, label %.thread, label %18
+  br i1 %.not.i.i.i.i, label %.thread, label %16
 
 .thread:                                          ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %16 = getelementptr inbounds i8, ptr null, i64 %14
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  store ptr %16, ptr %17, align 8, !tbaa !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
-18:                                               ; preds = %5
-  %19 = icmp ugt i64 %14, 9223372036854775804
-  br i1 %19, label %.noexc.i.i, label %20, !prof !17
+16:                                               ; preds = %5
+  %17 = icmp ugt i64 %14, 9223372036854775804
+  br i1 %17, label %.noexc.i.i, label %18, !prof !17
 
-.noexc.i.i:                                       ; preds = %18
+.noexc.i.i:                                       ; preds = %16
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
-20:                                               ; preds = %18
-  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #21
-  store ptr %21, ptr %8, align 8, !tbaa !21
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %21, ptr %22, align 8, !tbaa !39
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %14
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %23, ptr %24, align 8, !tbaa !45
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %11, i64 %14, i1 false)
+18:                                               ; preds = %16
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #21
+  store ptr %19, ptr %8, align 8, !tbaa !21
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %19, ptr %20, align 8, !tbaa !39
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %14
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %21, ptr %22, align 8, !tbaa !45
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %19, ptr align 4 %11, i64 %14, i1 false)
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
-_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %20
-  %25 = phi ptr [ %16, %.thread ], [ %23, %20 ]
-  %26 = phi ptr [ %15, %.thread ], [ %22, %20 ]
-  %27 = phi ptr [ null, %.thread ], [ %21, %20 ]
-  store ptr %25, ptr %26, align 8, !tbaa !39
+_ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %18
+  %23 = phi ptr [ null, %.thread ], [ %21, %18 ]
+  %24 = phi ptr [ %15, %.thread ], [ %20, %18 ]
+  %25 = phi ptr [ null, %.thread ], [ %19, %18 ]
+  store ptr %23, ptr %24, align 8, !tbaa !39
   invoke void @_ZNK2cv4cuda8GpuMatND18createGpuMatHeaderESt6vectorIiSaIiEENS_5RangeES5_(ptr dead_on_unwind nonnull writable sret(%"class.cv::cuda::GpuMat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull %8, i64 %3, i64 %4)
-          to label %28 unwind label %46
+          to label %26 unwind label %44
 
-28:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
+26:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %29 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
-          to label %.noexc unwind label %48
+  %27 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
+          to label %.noexc unwind label %46
 
-.noexc:                                           ; preds = %28
+.noexc:                                           ; preds = %26
   store i32 0, ptr %0, align 8, !tbaa !84, !alias.scope !81
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %30, align 4, !tbaa !87, !alias.scope !81
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %31, align 8, !tbaa !88, !alias.scope !81
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 0, i64 40, i1 false), !alias.scope !81
-  store ptr %29, ptr %33, align 8, !tbaa !89, !alias.scope !81
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %28, align 4, !tbaa !87, !alias.scope !81
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 0, ptr %29, align 8, !tbaa !88, !alias.scope !81
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %30, i8 0, i64 40, i1 false), !alias.scope !81
+  store ptr %27, ptr %31, align 8, !tbaa !89, !alias.scope !81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18, !noalias !81
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %35, align 8, !noalias !81
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 0, ptr %33, align 8, !noalias !81
   store i32 34144256, ptr %6, align 8, !tbaa !90, !noalias !81
-  store ptr %0, ptr %34, align 8, !tbaa !93, !noalias !81
+  store ptr %0, ptr %32, align 8, !tbaa !93, !noalias !81
   invoke void @_ZNK2cv4cuda6GpuMat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %41 unwind label %36
+          to label %39 unwind label %34
 
-36:                                               ; preds = %.noexc
-  %37 = landingpad { ptr, i32 }
+34:                                               ; preds = %.noexc
+  %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN2cv4cuda6GpuMat7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-          to label %.body unwind label %38
+          to label %.body unwind label %36
 
-38:                                               ; preds = %36
-  %39 = landingpad { ptr, i32 }
+36:                                               ; preds = %34
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #22
+  %38 = extractvalue { ptr, i32 } %37, 0
+  call void @__clang_call_terminate(ptr %38) #22
   unreachable
 
-41:                                               ; preds = %.noexc
+39:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #18, !noalias !81
   invoke void @_ZN2cv4cuda6GpuMat7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
-          to label %_ZN2cv4cuda6GpuMatD2Ev.exit unwind label %42
+          to label %_ZN2cv4cuda6GpuMatD2Ev.exit unwind label %40
 
-42:                                               ; preds = %41
-  %43 = landingpad { ptr, i32 }
+40:                                               ; preds = %39
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #22
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #22
   unreachable
 
-_ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %41
-  %.not.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %45
+_ZN2cv4cuda6GpuMatD2Ev.exit:                      ; preds = %39
+  %.not.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %43
 
-45:                                               ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %27) #19
+43:                                               ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %25) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit, %45
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit, %43
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
   ret void
 
-46:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
-  %47 = landingpad { ptr, i32 }
+44:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
+  %45 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN2cv4cuda6GpuMatD2Ev.exit7
 
-48:                                               ; preds = %28
-  %49 = landingpad { ptr, i32 }
+46:                                               ; preds = %26
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %36, %48
-  %eh.lpad-body = phi { ptr, i32 } [ %49, %48 ], [ %37, %36 ]
+.body:                                            ; preds = %34, %46
+  %eh.lpad-body = phi { ptr, i32 } [ %47, %46 ], [ %35, %34 ]
   invoke void @_ZN2cv4cuda6GpuMat7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
-          to label %_ZN2cv4cuda6GpuMatD2Ev.exit7 unwind label %50
+          to label %_ZN2cv4cuda6GpuMatD2Ev.exit7 unwind label %48
 
-50:                                               ; preds = %.body
-  %51 = landingpad { ptr, i32 }
+48:                                               ; preds = %.body
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #22
+  %50 = extractvalue { ptr, i32 } %49, 0
+  call void @__clang_call_terminate(ptr %50) #22
   unreachable
 
-_ZN2cv4cuda6GpuMatD2Ev.exit7:                     ; preds = %.body, %46
-  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %eh.lpad-body, %.body ]
-  %.not.i.i.i8 = icmp eq ptr %27, null
-  br i1 %.not.i.i.i8, label %_ZNSt6vectorIiSaIiEED2Ev.exit9, label %53
+_ZN2cv4cuda6GpuMatD2Ev.exit7:                     ; preds = %.body, %44
+  %.pn = phi { ptr, i32 } [ %45, %44 ], [ %eh.lpad-body, %.body ]
+  %.not.i.i.i8 = icmp eq ptr %25, null
+  br i1 %.not.i.i.i8, label %_ZNSt6vectorIiSaIiEED2Ev.exit9, label %51
 
-53:                                               ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit7
-  call void @_ZdlPv(ptr noundef nonnull %27) #19
+51:                                               ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit7
+  call void @_ZdlPv(ptr noundef nonnull %25) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit9
 
-_ZNSt6vectorIiSaIiEED2Ev.exit9:                   ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit7, %53
+_ZNSt6vectorIiSaIiEED2Ev.exit9:                   ; preds = %_ZN2cv4cuda6GpuMatD2Ev.exit7, %51
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
   resume { ptr, i32 } %.pn
 }

@@ -1986,63 +1986,61 @@ _ZNSt6vectorIN9Stockfish4MoveESaIS1_EE9push_backEOS1_.exit: ; preds = %45, %_ZNS
   %151 = ptrtoint ptr %149 to i64
   %152 = ptrtoint ptr %150 to i64
   %153 = sub i64 %151, %152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %10, i8 0, i64 24, i1 false)
+  %154 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %154, align 8
   %.not.i.i.i.i.i = icmp eq ptr %149, %150
-  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.thread, label %157
+  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.thread, label %156
 
 _ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.thread: ; preds = %146
-  %154 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %155 = getelementptr inbounds i8, ptr null, i64 %153
-  %156 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  store ptr %155, ptr %156, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   br label %_ZN9Stockfish6Search10LimitsTypeC2ERKS1_.exit
 
-157:                                              ; preds = %146
-  %158 = icmp ugt i64 %153, 9223372036854775806
-  br i1 %158, label %159, label %160
+156:                                              ; preds = %146
+  %157 = icmp ugt i64 %153, 9223372036854775806
+  br i1 %157, label %158, label %159
 
-159:                                              ; preds = %157
+158:                                              ; preds = %156
   call void @_ZSt28__throw_bad_array_new_lengthv() #23
   unreachable
 
-160:                                              ; preds = %157
-  %161 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %153) #22
-  store ptr %161, ptr %10, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %163 = getelementptr inbounds nuw i8, ptr %161, i64 %153
-  %164 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %163, ptr %164, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %161, ptr align 2 %150, i64 %153, i1 false)
+159:                                              ; preds = %156
+  %160 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %153) #22
+  store ptr %160, ptr %10, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 %153
+  %163 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %162, ptr %163, align 8
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %160, ptr align 2 %150, i64 %153, i1 false)
   br label %_ZN9Stockfish6Search10LimitsTypeC2ERKS1_.exit
 
-_ZN9Stockfish6Search10LimitsTypeC2ERKS1_.exit:    ; preds = %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.thread, %160
-  %165 = phi ptr [ %155, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.thread ], [ %163, %160 ]
-  %166 = phi ptr [ %154, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.thread ], [ %162, %160 ]
-  store ptr %165, ptr %166, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %168 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %167, ptr noundef nonnull align 8 dereferenceable(88) %168, i64 88, i1 false)
+_ZN9Stockfish6Search10LimitsTypeC2ERKS1_.exit:    ; preds = %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.thread, %159
+  %164 = phi ptr [ null, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.thread ], [ %162, %159 ]
+  %165 = phi ptr [ %155, %_ZNSt12_Vector_baseIN9Stockfish4MoveESaIS1_EEC2EmRKS2_.exit.i.i.thread ], [ %161, %159 ]
+  store ptr %164, ptr %165, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %166, ptr noundef nonnull align 8 dereferenceable(88) %167, i64 88, i1 false)
   call void @_ZN9Stockfish10ThreadPool14start_thinkingERKNS_10OptionsMapERNS_8PositionERSt10unique_ptrISt5dequeINS_9StateInfoESaIS8_EESt14default_deleteISA_EENS_6Search10LimitsTypeEb(ptr noundef nonnull align 8 dereferenceable(40) %147, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(865) %1, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %10, i1 noundef zeroext %.0.lcssa) #21
-  %169 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i17 = icmp eq ptr %169, null
-  br i1 %.not.i.i.i.i17, label %_ZN9Stockfish6Search10LimitsTypeD2Ev.exit, label %170
+  %168 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i17 = icmp eq ptr %168, null
+  br i1 %.not.i.i.i.i17, label %_ZN9Stockfish6Search10LimitsTypeD2Ev.exit, label %169
 
-170:                                              ; preds = %_ZN9Stockfish6Search10LimitsTypeC2ERKS1_.exit
-  call void @_ZdlPv(ptr noundef nonnull %169) #24
+169:                                              ; preds = %_ZN9Stockfish6Search10LimitsTypeC2ERKS1_.exit
+  call void @_ZdlPv(ptr noundef nonnull %168) #24
   br label %_ZN9Stockfish6Search10LimitsTypeD2Ev.exit
 
-_ZN9Stockfish6Search10LimitsTypeD2Ev.exit:        ; preds = %170, %_ZN9Stockfish6Search10LimitsTypeC2ERKS1_.exit, %140
+_ZN9Stockfish6Search10LimitsTypeD2Ev.exit:        ; preds = %169, %_ZN9Stockfish6Search10LimitsTypeC2ERKS1_.exit, %140
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
-  %171 = load ptr, ptr %5, align 8
-  %.not.i.i.i.i18 = icmp eq ptr %171, null
-  br i1 %.not.i.i.i.i18, label %_ZN9Stockfish6Search10LimitsTypeD2Ev.exit19, label %172
+  %170 = load ptr, ptr %5, align 8
+  %.not.i.i.i.i18 = icmp eq ptr %170, null
+  br i1 %.not.i.i.i.i18, label %_ZN9Stockfish6Search10LimitsTypeD2Ev.exit19, label %171
 
-172:                                              ; preds = %_ZN9Stockfish6Search10LimitsTypeD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %171) #24
+171:                                              ; preds = %_ZN9Stockfish6Search10LimitsTypeD2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %170) #24
   br label %_ZN9Stockfish6Search10LimitsTypeD2Ev.exit19
 
-_ZN9Stockfish6Search10LimitsTypeD2Ev.exit19:      ; preds = %_ZN9Stockfish6Search10LimitsTypeD2Ev.exit, %172
+_ZN9Stockfish6Search10LimitsTypeD2Ev.exit19:      ; preds = %_ZN9Stockfish6Search10LimitsTypeD2Ev.exit, %171
   ret void
 }
 

@@ -131,8 +131,6 @@ $_ZZN4node4quic9SetOptionINS0_7Session19Application_OptionsETnMT_mXadL_ZNS3_21qp
 
 $_ZTVN4node4quic18DefaultApplicationE = comdat any
 
-$_ZZN4node4quic18DefaultApplication13GetStreamDataEPNS0_7Session11Application10StreamDataEE4args = comdat any
-
 $_ZZN4node17BaseObjectPtrImplINS_4quic6StreamELb0EEC1EPS2_E4args_0 = comdat any
 
 $_ZZZN4node4quic18DefaultApplication13GetStreamDataEPNS0_7Session11Application10StreamDataEENKUlT_mE_clIPK10ngtcp2_vecEEDaS6_mE4args = comdat any
@@ -189,10 +187,6 @@ $_ZZN4node4quic18DefaultApplication12StreamCommitEPNS0_7Session11Application10St
 @.str.31 = private unnamed_addr constant [235 x i8] c"bool node::quic::SetOption(Environment *, Opt *, const v8::Local<v8::Object> &, const v8::Local<v8::String> &) [Opt = node::quic::Session::Application_Options, member = &node::quic::Session::Application_Options::qpack_blocked_streams]\00", align 1
 @_ZTVN4node4quic18DefaultApplicationE = linkonce_odr dso_local unnamed_addr constant { [29 x ptr] } { [29 x ptr] [ptr null, ptr null, ptr @_ZN4node4quic18DefaultApplicationD2Ev, ptr @_ZN4node4quic18DefaultApplicationD0Ev, ptr @_ZNK4node4quic18DefaultApplication10MemoryInfoEPNS_13MemoryTrackerE, ptr @_ZNK4node4quic18DefaultApplication14MemoryInfoNameEv, ptr @_ZNK4node4quic18DefaultApplication8SelfSizeEv, ptr @_ZNK4node14MemoryRetainer13WrappedObjectEv, ptr @_ZNK4node14MemoryRetainer10IsRootNodeEv, ptr @_ZNK4node14MemoryRetainer15GetDetachednessEv, ptr @_ZN4node4quic7Session11Application5StartEv, ptr @_ZN4node4quic18DefaultApplication17ReceiveStreamDataEPNS0_6StreamEPKhmNS2_16ReceiveDataFlagsE, ptr @_ZN4node4quic7Session11Application21AcknowledgeStreamDataEPNS0_6StreamEm, ptr @_ZN4node4quic7Session11Application12CanAddHeaderEmmm, ptr @_ZN4node4quic7Session11Application11BlockStreamEl, ptr @_ZN4node4quic18DefaultApplication12ResumeStreamEl, ptr @_ZN4node4quic7Session11Application16ExtendMaxStreamsENS0_13EndpointLabelENS0_9DirectionEm, ptr @_ZN4node4quic7Session11Application19ExtendMaxStreamDataEPNS0_6StreamEm, ptr @_ZNK4node4quic7Session11Application27CollectSessionTicketAppDataEPNS0_13SessionTicket7AppDataE, ptr @_ZN4node4quic7Session11Application27ExtractSessionTicketAppDataERKNS0_13SessionTicket7AppDataENS4_6Source4FlagE, ptr @_ZN4node4quic7Session11Application11StreamCloseEPNS0_6StreamENS0_9QuicErrorE, ptr @_ZN4node4quic7Session11Application11StreamResetEPNS0_6StreamEmNS0_9QuicErrorE, ptr @_ZN4node4quic7Session11Application17StreamStopSendingEPNS0_6StreamENS0_9QuicErrorE, ptr @_ZN4node4quic7Session11Application11SendHeadersERKNS0_6StreamENS0_11HeadersKindERKN2v85LocalINS7_5ArrayEEENS0_12HeadersFlagsE, ptr @_ZN4node4quic7Session11Application17SetStreamPriorityERKNS0_6StreamENS0_14StreamPriorityENS0_19StreamPriorityFlagsE, ptr @_ZN4node4quic7Session11Application17GetStreamPriorityERKNS0_6StreamE, ptr @_ZN4node4quic18DefaultApplication13GetStreamDataEPNS0_7Session11Application10StreamDataE, ptr @_ZN4node4quic18DefaultApplication12StreamCommitEPNS0_7Session11Application10StreamDataEm, ptr @_ZN4node4quic18DefaultApplication12ShouldSetFinERKNS0_7Session11Application10StreamDataE] }, comdat, align 8
 @.str.32 = private unnamed_addr constant [19 x i8] c"DefaultApplication\00", align 1
-@_ZZN4node4quic18DefaultApplication13GetStreamDataEPNS0_7Session11Application10StreamDataEE4args = linkonce_odr dso_local constant %"struct.node::AssertionInfo" { ptr @.str.33, ptr @.str.34, ptr @.str.35 }, comdat, align 8
-@.str.33 = private unnamed_addr constant [34 x i8] c"../../src/quic/application.cc:331\00", align 1
-@.str.34 = private unnamed_addr constant [20 x i8] c"(stream) != nullptr\00", align 1
-@.str.35 = private unnamed_addr constant [72 x i8] c"virtual int node::quic::DefaultApplication::GetStreamData(StreamData *)\00", align 1
 @_ZZN4node17BaseObjectPtrImplINS_4quic6StreamELb0EEC1EPS2_E4args_0 = linkonce_odr dso_local constant %"struct.node::AssertionInfo" { ptr @.str.36, ptr @.str.37, ptr @.str.38 }, comdat, align 8
 @.str.36 = private unnamed_addr constant [32 x i8] c"../../src/base_object-inl.h:206\00", align 1
 @.str.37 = private unnamed_addr constant [28 x i8] c"(pointer_data()) != nullptr\00", align 1
@@ -2329,9 +2323,9 @@ entry:
   %stream_queue_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %stream_queue_, align 8
   %cmp.i.i = icmp eq ptr %0, %stream_queue_
-  br i1 %cmp.i.i, label %return, label %_ZN4node8ListHeadINS_4quic6StreamEXadL_ZNS2_13stream_queue_EEEE8PopFrontEv.exit
+  br i1 %cmp.i.i, label %return, label %_ZNK4node17BaseObjectPtrImplINS_4quic6StreamELb0EE12pointer_dataEv.exit.i.i
 
-_ZN4node8ListHeadINS_4quic6StreamEXadL_ZNS2_13stream_queue_EEEE8PopFrontEv.exit: ; preds = %entry
+_ZNK4node17BaseObjectPtrImplINS_4quic6StreamELb0EE12pointer_dataEv.exit.i.i: ; preds = %entry
   %next_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %next_.i, align 8
   %next_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2343,21 +2337,9 @@ _ZN4node8ListHeadINS_4quic6StreamEXadL_ZNS2_13stream_queue_EEEE8PopFrontEv.exit:
   store ptr %4, ptr %2, align 8
   store ptr %1, ptr %1, align 8
   store ptr %1, ptr %next_.i.i, align 8
-  %5 = ptrtoint ptr %1 to i64
-  %sub.i.i.i = add i64 %5, -240
-  %6 = inttoptr i64 %sub.i.i.i to ptr
-  store ptr %6, ptr %stream, align 8
-  %cmp.not = icmp eq i64 %sub.i.i.i, 0
-  br i1 %cmp.not, label %do.body7, label %_ZNK4node17BaseObjectPtrImplINS_4quic6StreamELb0EE12pointer_dataEv.exit.i.i
-
-do.body7:                                         ; preds = %_ZN4node8ListHeadINS_4quic6StreamEXadL_ZNS2_13stream_queue_EEEE8PopFrontEv.exit
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic18DefaultApplication13GetStreamDataEPNS0_7Session11Application10StreamDataEE4args) #17
-  tail call void @abort() #18
-  unreachable
-
-_ZNK4node17BaseObjectPtrImplINS_4quic6StreamELb0EE12pointer_dataEv.exit.i.i: ; preds = %_ZN4node8ListHeadINS_4quic6StreamEXadL_ZNS2_13stream_queue_EEEE8PopFrontEv.exit
+  store ptr %1, ptr %stream, align 8
   %stream10 = getelementptr inbounds nuw i8, ptr %stream_data, i64 296
-  %call3.i.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  %call3.i.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   %cmp2.not.i.i = icmp eq ptr %call3.i.i.i, null
   br i1 %cmp2.not.i.i, label %do.body6.i.i, label %if.end.i.i
 
@@ -2367,29 +2349,30 @@ do.body6.i.i:                                     ; preds = %_ZNK4node17BaseObje
   unreachable
 
 if.end.i.i:                                       ; preds = %_ZNK4node17BaseObjectPtrImplINS_4quic6StreamELb0EE12pointer_dataEv.exit.i.i
-  tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  %7 = load ptr, ptr %stream10, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  %5 = ptrtoint ptr %1 to i64
+  %6 = load ptr, ptr %stream10, align 8
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZN4node17BaseObjectPtrImplINS_4quic6StreamELb0EE5resetEPS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
+  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %_ZN4node17BaseObjectPtrImplINS_4quic6StreamELb0EE5resetEPS2_.exit
 
 _ZN4node17BaseObjectPtrImplINS_4quic6StreamELb0EE5resetEPS2_.exit: ; preds = %if.end.i.i, %if.then.i.i.i
-  store i64 %sub.i.i.i, ptr %stream10, align 8
-  %call11 = tail call noundef i64 @_ZNK4node4quic6Stream2idEv(ptr noundef nonnull align 8 dereferenceable(256) %6) #17
+  store i64 %5, ptr %stream10, align 8
+  %call11 = tail call noundef i64 @_ZNK4node4quic6Stream2idEv(ptr noundef nonnull align 8 dereferenceable(256) %1) #17
   %id = getelementptr inbounds nuw i8, ptr %stream_data, i64 16
   store i64 %call11, ptr %id, align 8
-  %call12 = tail call noundef zeroext i1 @_ZNK4node4quic6Stream6is_eosEv(ptr noundef nonnull align 8 dereferenceable(256) %6) #17
+  %call12 = tail call noundef zeroext i1 @_ZNK4node4quic6Stream6is_eosEv(ptr noundef nonnull align 8 dereferenceable(256) %1) #17
   br i1 %call12, label %return.sink.split, label %if.then16
 
 if.then16:                                        ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic6StreamELb0EE5resetEPS2_.exit
-  %add.ptr = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 56
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
-  %8 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  store i64 0, ptr %8, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
+  store i64 0, ptr %7, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
   store ptr %stream_data.addr, ptr %call.i.i.i, align 16
   %next.sroa.2.0.call.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
@@ -2404,14 +2387,14 @@ if.then16:                                        ; preds = %_ZN4node17BaseObjec
   %data = getelementptr inbounds nuw i8, ptr %stream_data, i64 32
   %vtable = load ptr, ptr %add.ptr, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %9 = load ptr, ptr %vfn, align 8
-  %call19 = call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(9) %add.ptr, ptr noundef nonnull %agg.tmp, i32 noundef 2, ptr noundef nonnull %data, i64 noundef 16, i64 noundef 16) #17
-  %10 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %10, null
+  %8 = load ptr, ptr %vfn, align 8
+  %call19 = call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(9) %add.ptr, ptr noundef nonnull %agg.tmp, i32 noundef 2, ptr noundef nonnull %data, i64 noundef 16, i64 noundef 16) #17
+  %9 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then16
-  %call.i.i = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #17
+  %call.i.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #17
   br label %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEED2Ev.exit
 
 _ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEED2Ev.exit: ; preds = %if.then16, %if.then.i.i
@@ -2419,11 +2402,11 @@ _ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEED2Ev.exit: ; preds = %if.then16, %if.
   br i1 %cmp20, label %if.then21, label %return
 
 if.then21:                                        ; preds = %_ZNSt8functionIFviPK10ngtcp2_vecmS_IFvmEEEED2Ev.exit
-  %11 = load ptr, ptr %stream_data.addr, align 8
+  %10 = load ptr, ptr %stream_data.addr, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN4node17BaseObjectPtrImplINS_4quic6StreamELb0EE5resetEPS2_.exit, %if.then21
-  %stream_data.sink = phi ptr [ %11, %if.then21 ], [ %stream_data, %_ZN4node17BaseObjectPtrImplINS_4quic6StreamELb0EE5resetEPS2_.exit ]
+  %stream_data.sink = phi ptr [ %10, %if.then21 ], [ %stream_data, %_ZN4node17BaseObjectPtrImplINS_4quic6StreamELb0EE5resetEPS2_.exit ]
   %fin23 = getelementptr inbounds nuw i8, ptr %stream_data.sink, i64 24
   store i32 1, ptr %fin23, align 8
   br label %return

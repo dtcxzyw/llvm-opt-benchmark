@@ -163,7 +163,7 @@ _ZN2va9DirectoryC2EPKc.exit.i.i:                  ; preds = %24
   br i1 %30, label %.thread.i, label %.lr.ph.split.i.i
 
 .thread.i:                                        ; preds = %.lr.ph.i.i
-  %31 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) inttoptr (i64 19 to ptr), ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #26
+  %31 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) null, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #26
   %.not3151.us.i.i = icmp ne i32 %31, 0
   call void @llvm.assume(i1 %.not3151.us.i.i)
   br label %_ZN2va9DirectoryD2Ev.exit.i.i
@@ -279,7 +279,7 @@ _ZNK2va9DirectoryixEi.exit37.i.i:                 ; preds = %.lr.ph.split.i.i
   br i1 %.not31.i.i, label %_ZNK2va9DirectoryixEi.exit40.i.i, label %70
 
 _ZNK2va9DirectoryixEi.exit37.thread.i.i:          ; preds = %.lr.ph.split.i.i
-  %66 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) inttoptr (i64 19 to ptr), ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #26
+  %66 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) null, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #26
   %.not3151.i.i = icmp ne i32 %66, 0
   call void @llvm.assume(i1 %.not3151.i.i)
   br label %70

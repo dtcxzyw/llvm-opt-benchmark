@@ -3136,12 +3136,7 @@ define linkonce_odr hidden void @_ZN16push_back_vectorI10ref_vectorI3ast11ast_ma
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !507
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %._ZN6vectorIP3astLb0EjE4backEv.exit_crit_edge.i, label %7
-
-._ZN6vectorIP3astLb0EjE4backEv.exit_crit_edge.i:  ; preds = %1
-  %.pre.i = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !514
-  %.pre2.i = add i32 %.pre.i, -1
-  br label %_ZN6vectorIP3astLb0EjE4backEv.exit.i
+  br i1 %6, label %_ZN6vectorIP3astLb0EjE4backEv.exit.i, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %5, i64 -4
@@ -3150,9 +3145,9 @@ define linkonce_odr hidden void @_ZN16push_back_vectorI10ref_vectorI3ast11ast_ma
   %11 = zext i32 %10 to i64
   br label %_ZN6vectorIP3astLb0EjE4backEv.exit.i
 
-_ZN6vectorIP3astLb0EjE4backEv.exit.i:             ; preds = %7, %._ZN6vectorIP3astLb0EjE4backEv.exit_crit_edge.i
-  %.pre-phi.i = phi i32 [ %.pre2.i, %._ZN6vectorIP3astLb0EjE4backEv.exit_crit_edge.i ], [ %10, %7 ]
-  %.0.i.i.i = phi i64 [ 4294967295, %._ZN6vectorIP3astLb0EjE4backEv.exit_crit_edge.i ], [ %11, %7 ]
+_ZN6vectorIP3astLb0EjE4backEv.exit.i:             ; preds = %7, %1
+  %.pre-phi.i = phi i32 [ %10, %7 ], [ undef, %1 ]
+  %.0.i.i.i = phi i64 [ %11, %7 ], [ 4294967295, %1 ]
   %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0.i.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !515
   %14 = getelementptr inbounds i8, ptr %5, i64 -4

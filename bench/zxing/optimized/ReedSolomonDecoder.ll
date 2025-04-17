@@ -1462,59 +1462,60 @@ define linkonce_odr void @_ZN5ZXing13GenericGFPolyC2ERKNS_9GenericGFERKSt6vector
 
 12:                                               ; preds = %10
   %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %9
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %13, ptr align 4 %6, i64 %9, i1 false)
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
 
 _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %3, %12
-  %14 = phi ptr [ %13, %12 ], [ null, %3 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 %9
+  %15 = phi ptr [ %14, %12 ], [ null, %3 ]
+  %16 = phi ptr [ %13, %12 ], [ null, %3 ]
   store ptr %1, ptr %0, align 8, !tbaa !23
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  store ptr %14, ptr %16, align 8, !tbaa !32
-  store ptr %15, ptr %17, align 8, !tbaa !33
-  store ptr %15, ptr %18, align 8, !tbaa !34
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  store ptr %16, ptr %17, align 8, !tbaa !32
+  store ptr %15, ptr %18, align 8, !tbaa !33
+  store ptr %15, ptr %19, align 8, !tbaa !34
   invoke void @_ZN5ZXing13GenericGFPoly9normalizeEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-          to label %_ZNSt6vectorIiSaIiEED2Ev.exit unwind label %20
+          to label %_ZNSt6vectorIiSaIiEED2Ev.exit unwind label %21
 
-20:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
-  %.not.i.i.i.i4 = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i4, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = load ptr, ptr %23, align 8, !tbaa !32
+  %.not.i.i.i.i4 = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i4, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %25
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !34
-  %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %23 to i64
-  %29 = sub i64 %27, %28
-  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %29) #17
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %27 = load ptr, ptr %26, align 8, !tbaa !34
+  %28 = ptrtoint ptr %27 to i64
+  %29 = ptrtoint ptr %24 to i64
+  %30 = sub i64 %28, %29
+  tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %30) #17
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i
 
-_ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %24, %20
-  %30 = load ptr, ptr %16, align 8, !tbaa !32
-  %.not.i.i.i4.i = icmp eq ptr %30, null
-  br i1 %.not.i.i.i4.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit6, label %31
+_ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %25, %21
+  %31 = load ptr, ptr %17, align 8, !tbaa !32
+  %.not.i.i.i4.i = icmp eq ptr %31, null
+  br i1 %.not.i.i.i4.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit6, label %32
 
-31:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  %32 = load ptr, ptr %18, align 8, !tbaa !34
-  %33 = ptrtoint ptr %32 to i64
-  %34 = ptrtoint ptr %30 to i64
-  %35 = sub i64 %33, %34
-  tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %35) #17
+32:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
+  %33 = load ptr, ptr %19, align 8, !tbaa !34
+  %34 = ptrtoint ptr %33 to i64
+  %35 = ptrtoint ptr %31 to i64
+  %36 = sub i64 %34, %35
+  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %36) #17
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit6
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
   ret void
 
-_ZNSt6vectorIiSaIiEED2Ev.exit6:                   ; preds = %31, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
-  resume { ptr, i32 } %21
+_ZNSt6vectorIiSaIiEED2Ev.exit6:                   ; preds = %32, %_ZNSt6vectorIiSaIiEED2Ev.exit.i
+  resume { ptr, i32 } %22
 }
 
 declare i32 @__gxx_personality_v0(...)

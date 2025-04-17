@@ -8481,74 +8481,73 @@ _ZNSt6vectorIN4llvm16MCDwarfFrameInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit: ;
 
 _ZNSt12_Vector_baseIN4llvm16MCDwarfFrameInfoESaIS1_EE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorIN4llvm16MCDwarfFrameInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   store ptr null, ptr %0, align 8, !tbaa !463
-  %10 = getelementptr inbounds nuw i8, ptr null, i64 %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %11, align 8, !tbaa !471
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %10, align 8, !tbaa !471
   br label %_ZSt22__uninitialized_copy_aIPKN4llvm16MCDwarfFrameInfoEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNSt6vectorIN4llvm16MCDwarfFrameInfoESaIS1_EE17_S_check_init_lenEmRKS2_.exit
-  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #21
-  store ptr %12, ptr %0, align 8, !tbaa !463
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %14, align 8, !tbaa !471
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #21
+  store ptr %11, ptr %0, align 8, !tbaa !463
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %12, ptr %13, align 8, !tbaa !471
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN4llvm16MCDwarfFrameInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %38, %_ZSt10_ConstructIN4llvm16MCDwarfFrameInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %12, %.lr.ph.i.i.i.i.preheader ]
-  %.0811.i.i.i.i = phi ptr [ %37, %_ZSt10_ConstructIN4llvm16MCDwarfFrameInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader ]
+  %.012.i.i.i.i = phi ptr [ %37, %_ZSt10_ConstructIN4llvm16MCDwarfFrameInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %11, %.lr.ph.i.i.i.i.preheader ]
+  %.0811.i.i.i.i = phi ptr [ %36, %_ZSt10_ConstructIN4llvm16MCDwarfFrameInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(90) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(90) %.0811.i.i.i.i, i64 32, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i, i64 32
-  %17 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !459
-  %19 = load ptr, ptr %16, align 8, !tbaa !458
+  %14 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i, i64 40
+  %17 = load ptr, ptr %16, align 8, !tbaa !459
+  %18 = load ptr, ptr %15, align 8, !tbaa !458
+  %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
-  %21 = ptrtoint ptr %19 to i64
-  %22 = sub i64 %20, %21
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %18, %19
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN4llvm16MCDwarfFrameInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, label %23
+  %21 = sub i64 %19, %20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, %18
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN4llvm16MCDwarfFrameInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, label %22
 
-23:                                               ; preds = %.lr.ph.i.i.i.i
-  %24 = sdiv exact i64 %22, 104
-  %25 = icmp ugt i64 %24, 88686269585142075
-  br i1 %25, label %26, label %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i, !prof !392
+22:                                               ; preds = %.lr.ph.i.i.i.i
+  %23 = sdiv exact i64 %21, 104
+  %24 = icmp ugt i64 %23, 88686269585142075
+  br i1 %24, label %25, label %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i, !prof !392
 
-26:                                               ; preds = %23
+25:                                               ; preds = %22
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
-_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %23
-  %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #21
-  %.pre = load ptr, ptr %16, align 8, !tbaa !528
-  %.pre6 = load ptr, ptr %17, align 8, !tbaa !528
+_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %22
+  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #21
+  %.pre = load ptr, ptr %15, align 8, !tbaa !528
+  %.pre6 = load ptr, ptr %16, align 8, !tbaa !528
   br label %_ZSt10_ConstructIN4llvm16MCDwarfFrameInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i
 
 _ZSt10_ConstructIN4llvm16MCDwarfFrameInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
-  %28 = phi ptr [ %.pre6, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i ]
-  %29 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i ], [ %19, %.lr.ph.i.i.i.i ]
-  %30 = phi ptr [ %27, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
-  store ptr %30, ptr %15, align 8, !tbaa !458
-  %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
-  store ptr %30, ptr %31, align 8, !tbaa !459
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %22
-  %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 48
-  store ptr %32, ptr %33, align 8, !tbaa !469
-  %34 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN4llvm16MCCFIInstructionESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %29, ptr %28, ptr noundef %30)
-  store ptr %34, ptr %31, align 8, !tbaa !459
-  %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
-  %36 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %35, ptr noundef nonnull align 8 dereferenceable(34) %36, i64 34, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i, i64 96
-  %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 96
-  %.not.i.i.i.i = icmp eq ptr %37, %2
+  %27 = phi ptr [ %.pre6, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i ], [ %17, %.lr.ph.i.i.i.i ]
+  %28 = phi ptr [ %.pre, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i ], [ %18, %.lr.ph.i.i.i.i ]
+  %29 = phi ptr [ %26, %_ZNSt16allocator_traitsISaIN4llvm16MCCFIInstructionEEE8allocateERS2_m.exit.i.i.i.i.i.i.i.i.i.i ], [ null, %.lr.ph.i.i.i.i ]
+  store ptr %29, ptr %14, align 8, !tbaa !458
+  %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 40
+  store ptr %29, ptr %30, align 8, !tbaa !459
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %21
+  %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 48
+  store ptr %31, ptr %32, align 8, !tbaa !469
+  %33 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN4llvm16MCCFIInstructionESt6vectorIS3_SaIS3_EEEEPS3_ET0_T_SC_SB_(ptr %28, ptr %27, ptr noundef %29)
+  store ptr %33, ptr %30, align 8, !tbaa !459
+  %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %34, ptr noundef nonnull align 8 dereferenceable(34) %35, i64 34, i1 false)
+  %36 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 96
+  %.not.i.i.i.i = icmp eq ptr %36, %2
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN4llvm16MCDwarfFrameInfoEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !529
 
 _ZSt22__uninitialized_copy_aIPKN4llvm16MCDwarfFrameInfoEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit: ; preds = %_ZSt10_ConstructIN4llvm16MCDwarfFrameInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %_ZNSt12_Vector_baseIN4llvm16MCDwarfFrameInfoESaIS1_EE11_M_allocateEm.exit.thread
-  %.0.lcssa.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm16MCDwarfFrameInfoESaIS1_EE11_M_allocateEm.exit.thread ], [ %38, %_ZSt10_ConstructIN4llvm16MCDwarfFrameInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i, ptr %39, align 8, !tbaa !464
+  %.0.lcssa.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4llvm16MCDwarfFrameInfoESaIS1_EE11_M_allocateEm.exit.thread ], [ %37, %_ZSt10_ConstructIN4llvm16MCDwarfFrameInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i, ptr %38, align 8, !tbaa !464
   ret void
 }
 

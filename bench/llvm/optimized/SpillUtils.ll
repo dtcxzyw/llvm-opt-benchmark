@@ -7556,7 +7556,7 @@ _ZN4llvm8DenseMapIPNS_11InstructionESt8optionalINS_5APIntEENS_12DenseMapInfoIS2_
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 %19, ptr %24, align 8, !tbaa !290
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #14
-  call void @_ZN4llvm23SmallVectorTemplateBaseINS_4coro10AllocaInfoELb0EE19moveElementsForGrowEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %6)
+  call void @_ZN4llvm23SmallVectorTemplateBaseINS_4coro10AllocaInfoELb0EE19moveElementsForGrowEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6)
   %25 = load i64, ptr %4, align 8, !tbaa !355
   %26 = load ptr, ptr %0, align 8, !tbaa !89
   %27 = icmp eq ptr %26, %5

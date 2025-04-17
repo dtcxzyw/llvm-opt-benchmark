@@ -17610,8 +17610,8 @@ _ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVar
   br i1 %40, label %.lr.ph, label %._crit_edge, !prof !432
 
 .lr.ph:                                           ; preds = %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit
-  %.7.idx174 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx174
+  %.7.idx175 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI8AstClassZN16RandomizeVisitor24createRandomizeClassVarsEP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx175
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -20891,8 +20891,8 @@ _ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUl
   br i1 %38, label %.lr.ph.preheader, label %._crit_edge, !prof !432
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit
-  %.7.idx91 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx91
+  %.7.idx92 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit.thread ], [ %.6.idx, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx92
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplI13AstConstraintZN16RandomizeVisitorC1EP10AstNetlistEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESG_.exit38
@@ -45501,8 +45501,8 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8Fi
   br i1 %37, label %.lr.ph.preheader, label %._crit_edge.thread, !prof !717
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit.thread, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit
-  %.7.idx86 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit ]
-  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx86
+  %.7.idx87 = phi i64 [ %.6.add, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit.thread ], [ %.7.idx, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit ]
+  %.7.ptr = getelementptr inbounds nuw i8, ptr %.pre3.i, i64 %.7.idx87
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZZN7AstNode11foreachImplI9AstVarRefZN16RandomizeVisitor17makeModeAssignLhsEP8FileLineP8AstClassP11AstNodeExprP6AstVarEUlPS1_E_EEvPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT0_bENKUlPS_E_clESM_.exit34

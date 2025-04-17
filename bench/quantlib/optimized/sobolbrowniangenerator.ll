@@ -2931,113 +2931,121 @@ if.then3.i.i.i.i.i.i.i:                           ; preds = %cond.true.i.i.i.i.i
 
 _ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit: ; preds = %cond.true.i.i.i.i.i
   %call5.i.i.i.i2.i6.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i) #26
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i.i, i64 %sub.ptr.sub.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i.i, ptr align 8 %4, i64 %sub.ptr.sub.i.i.i, i1 false)
+  %6 = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %weight3.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %6 = load double, ptr %weight3.i, align 8, !tbaa !64
+  %7 = load double, ptr %weight3.i, align 8, !tbaa !64
   %x_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %weight2 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store double %6, ptr %weight2, align 8, !tbaa !105
+  store double %7, ptr %weight2, align 8, !tbaa !105
   %dimension_ = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %7 = load i64, ptr %dimension_, align 8, !tbaa !98
-  %cmp23.not = icmp eq i64 %7, 0
+  %8 = load i64, ptr %dimension_, align 8, !tbaa !98
+  %cmp23.not = icmp eq i64 %8, 0
   br i1 %cmp23.not, label %if.then.i.i.i.i, label %for.body.lr.ph
 
 _ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread: ; preds = %_ZNK8QuantLib8SobolRsg12nextSequenceEv.exit
-  %weight3.i28 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %8 = load double, ptr %weight3.i28, align 8, !tbaa !64
-  %x_29 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %weight230 = getelementptr inbounds nuw i8, ptr %this, i64 136
-  store double %8, ptr %weight230, align 8, !tbaa !105
-  %dimension_31 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %9 = load i64, ptr %dimension_31, align 8, !tbaa !98
-  %cmp23.not32 = icmp eq i64 %9, 0
-  br i1 %cmp23.not32, label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit, label %for.body.lr.ph
+  %weight3.i29 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %9 = load double, ptr %weight3.i29, align 8, !tbaa !64
+  %x_30 = getelementptr inbounds nuw i8, ptr %this, i64 112
+  %weight231 = getelementptr inbounds nuw i8, ptr %this, i64 136
+  store double %9, ptr %weight231, align 8, !tbaa !105
+  %dimension_32 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %10 = load i64, ptr %dimension_32, align 8, !tbaa !98
+  %cmp23.not33 = icmp eq i64 %10, 0
+  br i1 %cmp23.not33, label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit
-  %10 = phi i64 [ %9, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %7, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
-  %dimension_40 = phi ptr [ %dimension_31, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %dimension_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
-  %x_38 = phi ptr [ %x_29, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %x_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
-  %cond.i.i.i.i.i2133 = phi ptr [ null, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %call5.i.i.i.i2.i6.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
+  %11 = phi i64 [ %10, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %8, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
+  %dimension_44 = phi ptr [ %dimension_32, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %dimension_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
+  %x_42 = phi ptr [ %x_30, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %x_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
+  %cond.i.i.i.i.i2137 = phi ptr [ null, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %call5.i.i.i.i2.i6.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
+  %add.ptr.i.i.i.i2234 = phi i64 [ 0, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ], [ %6, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ]
   %ICD_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %sigma_.i = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %11 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal6x_low_E, align 8, !tbaa !42
-  %12 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal7x_high_E, align 8
-  %13 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a1_E, align 8
-  %14 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a2_E, align 8
-  %15 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a3_E, align 8
-  %16 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a4_E, align 8
-  %17 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a5_E, align 8
-  %18 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a6_E, align 8
-  %19 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b1_E, align 8
-  %20 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b2_E, align 8
-  %21 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b3_E, align 8
-  %22 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b4_E, align 8
-  %23 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b5_E, align 8
+  %12 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal6x_low_E, align 8, !tbaa !42
+  %13 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal7x_high_E, align 8
+  %14 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a1_E, align 8
+  %15 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a2_E, align 8
+  %16 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a3_E, align 8
+  %17 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a4_E, align 8
+  %18 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a5_E, align 8
+  %19 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3a6_E, align 8
+  %20 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b1_E, align 8
+  %21 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b2_E, align 8
+  %22 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b3_E, align 8
+  %23 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b4_E, align 8
+  %24 = load double, ptr @_ZN8QuantLib23InverseCumulativeNormal3b5_E, align 8
   br label %for.body
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit
-  %x_37 = phi ptr [ %x_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %x_38, %invoke.cont ]
-  %cond.i.i.i.i.i2134 = phi ptr [ %call5.i.i.i.i2.i6.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %cond.i.i.i.i.i2133, %invoke.cont ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i.i2134, i64 noundef %sub.ptr.sub.i.i.i) #27
+  %x_41 = phi ptr [ %x_, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %x_42, %invoke.cont ]
+  %cond.i.i.i.i.i2138 = phi ptr [ %call5.i.i.i.i2.i6.i.i, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %cond.i.i.i.i.i2137, %invoke.cont ]
+  %add.ptr.i.i.i.i2235 = phi i64 [ %6, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit ], [ %add.ptr.i.i.i.i2234, %invoke.cont ]
+  %sub.ptr.rhs.cast.i.i.i5 = ptrtoint ptr %cond.i.i.i.i.i2138 to i64
+  %sub.ptr.sub.i.i.i6 = sub i64 %add.ptr.i.i.i.i2235, %sub.ptr.rhs.cast.i.i.i5
+  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i.i2138, i64 noundef %sub.ptr.sub.i.i.i6) #27
   br label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit
 
 _ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit:  ; preds = %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread, %if.then.i.i.i.i
-  %x_36 = phi ptr [ %x_37, %if.then.i.i.i.i ], [ %x_29, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ]
-  ret ptr %x_36
+  %x_40 = phi ptr [ %x_41, %if.then.i.i.i.i ], [ %x_30, %_ZN8QuantLib6SampleISt6vectorIdSaIdEEEC2ERKS4_.exit.thread ]
+  ret ptr %x_40
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont
-  %24 = phi i64 [ %10, %for.body.lr.ph ], [ %38, %invoke.cont ]
+  %25 = phi i64 [ %11, %for.body.lr.ph ], [ %39, %invoke.cont ]
   %i.024 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i.i.i.i.i2133, i64 %i.024
-  %25 = load double, ptr %add.ptr.i, align 8, !tbaa !42
-  %26 = load double, ptr %ICD_, align 8, !tbaa !106
-  %27 = load double, ptr %sigma_.i, align 8, !tbaa !107
-  %cmp.i.i = fcmp olt double %25, %11
-  %cmp1.i.i = fcmp olt double %12, %25
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %cond.i.i.i.i.i2137, i64 %i.024
+  %26 = load double, ptr %add.ptr.i, align 8, !tbaa !42
+  %27 = load double, ptr %ICD_, align 8, !tbaa !106
+  %28 = load double, ptr %sigma_.i, align 8, !tbaa !107
+  %cmp.i.i = fcmp olt double %26, %12
+  %cmp1.i.i = fcmp olt double %13, %26
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %call.i.i7 = invoke noundef double @_ZN8QuantLib23InverseCumulativeNormal10tail_valueEd(double noundef %25)
+  %call.i.i7 = invoke noundef double @_ZN8QuantLib23InverseCumulativeNormal10tail_valueEd(double noundef %26)
           to label %if.then.i.i.invoke.cont_crit_edge unwind label %_ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit15
 
 if.then.i.i.invoke.cont_crit_edge:                ; preds = %if.then.i.i
-  %.pre25 = load i64, ptr %dimension_40, align 8, !tbaa !98
+  %.pre25 = load i64, ptr %dimension_44, align 8, !tbaa !98
   br label %invoke.cont
 
 if.else.i.i:                                      ; preds = %for.body
-  %sub.i.i = fadd double %25, -5.000000e-01
+  %sub.i.i = fadd double %26, -5.000000e-01
   %mul.i.i = fmul double %sub.i.i, %sub.i.i
-  %28 = tail call double @llvm.fmuladd.f64(double %13, double %mul.i.i, double %14)
-  %29 = tail call double @llvm.fmuladd.f64(double %28, double %mul.i.i, double %15)
+  %29 = tail call double @llvm.fmuladd.f64(double %14, double %mul.i.i, double %15)
   %30 = tail call double @llvm.fmuladd.f64(double %29, double %mul.i.i, double %16)
   %31 = tail call double @llvm.fmuladd.f64(double %30, double %mul.i.i, double %17)
   %32 = tail call double @llvm.fmuladd.f64(double %31, double %mul.i.i, double %18)
-  %mul7.i.i = fmul double %sub.i.i, %32
-  %33 = tail call double @llvm.fmuladd.f64(double %19, double %mul.i.i, double %20)
-  %34 = tail call double @llvm.fmuladd.f64(double %33, double %mul.i.i, double %21)
+  %33 = tail call double @llvm.fmuladd.f64(double %32, double %mul.i.i, double %19)
+  %mul7.i.i = fmul double %sub.i.i, %33
+  %34 = tail call double @llvm.fmuladd.f64(double %20, double %mul.i.i, double %21)
   %35 = tail call double @llvm.fmuladd.f64(double %34, double %mul.i.i, double %22)
   %36 = tail call double @llvm.fmuladd.f64(double %35, double %mul.i.i, double %23)
-  %37 = tail call double @llvm.fmuladd.f64(double %36, double %mul.i.i, double 1.000000e+00)
-  %div.i.i = fdiv double %mul7.i.i, %37
+  %37 = tail call double @llvm.fmuladd.f64(double %36, double %mul.i.i, double %24)
+  %38 = tail call double @llvm.fmuladd.f64(double %37, double %mul.i.i, double 1.000000e+00)
+  %div.i.i = fdiv double %mul7.i.i, %38
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.invoke.cont_crit_edge, %if.else.i.i
-  %38 = phi i64 [ %24, %if.else.i.i ], [ %.pre25, %if.then.i.i.invoke.cont_crit_edge ]
+  %39 = phi i64 [ %25, %if.else.i.i ], [ %.pre25, %if.then.i.i.invoke.cont_crit_edge ]
   %z.0.i.i = phi double [ %div.i.i, %if.else.i.i ], [ %call.i.i7, %if.then.i.i.invoke.cont_crit_edge ]
-  %39 = tail call noundef double @llvm.fmuladd.f64(double %27, double %z.0.i.i, double %26)
-  %40 = load ptr, ptr %x_38, align 8, !tbaa !40
-  %add.ptr.i8 = getelementptr inbounds nuw double, ptr %40, i64 %i.024
-  store double %39, ptr %add.ptr.i8, align 8, !tbaa !42
+  %40 = tail call noundef double @llvm.fmuladd.f64(double %28, double %z.0.i.i, double %27)
+  %41 = load ptr, ptr %x_42, align 8, !tbaa !40
+  %add.ptr.i8 = getelementptr inbounds nuw double, ptr %41, i64 %i.024
+  store double %40, ptr %add.ptr.i8, align 8, !tbaa !42
   %inc = add nuw i64 %i.024, 1
-  %cmp = icmp ult i64 %inc, %38
+  %cmp = icmp ult i64 %inc, %39
   br i1 %cmp, label %for.body, label %if.then.i.i.i.i, !llvm.loop !108
 
 _ZN8QuantLib6SampleISt6vectorIdSaIdEEED2Ev.exit15: ; preds = %if.then.i.i
-  %41 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i.i2133, i64 noundef %sub.ptr.sub.i.i.i) #27
-  resume { ptr, i32 } %41
+  %sub.ptr.rhs.cast.i.i.i13 = ptrtoint ptr %cond.i.i.i.i.i2137 to i64
+  %sub.ptr.sub.i.i.i14 = sub i64 %add.ptr.i.i.i.i2234, %sub.ptr.rhs.cast.i.i.i13
+  tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i.i2137, i64 noundef %sub.ptr.sub.i.i.i14) #27
+  resume { ptr, i32 } %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

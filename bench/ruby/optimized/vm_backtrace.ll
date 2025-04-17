@@ -2511,67 +2511,57 @@ collect_caller_bindings.exit:                     ; preds = %rb_array_len.exit.i
   %135 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %134, ptr %135, align 8, !tbaa !173
   %136 = getelementptr i8, ptr %10, i64 48
-  %.0.1.val = load ptr, ptr %136, align 8, !tbaa !174
-  %.not.i.i18 = icmp eq ptr %.0.1.val, null
-  br i1 %.not.i.i18, label %rb_ec_ractor_ptr.exit.i, label %137
-
-137:                                              ; preds = %collect_caller_bindings.exit
-  %138 = getelementptr inbounds nuw i8, ptr %.0.1.val, i64 32
-  %139 = load ptr, ptr %138, align 8, !tbaa !175
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 88
+  %.0.1.val = load ptr, ptr %136, align 8, !tbaa !174, !nonnull !48, !noundef !48
+  %137 = getelementptr inbounds nuw i8, ptr %.0.1.val, i64 32
+  %138 = load ptr, ptr %137, align 8, !tbaa !175
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 88
+  %140 = load ptr, ptr %139, align 8, !tbaa !176
   %141 = getelementptr inbounds nuw i8, ptr %.0.1.val, i64 24
-  %142 = load ptr, ptr %141, align 8, !tbaa !176
-  br label %rb_ec_ractor_ptr.exit.i
+  %142 = load ptr, ptr %141, align 8, !tbaa !177
+  %.not.i19 = icmp eq ptr %140, %142
+  br i1 %.not.i19, label %143, label %rb_ec_vm_lock_rec.exit
 
-rb_ec_ractor_ptr.exit.i:                          ; preds = %137, %collect_caller_bindings.exit
-  %.in.i = phi ptr [ %140, %137 ], [ inttoptr (i64 88 to ptr), %collect_caller_bindings.exit ]
-  %.0.i2.i = phi ptr [ %139, %137 ], [ null, %collect_caller_bindings.exit ]
-  %.0.i6.i = phi ptr [ %142, %137 ], [ null, %collect_caller_bindings.exit ]
-  %143 = load ptr, ptr %.in.i, align 8, !tbaa !177
-  %.not.i19 = icmp eq ptr %143, %.0.i6.i
-  br i1 %.not.i19, label %144, label %rb_ec_vm_lock_rec.exit
-
-144:                                              ; preds = %rb_ec_ractor_ptr.exit.i
-  %145 = getelementptr inbounds nuw i8, ptr %.0.i2.i, i64 96
-  %146 = load i32, ptr %145, align 8, !tbaa !178
+143:                                              ; preds = %collect_caller_bindings.exit
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 96
+  %145 = load i32, ptr %144, align 8, !tbaa !178
   br label %rb_ec_vm_lock_rec.exit
 
-rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %144
-  %.0.i20 = phi i32 [ %146, %144 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
-  %147 = getelementptr inbounds nuw i8, ptr %8, i64 68
-  store i32 %.0.i20, ptr %147, align 4, !tbaa !179
-  %148 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %149 = call ptr @llvm.frameaddress.p0(i32 0)
-  store ptr %149, ptr %148, align 8
-  %150 = call ptr @llvm.stacksave.p0()
-  %151 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %150, ptr %151, align 8
-  %152 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %148)
-  %.not = icmp eq i32 %152, 0
-  br i1 %.not, label %159, label %153, !prof !180
+rb_ec_vm_lock_rec.exit:                           ; preds = %collect_caller_bindings.exit, %143
+  %.0.i20 = phi i32 [ %145, %143 ], [ 0, %collect_caller_bindings.exit ]
+  %146 = getelementptr inbounds nuw i8, ptr %8, i64 68
+  store i32 %.0.i20, ptr %146, align 4, !tbaa !179
+  %147 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %148 = call ptr @llvm.frameaddress.p0(i32 0)
+  store ptr %148, ptr %147, align 8
+  %149 = call ptr @llvm.stacksave.p0()
+  %150 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr %149, ptr %150, align 8
+  %151 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %147)
+  %.not = icmp eq i32 %151, 0
+  br i1 %.not, label %158, label %152, !prof !180
 
-153:                                              ; preds = %rb_ec_vm_lock_rec.exit
+152:                                              ; preds = %rb_ec_vm_lock_rec.exit
   %.0..0..0..0.2 = load volatile ptr, ptr %7, align 8, !tbaa !93
-  %154 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0.2)
-  %155 = load ptr, ptr %135, align 8, !tbaa !173
+  %153 = call fastcc i32 @rb_ec_tag_state(ptr noundef %.0..0..0..0.2)
+  %154 = load ptr, ptr %135, align 8, !tbaa !173
   %.0..0..0..0.4 = load ptr, ptr %7, align 8, !tbaa !93
-  %156 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.4, i64 24
-  store ptr %155, ptr %156, align 8, !tbaa !172
+  %155 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.4, i64 24
+  store ptr %154, ptr %155, align 8, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.val = load ptr, ptr %133, align 8, !tbaa !172
-  %157 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  store i32 %154, ptr %157, align 8, !tbaa !169
-  %158 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  call void @llvm.eh.sjlj.longjmp(ptr nonnull %158)
+  %156 = getelementptr inbounds nuw i8, ptr %.val, i64 64
+  store i32 %153, ptr %156, align 8, !tbaa !169
+  %157 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  call void @llvm.eh.sjlj.longjmp(ptr nonnull %157)
   unreachable
 
-159:                                              ; preds = %rb_ec_vm_lock_rec.exit
+158:                                              ; preds = %rb_ec_vm_lock_rec.exit
   store ptr %8, ptr %133, align 8, !tbaa !172
-  %160 = call i64 %0(ptr noundef nonnull %5, ptr noundef %1) #6
-  store volatile i64 %160, ptr %6, align 8, !tbaa !15
-  %161 = load ptr, ptr %135, align 8, !tbaa !173
-  store ptr %161, ptr %133, align 8, !tbaa !172
+  %159 = call i64 %0(ptr noundef nonnull %5, ptr noundef %1) #6
+  store volatile i64 %159, ptr %6, align 8, !tbaa !15
+  %160 = load ptr, ptr %135, align 8, !tbaa !173
+  store ptr %160, ptr %133, align 8, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.0..0..0..0.5 = load volatile i64, ptr %6, align 8, !tbaa !15
@@ -2601,45 +2591,35 @@ define internal fastcc range(i32 1, 9) i32 @rb_ec_tag_state(ptr noundef %0) unna
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 68
   %7 = load i32, ptr %6, align 4, !tbaa !179
   %8 = getelementptr i8, ptr %0, i64 48
-  %.val.i = load ptr, ptr %8, align 8, !tbaa !174
-  %.not.i.i.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i, label %rb_ec_ractor_ptr.exit.i.i, label %9
-
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !175
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  %.val.i = load ptr, ptr %8, align 8, !tbaa !174, !nonnull !48, !noundef !48
+  %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
+  %10 = load ptr, ptr %9, align 8, !tbaa !175
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  %12 = load ptr, ptr %11, align 8, !tbaa !176
   %13 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !176
-  br label %rb_ec_ractor_ptr.exit.i.i
+  %14 = load ptr, ptr %13, align 8, !tbaa !177
+  %.not.i.i = icmp eq ptr %12, %14
+  br i1 %.not.i.i, label %15, label %rb_ec_vm_lock_rec.exit.i
 
-rb_ec_ractor_ptr.exit.i.i:                        ; preds = %9, %1
-  %.in.i.i = phi ptr [ %12, %9 ], [ inttoptr (i64 88 to ptr), %1 ]
-  %.0.i2.i.i = phi ptr [ %11, %9 ], [ null, %1 ]
-  %.0.i6.i.i = phi ptr [ %14, %9 ], [ null, %1 ]
-  %15 = load ptr, ptr %.in.i.i, align 8, !tbaa !177
-  %.not.i.i = icmp eq ptr %15, %.0.i6.i.i
-  br i1 %.not.i.i, label %16, label %rb_ec_vm_lock_rec.exit.i
-
-16:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %.0.i2.i.i, i64 96
-  %18 = load i32, ptr %17, align 8, !tbaa !178
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %17 = load i32, ptr %16, align 8, !tbaa !178
   br label %rb_ec_vm_lock_rec.exit.i
 
-rb_ec_vm_lock_rec.exit.i:                         ; preds = %16, %rb_ec_ractor_ptr.exit.i.i
-  %.0.i.i = phi i32 [ %18, %16 ], [ 0, %rb_ec_ractor_ptr.exit.i.i ]
+rb_ec_vm_lock_rec.exit.i:                         ; preds = %15, %1
+  %.0.i.i = phi i32 [ %17, %15 ], [ 0, %1 ]
   %.not.i = icmp eq i32 %.0.i.i, %7
-  br i1 %.not.i, label %rb_ec_vm_lock_rec_check.exit, label %19
+  br i1 %.not.i, label %rb_ec_vm_lock_rec_check.exit, label %18
 
-19:                                               ; preds = %rb_ec_vm_lock_rec.exit.i
+18:                                               ; preds = %rb_ec_vm_lock_rec.exit.i
   tail call void @rb_ec_vm_lock_rec_release(ptr noundef nonnull %0, i32 noundef %7, i32 noundef %.0.i.i) #6
   br label %rb_ec_vm_lock_rec_check.exit
 
-rb_ec_vm_lock_rec_check.exit:                     ; preds = %rb_ec_vm_lock_rec.exit.i, %19
-  %20 = icmp ne i32 %5, 0
+rb_ec_vm_lock_rec_check.exit:                     ; preds = %rb_ec_vm_lock_rec.exit.i, %18
+  %19 = icmp ne i32 %5, 0
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp ult i32 %5, 9
   tail call void @llvm.assume(i1 %20)
-  %21 = icmp ult i32 %5, 9
-  tail call void @llvm.assume(i1 %21)
   ret i32 %5
 }
 
@@ -4894,8 +4874,8 @@ attributes #19 = { cold noreturn nounwind }
 !173 = !{!170, !59, i64 56}
 !174 = !{!57, !61, i64 48}
 !175 = !{!145, !96, i64 32}
-!176 = !{!145, !103, i64 24}
-!177 = !{!98, !103, i64 88}
+!176 = !{!98, !103, i64 88}
+!177 = !{!145, !103, i64 24}
 !178 = !{!98, !23, i64 96}
 !179 = !{!170, !23, i64 68}
 !180 = !{!"branch_weights", !"expected", i32 2000, i32 1}

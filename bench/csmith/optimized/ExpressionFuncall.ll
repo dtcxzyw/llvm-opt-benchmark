@@ -85,7 +85,7 @@ _ZL29ExpressionFunctionProbabilityRK9CGContext.exit: ; preds = %9, %11
   %.0.i = phi i1 [ %12, %11 ], [ true, %9 ]
   %13 = load i32, ptr @_ZN5Error8r_error_E, align 4, !tbaa !4
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %14, label %101
+  br i1 %.not, label %14, label %100
 
 14:                                               ; preds = %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit
   %.not34 = icmp eq ptr %1, null
@@ -117,8 +117,8 @@ _ZL29ExpressionFunctionProbabilityRK9CGContext.exit: ; preds = %9, %11
   invoke void @_ZN6EffectC1ERKS_(ptr noundef nonnull align 8 dereferenceable(74) %5, ptr noundef nonnull align 8 dereferenceable(74) %spec.select.i)
           to label %_ZNK9CGContext16get_accum_effectEv.exit unwind label %25
 
-common.resume:                                    ; preds = %100, %25
-  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %.pn.pn.pn.pn, %100 ]
+common.resume:                                    ; preds = %99, %25
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %.pn.pn.pn.pn, %99 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %22
@@ -134,11 +134,11 @@ _ZNK9CGContext16get_accum_effectEv.exit:          ; preds = %22
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 136
   invoke void @_ZN6EffectC1ERKS_(ptr noundef nonnull align 8 dereferenceable(74) %6, ptr noundef nonnull align 8 dereferenceable(74) %27)
-          to label %28 unwind label %56
+          to label %28 unwind label %55
 
 28:                                               ; preds = %_ZNK9CGContext16get_accum_effectEv.exit
   %29 = invoke noundef ptr @_Z12get_fact_mgrPK9CGContext(ptr noundef nonnull %0)
-          to label %30 unwind label %58
+          to label %30 unwind label %57
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #16
@@ -149,187 +149,184 @@ _ZNK9CGContext16get_accum_effectEv.exit:          ; preds = %22
   %35 = ptrtoint ptr %33 to i64
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %33, %34
-  br i1 %.not.i.i.i.i, label %.noexc41.thread, label %41
+  br i1 %.not.i.i.i.i, label %.noexc41.thread, label %40
 
 .noexc41.thread:                                  ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %39 = getelementptr inbounds i8, ptr null, i64 %37
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr %39, ptr %40, align 8, !tbaa !70
-  br label %48
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  br label %47
 
-41:                                               ; preds = %30
-  %42 = icmp ugt i64 %37, 9223372036854775800
-  br i1 %42, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i, !prof !71
+40:                                               ; preds = %30
+  %41 = icmp ugt i64 %37, 9223372036854775800
+  br i1 %41, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i, !prof !70
 
-.noexc.i.i:                                       ; preds = %41
+.noexc.i.i:                                       ; preds = %40
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #17
-          to label %.noexc unwind label %60
+          to label %.noexc unwind label %59
 
 .noexc:                                           ; preds = %.noexc.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i: ; preds = %41
-  %43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #18
-          to label %44 unwind label %60
+_ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i: ; preds = %40
+  %42 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #18
+          to label %43 unwind label %59
 
-44:                                               ; preds = %_ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i
-  store ptr %43, ptr %7, align 8, !tbaa !69
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %43, ptr %45, align 8, !tbaa !66
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %37
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %46, ptr %47, align 8, !tbaa !70
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %43, ptr align 8 %34, i64 %37, i1 false)
-  br label %48
+43:                                               ; preds = %_ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i
+  store ptr %42, ptr %7, align 8, !tbaa !69
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %42, ptr %44, align 8, !tbaa !66
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %37
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %45, ptr %46, align 8, !tbaa !71
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %42, ptr align 8 %34, i64 %37, i1 false)
+  br label %47
 
-48:                                               ; preds = %.noexc41.thread, %44
-  %49 = phi ptr [ %40, %.noexc41.thread ], [ %47, %44 ]
-  %50 = phi ptr [ %39, %.noexc41.thread ], [ %46, %44 ]
-  %51 = phi ptr [ %38, %.noexc41.thread ], [ %45, %44 ]
-  %52 = phi ptr [ null, %.noexc41.thread ], [ %43, %44 ]
-  store ptr %50, ptr %51, align 8, !tbaa !66
-  %53 = invoke noundef ptr @_ZN18FunctionInvocation11make_randomEbR9CGContextPK4TypePK12CVQualifiers(i1 noundef zeroext %.031.shrunk, ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef %2)
-          to label %54 unwind label %62
+47:                                               ; preds = %.noexc41.thread, %43
+  %48 = phi ptr [ %39, %.noexc41.thread ], [ %46, %43 ]
+  %49 = phi ptr [ null, %.noexc41.thread ], [ %45, %43 ]
+  %50 = phi ptr [ %38, %.noexc41.thread ], [ %44, %43 ]
+  %51 = phi ptr [ null, %.noexc41.thread ], [ %42, %43 ]
+  store ptr %49, ptr %50, align 8, !tbaa !66
+  %52 = invoke noundef ptr @_ZN18FunctionInvocation11make_randomEbR9CGContextPK4TypePK12CVQualifiers(i1 noundef zeroext %.031.shrunk, ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef %2)
+          to label %53 unwind label %61
 
-54:                                               ; preds = %48
-  %55 = load i32, ptr @_ZN5Error8r_error_E, align 4, !tbaa !4
-  %.not36 = icmp eq i32 %55, 0
-  br i1 %.not36, label %64, label %85
+53:                                               ; preds = %47
+  %54 = load i32, ptr @_ZN5Error8r_error_E, align 4, !tbaa !4
+  %.not36 = icmp eq i32 %54, 0
+  br i1 %.not36, label %63, label %84
 
-56:                                               ; preds = %_ZNK9CGContext16get_accum_effectEv.exit
-  %57 = landingpad { ptr, i32 }
-          cleanup
-  br label %100
-
-58:                                               ; preds = %28
-  %59 = landingpad { ptr, i32 }
+55:                                               ; preds = %_ZNK9CGContext16get_accum_effectEv.exit
+  %56 = landingpad { ptr, i32 }
           cleanup
   br label %99
 
-60:                                               ; preds = %_ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i, %.noexc.i.i
-  %61 = landingpad { ptr, i32 }
+57:                                               ; preds = %28
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  br label %98
+
+59:                                               ; preds = %_ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i, %.noexc.i.i
+  %60 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit47
 
-62:                                               ; preds = %_ZN9CGContext18reset_effect_accumERK6Effect.exit, %70, %79, %73, %_ZN9CGContext16reset_effect_stmERK6Effect.exit, %48
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %_ZN9CGContext18reset_effect_accumERK6Effect.exit, %69, %78, %72, %_ZN9CGContext16reset_effect_stmERK6Effect.exit, %47
+  %62 = landingpad { ptr, i32 }
           cleanup
   %.pre = load ptr, ptr %7, align 8, !tbaa !69
-  br label %92
+  br label %91
 
-64:                                               ; preds = %54
-  %65 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %66 = load i8, ptr %65, align 8, !tbaa !72, !range !81, !noundef !82
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %68, label %79
+63:                                               ; preds = %53
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 40
+  %65 = load i8, ptr %64, align 8, !tbaa !72, !range !81, !noundef !82
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %67, label %78
 
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %23, align 8, !tbaa !38
-  %.not.i42 = icmp eq ptr %69, null
-  br i1 %.not.i42, label %_ZN9CGContext18reset_effect_accumERK6Effect.exit, label %70
+67:                                               ; preds = %63
+  %68 = load ptr, ptr %23, align 8, !tbaa !38
+  %.not.i42 = icmp eq ptr %68, null
+  br i1 %.not.i42, label %_ZN9CGContext18reset_effect_accumERK6Effect.exit, label %69
 
-70:                                               ; preds = %68
-  %71 = invoke noundef nonnull align 8 dereferenceable(74) ptr @_ZN6EffectaSERKS_(ptr noundef nonnull align 8 dereferenceable(74) %69, ptr noundef nonnull align 8 dereferenceable(74) %5)
-          to label %_ZN9CGContext18reset_effect_accumERK6Effect.exit unwind label %62
+69:                                               ; preds = %67
+  %70 = invoke noundef nonnull align 8 dereferenceable(74) ptr @_ZN6EffectaSERKS_(ptr noundef nonnull align 8 dereferenceable(74) %68, ptr noundef nonnull align 8 dereferenceable(74) %5)
+          to label %_ZN9CGContext18reset_effect_accumERK6Effect.exit unwind label %61
 
-_ZN9CGContext18reset_effect_accumERK6Effect.exit: ; preds = %68, %70
-  %72 = invoke noundef nonnull align 8 dereferenceable(74) ptr @_ZN6EffectaSERKS_(ptr noundef nonnull align 8 dereferenceable(74) %27, ptr noundef nonnull align 8 dereferenceable(74) %6)
-          to label %_ZN9CGContext16reset_effect_stmERK6Effect.exit unwind label %62
+_ZN9CGContext18reset_effect_accumERK6Effect.exit: ; preds = %67, %69
+  %71 = invoke noundef nonnull align 8 dereferenceable(74) ptr @_ZN6EffectaSERKS_(ptr noundef nonnull align 8 dereferenceable(74) %27, ptr noundef nonnull align 8 dereferenceable(74) %6)
+          to label %_ZN9CGContext16reset_effect_stmERK6Effect.exit unwind label %61
 
 _ZN9CGContext16reset_effect_stmERK6Effect.exit:   ; preds = %_ZN9CGContext18reset_effect_accumERK6Effect.exit
   invoke void @_ZN7FactMgr13restore_factsERSt6vectorIPK4FactSaIS3_EE(ptr noundef nonnull align 8 dereferenceable(392) %29, ptr noundef nonnull align 8 dereferenceable(24) %7)
-          to label %73 unwind label %62
+          to label %72 unwind label %61
 
-73:                                               ; preds = %_ZN9CGContext16reset_effect_stmERK6Effect.exit
-  %74 = invoke noundef ptr @_ZN18ExpressionVariable11make_randomER9CGContextPK4TypePK12CVQualifiersbb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext false)
-          to label %75 unwind label %62
+72:                                               ; preds = %_ZN9CGContext16reset_effect_stmERK6Effect.exit
+  %73 = invoke noundef ptr @_ZN18ExpressionVariable11make_randomER9CGContextPK4TypePK12CVQualifiersbb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext false)
+          to label %74 unwind label %61
 
-75:                                               ; preds = %73
-  %76 = load ptr, ptr %53, align 8, !tbaa !83
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(56) %53) #16
+74:                                               ; preds = %72
+  %75 = load ptr, ptr %52, align 8, !tbaa !83
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load ptr, ptr %76, align 8
+  call void %77(ptr noundef nonnull align 8 dereferenceable(56) %52) #16
   %.pre48 = load ptr, ptr %7, align 8, !tbaa !69
-  br label %85
+  br label %84
 
-79:                                               ; preds = %64
-  %80 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
-          to label %81 unwind label %62
+78:                                               ; preds = %63
+  %79 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
+          to label %80 unwind label %61
 
-81:                                               ; preds = %79
-  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(32) %80, i32 noundef 2)
-          to label %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit unwind label %83
+80:                                               ; preds = %78
+  invoke void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(32) %79, i32 noundef 2)
+          to label %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit unwind label %82
 
-_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit: ; preds = %81
-  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %80, align 8, !tbaa !83
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store ptr %53, ptr %82, align 8, !tbaa !85
-  br label %85
+_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit: ; preds = %80
+  store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %79, align 8, !tbaa !83
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  store ptr %52, ptr %81, align 8, !tbaa !85
+  br label %84
 
-83:                                               ; preds = %81
-  %84 = landingpad { ptr, i32 }
+82:                                               ; preds = %80
+  %83 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef 32) #19
-  br label %92
+  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 32) #19
+  br label %91
 
-85:                                               ; preds = %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit, %75, %54
-  %86 = phi ptr [ %52, %54 ], [ %.pre48, %75 ], [ %52, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ]
-  %.1 = phi ptr [ null, %54 ], [ %74, %75 ], [ %80, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ]
-  %.not.i.i.i = icmp eq ptr %86, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, label %87
+84:                                               ; preds = %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit, %74, %53
+  %85 = phi ptr [ %51, %53 ], [ %.pre48, %74 ], [ %51, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ]
+  %.1 = phi ptr [ null, %53 ], [ %73, %74 ], [ %79, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ]
+  %.not.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, label %86
 
-87:                                               ; preds = %85
-  %88 = load ptr, ptr %49, align 8, !tbaa !70
-  %89 = ptrtoint ptr %88 to i64
-  %90 = ptrtoint ptr %86 to i64
-  %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %86, i64 noundef %91) #19
+86:                                               ; preds = %84
+  %87 = load ptr, ptr %48, align 8, !tbaa !71
+  %88 = ptrtoint ptr %87 to i64
+  %89 = ptrtoint ptr %85 to i64
+  %90 = sub i64 %88, %89
+  call void @_ZdlPvm(ptr noundef nonnull %85, i64 noundef %90) #19
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
 
-_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %85, %87
+_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %84, %86
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #16
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %5) #16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #16
-  br label %101
-
-92:                                               ; preds = %83, %62
-  %93 = phi ptr [ %.pre, %62 ], [ %52, %83 ]
-  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %84, %83 ]
-  %.not.i.i.i46 = icmp eq ptr %93, null
-  br i1 %.not.i.i.i46, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit47, label %94
-
-94:                                               ; preds = %92
-  %95 = load ptr, ptr %49, align 8, !tbaa !70
-  %96 = ptrtoint ptr %95 to i64
-  %97 = ptrtoint ptr %93 to i64
-  %98 = sub i64 %96, %97
-  call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef %98) #19
-  br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit47
-
-_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit47:          ; preds = %94, %92, %60
-  %.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %.pn, %92 ], [ %.pn, %94 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
-  br label %99
-
-99:                                               ; preds = %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit47, %58
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit47 ], [ %59, %58 ]
-  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #16
   br label %100
 
-100:                                              ; preds = %99, %56
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %99 ], [ %57, %56 ]
+91:                                               ; preds = %82, %61
+  %92 = phi ptr [ %.pre, %61 ], [ %51, %82 ]
+  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %83, %82 ]
+  %.not.i.i.i46 = icmp eq ptr %92, null
+  br i1 %.not.i.i.i46, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit47, label %93
+
+93:                                               ; preds = %91
+  %94 = load ptr, ptr %48, align 8, !tbaa !71
+  %95 = ptrtoint ptr %94 to i64
+  %96 = ptrtoint ptr %92 to i64
+  %97 = sub i64 %95, %96
+  call void @_ZdlPvm(ptr noundef nonnull %92, i64 noundef %97) #19
+  br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit47
+
+_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit47:          ; preds = %93, %91, %59
+  %.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %.pn, %91 ], [ %.pn, %93 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
+  br label %98
+
+98:                                               ; preds = %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit47, %57
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit47 ], [ %58, %57 ]
+  call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #16
+  br label %99
+
+99:                                               ; preds = %98, %55
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %98 ], [ %56, %55 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #16
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %5) #16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #16
   br label %common.resume
 
-101:                                              ; preds = %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
+100:                                              ; preds = %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
   %.0 = phi ptr [ %.1, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ null, %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit ]
   ret ptr %.0
 }
@@ -1184,8 +1181,8 @@ attributes #19 = { builtin nounwind }
 !67 = !{!"_ZTSNSt12_Vector_baseIPK4FactSaIS2_EE17_Vector_impl_dataE", !68, i64 0, !68, i64 8, !68, i64 16}
 !68 = !{!"p2 _ZTS4Fact", !12, i64 0}
 !69 = !{!67, !68, i64 0}
-!70 = !{!67, !68, i64 16}
-!71 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!70 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!71 = !{!67, !68, i64 16}
 !72 = !{!73, !24, i64 40}
 !73 = !{!"_ZTS18FunctionInvocation", !74, i64 8, !75, i64 16, !24, i64 40, !24, i64 41, !80, i64 48}
 !74 = !{!"_ZTS15eInvocationType", !6, i64 0}

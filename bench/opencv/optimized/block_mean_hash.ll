@@ -555,41 +555,37 @@ _ZN12_GLOBAL__N_112getLocalImplEPN2cv8img_hash11ImgHashBase11ImgHashImplE.exit: 
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %19, %20
-  br i1 %.not.i.i.i.i, label %.thread, label %27
+  br i1 %.not.i.i.i.i, label %.thread, label %25
 
 .thread:                                          ; preds = %_ZN12_GLOBAL__N_112getLocalImplEPN2cv8img_hash11ImgHashBase11ImgHashImplE.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = getelementptr inbounds i8, ptr null, i64 %23
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store ptr %25, ptr %26, align 8, !tbaa !54
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
-27:                                               ; preds = %_ZN12_GLOBAL__N_112getLocalImplEPN2cv8img_hash11ImgHashBase11ImgHashImplE.exit
-  %28 = icmp ugt i64 %23, 9223372036854775800
-  br i1 %28, label %.noexc.i.i, label %29, !prof !30
+25:                                               ; preds = %_ZN12_GLOBAL__N_112getLocalImplEPN2cv8img_hash11ImgHashBase11ImgHashImplE.exit
+  %26 = icmp ugt i64 %23, 9223372036854775800
+  br i1 %26, label %.noexc.i.i, label %27, !prof !30
 
-.noexc.i.i:                                       ; preds = %27
+.noexc.i.i:                                       ; preds = %25
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
-29:                                               ; preds = %27
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #20
-  store ptr %30, ptr %0, align 8, !tbaa !53
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %30, ptr %31, align 8, !tbaa !52
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %23
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %32, ptr %33, align 8, !tbaa !54
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %30, ptr align 8 %20, i64 %23, i1 false)
+27:                                               ; preds = %25
+  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #20
+  store ptr %28, ptr %0, align 8, !tbaa !53
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %28, ptr %29, align 8, !tbaa !52
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %23
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %30, ptr %31, align 8, !tbaa !54
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %20, i64 %23, i1 false)
   br label %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
 
-_ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %29
-  %34 = phi ptr [ %25, %.thread ], [ %32, %29 ]
-  %35 = phi ptr [ %24, %.thread ], [ %31, %29 ]
-  store ptr %34, ptr %35, align 8, !tbaa !52
+_ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %27
+  %32 = phi ptr [ null, %.thread ], [ %30, %27 ]
+  %33 = phi ptr [ %24, %.thread ], [ %29, %27 ]
+  store ptr %32, ptr %33, align 8, !tbaa !52
   ret void
 }
 

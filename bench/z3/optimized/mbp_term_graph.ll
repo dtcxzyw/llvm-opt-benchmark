@@ -28992,7 +28992,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !34
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %.noexc, %71
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %71, %.noexc
   %78 = phi i32 [ %.pre2.i, %.noexc ], [ %73, %71 ]
   %79 = phi ptr [ %.pre.i, %.noexc ], [ %69, %71 ]
   %80 = getelementptr inbounds i8, ptr %79, i64 -4

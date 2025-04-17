@@ -2006,10 +2006,8 @@ declare i32 @uv_shutdown(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 define dso_local void @_ZN4node15LibuvStreamWrap15AfterUvShutdownEP13uv_shutdown_si(ptr noundef %req, i32 noundef %status) #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %0 = ptrtoint ptr %req to i64
-  %sub.i.i.i = add i64 %0, -88
-  %1 = icmp eq i64 %sub.i.i.i, 0
-  br i1 %1, label %do.body3, label %do.end4
+  %0 = icmp eq ptr %req, null
+  br i1 %0, label %do.body3, label %do.end4
 
 do.body3:                                         ; preds = %entry
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node15LibuvStreamWrap15AfterUvShutdownEP13uv_shutdown_siE4args) #18
@@ -2017,24 +2015,23 @@ do.body3:                                         ; preds = %entry
   unreachable
 
 do.end4:                                          ; preds = %entry
-  %2 = inttoptr i64 %sub.i.i.i to ptr
-  %sub.ptr = getelementptr inbounds i8, ptr %2, i64 -16
-  %realm_.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %3 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %4 = load ptr, ptr %env_.i.i, align 8
-  %isolate_.i = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %5 = load ptr, ptr %isolate_.i, align 8
-  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %5) #18
-  %6 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i6 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %7 = load ptr, ptr %env_.i.i6, align 8
-  %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %7, i64 2728
-  %8 = load ptr, ptr %principal_realm_.i.i, align 8
-  %vtable.i = load ptr, ptr %8, align 8
+  %sub.ptr = getelementptr inbounds i8, ptr %req, i64 -16
+  %realm_.i = getelementptr inbounds nuw i8, ptr %req, i64 16
+  %1 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %2 = load ptr, ptr %env_.i.i, align 8
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %3 = load ptr, ptr %isolate_.i, align 8
+  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %3) #18
+  %4 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i6 = getelementptr inbounds nuw i8, ptr %4, i64 176
+  %5 = load ptr, ptr %env_.i.i6, align 8
+  %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 2728
+  %6 = load ptr, ptr %principal_realm_.i.i, align 8
+  %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %9 = load ptr, ptr %vfn.i, align 8
-  %call2.i = call ptr %9(ptr noundef nonnull align 8 dereferenceable(872) %8) #18
+  %7 = load ptr, ptr %vfn.i, align 8
+  %call2.i = call ptr %7(ptr noundef nonnull align 8 dereferenceable(872) %6) #18
   call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #18
   call void @_ZN4node9StreamReq4DoneEiPKc(ptr noundef nonnull align 8 dereferenceable(16) %sub.ptr, i32 noundef %status, ptr noundef null) #18
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #18
@@ -2291,10 +2288,8 @@ declare i32 @uv_write2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr n
 define dso_local void @_ZN4node15LibuvStreamWrap12AfterUvWriteEP10uv_write_si(ptr noundef %req, i32 noundef %status) #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %0 = ptrtoint ptr %req to i64
-  %sub.i.i.i = add i64 %0, -88
-  %1 = icmp eq i64 %sub.i.i.i, 0
-  br i1 %1, label %do.body3, label %do.end4
+  %0 = icmp eq ptr %req, null
+  br i1 %0, label %do.body3, label %do.end4
 
 do.body3:                                         ; preds = %entry
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node15LibuvStreamWrap12AfterUvWriteEP10uv_write_siE4args) #18
@@ -2302,24 +2297,23 @@ do.body3:                                         ; preds = %entry
   unreachable
 
 do.end4:                                          ; preds = %entry
-  %2 = inttoptr i64 %sub.i.i.i to ptr
-  %sub.ptr = getelementptr inbounds i8, ptr %2, i64 -24
-  %realm_.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %3 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %4 = load ptr, ptr %env_.i.i, align 8
-  %isolate_.i = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %5 = load ptr, ptr %isolate_.i, align 8
-  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %5) #18
-  %6 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i6 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %7 = load ptr, ptr %env_.i.i6, align 8
-  %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %7, i64 2728
-  %8 = load ptr, ptr %principal_realm_.i.i, align 8
-  %vtable.i = load ptr, ptr %8, align 8
+  %sub.ptr = getelementptr inbounds i8, ptr %req, i64 -24
+  %realm_.i = getelementptr inbounds nuw i8, ptr %req, i64 16
+  %1 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %2 = load ptr, ptr %env_.i.i, align 8
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %3 = load ptr, ptr %isolate_.i, align 8
+  call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %3) #18
+  %4 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i6 = getelementptr inbounds nuw i8, ptr %4, i64 176
+  %5 = load ptr, ptr %env_.i.i6, align 8
+  %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 2728
+  %6 = load ptr, ptr %principal_realm_.i.i, align 8
+  %vtable.i = load ptr, ptr %6, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %9 = load ptr, ptr %vfn.i, align 8
-  %call2.i = call ptr %9(ptr noundef nonnull align 8 dereferenceable(872) %8) #18
+  %7 = load ptr, ptr %vfn.i, align 8
+  %call2.i = call ptr %7(ptr noundef nonnull align 8 dereferenceable(872) %6) #18
   call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #18
   call void @_ZN4node9StreamReq4DoneEiPKc(ptr noundef nonnull align 8 dereferenceable(16) %sub.ptr, i32 noundef %status, ptr noundef null) #18
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #18
@@ -3415,14 +3409,11 @@ declare void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node24MakeLibuvRequestCallbackI13uv_shutdown_sPFvPS1_iEE7WrapperES2_i(ptr noundef %req, i32 noundef %args) #3 comdat align 2 {
 entry:
-  %0 = ptrtoint ptr %req to i64
-  %sub.i.i.i = add i64 %0, -88
-  %1 = inttoptr i64 %sub.i.i.i to ptr
-  %cmp.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i = icmp eq ptr %req, null
   br i1 %cmp.i, label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_shutdown_sEELb0EEC2EPS3_.exit, label %_ZNK4node17BaseObjectPtrImplINS_7ReqWrapI13uv_shutdown_sEELb0EE12pointer_dataEv.exit.i
 
 _ZNK4node17BaseObjectPtrImplINS_7ReqWrapI13uv_shutdown_sEELb0EE12pointer_dataEv.exit.i: ; preds = %entry
-  %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #18
   %cmp2.not.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp2.not.i, label %do.body6.i, label %do.end8.i
 
@@ -3432,13 +3423,13 @@ do.body6.i:                                       ; preds = %_ZNK4node17BaseObje
   unreachable
 
 do.end8.i:                                        ; preds = %_ZNK4node17BaseObjectPtrImplINS_7ReqWrapI13uv_shutdown_sEELb0EE12pointer_dataEv.exit.i
-  tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #18
   br label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_shutdown_sEELb0EEC2EPS3_.exit
 
 _ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_shutdown_sEELb0EEC2EPS3_.exit: ; preds = %entry, %do.end8.i
-  %call.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  %2 = load i32, ptr %call.i, align 8
-  %cmp.not.i = icmp eq i32 %2, 0
+  %call.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #18
+  %0 = load i32, ptr %call.i, align 8
+  %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %do.body4.i, label %_ZN4node10BaseObject6DetachEv.exit
 
 do.body4.i:                                       ; preds = %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_shutdown_sEELb0EEC2EPS3_.exit
@@ -3447,18 +3438,18 @@ do.body4.i:                                       ; preds = %_ZN4node17BaseObjec
   unreachable
 
 _ZN4node10BaseObject6DetachEv.exit:               ; preds = %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_shutdown_sEELb0EEC2EPS3_.exit
-  %call6.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %call6.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #18
   %is_detached.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 9
   store i8 1, ptr %is_detached.i, align 1
-  %realm_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %4 = load ptr, ptr %env_.i.i, align 8
-  %request_waiting_.i = getelementptr inbounds nuw i8, ptr %4, i64 2236
-  %5 = load i32, ptr %request_waiting_.i, align 4
-  %dec.i = add nsw i32 %5, -1
+  %realm_.i = getelementptr inbounds nuw i8, ptr %req, i64 16
+  %1 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %2 = load ptr, ptr %env_.i.i, align 8
+  %request_waiting_.i = getelementptr inbounds nuw i8, ptr %2, i64 2236
+  %3 = load i32, ptr %request_waiting_.i, align 4
+  %dec.i = add nsw i32 %3, -1
   store i32 %dec.i, ptr %request_waiting_.i, align 4
-  %cmp.i2 = icmp slt i32 %5, 1
+  %cmp.i2 = icmp slt i32 %3, 1
   br i1 %cmp.i2, label %do.body5.i, label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_shutdown_sEELb0EED2Ev.exit
 
 do.body5.i:                                       ; preds = %_ZN4node10BaseObject6DetachEv.exit
@@ -3467,10 +3458,10 @@ do.body5.i:                                       ; preds = %_ZN4node10BaseObjec
   unreachable
 
 _ZN4node17BaseObjectPtrImplINS_7ReqWrapI13uv_shutdown_sEELb0EED2Ev.exit: ; preds = %_ZN4node10BaseObject6DetachEv.exit
-  %original_callback_ = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %6 = load ptr, ptr %original_callback_, align 8
-  tail call void %6(ptr noundef %req, i32 noundef %args) #18
-  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %original_callback_ = getelementptr inbounds nuw i8, ptr %req, i64 80
+  %4 = load ptr, ptr %original_callback_, align 8
+  tail call void %4(ptr noundef nonnull %req, i32 noundef %args) #18
+  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #18
   ret void
 }
 
@@ -3483,14 +3474,11 @@ declare noundef ptr @_ZN2v812api_internal9ClearWeakEPm(ptr noundef) local_unname
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node24MakeLibuvRequestCallbackI10uv_write_sPFvPS1_iEE7WrapperES2_i(ptr noundef %req, i32 noundef %args) #3 comdat align 2 {
 entry:
-  %0 = ptrtoint ptr %req to i64
-  %sub.i.i.i = add i64 %0, -88
-  %1 = inttoptr i64 %sub.i.i.i to ptr
-  %cmp.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i = icmp eq ptr %req, null
   br i1 %cmp.i, label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI10uv_write_sEELb0EEC2EPS3_.exit, label %_ZNK4node17BaseObjectPtrImplINS_7ReqWrapI10uv_write_sEELb0EE12pointer_dataEv.exit.i
 
 _ZNK4node17BaseObjectPtrImplINS_7ReqWrapI10uv_write_sEELb0EE12pointer_dataEv.exit.i: ; preds = %entry
-  %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #18
   %cmp2.not.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp2.not.i, label %do.body6.i, label %do.end8.i
 
@@ -3500,13 +3488,13 @@ do.body6.i:                                       ; preds = %_ZNK4node17BaseObje
   unreachable
 
 do.end8.i:                                        ; preds = %_ZNK4node17BaseObjectPtrImplINS_7ReqWrapI10uv_write_sEELb0EE12pointer_dataEv.exit.i
-  tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #18
   br label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI10uv_write_sEELb0EEC2EPS3_.exit
 
 _ZN4node17BaseObjectPtrImplINS_7ReqWrapI10uv_write_sEELb0EEC2EPS3_.exit: ; preds = %entry, %do.end8.i
-  %call.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  %2 = load i32, ptr %call.i, align 8
-  %cmp.not.i = icmp eq i32 %2, 0
+  %call.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #18
+  %0 = load i32, ptr %call.i, align 8
+  %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %do.body4.i, label %_ZN4node10BaseObject6DetachEv.exit
 
 do.body4.i:                                       ; preds = %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI10uv_write_sEELb0EEC2EPS3_.exit
@@ -3515,18 +3503,18 @@ do.body4.i:                                       ; preds = %_ZN4node17BaseObjec
   unreachable
 
 _ZN4node10BaseObject6DetachEv.exit:               ; preds = %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI10uv_write_sEELb0EEC2EPS3_.exit
-  %call6.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %call6.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #18
   %is_detached.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 9
   store i8 1, ptr %is_detached.i, align 1
-  %realm_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %4 = load ptr, ptr %env_.i.i, align 8
-  %request_waiting_.i = getelementptr inbounds nuw i8, ptr %4, i64 2236
-  %5 = load i32, ptr %request_waiting_.i, align 4
-  %dec.i = add nsw i32 %5, -1
+  %realm_.i = getelementptr inbounds nuw i8, ptr %req, i64 16
+  %1 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %2 = load ptr, ptr %env_.i.i, align 8
+  %request_waiting_.i = getelementptr inbounds nuw i8, ptr %2, i64 2236
+  %3 = load i32, ptr %request_waiting_.i, align 4
+  %dec.i = add nsw i32 %3, -1
   store i32 %dec.i, ptr %request_waiting_.i, align 4
-  %cmp.i2 = icmp slt i32 %5, 1
+  %cmp.i2 = icmp slt i32 %3, 1
   br i1 %cmp.i2, label %do.body5.i, label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI10uv_write_sEELb0EED2Ev.exit
 
 do.body5.i:                                       ; preds = %_ZN4node10BaseObject6DetachEv.exit
@@ -3535,10 +3523,10 @@ do.body5.i:                                       ; preds = %_ZN4node10BaseObjec
   unreachable
 
 _ZN4node17BaseObjectPtrImplINS_7ReqWrapI10uv_write_sEELb0EED2Ev.exit: ; preds = %_ZN4node10BaseObject6DetachEv.exit
-  %original_callback_ = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %6 = load ptr, ptr %original_callback_, align 8
-  tail call void %6(ptr noundef %req, i32 noundef %args) #18
-  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %original_callback_ = getelementptr inbounds nuw i8, ptr %req, i64 80
+  %4 = load ptr, ptr %original_callback_, align 8
+  tail call void %4(ptr noundef nonnull %req, i32 noundef %args) #18
+  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #18
   ret void
 }
 

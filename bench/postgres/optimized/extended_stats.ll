@@ -2615,7 +2615,7 @@ list_length.exit174.thread.i:                     ; preds = %has_stats_of_kind.e
   br i1 %66, label %.lr.ph208.i, label %._crit_edge205.i
 
 ._crit_edge205.i:                                 ; preds = %87, %.lr.ph.i, %list_length.exit174.thread.i
-  %67 = phi ptr [ inttoptr (i64 4 to ptr), %list_length.exit174.thread.i ], [ %54, %.lr.ph.i ], [ %54, %87 ]
+  %67 = phi ptr [ null, %list_length.exit174.thread.i ], [ %54, %.lr.ph.i ], [ %54, %87 ]
   %68 = phi ptr [ %53, %list_length.exit174.thread.i ], [ %62, %.lr.ph.i ], [ %62, %87 ]
   %69 = phi ptr [ %52, %list_length.exit174.thread.i ], [ %58, %.lr.ph.i ], [ %58, %87 ]
   %70 = getelementptr inbounds nuw i8, ptr %38, i64 32

@@ -110,7 +110,7 @@ define void @_ZN9grpc_core14GsecKeyFactoryC2EN4absl12lts_202407224SpanIKhEEb(ptr
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
   %.not.i.i.i = icmp samesign eq i64 %2, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i, label %8
+  br i1 %.not.i.i.i, label %21, label %8
 
 8:                                                ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %2) #16
@@ -122,7 +122,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %10, ptr %11, align 8, !tbaa !11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %1, i64 %2, i1 false)
-  br label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i
+  br label %21
 
 12:                                               ; preds = %8, %7
   %13 = landingpad { ptr, i32 }
@@ -140,13 +140,13 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
   tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #17
   br label %.body
 
-_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc4.i
-  %21 = phi ptr [ %10, %.noexc4.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %21, ptr %22, align 8, !tbaa !12
-  %23 = zext i1 %3 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %23, ptr %24, align 8, !tbaa !13
+21:                                               ; preds = %.noexc4.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %22 = phi ptr [ %10, %.noexc4.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %22, ptr %23, align 8, !tbaa !12
+  %24 = zext i1 %3 to i8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %24, ptr %25, align 8, !tbaa !13
   ret void
 
 .body:                                            ; preds = %12, %15

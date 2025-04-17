@@ -9608,11 +9608,7 @@ define internal void @server_tcp_read_packet_cb(ptr noundef %0, ptr noundef %1) 
 ._crit_edge:                                      ; preds = %57
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 1, ptr noundef nonnull @.str.37, ptr noundef %0)
   %.not34 = icmp eq ptr %6, null
-  br i1 %.not34, label %._crit_edge.evdns_remove_tcp_client.exit_crit_edge, label %16
-
-._crit_edge.evdns_remove_tcp_client.exit_crit_edge: ; preds = %._crit_edge
-  %.pre = load i32, ptr inttoptr (i64 4 to ptr), align 4
-  br label %evdns_remove_tcp_client.exit
+  br i1 %.not34, label %evdns_remove_tcp_client.exit, label %16
 
 16:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9653,10 +9649,11 @@ evdns_tcp_disconnect.exit._crit_edge.i:           ; preds = %22, %evdns_tcp_disc
   %29 = load i32, ptr %28, align 4
   %30 = add nsw i32 %29, -1
   store i32 %30, ptr %28, align 4
+  %31 = icmp eq i32 %30, 0
   br label %evdns_remove_tcp_client.exit
 
-evdns_remove_tcp_client.exit:                     ; preds = %._crit_edge.evdns_remove_tcp_client.exit_crit_edge, %evdns_tcp_disconnect.exit._crit_edge.i
-  %31 = phi i32 [ %.pre, %._crit_edge.evdns_remove_tcp_client.exit_crit_edge ], [ %30, %evdns_tcp_disconnect.exit._crit_edge.i ]
+evdns_remove_tcp_client.exit:                     ; preds = %._crit_edge, %evdns_tcp_disconnect.exit._crit_edge.i
+  %.not31 = phi i1 [ %31, %evdns_tcp_disconnect.exit._crit_edge.i ], [ undef, %._crit_edge ]
   %32 = load ptr, ptr %8, align 8
   %.not30 = icmp eq ptr %32, null
   br i1 %.not30, label %36, label %33
@@ -9667,7 +9664,6 @@ evdns_remove_tcp_client.exit:                     ; preds = %._crit_edge.evdns_r
   br label %36
 
 36:                                               ; preds = %33, %evdns_remove_tcp_client.exit
-  %.not31 = icmp eq i32 %31, 0
   br i1 %.not31, label %37, label %66
 
 37:                                               ; preds = %36

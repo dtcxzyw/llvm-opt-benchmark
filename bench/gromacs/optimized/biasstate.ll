@@ -5532,14 +5532,14 @@ _ZN3gmx12_GLOBAL__N_119makeLocalUpdateListERKNS_8BiasGridENS_8ArrayRefIKNS_10Poi
 
 98:                                               ; preds = %85
   invoke void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr null, i64 noundef %97, ptr noundef nonnull align 4 dereferenceable(4) %15)
-          to label %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge33.i unwind label %101
+          to label %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge.i unwind label %101
 
-._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge33.i: ; preds = %98
+._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge.i: ; preds = %98
   %.pre.pre.i = load ptr, ptr %14, align 8, !tbaa !148
   br label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
 
-_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge33.i, %85
-  %.pre.i = phi ptr [ %.pre.pre.i, %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge33.i ], [ null, %85 ]
+_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge.i, %85
+  %.pre.i = phi ptr [ %.pre.pre.i, %._ZNSt6vectorIiSaIiEE6resizeEmRKi.exit_crit_edge.i ], [ null, %85 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #33
   %99 = load ptr, ptr %9, align 8, !tbaa !28
   %100 = load ptr, ptr %36, align 8, !tbaa !28

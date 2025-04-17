@@ -4736,66 +4736,72 @@ _ZN17duckdb_libpgquery14core_yyreallocEPvmS0_.exit.i: ; preds = %.critedge
   store i32 1, ptr %45, align 8, !tbaa !84
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 64
   store i32 0, ptr %46, align 8, !tbaa !70
-  %47 = load ptr, ptr %3, align 8, !tbaa !19, !nonnull !63, !noundef !63
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %49 = load i64, ptr %48, align 8, !tbaa !20
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !21
-  %52 = icmp eq ptr %35, %51
-  br i1 %52, label %_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i.thread, label %_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i
+  %47 = load ptr, ptr %3, align 8, !tbaa !19
+  %.not15.i.i = icmp eq ptr %47, null
+  br i1 %.not15.i.i, label %.thread.i, label %48
 
-_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i.thread: ; preds = %34
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %54 = load i64, ptr %53, align 8, !tbaa !25
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %54, ptr %55, align 8, !tbaa !27
-  %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !28
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %57, ptr %58, align 8, !tbaa !29
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr %57, ptr %59, align 8, !tbaa !30
-  %60 = load ptr, ptr %51, align 8, !tbaa !31
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %60, ptr %61, align 8, !tbaa !24
-  %62 = load i8, ptr %57, align 1, !tbaa !32
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i8 %62, ptr %63, align 8, !tbaa !33
-  store ptr %0, ptr %35, align 8, !tbaa !31
-  %64 = getelementptr inbounds nuw i8, ptr %35, i64 60
-  store i32 1, ptr %64, align 4, !tbaa !75
-  br label %_ZN17duckdb_libpgqueryL19core_yy_init_bufferEPNS_15yy_buffer_stateEP8_IO_FILEPv.exit
+48:                                               ; preds = %34
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load i64, ptr %49, align 8, !tbaa !20
+  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !21
+  %53 = icmp eq ptr %35, %52
+  br i1 %53, label %_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i.thread, label %.thread.i
 
-_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i: ; preds = %34
+_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i.thread: ; preds = %48
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %55 = load i64, ptr %54, align 8, !tbaa !25
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i64 %55, ptr %56, align 8, !tbaa !27
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %58 = load ptr, ptr %57, align 8, !tbaa !28
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr %58, ptr %59, align 8, !tbaa !29
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  store ptr %58, ptr %60, align 8, !tbaa !30
+  %61 = load ptr, ptr %52, align 8, !tbaa !31
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %61, ptr %62, align 8, !tbaa !24
+  %63 = load i8, ptr %58, align 1, !tbaa !32
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i8 %63, ptr %64, align 8, !tbaa !33
   store ptr %0, ptr %35, align 8, !tbaa !31
   %65 = getelementptr inbounds nuw i8, ptr %35, i64 60
   store i32 1, ptr %65, align 4, !tbaa !75
-  %66 = getelementptr inbounds nuw i8, ptr %35, i64 52
-  store i32 1, ptr %66, align 4, !tbaa !85
-  %67 = getelementptr inbounds nuw i8, ptr %35, i64 56
-  store i32 0, ptr %67, align 8, !tbaa !86
   br label %_ZN17duckdb_libpgqueryL19core_yy_init_bufferEPNS_15yy_buffer_stateEP8_IO_FILEPv.exit
 
-_ZN17duckdb_libpgqueryL19core_yy_init_bufferEPNS_15yy_buffer_stateEP8_IO_FILEPv.exit: ; preds = %_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i.thread, %_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i
-  %68 = getelementptr inbounds nuw i8, ptr %35, i64 44
-  store i32 0, ptr %68, align 4, !tbaa !80
+.thread.i:                                        ; preds = %48, %34
+  %.pre27 = phi ptr [ undef, %34 ], [ %52, %48 ]
+  store ptr %0, ptr %35, align 8, !tbaa !31
+  %66 = getelementptr inbounds nuw i8, ptr %35, i64 60
+  store i32 1, ptr %66, align 4, !tbaa !75
+  %67 = getelementptr inbounds nuw i8, ptr %35, i64 52
+  store i32 1, ptr %67, align 4, !tbaa !85
+  %68 = getelementptr inbounds nuw i8, ptr %35, i64 56
+  store i32 0, ptr %68, align 8, !tbaa !86
+  br label %_ZN17duckdb_libpgqueryL19core_yy_init_bufferEPNS_15yy_buffer_stateEP8_IO_FILEPv.exit
+
+_ZN17duckdb_libpgqueryL19core_yy_init_bufferEPNS_15yy_buffer_stateEP8_IO_FILEPv.exit: ; preds = %_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i.thread, %.thread.i
+  %69 = phi ptr [ %.pre27, %.thread.i ], [ %52, %_ZN17duckdb_libpgquery20core_yy_flush_bufferEPNS_15yy_buffer_stateEPv.exit.thread.i.thread ]
+  %70 = getelementptr inbounds nuw i8, ptr %35, i64 44
+  store i32 0, ptr %70, align 4, !tbaa !80
   store i32 %37, ptr %36, align 4, !tbaa !48
-  %69 = getelementptr inbounds nuw i8, ptr %51, i64 32
-  %70 = load i64, ptr %69, align 8, !tbaa !25
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %70, ptr %71, align 8, !tbaa !27
-  %72 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %73 = load ptr, ptr %72, align 8, !tbaa !28
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %73, ptr %74, align 8, !tbaa !29
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr %73, ptr %75, align 8, !tbaa !30
-  %76 = load ptr, ptr %51, align 8, !tbaa !31
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %76, ptr %77, align 8, !tbaa !24
-  %78 = load i8, ptr %73, align 1, !tbaa !32
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i8 %78, ptr %79, align 8, !tbaa !33
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  %72 = load i64, ptr %71, align 8, !tbaa !25
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i64 %72, ptr %73, align 8, !tbaa !27
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %75 = load ptr, ptr %74, align 8, !tbaa !28
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr %75, ptr %76, align 8, !tbaa !29
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  store ptr %75, ptr %77, align 8, !tbaa !30
+  %78 = load ptr, ptr %69, align 8, !tbaa !31
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %78, ptr %79, align 8, !tbaa !24
+  %80 = load i8, ptr %75, align 1, !tbaa !32
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store i8 %80, ptr %81, align 8, !tbaa !33
   ret void
 }
 

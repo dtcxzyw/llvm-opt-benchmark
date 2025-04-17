@@ -6619,10 +6619,7 @@ entry:
 
 invoke.cont.i.i.i.thread:                         ; preds = %entry
   %_M_finish.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %call, i64 48
-  %add.ptr.i.i.i.i.i9 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %call, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args_.i.i, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i.i9, ptr %_M_end_of_storage.i.i.i.i.i10, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args_.i.i, i8 0, i64 24, i1 false)
   br label %invoke.cont
 
 cond.true.i.i.i.i.i.i:                            ; preds = %entry
@@ -7106,10 +7103,7 @@ entry:
 
 invoke.cont.i.i.i.i.thread:                       ; preds = %entry
   %_M_finish.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call, i64 48
-  %add.ptr.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %call, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args_.i.i.i, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i.i.i6, ptr %_M_end_of_storage.i.i.i.i.i.i7, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args_.i.i.i, i8 0, i64 24, i1 false)
   br label %invoke.cont
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %entry
@@ -15913,10 +15907,7 @@ entry:
 
 invoke.cont.i.i.i.thread:                         ; preds = %entry
   %_M_finish.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %call, i64 48
-  %add.ptr.i.i.i.i.i9 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %call, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args_.i.i, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i.i9, ptr %_M_end_of_storage.i.i.i.i.i10, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %args_.i.i, i8 0, i64 24, i1 false)
   br label %invoke.cont
 
 cond.true.i.i.i.i.i.i:                            ; preds = %entry

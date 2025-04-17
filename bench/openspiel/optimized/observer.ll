@@ -4431,7 +4431,7 @@ define void @_ZN10open_spiel19ObserverTensorShapeERKNS_5StateERKNS_8ObserverE(pt
   %9 = load ptr, ptr %2, align 8
   %10 = load ptr, ptr %9, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(10) %2, ptr noundef nonnull align 8 dereferenceable(60) %1, i32 noundef 0, ptr noundef nonnull %4)
-          to label %11 unwind label %86
+          to label %11 unwind label %84
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -4451,7 +4451,7 @@ define void @_ZN10open_spiel19ObserverTensorShapeERKNS_5StateERKNS_8ObserverE(pt
 
 _ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE8allocateERS2_m.exit.i.i.i.i.i: ; preds = %19
   %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #28
-          to label %.noexc5 unwind label %86
+          to label %.noexc5 unwind label %84
 
 .noexc5:                                          ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE8allocateERS2_m.exit.i.i.i.i.i, %11
   %23 = phi ptr [ null, %11 ], [ %22, %_ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE8allocateERS2_m.exit.i.i.i.i.i ]
@@ -4508,7 +4508,7 @@ _ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i: ; preds 
   br label %_ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i, %42
-  br i1 %31, label %43, label %90
+  br i1 %31, label %43, label %88
 
 43:                                               ; preds = %_ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EED2Ev.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
@@ -4527,14 +4527,14 @@ _ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EED2Ev.exit: ; preds = %_ZSt8_D
 
 .noexc.i.i.i11.invoke:                            ; preds = %49, %19
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
-          to label %.noexc.i.i.i11.cont unwind label %86
+          to label %.noexc.i.i.i11.cont unwind label %84
 
 .noexc.i.i.i11.cont:                              ; preds = %.noexc.i.i.i11.invoke
   unreachable
 
 _ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE8allocateERS2_m.exit.i.i.i.i.i8: ; preds = %49
   %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #28
-          to label %.noexc13 unwind label %86
+          to label %.noexc13 unwind label %84
 
 .noexc13:                                         ; preds = %_ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE8allocateERS2_m.exit.i.i.i.i.i8, %43
   %.pr.i27 = phi ptr [ null, %43 ], [ %52, %_ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE8allocateERS2_m.exit.i.i.i.i.i8 ]
@@ -4565,115 +4565,109 @@ _ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE8allocateERS2_m.exit.
   %63 = getelementptr inbounds nuw i8, ptr %.pr.i27, i64 40
   %64 = load ptr, ptr %63, align 8, !noalias !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !41
-  %65 = shl nuw nsw i64 %62, 1
-  %.idx.i = and i64 %65, 9223372036854775804
   %.not.i.i.i.i17 = icmp ult i64 %62, 2
-  br i1 %.not.i.i.i.i17, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i, label %.noexc4.i.i
-
-_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %60
-  %66 = getelementptr inbounds nuw i8, ptr null, i64 %.idx.i
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %66, ptr %67, align 8, !alias.scope !41
-  br label %73
+  br i1 %.not.i.i.i.i17, label %71, label %.noexc4.i.i
 
 .noexc4.i.i:                                      ; preds = %60
-  %68 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #28
-          to label %.noexc19 unwind label %88
+  %65 = shl nuw nsw i64 %62, 1
+  %.idx.i = and i64 %65, 9223372036854775804
+  %66 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #28
+          to label %.noexc19 unwind label %86
 
 .noexc19:                                         ; preds = %.noexc4.i.i
-  %69 = and i64 %62, 1
-  %.not.i.i.i18 = icmp eq i64 %69, 0
-  %70 = select i1 %.not.i.i.i18, ptr %63, ptr %64
-  store ptr %68, ptr %0, align 8, !alias.scope !41
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %71, ptr %72, align 8, !alias.scope !41
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %68, ptr align 4 %70, i64 %.idx.i, i1 false), !noalias !41
-  br label %73
+  %67 = and i64 %62, 1
+  %.not.i.i.i18 = icmp eq i64 %67, 0
+  %68 = select i1 %.not.i.i.i18, ptr %63, ptr %64
+  store ptr %66, ptr %0, align 8, !alias.scope !41
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %69, ptr %70, align 8, !alias.scope !41
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %66, ptr align 4 %68, i64 %.idx.i, i1 false), !noalias !41
+  br label %71
 
-73:                                               ; preds = %.noexc19, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i
-  %74 = phi ptr [ %66, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i.i ], [ %71, %.noexc19 ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %74, ptr %75, align 8, !alias.scope !41
+71:                                               ; preds = %.noexc19, %60
+  %72 = phi ptr [ %69, %.noexc19 ], [ null, %60 ]
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %72, ptr %73, align 8, !alias.scope !41
   %.not4.i.i.i.i20 = icmp eq ptr %.pr.i27, %56
   br i1 %.not4.i.i.i.i20, label %_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i28.thread, label %.lr.ph.i.i.i.i21
 
-.lr.ph.i.i.i.i21:                                 ; preds = %73, %_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i24
-  %.05.i.i.i.i22 = phi ptr [ %85, %_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i24 ], [ %.pr.i27, %73 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i22, i64 32
-  %77 = load i64, ptr %76, align 8
-  %78 = and i64 %77, 1
-  %.not.i.i.i.i.i.i.i.i.i23 = icmp eq i64 %78, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i23, label %_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i24, label %79
+.lr.ph.i.i.i.i21:                                 ; preds = %71, %_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i24
+  %.05.i.i.i.i22 = phi ptr [ %83, %_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i24 ], [ %.pr.i27, %71 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i22, i64 32
+  %75 = load i64, ptr %74, align 8
+  %76 = and i64 %75, 1
+  %.not.i.i.i.i.i.i.i.i.i23 = icmp eq i64 %76, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i23, label %_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i24, label %77
 
-79:                                               ; preds = %.lr.ph.i.i.i.i21
-  %80 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i22, i64 40
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i22, i64 48
-  %83 = load i64, ptr %82, align 8
-  %84 = shl i64 %83, 2
-  call void @_ZdlPvm(ptr noundef %81, i64 noundef %84) #25
+77:                                               ; preds = %.lr.ph.i.i.i.i21
+  %78 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i22, i64 40
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i22, i64 48
+  %81 = load i64, ptr %80, align 8
+  %82 = shl i64 %81, 2
+  call void @_ZdlPvm(ptr noundef %79, i64 noundef %82) #25
   br label %_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i24
 
-_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i24: ; preds = %79, %.lr.ph.i.i.i.i21
+_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i24: ; preds = %77, %.lr.ph.i.i.i.i21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.05.i.i.i.i22) #26
-  %85 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i22, i64 56
-  %.not.i.i.i.i25 = icmp eq ptr %85, %56
+  %83 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i22, i64 56
+  %.not.i.i.i.i25 = icmp eq ptr %83, %56
   br i1 %.not.i.i.i.i25, label %_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i28, label %.lr.ph.i.i.i.i21, !llvm.loop !21
 
 _ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i28: ; preds = %_ZSt8_DestroyIN10open_spiel14SpanTensorInfoEEvPT_.exit.i.i.i.i24
   %.not.i.i.i29 = icmp eq ptr %.pr.i27, null
   br i1 %.not.i.i.i29, label %_ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EED2Ev.exit30, label %_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i28.thread
 
-_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i28.thread: ; preds = %73, %_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i28
+_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i28.thread: ; preds = %71, %_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i28
   call void @_ZdlPvm(ptr noundef nonnull %.pr.i27, i64 noundef %48) #25
   br label %_ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EED2Ev.exit30
 
-86:                                               ; preds = %.noexc.i.i.i11.invoke, %_ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE8allocateERS2_m.exit.i.i.i.i.i8, %_ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE8allocateERS2_m.exit.i.i.i.i.i, %3
-  %87 = landingpad { ptr, i32 }
+84:                                               ; preds = %.noexc.i.i.i11.invoke, %_ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE8allocateERS2_m.exit.i.i.i.i.i8, %_ZNSt16allocator_traitsISaIN10open_spiel14SpanTensorInfoEEE8allocateERS2_m.exit.i.i.i.i.i, %3
+  %85 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-88:                                               ; preds = %.noexc4.i.i
-  %89 = landingpad { ptr, i32 }
+86:                                               ; preds = %.noexc4.i.i
+  %87 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #26
   br label %.body
 
-90:                                               ; preds = %_ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EED2Ev.exit
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %92 = load ptr, ptr %91, align 8
-  %93 = load ptr, ptr %6, align 8
+88:                                               ; preds = %_ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EED2Ev.exit
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %90 = load ptr, ptr %89, align 8
+  %91 = load ptr, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %94 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
-          to label %97 unwind label %95
+  %92 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
+          to label %95 unwind label %93
 
-95:                                               ; preds = %90
-  %96 = landingpad { ptr, i32 }
+93:                                               ; preds = %88
+  %94 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-97:                                               ; preds = %90
-  %98 = ptrtoint ptr %92 to i64
-  %99 = ptrtoint ptr %93 to i64
-  %100 = sub i64 %98, %99
-  %101 = lshr exact i64 %100, 2
-  %102 = trunc i64 %101 to i32
-  store ptr %94, ptr %0, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %103, ptr %104, align 8
-  store i32 %102, ptr %94, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %103, ptr %105, align 8
+95:                                               ; preds = %88
+  %96 = ptrtoint ptr %90 to i64
+  %97 = ptrtoint ptr %91 to i64
+  %98 = sub i64 %96, %97
+  %99 = lshr exact i64 %98, 2
+  %100 = trunc i64 %99 to i32
+  store ptr %92, ptr %0, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %101, ptr %102, align 8
+  store i32 %100, ptr %92, align 4
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %101, ptr %103, align 8
   br label %_ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EED2Ev.exit30
 
-_ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EED2Ev.exit30: ; preds = %_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i28.thread, %_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i28, %97
+_ZNSt6vectorIN10open_spiel14SpanTensorInfoESaIS1_EED2Ev.exit30: ; preds = %_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i28.thread, %_ZSt8_DestroyIPN10open_spiel14SpanTensorInfoES1_EvT_S3_RSaIT0_E.exit.i28, %95
   call void @_ZN10open_spiel23TrackingVectorAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #26
   ret void
 
-.body:                                            ; preds = %95, %27, %25, %57, %59, %86, %88
-  %.pn = phi { ptr, i32 } [ %89, %88 ], [ %26, %27 ], [ %26, %25 ], [ %87, %86 ], [ %58, %59 ], [ %58, %57 ], [ %96, %95 ]
+.body:                                            ; preds = %93, %27, %25, %57, %59, %84, %86
+  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %26, %27 ], [ %26, %25 ], [ %85, %84 ], [ %58, %59 ], [ %58, %57 ], [ %94, %93 ]
   call void @_ZN10open_spiel23TrackingVectorAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #26
   resume { ptr, i32 } %.pn
 }

@@ -167,7 +167,7 @@ define void @_ZN3net9IPAddressC2EPKhm(ptr noundef nonnull align 8 captures(none)
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %3
   %.not.i.i.i = icmp samesign eq i64 %2, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i, label %6
+  br i1 %.not.i.i.i, label %14, label %6
 
 6:                                                ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %2) #19
@@ -179,7 +179,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8, !tbaa !11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr align 1 %1, i64 %2, i1 false)
-  br label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i
+  br label %14
 
 10:                                               ; preds = %6, %5
   %11 = landingpad { ptr, i32 }
@@ -192,10 +192,10 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %3
   tail call void @_ZdlPv(ptr noundef nonnull %12) #20
   br label %.body
 
-_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc4.i
-  %14 = phi ptr [ %8, %.noexc4.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !3
+14:                                               ; preds = %.noexc4.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %15 = phi ptr [ %8, %.noexc4.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %15, ptr %16, align 8, !tbaa !3
   ret void
 
 .body:                                            ; preds = %10, %13
@@ -1392,57 +1392,51 @@ define void @_ZN3net27ConvertIPv4MappedIPv6ToIPv4ERKNS_9IPAddressE(ptr dead_on_u
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %2
   %.not.i.i.i = icmp eq ptr %7, %5
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i, label %.noexc5.i
-
-_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %12 = getelementptr inbounds nuw i8, ptr null, i64 %10
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %12, ptr %13, align 8, !tbaa !11
-  br label %17
+  br i1 %.not.i.i.i, label %15, label %.noexc5.i
 
 .noexc5.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #19
-  store ptr %14, ptr %3, align 8, !tbaa !9
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %10
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %15, ptr %16, align 8, !tbaa !11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %5, i64 %10, i1 false)
-  br label %17
+  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #19
+  store ptr %12, ptr %3, align 8, !tbaa !9
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %10
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %13, ptr %14, align 8, !tbaa !11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr nonnull align 1 %5, i64 %10, i1 false)
+  br label %15
 
-17:                                               ; preds = %.noexc5.i, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i
-  %18 = phi ptr [ %12, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i ], [ %15, %.noexc5.i ]
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %18, ptr %19, align 8, !tbaa !3
+15:                                               ; preds = %.noexc5.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
+  %16 = phi ptr [ %13, %.noexc5.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %16, ptr %17, align 8, !tbaa !3
   invoke void @_ZN3net9IPAddressC1ERKSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %20 unwind label %23
+          to label %18 unwind label %21
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %3, align 8, !tbaa !9
-  %.not.i.i.i6 = icmp eq ptr %21, null
-  br i1 %.not.i.i.i6, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %22
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %3, align 8, !tbaa !9
+  %.not.i.i.i6 = icmp eq ptr %19, null
+  br i1 %.not.i.i.i6, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %20
 
-22:                                               ; preds = %20
-  call void @_ZdlPv(ptr noundef nonnull %21) #20
+20:                                               ; preds = %18
+  call void @_ZdlPv(ptr noundef nonnull %19) #20
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %20, %22
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %18, %20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
   ret void
 
-23:                                               ; preds = %17
-  %24 = landingpad { ptr, i32 }
+21:                                               ; preds = %15
+  %22 = landingpad { ptr, i32 }
           cleanup
-  %25 = load ptr, ptr %3, align 8, !tbaa !9
-  %.not.i.i.i8 = icmp eq ptr %25, null
-  br i1 %.not.i.i.i8, label %.body, label %26
+  %23 = load ptr, ptr %3, align 8, !tbaa !9
+  %.not.i.i.i8 = icmp eq ptr %23, null
+  br i1 %.not.i.i.i8, label %.body, label %24
 
-26:                                               ; preds = %23
-  call void @_ZdlPv(ptr noundef nonnull %25) #20
+24:                                               ; preds = %21
+  call void @_ZdlPv(ptr noundef nonnull %23) #20
   br label %.body
 
-.body:                                            ; preds = %26, %23
+.body:                                            ; preds = %24, %21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %22
 }
 
 ; Function Attrs: mustprogress uwtable

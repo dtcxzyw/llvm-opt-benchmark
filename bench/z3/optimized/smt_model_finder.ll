@@ -9155,12 +9155,7 @@ _ZNK6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE5emptyEv
   tail call void @_ZN3smt12model_finder10checkpointEPKc(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr nonnull poison)
   %12 = load ptr, ptr %2, align 8, !tbaa !643
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %._ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE4backEv.exit_crit_edge, label %14
-
-._ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE4backEv.exit_crit_edge: ; preds = %10
-  %.pre = load i32, ptr inttoptr (i64 -4 to ptr), align 4, !tbaa !13
-  %.pre23 = add i32 %.pre, -1
-  br label %_ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE4backEv.exit
+  br i1 %13, label %_ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE4backEv.exit, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %12, i64 -4
@@ -9169,9 +9164,9 @@ _ZNK6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE5emptyEv
   %18 = zext i32 %17 to i64
   br label %_ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE4backEv.exit
 
-_ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE4backEv.exit: ; preds = %._ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE4backEv.exit_crit_edge, %14
-  %.pre-phi = phi i32 [ %.pre23, %._ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE4backEv.exit_crit_edge ], [ %17, %14 ]
-  %.0.i.i = phi i64 [ 4294967295, %._ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE4backEv.exit_crit_edge ], [ %18, %14 ]
+_ZN6vectorISt4pairIP4exprN3smt2mf19quantifier_analyzer8polarityEELb0EjE4backEv.exit: ; preds = %10, %14
+  %.pre-phi = phi i32 [ %17, %14 ], [ undef, %10 ]
+  %.0.i.i = phi i64 [ %18, %14 ], [ 4294967295, %10 ]
   %19 = getelementptr inbounds nuw %"struct.std::pair.377", ptr %12, i64 %.0.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !836
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8

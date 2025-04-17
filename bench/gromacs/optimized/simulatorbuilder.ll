@@ -1304,7 +1304,7 @@ _ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev.e
   store ptr null, ptr %19, align 8, !tbaa !4
   %307 = load ptr, ptr %18, align 8, !tbaa !189
   %.not.i107 = icmp eq ptr %307, null
-  br i1 %.not.i107, label %_ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit, label %308
+  br i1 %.not.i107, label %_ZNSt10unique_ptrIN3gmx19LegacySimulatorDataESt14default_deleteIS1_EED2Ev.exit, label %308
 
 308:                                              ; preds = %_ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev.exit
   %309 = getelementptr inbounds nuw i8, ptr %307, i64 280
@@ -1366,7 +1366,7 @@ _ZNKSt14default_deleteIN3gmx18StopHandlerBuilderEEclEPS1_.exit.i.i.i.i: ; preds 
 
 _ZNKSt14default_deleteIN3gmx19LegacySimulatorDataEEclEPS1_.exit.i: ; preds = %_ZNKSt14default_deleteIN3gmx18StopHandlerBuilderEEclEPS1_.exit.i.i.i.i, %308
   call void @_ZdlPvm(ptr noundef %307, i64 noundef 296) #21
-  br label %_ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit
+  br label %_ZNSt10unique_ptrIN3gmx19LegacySimulatorDataESt14default_deleteIS1_EED2Ev.exit
 
 330:                                              ; preds = %198, %187
   %331 = landingpad { ptr, i32 }
@@ -1442,9 +1442,9 @@ _ZNKSt14default_deleteIN3gmx19LegacySimulatorDataEEclEPS1_.exit.i: ; preds = %_Z
   %389 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %390 = load ptr, ptr %389, align 8, !tbaa !229
   %391 = invoke noundef ptr @_ZN3gmx12MembedHolder6membedEv(ptr noundef nonnull align 8 dereferenceable(9) %33)
-          to label %_ZNSt10unique_ptrIN3gmx15LegacySimulatorESt14default_deleteIS1_EED2Ev.exit unwind label %436
+          to label %_ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit unwind label %436
 
-_ZNSt10unique_ptrIN3gmx15LegacySimulatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %335
+_ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit: ; preds = %335
   %392 = load ptr, ptr %79, align 8, !tbaa !37
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 16
   %394 = load ptr, ptr %393, align 8, !tbaa !230
@@ -1529,7 +1529,7 @@ _ZNSt10unique_ptrIN3gmx15LegacySimulatorESt14default_deleteIS1_EED2Ev.exit: ; pr
   store i8 %398, ptr %435, align 8, !tbaa !188
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3gmx15LegacySimulatorE, i64 16), ptr %336, align 8, !tbaa !62
   store ptr %336, ptr %0, align 8, !tbaa !191
-  br label %_ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit
+  br label %_ZNSt10unique_ptrIN3gmx19LegacySimulatorDataESt14default_deleteIS1_EED2Ev.exit
 
 436:                                              ; preds = %335
   %437 = landingpad { ptr, i32 }
@@ -1537,7 +1537,7 @@ _ZNSt10unique_ptrIN3gmx15LegacySimulatorESt14default_deleteIS1_EED2Ev.exit: ; pr
   tail call void @_ZdlPvm(ptr noundef nonnull %336, i64 noundef 304) #21
   br label %438
 
-_ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN3gmx19LegacySimulatorDataEEclEPS1_.exit.i, %_ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN3gmx15LegacySimulatorESt14default_deleteIS1_EED2Ev.exit
+_ZNSt10unique_ptrIN3gmx19LegacySimulatorDataESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN3gmx19LegacySimulatorDataEEclEPS1_.exit.i, %_ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN3gmx18StopHandlerBuilderESt14default_deleteIS1_EED2Ev.exit
   ret void
 
 438:                                              ; preds = %183, %171, %159, %147, %135, %123, %111, %99, %87, %75, %63, %52, %40, %28, %185, %173, %161, %149, %137, %125, %113, %101, %89, %77, %65, %54, %42, %30, %436, %334

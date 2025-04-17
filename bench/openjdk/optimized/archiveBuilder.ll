@@ -4948,7 +4948,7 @@ define linkonce_odr hidden void @_ZN14ArchiveBuilder12CDSMapLogger3logEPS_P11Fil
   br i1 %.not.i, label %_ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit, label %24
 
 24:                                               ; preds = %16
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.66, i64 noundef 0, i64 noundef %21, i64 noundef %21)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.66, i64 noundef 0, i64 noundef 0, i64 noundef %21)
   br label %_ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit: ; preds = %16, %24
@@ -5052,7 +5052,7 @@ _ZN14ArchiveBuilder12CDSMapLogger20log_metaspace_regionEPKcP10DumpRegionPKNS_13S
   br i1 %.not.i27, label %_ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit28, label %71
 
 71:                                               ; preds = %_ZN14ArchiveBuilder12CDSMapLogger20log_metaspace_regionEPKcP10DumpRegionPKNS_13SourceObjListE.exit26
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.69, i64 noundef 0, i64 noundef %4, i64 noundef %4)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_78ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.69, i64 noundef 0, i64 noundef 0, i64 noundef %4)
   br label %_ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit28
 
 _ZN14ArchiveBuilder12CDSMapLogger10log_regionEPKcPhS3_S3_.exit28: ; preds = %_ZN14ArchiveBuilder12CDSMapLogger20log_metaspace_regionEPKcP10DumpRegionPKNS_13SourceObjListE.exit26, %71

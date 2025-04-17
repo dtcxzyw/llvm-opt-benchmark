@@ -2357,9 +2357,8 @@ for.body.lr.ph:                                   ; preds = %if.then9
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end.i13
   %child.sroa.0.044 = phi ptr [ %child.sroa.0.042, %for.body.lr.ph ], [ %child.sroa.0.0, %if.end.i13 ]
-  %add.ptr.i.i124 = getelementptr inbounds i8, ptr %child.sroa.0.044, i64 -168
-  %id_ = getelementptr inbounds i8, ptr %child.sroa.0.044, i64 -80
-  store ptr %add.ptr.i.i124, ptr %ref.tmp13, align 8
+  %id_ = getelementptr inbounds nuw i8, ptr %child.sroa.0.044, i64 88
+  store ptr %child.sroa.0.044, ptr %ref.tmp13, align 8
   %7 = load ptr, ptr %_M_finish.i, align 8
   %8 = load ptr, ptr %_M_last.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 -24
@@ -2371,7 +2370,7 @@ if.then.i:                                        ; preds = %for.body
   %10 = load double, ptr %newRelWeight, align 8
   store i64 %9, ptr %7, align 8
   %node.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %add.ptr.i.i124, ptr %node.i.i.i.i, align 8
+  store ptr %child.sroa.0.044, ptr %node.i.i.i.i, align 8
   %ratio.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %10, ptr %ratio.i.i.i.i, align 8
   %11 = load ptr, ptr %_M_finish.i, align 8
@@ -5573,8 +5572,7 @@ for.body.i.preheader:                             ; preds = %if.then.i23
 for.body.i:                                       ; preds = %for.body.i.preheader, %if.end.i13.i
   %19 = phi ptr [ %storemerge, %if.end.i13.i ], [ %.pre167, %for.body.i.preheader ]
   %child.sroa.0.044.i = phi ptr [ %child.sroa.0.0.i, %if.end.i13.i ], [ %child.sroa.0.042.i, %for.body.i.preheader ]
-  %add.ptr.i.i124.i = getelementptr inbounds i8, ptr %child.sroa.0.044.i, i64 -168
-  %id_.i = getelementptr inbounds i8, ptr %child.sroa.0.044.i, i64 -80
+  %id_.i = getelementptr inbounds nuw i8, ptr %child.sroa.0.044.i, i64 88
   %20 = load ptr, ptr %_M_last.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 -24
   %cmp.not.i.i = icmp eq ptr %19, %add.ptr.i.i
@@ -5584,7 +5582,7 @@ if.then.i.i25:                                    ; preds = %for.body.i
   %21 = load i64, ptr %id_.i, align 8
   store i64 %21, ptr %19, align 8
   %node.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %add.ptr.i.i124.i, ptr %node.i.i.i.i.i, align 8
+  store ptr %child.sroa.0.044.i, ptr %node.i.i.i.i.i, align 8
   %ratio.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   store double %mul.i, ptr %ratio.i.i.i.i.i, align 8
   %22 = load ptr, ptr %_M_finish.i.i24, align 8
@@ -5751,7 +5749,7 @@ invoke.cont.i:                                    ; preds = %.noexc110, %if.end.
   %34 = load i64, ptr %id_.i, align 8
   store i64 %34, ptr %33, align 8
   %node.i.i.i.i102 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %add.ptr.i.i124.i, ptr %node.i.i.i.i102, align 8
+  store ptr %child.sroa.0.044.i, ptr %node.i.i.i.i102, align 8
   %ratio.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store double %mul.i, ptr %ratio.i.i.i.i103, align 8
   %35 = load ptr, ptr %_M_node.i.i.i, align 8

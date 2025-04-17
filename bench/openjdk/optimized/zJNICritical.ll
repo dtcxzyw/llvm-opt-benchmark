@@ -369,7 +369,7 @@ define hidden void @_ZN12ZJNICritical10exit_innerEv() local_unnamed_addr #1 alig
   br i1 %.not.i, label %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit.thread, label %14
 
 _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit.thread: ; preds = %11
-  %13 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull inttoptr (i64 40 to ptr)) #6
+  %13 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull null) #6
   br label %_ZN7ZLockerI14ZConditionLockED2Ev.exit
 
 14:                                               ; preds = %11
@@ -424,7 +424,7 @@ define hidden void @_ZN12ZJNICritical4exitEP10JavaThread(ptr noundef captures(no
   br i1 %.not.i.i, label %_ZN7ZLockerI14ZConditionLockEC2EPS0_.exit.thread.i, label %19
 
 _ZN7ZLockerI14ZConditionLockEC2EPS0_.exit.thread.i: ; preds = %16
-  %18 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull inttoptr (i64 40 to ptr)) #6
+  %18 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull null) #6
   br label %_ZN12ZJNICritical10exit_innerEv.exit
 
 19:                                               ; preds = %16

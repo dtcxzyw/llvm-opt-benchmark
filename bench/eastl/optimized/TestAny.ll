@@ -1193,12 +1193,12 @@ _ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i:           ; preds = %call.i.i.i.i.i.i.no
   br i1 %cmp.not.i.i.i.i.i.i, label %arraydestroy.body126, label %for.body.i.i.i.i.i.i, !llvm.loop !5
 
 lpad.i.thread:                                    ; preds = %invoke.cont119
-  %lpad.loopexit.split-lp6.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp5.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad123.body
 
 lpad.i:                                           ; preds = %if.then.i.i.i.i.i.i.i
-  %lpad.loopexit5.i = landingpad { ptr, i32 }
+  %lpad.loopexit4.i = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i349 = icmp eq ptr %call.i.i.i.i.i1.i, null
   br i1 %tobool.not.i.i349, label %lpad123.body, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
@@ -1862,12 +1862,12 @@ _ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i623:        ; preds = %call.i.i.i.i.i.i.no
   br i1 %cmp.not.i.i.i.i.i.i626, label %arraydestroy.body238, label %for.body.i.i.i.i.i.i612, !llvm.loop !5
 
 lpad.i603.thread:                                 ; preds = %invoke.cont216
-  %lpad.loopexit.split-lp6.i602 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp5.i602 = landingpad { ptr, i32 }
           cleanup
   br label %lpad234.body
 
 lpad.i603:                                        ; preds = %if.then.i.i.i.i.i.i.i618
-  %lpad.loopexit5.i621 = landingpad { ptr, i32 }
+  %lpad.loopexit4.i621 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i605 = icmp eq ptr %call.i.i.i.i.i1.i600, null
   br i1 %tobool.not.i.i605, label %lpad234.body, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i606
@@ -2724,12 +2724,12 @@ _ZN5eastl3anyC2ERKS0_.exit.i.i.i.i.i.i1006:       ; preds = %call.i.i.i.i.i.i.no
   br i1 %cmp.not.i.i.i.i.i.i1009, label %arraydestroy.body397, label %for.body.i.i.i.i.i.i995, !llvm.loop !5
 
 lpad.i986.thread:                                 ; preds = %invoke.cont381
-  %lpad.loopexit.split-lp6.i985 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp5.i985 = landingpad { ptr, i32 }
           cleanup
   br label %lpad393.body
 
 lpad.i986:                                        ; preds = %if.then.i.i.i.i.i.i.i1001
-  %lpad.loopexit5.i1004 = landingpad { ptr, i32 }
+  %lpad.loopexit4.i1004 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i988 = icmp eq ptr %call.i.i.i.i.i1.i983, null
   br i1 %tobool.not.i.i988, label %lpad393.body, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i989
@@ -7273,7 +7273,7 @@ terminate.lpad.i.i3173:                           ; preds = %if.then.i.i3171
   unreachable
 
 lpad123.body:                                     ; preds = %lpad.i.thread, %lpad.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
-  %lpad.phi.i3761 = phi { ptr, i32 } [ %lpad.loopexit.split-lp6.i, %lpad.i.thread ], [ %lpad.loopexit5.i, %lpad.i ], [ %lpad.loopexit5.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ]
+  %lpad.phi.i3761 = phi { ptr, i32 } [ %lpad.loopexit.split-lp5.i, %lpad.i.thread ], [ %lpad.loopexit4.i, %lpad.i ], [ %lpad.loopexit4.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ]
   br label %arraydestroy.body133
 
 arraydestroy.body133:                             ; preds = %_ZN5eastl3anyD2Ev.exit3189, %lpad123.body
@@ -7344,7 +7344,7 @@ terminate.lpad.i.i3208:                           ; preds = %if.then.i.i3206
   unreachable
 
 lpad234.body:                                     ; preds = %lpad.i603.thread, %lpad.i603, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i606
-  %lpad.phi.i6043764 = phi { ptr, i32 } [ %lpad.loopexit.split-lp6.i602, %lpad.i603.thread ], [ %lpad.loopexit5.i621, %lpad.i603 ], [ %lpad.loopexit5.i621, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i606 ]
+  %lpad.phi.i6043764 = phi { ptr, i32 } [ %lpad.loopexit.split-lp5.i602, %lpad.i603.thread ], [ %lpad.loopexit4.i621, %lpad.i603 ], [ %lpad.loopexit4.i621, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i606 ]
   br label %arraydestroy.body245
 
 arraydestroy.body245:                             ; preds = %_ZN5eastl3anyD2Ev.exit3217, %lpad234.body
@@ -7495,7 +7495,7 @@ ehcleanup355:                                     ; preds = %_ZN5eastl9allocator
   br label %eh.resume
 
 lpad393.body:                                     ; preds = %lpad.i986.thread, %lpad.i986, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i989
-  %lpad.phi.i9873767 = phi { ptr, i32 } [ %lpad.loopexit.split-lp6.i985, %lpad.i986.thread ], [ %lpad.loopexit5.i1004, %lpad.i986 ], [ %lpad.loopexit5.i1004, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i989 ]
+  %lpad.phi.i9873767 = phi { ptr, i32 } [ %lpad.loopexit.split-lp5.i985, %lpad.i986.thread ], [ %lpad.loopexit4.i1004, %lpad.i986 ], [ %lpad.loopexit4.i1004, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i989 ]
   br label %arraydestroy.body404
 
 arraydestroy.body404:                             ; preds = %_ZN5eastl3anyD2Ev.exit3294, %lpad393.body

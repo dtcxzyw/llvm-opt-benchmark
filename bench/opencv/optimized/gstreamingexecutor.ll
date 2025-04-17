@@ -67006,116 +67006,112 @@ define internal fastcc void @"_ZNSt16allocator_traitsISaISt6threadEE9constructIS
   %9 = sub i64 %7, %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.8.val3, %.0.val1
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.noexc7.i.thread.i.i, label %13
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.noexc7.i.thread.i.i, label %11
 
 .noexc7.i.thread.i.i:                             ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %11 = getelementptr inbounds i8, ptr null, i64 %9
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store ptr %11, ptr %12, align 8, !tbaa !592
   br label %"_ZNSt11_Tuple_implILm2EJSt17reference_wrapperIN2cv5gimpl6stream9SyncQueueEESt6vectorIPNS3_1QESaIS8_EEZNS2_18GStreamingExecutor9setSourceEOS6_INS1_7GRunArgESaISC_EEE3$_1EEC2IS5_JRSA_RSG_EvEEOT_DpOT0_.exit.i.i.i.i.i.i.i"
 
-13:                                               ; preds = %2
-  %14 = icmp ugt i64 %9, 9223372036854775800
-  br i1 %14, label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIPN2cv5gimpl6stream1QEEE8allocateERS5_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !prof !115
+11:                                               ; preds = %2
+  %12 = icmp ugt i64 %9, 9223372036854775800
+  br i1 %12, label %.noexc.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIPN2cv5gimpl6stream1QEEE8allocateERS5_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !prof !115
 
-.noexc.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %13
+.noexc.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %11
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #32
           to label %.noexc.i.i.i unwind label %.body.i.i
 
 .noexc.i.i.i:                                     ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIPN2cv5gimpl6stream1QEEE8allocateERS5_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %13
-  %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #33
-          to label %16 unwind label %.body.i.i
+_ZNSt16allocator_traitsISaIPN2cv5gimpl6stream1QEEE8allocateERS5_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %11
+  %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #33
+          to label %14 unwind label %.body.i.i
 
-16:                                               ; preds = %_ZNSt16allocator_traitsISaIPN2cv5gimpl6stream1QEEE8allocateERS5_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %15, ptr %6, align 8, !tbaa !182
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %15, ptr %17, align 8, !tbaa !179
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %9
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %18, ptr %19, align 8, !tbaa !592
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr align 8 %.0.val1, i64 %9, i1 false)
+14:                                               ; preds = %_ZNSt16allocator_traitsISaIPN2cv5gimpl6stream1QEEE8allocateERS5_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  store ptr %13, ptr %6, align 8, !tbaa !182
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %13, ptr %15, align 8, !tbaa !179
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %16, ptr %17, align 8, !tbaa !592
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 8 %.0.val1, i64 %9, i1 false)
   br label %"_ZNSt11_Tuple_implILm2EJSt17reference_wrapperIN2cv5gimpl6stream9SyncQueueEESt6vectorIPNS3_1QESaIS8_EEZNS2_18GStreamingExecutor9setSourceEOS6_INS1_7GRunArgESaISC_EEE3$_1EEC2IS5_JRSA_RSG_EvEEOT_DpOT0_.exit.i.i.i.i.i.i.i"
 
-"_ZNSt11_Tuple_implILm2EJSt17reference_wrapperIN2cv5gimpl6stream9SyncQueueEESt6vectorIPNS3_1QESaIS8_EEZNS2_18GStreamingExecutor9setSourceEOS6_INS1_7GRunArgESaISC_EEE3$_1EEC2IS5_JRSA_RSG_EvEEOT_DpOT0_.exit.i.i.i.i.i.i.i": ; preds = %16, %.noexc7.i.thread.i.i
-  %20 = phi ptr [ %11, %.noexc7.i.thread.i.i ], [ %18, %16 ]
-  %21 = phi ptr [ %10, %.noexc7.i.thread.i.i ], [ %17, %16 ]
-  store ptr %20, ptr %21, align 8, !tbaa !179
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %23 = load i64, ptr %1, align 8
-  store i64 %23, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %.0.val, ptr %24, align 8, !tbaa !726
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr %.8.val, ptr %25, align 8, !tbaa !74
+"_ZNSt11_Tuple_implILm2EJSt17reference_wrapperIN2cv5gimpl6stream9SyncQueueEESt6vectorIPNS3_1QESaIS8_EEZNS2_18GStreamingExecutor9setSourceEOS6_INS1_7GRunArgESaISC_EEE3$_1EEC2IS5_JRSA_RSG_EvEEOT_DpOT0_.exit.i.i.i.i.i.i.i": ; preds = %14, %.noexc7.i.thread.i.i
+  %18 = phi ptr [ null, %.noexc7.i.thread.i.i ], [ %16, %14 ]
+  %19 = phi ptr [ %10, %.noexc7.i.thread.i.i ], [ %15, %14 ]
+  store ptr %18, ptr %19, align 8, !tbaa !179
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %21 = load i64, ptr %1, align 8
+  store i64 %21, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store ptr %.0.val, ptr %22, align 8, !tbaa !726
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  store ptr %.8.val, ptr %23, align 8, !tbaa !74
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.8.val, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %35, label %26
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %33, label %24
 
-26:                                               ; preds = %"_ZNSt11_Tuple_implILm2EJSt17reference_wrapperIN2cv5gimpl6stream9SyncQueueEESt6vectorIPNS3_1QESaIS8_EEZNS2_18GStreamingExecutor9setSourceEOS6_INS1_7GRunArgESaISC_EEE3$_1EEC2IS5_JRSA_RSG_EvEEOT_DpOT0_.exit.i.i.i.i.i.i.i"
-  %27 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %28 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !34
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %32, label %29
+24:                                               ; preds = %"_ZNSt11_Tuple_implILm2EJSt17reference_wrapperIN2cv5gimpl6stream9SyncQueueEESt6vectorIPNS3_1QESaIS8_EEZNS2_18GStreamingExecutor9setSourceEOS6_INS1_7GRunArgESaISC_EEE3$_1EEC2IS5_JRSA_RSG_EvEEOT_DpOT0_.exit.i.i.i.i.i.i.i"
+  %25 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !34
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %30, label %27
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr %27, align 4, !tbaa !75
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %27, align 4, !tbaa !75
-  br label %35
+27:                                               ; preds = %24
+  %28 = load i32, ptr %25, align 4, !tbaa !75
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %25, align 4, !tbaa !75
+  br label %33
 
-32:                                               ; preds = %26
-  %33 = atomicrmw volatile add ptr %27, i32 1 acq_rel, align 4
-  br label %35
+30:                                               ; preds = %24
+  %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4
+  br label %33
 
 .body.i.i:                                        ; preds = %_ZNSt16allocator_traitsISaIPN2cv5gimpl6stream1QEEE8allocateERS5_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i.i.i.i.i
-  %34 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #30
   tail call void @_ZdlPv(ptr noundef nonnull %4) #31
   br label %_ZNSt10unique_ptrINSt6thread6_StateESt14default_deleteIS1_EED2Ev.exit11.i.i
 
-35:                                               ; preds = %32, %29, %"_ZNSt11_Tuple_implILm2EJSt17reference_wrapperIN2cv5gimpl6stream9SyncQueueEESt6vectorIPNS3_1QESaIS8_EEZNS2_18GStreamingExecutor9setSourceEOS6_INS1_7GRunArgESaISC_EEE3$_1EEC2IS5_JRSA_RSG_EvEEOT_DpOT0_.exit.i.i.i.i.i.i.i"
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr @_ZN12_GLOBAL__N_118emitterActorThreadESt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS2_6stream1QESt6vectorIPS6_SaIS9_EESt8functionIFvvEE, ptr %36, align 8, !tbaa !1698
+33:                                               ; preds = %30, %27, %"_ZNSt11_Tuple_implILm2EJSt17reference_wrapperIN2cv5gimpl6stream9SyncQueueEESt6vectorIPNS3_1QESaIS8_EEZNS2_18GStreamingExecutor9setSourceEOS6_INS1_7GRunArgESaISC_EEE3$_1EEC2IS5_JRSA_RSG_EvEEOT_DpOT0_.exit.i.i.i.i.i.i.i"
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  store ptr @_ZN12_GLOBAL__N_118emitterActorThreadESt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS2_6stream1QESt6vectorIPS6_SaIS9_EESt8functionIFvvEE, ptr %34, align 8, !tbaa !1698
   store ptr %4, ptr %3, align 8, !tbaa !894
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef null)
-          to label %37 unwind label %42
+          to label %35 unwind label %40
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %3, align 8, !tbaa !894
-  %.not.i.i.i = icmp eq ptr %38, null
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %3, align 8, !tbaa !894
+  %.not.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i, label %"_ZNSt15__new_allocatorISt6threadE9constructIS0_JRFvSt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS5_6stream1QESt6vectorIPS9_SaISC_EESt8functionIFvvEEERS7_St17reference_wrapperINS8_9SyncQueueEERSE_RZNS5_18GStreamingExecutor9setSourceEOSB_INS4_7GRunArgESaISQ_EEE3$_1EEEvPT_DpOT0_.exit", label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i
 
-_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i: ; preds = %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(8) %38) #30
+_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i: ; preds = %35
+  %37 = load ptr, ptr %36, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %36) #30
   br label %"_ZNSt15__new_allocatorISt6threadE9constructIS0_JRFvSt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS5_6stream1QESt6vectorIPS9_SaISC_EESt8functionIFvvEEERS7_St17reference_wrapperINS8_9SyncQueueEERSE_RZNS5_18GStreamingExecutor9setSourceEOSB_INS4_7GRunArgESaISQ_EEE3$_1EEEvPT_DpOT0_.exit"
 
-42:                                               ; preds = %35
-  %43 = landingpad { ptr, i32 }
+40:                                               ; preds = %33
+  %41 = landingpad { ptr, i32 }
           cleanup
-  %44 = load ptr, ptr %3, align 8, !tbaa !894
-  %.not.i9.i.i = icmp eq ptr %44, null
+  %42 = load ptr, ptr %3, align 8, !tbaa !894
+  %.not.i9.i.i = icmp eq ptr %42, null
   br i1 %.not.i9.i.i, label %_ZNSt10unique_ptrINSt6thread6_StateESt14default_deleteIS1_EED2Ev.exit11.i.i, label %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i.i
 
-_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i.i: ; preds = %42
-  %45 = load ptr, ptr %44, align 8, !tbaa !3
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(8) %44) #30
+_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i.i: ; preds = %40
+  %43 = load ptr, ptr %42, align 8, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8
+  call void %45(ptr noundef nonnull align 8 dereferenceable(8) %42) #30
   br label %_ZNSt10unique_ptrINSt6thread6_StateESt14default_deleteIS1_EED2Ev.exit11.i.i
 
-_ZNSt10unique_ptrINSt6thread6_StateESt14default_deleteIS1_EED2Ev.exit11.i.i: ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i.i, %42, %.body.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %34, %.body.i.i ], [ %43, %42 ], [ %43, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i.i ]
+_ZNSt10unique_ptrINSt6thread6_StateESt14default_deleteIS1_EED2Ev.exit11.i.i: ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i.i, %40, %.body.i.i
+  %.pn.i.i = phi { ptr, i32 } [ %32, %.body.i.i ], [ %41, %40 ], [ %41, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i10.i.i ]
   resume { ptr, i32 } %.pn.i.i
 
-"_ZNSt15__new_allocatorISt6threadE9constructIS0_JRFvSt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS5_6stream1QESt6vectorIPS9_SaISC_EESt8functionIFvvEEERS7_St17reference_wrapperINS8_9SyncQueueEERSE_RZNS5_18GStreamingExecutor9setSourceEOSB_INS4_7GRunArgESaISQ_EEE3$_1EEEvPT_DpOT0_.exit": ; preds = %37, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i
+"_ZNSt15__new_allocatorISt6threadE9constructIS0_JRFvSt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS5_6stream1QESt6vectorIPS9_SaISC_EESt8functionIFvvEEERS7_St17reference_wrapperINS8_9SyncQueueEERSE_RZNS5_18GStreamingExecutor9setSourceEOSB_INS4_7GRunArgESaISQ_EEE3$_1EEEvPT_DpOT0_.exit": ; preds = %35, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }

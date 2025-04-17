@@ -382,29 +382,23 @@ _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.ex
   store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTVN5clang28MultiplexASTMutationListenerE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %.idx = shl nuw nsw i64 %2, 3
   %.not.i.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i, label %6
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit, label %4
 
-_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %4 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %5, align 8, !tbaa !25
+4:                                                ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
+  %.idx = shl nuw nsw i64 %2, 3
+  %5 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #14
+  store ptr %5, ptr %3, align 8, !tbaa !25
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %6, ptr %7, align 8, !tbaa !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr align 8 %1, i64 %.idx, i1 false)
   br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit
 
-6:                                                ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #14
-  store ptr %7, ptr %3, align 8, !tbaa !28
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %8, ptr %9, align 8, !tbaa !25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr align 8 %1, i64 %.idx, i1 false)
-  br label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit
-
-_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit: ; preds = %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i, %6
-  %10 = phi ptr [ %4, %_ZNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE11_M_allocateEm.exit.thread.i.i ], [ %8, %6 ]
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %11, align 8, !tbaa !29
+_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit: ; preds = %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i, %4
+  %8 = phi ptr [ %6, %4 ], [ null, %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ]
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %8, ptr %9, align 8, !tbaa !29
   ret void
 }
 
@@ -413,7 +407,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22CompletedTagDefi
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = load ptr, ptr %3, align 8, !tbaa !25
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -426,7 +420,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22CompletedTagDefi
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = load ptr, ptr %13, align 8, !tbaa !3
@@ -443,7 +437,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener16AddedVisibleDecl
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = load ptr, ptr %4, align 8, !tbaa !25
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -456,7 +450,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener16AddedVisibleDecl
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = load ptr, ptr %4, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = load ptr, ptr %14, align 8, !tbaa !3
@@ -473,7 +467,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22AddedCXXImplicit
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = load ptr, ptr %4, align 8, !tbaa !25
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -486,7 +480,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22AddedCXXImplicit
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = load ptr, ptr %4, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = load ptr, ptr %14, align 8, !tbaa !3
@@ -503,7 +497,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = load ptr, ptr %4, align 8, !tbaa !25
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -516,7 +510,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = load ptr, ptr %4, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = load ptr, ptr %14, align 8, !tbaa !3
@@ -533,7 +527,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = load ptr, ptr %4, align 8, !tbaa !25
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -546,7 +540,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = load ptr, ptr %4, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = load ptr, ptr %14, align 8, !tbaa !3
@@ -563,7 +557,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = load ptr, ptr %4, align 8, !tbaa !25
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -576,7 +570,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30AddedCXXTemplate
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = load ptr, ptr %4, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = load ptr, ptr %14, align 8, !tbaa !3
@@ -617,7 +611,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener17DeducedReturnTyp
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = load ptr, ptr %4, align 8, !tbaa !25
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -630,7 +624,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener17DeducedReturnTyp
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = load ptr, ptr %4, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = load ptr, ptr %14, align 8, !tbaa !3
@@ -671,7 +665,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener27CompletedImplici
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = load ptr, ptr %3, align 8, !tbaa !25
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -684,7 +678,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener27CompletedImplici
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = load ptr, ptr %13, align 8, !tbaa !3
@@ -701,7 +695,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22InstantiationReq
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = load ptr, ptr %3, align 8, !tbaa !25
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -714,7 +708,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener22InstantiationReq
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = load ptr, ptr %13, align 8, !tbaa !3
@@ -731,7 +725,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30VariableDefiniti
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = load ptr, ptr %3, align 8, !tbaa !25
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -744,7 +738,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener30VariableDefiniti
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = load ptr, ptr %13, align 8, !tbaa !3
@@ -785,7 +779,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener27DefaultArgumentI
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = load ptr, ptr %3, align 8, !tbaa !25
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -798,7 +792,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener27DefaultArgumentI
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = load ptr, ptr %13, align 8, !tbaa !3
@@ -815,7 +809,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DefaultMemberIni
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = load ptr, ptr %3, align 8, !tbaa !25
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -828,7 +822,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DefaultMemberIni
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = load ptr, ptr %13, align 8, !tbaa !3
@@ -845,7 +839,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener28AddedObjCCategor
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !29
-  %7 = load ptr, ptr %4, align 8, !tbaa !28
+  %7 = load ptr, ptr %4, align 8, !tbaa !25
   %8 = ptrtoint ptr %6 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -858,7 +852,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener28AddedObjCCategor
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
-  %12 = load ptr, ptr %4, align 8, !tbaa !28
+  %12 = load ptr, ptr %4, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = load ptr, ptr %14, align 8, !tbaa !3
@@ -875,7 +869,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener21DeclarationMarke
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = load ptr, ptr %3, align 8, !tbaa !25
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -888,7 +882,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener21DeclarationMarke
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = load ptr, ptr %13, align 8, !tbaa !3
@@ -905,7 +899,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DeclarationMarke
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !29
-  %6 = load ptr, ptr %3, align 8, !tbaa !28
+  %6 = load ptr, ptr %3, align 8, !tbaa !25
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -918,7 +912,7 @@ define dso_local void @_ZN5clang28MultiplexASTMutationListener36DeclarationMarke
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %11 = load ptr, ptr %3, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.06
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = load ptr, ptr %13, align 8, !tbaa !3
@@ -2082,13 +2076,13 @@ _ZN5clang35MultiplexASTDeserializationListenerD2Ev.exit: ; preds = %1, %4
 define linkonce_odr hidden void @_ZN5clang28MultiplexASTMutationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTVN5clang28MultiplexASTMutationListenerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -2104,13 +2098,13 @@ _ZNSt6vectorIPN5clang19ASTMutationListenerESaIS2_EED2Ev.exit: ; preds = %1, %4
 define linkonce_odr hidden void @_ZN5clang28MultiplexASTMutationListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTVN5clang28MultiplexASTMutationListenerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN5clang28MultiplexASTMutationListenerD2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -2200,10 +2194,10 @@ attributes #16 = { builtin nounwind }
 !22 = distinct !{!22, !18}
 !23 = distinct !{!23, !18}
 !24 = distinct !{!24, !18}
-!25 = !{!26, !27, i64 16}
+!25 = !{!26, !27, i64 0}
 !26 = !{!"_ZTSNSt12_Vector_baseIPN5clang19ASTMutationListenerESaIS2_EE17_Vector_impl_dataE", !27, i64 0, !27, i64 8, !27, i64 16}
 !27 = !{!"p2 _ZTSN5clang19ASTMutationListenerE", !9, i64 0}
-!28 = !{!26, !27, i64 0}
+!28 = !{!26, !27, i64 16}
 !29 = !{!26, !27, i64 8}
 !30 = !{!31, !31, i64 0}
 !31 = !{!"p1 _ZTSN5clang19ASTMutationListenerE", !9, i64 0}

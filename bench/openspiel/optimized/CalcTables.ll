@@ -260,8 +260,8 @@ define void @_Z15CalcChunkCommoni(i32 noundef %0) local_unnamed_addr #3 personal
   %2 = alloca %"class.std::vector.10", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = load i32, ptr @cparam, align 8
-  %.not22 = icmp eq i32 %3, 0
-  br i1 %.not22, label %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit.preheader, label %4
+  %.not23 = icmp eq i32 %3, 0
+  br i1 %.not23, label %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit.preheader, label %4
 
 4:                                                ; preds = %1
   %5 = zext i32 %3 to i64

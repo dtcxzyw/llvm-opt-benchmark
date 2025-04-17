@@ -1707,12 +1707,16 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt16allocator_tr
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 8
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %99
-  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont179, label %for.body.i.i.i.i.i, !llvm.loop !95
+  br i1 %cmp.i.not.i.i.i.i.i, label %invoke.cont179.loopexit, label %for.body.i.i.i.i.i, !llvm.loop !95
 
-invoke.cont179:                                   ; preds = %for.body.i.i.i.i.i, %do.end175
-  %cond.i.i.i.i506 = phi ptr [ null, %do.end175 ], [ %call5.i.i.i.i2.i6.i174, %for.body.i.i.i.i.i ]
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %do.end175 ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %add.ptr.i.i.i507 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i506, i64 %sub.ptr.sub.i.i
+invoke.cont179.loopexit:                          ; preds = %for.body.i.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i174, i64 %sub.ptr.sub.i.i
+  br label %invoke.cont179
+
+invoke.cont179:                                   ; preds = %invoke.cont179.loopexit, %do.end175
+  %add.ptr.i.i.i507 = phi ptr [ null, %do.end175 ], [ %add.ptr.i.i.i, %invoke.cont179.loopexit ]
+  %cond.i.i.i.i506 = phi ptr [ null, %do.end175 ], [ %call5.i.i.i.i2.i6.i174, %invoke.cont179.loopexit ]
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %do.end175 ], [ %incdec.ptr.i.i.i.i.i, %invoke.cont179.loopexit ]
   %102 = load ptr, ptr %exercise, align 8, !tbaa !82
   %cmp.not.i175 = icmp eq ptr %102, null
   br i1 %cmp.not.i175, label %cond.false.i176, label %invoke.cont184, !prof !83
@@ -1739,7 +1743,7 @@ if.then.i.i181:                                   ; preds = %invoke.cont186
   br label %invoke.cont188
 
 if.else.i.i:                                      ; preds = %invoke.cont186
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__cur.0.lcssa.i.i.i.i.i to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i507 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %cond.i.i.i.i506 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
@@ -1768,7 +1772,7 @@ _ZNKSt6vectorIN8QuantLib4DateESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = 
 call5.i.i.i.i.i.i.noexc:                          ; preds = %_ZNKSt6vectorIN8QuantLib4DateESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %add.ptr.i.i.i184 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i187, i64 %sub.ptr.sub.i.i.i.i.i
   store i64 %call187, ptr %add.ptr.i.i.i184, align 8, !tbaa !30
-  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i506, %__cur.0.lcssa.i.i.i.i.i
+  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i506, %add.ptr.i.i.i507
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i, label %for.body.i.i.i.i.i.i.preheader
 
 for.body.i.i.i.i.i.i.preheader:                   ; preds = %call5.i.i.i.i.i.i.noexc
@@ -1784,7 +1788,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i185, %for.body.i.i.i.i.i.i ], [ %cond.i.i.i.i506, %for.body.i.i.i.i.i.i.preheader ]
   %incdec.ptr.i.i.i.i.i.i185 = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i185, %__cur.0.lcssa.i.i.i.i.i
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i185, %add.ptr.i.i.i507
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !100
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.i.noexc

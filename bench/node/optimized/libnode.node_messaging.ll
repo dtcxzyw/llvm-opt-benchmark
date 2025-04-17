@@ -13963,12 +13963,9 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4node17BaseObject
 declare void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZN4node6worker11MessagePortC1EPNS_11EnvironmentEN2v85LocalINS4_7ContextEEENS5_INS4_6ObjectEEEEN3$_08__invokeEP10uv_async_s"(ptr noundef %handle) #6 align 2 {
+define internal void @"_ZZN4node6worker11MessagePortC1EPNS_11EnvironmentEN2v85LocalINS4_7ContextEEENS5_INS4_6ObjectEEEEN3$_08__invokeEP10uv_async_s"(ptr noundef nonnull %handle) #6 align 2 {
 entry:
-  %0 = ptrtoint ptr %handle to i64
-  %sub.i.i.i = add i64 %0, -104
-  %1 = inttoptr i64 %sub.i.i.i to ptr
-  tail call void @_ZN4node6worker11MessagePort9OnMessageENS1_21MessageProcessingModeE(ptr noundef nonnull align 8 dereferenceable(240) %1, i32 noundef 0)
+  tail call void @_ZN4node6worker11MessagePort9OnMessageENS1_21MessageProcessingModeE(ptr noundef nonnull align 8 dereferenceable(240) %handle, i32 noundef 0)
   ret void
 }
 

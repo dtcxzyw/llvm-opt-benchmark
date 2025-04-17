@@ -3264,11 +3264,7 @@ define linkonce_odr hidden noundef ptr @_Z15get_array_rangePK4sort(ptr noundef %
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !112
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %._ZNK4decl18get_num_parametersEv.exit_crit_edge, label %5
-
-._ZNK4decl18get_num_parametersEv.exit_crit_edge:  ; preds = %1
-  %.pre = load ptr, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !124
-  br label %_ZNK4decl18get_num_parametersEv.exit
+  br i1 %4, label %_ZNK4decl18get_num_parametersEv.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3283,9 +3279,9 @@ define linkonce_odr hidden noundef ptr @_Z15get_array_rangePK4sort(ptr noundef %
   %13 = zext i32 %12 to i64
   br label %_ZNK4decl18get_num_parametersEv.exit
 
-_ZNK4decl18get_num_parametersEv.exit:             ; preds = %._ZNK4decl18get_num_parametersEv.exit_crit_edge, %5, %9
-  %14 = phi ptr [ %.pre, %._ZNK4decl18get_num_parametersEv.exit_crit_edge ], [ %7, %9 ], [ null, %5 ]
-  %15 = phi i64 [ 4294967295, %._ZNK4decl18get_num_parametersEv.exit_crit_edge ], [ %13, %9 ], [ 4294967295, %5 ]
+_ZNK4decl18get_num_parametersEv.exit:             ; preds = %1, %5, %9
+  %14 = phi ptr [ %7, %9 ], [ null, %5 ], [ undef, %1 ]
+  %15 = phi i64 [ %13, %9 ], [ 4294967295, %5 ], [ 4294967295, %1 ]
   %16 = getelementptr inbounds nuw %class.parameter, ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 8, !tbaa !225

@@ -5095,118 +5095,119 @@ define dso_local void @_ZN4llvm10sampleprof19SampleProfileWriter14computeSummary
   %4 = alloca %"class.std::unique_ptr.7", align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #24
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm21ProfileSummaryBuilder14DefaultCutoffsE, i64 8), align 8, !tbaa !255, !noalias !258
-  %.idx.i = shl nuw nsw i64 %5, 2
   %.not.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @_ZN4llvm21ProfileSummaryBuilder14DefaultCutoffsE, align 8, !tbaa !261, !noalias !258
+  %.idx.i = shl nuw nsw i64 %5, 2
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #25, !noalias !258
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %8, ptr align 4 %7, i64 %.idx.i, i1 false), !noalias !258
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %6, %2
   %.sroa.0.0 = phi ptr [ null, %2 ], [ %8, %6 ]
-  %.sink.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.idx.i
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %9, align 8, !tbaa !198
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %10, align 8, !tbaa !200
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %9, ptr %11, align 8, !tbaa !186
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %9, ptr %12, align 8, !tbaa !201
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 0, ptr %13, align 8, !tbaa !185
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %.sroa.0.0, ptr %14, align 8, !tbaa !262
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr %.sink.i, ptr %15, align 8, !tbaa !264
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr %.sink.i, ptr %16, align 8, !tbaa !265
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 56, i1 false)
+  %.sroa.7.0 = phi ptr [ null, %2 ], [ %9, %6 ]
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %10, align 8, !tbaa !198
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr null, ptr %11, align 8, !tbaa !200
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %10, ptr %12, align 8, !tbaa !186
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %10, ptr %13, align 8, !tbaa !201
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i64 0, ptr %14, align 8, !tbaa !185
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store ptr %.sroa.0.0, ptr %15, align 8, !tbaa !262
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store ptr %.sroa.7.0, ptr %16, align 8, !tbaa !264
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store ptr %.sroa.7.0, ptr %17, align 8, !tbaa !265
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
   call void @_ZN4llvm27SampleProfileSummaryBuilder25computeSummaryForProfilesERKNS_10sampleprof16SampleProfileMapE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.7") align 8 %4, ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(56) %1) #24
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %4, align 8, !tbaa !266
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = load ptr, ptr %4, align 8, !tbaa !266
   store ptr null, ptr %4, align 8, !tbaa !266
-  %20 = load ptr, ptr %18, align 8, !tbaa !266
-  store ptr %19, ptr %18, align 8, !tbaa !266
-  %.not.i.i.i.i2 = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i2, label %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EED2Ev.exit, label %21
+  %21 = load ptr, ptr %19, align 8, !tbaa !266
+  store ptr %20, ptr %19, align 8, !tbaa !266
+  %.not.i.i.i.i2 = icmp eq ptr %21, null
+  br i1 %.not.i.i.i.i2, label %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EED2Ev.exit, label %22
 
-21:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !267
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EEaSEOS4_.exit, label %24
+22:                                               ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !267
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EEaSEOS4_.exit, label %25
 
-24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !270
-  %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %23 to i64
-  %29 = sub i64 %27, %28
-  call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %29) #26
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !270
+  %28 = ptrtoint ptr %27 to i64
+  %29 = ptrtoint ptr %24 to i64
+  %30 = sub i64 %28, %29
+  call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %30) #26
   br label %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EEaSEOS4_.exit
 
-_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %21, %24
-  call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 88) #26
+_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %22, %25
+  call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 88) #26
   %.pr = load ptr, ptr %4, align 8, !tbaa !266
   %.not.i = icmp eq ptr %.pr, null
-  br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EED2Ev.exit, label %30
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EED2Ev.exit, label %31
 
-30:                                               ; preds = %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EEaSEOS4_.exit
-  %31 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !267
-  %.not.i.i.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm14ProfileSummaryEEclEPS1_.exit.i, label %33
+31:                                               ; preds = %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EEaSEOS4_.exit
+  %32 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !267
+  %.not.i.i.i.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvm14ProfileSummaryEEclEPS1_.exit.i, label %34
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !270
-  %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %32 to i64
-  %38 = sub i64 %36, %37
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %38) #26
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %.pr, i64 24
+  %36 = load ptr, ptr %35, align 8, !tbaa !270
+  %37 = ptrtoint ptr %36 to i64
+  %38 = ptrtoint ptr %33 to i64
+  %39 = sub i64 %37, %38
+  call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %39) #26
   br label %_ZNKSt14default_deleteIN4llvm14ProfileSummaryEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN4llvm14ProfileSummaryEEclEPS1_.exit.i: ; preds = %33, %30
+_ZNKSt14default_deleteIN4llvm14ProfileSummaryEEclEPS1_.exit.i: ; preds = %34, %31
   call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef 88) #26
   br label %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EEaSEOS4_.exit, %_ZNKSt14default_deleteIN4llvm14ProfileSummaryEEclEPS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  %39 = load ptr, ptr %17, align 8, !tbaa !267
-  %.not.i.i.i.i3 = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.i3, label %_ZNSt6vectorIN4llvm19ProfileSummaryEntryESaIS1_EED2Ev.exit.i, label %40
+  %40 = load ptr, ptr %18, align 8, !tbaa !267
+  %.not.i.i.i.i3 = icmp eq ptr %40, null
+  br i1 %.not.i.i.i.i3, label %_ZNSt6vectorIN4llvm19ProfileSummaryEntryESaIS1_EED2Ev.exit.i, label %41
 
-40:                                               ; preds = %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EED2Ev.exit
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %42 = load ptr, ptr %41, align 8, !tbaa !270
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %39 to i64
-  %45 = sub i64 %43, %44
-  call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %45) #26
+41:                                               ; preds = %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EED2Ev.exit
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %43 = load ptr, ptr %42, align 8, !tbaa !270
+  %44 = ptrtoint ptr %43 to i64
+  %45 = ptrtoint ptr %40 to i64
+  %46 = sub i64 %44, %45
+  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %46) #26
   br label %_ZNSt6vectorIN4llvm19ProfileSummaryEntryESaIS1_EED2Ev.exit.i
 
-_ZNSt6vectorIN4llvm19ProfileSummaryEntryESaIS1_EED2Ev.exit.i: ; preds = %40, %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EED2Ev.exit
-  %46 = load ptr, ptr %14, align 8, !tbaa !262
-  %.not.i.i.i1.i = icmp eq ptr %46, null
-  br i1 %.not.i.i.i1.i, label %_ZN4llvm21ProfileSummaryBuilderD2Ev.exit, label %47
+_ZNSt6vectorIN4llvm19ProfileSummaryEntryESaIS1_EED2Ev.exit.i: ; preds = %41, %_ZNSt10unique_ptrIN4llvm14ProfileSummaryESt14default_deleteIS1_EED2Ev.exit
+  %47 = load ptr, ptr %15, align 8, !tbaa !262
+  %.not.i.i.i1.i = icmp eq ptr %47, null
+  br i1 %.not.i.i.i1.i, label %_ZN4llvm21ProfileSummaryBuilderD2Ev.exit, label %48
 
-47:                                               ; preds = %_ZNSt6vectorIN4llvm19ProfileSummaryEntryESaIS1_EED2Ev.exit.i
-  %48 = load ptr, ptr %16, align 8, !tbaa !265
-  %49 = ptrtoint ptr %48 to i64
-  %50 = ptrtoint ptr %46 to i64
-  %51 = sub i64 %49, %50
-  call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef %51) #26
+48:                                               ; preds = %_ZNSt6vectorIN4llvm19ProfileSummaryEntryESaIS1_EED2Ev.exit.i
+  %49 = load ptr, ptr %17, align 8, !tbaa !265
+  %50 = ptrtoint ptr %49 to i64
+  %51 = ptrtoint ptr %47 to i64
+  %52 = sub i64 %50, %51
+  call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef %52) #26
   br label %_ZN4llvm21ProfileSummaryBuilderD2Ev.exit
 
-_ZN4llvm21ProfileSummaryBuilderD2Ev.exit:         ; preds = %_ZNSt6vectorIN4llvm19ProfileSummaryEntryESaIS1_EED2Ev.exit.i, %47
-  %52 = load ptr, ptr %10, align 8, !tbaa !200
-  call void @_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt7greaterImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef %52)
+_ZN4llvm21ProfileSummaryBuilderD2Ev.exit:         ; preds = %_ZNSt6vectorIN4llvm19ProfileSummaryEntryESaIS1_EED2Ev.exit.i, %48
+  %53 = load ptr, ptr %11, align 8, !tbaa !200
+  call void @_ZNSt8_Rb_treeImSt4pairIKmjESt10_Select1stIS2_ESt7greaterImESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef %53)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #24
   ret void
 }

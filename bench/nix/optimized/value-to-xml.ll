@@ -5186,57 +5186,51 @@ define linkonce_odr void @_ZNK3nix7Formals18lexicographicOrderERKNS_11SymbolTabl
 
 _ZNSt6vectorIN3nix6FormalESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds = %3
   %.not.i.i.i = icmp eq ptr %6, %4
-  br i1 %.not.i.i.i, label %.thread, label %.lr.ph.i.i.i.i.preheader.i.i
-
-.thread:                                          ; preds = %_ZNSt6vectorIN3nix6FormalESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %11 = getelementptr inbounds nuw i8, ptr null, i64 %9
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %12, align 8
-  br label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEEZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SE_E_EvT_SG_T0_.exit
+  br i1 %.not.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEEZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SE_E_EvT_SG_T0_.exit, label %.lr.ph.i.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorIN3nix6FormalESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #32
-  store ptr %13, ptr %0, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %9
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %14, ptr %15, align 8
-  %16 = and i64 %9, 9223372036854775792
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr align 8 %4, i64 %16, i1 false)
-  %scevgep.i.i = getelementptr i8, ptr %13, i64 %16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %scevgep.i.i, ptr %17, align 8
-  %18 = icmp eq i64 %16, 0
-  br i1 %18, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEEZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SE_E_EvT_SG_T0_.exit, label %19
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #32
+  store ptr %11, ptr %0, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %12, ptr %13, align 8
+  %14 = and i64 %9, 9223372036854775792
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr align 8 %4, i64 %14, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %scevgep.i.i, ptr %15, align 8
+  %16 = icmp eq i64 %14, 0
+  br i1 %16, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEEZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SE_E_EvT_SG_T0_.exit, label %17
 
-19:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i
-  %20 = lshr i64 %9, 4
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
-  %22 = shl nuw nsw i64 %21, 1
-  %23 = xor i64 %22, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SG_E_EEEvT_SJ_T0_T1_(ptr nonnull %13, ptr %scevgep.i.i, i64 noundef %23, ptr nonnull %2)
+17:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i.i
+  %18 = lshr i64 %9, 4
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 true)
+  %20 = shl nuw nsw i64 %19, 1
+  %21 = xor i64 %20, 126
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SG_E_EEEvT_SJ_T0_T1_(ptr nonnull %11, ptr %scevgep.i.i, i64 noundef %21, ptr nonnull %2)
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %19
-  %24 = icmp samesign ugt i64 %16, 256
-  br i1 %24, label %25, label %29
+.noexc:                                           ; preds = %17
+  %22 = icmp samesign ugt i64 %14, 256
+  br i1 %22, label %23, label %27
 
-25:                                               ; preds = %.noexc
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 256
-  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SG_E_EEEvT_SJ_T0_(ptr nonnull %13, ptr nonnull %26, ptr nonnull %2)
+23:                                               ; preds = %.noexc
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 256
+  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SG_E_EEEvT_SJ_T0_(ptr nonnull %11, ptr nonnull %24, ptr nonnull %2)
           to label %.lr.ph.i.i.i.i unwind label %.loopexit.split-lp
 
-.lr.ph.i.i.i.i:                                   ; preds = %25, %.noexc11
-  %.sroa.0.07.i.i.i.i = phi ptr [ %27, %.noexc11 ], [ %26, %25 ]
+.lr.ph.i.i.i.i:                                   ; preds = %23, %.noexc11
+  %.sroa.0.07.i.i.i.i = phi ptr [ %25, %.noexc11 ], [ %24, %23 ]
   invoke void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SG_E_EEEvT_T0_(ptr nonnull %.sroa.0.07.i.i.i.i, ptr nonnull %2)
           to label %.noexc11 unwind label %.loopexit
 
 .noexc11:                                         ; preds = %.lr.ph.i.i.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 16
-  %28 = icmp eq ptr %27, %scevgep.i.i
-  br i1 %28, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEEZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SE_E_EvT_SG_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !49
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i, i64 16
+  %26 = icmp eq ptr %25, %scevgep.i.i
+  br i1 %26, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEEZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SE_E_EvT_SG_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !49
 
-29:                                               ; preds = %.noexc
-  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SG_E_EEEvT_SJ_T0_(ptr nonnull %13, ptr %scevgep.i.i, ptr nonnull %2)
+27:                                               ; preds = %.noexc
+  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SG_E_EEEvT_SJ_T0_(ptr nonnull %11, ptr %scevgep.i.i, ptr nonnull %2)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEEZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SE_E_EvT_SG_T0_.exit unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i
@@ -5244,17 +5238,17 @@ _ZNSt6vectorIN3nix6FormalESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; preds =
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %19, %25, %29
+.loopexit.split-lp:                               ; preds = %17, %23, %27
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  tail call void @_ZdlPv(ptr noundef nonnull %13) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #31
   resume { ptr, i32 } %lpad.phi
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEEZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SE_E_EvT_SG_T0_.exit: ; preds = %.noexc11, %.thread, %.lr.ph.i.i.i.i.preheader.i.i, %29
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3nix6FormalESt6vectorIS3_SaIS3_EEEEZNKS2_7Formals18lexicographicOrderERKNS2_11SymbolTableEEUlRKS3_SE_E_EvT_SG_T0_.exit: ; preds = %.noexc11, %_ZNSt6vectorIN3nix6FormalESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i, %.lr.ph.i.i.i.i.preheader.i.i, %27
   ret void
 }
 

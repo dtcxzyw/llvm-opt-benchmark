@@ -10946,8 +10946,8 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers22EnumStreamSubstitutio
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %11
   %.pre = load ptr, ptr %8, align 8, !tbaa !92
-  %.pre9 = load ptr, ptr %10, align 8, !tbaa !92
-  %.not5.i = icmp eq ptr %.pre, %.pre9
+  %.pre8 = load ptr, ptr %10, align 8, !tbaa !92
+  %.not5.i = icmp eq ptr %.pre, %.pre8
   br i1 %.not5.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %.lr.ph.i
@@ -10956,7 +10956,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %11
   store i32 %.07.i, ptr %.sroa.02.06.i, align 4, !tbaa !90
   %13 = add nuw nsw i32 %.07.i, 1
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 4
-  %.not.i = icmp eq ptr %14, %.pre9
+  %.not.i = icmp eq ptr %14, %.pre8
   br i1 %.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit, label %.lr.ph.i, !llvm.loop !138
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit: ; preds = %.lr.ph.i, %5, %_ZNSt6vectorIjSaIjEE6resizeEm.exit

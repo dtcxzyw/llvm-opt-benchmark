@@ -2537,16 +2537,12 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i.thread, label %cond.true.i.i.i.i.i.i
 
 invoke.cont.i.i.i.thread:                         ; preds = %entry
   %_M_finish.i.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %restorer, i64 48
-  %add.ptr.i.i.i.i.i4 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %restorer, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %charEncodings.i.i, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i.i4, ptr %_M_end_of_storage.i.i.i.i.i5, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false)
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit
 
 cond.true.i.i.i.i.i.i:                            ; preds = %entry
@@ -2569,7 +2565,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %cond.true.i.i.i.i.i
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit
 
 _ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit: ; preds = %invoke.cont.i.i.i.thread, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i7 = phi ptr [ %add.ptr.i.i.i.i.i4, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i7 = phi ptr [ null, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i6 = phi ptr [ %_M_finish.i.i.i.i.i3, %invoke.cont.i.i.i.thread ], [ %_M_finish.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i7, ptr %_M_finish.i.i.i.i.i6, align 8
   %stringVariableLength.i.i = getelementptr inbounds nuw i8, ptr %restorer, i64 64
@@ -3914,16 +3910,12 @@ _ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i.thread, label %cond.true.i.i.i.i.i.i
 
 invoke.cont.i.i.i.thread:                         ; preds = %_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit
   %_M_finish.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %restorer, i64 48
-  %add.ptr.i.i.i.i.i35 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %restorer, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %charEncodings.i.i, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i.i35, ptr %_M_end_of_storage.i.i.i.i.i36, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false)
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit
 
 cond.true.i.i.i.i.i.i:                            ; preds = %_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit
@@ -3946,7 +3938,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %cond.true.i.i.i.i.i
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit
 
 _ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit: ; preds = %invoke.cont.i.i.i.thread, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i38 = phi ptr [ %add.ptr.i.i.i.i.i35, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i38 = phi ptr [ null, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i37 = phi ptr [ %_M_finish.i.i.i.i.i34, %invoke.cont.i.i.i.thread ], [ %_M_finish.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i38, ptr %_M_finish.i.i.i.i.i37, align 8
   %stringVariableLength.i.i = getelementptr inbounds nuw i8, ptr %restorer, i64 64
@@ -7655,16 +7647,12 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i.thread, label %cond.true.i.i.i.i.i.i
 
 invoke.cont.i.i.i.thread:                         ; preds = %entry
   %_M_finish.i.i.i.i.i242 = getelementptr inbounds nuw i8, ptr %restorer, i64 48
-  %add.ptr.i.i.i.i.i243 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i244 = getelementptr inbounds nuw i8, ptr %restorer, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %charEncodings.i.i, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i.i243, ptr %_M_end_of_storage.i.i.i.i.i244, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false)
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit
 
 cond.true.i.i.i.i.i.i:                            ; preds = %entry
@@ -7687,7 +7675,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %cond.true.i.i.i.i.i
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit
 
 _ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit: ; preds = %invoke.cont.i.i.i.thread, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i246 = phi ptr [ %add.ptr.i.i.i.i.i243, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i246 = phi ptr [ null, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i245 = phi ptr [ %_M_finish.i.i.i.i.i242, %invoke.cont.i.i.i.thread ], [ %_M_finish.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i246, ptr %_M_finish.i.i.i.i.i245, align 8
   %stringVariableLength.i.i = getelementptr inbounds nuw i8, ptr %restorer, i64 64
@@ -12998,16 +12986,12 @@ cond.false:                                       ; preds = %_ZN8facebook5velox1
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false), !noalias !192
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i.thread, label %cond.true.i.i.i.i.i.i
 
 invoke.cont.i.i.i.thread:                         ; preds = %cond.false
   %_M_finish.i.i.i.i.i445 = getelementptr inbounds nuw i8, ptr %restorer.i, i64 48
-  %add.ptr.i.i.i.i.i446 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i447 = getelementptr inbounds nuw i8, ptr %restorer.i, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %charEncodings.i.i, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i.i446, ptr %_M_end_of_storage.i.i.i.i.i447, align 8, !noalias !192
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false)
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit
 
 cond.true.i.i.i.i.i.i:                            ; preds = %cond.false
@@ -13030,7 +13014,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %cond.true.i.i.i.i.i
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit
 
 _ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit: ; preds = %invoke.cont.i.i.i.thread, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i449 = phi ptr [ %add.ptr.i.i.i.i.i446, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i449 = phi ptr [ null, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i448 = phi ptr [ %_M_finish.i.i.i.i.i445, %invoke.cont.i.i.i.thread ], [ %_M_finish.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i449, ptr %_M_finish.i.i.i.i.i448, align 8, !noalias !192
   %stringVariableLength.i.i = getelementptr inbounds nuw i8, ptr %restorer.i, i64 64
@@ -13238,16 +13222,12 @@ cond.true29:                                      ; preds = %_ZN8facebook5velox1
   %sub.ptr.lhs.cast.i.i.i.i316 = ptrtoint ptr %41 to i64
   %sub.ptr.rhs.cast.i.i.i.i317 = ptrtoint ptr %42 to i64
   %sub.ptr.sub.i.i.i.i318 = sub i64 %sub.ptr.lhs.cast.i.i.i.i316, %sub.ptr.rhs.cast.i.i.i.i317
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i313, i8 0, i64 24, i1 false), !noalias !195
   %cmp.not.i.i.i.i.i.i319 = icmp eq ptr %41, %42
   br i1 %cmp.not.i.i.i.i.i.i319, label %invoke.cont.i.i.i324.thread, label %cond.true.i.i.i.i.i.i320
 
 invoke.cont.i.i.i324.thread:                      ; preds = %cond.true29
   %_M_finish.i.i.i.i.i326451 = getelementptr inbounds nuw i8, ptr %restorer.i89, i64 48
-  %add.ptr.i.i.i.i.i327452 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i318
-  %_M_end_of_storage.i.i.i.i.i328453 = getelementptr inbounds nuw i8, ptr %restorer.i89, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %charEncodings.i.i313, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i.i327452, ptr %_M_end_of_storage.i.i.i.i.i328453, align 8, !noalias !195
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i313, i8 0, i64 24, i1 false)
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit338
 
 cond.true.i.i.i.i.i.i320:                         ; preds = %cond.true29
@@ -13270,7 +13250,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i333:                 ; preds = %cond.true.i.i.i.i.i
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit338
 
 _ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit338: ; preds = %invoke.cont.i.i.i324.thread, %if.then.i.i.i.i.i.i.i.i.i.i.i333
-  %add.ptr.i.i.i.i.i327455 = phi ptr [ %add.ptr.i.i.i.i.i327452, %invoke.cont.i.i.i324.thread ], [ %add.ptr.i.i.i.i.i327, %if.then.i.i.i.i.i.i.i.i.i.i.i333 ]
+  %add.ptr.i.i.i.i.i327455 = phi ptr [ null, %invoke.cont.i.i.i324.thread ], [ %add.ptr.i.i.i.i.i327, %if.then.i.i.i.i.i.i.i.i.i.i.i333 ]
   %_M_finish.i.i.i.i.i326454 = phi ptr [ %_M_finish.i.i.i.i.i326451, %invoke.cont.i.i.i324.thread ], [ %_M_finish.i.i.i.i.i326, %if.then.i.i.i.i.i.i.i.i.i.i.i333 ]
   store ptr %add.ptr.i.i.i.i.i327455, ptr %_M_finish.i.i.i.i.i326454, align 8, !noalias !195
   %stringVariableLength.i.i335 = getelementptr inbounds nuw i8, ptr %restorer.i89, i64 64
@@ -13349,10 +13329,6 @@ cond.false41:                                     ; preds = %cond.end33
 
 invoke.cont.i.i.i362.thread:                      ; preds = %cond.false41
   %_M_finish.i.i.i.i.i364457 = getelementptr inbounds nuw i8, ptr %restorer.i93, i64 48
-  %add.ptr.i.i.i.i.i365458 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i356
-  %_M_end_of_storage.i.i.i.i.i366459 = getelementptr inbounds nuw i8, ptr %restorer.i93, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %charEncodings.i.i351, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i.i365458, ptr %_M_end_of_storage.i.i.i.i.i366459, align 8
   br label %.noexc
 
 cond.true.i.i.i.i.i.i358:                         ; preds = %cond.false41
@@ -13381,7 +13357,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i371:                 ; preds = %_ZNSt16allocator_tr
   br label %.noexc
 
 .noexc:                                           ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i371, %invoke.cont.i.i.i362.thread
-  %add.ptr.i.i.i.i.i365461 = phi ptr [ %add.ptr.i.i.i.i.i365458, %invoke.cont.i.i.i362.thread ], [ %add.ptr.i.i.i.i.i365, %if.then.i.i.i.i.i.i.i.i.i.i.i371 ]
+  %add.ptr.i.i.i.i.i365461 = phi ptr [ null, %invoke.cont.i.i.i362.thread ], [ %add.ptr.i.i.i.i.i365, %if.then.i.i.i.i.i.i.i.i.i.i.i371 ]
   %_M_finish.i.i.i.i.i364460 = phi ptr [ %_M_finish.i.i.i.i.i364457, %invoke.cont.i.i.i362.thread ], [ %_M_finish.i.i.i.i.i364, %if.then.i.i.i.i.i.i.i.i.i.i.i371 ]
   store ptr %add.ptr.i.i.i.i.i365461, ptr %_M_finish.i.i.i.i.i364460, align 8
   %stringVariableLength.i.i373 = getelementptr inbounds nuw i8, ptr %restorer.i93, i64 64
@@ -13692,13 +13668,7 @@ cond.false72:                                     ; preds = %for.body
   %sub.ptr.sub.i.i.i.i396 = sub i64 %sub.ptr.lhs.cast.i.i.i.i394, %sub.ptr.rhs.cast.i.i.i.i395
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i391, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i397 = icmp eq ptr %89, %90
-  br i1 %cmp.not.i.i.i.i.i.i397, label %invoke.cont.i.i.i402.thread, label %cond.true.i.i.i.i.i.i398
-
-invoke.cont.i.i.i402.thread:                      ; preds = %cond.false72
-  %add.ptr.i.i.i.i.i405464 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i396
-  store i64 0, ptr %charEncodings.i.i391, align 8
-  store ptr %add.ptr.i.i.i.i.i405464, ptr %_M_end_of_storage.i.i.i.i.i406, align 8
-  br label %.noexc208
+  br i1 %cmp.not.i.i.i.i.i.i397, label %.noexc208, label %cond.true.i.i.i.i.i.i398
 
 cond.true.i.i.i.i.i.i398:                         ; preds = %cond.false72
   %cmp.i.i.i.i.i.i.i.i399 = icmp ugt i64 %sub.ptr.sub.i.i.i.i396, 9223372036854775804
@@ -13723,8 +13693,8 @@ if.then.i.i.i.i.i.i.i.i.i.i.i411:                 ; preds = %_ZNSt16allocator_tr
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i6.i.i.i401417, ptr align 4 %90, i64 %sub.ptr.sub.i.i.i.i396, i1 false)
   br label %.noexc208
 
-.noexc208:                                        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i411, %invoke.cont.i.i.i402.thread
-  %add.ptr.i.i.i.i.i405467 = phi ptr [ %add.ptr.i.i.i.i.i405464, %invoke.cont.i.i.i402.thread ], [ %add.ptr.i.i.i.i.i405, %if.then.i.i.i.i.i.i.i.i.i.i.i411 ]
+.noexc208:                                        ; preds = %cond.false72, %if.then.i.i.i.i.i.i.i.i.i.i.i411
+  %add.ptr.i.i.i.i.i405467 = phi ptr [ %add.ptr.i.i.i.i.i405, %if.then.i.i.i.i.i.i.i.i.i.i.i411 ], [ null, %cond.false72 ]
   store ptr %add.ptr.i.i.i.i.i405467, ptr %_M_finish.i.i.i.i.i404, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(43) %stringVariableLength.i.i413, ptr noundef nonnull align 8 dereferenceable(43) %stringVariableLength4.i.i414, i64 43, i1 false)
   store double 0.000000e+00, ptr %nullRatio.i206, align 8, !noalias !201
@@ -14151,16 +14121,12 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i.thread, label %cond.true.i.i.i.i.i.i
 
 invoke.cont.i.i.i.thread:                         ; preds = %entry
   %_M_finish.i.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %restorer, i64 48
-  %add.ptr.i.i.i.i.i4 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %restorer, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %charEncodings.i.i, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i.i4, ptr %_M_end_of_storage.i.i.i.i.i5, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false)
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit
 
 cond.true.i.i.i.i.i.i:                            ; preds = %entry
@@ -14183,7 +14149,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %cond.true.i.i.i.i.i
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit
 
 _ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit: ; preds = %invoke.cont.i.i.i.thread, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i7 = phi ptr [ %add.ptr.i.i.i.i.i4, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i7 = phi ptr [ null, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i6 = phi ptr [ %_M_finish.i.i.i.i.i3, %invoke.cont.i.i.i.thread ], [ %_M_finish.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i7, ptr %_M_finish.i.i.i.i.i6, align 8
   %stringVariableLength.i.i = getelementptr inbounds nuw i8, ptr %restorer, i64 64
@@ -18980,16 +18946,12 @@ entry:
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i.thread, label %cond.true.i.i.i.i.i.i
 
 invoke.cont.i.i.i.thread:                         ; preds = %entry
   %_M_finish.i.i.i.i.i3 = getelementptr inbounds nuw i8, ptr %restorer, i64 48
-  %add.ptr.i.i.i.i.i4 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %restorer, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %charEncodings.i.i, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i.i4, ptr %_M_end_of_storage.i.i.i.i.i5, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %charEncodings.i.i, i8 0, i64 24, i1 false)
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit
 
 cond.true.i.i.i.i.i.i:                            ; preds = %entry
@@ -19012,7 +18974,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %cond.true.i.i.i.i.i
   br label %_ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit
 
 _ZN8facebook5velox12_GLOBAL__N_113ScopedOptionsC2EPNS0_12VectorFuzzerE.exit: ; preds = %invoke.cont.i.i.i.thread, %if.then.i.i.i.i.i.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i7 = phi ptr [ %add.ptr.i.i.i.i.i4, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i.i7 = phi ptr [ null, %invoke.cont.i.i.i.thread ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i.i6 = phi ptr [ %_M_finish.i.i.i.i.i3, %invoke.cont.i.i.i.thread ], [ %_M_finish.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i.i7, ptr %_M_finish.i.i.i.i.i6, align 8
   %stringVariableLength.i.i = getelementptr inbounds nuw i8, ptr %restorer, i64 64
@@ -23743,10 +23705,6 @@ init.end:                                         ; preds = %arraydestroy.done46
 
 invoke.cont.i.thread:                             ; preds = %init.end
   %_M_finish.i.i.i41 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  %add.ptr.i.i.i42 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i.i43 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i42, ptr %_M_end_of_storage.i.i.i43, align 8
   br label %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EEC2ERKS7_.exit
 
 cond.true.i.i.i.i:                                ; preds = %init.end
@@ -65160,13 +65118,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i: ; preds = %entry
   %cmp.not.i.i = icmp eq i64 %__l.coerce1, 0
-  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE11_M_allocateEm.exit.thread.i, label %for.body.i.i.i.i.preheader.i
-
-_ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
-  %add.ptr5.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.i.idx
-  %_M_end_of_storage6.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %add.ptr5.i, ptr %_M_end_of_storage6.i, align 8
-  br label %invoke.cont
+  br i1 %cmp.not.i.i, label %invoke.cont, label %for.body.i.i.i.i.preheader.i
 
 for.body.i.i.i.i.preheader.i:                     ; preds = %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
   %call5.i.i.i.i2 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i.idx) #35
@@ -65213,8 +65165,8 @@ _ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4TypeEEJRKS5_EEvPT_DpOT0_.exit.
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i, !llvm.loop !778
 
-invoke.cont:                                      ; preds = %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4TypeEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE11_M_allocateEm.exit.thread.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE11_M_allocateEm.exit.thread.i ], [ %incdec.ptr1.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4TypeEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+invoke.cont:                                      ; preds = %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4TypeEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIKN8facebook5velox4TypeEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i, align 8
   ret void

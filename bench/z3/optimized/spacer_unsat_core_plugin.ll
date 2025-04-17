@@ -6528,7 +6528,7 @@ _ZN6spacer13spacer_matrix3setEjjRK8rational.exit: ; preds = %330, %335
   %.pre2.i194 = load i32, ptr %.phi.trans.insert.i193, align 4, !tbaa !160
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %.noexc195, %374
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; preds = %374, %.noexc195
   %381 = phi ptr [ %.pre.i192, %.noexc195 ], [ %370, %374 ]
   %382 = phi i32 [ %.pre2.i194, %.noexc195 ], [ %376, %374 ]
   %383 = getelementptr inbounds i8, ptr %381, i64 -4
@@ -6621,7 +6621,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
   %.pre2.i201 = load i32, ptr %.phi.trans.insert.i200, align 4, !tbaa !160
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit214
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit214: ; preds = %.noexc202, %434
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit214: ; preds = %434, %.noexc202
   %441 = phi ptr [ %.pre.i199, %.noexc202 ], [ %430, %434 ]
   %442 = phi i32 [ %.pre2.i201, %.noexc202 ], [ %436, %434 ]
   %443 = getelementptr inbounds i8, ptr %441, i64 -4

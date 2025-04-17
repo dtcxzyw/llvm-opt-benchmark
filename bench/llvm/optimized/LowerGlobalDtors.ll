@@ -365,8 +365,8 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %99, %102
 
 .lr.ph:                                           ; preds = %_ZNK4llvm4User8operandsEv.exit
   %109 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %110 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %111 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br label %112
 
 112:                                              ; preds = %.lr.ph, %.thread
@@ -494,10 +494,10 @@ _ZNSt6vectorIPN4llvm8ConstantESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt3ma
   %167 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18, !noalias !86
   store ptr %167, ptr %109, align 8, !tbaa !89, !alias.scope !86
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  store ptr %168, ptr %110, align 8, !tbaa !90, !alias.scope !86
+  store ptr %168, ptr %111, align 8, !tbaa !90, !alias.scope !86
   %169 = ptrtoint ptr %166 to i64
   store i64 %169, ptr %167, align 8, !noalias !86
-  store ptr %168, ptr %111, align 8, !tbaa !91, !alias.scope !86
+  store ptr %168, ptr %110, align 8, !tbaa !91, !alias.scope !86
   %170 = load ptr, ptr %160, align 8, !tbaa !92
   %171 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 56
   %172 = load ptr, ptr %171, align 8, !tbaa !94
@@ -523,7 +523,7 @@ _ZNSt6vectorISt4pairIPN4llvm8ConstantES_IS3_SaIS3_EEESaIS6_EE9push_backEOS6_.exi
   br i1 %.not.i.i.i.i144, label %_ZNSt6vectorIPN4llvm8ConstantESaIS2_EED2Ev.exit, label %177
 
 177:                                              ; preds = %_ZNSt6vectorISt4pairIPN4llvm8ConstantES_IS3_SaIS3_EEESaIS6_EE9push_backEOS6_.exit
-  %178 = load ptr, ptr %110, align 8, !tbaa !90
+  %178 = load ptr, ptr %111, align 8, !tbaa !90
   %179 = ptrtoint ptr %178 to i64
   %180 = ptrtoint ptr %.pr to i64
   %181 = sub i64 %179, %180

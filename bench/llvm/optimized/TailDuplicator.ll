@@ -4259,14 +4259,14 @@ _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockENS1_8RegisterEESaIS5_EE9push_bac
   tail call void @llvm.experimental.noalias.scope.decl(metadata !380)
   store i32 %1, ptr %5, align 8, !tbaa !49, !alias.scope !380
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !380
-  store ptr %63, ptr %62, align 8, !tbaa !262, !alias.scope !380
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %64, ptr %65, align 8, !tbaa !265, !alias.scope !380
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !noalias !380
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %64, ptr %66, align 8, !tbaa !374, !alias.scope !380
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %64 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !380
+  store ptr %64, ptr %62, align 8, !tbaa !262, !alias.scope !380
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr %65, ptr %66, align 8, !tbaa !265, !alias.scope !380
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !noalias !380
+  store ptr %65, ptr %63, align 8, !tbaa !374, !alias.scope !380
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #19
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterESt6vectorISt4pairIPNS_17MachineBasicBlockES2_ESaIS7_EENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E11try_emplaceIJS9_EEES4_INS_16DenseMapIteratorIS2_S9_SB_SE_Lb0EEEbEOS2_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.238") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %62)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #19
@@ -4275,7 +4275,7 @@ _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockENS1_8RegisterEESaIS5_EE9push_bac
   br i1 %.not.i.i.i.i25, label %_ZNSt4pairIN4llvm8RegisterESt6vectorIS_IPNS0_17MachineBasicBlockES1_ESaIS5_EEED2Ev.exit, label %68
 
 68:                                               ; preds = %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockENS1_8RegisterEESaIS5_EE9push_backEOS5_.exit23
-  %69 = load ptr, ptr %65, align 8, !tbaa !265
+  %69 = load ptr, ptr %66, align 8, !tbaa !265
   %70 = ptrtoint ptr %69 to i64
   %71 = ptrtoint ptr %67 to i64
   %72 = sub i64 %70, %71

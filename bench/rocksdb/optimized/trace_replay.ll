@@ -5456,26 +5456,26 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit: ; preds = %.lr.ph.i.i.i30.i
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread: ; preds = %39
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %.idx49 = shl nuw nsw i64 %2, 4
-  tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.idx49) #23
+  %.idx48 = shl nuw nsw i64 %2, 4
+  tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.idx48) #23
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit:   ; preds = %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i, %29
   %.ph.ph = phi ptr [ %32, %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i ], [ %25, %29 ]
-  %lpad.thr_comm.split-lp43 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp42 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread
   %40 = phi ptr [ %32, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread ], [ %.ph.ph, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit ]
-  %lpad.phi3740 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread ], [ %lpad.thr_comm.split-lp43, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit ]
+  %lpad.phi3639 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread ], [ %lpad.thr_comm.split-lp42, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #24
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %17 to i64
   %43 = sub i64 %41, %42
   tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %43) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
-  resume { ptr, i32 } %lpad.phi3740
+  resume { ptr, i32 } %lpad.phi3639
 
 44:                                               ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit, %44
   %.029 = phi i64 [ 0, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit ], [ %50, %44 ]
@@ -5494,8 +5494,8 @@ _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit21: ; preds = %39
   %.idx = shl nuw nsw i64 %2, 4
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.idx) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #24
-  %.idx32 = shl nuw nsw i64 %2, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %.idx32) #23
+  %.idx31 = shl nuw nsw i64 %2, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %.idx31) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
   br label %51
 
@@ -6075,26 +6075,26 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit: ; preds = %.lr.ph.i.i.i30.i
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread: ; preds = %39
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %.idx48 = shl nuw nsw i64 %2, 4
-  tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.idx48) #23
+  %.idx47 = shl nuw nsw i64 %2, 4
+  tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.idx47) #23
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit:   ; preds = %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i, %29
   %.ph.ph = phi ptr [ %32, %_ZNKSt6vectorIN7rocksdb5SliceESaIS1_EE12_M_check_lenEmPKc.exit.i ], [ %25, %29 ]
-  %lpad.thr_comm.split-lp42 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp41 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread
   %40 = phi ptr [ %32, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread ], [ %.ph.ph, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit ]
-  %lpad.phi3639 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread ], [ %lpad.thr_comm.split-lp42, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit ]
+  %lpad.phi3538 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread ], [ %lpad.thr_comm.split-lp41, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #24
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %17 to i64
   %43 = sub i64 %41, %42
   tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %43) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
-  resume { ptr, i32 } %lpad.phi3639
+  resume { ptr, i32 } %lpad.phi3538
 
 44:                                               ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit, %44
   %.028 = phi i64 [ 0, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit ], [ %48, %44 ]
@@ -6111,8 +6111,8 @@ _ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EED2Ev.exit20: ; preds = %39
   %.idx = shl nuw nsw i64 %2, 4
   tail call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %.idx) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #24
-  %.idx31 = shl nuw nsw i64 %2, 3
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %.idx31) #23
+  %.idx30 = shl nuw nsw i64 %2, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %.idx30) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
   br label %49
 

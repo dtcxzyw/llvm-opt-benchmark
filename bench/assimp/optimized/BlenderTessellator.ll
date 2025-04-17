@@ -278,10 +278,10 @@ _ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8P
   br i1 %.not.i, label %_ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8PlaneP2TE.exit._ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecticesERK12aiMatrix4x4tIfERSt6vectorINS_7Blender8PointP2TESaIS7_EE.exit_crit_edge, label %.lr.ph.i21
 
 _ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8PlaneP2TE.exit._ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecticesERK12aiMatrix4x4tIfERSt6vectorINS_7Blender8PointP2TESaIS7_EE.exit_crit_edge: ; preds = %_ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8PlaneP2TE.exit
-  %.pre39 = ptrtoint ptr %94 to i64
-  %.pre40 = ptrtoint ptr %95 to i64
-  %.pre42 = sub i64 %.pre39, %.pre40
-  %.pre44 = ashr exact i64 %.pre42, 6
+  %.pre38 = ptrtoint ptr %94 to i64
+  %.pre39 = ptrtoint ptr %95 to i64
+  %.pre41 = sub i64 %.pre38, %.pre39
+  %.pre43 = ashr exact i64 %.pre41, 6
   br label %_ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecticesERK12aiMatrix4x4tIfERSt6vectorINS_7Blender8PointP2TESaIS7_EE.exit
 
 .lr.ph.i21:                                       ; preds = %_ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8PlaneP2TE.exit, %.lr.ph.i21
@@ -338,18 +338,18 @@ _ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8P
   br i1 %138, label %.lr.ph.i21, label %_ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecticesERK12aiMatrix4x4tIfERSt6vectorINS_7Blender8PointP2TESaIS7_EE.exit, !llvm.loop !8
 
 _ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecticesERK12aiMatrix4x4tIfERSt6vectorINS_7Blender8PointP2TESaIS7_EE.exit: ; preds = %.lr.ph.i21, %_ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8PlaneP2TE.exit._ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecticesERK12aiMatrix4x4tIfERSt6vectorINS_7Blender8PointP2TESaIS7_EE.exit_crit_edge
-  %.pre-phi45 = phi i64 [ %.pre44, %_ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8PlaneP2TE.exit._ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecticesERK12aiMatrix4x4tIfERSt6vectorINS_7Blender8PointP2TESaIS7_EE.exit_crit_edge ], [ %137, %.lr.ph.i21 ]
+  %.pre-phi44 = phi i64 [ %.pre43, %_ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8PlaneP2TE.exit._ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecticesERK12aiMatrix4x4tIfERSt6vectorINS_7Blender8PointP2TESaIS7_EE.exit_crit_edge ], [ %137, %.lr.ph.i21 ]
   %139 = phi ptr [ %95, %_ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8PlaneP2TE.exit._ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecticesERK12aiMatrix4x4tIfERSt6vectorINS_7Blender8PointP2TESaIS7_EE.exit_crit_edge ], [ %133, %.lr.ph.i21 ]
   %140 = phi ptr [ %94, %_ZNK6Assimp21BlenderTessellatorP2T28GeneratePointTransformMatrixERKNS_7Blender8PlaneP2TE.exit._ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecticesERK12aiMatrix4x4tIfERSt6vectorINS_7Blender8PointP2TESaIS7_EE.exit_crit_edge ], [ %132, %.lr.ph.i21 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %141 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.not = icmp eq i64 %.pre-phi45, 0
+  %.not = icmp eq i64 %.pre-phi44, 0
   br i1 %.not, label %_ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit.i, label %142
 
 142:                                              ; preds = %_ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecticesERK12aiMatrix4x4tIfERSt6vectorINS_7Blender8PointP2TESaIS7_EE.exit
   %143 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %144 = icmp ugt i64 %.pre-phi45, 1152921504606846975
+  %144 = icmp ugt i64 %.pre-phi44, 1152921504606846975
   br i1 %144, label %145, label %_ZNKSt6vectorIPN3p2t5PointESaIS2_EE12_M_check_lenEmPKc.exit.i
 
 145:                                              ; preds = %142
@@ -360,13 +360,13 @@ _ZNK6Assimp21BlenderTessellatorP2T27TransformAndFlattenVecticesERK12aiMatrix4x4t
   unreachable
 
 _ZNKSt6vectorIPN3p2t5PointESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %142
-  %146 = shl nuw nsw i64 %.pre-phi45, 3
+  %146 = shl nuw nsw i64 %.pre-phi44, 3
   %147 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %146) #28
           to label %.noexc37 unwind label %.thread
 
 .noexc37:                                         ; preds = %_ZNKSt6vectorIPN3p2t5PointESaIS2_EE12_M_check_lenEmPKc.exit.i
   store ptr null, ptr %147, align 8
-  %148 = icmp eq i64 %.pre-phi45, 1
+  %148 = icmp eq i64 %.pre-phi44, 1
   br i1 %148, label %_ZNSt12_Vector_baseIPN3p2t5PointESaIS2_EE13_M_deallocateEPS2_m.exit35.i, label %_ZSt6fill_nIPPN3p2t5PointEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i
 
 _ZSt6fill_nIPPN3p2t5PointEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc37
@@ -377,7 +377,7 @@ _ZSt6fill_nIPPN3p2t5PointEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = 
 
 _ZNSt12_Vector_baseIPN3p2t5PointESaIS2_EE13_M_deallocateEPS2_m.exit35.i: ; preds = %_ZSt6fill_nIPPN3p2t5PointEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc37
   store ptr %147, ptr %9, align 8
-  %151 = getelementptr inbounds nuw ptr, ptr %147, i64 %.pre-phi45
+  %151 = getelementptr inbounds nuw ptr, ptr %147, i64 %.pre-phi44
   store ptr %151, ptr %141, align 8
   store ptr %151, ptr %143, align 8
   br label %_ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit.i
@@ -393,7 +393,7 @@ _ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit.i: ; preds = %_ZNK6Assimp21Blen
   %154 = getelementptr inbounds nuw ptr, ptr %152, i64 %.08.i
   store ptr %153, ptr %154, align 8
   %155 = add nuw nsw i64 %.08.i, 1
-  %156 = icmp samesign ult i64 %155, %.pre-phi45
+  %156 = icmp samesign ult i64 %155, %.pre-phi44
   br i1 %156, label %.lr.ph.i25, label %_ZNK6Assimp21BlenderTessellatorP2T15ReferencePointsERSt6vectorINS_7Blender8PointP2TESaIS3_EERS1_IPN3p2t5PointESaIS9_EE.exit, !llvm.loop !9
 
 _ZNK6Assimp21BlenderTessellatorP2T15ReferencePointsERSt6vectorINS_7Blender8PointP2TESaIS3_EERS1_IPN3p2t5PointESaIS9_EE.exit: ; preds = %.lr.ph.i25, %_ZNSt6vectorIPN3p2t5PointESaIS2_EE6resizeEm.exit.i
@@ -570,12 +570,12 @@ _ZNSt6vectorIPN3p2t8TriangleESaIS2_EED2Ev.exit32: ; preds = %207, %204, %202
   br label %_ZNSt6vectorIPN3p2t5PointESaIS2_EED2Ev.exit34
 
 _ZNSt6vectorIPN3p2t5PointESaIS2_EED2Ev.exit34:    ; preds = %.thread, %214, %215
-  %.pn.pn.pn.pn48 = phi { ptr, i32 } [ %197, %.thread ], [ %.pn.pn.pn, %214 ], [ %.pn.pn.pn, %215 ]
+  %.pn.pn.pn.pn47 = phi { ptr, i32 } [ %197, %.thread ], [ %.pn.pn.pn, %214 ], [ %.pn.pn.pn, %215 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #26
   br label %221
 
 221:                                              ; preds = %_ZNSt6vectorIPN3p2t5PointESaIS2_EED2Ev.exit34, %195
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn48, %_ZNSt6vectorIPN3p2t5PointESaIS2_EED2Ev.exit34 ], [ %196, %195 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn47, %_ZNSt6vectorIPN3p2t5PointESaIS2_EED2Ev.exit34 ], [ %196, %195 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #26
   br label %222

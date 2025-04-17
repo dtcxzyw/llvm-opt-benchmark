@@ -19325,25 +19325,22 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare i32 @uv_poll_start(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node10cares_wrap12_GLOBAL__N_112ares_poll_cbEP9uv_poll_sii(ptr noundef %watcher, i32 noundef %status, i32 noundef %events) #3 {
+define internal void @_ZN4node10cares_wrap12_GLOBAL__N_112ares_poll_cbEP9uv_poll_sii(ptr noundef readonly captures(none) %watcher, i32 noundef %status, i32 noundef %events) #3 {
 entry:
-  %0 = ptrtoint ptr %watcher to i64
-  %sub.i.i = add i64 %0, -24
-  %1 = inttoptr i64 %sub.i.i to ptr
-  %channel2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %2 = load ptr, ptr %channel2, align 8
-  %timer_handle_.i = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %3 = load ptr, ptr %timer_handle_.i, align 8
-  %call4 = tail call i32 @uv_timer_again(ptr noundef %3) #21
+  %channel2 = getelementptr inbounds nuw i8, ptr %watcher, i64 8
+  %0 = load ptr, ptr %channel2, align 8
+  %timer_handle_.i = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %1 = load ptr, ptr %timer_handle_.i, align 8
+  %call4 = tail call i32 @uv_timer_again(ptr noundef %1) #21
   %cmp = icmp slt i32 %status, 0
-  %channel_.i = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %4 = load ptr, ptr %channel_.i, align 8
+  %channel_.i = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %2 = load ptr, ptr %channel_.i, align 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %sock = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %sock, align 8
-  tail call void @ares_process_fd(ptr noundef %4, i32 noundef %5, i32 noundef %5) #21
+  %sock = getelementptr inbounds nuw i8, ptr %watcher, i64 16
+  %3 = load i32, ptr %sock, align 8
+  tail call void @ares_process_fd(ptr noundef %2, i32 noundef %3, i32 noundef %3) #21
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -19352,24 +19349,24 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %sock8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i32, ptr %sock8, align 8
+  %sock8 = getelementptr inbounds nuw i8, ptr %watcher, i64 16
+  %4 = load i32, ptr %sock8, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
-  %cond = phi i32 [ %6, %cond.true ], [ -1, %if.end ]
+  %cond = phi i32 [ %4, %cond.true ], [ -1, %if.end ]
   %and9 = and i32 %events, 2
   %tobool10.not = icmp eq i32 %and9, 0
   br i1 %tobool10.not, label %cond.end14, label %cond.true11
 
 cond.true11:                                      ; preds = %cond.end
-  %sock12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load i32, ptr %sock12, align 8
+  %sock12 = getelementptr inbounds nuw i8, ptr %watcher, i64 16
+  %5 = load i32, ptr %sock12, align 8
   br label %cond.end14
 
 cond.end14:                                       ; preds = %cond.end, %cond.true11
-  %cond15 = phi i32 [ %7, %cond.true11 ], [ -1, %cond.end ]
-  tail call void @ares_process_fd(ptr noundef %4, i32 noundef %cond, i32 noundef %cond15) #21
+  %cond15 = phi i32 [ %5, %cond.true11 ], [ -1, %cond.end ]
+  tail call void @ares_process_fd(ptr noundef %2, i32 noundef %cond, i32 noundef %cond15) #21
   br label %return
 
 return:                                           ; preds = %cond.end14, %if.then
@@ -19379,14 +19376,11 @@ return:                                           ; preds = %cond.end14, %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node10cares_wrap12_GLOBAL__N_118ares_poll_close_cbEP9uv_poll_s(ptr noundef %watcher) #3 {
 entry:
-  %0 = ptrtoint ptr %watcher to i64
-  %sub.i.i = add i64 %0, -24
-  %cmp.not.i = icmp eq i64 %sub.i.i, 0
+  %cmp.not.i = icmp eq ptr %watcher, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4node10cares_wrap12NodeAresTaskESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4node10cares_wrap12NodeAresTaskEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4node10cares_wrap12NodeAresTaskEEclEPS2_.exit.i: ; preds = %entry
-  %1 = inttoptr i64 %sub.i.i to ptr
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %watcher) #23
   br label %_ZNSt10unique_ptrIN4node10cares_wrap12NodeAresTaskESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node10cares_wrap12NodeAresTaskESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node10cares_wrap12NodeAresTaskEEclEPS2_.exit.i
@@ -20007,14 +20001,11 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node24MakeLibuvRequestCallbackI16uv_getaddrinfo_sPFvPS1_iP8addrinfoEE7WrapperES2_iS4_(ptr noundef %req, i32 noundef %args, ptr noundef %args1) #3 comdat align 2 {
 entry:
-  %0 = ptrtoint ptr %req to i64
-  %sub.i.i.i = add i64 %0, -88
-  %1 = inttoptr i64 %sub.i.i.i to ptr
-  %cmp.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i = icmp eq ptr %req, null
   br i1 %cmp.i, label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getaddrinfo_sEELb0EEC2EPS3_.exit, label %_ZNK4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getaddrinfo_sEELb0EE12pointer_dataEv.exit.i
 
 _ZNK4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getaddrinfo_sEELb0EE12pointer_dataEv.exit.i: ; preds = %entry
-  %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
+  %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #21
   %cmp2.not.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp2.not.i, label %do.body6.i, label %do.end8.i
 
@@ -20024,13 +20015,13 @@ do.body6.i:                                       ; preds = %_ZNK4node17BaseObje
   unreachable
 
 do.end8.i:                                        ; preds = %_ZNK4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getaddrinfo_sEELb0EE12pointer_dataEv.exit.i
-  tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
+  tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #21
   br label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getaddrinfo_sEELb0EEC2EPS3_.exit
 
 _ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getaddrinfo_sEELb0EEC2EPS3_.exit: ; preds = %entry, %do.end8.i
-  %call.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
-  %2 = load i32, ptr %call.i, align 8
-  %cmp.not.i = icmp eq i32 %2, 0
+  %call.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #21
+  %0 = load i32, ptr %call.i, align 8
+  %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %do.body4.i, label %_ZN4node10BaseObject6DetachEv.exit
 
 do.body4.i:                                       ; preds = %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getaddrinfo_sEELb0EEC2EPS3_.exit
@@ -20039,18 +20030,18 @@ do.body4.i:                                       ; preds = %_ZN4node17BaseObjec
   unreachable
 
 _ZN4node10BaseObject6DetachEv.exit:               ; preds = %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getaddrinfo_sEELb0EEC2EPS3_.exit
-  %call6.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
+  %call6.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #21
   %is_detached.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 9
   store i8 1, ptr %is_detached.i, align 1
-  %realm_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %4 = load ptr, ptr %env_.i.i, align 8
-  %request_waiting_.i = getelementptr inbounds nuw i8, ptr %4, i64 2236
-  %5 = load i32, ptr %request_waiting_.i, align 4
-  %dec.i = add nsw i32 %5, -1
+  %realm_.i = getelementptr inbounds nuw i8, ptr %req, i64 16
+  %1 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %2 = load ptr, ptr %env_.i.i, align 8
+  %request_waiting_.i = getelementptr inbounds nuw i8, ptr %2, i64 2236
+  %3 = load i32, ptr %request_waiting_.i, align 4
+  %dec.i = add nsw i32 %3, -1
   store i32 %dec.i, ptr %request_waiting_.i, align 4
-  %cmp.i2 = icmp slt i32 %5, 1
+  %cmp.i2 = icmp slt i32 %3, 1
   br i1 %cmp.i2, label %do.body5.i, label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getaddrinfo_sEELb0EED2Ev.exit
 
 do.body5.i:                                       ; preds = %_ZN4node10BaseObject6DetachEv.exit
@@ -20059,10 +20050,10 @@ do.body5.i:                                       ; preds = %_ZN4node10BaseObjec
   unreachable
 
 _ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getaddrinfo_sEELb0EED2Ev.exit: ; preds = %_ZN4node10BaseObject6DetachEv.exit
-  %original_callback_ = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %6 = load ptr, ptr %original_callback_, align 8
-  tail call void %6(ptr noundef %req, i32 noundef %args, ptr noundef %args1) #21
-  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
+  %original_callback_ = getelementptr inbounds nuw i8, ptr %req, i64 80
+  %4 = load ptr, ptr %original_callback_, align 8
+  tail call void %4(ptr noundef nonnull %req, i32 noundef %args, ptr noundef %args1) #21
+  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #21
   ret void
 }
 
@@ -20433,14 +20424,11 @@ declare void @_ZN2v812api_internal17FromJustIsNothingEv() local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node24MakeLibuvRequestCallbackI16uv_getnameinfo_sPFvPS1_iPKcS4_EE7WrapperES2_iS4_S4_(ptr noundef %req, i32 noundef %args, ptr noundef %args1, ptr noundef %args3) #3 comdat align 2 {
 entry:
-  %0 = ptrtoint ptr %req to i64
-  %sub.i.i.i = add i64 %0, -88
-  %1 = inttoptr i64 %sub.i.i.i to ptr
-  %cmp.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i = icmp eq ptr %req, null
   br i1 %cmp.i, label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getnameinfo_sEELb0EEC2EPS3_.exit, label %_ZNK4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getnameinfo_sEELb0EE12pointer_dataEv.exit.i
 
 _ZNK4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getnameinfo_sEELb0EE12pointer_dataEv.exit.i: ; preds = %entry
-  %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
+  %call3.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #21
   %cmp2.not.i = icmp eq ptr %call3.i.i, null
   br i1 %cmp2.not.i, label %do.body6.i, label %do.end8.i
 
@@ -20450,13 +20438,13 @@ do.body6.i:                                       ; preds = %_ZNK4node17BaseObje
   unreachable
 
 do.end8.i:                                        ; preds = %_ZNK4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getnameinfo_sEELb0EE12pointer_dataEv.exit.i
-  tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
+  tail call void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #21
   br label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getnameinfo_sEELb0EEC2EPS3_.exit
 
 _ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getnameinfo_sEELb0EEC2EPS3_.exit: ; preds = %entry, %do.end8.i
-  %call.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
-  %2 = load i32, ptr %call.i, align 8
-  %cmp.not.i = icmp eq i32 %2, 0
+  %call.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #21
+  %0 = load i32, ptr %call.i, align 8
+  %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %do.body4.i, label %_ZN4node10BaseObject6DetachEv.exit
 
 do.body4.i:                                       ; preds = %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getnameinfo_sEELb0EEC2EPS3_.exit
@@ -20465,18 +20453,18 @@ do.body4.i:                                       ; preds = %_ZN4node17BaseObjec
   unreachable
 
 _ZN4node10BaseObject6DetachEv.exit:               ; preds = %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getnameinfo_sEELb0EEC2EPS3_.exit
-  %call6.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
+  %call6.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #21
   %is_detached.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 9
   store i8 1, ptr %is_detached.i, align 1
-  %realm_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 176
-  %4 = load ptr, ptr %env_.i.i, align 8
-  %request_waiting_.i = getelementptr inbounds nuw i8, ptr %4, i64 2236
-  %5 = load i32, ptr %request_waiting_.i, align 4
-  %dec.i = add nsw i32 %5, -1
+  %realm_.i = getelementptr inbounds nuw i8, ptr %req, i64 16
+  %1 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %2 = load ptr, ptr %env_.i.i, align 8
+  %request_waiting_.i = getelementptr inbounds nuw i8, ptr %2, i64 2236
+  %3 = load i32, ptr %request_waiting_.i, align 4
+  %dec.i = add nsw i32 %3, -1
   store i32 %dec.i, ptr %request_waiting_.i, align 4
-  %cmp.i2 = icmp slt i32 %5, 1
+  %cmp.i2 = icmp slt i32 %3, 1
   br i1 %cmp.i2, label %do.body5.i, label %_ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getnameinfo_sEELb0EED2Ev.exit
 
 do.body5.i:                                       ; preds = %_ZN4node10BaseObject6DetachEv.exit
@@ -20485,10 +20473,10 @@ do.body5.i:                                       ; preds = %_ZN4node10BaseObjec
   unreachable
 
 _ZN4node17BaseObjectPtrImplINS_7ReqWrapI16uv_getnameinfo_sEELb0EED2Ev.exit: ; preds = %_ZN4node10BaseObject6DetachEv.exit
-  %original_callback_ = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %6 = load ptr, ptr %original_callback_, align 8
-  tail call void %6(ptr noundef %req, i32 noundef %args, ptr noundef %args1, ptr noundef %args3) #21
-  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
+  %original_callback_ = getelementptr inbounds nuw i8, ptr %req, i64 80
+  %4 = load ptr, ptr %original_callback_, align 8
+  tail call void %4(ptr noundef nonnull %req, i32 noundef %args, ptr noundef %args1, ptr noundef %args3) #21
+  tail call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %req) #21
   ret void
 }
 

@@ -5303,9 +5303,9 @@ _ZNKSt6vectorIN12colvarmodule7rvectorESaIS1_EE12_M_check_lenEmPKc.exit.i: ; pred
   %1131 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %1132 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %1133 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-          to label %._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge4.i unwind label %1135
+          to label %._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge.i unwind label %1135
 
-._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge4.i: ; preds = %_ZNKSt6vectorIN12colvarmodule7rvectorESaIS1_EE12_M_check_lenEmPKc.exit.i
+._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge.i: ; preds = %_ZNKSt6vectorIN12colvarmodule7rvectorESaIS1_EE12_M_check_lenEmPKc.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1133, i8 0, i64 96, i1 false)
   store ptr %1133, ptr %59, align 8, !tbaa !75
   %1134 = getelementptr inbounds nuw i8, ptr %1133, i64 96
@@ -5316,7 +5316,7 @@ _ZNKSt6vectorIN12colvarmodule7rvectorESaIS1_EE12_M_check_lenEmPKc.exit.i: ; pred
   invoke void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_assignEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %59, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %1143 unwind label %1135
 
-1135:                                             ; preds = %_ZNKSt6vectorIN12colvarmodule7rvectorESaIS1_EE12_M_check_lenEmPKc.exit.i, %._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge4.i
+1135:                                             ; preds = %_ZNKSt6vectorIN12colvarmodule7rvectorESaIS1_EE12_M_check_lenEmPKc.exit.i, %._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge.i
   %1136 = landingpad { ptr, i32 }
           cleanup
   %1137 = load ptr, ptr %59, align 8, !tbaa !75
@@ -5335,7 +5335,7 @@ common.resume:                                    ; preds = %1135, %1138, %1924
   %common.resume.op = phi { ptr, i32 } [ %.pn117.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1924 ], [ %1136, %1138 ], [ %1136, %1135 ]
   resume { ptr, i32 } %common.resume.op
 
-1143:                                             ; preds = %._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge4.i
+1143:                                             ; preds = %._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %60) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %60, i8 0, i64 88, i1 false)
@@ -13562,9 +13562,9 @@ _ZNKSt6vectorIN12colvarmodule7rvectorESaIS1_EE12_M_check_lenEmPKc.exit.i: ; pred
   %1131 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %1132 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %1133 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #23
-          to label %._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge4.i unwind label %1135
+          to label %._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge.i unwind label %1135
 
-._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge4.i: ; preds = %_ZNKSt6vectorIN12colvarmodule7rvectorESaIS1_EE12_M_check_lenEmPKc.exit.i
+._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge.i: ; preds = %_ZNKSt6vectorIN12colvarmodule7rvectorESaIS1_EE12_M_check_lenEmPKc.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1133, i8 0, i64 96, i1 false)
   store ptr %1133, ptr %59, align 8, !tbaa !75
   %1134 = getelementptr inbounds nuw i8, ptr %1133, i64 96
@@ -13575,7 +13575,7 @@ _ZNKSt6vectorIN12colvarmodule7rvectorESaIS1_EE12_M_check_lenEmPKc.exit.i: ; pred
   invoke void @_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE14_M_fill_assignEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %59, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %1143 unwind label %1135
 
-1135:                                             ; preds = %_ZNKSt6vectorIN12colvarmodule7rvectorESaIS1_EE12_M_check_lenEmPKc.exit.i, %._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge4.i
+1135:                                             ; preds = %_ZNKSt6vectorIN12colvarmodule7rvectorESaIS1_EE12_M_check_lenEmPKc.exit.i, %._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge.i
   %1136 = landingpad { ptr, i32 }
           cleanup
   %1137 = load ptr, ptr %59, align 8, !tbaa !75
@@ -13594,7 +13594,7 @@ common.resume:                                    ; preds = %1135, %1138, %1921
   %common.resume.op = phi { ptr, i32 } [ %.pn116.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1921 ], [ %1136, %1138 ], [ %1136, %1135 ]
   resume { ptr, i32 } %common.resume.op
 
-1143:                                             ; preds = %._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge4.i
+1143:                                             ; preds = %._ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit_crit_edge.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %60) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %60, i8 0, i64 88, i1 false)
