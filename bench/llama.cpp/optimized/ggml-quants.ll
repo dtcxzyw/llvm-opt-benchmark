@@ -14000,7 +14000,6 @@ define internal fastcc void @quantize_row_iq3_xxs_impl(ptr noalias noundef reado
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 3
-  %.promoted = load i64, ptr %11, align 8
   br label %35
 
 ._crit_edge:                                      ; preds = %435, %27
@@ -14017,7 +14016,7 @@ define internal fastcc void @quantize_row_iq3_xxs_impl(ptr noalias noundef reado
   ret void
 
 35:                                               ; preds = %.lr.ph, %435
-  %.promoted602607 = phi i64 [ %.promoted, %.lr.ph ], [ %.promoted602605, %435 ]
+  %.promoted602607 = phi i64 [ undef, %.lr.ph ], [ %.promoted602605, %435 ]
   %indvars.iv579 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next580, %435 ]
   %.1477 = phi ptr [ %1, %.lr.ph ], [ %.2, %435 ]
   %.1316476 = phi ptr [ %31, %.lr.ph ], [ %.2317, %435 ]

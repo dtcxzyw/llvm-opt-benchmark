@@ -127,7 +127,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
 15:                                               ; preds = %5
   %16 = icmp eq ptr %1, %2
   %17 = zext i1 %16 to i32
-  br label %258
+  br label %257
 
 18:                                               ; preds = %5
   %19 = ptrtoint ptr %12 to i64
@@ -141,7 +141,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %25 = xor i64 %24, 1
   %26 = inttoptr i64 %25 to ptr
   %27 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %26) #12
-  br label %258
+  br label %257
 
 28:                                               ; preds = %18
   %29 = icmp eq ptr %1, %12
@@ -149,7 +149,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
 
 30:                                               ; preds = %28
   %31 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %2) #12
-  br label %258
+  br label %257
 
 32:                                               ; preds = %28
   %33 = icmp eq ptr %2, %21
@@ -160,7 +160,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %36 = xor i64 %35, 1
   %37 = inttoptr i64 %36 to ptr
   %38 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %37) #12
-  br label %258
+  br label %257
 
 39:                                               ; preds = %32
   %40 = icmp eq ptr %2, %12
@@ -168,7 +168,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
 
 41:                                               ; preds = %39
   %42 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %1) #12
-  br label %258
+  br label %257
 
 43:                                               ; preds = %39
   %44 = ptrtoint ptr %1 to i64
@@ -220,7 +220,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %81 = load ptr, ptr %80, align 8, !tbaa !16
   %82 = ptrtoint ptr %81 to i64
   %83 = trunc i64 %82 to i32
-  br label %258
+  br label %257
 
 84:                                               ; preds = %72, %68, %64, %43
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #12
@@ -321,25 +321,25 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
 
 145:                                              ; preds = %140, %145
   %indvars.iv = phi i64 [ 0, %140 ], [ %indvars.iv.next, %145 ]
-  %.0121162 = phi i32 [ 2147483647, %140 ], [ %spec.select, %145 ]
+  %.0121161 = phi i32 [ 2147483647, %140 ], [ %spec.select, %145 ]
   %146 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv
   %147 = load i32, ptr %146, align 4, !tbaa !37
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.0121162, i32 %147)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.0121161, i32 %147)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.preheader, label %145, !llvm.loop !39
 
 .preheader:                                       ; preds = %145, %174
-  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %174 ], [ 0, %145 ]
-  %148 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv167
+  %indvars.iv166 = phi i64 [ %indvars.iv.next167, %174 ], [ 0, %145 ]
+  %148 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv166
   %149 = load i32, ptr %148, align 4, !tbaa !37
   %150 = icmp eq i32 %spec.select, %149
-  %151 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv167
+  %151 = getelementptr inbounds nuw [4 x ptr], ptr %6, i64 0, i64 %indvars.iv166
   %152 = load ptr, ptr %151, align 8, !tbaa !16
   br i1 %150, label %153, label %172
 
 153:                                              ; preds = %.preheader
-  %154 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv167
+  %154 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv166
   %155 = load ptr, ptr %154, align 8, !tbaa !16
   %.not153 = icmp eq ptr %152, %155
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
@@ -350,7 +350,7 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %159 = ptrtoint ptr %157 to i64
   %160 = xor i64 %159, 1
   %161 = inttoptr i64 %160 to ptr
-  %162 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %indvars.iv167
+  %162 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %indvars.iv166
   store ptr %161, ptr %162, align 8, !tbaa !16
   %163 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %164 = load ptr, ptr %163, align 8, !tbaa !40
@@ -360,31 +360,31 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   br label %174
 
 168:                                              ; preds = %153
-  %169 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %indvars.iv167
+  %169 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %indvars.iv166
   store ptr %157, ptr %169, align 8, !tbaa !16
   %170 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %171 = load ptr, ptr %170, align 8, !tbaa !40
   br label %174
 
 172:                                              ; preds = %.preheader
-  %173 = getelementptr inbounds nuw [4 x ptr], ptr %10, i64 0, i64 %indvars.iv167
+  %173 = getelementptr inbounds nuw [4 x ptr], ptr %10, i64 0, i64 %indvars.iv166
   store ptr %152, ptr %173, align 8, !tbaa !16
   br label %174
 
 174:                                              ; preds = %172, %168, %158
-  %.sink175 = phi ptr [ %9, %172 ], [ %10, %168 ], [ %10, %158 ]
+  %.sink174 = phi ptr [ %9, %172 ], [ %10, %168 ], [ %10, %158 ]
   %.sink = phi ptr [ %152, %172 ], [ %171, %168 ], [ %167, %158 ]
-  %175 = getelementptr inbounds nuw [4 x ptr], ptr %.sink175, i64 0, i64 %indvars.iv167
+  %175 = getelementptr inbounds nuw [4 x ptr], ptr %.sink174, i64 0, i64 %indvars.iv166
   store ptr %.sink, ptr %175, align 8, !tbaa !16
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond170.not = icmp eq i64 %indvars.iv.next168, 4
-  br i1 %exitcond170.not, label %176, label %.preheader, !llvm.loop !41
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
+  %exitcond169.not = icmp eq i64 %indvars.iv.next167, 4
+  br i1 %exitcond169.not, label %176, label %.preheader, !llvm.loop !41
 
 176:                                              ; preds = %174
   %177 = icmp eq i32 %spec.select, %130
   %178 = icmp eq i32 %spec.select, %141
-  %or.cond155 = select i1 %177, i1 %178, i1 false
-  br i1 %or.cond155, label %179, label %193
+  %or.cond154 = select i1 %177, i1 %178, i1 false
+  br i1 %or.cond154, label %179, label %193
 
 179:                                              ; preds = %176
   %180 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -393,9 +393,9 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %182 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %183 = load ptr, ptr %182, align 16
   %.0113 = select i1 %.not151, ptr %183, ptr %181
-  %.val160 = load ptr, ptr %10, align 16
-  %.val161 = load ptr, ptr %9, align 16
-  %.0117 = select i1 %.not151, ptr %.val160, ptr %.val161
+  %.val159 = load ptr, ptr %10, align 16
+  %.val160 = load ptr, ptr %9, align 16
+  %.0117 = select i1 %.not151, ptr %.val159, ptr %.val160
   %184 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %185 = load ptr, ptr %184, align 8, !tbaa !16
   %.not152 = icmp eq ptr %185, %21
@@ -408,111 +408,112 @@ define internal fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, pt
   %.0115 = select i1 %.not152, ptr %189, ptr %187
   %.0 = select i1 %.not152, ptr %191, ptr %185
   %192 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %.0117, ptr noundef %.0115, ptr noundef %.0113, ptr noundef %.0)
-  br label %251
+  br label %250
 
 193:                                              ; preds = %176
-  %194 = icmp ne i32 %spec.select, %130
-  %or.cond156 = select i1 %194, i1 true, i1 %178
-  br i1 %or.cond156, label %212, label %195
+  %.not155 = xor i1 %177, true
+  %or.cond156 = select i1 %.not155, i1 true, i1 %178
+  br i1 %or.cond156, label %211, label %194
 
-195:                                              ; preds = %193
-  %196 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %197 = load ptr, ptr %196, align 16, !tbaa !16
-  %.not150 = icmp eq ptr %197, %21
-  %198 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %199 = load ptr, ptr %198, align 16
-  %.1114 = select i1 %.not150, ptr %199, ptr %197
+194:                                              ; preds = %193
+  %195 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %196 = load ptr, ptr %195, align 16, !tbaa !16
+  %.not150 = icmp eq ptr %196, %21
+  %197 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %198 = load ptr, ptr %197, align 16
+  %.1114 = select i1 %.not150, ptr %198, ptr %196
   %.val = load ptr, ptr %10, align 16
-  %.val159 = load ptr, ptr %9, align 16
-  %.1118 = select i1 %.not150, ptr %.val, ptr %.val159
-  %200 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %201 = load ptr, ptr %200, align 8, !tbaa !16
-  %202 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %203 = load ptr, ptr %202, align 8, !tbaa !16
-  %204 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %.1118, ptr noundef %201, ptr noundef %.1114, ptr noundef %203)
-  %205 = icmp eq i32 %204, 1
-  br i1 %205, label %206, label %251
+  %.val158 = load ptr, ptr %9, align 16
+  %.1118 = select i1 %.not150, ptr %.val, ptr %.val158
+  %199 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %200 = load ptr, ptr %199, align 8, !tbaa !16
+  %201 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %202 = load ptr, ptr %201, align 8, !tbaa !16
+  %203 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %.1118, ptr noundef %200, ptr noundef %.1114, ptr noundef %202)
+  %204 = icmp eq i32 %203, 1
+  br i1 %204, label %205, label %250
 
-206:                                              ; preds = %195
-  %207 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %208 = load ptr, ptr %207, align 8, !tbaa !16
-  %209 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %210 = load ptr, ptr %209, align 8, !tbaa !16
-  %211 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %.1118, ptr noundef %208, ptr noundef %.1114, ptr noundef %210)
-  br label %251
+205:                                              ; preds = %194
+  %206 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %207 = load ptr, ptr %206, align 8, !tbaa !16
+  %208 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %209 = load ptr, ptr %208, align 8, !tbaa !16
+  %210 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %.1118, ptr noundef %207, ptr noundef %.1114, ptr noundef %209)
+  br label %250
 
-212:                                              ; preds = %193
-  %or.cond158 = select i1 %194, i1 %178, i1 false
-  br i1 %or.cond158, label %213, label %232
+211:                                              ; preds = %193
+  %.not148 = icmp ne i32 %spec.select, %130
+  %or.cond157 = select i1 %.not148, i1 %178, i1 false
+  br i1 %or.cond157, label %212, label %231
 
-213:                                              ; preds = %212
-  %214 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %215 = load ptr, ptr %214, align 8, !tbaa !16
-  %.not149 = icmp eq ptr %215, %21
-  %216 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %221 = load ptr, ptr %220, align 8
-  %.1116 = select i1 %.not149, ptr %219, ptr %217
-  %.1 = select i1 %.not149, ptr %221, ptr %215
-  %222 = load ptr, ptr %9, align 16, !tbaa !16
-  %223 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %224 = load ptr, ptr %223, align 16, !tbaa !16
-  %225 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %222, ptr noundef %.1116, ptr noundef %224, ptr noundef %.1)
-  %226 = icmp eq i32 %225, 1
-  br i1 %226, label %227, label %251
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %214 = load ptr, ptr %213, align 8, !tbaa !16
+  %.not149 = icmp eq ptr %214, %21
+  %215 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %218 = load ptr, ptr %217, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %220 = load ptr, ptr %219, align 8
+  %.1116 = select i1 %.not149, ptr %218, ptr %216
+  %.1 = select i1 %.not149, ptr %220, ptr %214
+  %221 = load ptr, ptr %9, align 16, !tbaa !16
+  %222 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %223 = load ptr, ptr %222, align 16, !tbaa !16
+  %224 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %221, ptr noundef %.1116, ptr noundef %223, ptr noundef %.1)
+  %225 = icmp eq i32 %224, 1
+  br i1 %225, label %226, label %250
 
-227:                                              ; preds = %213
-  %228 = load ptr, ptr %10, align 16, !tbaa !16
-  %229 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %230 = load ptr, ptr %229, align 16, !tbaa !16
-  %231 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %228, ptr noundef %.1116, ptr noundef %230, ptr noundef %.1)
-  br label %251
+226:                                              ; preds = %212
+  %227 = load ptr, ptr %10, align 16, !tbaa !16
+  %228 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %229 = load ptr, ptr %228, align 16, !tbaa !16
+  %230 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %227, ptr noundef %.1116, ptr noundef %229, ptr noundef %.1)
+  br label %250
 
-232:                                              ; preds = %212
-  %233 = load ptr, ptr %9, align 16, !tbaa !16
-  %234 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %235 = load ptr, ptr %234, align 8, !tbaa !16
-  %236 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %237 = load ptr, ptr %236, align 16, !tbaa !16
-  %238 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %239 = load ptr, ptr %238, align 8, !tbaa !16
-  %240 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %233, ptr noundef %235, ptr noundef %237, ptr noundef %239)
-  %241 = icmp eq i32 %240, 1
-  br i1 %241, label %242, label %251
+231:                                              ; preds = %211
+  %232 = load ptr, ptr %9, align 16, !tbaa !16
+  %233 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %234 = load ptr, ptr %233, align 8, !tbaa !16
+  %235 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %236 = load ptr, ptr %235, align 16, !tbaa !16
+  %237 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %238 = load ptr, ptr %237, align 8, !tbaa !16
+  %239 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %232, ptr noundef %234, ptr noundef %236, ptr noundef %238)
+  %240 = icmp eq i32 %239, 1
+  br i1 %240, label %241, label %250
 
-242:                                              ; preds = %232
-  %243 = load ptr, ptr %10, align 16, !tbaa !16
-  %244 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %245 = load ptr, ptr %244, align 8, !tbaa !16
-  %246 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %247 = load ptr, ptr %246, align 16, !tbaa !16
-  %248 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %249 = load ptr, ptr %248, align 8, !tbaa !16
-  %250 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %243, ptr noundef %245, ptr noundef %247, ptr noundef %249)
-  br label %251
+241:                                              ; preds = %231
+  %242 = load ptr, ptr %10, align 16, !tbaa !16
+  %243 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %244 = load ptr, ptr %243, align 8, !tbaa !16
+  %245 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %246 = load ptr, ptr %245, align 16, !tbaa !16
+  %247 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %248 = load ptr, ptr %247, align 8, !tbaa !16
+  %249 = tail call fastcc i32 @Dsd_CheckRootFunctionIdentity_rec(ptr noundef %0, ptr noundef %242, ptr noundef %244, ptr noundef %246, ptr noundef %248)
+  br label %250
 
-251:                                              ; preds = %206, %195, %232, %242, %213, %227, %179
-  %.0123 = phi i32 [ %192, %179 ], [ %211, %206 ], [ %204, %195 ], [ %231, %227 ], [ %225, %213 ], [ %250, %242 ], [ %240, %232 ]
-  %252 = load ptr, ptr @pCache, align 8, !tbaa !3
-  %253 = load ptr, ptr %252, align 8, !tbaa !15
-  %254 = getelementptr inbounds nuw %struct.Dsd_Entry_t_, ptr %253, i64 %60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %254, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !tbaa !16
-  %255 = sext i32 %.0123 to i64
-  %256 = inttoptr i64 %255 to ptr
-  %257 = getelementptr inbounds nuw %struct.Dsd_Entry_t_, ptr %253, i64 %60, i32 0, i64 4
-  store ptr %256, ptr %257, align 8, !tbaa !16
+250:                                              ; preds = %205, %194, %231, %241, %212, %226, %179
+  %.0123 = phi i32 [ %192, %179 ], [ %210, %205 ], [ %203, %194 ], [ %230, %226 ], [ %224, %212 ], [ %249, %241 ], [ %239, %231 ]
+  %251 = load ptr, ptr @pCache, align 8, !tbaa !3
+  %252 = load ptr, ptr %251, align 8, !tbaa !15
+  %253 = getelementptr inbounds nuw %struct.Dsd_Entry_t_, ptr %252, i64 %60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !tbaa !16
+  %254 = sext i32 %.0123 to i64
+  %255 = inttoptr i64 %254 to ptr
+  %256 = getelementptr inbounds nuw %struct.Dsd_Entry_t_, ptr %252, i64 %60, i32 0, i64 4
+  store ptr %255, ptr %256, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
-  br label %258
+  br label %257
 
-258:                                              ; preds = %251, %76, %41, %34, %30, %23, %15
-  %.0124 = phi i32 [ %17, %15 ], [ %27, %23 ], [ %31, %30 ], [ %38, %34 ], [ %42, %41 ], [ %83, %76 ], [ %.0123, %251 ]
+257:                                              ; preds = %250, %76, %41, %34, %30, %23, %15
+  %.0124 = phi i32 [ %17, %15 ], [ %27, %23 ], [ %31, %30 ], [ %38, %34 ], [ %42, %41 ], [ %83, %76 ], [ %.0123, %250 ]
   ret i32 %.0124
 }
 

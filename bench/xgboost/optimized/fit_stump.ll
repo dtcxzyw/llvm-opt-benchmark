@@ -311,8 +311,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   unreachable
 
 .loopexit:                                        ; preds = %.noexc39, %59
-  %63 = phi i64 [ 1, %59 ], [ %58, %.noexc39 ]
-  %64 = phi i64 [ %61, %59 ], [ 1, %.noexc39 ]
+  %63 = phi i64 [ %61, %59 ], [ 1, %.noexc39 ]
+  %64 = phi i64 [ 1, %59 ], [ %58, %.noexc39 ]
   %65 = icmp eq ptr %53, %54
   %66 = load i64, ptr %20, align 8, !tbaa !14
   %67 = invoke noundef i32 @_ZNK7xgboost7Context7ThreadsEv(ptr noundef nonnull align 8 dereferenceable(84) %0)
@@ -355,7 +355,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %85 = load float, ptr %84, align 4, !tbaa !46
   %86 = fpext float %85 to double
-  %87 = mul i64 %79, %64
+  %87 = mul i64 %79, %63
   %88 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %54, i64 %87
   %89 = load double, ptr %88, align 8, !tbaa !47
   %90 = fadd double %89, %83
@@ -510,7 +510,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %139 = load float, ptr %138, align 4, !tbaa !46
   %140 = fpext float %139 to double
-  %141 = mul i64 %133, %64
+  %141 = mul i64 %133, %63
   %142 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %54, i64 %141
   %143 = load double, ptr %142, align 8, !tbaa !47
   %144 = fadd double %143, %137
@@ -573,7 +573,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not100, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader93
-  %167 = mul i64 %63, %indvars.iv
+  %167 = mul i64 %64, %indvars.iv
   %168 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %54, i64 %167
   br label %175
 
@@ -599,7 +599,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 175:                                              ; preds = %.lr.ph, %175
   %176 = phi i64 [ 0, %.lr.ph ], [ %189, %175 ]
   %storemerge2595 = phi i32 [ 0, %.lr.ph ], [ %188, %175 ]
-  %177 = mul i64 %176, %64
+  %177 = mul i64 %176, %63
   %178 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %168, i64 %177
   %179 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %54, i64 %177
   %180 = load double, ptr %178, align 8, !tbaa !47
@@ -618,7 +618,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %190, label %175, label %._crit_edge, !llvm.loop !63
 
 191:                                              ; preds = %163
-  %.not4.i.i = icmp eq i64 %64, 1
+  %.not4.i.i = icmp eq i64 %63, 1
   br i1 %.not4.i.i, label %203, label %192, !prof !64
 
 192:                                              ; preds = %191
@@ -759,7 +759,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %._crit_edge98, %_ZN
 
 226:                                              ; preds = %.lr.ph97, %226
   %storemerge2096 = phi i64 [ 0, %.lr.ph97 ], [ %238, %226 ]
-  %227 = mul i64 %storemerge2096, %64
+  %227 = mul i64 %storemerge2096, %63
   %228 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %54, i64 %227
   %229 = load double, ptr %228, align 8, !tbaa !47
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 8

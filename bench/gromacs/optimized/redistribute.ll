@@ -2899,19 +2899,19 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i.i.i.i.i.i.i: ; pre
   %337 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  br label %618
+  br label %615
 
 338:                                              ; preds = %.invoke, %31
   %339 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  br label %618
+  br label %615
 
 340:                                              ; preds = %.invoke221, %.invoke219
   %341 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
-  br label %618
+  br label %615
 
 342:                                              ; preds = %32
   %343 = load ptr, ptr %4, align 8, !tbaa !4
@@ -2922,10 +2922,10 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i.i.i.i.i.i.i: ; pre
   %348 = load ptr, ptr %14, align 8, !tbaa !146
   %349 = getelementptr inbounds nuw i8, ptr %346, i64 416
   %350 = load ptr, ptr %349, align 8, !tbaa !249
-  %.not1240.i = icmp eq i32 %27, %30
-  br i1 %.not1240.i, label %"_ZN3gmx25dispatchTemplatedFunctionIZ18dd_redistribute_cgP8_IO_FILElP12gmx_domdec_tPiP7t_stateP10t_forcerecP6t_nrnbE3$_0JEEEDaOT_bDpT0_.exit", label %.lr.ph42.i
+  %.not1245.i = icmp eq i32 %27, %30
+  br i1 %.not1245.i, label %"_ZN3gmx25dispatchTemplatedFunctionIZ18dd_redistribute_cgP8_IO_FILElP12gmx_domdec_tPiP7t_stateP10t_forcerecP6t_nrnbE3$_0JEEEDaOT_bDpT0_.exit", label %.lr.ph47.i
 
-.lr.ph42.i:                                       ; preds = %342
+.lr.ph47.i:                                       ; preds = %342
   %351 = getelementptr inbounds nuw i8, ptr %345, i64 136
   %352 = load i32, ptr %351, align 8, !tbaa !148
   %353 = getelementptr inbounds nuw i8, ptr %345, i64 880
@@ -2949,21 +2949,21 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i.i.i.i.i.i.i: ; pre
   %371 = sext i32 %27 to i64
   br label %372
 
-372:                                              ; preds = %616, %.lr.ph42.i
-  %indvars.iv60.i = phi i64 [ %371, %.lr.ph42.i ], [ %indvars.iv.next61.i, %616 ]
-  %373 = getelementptr inbounds nuw i32, ptr %354, i64 %indvars.iv60.i
+372:                                              ; preds = %613, %.lr.ph47.i
+  %indvars.iv65.i = phi i64 [ %371, %.lr.ph47.i ], [ %indvars.iv.next66.i, %613 ]
+  %373 = getelementptr inbounds nuw i32, ptr %354, i64 %indvars.iv65.i
   %374 = load i32, ptr %373, align 4, !tbaa !150
   %375 = icmp sgt i32 %374, -1
   br i1 %375, label %378, label %376
 
 376:                                              ; preds = %372
-  %377 = getelementptr inbounds i32, ptr %348, i64 %indvars.iv60.i
+  %377 = getelementptr inbounds i32, ptr %348, i64 %indvars.iv65.i
   store i32 -2, ptr %377, align 4, !tbaa !150
-  br label %616
+  br label %613
 
 378:                                              ; preds = %372
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16) #9
-  %379 = getelementptr inbounds %"class.gmx::BasicVector.4", ptr %350, i64 %indvars.iv60.i
+  %379 = getelementptr inbounds %"class.gmx::BasicVector.4", ptr %350, i64 %indvars.iv65.i
   %380 = load float, ptr %379, align 4, !tbaa !149
   store float %380, ptr %16, align 4, !tbaa !149
   %381 = getelementptr inbounds nuw i8, ptr %379, i64 4
@@ -2978,7 +2978,7 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i.i.i.i.i.i.i: ; pre
 
 _ZL17rotate_state_atomP7t_statei.exit.thread.sink.split.i: ; preds = %551, %495
   %385 = load ptr, ptr %366, align 8, !tbaa !249
-  %386 = getelementptr inbounds %"class.gmx::BasicVector.4", ptr %385, i64 %indvars.iv60.i
+  %386 = getelementptr inbounds %"class.gmx::BasicVector.4", ptr %385, i64 %indvars.iv65.i
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 4
   %388 = load float, ptr %387, align 4, !tbaa !149
   %389 = fneg float %388
@@ -3050,20 +3050,20 @@ _ZL17rotate_state_atomP7t_statei.exit.thread.i:   ; preds = %_ZL17rotate_state_a
 
 _ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i46: ; preds = %._crit_edge.loopexit.i.i57, %_ZL17rotate_state_atomP7t_statei.exit.thread.i
   %418 = phi i32 [ -1, %_ZL17rotate_state_atomP7t_statei.exit.thread.i ], [ %395, %._crit_edge.loopexit.i.i57 ]
-  %419 = getelementptr inbounds i32, ptr %348, i64 %indvars.iv60.i
+  %419 = getelementptr inbounds i32, ptr %348, i64 %indvars.iv65.i
   store i32 %418, ptr %419, align 4, !tbaa !150
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17) #9
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %16) #9
-  br label %616
+  br label %613
 
 420:                                              ; preds = %_ZL17rotate_state_atomP7t_statei.exit.i, %378
-  %421 = phi float [ %384, %378 ], [ %.pre64.i158, %_ZL17rotate_state_atomP7t_statei.exit.i ]
-  %422 = phi float [ %382, %378 ], [ %.pre63.i155, %_ZL17rotate_state_atomP7t_statei.exit.i ]
+  %421 = phi float [ %384, %378 ], [ %.pre69.i158, %_ZL17rotate_state_atomP7t_statei.exit.i ]
+  %422 = phi float [ %382, %378 ], [ %.pre68.i155, %_ZL17rotate_state_atomP7t_statei.exit.i ]
   %423 = phi float [ %380, %378 ], [ %.pre.i62152, %_ZL17rotate_state_atomP7t_statei.exit.i ]
   %indvars.iv.i44 = phi i64 [ 2, %378 ], [ %indvars.iv.next.i45, %_ZL17rotate_state_atomP7t_statei.exit.i ]
-  %424 = phi float [ %380, %378 ], [ %615, %_ZL17rotate_state_atomP7t_statei.exit.i ]
-  %425 = phi float [ %382, %378 ], [ %614, %_ZL17rotate_state_atomP7t_statei.exit.i ]
-  %426 = phi float [ %384, %378 ], [ %613, %_ZL17rotate_state_atomP7t_statei.exit.i ]
+  %424 = phi float [ %380, %378 ], [ %612, %_ZL17rotate_state_atomP7t_statei.exit.i ]
+  %425 = phi float [ %382, %378 ], [ %611, %_ZL17rotate_state_atomP7t_statei.exit.i ]
+  %426 = phi float [ %384, %378 ], [ %610, %_ZL17rotate_state_atomP7t_statei.exit.i ]
   %427 = getelementptr inbounds nuw [3 x i32], ptr %357, i64 0, i64 %indvars.iv.i44
   %428 = load i32, ptr %427, align 4, !tbaa !150
   %429 = icmp sgt i32 %428, 1
@@ -3081,22 +3081,22 @@ _ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i46: ; preds = %._crit_edge.loop
   %.not.i63 = icmp ne i32 %438, 0
   %439 = icmp samesign ult i64 %indvars.iv.i44, 2
   %or.cond.i64 = and i1 %439, %.not.i63
-  br i1 %or.cond.i64, label %.lr.ph28.i, label %.loopexit.i65
+  br i1 %or.cond.i64, label %.lr.ph40.i, label %.loopexit.i65
 
-.lr.ph28.i:                                       ; preds = %430, %.lr.ph28.i
-  %indvars.iv56.i = phi i64 [ 1, %.lr.ph28.i ], [ %indvars.iv.i44, %430 ]
-  %.126.i = phi float [ %444, %.lr.ph28.i ], [ %436, %430 ]
-  %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
-  %440 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.next57.i
+.lr.ph40.i:                                       ; preds = %430, %.lr.ph40.i
+  %indvars.iv61.i = phi i64 [ 1, %.lr.ph40.i ], [ %indvars.iv.i44, %430 ]
+  %.138.i = phi float [ %444, %.lr.ph40.i ], [ %436, %430 ]
+  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
+  %440 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv.next62.i
   %441 = load float, ptr %440, align 4, !tbaa !149
-  %442 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv.next57.i, i64 %indvars.iv.i44
+  %442 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv.next62.i, i64 %indvars.iv.i44
   %443 = load float, ptr %442, align 4, !tbaa !149
-  %444 = tail call float @llvm.fmuladd.f32(float %441, float %443, float %.126.i)
-  %445 = icmp eq i64 %indvars.iv56.i, 0
-  br i1 %445, label %.lr.ph28.i, label %.loopexit.i65, !llvm.loop !326
+  %444 = tail call float @llvm.fmuladd.f32(float %441, float %443, float %.138.i)
+  %445 = icmp eq i64 %indvars.iv61.i, 0
+  br i1 %445, label %.lr.ph40.i, label %.loopexit.i65, !llvm.loop !326
 
-.loopexit.i65:                                    ; preds = %.lr.ph28.i, %430
-  %.0103.i = phi float [ %436, %430 ], [ %444, %.lr.ph28.i ]
+.loopexit.i65:                                    ; preds = %.lr.ph40.i, %430
+  %.0103.i = phi float [ %436, %430 ], [ %444, %.lr.ph40.i ]
   %446 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i44
   %447 = load float, ptr %446, align 4, !tbaa !149
   %448 = fcmp ult float %.0103.i, %447
@@ -3166,7 +3166,7 @@ _ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i46: ; preds = %._crit_edge.loop
 
 486:                                              ; preds = %484
   %487 = load ptr, ptr %365, align 8, !tbaa !249
-  %488 = getelementptr inbounds %"class.gmx::BasicVector.4", ptr %487, i64 %indvars.iv60.i
+  %488 = getelementptr inbounds %"class.gmx::BasicVector.4", ptr %487, i64 %indvars.iv65.i
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 4
   %490 = load float, ptr %489, align 4, !tbaa !149
   %491 = fneg float %490
@@ -3196,7 +3196,7 @@ _ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i46: ; preds = %._crit_edge.loop
 
 .invoke:                                          ; preds = %501, %449
   %505 = phi i32 [ 1, %449 ], [ -1, %501 ]
-  %506 = trunc nsw i64 %indvars.iv60.i to i32
+  %506 = trunc nsw i64 %indvars.iv65.i to i32
   %507 = trunc nuw nsw i64 %indvars.iv.i44 to i32
   %508 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %indvars.iv.i44
   %509 = load float, ptr %508, align 4, !tbaa !149
@@ -3263,7 +3263,7 @@ _ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i46: ; preds = %._crit_edge.loop
 
 542:                                              ; preds = %540
   %543 = load ptr, ptr %365, align 8, !tbaa !249
-  %544 = getelementptr inbounds %"class.gmx::BasicVector.4", ptr %543, i64 %indvars.iv60.i
+  %544 = getelementptr inbounds %"class.gmx::BasicVector.4", ptr %543, i64 %indvars.iv65.i
   %545 = getelementptr inbounds nuw i8, ptr %544, i64 4
   %546 = load float, ptr %545, align 4, !tbaa !149
   %547 = fneg float %546
@@ -3307,133 +3307,133 @@ _ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i46: ; preds = %._crit_edge.loop
 .lr.ph.i61:                                       ; preds = %.preheader14.i
   %567 = getelementptr inbounds nuw i8, ptr %562, i64 4
   %568 = getelementptr inbounds nuw i8, ptr %562, i64 8
-  br label %576
+  br label %573
 
-.preheader13.i:                                   ; preds = %576, %.preheader14.i
-  %.pre67.i = phi float [ %421, %.preheader14.i ], [ %591, %576 ]
-  %.pre66.i = phi float [ %422, %.preheader14.i ], [ %590, %576 ]
-  %.pre65.i = phi float [ %423, %.preheader14.i ], [ %589, %576 ]
-  %569 = phi float [ %564, %.preheader14.i ], [ %592, %576 ]
-  %570 = phi float [ %426, %.preheader14.i ], [ %588, %576 ]
-  %571 = phi float [ %425, %.preheader14.i ], [ %586, %576 ]
-  %572 = phi float [ %424, %.preheader14.i ], [ %584, %576 ]
-  %573 = fcmp olt float %569, 0.000000e+00
-  br i1 %573, label %.lr.ph25.i, label %_ZL17rotate_state_atomP7t_statei.exit.i
+.preheader13.i:                                   ; preds = %573, %.preheader14.i
+  %.pre72.i = phi float [ %421, %.preheader14.i ], [ %588, %573 ]
+  %.pre71.i = phi float [ %422, %.preheader14.i ], [ %587, %573 ]
+  %.pre70.i = phi float [ %423, %.preheader14.i ], [ %586, %573 ]
+  %569 = phi float [ %564, %.preheader14.i ], [ %589, %573 ]
+  %.lcssa18.i = phi float [ %426, %.preheader14.i ], [ %585, %573 ]
+  %.lcssa17.i = phi float [ %425, %.preheader14.i ], [ %583, %573 ]
+  %.lcssa16.i = phi float [ %424, %.preheader14.i ], [ %581, %573 ]
+  %570 = fcmp olt float %569, 0.000000e+00
+  br i1 %570, label %.lr.ph34.i, label %_ZL17rotate_state_atomP7t_statei.exit.i
 
-.lr.ph25.i:                                       ; preds = %.preheader13.i
-  %574 = getelementptr inbounds nuw i8, ptr %562, i64 4
-  %575 = getelementptr inbounds nuw i8, ptr %562, i64 8
-  br label %595
+.lr.ph34.i:                                       ; preds = %.preheader13.i
+  %571 = getelementptr inbounds nuw i8, ptr %562, i64 4
+  %572 = getelementptr inbounds nuw i8, ptr %562, i64 8
+  br label %592
 
-576:                                              ; preds = %576, %.lr.ph.i61
-  %577 = phi float [ %421, %.lr.ph.i61 ], [ %591, %576 ]
-  %578 = phi float [ %422, %.lr.ph.i61 ], [ %590, %576 ]
-  %579 = phi float [ %423, %.lr.ph.i61 ], [ %589, %576 ]
-  %580 = phi float [ %426, %.lr.ph.i61 ], [ %588, %576 ]
-  %581 = phi float [ %425, %.lr.ph.i61 ], [ %586, %576 ]
-  %582 = phi float [ %424, %.lr.ph.i61 ], [ %584, %576 ]
-  %583 = load float, ptr %562, align 4, !tbaa !149
-  %584 = fsub float %582, %583
-  %585 = load float, ptr %567, align 4, !tbaa !149
-  %586 = fsub float %581, %585
-  %587 = load float, ptr %568, align 4, !tbaa !149
-  %588 = fsub float %580, %587
-  store float %584, ptr %16, align 4, !tbaa !149
-  store float %586, ptr %355, align 4, !tbaa !149
-  store float %588, ptr %356, align 4, !tbaa !149
-  %589 = fsub float %579, %583
-  %590 = fsub float %578, %585
-  %591 = fsub float %577, %587
-  store float %589, ptr %379, align 4, !tbaa !149
-  store float %590, ptr %381, align 4, !tbaa !149
-  store float %591, ptr %383, align 4, !tbaa !149
-  %592 = load float, ptr %561, align 4, !tbaa !149
-  %593 = load float, ptr %563, align 4, !tbaa !149
-  %594 = fcmp ult float %592, %593
-  br i1 %594, label %.preheader13.i, label %576, !llvm.loop !327
+573:                                              ; preds = %573, %.lr.ph.i61
+  %574 = phi float [ %421, %.lr.ph.i61 ], [ %588, %573 ]
+  %575 = phi float [ %422, %.lr.ph.i61 ], [ %587, %573 ]
+  %576 = phi float [ %423, %.lr.ph.i61 ], [ %586, %573 ]
+  %577 = phi float [ %424, %.lr.ph.i61 ], [ %581, %573 ]
+  %578 = phi float [ %425, %.lr.ph.i61 ], [ %583, %573 ]
+  %579 = phi float [ %426, %.lr.ph.i61 ], [ %585, %573 ]
+  %580 = load float, ptr %562, align 4, !tbaa !149
+  %581 = fsub float %577, %580
+  %582 = load float, ptr %567, align 4, !tbaa !149
+  %583 = fsub float %578, %582
+  %584 = load float, ptr %568, align 4, !tbaa !149
+  %585 = fsub float %579, %584
+  store float %581, ptr %16, align 4, !tbaa !149
+  store float %583, ptr %355, align 4, !tbaa !149
+  store float %585, ptr %356, align 4, !tbaa !149
+  %586 = fsub float %576, %580
+  %587 = fsub float %575, %582
+  %588 = fsub float %574, %584
+  store float %586, ptr %379, align 4, !tbaa !149
+  store float %587, ptr %381, align 4, !tbaa !149
+  store float %588, ptr %383, align 4, !tbaa !149
+  %589 = load float, ptr %561, align 4, !tbaa !149
+  %590 = load float, ptr %563, align 4, !tbaa !149
+  %591 = fcmp ult float %589, %590
+  br i1 %591, label %.preheader13.i, label %573, !llvm.loop !327
 
-595:                                              ; preds = %595, %.lr.ph25.i
-  %596 = phi float [ %.pre67.i, %.lr.ph25.i ], [ %610, %595 ]
-  %597 = phi float [ %.pre66.i, %.lr.ph25.i ], [ %609, %595 ]
-  %598 = phi float [ %.pre65.i, %.lr.ph25.i ], [ %608, %595 ]
-  %599 = phi float [ %570, %.lr.ph25.i ], [ %607, %595 ]
-  %600 = phi float [ %571, %.lr.ph25.i ], [ %605, %595 ]
-  %601 = phi float [ %572, %.lr.ph25.i ], [ %603, %595 ]
-  %602 = load float, ptr %562, align 4, !tbaa !149
-  %603 = fadd float %601, %602
-  %604 = load float, ptr %574, align 4, !tbaa !149
-  %605 = fadd float %600, %604
-  %606 = load float, ptr %575, align 4, !tbaa !149
-  %607 = fadd float %599, %606
-  store float %603, ptr %16, align 4, !tbaa !149
-  store float %605, ptr %355, align 4, !tbaa !149
-  store float %607, ptr %356, align 4, !tbaa !149
-  %608 = fadd float %598, %602
-  %609 = fadd float %597, %604
-  %610 = fadd float %596, %606
-  store float %608, ptr %379, align 4, !tbaa !149
-  store float %609, ptr %381, align 4, !tbaa !149
-  store float %610, ptr %383, align 4, !tbaa !149
-  %611 = load float, ptr %561, align 4, !tbaa !149
-  %612 = fcmp olt float %611, 0.000000e+00
-  br i1 %612, label %595, label %_ZL17rotate_state_atomP7t_statei.exit.i, !llvm.loop !328
+592:                                              ; preds = %592, %.lr.ph34.i
+  %593 = phi float [ %.pre72.i, %.lr.ph34.i ], [ %607, %592 ]
+  %594 = phi float [ %.pre71.i, %.lr.ph34.i ], [ %606, %592 ]
+  %595 = phi float [ %.pre70.i, %.lr.ph34.i ], [ %605, %592 ]
+  %596 = phi float [ %.lcssa16.i, %.lr.ph34.i ], [ %600, %592 ]
+  %597 = phi float [ %.lcssa17.i, %.lr.ph34.i ], [ %602, %592 ]
+  %598 = phi float [ %.lcssa18.i, %.lr.ph34.i ], [ %604, %592 ]
+  %599 = load float, ptr %562, align 4, !tbaa !149
+  %600 = fadd float %596, %599
+  %601 = load float, ptr %571, align 4, !tbaa !149
+  %602 = fadd float %597, %601
+  %603 = load float, ptr %572, align 4, !tbaa !149
+  %604 = fadd float %598, %603
+  store float %600, ptr %16, align 4, !tbaa !149
+  store float %602, ptr %355, align 4, !tbaa !149
+  store float %604, ptr %356, align 4, !tbaa !149
+  %605 = fadd float %595, %599
+  %606 = fadd float %594, %601
+  %607 = fadd float %593, %603
+  store float %605, ptr %379, align 4, !tbaa !149
+  store float %606, ptr %381, align 4, !tbaa !149
+  store float %607, ptr %383, align 4, !tbaa !149
+  %608 = load float, ptr %561, align 4, !tbaa !149
+  %609 = fcmp olt float %608, 0.000000e+00
+  br i1 %609, label %592, label %_ZL17rotate_state_atomP7t_statei.exit.i, !llvm.loop !328
 
 _ZL17rotate_state_atomP7t_statei.exit.sink.split.i: ; preds = %.critedge106.i, %.critedge.i
-  %.sink108.i = phi float [ %553, %.critedge.i ], [ %556, %.critedge106.i ]
-  %.sink107.i = phi float [ %554, %.critedge.i ], [ %557, %.critedge106.i ]
+  %.sink113.i = phi float [ %553, %.critedge.i ], [ %556, %.critedge106.i ]
+  %.sink112.i = phi float [ %554, %.critedge.i ], [ %557, %.critedge106.i ]
   %.sink.i66 = phi float [ %555, %.critedge.i ], [ %558, %.critedge106.i ]
   %.ph.i = phi float [ %468, %.critedge.i ], [ %524, %.critedge106.i ]
-  %.ph105.i = phi float [ %465, %.critedge.i ], [ %521, %.critedge106.i ]
-  %.ph106.i = phi float [ %462, %.critedge.i ], [ %518, %.critedge106.i ]
-  store float %.sink108.i, ptr %379, align 4, !tbaa !149
-  store float %.sink107.i, ptr %381, align 4, !tbaa !149
+  %.ph110.i = phi float [ %465, %.critedge.i ], [ %521, %.critedge106.i ]
+  %.ph111.i = phi float [ %462, %.critedge.i ], [ %518, %.critedge106.i ]
+  store float %.sink113.i, ptr %379, align 4, !tbaa !149
+  store float %.sink112.i, ptr %381, align 4, !tbaa !149
   store float %.sink.i66, ptr %383, align 4, !tbaa !149
   br label %_ZL17rotate_state_atomP7t_statei.exit.i
 
-_ZL17rotate_state_atomP7t_statei.exit.i:          ; preds = %595, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i, %.preheader13.i, %559, %510, %497, %453
-  %.pre64.i158 = phi float [ %421, %453 ], [ %421, %510 ], [ %421, %497 ], [ %421, %559 ], [ %.pre67.i, %.preheader13.i ], [ %.sink.i66, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %610, %595 ]
-  %.pre63.i155 = phi float [ %422, %453 ], [ %422, %510 ], [ %422, %497 ], [ %422, %559 ], [ %.pre66.i, %.preheader13.i ], [ %.sink107.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %609, %595 ]
-  %.pre.i62152 = phi float [ %423, %453 ], [ %423, %510 ], [ %423, %497 ], [ %423, %559 ], [ %.pre65.i, %.preheader13.i ], [ %.sink108.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %608, %595 ]
-  %613 = phi float [ %426, %453 ], [ %426, %510 ], [ %426, %497 ], [ %426, %559 ], [ %570, %.preheader13.i ], [ %.ph.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %607, %595 ]
-  %614 = phi float [ %425, %453 ], [ %425, %510 ], [ %425, %497 ], [ %425, %559 ], [ %571, %.preheader13.i ], [ %.ph105.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %605, %595 ]
-  %615 = phi float [ %424, %453 ], [ %424, %510 ], [ %424, %497 ], [ %424, %559 ], [ %572, %.preheader13.i ], [ %.ph106.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %603, %595 ]
+_ZL17rotate_state_atomP7t_statei.exit.i:          ; preds = %592, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i, %.preheader13.i, %559, %510, %497, %453
+  %.pre69.i158 = phi float [ %421, %453 ], [ %421, %510 ], [ %421, %497 ], [ %421, %559 ], [ %.pre72.i, %.preheader13.i ], [ %.sink.i66, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %607, %592 ]
+  %.pre68.i155 = phi float [ %422, %453 ], [ %422, %510 ], [ %422, %497 ], [ %422, %559 ], [ %.pre71.i, %.preheader13.i ], [ %.sink112.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %606, %592 ]
+  %.pre.i62152 = phi float [ %423, %453 ], [ %423, %510 ], [ %423, %497 ], [ %423, %559 ], [ %.pre70.i, %.preheader13.i ], [ %.sink113.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %605, %592 ]
+  %610 = phi float [ %426, %453 ], [ %426, %510 ], [ %426, %497 ], [ %426, %559 ], [ %.lcssa18.i, %.preheader13.i ], [ %.ph.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %604, %592 ]
+  %611 = phi float [ %425, %453 ], [ %425, %510 ], [ %425, %497 ], [ %425, %559 ], [ %.lcssa17.i, %.preheader13.i ], [ %.ph110.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %602, %592 ]
+  %612 = phi float [ %424, %453 ], [ %424, %510 ], [ %424, %497 ], [ %424, %559 ], [ %.lcssa16.i, %.preheader13.i ], [ %.ph111.i, %_ZL17rotate_state_atomP7t_statei.exit.sink.split.i ], [ %600, %592 ]
   %indvars.iv.next.i45 = add nsw i64 %indvars.iv.i44, -1
-  %.not68.i = icmp eq i64 %indvars.iv.i44, 0
-  br i1 %.not68.i, label %_ZL17rotate_state_atomP7t_statei.exit.thread.i, label %420, !llvm.loop !329
+  %.not73.i = icmp eq i64 %indvars.iv.i44, 0
+  br i1 %.not73.i, label %_ZL17rotate_state_atomP7t_statei.exit.thread.i, label %420, !llvm.loop !329
 
-616:                                              ; preds = %_ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i46, %376
-  %indvars.iv.next61.i = add nsw i64 %indvars.iv60.i, 1
-  %617 = trunc nsw i64 %indvars.iv.next61.i to i32
-  %.not12.i = icmp eq i32 %30, %617
+613:                                              ; preds = %_ZL15computeMoveFlagRK12gmx_domdec_tRA3_Ki.exit.i46, %376
+  %indvars.iv.next66.i = add nsw i64 %indvars.iv65.i, 1
+  %614 = trunc nsw i64 %indvars.iv.next66.i to i32
+  %.not12.i = icmp eq i32 %30, %614
   br i1 %.not12.i, label %"_ZN3gmx25dispatchTemplatedFunctionIZ18dd_redistribute_cgP8_IO_FILElP12gmx_domdec_tPiP7t_stateP10t_forcerecP6t_nrnbE3$_0JEEEDaOT_bDpT0_.exit", label %372
 
-"_ZN3gmx25dispatchTemplatedFunctionIZ18dd_redistribute_cgP8_IO_FILElP12gmx_domdec_tPiP7t_stateP10t_forcerecP6t_nrnbE3$_0JEEEDaOT_bDpT0_.exit": ; preds = %616, %333, %301, %342, %259, %304
+"_ZN3gmx25dispatchTemplatedFunctionIZ18dd_redistribute_cgP8_IO_FILElP12gmx_domdec_tPiP7t_stateP10t_forcerecP6t_nrnbE3$_0JEEEDaOT_bDpT0_.exit": ; preds = %613, %333, %301, %342, %259, %304
   ret void
 
-618:                                              ; preds = %338, %340, %336
+615:                                              ; preds = %338, %340, %336
   %.pn.pn.pn = phi { ptr, i32 } [ %337, %336 ], [ %339, %338 ], [ %341, %340 ]
   %.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
-  %619 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #9
-  %620 = icmp eq i32 %.023, %619
-  br i1 %620, label %621, label %627
+  %616 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #9
+  %617 = icmp eq i32 %.023, %616
+  br i1 %617, label %618, label %624
+
+618:                                              ; preds = %615
+  %619 = tail call ptr @__cxa_begin_catch(ptr %.0) #9
+  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %619) #23
+          to label %620 unwind label %621
+
+620:                                              ; preds = %618
+  unreachable
 
 621:                                              ; preds = %618
-  %622 = tail call ptr @__cxa_begin_catch(ptr %.0) #9
-  invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %622) #23
-          to label %623 unwind label %624
-
-623:                                              ; preds = %621
-  unreachable
-
-624:                                              ; preds = %621
-  %625 = landingpad { ptr, i32 }
+  %622 = landingpad { ptr, i32 }
           catch ptr null
-  %626 = extractvalue { ptr, i32 } %625, 0
-  tail call void @__clang_call_terminate(ptr %626) #26
+  %623 = extractvalue { ptr, i32 } %622, 0
+  tail call void @__clang_call_terminate(ptr %623) #26
   unreachable
 
-627:                                              ; preds = %618
+624:                                              ; preds = %615
   tail call void @__clang_call_terminate(ptr %.0) #26
   unreachable
 }

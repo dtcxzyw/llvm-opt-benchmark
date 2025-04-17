@@ -13159,7 +13159,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   invoke void @"_ZN4core3ptr86drop_in_place$LT$gpui..view..View$LT$ui..components..context_menu..ContextMenu$GT$$GT$17h8e37a181e47320e9E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #32
           to label %25 unwind label %100
 
-.loopexit:                                        ; preds = %.lr.ph.i.i
+.loopexit:                                        ; preds = %.noexc16.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -13341,9 +13341,9 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %.sroa.14.0..sroa_idx59.i = getelementptr inbounds nuw i8, ptr %4, i64 88
   %.sroa.15.0..sroa_idx63.i = getelementptr inbounds nuw i8, ptr %4, i64 89
   %.sroa.16.0..sroa_idx67.i = getelementptr inbounds nuw i8, ptr %4, i64 90
-  br label %.lr.ph.i.i
+  br label %.noexc16.i
 
-.lr.ph.i.i:                                       ; preds = %.noexc9, %74
+.noexc16.i:                                       ; preds = %.noexc9, %74
   %.sroa.15.0.i = phi i8 [ 0, %74 ], [ %.sroa.15.0.copyload64.i, %.noexc9 ]
   %.sroa.14.0.i = phi i8 [ 0, %74 ], [ %.sroa.14.0.copyload60.i, %.noexc9 ]
   %.sroa.13.0.i = phi ptr [ %52, %74 ], [ %.sroa.13.0.copyload56.i, %.noexc9 ]
@@ -13375,7 +13375,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   invoke void @_ZN2ui10components12context_menu11ContextMenu12custom_entry17h22d72717f06f826fE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %3, float noundef %77, float noundef %77)
           to label %.noexc9 unwind label %.loopexit
 
-.noexc9:                                          ; preds = %.lr.ph.i.i
+.noexc9:                                          ; preds = %.noexc16.i
   %78 = add nuw nsw i64 %75, 1
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3), !noalias !2026
   %.sroa.0.0.copyload17.i = load i64, ptr %4, align 8, !noalias !2030
@@ -13393,7 +13393,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.16.i, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.16.0..sroa_idx67.i, i64 6, i1 false), !noalias !2030
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !2026
   %.not.i.i.i.i = icmp eq i64 %78, 9
-  br i1 %.not.i.i.i.i, label %84, label %.lr.ph.i.i
+  br i1 %.not.i.i.i.i, label %84, label %.noexc16.i
 
 79:                                               ; preds = %72
   %80 = landingpad { ptr, i32 }

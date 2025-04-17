@@ -76,8 +76,8 @@ define range(i32 -1, 1) i32 @H5T__init_native_float_types() local_unnamed_addr #
   %26 = trunc nuw i8 %25 to i1
   %27 = xor i1 %26, true
   %28 = select i1 %24, i1 true, i1 %27
-  %indvars.iv434.sroa.gep556 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  %indvars.iv434.sroa.gep559 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  %indvars.iv433.sroa.gep555 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  %indvars.iv433.sroa.gep558 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br i1 %28, label %29, label %795, !prof !9
 
 29:                                               ; preds = %0
@@ -148,19 +148,19 @@ define range(i32 -1, 1) i32 @H5T__init_native_float_types() local_unnamed_addr #
   %56 = xor i1 %55, true
   %57 = select i1 %53, i1 true, i1 %56
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  br label %.outer460
+  br label %.outer459
 
-.outer460:                                        ; preds = %H5T__byte_cmp.exit.thread, %51
-  %indvars.iv414.ph = phi i64 [ %indvars.iv.next415, %H5T__byte_cmp.exit.thread ], [ 0, %51 ]
-  %.0210360.ph = phi i32 [ %.1211, %H5T__byte_cmp.exit.thread ], [ -1, %51 ]
-  %.ph461 = phi float [ %62, %H5T__byte_cmp.exit.thread ], [ 0.000000e+00, %51 ]
-  %.ph462 = phi float [ %63, %H5T__byte_cmp.exit.thread ], [ 1.000000e+00, %51 ]
+.outer459:                                        ; preds = %H5T__byte_cmp.exit.thread, %51
+  %indvars.iv413.ph = phi i64 [ %indvars.iv.next414, %H5T__byte_cmp.exit.thread ], [ 0, %51 ]
+  %.0210359.ph = phi i32 [ %.1211, %H5T__byte_cmp.exit.thread ], [ -1, %51 ]
+  %.ph460 = phi float [ %62, %H5T__byte_cmp.exit.thread ], [ 0.000000e+00, %51 ]
+  %.ph461 = phi float [ %63, %H5T__byte_cmp.exit.thread ], [ 1.000000e+00, %51 ]
   br label %59
 
-59:                                               ; preds = %.outer460, %H5T__byte_cmp.exit.thread.thread
-  %indvars.iv414 = phi i64 [ %indvars.iv.next415444, %H5T__byte_cmp.exit.thread.thread ], [ %indvars.iv414.ph, %.outer460 ]
-  %60 = phi float [ %62, %H5T__byte_cmp.exit.thread.thread ], [ %.ph461, %.outer460 ]
-  %61 = phi float [ %63, %H5T__byte_cmp.exit.thread.thread ], [ %.ph462, %.outer460 ]
+59:                                               ; preds = %.outer459, %H5T__byte_cmp.exit.thread.thread
+  %indvars.iv413 = phi i64 [ %indvars.iv.next414443, %H5T__byte_cmp.exit.thread.thread ], [ %indvars.iv413.ph, %.outer459 ]
+  %60 = phi float [ %62, %H5T__byte_cmp.exit.thread.thread ], [ %.ph460, %.outer459 ]
+  %61 = phi float [ %63, %H5T__byte_cmp.exit.thread.thread ], [ %.ph461, %.outer459 ]
   %62 = fadd float %60, %61
   %63 = fmul float %61, 3.906250e-03
   br i1 %57, label %.preheader.i.preheader, label %H5T__byte_cmp.exit.thread.thread, !prof !9
@@ -190,21 +190,21 @@ define range(i32 -1, 1) i32 @H5T__init_native_float_types() local_unnamed_addr #
 
 H5T__byte_cmp.exit:                               ; preds = %.preheader.i
   %73 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %74 = getelementptr inbounds nuw [32 x i32], ptr %58, i64 0, i64 %indvars.iv414
+  %74 = getelementptr inbounds nuw [32 x i32], ptr %58, i64 0, i64 %indvars.iv413
   store i32 %73, ptr %74, align 4, !tbaa !10
-  %75 = trunc nuw nsw i64 %indvars.iv414 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv413 to i32
   br label %H5T__byte_cmp.exit.thread
 
 H5T__byte_cmp.exit.thread:                        ; preds = %72, %H5T__byte_cmp.exit
-  %.1211 = phi i32 [ %75, %H5T__byte_cmp.exit ], [ %.0210360.ph, %72 ]
-  %indvars.iv.next415 = add nuw nsw i64 %indvars.iv414, 1
-  %exitcond417.not = icmp eq i64 %indvars.iv.next415, 4
-  br i1 %exitcond417.not, label %77, label %.outer460, !llvm.loop !23
+  %.1211 = phi i32 [ %75, %H5T__byte_cmp.exit ], [ %.0210359.ph, %72 ]
+  %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
+  %exitcond416.not = icmp eq i64 %indvars.iv.next414, 4
+  br i1 %exitcond416.not, label %77, label %.outer459, !llvm.loop !23
 
 H5T__byte_cmp.exit.thread.thread:                 ; preds = %59
-  %indvars.iv.next415444 = add nuw nsw i64 %indvars.iv414, 1
-  %exitcond417.not445 = icmp eq i64 %indvars.iv.next415444, 4
-  br i1 %exitcond417.not445, label %.thread, label %59, !llvm.loop !23
+  %indvars.iv.next414443 = add nuw nsw i64 %indvars.iv413, 1
+  %exitcond416.not444 = icmp eq i64 %indvars.iv.next414443, 4
+  br i1 %exitcond416.not444, label %.thread, label %59, !llvm.loop !23
 
 .thread:                                          ; preds = %H5T__byte_cmp.exit.thread.thread
   store float %62, ptr %5, align 4
@@ -251,7 +251,7 @@ H5T__byte_cmp.exit.thread.thread:                 ; preds = %59
 
 97:                                               ; preds = %89, %80
   %98 = icmp sgt i32 %83, %85
-  br i1 %98, label %99, label %.loopexit338.loopexit502.critedge
+  br i1 %98, label %99, label %.loopexit338.loopexit501.critedge
 
 99:                                               ; preds = %97
   %100 = icmp eq i32 %.1211, 1
@@ -261,7 +261,7 @@ H5T__byte_cmp.exit.thread.thread:                 ; preds = %59
   %102 = getelementptr i8, ptr %82, i64 -8
   %103 = load i32, ptr %102, align 4, !tbaa !10
   %104 = icmp sgt i32 %85, %103
-  br i1 %104, label %105, label %.loopexit338.loopexit502.critedge
+  br i1 %104, label %105, label %.loopexit338.loopexit501.critedge
 
 105:                                              ; preds = %101, %99
   store i32 1, ptr %78, align 4, !tbaa !10
@@ -277,7 +277,7 @@ H5T__byte_cmp.exit.thread.thread:                 ; preds = %59
   %exitcond.not.i244 = icmp eq i64 %indvars.iv.next65.i, 4
   br i1 %exitcond.not.i244, label %.loopexit338, label %106, !llvm.loop !25
 
-.loopexit338.loopexit502.critedge:                ; preds = %101, %97
+.loopexit338.loopexit501.critedge:                ; preds = %101, %97
   store i32 2, ptr %78, align 4, !tbaa !10
   store i32 2, ptr %58, align 4, !tbaa !10
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -294,8 +294,8 @@ H5T__byte_cmp.exit.thread.thread:                 ; preds = %59
   %116 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__fix_order, i32 noundef 308, i64 noundef %114, i64 noundef %115, ptr noundef nonnull @.str.3) #9
   br label %233
 
-.loopexit338:                                     ; preds = %106, %94, %.loopexit338.loopexit502.critedge, %.thread
-  %117 = phi ptr [ %76, %.thread ], [ %78, %.loopexit338.loopexit502.critedge ], [ %78, %94 ], [ %78, %106 ]
+.loopexit338:                                     ; preds = %106, %94, %.loopexit338.loopexit501.critedge, %.thread
+  %117 = phi ptr [ %76, %.thread ], [ %78, %.loopexit338.loopexit501.critedge ], [ %78, %94 ], [ %78, %106 ]
   store float 5.000000e-01, ptr %3, align 4, !tbaa !20
   store float 1.000000e+00, ptr %4, align 4, !tbaa !20
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 156
@@ -325,7 +325,7 @@ H5T__bit_cmp.exit.thread:                         ; preds = %121
   store i32 0, ptr %132, align 4, !tbaa !28
   store float 1.500000e+00, ptr %4, align 4, !tbaa !20
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %.pre440 = load i32, ptr %133, align 8, !tbaa !29
+  %.pre439 = load i32, ptr %133, align 8, !tbaa !29
   br label %H5T__bit_cmp.exit262
 
 134:                                              ; preds = %121
@@ -461,7 +461,7 @@ H5T__bit_cmp.exit:                                ; preds = %.preheader.i247
 H5T__bit_cmp.exit262:                             ; preds = %H5T__bit_cmp.exit.thread, %186
   %198 = phi ptr [ %133, %H5T__bit_cmp.exit.thread ], [ %166, %186 ]
   %199 = phi ptr [ %132, %H5T__bit_cmp.exit.thread ], [ %165, %186 ]
-  %200 = phi i32 [ %.pre440, %H5T__bit_cmp.exit.thread ], [ %189, %186 ]
+  %200 = phi i32 [ %.pre439, %H5T__bit_cmp.exit.thread ], [ %189, %186 ]
   %201 = select i1 %.not224, i32 2, i32 1
   %202 = add i32 %201, %200
   store i32 %202, ptr %198, align 8, !tbaa !29
@@ -647,15 +647,15 @@ H5T__find_bias.exit:                              ; preds = %H5T__find_bias.exit
   br label %.preheader337
 
 .preheader337:                                    ; preds = %303, %317
-  %indvars.iv418 = phi i64 [ 0, %303 ], [ %indvars.iv.next419, %317 ]
-  %306 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %indvars.iv418
-  %307 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 0, i64 %indvars.iv418
-  %.pre441 = load i8, ptr %306, align 1, !tbaa !16
+  %indvars.iv417 = phi i64 [ 0, %303 ], [ %indvars.iv.next418, %317 ]
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 0, i64 %indvars.iv417
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 0, i64 %indvars.iv417
+  %.pre440 = load i8, ptr %306, align 1, !tbaa !16
   br label %308
 
 308:                                              ; preds = %.preheader337, %315
-  %.0209363 = phi i8 [ 1, %.preheader337 ], [ %316, %315 ]
-  %309 = xor i8 %.pre441, %.0209363
+  %.0209362 = phi i8 [ 1, %.preheader337 ], [ %316, %315 ]
+  %309 = xor i8 %.pre440, %.0209362
   store i8 %309, ptr %306, align 1, !tbaa !16
   %310 = load double, ptr %10, align 8
   %311 = fcmp une double %310, 4.000000e+00
@@ -663,20 +663,20 @@ H5T__find_bias.exit:                              ; preds = %H5T__find_bias.exit
 
 312:                                              ; preds = %308
   %313 = load i8, ptr %307, align 1, !tbaa !16
-  %314 = or i8 %313, %.0209363
+  %314 = or i8 %313, %.0209362
   store i8 %314, ptr %307, align 1, !tbaa !16
   br label %315
 
 315:                                              ; preds = %312, %308
-  store i8 %.pre441, ptr %306, align 1, !tbaa !16
-  %316 = shl i8 %.0209363, 1
+  store i8 %.pre440, ptr %306, align 1, !tbaa !16
+  %316 = shl i8 %.0209362, 1
   %.not235 = icmp eq i8 %316, 0
   br i1 %.not235, label %317, label %308, !llvm.loop !56
 
 317:                                              ; preds = %315
-  %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
-  %exitcond421.not = icmp eq i64 %indvars.iv.next419, 8
-  br i1 %exitcond421.not, label %318, label %.preheader337, !llvm.loop !57
+  %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
+  %exitcond420.not = icmp eq i64 %indvars.iv.next418, 8
+  br i1 %exitcond420.not, label %318, label %.preheader337, !llvm.loop !57
 
 318:                                              ; preds = %317
   store double 0.000000e+00, ptr %8, align 8, !tbaa !58
@@ -690,16 +690,16 @@ H5T__find_bias.exit:                              ; preds = %H5T__find_bias.exit
   br label %.outer
 
 .outer:                                           ; preds = %H5T__byte_cmp.exit272.thread, %318
-  %indvars.iv422.ph = phi i64 [ %indvars.iv.next423, %H5T__byte_cmp.exit272.thread ], [ 0, %318 ]
-  %.0203370.ph = phi i32 [ %.1204, %H5T__byte_cmp.exit272.thread ], [ -1, %318 ]
-  %.ph456 = phi double [ %328, %H5T__byte_cmp.exit272.thread ], [ 0.000000e+00, %318 ]
-  %.ph457 = phi double [ %329, %H5T__byte_cmp.exit272.thread ], [ 1.000000e+00, %318 ]
+  %indvars.iv421.ph = phi i64 [ %indvars.iv.next422, %H5T__byte_cmp.exit272.thread ], [ 0, %318 ]
+  %.0203369.ph = phi i32 [ %.1204, %H5T__byte_cmp.exit272.thread ], [ -1, %318 ]
+  %.ph455 = phi double [ %328, %H5T__byte_cmp.exit272.thread ], [ 0.000000e+00, %318 ]
+  %.ph456 = phi double [ %329, %H5T__byte_cmp.exit272.thread ], [ 1.000000e+00, %318 ]
   br label %325
 
 325:                                              ; preds = %.outer, %H5T__byte_cmp.exit272.thread.thread
-  %indvars.iv422 = phi i64 [ %indvars.iv.next423449, %H5T__byte_cmp.exit272.thread.thread ], [ %indvars.iv422.ph, %.outer ]
-  %326 = phi double [ %328, %H5T__byte_cmp.exit272.thread.thread ], [ %.ph456, %.outer ]
-  %327 = phi double [ %329, %H5T__byte_cmp.exit272.thread.thread ], [ %.ph457, %.outer ]
+  %indvars.iv421 = phi i64 [ %indvars.iv.next422448, %H5T__byte_cmp.exit272.thread.thread ], [ %indvars.iv421.ph, %.outer ]
+  %326 = phi double [ %328, %H5T__byte_cmp.exit272.thread.thread ], [ %.ph455, %.outer ]
+  %327 = phi double [ %329, %H5T__byte_cmp.exit272.thread.thread ], [ %.ph456, %.outer ]
   %328 = fadd double %326, %327
   %329 = fmul double %327, 3.906250e-03
   br i1 %324, label %.preheader.i266.preheader, label %H5T__byte_cmp.exit272.thread.thread, !prof !9
@@ -729,23 +729,23 @@ H5T__find_bias.exit:                              ; preds = %H5T__find_bias.exit
 
 H5T__byte_cmp.exit272:                            ; preds = %.preheader.i266
   %339 = trunc nuw nsw i64 %indvars.iv.i267 to i32
-  %340 = getelementptr inbounds nuw [32 x i32], ptr %58, i64 0, i64 %indvars.iv422
+  %340 = getelementptr inbounds nuw [32 x i32], ptr %58, i64 0, i64 %indvars.iv421
   store i32 %339, ptr %340, align 4, !tbaa !10
-  %341 = trunc nuw nsw i64 %indvars.iv422 to i32
+  %341 = trunc nuw nsw i64 %indvars.iv421 to i32
   br label %H5T__byte_cmp.exit272.thread
 
 H5T__byte_cmp.exit272.thread:                     ; preds = %338, %H5T__byte_cmp.exit272
-  %.1204 = phi i32 [ %341, %H5T__byte_cmp.exit272 ], [ %.0203370.ph, %338 ]
-  %indvars.iv.next423 = add nuw nsw i64 %indvars.iv422, 1
-  %exitcond425.not = icmp eq i64 %indvars.iv.next423, 8
-  br i1 %exitcond425.not, label %342, label %.outer, !llvm.loop !60
+  %.1204 = phi i32 [ %341, %H5T__byte_cmp.exit272 ], [ %.0203369.ph, %338 ]
+  %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
+  %exitcond424.not = icmp eq i64 %indvars.iv.next422, 8
+  br i1 %exitcond424.not, label %342, label %.outer, !llvm.loop !60
 
 H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
-  %indvars.iv.next423449 = add nuw nsw i64 %indvars.iv422, 1
-  %exitcond425.not450 = icmp eq i64 %indvars.iv.next423449, 8
-  br i1 %exitcond425.not450, label %.thread452, label %325, !llvm.loop !60
+  %indvars.iv.next422448 = add nuw nsw i64 %indvars.iv421, 1
+  %exitcond424.not449 = icmp eq i64 %indvars.iv.next422448, 8
+  br i1 %exitcond424.not449, label %.thread451, label %325, !llvm.loop !60
 
-.thread452:                                       ; preds = %H5T__byte_cmp.exit272.thread.thread
+.thread451:                                       ; preds = %H5T__byte_cmp.exit272.thread.thread
   store double %328, ptr %10, align 8
   store double %326, ptr %11, align 8
   br label %.loopexit
@@ -837,7 +837,7 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
   %385 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__fix_order, i32 noundef 308, i64 noundef %383, i64 noundef %384, ptr noundef nonnull @.str.3) #9
   br label %417
 
-.loopexit:                                        ; preds = %375, %370, %358, %.thread452
+.loopexit:                                        ; preds = %375, %370, %358, %.thread451
   store double 5.000000e-01, ptr %8, align 8, !tbaa !58
   store double 1.000000e+00, ptr %9, align 8, !tbaa !58
   %386 = call fastcc i32 @H5T__imp_bit(i32 noundef 8, ptr noundef %58, ptr noundef %8, ptr noundef %9, ptr noundef %12, ptr noundef %118)
@@ -899,10 +899,10 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
   br label %421
 
 417:                                              ; preds = %393, %388, %.loopexit, %382
-  %.str.6.sink494 = phi ptr [ @.str.3, %382 ], [ @.str.4, %.loopexit ], [ @.str.5, %388 ], [ @.str.6, %393 ]
+  %.str.6.sink493 = phi ptr [ @.str.3, %382 ], [ @.str.4, %.loopexit ], [ @.str.5, %388 ], [ @.str.6, %393 ]
   %418 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !12
   %419 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !12
-  %420 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__init_native_float_types, i32 noundef 514, i64 noundef %418, i64 noundef %419, ptr noundef nonnull %.str.6.sink494) #9
+  %420 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__init_native_float_types, i32 noundef 514, i64 noundef %418, i64 noundef %419, ptr noundef nonnull %.str.6.sink493) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
@@ -1021,15 +1021,15 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
   br label %.preheader334
 
 .preheader334:                                    ; preds = %484, %498
-  %indvars.iv426 = phi i64 [ 0, %484 ], [ %indvars.iv.next427, %498 ]
-  %487 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %indvars.iv426
-  %.promoted371 = load i8, ptr %487, align 1, !tbaa !16
-  %488 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 0, i64 %indvars.iv426
+  %indvars.iv425 = phi i64 [ 0, %484 ], [ %indvars.iv.next426, %498 ]
+  %487 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 0, i64 %indvars.iv425
+  %.promoted370 = load i8, ptr %487, align 1, !tbaa !16
+  %488 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 0, i64 %indvars.iv425
   br label %489
 
 489:                                              ; preds = %.preheader334, %496
-  %.0201372 = phi i8 [ 1, %.preheader334 ], [ %497, %496 ]
-  %490 = xor i8 %.promoted371, %.0201372
+  %.0201371 = phi i8 [ 1, %.preheader334 ], [ %497, %496 ]
+  %490 = xor i8 %.promoted370, %.0201371
   store i8 %490, ptr %487, align 1, !tbaa !16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, ptr noundef nonnull align 16 dereferenceable(16) %15, i64 16, i1 false)
   %491 = load x86_fp80, ptr %14, align 16, !tbaa !62
@@ -1038,20 +1038,20 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
 
 493:                                              ; preds = %489
   %494 = load i8, ptr %488, align 1, !tbaa !16
-  %495 = or i8 %494, %.0201372
+  %495 = or i8 %494, %.0201371
   store i8 %495, ptr %488, align 1, !tbaa !16
   br label %496
 
 496:                                              ; preds = %493, %489
-  store i8 %.promoted371, ptr %487, align 1, !tbaa !16
-  %497 = shl i8 %.0201372, 1
+  store i8 %.promoted370, ptr %487, align 1, !tbaa !16
+  %497 = shl i8 %.0201371, 1
   %.not233 = icmp eq i8 %497, 0
   br i1 %.not233, label %498, label %489, !llvm.loop !64
 
 498:                                              ; preds = %496
-  %indvars.iv.next427 = add nuw nsw i64 %indvars.iv426, 1
-  %exitcond429.not = icmp eq i64 %indvars.iv.next427, 16
-  br i1 %exitcond429.not, label %499, label %.preheader334, !llvm.loop !65
+  %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
+  %exitcond428.not = icmp eq i64 %indvars.iv.next426, 16
+  br i1 %exitcond428.not, label %499, label %.preheader334, !llvm.loop !65
 
 499:                                              ; preds = %498
   %500 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -1063,8 +1063,8 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
   br label %506
 
 506:                                              ; preds = %499, %H5T__byte_cmp.exit294.thread
-  %indvars.iv430 = phi i64 [ 0, %499 ], [ %indvars.iv.next431, %H5T__byte_cmp.exit294.thread ]
-  %.0193378 = phi i32 [ -1, %499 ], [ %.1194, %H5T__byte_cmp.exit294.thread ]
+  %indvars.iv429 = phi i64 [ 0, %499 ], [ %indvars.iv.next430, %H5T__byte_cmp.exit294.thread ]
+  %.0193377 = phi i32 [ -1, %499 ], [ %.1194, %H5T__byte_cmp.exit294.thread ]
   %507 = phi x86_fp80 [ 0xK00000000000000000000, %499 ], [ %509, %H5T__byte_cmp.exit294.thread ]
   %508 = phi x86_fp80 [ 0xK3FFF8000000000000000, %499 ], [ %510, %H5T__byte_cmp.exit294.thread ]
   %509 = fadd x86_fp80 %507, %508
@@ -1094,16 +1094,16 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
 
 H5T__byte_cmp.exit294:                            ; preds = %.preheader.i288
   %520 = trunc nuw nsw i64 %indvars.iv.i289 to i32
-  %521 = getelementptr inbounds nuw [32 x i32], ptr %58, i64 0, i64 %indvars.iv430
+  %521 = getelementptr inbounds nuw [32 x i32], ptr %58, i64 0, i64 %indvars.iv429
   store i32 %520, ptr %521, align 4, !tbaa !10
-  %522 = trunc nuw nsw i64 %indvars.iv430 to i32
+  %522 = trunc nuw nsw i64 %indvars.iv429 to i32
   br label %H5T__byte_cmp.exit294.thread
 
 H5T__byte_cmp.exit294.thread:                     ; preds = %519, %506, %H5T__byte_cmp.exit294
-  %.1194 = phi i32 [ %522, %H5T__byte_cmp.exit294 ], [ %.0193378, %506 ], [ %.0193378, %519 ]
-  %indvars.iv.next431 = add nuw nsw i64 %indvars.iv430, 1
-  %exitcond433.not = icmp eq i64 %indvars.iv.next431, 16
-  br i1 %exitcond433.not, label %523, label %506, !llvm.loop !66
+  %.1194 = phi i32 [ %522, %H5T__byte_cmp.exit294 ], [ %.0193377, %506 ], [ %.0193377, %519 ]
+  %indvars.iv.next430 = add nuw nsw i64 %indvars.iv429, 1
+  %exitcond432.not = icmp eq i64 %indvars.iv.next430, 16
+  br i1 %exitcond432.not, label %523, label %506, !llvm.loop !66
 
 523:                                              ; preds = %H5T__byte_cmp.exit294.thread
   %524 = call fastcc i32 @H5T__fix_order(i32 noundef 16, i32 noundef %.1194, ptr noundef %58, ptr noundef %117)
@@ -1172,10 +1172,10 @@ H5T__byte_cmp.exit294.thread:                     ; preds = %519, %506, %H5T__by
   br label %562
 
 558:                                              ; preds = %534, %529, %526, %523
-  %.str.6.sink496 = phi ptr [ @.str.3, %523 ], [ @.str.4, %526 ], [ @.str.5, %529 ], [ @.str.6, %534 ]
+  %.str.6.sink495 = phi ptr [ @.str.3, %523 ], [ @.str.4, %526 ], [ @.str.5, %529 ], [ @.str.6, %534 ]
   %559 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !12
   %560 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !12
-  %561 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__init_native_float_types, i32 noundef 545, i64 noundef %559, i64 noundef %560, ptr noundef nonnull %.str.6.sink496) #9
+  %561 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__init_native_float_types, i32 noundef 545, i64 noundef %559, i64 noundef %560, ptr noundef nonnull %.str.6.sink495) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #9
@@ -1297,28 +1297,28 @@ H5T__byte_cmp.exit294.thread:                     ; preds = %519, %506, %H5T__by
 
 .preheader333:                                    ; preds = %625, %639
   %629 = phi i1 [ true, %625 ], [ false, %639 ]
-  %indvars.iv434.sroa.phi = phi ptr [ %22, %625 ], [ %indvars.iv434.sroa.gep556, %639 ]
-  %indvars.iv434.sroa.phi557 = phi ptr [ %20, %625 ], [ %indvars.iv434.sroa.gep559, %639 ]
-  %.pre442 = load i8, ptr %indvars.iv434.sroa.phi557, align 1, !tbaa !16
+  %indvars.iv433.sroa.phi = phi ptr [ %22, %625 ], [ %indvars.iv433.sroa.gep555, %639 ]
+  %indvars.iv433.sroa.phi556 = phi ptr [ %20, %625 ], [ %indvars.iv433.sroa.gep558, %639 ]
+  %.pre441 = load i8, ptr %indvars.iv433.sroa.phi556, align 1, !tbaa !16
   br label %630
 
 630:                                              ; preds = %.preheader333, %637
-  %.0192380 = phi i8 [ 1, %.preheader333 ], [ %638, %637 ]
-  %631 = xor i8 %.pre442, %.0192380
-  store i8 %631, ptr %indvars.iv434.sroa.phi557, align 1, !tbaa !16
+  %.0192379 = phi i8 [ 1, %.preheader333 ], [ %638, %637 ]
+  %631 = xor i8 %.pre441, %.0192379
+  store i8 %631, ptr %indvars.iv433.sroa.phi556, align 1, !tbaa !16
   %632 = load half, ptr %20, align 2
   %633 = fcmp une half %632, 0xH4400
   br i1 %633, label %634, label %637
 
 634:                                              ; preds = %630
-  %635 = load i8, ptr %indvars.iv434.sroa.phi, align 1, !tbaa !16
-  %636 = or i8 %635, %.0192380
-  store i8 %636, ptr %indvars.iv434.sroa.phi, align 1, !tbaa !16
+  %635 = load i8, ptr %indvars.iv433.sroa.phi, align 1, !tbaa !16
+  %636 = or i8 %635, %.0192379
+  store i8 %636, ptr %indvars.iv433.sroa.phi, align 1, !tbaa !16
   br label %637
 
 637:                                              ; preds = %634, %630
-  store i8 %.pre442, ptr %indvars.iv434.sroa.phi557, align 1, !tbaa !16
-  %638 = shl i8 %.0192380, 1
+  store i8 %.pre441, ptr %indvars.iv433.sroa.phi556, align 1, !tbaa !16
+  %638 = shl i8 %.0192379, 1
   %.not232 = icmp eq i8 %638, 0
   br i1 %.not232, label %639, label %630, !llvm.loop !69
 
@@ -1336,8 +1336,8 @@ H5T__byte_cmp.exit294.thread:                     ; preds = %519, %506, %H5T__by
 
 647:                                              ; preds = %640, %H5T__byte_cmp.exit306.thread
   %648 = phi i1 [ true, %640 ], [ false, %H5T__byte_cmp.exit306.thread ]
-  %indvars.iv437 = phi i64 [ 0, %640 ], [ 1, %H5T__byte_cmp.exit306.thread ]
-  %.0187387 = phi i32 [ -1, %640 ], [ %.1, %H5T__byte_cmp.exit306.thread ]
+  %indvars.iv436 = phi i64 [ 0, %640 ], [ 1, %H5T__byte_cmp.exit306.thread ]
+  %.0187386 = phi i32 [ -1, %640 ], [ %.1, %H5T__byte_cmp.exit306.thread ]
   %649 = phi half [ 0xH0000, %640 ], [ %651, %H5T__byte_cmp.exit306.thread ]
   %650 = phi half [ 0xH3C00, %640 ], [ %652, %H5T__byte_cmp.exit306.thread ]
   %651 = fadd half %649, %650
@@ -1366,13 +1366,13 @@ H5T__byte_cmp.exit294.thread:                     ; preds = %519, %506, %H5T__by
 
 H5T__byte_cmp.exit306:                            ; preds = %.preheader.i300
   %662 = trunc nuw nsw i64 %indvars.iv.i301 to i32
-  %663 = getelementptr inbounds nuw [32 x i32], ptr %58, i64 0, i64 %indvars.iv437
+  %663 = getelementptr inbounds nuw [32 x i32], ptr %58, i64 0, i64 %indvars.iv436
   store i32 %662, ptr %663, align 4, !tbaa !10
-  %664 = trunc nuw nsw i64 %indvars.iv437 to i32
+  %664 = trunc nuw nsw i64 %indvars.iv436 to i32
   br label %H5T__byte_cmp.exit306.thread
 
 H5T__byte_cmp.exit306.thread:                     ; preds = %661, %647, %H5T__byte_cmp.exit306
-  %.1 = phi i32 [ %664, %H5T__byte_cmp.exit306 ], [ %.0187387, %647 ], [ %.0187387, %661 ]
+  %.1 = phi i32 [ %664, %H5T__byte_cmp.exit306 ], [ %.0187386, %647 ], [ %.0187386, %661 ]
   br i1 %648, label %647, label %665, !llvm.loop !71
 
 665:                                              ; preds = %H5T__byte_cmp.exit306.thread
@@ -1442,10 +1442,10 @@ H5T__byte_cmp.exit306.thread:                     ; preds = %661, %647, %H5T__by
   br label %704
 
 700:                                              ; preds = %676, %671, %668, %665
-  %.str.6.sink498 = phi ptr [ @.str.3, %665 ], [ @.str.4, %668 ], [ @.str.5, %671 ], [ @.str.6, %676 ]
+  %.str.6.sink497 = phi ptr [ @.str.3, %665 ], [ @.str.4, %668 ], [ @.str.5, %671 ], [ @.str.6, %676 ]
   %701 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !12
   %702 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !12
-  %703 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__init_native_float_types, i32 noundef 582, i64 noundef %701, i64 noundef %702, ptr noundef nonnull %.str.6.sink498) #9
+  %703 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__init_native_float_types, i32 noundef 582, i64 noundef %701, i64 noundef %702, ptr noundef nonnull %.str.6.sink497) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %22) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %21) #9
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20) #9

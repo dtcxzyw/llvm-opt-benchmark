@@ -2632,7 +2632,7 @@ _Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii.exit: ; preds = %_ZNK5Gluco
   store ptr %119, ptr %120, align 8, !tbaa !148
   tail call void (ptr, ptr, ...) @_ZL13Vec_StrPrintFP10Vec_Str_t_PKcz(ptr noundef nonnull %117, ptr noundef nonnull @.str.29, i32 noundef %116)
   tail call void @Cnf_DataFree(ptr noundef nonnull %8) #29
-  br label %bmcg_sat_solver_stop.exit49
+  br label %178
 
 121:                                              ; preds = %._crit_edge
   br i1 %17, label %16, label %122, !llvm.loop !159
@@ -2763,26 +2763,26 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %_ZL11Vec_IntPushP10
 _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %._crit_edge76, %170
   tail call void @free(ptr noundef nonnull %127) #29
   %.not.i47 = icmp eq ptr %166, null
-  br i1 %.not.i47, label %172, label %171
+  br i1 %.not.i47, label %bmcg_sat_solver_stop.exit49, label %171
 
 171:                                              ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
   tail call void @free(ptr noundef nonnull %166) #29
-  br label %172
-
-172:                                              ; preds = %171, %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
-  tail call void @free(ptr noundef nonnull %123) #29
-  %173 = load ptr, ptr %5, align 8, !tbaa !3
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = load ptr, ptr %174, align 8
-  tail call void %175(ptr noundef nonnull align 8 dereferenceable(1484) %5) #29
-  %176 = load ptr, ptr %7, align 8, !tbaa !3
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %178 = load ptr, ptr %177, align 8
-  tail call void %178(ptr noundef nonnull align 8 dereferenceable(1484) %7) #29
   br label %bmcg_sat_solver_stop.exit49
 
-bmcg_sat_solver_stop.exit49:                      ; preds = %172, %115
-  %.0 = phi ptr [ %117, %115 ], [ %167, %172 ]
+bmcg_sat_solver_stop.exit49:                      ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, %171
+  tail call void @free(ptr noundef nonnull %123) #29
+  %172 = load ptr, ptr %5, align 8, !tbaa !3
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %174 = load ptr, ptr %173, align 8
+  tail call void %174(ptr noundef nonnull align 8 dereferenceable(1484) %5) #29
+  %175 = load ptr, ptr %7, align 8, !tbaa !3
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %177 = load ptr, ptr %176, align 8
+  tail call void %177(ptr noundef nonnull align 8 dereferenceable(1484) %7) #29
+  br label %178
+
+178:                                              ; preds = %bmcg_sat_solver_stop.exit49, %115
+  %.0 = phi ptr [ %117, %115 ], [ %167, %bmcg_sat_solver_stop.exit49 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #29
   ret ptr %.0

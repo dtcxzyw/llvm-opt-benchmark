@@ -6690,11 +6690,11 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i:                  ; preds = %1041, %1038, %_ZN4l
   br label %1054
 
 1054:                                             ; preds = %.critedge.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit26.i.i.i.i, %_ZNK4llvm4User10getOperandEj.exit9.i.i.i.i.i
-  %.ph.i.i.i = phi i32 [ 17, %.critedge.i.i.i.i ], [ 13, %_ZNK4llvm4User10getOperandEj.exit26.i.i.i.i ], [ %927, %_ZNK4llvm4User10getOperandEj.exit9.i.i.i.i.i ]
-  %.ph39.i.i.i = phi i1 [ %1013, %.critedge.i.i.i.i ], [ true, %_ZNK4llvm4User10getOperandEj.exit26.i.i.i.i ], [ %950, %_ZNK4llvm4User10getOperandEj.exit9.i.i.i.i.i ]
-  %.ph40.i.i.i = phi i1 [ %1003, %.critedge.i.i.i.i ], [ true, %_ZNK4llvm4User10getOperandEj.exit26.i.i.i.i ], [ %948, %_ZNK4llvm4User10getOperandEj.exit9.i.i.i.i.i ]
-  %.ph41.i.i.i = phi ptr [ %1053, %.critedge.i.i.i.i ], [ %967, %_ZNK4llvm4User10getOperandEj.exit26.i.i.i.i ], [ %942, %_ZNK4llvm4User10getOperandEj.exit9.i.i.i.i.i ]
-  %1055 = icmp eq ptr %.ph41.i.i.i, %.sroa.045.0.copyload.i.i
+  %.ph.i.i.i = phi i1 [ %1003, %.critedge.i.i.i.i ], [ true, %_ZNK4llvm4User10getOperandEj.exit26.i.i.i.i ], [ %948, %_ZNK4llvm4User10getOperandEj.exit9.i.i.i.i.i ]
+  %.ph28.i.i.i = phi i1 [ %1013, %.critedge.i.i.i.i ], [ true, %_ZNK4llvm4User10getOperandEj.exit26.i.i.i.i ], [ %950, %_ZNK4llvm4User10getOperandEj.exit9.i.i.i.i.i ]
+  %.ph29.i.i.i = phi ptr [ %1053, %.critedge.i.i.i.i ], [ %967, %_ZNK4llvm4User10getOperandEj.exit26.i.i.i.i ], [ %942, %_ZNK4llvm4User10getOperandEj.exit9.i.i.i.i.i ]
+  %.ph30.i.i.i = phi i32 [ 17, %.critedge.i.i.i.i ], [ 13, %_ZNK4llvm4User10getOperandEj.exit26.i.i.i.i ], [ %927, %_ZNK4llvm4User10getOperandEj.exit9.i.i.i.i.i ]
+  %1055 = icmp eq ptr %.ph29.i.i.i, %.sroa.045.0.copyload.i.i
   %.val.i.i.i = load ptr, ptr %71, align 8, !tbaa !414
   %.val8.i.i.i = load i32, ptr %72, align 8, !tbaa !413
   %1056 = icmp eq i32 %.val8.i.i.i, 0
@@ -6746,23 +6746,23 @@ _ZN12_GLOBAL__N_17WidenIV13getExtendKindEPN4llvm11InstructionE.exit.i.i.i: ; pre
   ]
 
 1081:                                             ; preds = %_ZN12_GLOBAL__N_17WidenIV13getExtendKindEPN4llvm11InstructionE.exit.i.i.i
-  br i1 %.ph39.i.i.i, label %1085, label %.thread.thread.i.i.i
+  br i1 %.ph28.i.i.i, label %1085, label %.thread.thread.i.i.i
 
 1082:                                             ; preds = %_ZN12_GLOBAL__N_17WidenIV13getExtendKindEPN4llvm11InstructionE.exit.i.i.i
-  br i1 %.ph40.i.i.i, label %1094, label %.thread.i.i.i
+  br i1 %.ph.i.i.i, label %1094, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %1082, %_ZN12_GLOBAL__N_17WidenIV13getExtendKindEPN4llvm11InstructionE.exit.i.i.i
   br i1 %692, label %1084, label %1103
 
 .thread.thread.i.i.i:                             ; preds = %1081
-  %1083 = select i1 %692, i1 %.ph40.i.i.i, i1 false
+  %1083 = select i1 %692, i1 %.ph.i.i.i, i1 false
   br i1 %1083, label %1094, label %1103
 
 1084:                                             ; preds = %.thread.i.i.i
-  br i1 %.ph39.i.i.i, label %1085, label %.thread43.i.i.i
+  br i1 %.ph28.i.i.i, label %1085, label %.thread43.i.i.i
 
 .thread43.i.i.i:                                  ; preds = %1084
-  br i1 %.ph40.i.i.i, label %1094, label %1103
+  br i1 %.ph.i.i.i, label %1094, label %1103
 
 1085:                                             ; preds = %1084, %1081
   %1086 = load ptr, ptr %62, align 8, !tbaa !399
@@ -6795,19 +6795,19 @@ _ZN12_GLOBAL__N_17WidenIV13getExtendKindEPN4llvm11InstructionE.exit.i.i.i: ; pre
   br label %1120
 
 1109:                                             ; preds = %1094, %1085
-  %.02432.i.i.i = phi i32 [ 1, %1085 ], [ 0, %1094 ]
+  %.02537.i.i.i = phi i32 [ 1, %1085 ], [ 0, %1094 ]
   %.0.i.i71.i = phi ptr [ %1093, %1085 ], [ %1102, %1094 ]
   %1110 = load ptr, ptr %62, align 8, !tbaa !399
   %1111 = call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %1110, ptr noundef %.sroa.3.0.copyload.i.i) #16
   %spec.select.i.i72.i = select i1 %1055, ptr %1111, ptr %.0.i.i71.i
-  %spec.select34.i.i.i = select i1 %1055, ptr %.0.i.i71.i, ptr %1111
+  %spec.select39.i.i.i = select i1 %1055, ptr %.0.i.i71.i, ptr %1111
   %.val13.i.i.i = load ptr, ptr %62, align 8
-  %1112 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_17WidenIV15getSCEVByOpCodeEPKN4llvm4SCEVES4_j(ptr %.val13.i.i.i, ptr noundef %spec.select.i.i72.i, ptr noundef %spec.select34.i.i.i, i32 noundef %.ph.i.i.i)
+  %1112 = call fastcc noundef ptr @_ZNK12_GLOBAL__N_17WidenIV15getSCEVByOpCodeEPKN4llvm4SCEVES4_j(ptr %.val13.i.i.i, ptr noundef %spec.select.i.i72.i, ptr noundef %spec.select39.i.i.i, i32 noundef %.ph30.i.i.i)
   %1113 = getelementptr inbounds nuw i8, ptr %1112, i64 24
   %1114 = load i16, ptr %1113, align 8, !tbaa !213
   %1115 = icmp ne i16 %1114, 8
-  %.not37.i.i.i = icmp eq ptr %1112, null
-  %.not.i.i73.i = or i1 %.not37.i.i.i, %1115
+  %.not42.i.i.i = icmp eq ptr %1112, null
+  %.not.i.i73.i = or i1 %.not42.i.i.i, %1115
   br i1 %.not.i.i73.i, label %1120, label %1116
 
 1116:                                             ; preds = %1109
@@ -6939,7 +6939,7 @@ _ZN12_GLOBAL__N_17WidenIV13getExtendKindEPN4llvm11InstructionE.exit.i22.i.i: ; p
 
 1189:                                             ; preds = %1185, %.thread.i.i
   %.sroa.0.078.i.i = phi ptr [ %1112, %.thread.i.i ], [ %.0.i24.i.i, %1185 ]
-  %.sroa.8.077.i.i = phi i32 [ %.02432.i.i.i, %.thread.i.i ], [ %.018.i.i.i, %1185 ]
+  %.sroa.8.077.i.i = phi i32 [ %.02537.i.i.i, %.thread.i.i ], [ %.018.i.i.i, %1185 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #16
   store ptr null, ptr %40, align 8, !tbaa !54
   %1190 = load ptr, ptr %613, align 8, !tbaa !469

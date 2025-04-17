@@ -13806,30 +13806,29 @@ _ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7Command4args17ha4f4906926acebfdE(ptr noalias noundef returned align 8 dereferenceable(208) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit.preheader:
-  %2 = alloca [48 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3 = alloca [48 x i8], align 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 2, ptr %.sroa.5.0..sroa_idx, align 8
   br label %_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit
 
-_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit._crit_edge: ; preds = %_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
+4:                                                ; preds = %_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   ret ptr %0
 
-_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit: ; preds = %_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit.preheader, %_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit
-  %3 = phi i64 [ %4, %_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit ], [ 0, %_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit.preheader ]
-  %4 = add nuw nsw i64 %3, 1
-  %5 = getelementptr inbounds nuw { [2 x i64] }, ptr %2, i64 %3
-  %6 = load ptr, ptr %5, align 8, !alias.scope !3502, !nonnull !15, !align !493, !noundef !15
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !3502, !noundef !15
-  tail call void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17h73bee02d29bd826fE(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
-  %.not.i.i = icmp eq i64 %4, 2
-  br i1 %.not.i.i, label %_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit._crit_edge, label %_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit
+_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit: ; preds = %2, %_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit
+  %5 = phi i64 [ 0, %2 ], [ %6, %_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit ]
+  %6 = add nuw nsw i64 %5, 1
+  %7 = getelementptr inbounds nuw { [2 x i64] }, ptr %3, i64 %5
+  %8 = load ptr, ptr %7, align 8, !alias.scope !3502, !nonnull !15, !align !493, !noundef !15
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = load i64, ptr %9, align 8, !alias.scope !3502, !noundef !15
+  tail call void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17h73bee02d29bd826fE(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %10)
+  %.not.i.i = icmp eq i64 %6, 2
+  br i1 %.not.i.i, label %4, label %_ZN3std7process7Command3arg17hce081e0aa1d266e6E.llvm.6633197745336603733.exit
 }
 
 ; Function Attrs: nonlazybind uwtable

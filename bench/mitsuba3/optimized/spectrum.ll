@@ -2367,9 +2367,9 @@ define weak_odr <4 x float> @_ZN7mitsuba21spectrum_list_to_srgbIfEENS_5ColorIT_L
   br label %12
 
 12:                                               ; preds = %4, %76
-  %.0211 = phi i32 [ 0, %4 ], [ %78, %76 ]
+  %.0212 = phi i32 [ 0, %4 ], [ %78, %76 ]
   %13 = phi <4 x float> [ zeroinitializer, %4 ], [ %77, %76 ]
-  %14 = uitofp nneg i32 %.0211 to float
+  %14 = uitofp nneg i32 %.0212 to float
   %15 = fdiv contract float %14, 9.990000e+02
   %16 = fmul contract float %15, 4.700000e+02
   %17 = fadd contract float %16, 3.600000e+02
@@ -2461,7 +2461,7 @@ _ZN5drjit13binary_searchIjZN7mitsuba21spectrum_list_to_srgbIfEENS1_5ColorIT_Lm3E
 
 76:                                               ; preds = %12, %21, %70
   %77 = phi <4 x float> [ %13, %12 ], [ %13, %21 ], [ %75, %70 ]
-  %78 = add nuw nsw i32 %.0211, 1
+  %78 = add nuw nsw i32 %.0212, 1
   %exitcond.not = icmp eq i32 %78, 1000
   br i1 %exitcond.not, label %79, label %12, !llvm.loop !11
 
@@ -2567,7 +2567,7 @@ _ZN7mitsuba11xyz_to_srgbIfEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typ
 
 128:                                              ; preds = %127
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
-  %.pre213 = load <4 x float>, ptr %9, align 16
+  %.pre214 = load <4 x float>, ptr %9, align 16
   br label %131
 
 common.resume:                                    ; preds = %147, %129
@@ -2582,7 +2582,7 @@ common.resume:                                    ; preds = %147, %129
   br label %common.resume
 
 131:                                              ; preds = %119, %123, %128
-  %132 = phi <4 x float> [ %110, %119 ], [ %110, %123 ], [ %.pre213, %128 ]
+  %132 = phi <4 x float> [ %110, %119 ], [ %110, %123 ], [ %.pre214, %128 ]
   %133 = call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 1.000000e+00), <4 x float> %132)
   br label %.critedge2.sink.split
 
@@ -2622,8 +2622,8 @@ common.resume:                                    ; preds = %147, %129
   br label %common.resume
 
 .critedge2.sink.split:                            ; preds = %146, %141, %137, %131
-  %.sink215 = phi <4 x float> [ %133, %131 ], [ %110, %137 ], [ %110, %141 ], [ %.pre, %146 ]
-  %149 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %.sink215)
+  %.sink216 = phi <4 x float> [ %133, %131 ], [ %110, %137 ], [ %110, %141 ], [ %.pre, %146 ]
+  %149 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %.sink216)
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.sink.split, %113, %.critedge192
@@ -2908,9 +2908,9 @@ define weak_odr <4 x double> @_ZN7mitsuba21spectrum_list_to_srgbIdEENS_5ColorIT_
   br label %12
 
 12:                                               ; preds = %4, %76
-  %.0211 = phi i32 [ 0, %4 ], [ %78, %76 ]
+  %.0212 = phi i32 [ 0, %4 ], [ %78, %76 ]
   %13 = phi <4 x double> [ zeroinitializer, %4 ], [ %77, %76 ]
-  %14 = uitofp nneg i32 %.0211 to double
+  %14 = uitofp nneg i32 %.0212 to double
   %15 = fdiv contract double %14, 9.990000e+02
   %16 = fmul contract double %15, 4.700000e+02
   %17 = fadd contract double %16, 3.600000e+02
@@ -3002,7 +3002,7 @@ _ZN5drjit13binary_searchIjZN7mitsuba21spectrum_list_to_srgbIdEENS1_5ColorIT_Lm3E
 
 76:                                               ; preds = %12, %21, %70
   %77 = phi <4 x double> [ %13, %12 ], [ %13, %21 ], [ %75, %70 ]
-  %78 = add nuw nsw i32 %.0211, 1
+  %78 = add nuw nsw i32 %.0212, 1
   %exitcond.not = icmp eq i32 %78, 1000
   br i1 %exitcond.not, label %79, label %12, !llvm.loop !16
 
@@ -3108,7 +3108,7 @@ _ZN7mitsuba11xyz_to_srgbIdEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typ
 
 128:                                              ; preds = %127
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #28
-  %.pre213 = load <4 x double>, ptr %9, align 32
+  %.pre214 = load <4 x double>, ptr %9, align 32
   br label %131
 
 common.resume:                                    ; preds = %147, %129
@@ -3123,7 +3123,7 @@ common.resume:                                    ; preds = %147, %129
   br label %common.resume
 
 131:                                              ; preds = %119, %123, %128
-  %132 = phi <4 x double> [ %110, %119 ], [ %110, %123 ], [ %.pre213, %128 ]
+  %132 = phi <4 x double> [ %110, %119 ], [ %110, %123 ], [ %.pre214, %128 ]
   %133 = call contract noundef <4 x double> @llvm.x86.avx.min.pd.256(<4 x double> splat (double 1.000000e+00), <4 x double> %132)
   br label %.critedge2.sink.split
 
@@ -3163,8 +3163,8 @@ common.resume:                                    ; preds = %147, %129
   br label %common.resume
 
 .critedge2.sink.split:                            ; preds = %146, %141, %137, %131
-  %.sink215 = phi <4 x double> [ %133, %131 ], [ %110, %137 ], [ %110, %141 ], [ %.pre, %146 ]
-  %149 = call contract noundef <4 x double> @llvm.x86.avx.max.pd.256(<4 x double> zeroinitializer, <4 x double> %.sink215)
+  %.sink216 = phi <4 x double> [ %133, %131 ], [ %110, %137 ], [ %110, %141 ], [ %.pre, %146 ]
+  %149 = call contract noundef <4 x double> @llvm.x86.avx.max.pd.256(<4 x double> zeroinitializer, <4 x double> %.sink216)
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.sink.split, %113, %.critedge192

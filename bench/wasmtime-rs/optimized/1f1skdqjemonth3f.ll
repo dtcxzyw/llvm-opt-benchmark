@@ -20750,7 +20750,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i)
   %.pre = load i8, ptr %6, align 8, !range !48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.pre80 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre79 = load ptr, ptr %.phi.trans.insert, align 8
   %29 = trunc nuw i8 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br i1 %29, label %77, label %30
@@ -20803,10 +20803,10 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit71": ; preds = %30, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i58", %42, %45
   %.sroa.0.0.insert.insert.i56.i67 = phi i32 [ %.sroa.01.0.copyload.i.i59, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h207cd845cf44cf18E.exit.i58" ], [ %.sroa.01.0.copyload.i.i59, %45 ], [ 8, %30 ], [ %.sroa.01.0.copyload.i.i59, %42 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h53947c7feec77322E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i67)
-  %.pre81 = load i8, ptr %5, align 8, !range !48
-  %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre83 = load ptr, ptr %.phi.trans.insert82, align 8
-  %51 = trunc nuw i8 %.pre81 to i1
+  %.pre80 = load i8, ptr %5, align 8, !range !48
+  %.phi.trans.insert81 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre82 = load ptr, ptr %.phi.trans.insert81, align 8
+  %51 = trunc nuw i8 %.pre80 to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br i1 %51, label %77, label %52
 
@@ -20817,10 +20817,10 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.624.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 16, ptr %.sroa.624.0..sroa_idx, align 8
-  br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit"
+  br label %66
 
-"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit": ; preds = %66, %52
-  %53 = phi i64 [ %67, %66 ], [ 0, %52 ]
+"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit": ; preds = %66
+  %53 = add nuw nsw i64 %67, 1
   %.not.i.not = icmp eq i64 %53, 16
   br i1 %.not.i.not, label %54, label %66
 
@@ -20848,9 +20848,9 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   store i64 %65, ptr %8, align 8, !alias.scope !2627, !noalias !2630
   br label %77
 
-66:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit"
-  %67 = add nuw nsw i64 %53, 1
-  %68 = getelementptr inbounds nuw i8, ptr %4, i64 %53
+66:                                               ; preds = %52, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit"
+  %67 = phi i64 [ 0, %52 ], [ %53, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit" ]
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 %67
   %69 = load i8, ptr %68, align 1, !alias.scope !2633, !noundef !13
   %.not.i72 = icmp ult i8 %69, 32
   br i1 %.not.i72, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h20164dfe9e7fce00E.exit", label %70
@@ -20874,7 +20874,7 @@ define hidden noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..operators.
   br label %77
 
 77:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit71", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit", %70, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit"
-  %.0 = phi ptr [ %76, %70 ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %.pre80, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre83, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit71" ]
+  %.0 = phi ptr [ %76, %70 ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17hb1ff6b0126921329E.llvm.8213084322371663677.exit" ], [ %.pre79, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit" ], [ %.pre82, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17h052a99c5a6520287E.llvm.8213084322371663677.exit71" ]
   ret ptr %.0
 }
 

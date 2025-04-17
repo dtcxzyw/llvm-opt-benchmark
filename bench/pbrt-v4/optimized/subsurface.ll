@@ -7755,7 +7755,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt4BSDF8Sample_fINS_21NormalizedFresn
 
 32:                                               ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
-  br label %90
+  br label %89
 
 33:                                               ; preds = %8
   %34 = load i64, ptr %1, align 8, !tbaa !380
@@ -7767,7 +7767,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt4BSDF8Sample_fINS_21NormalizedFresn
 
 38:                                               ; preds = %33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
-  br label %90
+  br label %89
 
 39:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #24
@@ -7887,28 +7887,28 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit:             ; preds = %81
   %or.cond = or i1 %85, %.not47
   %86 = fcmp oeq float %.sroa.7.0, 0.000000e+00
   %or.cond48 = or i1 %86, %or.cond
-  br i1 %or.cond48, label %87, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit40
-
-87:                                               ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
-  br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit
+  br i1 %or.cond48, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i43, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit40
 
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit40: ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit
-  %88 = tail call { <2 x float>, float } @_ZNK4pbrt4BSDF13LocalToRenderENS_7Vector3IfEE(ptr noundef nonnull align 8 dereferenceable(44) %1, <2 x float> %.sroa.6.0, float %.sroa.7.0)
-  %.fca.1.extract = extractvalue { <2 x float>, float } %88, 1
-  %.fca.0.extract = extractvalue { <2 x float>, float } %88, 0
+  %87 = tail call { <2 x float>, float } @_ZNK4pbrt4BSDF13LocalToRenderENS_7Vector3IfEE(ptr noundef nonnull align 8 dereferenceable(44) %1, <2 x float> %.sroa.6.0, float %.sroa.7.0)
+  %.fca.1.extract = extractvalue { <2 x float>, float } %87, 1
+  %.fca.0.extract = extractvalue { <2 x float>, float } %87, 0
   store <2 x float> %.fca.0.extract, ptr %.sroa.6.0..sroa_idx, align 8
   store float %.fca.1.extract, ptr %.sroa.7.0..sroa_idx, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 1, ptr %89, align 4, !tbaa !393
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i8 1, ptr %88, align 4, !tbaa !393
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(45) %0, ptr noundef nonnull align 8 dereferenceable(45) %9, i64 44, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit
 
-_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit:  ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit40, %87
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #24
-  br label %90
+_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i43: ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
+  br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit
 
-90:                                               ; preds = %38, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit, %32
+_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit:  ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit40, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEE5valueEv.exit.i.i43
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #24
+  br label %89
+
+89:                                               ; preds = %38, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit, %32
   ret void
 }
 

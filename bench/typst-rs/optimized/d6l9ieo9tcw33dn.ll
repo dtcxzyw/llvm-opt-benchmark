@@ -58390,8 +58390,8 @@ _ZN5typst4math5style16scaled_font_size17h61c0a44f9667d132E.exit197.i: ; preds = 
   br label %_ZN5typst4math8fragment12MathFragment5class17hf59cd48696c2db75E.exit.i.i
 
 _ZN5typst4math8fragment12MathFragment5class17hf59cd48696c2db75E.exit.i.i: ; preds = %347, %.noexc247
-  %.sink469.i = phi i64 [ 91, %347 ], [ 170, %.noexc247 ]
-  %348 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink469.i
+  %.sink467.i = phi i64 [ 91, %347 ], [ 170, %.noexc247 ]
+  %348 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink467.i
   %.0.i.i.i = load i8, ptr %348, align 1, !range !25, !alias.scope !13229, !noalias !13228, !noundef !4
   %349 = icmp ne i8 %.0.i.i.i, 7
   br label %_ZN5typst4math8fragment12MathFragment12is_text_like17hd0a8fc21e17f6107E.exit.i
@@ -58612,11 +58612,11 @@ _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit239.i: ; preds = %_ZN5typst
   %431 = load i32, ptr %430, align 8, !range !9175
   %.not59.i = icmp eq i32 %431, 9
   %or.cond996 = select i1 %.not58.not.i, i1 %.not59.i, i1 false
-  br i1 %or.cond996, label %.lr.ph.preheader.i, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit241.i
+  br i1 %or.cond996, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit291.i, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit241.i
 
 _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit241.i: ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit239.i
-  %.inv430.i = fcmp oge double %.0.i.i.i174.i, 0.000000e+00
-  %.0.sroa.speculated.i.i240.i = select i1 %.inv430.i, double %.0.i.i.i174.i, double 0.000000e+00
+  %.inv429.i = fcmp oge double %.0.i.i.i174.i, 0.000000e+00
+  %.0.sroa.speculated.i.i240.i = select i1 %.inv429.i, double %.0.i.i.i174.i, double 0.000000e+00
   br i1 %.0.i.i, label %449, label %432
 
 432:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit241.i
@@ -58773,13 +58773,13 @@ _ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit287.i: ; pr
   %.0.i.inv.i.i.i1.i288.i = fcmp ord double %484, 0.000000e+00
   %.0.i.i.i2.i289.i = select i1 %.0.i.inv.i.i.i1.i288.i, double %484, double 0.000000e+00
   %485 = fcmp ugt double %.0.sroa.speculated.i.i276.i, %.0.i.i.i2.i289.i
-  br i1 %485, label %486, label %.lr.ph.preheader.i
+  br i1 %485, label %486, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit291.i
 
 486:                                              ; preds = %_ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit287.i
   %487 = fcmp ult double %.0.sroa.speculated.i.i276.i, %.0.i.i.i2.i289.i
-  br i1 %487, label %.invoke, label %.lr.ph.preheader.i
+  br i1 %487, label %.invoke, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit291.i
 
-.lr.ph.preheader.i:                               ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit239.i, %486, %_ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit287.i
+_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit291.i: ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit239.i, %486, %_ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit287.i
   %.0.i = phi double [ %.0.sroa.speculated.i.i276.i, %486 ], [ %.0.i.i.i2.i289.i, %_ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit287.i ], [ 0.000000e+00, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit239.i ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %84), !noalias !12956
   store ptr %113, ptr %84, align 8, !noalias !12956
@@ -58795,17 +58795,17 @@ _ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit287.i: ; pr
   store i64 2, ptr %.sroa.520.0..sroa_idx.i, align 8, !noalias !12956
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.outer.i, %.lr.ph.preheader.i
-  %.1.ph426.i = phi double [ %.2.i, %.outer.i ], [ %.0.i, %.lr.ph.preheader.i ]
-  %.1397.ph425.i = phi double [ %.2398.i, %.outer.i ], [ %.0396.i, %.lr.ph.preheader.i ]
-  %.lcssa412421424.i = phi i64 [ 1, %.outer.i ], [ 0, %.lr.ph.preheader.i ]
-  %488 = fneg double %.1.ph426.i
-  %.0.i.inv.i.i.i.i323.i = fcmp ord double %.1.ph426.i, 0.000000e+00
+.lr.ph.i:                                         ; preds = %.outer.i, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit291.i
+  %.ph428.i = phi i64 [ 0, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit291.i ], [ 1, %.outer.i ]
+  %.1.ph427.i = phi double [ %.0.i, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit291.i ], [ %.2.i, %.outer.i ]
+  %.1397.ph426.i = phi double [ %.0396.i, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit291.i ], [ %.2398.i, %.outer.i ]
+  %488 = fneg double %.1.ph427.i
+  %.0.i.inv.i.i.i.i323.i = fcmp ord double %.1.ph427.i, 0.000000e+00
   %.0.i.i.i.i324.i = select i1 %.0.i.inv.i.i.i.i323.i, double %488, double 0.000000e+00
   br label %489
 
 489:                                              ; preds = %"_ZN69_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6153c203e42a2d4eE.exit.thread.i", %.lr.ph.i
-  %490 = phi i64 [ %.lcssa412421424.i, %.lr.ph.i ], [ 1, %"_ZN69_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6153c203e42a2d4eE.exit.thread.i" ]
+  %490 = phi i64 [ %.ph428.i, %.lr.ph.i ], [ 1, %"_ZN69_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6153c203e42a2d4eE.exit.thread.i" ]
   %491 = add nuw nsw i64 %490, 1
   %492 = getelementptr inbounds nuw { [2 x i64] }, ptr %84, i64 %490
   %493 = load ptr, ptr %492, align 8, !alias.scope !13310, !noalias !12956, !nonnull !4, !align !13313, !noundef !4
@@ -58827,10 +58827,10 @@ _ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit287.i: ; pr
   br label %.outer.i
 
 .outer.i:                                         ; preds = %547, %.loopexit.i
-  %.2398.i = phi double [ %.0.i.i.i.i349.i, %547 ], [ %.1397.ph425.i, %.loopexit.i ]
-  %.2.i = phi double [ %.0.i.i.i.i351.i, %547 ], [ %.1.ph426.i, %.loopexit.i ]
-  %.not.not.i414.i = icmp eq i64 %491, 2
-  br i1 %.not.not.i414.i, label %.loopexit, label %.lr.ph.i
+  %.2398.i = phi double [ %.0.i.i.i.i349.i, %547 ], [ %.1397.ph426.i, %.loopexit.i ]
+  %.2.i = phi double [ %.0.i.i.i.i351.i, %547 ], [ %.1.ph427.i, %.loopexit.i ]
+  %.not.not.i417.i = icmp eq i64 %491, 2
+  br i1 %.not.not.i417.i, label %.loopexit, label %.lr.ph.i
 
 501:                                              ; preds = %498
   %502 = add nsw i32 %497, -3
@@ -58886,7 +58886,7 @@ _ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit287.i: ; pr
   %523 = fneg double %.0.i301.i
   %.0.i.inv.i.i.i.i.i = fcmp ord double %.0.i301.i, 0.000000e+00
   %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %523, double 0.000000e+00
-  %524 = fadd double %.1397.ph425.i, %.0.i.i.i.i.i
+  %524 = fadd double %.1397.ph426.i, %.0.i.i.i.i.i
   %.0.i.inv.i.i.i1.i311.i = fcmp ord double %524, 0.000000e+00
   %.0.i.i.i2.i312.i = select i1 %.0.i.inv.i.i.i1.i311.i, double %524, double 0.000000e+00
   %525 = add nsw i32 %500, -3
@@ -58970,10 +58970,10 @@ _ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit287.i: ; pr
   %551 = fadd double %.0.in.sroa.speculated.i.i, %550
   %.0.i.inv.i.i.i346.i = fcmp ord double %551, 0.000000e+00
   %.0.i.i.i347.i = select i1 %.0.i.inv.i.i.i346.i, double %551, double 0.000000e+00
-  %552 = fadd double %.1397.ph425.i, %.0.i.i.i347.i
+  %552 = fadd double %.1397.ph426.i, %.0.i.i.i347.i
   %.0.i.inv.i.i.i.i348.i = fcmp ord double %552, 0.000000e+00
   %.0.i.i.i.i349.i = select i1 %.0.i.inv.i.i.i.i348.i, double %552, double 0.000000e+00
-  %553 = fadd double %.1.ph426.i, %550
+  %553 = fadd double %.1.ph427.i, %550
   %.0.i.inv.i.i.i.i350.i = fcmp ord double %553, 0.000000e+00
   %.0.i.i.i.i351.i = select i1 %.0.i.inv.i.i.i.i350.i, double %553, double 0.000000e+00
   br label %.outer.i
@@ -58999,8 +58999,8 @@ _ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit287.i: ; pr
   br label %.body
 
 .loopexit:                                        ; preds = %.outer.i, %"_ZN69_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6153c203e42a2d4eE.exit.thread.i"
-  %.1397.ph.lcssa410.i = phi double [ %.1397.ph425.i, %"_ZN69_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6153c203e42a2d4eE.exit.thread.i" ], [ %.2398.i, %.outer.i ]
-  %.1.ph.lcssa408.i = phi double [ %.1.ph426.i, %"_ZN69_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6153c203e42a2d4eE.exit.thread.i" ], [ %.2.i, %.outer.i ]
+  %.1397.ph.lcssa412.i = phi double [ %.1397.ph426.i, %"_ZN69_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6153c203e42a2d4eE.exit.thread.i" ], [ %.2398.i, %.outer.i ]
+  %.1.ph.lcssa410.i = phi double [ %.1.ph427.i, %"_ZN69_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6153c203e42a2d4eE.exit.thread.i" ], [ %.2.i, %.outer.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %84), !noalias !12956
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %87)
   switch i64 %346, label %_ZN5typst4math8fragment12MathFragment6ascent17hb0484c60265da4fcE.exit [
@@ -59130,7 +59130,7 @@ _ZN5typst4math8fragment12MathFragment5class17hf59cd48696c2db75E.exit: ; preds = 
 
 607:                                              ; preds = %_ZN5typst4math8fragment12MathFragment5class17hf59cd48696c2db75E.exit, %595, %601, %603, %605
   %..sroa.5.0 = phi double [ 0.000000e+00, %_ZN5typst4math8fragment12MathFragment5class17hf59cd48696c2db75E.exit ], [ %.0.i.i276, %605 ], [ %.0.i.i.i281, %603 ], [ %602, %601 ], [ 0.000000e+00, %595 ]
-  %608 = fadd double %.1397.ph.lcssa410.i, %..sroa.5.0
+  %608 = fadd double %.1397.ph.lcssa412.i, %..sroa.5.0
   %.0.i.inv.i.i.i283 = fcmp ord double %608, 0.000000e+00
   %.0.i.i.i284 = select i1 %.0.i.inv.i.i.i283, double %608, double 0.000000e+00
   %609 = fcmp ugt double %.0.i260858877, %.0.i.i.i284
@@ -59179,7 +59179,7 @@ _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit: ; preds = %610, %607
 
 624:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit, %612, %618, %620, %622
   %..sroa.519.0 = phi double [ 0.000000e+00, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit ], [ %.0.i.i289, %622 ], [ %.0.i.i.i294, %620 ], [ %619, %618 ], [ 0.000000e+00, %612 ]
-  %625 = fadd double %.1397.ph.lcssa410.i, %..sroa.519.0
+  %625 = fadd double %.1397.ph.lcssa412.i, %..sroa.519.0
   %.0.i.inv.i.i.i296 = fcmp ord double %625, 0.000000e+00
   %.0.i.i.i297 = select i1 %.0.i.inv.i.i.i296, double %625, double 0.000000e+00
   %626 = fcmp ugt double %.0.sroa.speculated.i.i, %.0.i.i.i297
@@ -59230,7 +59230,7 @@ _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit300: ; preds = %627, %624
 
 645:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit300, %631, %637, %641, %643
   %..sroa.523.0 = phi double [ 0.000000e+00, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit300 ], [ %644, %643 ], [ %642, %641 ], [ %.0.i.i.i.i.i303, %637 ], [ 0.000000e+00, %631 ]
-  %646 = fadd double %.1397.ph.lcssa410.i, %..sroa.523.0
+  %646 = fadd double %.1397.ph.lcssa412.i, %..sroa.523.0
   %.0.i.inv.i.i.i304 = fcmp ord double %646, 0.000000e+00
   %.0.i.i.i305 = select i1 %.0.i.inv.i.i.i304, double %646, double 0.000000e+00
   %647 = fcmp ugt double %.0.sroa.speculated.i.i298, %.0.i.i.i305
@@ -59295,7 +59295,7 @@ _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit308: ; preds = %648, %645
 
 668:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit308, %650, %656, %658, %663
   %..sroa.527.0 = phi double [ 0.000000e+00, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit308 ], [ %.0.i.i.i2.i.i8.i316, %663 ], [ %.0.i.i.i2.i.i.i325, %658 ], [ %657, %656 ], [ 0.000000e+00, %650 ]
-  %669 = fadd double %.1.ph.lcssa408.i, %..sroa.527.0
+  %669 = fadd double %.1.ph.lcssa410.i, %..sroa.527.0
   %.0.i.inv.i.i.i327 = fcmp ord double %669, 0.000000e+00
   %.0.i.i.i328 = select i1 %.0.i.inv.i.i.i327, double %669, double 0.000000e+00
   %670 = fcmp ugt double %.0.i265883, %.0.i.i.i328
@@ -59360,7 +59360,7 @@ _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit331: ; preds = %671, %668
 
 691:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit331, %673, %679, %681, %686
   %..sroa.531.0 = phi double [ 0.000000e+00, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit331 ], [ %.0.i.i.i2.i.i8.i339, %686 ], [ %.0.i.i.i2.i.i.i348, %681 ], [ %680, %679 ], [ 0.000000e+00, %673 ]
-  %692 = fadd double %.1.ph.lcssa408.i, %..sroa.531.0
+  %692 = fadd double %.1.ph.lcssa410.i, %..sroa.531.0
   %.0.i.inv.i.i.i350 = fcmp ord double %692, 0.000000e+00
   %.0.i.i.i351 = select i1 %.0.i.inv.i.i.i350, double %692, double 0.000000e+00
   %693 = fcmp ugt double %.0.sroa.speculated.i.i329, %.0.i.i.i351
@@ -59411,7 +59411,7 @@ _ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit354: ; preds = %694, %691
 
 712:                                              ; preds = %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit354, %698, %704, %708, %710
   %..sroa.535.0 = phi double [ 0.000000e+00, %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit354 ], [ %711, %710 ], [ %709, %708 ], [ %.0.i.i.i.i.i357, %704 ], [ 0.000000e+00, %698 ]
-  %713 = fadd double %.1.ph.lcssa408.i, %..sroa.535.0
+  %713 = fadd double %.1.ph.lcssa410.i, %..sroa.535.0
   %.0.i.inv.i.i.i359 = fcmp ord double %713, 0.000000e+00
   %.0.i.i.i360 = select i1 %.0.i.inv.i.i.i359, double %713, double 0.000000e+00
   %714 = fcmp ugt double %.0.sroa.speculated.i.i352, %.0.i.i.i360
@@ -61376,8 +61376,8 @@ _ZN5typst6layout5frame5Frame10push_frame17ha7067a63bf81698cE.exit: ; preds = %.n
   %.inv = fcmp ole double %.0.i.i.i2.i, 0.000000e+00
   %.0.i.i.i2.i.neg = fneg double %.0.i.i.i2.i
   %1309 = select i1 %.inv, double %.0.i.i.i2.i.neg, double -0.000000e+00
-  %1310 = fneg double %.1397.ph.lcssa410.i
-  %.0.i.inv.i.i.i.i498 = fcmp ord double %.1397.ph.lcssa410.i, 0.000000e+00
+  %1310 = fneg double %.1397.ph.lcssa412.i
+  %.0.i.inv.i.i.i.i498 = fcmp ord double %.1397.ph.lcssa412.i, 0.000000e+00
   %.0.i.i.i.i499 = select i1 %.0.i.inv.i.i.i.i498, double %1310, double 0.000000e+00
   %1311 = fadd double %.0.i.i.i.i499, %.0.sroa.speculated.i.i.i431
   %.0.i.inv.i.i.i1.i500 = fcmp ord double %1311, 0.000000e+00
@@ -61531,7 +61531,7 @@ _ZN5typst6layout5frame5Frame10push_frame17ha7067a63bf81698cE.exit526: ; preds = 
   %.sroa.121118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %110, i64 140
   %.inv1023 = fcmp ole double %.0.i.i.i2.i, 0.000000e+00
   %.0.sroa.speculated.i.i527 = select i1 %.inv1023, double 0.000000e+00, double %.0.i.i.i2.i
-  %1343 = fadd double %.1.ph.lcssa408.i, %.0.sroa.speculated.i.i.i431
+  %1343 = fadd double %.1.ph.lcssa410.i, %.0.sroa.speculated.i.i.i431
   %.0.i.inv.i.i.i530 = fcmp ord double %1343, 0.000000e+00
   %.0.i.i.i531 = select i1 %.0.i.inv.i.i.i530, double %1343, double 0.000000e+00
   %1344 = add nsw i32 %1307, -3
@@ -61678,8 +61678,8 @@ _ZN5typst6layout5frame5Frame10push_frame17ha7067a63bf81698cE.exit556: ; preds = 
   %1375 = fadd double %.0.i258834854881, %.0.i.i.i475
   %.0.i.inv.i.i.i559 = fcmp ord double %1375, 0.000000e+00
   %.0.i.i.i560 = select i1 %.0.i.inv.i.i.i559, double %1375, double 0.000000e+00
-  %1376 = fneg double %.1397.ph.lcssa410.i
-  %.0.i.inv.i.i.i.i561 = fcmp ord double %.1397.ph.lcssa410.i, 0.000000e+00
+  %1376 = fneg double %.1397.ph.lcssa412.i
+  %.0.i.inv.i.i.i.i561 = fcmp ord double %.1397.ph.lcssa412.i, 0.000000e+00
   %.0.i.i.i.i562 = select i1 %.0.i.inv.i.i.i.i561, double %1376, double 0.000000e+00
   %1377 = fadd double %.0.i.i.i.i562, %.0.sroa.speculated.i.i.i431
   %.0.i.inv.i.i.i1.i563 = fcmp ord double %1377, 0.000000e+00
@@ -61833,7 +61833,7 @@ _ZN5typst6layout5frame5Frame10push_frame17ha7067a63bf81698cE.exit589: ; preds = 
   %1409 = fadd double %.0.i258834854881, %.0.i.i.i591
   %.0.i.inv.i.i.i592 = fcmp ord double %1409, 0.000000e+00
   %.0.i.i.i593 = select i1 %.0.i.inv.i.i.i592, double %1409, double 0.000000e+00
-  %1410 = fadd double %.1.ph.lcssa408.i, %.0.sroa.speculated.i.i.i431
+  %1410 = fadd double %.1.ph.lcssa410.i, %.0.sroa.speculated.i.i.i431
   %.0.i.inv.i.i.i594 = fcmp ord double %1410, 0.000000e+00
   %.0.i.i.i595 = select i1 %.0.i.inv.i.i.i594, double %1410, double 0.000000e+00
   %1411 = add nsw i32 %1371, -3

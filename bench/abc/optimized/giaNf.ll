@@ -8092,9 +8092,9 @@ Nf_ObjUpdateRequired.exit334:                     ; preds = %172, %188
 .preheader.preheader:                             ; preds = %209
   %214 = trunc nsw i64 %indvars.iv.next378 to i32
   %215 = load i32, ptr %3, align 8, !tbaa !13
-  tail call void @Nf_ManSetMapRefsGate(ptr noundef nonnull %0, i32 noundef %214, i32 noundef %215, ptr noundef %210)
+  tail call void @Nf_ManSetMapRefsGate(ptr noundef nonnull %0, i32 noundef %214, i32 noundef %215, ptr noundef nonnull %210)
   %216 = load i32, ptr %63, align 4, !tbaa !13
-  tail call void @Nf_ManSetMapRefsGate(ptr noundef nonnull %0, i32 noundef %214, i32 noundef %216, ptr noundef %.pre389)
+  tail call void @Nf_ManSetMapRefsGate(ptr noundef nonnull %0, i32 noundef %214, i32 noundef %216, ptr noundef nonnull %.pre389)
   br label %.loopexit
 
 217:                                              ; preds = %209

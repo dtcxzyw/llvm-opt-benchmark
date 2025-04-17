@@ -2288,8 +2288,8 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   br label %613
 
 598:                                              ; preds = %595
-  %599 = add nuw nsw i32 %.994, %.993
-  %600 = add nuw nsw i32 %.995, %.992
+  %599 = add nuw nsw i32 %.993, %.994
+  %600 = add nuw nsw i32 %.992, %.995
   %.not861 = icmp eq i32 %599, %600
   br i1 %.not861, label %605, label %601
 
@@ -2334,8 +2334,8 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   br label %637
 
 618:                                              ; preds = %615
-  %619 = add nuw nsw i32 %.990, %.989
-  %620 = add nuw nsw i32 %.991, %.
+  %619 = add nuw nsw i32 %.989, %.990
+  %620 = add nuw nsw i32 %., %.991
   %.not863 = icmp eq i32 %619, %620
   br i1 %.not863, label %626, label %621
 

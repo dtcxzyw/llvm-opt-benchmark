@@ -48844,7 +48844,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h73d924695c45
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %9 = icmp ult i32 %3, 128
-  br i1 %9, label %.lr.ph.i.i.lr.ph, label %10
+  br i1 %9, label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h70fb00af35f8a3c1E.exit", label %10
 
 10:                                               ; preds = %6
   %11 = icmp ult i32 %3, 2048
@@ -48860,7 +48860,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h73d924695c45
   %.sroa.0.1.insert.ext19.i = and i32 %16, 16128
   %.sroa.0.1.insert.shift20.i = or disjoint i32 %15, %.sroa.0.1.insert.ext19.i
   %.sroa.0.1.insert.insert22.i = or disjoint i32 %.sroa.0.1.insert.shift20.i, 32960
-  br label %.lr.ph.i.i.lr.ph
+  br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h70fb00af35f8a3c1E.exit"
 
 17:                                               ; preds = %12
   %18 = lshr i32 %3, 12
@@ -48871,7 +48871,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h73d924695c45
   %.sroa.0.1.insert.shift15.i = or disjoint i32 %18, %.sroa.0.1.insert.ext14.i
   %.sroa.0.2.insert.shift25.i = or disjoint i32 %.sroa.0.1.insert.shift15.i, %.sroa.0.2.insert.ext24.i
   %.sroa.0.2.insert.insert27.i = or disjoint i32 %.sroa.0.2.insert.shift25.i, 8421600
-  br label %.lr.ph.i.i.lr.ph
+  br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h70fb00af35f8a3c1E.exit"
 
 21:                                               ; preds = %12
   %22 = lshr i32 %3, 18
@@ -48886,7 +48886,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h73d924695c45
   %.sroa.0.2.insert.shift.i = or disjoint i32 %.sroa.0.1.insert.shift.i, %.sroa.0.2.insert.ext.i
   %.sroa.0.3.insert.shift.i = or disjoint i32 %.sroa.0.2.insert.shift.i, %.sroa.0.3.insert.ext.i
   %.sroa.0.3.insert.insert.i = or disjoint i32 %.sroa.0.3.insert.shift.i, -2139062032
-  br label %.lr.ph.i.i.lr.ph
+  br label %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h70fb00af35f8a3c1E.exit"
 
 27:                                               ; preds = %.loopexit, %.loopexit.split-lp, %28
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -48898,7 +48898,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h73d924695c45
           cleanup
   br label %27
 
-.lr.ph.i.i.lr.ph:                                 ; preds = %6, %14, %17, %21
+"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h70fb00af35f8a3c1E.exit": ; preds = %21, %17, %14, %6
   %.sroa.0.0.i = phi i32 [ %.sroa.0.1.insert.insert22.i, %14 ], [ %.sroa.0.2.insert.insert27.i, %17 ], [ %.sroa.0.3.insert.insert.i, %21 ], [ %3, %6 ]
   %30 = phi i64 [ 2, %14 ], [ 3, %17 ], [ 4, %21 ], [ 1, %6 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
@@ -48913,14 +48913,14 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h73d924695c45
   %.pre.pre = load i8, ptr %32, align 1, !alias.scope !11206, !noalias !11211
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %85, %.lr.ph.i.i.lr.ph
-  %.051 = phi i64 [ 0, %.lr.ph.i.i.lr.ph ], [ %49, %85 ]
+.lr.ph.i.i:                                       ; preds = %85, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h70fb00af35f8a3c1E.exit"
+  %.promoted.i.i2955 = phi i64 [ 0, %"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h70fb00af35f8a3c1E.exit" ], [ %49, %85 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !11214)
   call void @llvm.experimental.noalias.scope.decl(metadata !11215)
   br label %.lr.ph.split.split.i.i
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.i.i, %51
-  %33 = phi i64 [ %49, %51 ], [ %.051, %.lr.ph.i.i ]
+  %33 = phi i64 [ %49, %51 ], [ %.promoted.i.i2955, %.lr.ph.i.i ]
   %34 = getelementptr inbounds i8, ptr %1, i64 %33
   %.sroa.7.046.i.i = sub nuw i64 %2, %33
   %35 = icmp ult i64 %.sroa.7.046.i.i, 16
@@ -48990,7 +48990,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %42,
 
 .split.us.i.i:                                    ; preds = %51, %.noexc14
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  %55 = sub i64 %2, %.051
+  %55 = sub i64 %2, %.promoted.i.i2955
   %56 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !11224, !noalias !11231, !noundef !4
   %57 = load i64, ptr %8, align 8, !alias.scope !11224, !noalias !11231, !noundef !4
   %58 = sub i64 %57, %56
@@ -49006,8 +49006,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %42,
   br label %68
 
 "_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17h493ad223b2bf78fbE.exit": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7e9534611db47fe7E.exit.i.i"
-  %61 = getelementptr inbounds i8, ptr %1, i64 %.051
-  %62 = sub i64 %52, %.051
+  %61 = getelementptr inbounds i8, ptr %1, i64 %.promoted.i.i2955
+  %62 = sub i64 %52, %.promoted.i.i2955
   %63 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !11234, !noalias !11241, !noundef !4
   %64 = load i64, ptr %8, align 8, !alias.scope !11234, !noalias !11241, !noundef !4
   %65 = sub i64 %64, %63
@@ -49024,7 +49024,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %42,
 
 68:                                               ; preds = %.noexc16, %.split.us.i.i
   %69 = phi i64 [ %56, %.split.us.i.i ], [ %.pre.i.i, %.noexc16 ]
-  %70 = getelementptr inbounds i8, ptr %1, i64 %.051
+  %70 = getelementptr inbounds i8, ptr %1, i64 %.promoted.i.i2955
   %71 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !11233, !noalias !11231, !nonnull !4, !noundef !4
   %72 = getelementptr inbounds i8, ptr %71, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %72, ptr nonnull readonly align 1 %70, i64 %55, i1 false)

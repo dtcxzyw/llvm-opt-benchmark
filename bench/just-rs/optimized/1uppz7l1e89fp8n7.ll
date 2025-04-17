@@ -8729,12 +8729,12 @@ define internal void @_ZN4just8function5quote17hefd5df12577f4e32E(ptr noalias no
   br label %11
 
 .lr.ph.i.i.i:                                     ; preds = %59, %4
-  %.027.i = phi i64 [ 0, %4 ], [ %65, %59 ]
-  %.lcssa192226.i = phi i64 [ 0, %4 ], [ %30, %59 ]
+  %.034.i = phi i64 [ 0, %4 ], [ %65, %59 ]
+  %.promoted.i.i733.i = phi i64 [ 0, %4 ], [ %30, %59 ]
   br label %.lr.ph.split.split.i.i.i
 
 .lr.ph.split.split.i.i.i:                         ; preds = %33, %.lr.ph.i.i.i
-  %14 = phi i64 [ %30, %33 ], [ %.lcssa192226.i, %.lr.ph.i.i.i ]
+  %14 = phi i64 [ %30, %33 ], [ %.promoted.i.i733.i, %.lr.ph.i.i.i ]
   %15 = getelementptr inbounds i8, ptr %2, i64 %14
   %.sroa.7.046.i.i.i = sub nuw i64 %3, %14
   %16 = icmp ult i64 %.sroa.7.046.i.i.i, 16
@@ -8807,8 +8807,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %2
 
 .split.us.i.i.i:                                  ; preds = %59, %.split.us.i.i.i.loopexit
   %36 = phi i64 [ %.pre, %.split.us.i.i.i.loopexit ], [ %64, %59 ]
-  %.016.i = phi i64 [ %.027.i, %.split.us.i.i.i.loopexit ], [ %65, %59 ]
-  %37 = sub i64 %3, %.016.i
+  %.022.i = phi i64 [ %.034.i, %.split.us.i.i.i.loopexit ], [ %65, %59 ]
+  %37 = sub i64 %3, %.022.i
   %38 = load i64, ptr %7, align 8, !alias.scope !2182, !noalias !2189, !noundef !4
   %39 = sub i64 %38, %36
   %40 = icmp ugt i64 %37, %39
@@ -8823,8 +8823,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i: ; preds = %2
   br label %70
 
 "_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17hcb83c5f5123d647dE.exit.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i"
-  %42 = getelementptr inbounds i8, ptr %2, i64 %.027.i
-  %43 = sub i64 %32, %.027.i
+  %42 = getelementptr inbounds i8, ptr %2, i64 %.034.i
+  %43 = sub i64 %32, %.034.i
   %44 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2192, !noalias !2199, !noundef !4
   %45 = load i64, ptr %7, align 8, !alias.scope !2192, !noalias !2199, !noundef !4
   %46 = sub i64 %45, %44
@@ -8889,7 +8889,7 @@ common.resume:                                    ; preds = %68, %86, %11
 
 70:                                               ; preds = %.split.us.i.i.i, %.noexc16.i
   %71 = phi i64 [ %36, %.split.us.i.i.i ], [ %.pre.i.i.i, %.noexc16.i ]
-  %72 = getelementptr inbounds i8, ptr %2, i64 %.016.i
+  %72 = getelementptr inbounds i8, ptr %2, i64 %.022.i
   %73 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2191, !noalias !2189, !nonnull !4, !noundef !4
   %74 = getelementptr inbounds i8, ptr %73, i64 %71
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %72, i64 %37, i1 false), !noalias !2171

@@ -699,8 +699,8 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_BE_OFFSET_LOGICP25UCon
 
 86:                                               ; preds = %85
   %87 = add nsw i32 %.2, 1
-  %88 = load i8, ptr %64, align 1, !tbaa !23
-  %89 = icmp ne i8 %88, 0
+  %88 = and i32 %.173, 2031616
+  %89 = icmp ne i32 %88, 0
   %90 = zext i1 %89 to i32
   %91 = add nsw i32 %87, %90
   br label %30, !llvm.loop !49
@@ -1523,8 +1523,8 @@ define internal void @_ZL46T_UConverter_fromUnicode_UTF32_LE_OFFSET_LOGICP25UCon
 
 86:                                               ; preds = %85
   %87 = add nsw i32 %.2, 1
-  %88 = load i8, ptr %65, align 1, !tbaa !23
-  %89 = icmp ne i8 %88, 0
+  %88 = and i32 %.173, 2031616
+  %89 = icmp ne i32 %88, 0
   %90 = zext i1 %89 to i32
   %91 = add nsw i32 %87, %90
   br label %31, !llvm.loop !56

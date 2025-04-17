@@ -1319,42 +1319,42 @@ define hidden void @"_ZN11signal_hook8iterator7backend27SignalDelivery$LT$R$C$E$
   store i64 2, ptr %.sroa.534.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %3, ptr %.sroa.6.0..sroa_idx, align 8
-  br label %48
+  br label %52
 
-48:                                               ; preds = %57, %45
-  %49 = phi i64 [ %58, %57 ], [ 0, %45 ]
-  %.not.i.i = icmp eq i64 %49, 2
-  br i1 %.not.i.i, label %50, label %53
+48:                                               ; preds = %58
+  %.not.i.i = icmp eq i64 %54, 2
+  br i1 %.not.i.i, label %49, label %52
 
-50:                                               ; preds = %48
+49:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %10, i64 56, i1 false)
   br label %"_ZN4core3ptr162drop_in_place$LT$signal_hook..iterator..backend..SignalDelivery$LT$std..os..unix..net..stream..UnixStream$C$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17hb5bf6979361bd2a2E.exit"
 
-"_ZN4core3ptr162drop_in_place$LT$signal_hook..iterator..backend..SignalDelivery$LT$std..os..unix..net..stream..UnixStream$C$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17hb5bf6979361bd2a2E.exit": ; preds = %66, %70, %73, %77, %50
+"_ZN4core3ptr162drop_in_place$LT$signal_hook..iterator..backend..SignalDelivery$LT$std..os..unix..net..stream..UnixStream$C$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17hb5bf6979361bd2a2E.exit": ; preds = %66, %70, %73, %77, %49
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   ret void
 
-51:                                               ; preds = %53
-  %52 = landingpad { ptr, i32 }
+50:                                               ; preds = %52
+  %51 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr162drop_in_place$LT$signal_hook..iterator..backend..SignalDelivery$LT$std..os..unix..net..stream..UnixStream$C$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17hb5bf6979361bd2a2E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10) #36
           to label %.thread60 unwind label %80
 
-53:                                               ; preds = %48
-  %54 = getelementptr inbounds nuw i32, ptr %.sroa.6.0..sroa_idx, i64 %49
-  %55 = load i32, ptr %54, align 4, !alias.scope !183, !noundef !4
-  %56 = invoke noundef ptr @_ZN11signal_hook8iterator7backend6Handle10add_signal17ha271d5d2fbc4eb4eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10, i32 noundef %55)
-          to label %57 unwind label %51
+52:                                               ; preds = %45, %48
+  %53 = phi i64 [ 0, %45 ], [ %54, %48 ]
+  %54 = add nuw nsw i64 %53, 1
+  %55 = getelementptr inbounds nuw i32, ptr %.sroa.6.0..sroa_idx, i64 %53
+  %56 = load i32, ptr %55, align 4, !alias.scope !183, !noundef !4
+  %57 = invoke noundef ptr @_ZN11signal_hook8iterator7backend6Handle10add_signal17ha271d5d2fbc4eb4eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10, i32 noundef %56)
+          to label %58 unwind label %50
 
-57:                                               ; preds = %53
-  %58 = add nuw nsw i64 %49, 1
-  %59 = icmp eq ptr %56, null
+58:                                               ; preds = %52
+  %59 = icmp eq ptr %57, null
   br i1 %59, label %48, label %60
 
-60:                                               ; preds = %57
+60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %56, ptr %61, align 8
+  store ptr %57, ptr %61, align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !186)
@@ -1406,7 +1406,7 @@ define hidden void @"_ZN11signal_hook8iterator7backend27SignalDelivery$LT$R$C$E$
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #37
   unreachable
 
-80:                                               ; preds = %51
+80:                                               ; preds = %50
   %81 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #37
@@ -1422,8 +1422,8 @@ define hidden void @"_ZN11signal_hook8iterator7backend27SignalDelivery$LT$R$C$E$
   %84 = tail call noundef i32 @close(i32 noundef %2) #25, !noalias !222
   br label %85
 
-.thread60:                                        ; preds = %51, %64, %85
-  %.pn22.pn5458 = phi { ptr, i32 } [ %.pn22.pn5459, %85 ], [ %52, %51 ], [ %65, %64 ]
+.thread60:                                        ; preds = %50, %64, %85
+  %.pn22.pn5458 = phi { ptr, i32 } [ %.pn22.pn5459, %85 ], [ %51, %50 ], [ %65, %64 ]
   resume { ptr, i32 } %.pn22.pn5458
 
 85:                                               ; preds = %82, %.thread55

@@ -3026,16 +3026,16 @@ opcode_has_event.exit.thread.i.i:                 ; preds = %opcode_has_event.ex
   br i1 %155, label %95, label %initialize_tools.exit.i.loopexit, !llvm.loop !94
 
 initialize_tools.exit.i.loopexit:                 ; preds = %opcode_has_event.exit.thread.i.i
-  %.pre361.pre368.pre = load ptr, ptr %28, align 8, !tbaa !26
+  %.pre362.pre368.pre = load ptr, ptr %28, align 8, !tbaa !26
   br label %initialize_tools.exit.i
 
 initialize_tools.exit.i:                          ; preds = %initialize_tools.exit.i.loopexit, %91, %multiple_tools.exit.i
-  %.pre361.pre368 = phi ptr [ %.pre361.pre368.pre, %initialize_tools.exit.i.loopexit ], [ %86, %91 ], [ %46, %multiple_tools.exit.i ]
+  %.pre362.pre368 = phi ptr [ %.pre362.pre368.pre, %initialize_tools.exit.i.loopexit ], [ %86, %91 ], [ %46, %multiple_tools.exit.i ]
   %.not92.i = icmp eq i8 %64, 0
   br i1 %.not92.i, label %initialize_line_tools.exit.i, label %156
 
 156:                                              ; preds = %initialize_tools.exit.i
-  %157 = getelementptr inbounds nuw i8, ptr %.pre361.pre368, i64 96
+  %157 = getelementptr inbounds nuw i8, ptr %.pre362.pre368, i64 96
   %158 = load ptr, ptr %157, align 8, !tbaa !27
   %159 = icmp eq ptr %158, null
   br i1 %159, label %160, label %766
@@ -4140,15 +4140,15 @@ get_line_delta.exit216.i.i:                       ; preds = %.lr.ph.i211.i.i, %_
 .sink.split.i:                                    ; preds = %764, %._crit_edge244.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #11
-  %.pre361.pre367.pre = load ptr, ptr %28, align 8, !tbaa !26
+  %.pre362.pre367.pre = load ptr, ptr %28, align 8, !tbaa !26
   br label %766
 
 766:                                              ; preds = %.sink.split.i, %156
-  %.pre361.pre367 = phi ptr [ %.pre361.pre367.pre, %.sink.split.i ], [ %.pre361.pre368, %156 ]
+  %.pre362.pre367 = phi ptr [ %.pre362.pre367.pre, %.sink.split.i ], [ %.pre362.pre368, %156 ]
   br i1 %63, label %767, label %initialize_line_tools.exit.i
 
 767:                                              ; preds = %766
-  %768 = getelementptr inbounds nuw i8, ptr %.pre361.pre367, i64 104
+  %768 = getelementptr inbounds nuw i8, ptr %.pre362.pre367, i64 104
   %769 = load ptr, ptr %768, align 8, !tbaa !57
   %770 = icmp eq ptr %769, null
   br i1 %770, label %771, label %initialize_line_tools.exit.i
@@ -4176,17 +4176,17 @@ get_line_delta.exit216.i.i:                       ; preds = %.lr.ph.i211.i.i, %_
 .lr.ph.preheader.i121.i:                          ; preds = %779
   %782 = and i64 %.val99.i, 2147483647
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %773, i8 %64, i64 %782, i1 false), !tbaa !33
-  %.pre361.pre = load ptr, ptr %28, align 8, !tbaa !26
+  %.pre362.pre = load ptr, ptr %28, align 8, !tbaa !26
   br label %initialize_line_tools.exit.i
 
 initialize_line_tools.exit.i:                     ; preds = %.lr.ph.preheader.i121.i, %779, %767, %766, %initialize_tools.exit.i
-  %.pre361 = phi ptr [ %.pre361.pre, %.lr.ph.preheader.i121.i ], [ %774, %779 ], [ %.pre361.pre367, %767 ], [ %.pre361.pre367, %766 ], [ %.pre361.pre368, %initialize_tools.exit.i ]
+  %.pre362 = phi ptr [ %.pre362.pre, %.lr.ph.preheader.i121.i ], [ %774, %779 ], [ %.pre362.pre367, %767 ], [ %.pre362.pre367, %766 ], [ %.pre362.pre368, %initialize_tools.exit.i ]
   %783 = and i64 %.sroa.0.0.copyload.i.i, 71776119061217280
   %.not95.i = icmp eq i64 %783, 0
-  br i1 %.not95.i, label %.loopexit322, label %784
+  br i1 %.not95.i, label %.loopexit323, label %784
 
 784:                                              ; preds = %initialize_line_tools.exit.i
-  %785 = getelementptr inbounds nuw i8, ptr %.pre361, i64 112
+  %785 = getelementptr inbounds nuw i8, ptr %.pre362, i64 112
   %786 = load ptr, ptr %785, align 8, !tbaa !34
   %787 = icmp eq ptr %786, null
   br i1 %787, label %788, label %.loopexit126.i
@@ -4231,18 +4231,18 @@ initialize_line_tools.exit.i:                     ; preds = %.lr.ph.preheader.i1
   br i1 %exitcond169.not.i, label %.loopexit126.i.loopexit, label %798, !llvm.loop !104
 
 .loopexit126.i.loopexit:                          ; preds = %798
-  %.pre360.pre = load ptr, ptr %28, align 8, !tbaa !26
+  %.pre361.pre = load ptr, ptr %28, align 8, !tbaa !26
   br label %.loopexit126.i
 
 .loopexit126.i:                                   ; preds = %.loopexit126.i.loopexit, %.preheader125.i, %784
-  %.pre360 = phi ptr [ %.pre360.pre, %.loopexit126.i.loopexit ], [ %791, %.preheader125.i ], [ %.pre361, %784 ]
-  br i1 %63, label %808, label %.loopexit322
+  %.pre361 = phi ptr [ %.pre361.pre, %.loopexit126.i.loopexit ], [ %791, %.preheader125.i ], [ %.pre362, %784 ]
+  br i1 %63, label %808, label %.loopexit323
 
 808:                                              ; preds = %.loopexit126.i
-  %809 = getelementptr inbounds nuw i8, ptr %.pre360, i64 120
+  %809 = getelementptr inbounds nuw i8, ptr %.pre361, i64 120
   %810 = load ptr, ptr %809, align 8, !tbaa !73
   %811 = icmp eq ptr %810, null
-  br i1 %811, label %812, label %.loopexit322
+  br i1 %811, label %812, label %.loopexit323
 
 812:                                              ; preds = %808
   %sext97.i = shl i64 %.val, 32
@@ -4256,7 +4256,7 @@ initialize_line_tools.exit.i:                     ; preds = %.lr.ph.preheader.i1
 
 .preheader.i:                                     ; preds = %812
   %818 = icmp sgt i32 %23, 0
-  br i1 %818, label %.lr.ph148.preheader.i, label %.loopexit322
+  br i1 %818, label %.lr.ph148.preheader.i, label %.loopexit323
 
 .lr.ph148.preheader.i:                            ; preds = %.preheader.i
   %wide.trip.count173.i = and i64 %.val, 2147483647
@@ -4275,18 +4275,18 @@ initialize_line_tools.exit.i:                     ; preds = %.lr.ph.preheader.i1
   store i8 0, ptr %824, align 1, !tbaa !33
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 1
   %exitcond174.not.i = icmp eq i64 %indvars.iv.next171.i, %wide.trip.count173.i
-  br i1 %exitcond174.not.i, label %.loopexit322.loopexit, label %.lr.ph148.i, !llvm.loop !105
+  br i1 %exitcond174.not.i, label %.loopexit323.loopexit, label %.lr.ph148.i, !llvm.loop !105
 
 update_instrumentation_data.exit:                 ; preds = %89, %.thread.i, %777, %796, %819
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %18) #11
   br label %1640
 
-.loopexit322.loopexit:                            ; preds = %.lr.ph148.i
+.loopexit323.loopexit:                            ; preds = %.lr.ph148.i
   %.pre = load ptr, ptr %28, align 8, !tbaa !26
-  br label %.loopexit322
+  br label %.loopexit323
 
-.loopexit322:                                     ; preds = %.loopexit322.loopexit, %.loopexit126.i, %808, %initialize_line_tools.exit.i, %.preheader.i
-  %825 = phi ptr [ %.pre, %.loopexit322.loopexit ], [ %.pre360, %.loopexit126.i ], [ %.pre360, %808 ], [ %.pre361, %initialize_line_tools.exit.i ], [ %815, %.preheader.i ]
+.loopexit323:                                     ; preds = %.loopexit323.loopexit, %.loopexit126.i, %808, %initialize_line_tools.exit.i, %.preheader.i
+  %825 = phi ptr [ %.pre, %.loopexit323.loopexit ], [ %.pre361, %.loopexit126.i ], [ %.pre361, %808 ], [ %.pre362, %initialize_line_tools.exit.i ], [ %815, %.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %18) #11
   %826 = load i64, ptr %45, align 8
   %827 = load i64, ptr %48, align 8
@@ -4304,23 +4304,23 @@ update_instrumentation_data.exit:                 ; preds = %89, %.thread.i, %77
   store i24 %.sroa.288.0.copyload, ptr %.sroa.26.0..sroa_idx.i, align 8
   br label %829
 
-829:                                              ; preds = %829, %.loopexit322
-  %indvars.iv.i162 = phi i64 [ 0, %.loopexit322 ], [ %indvars.iv.next.i163, %829 ]
-  %830 = getelementptr [16 x i8], ptr %12, i64 0, i64 %indvars.iv.i162
+829:                                              ; preds = %829, %.loopexit323
+  %indvars.iv.i163 = phi i64 [ 0, %.loopexit323 ], [ %indvars.iv.next.i164, %829 ]
+  %830 = getelementptr [16 x i8], ptr %12, i64 0, i64 %indvars.iv.i163
   %831 = load i8, ptr %830, align 1, !tbaa !33
-  %832 = getelementptr [11 x i8], ptr %13, i64 0, i64 %indvars.iv.i162
+  %832 = getelementptr [11 x i8], ptr %13, i64 0, i64 %indvars.iv.i163
   %833 = load i8, ptr %832, align 1, !tbaa !33
   %834 = or i8 %833, %831
-  %835 = getelementptr [11 x i8], ptr %11, i64 0, i64 %indvars.iv.i162
+  %835 = getelementptr [11 x i8], ptr %11, i64 0, i64 %indvars.iv.i163
   store i8 %834, ptr %835, align 1, !tbaa !33
-  %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i162, 1
-  %exitcond.not.i164 = icmp eq i64 %indvars.iv.next.i163, 11
-  br i1 %exitcond.not.i164, label %local_union.exit, label %829, !llvm.loop !90
+  %indvars.iv.next.i164 = add nuw nsw i64 %indvars.iv.i163, 1
+  %exitcond.not.i165 = icmp eq i64 %indvars.iv.next.i164, 11
+  br i1 %exitcond.not.i165, label %local_union.exit, label %829, !llvm.loop !90
 
 local_union.exit:                                 ; preds = %829
   %.sroa.0.0.copyload.i = load i64, ptr %11, align 8
-  %.sroa.2.0..sroa_idx.i165 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.2.0.copyload.i = load i24, ptr %.sroa.2.0..sroa_idx.i165, align 8
+  %.sroa.2.0..sroa_idx.i166 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.2.0.copyload.i = load i24, ptr %.sroa.2.0..sroa_idx.i166, align 8
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %13)
@@ -4349,91 +4349,91 @@ local_union.exit:                                 ; preds = %829
   %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i24 %.sroa.279.0.copyload, ptr %.sroa.28.0..sroa_idx.i, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %10, align 8
-  %.sroa.26.0..sroa_idx.i166 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i24 %.sroa.2.0.copyload.i, ptr %.sroa.26.0..sroa_idx.i166, align 8
+  %.sroa.26.0..sroa_idx.i167 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i24 %.sroa.2.0.copyload.i, ptr %.sroa.26.0..sroa_idx.i167, align 8
   br label %844
 
 844:                                              ; preds = %844, %843
-  %indvars.iv.i167 = phi i64 [ 0, %843 ], [ %indvars.iv.next.i168, %844 ]
-  %845 = getelementptr [11 x i8], ptr %9, i64 0, i64 %indvars.iv.i167
+  %indvars.iv.i168 = phi i64 [ 0, %843 ], [ %indvars.iv.next.i169, %844 ]
+  %845 = getelementptr [11 x i8], ptr %9, i64 0, i64 %indvars.iv.i168
   %846 = load i8, ptr %845, align 1, !tbaa !33
-  %847 = getelementptr [11 x i8], ptr %10, i64 0, i64 %indvars.iv.i167
+  %847 = getelementptr [11 x i8], ptr %10, i64 0, i64 %indvars.iv.i168
   %848 = load i8, ptr %847, align 1, !tbaa !33
   %849 = xor i8 %848, -1
   %850 = and i8 %846, %849
-  %851 = getelementptr [11 x i8], ptr %8, i64 0, i64 %indvars.iv.i167
+  %851 = getelementptr [11 x i8], ptr %8, i64 0, i64 %indvars.iv.i168
   store i8 %850, ptr %851, align 1, !tbaa !33
-  %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i167, 1
-  %exitcond.not.i169 = icmp eq i64 %indvars.iv.next.i168, 11
-  br i1 %exitcond.not.i169, label %monitors_sub.exit, label %844, !llvm.loop !173
+  %indvars.iv.next.i169 = add nuw nsw i64 %indvars.iv.i168, 1
+  %exitcond.not.i170 = icmp eq i64 %indvars.iv.next.i169, 11
+  br i1 %exitcond.not.i170, label %monitors_sub.exit, label %844, !llvm.loop !173
 
 monitors_sub.exit:                                ; preds = %844
-  %.sroa.0.0.copyload.i170 = load i64, ptr %8, align 8
-  %.sroa.2.0..sroa_idx.i171 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.2.0.copyload.i172 = load i24, ptr %.sroa.2.0..sroa_idx.i171, align 8
+  %.sroa.0.0.copyload.i171 = load i64, ptr %8, align 8
+  %.sroa.2.0..sroa_idx.i172 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.2.0.copyload.i173 = load i24, ptr %.sroa.2.0..sroa_idx.i172, align 8
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %10)
-  store i64 %.sroa.0.0.copyload.i170, ptr %21, align 8
+  store i64 %.sroa.0.0.copyload.i171, ptr %21, align 8
   %.sroa.481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i24 %.sroa.2.0.copyload.i172, ptr %.sroa.481.0..sroa_idx, align 8, !tbaa !33
+  store i24 %.sroa.2.0.copyload.i173, ptr %.sroa.481.0..sroa_idx, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %7)
   store i64 %.sroa.0.0.copyload.i, ptr %6, align 8
-  %.sroa.28.0..sroa_idx.i175 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i24 %.sroa.2.0.copyload.i, ptr %.sroa.28.0..sroa_idx.i175, align 8
+  %.sroa.28.0..sroa_idx.i176 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i24 %.sroa.2.0.copyload.i, ptr %.sroa.28.0..sroa_idx.i176, align 8
   store i64 %.sroa.078.0.copyload, ptr %7, align 8
-  %.sroa.26.0..sroa_idx.i176 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i24 %.sroa.279.0.copyload, ptr %.sroa.26.0..sroa_idx.i176, align 8
+  %.sroa.26.0..sroa_idx.i177 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i24 %.sroa.279.0.copyload, ptr %.sroa.26.0..sroa_idx.i177, align 8
   br label %852
 
 852:                                              ; preds = %852, %monitors_sub.exit
-  %indvars.iv.i177 = phi i64 [ 0, %monitors_sub.exit ], [ %indvars.iv.next.i178, %852 ]
-  %853 = getelementptr [11 x i8], ptr %6, i64 0, i64 %indvars.iv.i177
+  %indvars.iv.i178 = phi i64 [ 0, %monitors_sub.exit ], [ %indvars.iv.next.i179, %852 ]
+  %853 = getelementptr [11 x i8], ptr %6, i64 0, i64 %indvars.iv.i178
   %854 = load i8, ptr %853, align 1, !tbaa !33
-  %855 = getelementptr [11 x i8], ptr %7, i64 0, i64 %indvars.iv.i177
+  %855 = getelementptr [11 x i8], ptr %7, i64 0, i64 %indvars.iv.i178
   %856 = load i8, ptr %855, align 1, !tbaa !33
   %857 = xor i8 %856, -1
   %858 = and i8 %854, %857
-  %859 = getelementptr [11 x i8], ptr %5, i64 0, i64 %indvars.iv.i177
+  %859 = getelementptr [11 x i8], ptr %5, i64 0, i64 %indvars.iv.i178
   store i8 %858, ptr %859, align 1, !tbaa !33
-  %indvars.iv.next.i178 = add nuw nsw i64 %indvars.iv.i177, 1
-  %exitcond.not.i179 = icmp eq i64 %indvars.iv.next.i178, 11
-  br i1 %exitcond.not.i179, label %monitors_sub.exit185, label %852, !llvm.loop !173
+  %indvars.iv.next.i179 = add nuw nsw i64 %indvars.iv.i178, 1
+  %exitcond.not.i180 = icmp eq i64 %indvars.iv.next.i179, 11
+  br i1 %exitcond.not.i180, label %monitors_sub.exit186, label %852, !llvm.loop !173
 
-monitors_sub.exit185:                             ; preds = %852
-  %.sroa.0.0.copyload.i180 = load i64, ptr %5, align 8
-  %.sroa.2.0..sroa_idx.i181 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.2.0.copyload.i182 = load i24, ptr %.sroa.2.0..sroa_idx.i181, align 8
+monitors_sub.exit186:                             ; preds = %852
+  %.sroa.0.0.copyload.i181 = load i64, ptr %5, align 8
+  %.sroa.2.0..sroa_idx.i182 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.2.0.copyload.i183 = load i24, ptr %.sroa.2.0..sroa_idx.i182, align 8
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %7)
   br label %860
 
-860:                                              ; preds = %monitors_sub.exit185, %842
-  %.sroa.0.0.copyload.i180.sink = phi i64 [ %.sroa.0.0.copyload.i180, %monitors_sub.exit185 ], [ %.sroa.0.0.copyload.i, %842 ]
-  %.sroa.2.0.copyload.i182.sink = phi i24 [ %.sroa.2.0.copyload.i182, %monitors_sub.exit185 ], [ %.sroa.2.0.copyload.i, %842 ]
-  store i64 %.sroa.0.0.copyload.i180.sink, ptr %20, align 8
+860:                                              ; preds = %monitors_sub.exit186, %842
+  %.sroa.0.0.copyload.i181.sink = phi i64 [ %.sroa.0.0.copyload.i181, %monitors_sub.exit186 ], [ %.sroa.0.0.copyload.i, %842 ]
+  %.sroa.2.0.copyload.i183.sink = phi i24 [ %.sroa.2.0.copyload.i183, %monitors_sub.exit186 ], [ %.sroa.2.0.copyload.i, %842 ]
+  store i64 %.sroa.0.0.copyload.i181.sink, ptr %20, align 8
   %.sroa.471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i24 %.sroa.2.0.copyload.i182.sink, ptr %.sroa.471.0..sroa_idx, align 8, !tbaa !33
+  store i24 %.sroa.2.0.copyload.i183.sink, ptr %.sroa.471.0..sroa_idx, align 8, !tbaa !33
   %861 = getelementptr inbounds nuw i8, ptr %825, i64 11
   store i64 %.sroa.0.0.copyload.i, ptr %861, align 1
   %.sroa.7.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %825, i64 19
   store i24 %.sroa.2.0.copyload.i, ptr %.sroa.7.0..sroa_idx91, align 1, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %4)
-  store i64 %.sroa.0.0.copyload.i180.sink, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i186 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i24 %.sroa.2.0.copyload.i182.sink, ptr %.sroa.2.0..sroa_idx.i186, align 8
+  store i64 %.sroa.0.0.copyload.i181.sink, ptr %4, align 8
+  %.sroa.2.0..sroa_idx.i187 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i24 %.sroa.2.0.copyload.i183.sink, ptr %.sroa.2.0..sroa_idx.i187, align 8
   br label %862
 
 862:                                              ; preds = %862, %860
-  %indvars.iv.i187 = phi i64 [ 0, %860 ], [ %indvars.iv.next.i188, %862 ]
-  %863 = getelementptr [11 x i8], ptr %4, i64 0, i64 %indvars.iv.i187
+  %indvars.iv.i188 = phi i64 [ 0, %860 ], [ %indvars.iv.next.i189, %862 ]
+  %863 = getelementptr [11 x i8], ptr %4, i64 0, i64 %indvars.iv.i188
   %864 = load i8, ptr %863, align 1, !tbaa !33
   %.not.i = icmp eq i8 %864, 0
-  %indvars.iv.next.i188 = add nuw nsw i64 %indvars.iv.i187, 1
-  %exitcond.i = icmp ne i64 %indvars.iv.next.i188, 11
+  %indvars.iv.next.i189 = add nuw nsw i64 %indvars.iv.i188, 1
+  %exitcond.i = icmp ne i64 %indvars.iv.next.i189, 11
   %or.cond.not.i = select i1 %.not.i, i1 %exitcond.i, i1 false
   br i1 %or.cond.not.i, label %862, label %monitors_are_empty.exit, !llvm.loop !174
 
@@ -4447,25 +4447,25 @@ monitors_are_empty.exit:                          ; preds = %862
   %.sroa.261.0.copyload = load i24, ptr %.sroa.261.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %3)
   store i64 %.sroa.060.0.copyload, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i189 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i24 %.sroa.261.0.copyload, ptr %.sroa.2.0..sroa_idx.i189, align 8
+  %.sroa.2.0..sroa_idx.i190 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i24 %.sroa.261.0.copyload, ptr %.sroa.2.0..sroa_idx.i190, align 8
   br label %866
 
 866:                                              ; preds = %866, %865
-  %indvars.iv.i190 = phi i64 [ 0, %865 ], [ %indvars.iv.next.i192, %866 ]
-  %867 = getelementptr [11 x i8], ptr %3, i64 0, i64 %indvars.iv.i190
+  %indvars.iv.i191 = phi i64 [ 0, %865 ], [ %indvars.iv.next.i193, %866 ]
+  %867 = getelementptr [11 x i8], ptr %3, i64 0, i64 %indvars.iv.i191
   %868 = load i8, ptr %867, align 1, !tbaa !33
-  %.not.i191 = icmp eq i8 %868, 0
-  %indvars.iv.next.i192 = add nuw nsw i64 %indvars.iv.i190, 1
-  %exitcond.i193 = icmp ne i64 %indvars.iv.next.i192, 11
-  %or.cond.not.i194 = select i1 %.not.i191, i1 %exitcond.i193, i1 false
-  br i1 %or.cond.not.i194, label %866, label %monitors_are_empty.exit195, !llvm.loop !174
+  %.not.i192 = icmp eq i8 %868, 0
+  %indvars.iv.next.i193 = add nuw nsw i64 %indvars.iv.i191, 1
+  %exitcond.i194 = icmp ne i64 %indvars.iv.next.i193, 11
+  %or.cond.not.i195 = select i1 %.not.i192, i1 %exitcond.i194, i1 false
+  br i1 %or.cond.not.i195, label %866, label %monitors_are_empty.exit196, !llvm.loop !174
 
-monitors_are_empty.exit195:                       ; preds = %866
+monitors_are_empty.exit196:                       ; preds = %866
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3)
-  br i1 %.not.i191, label %.loopexit, label %869
+  br i1 %.not.i192, label %.loopexit, label %869
 
-869:                                              ; preds = %monitors_are_empty.exit195, %monitors_are_empty.exit
+869:                                              ; preds = %monitors_are_empty.exit196, %monitors_are_empty.exit
   %870 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %871 = load i32, ptr %870, align 8, !tbaa !83
   %872 = icmp slt i32 %871, %23
@@ -4481,12 +4481,12 @@ monitors_are_empty.exit195:                       ; preds = %866
   %876 = load i8, ptr %875, align 1, !tbaa !33
   %877 = getelementptr inbounds nuw i8, ptr %21, i64 6
   %878 = load i8, ptr %877, align 2, !tbaa !33
-  %.not153 = icmp eq i8 %876, 0
-  br i1 %.not153, label %.loopexit321, label %1093
+  %.not154 = icmp eq i8 %876, 0
+  br i1 %.not154, label %.loopexit322, label %1093
 
 879:                                              ; preds = %.lr.ph, %_PyInstruction_GetLength.exit
-  %.0137335 = phi i32 [ %871, %.lr.ph ], [ %1091, %_PyInstruction_GetLength.exit ]
-  %880 = sext i32 %.0137335 to i64
+  %.0138336 = phi i32 [ %871, %.lr.ph ], [ %1091, %_PyInstruction_GetLength.exit ]
+  %880 = sext i32 %.0138336 to i64
   %881 = getelementptr %union._Py_CODEUNIT, ptr %873, i64 %880
   %882 = load i16, ptr %881, align 2
   %.sroa.7.0.extract.shift.i = lshr i16 %882, 8
@@ -4531,7 +4531,7 @@ monitors_are_empty.exit195:                       ; preds = %866
   %909 = getelementptr inbounds nuw i8, ptr %908, i64 1
   %910 = load i8, ptr %908, align 1, !tbaa !31
   %911 = zext i8 %910 to i32
-  %912 = mul i32 %.0137335, %911
+  %912 = mul i32 %.0138336, %911
   %913 = sext i32 %912 to i64
   %914 = getelementptr [1 x i8], ptr %909, i64 0, i64 %913
   %915 = load i8, ptr %914, align 1, !tbaa !33
@@ -4553,12 +4553,12 @@ monitors_are_empty.exit195:                       ; preds = %866
   br label %926
 
 926:                                              ; preds = %919, %917
-  %.1.i196 = phi i32 [ %925, %919 ], [ %.0.i, %917 ]
-  %927 = zext nneg i32 %.1.i196 to i64
+  %.1.i197 = phi i32 [ %925, %919 ], [ %.0.i, %917 ]
+  %927 = zext nneg i32 %.1.i197 to i64
   %928 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %927
   %929 = load i8, ptr %928, align 1, !tbaa !33
-  %.not.i197 = icmp eq i8 %929, 0
-  br i1 %.not.i197, label %930, label %_Py_GetBaseCodeUnit.exit
+  %.not.i198 = icmp eq i8 %929, 0
+  br i1 %.not.i198, label %930, label %_Py_GetBaseCodeUnit.exit
 
 930:                                              ; preds = %926
   %931 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %927
@@ -4568,15 +4568,15 @@ monitors_are_empty.exit195:                       ; preds = %866
 _Py_GetBaseCodeUnit.exit:                         ; preds = %886, %892, %926, %930
   %.sroa.0.0.i = phi i8 [ %889, %886 ], [ %902, %892 ], [ %932, %930 ], [ %929, %926 ]
   %.sroa.7.0.i = phi i8 [ %.sroa.7.0.extract.trunc.i, %886 ], [ %904, %892 ], [ %.sroa.7.0.extract.trunc.i, %930 ], [ %.sroa.7.0.extract.trunc.i, %926 ]
-  %.not.i198 = icmp eq i8 %.sroa.0.0.i, -2
-  br i1 %.not.i198, label %add_tools.exit, label %opcode_has_event.exit
+  %.not.i199 = icmp eq i8 %.sroa.0.0.i, -2
+  br i1 %.not.i199, label %add_tools.exit, label %opcode_has_event.exit
 
 opcode_has_event.exit:                            ; preds = %_Py_GetBaseCodeUnit.exit
   %933 = zext i8 %.sroa.0.0.i to i64
   %934 = getelementptr [256 x i8], ptr @INSTRUMENTED_OPCODES, i64 0, i64 %933
   %935 = load i8, ptr %934, align 1, !tbaa !33
-  %.not318 = icmp eq i8 %935, 0
-  br i1 %.not318, label %add_tools.exit, label %936
+  %.not319 = icmp eq i8 %935, 0
+  br i1 %.not319, label %add_tools.exit, label %936
 
 936:                                              ; preds = %opcode_has_event.exit
   %937 = icmp eq i8 %.sroa.0.0.i, -107
@@ -4593,17 +4593,17 @@ opcode_has_event.exit:                            ; preds = %_Py_GetBaseCodeUnit
   br label %944
 
 944:                                              ; preds = %941, %938
-  %.0140 = phi i8 [ %940, %938 ], [ %943, %941 ]
-  %945 = sext i8 %.0140 to i64
+  %.0141 = phi i8 [ %940, %938 ], [ %943, %941 ]
+  %945 = sext i8 %.0141 to i64
   %946 = getelementptr [11 x i8], ptr %21, i64 0, i64 %945
   %947 = load i8, ptr %946, align 1, !tbaa !33
-  %.not160 = icmp eq i8 %947, 0
-  br i1 %.not160, label %remove_tools.exit, label %948
+  %.not161 = icmp eq i8 %947, 0
+  br i1 %.not161, label %remove_tools.exit, label %948
 
 948:                                              ; preds = %944
   %949 = load ptr, ptr %28, align 8, !tbaa !26
-  %.not.i199 = icmp eq ptr %949, null
-  br i1 %.not.i199, label %962, label %950
+  %.not.i200 = icmp eq ptr %949, null
+  br i1 %.not.i200, label %962, label %950
 
 950:                                              ; preds = %948
   %951 = getelementptr inbounds nuw i8, ptr %949, i64 24
@@ -4621,11 +4621,11 @@ opcode_has_event.exit:                            ; preds = %_Py_GetBaseCodeUnit
   %959 = getelementptr i8, ptr %958, i64 %880
   %960 = load i8, ptr %959, align 1, !tbaa !33
   %961 = icmp eq i8 %960, 0
-  br i1 %961, label %.._crit_edge.i202_crit_edge, label %remove_tools.exit
+  br i1 %961, label %.._crit_edge.i203_crit_edge, label %remove_tools.exit
 
-.._crit_edge.i202_crit_edge:                      ; preds = %953
+.._crit_edge.i203_crit_edge:                      ; preds = %953
   %.pre364 = load i8, ptr %881, align 1, !tbaa !33
-  br label %._crit_edge.i202
+  br label %._crit_edge.i203
 
 962:                                              ; preds = %950, %948
   %963 = getelementptr inbounds nuw i8, ptr %949, i64 11
@@ -4633,28 +4633,28 @@ opcode_has_event.exit:                            ; preds = %_Py_GetBaseCodeUnit
   %965 = load i8, ptr %964, align 1, !tbaa !33
   %966 = and i8 %965, %947
   %967 = icmp eq i8 %966, %965
-  br i1 %967, label %._crit_edge.i202, label %remove_tools.exit
+  br i1 %967, label %._crit_edge.i203, label %remove_tools.exit
 
-._crit_edge.i202:                                 ; preds = %.._crit_edge.i202_crit_edge, %962
-  %968 = phi i8 [ %.pre364, %.._crit_edge.i202_crit_edge ], [ %885, %962 ]
+._crit_edge.i203:                                 ; preds = %.._crit_edge.i203_crit_edge, %962
+  %968 = phi i8 [ %.pre364, %.._crit_edge.i203_crit_edge ], [ %885, %962 ]
   %969 = icmp eq i8 %968, -2
   br i1 %969, label %970, label %980
 
-970:                                              ; preds = %._crit_edge.i202
+970:                                              ; preds = %._crit_edge.i203
   %971 = getelementptr inbounds nuw i8, ptr %949, i64 96
   %972 = load ptr, ptr %971, align 8, !tbaa !27
   %973 = getelementptr inbounds nuw i8, ptr %972, i64 1
   %974 = load i8, ptr %972, align 1, !tbaa !31
   %975 = zext i8 %974 to i32
-  %976 = mul i32 %.0137335, %975
+  %976 = mul i32 %.0138336, %975
   %977 = sext i32 %976 to i64
   %978 = getelementptr [1 x i8], ptr %973, i64 0, i64 %977
   %979 = load i8, ptr %978, align 1, !tbaa !33
   br label %980
 
-980:                                              ; preds = %970, %._crit_edge.i202
-  %.017.in.i.i = phi i8 [ %979, %970 ], [ %968, %._crit_edge.i202 ]
-  %.0.i.i = phi ptr [ %978, %970 ], [ %881, %._crit_edge.i202 ]
+980:                                              ; preds = %970, %._crit_edge.i203
+  %.017.in.i.i = phi i8 [ %979, %970 ], [ %968, %._crit_edge.i203 ]
+  %.0.i.i = phi ptr [ %978, %970 ], [ %881, %._crit_edge.i203 ]
   %981 = icmp eq i8 %.017.in.i.i, -17
   br i1 %981, label %982, label %987
 
@@ -4667,7 +4667,7 @@ opcode_has_event.exit:                            ; preds = %_Py_GetBaseCodeUnit
 
 987:                                              ; preds = %982, %980
   %.118.in.i.i = phi i8 [ %986, %982 ], [ %.017.in.i.i, %980 ]
-  %.1.i.i200 = phi ptr [ %985, %982 ], [ %.0.i.i, %980 ]
+  %.1.i.i201 = phi ptr [ %985, %982 ], [ %.0.i.i, %980 ]
   %988 = zext i8 %.118.in.i.i to i64
   %989 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %988
   %990 = load i8, ptr %989, align 1, !tbaa !33
@@ -4675,12 +4675,12 @@ opcode_has_event.exit:                            ; preds = %_Py_GetBaseCodeUnit
   br i1 %991, label %remove_tools.exit, label %992
 
 992:                                              ; preds = %987
-  store i8 %990, ptr %.1.i.i200, align 1, !tbaa !33
+  store i8 %990, ptr %.1.i.i201, align 1, !tbaa !33
   %993 = zext i8 %990 to i64
   %994 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %993
   %995 = load i8, ptr %994, align 1, !tbaa !33
-  %.not.i.i201 = icmp eq i8 %995, 0
-  br i1 %.not.i.i201, label %remove_tools.exit, label %996
+  %.not.i.i202 = icmp eq i8 %995, 0
+  br i1 %.not.i.i202, label %remove_tools.exit, label %996
 
 996:                                              ; preds = %992
   %997 = getelementptr i8, ptr %881, i64 2
@@ -4690,13 +4690,13 @@ opcode_has_event.exit:                            ; preds = %_Py_GetBaseCodeUnit
 remove_tools.exit:                                ; preds = %996, %992, %987, %962, %953, %944
   %998 = getelementptr [11 x i8], ptr %20, i64 0, i64 %945
   %999 = load i8, ptr %998, align 1, !tbaa !33
-  %.not161 = icmp eq i8 %999, 0
-  br i1 %.not161, label %add_tools.exit, label %1000
+  %.not162 = icmp eq i8 %999, 0
+  br i1 %.not162, label %add_tools.exit, label %1000
 
 1000:                                             ; preds = %remove_tools.exit
   %1001 = load ptr, ptr %28, align 8, !tbaa !26
-  %.not.i204 = icmp eq ptr %1001, null
-  br i1 %.not.i204, label %1009, label %1002
+  %.not.i205 = icmp eq ptr %1001, null
+  br i1 %.not.i205, label %1009, label %1002
 
 1002:                                             ; preds = %1000
   %1003 = getelementptr inbounds nuw i8, ptr %1001, i64 24
@@ -4709,11 +4709,11 @@ remove_tools.exit:                                ; preds = %996, %992, %987, %9
   %1007 = load i8, ptr %1006, align 1, !tbaa !33
   %1008 = or i8 %1007, %999
   store i8 %1008, ptr %1006, align 1, !tbaa !33
-  %.pre.i205 = load ptr, ptr %28, align 8, !tbaa !26
+  %.pre.i206 = load ptr, ptr %28, align 8, !tbaa !26
   br label %1009
 
 1009:                                             ; preds = %1005, %1002, %1000
-  %1010 = phi ptr [ null, %1000 ], [ %1001, %1002 ], [ %.pre.i205, %1005 ]
+  %1010 = phi ptr [ null, %1000 ], [ %1001, %1002 ], [ %.pre.i206, %1005 ]
   %1011 = load i8, ptr %881, align 1, !tbaa !33
   %1012 = icmp eq i8 %1011, -2
   br i1 %1012, label %1013, label %1023
@@ -4724,7 +4724,7 @@ remove_tools.exit:                                ; preds = %996, %992, %987, %9
   %1016 = getelementptr inbounds nuw i8, ptr %1015, i64 1
   %1017 = load i8, ptr %1015, align 1, !tbaa !31
   %1018 = zext i8 %1017 to i32
-  %1019 = mul i32 %.0137335, %1018
+  %1019 = mul i32 %.0138336, %1018
   %1020 = sext i32 %1019 to i64
   %1021 = getelementptr [1 x i8], ptr %1016, i64 0, i64 %1020
   %1022 = load i8, ptr %1021, align 1, !tbaa !33
@@ -4732,7 +4732,7 @@ remove_tools.exit:                                ; preds = %996, %992, %987, %9
 
 1023:                                             ; preds = %1013, %1009
   %.018.in.i.i = phi i8 [ %1022, %1013 ], [ %1011, %1009 ]
-  %.0.i.i206 = phi ptr [ %1021, %1013 ], [ %881, %1009 ]
+  %.0.i.i207 = phi ptr [ %1021, %1013 ], [ %881, %1009 ]
   %1024 = icmp eq i8 %.018.in.i.i, -17
   br i1 %1024, label %1025, label %1030
 
@@ -4745,7 +4745,7 @@ remove_tools.exit:                                ; preds = %996, %992, %987, %9
 
 1030:                                             ; preds = %1025, %1023
   %.119.in.i.i = phi i8 [ %1029, %1025 ], [ %.018.in.i.i, %1023 ]
-  %.1.i.i207 = phi ptr [ %1028, %1025 ], [ %.0.i.i206, %1023 ]
+  %.1.i.i208 = phi ptr [ %1028, %1025 ], [ %.0.i.i207, %1023 ]
   %1031 = icmp ugt i8 %.119.in.i.i, -22
   br i1 %1031, label %add_tools.exit, label %1032
 
@@ -4756,11 +4756,11 @@ remove_tools.exit:                                ; preds = %996, %992, %987, %9
   %1036 = zext i8 %1035 to i64
   %1037 = getelementptr [256 x i8], ptr @INSTRUMENTED_OPCODES, i64 0, i64 %1036
   %1038 = load i8, ptr %1037, align 1, !tbaa !33
-  store i8 %1038, ptr %.1.i.i207, align 1, !tbaa !33
+  store i8 %1038, ptr %.1.i.i208, align 1, !tbaa !33
   %1039 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %1036
   %1040 = load i8, ptr %1039, align 1, !tbaa !33
-  %.not.i.i208 = icmp eq i8 %1040, 0
-  br i1 %.not.i.i208, label %add_tools.exit, label %1041
+  %.not.i.i209 = icmp eq i8 %1040, 0
+  br i1 %.not.i.i209, label %add_tools.exit, label %1041
 
 1041:                                             ; preds = %1032
   %1042 = getelementptr i8, ptr %881, i64 2
@@ -4780,8 +4780,8 @@ add_tools.exit:                                   ; preds = %_Py_GetBaseCodeUnit
 
 1048:                                             ; preds = %add_tools.exit
   %1049 = zext nneg i16 %1044 to i32
-  %trunc.i.i209 = trunc i16 %1043 to i8
-  switch i8 %trunc.i.i209, label %1071 [
+  %trunc.i.i210 = trunc i16 %1043 to i8
+  switch i8 %trunc.i.i210, label %1071 [
     i8 -1, label %1050
     i8 -2, label %1059
   ]
@@ -4804,7 +4804,7 @@ add_tools.exit:                                   ; preds = %_Py_GetBaseCodeUnit
   %1063 = getelementptr inbounds nuw i8, ptr %1062, i64 1
   %1064 = load i8, ptr %1062, align 1, !tbaa !31
   %1065 = zext i8 %1064 to i32
-  %1066 = mul i32 %.0137335, %1065
+  %1066 = mul i32 %.0138336, %1065
   %1067 = sext i32 %1066 to i64
   %1068 = getelementptr [1 x i8], ptr %1063, i64 0, i64 %1067
   %1069 = load i8, ptr %1068, align 1, !tbaa !33
@@ -4812,8 +4812,8 @@ add_tools.exit:                                   ; preds = %_Py_GetBaseCodeUnit
   br label %1071
 
 1071:                                             ; preds = %1059, %1048
-  %.0.i.i210 = phi i32 [ %1070, %1059 ], [ %1049, %1048 ]
-  %1072 = icmp eq i32 %.0.i.i210, 239
+  %.0.i.i211 = phi i32 [ %1070, %1059 ], [ %1049, %1048 ]
+  %1072 = icmp eq i32 %.0.i.i211, 239
   br i1 %1072, label %1073, label %1080
 
 1073:                                             ; preds = %1071
@@ -4826,12 +4826,12 @@ add_tools.exit:                                   ; preds = %_Py_GetBaseCodeUnit
   br label %1080
 
 1080:                                             ; preds = %1073, %1071
-  %.1.i.i211 = phi i32 [ %1079, %1073 ], [ %.0.i.i210, %1071 ]
-  %1081 = zext nneg i32 %.1.i.i211 to i64
+  %.1.i.i212 = phi i32 [ %1079, %1073 ], [ %.0.i.i211, %1071 ]
+  %1081 = zext nneg i32 %.1.i.i212 to i64
   %1082 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %1081
   %1083 = load i8, ptr %1082, align 1, !tbaa !33
-  %.not.i.i212 = icmp eq i8 %1083, 0
-  br i1 %.not.i.i212, label %_Py_GetBaseCodeUnit.exit.sink.split.i, label %_PyInstruction_GetLength.exit
+  %.not.i.i213 = icmp eq i8 %1083, 0
+  br i1 %.not.i.i213, label %_Py_GetBaseCodeUnit.exit.sink.split.i, label %_PyInstruction_GetLength.exit
 
 _Py_GetBaseCodeUnit.exit.sink.split.i:            ; preds = %1080, %1050, %1046
   %.sink1.i = phi i64 [ %1047, %1046 ], [ %1058, %1050 ], [ %1081, %1080 ]
@@ -4845,7 +4845,7 @@ _PyInstruction_GetLength.exit:                    ; preds = %1080, %_Py_GetBaseC
   %1087 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %1086
   %1088 = load i8, ptr %1087, align 1, !tbaa !33
   %1089 = zext i8 %1088 to i32
-  %1090 = add nsw i32 %.0137335, 1
+  %1090 = add nsw i32 %.0138336, 1
   %1091 = add i32 %1090, %1089
   %1092 = icmp slt i32 %1091, %23
   br i1 %1092, label %879, label %._crit_edge, !llvm.loop !175
@@ -4856,35 +4856,35 @@ _PyInstruction_GetLength.exit:                    ; preds = %1080, %_Py_GetBaseC
   %1096 = load ptr, ptr %1095, align 8, !tbaa !27
   %1097 = load i32, ptr %870, align 8, !tbaa !83
   %1098 = icmp slt i32 %1097, %23
-  br i1 %1098, label %.lr.ph338, label %.loopexit321
+  br i1 %1098, label %.lr.ph339, label %.loopexit322
 
-.lr.ph338:                                        ; preds = %1093
+.lr.ph339:                                        ; preds = %1093
   %1099 = getelementptr inbounds nuw i8, ptr %1096, i64 1
   %1100 = xor i8 %876, -1
   %1101 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1102 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %1103
 
-1103:                                             ; preds = %.lr.ph338, %_PyInstruction_GetLength.exit226
-  %.0141336 = phi i32 [ %1097, %.lr.ph338 ], [ %1200, %_PyInstruction_GetLength.exit226 ]
+1103:                                             ; preds = %.lr.ph339, %_PyInstruction_GetLength.exit227
+  %.0142337 = phi i32 [ %1097, %.lr.ph339 ], [ %1200, %_PyInstruction_GetLength.exit227 ]
   %1104 = load i8, ptr %1096, align 1, !tbaa !31
   %1105 = zext i8 %1104 to i32
-  %1106 = mul i32 %.0141336, %1105
+  %1106 = mul i32 %.0142337, %1105
   %1107 = sext i32 %1106 to i64
   %1108 = getelementptr [1 x i8], ptr %1099, i64 0, i64 %1107
   %1109 = load i8, ptr %1108, align 1, !tbaa !33
-  %.not159 = icmp eq i8 %1109, 0
-  br i1 %.not159, label %remove_line_tools.exit, label %1110
+  %.not160 = icmp eq i8 %1109, 0
+  br i1 %.not160, label %remove_line_tools.exit, label %1110
 
 1110:                                             ; preds = %1103
   %1111 = load ptr, ptr %28, align 8, !tbaa !26
   %1112 = getelementptr inbounds nuw i8, ptr %1111, i64 104
   %1113 = load ptr, ptr %1112, align 8, !tbaa !57
-  %.not.i213 = icmp eq ptr %1113, null
-  br i1 %.not.i213, label %1120, label %1114
+  %.not.i214 = icmp eq ptr %1113, null
+  br i1 %.not.i214, label %1120, label %1114
 
 1114:                                             ; preds = %1110
-  %1115 = sext i32 %.0141336 to i64
+  %1115 = sext i32 %.0142337 to i64
   %1116 = getelementptr i8, ptr %1113, i64 %1115
   %1117 = load i8, ptr %1116, align 1, !tbaa !33
   %1118 = and i8 %1117, %1100
@@ -4897,18 +4897,18 @@ _PyInstruction_GetLength.exit:                    ; preds = %1080, %_Py_GetBaseC
   %1122 = load i8, ptr %1121, align 1, !tbaa !33
   %1123 = and i8 %1122, %876
   %1124 = icmp eq i8 %1123, %1122
-  br i1 %1124, label %._crit_edge.i216, label %remove_line_tools.exit
+  br i1 %1124, label %._crit_edge.i217, label %remove_line_tools.exit
 
-._crit_edge.i216:                                 ; preds = %1120
-  %.pre.i217 = sext i32 %.0141336 to i64
+._crit_edge.i217:                                 ; preds = %1120
+  %.pre.i218 = sext i32 %.0142337 to i64
   br label %1125
 
-1125:                                             ; preds = %._crit_edge.i216, %1114
-  %.pre-phi.i214 = phi i64 [ %.pre.i217, %._crit_edge.i216 ], [ %1115, %1114 ]
-  %1126 = getelementptr %union._Py_CODEUNIT, ptr %1101, i64 %.pre-phi.i214
+1125:                                             ; preds = %._crit_edge.i217, %1114
+  %.pre-phi.i215 = phi i64 [ %.pre.i218, %._crit_edge.i217 ], [ %1115, %1114 ]
+  %1126 = getelementptr %union._Py_CODEUNIT, ptr %1101, i64 %.pre-phi.i215
   %1127 = load i8, ptr %1126, align 2, !tbaa !33
-  %.not.i.i215 = icmp eq i8 %1127, -2
-  br i1 %.not.i.i215, label %1128, label %remove_line_tools.exit
+  %.not.i.i216 = icmp eq i8 %1127, -2
+  br i1 %.not.i.i216, label %1128, label %remove_line_tools.exit
 
 1128:                                             ; preds = %1125
   %1129 = getelementptr inbounds nuw i8, ptr %1111, i64 96
@@ -4916,7 +4916,7 @@ _PyInstruction_GetLength.exit:                    ; preds = %1080, %_Py_GetBaseC
   %1131 = getelementptr inbounds nuw i8, ptr %1130, i64 1
   %1132 = load i8, ptr %1130, align 1, !tbaa !31
   %1133 = zext i8 %1132 to i32
-  %1134 = mul i32 %.0141336, %1133
+  %1134 = mul i32 %.0142337, %1133
   %1135 = sext i32 %1134 to i64
   %1136 = getelementptr [1 x i8], ptr %1131, i64 0, i64 %1135
   %1137 = load i8, ptr %1136, align 1, !tbaa !33
@@ -4926,7 +4926,7 @@ _PyInstruction_GetLength.exit:                    ; preds = %1080, %_Py_GetBaseC
 1139:                                             ; preds = %1128
   %1140 = getelementptr inbounds nuw i8, ptr %1111, i64 112
   %1141 = load ptr, ptr %1140, align 8, !tbaa !34
-  %1142 = getelementptr i8, ptr %1141, i64 %.pre-phi.i214
+  %1142 = getelementptr i8, ptr %1141, i64 %.pre-phi.i215
   %1143 = load i8, ptr %1142, align 1, !tbaa !33
   store i8 %1143, ptr %1136, align 1, !tbaa !33
   br label %1144
@@ -4945,22 +4945,22 @@ _PyInstruction_GetLength.exit:                    ; preds = %1080, %_Py_GetBaseC
   br label %remove_line_tools.exit
 
 remove_line_tools.exit:                           ; preds = %1148, %1144, %1125, %1120, %1114, %1103
-  %1150 = sext i32 %.0141336 to i64
+  %1150 = sext i32 %.0142337 to i64
   %1151 = getelementptr %union._Py_CODEUNIT, ptr %1101, i64 %1150
   %1152 = load i16, ptr %1151, align 2, !tbaa !4
-  %.sroa.7.0.extract.shift.i.i218 = lshr i16 %1152, 8
+  %.sroa.7.0.extract.shift.i.i219 = lshr i16 %1152, 8
   %1153 = and i16 %1152, 255
   %1154 = icmp samesign ult i16 %1153, 235
   br i1 %1154, label %1155, label %1157
 
 1155:                                             ; preds = %remove_line_tools.exit
   %1156 = zext nneg i16 %1153 to i64
-  br label %_Py_GetBaseCodeUnit.exit.sink.split.i224
+  br label %_Py_GetBaseCodeUnit.exit.sink.split.i225
 
 1157:                                             ; preds = %remove_line_tools.exit
   %1158 = zext nneg i16 %1153 to i32
-  %trunc.i.i219 = trunc i16 %1152 to i8
-  switch i8 %trunc.i.i219, label %1180 [
+  %trunc.i.i220 = trunc i16 %1152 to i8
+  switch i8 %trunc.i.i220, label %1180 [
     i8 -1, label %1159
     i8 -2, label %1168
   ]
@@ -4968,13 +4968,13 @@ remove_line_tools.exit:                           ; preds = %1148, %1144, %1125,
 1159:                                             ; preds = %1157
   %1160 = load ptr, ptr %1102, align 8, !tbaa !8
   %1161 = getelementptr inbounds nuw i8, ptr %1160, i64 8
-  %1162 = zext nneg i16 %.sroa.7.0.extract.shift.i.i218 to i64
+  %1162 = zext nneg i16 %.sroa.7.0.extract.shift.i.i219 to i64
   %1163 = getelementptr [1 x ptr], ptr %1161, i64 0, i64 %1162
   %1164 = load ptr, ptr %1163, align 8, !tbaa !17
   %1165 = getelementptr inbounds nuw i8, ptr %1164, i64 32
   %1166 = load i8, ptr %1165, align 8, !tbaa !19
   %1167 = zext i8 %1166 to i64
-  br label %_Py_GetBaseCodeUnit.exit.sink.split.i224
+  br label %_Py_GetBaseCodeUnit.exit.sink.split.i225
 
 1168:                                             ; preds = %1157
   %1169 = load ptr, ptr %28, align 8, !tbaa !26
@@ -4983,7 +4983,7 @@ remove_line_tools.exit:                           ; preds = %1148, %1144, %1125,
   %1172 = getelementptr inbounds nuw i8, ptr %1171, i64 1
   %1173 = load i8, ptr %1171, align 1, !tbaa !31
   %1174 = zext i8 %1173 to i32
-  %1175 = mul i32 %.0141336, %1174
+  %1175 = mul i32 %.0142337, %1174
   %1176 = sext i32 %1175 to i64
   %1177 = getelementptr [1 x i8], ptr %1172, i64 0, i64 %1176
   %1178 = load i8, ptr %1177, align 1, !tbaa !33
@@ -4991,8 +4991,8 @@ remove_line_tools.exit:                           ; preds = %1148, %1144, %1125,
   br label %1180
 
 1180:                                             ; preds = %1168, %1157
-  %.0.i.i220 = phi i32 [ %1179, %1168 ], [ %1158, %1157 ]
-  %1181 = icmp eq i32 %.0.i.i220, 239
+  %.0.i.i221 = phi i32 [ %1179, %1168 ], [ %1158, %1157 ]
+  %1181 = icmp eq i32 %.0.i.i221, 239
   br i1 %1181, label %1182, label %1189
 
 1182:                                             ; preds = %1180
@@ -5005,51 +5005,51 @@ remove_line_tools.exit:                           ; preds = %1148, %1144, %1125,
   br label %1189
 
 1189:                                             ; preds = %1182, %1180
-  %.1.i.i221 = phi i32 [ %1188, %1182 ], [ %.0.i.i220, %1180 ]
-  %1190 = zext nneg i32 %.1.i.i221 to i64
+  %.1.i.i222 = phi i32 [ %1188, %1182 ], [ %.0.i.i221, %1180 ]
+  %1190 = zext nneg i32 %.1.i.i222 to i64
   %1191 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %1190
   %1192 = load i8, ptr %1191, align 1, !tbaa !33
-  %.not.i.i222 = icmp eq i8 %1192, 0
-  br i1 %.not.i.i222, label %_Py_GetBaseCodeUnit.exit.sink.split.i224, label %_PyInstruction_GetLength.exit226
+  %.not.i.i223 = icmp eq i8 %1192, 0
+  br i1 %.not.i.i223, label %_Py_GetBaseCodeUnit.exit.sink.split.i225, label %_PyInstruction_GetLength.exit227
 
-_Py_GetBaseCodeUnit.exit.sink.split.i224:         ; preds = %1189, %1159, %1155
-  %.sink1.i225 = phi i64 [ %1156, %1155 ], [ %1167, %1159 ], [ %1190, %1189 ]
-  %1193 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i225
+_Py_GetBaseCodeUnit.exit.sink.split.i225:         ; preds = %1189, %1159, %1155
+  %.sink1.i226 = phi i64 [ %1156, %1155 ], [ %1167, %1159 ], [ %1190, %1189 ]
+  %1193 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i226
   %1194 = load i8, ptr %1193, align 1, !tbaa !33
-  br label %_PyInstruction_GetLength.exit226
+  br label %_PyInstruction_GetLength.exit227
 
-_PyInstruction_GetLength.exit226:                 ; preds = %1189, %_Py_GetBaseCodeUnit.exit.sink.split.i224
-  %.sroa.0.0.i.i223 = phi i8 [ %1192, %1189 ], [ %1194, %_Py_GetBaseCodeUnit.exit.sink.split.i224 ]
-  %1195 = zext i8 %.sroa.0.0.i.i223 to i64
+_PyInstruction_GetLength.exit227:                 ; preds = %1189, %_Py_GetBaseCodeUnit.exit.sink.split.i225
+  %.sroa.0.0.i.i224 = phi i8 [ %1192, %1189 ], [ %1194, %_Py_GetBaseCodeUnit.exit.sink.split.i225 ]
+  %1195 = zext i8 %.sroa.0.0.i.i224 to i64
   %1196 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %1195
   %1197 = load i8, ptr %1196, align 1, !tbaa !33
   %1198 = zext i8 %1197 to i32
-  %1199 = add nsw i32 %.0141336, 1
+  %1199 = add nsw i32 %.0142337, 1
   %1200 = add i32 %1199, %1198
   %1201 = icmp slt i32 %1200, %23
-  br i1 %1201, label %1103, label %.loopexit321, !llvm.loop !176
+  br i1 %1201, label %1103, label %.loopexit322, !llvm.loop !176
 
-.loopexit321:                                     ; preds = %_PyInstruction_GetLength.exit226, %1093, %._crit_edge
-  %.not154 = icmp eq i8 %878, 0
-  br i1 %.not154, label %.loopexit320, label %1202
+.loopexit322:                                     ; preds = %_PyInstruction_GetLength.exit227, %1093, %._crit_edge
+  %.not155 = icmp eq i8 %878, 0
+  br i1 %.not155, label %.loopexit321, label %1202
 
-1202:                                             ; preds = %.loopexit321
+1202:                                             ; preds = %.loopexit322
   %1203 = load i32, ptr %870, align 8, !tbaa !83
   %1204 = icmp slt i32 %1203, %23
-  br i1 %1204, label %.lr.ph341, label %.loopexit320
+  br i1 %1204, label %.lr.ph342, label %.loopexit321
 
-.lr.ph341:                                        ; preds = %1202
+.lr.ph342:                                        ; preds = %1202
   %1205 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1206 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %1207 = xor i8 %878, -1
   br label %1208
 
-1208:                                             ; preds = %.lr.ph341, %_PyInstruction_GetLength.exit248
-  %.0142339 = phi i32 [ %1203, %.lr.ph341 ], [ %.1143, %_PyInstruction_GetLength.exit248 ]
-  %1209 = sext i32 %.0142339 to i64
+1208:                                             ; preds = %.lr.ph342, %_PyInstruction_GetLength.exit249
+  %.0143340 = phi i32 [ %1203, %.lr.ph342 ], [ %.1144, %_PyInstruction_GetLength.exit249 ]
+  %1209 = sext i32 %.0143340 to i64
   %1210 = getelementptr %union._Py_CODEUNIT, ptr %1205, i64 %1209
   %1211 = load i16, ptr %1210, align 2
-  %.sroa.7.0.extract.shift.i227 = lshr i16 %1211, 8
+  %.sroa.7.0.extract.shift.i228 = lshr i16 %1211, 8
   %1212 = and i16 %1211, 255
   %1213 = icmp samesign ult i16 %1212, 235
   %1214 = trunc i16 %1211 to i8
@@ -5057,7 +5057,7 @@ _PyInstruction_GetLength.exit226:                 ; preds = %1189, %_Py_GetBaseC
 
 1215:                                             ; preds = %1208
   %1216 = zext nneg i16 %1212 to i64
-  br label %_Py_GetBaseCodeUnit.exit239.sink.split
+  br label %_Py_GetBaseCodeUnit.exit240.sink.split
 
 1217:                                             ; preds = %1208
   %1218 = zext nneg i16 %1212 to i32
@@ -5069,13 +5069,13 @@ _PyInstruction_GetLength.exit226:                 ; preds = %1189, %_Py_GetBaseC
 1219:                                             ; preds = %1217
   %1220 = load ptr, ptr %1206, align 8, !tbaa !8
   %1221 = getelementptr inbounds nuw i8, ptr %1220, i64 8
-  %1222 = zext nneg i16 %.sroa.7.0.extract.shift.i227 to i64
+  %1222 = zext nneg i16 %.sroa.7.0.extract.shift.i228 to i64
   %1223 = getelementptr [1 x ptr], ptr %1221, i64 0, i64 %1222
   %1224 = load ptr, ptr %1223, align 8, !tbaa !17
   %1225 = getelementptr inbounds nuw i8, ptr %1224, i64 32
   %1226 = load i8, ptr %1225, align 8, !tbaa !19
   %1227 = zext i8 %1226 to i64
-  br label %_Py_GetBaseCodeUnit.exit239.sink.split
+  br label %_Py_GetBaseCodeUnit.exit240.sink.split
 
 1228:                                             ; preds = %1217
   %1229 = load ptr, ptr %28, align 8, !tbaa !26
@@ -5084,7 +5084,7 @@ _PyInstruction_GetLength.exit226:                 ; preds = %1189, %_Py_GetBaseC
   %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 1
   %1233 = load i8, ptr %1231, align 1, !tbaa !31
   %1234 = zext i8 %1233 to i32
-  %1235 = mul i32 %.0142339, %1234
+  %1235 = mul i32 %.0143340, %1234
   %1236 = sext i32 %1235 to i64
   %1237 = getelementptr [1 x i8], ptr %1232, i64 0, i64 %1236
   %1238 = load i8, ptr %1237, align 1, !tbaa !33
@@ -5092,8 +5092,8 @@ _PyInstruction_GetLength.exit226:                 ; preds = %1189, %_Py_GetBaseC
   br label %1240
 
 1240:                                             ; preds = %1228, %1217
-  %.0.i230 = phi i32 [ %1239, %1228 ], [ %1218, %1217 ]
-  %1241 = icmp eq i32 %.0.i230, 239
+  %.0.i231 = phi i32 [ %1239, %1228 ], [ %1218, %1217 ]
+  %1241 = icmp eq i32 %.0.i231, 239
   br i1 %1241, label %1242, label %1249
 
 1242:                                             ; preds = %1240
@@ -5106,32 +5106,32 @@ _PyInstruction_GetLength.exit226:                 ; preds = %1189, %_Py_GetBaseC
   br label %1249
 
 1249:                                             ; preds = %1242, %1240
-  %.1.i231 = phi i32 [ %1248, %1242 ], [ %.0.i230, %1240 ]
-  %1250 = zext nneg i32 %.1.i231 to i64
+  %.1.i232 = phi i32 [ %1248, %1242 ], [ %.0.i231, %1240 ]
+  %1250 = zext nneg i32 %.1.i232 to i64
   %1251 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %1250
   %1252 = load i8, ptr %1251, align 1, !tbaa !33
-  %.not.i232 = icmp eq i8 %1252, 0
-  br i1 %.not.i232, label %_Py_GetBaseCodeUnit.exit239.sink.split, label %_Py_GetBaseCodeUnit.exit239
+  %.not.i233 = icmp eq i8 %1252, 0
+  br i1 %.not.i233, label %_Py_GetBaseCodeUnit.exit240.sink.split, label %_Py_GetBaseCodeUnit.exit240
 
-_Py_GetBaseCodeUnit.exit239.sink.split:           ; preds = %1249, %1219, %1215
+_Py_GetBaseCodeUnit.exit240.sink.split:           ; preds = %1249, %1219, %1215
   %.sink386 = phi i64 [ %1216, %1215 ], [ %1227, %1219 ], [ %1250, %1249 ]
   %1253 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink386
   %1254 = load i8, ptr %1253, align 1, !tbaa !33
-  br label %_Py_GetBaseCodeUnit.exit239
+  br label %_Py_GetBaseCodeUnit.exit240
 
-_Py_GetBaseCodeUnit.exit239:                      ; preds = %_Py_GetBaseCodeUnit.exit239.sink.split, %1249
-  %.sroa.0.0.i233 = phi i8 [ %1252, %1249 ], [ %1254, %_Py_GetBaseCodeUnit.exit239.sink.split ]
-  switch i8 %.sroa.0.0.i233, label %1294 [
+_Py_GetBaseCodeUnit.exit240:                      ; preds = %_Py_GetBaseCodeUnit.exit240.sink.split, %1249
+  %.sroa.0.0.i234 = phi i8 [ %1252, %1249 ], [ %1254, %_Py_GetBaseCodeUnit.exit240.sink.split ]
+  switch i8 %.sroa.0.0.i234, label %1294 [
     i8 -107, label %1255
     i8 10, label %1255
   ]
 
-1255:                                             ; preds = %_Py_GetBaseCodeUnit.exit239, %_Py_GetBaseCodeUnit.exit239
+1255:                                             ; preds = %_Py_GetBaseCodeUnit.exit240, %_Py_GetBaseCodeUnit.exit240
   br i1 %1213, label %1256, label %1258
 
 1256:                                             ; preds = %1255
   %1257 = zext nneg i16 %1212 to i64
-  br label %_Py_GetBaseCodeUnit.exit.sink.split.i246
+  br label %_Py_GetBaseCodeUnit.exit.sink.split.i247
 
 1258:                                             ; preds = %1255
   %1259 = zext nneg i16 %1212 to i32
@@ -5143,13 +5143,13 @@ _Py_GetBaseCodeUnit.exit239:                      ; preds = %_Py_GetBaseCodeUnit
 1260:                                             ; preds = %1258
   %1261 = load ptr, ptr %1206, align 8, !tbaa !8
   %1262 = getelementptr inbounds nuw i8, ptr %1261, i64 8
-  %1263 = zext nneg i16 %.sroa.7.0.extract.shift.i227 to i64
+  %1263 = zext nneg i16 %.sroa.7.0.extract.shift.i228 to i64
   %1264 = getelementptr [1 x ptr], ptr %1262, i64 0, i64 %1263
   %1265 = load ptr, ptr %1264, align 8, !tbaa !17
   %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 32
   %1267 = load i8, ptr %1266, align 8, !tbaa !19
   %1268 = zext i8 %1267 to i64
-  br label %_Py_GetBaseCodeUnit.exit.sink.split.i246
+  br label %_Py_GetBaseCodeUnit.exit.sink.split.i247
 
 1269:                                             ; preds = %1258
   %1270 = load ptr, ptr %28, align 8, !tbaa !26
@@ -5158,7 +5158,7 @@ _Py_GetBaseCodeUnit.exit239:                      ; preds = %_Py_GetBaseCodeUnit
   %1273 = getelementptr inbounds nuw i8, ptr %1272, i64 1
   %1274 = load i8, ptr %1272, align 1, !tbaa !31
   %1275 = zext i8 %1274 to i32
-  %1276 = mul i32 %.0142339, %1275
+  %1276 = mul i32 %.0143340, %1275
   %1277 = sext i32 %1276 to i64
   %1278 = getelementptr [1 x i8], ptr %1273, i64 0, i64 %1277
   %1279 = load i8, ptr %1278, align 1, !tbaa !33
@@ -5166,8 +5166,8 @@ _Py_GetBaseCodeUnit.exit239:                      ; preds = %_Py_GetBaseCodeUnit
   br label %1281
 
 1281:                                             ; preds = %1269, %1258
-  %.0.i.i242 = phi i32 [ %1280, %1269 ], [ %1259, %1258 ]
-  %1282 = icmp eq i32 %.0.i.i242, 239
+  %.0.i.i243 = phi i32 [ %1280, %1269 ], [ %1259, %1258 ]
+  %1282 = icmp eq i32 %.0.i.i243, 239
   br i1 %1282, label %1283, label %1290
 
 1283:                                             ; preds = %1281
@@ -5180,23 +5180,23 @@ _Py_GetBaseCodeUnit.exit239:                      ; preds = %_Py_GetBaseCodeUnit
   br label %1290
 
 1290:                                             ; preds = %1283, %1281
-  %.1.i.i243 = phi i32 [ %1289, %1283 ], [ %.0.i.i242, %1281 ]
-  %1291 = zext nneg i32 %.1.i.i243 to i64
+  %.1.i.i244 = phi i32 [ %1289, %1283 ], [ %.0.i.i243, %1281 ]
+  %1291 = zext nneg i32 %.1.i.i244 to i64
   %1292 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %1291
   %1293 = load i8, ptr %1292, align 1, !tbaa !33
-  %.not.i.i244 = icmp eq i8 %1293, 0
-  br i1 %.not.i.i244, label %_Py_GetBaseCodeUnit.exit.sink.split.i246, label %_PyInstruction_GetLength.exit248, !llvm.loop !177
+  %.not.i.i245 = icmp eq i8 %1293, 0
+  br i1 %.not.i.i245, label %_Py_GetBaseCodeUnit.exit.sink.split.i247, label %_PyInstruction_GetLength.exit249, !llvm.loop !177
 
-_Py_GetBaseCodeUnit.exit.sink.split.i246:         ; preds = %1290, %1260, %1256
-  %.sink1.i247 = phi i64 [ %1257, %1256 ], [ %1268, %1260 ], [ %1291, %1290 ]
-  br label %_PyInstruction_GetLength.exit248.sink.split, !llvm.loop !177
+_Py_GetBaseCodeUnit.exit.sink.split.i247:         ; preds = %1290, %1260, %1256
+  %.sink1.i248 = phi i64 [ %1257, %1256 ], [ %1268, %1260 ], [ %1291, %1290 ]
+  br label %_PyInstruction_GetLength.exit249.sink.split, !llvm.loop !177
 
-1294:                                             ; preds = %_Py_GetBaseCodeUnit.exit239
+1294:                                             ; preds = %_Py_GetBaseCodeUnit.exit240
   %1295 = load ptr, ptr %28, align 8, !tbaa !26
   %1296 = getelementptr inbounds nuw i8, ptr %1295, i64 120
   %1297 = load ptr, ptr %1296, align 8, !tbaa !73
-  %.not.i249 = icmp eq ptr %1297, null
-  br i1 %.not.i249, label %1303, label %1298
+  %.not.i250 = icmp eq ptr %1297, null
+  br i1 %.not.i250, label %1303, label %1298
 
 1298:                                             ; preds = %1294
   %1299 = getelementptr i8, ptr %1297, i64 %1209
@@ -5204,48 +5204,48 @@ _Py_GetBaseCodeUnit.exit.sink.split.i246:         ; preds = %1290, %1260, %1256
   %1301 = and i8 %1300, %1207
   store i8 %1301, ptr %1299, align 1, !tbaa !33
   %1302 = icmp eq i8 %1301, 0
-  br i1 %1302, label %.._crit_edge.i253_crit_edge, label %remove_per_instruction_tools.exit
+  br i1 %1302, label %.._crit_edge.i254_crit_edge, label %remove_per_instruction_tools.exit
 
-.._crit_edge.i253_crit_edge:                      ; preds = %1298
+.._crit_edge.i254_crit_edge:                      ; preds = %1298
   %.pre365 = load i8, ptr %1210, align 1, !tbaa !33
-  br label %._crit_edge.i253
+  br label %._crit_edge.i254
 
 1303:                                             ; preds = %1294
   %1304 = getelementptr i8, ptr %1295, i64 17
   %1305 = load i8, ptr %1304, align 1, !tbaa !33
   %1306 = and i8 %1305, %878
   %1307 = icmp eq i8 %1306, %1305
-  br i1 %1307, label %._crit_edge.i253, label %remove_per_instruction_tools.exit
+  br i1 %1307, label %._crit_edge.i254, label %remove_per_instruction_tools.exit
 
-._crit_edge.i253:                                 ; preds = %.._crit_edge.i253_crit_edge, %1303
-  %1308 = phi i8 [ %.pre365, %.._crit_edge.i253_crit_edge ], [ %1214, %1303 ]
+._crit_edge.i254:                                 ; preds = %.._crit_edge.i254_crit_edge, %1303
+  %1308 = phi i8 [ %.pre365, %.._crit_edge.i254_crit_edge ], [ %1214, %1303 ]
   %1309 = icmp eq i8 %1308, -2
   br i1 %1309, label %1310, label %1320
 
-1310:                                             ; preds = %._crit_edge.i253
+1310:                                             ; preds = %._crit_edge.i254
   %1311 = getelementptr inbounds nuw i8, ptr %1295, i64 96
   %1312 = load ptr, ptr %1311, align 8, !tbaa !27
   %1313 = getelementptr inbounds nuw i8, ptr %1312, i64 1
   %1314 = load i8, ptr %1312, align 1, !tbaa !31
   %1315 = zext i8 %1314 to i32
-  %1316 = mul i32 %.0142339, %1315
+  %1316 = mul i32 %.0143340, %1315
   %1317 = sext i32 %1316 to i64
   %1318 = getelementptr [1 x i8], ptr %1313, i64 0, i64 %1317
   %1319 = load i8, ptr %1318, align 1, !tbaa !33
   br label %1320
 
-1320:                                             ; preds = %1310, %._crit_edge.i253
-  %.014.in.i.i = phi i8 [ %1319, %1310 ], [ %1308, %._crit_edge.i253 ]
-  %.0.i.i251 = phi ptr [ %1318, %1310 ], [ %1210, %._crit_edge.i253 ]
-  %.not.i.i252 = icmp eq i8 %.014.in.i.i, -17
-  br i1 %.not.i.i252, label %1321, label %remove_per_instruction_tools.exit
+1320:                                             ; preds = %1310, %._crit_edge.i254
+  %.014.in.i.i = phi i8 [ %1319, %1310 ], [ %1308, %._crit_edge.i254 ]
+  %.0.i.i252 = phi ptr [ %1318, %1310 ], [ %1210, %._crit_edge.i254 ]
+  %.not.i.i253 = icmp eq i8 %.014.in.i.i, -17
+  br i1 %.not.i.i253, label %1321, label %remove_per_instruction_tools.exit
 
 1321:                                             ; preds = %1320
   %1322 = getelementptr inbounds nuw i8, ptr %1295, i64 112
   %1323 = load ptr, ptr %1322, align 8, !tbaa !34
   %1324 = getelementptr i8, ptr %1323, i64 %1209
   %1325 = load i8, ptr %1324, align 1, !tbaa !33
-  store i8 %1325, ptr %.0.i.i251, align 1, !tbaa !33
+  store i8 %1325, ptr %.0.i.i252, align 1, !tbaa !33
   %1326 = zext i8 %1325 to i64
   %1327 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %1326
   %1328 = load i8, ptr %1327, align 1, !tbaa !33
@@ -5259,19 +5259,19 @@ _Py_GetBaseCodeUnit.exit.sink.split.i246:         ; preds = %1290, %1260, %1256
 
 remove_per_instruction_tools.exit:                ; preds = %1298, %1303, %1320, %1321, %1329
   %1331 = load i16, ptr %1210, align 2, !tbaa !4
-  %.sroa.7.0.extract.shift.i.i255 = lshr i16 %1331, 8
+  %.sroa.7.0.extract.shift.i.i256 = lshr i16 %1331, 8
   %1332 = and i16 %1331, 255
   %1333 = icmp samesign ult i16 %1332, 235
   br i1 %1333, label %1334, label %1336
 
 1334:                                             ; preds = %remove_per_instruction_tools.exit
   %1335 = zext nneg i16 %1332 to i64
-  br label %_PyInstruction_GetLength.exit248.sink.split
+  br label %_PyInstruction_GetLength.exit249.sink.split
 
 1336:                                             ; preds = %remove_per_instruction_tools.exit
   %1337 = zext nneg i16 %1332 to i32
-  %trunc.i.i256 = trunc i16 %1331 to i8
-  switch i8 %trunc.i.i256, label %1359 [
+  %trunc.i.i257 = trunc i16 %1331 to i8
+  switch i8 %trunc.i.i257, label %1359 [
     i8 -1, label %1338
     i8 -2, label %1347
   ]
@@ -5279,13 +5279,13 @@ remove_per_instruction_tools.exit:                ; preds = %1298, %1303, %1320,
 1338:                                             ; preds = %1336
   %1339 = load ptr, ptr %1206, align 8, !tbaa !8
   %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 8
-  %1341 = zext nneg i16 %.sroa.7.0.extract.shift.i.i255 to i64
+  %1341 = zext nneg i16 %.sroa.7.0.extract.shift.i.i256 to i64
   %1342 = getelementptr [1 x ptr], ptr %1340, i64 0, i64 %1341
   %1343 = load ptr, ptr %1342, align 8, !tbaa !17
   %1344 = getelementptr inbounds nuw i8, ptr %1343, i64 32
   %1345 = load i8, ptr %1344, align 8, !tbaa !19
   %1346 = zext i8 %1345 to i64
-  br label %_PyInstruction_GetLength.exit248.sink.split
+  br label %_PyInstruction_GetLength.exit249.sink.split
 
 1347:                                             ; preds = %1336
   %1348 = load ptr, ptr %28, align 8, !tbaa !26
@@ -5294,7 +5294,7 @@ remove_per_instruction_tools.exit:                ; preds = %1298, %1303, %1320,
   %1351 = getelementptr inbounds nuw i8, ptr %1350, i64 1
   %1352 = load i8, ptr %1350, align 1, !tbaa !31
   %1353 = zext i8 %1352 to i32
-  %1354 = mul i32 %.0142339, %1353
+  %1354 = mul i32 %.0143340, %1353
   %1355 = sext i32 %1354 to i64
   %1356 = getelementptr [1 x i8], ptr %1351, i64 0, i64 %1355
   %1357 = load i8, ptr %1356, align 1, !tbaa !33
@@ -5302,8 +5302,8 @@ remove_per_instruction_tools.exit:                ; preds = %1298, %1303, %1320,
   br label %1359
 
 1359:                                             ; preds = %1347, %1336
-  %.0.i.i257 = phi i32 [ %1358, %1347 ], [ %1337, %1336 ]
-  %1360 = icmp eq i32 %.0.i.i257, 239
+  %.0.i.i258 = phi i32 [ %1358, %1347 ], [ %1337, %1336 ]
+  %1360 = icmp eq i32 %.0.i.i258, 239
   br i1 %1360, label %1361, label %1368
 
 1361:                                             ; preds = %1359
@@ -5316,89 +5316,89 @@ remove_per_instruction_tools.exit:                ; preds = %1298, %1303, %1320,
   br label %1368
 
 1368:                                             ; preds = %1361, %1359
-  %.1.i.i258 = phi i32 [ %1367, %1361 ], [ %.0.i.i257, %1359 ]
-  %1369 = zext nneg i32 %.1.i.i258 to i64
+  %.1.i.i259 = phi i32 [ %1367, %1361 ], [ %.0.i.i258, %1359 ]
+  %1369 = zext nneg i32 %.1.i.i259 to i64
   %1370 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %1369
   %1371 = load i8, ptr %1370, align 1, !tbaa !33
-  %.not.i.i259 = icmp eq i8 %1371, 0
-  br i1 %.not.i.i259, label %_PyInstruction_GetLength.exit248.sink.split, label %_PyInstruction_GetLength.exit248
+  %.not.i.i260 = icmp eq i8 %1371, 0
+  br i1 %.not.i.i260, label %_PyInstruction_GetLength.exit249.sink.split, label %_PyInstruction_GetLength.exit249
 
-_PyInstruction_GetLength.exit248.sink.split:      ; preds = %1334, %1338, %1368, %_Py_GetBaseCodeUnit.exit.sink.split.i246
-  %.sink1.i262.sink = phi i64 [ %.sink1.i247, %_Py_GetBaseCodeUnit.exit.sink.split.i246 ], [ %1335, %1334 ], [ %1346, %1338 ], [ %1369, %1368 ]
-  %1372 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i262.sink
+_PyInstruction_GetLength.exit249.sink.split:      ; preds = %1334, %1338, %1368, %_Py_GetBaseCodeUnit.exit.sink.split.i247
+  %.sink1.i263.sink = phi i64 [ %.sink1.i248, %_Py_GetBaseCodeUnit.exit.sink.split.i247 ], [ %1335, %1334 ], [ %1346, %1338 ], [ %1369, %1368 ]
+  %1372 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i263.sink
   %1373 = load i8, ptr %1372, align 1, !tbaa !33
-  br label %_PyInstruction_GetLength.exit248
+  br label %_PyInstruction_GetLength.exit249
 
-_PyInstruction_GetLength.exit248:                 ; preds = %_PyInstruction_GetLength.exit248.sink.split, %1368, %1290
-  %.pn316.in = phi i8 [ %1293, %1290 ], [ %1371, %1368 ], [ %1373, %_PyInstruction_GetLength.exit248.sink.split ]
-  %.pn316 = zext i8 %.pn316.in to i64
-  %.pn158.in.in.in = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %.pn316
-  %.pn158.in.in = load i8, ptr %.pn158.in.in.in, align 1, !tbaa !33
-  %.pn158.in = zext i8 %.pn158.in.in to i32
-  %.pn158 = add nsw i32 %.0142339, 1
-  %.1143 = add i32 %.pn158, %.pn158.in
-  %1374 = icmp slt i32 %.1143, %23
-  br i1 %1374, label %1208, label %.loopexit320
+_PyInstruction_GetLength.exit249:                 ; preds = %_PyInstruction_GetLength.exit249.sink.split, %1368, %1290
+  %.pn317.in = phi i8 [ %1293, %1290 ], [ %1371, %1368 ], [ %1373, %_PyInstruction_GetLength.exit249.sink.split ]
+  %.pn317 = zext i8 %.pn317.in to i64
+  %.pn159.in.in.in = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %.pn317
+  %.pn159.in.in = load i8, ptr %.pn159.in.in.in, align 1, !tbaa !33
+  %.pn159.in = zext i8 %.pn159.in.in to i32
+  %.pn159 = add nsw i32 %.0143340, 1
+  %.1144 = add i32 %.pn159, %.pn159.in
+  %1374 = icmp slt i32 %.1144, %23
+  br i1 %1374, label %1208, label %.loopexit321
 
-.loopexit320:                                     ; preds = %_PyInstruction_GetLength.exit248, %1202, %.loopexit321
+.loopexit321:                                     ; preds = %_PyInstruction_GetLength.exit249, %1202, %.loopexit322
   %1375 = getelementptr inbounds nuw i8, ptr %20, i64 5
   %1376 = load i8, ptr %1375, align 1, !tbaa !33
   %1377 = getelementptr inbounds nuw i8, ptr %20, i64 6
   %1378 = load i8, ptr %1377, align 2, !tbaa !33
-  %.not155 = icmp eq i8 %1376, 0
-  br i1 %.not155, label %.loopexit319, label %1379
+  %.not156 = icmp eq i8 %1376, 0
+  br i1 %.not156, label %.loopexit320, label %1379
 
-1379:                                             ; preds = %.loopexit320
+1379:                                             ; preds = %.loopexit321
   %1380 = load ptr, ptr %28, align 8, !tbaa !26
   %1381 = getelementptr inbounds nuw i8, ptr %1380, i64 96
   %1382 = load ptr, ptr %1381, align 8, !tbaa !27
   %1383 = load i32, ptr %870, align 8, !tbaa !83
   %1384 = icmp slt i32 %1383, %23
-  br i1 %1384, label %.lr.ph344, label %.loopexit319
+  br i1 %1384, label %.lr.ph345, label %.loopexit320
 
-.lr.ph344:                                        ; preds = %1379
+.lr.ph345:                                        ; preds = %1379
   %1385 = getelementptr inbounds nuw i8, ptr %1382, i64 1
   %1386 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1387 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %1388
 
-1388:                                             ; preds = %.lr.ph344, %_PyInstruction_GetLength.exit275
-  %.0139342 = phi i32 [ %1383, %.lr.ph344 ], [ %1468, %_PyInstruction_GetLength.exit275 ]
+1388:                                             ; preds = %.lr.ph345, %_PyInstruction_GetLength.exit276
+  %.0140343 = phi i32 [ %1383, %.lr.ph345 ], [ %1468, %_PyInstruction_GetLength.exit276 ]
   %1389 = load i8, ptr %1382, align 1, !tbaa !31
   %1390 = zext i8 %1389 to i32
-  %1391 = mul i32 %.0139342, %1390
+  %1391 = mul i32 %.0140343, %1390
   %1392 = sext i32 %1391 to i64
   %1393 = getelementptr [1 x i8], ptr %1385, i64 0, i64 %1392
   %1394 = load i8, ptr %1393, align 1, !tbaa !33
-  %.not157 = icmp eq i8 %1394, 0
-  br i1 %.not157, label %.add_line_tools.exit_crit_edge, label %1395
+  %.not158 = icmp eq i8 %1394, 0
+  br i1 %.not158, label %.add_line_tools.exit_crit_edge, label %1395
 
 .add_line_tools.exit_crit_edge:                   ; preds = %1388
-  %.pre373 = sext i32 %.0139342 to i64
+  %.pre373 = sext i32 %.0140343 to i64
   br label %add_line_tools.exit
 
 1395:                                             ; preds = %1388
   %1396 = load ptr, ptr %28, align 8, !tbaa !26
   %1397 = getelementptr inbounds nuw i8, ptr %1396, i64 104
   %1398 = load ptr, ptr %1397, align 8, !tbaa !57
-  %.not.i264 = icmp eq ptr %1398, null
-  %.pre.i265 = sext i32 %.0139342 to i64
-  br i1 %.not.i264, label %._crit_edge.i266, label %1399
+  %.not.i265 = icmp eq ptr %1398, null
+  %.pre.i266 = sext i32 %.0140343 to i64
+  br i1 %.not.i265, label %._crit_edge.i267, label %1399
 
 1399:                                             ; preds = %1395
-  %1400 = getelementptr i8, ptr %1398, i64 %.pre.i265
+  %1400 = getelementptr i8, ptr %1398, i64 %.pre.i266
   %1401 = load i8, ptr %1400, align 1, !tbaa !33
   %1402 = or i8 %1401, %1376
   store i8 %1402, ptr %1400, align 1, !tbaa !33
-  br label %._crit_edge.i266
+  br label %._crit_edge.i267
 
-._crit_edge.i266:                                 ; preds = %1399, %1395
-  %1403 = getelementptr %union._Py_CODEUNIT, ptr %1386, i64 %.pre.i265
+._crit_edge.i267:                                 ; preds = %1399, %1395
+  %1403 = getelementptr %union._Py_CODEUNIT, ptr %1386, i64 %.pre.i266
   %1404 = load i8, ptr %1403, align 1, !tbaa !33
   %1405 = icmp eq i8 %1404, -2
   br i1 %1405, label %add_line_tools.exit, label %1406
 
-1406:                                             ; preds = %._crit_edge.i266
+1406:                                             ; preds = %._crit_edge.i267
   %1407 = load ptr, ptr %28, align 8, !tbaa !26
   %1408 = getelementptr inbounds nuw i8, ptr %1407, i64 96
   %1409 = load ptr, ptr %1408, align 8, !tbaa !27
@@ -5408,30 +5408,30 @@ _PyInstruction_GetLength.exit248:                 ; preds = %_PyInstruction_GetL
   %1413 = getelementptr inbounds nuw i8, ptr %1409, i64 1
   %1414 = load i8, ptr %1409, align 1, !tbaa !31
   %1415 = zext i8 %1414 to i32
-  %1416 = mul i32 %.0139342, %1415
+  %1416 = mul i32 %.0140343, %1415
   %1417 = sext i32 %1416 to i64
   %1418 = getelementptr [1 x i8], ptr %1413, i64 0, i64 %1417
   store i8 %1412, ptr %1418, align 1, !tbaa !33
   store i8 -2, ptr %1403, align 1, !tbaa !33
   br label %add_line_tools.exit
 
-add_line_tools.exit:                              ; preds = %.add_line_tools.exit_crit_edge, %1406, %._crit_edge.i266
-  %.pre-phi = phi i64 [ %.pre373, %.add_line_tools.exit_crit_edge ], [ %.pre.i265, %1406 ], [ %.pre.i265, %._crit_edge.i266 ]
+add_line_tools.exit:                              ; preds = %.add_line_tools.exit_crit_edge, %1406, %._crit_edge.i267
+  %.pre-phi = phi i64 [ %.pre373, %.add_line_tools.exit_crit_edge ], [ %.pre.i266, %1406 ], [ %.pre.i266, %._crit_edge.i267 ]
   %1419 = getelementptr %union._Py_CODEUNIT, ptr %1386, i64 %.pre-phi
   %1420 = load i16, ptr %1419, align 2, !tbaa !4
-  %.sroa.7.0.extract.shift.i.i267 = lshr i16 %1420, 8
+  %.sroa.7.0.extract.shift.i.i268 = lshr i16 %1420, 8
   %1421 = and i16 %1420, 255
   %1422 = icmp samesign ult i16 %1421, 235
   br i1 %1422, label %1423, label %1425
 
 1423:                                             ; preds = %add_line_tools.exit
   %1424 = zext nneg i16 %1421 to i64
-  br label %_Py_GetBaseCodeUnit.exit.sink.split.i273
+  br label %_Py_GetBaseCodeUnit.exit.sink.split.i274
 
 1425:                                             ; preds = %add_line_tools.exit
   %1426 = zext nneg i16 %1421 to i32
-  %trunc.i.i268 = trunc i16 %1420 to i8
-  switch i8 %trunc.i.i268, label %1448 [
+  %trunc.i.i269 = trunc i16 %1420 to i8
+  switch i8 %trunc.i.i269, label %1448 [
     i8 -1, label %1427
     i8 -2, label %1436
   ]
@@ -5439,13 +5439,13 @@ add_line_tools.exit:                              ; preds = %.add_line_tools.exi
 1427:                                             ; preds = %1425
   %1428 = load ptr, ptr %1387, align 8, !tbaa !8
   %1429 = getelementptr inbounds nuw i8, ptr %1428, i64 8
-  %1430 = zext nneg i16 %.sroa.7.0.extract.shift.i.i267 to i64
+  %1430 = zext nneg i16 %.sroa.7.0.extract.shift.i.i268 to i64
   %1431 = getelementptr [1 x ptr], ptr %1429, i64 0, i64 %1430
   %1432 = load ptr, ptr %1431, align 8, !tbaa !17
   %1433 = getelementptr inbounds nuw i8, ptr %1432, i64 32
   %1434 = load i8, ptr %1433, align 8, !tbaa !19
   %1435 = zext i8 %1434 to i64
-  br label %_Py_GetBaseCodeUnit.exit.sink.split.i273
+  br label %_Py_GetBaseCodeUnit.exit.sink.split.i274
 
 1436:                                             ; preds = %1425
   %1437 = load ptr, ptr %28, align 8, !tbaa !26
@@ -5454,7 +5454,7 @@ add_line_tools.exit:                              ; preds = %.add_line_tools.exi
   %1440 = getelementptr inbounds nuw i8, ptr %1439, i64 1
   %1441 = load i8, ptr %1439, align 1, !tbaa !31
   %1442 = zext i8 %1441 to i32
-  %1443 = mul i32 %.0139342, %1442
+  %1443 = mul i32 %.0140343, %1442
   %1444 = sext i32 %1443 to i64
   %1445 = getelementptr [1 x i8], ptr %1440, i64 0, i64 %1444
   %1446 = load i8, ptr %1445, align 1, !tbaa !33
@@ -5462,8 +5462,8 @@ add_line_tools.exit:                              ; preds = %.add_line_tools.exi
   br label %1448
 
 1448:                                             ; preds = %1436, %1425
-  %.0.i.i269 = phi i32 [ %1447, %1436 ], [ %1426, %1425 ]
-  %1449 = icmp eq i32 %.0.i.i269, 239
+  %.0.i.i270 = phi i32 [ %1447, %1436 ], [ %1426, %1425 ]
+  %1449 = icmp eq i32 %.0.i.i270, 239
   br i1 %1449, label %1450, label %1457
 
 1450:                                             ; preds = %1448
@@ -5476,50 +5476,50 @@ add_line_tools.exit:                              ; preds = %.add_line_tools.exi
   br label %1457
 
 1457:                                             ; preds = %1450, %1448
-  %.1.i.i270 = phi i32 [ %1456, %1450 ], [ %.0.i.i269, %1448 ]
-  %1458 = zext nneg i32 %.1.i.i270 to i64
+  %.1.i.i271 = phi i32 [ %1456, %1450 ], [ %.0.i.i270, %1448 ]
+  %1458 = zext nneg i32 %.1.i.i271 to i64
   %1459 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %1458
   %1460 = load i8, ptr %1459, align 1, !tbaa !33
-  %.not.i.i271 = icmp eq i8 %1460, 0
-  br i1 %.not.i.i271, label %_Py_GetBaseCodeUnit.exit.sink.split.i273, label %_PyInstruction_GetLength.exit275
+  %.not.i.i272 = icmp eq i8 %1460, 0
+  br i1 %.not.i.i272, label %_Py_GetBaseCodeUnit.exit.sink.split.i274, label %_PyInstruction_GetLength.exit276
 
-_Py_GetBaseCodeUnit.exit.sink.split.i273:         ; preds = %1457, %1427, %1423
-  %.sink1.i274 = phi i64 [ %1424, %1423 ], [ %1435, %1427 ], [ %1458, %1457 ]
-  %1461 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i274
+_Py_GetBaseCodeUnit.exit.sink.split.i274:         ; preds = %1457, %1427, %1423
+  %.sink1.i275 = phi i64 [ %1424, %1423 ], [ %1435, %1427 ], [ %1458, %1457 ]
+  %1461 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i275
   %1462 = load i8, ptr %1461, align 1, !tbaa !33
-  br label %_PyInstruction_GetLength.exit275
+  br label %_PyInstruction_GetLength.exit276
 
-_PyInstruction_GetLength.exit275:                 ; preds = %1457, %_Py_GetBaseCodeUnit.exit.sink.split.i273
-  %.sroa.0.0.i.i272 = phi i8 [ %1460, %1457 ], [ %1462, %_Py_GetBaseCodeUnit.exit.sink.split.i273 ]
-  %1463 = zext i8 %.sroa.0.0.i.i272 to i64
+_PyInstruction_GetLength.exit276:                 ; preds = %1457, %_Py_GetBaseCodeUnit.exit.sink.split.i274
+  %.sroa.0.0.i.i273 = phi i8 [ %1460, %1457 ], [ %1462, %_Py_GetBaseCodeUnit.exit.sink.split.i274 ]
+  %1463 = zext i8 %.sroa.0.0.i.i273 to i64
   %1464 = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %1463
   %1465 = load i8, ptr %1464, align 1, !tbaa !33
   %1466 = zext i8 %1465 to i32
-  %1467 = add nsw i32 %.0139342, 1
+  %1467 = add nsw i32 %.0140343, 1
   %1468 = add i32 %1467, %1466
   %1469 = icmp slt i32 %1468, %23
-  br i1 %1469, label %1388, label %.loopexit319, !llvm.loop !178
+  br i1 %1469, label %1388, label %.loopexit320, !llvm.loop !178
 
-.loopexit319:                                     ; preds = %_PyInstruction_GetLength.exit275, %1379, %.loopexit320
-  %.not156 = icmp eq i8 %1378, 0
-  br i1 %.not156, label %.loopexit, label %1470
+.loopexit320:                                     ; preds = %_PyInstruction_GetLength.exit276, %1379, %.loopexit321
+  %.not157 = icmp eq i8 %1378, 0
+  br i1 %.not157, label %.loopexit, label %1470
 
-1470:                                             ; preds = %.loopexit319
+1470:                                             ; preds = %.loopexit320
   %1471 = load i32, ptr %870, align 8, !tbaa !83
   %1472 = icmp slt i32 %1471, %23
-  br i1 %1472, label %.lr.ph347, label %.loopexit
+  br i1 %1472, label %.lr.ph348, label %.loopexit
 
-.lr.ph347:                                        ; preds = %1470
+.lr.ph348:                                        ; preds = %1470
   %1473 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %1474 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %1475
 
-1475:                                             ; preds = %.lr.ph347, %_PyInstruction_GetLength.exit297
-  %.0138345 = phi i32 [ %1471, %.lr.ph347 ], [ %.1, %_PyInstruction_GetLength.exit297 ]
-  %1476 = sext i32 %.0138345 to i64
+1475:                                             ; preds = %.lr.ph348, %_PyInstruction_GetLength.exit298
+  %.0139346 = phi i32 [ %1471, %.lr.ph348 ], [ %.1, %_PyInstruction_GetLength.exit298 ]
+  %1476 = sext i32 %.0139346 to i64
   %1477 = getelementptr %union._Py_CODEUNIT, ptr %1473, i64 %1476
   %1478 = load i16, ptr %1477, align 2
-  %.sroa.7.0.extract.shift.i276 = lshr i16 %1478, 8
+  %.sroa.7.0.extract.shift.i277 = lshr i16 %1478, 8
   %1479 = and i16 %1478, 255
   %1480 = icmp samesign ult i16 %1479, 235
   %1481 = trunc i16 %1478 to i8
@@ -5527,7 +5527,7 @@ _PyInstruction_GetLength.exit275:                 ; preds = %1457, %_Py_GetBaseC
 
 1482:                                             ; preds = %1475
   %1483 = zext nneg i16 %1479 to i64
-  br label %_Py_GetBaseCodeUnit.exit288.sink.split
+  br label %_Py_GetBaseCodeUnit.exit289.sink.split
 
 1484:                                             ; preds = %1475
   %1485 = zext nneg i16 %1479 to i32
@@ -5539,13 +5539,13 @@ _PyInstruction_GetLength.exit275:                 ; preds = %1457, %_Py_GetBaseC
 1486:                                             ; preds = %1484
   %1487 = load ptr, ptr %1474, align 8, !tbaa !8
   %1488 = getelementptr inbounds nuw i8, ptr %1487, i64 8
-  %1489 = zext nneg i16 %.sroa.7.0.extract.shift.i276 to i64
+  %1489 = zext nneg i16 %.sroa.7.0.extract.shift.i277 to i64
   %1490 = getelementptr [1 x ptr], ptr %1488, i64 0, i64 %1489
   %1491 = load ptr, ptr %1490, align 8, !tbaa !17
   %1492 = getelementptr inbounds nuw i8, ptr %1491, i64 32
   %1493 = load i8, ptr %1492, align 8, !tbaa !19
   %1494 = zext i8 %1493 to i64
-  br label %_Py_GetBaseCodeUnit.exit288.sink.split
+  br label %_Py_GetBaseCodeUnit.exit289.sink.split
 
 1495:                                             ; preds = %1484
   %1496 = load ptr, ptr %28, align 8, !tbaa !26
@@ -5554,7 +5554,7 @@ _PyInstruction_GetLength.exit275:                 ; preds = %1457, %_Py_GetBaseC
   %1499 = getelementptr inbounds nuw i8, ptr %1498, i64 1
   %1500 = load i8, ptr %1498, align 1, !tbaa !31
   %1501 = zext i8 %1500 to i32
-  %1502 = mul i32 %.0138345, %1501
+  %1502 = mul i32 %.0139346, %1501
   %1503 = sext i32 %1502 to i64
   %1504 = getelementptr [1 x i8], ptr %1499, i64 0, i64 %1503
   %1505 = load i8, ptr %1504, align 1, !tbaa !33
@@ -5562,8 +5562,8 @@ _PyInstruction_GetLength.exit275:                 ; preds = %1457, %_Py_GetBaseC
   br label %1507
 
 1507:                                             ; preds = %1495, %1484
-  %.0.i279 = phi i32 [ %1506, %1495 ], [ %1485, %1484 ]
-  %1508 = icmp eq i32 %.0.i279, 239
+  %.0.i280 = phi i32 [ %1506, %1495 ], [ %1485, %1484 ]
+  %1508 = icmp eq i32 %.0.i280, 239
   br i1 %1508, label %1509, label %1516
 
 1509:                                             ; preds = %1507
@@ -5576,32 +5576,32 @@ _PyInstruction_GetLength.exit275:                 ; preds = %1457, %_Py_GetBaseC
   br label %1516
 
 1516:                                             ; preds = %1509, %1507
-  %.1.i280 = phi i32 [ %1515, %1509 ], [ %.0.i279, %1507 ]
-  %1517 = zext nneg i32 %.1.i280 to i64
+  %.1.i281 = phi i32 [ %1515, %1509 ], [ %.0.i280, %1507 ]
+  %1517 = zext nneg i32 %.1.i281 to i64
   %1518 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %1517
   %1519 = load i8, ptr %1518, align 1, !tbaa !33
-  %.not.i281 = icmp eq i8 %1519, 0
-  br i1 %.not.i281, label %_Py_GetBaseCodeUnit.exit288.sink.split, label %_Py_GetBaseCodeUnit.exit288
+  %.not.i282 = icmp eq i8 %1519, 0
+  br i1 %.not.i282, label %_Py_GetBaseCodeUnit.exit289.sink.split, label %_Py_GetBaseCodeUnit.exit289
 
-_Py_GetBaseCodeUnit.exit288.sink.split:           ; preds = %1516, %1486, %1482
+_Py_GetBaseCodeUnit.exit289.sink.split:           ; preds = %1516, %1486, %1482
   %.sink387 = phi i64 [ %1483, %1482 ], [ %1494, %1486 ], [ %1517, %1516 ]
   %1520 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink387
   %1521 = load i8, ptr %1520, align 1, !tbaa !33
-  br label %_Py_GetBaseCodeUnit.exit288
+  br label %_Py_GetBaseCodeUnit.exit289
 
-_Py_GetBaseCodeUnit.exit288:                      ; preds = %_Py_GetBaseCodeUnit.exit288.sink.split, %1516
-  %.sroa.0.0.i282 = phi i8 [ %1519, %1516 ], [ %1521, %_Py_GetBaseCodeUnit.exit288.sink.split ]
-  switch i8 %.sroa.0.0.i282, label %1561 [
+_Py_GetBaseCodeUnit.exit289:                      ; preds = %_Py_GetBaseCodeUnit.exit289.sink.split, %1516
+  %.sroa.0.0.i283 = phi i8 [ %1519, %1516 ], [ %1521, %_Py_GetBaseCodeUnit.exit289.sink.split ]
+  switch i8 %.sroa.0.0.i283, label %1561 [
     i8 -107, label %1522
     i8 10, label %1522
   ]
 
-1522:                                             ; preds = %_Py_GetBaseCodeUnit.exit288, %_Py_GetBaseCodeUnit.exit288
+1522:                                             ; preds = %_Py_GetBaseCodeUnit.exit289, %_Py_GetBaseCodeUnit.exit289
   br i1 %1480, label %1523, label %1525
 
 1523:                                             ; preds = %1522
   %1524 = zext nneg i16 %1479 to i64
-  br label %_Py_GetBaseCodeUnit.exit.sink.split.i295
+  br label %_Py_GetBaseCodeUnit.exit.sink.split.i296
 
 1525:                                             ; preds = %1522
   %1526 = zext nneg i16 %1479 to i32
@@ -5613,13 +5613,13 @@ _Py_GetBaseCodeUnit.exit288:                      ; preds = %_Py_GetBaseCodeUnit
 1527:                                             ; preds = %1525
   %1528 = load ptr, ptr %1474, align 8, !tbaa !8
   %1529 = getelementptr inbounds nuw i8, ptr %1528, i64 8
-  %1530 = zext nneg i16 %.sroa.7.0.extract.shift.i276 to i64
+  %1530 = zext nneg i16 %.sroa.7.0.extract.shift.i277 to i64
   %1531 = getelementptr [1 x ptr], ptr %1529, i64 0, i64 %1530
   %1532 = load ptr, ptr %1531, align 8, !tbaa !17
   %1533 = getelementptr inbounds nuw i8, ptr %1532, i64 32
   %1534 = load i8, ptr %1533, align 8, !tbaa !19
   %1535 = zext i8 %1534 to i64
-  br label %_Py_GetBaseCodeUnit.exit.sink.split.i295
+  br label %_Py_GetBaseCodeUnit.exit.sink.split.i296
 
 1536:                                             ; preds = %1525
   %1537 = load ptr, ptr %28, align 8, !tbaa !26
@@ -5628,7 +5628,7 @@ _Py_GetBaseCodeUnit.exit288:                      ; preds = %_Py_GetBaseCodeUnit
   %1540 = getelementptr inbounds nuw i8, ptr %1539, i64 1
   %1541 = load i8, ptr %1539, align 1, !tbaa !31
   %1542 = zext i8 %1541 to i32
-  %1543 = mul i32 %.0138345, %1542
+  %1543 = mul i32 %.0139346, %1542
   %1544 = sext i32 %1543 to i64
   %1545 = getelementptr [1 x i8], ptr %1540, i64 0, i64 %1544
   %1546 = load i8, ptr %1545, align 1, !tbaa !33
@@ -5636,8 +5636,8 @@ _Py_GetBaseCodeUnit.exit288:                      ; preds = %_Py_GetBaseCodeUnit
   br label %1548
 
 1548:                                             ; preds = %1536, %1525
-  %.0.i.i291 = phi i32 [ %1547, %1536 ], [ %1526, %1525 ]
-  %1549 = icmp eq i32 %.0.i.i291, 239
+  %.0.i.i292 = phi i32 [ %1547, %1536 ], [ %1526, %1525 ]
+  %1549 = icmp eq i32 %.0.i.i292, 239
   br i1 %1549, label %1550, label %1557
 
 1550:                                             ; preds = %1548
@@ -5650,54 +5650,54 @@ _Py_GetBaseCodeUnit.exit288:                      ; preds = %_Py_GetBaseCodeUnit
   br label %1557
 
 1557:                                             ; preds = %1550, %1548
-  %.1.i.i292 = phi i32 [ %1556, %1550 ], [ %.0.i.i291, %1548 ]
-  %1558 = zext nneg i32 %.1.i.i292 to i64
+  %.1.i.i293 = phi i32 [ %1556, %1550 ], [ %.0.i.i292, %1548 ]
+  %1558 = zext nneg i32 %.1.i.i293 to i64
   %1559 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %1558
   %1560 = load i8, ptr %1559, align 1, !tbaa !33
-  %.not.i.i293 = icmp eq i8 %1560, 0
-  br i1 %.not.i.i293, label %_Py_GetBaseCodeUnit.exit.sink.split.i295, label %_PyInstruction_GetLength.exit297, !llvm.loop !179
+  %.not.i.i294 = icmp eq i8 %1560, 0
+  br i1 %.not.i.i294, label %_Py_GetBaseCodeUnit.exit.sink.split.i296, label %_PyInstruction_GetLength.exit298, !llvm.loop !179
 
-_Py_GetBaseCodeUnit.exit.sink.split.i295:         ; preds = %1557, %1527, %1523
-  %.sink1.i296 = phi i64 [ %1524, %1523 ], [ %1535, %1527 ], [ %1558, %1557 ]
-  br label %_PyInstruction_GetLength.exit297.sink.split, !llvm.loop !179
+_Py_GetBaseCodeUnit.exit.sink.split.i296:         ; preds = %1557, %1527, %1523
+  %.sink1.i297 = phi i64 [ %1524, %1523 ], [ %1535, %1527 ], [ %1558, %1557 ]
+  br label %_PyInstruction_GetLength.exit298.sink.split, !llvm.loop !179
 
-1561:                                             ; preds = %_Py_GetBaseCodeUnit.exit288
+1561:                                             ; preds = %_Py_GetBaseCodeUnit.exit289
   %1562 = load ptr, ptr %28, align 8, !tbaa !26
   %1563 = getelementptr inbounds nuw i8, ptr %1562, i64 120
   %1564 = load ptr, ptr %1563, align 8, !tbaa !73
-  %.not.i298 = icmp eq ptr %1564, null
-  br i1 %.not.i298, label %._crit_edge.i300, label %1565
+  %.not.i299 = icmp eq ptr %1564, null
+  br i1 %.not.i299, label %._crit_edge.i301, label %1565
 
 1565:                                             ; preds = %1561
   %1566 = getelementptr i8, ptr %1564, i64 %1476
   %1567 = load i8, ptr %1566, align 1, !tbaa !33
   %1568 = or i8 %1567, %1378
   store i8 %1568, ptr %1566, align 1, !tbaa !33
-  %.pre.i299 = load ptr, ptr %28, align 8, !tbaa !26
+  %.pre.i300 = load ptr, ptr %28, align 8, !tbaa !26
   %.pre366 = load i8, ptr %1477, align 1, !tbaa !33
-  br label %._crit_edge.i300
+  br label %._crit_edge.i301
 
-._crit_edge.i300:                                 ; preds = %1565, %1561
+._crit_edge.i301:                                 ; preds = %1565, %1561
   %1569 = phi i8 [ %.pre366, %1565 ], [ %1481, %1561 ]
-  %1570 = phi ptr [ %.pre.i299, %1565 ], [ %1562, %1561 ]
+  %1570 = phi ptr [ %.pre.i300, %1565 ], [ %1562, %1561 ]
   %1571 = icmp eq i8 %1569, -2
   br i1 %1571, label %1572, label %1582
 
-1572:                                             ; preds = %._crit_edge.i300
+1572:                                             ; preds = %._crit_edge.i301
   %1573 = getelementptr inbounds nuw i8, ptr %1570, i64 96
   %1574 = load ptr, ptr %1573, align 8, !tbaa !27
   %1575 = getelementptr inbounds nuw i8, ptr %1574, i64 1
   %1576 = load i8, ptr %1574, align 1, !tbaa !31
   %1577 = zext i8 %1576 to i32
-  %1578 = mul i32 %.0138345, %1577
+  %1578 = mul i32 %.0139346, %1577
   %1579 = sext i32 %1578 to i64
   %1580 = getelementptr [1 x i8], ptr %1575, i64 0, i64 %1579
   %1581 = load i8, ptr %1580, align 1, !tbaa !33
   br label %1582
 
-1582:                                             ; preds = %1572, %._crit_edge.i300
-  %.016.i.i = phi ptr [ %1580, %1572 ], [ %1477, %._crit_edge.i300 ]
-  %.0.in.i.i = phi i8 [ %1581, %1572 ], [ %1569, %._crit_edge.i300 ]
+1582:                                             ; preds = %1572, %._crit_edge.i301
+  %.016.i.i = phi ptr [ %1580, %1572 ], [ %1477, %._crit_edge.i301 ]
+  %.0.in.i.i = phi i8 [ %1581, %1572 ], [ %1569, %._crit_edge.i301 ]
   %1583 = icmp eq i8 %.0.in.i.i, -17
   br i1 %1583, label %add_per_instruction_tools.exit, label %1584
 
@@ -5712,29 +5712,29 @@ _Py_GetBaseCodeUnit.exit.sink.split.i295:         ; preds = %1557, %1527, %1523
   br label %1590
 
 1590:                                             ; preds = %1586, %1584
-  %.sink.i.i301 = phi i8 [ %1589, %1586 ], [ %.0.in.i.i, %1584 ]
+  %.sink.i.i302 = phi i8 [ %1589, %1586 ], [ %.0.in.i.i, %1584 ]
   %1591 = getelementptr inbounds nuw i8, ptr %1570, i64 112
   %1592 = load ptr, ptr %1591, align 8, !tbaa !34
   %1593 = getelementptr i8, ptr %1592, i64 %1476
-  store i8 %.sink.i.i301, ptr %1593, align 1, !tbaa !33
+  store i8 %.sink.i.i302, ptr %1593, align 1, !tbaa !33
   store i8 -17, ptr %.016.i.i, align 1, !tbaa !33
   br label %add_per_instruction_tools.exit
 
 add_per_instruction_tools.exit:                   ; preds = %1582, %1590
   %1594 = load i16, ptr %1477, align 2, !tbaa !4
-  %.sroa.7.0.extract.shift.i.i302 = lshr i16 %1594, 8
+  %.sroa.7.0.extract.shift.i.i303 = lshr i16 %1594, 8
   %1595 = and i16 %1594, 255
   %1596 = icmp samesign ult i16 %1595, 235
   br i1 %1596, label %1597, label %1599
 
 1597:                                             ; preds = %add_per_instruction_tools.exit
   %1598 = zext nneg i16 %1595 to i64
-  br label %_PyInstruction_GetLength.exit297.sink.split
+  br label %_PyInstruction_GetLength.exit298.sink.split
 
 1599:                                             ; preds = %add_per_instruction_tools.exit
   %1600 = zext nneg i16 %1595 to i32
-  %trunc.i.i303 = trunc i16 %1594 to i8
-  switch i8 %trunc.i.i303, label %1622 [
+  %trunc.i.i304 = trunc i16 %1594 to i8
+  switch i8 %trunc.i.i304, label %1622 [
     i8 -1, label %1601
     i8 -2, label %1610
   ]
@@ -5742,13 +5742,13 @@ add_per_instruction_tools.exit:                   ; preds = %1582, %1590
 1601:                                             ; preds = %1599
   %1602 = load ptr, ptr %1474, align 8, !tbaa !8
   %1603 = getelementptr inbounds nuw i8, ptr %1602, i64 8
-  %1604 = zext nneg i16 %.sroa.7.0.extract.shift.i.i302 to i64
+  %1604 = zext nneg i16 %.sroa.7.0.extract.shift.i.i303 to i64
   %1605 = getelementptr [1 x ptr], ptr %1603, i64 0, i64 %1604
   %1606 = load ptr, ptr %1605, align 8, !tbaa !17
   %1607 = getelementptr inbounds nuw i8, ptr %1606, i64 32
   %1608 = load i8, ptr %1607, align 8, !tbaa !19
   %1609 = zext i8 %1608 to i64
-  br label %_PyInstruction_GetLength.exit297.sink.split
+  br label %_PyInstruction_GetLength.exit298.sink.split
 
 1610:                                             ; preds = %1599
   %1611 = load ptr, ptr %28, align 8, !tbaa !26
@@ -5757,7 +5757,7 @@ add_per_instruction_tools.exit:                   ; preds = %1582, %1590
   %1614 = getelementptr inbounds nuw i8, ptr %1613, i64 1
   %1615 = load i8, ptr %1613, align 1, !tbaa !31
   %1616 = zext i8 %1615 to i32
-  %1617 = mul i32 %.0138345, %1616
+  %1617 = mul i32 %.0139346, %1616
   %1618 = sext i32 %1617 to i64
   %1619 = getelementptr [1 x i8], ptr %1614, i64 0, i64 %1618
   %1620 = load i8, ptr %1619, align 1, !tbaa !33
@@ -5765,8 +5765,8 @@ add_per_instruction_tools.exit:                   ; preds = %1582, %1590
   br label %1622
 
 1622:                                             ; preds = %1610, %1599
-  %.0.i.i304 = phi i32 [ %1621, %1610 ], [ %1600, %1599 ]
-  %1623 = icmp eq i32 %.0.i.i304, 239
+  %.0.i.i305 = phi i32 [ %1621, %1610 ], [ %1600, %1599 ]
+  %1623 = icmp eq i32 %.0.i.i305, 239
   br i1 %1623, label %1624, label %1631
 
 1624:                                             ; preds = %1622
@@ -5779,31 +5779,31 @@ add_per_instruction_tools.exit:                   ; preds = %1582, %1590
   br label %1631
 
 1631:                                             ; preds = %1624, %1622
-  %.1.i.i305 = phi i32 [ %1630, %1624 ], [ %.0.i.i304, %1622 ]
-  %1632 = zext nneg i32 %.1.i.i305 to i64
+  %.1.i.i306 = phi i32 [ %1630, %1624 ], [ %.0.i.i305, %1622 ]
+  %1632 = zext nneg i32 %.1.i.i306 to i64
   %1633 = getelementptr [256 x i8], ptr @DE_INSTRUMENT, i64 0, i64 %1632
   %1634 = load i8, ptr %1633, align 1, !tbaa !33
-  %.not.i.i306 = icmp eq i8 %1634, 0
-  br i1 %.not.i.i306, label %_PyInstruction_GetLength.exit297.sink.split, label %_PyInstruction_GetLength.exit297
+  %.not.i.i307 = icmp eq i8 %1634, 0
+  br i1 %.not.i.i307, label %_PyInstruction_GetLength.exit298.sink.split, label %_PyInstruction_GetLength.exit298
 
-_PyInstruction_GetLength.exit297.sink.split:      ; preds = %1597, %1601, %1631, %_Py_GetBaseCodeUnit.exit.sink.split.i295
-  %.sink1.i309.sink = phi i64 [ %.sink1.i296, %_Py_GetBaseCodeUnit.exit.sink.split.i295 ], [ %1598, %1597 ], [ %1609, %1601 ], [ %1632, %1631 ]
-  %1635 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i309.sink
+_PyInstruction_GetLength.exit298.sink.split:      ; preds = %1597, %1601, %1631, %_Py_GetBaseCodeUnit.exit.sink.split.i296
+  %.sink1.i310.sink = phi i64 [ %.sink1.i297, %_Py_GetBaseCodeUnit.exit.sink.split.i296 ], [ %1598, %1597 ], [ %1609, %1601 ], [ %1632, %1631 ]
+  %1635 = getelementptr [256 x i8], ptr @_PyOpcode_Deopt, i64 0, i64 %.sink1.i310.sink
   %1636 = load i8, ptr %1635, align 1, !tbaa !33
-  br label %_PyInstruction_GetLength.exit297
+  br label %_PyInstruction_GetLength.exit298
 
-_PyInstruction_GetLength.exit297:                 ; preds = %_PyInstruction_GetLength.exit297.sink.split, %1631, %1557
-  %.pn317.in = phi i8 [ %1560, %1557 ], [ %1634, %1631 ], [ %1636, %_PyInstruction_GetLength.exit297.sink.split ]
-  %.pn317 = zext i8 %.pn317.in to i64
-  %.pn.in.in.in = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %.pn317
+_PyInstruction_GetLength.exit298:                 ; preds = %_PyInstruction_GetLength.exit298.sink.split, %1631, %1557
+  %.pn318.in = phi i8 [ %1560, %1557 ], [ %1634, %1631 ], [ %1636, %_PyInstruction_GetLength.exit298.sink.split ]
+  %.pn318 = zext i8 %.pn318.in to i64
+  %.pn.in.in.in = getelementptr [256 x i8], ptr @_PyOpcode_Caches, i64 0, i64 %.pn318
   %.pn.in.in = load i8, ptr %.pn.in.in.in, align 1, !tbaa !33
   %.pn.in = zext i8 %.pn.in.in to i32
-  %.pn = add nsw i32 %.0138345, 1
+  %.pn = add nsw i32 %.0139346, 1
   %.1 = add i32 %.pn, %.pn.in
   %1637 = icmp slt i32 %.1, %23
   br i1 %1637, label %1475, label %.loopexit
 
-.loopexit:                                        ; preds = %_PyInstruction_GetLength.exit297, %1470, %.loopexit319, %monitors_are_empty.exit195
+.loopexit:                                        ; preds = %_PyInstruction_GetLength.exit298, %1470, %.loopexit320, %monitors_are_empty.exit196
   %1638 = load atomic i64, ptr %1 monotonic, align 8
   %1639 = and i64 %1638, 4294967295
   store i64 %1639, ptr %838, align 8, !tbaa !75

@@ -34980,8 +34980,8 @@ define hidden void @"_ZN8arrayvec8arrayvec21ArrayVec$LT$T$C$_$GT$16extend_from_i
 
 13:                                               ; preds = %.lr.ph, %25
   %.sroa.0.0.idx26.in = phi i64 [ %.idx, %.lr.ph ], [ %.sroa.0.0.idx26, %25 ]
-  %.sroa.5.025 = phi i64 [ %10, %.lr.ph ], [ %27, %25 ]
   %14 = phi i64 [ 0, %.lr.ph ], [ %15, %25 ]
+  %.sroa.5.025 = phi i64 [ %10, %.lr.ph ], [ %27, %25 ]
   %.sroa.0.0.idx26 = add nuw nsw i64 %.sroa.0.0.idx26.in, 4
   %.sroa.0.0.ptr27 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0.idx26
   %15 = add nuw nsw i64 %14, 1

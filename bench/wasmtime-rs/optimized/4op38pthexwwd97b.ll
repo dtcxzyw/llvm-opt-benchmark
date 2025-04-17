@@ -52728,7 +52728,7 @@ _ZN17cranelift_codegen8machinst3abi6SigSet26have_abi_sig_for_signature17heefaa92
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower28matches_small_constant_shift17h2ae9d10a96383e66E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(1944) %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZN17cranelift_codegen3isa3x645lower28matches_small_constant_shift17h2ae9d10a96383e66E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(1944) %1, i64 noundef range(i64 0, 2) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca { { i64, [1 x i64] }, { i32, [3 x i32] } }, align 8
   %6 = alloca { { i64, [1 x i64] }, { i32, [3 x i32] } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20284)

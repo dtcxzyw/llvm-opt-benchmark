@@ -1434,17 +1434,17 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %16 = tail call reassoc nsz arcp contract afn float @llvm.sin.f32(float %14)
   %17 = fneg reassoc nsz arcp contract afn float %16
   %18 = fcmp reassoc nsz arcp contract afn oeq float %14, 0.000000e+00
-  %.sroa.15.0 = select nsz i1 %18, float 1.000000e+00, float %15
-  %.sroa.11.0 = select nsz i1 %18, float 0.000000e+00, float %17
-  %.sroa.7.0 = select nsz i1 %18, float 0.000000e+00, float %16
+  %.sroa.9.0 = select nsz i1 %18, float 1.000000e+00, float %15
+  %.sroa.7.0 = select nsz i1 %18, float 0.000000e+00, float %17
+  %.sroa.5.0 = select nsz i1 %18, float 0.000000e+00, float %16
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store float %.sroa.15.0, ptr %19, align 4, !tbaa !111
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store float %.sroa.9.0, ptr %19, align 4, !tbaa !111
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store float %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !111
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   store float %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !111
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store float %.sroa.11.0, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !111
-  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 20
-  store float %.sroa.15.0, ptr %.sroa.15.0..sroa_idx, align 4, !tbaa !111
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 20
+  store float %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 4, !tbaa !111
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 92
   %21 = load i32, ptr %20, align 4, !tbaa !131
   %22 = and i32 %21, 1
@@ -1452,32 +1452,32 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   br i1 %.not, label %27, label %23
 
 23:                                               ; preds = %4
-  %24 = fneg reassoc nsz arcp contract afn float %.sroa.15.0
+  %24 = fneg reassoc nsz arcp contract afn float %.sroa.9.0
   store float %24, ptr %19, align 4, !tbaa !111
-  %25 = fneg reassoc nsz arcp contract afn float %.sroa.11.0
+  %25 = fneg reassoc nsz arcp contract afn float %.sroa.7.0
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store float %25, ptr %26, align 4, !tbaa !111
   br label %27
 
 27:                                               ; preds = %23, %4
-  %28 = phi float [ %25, %23 ], [ %.sroa.11.0, %4 ]
-  %29 = phi float [ %24, %23 ], [ %.sroa.15.0, %4 ]
+  %28 = phi float [ %25, %23 ], [ %.sroa.7.0, %4 ]
+  %29 = phi float [ %24, %23 ], [ %.sroa.9.0, %4 ]
   %30 = and i32 %21, 2
   %.not271 = icmp eq i32 %30, 0
   br i1 %.not271, label %36, label %31
 
 31:                                               ; preds = %27
-  %32 = fneg reassoc nsz arcp contract afn float %.sroa.7.0
+  %32 = fneg reassoc nsz arcp contract afn float %.sroa.5.0
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store float %32, ptr %33, align 4, !tbaa !111
-  %34 = fneg reassoc nsz arcp contract afn float %.sroa.15.0
+  %34 = fneg reassoc nsz arcp contract afn float %.sroa.9.0
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store float %34, ptr %35, align 4, !tbaa !111
   br label %36
 
 36:                                               ; preds = %31, %27
-  %37 = phi float [ %32, %31 ], [ %.sroa.7.0, %27 ]
-  %38 = phi float [ %34, %31 ], [ %.sroa.15.0, %27 ]
+  %37 = phi float [ %32, %31 ], [ %.sroa.5.0, %27 ]
+  %38 = phi float [ %34, %31 ], [ %.sroa.9.0, %27 ]
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %40 = fmul reassoc nsz arcp contract afn float %38, %29
   %41 = fmul reassoc nsz arcp contract afn float %28, %37
@@ -1507,8 +1507,8 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   br i1 %58, label %59, label %183
 
 59:                                               ; preds = %55
-  %60 = fmul reassoc nsz arcp contract afn float %.sroa.15.0, %.sroa.15.0
-  %61 = fmul reassoc nsz arcp contract afn float %.sroa.11.0, %.sroa.7.0
+  %60 = fmul reassoc nsz arcp contract afn float %.sroa.9.0, %.sroa.9.0
+  %61 = fmul reassoc nsz arcp contract afn float %.sroa.5.0, %.sroa.7.0
   %62 = fsub reassoc nsz arcp contract afn float %60, %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false), !tbaa.struct !139
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1557,7 +1557,7 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %100 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %62
-  %invariant.op331 = fmul reassoc nsz arcp contract afn float %100, %73
+  %invariant.op327 = fmul reassoc nsz arcp contract afn float %100, %73
   br label %101
 
 .loopexit:                                        ; preds = %182, %.thread
@@ -1600,15 +1600,15 @@ get_corner.exit.critedge:                         ; preds = %101, %133
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr inbounds nuw float, ptr %6, i64 %118
   %120 = load float, ptr %119, align 4, !tbaa !111
-  %121 = fmul reassoc nsz arcp contract afn float %116, %.sroa.15.0
-  %122 = fmul reassoc nsz arcp contract afn float %120, %.sroa.7.0
+  %121 = fmul reassoc nsz arcp contract afn float %116, %.sroa.9.0
+  %122 = fmul reassoc nsz arcp contract afn float %120, %.sroa.5.0
   %123 = fsub reassoc nsz arcp contract afn float %121, %122
   %124 = fmul reassoc nsz arcp contract afn float %123, %100
-  %125 = fmul reassoc nsz arcp contract afn float %120, %.sroa.15.0
-  %126 = fmul reassoc nsz arcp contract afn float %116, %.sroa.11.0
+  %125 = fmul reassoc nsz arcp contract afn float %120, %.sroa.9.0
+  %126 = fmul reassoc nsz arcp contract afn float %116, %.sroa.7.0
   %127 = fsub reassoc nsz arcp contract afn float %125, %126
-  %.reass332 = fmul reassoc nsz arcp contract afn float %123, %invariant.op331
-  %128 = fadd reassoc nsz arcp contract afn float %.reass332, 1.000000e+00
+  %.reass328 = fmul reassoc nsz arcp contract afn float %123, %invariant.op327
+  %128 = fadd reassoc nsz arcp contract afn float %.reass328, 1.000000e+00
   %129 = fmul reassoc nsz arcp contract afn float %128, %127
   %130 = fmul reassoc nsz arcp contract afn float %129, %89
   %.reass = fmul reassoc nsz arcp contract afn float %129, %invariant.op
@@ -1932,11 +1932,11 @@ get_corner.exit.critedge:                         ; preds = %101, %133
   %358 = fadd reassoc nsz arcp contract afn float %356, -1.000000e+00
   %.1 = select nsz i1 %357, float %.0, float %358
   %359 = fsub reassoc nsz arcp contract afn float %.1, %354
-  %.pre324 = fmul reassoc nsz arcp contract afn float %194, 1.250000e-01
+  %.pre320 = fmul reassoc nsz arcp contract afn float %194, 1.250000e-01
   br label %360
 
 360:                                              ; preds = %351, %347
-  %.pre-phi = phi float [ %.pre324, %351 ], [ %348, %347 ]
+  %.pre-phi = phi float [ %.pre320, %351 ], [ %348, %347 ]
   %.1249 = phi nsz float [ %359, %351 ], [ %.0248, %347 ]
   %361 = fsub reassoc nsz arcp contract afn float %.1247, %.1251
   %362 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -2032,14 +2032,14 @@ get_corner.exit.critedge:                         ; preds = %101, %133
   %421 = load ptr, ptr %420, align 8, !tbaa !63
   call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.7, ptr noundef %421, ptr noundef %0, i32 noundef -2, ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef nonnull @.str.8) #27
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre319 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !96
-  %.phi.trans.insert320 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %.pre321 = load i32, ptr %.phi.trans.insert320, align 4, !tbaa !98
+  %.pre315 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !96
+  %.phi.trans.insert316 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %.pre317 = load i32, ptr %.phi.trans.insert316, align 4, !tbaa !98
   br label %422
 
 422:                                              ; preds = %419, %416
-  %423 = phi i32 [ %.pre321, %419 ], [ %396, %416 ]
-  %424 = phi i32 [ %.pre319, %419 ], [ %397, %416 ]
+  %423 = phi i32 [ %.pre317, %419 ], [ %396, %416 ]
+  %424 = phi i32 [ %.pre315, %419 ], [ %397, %416 ]
   %425 = load i32, ptr %5, align 4, !tbaa !137
   store i32 %425, ptr %2, align 4, !tbaa !137
   %426 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2064,13 +2064,13 @@ get_corner.exit.critedge:                         ; preds = %101, %133
   %438 = load ptr, ptr %437, align 8, !tbaa !185
   %439 = call ptr %438() #27
   call void (ptr, ...) @dt_control_log(ptr noundef %436, ptr noundef %439) #27
-  %.pre322 = load i32, ptr %2, align 4, !tbaa !137
-  %.pre323 = load i32, ptr %403, align 4, !tbaa !138
+  %.pre318 = load i32, ptr %2, align 4, !tbaa !137
+  %.pre319 = load i32, ptr %403, align 4, !tbaa !138
   br label %440
 
 440:                                              ; preds = %422, %435, %412
-  %441 = phi i32 [ %427, %422 ], [ %.pre323, %435 ], [ %408, %412 ]
-  %442 = phi i32 [ %425, %422 ], [ %.pre322, %435 ], [ %402, %412 ]
+  %441 = phi i32 [ %427, %422 ], [ %.pre319, %435 ], [ %408, %412 ]
+  %442 = phi i32 [ %425, %422 ], [ %.pre318, %435 ], [ %402, %412 ]
   %443 = sitofp i32 %442 to float
   %444 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store float %443, ptr %444, align 4, !tbaa !127

@@ -118587,7 +118587,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.threa
   %47 = load i64, ptr %46, align 8, !alias.scope !22840, !noalias !22845, !noundef !4
   %.promoted.i.i.i.i.i.i = load i64, ptr %45, align 8, !alias.scope !22840, !noalias !22845
   %.not.i8.i.i.i.i.i.i = icmp eq i64 %47, %.promoted.i.i.i.i.i.i
-  br i1 %.not.i8.i.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not.i8.i.i.i.i.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha56fd0fa559a48a2E.exit.i", label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %42, %.lr.ph.i.i.i.i.i.i
   %.09.i.i.i.i.i.i = phi double [ %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %44, %42 ]
@@ -118604,16 +118604,16 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.threa
   %55 = select i1 %.not.i.i.i.i.i.i.i.i.i, i1 true, i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = select i1 %55, double %.09.i.i.i.i.i.i, double %54
   %.not.i.i.i.i.i.i.i = icmp eq i64 %47, %49
-  br i1 %.not.i.i.i.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha56fd0fa559a48a2E.exit.i", label %.lr.ph.i.i.i.i.i.i
 
-.loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i.i, %42
+"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha56fd0fa559a48a2E.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i, %42
   %.0.i.i.i.i = phi double [ %44, %42 ], [ %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !22830
   br label %_ZN4core4iter6traits8iterator8Iterator6reduce17h92e7ef125a166775E.exit
 
-_ZN4core4iter6traits8iterator8Iterator6reduce17h92e7ef125a166775E.exit: ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.thread.us.i.i.i, %.loopexit.i.i.i
-  %.sroa.3.0.i = phi double [ %.0.i.i.i.i, %.loopexit.i.i.i ], [ undef, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.thread.us.i.i.i ]
-  %.sroa.0.0.i26 = phi i64 [ 1, %.loopexit.i.i.i ], [ 0, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.thread.us.i.i.i ]
+_ZN4core4iter6traits8iterator8Iterator6reduce17h92e7ef125a166775E.exit: ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.thread.us.i.i.i, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha56fd0fa559a48a2E.exit.i"
+  %.sroa.3.0.i = phi double [ %.0.i.i.i.i, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha56fd0fa559a48a2E.exit.i" ], [ undef, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.thread.us.i.i.i ]
+  %.sroa.0.0.i26 = phi i64 [ 1, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha56fd0fa559a48a2E.exit.i" ], [ 0, %_ZN4core4iter8adapters7flatten17and_then_or_clear17hc8e65180ffe99af3E.exit.thread.us.i.i.i ]
   %56 = insertvalue { i64, double } poison, i64 %.sroa.0.0.i26, 0
   %57 = insertvalue { i64, double } %56, double %.sroa.3.0.i, 1
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3)

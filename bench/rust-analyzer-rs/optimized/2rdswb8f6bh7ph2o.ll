@@ -3988,58 +3988,56 @@ define hidden void @_ZN3std7process7Command3new17hc9aeeacbfa25c98fE(ptr noalias 
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7Command4args17h14bd191da3f7e55dE(ptr noalias noundef returned align 8 dereferenceable(208) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader:
-  %2 = alloca { [8 x { [2 x i64] }], { i64, i64 } }, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %3 = alloca { [8 x { [2 x i64] }], { i64, i64 } }, align 8
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i64 8, ptr %.sroa.5.0..sroa_idx, align 8
   br label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
 
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit._crit_edge: ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2)
+4:                                                ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
   ret ptr %0
 
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit: ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
-  %3 = phi i64 [ %4, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit ], [ 0, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader ]
-  %4 = add nuw nsw i64 %3, 1
-  %5 = getelementptr inbounds nuw { [2 x i64] }, ptr %2, i64 %3
-  %6 = load ptr, ptr %5, align 8, !alias.scope !662, !nonnull !9, !align !665, !noundef !9
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !662, !noundef !9
-  tail call void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17hef9bd4ce9d387290E(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
-  %.not.not.i = icmp eq i64 %4, 8
-  br i1 %.not.not.i, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit._crit_edge, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit: ; preds = %2, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+  %5 = phi i64 [ 0, %2 ], [ %6, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit ]
+  %6 = add nuw nsw i64 %5, 1
+  %7 = getelementptr inbounds nuw { [2 x i64] }, ptr %3, i64 %5
+  %8 = load ptr, ptr %7, align 8, !alias.scope !662, !nonnull !9, !align !665, !noundef !9
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = load i64, ptr %9, align 8, !alias.scope !662, !noundef !9
+  tail call void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17hef9bd4ce9d387290E(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %10)
+  %.not.not.i = icmp eq i64 %6, 8
+  br i1 %.not.not.i, label %4, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7Command4args17h1542a9a8f5428a03E(ptr noalias noundef returned align 8 dereferenceable(208) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(80) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader:
-  %2 = alloca { [5 x { [2 x i64] }], { i64, i64 } }, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %3 = alloca { [5 x { [2 x i64] }], { i64, i64 } }, align 8
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 5, ptr %.sroa.5.0..sroa_idx, align 8
   br label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
 
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit._crit_edge: ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2)
+4:                                                ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   ret ptr %0
 
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit: ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
-  %3 = phi i64 [ %4, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit ], [ 0, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader ]
-  %4 = add nuw nsw i64 %3, 1
-  %5 = getelementptr inbounds nuw { [2 x i64] }, ptr %2, i64 %3
-  %6 = load ptr, ptr %5, align 8, !alias.scope !666, !nonnull !9, !align !665, !noundef !9
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !666, !noundef !9
-  tail call void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17hef9bd4ce9d387290E(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
-  %.not.not.i = icmp eq i64 %4, 5
-  br i1 %.not.not.i, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit._crit_edge, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit: ; preds = %2, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+  %5 = phi i64 [ 0, %2 ], [ %6, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit ]
+  %6 = add nuw nsw i64 %5, 1
+  %7 = getelementptr inbounds nuw { [2 x i64] }, ptr %3, i64 %5
+  %8 = load ptr, ptr %7, align 8, !alias.scope !666, !nonnull !9, !align !665, !noundef !9
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = load i64, ptr %9, align 8, !alias.scope !666, !noundef !9
+  tail call void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17hef9bd4ce9d387290E(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %10)
+  %.not.not.i = icmp eq i64 %6, 5
+  br i1 %.not.not.i, label %4, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4100,86 +4098,83 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7Command4args17h892c9f0f4fee0531E(ptr noalias noundef returned align 8 dereferenceable(208) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader:
-  %2 = alloca { [4 x { [2 x i64] }], { i64, i64 } }, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %3 = alloca { [4 x { [2 x i64] }], { i64, i64 } }, align 8
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 4, ptr %.sroa.5.0..sroa_idx, align 8
   br label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
 
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit._crit_edge: ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2)
+4:                                                ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3)
   ret ptr %0
 
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit: ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
-  %3 = phi i64 [ %4, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit ], [ 0, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader ]
-  %4 = add nuw nsw i64 %3, 1
-  %5 = getelementptr inbounds nuw { [2 x i64] }, ptr %2, i64 %3
-  %6 = load ptr, ptr %5, align 8, !alias.scope !688, !nonnull !9, !align !665, !noundef !9
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !688, !noundef !9
-  tail call void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17hef9bd4ce9d387290E(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
-  %.not.not.i = icmp eq i64 %4, 4
-  br i1 %.not.not.i, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit._crit_edge, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit: ; preds = %2, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+  %5 = phi i64 [ 0, %2 ], [ %6, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit ]
+  %6 = add nuw nsw i64 %5, 1
+  %7 = getelementptr inbounds nuw { [2 x i64] }, ptr %3, i64 %5
+  %8 = load ptr, ptr %7, align 8, !alias.scope !688, !nonnull !9, !align !665, !noundef !9
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = load i64, ptr %9, align 8, !alias.scope !688, !noundef !9
+  tail call void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17hef9bd4ce9d387290E(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %10)
+  %.not.not.i = icmp eq i64 %6, 4
+  br i1 %.not.not.i, label %4, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7Command4args17h9b37a09a7e157b44E(ptr noalias noundef returned align 8 dereferenceable(208) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader:
-  %2 = alloca { [2 x { [2 x i64] }], { i64, i64 } }, align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %3 = alloca { [2 x { [2 x i64] }], { i64, i64 } }, align 8
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 2, ptr %.sroa.5.0..sroa_idx, align 8
   br label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
 
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit._crit_edge: ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
+4:                                                ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   ret ptr %0
 
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit: ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
-  %3 = phi i64 [ %4, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit ], [ 0, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader ]
-  %4 = add nuw nsw i64 %3, 1
-  %5 = getelementptr inbounds nuw { [2 x i64] }, ptr %2, i64 %3
-  %6 = load ptr, ptr %5, align 8, !alias.scope !691, !nonnull !9, !align !665, !noundef !9
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !691, !noundef !9
-  tail call void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17hef9bd4ce9d387290E(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
-  %.not.not.i = icmp eq i64 %4, 2
-  br i1 %.not.not.i, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit._crit_edge, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit: ; preds = %2, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+  %5 = phi i64 [ 0, %2 ], [ %6, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit ]
+  %6 = add nuw nsw i64 %5, 1
+  %7 = getelementptr inbounds nuw { [2 x i64] }, ptr %3, i64 %5
+  %8 = load ptr, ptr %7, align 8, !alias.scope !691, !nonnull !9, !align !665, !noundef !9
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = load i64, ptr %9, align 8, !alias.scope !691, !noundef !9
+  tail call void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17hef9bd4ce9d387290E(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %10)
+  %.not.not.i = icmp eq i64 %6, 2
+  br i1 %.not.not.i, label %4, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN3std7process7Command4args17hacf170544387ab97E(ptr noalias noundef returned align 8 dereferenceable(208) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader:
-  %2 = alloca { [3 x { [2 x i64] }], { i64, i64 } }, align 8
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %3 = alloca { [3 x { [2 x i64] }], { i64, i64 } }, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 3, ptr %.sroa.5.0..sroa_idx, align 8
   br label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
 
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit._crit_edge: ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
+4:                                                ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   ret ptr %0
 
-_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit: ; preds = %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
-  %3 = phi i64 [ %4, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit ], [ 0, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.preheader ]
-  %4 = add nuw nsw i64 %3, 1
-  %5 = getelementptr inbounds nuw { [2 x i64] }, ptr %2, i64 %3
-  %6 = load ptr, ptr %5, align 8, !alias.scope !694, !nonnull !9, !align !665, !noundef !9
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !694, !noundef !9
-  tail call void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17hef9bd4ce9d387290E(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
-  %.not.not.i = icmp eq i64 %4, 3
-  br i1 %.not.not.i, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit._crit_edge, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit: ; preds = %2, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
+  %5 = phi i64 [ 0, %2 ], [ %6, %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit ]
+  %6 = add nuw nsw i64 %5, 1
+  %7 = getelementptr inbounds nuw { [2 x i64] }, ptr %3, i64 %5
+  %8 = load ptr, ptr %7, align 8, !alias.scope !694, !nonnull !9, !align !665, !noundef !9
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = load i64, ptr %9, align 8, !alias.scope !694, !noundef !9
+  tail call void @_ZN3std3sys3pal4unix7process14process_common7Command3arg17hef9bd4ce9d387290E(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %10)
+  %.not.not.i = icmp eq i64 %6, 3
+  br i1 %.not.not.i, label %4, label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit
 }
 
 ; Function Attrs: nonlazybind uwtable

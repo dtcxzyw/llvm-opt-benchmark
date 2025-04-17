@@ -12841,10 +12841,10 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
 .critedge758:                                     ; preds = %654
   %659 = icmp eq i32 %657, 1
   %660 = icmp eq i32 %658, 1
-  %.sroa.2.0.insert.shift = select i1 %660, i16 256, i16 0
-  %.sroa.0775.0.insert.ext = zext i1 %659 to i16
-  %.sroa.0775.0.insert.insert = or disjoint i16 %.sroa.2.0.insert.shift, %.sroa.0775.0.insert.ext
-  %.016.lcssa.i.i = icmp eq i16 %.sroa.0775.0.insert.insert, 257
+  %.sroa.2774.0.insert.shift = select i1 %660, i16 256, i16 0
+  %.sroa.0773.0.insert.ext = zext i1 %659 to i16
+  %.sroa.0773.0.insert.insert = or disjoint i16 %.sroa.2774.0.insert.shift, %.sroa.0773.0.insert.ext
+  %.016.lcssa.i.i = icmp eq i16 %.sroa.0773.0.insert.insert, 257
   br i1 %.016.lcssa.i.i, label %661, label %.critedge562
 
 661:                                              ; preds = %.critedge758

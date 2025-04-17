@@ -6189,7 +6189,7 @@ define void @_Z6get_irPKcS0_PN3gmx9MDModulesEP10t_inputrecP12t_gromppopts14Write
   %46 = alloca ptr, align 8
   %47 = alloca ptr, align 8
   %.sroa.0 = alloca ptr, align 16
-  %.sroa.9 = alloca ptr, align 8
+  %.sroa.7 = alloca ptr, align 8
   %48 = alloca [2 x [6 x double]], align 16
   %49 = alloca [4096 x i8], align 16
   %50 = alloca [2 x ptr], align 16
@@ -6249,7 +6249,7 @@ define void @_Z6get_irPKcS0_PN3gmx9MDModulesEP10t_inputrecP12t_gromppopts14Write
   store ptr %0, ptr %46, align 8, !tbaa !27
   store ptr %1, ptr %47, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %48) #27
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %49) #27
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 424
@@ -6352,7 +6352,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit569:       ; preds = %_ZNKSt7__cxx1112bas
           to label %136 unwind label %563
 
 136:                                              ; preds = %134
-  store ptr %135, ptr %.sroa.9, align 8, !tbaa !27
+  store ptr %135, ptr %.sroa.7, align 8, !tbaa !27
   %137 = load ptr, ptr %53, align 8, !tbaa !259
   %138 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %139 = load ptr, ptr %138, align 8, !tbaa !262
@@ -7883,13 +7883,11 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit:     ; preds = %_ZNSt6vectorIPKcSaI
   %880 = fptrunc double %878 to float
   %881 = getelementptr inbounds nuw i8, ptr %3, i64 216
   store float %880, ptr %881, align 4, !tbaa !243
-  %.sroa.0.0..sroa.0.0. = load ptr, ptr %.sroa.0, align 16, !tbaa !27
-  invoke void @_Z14setStringEntryPSt6vectorI9t_inpfileSaIS0_EEPKcPcS5_(ptr noundef nonnull %53, ptr noundef nonnull @.str.350, ptr noundef %.sroa.0.0..sroa.0.0., ptr noundef null)
+  invoke void @_Z14setStringEntryPSt6vectorI9t_inpfileSaIS0_EEPKcPcS5_(ptr noundef nonnull %53, ptr noundef nonnull @.str.350, ptr noundef %133, ptr noundef null)
           to label %882 unwind label %.loopexit.split-lp1431
 
 882:                                              ; preds = %879
-  %.sroa.9.0..sroa.9.8.1731 = load ptr, ptr %.sroa.9, align 8, !tbaa !27
-  invoke void @_Z14setStringEntryPSt6vectorI9t_inpfileSaIS0_EEPKcPcS5_(ptr noundef nonnull %53, ptr noundef nonnull @.str.351, ptr noundef %.sroa.9.0..sroa.9.8.1731, ptr noundef null)
+  invoke void @_Z14setStringEntryPSt6vectorI9t_inpfileSaIS0_EEPKcPcS5_(ptr noundef nonnull %53, ptr noundef nonnull @.str.351, ptr noundef %135, ptr noundef null)
           to label %883 unwind label %.loopexit.split-lp1431
 
 883:                                              ; preds = %882
@@ -12180,7 +12178,7 @@ _ZN3gmx19KeyValueTreeBuilderD2Ev.exit:            ; preds = %_ZNSt6vectorIN3gmx2
   %indvar.sroa.phi1712 = phi ptr [ %indvar.sroa.gep1713, %2653 ], [ %48, %.preheader1429.preheader ]
   %indvar.sroa.phi1715 = phi ptr [ %indvar.sroa.gep1716, %2653 ], [ %48, %.preheader1429.preheader ]
   %indvar.sroa.phi1718 = phi ptr [ %indvar.sroa.gep1719, %2653 ], [ %indvar.sroa.gep1720, %.preheader1429.preheader ]
-  %indvar.sroa.phi1727 = phi ptr [ %.sroa.9, %2653 ], [ %.sroa.0, %.preheader1429.preheader ]
+  %indvar.sroa.phi1727 = phi ptr [ %.sroa.7, %2653 ], [ %.sroa.0, %.preheader1429.preheader ]
   %indvar = phi i64 [ 48, %2653 ], [ 0, %.preheader1429.preheader ]
   %scevgep = getelementptr nuw i8, ptr %48, i64 %indvar
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %scevgep, i8 0, i64 48, i1 false), !tbaa !185
@@ -14896,13 +14894,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %3696 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 3696:                                             ; preds = %3693, %3690
-  %.sroa.0.0..sroa.0.0.1730 = load ptr, ptr %.sroa.0, align 16, !tbaa !27
-  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.10, i32 noundef 3197, ptr noundef %.sroa.0.0..sroa.0.0.1730)
+  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.10, i32 noundef 3197, ptr noundef %133)
           to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit:           ; preds = %3696
-  %.sroa.9.0..sroa.9.8. = load ptr, ptr %.sroa.9, align 8, !tbaa !27
-  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.10, i32 noundef 3198, ptr noundef %.sroa.9.0..sroa.9.8.)
+  invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.10, i32 noundef 3198, ptr noundef %135)
           to label %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit1036 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit1036:       ; preds = %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit
@@ -14995,7 +14991,7 @@ _ZNSt6vectorI9t_inpfileSaIS0_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIP9t_i
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %49) #27
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %48) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
   ret void
 
 .loopexit.split-lp:                               ; preds = %.loopexit1416, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %3689, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1017
@@ -15035,7 +15031,7 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit1047:            ; preds = %3729, %.body952, %5
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %49) #27
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %48) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7)
   resume { ptr, i32 } %.pn554.pn.pn.pn.pn
 }
 

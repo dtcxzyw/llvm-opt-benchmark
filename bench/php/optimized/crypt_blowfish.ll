@@ -112,11 +112,11 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   br label %48
 
 48:                                               ; preds = %48, %47
+  %49 = phi i32 [ 0, %47 ], [ %54, %48 ]
+  %50 = phi i32 [ 0, %47 ], [ %57, %48 ]
   %.141.i = phi i32 [ %.03144.i, %47 ], [ %.2.i, %48 ]
   %.13340.i = phi ptr [ %.03243.i, %47 ], [ %.234.i, %48 ]
   %.03539.i = phi i32 [ 0, %47 ], [ %60, %48 ]
-  %49 = phi i32 [ 0, %47 ], [ %54, %48 ]
-  %50 = phi i32 [ 0, %47 ], [ %57, %48 ]
   %51 = shl i32 %49, 8
   %52 = load i8, ptr %.13340.i, align 1, !tbaa !4
   %53 = zext i8 %52 to i32
@@ -135,7 +135,7 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   br i1 %exitcond.not.i, label %61, label %48
 
 61:                                               ; preds = %48
-  %62 = xor i32 %57, %54
+  %62 = xor i32 %54, %57
   %63 = or i32 %62, %.045.i
   %64 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
   store i32 %54, ptr %64, align 4, !tbaa !7
@@ -145,8 +145,8 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   %68 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   store i32 %67, ptr %68, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond47.not.i = icmp eq i64 %indvars.iv.next.i, 18
-  br i1 %exitcond47.not.i, label %BF_set_key.exit, label %47
+  %exitcond49.not.i = icmp eq i64 %indvars.iv.next.i, 18
+  br i1 %exitcond49.not.i, label %BF_set_key.exit, label %47
 
 BF_set_key.exit:                                  ; preds = %61
   %69 = lshr i32 %63, 16
@@ -166,9 +166,9 @@ BF_set_key.exit:                                  ; preds = %61
   br label %78
 
 78:                                               ; preds = %78, %77
+  %79 = phi i32 [ 0, %77 ], [ %83, %78 ]
   %.13340.i45 = phi ptr [ %.03243.i43, %77 ], [ %.234.i50, %78 ]
   %.03539.i46 = phi i32 [ 0, %77 ], [ %85, %78 ]
-  %79 = phi i32 [ 0, %77 ], [ %83, %78 ]
   %80 = shl i32 %79, 8
   %81 = load i8, ptr %.13340.i45, align 1, !tbaa !4
   %82 = zext i8 %81 to i32
@@ -189,8 +189,8 @@ BF_set_key.exit:                                  ; preds = %61
   %91 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i40
   store i32 %90, ptr %91, align 4, !tbaa !7
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i40, 1
-  %exitcond47.not.i53 = icmp eq i64 %indvars.iv.next.i52, 18
-  br i1 %exitcond47.not.i53, label %BF_set_key.exit55, label %77
+  %exitcond49.not.i53 = icmp eq i64 %indvars.iv.next.i52, 18
+  br i1 %exitcond49.not.i53, label %BF_set_key.exit55, label %77
 
 BF_set_key.exit55:                                ; preds = %86
   %92 = xor i32 %76, 65536
@@ -2981,11 +2981,11 @@ define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, 
   br label %12
 
 12:                                               ; preds = %11, %12
+  %13 = phi i32 [ 0, %11 ], [ %18, %12 ]
+  %14 = phi i32 [ 0, %11 ], [ %22, %12 ]
   %.141 = phi i32 [ %.03144, %11 ], [ %.2, %12 ]
   %.13340 = phi ptr [ %.03243, %11 ], [ %.234, %12 ]
   %.03539 = phi i32 [ 0, %11 ], [ %26, %12 ]
-  %13 = phi i32 [ 0, %11 ], [ %18, %12 ]
-  %14 = phi i32 [ 0, %11 ], [ %22, %12 ]
   %15 = shl i32 %13, 8
   store i32 %15, ptr %5, align 4, !tbaa !7
   %16 = load i8, ptr %.13340, align 1, !tbaa !4
@@ -3010,7 +3010,7 @@ define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, 
   br i1 %exitcond.not, label %27, label %12
 
 27:                                               ; preds = %12
-  %28 = xor i32 %22, %18
+  %28 = xor i32 %18, %22
   %29 = or i32 %28, %.045
   %30 = load i32, ptr %10, align 4, !tbaa !7
   %31 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
@@ -3021,8 +3021,8 @@ define internal fastcc void @BF_set_key(ptr noundef readonly captures(none) %0, 
   %35 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %34, ptr %35, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond47.not = icmp eq i64 %indvars.iv.next, 18
-  br i1 %exitcond47.not, label %36, label %11
+  %exitcond49.not = icmp eq i64 %indvars.iv.next, 18
+  br i1 %exitcond49.not, label %36, label %11
 
 36:                                               ; preds = %27
   %37 = shl nuw nsw i32 %6, 15

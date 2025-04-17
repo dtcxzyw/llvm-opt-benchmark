@@ -168,129 +168,129 @@ define dso_local noundef i32 @_ZN9btBvhTree30_sort_and_calc_splitting_indexER18G
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ %15, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = phi float [ 0.000000e+00, %.lr.ph ], [ %38, %16 ]
-  %18 = phi float [ 0.000000e+00, %.lr.ph ], [ %39, %16 ]
-  %19 = phi float [ 0.000000e+00, %.lr.ph ], [ %40, %16 ]
-  %20 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %14, i64 %indvars.iv
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load float, ptr %21, align 4, !tbaa !13
-  %23 = load float, ptr %20, align 4, !tbaa !13
-  %24 = fadd float %22, %23
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 20
-  %26 = load float, ptr %25, align 4, !tbaa !13
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %.0.606170 = phi float [ 0.000000e+00, %.lr.ph ], [ %35, %16 ]
+  %.0.596269 = phi float [ 0.000000e+00, %.lr.ph ], [ %36, %16 ]
+  %.0.586368 = phi float [ 0.000000e+00, %.lr.ph ], [ %37, %16 ]
+  %17 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load float, ptr %18, align 4, !tbaa !13
+  %20 = load float, ptr %17, align 4, !tbaa !13
+  %21 = fadd float %19, %20
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %23 = load float, ptr %22, align 4, !tbaa !13
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %25 = load float, ptr %24, align 4, !tbaa !13
+  %26 = fadd float %23, %25
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %28 = load float, ptr %27, align 4, !tbaa !13
-  %29 = fadd float %26, %28
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %31 = load float, ptr %30, align 4, !tbaa !13
-  %32 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %33 = load float, ptr %32, align 4, !tbaa !13
-  %34 = fadd float %31, %33
-  %35 = fmul float %24, 5.000000e-01
-  %36 = fmul float %29, 5.000000e-01
-  %37 = fmul float %34, 5.000000e-01
-  %38 = fadd float %35, %17
-  %39 = fadd float %36, %18
-  %40 = fadd float %37, %19
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %30 = load float, ptr %29, align 4, !tbaa !13
+  %31 = fadd float %28, %30
+  %32 = fmul float %21, 5.000000e-01
+  %33 = fmul float %26, 5.000000e-01
+  %34 = fmul float %31, 5.000000e-01
+  %35 = fadd float %.0.606170, %32
+  %36 = fadd float %.0.596269, %33
+  %37 = fadd float %.0.586368, %34
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %16, %5
-  %.lcssa64 = phi float [ 0.000000e+00, %5 ], [ %40, %16 ]
-  %.lcssa62 = phi float [ 0.000000e+00, %5 ], [ %39, %16 ]
-  %.lcssa = phi float [ 0.000000e+00, %5 ], [ %38, %16 ]
-  %41 = sitofp i32 %8 to float
-  %42 = fdiv float 1.000000e+00, %41
-  %43 = fmul float %42, %.lcssa
-  store float %43, ptr %6, align 4, !tbaa !13
-  %44 = fmul float %42, %.lcssa62
-  store float %44, ptr %9, align 4, !tbaa !13
-  %45 = fmul float %42, %.lcssa64
-  store float %45, ptr %10, align 4, !tbaa !13
-  %46 = sext i32 %4 to i64
-  %47 = getelementptr inbounds float, ptr %6, i64 %46
-  %48 = load float, ptr %47, align 4, !tbaa !13
-  br i1 %11, label %.lr.ph71, label %._crit_edge72
+  %.lcssa = phi float [ 0.000000e+00, %5 ], [ %35, %16 ]
+  %.0.5863.lcssa = phi float [ 0.000000e+00, %5 ], [ %37, %16 ]
+  %.0.5962.lcssa = phi float [ 0.000000e+00, %5 ], [ %36, %16 ]
+  %38 = sitofp i32 %8 to float
+  %39 = fdiv float 1.000000e+00, %38
+  %40 = fmul float %39, %.lcssa
+  store float %40, ptr %6, align 4, !tbaa !13
+  %41 = fmul float %39, %.0.5962.lcssa
+  store float %41, ptr %9, align 4, !tbaa !13
+  %42 = fmul float %39, %.0.5863.lcssa
+  store float %42, ptr %10, align 4, !tbaa !13
+  %43 = sext i32 %4 to i64
+  %44 = getelementptr inbounds float, ptr %6, i64 %43
+  %45 = load float, ptr %44, align 4, !tbaa !13
+  br i1 %11, label %.lr.ph80, label %._crit_edge81
 
-.lr.ph71:                                         ; preds = %._crit_edge
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %51 = getelementptr inbounds float, ptr %7, i64 %46
+.lr.ph80:                                         ; preds = %._crit_edge
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %48 = getelementptr inbounds float, ptr %7, i64 %43
   %.sroa.0.16..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 16
-  %52 = sext i32 %2 to i64
-  %wide.trip.count81 = sext i32 %3 to i64
-  br label %53
+  %49 = sext i32 %2 to i64
+  %wide.trip.count90 = sext i32 %3 to i64
+  br label %50
 
-53:                                               ; preds = %.lr.ph71, %83
-  %indvars.iv78 = phi i64 [ %52, %.lr.ph71 ], [ %indvars.iv.next79, %83 ]
-  %.03768 = phi i32 [ %2, %.lr.ph71 ], [ %.138, %83 ]
+50:                                               ; preds = %.lr.ph80, %80
+  %indvars.iv87 = phi i64 [ %49, %.lr.ph80 ], [ %indvars.iv.next88, %80 ]
+  %.03777 = phi i32 [ %2, %.lr.ph80 ], [ %.138, %80 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
-  %54 = load ptr, ptr %49, align 8, !tbaa !4
-  %55 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %54, i64 %indvars.iv78
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = load float, ptr %56, align 4, !tbaa !13
-  %58 = load float, ptr %55, align 4, !tbaa !13
-  %59 = fadd float %57, %58
-  %60 = getelementptr inbounds nuw i8, ptr %55, i64 20
-  %61 = load float, ptr %60, align 4, !tbaa !13
-  %62 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %51 = load ptr, ptr %46, align 8, !tbaa !4
+  %52 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %51, i64 %indvars.iv87
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load float, ptr %53, align 4, !tbaa !13
+  %55 = load float, ptr %52, align 4, !tbaa !13
+  %56 = fadd float %54, %55
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 20
+  %58 = load float, ptr %57, align 4, !tbaa !13
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %60 = load float, ptr %59, align 4, !tbaa !13
+  %61 = fadd float %58, %60
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %63 = load float, ptr %62, align 4, !tbaa !13
-  %64 = fadd float %61, %63
-  %65 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %66 = load float, ptr %65, align 4, !tbaa !13
-  %67 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %68 = load float, ptr %67, align 4, !tbaa !13
-  %69 = fadd float %66, %68
-  %70 = fmul float %59, 5.000000e-01
-  %71 = fmul float %64, 5.000000e-01
-  %72 = fmul float %69, 5.000000e-01
-  %.sroa.0.0.vec.insert.i.i45 = insertelement <2 x float> poison, float %70, i64 0
-  %.sroa.0.4.vec.insert.i.i46 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i45, float %71, i64 1
-  %.sroa.3.12.vec.insert.i.i47 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %72, i64 0
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %65 = load float, ptr %64, align 4, !tbaa !13
+  %66 = fadd float %63, %65
+  %67 = fmul float %56, 5.000000e-01
+  %68 = fmul float %61, 5.000000e-01
+  %69 = fmul float %66, 5.000000e-01
+  %.sroa.0.0.vec.insert.i.i45 = insertelement <2 x float> poison, float %67, i64 0
+  %.sroa.0.4.vec.insert.i.i46 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i45, float %68, i64 1
+  %.sroa.3.12.vec.insert.i.i47 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %69, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i.i46, ptr %7, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i.i47, ptr %50, align 8
-  %73 = load float, ptr %51, align 4, !tbaa !13
-  %74 = fcmp ogt float %73, %48
-  br i1 %74, label %75, label %83
+  store <2 x float> %.sroa.3.12.vec.insert.i.i47, ptr %47, align 8
+  %70 = load float, ptr %48, align 4, !tbaa !13
+  %71 = fcmp ogt float %70, %45
+  br i1 %71, label %72, label %80
 
-75:                                               ; preds = %53
+72:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !19
-  %76 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %77 = load i32, ptr %76, align 4, !tbaa !21
-  %78 = sext i32 %.03768 to i64
-  %79 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %54, i64 %78
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %55, ptr noundef nonnull align 4 dereferenceable(36) %79, i64 36, i1 false), !tbaa.struct !25
-  %80 = load ptr, ptr %49, align 8, !tbaa !4
-  %81 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %80, i64 %78
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %81, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, i64 32, i1 false), !tbaa.struct !25
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %81, i64 32
-  store i32 %77, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !19
+  %73 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %74 = load i32, ptr %73, align 4, !tbaa !21
+  %75 = sext i32 %.03777 to i64
+  %76 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %51, i64 %75
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %52, ptr noundef nonnull align 4 dereferenceable(36) %76, i64 36, i1 false), !tbaa.struct !25
+  %77 = load ptr, ptr %46, align 8, !tbaa !4
+  %78 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %77, i64 %75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %78, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, i64 32, i1 false), !tbaa.struct !25
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 32
+  store i32 %74, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i)
-  %82 = add nsw i32 %.03768, 1
-  br label %83
+  %79 = add nsw i32 %.03777, 1
+  br label %80
 
-83:                                               ; preds = %75, %53
-  %.138 = phi i32 [ %82, %75 ], [ %.03768, %53 ]
+80:                                               ; preds = %72, %50
+  %.138 = phi i32 [ %79, %72 ], [ %.03777, %50 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
-  %indvars.iv.next79 = add nsw i64 %indvars.iv78, 1
-  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %._crit_edge72, label %53, !llvm.loop !27
+  %indvars.iv.next88 = add nsw i64 %indvars.iv87, 1
+  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
+  br i1 %exitcond91.not, label %._crit_edge81, label %50, !llvm.loop !27
 
-._crit_edge72:                                    ; preds = %83, %._crit_edge
-  %.037.lcssa = phi i32 [ %2, %._crit_edge ], [ %.138, %83 ]
-  %84 = sdiv i32 %8, 3
-  %85 = add nsw i32 %84, %2
-  %.not = icmp sle i32 %.037.lcssa, %85
-  %86 = xor i32 %84, -1
-  %87 = add i32 %3, %86
-  %88 = icmp sge i32 %.037.lcssa, %87
-  %89 = or i1 %.not, %88
-  %90 = ashr i32 %8, 1
-  %91 = add nsw i32 %90, %2
-  %.2 = select i1 %89, i32 %91, i32 %.037.lcssa
+._crit_edge81:                                    ; preds = %80, %._crit_edge
+  %.037.lcssa = phi i32 [ %2, %._crit_edge ], [ %.138, %80 ]
+  %81 = sdiv i32 %8, 3
+  %82 = add nsw i32 %81, %2
+  %.not = icmp sle i32 %.037.lcssa, %82
+  %83 = xor i32 %81, -1
+  %84 = add i32 %3, %83
+  %85 = icmp sge i32 %.037.lcssa, %84
+  %86 = or i1 %.not, %85
+  %87 = ashr i32 %8, 1
+  %88 = add nsw i32 %87, %2
+  %.2 = select i1 %86, i32 %88, i32 %.037.lcssa
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
   ret i32 %.2
 }

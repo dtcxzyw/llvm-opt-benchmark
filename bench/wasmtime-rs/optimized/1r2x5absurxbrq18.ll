@@ -18247,12 +18247,12 @@ define hidden void @_ZN16wasmtime_environ9component5types15TypeInformation13buil
 
 12:                                               ; preds = %2
   %13 = icmp eq i8 %10, 16
-  br i1 %13, label %.sink.split.i, label %.lr.ph106
+  br i1 %13, label %.sink.split.i, label %_ZN16wasmtime_environ9component5types16FlatTypesStorage4push17h986e349635880a5bE.exit
 
 .sink.split.i:                                    ; preds = %14, %12
   %.sink.i = phi i8 [ %20, %14 ], [ 17, %12 ]
   store i8 %.sink.i, ptr %9, align 4, !alias.scope !4082
-  br label %.lr.ph106
+  br label %_ZN16wasmtime_environ9component5types16FlatTypesStorage4push17h986e349635880a5bE.exit
 
 14:                                               ; preds = %2
   %15 = zext nneg i8 %10 to i64
@@ -18265,7 +18265,7 @@ define hidden void @_ZN16wasmtime_environ9component5types15TypeInformation13buil
   %20 = add i8 %19, 1
   br label %.sink.split.i
 
-.lr.ph106:                                        ; preds = %12, %.sink.split.i
+_ZN16wasmtime_environ9component5types16FlatTypesStorage4push17h986e349635880a5bE.exit: ; preds = %.sink.split.i, %12
   store i32 1, ptr %0, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
@@ -18284,80 +18284,80 @@ define hidden void @_ZN16wasmtime_environ9component5types15TypeInformation13buil
   %.sroa.326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %23
 
-23:                                               ; preds = %.lr.ph106, %.backedge
-  %24 = phi i64 [ 0, %.lr.ph106 ], [ %25, %.backedge ]
+23:                                               ; preds = %_ZN16wasmtime_environ9component5types16FlatTypesStorage4push17h986e349635880a5bE.exit, %.backedge
+  %24 = phi i64 [ 0, %_ZN16wasmtime_environ9component5types16FlatTypesStorage4push17h986e349635880a5bE.exit ], [ %25, %.backedge ]
   %25 = add nuw nsw i64 %24, 1
   %26 = getelementptr inbounds nuw ptr, ptr %7, i64 %24
   %27 = load ptr, ptr %26, align 8, !alias.scope !4085, !align !822, !noundef !16
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.backedge, label %29
+  br i1 %28, label %.backedge, label %30
 
-._crit_edge:                                      ; preds = %.backedge
+29:                                               ; preds = %.backedge
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   ret void
 
-.backedge.sink.split:                             ; preds = %49, %52
+.backedge.sink.split:                             ; preds = %50, %53
   store i8 17, ptr %9, align 4
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21, %.backedge.sink.split, %23, %38, %53
+.backedge:                                        ; preds = %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21, %.backedge.sink.split, %23, %39, %54
   %.not.not.i = icmp eq i64 %25, 2
-  br i1 %.not.not.i, label %._crit_edge, label %23
+  br i1 %.not.not.i, label %29, label %23
 
-29:                                               ; preds = %23
-  %30 = load i32, ptr %0, align 4, !noundef !16
-  %31 = load i32, ptr %27, align 4, !noundef !16
-  %32 = add i32 %31, 1
-  %.0.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %30, i32 %32)
+30:                                               ; preds = %23
+  %31 = load i32, ptr %0, align 4, !noundef !16
+  %32 = load i32, ptr %27, align 4, !noundef !16
+  %33 = add i32 %32, 1
+  %.0.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %31, i32 %33)
   store i32 %.0.sroa.speculated.i, ptr %0, align 4
-  %33 = load i8, ptr %21, align 1, !range !1064, !noundef !16
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %38, label %35
+  %34 = load i8, ptr %21, align 1, !range !1064, !noundef !16
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %39, label %36
 
-35:                                               ; preds = %29
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 37
-  %37 = load i8, ptr %36, align 1, !range !1064, !noundef !16
-  br label %38
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 37
+  %38 = load i8, ptr %37, align 1, !range !1064, !noundef !16
+  br label %39
 
-38:                                               ; preds = %29, %35
-  %.011 = phi i8 [ %37, %35 ], [ 1, %29 ]
+39:                                               ; preds = %30, %36
+  %.011 = phi i8 [ %38, %36 ], [ 1, %30 ]
   store i8 %.011, ptr %21, align 1
-  %39 = load i8, ptr %9, align 4, !noundef !16
-  %40 = icmp ugt i8 %39, 16
-  br i1 %40, label %.backedge, label %41
+  %40 = load i8, ptr %9, align 4, !noundef !16
+  %41 = icmp ugt i8 %40, 16
+  br i1 %41, label %.backedge, label %42
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %27, i64 4
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 4
   call void @llvm.experimental.noalias.scope.decl(metadata !4088)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !4091
-  %43 = getelementptr inbounds nuw i8, ptr %27, i64 36
-  %44 = load i8, ptr %43, align 4, !alias.scope !4088, !noalias !4093, !noundef !16
-  %45 = zext i8 %44 to i64
-  store i64 %45, ptr %6, align 8, !noalias !4091
-  %46 = icmp ugt i8 %44, 16
-  br i1 %46, label %47, label %49
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 36
+  %45 = load i8, ptr %44, align 4, !alias.scope !4088, !noalias !4093, !noundef !16
+  %46 = zext i8 %45 to i64
+  store i64 %46, ptr %6, align 8, !noalias !4091
+  %47 = icmp ugt i8 %45, 16
+  br i1 %47, label %48, label %50
 
-47:                                               ; preds = %41
-  %48 = icmp eq i8 %44, 17
-  br i1 %48, label %52, label %.noexc
+48:                                               ; preds = %42
+  %49 = icmp eq i8 %45, 17
+  br i1 %49, label %53, label %.noexc
 
-.noexc:                                           ; preds = %47
+.noexc:                                           ; preds = %48
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !4091
   store ptr null, ptr %5, align 8, !noalias !4091
   call void @_ZN4core9panicking13assert_failed17h648840fbecfc0ee2E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.232e22e09a4c41574f60338730f76634.200.llvm.13863633964030799667, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.232e22e09a4c41574f60338730f76634.201.llvm.13863633964030799667) #48
   unreachable
 
-49:                                               ; preds = %41
-  %50 = getelementptr inbounds nuw i8, ptr %27, i64 20
+50:                                               ; preds = %42
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !4091
-  %51 = icmp eq i8 %44, 16
-  br i1 %51, label %.backedge.sink.split, label %53
+  %52 = icmp eq i8 %45, 16
+  br i1 %52, label %.backedge.sink.split, label %54
 
-52:                                               ; preds = %47
+53:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !4091
   br label %.backedge.sink.split
 
-53:                                               ; preds = %49
+54:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !4094
   store ptr %8, ptr %4, align 8, !alias.scope !4099, !noalias !4103
   store ptr %22, ptr %.sroa.025.sroa.3.0..sroa_idx, align 8, !alias.scope !4099, !noalias !4103
@@ -18369,91 +18369,91 @@ define hidden void @_ZN16wasmtime_environ9component5types15TypeInformation13buil
   store i64 1, ptr %.sroa.326.0..sroa_idx, align 8, !alias.scope !4099, !noalias !4103
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !4104
   call void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h4a6fb281040c3047E.llvm.17886503380642628522"(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4)
-  %54 = load i64, ptr %3, align 8, !noalias !4104, !noundef !16
+  %55 = load i64, ptr %3, align 8, !noalias !4104, !noundef !16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !4104
-  %.0.sroa.speculated.i.i.i17 = call noundef i64 @llvm.umin.i64(i64 %45, i64 %54)
+  %.0.sroa.speculated.i.i.i17 = call noundef i64 @llvm.umin.i64(i64 %46, i64 %55)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !4094
   %.not = icmp eq i64 %.0.sroa.speculated.i.i.i17, 0
   br i1 %.not, label %.backedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %53, %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21
-  %.sroa.30.0103 = phi i64 [ %55, %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21 ], [ 0, %53 ]
-  %55 = add nuw nsw i64 %.sroa.30.0103, 1
-  %56 = getelementptr inbounds nuw i8, ptr %42, i64 %.sroa.30.0103
-  %57 = getelementptr inbounds nuw i8, ptr %50, i64 %.sroa.30.0103
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 %55
-  %59 = getelementptr inbounds nuw i8, ptr %22, i64 %55
-  %60 = load i8, ptr %9, align 4, !noundef !16
-  %61 = zext i8 %60 to i64
-  %62 = icmp samesign ult i64 %55, %61
-  br i1 %62, label %67, label %63
+.lr.ph:                                           ; preds = %54, %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21
+  %.sroa.30.0103 = phi i64 [ %56, %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21 ], [ 0, %54 ]
+  %56 = add nuw nsw i64 %.sroa.30.0103, 1
+  %57 = getelementptr inbounds nuw i8, ptr %43, i64 %.sroa.30.0103
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 %.sroa.30.0103
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 %56
+  %60 = getelementptr inbounds nuw i8, ptr %22, i64 %56
+  %61 = load i8, ptr %9, align 4, !noundef !16
+  %62 = zext i8 %61 to i64
+  %63 = icmp samesign ult i64 %56, %62
+  br i1 %63, label %68, label %64
 
-63:                                               ; preds = %.lr.ph
-  %64 = add i8 %60, 1
-  store i8 %64, ptr %9, align 4
-  %65 = load i8, ptr %56, align 1, !range !3820, !noundef !16
-  store i8 %65, ptr %58, align 1
+64:                                               ; preds = %.lr.ph
+  %65 = add i8 %61, 1
+  store i8 %65, ptr %9, align 4
   %66 = load i8, ptr %57, align 1, !range !3820, !noundef !16
+  store i8 %66, ptr %59, align 1
+  %67 = load i8, ptr %58, align 1, !range !3820, !noundef !16
   br label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21.sink.split
 
-67:                                               ; preds = %.lr.ph
-  %68 = load i8, ptr %56, align 1, !range !3820, !noundef !16
-  %69 = load i8, ptr %58, align 1, !range !3820, !alias.scope !4111, !noundef !16
-  %70 = icmp eq i8 %69, %68
-  br i1 %70, label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit, label %71
+68:                                               ; preds = %.lr.ph
+  %69 = load i8, ptr %57, align 1, !range !3820, !noundef !16
+  %70 = load i8, ptr %59, align 1, !range !3820, !alias.scope !4111, !noundef !16
+  %71 = icmp eq i8 %70, %69
+  br i1 %71, label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit, label %72
 
-71:                                               ; preds = %67
-  switch i8 %69, label %77 [
-    i8 0, label %72
-    i8 2, label %74
+72:                                               ; preds = %68
+  switch i8 %70, label %78 [
+    i8 0, label %73
+    i8 2, label %75
   ]
 
-72:                                               ; preds = %71
-  %73 = icmp eq i8 %68, 2
-  br i1 %73, label %76, label %77
+73:                                               ; preds = %72
+  %74 = icmp eq i8 %69, 2
+  br i1 %74, label %77, label %78
 
-74:                                               ; preds = %71
-  %75 = icmp eq i8 %68, 0
-  br i1 %75, label %76, label %77
+75:                                               ; preds = %72
+  %76 = icmp eq i8 %69, 0
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %74, %72
-  br label %77
+77:                                               ; preds = %75, %73
+  br label %78
 
-77:                                               ; preds = %76, %74, %72, %71
-  %.0.i = phi i8 [ 0, %76 ], [ 1, %74 ], [ 1, %72 ], [ 1, %71 ]
-  store i8 %.0.i, ptr %58, align 1, !alias.scope !4111
+78:                                               ; preds = %77, %75, %73, %72
+  %.0.i = phi i8 [ 0, %77 ], [ 1, %75 ], [ 1, %73 ], [ 1, %72 ]
+  store i8 %.0.i, ptr %59, align 1, !alias.scope !4111
   br label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit
 
-_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21.sink.split: ; preds = %81, %82, %84, %86, %63
-  %.0.i20.sink = phi i8 [ %66, %63 ], [ 0, %86 ], [ 1, %84 ], [ 1, %82 ], [ 1, %81 ]
-  store i8 %.0.i20.sink, ptr %59, align 1
+_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21.sink.split: ; preds = %82, %83, %85, %87, %64
+  %.0.i20.sink = phi i8 [ %67, %64 ], [ 0, %87 ], [ 1, %85 ], [ 1, %83 ], [ 1, %82 ]
+  store i8 %.0.i20.sink, ptr %60, align 1
   br label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21
 
 _ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21: ; preds = %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21.sink.split, %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit
-  %exitcond.not = icmp eq i64 %55, %.0.sroa.speculated.i.i.i17
+  %exitcond.not = icmp eq i64 %56, %.0.sroa.speculated.i.i.i17
   br i1 %exitcond.not, label %.backedge, label %.lr.ph
 
-_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit: ; preds = %77, %67
-  %78 = load i8, ptr %57, align 1, !range !3820, !noundef !16
-  %79 = load i8, ptr %59, align 1, !range !3820, !alias.scope !4114, !noundef !16
-  %80 = icmp eq i8 %79, %78
-  br i1 %80, label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21, label %81
+_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit: ; preds = %78, %68
+  %79 = load i8, ptr %58, align 1, !range !3820, !noundef !16
+  %80 = load i8, ptr %60, align 1, !range !3820, !alias.scope !4114, !noundef !16
+  %81 = icmp eq i8 %80, %79
+  br i1 %81, label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21, label %82
 
-81:                                               ; preds = %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit
-  switch i8 %79, label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21.sink.split [
-    i8 0, label %82
-    i8 2, label %84
+82:                                               ; preds = %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit
+  switch i8 %80, label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21.sink.split [
+    i8 0, label %83
+    i8 2, label %85
   ]
 
-82:                                               ; preds = %81
-  %83 = icmp eq i8 %78, 2
-  br i1 %83, label %86, label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21.sink.split
+83:                                               ; preds = %82
+  %84 = icmp eq i8 %79, 2
+  br i1 %84, label %87, label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21.sink.split
 
-84:                                               ; preds = %81
-  %85 = icmp eq i8 %78, 0
-  br i1 %85, label %86, label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21.sink.split
+85:                                               ; preds = %82
+  %86 = icmp eq i8 %79, 0
+  br i1 %86, label %87, label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21.sink.split
 
-86:                                               ; preds = %84, %82
+87:                                               ; preds = %85, %83
   br label %_ZN16wasmtime_environ9component5types8FlatType4join17h9bb53326b7a22717E.exit21.sink.split
 }
 

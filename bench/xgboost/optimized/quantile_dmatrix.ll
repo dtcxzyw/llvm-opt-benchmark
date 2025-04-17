@@ -3424,8 +3424,8 @@ _ZN7xgboost6linalg6TensorImLi2EEC2ImLi2EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exi
   unreachable
 
 .loopexit.i95.i.i:                                ; preds = %514, %512
-  %517 = phi i64 [ 1, %514 ], [ %513, %512 ]
-  %518 = phi i64 [ %515, %514 ], [ 1, %512 ]
+  %517 = phi i64 [ %515, %514 ], [ 1, %512 ]
+  %518 = phi i64 [ 1, %514 ], [ %513, %512 ]
   %519 = icmp eq i32 %495, 1
   br i1 %519, label %.preheader.i.i134.i.i, label %594
 
@@ -3557,7 +3557,7 @@ _ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_
   br i1 %585, label %586, label %591
 
 586:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi2ELb0EE12DispatchCallIZNKS1_clIfJRKmRmEEET_DpOT0_EUlPKS7_E_EEDcS7_.exit.i.i.i.i
-  %587 = mul i64 %.08.i.i.i.i.i, %518
+  %587 = mul i64 %.08.i.i.i.i.i, %517
   %588 = getelementptr i64, ptr %510, i64 %587
   %589 = load i64, ptr %588, align 8, !tbaa !36
   %590 = add i64 %589, 1
@@ -3811,7 +3811,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %685, label %686, label %691
 
 686:                                              ; preds = %.noexc.i262.i.i
-  %687 = mul i64 %.08.i.i252.i.i, %518
+  %687 = mul i64 %.08.i.i252.i.i, %517
   %688 = getelementptr i64, ptr %510, i64 %687
   %689 = load i64, ptr %688, align 8, !tbaa !36
   %690 = add i64 %689, 1
@@ -3862,8 +3862,8 @@ _ZSt10accumulateIPmmET0_T_S2_S1_.exit.i110.i.i:   ; preds = %.lr.ph.i25.i.i.i, %
   %.0.lcssa.i.i111.i.i = phi i64 [ 0, %_ZNK7xgboost6linalg6TensorImLi2EE4SizeEv.exit.i106.i.i ], [ %703, %.lr.ph.i25.i.i.i ]
   %.not.i112.i.i = icmp eq i32 %495, 0
   %.not38.i.i.i = icmp eq ptr %497, %498
-  %or.cond129.i.i = select i1 %.not.i112.i.i, i1 true, i1 %.not38.i.i.i
-  br i1 %or.cond129.i.i, label %"_ZZZN7xgboost4data8cpu_impl12GetDataShapeEPKNS_7ContextEPNS0_12DMatrixProxyENS0_13DataIterProxyIFvPvEFiS8_EEEfPNS0_16ExternalDataInfoEENK3$_0clEvENKUlRKT_E_clINS0_17ArrayAdapterBatchEEEDaSH_.exit.i.i", label %.preheader.lr.ph.split.us.i114.i.i
+  %or.cond44.i.i = select i1 %.not.i112.i.i, i1 true, i1 %.not38.i.i.i
+  br i1 %or.cond44.i.i, label %"_ZZZN7xgboost4data8cpu_impl12GetDataShapeEPKNS_7ContextEPNS0_12DMatrixProxyENS0_13DataIterProxyIFvPvEFiS8_EEEfPNS0_16ExternalDataInfoEENK3$_0clEvENKUlRKT_E_clINS0_17ArrayAdapterBatchEEEDaSH_.exit.i.i", label %.preheader.lr.ph.split.us.i114.i.i
 
 .preheader.lr.ph.split.us.i114.i.i:               ; preds = %_ZSt10accumulateIPmmET0_T_S2_S1_.exit.i110.i.i
   %705 = load ptr, ptr %68, align 8, !tbaa !135
@@ -3872,13 +3872,13 @@ _ZSt10accumulateIPmmET0_T_S2_S1_.exit.i110.i.i:   ; preds = %.lr.ph.i25.i.i.i, %
 
 .preheader.us.i116.i.i:                           ; preds = %._crit_edge.us.i118.i.i, %.preheader.lr.ph.split.us.i114.i.i
   %storemerge36.us.i.i.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i114.i.i ], [ %716, %._crit_edge.us.i118.i.i ]
-  %706 = mul i64 %storemerge36.us.i.i.i, %517
+  %706 = mul i64 %storemerge36.us.i.i.i, %518
   %707 = getelementptr i64, ptr %510, i64 %706
   br label %708
 
 708:                                              ; preds = %708, %.preheader.us.i116.i.i
   %storemerge1735.us.i.i.i = phi i64 [ 0, %.preheader.us.i116.i.i ], [ %715, %708 ]
-  %709 = mul i64 %storemerge1735.us.i.i.i, %518
+  %709 = mul i64 %storemerge1735.us.i.i.i, %517
   %710 = getelementptr i64, ptr %707, i64 %709
   %711 = load i64, ptr %710, align 8, !tbaa !36
   %712 = getelementptr inbounds nuw i64, ptr %705, i64 %storemerge1735.us.i.i.i
@@ -4245,8 +4245,8 @@ _ZN7xgboost6linalg6TensorImLi2EEC2ImLi2EEERAT0__KT_NS_9DeviceOrdENS0_5OrderE.exi
   unreachable
 
 .loopexit.i182.i.i:                               ; preds = %825, %823
-  %828 = phi i64 [ 1, %825 ], [ %824, %823 ]
-  %829 = phi i64 [ %826, %825 ], [ 1, %823 ]
+  %828 = phi i64 [ %826, %825 ], [ 1, %823 ]
+  %829 = phi i64 [ 1, %825 ], [ %824, %823 ]
   %830 = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %830, label %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit.thread.i.i.i, label %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit.i.i.i
 
@@ -4445,7 +4445,7 @@ _ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJRKmEEET_DpOT0_EU
   br i1 %952, label %953, label %_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.thread.i.i.i.i.i
 
 953:                                              ; preds = %_ZNK7xgboost14ArrayInterfaceILi1ELb1EE12DispatchCallIZNKS1_clIfJRKmEEET_DpOT0_EUlPKS6_E_EEDcS6_.exit.i.i.i.i
-  %954 = mul i64 %.012.i.i.i.i.i, %829
+  %954 = mul i64 %.012.i.i.i.i.i, %828
   %955 = getelementptr i64, ptr %821, i64 %954
   %956 = load i64, ptr %955, align 8, !tbaa !36
   %957 = add i64 %956, 1
@@ -4755,7 +4755,7 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.i.i.i.i: ; preds
   br i1 %1105, label %1106, label %_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.thread.i.i.i.i
 
 1106:                                             ; preds = %.noexc.i280.i.i
-  %1107 = mul i64 %.012.i.i.i.i, %829
+  %1107 = mul i64 %.012.i.i.i.i, %828
   %1108 = getelementptr i64, ptr %821, i64 %1107
   %1109 = load i64, ptr %1108, align 8, !tbaa !36
   %1110 = add i64 %1109, 1
@@ -4764,8 +4764,8 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.i.i.i.i: ; preds
 
 _ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.thread.i.i.i.i: ; preds = %1106, %.noexc.i280.i.i, %998
   %1111 = add nuw i64 %.012.i.i.i.i, 1
-  %exitcond99.not.i.i = icmp eq i64 %1111, %.sroa.0.0.copyload.i.i
-  br i1 %exitcond99.not.i.i, label %"_ZN4dmlc12OMPException3RunIZZZN7xgboost4data8cpu_impl12GetDataShapeEPKNS2_7ContextEPNS3_12DMatrixProxyENS3_13DataIterProxyIFvPvEFiSB_EEEfPNS3_16ExternalDataInfoEENK3$_0clEvENKUlRKT_E_clINS3_20ColumnarAdapterBatchEEEDaSK_EUlSI_E_JmEEEvSI_DpT0_.exit.i.i", label %994, !llvm.loop !251
+  %exitcond101.not.i.i = icmp eq i64 %1111, %.sroa.0.0.copyload.i.i
+  br i1 %exitcond101.not.i.i, label %"_ZN4dmlc12OMPException3RunIZZZN7xgboost4data8cpu_impl12GetDataShapeEPKNS2_7ContextEPNS3_12DMatrixProxyENS3_13DataIterProxyIFvPvEFiSB_EEEfPNS3_16ExternalDataInfoEENK3$_0clEvENKUlRKT_E_clINS3_20ColumnarAdapterBatchEEEDaSK_EUlSI_E_JmEEEvSI_DpT0_.exit.i.i", label %994, !llvm.loop !251
 
 "_ZN4dmlc12OMPException3RunIZZZN7xgboost4data8cpu_impl12GetDataShapeEPKNS2_7ContextEPNS3_12DMatrixProxyENS3_13DataIterProxyIFvPvEFiSB_EEEfPNS3_16ExternalDataInfoEENK3$_0clEvENKUlRKT_E_clINS3_20ColumnarAdapterBatchEEEDaSK_EUlSI_E_JmEEEvSI_DpT0_.exit.i.i": ; preds = %_ZNK7xgboost4data20ColumnarAdapterBatch4Line10GetElementEm.exit.thread.i.i.i.i
   %1112 = add nuw i64 %.04086.i.i.i.i, 1
@@ -4806,8 +4806,8 @@ _ZSt10accumulateIPmmET0_T_S2_S1_.exit.i200.i.i:   ; preds = %.lr.ph.i26.i196.i.i
   %.0.lcssa.i.i201.i.i = phi i64 [ 0, %_ZNK7xgboost6linalg6TensorImLi2EE4SizeEv.exit.i194.i.i ], [ %1122, %.lr.ph.i26.i196.i.i ]
   %.not.i202.i.i = icmp eq i32 %806, 0
   %.not41.i.i.i = icmp eq ptr %808, %809
-  %or.cond130.i.i = select i1 %.not.i202.i.i, i1 true, i1 %.not41.i.i.i
-  br i1 %or.cond130.i.i, label %"_ZZZN7xgboost4data8cpu_impl12GetDataShapeEPKNS_7ContextEPNS0_12DMatrixProxyENS0_13DataIterProxyIFvPvEFiS8_EEEfPNS0_16ExternalDataInfoEENK3$_0clEvENKUlRKT_E_clINS0_20ColumnarAdapterBatchEEEDaSH_.exit.i.i", label %.preheader.lr.ph.split.us.i204.i.i
+  %or.cond45.i.i = select i1 %.not.i202.i.i, i1 true, i1 %.not41.i.i.i
+  br i1 %or.cond45.i.i, label %"_ZZZN7xgboost4data8cpu_impl12GetDataShapeEPKNS_7ContextEPNS0_12DMatrixProxyENS0_13DataIterProxyIFvPvEFiS8_EEEfPNS0_16ExternalDataInfoEENK3$_0clEvENKUlRKT_E_clINS0_20ColumnarAdapterBatchEEEDaSH_.exit.i.i", label %.preheader.lr.ph.split.us.i204.i.i
 
 .preheader.lr.ph.split.us.i204.i.i:               ; preds = %_ZSt10accumulateIPmmET0_T_S2_S1_.exit.i200.i.i
   %1124 = load ptr, ptr %68, align 8, !tbaa !135
@@ -4816,13 +4816,13 @@ _ZSt10accumulateIPmmET0_T_S2_S1_.exit.i200.i.i:   ; preds = %.lr.ph.i26.i196.i.i
 
 .preheader.us.i206.i.i:                           ; preds = %._crit_edge.us.i208.i.i, %.preheader.lr.ph.split.us.i204.i.i
   %storemerge39.us.i.i.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i204.i.i ], [ %1135, %._crit_edge.us.i208.i.i ]
-  %1125 = mul i64 %storemerge39.us.i.i.i, %828
+  %1125 = mul i64 %storemerge39.us.i.i.i, %829
   %1126 = getelementptr i64, ptr %821, i64 %1125
   br label %1127
 
 1127:                                             ; preds = %1127, %.preheader.us.i206.i.i
   %storemerge1738.us.i.i.i = phi i64 [ 0, %.preheader.us.i206.i.i ], [ %1134, %1127 ]
-  %1128 = mul i64 %storemerge1738.us.i.i.i, %829
+  %1128 = mul i64 %storemerge1738.us.i.i.i, %828
   %1129 = getelementptr i64, ptr %1126, i64 %1128
   %1130 = load i64, ptr %1129, align 8, !tbaa !36
   %1131 = getelementptr inbounds nuw i64, ptr %1124, i64 %storemerge1738.us.i.i.i

@@ -580,7 +580,7 @@ hwloc_get_next_obj_by_type.exit:                  ; preds = %53
   br label %hwloc_get_next_obj_by_type.exit.thread
 
 hwloc_get_next_obj_by_type.exit.thread:           ; preds = %53, %hwloc_get_next_obj_by_type.exit, %57, %70, %60, %51, %50
-  %71 = phi i32 [ 1, %53 ], [ 1, %hwloc_get_next_obj_by_type.exit ], [ 1, %57 ], [ %61, %70 ], [ %61, %60 ], [ 1, %51 ], [ 6, %50 ]
+  %71 = phi i32 [ 1, %hwloc_get_next_obj_by_type.exit ], [ 1, %57 ], [ %61, %70 ], [ %61, %60 ], [ 1, %51 ], [ 6, %50 ], [ 1, %53 ]
   %72 = load ptr, ptr %9, align 8
   %73 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %72, i32 noundef 0, i32 noundef 0) #13
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 120

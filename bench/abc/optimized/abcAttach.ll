@@ -311,8 +311,8 @@ Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %94
-  %128 = phi i32 [ %124, %._crit_edge.i.loopexit.i ], [ 0, %94 ]
-  %129 = phi i32 [ %123, %._crit_edge.i.loopexit.i ], [ 0, %94 ]
+  %128 = phi i32 [ 0, %94 ], [ %124, %._crit_edge.i.loopexit.i ]
+  %129 = phi i32 [ 0, %94 ], [ %123, %._crit_edge.i.loopexit.i ]
   %130 = call i32 @Abc_SopGetPhase(ptr noundef nonnull %97) #7
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %132, label %Abc_AttachComputeTruth.exit.i
@@ -537,17 +537,17 @@ Abc_AttachFind.exit.i:                            ; preds = %Abc_AttachCompare.e
   br i1 %exitcond.not.i132, label %.critedge.i, label %216, !llvm.loop !57
 
 .critedge.i:                                      ; preds = %216, %.critedge.i
-  %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %.critedge.i ], [ 0, %216 ]
-  %225 = getelementptr inbounds nuw [10 x i32], ptr %4, i64 0, i64 %indvars.iv47.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %.critedge.i ], [ 0, %216 ]
+  %225 = getelementptr inbounds nuw [10 x i32], ptr %4, i64 0, i64 %indvars.iv49.i
   %226 = load i32, ptr %225, align 4, !tbaa !3
-  %227 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %indvars.iv47.i
+  %227 = getelementptr inbounds nuw [10 x i32], ptr %3, i64 0, i64 %indvars.iv49.i
   %228 = load i32, ptr %227, align 4, !tbaa !3
   %229 = sext i32 %228 to i64
   %230 = getelementptr inbounds i32, ptr %.val26.i, i64 %229
   store i32 %226, ptr %230, align 4, !tbaa !3
-  %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
-  %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count.i
-  br i1 %exitcond51.not.i, label %Abc_NodeAttach.exit, label %.critedge.i, !llvm.loop !58
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count.i
+  br i1 %exitcond53.not.i, label %Abc_NodeAttach.exit, label %.critedge.i, !llvm.loop !58
 
 Abc_NodeAttach.exit:                              ; preds = %.critedge.i, %211
   %231 = getelementptr inbounds nuw i8, ptr %60, i64 64

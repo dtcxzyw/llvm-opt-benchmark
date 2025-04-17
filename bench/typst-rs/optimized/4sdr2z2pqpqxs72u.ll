@@ -653,173 +653,170 @@ _ZN10pdf_writer6object3Obj9primitive17h937adb078916dd44E.llvm.947673308705807043
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10pdf_writer6object5Array5items17h867521ac0f54120aE.llvm.9476733087058070434(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-.lr.ph:
-  %2 = alloca { { i64, i64 }, [2 x float] }, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %3 = alloca { { i64, i64 }, [2 x float] }, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %1, ptr %.sroa.5.0..sroa_idx, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %0, align 8, !alias.scope !77
-  %4 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 16
-  %5 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  %.promoted8 = load i32, ptr %3, align 8, !alias.scope !77
-  br label %6
+  %.promoted = load i32, ptr %4, align 8, !alias.scope !77
+  %5 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
+  br label %8
 
-_ZN10pdf_writer6object5Array4item17hfe8b8e2faf82b4a9E.llvm.9476733087058070434.exit._crit_edge: ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+7:                                                ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret ptr %0
 
-6:                                                ; preds = %.lr.ph, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
-  %7 = phi i32 [ %.promoted8, %.lr.ph ], [ %22, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
-  %8 = phi i64 [ 0, %.lr.ph ], [ %9, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
-  %9 = add nuw nsw i64 %8, 1
-  %10 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx, i64 %8
-  %11 = load float, ptr %10, align 4, !alias.scope !80, !noundef !4
+8:                                                ; preds = %2, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
+  %9 = phi i64 [ 0, %2 ], [ %11, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
+  %10 = phi i32 [ %.promoted, %2 ], [ %24, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
+  %11 = add nuw nsw i64 %9, 1
+  %12 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx, i64 %9
+  %13 = load float, ptr %12, align 4, !alias.scope !80, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
-  %12 = icmp eq i32 %7, 0
-  br i1 %12, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i, label %13
+  %14 = icmp eq i32 %10, 0
+  br i1 %14, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i, label %15
 
-13:                                               ; preds = %6
-  %14 = load i64, ptr %4, align 8, !alias.scope !83, !noalias !77, !noundef !4
-  %15 = load i64, ptr %.pre.i, align 8, !alias.scope !83, !noalias !77, !noundef !4
-  %16 = icmp eq i64 %14, %15
-  br i1 %16, label %.noexc, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i"
+15:                                               ; preds = %8
+  %16 = load i64, ptr %5, align 8, !alias.scope !83, !noalias !77, !noundef !4
+  %17 = load i64, ptr %.pre.i, align 8, !alias.scope !83, !noalias !77, !noundef !4
+  %18 = icmp eq i64 %16, %17
+  br i1 %18, label %.noexc, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i"
 
-.noexc:                                           ; preds = %13
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.pre.i, i64 noundef %14)
-  %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !83, !noalias !77
+.noexc:                                           ; preds = %15
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.pre.i, i64 noundef %16)
+  %.pre.i.i = load i64, ptr %5, align 8, !alias.scope !83, !noalias !77
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i": ; preds = %.noexc, %13
-  %17 = phi i64 [ %.pre.i.i, %.noexc ], [ %14, %13 ]
-  %18 = load ptr, ptr %5, align 8, !alias.scope !83, !noalias !77, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  store i8 32, ptr %19, align 1, !noalias !77
-  %20 = load i64, ptr %4, align 8, !alias.scope !83, !noalias !77, !noundef !4
-  %21 = add i64 %20, 1
-  store i64 %21, ptr %4, align 8, !alias.scope !83, !noalias !77
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i": ; preds = %.noexc, %15
+  %19 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %15 ]
+  %20 = load ptr, ptr %6, align 8, !alias.scope !83, !noalias !77, !nonnull !4, !noundef !4
+  %21 = getelementptr inbounds i8, ptr %20, i64 %19
+  store i8 32, ptr %21, align 1, !noalias !77
+  %22 = load i64, ptr %5, align 8, !alias.scope !83, !noalias !77, !noundef !4
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %5, align 8, !alias.scope !83, !noalias !77
   br label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
 
-_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i", %6
-  %22 = add i32 %7, 1
-  store i32 %22, ptr %3, align 8, !alias.scope !77
-  tail call void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %.pre.i)
-  %.not.not.i = icmp eq i64 %9, 2
-  br i1 %.not.not.i, label %_ZN10pdf_writer6object5Array4item17hfe8b8e2faf82b4a9E.llvm.9476733087058070434.exit._crit_edge, label %6
+_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i", %8
+  %24 = add i32 %10, 1
+  store i32 %24, ptr %4, align 8, !alias.scope !77
+  tail call void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %.pre.i)
+  %.not.not.i = icmp eq i64 %11, 2
+  br i1 %.not.not.i, label %7, label %8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10pdf_writer6object5Array5items17h932634df07923efcE.llvm.9476733087058070434(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-.lr.ph:
-  %2 = alloca { { i64, i64 }, [3 x float], [1 x i32] }, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
+  %3 = alloca { { i64, i64 }, [3 x float], [1 x i32] }, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %0, align 8, !alias.scope !86
-  %4 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 16
-  %5 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  %.promoted7 = load i32, ptr %3, align 8, !alias.scope !86
-  br label %6
+  %.promoted = load i32, ptr %4, align 8, !alias.scope !86
+  %5 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
+  br label %8
 
-_ZN10pdf_writer6object5Array4item17hfe8b8e2faf82b4a9E.llvm.9476733087058070434.exit._crit_edge: ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
+7:                                                ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret ptr %0
 
-6:                                                ; preds = %.lr.ph, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
-  %7 = phi i32 [ %.promoted7, %.lr.ph ], [ %22, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
-  %8 = phi i64 [ 0, %.lr.ph ], [ %9, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
-  %9 = add nuw nsw i64 %8, 1
-  %10 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx, i64 %8
-  %11 = load float, ptr %10, align 4, !alias.scope !89, !noundef !4
+8:                                                ; preds = %2, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
+  %9 = phi i64 [ 0, %2 ], [ %11, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
+  %10 = phi i32 [ %.promoted, %2 ], [ %24, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
+  %11 = add nuw nsw i64 %9, 1
+  %12 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx, i64 %9
+  %13 = load float, ptr %12, align 4, !alias.scope !89, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  %12 = icmp eq i32 %7, 0
-  br i1 %12, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i, label %13
+  %14 = icmp eq i32 %10, 0
+  br i1 %14, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i, label %15
 
-13:                                               ; preds = %6
-  %14 = load i64, ptr %4, align 8, !alias.scope !92, !noalias !86, !noundef !4
-  %15 = load i64, ptr %.pre.i, align 8, !alias.scope !92, !noalias !86, !noundef !4
-  %16 = icmp eq i64 %14, %15
-  br i1 %16, label %.noexc, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i"
+15:                                               ; preds = %8
+  %16 = load i64, ptr %5, align 8, !alias.scope !92, !noalias !86, !noundef !4
+  %17 = load i64, ptr %.pre.i, align 8, !alias.scope !92, !noalias !86, !noundef !4
+  %18 = icmp eq i64 %16, %17
+  br i1 %18, label %.noexc, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i"
 
-.noexc:                                           ; preds = %13
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.pre.i, i64 noundef %14)
-  %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !92, !noalias !86
+.noexc:                                           ; preds = %15
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.pre.i, i64 noundef %16)
+  %.pre.i.i = load i64, ptr %5, align 8, !alias.scope !92, !noalias !86
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i": ; preds = %.noexc, %13
-  %17 = phi i64 [ %.pre.i.i, %.noexc ], [ %14, %13 ]
-  %18 = load ptr, ptr %5, align 8, !alias.scope !92, !noalias !86, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  store i8 32, ptr %19, align 1, !noalias !86
-  %20 = load i64, ptr %4, align 8, !alias.scope !92, !noalias !86, !noundef !4
-  %21 = add i64 %20, 1
-  store i64 %21, ptr %4, align 8, !alias.scope !92, !noalias !86
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i": ; preds = %.noexc, %15
+  %19 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %15 ]
+  %20 = load ptr, ptr %6, align 8, !alias.scope !92, !noalias !86, !nonnull !4, !noundef !4
+  %21 = getelementptr inbounds i8, ptr %20, i64 %19
+  store i8 32, ptr %21, align 1, !noalias !86
+  %22 = load i64, ptr %5, align 8, !alias.scope !92, !noalias !86, !noundef !4
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %5, align 8, !alias.scope !92, !noalias !86
   br label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
 
-_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i", %6
-  %22 = add i32 %7, 1
-  store i32 %22, ptr %3, align 8, !alias.scope !86
-  tail call void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %.pre.i)
-  %.not.not.i = icmp eq i64 %9, 3
-  br i1 %.not.not.i, label %_ZN10pdf_writer6object5Array4item17hfe8b8e2faf82b4a9E.llvm.9476733087058070434.exit._crit_edge, label %6
+_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i", %8
+  %24 = add i32 %10, 1
+  store i32 %24, ptr %4, align 8, !alias.scope !86
+  tail call void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %.pre.i)
+  %.not.not.i = icmp eq i64 %11, 3
+  br i1 %.not.not.i, label %7, label %8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10pdf_writer6object5Array5items17haa5d0f65003270bfE.llvm.9476733087058070434(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(16) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-.lr.ph:
-  %2 = alloca { { i64, i64 }, [6 x float] }, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
+  %3 = alloca { { i64, i64 }, [6 x float] }, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %0, align 8, !alias.scope !95
-  %4 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 16
-  %5 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  %.promoted7 = load i32, ptr %3, align 8, !alias.scope !95
-  br label %6
+  %.promoted = load i32, ptr %4, align 8, !alias.scope !95
+  %5 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
+  br label %8
 
-_ZN10pdf_writer6object5Array4item17hfe8b8e2faf82b4a9E.llvm.9476733087058070434.exit._crit_edge: ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
+7:                                                ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret ptr %0
 
-6:                                                ; preds = %.lr.ph, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
-  %7 = phi i32 [ %.promoted7, %.lr.ph ], [ %22, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
-  %8 = phi i64 [ 0, %.lr.ph ], [ %9, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
-  %9 = add nuw nsw i64 %8, 1
-  %10 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx, i64 %8
-  %11 = load float, ptr %10, align 4, !alias.scope !98, !noundef !4
+8:                                                ; preds = %2, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
+  %9 = phi i64 [ 0, %2 ], [ %11, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
+  %10 = phi i32 [ %.promoted, %2 ], [ %24, %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i ]
+  %11 = add nuw nsw i64 %9, 1
+  %12 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx, i64 %9
+  %13 = load float, ptr %12, align 4, !alias.scope !98, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %12 = icmp eq i32 %7, 0
-  br i1 %12, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i, label %13
+  %14 = icmp eq i32 %10, 0
+  br i1 %14, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i, label %15
 
-13:                                               ; preds = %6
-  %14 = load i64, ptr %4, align 8, !alias.scope !101, !noalias !95, !noundef !4
-  %15 = load i64, ptr %.pre.i, align 8, !alias.scope !101, !noalias !95, !noundef !4
-  %16 = icmp eq i64 %14, %15
-  br i1 %16, label %.noexc, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i"
+15:                                               ; preds = %8
+  %16 = load i64, ptr %5, align 8, !alias.scope !101, !noalias !95, !noundef !4
+  %17 = load i64, ptr %.pre.i, align 8, !alias.scope !101, !noalias !95, !noundef !4
+  %18 = icmp eq i64 %16, %17
+  br i1 %18, label %.noexc, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i"
 
-.noexc:                                           ; preds = %13
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.pre.i, i64 noundef %14)
-  %.pre.i.i = load i64, ptr %4, align 8, !alias.scope !101, !noalias !95
+.noexc:                                           ; preds = %15
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.pre.i, i64 noundef %16)
+  %.pre.i.i = load i64, ptr %5, align 8, !alias.scope !101, !noalias !95
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i": ; preds = %.noexc, %13
-  %17 = phi i64 [ %.pre.i.i, %.noexc ], [ %14, %13 ]
-  %18 = load ptr, ptr %5, align 8, !alias.scope !101, !noalias !95, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  store i8 32, ptr %19, align 1, !noalias !95
-  %20 = load i64, ptr %4, align 8, !alias.scope !101, !noalias !95, !noundef !4
-  %21 = add i64 %20, 1
-  store i64 %21, ptr %4, align 8, !alias.scope !101, !noalias !95
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i": ; preds = %.noexc, %15
+  %19 = phi i64 [ %.pre.i.i, %.noexc ], [ %16, %15 ]
+  %20 = load ptr, ptr %6, align 8, !alias.scope !101, !noalias !95, !nonnull !4, !noundef !4
+  %21 = getelementptr inbounds i8, ptr %20, i64 %19
+  store i8 32, ptr %21, align 1, !noalias !95
+  %22 = load i64, ptr %5, align 8, !alias.scope !101, !noalias !95, !noundef !4
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %5, align 8, !alias.scope !101, !noalias !95
   br label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i
 
-_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i", %6
-  %22 = add i32 %7, 1
-  store i32 %22, ptr %3, align 8, !alias.scope !95
-  tail call void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %.pre.i)
-  %.not.not.i = icmp eq i64 %9, 6
-  br i1 %.not.not.i, label %_ZN10pdf_writer6object5Array4item17hfe8b8e2faf82b4a9E.llvm.9476733087058070434.exit._crit_edge, label %6
+_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i", %8
+  %24 = add i32 %10, 1
+  store i32 %24, ptr %4, align 8, !alias.scope !95
+  tail call void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %13, ptr noalias noundef nonnull align 8 dereferenceable(24) %.pre.i)
+  %.not.not.i = icmp eq i64 %11, 6
+  br i1 %.not.not.i, label %7, label %8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -954,12 +951,12 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN10pdf
 
 10:                                               ; preds = %.noexc1, %2
   %11 = phi i8 [ 1, %2 ], [ 0, %.noexc1 ]
-  %12 = phi i1 [ true, %2 ], [ false, %.noexc1 ]
-  %13 = phi i64 [ 0, %2 ], [ %14, %.noexc1 ]
-  %14 = add nuw nsw i64 %13, 1
-  %15 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %13
+  %12 = phi i64 [ 0, %2 ], [ %14, %.noexc1 ]
+  %13 = phi i1 [ true, %2 ], [ false, %.noexc1 ]
+  %14 = add nuw nsw i64 %12, 1
+  %15 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %12
   %16 = load float, ptr %15, align 4, !alias.scope !128, !noalias !123, !noundef !4
-  br i1 %12, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %17
+  br i1 %13, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %17
 
 17:                                               ; preds = %10
   %18 = load i64, ptr %8, align 8, !alias.scope !131, !noalias !134, !noundef !4
@@ -1089,12 +1086,12 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN10pdf
 
 10:                                               ; preds = %.noexc1, %2
   %11 = phi i8 [ 1, %2 ], [ 0, %.noexc1 ]
-  %12 = phi i1 [ true, %2 ], [ false, %.noexc1 ]
-  %13 = phi i64 [ 0, %2 ], [ %14, %.noexc1 ]
-  %14 = add nuw nsw i64 %13, 1
-  %15 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %13
+  %12 = phi i64 [ 0, %2 ], [ %14, %.noexc1 ]
+  %13 = phi i1 [ true, %2 ], [ false, %.noexc1 ]
+  %14 = add nuw nsw i64 %12, 1
+  %15 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %12
   %16 = load float, ptr %15, align 4, !alias.scope !159, !noalias !154, !noundef !4
-  br i1 %12, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %17
+  br i1 %13, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %17
 
 17:                                               ; preds = %10
   %18 = load i64, ptr %8, align 8, !alias.scope !162, !noalias !165, !noundef !4
@@ -1312,13 +1309,13 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull readonly align 4 dereferenceable(24) %1, i64 24, i1 false), !noalias !209
   br label %52
 
-52:                                               ; preds = %.noexc5, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
-  %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc5 ]
-  %indvars8 = trunc i64 %53 to i32
+52:                                               ; preds = %.noexc4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
+  %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc4 ]
+  %indvars7 = trunc i64 %53 to i32
   %54 = add nuw nsw i64 %53, 1
   %55 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %53
   %56 = load float, ptr %55, align 4, !alias.scope !210, !noalias !205, !noundef !4
-  %57 = icmp eq i32 %indvars8, 0
+  %57 = icmp eq i32 %indvars7, 0
   br i1 %57, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %58
 
 58:                                               ; preds = %52
@@ -1347,9 +1344,9 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
 
 _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i.i", %52
   invoke void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %56, ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
-          to label %.noexc5 unwind label %.split.loop.exit
+          to label %.noexc4 unwind label %.split.loop.exit
 
-.noexc5:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
+.noexc4:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
   %.not.not.i.i = icmp eq i64 %54, 6
   br i1 %.not.not.i.i, label %69, label %52
 
@@ -1365,13 +1362,13 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
   br label %67
 
 67:                                               ; preds = %.split.loop.exit.split-lp, %.split.loop.exit
-  %68 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars8, %.split.loop.exit.split-lp ]
+  %68 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars7, %.split.loop.exit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.split.loop.exit, %.split.loop.exit ], [ %lpad.split.loop.exit.split-lp, %.split.loop.exit.split-lp ]
   store i32 %68, ptr %51, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #27
           to label %81 unwind label %79
 
-69:                                               ; preds = %.noexc5
+69:                                               ; preds = %.noexc4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !205
   %70 = load i64, ptr %9, align 8, !alias.scope !219, !noalias !222, !noundef !4
   %71 = load i64, ptr %8, align 8, !alias.scope !219, !noalias !222, !noundef !4
@@ -1380,11 +1377,11 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
 
 73:                                               ; preds = %69
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %70), !noalias !222
-  %.pre.i.i.i7 = load i64, ptr %9, align 8, !alias.scope !219, !noalias !222
+  %.pre.i.i.i6 = load i64, ptr %9, align 8, !alias.scope !219, !noalias !222
   br label %"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit": ; preds = %69, %73
-  %74 = phi i64 [ %.pre.i.i.i7, %73 ], [ %70, %69 ]
+  %74 = phi i64 [ %.pre.i.i.i6, %73 ], [ %70, %69 ]
   %75 = load ptr, ptr %15, align 8, !alias.scope !219, !noalias !222, !nonnull !4, !noundef !4
   %76 = getelementptr inbounds i8, ptr %75, i64 %74
   store i8 93, ptr %76, align 1, !noalias !222
@@ -1718,13 +1715,13 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   store i64 %1, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !283
   br label %52
 
-52:                                               ; preds = %.noexc7, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
-  %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc7 ]
-  %indvars10 = trunc i64 %53 to i32
+52:                                               ; preds = %.noexc6, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
+  %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc6 ]
+  %indvars9 = trunc i64 %53 to i32
   %54 = add nuw nsw i64 %53, 1
   %55 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %53
   %56 = load float, ptr %55, align 4, !alias.scope !286, !noalias !283, !noundef !4
-  %57 = icmp eq i32 %indvars10, 0
+  %57 = icmp eq i32 %indvars9, 0
   br i1 %57, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %58
 
 58:                                               ; preds = %52
@@ -1753,9 +1750,9 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
 
 _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i.i", %52
   invoke void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %56, ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
-          to label %.noexc7 unwind label %.split.loop.exit
+          to label %.noexc6 unwind label %.split.loop.exit
 
-.noexc7:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
+.noexc6:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
   %.not.not.i.i = icmp eq i64 %54, 2
   br i1 %.not.not.i.i, label %69, label %52
 
@@ -1771,13 +1768,13 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
   br label %67
 
 67:                                               ; preds = %.split.loop.exit.split-lp, %.split.loop.exit
-  %68 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars10, %.split.loop.exit.split-lp ]
+  %68 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars9, %.split.loop.exit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.split.loop.exit, %.split.loop.exit ], [ %lpad.split.loop.exit.split-lp, %.split.loop.exit.split-lp ]
   store i32 %68, ptr %51, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #27
           to label %81 unwind label %79
 
-69:                                               ; preds = %.noexc7
+69:                                               ; preds = %.noexc6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !283
   %70 = load i64, ptr %9, align 8, !alias.scope !295, !noalias !298, !noundef !4
   %71 = load i64, ptr %8, align 8, !alias.scope !295, !noalias !298, !noundef !4
@@ -1786,11 +1783,11 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
 
 73:                                               ; preds = %69
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %70), !noalias !298
-  %.pre.i.i.i9 = load i64, ptr %9, align 8, !alias.scope !295, !noalias !298
+  %.pre.i.i.i8 = load i64, ptr %9, align 8, !alias.scope !295, !noalias !298
   br label %"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit": ; preds = %69, %73
-  %74 = phi i64 [ %.pre.i.i.i9, %73 ], [ %70, %69 ]
+  %74 = phi i64 [ %.pre.i.i.i8, %73 ], [ %70, %69 ]
   %75 = load ptr, ptr %15, align 8, !alias.scope !295, !noalias !298, !nonnull !4, !noundef !4
   %76 = getelementptr inbounds i8, ptr %75, i64 %74
   store i8 93, ptr %76, align 1, !noalias !298
@@ -2331,13 +2328,13 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull readonly align 4 dereferenceable(24) %1, i64 24, i1 false), !noalias !399
   br label %53
 
-53:                                               ; preds = %.noexc5, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
-  %54 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %55, %.noexc5 ]
-  %indvars8 = trunc i64 %54 to i32
+53:                                               ; preds = %.noexc4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
+  %54 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %55, %.noexc4 ]
+  %indvars7 = trunc i64 %54 to i32
   %55 = add nuw nsw i64 %54, 1
   %56 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %54
   %57 = load float, ptr %56, align 4, !alias.scope !400, !noalias !395, !noundef !4
-  %58 = icmp eq i32 %indvars8, 0
+  %58 = icmp eq i32 %indvars7, 0
   br i1 %58, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %59
 
 59:                                               ; preds = %53
@@ -2366,9 +2363,9 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
 
 _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i.i", %53
   invoke void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %57, ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-          to label %.noexc5 unwind label %.split.loop.exit
+          to label %.noexc4 unwind label %.split.loop.exit
 
-.noexc5:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
+.noexc4:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
   %.not.not.i.i = icmp eq i64 %55, 6
   br i1 %.not.not.i.i, label %70, label %53
 
@@ -2384,13 +2381,13 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
   br label %68
 
 68:                                               ; preds = %.split.loop.exit.split-lp, %.split.loop.exit
-  %69 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars8, %.split.loop.exit.split-lp ]
+  %69 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars7, %.split.loop.exit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.split.loop.exit, %.split.loop.exit ], [ %lpad.split.loop.exit.split-lp, %.split.loop.exit.split-lp ]
   store i32 %69, ptr %52, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #27
           to label %82 unwind label %80
 
-70:                                               ; preds = %.noexc5
+70:                                               ; preds = %.noexc4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !395
   %71 = load i64, ptr %10, align 8, !alias.scope !409, !noalias !412, !noundef !4
   %72 = load i64, ptr %9, align 8, !alias.scope !409, !noalias !412, !noundef !4
@@ -2399,11 +2396,11 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
 
 74:                                               ; preds = %70
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %71), !noalias !412
-  %.pre.i.i.i7 = load i64, ptr %10, align 8, !alias.scope !409, !noalias !412
+  %.pre.i.i.i6 = load i64, ptr %10, align 8, !alias.scope !409, !noalias !412
   br label %"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit": ; preds = %70, %74
-  %75 = phi i64 [ %.pre.i.i.i7, %74 ], [ %71, %70 ]
+  %75 = phi i64 [ %.pre.i.i.i6, %74 ], [ %71, %70 ]
   %76 = load ptr, ptr %16, align 8, !alias.scope !409, !noalias !412, !nonnull !4, !noundef !4
   %77 = getelementptr inbounds i8, ptr %76, i64 %75
   store i8 93, ptr %77, align 1, !noalias !412
@@ -2532,13 +2529,13 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull readonly align 4 dereferenceable(24) %1, i64 24, i1 false), !noalias !441
   br label %53
 
-53:                                               ; preds = %.noexc5, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
-  %54 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %55, %.noexc5 ]
-  %indvars8 = trunc i64 %54 to i32
+53:                                               ; preds = %.noexc4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
+  %54 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %55, %.noexc4 ]
+  %indvars7 = trunc i64 %54 to i32
   %55 = add nuw nsw i64 %54, 1
   %56 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %54
   %57 = load float, ptr %56, align 4, !alias.scope !442, !noalias !437, !noundef !4
-  %58 = icmp eq i32 %indvars8, 0
+  %58 = icmp eq i32 %indvars7, 0
   br i1 %58, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %59
 
 59:                                               ; preds = %53
@@ -2567,9 +2564,9 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
 
 _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i.i", %53
   invoke void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %57, ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-          to label %.noexc5 unwind label %.split.loop.exit
+          to label %.noexc4 unwind label %.split.loop.exit
 
-.noexc5:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
+.noexc4:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
   %.not.not.i.i = icmp eq i64 %55, 6
   br i1 %.not.not.i.i, label %70, label %53
 
@@ -2585,13 +2582,13 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
   br label %68
 
 68:                                               ; preds = %.split.loop.exit.split-lp, %.split.loop.exit
-  %69 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars8, %.split.loop.exit.split-lp ]
+  %69 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars7, %.split.loop.exit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.split.loop.exit, %.split.loop.exit ], [ %lpad.split.loop.exit.split-lp, %.split.loop.exit.split-lp ]
   store i32 %69, ptr %52, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #27
           to label %82 unwind label %80
 
-70:                                               ; preds = %.noexc5
+70:                                               ; preds = %.noexc4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !437
   %71 = load i64, ptr %10, align 8, !alias.scope !451, !noalias !454, !noundef !4
   %72 = load i64, ptr %9, align 8, !alias.scope !451, !noalias !454, !noundef !4
@@ -2600,11 +2597,11 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
 
 74:                                               ; preds = %70
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %71), !noalias !454
-  %.pre.i.i.i7 = load i64, ptr %10, align 8, !alias.scope !451, !noalias !454
+  %.pre.i.i.i6 = load i64, ptr %10, align 8, !alias.scope !451, !noalias !454
   br label %"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit": ; preds = %70, %74
-  %75 = phi i64 [ %.pre.i.i.i7, %74 ], [ %71, %70 ]
+  %75 = phi i64 [ %.pre.i.i.i6, %74 ], [ %71, %70 ]
   %76 = load ptr, ptr %16, align 8, !alias.scope !451, !noalias !454, !nonnull !4, !noundef !4
   %77 = getelementptr inbounds i8, ptr %76, i64 %75
   store i8 93, ptr %77, align 1, !noalias !454
@@ -2732,13 +2729,13 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %1, i64 12, i1 false), !noalias !483
   br label %52
 
-52:                                               ; preds = %.noexc5, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
-  %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc5 ]
-  %indvars8 = trunc i64 %53 to i32
+52:                                               ; preds = %.noexc4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
+  %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc4 ]
+  %indvars7 = trunc i64 %53 to i32
   %54 = add nuw nsw i64 %53, 1
   %55 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %53
   %56 = load float, ptr %55, align 4, !alias.scope !484, !noalias !479, !noundef !4
-  %57 = icmp eq i32 %indvars8, 0
+  %57 = icmp eq i32 %indvars7, 0
   br i1 %57, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %58
 
 58:                                               ; preds = %52
@@ -2767,9 +2764,9 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
 
 _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i.i", %52
   invoke void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %56, ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
-          to label %.noexc5 unwind label %.split.loop.exit
+          to label %.noexc4 unwind label %.split.loop.exit
 
-.noexc5:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
+.noexc4:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
   %.not.not.i.i = icmp eq i64 %54, 3
   br i1 %.not.not.i.i, label %69, label %52
 
@@ -2785,13 +2782,13 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
   br label %67
 
 67:                                               ; preds = %.split.loop.exit.split-lp, %.split.loop.exit
-  %68 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars8, %.split.loop.exit.split-lp ]
+  %68 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars7, %.split.loop.exit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.split.loop.exit, %.split.loop.exit ], [ %lpad.split.loop.exit.split-lp, %.split.loop.exit.split-lp ]
   store i32 %68, ptr %51, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #27
           to label %81 unwind label %79
 
-69:                                               ; preds = %.noexc5
+69:                                               ; preds = %.noexc4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !479
   %70 = load i64, ptr %9, align 8, !alias.scope !493, !noalias !496, !noundef !4
   %71 = load i64, ptr %8, align 8, !alias.scope !493, !noalias !496, !noundef !4
@@ -2800,11 +2797,11 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
 
 73:                                               ; preds = %69
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %70), !noalias !496
-  %.pre.i.i.i7 = load i64, ptr %9, align 8, !alias.scope !493, !noalias !496
+  %.pre.i.i.i6 = load i64, ptr %9, align 8, !alias.scope !493, !noalias !496
   br label %"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit": ; preds = %69, %73
-  %74 = phi i64 [ %.pre.i.i.i7, %73 ], [ %70, %69 ]
+  %74 = phi i64 [ %.pre.i.i.i6, %73 ], [ %70, %69 ]
   %75 = load ptr, ptr %15, align 8, !alias.scope !493, !noalias !496, !nonnull !4, !noundef !4
   %76 = getelementptr inbounds i8, ptr %75, i64 %74
   store i8 93, ptr %76, align 1, !noalias !496
@@ -2932,13 +2929,13 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull readonly align 4 dereferenceable(12) %1, i64 12, i1 false), !noalias !525
   br label %52
 
-52:                                               ; preds = %.noexc5, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
-  %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc5 ]
-  %indvars8 = trunc i64 %53 to i32
+52:                                               ; preds = %.noexc4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
+  %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc4 ]
+  %indvars7 = trunc i64 %53 to i32
   %54 = add nuw nsw i64 %53, 1
   %55 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %53
   %56 = load float, ptr %55, align 4, !alias.scope !526, !noalias !521, !noundef !4
-  %57 = icmp eq i32 %indvars8, 0
+  %57 = icmp eq i32 %indvars7, 0
   br i1 %57, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %58
 
 58:                                               ; preds = %52
@@ -2967,9 +2964,9 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
 
 _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i.i", %52
   invoke void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %56, ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
-          to label %.noexc5 unwind label %.split.loop.exit
+          to label %.noexc4 unwind label %.split.loop.exit
 
-.noexc5:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
+.noexc4:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
   %.not.not.i.i = icmp eq i64 %54, 3
   br i1 %.not.not.i.i, label %69, label %52
 
@@ -2985,13 +2982,13 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
   br label %67
 
 67:                                               ; preds = %.split.loop.exit.split-lp, %.split.loop.exit
-  %68 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars8, %.split.loop.exit.split-lp ]
+  %68 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars7, %.split.loop.exit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.split.loop.exit, %.split.loop.exit ], [ %lpad.split.loop.exit.split-lp, %.split.loop.exit.split-lp ]
   store i32 %68, ptr %51, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #27
           to label %81 unwind label %79
 
-69:                                               ; preds = %.noexc5
+69:                                               ; preds = %.noexc4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !521
   %70 = load i64, ptr %9, align 8, !alias.scope !535, !noalias !538, !noundef !4
   %71 = load i64, ptr %8, align 8, !alias.scope !535, !noalias !538, !noundef !4
@@ -3000,11 +2997,11 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
 
 73:                                               ; preds = %69
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %70), !noalias !538
-  %.pre.i.i.i7 = load i64, ptr %9, align 8, !alias.scope !535, !noalias !538
+  %.pre.i.i.i6 = load i64, ptr %9, align 8, !alias.scope !535, !noalias !538
   br label %"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit": ; preds = %69, %73
-  %74 = phi i64 [ %.pre.i.i.i7, %73 ], [ %70, %69 ]
+  %74 = phi i64 [ %.pre.i.i.i6, %73 ], [ %70, %69 ]
   %75 = load ptr, ptr %15, align 8, !alias.scope !535, !noalias !538, !nonnull !4, !noundef !4
   %76 = getelementptr inbounds i8, ptr %75, i64 %74
   store i8 93, ptr %76, align 1, !noalias !538
@@ -3132,13 +3129,13 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull readonly align 4 dereferenceable(24) %1, i64 24, i1 false), !noalias !567
   br label %52
 
-52:                                               ; preds = %.noexc5, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
-  %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc5 ]
-  %indvars8 = trunc i64 %53 to i32
+52:                                               ; preds = %.noexc4, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
+  %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc4 ]
+  %indvars7 = trunc i64 %53 to i32
   %54 = add nuw nsw i64 %53, 1
   %55 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %53
   %56 = load float, ptr %55, align 4, !alias.scope !568, !noalias !563, !noundef !4
-  %57 = icmp eq i32 %indvars8, 0
+  %57 = icmp eq i32 %indvars7, 0
   br i1 %57, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %58
 
 58:                                               ; preds = %52
@@ -3167,9 +3164,9 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
 
 _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i.i", %52
   invoke void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %56, ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
-          to label %.noexc5 unwind label %.split.loop.exit
+          to label %.noexc4 unwind label %.split.loop.exit
 
-.noexc5:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
+.noexc4:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
   %.not.not.i.i = icmp eq i64 %54, 6
   br i1 %.not.not.i.i, label %69, label %52
 
@@ -3185,13 +3182,13 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
   br label %67
 
 67:                                               ; preds = %.split.loop.exit.split-lp, %.split.loop.exit
-  %68 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars8, %.split.loop.exit.split-lp ]
+  %68 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars7, %.split.loop.exit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.split.loop.exit, %.split.loop.exit ], [ %lpad.split.loop.exit.split-lp, %.split.loop.exit.split-lp ]
   store i32 %68, ptr %51, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #27
           to label %81 unwind label %79
 
-69:                                               ; preds = %.noexc5
+69:                                               ; preds = %.noexc4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !563
   %70 = load i64, ptr %9, align 8, !alias.scope !577, !noalias !580, !noundef !4
   %71 = load i64, ptr %8, align 8, !alias.scope !577, !noalias !580, !noundef !4
@@ -3200,11 +3197,11 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
 
 73:                                               ; preds = %69
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %70), !noalias !580
-  %.pre.i.i.i7 = load i64, ptr %9, align 8, !alias.scope !577, !noalias !580
+  %.pre.i.i.i6 = load i64, ptr %9, align 8, !alias.scope !577, !noalias !580
   br label %"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit": ; preds = %69, %73
-  %74 = phi i64 [ %.pre.i.i.i7, %73 ], [ %70, %69 ]
+  %74 = phi i64 [ %.pre.i.i.i6, %73 ], [ %70, %69 ]
   %75 = load ptr, ptr %15, align 8, !alias.scope !577, !noalias !580, !nonnull !4, !noundef !4
   %76 = getelementptr inbounds i8, ptr %75, i64 %74
   store i8 93, ptr %76, align 1, !noalias !580
@@ -3332,13 +3329,13 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
   store i64 %1, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !605
   br label %52
 
-52:                                               ; preds = %.noexc7, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
-  %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc7 ]
-  %indvars10 = trunc i64 %53 to i32
+52:                                               ; preds = %.noexc6, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit"
+  %53 = phi i64 [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit" ], [ %54, %.noexc6 ]
+  %indvars9 = trunc i64 %53 to i32
   %54 = add nuw nsw i64 %53, 1
   %55 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %53
   %56 = load float, ptr %55, align 4, !alias.scope !608, !noalias !605, !noundef !4
-  %57 = icmp eq i32 %indvars10, 0
+  %57 = icmp eq i32 %indvars9, 0
   br i1 %57, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i, label %58
 
 58:                                               ; preds = %52
@@ -3367,9 +3364,9 @@ _ZN10pdf_writer6object4Dict6insert17hbdd766f8807bb414E.llvm.9476733087058070434.
 
 _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.llvm.9476733087058070434.exit.i.i", %52
   invoke void @"_ZN53_$LT$f32$u20$as$u20$pdf_writer..object..Primitive$GT$5write17h9f0f42301bbc2773E.llvm.9476733087058070434"(float noundef %56, ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
-          to label %.noexc7 unwind label %.split.loop.exit
+          to label %.noexc6 unwind label %.split.loop.exit
 
-.noexc7:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
+.noexc6:                                          ; preds = %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i
   %.not.not.i.i = icmp eq i64 %54, 2
   br i1 %.not.not.i.i, label %69, label %52
 
@@ -3385,13 +3382,13 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
   br label %67
 
 67:                                               ; preds = %.split.loop.exit.split-lp, %.split.loop.exit
-  %68 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars10, %.split.loop.exit.split-lp ]
+  %68 = phi i32 [ %indvars.le, %.split.loop.exit ], [ %indvars9, %.split.loop.exit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.split.loop.exit, %.split.loop.exit ], [ %lpad.split.loop.exit.split-lp, %.split.loop.exit.split-lp ]
   store i32 %68, ptr %51, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #27
           to label %81 unwind label %79
 
-69:                                               ; preds = %.noexc7
+69:                                               ; preds = %.noexc6
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !605
   %70 = load i64, ptr %9, align 8, !alias.scope !617, !noalias !620, !noundef !4
   %71 = load i64, ptr %8, align 8, !alias.scope !617, !noalias !620, !noundef !4
@@ -3400,11 +3397,11 @@ _ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.947673308705807043
 
 73:                                               ; preds = %69
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hac19cc53fa7490beE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i64 noundef %70), !noalias !620
-  %.pre.i.i.i9 = load i64, ptr %9, align 8, !alias.scope !617, !noalias !620
+  %.pre.i.i.i8 = load i64, ptr %9, align 8, !alias.scope !617, !noalias !620
   br label %"_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit"
 
 "_ZN4core3ptr46drop_in_place$LT$pdf_writer..object..Array$GT$17h5fab74e1742e36b0E.llvm.9476733087058070434.exit": ; preds = %69, %73
-  %74 = phi i64 [ %.pre.i.i.i9, %73 ], [ %70, %69 ]
+  %74 = phi i64 [ %.pre.i.i.i8, %73 ], [ %70, %69 ]
   %75 = load ptr, ptr %15, align 8, !alias.scope !617, !noalias !620, !nonnull !4, !noundef !4
   %76 = getelementptr inbounds i8, ptr %75, i64 %74
   store i8 93, ptr %76, align 1, !noalias !620
@@ -7559,12 +7556,12 @@ _ZN9typst_pdf4page11PageContext20set_fill_color_space17h81f9b6661fe93260E.exit21
 
 168:                                              ; preds = %.noexc1.i, %154
   %169 = phi i8 [ 1, %154 ], [ 0, %.noexc1.i ]
-  %170 = phi i1 [ true, %154 ], [ false, %.noexc1.i ]
-  %171 = phi i64 [ 0, %154 ], [ %172, %.noexc1.i ]
-  %172 = add nuw nsw i64 %171, 1
-  %173 = getelementptr inbounds nuw float, ptr %5, i64 %171
+  %170 = phi i64 [ 0, %154 ], [ %172, %.noexc1.i ]
+  %171 = phi i1 [ true, %154 ], [ false, %.noexc1.i ]
+  %172 = add nuw nsw i64 %170, 1
+  %173 = getelementptr inbounds nuw float, ptr %5, i64 %170
   %174 = load float, ptr %173, align 4, !alias.scope !1336, !noalias !1331, !noundef !4
-  br i1 %170, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i.i, label %175
+  br i1 %171, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i.i, label %175
 
 175:                                              ; preds = %168
   %176 = load i64, ptr %166, align 8, !alias.scope !1339, !noalias !1342, !noundef !4
@@ -8099,12 +8096,12 @@ _ZN9typst_pdf4page11PageContext22set_stroke_color_space17h311e05e6ee1eed65E.exit
 
 168:                                              ; preds = %.noexc1.i, %154
   %169 = phi i8 [ 1, %154 ], [ 0, %.noexc1.i ]
-  %170 = phi i1 [ true, %154 ], [ false, %.noexc1.i ]
-  %171 = phi i64 [ 0, %154 ], [ %172, %.noexc1.i ]
-  %172 = add nuw nsw i64 %171, 1
-  %173 = getelementptr inbounds nuw float, ptr %5, i64 %171
+  %170 = phi i64 [ 0, %154 ], [ %172, %.noexc1.i ]
+  %171 = phi i1 [ true, %154 ], [ false, %.noexc1.i ]
+  %172 = add nuw nsw i64 %170, 1
+  %173 = getelementptr inbounds nuw float, ptr %5, i64 %170
   %174 = load float, ptr %173, align 4, !alias.scope !1492, !noalias !1487, !noundef !4
-  br i1 %170, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i.i, label %175
+  br i1 %171, label %_ZN10pdf_writer6object3Obj9primitive17h3e38424c45ca74c1E.llvm.9476733087058070434.exit.i.i.i, label %175
 
 175:                                              ; preds = %168
   %176 = load i64, ptr %166, align 8, !alias.scope !1495, !noalias !1498, !noundef !4

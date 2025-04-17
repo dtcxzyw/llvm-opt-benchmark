@@ -183,13 +183,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.124 = private unnamed_addr constant [117 x i8] c"RESERVATION: %s: Reservation slots overlap due reocurrings of the earlier reservation, once it becomes the later one\00", align 1
 @.str.125 = private unnamed_addr constant [69 x i8] c"%s: Reservation slot is the later one again, and it shouldn't happen\00", align 1
 @.str.126 = private unnamed_addr constant [78 x i8] c"RESERVATION: %s: Reservations overlap due recurrence of the later reservation\00", align 1
-@.str.127 = private unnamed_addr constant [53 x i8] c"%s: Reservation slot is NULL and it shouldn't happen\00", align 1
 @__func__._advance_slot_until = private unnamed_addr constant [20 x i8] c"_advance_slot_until\00", align 1
 @.str.128 = private unnamed_addr constant [74 x i8] c"%s: Reservation slot starts after the requested end this shouldn't happen\00", align 1
 @.str.129 = private unnamed_addr constant [90 x i8] c"%s: Number of reoccurrings for the reservation slot is negative and this shouldn't happen\00", align 1
 @.str.130 = private unnamed_addr constant [40 x i8] c"%s: Unknown recurring reservation flags\00", align 1
 @__func__._get_advance_secs = private unnamed_addr constant [18 x i8] c"_get_advance_secs\00", align 1
-@__func__._advance_slot = private unnamed_addr constant [14 x i8] c"_advance_slot\00", align 1
 @.str.131 = private unnamed_addr constant [64 x i8] c"%s: Too many reservations in the system, can't create any more.\00", align 1
 @__func__._generate_resv_id = private unnamed_addr constant [18 x i8] c"_generate_resv_id\00", align 1
 @.str.132 = private unnamed_addr constant [5 x i8] c"resv\00", align 1
@@ -14900,26 +14898,26 @@ define internal fastcc noundef zeroext i1 @_resv_time_overlap(ptr noundef readon
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %27, align 8
   %indvars.iv.sroa.phi.sroa.speculated.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep71 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep73 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep74 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep76 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep77 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep79 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep80 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep104 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep106 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep107 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep109 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep110 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep112 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.gep113 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %31
 
 30:                                               ; preds = %41
-  br i1 %.not46, label %31, label %.critedge, !llvm.loop !84
+  br i1 %.not97, label %31, label %.critedge, !llvm.loop !84
 
 31:                                               ; preds = %2, %30
-  %.not46 = phi i1 [ true, %2 ], [ false, %30 ]
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.phi = phi ptr [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep, %2 ], [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep71, %30 ]
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.phi72 = phi ptr [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep73, %2 ], [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep74, %30 ]
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.phi75 = phi ptr [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep76, %2 ], [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep77, %30 ]
-  %indvars.iv.sroa.phi.sroa.speculated.sroa.phi78 = phi ptr [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep79, %2 ], [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep80, %30 ]
+  %.not97 = phi i1 [ true, %2 ], [ false, %30 ]
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.phi = phi ptr [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep, %2 ], [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep104, %30 ]
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.phi105 = phi ptr [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep106, %2 ], [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep107, %30 ]
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.phi108 = phi ptr [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep109, %2 ], [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep110, %30 ]
+  %indvars.iv.sroa.phi.sroa.speculated.sroa.phi111 = phi ptr [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep112, %2 ], [ %indvars.iv.sroa.phi.sroa.speculated.sroa.gep113, %30 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %3, %2 ], [ %4, %30 ]
-  %32 = load i64, ptr %indvars.iv.sroa.phi.sroa.speculated.sroa.phi78, align 8
+  %32 = load i64, ptr %indvars.iv.sroa.phi.sroa.speculated.sroa.phi111, align 8
   %33 = and i64 %32, 131072
   %.not = icmp eq i64 %33, 0
   %.pre = load i64, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8
@@ -14928,7 +14926,7 @@ define internal fastcc noundef zeroext i1 @_resv_time_overlap(ptr noundef readon
 34:                                               ; preds = %31
   %35 = add nsw i64 %.pre, %5
   store i64 %35, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8
-  %36 = load i32, ptr %indvars.iv.sroa.phi.sroa.speculated.sroa.phi72, align 4
+  %36 = load i32, ptr %indvars.iv.sroa.phi.sroa.speculated.sroa.phi105, align 4
   switch i32 %36, label %37 [
     i32 -1, label %.sink.split
     i32 0, label %41
@@ -14941,359 +14939,349 @@ define internal fastcc noundef zeroext i1 @_resv_time_overlap(ptr noundef readon
   br label %.sink.split
 
 .sink.split:                                      ; preds = %34, %37
-  %.sink50 = phi i64 [ %39, %37 ], [ 31536000, %34 ]
-  %40 = add nsw i64 %35, %.sink50
+  %.sink101 = phi i64 [ %39, %37 ], [ 31536000, %34 ]
+  %40 = add nsw i64 %35, %.sink101
   store i64 %40, ptr %indvars.iv.sroa.phi.sroa.speculated.sroa.phi, align 8
   br label %41
 
 41:                                               ; preds = %.sink.split, %34, %34, %31
   %42 = phi i64 [ %35, %34 ], [ %35, %34 ], [ %.pre, %31 ], [ %35, %.sink.split ]
-  %43 = load i64, ptr %indvars.iv.sroa.phi.sroa.speculated.sroa.phi75, align 8
+  %43 = load i64, ptr %indvars.iv.sroa.phi.sroa.speculated.sroa.phi108, align 8
   %44 = icmp sgt i64 %42, %43
   br i1 %44, label %45, label %30
 
 45:                                               ; preds = %41
   %46 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.119, ptr noundef nonnull @__func__._resv_time_overlap) #19
-  br label %_slots_overlap.exit40
+  br label %_slots_overlap.exit68
 
 .critedge:                                        ; preds = %30
   %47 = load i64, ptr %20, align 8
   %48 = load i64, ptr %8, align 8
   %49 = icmp slt i64 %47, %48
-  %50 = tail call i64 @llvm.smax.i64(i64 %47, i64 %48)
-  %51 = select i1 %49, ptr %3, ptr %4
-  %52 = select i1 %49, ptr %4, ptr %3
-  %53 = load i64, ptr %52, align 8
-  %.sroa.sel.v = select i1 %49, ptr %3, ptr %4
-  %.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v, i64 8
-  %54 = icmp slt i64 %53, %50
-  br i1 %54, label %55, label %_slots_overlap.exit
+  br i1 %49, label %50, label %51
 
-55:                                               ; preds = %.critedge
-  %56 = load i64, ptr %51, align 8
-  %.sroa.sel64.v = select i1 %49, ptr %4, ptr %3
-  %.sroa.sel64 = getelementptr inbounds nuw i8, ptr %.sroa.sel64.v, i64 8
-  %57 = load i64, ptr %.sroa.sel64, align 8
-  %58 = icmp slt i64 %56, %57
-  br i1 %58, label %59, label %_slots_overlap.exit
+50:                                               ; preds = %.critedge
+  br label %51
 
-59:                                               ; preds = %55
-  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %61 = and i64 %60, 16384
-  %.not34 = icmp eq i64 %61, 0
-  br i1 %.not34, label %_slots_overlap.exit40, label %62
+51:                                               ; preds = %50, %.critedge
+  %52 = phi i64 [ %48, %50 ], [ %47, %.critedge ]
+  %.sroa.phi37 = phi ptr [ %15, %50 ], [ %27, %.critedge ]
+  %.sroa.phi40 = phi ptr [ %8, %50 ], [ %20, %.critedge ]
+  %53 = phi ptr [ %3, %50 ], [ %4, %.critedge ]
+  %.sroa.phi = phi ptr [ %27, %50 ], [ %15, %.critedge ]
+  %.sroa.phi25 = phi ptr [ %20, %50 ], [ %8, %.critedge ]
+  %54 = phi ptr [ %4, %50 ], [ %3, %.critedge ]
+  %55 = load i64, ptr %54, align 8
+  %56 = icmp slt i64 %55, %52
+  br i1 %56, label %57, label %_slots_overlap.exit
 
-62:                                               ; preds = %59
-  %63 = tail call i32 @get_log_level() #19
-  %64 = icmp sgt i32 %63, 3
-  br i1 %64, label %65, label %_slots_overlap.exit40
+57:                                               ; preds = %51
+  %58 = load i64, ptr %53, align 8
+  %59 = load i64, ptr %.sroa.phi25, align 8
+  %60 = icmp slt i64 %58, %59
+  br i1 %60, label %61, label %_slots_overlap.exit
 
-65:                                               ; preds = %62
+61:                                               ; preds = %57
+  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %63 = and i64 %62, 16384
+  %.not62 = icmp eq i64 %63, 0
+  br i1 %.not62, label %_slots_overlap.exit68, label %64
+
+64:                                               ; preds = %61
+  %65 = tail call i32 @get_log_level() #19
+  %66 = icmp sgt i32 %65, 3
+  br i1 %66, label %67, label %_slots_overlap.exit68
+
+67:                                               ; preds = %64
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.120, ptr noundef nonnull @__func__._resv_time_overlap) #19
-  br label %_slots_overlap.exit40
+  br label %_slots_overlap.exit68
 
-_slots_overlap.exit:                              ; preds = %55, %.critedge
-  %.sroa.sel67.v = select i1 %49, ptr %4, ptr %3
-  %.sroa.sel67 = getelementptr inbounds nuw i8, ptr %.sroa.sel67.v, i64 24
-  %66 = load i64, ptr %.sroa.sel67, align 8
-  %67 = and i64 %66, 34370224148
-  %.not29 = icmp eq i64 %67, 0
-  br i1 %.not29, label %_slots_overlap.exit40, label %68
+_slots_overlap.exit:                              ; preds = %57, %51
+  %68 = load i64, ptr %.sroa.phi, align 8
+  %69 = and i64 %68, 34370224148
+  %.not57 = icmp eq i64 %69, 0
+  br i1 %.not57, label %_slots_overlap.exit68, label %70
 
-68:                                               ; preds = %_slots_overlap.exit
-  call fastcc void @_advance_slot_until(ptr noundef nonnull %52, i64 noundef %50)
-  %.sroa.sel70.v = select i1 %49, ptr %4, ptr %3
-  %.sroa.sel70 = getelementptr inbounds nuw i8, ptr %.sroa.sel70.v, i64 8
-  %69 = load i64, ptr %.sroa.sel70, align 8
-  %70 = load i64, ptr %.sroa.sel, align 8
-  %71 = icmp sgt i64 %69, %70
-  br i1 %71, label %72, label %74
+70:                                               ; preds = %_slots_overlap.exit
+  call fastcc void @_advance_slot_until(ptr noundef %54, i64 noundef %52)
+  %71 = load i64, ptr %.sroa.phi25, align 8
+  %72 = load i64, ptr %.sroa.phi40, align 8
+  %73 = icmp sgt i64 %71, %72
+  br i1 %73, label %74, label %76
 
-72:                                               ; preds = %68
-  %73 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.121, ptr noundef nonnull @__func__._resv_time_overlap) #19
-  br label %_slots_overlap.exit40
+74:                                               ; preds = %70
+  %75 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.121, ptr noundef nonnull @__func__._resv_time_overlap) #19
+  br label %_slots_overlap.exit68
 
-74:                                               ; preds = %68
-  %75 = load i64, ptr %52, align 8
-  %76 = icmp slt i64 %75, %70
-  %77 = load i64, ptr %51, align 8
-  %78 = icmp slt i64 %77, %69
-  %or.cond = select i1 %76, i1 %78, i1 false
-  br i1 %or.cond, label %79, label %_slots_overlap.exit36
+76:                                               ; preds = %70
+  %77 = load i64, ptr %54, align 8
+  %78 = icmp slt i64 %77, %72
+  br i1 %78, label %79, label %_slots_overlap.exit64
 
-79:                                               ; preds = %74
-  %80 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %81 = and i64 %80, 16384
-  %.not33 = icmp eq i64 %81, 0
-  br i1 %.not33, label %_slots_overlap.exit40, label %82
+79:                                               ; preds = %76
+  %80 = load i64, ptr %53, align 8
+  %81 = icmp slt i64 %80, %71
+  br i1 %81, label %82, label %_slots_overlap.exit64
 
 82:                                               ; preds = %79
-  %83 = call i32 @get_log_level() #19
-  %84 = icmp sgt i32 %83, 3
-  br i1 %84, label %85, label %_slots_overlap.exit40
+  %83 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %84 = and i64 %83, 16384
+  %.not61 = icmp eq i64 %84, 0
+  br i1 %.not61, label %_slots_overlap.exit68, label %85
 
 85:                                               ; preds = %82
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.122, ptr noundef nonnull @__func__._resv_time_overlap) #19
-  br label %_slots_overlap.exit40
+  %86 = tail call i32 @get_log_level() #19
+  %87 = icmp sgt i32 %86, 3
+  br i1 %87, label %88, label %_slots_overlap.exit68
 
-_slots_overlap.exit36:                            ; preds = %74
-  call fastcc void @_advance_slot(ptr noundef nonnull %52)
-  %86 = load i64, ptr %.sroa.sel70, align 8
-  %87 = load i64, ptr %.sroa.sel, align 8
-  %88 = icmp slt i64 %86, %87
-  br i1 %88, label %89, label %91
+88:                                               ; preds = %85
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.122, ptr noundef nonnull @__func__._resv_time_overlap) #19
+  br label %_slots_overlap.exit68
 
-89:                                               ; preds = %_slots_overlap.exit36
-  %90 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.123, ptr noundef nonnull @__func__._resv_time_overlap) #19
-  br label %_slots_overlap.exit40
+_slots_overlap.exit64:                            ; preds = %79, %76
+  call fastcc void @_advance_slot(ptr noundef %54)
+  %89 = load i64, ptr %.sroa.phi25, align 8
+  %90 = load i64, ptr %.sroa.phi40, align 8
+  %91 = icmp slt i64 %89, %90
+  br i1 %91, label %92, label %94
 
-91:                                               ; preds = %_slots_overlap.exit36
-  %92 = load i64, ptr %52, align 8
-  %93 = icmp slt i64 %92, %87
-  %94 = load i64, ptr %51, align 8
-  %95 = icmp slt i64 %94, %86
-  %or.cond53 = select i1 %93, i1 %95, i1 false
-  br i1 %or.cond53, label %96, label %_slots_overlap.exit38
+92:                                               ; preds = %_slots_overlap.exit64
+  %93 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.123, ptr noundef nonnull @__func__._resv_time_overlap) #19
+  br label %_slots_overlap.exit68
 
-96:                                               ; preds = %91
-  %97 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %98 = and i64 %97, 16384
-  %.not32 = icmp eq i64 %98, 0
-  br i1 %.not32, label %_slots_overlap.exit40, label %99
+94:                                               ; preds = %_slots_overlap.exit64
+  %95 = load i64, ptr %54, align 8
+  %96 = icmp slt i64 %95, %90
+  br i1 %96, label %97, label %_slots_overlap.exit66
 
-99:                                               ; preds = %96
-  %100 = call i32 @get_log_level() #19
-  %101 = icmp sgt i32 %100, 3
-  br i1 %101, label %102, label %_slots_overlap.exit40
+97:                                               ; preds = %94
+  %98 = load i64, ptr %53, align 8
+  %99 = icmp slt i64 %98, %89
+  br i1 %99, label %100, label %_slots_overlap.exit66
 
-102:                                              ; preds = %99
+100:                                              ; preds = %97
+  %101 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %102 = and i64 %101, 16384
+  %.not60 = icmp eq i64 %102, 0
+  br i1 %.not60, label %_slots_overlap.exit68, label %103
+
+103:                                              ; preds = %100
+  %104 = call i32 @get_log_level() #19
+  %105 = icmp sgt i32 %104, 3
+  br i1 %105, label %106, label %_slots_overlap.exit68
+
+106:                                              ; preds = %103
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.124, ptr noundef nonnull @__func__._resv_time_overlap) #19
-  br label %_slots_overlap.exit40
+  br label %_slots_overlap.exit68
 
-_slots_overlap.exit38:                            ; preds = %91
-  %.sroa.sel61.v = select i1 %49, ptr %3, ptr %4
-  %.sroa.sel61 = getelementptr inbounds nuw i8, ptr %.sroa.sel61.v, i64 24
-  %103 = load i64, ptr %.sroa.sel61, align 8
-  %104 = and i64 %103, 34370224148
-  %.not30 = icmp eq i64 %104, 0
-  br i1 %.not30, label %_slots_overlap.exit40, label %105
+_slots_overlap.exit66:                            ; preds = %97, %94
+  %107 = load i64, ptr %.sroa.phi37, align 8
+  %108 = and i64 %107, 34370224148
+  %.not58 = icmp eq i64 %108, 0
+  br i1 %.not58, label %_slots_overlap.exit68, label %109
 
-105:                                              ; preds = %_slots_overlap.exit38
-  call fastcc void @_advance_slot_until(ptr noundef nonnull %51, i64 noundef %86)
-  %106 = load i64, ptr %.sroa.sel, align 8
-  %107 = load i64, ptr %.sroa.sel70, align 8
-  %108 = icmp sgt i64 %106, %107
-  br i1 %108, label %109, label %111
+109:                                              ; preds = %_slots_overlap.exit66
+  call fastcc void @_advance_slot_until(ptr noundef %53, i64 noundef %89)
+  %110 = load i64, ptr %.sroa.phi40, align 8
+  %111 = load i64, ptr %.sroa.phi25, align 8
+  %112 = icmp sgt i64 %110, %111
+  br i1 %112, label %113, label %115
 
-109:                                              ; preds = %105
-  %110 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.125, ptr noundef nonnull @__func__._resv_time_overlap) #19
-  br label %_slots_overlap.exit40
+113:                                              ; preds = %109
+  %114 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.125, ptr noundef nonnull @__func__._resv_time_overlap) #19
+  br label %_slots_overlap.exit68
 
-111:                                              ; preds = %105
-  %112 = load i64, ptr %52, align 8
-  %113 = icmp slt i64 %112, %106
-  %114 = load i64, ptr %51, align 8
-  %115 = icmp slt i64 %114, %107
-  %or.cond55 = select i1 %113, i1 %115, i1 false
-  br i1 %or.cond55, label %116, label %_slots_overlap.exit40
+115:                                              ; preds = %109
+  %116 = load i64, ptr %54, align 8
+  %117 = icmp slt i64 %116, %110
+  br i1 %117, label %118, label %_slots_overlap.exit68
 
-116:                                              ; preds = %111
-  %117 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %118 = and i64 %117, 16384
-  %.not31 = icmp eq i64 %118, 0
-  br i1 %.not31, label %_slots_overlap.exit40, label %119
+118:                                              ; preds = %115
+  %119 = load i64, ptr %53, align 8
+  %120 = icmp slt i64 %119, %111
+  br i1 %120, label %121, label %_slots_overlap.exit68
 
-119:                                              ; preds = %116
-  %120 = call i32 @get_log_level() #19
-  %121 = icmp sgt i32 %120, 3
-  br i1 %121, label %122, label %_slots_overlap.exit40
+121:                                              ; preds = %118
+  %122 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %123 = and i64 %122, 16384
+  %.not59 = icmp eq i64 %123, 0
+  br i1 %.not59, label %_slots_overlap.exit68, label %124
 
-122:                                              ; preds = %119
+124:                                              ; preds = %121
+  %125 = call i32 @get_log_level() #19
+  %126 = icmp sgt i32 %125, 3
+  br i1 %126, label %127, label %_slots_overlap.exit68
+
+127:                                              ; preds = %124
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.126, ptr noundef nonnull @__func__._resv_time_overlap) #19
-  br label %_slots_overlap.exit40
+  br label %_slots_overlap.exit68
 
-_slots_overlap.exit40:                            ; preds = %111, %45, %_slots_overlap.exit, %_slots_overlap.exit38, %116, %122, %119, %96, %102, %99, %79, %85, %82, %59, %65, %62, %109, %89, %72
-  %.1 = phi i1 [ true, %72 ], [ true, %89 ], [ true, %109 ], [ true, %45 ], [ true, %62 ], [ true, %65 ], [ true, %59 ], [ true, %82 ], [ true, %85 ], [ true, %79 ], [ true, %99 ], [ true, %102 ], [ true, %96 ], [ true, %119 ], [ true, %122 ], [ true, %116 ], [ false, %_slots_overlap.exit38 ], [ false, %_slots_overlap.exit ], [ false, %111 ]
+_slots_overlap.exit68:                            ; preds = %118, %115, %45, %_slots_overlap.exit, %_slots_overlap.exit66, %121, %127, %124, %100, %106, %103, %82, %88, %85, %61, %67, %64, %113, %92, %74
+  %.1 = phi i1 [ true, %74 ], [ true, %92 ], [ true, %113 ], [ true, %45 ], [ true, %64 ], [ true, %67 ], [ true, %61 ], [ true, %85 ], [ true, %88 ], [ true, %82 ], [ true, %103 ], [ true, %106 ], [ true, %100 ], [ true, %124 ], [ true, %127 ], [ true, %121 ], [ false, %_slots_overlap.exit66 ], [ false, %_slots_overlap.exit ], [ false, %115 ], [ false, %118 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
   ret i1 %.1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_advance_slot_until(ptr noundef captures(address_is_null) %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_advance_slot_until(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.constraint_slot, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %4, label %6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = load i64, ptr %4, align 8
+  %6 = and i64 %5, 34370224148
+  %.not = icmp eq i64 %6, 0
+  br i1 %.not, label %.loopexit, label %7
 
-4:                                                ; preds = %2
-  %5 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.127, ptr noundef nonnull @__func__._advance_slot_until) #19
+7:                                                ; preds = %2
+  %8 = load i64, ptr %0, align 8
+  %9 = icmp sgt i64 %8, %1
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %7
+  %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.128, ptr noundef nonnull @__func__._advance_slot_until) #19
   br label %.loopexit
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i64, ptr %7, align 8
-  %9 = and i64 %8, 34370224148
-  %.not20 = icmp eq i64 %9, 0
-  br i1 %.not20, label %.loopexit, label %10
+12:                                               ; preds = %7
+  %13 = and i64 %5, 10485760
+  %.not20 = icmp eq i64 %13, 0
+  br i1 %.not20, label %19, label %14
 
-10:                                               ; preds = %6
-  %11 = load i64, ptr %0, align 8
-  %12 = icmp sgt i64 %11, %1
-  br i1 %12, label %13, label %15
-
-13:                                               ; preds = %10
-  %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.128, ptr noundef nonnull @__func__._advance_slot_until) #19
-  br label %.loopexit
-
-15:                                               ; preds = %10
-  %16 = and i64 %8, 10485760
-  %.not21 = icmp eq i64 %16, 0
-  br i1 %.not21, label %22, label %17
-
-17:                                               ; preds = %15
+14:                                               ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %18 = load i64, ptr %3, align 8
-  %19 = icmp slt i64 %18, %1
-  br i1 %19, label %.lr.ph, label %.loopexit
+  %15 = load i64, ptr %3, align 8
+  %16 = icmp slt i64 %15, %1
+  br i1 %16, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %17, %.lr.ph
+.lr.ph:                                           ; preds = %14, %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  call fastcc void @_advance_slot(ptr noundef nonnull %3)
-  %20 = load i64, ptr %3, align 8
-  %21 = icmp slt i64 %20, %1
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !85
+  call fastcc void @_advance_slot(ptr noundef %3)
+  %17 = load i64, ptr %3, align 8
+  %18 = icmp slt i64 %17, %1
+  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !85
 
-22:                                               ; preds = %15
-  %23 = and i64 %8, 16
-  %.not12.i = icmp eq i64 %23, 0
-  br i1 %.not12.i, label %24, label %29
+19:                                               ; preds = %12
+  %20 = and i64 %5, 16
+  %.not12.i = icmp eq i64 %20, 0
+  br i1 %.not12.i, label %21, label %26
 
-24:                                               ; preds = %22
-  %25 = and i64 %8, 4
-  %.not13.i = icmp eq i64 %25, 0
-  br i1 %.not13.i, label %26, label %29
+21:                                               ; preds = %19
+  %22 = and i64 %5, 4
+  %.not13.i = icmp eq i64 %22, 0
+  br i1 %.not13.i, label %23, label %26
 
-26:                                               ; preds = %24
-  %27 = and i64 %8, 34359738368
-  %.not14.i = icmp eq i64 %27, 0
-  br i1 %.not14.i, label %_get_advance_secs.exit, label %29
+23:                                               ; preds = %21
+  %24 = and i64 %5, 34359738368
+  %.not14.i = icmp eq i64 %24, 0
+  br i1 %.not14.i, label %_get_advance_secs.exit, label %26
 
-_get_advance_secs.exit:                           ; preds = %26
-  %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.130, ptr noundef nonnull @__func__._get_advance_secs) #19
+_get_advance_secs.exit:                           ; preds = %23
+  %25 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.130, ptr noundef nonnull @__func__._get_advance_secs) #19
   br label %.loopexit
 
-29:                                               ; preds = %22, %24, %26
-  %.08.i.ph = phi i64 [ 3600, %26 ], [ 86400, %24 ], [ 604800, %22 ]
-  %30 = xor i64 %11, -1
-  %31 = add i64 %1, %30
-  %32 = sdiv i64 %31, %.08.i.ph
-  %sext = shl i64 %32, 32
-  %33 = ashr exact i64 %sext, 32
-  %34 = mul nsw i64 %33, %.08.i.ph
-  %35 = add nsw i64 %34, %11
-  store i64 %35, ptr %0, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i64, ptr %36, align 8
-  %38 = add nsw i64 %34, %37
-  store i64 %38, ptr %36, align 8
-  %39 = and i64 %32, 2147483648
-  %.not22 = icmp eq i64 %39, 0
-  br i1 %.not22, label %.loopexit, label %40
+26:                                               ; preds = %19, %21, %23
+  %.08.i.ph = phi i64 [ 3600, %23 ], [ 86400, %21 ], [ 604800, %19 ]
+  %27 = xor i64 %8, -1
+  %28 = add i64 %1, %27
+  %29 = sdiv i64 %28, %.08.i.ph
+  %sext = shl i64 %29, 32
+  %30 = ashr exact i64 %sext, 32
+  %31 = mul nsw i64 %30, %.08.i.ph
+  %32 = add nsw i64 %31, %8
+  store i64 %32, ptr %0, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load i64, ptr %33, align 8
+  %35 = add nsw i64 %31, %34
+  store i64 %35, ptr %33, align 8
+  %36 = and i64 %29, 2147483648
+  %.not21 = icmp eq i64 %36, 0
+  br i1 %.not21, label %.loopexit, label %37
 
-40:                                               ; preds = %29
-  %41 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.129, ptr noundef nonnull @__func__._advance_slot_until) #19
+37:                                               ; preds = %26
+  %38 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.129, ptr noundef nonnull @__func__._advance_slot_until) #19
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %17, %_get_advance_secs.exit, %40, %29, %6, %13, %4
+.loopexit:                                        ; preds = %.lr.ph, %14, %_get_advance_secs.exit, %37, %26, %2, %10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #19
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_advance_slot(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_advance_slot(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %3, label %5
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = load i64, ptr %3, align 8
+  %5 = and i64 %4, 34370224148
+  %.not = icmp eq i64 %5, 0
+  br i1 %.not, label %36, label %6
 
-3:                                                ; preds = %1
-  %4 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.127, ptr noundef nonnull @__func__._advance_slot) #19
-  br label %39
-
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8
-  %8 = and i64 %7, 34370224148
-  %.not7 = icmp eq i64 %8, 0
-  br i1 %.not7, label %39, label %9
-
-9:                                                ; preds = %5
+6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #19
-  %10 = and i64 %7, 2097152
-  %.not.i = icmp eq i64 %10, 0
-  br i1 %.not.i, label %15, label %11
+  %7 = and i64 %4, 2097152
+  %.not.i = icmp eq i64 %7, 0
+  br i1 %.not.i, label %12, label %8
 
-11:                                               ; preds = %9
-  %12 = call ptr @localtime_r(ptr noundef nonnull %0, ptr noundef nonnull %2) #19
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %14 = load i32, ptr %13, align 8
-  %switch.selectcmp.i = icmp eq i32 %14, 6
+8:                                                ; preds = %6
+  %9 = call ptr @localtime_r(ptr noundef nonnull %0, ptr noundef nonnull %2) #19
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %11 = load i32, ptr %10, align 8
+  %switch.selectcmp.i = icmp eq i32 %11, 6
   %switch.select.i = select i1 %switch.selectcmp.i, i64 172800, i64 86400
-  %switch.selectcmp15.i = icmp eq i32 %14, 5
+  %switch.selectcmp15.i = icmp eq i32 %11, 5
   %switch.select16.i = select i1 %switch.selectcmp15.i, i64 259200, i64 %switch.select.i
-  br label %33
+  br label %30
 
-15:                                               ; preds = %9
-  %16 = and i64 %7, 8388608
-  %.not11.i = icmp eq i64 %16, 0
-  br i1 %.not11.i, label %26, label %17
+12:                                               ; preds = %6
+  %13 = and i64 %4, 8388608
+  %.not11.i = icmp eq i64 %13, 0
+  br i1 %.not11.i, label %23, label %14
 
-17:                                               ; preds = %15
-  %18 = call ptr @localtime_r(ptr noundef nonnull %0, ptr noundef nonnull %2) #19
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %20, 6
-  br i1 %21, label %33, label %22
+14:                                               ; preds = %12
+  %15 = call ptr @localtime_r(ptr noundef nonnull %0, ptr noundef nonnull %2) #19
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp eq i32 %17, 6
+  br i1 %18, label %30, label %19
 
-22:                                               ; preds = %17
-  %23 = sub nsw i32 6, %20
-  %24 = mul nsw i32 %23, 86400
-  %25 = sext i32 %24 to i64
-  br label %33
+19:                                               ; preds = %14
+  %20 = sub nsw i32 6, %17
+  %21 = mul nsw i32 %20, 86400
+  %22 = sext i32 %21 to i64
+  br label %30
 
-26:                                               ; preds = %15
-  %27 = and i64 %7, 16
-  %.not12.i = icmp eq i64 %27, 0
-  br i1 %.not12.i, label %28, label %33
+23:                                               ; preds = %12
+  %24 = and i64 %4, 16
+  %.not12.i = icmp eq i64 %24, 0
+  br i1 %.not12.i, label %25, label %30
 
-28:                                               ; preds = %26
-  %29 = and i64 %7, 4
-  %.not13.i = icmp eq i64 %29, 0
-  br i1 %.not13.i, label %30, label %33
+25:                                               ; preds = %23
+  %26 = and i64 %4, 4
+  %.not13.i = icmp eq i64 %26, 0
+  br i1 %.not13.i, label %27, label %30
 
-30:                                               ; preds = %28
-  %31 = and i64 %7, 34359738368
-  %.not14.i = icmp eq i64 %31, 0
-  br i1 %.not14.i, label %_get_advance_secs.exit, label %33
+27:                                               ; preds = %25
+  %28 = and i64 %4, 34359738368
+  %.not14.i = icmp eq i64 %28, 0
+  br i1 %.not14.i, label %_get_advance_secs.exit, label %30
 
-_get_advance_secs.exit:                           ; preds = %30
-  %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.130, ptr noundef nonnull @__func__._get_advance_secs) #19
+_get_advance_secs.exit:                           ; preds = %27
+  %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.130, ptr noundef nonnull @__func__._get_advance_secs) #19
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #19
-  br label %39
+  br label %36
 
-33:                                               ; preds = %22, %17, %26, %28, %30, %11
-  %.08.i.ph = phi i64 [ %switch.select16.i, %11 ], [ 3600, %30 ], [ 86400, %28 ], [ 604800, %26 ], [ 86400, %17 ], [ %25, %22 ]
+30:                                               ; preds = %19, %14, %23, %25, %27, %8
+  %.08.i.ph = phi i64 [ %switch.select16.i, %8 ], [ 3600, %27 ], [ 86400, %25 ], [ 604800, %23 ], [ 86400, %14 ], [ %22, %19 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #19
-  %34 = load i64, ptr %0, align 8
+  %31 = load i64, ptr %0, align 8
+  %32 = add nsw i64 %31, %.08.i.ph
+  store i64 %32, ptr %0, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load i64, ptr %33, align 8
   %35 = add nsw i64 %34, %.08.i.ph
-  store i64 %35, ptr %0, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i64, ptr %36, align 8
-  %38 = add nsw i64 %37, %.08.i.ph
-  store i64 %38, ptr %36, align 8
-  br label %39
+  store i64 %35, ptr %33, align 8
+  br label %36
 
-39:                                               ; preds = %_get_advance_secs.exit, %5, %33, %3
+36:                                               ; preds = %_get_advance_secs.exit, %1, %30
   ret void
 }
 
@@ -18840,13 +18828,13 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #18

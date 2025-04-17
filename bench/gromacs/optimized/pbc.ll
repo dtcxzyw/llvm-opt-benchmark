@@ -4981,7 +4981,7 @@ _Z15calc_box_centeriPA3_KfPf.exit:                ; preds = %.preheader22.i, %16
   %65 = ptrtoint ptr %2 to i64
   %66 = sub i64 %64, %65
   %67 = icmp sgt i64 %66, 0
-  br i1 %67, label %.preheader71.preheader, label %._crit_edge93
+  br i1 %67, label %.preheader71.preheader, label %._crit_edge94
 
 .preheader71.preheader:                           ; preds = %52
   %68 = udiv exact i64 %66, 12
@@ -4989,24 +4989,24 @@ _Z15calc_box_centeriPA3_KfPf.exit:                ; preds = %.preheader22.i, %16
   br label %.preheader71
 
 .preheader71:                                     ; preds = %.preheader71.preheader, %112
-  %.092 = phi i64 [ %113, %112 ], [ 0, %.preheader71.preheader ]
-  %70 = getelementptr inbounds nuw %"class.gmx::BasicVector.6", ptr %2, i64 %.092
-  %71 = getelementptr inbounds nuw %"class.gmx::BasicVector.6", ptr %2, i64 %.092, i32 0, i64 2
+  %.093 = phi i64 [ %113, %112 ], [ 0, %.preheader71.preheader ]
+  %70 = getelementptr inbounds nuw %"class.gmx::BasicVector.6", ptr %2, i64 %.093
+  %71 = getelementptr inbounds nuw %"class.gmx::BasicVector.6", ptr %2, i64 %.093, i32 0, i64 2
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   br label %74
 
-._crit_edge93:                                    ; preds = %112, %52
+._crit_edge94:                                    ; preds = %112, %52
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #20
   ret void
 
 74:                                               ; preds = %.preheader71, %._crit_edge
-  %indvars.iv111 = phi i64 [ 2, %.preheader71 ], [ %indvars.iv.next112, %._crit_edge ]
-  %indvars.iv109 = phi i64 [ 3, %.preheader71 ], [ %indvars.iv.next110, %._crit_edge ]
-  %75 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv111
+  %indvars.iv112 = phi i64 [ 2, %.preheader71 ], [ %indvars.iv.next113, %._crit_edge ]
+  %indvars.iv110 = phi i64 [ 3, %.preheader71 ], [ %indvars.iv.next111, %._crit_edge ]
+  %75 = getelementptr inbounds nuw [3 x float], ptr %7, i64 0, i64 %indvars.iv112
   %76 = load float, ptr %75, align 4, !tbaa !21
-  %77 = trunc nuw nsw i64 %indvars.iv111 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv112 to i32
   switch i32 %77, label %87 [
     i32 0, label %78
     i32 1, label %84
@@ -5027,7 +5027,7 @@ _Z15calc_box_centeriPA3_KfPf.exit:                ; preds = %.preheader22.i, %16
 
 87:                                               ; preds = %74, %84, %78
   %.060 = phi float [ %83, %78 ], [ %86, %84 ], [ %76, %74 ]
-  %88 = getelementptr inbounds nuw [3 x float], ptr %70, i64 0, i64 %indvars.iv111
+  %88 = getelementptr inbounds nuw [3 x float], ptr %70, i64 0, i64 %indvars.iv112
   %89 = load float, ptr %88, align 4, !tbaa !21
   %90 = fcmp olt float %89, %.060
   br i1 %90, label %.preheader68, label %.preheader70
@@ -5039,26 +5039,26 @@ _Z15calc_box_centeriPA3_KfPf.exit:                ; preds = %.preheader22.i, %16
 
 .preheader70:                                     ; preds = %..loopexit69_crit_edge, %87
   %93 = phi float [ %89, %87 ], [ %91, %..loopexit69_crit_edge ]
-  %94 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv111, i64 %indvars.iv111
+  %94 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv112, i64 %indvars.iv112
   %95 = fsub float %93, %.060
   %96 = load float, ptr %94, align 4, !tbaa !21
   %97 = fcmp ult float %95, %96
   br i1 %97, label %._crit_edge, label %.preheader
 
 .preheader68:                                     ; preds = %87, %.preheader68.backedge
-  %indvars.iv98 = phi i64 [ %indvars.iv98.be, %.preheader68.backedge ], [ 0, %87 ]
-  %98 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv111, i64 %indvars.iv98
+  %indvars.iv99 = phi i64 [ %indvars.iv99.be, %.preheader68.backedge ], [ 0, %87 ]
+  %98 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv112, i64 %indvars.iv99
   %99 = load float, ptr %98, align 4, !tbaa !21
-  %100 = getelementptr inbounds nuw [3 x float], ptr %70, i64 0, i64 %indvars.iv98
+  %100 = getelementptr inbounds nuw [3 x float], ptr %70, i64 0, i64 %indvars.iv99
   %101 = load float, ptr %100, align 4, !tbaa !21
   %102 = fadd float %99, %101
   store float %102, ptr %100, align 4, !tbaa !21
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %exitcond103.not = icmp eq i64 %indvars.iv.next99, %indvars.iv109
-  br i1 %exitcond103.not, label %..loopexit69_crit_edge, label %.preheader68.backedge
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %exitcond104.not = icmp eq i64 %indvars.iv.next100, %indvars.iv110
+  br i1 %exitcond104.not, label %..loopexit69_crit_edge, label %.preheader68.backedge
 
 .preheader68.backedge:                            ; preds = %.preheader68, %..loopexit69_crit_edge
-  %indvars.iv98.be = phi i64 [ %indvars.iv.next99, %.preheader68 ], [ 0, %..loopexit69_crit_edge ]
+  %indvars.iv99.be = phi i64 [ %indvars.iv.next100, %.preheader68 ], [ 0, %..loopexit69_crit_edge ]
   br label %.preheader68, !llvm.loop !146
 
 ..loopexit_crit_edge:                             ; preds = %.preheader
@@ -5069,31 +5069,31 @@ _Z15calc_box_centeriPA3_KfPf.exit:                ; preds = %.preheader22.i, %16
   br i1 %106, label %._crit_edge, label %.preheader.backedge
 
 .preheader:                                       ; preds = %.preheader70, %.preheader.backedge
-  %indvars.iv104 = phi i64 [ %indvars.iv104.be, %.preheader.backedge ], [ 0, %.preheader70 ]
-  %107 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv111, i64 %indvars.iv104
+  %indvars.iv105 = phi i64 [ %indvars.iv105.be, %.preheader.backedge ], [ 0, %.preheader70 ]
+  %107 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv112, i64 %indvars.iv105
   %108 = load float, ptr %107, align 4, !tbaa !21
-  %109 = getelementptr inbounds nuw [3 x float], ptr %70, i64 0, i64 %indvars.iv104
+  %109 = getelementptr inbounds nuw [3 x float], ptr %70, i64 0, i64 %indvars.iv105
   %110 = load float, ptr %109, align 4, !tbaa !21
   %111 = fsub float %110, %108
   store float %111, ptr %109, align 4, !tbaa !21
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next105, %indvars.iv109
-  br i1 %exitcond108.not, label %..loopexit_crit_edge, label %.preheader.backedge
+  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
+  %exitcond109.not = icmp eq i64 %indvars.iv.next106, %indvars.iv110
+  br i1 %exitcond109.not, label %..loopexit_crit_edge, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %.preheader, %..loopexit_crit_edge
-  %indvars.iv104.be = phi i64 [ %indvars.iv.next105, %.preheader ], [ 0, %..loopexit_crit_edge ]
+  %indvars.iv105.be = phi i64 [ %indvars.iv.next106, %.preheader ], [ 0, %..loopexit_crit_edge ]
   br label %.preheader, !llvm.loop !147
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge, %.preheader70
-  %indvars.iv.next112 = add nsw i64 %indvars.iv111, -1
-  %.not = icmp eq i64 %indvars.iv111, 0
-  %indvars.iv.next110 = add nsw i64 %indvars.iv109, -1
+  %indvars.iv.next113 = add nsw i64 %indvars.iv112, -1
+  %.not = icmp eq i64 %indvars.iv112, 0
+  %indvars.iv.next111 = add nsw i64 %indvars.iv110, -1
   br i1 %.not, label %112, label %74, !llvm.loop !148
 
 112:                                              ; preds = %._crit_edge
-  %113 = add nuw nsw i64 %.092, 1
-  %exitcond116.not = icmp eq i64 %113, %69
-  br i1 %exitcond116.not, label %._crit_edge93, label %.preheader71, !llvm.loop !149
+  %113 = add nuw nsw i64 %.093, 1
+  %exitcond117.not = icmp eq i64 %113, %69
+  br i1 %exitcond117.not, label %._crit_edge94, label %.preheader71, !llvm.loop !149
 }
 
 ; Function Attrs: mustprogress uwtable

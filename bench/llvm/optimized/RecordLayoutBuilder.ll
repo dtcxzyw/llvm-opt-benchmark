@@ -15648,10 +15648,8 @@ _ZNK5clang4Decl7hasAttrINS_10PackedAttrEEEbv.exit.i: ; preds = %_ZN5clang15hasSp
   br i1 %.not33.i307.i, label %.critedge.i.i, label %.lr.ph.i.preheader.preheader
 
 .lr.ph.i.preheader.preheader:                     ; preds = %143
-  %.0.ptr.i.i529 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %158 = load ptr, ptr %0, align 8, !tbaa !611
-  %.sroa.014.0.copyload.i.i530 = load i64, ptr %.0.ptr.i.i529, align 8, !tbaa !386
-  %159 = and i64 %.sroa.014.0.copyload.i.i530, -16
+  %159 = and i64 %.sroa.0.0.copyload.i41.i.i, -16
   %160 = inttoptr i64 %159 to ptr
   %161 = load ptr, ptr %160, align 16, !tbaa !387
   %162 = tail call { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %158, ptr noundef %161) #19
@@ -15660,7 +15658,7 @@ _ZNK5clang4Decl7hasAttrINS_10PackedAttrEEEbv.exit.i: ; preds = %_ZN5clang15hasSp
   br i1 %.not33.i.i531, label %.critedge.i.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader.preheader, %.lr.ph.i.preheader
-  %.sroa.014.0.copyload.i.i533 = phi i64 [ %.sroa.014.0.copyload.i.i, %.lr.ph.i.preheader ], [ %.sroa.014.0.copyload.i.i530, %.lr.ph.i.preheader.preheader ]
+  %.sroa.014.0.copyload.i.i533 = phi i64 [ %.sroa.014.0.copyload.i.i, %.lr.ph.i.preheader ], [ %.sroa.0.0.copyload.i41.i.i, %.lr.ph.i.preheader.preheader ]
   %.0.add.i.i491532 = phi i64 [ %.0.add.i.i, %.lr.ph.i.preheader ], [ 8, %.lr.ph.i.preheader.preheader ]
   %.0.add.i.i = add nuw nsw i64 %.0.add.i.i491532, 8
   %.not.i147.i = icmp eq i64 %.0.add.i.i, 40

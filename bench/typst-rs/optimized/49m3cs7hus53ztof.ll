@@ -60608,8 +60608,8 @@ define internal fastcc void @"_ZN103_$LT$typst..foundations..selector..Locatable
     i64 4, label %35
     i64 5, label %82
     i64 6, label %82
-    i64 7, label %.lr.ph.preheader
-    i64 8, label %.lr.ph.preheader
+    i64 7, label %93
+    i64 8, label %93
   ]
 
 20:                                               ; preds = %2
@@ -60625,7 +60625,7 @@ define internal fastcc void @"_ZN103_$LT$typst..foundations..selector..Locatable
   %28 = icmp eq i64 %27, 1
   br i1 %28, label %.loopexit, label %46
 
-.loopexit:                                        ; preds = %87, %82, %21, %._crit_edge, %2, %2
+.loopexit:                                        ; preds = %87, %82, %21, %94, %2, %2
   store i64 0, ptr %0, align 8
   br label %61
 
@@ -60730,7 +60730,7 @@ define internal fastcc void @"_ZN103_$LT$typst..foundations..selector..Locatable
   store i64 1, ptr %0, align 8
   br label %61
 
-61:                                               ; preds = %101, %90, %80, %71, %59, %.loopexit
+61:                                               ; preds = %104, %90, %80, %71, %59, %.loopexit
   ret void
 
 62:                                               ; preds = %77, %68, %45
@@ -60816,23 +60816,23 @@ define internal fastcc void @"_ZN103_$LT$typst..foundations..selector..Locatable
   %.050.val68 = load i64, ptr %83, align 16, !noundef !16
   %84 = getelementptr inbounds { i64, [7 x i64] }, ptr %.050.val, i64 %.050.val68
   %85 = icmp eq i64 %.050.val68, 0
-  br i1 %85, label %.loopexit, label %.lr.ph84
+  br i1 %85, label %.loopexit, label %.lr.ph
 
-.lr.ph84:                                         ; preds = %82, %87
-  %.sroa.0.082 = phi ptr [ %88, %87 ], [ %.050.val, %82 ]
+.lr.ph:                                           ; preds = %82, %87
+  %.sroa.0.081 = phi ptr [ %88, %87 ], [ %.050.val, %82 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call fastcc void @"_ZN103_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value8validate17hb7887d9d13cdf0a3E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef readonly align 16 dereferenceable(64) %.sroa.0.082)
+  call fastcc void @"_ZN103_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value8validate17hb7887d9d13cdf0a3E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef readonly align 16 dereferenceable(64) %.sroa.0.081)
   %86 = load i64, ptr %6, align 8, !range !401, !noundef !16
   %trunc53 = trunc nuw i64 %86 to i1
   br i1 %trunc53, label %90, label %87
 
-87:                                               ; preds = %.lr.ph84
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0.082, i64 64
+87:                                               ; preds = %.lr.ph
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0.081, i64 64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %89 = icmp eq ptr %88, %84
-  br i1 %89, label %.loopexit, label %.lr.ph84
+  br i1 %89, label %.loopexit, label %.lr.ph
 
-90:                                               ; preds = %.lr.ph84
+90:                                               ; preds = %.lr.ph
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.042, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -60841,7 +60841,7 @@ define internal fastcc void @"_ZN103_$LT$typst..foundations..selector..Locatable
   store i64 1, ptr %0, align 8
   br label %61
 
-.lr.ph.preheader:                                 ; preds = %2, %2
+93:                                               ; preds = %2, %2
   %.0 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.051 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -60852,36 +60852,36 @@ define internal fastcc void @"_ZN103_$LT$typst..foundations..selector..Locatable
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.612.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 2, ptr %.sroa.612.0..sroa_idx, align 8
-  br label %.lr.ph
+  br label %95
 
-._crit_edge:                                      ; preds = %99
+94:                                               ; preds = %102
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %99
-  %93 = phi i64 [ %100, %99 ], [ 0, %.lr.ph.preheader ]
-  %94 = getelementptr inbounds nuw ptr, ptr %5, i64 %93
-  %95 = load ptr, ptr %94, align 8, !alias.scope !9887, !nonnull !16, !align !402, !noundef !16
+95:                                               ; preds = %93, %102
+  %96 = phi i64 [ 0, %93 ], [ %103, %102 ]
+  %97 = getelementptr inbounds nuw ptr, ptr %5, i64 %96
+  %98 = load ptr, ptr %97, align 8, !alias.scope !9887, !nonnull !16, !align !402, !noundef !16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %96 = load ptr, ptr %95, align 8, !nonnull !16, !noundef !16
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  call fastcc void @"_ZN103_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value8validate17hb7887d9d13cdf0a3E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 16 dereferenceable(64) %97)
-  %98 = load i64, ptr %4, align 8, !range !401, !noundef !16
-  %trunc = trunc nuw i64 %98 to i1
-  br i1 %trunc, label %101, label %99
+  %99 = load ptr, ptr %98, align 8, !nonnull !16, !noundef !16
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  call fastcc void @"_ZN103_$LT$typst..foundations..selector..LocatableSelector$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value8validate17hb7887d9d13cdf0a3E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef readonly align 16 dereferenceable(64) %100)
+  %101 = load i64, ptr %4, align 8, !range !401, !noundef !16
+  %trunc = trunc nuw i64 %101 to i1
+  br i1 %trunc, label %104, label %102
 
-99:                                               ; preds = %.lr.ph
-  %100 = add nuw nsw i64 %93, 1
+102:                                              ; preds = %95
+  %103 = add nuw nsw i64 %96, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %.not.not.i = icmp eq i64 %100, 2
-  br i1 %.not.not.i, label %._crit_edge, label %.lr.ph
+  %.not.not.i = icmp eq i64 %103, 2
+  br i1 %.not.not.i, label %94, label %95
 
-101:                                              ; preds = %.lr.ph
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.047, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false)
+104:                                              ; preds = %95
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.047, ptr noundef nonnull align 8 dereferenceable(16) %105, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.047, i64 16, i1 false)
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.047, i64 16, i1 false)
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %61

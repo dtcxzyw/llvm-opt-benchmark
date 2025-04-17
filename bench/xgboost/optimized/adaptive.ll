@@ -17818,7 +17818,7 @@ _ZNK7xgboost6linalg6TensorIfLi2EE8HostViewEv.exit: ; preds = %_ZNK7xgboost6commo
   %131 = load i32, ptr %130, align 4, !tbaa !17
   %132 = call noundef i64 @_ZN7xgboost3obj6detail4IdxYERKNS_8MetaInfoEj(ptr noundef nonnull align 8 dereferenceable(233) %128, i32 noundef %131)
   call void @llvm.experimental.noalias.scope.decl(metadata !559)
-  %133 = mul i64 %125, %132
+  %133 = mul i64 %132, %125
   %134 = select i1 %127, i64 0, i64 %133
   %.not8.i.i = icmp ugt i64 %134, %116
   br i1 %.not8.i.i, label %135, label %136, !prof !16

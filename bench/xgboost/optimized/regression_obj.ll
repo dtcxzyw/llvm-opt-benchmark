@@ -40809,7 +40809,7 @@ _ZNK7xgboost6linalg6TensorIfLi2EE8HostViewEv.exit: ; preds = %._crit_edge, %153
 
 _ZNK7xgboost8MetaInfo9GetWeightEm.exit:           ; preds = %.lr.ph188, %175
   %181 = phi double [ %180, %175 ], [ 1.000000e+00, %.lr.ph188 ]
-  %182 = mul i64 %155, %168
+  %182 = mul i64 %168, %155
   %183 = getelementptr inbounds nuw float, ptr %148, i64 %182
   %184 = load float, ptr %183, align 4, !tbaa !77
   %185 = call float @llvm.fabs.f32(float %184)
@@ -40892,7 +40892,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit158: ; preds = %_ZSt
   %220 = fptrunc double %219 to float
   %221 = fmul double %181, %218
   %222 = fptrunc double %221 to float
-  %223 = mul i64 %98, %168
+  %223 = mul i64 %168, %98
   %224 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %92, i64 %223
   store float %220, ptr %224, align 4
   %.sroa_idx159 = getelementptr inbounds nuw i8, ptr %224, i64 4

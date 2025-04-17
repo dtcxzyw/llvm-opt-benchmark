@@ -15192,7 +15192,7 @@ _ZN3std7process7Command11current_dir17hbcc9a2033c129824E.exit.i.i: ; preds = %.n
   br label %_ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.i.i.i
 
 _ZN3std7process7Command3arg17h990b690309249119E.llvm.2850111032254419090.exit.i.i.i: ; preds = %.noexc49.i.i, %_ZN3std7process7Command11current_dir17hbcc9a2033c129824E.exit.i.i
-  %73 = phi i64 [ %78, %.noexc49.i.i ], [ 0, %_ZN3std7process7Command11current_dir17hbcc9a2033c129824E.exit.i.i ]
+  %73 = phi i64 [ 0, %_ZN3std7process7Command11current_dir17hbcc9a2033c129824E.exit.i.i ], [ %78, %.noexc49.i.i ]
   %74 = getelementptr inbounds nuw { [2 x i64] }, ptr %7, i64 %73
   %75 = load ptr, ptr %74, align 8, !alias.scope !3679, !noalias !3674, !nonnull !4, !align !64, !noundef !4
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8

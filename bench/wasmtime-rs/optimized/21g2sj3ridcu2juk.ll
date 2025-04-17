@@ -36517,7 +36517,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i.i), !noalias !4876
   %.pre.i = load i8, ptr %6, align 8, !range !18, !noalias !4864
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.pre81.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4864
+  %.pre80.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !4864
   %44 = trunc nuw i8 %.pre.i to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !4864
   br i1 %44, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i8x16_shuffle17h302bfd5502c6023cE.exit", label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i._crit_edge"
@@ -36574,10 +36574,10 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit72.i": ; preds = %60, %57, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i59.i", %45
   %.sroa.0.0.insert.insert.i56.i68.i = phi i32 [ %.sroa.01.0.copyload.i.i60.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h918841ea997828aaE.exit.i59.i" ], [ %.sroa.01.0.copyload.i.i60.i, %60 ], [ 8, %45 ], [ %.sroa.01.0.copyload.i.i60.i, %57 ]
   call fastcc void @"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12_pop_operand17h32824577fa2824d8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 4, i32 %.sroa.0.0.insert.insert.i56.i68.i), !noalias !4876
-  %.pre82.i = load i8, ptr %5, align 8, !range !18, !noalias !4864
-  %.phi.trans.insert83.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre84.i = load ptr, ptr %.phi.trans.insert83.i, align 8, !noalias !4864
-  %66 = trunc nuw i8 %.pre82.i to i1
+  %.pre81.i = load i8, ptr %5, align 8, !range !18, !noalias !4864
+  %.phi.trans.insert82.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre83.i = load ptr, ptr %.phi.trans.insert82.i, align 8, !noalias !4864
+  %66 = trunc nuw i8 %.pre81.i to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !4864
   br i1 %66, label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i8x16_shuffle17h302bfd5502c6023cE.exit", label %67
 
@@ -36588,10 +36588,10 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !4864
   %.sroa.624.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 16, ptr %.sroa.624.0..sroa_idx.i, align 8, !noalias !4864
-  br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h4d3d7931686ba828E.exit.i"
+  br label %81
 
-"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h4d3d7931686ba828E.exit.i": ; preds = %81, %67
-  %68 = phi i64 [ %82, %81 ], [ 0, %67 ]
+"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h4d3d7931686ba828E.exit.i": ; preds = %81
+  %68 = add nuw nsw i64 %82, 1
   %.not.i.not.i = icmp eq i64 %68, 16
   br i1 %.not.i.not.i, label %69, label %81
 
@@ -36619,9 +36619,9 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   store i64 %80, ptr %23, align 8, !alias.scope !4886, !noalias !4864
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i8x16_shuffle17h302bfd5502c6023cE.exit"
 
-81:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h4d3d7931686ba828E.exit.i"
-  %82 = add nuw nsw i64 %68, 1
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 %68
+81:                                               ; preds = %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h4d3d7931686ba828E.exit.i", %67
+  %82 = phi i64 [ 0, %67 ], [ %68, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h4d3d7931686ba828E.exit.i" ]
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 %82
   %84 = load i8, ptr %83, align 1, !alias.scope !4889, !noalias !4864, !noundef !5
   %.not.i73.i = icmp ult i8 %84, 32
   br i1 %.not.i73.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$21check_simd_lane_index17h4d3d7931686ba828E.exit.i", label %85
@@ -36643,7 +36643,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i8x16_shuffle17h302bfd5502c6023cE.exit"
 
 "_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$19visit_i8x16_shuffle17h302bfd5502c6023cE.exit": ; preds = %85, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h020425280953e81eE.exit.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit72.i", %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit"
-  %.0 = phi ptr [ %21, %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit" ], [ %90, %85 ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h020425280953e81eE.exit.i" ], [ %.pre81.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i" ], [ %.pre84.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit72.i" ]
+  %.0 = phi ptr [ %21, %"_ZN10wasmparser9validator9operators30WasmProposalValidator$LT$T$GT$13check_enabled17h5976fdf2efdbb1eaE.exit" ], [ %90, %85 ], [ null, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h020425280953e81eE.exit.i" ], [ %.pre80.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i" ], [ %.pre83.i, %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit72.i" ]
   ret ptr %.0
 }
 

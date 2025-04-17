@@ -13150,9 +13150,9 @@ define internal fastcc { i64, i64 } @_ZN15rustfmt_nightly7comment13ItemizedBlock
 
 "_ZN15rustfmt_nightly7comment13ItemizedBlock17get_marker_length28_$u7b$$u7b$closure$u7d$$u7d$17heb679c5779930e49E.exit.backedge.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit.i.i.i", %.lr.ph.i
   %.not14.i = icmp eq i64 %.add, 64
-  br i1 %.not14.i, label %.noexc.lr.ph, label %.lr.ph.i
+  br i1 %.not14.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h82230762968f2579E.exit", label %.lr.ph.i
 
-.noexc.lr.ph:                                     ; preds = %"_ZN15rustfmt_nightly7comment13ItemizedBlock17get_marker_length28_$u7b$$u7b$closure$u7d$$u7d$17heb679c5779930e49E.exit.backedge.i"
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h82230762968f2579E.exit": ; preds = %"_ZN15rustfmt_nightly7comment13ItemizedBlock17get_marker_length28_$u7b$$u7b$closure$u7d$$u7d$17heb679c5779930e49E.exit.backedge.i"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   store ptr @anon.ac9b56db96481140084a14b3a62254c9.183, ptr %5, align 8
   %.sroa.02.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -13167,8 +13167,8 @@ define internal fastcc { i64, i64 } @_ZN15rustfmt_nightly7comment13ItemizedBlock
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.noexc
 
-.noexc:                                           ; preds = %.noexc.lr.ph, %.critedge
-  %17 = phi i64 [ 0, %.noexc.lr.ph ], [ %18, %.critedge ]
+.noexc:                                           ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h82230762968f2579E.exit", %.critedge
+  %17 = phi i64 [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h82230762968f2579E.exit" ], [ %18, %.critedge ]
   %18 = add nuw nsw i64 %17, 1
   store i64 %18, ptr %.sroa.53.0..sroa_idx, align 8, !alias.scope !2200
   %19 = getelementptr inbounds nuw { ptr, i64 }, ptr %5, i64 %17
