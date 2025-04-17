@@ -98155,7 +98155,7 @@ define void @"_ZN141_$LT$ockam_api..nodes..models..policies..Policy$u20$as$u20$c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN9ockam_api5nodes6models8policies18ResourceTypeOrName3new17h67e7b27e19439a62E(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) initializes((0, 1), (8, 16)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable_or_null(1) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %2) unnamed_addr #0 {
+define void @_ZN9ockam_api5nodes6models8policies18ResourceTypeOrName3new17h67e7b27e19439a62E(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) initializes((0, 1), (8, 16)) %0, ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(1) %1, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) %2) unnamed_addr #0 {
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   %.sroa.6 = alloca [30 x i8], align 2
   %.not = icmp eq ptr %1, null

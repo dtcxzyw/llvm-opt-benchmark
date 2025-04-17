@@ -1135,7 +1135,7 @@ define internal void @"_ZN4core3ptr96drop_in_place$LT$$RF$tt..Subtree$LT$span..S
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h2d0c48a99a48164fE"(ptr noalias noundef writeonly sret({ [56 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(64) initializes((56, 57)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(64) %1) unnamed_addr #0 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h2d0c48a99a48164fE"(ptr noalias noundef writeonly sret({ [56 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(64) initializes((56, 57)) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(64) %1) unnamed_addr #0 {
   %3 = alloca { [56 x i8], i8, [7 x i8] }, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %7
@@ -1157,7 +1157,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h2d0c48a99a481
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h3616a74fd30bbb42E"(ptr noalias noundef writeonly sret({ [64 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(72) initializes((64, 65)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(72) %1) unnamed_addr #4 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h3616a74fd30bbb42E"(ptr noalias noundef writeonly sret({ [64 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(72) initializes((64, 65)) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(72) %1) unnamed_addr #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -1175,7 +1175,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h3616a74fd30bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h76ebdf71bfb4da0cE"(ptr noalias noundef writeonly sret({ i32, [6 x i32] }) align 4 captures(none) dereferenceable(28) initializes((0, 4)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable_or_null(28) %1) unnamed_addr #4 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h76ebdf71bfb4da0cE"(ptr noalias noundef writeonly sret({ i32, [6 x i32] }) align 4 captures(none) dereferenceable(28) initializes((0, 4)) %0, ptr noalias noundef readonly align 4 captures(address_is_null) dereferenceable_or_null(28) %1) unnamed_addr #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %18, label %4
 

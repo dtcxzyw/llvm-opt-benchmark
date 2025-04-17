@@ -1254,14 +1254,13 @@ define hidden noundef ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops
   %3 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
   %4 = load i64, ptr %3, align 8, !range !326, !noundef !9
   %.not.i.i.i = icmp eq i64 %4, 0
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !327)
   br i1 %.not.i.i.i, label %5, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h24faacb7ce64b55bE.llvm.1832755805191578588.exit"
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !327)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
-  %7 = load ptr, ptr %6, align 8, !alias.scope !336, !nonnull !9, !noundef !9
+  %7 = load ptr, ptr %6, align 8, !alias.scope !333, !nonnull !9, !noundef !9
   %8 = atomicrmw add ptr %7, i64 1 monotonic, align 8, !noalias !336
   %9 = icmp slt i64 %8, 0
   br i1 %9, label %10, label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h24faacb7ce64b55bE.llvm.1832755805191578588.exit"
@@ -3409,14 +3408,13 @@ define hidden noundef ptr @"_ZN4core4iter6traits8iterator8Iterator8find_map5chec
   %3 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
   %4 = load i64, ptr %3, align 8, !range !326, !noundef !9
   %.not.i.i = icmp eq i64 %4, 0
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1078)
   br i1 %.not.i.i, label %5, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c392ef3dce72b6dE.exit"
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1078)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1081)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1084)
-  %7 = load ptr, ptr %6, align 8, !alias.scope !1087, !nonnull !9, !noundef !9
+  %7 = load ptr, ptr %6, align 8, !alias.scope !1084, !nonnull !9, !noundef !9
   %8 = atomicrmw add ptr %7, i64 1 monotonic, align 8, !noalias !1087
   %9 = icmp slt i64 %8, 0
   br i1 %9, label %10, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c392ef3dce72b6dE.exit"
@@ -3667,7 +3665,6 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 76:                                               ; preds = %64
   %77 = getelementptr inbounds { i64, { { { { ptr, i64 } }, {} }, {} } }, ptr %.val.i.i.i, i64 %71
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1155)
   %78 = icmp ne ptr %.val7, null
   tail call void @llvm.assume(i1 %78)
   %79 = getelementptr i8, ptr %77, i64 -8
@@ -3678,7 +3675,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hea20a4246a1d2cf7E.exit": ; preds = %76
   %80 = getelementptr inbounds i8, ptr %77, i64 -16
   %.val4.i.i.i = load ptr, ptr %80, align 8, !alias.scope !1155, !nonnull !9, !align !283, !noundef !9
-  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val7, ptr nonnull readonly align 1 %.val4.i.i.i, i64 %.val8), !alias.scope !1158, !noalias !1155
+  %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val7, ptr nonnull readonly align 1 %.val4.i.i.i, i64 %.val8), !alias.scope !1158
   %.not = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not, label %.split, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hea20a4246a1d2cf7E.exit.thread"
 
@@ -4007,7 +4004,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0802b3d604d4c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, ptr } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h30c6a604d02eb30bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(16) %0) unnamed_addr #2 {
+define hidden { i64, ptr } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h30c6a604d02eb30bE"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(16) %0) unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %"_ZN68_$LT$chalk_ir..GenericArg$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3a24b7845f052d7eE.llvm.1832755805191578588.exit", label %3
 
@@ -4067,7 +4064,7 @@ default.unreachable:                              ; preds = %3
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h33505d1fe59f4b79E"(ptr noalias noundef writeonly sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #24 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h33505d1fe59f4b79E"(ptr noalias noundef writeonly sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #24 {
   %.sroa.6.i = alloca [7 x i8], align 1
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
@@ -4155,7 +4152,7 @@ default.unreachable:                              ; preds = %8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h572a7ffb0489ee06E"(ptr noalias noundef writeonly sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(104) %1) unnamed_addr #2 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h572a7ffb0489ee06E"(ptr noalias noundef writeonly sret({ i64, [12 x i64] }) align 8 captures(none) dereferenceable(104) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(104) %1) unnamed_addr #2 {
   %.sroa.0 = alloca { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i32, [9 x i32] }, i8, [7 x i8] }, ptr }, align 8
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
@@ -4176,7 +4173,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h572a7ffb0489e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h57b16b3db0072596E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(64) %1) unnamed_addr #2 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h57b16b3db0072596E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(64) %1) unnamed_addr #2 {
   %3 = alloca { i32, [15 x i32] }, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
@@ -4197,7 +4194,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h57b16b3db0072
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8baf40b967bb2d8fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden { ptr, ptr } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8baf40b967bb2d8fE"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(16) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca ptr, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %24, label %4
@@ -4267,7 +4264,7 @@ define hidden { ptr, ptr } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8baf4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb23653d1e3d37237E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0) unnamed_addr #2 {
+define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb23653d1e3d37237E"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0) unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %"_ZN62_$LT$chalk_ir..Goal$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf268ac3539ad5850E.llvm.1832755805191578588.exit", label %3
 
@@ -4289,7 +4286,7 @@ define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb23653
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb50f150f1023890fE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(32) %1) unnamed_addr #2 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb50f150f1023890fE"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(32) %1) unnamed_addr #2 {
   %3 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
@@ -4310,7 +4307,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb50f150f10238
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0) unnamed_addr #2 {
+define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0) unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588.exit", label %3
 
@@ -4332,7 +4329,7 @@ define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfe8f0443bd9fbbc6E"(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hfe8f0443bd9fbbc6E"(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca ptr, align 8
   %.sroa.0 = alloca { i64, [3 x i64] }, align 8
@@ -25848,15 +25845,15 @@ attributes #61 = { nounwind }
 !325 = distinct !{!325, !323, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h121294a92192584dE: argument 1"}
 !326 = !{i64 0, i64 3}
 !327 = !{!328}
-!328 = distinct !{!328, !329, !"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE: argument 0"}
-!329 = distinct !{!329, !"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE"}
+!328 = distinct !{!328, !329, !"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588: argument 0"}
+!329 = distinct !{!329, !"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588"}
 !330 = !{!331}
-!331 = distinct !{!331, !332, !"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588: argument 0"}
-!332 = distinct !{!332, !"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588"}
-!333 = !{!334}
-!334 = distinct !{!334, !335, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
-!335 = distinct !{!335, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
-!336 = !{!334, !331, !328}
+!331 = distinct !{!331, !332, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
+!332 = distinct !{!332, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
+!333 = !{!331, !328, !334}
+!334 = distinct !{!334, !335, !"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE: argument 0"}
+!335 = distinct !{!335, !"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE"}
+!336 = !{!331, !328}
 !337 = !{!338}
 !338 = distinct !{!338, !339, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h73b40eb6edca0c52E.llvm.1832755805191578588: argument 0"}
 !339 = distinct !{!339, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h73b40eb6edca0c52E.llvm.1832755805191578588"}
@@ -26599,15 +26596,15 @@ attributes #61 = { nounwind }
 !1076 = distinct !{!1076, !1074, !"_ZN3hir9semantics13SemanticsImpl20is_from_include_file28_$u7b$$u7b$closure$u7d$$u7d$17h71f9f794a7a4e94bE.llvm.11762030844908852975: argument 1"}
 !1077 = !{!1073, !1076, !1068, !1071}
 !1078 = !{!1079}
-!1079 = distinct !{!1079, !1080, !"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE: argument 0"}
-!1080 = distinct !{!1080, !"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE"}
+!1079 = distinct !{!1079, !1080, !"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588: argument 0"}
+!1080 = distinct !{!1080, !"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588"}
 !1081 = !{!1082}
-!1082 = distinct !{!1082, !1083, !"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588: argument 0"}
-!1083 = distinct !{!1083, !"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588"}
-!1084 = !{!1085}
-!1085 = distinct !{!1085, !1086, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
-!1086 = distinct !{!1086, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
-!1087 = !{!1085, !1082, !1079}
+!1082 = distinct !{!1082, !1083, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
+!1083 = distinct !{!1083, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
+!1084 = !{!1082, !1079, !1085}
+!1085 = distinct !{!1085, !1086, !"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE: argument 0"}
+!1086 = distinct !{!1086, !"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE"}
+!1087 = !{!1082, !1079}
 !1088 = !{!1089}
 !1089 = distinct !{!1089, !1090, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7f439adc109dfbe4E: argument 1"}
 !1090 = distinct !{!1090, !"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7f439adc109dfbe4E"}

@@ -917,7 +917,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h08dbce76e7e
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i40 0, -254) i40 @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0affc19acc20b539E.llvm.15310856661090120578"(ptr noalias noundef readonly align 1 captures(none) dereferenceable_or_null(4) %0) unnamed_addr #8 {
+define hidden range(i40 0, -254) i40 @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0affc19acc20b539E.llvm.15310856661090120578"(ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(4) %0) unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 
@@ -936,7 +936,7 @@ define hidden range(i40 0, -254) i40 @"_ZN4core6result19Result$LT$T$C$E$GT$3map1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h52af1e00fb514207E.llvm.15310856661090120578"(ptr noalias noundef writeonly sret({ i8, [8 x i8] }) align 1 captures(none) dereferenceable(9) initializes((0, 1)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable_or_null(8) %1) unnamed_addr #12 {
+define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h52af1e00fb514207E.llvm.15310856661090120578"(ptr noalias noundef writeonly sret({ i8, [8 x i8] }) align 1 captures(none) dereferenceable(9) initializes((0, 1)) %0, ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(8) %1) unnamed_addr #12 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 

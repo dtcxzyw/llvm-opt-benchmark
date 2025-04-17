@@ -2156,7 +2156,7 @@ _ZN3std2io4copy12generic_copy17h3aa78b6cbea8bd97E.exit: ; preds = %87
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6uu_tee4open17h8d803928d0ecaef1E(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, ptr noalias noundef readonly align 1 captures(none) dereferenceable_or_null(1) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN6uu_tee4open17h8d803928d0ecaef1E(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(1) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { { i64, [2 x i64] }, i8, [7 x i8] }, align 8
@@ -2434,7 +2434,7 @@ _ZN3std2fs11OpenOptions4open17h7aae762681e1e4fdE.exit: ; preds = %20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN6uu_tee13process_error17h9f55d12e42780311E(ptr noalias noundef readonly align 1 captures(none) dereferenceable_or_null(1) %0, ptr noundef nonnull %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef align 8 captures(none) dereferenceable(8) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef ptr @_ZN6uu_tee13process_error17h9f55d12e42780311E(ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(1) %0, ptr noundef nonnull %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %2, ptr noalias noundef align 8 captures(none) dereferenceable(8) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca { { i64, [2 x i64] }, i8, [7 x i8] }, align 8
   %7 = alloca [2 x { ptr, ptr }], align 8

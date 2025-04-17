@@ -2167,7 +2167,7 @@ define hidden noundef i64 @_ZN4core4iter8adapters3zip27TrustedRandomAccessNoCoer
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h13ee15486d0dbd1fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h13ee15486d0dbd1fE"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZN4core3ops8function6FnOnce9call_once17h05ebbf3c390da3dfE.exit, label %3
 

@@ -8698,7 +8698,7 @@ _ZN4core3ops8function6FnOnce9call_once17h2823532ce39d54bfE.exit: ; preds = %9
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2e817c307298538dE.llvm.12224484746067164868"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %0, i1 noundef zeroext %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h2e817c307298538dE.llvm.12224484746067164868"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %0, i1 noundef zeroext %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -43437,7 +43437,7 @@ _ZN9collab_ui12collab_panel11CollabPanel20is_channel_collapsed17hf88c14103918fe4
   call void @llvm.assume(i1 %1728)
   %.val5.i = load ptr, ptr %1721, align 8, !alias.scope !11248, !nonnull !5, !noundef !5
   %1729 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 56
-  %1730 = load i64, ptr %1729, align 8, !noalias !11248, !noundef !5
+  %1730 = load i64, ptr %1729, align 8, !noundef !5
   %1731 = getelementptr inbounds nuw i8, ptr %.val256, i64 64
   %1732 = load i64, ptr %1731, align 8, !noalias !11248, !noundef !5
   %.not.i.i.i592 = icmp eq i64 %1730, 0
@@ -43445,7 +43445,7 @@ _ZN9collab_ui12collab_panel11CollabPanel20is_channel_collapsed17hf88c14103918fe4
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hab1cdce149263cbbE.llvm.16090434240646493973.exit.i.i.i": ; preds = %1727
   %1733 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 48
-  %1734 = load ptr, ptr %1733, align 8, !noalias !11248, !nonnull !5, !noundef !5
+  %1734 = load ptr, ptr %1733, align 8, !nonnull !5, !noundef !5
   %1735 = getelementptr i64, ptr %1734, i64 %1730
   %1736 = getelementptr i8, ptr %1735, i64 -8
   br label %.preheader.split.i.i.i.i
@@ -78929,7 +78929,7 @@ attributes #64 = { noreturn nounwind }
 !11257 = distinct !{!11257, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3f7e25a47d54d7b3E.llvm.16090434240646493973"}
 !11258 = distinct !{!11258, !11259, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h54b2da6ea5fd708dE: argument 0"}
 !11259 = distinct !{!11259, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h54b2da6ea5fd708dE"}
-!11260 = !{!11261, !11262, !11263, !11264, !11249}
+!11260 = !{!11261, !11262, !11263, !11264}
 !11261 = distinct !{!11261, !11253, !"_ZN64_$LT$client..user..ChannelId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h746c01c3b662b8ecE.llvm.16090434240646493973: argument 0"}
 !11262 = distinct !{!11262, !11255, !"_ZN4core3cmp9PartialEq2ne17h84f19f937ea183fdE.llvm.16090434240646493973: argument 0"}
 !11263 = distinct !{!11263, !11257, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3f7e25a47d54d7b3E.llvm.16090434240646493973: argument 0"}

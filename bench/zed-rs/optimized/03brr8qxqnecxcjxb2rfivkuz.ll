@@ -92316,7 +92316,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4eee4ab885052
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17ha563a6ff65c99beeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0) unnamed_addr #25 {
+define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17ha563a6ff65c99beeE"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0) unnamed_addr #25 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde4bef6701b27005E.llvm.21470575066294111.exit", label %3
 
@@ -100380,7 +100380,7 @@ _ZN3std4path7PathBuf4push17hd7808d1327688237E.exit.i: ; preds = %"_ZN63_$LT$allo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5which6finder6Finder4find17h75a61100cf651d07E(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(24) %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(16) %5, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN5which6finder6Finder4find17h75a61100cf651d07E(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(24) %4, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(16) %5, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6) unnamed_addr #0 personality ptr @rust_eh_personality {
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
   %10 = alloca [24 x i8], align 8

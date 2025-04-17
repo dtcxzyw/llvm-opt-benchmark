@@ -1319,7 +1319,7 @@ _ZN4core3ops8function6FnOnce9call_once17h9638297c62f1852aE.exit.thread.i.i.i.i.i
   br i1 %25, label %_ZN4core3ops8function6FnOnce9call_once17h5b59eca5aae7a7d9E.exit.thread.i.i.i.i, label %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc81f5efd7733e43eE.exit.i.i.i.i.i.i.i.i"
 
 "_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc81f5efd7733e43eE.exit.i.i.i.i.i.i.i.i": ; preds = %22
-  %26 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hf0da7bb7affadffbE.llvm.3734958187512397983"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19), !noalias !380
+  %26 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hf0da7bb7affadffbE.llvm.3734958187512397983"(ptr noalias noundef nonnull align 8 dereferenceable(40) %19)
   %27 = load i64, ptr %23, align 8, !alias.scope !382, !noalias !380, !noundef !15
   %28 = add i64 %27, -1
   store i64 %28, ptr %23, align 8, !alias.scope !382, !noalias !380
@@ -1346,7 +1346,7 @@ _ZN4core3ops8function6FnOnce9call_once17h5b59eca5aae7a7d9E.exit.thread.i.i.i.i: 
   br i1 %38, label %_ZN4core3ops8function6FnOnce9call_once17hd9a5ce612b52ebffE.exit.thread.i, label %"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hded0ec21720932f7E.exit.i.i.i.i.i"
 
 "_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hded0ec21720932f7E.exit.i.i.i.i.i": ; preds = %35
-  %39 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h8770e51ff417ab7fE.llvm.3734958187512397983"(ptr noalias noundef nonnull align 8 dereferenceable(40) %32), !noalias !395
+  %39 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h8770e51ff417ab7fE.llvm.3734958187512397983"(ptr noalias noundef nonnull align 8 dereferenceable(40) %32)
   %40 = load i64, ptr %36, align 8, !alias.scope !397, !noalias !395, !noundef !15
   %41 = add i64 %40, -1
   store i64 %41, ptr %36, align 8, !alias.scope !397, !noalias !395
@@ -1373,7 +1373,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd9a5ce612b52ebffE.exit.thread.i: ; pred
   br i1 %51, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc7d8310f4f9dccf7E.exit.i.i", label %52
 
 52:                                               ; preds = %48
-  %53 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h7f633cf20735931fE.llvm.3734958187512397983"(ptr noalias noundef nonnull align 8 dereferenceable(40) %45), !noalias !409
+  %53 = tail call noundef ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17h7f633cf20735931fE.llvm.3734958187512397983"(ptr noalias noundef nonnull align 8 dereferenceable(40) %45)
   %54 = load i64, ptr %49, align 8, !alias.scope !411, !noalias !409, !noundef !15
   %55 = add i64 %54, -1
   store i64 %55, ptr %49, align 8, !alias.scope !411, !noalias !409

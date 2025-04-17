@@ -119617,7 +119617,7 @@ define void @_ZN9ockam_api5nodes8registry9InletInfo3new17h214f3c3817f1c0c4E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN9ockam_api5nodes8registry10OutletInfo3new17h6d900178f0d42da8E(ptr noalias noundef writeonly sret({ { i16, [15 x i16] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] } }) align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(32) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @_ZN9ockam_api5nodes8registry10OutletInfo3new17h6d900178f0d42da8E(ptr noalias noundef writeonly sret({ { i16, [15 x i16] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] } }) align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(32) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(32) %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, i64 }, i64 }, i8, [7 x i8] }, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %7

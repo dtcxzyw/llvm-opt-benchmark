@@ -857,7 +857,7 @@ define hidden noundef i8 @"_ZN4core5clone5impls51_$LT$impl$u20$core..clone..Clon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i1, i8 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hd53eeaf33d177ea7E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable_or_null(1) %0) unnamed_addr #7 {
+define hidden { i1, i8 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hd53eeaf33d177ea7E"(ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(1) %0) unnamed_addr #7 {
   %2 = icmp ne ptr %0, null
   br i1 %2, label %3, label %5
 

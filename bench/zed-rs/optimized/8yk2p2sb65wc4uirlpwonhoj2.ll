@@ -15468,7 +15468,7 @@ define hidden noundef align 8 ptr @_ZN4core5error19request_by_type_tag17h3c54b46
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable
-define hidden noundef align 8 dereferenceable_or_null(3928) ptr @"_ZN4core6option15Option$LT$T$GT$6filter17h5a2d99fae992101fE.llvm.17085741044975272527"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(3928) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #15 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(3928) ptr @"_ZN4core6option15Option$LT$T$GT$6filter17h5a2d99fae992101fE.llvm.17085741044975272527"(ptr noalias noundef readonly align 8 captures(address_is_null, ret: address, provenance) dereferenceable_or_null(3928) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %1) unnamed_addr #15 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -15487,7 +15487,7 @@ define hidden noundef align 8 dereferenceable_or_null(3928) ptr @"_ZN4core6optio
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h9bdda1f872fd7eabE.llvm.17085741044975272527"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(3928) %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h9bdda1f872fd7eabE.llvm.17085741044975272527"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(3928) %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %2) unnamed_addr #9 personality ptr @rust_eh_personality {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %10, label %5
 
@@ -39393,12 +39393,12 @@ attributes #47 = { noreturn }
 !4088 = distinct !{!4088, !4085, !"_ZN4gpui6window13WindowContext27with_optional_element_state17h47eb11bbb9eb91ccE: argument 3"}
 !4089 = !{!4084, !4086, !4087}
 !4090 = !{!4088}
-!4091 = !{!4084, !4087}
+!4091 = !{!4084}
 !4092 = !{!4086, !4087, !4088}
 !4093 = !{!4094}
 !4094 = distinct !{!4094, !4095, !"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$gpui..elements..div..InteractiveElementState$GT$$GT$17h1077d10eb01effc6E.llvm.2952925514444383018: argument 0"}
 !4095 = distinct !{!4095, !"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$gpui..elements..div..InteractiveElementState$GT$$GT$17h1077d10eb01effc6E.llvm.2952925514444383018"}
-!4096 = !{!4084, !4087, !4088}
+!4096 = !{!4084, !4088}
 !4097 = !{!4098}
 !4098 = distinct !{!4098, !4099, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h553a06d87ef23e66E.llvm.17085741044975272527: argument 0"}
 !4099 = distinct !{!4099, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h553a06d87ef23e66E.llvm.17085741044975272527"}

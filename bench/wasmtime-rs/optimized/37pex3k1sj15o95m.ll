@@ -22880,7 +22880,7 @@ _ZN17cranelift_codegen2ir3pcc4Expr2le17h4ba7b21afebf1ef8E.exit70.thread75: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define noundef zeroext i1 @_ZN17cranelift_codegen2ir3pcc11FactContext23subsumes_fact_optionals17h1e96ae22ba7230a0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(40) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(40) %2) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN17cranelift_codegen2ir3pcc11FactContext23subsumes_fact_optionals17h1e96ae22ba7230a0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(40) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(40) %2) unnamed_addr #9 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %brmerge = or i1 %4, %5
@@ -24866,7 +24866,7 @@ define void @_ZN17cranelift_codegen2ir3pcc11FactContext4load17hc750c623f01c7895E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen2ir3pcc11FactContext5store17h510c46a39ecb9025E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i16 noundef %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(40) %3) unnamed_addr #3 {
+define noundef range(i8 0, 12) i8 @_ZN17cranelift_codegen2ir3pcc11FactContext5store17h510c46a39ecb9025E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i16 noundef %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(40) %3) unnamed_addr #3 {
   %5 = alloca { i8, [15 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN17cranelift_codegen2ir3pcc11FactContext12struct_field17h36dc7b8db787826dE(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i16 noundef %2)

@@ -9845,31 +9845,30 @@ _ZN3hir15source_analyzer14SourceAnalyzer6pat_id17h691ca560080c1d2fE.exit: ; pred
 
 57:                                               ; preds = %45
   %58 = getelementptr inbounds { i32, [1 x i32], { { i64, ptr, {} }, i64 } }, ptr %.val.i, i64 %52
-  %59 = getelementptr i8, ptr %58, i64 -16
-  %.val22 = load ptr, ptr %59, align 8
-  %60 = getelementptr i8, ptr %58, i64 -8
-  %.val23 = load i64, ptr %60, align 8, !noundef !4
+  %59 = getelementptr i8, ptr %58, i64 -8
+  %.val23 = load i64, ptr %59, align 8, !noundef !4
   %.not.i = icmp eq i64 %.val23, 0
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1929)
-  br i1 %.not.i, label %"_ZN3hir15source_analyzer14SourceAnalyzer11type_of_pat28_$u7b$$u7b$closure$u7d$$u7d$17hb439dcde58d18b34E.exit", label %61
+  br i1 %.not.i, label %"_ZN3hir15source_analyzer14SourceAnalyzer11type_of_pat28_$u7b$$u7b$closure$u7d$$u7d$17hb439dcde58d18b34E.exit", label %60
 
-61:                                               ; preds = %57
+60:                                               ; preds = %57
+  %61 = getelementptr i8, ptr %58, i64 -16
+  %.val22 = load ptr, ptr %61, align 8
   %62 = add i64 %.val23, -1
   %63 = getelementptr inbounds [0 x ptr], ptr %.val22, i64 0, i64 %62
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1929)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1932)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1935)
-  %64 = load ptr, ptr %63, align 8, !alias.scope !1938, !nonnull !4, !noundef !4
+  %64 = load ptr, ptr %63, align 8, !alias.scope !1935, !nonnull !4, !noundef !4
   %65 = atomicrmw add ptr %64, i64 1 monotonic, align 8, !noalias !1938
   %66 = icmp slt i64 %65, 0
   br i1 %66, label %67, label %"_ZN3hir15source_analyzer14SourceAnalyzer11type_of_pat28_$u7b$$u7b$closure$u7d$$u7d$17hb439dcde58d18b34E.exit"
 
-67:                                               ; preds = %61
+67:                                               ; preds = %60
   tail call void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #34, !noalias !1938
   unreachable
 
-"_ZN3hir15source_analyzer14SourceAnalyzer11type_of_pat28_$u7b$$u7b$closure$u7d$$u7d$17hb439dcde58d18b34E.exit": ; preds = %42, %25, %61, %57
-  %.sroa.6.03236 = phi i32 [ %.sroa.6.0, %57 ], [ %.sroa.6.0, %61 ], [ %20, %25 ], [ %.sroa.6.0, %42 ]
-  %68 = phi ptr [ null, %57 ], [ %64, %61 ], [ null, %25 ], [ null, %42 ]
+"_ZN3hir15source_analyzer14SourceAnalyzer11type_of_pat28_$u7b$$u7b$closure$u7d$$u7d$17hb439dcde58d18b34E.exit": ; preds = %42, %25, %60, %57
+  %.sroa.6.03236 = phi i32 [ %.sroa.6.0, %57 ], [ %.sroa.6.0, %60 ], [ %20, %25 ], [ %.sroa.6.0, %42 ]
+  %68 = phi ptr [ null, %57 ], [ %64, %60 ], [ null, %25 ], [ null, %42 ]
   store ptr %68, ptr %9, align 8
   %69 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN120_$LT$hir_ty..infer..InferenceResult$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$hir_def..hir..Pat$GT$$GT$$GT$5index17h96ed53f381901213E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(536) %26, i32 noundef %.sroa.6.03236, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f2d19f40d87245e78e7b6f540728a1d0.422)
           to label %72 unwind label %70
@@ -25444,15 +25443,15 @@ attributes #35 = { nounwind }
 !1927 = distinct !{!1927, !1928, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf34d36ac3ef13e6bE: argument 0"}
 !1928 = distinct !{!1928, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf34d36ac3ef13e6bE"}
 !1929 = !{!1930}
-!1930 = distinct !{!1930, !1931, !"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE: argument 0"}
-!1931 = distinct !{!1931, !"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE"}
+!1930 = distinct !{!1930, !1931, !"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588: argument 0"}
+!1931 = distinct !{!1931, !"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588"}
 !1932 = !{!1933}
-!1933 = distinct !{!1933, !1934, !"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588: argument 0"}
-!1934 = distinct !{!1934, !"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd8045327fcd65e64E.llvm.1832755805191578588"}
-!1935 = !{!1936}
-!1936 = distinct !{!1936, !1937, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
-!1937 = distinct !{!1937, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
-!1938 = !{!1936, !1933, !1930}
+!1933 = distinct !{!1933, !1934, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
+!1934 = distinct !{!1934, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}
+!1935 = !{!1933, !1930, !1936}
+!1936 = distinct !{!1936, !1937, !"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE: argument 0"}
+!1937 = distinct !{!1937, !"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he14685fe58cf44cdE"}
+!1938 = !{!1933, !1930}
 !1939 = !{!1940}
 !1940 = distinct !{!1940, !1941, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E: argument 0"}
 !1941 = distinct !{!1941, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E"}

@@ -2586,7 +2586,7 @@ define hidden void @"_ZN4core5array76_$LT$impl$u20$core..default..Default$u20$fo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, ptr } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he5e5f20b6bd6edf7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(16) %0) unnamed_addr #1 {
+define hidden { ptr, ptr } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he5e5f20b6bd6edf7E"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(16) %0) unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 

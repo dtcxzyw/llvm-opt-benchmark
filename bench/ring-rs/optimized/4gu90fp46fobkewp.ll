@@ -171,7 +171,7 @@ define hidden void @"_ZN4core3ptr51drop_in_place$LT$core..array..TryFromSliceErr
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h30872498a257e0b2E.llvm.4505101779727634190"(ptr noalias noundef writeonly sret({ i8, [32 x i8] }) align 1 captures(none) dereferenceable(33) initializes((0, 1)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable_or_null(32) %1) unnamed_addr #2 {
+define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h30872498a257e0b2E.llvm.4505101779727634190"(ptr noalias noundef writeonly sret({ i8, [32 x i8] }) align 1 captures(none) dereferenceable(33) initializes((0, 1)) %0, ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(32) %1) unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %7, label %4
 

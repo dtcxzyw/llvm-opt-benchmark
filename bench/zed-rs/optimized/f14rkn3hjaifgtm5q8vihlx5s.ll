@@ -48300,7 +48300,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN4core6option
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hd239490f75517e83E.llvm.16841824712304075995"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(88) %0, i1 noundef zeroext %1) unnamed_addr #19 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hd239490f75517e83E.llvm.16841824712304075995"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(88) %0, i1 noundef zeroext %1) unnamed_addr #19 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 

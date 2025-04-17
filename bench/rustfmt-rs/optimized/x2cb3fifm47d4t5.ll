@@ -18869,7 +18869,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
   %60 = call { i64, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h64c5b2fd9b7b34d6E.llvm.17476841346288807550"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %59), !noalias !5828
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !5828
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !5829
   %switch.i.i.i.i.i = icmp eq i64 %61, 0
   br i1 %switch.i.i.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd33dd31eca47a831E.llvm.17476841346288807550.exit.i.i.i.i", label %63
 
@@ -18878,7 +18878,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd33dd31eca47a831E.llvm.17476841346288807550.exit.i.i.i.i": ; preds = %58
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !5828
+  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !5829
   %64 = icmp eq ptr %62, null
   br i1 %64, label %65, label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.i.i
 
@@ -18895,7 +18895,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
   br i1 %67, label %"_ZN87_$LT$rustfmt_nightly..imports..UseTree$u20$as$u20$rustfmt_nightly..spanned..Spanned$GT$4span28_$u7b$$u7b$closure$u7d$$u7d$17ha06de9b31411fa7dE.exit.i", label %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i.i
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.i.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd33dd31eca47a831E.llvm.17476841346288807550.exit.i.i.i.i"
-  call void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17hc0915df1332daf42E.llvm.17476841346288807550"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32 }) align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 %62), !noalias !5829
+  call void @"_ZN10rustc_span13span_encoding18with_span_interner28_$u7b$$u7b$closure$u7d$$u7d$17hc0915df1332daf42E.llvm.17476841346288807550"(ptr noalias noundef nonnull sret({ i32, i32, i32, i32 }) align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 %62), !noalias !5822
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !5821
   %.pr.i.i = load i32, ptr %5, align 4, !noalias !5815
   %.not.i.i = icmp eq i32 %.pr.i.i, -255
@@ -18903,9 +18903,9 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.
 
 _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i.i: ; preds = %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.i.i, %66
   %69 = phi i32 [ %.pr.i.i, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.i.i ], [ %.sroa.5.0.extract.trunc.i.i.i, %66 ]
-  %70 = call noundef align 8 dereferenceable(8) ptr @_ZN4core4sync6atomic11atomic_load17h733a54ca80041d2bE.llvm.7442130522521287225(ptr noundef nonnull @_RNvCsdF516cSs19B_10rustc_span10SPAN_TRACK, i8 noundef 4), !noalias !5815
-  %71 = load ptr, ptr %70, align 8, !noalias !5815, !nonnull !4, !noundef !4
-  call void %71(i32 noundef %69), !noalias !5815
+  %70 = call noundef align 8 dereferenceable(8) ptr @_ZN4core4sync6atomic11atomic_load17h733a54ca80041d2bE.llvm.7442130522521287225(ptr noundef nonnull @_RNvCsdF516cSs19B_10rustc_span10SPAN_TRACK, i8 noundef 4)
+  %71 = load ptr, ptr %70, align 8, !nonnull !4, !noundef !4
+  call void %71(i32 noundef %69)
   br label %"_ZN87_$LT$rustfmt_nightly..imports..UseTree$u20$as$u20$rustfmt_nightly..spanned..Spanned$GT$4span28_$u7b$$u7b$closure$u7d$$u7d$17ha06de9b31411fa7dE.exit.i"
 
 "_ZN87_$LT$rustfmt_nightly..imports..UseTree$u20$as$u20$rustfmt_nightly..spanned..Spanned$GT$4span28_$u7b$$u7b$closure$u7d$$u7d$17ha06de9b31411fa7dE.exit.i": ; preds = %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.thread2.i.i, %_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.exit.i.i, %66
@@ -35933,8 +35933,8 @@ attributes #62 = { nounwind }
 !5825 = !{!5826, !5827, !5819, !5816}
 !5826 = distinct !{!5826, !5824, !"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E: argument 0"}
 !5827 = distinct !{!5827, !5824, !"_ZN10scoped_tls18ScopedKey$LT$T$GT$4with17h75cb3c8bc5486157E: argument 2"}
-!5828 = !{!5826, !5823, !5827, !5819, !5816}
-!5829 = !{!5823, !5816}
+!5828 = !{!5826, !5823, !5827, !5819}
+!5829 = !{!5826, !5823, !5827, !5819, !5816}
 !5830 = !{!5831}
 !5831 = distinct !{!5831, !5832, !"_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked: argument 0"}
 !5832 = distinct !{!5832, !"_RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked"}

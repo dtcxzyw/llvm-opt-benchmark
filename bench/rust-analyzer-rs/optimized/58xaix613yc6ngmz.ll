@@ -13342,7 +13342,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h6802b3a524b0b435E"(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i1, i8 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h1ff2a17154c89186E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable_or_null(1) %0) unnamed_addr #25 {
+define hidden { i1, i8 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h1ff2a17154c89186E"(ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(1) %0) unnamed_addr #25 {
   %2 = icmp ne ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -13358,7 +13358,7 @@ define hidden { i1, i8 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h1ff2a17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4719d53a9e0d26bcE"(ptr noalias noundef writeonly sret({ [6 x i16], i16, [1 x i16] }) align 4 captures(none) dereferenceable(16) initializes((12, 14)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable_or_null(16) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4719d53a9e0d26bcE"(ptr noalias noundef writeonly sret({ [6 x i16], i16, [1 x i16] }) align 4 captures(none) dereferenceable(16) initializes((12, 14)) %0, ptr noalias noundef readonly align 4 captures(address_is_null) dereferenceable_or_null(16) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -13380,7 +13380,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4719d53a9e0d2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4fabaf3b90026579E"(ptr noalias noundef writeonly sret({ [6 x i16], i16, [1 x i16] }) align 4 captures(none) dereferenceable(16) initializes((12, 14)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable_or_null(16) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4fabaf3b90026579E"(ptr noalias noundef writeonly sret({ [6 x i16], i16, [1 x i16] }) align 4 captures(none) dereferenceable(16) initializes((12, 14)) %0, ptr noalias noundef readonly align 4 captures(address_is_null) dereferenceable_or_null(16) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -13402,7 +13402,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4fabaf3b90026
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i32, i32 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7162b56970fe447fE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable_or_null(4) %0) unnamed_addr #25 {
+define hidden { i32, i32 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7162b56970fe447fE"(ptr noalias noundef readonly align 4 captures(address_is_null) dereferenceable_or_null(4) %0) unnamed_addr #25 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -13419,7 +13419,7 @@ define hidden { i32, i32 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7162b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i32, i32 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h77f473fdc3f2b1f2E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable_or_null(4) %0) unnamed_addr #25 {
+define hidden { i32, i32 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h77f473fdc3f2b1f2E"(ptr noalias noundef readonly align 4 captures(address_is_null) dereferenceable_or_null(4) %0) unnamed_addr #25 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -13436,7 +13436,7 @@ define hidden { i32, i32 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h77f47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i32, i32 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8c6437f19fd4b843E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable_or_null(4) %0) unnamed_addr #25 {
+define hidden { i32, i32 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8c6437f19fd4b843E"(ptr noalias noundef readonly align 4 captures(address_is_null) dereferenceable_or_null(4) %0) unnamed_addr #25 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -13453,7 +13453,7 @@ define hidden { i32, i32 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h8c643
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hd1d2fb672480d331E.llvm.15602210471604820194"(ptr noalias noundef writeonly sret({ i8, [23 x i8] }) align 4 captures(none) dereferenceable(24) initializes((0, 1)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #6 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hd1d2fb672480d331E.llvm.15602210471604820194"(ptr noalias noundef writeonly sret({ i8, [23 x i8] }) align 4 captures(none) dereferenceable(24) initializes((0, 1)) %0, ptr noalias noundef readonly align 4 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #6 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
 
@@ -13470,7 +13470,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hd1d2fb672480d
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hdde2ea871c1171ccE"(ptr noalias noundef writeonly sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #1 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hdde2ea871c1171ccE"(ptr noalias noundef writeonly sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #1 {
   %.sroa.6.i = alloca [7 x i8], align 1
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
@@ -13558,7 +13558,7 @@ default.unreachable:                              ; preds = %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i32, i32 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he1dd687b35177b6aE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable_or_null(4) %0) unnamed_addr #25 {
+define hidden { i32, i32 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17he1dd687b35177b6aE"(ptr noalias noundef readonly align 4 captures(address_is_null) dereferenceable_or_null(4) %0) unnamed_addr #25 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -70094,7 +70094,7 @@ attributes #61 = { nounwind }
 !33 = distinct !{!33, !"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h52f29eab81cb3722E.llvm.15602210471604820194"}
 !34 = !{!32, !30, !20, !18}
 !35 = !{!27, !25, !15}
-!36 = !{!32, !27, !30, !25, !20, !15, !18}
+!36 = !{!32, !27, !30, !25, !20, !15}
 !37 = !{!30, !20, !18}
 !38 = !{i64 1}
 !39 = !{!27, !30, !20, !18}

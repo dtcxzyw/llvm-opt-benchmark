@@ -769,12 +769,12 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN15actix_multipart4for
   br i1 %3, label %4, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h0541d4751ed99795E.exit"
 
 4:                                                ; preds = %1
-  %5 = tail call noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7request11HttpRequest8app_data17h1ed72f6388ab4e9dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0), !noalias !155
+  %5 = tail call noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7request11HttpRequest8app_data17h1ed72f6388ab4e9dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h0541d4751ed99795E.exit", label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %5, align 8, !noalias !155, !nonnull !4, !noundef !4
+  %8 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h0541d4751ed99795E.exit"
 
@@ -796,7 +796,7 @@ define { ptr, ptr } @_ZN15actix_multipart4form4json10JsonConfig9map_error17hdb7b
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !align !78, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load i64, ptr %10, align 8, !range !158, !invariant.load !4
+  %11 = load i64, ptr %10, align 8, !range !155, !invariant.load !4
   %12 = add i64 %11, -1
   %13 = and i64 %12, -16
   %14 = getelementptr i8, ptr %5, i64 %13
@@ -812,7 +812,7 @@ define { ptr, ptr } @_ZN15actix_multipart4form4json10JsonConfig9map_error17hdb7b
 
 23:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %2, ptr %4, align 8, !noalias !159
+  store ptr %2, ptr %4, align 8, !noalias !156
   %24 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %25 = tail call noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef 8, i64 noundef 8) #20
   %26 = icmp eq ptr %25, null
@@ -912,15 +912,15 @@ define internal noundef zeroext i1 @"_ZN82_$LT$actix_multipart..form..json..Json
   store ptr %6, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17ha46f7e34b0eed2b8E", ptr %10, align 8
-  store ptr @anon.9536fa9df9a5f210434f3342f71a6d78.45, ptr %5, align 8, !alias.scope !162, !noalias !165
+  store ptr @anon.9536fa9df9a5f210434f3342f71a6d78.45, ptr %5, align 8, !alias.scope !159, !noalias !162
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %11, align 8, !alias.scope !162, !noalias !165
+  store i64 1, ptr %11, align 8, !alias.scope !159, !noalias !162
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %12, align 8, !alias.scope !162, !noalias !165
+  store ptr null, ptr %12, align 8, !alias.scope !159, !noalias !162
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %13, align 8, !alias.scope !162, !noalias !165
+  store ptr %4, ptr %13, align 8, !alias.scope !159, !noalias !162
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 1, ptr %14, align 8, !alias.scope !162, !noalias !165
+  store i64 1, ptr %14, align 8, !alias.scope !159, !noalias !162
   %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -1245,15 +1245,12 @@ attributes #23 = { cold noreturn nounwind }
 !152 = !{!153}
 !153 = distinct !{!153, !154, !"_ZN52_$LT$$RF$mut$u20$R$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17he5f69cbf2d590754E: argument 0"}
 !154 = distinct !{!154, !"_ZN52_$LT$$RF$mut$u20$R$u20$as$u20$rand_core..RngCore$GT$14try_fill_bytes17he5f69cbf2d590754E"}
-!155 = !{!156}
-!156 = distinct !{!156, !157, !"_ZN4core6option15Option$LT$T$GT$7or_else17h0541d4751ed99795E: argument 0"}
-!157 = distinct !{!157, !"_ZN4core6option15Option$LT$T$GT$7or_else17h0541d4751ed99795E"}
-!158 = !{i64 1, i64 0}
+!155 = !{i64 1, i64 0}
+!156 = !{!157}
+!157 = distinct !{!157, !158, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE: argument 0"}
+!158 = distinct !{!158, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE"}
 !159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE: argument 0"}
-!161 = distinct !{!161, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE"}
+!160 = distinct !{!160, !161, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
+!161 = distinct !{!161, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
 !162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
-!164 = distinct !{!164, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}
-!165 = !{!166}
-!166 = distinct !{!166, !164, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}
+!163 = distinct !{!163, !161, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 1"}

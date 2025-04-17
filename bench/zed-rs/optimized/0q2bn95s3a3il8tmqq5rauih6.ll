@@ -150966,8 +150966,8 @@ define hidden void @_ZN9assistant25terminal_inline_assistant23TerminalInlineAssi
 
 select.unfold:                                    ; preds = %._crit_edge.i.i, %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !41059
-  call void @_ZN3std9backtrace9Backtrace7capture17haac13786173b9ed6E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %15), !noalias !41059
-  %65 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17hc2dad487a5a9286aE.llvm.5495058782197839064"(ptr noalias noundef nonnull readonly align 1 @anon.056909d58185468a4c5e660ab0f52ad7.757, i64 noundef 14, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.ad19b6ae087a01f888f6aa424a7fcaef.297.llvm.5495058782197839064, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %15), !noalias !41063
+  call void @_ZN3std9backtrace9Backtrace7capture17haac13786173b9ed6E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %15), !noalias !41063
+  %65 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17hc2dad487a5a9286aE.llvm.5495058782197839064"(ptr noalias noundef nonnull readonly align 1 @anon.056909d58185468a4c5e660ab0f52ad7.757, i64 noundef 14, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.ad19b6ae087a01f888f6aa424a7fcaef.297.llvm.5495058782197839064, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %15)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15), !noalias !41059
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %65, ptr %66, align 8
@@ -205594,7 +205594,7 @@ attributes #85 = { "function-inline-cost-multiplier"="2" }
 !41060 = distinct !{!41060, !41061, !"_ZN6anyhow7context112_$LT$impl$u20$anyhow..Context$LT$T$C$core..convert..Infallible$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$7context17h4326643a158ac3e2E: argument 0"}
 !41061 = distinct !{!41061, !"_ZN6anyhow7context112_$LT$impl$u20$anyhow..Context$LT$T$C$core..convert..Infallible$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$7context17h4326643a158ac3e2E"}
 !41062 = distinct !{!41062, !41061, !"_ZN6anyhow7context112_$LT$impl$u20$anyhow..Context$LT$T$C$core..convert..Infallible$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$7context17h4326643a158ac3e2E: argument 1"}
-!41063 = !{!41060}
+!41063 = !{!41062}
 !41064 = !{!41065}
 !41065 = distinct !{!41065, !41066, !"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h8630092948123ea2E: argument 0"}
 !41066 = distinct !{!41066, !"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17h8630092948123ea2E"}

@@ -83189,12 +83189,12 @@ define noundef zeroext i1 @"_ZN64_$LT$workspace..OpenTerminal$u20$as$u20$gpui..a
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1.i.i = load i64, ptr %21, align 8, !noalias !17882, !noundef !5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !17882
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val1.i.i), !noalias !17882
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val1.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !17882
   %22 = icmp ne ptr %.val5.i, null
   tail call void @llvm.assume(i1 %22)
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %.val5.i, i64 noundef %.val6.i), !noalias !17882
-  %23 = call noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha36201ee67cb5509E.llvm.7428513249094624621"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !17882
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %.val5.i, i64 noundef %.val6.i)
+  %23 = call noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha36201ee67cb5509E.llvm.7428513249094624621"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !17882
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !17882
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6ff30b5986cc524cE.exit"
@@ -83410,12 +83410,12 @@ define noundef zeroext i1 @"_ZN58_$LT$workspace..Reload$u20$as$u20$gpui..action.
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.val3.i.i = load i64, ptr %26, align 8, !alias.scope !17907
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !17907
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val1.i.i), !noalias !17907
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %.val.i.i, i64 noundef %.val1.i.i), !noalias !17904
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !17907
   %27 = icmp ne ptr %.val2.i.i, null
   tail call void @llvm.assume(i1 %27)
-  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %.val2.i.i, i64 noundef %.val3.i.i), !noalias !17907
-  %28 = call noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha36201ee67cb5509E.llvm.7428513249094624621"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !17907
+  call void @_ZN3std4path4Path10components17h6342392ba29370c8E(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %.val2.i.i, i64 noundef %.val3.i.i), !noalias !17904
+  %28 = call noundef zeroext i1 @"_ZN62_$LT$std..path..Components$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha36201ee67cb5509E.llvm.7428513249094624621"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !17904
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !17907
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !17907
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h92db07097c301f78E.exit"
@@ -84011,7 +84011,7 @@ define noundef zeroext i1 @"_ZN66_$LT$workspace..SendKeystrokes$u20$as$u20$gpui.
   %.val.i.i = load ptr, ptr %19, align 8, !noalias !17951, !nonnull !5, !noundef !5
   %20 = getelementptr i8, ptr %7, i64 8
   %.val5.i = load ptr, ptr %20, align 8, !alias.scope !17951, !nonnull !5, !noundef !5
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val5.i, i64 %.val6.i), !alias.scope !17954, !noalias !17951
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val5.i, i64 %.val6.i), !alias.scope !17954
   %21 = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h69437d6529fa5f08E.exit"
 

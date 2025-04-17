@@ -2145,7 +2145,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice3cmp81_$LT$impl$u20$core..cmp..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4bb4a200bfa3059eE.llvm.12014582817787848890"(ptr noalias noundef readnone returned align 1 captures(ret: address, provenance) dereferenceable_or_null(2) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4bb4a200bfa3059eE.llvm.12014582817787848890"(ptr noalias noundef readnone returned align 1 captures(address_is_null, ret: address, provenance) dereferenceable_or_null(2) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = icmp eq ptr %0, null
   br i1 %4, label %6, label %5
@@ -2159,7 +2159,7 @@ define hidden noundef nonnull align 1 dereferenceable(2) ptr @"_ZN4core6result19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(8) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb3830f9f62b247aeE.llvm.12014582817787848890"(ptr noalias noundef readnone returned align 1 captures(ret: address, provenance) dereferenceable_or_null(8) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 1 dereferenceable(8) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb3830f9f62b247aeE.llvm.12014582817787848890"(ptr noalias noundef readnone returned align 1 captures(address_is_null, ret: address, provenance) dereferenceable_or_null(8) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = icmp eq ptr %0, null
   br i1 %4, label %6, label %5
@@ -8528,7 +8528,7 @@ define hidden noundef zeroext i1 @"_ZN6rustls6client11client_conn103_$LT$impl$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { ptr, ptr } @_ZN6rustls6client2hs27emit_client_hello_for_retry17h3072041bbe73970bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(72) %1, ptr noundef align 1 %2, ptr %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, i64 noundef range(i64 0, 3) %5, ptr %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(304) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %8) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @_ZN6rustls6client2hs27emit_client_hello_for_retry17h3072041bbe73970bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(72) %1, ptr noundef align 1 %2, ptr %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, i64 noundef range(i64 0, 3) %5, ptr %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(304) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %8) unnamed_addr #5 personality ptr @rust_eh_personality {
   %10 = alloca {}, align 1
   %11 = alloca { { { ptr, ptr }, ptr } }, align 8
   %12 = alloca { { i64, [22 x i64] }, { i16, i16 }, [2 x i16] }, align 8

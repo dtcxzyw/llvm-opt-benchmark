@@ -2014,7 +2014,7 @@ define hidden void @"_ZN4core5slice4iter20ChunksExact$LT$T$GT$3new17hf5f3fe34a16
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17hf66309bf3de0612bE.llvm.13009932103675954609"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(16) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17hf66309bf3de0612bE.llvm.13009932103675954609"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(16) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 

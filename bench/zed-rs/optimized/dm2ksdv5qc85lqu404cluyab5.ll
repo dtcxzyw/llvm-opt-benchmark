@@ -18482,7 +18482,7 @@ define hidden void @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @"_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h338b2a6f050d7d84E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef align 8 ptr @"_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h338b2a6f050d7d84E"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [0 x i8], align 1
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
@@ -167305,7 +167305,7 @@ attributes #77 = { noreturn nounwind }
 !4565 = !{!4566}
 !4566 = distinct !{!4566, !4567, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h18beeea0bcc4fa73E: argument 1"}
 !4567 = distinct !{!4567, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h18beeea0bcc4fa73E"}
-!4568 = !{!4569, !4552, !4554, !4555, !4546, !4556, !4557, !4558, !4543, !4559, !4560, !4562, !4537, !4539, !4540, !4526, !4528, !4529, !4531, !4533, !4534}
+!4568 = !{!4569, !4552, !4554, !4555, !4556, !4557, !4558, !4559, !4560, !4562, !4537, !4539, !4540, !4526, !4528, !4529, !4531, !4533, !4534}
 !4569 = distinct !{!4569, !4567, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h18beeea0bcc4fa73E: argument 0"}
 !4570 = !{!4537, !4539, !4540, !4526, !4528, !4529, !4531, !4533, !4534}
 !4571 = !{!4572, !4574, !4575, !4576, !4578, !4579}

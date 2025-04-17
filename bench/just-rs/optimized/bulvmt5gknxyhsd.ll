@@ -17460,24 +17460,24 @@ _ZN4just8justfile8Justfile9get_alias17h5a0645387a63f025E.exit.thread: ; preds = 
 93:                                               ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h91e7dc262add1d13E.exit.thread.i33"
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %95 = load i64, ptr %94, align 8, !alias.scope !3749, !noalias !3750, !noundef !8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !3757
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !3756
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h3752a51bda80338cE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %23, i64 noundef %95, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !noalias !3758
-  %96 = load i64, ptr %6, align 8, !range !732, !noalias !3757, !noundef !8
+  %96 = load i64, ptr %6, align 8, !range !732, !noalias !3756, !noundef !8
   %trunc.i.i.i.i34 = trunc nuw i64 %96 to i1
   br i1 %trunc.i.i.i.i34, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17he11bde792bbddc3fE.exit.thread4.i.i.i39", label %97
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17he11bde792bbddc3fE.exit.thread4.i.i.i39": ; preds = %93
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !3757
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !3756
   br label %130
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.0.0.copyload.i.i.i.i35 = load ptr, ptr %98, align 8, !noalias !3757, !nonnull !8, !noundef !8
+  %.sroa.0.0.copyload.i.i.i.i35 = load ptr, ptr %98, align 8, !noalias !3756, !nonnull !8, !noundef !8
   %.sroa.27.0..sroa_idx.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sroa.27.0.copyload.i.i.i.i37 = load i64, ptr %.sroa.27.0..sroa_idx.i.i.i.i36, align 8, !noalias !3757
+  %.sroa.27.0.copyload.i.i.i.i37 = load i64, ptr %.sroa.27.0..sroa_idx.i.i.i.i36, align 8, !noalias !3756
   %99 = icmp ult i64 %.sroa.27.0.copyload.i.i.i.i37, 11
   tail call void @llvm.assume(i1 %99)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !3757
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !3756
   %.idx.i.i.i38 = mul nuw nsw i64 %.sroa.27.0.copyload.i.i.i.i37, 104
   %100 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i35, i64 208
   %101 = getelementptr i8, ptr %100, i64 %.idx.i.i.i38
@@ -23278,7 +23278,7 @@ attributes #37 = { cold noreturn nounwind }
 !3731 = distinct !{!3731, !3732, !"_ZN4core6option15Option$LT$T$GT$7or_else17hd8ad7c1da7f48b47E.llvm.12352545699060731367: argument 0"}
 !3732 = distinct !{!3732, !"_ZN4core6option15Option$LT$T$GT$7or_else17hd8ad7c1da7f48b47E.llvm.12352545699060731367"}
 !3733 = distinct !{!3733, !3732, !"_ZN4core6option15Option$LT$T$GT$7or_else17hd8ad7c1da7f48b47E.llvm.12352545699060731367: argument 1"}
-!3734 = !{!3726, !3729, !3731, !3733, !3715}
+!3734 = !{!3726, !3729, !3733, !3715}
 !3735 = !{!3736}
 !3736 = distinct !{!3736, !3737, !"_ZN4just8justfile8Justfile10get_recipe17h84e5a7b4c755d461E: argument 0"}
 !3737 = distinct !{!3737, !"_ZN4just8justfile8Justfile10get_recipe17h84e5a7b4c755d461E"}
@@ -23294,15 +23294,15 @@ attributes #37 = { cold noreturn nounwind }
 !3747 = distinct !{!3747, !3748, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17he11bde792bbddc3fE: argument 0"}
 !3748 = distinct !{!3748, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17he11bde792bbddc3fE"}
 !3749 = !{!3747, !3736}
-!3750 = !{!3751, !3752, !3754, !3756, !3744}
+!3750 = !{!3751, !3752, !3754, !3744}
 !3751 = distinct !{!3751, !3748, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17he11bde792bbddc3fE: argument 1"}
 !3752 = distinct !{!3752, !3753, !"_ZN4just8justfile8Justfile10get_recipe28_$u7b$$u7b$closure$u7d$$u7d$17h05f532fd48daf23fE.llvm.12352545699060731367: argument 0"}
 !3753 = distinct !{!3753, !"_ZN4just8justfile8Justfile10get_recipe28_$u7b$$u7b$closure$u7d$$u7d$17h05f532fd48daf23fE.llvm.12352545699060731367"}
-!3754 = distinct !{!3754, !3755, !"_ZN4core6option15Option$LT$T$GT$7or_else17hd8ad7c1da7f48b47E.llvm.12352545699060731367: argument 0"}
+!3754 = distinct !{!3754, !3755, !"_ZN4core6option15Option$LT$T$GT$7or_else17hd8ad7c1da7f48b47E.llvm.12352545699060731367: argument 1"}
 !3755 = distinct !{!3755, !"_ZN4core6option15Option$LT$T$GT$7or_else17hd8ad7c1da7f48b47E.llvm.12352545699060731367"}
-!3756 = distinct !{!3756, !3755, !"_ZN4core6option15Option$LT$T$GT$7or_else17hd8ad7c1da7f48b47E.llvm.12352545699060731367: argument 1"}
-!3757 = !{!3747, !3751, !3752, !3754, !3756, !3736, !3744}
-!3758 = !{!3747, !3752, !3754, !3756, !3736}
+!3756 = !{!3747, !3751, !3752, !3757, !3754, !3736, !3744}
+!3757 = distinct !{!3757, !3755, !"_ZN4core6option15Option$LT$T$GT$7or_else17hd8ad7c1da7f48b47E.llvm.12352545699060731367: argument 0"}
+!3758 = !{!3747, !3752, !3754, !3736}
 !3759 = !{!3760}
 !3760 = distinct !{!3760, !3761, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE: argument 0"}
 !3761 = distinct !{!3761, !"_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE"}

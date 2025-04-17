@@ -1290,7 +1290,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hfb545c0d624fc721E.llvm.12542172245
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h79aa6a41d90762efE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h79aa6a41d90762efE"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {}, { { i32, i32 }, i32 } }, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !503)
   %.not4.i = icmp eq ptr %0, null
@@ -1329,7 +1329,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7ec459afcc52ab7cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7ec459afcc52ab7cE"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {}, { { i32, i32 }, i32 } }, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !532)
   %.not4.i = icmp eq ptr %0, null
@@ -13245,7 +13245,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h625aa719cac08c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6e502cd47d64361cE.llvm.12542172245242916373(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6e502cd47d64361cE.llvm.12542172245242916373(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { {}, { { i32, i32 }, i32 } }, align 4
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph.split.us
@@ -13277,7 +13277,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6e502cd47d6436
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6e727cd04c2aa750E.llvm.12542172245242916373(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6e727cd04c2aa750E.llvm.12542172245242916373(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { {}, { { i32, i32 }, i32 } }, align 4
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph.split.us
@@ -80574,7 +80574,7 @@ attributes #56 = { nounwind }
 !513 = !{!514, !515}
 !514 = distinct !{!514, !508, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4cc2035ad6a8beafE.llvm.12542172245242916373: argument 0"}
 !515 = distinct !{!515, !505, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6e727cd04c2aa750E.llvm.12542172245242916373: argument 1"}
-!516 = !{!510, !514, !507, !504, !515}
+!516 = !{!510, !514, !507, !515}
 !517 = !{!518, !520, !521, !523, !524, !526, !528, !514, !507, !504, !515}
 !518 = distinct !{!518, !519, !"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha7b573d579d6a9e2E.llvm.14358968814291841630: argument 0"}
 !519 = distinct !{!519, !"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha7b573d579d6a9e2E.llvm.14358968814291841630"}
@@ -80588,8 +80588,8 @@ attributes #56 = { nounwind }
 !527 = distinct !{!527, !"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h19d754812c0121bdE"}
 !528 = distinct !{!528, !529, !"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0c7304975f51bc6bE.llvm.12542172245242916373: argument 0"}
 !529 = distinct !{!529, !"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h0c7304975f51bc6bE.llvm.12542172245242916373"}
-!530 = !{!518, !521, !524, !526, !528, !514, !507, !504}
-!531 = !{!520, !521, !523, !528, !514, !507, !504}
+!530 = !{!518, !521, !524, !526, !528, !514, !507}
+!531 = !{!520, !521, !523, !528, !514, !507}
 !532 = !{!533}
 !533 = distinct !{!533, !534, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6e502cd47d64361cE.llvm.12542172245242916373: argument 0"}
 !534 = distinct !{!534, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6e502cd47d64361cE.llvm.12542172245242916373"}
@@ -80603,7 +80603,7 @@ attributes #56 = { nounwind }
 !542 = !{!543, !544}
 !543 = distinct !{!543, !537, !"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbd14120be4f716b7E.llvm.12542172245242916373: argument 0"}
 !544 = distinct !{!544, !534, !"_ZN4core4iter6traits8iterator8Iterator4fold17h6e502cd47d64361cE.llvm.12542172245242916373: argument 1"}
-!545 = !{!539, !543, !536, !533, !544}
+!545 = !{!539, !543, !536, !544}
 !546 = !{!547, !549, !550, !552, !553, !555, !557, !543, !536, !533, !544}
 !547 = distinct !{!547, !548, !"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha7428b1bfd9fdc8dE.llvm.14358968814291841630: argument 0"}
 !548 = distinct !{!548, !"_ZN4core4iter8adapters6copied9copy_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha7428b1bfd9fdc8dE.llvm.14358968814291841630"}
@@ -80617,8 +80617,8 @@ attributes #56 = { nounwind }
 !556 = distinct !{!556, !"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h4f5843243770b27bE"}
 !557 = distinct !{!557, !558, !"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h6c82a0edd9bb4d3eE.llvm.12542172245242916373: argument 0"}
 !558 = distinct !{!558, !"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9iter_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h6c82a0edd9bb4d3eE.llvm.12542172245242916373"}
-!559 = !{!547, !550, !553, !555, !557, !543, !536, !533}
-!560 = !{!549, !550, !552, !557, !543, !536, !533}
+!559 = !{!547, !550, !553, !555, !557, !543, !536}
+!560 = !{!549, !550, !552, !557, !543, !536}
 !561 = !{!562}
 !562 = distinct !{!562, !563, !"_ZN4core4iter6traits8iterator8Iterator4fold17h2f0b374bc6f1622dE.llvm.12542172245242916373: argument 0"}
 !563 = distinct !{!563, !"_ZN4core4iter6traits8iterator8Iterator4fold17h2f0b374bc6f1622dE.llvm.12542172245242916373"}

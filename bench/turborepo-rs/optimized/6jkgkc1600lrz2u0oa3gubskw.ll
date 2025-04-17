@@ -6126,7 +6126,7 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit75: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_RNvNvNtCseG2FYMysgNb_3wax4rule5group23check_group_alternative(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(64) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(64) %3) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden void @_RNvNvNtCseG2FYMysgNb_3wax4rule5group23check_group_alternative(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(64) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(64) %3) unnamed_addr #9 personality ptr @rust_eh_personality {
 _RINvMs3_NtCseG2FYMysgNb_3wax4ruleINtB6_9TerminalsRNtNtB8_5token5TokenE3mapTBL_RINtBO_9TokenKindTjjEEENCNvNvB6_5group23check_group_alternative0EB8_.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !1435, !noalias !1438, !noundef !5
@@ -6220,7 +6220,7 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit22: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_RNvNvNtCseG2FYMysgNb_3wax4rule5group22check_group_repetition(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(64) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(64) %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %4) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden void @_RNvNvNtCseG2FYMysgNb_3wax4rule5group22check_group_repetition(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(64) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(64) %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %4) unnamed_addr #9 personality ptr @rust_eh_personality {
 _RINvMs3_NtCseG2FYMysgNb_3wax4ruleINtB6_9TerminalsRNtNtB8_5token5TokenE3mapTBL_RINtBO_9TokenKindTjjEEENCNvNvB6_5group22check_group_repetition0EB8_.exit:
   %5 = load i64, ptr %4, align 8, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8

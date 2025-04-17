@@ -11102,7 +11102,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h868
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h200b5067071dba20E"(ptr noalias noundef writeonly sret({ [224 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(232) initializes((224, 225)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(232) %1) unnamed_addr #0 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h200b5067071dba20E"(ptr noalias noundef writeonly sret({ [224 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(232) initializes((224, 225)) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(232) %1) unnamed_addr #0 {
   %3 = alloca { { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { [32 x i8] }, { [32 x i8] }, i8, [7 x i8] }, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %7

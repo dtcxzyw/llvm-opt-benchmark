@@ -4809,7 +4809,7 @@ define hidden noundef zeroext i1 @_ZN9typst_pdf4page12PageResource14is_ext_g_sta
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9typst_pdf4page11PageContext13set_opacities17hc7f372808ed47f88E(ptr noalias noundef nonnull align 8 dereferenceable(416) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(80) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9typst_pdf4page11PageContext13set_opacities17hc7f372808ed47f88E(ptr noalias noundef nonnull align 8 dereferenceable(416) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(80) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { ptr, { ptr, i64 }, i8, [7 x i8] }, align 8
   %6 = alloca { i64, [3 x i64] }, align 8

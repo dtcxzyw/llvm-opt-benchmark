@@ -2337,7 +2337,7 @@ define hidden { ptr, ptr } @"_ZN4core5slice4iter95_$LT$impl$u20$core..iter..trai
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i8, i8 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0e08f4b77d48baa3E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable_or_null(1) %0) unnamed_addr #0 {
+define hidden { i8, i8 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h0e08f4b77d48baa3E"(ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(1) %0) unnamed_addr #0 {
   %2 = icmp ne ptr %0, null
   br i1 %2, label %3, label %5
 

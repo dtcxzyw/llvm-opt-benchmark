@@ -32143,7 +32143,7 @@ define noundef zeroext i1 @"_ZN64_$LT$terminal_view..SendText$u20$as$u20$gpui..a
   %.val.i.i = load ptr, ptr %19, align 8, !noalias !7070, !nonnull !4, !noundef !4
   %20 = getelementptr i8, ptr %7, i64 8
   %.val5.i = load ptr, ptr %20, align 8, !alias.scope !7070, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val5.i, i64 %.val6.i), !alias.scope !7073, !noalias !7070
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val5.i, i64 %.val6.i), !alias.scope !7073
   %21 = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1518b67698d2a70E.exit"
 
@@ -32328,7 +32328,7 @@ define noundef zeroext i1 @"_ZN69_$LT$terminal_view..SendKeystroke$u20$as$u20$gp
   %.val.i.i = load ptr, ptr %19, align 8, !noalias !7092, !nonnull !4, !noundef !4
   %20 = getelementptr i8, ptr %7, i64 8
   %.val5.i = load ptr, ptr %20, align 8, !alias.scope !7092, !nonnull !4, !noundef !4
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val5.i, i64 %.val6.i), !alias.scope !7095, !noalias !7092
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val5.i, i64 %.val6.i), !alias.scope !7095
   %21 = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h12921be04d17bf98E.exit"
 

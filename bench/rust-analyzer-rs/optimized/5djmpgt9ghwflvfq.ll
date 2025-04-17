@@ -15956,7 +15956,7 @@ define hidden noalias noundef align 8 ptr @"_ZN106_$LT$serde..__private..de..con
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @"_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h9c417ecdb3b0ffc8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef align 8 ptr @"_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h9c417ecdb3b0ffc8E"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4

@@ -20636,7 +20636,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h3a4aa0f52dcffe7a
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h96ad3bd8f9d1166aE.llvm.13455287501529294234"(ptr noalias noundef writeonly sret({ i8, [8 x i8] }) align 1 captures(none) dereferenceable(9) initializes((0, 1)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable_or_null(8) %1) unnamed_addr #7 {
+define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h96ad3bd8f9d1166aE.llvm.13455287501529294234"(ptr noalias noundef writeonly sret({ i8, [8 x i8] }) align 1 captures(none) dereferenceable(9) initializes((0, 1)) %0, ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(8) %1) unnamed_addr #7 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %7, label %4
 

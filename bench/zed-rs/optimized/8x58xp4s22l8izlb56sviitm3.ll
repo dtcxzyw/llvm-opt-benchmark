@@ -24644,7 +24644,7 @@ define noundef zeroext i1 @"_ZN63_$LT$tasks_ui..modal..Spawn$u20$as$u20$gpui..ac
   %.val2.i.i = load ptr, ptr %24, align 8, !alias.scope !4378, !nonnull !9, !noundef !9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val.i.i = load ptr, ptr %25, align 8, !noalias !4378, !nonnull !9, !noundef !9
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val2.i.i, i64 %.val1.i.i), !alias.scope !4379, !noalias !4378
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val2.i.i, i64 %.val1.i.i), !alias.scope !4379, !noalias !4375
   %26 = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h9ee7c7f3823b4034E.exit"
 
@@ -30249,7 +30249,7 @@ attributes #46 = { noreturn }
 !4362 = distinct !{!4362, !4363, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2f9aec4dfa31120bE: argument 0"}
 !4363 = distinct !{!4363, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2f9aec4dfa31120bE"}
 !4364 = distinct !{!4364, !4363, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2f9aec4dfa31120bE: argument 1"}
-!4365 = !{!4356, !4359, !4353, !4350}
+!4365 = !{!4356, !4359, !4353}
 !4366 = !{!4367}
 !4367 = distinct !{!4367, !4368, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb662d6d8a4cfd0d0E: argument 0"}
 !4368 = distinct !{!4368, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hb662d6d8a4cfd0d0E"}

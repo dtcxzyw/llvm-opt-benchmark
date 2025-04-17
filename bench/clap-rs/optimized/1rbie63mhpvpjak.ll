@@ -8015,7 +8015,7 @@ define hidden void @_ZN12clap_builder5error6format11start_error17h49d198f855c51b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN12clap_builder5error6format17write_values_list17h12781083296b5769E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef range(i64 11, 16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 2 captures(none) dereferenceable(14) %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(32) %4) unnamed_addr #9 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12clap_builder5error6format17write_values_list17h12781083296b5769E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef range(i64 11, 16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 2 captures(none) dereferenceable(14) %3, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(32) %4) unnamed_addr #9 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, i64 }, align 8
   %7 = alloca [3 x { ptr, ptr }], align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -8190,7 +8190,7 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12clap_builder5error6format20format_error_message17h87a4c3af7a183583E(ptr noalias noundef writeonly sret({ { { { i64, ptr }, i64 } } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, ptr noalias noundef readonly align 2 captures(none) dereferenceable(98) %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(712) %4, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(24) %5) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden void @_ZN12clap_builder5error6format20format_error_message17h87a4c3af7a183583E(ptr noalias noundef writeonly sret({ { { { i64, ptr }, i64 } } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, ptr noalias noundef readonly align 2 captures(none) dereferenceable(98) %3, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(712) %4, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(24) %5) unnamed_addr #9 personality ptr @rust_eh_personality {
   %7 = alloca { ptr, i64 }, align 8
   %8 = alloca { { { i8, [3 x i8] }, { i8, [3 x i8] }, { i8, [3 x i8] }, i16 } }, align 2
   %9 = alloca [2 x { ptr, ptr }], align 8

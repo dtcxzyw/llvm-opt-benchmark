@@ -6798,7 +6798,7 @@ define hidden { i64, i64 } @"_ZN4core6option15Option$LT$T$GT$3map17h9742c557720a
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
-define hidden noundef align 4 dereferenceable_or_null(16) ptr @"_ZN4core6option15Option$LT$T$GT$6filter17ha4f9851c63759274E.llvm.1710812290736639100"(ptr noalias noundef readonly align 4 captures(ret: address, provenance) dereferenceable_or_null(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(80) %1) unnamed_addr #12 personality ptr @rust_eh_personality {
+define hidden noundef align 4 dereferenceable_or_null(16) ptr @"_ZN4core6option15Option$LT$T$GT$6filter17ha4f9851c63759274E.llvm.1710812290736639100"(ptr noalias noundef readonly align 4 captures(address_is_null, ret: address, provenance) dereferenceable_or_null(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(80) %1) unnamed_addr #12 personality ptr @rust_eh_personality {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %"_ZN17cranelift_codegen15scoped_hash_map26ScopedHashMap$LT$K$C$V$GT$3get28_$u7b$$u7b$closure$u7d$$u7d$17hca8bb2c74c5ccdb2E.exit.thread", label %3
 
@@ -43590,7 +43590,7 @@ define hidden noundef align 4 dereferenceable_or_null(8) ptr @"_ZN17cranelift_co
   %47 = load ptr, ptr %46, align 8, !alias.scope !8170, !noalias !8173, !nonnull !4
   %.sink5.i.i.i = select i1 %42, ptr %47, ptr %46
   %48 = getelementptr inbounds nuw i32, ptr %.sink5.i.i.i, i64 %39
-  %49 = load i32, ptr %48, align 4, !alias.scope !8175, !noalias !8161, !noundef !4
+  %49 = load i32, ptr %48, align 4, !alias.scope !8175, !noundef !4
   %50 = getelementptr inbounds i8, ptr %36, i64 -4
   %51 = load i32, ptr %50, align 4, !alias.scope !8161, !noalias !8169, !noundef !4
   %52 = icmp eq i32 %49, %51

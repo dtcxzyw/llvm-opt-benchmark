@@ -2410,7 +2410,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN2h25proto7streams7streams20Streams$LT$B$C$P$GT$12send_request17h995ceea8f4dd5603E"(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef align 8 captures(none) dereferenceable(224) %2, i1 noundef zeroext %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(16) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN2h25proto7streams7streams20Streams$LT$B$C$P$GT$12send_request17h995ceea8f4dd5603E"(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef align 8 captures(none) dereferenceable(224) %2, i1 noundef zeroext %3, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(16) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i8, [7 x i8] } }, align 8
   %7 = alloca { { ptr, i8, [7 x i8] } }, align 8
   %.sroa.458 = alloca [39 x i8], align 1
@@ -4286,7 +4286,7 @@ define hidden noundef zeroext i1 @"_ZN2h25proto7streams7streams20Streams$LT$B$C$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN2h25proto7streams7streams35Streams$LT$B$C$h2..client..Peer$GT$17poll_pending_open17h7278389b38996402E"(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(16) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN2h25proto7streams7streams35Streams$LT$B$C$h2..client..Peer$GT$17poll_pending_open17h7278389b38996402E"(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(16) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { i64, { ptr, i64 } }, align 8
   %6 = alloca { i64, { ptr, i64 } }, align 8
   %7 = alloca { { ptr, i8, [7 x i8] } }, align 8

@@ -10779,7 +10779,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h7f2a55b57b235a1cE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc i32 @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc5143b70e9a166c8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc i32 @"_ZN4core6option15Option$LT$T$GT$11map_or_else17hc5143b70e9a166c8E"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %29
@@ -11350,7 +11350,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17hb88335db1f7c0067E"(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h31ea432972ef2019E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0) unnamed_addr #6 {
+define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h31ea432972ef2019E"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0) unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -11378,7 +11378,7 @@ define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h31ea43
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h405b3b1fa009ccd2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0) unnamed_addr #6 {
+define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h405b3b1fa009ccd2E"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0) unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -11406,7 +11406,7 @@ define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h405b3b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h91d55bde45e633a0E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #6 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h91d55bde45e633a0E"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #6 {
   %.sroa.0 = alloca { { i64, ptr, {} }, i64 }, align 8
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
@@ -11432,7 +11432,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h91d55bde45e63
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17heed18dc8158dc82aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0) unnamed_addr #6 {
+define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17heed18dc8158dc82aE"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0) unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %"_ZN60_$LT$chalk_ir..Ty$LT$I$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0c6d5e830e99b4ceE.llvm.7136808221034403137.exit", label %3
 
@@ -48584,7 +48584,7 @@ attributes #62 = { cold noreturn nounwind }
 !8205 = !{!8204, !8198, !8196}
 !8206 = !{!8201, !8207, !8193}
 !8207 = distinct !{!8207, !8199, !"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..clone..Clone$GT$5clone17h8971684d77ef9d27E: argument 0"}
-!8208 = !{!8201, !8204, !8207, !8198, !8193, !8196}
+!8208 = !{!8201, !8204, !8207, !8198, !8193}
 !8209 = !{!8201, !8204, !8198, !8196}
 !8210 = !{!8207, !8193}
 !8211 = !{!8212, !8214}
@@ -48612,7 +48612,7 @@ attributes #62 = { cold noreturn nounwind }
 !8233 = !{!8232, !8226, !8224}
 !8234 = !{!8229, !8235, !8221}
 !8235 = distinct !{!8235, !8227, !"_ZN56_$LT$smol_str..SmolStr$u20$as$u20$core..clone..Clone$GT$5clone17h8971684d77ef9d27E: argument 0"}
-!8236 = !{!8229, !8232, !8235, !8226, !8221, !8224}
+!8236 = !{!8229, !8232, !8235, !8226, !8221}
 !8237 = !{!8229, !8232, !8226, !8224}
 !8238 = !{!8235, !8221}
 !8239 = !{!8240, !8242}

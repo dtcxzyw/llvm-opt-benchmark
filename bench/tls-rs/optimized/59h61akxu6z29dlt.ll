@@ -14079,13 +14079,13 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %42 = load ptr, ptr %41, align 8, !alias.scope !3192, !noalias !3189, !nonnull !4, !align !5, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load i64, ptr %43, align 8, !range !287, !invariant.load !4, !noalias !3200
+  %44 = load i64, ptr %43, align 8, !range !287, !invariant.load !4, !noalias !3192
   %45 = add i64 %44, -1
   %46 = and i64 %45, -16
   %47 = getelementptr i8, ptr %40, i64 %46
   %48 = getelementptr i8, ptr %47, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  %50 = load ptr, ptr %49, align 8, !invariant.load !4, !noalias !3200, !nonnull !4
+  %50 = load ptr, ptr %49, align 8, !invariant.load !4, !noalias !3192, !nonnull !4
   %51 = invoke noundef zeroext i1 %50(ptr noundef align 1 %48)
           to label %.noexc45 unwind label %.thread10
 
@@ -14099,7 +14099,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 141
-  %56 = load i8, ptr %55, align 1, !range !176, !alias.scope !3201, !noalias !3192, !noundef !4
+  %56 = load i8, ptr %55, align 1, !range !176, !alias.scope !3200, !noalias !3192, !noundef !4
   %57 = trunc i8 %56 to i1
   br i1 %57, label %58, label %.critedge40.thread.i
 
@@ -14111,7 +14111,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   %63 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %63)
   %64 = getelementptr inbounds nuw i8, ptr %.val, i64 760
-  %65 = load i16, ptr %64, align 8, !range !2743, !noalias !3200, !noundef !4
+  %65 = load i16, ptr %64, align 8, !range !2743, !noalias !3203, !noundef !4
   %66 = icmp eq i16 %60, %65
   br i1 %66, label %67, label %.critedge40.thread.i
 
@@ -14121,7 +14121,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %.val, i64 762
-  %71 = load i16, ptr %70, align 2, !noalias !3200, !noundef !4
+  %71 = load i16, ptr %70, align 2, !noalias !3203, !noundef !4
   %72 = icmp eq i16 %62, %71
   br i1 %72, label %.critedge.i, label %.critedge40.thread.i
 
@@ -14146,7 +14146,7 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   %83 = load i64, ptr %82, align 8, !range !55, !alias.scope !3189, !noalias !3192, !noundef !4
   %84 = icmp eq i64 %83, -9223372036854775808
   %85 = getelementptr inbounds nuw i8, ptr %.val, i64 680
-  %86 = load i64, ptr %85, align 8, !range !55, !noalias !3200, !noundef !4
+  %86 = load i64, ptr %85, align 8, !range !55, !noalias !3203, !noundef !4
   %87 = icmp eq i64 %86, -9223372036854775808
   br i1 %84, label %.critedge40.i, label %88
 
@@ -14162,16 +14162,16 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   %90 = getelementptr i8, ptr %5, i64 88
   %.031.val48.i = load i64, ptr %90, align 8, !alias.scope !3189, !noalias !3192, !noundef !4
   %91 = getelementptr i8, ptr %.val, i64 696
-  %.029.val47.i = load i64, ptr %91, align 8, !noalias !3200, !noundef !4
+  %.029.val47.i = load i64, ptr %91, align 8, !noalias !3203, !noundef !4
   %.not.i.i = icmp eq i64 %.031.val48.i, %.029.val47.i
   br i1 %.not.i.i, label %92, label %.critedge40.thread.i
 
 92:                                               ; preds = %89
   %93 = getelementptr i8, ptr %.val, i64 688
-  %.029.val.i = load ptr, ptr %93, align 8, !noalias !3200, !nonnull !4, !noundef !4
+  %.029.val.i = load ptr, ptr %93, align 8, !noalias !3203, !nonnull !4, !noundef !4
   %94 = getelementptr i8, ptr %5, i64 80
   %.031.val.i = load ptr, ptr %94, align 8, !alias.scope !3189, !noalias !3192, !nonnull !4, !noundef !4
-  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.031.val.i, ptr nonnull readonly align 1 %.029.val.i, i64 %.031.val48.i), !alias.scope !3204, !noalias !3200
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.031.val.i, ptr nonnull readonly align 1 %.029.val.i, i64 %.031.val48.i), !alias.scope !3204, !noalias !3192
   %95 = icmp eq i32 %bcmp.i.i, 0
   br label %.critedge40.i
 
@@ -14179,21 +14179,21 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   %96 = icmp ne ptr %.val, null
   call void @llvm.assume(i1 %96)
   %97 = getelementptr inbounds nuw i8, ptr %.val, i64 772
-  %98 = load i8, ptr %97, align 4, !range !334, !alias.scope !3208, !noalias !3200, !noundef !4
+  %98 = load i8, ptr %97, align 4, !range !334, !alias.scope !3208, !noalias !3203, !noundef !4
   %99 = trunc nuw i8 %98 to i1
   br i1 %99, label %104, label %_ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b4c3baaE.exit.thread
 
 100:                                              ; preds = %.critedge40.i
   %101 = icmp ne ptr %.val40, null
   call void @llvm.assume(i1 %101)
-  %102 = load i64, ptr %.val40, align 8, !range !3211, !alias.scope !3212, !noalias !3200, !noundef !4
+  %102 = load i64, ptr %.val40, align 8, !range !3211, !alias.scope !3212, !noalias !3203, !noundef !4
   %103 = icmp eq i64 %102, 4
   br i1 %103, label %.critedge40.thread.i, label %_ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b4c3baaE.exit
 
 104:                                              ; preds = %.critedge40.thread.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.5.i)
   %105 = getelementptr inbounds nuw i8, ptr %.val, i64 168
-  %106 = load i64, ptr %105, align 8, !range !288, !alias.scope !3215, !noalias !3200, !noundef !4
+  %106 = load i64, ptr %105, align 8, !range !288, !alias.scope !3215, !noalias !3203, !noundef !4
   %107 = icmp eq i64 %106, 0
   br i1 %107, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$rustls..crypto..tls13..OkmBlock$GT$$GT$17h11bb0e031c2981f6E.llvm.3875224068774112026.exit.i", label %108
 
@@ -14211,9 +14211,9 @@ define internal fastcc void @_ZN6rustls6server5tls1312client_hello25emit_encrypt
   br i1 %110, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$rustls..crypto..tls13..OkmBlock$GT$$GT$17h11bb0e031c2981f6E.llvm.3875224068774112026.exit.i", label %.lr.ph.i.i.i.i.i.i
 
 "_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$rustls..crypto..tls13..OkmBlock$GT$$GT$17h11bb0e031c2981f6E.llvm.3875224068774112026.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i, %104
-  store i64 0, ptr %105, align 8, !noalias !3200
+  store i64 0, ptr %105, align 8, !noalias !3203
   %.sroa.5.0..sroa_idx23.i = getelementptr inbounds nuw i8, ptr %.val, i64 176
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.0..sroa_idx23.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.i, i64 72, i1 false), !noalias !3200
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.0..sroa_idx23.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5.i, i64 72, i1 false), !noalias !3203
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.5.i)
   br label %_ZN6rustls6server5tls1312client_hello28decide_if_early_data_allowed17hcfe63b243b4c3baaE.exit.thread
 
@@ -26729,10 +26729,10 @@ attributes #39 = { cold noreturn nounwind }
 !3197 = !{!3198, !3195, !3190, !3193}
 !3198 = distinct !{!3198, !3199, !"_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE: argument 0"}
 !3199 = distinct !{!3199, !"_ZN6rustls4msgs9handshake18ClientHelloPayload14find_extension17hffb7ef2b44ea7fedE"}
-!3200 = !{!3190, !3193}
-!3201 = !{!3202, !3190}
-!3202 = distinct !{!3202, !3203, !"_ZN6rustls4msgs7persist18ServerSessionValue8is_fresh17h4b1e0849e651f725E: argument 0"}
-!3203 = distinct !{!3203, !"_ZN6rustls4msgs7persist18ServerSessionValue8is_fresh17h4b1e0849e651f725E"}
+!3200 = !{!3201, !3190}
+!3201 = distinct !{!3201, !3202, !"_ZN6rustls4msgs7persist18ServerSessionValue8is_fresh17h4b1e0849e651f725E: argument 0"}
+!3202 = distinct !{!3202, !"_ZN6rustls4msgs7persist18ServerSessionValue8is_fresh17h4b1e0849e651f725E"}
+!3203 = !{!3190, !3193}
 !3204 = !{!3205, !3207}
 !3205 = distinct !{!3205, !3206, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c99f94362552714E: argument 0"}
 !3206 = distinct !{!3206, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6c99f94362552714E"}

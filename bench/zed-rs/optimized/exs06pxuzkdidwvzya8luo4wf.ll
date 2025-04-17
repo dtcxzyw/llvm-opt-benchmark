@@ -58068,7 +58068,7 @@ _ZN4core3ops8function6FnOnce9call_once17h799508f2b0b1387bE.exit: ; preds = %188
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h1d0798a28dcc36ffE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h1d0798a28dcc36ffE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -58233,7 +58233,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h25d4de0e07c6c3cbE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h25d4de0e07c6c3cbE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -58398,7 +58398,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h32d80ebd228dfd8aE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h32d80ebd228dfd8aE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -58563,7 +58563,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h355dc03df413678cE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h355dc03df413678cE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -58728,7 +58728,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h42c1dda8b6e9508fE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h42c1dda8b6e9508fE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -58893,7 +58893,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h442134109203751eE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h442134109203751eE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -59058,7 +59058,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h4ed62a199dabcc50E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h4ed62a199dabcc50E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -59223,7 +59223,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h5bb368a5eac36195E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h5bb368a5eac36195E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -59388,7 +59388,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h5fd66b2caae799f1E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h5fd66b2caae799f1E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -59553,7 +59553,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h91a16a8c98add2daE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h91a16a8c98add2daE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -59718,7 +59718,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h93b455c0e8fef07eE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h93b455c0e8fef07eE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -59883,7 +59883,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h967661851c1b0871E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h967661851c1b0871E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -60048,7 +60048,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17ha61e7e4383856924E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17ha61e7e4383856924E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -60213,7 +60213,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17haa905411d1aab76bE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17haa905411d1aab76bE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -60378,7 +60378,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17hc14ccfcdfe59459dE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17hc14ccfcdfe59459dE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -60543,7 +60543,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17hce739f76af72b5c8E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17hce739f76af72b5c8E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -60708,7 +60708,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17hd239a94f3b3f18bcE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17hd239a94f3b3f18bcE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -60873,7 +60873,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17heabcc936a91b8b90E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17heabcc936a91b8b90E.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -61038,7 +61038,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17hf42b214566fedf9fE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(48) %2) unnamed_addr #1 {
+define hidden noundef ptr @_ZN8wasmtime7runtime9component4func4Func9typecheck17hf42b214566fedf9fE.llvm.1047315795461367902(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(48) %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8

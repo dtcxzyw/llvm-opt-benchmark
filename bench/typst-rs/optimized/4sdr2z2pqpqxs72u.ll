@@ -5368,7 +5368,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17ha93d6491b18f6f46E"(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i1, i8 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h65e73c25a7a2cab3E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable_or_null(1) %0) unnamed_addr #10 {
+define hidden { i1, i8 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h65e73c25a7a2cab3E"(ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(1) %0) unnamed_addr #10 {
   %2 = icmp ne ptr %0, null
   br i1 %2, label %3, label %5
 

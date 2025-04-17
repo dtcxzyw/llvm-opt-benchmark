@@ -9668,7 +9668,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hcef352
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc1ac70b1b6222cceE.llvm.10043242345734795027"(ptr noalias noundef readonly align 4 captures(ret: address, provenance) dereferenceable_or_null(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
+define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc1ac70b1b6222cceE.llvm.10043242345734795027"(ptr noalias noundef readonly align 4 captures(address_is_null, ret: address, provenance) dereferenceable_or_null(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #11 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN121_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back28_$u7b$$u7b$closure$u7d$$u7d$17hb3ad45fc74636215E.exit"
 
@@ -9694,7 +9694,7 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN4core6option15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hdaf8ea9fea6e7deeE.llvm.10043242345734795027"(ptr noalias noundef readonly align 4 captures(ret: address, provenance) dereferenceable_or_null(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hdaf8ea9fea6e7deeE.llvm.10043242345734795027"(ptr noalias noundef readonly align 4 captures(address_is_null, ret: address, provenance) dereferenceable_or_null(4) %0, ptr noalias noundef align 8 captures(none) dereferenceable(64) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hc7b2591d8de8bb56E.exit"
 
@@ -31890,20 +31890,20 @@ attributes #58 = { nounwind }
 !477 = !{!478}
 !478 = distinct !{!478, !476, !"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E: argument 1"}
 !479 = !{!475, !470, !467, !464}
-!480 = !{!478, !473, !481, !482, !458, !455, !448, !445, !439, !443, !436, !425}
+!480 = !{!478, !473, !481, !482, !458, !455, !448, !445, !439, !436, !425}
 !481 = distinct !{!481, !468, !"_ZN17cranelift_codegen2ir3dfg13DataFlowGraph11inst_values28_$u7b$$u7b$closure$u7d$$u7d$17h68c79c46fabca264E.llvm.16803308262639080379: argument 0"}
 !482 = distinct !{!482, !465, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h173ce1372039549cE: argument 0"}
 !483 = !{!484}
 !484 = distinct !{!484, !485, !"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17h204997370f423911E.llvm.10043242345734795027: argument 0"}
 !485 = distinct !{!485, !"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17h204997370f423911E.llvm.10043242345734795027"}
 !486 = !{!484, !478, !473}
-!487 = !{!488, !475, !470, !481, !467, !482, !464, !458, !455, !448, !445, !439, !443, !436, !425}
+!487 = !{!488, !475, !470, !481, !467, !482, !464, !458, !455, !448, !445, !439, !436, !425}
 !488 = distinct !{!488, !485, !"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17h204997370f423911E.llvm.10043242345734795027: argument 1"}
-!489 = !{!484, !488, !475, !478, !470, !473, !481, !467, !482, !464, !458, !455, !448, !445, !439, !443, !436, !425}
-!490 = !{!491, !475, !478, !470, !473, !481, !467, !482, !464, !458, !455, !448, !445, !439, !443, !436, !425}
+!489 = !{!484, !488, !475, !478, !470, !473, !481, !467, !482, !464, !458, !455, !448, !445, !439, !436, !425}
+!490 = !{!491, !475, !478, !470, !473, !481, !467, !482, !464, !458, !455, !448, !445, !439, !436, !425}
 !491 = distinct !{!491, !492, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027: argument 0"}
 !492 = distinct !{!492, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027"}
-!493 = !{!470, !473, !481, !467, !482, !464, !458, !455, !448, !445, !439, !443, !436, !425}
+!493 = !{!470, !473, !481, !467, !482, !464, !458, !455, !448, !445, !439, !436, !425}
 !494 = !{!495, !448, !445, !439, !436, !425}
 !495 = distinct !{!495, !496, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h9286f948ab1f6cabE: argument 0"}
 !496 = distinct !{!496, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h9286f948ab1f6cabE"}
@@ -32043,20 +32043,20 @@ attributes #58 = { nounwind }
 !630 = !{!631}
 !631 = distinct !{!631, !629, !"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_slice17h8c86ae8c7a4d5312E: argument 1"}
 !632 = !{!628, !623, !620, !617}
-!633 = !{!631, !626, !634, !635, !611, !608, !601, !598, !592, !596, !589}
+!633 = !{!631, !626, !634, !635, !611, !608, !601, !598, !592, !589}
 !634 = distinct !{!634, !621, !"_ZN17cranelift_codegen2ir3dfg13DataFlowGraph11inst_values28_$u7b$$u7b$closure$u7d$$u7d$17h68c79c46fabca264E.llvm.16803308262639080379: argument 0"}
 !635 = distinct !{!635, !618, !"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h173ce1372039549cE: argument 0"}
 !636 = !{!637}
 !637 = distinct !{!637, !638, !"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17h204997370f423911E.llvm.10043242345734795027: argument 0"}
 !638 = distinct !{!638, !"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17h204997370f423911E.llvm.10043242345734795027"}
 !639 = !{!637, !631, !626}
-!640 = !{!641, !628, !623, !634, !620, !635, !617, !611, !608, !601, !598, !592, !596, !589}
+!640 = !{!641, !628, !623, !634, !620, !635, !617, !611, !608, !601, !598, !592, !589}
 !641 = distinct !{!641, !638, !"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17h204997370f423911E.llvm.10043242345734795027: argument 1"}
-!642 = !{!637, !641, !628, !631, !623, !626, !634, !620, !635, !617, !611, !608, !601, !598, !592, !596, !589}
-!643 = !{!644, !628, !631, !623, !626, !634, !620, !635, !617, !611, !608, !601, !598, !592, !596, !589}
+!642 = !{!637, !641, !628, !631, !623, !626, !634, !620, !635, !617, !611, !608, !601, !598, !592, !589}
+!643 = !{!644, !628, !631, !623, !626, !634, !620, !635, !617, !611, !608, !601, !598, !592, !589}
 !644 = distinct !{!644, !645, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027: argument 0"}
 !645 = distinct !{!645, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3e17d75eb51d1d9fE.llvm.10043242345734795027"}
-!646 = !{!623, !626, !634, !620, !635, !617, !611, !608, !601, !598, !592, !596, !589}
+!646 = !{!623, !626, !634, !620, !635, !617, !611, !608, !601, !598, !592, !589}
 !647 = !{!648, !601, !598, !592, !589}
 !648 = distinct !{!648, !649, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h9286f948ab1f6cabE: argument 0"}
 !649 = distinct !{!649, !"_ZN4core4iter8adapters7flatten17and_then_or_clear17h9286f948ab1f6cabE"}

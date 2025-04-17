@@ -17886,7 +17886,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$7is_some17h1e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h2210d5c7937ec93bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #0 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h2210d5c7937ec93bE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
 
@@ -17907,7 +17907,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h2210d5c7937ec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4488f4acc4380118E"(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) initializes((0, 1)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable_or_null(16) %1) unnamed_addr #18 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4488f4acc4380118E"(ptr dead_on_unwind noalias noundef writable writeonly sret([17 x i8]) align 1 captures(none) dereferenceable(17) initializes((0, 1)) %0, ptr noalias noundef readonly align 1 captures(address_is_null) dereferenceable_or_null(16) %1) unnamed_addr #18 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %6, label %4
 
@@ -17923,7 +17923,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h4488f4acc4380
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7fea99219fd08b9dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0) unnamed_addr #7 {
+define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7fea99219fd08b9dE"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0) unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %"_ZN79_$LT$prometheus..gauge..GenericGauge$LT$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h383d044fb9af4d9cE.exit", label %3
 
@@ -17945,7 +17945,7 @@ define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h7fea99
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h9ac711655cc93ce0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0) unnamed_addr #10 {
+define hidden noundef i64 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h9ac711655cc93ce0E"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0) unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -17959,7 +17959,7 @@ define hidden noundef i64 @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h9ac711
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hab53766753f550efE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0) unnamed_addr #7 {
+define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hab53766753f550efE"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0) unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %"_ZN69_$LT$actix_web..data..Data$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h55009251bd5905dbE.exit", label %3
 
@@ -17981,7 +17981,7 @@ define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hab5376
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i16, i16 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17haf74f974dd0253c5E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable_or_null(2) %0) unnamed_addr #10 {
+define hidden { i16, i16 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17haf74f974dd0253c5E"(ptr noalias noundef readonly align 2 captures(address_is_null) dereferenceable_or_null(2) %0) unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -18061,7 +18061,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc4ac918285138
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc850631a06270dd8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %0) unnamed_addr #7 {
+define hidden noundef ptr @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hc850631a06270dd8E"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %0) unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %"_ZN69_$LT$actix_web..data..Data$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbfdd27ecbfcf526aE.exit", label %3
 

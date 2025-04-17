@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.157bbbc35f69b1b51e1b9cf2622b9979.15.llvm.7571994248639921325 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h38c48c5435dbf51bE.llvm.15061331801585140981"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h38c48c5435dbf51bE.llvm.15061331801585140981"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.6.i = alloca [32 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -86,7 +86,7 @@ default.unreachable:                              ; preds = %2
 
 12:                                               ; preds = %"_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17ha761a42dea77a55fE.llvm.7571994248639921325.exit.i"
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN4core3ptr52drop_in_place$LT$opentelemetry..context..Context$GT$17hf8b542b0492210a2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13), !noalias !6
+  call void @"_ZN4core3ptr52drop_in_place$LT$opentelemetry..context..Context$GT$17hf8b542b0492210a2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %13)
   %.pre.i = load i64, ptr %0, align 8, !range !15, !noalias !6
   %14 = icmp ne i64 %.pre.i, 0
   br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3243e78bc1afc3bfE.exit"
@@ -130,7 +130,7 @@ define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h5fdf802441c137caE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17h5fdf802441c137caE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.6.i.i = alloca [32 x i8], align 8
   %4 = load i64, ptr %0, align 8, !range !15, !noundef !5
@@ -199,7 +199,7 @@ default.unreachable:                              ; preds = %6
 
 15:                                               ; preds = %"_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17ha761a42dea77a55fE.llvm.7571994248639921325.exit.i.i"
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN4core3ptr52drop_in_place$LT$opentelemetry..context..Context$GT$17hf8b542b0492210a2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %16), !noalias !38
+  call void @"_ZN4core3ptr52drop_in_place$LT$opentelemetry..context..Context$GT$17hf8b542b0492210a2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %16)
   %.pre.i.i = load i64, ptr %0, align 8, !range !15, !noalias !38
   %17 = icmp ne i64 %.pre.i.i, 0
   br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3243e78bc1afc3bfE.exit.i"

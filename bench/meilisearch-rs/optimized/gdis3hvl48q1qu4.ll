@@ -56118,7 +56118,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9261)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h709902faa2bc5ff5E.exit.thread", label %28
 
@@ -56131,7 +56130,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h709902faa2bc5ff5E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !9261, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9264, !noalias !9261
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9264
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h709902faa2bc5ff5E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h709902faa2bc5ff5E.exit.thread75"
 
@@ -56433,7 +56432,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9324)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h5964847859b740c8E.exit.thread", label %28
 
@@ -56446,7 +56444,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h5964847859b740c8E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !9324, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9327, !noalias !9324
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9327
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h5964847859b740c8E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h5964847859b740c8E.exit.thread75"
 
@@ -56748,7 +56746,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9386)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd22d99bad1932941E.exit.thread", label %28
 
@@ -56761,7 +56758,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17hd22d99bad1932941E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !9386, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9389, !noalias !9386
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9389
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd22d99bad1932941E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hd22d99bad1932941E.exit.thread75"
 
@@ -57063,7 +57060,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9448)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbdde35fb373a1364E.exit.thread", label %28
 
@@ -57076,7 +57072,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17hbdde35fb373a1364E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !9448, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9451, !noalias !9448
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9451
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %32, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbdde35fb373a1364E.exit.thread"
 
@@ -57378,7 +57374,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9510)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h2addc2c2511afec2E.exit.thread", label %28
 
@@ -57391,7 +57386,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h2addc2c2511afec2E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !9510, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9513, !noalias !9510
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9513
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h2addc2c2511afec2E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h2addc2c2511afec2E.exit.thread75"
 
@@ -57693,7 +57688,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9572)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbdd2394d0f3ae7dcE.exit.thread", label %28
 
@@ -57706,7 +57700,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17hbdd2394d0f3ae7dcE.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !9572, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9575, !noalias !9572
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9575
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbdd2394d0f3ae7dcE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hbdd2394d0f3ae7dcE.exit.thread75"
 
@@ -58008,7 +58002,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9634)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hcd854bd048843af7E.exit.thread", label %28
 
@@ -58021,7 +58014,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17hcd854bd048843af7E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !9634, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9637, !noalias !9634
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9637
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hcd854bd048843af7E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hcd854bd048843af7E.exit.thread75"
 
@@ -58323,7 +58316,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9696)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h5a3456ee3f32f2edE.exit.thread", label %28
 
@@ -58336,7 +58328,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h5a3456ee3f32f2edE.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !9696, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9699, !noalias !9696
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9699
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h5a3456ee3f32f2edE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h5a3456ee3f32f2edE.exit.thread75"
 
@@ -58638,7 +58630,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9758)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha9c2fa787fe246beE.exit.thread", label %28
 
@@ -58651,7 +58642,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17ha9c2fa787fe246beE.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !9758, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9761, !noalias !9758
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9761
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha9c2fa787fe246beE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha9c2fa787fe246beE.exit.thread75"
 
@@ -58953,7 +58944,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9820)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h9aa53a0e7567d732E.exit.thread", label %28
 
@@ -58966,7 +58956,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h9aa53a0e7567d732E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !9820, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9823, !noalias !9820
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9823
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h9aa53a0e7567d732E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h9aa53a0e7567d732E.exit.thread75"
 
@@ -59268,7 +59258,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9882)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9651f7c9a52d41cE.exit.thread", label %28
 
@@ -59281,7 +59270,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17he9651f7c9a52d41cE.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !9882, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9885, !noalias !9882
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9885
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9651f7c9a52d41cE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9651f7c9a52d41cE.exit.thread75"
 
@@ -59583,7 +59572,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !9944)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb858649d96942b0bE.exit.thread", label %28
 
@@ -59596,7 +59584,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17hb858649d96942b0bE.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !9944, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9947, !noalias !9944
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !9947
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb858649d96942b0bE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hb858649d96942b0bE.exit.thread75"
 
@@ -59898,7 +59886,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10006)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hddfc5bd1b058adfdE.exit.thread", label %28
 
@@ -59911,7 +59898,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17hddfc5bd1b058adfdE.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !10006, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10009, !noalias !10006
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10009
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hddfc5bd1b058adfdE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hddfc5bd1b058adfdE.exit.thread75"
 
@@ -60213,7 +60200,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10068)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h17514980257c3b33E.exit.thread", label %28
 
@@ -60226,7 +60212,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h17514980257c3b33E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !10068, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10071, !noalias !10068
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10071
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %32, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h17514980257c3b33E.exit.thread"
 
@@ -60528,7 +60514,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10130)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17haa8d6318aa15ccc4E.exit.thread", label %28
 
@@ -60541,7 +60526,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17haa8d6318aa15ccc4E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !10130, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10133, !noalias !10130
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10133
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17haa8d6318aa15ccc4E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17haa8d6318aa15ccc4E.exit.thread75"
 
@@ -60843,7 +60828,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10192)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46dd94f49379643bE.exit.thread", label %28
 
@@ -60856,7 +60840,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h46dd94f49379643bE.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !10192, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10195, !noalias !10192
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10195
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46dd94f49379643bE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h46dd94f49379643bE.exit.thread75"
 
@@ -61158,7 +61142,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10254)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1d83d12479e65e51E.exit.thread", label %28
 
@@ -61171,7 +61154,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h1d83d12479e65e51E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !10254, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10257, !noalias !10254
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10257
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1d83d12479e65e51E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1d83d12479e65e51E.exit.thread75"
 
@@ -61473,7 +61456,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10316)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h57f3f9d876e16c9eE.exit.thread", label %28
 
@@ -61486,7 +61468,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h57f3f9d876e16c9eE.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !10316, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10319, !noalias !10316
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10319
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h57f3f9d876e16c9eE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h57f3f9d876e16c9eE.exit.thread75"
 
@@ -61788,7 +61770,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10378)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h6cec6c168731fef5E.exit.thread", label %28
 
@@ -61801,7 +61782,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h6cec6c168731fef5E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !10378, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10381, !noalias !10378
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10381
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %32, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h6cec6c168731fef5E.exit.thread"
 
@@ -62118,7 +62099,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.body
 
 38:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10440)
   %39 = icmp eq ptr %31, null
   br i1 %39, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf83ed909431b6fadE.exit.thread", label %40
 
@@ -62131,7 +62111,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17hf83ed909431b6fadE.exit": ; preds = %40
   %42 = getelementptr i8, ptr %31, i64 8
   %.val8.i = load ptr, ptr %42, align 8, !alias.scope !10440, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10443, !noalias !10440
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10443
   %43 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %43, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf83ed909431b6fadE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17hf83ed909431b6fadE.exit.thread76"
 
@@ -62719,7 +62699,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10544)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha3e68566e4a73f17E.exit.thread", label %28
 
@@ -62732,7 +62711,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17ha3e68566e4a73f17E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !10544, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10547, !noalias !10544
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10547
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %32, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17ha3e68566e4a73f17E.exit.thread"
 
@@ -63034,7 +63013,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10606)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h3b95eb1e84f2e2d4E.exit.thread", label %28
 
@@ -63047,7 +63025,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h3b95eb1e84f2e2d4E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !10606, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10609, !noalias !10606
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10609
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h3b95eb1e84f2e2d4E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h3b95eb1e84f2e2d4E.exit.thread75"
 
@@ -63349,7 +63327,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10668)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h57f706bc0a3b94b5E.exit.thread", label %28
 
@@ -63362,7 +63339,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h57f706bc0a3b94b5E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !10668, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10671, !noalias !10668
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10671
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h57f706bc0a3b94b5E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h57f706bc0a3b94b5E.exit.thread75"
 
@@ -63664,7 +63641,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10730)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h04aa23aea40a9ac1E.exit.thread", label %28
 
@@ -63677,7 +63653,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17h04aa23aea40a9ac1E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !10730, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10733, !noalias !10730
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10733
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h04aa23aea40a9ac1E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h04aa23aea40a9ac1E.exit.thread75"
 
@@ -63979,7 +63955,6 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
   br label %.thread
 
 26:                                               ; preds = %6
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10792)
   %27 = icmp eq ptr %19, null
   br i1 %27, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17heff3d0a03c7620a5E.exit.thread", label %28
 
@@ -63992,7 +63967,7 @@ define hidden void @"_ZN140_$LT$meilisearch..extractors..authentication..policie
 "_ZN4core6option15Option$LT$T$GT$11map_or_else17heff3d0a03c7620a5E.exit": ; preds = %28
   %30 = getelementptr i8, ptr %19, i64 8
   %.val8.i = load ptr, ptr %30, align 8, !alias.scope !10792, !nonnull !5, !noundef !5
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10795, !noalias !10792
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val8.i, ptr nonnull readonly align 1 %2, i64 %3), !alias.scope !10795
   %31 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %31, label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17heff3d0a03c7620a5E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17heff3d0a03c7620a5E.exit.thread75"
 

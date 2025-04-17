@@ -340,7 +340,7 @@ define noundef zeroext i1 @"_ZN65_$LT$zed_actions..OpenBrowser$u20$as$u20$gpui..
   %.val.i.i = load ptr, ptr %19, align 8, !noalias !49, !nonnull !5, !noundef !5
   %20 = getelementptr i8, ptr %7, i64 8
   %.val5.i = load ptr, ptr %20, align 8, !alias.scope !49, !nonnull !5, !noundef !5
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val5.i, i64 %.val6.i), !alias.scope !52, !noalias !49
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val5.i, i64 %.val6.i), !alias.scope !52
   %21 = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1ab345359eb77b8aE.exit"
 
@@ -518,7 +518,7 @@ define noundef zeroext i1 @"_ZN64_$LT$zed_actions..OpenZedUrl$u20$as$u20$gpui..a
   %.val.i.i = load ptr, ptr %19, align 8, !noalias !62, !nonnull !5, !noundef !5
   %20 = getelementptr i8, ptr %7, i64 8
   %.val5.i = load ptr, ptr %20, align 8, !alias.scope !62, !nonnull !5, !noundef !5
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val5.i, i64 %.val6.i), !alias.scope !65, !noalias !62
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val5.i, i64 %.val6.i), !alias.scope !65
   %21 = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h5b01d184435c5440E.exit"
 
@@ -1627,7 +1627,7 @@ define noundef zeroext i1 @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui.
   %.val2.i.i = load ptr, ptr %24, align 8, !alias.scope !82, !nonnull !5, !noundef !5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val.i.i = load ptr, ptr %25, align 8, !noalias !82, !nonnull !5, !noundef !5
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val2.i.i, i64 %.val1.i.i), !alias.scope !83, !noalias !82
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i, ptr nonnull readonly align 1 %.val2.i.i, i64 %.val1.i.i), !alias.scope !83, !noalias !79
   %26 = icmp eq i32 %bcmp.i.i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8eb90e43e38fafb9E.exit"
 

@@ -15396,7 +15396,7 @@ common.resume:                                    ; preds = %23
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN18wasmtime_cranelift8compiler16FunctionCompiler16finish_with_info17heda7ab6667aef689E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(3448) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(5320) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(40) %2, ptr readonly captures(address_is_null) %3) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN18wasmtime_cranelift8compiler16FunctionCompiler16finish_with_info17heda7ab6667aef689E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(3448) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(5320) %1, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(40) %2, ptr readonly captures(address_is_null) %3) unnamed_addr #10 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 1
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8

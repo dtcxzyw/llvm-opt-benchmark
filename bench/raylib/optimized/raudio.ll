@@ -3215,7 +3215,7 @@ define hidden range(i32 -3, 1) i32 @ma_slot_allocator_free(ptr noundef captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_job_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_job) align 8 captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define hidden void @ma_job_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_job) align 8 captures(address_is_null) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %3
 
@@ -5865,7 +5865,7 @@ ma_zero_memory_default.exit:                      ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_context_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_context_config) align 8 captures(none) %0) local_unnamed_addr #0 {
+define hidden void @ma_context_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_context_config) align 8 captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %2
 
@@ -8611,7 +8611,7 @@ define hidden range(i32 0, 2) i32 @ma_context_is_loopback_supported(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_device_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_device_config) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @ma_device_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_device_config) align 8 captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %3
 
@@ -8631,7 +8631,7 @@ ma_zero_memory_default.exit:                      ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_resampler_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_resampler_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @ma_resampler_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_resampler_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %7
 
@@ -18240,7 +18240,7 @@ define hidden noundef range(i32 0, 3) i32 @ma_biquad_get_latency(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_lpf1_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_lpf1_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
+define hidden void @ma_lpf1_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_lpf1_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %6
 
@@ -18263,7 +18263,7 @@ ma_zero_memory_default.exit:                      ; preds = %5, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_lpf2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_lpf1_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #0 {
+define hidden void @ma_lpf2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_lpf1_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %7
 
@@ -19281,7 +19281,7 @@ define hidden noundef range(i32 0, 3) i32 @ma_lpf2_get_latency(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_lpf_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_lpf_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @ma_lpf_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_lpf_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %7
 
@@ -20817,7 +20817,7 @@ define hidden i32 @ma_lpf_get_latency(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_hpf1_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_hpf1_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
+define hidden void @ma_hpf1_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_hpf1_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %6
 
@@ -20838,7 +20838,7 @@ ma_zero_memory_default.exit:                      ; preds = %5, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_hpf2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_hpf1_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #0 {
+define hidden void @ma_hpf2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_hpf1_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %7
 
@@ -21806,7 +21806,7 @@ define hidden noundef range(i32 0, 3) i32 @ma_hpf2_get_latency(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_hpf_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_hpf_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @ma_hpf_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_hpf_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %7
 
@@ -23242,7 +23242,7 @@ define hidden i32 @ma_hpf_get_latency(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_bpf2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_bpf2_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #0 {
+define hidden void @ma_bpf2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_bpf2_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %7
 
@@ -23727,7 +23727,7 @@ define hidden noundef range(i32 0, 3) i32 @ma_bpf2_get_latency(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_bpf_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_bpf_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @ma_bpf_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_bpf_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %7
 
@@ -24617,7 +24617,7 @@ define hidden range(i32 0, -1) i32 @ma_bpf_get_latency(ptr noundef readonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_notch2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_notch2_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #0 {
+define hidden void @ma_notch2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_notch2_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %7
 
@@ -25082,7 +25082,7 @@ define hidden noundef range(i32 0, 3) i32 @ma_notch2_get_latency(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_peak2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_peak2_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
+define hidden void @ma_peak2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_peak2_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %8
 
@@ -25597,7 +25597,7 @@ define hidden noundef range(i32 0, 3) i32 @ma_peak2_get_latency(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_loshelf2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_loshelf2_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
+define hidden void @ma_loshelf2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_loshelf2_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %8
 
@@ -26184,7 +26184,7 @@ define hidden noundef range(i32 0, 3) i32 @ma_loshelf2_get_latency(ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_hishelf2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_hishelf2_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
+define hidden void @ma_hishelf2_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_hishelf2_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %8
 
@@ -29112,7 +29112,7 @@ ma_spinlock_lock.exit:                            ; preds = %.loopexit.i, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_spatializer_listener_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_spatializer_listener_config) align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #42 {
+define hidden void @ma_spatializer_listener_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_spatializer_listener_config) align 8 captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #42 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %3
 
@@ -29852,7 +29852,7 @@ define hidden i32 @ma_spatializer_listener_is_enabled(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_spatializer_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_spatializer_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @ma_spatializer_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_spatializer_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %4
 
@@ -33482,7 +33482,7 @@ ma_atomic_vec3f_set.exit:                         ; preds = %.loopexit.i.i, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_linear_resampler_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_linear_resampler_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ma_linear_resampler_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_linear_resampler_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %6
 
@@ -36209,7 +36209,7 @@ define hidden i32 @ma_resampler_reset(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_channel_converter_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_channel_converter_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @ma_channel_converter_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_channel_converter_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %8
 
@@ -39592,7 +39592,7 @@ ma_channel_map_copy_or_default.exit:              ; preds = %.preheader.i.i, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_data_converter_config_init_default(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_data_converter_config) align 8 captures(none) %0) local_unnamed_addr #0 {
+define hidden void @ma_data_converter_config_init_default(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_data_converter_config) align 8 captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %2
 
@@ -39613,7 +39613,7 @@ ma_zero_memory_default.exit:                      ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_data_converter_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_data_converter_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @ma_data_converter_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_data_converter_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %ma_data_converter_config_init_default.exit, label %8
 
@@ -46791,7 +46791,7 @@ define hidden range(i32 -2, 1) i32 @ma_audio_buffer_ref_get_available_frames(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_audio_buffer_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_audio_buffer_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #18 {
+define hidden void @ma_audio_buffer_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_audio_buffer_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %7
 
@@ -49816,7 +49816,7 @@ define hidden i64 @ma_decoding_backend_config_init(i32 noundef %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_decoder_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_decoder_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @ma_decoder_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_decoder_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %5
 
@@ -49843,7 +49843,7 @@ ma_zero_memory_default.exit:                      ; preds = %4, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_decoder_config_init_default(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_decoder_config) align 8 captures(none) %0) local_unnamed_addr #0 {
+define hidden void @ma_decoder_config_init_default(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_decoder_config) align 8 captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %ma_decoder_config_init.exit, label %2
 
@@ -49870,7 +49870,7 @@ ma_decoder_config_init.exit:                      ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ma_decoder_config_init_copy(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_decoder_config) align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #18 {
+define hidden void @ma_decoder_config_init_copy(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_decoder_config) align 8 captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #18 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -53339,7 +53339,7 @@ ma_decoder_config_init_copy.exit:                 ; preds = %16, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ma_encoder_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_encoder_config) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @ma_encoder_config_init(ptr dead_on_unwind noalias writable writeonly sret(%struct.ma_encoder_config) align 8 captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ma_zero_memory_default.exit, label %6
 

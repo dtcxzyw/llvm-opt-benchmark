@@ -27122,7 +27122,7 @@ define hidden { ptr, i64 } @"_ZN4core5slice4iter13Iter$LT$T$GT$10make_slice17hf0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h17363c5e9edccc95E.llvm.5846128800800072799"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(512) %0, i1 noundef zeroext %1) unnamed_addr #17 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h17363c5e9edccc95E.llvm.5846128800800072799"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(512) %0, i1 noundef zeroext %1) unnamed_addr #17 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -27137,7 +27137,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h173
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17he42678c411dca78cE.llvm.5846128800800072799"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(64) %0, i1 noundef zeroext %1) unnamed_addr #17 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17he42678c411dca78cE.llvm.5846128800800072799"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(64) %0, i1 noundef zeroext %1) unnamed_addr #17 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -101524,7 +101524,7 @@ _ZN6editor11display_map9inlay_map15push_isomorphic17h4b4daac65fd36bdcE.exit115: 
 
 .noexc121:                                        ; preds = %.cont
   %431 = icmp eq ptr %430, null
-  %432 = load i64, ptr %32, align 8, !alias.scope !29063, !noalias !29066, !noundef !4
+  %432 = load i64, ptr %32, align 8, !alias.scope !29062, !noalias !29065, !noundef !4
   br i1 %431, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h82c8fb3f6b516cd5E.exit", label %433
 
 433:                                              ; preds = %.noexc121
@@ -174882,19 +174882,19 @@ attributes #59 = { nounwind }
 !29058 = !{!29059}
 !29059 = distinct !{!29059, !29060, !"_ZN6editor11display_map9inlay_map8InlayMap4sync28_$u7b$$u7b$closure$u7d$$u7d$17h1acc12b1d36a0658E: argument 0"}
 !29060 = distinct !{!29060, !"_ZN6editor11display_map9inlay_map8InlayMap4sync28_$u7b$$u7b$closure$u7d$$u7d$17h1acc12b1d36a0658E"}
-!29061 = !{!29059, !29062, !29056}
-!29062 = distinct !{!29062, !29057, !"_ZN4core6option15Option$LT$T$GT$6map_or17h82c8fb3f6b516cd5E: argument 0"}
-!29063 = !{!29064, !29059, !29056}
-!29064 = distinct !{!29064, !29065, !"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h63a1508dc1a448e9E: argument 0"}
-!29065 = distinct !{!29065, !"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h63a1508dc1a448e9E"}
-!29066 = !{!29067, !29062}
-!29067 = distinct !{!29067, !29065, !"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h63a1508dc1a448e9E: argument 1"}
+!29061 = !{!29059, !29056}
+!29062 = !{!29063, !29059, !29056}
+!29063 = distinct !{!29063, !29064, !"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h63a1508dc1a448e9E: argument 0"}
+!29064 = distinct !{!29064, !"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h63a1508dc1a448e9E"}
+!29065 = !{!29066, !29067}
+!29066 = distinct !{!29066, !29064, !"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3end17h63a1508dc1a448e9E: argument 1"}
+!29067 = distinct !{!29067, !29057, !"_ZN4core6option15Option$LT$T$GT$6map_or17h82c8fb3f6b516cd5E: argument 0"}
 !29068 = !{!29069, !29071}
 !29069 = distinct !{!29069, !29070, !"_ZN6editor11display_map9inlay_map111_$LT$impl$u20$sum_tree..Dimension$LT$editor..display_map..inlay_map..TransformSummary$GT$$u20$for$u20$usize$GT$11add_summary17h2c6fbd75a4083217E: argument 1"}
 !29070 = distinct !{!29070, !"_ZN6editor11display_map9inlay_map111_$LT$impl$u20$sum_tree..Dimension$LT$editor..display_map..inlay_map..TransformSummary$GT$$u20$for$u20$usize$GT$11add_summary17h2c6fbd75a4083217E"}
 !29071 = distinct !{!29071, !29072, !"_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT$T$GT$$GT$11add_summary17hfa61890479e7c540E: argument 1"}
 !29072 = distinct !{!29072, !"_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT$T$GT$$GT$11add_summary17hfa61890479e7c540E"}
-!29073 = !{!29074, !29075, !29062}
+!29073 = !{!29074, !29075}
 !29074 = distinct !{!29074, !29070, !"_ZN6editor11display_map9inlay_map111_$LT$impl$u20$sum_tree..Dimension$LT$editor..display_map..inlay_map..TransformSummary$GT$$u20$for$u20$usize$GT$11add_summary17h2c6fbd75a4083217E: argument 0"}
 !29075 = distinct !{!29075, !29072, !"_ZN64_$LT$$LP$D1$C$D2$RP$$u20$as$u20$sum_tree..Dimension$LT$T$GT$$GT$11add_summary17hfa61890479e7c540E: argument 0"}
 !29076 = !{!29077}

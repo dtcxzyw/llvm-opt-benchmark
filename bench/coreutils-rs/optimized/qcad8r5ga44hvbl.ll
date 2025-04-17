@@ -2507,7 +2507,7 @@ define hidden void @_ZN5uu_wc5Input12path_display17h3d7cda91218785d0E(ptr noalia
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5uu_wc7WcError8zero_len17h587ea828ed9ef175E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(24) %1, i64 %2) unnamed_addr #4 {
+define void @_ZN5uu_wc7WcError8zero_len17h587ea828ed9ef175E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(24) %1, i64 %2) unnamed_addr #4 {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7

@@ -1095,7 +1095,7 @@ define hidden noundef i128 @_ZN4core5error5Error7type_id17hf265d5b8e1804013E.llv
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h067c85554ccfb182E.llvm.4719928553755522418"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(352) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h067c85554ccfb182E.llvm.4719928553755522418"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(352) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %38, label %4
 
@@ -1143,7 +1143,7 @@ define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h067c85554c
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h13c63ebaf82a9810E.llvm.4719928553755522418"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(32) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h13c63ebaf82a9810E.llvm.4719928553755522418"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(32) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -1159,7 +1159,7 @@ define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h13c63ebaf8
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h14455ca28579bc4aE.llvm.4719928553755522418"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(704) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h14455ca28579bc4aE.llvm.4719928553755522418"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(704) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %65, label %4
 
@@ -1266,7 +1266,7 @@ define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h8eed61836c
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h9b277e09dd41d65dE.llvm.4719928553755522418"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(216) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h9b277e09dd41d65dE.llvm.4719928553755522418"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(216) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %24, label %4
 
@@ -1302,7 +1302,7 @@ define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17h9b277e09dd
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17he5283fc0362d0496E.llvm.4719928553755522418"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(376) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17he5283fc0362d0496E.llvm.4719928553755522418"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(376) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
 
@@ -1322,7 +1322,7 @@ define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17he5283fc036
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hedafa388fb955991E.llvm.4719928553755522418"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(56) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17hedafa388fb955991E.llvm.4719928553755522418"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(56) %0, i64 noundef %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
 

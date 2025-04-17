@@ -4255,7 +4255,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h8157cbc6a90b0b48E"(ptr noundef nonnull align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h8157cbc6a90b0b48E"(ptr noundef nonnull align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [3 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1119)
   %.not.i = icmp eq ptr %1, null
@@ -4335,8 +4335,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hb146cd491e9eda94E"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1138)
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hb146cd491e9eda94E"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3
 
@@ -4351,7 +4350,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE(), !noalias !1138
+  %6 = tail call { i64, i64 } @_ZN3std3sys3pal4unix4rand19hashmap_random_keys17ha9236b60ee6bd33cE()
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h2e33d4fe8acce5f5E.llvm.17595789031839490487.exit"
 
 7:                                                ; preds = %3
@@ -4372,7 +4371,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hd53ac62d23913eb9E"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(816) %1) unnamed_addr #15 {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hd53ac62d23913eb9E"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(816) %1) unnamed_addr #15 {
   %3 = alloca [25 x { { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] } }], align 8
   %4 = alloca [2 x i64], align 16
   %5 = alloca { i64, [101 x i64] }, align 8
@@ -4434,7 +4433,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h2e33d4fe8acce5f5E.llvm.17595789031839490487"(ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %0) unnamed_addr #7 {
+define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h2e33d4fe8acce5f5E.llvm.17595789031839490487"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(24) %0) unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -40613,7 +40612,7 @@ define hidden noundef align 8 ptr @_ZN17cranelift_codegen6timing8PROFILER7__geti
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN17cranelift_codegen6timing8PROFILER7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h8f11e4fd33ea5730E.llvm.17595789031839490487"(ptr noalias noundef writeonly sret({ i64, { { { { { ptr, ptr } }, {} }, {} } } }) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(32) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden void @"_ZN17cranelift_codegen6timing8PROFILER7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h8f11e4fd33ea5730E.llvm.17595789031839490487"(ptr noalias noundef writeonly sret({ i64, { { { { { ptr, ptr } }, {} }, {} } } }) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(32) %1) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %"_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$core..cell..RefCell$LT$alloc..boxed..Box$LT$dyn$u20$cranelift_codegen..timing..Profiler$GT$$GT$$GT$$GT$17hdf6ce0f684685a33E.llvm.17595789031839490487.exit", label %3
 
@@ -40641,7 +40640,7 @@ define hidden void @"_ZN17cranelift_codegen6timing8PROFILER7__getit28_$u7b$$u7b$
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden void @"_ZN17cranelift_codegen6timing9PASS_TIME7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hf5def7e9b21191b8E.llvm.17595789031839490487"(ptr noalias noundef writeonly sret({ i64, { { [25 x { { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] } }] } } }) align 8 captures(none) dereferenceable(808) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(816) %1) unnamed_addr #58 {
+define hidden void @"_ZN17cranelift_codegen6timing9PASS_TIME7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hf5def7e9b21191b8E.llvm.17595789031839490487"(ptr noalias noundef writeonly sret({ i64, { { [25 x { { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] } }] } } }) align 8 captures(none) dereferenceable(808) %0, ptr noalias noundef align 8 captures(address_is_null) dereferenceable_or_null(816) %1) unnamed_addr #58 {
   %3 = alloca [25 x { { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] } }], align 8
   %4 = alloca [2 x i64], align 16
   %5 = alloca { i64, [101 x i64] }, align 8
@@ -44552,7 +44551,7 @@ attributes #76 = { cold }
 !2655 = !{!2653, !2645, !2638, !2633, !2631, !2604, !2601}
 !2656 = !{!2657, !2648, !2641, !2636, !2628}
 !2657 = distinct !{!2657, !2654, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4iter17h9979bf24cb475c76E.llvm.10043242345734795027: argument 0"}
-!2658 = !{!2659, !2657, !2653, !2645, !2648, !2638, !2641, !2633, !2636, !2628, !2631, !2604, !2601}
+!2658 = !{!2659, !2657, !2653, !2645, !2648, !2638, !2641, !2633, !2636, !2631, !2604, !2601}
 !2659 = distinct !{!2659, !2660, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E.llvm.10043242345734795027: argument 0"}
 !2660 = distinct !{!2660, !"_ZN4core9core_arch3x864sse214_mm_load_si12817h8494eca0ceb20a67E.llvm.10043242345734795027"}
 !2661 = !{!2662}

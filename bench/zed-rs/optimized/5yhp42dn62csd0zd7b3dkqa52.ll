@@ -2479,7 +2479,7 @@ _ZN4core3ops8function6FnOnce9call_once17h642c767ecff175bcE.exit: ; preds = %9
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17h475857d879b068caE.llvm.307468510663036300"(ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17h475857d879b068caE.llvm.307468510663036300"(ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 

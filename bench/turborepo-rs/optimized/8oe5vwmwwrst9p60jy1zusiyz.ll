@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(64) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRNtNtCseG2FYMysgNb_3wax5token5TokenE7or_elseNCNvXs_NtNtNtB5_4iter8adapters5chainINtB1x_5ChainIB21_INtNtNtB1B_7sources4once4OnceBI_EB2i_EQINtNtB1z_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtBL_8PositionINtBL_4WalkTjjEENCNvNtBN_4rule8boundary0ENCNCB4u_s_00EENtNtNtB1B_6traits8iterator8Iterator4next0EBN_.llvm.15969390215716056838(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(64) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRNtNtCseG2FYMysgNb_3wax5token5TokenE7or_elseNCNvXs_NtNtNtB5_4iter8adapters5chainINtB1x_5ChainIB21_INtNtNtB1B_7sources4once4OnceBI_EB2i_EQINtNtB1z_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtBL_8PositionINtBL_4WalkTjjEENCNvNtBN_4rule8boundary0ENCNCB4u_s_00EENtNtNtB1B_6traits8iterator8Iterator4next0EBN_.llvm.15969390215716056838(ptr noalias noundef readonly align 8 captures(address_is_null, ret: address, provenance) dereferenceable_or_null(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %_RNCNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB6_5ChainIBQ_INtNtNtBa_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB15_EQINtNtB8_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1A_8PositionINtB1A_4WalkTjjEENCNvNtB1C_4rule8boundary0ENCNCB3N_s_00EENtNtNtBa_6traits8iterator8Iterator4next0B1C_.llvm.15969390215716056838.exit
@@ -8879,10 +8879,10 @@ attributes #37 = { noreturn }
 !253 = !{!254}
 !254 = distinct !{!254, !252, !"_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.15969390215716056838: argument 1"}
 !255 = !{!254, !238}
-!256 = !{!251, !241, !243, !245, !247, !248}
+!256 = !{!251, !241, !243, !247, !248}
 !257 = !{!251, !254}
-!258 = !{!241, !243, !245, !247, !248}
-!259 = !{!254, !238, !241, !243, !245, !247, !248}
+!258 = !{!241, !243, !247, !248}
+!259 = !{!254, !238, !241, !243, !247, !248}
 !260 = !{!261}
 !261 = distinct !{!261, !262, !"_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB1K_4WalkTjjEENCNvNtB1M_4rule8boundary0ENCNCB2C_s_00ENtNtNtB9_6traits8iterator8Iterator4nextB1M_.llvm.15969390215716056838: argument 0"}
 !262 = distinct !{!262, !"_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB1K_4WalkTjjEENCNvNtB1M_4rule8boundary0ENCNCB2C_s_00ENtNtNtB9_6traits8iterator8Iterator4nextB1M_.llvm.15969390215716056838"}
@@ -8902,10 +8902,10 @@ attributes #37 = { noreturn }
 !276 = !{!277}
 !277 = distinct !{!277, !275, !"_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.15969390215716056838: argument 1"}
 !278 = !{!277, !261}
-!279 = !{!274, !264, !266, !268, !270, !271}
+!279 = !{!274, !264, !266, !270, !271}
 !280 = !{!274, !277}
-!281 = !{!264, !266, !268, !270, !271}
-!282 = !{!277, !261, !264, !266, !268, !270, !271}
+!281 = !{!264, !266, !270, !271}
+!282 = !{!277, !261, !264, !266, !270, !271}
 !283 = !{!284}
 !284 = distinct !{!284, !285, !"_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB1K_4WalkTjjEENCNvNtB1M_4rule8boundary0ENCNCB2C_s_00ENtNtNtB9_6traits8iterator8Iterator4nextB1M_.llvm.15969390215716056838: argument 0"}
 !285 = distinct !{!285, !"_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB1K_4WalkTjjEENCNvNtB1M_4rule8boundary0ENCNCB2C_s_00ENtNtNtB9_6traits8iterator8Iterator4nextB1M_.llvm.15969390215716056838"}
@@ -9371,10 +9371,10 @@ attributes #37 = { noreturn }
 !745 = !{!746}
 !746 = distinct !{!746, !744, !"_RNvXs7_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtBW_4WalkTjjEENCNvNtBY_4rule8boundary0ENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator4nextBY_.llvm.15969390215716056838: argument 1"}
 !747 = !{!746, !737}
-!748 = !{!743, !740, !731, !735, !728}
+!748 = !{!743, !740, !731, !728}
 !749 = !{!743, !746}
-!750 = !{!740, !731, !735, !728}
-!751 = !{!746, !737, !740, !731, !735, !728}
+!750 = !{!740, !731, !728}
+!751 = !{!746, !737, !740, !731, !728}
 !752 = !{!753}
 !753 = distinct !{!753, !754, !"_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBV_.llvm.15969390215716056838: argument 0"}
 !754 = distinct !{!754, !"_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterRINtNtCseG2FYMysgNb_3wax5token5TokenuEENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBV_.llvm.15969390215716056838"}

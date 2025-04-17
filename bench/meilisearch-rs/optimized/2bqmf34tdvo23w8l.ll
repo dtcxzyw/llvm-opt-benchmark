@@ -48696,11 +48696,10 @@ _ZN4core4iter8adapters4fuse17and_then_or_clear17h750df3436c827077E.exit.thread34
   %70 = select i1 %.not.i.i, i64 0, i64 %69
   %.sroa.0.0.i.i = sub nuw i64 %68, %70
   %71 = load ptr, ptr %41, align 8, !alias.scope !9433, !nonnull !9, !noundef !9
-  call void @llvm.experimental.noalias.scope.decl(metadata !9439)
   %72 = getelementptr { { { { i64, ptr, {} }, i64 } }, i16, [3 x i16] }, ptr %71, i64 %.sroa.0.0.i.i, i32 1
   %.val6.i = load i16, ptr %72, align 8, !alias.scope !9439, !noundef !9
   %73 = zext i16 %.val6.i to i32
-  %74 = call noundef i32 @_ZN5milli9proximity15index_proximity17hc38f8d5212d15e8dE(i32 noundef %73, i32 noundef %60), !noalias !9439
+  %74 = call noundef i32 @_ZN5milli9proximity15index_proximity17hc38f8d5212d15e8dE(i32 noundef %73, i32 noundef %60)
   %75 = icmp ugt i32 %74, 3
   br i1 %75, label %77, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h7e8c0c54080a40b1E.exit.thread"
 
@@ -69688,7 +69687,7 @@ define noundef nonnull align 1 dereferenceable_or_null(16) ptr @"_ZN113_$LT$meil
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN113_$LT$meilisearch..analytics..segment_analytics..SegmentAnalytics$u20$as$u20$meilisearch..analytics..Analytics$GT$7publish17hb0e170b60fae99d9E"(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef align 8 captures(none) dereferenceable(72) %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(8) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
+define void @"_ZN113_$LT$meilisearch..analytics..segment_analytics..SegmentAnalytics$u20$as$u20$meilisearch..analytics..Analytics$GT$7publish17hb0e170b60fae99d9E"(ptr noalias noundef readonly align 8 dereferenceable(72) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef align 8 captures(none) dereferenceable(72) %2, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(8) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
@@ -95711,7 +95710,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.14059
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11meilisearch6routes7indexes8settings18embedder_analytics17h897d754bf7623717E(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define void @_ZN11meilisearch6routes7indexes8settings18embedder_analytics17h897d754bf7623717E(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef readonly align 8 captures(address_is_null) dereferenceable_or_null(24) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca [0 x i8], align 1
   %4 = alloca [72 x i8], align 8
   %5 = alloca [24 x i8], align 8

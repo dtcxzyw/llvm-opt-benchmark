@@ -35730,7 +35730,7 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
           to label %.noexc238 unwind label %83
 
 .noexc238:                                        ; preds = %402
-  %405 = load ptr, ptr %404, align 8, !noalias !6553, !nonnull !10, !noundef !10
+  %405 = load ptr, ptr %404, align 8, !nonnull !10, !noundef !10
   invoke void %405(i32 noundef %403)
           to label %.noexc239 unwind label %83
 

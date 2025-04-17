@@ -7218,12 +7218,12 @@ define noundef nonnull align 8 dereferenceable(48) ptr @_ZN9actix_web5types4json
   br i1 %3, label %4, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h64ce14b558274923E.exit"
 
 4:                                                ; preds = %1
-  %5 = tail call noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7request11HttpRequest8app_data17h0e89c8bf023fcdb1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0), !noalias !1315
+  %5 = tail call noundef align 8 dereferenceable_or_null(8) ptr @_ZN9actix_web7request11HttpRequest8app_data17h0e89c8bf023fcdb1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h64ce14b558274923E.exit", label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %5, align 8, !noalias !1315, !nonnull !9, !noundef !9
+  %8 = load ptr, ptr %5, align 8, !nonnull !9, !noundef !9
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h64ce14b558274923E.exit"
 
@@ -9037,6 +9037,3 @@ attributes #33 = { cold noreturn nounwind }
 !1312 = distinct !{!1312, !"_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE"}
 !1313 = !{!1314}
 !1314 = distinct !{!1314, !1312, !"_ZN5bytes9bytes_mut8BytesMut17extend_from_slice17hcdf0ec1d1479cf2aE: argument 1"}
-!1315 = !{!1316}
-!1316 = distinct !{!1316, !1317, !"_ZN4core6option15Option$LT$T$GT$7or_else17h64ce14b558274923E: argument 0"}
-!1317 = distinct !{!1317, !"_ZN4core6option15Option$LT$T$GT$7or_else17h64ce14b558274923E"}
