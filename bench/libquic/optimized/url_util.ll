@@ -726,7 +726,7 @@ define noundef zeroext i1 @_ZN3url8DomainIsEN4base16BasicStringPieceINSt7__cxx11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.06
   %21 = sub i64 0, %3
   %22 = getelementptr inbounds i8, ptr %20, i64 %21
-  %23 = tail call noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr %22, i64 %3, ptr %2, i64 %3)
+  %23 = tail call noundef zeroext i1 @_ZN4base20LowerCaseEqualsASCIIENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_(ptr nonnull %22, i64 %3, ptr %2, i64 %3)
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %19

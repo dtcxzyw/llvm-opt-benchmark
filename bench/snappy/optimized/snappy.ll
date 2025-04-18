@@ -5370,7 +5370,7 @@ _ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %63
 160:                                              ; preds = %156
   %161 = sub nsw i64 0, %140
   %162 = getelementptr inbounds i8, ptr %.2.ph, i64 %161
-  %163 = call fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %162, ptr noundef %.2.ph, ptr noundef nonnull %145, ptr noundef %157)
+  %163 = call fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef nonnull %162, ptr noundef %.2.ph, ptr noundef nonnull %145, ptr noundef %157)
   br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit.thread197
 
 164:                                              ; preds = %151
@@ -5420,7 +5420,7 @@ _ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %63
 195:                                              ; preds = %191
   %196 = sub nsw i64 0, %179
   %197 = getelementptr inbounds i8, ptr %.2.ph, i64 %196
-  %198 = call fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %197, ptr noundef %.2.ph, ptr noundef %180, ptr noundef %192)
+  %198 = call fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef nonnull %197, ptr noundef %.2.ph, ptr noundef %180, ptr noundef %192)
   br label %_ZN6snappy17SnappyArrayWriter14AppendFromSelfEmmPPc.exit127
 
 199:                                              ; preds = %186

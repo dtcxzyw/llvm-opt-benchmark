@@ -1126,7 +1126,7 @@ med3.exit:                                        ; preds = %108, %110, %114, %1
 144:                                              ; preds = %142
   %145 = add i64 %.1173239, -1
   %146 = getelementptr inbounds i8, ptr %.1186238, i64 %28
-  call void %.0.i287(ptr noundef %146, ptr noundef nonnull %139, i64 noundef %2) #18
+  call void %.0.i287(ptr noundef nonnull %146, ptr noundef nonnull %139, i64 noundef %2) #18
   br label %147
 
 147:                                              ; preds = %144, %142

@@ -5712,7 +5712,7 @@ zend_hash_add_mem.exit:                           ; preds = %phar_set_inode.exit
 238:                                              ; preds = %233
   %239 = sub nuw i64 %231, %236
   %240 = getelementptr inbounds nuw i8, ptr %232, i64 %239
-  %bcmp.i = call i32 @bcmp(ptr nonnull %235, ptr %240, i64 %236)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %235, ptr nonnull %240, i64 %236)
   %241 = icmp eq i32 %bcmp.i, 0
   br i1 %241, label %.sink.split183.i, label %242
 

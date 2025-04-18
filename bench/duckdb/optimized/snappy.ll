@@ -5893,7 +5893,7 @@ _ZN13duckdb_snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %6
 180:                                              ; preds = %176
   %181 = sub nsw i64 0, %163
   %182 = getelementptr inbounds i8, ptr %164, i64 %181
-  %183 = call fastcc noundef ptr @_ZN13duckdb_snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %182, ptr noundef %164, ptr noundef %165, ptr noundef %177)
+  %183 = call fastcc noundef ptr @_ZN13duckdb_snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef nonnull %182, ptr noundef %164, ptr noundef %165, ptr noundef %177)
   br label %187
 
 184:                                              ; preds = %171
@@ -5981,7 +5981,7 @@ define linkonce_odr noundef zeroext i1 @_ZN13duckdb_snappy17SnappyArrayWriter14A
 23:                                               ; preds = %18
   %24 = sub i64 0, %1
   %25 = getelementptr inbounds i8, ptr %5, i64 %24
-  %26 = tail call fastcc noundef ptr @_ZN13duckdb_snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %25, ptr noundef %5, ptr noundef %6, ptr noundef %20)
+  %26 = tail call fastcc noundef ptr @_ZN13duckdb_snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef nonnull %25, ptr noundef %5, ptr noundef %6, ptr noundef %20)
   br label %.sink.split
 
 27:                                               ; preds = %12

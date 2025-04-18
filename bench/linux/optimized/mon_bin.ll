@@ -221,7 +221,7 @@ define internal i64 @mon_bin_read(ptr noundef readonly captures(none) %0, ptr no
   %27 = sub nuw nsw i32 48, %24
   %28 = zext nneg i32 %27 to i64
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 %2)
-  %30 = icmp eq i64 %29, 0
+  %30 = icmp eq i64 %2, 0
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %26

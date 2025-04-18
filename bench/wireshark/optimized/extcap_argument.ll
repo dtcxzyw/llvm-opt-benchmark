@@ -11660,8 +11660,8 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE8Inserte
   store i64 %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 1, ptr %19, align 8
-  %20 = icmp sgt i64 %14, 0
-  br i1 %20, label %60, label %21
+  %20 = icmp slt i64 %14, 1
+  br i1 %20, label %21, label %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE8Inserter5setupExx.exitthread-pre-split
 
 21:                                               ; preds = %3
   store i64 %17, ptr %15, align 8
@@ -11737,209 +11737,209 @@ _ZN11ExtcapValueC2ERKS_.exit:                     ; preds = %_ZN7QStringC2ERKS_.
   store i64 %59, ptr %6, align 8
   br label %_ZN11ExtcapValueaSERKS_.exit
 
-60:                                               ; preds = %3
+_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE8Inserter5setupExx.exitthread-pre-split: ; preds = %3
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV11ExtcapValue, i64 16), ptr %8, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %62 = getelementptr i8, ptr %8, i64 -80
-  %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr %61, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %65 = getelementptr i8, ptr %8, i64 -72
-  %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr %64, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %68 = getelementptr i8, ptr %8, i64 -64
-  %69 = load i64, ptr %68, align 8
-  store i64 %69, ptr %67, align 8
-  %.not.i.i.i.i8 = icmp eq ptr %63, null
-  br i1 %.not.i.i.i.i8, label %_ZN7QStringC2ERKS_.exit.i9, label %70
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %61 = getelementptr i8, ptr %8, i64 -80
+  %62 = load ptr, ptr %61, align 8
+  store ptr %62, ptr %60, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %64 = getelementptr i8, ptr %8, i64 -72
+  %65 = load ptr, ptr %64, align 8
+  store ptr %65, ptr %63, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %67 = getelementptr i8, ptr %8, i64 -64
+  %68 = load i64, ptr %67, align 8
+  store i64 %68, ptr %66, align 8
+  %.not.i.i.i.i8 = icmp eq ptr %62, null
+  br i1 %.not.i.i.i.i8, label %_ZN7QStringC2ERKS_.exit.i9, label %69
 
-70:                                               ; preds = %60
-  %71 = atomicrmw add ptr %63, i32 1 seq_cst, align 4
+69:                                               ; preds = %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE8Inserter5setupExx.exitthread-pre-split
+  %70 = atomicrmw add ptr %62, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i9
 
-_ZN7QStringC2ERKS_.exit.i9:                       ; preds = %70, %60
-  %72 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %73 = getelementptr i8, ptr %8, i64 -56
-  %74 = load ptr, ptr %73, align 8
-  store ptr %74, ptr %72, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %76 = getelementptr i8, ptr %8, i64 -48
-  %77 = load ptr, ptr %76, align 8
-  store ptr %77, ptr %75, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %79 = getelementptr i8, ptr %8, i64 -40
-  %80 = load i64, ptr %79, align 8
-  store i64 %80, ptr %78, align 8
-  %.not.i.i.i5.i10 = icmp eq ptr %74, null
-  br i1 %.not.i.i.i5.i10, label %_ZN7QStringC2ERKS_.exit6.i11, label %81
+_ZN7QStringC2ERKS_.exit.i9:                       ; preds = %69, %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE8Inserter5setupExx.exitthread-pre-split
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %72 = getelementptr i8, ptr %8, i64 -56
+  %73 = load ptr, ptr %72, align 8
+  store ptr %73, ptr %71, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %75 = getelementptr i8, ptr %8, i64 -48
+  %76 = load ptr, ptr %75, align 8
+  store ptr %76, ptr %74, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %78 = getelementptr i8, ptr %8, i64 -40
+  %79 = load i64, ptr %78, align 8
+  store i64 %79, ptr %77, align 8
+  %.not.i.i.i5.i10 = icmp eq ptr %73, null
+  br i1 %.not.i.i.i5.i10, label %_ZN7QStringC2ERKS_.exit6.i11, label %80
 
-81:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i9
-  %82 = atomicrmw add ptr %74, i32 1 seq_cst, align 4
+80:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i9
+  %81 = atomicrmw add ptr %73, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit6.i11
 
-_ZN7QStringC2ERKS_.exit6.i11:                     ; preds = %81, %_ZN7QStringC2ERKS_.exit.i9
-  %83 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %84 = getelementptr i8, ptr %8, i64 -32
-  %85 = load i64, ptr %84, align 8
-  store i64 %85, ptr %83, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %87 = getelementptr i8, ptr %8, i64 -24
-  %88 = load ptr, ptr %87, align 8
-  store ptr %88, ptr %86, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %90 = getelementptr i8, ptr %8, i64 -16
-  %91 = load ptr, ptr %90, align 8
-  store ptr %91, ptr %89, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %93 = getelementptr i8, ptr %8, i64 -8
-  %94 = load i64, ptr %93, align 8
-  store i64 %94, ptr %92, align 8
-  %.not.i.i.i7.i12 = icmp eq ptr %88, null
-  br i1 %.not.i.i.i7.i12, label %_ZN11ExtcapValueC2ERKS_.exit13, label %95
+_ZN7QStringC2ERKS_.exit6.i11:                     ; preds = %80, %_ZN7QStringC2ERKS_.exit.i9
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %83 = getelementptr i8, ptr %8, i64 -32
+  %84 = load i64, ptr %83, align 8
+  store i64 %84, ptr %82, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %86 = getelementptr i8, ptr %8, i64 -24
+  %87 = load ptr, ptr %86, align 8
+  store ptr %87, ptr %85, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %89 = getelementptr i8, ptr %8, i64 -16
+  %90 = load ptr, ptr %89, align 8
+  store ptr %90, ptr %88, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %92 = getelementptr i8, ptr %8, i64 -8
+  %93 = load i64, ptr %92, align 8
+  store i64 %93, ptr %91, align 8
+  %.not.i.i.i7.i12 = icmp eq ptr %87, null
+  br i1 %.not.i.i.i7.i12, label %_ZN11ExtcapValueC2ERKS_.exit13, label %94
 
-95:                                               ; preds = %_ZN7QStringC2ERKS_.exit6.i11
-  %96 = atomicrmw add ptr %88, i32 1 seq_cst, align 4
+94:                                               ; preds = %_ZN7QStringC2ERKS_.exit6.i11
+  %95 = atomicrmw add ptr %87, i32 1 seq_cst, align 4
   br label %_ZN11ExtcapValueC2ERKS_.exit13
 
-_ZN11ExtcapValueC2ERKS_.exit13:                   ; preds = %_ZN7QStringC2ERKS_.exit6.i11, %95
-  %97 = load i64, ptr %6, align 8
-  %98 = add i64 %97, 1
-  store i64 %98, ptr %6, align 8
-  %99 = load i64, ptr %18, align 8
-  %.not727 = icmp eq i64 %99, 0
+_ZN11ExtcapValueC2ERKS_.exit13:                   ; preds = %_ZN7QStringC2ERKS_.exit6.i11, %94
+  %96 = load i64, ptr %6, align 8
+  %97 = add i64 %96, 1
+  store i64 %97, ptr %6, align 8
+  %98 = load i64, ptr %18, align 8
+  %.not727 = icmp eq i64 %98, 0
   br i1 %.not727, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN11ExtcapValueaSERKS_.exit26, %_ZN11ExtcapValueC2ERKS_.exit13
-  %100 = load ptr, ptr %13, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %102 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %103 = tail call noundef align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %102) #26
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  %105 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %106 = tail call noundef align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %104, ptr noundef nonnull align 8 dereferenceable(24) %105) #26
-  %107 = getelementptr inbounds nuw i8, ptr %100, i64 56
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %109 = load i64, ptr %108, align 8
-  store i64 %109, ptr %107, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %100, i64 64
-  %111 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %116 = load i64, ptr %115, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %112, null
-  br i1 %.not.i.i.i.i.i, label %_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i, label %117
+  %99 = load ptr, ptr %13, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %102 = tail call noundef align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %100, ptr noundef nonnull align 8 dereferenceable(24) %101) #26
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %105 = tail call noundef align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %104) #26
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %108 = load i64, ptr %107, align 8
+  store i64 %108, ptr %106, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %99, i64 64
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %115 = load i64, ptr %114, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %111, null
+  br i1 %.not.i.i.i.i.i, label %_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i, label %116
 
-117:                                              ; preds = %._crit_edge
-  %118 = atomicrmw add ptr %112, i32 1 seq_cst, align 4
+116:                                              ; preds = %._crit_edge
+  %117 = atomicrmw add ptr %111, i32 1 seq_cst, align 4
   br label %_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i
 
-_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i: ; preds = %117, %._crit_edge
-  %119 = load ptr, ptr %110, align 8
-  store ptr %112, ptr %110, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %100, i64 72
-  %121 = load ptr, ptr %120, align 8
-  store ptr %114, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %100, i64 80
-  %123 = load i64, ptr %122, align 8
-  store i64 %116, ptr %122, align 8
-  %.not.i.i2.i.i.i = icmp eq ptr %119, null
+_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i: ; preds = %116, %._crit_edge
+  %118 = load ptr, ptr %109, align 8
+  store ptr %111, ptr %109, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %99, i64 72
+  %120 = load ptr, ptr %119, align 8
+  store ptr %113, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %99, i64 80
+  %122 = load i64, ptr %121, align 8
+  store i64 %115, ptr %121, align 8
+  %.not.i.i2.i.i.i = icmp eq ptr %118, null
   br i1 %.not.i.i2.i.i.i, label %_ZN11ExtcapValueaSERKS_.exit, label %_ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i.i.i
 
 _ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i.i.i: ; preds = %_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i
-  %124 = atomicrmw sub ptr %119, i32 1 seq_cst, align 4
-  %.not.i.i.i.i14 = icmp eq i32 %124, 1
-  br i1 %.not.i.i.i.i14, label %125, label %_ZN11ExtcapValueaSERKS_.exit
+  %123 = atomicrmw sub ptr %118, i32 1 seq_cst, align 4
+  %.not.i.i.i.i14 = icmp eq i32 %123, 1
+  br i1 %.not.i.i.i.i14, label %124, label %_ZN11ExtcapValueaSERKS_.exit
 
-125:                                              ; preds = %_ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i.i.i
-  %126 = getelementptr %class.ExtcapValue, ptr %121, i64 %123
-  %.idx.i.i.i.i.i = mul i64 %123, 88
+124:                                              ; preds = %_ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i.i.i
+  %125 = getelementptr %class.ExtcapValue, ptr %120, i64 %122
+  %.idx.i.i.i.i.i = mul i64 %122, 88
   %.not4.i.i.i.i.i.i.i.i = icmp eq i64 %.idx.i.i.i.i.i, 0
   br i1 %.not4.i.i.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %125, %.lr.ph.i.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i.i = phi ptr [ %129, %.lr.ph.i.i.i.i.i.i.i.i ], [ %121, %125 ]
-  %127 = load ptr, ptr %.05.i.i.i.i.i.i.i.i, align 8
-  %128 = load ptr, ptr %127, align 8
-  tail call void %128(ptr noundef align 8 dereferenceable_or_null(88) %.05.i.i.i.i.i.i.i.i) #26
-  %129 = getelementptr i8, ptr %.05.i.i.i.i.i.i.i.i, i64 88
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %129, %126
+.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %124, %.lr.ph.i.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i.i.i = phi ptr [ %128, %.lr.ph.i.i.i.i.i.i.i.i ], [ %120, %124 ]
+  %126 = load ptr, ptr %.05.i.i.i.i.i.i.i.i, align 8
+  %127 = load ptr, ptr %126, align 8
+  tail call void %127(ptr noundef align 8 dereferenceable_or_null(88) %.05.i.i.i.i.i.i.i.i) #26
+  %128 = getelementptr i8, ptr %.05.i.i.i.i.i.i.i.i, i64 88
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %128, %125
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !6
 
-_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %125
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %119, i64 noundef 88, i64 noundef 8) #26
+_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %124
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %118, i64 noundef 88, i64 noundef 8) #26
   br label %_ZN11ExtcapValueaSERKS_.exit
 
 .lr.ph:                                           ; preds = %_ZN11ExtcapValueC2ERKS_.exit13, %_ZN11ExtcapValueaSERKS_.exit26
-  %.028 = phi i64 [ %161, %_ZN11ExtcapValueaSERKS_.exit26 ], [ 0, %_ZN11ExtcapValueC2ERKS_.exit13 ]
-  %130 = load ptr, ptr %11, align 8
-  %131 = getelementptr %class.ExtcapValue, ptr %130, i64 %.028
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %133 = getelementptr i8, ptr %131, i64 -80
-  %134 = tail call noundef align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %133) #26
-  %135 = getelementptr inbounds nuw i8, ptr %131, i64 32
-  %136 = getelementptr i8, ptr %131, i64 -56
-  %137 = tail call noundef align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %135, ptr noundef nonnull align 8 dereferenceable(24) %136) #26
-  %138 = getelementptr inbounds nuw i8, ptr %131, i64 56
-  %139 = getelementptr i8, ptr %131, i64 -32
-  %140 = load i64, ptr %139, align 8
-  store i64 %140, ptr %138, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %131, i64 64
-  %142 = getelementptr i8, ptr %131, i64 -24
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr i8, ptr %131, i64 -16
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr i8, ptr %131, i64 -8
-  %147 = load i64, ptr %146, align 8
-  %.not.i.i.i.i.i15 = icmp eq ptr %143, null
-  br i1 %.not.i.i.i.i.i15, label %_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i16, label %148
+  %.028 = phi i64 [ %160, %_ZN11ExtcapValueaSERKS_.exit26 ], [ 0, %_ZN11ExtcapValueC2ERKS_.exit13 ]
+  %129 = load ptr, ptr %11, align 8
+  %130 = getelementptr %class.ExtcapValue, ptr %129, i64 %.028
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = getelementptr i8, ptr %130, i64 -80
+  %133 = tail call noundef align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %131, ptr noundef nonnull align 8 dereferenceable(24) %132) #26
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 32
+  %135 = getelementptr i8, ptr %130, i64 -56
+  %136 = tail call noundef align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %134, ptr noundef nonnull align 8 dereferenceable(24) %135) #26
+  %137 = getelementptr inbounds nuw i8, ptr %130, i64 56
+  %138 = getelementptr i8, ptr %130, i64 -32
+  %139 = load i64, ptr %138, align 8
+  store i64 %139, ptr %137, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %130, i64 64
+  %141 = getelementptr i8, ptr %130, i64 -24
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr i8, ptr %130, i64 -16
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr i8, ptr %130, i64 -8
+  %146 = load i64, ptr %145, align 8
+  %.not.i.i.i.i.i15 = icmp eq ptr %142, null
+  br i1 %.not.i.i.i.i.i15, label %_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i16, label %147
 
-148:                                              ; preds = %.lr.ph
-  %149 = atomicrmw add ptr %143, i32 1 seq_cst, align 4
+147:                                              ; preds = %.lr.ph
+  %148 = atomicrmw add ptr %142, i32 1 seq_cst, align 4
   br label %_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i16
 
-_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i16: ; preds = %148, %.lr.ph
-  %150 = load ptr, ptr %141, align 8
-  store ptr %143, ptr %141, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %131, i64 72
-  %152 = load ptr, ptr %151, align 8
-  store ptr %145, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %131, i64 80
-  %154 = load i64, ptr %153, align 8
-  store i64 %147, ptr %153, align 8
-  %.not.i.i2.i.i.i17 = icmp eq ptr %150, null
+_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i16: ; preds = %147, %.lr.ph
+  %149 = load ptr, ptr %140, align 8
+  store ptr %142, ptr %140, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %130, i64 72
+  %151 = load ptr, ptr %150, align 8
+  store ptr %144, ptr %150, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %130, i64 80
+  %153 = load i64, ptr %152, align 8
+  store i64 %146, ptr %152, align 8
+  %.not.i.i2.i.i.i17 = icmp eq ptr %149, null
   br i1 %.not.i.i2.i.i.i17, label %_ZN11ExtcapValueaSERKS_.exit26, label %_ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i.i.i18
 
 _ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i.i.i18: ; preds = %_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i16
-  %155 = atomicrmw sub ptr %150, i32 1 seq_cst, align 4
-  %.not.i.i.i.i19 = icmp eq i32 %155, 1
-  br i1 %.not.i.i.i.i19, label %156, label %_ZN11ExtcapValueaSERKS_.exit26
+  %154 = atomicrmw sub ptr %149, i32 1 seq_cst, align 4
+  %.not.i.i.i.i19 = icmp eq i32 %154, 1
+  br i1 %.not.i.i.i.i19, label %155, label %_ZN11ExtcapValueaSERKS_.exit26
 
-156:                                              ; preds = %_ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i.i.i18
-  %157 = getelementptr %class.ExtcapValue, ptr %152, i64 %154
-  %.idx.i.i.i.i.i20 = mul i64 %154, 88
+155:                                              ; preds = %_ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i.i.i18
+  %156 = getelementptr %class.ExtcapValue, ptr %151, i64 %153
+  %.idx.i.i.i.i.i20 = mul i64 %153, 88
   %.not4.i.i.i.i.i.i.i.i21 = icmp eq i64 %.idx.i.i.i.i.i20, 0
   br i1 %.not4.i.i.i.i.i.i.i.i21, label %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i.i.i25, label %.lr.ph.i.i.i.i.i.i.i.i22
 
-.lr.ph.i.i.i.i.i.i.i.i22:                         ; preds = %156, %.lr.ph.i.i.i.i.i.i.i.i22
-  %.05.i.i.i.i.i.i.i.i23 = phi ptr [ %160, %.lr.ph.i.i.i.i.i.i.i.i22 ], [ %152, %156 ]
-  %158 = load ptr, ptr %.05.i.i.i.i.i.i.i.i23, align 8
-  %159 = load ptr, ptr %158, align 8
-  tail call void %159(ptr noundef align 8 dereferenceable_or_null(88) %.05.i.i.i.i.i.i.i.i23) #26
-  %160 = getelementptr i8, ptr %.05.i.i.i.i.i.i.i.i23, i64 88
-  %.not.i.i.i.i.i.i.i.i24 = icmp eq ptr %160, %157
+.lr.ph.i.i.i.i.i.i.i.i22:                         ; preds = %155, %.lr.ph.i.i.i.i.i.i.i.i22
+  %.05.i.i.i.i.i.i.i.i23 = phi ptr [ %159, %.lr.ph.i.i.i.i.i.i.i.i22 ], [ %151, %155 ]
+  %157 = load ptr, ptr %.05.i.i.i.i.i.i.i.i23, align 8
+  %158 = load ptr, ptr %157, align 8
+  tail call void %158(ptr noundef align 8 dereferenceable_or_null(88) %.05.i.i.i.i.i.i.i.i23) #26
+  %159 = getelementptr i8, ptr %.05.i.i.i.i.i.i.i.i23, i64 88
+  %.not.i.i.i.i.i.i.i.i24 = icmp eq ptr %159, %156
   br i1 %.not.i.i.i.i.i.i.i.i24, label %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i.i.i25, label %.lr.ph.i.i.i.i.i.i.i.i22, !llvm.loop !6
 
-_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i.i.i25: ; preds = %.lr.ph.i.i.i.i.i.i.i.i22, %156
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %150, i64 noundef 88, i64 noundef 8) #26
+_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i.i.i25: ; preds = %.lr.ph.i.i.i.i.i.i.i.i22, %155
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %149, i64 noundef 88, i64 noundef 8) #26
   br label %_ZN11ExtcapValueaSERKS_.exit26
 
 _ZN11ExtcapValueaSERKS_.exit26:                   ; preds = %_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i16, %_ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i.i.i18, %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i.i.i25
-  %161 = add i64 %.028, -1
-  %162 = load i64, ptr %18, align 8
-  %.not7 = icmp eq i64 %161, %162
+  %160 = add i64 %.028, -1
+  %161 = load i64, ptr %18, align 8
+  %.not7 = icmp eq i64 %160, %161
   br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 _ZN11ExtcapValueaSERKS_.exit:                     ; preds = %_ZN9QtPrivate16QGenericArrayOpsI11ExtcapValueE10destroyAllEv.exit.i.i.i.i, %_ZN17QArrayDataPointerI11ExtcapValueE5derefEv.exit.i.i.i.i, %_ZN17QArrayDataPointerI11ExtcapValueEC2ERKS1_.exit.i.i.i, %_ZN11ExtcapValueC2ERKS_.exit

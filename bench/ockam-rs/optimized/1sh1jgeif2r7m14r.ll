@@ -904,10 +904,10 @@ _ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit: ; preds 
 
 55:                                               ; preds = %29
   %56 = shl i64 %.0143, 5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.084, ptr align 8 %31, i64 %56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.084, ptr nonnull align 8 %31, i64 %56, i1 false)
   %57 = shl i64 %.099141, 5
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %31, ptr align 8 %.096142, i64 %57, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr nonnull align 8 %.sroa.084, i64 %56, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %.096142, i64 %57, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %.sroa.084, i64 %56, i1 false)
   br label %58
 
 58:                                               ; preds = %55, %52
