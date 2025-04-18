@@ -354,17 +354,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %_ZN
 _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %223, %97
   %.012115 = phi i32 [ 0, %97 ], [ %225, %223 ]
   %125 = call i32 @rand() #19
-  %126 = srem i32 %125, 590
-  %127 = add nsw i32 %126, 5
-  %128 = sitofp i32 %127 to float
-  %129 = call i32 @rand() #19
-  %130 = srem i32 %129, 590
-  %131 = add nsw i32 %130, 5
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %128, i64 0
+  %126 = call i32 @rand() #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   store double 2.550000e+02, ptr %.sroa.6121.0..sroa_idx, align 8, !tbaa !34
   store double 0.000000e+00, ptr %.sroa.7122.0..sroa_idx, align 8, !tbaa !34
+  %127 = srem i32 %125, 590
+  %128 = add nsw i32 %127, 5
+  %129 = sitofp i32 %128 to float
+  %130 = srem i32 %126, 590
+  %131 = add nsw i32 %130, 5
   %132 = sitofp i32 %131 to float
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %129, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %132, i64 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #19

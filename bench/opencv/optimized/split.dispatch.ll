@@ -1221,7 +1221,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %27
 
 52:                                               ; preds = %_ZNK2cv3Mat8elemSizeEv.exit
   %53 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %49) #17
-          to label %.noexc unwind label %63
+          to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %52
   store ptr %53, ptr %5, align 8, !tbaa !64
@@ -1229,35 +1229,35 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %27
 
 _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %_ZNK2cv3Mat8elemSizeEv.exit
   %54 = phi ptr [ %53, %.noexc ], [ %50, %_ZNK2cv3Mat8elemSizeEv.exit ]
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %wide.trip.count
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = ptrtoint ptr %56 to i64
-  %58 = add i64 %57, 15
-  %59 = and i64 %58, -16
   store ptr %0, ptr %54, align 8, !tbaa !67
-  br label %60
+  br label %55
 
-60:                                               ; preds = %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit, %60
-  %indvars.iv117 = phi i64 [ 0, %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit ], [ %indvars.iv.next118, %60 ]
-  %61 = getelementptr inbounds nuw %"class.cv::Mat", ptr %1, i64 %indvars.iv117
+55:                                               ; preds = %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit, %55
+  %indvars.iv117 = phi i64 [ 0, %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit ], [ %indvars.iv.next118, %55 ]
+  %56 = getelementptr inbounds nuw %"class.cv::Mat", ptr %1, i64 %indvars.iv117
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %62 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.next118
-  store ptr %61, ptr %62, align 8, !tbaa !67
+  %57 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.next118
+  store ptr %56, ptr %57, align 8, !tbaa !67
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count
-  br i1 %exitcond121.not, label %65, label %60, !llvm.loop !69
+  br i1 %exitcond121.not, label %60, label %55, !llvm.loop !69
 
-63:                                               ; preds = %52
-  %64 = landingpad { ptr, i32 }
+58:                                               ; preds = %52
+  %59 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit85
 
-65:                                               ; preds = %60
-  %66 = inttoptr i64 %59 to ptr
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds nuw ptr, ptr %54, i64 %wide.trip.count
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = ptrtoint ptr %62 to i64
+  %64 = add i64 %63, 15
+  %65 = and i64 %64, -16
+  %66 = inttoptr i64 %65 to ptr
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #15
   invoke void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPPhi(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %54, ptr noundef %66, i32 noundef %47)
           to label %67 unwind label %104
 
-67:                                               ; preds = %65
+67:                                               ; preds = %60
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %69 = load i64, ptr %68, align 8, !tbaa !70
   %.fr114 = freeze i64 %69
@@ -1355,7 +1355,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %103, %.split108.us
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %5) #15
   br label %107
 
-104:                                              ; preds = %65
+104:                                              ; preds = %60
   %105 = landingpad { ptr, i32 }
           cleanup
   br label %114
@@ -1399,8 +1399,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %107, %110
   call void @_ZdaPv(ptr noundef nonnull %115) #18
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit85
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit85:          ; preds = %117, %114, %63
-  %.pn73.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn73.pn, %114 ], [ %.pn73.pn, %117 ]
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit85:          ; preds = %117, %114, %58
+  %.pn73.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %.pn73.pn, %114 ], [ %.pn73.pn, %117 ]
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %5) #15
   br label %118
 

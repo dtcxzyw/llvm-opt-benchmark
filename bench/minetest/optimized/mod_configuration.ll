@@ -11883,24 +11883,24 @@ if.else41:                                        ; preds = %if.else
 while.body.i.i.preheader:                         ; preds = %if.else41
   %xtraiter131 = and i64 %sub.ptr.div.i71, 7
   %lcmp.mod132.not = icmp eq i64 %xtraiter131, 0
-  br i1 %lcmp.mod132.not, label %while.body.i.i.prol.loopexit, label %while.body.i.i.prol.preheader
+  br i1 %lcmp.mod132.not, label %while.body.i.i.prol.loopexit, label %while.body.i.i.prol
 
-while.body.i.i.prol.preheader:                    ; preds = %while.body.i.i.preheader
-  %10 = and i64 %sub.ptr.div.i71, 36028797018963960
-  br label %while.body.i.i.prol
-
-while.body.i.i.prol:                              ; preds = %while.body.i.i.prol.preheader, %while.body.i.i.prol
-  %11 = phi ptr [ %12, %while.body.i.i.prol ], [ %__first.coerce, %while.body.i.i.prol.preheader ]
-  %prol.iter133 = phi i64 [ %prol.iter133.next, %while.body.i.i.prol ], [ 0, %while.body.i.i.prol.preheader ]
-  %12 = load ptr, ptr %11, align 8, !tbaa !147
+while.body.i.i.prol:                              ; preds = %while.body.i.i.preheader, %while.body.i.i.prol
+  %10 = phi ptr [ %11, %while.body.i.i.prol ], [ %__first.coerce, %while.body.i.i.preheader ]
+  %prol.iter133 = phi i64 [ %prol.iter133.next, %while.body.i.i.prol ], [ 0, %while.body.i.i.preheader ]
+  %11 = load ptr, ptr %10, align 8, !tbaa !147
   %prol.iter133.next = add nuw nsw i64 %prol.iter133, 1
   %prol.iter133.cmp.not = icmp eq i64 %prol.iter133.next, %xtraiter131
-  br i1 %prol.iter133.cmp.not, label %while.body.i.i.prol.loopexit, label %while.body.i.i.prol, !llvm.loop !230
+  br i1 %prol.iter133.cmp.not, label %while.body.i.i.prol.loopexit.loopexit, label %while.body.i.i.prol, !llvm.loop !230
 
-while.body.i.i.prol.loopexit:                     ; preds = %while.body.i.i.prol, %while.body.i.i.preheader
-  %.lcssa.unr = phi ptr [ undef, %while.body.i.i.preheader ], [ %12, %while.body.i.i.prol ]
-  %__n.addr.014.i.i.unr = phi i64 [ %sub.ptr.div.i71, %while.body.i.i.preheader ], [ %10, %while.body.i.i.prol ]
-  %.unr134 = phi ptr [ %__first.coerce, %while.body.i.i.preheader ], [ %12, %while.body.i.i.prol ]
+while.body.i.i.prol.loopexit.loopexit:            ; preds = %while.body.i.i.prol
+  %12 = and i64 %sub.ptr.div.i71, 36028797018963960
+  br label %while.body.i.i.prol.loopexit
+
+while.body.i.i.prol.loopexit:                     ; preds = %while.body.i.i.prol.loopexit.loopexit, %while.body.i.i.preheader
+  %.lcssa.unr = phi ptr [ undef, %while.body.i.i.preheader ], [ %11, %while.body.i.i.prol.loopexit.loopexit ]
+  %__n.addr.014.i.i.unr = phi i64 [ %sub.ptr.div.i71, %while.body.i.i.preheader ], [ %12, %while.body.i.i.prol.loopexit.loopexit ]
+  %.unr134 = phi ptr [ %__first.coerce, %while.body.i.i.preheader ], [ %11, %while.body.i.i.prol.loopexit.loopexit ]
   %13 = icmp ult i64 %sub.ptr.div.i71, 8
   br i1 %13, label %_ZSt7advanceISt14_List_iteratorI7ModSpecEmEvRT_T0_.exit, label %while.body.i.i
 

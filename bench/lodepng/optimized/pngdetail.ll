@@ -2966,14 +2966,14 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit178:            ; preds = %77, %.noexc177, %_Z
 .lr.ph203:                                        ; preds = %.lr.ph203.preheader, %._crit_edge
   %indvars.iv243 = phi i64 [ 0, %.lr.ph203.preheader ], [ %indvars.iv.next244, %._crit_edge ]
   %132 = trunc i64 %indvars.iv243 to i32
-  %133 = mul i32 %4, %132
-  %134 = add nuw i32 %133, %.0154207
-  %135 = trunc i64 %indvars.iv243 to i32
-  %136 = mul i32 %2, %135
+  %133 = mul i32 %2, %132
   br label %143
 
 ._crit_edge:                                      ; preds = %143
-  %137 = mul i32 %134, %17
+  %134 = trunc i64 %indvars.iv243 to i32
+  %135 = mul i32 %4, %134
+  %136 = add nuw i32 %135, %.0154207
+  %137 = mul i32 %136, %17
   %138 = fmul double %111, %155
   %139 = fptoui double %138 to i8
   %140 = add nsw i32 %137, %.0149222
@@ -2988,7 +2988,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit178:            ; preds = %77, %.noexc177, %_Z
   %indvars.iv238 = phi i64 [ %120, %.lr.ph203 ], [ %indvars.iv.next239, %143 ]
   %.0160202 = phi double [ 0.000000e+00, %.lr.ph203 ], [ %155, %143 ]
   %144 = trunc nsw i64 %indvars.iv238 to i32
-  %145 = add i32 %136, %144
+  %145 = add i32 %133, %144
   %146 = mul i32 %145, %17
   %147 = icmp eq i64 %indvars.iv238, %120
   %.0158 = select i1 %147, double %116, double 1.000000e+00
@@ -3074,12 +3074,12 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit178:            ; preds = %77, %.noexc177, %_Z
 
 .lr.ph213:                                        ; preds = %.lr.ph213.preheader, %._crit_edge214
   %indvars.iv261 = phi i64 [ 0, %.lr.ph213.preheader ], [ %indvars.iv.next262, %._crit_edge214 ]
-  %193 = add nuw nsw i64 %indvars.iv261, %176
-  %194 = trunc nuw nsw i64 %indvars.iv261 to i32
+  %193 = trunc nuw nsw i64 %indvars.iv261 to i32
   br label %202
 
 ._crit_edge214:                                   ; preds = %202
-  %195 = trunc nuw i64 %193 to i32
+  %194 = add nuw nsw i64 %indvars.iv261, %176
+  %195 = trunc nuw i64 %194 to i32
   %196 = mul i32 %195, %17
   %197 = fmul double %172, %215
   %198 = fptoui double %197 to i8
@@ -3096,7 +3096,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit178:            ; preds = %77, %.noexc177, %_Z
   %.0153210 = phi double [ 0.000000e+00, %.lr.ph213 ], [ %215, %202 ]
   %203 = trunc i64 %indvars.iv254 to i32
   %204 = mul i32 %4, %203
-  %205 = add i32 %204, %194
+  %205 = add i32 %204, %193
   %206 = mul i32 %205, %17
   %207 = icmp eq i64 %indvars.iv254, %182
   %.0151 = select i1 %207, double %178, double 1.000000e+00

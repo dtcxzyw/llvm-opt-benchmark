@@ -16,8 +16,6 @@ define float @strtof(ptr noundef %0, ptr noundef captures(address_is_null) %1) l
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
-  %switch = icmp eq i32 %2, 1
-  %.70.neg = select i1 %switch, i64 149, i64 1074
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -30,7 +28,9 @@ define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly ca
   br i1 %.not, label %9, label %4, !llvm.loop !6
 
 9:                                                ; preds = %4
+  %switch = icmp eq i32 %2, 1
   %. = select i1 %switch, i32 24, i32 53
+  %.70.neg = select i1 %switch, i64 149, i64 1074
   %.70 = select i1 %switch, i32 -149, i32 -1074
   switch i8 %5, label %12 [
     i8 45, label %10

@@ -13995,11 +13995,11 @@ _ZN8V3Number6setBitEic.exit94:                    ; preds = %_ZNK12V3NumberData3
   br i1 %spec.select.i.i.i97, label %_ZNK8V3Number9bitsValueEii.exit114.thread.us.preheader, label %.lr.ph.split.i99.preheader
 
 _ZNK8V3Number9bitsValueEii.exit114.thread.us.preheader: ; preds = %.lr.ph204
+  %256 = add nsw i32 %249, -4
   %smin = call i32 @llvm.smin.i32(i32 %249, i32 4)
-  %256 = sub i32 %248, %smin
-  %257 = and i32 %256, -4
-  %258 = add nsw i32 %249, -4
-  %259 = sub i32 %258, %257
+  %257 = sub i32 %248, %smin
+  %258 = and i32 %257, -4
+  %259 = sub i32 %256, %258
   br label %_ZNK8V3Number9bitsValueEii.exit114._crit_edge
 
 .lr.ph.split.i99.preheader:                       ; preds = %.lr.ph204, %_ZNK8V3Number9bitsValueEii.exit114.thread

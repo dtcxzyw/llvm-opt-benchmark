@@ -10622,32 +10622,32 @@ Vec_IntPush.exit199:                              ; preds = %.Vec_IntGrow.exit10
   %.val179 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !8
   %189 = load i32, ptr %.val179, align 4, !tbaa !32
   %190 = and i32 %189, 268435455
-  %191 = add i32 %.2225, -1
   %wide.trip.count = zext nneg i32 %.val181 to i64
-  br label %192
+  br label %191
 
-192:                                              ; preds = %188, %192
-  %indvars.iv238 = phi i64 [ 1, %188 ], [ %indvars.iv.next239, %192 ]
-  %.0134220 = phi i32 [ %189, %188 ], [ %194, %192 ]
-  %193 = getelementptr inbounds nuw i32, ptr %.val179, i64 %indvars.iv238
-  %194 = load i32, ptr %193, align 4, !tbaa !32
+191:                                              ; preds = %188, %191
+  %indvars.iv238 = phi i64 [ 1, %188 ], [ %indvars.iv.next239, %191 ]
+  %.0134220 = phi i32 [ %189, %188 ], [ %193, %191 ]
+  %192 = getelementptr inbounds nuw i32, ptr %.val179, i64 %indvars.iv238
+  %193 = load i32, ptr %192, align 4, !tbaa !32
   %.val184 = load ptr, ptr %4, align 8, !tbaa !49
-  %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val184, i64 %195
-  %197 = load i32, ptr %196, align 4
-  %198 = and i32 %197, -268435456
-  %199 = or disjoint i32 %198, %190
-  store i32 %199, ptr %196, align 4
+  %194 = sext i32 %193 to i64
+  %195 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val184, i64 %194
+  %196 = load i32, ptr %195, align 4
+  %197 = and i32 %196, -268435456
+  %198 = or disjoint i32 %197, %190
+  store i32 %198, ptr %195, align 4
   %.val191 = load ptr, ptr %8, align 8, !tbaa !54
-  %200 = sext i32 %.0134220 to i64
-  %201 = getelementptr inbounds i32, ptr %.val191, i64 %200
-  store i32 %194, ptr %201, align 4, !tbaa !32
+  %199 = sext i32 %.0134220 to i64
+  %200 = getelementptr inbounds i32, ptr %.val191, i64 %199
+  store i32 %193, ptr %200, align 4, !tbaa !32
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge5.loopexit, label %192, !llvm.loop !191
+  br i1 %exitcond.not, label %.critedge5.loopexit, label %191, !llvm.loop !191
 
-.critedge5.loopexit:                              ; preds = %192
-  %202 = add i32 %191, %.val181
+.critedge5.loopexit:                              ; preds = %191
+  %201 = add i32 %.2225, -1
+  %202 = add i32 %201, %.val181
   br label %.critedge5
 
 .critedge5:                                       ; preds = %.critedge5.loopexit, %94, %183, %186, %Gia_ObjIsHead.exit
@@ -10995,32 +10995,32 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 132:                                              ; preds = %130
   %133 = load i32, ptr %.val155, align 4, !tbaa !32
   %134 = and i32 %133, 268435455
-  %135 = add i32 %.2227, -1
   %wide.trip.count = zext nneg i32 %.val159 to i64
-  br label %136
+  br label %135
 
-136:                                              ; preds = %132, %136
-  %indvars.iv248 = phi i64 [ 1, %132 ], [ %indvars.iv.next249, %136 ]
-  %.0121222 = phi i32 [ %133, %132 ], [ %138, %136 ]
-  %137 = getelementptr inbounds nuw i32, ptr %.val155, i64 %indvars.iv248
-  %138 = load i32, ptr %137, align 4, !tbaa !32
+135:                                              ; preds = %132, %135
+  %indvars.iv248 = phi i64 [ 1, %132 ], [ %indvars.iv.next249, %135 ]
+  %.0121222 = phi i32 [ %133, %132 ], [ %137, %135 ]
+  %136 = getelementptr inbounds nuw i32, ptr %.val155, i64 %indvars.iv248
+  %137 = load i32, ptr %136, align 4, !tbaa !32
   %.val165 = load ptr, ptr %74, align 8, !tbaa !49
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val165, i64 %139
-  %141 = load i32, ptr %140, align 4
-  %142 = and i32 %141, -268435456
-  %143 = or disjoint i32 %142, %134
-  store i32 %143, ptr %140, align 4
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val165, i64 %138
+  %140 = load i32, ptr %139, align 4
+  %141 = and i32 %140, -268435456
+  %142 = or disjoint i32 %141, %134
+  store i32 %142, ptr %139, align 4
   %.val184 = load ptr, ptr %75, align 8, !tbaa !54
-  %144 = sext i32 %.0121222 to i64
-  %145 = getelementptr inbounds i32, ptr %.val184, i64 %144
-  store i32 %138, ptr %145, align 4, !tbaa !32
+  %143 = sext i32 %.0121222 to i64
+  %144 = getelementptr inbounds i32, ptr %.val184, i64 %143
+  store i32 %137, ptr %144, align 4, !tbaa !32
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4.loopexit, label %136, !llvm.loop !198
+  br i1 %exitcond.not, label %.critedge4.loopexit, label %135, !llvm.loop !198
 
-.critedge4.loopexit:                              ; preds = %136
-  %146 = add i32 %135, %.val159
+.critedge4.loopexit:                              ; preds = %135
+  %145 = add i32 %.2227, -1
+  %146 = add i32 %145, %.val159
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %78, %Gia_ObjIsHead.exit, %130

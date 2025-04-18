@@ -276,10 +276,10 @@ define void @Sfm_NtkDfs_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   br i1 %18, label %.critedge.preheader, label %114
 
 .critedge.preheader:                              ; preds = %14
-  %19 = lshr i32 %17, 1
-  %20 = getelementptr i8, ptr %3, i64 8
-  %.val77 = load ptr, ptr %20, align 8, !tbaa !19
-  %21 = zext nneg i32 %19 to i64
+  %19 = getelementptr i8, ptr %3, i64 8
+  %.val77 = load ptr, ptr %19, align 8, !tbaa !19
+  %20 = lshr i32 %17, 1
+  %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val77, i64 %21
   %23 = getelementptr i8, ptr %22, i64 4
   %.val79119 = load i32, ptr %23, align 4, !tbaa !20
@@ -598,7 +598,7 @@ Vec_IntPush.exit113:                              ; preds = %.Vec_IntGrow.exit10
 .sink.split:                                      ; preds = %Vec_IntPush.exit113, %Vec_IntPush.exit104
   %.sink157 = phi i32 [ %112, %Vec_IntPush.exit104 ], [ %151, %Vec_IntPush.exit113 ]
   %.sink155 = phi ptr [ %111, %Vec_IntPush.exit104 ], [ %150, %Vec_IntPush.exit113 ]
-  %.sink = phi i32 [ %19, %Vec_IntPush.exit104 ], [ %1, %Vec_IntPush.exit113 ]
+  %.sink = phi i32 [ %20, %Vec_IntPush.exit104 ], [ %1, %Vec_IntPush.exit113 ]
   %153 = sext i32 %.sink157 to i64
   %154 = getelementptr inbounds i32, ptr %.sink155, i64 %153
   store i32 %.sink, ptr %154, align 4, !tbaa !22

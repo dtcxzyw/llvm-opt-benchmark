@@ -2016,15 +2016,6 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu12GetAbInvokerclERKNS_5RangeE(ptr 
   %110 = load float, ptr %109, align 4, !tbaa !48, !noalias !152
   %111 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %112 = load float, ptr %111, align 4, !tbaa !48, !noalias !152
-  %113 = fmul float %110, %33
-  %114 = tail call float @llvm.fmuladd.f32(float %31, float %99, float %113)
-  %115 = tail call float @llvm.fmuladd.f32(float %35, float %112, float %114)
-  %116 = fmul float %110, %41
-  %117 = tail call float @llvm.fmuladd.f32(float %39, float %99, float %116)
-  %118 = tail call float @llvm.fmuladd.f32(float %43, float %112, float %117)
-  %119 = fmul float %110, %49
-  %120 = tail call float @llvm.fmuladd.f32(float %47, float %99, float %119)
-  %121 = tail call float @llvm.fmuladd.f32(float %51, float %112, float %120)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #25
   store float %31, ptr %6, align 4, !tbaa !48, !alias.scope !158
   store float %33, ptr %54, align 4, !tbaa !48, !alias.scope !158
@@ -2044,33 +2035,42 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu12GetAbInvokerclERKNS_5RangeE(ptr 
 
 .preheader.i.i.i.us:                              ; preds = %.critedge.i.i.i.us, %104
   %indvars.iv23.i.i.i.us = phi i64 [ 0, %104 ], [ %indvars.iv.next24.i.i.i.us, %.critedge.i.i.i.us ]
-  %122 = mul nuw nsw i64 %indvars.iv23.i.i.i.us, 3
-  br label %123
+  %113 = mul nuw nsw i64 %indvars.iv23.i.i.i.us, 3
+  br label %114
 
-123:                                              ; preds = %123, %.preheader.i.i.i.us
-  %indvars.iv.i.i.i.us = phi i64 [ 0, %.preheader.i.i.i.us ], [ %indvars.iv.next.i.i.i.us, %123 ]
-  %.01619.i.i.i.us = phi float [ 0.000000e+00, %.preheader.i.i.i.us ], [ %129, %123 ]
-  %124 = add nuw nsw i64 %indvars.iv.i.i.i.us, %122
-  %125 = getelementptr inbounds nuw [9 x float], ptr %6, i64 0, i64 %124
-  %126 = load float, ptr %125, align 4, !tbaa !48, !noalias !163
-  %127 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i.us
-  %128 = load float, ptr %127, align 4, !tbaa !48, !noalias !163
-  %129 = tail call float @llvm.fmuladd.f32(float %126, float %128, float %.01619.i.i.i.us)
+114:                                              ; preds = %114, %.preheader.i.i.i.us
+  %indvars.iv.i.i.i.us = phi i64 [ 0, %.preheader.i.i.i.us ], [ %indvars.iv.next.i.i.i.us, %114 ]
+  %.01619.i.i.i.us = phi float [ 0.000000e+00, %.preheader.i.i.i.us ], [ %120, %114 ]
+  %115 = add nuw nsw i64 %indvars.iv.i.i.i.us, %113
+  %116 = getelementptr inbounds nuw [9 x float], ptr %6, i64 0, i64 %115
+  %117 = load float, ptr %116, align 4, !tbaa !48, !noalias !163
+  %118 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i.us
+  %119 = load float, ptr %118, align 4, !tbaa !48, !noalias !163
+  %120 = tail call float @llvm.fmuladd.f32(float %117, float %119, float %.01619.i.i.i.us)
   %indvars.iv.next.i.i.i.us = add nuw nsw i64 %indvars.iv.i.i.i.us, 1
   %exitcond.not.i.i.i.us = icmp eq i64 %indvars.iv.next.i.i.i.us, 3
-  br i1 %exitcond.not.i.i.i.us, label %.critedge.i.i.i.us, label %123, !llvm.loop !166
+  br i1 %exitcond.not.i.i.i.us, label %.critedge.i.i.i.us, label %114, !llvm.loop !166
 
-.critedge.i.i.i.us:                               ; preds = %123
-  %130 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv23.i.i.i.us
-  store float %129, ptr %130, align 4, !tbaa !48, !noalias !163
+.critedge.i.i.i.us:                               ; preds = %114
+  %121 = getelementptr inbounds nuw [3 x float], ptr %3, i64 0, i64 %indvars.iv23.i.i.i.us
+  store float %120, ptr %121, align 4, !tbaa !48, !noalias !163
   %indvars.iv.next24.i.i.i.us = add nuw nsw i64 %indvars.iv23.i.i.i.us, 1
   %exitcond26.not.i.i.i.us = icmp eq i64 %indvars.iv.next24.i.i.i.us, 3
   br i1 %exitcond26.not.i.i.i.us, label %_ZN2cvmlIfEENS_7Point3_IT_EERKNS_4MatxIS2_Li3ELi3EEERKS3_.exit.us, label %.preheader.i.i.i.us, !llvm.loop !167
 
 _ZN2cvmlIfEENS_7Point3_IT_EERKNS_4MatxIS2_Li3ELi3EEERKS3_.exit.us: ; preds = %.critedge.i.i.i.us
-  %131 = fadd float %37, %115
-  %132 = fadd float %45, %118
-  %133 = fadd float %53, %121
+  %122 = fmul float %110, %33
+  %123 = tail call float @llvm.fmuladd.f32(float %31, float %99, float %122)
+  %124 = tail call float @llvm.fmuladd.f32(float %35, float %112, float %123)
+  %125 = fadd float %37, %124
+  %126 = fmul float %110, %41
+  %127 = tail call float @llvm.fmuladd.f32(float %39, float %99, float %126)
+  %128 = tail call float @llvm.fmuladd.f32(float %43, float %112, float %127)
+  %129 = fadd float %45, %128
+  %130 = fmul float %110, %49
+  %131 = tail call float @llvm.fmuladd.f32(float %47, float %99, float %130)
+  %132 = tail call float @llvm.fmuladd.f32(float %51, float %112, float %131)
+  %133 = fadd float %53, %132
   %.sroa.0.0.copyload5.i.us = load float, ptr %3, align 4, !tbaa !48
   %.sroa.4.0.copyload7.i.us = load float, ptr %.sroa.4.0..sroa_idx6.i, align 4, !tbaa !48
   %.sroa.5.0.copyload9.i.us = load float, ptr %.sroa.5.0..sroa_idx8.i, align 4, !tbaa !48
@@ -2078,9 +2078,9 @@ _ZN2cvmlIfEENS_7Point3_IT_EERKNS_4MatxIS2_Li3ELi3EEERKS3_.exit.us: ; preds = %.c
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #25
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #25
   %134 = fdiv float 1.000000e+00, %133
-  %135 = fmul float %131, %134
+  %135 = fmul float %125, %134
   %136 = tail call float @llvm.fmuladd.f32(float %65, float %135, float %67)
-  %137 = fmul float %132, %134
+  %137 = fmul float %129, %134
   %138 = tail call float @llvm.fmuladd.f32(float %69, float %137, float %71)
   %139 = fcmp ult float %136, 0.000000e+00
   br i1 %139, label %332, label %140
@@ -2258,8 +2258,8 @@ _ZN2cvmlIfEENS_7Point3_IT_EERKNS_4MatxIS2_Li3ELi3EEERKS3_.exit.us: ; preds = %.c
   %292 = fsub float %291, %288
   %293 = fmul float %159, %292
   %294 = fadd float %288, %293
-  %295 = fsub float %131, %246
-  %296 = fsub float %132, %294
+  %295 = fsub float %125, %246
+  %296 = fsub float %129, %294
   %297 = fsub float %133, %285
   %298 = fmul float %296, %296
   %299 = tail call float @llvm.fmuladd.f32(float %295, float %295, float %298)
@@ -2278,13 +2278,13 @@ _ZN2cvmlIfEENS_7Point3_IT_EERKNS_4MatxIS2_Li3ELi3EEERKS3_.exit.us: ; preds = %.c
 308:                                              ; preds = %302
   %309 = fneg float %272
   %310 = fmul float %133, %309
-  %311 = tail call float @llvm.fmuladd.f32(float %132, float %273, float %310)
+  %311 = tail call float @llvm.fmuladd.f32(float %129, float %273, float %310)
   %312 = fneg float %273
-  %313 = fmul float %131, %312
+  %313 = fmul float %125, %312
   %314 = tail call float @llvm.fmuladd.f32(float %133, float %271, float %313)
   %315 = fneg float %271
-  %316 = fmul float %132, %315
-  %317 = tail call float @llvm.fmuladd.f32(float %131, float %272, float %316)
+  %316 = fmul float %129, %315
+  %317 = tail call float @llvm.fmuladd.f32(float %125, float %272, float %316)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #25
   store float %311, ptr %7, align 16, !tbaa !48
   store float %314, ptr %86, align 4, !tbaa !48

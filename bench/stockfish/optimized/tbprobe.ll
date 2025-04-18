@@ -2869,9 +2869,9 @@ _ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4Fi
   %414 = zext nneg i32 %146 to i64
   %415 = mul nuw nsw i64 %414, 6
   %416 = mul i64 %.pre218.i.i.i, %415
+  %scevgep.i.i = getelementptr i8, ptr %412, i64 %416
   %417 = add nuw nsw i64 %415, 6
   %418 = mul i64 %.pre218.i.i.i, %417
-  %scevgep.i.i = getelementptr i8, ptr %412, i64 %416
   %419 = getelementptr inbounds nuw i8, ptr %.0.val6.i.i, i64 112
   store ptr %scevgep.i.i, ptr %419, align 8
   %420 = getelementptr inbounds nuw i8, ptr %.0.val6.i.i, i64 104
@@ -2879,12 +2879,12 @@ _ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4Fi
   %421 = zext i32 %.pre.i.i to i64
   %422 = shl nuw nsw i64 %414, 1
   %423 = mul nuw nsw i64 %422, %421
-  %424 = add nuw nsw i64 %422, 2
-  %425 = mul nuw nsw i64 %424, %421
-  %426 = getelementptr i8, ptr %412, i64 %423
-  %scevgep.i = getelementptr i8, ptr %426, i64 %418
+  %424 = getelementptr i8, ptr %412, i64 %423
+  %scevgep.i = getelementptr i8, ptr %424, i64 %418
+  %425 = add nuw nsw i64 %422, 2
+  %426 = mul nuw nsw i64 %425, %421
   %427 = getelementptr i8, ptr %412, i64 %418
-  %scevgep96.i = getelementptr i8, ptr %427, i64 %425
+  %scevgep96.i = getelementptr i8, ptr %427, i64 %426
   %428 = getelementptr inbounds nuw i8, ptr %.0.val6.i.i, i64 96
   store ptr %scevgep.i, ptr %428, align 8
   br label %.preheader.i.i.i.preheader

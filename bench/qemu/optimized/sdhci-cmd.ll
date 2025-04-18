@@ -111,33 +111,33 @@ define dso_local void @sdhci_write_cmd(ptr noundef %0, i64 noundef %1, ptr nound
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph23.i
   %16 = tail call i32 @llvm.umin.i32(i32 %14, i32 4)
-  %17 = add nsw i32 %16, -1
-  %18 = zext nneg i32 %17 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.019.i = phi i32 [ %26, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.01418.i = phi i32 [ %25, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.117.i = phi i64 [ %19, %.lr.ph.i ], [ %.01521.i, %.lr.ph.preheader.i ]
-  %19 = add i64 %.117.i, 1
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %.117.i
-  %21 = load i8, ptr %20, align 1
-  %22 = sext i8 %21 to i32
-  %23 = shl i32 %.019.i, 3
-  %24 = shl i32 %22, %23
-  %25 = or i32 %24, %.01418.i
-  %26 = add nuw nsw i32 %.019.i, 1
-  %exitcond.not.i = icmp eq i32 %26, %16
+  %.019.i = phi i32 [ %24, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.01418.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.117.i = phi i64 [ %17, %.lr.ph.i ], [ %.01521.i, %.lr.ph.preheader.i ]
+  %17 = add i64 %.117.i, 1
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 %.117.i
+  %19 = load i8, ptr %18, align 1
+  %20 = sext i8 %19 to i32
+  %21 = shl i32 %.019.i, 3
+  %22 = shl i32 %20, %21
+  %23 = or i32 %22, %.01418.i
+  %24 = add nuw nsw i32 %.019.i, 1
+  %exitcond.not.i = icmp eq i32 %24, %16
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %27 = add nuw i64 %.01521.i, 1
-  %28 = add i64 %27, %18
+  %25 = add nuw i64 %.01521.i, 1
+  %26 = add nsw i32 %16, -1
+  %27 = zext nneg i32 %26 to i64
+  %28 = add i64 %25, %27
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.lr.ph23.i
   %.1.lcssa.i = phi i64 [ %.01521.i, %.lr.ph23.i ], [ %28, %._crit_edge.i.loopexit ]
-  %.014.lcssa.i = phi i32 [ 0, %.lr.ph23.i ], [ %25, %._crit_edge.i.loopexit ]
+  %.014.lcssa.i = phi i32 [ 0, %.lr.ph23.i ], [ %23, %._crit_edge.i.loopexit ]
   tail call void @qtest_writel(ptr noundef %0, i64 noundef %12, i32 noundef %.014.lcssa.i) #3
   %29 = icmp ult i64 %.1.lcssa.i, %3
   br i1 %29, label %.lr.ph23.i, label %write_fifo.exit, !llvm.loop !8

@@ -846,17 +846,17 @@ _adjust_xtrans_filters.exit:                      ; preds = %150, %88, %._crit_e
   %264 = fptoui float %263 to i32
   %265 = add i32 %264, 1
   %266 = tail call i32 @llvm.umin.i32(i32 %265, i32 %239)
-  %267 = uitofp i32 %264 to float
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
-  %268 = mul i32 %210, %264
-  %269 = zext i32 %268 to i64
-  %270 = mul i32 %266, %210
-  %271 = zext i32 %270 to i64
+  %267 = mul i32 %210, %264
+  %268 = zext i32 %267 to i64
+  %269 = mul i32 %266, %210
+  %270 = zext i32 %269 to i64
   br label %279
 
 .preheader:                                       ; preds = %279
-  %272 = fsub reassoc nsz arcp contract afn float %261, %267
+  %271 = uitofp i32 %264 to float
+  %272 = fsub reassoc nsz arcp contract afn float %261, %271
   br i1 %243, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -878,10 +878,10 @@ _adjust_xtrans_filters.exit:                      ; preds = %150, %88, %._crit_e
   %280 = getelementptr inbounds nuw [4 x ptr], ptr %207, i64 0, i64 %indvars.iv361
   %281 = load ptr, ptr %280, align 8, !tbaa !137
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 76
-  %283 = getelementptr inbounds nuw [0 x float], ptr %282, i64 0, i64 %269
+  %283 = getelementptr inbounds nuw [0 x float], ptr %282, i64 0, i64 %268
   %284 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv361
   store ptr %283, ptr %284, align 8, !tbaa !142
-  %285 = getelementptr inbounds nuw [0 x float], ptr %282, i64 0, i64 %271
+  %285 = getelementptr inbounds nuw [0 x float], ptr %282, i64 0, i64 %270
   %286 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %indvars.iv361
   store ptr %285, ptr %286, align 8, !tbaa !142
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1

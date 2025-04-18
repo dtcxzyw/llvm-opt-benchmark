@@ -217,11 +217,11 @@ ddot_kernel_8.exit:                               ; preds = %.lr.ph88.i, %._crit
   %.idx79 = mul i64 %2, 24
   %96 = shl nsw i64 %2, 2
   %97 = shl nsw i64 %4, 2
-  %98 = add nsw i64 %95, -1
-  %99 = and i64 %98, -4
   br label %102
 
 .preheader.loopexit:                              ; preds = %102
+  %98 = add nsw i64 %95, -1
+  %99 = and i64 %98, -4
   %100 = add nuw nsw i64 %99, 4
   br label %.preheader
 

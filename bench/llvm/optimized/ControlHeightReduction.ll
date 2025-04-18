@@ -16936,14 +16936,14 @@ _ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_17RegInfoELj8EEEZNS2_8CHRScope5
   br i1 %553, label %_ZN12_GLOBAL__N_18CHRScope5splitEPN4llvm6RegionE.exit, label %554
 
 554:                                              ; preds = %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_17RegInfoELj8EEEZNS2_8CHRScope5splitEPNS_6RegionEEUlRKS3_E_EEDaOT_T0_.exit.i
-  %555 = ptrtoint ptr %.028.i.i.i.i.i to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 20, i1 false)
   br label %807
 
-556:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6RegionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E11try_emplaceIJRS5_EEESt4pairINS_16DenseMapIteratorIS3_S5_S7_S9_Lb0EEEbERKS3_DpOT_.exit
-  %557 = ptrtoint ptr %552 to i64
-  %558 = sub i64 %557, %555
+555:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6RegionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E11try_emplaceIJRS5_EEESt4pairINS_16DenseMapIteratorIS3_S5_S7_S9_Lb0EEEbERKS3_DpOT_.exit
+  %556 = ptrtoint ptr %552 to i64
+  %557 = ptrtoint ptr %.028.i.i.i.i.i to i64
+  %558 = sub i64 %556, %557
   %559 = sdiv exact i64 %558, 96
   %560 = getelementptr inbounds nuw i8, ptr %.0453, i64 784
   %.val26.i = load ptr, ptr %560, align 8, !tbaa !25
@@ -16955,7 +16955,7 @@ _ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_17RegInfoELj8EEEZNS2_8CHRScope5
   %.not62.i = icmp ult i32 %.val32.i, 4
   br i1 %.not62.i, label %._crit_edge.i.i.i.i39.i, label %.lr.ph.i.i.i.i48.i
 
-.lr.ph.i.i.i.i48.i:                               ; preds = %556
+.lr.ph.i.i.i.i48.i:                               ; preds = %555
   %.idx.i = shl nuw nsw i64 %562, 3
   %.val.val.i.i.i.i.i = load ptr, ptr %11, align 8, !tbaa !169
   %.val.val46.i.i.i.i.i = load i32, ptr %83, align 8, !tbaa !172
@@ -17120,8 +17120,8 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_18CHRScope5splitEPN4llvm6Region
   %648 = icmp sgt i64 %.0135.i.i.i.i.i, 1
   br i1 %648, label %.lr.ph.split.i.i.i.i.i, label %._crit_edge.i.i.i.i39.i, !llvm.loop !692
 
-._crit_edge.i.i.i.i39.i:                          ; preds = %.thread99.loopexit.i.i.i.i.i, %.lr.ph.i.i.i.i48.i, %556
-  %.029.lcssa.i.i.i.i40.i = phi ptr [ %.val26.i, %556 ], [ %scevgep150.i.i.i.i.i, %.lr.ph.i.i.i.i48.i ], [ %scevgep150.i.i.i.i.i, %.thread99.loopexit.i.i.i.i.i ]
+._crit_edge.i.i.i.i39.i:                          ; preds = %.thread99.loopexit.i.i.i.i.i, %.lr.ph.i.i.i.i48.i, %555
+  %.029.lcssa.i.i.i.i40.i = phi ptr [ %.val26.i, %555 ], [ %scevgep150.i.i.i.i.i, %.lr.ph.i.i.i.i48.i ], [ %scevgep150.i.i.i.i.i, %.thread99.loopexit.i.i.i.i.i ]
   %649 = ptrtoint ptr %.029.lcssa.i.i.i.i40.i to i64
   %650 = sub i64 %564, %649
   %651 = ashr exact i64 %650, 3
@@ -17510,7 +17510,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17RegInfoELb0EE13destroy_rangeEP
 _ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_18CHRScopeEE5eraseEPKS3_S6_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17RegInfoELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i, %_ZSt4moveIPN12_GLOBAL__N_17RegInfoES2_ET0_T_S4_S3_.exit.i.i
   %.val.i.i116 = phi ptr [ %.val.pre.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_17RegInfoELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i ], [ %.val.i114, %_ZSt4moveIPN12_GLOBAL__N_17RegInfoES2_ET0_T_S4_S3_.exit.i.i ]
   %795 = ptrtoint ptr %.val.i.i116 to i64
-  %796 = sub i64 %555, %795
+  %796 = sub i64 %557, %795
   %797 = sdiv exact i64 %796, 96
   %798 = trunc i64 %797 to i32
   store i32 %798, ptr %519, align 8, !tbaa !26
@@ -17684,7 +17684,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6RegionENS_6detail13DenseSetEmptyENS_12D
   %891 = phi ptr [ %810, %812 ], [ %878, %887 ], [ %810, %829 ]
   %892 = getelementptr inbounds nuw i8, ptr %.01991.i, i64 96
   %.not.i109 = icmp eq ptr %892, %552
-  br i1 %.not.i109, label %556, label %807
+  br i1 %.not.i109, label %555, label %807
 
 _ZN12_GLOBAL__N_18CHRScope5splitEPN4llvm6RegionE.exit: ; preds = %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_17RegInfoELj8EEEZNS2_8CHRScope5splitEPNS_6RegionEEUlRKS3_E_EEDaOT_T0_.exit.i, %_ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_18CHRScopeEE5eraseEPKS3_S6_.exit.i
   %.0.i = phi ptr [ %742, %_ZN4llvm15SmallVectorImplIPN12_GLOBAL__N_18CHRScopeEE5eraseEPKS3_S6_.exit.i ], [ null, %_ZN4llvm7find_ifIRNS_11SmallVectorIN12_GLOBAL__N_17RegInfoELj8EEEZNS2_8CHRScope5splitEPNS_6RegionEEUlRKS3_E_EEDaOT_T0_.exit.i ]

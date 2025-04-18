@@ -6870,15 +6870,11 @@ if.then:                                          ; preds = %entry
 for.body.i.i.i.preheader:                         ; preds = %if.then
   %xtraiter = and i64 %__n, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
-  br i1 %lcmp.mod.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol.preheader
+  br i1 %lcmp.mod.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol
 
-for.body.i.i.i.prol.preheader:                    ; preds = %for.body.i.i.i.preheader
-  %3 = and i64 %__n, -4
-  br label %for.body.i.i.i.prol
-
-for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.prol.preheader, %for.body.i.i.i.prol
-  %__cur.06.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ], [ %0, %for.body.i.i.i.prol.preheader ]
-  %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.prol ], [ 0, %for.body.i.i.i.prol.preheader ]
+for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.preheader, %for.body.i.i.i.prol
+  %__cur.06.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ], [ %0, %for.body.i.i.i.preheader ]
+  %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.prol ], [ 0, %for.body.i.i.i.preheader ]
   %Color.i.i.i.i.i.i.prol = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.prol, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %__cur.06.i.i.i.prol, i8 0, i64 24, i1 false)
   store i32 -1, ptr %Color.i.i.i.i.i.i.prol, align 4, !tbaa !111
@@ -6887,12 +6883,16 @@ for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.prol
   %incdec.ptr.i.i.i.prol = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.prol, i64 44
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
   %prol.iter.cmp.not = icmp eq i64 %prol.iter.next, %xtraiter
-  br i1 %prol.iter.cmp.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol, !llvm.loop !259
+  br i1 %prol.iter.cmp.not, label %for.body.i.i.i.prol.loopexit.loopexit, label %for.body.i.i.i.prol, !llvm.loop !259
 
-for.body.i.i.i.prol.loopexit:                     ; preds = %for.body.i.i.i.prol, %for.body.i.i.i.preheader
-  %incdec.ptr.i.i.i.lcssa.unr = phi ptr [ undef, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ]
-  %__cur.06.i.i.i.unr = phi ptr [ %0, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ]
-  %__n.addr.05.i.i.i.unr = phi i64 [ %__n, %for.body.i.i.i.preheader ], [ %3, %for.body.i.i.i.prol ]
+for.body.i.i.i.prol.loopexit.loopexit:            ; preds = %for.body.i.i.i.prol
+  %3 = and i64 %__n, -4
+  br label %for.body.i.i.i.prol.loopexit
+
+for.body.i.i.i.prol.loopexit:                     ; preds = %for.body.i.i.i.prol.loopexit.loopexit, %for.body.i.i.i.preheader
+  %incdec.ptr.i.i.i.lcssa.unr = phi ptr [ undef, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol.loopexit.loopexit ]
+  %__cur.06.i.i.i.unr = phi ptr [ %0, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol.loopexit.loopexit ]
+  %__n.addr.05.i.i.i.unr = phi i64 [ %__n, %for.body.i.i.i.preheader ], [ %3, %for.body.i.i.i.prol.loopexit.loopexit ]
   %4 = icmp ult i64 %__n, 4
   br i1 %4, label %_ZSt27__uninitialized_default_n_aIPN3irr5video17S3DVertex2TCoordsEmS2_ET_S4_T0_RSaIT1_E.exit, label %for.body.i.i.i
 
@@ -6943,15 +6943,11 @@ _ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit: ;
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %xtraiter75 = and i64 %__n, 3
   %lcmp.mod76.not = icmp eq i64 %xtraiter75, 0
-  br i1 %lcmp.mod76.not, label %for.body.i.i.i60.prol.loopexit, label %for.body.i.i.i60.prol.preheader
+  br i1 %lcmp.mod76.not, label %for.body.i.i.i60.prol.loopexit, label %for.body.i.i.i60.prol
 
-for.body.i.i.i60.prol.preheader:                  ; preds = %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit
-  %6 = and i64 %__n, -4
-  br label %for.body.i.i.i60.prol
-
-for.body.i.i.i60.prol:                            ; preds = %for.body.i.i.i60.prol.preheader, %for.body.i.i.i60.prol
-  %__cur.06.i.i.i61.prol = phi ptr [ %incdec.ptr.i.i.i66.prol, %for.body.i.i.i60.prol ], [ %add.ptr, %for.body.i.i.i60.prol.preheader ]
-  %prol.iter77 = phi i64 [ %prol.iter77.next, %for.body.i.i.i60.prol ], [ 0, %for.body.i.i.i60.prol.preheader ]
+for.body.i.i.i60.prol:                            ; preds = %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i60.prol
+  %__cur.06.i.i.i61.prol = phi ptr [ %incdec.ptr.i.i.i66.prol, %for.body.i.i.i60.prol ], [ %add.ptr, %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit ]
+  %prol.iter77 = phi i64 [ %prol.iter77.next, %for.body.i.i.i60.prol ], [ 0, %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit ]
   %Color.i.i.i.i.i.i63.prol = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i61.prol, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %__cur.06.i.i.i61.prol, i8 0, i64 24, i1 false)
   store i32 -1, ptr %Color.i.i.i.i.i.i63.prol, align 4, !tbaa !111
@@ -6960,11 +6956,15 @@ for.body.i.i.i60.prol:                            ; preds = %for.body.i.i.i60.pr
   %incdec.ptr.i.i.i66.prol = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i61.prol, i64 44
   %prol.iter77.next = add nuw nsw i64 %prol.iter77, 1
   %prol.iter77.cmp.not = icmp eq i64 %prol.iter77.next, %xtraiter75
-  br i1 %prol.iter77.cmp.not, label %for.body.i.i.i60.prol.loopexit, label %for.body.i.i.i60.prol, !llvm.loop !262
+  br i1 %prol.iter77.cmp.not, label %for.body.i.i.i60.prol.loopexit.loopexit, label %for.body.i.i.i60.prol, !llvm.loop !262
 
-for.body.i.i.i60.prol.loopexit:                   ; preds = %for.body.i.i.i60.prol, %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit
-  %__cur.06.i.i.i61.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i66.prol, %for.body.i.i.i60.prol ]
-  %__n.addr.05.i.i.i62.unr = phi i64 [ %__n, %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit ], [ %6, %for.body.i.i.i60.prol ]
+for.body.i.i.i60.prol.loopexit.loopexit:          ; preds = %for.body.i.i.i60.prol
+  %6 = and i64 %__n, -4
+  br label %for.body.i.i.i60.prol.loopexit
+
+for.body.i.i.i60.prol.loopexit:                   ; preds = %for.body.i.i.i60.prol.loopexit.loopexit, %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit
+  %__cur.06.i.i.i61.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i66.prol, %for.body.i.i.i60.prol.loopexit.loopexit ]
+  %__n.addr.05.i.i.i62.unr = phi i64 [ %__n, %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit ], [ %6, %for.body.i.i.i60.prol.loopexit.loopexit ]
   %7 = icmp samesign ult i64 %__n, 4
   br i1 %7, label %_ZSt27__uninitialized_default_n_aIPN3irr5video17S3DVertex2TCoordsEmS2_ET_S4_T0_RSaIT1_E.exit69, label %for.body.i.i.i60
 

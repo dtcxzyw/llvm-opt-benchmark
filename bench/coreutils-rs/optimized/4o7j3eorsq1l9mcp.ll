@@ -1490,35 +1490,35 @@ define void @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..
 
 5:                                                ; preds = %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i, %1
   %.sroa.0.0.idx17.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i ]
-  %.sroa.10.016.i = phi i64 [ 256, %1 ], [ %6, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i ]
+  %.sroa.10.016.i = phi i64 [ 256, %1 ], [ %14, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i ]
   %.sroa.7.015.i = phi i32 [ 0, %1 ], [ %15, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i ]
-  %6 = add nsw i64 %.sroa.10.016.i, -1
-  %7 = shl i32 %.sroa.7.015.i, 24
-  br label %8
+  %6 = shl i32 %.sroa.7.015.i, 24
+  br label %7
 
-8:                                                ; preds = %8, %5
-  %.08.i.i = phi i32 [ %7, %5 ], [ %13, %8 ]
-  %.067.i.i = phi i32 [ 0, %5 ], [ %14, %8 ]
-  %9 = shl i32 %.08.i.i, 1
-  %10 = xor i32 %9, 79764919
+7:                                                ; preds = %7, %5
+  %.08.i.i = phi i32 [ %6, %5 ], [ %12, %7 ]
+  %.067.i.i = phi i32 [ 0, %5 ], [ %13, %7 ]
+  %8 = shl i32 %.08.i.i, 1
+  %9 = xor i32 %8, 79764919
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !252
-  store i32 %9, ptr %2, align 4, !noalias !252
-  store i32 %10, ptr %4, align 4, !noalias !252
+  store i32 %8, ptr %2, align 4, !noalias !252
+  store i32 %9, ptr %4, align 4, !noalias !252
   %.0.lobit.i.i = lshr i32 %.08.i.i, 31
-  %11 = zext nneg i32 %.0.lobit.i.i to i64
-  %12 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4, !noalias !252, !noundef !9
-  %14 = add nuw nsw i32 %.067.i.i, 1
+  %10 = zext nneg i32 %.0.lobit.i.i to i64
+  %11 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 0, i64 %10
+  %12 = load i32, ptr %11, align 4, !noalias !252, !noundef !9
+  %13 = add nuw nsw i32 %.067.i.i, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !252
-  %exitcond.not.i.i = icmp eq i32 %14, 8
-  br i1 %exitcond.not.i.i, label %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i, label %8
+  %exitcond.not.i.i = icmp eq i32 %13, 8
+  br i1 %exitcond.not.i.i, label %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i, label %7
 
-_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i: ; preds = %8
+_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i: ; preds = %7
   %.sroa.0.0.ptr18.i = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.0.0.idx17.i
+  %14 = add nsw i64 %.sroa.10.016.i, -1
   %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx17.i, 4
   %15 = add nuw nsw i32 %.sroa.7.015.i, 1
-  store i32 %13, ptr %.sroa.0.0.ptr18.i, align 4
-  %16 = icmp eq i64 %6, 0
+  store i32 %12, ptr %.sroa.0.0.ptr18.i, align 4
+  %16 = icmp eq i64 %14, 0
   br i1 %16, label %_ZN6uucore8features3sum3CRC18generate_crc_table17h0d819af0a796075fE.exit, label %5
 
 _ZN6uucore8features3sum3CRC18generate_crc_table17h0d819af0a796075fE.exit: ; preds = %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i
@@ -1751,8 +1751,8 @@ define void @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..
   br i1 %exitcond.not.i.i.i, label %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i.i, label %7
 
 _ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i.i: ; preds = %7
-  %14 = add nsw i64 %.sroa.10.016.i.i, -1
   %.sroa.0.0.ptr18.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.0.0.idx17.i.i
+  %14 = add nsw i64 %.sroa.10.016.i.i, -1
   %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx17.i.i, 4
   %15 = add nuw nsw i32 %.sroa.7.015.i.i, 1
   store i32 %12, ptr %.sroa.0.0.ptr18.i.i, align 4
@@ -3868,7 +3868,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_224$u20$as$u20$uucore..featu
 
 "_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h1e4d4f92c1c0d5f6E.exit.i.i.i": ; preds = %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i, %11
   %.sroa.5.0.i.i.i = phi i64 [ %2, %11 ], [ %27, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %1, %11 ], [ %24, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %1, %11 ], [ %26, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i ]
   %13 = udiv i64 %.sroa.5.0.i.i.i, 144
   %14 = mul nuw i64 %13, 144
   %.recomposed = urem i64 %.sroa.5.0.i.i.i, 144
@@ -3897,10 +3897,10 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_224$u20$as$u20$uucore..featu
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i.i.i"
 
 _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i.i.i"
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %9
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %26 = load i64, ptr %25, align 8, !alias.scope !977, !noalias !980, !noundef !9
-  tail call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(360) %0, i64 noundef %26), !noalias !982
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %25 = load i64, ptr %24, align 8, !alias.scope !977, !noalias !980, !noundef !9
+  tail call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(360) %0, i64 noundef %25), !noalias !982
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %27 = sub nuw i64 %2, %9
   br label %"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h1e4d4f92c1c0d5f6E.exit.i.i.i"
 
@@ -4193,7 +4193,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_256$u20$as$u20$uucore..featu
 
 "_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h47dff04784d505e5E.exit.i.i.i": ; preds = %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i, %11
   %.sroa.5.0.i.i.i = phi i64 [ %2, %11 ], [ %27, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %1, %11 ], [ %24, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %1, %11 ], [ %26, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i ]
   %13 = udiv i64 %.sroa.5.0.i.i.i, 136
   %14 = mul nuw i64 %13, 136
   %.recomposed = urem i64 %.sroa.5.0.i.i.i, 136
@@ -4222,10 +4222,10 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_256$u20$as$u20$uucore..featu
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i.i.i"
 
 _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i.i.i"
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %9
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %26 = load i64, ptr %25, align 8, !alias.scope !1116, !noalias !1119, !noundef !9
-  tail call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(352) %0, i64 noundef %26), !noalias !1121
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %25 = load i64, ptr %24, align 8, !alias.scope !1116, !noalias !1119, !noundef !9
+  tail call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(352) %0, i64 noundef %25), !noalias !1121
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %27 = sub nuw i64 %2, %9
   br label %"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h47dff04784d505e5E.exit.i.i.i"
 
@@ -4518,7 +4518,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_384$u20$as$u20$uucore..featu
 
 "_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h72190e285dc431c5E.exit.i.i.i": ; preds = %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i, %11
   %.sroa.5.0.i.i.i = phi i64 [ %2, %11 ], [ %27, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %1, %11 ], [ %24, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %1, %11 ], [ %26, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i ]
   %13 = udiv i64 %.sroa.5.0.i.i.i, 104
   %14 = mul nuw i64 %13, 104
   %.recomposed = urem i64 %.sroa.5.0.i.i.i, 104
@@ -4547,10 +4547,10 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_384$u20$as$u20$uucore..featu
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i.i.i"
 
 _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i.i.i"
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %9
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %26 = load i64, ptr %25, align 8, !alias.scope !1255, !noalias !1258, !noundef !9
-  tail call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(320) %0, i64 noundef %26), !noalias !1260
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %25 = load i64, ptr %24, align 8, !alias.scope !1255, !noalias !1258, !noundef !9
+  tail call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(320) %0, i64 noundef %25), !noalias !1260
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %27 = sub nuw i64 %2, %9
   br label %"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h72190e285dc431c5E.exit.i.i.i"
 
@@ -4843,7 +4843,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_512$u20$as$u20$uucore..featu
 
 "_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h90a25aa96bc02f64E.exit.i.i.i": ; preds = %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i, %11
   %.sroa.5.0.i.i.i = phi i64 [ %2, %11 ], [ %27, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %1, %11 ], [ %24, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %1, %11 ], [ %26, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i ]
   %13 = udiv i64 %.sroa.5.0.i.i.i, 72
   %14 = mul nuw i64 %13, 72
   %.recomposed = urem i64 %.sroa.5.0.i.i.i, 72
@@ -4872,10 +4872,10 @@ define void @"_ZN81_$LT$uucore..features..sum..Sha3_512$u20$as$u20$uucore..featu
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i.i.i"
 
 _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i.i.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i.i.i"
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %9
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %26 = load i64, ptr %25, align 8, !alias.scope !1394, !noalias !1397, !noundef !9
-  tail call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %26), !noalias !1399
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %25 = load i64, ptr %24, align 8, !alias.scope !1394, !noalias !1397, !noundef !9
+  tail call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(288) %0, i64 noundef %25), !noalias !1399
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %27 = sub nuw i64 %2, %9
   br label %"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h90a25aa96bc02f64E.exit.i.i.i"
 
@@ -5164,7 +5164,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Shake128$u20$as$u20$uucore..featu
 
 "_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hafc7af1c3535a87eE.exit.i": ; preds = %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i, %11
   %.sroa.5.0.i = phi i64 [ %2, %11 ], [ %27, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i ]
-  %.sroa.0.0.i = phi ptr [ %1, %11 ], [ %24, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i ]
+  %.sroa.0.0.i = phi ptr [ %1, %11 ], [ %26, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i ]
   %13 = udiv i64 %.sroa.5.0.i, 168
   %14 = mul nuw i64 %13, 168
   %.recomposed = urem i64 %.sroa.5.0.i, 168
@@ -5193,10 +5193,10 @@ define void @"_ZN81_$LT$uucore..features..sum..Shake128$u20$as$u20$uucore..featu
   br i1 %exitcond.not.i.i.i, label %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i"
 
 _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i"
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %9
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %26 = load i64, ptr %25, align 8, !alias.scope !1521, !noalias !1524, !noundef !9
-  tail call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, i64 noundef %26), !noalias !1526
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %25 = load i64, ptr %24, align 8, !alias.scope !1521, !noalias !1524, !noundef !9
+  tail call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, i64 noundef %25), !noalias !1526
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %27 = sub nuw i64 %2, %9
   br label %"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17hafc7af1c3535a87eE.exit.i"
 
@@ -5397,7 +5397,7 @@ define void @"_ZN81_$LT$uucore..features..sum..Shake256$u20$as$u20$uucore..featu
 
 "_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h7c2597ac32db5d67E.exit.i": ; preds = %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i, %11
   %.sroa.5.0.i = phi i64 [ %2, %11 ], [ %27, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i ]
-  %.sroa.0.0.i = phi ptr [ %1, %11 ], [ %24, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i ]
+  %.sroa.0.0.i = phi ptr [ %1, %11 ], [ %26, %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i ]
   %13 = udiv i64 %.sroa.5.0.i, 136
   %14 = mul nuw i64 %13, 136
   %.recomposed = urem i64 %.sroa.5.0.i, 136
@@ -5426,10 +5426,10 @@ define void @"_ZN81_$LT$uucore..features..sum..Shake256$u20$as$u20$uucore..featu
   br i1 %exitcond.not.i.i.i, label %_ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i"
 
 _ZN4sha35state9Sha3State12absorb_block17hca215b1bb0a5a690E.exit.i.i.i: ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i.i"
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %9
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %26 = load i64, ptr %25, align 8, !alias.scope !1601, !noalias !1604, !noundef !9
-  tail call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, i64 noundef %26), !noalias !1606
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %25 = load i64, ptr %24, align 8, !alias.scope !1601, !noalias !1604, !noundef !9
+  tail call void @_ZN6keccak5p160017h35a362d99768c31aE(ptr noalias noundef nonnull align 8 dereferenceable(208) %0, i64 noundef %25), !noalias !1606
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %27 = sub nuw i64 %2, %9
   br label %"_ZN82_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u20$as$u20$digest..Update$GT$6update28_$u7b$$u7b$closure$u7d$$u7d$17h7c2597ac32db5d67E.exit.i"
 

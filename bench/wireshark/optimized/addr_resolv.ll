@@ -5622,9 +5622,9 @@ wka_name_lookup.exit155:                          ; preds = %._crit_edge28.i143
   %narrow.i166 = add nuw nsw i32 %252, 1
   %253 = zext nneg i32 %narrow.i166 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull readonly align 1 dereferenceable(1) %11, i64 %253, i1 false)
-  %254 = and i32 %244, -8
-  %255 = add nuw i32 %244, 8
-  %.neg293 = sub i32 %254, %255
+  %254 = add nuw i32 %244, 8
+  %255 = and i32 %244, -8
+  %.neg293 = sub i32 %255, %254
   %256 = getelementptr i8, ptr %11, i64 %253
   %257 = load i8, ptr %256, align 1
   %258 = add i32 %.neg293, 16

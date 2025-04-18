@@ -18206,12 +18206,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 
 .lr.ph6247.preheader:                             ; preds = %6292
   %6296 = ptrtoint ptr %6295 to i64
-  %6297 = add i64 %6296, 34359738360
-  %6298 = sub i64 %6297, %6294
-  %6299 = lshr i64 %6298, 3
-  %6300 = trunc i64 %6299 to i32
-  %6301 = add i32 %.02526252, 1
-  %6302 = add i32 %6301, %6300
+  %6297 = add i32 %.02526252, 1
+  %6298 = add i64 %6296, 34359738360
+  %6299 = sub i64 %6298, %6294
+  %6300 = lshr i64 %6299, 3
+  %6301 = trunc i64 %6300 to i32
+  %6302 = add i32 %6297, %6301
   br label %._crit_edge6248
 
 ._crit_edge6248:                                  ; preds = %.lr.ph6247.preheader, %6292

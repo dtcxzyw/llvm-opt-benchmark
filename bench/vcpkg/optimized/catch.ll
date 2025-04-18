@@ -109556,27 +109556,27 @@ define linkonce_odr dso_local void @_ZNK5Catch5clara6detail6Parser5parseERKNSt7_
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !176
   %18 = load ptr, ptr %15, align 8, !tbaa !389
-  %19 = ptrtoint ptr %17 to i64
-  %20 = ptrtoint ptr %18 to i64
-  %21 = sub i64 %19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %24 = load ptr, ptr %23, align 8, !tbaa !373
-  %25 = load ptr, ptr %22, align 8, !tbaa !386
-  %26 = ptrtoint ptr %24 to i64
-  %27 = ptrtoint ptr %25 to i64
-  %28 = sub i64 %26, %27
-  %29 = sdiv exact i64 %28, 96
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %21 = load ptr, ptr %20, align 8, !tbaa !373
+  %22 = load ptr, ptr %19, align 8, !tbaa !386
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %7) #60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %7, i8 0, i64 8192, i1 false)
-  %30 = sdiv exact i64 %21, 120
-  %31 = add nsw i64 %29, %30
+  %23 = ptrtoint ptr %17 to i64
+  %24 = ptrtoint ptr %18 to i64
+  %25 = sub i64 %23, %24
+  %26 = sdiv exact i64 %25, 120
+  %27 = ptrtoint ptr %21 to i64
+  %28 = ptrtoint ptr %22 to i64
+  %29 = sub i64 %27, %28
+  %30 = sdiv exact i64 %29, 96
+  %31 = add nsw i64 %30, %26
   %.not241374 = icmp eq ptr %18, %17
   br i1 %.not241374, label %.preheader260, label %.lr.ph
 
 .preheader260:                                    ; preds = %.lr.ph, %.preheader261
   %.0.lcssa = phi i64 [ 0, %.preheader261 ], [ %32, %.lr.ph ]
-  %.not242377 = icmp eq ptr %25, %24
+  %.not242377 = icmp eq ptr %22, %21
   br i1 %.not242377, label %._crit_edge, label %.lr.ph380
 
 .lr.ph:                                           ; preds = %.preheader261, %.lr.ph
@@ -109723,12 +109723,12 @@ _ZNSt16allocator_traitsISaIN5Catch5clara6detail5TokenEEE8allocateERS4_m.exit.i.i
 
 .lr.ph380:                                        ; preds = %.preheader260, %.lr.ph380
   %.1379 = phi i64 [ %85, %.lr.ph380 ], [ %.0.lcssa, %.preheader260 ]
-  %.sroa.0213.0378 = phi ptr [ %87, %.lr.ph380 ], [ %25, %.preheader260 ]
+  %.sroa.0213.0378 = phi ptr [ %87, %.lr.ph380 ], [ %22, %.preheader260 ]
   %85 = add nuw nsw i64 %.1379, 1
   %86 = getelementptr inbounds nuw [512 x %struct.ParserInfo], ptr %7, i64 0, i64 %.1379
   store ptr %.sroa.0213.0378, ptr %86, align 16, !tbaa !2209
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.0213.0378, i64 96
-  %.not242 = icmp eq ptr %87, %24
+  %.not242 = icmp eq ptr %87, %21
   br i1 %.not242, label %._crit_edge, label %.lr.ph380
 
 88:                                               ; preds = %.noexc3.i.i.i

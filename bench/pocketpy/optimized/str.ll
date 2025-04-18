@@ -5532,55 +5532,55 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIcEEvOT_.exit13: ; preds = %37, %40, %42, %
   %.08 = phi i64 [ %55, %_ZN4pkpy10pod_vectorIcLi2EE9push_backIcEEvOT_.exit13 ], [ %1, %35 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = sext i32 %57 to i64
-  br label %61
+  br label %60
 
-61:                                               ; preds = %56, %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit
-  %.120 = phi i64 [ %.08, %56 ], [ %63, %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit ]
-  %62 = urem i64 %.120, 10
-  %63 = udiv i64 %.120, 10
-  %64 = load i32, ptr %0, align 8
-  %65 = load i32, ptr %5, align 4
-  %66 = icmp eq i32 %64, %65
-  br i1 %66, label %67, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit
+60:                                               ; preds = %56, %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit
+  %.120 = phi i64 [ %.08, %56 ], [ %62, %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit ]
+  %61 = urem i64 %.120, 10
+  %62 = udiv i64 %.120, 10
+  %63 = load i32, ptr %0, align 8
+  %64 = load i32, ptr %5, align 4
+  %65 = icmp eq i32 %63, %64
+  br i1 %65, label %66, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit
 
-67:                                               ; preds = %61
-  %68 = shl nsw i32 %64, 1
-  %.not.i.i14 = icmp sgt i32 %68, %64
-  br i1 %.not.i.i14, label %69, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit
+66:                                               ; preds = %60
+  %67 = shl nsw i32 %63, 1
+  %.not.i.i14 = icmp sgt i32 %67, %63
+  br i1 %.not.i.i14, label %68, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit
 
-69:                                               ; preds = %67
-  store i32 %68, ptr %5, align 4
-  %70 = load ptr, ptr %58, align 8
-  %71 = sext i32 %68 to i64
-  %72 = tail call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef %71) #25
-  store ptr %72, ptr %58, align 8
-  %.not6.i.i15 = icmp eq ptr %70, null
+68:                                               ; preds = %66
+  store i32 %67, ptr %5, align 4
+  %69 = load ptr, ptr %58, align 8
+  %70 = sext i32 %67 to i64
+  %71 = tail call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef %70) #25
+  store ptr %71, ptr %58, align 8
+  %.not6.i.i15 = icmp eq ptr %69, null
   %.pre2.i16 = load i32, ptr %0, align 8
-  br i1 %.not6.i.i15, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit, label %73
+  br i1 %.not6.i.i15, label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit, label %72
 
-73:                                               ; preds = %69
-  %74 = sext i32 %.pre2.i16 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr nonnull align 1 %70, i64 %74, i1 false)
-  tail call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %70) #25
+72:                                               ; preds = %68
+  %73 = sext i32 %.pre2.i16 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr nonnull align 1 %69, i64 %73, i1 false)
+  tail call void @_ZN4pkpy14pool64_deallocEPv(ptr noundef nonnull %69) #25
   %.pre.i17 = load i32, ptr %0, align 8
   br label %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit
 
-_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit: ; preds = %61, %67, %69, %73
-  %75 = phi i32 [ %.pre.i17, %73 ], [ %.pre2.i16, %69 ], [ %64, %67 ], [ %64, %61 ]
-  %76 = trunc nuw nsw i64 %62 to i8
-  %77 = or disjoint i8 %76, 48
-  %78 = load ptr, ptr %58, align 8
-  %79 = add nsw i32 %75, 1
-  store i32 %79, ptr %0, align 8
-  %80 = sext i32 %75 to i64
-  %81 = getelementptr inbounds i8, ptr %78, i64 %80
-  store i8 %77, ptr %81, align 1
+_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit: ; preds = %60, %66, %68, %72
+  %74 = phi i32 [ %.pre.i17, %72 ], [ %.pre2.i16, %68 ], [ %63, %66 ], [ %63, %60 ]
+  %75 = trunc nuw nsw i64 %61 to i8
+  %76 = or disjoint i8 %75, 48
+  %77 = load ptr, ptr %58, align 8
+  %78 = add nsw i32 %74, 1
+  store i32 %78, ptr %0, align 8
+  %79 = sext i32 %74 to i64
+  %80 = getelementptr inbounds i8, ptr %77, i64 %79
+  store i8 %76, ptr %80, align 1
   %.not = icmp ult i64 %.120, 10
-  br i1 %.not, label %82, label %61, !llvm.loop !89
+  br i1 %.not, label %81, label %60, !llvm.loop !89
 
-82:                                               ; preds = %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit
-  %83 = getelementptr inbounds i8, ptr %59, i64 %60
+81:                                               ; preds = %_ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit
+  %82 = sext i32 %57 to i64
+  %83 = getelementptr inbounds i8, ptr %59, i64 %82
   %84 = load ptr, ptr %58, align 8
   %85 = load i32, ptr %0, align 8
   %86 = sext i32 %85 to i64
@@ -5591,9 +5591,9 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit: ; preds = %61, %67, %69, %73
   %or.cond.i.i = select i1 %88, i1 %89, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPcEvT_S1_.exit
 
-.lr.ph.i.i:                                       ; preds = %82, %.lr.ph.i.i
-  %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %82 ]
-  %.0913.i.i = phi ptr [ %92, %.lr.ph.i.i ], [ %83, %82 ]
+.lr.ph.i.i:                                       ; preds = %81, %.lr.ph.i.i
+  %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %81 ]
+  %.0913.i.i = phi ptr [ %92, %.lr.ph.i.i ], [ %83, %81 ]
   %90 = load i8, ptr %.0913.i.i, align 1
   %91 = load i8, ptr %.014.i.i, align 1
   store i8 %91, ptr %.0913.i.i, align 1
@@ -5603,7 +5603,7 @@ _ZN4pkpy10pod_vectorIcLi2EE9push_backIlEEvOT_.exit: ; preds = %61, %67, %69, %73
   %93 = icmp ult ptr %92, %.0.i.i
   br i1 %93, label %.lr.ph.i.i, label %_ZSt7reverseIPcEvT_S1_.exit, !llvm.loop !90
 
-_ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %82, %_ZN4pkpy10pod_vectorIcLi2EE9push_backIcEEvOT_.exit
+_ZSt7reverseIPcEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %81, %_ZN4pkpy10pod_vectorIcLi2EE9push_backIcEEvOT_.exit
   ret ptr %0
 }
 

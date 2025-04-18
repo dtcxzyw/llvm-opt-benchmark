@@ -3200,8 +3200,8 @@ define dso_local void @_ZN4llvm18LiveDebugVariables7LDVImpl16computeIntervalsEv(
   %95 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %96 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 24

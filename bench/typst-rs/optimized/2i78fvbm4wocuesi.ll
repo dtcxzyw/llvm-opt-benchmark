@@ -22133,10 +22133,10 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h58dbd91a2e00a020E(ptr noali
   %.promoted12 = load i64, ptr %9, align 8
   %.promoted13 = load i64, ptr %10, align 8
   %.promoted14 = load i64, ptr %11, align 8
-  %12 = shl i64 %1, 3
   br label %15
 
 ._crit_edge:                                      ; preds = %"_ZN56_$LT$citationberg..Field$u20$as$u20$core..hash..Hash$GT$4hash17h48f05e8f298e0a47E.llvm.16978709814855407318.exit"
+  %12 = shl i64 %1, 3
   %13 = add i64 %.promoted7, %12
   store i64 %13, ptr %6, align 8, !alias.scope !4852, !noalias !4861
   store i64 %.0.i.i.i.i10, ptr %8, align 8, !alias.scope !4852, !noalias !4861

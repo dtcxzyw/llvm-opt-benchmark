@@ -28268,28 +28268,28 @@ define internal fastcc void @ntt_to_limb(ptr noundef readonly captures(none) %0,
   %7 = alloca [5 x i64], align 16
   %8 = alloca [5 x i64], align 16
   %9 = alloca [5 x i64], align 16
-  %10 = sext i32 %6 to i64
-  %11 = sub nsw i64 0, %10
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #21
-  %12 = add i32 %6, -1
-  %13 = mul i32 %12, %6
-  %.neg = sdiv i32 %13, -2
-  %14 = add nsw i32 %.neg, 10
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 14128
-  %17 = and i32 %5, 63
-  %18 = zext nneg i32 %17 to i64
-  %notmask = shl nsw i64 -1, %18
-  %19 = xor i64 %notmask, -1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, i8 0, i64 40, i1 false), !tbaa !33
-  %20 = getelementptr inbounds i64, ptr @ntt_mods_cr, i64 %15
-  %21 = icmp eq i32 %17, 0
-  %.0 = select i1 %21, i64 -1, i64 %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %8, i8 0, i64 40, i1 false), !tbaa !33
-  %22 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @ntt_mods, i64 40), i64 %11
-  %23 = getelementptr inbounds i64, ptr %16, i64 %15
+  %10 = sext i32 %6 to i64
+  %11 = sub nsw i64 0, %10
+  %12 = getelementptr inbounds i64, ptr getelementptr inbounds nuw (i8, ptr @ntt_mods, i64 40), i64 %11
+  %13 = add i32 %6, -1
+  %14 = mul i32 %13, %6
+  %.neg = sdiv i32 %14, -2
+  %15 = add nsw i32 %.neg, 10
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds i64, ptr @ntt_mods_cr, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 14128
+  %19 = getelementptr inbounds i64, ptr %18, i64 %16
+  %20 = and i32 %5, 63
+  %21 = icmp eq i32 %20, 0
+  %22 = zext nneg i32 %20 to i64
+  %notmask = shl nsw i64 -1, %22
+  %23 = xor i64 %notmask, -1
+  %.0 = select i1 %21, i64 -1, i64 %23
   %24 = shl i64 %2, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %24, i1 false)
   %25 = zext nneg i32 %4 to i64
@@ -28307,19 +28307,19 @@ define internal fastcc void @ntt_to_limb(ptr noundef readonly captures(none) %0,
   %33 = add i32 %5, -1
   %34 = lshr i32 %33, 6
   %35 = icmp sgt i32 %6, 0
-  %36 = icmp sgt i32 %12, 0
-  %37 = sext i32 %12 to i64
+  %36 = icmp sgt i32 %13, 0
+  %37 = sext i32 %13 to i64
   %38 = getelementptr inbounds [5 x i64], ptr %7, i64 0, i64 %37
   %39 = add i32 %6, -2
   %40 = icmp sgt i32 %39, 0
   %.not = icmp ult i32 %33, 64
   %41 = zext nneg i32 %34 to i64
   %42 = getelementptr inbounds nuw [5 x i64], ptr %8, i64 0, i64 %41
-  %43 = icmp slt i32 %34, %12
-  %44 = sub nuw nsw i32 64, %17
+  %43 = icmp slt i32 %34, %13
+  %44 = sub nuw nsw i32 64, %20
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds [5 x i64], ptr %8, i64 0, i64 %37
-  %47 = sub i32 %12, %34
+  %47 = sub i32 %13, %34
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds [5 x i64], ptr %9, i64 0, i64 %48
   %50 = add nuw nsw i32 %34, 1
@@ -28341,10 +28341,10 @@ define internal fastcc void @ntt_to_limb(ptr noundef readonly captures(none) %0,
   %64 = shl nuw nsw i64 %63, 3
   %65 = add nuw nsw i64 %64, 8
   %wide.trip.count = zext nneg i32 %6 to i64
-  %wide.trip.count208 = zext nneg i32 %12 to i64
+  %wide.trip.count208 = zext nneg i32 %13 to i64
   %wide.trip.count203 = zext i32 %6 to i64
-  %wide.trip.count222 = zext i32 %12 to i64
-  %66 = icmp sgt i32 %12, 0
+  %wide.trip.count222 = zext i32 %13 to i64
+  %66 = icmp sgt i32 %13, 0
   %wide.trip.count234 = zext nneg i32 %umax to i64
   %wide.trip.count238 = zext i32 %59 to i64
   %.phi.trans.insert = getelementptr inbounds nuw [5 x i64], ptr %8, i64 0, i64 %55
@@ -28369,7 +28369,7 @@ define internal fastcc void @ntt_to_limb(ptr noundef readonly captures(none) %0,
   %71 = shl i64 %indvars.iv, %25
   %72 = getelementptr i64, ptr %69, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !33
-  %74 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
   %75 = load i64, ptr %74, align 8, !tbaa !33
   %.not.i = icmp ult i64 %73, %75
   %76 = select i1 %.not.i, i64 0, i64 %75
@@ -28401,7 +28401,7 @@ define internal fastcc void @ntt_to_limb(ptr noundef readonly captures(none) %0,
 80:                                               ; preds = %.lr.ph153, %80
   %indvars.iv200 = phi i64 [ %indvars.iv198, %.lr.ph153 ], [ %indvars.iv.next201, %80 ]
   %.1126152 = phi i32 [ %.0125155, %.lr.ph153 ], [ %102, %80 ]
-  %81 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv200
+  %81 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv200
   %82 = load i64, ptr %81, align 8, !tbaa !33
   %83 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %indvars.iv200
   %84 = load i64, ptr %83, align 8, !tbaa !33
@@ -28409,9 +28409,9 @@ define internal fastcc void @ntt_to_limb(ptr noundef readonly captures(none) %0,
   %86 = sub i64 %84, %85
   %87 = add i64 %86, %82
   %88 = sext i32 %.1126152 to i64
-  %89 = getelementptr inbounds i64, ptr %20, i64 %88
+  %89 = getelementptr inbounds i64, ptr %17, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !33
-  %91 = getelementptr inbounds i64, ptr %23, i64 %88
+  %91 = getelementptr inbounds i64, ptr %19, i64 %88
   %92 = load i64, ptr %91, align 8, !tbaa !33
   %93 = zext i64 %87 to i128
   %94 = zext i64 %92 to i128
@@ -28444,7 +28444,7 @@ define internal fastcc void @ntt_to_limb(ptr noundef readonly captures(none) %0,
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %._crit_edge161 ], [ 1, %._crit_edge ]
   %105 = getelementptr inbounds nuw [5 x i64], ptr %7, i64 0, i64 %indvars.iv217
   %106 = load i64, ptr %105, align 8, !tbaa !33
-  %107 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv217
+  %107 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv217
   %108 = load i64, ptr %107, align 8, !tbaa !33
   %109 = zext i64 %108 to i128
   br label %110
@@ -28481,10 +28481,10 @@ define internal fastcc void @ntt_to_limb(ptr noundef readonly captures(none) %0,
 
 .lr.ph173:                                        ; preds = %._crit_edge167.thread, %._crit_edge167
   %123 = phi i64 [ %104, %._crit_edge167.thread ], [ %122, %._crit_edge167 ]
-  %.2.lcssa246 = phi i32 [ 1, %._crit_edge167.thread ], [ %12, %._crit_edge167 ]
+  %.2.lcssa246 = phi i32 [ 1, %._crit_edge167.thread ], [ %13, %._crit_edge167 ]
   %.4.lcssa244 = phi i32 [ %39, %._crit_edge167.thread ], [ %121, %._crit_edge167 ]
   %124 = sext i32 %.4.lcssa244 to i64
-  %125 = getelementptr inbounds i64, ptr %22, i64 %124
+  %125 = getelementptr inbounds i64, ptr %12, i64 %124
   %126 = load i64, ptr %125, align 8, !tbaa !33
   %127 = zext i64 %126 to i128
   %wide.trip.count227 = zext nneg i32 %.2.lcssa246 to i64
@@ -28512,7 +28512,7 @@ define internal fastcc void @ntt_to_limb(ptr noundef readonly captures(none) %0,
   br i1 %exitcond228.not, label %._crit_edge174, label %128, !llvm.loop !169
 
 ._crit_edge174:                                   ; preds = %128, %._crit_edge167
-  %.2.lcssa245 = phi i32 [ %12, %._crit_edge167 ], [ %.2.lcssa246, %128 ]
+  %.2.lcssa245 = phi i32 [ %13, %._crit_edge167 ], [ %.2.lcssa246, %128 ]
   %.1.lcssa = phi i64 [ %122, %._crit_edge167 ], [ %140, %128 ]
   %142 = sext i32 %.2.lcssa245 to i64
   %143 = getelementptr inbounds [5 x i64], ptr %9, i64 0, i64 %142
@@ -28625,7 +28625,7 @@ put_bits.exit143:                                 ; preds = %180, %181, %184
 .lr.ph183:                                        ; preds = %.lr.ph183.preheader, %.lr.ph183
   %192 = phi i64 [ %.pre, %.lr.ph183.preheader ], [ %195, %.lr.ph183 ]
   %indvars.iv236 = phi i64 [ %55, %.lr.ph183.preheader ], [ %indvars.iv.next237, %.lr.ph183 ]
-  %193 = lshr i64 %192, %18
+  %193 = lshr i64 %192, %22
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %194 = getelementptr inbounds nuw [5 x i64], ptr %8, i64 0, i64 %indvars.iv.next237
   %195 = load i64, ptr %194, align 8, !tbaa !33
@@ -28639,7 +28639,7 @@ put_bits.exit143:                                 ; preds = %180, %181, %184
 
 ._crit_edge184:                                   ; preds = %.lr.ph183, %.preheader
   %200 = load i64, ptr %46, align 8, !tbaa !33
-  %201 = lshr i64 %200, %18
+  %201 = lshr i64 %200, %22
   store i64 %201, ptr %49, align 8, !tbaa !33
   br label %.loopexit144
 

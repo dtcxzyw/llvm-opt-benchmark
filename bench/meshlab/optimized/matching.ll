@@ -8047,30 +8047,30 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(176) ptr @_ZN5Eigen
 22:                                               ; preds = %17, %14, %4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %24 = load i64, ptr %23, align 8
-  %25 = icmp eq i64 %24, -1
   store double 0.000000e+00, ptr %5, align 8
   br label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEEE3sumEv.exit.i
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEEE3sumEv.exit.i: ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEEE3sumEv.exit.i, %22
-  %26 = phi i1 [ true, %22 ], [ false, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEEE3sumEv.exit.i ]
+  %25 = phi i1 [ true, %22 ], [ false, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEEE3sumEv.exit.i ]
   %.029.i = phi i64 [ 0, %22 ], [ 16, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEEE3sumEv.exit.i ]
-  %.0628.i = phi double [ 0.000000e+00, %22 ], [ %33, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEEE3sumEv.exit.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %.029.i
-  %28 = load <2 x i64>, ptr %27, align 16
-  %29 = and <2 x i64> %28, splat (i64 9223372036854775807)
-  %30 = bitcast <2 x i64> %29 to <2 x double>
-  %shift = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %31 = fadd <2 x double> %shift, %30
-  %32 = extractelement <2 x double> %31, i64 0
-  %33 = fadd double %.0628.i, %32
-  br i1 %26, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEEE3sumEv.exit.i, label %_ZN5Eigen9RealSchurINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE14computeNormOfTEv.exit, !llvm.loop !301
+  %.0628.i = phi double [ 0.000000e+00, %22 ], [ %32, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEEE3sumEv.exit.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %.029.i
+  %27 = load <2 x i64>, ptr %26, align 16
+  %28 = and <2 x i64> %27, splat (i64 9223372036854775807)
+  %29 = bitcast <2 x i64> %28 to <2 x double>
+  %shift = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %30 = fadd <2 x double> %shift, %29
+  %31 = extractelement <2 x double> %30, i64 0
+  %32 = fadd double %.0628.i, %31
+  br i1 %25, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEEE3sumEv.exit.i, label %_ZN5Eigen9RealSchurINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE14computeNormOfTEv.exit, !llvm.loop !301
 
 _ZN5Eigen9RealSchurINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE14computeNormOfTEv.exit: ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEEEE3sumEv.exit.i
-  %spec.select = select i1 %25, i64 80, i64 %24
-  %34 = fmul double %33, 0x3970000000000000
+  %33 = icmp eq i64 %24, -1
+  %spec.select = select i1 %33, i64 80, i64 %24
+  %34 = fmul double %32, 0x3970000000000000
   %35 = fcmp olt double %34, 0x10000000000000
   %.sroa.speculated = select i1 %35, double 0x10000000000000, double %34
-  %36 = fcmp une double %33, 0.000000e+00
+  %36 = fcmp une double %32, 0.000000e+00
   br i1 %36, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_ZN5Eigen9RealSchurINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE14computeNormOfTEv.exit

@@ -4214,38 +4214,38 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit187: ; p
   br i1 %391, label %392, label %390
 
 392:                                              ; preds = %390
-  %393 = getelementptr inbounds nuw i8, ptr %29, i64 288
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %31) #27
-  br label %394
+  br label %393
 
-394:                                              ; preds = %394, %392
-  %.idx91 = phi i64 [ 0, %392 ], [ %.add92, %394 ]
+393:                                              ; preds = %393, %392
+  %.idx91 = phi i64 [ 0, %392 ], [ %.add92, %393 ]
   %.ptr93 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx91
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr93) #27
   %.add92 = add nuw nsw i64 %.idx91, 96
-  %395 = icmp eq i64 %.add92, 288
-  br i1 %395, label %396, label %394
+  %394 = icmp eq i64 %.add92, 288
+  br i1 %394, label %395, label %393
 
-396:                                              ; preds = %394
-  %397 = getelementptr inbounds nuw i8, ptr %30, i64 288
+395:                                              ; preds = %393
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %32) #27
-  br label %398
+  br label %396
 
-398:                                              ; preds = %398, %396
-  %.idx95 = phi i64 [ 0, %396 ], [ %.add96, %398 ]
+396:                                              ; preds = %396, %395
+  %.idx95 = phi i64 [ 0, %395 ], [ %.add96, %396 ]
   %.ptr97 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx95
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr97) #27
   %.add96 = add nuw nsw i64 %.idx95, 96
-  %399 = icmp eq i64 %.add96, 288
-  br i1 %399, label %400, label %398
+  %397 = icmp eq i64 %.add96, 288
+  br i1 %397, label %398, label %396
 
-400:                                              ; preds = %398
+398:                                              ; preds = %396
+  %399 = getelementptr inbounds nuw i8, ptr %29, i64 288
+  %400 = getelementptr inbounds nuw i8, ptr %30, i64 288
   %401 = getelementptr inbounds nuw i8, ptr %31, i64 288
   %402 = getelementptr inbounds nuw i8, ptr %32, i64 288
   invoke void @_ZN2cv5splitERKNS_3MatEPS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %29)
           to label %403 unwind label %453
 
-403:                                              ; preds = %400
+403:                                              ; preds = %398
   invoke void @_ZN2cv5splitERKNS_3MatEPS0_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull %30)
           to label %404 unwind label %453
 
@@ -4406,7 +4406,7 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit187: ; p
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %45) #27
   br label %478
 
-453:                                              ; preds = %403, %400
+453:                                              ; preds = %403, %398
   %454 = landingpad { ptr, i32 }
           cleanup
   br label %500
@@ -4507,7 +4507,7 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit187: ; p
   br label %488
 
 488:                                              ; preds = %488, %487
-  %489 = phi ptr [ %397, %487 ], [ %490, %488 ]
+  %489 = phi ptr [ %400, %487 ], [ %490, %488 ]
   %490 = getelementptr inbounds i8, ptr %489, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %490) #27
   %491 = icmp eq ptr %490, %30
@@ -4518,7 +4518,7 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit187: ; p
   br label %493
 
 493:                                              ; preds = %493, %492
-  %494 = phi ptr [ %393, %492 ], [ %495, %493 ]
+  %494 = phi ptr [ %399, %492 ], [ %495, %493 ]
   %495 = getelementptr inbounds i8, ptr %494, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %495) #27
   %496 = icmp eq ptr %495, %29
@@ -4567,7 +4567,7 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit187: ; p
   br label %511
 
 511:                                              ; preds = %511, %510
-  %512 = phi ptr [ %397, %510 ], [ %513, %511 ]
+  %512 = phi ptr [ %400, %510 ], [ %513, %511 ]
   %513 = getelementptr inbounds i8, ptr %512, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %513) #27
   %514 = icmp eq ptr %513, %30
@@ -4578,7 +4578,7 @@ _ZNSt6vectorIN2cv7optflow12_GLOBAL__N_19MagnitudeESaIS3_EE6resizeEm.exit187: ; p
   br label %516
 
 516:                                              ; preds = %516, %515
-  %517 = phi ptr [ %393, %515 ], [ %518, %516 ]
+  %517 = phi ptr [ %399, %515 ], [ %518, %516 ]
   %518 = getelementptr inbounds i8, ptr %517, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %518) #27
   %519 = icmp eq ptr %518, %29

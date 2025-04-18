@@ -2292,32 +2292,32 @@ _ZN11z3_replayer3imp10skip_blankEv.exit135:       ; preds = %520
   %532 = getelementptr inbounds nuw %"struct.z3_replayer::imp::value", ptr %530, i64 %531, i32 1
   %533 = load i64, ptr %532, align 8, !tbaa !3
   %534 = load ptr, ptr %18, align 8, !tbaa !85
-  %535 = and i64 %533, 4294967295
   %.pre.i136 = load i32, ptr %12, align 8, !tbaa !24
-  br label %536
+  br label %535
 
-536:                                              ; preds = %541, %_ZN11z3_replayer3imp10skip_blankEv.exit135
-  %537 = phi i32 [ %543, %541 ], [ %.pre.i136, %_ZN11z3_replayer3imp10skip_blankEv.exit135 ]
-  switch i32 %537, label %_ZN11z3_replayer3imp10skip_blankEv.exit137 [
-    i32 10, label %538
-    i32 32, label %541
-    i32 9, label %541
+535:                                              ; preds = %540, %_ZN11z3_replayer3imp10skip_blankEv.exit135
+  %536 = phi i32 [ %542, %540 ], [ %.pre.i136, %_ZN11z3_replayer3imp10skip_blankEv.exit135 ]
+  switch i32 %536, label %_ZN11z3_replayer3imp10skip_blankEv.exit137 [
+    i32 10, label %537
+    i32 32, label %540
+    i32 9, label %540
   ]
 
-538:                                              ; preds = %536
-  %539 = load i32, ptr %14, align 4, !tbaa !56
-  %540 = add nsw i32 %539, 1
-  store i32 %540, ptr %14, align 4, !tbaa !56
-  br label %541
+537:                                              ; preds = %535
+  %538 = load i32, ptr %14, align 4, !tbaa !56
+  %539 = add nsw i32 %538, 1
+  store i32 %539, ptr %14, align 4, !tbaa !56
+  br label %540
 
-541:                                              ; preds = %538, %536, %536
-  %542 = load ptr, ptr %13, align 8, !tbaa !68
-  %543 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %542)
-  store i32 %543, ptr %12, align 8, !tbaa !24
-  br label %536
+540:                                              ; preds = %537, %535, %535
+  %541 = load ptr, ptr %13, align 8, !tbaa !68
+  %542 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %541)
+  store i32 %542, ptr %12, align 8, !tbaa !24
+  br label %535
 
-_ZN11z3_replayer3imp10skip_blankEv.exit137:       ; preds = %536
-  %544 = getelementptr inbounds nuw %class.ptr_vector, ptr %534, i64 %535
+_ZN11z3_replayer3imp10skip_blankEv.exit137:       ; preds = %535
+  %543 = and i64 %533, 4294967295
+  %544 = getelementptr inbounds nuw %class.ptr_vector, ptr %534, i64 %543
   call void @_ZN11z3_replayer3imp11read_uint64Ev(ptr noundef nonnull align 8 dereferenceable(184) %0)
   %545 = load i64, ptr %16, align 8, !tbaa !126
   %546 = load ptr, ptr %544, align 8, !tbaa !86

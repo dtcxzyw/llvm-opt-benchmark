@@ -1940,28 +1940,25 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
 .preheader:                                       ; preds = %93
   %96 = zext i8 %95 to i32
   %.not236 = icmp eq i8 %95, 0
-  br i1 %.not236, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not236, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %97 = mul nsw i32 %14, %96
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0157215 = phi i32 [ %103, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.3181214 = phi i32 [ %102, %.lr.ph ], [ %.0178219, %.lr.ph.preheader ]
-  %.0184213 = phi i32 [ %101, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %98 = sext i32 %.3181214 to i64
-  %99 = getelementptr [8 x i32], ptr @bits, i64 0, i64 %98
-  %100 = load i32, ptr %99, align 4
-  %101 = or i32 %100, %.0184213
-  %102 = add i32 %.3181214, %14
-  %103 = add nuw nsw i32 %.0157215, 1
-  %exitcond.not = icmp eq i32 %103, %96
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.0157215 = phi i32 [ %102, %.lr.ph ], [ 0, %.preheader ]
+  %.3181214 = phi i32 [ %101, %.lr.ph ], [ %.0178219, %.preheader ]
+  %.0184213 = phi i32 [ %100, %.lr.ph ], [ 0, %.preheader ]
+  %97 = sext i32 %.3181214 to i64
+  %98 = getelementptr [8 x i32], ptr @bits, i64 0, i64 %97
+  %99 = load i32, ptr %98, align 4
+  %100 = or i32 %99, %.0184213
+  %101 = add i32 %.3181214, %14
+  %102 = add nuw nsw i32 %.0157215, 1
+  %exitcond.not = icmp eq i32 %102, %96
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %104 = add i32 %.0178219, %97
-  %105 = trunc i32 %101 to i8
+  %103 = mul nsw i32 %14, %96
+  %104 = add i32 %.0178219, %103
+  %105 = trunc i32 %100 to i8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader

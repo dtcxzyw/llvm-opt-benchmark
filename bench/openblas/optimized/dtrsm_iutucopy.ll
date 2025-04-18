@@ -15,8 +15,8 @@ define noundef i32 @dtrsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .lr.ph266.split.preheader:                        ; preds = %.lr.ph266
   %10 = shl i64 %7, 7
-  %11 = and i64 %1, -16
   %scevgep = getelementptr i8, ptr %2, i64 %10
+  %11 = and i64 %1, -16
   %12 = add i64 %4, %11
   br label %._crit_edge267
 

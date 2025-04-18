@@ -1907,16 +1907,16 @@ define internal noundef zeroext i1 @netmon_dump(ptr noundef %0, ptr noundef read
   %89 = mul i32 %88, 1000000000
   %90 = add i32 %79, %89
   %91 = add i32 %90, 1000000000
-  %92 = zext nneg i32 %88 to i64
-  %93 = sub i32 %91, %71
-  %94 = xor i64 %72, -1
-  %95 = add i64 %76, %94
-  %96 = sub i64 %95, %92
+  %92 = sub i32 %91, %71
+  %93 = xor i64 %72, -1
+  %94 = add i64 %76, %93
+  %95 = zext nneg i32 %88 to i64
+  %96 = sub i64 %94, %95
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %70
   %.090.lcssa = phi i64 [ %77, %70 ], [ %96, %.lr.ph.preheader ]
-  %.0.lcssa = phi i32 [ %80, %70 ], [ %93, %.lr.ph.preheader ]
+  %.0.lcssa = phi i32 [ %80, %70 ], [ %92, %.lr.ph.preheader ]
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 68
   br i1 %17, label %98, label %110
 

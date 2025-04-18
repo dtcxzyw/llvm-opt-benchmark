@@ -4349,7 +4349,6 @@ entry:
   %ref.tmp = alloca %"class.std::vector.48", align 8
   %ref.tmp41 = alloca %"class.std::__cxx11::basic_string", align 8
   %parser = alloca %"class.hermes::parser::JSParser", align 8
-  %flags.sroa.3.0.extract.shift = lshr i32 %flags.coerce, 16
   %call = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #15
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp3.i)
@@ -4442,6 +4441,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN6hermes22CodeGenerationSettingsC2Ev.exit.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !4
 
 _ZN6hermes22CodeGenerationSettingsC2Ev.exit.i:    ; preds = %for.body.i.i.i.i.i.i.i
+  %flags.sroa.3.0.extract.shift = lshr i32 %flags.coerce, 16
   %flags.sroa.3.0.extract.trunc = trunc i32 %flags.sroa.3.0.extract.shift to i8
   store ptr null, ptr %agg.tmp3.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4.i, i8 0, i64 24, i1 false)

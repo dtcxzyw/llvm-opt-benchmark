@@ -5024,44 +5024,44 @@ _ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.exit: ; preds = %
   br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %392, !llvm.loop !31
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %392
-  %409 = lshr i64 %407, 37
-  %410 = xor i64 %409, %407
-  %411 = mul i64 %410, 1609587791953885689
-  %412 = lshr i64 %411, 32
-  %413 = getelementptr inbounds i8, ptr %379, i64 -75
-  %414 = mul i64 %1, -4417276706812531889
-  %415 = xor i64 %414, -1
-  br label %416
+  %409 = getelementptr inbounds i8, ptr %379, i64 -75
+  %410 = mul i64 %1, -4417276706812531889
+  %411 = xor i64 %410, -1
+  br label %412
 
-416:                                              ; preds = %416, %_ZL14XXH3_mergeAccsPKmPKhm.exit
-  %.011.i90 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %432, %416 ]
-  %.0810.i91 = phi i64 [ %415, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %431, %416 ]
+412:                                              ; preds = %412, %_ZL14XXH3_mergeAccsPKmPKhm.exit
+  %.011.i90 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %428, %412 ]
+  %.0810.i91 = phi i64 [ %411, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %427, %412 ]
   %.idx.i92 = shl nuw nsw i64 %.011.i90, 4
-  %417 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i92
-  %418 = getelementptr inbounds nuw i8, ptr %413, i64 %.idx.i92
-  %419 = load i64, ptr %417, align 16, !tbaa !19
-  %.val9.i93 = load i64, ptr %418, align 1, !tbaa !19
-  %420 = xor i64 %.val9.i93, %419
-  %421 = getelementptr inbounds nuw i8, ptr %417, i64 8
-  %422 = load i64, ptr %421, align 8, !tbaa !19
-  %423 = getelementptr inbounds nuw i8, ptr %418, i64 8
-  %.val.i94 = load i64, ptr %423, align 1, !tbaa !19
-  %424 = xor i64 %.val.i94, %422
-  %425 = zext i64 %420 to i128
-  %426 = zext i64 %424 to i128
-  %427 = mul nuw i128 %426, %425
-  %428 = lshr i128 %427, 64
-  %429 = xor i128 %428, %427
-  %430 = trunc i128 %429 to i64
-  %431 = add i64 %.0810.i91, %430
-  %432 = add nuw nsw i64 %.011.i90, 1
-  %exitcond.not.i95 = icmp eq i64 %432, 4
-  br i1 %exitcond.not.i95, label %_ZL14XXH3_mergeAccsPKmPKhm.exit96, label %416, !llvm.loop !31
+  %413 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i92
+  %414 = getelementptr inbounds nuw i8, ptr %409, i64 %.idx.i92
+  %415 = load i64, ptr %413, align 16, !tbaa !19
+  %.val9.i93 = load i64, ptr %414, align 1, !tbaa !19
+  %416 = xor i64 %.val9.i93, %415
+  %417 = getelementptr inbounds nuw i8, ptr %413, i64 8
+  %418 = load i64, ptr %417, align 8, !tbaa !19
+  %419 = getelementptr inbounds nuw i8, ptr %414, i64 8
+  %.val.i94 = load i64, ptr %419, align 1, !tbaa !19
+  %420 = xor i64 %.val.i94, %418
+  %421 = zext i64 %416 to i128
+  %422 = zext i64 %420 to i128
+  %423 = mul nuw i128 %422, %421
+  %424 = lshr i128 %423, 64
+  %425 = xor i128 %424, %423
+  %426 = trunc i128 %425 to i64
+  %427 = add i64 %.0810.i91, %426
+  %428 = add nuw nsw i64 %.011.i90, 1
+  %exitcond.not.i95 = icmp eq i64 %428, 4
+  br i1 %exitcond.not.i95, label %_ZL14XXH3_mergeAccsPKmPKhm.exit96, label %412, !llvm.loop !31
 
-_ZL14XXH3_mergeAccsPKmPKhm.exit96:                ; preds = %416
-  %433 = xor i64 %412, %411
-  %434 = lshr i64 %431, 37
-  %435 = xor i64 %434, %431
+_ZL14XXH3_mergeAccsPKmPKhm.exit96:                ; preds = %412
+  %429 = lshr i64 %407, 37
+  %430 = xor i64 %429, %407
+  %431 = mul i64 %430, 1609587791953885689
+  %432 = lshr i64 %431, 32
+  %433 = xor i64 %432, %431
+  %434 = lshr i64 %427, 37
+  %435 = xor i64 %434, %427
   %436 = mul i64 %435, 1609587791953885689
   %437 = lshr i64 %436, 32
   %438 = xor i64 %437, %436
@@ -5605,43 +5605,43 @@ _ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.exit17.i: ; preds
   br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %76, !llvm.loop !31
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %76
-  %93 = lshr i64 %91, 37
-  %94 = xor i64 %93, %91
-  %95 = mul i64 %94, 1609587791953885689
-  %96 = lshr i64 %95, 32
-  %97 = mul i64 %1, -4417276706812531889
-  %98 = xor i64 %97, -1
-  br label %99
+  %93 = mul i64 %1, -4417276706812531889
+  %94 = xor i64 %93, -1
+  br label %95
 
-99:                                               ; preds = %99, %_ZL14XXH3_mergeAccsPKmPKhm.exit
-  %.011.i2 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %115, %99 ]
-  %.0810.i3 = phi i64 [ %98, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %114, %99 ]
+95:                                               ; preds = %95, %_ZL14XXH3_mergeAccsPKmPKhm.exit
+  %.011.i2 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %111, %95 ]
+  %.0810.i3 = phi i64 [ %94, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %110, %95 ]
   %.idx.i4 = shl nuw nsw i64 %.011.i2, 4
-  %100 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i4
-  %101 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 117), i64 %.idx.i4
-  %102 = load i64, ptr %100, align 16, !tbaa !19
-  %.val9.i5 = load i64, ptr %101, align 1, !tbaa !19
-  %103 = xor i64 %.val9.i5, %102
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %105 = load i64, ptr %104, align 8, !tbaa !19
-  %106 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %.val.i6 = load i64, ptr %106, align 1, !tbaa !19
-  %107 = xor i64 %.val.i6, %105
-  %108 = zext i64 %103 to i128
-  %109 = zext i64 %107 to i128
-  %110 = mul nuw i128 %109, %108
-  %111 = lshr i128 %110, 64
-  %112 = xor i128 %111, %110
-  %113 = trunc i128 %112 to i64
-  %114 = add i64 %.0810.i3, %113
-  %115 = add nuw nsw i64 %.011.i2, 1
-  %exitcond.not.i7 = icmp eq i64 %115, 4
-  br i1 %exitcond.not.i7, label %_ZL14XXH3_mergeAccsPKmPKhm.exit8, label %99, !llvm.loop !31
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i4
+  %97 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12XXH3_kSecret, i64 117), i64 %.idx.i4
+  %98 = load i64, ptr %96, align 16, !tbaa !19
+  %.val9.i5 = load i64, ptr %97, align 1, !tbaa !19
+  %99 = xor i64 %.val9.i5, %98
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %101 = load i64, ptr %100, align 8, !tbaa !19
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  %.val.i6 = load i64, ptr %102, align 1, !tbaa !19
+  %103 = xor i64 %.val.i6, %101
+  %104 = zext i64 %99 to i128
+  %105 = zext i64 %103 to i128
+  %106 = mul nuw i128 %105, %104
+  %107 = lshr i128 %106, 64
+  %108 = xor i128 %107, %106
+  %109 = trunc i128 %108 to i64
+  %110 = add i64 %.0810.i3, %109
+  %111 = add nuw nsw i64 %.011.i2, 1
+  %exitcond.not.i7 = icmp eq i64 %111, 4
+  br i1 %exitcond.not.i7, label %_ZL14XXH3_mergeAccsPKmPKhm.exit8, label %95, !llvm.loop !31
 
-_ZL14XXH3_mergeAccsPKmPKhm.exit8:                 ; preds = %99
-  %116 = xor i64 %96, %95
-  %117 = lshr i64 %114, 37
-  %118 = xor i64 %117, %114
+_ZL14XXH3_mergeAccsPKmPKhm.exit8:                 ; preds = %95
+  %112 = lshr i64 %91, 37
+  %113 = xor i64 %112, %91
+  %114 = mul i64 %113, 1609587791953885689
+  %115 = lshr i64 %114, 32
+  %116 = xor i64 %115, %114
+  %117 = lshr i64 %110, 37
+  %118 = xor i64 %117, %110
   %119 = mul i64 %118, 1609587791953885689
   %120 = lshr i64 %119, 32
   %121 = xor i64 %120, %119
@@ -5803,44 +5803,44 @@ _ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.exit.i: ; preds =
   br i1 %exitcond.not.i14, label %_ZL14XXH3_mergeAccsPKmPKhm.exit15, label %202, !llvm.loop !31
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit15:                ; preds = %202
-  %219 = lshr i64 %217, 37
-  %220 = xor i64 %219, %217
-  %221 = mul i64 %220, 1609587791953885689
-  %222 = lshr i64 %221, 32
-  %223 = getelementptr inbounds nuw i8, ptr %6, i64 117
-  %224 = mul i64 %1, -4417276706812531889
-  %225 = xor i64 %224, -1
-  br label %226
+  %219 = getelementptr inbounds nuw i8, ptr %6, i64 117
+  %220 = mul i64 %1, -4417276706812531889
+  %221 = xor i64 %220, -1
+  br label %222
 
-226:                                              ; preds = %226, %_ZL14XXH3_mergeAccsPKmPKhm.exit15
-  %.011.i16 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit15 ], [ %242, %226 ]
-  %.0810.i17 = phi i64 [ %225, %_ZL14XXH3_mergeAccsPKmPKhm.exit15 ], [ %241, %226 ]
+222:                                              ; preds = %222, %_ZL14XXH3_mergeAccsPKmPKhm.exit15
+  %.011.i16 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit15 ], [ %238, %222 ]
+  %.0810.i17 = phi i64 [ %221, %_ZL14XXH3_mergeAccsPKmPKhm.exit15 ], [ %237, %222 ]
   %.idx.i18 = shl nuw nsw i64 %.011.i16, 4
-  %227 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i18
-  %228 = getelementptr inbounds nuw i8, ptr %223, i64 %.idx.i18
-  %229 = load i64, ptr %227, align 16, !tbaa !19
-  %.val9.i19 = load i64, ptr %228, align 1, !tbaa !19
-  %230 = xor i64 %.val9.i19, %229
-  %231 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  %232 = load i64, ptr %231, align 8, !tbaa !19
-  %233 = getelementptr inbounds nuw i8, ptr %228, i64 8
-  %.val.i20 = load i64, ptr %233, align 1, !tbaa !19
-  %234 = xor i64 %.val.i20, %232
-  %235 = zext i64 %230 to i128
-  %236 = zext i64 %234 to i128
-  %237 = mul nuw i128 %236, %235
-  %238 = lshr i128 %237, 64
-  %239 = xor i128 %238, %237
-  %240 = trunc i128 %239 to i64
-  %241 = add i64 %.0810.i17, %240
-  %242 = add nuw nsw i64 %.011.i16, 1
-  %exitcond.not.i21 = icmp eq i64 %242, 4
-  br i1 %exitcond.not.i21, label %_ZL14XXH3_mergeAccsPKmPKhm.exit22, label %226, !llvm.loop !31
+  %223 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i18
+  %224 = getelementptr inbounds nuw i8, ptr %219, i64 %.idx.i18
+  %225 = load i64, ptr %223, align 16, !tbaa !19
+  %.val9.i19 = load i64, ptr %224, align 1, !tbaa !19
+  %226 = xor i64 %.val9.i19, %225
+  %227 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  %228 = load i64, ptr %227, align 8, !tbaa !19
+  %229 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  %.val.i20 = load i64, ptr %229, align 1, !tbaa !19
+  %230 = xor i64 %.val.i20, %228
+  %231 = zext i64 %226 to i128
+  %232 = zext i64 %230 to i128
+  %233 = mul nuw i128 %232, %231
+  %234 = lshr i128 %233, 64
+  %235 = xor i128 %234, %233
+  %236 = trunc i128 %235 to i64
+  %237 = add i64 %.0810.i17, %236
+  %238 = add nuw nsw i64 %.011.i16, 1
+  %exitcond.not.i21 = icmp eq i64 %238, 4
+  br i1 %exitcond.not.i21, label %_ZL14XXH3_mergeAccsPKmPKhm.exit22, label %222, !llvm.loop !31
 
-_ZL14XXH3_mergeAccsPKmPKhm.exit22:                ; preds = %226
-  %243 = xor i64 %222, %221
-  %244 = lshr i64 %241, 37
-  %245 = xor i64 %244, %241
+_ZL14XXH3_mergeAccsPKmPKhm.exit22:                ; preds = %222
+  %239 = lshr i64 %217, 37
+  %240 = xor i64 %239, %217
+  %241 = mul i64 %240, 1609587791953885689
+  %242 = lshr i64 %241, 32
+  %243 = xor i64 %242, %241
+  %244 = lshr i64 %237, 37
+  %245 = xor i64 %244, %237
   %246 = mul i64 %245, 1609587791953885689
   %247 = lshr i64 %246, 32
   %248 = xor i64 %247, %246
@@ -6381,44 +6381,44 @@ _ZL27XXH3_hashLong_128b_internalPKvmPKhmPFvPmS2_S2_mEPFvPvS0_E.exit: ; preds = %
   br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %388, !llvm.loop !31
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %388
-  %405 = lshr i64 %403, 37
-  %406 = xor i64 %405, %403
-  %407 = mul i64 %406, 1609587791953885689
-  %408 = lshr i64 %407, 32
-  %409 = getelementptr inbounds i8, ptr %375, i64 -75
-  %410 = mul i64 %1, -4417276706812531889
-  %411 = xor i64 %410, -1
-  br label %412
+  %405 = getelementptr inbounds i8, ptr %375, i64 -75
+  %406 = mul i64 %1, -4417276706812531889
+  %407 = xor i64 %406, -1
+  br label %408
 
-412:                                              ; preds = %412, %_ZL14XXH3_mergeAccsPKmPKhm.exit
-  %.011.i95 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %428, %412 ]
-  %.0810.i96 = phi i64 [ %411, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %427, %412 ]
+408:                                              ; preds = %408, %_ZL14XXH3_mergeAccsPKmPKhm.exit
+  %.011.i95 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %424, %408 ]
+  %.0810.i96 = phi i64 [ %407, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %423, %408 ]
   %.idx.i97 = shl nuw nsw i64 %.011.i95, 4
-  %413 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i97
-  %414 = getelementptr inbounds nuw i8, ptr %409, i64 %.idx.i97
-  %415 = load i64, ptr %413, align 16, !tbaa !19
-  %.val9.i98 = load i64, ptr %414, align 1, !tbaa !19
-  %416 = xor i64 %.val9.i98, %415
-  %417 = getelementptr inbounds nuw i8, ptr %413, i64 8
-  %418 = load i64, ptr %417, align 8, !tbaa !19
-  %419 = getelementptr inbounds nuw i8, ptr %414, i64 8
-  %.val.i99 = load i64, ptr %419, align 1, !tbaa !19
-  %420 = xor i64 %.val.i99, %418
-  %421 = zext i64 %416 to i128
-  %422 = zext i64 %420 to i128
-  %423 = mul nuw i128 %422, %421
-  %424 = lshr i128 %423, 64
-  %425 = xor i128 %424, %423
-  %426 = trunc i128 %425 to i64
-  %427 = add i64 %.0810.i96, %426
-  %428 = add nuw nsw i64 %.011.i95, 1
-  %exitcond.not.i100 = icmp eq i64 %428, 4
-  br i1 %exitcond.not.i100, label %_ZL14XXH3_mergeAccsPKmPKhm.exit101, label %412, !llvm.loop !31
+  %409 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i97
+  %410 = getelementptr inbounds nuw i8, ptr %405, i64 %.idx.i97
+  %411 = load i64, ptr %409, align 16, !tbaa !19
+  %.val9.i98 = load i64, ptr %410, align 1, !tbaa !19
+  %412 = xor i64 %.val9.i98, %411
+  %413 = getelementptr inbounds nuw i8, ptr %409, i64 8
+  %414 = load i64, ptr %413, align 8, !tbaa !19
+  %415 = getelementptr inbounds nuw i8, ptr %410, i64 8
+  %.val.i99 = load i64, ptr %415, align 1, !tbaa !19
+  %416 = xor i64 %.val.i99, %414
+  %417 = zext i64 %412 to i128
+  %418 = zext i64 %416 to i128
+  %419 = mul nuw i128 %418, %417
+  %420 = lshr i128 %419, 64
+  %421 = xor i128 %420, %419
+  %422 = trunc i128 %421 to i64
+  %423 = add i64 %.0810.i96, %422
+  %424 = add nuw nsw i64 %.011.i95, 1
+  %exitcond.not.i100 = icmp eq i64 %424, 4
+  br i1 %exitcond.not.i100, label %_ZL14XXH3_mergeAccsPKmPKhm.exit101, label %408, !llvm.loop !31
 
-_ZL14XXH3_mergeAccsPKmPKhm.exit101:               ; preds = %412
-  %429 = xor i64 %408, %407
-  %430 = lshr i64 %427, 37
-  %431 = xor i64 %430, %427
+_ZL14XXH3_mergeAccsPKmPKhm.exit101:               ; preds = %408
+  %425 = lshr i64 %403, 37
+  %426 = xor i64 %425, %403
+  %427 = mul i64 %426, 1609587791953885689
+  %428 = lshr i64 %427, 32
+  %429 = xor i64 %428, %427
+  %430 = lshr i64 %423, 37
+  %431 = xor i64 %430, %423
   %432 = mul i64 %431, 1609587791953885689
   %433 = lshr i64 %432, 32
   %434 = xor i64 %433, %432
@@ -7414,45 +7414,45 @@ _ZL16XXH3_digest_longPmPK12XXH3_state_sPKh.exit:  ; preds = %_ZL19XXH3_consumeSt
   br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %138, !llvm.loop !31
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %138
-  %155 = lshr i64 %153, 37
-  %156 = xor i64 %155, %153
-  %157 = mul i64 %156, 1609587791953885689
-  %158 = lshr i64 %157, 32
-  %159 = getelementptr inbounds nuw i8, ptr %8, i64 %133
-  %160 = getelementptr inbounds i8, ptr %159, i64 -11
-  %161 = mul i64 %10, -4417276706812531889
-  %162 = xor i64 %161, -1
-  br label %163
+  %155 = getelementptr inbounds nuw i8, ptr %8, i64 %133
+  %156 = getelementptr inbounds i8, ptr %155, i64 -11
+  %157 = mul i64 %10, -4417276706812531889
+  %158 = xor i64 %157, -1
+  br label %159
 
-163:                                              ; preds = %163, %_ZL14XXH3_mergeAccsPKmPKhm.exit
-  %.011.i22 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %179, %163 ]
-  %.0810.i23 = phi i64 [ %162, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %178, %163 ]
+159:                                              ; preds = %159, %_ZL14XXH3_mergeAccsPKmPKhm.exit
+  %.011.i22 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %175, %159 ]
+  %.0810.i23 = phi i64 [ %158, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %174, %159 ]
   %.idx.i24 = shl nuw nsw i64 %.011.i22, 4
-  %164 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i24
-  %165 = getelementptr inbounds nuw i8, ptr %160, i64 %.idx.i24
-  %166 = load i64, ptr %164, align 16, !tbaa !19
-  %.val9.i25 = load i64, ptr %165, align 1, !tbaa !19
-  %167 = xor i64 %.val9.i25, %166
-  %168 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %169 = load i64, ptr %168, align 8, !tbaa !19
-  %170 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %.val.i26 = load i64, ptr %170, align 1, !tbaa !19
-  %171 = xor i64 %.val.i26, %169
-  %172 = zext i64 %167 to i128
-  %173 = zext i64 %171 to i128
-  %174 = mul nuw i128 %173, %172
-  %175 = lshr i128 %174, 64
-  %176 = xor i128 %175, %174
-  %177 = trunc i128 %176 to i64
-  %178 = add i64 %.0810.i23, %177
-  %179 = add nuw nsw i64 %.011.i22, 1
-  %exitcond.not.i27 = icmp eq i64 %179, 4
-  br i1 %exitcond.not.i27, label %_ZL14XXH3_mergeAccsPKmPKhm.exit28, label %163, !llvm.loop !31
+  %160 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i24
+  %161 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx.i24
+  %162 = load i64, ptr %160, align 16, !tbaa !19
+  %.val9.i25 = load i64, ptr %161, align 1, !tbaa !19
+  %163 = xor i64 %.val9.i25, %162
+  %164 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %165 = load i64, ptr %164, align 8, !tbaa !19
+  %166 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %.val.i26 = load i64, ptr %166, align 1, !tbaa !19
+  %167 = xor i64 %.val.i26, %165
+  %168 = zext i64 %163 to i128
+  %169 = zext i64 %167 to i128
+  %170 = mul nuw i128 %169, %168
+  %171 = lshr i128 %170, 64
+  %172 = xor i128 %171, %170
+  %173 = trunc i128 %172 to i64
+  %174 = add i64 %.0810.i23, %173
+  %175 = add nuw nsw i64 %.011.i22, 1
+  %exitcond.not.i27 = icmp eq i64 %175, 4
+  br i1 %exitcond.not.i27, label %_ZL14XXH3_mergeAccsPKmPKhm.exit28, label %159, !llvm.loop !31
 
-_ZL14XXH3_mergeAccsPKmPKhm.exit28:                ; preds = %163
-  %180 = xor i64 %158, %157
-  %181 = lshr i64 %178, 37
-  %182 = xor i64 %181, %178
+_ZL14XXH3_mergeAccsPKmPKhm.exit28:                ; preds = %159
+  %176 = lshr i64 %153, 37
+  %177 = xor i64 %176, %153
+  %178 = mul i64 %177, 1609587791953885689
+  %179 = lshr i64 %178, 32
+  %180 = xor i64 %179, %178
+  %181 = lshr i64 %174, 37
+  %182 = xor i64 %181, %174
   %183 = mul i64 %182, 1609587791953885689
   %184 = lshr i64 %183, 32
   %185 = xor i64 %184, %183
@@ -7686,38 +7686,38 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #25
 ; Function Attrs: mustprogress nofree noinline nounwind willreturn memory(read) uwtable
 define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noundef readonly captures(none) %0, i64 noundef range(i64 129, 241) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #26 {
   %5 = mul i64 %1, -7046029288634856825
-  %6 = trunc nuw nsw i64 %1 to i32
-  br label %7
+  br label %6
 
-7:                                                ; preds = %4, %7
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %7 ]
-  %.03549 = phi i64 [ %5, %4 ], [ %23, %7 ]
-  %8 = shl nuw nsw i64 %indvars.iv, 4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %8
-  %.val48 = load i64, ptr %9, align 1, !tbaa !19
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.val47 = load i64, ptr %11, align 1, !tbaa !19
-  %.val46 = load i64, ptr %10, align 1, !tbaa !19
-  %12 = add i64 %.val46, %3
-  %13 = xor i64 %12, %.val48
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.val45 = load i64, ptr %14, align 1, !tbaa !19
-  %15 = sub i64 %.val45, %3
-  %16 = xor i64 %15, %.val47
-  %17 = zext i64 %13 to i128
-  %18 = zext i64 %16 to i128
-  %19 = mul nuw i128 %18, %17
-  %20 = lshr i128 %19, 64
-  %21 = xor i128 %20, %19
-  %22 = trunc i128 %21 to i64
-  %23 = add i64 %.03549, %22
+6:                                                ; preds = %4, %6
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %6 ]
+  %.03549 = phi i64 [ %5, %4 ], [ %22, %6 ]
+  %7 = shl nuw nsw i64 %indvars.iv, 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %7
+  %.val48 = load i64, ptr %8, align 1, !tbaa !19
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.val47 = load i64, ptr %10, align 1, !tbaa !19
+  %.val46 = load i64, ptr %9, align 1, !tbaa !19
+  %11 = add i64 %.val46, %3
+  %12 = xor i64 %11, %.val48
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.val45 = load i64, ptr %13, align 1, !tbaa !19
+  %14 = sub i64 %.val45, %3
+  %15 = xor i64 %14, %.val47
+  %16 = zext i64 %12 to i128
+  %17 = zext i64 %15 to i128
+  %18 = mul nuw i128 %17, %16
+  %19 = lshr i128 %18, 64
+  %20 = xor i128 %19, %18
+  %21 = trunc i128 %20 to i64
+  %22 = add i64 %.03549, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %24, label %7, !llvm.loop !48
+  br i1 %exitcond.not, label %23, label %6, !llvm.loop !48
 
-24:                                               ; preds = %7
-  %25 = lshr i32 %6, 4
+23:                                               ; preds = %6
+  %24 = trunc nuw nsw i64 %1 to i32
+  %25 = lshr i32 %24, 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 119
@@ -7737,15 +7737,15 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noun
   %38 = lshr i128 %37, 64
   %39 = xor i128 %38, %37
   %40 = trunc i128 %39 to i64
-  %41 = lshr i64 %23, 37
-  %42 = xor i64 %41, %23
+  %41 = lshr i64 %22, 37
+  %42 = xor i64 %41, %22
   %43 = mul i64 %42, 1609587791953885689
   %44 = lshr i64 %43, 32
   %45 = xor i64 %44, %43
   %.not = icmp eq i32 %25, 8
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %24
+.lr.ph.preheader:                                 ; preds = %23
   %wide.trip.count = zext nneg i32 %25 to i64
   br label %.lr.ph
 
@@ -7779,9 +7779,9 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noun
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count
   br i1 %exitcond61.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %.lr.ph, %24
-  %.037.lcssa = phi i64 [ %40, %24 ], [ %63, %.lr.ph ]
-  %.136.lcssa = phi i64 [ %45, %24 ], [ %46, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %23
+  %.037.lcssa = phi i64 [ %40, %23 ], [ %63, %.lr.ph ]
+  %.136.lcssa = phi i64 [ %45, %23 ], [ %46, %.lr.ph ]
   %64 = add i64 %.136.lcssa, %.037.lcssa
   %65 = lshr i64 %64, 37
   %66 = xor i64 %65, %64

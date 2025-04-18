@@ -1734,9 +1734,9 @@ define dso_local void @_ZN5btLCP15transfer_i_to_CEi(ptr noundef nonnull align 8 
   br i1 %38, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !73
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %39 = and i32 %.02931.i, -2
-  %40 = add nsw i32 %4, -4
-  %41 = sub nsw i32 %40, %39
+  %39 = add nsw i32 %4, -4
+  %40 = and i32 %.02931.i, -2
+  %41 = sub nsw i32 %39, %40
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %.lr.ph43.i, label %_Z10btLargeDotPKfS0_i.exit
 
@@ -1937,9 +1937,9 @@ define dso_local void @_ZN5btLCP22transfer_i_from_N_to_CEi(ptr noundef nonnull a
   br i1 %68, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !73
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %69 = and i32 %.02931.i, -2
-  %70 = add nsw i32 %34, -4
-  %71 = sub nsw i32 %70, %69
+  %69 = add nsw i32 %34, -4
+  %70 = and i32 %.02931.i, -2
+  %71 = sub nsw i32 %69, %70
   %72 = icmp eq i32 %71, -1
   br i1 %72, label %.lr.ph43.i, label %_Z10btLargeDotPKfS0_i.exit
 
@@ -2501,9 +2501,9 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit:    ; preds = %._ZN20btAlignedObje
 .lr.ph128:                                        ; preds = %._crit_edge
   %.02931.i = add i32 %6, -2
   %85 = icmp sgt i32 %6, 1
-  %86 = and i32 %.02931.i, -2
-  %87 = add nsw i32 %6, -4
-  %88 = sub i32 %87, %86
+  %86 = add nsw i32 %6, -4
+  %87 = and i32 %.02931.i, -2
+  %88 = sub i32 %86, %87
   %89 = sext i32 %82 to i64
   %90 = getelementptr inbounds ptr, ptr %0, i64 %89
   %91 = sext i32 %7 to i64
@@ -2817,19 +2817,19 @@ define dso_local void @_ZN5btLCP22pN_equals_ANC_times_qCEPfS0_(ptr noundef nonnu
   %18 = zext nneg i32 %5 to i64
   %wide.trip.count35 = zext nneg i32 %9 to i64
   %invariant.gep44 = getelementptr inbounds nuw ptr, ptr %12, i64 %18
-  br i1 %17, label %.lr.ph.preheader.i.us.us, label %.lr.ph.preheader.i.us
+  br i1 %17, label %.lr.ph.i.preheader.us.us, label %.lr.ph.i.preheader.us
 
-.lr.ph.preheader.i.us.us:                         ; preds = %.lr.ph.split.us, %._crit_edge.loopexit.i.us.us
+.lr.ph.i.preheader.us.us:                         ; preds = %.lr.ph.split.us, %._crit_edge.loopexit.i.us.us
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %._crit_edge.loopexit.i.us.us ], [ 0, %.lr.ph.split.us ]
   %gep45 = getelementptr inbounds nuw ptr, ptr %invariant.gep44, i64 %indvars.iv32
   %19 = load ptr, ptr %gep45, align 8, !tbaa !58
   br label %.lr.ph.i.us.us
 
-.lr.ph.i.us.us:                                   ; preds = %.lr.ph.i.us.us, %.lr.ph.preheader.i.us.us
-  %.02935.i.us.us = phi i32 [ %.029.i.us.us, %.lr.ph.i.us.us ], [ %.02931.i, %.lr.ph.preheader.i.us.us ]
-  %.034.i.us.us = phi float [ %29, %.lr.ph.i.us.us ], [ 0.000000e+00, %.lr.ph.preheader.i.us.us ]
-  %.02533.i.us.us = phi ptr [ %30, %.lr.ph.i.us.us ], [ %19, %.lr.ph.preheader.i.us.us ]
-  %.02732.i.us.us = phi ptr [ %31, %.lr.ph.i.us.us ], [ %2, %.lr.ph.preheader.i.us.us ]
+.lr.ph.i.us.us:                                   ; preds = %.lr.ph.i.us.us, %.lr.ph.i.preheader.us.us
+  %.02935.i.us.us = phi i32 [ %.029.i.us.us, %.lr.ph.i.us.us ], [ %.02931.i, %.lr.ph.i.preheader.us.us ]
+  %.034.i.us.us = phi float [ %29, %.lr.ph.i.us.us ], [ 0.000000e+00, %.lr.ph.i.preheader.us.us ]
+  %.02533.i.us.us = phi ptr [ %30, %.lr.ph.i.us.us ], [ %19, %.lr.ph.i.preheader.us.us ]
+  %.02732.i.us.us = phi ptr [ %31, %.lr.ph.i.us.us ], [ %2, %.lr.ph.i.preheader.us.us ]
   %20 = load float, ptr %.02533.i.us.us, align 4, !tbaa !4
   %21 = load float, ptr %.02732.i.us.us, align 4, !tbaa !4
   %22 = fmul float %20, %21
@@ -2854,19 +2854,19 @@ define dso_local void @_ZN5btLCP22pN_equals_ANC_times_qCEPfS0_(ptr noundef nonnu
   store float %35, ptr %36, align 4, !tbaa !4
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
-  br i1 %exitcond36.not, label %._crit_edge, label %.lr.ph.preheader.i.us.us, !llvm.loop !97
+  br i1 %exitcond36.not, label %._crit_edge, label %.lr.ph.i.preheader.us.us, !llvm.loop !97
 
-.lr.ph.preheader.i.us:                            ; preds = %.lr.ph.split.us, %._crit_edge.loopexit.i.us
+.lr.ph.i.preheader.us:                            ; preds = %.lr.ph.split.us, %._crit_edge.loopexit.i.us
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %._crit_edge.loopexit.i.us ], [ 0, %.lr.ph.split.us ]
   %gep43 = getelementptr inbounds nuw ptr, ptr %invariant.gep44, i64 %indvars.iv27
   %37 = load ptr, ptr %gep43, align 8, !tbaa !58
   br label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.preheader.i.us
-  %.02935.i.us = phi i32 [ %.029.i.us, %.lr.ph.i.us ], [ %.02931.i, %.lr.ph.preheader.i.us ]
-  %.034.i.us = phi float [ %47, %.lr.ph.i.us ], [ 0.000000e+00, %.lr.ph.preheader.i.us ]
-  %.02533.i.us = phi ptr [ %48, %.lr.ph.i.us ], [ %37, %.lr.ph.preheader.i.us ]
-  %.02732.i.us = phi ptr [ %49, %.lr.ph.i.us ], [ %2, %.lr.ph.preheader.i.us ]
+.lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %.lr.ph.i.us
+  %.02935.i.us = phi i32 [ %.029.i.us, %.lr.ph.i.us ], [ %.02931.i, %.lr.ph.i.preheader.us ]
+  %.034.i.us = phi float [ %47, %.lr.ph.i.us ], [ 0.000000e+00, %.lr.ph.i.preheader.us ]
+  %.02533.i.us = phi ptr [ %48, %.lr.ph.i.us ], [ %37, %.lr.ph.i.preheader.us ]
+  %.02732.i.us = phi ptr [ %49, %.lr.ph.i.us ], [ %2, %.lr.ph.i.preheader.us ]
   %38 = load float, ptr %.02533.i.us, align 4, !tbaa !4
   %39 = load float, ptr %.02732.i.us, align 4, !tbaa !4
   %40 = fmul float %38, %39
@@ -2888,7 +2888,7 @@ define dso_local void @_ZN5btLCP22pN_equals_ANC_times_qCEPfS0_(ptr noundef nonnu
   store float %47, ptr %51, align 4, !tbaa !4
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count35
-  br i1 %exitcond31.not, label %._crit_edge, label %.lr.ph.preheader.i.us, !llvm.loop !97
+  br i1 %exitcond31.not, label %._crit_edge, label %.lr.ph.i.preheader.us, !llvm.loop !97
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %52 = icmp eq i32 %.02931.i, -1
@@ -4343,9 +4343,9 @@ _ZN20btAlignedObjectArrayIbE6resizeEiRKb.exit:    ; preds = %_ZN20btAlignedObjec
   br i1 %404, label %.lr.ph.i.i536, label %._crit_edge.loopexit.i.i, !llvm.loop !73
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i536
-  %405 = and i32 %.02931.i.i, -2
-  %406 = add nsw i32 %390, -4
-  %407 = sub nsw i32 %406, %405
+  %405 = add nsw i32 %390, -4
+  %406 = and i32 %.02931.i.i, -2
+  %407 = sub nsw i32 %405, %406
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.loopexit
@@ -4394,9 +4394,9 @@ _ZNK5btLCP12AiC_times_qCEiPf.exit:                ; preds = %._crit_edge.i.i, %.
   br i1 %429, label %.lr.ph.i.i545, label %._crit_edge.loopexit.i.i551, !llvm.loop !73
 
 ._crit_edge.loopexit.i.i551:                      ; preds = %.lr.ph.i.i545
-  %430 = and i32 %.02931.i.i537, -2
-  %431 = add nsw i32 %415, -4
-  %432 = sub nsw i32 %431, %430
+  %430 = add nsw i32 %415, -4
+  %431 = and i32 %.02931.i.i537, -2
+  %432 = sub nsw i32 %430, %431
   br label %._crit_edge.i.i538
 
 ._crit_edge.i.i538:                               ; preds = %._crit_edge.loopexit.i.i551, %_ZNK5btLCP12AiC_times_qCEiPf.exit
@@ -4570,19 +4570,19 @@ _ZN5btLCP6solve1EPfiii.exit:                      ; preds = %.lr.ph61.i, %463
   %509 = zext nneg i32 %494 to i64
   %wide.trip.count35.i = zext nneg i32 %493 to i64
   %invariant.gep44.i = getelementptr inbounds nuw ptr, ptr %503, i64 %509
-  br i1 %508, label %.lr.ph.preheader.i.us.us.i, label %.lr.ph.preheader.i.us.i
+  br i1 %508, label %.lr.ph.i.preheader.us.us.i, label %.lr.ph.i.preheader.us.i
 
-.lr.ph.preheader.i.us.us.i:                       ; preds = %.lr.ph.split.us.i, %._crit_edge.loopexit.i.us.us.i
+.lr.ph.i.preheader.us.us.i:                       ; preds = %.lr.ph.split.us.i, %._crit_edge.loopexit.i.us.us.i
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %._crit_edge.loopexit.i.us.us.i ], [ 0, %.lr.ph.split.us.i ]
   %gep45.i = getelementptr inbounds nuw ptr, ptr %invariant.gep44.i, i64 %indvars.iv32.i
   %510 = load ptr, ptr %gep45.i, align 8, !tbaa !58
   br label %.lr.ph.i.us.us.i
 
-.lr.ph.i.us.us.i:                                 ; preds = %.lr.ph.i.us.us.i, %.lr.ph.preheader.i.us.us.i
-  %.02935.i.us.us.i = phi i32 [ %.029.i.us.us.i, %.lr.ph.i.us.us.i ], [ %.02931.i.i559, %.lr.ph.preheader.i.us.us.i ]
-  %.034.i.us.us.i = phi float [ %520, %.lr.ph.i.us.us.i ], [ 0.000000e+00, %.lr.ph.preheader.i.us.us.i ]
-  %.02533.i.us.us.i = phi ptr [ %521, %.lr.ph.i.us.us.i ], [ %510, %.lr.ph.preheader.i.us.us.i ]
-  %.02732.i.us.us.i = phi ptr [ %522, %.lr.ph.i.us.us.i ], [ %499, %.lr.ph.preheader.i.us.us.i ]
+.lr.ph.i.us.us.i:                                 ; preds = %.lr.ph.i.us.us.i, %.lr.ph.i.preheader.us.us.i
+  %.02935.i.us.us.i = phi i32 [ %.029.i.us.us.i, %.lr.ph.i.us.us.i ], [ %.02931.i.i559, %.lr.ph.i.preheader.us.us.i ]
+  %.034.i.us.us.i = phi float [ %520, %.lr.ph.i.us.us.i ], [ 0.000000e+00, %.lr.ph.i.preheader.us.us.i ]
+  %.02533.i.us.us.i = phi ptr [ %521, %.lr.ph.i.us.us.i ], [ %510, %.lr.ph.i.preheader.us.us.i ]
+  %.02732.i.us.us.i = phi ptr [ %522, %.lr.ph.i.us.us.i ], [ %499, %.lr.ph.i.preheader.us.us.i ]
   %511 = load float, ptr %.02533.i.us.us.i, align 4, !tbaa !4
   %512 = load float, ptr %.02732.i.us.us.i, align 4, !tbaa !4
   %513 = fmul float %511, %512
@@ -4607,19 +4607,19 @@ _ZN5btLCP6solve1EPfiii.exit:                      ; preds = %.lr.ph61.i, %463
   store float %526, ptr %527, align 4, !tbaa !4
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
-  br i1 %exitcond36.not.i, label %_ZN5btLCP22pN_equals_ANC_times_qCEPfS0_.exit, label %.lr.ph.preheader.i.us.us.i, !llvm.loop !97
+  br i1 %exitcond36.not.i, label %_ZN5btLCP22pN_equals_ANC_times_qCEPfS0_.exit, label %.lr.ph.i.preheader.us.us.i, !llvm.loop !97
 
-.lr.ph.preheader.i.us.i:                          ; preds = %.lr.ph.split.us.i, %._crit_edge.loopexit.i.us.i
+.lr.ph.i.preheader.us.i:                          ; preds = %.lr.ph.split.us.i, %._crit_edge.loopexit.i.us.i
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %._crit_edge.loopexit.i.us.i ], [ 0, %.lr.ph.split.us.i ]
   %gep43.i = getelementptr inbounds nuw ptr, ptr %invariant.gep44.i, i64 %indvars.iv27.i
   %528 = load ptr, ptr %gep43.i, align 8, !tbaa !58
   br label %.lr.ph.i.us.i
 
-.lr.ph.i.us.i:                                    ; preds = %.lr.ph.i.us.i, %.lr.ph.preheader.i.us.i
-  %.02935.i.us.i = phi i32 [ %.029.i.us.i, %.lr.ph.i.us.i ], [ %.02931.i.i559, %.lr.ph.preheader.i.us.i ]
-  %.034.i.us.i = phi float [ %538, %.lr.ph.i.us.i ], [ 0.000000e+00, %.lr.ph.preheader.i.us.i ]
-  %.02533.i.us.i = phi ptr [ %539, %.lr.ph.i.us.i ], [ %528, %.lr.ph.preheader.i.us.i ]
-  %.02732.i.us.i = phi ptr [ %540, %.lr.ph.i.us.i ], [ %499, %.lr.ph.preheader.i.us.i ]
+.lr.ph.i.us.i:                                    ; preds = %.lr.ph.i.us.i, %.lr.ph.i.preheader.us.i
+  %.02935.i.us.i = phi i32 [ %.029.i.us.i, %.lr.ph.i.us.i ], [ %.02931.i.i559, %.lr.ph.i.preheader.us.i ]
+  %.034.i.us.i = phi float [ %538, %.lr.ph.i.us.i ], [ 0.000000e+00, %.lr.ph.i.preheader.us.i ]
+  %.02533.i.us.i = phi ptr [ %539, %.lr.ph.i.us.i ], [ %528, %.lr.ph.i.preheader.us.i ]
+  %.02732.i.us.i = phi ptr [ %540, %.lr.ph.i.us.i ], [ %499, %.lr.ph.i.preheader.us.i ]
   %529 = load float, ptr %.02533.i.us.i, align 4, !tbaa !4
   %530 = load float, ptr %.02732.i.us.i, align 4, !tbaa !4
   %531 = fmul float %529, %530
@@ -4641,7 +4641,7 @@ _ZN5btLCP6solve1EPfiii.exit:                      ; preds = %.lr.ph61.i, %463
   store float %538, ptr %542, align 4, !tbaa !4
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count35.i
-  br i1 %exitcond31.not.i, label %_ZN5btLCP22pN_equals_ANC_times_qCEPfS0_.exit, label %.lr.ph.preheader.i.us.i, !llvm.loop !97
+  br i1 %exitcond31.not.i, label %_ZN5btLCP22pN_equals_ANC_times_qCEPfS0_.exit, label %.lr.ph.i.preheader.us.i, !llvm.loop !97
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i558
   %543 = icmp eq i32 %.02931.i.i559, -1
@@ -4735,9 +4735,9 @@ _ZN5btLCP17pN_plusequals_ANiEPfii.exit:           ; preds = %.lr.ph.i566, %.lr.p
   br i1 %579, label %.lr.ph.i.i578, label %._crit_edge.loopexit.i.i584, !llvm.loop !73
 
 ._crit_edge.loopexit.i.i584:                      ; preds = %.lr.ph.i.i578
-  %580 = and i32 %.02931.i.i570.pre-phi, -2
-  %581 = add nsw i32 %494, -4
-  %582 = sub i32 %581, %580
+  %580 = add nsw i32 %494, -4
+  %581 = and i32 %.02931.i.i570.pre-phi, -2
+  %582 = sub i32 %580, %581
   br label %._crit_edge.i.i571
 
 ._crit_edge.i.i571:                               ; preds = %._crit_edge.loopexit.i.i584, %_ZN5btLCP17pN_plusequals_ANiEPfii.exit

@@ -1975,7 +1975,6 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 .lr.ph106.preheader:                              ; preds = %.preheader100
   %59 = zext i32 %5 to i64
-  %60 = add i32 %5, 1
   %wide.trip.count = zext i32 %9 to i64
   br label %.lr.ph106
 
@@ -1983,87 +1982,88 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %.not122, label %._crit_edge111, label %.lr.ph110.preheader
 
 .lr.ph110.preheader:                              ; preds = %.preheader
-  %61 = add i32 %5, 1
   %wide.trip.count143 = zext i32 %9 to i64
   br label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %.lr.ph110
   %indvars.iv138 = phi i64 [ 1, %.lr.ph110.preheader ], [ %indvars.iv.next139, %.lr.ph110 ]
   %indvars.iv136 = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next137, %.lr.ph110 ]
-  %62 = getelementptr i8, ptr %13, i64 %indvars.iv136
-  %63 = load i8, ptr %62, align 1
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr i8, ptr %64, i64 %indvars.iv138
-  store i8 %63, ptr %65, align 1
+  %60 = getelementptr i8, ptr %13, i64 %indvars.iv136
+  %61 = load i8, ptr %60, align 1
+  %62 = load ptr, ptr %3, align 8
+  %63 = getelementptr i8, ptr %62, i64 %indvars.iv138
+  store i8 %61, ptr %63, align 1
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count143
   br i1 %exitcond144.not, label %._crit_edge111.loopexit, label %.lr.ph110, !llvm.loop !17
 
 ._crit_edge111.loopexit:                          ; preds = %.lr.ph110
-  %66 = sub i32 %61, %6
+  %64 = add i32 %5, 1
+  %65 = sub i32 %64, %6
   br label %._crit_edge111
 
 ._crit_edge111:                                   ; preds = %._crit_edge111.loopexit, %.preheader
-  %.392.lcssa = phi i32 [ 1, %.preheader ], [ %66, %._crit_edge111.loopexit ]
-  %67 = load ptr, ptr %3, align 8
-  %68 = zext i32 %.392.lcssa to i64
-  %69 = getelementptr i8, ptr %67, i64 %68
-  store i8 46, ptr %69, align 1
+  %.392.lcssa = phi i32 [ 1, %.preheader ], [ %65, %._crit_edge111.loopexit ]
+  %66 = load ptr, ptr %3, align 8
+  %67 = zext i32 %.392.lcssa to i64
+  %68 = getelementptr i8, ptr %66, i64 %67
+  store i8 46, ptr %68, align 1
   %.4113 = add i32 %.392.lcssa, 1
   %.not123 = icmp ugt i32 %6, %5
   br i1 %.not123, label %._crit_edge118, label %.lr.ph117.preheader
 
 .lr.ph117.preheader:                              ; preds = %._crit_edge111
-  %70 = zext i32 %9 to i64
-  %71 = zext i32 %5 to i64
+  %69 = zext i32 %9 to i64
+  %70 = zext i32 %5 to i64
   br label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
-  %indvars.iv145 = phi i64 [ %70, %.lr.ph117.preheader ], [ %indvars.iv.next146, %.lr.ph117 ]
+  %indvars.iv145 = phi i64 [ %69, %.lr.ph117.preheader ], [ %indvars.iv.next146, %.lr.ph117 ]
   %.4115 = phi i32 [ %.4113, %.lr.ph117.preheader ], [ %.4, %.lr.ph117 ]
-  %72 = getelementptr i8, ptr %13, i64 %indvars.iv145
-  %73 = load i8, ptr %72, align 1
-  %74 = load ptr, ptr %3, align 8
-  %75 = zext i32 %.4115 to i64
-  %76 = getelementptr i8, ptr %74, i64 %75
-  store i8 %73, ptr %76, align 1
+  %71 = getelementptr i8, ptr %13, i64 %indvars.iv145
+  %72 = load i8, ptr %71, align 1
+  %73 = load ptr, ptr %3, align 8
+  %74 = zext i32 %.4115 to i64
+  %75 = getelementptr i8, ptr %73, i64 %74
+  store i8 %72, ptr %75, align 1
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %.4 = add i32 %.4115, 1
-  %77 = icmp samesign ult i64 %indvars.iv.next146, %71
-  br i1 %77, label %.lr.ph117, label %._crit_edge118, !llvm.loop !18
+  %76 = icmp samesign ult i64 %indvars.iv.next146, %70
+  br i1 %76, label %.lr.ph117, label %._crit_edge118, !llvm.loop !18
 
 ._crit_edge118:                                   ; preds = %.lr.ph117, %._crit_edge111
   %.4.lcssa = phi i32 [ %.4113, %._crit_edge111 ], [ %.4, %.lr.ph117 ]
-  %78 = load ptr, ptr %3, align 8
-  %79 = zext i32 %.4.lcssa to i64
-  %80 = getelementptr i8, ptr %78, i64 %79
-  store i8 0, ptr %80, align 1
+  %77 = load ptr, ptr %3, align 8
+  %78 = zext i32 %.4.lcssa to i64
+  %79 = getelementptr i8, ptr %77, i64 %78
+  store i8 0, ptr %79, align 1
   br label %92
 
-.lr.ph106:                                        ; preds = %.lr.ph106.preheader, %85
-  %indvars.iv130 = phi i64 [ 1, %.lr.ph106.preheader ], [ %indvars.iv.next131, %85 ]
-  %indvars.iv128 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next129, %85 ]
-  %81 = icmp samesign ult i64 %indvars.iv128, %59
-  br i1 %81, label %82, label %85
+.lr.ph106:                                        ; preds = %.lr.ph106.preheader, %84
+  %indvars.iv130 = phi i64 [ 1, %.lr.ph106.preheader ], [ %indvars.iv.next131, %84 ]
+  %indvars.iv128 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next129, %84 ]
+  %80 = icmp samesign ult i64 %indvars.iv128, %59
+  br i1 %80, label %81, label %84
 
-82:                                               ; preds = %.lr.ph106
-  %83 = getelementptr i8, ptr %13, i64 %indvars.iv128
-  %84 = load i8, ptr %83, align 1
-  br label %85
+81:                                               ; preds = %.lr.ph106
+  %82 = getelementptr i8, ptr %13, i64 %indvars.iv128
+  %83 = load i8, ptr %82, align 1
+  br label %84
 
-85:                                               ; preds = %.lr.ph106, %82
-  %.sink = phi i8 [ %84, %82 ], [ 48, %.lr.ph106 ]
-  %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr i8, ptr %86, i64 %indvars.iv130
-  store i8 %.sink, ptr %87, align 1
+84:                                               ; preds = %.lr.ph106, %81
+  %.sink = phi i8 [ %83, %81 ], [ 48, %.lr.ph106 ]
+  %85 = load ptr, ptr %3, align 8
+  %86 = getelementptr i8, ptr %85, i64 %indvars.iv130
+  store i8 %.sink, ptr %86, align 1
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count
   br i1 %exitcond135.not, label %._crit_edge.loopexit, label %.lr.ph106, !llvm.loop !19
 
-._crit_edge.loopexit:                             ; preds = %85
-  %88 = sub i32 %60, %6
+._crit_edge.loopexit:                             ; preds = %84
+  %87 = add i32 %5, 1
+  %88 = sub i32 %87, %6
   %89 = zext i32 %88 to i64
   br label %._crit_edge
 

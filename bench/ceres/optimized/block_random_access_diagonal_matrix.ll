@@ -4630,11 +4630,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const
   %smax = tail call i64 @llvm.smax.i64(i64 %9, i64 4)
   %40 = add nsw i64 %smax, -1
   %41 = lshr i64 %40, 2
-  %42 = shl i64 %5, 2
-  %43 = shl i64 %3, 2
-  %44 = mul i64 %41, %invariant.op
-  %45 = add i64 %44, %42
-  %46 = sub i64 %45, %43
+  %42 = mul i64 %41, %invariant.op
+  %43 = shl i64 %5, 2
+  %44 = add i64 %42, %43
+  %45 = shl i64 %3, 2
+  %46 = sub i64 %44, %45
   br label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge.us, %.lr.ph63.split, %7
@@ -5779,17 +5779,17 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_16blas_
   %smax = tail call i64 @llvm.smax.i64(i64 %9, i64 4)
   %39 = add nsw i64 %smax, -1
   %40 = lshr i64 %39, 2
-  %41 = shl i64 %5, 2
-  %42 = shl i64 %3, 2
-  %43 = and i64 %39, -4
-  %44 = mul i64 %40, %invariant.op
-  %45 = add i64 %44, %41
-  %46 = sub i64 %45, %42
-  %47 = add nuw nsw i64 %43, 4
+  %41 = mul i64 %40, %invariant.op
+  %42 = shl i64 %5, 2
+  %43 = add i64 %41, %42
+  %44 = shl i64 %3, 2
+  %45 = sub i64 %43, %44
+  %46 = and i64 %39, -4
+  %47 = add nuw nsw i64 %46, 4
   br label %.preheader86
 
 .preheader86:                                     ; preds = %._crit_edge.us, %.lr.ph92.split, %7
-  %.065.lcssa = phi i64 [ 0, %7 ], [ %46, %.lr.ph92.split ], [ %36, %._crit_edge.us ]
+  %.065.lcssa = phi i64 [ 0, %7 ], [ %45, %.lr.ph92.split ], [ %36, %._crit_edge.us ]
   %.064.lcssa = phi i64 [ 0, %7 ], [ %47, %.lr.ph92.split ], [ %37, %._crit_edge.us ]
   %48 = icmp slt i64 %.064.lcssa, %13
   br i1 %48, label %.lr.ph100, label %.preheader
@@ -5837,18 +5837,18 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_16blas_
   %70 = add i64 %13, %69
   %71 = lshr i64 %70, 1
   %72 = mul i64 %71, %invariant.op108
-  %73 = shl i64 %5, 1
-  %74 = shl i64 %3, 1
-  %75 = and i64 %70, -2
-  %76 = add i64 %.064.lcssa, %75
-  %77 = add i64 %.065.lcssa, %72
-  %78 = add i64 %77, %73
-  %79 = sub i64 %78, %74
-  %80 = add i64 %76, 2
+  %73 = add i64 %.065.lcssa, %72
+  %74 = shl i64 %5, 1
+  %75 = add i64 %73, %74
+  %76 = shl i64 %3, 1
+  %77 = sub i64 %75, %76
+  %78 = and i64 %70, -2
+  %79 = add i64 %.064.lcssa, %78
+  %80 = add i64 %79, 2
   br label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge.us104, %.lr.ph100.split, %.preheader86
-  %.267.lcssa = phi i64 [ %.065.lcssa, %.preheader86 ], [ %79, %.lr.ph100.split ], [ %66, %._crit_edge.us104 ]
+  %.267.lcssa = phi i64 [ %.065.lcssa, %.preheader86 ], [ %77, %.lr.ph100.split ], [ %66, %._crit_edge.us104 ]
   %.1.lcssa = phi i64 [ %.064.lcssa, %.preheader86 ], [ %80, %.lr.ph100.split ], [ %67, %._crit_edge.us104 ]
   %81 = icmp slt i64 %.1.lcssa, %4
   br i1 %81, label %.lr.ph114, label %._crit_edge115
@@ -7971,11 +7971,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const
   %smax = tail call i64 @llvm.smax.i64(i64 %9, i64 4)
   %49 = add nsw i64 %smax, -1
   %50 = lshr i64 %49, 2
-  %51 = shl i64 %5, 2
-  %52 = shl i64 %3, 2
-  %53 = mul i64 %50, %invariant.op
-  %54 = add i64 %53, %51
-  %55 = sub i64 %54, %52
+  %51 = mul i64 %50, %invariant.op
+  %52 = shl i64 %5, 2
+  %53 = add i64 %51, %52
+  %54 = shl i64 %3, 2
+  %55 = sub i64 %53, %54
   br label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge.us, %.lr.ph78.split, %7

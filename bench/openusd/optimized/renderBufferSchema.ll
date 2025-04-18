@@ -1151,11 +1151,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20HdRenderBufferSchema13BuildR
   %5 = alloca [3 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 16
   %6 = alloca [3 x %"class.std::shared_ptr.9"], align 16
   %7 = alloca %"class.std::shared_ptr.12", align 8
-  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %.0.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.0.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %10, null

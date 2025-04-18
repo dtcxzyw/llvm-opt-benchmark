@@ -10491,7 +10491,6 @@ _ZN4llvm5SDLocC2ERKS0_.exit2114:                  ; preds = %2360, %2381
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %209, ptr noundef nonnull align 8 dereferenceable(16) %2430, i64 16, i1 false), !tbaa.struct !607
   %2431 = load ptr, ptr %2417, align 8, !tbaa !341
   %2432 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(952) %2431, i64 noundef %2429, ptr noundef nonnull align 8 dereferenceable(12) %24, i16 7, ptr null, i1 noundef zeroext true, i1 noundef zeroext false) #25
-  %.fca.0.extract313 = extractvalue { ptr, i32 } %2432, 0
   %2433 = load ptr, ptr %2423, align 8, !tbaa !603
   %2434 = getelementptr inbounds nuw i8, ptr %2433, i64 80
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %210) #25
@@ -10508,6 +10507,7 @@ _ZN4llvm5SDLocC2ERKS0_.exit2114:                  ; preds = %2360, %2381
   br i1 %2437, label %2438, label %2435
 
 2438:                                             ; preds = %2435
+  %.fca.0.extract313 = extractvalue { ptr, i32 } %2432, 0
   %.fca.1.extract314 = extractvalue { ptr, i32 } %2432, 1
   store ptr %.fca.0.extract313, ptr %210, align 16, !tbaa !463
   %.sroa.4318.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 8

@@ -1904,7 +1904,6 @@ VerticalPred.exit:                                ; preds = %.preheader.i31, %.p
 
 .preheader43.preheader.i54:                       ; preds = %64, %.preheader.i34.i
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
@@ -1912,23 +1911,24 @@ VerticalPred.exit:                                ; preds = %.preheader.i31, %.p
 
 .preheader43.i55:                                 ; preds = %.preheader43.i55, %.preheader43.preheader.i54
   %indvars.iv.i56 = phi i64 [ 0, %.preheader43.preheader.i54 ], [ %indvars.iv.next.i58, %.preheader43.i55 ]
-  %.03344.i57 = phi i32 [ 0, %.preheader43.preheader.i54 ], [ %83, %.preheader43.i55 ]
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv.i56
-  %81 = load i8, ptr %80, align 1, !tbaa !14, !alias.scope !235, !noalias !237
-  %82 = zext i8 %81 to i32
-  %83 = add nuw nsw i32 %.03344.i57, %82
+  %.03344.i57 = phi i32 [ 0, %.preheader43.preheader.i54 ], [ %82, %.preheader43.i55 ]
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv.i56
+  %80 = load i8, ptr %79, align 1, !tbaa !14, !alias.scope !235, !noalias !237
+  %81 = zext i8 %80 to i32
+  %82 = add nuw nsw i32 %.03344.i57, %81
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, 8
-  br i1 %exitcond.not.i59, label %84, label %.preheader43.i55, !llvm.loop !143
+  br i1 %exitcond.not.i59, label %83, label %.preheader43.i55, !llvm.loop !143
 
-84:                                               ; preds = %.preheader43.i55
-  %.025 = select i1 %.not.i38, ptr null, ptr %79
+83:                                               ; preds = %.preheader43.i55
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.025 = select i1 %.not.i38, ptr null, ptr %84
   br i1 %.not.i38, label %89, label %.preheader42.i61
 
-.preheader42.i61:                                 ; preds = %84, %.preheader42.i61
-  %indvars.iv53.i62 = phi i64 [ %indvars.iv.next54.i64, %.preheader42.i61 ], [ 0, %84 ]
-  %.13446.i63 = phi i32 [ %88, %.preheader42.i61 ], [ %83, %84 ]
-  %85 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv53.i62
+.preheader42.i61:                                 ; preds = %83, %.preheader42.i61
+  %indvars.iv53.i62 = phi i64 [ %indvars.iv.next54.i64, %.preheader42.i61 ], [ 0, %83 ]
+  %.13446.i63 = phi i32 [ %88, %.preheader42.i61 ], [ %82, %83 ]
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %indvars.iv53.i62
   %86 = load i8, ptr %85, align 1, !tbaa !14, !alias.scope !233, !noalias !238
   %87 = zext i8 %86 to i32
   %88 = add nuw nsw i32 %.13446.i63, %87
@@ -1936,8 +1936,8 @@ VerticalPred.exit:                                ; preds = %.preheader.i31, %.p
   %exitcond57.not.i65 = icmp eq i64 %indvars.iv.next54.i64, 8
   br i1 %exitcond57.not.i65, label %.loopexit.i66, label %.preheader42.i61, !llvm.loop !145
 
-89:                                               ; preds = %84
-  %90 = shl nuw nsw i32 %83, 1
+89:                                               ; preds = %83
+  %90 = shl nuw nsw i32 %82, 1
   br label %.loopexit.i66
 
 .loopexit.i66:                                    ; preds = %.preheader42.i61, %89

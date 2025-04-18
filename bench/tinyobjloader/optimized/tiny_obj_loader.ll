@@ -16879,18 +16879,18 @@ _ZN7tinyobj6face_tC2ERKS0_.exit:                  ; preds = %_ZN7tinyobj6face_tC
   %.not414 = icmp ult i64 %.03851045, %679
   %680 = select i1 %.not414, i64 0, i64 %679
   %spec.select = sub nuw i64 %.03851045, %680
-  %681 = add i64 %.03771046, -1
-  %682 = load ptr, ptr %42, align 8, !tbaa !160
-  %683 = load ptr, ptr %6, align 8, !tbaa !157
+  %681 = load ptr, ptr %42, align 8, !tbaa !160
+  %682 = load ptr, ptr %6, align 8, !tbaa !157
+  %683 = ptrtoint ptr %681 to i64
   %684 = ptrtoint ptr %682 to i64
-  %685 = ptrtoint ptr %683 to i64
-  %686 = sub i64 %684, %685
-  %687 = ashr exact i64 %686, 2
+  %685 = sub i64 %683, %684
+  %686 = ashr exact i64 %685, 2
   br label %709
 
-688:                                              ; preds = %728
+687:                                              ; preds = %728
   %.not415 = icmp eq i64 %.03751047, %679
-  %.1378 = select i1 %.not415, i64 %681, i64 %679
+  %688 = add i64 %.03771046, -1
+  %.1378 = select i1 %.not415, i64 %688, i64 %679
   %689 = load float, ptr %43, align 4, !tbaa !26
   %690 = load float, ptr %10, align 4, !tbaa !26
   %691 = fsub float %689, %690
@@ -16912,7 +16912,7 @@ _ZN7tinyobj6face_tC2ERKS0_.exit:                  ; preds = %_ZN7tinyobj6face_tC
   %707 = fcmp olt float %706, 0.000000e+00
   br i1 %707, label %731, label %.preheader983
 
-.preheader983:                                    ; preds = %688
+.preheader983:                                    ; preds = %687
   %708 = icmp ugt i64 %679, 3
   br i1 %708, label %.lr.ph, label %.critedge978.loopexit
 
@@ -16927,12 +16927,12 @@ _ZN7tinyobj6face_tC2ERKS0_.exit:                  ; preds = %_ZN7tinyobj6face_tC
   %715 = sext i32 %714 to i64
   %716 = mul nsw i64 %715, 3
   %717 = add nsw i64 %716, %.sroa.0.1
-  %.not423 = icmp ult i64 %717, %687
+  %.not423 = icmp ult i64 %717, %686
   br i1 %.not423, label %718, label %720
 
 718:                                              ; preds = %709
   %719 = add nsw i64 %716, %.sroa.9.1
-  %.not424 = icmp ult i64 %719, %687
+  %.not424 = icmp ult i64 %719, %686
   br i1 %.not424, label %722, label %720
 
 720:                                              ; preds = %718, %709
@@ -16941,11 +16941,11 @@ _ZN7tinyobj6face_tC2ERKS0_.exit:                  ; preds = %_ZN7tinyobj6face_tC
   br label %728
 
 722:                                              ; preds = %718
-  %723 = getelementptr inbounds nuw float, ptr %683, i64 %717
+  %723 = getelementptr inbounds nuw float, ptr %682, i64 %717
   %724 = load float, ptr %723, align 4, !tbaa !26
   %725 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %.03741040
   store float %724, ptr %725, align 4, !tbaa !26
-  %726 = getelementptr inbounds nuw float, ptr %683, i64 %719
+  %726 = getelementptr inbounds nuw float, ptr %682, i64 %719
   %727 = load float, ptr %726, align 4, !tbaa !26
   br label %728
 
@@ -16955,9 +16955,9 @@ _ZN7tinyobj6face_tC2ERKS0_.exit:                  ; preds = %_ZN7tinyobj6face_tC
   store float %.sink, ptr %729, align 4, !tbaa !26
   %730 = add nuw nsw i64 %.03741040, 1
   %exitcond1091.not = icmp eq i64 %730, 3
-  br i1 %exitcond1091.not, label %688, label %709, !llvm.loop !371
+  br i1 %exitcond1091.not, label %687, label %709, !llvm.loop !371
 
-731:                                              ; preds = %688
+731:                                              ; preds = %687
   %732 = add i64 %spec.select, 1
   br label %931, !llvm.loop !372
 
@@ -16970,18 +16970,18 @@ _ZN7tinyobj6face_tC2ERKS0_.exit:                  ; preds = %_ZN7tinyobj6face_tC
   %737 = sext i32 %736 to i64
   %738 = mul nsw i64 %737, 3
   %739 = add nsw i64 %738, %.sroa.0.1
-  %.not417 = icmp ult i64 %739, %687
+  %.not417 = icmp ult i64 %739, %686
   br i1 %.not417, label %740, label %select.unfold
 
 740:                                              ; preds = %.lr.ph
   %741 = add nsw i64 %738, %.sroa.9.1
-  %.not418 = icmp ult i64 %741, %687
+  %.not418 = icmp ult i64 %741, %686
   br i1 %.not418, label %742, label %select.unfold
 
 742:                                              ; preds = %740
-  %743 = getelementptr inbounds nuw float, ptr %683, i64 %739
+  %743 = getelementptr inbounds nuw float, ptr %682, i64 %739
   %744 = load float, ptr %743, align 4, !tbaa !26
-  %745 = getelementptr inbounds nuw float, ptr %683, i64 %741
+  %745 = getelementptr inbounds nuw float, ptr %682, i64 %741
   %746 = load float, ptr %745, align 4, !tbaa !26
   br label %747
 

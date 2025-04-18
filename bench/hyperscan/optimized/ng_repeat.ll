@@ -2986,8 +2986,8 @@ _ZN3ue212is_triggeredERKNS_8NGHolderE.exit:       ; preds = %_ZNSt10unique_ptrIN
   %953 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %954 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %955 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %956 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %957 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %956 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %957 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %958 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %959 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %960 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -4582,8 +4582,8 @@ _ZNK3ue29CharReach3allEv.exit.thread.i:           ; preds = %.loopexit189.i, %_Z
 
 ._crit_edge.i.i410:                               ; preds = %.lr.ph.i.i409
   store i64 %1557, ptr %23, align 8, !alias.scope !99
-  store i64 %1560, ptr %957, align 8, !alias.scope !99
-  store i64 %1563, ptr %956, align 8, !alias.scope !99
+  store i64 %1560, ptr %956, align 8, !alias.scope !99
+  store i64 %1563, ptr %957, align 8, !alias.scope !99
   store i64 %1566, ptr %958, align 8, !alias.scope !99
   br label %_ZN3ue2L9predReachERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit.i
 

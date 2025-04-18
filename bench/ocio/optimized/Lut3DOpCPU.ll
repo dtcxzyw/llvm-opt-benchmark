@@ -1481,54 +1481,54 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %26 = alloca [3 x float], align 4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !110
-  %29 = add i64 %28, -3
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val = load i64, ptr %30, align 8, !tbaa !111
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.val120 = load i64, ptr %31, align 8, !tbaa !112
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val = load i64, ptr %29, align 8, !tbaa !111
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.val120 = load i64, ptr %30, align 8, !tbaa !112
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %32 = load i64, ptr %31, align 8, !tbaa !110
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i64, ptr %33, align 8, !tbaa !110
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %36 = load i64, ptr %35, align 8, !tbaa !110
-  %37 = mul i64 %36, %34
-  store i64 %37, ptr %17, align 16, !tbaa !110
-  %38 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 %34, ptr %38, align 8, !tbaa !110
-  %39 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 1, ptr %39, align 16, !tbaa !110
+  %35 = mul i64 %34, %32
+  store i64 %35, ptr %17, align 16, !tbaa !110
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 %32, ptr %36, align 8, !tbaa !110
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i64 1, ptr %37, align 16, !tbaa !110
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %18) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %18, i8 0, i64 16, i1 false)
-  %40 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i64 1, ptr %38, align 16
+  %39 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i64 1, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i64 1, ptr %40, align 16
-  %41 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i64 1, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store i64 1, ptr %42, align 16
-  %43 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store i64 1, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store i64 1, ptr %44, align 16
-  %45 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  store i64 1, ptr %45, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %19) #28
-  %46 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %46, i8 0, i64 48, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %44, i8 0, i64 48, i1 false)
   store i64 2, ptr %19, align 16
-  %47 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i64 1, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 1, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i64 2, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store i64 2, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %19, i64 56
   store i64 2, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store i64 2, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  store i64 2, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20) #28
   br label %53
 
 .preheader151:                                    ; preds = %53
-  %51 = uitofp i64 %29 to float
+  %49 = add i64 %28, -3
+  %50 = uitofp i64 %49 to float
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.not = icmp eq i64 %.val, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1538,11 +1538,11 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %54 = mul nuw nsw i64 %indvars.iv, 3
   %55 = getelementptr inbounds nuw [24 x i64], ptr @__const._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5applyEPKvPvl.new_verts, i64 0, i64 %54
   %56 = load i64, ptr %55, align 8, !tbaa !110
-  %57 = mul i64 %56, %37
+  %57 = mul i64 %56, %35
   %58 = add nuw nsw i64 %54, 1
   %59 = getelementptr inbounds nuw [24 x i64], ptr @__const._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5applyEPKvPvl.new_verts, i64 0, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !110
-  %61 = mul i64 %60, %34
+  %61 = mul i64 %60, %32
   %62 = add i64 %61, %57
   %63 = add nuw nsw i64 %54, 2
   %64 = getelementptr inbounds nuw [24 x i64], ptr @__const._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5applyEPKvPvl.new_verts, i64 0, i64 %63
@@ -1587,7 +1587,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %82 = shl nuw i64 %.val, 3
-  %.val121.pre = load ptr, ptr %32, align 8, !tbaa !106
+  %.val121.pre = load ptr, ptr %51, align 8, !tbaa !106
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val121.pre, i64 72
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !115
   %.phi.trans.insert178 = getelementptr inbounds nuw i8, ptr %.val121.pre, i64 64
@@ -2299,24 +2299,24 @@ select.unfold:                                    ; preds = %.thread347.i
   %408 = fadd float %406, -1.000000e+00
   %409 = fcmp ogt float %408, 0.000000e+00
   %.sroa.speculated2.i135 = select i1 %409, float %408, float 0.000000e+00
-  %410 = fcmp ogt float %.sroa.speculated2.i135, %51
-  %.sroa.speculated.i136 = select i1 %410, float %51, float %.sroa.speculated2.i135
+  %410 = fcmp ogt float %.sroa.speculated2.i135, %50
+  %.sroa.speculated.i136 = select i1 %410, float %50, float %.sroa.speculated2.i135
   %411 = load float, ptr %74, align 8, !tbaa !67
   %412 = fmul float %411, %.sroa.speculated.i136
   store float %412, ptr %.0111166, align 4, !tbaa !99
   %413 = fadd float %405, -1.000000e+00
   %414 = fcmp ogt float %413, 0.000000e+00
   %.sroa.speculated2.i137 = select i1 %414, float %413, float 0.000000e+00
-  %415 = fcmp ogt float %.sroa.speculated2.i137, %51
-  %.sroa.speculated.i138 = select i1 %415, float %51, float %.sroa.speculated2.i137
+  %415 = fcmp ogt float %.sroa.speculated2.i137, %50
+  %.sroa.speculated.i138 = select i1 %415, float %50, float %.sroa.speculated2.i137
   %416 = load float, ptr %74, align 8, !tbaa !67
   %417 = fmul float %416, %.sroa.speculated.i138
   store float %417, ptr %102, align 4, !tbaa !99
   %418 = fadd float %404, -1.000000e+00
   %419 = fcmp ogt float %418, 0.000000e+00
   %.sroa.speculated2.i139 = select i1 %419, float %418, float 0.000000e+00
-  %420 = fcmp ogt float %.sroa.speculated2.i139, %51
-  %.sroa.speculated.i140 = select i1 %420, float %51, float %.sroa.speculated2.i139
+  %420 = fcmp ogt float %.sroa.speculated2.i139, %50
+  %.sroa.speculated.i140 = select i1 %420, float %50, float %.sroa.speculated2.i139
   %421 = load float, ptr %74, align 8, !tbaa !67
   %422 = fmul float %421, %.sroa.speculated.i140
   store float %422, ptr %103, align 4, !tbaa !99
@@ -2878,12 +2878,12 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer18extrapolate3DArrayERSt
   store i64 %234, ptr %238, align 8, !tbaa !110
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %241, align 8, !tbaa !110
-  %.sink109.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %360
 
 242:                                              ; preds = %360
-  %.sink106.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink109.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sink109.i.sroa.gep129.i = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %.sink106.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sink106.i.sroa.gep130.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   %243 = fadd float %.sroa.speculated.i, -2.000000e+00
   %244 = call { float, i32 } @llvm.frexp.f32.i32(float %243)

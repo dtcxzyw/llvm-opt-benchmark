@@ -1583,27 +1583,27 @@ _ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit: ; p
 _ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit.thread74: ; preds = %4, %.critedge, %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit
   %.0.lcssa109 = phi i8 [ %17, %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit ], [ %17, %.critedge ], [ 3, %4 ]
   %30 = phi i32 [ %28, %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit ], [ 51, %.critedge ], [ 51, %4 ]
-  %31 = trunc nuw nsw i32 %30 to i8
-  %32 = and i32 %30, -16
-  br label %33
+  %31 = and i32 %30, -16
+  br label %32
 
-33:                                               ; preds = %33, %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit.thread74
-  %.010.i = phi i8 [ 0, %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit.thread74 ], [ %39, %33 ]
-  %.sroa.04.09.i = phi i64 [ 0, %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit.thread74 ], [ %40, %33 ]
-  %34 = trunc i64 %.sroa.04.09.i to i32
-  %35 = shl i32 %34, 1
-  %36 = lshr i32 %32, %35
-  %37 = trunc nuw nsw i32 %36 to i8
-  %38 = and i8 %37, 3
-  %39 = or i8 %38, %.010.i
-  %40 = add nuw nsw i64 %.sroa.04.09.i, 1
-  %.not.i34 = icmp eq i64 %40, 3
-  br i1 %.not.i34, label %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit, label %33
+32:                                               ; preds = %32, %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit.thread74
+  %.010.i = phi i8 [ 0, %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit.thread74 ], [ %38, %32 ]
+  %.sroa.04.09.i = phi i64 [ 0, %_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8CallBaseERNS_11AAQueryInfoE.exit.thread74 ], [ %39, %32 ]
+  %33 = trunc i64 %.sroa.04.09.i to i32
+  %34 = shl i32 %33, 1
+  %35 = lshr i32 %31, %34
+  %36 = trunc nuw nsw i32 %35 to i8
+  %37 = and i8 %36, 3
+  %38 = or i8 %37, %.010.i
+  %39 = add nuw nsw i64 %.sroa.04.09.i, 1
+  %.not.i34 = icmp eq i64 %39, 3
+  br i1 %.not.i34, label %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit, label %32
 
-_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit: ; preds = %33
-  %41 = and i8 %31, 3
-  %42 = or i8 %39, %41
-  %.not = icmp eq i8 %42, %39
+_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit: ; preds = %32
+  %40 = trunc nuw nsw i32 %30 to i8
+  %41 = and i8 %40, 3
+  %42 = or i8 %38, %41
+  %.not = icmp eq i8 %42, %38
   br i1 %.not, label %91, label %43
 
 43:                                               ; preds = %_ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit
@@ -1624,7 +1624,7 @@ _ZNK4llvm17MemoryEffectsBaseINS_13IRMemLocationEE9getModRefEv.exit: ; preds = %3
 ._crit_edge:                                      ; preds = %88, %43
   %.070.lcssa = phi i8 [ 0, %43 ], [ %.171, %88 ]
   %52 = and i8 %.070.lcssa, %41
-  %.pre106 = or i8 %52, %39
+  %.pre106 = or i8 %52, %38
   br label %91
 
 53:                                               ; preds = %.lr.ph95, %88

@@ -729,9 +729,9 @@ check_and_push_malloc_block.exit37.i:             ; preds = %208, %204
   %274 = shl nuw nsw i64 %273, 2
   %275 = add nuw nsw i64 %274, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, i8 -1, i64 %275, i1 false)
-  %276 = add nsw i64 %269, 1
-  %277 = sext i32 %260 to i64
-  %smax = call i64 @llvm.smax.i64(i64 %276, i64 %277)
+  %276 = sext i32 %260 to i64
+  %277 = add nsw i64 %269, 1
+  %smax = call i64 @llvm.smax.i64(i64 %277, i64 %276)
   %278 = trunc nsw i64 %smax to i32
   br label %._crit_edge.i
 

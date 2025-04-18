@@ -2000,13 +2000,13 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   br i1 %or.cond852.not, label %.lr.ph772.preheader, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4all_Ev.exit.thread
 
 .lr.ph772.preheader:                              ; preds = %.critedge863
-  %121 = mul i32 %113, %111
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %123 = load ptr, ptr %122, align 8
-  %124 = add i32 %121, %110
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %122 = load ptr, ptr %121, align 8
+  %123 = mul i32 %113, %111
+  %124 = add i32 %123, %110
   %125 = mul i32 %124, %115
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw float, ptr %123, i64 %126
+  %127 = getelementptr inbounds nuw float, ptr %122, i64 %126
   br label %.lr.ph772
 
 .lr.ph772:                                        ; preds = %.lr.ph772.preheader, %.lr.ph772
@@ -2068,33 +2068,33 @@ _ZNKSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE3strB8ne1
   %174 = add i32 %173, %144
   %..i.i496 = call noundef i32 @llvm.smin.i32(i32 %172, i32 %170)
   %..i.i496.c = call noundef i32 @llvm.smin.i32(i32 %174, i32 %171)
-  %175 = sub i32 %..i.i496, %..i.i
-  %176 = add i32 %175, 1
-  %177 = mul i32 %..i.i.c, %142
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %179 = load i32, ptr %178, align 4
-  %180 = fmul contract float %136, 2.000000e+00
-  %181 = call contract noundef float @llvm.ceil.f32(float %180)
-  %182 = icmp ule i32 %..i.i, %..i.i496
-  %183 = icmp ule i32 %..i.i.c, %..i.i496.c
-  %184 = sub i32 %..i.i496.c, %..i.i.c
-  %185 = add i32 %184, 1
-  %186 = add i32 %177, %..i.i
-  %187 = mul i32 %179, %186
-  %188 = fptoui float %181 to i32
-  %or.cond716.not = and i1 %182, %183
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %176 = load i32, ptr %175, align 4
+  %177 = icmp ule i32 %..i.i, %..i.i496
+  %178 = icmp ule i32 %..i.i.c, %..i.i496.c
+  %179 = sub i32 %..i.i496, %..i.i
+  %180 = sub i32 %..i.i496.c, %..i.i.c
+  %181 = add i32 %179, 1
+  %182 = add i32 %180, 1
+  %183 = mul i32 %..i.i.c, %142
+  %184 = add i32 %183, %..i.i
+  %185 = mul i32 %176, %184
+  %186 = fmul contract float %136, 2.000000e+00
+  %187 = call contract noundef float @llvm.ceil.f32(float %186)
+  %188 = fptoui float %187 to i32
+  %or.cond716.not = and i1 %177, %178
   br i1 %or.cond716.not, label %189, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4all_Ev.exit.thread
 
 189:                                              ; preds = %.critedge
   %190 = uitofp nneg i32 %..i.i.c to float
   %191 = fsub contract float %190, %159
-  %192 = zext i32 %176 to i64
+  %192 = zext i32 %181 to i64
   %193 = shl nuw nsw i64 %192, 2
   %194 = alloca i8, i64 %193, align 16
-  %195 = zext i32 %185 to i64
+  %195 = zext i32 %182 to i64
   %196 = shl nuw nsw i64 %195, 2
   %197 = alloca i8, i64 %196, align 16
-  %.not776 = icmp eq i32 %176, 0
+  %.not776 = icmp eq i32 %181, 0
   br i1 %.not776, label %.preheader725, label %_ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit.lr.ph
 
 _ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit.lr.ph: ; preds = %189
@@ -2108,7 +2108,7 @@ _ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit.lr.ph: ; preds = %189
   br label %_ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit
 
 .preheader725:                                    ; preds = %_ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit, %189
-  %.not777 = icmp eq i32 %185, 0
+  %.not777 = icmp eq i32 %182, 0
   br i1 %.not777, label %._crit_edge, label %_ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit507.lr.ph
 
 _ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit507.lr.ph: ; preds = %.preheader725
@@ -2242,13 +2242,13 @@ _ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit507: ; preds = %_ZN5drjit6gath
 .preheader724.us.preheader:                       ; preds = %.loopexit.thread, %.preheader724.lr.ph
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 40
   %263 = load ptr, ptr %.in, align 8
-  %264 = sub i32 %142, %176
+  %264 = sub i32 %142, %181
   br label %.preheader724.us
 
 .preheader724.us:                                 ; preds = %.preheader724.us.preheader, %._crit_edge760.us
-  %265 = phi i32 [ %179, %.preheader724.us.preheader ], [ %286, %._crit_edge760.us ]
+  %265 = phi i32 [ %176, %.preheader724.us.preheader ], [ %286, %._crit_edge760.us ]
   %indvars.iv823 = phi i64 [ 0, %.preheader724.us.preheader ], [ %indvars.iv.next824, %._crit_edge760.us ]
-  %.0762.us = phi i32 [ %187, %.preheader724.us.preheader ], [ %288, %._crit_edge760.us ]
+  %.0762.us = phi i32 [ %185, %.preheader724.us.preheader ], [ %288, %._crit_edge760.us ]
   %266 = getelementptr inbounds nuw float, ptr %197, i64 %indvars.iv823
   %.not782 = icmp eq i32 %265, 0
   br i1 %.not782, label %._crit_edge760.us, label %.preheader723.us764
@@ -2273,7 +2273,7 @@ _ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit507: ; preds = %_ZN5drjit6gath
   store float %275, ptr %272, align 4
   %276 = add i32 %.2472753.us, 1
   %indvars.iv.next816 = add nuw nsw i64 %indvars.iv815, 1
-  %277 = load i32, ptr %178, align 4
+  %277 = load i32, ptr %175, align 4
   %278 = zext i32 %277 to i64
   %279 = icmp samesign ult i64 %indvars.iv.next816, %278
   br i1 %279, label %269, label %._crit_edge756.us, !llvm.loop !37
@@ -2496,28 +2496,28 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4add_ERKS3_.exit.critedge: ; p
   %94 = add i32 %93, %58
   %..i.i536 = tail call noundef i32 @llvm.smin.i32(i32 %92, i32 %90)
   %..i.i536.c = tail call noundef i32 @llvm.smin.i32(i32 %94, i32 %91)
-  %95 = sub i32 %..i.i536, %..i.i
-  %96 = add i32 %95, 1
-  %97 = mul i32 %..i.i.c, %62
-  %98 = add i32 %97, %..i.i
-  %99 = icmp ule i32 %..i.i, %..i.i536
-  %100 = icmp ule i32 %..i.i.c, %..i.i536.c
-  %101 = sub i32 %..i.i536.c, %..i.i.c
-  %102 = add i32 %101, 1
-  %103 = mul i32 %98, %74
-  %or.cond696.not = and i1 %99, %100
+  %95 = icmp ule i32 %..i.i, %..i.i536
+  %96 = icmp ule i32 %..i.i.c, %..i.i536.c
+  %97 = sub i32 %..i.i536, %..i.i
+  %98 = sub i32 %..i.i536.c, %..i.i.c
+  %99 = add i32 %97, 1
+  %100 = add i32 %98, 1
+  %101 = mul i32 %..i.i.c, %62
+  %102 = add i32 %101, %..i.i
+  %103 = mul i32 %102, %74
+  %or.cond696.not = and i1 %95, %96
   br i1 %or.cond696.not, label %104, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
 
 104:                                              ; preds = %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4add_ERKS3_.exit.critedge
   %105 = uitofp nneg i32 %..i.i.c to float
   %106 = fsub contract float %105, %79
-  %107 = zext i32 %96 to i64
+  %107 = zext i32 %99 to i64
   %108 = shl nuw nsw i64 %107, 2
   %109 = alloca i8, i64 %108, align 16
-  %110 = zext i32 %102 to i64
+  %110 = zext i32 %100 to i64
   %111 = shl nuw nsw i64 %110, 2
   %112 = alloca i8, i64 %111, align 16
-  %.not755 = icmp eq i32 %96, 0
+  %.not755 = icmp eq i32 %99, 0
   br i1 %.not755, label %.preheader701, label %_ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit.lr.ph
 
 _ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit.lr.ph: ; preds = %104
@@ -2531,7 +2531,7 @@ _ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit.lr.ph: ; preds = %104
   br label %_ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit
 
 .preheader701:                                    ; preds = %_ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit, %104
-  %.not756 = icmp eq i32 %102, 0
+  %.not756 = icmp eq i32 %100, 0
   br i1 %.not756, label %._crit_edge, label %_ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit543.lr.ph
 
 _ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit543.lr.ph: ; preds = %.preheader701
@@ -2644,7 +2644,7 @@ _ZN5drjit6gatherIfLb0EPKfjbEET_OT1_RKT2_RKT3_.exit543: ; preds = %_ZN5drjit6gath
 .lr.ph739.split.us:                               ; preds = %.loopexit.thread, %.lr.ph739
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %162 = sub i32 %62, %96
+  %162 = sub i32 %62, %99
   %163 = and i1 %3, %.fr762
   br label %.lr.ph732.us
 

@@ -379,69 +379,66 @@ define zeroext range(i16 0, 1201) i16 @ossl_ifc_ffc_compute_security_bits(i32 no
   br i1 %11, label %47, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp samesign ult i32 %0, 15361
-  %. = select i1 %13, i16 256, i16 1200
-  %14 = zext nneg i32 %0 to i64
-  %15 = mul nuw nsw i64 %14, 181704
-  br label %16
+  %13 = zext nneg i32 %0 to i64
+  %14 = mul nuw nsw i64 %13, 181704
+  br label %15
 
-16:                                               ; preds = %16, %12
-  %.020.i = phi i32 [ 0, %12 ], [ %18, %16 ]
-  %.01419.i = phi i64 [ %15, %12 ], [ %17, %16 ]
-  %17 = lshr i64 %.01419.i, 1
-  %18 = add nuw nsw i32 %.020.i, 262144
-  %19 = icmp samesign ugt i64 %.01419.i, 1048575
-  br i1 %19, label %16, label %.preheader.i.preheader, !llvm.loop !44
+15:                                               ; preds = %15, %12
+  %.020.i = phi i32 [ 0, %12 ], [ %17, %15 ]
+  %.01419.i = phi i64 [ %14, %12 ], [ %16, %15 ]
+  %16 = lshr i64 %.01419.i, 1
+  %17 = add nuw nsw i32 %.020.i, 262144
+  %18 = icmp samesign ugt i64 %.01419.i, 1048575
+  br i1 %18, label %15, label %.preheader.i, !llvm.loop !44
 
-.preheader.i.preheader:                           ; preds = %16
-  %20 = icmp samesign ult i32 %0, 7681
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
-  %.123.i = phi i32 [ %.2.i, %.preheader.i ], [ %18, %.preheader.i.preheader ]
-  %.01322.i = phi i32 [ %24, %.preheader.i ], [ 131072, %.preheader.i.preheader ]
-  %.11521.i = phi i64 [ %.216.i, %.preheader.i ], [ %17, %.preheader.i.preheader ]
-  %21 = mul i64 %.11521.i, %.11521.i
-  %22 = icmp ugt i64 %21, 137438953471
-  %.216.v.i = select i1 %22, i64 19, i64 18
-  %.216.i = lshr i64 %21, %.216.v.i
-  %23 = select i1 %22, i32 %.01322.i, i32 0
-  %.2.i = add i32 %23, %.123.i
-  %24 = lshr i32 %.01322.i, 1
+.preheader.i:                                     ; preds = %15, %.preheader.i
+  %.123.i = phi i32 [ %.2.i, %.preheader.i ], [ %17, %15 ]
+  %.01322.i = phi i32 [ %22, %.preheader.i ], [ 131072, %15 ]
+  %.11521.i = phi i64 [ %.216.i, %.preheader.i ], [ %16, %15 ]
+  %19 = mul i64 %.11521.i, %.11521.i
+  %20 = icmp ugt i64 %19, 137438953471
+  %.216.v.i = select i1 %20, i64 19, i64 18
+  %.216.i = lshr i64 %19, %.216.v.i
+  %21 = select i1 %20, i32 %.01322.i, i32 0
+  %.2.i = add i32 %21, %.123.i
+  %22 = lshr i32 %.01322.i, 1
   %.not.i = icmp samesign ult i32 %.01322.i, 2
   br i1 %.not.i, label %ilog_e.exit, label %.preheader.i, !llvm.loop !46
 
 ilog_e.exit:                                      ; preds = %.preheader.i
-  %25 = zext i32 %.2.i to i64
-  %26 = shl nuw nsw i64 %25, 18
-  %27 = udiv i64 %26, 378193
-  %28 = mul i64 %27, %15
+  %23 = zext i32 %.2.i to i64
+  %24 = shl nuw nsw i64 %23, 18
+  %25 = udiv i64 %24, 378193
+  %26 = mul i64 %25, %14
+  %27 = lshr i64 %26, 18
+  %28 = mul i64 %27, %25
   %29 = lshr i64 %28, 18
-  %30 = mul i64 %29, %27
-  %31 = lshr i64 %30, 18
-  br label %32
+  br label %30
 
-32:                                               ; preds = %32, %ilog_e.exit
-  %indvars.iv.i = phi i64 [ 63, %ilog_e.exit ], [ %indvars.iv.next.i, %32 ]
-  %.01319.i = phi i64 [ %31, %ilog_e.exit ], [ %.1.i, %32 ]
-  %.01418.i = phi i64 [ 0, %ilog_e.exit ], [ %.115.i, %32 ]
-  %33 = shl i64 %.01418.i, 1
-  %34 = mul i64 %.01418.i, 6
-  %35 = or disjoint i64 %33, 1
-  %36 = mul i64 %34, %35
-  %37 = lshr i64 %.01319.i, %indvars.iv.i
-  %.not.not.i = icmp ugt i64 %37, %36
-  %.neg.i = xor i64 %36, -1
+30:                                               ; preds = %30, %ilog_e.exit
+  %indvars.iv.i = phi i64 [ 63, %ilog_e.exit ], [ %indvars.iv.next.i, %30 ]
+  %.01319.i = phi i64 [ %29, %ilog_e.exit ], [ %.1.i, %30 ]
+  %.01418.i = phi i64 [ 0, %ilog_e.exit ], [ %.115.i, %30 ]
+  %31 = shl i64 %.01418.i, 1
+  %32 = mul i64 %.01418.i, 6
+  %33 = or disjoint i64 %31, 1
+  %34 = mul i64 %32, %33
+  %35 = lshr i64 %.01319.i, %indvars.iv.i
+  %.not.not.i = icmp ugt i64 %35, %34
+  %.neg.i = xor i64 %34, -1
   %.neg17.i = shl i64 %.neg.i, %indvars.iv.i
-  %.115.i = select i1 %.not.not.i, i64 %35, i64 %33
-  %38 = select i1 %.not.not.i, i64 %.neg17.i, i64 0
-  %.1.i = add i64 %38, %.01319.i
+  %.115.i = select i1 %.not.not.i, i64 %33, i64 %31
+  %36 = select i1 %.not.not.i, i64 %.neg17.i, i64 0
+  %.1.i = add i64 %36, %.01319.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -3
-  %39 = icmp ugt i64 %indvars.iv.i, 2
-  br i1 %39, label %32, label %icbrt64.exit, !llvm.loop !47
+  %37 = icmp ugt i64 %indvars.iv.i, 2
+  br i1 %37, label %30, label %icbrt64.exit, !llvm.loop !47
 
-icbrt64.exit:                                     ; preds = %32
-  %.0 = select i1 %20, i16 192, i16 %.
+icbrt64.exit:                                     ; preds = %30
+  %38 = icmp samesign ult i32 %0, 7681
+  %39 = icmp samesign ult i32 %0, 15361
+  %. = select i1 %39, i16 256, i16 1200
+  %.0 = select i1 %38, i16 192, i16 %.
   %40 = mul i64 %.115.i, 2064801792
   %41 = lshr i64 %40, 18
   %42 = add nsw i64 %41, -1229455

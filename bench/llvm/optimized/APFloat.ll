@@ -7519,15 +7519,15 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK4llvm6detail9IEEEFloat16conve
   %narrow.i = add nuw nsw i32 %26, 8
   %27 = zext nneg i32 %narrow.i to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %1, i8 -1, i64 %27, i1 false), !tbaa !36
-  %28 = and i32 %24, -64
-  %29 = add nuw nsw i32 %25, 1
-  %30 = add i32 %22, -64
-  %31 = sub i32 %30, %28
+  %28 = add nuw nsw i32 %25, 1
+  %29 = add i32 %22, -64
+  %30 = and i32 %24, -64
+  %31 = sub i32 %29, %30
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %19, %21
   %.011.lcssa.i = phi i32 [ %22, %21 ], [ %20, %19 ], [ %31, %.lr.ph.preheader.i ]
-  %.0.lcssa.i = phi i32 [ 0, %21 ], [ 0, %19 ], [ %29, %.lr.ph.preheader.i ]
+  %.0.lcssa.i = phi i32 [ 0, %21 ], [ 0, %19 ], [ %28, %.lr.ph.preheader.i ]
   %.not.i = icmp eq i32 %.011.lcssa.i, 0
   br i1 %.not.i, label %39, label %32
 
@@ -10729,14 +10729,14 @@ define dso_local void @_ZNK4llvm6detail9IEEEFloat30convertQuadrupleAPFloatToAPIn
   ]
 
 _ZNSt5arrayImLm2EE4fillERKm.exit.loopexit.i:      ; preds = %30
-  %31 = add nsw i32 %6, -16383
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i8 0, i64 16, i1 false), !tbaa !36, !noalias !341
+  %31 = add nsw i32 %6, -16383
   %32 = zext i32 %31 to i64
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L11semIEEEquadEEEENS_5APIntEv.exit
 
 _ZNSt5arrayImLm2EE4fillERKm.exit.loopexit23.i:    ; preds = %30
-  %33 = or disjoint i32 %6, 16384
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i8 0, i64 16, i1 false), !tbaa !36, !noalias !341
+  %33 = or disjoint i32 %6, 16384
   %34 = zext nneg i32 %33 to i64
   br label %_ZNK4llvm6detail9IEEEFloat23convertIEEEFloatToAPIntIL_ZNS_L11semIEEEquadEEEENS_5APIntEv.exit
 

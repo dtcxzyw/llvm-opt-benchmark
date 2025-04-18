@@ -2306,9 +2306,9 @@ common.resume:                                    ; preds = %289, %263, %188, %1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !555
   %156 = load i32, ptr %116, align 4, !alias.scope !552, !noalias !575
   %157 = load i32, ptr %117, align 4, !alias.scope !552, !noalias !575
-  %158 = add i32 %157, %156
   %.sroa.0.0.copyload71 = load <3 x i32>, ptr %.sroa.0.0.copyload, align 4, !noalias !576
   %.sroa.0.0.vec.expand = shufflevector <3 x i32> %.sroa.0.0.copyload71, <3 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 poison>
+  %158 = add i32 %157, %156
   %159 = call i32 @llvm.bswap.i32(i32 %158)
   %.sroa.0.12.vec.insert = insertelement <4 x i32> %.sroa.0.0.vec.expand, i32 %159, i64 3
   %160 = bitcast <4 x i32> %.sroa.0.12.vec.insert to <2 x i64>

@@ -176,7 +176,6 @@ define internal fastcc void @shape_clip0(ptr noundef nonnull %0, ptr noundef rea
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load double, ptr %12, align 8, !tbaa !39
-  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 56
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %.pre = load double, ptr %14, align 8, !tbaa !41
@@ -214,6 +213,7 @@ define internal fastcc void @shape_clip0(ptr noundef nonnull %0, ptr noundef rea
   br i1 %3, label %34, label %32
 
 32:                                               ; preds = %25
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 56
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 48
   br label %34
 

@@ -753,150 +753,151 @@ _ZL11projectPolyPKfS0_iRfS1_.exit.loopexit.us:    ; preds = %.lr.ph.i.us
   %63 = load float, ptr %59, align 4
   %64 = fsub float %7, %63
   %65 = fneg float %64
-  %66 = fmul float %9, %65
   br i1 %13, label %_ZL11projectPolyPKfS0_iRfS1_.exit.us113, label %_ZL11projectPolyPKfS0_iRfS1_.exit
 
 _ZL11projectPolyPKfS0_iRfS1_.exit.us113:          ; preds = %.lr.ph.split
-  %67 = fmul float %12, %65
-  %68 = tail call noundef float @llvm.fmuladd.f32(float %62, float %10, float %67)
+  %66 = fmul float %12, %65
+  %67 = tail call noundef float @llvm.fmuladd.f32(float %62, float %10, float %66)
   br label %.lr.ph.i47.us117
 
 .lr.ph.i47.us117:                                 ; preds = %.lr.ph.i47.us117, %_ZL11projectPolyPKfS0_iRfS1_.exit.us113
-  %.0101.us118 = phi float [ %68, %_ZL11projectPolyPKfS0_iRfS1_.exit.us113 ], [ %78, %.lr.ph.i47.us117 ]
-  %.099.us119 = phi float [ %68, %_ZL11projectPolyPKfS0_iRfS1_.exit.us113 ], [ %76, %.lr.ph.i47.us117 ]
+  %.0101.us118 = phi float [ %67, %_ZL11projectPolyPKfS0_iRfS1_.exit.us113 ], [ %77, %.lr.ph.i47.us117 ]
+  %.099.us119 = phi float [ %67, %_ZL11projectPolyPKfS0_iRfS1_.exit.us113 ], [ %75, %.lr.ph.i47.us117 ]
   %indvars.iv.i48.us120 = phi i64 [ 1, %_ZL11projectPolyPKfS0_iRfS1_.exit.us113 ], [ %indvars.iv.next.i50.us122, %.lr.ph.i47.us117 ]
   %.idx.i49.us121 = mul nuw nsw i64 %indvars.iv.i48.us120, 12
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i49.us121
-  %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %72 = load float, ptr %71, align 4
-  %73 = fmul float %72, %65
-  %74 = tail call noundef float @llvm.fmuladd.f32(float %62, float %70, float %73)
-  %75 = fcmp olt float %.099.us119, %74
-  %76 = select i1 %75, float %.099.us119, float %74
-  %77 = fcmp ogt float %.0101.us118, %74
-  %78 = select i1 %77, float %.0101.us118, float %74
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i49.us121
+  %69 = load float, ptr %68, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %71 = load float, ptr %70, align 4
+  %72 = fmul float %71, %65
+  %73 = tail call noundef float @llvm.fmuladd.f32(float %62, float %69, float %72)
+  %74 = fcmp olt float %.099.us119, %73
+  %75 = select i1 %74, float %.099.us119, float %73
+  %76 = fcmp ogt float %.0101.us118, %73
+  %77 = select i1 %76, float %.0101.us118, float %73
   %indvars.iv.next.i50.us122 = add nuw nsw i64 %indvars.iv.i48.us120, 1
   %exitcond.not.i51.us123 = icmp eq i64 %indvars.iv.next.i50.us122, %wide.trip.count.i46
   br i1 %exitcond.not.i51.us123, label %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128, label %.lr.ph.i47.us117, !llvm.loop !10
 
 _ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128: ; preds = %.lr.ph.i47.us117
-  %79 = tail call noundef float @llvm.fmuladd.f32(float %62, float %7, float %66)
+  %78 = fmul float %9, %65
+  %79 = tail call noundef float @llvm.fmuladd.f32(float %62, float %7, float %78)
   %80 = fadd float %79, 0x3F1A36E2E0000000
-  %81 = fcmp ule float %80, %78
+  %81 = fcmp ule float %80, %77
   %82 = fadd float %79, 0xBF1A36E2E0000000
-  %83 = fcmp uge float %82, %76
+  %83 = fcmp uge float %82, %75
   %not..i.us127 = and i1 %81, %83
   br i1 %not..i.us127, label %.lr.ph134, label %.loopexit
 
 _ZL11projectPolyPKfS0_iRfS1_.exit:                ; preds = %.lr.ph.split
-  %84 = tail call noundef float @llvm.fmuladd.f32(float %62, float %7, float %66)
-  %85 = fmul float %12, %65
-  %86 = tail call noundef float @llvm.fmuladd.f32(float %62, float %10, float %85)
-  %87 = fadd float %84, 0x3F1A36E2E0000000
-  %88 = fcmp ule float %87, %86
-  %89 = fadd float %84, 0xBF1A36E2E0000000
-  %90 = fcmp uge float %89, %86
-  %not..i = and i1 %88, %90
+  %84 = fmul float %9, %65
+  %85 = tail call noundef float @llvm.fmuladd.f32(float %62, float %7, float %84)
+  %86 = fmul float %12, %65
+  %87 = tail call noundef float @llvm.fmuladd.f32(float %62, float %10, float %86)
+  %88 = fadd float %85, 0x3F1A36E2E0000000
+  %89 = fcmp ule float %88, %87
+  %90 = fadd float %85, 0xBF1A36E2E0000000
+  %91 = fcmp uge float %90, %87
+  %not..i = and i1 %89, %91
   br i1 %not..i, label %._crit_edge, label %.loopexit
 
 ._crit_edge:                                      ; preds = %29, %_ZL11projectPolyPKfS0_iRfS1_.exit, %4
-  %91 = icmp sgt i32 %3, 0
-  br i1 %91, label %.lr.ph134, label %.loopexit
+  %92 = icmp sgt i32 %3, 0
+  br i1 %92, label %.lr.ph134, label %.loopexit
 
 .lr.ph134:                                        ; preds = %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128, %._crit_edge
-  %92 = add nsw i32 %3, -1
-  %93 = load float, ptr %0, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %95 = load float, ptr %94, align 4
-  %96 = icmp sgt i32 %1, 1
+  %93 = add nsw i32 %3, -1
+  %94 = load float, ptr %0, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %96 = load float, ptr %95, align 4
+  %97 = icmp sgt i32 %1, 1
   %wide.trip.count.i54 = zext nneg i32 %1 to i64
-  %97 = load float, ptr %2, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %99 = load float, ptr %98, align 4
+  %98 = load float, ptr %2, align 4
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %100 = load float, ptr %99, align 4
   %.not136 = icmp eq i32 %3, 1
   %wide.trip.count.i62 = zext nneg i32 %3 to i64
-  br label %100
+  br label %101
 
-100:                                              ; preds = %_ZL11projectPolyPKfS0_iRfS1_.exit68, %.lr.ph134
+101:                                              ; preds = %_ZL11projectPolyPKfS0_iRfS1_.exit68, %.lr.ph134
   %indvars.iv158 = phi i64 [ 0, %.lr.ph134 ], [ %indvars.iv.next159, %_ZL11projectPolyPKfS0_iRfS1_.exit68 ]
-  %.033132 = phi i32 [ %92, %.lr.ph134 ], [ %142, %_ZL11projectPolyPKfS0_iRfS1_.exit68 ]
-  %101 = mul nsw i32 %.033132, 3
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds float, ptr %2, i64 %102
+  %.033132 = phi i32 [ %93, %.lr.ph134 ], [ %143, %_ZL11projectPolyPKfS0_iRfS1_.exit68 ]
+  %102 = mul nsw i32 %.033132, 3
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds float, ptr %2, i64 %103
   %.idx163 = mul nuw nsw i64 %indvars.iv158, 12
-  %104 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx163
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %106 = load float, ptr %105, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %108 = load float, ptr %107, align 4
-  %109 = fsub float %106, %108
-  %110 = load float, ptr %104, align 4
-  %111 = load float, ptr %103, align 4
-  %112 = fsub float %110, %111
-  %113 = fneg float %112
-  %114 = fmul float %95, %113
-  %115 = tail call noundef float @llvm.fmuladd.f32(float %109, float %93, float %114)
-  br i1 %96, label %.lr.ph.i55, label %_ZL11projectPolyPKfS0_iRfS1_.exit60
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx163
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %107 = load float, ptr %106, align 4
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %109 = load float, ptr %108, align 4
+  %110 = fsub float %107, %109
+  %111 = load float, ptr %105, align 4
+  %112 = load float, ptr %104, align 4
+  %113 = fsub float %111, %112
+  %114 = fneg float %113
+  %115 = fmul float %96, %114
+  %116 = tail call noundef float @llvm.fmuladd.f32(float %110, float %94, float %115)
+  br i1 %97, label %.lr.ph.i55, label %_ZL11projectPolyPKfS0_iRfS1_.exit60
 
-.lr.ph.i55:                                       ; preds = %100, %.lr.ph.i55
-  %.093 = phi float [ %123, %.lr.ph.i55 ], [ %115, %100 ]
-  %.091 = phi float [ %125, %.lr.ph.i55 ], [ %115, %100 ]
-  %indvars.iv.i56 = phi i64 [ %indvars.iv.next.i58, %.lr.ph.i55 ], [ 1, %100 ]
+.lr.ph.i55:                                       ; preds = %101, %.lr.ph.i55
+  %.093 = phi float [ %124, %.lr.ph.i55 ], [ %116, %101 ]
+  %.091 = phi float [ %126, %.lr.ph.i55 ], [ %116, %101 ]
+  %indvars.iv.i56 = phi i64 [ %indvars.iv.next.i58, %.lr.ph.i55 ], [ 1, %101 ]
   %.idx.i57 = mul nuw nsw i64 %indvars.iv.i56, 12
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i57
-  %117 = load float, ptr %116, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %119 = load float, ptr %118, align 4
-  %120 = fmul float %119, %113
-  %121 = tail call noundef float @llvm.fmuladd.f32(float %109, float %117, float %120)
-  %122 = fcmp olt float %.093, %121
-  %123 = select i1 %122, float %.093, float %121
-  %124 = fcmp ogt float %.091, %121
-  %125 = select i1 %124, float %.091, float %121
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i57
+  %118 = load float, ptr %117, align 4
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %120 = load float, ptr %119, align 4
+  %121 = fmul float %120, %114
+  %122 = tail call noundef float @llvm.fmuladd.f32(float %110, float %118, float %121)
+  %123 = fcmp olt float %.093, %122
+  %124 = select i1 %123, float %.093, float %122
+  %125 = fcmp ogt float %.091, %122
+  %126 = select i1 %125, float %.091, float %122
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i54
   br i1 %exitcond.not.i59, label %_ZL11projectPolyPKfS0_iRfS1_.exit60, label %.lr.ph.i55, !llvm.loop !10
 
-_ZL11projectPolyPKfS0_iRfS1_.exit60:              ; preds = %.lr.ph.i55, %100
-  %.194 = phi float [ %115, %100 ], [ %123, %.lr.ph.i55 ]
-  %.192 = phi float [ %115, %100 ], [ %125, %.lr.ph.i55 ]
-  %126 = fmul float %99, %113
-  %127 = tail call noundef float @llvm.fmuladd.f32(float %109, float %97, float %126)
+_ZL11projectPolyPKfS0_iRfS1_.exit60:              ; preds = %.lr.ph.i55, %101
+  %.194 = phi float [ %116, %101 ], [ %124, %.lr.ph.i55 ]
+  %.192 = phi float [ %116, %101 ], [ %126, %.lr.ph.i55 ]
+  %127 = fmul float %100, %114
+  %128 = tail call noundef float @llvm.fmuladd.f32(float %110, float %98, float %127)
   br i1 %.not136, label %_ZL11projectPolyPKfS0_iRfS1_.exit68, label %.lr.ph.i63
 
 .lr.ph.i63:                                       ; preds = %_ZL11projectPolyPKfS0_iRfS1_.exit60, %.lr.ph.i63
-  %.089 = phi float [ %135, %.lr.ph.i63 ], [ %127, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ]
-  %.088 = phi float [ %137, %.lr.ph.i63 ], [ %127, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ]
+  %.089 = phi float [ %136, %.lr.ph.i63 ], [ %128, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ]
+  %.088 = phi float [ %138, %.lr.ph.i63 ], [ %128, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ]
   %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i66, %.lr.ph.i63 ], [ 1, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ]
   %.idx.i65 = mul nuw nsw i64 %indvars.iv.i64, 12
-  %128 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i65
-  %129 = load float, ptr %128, align 4
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %131 = load float, ptr %130, align 4
-  %132 = fmul float %131, %113
-  %133 = tail call noundef float @llvm.fmuladd.f32(float %109, float %129, float %132)
-  %134 = fcmp olt float %.089, %133
-  %135 = select i1 %134, float %.089, float %133
-  %136 = fcmp ogt float %.088, %133
-  %137 = select i1 %136, float %.088, float %133
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i65
+  %130 = load float, ptr %129, align 4
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %132 = load float, ptr %131, align 4
+  %133 = fmul float %132, %114
+  %134 = tail call noundef float @llvm.fmuladd.f32(float %110, float %130, float %133)
+  %135 = fcmp olt float %.089, %134
+  %136 = select i1 %135, float %.089, float %134
+  %137 = fcmp ogt float %.088, %134
+  %138 = select i1 %137, float %.088, float %134
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i62
   br i1 %exitcond.not.i67, label %_ZL11projectPolyPKfS0_iRfS1_.exit68, label %.lr.ph.i63, !llvm.loop !10
 
 _ZL11projectPolyPKfS0_iRfS1_.exit68:              ; preds = %.lr.ph.i63, %_ZL11projectPolyPKfS0_iRfS1_.exit60
-  %.190 = phi float [ %127, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ], [ %135, %.lr.ph.i63 ]
-  %.1 = phi float [ %127, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ], [ %137, %.lr.ph.i63 ]
-  %138 = fadd float %.194, 0x3F1A36E2E0000000
-  %139 = fcmp ule float %138, %.1
-  %140 = fadd float %.192, 0xBF1A36E2E0000000
-  %141 = fcmp uge float %140, %.190
-  %not..i69 = and i1 %141, %139
+  %.190 = phi float [ %128, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ], [ %136, %.lr.ph.i63 ]
+  %.1 = phi float [ %128, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ], [ %138, %.lr.ph.i63 ]
+  %139 = fadd float %.194, 0x3F1A36E2E0000000
+  %140 = fcmp ule float %139, %.1
+  %141 = fadd float %.192, 0xBF1A36E2E0000000
+  %142 = fcmp uge float %141, %.190
+  %not..i69 = and i1 %142, %140
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
-  %142 = trunc nuw nsw i64 %indvars.iv158 to i32
+  %143 = trunc nuw nsw i64 %indvars.iv158 to i32
   %exitcond162.not = icmp ne i64 %indvars.iv.next159, %wide.trip.count.i62
   %or.cond.not = select i1 %not..i69, i1 %exitcond162.not, i1 false
-  br i1 %or.cond.not, label %100, label %.loopexit, !llvm.loop !11
+  br i1 %or.cond.not, label %101, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZL11projectPolyPKfS0_iRfS1_.exit52.us, %_ZL11projectPolyPKfS0_iRfS1_.exit68, %_ZL11projectPolyPKfS0_iRfS1_.exit, %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128, %._crit_edge
   %.0 = phi i1 [ true, %._crit_edge ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128 ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit ], [ %not..i69, %_ZL11projectPolyPKfS0_iRfS1_.exit68 ], [ false, %_ZL11projectPolyPKfS0_iRfS1_.exit52.us ]

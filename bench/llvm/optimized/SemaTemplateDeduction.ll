@@ -4677,7 +4677,6 @@ _ZN5clang30MultiLevelTemplateArgumentListC2EPNS_4DeclEN4llvm8ArrayRefINS_16Templ
 
 223:                                              ; preds = %222
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %18) #22
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 1, ptr %18, align 8
   %224 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %224, align 4, !tbaa !1081
@@ -4694,6 +4693,7 @@ _ZN5clang30MultiLevelTemplateArgumentListC2EPNS_4DeclEN4llvm8ArrayRefINS_16Templ
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapISt4pairIjN5clang8QualTypeEES3_Lj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S3_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !1084
 
 _ZN4llvm13SmallDenseMapISt4pairIjN5clang8QualTypeEES3_Lj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S3_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   %225 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %226 = load i32, ptr %225, align 8, !tbaa !723

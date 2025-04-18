@@ -1534,23 +1534,23 @@ ZSTD_wildcopy.exit.i.i:                           ; preds = %.preheader.i.i
   %587 = getelementptr inbounds nuw i8, ptr %533, i64 8
   %588 = getelementptr inbounds nuw i8, ptr %.065.i.i, i64 8
   %589 = icmp ugt ptr %534, %414
-  br i1 %589, label %590, label %.preheader.i
+  br i1 %589, label %590, label %.preheader179.i
 
 590:                                              ; preds = %586
   %591 = icmp ult ptr %587, %410
-  br i1 %591, label %.preheader, label %598
+  br i1 %591, label %.preheader.i, label %598
 
-.preheader:                                       ; preds = %590, %.preheader
-  %.09.i80.i.i = phi ptr [ %592, %.preheader ], [ %587, %590 ]
-  %.0.i81.i.i = phi ptr [ %593, %.preheader ], [ %588, %590 ]
+.preheader.i:                                     ; preds = %590, %.preheader.i
+  %.09.i80.i.i = phi ptr [ %592, %.preheader.i ], [ %587, %590 ]
+  %.0.i81.i.i = phi ptr [ %593, %.preheader.i ], [ %588, %590 ]
   %.0.val.i82.i.i = load i64, ptr %.0.i81.i.i, align 1
   store i64 %.0.val.i82.i.i, ptr %.09.i80.i.i, align 1
   %592 = getelementptr inbounds nuw i8, ptr %.09.i80.i.i, i64 8
   %593 = getelementptr inbounds nuw i8, ptr %.0.i81.i.i, i64 8
   %594 = icmp ult ptr %592, %410
-  br i1 %594, label %.preheader, label %ZSTD_wildcopy.exit83.i.i, !llvm.loop !38
+  br i1 %594, label %.preheader.i, label %ZSTD_wildcopy.exit83.i.i, !llvm.loop !38
 
-ZSTD_wildcopy.exit83.i.i:                         ; preds = %.preheader
+ZSTD_wildcopy.exit83.i.i:                         ; preds = %.preheader.i
   %595 = ptrtoint ptr %587 to i64
   %596 = sub i64 %415, %595
   %597 = getelementptr inbounds i8, ptr %588, i64 %596
@@ -1572,17 +1572,17 @@ ZSTD_wildcopy.exit83.i.i:                         ; preds = %.preheader
   %603 = icmp ult ptr %602, %534
   br i1 %603, label %.lr.ph.i.i, label %ZSTD_execSequence.exit.i, !llvm.loop !39
 
-.preheader.i:                                     ; preds = %586, %.preheader.i
-  %.09.i84.i.i = phi ptr [ %604, %.preheader.i ], [ %587, %586 ]
-  %.0.i85.i.i = phi ptr [ %605, %.preheader.i ], [ %588, %586 ]
+.preheader179.i:                                  ; preds = %586, %.preheader179.i
+  %.09.i84.i.i = phi ptr [ %604, %.preheader179.i ], [ %587, %586 ]
+  %.0.i85.i.i = phi ptr [ %605, %.preheader179.i ], [ %588, %586 ]
   %.0.val.i86.i.i = load i64, ptr %.0.i85.i.i, align 1
   store i64 %.0.val.i86.i.i, ptr %.09.i84.i.i, align 1
   %604 = getelementptr inbounds nuw i8, ptr %.09.i84.i.i, i64 8
   %605 = getelementptr inbounds nuw i8, ptr %.0.i85.i.i, i64 8
   %606 = icmp ult ptr %604, %534
-  br i1 %606, label %.preheader.i, label %ZSTD_execSequence.exit.i, !llvm.loop !38
+  br i1 %606, label %.preheader179.i, label %ZSTD_execSequence.exit.i, !llvm.loop !38
 
-ZSTD_execSequence.exit.i:                         ; preds = %.preheader.i, %.lr.ph.i.i, %598
+ZSTD_execSequence.exit.i:                         ; preds = %.preheader179.i, %.lr.ph.i.i, %598
   %607 = icmp ugt i32 %502, 64
   br i1 %607, label %ZSTD_decompressSequences.exit, label %.lr.ph
 

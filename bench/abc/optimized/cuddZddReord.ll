@@ -1200,18 +1200,18 @@ define range(i32 0, 2) i32 @cuddZddSwapping(ptr noundef %0, i32 noundef %1, i32 
 39:                                               ; preds = %16
   %40 = tail call i64 @Cudd_Random() #12
   %41 = srem i64 %40, %8
-  %42 = trunc nsw i64 %41 to i32
-  br label %43
+  br label %42
 
-43:                                               ; preds = %43, %39
-  %44 = tail call i64 @Cudd_Random() #12
-  %45 = srem i64 %44, %8
-  %46 = icmp eq i64 %41, %45
-  br i1 %46, label %43, label %.loopexit93, !llvm.loop !95
+42:                                               ; preds = %42, %39
+  %43 = tail call i64 @Cudd_Random() #12
+  %44 = srem i64 %43, %8
+  %45 = icmp eq i64 %41, %44
+  br i1 %45, label %42, label %.loopexit93, !llvm.loop !95
 
-.loopexit93:                                      ; preds = %43
-  %47 = add nsw i32 %1, %42
-  %48 = trunc nsw i64 %45 to i32
+.loopexit93:                                      ; preds = %42
+  %46 = trunc nsw i64 %41 to i32
+  %47 = add nsw i32 %1, %46
+  %48 = trunc nsw i64 %44 to i32
   %49 = add nsw i32 %1, %48
   br label %.loopexit91
 

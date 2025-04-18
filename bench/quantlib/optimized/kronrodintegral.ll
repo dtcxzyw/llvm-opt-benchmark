@@ -427,7 +427,6 @@ _ZNKSt8functionIFddEEclEd.exit175:                ; preds = %_ZNKSt8functionIFdd
   br i1 %exitcond306.not, label %for.end83, label %for.body54, !llvm.loop !25
 
 for.end83:                                        ; preds = %_ZNKSt8functionIFddEEclEd.exit175
-  %mul84 = fmul double %mul, %42
   %mul86 = fmul double %42, 5.000000e-01
   %sub87 = fsub double %call2.i, %mul86
   %47 = call double @llvm.fabs.f64(double %sub87)
@@ -467,6 +466,7 @@ for.body91:                                       ; preds = %for.end83, %for.bod
   br i1 %exitcond310.not, label %for.end115, label %for.body91, !llvm.loop !26
 
 for.end115:                                       ; preds = %for.body91
+  %mul84 = fmul double %mul, %42
   %mul85 = fmul double %mul, %45
   %sub116 = fsub double %42, %30
   %mul117 = fmul double %mul, %sub116

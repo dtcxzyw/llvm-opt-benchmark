@@ -10730,7 +10730,7 @@ _ZN4llvm22getValueProfRecordNextEPNS_15ValueProfRecordE.exit: ; preds = %.lr.ph,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm13ValueProfData17swapBytesFromHostENS_10endiannessE(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
   %3 = icmp eq i32 %1, 1
-  br i1 %3, label %45, label %4
+  br i1 %3, label %44, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -10743,17 +10743,17 @@ define dso_local void @_ZN4llvm13ValueProfData17swapBytesFromHostENS_10endiannes
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm15ValueProfRecord9swapBytesENS_10endiannessES1_.exit, %4
-  %.lcssa18 = phi i32 [ 0, %4 ], [ %43, %_ZN4llvm15ValueProfRecord9swapBytesENS_10endiannessES1_.exit ]
+  %.lcssa18 = phi i32 [ 0, %4 ], [ %42, %_ZN4llvm15ValueProfRecord9swapBytesENS_10endiannessES1_.exit ]
   %8 = load i32, ptr %0, align 4, !tbaa !66
   %9 = tail call noundef i32 @llvm.bswap.i32(i32 %8)
   store i32 %9, ptr %0, align 4, !tbaa !66
   %10 = tail call noundef i32 @llvm.bswap.i32(i32 %.lcssa18)
   store i32 %10, ptr %5, align 4, !tbaa !66
-  br label %45
+  br label %44
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm15ValueProfRecord9swapBytesENS_10endiannessES1_.exit
-  %.021 = phi ptr [ %38, %_ZN4llvm15ValueProfRecord9swapBytesENS_10endiannessES1_.exit ], [ %7, %.lr.ph.preheader ]
-  %.0720 = phi i32 [ %42, %_ZN4llvm15ValueProfRecord9swapBytesENS_10endiannessES1_.exit ], [ 0, %.lr.ph.preheader ]
+  %.021 = phi ptr [ %37, %_ZN4llvm15ValueProfRecord9swapBytesENS_10endiannessES1_.exit ], [ %7, %.lr.ph.preheader ]
+  %.0720 = phi i32 [ %41, %_ZN4llvm15ValueProfRecord9swapBytesENS_10endiannessES1_.exit ], [ 0, %.lr.ph.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %.021, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !540
   %.not.i.i = icmp eq i32 %12, 0
@@ -10775,63 +10775,60 @@ define dso_local void @_ZN4llvm13ValueProfData17swapBytesFromHostENS_10endiannes
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.lr.ph.i.i10, label %14, !llvm.loop !549
 
-.lr.ph.i.i10:                                     ; preds = %14
-  %19 = shl i32 %18, 4
-  %20 = add i32 %12, 15
-  %21 = and i32 %20, -8
-  %22 = add i32 %19, %21
-  %23 = zext i32 %22 to i64
-  br label %24
-
-24:                                               ; preds = %24, %.lr.ph.i.i10
-  %indvars.iv.i.i12 = phi i64 [ 0, %.lr.ph.i.i10 ], [ %indvars.iv.next.i.i14, %24 ]
-  %.067.i.i13 = phi i32 [ 0, %.lr.ph.i.i10 ], [ %28, %24 ]
-  %25 = getelementptr inbounds nuw [1 x i8], ptr %13, i64 0, i64 %indvars.iv.i.i12
-  %26 = load i8, ptr %25, align 1, !tbaa !74
-  %27 = zext i8 %26 to i32
-  %28 = add i32 %.067.i.i13, %27
+.lr.ph.i.i10:                                     ; preds = %14, %.lr.ph.i.i10
+  %indvars.iv.i.i12 = phi i64 [ %indvars.iv.next.i.i14, %.lr.ph.i.i10 ], [ 0, %14 ]
+  %.067.i.i13 = phi i32 [ %22, %.lr.ph.i.i10 ], [ 0, %14 ]
+  %19 = getelementptr inbounds nuw [1 x i8], ptr %13, i64 0, i64 %indvars.iv.i.i12
+  %20 = load i8, ptr %19, align 1, !tbaa !74
+  %21 = zext i8 %20 to i32
+  %22 = add i32 %.067.i.i13, %21
   %indvars.iv.next.i.i14 = add nuw nsw i64 %indvars.iv.i.i12, 1
   %exitcond.not.i.i15 = icmp eq i64 %indvars.iv.next.i.i14, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i15, label %_ZN4llvm30getValueProfRecordNumValueDataEPNS_15ValueProfRecordE.exit.i, label %24, !llvm.loop !549
+  br i1 %exitcond.not.i.i15, label %_ZN4llvm30getValueProfRecordNumValueDataEPNS_15ValueProfRecordE.exit.i, label %.lr.ph.i.i10, !llvm.loop !549
 
-_ZN4llvm30getValueProfRecordNumValueDataEPNS_15ValueProfRecordE.exit.i: ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %.021, i64 %23
-  %30 = zext i32 %21 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %.021, i64 %30
-  %.not13.i = icmp eq i32 %28, 0
+_ZN4llvm30getValueProfRecordNumValueDataEPNS_15ValueProfRecordE.exit.i: ; preds = %.lr.ph.i.i10
+  %23 = shl i32 %18, 4
+  %24 = add i32 %12, 15
+  %25 = and i32 %24, -8
+  %26 = add i32 %23, %25
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %.021, i64 %27
+  %29 = zext i32 %25 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %.021, i64 %29
+  %.not13.i = icmp eq i32 %22, 0
   br i1 %.not13.i, label %_ZN4llvm15ValueProfRecord9swapBytesENS_10endiannessES1_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN4llvm30getValueProfRecordNumValueDataEPNS_15ValueProfRecordE.exit.i
-  %wide.trip.count.i = zext i32 %28 to i64
+  %wide.trip.count.i = zext i32 %22 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %32 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %31, i64 %indvars.iv.i
-  %33 = load i64, ptr %32, align 8, !tbaa !55
-  %34 = tail call noundef i64 @llvm.bswap.i64(i64 %33)
-  store i64 %34, ptr %32, align 8, !tbaa !55
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !55
-  %37 = tail call noundef i64 @llvm.bswap.i64(i64 %36)
-  store i64 %37, ptr %35, align 8, !tbaa !55
+  %31 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %30, i64 %indvars.iv.i
+  %32 = load i64, ptr %31, align 8, !tbaa !55
+  %33 = tail call noundef i64 @llvm.bswap.i64(i64 %32)
+  store i64 %33, ptr %31, align 8, !tbaa !55
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %35 = load i64, ptr %34, align 8, !tbaa !55
+  %36 = tail call noundef i64 @llvm.bswap.i64(i64 %35)
+  store i64 %36, ptr %34, align 8, !tbaa !55
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN4llvm15ValueProfRecord9swapBytesENS_10endiannessES1_.exit, label %.lr.ph.i, !llvm.loop !565
 
 _ZN4llvm15ValueProfRecord9swapBytesENS_10endiannessES1_.exit: ; preds = %.lr.ph.i, %.lr.ph, %_ZN4llvm30getValueProfRecordNumValueDataEPNS_15ValueProfRecordE.exit.i
-  %38 = phi ptr [ %29, %_ZN4llvm30getValueProfRecordNumValueDataEPNS_15ValueProfRecordE.exit.i ], [ %13, %.lr.ph ], [ %29, %.lr.ph.i ]
-  %39 = tail call noundef i32 @llvm.bswap.i32(i32 %12)
-  store i32 %39, ptr %11, align 4, !tbaa !66
-  %40 = load i32, ptr %.021, align 4, !tbaa !66
-  %41 = tail call noundef i32 @llvm.bswap.i32(i32 %40)
-  store i32 %41, ptr %.021, align 4, !tbaa !66
-  %42 = add nuw i32 %.0720, 1
-  %43 = load i32, ptr %5, align 4, !tbaa !548
-  %44 = icmp ult i32 %42, %43
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !612
+  %37 = phi ptr [ %28, %_ZN4llvm30getValueProfRecordNumValueDataEPNS_15ValueProfRecordE.exit.i ], [ %13, %.lr.ph ], [ %28, %.lr.ph.i ]
+  %38 = tail call noundef i32 @llvm.bswap.i32(i32 %12)
+  store i32 %38, ptr %11, align 4, !tbaa !66
+  %39 = load i32, ptr %.021, align 4, !tbaa !66
+  %40 = tail call noundef i32 @llvm.bswap.i32(i32 %39)
+  store i32 %40, ptr %.021, align 4, !tbaa !66
+  %41 = add nuw i32 %.0720, 1
+  %42 = load i32, ptr %5, align 4, !tbaa !548
+  %43 = icmp ult i32 %41, %42
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !612
 
-45:                                               ; preds = %2, %._crit_edge
+44:                                               ; preds = %2, %._crit_edge
   ret void
 }
 

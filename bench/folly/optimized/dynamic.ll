@@ -6166,32 +6166,32 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
   br label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE25computeChunkCountAndScaleEmbb.exit
 
 13:                                               ; preds = %8
-  %14 = add nsw i64 %6, -1
-  %15 = udiv i64 %14, 12
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 true)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #32
   store i64 72057594037927935, ptr %3, align 8, !tbaa !59
   %.ptr3.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 -1, ptr %.ptr3.i.i, align 8, !tbaa !59
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 115292150460684697, ptr %17, align 8, !tbaa !59
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 115292150460684697, ptr %14, align 8, !tbaa !59
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %13
-  %18 = phi i64 [ %21, %.lr.ph.i.i.i.i ], [ 72057594037927935, %13 ]
+  %15 = phi i64 [ %18, %.lr.ph.i.i.i.i ], [ 72057594037927935, %13 ]
   %.idx.i.i = phi i64 [ %.add.i.i, %.lr.ph.i.i.i.i ], [ 8, %13 ]
   %.018.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %3, %13 ]
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
-  %19 = load i64, ptr %.ptr.i.i, align 8, !tbaa !59
-  %20 = icmp ult i64 %19, %18
-  %21 = tail call i64 @llvm.umin.i64(i64 %19, i64 %18)
-  %spec.select.i.i.i.i = select i1 %20, ptr %.ptr.i.i, ptr %.018.i.i.i.i
+  %16 = load i64, ptr %.ptr.i.i, align 8, !tbaa !59
+  %17 = icmp ult i64 %16, %15
+  %18 = tail call i64 @llvm.umin.i64(i64 %16, i64 %15)
+  %spec.select.i.i.i.i = select i1 %17, ptr %.ptr.i.i, ptr %.018.i.i.i.i
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %.add.i.i, 24
   br i1 %.not.i.i.i.i, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !238
 
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %22 = sub nuw nsw i64 64, %16
+  %19 = add nsw i64 %6, -1
+  %20 = udiv i64 %19, 12
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
+  %22 = sub nuw nsw i64 64, %21
   %23 = shl nuw nsw i64 12, %22
   %24 = load i64, ptr %spec.select.i.i.i.i, align 8, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #32
@@ -10172,32 +10172,32 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
   br label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE25computeChunkCountAndScaleEmbb.exit
 
 18:                                               ; preds = %5
-  %19 = add i64 %.sroa.speculated, -1
-  %20 = udiv i64 %19, 12
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
   store i64 72057594037927935, ptr %6, align 8, !tbaa !59
   %.ptr3.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 -1, ptr %.ptr3.i.i, align 8, !tbaa !59
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 115292150460684697, ptr %22, align 8, !tbaa !59
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 115292150460684697, ptr %19, align 8, !tbaa !59
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %18
-  %23 = phi i64 [ %26, %.lr.ph.i.i.i.i ], [ 72057594037927935, %18 ]
+  %20 = phi i64 [ %23, %.lr.ph.i.i.i.i ], [ 72057594037927935, %18 ]
   %.idx.i.i = phi i64 [ %.add.i.i, %.lr.ph.i.i.i.i ], [ 8, %18 ]
   %.018.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %6, %18 ]
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
-  %24 = load i64, ptr %.ptr.i.i, align 8, !tbaa !59
-  %25 = icmp ult i64 %24, %23
-  %26 = tail call i64 @llvm.umin.i64(i64 %24, i64 %23)
-  %spec.select.i.i.i.i = select i1 %25, ptr %.ptr.i.i, ptr %.018.i.i.i.i
+  %21 = load i64, ptr %.ptr.i.i, align 8, !tbaa !59
+  %22 = icmp ult i64 %21, %20
+  %23 = tail call i64 @llvm.umin.i64(i64 %21, i64 %20)
+  %spec.select.i.i.i.i = select i1 %22, ptr %.ptr.i.i, ptr %.018.i.i.i.i
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %.add.i.i, 24
   br i1 %.not.i.i.i.i, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !238
 
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %27 = sub nuw nsw i64 64, %21
+  %24 = add i64 %.sroa.speculated, -1
+  %25 = udiv i64 %24, 12
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
+  %27 = sub nuw nsw i64 64, %26
   %28 = shl i64 12, %27
   %29 = load i64, ptr %spec.select.i.i.i.i, align 8, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
@@ -12951,31 +12951,31 @@ _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6deta
   br label %31
 
 15:                                               ; preds = %10
-  %16 = add i64 %1, -1
-  %17 = udiv i64 %16, 12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #32
   store i64 72057594037927935, ptr %3, align 8, !tbaa !59
   %.ptr3.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 -1, ptr %.ptr3.i.i.i, align 8, !tbaa !59
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 115292150460684697, ptr %18, align 8, !tbaa !59
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 115292150460684697, ptr %16, align 8, !tbaa !59
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %15
-  %19 = phi i64 [ %22, %.lr.ph.i.i.i.i.i ], [ 72057594037927935, %15 ]
+  %17 = phi i64 [ %20, %.lr.ph.i.i.i.i.i ], [ 72057594037927935, %15 ]
   %.idx.i.i.i = phi i64 [ %.add.i.i.i, %.lr.ph.i.i.i.i.i ], [ 8, %15 ]
   %.018.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %3, %15 ]
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
-  %20 = load i64, ptr %.ptr.i.i.i, align 8, !tbaa !59
-  %21 = icmp ult i64 %20, %19
-  %22 = tail call i64 @llvm.umin.i64(i64 %20, i64 %19)
-  %spec.select.i.i.i.i.i = select i1 %21, ptr %.ptr.i.i.i, ptr %.018.i.i.i.i.i
+  %18 = load i64, ptr %.ptr.i.i.i, align 8, !tbaa !59
+  %19 = icmp ult i64 %18, %17
+  %20 = tail call i64 @llvm.umin.i64(i64 %18, i64 %17)
+  %spec.select.i.i.i.i.i = select i1 %19, ptr %.ptr.i.i.i, ptr %.018.i.i.i.i.i
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 8
   %.not.i.i.i.i.i = icmp eq i64 %.add.i.i.i, 24
   br i1 %.not.i.i.i.i.i, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !238
 
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %17, i1 true)
+  %21 = add i64 %1, -1
+  %22 = udiv i64 %21, 12
+  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %22, i1 true)
   %24 = sub nuw nsw i64 64, %23
   %25 = shl i64 12, %24
   %26 = load i64, ptr %spec.select.i.i.i.i.i, align 8, !tbaa !59
@@ -13062,31 +13062,31 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
   br i1 %20, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE25computeChunkCountAndScaleEmbb.exit.i, label %21
 
 21:                                               ; preds = %12
-  %22 = add i64 %.sroa.speculated, -1
-  %23 = udiv i64 %22, 12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #32
   store i64 72057594037927935, ptr %4, align 8, !tbaa !59
   %.ptr3.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 -1, ptr %.ptr3.i.i.i, align 8, !tbaa !59
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 115292150460684697, ptr %24, align 8, !tbaa !59
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 115292150460684697, ptr %22, align 8, !tbaa !59
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %21
-  %25 = phi i64 [ %28, %.lr.ph.i.i.i.i.i ], [ 72057594037927935, %21 ]
+  %23 = phi i64 [ %26, %.lr.ph.i.i.i.i.i ], [ 72057594037927935, %21 ]
   %.idx.i.i.i = phi i64 [ %.add.i.i.i, %.lr.ph.i.i.i.i.i ], [ 8, %21 ]
   %.018.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %4, %21 ]
   %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i
-  %26 = load i64, ptr %.ptr.i.i.i, align 8, !tbaa !59
-  %27 = icmp ult i64 %26, %25
-  %28 = tail call i64 @llvm.umin.i64(i64 %26, i64 %25)
-  %spec.select.i.i.i.i.i = select i1 %27, ptr %.ptr.i.i.i, ptr %.018.i.i.i.i.i
+  %24 = load i64, ptr %.ptr.i.i.i, align 8, !tbaa !59
+  %25 = icmp ult i64 %24, %23
+  %26 = tail call i64 @llvm.umin.i64(i64 %24, i64 %23)
+  %spec.select.i.i.i.i.i = select i1 %25, ptr %.ptr.i.i.i, ptr %.018.i.i.i.i.i
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 8
   %.not.i.i.i.i.i = icmp eq i64 %.add.i.i.i, 24
   br i1 %.not.i.i.i.i.i, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !238
 
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %23, i1 true)
+  %27 = add i64 %.sroa.speculated, -1
+  %28 = udiv i64 %27, 12
+  %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %28, i1 true)
   %30 = sub nuw nsw i64 64, %29
   %31 = shl i64 12, %30
   %32 = load i64, ptr %spec.select.i.i.i.i.i, align 8, !tbaa !59
@@ -13145,31 +13145,31 @@ _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6deta
   br label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE25computeChunkCountAndScaleEmbb.exit.i20
 
 57:                                               ; preds = %46
-  %58 = add i64 %.sroa.speculated, -1
-  %59 = udiv i64 %58, 12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #32
   store i64 72057594037927935, ptr %3, align 8, !tbaa !59
   %.ptr3.i.i.i11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 -1, ptr %.ptr3.i.i.i11, align 8, !tbaa !59
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 115292150460684697, ptr %60, align 8, !tbaa !59
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 115292150460684697, ptr %58, align 8, !tbaa !59
   br label %.lr.ph.i.i.i.i.i12
 
 .lr.ph.i.i.i.i.i12:                               ; preds = %.lr.ph.i.i.i.i.i12, %57
-  %61 = phi i64 [ %64, %.lr.ph.i.i.i.i.i12 ], [ 72057594037927935, %57 ]
+  %59 = phi i64 [ %62, %.lr.ph.i.i.i.i.i12 ], [ 72057594037927935, %57 ]
   %.idx.i.i.i13 = phi i64 [ %.add.i.i.i17, %.lr.ph.i.i.i.i.i12 ], [ 8, %57 ]
   %.018.i.i.i.i.i14 = phi ptr [ %spec.select.i.i.i.i.i16, %.lr.ph.i.i.i.i.i12 ], [ %3, %57 ]
   %.ptr.i.i.i15 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i13
-  %62 = load i64, ptr %.ptr.i.i.i15, align 8, !tbaa !59
-  %63 = icmp ult i64 %62, %61
-  %64 = tail call i64 @llvm.umin.i64(i64 %62, i64 %61)
-  %spec.select.i.i.i.i.i16 = select i1 %63, ptr %.ptr.i.i.i15, ptr %.018.i.i.i.i.i14
+  %60 = load i64, ptr %.ptr.i.i.i15, align 8, !tbaa !59
+  %61 = icmp ult i64 %60, %59
+  %62 = tail call i64 @llvm.umin.i64(i64 %60, i64 %59)
+  %spec.select.i.i.i.i.i16 = select i1 %61, ptr %.ptr.i.i.i15, ptr %.018.i.i.i.i.i14
   %.add.i.i.i17 = add nuw nsw i64 %.idx.i.i.i13, 8
   %.not.i.i.i.i.i18 = icmp eq i64 %.add.i.i.i17, 24
   br i1 %.not.i.i.i.i.i18, label %_ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i.i19, label %.lr.ph.i.i.i.i.i12, !llvm.loop !238
 
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE8max_sizeEv.exit.i.i19: ; preds = %.lr.ph.i.i.i.i.i12
-  %65 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %59, i1 true)
+  %63 = add i64 %.sroa.speculated, -1
+  %64 = udiv i64 %63, 12
+  %65 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %64, i1 true)
   %66 = sub nuw nsw i64 64, %65
   %67 = shl i64 12, %66
   %68 = load i64, ptr %spec.select.i.i.i.i.i16, align 8, !tbaa !59

@@ -459,28 +459,28 @@ define i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %24, label %273, label %25
 
 25:                                               ; preds = %22
-  %26 = icmp samesign ult i32 %23, 12
-  %27 = icmp eq i32 %9, 12
-  %or.cond = select i1 %26, i1 %27, i1 false
-  %28 = add nuw nsw i32 %23, 1
-  br label %29
+  %26 = add nuw nsw i32 %23, 1
+  br label %27
 
-29:                                               ; preds = %29, %25
-  %indvars.iv178 = phi i32 [ %indvars.iv.next179, %29 ], [ 0, %25 ]
-  %indvars.iv173 = phi i32 [ %indvars.iv.next174, %29 ], [ 1, %25 ]
-  %indvars.iv154 = phi i32 [ %indvars.iv.next155, %29 ], [ %28, %25 ]
-  %.089 = phi i32 [ %34, %29 ], [ %23, %25 ]
-  %30 = zext i32 %.089 to i64
-  %31 = getelementptr inbounds nuw [13 x i32], ptr %15, i64 0, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !3
-  %33 = icmp eq i32 %32, 0
-  %34 = add i32 %.089, -1
+27:                                               ; preds = %27, %25
+  %indvars.iv178 = phi i32 [ %indvars.iv.next179, %27 ], [ 0, %25 ]
+  %indvars.iv173 = phi i32 [ %indvars.iv.next174, %27 ], [ 1, %25 ]
+  %indvars.iv154 = phi i32 [ %indvars.iv.next155, %27 ], [ %26, %25 ]
+  %.089 = phi i32 [ %32, %27 ], [ %23, %25 ]
+  %28 = zext i32 %.089 to i64
+  %29 = getelementptr inbounds nuw [13 x i32], ptr %15, i64 0, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !3
+  %31 = icmp eq i32 %30, 0
+  %32 = add i32 %.089, -1
   %indvars.iv.next155 = add i32 %indvars.iv154, -1
   %indvars.iv.next174 = add i32 %indvars.iv173, 1
   %indvars.iv.next179 = add i32 %indvars.iv178, -1
-  br i1 %33, label %29, label %.preheader, !llvm.loop !24
+  br i1 %31, label %27, label %.preheader, !llvm.loop !24
 
-.preheader:                                       ; preds = %29
+.preheader:                                       ; preds = %27
+  %33 = icmp samesign ult i32 %23, 12
+  %34 = icmp eq i32 %9, 12
+  %or.cond = select i1 %33, i1 %34, i1 false
   %spec.store.select = select i1 %or.cond, i32 11, i32 %9
   %35 = add i32 %.089, 1
   %36 = icmp ugt i32 %35, 1
@@ -560,7 +560,7 @@ define i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %exitcond166.not, label %._crit_edge124, label %.lr.ph123, !llvm.loop !29
 
 ._crit_edge124:                                   ; preds = %.lr.ph123
-  %64 = sub i32 %28, %.089
+  %64 = sub i32 %26, %.089
   %65 = add nuw nsw i32 %spec.store.select, 1
   %66 = sub i32 %65, %64
   %.not194 = icmp ult i32 %64, %66
@@ -597,7 +597,7 @@ define i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 ._crit_edge132:                                   ; preds = %._crit_edge128.us, %._crit_edge124
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 736
-  %77 = sub i32 %28, %spec.store.select
+  %77 = sub i32 %26, %spec.store.select
   %.not69.i = icmp slt i32 %.089, 1
   br i1 %.not69.i, label %HUF_fillDTableX2.exit, label %.lr.ph71.i
 
@@ -609,7 +609,7 @@ define i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %80 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next83.i
   %81 = load i32, ptr %80, align 4, !tbaa !3
   %82 = trunc nuw nsw i64 %indvars.iv82.i to i32
-  %83 = sub i32 %28, %82
+  %83 = sub i32 %26, %82
   %84 = sub i32 %spec.store.select, %83
   %.not56.i = icmp ult i32 %84, %64
   %85 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv82.i
@@ -633,7 +633,7 @@ define i64 @HUF_readDTableX2_wksp(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %96 = zext nneg i32 %spec.store.select.i to i64
   %97 = getelementptr inbounds nuw i32, ptr %92, i64 %96
   %.not61.i = icmp sgt i32 %spec.store.select.i, %.089
-  %98 = add i32 %83, %28
+  %98 = add i32 %83, %26
   br i1 %.not61.i, label %.lr.ph.split.us.i, label %.lr.ph.split.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i

@@ -114,11 +114,11 @@ sscal_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
 
 .lr.ph122:                                        ; preds = %53
   %56 = shl nsw i64 %5, 1
-  %57 = add nsw i64 %54, -1
-  %58 = and i64 %57, -2
   br label %61
 
 .preheader.loopexit:                              ; preds = %61
+  %57 = add nsw i64 %54, -1
+  %58 = and i64 %57, -2
   %59 = add i64 %58, 2
   br label %.preheader
 

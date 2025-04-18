@@ -2697,34 +2697,34 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %.sroa.0.0..sroa.0.0..i, ptr %3, align 8
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
-  %33 = trunc i64 %.sroa.0.0..sroa.0.0..i to i32
-  %34 = tail call i32 @llvm.bswap.i32(i32 %33)
-  %35 = sub nuw nsw i32 32, %5
-  %36 = zext nneg i32 %35 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit
-  %.0.in8.i.i = phi i1 [ %39, %.lr.ph.i.i ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit ]
+  %.0.in8.i.i = phi i1 [ %35, %.lr.ph.i.i ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit ]
   %.057.i.idx.i = phi i64 [ %.057.i.add.i, %.lr.ph.i.i ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit ]
   %.057.i.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %.057.i.idx.i
-  %37 = load i8, ptr %.057.i.ptr.i, align 1, !tbaa !101
-  %38 = icmp ne i8 %37, -1
-  %39 = and i1 %.0.in8.i.i, %38
+  %33 = load i8, ptr %.057.i.ptr.i, align 1, !tbaa !101
+  %34 = icmp ne i8 %33, -1
+  %35 = and i1 %.0.in8.i.i, %34
   %.057.i.add.i = add nuw nsw i64 %.057.i.idx.i, 1
   %.not.i.i = icmp eq i64 %.057.i.add.i, 4
   br i1 %.not.i.i, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i, label %.lr.ph.i.i, !llvm.loop !180
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i: ; preds = %.lr.ph.i.i
-  br i1 %39, label %41, label %.preheader.i
+  br i1 %35, label %37, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %40 = zext nneg i32 %5 to i64
+  %36 = zext nneg i32 %5 to i64
   br label %46
 
-41:                                               ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i
-  %42 = zext i32 %34 to i64
-  %43 = shl nuw i64 %42, %36
+37:                                               ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i
+  %38 = trunc i64 %.sroa.0.0..sroa.0.0..i to i32
+  %39 = tail call i32 @llvm.bswap.i32(i32 %38)
+  %40 = zext i32 %39 to i64
+  %41 = sub nuw nsw i32 32, %5
+  %42 = zext nneg i32 %41 to i64
+  %43 = shl nuw i64 %40, %42
   %44 = or i64 %43, %.sroa.0.0.copyload.i
   %45 = add nuw nsw i32 %5, 32
   store i64 %44, ptr %0, align 8
@@ -2732,7 +2732,7 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit
 
 46:                                               ; preds = %69, %.preheader.i
-  %indvars.iv.i = phi i64 [ %40, %.preheader.i ], [ %indvars.iv.next.i, %69 ]
+  %indvars.iv.i = phi i64 [ %36, %.preheader.i ], [ %indvars.iv.next.i, %69 ]
   %.01970.i = phi i32 [ 0, %.preheader.i ], [ %70, %69 ]
   %.02169.i = phi i32 [ 0, %.preheader.i ], [ %71, %69 ]
   %47 = phi i64 [ %.sroa.0.0.copyload.i, %.preheader.i ], [ %55, %69 ]
@@ -2792,9 +2792,9 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %75)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit: ; preds = %41, %73
-  %76 = phi i32 [ %45, %41 ], [ %74, %73 ]
-  %.0.i = phi i32 [ 4, %41 ], [ %.120.i, %73 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit: ; preds = %37, %73
+  %76 = phi i32 [ %45, %37 ], [ %74, %73 ]
+  %.0.i = phi i32 [ 4, %37 ], [ %.120.i, %73 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %77 = add nuw nsw i32 %13, %.0.i
   store i32 %77, ptr %12, align 8, !tbaa !158

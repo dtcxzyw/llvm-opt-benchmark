@@ -2585,7 +2585,6 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28,
 49:                                               ; preds = %46
   %50 = select i1 %13, i64 786432, i64 3072
   %51 = call noalias noundef ptr @malloc(i64 noundef %50) #31
-  %.idx = shl nuw nsw i64 %14, 3
   %52 = add nsw i64 %14, -1
   %53 = uitofp nneg i64 %52 to float
   %54 = fdiv float 1.000000e+00, %53
@@ -2620,6 +2619,7 @@ _ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.ex
   br i1 %exitcond.not.i133, label %_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.exit134, label %64, !llvm.loop !80
 
 _ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.exit134: ; preds = %64
+  %.idx = shl nuw nsw i64 %14, 3
   %70 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 240
   br label %72

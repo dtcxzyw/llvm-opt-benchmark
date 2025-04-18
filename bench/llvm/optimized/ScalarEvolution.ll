@@ -117902,7 +117902,6 @@ _ZNK4llvm15ScalarEvolution38getPredecessorWithUniqueSuccessorForBBEPKNS_10BasicB
 
 272:                                              ; preds = %._crit_edge661
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %52) #31
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 1, ptr %52, align 8
   %273 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 0, ptr %273, align 4, !tbaa !2353
@@ -117917,6 +117916,7 @@ _ZNK4llvm15ScalarEvolution38getPredecessorWithUniqueSuccessorForBBEPKNS_10BasicB
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPKNS_10BasicBlockENS_15ScalarEvolution10LoopGuardsELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !2356
 
 _ZN4llvm13SmallDenseMapIPKNS_10BasicBlockENS_15ScalarEvolution10LoopGuardsELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %52, i64 16
   %274 = call { ptr, ptr } @_ZN4llvm10BasicBlock4phisEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.7.0.lcssa) #31
   %275 = extractvalue { ptr, ptr } %274, 0

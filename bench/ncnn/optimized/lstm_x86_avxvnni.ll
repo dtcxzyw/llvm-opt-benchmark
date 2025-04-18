@@ -2150,16 +2150,16 @@ define hidden void @_ZN4ncnn40lstm_dynamic_quantize_scale2int8_avxvnniEPKfifPa(p
   %45 = add nuw nsw i32 %.03847.i, 8
   %46 = or disjoint i32 %45, 7
   %47 = icmp slt i32 %46, %1
-  br i1 %47, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !66
+  br i1 %47, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !66
 
-._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %48 = and i32 %1, 2147483640
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %4
-  %.038.lcssa.i = phi i32 [ 0, %4 ], [ %48, %._crit_edge.i.loopexit ]
-  %.035.lcssa.i = phi ptr [ %3, %4 ], [ %44, %._crit_edge.i.loopexit ]
-  %.0.lcssa.i = phi ptr [ %0, %4 ], [ %43, %._crit_edge.i.loopexit ]
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %4
+  %.038.lcssa.i = phi i32 [ 0, %4 ], [ %48, %._crit_edge.loopexit.i ]
+  %.035.lcssa.i = phi ptr [ %3, %4 ], [ %44, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi ptr [ %0, %4 ], [ %43, %._crit_edge.loopexit.i ]
   %49 = insertelement <4 x float> poison, float %2, i64 0
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> zeroinitializer
   %51 = or disjoint i32 %.038.lcssa.i, 3
@@ -2492,16 +2492,16 @@ _ZN4ncnn3MatD2Ev.exit91.i:                        ; preds = %85, %84, %80, %74, 
   %119 = add nuw nsw i32 %.02141.i.i, 8
   %120 = or disjoint i32 %119, 7
   %121 = icmp slt i32 %120, %112
-  br i1 %121, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i, !llvm.loop !75
+  br i1 %121, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !75
 
-._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i
+._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %122 = and i32 %112, 2147483640
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %107
-  %.024.lcssa.i.i = phi <8 x float> [ zeroinitializer, %107 ], [ %117, %._crit_edge.i.loopexit.i ]
-  %.021.lcssa.i.i = phi i32 [ 0, %107 ], [ %122, %._crit_edge.i.loopexit.i ]
-  %.0.lcssa.i.i = phi ptr [ %111, %107 ], [ %118, %._crit_edge.i.loopexit.i ]
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %107
+  %.024.lcssa.i.i = phi <8 x float> [ zeroinitializer, %107 ], [ %117, %._crit_edge.loopexit.i.i ]
+  %.021.lcssa.i.i = phi i32 [ 0, %107 ], [ %122, %._crit_edge.loopexit.i.i ]
+  %.0.lcssa.i.i = phi ptr [ %111, %107 ], [ %118, %._crit_edge.loopexit.i.i ]
   %123 = shufflevector <8 x float> %.024.lcssa.i.i, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %124 = shufflevector <8 x float> %.024.lcssa.i.i, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %125 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %123, <4 x float> nofpclass(nan inf) %124)
@@ -2597,9 +2597,9 @@ _ZN4ncnnL32lstm_dynamic_quantize_get_absmaxEPKfi.exit.i: ; preds = %.lr.ph58.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.077.lcssa.i, i8 127, i64 %171, i1 false)
   %scevgep = getelementptr i8, ptr %.077.lcssa.i, i64 8
   %scevgep41 = getelementptr i8, ptr %scevgep, i64 %170
-  %172 = and i32 %168, -8
-  %173 = or disjoint i32 %.074.lcssa.i, 8
-  %174 = add i32 %173, %172
+  %172 = or disjoint i32 %.074.lcssa.i, 8
+  %173 = and i32 %168, -8
+  %174 = add i32 %172, %173
   br label %.preheader132.i
 
 .preheader132.i:                                  ; preds = %.lr.ph149.preheader.i, %.preheader133.i
@@ -2644,12 +2644,12 @@ _ZN4ncnnL32lstm_dynamic_quantize_get_absmaxEPKfi.exit.i: ; preds = %.lr.ph58.i.i
   %191 = fdiv fast float 1.270000e+02, %.039.lcssa.i.i
   %192 = insertelement <8 x float> poison, float %191, i64 0
   %193 = shufflevector <8 x float> %192, <8 x float> poison, <8 x i32> zeroinitializer
-  br i1 %113, label %.lr.ph.i131.i, label %._crit_edge.i126.i
+  br i1 %113, label %.lr.ph.i130.i, label %._crit_edge.i126.i
 
-.lr.ph.i131.i:                                    ; preds = %188, %.lr.ph.i131.i
-  %.049.i.i = phi ptr [ %229, %.lr.ph.i131.i ], [ %111, %188 ]
-  %.03548.i.i = phi ptr [ %230, %.lr.ph.i131.i ], [ %190, %188 ]
-  %.03847.i.i = phi i32 [ %231, %.lr.ph.i131.i ], [ 0, %188 ]
+.lr.ph.i130.i:                                    ; preds = %188, %.lr.ph.i130.i
+  %.049.i.i = phi ptr [ %229, %.lr.ph.i130.i ], [ %111, %188 ]
+  %.03548.i.i = phi ptr [ %230, %.lr.ph.i130.i ], [ %190, %188 ]
+  %.03847.i.i = phi i32 [ %231, %.lr.ph.i130.i ], [ 0, %188 ]
   %194 = load <8 x float>, ptr %.049.i.i, align 1, !tbaa !40
   %195 = fmul fast <8 x float> %194, %193
   %196 = call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %195)
@@ -2698,16 +2698,16 @@ _ZN4ncnnL32lstm_dynamic_quantize_get_absmaxEPKfi.exit.i: ; preds = %.lr.ph58.i.i
   %231 = add nuw nsw i32 %.03847.i.i, 8
   %232 = or disjoint i32 %231, 7
   %233 = icmp slt i32 %232, %112
-  br i1 %233, label %.lr.ph.i131.i, label %._crit_edge.i126.loopexit.i, !llvm.loop !66
+  br i1 %233, label %.lr.ph.i130.i, label %._crit_edge.loopexit.i131.i, !llvm.loop !66
 
-._crit_edge.i126.loopexit.i:                      ; preds = %.lr.ph.i131.i
+._crit_edge.loopexit.i131.i:                      ; preds = %.lr.ph.i130.i
   %234 = and i32 %112, 2147483640
   br label %._crit_edge.i126.i
 
-._crit_edge.i126.i:                               ; preds = %._crit_edge.i126.loopexit.i, %188
-  %.038.lcssa.i.i = phi i32 [ 0, %188 ], [ %234, %._crit_edge.i126.loopexit.i ]
-  %.035.lcssa.i.i = phi ptr [ %190, %188 ], [ %230, %._crit_edge.i126.loopexit.i ]
-  %.0.lcssa.i127.i = phi ptr [ %111, %188 ], [ %229, %._crit_edge.i126.loopexit.i ]
+._crit_edge.i126.i:                               ; preds = %._crit_edge.loopexit.i131.i, %188
+  %.038.lcssa.i.i = phi i32 [ 0, %188 ], [ %234, %._crit_edge.loopexit.i131.i ]
+  %.035.lcssa.i.i = phi ptr [ %190, %188 ], [ %230, %._crit_edge.loopexit.i131.i ]
+  %.0.lcssa.i127.i = phi ptr [ %111, %188 ], [ %229, %._crit_edge.loopexit.i131.i ]
   %235 = insertelement <4 x float> poison, float %191, i64 0
   %236 = shufflevector <4 x float> %235, <4 x float> poison, <4 x i32> zeroinitializer
   %237 = or disjoint i32 %.038.lcssa.i.i, 3

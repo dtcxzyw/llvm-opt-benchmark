@@ -1789,10 +1789,10 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S
   br i1 %.not60219, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, label %.lr.ph221.preheader
 
 .lr.ph221.preheader:                              ; preds = %.preheader
+  %scevgep = getelementptr i8, ptr %.promoted, i64 -24
   %440 = add nsw i32 %.3, -1
   %441 = zext nneg i32 %440 to i64
   %442 = mul nuw nsw i64 %441, -24
-  %scevgep = getelementptr i8, ptr %.promoted, i64 -24
   %scevgep242 = getelementptr i8, ptr %scevgep, i64 %442
   store ptr %scevgep242, ptr %139, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit

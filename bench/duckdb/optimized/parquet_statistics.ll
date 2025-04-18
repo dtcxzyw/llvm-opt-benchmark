@@ -5057,30 +5057,30 @@ _ZN6duckdbL10ValueXXH64ERKNS_5ValueE.exit:        ; preds = %25, %28, %31, %34, 
 73:                                               ; preds = %_ZN6duckdbL10ValueXXH64ERKNS_5ValueE.exit
   %74 = call noundef ptr @_ZNK6duckdb10unique_ptrINS_16ResizeableBufferESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %75 = load ptr, ptr %74, align 8, !tbaa !150
-  %76 = lshr i64 %.0.i, 32
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %78 = load i64, ptr %77, align 8, !tbaa !197
-  %79 = mul i64 %78, %76
-  %80 = trunc i64 %.0.i to i32
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %77 = load i64, ptr %76, align 8, !tbaa !197
+  %78 = trunc i64 %.0.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
-  br label %81
+  br label %79
 
-81:                                               ; preds = %81, %73
-  %.05.i.i.i = phi i64 [ 0, %73 ], [ %88, %81 ]
-  %82 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 0, i64 %.05.i.i.i
-  %83 = load i32, ptr %82, align 4, !tbaa !39
-  %84 = mul i32 %83, %80
-  %85 = lshr i32 %84, 27
-  %86 = trunc nuw nsw i32 %85 to i8
-  %87 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i.i.i
-  store i8 %86, ptr %87, align 1
-  %88 = add nuw nsw i64 %.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %88, 8
-  br i1 %exitcond.not.i.i.i, label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader.i, label %81, !llvm.loop !206
+79:                                               ; preds = %79, %73
+  %.05.i.i.i = phi i64 [ 0, %73 ], [ %86, %79 ]
+  %80 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 0, i64 %.05.i.i.i
+  %81 = load i32, ptr %80, align 4, !tbaa !39
+  %82 = mul i32 %81, %78
+  %83 = lshr i32 %82, 27
+  %84 = trunc nuw nsw i32 %83 to i8
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i.i.i
+  store i8 %84, ptr %85, align 1
+  %86 = add nuw nsw i64 %.05.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %86, 8
+  br i1 %exitcond.not.i.i.i, label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader.i, label %79, !llvm.loop !206
 
-_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader.i: ; preds = %81
-  %89 = lshr i64 %79, 32
+_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader.i: ; preds = %79
+  %87 = lshr i64 %.0.i, 32
+  %88 = mul i64 %77, %87
+  %89 = lshr i64 %88, 32
   %90 = getelementptr inbounds nuw %"struct.duckdb::ParquetBloomBlock", ptr %75, i64 %89
   br label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.i
 
@@ -5306,31 +5306,31 @@ define void @_ZN6duckdb18ParquetBloomFilter12FilterInsertEm(ptr noundef nonnull 
   %3 = alloca %"struct.duckdb::ParquetBloomBlock::ParquetBloomMaskResult", align 8
   %4 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_16ResizeableBufferESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %5 = load ptr, ptr %4, align 8, !tbaa !150
-  %6 = lshr i64 %1, 32
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !197
-  %9 = mul i64 %8, %6
-  %10 = lshr i64 %9, 32
-  %11 = trunc i64 %1 to i32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !197
+  %8 = trunc i64 %1 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
-  br label %12
+  br label %9
 
-12:                                               ; preds = %12, %2
-  %.05.i.i = phi i64 [ 0, %2 ], [ %19, %12 ]
-  %13 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 0, i64 %.05.i.i
-  %14 = load i32, ptr %13, align 4, !tbaa !39
-  %15 = mul i32 %14, %11
-  %16 = lshr i32 %15, 27
-  %17 = trunc nuw nsw i32 %16 to i8
-  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i.i
-  store i8 %17, ptr %18, align 1
-  %19 = add nuw nsw i64 %.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %19, 8
-  br i1 %exitcond.not.i.i, label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader, label %12, !llvm.loop !206
+9:                                                ; preds = %9, %2
+  %.05.i.i = phi i64 [ 0, %2 ], [ %16, %9 ]
+  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 0, i64 %.05.i.i
+  %11 = load i32, ptr %10, align 4, !tbaa !39
+  %12 = mul i32 %11, %8
+  %13 = lshr i32 %12, 27
+  %14 = trunc nuw nsw i32 %13 to i8
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i.i
+  store i8 %14, ptr %15, align 1
+  %16 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %16, 8
+  br i1 %exitcond.not.i.i, label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader, label %9, !llvm.loop !206
 
-_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader: ; preds = %12
-  %20 = getelementptr inbounds nuw %"struct.duckdb::ParquetBloomBlock", ptr %5, i64 %10
+_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader: ; preds = %9
+  %17 = lshr i64 %1, 32
+  %18 = mul i64 %7, %17
+  %19 = lshr i64 %18, 32
+  %20 = getelementptr inbounds nuw %"struct.duckdb::ParquetBloomBlock", ptr %5, i64 %19
   br label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i
 
 _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i:      ; preds = %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i
@@ -5357,31 +5357,31 @@ define noundef zeroext i1 @_ZN6duckdb18ParquetBloomFilter11FilterCheckEm(ptr nou
   %3 = alloca %"struct.duckdb::ParquetBloomBlock::ParquetBloomMaskResult", align 8
   %4 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_16ResizeableBufferESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %5 = load ptr, ptr %4, align 8, !tbaa !150
-  %6 = lshr i64 %1, 32
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !197
-  %9 = mul i64 %8, %6
-  %10 = lshr i64 %9, 32
-  %11 = trunc i64 %1 to i32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i64, ptr %6, align 8, !tbaa !197
+  %8 = trunc i64 %1 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
-  br label %12
+  br label %9
 
-12:                                               ; preds = %12, %2
-  %.05.i.i = phi i64 [ 0, %2 ], [ %19, %12 ]
-  %13 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 0, i64 %.05.i.i
-  %14 = load i32, ptr %13, align 4, !tbaa !39
-  %15 = mul i32 %14, %11
-  %16 = lshr i32 %15, 27
-  %17 = trunc nuw nsw i32 %16 to i8
-  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i.i
-  store i8 %17, ptr %18, align 1
-  %19 = add nuw nsw i64 %.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %19, 8
-  br i1 %exitcond.not.i.i, label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader, label %12, !llvm.loop !206
+9:                                                ; preds = %9, %2
+  %.05.i.i = phi i64 [ 0, %2 ], [ %16, %9 ]
+  %10 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN6duckdb17ParquetBloomBlock4MaskEjE18parquet_bloom_salt, i64 0, i64 %.05.i.i
+  %11 = load i32, ptr %10, align 4, !tbaa !39
+  %12 = mul i32 %11, %8
+  %13 = lshr i32 %12, 27
+  %14 = trunc nuw nsw i32 %13 to i8
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.05.i.i
+  store i8 %14, ptr %15, align 1
+  %16 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %16, 8
+  br i1 %exitcond.not.i.i, label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader, label %9, !llvm.loop !206
 
-_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader: ; preds = %12
-  %20 = getelementptr inbounds nuw %"struct.duckdb::ParquetBloomBlock", ptr %5, i64 %10
+_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader: ; preds = %9
+  %17 = lshr i64 %1, 32
+  %18 = mul i64 %7, %17
+  %19 = lshr i64 %18, 32
+  %20 = getelementptr inbounds nuw %"struct.duckdb::ParquetBloomBlock", ptr %5, i64 %19
   br label %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i
 
 _ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i:      ; preds = %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i.preheader, %_ZN6duckdb17ParquetBloomBlock4MaskEj.exit.i

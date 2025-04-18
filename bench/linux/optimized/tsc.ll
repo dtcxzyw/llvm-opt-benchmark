@@ -268,38 +268,38 @@ define dso_local i64 @native_sched_clock() #5 section ".noinstr.text" align 16 {
 
 5:                                                ; preds = %0
   %6 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !21
-  %7 = extractvalue { i64, i64 } %6, 1
-  br label %8
+  br label %7
 
-8:                                                ; preds = %8, %5
-  %9 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @cyc2ns, i64 32)) #20, !srcloc !6
-  %10 = and i32 %9, 1
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr [2 x %struct.cyc2ns_data], ptr @cyc2ns, i64 0, i64 %11
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %13) #20, !srcloc !7
-  %15 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12) #20, !srcloc !8
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %17 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16) #20, !srcloc !9
-  %18 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @cyc2ns, i64 32)) #20, !srcloc !10
-  %19 = icmp eq i32 %9, %18
-  br i1 %19, label %20, label %8, !prof !11, !llvm.loop !12
+7:                                                ; preds = %7, %5
+  %8 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @cyc2ns, i64 32)) #20, !srcloc !6
+  %9 = and i32 %8, 1
+  %10 = zext nneg i32 %9 to i64
+  %11 = getelementptr [2 x %struct.cyc2ns_data], ptr @cyc2ns, i64 0, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %12) #20, !srcloc !7
+  %14 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %11) #20, !srcloc !8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %16 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15) #20, !srcloc !9
+  %17 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @cyc2ns, i64 32)) #20, !srcloc !10
+  %18 = icmp eq i32 %8, %17
+  br i1 %18, label %19, label %7, !prof !11, !llvm.loop !12
 
-20:                                               ; preds = %8
-  %21 = shl i64 %7, 32
+19:                                               ; preds = %7
+  %20 = extractvalue { i64, i64 } %6, 1
+  %21 = shl i64 %20, 32
   %22 = extractvalue { i64, i64 } %6, 0
   %23 = or i64 %21, %22
   %24 = zext i64 %23 to i128
-  %25 = zext i32 %15 to i128
+  %25 = zext i32 %14 to i128
   %26 = mul nuw nsw i128 %25, %24
-  %27 = zext nneg i32 %17 to i128
+  %27 = zext nneg i32 %16 to i128
   %28 = lshr i128 %26, %27
   %29 = trunc i128 %28 to i64
-  %30 = add i64 %14, %29
+  %30 = add i64 %13, %29
   br label %31
 
-31:                                               ; preds = %20, %1
-  %32 = phi i64 [ %30, %20 ], [ %4, %1 ]
+31:                                               ; preds = %19, %1
+  %32 = phi i64 [ %30, %19 ], [ %4, %1 ]
   ret i64 %32
 }
 

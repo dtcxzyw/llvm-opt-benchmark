@@ -16600,22 +16600,22 @@ lua_isnumber.exit:                                ; preds = %luaO_str2d.exit.thr
   %139 = load ptr, ptr %8, align 8, !tbaa !62
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
   store ptr %140, ptr %8, align 8, !tbaa !62
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %136, %.lr.ph.i
-  %.018.i = phi ptr [ %142, %.lr.ph.i ], [ %140, %136 ]
-  %142 = getelementptr inbounds i8, ptr %.018.i, i64 -16
-  %143 = load i64, ptr %142, align 8, !tbaa !46
-  store i64 %143, ptr %.018.i, align 8, !tbaa !46
-  %144 = getelementptr inbounds i8, ptr %.018.i, i64 -8
-  %145 = load i32, ptr %144, align 8, !tbaa !69
-  %146 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store i32 %145, ptr %146, align 8, !tbaa !69
-  %147 = icmp ugt ptr %.018.i, %139
-  br i1 %147, label %.lr.ph.i, label %lua_insert.exit, !llvm.loop !259
+  %.018.i = phi ptr [ %141, %.lr.ph.i ], [ %140, %136 ]
+  %141 = getelementptr inbounds i8, ptr %.018.i, i64 -16
+  %142 = load i64, ptr %141, align 8, !tbaa !46
+  store i64 %142, ptr %.018.i, align 8, !tbaa !46
+  %143 = getelementptr inbounds i8, ptr %.018.i, i64 -8
+  %144 = load i32, ptr %143, align 8, !tbaa !69
+  %145 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store i32 %144, ptr %145, align 8, !tbaa !69
+  %146 = icmp ugt ptr %.018.i, %139
+  br i1 %146, label %.lr.ph.i, label %lua_insert.exit, !llvm.loop !259
 
 lua_insert.exit:                                  ; preds = %.lr.ph.i
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %148 = getelementptr inbounds i8, ptr %139, i64 -16
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !62
   %149 = load i64, ptr %.pre.i, align 8, !tbaa !46
@@ -16679,7 +16679,7 @@ lua_insert.exit:                                  ; preds = %.lr.ph.i
   br i1 %.not19.i, label %lua_setfenv.exit, label %185
 
 185:                                              ; preds = %180
-  %.val.i = load ptr, ptr %141, align 8, !tbaa !29
+  %.val.i = load ptr, ptr %147, align 8, !tbaa !29
   %186 = getelementptr inbounds nuw i8, ptr %.val.i, i64 33
   %187 = load i8, ptr %186, align 1, !tbaa !50
   %188 = icmp eq i8 %187, 1

@@ -33670,49 +33670,49 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCo
 _ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit75: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i70
   %48 = getelementptr inbounds [30 x %"struct.std::pair.1319"], ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 0, i64 %.sroa.4.1.i.i.i.i71
   %49 = load i8, ptr %48, align 8
-  %50 = icmp eq i8 %49, %35
-  %spec.select.i.i73 = select i1 %50, i64 %.sroa.4.1.i.i.i.i71, i64 29
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %52 = load i8, ptr %51, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %51 = load i8, ptr %50, align 1
   br label %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76
 
 _ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i82, %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit75
   %.025.i.i.i.i77 = phi i64 [ 29, %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit75 ], [ %.1.i.i.i.i84, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i82 ]
   %.sroa.4.024.i.i.i.i78 = phi i64 [ 0, %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit75 ], [ %.sroa.4.1.i.i.i.i83, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i82 ]
-  %53 = lshr i64 %.025.i.i.i.i77, 1
-  %.sroa.3.0.i.i.i.i79 = add i64 %53, %.sroa.4.024.i.i.i.i78
-  %54 = getelementptr inbounds [30 x %"struct.std::pair.1319"], ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 0, i64 %.sroa.3.0.i.i.i.i79
-  %55 = load i8, ptr %54, align 8
-  %56 = icmp ult i8 %55, %52
-  br i1 %56, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread.i.i.i.i86, label %57
+  %52 = lshr i64 %.025.i.i.i.i77, 1
+  %.sroa.3.0.i.i.i.i79 = add i64 %52, %.sroa.4.024.i.i.i.i78
+  %53 = getelementptr inbounds [30 x %"struct.std::pair.1319"], ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 0, i64 %.sroa.3.0.i.i.i.i79
+  %54 = load i8, ptr %53, align 8
+  %55 = icmp ult i8 %54, %51
+  br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread.i.i.i.i86, label %56
 
-57:                                               ; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76
-  %58 = icmp ult i8 %52, %55
-  br i1 %58, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i82, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.i.i.i.i80
+56:                                               ; preds = %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76
+  %57 = icmp ult i8 %51, %54
+  br i1 %57, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i82, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.i.i.i.i80
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.i.i.i.i80: ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %.sroa.01.0.copyload.i.i.i.i.i.i81 = load i64, ptr %59, align 8
-  %60 = icmp slt i64 %.sroa.01.0.copyload.i.i.i.i.i.i81, 0
-  br i1 %60, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread.i.i.i.i86, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i82
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.i.i.i.i80: ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %.sroa.01.0.copyload.i.i.i.i.i.i81 = load i64, ptr %58, align 8
+  %59 = icmp slt i64 %.sroa.01.0.copyload.i.i.i.i.i.i81, 0
+  br i1 %59, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread.i.i.i.i86, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i82
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread.i.i.i.i86: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.i.i.i.i80, %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76
-  %61 = add i64 %.sroa.3.0.i.i.i.i79, 1
-  %62 = xor i64 %53, -1
-  %63 = add nsw i64 %.025.i.i.i.i77, %62
+  %60 = add i64 %.sroa.3.0.i.i.i.i79, 1
+  %61 = xor i64 %52, -1
+  %62 = add nsw i64 %.025.i.i.i.i77, %61
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i82
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i82: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread.i.i.i.i86, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.i.i.i.i80, %57
-  %.sroa.4.1.i.i.i.i83 = phi i64 [ %61, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread.i.i.i.i86 ], [ %.sroa.4.024.i.i.i.i78, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.i.i.i.i80 ], [ %.sroa.4.024.i.i.i.i78, %57 ]
-  %.1.i.i.i.i84 = phi i64 [ %63, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread.i.i.i.i86 ], [ %53, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.i.i.i.i80 ], [ %53, %57 ]
-  %64 = icmp sgt i64 %.1.i.i.i.i84, 0
-  br i1 %64, label %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76, label %65, !llvm.loop !264
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i82: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread.i.i.i.i86, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.i.i.i.i80, %56
+  %.sroa.4.1.i.i.i.i83 = phi i64 [ %60, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread.i.i.i.i86 ], [ %.sroa.4.024.i.i.i.i78, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.i.i.i.i80 ], [ %.sroa.4.024.i.i.i.i78, %56 ]
+  %.1.i.i.i.i84 = phi i64 [ %62, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread.i.i.i.i86 ], [ %52, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.i.i.i.i80 ], [ %52, %56 ]
+  %63 = icmp sgt i64 %.1.i.i.i.i84, 0
+  br i1 %63, label %_ZSt7advanceIN8WasmEdge12SpareEnumMapILm29ENS0_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorElEvRT_T0_.exit.i.i.i.i76, label %64, !llvm.loop !264
 
-65:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i82
+64:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEE13ConstIteratorEKSt4pairIS5_S9_EEEbT_RT0_.exit.thread23.i.i.i.i82
+  %65 = icmp eq i8 %49, %35
+  %spec.select.i.i73 = select i1 %65, i64 %.sroa.4.1.i.i.i.i71, i64 29
   %66 = getelementptr inbounds [30 x %"struct.std::pair.1319"], ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 0, i64 %spec.select.i.i73, i32 1
   %67 = getelementptr inbounds [30 x %"struct.std::pair.1319"], ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 0, i64 %.sroa.4.1.i.i.i.i83
   %68 = load i8, ptr %67, align 8
-  %69 = icmp eq i8 %68, %52
+  %69 = icmp eq i8 %68, %51
   %spec.select.i.i85 = select i1 %69, i64 %.sroa.4.1.i.i.i.i83, i64 29
   %70 = getelementptr inbounds [30 x %"struct.std::pair.1319"], ptr @_ZN8WasmEdgeL11TypeCodeStrE, i64 0, i64 %spec.select.i.i85, i32 1
   call void @llvm.experimental.noalias.scope.decl(metadata !265)
@@ -33745,9 +33745,9 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIN8WasmEdge12SpareEnumMapILm29ENS3_8TypeCo
   invoke void @_ZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr nonnull @.str.184, i64 5, i64 221, ptr nonnull %7, ptr null)
           to label %79 unwind label %99
 
-79:                                               ; preds = %65
+79:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  %80 = load i8, ptr %51, align 1
+  %80 = load i8, ptr %50, align 1
   %81 = icmp eq i8 %80, 0
   br i1 %81, label %82, label %89
 
@@ -33800,7 +33800,7 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %94, %96
   %.sroa.012.0 = phi ptr [ %93, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %29, %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit ]
   ret ptr %.sroa.012.0
 
-99:                                               ; preds = %82, %65, %89, %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit
+99:                                               ; preds = %82, %64, %89, %_ZNK8WasmEdge12SpareEnumMapILm29ENS_8TypeCodeESt17basic_string_viewIcSt11char_traitsIcEEEixES1_.exit
   %100 = landingpad { ptr, i32 }
           catch ptr null
   %101 = extractvalue { ptr, i32 } %100, 0

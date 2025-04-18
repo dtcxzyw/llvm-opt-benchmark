@@ -1720,124 +1720,124 @@ _ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.i: ; preds = %69
   %76 = fneg double %.sroa.780.24.copyload
   %77 = fneg double %.sroa.881.24.copyload
   %78 = fneg double %.sroa.9.24.copyload
-  %79 = fmul double %.sroa.780.24.copyload, %.sroa.6.24.copyload
-  %80 = tail call double @llvm.fmuladd.f64(double %.sroa.5.24.copyload, double %.sroa.4.24.copyload, double %79)
-  %81 = fmul double %.sroa.4.24.copyload, %76
-  %82 = tail call double @llvm.fmuladd.f64(double %.sroa.5.24.copyload, double %.sroa.6.24.copyload, double %81)
-  %83 = fmul double %.sroa.780.24.copyload, %.sroa.8.24.copyload
-  %84 = tail call double @llvm.fmuladd.f64(double %.sroa.5.24.copyload, double %.sroa.7.24.copyload, double %83)
-  %85 = fmul double %.sroa.7.24.copyload, %76
-  %86 = tail call double @llvm.fmuladd.f64(double %.sroa.5.24.copyload, double %.sroa.8.24.copyload, double %85)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #26
-  %87 = fmul double %.sroa.9.24.copyload, %.sroa.9.24.copyload
-  %88 = tail call double @llvm.fmuladd.f64(double %.sroa.881.24.copyload, double %.sroa.881.24.copyload, double %87)
-  %89 = tail call double @llvm.fmuladd.f64(double %88, double -2.000000e+00, double 1.000000e+00)
-  %90 = fmul double %.sroa.5.24.copyload, %78
-  %91 = fneg double %90
-  %92 = tail call double @llvm.fmuladd.f64(double %.sroa.780.24.copyload, double %.sroa.881.24.copyload, double %91)
-  %93 = fmul double %92, 2.000000e+00
-  %94 = fmul double %.sroa.5.24.copyload, %77
-  %95 = tail call double @llvm.fmuladd.f64(double %.sroa.780.24.copyload, double %.sroa.9.24.copyload, double %94)
+  %79 = fmul double %.sroa.9.24.copyload, %.sroa.9.24.copyload
+  %80 = tail call double @llvm.fmuladd.f64(double %.sroa.881.24.copyload, double %.sroa.881.24.copyload, double %79)
+  %81 = tail call double @llvm.fmuladd.f64(double %80, double -2.000000e+00, double 1.000000e+00)
+  %82 = fmul double %.sroa.5.24.copyload, %78
+  %83 = fneg double %82
+  %84 = tail call double @llvm.fmuladd.f64(double %.sroa.780.24.copyload, double %.sroa.881.24.copyload, double %83)
+  %85 = fmul double %84, 2.000000e+00
+  %86 = fmul double %.sroa.5.24.copyload, %77
+  %87 = tail call double @llvm.fmuladd.f64(double %.sroa.780.24.copyload, double %.sroa.9.24.copyload, double %86)
+  %88 = fmul double %87, 2.000000e+00
+  %89 = tail call double @llvm.fmuladd.f64(double %.sroa.780.24.copyload, double %.sroa.881.24.copyload, double %82)
+  %90 = fmul double %89, 2.000000e+00
+  %91 = tail call double @llvm.fmuladd.f64(double %.sroa.780.24.copyload, double %.sroa.780.24.copyload, double %79)
+  %92 = tail call double @llvm.fmuladd.f64(double %91, double -2.000000e+00, double 1.000000e+00)
+  %93 = fmul double %.sroa.5.24.copyload, %76
+  %94 = fneg double %93
+  %95 = tail call double @llvm.fmuladd.f64(double %.sroa.881.24.copyload, double %.sroa.9.24.copyload, double %94)
   %96 = fmul double %95, 2.000000e+00
-  %97 = tail call double @llvm.fmuladd.f64(double %.sroa.780.24.copyload, double %.sroa.881.24.copyload, double %90)
-  %98 = fmul double %97, 2.000000e+00
-  %99 = tail call double @llvm.fmuladd.f64(double %.sroa.780.24.copyload, double %.sroa.780.24.copyload, double %87)
-  %100 = tail call double @llvm.fmuladd.f64(double %99, double -2.000000e+00, double 1.000000e+00)
-  %101 = fmul double %.sroa.5.24.copyload, %76
-  %102 = fneg double %101
-  %103 = tail call double @llvm.fmuladd.f64(double %.sroa.881.24.copyload, double %.sroa.9.24.copyload, double %102)
-  %104 = fmul double %103, 2.000000e+00
-  %105 = fneg double %94
-  %106 = tail call double @llvm.fmuladd.f64(double %.sroa.780.24.copyload, double %.sroa.9.24.copyload, double %105)
-  %107 = fmul double %106, 2.000000e+00
-  %108 = tail call double @llvm.fmuladd.f64(double %.sroa.881.24.copyload, double %.sroa.9.24.copyload, double %101)
-  %109 = fmul double %108, 2.000000e+00
-  %110 = fmul double %.sroa.881.24.copyload, %.sroa.881.24.copyload
-  %111 = tail call double @llvm.fmuladd.f64(double %.sroa.780.24.copyload, double %.sroa.780.24.copyload, double %110)
-  %112 = tail call double @llvm.fmuladd.f64(double %111, double -2.000000e+00, double 1.000000e+00)
-  store double %89, ptr %6, align 8, !tbaa !21, !alias.scope !174
-  store double %93, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
-  store double %96, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
-  store double %98, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
-  store double %100, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
-  store double %104, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
-  store double %107, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
-  store double %109, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
-  store double %112, ptr %.sroa.11.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
+  %97 = fneg double %86
+  %98 = tail call double @llvm.fmuladd.f64(double %.sroa.780.24.copyload, double %.sroa.9.24.copyload, double %97)
+  %99 = fmul double %98, 2.000000e+00
+  %100 = tail call double @llvm.fmuladd.f64(double %.sroa.881.24.copyload, double %.sroa.9.24.copyload, double %93)
+  %101 = fmul double %100, 2.000000e+00
+  %102 = fmul double %.sroa.881.24.copyload, %.sroa.881.24.copyload
+  %103 = tail call double @llvm.fmuladd.f64(double %.sroa.780.24.copyload, double %.sroa.780.24.copyload, double %102)
+  %104 = tail call double @llvm.fmuladd.f64(double %103, double -2.000000e+00, double 1.000000e+00)
+  store double %81, ptr %6, align 8, !tbaa !21, !alias.scope !174
+  store double %85, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
+  store double %88, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
+  store double %90, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
+  store double %92, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
+  store double %96, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
+  store double %99, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
+  store double %101, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
+  store double %104, ptr %.sroa.11.0..sroa_idx.i.i, align 8, !tbaa !21, !alias.scope !174
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.critedge.i.i.i, %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.i
   %indvars.iv23.i.i.i = phi i64 [ 0, %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.i ], [ %indvars.iv.next24.i.i.i, %.critedge.i.i.i ]
-  %113 = mul nuw nsw i64 %indvars.iv23.i.i.i, 3
-  br label %115
+  %105 = mul nuw nsw i64 %indvars.iv23.i.i.i, 3
+  br label %107
 
-.critedge.i.i.i:                                  ; preds = %115
-  %114 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv23.i.i.i
-  store double %121, ptr %114, align 8
+.critedge.i.i.i:                                  ; preds = %107
+  %106 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv23.i.i.i
+  store double %113, ptr %106, align 8
   %indvars.iv.next24.i.i.i = add nuw nsw i64 %indvars.iv23.i.i.i, 1
   %exitcond26.not.i.i.i = icmp eq i64 %indvars.iv.next24.i.i.i, 3
   br i1 %exitcond26.not.i.i.i, label %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i, label %.preheader.i.i.i, !llvm.loop !177
 
-115:                                              ; preds = %115, %.preheader.i.i.i
-  %indvars.iv.i.i.i37 = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i38, %115 ]
-  %.01619.i.i.i = phi double [ 0.000000e+00, %.preheader.i.i.i ], [ %121, %115 ]
-  %116 = add nuw nsw i64 %indvars.iv.i.i.i37, %113
-  %117 = getelementptr inbounds nuw [9 x double], ptr %6, i64 0, i64 %116
-  %118 = load double, ptr %117, align 8, !tbaa !21, !noalias !178
-  %119 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv.i.i.i37
-  %120 = load double, ptr %119, align 8, !tbaa !21, !noalias !178
-  %121 = tail call double @llvm.fmuladd.f64(double %118, double %120, double %.01619.i.i.i)
+107:                                              ; preds = %107, %.preheader.i.i.i
+  %indvars.iv.i.i.i37 = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i38, %107 ]
+  %.01619.i.i.i = phi double [ 0.000000e+00, %.preheader.i.i.i ], [ %113, %107 ]
+  %108 = add nuw nsw i64 %indvars.iv.i.i.i37, %105
+  %109 = getelementptr inbounds nuw [9 x double], ptr %6, i64 0, i64 %108
+  %110 = load double, ptr %109, align 8, !tbaa !21, !noalias !178
+  %111 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv.i.i.i37
+  %112 = load double, ptr %111, align 8, !tbaa !21, !noalias !178
+  %113 = tail call double @llvm.fmuladd.f64(double %110, double %112, double %.01619.i.i.i)
   %indvars.iv.next.i.i.i38 = add nuw nsw i64 %indvars.iv.i.i.i37, 1
   %exitcond.not.i.i.i39 = icmp eq i64 %indvars.iv.next.i.i.i38, 3
-  br i1 %exitcond.not.i.i.i39, label %.critedge.i.i.i, label %115, !llvm.loop !181
+  br i1 %exitcond.not.i.i.i39, label %.critedge.i.i.i, label %107, !llvm.loop !181
 
 _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i: ; preds = %.critedge.i.i.i
-  %122 = tail call double @llvm.fmuladd.f64(double %.sroa.881.24.copyload, double %.sroa.7.24.copyload, double %80)
-  %123 = tail call double @llvm.fmuladd.f64(double %77, double %.sroa.8.24.copyload, double %82)
-  %124 = tail call double @llvm.fmuladd.f64(double %77, double %.sroa.4.24.copyload, double %84)
-  %125 = tail call double @llvm.fmuladd.f64(double %.sroa.9.24.copyload, double %.sroa.8.24.copyload, double %122)
-  %126 = tail call double @llvm.fmuladd.f64(double %.sroa.9.24.copyload, double %.sroa.7.24.copyload, double %123)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #26
-  %127 = fneg double %126
-  %128 = fmul double %.sroa.065.0.copyload, %127
-  %129 = tail call double @llvm.fmuladd.f64(double %125, double %.sroa.266.0.copyload, double %128)
-  %130 = fmul double %126, %.sroa.468.0.copyload
-  %131 = tail call double @llvm.fmuladd.f64(double %125, double %.sroa.367.0.copyload, double %130)
-  %132 = fmul double %.sroa.367.0.copyload, %127
-  %133 = tail call double @llvm.fmuladd.f64(double %125, double %.sroa.468.0.copyload, double %132)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
-  br label %134
+  br label %114
 
-134:                                              ; preds = %134, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i
-  %indvars.iv.i.i.i15.i = phi i64 [ 0, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i ], [ %indvars.iv.next.i.i.i16.i, %134 ]
-  %135 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv.i.i.i15.i
-  %136 = load double, ptr %135, align 8
-  %137 = getelementptr inbounds nuw [3 x double], ptr %15, i64 0, i64 %indvars.iv.i.i.i15.i
-  %138 = load double, ptr %137, align 8, !tbaa !21, !noalias !182
-  %139 = fsub double %136, %138
-  %140 = getelementptr inbounds nuw [3 x double], ptr %7, i64 0, i64 %indvars.iv.i.i.i15.i
-  store double %139, ptr %140, align 8, !tbaa !21, !alias.scope !182
+114:                                              ; preds = %114, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i
+  %indvars.iv.i.i.i15.i = phi i64 [ 0, %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i ], [ %indvars.iv.next.i.i.i16.i, %114 ]
+  %115 = getelementptr inbounds nuw [3 x double], ptr %4, i64 0, i64 %indvars.iv.i.i.i15.i
+  %116 = load double, ptr %115, align 8
+  %117 = getelementptr inbounds nuw [3 x double], ptr %15, i64 0, i64 %indvars.iv.i.i.i15.i
+  %118 = load double, ptr %117, align 8, !tbaa !21, !noalias !182
+  %119 = fsub double %116, %118
+  %120 = getelementptr inbounds nuw [3 x double], ptr %7, i64 0, i64 %indvars.iv.i.i.i15.i
+  store double %119, ptr %120, align 8, !tbaa !21, !alias.scope !182
   %indvars.iv.next.i.i.i16.i = add nuw nsw i64 %indvars.iv.i.i.i15.i, 1
   %exitcond.not.i.i.i17.i = icmp eq i64 %indvars.iv.next.i.i.i16.i, 3
-  br i1 %exitcond.not.i.i.i17.i, label %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit18.i, label %134, !llvm.loop !173
+  br i1 %exitcond.not.i.i.i17.i, label %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit18.i, label %114, !llvm.loop !173
 
-_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit18.i: ; preds = %134
-  %141 = tail call double @llvm.fmuladd.f64(double %.sroa.881.24.copyload, double %.sroa.6.24.copyload, double %86)
-  %142 = tail call double @llvm.fmuladd.f64(double %78, double %.sroa.6.24.copyload, double %124)
-  %143 = fneg double %142
-  %144 = tail call double @llvm.fmuladd.f64(double %143, double %.sroa.468.0.copyload, double %129)
-  %145 = tail call double @llvm.fmuladd.f64(double %143, double %.sroa.065.0.copyload, double %131)
-  %146 = tail call double @llvm.fmuladd.f64(double %142, double %.sroa.266.0.copyload, double %133)
-  %147 = tail call double @llvm.fmuladd.f64(double %78, double %.sroa.4.24.copyload, double %141)
-  %148 = fneg double %147
-  %149 = tail call double @llvm.fmuladd.f64(double %147, double %.sroa.367.0.copyload, double %144)
-  %150 = tail call double @llvm.fmuladd.f64(double %148, double %.sroa.266.0.copyload, double %145)
-  %151 = tail call double @llvm.fmuladd.f64(double %148, double %.sroa.065.0.copyload, double %146)
+_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit18.i: ; preds = %114
+  %121 = fmul double %.sroa.780.24.copyload, %.sroa.6.24.copyload
+  %122 = tail call double @llvm.fmuladd.f64(double %.sroa.5.24.copyload, double %.sroa.4.24.copyload, double %121)
+  %123 = tail call double @llvm.fmuladd.f64(double %.sroa.881.24.copyload, double %.sroa.7.24.copyload, double %122)
+  %124 = tail call double @llvm.fmuladd.f64(double %.sroa.9.24.copyload, double %.sroa.8.24.copyload, double %123)
+  %125 = fmul double %.sroa.4.24.copyload, %76
+  %126 = tail call double @llvm.fmuladd.f64(double %.sroa.5.24.copyload, double %.sroa.6.24.copyload, double %125)
+  %127 = tail call double @llvm.fmuladd.f64(double %77, double %.sroa.8.24.copyload, double %126)
+  %128 = tail call double @llvm.fmuladd.f64(double %.sroa.9.24.copyload, double %.sroa.7.24.copyload, double %127)
+  %129 = fmul double %.sroa.780.24.copyload, %.sroa.8.24.copyload
+  %130 = tail call double @llvm.fmuladd.f64(double %.sroa.5.24.copyload, double %.sroa.7.24.copyload, double %129)
+  %131 = tail call double @llvm.fmuladd.f64(double %77, double %.sroa.4.24.copyload, double %130)
+  %132 = tail call double @llvm.fmuladd.f64(double %78, double %.sroa.6.24.copyload, double %131)
+  %133 = fmul double %.sroa.7.24.copyload, %76
+  %134 = tail call double @llvm.fmuladd.f64(double %.sroa.5.24.copyload, double %.sroa.8.24.copyload, double %133)
+  %135 = tail call double @llvm.fmuladd.f64(double %.sroa.881.24.copyload, double %.sroa.6.24.copyload, double %134)
+  %136 = tail call double @llvm.fmuladd.f64(double %78, double %.sroa.4.24.copyload, double %135)
+  %137 = fneg double %128
+  %138 = fneg double %132
+  %139 = fneg double %136
+  %140 = fmul double %.sroa.065.0.copyload, %137
+  %141 = tail call double @llvm.fmuladd.f64(double %124, double %.sroa.266.0.copyload, double %140)
+  %142 = tail call double @llvm.fmuladd.f64(double %138, double %.sroa.468.0.copyload, double %141)
+  %143 = tail call double @llvm.fmuladd.f64(double %136, double %.sroa.367.0.copyload, double %142)
+  %144 = fmul double %128, %.sroa.468.0.copyload
+  %145 = tail call double @llvm.fmuladd.f64(double %124, double %.sroa.367.0.copyload, double %144)
+  %146 = tail call double @llvm.fmuladd.f64(double %138, double %.sroa.065.0.copyload, double %145)
+  %147 = tail call double @llvm.fmuladd.f64(double %139, double %.sroa.266.0.copyload, double %146)
+  %148 = fmul double %.sroa.367.0.copyload, %137
+  %149 = tail call double @llvm.fmuladd.f64(double %124, double %.sroa.468.0.copyload, double %148)
+  %150 = tail call double @llvm.fmuladd.f64(double %132, double %.sroa.266.0.copyload, double %149)
+  %151 = tail call double @llvm.fmuladd.f64(double %139, double %.sroa.065.0.copyload, double %150)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #26
-  store double %149, ptr %9, align 8, !tbaa !21
-  store double %150, ptr %24, align 8, !tbaa !21
+  store double %143, ptr %9, align 8, !tbaa !21
+  store double %147, ptr %24, align 8, !tbaa !21
   store double %151, ptr %25, align 8, !tbaa !21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
   br label %152

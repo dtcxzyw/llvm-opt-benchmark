@@ -74,26 +74,26 @@ define noundef zeroext i1 @_Z12MergeArchiveR7ArchiveP11ComprDataIObw(ptr noundef
   br i1 %46, label %.critedge94, label %47
 
 47:                                               ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 52
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %12) #6
-  br label %49
+  br label %48
 
-49:                                               ; preds = %49, %47
-  %indvars.iv.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i, %49 ]
-  %50 = getelementptr inbounds nuw [8 x ptr], ptr %12, i64 0, i64 %indvars.iv.i.i
-  store ptr @.str, ptr %50, align 8, !tbaa !64
+48:                                               ; preds = %48, %47
+  %indvars.iv.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i, %48 ]
+  %49 = getelementptr inbounds nuw [8 x ptr], ptr %12, i64 0, i64 %indvars.iv.i.i
+  store ptr @.str, ptr %49, align 8, !tbaa !64
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit, label %49, !llvm.loop !65
+  br i1 %exitcond.not.i.i, label %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit, label %48, !llvm.loop !65
 
-_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %49
+_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %51 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, i8 0, i64 40, i1 false)
   store i32 5, ptr %53, align 8, !tbaa !67
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  store ptr %48, ptr %12, align 8, !tbaa !64
+  store ptr %50, ptr %12, align 8, !tbaa !64
   store i32 2, ptr %54, align 8, !tbaa !70
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %51, ptr %55, align 8, !tbaa !64

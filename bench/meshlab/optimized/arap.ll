@@ -5322,18 +5322,18 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18sc
 41:                                               ; preds = %.lr.ph, %196
   %.sroa.092.0118 = phi ptr [ %27, %.lr.ph ], [ %197, %196 ]
   %42 = load ptr, ptr %26, align 8
-  %43 = ptrtoint ptr %.sroa.092.0118 to i64
-  %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = sdiv exact i64 %45, 216
-  %sext = shl i64 %46, 32
-  %47 = load ptr, ptr %2, align 8
+  %43 = load ptr, ptr %2, align 8
+  %44 = ptrtoint ptr %.sroa.092.0118 to i64
+  %45 = ptrtoint ptr %42 to i64
+  %46 = sub i64 %44, %45
+  %47 = sdiv exact i64 %46, 216
+  %sext = shl i64 %47, 32
   %48 = ashr exact i64 %sext, 32
-  %49 = getelementptr inbounds %"class.Eigen::Matrix.188", ptr %47, i64 %48
+  %49 = getelementptr inbounds %"class.Eigen::Matrix.188", ptr %43, i64 %48
   %50 = load ptr, ptr %32, align 8
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
-  %53 = sub i64 %43, %52
+  %53 = sub i64 %44, %52
   %54 = load ptr, ptr %31, align 8
   %55 = sdiv exact i64 %53, 3
   %56 = getelementptr inbounds i8, ptr %54, i64 %55
@@ -5423,11 +5423,11 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18sc
 _Z13LocalIsometryIN3vcg6Point3IdEEN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEvRKT_S8_RT0_SA_.exit: ; preds = %90, %114, %116
   %.0.i = phi double [ %111, %90 ], [ 1.000000e-03, %114 ], [ %..i, %116 ]
   %118 = tail call double @cos(double noundef %.0.i) #26
-  %119 = fmul double %.024.i, %118
-  %120 = tail call double @sin(double noundef %.0.i) #26
-  %121 = fmul double %.024.i, %120
+  %119 = tail call double @sin(double noundef %.0.i) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %.sroa.0110.0.vec.insert = insertelement <2 x double> poison, double %119, i64 0
+  %120 = fmul double %.024.i, %118
+  %.sroa.0110.0.vec.insert = insertelement <2 x double> poison, double %120, i64 0
+  %121 = fmul double %.024.i, %119
   %.sroa.0110.8.vec.insert = insertelement <2 x double> %.sroa.0110.0.vec.insert, double %121, i64 1
   %122 = insertelement <2 x double> <double poison, double 0.000000e+00>, double %.025.i, i64 0
   store <2 x double> %122, ptr %33, align 16

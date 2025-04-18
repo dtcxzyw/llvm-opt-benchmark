@@ -1050,9 +1050,9 @@ _ZN4ncnn3MatD2Ev.exit1328.i:                      ; preds = %._crit_edge1669.i, 
   %664 = zext i32 %narrow2395.i to i64
   %665 = mul nsw i64 %664, %395
   %scevgep2166.i = getelementptr i8, ptr %.01121.lcssa24092413.i, i64 %665
-  %666 = and i32 %661, -8
-  %667 = add i32 %.01175.lcssa24072415.i, 8
-  %668 = add i32 %667, %666
+  %666 = add i32 %.01175.lcssa24072415.i, 8
+  %667 = and i32 %661, -8
+  %668 = add i32 %666, %667
   br label %.preheader1590.i
 
 .preheader1586.us.i:                              ; preds = %.preheader1586.lr.ph.i, %._crit_edge.us1628.i
@@ -1465,9 +1465,9 @@ _ZN4ncnn3MatD2Ev.exit1327.i:                      ; preds = %._crit_edge1765.i, 
   %883 = zext i32 %narrow2397.i to i64
   %884 = mul nsw i64 %883, %429
   %scevgep2227.i = getelementptr i8, ptr %.01220.lcssa24472458.i, i64 %884
-  %885 = and i32 %880, -8
-  %886 = add i32 %.01252.lcssa24382460.i, 8
-  %887 = add i32 %886, %885
+  %885 = add i32 %.01252.lcssa24382460.i, 8
+  %886 = and i32 %880, -8
+  %887 = add i32 %885, %886
   br label %._crit_edge1720.i
 
 .preheader1577.us.i:                              ; preds = %.preheader1577.lr.ph.i, %._crit_edge.us1724.i
@@ -1860,8 +1860,8 @@ _ZN4ncnn3MatD2Ev.exit1326.i:                      ; preds = %._crit_edge1851.i, 
 .preheader1572.thread.i:                          ; preds = %.preheader1569.lr.ph.i
   %scevgep2261.i = getelementptr i8, ptr %1034, i64 %750
   %scevgep2264.i = getelementptr i8, ptr %scevgep2261.i, i64 %1027
-  %scevgep2270.i = getelementptr i8, ptr %scevgep2261.i, i64 %1031
   %scevgep2267.i = getelementptr i8, ptr %scevgep2261.i, i64 %1029
+  %scevgep2270.i = getelementptr i8, ptr %scevgep2261.i, i64 %1031
   %scevgep2273.i = getelementptr i8, ptr %scevgep2261.i, i64 %1033
   br i1 %764, label %.preheader1568.preheader.i, label %.preheader1571.i
 
@@ -1881,13 +1881,13 @@ _ZN4ncnn3MatD2Ev.exit1326.i:                      ; preds = %._crit_edge1851.i, 
   %narrow2399.i = add nuw i32 %1100, 4
   %1101 = zext i32 %narrow2399.i to i64
   %1102 = mul nsw i64 %1101, %737
-  %scevgep2280.i = getelementptr i8, ptr %.01280.lcssa24802495.i, i64 %1102
-  %scevgep2282.i = getelementptr i8, ptr %.01274.lcssa24822493.i, i64 %1102
-  %1103 = and i32 %1098, -8
   %scevgep2279.i = getelementptr i8, ptr %.01283.lcssa24792496.i, i64 %1102
+  %scevgep2280.i = getelementptr i8, ptr %.01280.lcssa24802495.i, i64 %1102
   %scevgep2281.i = getelementptr i8, ptr %.01277.lcssa24812494.i, i64 %1102
-  %1104 = add i32 %.01258.lcssa24842491.i, 8
-  %1105 = add i32 %1104, %1103
+  %scevgep2282.i = getelementptr i8, ptr %.01274.lcssa24822493.i, i64 %1102
+  %1103 = add i32 %.01258.lcssa24842491.i, 8
+  %1104 = and i32 %1098, -8
+  %1105 = add i32 %1103, %1104
   br label %.preheader1571.i
 
 .preheader1568.us.i:                              ; preds = %.preheader1568.lr.ph.i, %._crit_edge.us1806.i
@@ -2237,11 +2237,11 @@ _ZN4ncnn3MatD2Ev.exit1325.i:                      ; preds = %._crit_edge1928.i, 
   %narrow2401.i = add nuw i32 %1270, 4
   %1271 = zext i32 %narrow2401.i to i64
   %1272 = mul nsw i64 %1271, %1004
-  %scevgep2324.i = getelementptr i8, ptr %.01198.lcssa25142523.i, i64 %1272
-  %1273 = and i32 %1268, -8
   %scevgep2323.i = getelementptr i8, ptr %.01202.lcssa25132524.i, i64 %1272
-  %1274 = add i32 %.01182.lcssa25162521.i, 8
-  %1275 = add i32 %1274, %1273
+  %scevgep2324.i = getelementptr i8, ptr %.01198.lcssa25142523.i, i64 %1272
+  %1273 = add i32 %.01182.lcssa25162521.i, 8
+  %1274 = and i32 %1268, -8
+  %1275 = add i32 %1273, %1274
   br label %.preheader1562.i
 
 .preheader1558.us.i:                              ; preds = %.preheader1558.lr.ph.i, %._crit_edge.us1882.i
@@ -2498,9 +2498,9 @@ _ZN4ncnn3MatD2Ev.exit.i:                          ; preds = %._crit_edge1992.i, 
   %1372 = zext i32 %narrow2403.i to i64
   %1373 = mul nsw i64 %1372, %1206
   %scevgep2364.i = getelementptr i8, ptr %.01143.lcssa25442552.i, i64 %1373
-  %1374 = and i32 %1369, -8
-  %1375 = add i32 %.01133.lcssa25462550.i, 8
-  %1376 = add i32 %1375, %1374
+  %1374 = add i32 %.01133.lcssa25462550.i, 8
+  %1375 = and i32 %1369, -8
+  %1376 = add i32 %1374, %1375
   br label %.preheader1552.i
 
 .preheader1548.us.i:                              ; preds = %.preheader1548.lr.ph.i, %._crit_edge.us1954.i
@@ -9057,20 +9057,16 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %89, label %.preheader753, label %.loopexit754
 
 .preheader753:                                    ; preds = %191
-  br i1 %114, label %.lr.ph.preheader, label %.loopexit750
+  br i1 %114, label %.lr.ph, label %.loopexit750
 
-.lr.ph.preheader:                                 ; preds = %.preheader753
-  %scevgep = getelementptr i8, ptr %.0656817, i64 1024
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.3588765 = phi <16 x float> [ %288, %.lr.ph ], [ %.1586821, %.lr.ph.preheader ]
-  %.2592764 = phi <16 x float> [ %293, %.lr.ph ], [ %.0590820, %.lr.ph.preheader ]
-  %.2615763 = phi <16 x float> [ %298, %.lr.ph ], [ %.0613819, %.lr.ph.preheader ]
-  %.2636762 = phi <16 x float> [ %303, %.lr.ph ], [ %.0634818, %.lr.ph.preheader ]
-  %.2658761 = phi ptr [ %305, %.lr.ph ], [ %.0656817, %.lr.ph.preheader ]
-  %.1687760 = phi ptr [ %304, %.lr.ph ], [ %gep, %.lr.ph.preheader ]
-  %.0693759 = phi i32 [ %306, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader753, %.lr.ph
+  %.3588765 = phi <16 x float> [ %288, %.lr.ph ], [ %.1586821, %.preheader753 ]
+  %.2592764 = phi <16 x float> [ %293, %.lr.ph ], [ %.0590820, %.preheader753 ]
+  %.2615763 = phi <16 x float> [ %298, %.lr.ph ], [ %.0613819, %.preheader753 ]
+  %.2636762 = phi <16 x float> [ %303, %.lr.ph ], [ %.0634818, %.preheader753 ]
+  %.2658761 = phi ptr [ %305, %.lr.ph ], [ %.0656817, %.preheader753 ]
+  %.1687760 = phi ptr [ %304, %.lr.ph ], [ %gep, %.preheader753 ]
+  %.0693759 = phi i32 [ %306, %.lr.ph ], [ 0, %.preheader753 ]
   %194 = load <16 x float>, ptr %.2658761, align 64, !tbaa !42
   %195 = getelementptr inbounds nuw i8, ptr %.2658761, i64 64
   %196 = load <16 x float>, ptr %195, align 64, !tbaa !42
@@ -9188,6 +9184,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %exitcond.not, label %.loopexit754.loopexit, label %.lr.ph, !llvm.loop !228
 
 .loopexit754.loopexit:                            ; preds = %.lr.ph
+  %scevgep = getelementptr i8, ptr %.0656817, i64 1024
   %scevgep1047 = getelementptr i8, ptr %scevgep, i64 %155
   br label %.loopexit750
 
@@ -9199,7 +9196,6 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
 
 .lr.ph779.preheader:                              ; preds = %307
   %308 = getelementptr inbounds float, ptr %gep, i64 %119
-  %scevgep1048 = getelementptr i8, ptr %.0656817, i64 1024
   br label %.lr.ph779
 
 .lr.ph779:                                        ; preds = %.lr.ph779.preheader, %.lr.ph779
@@ -9328,6 +9324,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %exitcond1050.not, label %.loopexit752.loopexit, label %.lr.ph779, !llvm.loop !229
 
 .loopexit752.loopexit:                            ; preds = %.lr.ph779
+  %scevgep1048 = getelementptr i8, ptr %.0656817, i64 1024
   %scevgep1049 = getelementptr i8, ptr %scevgep1048, i64 %155
   br label %.loopexit750
 
@@ -9341,7 +9338,6 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   %423 = getelementptr inbounds float, ptr %gep, i64 %125
   %424 = getelementptr inbounds float, ptr %gep, i64 %123
   %425 = getelementptr inbounds float, ptr %gep, i64 %119
-  %scevgep1051 = getelementptr i8, ptr %.0656817, i64 1024
   br label %.lr.ph796
 
 .lr.ph796:                                        ; preds = %.lr.ph796.preheader, %.lr.ph796
@@ -9472,6 +9468,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %exitcond1053.not, label %.loopexit751.loopexit, label %.lr.ph796, !llvm.loop !230
 
 .loopexit751.loopexit:                            ; preds = %.lr.ph796
+  %scevgep1051 = getelementptr i8, ptr %.0656817, i64 1024
   %scevgep1052 = getelementptr i8, ptr %scevgep1051, i64 %155
   br label %.loopexit750
 
@@ -9479,20 +9476,16 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %92, label %.preheader749, label %.loopexit750
 
 .preheader749:                                    ; preds = %.loopexit751
-  br i1 %114, label %.lr.ph810.preheader, label %.loopexit750
+  br i1 %114, label %.lr.ph810, label %.loopexit750
 
-.lr.ph810.preheader:                              ; preds = %.preheader749
-  %scevgep1054 = getelementptr i8, ptr %.0656817, i64 1024
-  br label %.lr.ph810
-
-.lr.ph810:                                        ; preds = %.lr.ph810.preheader, %.lr.ph810
-  %.9809 = phi <16 x float> [ %633, %.lr.ph810 ], [ %.1586821, %.lr.ph810.preheader ]
-  %.8598808 = phi <16 x float> [ %638, %.lr.ph810 ], [ %.0590820, %.lr.ph810.preheader ]
-  %.8621807 = phi <16 x float> [ %643, %.lr.ph810 ], [ %.0613819, %.lr.ph810.preheader ]
-  %.8642806 = phi <16 x float> [ %648, %.lr.ph810 ], [ %.0634818, %.lr.ph810.preheader ]
-  %.8664805 = phi ptr [ %650, %.lr.ph810 ], [ %.0656817, %.lr.ph810.preheader ]
-  %.6692804 = phi ptr [ %649, %.lr.ph810 ], [ %gep, %.lr.ph810.preheader ]
-  %.0704803 = phi i32 [ %651, %.lr.ph810 ], [ 0, %.lr.ph810.preheader ]
+.lr.ph810:                                        ; preds = %.preheader749, %.lr.ph810
+  %.9809 = phi <16 x float> [ %633, %.lr.ph810 ], [ %.1586821, %.preheader749 ]
+  %.8598808 = phi <16 x float> [ %638, %.lr.ph810 ], [ %.0590820, %.preheader749 ]
+  %.8621807 = phi <16 x float> [ %643, %.lr.ph810 ], [ %.0613819, %.preheader749 ]
+  %.8642806 = phi <16 x float> [ %648, %.lr.ph810 ], [ %.0634818, %.preheader749 ]
+  %.8664805 = phi ptr [ %650, %.lr.ph810 ], [ %.0656817, %.preheader749 ]
+  %.6692804 = phi ptr [ %649, %.lr.ph810 ], [ %gep, %.preheader749 ]
+  %.0704803 = phi i32 [ %651, %.lr.ph810 ], [ 0, %.preheader749 ]
   %539 = load <16 x float>, ptr %.8664805, align 64, !tbaa !42
   %540 = getelementptr inbounds nuw i8, ptr %.8664805, i64 64
   %541 = load <16 x float>, ptr %540, align 64, !tbaa !42
@@ -9610,6 +9603,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %exitcond1056.not, label %.loopexit750.loopexit, label %.lr.ph810, !llvm.loop !231
 
 .loopexit750.loopexit:                            ; preds = %.lr.ph810
+  %scevgep1054 = getelementptr i8, ptr %.0656817, i64 1024
   %scevgep1055 = getelementptr i8, ptr %scevgep1054, i64 %155
   br label %.loopexit750
 
@@ -9677,20 +9671,16 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %90, label %.preheader747, label %.loopexit748
 
 .preheader747:                                    ; preds = %680
-  br i1 %167, label %.lr.ph836.preheader, label %.loopexit745
+  br i1 %167, label %.lr.ph836, label %.loopexit745
 
-.lr.ph836.preheader:                              ; preds = %.preheader747
-  %scevgep1057 = getelementptr i8, ptr %.9665872, i64 512
-  br label %.lr.ph836
-
-.lr.ph836:                                        ; preds = %.lr.ph836.preheader, %.lr.ph836
-  %.12835 = phi <16 x float> [ %721, %.lr.ph836 ], [ %.10876, %.lr.ph836.preheader ]
-  %.11601834 = phi <16 x float> [ %726, %.lr.ph836 ], [ %.9599875, %.lr.ph836.preheader ]
-  %.11624833 = phi <16 x float> [ %731, %.lr.ph836 ], [ %.9622874, %.lr.ph836.preheader ]
-  %.11645832 = phi <16 x float> [ %736, %.lr.ph836 ], [ %.9643873, %.lr.ph836.preheader ]
-  %.11667831 = phi ptr [ %738, %.lr.ph836 ], [ %.9665872, %.lr.ph836.preheader ]
-  %.1706830 = phi ptr [ %737, %.lr.ph836 ], [ %gep887, %.lr.ph836.preheader ]
-  %.0711829 = phi i32 [ %739, %.lr.ph836 ], [ 0, %.lr.ph836.preheader ]
+.lr.ph836:                                        ; preds = %.preheader747, %.lr.ph836
+  %.12835 = phi <16 x float> [ %721, %.lr.ph836 ], [ %.10876, %.preheader747 ]
+  %.11601834 = phi <16 x float> [ %726, %.lr.ph836 ], [ %.9599875, %.preheader747 ]
+  %.11624833 = phi <16 x float> [ %731, %.lr.ph836 ], [ %.9622874, %.preheader747 ]
+  %.11645832 = phi <16 x float> [ %736, %.lr.ph836 ], [ %.9643873, %.preheader747 ]
+  %.11667831 = phi ptr [ %738, %.lr.ph836 ], [ %.9665872, %.preheader747 ]
+  %.1706830 = phi ptr [ %737, %.lr.ph836 ], [ %gep887, %.preheader747 ]
+  %.0711829 = phi i32 [ %739, %.lr.ph836 ], [ 0, %.preheader747 ]
   %683 = load <16 x float>, ptr %.11667831, align 64, !tbaa !42
   %684 = getelementptr inbounds nuw i8, ptr %.11667831, i64 64
   %685 = load <16 x float>, ptr %684, align 64, !tbaa !42
@@ -9752,6 +9742,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %exitcond1059.not, label %.loopexit748.loopexit, label %.lr.ph836, !llvm.loop !233
 
 .loopexit748.loopexit:                            ; preds = %.lr.ph836
+  %scevgep1057 = getelementptr i8, ptr %.9665872, i64 512
   %scevgep1058 = getelementptr i8, ptr %scevgep1057, i64 %190
   br label %.loopexit745
 
@@ -9763,7 +9754,6 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
 
 .lr.ph851.preheader:                              ; preds = %740
   %741 = getelementptr inbounds float, ptr %gep887, i64 %172
-  %scevgep1060 = getelementptr i8, ptr %.9665872, i64 512
   br label %.lr.ph851
 
 .lr.ph851:                                        ; preds = %.lr.ph851.preheader, %.lr.ph851
@@ -9836,6 +9826,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %exitcond1062.not, label %.loopexit746.loopexit, label %.lr.ph851, !llvm.loop !234
 
 .loopexit746.loopexit:                            ; preds = %.lr.ph851
+  %scevgep1060 = getelementptr i8, ptr %.9665872, i64 512
   %scevgep1061 = getelementptr i8, ptr %scevgep1060, i64 %190
   br label %.loopexit745
 
@@ -9843,20 +9834,16 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %92, label %.preheader744, label %.loopexit745
 
 .preheader744:                                    ; preds = %.loopexit746
-  br i1 %167, label %.lr.ph865.preheader, label %.loopexit745
+  br i1 %167, label %.lr.ph865, label %.loopexit745
 
-.lr.ph865.preheader:                              ; preds = %.preheader744
-  %scevgep1063 = getelementptr i8, ptr %.9665872, i64 512
-  br label %.lr.ph865
-
-.lr.ph865:                                        ; preds = %.lr.ph865.preheader, %.lr.ph865
-  %.16864 = phi <16 x float> [ %837, %.lr.ph865 ], [ %.10876, %.lr.ph865.preheader ]
-  %.15605863 = phi <16 x float> [ %842, %.lr.ph865 ], [ %.9599875, %.lr.ph865.preheader ]
-  %.15628862 = phi <16 x float> [ %847, %.lr.ph865 ], [ %.9622874, %.lr.ph865.preheader ]
-  %.15649861 = phi <16 x float> [ %852, %.lr.ph865 ], [ %.9643873, %.lr.ph865.preheader ]
-  %.15671860 = phi ptr [ %854, %.lr.ph865 ], [ %.9665872, %.lr.ph865.preheader ]
-  %.4709859 = phi ptr [ %853, %.lr.ph865 ], [ %gep887, %.lr.ph865.preheader ]
-  %.0710858 = phi i32 [ %855, %.lr.ph865 ], [ 0, %.lr.ph865.preheader ]
+.lr.ph865:                                        ; preds = %.preheader744, %.lr.ph865
+  %.16864 = phi <16 x float> [ %837, %.lr.ph865 ], [ %.10876, %.preheader744 ]
+  %.15605863 = phi <16 x float> [ %842, %.lr.ph865 ], [ %.9599875, %.preheader744 ]
+  %.15628862 = phi <16 x float> [ %847, %.lr.ph865 ], [ %.9622874, %.preheader744 ]
+  %.15649861 = phi <16 x float> [ %852, %.lr.ph865 ], [ %.9643873, %.preheader744 ]
+  %.15671860 = phi ptr [ %854, %.lr.ph865 ], [ %.9665872, %.preheader744 ]
+  %.4709859 = phi ptr [ %853, %.lr.ph865 ], [ %gep887, %.preheader744 ]
+  %.0710858 = phi i32 [ %855, %.lr.ph865 ], [ 0, %.preheader744 ]
   %799 = load <16 x float>, ptr %.15671860, align 64, !tbaa !42
   %800 = getelementptr inbounds nuw i8, ptr %.15671860, i64 64
   %801 = load <16 x float>, ptr %800, align 64, !tbaa !42
@@ -9918,6 +9905,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %exitcond1065.not, label %.loopexit745.loopexit, label %.lr.ph865, !llvm.loop !235
 
 .loopexit745.loopexit:                            ; preds = %.lr.ph865
+  %scevgep1063 = getelementptr i8, ptr %.9665872, i64 512
   %scevgep1064 = getelementptr i8, ptr %scevgep1063, i64 %190
   br label %.loopexit745
 
@@ -9962,13 +9950,13 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %869, label %.lr.ph937.us.preheader, label %.lr.ph945.split.preheader
 
 .lr.ph945.split.preheader:                        ; preds = %.lr.ph945
-  %874 = add i32 %.2683.lcssa, 3
-  %smax = call i32 @llvm.smax.i32(i32 %75, i32 %874)
-  %875 = add i32 %smax, -2
-  %876 = sub i32 %875, %.2683.lcssa
-  %877 = and i32 %876, -2
-  %878 = add i32 %.2683.lcssa, 2
-  %879 = add i32 %878, %877
+  %874 = add i32 %.2683.lcssa, 2
+  %875 = add i32 %.2683.lcssa, 3
+  %smax = call i32 @llvm.smax.i32(i32 %75, i32 %875)
+  %876 = add i32 %smax, -2
+  %877 = sub i32 %876, %.2683.lcssa
+  %878 = and i32 %877, -2
+  %879 = add i32 %874, %878
   br label %.preheader755
 
 .lr.ph937.us.preheader:                           ; preds = %.lr.ph945
@@ -9985,7 +9973,6 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   %.21677942.us = phi ptr [ %.16672.lcssa, %.lr.ph937.us.preheader ], [ %scevgep1073, %._crit_edge.us ]
   %.reass951.us = mul i64 %factor.op.mul950, %indvars.iv
   %gep953.us = getelementptr i8, ptr %invariant.gep952, i64 %.reass951.us
-  %scevgep1072 = getelementptr i8, ptr %.21677942.us, i64 128
   br label %884
 
 884:                                              ; preds = %.lr.ph937.us, %884
@@ -10013,6 +10000,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %exitcond1074.not, label %._crit_edge.us, label %884, !llvm.loop !237
 
 ._crit_edge.us:                                   ; preds = %884
+  %scevgep1072 = getelementptr i8, ptr %.21677942.us, i64 128
   %scevgep1073 = getelementptr i8, ptr %scevgep1072, i64 %882
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %900 = trunc i64 %indvars.iv.next to i32
@@ -10034,20 +10022,16 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %91, label %.preheader742, label %.loopexit743
 
 .preheader742:                                    ; preds = %903
-  br i1 %666, label %.lr.ph895.preheader, label %.loopexit
+  br i1 %666, label %.lr.ph895, label %.loopexit
 
-.lr.ph895.preheader:                              ; preds = %.preheader742
-  %scevgep1066 = getelementptr i8, ptr %.16672916, i64 256
-  br label %.lr.ph895
-
-.lr.ph895:                                        ; preds = %.lr.ph895.preheader, %.lr.ph895
-  %.19894 = phi <16 x float> [ %916, %.lr.ph895 ], [ %.17920, %.lr.ph895.preheader ]
-  %.18608893 = phi <16 x float> [ %921, %.lr.ph895 ], [ %.16606919, %.lr.ph895.preheader ]
-  %.18631892 = phi <16 x float> [ %926, %.lr.ph895 ], [ %.16629918, %.lr.ph895.preheader ]
-  %.18652891 = phi <16 x float> [ %931, %.lr.ph895 ], [ %.16650917, %.lr.ph895.preheader ]
-  %.18674890 = phi ptr [ %933, %.lr.ph895 ], [ %.16672916, %.lr.ph895.preheader ]
-  %.0694889 = phi i32 [ %934, %.lr.ph895 ], [ 0, %.lr.ph895.preheader ]
-  %.1696888 = phi ptr [ %932, %.lr.ph895 ], [ %gep931, %.lr.ph895.preheader ]
+.lr.ph895:                                        ; preds = %.preheader742, %.lr.ph895
+  %.19894 = phi <16 x float> [ %916, %.lr.ph895 ], [ %.17920, %.preheader742 ]
+  %.18608893 = phi <16 x float> [ %921, %.lr.ph895 ], [ %.16606919, %.preheader742 ]
+  %.18631892 = phi <16 x float> [ %926, %.lr.ph895 ], [ %.16629918, %.preheader742 ]
+  %.18652891 = phi <16 x float> [ %931, %.lr.ph895 ], [ %.16650917, %.preheader742 ]
+  %.18674890 = phi ptr [ %933, %.lr.ph895 ], [ %.16672916, %.preheader742 ]
+  %.0694889 = phi i32 [ %934, %.lr.ph895 ], [ 0, %.preheader742 ]
+  %.1696888 = phi ptr [ %932, %.lr.ph895 ], [ %gep931, %.preheader742 ]
   %906 = load <16 x float>, ptr %.18674890, align 64, !tbaa !42
   %907 = getelementptr inbounds nuw i8, ptr %.18674890, i64 64
   %908 = load <16 x float>, ptr %907, align 64, !tbaa !42
@@ -10081,6 +10065,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %exitcond1068.not, label %.loopexit743.loopexit, label %.lr.ph895, !llvm.loop !239
 
 .loopexit743.loopexit:                            ; preds = %.lr.ph895
+  %scevgep1066 = getelementptr i8, ptr %.16672916, i64 256
   %scevgep1067 = getelementptr i8, ptr %scevgep1066, i64 %679
   br label %.loopexit
 
@@ -10088,20 +10073,16 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %92, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit743
-  br i1 %666, label %.lr.ph909.preheader, label %.loopexit
+  br i1 %666, label %.lr.ph909, label %.loopexit
 
-.lr.ph909.preheader:                              ; preds = %.preheader
-  %scevgep1069 = getelementptr i8, ptr %.16672916, i64 256
-  br label %.lr.ph909
-
-.lr.ph909:                                        ; preds = %.lr.ph909.preheader, %.lr.ph909
-  %.21908 = phi <16 x float> [ %945, %.lr.ph909 ], [ %.17920, %.lr.ph909.preheader ]
-  %.20610907 = phi <16 x float> [ %950, %.lr.ph909 ], [ %.16606919, %.lr.ph909.preheader ]
-  %.20633906 = phi <16 x float> [ %955, %.lr.ph909 ], [ %.16629918, %.lr.ph909.preheader ]
-  %.20654905 = phi <16 x float> [ %960, %.lr.ph909 ], [ %.16650917, %.lr.ph909.preheader ]
-  %.0655904 = phi i32 [ %963, %.lr.ph909 ], [ 0, %.lr.ph909.preheader ]
-  %.20676903 = phi ptr [ %962, %.lr.ph909 ], [ %.16672916, %.lr.ph909.preheader ]
-  %.2697902 = phi ptr [ %961, %.lr.ph909 ], [ %gep931, %.lr.ph909.preheader ]
+.lr.ph909:                                        ; preds = %.preheader, %.lr.ph909
+  %.21908 = phi <16 x float> [ %945, %.lr.ph909 ], [ %.17920, %.preheader ]
+  %.20610907 = phi <16 x float> [ %950, %.lr.ph909 ], [ %.16606919, %.preheader ]
+  %.20633906 = phi <16 x float> [ %955, %.lr.ph909 ], [ %.16629918, %.preheader ]
+  %.20654905 = phi <16 x float> [ %960, %.lr.ph909 ], [ %.16650917, %.preheader ]
+  %.0655904 = phi i32 [ %963, %.lr.ph909 ], [ 0, %.preheader ]
+  %.20676903 = phi ptr [ %962, %.lr.ph909 ], [ %.16672916, %.preheader ]
+  %.2697902 = phi ptr [ %961, %.lr.ph909 ], [ %gep931, %.preheader ]
   %935 = load <16 x float>, ptr %.20676903, align 64, !tbaa !42
   %936 = getelementptr inbounds nuw i8, ptr %.20676903, i64 64
   %937 = load <16 x float>, ptr %936, align 64, !tbaa !42
@@ -10135,6 +10116,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %exitcond1071.not, label %.loopexit.loopexit, label %.lr.ph909, !llvm.loop !240
 
 .loopexit.loopexit:                               ; preds = %.lr.ph909
+  %scevgep1069 = getelementptr i8, ptr %.16672916, i64 256
   %scevgep1070 = getelementptr i8, ptr %scevgep1069, i64 %679
   br label %.loopexit
 
@@ -10190,7 +10172,6 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   %.23679965.us = phi ptr [ %.21677.lcssa, %.lr.ph961.us.preheader ], [ %scevgep1077, %._crit_edge.us974 ]
   %.reass971.us = mul i64 %factor.op.mul970, %indvars.iv1079
   %gep973.us = getelementptr i8, ptr %invariant.gep972, i64 %.reass971.us
-  %scevgep1076 = getelementptr i8, ptr %.23679965.us, i64 64
   br label %984
 
 984:                                              ; preds = %.lr.ph961.us, %984
@@ -10210,6 +10191,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %96, %94
   br i1 %exitcond1078.not, label %._crit_edge.us974, label %984, !llvm.loop !242
 
 ._crit_edge.us974:                                ; preds = %984
+  %scevgep1076 = getelementptr i8, ptr %.23679965.us, i64 64
   %scevgep1077 = getelementptr i8, ptr %scevgep1076, i64 %982
   %indvars.iv.next1080 = add nuw nsw i64 %indvars.iv1079, 1
   %993 = trunc nuw i64 %indvars.iv.next1080 to i32

@@ -359,35 +359,35 @@ dt_Lab_to_XYZ.exit50:                             ; preds = %.preheader.i47
   %160 = fptosi float %158 to i32
   %161 = sext i32 %160 to i64
   %162 = select i1 %159, i64 65535, i64 %161
-  %163 = sitofp i32 %155 to float
-  %164 = fsub reassoc nsz arcp contract afn float %151, %163
-  %165 = getelementptr inbounds float, ptr %67, i64 %162
-  %166 = load float, ptr %165, align 4, !tbaa !30
-  %167 = fmul reassoc nsz arcp contract afn float %166, %164
-  %168 = fpext reassoc nsz arcp contract afn float %167 to double
-  %169 = sext i32 %155 to i64
-  %170 = getelementptr inbounds float, ptr %67, i64 %169
-  %171 = load float, ptr %170, align 4, !tbaa !30
-  %172 = fpext reassoc nsz arcp contract afn float %171 to double
-  %173 = fpext reassoc nsz arcp contract afn float %164 to double
-  %174 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %173
-  %175 = fmul reassoc nsz arcp contract afn double %174, %172
-  %176 = fadd reassoc nsz arcp contract afn double %175, %168
-  br label %177
+  %163 = getelementptr inbounds float, ptr %67, i64 %162
+  %164 = load float, ptr %163, align 4, !tbaa !30
+  %165 = sext i32 %155 to i64
+  %166 = getelementptr inbounds float, ptr %67, i64 %165
+  %167 = load float, ptr %166, align 4, !tbaa !30
+  br label %168
 
-177:                                              ; preds = %dt_Lab_to_XYZ.exit50, %177
-  %.03652 = phi i64 [ 0, %dt_Lab_to_XYZ.exit50 ], [ %182, %177 ]
-  %178 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.03652
-  %179 = load float, ptr %178, align 4, !tbaa !30
-  %180 = fmul reassoc nsz arcp contract afn float %179, %150
-  %181 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.03652
-  store float %180, ptr %181, align 4, !tbaa !30
-  %182 = add nuw nsw i64 %.03652, 1
-  %exitcond.not = icmp eq i64 %182, 4
-  br i1 %exitcond.not, label %.preheader.preheader, label %177
+168:                                              ; preds = %dt_Lab_to_XYZ.exit50, %168
+  %.03652 = phi i64 [ 0, %dt_Lab_to_XYZ.exit50 ], [ %173, %168 ]
+  %169 = getelementptr inbounds nuw [4 x float], ptr %16, i64 0, i64 %.03652
+  %170 = load float, ptr %169, align 4, !tbaa !30
+  %171 = fmul reassoc nsz arcp contract afn float %170, %150
+  %172 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %.03652
+  store float %171, ptr %172, align 4, !tbaa !30
+  %173 = add nuw nsw i64 %.03652, 1
+  %exitcond.not = icmp eq i64 %173, 4
+  br i1 %exitcond.not, label %.preheader.preheader, label %168
 
-.preheader.preheader:                             ; preds = %177
-  %183 = fptrunc reassoc nsz arcp contract afn double %176 to float
+.preheader.preheader:                             ; preds = %168
+  %174 = sitofp i32 %155 to float
+  %175 = fsub reassoc nsz arcp contract afn float %151, %174
+  %176 = fmul reassoc nsz arcp contract afn float %164, %175
+  %177 = fpext reassoc nsz arcp contract afn float %176 to double
+  %178 = fpext reassoc nsz arcp contract afn float %167 to double
+  %179 = fpext reassoc nsz arcp contract afn float %175 to double
+  %180 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %179
+  %181 = fmul reassoc nsz arcp contract afn double %180, %178
+  %182 = fadd reassoc nsz arcp contract afn double %181, %177
+  %183 = fptrunc reassoc nsz arcp contract afn double %182 to float
   br label %.preheader
 
 184:                                              ; preds = %.preheader

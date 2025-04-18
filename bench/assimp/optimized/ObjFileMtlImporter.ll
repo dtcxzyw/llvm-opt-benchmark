@@ -5536,8 +5536,8 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %.preheader26
 
 .preheader.preheader:                             ; preds = %17
   %19 = sub i64 0, %.sroa.018.0.lcssa28
-  %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 %indvars.iv)
   %scevgep = getelementptr i8, ptr %.sroa.018.0.lcssa, i64 %19
+  %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 %indvars.iv)
   %scevgep29 = getelementptr i8, ptr %scevgep, i64 %umax
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16

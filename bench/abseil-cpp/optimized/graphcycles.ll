@@ -2873,27 +2873,27 @@ define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZNK4absl24syn
   br i1 %28, label %147, label %29
 
 29:                                               ; preds = %18
-  %30 = trunc i64 %1 to i32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #17
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  store ptr %31, ptr %6, align 8, !tbaa !22
-  store i32 8, ptr %33, align 4, !tbaa !26
-  store i32 8, ptr %32, align 8, !tbaa !25
-  br label %34
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  store ptr %30, ptr %6, align 8, !tbaa !22
+  store i32 8, ptr %32, align 4, !tbaa !26
+  store i32 8, ptr %31, align 8, !tbaa !25
+  br label %33
 
-34:                                               ; preds = %34, %29
-  %indvars.iv.i.i.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i.i.i, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i.i.i
-  store i32 -1, ptr %35, align 4, !tbaa !31
+33:                                               ; preds = %33, %29
+  %indvars.iv.i.i.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i.i.i, %33 ]
+  %34 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i.i.i
+  store i32 -1, ptr %34, align 4, !tbaa !31
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %.val.i.i.i = load i32, ptr %32, align 8, !tbaa !25
-  %36 = zext i32 %.val.i.i.i to i64
-  %37 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %36
-  br i1 %37, label %34, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetC2Ev.exit, !llvm.loop !32
+  %.val.i.i.i = load i32, ptr %31, align 8, !tbaa !25
+  %35 = zext i32 %.val.i.i.i to i64
+  %36 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %35
+  br i1 %36, label %33, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetC2Ev.exit, !llvm.loop !32
 
-_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetC2Ev.exit: ; preds = %34
+_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetC2Ev.exit: ; preds = %33
+  %37 = trunc i64 %1 to i32
   %38 = trunc i64 %2 to i32
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 0, ptr %39, align 8, !tbaa !33
@@ -2912,7 +2912,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit: ; pr
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 1048928
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 1048932
   store i32 8, ptr %45, align 4, !tbaa !26
-  store i32 %30, ptr %42, align 4, !tbaa !31
+  store i32 %37, ptr %42, align 4, !tbaa !31
   store i32 1, ptr %44, align 8, !tbaa !25
   br label %47
 
@@ -3149,7 +3149,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit86: ; 
 _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet4NextEPiS3_.exit: ; preds = %89, %thread-pre-split
   %.3 = phi i32 [ 0, %thread-pre-split ], [ %72, %89 ]
   %141 = load ptr, ptr %6, align 8, !tbaa !22
-  %.not.i.i.i87 = icmp eq ptr %141, %31
+  %.not.i.i.i87 = icmp eq ptr %141, %30
   br i1 %.not.i.i.i87, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSetD2Ev.exit, label %142
 
 142:                                              ; preds = %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet4NextEPiS3_.exit

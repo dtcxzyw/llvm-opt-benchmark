@@ -3368,13 +3368,13 @@ gv_calloc.exit.i170:                              ; preds = %shorting_edge_label
   %216 = load i32, ptr %gep.i, align 4, !tbaa !36
   %217 = getelementptr inbounds i32, ptr %206, i64 %215
   %218 = load i32, ptr %217, align 4, !tbaa !36
-  %219 = sub nsw i32 %216, %218
-  %220 = mul nsw i32 %214, %0
-  %221 = sext i32 %220 to i64
-  %222 = shl nsw i64 %221, 3
-  %scevgep.i = getelementptr i8, ptr %4, i64 %222
+  %219 = mul nsw i32 %214, %0
+  %220 = sext i32 %219 to i64
+  %221 = shl nsw i64 %220, 3
+  %scevgep.i = getelementptr i8, ptr %4, i64 %221
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 0, i64 %.pre-phi222, i1 false), !tbaa !39
-  %223 = sitofp i32 %219 to double
+  %222 = sub nsw i32 %216, %218
+  %223 = sitofp i32 %222 to double
   %224 = icmp slt i32 %218, %216
   br i1 %224, label %.preheader.lr.ph.i, label %.preheader96.i
 
@@ -3382,11 +3382,11 @@ gv_calloc.exit.i170:                              ; preds = %shorting_edge_label
   %225 = load ptr, ptr %52, align 8, !tbaa !34
   %226 = sext i32 %218 to i64
   %wide.trip.count151.i = sext i32 %216 to i64
-  %invariant.gep169.i = getelementptr double, ptr %4, i64 %221
+  %invariant.gep169.i = getelementptr double, ptr %4, i64 %220
   br label %.preheader.i169
 
 .preheader96.i:                                   ; preds = %235, %.preheader97.i
-  %invariant.gep171.i = getelementptr double, ptr %4, i64 %221
+  %invariant.gep171.i = getelementptr double, ptr %4, i64 %220
   br label %236
 
 .preheader.i169:                                  ; preds = %235, %.preheader.lr.ph.i

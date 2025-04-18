@@ -4030,59 +4030,59 @@ define void @_ZN15EditAlignPlugin7DrawArcEPN3vcg9AlignPair6ResultE(ptr noundef n
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 664
   %21 = load float, ptr %19, align 4
   %22 = load float, ptr %20, align 4
-  %23 = fsub float %21, %22
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 656
-  %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 668
-  %27 = load float, ptr %26, align 4
-  %28 = fsub float %25, %27
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 660
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 656
+  %24 = load float, ptr %23, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 668
+  %26 = load float, ptr %25, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 660
+  %28 = load float, ptr %27, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 672
   %30 = load float, ptr %29, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %18, i64 672
-  %32 = load float, ptr %31, align 4
-  %33 = fsub float %30, %32
-  %34 = fmul float %28, %28
-  %35 = call float @llvm.fmuladd.f32(float %23, float %23, float %34)
-  %36 = call float @llvm.fmuladd.f32(float %33, float %33, float %35)
-  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %36)
-  %37 = fpext float %sqrt.i.i.i to double
-  %38 = fmul double %37, 2.000000e+00
   call void @glPushAttrib(i32 noundef 8192)
   call void @glDisable(i32 noundef 2896)
   call void @glPushMatrix()
-  %39 = load ptr, ptr %17, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1132
+  %31 = load ptr, ptr %17, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1132
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %40, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %32, i64 64, i1 false)
   br label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %50, %2
-  %indvars.iv15.i.i.i = phi i64 [ 1, %2 ], [ %indvars.iv.next16.i.i.i, %50 ]
-  %41 = shl nuw nsw i64 %indvars.iv15.i.i.i, 2
-  br label %42
+.preheader.i.i.i:                                 ; preds = %42, %2
+  %indvars.iv15.i.i.i = phi i64 [ 1, %2 ], [ %indvars.iv.next16.i.i.i, %42 ]
+  %33 = shl nuw nsw i64 %indvars.iv15.i.i.i, 2
+  br label %34
 
-42:                                               ; preds = %42, %.preheader.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %42 ]
-  %43 = add nuw nsw i64 %indvars.iv.i.i.i, %41
-  %44 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %43
-  %45 = shl i64 %indvars.iv.i.i.i, 2
-  %46 = add nuw nsw i64 %45, %indvars.iv15.i.i.i
-  %47 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %46
-  %48 = load float, ptr %44, align 4, !alias.scope !21
-  %49 = load float, ptr %47, align 4, !alias.scope !21
-  store float %49, ptr %44, align 4, !alias.scope !21
-  store float %48, ptr %47, align 4, !alias.scope !21
+34:                                               ; preds = %34, %.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %34 ]
+  %35 = add nuw nsw i64 %indvars.iv.i.i.i, %33
+  %36 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %35
+  %37 = shl i64 %indvars.iv.i.i.i, 2
+  %38 = add nuw nsw i64 %37, %indvars.iv15.i.i.i
+  %39 = getelementptr inbounds [16 x float], ptr %4, i64 0, i64 %38
+  %40 = load float, ptr %36, align 4, !alias.scope !21
+  %41 = load float, ptr %39, align 4, !alias.scope !21
+  store float %41, ptr %36, align 4, !alias.scope !21
+  store float %40, ptr %39, align 4, !alias.scope !21
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %indvars.iv15.i.i.i
-  br i1 %exitcond.not.i.i.i, label %50, label %42, !llvm.loop !24
+  br i1 %exitcond.not.i.i.i, label %42, label %34, !llvm.loop !24
 
-50:                                               ; preds = %42
+42:                                               ; preds = %34
   %indvars.iv.next16.i.i.i = add nuw nsw i64 %indvars.iv15.i.i.i, 1
   %exitcond18.not.i.i.i = icmp eq i64 %indvars.iv.next16.i.i.i, 4
   br i1 %exitcond18.not.i.i.i, label %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit, label %.preheader.i.i.i, !llvm.loop !25
 
-_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %50
-  %51 = fdiv double %38, 1.000000e+02
+_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %42
+  %43 = fsub float %21, %22
+  %44 = fsub float %24, %26
+  %45 = fsub float %28, %30
+  %46 = fmul float %44, %44
+  %47 = call float @llvm.fmuladd.f32(float %43, float %43, float %46)
+  %48 = call float @llvm.fmuladd.f32(float %45, float %45, float %47)
+  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %48)
+  %49 = fpext float %sqrt.i.i.i to double
+  %50 = fmul double %49, 2.000000e+00
+  %51 = fdiv double %50, 1.000000e+02
   call void @glMultMatrixf(ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   call void @glPointSize(float noundef 5.000000e+00)
@@ -35943,8 +35943,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %7, %2
   %59 = icmp ugt i64 %58, -9223372036854775808
   %storemerge.idx.i.i.i.i.i36 = select i1 %59, i64 -8, i64 0
   %storemerge.i.i.i.i.i37 = getelementptr inbounds i8, ptr %57, i64 %storemerge.idx.i.i.i.i.i36
-  %60 = and i64 %55, 63
   %storemerge.i.i.i.i.i37.promoted = load i64, ptr %storemerge.i.i.i.i.i37, align 8
+  %60 = and i64 %55, 63
   %61 = shl nuw i64 1, %60
   %62 = or i64 %storemerge.i.i.i.i.i37.promoted, %61
   store i64 %62, ptr %storemerge.i.i.i.i.i37, align 8
@@ -35970,8 +35970,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %7, %2
   %76 = icmp ugt i64 %75, -9223372036854775808
   %storemerge.idx.i.i.i.i.i44 = select i1 %76, i64 -8, i64 0
   %storemerge.i.i.i.i.i45 = getelementptr inbounds i8, ptr %74, i64 %storemerge.idx.i.i.i.i.i44
-  %77 = and i64 %72, 63
   %storemerge.i.i.i.i.i45.promoted = load i64, ptr %storemerge.i.i.i.i.i45, align 8
+  %77 = and i64 %72, 63
   %78 = shl nuw i64 1, %77
   %79 = or i64 %storemerge.i.i.i.i.i45.promoted, %78
   store i64 %79, ptr %storemerge.i.i.i.i.i45, align 8
@@ -42359,68 +42359,68 @@ _ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %16, %._crit_edge24.
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %1, align 8
-  %45 = ptrtoint ptr %43 to i64
-  %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  %48 = sdiv exact i64 %47, 24
-  %49 = trunc i64 %48 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store i32 161803398, ptr %51, align 8
-  br label %52
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 224
+  store i32 161803398, ptr %46, align 8
+  br label %47
 
-52:                                               ; preds = %52, %_ZNK3vcg9HistogramIfE10PercentileEf.exit
-  %.01622.i.i = phi i32 [ 161803398, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ], [ %.01820.i.i, %52 ]
-  %.01721.i.i = phi i64 [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ], [ %53, %52 ]
-  %.01820.i.i = phi i32 [ 1, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ], [ %58, %52 ]
-  %53 = add nuw nsw i64 %.01721.i.i, 1
-  %54 = trunc nuw i64 %53 to i16
-  %.lhs.trunc.i.i = mul nuw nsw i16 %54, 21
-  %55 = urem i16 %.lhs.trunc.i.i, 55
-  %.zext.i.i = zext nneg i16 %55 to i64
-  %56 = add nsw i64 %.zext.i.i, -1
-  %57 = getelementptr inbounds [55 x i32], ptr %50, i64 0, i64 %56
-  store i32 %.01820.i.i, ptr %57, align 4
-  %58 = sub i32 %.01622.i.i, %.01820.i.i
-  %exitcond.not.i.i = icmp eq i64 %53, 54
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %52, !llvm.loop !627
+47:                                               ; preds = %47, %_ZNK3vcg9HistogramIfE10PercentileEf.exit
+  %.01622.i.i = phi i32 [ 161803398, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ], [ %.01820.i.i, %47 ]
+  %.01721.i.i = phi i64 [ 0, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ], [ %48, %47 ]
+  %.01820.i.i = phi i32 [ 1, %_ZNK3vcg9HistogramIfE10PercentileEf.exit ], [ %53, %47 ]
+  %48 = add nuw nsw i64 %.01721.i.i, 1
+  %49 = trunc nuw i64 %48 to i16
+  %.lhs.trunc.i.i = mul nuw nsw i16 %49, 21
+  %50 = urem i16 %.lhs.trunc.i.i, 55
+  %.zext.i.i = zext nneg i16 %50 to i64
+  %51 = add nsw i64 %.zext.i.i, -1
+  %52 = getelementptr inbounds [55 x i32], ptr %45, i64 0, i64 %51
+  store i32 %.01820.i.i, ptr %52, align 4
+  %53 = sub i32 %.01622.i.i, %.01820.i.i
+  %exitcond.not.i.i = icmp eq i64 %48, 54
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %47, !llvm.loop !627
 
-.preheader.i.i:                                   ; preds = %52, %67
-  %.024.i.i = phi i32 [ %68, %67 ], [ 0, %52 ]
-  br label %59
+.preheader.i.i:                                   ; preds = %47, %62
+  %.024.i.i = phi i32 [ %63, %62 ], [ 0, %47 ]
+  br label %54
 
-59:                                               ; preds = %59, %.preheader.i.i
-  %.123.i.i = phi i64 [ 0, %.preheader.i.i ], [ %62, %59 ]
-  %60 = getelementptr inbounds nuw [55 x i32], ptr %50, i64 0, i64 %.123.i.i
-  %61 = load i32, ptr %60, align 4
-  %62 = add nuw nsw i64 %.123.i.i, 1
+54:                                               ; preds = %54, %.preheader.i.i
+  %.123.i.i = phi i64 [ 0, %.preheader.i.i ], [ %57, %54 ]
+  %55 = getelementptr inbounds nuw [55 x i32], ptr %45, i64 0, i64 %.123.i.i
+  %56 = load i32, ptr %55, align 4
+  %57 = add nuw nsw i64 %.123.i.i, 1
   %.cmp.i.i = icmp samesign ult i64 %.123.i.i, 24
   %.v.i.i = select i1 %.cmp.i.i, i64 31, i64 -24
-  %63 = add nsw i64 %.v.i.i, %.123.i.i
-  %64 = getelementptr inbounds nuw [55 x i32], ptr %50, i64 0, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = sub i32 %61, %65
-  store i32 %66, ptr %60, align 4
-  %exitcond25.not.i.i = icmp eq i64 %62, 55
-  br i1 %exitcond25.not.i.i, label %67, label %59, !llvm.loop !628
+  %58 = add nsw i64 %.v.i.i, %.123.i.i
+  %59 = getelementptr inbounds nuw [55 x i32], ptr %45, i64 0, i64 %58
+  %60 = load i32, ptr %59, align 4
+  %61 = sub i32 %56, %60
+  store i32 %61, ptr %55, align 4
+  %exitcond25.not.i.i = icmp eq i64 %57, 55
+  br i1 %exitcond25.not.i.i, label %62, label %54, !llvm.loop !628
 
-67:                                               ; preds = %59
-  %68 = add nuw nsw i32 %.024.i.i, 1
-  %exitcond26.not.i.i = icmp eq i32 %68, 4
+62:                                               ; preds = %54
+  %63 = add nuw nsw i32 %.024.i.i, 1
+  %exitcond26.not.i.i = icmp eq i32 %63, 4
   br i1 %exitcond26.not.i.i, label %_ZN3vcg4math18SubtractiveRingRNGC2Ei.exit, label %.preheader.i.i, !llvm.loop !629
 
-_ZN3vcg4math18SubtractiveRingRNGC2Ei.exit:        ; preds = %67
+_ZN3vcg4math18SubtractiveRingRNGC2Ei.exit:        ; preds = %62
+  %64 = ptrtoint ptr %43 to i64
+  %65 = ptrtoint ptr %44 to i64
+  %66 = sub i64 %64, %65
+  %67 = sdiv exact i64 %66, 24
+  %68 = trunc i64 %67 to i32
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 232
   store i64 0, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 240
   store i64 31, ptr %70, align 8
   %71 = icmp sgt i32 %10, 0
-  %72 = icmp sgt i32 %49, 1
+  %72 = icmp sgt i32 %68, 1
   %73 = select i1 %71, i1 %72, i1 false
   br i1 %73, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZN3vcg4math18SubtractiveRingRNGC2Ei.exit
-  %74 = add nsw i32 %49, -1
+  %74 = add nsw i32 %68, -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %139
@@ -42435,9 +42435,9 @@ _ZN3vcg4math18SubtractiveRingRNGC2Ei.exit:        ; preds = %67
   %81 = add i64 %76, 1
   %82 = icmp eq i64 %81, 55
   %83 = select i1 %82, i64 0, i64 %81
-  %84 = getelementptr inbounds nuw [55 x i32], ptr %50, i64 0, i64 %80
+  %84 = getelementptr inbounds nuw [55 x i32], ptr %45, i64 0, i64 %80
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds nuw [55 x i32], ptr %50, i64 0, i64 %83
+  %86 = getelementptr inbounds nuw [55 x i32], ptr %45, i64 0, i64 %83
   %87 = load i32, ptr %86, align 4
   %88 = sub i32 %85, %87
   store i32 %88, ptr %84, align 4

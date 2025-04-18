@@ -1466,9 +1466,9 @@ hashkey.exit:                                     ; preds = %11, %18, %28, %31
   br i1 %.not35.i, label %._crit_edge.loopexit.i, label %.lr.ph.i127, !llvm.loop !54
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i127
-  %73 = add nuw nsw i32 %.023.i, 1
-  %74 = add i32 %.02648.i, 1
-  %umax.i128 = tail call i32 @llvm.umax.i32(i32 %74, i32 %73)
+  %73 = add i32 %.02648.i, 1
+  %74 = add nuw nsw i32 %.023.i, 1
+  %umax.i128 = tail call i32 @llvm.umax.i32(i32 %73, i32 %74)
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %64

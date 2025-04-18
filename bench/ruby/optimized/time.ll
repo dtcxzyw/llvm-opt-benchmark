@@ -7339,26 +7339,26 @@ addv.exit.i:                                      ; preds = %69, %67, %64
   %93 = or disjoint i64 %81, %90
   %94 = or disjoint i64 %93, %92
   %95 = or i64 %94, %88
-  %sh.diff.i = lshr i64 %83, 12
-  %96 = and i64 %sh.diff.i, 66060288
-  br label %97
+  br label %96
 
-97:                                               ; preds = %97, %addv.exit.i
-  %indvars.iv.i = phi i64 [ 0, %addv.exit.i ], [ %indvars.iv.next.i, %97 ]
-  %.073115.i = phi i64 [ %95, %addv.exit.i ], [ %100, %97 ]
-  %98 = trunc i64 %.073115.i to i8
-  %99 = getelementptr [17 x i8], ptr %4, i64 0, i64 %indvars.iv.i
-  store i8 %98, ptr %99, align 1, !tbaa !54
-  %100 = lshr i64 %.073115.i, 8
+96:                                               ; preds = %96, %addv.exit.i
+  %indvars.iv.i = phi i64 [ 0, %addv.exit.i ], [ %indvars.iv.next.i, %96 ]
+  %.073115.i = phi i64 [ %95, %addv.exit.i ], [ %99, %96 ]
+  %97 = trunc i64 %.073115.i to i8
+  %98 = getelementptr [17 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  store i8 %97, ptr %98, align 1, !tbaa !54
+  %99 = lshr i64 %.073115.i, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %97, !llvm.loop !84
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %96, !llvm.loop !84
 
-.preheader.preheader.i:                           ; preds = %97
-  %101 = shl i64 %83, 3
-  %102 = or i64 %96, %74
-  %103 = and i64 %101, 4227858432
-  %104 = or i64 %102, %103
+.preheader.preheader.i:                           ; preds = %96
+  %100 = shl i64 %83, 3
+  %101 = and i64 %100, 4227858432
+  %sh.diff.i = lshr i64 %83, 12
+  %102 = and i64 %sh.diff.i, 66060288
+  %103 = or i64 %102, %74
+  %104 = or i64 %103, %101
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i

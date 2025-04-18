@@ -3874,53 +3874,53 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   %819 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %818)
   store <4 x i32> %819, ptr %85, align 16, !tbaa !41
-  %820 = sitofp <4 x i32> %819 to <4 x float>
-  %821 = fmul <4 x float> %820, splat (float 0x3FC99999A0000000)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %86) #29
   store <2 x i64> zeroinitializer, ptr %86, align 16, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %87) #29
   store <2 x i64> splat (i64 21474836485), ptr %87, align 16, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
-  br label %822
+  br label %820
 
-822:                                              ; preds = %817, %822
-  %indvars.iv = phi i64 [ 0, %817 ], [ %indvars.iv.next, %822 ]
-  %823 = getelementptr inbounds nuw [4 x i32], ptr %86, i64 0, i64 %indvars.iv
+820:                                              ; preds = %817, %820
+  %indvars.iv = phi i64 [ 0, %817 ], [ %indvars.iv.next, %820 ]
+  %821 = getelementptr inbounds nuw [4 x i32], ptr %86, i64 0, i64 %indvars.iv
+  %822 = load i32, ptr %821, align 4, !tbaa !41
+  %823 = getelementptr inbounds nuw [4 x i32], ptr %85, i64 0, i64 %indvars.iv
   %824 = load i32, ptr %823, align 4, !tbaa !41
-  %825 = getelementptr inbounds nuw [4 x i32], ptr %85, i64 0, i64 %indvars.iv
-  %826 = load i32, ptr %825, align 4, !tbaa !41
-  %.sroa.speculated819 = call i32 @llvm.smax.i32(i32 %824, i32 %826)
-  %827 = getelementptr inbounds nuw [4 x i32], ptr %34, i64 0, i64 %indvars.iv
-  store i32 %.sroa.speculated819, ptr %827, align 4, !tbaa !114
+  %.sroa.speculated819 = call i32 @llvm.smax.i32(i32 %822, i32 %824)
+  %825 = getelementptr inbounds nuw [4 x i32], ptr %34, i64 0, i64 %indvars.iv
+  store i32 %.sroa.speculated819, ptr %825, align 4, !tbaa !114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.noexc265, label %822, !llvm.loop !199
+  br i1 %exitcond.not, label %.noexc265, label %820, !llvm.loop !199
 
-.noexc265:                                        ; preds = %822
+.noexc265:                                        ; preds = %820
   %.fca.0.load.i316 = load i64, ptr %34, align 16
   %.fca.1.load.i319 = load i64, ptr %.fca.1.gep.i318, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
   store i64 %.fca.0.load.i316, ptr %41, align 16
   store i64 %.fca.1.load.i319, ptr %773, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
-  br label %828
+  br label %826
 
-828:                                              ; preds = %.noexc265, %828
-  %indvars.iv968 = phi i64 [ 0, %.noexc265 ], [ %indvars.iv.next969, %828 ]
-  %829 = getelementptr inbounds nuw [4 x i32], ptr %87, i64 0, i64 %indvars.iv968
+826:                                              ; preds = %.noexc265, %826
+  %indvars.iv968 = phi i64 [ 0, %.noexc265 ], [ %indvars.iv.next969, %826 ]
+  %827 = getelementptr inbounds nuw [4 x i32], ptr %87, i64 0, i64 %indvars.iv968
+  %828 = load i32, ptr %827, align 4, !tbaa !41
+  %829 = getelementptr inbounds nuw [4 x i32], ptr %41, i64 0, i64 %indvars.iv968
   %830 = load i32, ptr %829, align 4, !tbaa !41
-  %831 = getelementptr inbounds nuw [4 x i32], ptr %41, i64 0, i64 %indvars.iv968
-  %832 = load i32, ptr %831, align 4, !tbaa !41
-  %.sroa.speculated809 = call i32 @llvm.smin.i32(i32 %832, i32 %830)
-  %833 = getelementptr inbounds nuw [4 x i32], ptr %36, i64 0, i64 %indvars.iv968
-  store i32 %.sroa.speculated809, ptr %833, align 4, !tbaa !114
+  %.sroa.speculated809 = call i32 @llvm.smin.i32(i32 %830, i32 %828)
+  %831 = getelementptr inbounds nuw [4 x i32], ptr %36, i64 0, i64 %indvars.iv968
+  store i32 %.sroa.speculated809, ptr %831, align 4, !tbaa !114
   %indvars.iv.next969 = add nuw nsw i64 %indvars.iv968, 1
   %exitcond971.not = icmp eq i64 %indvars.iv.next969, 4
-  br i1 %exitcond971.not, label %.noexc277, label %828, !llvm.loop !200
+  br i1 %exitcond971.not, label %.noexc277, label %826, !llvm.loop !200
 
-.noexc277:                                        ; preds = %828
-  %834 = fsub <4 x float> %808, %821
+.noexc277:                                        ; preds = %826
+  %832 = sitofp <4 x i32> %819 to <4 x float>
+  %833 = fmul <4 x float> %832, splat (float 0x3FC99999A0000000)
+  %834 = fsub <4 x float> %808, %833
   %.fca.0.load.i303 = load i64, ptr %36, align 16
   %.fca.1.load.i306 = load i64, ptr %.fca.1.gep.i305, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)

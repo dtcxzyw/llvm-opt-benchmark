@@ -5947,7 +5947,7 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit.i:          ; preds = %._crit_edge.i123
 
 .preheader193.us.i:                               ; preds = %.preheader193.lr.ph.split.us.i, %.preheader193.us.i
   %.088221.us.i = phi i64 [ %639, %.preheader193.us.i ], [ 0, %.preheader193.lr.ph.split.us.i ]
-  %.089220.us.i = phi i64 [ %637, %.preheader193.us.i ], [ 0, %.preheader193.lr.ph.split.us.i ]
+  %.089220.us.i = phi i64 [ %636, %.preheader193.us.i ], [ 0, %.preheader193.lr.ph.split.us.i ]
   %.091219.us.i = phi i64 [ %638, %.preheader193.us.i ], [ 0, %.preheader193.lr.ph.split.us.i ]
   %630 = getelementptr inbounds nuw i32, ptr %554, i64 %.088221.us.i
   %631 = load i32, ptr %630, align 4, !tbaa !36
@@ -5956,16 +5956,16 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit.i:          ; preds = %._crit_edge.i123
   %634 = icmp ugt i64 %633, 1000
   %spec.select268.i = select i1 %634, i64 0, i64 %632
   %635 = mul nuw i64 %620, %632
-  %636 = mul nuw i64 %spec.select268.i, %620
-  %637 = add i64 %635, %.089220.us.i
-  %638 = add i64 %636, %.091219.us.i
+  %636 = add i64 %635, %.089220.us.i
+  %637 = mul nuw i64 %spec.select268.i, %620
+  %638 = add i64 %637, %.091219.us.i
   %639 = add nuw i64 %.088221.us.i, 1
   %exitcond300.not.i = icmp eq i64 %.088221.us.i, %529
   br i1 %exitcond300.not.i, label %._crit_edge222.i, label %.preheader193.us.i, !llvm.loop !151
 
 ._crit_edge222.i:                                 ; preds = %.preheader193.us.i, %.preheader194.i
   %.091.lcssa.i = phi i64 [ 0, %.preheader194.i ], [ %638, %.preheader193.us.i ]
-  %.089.lcssa.i = phi i64 [ 0, %.preheader194.i ], [ %637, %.preheader193.us.i ]
+  %.089.lcssa.i = phi i64 [ 0, %.preheader194.i ], [ %636, %.preheader193.us.i ]
   %640 = add i64 %.089.lcssa.i, %.091.lcssa.i
   %641 = icmp ugt i64 %640, 4095
   %or.cond130.not.i = select i1 %1, i1 %641, i1 false

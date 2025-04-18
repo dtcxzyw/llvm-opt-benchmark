@@ -1643,56 +1643,56 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
 
 .lr.ph.us.us.i:                                   ; preds = %.loopexit.us.us.i, %.lr.ph.us.us.preheader.i
   %indvar.i = phi i64 [ 0, %.lr.ph.us.us.preheader.i ], [ %indvar.next.i, %.loopexit.us.us.i ]
-  %.04584.us.us.i = phi i64 [ %27, %.lr.ph.us.us.preheader.i ], [ %45, %.loopexit.us.us.i ]
-  %34 = mul i64 %indvar.i, %29
-  %35 = mul nsw i64 %.04584.us.us.i, %13
-  %36 = getelementptr inbounds float, ptr %2, i64 %35
-  br label %46
+  %.04584.us.us.i = phi i64 [ %27, %.lr.ph.us.us.preheader.i ], [ %44, %.loopexit.us.us.i ]
+  %34 = mul nsw i64 %.04584.us.us.i, %13
+  %35 = getelementptr inbounds float, ptr %2, i64 %34
+  br label %45
 
 .lr.ph80.us.us.i:                                 ; preds = %._crit_edge.us.us.i
-  %37 = fdiv float 1.000000e+00, %52
-  br label %38
+  %36 = fdiv float 1.000000e+00, %52
+  br label %37
 
-38:                                               ; preds = %38, %.lr.ph80.us.us.i
-  %.078.us.us.i = phi i64 [ 0, %.lr.ph80.us.us.i ], [ %44, %38 ]
-  %39 = getelementptr inbounds nuw float, ptr %36, i64 %.078.us.us.i
-  %40 = load float, ptr %39, align 4, !tbaa !30
-  %41 = fsub float %40, %.sroa.speculated60.us.us.i
-  %42 = fmul float %37, %41
-  %43 = getelementptr inbounds nuw float, ptr %53, i64 %.078.us.us.i
-  store float %42, ptr %43, align 4, !tbaa !30
-  %44 = add nuw nsw i64 %.078.us.us.i, 1
-  %exitcond116.not.i = icmp eq i64 %44, %13
-  br i1 %exitcond116.not.i, label %.loopexit.us.us.i, label %38, !llvm.loop !53
+37:                                               ; preds = %37, %.lr.ph80.us.us.i
+  %.078.us.us.i = phi i64 [ 0, %.lr.ph80.us.us.i ], [ %43, %37 ]
+  %38 = getelementptr inbounds nuw float, ptr %35, i64 %.078.us.us.i
+  %39 = load float, ptr %38, align 4, !tbaa !30
+  %40 = fsub float %39, %.sroa.speculated60.us.us.i
+  %41 = fmul float %36, %40
+  %42 = getelementptr inbounds nuw float, ptr %53, i64 %.078.us.us.i
+  store float %41, ptr %42, align 4, !tbaa !30
+  %43 = add nuw nsw i64 %.078.us.us.i, 1
+  %exitcond116.not.i = icmp eq i64 %43, %13
+  br i1 %exitcond116.not.i, label %.loopexit.us.us.i, label %37, !llvm.loop !53
 
-.loopexit.us.us.i:                                ; preds = %38, %.lr.ph82.us.us.preheader.i
-  %45 = add nsw i64 %.04584.us.us.i, 1
+.loopexit.us.us.i:                                ; preds = %37, %.lr.ph82.us.us.preheader.i
+  %44 = add nsw i64 %.04584.us.us.i, 1
   %indvar.next.i = add i64 %indvar.i, 1
   %exitcond117.not.i = icmp eq i64 %indvar.next.i, %32
   br i1 %exitcond117.not.i, label %._crit_edge87.i, label %.lr.ph.us.us.i
 
-46:                                               ; preds = %46, %.lr.ph.us.us.i
-  %.04676.us.us.i = phi i64 [ 0, %.lr.ph.us.us.i ], [ %51, %46 ]
-  %.07175.us.us.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.us.us.i ], [ %.sroa.speculated.us.us.i, %46 ]
-  %.07274.us.us.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.us.us.i ], [ %.sroa.speculated60.us.us.i, %46 ]
-  %47 = getelementptr inbounds nuw float, ptr %36, i64 %.04676.us.us.i
-  %48 = load float, ptr %47, align 4, !tbaa !30
-  %49 = fcmp olt float %48, %.07274.us.us.i
-  %.sroa.speculated60.us.us.i = select i1 %49, float %48, float %.07274.us.us.i
-  %50 = fcmp olt float %.07175.us.us.i, %48
-  %.sroa.speculated.us.us.i = select i1 %50, float %48, float %.07175.us.us.i
-  %51 = add nuw nsw i64 %.04676.us.us.i, 1
-  %exitcond.not.i = icmp eq i64 %51, %13
-  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %46, !llvm.loop !54
+45:                                               ; preds = %45, %.lr.ph.us.us.i
+  %.04676.us.us.i = phi i64 [ 0, %.lr.ph.us.us.i ], [ %50, %45 ]
+  %.07175.us.us.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.us.us.i ], [ %.sroa.speculated.us.us.i, %45 ]
+  %.07274.us.us.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.us.us.i ], [ %.sroa.speculated60.us.us.i, %45 ]
+  %46 = getelementptr inbounds nuw float, ptr %35, i64 %.04676.us.us.i
+  %47 = load float, ptr %46, align 4, !tbaa !30
+  %48 = fcmp olt float %47, %.07274.us.us.i
+  %.sroa.speculated60.us.us.i = select i1 %48, float %47, float %.07274.us.us.i
+  %49 = fcmp olt float %.07175.us.us.i, %47
+  %.sroa.speculated.us.us.i = select i1 %49, float %47, float %.07175.us.us.i
+  %50 = add nuw nsw i64 %.04676.us.us.i, 1
+  %exitcond.not.i = icmp eq i64 %50, %13
+  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %45, !llvm.loop !54
 
 .lr.ph82.us.us.preheader.i:                       ; preds = %._crit_edge.us.us.i
-  %scevgep.i = getelementptr i8, ptr %33, i64 %34
+  %51 = mul i64 %indvar.i, %29
+  %scevgep.i = getelementptr i8, ptr %33, i64 %51
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i, i8 0, i64 %29, i1 false), !tbaa !30
   br label %.loopexit.us.us.i
 
-._crit_edge.us.us.i:                              ; preds = %46
+._crit_edge.us.us.i:                              ; preds = %45
   %52 = fsub float %.sroa.speculated.us.us.i, %.sroa.speculated60.us.us.i
-  %53 = getelementptr inbounds float, ptr %.sroa.063.0.i, i64 %35
+  %53 = getelementptr inbounds float, ptr %.sroa.063.0.i, i64 %34
   %54 = fcmp oeq float %52, 0.000000e+00
   br i1 %54, label %.lr.ph82.us.us.preheader.i, label %.lr.ph80.us.us.i
 
@@ -1895,53 +1895,53 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i: 
 
 .lr.ph145.i.us.us:                                ; preds = %.lr.ph154.i.split.us, %.loopexit.i.us.us
   %.074143.i.us.us = phi i64 [ %80, %.loopexit.i.us.us ], [ 0, %.lr.ph154.i.split.us ]
-  %59 = mul nuw nsw i64 %.074143.i.us.us, %40
-  %60 = mul nuw nsw i64 %.074143.i.us.us, %19
-  %61 = getelementptr inbounds nuw float, ptr %.071153.i.us, i64 %60
+  %59 = mul nuw nsw i64 %.074143.i.us.us, %19
+  %60 = getelementptr inbounds nuw float, ptr %.071153.i.us, i64 %59
   br label %.lr.ph.i.us.us
 
 .lr.ph.i.us.us:                                   ; preds = %.lr.ph.i.us.us, %.lr.ph145.i.us.us
-  %.073136.i.us.us = phi i64 [ %66, %.lr.ph.i.us.us ], [ 0, %.lr.ph145.i.us.us ]
+  %.073136.i.us.us = phi i64 [ %65, %.lr.ph.i.us.us ], [ 0, %.lr.ph145.i.us.us ]
   %.0135.i.us.us = phi float [ %.sroa.speculated.i.us.us, %.lr.ph.i.us.us ], [ 0xC7EFFFFFE0000000, %.lr.ph145.i.us.us ]
   %.0131134.i.us.us = phi float [ %.sroa.speculated105.i.us.us, %.lr.ph.i.us.us ], [ 0x47EFFFFFE0000000, %.lr.ph145.i.us.us ]
-  %62 = getelementptr inbounds nuw float, ptr %61, i64 %.073136.i.us.us
-  %63 = load float, ptr %62, align 4, !tbaa !30
-  %64 = fcmp olt float %63, %.0131134.i.us.us
-  %.sroa.speculated105.i.us.us = select i1 %64, float %63, float %.0131134.i.us.us
-  %65 = fcmp olt float %.0135.i.us.us, %63
-  %.sroa.speculated.i.us.us = select i1 %65, float %63, float %.0135.i.us.us
-  %66 = add nuw nsw i64 %.073136.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i64 %66, %19
+  %61 = getelementptr inbounds nuw float, ptr %60, i64 %.073136.i.us.us
+  %62 = load float, ptr %61, align 4, !tbaa !30
+  %63 = fcmp olt float %62, %.0131134.i.us.us
+  %.sroa.speculated105.i.us.us = select i1 %63, float %62, float %.0131134.i.us.us
+  %64 = fcmp olt float %.0135.i.us.us, %62
+  %.sroa.speculated.i.us.us = select i1 %64, float %62, float %.0135.i.us.us
+  %65 = add nuw nsw i64 %.073136.i.us.us, 1
+  %exitcond.not.i.us.us = icmp eq i64 %65, %19
   br i1 %exitcond.not.i.us.us, label %._crit_edge.i.us.us, label %.lr.ph.i.us.us, !llvm.loop !58
 
 ._crit_edge.i.us.us:                              ; preds = %.lr.ph.i.us.us
-  %67 = fsub float %.sroa.speculated.i.us.us, %.sroa.speculated105.i.us.us
-  %68 = getelementptr inbounds nuw %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.0113.0.i, i64 %.074143.i.us.us
-  store float %67, ptr %68, align 4, !tbaa !59
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store float %.sroa.speculated105.i.us.us, ptr %69, align 4, !tbaa !61
-  %70 = getelementptr inbounds nuw float, ptr %.sroa.0118.0.i, i64 %60
-  %71 = fcmp oeq float %67, 0.000000e+00
-  br i1 %71, label %.preheader.i.us.us, label %72
+  %66 = fsub float %.sroa.speculated.i.us.us, %.sroa.speculated105.i.us.us
+  %67 = getelementptr inbounds nuw %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.0113.0.i, i64 %.074143.i.us.us
+  store float %66, ptr %67, align 4, !tbaa !59
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  store float %.sroa.speculated105.i.us.us, ptr %68, align 4, !tbaa !61
+  %69 = getelementptr inbounds nuw float, ptr %.sroa.0118.0.i, i64 %59
+  %70 = fcmp oeq float %66, 0.000000e+00
+  br i1 %70, label %.preheader.i.us.us, label %71
 
-72:                                               ; preds = %._crit_edge.i.us.us
-  %73 = fdiv float 1.000000e+00, %67
+71:                                               ; preds = %._crit_edge.i.us.us
+  %72 = fdiv float 1.000000e+00, %66
   br label %.lr.ph140.i.us.us
 
-.lr.ph140.i.us.us:                                ; preds = %.lr.ph140.i.us.us, %72
-  %.067138.i.us.us = phi i64 [ %79, %.lr.ph140.i.us.us ], [ 0, %72 ]
-  %74 = getelementptr inbounds nuw float, ptr %61, i64 %.067138.i.us.us
-  %75 = load float, ptr %74, align 4, !tbaa !30
-  %76 = fsub float %75, %.sroa.speculated105.i.us.us
-  %77 = fmul float %73, %76
-  %78 = getelementptr inbounds nuw float, ptr %70, i64 %.067138.i.us.us
-  store float %77, ptr %78, align 4, !tbaa !30
-  %79 = add nuw nsw i64 %.067138.i.us.us, 1
-  %exitcond157.not.i.us.us = icmp eq i64 %79, %19
+.lr.ph140.i.us.us:                                ; preds = %.lr.ph140.i.us.us, %71
+  %.067138.i.us.us = phi i64 [ %78, %.lr.ph140.i.us.us ], [ 0, %71 ]
+  %73 = getelementptr inbounds nuw float, ptr %60, i64 %.067138.i.us.us
+  %74 = load float, ptr %73, align 4, !tbaa !30
+  %75 = fsub float %74, %.sroa.speculated105.i.us.us
+  %76 = fmul float %72, %75
+  %77 = getelementptr inbounds nuw float, ptr %69, i64 %.067138.i.us.us
+  store float %76, ptr %77, align 4, !tbaa !30
+  %78 = add nuw nsw i64 %.067138.i.us.us, 1
+  %exitcond157.not.i.us.us = icmp eq i64 %78, %19
   br i1 %exitcond157.not.i.us.us, label %.loopexit.i.us.us, label %.lr.ph140.i.us.us, !llvm.loop !62
 
 .preheader.i.us.us:                               ; preds = %._crit_edge.i.us.us
-  %scevgep.i.us.us = getelementptr i8, ptr %.sroa.0118.0.i, i64 %59
+  %79 = mul nuw nsw i64 %.074143.i.us.us, %40
+  %scevgep.i.us.us = getelementptr i8, ptr %.sroa.0118.0.i, i64 %79
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.us.us, i8 0, i64 %40, i1 false), !tbaa !30
   br label %.loopexit.i.us.us
 
@@ -2412,53 +2412,53 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EE17_S_check_init_le
 
 .lr.ph.us.i:                                      ; preds = %.loopexit.us.i, %.lr.ph.us.preheader.i
   %indvar.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvar.next.i, %.loopexit.us.i ]
-  %.061112.us.i = phi i64 [ %24, %.lr.ph.us.preheader.i ], [ %41, %.loopexit.us.i ]
-  %32 = mul i64 %indvar.i, %27
-  %33 = mul nsw i64 %.061112.us.i, %25
-  %34 = getelementptr inbounds float, ptr %2, i64 %33
-  br label %42
+  %.061112.us.i = phi i64 [ %24, %.lr.ph.us.preheader.i ], [ %40, %.loopexit.us.i ]
+  %32 = mul nsw i64 %.061112.us.i, %25
+  %33 = getelementptr inbounds float, ptr %2, i64 %32
+  br label %41
 
 .lr.ph108.us.preheader.i:                         ; preds = %._crit_edge.us.i
-  %35 = fdiv float 1.000000e+00, %48
+  %34 = fdiv float 1.000000e+00, %48
   br label %.lr.ph108.us.i
 
 .lr.ph108.us.i:                                   ; preds = %.lr.ph108.us.i, %.lr.ph108.us.preheader.i
-  %.058106.us.i = phi i64 [ %40, %.lr.ph108.us.i ], [ 0, %.lr.ph108.us.preheader.i ]
-  %36 = getelementptr inbounds nuw float, ptr %34, i64 %.058106.us.i
-  %37 = load float, ptr %36, align 4, !tbaa !30
-  %38 = fsub float %37, %.sroa.speculated85.us.i
-  %39 = fmul float %35, %38
-  store float %39, ptr %36, align 4, !tbaa !30
-  %40 = add nuw nsw i64 %.058106.us.i, 1
-  %exitcond132.not.i = icmp eq i64 %40, %25
+  %.058106.us.i = phi i64 [ %39, %.lr.ph108.us.i ], [ 0, %.lr.ph108.us.preheader.i ]
+  %35 = getelementptr inbounds nuw float, ptr %33, i64 %.058106.us.i
+  %36 = load float, ptr %35, align 4, !tbaa !30
+  %37 = fsub float %36, %.sroa.speculated85.us.i
+  %38 = fmul float %34, %37
+  store float %38, ptr %35, align 4, !tbaa !30
+  %39 = add nuw nsw i64 %.058106.us.i, 1
+  %exitcond132.not.i = icmp eq i64 %39, %25
   br i1 %exitcond132.not.i, label %.loopexit.us.i, label %.lr.ph108.us.i, !llvm.loop !68
 
 .loopexit.us.i:                                   ; preds = %.lr.ph108.us.i, %.lr.ph110.us.preheader.i
-  %41 = add nsw i64 %.061112.us.i, 1
+  %40 = add nsw i64 %.061112.us.i, 1
   %indvar.next.i = add i64 %indvar.i, 1
   %exitcond133.not.i = icmp eq i64 %indvar.next.i, %30
   br i1 %exitcond133.not.i, label %._crit_edge115.i, label %.lr.ph.us.i
 
-42:                                               ; preds = %42, %.lr.ph.us.i
-  %.062104.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %47, %42 ]
-  %.091103.us.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.us.i ], [ %.sroa.speculated.us.i, %42 ]
-  %.092102.us.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.us.i ], [ %.sroa.speculated85.us.i, %42 ]
-  %43 = getelementptr inbounds nuw float, ptr %34, i64 %.062104.us.i
-  %44 = load float, ptr %43, align 4, !tbaa !30
-  %45 = fcmp olt float %44, %.092102.us.i
-  %.sroa.speculated85.us.i = select i1 %45, float %44, float %.092102.us.i
-  %46 = fcmp olt float %.091103.us.i, %44
-  %.sroa.speculated.us.i = select i1 %46, float %44, float %.091103.us.i
-  %47 = add nuw nsw i64 %.062104.us.i, 1
-  %exitcond131.not.i = icmp eq i64 %47, %25
-  br i1 %exitcond131.not.i, label %._crit_edge.us.i, label %42, !llvm.loop !69
+41:                                               ; preds = %41, %.lr.ph.us.i
+  %.062104.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %46, %41 ]
+  %.091103.us.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.us.i ], [ %.sroa.speculated.us.i, %41 ]
+  %.092102.us.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.us.i ], [ %.sroa.speculated85.us.i, %41 ]
+  %42 = getelementptr inbounds nuw float, ptr %33, i64 %.062104.us.i
+  %43 = load float, ptr %42, align 4, !tbaa !30
+  %44 = fcmp olt float %43, %.092102.us.i
+  %.sroa.speculated85.us.i = select i1 %44, float %43, float %.092102.us.i
+  %45 = fcmp olt float %.091103.us.i, %43
+  %.sroa.speculated.us.i = select i1 %45, float %43, float %.091103.us.i
+  %46 = add nuw nsw i64 %.062104.us.i, 1
+  %exitcond131.not.i = icmp eq i64 %46, %25
+  br i1 %exitcond131.not.i, label %._crit_edge.us.i, label %41, !llvm.loop !69
 
 .lr.ph110.us.preheader.i:                         ; preds = %._crit_edge.us.i
-  %scevgep.i = getelementptr i8, ptr %31, i64 %32
+  %47 = mul i64 %indvar.i, %27
+  %scevgep.i = getelementptr i8, ptr %31, i64 %47
   call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i, i8 0, i64 %27, i1 false), !tbaa !30
   br label %.loopexit.us.i
 
-._crit_edge.us.i:                                 ; preds = %42
+._crit_edge.us.i:                                 ; preds = %41
   %48 = fsub float %.sroa.speculated.us.i, %.sroa.speculated85.us.i
   %49 = getelementptr inbounds nuw %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %15, i64 %.061112.us.i
   store float %48, ptr %49, align 4, !tbaa !59

@@ -4936,54 +4936,54 @@ _Z15calc_box_centeriPA3_KfPf.exit:                ; preds = %.preheader22.i, %16
   %30 = load float, ptr %29, align 4, !tbaa !21
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %32 = load float, ptr %31, align 4, !tbaa !21
-  %33 = fneg float %26
-  %34 = fmul float %32, %33
-  %35 = tail call float @llvm.fmuladd.f32(float %28, float %30, float %34)
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %37 = load float, ptr %36, align 4, !tbaa !21
-  %38 = fmul float %28, %37
-  %39 = fdiv float %35, %38
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br label %42
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %34 = load float, ptr %33, align 4, !tbaa !21
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br label %37
 
-42:                                               ; preds = %_Z15calc_box_centeriPA3_KfPf.exit, %42
-  %indvars.iv = phi i64 [ 0, %_Z15calc_box_centeriPA3_KfPf.exit ], [ %indvars.iv.next, %42 ]
-  %43 = phi float [ 0.000000e+00, %_Z15calc_box_centeriPA3_KfPf.exit ], [ %48, %42 ]
-  %44 = phi float [ 0.000000e+00, %_Z15calc_box_centeriPA3_KfPf.exit ], [ %51, %42 ]
-  %45 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %47 = load float, ptr %46, align 4, !tbaa !21
-  %48 = fadd float %43, %47
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %50 = load float, ptr %49, align 4, !tbaa !21
-  %51 = fadd float %44, %50
+37:                                               ; preds = %_Z15calc_box_centeriPA3_KfPf.exit, %37
+  %indvars.iv = phi i64 [ 0, %_Z15calc_box_centeriPA3_KfPf.exit ], [ %indvars.iv.next, %37 ]
+  %38 = phi float [ 0.000000e+00, %_Z15calc_box_centeriPA3_KfPf.exit ], [ %43, %37 ]
+  %39 = phi float [ 0.000000e+00, %_Z15calc_box_centeriPA3_KfPf.exit ], [ %46, %37 ]
+  %40 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %42 = load float, ptr %41, align 4, !tbaa !21
+  %43 = fadd float %38, %42
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %45 = load float, ptr %44, align 4, !tbaa !21
+  %46 = fadd float %39, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %52, label %42, !llvm.loop !145
+  br i1 %exitcond.not, label %47, label %37, !llvm.loop !145
 
-52:                                               ; preds = %42
-  %53 = fdiv float %26, %28
-  %54 = fdiv float %32, %37
-  %55 = fmul float %48, 5.000000e-01
-  %56 = fmul float %51, 5.000000e-01
+47:                                               ; preds = %37
+  %48 = fdiv float %26, %28
+  %49 = fneg float %26
+  %50 = fmul float %32, %49
+  %51 = tail call float @llvm.fmuladd.f32(float %28, float %30, float %50)
+  %52 = fmul float %28, %34
+  %53 = fdiv float %51, %52
+  %54 = fdiv float %32, %34
+  %55 = fmul float %43, 5.000000e-01
+  %56 = fmul float %46, 5.000000e-01
   %57 = load float, ptr %8, align 4, !tbaa !21
   %58 = fsub float %57, %55
   %59 = load float, ptr %9, align 4, !tbaa !21
   %60 = fsub float %59, %56
-  %61 = fmul float %39, %60
-  %62 = tail call float @llvm.fmuladd.f32(float %53, float %58, float %61)
+  %61 = fmul float %53, %60
+  %62 = tail call float @llvm.fmuladd.f32(float %48, float %58, float %61)
   store float %62, ptr %7, align 4, !tbaa !21
   %63 = fmul float %54, %60
-  store float %63, ptr %40, align 4, !tbaa !21
-  store float 0.000000e+00, ptr %41, align 4, !tbaa !21
+  store float %63, ptr %35, align 4, !tbaa !21
+  store float 0.000000e+00, ptr %36, align 4, !tbaa !21
   %64 = ptrtoint ptr %3 to i64
   %65 = ptrtoint ptr %2 to i64
   %66 = sub i64 %64, %65
   %67 = icmp sgt i64 %66, 0
   br i1 %67, label %.preheader71.preheader, label %._crit_edge94
 
-.preheader71.preheader:                           ; preds = %52
+.preheader71.preheader:                           ; preds = %47
   %68 = udiv exact i64 %66, 12
   %69 = tail call i64 @llvm.umax.i64(i64 %68, i64 1)
   br label %.preheader71
@@ -4996,7 +4996,7 @@ _Z15calc_box_centeriPA3_KfPf.exit:                ; preds = %.preheader22.i, %16
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   br label %74
 
-._crit_edge94:                                    ; preds = %112, %52
+._crit_edge94:                                    ; preds = %112, %47
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #20
   ret void
@@ -5015,8 +5015,8 @@ _Z15calc_box_centeriPA3_KfPf.exit:                ; preds = %.preheader22.i, %16
 78:                                               ; preds = %74
   %79 = load float, ptr %72, align 4, !tbaa !21
   %80 = load float, ptr %73, align 4, !tbaa !21
-  %81 = fmul float %39, %80
-  %82 = tail call float @llvm.fmuladd.f32(float %53, float %79, float %81)
+  %81 = fmul float %53, %80
+  %82 = tail call float @llvm.fmuladd.f32(float %48, float %79, float %81)
   %83 = fadd float %76, %82
   br label %87
 

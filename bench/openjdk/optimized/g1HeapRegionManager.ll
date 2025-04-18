@@ -3255,21 +3255,21 @@ _ZN21G1RebuildFreeListTaskC2EP19G1HeapRegionManagerj.exit: ; preds = %.lr.ph.i
 30:                                               ; preds = %_ZN21G1RebuildFreeListTaskC2EP19G1HeapRegionManagerj.exit, %29
   call void @_ZN13WorkerThreads8run_taskEP10WorkerTaskj(ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull %3, i32 noundef %11) #16
   %31 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #16
-  %32 = extractvalue { i64, i64 } %31, 0
   %umax18 = call i32 @llvm.umax.i32(i32 %11, i32 1)
   %wide.trip.count = zext i32 %umax18 to i64
-  br label %33
+  br label %32
 
-33:                                               ; preds = %30, %33
-  %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %33 ]
-  %34 = load ptr, ptr %16, align 8
-  %35 = getelementptr inbounds nuw %class.G1FreeRegionList, ptr %34, i64 %indvars.iv
-  call void @_ZN16G1FreeRegionList14append_orderedEPS_(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %35) #16
+32:                                               ; preds = %30, %32
+  %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %32 ]
+  %33 = load ptr, ptr %16, align 8
+  %34 = getelementptr inbounds nuw %class.G1FreeRegionList, ptr %33, i64 %indvars.iv
+  call void @_ZN16G1FreeRegionList14append_orderedEPS_(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %34) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond19.not, label %36, label %33, !llvm.loop !37
+  br i1 %exitcond19.not, label %35, label %32, !llvm.loop !37
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
+  %36 = extractvalue { i64, i64 } %31, 0
   %37 = extractvalue { i64, i64 } %31, 1
   %38 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1064
@@ -3278,7 +3278,7 @@ _ZN21G1RebuildFreeListTaskC2EP19G1HeapRegionManagerj.exit: ; preds = %.lr.ph.i
   %42 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #16
   %43 = extractvalue { i64, i64 } %42, 0
   %44 = extractvalue { i64, i64 } %42, 1
-  %45 = sub nsw i64 %43, %32
+  %45 = sub nsw i64 %43, %36
   %46 = sub nsw i64 %44, %37
   %47 = call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %45, i64 %46) #16
   %48 = fmul double %47, 1.000000e+03
@@ -3289,8 +3289,8 @@ _ZN21G1RebuildFreeListTaskC2EP19G1HeapRegionManagerj.exit: ; preds = %.lr.ph.i
   %.not.i = icmp eq i32 %50, 0
   br i1 %.not.i, label %_ZN21G1RebuildFreeListTaskD2Ev.exit, label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %36, %.lr.ph.i9
-  %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i11, %.lr.ph.i9 ], [ 0, %36 ]
+.lr.ph.i9:                                        ; preds = %35, %.lr.ph.i9
+  %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i11, %.lr.ph.i9 ], [ 0, %35 ]
   %51 = load ptr, ptr %16, align 8
   %52 = getelementptr inbounds nuw %class.G1FreeRegionList, ptr %51, i64 %indvars.iv.i10
   call void @_ZN16G1FreeRegionListD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %52) #16
@@ -3300,7 +3300,7 @@ _ZN21G1RebuildFreeListTaskC2EP19G1HeapRegionManagerj.exit: ; preds = %.lr.ph.i
   %55 = icmp samesign ult i64 %indvars.iv.next.i11, %54
   br i1 %55, label %.lr.ph.i9, label %_ZN21G1RebuildFreeListTaskD2Ev.exit, !llvm.loop !38
 
-_ZN21G1RebuildFreeListTaskD2Ev.exit:              ; preds = %.lr.ph.i9, %36
+_ZN21G1RebuildFreeListTaskD2Ev.exit:              ; preds = %.lr.ph.i9, %35
   %56 = load ptr, ptr %16, align 8
   call void @_Z8FreeHeapPv(ptr noundef %56) #16
   ret void

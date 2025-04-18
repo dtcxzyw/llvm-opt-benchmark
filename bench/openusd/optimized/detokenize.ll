@@ -106,11 +106,11 @@ aom_read_literal_.exit.i.i:                       ; preds = %71, %3
   br i1 %76, label %av1_read_uniform.exit.i, label %aom_read_literal_.exit18.i.i
 
 aom_read_literal_.exit18.i.i:                     ; preds = %aom_read_literal_.exit.i.i
-  %77 = shl i32 %.06.lcssa.i.i.i, 1
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %79 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %78, i32 noundef 16384) #7
-  %80 = sub i32 %77, %67
-  %81 = add nsw i32 %80, %79
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %78 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %77, i32 noundef 16384) #7
+  %79 = shl i32 %.06.lcssa.i.i.i, 1
+  %80 = sub i32 %79, %67
+  %81 = add nsw i32 %80, %78
   br label %av1_read_uniform.exit.i
 
 av1_read_uniform.exit.i:                          ; preds = %aom_read_literal_.exit18.i.i, %aom_read_literal_.exit.i.i

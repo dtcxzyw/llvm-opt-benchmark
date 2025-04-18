@@ -989,17 +989,17 @@ BufFileFlush.exit:                                ; preds = %72, %76
   br i1 %.not84.not, label %.lr.ph72.preheader.split, label %.loopexit
 
 .lr.ph72.preheader.split:                         ; preds = %.lr.ph72.preheader
-  %90 = and i64 %87, -1073741824
-  %91 = trunc nuw i64 %88 to i32
-  %92 = add i32 %spec.select, %91
-  %93 = add nsw i64 %spec.select61, -1073741824
-  %94 = sub nsw i64 %93, %90
-  %95 = add i32 %92, 1
+  %90 = add nsw i64 %spec.select61, -1073741824
+  %91 = and i64 %87, -1073741824
+  %92 = sub nsw i64 %90, %91
+  %93 = trunc nuw i64 %88 to i32
+  %94 = add i32 %spec.select, %93
+  %95 = add i32 %94, 1
   br label %select.unfold._crit_edge
 
 select.unfold._crit_edge:                         ; preds = %.lr.ph72.preheader.split, %BufFileFlush.exit
   %.350.lcssa = phi i32 [ %spec.select, %BufFileFlush.exit ], [ %95, %.lr.ph72.preheader.split ]
-  %.3.lcssa = phi i64 [ %spec.select61, %BufFileFlush.exit ], [ %94, %.lr.ph72.preheader.split ]
+  %.3.lcssa = phi i64 [ %spec.select61, %BufFileFlush.exit ], [ %92, %.lr.ph72.preheader.split ]
   %.not58 = icmp slt i32 %.350.lcssa, %77
   br i1 %.not58, label %96, label %.loopexit
 

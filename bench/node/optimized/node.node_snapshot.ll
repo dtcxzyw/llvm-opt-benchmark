@@ -1952,7 +1952,6 @@ for.body.i.i.i.i.i.i312:                          ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i317, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_.exit, label %for.body.i.i.i.i.i.i312, !llvm.loop !7
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ESt16initializer_listIS5_ERKS6_.exit: ; preds = %for.body.i.i.i.i.i.i312
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 1680
   store ptr %incdec.ptr1.i.i.i.i.i.i316, ptr getelementptr inbounds nuw (i8, ptr @_ZN4nodeL13snapshot_dataE, i64 320), align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp322) #9
   %call.i318 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp319) #9
@@ -2208,7 +2207,6 @@ for.body.i.i.i.i.i.i399:                          ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i406, label %_ZNSt6vectorIN4node8PropInfoESaIS1_EEC2ESt16initializer_listIS1_ERKS2_.exit407, label %for.body.i.i.i.i.i.i399, !llvm.loop !5
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EEC2ESt16initializer_listIS1_ERKS2_.exit407: ; preds = %for.body.i.i.i.i.i.i399
-  %add.ptr.i.i309 = getelementptr inbounds nuw i8, ptr %ref.tmp183, i64 2080
   store ptr %incdec.ptr1.i.i.i.i.i.i405, ptr getelementptr inbounds nuw (i8, ptr @_ZN4nodeL13snapshot_dataE, i64 344), align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp458) #9
   %call.i408 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp455) #9
@@ -2302,7 +2300,6 @@ for.body.i.i.i.i.i.i435:                          ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i442, label %_ZNSt6vectorIN4node8PropInfoESaIS1_EEC2ESt16initializer_listIS1_ERKS2_.exit443, label %for.body.i.i.i.i.i.i435, !llvm.loop !5
 
 _ZNSt6vectorIN4node8PropInfoESaIS1_EEC2ESt16initializer_listIS1_ERKS2_.exit443: ; preds = %for.body.i.i.i.i.i.i435
-  %add.ptr.i.i396 = getelementptr inbounds nuw i8, ptr %ref.tmp319, i64 1248
   store ptr %incdec.ptr1.i.i.i.i.i.i441, ptr getelementptr inbounds nuw (i8, ptr @_ZN4nodeL13snapshot_dataE, i64 368), align 8
   store i64 54, ptr getelementptr inbounds nuw (i8, ptr @_ZN4nodeL13snapshot_dataE, i64 384), align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp504) #9
@@ -6290,6 +6287,7 @@ arraydestroy.body1787:                            ; preds = %arraydestroy.body17
   br i1 %arraydestroy.done1790, label %arraydestroy.done1791, label %arraydestroy.body1787
 
 arraydestroy.done1791:                            ; preds = %arraydestroy.body1787
+  %add.ptr.i.i396 = getelementptr inbounds nuw i8, ptr %ref.tmp319, i64 1248
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp493) #9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp488) #9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp483) #9
@@ -6308,6 +6306,7 @@ arraydestroy.body1793:                            ; preds = %arraydestroy.body17
   br i1 %arraydestroy.done1796, label %arraydestroy.done1797, label %arraydestroy.body1793
 
 arraydestroy.done1797:                            ; preds = %arraydestroy.body1793
+  %add.ptr.i.i309 = getelementptr inbounds nuw i8, ptr %ref.tmp183, i64 2080
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp447) #9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp442) #9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp437) #9
@@ -6344,6 +6343,7 @@ arraydestroy.body1799:                            ; preds = %arraydestroy.body17
   br i1 %arraydestroy.done1802, label %arraydestroy.done1803, label %arraydestroy.body1799
 
 arraydestroy.done1803:                            ; preds = %arraydestroy.body1799
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 1680
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp313) #9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp311) #9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp309) #9

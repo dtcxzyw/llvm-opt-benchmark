@@ -3614,13 +3614,13 @@ do.body2.backedge:                                ; preds = %do.body2, %land.rhs
   br label %do.body2, !llvm.loop !121
 
 do.end:                                           ; preds = %do.body2
-  %mul = fmul double %2, %2
   %div9.i.i = udiv i64 %sub8.i.i, %conv5.i.i
   %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %div9.i.i, i64 1)
   %.pre = load i64, ptr %_M_p.i, align 8, !tbaa !59
   br label %for.body.i.i
 
 for.cond.cleanup.i.i:                             ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit
+  %mul = fmul double %2, %2
   %mul3 = fmul double %2, %mul
   %div17.i.i = fdiv double %15, %conv16.i.i
   %cmp18.i.i = fcmp ult double %div17.i.i, 1.000000e+00

@@ -8833,43 +8833,43 @@ _ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE4findERS4_.exit.thread: ; preds
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %45, align 8
-  %49 = ptrtoint ptr %47 to i64
-  %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %49, %50
-  %52 = sdiv exact i64 %51, 12
-  br label %53
+  br label %49
 
-53:                                               ; preds = %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread10.i.i.i.i, %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE4findERS4_.exit.thread
+49:                                               ; preds = %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread10.i.i.i.i, %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE4findERS4_.exit.thread
   %.013.i.i.i.i = phi ptr [ %10, %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE4findERS4_.exit.thread ], [ %.1.i.i.i.i, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread10.i.i.i.i ]
   %.0812.i.i.i.i = phi ptr [ %11, %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE4findERS4_.exit.thread ], [ %.19.i.i.i.i, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread10.i.i.i.i ]
-  %54 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 32
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp ult i32 %55, %spec.select
-  br i1 %56, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.i.i.i, label %57
+  %50 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 32
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp ult i32 %51, %spec.select
+  br i1 %52, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.i.i.i, label %53
 
-57:                                               ; preds = %53
-  %58 = icmp ult i32 %spec.select, %55
-  br i1 %58, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread10.i.i.i.i, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i
+53:                                               ; preds = %49
+  %54 = icmp ult i32 %spec.select, %51
+  br i1 %54, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread10.i.i.i.i, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i
 
-_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i: ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 36
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp ult i32 %60, %spec.select23
-  br i1 %61, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.i.i.i, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread10.i.i.i.i
+_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i: ; preds = %53
+  %55 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 36
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp ult i32 %56, %spec.select23
+  br i1 %57, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.i.i.i, label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread10.i.i.i.i
 
-_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.i.i.i: ; preds = %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i, %53
+_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.i.i.i: ; preds = %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i, %49
   br label %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread10.i.i.i.i
 
-_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread10.i.i.i.i: ; preds = %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.i.i.i, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i, %57
-  %.sink.i.i.i.i = phi i64 [ 24, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.i.i.i ], [ 16, %57 ], [ 16, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i ]
-  %.19.i.i.i.i = phi ptr [ %.0812.i.i.i.i, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.i.i.i ], [ %.013.i.i.i.i, %57 ], [ %.013.i.i.i.i, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i ]
-  %62 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 %.sink.i.i.i.i
-  %.1.i.i.i.i = load ptr, ptr %62, align 8
+_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread10.i.i.i.i: ; preds = %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.i.i.i, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i, %53
+  %.sink.i.i.i.i = phi i64 [ 24, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.i.i.i ], [ 16, %53 ], [ 16, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i ]
+  %.19.i.i.i.i = phi ptr [ %.0812.i.i.i.i, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread.i.i.i.i ], [ %.013.i.i.i.i, %53 ], [ %.013.i.i.i.i, %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.i.i.i.i ]
+  %58 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 %.sink.i.i.i.i
+  %.1.i.i.i.i = load ptr, ptr %58, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE11lower_boundERS4_.exit.i, label %53, !llvm.loop !70
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE11lower_boundERS4_.exit.i, label %49, !llvm.loop !70
 
 _ZNSt3mapISt4pairIjjEjSt4lessIS1_ESaIS0_IKS1_jEEE11lower_boundERS4_.exit.i: ; preds = %_ZNKSt4lessISt4pairIjjEEclERKS1_S4_.exit.thread10.i.i.i.i
-  %63 = trunc i64 %52 to i32
+  %59 = ptrtoint ptr %47 to i64
+  %60 = ptrtoint ptr %48 to i64
+  %61 = sub i64 %59, %60
+  %62 = sdiv exact i64 %61, 12
+  %63 = trunc i64 %62 to i32
   %64 = icmp eq ptr %.19.i.i.i.i, %11
   br i1 %64, label %.critedge.i, label %65
 

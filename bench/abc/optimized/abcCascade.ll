@@ -1112,36 +1112,36 @@ define void @Abc_ResPrint(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr no
   %9 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv29
   %10 = load i32, ptr %9, align 4, !tbaa !39
   %11 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %10, ptr noundef nonnull %6)
-  %12 = icmp ult i32 %11, 2
-  %13 = add i32 %11, -1
-  %14 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
-  %15 = sub nuw nsw i32 32, %14
-  %.09.i.i.us = select i1 %12, i32 %11, i32 %15
-  %16 = mul nsw i32 %.09.i.i.us, 10000
-  %17 = add nsw i32 %.09.i.i.us, -1
-  %.neg.i.us = shl nsw i32 -1, %17
-  %18 = add i32 %.neg.i.us, %11
-  %19 = mul nsw i32 %18, %18
-  %20 = add nsw i32 %19, %16
-  br label %21
+  br label %12
 
-21:                                               ; preds = %.lr.ph.us, %21
-  %.01819.us = phi i32 [ 0, %.lr.ph.us ], [ %27, %21 ]
-  %22 = load i32, ptr %9, align 4, !tbaa !39
-  %23 = shl nuw i32 1, %.01819.us
-  %24 = and i32 %22, %23
-  %.not.us = icmp eq i32 %24, 0
-  %25 = add nuw nsw i32 %.01819.us, 97
-  %26 = select i1 %.not.us, i32 45, i32 %25
-  %putchar.us = call i32 @putchar(i32 %26)
-  %27 = add nuw nsw i32 %.01819.us, 1
-  %exitcond28.not = icmp eq i32 %27, %2
-  br i1 %exitcond28.not, label %._crit_edge.us, label %21, !llvm.loop !72
+12:                                               ; preds = %.lr.ph.us, %12
+  %.01819.us = phi i32 [ 0, %.lr.ph.us ], [ %18, %12 ]
+  %13 = load i32, ptr %9, align 4, !tbaa !39
+  %14 = shl nuw i32 1, %.01819.us
+  %15 = and i32 %13, %14
+  %.not.us = icmp eq i32 %15, 0
+  %16 = add nuw nsw i32 %.01819.us, 97
+  %17 = select i1 %.not.us, i32 45, i32 %16
+  %putchar.us = call i32 @putchar(i32 %17)
+  %18 = add nuw nsw i32 %.01819.us, 1
+  %exitcond28.not = icmp eq i32 %18, %2
+  br i1 %exitcond28.not, label %._crit_edge.us, label %12, !llvm.loop !72
 
-._crit_edge.us:                                   ; preds = %21
-  %28 = add nsw i32 %20, %.021.us
+._crit_edge.us:                                   ; preds = %12
+  %19 = icmp ult i32 %11, 2
+  %20 = add i32 %11, -1
+  %21 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
+  %22 = sub nuw nsw i32 32, %21
+  %.09.i.i.us = select i1 %19, i32 %11, i32 %22
+  %23 = mul nsw i32 %.09.i.i.us, 10000
+  %24 = add nsw i32 %.09.i.i.us, -1
+  %.neg.i.us = shl nsw i32 -1, %24
+  %25 = add i32 %.neg.i.us, %11
+  %26 = mul nsw i32 %25, %25
+  %27 = add nsw i32 %26, %23
+  %28 = add nsw i32 %27, %.021.us
   %29 = load i32, ptr %6, align 4, !tbaa !39
-  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %11, i32 noundef %.09.i.i.us, i32 noundef %29, i32 noundef %20)
+  %30 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %11, i32 noundef %.09.i.i.us, i32 noundef %29, i32 noundef %27)
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
   br i1 %exitcond33.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !73
@@ -1723,33 +1723,33 @@ Abc_ResMigrate.exit:                              ; preds = %..loopexit_crit_edg
   %136 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i
   %137 = load i32, ptr %136, align 4, !tbaa !39
   %138 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %137, ptr noundef nonnull %13)
-  %139 = icmp ult i32 %138, 2
-  %140 = add i32 %138, -1
-  %141 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %140, i1 true)
-  %142 = sub nuw nsw i32 32, %141
-  %.09.i.i.us.i = select i1 %139, i32 %138, i32 %142
-  %143 = add nsw i32 %.09.i.i.us.i, -1
-  %.neg.i.us.i = shl nsw i32 -1, %143
-  %144 = add i32 %.neg.i.us.i, %138
-  %145 = mul nsw i32 %144, %144
-  br label %146
+  br label %139
 
-146:                                              ; preds = %146, %.lr.ph.us.i
-  %.01819.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %152, %146 ]
-  %147 = load i32, ptr %136, align 4, !tbaa !39
-  %148 = shl nuw i32 1, %.01819.us.i
-  %149 = and i32 %147, %148
-  %.not.us.i150 = icmp eq i32 %149, 0
-  %150 = add nuw nsw i32 %.01819.us.i, 97
-  %151 = select i1 %.not.us.i150, i32 45, i32 %150
-  %putchar.us.i = call i32 @putchar(i32 %151)
-  %152 = add nuw nsw i32 %.01819.us.i, 1
-  %exitcond28.not.i = icmp eq i32 %152, %2
-  br i1 %exitcond28.not.i, label %._crit_edge.us.i, label %146, !llvm.loop !72
+139:                                              ; preds = %139, %.lr.ph.us.i
+  %.01819.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %145, %139 ]
+  %140 = load i32, ptr %136, align 4, !tbaa !39
+  %141 = shl nuw i32 1, %.01819.us.i
+  %142 = and i32 %140, %141
+  %.not.us.i150 = icmp eq i32 %142, 0
+  %143 = add nuw nsw i32 %.01819.us.i, 97
+  %144 = select i1 %.not.us.i150, i32 45, i32 %143
+  %putchar.us.i = call i32 @putchar(i32 %144)
+  %145 = add nuw nsw i32 %.01819.us.i, 1
+  %exitcond28.not.i = icmp eq i32 %145, %2
+  br i1 %exitcond28.not.i, label %._crit_edge.us.i, label %139, !llvm.loop !72
 
-._crit_edge.us.i:                                 ; preds = %146
-  %153 = mul nsw i32 %.09.i.i.us.i, 10000
-  %154 = add nsw i32 %145, %153
+._crit_edge.us.i:                                 ; preds = %139
+  %146 = icmp ult i32 %138, 2
+  %147 = add i32 %138, -1
+  %148 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %147, i1 true)
+  %149 = sub nuw nsw i32 32, %148
+  %.09.i.i.us.i = select i1 %146, i32 %138, i32 %149
+  %150 = mul nsw i32 %.09.i.i.us.i, 10000
+  %151 = add nsw i32 %.09.i.i.us.i, -1
+  %.neg.i.us.i = shl nsw i32 -1, %151
+  %152 = add i32 %.neg.i.us.i, %138
+  %153 = mul nsw i32 %152, %152
+  %154 = add nsw i32 %153, %150
   %155 = add nsw i32 %154, %.021.us.i
   %156 = load i32, ptr %13, align 4, !tbaa !39
   %157 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %138, i32 noundef %.09.i.i.us.i, i32 noundef %156, i32 noundef %154)
@@ -2073,47 +2073,47 @@ Abc_ResMigrate.exit229:                           ; preds = %..loopexit_crit_edg
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #19
   br label %.lr.ph.us.i238
 
-.lr.ph.us.i238:                                   ; preds = %Abc_ResMigrate.exit229, %._crit_edge.us.i247
-  %indvars.iv29.i239 = phi i64 [ %indvars.iv.next30.i248, %._crit_edge.us.i247 ], [ 0, %Abc_ResMigrate.exit229 ]
-  %.021.us.i240 = phi i32 [ %310, %._crit_edge.us.i247 ], [ 0, %Abc_ResMigrate.exit229 ]
+.lr.ph.us.i238:                                   ; preds = %Abc_ResMigrate.exit229, %._crit_edge.us.i245
+  %indvars.iv29.i239 = phi i64 [ %indvars.iv.next30.i248, %._crit_edge.us.i245 ], [ 0, %Abc_ResMigrate.exit229 ]
+  %.021.us.i240 = phi i32 [ %310, %._crit_edge.us.i245 ], [ 0, %Abc_ResMigrate.exit229 ]
   %291 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i239
   %292 = load i32, ptr %291, align 4, !tbaa !39
   %293 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %292, ptr noundef nonnull %12)
-  %294 = icmp ult i32 %293, 2
-  %295 = add i32 %293, -1
-  %296 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %295, i1 true)
-  %297 = sub nuw nsw i32 32, %296
-  %.09.i.i.us.i241 = select i1 %294, i32 %293, i32 %297
-  %298 = add nsw i32 %.09.i.i.us.i241, -1
-  %.neg.i.us.i242 = shl nsw i32 -1, %298
-  %299 = add i32 %.neg.i.us.i242, %293
-  %300 = mul nsw i32 %299, %299
-  br label %301
+  br label %294
 
-301:                                              ; preds = %301, %.lr.ph.us.i238
-  %.01819.us.i243 = phi i32 [ 0, %.lr.ph.us.i238 ], [ %307, %301 ]
-  %302 = load i32, ptr %291, align 4, !tbaa !39
-  %303 = shl nuw i32 1, %.01819.us.i243
-  %304 = and i32 %302, %303
-  %.not.us.i244 = icmp eq i32 %304, 0
-  %305 = add nuw nsw i32 %.01819.us.i243, 97
-  %306 = select i1 %.not.us.i244, i32 45, i32 %305
-  %putchar.us.i245 = call i32 @putchar(i32 %306)
-  %307 = add nuw nsw i32 %.01819.us.i243, 1
-  %exitcond28.not.i246 = icmp eq i32 %307, %2
-  br i1 %exitcond28.not.i246, label %._crit_edge.us.i247, label %301, !llvm.loop !72
+294:                                              ; preds = %294, %.lr.ph.us.i238
+  %.01819.us.i241 = phi i32 [ 0, %.lr.ph.us.i238 ], [ %300, %294 ]
+  %295 = load i32, ptr %291, align 4, !tbaa !39
+  %296 = shl nuw i32 1, %.01819.us.i241
+  %297 = and i32 %295, %296
+  %.not.us.i242 = icmp eq i32 %297, 0
+  %298 = add nuw nsw i32 %.01819.us.i241, 97
+  %299 = select i1 %.not.us.i242, i32 45, i32 %298
+  %putchar.us.i243 = call i32 @putchar(i32 %299)
+  %300 = add nuw nsw i32 %.01819.us.i241, 1
+  %exitcond28.not.i244 = icmp eq i32 %300, %2
+  br i1 %exitcond28.not.i244, label %._crit_edge.us.i245, label %294, !llvm.loop !72
 
-._crit_edge.us.i247:                              ; preds = %301
-  %308 = mul nsw i32 %.09.i.i.us.i241, 10000
-  %309 = add nsw i32 %300, %308
+._crit_edge.us.i245:                              ; preds = %294
+  %301 = icmp ult i32 %293, 2
+  %302 = add i32 %293, -1
+  %303 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %302, i1 true)
+  %304 = sub nuw nsw i32 32, %303
+  %.09.i.i.us.i246 = select i1 %301, i32 %293, i32 %304
+  %305 = mul nsw i32 %.09.i.i.us.i246, 10000
+  %306 = add nsw i32 %.09.i.i.us.i246, -1
+  %.neg.i.us.i247 = shl nsw i32 -1, %306
+  %307 = add i32 %.neg.i.us.i247, %293
+  %308 = mul nsw i32 %307, %307
+  %309 = add nsw i32 %308, %305
   %310 = add nsw i32 %309, %.021.us.i240
   %311 = load i32, ptr %12, align 4, !tbaa !39
-  %312 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %293, i32 noundef %.09.i.i.us.i241, i32 noundef %311, i32 noundef %309)
+  %312 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %293, i32 noundef %.09.i.i.us.i246, i32 noundef %311, i32 noundef %309)
   %indvars.iv.next30.i248 = add nuw nsw i64 %indvars.iv29.i239, 1
   %exitcond33.not.i249 = icmp eq i64 %indvars.iv.next30.i248, 3
   br i1 %exitcond33.not.i249, label %Abc_ResPrint.exit250, label %.lr.ph.us.i238, !llvm.loop !73
 
-Abc_ResPrint.exit250:                             ; preds = %._crit_edge.us.i247
+Abc_ResPrint.exit250:                             ; preds = %._crit_edge.us.i245
   %313 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %310)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #19
   %314 = load i32, ptr %14, align 16, !tbaa !39
@@ -2243,47 +2243,47 @@ Abc_ResMigrate.exit294:                           ; preds = %..loopexit_crit_edg
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #19
   br label %.lr.ph.us.i303
 
-.lr.ph.us.i303:                                   ; preds = %Abc_ResMigrate.exit294, %._crit_edge.us.i312
-  %indvars.iv29.i304 = phi i64 [ %indvars.iv.next30.i313, %._crit_edge.us.i312 ], [ 0, %Abc_ResMigrate.exit294 ]
-  %.021.us.i305 = phi i32 [ %395, %._crit_edge.us.i312 ], [ 0, %Abc_ResMigrate.exit294 ]
+.lr.ph.us.i303:                                   ; preds = %Abc_ResMigrate.exit294, %._crit_edge.us.i310
+  %indvars.iv29.i304 = phi i64 [ %indvars.iv.next30.i313, %._crit_edge.us.i310 ], [ 0, %Abc_ResMigrate.exit294 ]
+  %.021.us.i305 = phi i32 [ %395, %._crit_edge.us.i310 ], [ 0, %Abc_ResMigrate.exit294 ]
   %376 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i304
   %377 = load i32, ptr %376, align 4, !tbaa !39
   %378 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %377, ptr noundef nonnull %11)
-  %379 = icmp ult i32 %378, 2
-  %380 = add i32 %378, -1
-  %381 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %380, i1 true)
-  %382 = sub nuw nsw i32 32, %381
-  %.09.i.i.us.i306 = select i1 %379, i32 %378, i32 %382
-  %383 = add nsw i32 %.09.i.i.us.i306, -1
-  %.neg.i.us.i307 = shl nsw i32 -1, %383
-  %384 = add i32 %.neg.i.us.i307, %378
-  %385 = mul nsw i32 %384, %384
-  br label %386
+  br label %379
 
-386:                                              ; preds = %386, %.lr.ph.us.i303
-  %.01819.us.i308 = phi i32 [ 0, %.lr.ph.us.i303 ], [ %392, %386 ]
-  %387 = load i32, ptr %376, align 4, !tbaa !39
-  %388 = shl nuw i32 1, %.01819.us.i308
-  %389 = and i32 %387, %388
-  %.not.us.i309 = icmp eq i32 %389, 0
-  %390 = add nuw nsw i32 %.01819.us.i308, 97
-  %391 = select i1 %.not.us.i309, i32 45, i32 %390
-  %putchar.us.i310 = call i32 @putchar(i32 %391)
-  %392 = add nuw nsw i32 %.01819.us.i308, 1
-  %exitcond28.not.i311 = icmp eq i32 %392, %2
-  br i1 %exitcond28.not.i311, label %._crit_edge.us.i312, label %386, !llvm.loop !72
+379:                                              ; preds = %379, %.lr.ph.us.i303
+  %.01819.us.i306 = phi i32 [ 0, %.lr.ph.us.i303 ], [ %385, %379 ]
+  %380 = load i32, ptr %376, align 4, !tbaa !39
+  %381 = shl nuw i32 1, %.01819.us.i306
+  %382 = and i32 %380, %381
+  %.not.us.i307 = icmp eq i32 %382, 0
+  %383 = add nuw nsw i32 %.01819.us.i306, 97
+  %384 = select i1 %.not.us.i307, i32 45, i32 %383
+  %putchar.us.i308 = call i32 @putchar(i32 %384)
+  %385 = add nuw nsw i32 %.01819.us.i306, 1
+  %exitcond28.not.i309 = icmp eq i32 %385, %2
+  br i1 %exitcond28.not.i309, label %._crit_edge.us.i310, label %379, !llvm.loop !72
 
-._crit_edge.us.i312:                              ; preds = %386
-  %393 = mul nsw i32 %.09.i.i.us.i306, 10000
-  %394 = add nsw i32 %385, %393
+._crit_edge.us.i310:                              ; preds = %379
+  %386 = icmp ult i32 %378, 2
+  %387 = add i32 %378, -1
+  %388 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %387, i1 true)
+  %389 = sub nuw nsw i32 32, %388
+  %.09.i.i.us.i311 = select i1 %386, i32 %378, i32 %389
+  %390 = mul nsw i32 %.09.i.i.us.i311, 10000
+  %391 = add nsw i32 %.09.i.i.us.i311, -1
+  %.neg.i.us.i312 = shl nsw i32 -1, %391
+  %392 = add i32 %.neg.i.us.i312, %378
+  %393 = mul nsw i32 %392, %392
+  %394 = add nsw i32 %393, %390
   %395 = add nsw i32 %394, %.021.us.i305
   %396 = load i32, ptr %11, align 4, !tbaa !39
-  %397 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %378, i32 noundef %.09.i.i.us.i306, i32 noundef %396, i32 noundef %394)
+  %397 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %378, i32 noundef %.09.i.i.us.i311, i32 noundef %396, i32 noundef %394)
   %indvars.iv.next30.i313 = add nuw nsw i64 %indvars.iv29.i304, 1
   %exitcond33.not.i314 = icmp eq i64 %indvars.iv.next30.i313, 3
   br i1 %exitcond33.not.i314, label %Abc_ResPrint.exit315, label %.lr.ph.us.i303, !llvm.loop !73
 
-Abc_ResPrint.exit315:                             ; preds = %._crit_edge.us.i312
+Abc_ResPrint.exit315:                             ; preds = %._crit_edge.us.i310
   %398 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %395)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #19
   %399 = load i32, ptr %194, align 4, !tbaa !39
@@ -2413,47 +2413,47 @@ Abc_ResMigrate.exit359:                           ; preds = %..loopexit_crit_edg
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #19
   br label %.lr.ph.us.i368
 
-.lr.ph.us.i368:                                   ; preds = %Abc_ResMigrate.exit359, %._crit_edge.us.i377
-  %indvars.iv29.i369 = phi i64 [ %indvars.iv.next30.i378, %._crit_edge.us.i377 ], [ 0, %Abc_ResMigrate.exit359 ]
-  %.021.us.i370 = phi i32 [ %480, %._crit_edge.us.i377 ], [ 0, %Abc_ResMigrate.exit359 ]
+.lr.ph.us.i368:                                   ; preds = %Abc_ResMigrate.exit359, %._crit_edge.us.i375
+  %indvars.iv29.i369 = phi i64 [ %indvars.iv.next30.i378, %._crit_edge.us.i375 ], [ 0, %Abc_ResMigrate.exit359 ]
+  %.021.us.i370 = phi i32 [ %480, %._crit_edge.us.i375 ], [ 0, %Abc_ResMigrate.exit359 ]
   %461 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i369
   %462 = load i32, ptr %461, align 4, !tbaa !39
   %463 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %462, ptr noundef nonnull %10)
-  %464 = icmp ult i32 %463, 2
-  %465 = add i32 %463, -1
-  %466 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %465, i1 true)
-  %467 = sub nuw nsw i32 32, %466
-  %.09.i.i.us.i371 = select i1 %464, i32 %463, i32 %467
-  %468 = add nsw i32 %.09.i.i.us.i371, -1
-  %.neg.i.us.i372 = shl nsw i32 -1, %468
-  %469 = add i32 %.neg.i.us.i372, %463
-  %470 = mul nsw i32 %469, %469
-  br label %471
+  br label %464
 
-471:                                              ; preds = %471, %.lr.ph.us.i368
-  %.01819.us.i373 = phi i32 [ 0, %.lr.ph.us.i368 ], [ %477, %471 ]
-  %472 = load i32, ptr %461, align 4, !tbaa !39
-  %473 = shl nuw i32 1, %.01819.us.i373
-  %474 = and i32 %472, %473
-  %.not.us.i374 = icmp eq i32 %474, 0
-  %475 = add nuw nsw i32 %.01819.us.i373, 97
-  %476 = select i1 %.not.us.i374, i32 45, i32 %475
-  %putchar.us.i375 = call i32 @putchar(i32 %476)
-  %477 = add nuw nsw i32 %.01819.us.i373, 1
-  %exitcond28.not.i376 = icmp eq i32 %477, %2
-  br i1 %exitcond28.not.i376, label %._crit_edge.us.i377, label %471, !llvm.loop !72
+464:                                              ; preds = %464, %.lr.ph.us.i368
+  %.01819.us.i371 = phi i32 [ 0, %.lr.ph.us.i368 ], [ %470, %464 ]
+  %465 = load i32, ptr %461, align 4, !tbaa !39
+  %466 = shl nuw i32 1, %.01819.us.i371
+  %467 = and i32 %465, %466
+  %.not.us.i372 = icmp eq i32 %467, 0
+  %468 = add nuw nsw i32 %.01819.us.i371, 97
+  %469 = select i1 %.not.us.i372, i32 45, i32 %468
+  %putchar.us.i373 = call i32 @putchar(i32 %469)
+  %470 = add nuw nsw i32 %.01819.us.i371, 1
+  %exitcond28.not.i374 = icmp eq i32 %470, %2
+  br i1 %exitcond28.not.i374, label %._crit_edge.us.i375, label %464, !llvm.loop !72
 
-._crit_edge.us.i377:                              ; preds = %471
-  %478 = mul nsw i32 %.09.i.i.us.i371, 10000
-  %479 = add nsw i32 %470, %478
+._crit_edge.us.i375:                              ; preds = %464
+  %471 = icmp ult i32 %463, 2
+  %472 = add i32 %463, -1
+  %473 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %472, i1 true)
+  %474 = sub nuw nsw i32 32, %473
+  %.09.i.i.us.i376 = select i1 %471, i32 %463, i32 %474
+  %475 = mul nsw i32 %.09.i.i.us.i376, 10000
+  %476 = add nsw i32 %.09.i.i.us.i376, -1
+  %.neg.i.us.i377 = shl nsw i32 -1, %476
+  %477 = add i32 %.neg.i.us.i377, %463
+  %478 = mul nsw i32 %477, %477
+  %479 = add nsw i32 %478, %475
   %480 = add nsw i32 %479, %.021.us.i370
   %481 = load i32, ptr %10, align 4, !tbaa !39
-  %482 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %463, i32 noundef %.09.i.i.us.i371, i32 noundef %481, i32 noundef %479)
+  %482 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %463, i32 noundef %.09.i.i.us.i376, i32 noundef %481, i32 noundef %479)
   %indvars.iv.next30.i378 = add nuw nsw i64 %indvars.iv29.i369, 1
   %exitcond33.not.i379 = icmp eq i64 %indvars.iv.next30.i378, 3
   br i1 %exitcond33.not.i379, label %Abc_ResPrint.exit380, label %.lr.ph.us.i368, !llvm.loop !73
 
-Abc_ResPrint.exit380:                             ; preds = %._crit_edge.us.i377
+Abc_ResPrint.exit380:                             ; preds = %._crit_edge.us.i375
   %483 = or i32 %.4.us.i292, %.4.us.i227
   %484 = or i32 %483, %.4.us.i357
   %485 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %480)
@@ -2742,47 +2742,47 @@ Abc_ResMigrate.exit459:                           ; preds = %..loopexit_crit_edg
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #19
   br label %.lr.ph.us.i468
 
-.lr.ph.us.i468:                                   ; preds = %Abc_ResMigrate.exit459, %._crit_edge.us.i477
-  %indvars.iv29.i469 = phi i64 [ %indvars.iv.next30.i478, %._crit_edge.us.i477 ], [ 0, %Abc_ResMigrate.exit459 ]
-  %.021.us.i470 = phi i32 [ %621, %._crit_edge.us.i477 ], [ 0, %Abc_ResMigrate.exit459 ]
+.lr.ph.us.i468:                                   ; preds = %Abc_ResMigrate.exit459, %._crit_edge.us.i475
+  %indvars.iv29.i469 = phi i64 [ %indvars.iv.next30.i478, %._crit_edge.us.i475 ], [ 0, %Abc_ResMigrate.exit459 ]
+  %.021.us.i470 = phi i32 [ %621, %._crit_edge.us.i475 ], [ 0, %Abc_ResMigrate.exit459 ]
   %602 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i469
   %603 = load i32, ptr %602, align 4, !tbaa !39
   %604 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %603, ptr noundef nonnull %9)
-  %605 = icmp ult i32 %604, 2
-  %606 = add i32 %604, -1
-  %607 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %606, i1 true)
-  %608 = sub nuw nsw i32 32, %607
-  %.09.i.i.us.i471 = select i1 %605, i32 %604, i32 %608
-  %609 = add nsw i32 %.09.i.i.us.i471, -1
-  %.neg.i.us.i472 = shl nsw i32 -1, %609
-  %610 = add i32 %.neg.i.us.i472, %604
-  %611 = mul nsw i32 %610, %610
-  br label %612
+  br label %605
 
-612:                                              ; preds = %612, %.lr.ph.us.i468
-  %.01819.us.i473 = phi i32 [ 0, %.lr.ph.us.i468 ], [ %618, %612 ]
-  %613 = load i32, ptr %602, align 4, !tbaa !39
-  %614 = shl nuw i32 1, %.01819.us.i473
-  %615 = and i32 %613, %614
-  %.not.us.i474 = icmp eq i32 %615, 0
-  %616 = add nuw nsw i32 %.01819.us.i473, 97
-  %617 = select i1 %.not.us.i474, i32 45, i32 %616
-  %putchar.us.i475 = call i32 @putchar(i32 %617)
-  %618 = add nuw nsw i32 %.01819.us.i473, 1
-  %exitcond28.not.i476 = icmp eq i32 %618, %2
-  br i1 %exitcond28.not.i476, label %._crit_edge.us.i477, label %612, !llvm.loop !72
+605:                                              ; preds = %605, %.lr.ph.us.i468
+  %.01819.us.i471 = phi i32 [ 0, %.lr.ph.us.i468 ], [ %611, %605 ]
+  %606 = load i32, ptr %602, align 4, !tbaa !39
+  %607 = shl nuw i32 1, %.01819.us.i471
+  %608 = and i32 %606, %607
+  %.not.us.i472 = icmp eq i32 %608, 0
+  %609 = add nuw nsw i32 %.01819.us.i471, 97
+  %610 = select i1 %.not.us.i472, i32 45, i32 %609
+  %putchar.us.i473 = call i32 @putchar(i32 %610)
+  %611 = add nuw nsw i32 %.01819.us.i471, 1
+  %exitcond28.not.i474 = icmp eq i32 %611, %2
+  br i1 %exitcond28.not.i474, label %._crit_edge.us.i475, label %605, !llvm.loop !72
 
-._crit_edge.us.i477:                              ; preds = %612
-  %619 = mul nsw i32 %.09.i.i.us.i471, 10000
-  %620 = add nsw i32 %611, %619
+._crit_edge.us.i475:                              ; preds = %605
+  %612 = icmp ult i32 %604, 2
+  %613 = add i32 %604, -1
+  %614 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %613, i1 true)
+  %615 = sub nuw nsw i32 32, %614
+  %.09.i.i.us.i476 = select i1 %612, i32 %604, i32 %615
+  %616 = mul nsw i32 %.09.i.i.us.i476, 10000
+  %617 = add nsw i32 %.09.i.i.us.i476, -1
+  %.neg.i.us.i477 = shl nsw i32 -1, %617
+  %618 = add i32 %.neg.i.us.i477, %604
+  %619 = mul nsw i32 %618, %618
+  %620 = add nsw i32 %619, %616
   %621 = add nsw i32 %620, %.021.us.i470
   %622 = load i32, ptr %9, align 4, !tbaa !39
-  %623 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %604, i32 noundef %.09.i.i.us.i471, i32 noundef %622, i32 noundef %620)
+  %623 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %604, i32 noundef %.09.i.i.us.i476, i32 noundef %622, i32 noundef %620)
   %indvars.iv.next30.i478 = add nuw nsw i64 %indvars.iv29.i469, 1
   %exitcond33.not.i479 = icmp eq i64 %indvars.iv.next30.i478, 4
   br i1 %exitcond33.not.i479, label %Abc_ResPrint.exit480, label %.lr.ph.us.i468, !llvm.loop !73
 
-Abc_ResPrint.exit480:                             ; preds = %._crit_edge.us.i477
+Abc_ResPrint.exit480:                             ; preds = %._crit_edge.us.i475
   %624 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %621)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #19
   %625 = load i32, ptr %14, align 16, !tbaa !39
@@ -2912,47 +2912,47 @@ Abc_ResMigrate.exit524:                           ; preds = %..loopexit_crit_edg
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #19
   br label %.lr.ph.us.i533
 
-.lr.ph.us.i533:                                   ; preds = %Abc_ResMigrate.exit524, %._crit_edge.us.i542
-  %indvars.iv29.i534 = phi i64 [ %indvars.iv.next30.i543, %._crit_edge.us.i542 ], [ 0, %Abc_ResMigrate.exit524 ]
-  %.021.us.i535 = phi i32 [ %706, %._crit_edge.us.i542 ], [ 0, %Abc_ResMigrate.exit524 ]
+.lr.ph.us.i533:                                   ; preds = %Abc_ResMigrate.exit524, %._crit_edge.us.i540
+  %indvars.iv29.i534 = phi i64 [ %indvars.iv.next30.i543, %._crit_edge.us.i540 ], [ 0, %Abc_ResMigrate.exit524 ]
+  %.021.us.i535 = phi i32 [ %706, %._crit_edge.us.i540 ], [ 0, %Abc_ResMigrate.exit524 ]
   %687 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i534
   %688 = load i32, ptr %687, align 4, !tbaa !39
   %689 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %688, ptr noundef nonnull %8)
-  %690 = icmp ult i32 %689, 2
-  %691 = add i32 %689, -1
-  %692 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %691, i1 true)
-  %693 = sub nuw nsw i32 32, %692
-  %.09.i.i.us.i536 = select i1 %690, i32 %689, i32 %693
-  %694 = add nsw i32 %.09.i.i.us.i536, -1
-  %.neg.i.us.i537 = shl nsw i32 -1, %694
-  %695 = add i32 %.neg.i.us.i537, %689
-  %696 = mul nsw i32 %695, %695
-  br label %697
+  br label %690
 
-697:                                              ; preds = %697, %.lr.ph.us.i533
-  %.01819.us.i538 = phi i32 [ 0, %.lr.ph.us.i533 ], [ %703, %697 ]
-  %698 = load i32, ptr %687, align 4, !tbaa !39
-  %699 = shl nuw i32 1, %.01819.us.i538
-  %700 = and i32 %698, %699
-  %.not.us.i539 = icmp eq i32 %700, 0
-  %701 = add nuw nsw i32 %.01819.us.i538, 97
-  %702 = select i1 %.not.us.i539, i32 45, i32 %701
-  %putchar.us.i540 = call i32 @putchar(i32 %702)
-  %703 = add nuw nsw i32 %.01819.us.i538, 1
-  %exitcond28.not.i541 = icmp eq i32 %703, %2
-  br i1 %exitcond28.not.i541, label %._crit_edge.us.i542, label %697, !llvm.loop !72
+690:                                              ; preds = %690, %.lr.ph.us.i533
+  %.01819.us.i536 = phi i32 [ 0, %.lr.ph.us.i533 ], [ %696, %690 ]
+  %691 = load i32, ptr %687, align 4, !tbaa !39
+  %692 = shl nuw i32 1, %.01819.us.i536
+  %693 = and i32 %691, %692
+  %.not.us.i537 = icmp eq i32 %693, 0
+  %694 = add nuw nsw i32 %.01819.us.i536, 97
+  %695 = select i1 %.not.us.i537, i32 45, i32 %694
+  %putchar.us.i538 = call i32 @putchar(i32 %695)
+  %696 = add nuw nsw i32 %.01819.us.i536, 1
+  %exitcond28.not.i539 = icmp eq i32 %696, %2
+  br i1 %exitcond28.not.i539, label %._crit_edge.us.i540, label %690, !llvm.loop !72
 
-._crit_edge.us.i542:                              ; preds = %697
-  %704 = mul nsw i32 %.09.i.i.us.i536, 10000
-  %705 = add nsw i32 %696, %704
+._crit_edge.us.i540:                              ; preds = %690
+  %697 = icmp ult i32 %689, 2
+  %698 = add i32 %689, -1
+  %699 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %698, i1 true)
+  %700 = sub nuw nsw i32 32, %699
+  %.09.i.i.us.i541 = select i1 %697, i32 %689, i32 %700
+  %701 = mul nsw i32 %.09.i.i.us.i541, 10000
+  %702 = add nsw i32 %.09.i.i.us.i541, -1
+  %.neg.i.us.i542 = shl nsw i32 -1, %702
+  %703 = add i32 %.neg.i.us.i542, %689
+  %704 = mul nsw i32 %703, %703
+  %705 = add nsw i32 %704, %701
   %706 = add nsw i32 %705, %.021.us.i535
   %707 = load i32, ptr %8, align 4, !tbaa !39
-  %708 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %689, i32 noundef %.09.i.i.us.i536, i32 noundef %707, i32 noundef %705)
+  %708 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %689, i32 noundef %.09.i.i.us.i541, i32 noundef %707, i32 noundef %705)
   %indvars.iv.next30.i543 = add nuw nsw i64 %indvars.iv29.i534, 1
   %exitcond33.not.i544 = icmp eq i64 %indvars.iv.next30.i543, 4
   br i1 %exitcond33.not.i544, label %Abc_ResPrint.exit545, label %.lr.ph.us.i533, !llvm.loop !73
 
-Abc_ResPrint.exit545:                             ; preds = %._crit_edge.us.i542
+Abc_ResPrint.exit545:                             ; preds = %._crit_edge.us.i540
   %709 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %706)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #19
   %710 = load i32, ptr %14, align 16, !tbaa !39
@@ -3082,169 +3082,168 @@ Abc_ResMigrate.exit589:                           ; preds = %..loopexit_crit_edg
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #19
   br label %.lr.ph.us.i598
 
-.lr.ph.us.i598:                                   ; preds = %Abc_ResMigrate.exit589, %._crit_edge.us.i607
-  %indvars.iv29.i599 = phi i64 [ %indvars.iv.next30.i608, %._crit_edge.us.i607 ], [ 0, %Abc_ResMigrate.exit589 ]
-  %.021.us.i600 = phi i32 [ %791, %._crit_edge.us.i607 ], [ 0, %Abc_ResMigrate.exit589 ]
+.lr.ph.us.i598:                                   ; preds = %Abc_ResMigrate.exit589, %._crit_edge.us.i605
+  %indvars.iv29.i599 = phi i64 [ %indvars.iv.next30.i608, %._crit_edge.us.i605 ], [ 0, %Abc_ResMigrate.exit589 ]
+  %.021.us.i600 = phi i32 [ %791, %._crit_edge.us.i605 ], [ 0, %Abc_ResMigrate.exit589 ]
   %772 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i599
   %773 = load i32, ptr %772, align 4, !tbaa !39
   %774 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %773, ptr noundef nonnull %7)
-  %775 = icmp ult i32 %774, 2
-  %776 = add i32 %774, -1
-  %777 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %776, i1 true)
-  %778 = sub nuw nsw i32 32, %777
-  %.09.i.i.us.i601 = select i1 %775, i32 %774, i32 %778
-  %779 = add nsw i32 %.09.i.i.us.i601, -1
-  %.neg.i.us.i602 = shl nsw i32 -1, %779
-  %780 = add i32 %.neg.i.us.i602, %774
-  %781 = mul nsw i32 %780, %780
-  br label %782
+  br label %775
 
-782:                                              ; preds = %782, %.lr.ph.us.i598
-  %.01819.us.i603 = phi i32 [ 0, %.lr.ph.us.i598 ], [ %788, %782 ]
-  %783 = load i32, ptr %772, align 4, !tbaa !39
-  %784 = shl nuw i32 1, %.01819.us.i603
-  %785 = and i32 %783, %784
-  %.not.us.i604 = icmp eq i32 %785, 0
-  %786 = add nuw nsw i32 %.01819.us.i603, 97
-  %787 = select i1 %.not.us.i604, i32 45, i32 %786
-  %putchar.us.i605 = call i32 @putchar(i32 %787)
-  %788 = add nuw nsw i32 %.01819.us.i603, 1
-  %exitcond28.not.i606 = icmp eq i32 %788, %2
-  br i1 %exitcond28.not.i606, label %._crit_edge.us.i607, label %782, !llvm.loop !72
+775:                                              ; preds = %775, %.lr.ph.us.i598
+  %.01819.us.i601 = phi i32 [ 0, %.lr.ph.us.i598 ], [ %781, %775 ]
+  %776 = load i32, ptr %772, align 4, !tbaa !39
+  %777 = shl nuw i32 1, %.01819.us.i601
+  %778 = and i32 %776, %777
+  %.not.us.i602 = icmp eq i32 %778, 0
+  %779 = add nuw nsw i32 %.01819.us.i601, 97
+  %780 = select i1 %.not.us.i602, i32 45, i32 %779
+  %putchar.us.i603 = call i32 @putchar(i32 %780)
+  %781 = add nuw nsw i32 %.01819.us.i601, 1
+  %exitcond28.not.i604 = icmp eq i32 %781, %2
+  br i1 %exitcond28.not.i604, label %._crit_edge.us.i605, label %775, !llvm.loop !72
 
-._crit_edge.us.i607:                              ; preds = %782
-  %789 = mul nsw i32 %.09.i.i.us.i601, 10000
-  %790 = add nsw i32 %781, %789
+._crit_edge.us.i605:                              ; preds = %775
+  %782 = icmp ult i32 %774, 2
+  %783 = add i32 %774, -1
+  %784 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %783, i1 true)
+  %785 = sub nuw nsw i32 32, %784
+  %.09.i.i.us.i606 = select i1 %782, i32 %774, i32 %785
+  %786 = mul nsw i32 %.09.i.i.us.i606, 10000
+  %787 = add nsw i32 %.09.i.i.us.i606, -1
+  %.neg.i.us.i607 = shl nsw i32 -1, %787
+  %788 = add i32 %.neg.i.us.i607, %774
+  %789 = mul nsw i32 %788, %788
+  %790 = add nsw i32 %789, %786
   %791 = add nsw i32 %790, %.021.us.i600
   %792 = load i32, ptr %7, align 4, !tbaa !39
-  %793 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %774, i32 noundef %.09.i.i.us.i601, i32 noundef %792, i32 noundef %790)
+  %793 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %774, i32 noundef %.09.i.i.us.i606, i32 noundef %792, i32 noundef %790)
   %indvars.iv.next30.i608 = add nuw nsw i64 %indvars.iv29.i599, 1
   %exitcond33.not.i609 = icmp eq i64 %indvars.iv.next30.i608, 4
   br i1 %exitcond33.not.i609, label %Abc_ResPrint.exit610, label %.lr.ph.us.i598, !llvm.loop !73
 
-Abc_ResPrint.exit610:                             ; preds = %._crit_edge.us.i607
-  %794 = or i32 %.4.us.i522, %.4.us.i457
-  %795 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %791)
+Abc_ResPrint.exit610:                             ; preds = %._crit_edge.us.i605
+  %794 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %791)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #19
-  %796 = load i32, ptr %504, align 4, !tbaa !39
-  %797 = load i32, ptr %505, align 8, !tbaa !39
-  %798 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %796, ptr noundef null)
-  %799 = icmp ult i32 %798, 2
-  %800 = add i32 %798, -1
-  %801 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %800, i1 true)
-  %802 = sub nuw nsw i32 32, %801
-  %.09.i.i.i611 = select i1 %799, i32 %798, i32 %802
-  %803 = add nsw i32 %.09.i.i.i611, -1
-  %.neg.i.i612 = shl nsw i32 -1, %803
-  %804 = add i32 %.neg.i.i612, %798
-  %805 = mul nsw i32 %804, %804
-  %806 = load i32, ptr %505, align 8, !tbaa !39
-  %807 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %806, ptr noundef null)
-  %808 = icmp ult i32 %807, 2
-  %809 = add i32 %807, -1
-  %810 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %809, i1 true)
-  %811 = sub nuw nsw i32 32, %810
-  %.09.i.i65.i613 = select i1 %808, i32 %807, i32 %811
-  %812 = add nsw i32 %.09.i.i65.i613, -1
-  %.neg.i66.i614 = shl nsw i32 -1, %812
-  %813 = add i32 %.neg.i66.i614, %807
-  %814 = mul nsw i32 %813, %813
+  %795 = load i32, ptr %504, align 4, !tbaa !39
+  %796 = load i32, ptr %505, align 8, !tbaa !39
+  %797 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %795, ptr noundef null)
+  %798 = icmp ult i32 %797, 2
+  %799 = add i32 %797, -1
+  %800 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %799, i1 true)
+  %801 = sub nuw nsw i32 32, %800
+  %.09.i.i.i611 = select i1 %798, i32 %797, i32 %801
+  %802 = add nsw i32 %.09.i.i.i611, -1
+  %.neg.i.i612 = shl nsw i32 -1, %802
+  %803 = add i32 %.neg.i.i612, %797
+  %804 = mul nsw i32 %803, %803
+  %805 = load i32, ptr %505, align 8, !tbaa !39
+  %806 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %805, ptr noundef null)
+  %807 = icmp ult i32 %806, 2
+  %808 = add i32 %806, -1
+  %809 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %808, i1 true)
+  %810 = sub nuw nsw i32 32, %809
+  %.09.i.i65.i613 = select i1 %807, i32 %806, i32 %810
+  %811 = add nsw i32 %.09.i.i65.i613, -1
+  %.neg.i66.i614 = shl nsw i32 -1, %811
+  %812 = add i32 %.neg.i66.i614, %806
+  %813 = mul nsw i32 %812, %812
   %reass.add.i615 = add i32 %.09.i.i65.i613, %.09.i.i.i611
   %reass.mul.i616 = mul i32 %reass.add.i615, 10000
-  %815 = add i32 %reass.mul.i616, %805
-  %816 = add i32 %815, %814
+  %814 = add i32 %reass.mul.i616, %804
+  %815 = add i32 %814, %813
   %.pre889 = load i32, ptr %504, align 4, !tbaa !39
   br label %.lr.ph84.split.us.i620
 
 .lr.ph84.split.us.i620:                           ; preds = %Abc_ResPrint.exit610, %..loopexit_crit_edge.us.i649
-  %817 = phi i32 [ %856, %..loopexit_crit_edge.us.i649 ], [ %.pre889, %Abc_ResPrint.exit610 ]
+  %816 = phi i32 [ %855, %..loopexit_crit_edge.us.i649 ], [ %.pre889, %Abc_ResPrint.exit610 ]
   %.083.us.i621 = phi i32 [ %.4.us.i652, %..loopexit_crit_edge.us.i649 ], [ 0, %Abc_ResPrint.exit610 ]
-  %.sroa.5.082.us.i622 = phi i32 [ %.sroa.5.4.us.i651, %..loopexit_crit_edge.us.i649 ], [ %797, %Abc_ResPrint.exit610 ]
-  %.06280.us.i623 = phi i32 [ %857, %..loopexit_crit_edge.us.i649 ], [ 0, %Abc_ResPrint.exit610 ]
-  %.sroa.0.079.us.i624 = phi i32 [ %.sroa.0.4.us.i650, %..loopexit_crit_edge.us.i649 ], [ %796, %Abc_ResPrint.exit610 ]
-  %818 = shl nuw i32 1, %.06280.us.i623
-  %819 = and i32 %817, %818
-  %.not.us.i625 = icmp eq i32 %819, 0
+  %.sroa.5.082.us.i622 = phi i32 [ %.sroa.5.4.us.i651, %..loopexit_crit_edge.us.i649 ], [ %796, %Abc_ResPrint.exit610 ]
+  %.06280.us.i623 = phi i32 [ %856, %..loopexit_crit_edge.us.i649 ], [ 0, %Abc_ResPrint.exit610 ]
+  %.sroa.0.079.us.i624 = phi i32 [ %.sroa.0.4.us.i650, %..loopexit_crit_edge.us.i649 ], [ %795, %Abc_ResPrint.exit610 ]
+  %817 = shl nuw i32 1, %.06280.us.i623
+  %818 = and i32 %816, %817
+  %.not.us.i625 = icmp eq i32 %818, 0
   br i1 %.not.us.i625, label %..loopexit_crit_edge.us.i649, label %.preheader.us.preheader.i626
 
 .preheader.us.preheader.i626:                     ; preds = %.lr.ph84.split.us.i620
   %.pre.i627 = load i32, ptr %505, align 8, !tbaa !39
   br label %.preheader.us.i628
 
-.preheader.us.i628:                               ; preds = %852, %.preheader.us.preheader.i626
-  %820 = phi i32 [ %853, %852 ], [ %817, %.preheader.us.preheader.i626 ]
-  %821 = phi i32 [ %854, %852 ], [ %.pre.i627, %.preheader.us.preheader.i626 ]
-  %.176.us.i629 = phi i32 [ %.2.us.i647, %852 ], [ %.083.us.i621, %.preheader.us.preheader.i626 ]
-  %.sroa.5.175.us.i630 = phi i32 [ %.sroa.5.2.us.i646, %852 ], [ %.sroa.5.082.us.i622, %.preheader.us.preheader.i626 ]
-  %.06174.us.i631 = phi i32 [ %855, %852 ], [ 0, %.preheader.us.preheader.i626 ]
-  %.sroa.0.173.us.i632 = phi i32 [ %.sroa.0.2.us.i645, %852 ], [ %.sroa.0.079.us.i624, %.preheader.us.preheader.i626 ]
-  %822 = shl nuw i32 1, %.06174.us.i631
-  %823 = and i32 %822, %821
-  %.not64.us.i633 = icmp eq i32 %823, 0
-  %824 = icmp eq i32 %.06280.us.i623, %.06174.us.i631
-  %or.cond.us.i634 = or i1 %824, %.not64.us.i633
-  br i1 %or.cond.us.i634, label %852, label %825
+.preheader.us.i628:                               ; preds = %851, %.preheader.us.preheader.i626
+  %819 = phi i32 [ %852, %851 ], [ %816, %.preheader.us.preheader.i626 ]
+  %820 = phi i32 [ %853, %851 ], [ %.pre.i627, %.preheader.us.preheader.i626 ]
+  %.176.us.i629 = phi i32 [ %.2.us.i647, %851 ], [ %.083.us.i621, %.preheader.us.preheader.i626 ]
+  %.sroa.5.175.us.i630 = phi i32 [ %.sroa.5.2.us.i646, %851 ], [ %.sroa.5.082.us.i622, %.preheader.us.preheader.i626 ]
+  %.06174.us.i631 = phi i32 [ %854, %851 ], [ 0, %.preheader.us.preheader.i626 ]
+  %.sroa.0.173.us.i632 = phi i32 [ %.sroa.0.2.us.i645, %851 ], [ %.sroa.0.079.us.i624, %.preheader.us.preheader.i626 ]
+  %821 = shl nuw i32 1, %.06174.us.i631
+  %822 = and i32 %821, %820
+  %.not64.us.i633 = icmp eq i32 %822, 0
+  %823 = icmp eq i32 %.06280.us.i623, %.06174.us.i631
+  %or.cond.us.i634 = or i1 %823, %.not64.us.i633
+  br i1 %or.cond.us.i634, label %851, label %824
 
-825:                                              ; preds = %.preheader.us.i628
-  %826 = or i32 %822, %818
-  %827 = xor i32 %820, %826
-  store i32 %827, ptr %504, align 4, !tbaa !39
-  %828 = xor i32 %821, %826
-  store i32 %828, ptr %505, align 8, !tbaa !39
-  %829 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %827, ptr noundef null)
-  %830 = icmp ult i32 %829, 2
-  %831 = add i32 %829, -1
-  %832 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %831, i1 true)
-  %833 = sub nuw nsw i32 32, %832
-  %.09.i.i67.us.i635 = select i1 %830, i32 %829, i32 %833
-  %834 = add nsw i32 %.09.i.i67.us.i635, -1
-  %.neg.i68.us.i636 = shl nsw i32 -1, %834
-  %835 = add i32 %.neg.i68.us.i636, %829
-  %836 = mul nsw i32 %835, %835
-  %837 = load i32, ptr %505, align 8, !tbaa !39
-  %838 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %837, ptr noundef null)
-  %839 = icmp ult i32 %838, 2
-  %840 = add i32 %838, -1
-  %841 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %840, i1 true)
-  %842 = sub nuw nsw i32 32, %841
-  %.09.i.i69.us.i637 = select i1 %839, i32 %838, i32 %842
-  %843 = add nsw i32 %.09.i.i69.us.i637, -1
-  %.neg.i70.us.i638 = shl nsw i32 -1, %843
-  %844 = add i32 %.neg.i70.us.i638, %838
-  %845 = mul nsw i32 %844, %844
+824:                                              ; preds = %.preheader.us.i628
+  %825 = or i32 %821, %817
+  %826 = xor i32 %819, %825
+  store i32 %826, ptr %504, align 4, !tbaa !39
+  %827 = xor i32 %820, %825
+  store i32 %827, ptr %505, align 8, !tbaa !39
+  %828 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %826, ptr noundef null)
+  %829 = icmp ult i32 %828, 2
+  %830 = add i32 %828, -1
+  %831 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %830, i1 true)
+  %832 = sub nuw nsw i32 32, %831
+  %.09.i.i67.us.i635 = select i1 %829, i32 %828, i32 %832
+  %833 = add nsw i32 %.09.i.i67.us.i635, -1
+  %.neg.i68.us.i636 = shl nsw i32 -1, %833
+  %834 = add i32 %.neg.i68.us.i636, %828
+  %835 = mul nsw i32 %834, %834
+  %836 = load i32, ptr %505, align 8, !tbaa !39
+  %837 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %836, ptr noundef null)
+  %838 = icmp ult i32 %837, 2
+  %839 = add i32 %837, -1
+  %840 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %839, i1 true)
+  %841 = sub nuw nsw i32 32, %840
+  %.09.i.i69.us.i637 = select i1 %838, i32 %837, i32 %841
+  %842 = add nsw i32 %.09.i.i69.us.i637, -1
+  %.neg.i70.us.i638 = shl nsw i32 -1, %842
+  %843 = add i32 %.neg.i70.us.i638, %837
+  %844 = mul nsw i32 %843, %843
   %reass.add71.us.i639 = add i32 %.09.i.i69.us.i637, %.09.i.i67.us.i635
   %reass.mul72.us.i640 = mul i32 %reass.add71.us.i639, 10000
-  %846 = add i32 %reass.mul72.us.i640, %836
-  %847 = add i32 %846, %845
-  %848 = icmp slt i32 %847, %816
+  %845 = add i32 %reass.mul72.us.i640, %835
+  %846 = add i32 %845, %844
+  %847 = icmp slt i32 %846, %815
   %.pre91.i641 = load i32, ptr %504, align 4, !tbaa !39
-  %849 = load i32, ptr %505, align 8
-  %.sroa.0.3.us.i642 = select i1 %848, i32 %.pre91.i641, i32 %.sroa.0.173.us.i632
-  %.sroa.5.3.us.i643 = select i1 %848, i32 %849, i32 %.sroa.5.175.us.i630
-  %.3.us.i644 = select i1 %848, i32 1, i32 %.176.us.i629
-  %850 = xor i32 %.pre91.i641, %826
-  store i32 %850, ptr %504, align 4, !tbaa !39
-  %851 = xor i32 %849, %826
-  store i32 %851, ptr %505, align 8, !tbaa !39
-  br label %852
+  %848 = load i32, ptr %505, align 8
+  %.sroa.0.3.us.i642 = select i1 %847, i32 %.pre91.i641, i32 %.sroa.0.173.us.i632
+  %.sroa.5.3.us.i643 = select i1 %847, i32 %848, i32 %.sroa.5.175.us.i630
+  %.3.us.i644 = select i1 %847, i32 1, i32 %.176.us.i629
+  %849 = xor i32 %.pre91.i641, %825
+  store i32 %849, ptr %504, align 4, !tbaa !39
+  %850 = xor i32 %848, %825
+  store i32 %850, ptr %505, align 8, !tbaa !39
+  br label %851
 
-852:                                              ; preds = %825, %.preheader.us.i628
-  %853 = phi i32 [ %850, %825 ], [ %820, %.preheader.us.i628 ]
-  %854 = phi i32 [ %851, %825 ], [ %821, %.preheader.us.i628 ]
-  %.sroa.0.2.us.i645 = phi i32 [ %.sroa.0.3.us.i642, %825 ], [ %.sroa.0.173.us.i632, %.preheader.us.i628 ]
-  %.sroa.5.2.us.i646 = phi i32 [ %.sroa.5.3.us.i643, %825 ], [ %.sroa.5.175.us.i630, %.preheader.us.i628 ]
-  %.2.us.i647 = phi i32 [ %.3.us.i644, %825 ], [ %.176.us.i629, %.preheader.us.i628 ]
-  %855 = add nuw nsw i32 %.06174.us.i631, 1
-  %exitcond.not.i648 = icmp eq i32 %855, %2
+851:                                              ; preds = %824, %.preheader.us.i628
+  %852 = phi i32 [ %849, %824 ], [ %819, %.preheader.us.i628 ]
+  %853 = phi i32 [ %850, %824 ], [ %820, %.preheader.us.i628 ]
+  %.sroa.0.2.us.i645 = phi i32 [ %.sroa.0.3.us.i642, %824 ], [ %.sroa.0.173.us.i632, %.preheader.us.i628 ]
+  %.sroa.5.2.us.i646 = phi i32 [ %.sroa.5.3.us.i643, %824 ], [ %.sroa.5.175.us.i630, %.preheader.us.i628 ]
+  %.2.us.i647 = phi i32 [ %.3.us.i644, %824 ], [ %.176.us.i629, %.preheader.us.i628 ]
+  %854 = add nuw nsw i32 %.06174.us.i631, 1
+  %exitcond.not.i648 = icmp eq i32 %854, %2
   br i1 %exitcond.not.i648, label %..loopexit_crit_edge.us.i649, label %.preheader.us.i628, !llvm.loop !70
 
-..loopexit_crit_edge.us.i649:                     ; preds = %852, %.lr.ph84.split.us.i620
-  %856 = phi i32 [ %817, %.lr.ph84.split.us.i620 ], [ %853, %852 ]
-  %.sroa.0.4.us.i650 = phi i32 [ %.sroa.0.079.us.i624, %.lr.ph84.split.us.i620 ], [ %.sroa.0.2.us.i645, %852 ]
-  %.sroa.5.4.us.i651 = phi i32 [ %.sroa.5.082.us.i622, %.lr.ph84.split.us.i620 ], [ %.sroa.5.2.us.i646, %852 ]
-  %.4.us.i652 = phi i32 [ %.083.us.i621, %.lr.ph84.split.us.i620 ], [ %.2.us.i647, %852 ]
-  %857 = add nuw nsw i32 %.06280.us.i623, 1
-  %exitcond90.not.i653 = icmp eq i32 %857, %2
+..loopexit_crit_edge.us.i649:                     ; preds = %851, %.lr.ph84.split.us.i620
+  %855 = phi i32 [ %816, %.lr.ph84.split.us.i620 ], [ %852, %851 ]
+  %.sroa.0.4.us.i650 = phi i32 [ %.sroa.0.079.us.i624, %.lr.ph84.split.us.i620 ], [ %.sroa.0.2.us.i645, %851 ]
+  %.sroa.5.4.us.i651 = phi i32 [ %.sroa.5.082.us.i622, %.lr.ph84.split.us.i620 ], [ %.sroa.5.2.us.i646, %851 ]
+  %.4.us.i652 = phi i32 [ %.083.us.i621, %.lr.ph84.split.us.i620 ], [ %.2.us.i647, %851 ]
+  %856 = add nuw nsw i32 %.06280.us.i623, 1
+  %exitcond90.not.i653 = icmp eq i32 %856, %2
   br i1 %exitcond90.not.i653, label %Abc_ResMigrate.exit654, label %.lr.ph84.split.us.i620, !llvm.loop !71
 
 Abc_ResMigrate.exit654:                           ; preds = %..loopexit_crit_edge.us.i649
@@ -3253,169 +3252,168 @@ Abc_ResMigrate.exit654:                           ; preds = %..loopexit_crit_edg
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
   br label %.lr.ph.us.i663
 
-.lr.ph.us.i663:                                   ; preds = %Abc_ResMigrate.exit654, %._crit_edge.us.i672
-  %indvars.iv29.i664 = phi i64 [ %indvars.iv.next30.i673, %._crit_edge.us.i672 ], [ 0, %Abc_ResMigrate.exit654 ]
-  %.021.us.i665 = phi i32 [ %877, %._crit_edge.us.i672 ], [ 0, %Abc_ResMigrate.exit654 ]
-  %858 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i664
-  %859 = load i32, ptr %858, align 4, !tbaa !39
-  %860 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %859, ptr noundef nonnull %6)
-  %861 = icmp ult i32 %860, 2
-  %862 = add i32 %860, -1
-  %863 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %862, i1 true)
-  %864 = sub nuw nsw i32 32, %863
-  %.09.i.i.us.i666 = select i1 %861, i32 %860, i32 %864
-  %865 = add nsw i32 %.09.i.i.us.i666, -1
-  %.neg.i.us.i667 = shl nsw i32 -1, %865
-  %866 = add i32 %.neg.i.us.i667, %860
-  %867 = mul nsw i32 %866, %866
-  br label %868
+.lr.ph.us.i663:                                   ; preds = %Abc_ResMigrate.exit654, %._crit_edge.us.i670
+  %indvars.iv29.i664 = phi i64 [ %indvars.iv.next30.i673, %._crit_edge.us.i670 ], [ 0, %Abc_ResMigrate.exit654 ]
+  %.021.us.i665 = phi i32 [ %876, %._crit_edge.us.i670 ], [ 0, %Abc_ResMigrate.exit654 ]
+  %857 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i664
+  %858 = load i32, ptr %857, align 4, !tbaa !39
+  %859 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %858, ptr noundef nonnull %6)
+  br label %860
 
-868:                                              ; preds = %868, %.lr.ph.us.i663
-  %.01819.us.i668 = phi i32 [ 0, %.lr.ph.us.i663 ], [ %874, %868 ]
-  %869 = load i32, ptr %858, align 4, !tbaa !39
-  %870 = shl nuw i32 1, %.01819.us.i668
-  %871 = and i32 %869, %870
-  %.not.us.i669 = icmp eq i32 %871, 0
-  %872 = add nuw nsw i32 %.01819.us.i668, 97
-  %873 = select i1 %.not.us.i669, i32 45, i32 %872
-  %putchar.us.i670 = call i32 @putchar(i32 %873)
-  %874 = add nuw nsw i32 %.01819.us.i668, 1
-  %exitcond28.not.i671 = icmp eq i32 %874, %2
-  br i1 %exitcond28.not.i671, label %._crit_edge.us.i672, label %868, !llvm.loop !72
+860:                                              ; preds = %860, %.lr.ph.us.i663
+  %.01819.us.i666 = phi i32 [ 0, %.lr.ph.us.i663 ], [ %866, %860 ]
+  %861 = load i32, ptr %857, align 4, !tbaa !39
+  %862 = shl nuw i32 1, %.01819.us.i666
+  %863 = and i32 %861, %862
+  %.not.us.i667 = icmp eq i32 %863, 0
+  %864 = add nuw nsw i32 %.01819.us.i666, 97
+  %865 = select i1 %.not.us.i667, i32 45, i32 %864
+  %putchar.us.i668 = call i32 @putchar(i32 %865)
+  %866 = add nuw nsw i32 %.01819.us.i666, 1
+  %exitcond28.not.i669 = icmp eq i32 %866, %2
+  br i1 %exitcond28.not.i669, label %._crit_edge.us.i670, label %860, !llvm.loop !72
 
-._crit_edge.us.i672:                              ; preds = %868
-  %875 = mul nsw i32 %.09.i.i.us.i666, 10000
-  %876 = add nsw i32 %867, %875
-  %877 = add nsw i32 %876, %.021.us.i665
-  %878 = load i32, ptr %6, align 4, !tbaa !39
-  %879 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %860, i32 noundef %.09.i.i.us.i666, i32 noundef %878, i32 noundef %876)
+._crit_edge.us.i670:                              ; preds = %860
+  %867 = icmp ult i32 %859, 2
+  %868 = add i32 %859, -1
+  %869 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %868, i1 true)
+  %870 = sub nuw nsw i32 32, %869
+  %.09.i.i.us.i671 = select i1 %867, i32 %859, i32 %870
+  %871 = mul nsw i32 %.09.i.i.us.i671, 10000
+  %872 = add nsw i32 %.09.i.i.us.i671, -1
+  %.neg.i.us.i672 = shl nsw i32 -1, %872
+  %873 = add i32 %.neg.i.us.i672, %859
+  %874 = mul nsw i32 %873, %873
+  %875 = add nsw i32 %874, %871
+  %876 = add nsw i32 %875, %.021.us.i665
+  %877 = load i32, ptr %6, align 4, !tbaa !39
+  %878 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %859, i32 noundef %.09.i.i.us.i671, i32 noundef %877, i32 noundef %875)
   %indvars.iv.next30.i673 = add nuw nsw i64 %indvars.iv29.i664, 1
   %exitcond33.not.i674 = icmp eq i64 %indvars.iv.next30.i673, 4
   br i1 %exitcond33.not.i674, label %Abc_ResPrint.exit675, label %.lr.ph.us.i663, !llvm.loop !73
 
-Abc_ResPrint.exit675:                             ; preds = %._crit_edge.us.i672
-  %880 = or i32 %794, %.4.us.i587
-  %881 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %877)
+Abc_ResPrint.exit675:                             ; preds = %._crit_edge.us.i670
+  %879 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %876)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
-  %882 = load i32, ptr %504, align 4, !tbaa !39
-  %883 = load i32, ptr %506, align 4, !tbaa !39
-  %884 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %882, ptr noundef null)
-  %885 = icmp ult i32 %884, 2
-  %886 = add i32 %884, -1
-  %887 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %886, i1 true)
-  %888 = sub nuw nsw i32 32, %887
-  %.09.i.i.i676 = select i1 %885, i32 %884, i32 %888
-  %889 = add nsw i32 %.09.i.i.i676, -1
-  %.neg.i.i677 = shl nsw i32 -1, %889
-  %890 = add i32 %.neg.i.i677, %884
-  %891 = mul nsw i32 %890, %890
-  %892 = load i32, ptr %506, align 4, !tbaa !39
-  %893 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %892, ptr noundef null)
-  %894 = icmp ult i32 %893, 2
-  %895 = add i32 %893, -1
-  %896 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %895, i1 true)
-  %897 = sub nuw nsw i32 32, %896
-  %.09.i.i65.i678 = select i1 %894, i32 %893, i32 %897
-  %898 = add nsw i32 %.09.i.i65.i678, -1
-  %.neg.i66.i679 = shl nsw i32 -1, %898
-  %899 = add i32 %.neg.i66.i679, %893
-  %900 = mul nsw i32 %899, %899
+  %880 = load i32, ptr %504, align 4, !tbaa !39
+  %881 = load i32, ptr %506, align 4, !tbaa !39
+  %882 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %880, ptr noundef null)
+  %883 = icmp ult i32 %882, 2
+  %884 = add i32 %882, -1
+  %885 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %884, i1 true)
+  %886 = sub nuw nsw i32 32, %885
+  %.09.i.i.i676 = select i1 %883, i32 %882, i32 %886
+  %887 = add nsw i32 %.09.i.i.i676, -1
+  %.neg.i.i677 = shl nsw i32 -1, %887
+  %888 = add i32 %.neg.i.i677, %882
+  %889 = mul nsw i32 %888, %888
+  %890 = load i32, ptr %506, align 4, !tbaa !39
+  %891 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %890, ptr noundef null)
+  %892 = icmp ult i32 %891, 2
+  %893 = add i32 %891, -1
+  %894 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %893, i1 true)
+  %895 = sub nuw nsw i32 32, %894
+  %.09.i.i65.i678 = select i1 %892, i32 %891, i32 %895
+  %896 = add nsw i32 %.09.i.i65.i678, -1
+  %.neg.i66.i679 = shl nsw i32 -1, %896
+  %897 = add i32 %.neg.i66.i679, %891
+  %898 = mul nsw i32 %897, %897
   %reass.add.i680 = add i32 %.09.i.i65.i678, %.09.i.i.i676
   %reass.mul.i681 = mul i32 %reass.add.i680, 10000
-  %901 = add i32 %reass.mul.i681, %891
-  %902 = add i32 %901, %900
+  %899 = add i32 %reass.mul.i681, %889
+  %900 = add i32 %899, %898
   %.pre890 = load i32, ptr %504, align 4, !tbaa !39
   br label %.lr.ph84.split.us.i685
 
 .lr.ph84.split.us.i685:                           ; preds = %Abc_ResPrint.exit675, %..loopexit_crit_edge.us.i714
-  %903 = phi i32 [ %942, %..loopexit_crit_edge.us.i714 ], [ %.pre890, %Abc_ResPrint.exit675 ]
+  %901 = phi i32 [ %940, %..loopexit_crit_edge.us.i714 ], [ %.pre890, %Abc_ResPrint.exit675 ]
   %.083.us.i686 = phi i32 [ %.4.us.i717, %..loopexit_crit_edge.us.i714 ], [ 0, %Abc_ResPrint.exit675 ]
-  %.sroa.5.082.us.i687 = phi i32 [ %.sroa.5.4.us.i716, %..loopexit_crit_edge.us.i714 ], [ %883, %Abc_ResPrint.exit675 ]
-  %.06280.us.i688 = phi i32 [ %943, %..loopexit_crit_edge.us.i714 ], [ 0, %Abc_ResPrint.exit675 ]
-  %.sroa.0.079.us.i689 = phi i32 [ %.sroa.0.4.us.i715, %..loopexit_crit_edge.us.i714 ], [ %882, %Abc_ResPrint.exit675 ]
-  %904 = shl nuw i32 1, %.06280.us.i688
-  %905 = and i32 %903, %904
-  %.not.us.i690 = icmp eq i32 %905, 0
+  %.sroa.5.082.us.i687 = phi i32 [ %.sroa.5.4.us.i716, %..loopexit_crit_edge.us.i714 ], [ %881, %Abc_ResPrint.exit675 ]
+  %.06280.us.i688 = phi i32 [ %941, %..loopexit_crit_edge.us.i714 ], [ 0, %Abc_ResPrint.exit675 ]
+  %.sroa.0.079.us.i689 = phi i32 [ %.sroa.0.4.us.i715, %..loopexit_crit_edge.us.i714 ], [ %880, %Abc_ResPrint.exit675 ]
+  %902 = shl nuw i32 1, %.06280.us.i688
+  %903 = and i32 %901, %902
+  %.not.us.i690 = icmp eq i32 %903, 0
   br i1 %.not.us.i690, label %..loopexit_crit_edge.us.i714, label %.preheader.us.preheader.i691
 
 .preheader.us.preheader.i691:                     ; preds = %.lr.ph84.split.us.i685
   %.pre.i692 = load i32, ptr %506, align 4, !tbaa !39
   br label %.preheader.us.i693
 
-.preheader.us.i693:                               ; preds = %938, %.preheader.us.preheader.i691
-  %906 = phi i32 [ %939, %938 ], [ %903, %.preheader.us.preheader.i691 ]
-  %907 = phi i32 [ %940, %938 ], [ %.pre.i692, %.preheader.us.preheader.i691 ]
-  %.176.us.i694 = phi i32 [ %.2.us.i712, %938 ], [ %.083.us.i686, %.preheader.us.preheader.i691 ]
-  %.sroa.5.175.us.i695 = phi i32 [ %.sroa.5.2.us.i711, %938 ], [ %.sroa.5.082.us.i687, %.preheader.us.preheader.i691 ]
-  %.06174.us.i696 = phi i32 [ %941, %938 ], [ 0, %.preheader.us.preheader.i691 ]
-  %.sroa.0.173.us.i697 = phi i32 [ %.sroa.0.2.us.i710, %938 ], [ %.sroa.0.079.us.i689, %.preheader.us.preheader.i691 ]
-  %908 = shl nuw i32 1, %.06174.us.i696
-  %909 = and i32 %908, %907
-  %.not64.us.i698 = icmp eq i32 %909, 0
-  %910 = icmp eq i32 %.06280.us.i688, %.06174.us.i696
-  %or.cond.us.i699 = or i1 %910, %.not64.us.i698
-  br i1 %or.cond.us.i699, label %938, label %911
+.preheader.us.i693:                               ; preds = %936, %.preheader.us.preheader.i691
+  %904 = phi i32 [ %937, %936 ], [ %901, %.preheader.us.preheader.i691 ]
+  %905 = phi i32 [ %938, %936 ], [ %.pre.i692, %.preheader.us.preheader.i691 ]
+  %.176.us.i694 = phi i32 [ %.2.us.i712, %936 ], [ %.083.us.i686, %.preheader.us.preheader.i691 ]
+  %.sroa.5.175.us.i695 = phi i32 [ %.sroa.5.2.us.i711, %936 ], [ %.sroa.5.082.us.i687, %.preheader.us.preheader.i691 ]
+  %.06174.us.i696 = phi i32 [ %939, %936 ], [ 0, %.preheader.us.preheader.i691 ]
+  %.sroa.0.173.us.i697 = phi i32 [ %.sroa.0.2.us.i710, %936 ], [ %.sroa.0.079.us.i689, %.preheader.us.preheader.i691 ]
+  %906 = shl nuw i32 1, %.06174.us.i696
+  %907 = and i32 %906, %905
+  %.not64.us.i698 = icmp eq i32 %907, 0
+  %908 = icmp eq i32 %.06280.us.i688, %.06174.us.i696
+  %or.cond.us.i699 = or i1 %908, %.not64.us.i698
+  br i1 %or.cond.us.i699, label %936, label %909
 
-911:                                              ; preds = %.preheader.us.i693
-  %912 = or i32 %908, %904
-  %913 = xor i32 %906, %912
-  store i32 %913, ptr %504, align 4, !tbaa !39
-  %914 = xor i32 %907, %912
-  store i32 %914, ptr %506, align 4, !tbaa !39
-  %915 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %913, ptr noundef null)
-  %916 = icmp ult i32 %915, 2
-  %917 = add i32 %915, -1
-  %918 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %917, i1 true)
-  %919 = sub nuw nsw i32 32, %918
-  %.09.i.i67.us.i700 = select i1 %916, i32 %915, i32 %919
-  %920 = add nsw i32 %.09.i.i67.us.i700, -1
-  %.neg.i68.us.i701 = shl nsw i32 -1, %920
-  %921 = add i32 %.neg.i68.us.i701, %915
-  %922 = mul nsw i32 %921, %921
-  %923 = load i32, ptr %506, align 4, !tbaa !39
-  %924 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %923, ptr noundef null)
-  %925 = icmp ult i32 %924, 2
-  %926 = add i32 %924, -1
-  %927 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %926, i1 true)
-  %928 = sub nuw nsw i32 32, %927
-  %.09.i.i69.us.i702 = select i1 %925, i32 %924, i32 %928
-  %929 = add nsw i32 %.09.i.i69.us.i702, -1
-  %.neg.i70.us.i703 = shl nsw i32 -1, %929
-  %930 = add i32 %.neg.i70.us.i703, %924
-  %931 = mul nsw i32 %930, %930
+909:                                              ; preds = %.preheader.us.i693
+  %910 = or i32 %906, %902
+  %911 = xor i32 %904, %910
+  store i32 %911, ptr %504, align 4, !tbaa !39
+  %912 = xor i32 %905, %910
+  store i32 %912, ptr %506, align 4, !tbaa !39
+  %913 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %911, ptr noundef null)
+  %914 = icmp ult i32 %913, 2
+  %915 = add i32 %913, -1
+  %916 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %915, i1 true)
+  %917 = sub nuw nsw i32 32, %916
+  %.09.i.i67.us.i700 = select i1 %914, i32 %913, i32 %917
+  %918 = add nsw i32 %.09.i.i67.us.i700, -1
+  %.neg.i68.us.i701 = shl nsw i32 -1, %918
+  %919 = add i32 %.neg.i68.us.i701, %913
+  %920 = mul nsw i32 %919, %919
+  %921 = load i32, ptr %506, align 4, !tbaa !39
+  %922 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %921, ptr noundef null)
+  %923 = icmp ult i32 %922, 2
+  %924 = add i32 %922, -1
+  %925 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %924, i1 true)
+  %926 = sub nuw nsw i32 32, %925
+  %.09.i.i69.us.i702 = select i1 %923, i32 %922, i32 %926
+  %927 = add nsw i32 %.09.i.i69.us.i702, -1
+  %.neg.i70.us.i703 = shl nsw i32 -1, %927
+  %928 = add i32 %.neg.i70.us.i703, %922
+  %929 = mul nsw i32 %928, %928
   %reass.add71.us.i704 = add i32 %.09.i.i69.us.i702, %.09.i.i67.us.i700
   %reass.mul72.us.i705 = mul i32 %reass.add71.us.i704, 10000
-  %932 = add i32 %reass.mul72.us.i705, %922
-  %933 = add i32 %932, %931
-  %934 = icmp slt i32 %933, %902
+  %930 = add i32 %reass.mul72.us.i705, %920
+  %931 = add i32 %930, %929
+  %932 = icmp slt i32 %931, %900
   %.pre91.i706 = load i32, ptr %504, align 4, !tbaa !39
-  %935 = load i32, ptr %506, align 4
-  %.sroa.0.3.us.i707 = select i1 %934, i32 %.pre91.i706, i32 %.sroa.0.173.us.i697
-  %.sroa.5.3.us.i708 = select i1 %934, i32 %935, i32 %.sroa.5.175.us.i695
-  %.3.us.i709 = select i1 %934, i32 1, i32 %.176.us.i694
-  %936 = xor i32 %.pre91.i706, %912
-  store i32 %936, ptr %504, align 4, !tbaa !39
-  %937 = xor i32 %935, %912
-  store i32 %937, ptr %506, align 4, !tbaa !39
-  br label %938
+  %933 = load i32, ptr %506, align 4
+  %.sroa.0.3.us.i707 = select i1 %932, i32 %.pre91.i706, i32 %.sroa.0.173.us.i697
+  %.sroa.5.3.us.i708 = select i1 %932, i32 %933, i32 %.sroa.5.175.us.i695
+  %.3.us.i709 = select i1 %932, i32 1, i32 %.176.us.i694
+  %934 = xor i32 %.pre91.i706, %910
+  store i32 %934, ptr %504, align 4, !tbaa !39
+  %935 = xor i32 %933, %910
+  store i32 %935, ptr %506, align 4, !tbaa !39
+  br label %936
 
-938:                                              ; preds = %911, %.preheader.us.i693
-  %939 = phi i32 [ %936, %911 ], [ %906, %.preheader.us.i693 ]
-  %940 = phi i32 [ %937, %911 ], [ %907, %.preheader.us.i693 ]
-  %.sroa.0.2.us.i710 = phi i32 [ %.sroa.0.3.us.i707, %911 ], [ %.sroa.0.173.us.i697, %.preheader.us.i693 ]
-  %.sroa.5.2.us.i711 = phi i32 [ %.sroa.5.3.us.i708, %911 ], [ %.sroa.5.175.us.i695, %.preheader.us.i693 ]
-  %.2.us.i712 = phi i32 [ %.3.us.i709, %911 ], [ %.176.us.i694, %.preheader.us.i693 ]
-  %941 = add nuw nsw i32 %.06174.us.i696, 1
-  %exitcond.not.i713 = icmp eq i32 %941, %2
+936:                                              ; preds = %909, %.preheader.us.i693
+  %937 = phi i32 [ %934, %909 ], [ %904, %.preheader.us.i693 ]
+  %938 = phi i32 [ %935, %909 ], [ %905, %.preheader.us.i693 ]
+  %.sroa.0.2.us.i710 = phi i32 [ %.sroa.0.3.us.i707, %909 ], [ %.sroa.0.173.us.i697, %.preheader.us.i693 ]
+  %.sroa.5.2.us.i711 = phi i32 [ %.sroa.5.3.us.i708, %909 ], [ %.sroa.5.175.us.i695, %.preheader.us.i693 ]
+  %.2.us.i712 = phi i32 [ %.3.us.i709, %909 ], [ %.176.us.i694, %.preheader.us.i693 ]
+  %939 = add nuw nsw i32 %.06174.us.i696, 1
+  %exitcond.not.i713 = icmp eq i32 %939, %2
   br i1 %exitcond.not.i713, label %..loopexit_crit_edge.us.i714, label %.preheader.us.i693, !llvm.loop !70
 
-..loopexit_crit_edge.us.i714:                     ; preds = %938, %.lr.ph84.split.us.i685
-  %942 = phi i32 [ %903, %.lr.ph84.split.us.i685 ], [ %939, %938 ]
-  %.sroa.0.4.us.i715 = phi i32 [ %.sroa.0.079.us.i689, %.lr.ph84.split.us.i685 ], [ %.sroa.0.2.us.i710, %938 ]
-  %.sroa.5.4.us.i716 = phi i32 [ %.sroa.5.082.us.i687, %.lr.ph84.split.us.i685 ], [ %.sroa.5.2.us.i711, %938 ]
-  %.4.us.i717 = phi i32 [ %.083.us.i686, %.lr.ph84.split.us.i685 ], [ %.2.us.i712, %938 ]
-  %943 = add nuw nsw i32 %.06280.us.i688, 1
-  %exitcond90.not.i718 = icmp eq i32 %943, %2
+..loopexit_crit_edge.us.i714:                     ; preds = %936, %.lr.ph84.split.us.i685
+  %940 = phi i32 [ %901, %.lr.ph84.split.us.i685 ], [ %937, %936 ]
+  %.sroa.0.4.us.i715 = phi i32 [ %.sroa.0.079.us.i689, %.lr.ph84.split.us.i685 ], [ %.sroa.0.2.us.i710, %936 ]
+  %.sroa.5.4.us.i716 = phi i32 [ %.sroa.5.082.us.i687, %.lr.ph84.split.us.i685 ], [ %.sroa.5.2.us.i711, %936 ]
+  %.4.us.i717 = phi i32 [ %.083.us.i686, %.lr.ph84.split.us.i685 ], [ %.2.us.i712, %936 ]
+  %941 = add nuw nsw i32 %.06280.us.i688, 1
+  %exitcond90.not.i718 = icmp eq i32 %941, %2
   br i1 %exitcond90.not.i718, label %Abc_ResMigrate.exit719, label %.lr.ph84.split.us.i685, !llvm.loop !71
 
 Abc_ResMigrate.exit719:                           ; preds = %..loopexit_crit_edge.us.i714
@@ -3424,169 +3422,168 @@ Abc_ResMigrate.exit719:                           ; preds = %..loopexit_crit_edg
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #19
   br label %.lr.ph.us.i728
 
-.lr.ph.us.i728:                                   ; preds = %Abc_ResMigrate.exit719, %._crit_edge.us.i737
-  %indvars.iv29.i729 = phi i64 [ %indvars.iv.next30.i738, %._crit_edge.us.i737 ], [ 0, %Abc_ResMigrate.exit719 ]
-  %.021.us.i730 = phi i32 [ %963, %._crit_edge.us.i737 ], [ 0, %Abc_ResMigrate.exit719 ]
-  %944 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i729
-  %945 = load i32, ptr %944, align 4, !tbaa !39
-  %946 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %945, ptr noundef nonnull %5)
-  %947 = icmp ult i32 %946, 2
-  %948 = add i32 %946, -1
-  %949 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %948, i1 true)
-  %950 = sub nuw nsw i32 32, %949
-  %.09.i.i.us.i731 = select i1 %947, i32 %946, i32 %950
-  %951 = add nsw i32 %.09.i.i.us.i731, -1
-  %.neg.i.us.i732 = shl nsw i32 -1, %951
-  %952 = add i32 %.neg.i.us.i732, %946
-  %953 = mul nsw i32 %952, %952
-  br label %954
+.lr.ph.us.i728:                                   ; preds = %Abc_ResMigrate.exit719, %._crit_edge.us.i735
+  %indvars.iv29.i729 = phi i64 [ %indvars.iv.next30.i738, %._crit_edge.us.i735 ], [ 0, %Abc_ResMigrate.exit719 ]
+  %.021.us.i730 = phi i32 [ %961, %._crit_edge.us.i735 ], [ 0, %Abc_ResMigrate.exit719 ]
+  %942 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i729
+  %943 = load i32, ptr %942, align 4, !tbaa !39
+  %944 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %943, ptr noundef nonnull %5)
+  br label %945
 
-954:                                              ; preds = %954, %.lr.ph.us.i728
-  %.01819.us.i733 = phi i32 [ 0, %.lr.ph.us.i728 ], [ %960, %954 ]
-  %955 = load i32, ptr %944, align 4, !tbaa !39
-  %956 = shl nuw i32 1, %.01819.us.i733
-  %957 = and i32 %955, %956
-  %.not.us.i734 = icmp eq i32 %957, 0
-  %958 = add nuw nsw i32 %.01819.us.i733, 97
-  %959 = select i1 %.not.us.i734, i32 45, i32 %958
-  %putchar.us.i735 = call i32 @putchar(i32 %959)
-  %960 = add nuw nsw i32 %.01819.us.i733, 1
-  %exitcond28.not.i736 = icmp eq i32 %960, %2
-  br i1 %exitcond28.not.i736, label %._crit_edge.us.i737, label %954, !llvm.loop !72
+945:                                              ; preds = %945, %.lr.ph.us.i728
+  %.01819.us.i731 = phi i32 [ 0, %.lr.ph.us.i728 ], [ %951, %945 ]
+  %946 = load i32, ptr %942, align 4, !tbaa !39
+  %947 = shl nuw i32 1, %.01819.us.i731
+  %948 = and i32 %946, %947
+  %.not.us.i732 = icmp eq i32 %948, 0
+  %949 = add nuw nsw i32 %.01819.us.i731, 97
+  %950 = select i1 %.not.us.i732, i32 45, i32 %949
+  %putchar.us.i733 = call i32 @putchar(i32 %950)
+  %951 = add nuw nsw i32 %.01819.us.i731, 1
+  %exitcond28.not.i734 = icmp eq i32 %951, %2
+  br i1 %exitcond28.not.i734, label %._crit_edge.us.i735, label %945, !llvm.loop !72
 
-._crit_edge.us.i737:                              ; preds = %954
-  %961 = mul nsw i32 %.09.i.i.us.i731, 10000
-  %962 = add nsw i32 %953, %961
-  %963 = add nsw i32 %962, %.021.us.i730
-  %964 = load i32, ptr %5, align 4, !tbaa !39
-  %965 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %946, i32 noundef %.09.i.i.us.i731, i32 noundef %964, i32 noundef %962)
+._crit_edge.us.i735:                              ; preds = %945
+  %952 = icmp ult i32 %944, 2
+  %953 = add i32 %944, -1
+  %954 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %953, i1 true)
+  %955 = sub nuw nsw i32 32, %954
+  %.09.i.i.us.i736 = select i1 %952, i32 %944, i32 %955
+  %956 = mul nsw i32 %.09.i.i.us.i736, 10000
+  %957 = add nsw i32 %.09.i.i.us.i736, -1
+  %.neg.i.us.i737 = shl nsw i32 -1, %957
+  %958 = add i32 %.neg.i.us.i737, %944
+  %959 = mul nsw i32 %958, %958
+  %960 = add nsw i32 %959, %956
+  %961 = add nsw i32 %960, %.021.us.i730
+  %962 = load i32, ptr %5, align 4, !tbaa !39
+  %963 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %944, i32 noundef %.09.i.i.us.i736, i32 noundef %962, i32 noundef %960)
   %indvars.iv.next30.i738 = add nuw nsw i64 %indvars.iv29.i729, 1
   %exitcond33.not.i739 = icmp eq i64 %indvars.iv.next30.i738, 4
   br i1 %exitcond33.not.i739, label %Abc_ResPrint.exit740, label %.lr.ph.us.i728, !llvm.loop !73
 
-Abc_ResPrint.exit740:                             ; preds = %._crit_edge.us.i737
-  %966 = or i32 %880, %.4.us.i652
-  %967 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %963)
+Abc_ResPrint.exit740:                             ; preds = %._crit_edge.us.i735
+  %964 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %961)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #19
-  %968 = load i32, ptr %505, align 8, !tbaa !39
-  %969 = load i32, ptr %506, align 4, !tbaa !39
-  %970 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %968, ptr noundef null)
-  %971 = icmp ult i32 %970, 2
-  %972 = add i32 %970, -1
-  %973 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %972, i1 true)
-  %974 = sub nuw nsw i32 32, %973
-  %.09.i.i.i741 = select i1 %971, i32 %970, i32 %974
-  %975 = add nsw i32 %.09.i.i.i741, -1
-  %.neg.i.i742 = shl nsw i32 -1, %975
-  %976 = add i32 %.neg.i.i742, %970
-  %977 = mul nsw i32 %976, %976
-  %978 = load i32, ptr %506, align 4, !tbaa !39
-  %979 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %978, ptr noundef null)
-  %980 = icmp ult i32 %979, 2
-  %981 = add i32 %979, -1
-  %982 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %981, i1 true)
-  %983 = sub nuw nsw i32 32, %982
-  %.09.i.i65.i743 = select i1 %980, i32 %979, i32 %983
-  %984 = add nsw i32 %.09.i.i65.i743, -1
-  %.neg.i66.i744 = shl nsw i32 -1, %984
-  %985 = add i32 %.neg.i66.i744, %979
-  %986 = mul nsw i32 %985, %985
+  %965 = load i32, ptr %505, align 8, !tbaa !39
+  %966 = load i32, ptr %506, align 4, !tbaa !39
+  %967 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %965, ptr noundef null)
+  %968 = icmp ult i32 %967, 2
+  %969 = add i32 %967, -1
+  %970 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %969, i1 true)
+  %971 = sub nuw nsw i32 32, %970
+  %.09.i.i.i741 = select i1 %968, i32 %967, i32 %971
+  %972 = add nsw i32 %.09.i.i.i741, -1
+  %.neg.i.i742 = shl nsw i32 -1, %972
+  %973 = add i32 %.neg.i.i742, %967
+  %974 = mul nsw i32 %973, %973
+  %975 = load i32, ptr %506, align 4, !tbaa !39
+  %976 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %975, ptr noundef null)
+  %977 = icmp ult i32 %976, 2
+  %978 = add i32 %976, -1
+  %979 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %978, i1 true)
+  %980 = sub nuw nsw i32 32, %979
+  %.09.i.i65.i743 = select i1 %977, i32 %976, i32 %980
+  %981 = add nsw i32 %.09.i.i65.i743, -1
+  %.neg.i66.i744 = shl nsw i32 -1, %981
+  %982 = add i32 %.neg.i66.i744, %976
+  %983 = mul nsw i32 %982, %982
   %reass.add.i745 = add i32 %.09.i.i65.i743, %.09.i.i.i741
   %reass.mul.i746 = mul i32 %reass.add.i745, 10000
-  %987 = add i32 %reass.mul.i746, %977
-  %988 = add i32 %987, %986
+  %984 = add i32 %reass.mul.i746, %974
+  %985 = add i32 %984, %983
   %.pre891 = load i32, ptr %505, align 8, !tbaa !39
   br label %.lr.ph84.split.us.i750
 
 .lr.ph84.split.us.i750:                           ; preds = %Abc_ResPrint.exit740, %..loopexit_crit_edge.us.i779
-  %989 = phi i32 [ %1028, %..loopexit_crit_edge.us.i779 ], [ %.pre891, %Abc_ResPrint.exit740 ]
+  %986 = phi i32 [ %1025, %..loopexit_crit_edge.us.i779 ], [ %.pre891, %Abc_ResPrint.exit740 ]
   %.083.us.i751 = phi i32 [ %.4.us.i782, %..loopexit_crit_edge.us.i779 ], [ 0, %Abc_ResPrint.exit740 ]
-  %.sroa.5.082.us.i752 = phi i32 [ %.sroa.5.4.us.i781, %..loopexit_crit_edge.us.i779 ], [ %969, %Abc_ResPrint.exit740 ]
-  %.06280.us.i753 = phi i32 [ %1029, %..loopexit_crit_edge.us.i779 ], [ 0, %Abc_ResPrint.exit740 ]
-  %.sroa.0.079.us.i754 = phi i32 [ %.sroa.0.4.us.i780, %..loopexit_crit_edge.us.i779 ], [ %968, %Abc_ResPrint.exit740 ]
-  %990 = shl nuw i32 1, %.06280.us.i753
-  %991 = and i32 %989, %990
-  %.not.us.i755 = icmp eq i32 %991, 0
+  %.sroa.5.082.us.i752 = phi i32 [ %.sroa.5.4.us.i781, %..loopexit_crit_edge.us.i779 ], [ %966, %Abc_ResPrint.exit740 ]
+  %.06280.us.i753 = phi i32 [ %1026, %..loopexit_crit_edge.us.i779 ], [ 0, %Abc_ResPrint.exit740 ]
+  %.sroa.0.079.us.i754 = phi i32 [ %.sroa.0.4.us.i780, %..loopexit_crit_edge.us.i779 ], [ %965, %Abc_ResPrint.exit740 ]
+  %987 = shl nuw i32 1, %.06280.us.i753
+  %988 = and i32 %986, %987
+  %.not.us.i755 = icmp eq i32 %988, 0
   br i1 %.not.us.i755, label %..loopexit_crit_edge.us.i779, label %.preheader.us.preheader.i756
 
 .preheader.us.preheader.i756:                     ; preds = %.lr.ph84.split.us.i750
   %.pre.i757 = load i32, ptr %506, align 4, !tbaa !39
   br label %.preheader.us.i758
 
-.preheader.us.i758:                               ; preds = %1024, %.preheader.us.preheader.i756
-  %992 = phi i32 [ %1025, %1024 ], [ %989, %.preheader.us.preheader.i756 ]
-  %993 = phi i32 [ %1026, %1024 ], [ %.pre.i757, %.preheader.us.preheader.i756 ]
-  %.176.us.i759 = phi i32 [ %.2.us.i777, %1024 ], [ %.083.us.i751, %.preheader.us.preheader.i756 ]
-  %.sroa.5.175.us.i760 = phi i32 [ %.sroa.5.2.us.i776, %1024 ], [ %.sroa.5.082.us.i752, %.preheader.us.preheader.i756 ]
-  %.06174.us.i761 = phi i32 [ %1027, %1024 ], [ 0, %.preheader.us.preheader.i756 ]
-  %.sroa.0.173.us.i762 = phi i32 [ %.sroa.0.2.us.i775, %1024 ], [ %.sroa.0.079.us.i754, %.preheader.us.preheader.i756 ]
-  %994 = shl nuw i32 1, %.06174.us.i761
-  %995 = and i32 %994, %993
-  %.not64.us.i763 = icmp eq i32 %995, 0
-  %996 = icmp eq i32 %.06280.us.i753, %.06174.us.i761
-  %or.cond.us.i764 = or i1 %996, %.not64.us.i763
-  br i1 %or.cond.us.i764, label %1024, label %997
+.preheader.us.i758:                               ; preds = %1021, %.preheader.us.preheader.i756
+  %989 = phi i32 [ %1022, %1021 ], [ %986, %.preheader.us.preheader.i756 ]
+  %990 = phi i32 [ %1023, %1021 ], [ %.pre.i757, %.preheader.us.preheader.i756 ]
+  %.176.us.i759 = phi i32 [ %.2.us.i777, %1021 ], [ %.083.us.i751, %.preheader.us.preheader.i756 ]
+  %.sroa.5.175.us.i760 = phi i32 [ %.sroa.5.2.us.i776, %1021 ], [ %.sroa.5.082.us.i752, %.preheader.us.preheader.i756 ]
+  %.06174.us.i761 = phi i32 [ %1024, %1021 ], [ 0, %.preheader.us.preheader.i756 ]
+  %.sroa.0.173.us.i762 = phi i32 [ %.sroa.0.2.us.i775, %1021 ], [ %.sroa.0.079.us.i754, %.preheader.us.preheader.i756 ]
+  %991 = shl nuw i32 1, %.06174.us.i761
+  %992 = and i32 %991, %990
+  %.not64.us.i763 = icmp eq i32 %992, 0
+  %993 = icmp eq i32 %.06280.us.i753, %.06174.us.i761
+  %or.cond.us.i764 = or i1 %993, %.not64.us.i763
+  br i1 %or.cond.us.i764, label %1021, label %994
 
-997:                                              ; preds = %.preheader.us.i758
-  %998 = or i32 %994, %990
-  %999 = xor i32 %992, %998
-  store i32 %999, ptr %505, align 8, !tbaa !39
-  %1000 = xor i32 %993, %998
-  store i32 %1000, ptr %506, align 4, !tbaa !39
-  %1001 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %999, ptr noundef null)
-  %1002 = icmp ult i32 %1001, 2
-  %1003 = add i32 %1001, -1
-  %1004 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1003, i1 true)
-  %1005 = sub nuw nsw i32 32, %1004
-  %.09.i.i67.us.i765 = select i1 %1002, i32 %1001, i32 %1005
-  %1006 = add nsw i32 %.09.i.i67.us.i765, -1
-  %.neg.i68.us.i766 = shl nsw i32 -1, %1006
-  %1007 = add i32 %.neg.i68.us.i766, %1001
-  %1008 = mul nsw i32 %1007, %1007
-  %1009 = load i32, ptr %506, align 4, !tbaa !39
-  %1010 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %1009, ptr noundef null)
-  %1011 = icmp ult i32 %1010, 2
-  %1012 = add i32 %1010, -1
-  %1013 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1012, i1 true)
-  %1014 = sub nuw nsw i32 32, %1013
-  %.09.i.i69.us.i767 = select i1 %1011, i32 %1010, i32 %1014
-  %1015 = add nsw i32 %.09.i.i69.us.i767, -1
-  %.neg.i70.us.i768 = shl nsw i32 -1, %1015
-  %1016 = add i32 %.neg.i70.us.i768, %1010
-  %1017 = mul nsw i32 %1016, %1016
+994:                                              ; preds = %.preheader.us.i758
+  %995 = or i32 %991, %987
+  %996 = xor i32 %989, %995
+  store i32 %996, ptr %505, align 8, !tbaa !39
+  %997 = xor i32 %990, %995
+  store i32 %997, ptr %506, align 4, !tbaa !39
+  %998 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %996, ptr noundef null)
+  %999 = icmp ult i32 %998, 2
+  %1000 = add i32 %998, -1
+  %1001 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1000, i1 true)
+  %1002 = sub nuw nsw i32 32, %1001
+  %.09.i.i67.us.i765 = select i1 %999, i32 %998, i32 %1002
+  %1003 = add nsw i32 %.09.i.i67.us.i765, -1
+  %.neg.i68.us.i766 = shl nsw i32 -1, %1003
+  %1004 = add i32 %.neg.i68.us.i766, %998
+  %1005 = mul nsw i32 %1004, %1004
+  %1006 = load i32, ptr %506, align 4, !tbaa !39
+  %1007 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %1006, ptr noundef null)
+  %1008 = icmp ult i32 %1007, 2
+  %1009 = add i32 %1007, -1
+  %1010 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1009, i1 true)
+  %1011 = sub nuw nsw i32 32, %1010
+  %.09.i.i69.us.i767 = select i1 %1008, i32 %1007, i32 %1011
+  %1012 = add nsw i32 %.09.i.i69.us.i767, -1
+  %.neg.i70.us.i768 = shl nsw i32 -1, %1012
+  %1013 = add i32 %.neg.i70.us.i768, %1007
+  %1014 = mul nsw i32 %1013, %1013
   %reass.add71.us.i769 = add i32 %.09.i.i69.us.i767, %.09.i.i67.us.i765
   %reass.mul72.us.i770 = mul i32 %reass.add71.us.i769, 10000
-  %1018 = add i32 %reass.mul72.us.i770, %1008
-  %1019 = add i32 %1018, %1017
-  %1020 = icmp slt i32 %1019, %988
+  %1015 = add i32 %reass.mul72.us.i770, %1005
+  %1016 = add i32 %1015, %1014
+  %1017 = icmp slt i32 %1016, %985
   %.pre91.i771 = load i32, ptr %505, align 8, !tbaa !39
-  %1021 = load i32, ptr %506, align 4
-  %.sroa.0.3.us.i772 = select i1 %1020, i32 %.pre91.i771, i32 %.sroa.0.173.us.i762
-  %.sroa.5.3.us.i773 = select i1 %1020, i32 %1021, i32 %.sroa.5.175.us.i760
-  %.3.us.i774 = select i1 %1020, i32 1, i32 %.176.us.i759
-  %1022 = xor i32 %.pre91.i771, %998
-  store i32 %1022, ptr %505, align 8, !tbaa !39
-  %1023 = xor i32 %1021, %998
-  store i32 %1023, ptr %506, align 4, !tbaa !39
-  br label %1024
+  %1018 = load i32, ptr %506, align 4
+  %.sroa.0.3.us.i772 = select i1 %1017, i32 %.pre91.i771, i32 %.sroa.0.173.us.i762
+  %.sroa.5.3.us.i773 = select i1 %1017, i32 %1018, i32 %.sroa.5.175.us.i760
+  %.3.us.i774 = select i1 %1017, i32 1, i32 %.176.us.i759
+  %1019 = xor i32 %.pre91.i771, %995
+  store i32 %1019, ptr %505, align 8, !tbaa !39
+  %1020 = xor i32 %1018, %995
+  store i32 %1020, ptr %506, align 4, !tbaa !39
+  br label %1021
 
-1024:                                             ; preds = %997, %.preheader.us.i758
-  %1025 = phi i32 [ %1022, %997 ], [ %992, %.preheader.us.i758 ]
-  %1026 = phi i32 [ %1023, %997 ], [ %993, %.preheader.us.i758 ]
-  %.sroa.0.2.us.i775 = phi i32 [ %.sroa.0.3.us.i772, %997 ], [ %.sroa.0.173.us.i762, %.preheader.us.i758 ]
-  %.sroa.5.2.us.i776 = phi i32 [ %.sroa.5.3.us.i773, %997 ], [ %.sroa.5.175.us.i760, %.preheader.us.i758 ]
-  %.2.us.i777 = phi i32 [ %.3.us.i774, %997 ], [ %.176.us.i759, %.preheader.us.i758 ]
-  %1027 = add nuw nsw i32 %.06174.us.i761, 1
-  %exitcond.not.i778 = icmp eq i32 %1027, %2
+1021:                                             ; preds = %994, %.preheader.us.i758
+  %1022 = phi i32 [ %1019, %994 ], [ %989, %.preheader.us.i758 ]
+  %1023 = phi i32 [ %1020, %994 ], [ %990, %.preheader.us.i758 ]
+  %.sroa.0.2.us.i775 = phi i32 [ %.sroa.0.3.us.i772, %994 ], [ %.sroa.0.173.us.i762, %.preheader.us.i758 ]
+  %.sroa.5.2.us.i776 = phi i32 [ %.sroa.5.3.us.i773, %994 ], [ %.sroa.5.175.us.i760, %.preheader.us.i758 ]
+  %.2.us.i777 = phi i32 [ %.3.us.i774, %994 ], [ %.176.us.i759, %.preheader.us.i758 ]
+  %1024 = add nuw nsw i32 %.06174.us.i761, 1
+  %exitcond.not.i778 = icmp eq i32 %1024, %2
   br i1 %exitcond.not.i778, label %..loopexit_crit_edge.us.i779, label %.preheader.us.i758, !llvm.loop !70
 
-..loopexit_crit_edge.us.i779:                     ; preds = %1024, %.lr.ph84.split.us.i750
-  %1028 = phi i32 [ %989, %.lr.ph84.split.us.i750 ], [ %1025, %1024 ]
-  %.sroa.0.4.us.i780 = phi i32 [ %.sroa.0.079.us.i754, %.lr.ph84.split.us.i750 ], [ %.sroa.0.2.us.i775, %1024 ]
-  %.sroa.5.4.us.i781 = phi i32 [ %.sroa.5.082.us.i752, %.lr.ph84.split.us.i750 ], [ %.sroa.5.2.us.i776, %1024 ]
-  %.4.us.i782 = phi i32 [ %.083.us.i751, %.lr.ph84.split.us.i750 ], [ %.2.us.i777, %1024 ]
-  %1029 = add nuw nsw i32 %.06280.us.i753, 1
-  %exitcond90.not.i783 = icmp eq i32 %1029, %2
+..loopexit_crit_edge.us.i779:                     ; preds = %1021, %.lr.ph84.split.us.i750
+  %1025 = phi i32 [ %986, %.lr.ph84.split.us.i750 ], [ %1022, %1021 ]
+  %.sroa.0.4.us.i780 = phi i32 [ %.sroa.0.079.us.i754, %.lr.ph84.split.us.i750 ], [ %.sroa.0.2.us.i775, %1021 ]
+  %.sroa.5.4.us.i781 = phi i32 [ %.sroa.5.082.us.i752, %.lr.ph84.split.us.i750 ], [ %.sroa.5.2.us.i776, %1021 ]
+  %.4.us.i782 = phi i32 [ %.083.us.i751, %.lr.ph84.split.us.i750 ], [ %.2.us.i777, %1021 ]
+  %1026 = add nuw nsw i32 %.06280.us.i753, 1
+  %exitcond90.not.i783 = icmp eq i32 %1026, %2
   br i1 %exitcond90.not.i783, label %Abc_ResMigrate.exit784, label %.lr.ph84.split.us.i750, !llvm.loop !71
 
 Abc_ResMigrate.exit784:                           ; preds = %..loopexit_crit_edge.us.i779
@@ -3595,50 +3592,53 @@ Abc_ResMigrate.exit784:                           ; preds = %..loopexit_crit_edg
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19
   br label %.lr.ph.us.i793
 
-.lr.ph.us.i793:                                   ; preds = %Abc_ResMigrate.exit784, %._crit_edge.us.i802
-  %indvars.iv29.i794 = phi i64 [ %indvars.iv.next30.i803, %._crit_edge.us.i802 ], [ 0, %Abc_ResMigrate.exit784 ]
-  %.021.us.i795 = phi i32 [ %1049, %._crit_edge.us.i802 ], [ 0, %Abc_ResMigrate.exit784 ]
-  %1030 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i794
-  %1031 = load i32, ptr %1030, align 4, !tbaa !39
-  %1032 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %1031, ptr noundef nonnull %4)
-  %1033 = icmp ult i32 %1032, 2
-  %1034 = add i32 %1032, -1
-  %1035 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1034, i1 true)
-  %1036 = sub nuw nsw i32 32, %1035
-  %.09.i.i.us.i796 = select i1 %1033, i32 %1032, i32 %1036
-  %1037 = add nsw i32 %.09.i.i.us.i796, -1
-  %.neg.i.us.i797 = shl nsw i32 -1, %1037
-  %1038 = add i32 %.neg.i.us.i797, %1032
-  %1039 = mul nsw i32 %1038, %1038
-  br label %1040
+.lr.ph.us.i793:                                   ; preds = %Abc_ResMigrate.exit784, %._crit_edge.us.i800
+  %indvars.iv29.i794 = phi i64 [ %indvars.iv.next30.i803, %._crit_edge.us.i800 ], [ 0, %Abc_ResMigrate.exit784 ]
+  %.021.us.i795 = phi i32 [ %1046, %._crit_edge.us.i800 ], [ 0, %Abc_ResMigrate.exit784 ]
+  %1027 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv29.i794
+  %1028 = load i32, ptr %1027, align 4, !tbaa !39
+  %1029 = call i32 @Abc_ResCofCount(ptr noundef %0, ptr noundef %1, i32 noundef %1028, ptr noundef nonnull %4)
+  br label %1030
 
-1040:                                             ; preds = %1040, %.lr.ph.us.i793
-  %.01819.us.i798 = phi i32 [ 0, %.lr.ph.us.i793 ], [ %1046, %1040 ]
-  %1041 = load i32, ptr %1030, align 4, !tbaa !39
-  %1042 = shl nuw i32 1, %.01819.us.i798
-  %1043 = and i32 %1041, %1042
-  %.not.us.i799 = icmp eq i32 %1043, 0
-  %1044 = add nuw nsw i32 %.01819.us.i798, 97
-  %1045 = select i1 %.not.us.i799, i32 45, i32 %1044
-  %putchar.us.i800 = call i32 @putchar(i32 %1045)
-  %1046 = add nuw nsw i32 %.01819.us.i798, 1
-  %exitcond28.not.i801 = icmp eq i32 %1046, %2
-  br i1 %exitcond28.not.i801, label %._crit_edge.us.i802, label %1040, !llvm.loop !72
+1030:                                             ; preds = %1030, %.lr.ph.us.i793
+  %.01819.us.i796 = phi i32 [ 0, %.lr.ph.us.i793 ], [ %1036, %1030 ]
+  %1031 = load i32, ptr %1027, align 4, !tbaa !39
+  %1032 = shl nuw i32 1, %.01819.us.i796
+  %1033 = and i32 %1031, %1032
+  %.not.us.i797 = icmp eq i32 %1033, 0
+  %1034 = add nuw nsw i32 %.01819.us.i796, 97
+  %1035 = select i1 %.not.us.i797, i32 45, i32 %1034
+  %putchar.us.i798 = call i32 @putchar(i32 %1035)
+  %1036 = add nuw nsw i32 %.01819.us.i796, 1
+  %exitcond28.not.i799 = icmp eq i32 %1036, %2
+  br i1 %exitcond28.not.i799, label %._crit_edge.us.i800, label %1030, !llvm.loop !72
 
-._crit_edge.us.i802:                              ; preds = %1040
-  %1047 = mul nsw i32 %.09.i.i.us.i796, 10000
-  %1048 = add nsw i32 %1039, %1047
-  %1049 = add nsw i32 %1048, %.021.us.i795
-  %1050 = load i32, ptr %4, align 4, !tbaa !39
-  %1051 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %1032, i32 noundef %.09.i.i.us.i796, i32 noundef %1050, i32 noundef %1048)
+._crit_edge.us.i800:                              ; preds = %1030
+  %1037 = icmp ult i32 %1029, 2
+  %1038 = add i32 %1029, -1
+  %1039 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1038, i1 true)
+  %1040 = sub nuw nsw i32 32, %1039
+  %.09.i.i.us.i801 = select i1 %1037, i32 %1029, i32 %1040
+  %1041 = mul nsw i32 %.09.i.i.us.i801, 10000
+  %1042 = add nsw i32 %.09.i.i.us.i801, -1
+  %.neg.i.us.i802 = shl nsw i32 -1, %1042
+  %1043 = add i32 %.neg.i.us.i802, %1029
+  %1044 = mul nsw i32 %1043, %1043
+  %1045 = add nsw i32 %1044, %1041
+  %1046 = add nsw i32 %1045, %.021.us.i795
+  %1047 = load i32, ptr %4, align 4, !tbaa !39
+  %1048 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %1029, i32 noundef %.09.i.i.us.i801, i32 noundef %1047, i32 noundef %1045)
   %indvars.iv.next30.i803 = add nuw nsw i64 %indvars.iv29.i794, 1
   %exitcond33.not.i804 = icmp eq i64 %indvars.iv.next30.i803, 4
   br i1 %exitcond33.not.i804, label %Abc_ResPrint.exit805, label %.lr.ph.us.i793, !llvm.loop !73
 
-Abc_ResPrint.exit805:                             ; preds = %._crit_edge.us.i802
-  %1052 = or i32 %966, %.4.us.i717
+Abc_ResPrint.exit805:                             ; preds = %._crit_edge.us.i800
+  %1049 = or i32 %.4.us.i522, %.4.us.i457
+  %1050 = or i32 %1049, %.4.us.i587
+  %1051 = or i32 %1050, %.4.us.i652
+  %1052 = or i32 %1051, %.4.us.i717
   %1053 = or i32 %1052, %.4.us.i782
-  %1054 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %1049)
+  %1054 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %1046)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
   %.not132 = icmp eq i32 %1053, 0
   br i1 %.not132, label %1055, label %539, !llvm.loop !85

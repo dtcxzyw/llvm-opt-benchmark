@@ -8249,37 +8249,37 @@ define dso_local noundef ptr @_ZN4llvm19FunctionSpecializer20createSpecializatio
   %8 = load i32, ptr %7, align 4, !tbaa !30
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %10 = load i32, ptr %9, align 8, !tbaa !31
-  %11 = add i32 %8, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 128, ptr %12, align 8, !tbaa !365
-  %13 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 8192, i64 noundef 8) #17
-  store ptr %13, ptr %4, align 8, !tbaa !368
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %14, align 8, !tbaa !369
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 0, ptr %15, align 4, !tbaa !370
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 128, ptr %11, align 8, !tbaa !365
+  %12 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef 8192, i64 noundef 8) #17
+  store ptr %12, ptr %4, align 8, !tbaa !368
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %13, align 8, !tbaa !369
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i32 0, ptr %14, align 4, !tbaa !370
   br label %_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.i
 
 _ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.i: ; preds = %_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.i, %3
   %.06.i.i.i.i.idx.i = phi i64 [ %.06.i.i.i.i.add.i, %_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.i ], [ 0, %3 ]
-  %.06.i.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %13, i64 %.06.i.i.i.i.idx.i
-  %16 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr.i, i64 8
-  store i64 2, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr.i, i64 16
-  store ptr null, ptr %17, align 8, !tbaa !371
-  %18 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr.i, i64 24
-  store ptr inttoptr (i64 -4096 to ptr), ptr %18, align 8, !tbaa !376
+  %.06.i.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %12, i64 %.06.i.i.i.i.idx.i
+  %15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr.i, i64 8
+  store i64 2, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr.i, i64 16
+  store ptr null, ptr %16, align 8, !tbaa !371
+  %17 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr.i, i64 24
+  store ptr inttoptr (i64 -4096 to ptr), ptr %17, align 8, !tbaa !376
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEE, i64 16), ptr %.06.i.i.i.i.ptr.i, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr.i, i64 32
-  store ptr null, ptr %19, align 8, !tbaa !377
+  %18 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.ptr.i, i64 32
+  store ptr null, ptr %18, align 8, !tbaa !377
   %.06.i.i.i.i.add.i = add nuw nsw i64 %.06.i.i.i.i.idx.i, 64
   %.not.i.i.i.i.i = icmp eq i64 %.06.i.i.i.i.add.i, 8192
   br i1 %.not.i.i.i.i.i, label %_ZN4llvmplERKNS_5TwineES2_.exit.i, label %_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.i, !llvm.loop !381
 
 _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZN4llvm18ValueMapCallbackVHIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS3_NS_3sys10SmartMutexILb0EEEEEEC2ERKSA_.exit.i.i.i.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %21 = sub i32 %11, %10
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %20 = add i32 %8, 1
+  %21 = sub i32 %20, %10
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i8 0, ptr %22, align 8, !tbaa !382
   %23 = call noundef ptr @_ZN4llvm13CloneFunctionEPNS_8FunctionERNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPNS_14ClonedCodeInfoE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(57) %4, ptr noundef null) #17
@@ -8411,7 +8411,7 @@ _ZL22cloneCandidateFunctionPN4llvm8FunctionEj.exit: ; preds = %._crit_edge.i.i, 
   br i1 %85, label %86, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
 
 86:                                               ; preds = %_ZL22cloneCandidateFunctionPN4llvm8FunctionEj.exit
-  %87 = load ptr, ptr %20, align 8, !tbaa !28, !noalias !395
+  %87 = load ptr, ptr %19, align 8, !tbaa !28, !noalias !395
   %88 = load i32, ptr %7, align 4, !tbaa !30, !noalias !395
   %89 = zext i32 %88 to i64
   %90 = getelementptr inbounds nuw ptr, ptr %87, i64 %89
@@ -8442,7 +8442,7 @@ _ZL22cloneCandidateFunctionPN4llvm8FunctionEj.exit: ; preds = %._crit_edge.i.i, 
   br label %_ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i12, %_ZL22cloneCandidateFunctionPN4llvm8FunctionEj.exit
-  %98 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %20, ptr noundef nonnull %23) #17, !noalias !395
+  %98 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %19, ptr noundef nonnull %23) #17, !noalias !395
   br label %_ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit
 
 _ZN4llvm15SmallPtrSetImplIPNS_8FunctionEE6insertES2_.exit: ; preds = %.lr.ph.i.i10, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %96

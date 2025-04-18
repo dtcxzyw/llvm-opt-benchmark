@@ -13143,27 +13143,27 @@ if.then:                                          ; preds = %entry
 for.body.i.i.i.preheader:                         ; preds = %if.then
   %xtraiter = and i64 %__n, 7
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
-  br i1 %lcmp.mod.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol.preheader
+  br i1 %lcmp.mod.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol
 
-for.body.i.i.i.prol.preheader:                    ; preds = %for.body.i.i.i.preheader
-  %3 = and i64 %__n, -8
-  br label %for.body.i.i.i.prol
-
-for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.prol.preheader, %for.body.i.i.i.prol
-  %__cur.06.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ], [ %0, %for.body.i.i.i.prol.preheader ]
-  %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.prol ], [ 0, %for.body.i.i.i.prol.preheader ]
+for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.preheader, %for.body.i.i.i.prol
+  %__cur.06.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ], [ %0, %for.body.i.i.i.preheader ]
+  %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.prol ], [ 0, %for.body.i.i.i.preheader ]
   %is_sorted.i.i.i.i.i.prol = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.prol, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.06.i.i.i.prol, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i.i.i.i.i.prol, align 8, !tbaa !194
   %incdec.ptr.i.i.i.prol = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.prol, i64 32
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
   %prol.iter.cmp.not = icmp eq i64 %prol.iter.next, %xtraiter
-  br i1 %prol.iter.cmp.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol, !llvm.loop !448
+  br i1 %prol.iter.cmp.not, label %for.body.i.i.i.prol.loopexit.loopexit, label %for.body.i.i.i.prol, !llvm.loop !448
 
-for.body.i.i.i.prol.loopexit:                     ; preds = %for.body.i.i.i.prol, %for.body.i.i.i.preheader
-  %incdec.ptr.i.i.i.lcssa.unr = phi ptr [ undef, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ]
-  %__cur.06.i.i.i.unr = phi ptr [ %0, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ]
-  %__n.addr.05.i.i.i.unr = phi i64 [ %__n, %for.body.i.i.i.preheader ], [ %3, %for.body.i.i.i.prol ]
+for.body.i.i.i.prol.loopexit.loopexit:            ; preds = %for.body.i.i.i.prol
+  %3 = and i64 %__n, -8
+  br label %for.body.i.i.i.prol.loopexit
+
+for.body.i.i.i.prol.loopexit:                     ; preds = %for.body.i.i.i.prol.loopexit.loopexit, %for.body.i.i.i.preheader
+  %incdec.ptr.i.i.i.lcssa.unr = phi ptr [ undef, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol.loopexit.loopexit ]
+  %__cur.06.i.i.i.unr = phi ptr [ %0, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol.loopexit.loopexit ]
+  %__n.addr.05.i.i.i.unr = phi i64 [ %__n, %for.body.i.i.i.preheader ], [ %3, %for.body.i.i.i.prol.loopexit.loopexit ]
   %4 = icmp ult i64 %__n, 8
   br i1 %4, label %_ZSt27__uninitialized_default_n_aIPN3irr4core5arrayIfEEmS3_ET_S5_T0_RSaIT1_E.exit, label %for.body.i.i.i
 
@@ -13228,26 +13228,26 @@ _ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %i
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %xtraiter81 = and i64 %__n, 7
   %lcmp.mod82.not = icmp eq i64 %xtraiter81, 0
-  br i1 %lcmp.mod82.not, label %for.body.i.i.i66.prol.loopexit, label %for.body.i.i.i66.prol.preheader
+  br i1 %lcmp.mod82.not, label %for.body.i.i.i66.prol.loopexit, label %for.body.i.i.i66.prol
 
-for.body.i.i.i66.prol.preheader:                  ; preds = %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit
-  %6 = and i64 %__n, -8
-  br label %for.body.i.i.i66.prol
-
-for.body.i.i.i66.prol:                            ; preds = %for.body.i.i.i66.prol.preheader, %for.body.i.i.i66.prol
-  %__cur.06.i.i.i67.prol = phi ptr [ %incdec.ptr.i.i.i71.prol, %for.body.i.i.i66.prol ], [ %add.ptr, %for.body.i.i.i66.prol.preheader ]
-  %prol.iter83 = phi i64 [ %prol.iter83.next, %for.body.i.i.i66.prol ], [ 0, %for.body.i.i.i66.prol.preheader ]
+for.body.i.i.i66.prol:                            ; preds = %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i66.prol
+  %__cur.06.i.i.i67.prol = phi ptr [ %incdec.ptr.i.i.i71.prol, %for.body.i.i.i66.prol ], [ %add.ptr, %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit ]
+  %prol.iter83 = phi i64 [ %prol.iter83.next, %for.body.i.i.i66.prol ], [ 0, %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %is_sorted.i.i.i.i.i69.prol = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i67.prol, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.06.i.i.i67.prol, i8 0, i64 24, i1 false)
   store i8 1, ptr %is_sorted.i.i.i.i.i69.prol, align 8, !tbaa !194
   %incdec.ptr.i.i.i71.prol = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i67.prol, i64 32
   %prol.iter83.next = add nuw nsw i64 %prol.iter83, 1
   %prol.iter83.cmp.not = icmp eq i64 %prol.iter83.next, %xtraiter81
-  br i1 %prol.iter83.cmp.not, label %for.body.i.i.i66.prol.loopexit, label %for.body.i.i.i66.prol, !llvm.loop !450
+  br i1 %prol.iter83.cmp.not, label %for.body.i.i.i66.prol.loopexit.loopexit, label %for.body.i.i.i66.prol, !llvm.loop !450
 
-for.body.i.i.i66.prol.loopexit:                   ; preds = %for.body.i.i.i66.prol, %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit
-  %__cur.06.i.i.i67.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i71.prol, %for.body.i.i.i66.prol ]
-  %__n.addr.05.i.i.i68.unr = phi i64 [ %__n, %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %6, %for.body.i.i.i66.prol ]
+for.body.i.i.i66.prol.loopexit.loopexit:          ; preds = %for.body.i.i.i66.prol
+  %6 = and i64 %__n, -8
+  br label %for.body.i.i.i66.prol.loopexit
+
+for.body.i.i.i66.prol.loopexit:                   ; preds = %for.body.i.i.i66.prol.loopexit.loopexit, %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit
+  %__cur.06.i.i.i67.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i71.prol, %for.body.i.i.i66.prol.loopexit.loopexit ]
+  %__n.addr.05.i.i.i68.unr = phi i64 [ %__n, %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %6, %for.body.i.i.i66.prol.loopexit.loopexit ]
   %7 = icmp samesign ult i64 %__n, 8
   br i1 %7, label %_ZSt27__uninitialized_default_n_aIPN3irr4core5arrayIfEEmS3_ET_S5_T0_RSaIT1_E.exit74, label %for.body.i.i.i66
 

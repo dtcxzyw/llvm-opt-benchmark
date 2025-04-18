@@ -343,9 +343,9 @@ define range(i64 -536870909, 536870912) i64 @ossl_ec_GF2m_simple_point2oct(ptr n
   %70 = sext i32 %narrow110 to i64
   %scevgep139 = getelementptr i8, ptr %3, i64 %21
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep139, i8 0, i64 %70, i1 false), !tbaa !22
-  %71 = sext i32 %.neg111 to i64
-  %72 = add nsw i64 %21, %19
-  %73 = add nsw i64 %72, %71
+  %71 = add nsw i64 %21, %19
+  %72 = sext i32 %.neg111 to i64
+  %73 = add nsw i64 %71, %72
   br label %._crit_edge136
 
 ._crit_edge136:                                   ; preds = %.lr.ph135.preheader, %.preheader

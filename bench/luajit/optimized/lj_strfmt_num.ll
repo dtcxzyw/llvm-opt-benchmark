@@ -304,10 +304,10 @@ lj_buf_more.exit624:                              ; preds = %142, %132, %111
   %153 = zext i32 %152 to i64
   %154 = add nuw nsw i64 %153, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.5, i8 32, i64 %154, i1 false), !tbaa !14
+  %scevgep1100 = getelementptr i8, ptr %.5, i64 %154
   %155 = add nsw i32 %.0456, %79
   %156 = add nuw nsw i32 %155, %117
   %157 = add nuw nsw i32 %156, %123
-  %scevgep1100 = getelementptr i8, ptr %.5, i64 %154
   %158 = add nuw nsw i32 %157, %127
   br label %.loopexit894
 
@@ -346,12 +346,12 @@ lj_buf_more.exit624:                              ; preds = %142, %132, %111
   %174 = zext i32 %173 to i64
   %175 = add nuw nsw i64 %174, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %164, i8 48, i64 %175, i1 false), !tbaa !14
-  %176 = add nsw i32 %.0456, %79
-  %177 = add nuw nsw i32 %176, %117
-  %178 = add nuw nsw i32 %177, %123
-  %179 = getelementptr i8, ptr %.8, i64 %174
-  %scevgep1101 = getelementptr i8, ptr %179, i64 3
-  %180 = add nuw nsw i32 %178, %127
+  %176 = getelementptr i8, ptr %.8, i64 %174
+  %scevgep1101 = getelementptr i8, ptr %176, i64 3
+  %177 = add nsw i32 %.0456, %79
+  %178 = add nuw nsw i32 %177, %117
+  %179 = add nuw nsw i32 %178, %123
+  %180 = add nuw nsw i32 %179, %127
   br label %.loopexit892
 
 .loopexit892:                                     ; preds = %.lr.ph1020.preheader, %.preheader891, %161
@@ -1629,12 +1629,12 @@ lj_buf_more.exit626:                              ; preds = %853, %842, %818
   %865 = zext i32 %864 to i64
   %866 = add nuw nsw i64 %865, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.16, i8 32, i64 %866, i1 false), !tbaa !14
+  %scevgep1097 = getelementptr i8, ptr %.16, i64 %866
   %867 = add i32 %219, %.9465
   %868 = add i32 %867, %824
   %869 = add i32 %868, %832
   %870 = add i32 %869, %830
   %871 = add i32 %870, %835
-  %scevgep1097 = getelementptr i8, ptr %.16, i64 %866
   %872 = add i32 %871, 3
   br label %.loopexit900
 
@@ -1669,12 +1669,12 @@ lj_buf_more.exit626:                              ; preds = %853, %842, %818
   %886 = zext i32 %885 to i64
   %887 = add nuw nsw i64 %886, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.19, i8 48, i64 %887, i1 false), !tbaa !14
+  %scevgep1098 = getelementptr i8, ptr %.19, i64 %887
   %888 = add i32 %219, %.9465
   %889 = add i32 %888, %824
   %890 = add i32 %889, %832
   %891 = add i32 %890, %830
   %892 = add i32 %891, %835
-  %scevgep1098 = getelementptr i8, ptr %.19, i64 %887
   %893 = add i32 %892, 3
   br label %.loopexit898
 
@@ -2188,11 +2188,11 @@ lj_buf_more.exit628:                              ; preds = %1181, %1170, %nd_ad
   %1193 = zext i32 %1192 to i64
   %1194 = add nuw nsw i64 %1193, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.29, i8 32, i64 %1194, i1 false), !tbaa !14
+  %scevgep = getelementptr i8, ptr %.29, i64 %1194
   %1195 = add i32 %.17473, %219
   %1196 = add i32 %1195, %1154
   %1197 = add i32 %1196, %1146
   %1198 = add i32 %1197, %1164
-  %scevgep = getelementptr i8, ptr %.29, i64 %1194
   %1199 = add i32 %1198, %1160
   br label %.loopexit906
 
@@ -2227,11 +2227,11 @@ lj_buf_more.exit628:                              ; preds = %1181, %1170, %nd_ad
   %1213 = zext i32 %1212 to i64
   %1214 = add nuw nsw i64 %1213, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.32, i8 48, i64 %1214, i1 false), !tbaa !14
+  %scevgep1094 = getelementptr i8, ptr %.32, i64 %1214
   %1215 = add i32 %.17473, %219
   %1216 = add i32 %1215, %1154
   %1217 = add i32 %1216, %1146
   %1218 = add i32 %1217, %1164
-  %scevgep1094 = getelementptr i8, ptr %.32, i64 %1214
   %1219 = add i32 %1218, %1160
   br label %.loopexit904
 

@@ -16051,34 +16051,34 @@ declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 imma
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @GC_add_to_black_list_stack(ptr noundef %0) unnamed_addr #25 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = lshr i64 %2, 12
-  %4 = lshr i64 %2, 22
-  %5 = and i64 %4, 2047
-  %6 = getelementptr inbounds nuw [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 166416), i64 0, i64 %5
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
-  br label %8
+  %3 = lshr i64 %2, 22
+  %4 = and i64 %3, 2047
+  %5 = getelementptr inbounds nuw [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 166416), i64 0, i64 %4
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
+  br label %7
 
-8:                                                ; preds = %8, %1
-  %.0.in.i = phi ptr [ %6, %1 ], [ %14, %8 ]
+7:                                                ; preds = %7, %1
+  %.0.in.i = phi ptr [ %5, %1 ], [ %13, %7 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !53
-  %9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8208
-  %10 = load i64, ptr %9, align 8, !tbaa !54
-  %11 = icmp ne i64 %10, %4
-  %12 = icmp ne ptr %.0.i, %7
-  %13 = select i1 %11, i1 %12, i1 false
-  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8216
-  br i1 %13, label %8, label %GC_find_header.exit, !llvm.loop !56
+  %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8208
+  %9 = load i64, ptr %8, align 8, !tbaa !54
+  %10 = icmp ne i64 %9, %3
+  %11 = icmp ne ptr %.0.i, %6
+  %12 = select i1 %10, i1 %11, i1 false
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8216
+  br i1 %12, label %7, label %GC_find_header.exit, !llvm.loop !56
 
-GC_find_header.exit:                              ; preds = %8
-  %15 = and i64 %3, 262143
-  %16 = and i64 %3, 1023
+GC_find_header.exit:                              ; preds = %7
+  %14 = lshr i64 %2, 12
+  %15 = and i64 %14, 262143
+  %16 = and i64 %14, 1023
   %17 = getelementptr inbounds nuw [1024 x ptr], ptr %.0.i, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !57
   %19 = icmp eq ptr %18, null
   br i1 %19, label %GC_find_header.exit._crit_edge, label %20
 
 GC_find_header.exit._crit_edge:                   ; preds = %GC_find_header.exit
-  %.pre = and i64 %3, 63
+  %.pre = and i64 %14, 63
   %.pre5 = shl nuw i64 1, %.pre
   %.pre7 = lshr i64 %15, 6
   br label %28
@@ -16088,7 +16088,7 @@ GC_find_header.exit._crit_edge:                   ; preds = %GC_find_header.exit
   %22 = lshr i64 %15, 6
   %23 = getelementptr inbounds nuw i64, ptr %21, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !10
-  %25 = and i64 %3, 63
+  %25 = and i64 %14, 63
   %26 = shl nuw i64 1, %25
   %27 = and i64 %24, %26
   %.not = icmp eq i64 %27, 0
@@ -16118,34 +16118,34 @@ define internal fastcc void @GC_add_to_black_list_normal(ptr noundef %0) unnamed
   br i1 %.not, label %37, label %6
 
 6:                                                ; preds = %1
-  %7 = lshr i64 %2, 12
-  %8 = lshr i64 %2, 22
-  %9 = and i64 %8, 2047
-  %10 = getelementptr inbounds nuw [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 166416), i64 0, i64 %9
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
-  br label %12
+  %7 = lshr i64 %2, 22
+  %8 = and i64 %7, 2047
+  %9 = getelementptr inbounds nuw [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 166416), i64 0, i64 %8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
+  br label %11
 
-12:                                               ; preds = %12, %6
-  %.0.in.i = phi ptr [ %10, %6 ], [ %18, %12 ]
+11:                                               ; preds = %11, %6
+  %.0.in.i = phi ptr [ %9, %6 ], [ %17, %11 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !53
-  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8208
-  %14 = load i64, ptr %13, align 8, !tbaa !54
-  %15 = icmp ne i64 %14, %8
-  %16 = icmp ne ptr %.0.i, %11
-  %17 = select i1 %15, i1 %16, i1 false
-  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8216
-  br i1 %17, label %12, label %GC_find_header.exit, !llvm.loop !56
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8208
+  %13 = load i64, ptr %12, align 8, !tbaa !54
+  %14 = icmp ne i64 %13, %7
+  %15 = icmp ne ptr %.0.i, %10
+  %16 = select i1 %14, i1 %15, i1 false
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8216
+  br i1 %16, label %11, label %GC_find_header.exit, !llvm.loop !56
 
-GC_find_header.exit:                              ; preds = %12
-  %19 = and i64 %7, 262143
-  %20 = and i64 %7, 1023
+GC_find_header.exit:                              ; preds = %11
+  %18 = lshr i64 %2, 12
+  %19 = and i64 %18, 262143
+  %20 = and i64 %18, 1023
   %21 = getelementptr inbounds nuw [1024 x ptr], ptr %.0.i, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !57
   %23 = icmp eq ptr %22, null
   br i1 %23, label %GC_find_header.exit._crit_edge, label %24
 
 GC_find_header.exit._crit_edge:                   ; preds = %GC_find_header.exit
-  %.pre = and i64 %7, 63
+  %.pre = and i64 %18, 63
   %.pre7 = shl nuw i64 1, %.pre
   %.pre9 = lshr i64 %19, 6
   br label %32
@@ -16155,7 +16155,7 @@ GC_find_header.exit._crit_edge:                   ; preds = %GC_find_header.exit
   %26 = lshr i64 %19, 6
   %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !10
-  %29 = and i64 %7, 63
+  %29 = and i64 %18, 63
   %30 = shl nuw i64 1, %29
   %31 = and i64 %28, %30
   %.not6 = icmp eq i64 %31, 0
@@ -35225,35 +35225,35 @@ GC_find_header.exit._crit_edge.i86:               ; preds = %GC_find_header.exit
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc ptr @GC_next_block(ptr noundef %0) unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
-  %3 = lshr i64 %2, 12
-  %4 = lshr i64 %2, 22
-  %5 = and i64 %4, 2047
-  %6 = getelementptr inbounds nuw [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 166416), i64 0, i64 %5
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
-  br label %8
+  %3 = lshr i64 %2, 22
+  %4 = and i64 %3, 2047
+  %5 = getelementptr inbounds nuw [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 166416), i64 0, i64 %4
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
+  br label %7
 
-8:                                                ; preds = %8, %1
-  %.031.in = phi ptr [ %6, %1 ], [ %14, %8 ]
+7:                                                ; preds = %7, %1
+  %.031.in = phi ptr [ %5, %1 ], [ %13, %7 ]
   %.031 = load ptr, ptr %.031.in, align 8, !tbaa !53
-  %9 = getelementptr inbounds nuw i8, ptr %.031, i64 8208
-  %10 = load i64, ptr %9, align 8, !tbaa !54
-  %11 = icmp ne i64 %10, %4
-  %12 = icmp ne ptr %.031, %7
-  %13 = select i1 %11, i1 %12, i1 false
-  %14 = getelementptr inbounds nuw i8, ptr %.031, i64 8216
-  br i1 %13, label %8, label %15, !llvm.loop !384
+  %8 = getelementptr inbounds nuw i8, ptr %.031, i64 8208
+  %9 = load i64, ptr %8, align 8, !tbaa !54
+  %10 = icmp ne i64 %9, %3
+  %11 = icmp ne ptr %.031, %6
+  %12 = select i1 %10, i1 %11, i1 false
+  %13 = getelementptr inbounds nuw i8, ptr %.031, i64 8216
+  br i1 %12, label %7, label %14, !llvm.loop !384
 
-15:                                               ; preds = %8
-  %16 = and i64 %3, 1023
-  %17 = icmp eq ptr %.031, %7
+14:                                               ; preds = %7
+  %15 = lshr i64 %2, 12
+  %16 = and i64 %15, 1023
+  %17 = icmp eq ptr %.031, %6
   br i1 %17, label %.preheader41, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.lr.ph, %15
-  %.23051.ph = phi ptr [ %.031, %15 ], [ %.12945, %.lr.ph ]
-  %.13350.ph = phi i64 [ %16, %15 ], [ 0, %.lr.ph ]
+.preheader.preheader:                             ; preds = %.lr.ph, %14
+  %.23051.ph = phi ptr [ %.031, %14 ], [ %.12945, %.lr.ph ]
+  %.13350.ph = phi i64 [ %16, %14 ], [ 0, %.lr.ph ]
   br label %.preheader
 
-.preheader41:                                     ; preds = %15
+.preheader41:                                     ; preds = %14
   %.12943 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 112), align 8, !tbaa !53
   %.not44 = icmp eq ptr %.12943, null
   br i1 %.not44, label %.loopexit, label %.lr.ph
@@ -35262,7 +35262,7 @@ define internal fastcc ptr @GC_next_block(ptr noundef %0) unnamed_addr #0 {
   %.12945 = phi ptr [ %.129, %21 ], [ %.12943, %.preheader41 ]
   %18 = getelementptr inbounds nuw i8, ptr %.12945, i64 8208
   %19 = load i64, ptr %18, align 8, !tbaa !54
-  %20 = icmp ult i64 %19, %4
+  %20 = icmp ult i64 %19, %3
   br i1 %20, label %21, label %.preheader.preheader
 
 21:                                               ; preds = %.lr.ph
@@ -43089,28 +43089,28 @@ define internal void @GC_write_fault_handler(i32 noundef %0, ptr noundef %1, ptr
 
 7:                                                ; preds = %3
   %8 = load i64, ptr @GC_page_size, align 8, !tbaa !10
-  %9 = sub i64 0, %8
-  %10 = ptrtoint ptr %5 to i64
-  %11 = lshr i64 %10, 22
-  %12 = and i64 %11, 2047
-  %13 = getelementptr inbounds nuw [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 166416), i64 0, i64 %12
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
-  br label %15
+  %9 = ptrtoint ptr %5 to i64
+  %10 = lshr i64 %9, 22
+  %11 = and i64 %10, 2047
+  %12 = getelementptr inbounds nuw [2048 x ptr], ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 166416), i64 0, i64 %11
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GC_arrays, i64 224), align 8
+  br label %14
 
-15:                                               ; preds = %15, %7
-  %.0.in.i = phi ptr [ %13, %7 ], [ %21, %15 ]
+14:                                               ; preds = %14, %7
+  %.0.in.i = phi ptr [ %12, %7 ], [ %20, %14 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !53
-  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8208
-  %17 = load i64, ptr %16, align 8, !tbaa !54
-  %18 = icmp ne i64 %17, %11
-  %19 = icmp ne ptr %.0.i, %14
-  %20 = select i1 %18, i1 %19, i1 false
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8216
-  br i1 %20, label %15, label %is_header_found_async.exit, !llvm.loop !539
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8208
+  %16 = load i64, ptr %15, align 8, !tbaa !54
+  %17 = icmp ne i64 %16, %10
+  %18 = icmp ne ptr %.0.i, %13
+  %19 = select i1 %17, i1 %18, i1 false
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8216
+  br i1 %19, label %14, label %is_header_found_async.exit, !llvm.loop !539
 
-is_header_found_async.exit:                       ; preds = %15
-  %22 = tail call ptr @llvm.ptrmask.p0.i64(ptr %5, i64 %9)
-  %23 = lshr i64 %10, 12
+is_header_found_async.exit:                       ; preds = %14
+  %21 = sub i64 0, %8
+  %22 = tail call ptr @llvm.ptrmask.p0.i64(ptr %5, i64 %21)
+  %23 = lshr i64 %9, 12
   %24 = and i64 %23, 1023
   %25 = getelementptr inbounds nuw [1024 x ptr], ptr %.0.i, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !57

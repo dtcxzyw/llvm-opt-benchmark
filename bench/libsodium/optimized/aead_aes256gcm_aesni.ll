@@ -1105,28 +1105,28 @@ incr_counters.exit345.preheader.i:                ; preds = %439
 
 447:                                              ; preds = %encrypt_xor_block.exit.i, %incr_counters.exit345.preheader.i
   %.5560.i = phi i64 [ 0, %incr_counters.exit345.preheader.i ], [ %464, %encrypt_xor_block.exit.i ]
-  %448 = shl nuw nsw i64 %.5560.i, 4
-  %449 = getelementptr [7 x <2 x i64>], ptr %17, i64 0, i64 %.5560.i
-  %450 = load <2 x i64>, ptr %449, align 16
-  %451 = load <2 x i64>, ptr %9, align 16
-  %452 = xor <2 x i64> %451, %450
-  br label %453
+  %448 = getelementptr [7 x <2 x i64>], ptr %17, i64 0, i64 %.5560.i
+  %449 = load <2 x i64>, ptr %448, align 16
+  %450 = load <2 x i64>, ptr %9, align 16
+  %451 = xor <2 x i64> %450, %449
+  br label %452
 
-453:                                              ; preds = %453, %447
-  %.015.i.i = phi i64 [ 1, %447 ], [ %457, %453 ]
-  %.01314.i.i = phi <2 x i64> [ %452, %447 ], [ %456, %453 ]
-  %454 = getelementptr [15 x <2 x i64>], ptr %9, i64 0, i64 %.015.i.i
-  %455 = load <2 x i64>, ptr %454, align 16
-  %456 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i.i, <2 x i64> %455)
-  %457 = add nuw nsw i64 %.015.i.i, 1
-  %exitcond.not.i346.i = icmp eq i64 %457, 14
-  br i1 %exitcond.not.i346.i, label %encrypt_xor_block.exit.i, label %453, !llvm.loop !23
+452:                                              ; preds = %452, %447
+  %.015.i.i = phi i64 [ 1, %447 ], [ %456, %452 ]
+  %.01314.i.i = phi <2 x i64> [ %451, %447 ], [ %455, %452 ]
+  %453 = getelementptr [15 x <2 x i64>], ptr %9, i64 0, i64 %.015.i.i
+  %454 = load <2 x i64>, ptr %453, align 16
+  %455 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i.i, <2 x i64> %454)
+  %456 = add nuw nsw i64 %.015.i.i, 1
+  %exitcond.not.i346.i = icmp eq i64 %456, 14
+  br i1 %exitcond.not.i346.i, label %encrypt_xor_block.exit.i, label %452, !llvm.loop !23
 
-encrypt_xor_block.exit.i:                         ; preds = %453
-  %458 = getelementptr i8, ptr %445, i64 %448
-  %459 = getelementptr i8, ptr %446, i64 %448
+encrypt_xor_block.exit.i:                         ; preds = %452
+  %457 = shl nuw nsw i64 %.5560.i, 4
+  %458 = getelementptr i8, ptr %445, i64 %457
+  %459 = getelementptr i8, ptr %446, i64 %457
   %460 = load <2 x i64>, ptr %430, align 16
-  %461 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %456, <2 x i64> %460)
+  %461 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %455, <2 x i64> %460)
   %462 = load <2 x i64>, ptr %459, align 1
   %463 = xor <2 x i64> %462, %461
   store <2 x i64> %463, ptr %458, align 1
@@ -1360,37 +1360,37 @@ encrypt_xor_block.exit358.i:                      ; preds = %576
 ._crit_edge578.i:                                 ; preds = %._crit_edge578.i.loopexit, %.preheader510.i
   %.6243.lcssa.i = phi <2 x i64> [ %.5242.lcssa.i, %.preheader510.i ], [ %608, %._crit_edge578.i.loopexit ]
   %.6236.lcssa.i = phi i64 [ %.5235.lcssa.i, %.preheader510.i ], [ %570, %._crit_edge578.i.loopexit ]
-  %611 = shl i64 %6, 3
-  %612 = shl nuw nsw i64 %4, 3
-  %613 = insertelement <2 x i64> poison, i64 %612, i64 0
-  %614 = insertelement <2 x i64> %613, i64 %611, i64 1
   %.sroa.0.12.vec.insert116 = shufflevector <16 x i8> %.sroa.0.0.vec.expand, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 1>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 28, i32 29, i32 30, i32 31>
-  %615 = bitcast <16 x i8> %.sroa.0.12.vec.insert116 to <2 x i64>
-  %616 = load <2 x i64>, ptr %9, align 16
-  %617 = xor <2 x i64> %616, %615
-  br label %618
+  %611 = bitcast <16 x i8> %.sroa.0.12.vec.insert116 to <2 x i64>
+  %612 = load <2 x i64>, ptr %9, align 16
+  %613 = xor <2 x i64> %612, %611
+  br label %614
 
-618:                                              ; preds = %618, %._crit_edge578.i
-  %.02.i.i = phi i64 [ 1, %._crit_edge578.i ], [ %622, %618 ]
-  %.0101.i.i = phi <2 x i64> [ %617, %._crit_edge578.i ], [ %621, %618 ]
-  %619 = getelementptr [15 x <2 x i64>], ptr %9, i64 0, i64 %.02.i.i
-  %620 = load <2 x i64>, ptr %619, align 16
-  %621 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.0101.i.i, <2 x i64> %620)
-  %622 = add nuw nsw i64 %.02.i.i, 1
-  %exitcond.not.i359.i = icmp eq i64 %622, 14
-  br i1 %exitcond.not.i359.i, label %encrypt.exit.i, label %618, !llvm.loop !4
+614:                                              ; preds = %614, %._crit_edge578.i
+  %.02.i.i = phi i64 [ 1, %._crit_edge578.i ], [ %618, %614 ]
+  %.0101.i.i = phi <2 x i64> [ %613, %._crit_edge578.i ], [ %617, %614 ]
+  %615 = getelementptr [15 x <2 x i64>], ptr %9, i64 0, i64 %.02.i.i
+  %616 = load <2 x i64>, ptr %615, align 16
+  %617 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.0101.i.i, <2 x i64> %616)
+  %618 = add nuw nsw i64 %.02.i.i, 1
+  %exitcond.not.i359.i = icmp eq i64 %618, 14
+  br i1 %exitcond.not.i359.i, label %encrypt.exit.i, label %614, !llvm.loop !4
 
-encrypt.exit.i:                                   ; preds = %618
+encrypt.exit.i:                                   ; preds = %614
+  %619 = shl i64 %6, 3
+  %620 = shl nuw nsw i64 %4, 3
+  %621 = insertelement <2 x i64> poison, i64 %620, i64 0
+  %622 = insertelement <2 x i64> %621, i64 %619, i64 1
   %623 = getelementptr i8, ptr %9, i64 224
   %624 = load <2 x i64>, ptr %623, align 16
-  %625 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %621, <2 x i64> %624)
+  %625 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %617, <2 x i64> %624)
   store <2 x i64> %625, ptr %1, align 1
   %626 = sub i64 %4, %.6236.lcssa.i
   %.not259.i = icmp eq i64 %4, %.6236.lcssa.i
   br i1 %.not259.i, label %._crit_edge.i417.thread.i, label %._crit_edge583.i
 
 ._crit_edge583.i:                                 ; preds = %encrypt.exit.i
-  %627 = bitcast <2 x i64> %614 to <16 x i8>
+  %627 = bitcast <2 x i64> %622 to <16 x i8>
   %628 = shufflevector <16 x i8> %627, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %629 = getelementptr i8, ptr %3, i64 %.6236.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %16, ptr readonly align 1 %629, i64 %626, i1 false)
@@ -1435,7 +1435,7 @@ encrypt_xor_block.exit363.i:                      ; preds = %636
   br label %.critedge.lr.ph.i380.i
 
 .critedge.lr.ph.i380.i:                           ; preds = %.lr.ph586.preheader.i, %encrypt_xor_block.exit363.i
-  %.val90121.i386.i = phi <2 x i64> [ %649, %.lr.ph586.preheader.i ], [ %614, %encrypt_xor_block.exit363.i ]
+  %.val90121.i386.i = phi <2 x i64> [ %649, %.lr.ph586.preheader.i ], [ %622, %encrypt_xor_block.exit363.i ]
   %.val84120.i385.i = phi <16 x i8> [ %.val84120.i385.i.pre, %.lr.ph586.preheader.i ], [ %646, %encrypt_xor_block.exit363.i ]
   %650 = getelementptr i8, ptr %0, i64 %.6236.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %650, ptr noundef nonnull align 16 dereferenceable(1) %16, i64 %626, i1 false)
@@ -1478,7 +1478,7 @@ encrypt_xor_block.exit363.i:                      ; preds = %636
   %682 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %683 = load <2 x i64>, ptr %682, align 16
   %.val85.i419.i = load <2 x i64>, ptr %19, align 16
-  %684 = xor <2 x i64> %.val85.i419.i, %614
+  %684 = xor <2 x i64> %.val85.i419.i, %622
   %685 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %684, <2 x i64> %683, i8 17)
   %686 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %684, <2 x i64> %683, i8 0)
   %687 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %684, <2 x i64> %683, i8 1)
@@ -1706,30 +1706,30 @@ required_blocks.exit.i:                           ; preds = %29
   br label %89
 
 89:                                               ; preds = %._crit_edge.i64.thread.i, %61
-  %90 = shl nuw nsw i64 %3, 3
   %.sroa.0.12.vec.insert21.i = shufflevector <16 x i8> %.sroa.0.0.vec.expand.i, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 1>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 28, i32 29, i32 30, i32 31>
-  %91 = bitcast <16 x i8> %.sroa.0.12.vec.insert21.i to <2 x i64>
-  %92 = load <2 x i64>, ptr %8, align 16
-  %93 = xor <2 x i64> %92, %91
-  br label %94
+  %90 = bitcast <16 x i8> %.sroa.0.12.vec.insert21.i to <2 x i64>
+  %91 = load <2 x i64>, ptr %8, align 16
+  %92 = xor <2 x i64> %91, %90
+  br label %93
 
-94:                                               ; preds = %94, %89
-  %.02.i.i = phi i64 [ 1, %89 ], [ %98, %94 ]
-  %.0101.i.i = phi <2 x i64> [ %93, %89 ], [ %97, %94 ]
-  %95 = getelementptr [15 x <2 x i64>], ptr %8, i64 0, i64 %.02.i.i
-  %96 = load <2 x i64>, ptr %95, align 16
-  %97 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.0101.i.i, <2 x i64> %96)
-  %98 = add nuw nsw i64 %.02.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %98, 14
-  br i1 %exitcond.not.i.i, label %._crit_edge.i93.thread.i, label %94, !llvm.loop !4
+93:                                               ; preds = %93, %89
+  %.02.i.i = phi i64 [ 1, %89 ], [ %97, %93 ]
+  %.0101.i.i = phi <2 x i64> [ %92, %89 ], [ %96, %93 ]
+  %94 = getelementptr [15 x <2 x i64>], ptr %8, i64 0, i64 %.02.i.i
+  %95 = load <2 x i64>, ptr %94, align 16
+  %96 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.0101.i.i, <2 x i64> %95)
+  %97 = add nuw nsw i64 %.02.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %97, 14
+  br i1 %exitcond.not.i.i, label %._crit_edge.i93.thread.i, label %93, !llvm.loop !4
 
-._crit_edge.i93.thread.i:                         ; preds = %94
-  %99 = insertelement <2 x i64> poison, i64 %90, i64 0
-  %100 = shl i64 %6, 3
-  %101 = insertelement <2 x i64> %99, i64 %100, i64 1
+._crit_edge.i93.thread.i:                         ; preds = %93
+  %98 = shl i64 %6, 3
+  %99 = shl nuw nsw i64 %3, 3
+  %100 = insertelement <2 x i64> poison, i64 %99, i64 0
+  %101 = insertelement <2 x i64> %100, i64 %98, i64 1
   %102 = getelementptr i8, ptr %8, i64 224
   %103 = load <2 x i64>, ptr %102, align 16
-  %104 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %97, <2 x i64> %103)
+  %104 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %96, <2 x i64> %103)
   %105 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %106 = load <2 x i64>, ptr %105, align 16
   %.val85.i95.i = load <2 x i64>, ptr %16, align 16
@@ -1850,14 +1850,14 @@ required_blocks.exit:                             ; preds = %134
   br label %.preheader400.i
 
 .preheader400.i:                                  ; preds = %encrypt_xor_wide.exit230.i, %.preheader400.lr.ph.i
-  %175 = phi <2 x i64> [ %.promoted, %.preheader400.lr.ph.i ], [ %278, %encrypt_xor_wide.exit230.i ]
+  %175 = phi <2 x i64> [ %.promoted, %.preheader400.lr.ph.i ], [ %304, %encrypt_xor_wide.exit230.i ]
   %176 = phi i64 [ 224, %.preheader400.lr.ph.i ], [ %306, %encrypt_xor_wide.exit230.i ]
   %.0176420.i = phi i64 [ 0, %.preheader400.lr.ph.i ], [ %176, %encrypt_xor_wide.exit230.i ]
   %.0181419.i = phi <2 x i64> [ %171, %.preheader400.lr.ph.i ], [ %246, %encrypt_xor_wide.exit230.i ]
   br label %181
 
 .preheader399.i.loopexit:                         ; preds = %encrypt_xor_wide.exit230.i
-  store <2 x i64> %278, ptr %20, align 16
+  store <2 x i64> %304, ptr %20, align 16
   br label %.preheader399.i
 
 .preheader399.i:                                  ; preds = %.preheader399.i.loopexit, %169
@@ -2029,72 +2029,72 @@ incr_counters.exit219.i:                          ; preds = %242
   br i1 %exitcond486.not.i, label %267, label %250, !llvm.loop !43
 
 267:                                              ; preds = %250
-  %268 = shufflevector <2 x i64> %265, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
-  %269 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %265, <2 x i32> <i32 1, i32 2>
-  %270 = xor <2 x i64> %263, %269
-  %271 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %270, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
-  %272 = shufflevector <2 x i64> %270, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %273 = xor <2 x i64> %271, %272
-  %274 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %273, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
-  %275 = shufflevector <2 x i64> %273, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %276 = xor <2 x i64> %274, %268
-  %277 = xor <2 x i64> %276, %275
-  %278 = xor <2 x i64> %277, %262
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %11) #14
-  %279 = load <2 x i64>, ptr %8, align 16
-  br label %280
+  %268 = load <2 x i64>, ptr %8, align 16
+  br label %269
 
-280:                                              ; preds = %280, %267
-  %.032.i220.i = phi i64 [ 0, %267 ], [ %285, %280 ]
-  %281 = getelementptr <2 x i64>, ptr %14, i64 %.032.i220.i
-  %282 = load <2 x i64>, ptr %281, align 16
-  %283 = xor <2 x i64> %282, %279
-  %284 = getelementptr [7 x <2 x i64>], ptr %11, i64 0, i64 %.032.i220.i
-  store <2 x i64> %283, ptr %284, align 16
-  %285 = add nuw nsw i64 %.032.i220.i, 1
-  %exitcond.not.i221.i = icmp eq i64 %285, 7
-  br i1 %exitcond.not.i221.i, label %.preheader30.i222.i, label %280, !llvm.loop !12
+269:                                              ; preds = %269, %267
+  %.032.i220.i = phi i64 [ 0, %267 ], [ %274, %269 ]
+  %270 = getelementptr <2 x i64>, ptr %14, i64 %.032.i220.i
+  %271 = load <2 x i64>, ptr %270, align 16
+  %272 = xor <2 x i64> %271, %268
+  %273 = getelementptr [7 x <2 x i64>], ptr %11, i64 0, i64 %.032.i220.i
+  store <2 x i64> %272, ptr %273, align 16
+  %274 = add nuw nsw i64 %.032.i220.i, 1
+  %exitcond.not.i221.i = icmp eq i64 %274, 7
+  br i1 %exitcond.not.i221.i, label %.preheader30.i222.i, label %269, !llvm.loop !12
 
-.preheader30.i222.i:                              ; preds = %280, %294
-  %.02834.i223.i = phi i64 [ %295, %294 ], [ 1, %280 ]
-  %286 = getelementptr [15 x <2 x i64>], ptr %8, i64 0, i64 %.02834.i223.i
-  %287 = load <2 x i64>, ptr %286, align 16
-  br label %289
+.preheader30.i222.i:                              ; preds = %269, %283
+  %.02834.i223.i = phi i64 [ %284, %283 ], [ 1, %269 ]
+  %275 = getelementptr [15 x <2 x i64>], ptr %8, i64 0, i64 %.02834.i223.i
+  %276 = load <2 x i64>, ptr %275, align 16
+  br label %278
 
-.preheader29.i227.i:                              ; preds = %294
-  %288 = load <2 x i64>, ptr %174, align 16
-  br label %296
+.preheader29.i227.i:                              ; preds = %283
+  %277 = load <2 x i64>, ptr %174, align 16
+  br label %285
 
-289:                                              ; preds = %289, %.preheader30.i222.i
-  %.133.i224.i = phi i64 [ 0, %.preheader30.i222.i ], [ %293, %289 ]
-  %290 = getelementptr [7 x <2 x i64>], ptr %11, i64 0, i64 %.133.i224.i
-  %291 = load <2 x i64>, ptr %290, align 16
-  %292 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %291, <2 x i64> %287)
-  store <2 x i64> %292, ptr %290, align 16
-  %293 = add nuw nsw i64 %.133.i224.i, 1
-  %exitcond37.not.i225.i = icmp eq i64 %293, 7
-  br i1 %exitcond37.not.i225.i, label %294, label %289, !llvm.loop !13
+278:                                              ; preds = %278, %.preheader30.i222.i
+  %.133.i224.i = phi i64 [ 0, %.preheader30.i222.i ], [ %282, %278 ]
+  %279 = getelementptr [7 x <2 x i64>], ptr %11, i64 0, i64 %.133.i224.i
+  %280 = load <2 x i64>, ptr %279, align 16
+  %281 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %280, <2 x i64> %276)
+  store <2 x i64> %281, ptr %279, align 16
+  %282 = add nuw nsw i64 %.133.i224.i, 1
+  %exitcond37.not.i225.i = icmp eq i64 %282, 7
+  br i1 %exitcond37.not.i225.i, label %283, label %278, !llvm.loop !13
 
-294:                                              ; preds = %289
-  %295 = add nuw nsw i64 %.02834.i223.i, 1
-  %exitcond38.not.i226.i = icmp eq i64 %295, 14
+283:                                              ; preds = %278
+  %284 = add nuw nsw i64 %.02834.i223.i, 1
+  %exitcond38.not.i226.i = icmp eq i64 %284, 14
   br i1 %exitcond38.not.i226.i, label %.preheader29.i227.i, label %.preheader30.i222.i, !llvm.loop !14
 
-296:                                              ; preds = %296, %.preheader29.i227.i
-  %.235.i228.i = phi i64 [ 0, %.preheader29.i227.i ], [ %304, %296 ]
-  %297 = getelementptr [7 x <2 x i64>], ptr %11, i64 0, i64 %.235.i228.i
-  %298 = load <2 x i64>, ptr %297, align 16
-  %299 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %298, <2 x i64> %288)
-  %300 = shl nuw nsw i64 %.235.i228.i, 4
-  %301 = getelementptr i8, ptr %249, i64 %300
-  %302 = load <2 x i64>, ptr %301, align 1
-  %303 = xor <2 x i64> %302, %299
-  store <2 x i64> %303, ptr %297, align 16
-  %304 = add nuw nsw i64 %.235.i228.i, 1
-  %exitcond39.not.i229.i = icmp eq i64 %304, 7
-  br i1 %exitcond39.not.i229.i, label %encrypt_xor_wide.exit230.i, label %296, !llvm.loop !15
+285:                                              ; preds = %285, %.preheader29.i227.i
+  %.235.i228.i = phi i64 [ 0, %.preheader29.i227.i ], [ %293, %285 ]
+  %286 = getelementptr [7 x <2 x i64>], ptr %11, i64 0, i64 %.235.i228.i
+  %287 = load <2 x i64>, ptr %286, align 16
+  %288 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %287, <2 x i64> %277)
+  %289 = shl nuw nsw i64 %.235.i228.i, 4
+  %290 = getelementptr i8, ptr %249, i64 %289
+  %291 = load <2 x i64>, ptr %290, align 1
+  %292 = xor <2 x i64> %291, %288
+  store <2 x i64> %292, ptr %286, align 16
+  %293 = add nuw nsw i64 %.235.i228.i, 1
+  %exitcond39.not.i229.i = icmp eq i64 %293, 7
+  br i1 %exitcond39.not.i229.i, label %encrypt_xor_wide.exit230.i, label %285, !llvm.loop !15
 
-encrypt_xor_wide.exit230.i:                       ; preds = %296
+encrypt_xor_wide.exit230.i:                       ; preds = %285
+  %294 = shufflevector <2 x i64> %265, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
+  %295 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %265, <2 x i32> <i32 1, i32 2>
+  %296 = xor <2 x i64> %263, %295
+  %297 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %296, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
+  %298 = shufflevector <2 x i64> %296, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  %299 = xor <2 x i64> %297, %298
+  %300 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %299, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
+  %301 = shufflevector <2 x i64> %299, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  %302 = xor <2 x i64> %300, %294
+  %303 = xor <2 x i64> %302, %301
+  %304 = xor <2 x i64> %303, %262
   %305 = getelementptr i8, ptr %0, i64 %248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %305, ptr noundef nonnull align 16 dereferenceable(112) %11, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #14
@@ -2179,72 +2179,72 @@ incr_counters.exit234.i:                          ; preds = %313
   br i1 %exitcond487.not.i, label %346, label %329, !llvm.loop !45
 
 346:                                              ; preds = %329
-  %347 = shufflevector <2 x i64> %344, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
-  %348 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %344, <2 x i32> <i32 1, i32 2>
-  %349 = xor <2 x i64> %342, %348
-  %350 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %349, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
-  %351 = shufflevector <2 x i64> %349, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %352 = xor <2 x i64> %350, %351
-  %353 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %352, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
-  %354 = shufflevector <2 x i64> %352, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %355 = xor <2 x i64> %353, %347
-  %356 = xor <2 x i64> %355, %354
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %10) #14
-  %357 = load <2 x i64>, ptr %8, align 16
-  br label %358
+  %347 = load <2 x i64>, ptr %8, align 16
+  br label %348
 
-358:                                              ; preds = %358, %346
-  %.032.i235.i = phi i64 [ 0, %346 ], [ %363, %358 ]
-  %359 = getelementptr <2 x i64>, ptr %14, i64 %.032.i235.i
-  %360 = load <2 x i64>, ptr %359, align 16
-  %361 = xor <2 x i64> %360, %357
-  %362 = getelementptr [7 x <2 x i64>], ptr %10, i64 0, i64 %.032.i235.i
-  store <2 x i64> %361, ptr %362, align 16
-  %363 = add nuw nsw i64 %.032.i235.i, 1
-  %exitcond.not.i236.i = icmp eq i64 %363, 7
-  br i1 %exitcond.not.i236.i, label %.preheader30.i237.i, label %358, !llvm.loop !12
+348:                                              ; preds = %348, %346
+  %.032.i235.i = phi i64 [ 0, %346 ], [ %353, %348 ]
+  %349 = getelementptr <2 x i64>, ptr %14, i64 %.032.i235.i
+  %350 = load <2 x i64>, ptr %349, align 16
+  %351 = xor <2 x i64> %350, %347
+  %352 = getelementptr [7 x <2 x i64>], ptr %10, i64 0, i64 %.032.i235.i
+  store <2 x i64> %351, ptr %352, align 16
+  %353 = add nuw nsw i64 %.032.i235.i, 1
+  %exitcond.not.i236.i = icmp eq i64 %353, 7
+  br i1 %exitcond.not.i236.i, label %.preheader30.i237.i, label %348, !llvm.loop !12
 
-.preheader30.i237.i:                              ; preds = %358, %372
-  %.02834.i238.i = phi i64 [ %373, %372 ], [ 1, %358 ]
-  %364 = getelementptr [15 x <2 x i64>], ptr %8, i64 0, i64 %.02834.i238.i
-  %365 = load <2 x i64>, ptr %364, align 16
-  br label %367
+.preheader30.i237.i:                              ; preds = %348, %362
+  %.02834.i238.i = phi i64 [ %363, %362 ], [ 1, %348 ]
+  %354 = getelementptr [15 x <2 x i64>], ptr %8, i64 0, i64 %.02834.i238.i
+  %355 = load <2 x i64>, ptr %354, align 16
+  br label %357
 
-.preheader29.i242.i:                              ; preds = %372
-  %366 = load <2 x i64>, ptr %180, align 16
-  br label %374
+.preheader29.i242.i:                              ; preds = %362
+  %356 = load <2 x i64>, ptr %180, align 16
+  br label %364
 
-367:                                              ; preds = %367, %.preheader30.i237.i
-  %.133.i239.i = phi i64 [ 0, %.preheader30.i237.i ], [ %371, %367 ]
-  %368 = getelementptr [7 x <2 x i64>], ptr %10, i64 0, i64 %.133.i239.i
-  %369 = load <2 x i64>, ptr %368, align 16
-  %370 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %369, <2 x i64> %365)
-  store <2 x i64> %370, ptr %368, align 16
-  %371 = add nuw nsw i64 %.133.i239.i, 1
-  %exitcond37.not.i240.i = icmp eq i64 %371, 7
-  br i1 %exitcond37.not.i240.i, label %372, label %367, !llvm.loop !13
+357:                                              ; preds = %357, %.preheader30.i237.i
+  %.133.i239.i = phi i64 [ 0, %.preheader30.i237.i ], [ %361, %357 ]
+  %358 = getelementptr [7 x <2 x i64>], ptr %10, i64 0, i64 %.133.i239.i
+  %359 = load <2 x i64>, ptr %358, align 16
+  %360 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %359, <2 x i64> %355)
+  store <2 x i64> %360, ptr %358, align 16
+  %361 = add nuw nsw i64 %.133.i239.i, 1
+  %exitcond37.not.i240.i = icmp eq i64 %361, 7
+  br i1 %exitcond37.not.i240.i, label %362, label %357, !llvm.loop !13
 
-372:                                              ; preds = %367
-  %373 = add nuw nsw i64 %.02834.i238.i, 1
-  %exitcond38.not.i241.i = icmp eq i64 %373, 14
+362:                                              ; preds = %357
+  %363 = add nuw nsw i64 %.02834.i238.i, 1
+  %exitcond38.not.i241.i = icmp eq i64 %363, 14
   br i1 %exitcond38.not.i241.i, label %.preheader29.i242.i, label %.preheader30.i237.i, !llvm.loop !14
 
-374:                                              ; preds = %374, %.preheader29.i242.i
-  %.235.i243.i = phi i64 [ 0, %.preheader29.i242.i ], [ %382, %374 ]
-  %375 = getelementptr [7 x <2 x i64>], ptr %10, i64 0, i64 %.235.i243.i
-  %376 = load <2 x i64>, ptr %375, align 16
-  %377 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %376, <2 x i64> %366)
-  %378 = shl nuw nsw i64 %.235.i243.i, 4
-  %379 = getelementptr i8, ptr %319, i64 %378
-  %380 = load <2 x i64>, ptr %379, align 1
-  %381 = xor <2 x i64> %380, %377
-  store <2 x i64> %381, ptr %375, align 16
-  %382 = add nuw nsw i64 %.235.i243.i, 1
-  %exitcond39.not.i244.i = icmp eq i64 %382, 7
-  br i1 %exitcond39.not.i244.i, label %encrypt_xor_wide.exit245.i, label %374, !llvm.loop !15
+364:                                              ; preds = %364, %.preheader29.i242.i
+  %.235.i243.i = phi i64 [ 0, %.preheader29.i242.i ], [ %372, %364 ]
+  %365 = getelementptr [7 x <2 x i64>], ptr %10, i64 0, i64 %.235.i243.i
+  %366 = load <2 x i64>, ptr %365, align 16
+  %367 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %366, <2 x i64> %356)
+  %368 = shl nuw nsw i64 %.235.i243.i, 4
+  %369 = getelementptr i8, ptr %319, i64 %368
+  %370 = load <2 x i64>, ptr %369, align 1
+  %371 = xor <2 x i64> %370, %367
+  store <2 x i64> %371, ptr %365, align 16
+  %372 = add nuw nsw i64 %.235.i243.i, 1
+  %exitcond39.not.i244.i = icmp eq i64 %372, 7
+  br i1 %exitcond39.not.i244.i, label %encrypt_xor_wide.exit245.i, label %364, !llvm.loop !15
 
-encrypt_xor_wide.exit245.i:                       ; preds = %374
-  %383 = xor <2 x i64> %356, %341
+encrypt_xor_wide.exit245.i:                       ; preds = %364
+  %373 = shufflevector <2 x i64> %344, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
+  %374 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %344, <2 x i32> <i32 1, i32 2>
+  %375 = xor <2 x i64> %342, %374
+  %376 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %375, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
+  %377 = shufflevector <2 x i64> %375, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  %378 = xor <2 x i64> %376, %377
+  %379 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %378, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
+  %380 = shufflevector <2 x i64> %378, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  %381 = xor <2 x i64> %379, %373
+  %382 = xor <2 x i64> %381, %380
+  %383 = xor <2 x i64> %382, %341
   %384 = getelementptr i8, ptr %0, i64 %.1177428.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %384, ptr noundef nonnull align 16 dereferenceable(112) %10, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #14
@@ -2253,125 +2253,125 @@ encrypt_xor_wide.exit245.i:                       ; preds = %374
   br i1 %.not196.i, label %.preheader397.i.loopexit, label %.preheader398.i, !llvm.loop !46
 
 .loopexit395.i:                                   ; preds = %encrypt_xor_block.exit.i
-  %386 = xor <2 x i64> %437, %422
-  %387 = add i64 %389, 64
-  %.not197.i = icmp ugt i64 %387, %3
+  %386 = shufflevector <2 x i64> %435, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
+  %387 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %435, <2 x i32> <i32 1, i32 2>
+  %388 = xor <2 x i64> %433, %387
+  %389 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %388, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
+  %390 = shufflevector <2 x i64> %388, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  %391 = xor <2 x i64> %389, %390
+  %392 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %391, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
+  %393 = shufflevector <2 x i64> %391, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  %394 = xor <2 x i64> %392, %386
+  %395 = xor <2 x i64> %394, %393
+  %396 = xor <2 x i64> %395, %432
+  %397 = add i64 %399, 64
+  %.not197.i = icmp ugt i64 %397, %3
   br i1 %.not197.i, label %.preheader394.i.loopexit, label %.preheader396.i, !llvm.loop !47
 
 .preheader396.i:                                  ; preds = %.loopexit395.i, %.preheader396.lr.ph.i
-  %388 = phi <2 x i64> [ %.promoted72, %.preheader396.lr.ph.i ], [ %386, %.loopexit395.i ]
-  %389 = phi i64 [ %309, %.preheader396.lr.ph.i ], [ %387, %.loopexit395.i ]
-  %.2178438.i = phi i64 [ %.1177.lcssa.i, %.preheader396.lr.ph.i ], [ %389, %.loopexit395.i ]
-  %.2183437.i = phi <2 x i64> [ %.1182.lcssa.i, %.preheader396.lr.ph.i ], [ %398, %.loopexit395.i ]
-  br label %394
+  %398 = phi <2 x i64> [ %.promoted72, %.preheader396.lr.ph.i ], [ %396, %.loopexit395.i ]
+  %399 = phi i64 [ %309, %.preheader396.lr.ph.i ], [ %397, %.loopexit395.i ]
+  %.2178438.i = phi i64 [ %.1177.lcssa.i, %.preheader396.lr.ph.i ], [ %399, %.loopexit395.i ]
+  %.2183437.i = phi <2 x i64> [ %.1182.lcssa.i, %.preheader396.lr.ph.i ], [ %408, %.loopexit395.i ]
+  br label %404
 
 .preheader394.i.loopexit:                         ; preds = %.loopexit395.i
-  store <2 x i64> %386, ptr %20, align 16
+  store <2 x i64> %396, ptr %20, align 16
   br label %.preheader394.i
 
 .preheader394.i:                                  ; preds = %.preheader394.i.loopexit, %.preheader397.i
-  %.2183.lcssa.i = phi <2 x i64> [ %.1182.lcssa.i, %.preheader397.i ], [ %398, %.preheader394.i.loopexit ]
-  %.2178.lcssa.i = phi i64 [ %.1177.lcssa.i, %.preheader397.i ], [ %389, %.preheader394.i.loopexit ]
-  %390 = add i64 %.2178.lcssa.i, 32
-  %.not198442.i = icmp ugt i64 %390, %3
+  %.2183.lcssa.i = phi <2 x i64> [ %.1182.lcssa.i, %.preheader397.i ], [ %408, %.preheader394.i.loopexit ]
+  %.2178.lcssa.i = phi i64 [ %.1177.lcssa.i, %.preheader397.i ], [ %399, %.preheader394.i.loopexit ]
+  %400 = add i64 %.2178.lcssa.i, 32
+  %.not198442.i = icmp ugt i64 %400, %3
   br i1 %.not198442.i, label %.preheader393.i, label %.critedge.preheader.lr.ph.i
 
 .critedge.preheader.lr.ph.i:                      ; preds = %.preheader394.i
-  %391 = getelementptr inbounds nuw i8, ptr %8, i64 240
-  %392 = getelementptr i8, ptr %8, i64 256
-  %393 = getelementptr i8, ptr %8, i64 224
+  %401 = getelementptr inbounds nuw i8, ptr %8, i64 240
+  %402 = getelementptr i8, ptr %8, i64 256
+  %403 = getelementptr i8, ptr %8, i64 224
   %.promoted74 = load <2 x i64>, ptr %20, align 16
   br label %.critedge.preheader.i
 
-394:                                              ; preds = %394, %.preheader396.i
-  %.010.i246.i = phi <2 x i64> [ %398, %394 ], [ %.2183437.i, %.preheader396.i ]
-  %.089.i247.i = phi i64 [ %399, %394 ], [ 0, %.preheader396.i ]
-  %395 = bitcast <2 x i64> %.010.i246.i to <16 x i8>
-  %396 = shufflevector <16 x i8> %395, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %397 = getelementptr <2 x i64>, ptr %14, i64 %.089.i247.i
-  store <16 x i8> %396, ptr %397, align 16
-  %398 = add <2 x i64> %.010.i246.i, <i64 1, i64 0>
-  %399 = add nuw nsw i64 %.089.i247.i, 1
-  %exitcond.not.i248.i = icmp eq i64 %399, 4
-  br i1 %exitcond.not.i248.i, label %incr_counters.exit249.i, label %394, !llvm.loop !11
+404:                                              ; preds = %404, %.preheader396.i
+  %.010.i246.i = phi <2 x i64> [ %408, %404 ], [ %.2183437.i, %.preheader396.i ]
+  %.089.i247.i = phi i64 [ %409, %404 ], [ 0, %.preheader396.i ]
+  %405 = bitcast <2 x i64> %.010.i246.i to <16 x i8>
+  %406 = shufflevector <16 x i8> %405, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
+  %407 = getelementptr <2 x i64>, ptr %14, i64 %.089.i247.i
+  store <16 x i8> %406, ptr %407, align 16
+  %408 = add <2 x i64> %.010.i246.i, <i64 1, i64 0>
+  %409 = add nuw nsw i64 %.089.i247.i, 1
+  %exitcond.not.i248.i = icmp eq i64 %409, 4
+  br i1 %exitcond.not.i248.i, label %incr_counters.exit249.i, label %404, !llvm.loop !11
 
-incr_counters.exit249.i:                          ; preds = %394
-  %400 = getelementptr i8, ptr %2, i64 %.2178438.i
-  %401 = load <2 x i64>, ptr %311, align 16
-  %.val205387.i = load <16 x i8>, ptr %400, align 1
-  %402 = shufflevector <16 x i8> %.val205387.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %403 = bitcast <16 x i8> %402 to <2 x i64>
-  %404 = xor <2 x i64> %388, %403
-  %405 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %404, <2 x i64> %401, i8 17)
-  %406 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %404, <2 x i64> %401, i8 0)
-  %407 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %404, <2 x i64> %401, i8 1)
-  %408 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %404, <2 x i64> %401, i8 16)
-  %409 = xor <2 x i64> %408, %407
-  br label %410
+incr_counters.exit249.i:                          ; preds = %404
+  %410 = getelementptr i8, ptr %2, i64 %.2178438.i
+  %411 = load <2 x i64>, ptr %311, align 16
+  %.val205387.i = load <16 x i8>, ptr %410, align 1
+  %412 = shufflevector <16 x i8> %.val205387.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
+  %413 = bitcast <16 x i8> %412 to <2 x i64>
+  %414 = xor <2 x i64> %398, %413
+  %415 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %414, <2 x i64> %411, i8 17)
+  %416 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %414, <2 x i64> %411, i8 0)
+  %417 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %414, <2 x i64> %411, i8 1)
+  %418 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %414, <2 x i64> %411, i8 16)
+  %419 = xor <2 x i64> %418, %417
+  br label %420
 
-410:                                              ; preds = %410, %incr_counters.exit249.i
-  %.3434.i = phi i64 [ 1, %incr_counters.exit249.i ], [ %426, %410 ]
-  %.sroa.42.3433.i = phi <2 x i64> [ %409, %incr_counters.exit249.i ], [ %425, %410 ]
-  %.sroa.22.3432.i = phi <2 x i64> [ %406, %incr_counters.exit249.i ], [ %423, %410 ]
-  %.sroa.0338.3431.i = phi <2 x i64> [ %405, %incr_counters.exit249.i ], [ %422, %410 ]
-  %411 = shl nuw nsw i64 %.3434.i, 4
-  %412 = getelementptr i8, ptr %400, i64 %411
-  %413 = sub nuw nsw i64 3, %.3434.i
-  %414 = getelementptr [14 x <2 x i64>], ptr %310, i64 0, i64 %413
-  %415 = load <2 x i64>, ptr %414, align 16
-  %.val213388.i = load <16 x i8>, ptr %412, align 1
-  %416 = shufflevector <16 x i8> %.val213388.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %417 = bitcast <16 x i8> %416 to <2 x i64>
-  %418 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %417, <2 x i64> %415, i8 17)
-  %419 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %417, <2 x i64> %415, i8 0)
-  %420 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %417, <2 x i64> %415, i8 1)
-  %421 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %417, <2 x i64> %415, i8 16)
-  %422 = xor <2 x i64> %418, %.sroa.0338.3431.i
-  %423 = xor <2 x i64> %419, %.sroa.22.3432.i
-  %424 = xor <2 x i64> %420, %.sroa.42.3433.i
-  %425 = xor <2 x i64> %424, %421
-  %426 = add nuw nsw i64 %.3434.i, 1
-  %exitcond488.not.i = icmp eq i64 %426, 4
-  br i1 %exitcond488.not.i, label %427, label %410, !llvm.loop !48
+420:                                              ; preds = %420, %incr_counters.exit249.i
+  %.3434.i = phi i64 [ 1, %incr_counters.exit249.i ], [ %436, %420 ]
+  %.sroa.42.3433.i = phi <2 x i64> [ %419, %incr_counters.exit249.i ], [ %435, %420 ]
+  %.sroa.22.3432.i = phi <2 x i64> [ %416, %incr_counters.exit249.i ], [ %433, %420 ]
+  %.sroa.0338.3431.i = phi <2 x i64> [ %415, %incr_counters.exit249.i ], [ %432, %420 ]
+  %421 = shl nuw nsw i64 %.3434.i, 4
+  %422 = getelementptr i8, ptr %410, i64 %421
+  %423 = sub nuw nsw i64 3, %.3434.i
+  %424 = getelementptr [14 x <2 x i64>], ptr %310, i64 0, i64 %423
+  %425 = load <2 x i64>, ptr %424, align 16
+  %.val213388.i = load <16 x i8>, ptr %422, align 1
+  %426 = shufflevector <16 x i8> %.val213388.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
+  %427 = bitcast <16 x i8> %426 to <2 x i64>
+  %428 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %427, <2 x i64> %425, i8 17)
+  %429 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %427, <2 x i64> %425, i8 0)
+  %430 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %427, <2 x i64> %425, i8 1)
+  %431 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %427, <2 x i64> %425, i8 16)
+  %432 = xor <2 x i64> %428, %.sroa.0338.3431.i
+  %433 = xor <2 x i64> %429, %.sroa.22.3432.i
+  %434 = xor <2 x i64> %430, %.sroa.42.3433.i
+  %435 = xor <2 x i64> %434, %431
+  %436 = add nuw nsw i64 %.3434.i, 1
+  %exitcond488.not.i = icmp eq i64 %436, 4
+  br i1 %exitcond488.not.i, label %437, label %420, !llvm.loop !48
 
-427:                                              ; preds = %410
-  %428 = shufflevector <2 x i64> %425, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
-  %429 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %425, <2 x i32> <i32 1, i32 2>
-  %430 = xor <2 x i64> %423, %429
-  %431 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %430, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
-  %432 = shufflevector <2 x i64> %430, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %433 = xor <2 x i64> %431, %432
-  %434 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %433, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
-  %435 = shufflevector <2 x i64> %433, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %436 = xor <2 x i64> %434, %428
-  %437 = xor <2 x i64> %436, %435
+437:                                              ; preds = %420
   %438 = getelementptr i8, ptr %0, i64 %.2178438.i
   br label %439
 
-439:                                              ; preds = %encrypt_xor_block.exit.i, %427
-  %.4435.i = phi i64 [ 0, %427 ], [ %456, %encrypt_xor_block.exit.i ]
-  %440 = shl nuw nsw i64 %.4435.i, 4
-  %441 = getelementptr [7 x <2 x i64>], ptr %14, i64 0, i64 %.4435.i
-  %442 = load <2 x i64>, ptr %441, align 16
-  %443 = load <2 x i64>, ptr %8, align 16
-  %444 = xor <2 x i64> %443, %442
-  br label %445
+439:                                              ; preds = %encrypt_xor_block.exit.i, %437
+  %.4435.i = phi i64 [ 0, %437 ], [ %456, %encrypt_xor_block.exit.i ]
+  %440 = getelementptr [7 x <2 x i64>], ptr %14, i64 0, i64 %.4435.i
+  %441 = load <2 x i64>, ptr %440, align 16
+  %442 = load <2 x i64>, ptr %8, align 16
+  %443 = xor <2 x i64> %442, %441
+  br label %444
 
-445:                                              ; preds = %445, %439
-  %.015.i.i = phi i64 [ 1, %439 ], [ %449, %445 ]
-  %.01314.i.i = phi <2 x i64> [ %444, %439 ], [ %448, %445 ]
-  %446 = getelementptr [15 x <2 x i64>], ptr %8, i64 0, i64 %.015.i.i
-  %447 = load <2 x i64>, ptr %446, align 16
-  %448 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i.i, <2 x i64> %447)
-  %449 = add nuw nsw i64 %.015.i.i, 1
-  %exitcond.not.i250.i = icmp eq i64 %449, 14
-  br i1 %exitcond.not.i250.i, label %encrypt_xor_block.exit.i, label %445, !llvm.loop !23
+444:                                              ; preds = %444, %439
+  %.015.i.i = phi i64 [ 1, %439 ], [ %448, %444 ]
+  %.01314.i.i = phi <2 x i64> [ %443, %439 ], [ %447, %444 ]
+  %445 = getelementptr [15 x <2 x i64>], ptr %8, i64 0, i64 %.015.i.i
+  %446 = load <2 x i64>, ptr %445, align 16
+  %447 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i.i, <2 x i64> %446)
+  %448 = add nuw nsw i64 %.015.i.i, 1
+  %exitcond.not.i250.i = icmp eq i64 %448, 14
+  br i1 %exitcond.not.i250.i, label %encrypt_xor_block.exit.i, label %444, !llvm.loop !23
 
-encrypt_xor_block.exit.i:                         ; preds = %445
-  %450 = getelementptr i8, ptr %438, i64 %440
-  %451 = getelementptr i8, ptr %400, i64 %440
+encrypt_xor_block.exit.i:                         ; preds = %444
+  %449 = shl nuw nsw i64 %.4435.i, 4
+  %450 = getelementptr i8, ptr %438, i64 %449
+  %451 = getelementptr i8, ptr %410, i64 %449
   %452 = load <2 x i64>, ptr %312, align 16
-  %453 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %448, <2 x i64> %452)
+  %453 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %447, <2 x i64> %452)
   %454 = load <2 x i64>, ptr %451, align 1
   %455 = xor <2 x i64> %454, %453
   store <2 x i64> %455, ptr %450, align 1
@@ -2380,82 +2380,82 @@ encrypt_xor_block.exit.i:                         ; preds = %445
   br i1 %exitcond489.not.i, label %.loopexit395.i, label %439, !llvm.loop !49
 
 .loopexit.i:                                      ; preds = %encrypt_xor_block.exit258.i
-  %457 = shufflevector <2 x i64> %498, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %458 = xor <2 x i64> %501, %457
-  %459 = add i64 %461, 32
-  %.not198.i = icmp ugt i64 %459, %3
+  %457 = shufflevector <16 x i8> %.val207389.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
+  %458 = bitcast <16 x i8> %457 to <2 x i64>
+  %459 = xor <2 x i64> %487, %458
+  %460 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %459, <2 x i64> %499, i8 17)
+  %461 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %459, <2 x i64> %499, i8 0)
+  %462 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %459, <2 x i64> %499, i8 1)
+  %463 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %459, <2 x i64> %499, i8 16)
+  %464 = shufflevector <16 x i8> %.val214390.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
+  %465 = bitcast <16 x i8> %464 to <2 x i64>
+  %466 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %465, <2 x i64> %501, i8 17)
+  %467 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %465, <2 x i64> %501, i8 0)
+  %468 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %465, <2 x i64> %501, i8 1)
+  %469 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %465, <2 x i64> %501, i8 16)
+  %470 = xor <2 x i64> %466, %460
+  %471 = xor <2 x i64> %467, %461
+  %472 = xor <2 x i64> %463, %462
+  %473 = xor <2 x i64> %472, %468
+  %474 = xor <2 x i64> %473, %469
+  %475 = shufflevector <2 x i64> %474, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
+  %476 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %474, <2 x i32> <i32 1, i32 2>
+  %477 = xor <2 x i64> %471, %476
+  %478 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %477, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
+  %479 = shufflevector <2 x i64> %477, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  %480 = xor <2 x i64> %478, %479
+  %481 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %480, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
+  %482 = shufflevector <2 x i64> %480, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  %483 = xor <2 x i64> %470, %481
+  %484 = xor <2 x i64> %483, %475
+  %485 = xor <2 x i64> %484, %482
+  %486 = add i64 %488, 32
+  %.not198.i = icmp ugt i64 %486, %3
   br i1 %.not198.i, label %.preheader393.i.loopexit, label %.critedge.preheader.i, !llvm.loop !50
 
 .critedge.preheader.i:                            ; preds = %.loopexit.i, %.critedge.preheader.lr.ph.i
-  %460 = phi <2 x i64> [ %.promoted74, %.critedge.preheader.lr.ph.i ], [ %458, %.loopexit.i ]
-  %461 = phi i64 [ %390, %.critedge.preheader.lr.ph.i ], [ %459, %.loopexit.i ]
-  %.3179444.i = phi i64 [ %.2178.lcssa.i, %.critedge.preheader.lr.ph.i ], [ %461, %.loopexit.i ]
-  %.3184443.i = phi <2 x i64> [ %.2183.lcssa.i, %.critedge.preheader.lr.ph.i ], [ %469, %.loopexit.i ]
+  %487 = phi <2 x i64> [ %.promoted74, %.critedge.preheader.lr.ph.i ], [ %485, %.loopexit.i ]
+  %488 = phi i64 [ %400, %.critedge.preheader.lr.ph.i ], [ %486, %.loopexit.i ]
+  %.3179444.i = phi i64 [ %.2178.lcssa.i, %.critedge.preheader.lr.ph.i ], [ %488, %.loopexit.i ]
+  %.3184443.i = phi <2 x i64> [ %.2183.lcssa.i, %.critedge.preheader.lr.ph.i ], [ %496, %.loopexit.i ]
   br label %.critedge.i
 
 .preheader393.i.loopexit:                         ; preds = %.loopexit.i
-  store <2 x i64> %458, ptr %20, align 16
+  store <2 x i64> %485, ptr %20, align 16
   br label %.preheader393.i
 
 .preheader393.i:                                  ; preds = %.preheader393.i.loopexit, %.preheader394.i
-  %.3184.lcssa.i = phi <2 x i64> [ %.2183.lcssa.i, %.preheader394.i ], [ %469, %.preheader393.i.loopexit ]
-  %.3179.lcssa.i = phi i64 [ %.2178.lcssa.i, %.preheader394.i ], [ %461, %.preheader393.i.loopexit ]
-  %462 = add i64 %.3179.lcssa.i, 16
-  %463 = icmp ult i64 %462, %3
-  br i1 %463, label %.lr.ph.i, label %._crit_edge.i
+  %.3184.lcssa.i = phi <2 x i64> [ %.2183.lcssa.i, %.preheader394.i ], [ %496, %.preheader393.i.loopexit ]
+  %.3179.lcssa.i = phi i64 [ %.2178.lcssa.i, %.preheader394.i ], [ %488, %.preheader393.i.loopexit ]
+  %489 = add i64 %.3179.lcssa.i, 16
+  %490 = icmp ult i64 %489, %3
+  br i1 %490, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader393.i
-  %464 = getelementptr inbounds nuw i8, ptr %8, i64 240
-  %465 = getelementptr i8, ptr %8, i64 224
+  %491 = getelementptr inbounds nuw i8, ptr %8, i64 240
+  %492 = getelementptr i8, ptr %8, i64 224
   %.promoted76 = load <2 x i64>, ptr %20, align 16
   br label %519
 
 .critedge.i:                                      ; preds = %.critedge.i, %.critedge.preheader.i
-  %.010.i251.i = phi <2 x i64> [ %469, %.critedge.i ], [ %.3184443.i, %.critedge.preheader.i ]
-  %.089.i252.i = phi i64 [ %470, %.critedge.i ], [ 0, %.critedge.preheader.i ]
-  %466 = bitcast <2 x i64> %.010.i251.i to <16 x i8>
-  %467 = shufflevector <16 x i8> %466, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %468 = getelementptr <2 x i64>, ptr %14, i64 %.089.i252.i
-  store <16 x i8> %467, ptr %468, align 16
-  %469 = add <2 x i64> %.010.i251.i, <i64 1, i64 0>
-  %470 = add nuw nsw i64 %.089.i252.i, 1
-  %exitcond.not.i253.i = icmp eq i64 %470, 2
+  %.010.i251.i = phi <2 x i64> [ %496, %.critedge.i ], [ %.3184443.i, %.critedge.preheader.i ]
+  %.089.i252.i = phi i64 [ %497, %.critedge.i ], [ 0, %.critedge.preheader.i ]
+  %493 = bitcast <2 x i64> %.010.i251.i to <16 x i8>
+  %494 = shufflevector <16 x i8> %493, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
+  %495 = getelementptr <2 x i64>, ptr %14, i64 %.089.i252.i
+  store <16 x i8> %494, ptr %495, align 16
+  %496 = add <2 x i64> %.010.i251.i, <i64 1, i64 0>
+  %497 = add nuw nsw i64 %.089.i252.i, 1
+  %exitcond.not.i253.i = icmp eq i64 %497, 2
   br i1 %exitcond.not.i253.i, label %incr_counters.exit254.i, label %.critedge.i, !llvm.loop !11
 
 incr_counters.exit254.i:                          ; preds = %.critedge.i
-  %471 = getelementptr i8, ptr %2, i64 %.3179444.i
-  %472 = load <2 x i64>, ptr %392, align 16
-  %.val207389.i = load <16 x i8>, ptr %471, align 1
-  %473 = shufflevector <16 x i8> %.val207389.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %474 = bitcast <16 x i8> %473 to <2 x i64>
-  %475 = xor <2 x i64> %460, %474
-  %476 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %475, <2 x i64> %472, i8 17)
-  %477 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %475, <2 x i64> %472, i8 0)
-  %478 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %475, <2 x i64> %472, i8 1)
-  %479 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %475, <2 x i64> %472, i8 16)
-  %480 = getelementptr i8, ptr %471, i64 16
-  %481 = load <2 x i64>, ptr %391, align 16
-  %.val214390.i = load <16 x i8>, ptr %480, align 1
-  %482 = shufflevector <16 x i8> %.val214390.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %483 = bitcast <16 x i8> %482 to <2 x i64>
-  %484 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %483, <2 x i64> %481, i8 17)
-  %485 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %483, <2 x i64> %481, i8 0)
-  %486 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %483, <2 x i64> %481, i8 1)
-  %487 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %483, <2 x i64> %481, i8 16)
-  %488 = xor <2 x i64> %484, %476
-  %489 = xor <2 x i64> %485, %477
-  %490 = xor <2 x i64> %479, %478
-  %491 = xor <2 x i64> %490, %486
-  %492 = xor <2 x i64> %491, %487
-  %493 = shufflevector <2 x i64> %492, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
-  %494 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %492, <2 x i32> <i32 1, i32 2>
-  %495 = xor <2 x i64> %489, %494
-  %496 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %495, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
-  %497 = shufflevector <2 x i64> %495, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %498 = xor <2 x i64> %496, %497
-  %499 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %498, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
-  %500 = xor <2 x i64> %488, %499
-  %501 = xor <2 x i64> %500, %493
+  %498 = getelementptr i8, ptr %2, i64 %.3179444.i
+  %499 = load <2 x i64>, ptr %402, align 16
+  %.val207389.i = load <16 x i8>, ptr %498, align 1
+  %500 = getelementptr i8, ptr %498, i64 16
+  %501 = load <2 x i64>, ptr %401, align 16
+  %.val214390.i = load <16 x i8>, ptr %500, align 1
   %502 = getelementptr i8, ptr %0, i64 %.3179444.i
   br label %503
 
@@ -2480,8 +2480,8 @@ incr_counters.exit254.i:                          ; preds = %.critedge.i
 
 encrypt_xor_block.exit258.i:                      ; preds = %508
   %513 = getelementptr i8, ptr %502, i64 %.6441.i
-  %514 = getelementptr i8, ptr %471, i64 %.6441.i
-  %515 = load <2 x i64>, ptr %393, align 16
+  %514 = getelementptr i8, ptr %498, i64 %.6441.i
+  %515 = load <2 x i64>, ptr %403, align 16
   %516 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %511, <2 x i64> %515)
   %517 = load <2 x i64>, ptr %514, align 1
   %518 = xor <2 x i64> %517, %516
@@ -2490,54 +2490,54 @@ encrypt_xor_block.exit258.i:                      ; preds = %508
 
 519:                                              ; preds = %encrypt_xor_block.exit262.i, %.lr.ph.i
   %520 = phi <2 x i64> [ %.promoted76, %.lr.ph.i ], [ %553, %encrypt_xor_block.exit262.i ]
-  %521 = phi i64 [ %462, %.lr.ph.i ], [ %559, %encrypt_xor_block.exit262.i ]
+  %521 = phi i64 [ %489, %.lr.ph.i ], [ %559, %encrypt_xor_block.exit262.i ]
   %.4180448.i = phi i64 [ %.3179.lcssa.i, %.lr.ph.i ], [ %521, %encrypt_xor_block.exit262.i ]
   %.4185447.i = phi <2 x i64> [ %.3184.lcssa.i, %.lr.ph.i ], [ %558, %encrypt_xor_block.exit262.i ]
   %522 = getelementptr i8, ptr %2, i64 %.4180448.i
-  %523 = load <2 x i64>, ptr %464, align 16
+  %523 = load <2 x i64>, ptr %491, align 16
   %.val209391.i = load <16 x i8>, ptr %522, align 1
-  %524 = shufflevector <16 x i8> %.val209391.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %525 = bitcast <16 x i8> %524 to <2 x i64>
-  %526 = xor <2 x i64> %520, %525
-  %527 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %526, <2 x i64> %523, i8 17)
-  %528 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %526, <2 x i64> %523, i8 0)
-  %529 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %526, <2 x i64> %523, i8 1)
-  %530 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %526, <2 x i64> %523, i8 16)
-  %531 = xor <2 x i64> %530, %529
-  %532 = shufflevector <2 x i64> %531, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
-  %533 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %531, <2 x i32> <i32 1, i32 2>
-  %534 = xor <2 x i64> %528, %533
-  %535 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %534, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
-  %536 = shufflevector <2 x i64> %534, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %537 = xor <2 x i64> %535, %536
-  %538 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %537, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
-  %539 = xor <2 x i64> %538, %527
-  %540 = xor <2 x i64> %539, %532
-  %541 = bitcast <2 x i64> %.4185447.i to <16 x i8>
-  %542 = shufflevector <16 x i8> %541, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %543 = bitcast <16 x i8> %542 to <2 x i64>
-  %544 = load <2 x i64>, ptr %8, align 16
-  %545 = xor <2 x i64> %544, %543
-  %546 = bitcast <16 x i8> %.val209391.i to <2 x i64>
-  br label %547
+  %524 = bitcast <2 x i64> %.4185447.i to <16 x i8>
+  %525 = shufflevector <16 x i8> %524, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
+  %526 = bitcast <16 x i8> %525 to <2 x i64>
+  %527 = load <2 x i64>, ptr %8, align 16
+  %528 = xor <2 x i64> %527, %526
+  %529 = bitcast <16 x i8> %.val209391.i to <2 x i64>
+  br label %530
 
-547:                                              ; preds = %547, %519
-  %.015.i259.i = phi i64 [ 1, %519 ], [ %551, %547 ]
-  %.01314.i260.i = phi <2 x i64> [ %545, %519 ], [ %550, %547 ]
-  %548 = getelementptr [15 x <2 x i64>], ptr %8, i64 0, i64 %.015.i259.i
-  %549 = load <2 x i64>, ptr %548, align 16
-  %550 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i260.i, <2 x i64> %549)
-  %551 = add nuw nsw i64 %.015.i259.i, 1
-  %exitcond.not.i261.i = icmp eq i64 %551, 14
-  br i1 %exitcond.not.i261.i, label %encrypt_xor_block.exit262.i, label %547, !llvm.loop !23
+530:                                              ; preds = %530, %519
+  %.015.i259.i = phi i64 [ 1, %519 ], [ %534, %530 ]
+  %.01314.i260.i = phi <2 x i64> [ %528, %519 ], [ %533, %530 ]
+  %531 = getelementptr [15 x <2 x i64>], ptr %8, i64 0, i64 %.015.i259.i
+  %532 = load <2 x i64>, ptr %531, align 16
+  %533 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i260.i, <2 x i64> %532)
+  %534 = add nuw nsw i64 %.015.i259.i, 1
+  %exitcond.not.i261.i = icmp eq i64 %534, 14
+  br i1 %exitcond.not.i261.i, label %encrypt_xor_block.exit262.i, label %530, !llvm.loop !23
 
-encrypt_xor_block.exit262.i:                      ; preds = %547
-  %552 = shufflevector <2 x i64> %537, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %553 = xor <2 x i64> %540, %552
+encrypt_xor_block.exit262.i:                      ; preds = %530
+  %535 = shufflevector <16 x i8> %.val209391.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
+  %536 = bitcast <16 x i8> %535 to <2 x i64>
+  %537 = xor <2 x i64> %520, %536
+  %538 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %537, <2 x i64> %523, i8 17)
+  %539 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %537, <2 x i64> %523, i8 0)
+  %540 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %537, <2 x i64> %523, i8 1)
+  %541 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %537, <2 x i64> %523, i8 16)
+  %542 = xor <2 x i64> %541, %540
+  %543 = shufflevector <2 x i64> %542, <2 x i64> <i64 0, i64 poison>, <2 x i32> <i32 1, i32 2>
+  %544 = shufflevector <2 x i64> <i64 poison, i64 0>, <2 x i64> %542, <2 x i32> <i32 1, i32 2>
+  %545 = xor <2 x i64> %539, %544
+  %546 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %545, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
+  %547 = shufflevector <2 x i64> %545, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  %548 = xor <2 x i64> %546, %547
+  %549 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %548, <2 x i64> <i64 -4467570830351532032, i64 poison>, i8 0)
+  %550 = shufflevector <2 x i64> %548, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
+  %551 = xor <2 x i64> %549, %538
+  %552 = xor <2 x i64> %551, %543
+  %553 = xor <2 x i64> %552, %550
   %554 = getelementptr i8, ptr %0, i64 %.4180448.i
-  %555 = load <2 x i64>, ptr %465, align 16
-  %556 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %550, <2 x i64> %555)
-  %557 = xor <2 x i64> %556, %546
+  %555 = load <2 x i64>, ptr %492, align 16
+  %556 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %533, <2 x i64> %555)
+  %557 = xor <2 x i64> %556, %529
   store <2 x i64> %557, ptr %554, align 1
   %558 = add <2 x i64> %.4185447.i, <i64 1, i64 0>
   %559 = add i64 %521, 16
@@ -2551,32 +2551,32 @@ encrypt_xor_block.exit262.i:                      ; preds = %547
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader393.i
   %.4185.lcssa.i = phi <2 x i64> [ %.3184.lcssa.i, %.preheader393.i ], [ %558, %._crit_edge.i.loopexit ]
   %.4180.lcssa.i = phi i64 [ %.3179.lcssa.i, %.preheader393.i ], [ %521, %._crit_edge.i.loopexit ]
-  %561 = shl i64 %6, 3
-  %562 = shl nuw nsw i64 %3, 3
-  %563 = insertelement <2 x i64> poison, i64 %562, i64 0
-  %564 = insertelement <2 x i64> %563, i64 %561, i64 1
   %.sroa.0.12.vec.insert113 = shufflevector <16 x i8> %.sroa.0.0.vec.expand, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 1>, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 28, i32 29, i32 30, i32 31>
-  %565 = bitcast <16 x i8> %.sroa.0.12.vec.insert113 to <2 x i64>
-  %566 = load <2 x i64>, ptr %8, align 16
-  %567 = xor <2 x i64> %566, %565
-  br label %568
+  %561 = bitcast <16 x i8> %.sroa.0.12.vec.insert113 to <2 x i64>
+  %562 = load <2 x i64>, ptr %8, align 16
+  %563 = xor <2 x i64> %562, %561
+  br label %564
 
-568:                                              ; preds = %568, %._crit_edge.i
-  %.02.i.i33 = phi i64 [ 1, %._crit_edge.i ], [ %572, %568 ]
-  %.0101.i.i34 = phi <2 x i64> [ %567, %._crit_edge.i ], [ %571, %568 ]
-  %569 = getelementptr [15 x <2 x i64>], ptr %8, i64 0, i64 %.02.i.i33
-  %570 = load <2 x i64>, ptr %569, align 16
-  %571 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.0101.i.i34, <2 x i64> %570)
-  %572 = add nuw nsw i64 %.02.i.i33, 1
-  %exitcond.not.i263.i = icmp eq i64 %572, 14
-  br i1 %exitcond.not.i263.i, label %encrypt.exit.i, label %568, !llvm.loop !4
+564:                                              ; preds = %564, %._crit_edge.i
+  %.02.i.i33 = phi i64 [ 1, %._crit_edge.i ], [ %568, %564 ]
+  %.0101.i.i34 = phi <2 x i64> [ %563, %._crit_edge.i ], [ %567, %564 ]
+  %565 = getelementptr [15 x <2 x i64>], ptr %8, i64 0, i64 %.02.i.i33
+  %566 = load <2 x i64>, ptr %565, align 16
+  %567 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.0101.i.i34, <2 x i64> %566)
+  %568 = add nuw nsw i64 %.02.i.i33, 1
+  %exitcond.not.i263.i = icmp eq i64 %568, 14
+  br i1 %exitcond.not.i263.i, label %encrypt.exit.i, label %564, !llvm.loop !4
 
-encrypt.exit.i:                                   ; preds = %568
-  %573 = bitcast <2 x i64> %564 to <16 x i8>
+encrypt.exit.i:                                   ; preds = %564
+  %569 = shl i64 %6, 3
+  %570 = shl nuw nsw i64 %3, 3
+  %571 = insertelement <2 x i64> poison, i64 %570, i64 0
+  %572 = insertelement <2 x i64> %571, i64 %569, i64 1
+  %573 = bitcast <2 x i64> %572 to <16 x i8>
   %574 = shufflevector <16 x i8> %573, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %575 = getelementptr i8, ptr %8, i64 224
   %576 = load <2 x i64>, ptr %575, align 16
-  %577 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %571, <2 x i64> %576)
+  %577 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %567, <2 x i64> %576)
   %578 = sub i64 %3, %.4180.lcssa.i
   %.not199.i = icmp eq i64 %3, %.4180.lcssa.i
   br i1 %.not199.i, label %._crit_edge.i321.thread.i, label %.preheader.i
@@ -2610,10 +2610,10 @@ encrypt.exit.i:                                   ; preds = %568
   %591 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %588, <2 x i64> %585, i8 1)
   %592 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %588, <2 x i64> %585, i8 16)
   %593 = load <2 x i64>, ptr %583, align 16
-  %594 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %564, <2 x i64> %593, i8 17)
-  %595 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %564, <2 x i64> %593, i8 0)
-  %596 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %564, <2 x i64> %593, i8 1)
-  %597 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %564, <2 x i64> %593, i8 16)
+  %594 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %572, <2 x i64> %593, i8 17)
+  %595 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %572, <2 x i64> %593, i8 0)
+  %596 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %572, <2 x i64> %593, i8 1)
+  %597 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %572, <2 x i64> %593, i8 16)
   %598 = xor <2 x i64> %594, %589
   %599 = xor <2 x i64> %595, %590
   %600 = xor <2 x i64> %592, %591
@@ -2633,7 +2633,7 @@ encrypt.exit.i:                                   ; preds = %568
   %614 = bitcast <2 x i64> %.4185.lcssa.i to <16 x i8>
   %615 = shufflevector <16 x i8> %614, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %616 = bitcast <16 x i8> %615 to <2 x i64>
-  %617 = xor <2 x i64> %566, %616
+  %617 = xor <2 x i64> %562, %616
   br label %618
 
 618:                                              ; preds = %618, %.preheader.i277.thread.i
@@ -2659,7 +2659,7 @@ encrypt.exit.i:                                   ; preds = %568
   %627 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %628 = load <2 x i64>, ptr %627, align 16
   %.val85.i323.i = load <2 x i64>, ptr %20, align 16
-  %629 = xor <2 x i64> %.val85.i323.i, %564
+  %629 = xor <2 x i64> %.val85.i323.i, %572
   %630 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %629, <2 x i64> %628, i8 17)
   %631 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %629, <2 x i64> %628, i8 0)
   %632 = call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %629, <2 x i64> %628, i8 1)

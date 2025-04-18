@@ -5715,14 +5715,14 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i:          ; preds = %_ZL15getMaxCounterI
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.preheader, %185
-  %190 = sub nsw i64 %164, %183
-  %191 = shl nuw nsw i64 %164, 3
-  %192 = add nsw i64 %191, -8
-  %193 = sub i64 %192, %182
-  %194 = and i64 %193, -8
-  %195 = add i64 %194, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %180, i8 0, i64 %195, i1 false), !tbaa !10
-  %196 = getelementptr inbounds nuw i64, ptr %180, i64 %190
+  %190 = shl nuw nsw i64 %164, 3
+  %191 = add nsw i64 %190, -8
+  %192 = sub i64 %191, %182
+  %193 = and i64 %192, -8
+  %194 = add i64 %193, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %180, i8 0, i64 %194, i1 false), !tbaa !10
+  %195 = sub nsw i64 %164, %183
+  %196 = getelementptr inbounds nuw i64, ptr %180, i64 %195
   store ptr %196, ptr %179, align 8, !tbaa !355
   br label %_ZNSt6vectorImSaImEE14_M_fill_assignEmRKm.exit
 

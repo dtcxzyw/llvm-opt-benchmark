@@ -45094,24 +45094,24 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L13createEscaperERNS_2NGERKNS_
           to label %_ZN3ue210add_vertexINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueENS3_17vertex_descriptorEE4typeERS3_.exit unwind label %60
 
 _ZN3ue210add_vertexINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueENS3_17vertex_descriptorEE4typeERS3_.exit: ; preds = %16
-  %19 = extractvalue { ptr, i64 } %18, 0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  br label %20
+  br label %19
 
-20:                                               ; preds = %20, %_ZN3ue210add_vertexINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueENS3_17vertex_descriptorEE4typeERS3_.exit
-  %.0.idx9.i.i.i = phi i64 [ 0, %_ZN3ue210add_vertexINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueENS3_17vertex_descriptorEE4typeERS3_.exit ], [ %.0.add.i.i.i, %20 ]
+19:                                               ; preds = %19, %_ZN3ue210add_vertexINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueENS3_17vertex_descriptorEE4typeERS3_.exit
+  %.0.idx9.i.i.i = phi i64 [ 0, %_ZN3ue210add_vertexINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueENS3_17vertex_descriptorEE4typeERS3_.exit ], [ %.0.add.i.i.i, %19 ]
   %.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.0.idx9.i.i.i
-  %21 = load i64, ptr %.0.ptr.i.i.i, align 8, !alias.scope !1528
-  %22 = xor i64 %21, -1
-  store i64 %22, ptr %.0.ptr.i.i.i, align 8, !alias.scope !1528
+  %20 = load i64, ptr %.0.ptr.i.i.i, align 8, !alias.scope !1528
+  %21 = xor i64 %20, -1
+  store i64 %21, ptr %.0.ptr.i.i.i, align 8, !alias.scope !1528
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx9.i.i.i, 8
   %.not.i.i.i = icmp eq i64 %.0.add.i.i.i, 32
-  br i1 %.not.i.i.i, label %_ZNK3ue29CharReachcoEv.exit, label %20
+  br i1 %.not.i.i.i, label %_ZNK3ue29CharReachcoEv.exit, label %19
 
-_ZNK3ue29CharReachcoEv.exit:                      ; preds = %20
+_ZNK3ue29CharReachcoEv.exit:                      ; preds = %19
+  %22 = extractvalue { ptr, i64 } %18, 0
   %23 = extractvalue { ptr, i64 } %18, 1
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25
   %25 = invoke { ptr, i64 } @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE15add_vertex_implEv(ptr noundef nonnull align 8 dereferenceable(56) %17)
@@ -45209,7 +45209,7 @@ _ZNK3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsE
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 96
   %67 = load i64, ptr %66, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #25
-  invoke void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.366") align 8 %7, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr nonnull %65, i64 %67, ptr %19, i64 %23)
+  invoke void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.366") align 8 %7, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr nonnull %65, i64 %67, ptr %22, i64 %23)
           to label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_.exit unwind label %69
 
 _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_.exit: ; preds = %.lr.ph
@@ -45244,13 +45244,13 @@ _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pa
   store ptr %38, ptr %73, align 8
   store i64 0, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #25
-  invoke void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.366") align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr %19, i64 %23, ptr %27, i64 %28)
+  invoke void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.366") align 8 %9, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr %22, i64 %23, ptr %27, i64 %28)
           to label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_.exit76 unwind label %90
 
 _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_.exit76: ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #25
-  invoke void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.366") align 8 %10, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr %19, i64 %23, ptr %19, i64 %23)
+  invoke void @_ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.366") align 8 %10, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr %22, i64 %23, ptr %22, i64 %23)
           to label %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_.exit77 unwind label %92
 
 _ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_.exit77: ; preds = %_ZN3ue28add_edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_.exit76

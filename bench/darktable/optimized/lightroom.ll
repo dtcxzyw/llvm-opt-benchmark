@@ -3542,26 +3542,26 @@ lr2dt_clarity.exit:                               ; preds = %716
   %902 = load ptr, ptr %901, align 8, !tbaa !28
   %903 = call ptr @xmlNodeListGetString(ptr noundef nonnull %1, ptr noundef %902, i32 noundef 1) #11
   %904 = load i32, ptr %893, align 4, !tbaa !88
-  %905 = sext i32 %904 to i64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
   store ptr %903, ptr %10, align 8, !tbaa !55
-  br label %906
+  br label %905
 
-906:                                              ; preds = %906, %900
-  %.0.i = phi ptr [ %903, %900 ], [ %909, %906 ]
-  %907 = load i8, ptr %.0.i, align 1, !tbaa !105
-  %908 = icmp eq i8 %907, 32
-  %909 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br i1 %908, label %906, label %910
+905:                                              ; preds = %905, %900
+  %.0.i = phi ptr [ %903, %900 ], [ %908, %905 ]
+  %906 = load i8, ptr %.0.i, align 1, !tbaa !105
+  %907 = icmp eq i8 %906, 32
+  %908 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  br i1 %907, label %905, label %909
 
-910:                                              ; preds = %906
-  %911 = getelementptr inbounds [32 x %struct.spot_t], ptr %894, i64 0, i64 %905
+909:                                              ; preds = %905
+  %910 = sext i32 %904 to i64
+  %911 = getelementptr inbounds [32 x %struct.spot_t], ptr %894, i64 0, i64 %910
   %912 = call i32 @g_str_has_prefix(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.131) #11
   %.not.i = icmp eq i32 %912, 0
   br i1 %.not.i, label %_read_float.exit.thread, label %913
 
-913:                                              ; preds = %910
+913:                                              ; preds = %909
   %914 = getelementptr inbounds nuw i8, ptr %.0.i, i64 7
   br label %915
 
@@ -3817,7 +3817,7 @@ _read_float.exit673:                              ; preds = %.preheader.i669
   store i32 1, ptr %895, align 8, !tbaa !209
   br label %_read_float.exit.thread
 
-_read_float.exit.thread:                          ; preds = %915, %934, %953, %972, %991, %987, %968, %949, %930, %910, %1005, %1003, %1000, %_read_float.exit673, %982, %962, %_read_float.exit660, %943, %_read_float.exit652, %924, %_read_float.exit
+_read_float.exit.thread:                          ; preds = %915, %934, %953, %972, %991, %987, %968, %949, %930, %909, %1005, %1003, %1000, %_read_float.exit673, %982, %962, %_read_float.exit660, %943, %_read_float.exit652, %924, %_read_float.exit
   %1013 = load ptr, ptr @xmlFree, align 8, !tbaa !29
   call void %1013(ptr noundef %903) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11

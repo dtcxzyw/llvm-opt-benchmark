@@ -513,8 +513,8 @@ define dso_local void @_ZN4llvm12LoopSinkPass3runERNS_8FunctionERNS_15AnalysisMa
   %87 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %88 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   %91 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %92 = getelementptr inbounds nuw i8, ptr %12, i64 8

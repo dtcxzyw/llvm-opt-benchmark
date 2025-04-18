@@ -1774,10 +1774,10 @@ _time_compare_at_zoom.exit165.thread.i:           ; preds = %351, %344, %342, %3
   %377 = call i32 @llvm.usub.sat.i32(i32 %375, i32 24)
   %378 = add nuw nsw i32 %377, 11
   %379 = udiv i32 %378, 12
-  %.neg304.i.i = mul nsw i32 %379, -12
   %380 = add nuw nsw i32 %379, 1
   %381 = add i32 %380, %.promoted244.i.i.pre
   %382 = add nsw i32 %374, -11
+  %.neg304.i.i = mul nsw i32 %379, -12
   %383 = add nsw i32 %382, %.neg304.i.i
   store i32 %381, ptr %7, align 8, !tbaa !71
   br label %.preheader129.i.i
@@ -1798,17 +1798,17 @@ _time_compare_at_zoom.exit165.thread.i:           ; preds = %351, %344, %342, %3
   %386 = add i32 %.neg109.i, %umin297.i.neg125.i
   %387 = udiv i32 %386, 12
   %388 = add nuw nsw i32 %387, %umin297.i.i
-  %389 = mul i32 %388, 12
-  %390 = xor i32 %388, -1
-  %391 = add i32 %.promoted244.i.i, %390
+  %389 = xor i32 %388, -1
+  %390 = add i32 %.promoted244.i.i, %389
+  %391 = mul i32 %388, 12
   %392 = add nsw i32 %storemerge.lcssa235.i.i, 12
-  %393 = add i32 %392, %389
-  store i32 %391, ptr %7, align 8, !tbaa !71
+  %393 = add i32 %392, %391
+  store i32 %390, ptr %7, align 8, !tbaa !71
   store i32 %393, ptr %177, align 4, !tbaa !72
   br label %thread-pre-split127.i.i
 
 thread-pre-split127.i.i:                          ; preds = %.lr.ph243.i.i, %.preheader129.i.i
-  %.pr128.i.i = phi i32 [ %391, %.lr.ph243.i.i ], [ %.promoted244.i.i, %.preheader129.i.i ]
+  %.pr128.i.i = phi i32 [ %390, %.lr.ph243.i.i ], [ %.promoted244.i.i, %.preheader129.i.i ]
   %394 = icmp slt i32 %.pr128.i.i, 0
   br i1 %394, label %395, label %_time_add.exit.i
 
@@ -1903,8 +1903,8 @@ _time_days_in_month.exit111.i.i:                  ; preds = %414, %407, %407, %4
   %420 = sub i32 %419, %smin.i.i
   %421 = udiv i32 %420, 12
   %422 = add i32 %418, %421
-  %.neg301.i.i = mul i32 %421, -12
   %423 = add nsw i32 %.lcssa145.promoted.i.i, -11
+  %.neg301.i.i = mul i32 %421, -12
   %424 = add i32 %423, %.neg301.i.i
   store i32 %422, ptr %7, align 8, !tbaa !71
   br label %.preheader136.i.i
@@ -1927,9 +1927,9 @@ _time_days_in_month.exit111.i.i:                  ; preds = %414, %407, %407, %4
   %429 = add nuw nsw i32 %428, %umin.i.i
   %430 = xor i32 %429, -1
   %431 = add i32 %.lcssa158165.i.i, %430
-  %432 = mul i32 %429, 12
-  %433 = add nsw i32 %storemerge.i112.lcssa151.i.i, 12
-  %434 = add i32 %433, %432
+  %432 = add nsw i32 %storemerge.i112.lcssa151.i.i, 12
+  %433 = mul i32 %429, 12
+  %434 = add i32 %432, %433
   store i32 %431, ptr %7, align 8, !tbaa !71
   br label %.sink.split315.i.i
 
@@ -1974,8 +1974,8 @@ thread-pre-split122.i.i:                          ; preds = %_time_days_in_month
   %446 = sub nuw i32 %444, %445
   %447 = udiv i32 %446, 12
   %448 = add i32 %443, %447
-  %.neg.i.i = mul nsw i32 %447, -12
   %449 = add nsw i32 %.lcssa181183.i.i, -13
+  %.neg.i.i = mul nsw i32 %447, -12
   %450 = add nsw i32 %449, %.neg.i.i
   store i32 %448, ptr %7, align 8, !tbaa !71
   br label %.preheader134.i.i
@@ -1997,9 +1997,9 @@ thread-pre-split122.i.i:                          ; preds = %_time_days_in_month
   %455 = add nuw nsw i32 %454, %umin288.i.i
   %456 = xor i32 %455, -1
   %457 = add i32 %.lcssa180189.i.i, %456
-  %458 = mul i32 %455, 12
-  %459 = add nsw i32 %storemerge.i114.lcssa168.i.i, 12
-  %460 = add i32 %459, %458
+  %458 = add nsw i32 %storemerge.i114.lcssa168.i.i, 12
+  %459 = mul i32 %455, 12
+  %460 = add i32 %458, %459
   store i32 %457, ptr %7, align 8, !tbaa !71
   br label %461
 
@@ -3661,9 +3661,9 @@ define internal fastcc void @_time_add(ptr noundef %0, i32 noundef %1, i32 nound
   %14 = add nuw i32 %13, 11
   %15 = udiv i32 %14, 12
   %16 = add i32 %.promoted253, %15
-  %.neg305 = mul nsw i32 %15, -12
   %17 = add i32 %16, 1
   %18 = add nsw i32 %11, -12
+  %.neg305 = mul nsw i32 %15, -12
   %19 = add nsw i32 %.neg305, %18
   store i32 %17, ptr %0, align 4, !tbaa !71
   br label %.preheader
@@ -3683,12 +3683,12 @@ define internal fastcc void @_time_add(ptr noundef %0, i32 noundef %1, i32 nound
   %23 = sub i32 %smax299, %22
   %24 = udiv i32 %23, 12
   %25 = add nuw nsw i32 %24, %umin300
-  %26 = mul i32 %25, 12
-  %27 = add i32 %storemerge85.lcssa247, %26
-  %28 = xor i32 %25, -1
-  %29 = add i32 %.promoted256, %28
-  %30 = add i32 %27, 12
-  store i32 %29, ptr %0, align 4, !tbaa !71
+  %26 = xor i32 %25, -1
+  %27 = add i32 %.promoted256, %26
+  %28 = mul i32 %25, 12
+  %29 = add i32 %storemerge85.lcssa247, %28
+  %30 = add i32 %29, 12
+  store i32 %27, ptr %0, align 4, !tbaa !71
   store i32 %30, ptr %9, align 4, !tbaa !72
   br label %thread-pre-split127
 
@@ -3705,9 +3705,9 @@ define internal fastcc void @_time_add(ptr noundef %0, i32 noundef %1, i32 nound
   %37 = add nuw i32 %36, 11
   %38 = udiv i32 %37, 12
   %39 = add i32 %.promoted241, %38
-  %.neg304 = mul nsw i32 %38, -12
   %40 = add i32 %39, 1
   %41 = add nsw i32 %34, -12
+  %.neg304 = mul nsw i32 %38, -12
   %42 = add nsw i32 %.neg304, %41
   store i32 %40, ptr %0, align 4, !tbaa !71
   br label %.preheader129
@@ -3727,12 +3727,12 @@ define internal fastcc void @_time_add(ptr noundef %0, i32 noundef %1, i32 nound
   %46 = sub i32 %smax296, %45
   %47 = udiv i32 %46, 12
   %48 = add nuw nsw i32 %47, %umin297
-  %49 = mul i32 %48, 12
-  %50 = add i32 %storemerge.lcssa235, %49
-  %51 = xor i32 %48, -1
-  %52 = add i32 %.promoted244, %51
-  %53 = add i32 %50, 12
-  store i32 %52, ptr %0, align 4, !tbaa !71
+  %49 = xor i32 %48, -1
+  %50 = add i32 %.promoted244, %49
+  %51 = mul i32 %48, 12
+  %52 = add i32 %storemerge.lcssa235, %51
+  %53 = add i32 %52, 12
+  store i32 %50, ptr %0, align 4, !tbaa !71
   store i32 %53, ptr %32, align 4, !tbaa !72
   br label %thread-pre-split127
 
@@ -3827,8 +3827,8 @@ _time_days_in_month.exit91:                       ; preds = %68, %68, %68, %68, 
   %82 = sub i32 %81, %smin289
   %83 = udiv i32 %82, 12
   %84 = add i32 %80, %83
-  %.neg303 = mul i32 %83, -12
   %85 = add nsw i32 %.lcssa143.promoted, -11
+  %.neg303 = mul i32 %83, -12
   %86 = add i32 %.neg303, %85
   store i32 %84, ptr %0, align 4, !tbaa !71
   br label %.preheader133
@@ -3850,9 +3850,9 @@ _time_days_in_month.exit91:                       ; preds = %68, %68, %68, %68, 
   %92 = add nuw nsw i32 %91, %umin291
   %93 = xor i32 %92, -1
   %94 = add i32 %.lcssa201208, %93
-  %95 = mul i32 %92, 12
-  %96 = add nsw i32 %storemerge.i.lcssa191, 12
-  %97 = add i32 %96, %95
+  %95 = add nsw i32 %storemerge.i.lcssa191, 12
+  %96 = mul i32 %92, 12
+  %97 = add i32 %95, %96
   store i32 %94, ptr %0, align 4, !tbaa !71
   br label %.sink.split
 
@@ -3898,8 +3898,8 @@ thread-pre-split:                                 ; preds = %_time_days_in_month
   %109 = sub nuw i32 %107, %108
   %110 = udiv i32 %109, 12
   %111 = add i32 %106, %110
-  %.neg302 = mul nsw i32 %110, -12
   %112 = add nsw i32 %.lcssa225227, -13
+  %.neg302 = mul nsw i32 %110, -12
   %113 = add nsw i32 %.neg302, %112
   store i32 %111, ptr %0, align 4, !tbaa !71
   br label %.preheader131
@@ -3920,9 +3920,9 @@ thread-pre-split:                                 ; preds = %_time_days_in_month
   %119 = add nuw nsw i32 %118, %umin294
   %120 = xor i32 %119, -1
   %121 = add i32 %.lcssa224233, %120
-  %122 = mul i32 %119, 12
-  %123 = add nsw i32 %storemerge.i92.lcssa212, 12
-  %124 = add i32 %123, %122
+  %122 = add nsw i32 %storemerge.i92.lcssa212, 12
+  %123 = mul i32 %119, 12
+  %124 = add i32 %122, %123
   store i32 %121, ptr %0, align 4, !tbaa !71
   br label %125
 
@@ -4060,8 +4060,8 @@ _time_days_in_month.exit111:                      ; preds = %150, %150, %150, %1
   %164 = sub i32 %163, %smin
   %165 = udiv i32 %164, 12
   %166 = add i32 %162, %165
-  %.neg301 = mul i32 %165, -12
   %167 = add nsw i32 %.lcssa145.promoted, -11
+  %.neg301 = mul i32 %165, -12
   %168 = add i32 %.neg301, %167
   store i32 %166, ptr %0, align 4, !tbaa !71
   br label %.preheader136
@@ -4083,9 +4083,9 @@ _time_days_in_month.exit111:                      ; preds = %150, %150, %150, %1
   %174 = add nuw nsw i32 %173, %umin
   %175 = xor i32 %174, -1
   %176 = add i32 %.lcssa158165, %175
-  %177 = mul i32 %174, 12
-  %178 = add nsw i32 %storemerge.i112.lcssa151, 12
-  %179 = add i32 %178, %177
+  %177 = add nsw i32 %storemerge.i112.lcssa151, 12
+  %178 = mul i32 %174, 12
+  %179 = add i32 %177, %178
   store i32 %176, ptr %0, align 4, !tbaa !71
   br label %.sink.split315
 
@@ -4131,8 +4131,8 @@ thread-pre-split122:                              ; preds = %_time_days_in_month
   %191 = sub nuw i32 %189, %190
   %192 = udiv i32 %191, 12
   %193 = add i32 %188, %192
-  %.neg = mul nsw i32 %192, -12
   %194 = add nsw i32 %.lcssa181183, -13
+  %.neg = mul nsw i32 %192, -12
   %195 = add nsw i32 %.neg, %194
   store i32 %193, ptr %0, align 4, !tbaa !71
   br label %.preheader134
@@ -4153,9 +4153,9 @@ thread-pre-split122:                              ; preds = %_time_days_in_month
   %201 = add nuw nsw i32 %200, %umin288
   %202 = xor i32 %201, -1
   %203 = add i32 %.lcssa180189, %202
-  %204 = mul i32 %201, 12
-  %205 = add nsw i32 %storemerge.i114.lcssa168, 12
-  %206 = add i32 %205, %204
+  %204 = add nsw i32 %storemerge.i114.lcssa168, 12
+  %205 = mul i32 %201, 12
+  %206 = add i32 %204, %205
   store i32 %203, ptr %0, align 4, !tbaa !71
   br label %207
 

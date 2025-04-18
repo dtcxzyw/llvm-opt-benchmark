@@ -3785,10 +3785,10 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2156 = add i32 %reass.sub3581, 1
   %2157 = sext i32 %.32608.us to i64
   %2158 = sext i32 %.42546.us to i64
-  %2159 = add i32 %.32608.us, %.pre3870
   br label %1586
 
 ._crit_edge3447.us:                               ; preds = %._crit_edge3440.us
+  %2159 = add i32 %.32608.us, %.pre3870
   %smin3802 = call i32 @llvm.smin.i32(i32 %1526, i32 %1535)
   store i32 %2159, ptr %14, align 4, !tbaa !3
   store i32 %1535, ptr %15, align 4, !tbaa !3

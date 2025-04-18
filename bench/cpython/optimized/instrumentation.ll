@@ -2842,26 +2842,26 @@ local_union.exit.i:                               ; preds = %51
   store i64 %.sroa.0.0.copyload.i.i, ptr %18, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i24 %.sroa.2.0.copyload.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %58 = lshr i64 %.sroa.0.0.copyload.i.i, 40
-  br label %59
+  br label %58
 
-59:                                               ; preds = %59, %local_union.exit.i
-  %indvars.iv.i102.i = phi i64 [ 0, %local_union.exit.i ], [ %indvars.iv.next.i103.i, %59 ]
-  %60 = getelementptr [11 x i8], ptr %18, i64 0, i64 %indvars.iv.i102.i
-  %61 = load i8, ptr %60, align 1, !tbaa !33
-  %62 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %61)
-  %63 = icmp samesign ugt i8 %62, 1
+58:                                               ; preds = %58, %local_union.exit.i
+  %indvars.iv.i102.i = phi i64 [ 0, %local_union.exit.i ], [ %indvars.iv.next.i103.i, %58 ]
+  %59 = getelementptr [11 x i8], ptr %18, i64 0, i64 %indvars.iv.i102.i
+  %60 = load i8, ptr %59, align 1, !tbaa !33
+  %61 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %60)
+  %62 = icmp samesign ugt i8 %61, 1
   %indvars.iv.next.i103.i = add nuw nsw i64 %indvars.iv.i102.i, 1
   %exitcond.not.i104.i = icmp eq i64 %indvars.iv.next.i103.i, 11
-  %or.cond.i.i = select i1 %63, i1 true, i1 %exitcond.not.i104.i
-  br i1 %or.cond.i.i, label %multiple_tools.exit.i, label %59, !llvm.loop !91
+  %or.cond.i.i = select i1 %62, i1 true, i1 %exitcond.not.i104.i
+  br i1 %or.cond.i.i, label %multiple_tools.exit.i, label %58, !llvm.loop !91
 
-multiple_tools.exit.i:                            ; preds = %59
-  %64 = trunc i64 %58 to i8
+multiple_tools.exit.i:                            ; preds = %58
+  %63 = lshr i64 %.sroa.0.0.copyload.i.i, 40
+  %64 = trunc i64 %63 to i8
   %65 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !48
   %67 = icmp eq ptr %66, null
-  %or.cond.i = and i1 %63, %67
+  %or.cond.i = and i1 %62, %67
   br i1 %or.cond.i, label %83, label %initialize_tools.exit.i
 
 68:                                               ; preds = %.loopexit128.i, %41
@@ -4145,7 +4145,7 @@ get_line_delta.exit216.i.i:                       ; preds = %.lr.ph.i211.i.i, %_
 
 766:                                              ; preds = %.sink.split.i, %156
   %.pre362.pre367 = phi ptr [ %.pre362.pre367.pre, %.sink.split.i ], [ %.pre362.pre368, %156 ]
-  br i1 %63, label %767, label %initialize_line_tools.exit.i
+  br i1 %62, label %767, label %initialize_line_tools.exit.i
 
 767:                                              ; preds = %766
   %768 = getelementptr inbounds nuw i8, ptr %.pre362.pre367, i64 104
@@ -4236,7 +4236,7 @@ initialize_line_tools.exit.i:                     ; preds = %.lr.ph.preheader.i1
 
 .loopexit126.i:                                   ; preds = %.loopexit126.i.loopexit, %.preheader125.i, %784
   %.pre361 = phi ptr [ %.pre361.pre, %.loopexit126.i.loopexit ], [ %791, %.preheader125.i ], [ %.pre362, %784 ]
-  br i1 %63, label %808, label %.loopexit323
+  br i1 %62, label %808, label %.loopexit323
 
 808:                                              ; preds = %.loopexit126.i
   %809 = getelementptr inbounds nuw i8, ptr %.pre361, i64 120

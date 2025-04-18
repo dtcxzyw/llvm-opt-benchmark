@@ -1178,35 +1178,35 @@ define noundef float @_Z16fbposres_wrapperN3gmx8ArrayRefIKiEENS0_IK9t_iparamsEER
   %127 = call noundef float @sqrtf(float noundef %.137.i.i) #4, !tbaa !138
   %128 = fdiv float 1.000000e+00, %127
   %129 = fsub float %127, %.0132.i
-  %130 = fmul float %129, %129
-  %131 = fneg float %81
-  %132 = fmul float %129, %131
-  br label %133
+  %130 = fneg float %81
+  %131 = fmul float %129, %130
+  br label %132
 
-133:                                              ; preds = %140, %126
-  %indvars.iv44.i.i = phi i64 [ 0, %126 ], [ %indvars.iv.next45.i.i, %140 ]
+132:                                              ; preds = %139, %126
+  %indvars.iv44.i.i = phi i64 [ 0, %126 ], [ %indvars.iv.next45.i.i, %139 ]
   %.not.i.i = icmp eq i64 %indvars.iv44.i.i, 0
-  br i1 %.not.i.i, label %140, label %134
+  br i1 %.not.i.i, label %139, label %133
 
-134:                                              ; preds = %133
-  %135 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv44.i.i
-  %136 = load float, ptr %135, align 4, !tbaa !10
-  %137 = fmul float %132, %136
-  %138 = fmul float %128, %137
-  %139 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv44.i.i
-  store float %138, ptr %139, align 4, !tbaa !10
-  br label %140
+133:                                              ; preds = %132
+  %134 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv44.i.i
+  %135 = load float, ptr %134, align 4, !tbaa !10
+  %136 = fmul float %131, %135
+  %137 = fmul float %128, %136
+  %138 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv44.i.i
+  store float %137, ptr %138, align 4, !tbaa !10
+  br label %139
 
-140:                                              ; preds = %134, %133
+139:                                              ; preds = %133, %132
   %indvars.iv.next45.i.i = add nuw nsw i64 %indvars.iv44.i.i, 1
   %exitcond47.not.i.i = icmp eq i64 %indvars.iv.next45.i.i, 3
-  br i1 %exitcond47.not.i.i, label %.loopexit.loopexit.i.i, label %133, !llvm.loop !190
+  br i1 %exitcond47.not.i.i, label %.loopexit.loopexit.i.i, label %132, !llvm.loop !190
 
-.loopexit.loopexit.i.i:                           ; preds = %140
-  %141 = fpext float %81 to double
-  %142 = fpext float %130 to double
-  %143 = fmul double %141, 5.000000e-01
-  %144 = fmul double %143, %142
+.loopexit.loopexit.i.i:                           ; preds = %139
+  %140 = fpext float %81 to double
+  %141 = fmul double %140, 5.000000e-01
+  %142 = fmul float %129, %129
+  %143 = fpext float %142 to double
+  %144 = fmul double %141, %143
   %145 = fptrunc double %144 to float
   br label %_ZN12_GLOBAL__N_120do_fbposres_cylinderEiPfS0_ffb.exit.i
 
@@ -1247,35 +1247,35 @@ define noundef float @_Z16fbposres_wrapperN3gmx8ArrayRefIKiEENS0_IK9t_iparamsEER
   %159 = call noundef float @sqrtf(float noundef %.137.i146.i) #4, !tbaa !138
   %160 = fdiv float 1.000000e+00, %159
   %161 = fsub float %159, %.0132.i
-  %162 = fmul float %161, %161
-  %163 = fneg float %81
-  %164 = fmul float %161, %163
-  br label %165
+  %162 = fneg float %81
+  %163 = fmul float %161, %162
+  br label %164
 
-165:                                              ; preds = %172, %158
-  %indvars.iv44.i154.i = phi i64 [ 0, %158 ], [ %indvars.iv.next45.i156.i, %172 ]
+164:                                              ; preds = %171, %158
+  %indvars.iv44.i154.i = phi i64 [ 0, %158 ], [ %indvars.iv.next45.i156.i, %171 ]
   %.not.i155.i = icmp eq i64 %indvars.iv44.i154.i, 1
-  br i1 %.not.i155.i, label %172, label %166
+  br i1 %.not.i155.i, label %171, label %165
 
-166:                                              ; preds = %165
-  %167 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv44.i154.i
-  %168 = load float, ptr %167, align 4, !tbaa !10
-  %169 = fmul float %164, %168
-  %170 = fmul float %160, %169
-  %171 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv44.i154.i
-  store float %170, ptr %171, align 4, !tbaa !10
-  br label %172
+165:                                              ; preds = %164
+  %166 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv44.i154.i
+  %167 = load float, ptr %166, align 4, !tbaa !10
+  %168 = fmul float %163, %167
+  %169 = fmul float %160, %168
+  %170 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv44.i154.i
+  store float %169, ptr %170, align 4, !tbaa !10
+  br label %171
 
-172:                                              ; preds = %166, %165
+171:                                              ; preds = %165, %164
   %indvars.iv.next45.i156.i = add nuw nsw i64 %indvars.iv44.i154.i, 1
   %exitcond47.not.i157.i = icmp eq i64 %indvars.iv.next45.i156.i, 3
-  br i1 %exitcond47.not.i157.i, label %.loopexit.loopexit.i158.i, label %165, !llvm.loop !190
+  br i1 %exitcond47.not.i157.i, label %.loopexit.loopexit.i158.i, label %164, !llvm.loop !190
 
-.loopexit.loopexit.i158.i:                        ; preds = %172
-  %173 = fpext float %81 to double
-  %174 = fpext float %162 to double
-  %175 = fmul double %173, 5.000000e-01
-  %176 = fmul double %175, %174
+.loopexit.loopexit.i158.i:                        ; preds = %171
+  %172 = fpext float %81 to double
+  %173 = fmul double %172, 5.000000e-01
+  %174 = fmul float %161, %161
+  %175 = fpext float %174 to double
+  %176 = fmul double %173, %175
   %177 = fptrunc double %176 to float
   br label %_ZN12_GLOBAL__N_120do_fbposres_cylinderEiPfS0_ffb.exit.i
 
@@ -1308,28 +1308,28 @@ define noundef float @_Z16fbposres_wrapperN3gmx8ArrayRefIKiEENS0_IK9t_iparamsEER
   %190 = call noundef float @sqrtf(float noundef %182) #4, !tbaa !138
   %191 = fdiv float 1.000000e+00, %190
   %192 = fsub float %190, %.0132.i
-  %193 = fmul float %192, %192
-  %194 = fneg float %81
-  %195 = fmul float %192, %194
-  br label %196
+  %193 = fneg float %81
+  %194 = fmul float %192, %193
+  br label %195
 
-196:                                              ; preds = %196, %189
-  %indvars.iv44.i17117.i = phi i64 [ 0, %189 ], [ %indvars.iv.next45.i173.i, %196 ]
-  %197 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv44.i17117.i
-  %198 = load float, ptr %197, align 4, !tbaa !10
-  %199 = fmul float %195, %198
-  %200 = fmul float %191, %199
-  %201 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv44.i17117.i
-  store float %200, ptr %201, align 4, !tbaa !10
+195:                                              ; preds = %195, %189
+  %indvars.iv44.i17117.i = phi i64 [ 0, %189 ], [ %indvars.iv.next45.i173.i, %195 ]
+  %196 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv44.i17117.i
+  %197 = load float, ptr %196, align 4, !tbaa !10
+  %198 = fmul float %194, %197
+  %199 = fmul float %191, %198
+  %200 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv44.i17117.i
+  store float %199, ptr %200, align 4, !tbaa !10
   %indvars.iv.next45.i173.i = add nuw nsw i64 %indvars.iv44.i17117.i, 1
   %.not.i172.i = icmp eq i64 %indvars.iv.next45.i173.i, 2
-  br i1 %.not.i172.i, label %.loopexit.loopexit.i175.i, label %196
+  br i1 %.not.i172.i, label %.loopexit.loopexit.i175.i, label %195
 
-.loopexit.loopexit.i175.i:                        ; preds = %196
-  %202 = fpext float %81 to double
-  %203 = fpext float %193 to double
-  %204 = fmul double %202, 5.000000e-01
-  %205 = fmul double %204, %203
+.loopexit.loopexit.i175.i:                        ; preds = %195
+  %201 = fpext float %81 to double
+  %202 = fmul double %201, 5.000000e-01
+  %203 = fmul float %192, %192
+  %204 = fpext float %203 to double
+  %205 = fmul double %202, %204
   %206 = fptrunc double %205 to float
   br label %_ZN12_GLOBAL__N_120do_fbposres_cylinderEiPfS0_ffb.exit.i
 

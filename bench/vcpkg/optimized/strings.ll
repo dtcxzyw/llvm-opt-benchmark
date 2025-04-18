@@ -4888,8 +4888,6 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_10v() #1 personality ptr @__gxx_per
   %248 = getelementptr inbounds nuw i8, ptr %51, i64 19
   store i8 0, ptr %248, align 1, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4128, ptr nonnull %52) #21
-  %249 = getelementptr inbounds nuw i8, ptr %50, i64 19
-  %250 = ptrtoint ptr %249 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2064) %52, i8 0, i64 2048, i1 false)
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -4902,6 +4900,8 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_10v() #1 personality ptr @__gxx_per
   br i1 %.not.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !116
 
 .lr.ph.i.i.i.preheader:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+  %249 = getelementptr inbounds nuw i8, ptr %50, i64 19
+  %250 = ptrtoint ptr %249 to i64
   %251 = ptrtoint ptr %243 to i64
   br label %.lr.ph.i.i.i
 
@@ -4923,8 +4923,6 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_10v() #1 personality ptr @__gxx_per
   %259 = getelementptr inbounds nuw i8, ptr %52, i64 2056
   store i64 %250, ptr %259, align 8, !tbaa !42
   %260 = getelementptr inbounds nuw i8, ptr %52, i64 2064
-  %261 = getelementptr inbounds nuw i8, ptr %51, i64 19
-  %262 = ptrtoint ptr %261 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2064) %260, i8 0, i64 2048, i1 false)
   br label %.lr.ph.i.i.i.i.i.i.i.i279
 
@@ -4937,6 +4935,8 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_10v() #1 personality ptr @__gxx_per
   br i1 %.not.i.i.i.i.i.i.i.i283, label %.lr.ph.i.i.i288.preheader, label %.lr.ph.i.i.i.i.i.i.i.i279, !llvm.loop !116
 
 .lr.ph.i.i.i288.preheader:                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i279
+  %261 = getelementptr inbounds nuw i8, ptr %51, i64 19
+  %262 = ptrtoint ptr %261 to i64
   %263 = ptrtoint ptr %246 to i64
   br label %.lr.ph.i.i.i288
 
@@ -11566,8 +11566,6 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_12v() #1 personality ptr @__gxx_per
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 19
   store i8 0, ptr %48, align 1, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4128, ptr nonnull %10) #21
-  %49 = getelementptr inbounds nuw i8, ptr %8, i64 19
-  %50 = ptrtoint ptr %49 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2064) %10, i8 0, i64 2048, i1 false)
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
@@ -11580,6 +11578,8 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_12v() #1 personality ptr @__gxx_per
   br i1 %.not.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.preheader, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !116
 
 .lr.ph.i.i.i.preheader:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 19
+  %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %43 to i64
   br label %.lr.ph.i.i.i
 
@@ -11601,8 +11601,6 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_12v() #1 personality ptr @__gxx_per
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 2056
   store i64 %50, ptr %59, align 8, !tbaa !42
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 2064
-  %61 = getelementptr inbounds nuw i8, ptr %9, i64 19
-  %62 = ptrtoint ptr %61 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2064) %60, i8 0, i64 2048, i1 false)
   br label %.lr.ph.i.i.i.i.i.i.i.i61
 
@@ -11615,6 +11613,8 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_12v() #1 personality ptr @__gxx_per
   br i1 %.not.i.i.i.i.i.i.i.i65, label %.lr.ph.i.i.i70.preheader, label %.lr.ph.i.i.i.i.i.i.i.i61, !llvm.loop !116
 
 .lr.ph.i.i.i70.preheader:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i61
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 19
+  %62 = ptrtoint ptr %61 to i64
   %63 = ptrtoint ptr %46 to i64
   br label %.lr.ph.i.i.i70
 

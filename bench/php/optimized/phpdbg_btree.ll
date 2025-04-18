@@ -97,36 +97,36 @@ define hidden ptr @phpdbg_btree_find_closest(ptr noundef readonly captures(none)
 
 17:                                               ; preds = %15
   %18 = add i32 %7, -1
-  %19 = add i32 %7, -2
-  br label %20
+  br label %19
 
-20:                                               ; preds = %29, %17
-  %.134 = phi ptr [ %4, %17 ], [ %32, %29 ]
-  %.131 = phi i32 [ %18, %17 ], [ %33, %29 ]
-  %21 = zext nneg i32 %.131 to i64
-  %22 = shl nuw i64 1, %21
-  %23 = and i64 %22, %1
-  %.not45 = icmp eq i64 %23, 0
-  br i1 %.not45, label %29, label %24
+19:                                               ; preds = %28, %17
+  %.134 = phi ptr [ %4, %17 ], [ %31, %28 ]
+  %.131 = phi i32 [ %18, %17 ], [ %32, %28 ]
+  %20 = zext nneg i32 %.131 to i64
+  %21 = shl nuw i64 1, %20
+  %22 = and i64 %21, %1
+  %.not45 = icmp eq i64 %22, 0
+  br i1 %.not45, label %28, label %23
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.134, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = icmp ne ptr %26, null
-  %28 = zext i1 %27 to i64
-  br label %29
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %.134, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  %26 = icmp ne ptr %25, null
+  %27 = zext i1 %26 to i64
+  br label %28
 
-29:                                               ; preds = %24, %20
-  %30 = phi i64 [ 0, %20 ], [ %28, %24 ]
-  %31 = getelementptr inbounds nuw [2 x ptr], ptr %.134, i64 0, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !15
-  %33 = add nsw i32 %.131, -1
-  %34 = icmp sgt i32 %33, %.0
-  br i1 %34, label %20, label %.preheader
+28:                                               ; preds = %23, %19
+  %29 = phi i64 [ 0, %19 ], [ %27, %23 ]
+  %30 = getelementptr inbounds nuw [2 x ptr], ptr %.134, i64 0, i64 %29
+  %31 = load ptr, ptr %30, align 8, !tbaa !15
+  %32 = add nsw i32 %.131, -1
+  %33 = icmp sgt i32 %32, %.0
+  br i1 %33, label %19, label %.preheader
 
-.preheader:                                       ; preds = %29
-  %smin = tail call i32 @llvm.smin.i32(i32 %.0, i32 %19)
-  %.23563 = load ptr, ptr %32, align 8, !tbaa !15
+.preheader:                                       ; preds = %28
+  %34 = add i32 %7, -2
+  %smin = tail call i32 @llvm.smin.i32(i32 %.0, i32 %34)
+  %.23563 = load ptr, ptr %31, align 8, !tbaa !15
   %.not4664 = icmp eq i32 %smin, 0
   br i1 %.not4664, label %.loopexit, label %.lr.ph67
 

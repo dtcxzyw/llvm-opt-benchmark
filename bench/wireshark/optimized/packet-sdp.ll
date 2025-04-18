@@ -2219,27 +2219,27 @@ define internal i32 @dissect_sdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 29:                                               ; preds = %25, %16
   %.0166 = phi ptr [ %28, %25 ], [ %23, %16 ]
-  %30 = icmp eq ptr %.0166, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2088) %7, i8 noundef 0, i64 noundef 2088, i1 noundef false) #11
-  %31 = load ptr, ptr %17, align 8
-  %32 = tail call noalias ptr @wmem_array_new(ptr noundef %31, i64 noundef 176)
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 2056
-  store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br label %35
+  %30 = load ptr, ptr %17, align 8
+  %31 = tail call noalias ptr @wmem_array_new(ptr noundef %30, i64 noundef 176)
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 2056
+  store ptr %31, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br label %34
 
-35:                                               ; preds = %29, %35
-  %indvars.iv = phi i64 [ 0, %29 ], [ %indvars.iv.next, %35 ]
-  %36 = load ptr, ptr %17, align 8
-  %37 = tail call noalias ptr @wmem_strdup(ptr noundef %36, ptr noundef nonnull @.str.34)
-  %38 = getelementptr [128 x ptr], ptr %34, i64 0, i64 %indvars.iv
-  store ptr %37, ptr %38, align 8
+34:                                               ; preds = %29, %34
+  %indvars.iv = phi i64 [ 0, %29 ], [ %indvars.iv.next, %34 ]
+  %35 = load ptr, ptr %17, align 8
+  %36 = tail call noalias ptr @wmem_strdup(ptr noundef %35, ptr noundef nonnull @.str.34)
+  %37 = getelementptr [128 x ptr], ptr %33, i64 0, i64 %indvars.iv
+  store ptr %36, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
-  br i1 %exitcond.not, label %39, label %35, !llvm.loop !19
+  br i1 %exitcond.not, label %38, label %34, !llvm.loop !19
 
-39:                                               ; preds = %35
-  %spec.store.select = select i1 %30, ptr %7, ptr %.0166
+38:                                               ; preds = %34
+  %39 = icmp eq ptr %.0166, null
+  %spec.store.select = select i1 %39, ptr %7, ptr %.0166
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void @col_append_str(ptr noundef %41, i32 noundef 35, ptr noundef nonnull @.str.327)
@@ -2254,10 +2254,10 @@ define internal i32 @dissect_sdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %48 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef 0)
   br i1 %48, label %.lr.ph, label %.outer._crit_edge
 
-.lr.ph:                                           ; preds = %39, %.outer
-  %.0.ph236 = phi i32 [ %116, %.outer ], [ 0, %39 ]
-  %.0162.ph235 = phi i8 [ %.1, %.outer ], [ 0, %39 ]
-  %.0167.ph234 = phi ptr [ %.1168, %.outer ], [ null, %39 ]
+.lr.ph:                                           ; preds = %38, %.outer
+  %.0.ph236 = phi i32 [ %116, %.outer ], [ 0, %38 ]
+  %.0162.ph235 = phi i8 [ %.1, %.outer ], [ 0, %38 ]
+  %.0167.ph234 = phi ptr [ %.1168, %.outer ], [ null, %38 ]
   br label %49
 
 49:                                               ; preds = %.lr.ph, %56
@@ -2354,7 +2354,7 @@ define internal i32 @dissect_sdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 89:                                               ; preds = %62
   %90 = load i32, ptr @hf_media, align 4
-  %91 = load ptr, ptr %33, align 8
+  %91 = load ptr, ptr %32, align 8
   %92 = call fastcc ptr @sdp_new_media_description(ptr noundef %91, ptr noundef nonnull %8)
   br label %.outer
 
@@ -2403,8 +2403,8 @@ define internal i32 @dissect_sdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %117 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %116)
   br i1 %117, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !20
 
-.outer._crit_edge:                                ; preds = %.outer, %56, %49, %39
-  %.0.lcssa = phi i32 [ 0, %39 ], [ %.0230, %49 ], [ %60, %56 ], [ %116, %.outer ]
+.outer._crit_edge:                                ; preds = %.outer, %56, %49, %38
+  %.0.lcssa = phi i32 [ 0, %38 ], [ %.0230, %49 ], [ %60, %56 ], [ %116, %.outer ]
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %119 = load ptr, ptr %118, align 8
   %.not182 = icmp eq ptr %119, null
@@ -2478,14 +2478,14 @@ define internal i32 @dissect_sdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call fastcc void @apply_sdp_transport(ptr noundef %1, ptr noundef nonnull %spec.store.select, i32 noundef 0, ptr noundef %.0164)
   %151 = call ptr @wmem_file_scope()
   %152 = load i32, ptr @proto_sdp, align 4
-  %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %30, ptr %7, ptr %.0166
+  %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %39, ptr %7, ptr %.0166
   %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 2064
   %153 = load ptr, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   call void @p_add_proto_data(ptr noundef %151, ptr noundef %1, i32 noundef %152, i32 noundef 0, ptr noundef %153)
   br label %.thread
 
 .thread:                                          ; preds = %140, %150, %143
-  %154 = load ptr, ptr %33, align 8
+  %154 = load ptr, ptr %32, align 8
   %155 = call i32 @wmem_array_get_count(ptr noundef %154)
   %.not246 = icmp eq i32 %155, 0
   br i1 %.not246, label %._crit_edge243, label %.lr.ph242
@@ -2495,7 +2495,7 @@ define internal i32 @dissect_sdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph242:                                        ; preds = %.thread, %.thread219
   %.0161241 = phi i32 [ %203, %.thread219 ], [ 0, %.thread ]
-  %156 = load ptr, ptr %33, align 8
+  %156 = load ptr, ptr %32, align 8
   %157 = call ptr @wmem_array_index(ptr noundef %156, i32 noundef %.0161241)
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 10
   %159 = load i16, ptr %158, align 2
@@ -2605,14 +2605,14 @@ define internal i32 @dissect_sdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .thread219:                                       ; preds = %.lr.ph242, %._crit_edge240, %._crit_edge240.thread, %201
   %203 = add nuw i32 %.0161241, 1
-  %204 = load ptr, ptr %33, align 8
+  %204 = load ptr, ptr %32, align 8
   %205 = call i32 @wmem_array_get_count(ptr noundef %204)
   %206 = icmp ult i32 %203, %205
   br i1 %206, label %.lr.ph242, label %._crit_edge243, !llvm.loop !22
 
 207:                                              ; preds = %._crit_edge243
   %.0166.sroa.gep213 = getelementptr inbounds nuw i8, ptr %.0166, i64 2056
-  %spec.store.select.sroa.sel214 = select i1 %30, ptr %33, ptr %.0166.sroa.gep213
+  %spec.store.select.sroa.sel214 = select i1 %39, ptr %32, ptr %.0166.sroa.gep213
   %208 = load ptr, ptr %spec.store.select.sroa.sel214, align 8
   %209 = call i32 @wmem_array_get_count(ptr noundef %208)
   %.not.i = icmp eq i32 %209, 0
@@ -2650,7 +2650,7 @@ clean_unused_media_descriptions.exit:             ; preds = %217, %207, %._crit_
   br label %226
 
 226:                                              ; preds = %223, %clean_unused_media_descriptions.exit
-  %spec.store.select.sroa.sel217.v.sroa.sel.v.sroa.sel.v = select i1 %30, ptr %7, ptr %.0166
+  %spec.store.select.sroa.sel217.v.sroa.sel.v.sroa.sel.v = select i1 %39, ptr %7, ptr %.0166
   %spec.store.select.sroa.sel217.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.store.select.sroa.sel217.v.sroa.sel.v.sroa.sel.v, i64 2064
   %227 = load ptr, ptr %spec.store.select.sroa.sel217.v.sroa.sel.v.sroa.sel, align 8
   %.not188 = icmp eq ptr %227, null

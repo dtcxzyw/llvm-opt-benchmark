@@ -1396,13 +1396,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107: ; preds = %_Z
   br label %118
 
 ._crit_edge:                                      ; preds = %114
-  %110 = fsub float %.sroa.speculated154, %.sroa.speculated160
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %15) #26
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %16, i8 0, i64 24, i1 false), !tbaa !54
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %17, i8 0, i64 24, i1 false), !tbaa !54
+  %110 = fsub float %.sroa.speculated154, %.sroa.speculated160
   %111 = fsub float %.sroa.speculated145, %.sroa.speculated149
   %112 = load ptr, ptr %79, align 8, !tbaa !82
   %113 = load ptr, ptr %78, align 8, !tbaa !47

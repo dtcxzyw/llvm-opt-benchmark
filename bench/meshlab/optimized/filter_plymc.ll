@@ -74980,8 +74980,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %7, %2
   %59 = icmp ugt i64 %58, -9223372036854775808
   %storemerge.idx.i.i.i.i.i36 = select i1 %59, i64 -8, i64 0
   %storemerge.i.i.i.i.i37 = getelementptr inbounds i8, ptr %57, i64 %storemerge.idx.i.i.i.i.i36
-  %60 = and i64 %55, 63
   %storemerge.i.i.i.i.i37.promoted = load i64, ptr %storemerge.i.i.i.i.i37, align 8
+  %60 = and i64 %55, 63
   %61 = shl nuw i64 1, %60
   %62 = or i64 %storemerge.i.i.i.i.i37.promoted, %61
   store i64 %62, ptr %storemerge.i.i.i.i.i37, align 8
@@ -75007,8 +75007,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %7, %2
   %76 = icmp ugt i64 %75, -9223372036854775808
   %storemerge.idx.i.i.i.i.i44 = select i1 %76, i64 -8, i64 0
   %storemerge.i.i.i.i.i45 = getelementptr inbounds i8, ptr %74, i64 %storemerge.idx.i.i.i.i.i44
-  %77 = and i64 %72, 63
   %storemerge.i.i.i.i.i45.promoted = load i64, ptr %storemerge.i.i.i.i.i45, align 8
+  %77 = and i64 %72, 63
   %78 = shl nuw i64 1, %77
   %79 = or i64 %storemerge.i.i.i.i.i45.promoted, %78
   store i64 %79, ptr %storemerge.i.i.i.i.i45, align 8
@@ -75946,10 +75946,10 @@ _ZN3vcg3tri5CleanINS_5SMeshEE20RemoveDegenerateFaceERS2_.exit: ; preds = %244, %
   %254 = ptrtoint ptr %251 to i64
   %_ZZN3vcg4edge9EmptyCoreINS_9UsedTypesINS_3UseINS_7SVertexEE12AsVertexTypeENS3_INS_5SFaceEE10AsFaceTypeENS_14DefaultDeriverESA_SA_SA_SA_SA_EEE5FlagsEvE10dummyflags.promoted.i = load i32, ptr @_ZZN3vcg4edge9EmptyCoreINS_9UsedTypesINS_3UseINS_7SVertexEE12AsVertexTypeENS3_INS_5SFaceEE10AsFaceTypeENS_14DefaultDeriverESA_SA_SA_SA_SA_EEE5FlagsEvE10dummyflags, align 4
   %255 = or i32 %_ZZN3vcg4edge9EmptyCoreINS_9UsedTypesINS_3UseINS_7SVertexEE12AsVertexTypeENS3_INS_5SFaceEE10AsFaceTypeENS_14DefaultDeriverESA_SA_SA_SA_SA_EEE5FlagsEvE10dummyflags.promoted.i, 1
-  %256 = trunc i64 %254 to i32
-  %257 = add i32 %248, %256
-  %258 = trunc i64 %253 to i32
-  %259 = sub i32 %257, %258
+  %256 = trunc i64 %253 to i32
+  %257 = trunc i64 %254 to i32
+  %258 = add i32 %248, %257
+  %259 = sub i32 %258, %256
   store i32 %255, ptr @_ZZN3vcg4edge9EmptyCoreINS_9UsedTypesINS_3UseINS_7SVertexEE12AsVertexTypeENS3_INS_5SFaceEE10AsFaceTypeENS_14DefaultDeriverESA_SA_SA_SA_SA_EEE5FlagsEvE10dummyflags, align 4
   store i32 %259, ptr %247, align 8
   br label %_ZN3vcg3tri5CleanINS_5SMeshEE20RemoveDegenerateEdgeERS2_.exit

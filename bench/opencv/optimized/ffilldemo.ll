@@ -1549,8 +1549,6 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   store i64 0, ptr %86, align 8
   store i32 50397184, ptr %11, align 8, !tbaa !46
   store ptr @mask, ptr %85, align 8, !tbaa !49
-  %.sroa.6.0.insert.ext77 = zext i32 %2 to i64
-  %.sroa.073.0.insert.ext74 = zext i32 %1 to i64
   store double %.sroa.0.0, ptr %12, align 8, !tbaa !66
   %.sroa.7.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %.sroa.7.0, ptr %.sroa.7.0..sroa_idx82, align 8, !tbaa !66
@@ -1558,7 +1556,9 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   store double %.sroa.9.0, ptr %.sroa.9.0..sroa_idx84, align 8, !tbaa !66
   %.sroa.10.0..sroa_idx86 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store double 0.000000e+00, ptr %.sroa.10.0..sroa_idx86, align 8, !tbaa !66
+  %.sroa.6.0.insert.ext77 = zext i32 %2 to i64
   %.sroa.6.0.insert.shift78 = shl nuw i64 %.sroa.6.0.insert.ext77, 32
+  %.sroa.073.0.insert.ext74 = zext i32 %1 to i64
   %.sroa.073.0.insert.insert76 = or disjoint i64 %.sroa.6.0.insert.shift78, %.sroa.073.0.insert.ext74
   %87 = sitofp i32 %27 to double
   store double %87, ptr %13, align 8, !tbaa !66
@@ -1664,8 +1664,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
   store i64 0, ptr %119, align 8
   store i32 50397184, ptr %17, align 8, !tbaa !46
   store ptr %7, ptr %118, align 8, !tbaa !49
-  %.sroa.6.0.insert.ext = zext i32 %2 to i64
-  %.sroa.073.0.insert.ext = zext i32 %1 to i64
   store double %.sroa.0.0, ptr %18, align 8, !tbaa !66
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store double %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !66
@@ -1673,7 +1671,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
   store double %.sroa.9.0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !66
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
   store double 0.000000e+00, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !66
+  %.sroa.6.0.insert.ext = zext i32 %2 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
+  %.sroa.073.0.insert.ext = zext i32 %1 to i64
   %.sroa.073.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %.sroa.073.0.insert.ext
   %120 = sitofp i32 %27 to double
   store double %120, ptr %19, align 8, !tbaa !66

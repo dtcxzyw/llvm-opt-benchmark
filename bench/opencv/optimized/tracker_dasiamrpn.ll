@@ -483,9 +483,9 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %58
   %78 = call float @llvm.fmuladd.f32(float %73, float %76, float %75)
   %79 = fmul float %77, %78
   %80 = call noundef float @sqrtf(float noundef %79) #23, !tbaa !57
-  %81 = insertelement <4 x float> poison, float %80, i64 0
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %59, i64 32, i1 false), !tbaa !61
+  %81 = insertelement <4 x float> poison, float %80, i64 0
   %82 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %81)
   %83 = sitofp i32 %82 to float
   invoke void @_ZN2cv20TrackerDaSiamRPNImpl12getSubwindowERNS_3MatERKNS_5Rect_IfEEfNS_7Scalar_IdEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %11, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(16) %6, float noundef %83, ptr noundef nonnull %12)
@@ -2348,22 +2348,22 @@ define hidden void @_ZN2cv20TrackerDaSiamRPNImpl11trackerEvalENS_3MatE(ptr nound
   %166 = tail call noundef float @sqrtf(float noundef %165) #23, !tbaa !57
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %168 = load i32, ptr %167, align 8, !tbaa !76
-  %169 = sitofp i32 %168 to float
-  %170 = fdiv float %169, %166
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %172 = load i32, ptr %171, align 4, !tbaa !113
-  %173 = sub nsw i32 %172, %168
-  %174 = sdiv i32 %173, 2
-  %175 = sitofp i32 %174 to float
-  %176 = fdiv float %175, %170
-  %177 = tail call float @llvm.fmuladd.f32(float %176, float 2.000000e+00, float %166)
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  %170 = load i32, ptr %169, align 4, !tbaa !113
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %60) #23
-  %178 = insertelement <4 x float> poison, float %177, i64 0
-  %179 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %178)
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %180, i64 32, i1 false), !tbaa !61
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %182 = sitofp i32 %179 to float
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %171, i64 32, i1 false), !tbaa !61
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %173 = sitofp i32 %168 to float
+  %174 = fdiv float %173, %166
+  %175 = sub nsw i32 %170, %168
+  %176 = sdiv i32 %175, 2
+  %177 = sitofp i32 %176 to float
+  %178 = fdiv float %177, %174
+  %179 = tail call float @llvm.fmuladd.f32(float %178, float 2.000000e+00, float %166)
+  %180 = insertelement <4 x float> poison, float %179, i64 0
+  %181 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %180)
+  %182 = sitofp i32 %181 to float
   call void @_ZN2cv20TrackerDaSiamRPNImpl12getSubwindowERNS_3MatERKNS_5Rect_IfEEfNS_7Scalar_IdEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %60, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(16) %59, float noundef %182, ptr noundef nonnull %61)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %62) #23
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %62) #23
@@ -2398,7 +2398,7 @@ define hidden void @_ZN2cv20TrackerDaSiamRPNImpl11trackerEvalENS_3MatE(ptr nound
   store i32 33619968, ptr %72, align 8, !tbaa !60
   store ptr %62, ptr %186, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #23
-  %188 = load i32, ptr %171, align 4, !tbaa !113
+  %188 = load i32, ptr %169, align 4, !tbaa !113
   store i32 %188, ptr %73, align 4, !tbaa !58
   %189 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 %188, ptr %189, align 4, !tbaa !59
@@ -2660,9 +2660,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit226:                 ; preds = %267, %269
           to label %270 unwind label %866
 
 270:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit226
-  %271 = fmul float %170, %161
+  %271 = fmul float %174, %161
   store float %271, ptr %160, align 4, !tbaa !63
-  %272 = fmul float %170, %157
+  %272 = fmul float %174, %157
   store float %272, ptr %156, align 4, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %84) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #23, !noalias !123
@@ -3896,7 +3896,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit331:              ; preds = %615
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %139) #23
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %141) #23
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %142) #23
-  %623 = load float, ptr %181, align 8, !tbaa !213
+  %623 = load float, ptr %172, align 8, !tbaa !213
   %624 = fpext float %623 to double
   %625 = fsub double 1.000000e+00, %624
   invoke void @_ZN2cvmlERKNS_3MatEd(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %142, ptr noundef nonnull align 8 dereferenceable(96) %70, double noundef %625)
@@ -3905,7 +3905,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit331:              ; preds = %615
 626:                                              ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit331
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %143) #23
   %627 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %628 = load float, ptr %181, align 8, !tbaa !213
+  %628 = load float, ptr %172, align 8, !tbaa !213
   %629 = fpext float %628 to double
   invoke void @_ZN2cvmlERKNS_3MatEd(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %143, ptr noundef nonnull align 8 dereferenceable(96) %627, double noundef %629)
           to label %630 unwind label %1051
@@ -4217,10 +4217,10 @@ _ZN2cv3Mat2atIfEERT_PKi.exit373:                  ; preds = %_ZN2cv3Mat2atIfEERT
   %.pn = phi float [ %740, %_ZN2cv3Mat2atIfEERT_PKi.exit365 ], [ %741, %_ZN2cv3Mat2atIfEERT_PKi.exit373.loopexit ]
   %.pn470 = phi float [ %740, %_ZN2cv3Mat2atIfEERT_PKi.exit365 ], [ %722, %_ZN2cv3Mat2atIfEERT_PKi.exit373.loopexit ]
   %.pn471 = phi float [ %740, %_ZN2cv3Mat2atIfEERT_PKi.exit365 ], [ %731, %_ZN2cv3Mat2atIfEERT_PKi.exit373.loopexit ]
-  %751 = fdiv float %.pn471, %170
-  %752 = fdiv float %.pn470, %170
-  %753 = fdiv float %.pn, %170
-  %754 = fdiv float %750, %170
+  %751 = fdiv float %.pn471, %174
+  %752 = fdiv float %.pn470, %174
+  %753 = fdiv float %.pn, %174
+  %754 = fdiv float %750, %174
   %755 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %756 = load i32, ptr %755, align 4, !tbaa !214
   %757 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -4290,8 +4290,8 @@ _ZN2cv3Mat2atIfEERT_PKi.exit389:                  ; preds = %778, %_ZN2cv3Mat2at
   %793 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %794 = load float, ptr %793, align 4, !tbaa !105
   %795 = fadd float %751, %794
-  %796 = fdiv float %271, %170
-  %797 = fdiv float %272, %170
+  %796 = fdiv float %271, %174
+  %797 = fdiv float %272, %174
   %798 = fsub float 1.000000e+00, %790
   %799 = fmul float %753, %790
   %800 = call float @llvm.fmuladd.f32(float %796, float %798, float %799)

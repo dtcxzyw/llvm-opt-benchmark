@@ -7947,7 +7947,6 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator", align 1
-  %.sroa.5231.0.extract.shift = lshr i64 %3, 32
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #33
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %2)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #33
@@ -7955,6 +7954,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa !30
   %.sroa.0228.0.extract.trunc = trunc i64 %3 to i32
+  %.sroa.5231.0.extract.shift = lshr i64 %3, 32
   %.sroa.5231.0.extract.trunc = trunc nuw i64 %.sroa.5231.0.extract.shift to i32
   %14 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
           to label %15 unwind label %25
@@ -9866,7 +9866,6 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator", align 1
-  %.sroa.5231.0.extract.shift = lshr i64 %3, 32
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #33
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %2)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7) #33
@@ -9874,6 +9873,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa !30
   %.sroa.0228.0.extract.trunc = trunc i64 %3 to i32
+  %.sroa.5231.0.extract.shift = lshr i64 %3, 32
   %.sroa.5231.0.extract.trunc = trunc nuw i64 %.sroa.5231.0.extract.shift to i32
   %14 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
           to label %15 unwind label %25
@@ -24115,44 +24115,44 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
 
 .preheader87.us.i.us.us:                          ; preds = %.preheader88.us.i.us, %._crit_edge.us.i.loopexit.us.us
   %indvars.iv.i.us.us = phi i64 [ %indvars.iv.next.i.us.us, %._crit_edge.us.i.loopexit.us.us ], [ 0, %.preheader88.us.i.us ]
-  %225 = mul nsw i64 %indvars.iv.i.us.us, %194
-  %226 = mul nsw i64 %indvars.iv.i.us.us, %193
-  %227 = getelementptr inbounds float, ptr %172, i64 %226
+  %225 = mul nsw i64 %indvars.iv.i.us.us, %193
+  %226 = getelementptr inbounds float, ptr %172, i64 %225
   br label %.lr.ph.us.i.us.us
 
 .lr.ph.us.i.us.us:                                ; preds = %.lr.ph.us.i.us.us, %.preheader87.us.i.us.us
-  %.093.us.i.us.us = phi i32 [ %247, %.lr.ph.us.i.us.us ], [ 0, %.preheader87.us.i.us.us ]
-  %.07092.us.i.us.us = phi double [ %244, %.lr.ph.us.i.us.us ], [ 0.000000e+00, %.preheader87.us.i.us.us ]
-  %.07191.us.i.us.us = phi double [ %241, %.lr.ph.us.i.us.us ], [ 0.000000e+00, %.preheader87.us.i.us.us ]
-  %.17790.us.i.us.us = phi ptr [ %246, %.lr.ph.us.i.us.us ], [ %227, %.preheader87.us.i.us.us ]
-  %.17989.us.i.us.us = phi ptr [ %245, %.lr.ph.us.i.us.us ], [ %.075116.us.i.us, %.preheader87.us.i.us.us ]
-  %228 = load float, ptr %.17989.us.i.us.us, align 4, !tbaa !123
-  %229 = fpext float %228 to double
-  %230 = load float, ptr %.17790.us.i.us.us, align 4, !tbaa !123
-  %231 = fpext float %230 to double
-  %232 = getelementptr inbounds nuw i8, ptr %.17989.us.i.us.us, i64 4
-  %233 = load float, ptr %232, align 4, !tbaa !123
-  %234 = fpext float %233 to double
-  %235 = getelementptr inbounds nuw i8, ptr %.17790.us.i.us.us, i64 4
-  %236 = load float, ptr %235, align 4, !tbaa !123
-  %237 = fpext float %236 to double
-  %238 = fneg double %237
-  %239 = fmul double %234, %238
-  %240 = call double @llvm.fmuladd.f64(double %229, double %231, double %239)
-  %241 = fadd double %.07191.us.i.us.us, %240
-  %242 = fmul double %231, %234
-  %243 = call double @llvm.fmuladd.f64(double %229, double %237, double %242)
-  %244 = fadd double %.07092.us.i.us.us, %243
-  %245 = getelementptr inbounds float, ptr %.17989.us.i.us.us, i64 %185
-  %246 = getelementptr inbounds float, ptr %.17790.us.i.us.us, i64 %186
-  %247 = add nuw nsw i32 %.093.us.i.us.us, 1
-  %exitcond.not.i.us.us = icmp eq i32 %247, %.0148
+  %.093.us.i.us.us = phi i32 [ %246, %.lr.ph.us.i.us.us ], [ 0, %.preheader87.us.i.us.us ]
+  %.07092.us.i.us.us = phi double [ %243, %.lr.ph.us.i.us.us ], [ 0.000000e+00, %.preheader87.us.i.us.us ]
+  %.07191.us.i.us.us = phi double [ %240, %.lr.ph.us.i.us.us ], [ 0.000000e+00, %.preheader87.us.i.us.us ]
+  %.17790.us.i.us.us = phi ptr [ %245, %.lr.ph.us.i.us.us ], [ %226, %.preheader87.us.i.us.us ]
+  %.17989.us.i.us.us = phi ptr [ %244, %.lr.ph.us.i.us.us ], [ %.075116.us.i.us, %.preheader87.us.i.us.us ]
+  %227 = load float, ptr %.17989.us.i.us.us, align 4, !tbaa !123
+  %228 = fpext float %227 to double
+  %229 = load float, ptr %.17790.us.i.us.us, align 4, !tbaa !123
+  %230 = fpext float %229 to double
+  %231 = getelementptr inbounds nuw i8, ptr %.17989.us.i.us.us, i64 4
+  %232 = load float, ptr %231, align 4, !tbaa !123
+  %233 = fpext float %232 to double
+  %234 = getelementptr inbounds nuw i8, ptr %.17790.us.i.us.us, i64 4
+  %235 = load float, ptr %234, align 4, !tbaa !123
+  %236 = fpext float %235 to double
+  %237 = fneg double %236
+  %238 = fmul double %233, %237
+  %239 = call double @llvm.fmuladd.f64(double %228, double %230, double %238)
+  %240 = fadd double %.07191.us.i.us.us, %239
+  %241 = fmul double %230, %233
+  %242 = call double @llvm.fmuladd.f64(double %228, double %236, double %241)
+  %243 = fadd double %.07092.us.i.us.us, %242
+  %244 = getelementptr inbounds float, ptr %.17989.us.i.us.us, i64 %185
+  %245 = getelementptr inbounds float, ptr %.17790.us.i.us.us, i64 %186
+  %246 = add nuw nsw i32 %.093.us.i.us.us, 1
+  %exitcond.not.i.us.us = icmp eq i32 %246, %.0148
   br i1 %exitcond.not.i.us.us, label %._crit_edge.us.i.loopexit.us.us, label %.lr.ph.us.i.us.us, !llvm.loop !673
 
 ._crit_edge.us.i.loopexit.us.us:                  ; preds = %.lr.ph.us.i.us.us
-  %248 = getelementptr inbounds float, ptr %.082111.us.i.us, i64 %225
-  %249 = fmul double %2, %241
-  %250 = fmul double %2, %244
+  %247 = mul nsw i64 %indvars.iv.i.us.us, %194
+  %248 = getelementptr inbounds float, ptr %.082111.us.i.us, i64 %247
+  %249 = fmul double %2, %240
+  %250 = fmul double %2, %243
   %251 = load float, ptr %248, align 4, !tbaa !123
   %252 = fpext float %251 to double
   %253 = call double @llvm.fmuladd.f64(double %252, double %4, double %249)

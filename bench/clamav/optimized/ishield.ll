@@ -860,38 +860,38 @@ select.unfold:                                    ; preds = %87, %65
   %.lcssa407 = phi ptr [ %157, %.outer351 ], [ %163, %158 ]
   %164 = getelementptr inbounds nuw i8, ptr %.lcssa407, i64 62
   %165 = load i16, ptr %164, align 1, !tbaa !88
-  %166 = zext i16 %165 to i32
-  %167 = getelementptr inbounds nuw i8, ptr %.lcssa407, i64 58
-  %168 = load i32, ptr %167, align 1, !tbaa !90
-  %169 = getelementptr inbounds nuw i8, ptr %.lcssa407, i64 26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) %169, i64 16, i1 false)
-  br label %170
+  %166 = getelementptr inbounds nuw i8, ptr %.lcssa407, i64 58
+  %167 = load i32, ptr %166, align 1, !tbaa !90
+  %168 = getelementptr inbounds nuw i8, ptr %.lcssa407, i64 26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) %168, i64 16, i1 false)
+  br label %169
 
-170:                                              ; preds = %170, %._crit_edge
-  %indvars.iv.i.i = phi i64 [ 15, %._crit_edge ], [ %indvars.iv.next.i.i, %170 ]
-  %171 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
-  %172 = load i8, ptr %171, align 1, !tbaa !25
-  %173 = and i8 %172, 15
-  %174 = lshr i8 %172, 4
-  %175 = icmp samesign ugt i8 %173, 9
-  %176 = select i1 %175, i8 87, i8 48
-  %177 = add nuw nsw i8 %176, %173
-  %178 = icmp ugt i8 %172, -97
-  %179 = select i1 %178, i8 87, i8 48
-  %180 = add nuw nsw i8 %179, %174
-  %181 = shl nuw nsw i64 %indvars.iv.i.i, 1
-  %182 = getelementptr inbounds nuw i8, ptr %4, i64 %181
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 1
-  store i8 %177, ptr %183, align 1, !tbaa !25
-  store i8 %180, ptr %182, align 2, !tbaa !25
+169:                                              ; preds = %169, %._crit_edge
+  %indvars.iv.i.i = phi i64 [ 15, %._crit_edge ], [ %indvars.iv.next.i.i, %169 ]
+  %170 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i
+  %171 = load i8, ptr %170, align 1, !tbaa !25
+  %172 = and i8 %171, 15
+  %173 = lshr i8 %171, 4
+  %174 = icmp samesign ugt i8 %172, 9
+  %175 = select i1 %174, i8 87, i8 48
+  %176 = add nuw nsw i8 %175, %172
+  %177 = icmp ugt i8 %171, -97
+  %178 = select i1 %177, i8 87, i8 48
+  %179 = add nuw nsw i8 %178, %173
+  %180 = shl nuw nsw i64 %indvars.iv.i.i, 1
+  %181 = getelementptr inbounds nuw i8, ptr %4, i64 %180
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 1
+  store i8 %176, ptr %182, align 1, !tbaa !25
+  store i8 %179, ptr %181, align 2, !tbaa !25
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %.not.i.i, label %md5str.exit.i, label %170
+  br i1 %.not.i.i, label %md5str.exit.i, label %169
 
-md5str.exit.i:                                    ; preds = %170
-  %184 = shl nuw nsw i32 %166, 2
+md5str.exit.i:                                    ; preds = %169
+  %183 = zext i16 %165 to i32
+  %184 = shl nuw nsw i32 %183, 2
   %185 = add i32 %184, %142
-  %186 = add i32 %168, %142
+  %186 = add i32 %167, %142
   store i8 0, ptr %151, align 16, !tbaa !25
   %187 = zext i32 %185 to i64
   %188 = getelementptr inbounds nuw i8, ptr %108, i64 %187

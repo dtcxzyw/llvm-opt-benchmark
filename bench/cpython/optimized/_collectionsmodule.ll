@@ -5214,7 +5214,7 @@ newblock.exit.thread161:                          ; preds = %42, %newblock.exit,
 
 71:                                               ; preds = %.lr.ph222, %107
   %.2111221 = phi i64 [ %.1110.lcssa, %.lr.ph222 ], [ %102, %107 ]
-  %.3220 = phi i64 [ %.0112.lcssa, %.lr.ph222 ], [ %94, %107 ]
+  %.3220 = phi i64 [ %.0112.lcssa, %.lr.ph222 ], [ %101, %107 ]
   %.3118218 = phi i64 [ %.0115.lcssa, %.lr.ph222 ], [ %.4119, %107 ]
   %.3123217 = phi ptr [ %.0120.lcssa, %.lr.ph222 ], [ %.4124, %107 ]
   %.3128215 = phi ptr [ %.0125.lcssa, %.lr.ph222 ], [ %.4129, %107 ]
@@ -5269,36 +5269,36 @@ newblock.exit159.thread164:                       ; preds = %77, %newblock.exit1
   %91 = getelementptr inbounds nuw i8, ptr %.4124, i64 8
   %92 = add i64 %.4, 1
   %93 = getelementptr [64 x ptr], ptr %91, i64 0, i64 %92
-  %94 = add i64 %.1, %.4
-  br label %95
+  br label %94
 
-95:                                               ; preds = %95, %85
-  %.0101 = phi ptr [ %90, %85 ], [ %96, %95 ]
-  %.0100 = phi ptr [ %93, %85 ], [ %98, %95 ]
-  %.2 = phi i64 [ %.1, %85 ], [ %99, %95 ]
-  %96 = getelementptr i8, ptr %.0101, i64 8
-  %97 = load ptr, ptr %.0101, align 8, !tbaa !21
-  %98 = getelementptr i8, ptr %.0100, i64 8
-  store ptr %97, ptr %.0100, align 8, !tbaa !21
-  %99 = add i64 %.2, -1
-  %.not = icmp eq i64 %99, 0
-  br i1 %.not, label %100, label %95, !llvm.loop !90
+94:                                               ; preds = %94, %85
+  %.0101 = phi ptr [ %90, %85 ], [ %95, %94 ]
+  %.0100 = phi ptr [ %93, %85 ], [ %97, %94 ]
+  %.2 = phi i64 [ %.1, %85 ], [ %98, %94 ]
+  %95 = getelementptr i8, ptr %.0101, i64 8
+  %96 = load ptr, ptr %.0101, align 8, !tbaa !21
+  %97 = getelementptr i8, ptr %.0100, i64 8
+  store ptr %96, ptr %.0100, align 8, !tbaa !21
+  %98 = add i64 %.2, -1
+  %.not = icmp eq i64 %98, 0
+  br i1 %.not, label %99, label %94, !llvm.loop !90
 
-100:                                              ; preds = %95
-  %101 = add i64 %.1, %.3118218
+99:                                               ; preds = %94
+  %100 = add i64 %.1, %.3118218
+  %101 = add i64 %.1, %.4
   %102 = add i64 %.1, %.2111221
-  %103 = icmp eq i64 %101, 64
+  %103 = icmp eq i64 %100, 64
   br i1 %103, label %104, label %107
 
-104:                                              ; preds = %100
+104:                                              ; preds = %99
   %105 = getelementptr inbounds nuw i8, ptr %.3128215, i64 520
   %106 = load ptr, ptr %105, align 8, !tbaa !54
   br label %107
 
-107:                                              ; preds = %104, %100
-  %.8 = phi ptr [ %.3128215, %104 ], [ %.6, %100 ]
-  %.4129 = phi ptr [ %106, %104 ], [ %.3128215, %100 ]
-  %.4119 = phi i64 [ 0, %104 ], [ %101, %100 ]
+107:                                              ; preds = %104, %99
+  %.8 = phi ptr [ %.3128215, %104 ], [ %.6, %99 ]
+  %.4129 = phi ptr [ %106, %104 ], [ %.3128215, %99 ]
+  %.4119 = phi i64 [ 0, %104 ], [ %100, %99 ]
   %108 = icmp slt i64 %102, 0
   br i1 %108, label %71, label %._crit_edge, !llvm.loop !91
 
@@ -5307,7 +5307,7 @@ newblock.exit159.thread164:                       ; preds = %77, %newblock.exit1
   %.3128.lcssa = phi ptr [ %.0125.lcssa, %.preheader ], [ %.4129, %107 ]
   %.3123.lcssa = phi ptr [ %.0120.lcssa, %.preheader ], [ %.4124, %107 ]
   %.3118.lcssa = phi i64 [ %.0115.lcssa, %.preheader ], [ %.4119, %107 ]
-  %.3.lcssa = phi i64 [ %.0112.lcssa, %.preheader ], [ %94, %107 ]
+  %.3.lcssa = phi i64 [ %.0112.lcssa, %.preheader ], [ %101, %107 ]
   %.not152 = icmp eq ptr %.5.lcssa, null
   br i1 %.not152, label %freeblock.exit, label %109
 

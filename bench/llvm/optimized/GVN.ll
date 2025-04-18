@@ -16421,7 +16421,6 @@ _ZN4llvm7GVNPass9LeaderMap6insertEjPNS_5ValueEPKNS_10BasicBlockE.exit: ; preds =
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %177 = load ptr, ptr %176, align 8, !tbaa !219
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %7) #27
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %7, align 8
   %178 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %178, align 4, !tbaa !734
@@ -16436,6 +16435,7 @@ _ZN4llvm7GVNPass9LeaderMap6insertEjPNS_5ValueEPKNS_10BasicBlockE.exit: ; preds =
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEjLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !737
 
 _ZN4llvm13SmallDenseMapIPNS_10BasicBlockEjLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 48
   %180 = load ptr, ptr %179, align 8, !tbaa !489, !noalias !738

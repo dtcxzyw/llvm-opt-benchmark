@@ -3716,9 +3716,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit404:       ; preds = %_ZNKSt7__cxx1112bas
 .preheader.lr.ph.split.us.i:                      ; preds = %.preheader.lr.ph.i
   %1414 = load i32, ptr %1411, align 8, !tbaa !314
   %1415 = mul i32 %1414, %1408
-  %1416 = mul i32 %1412, %1408
-  %1417 = add i32 %1415, %.011955.i
-  %1418 = add i32 %1416, %.012154.i
+  %1416 = add i32 %1415, %.011955.i
+  %1417 = mul i32 %1412, %1408
+  %1418 = add i32 %1417, %.012154.i
   br label %._crit_edge48.i
 
 .preheader.i:                                     ; preds = %.preheader.lr.ph.i, %._crit_edge.i416
@@ -3765,7 +3765,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit404:       ; preds = %_ZNKSt7__cxx1112bas
 
 ._crit_edge48.i:                                  ; preds = %._crit_edge.i416, %.preheader.lr.ph.split.us.i, %1402
   %.1122.lcssa.i = phi i32 [ %.012154.i, %1402 ], [ %1418, %.preheader.lr.ph.split.us.i ], [ %1435, %._crit_edge.i416 ]
-  %.1120.lcssa.i = phi i32 [ %.011955.i, %1402 ], [ %1417, %.preheader.lr.ph.split.us.i ], [ %1434, %._crit_edge.i416 ]
+  %.1120.lcssa.i = phi i32 [ %.011955.i, %1402 ], [ %1416, %.preheader.lr.ph.split.us.i ], [ %1434, %._crit_edge.i416 ]
   %1438 = getelementptr inbounds nuw i8, ptr %.sroa.05.053.i, i64 56
   %.not36.i = icmp eq ptr %1438, %1395
   br i1 %.not36.i, label %._crit_edge58.i, label %1402

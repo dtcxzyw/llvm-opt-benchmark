@@ -488,75 +488,75 @@ define internal noundef i32 @func(ptr noundef readonly captures(none) %0, ptr no
 
 32:                                               ; preds = %27, %96
   %.069 = phi i64 [ 0, %27 ], [ %97, %96 ]
-  %33 = uitofp nneg i64 %.069 to double
+  %33 = mul nuw nsw i64 %.069, 6
+  %34 = add nuw nsw i64 %33, %31
+  %35 = getelementptr inbounds nuw double, ptr %10, i64 %34
+  %36 = getelementptr inbounds nuw double, ptr %15, i64 %34
+  br label %37
+
+37:                                               ; preds = %DotProd.exit.i, %32
+  %.020.i = phi i64 [ 0, %32 ], [ %48, %DotProd.exit.i ]
+  %38 = getelementptr inbounds nuw ptr, ptr %20, i64 %.020.i
+  %39 = load ptr, ptr %38, align 8, !tbaa !32
+  br label %40
+
+40:                                               ; preds = %40, %37
+  %.014.i.i = phi double [ 0.000000e+00, %37 ], [ %45, %40 ]
+  %.0813.i.i = phi ptr [ %39, %37 ], [ %43, %40 ]
+  %.0912.i.i = phi ptr [ %35, %37 ], [ %41, %40 ]
+  %.01011.i.i = phi i64 [ 0, %37 ], [ %46, %40 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 8
+  %42 = load double, ptr %.0912.i.i, align 8, !tbaa !33
+  %43 = getelementptr inbounds nuw i8, ptr %.0813.i.i, i64 8
+  %44 = load double, ptr %.0813.i.i, align 8, !tbaa !33
+  %45 = tail call double @llvm.fmuladd.f64(double %42, double %44, double %.014.i.i)
+  %46 = add nuw nsw i64 %.01011.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %46, 6
+  br i1 %exitcond.not.i.i, label %DotProd.exit.i, label %40
+
+DotProd.exit.i:                                   ; preds = %40
+  %47 = getelementptr inbounds nuw double, ptr %36, i64 %.020.i
+  store double %45, ptr %47, align 8, !tbaa !33
+  %48 = add nuw nsw i64 %.020.i, 1
+  %exitcond.not.i = icmp eq i64 %48, 6
+  br i1 %exitcond.not.i, label %49, label %37
+
+49:                                               ; preds = %DotProd.exit.i
+  %50 = uitofp nneg i64 %.069 to double
+  %51 = fmul double %5, %50
+  %52 = tail call double @llvm.fmuladd.f64(double %51, double %29, double 1.000000e+00)
+  br label %53
+
+53:                                               ; preds = %53, %49
+  %.121.i = phi i64 [ 0, %49 ], [ %62, %53 ]
+  %54 = getelementptr inbounds nuw double, ptr %35, i64 %.121.i
+  %55 = load double, ptr %54, align 8, !tbaa !33
+  %56 = getelementptr inbounds nuw double, ptr %22, i64 %.121.i
+  %57 = load double, ptr %56, align 8, !tbaa !33
+  %58 = getelementptr inbounds nuw double, ptr %36, i64 %.121.i
+  %59 = load double, ptr %58, align 8, !tbaa !33
+  %60 = tail call double @llvm.fmuladd.f64(double %57, double %52, double %59)
+  %61 = fmul double %55, %60
+  store double %61, ptr %58, align 8, !tbaa !33
+  %62 = add nuw nsw i64 %.121.i, 1
+  %exitcond22.not.i = icmp eq i64 %62, 6
+  br i1 %exitcond22.not.i, label %WebRate.exit.preheader, label %53
+
+WebRate.exit.preheader:                           ; preds = %53
   %.not65 = icmp eq i64 %.069, 0
-  %.not66 = icmp eq i64 %.069, 7
-  %34 = mul nuw nsw i64 %.069, 6
-  %35 = add nuw nsw i64 %34, %31
-  %36 = getelementptr inbounds nuw double, ptr %10, i64 %35
-  %37 = getelementptr inbounds nuw double, ptr %15, i64 %35
-  br label %38
-
-38:                                               ; preds = %DotProd.exit.i, %32
-  %.020.i = phi i64 [ 0, %32 ], [ %49, %DotProd.exit.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr %20, i64 %.020.i
-  %40 = load ptr, ptr %39, align 8, !tbaa !32
-  br label %41
-
-41:                                               ; preds = %41, %38
-  %.014.i.i = phi double [ 0.000000e+00, %38 ], [ %46, %41 ]
-  %.0813.i.i = phi ptr [ %40, %38 ], [ %44, %41 ]
-  %.0912.i.i = phi ptr [ %36, %38 ], [ %42, %41 ]
-  %.01011.i.i = phi i64 [ 0, %38 ], [ %47, %41 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 8
-  %43 = load double, ptr %.0912.i.i, align 8, !tbaa !33
-  %44 = getelementptr inbounds nuw i8, ptr %.0813.i.i, i64 8
-  %45 = load double, ptr %.0813.i.i, align 8, !tbaa !33
-  %46 = tail call double @llvm.fmuladd.f64(double %43, double %45, double %.014.i.i)
-  %47 = add nuw nsw i64 %.01011.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %47, 6
-  br i1 %exitcond.not.i.i, label %DotProd.exit.i, label %41
-
-DotProd.exit.i:                                   ; preds = %41
-  %48 = getelementptr inbounds nuw double, ptr %37, i64 %.020.i
-  store double %46, ptr %48, align 8, !tbaa !33
-  %49 = add nuw nsw i64 %.020.i, 1
-  %exitcond.not.i = icmp eq i64 %49, 6
-  br i1 %exitcond.not.i, label %50, label %38
-
-50:                                               ; preds = %DotProd.exit.i
-  %51 = fmul double %5, %33
-  %52 = select i1 %.not66, i64 -6, i64 6
-  %53 = tail call double @llvm.fmuladd.f64(double %51, double %29, double 1.000000e+00)
-  br label %54
-
-54:                                               ; preds = %54, %50
-  %.121.i = phi i64 [ 0, %50 ], [ %63, %54 ]
-  %55 = getelementptr inbounds nuw double, ptr %36, i64 %.121.i
-  %56 = load double, ptr %55, align 8, !tbaa !33
-  %57 = getelementptr inbounds nuw double, ptr %22, i64 %.121.i
-  %58 = load double, ptr %57, align 8, !tbaa !33
-  %59 = getelementptr inbounds nuw double, ptr %37, i64 %.121.i
-  %60 = load double, ptr %59, align 8, !tbaa !33
-  %61 = tail call double @llvm.fmuladd.f64(double %58, double %53, double %60)
-  %62 = fmul double %56, %61
-  store double %62, ptr %59, align 8, !tbaa !33
-  %63 = add nuw nsw i64 %.121.i, 1
-  %exitcond22.not.i = icmp eq i64 %63, 6
-  br i1 %exitcond22.not.i, label %WebRate.exit.preheader, label %54
-
-WebRate.exit.preheader:                           ; preds = %54
   %.neg67 = select i1 %.not65, i64 6, i64 -6
-  %64 = getelementptr inbounds nuw double, ptr %18, i64 %35
-  %65 = getelementptr inbounds double, ptr %36, i64 %.neg
-  %66 = getelementptr inbounds double, ptr %36, i64 %30
-  %67 = getelementptr inbounds double, ptr %36, i64 %.neg67
-  %68 = getelementptr inbounds double, ptr %36, i64 %52
+  %.not66 = icmp eq i64 %.069, 7
+  %63 = select i1 %.not66, i64 -6, i64 6
+  %64 = getelementptr inbounds nuw double, ptr %18, i64 %34
+  %65 = getelementptr inbounds double, ptr %35, i64 %.neg
+  %66 = getelementptr inbounds double, ptr %35, i64 %30
+  %67 = getelementptr inbounds double, ptr %35, i64 %.neg67
+  %68 = getelementptr inbounds double, ptr %35, i64 %63
   br label %WebRate.exit
 
 WebRate.exit:                                     ; preds = %WebRate.exit.preheader, %WebRate.exit
   %.06368 = phi i64 [ 0, %WebRate.exit.preheader ], [ %95, %WebRate.exit ]
-  %69 = getelementptr inbounds nuw double, ptr %36, i64 %.06368
+  %69 = getelementptr inbounds nuw double, ptr %35, i64 %.06368
   %70 = load double, ptr %69, align 8, !tbaa !33
   %71 = getelementptr inbounds nuw double, ptr %65, i64 %.06368
   %72 = load double, ptr %71, align 8, !tbaa !33
@@ -578,7 +578,7 @@ WebRate.exit:                                     ; preds = %WebRate.exit.prehea
   %88 = fsub double %82, %79
   %89 = fmul double %88, %87
   %90 = tail call double @llvm.fmuladd.f64(double %84, double %85, double %89)
-  %91 = getelementptr inbounds nuw double, ptr %37, i64 %.06368
+  %91 = getelementptr inbounds nuw double, ptr %36, i64 %.06368
   %92 = load double, ptr %91, align 8, !tbaa !33
   %93 = fadd double %92, %90
   %94 = getelementptr inbounds nuw double, ptr %64, i64 %.06368

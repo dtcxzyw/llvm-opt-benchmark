@@ -3486,8 +3486,6 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %57, 4611686018427387900
-  %59 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i252, i64 %59
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -3497,19 +3495,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep298 = getelementptr i8, ptr %50, i64 %offset.idx
   call void @llvm.experimental.noalias.scope.decl(metadata !176)
   call void @llvm.experimental.noalias.scope.decl(metadata !179)
-  %60 = getelementptr i8, ptr %next.gep298, i64 16
+  %59 = getelementptr i8, ptr %next.gep298, i64 16
   %wide.load = load <2 x i64>, ptr %next.gep298, align 8, !tbaa !47, !alias.scope !181, !noalias !176
-  %wide.load300 = load <2 x i64>, ptr %60, align 8, !tbaa !47, !alias.scope !181, !noalias !176
-  %61 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load300 = load <2 x i64>, ptr %59, align 8, !tbaa !47, !alias.scope !181, !noalias !176
+  %60 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !47, !alias.scope !184, !noalias !181
-  store <2 x i64> %wide.load300, ptr %61, align 8, !tbaa !47, !alias.scope !184, !noalias !181
+  store <2 x i64> %wide.load300, ptr %60, align 8, !tbaa !47, !alias.scope !184, !noalias !181
   %index.next = add nuw i64 %index, 4
-  %62 = icmp eq i64 %index.next, %n.vec
+  %61 = icmp eq i64 %index.next, %n.vec
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep298, i8 0, i64 32, i1 false)
-  br i1 %62, label %middle.block, label %vector.body, !llvm.loop !186
+  br i1 %61, label %middle.block, label %vector.body, !llvm.loop !186
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end294 = getelementptr i8, ptr %50, i64 %59
+  %62 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i252, i64 %62
+  %ind.end294 = getelementptr i8, ptr %50, i64 %62
   %cmp.n = icmp eq i64 %57, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI22MeshUpdateWorkerThreadSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader32
 

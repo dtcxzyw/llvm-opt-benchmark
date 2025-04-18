@@ -8016,9 +8016,9 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS0_20UsdSkelSkeletonQue
 
 107:                                              ; preds = %._crit_edge
   %108 = load atomic i64, ptr %10 monotonic, align 8
-  %109 = icmp ne i64 %.038, 1
-  %110 = icmp ult i64 %.038, 8
-  %.not.i = and i1 %110, %109
+  %109 = icmp ult i64 %.038, 8
+  %110 = icmp ne i64 %.038, 1
+  %.not.i = and i1 %109, %110
   br i1 %.not.i, label %112, label %111
 
 111:                                              ; preds = %107
@@ -8213,9 +8213,9 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS0_8TfRefPtrINS0_22UsdS
 
 81:                                               ; preds = %._crit_edge
   %82 = load atomic i64, ptr %10 monotonic, align 8
-  %83 = icmp ne i64 %.038, 1
-  %84 = icmp ult i64 %.038, 8
-  %.not.i = and i1 %84, %83
+  %83 = icmp ult i64 %.038, 8
+  %84 = icmp ne i64 %.038, 1
+  %.not.i = and i1 %83, %84
   br i1 %.not.i, label %86, label %85
 
 85:                                               ; preds = %81
@@ -8400,9 +8400,9 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS0_8TfRefPtrINS0_21UsdS
 
 81:                                               ; preds = %._crit_edge
   %82 = load atomic i64, ptr %10 monotonic, align 8
-  %83 = icmp ne i64 %.038, 1
-  %84 = icmp ult i64 %.038, 8
-  %.not.i = and i1 %84, %83
+  %83 = icmp ult i64 %.038, 8
+  %84 = icmp ne i64 %.038, 1
+  %.not.i = and i1 %83, %84
   br i1 %.not.i, label %86, label %85
 
 85:                                               ; preds = %81
@@ -9816,9 +9816,9 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS0_20UsdSkelSkinningQue
 
 57:                                               ; preds = %._crit_edge
   %58 = load atomic i64, ptr %10 monotonic, align 8
-  %59 = icmp ne i64 %.038, 1
-  %60 = icmp ult i64 %.038, 8
-  %.not.i = and i1 %60, %59
+  %59 = icmp ult i64 %.038, 8
+  %60 = icmp ne i64 %.038, 1
+  %.not.i = and i1 %59, %60
   br i1 %.not.i, label %62, label %61
 
 61:                                               ; preds = %57

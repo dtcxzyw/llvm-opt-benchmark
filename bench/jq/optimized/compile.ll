@@ -582,17 +582,17 @@ define dso_local { ptr, ptr } @gen_subexp(ptr %0, ptr %1) local_unnamed_addr #1 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = tail call { i64, ptr } @jv_copy(i64 %24, ptr %26) #17
-  %28 = extractvalue { i64, ptr } %27, 0
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
-  %.05.i = phi ptr [ %29, %.lr.ph.i ], [ %0, %22 ]
-  %29 = load ptr, ptr %.05.i, align 8, !tbaa !22
+  %.05.i = phi ptr [ %28, %.lr.ph.i ], [ %0, %22 ]
+  %28 = load ptr, ptr %.05.i, align 8, !tbaa !22
   tail call fastcc void @inst_free(ptr noundef nonnull %.05.i)
-  %.not.i = icmp eq ptr %29, null
+  %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %block_free.exit, label %.lr.ph.i, !llvm.loop !35
 
 block_free.exit:                                  ; preds = %.lr.ph.i
+  %29 = extractvalue { i64, ptr } %27, 0
   %30 = extractvalue { i64, ptr } %27, 1
   %31 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -613,7 +613,7 @@ block_free.exit:                                  ; preds = %.lr.ph.i
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store ptr null, ptr %39, align 8, !tbaa !21
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  store i64 %28, ptr %40, align 8
+  store i64 %29, ptr %40, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 48
   store ptr %30, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !29
   br label %block_join.exit32

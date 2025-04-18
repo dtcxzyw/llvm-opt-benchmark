@@ -15822,7 +15822,6 @@ for.body.i3:                                      ; preds = %for.body.i3, %_ZN6h
   br i1 %exitcond.not.i11, label %_ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit13, label %for.body.i3, !llvm.loop !83
 
 _ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit13:  ; preds = %for.body.i3
-  %conv2.i = trunc i64 %or.i to i32
   %add.ptr5 = getelementptr inbounds nuw i8, ptr %ip, i64 10
   br label %for.body.i14
 
@@ -15840,6 +15839,7 @@ for.body.i14:                                     ; preds = %for.body.i14, %_ZN6
   br i1 %exitcond.not.i22, label %_ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit24, label %for.body.i14, !llvm.loop !83
 
 _ZN6hermes3hbc13decodeOperandIjEEvPKhPT_.exit24:  ; preds = %for.body.i14
+  %conv2.i = trunc i64 %or.i to i32
   %conv2.i12 = trunc i64 %or.i9 to i32
   %regexStringIDMap_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %conv = and i64 %or.i20, 4294967295

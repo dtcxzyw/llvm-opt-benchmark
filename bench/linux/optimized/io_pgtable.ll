@@ -563,38 +563,38 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
 
 289:                                              ; preds = %286
   %290 = load volatile ptr, ptr %11, align 8
-  %291 = icmp eq ptr %290, %11
   %.not.us = icmp eq i64 %52, 0
-  %292 = or i64 %47, %16
-  %293 = and i64 %292, %42
-  %294 = or disjoint i64 %293, 1152921504606850561
-  %295 = or i64 %47, 1152921504606846977
-  %296 = select i1 %.not.us, i64 %295, i64 %294
-  %297 = or i64 %296, %44
-  br label %298
+  %291 = or i64 %47, %16
+  %292 = and i64 %291, %42
+  %293 = or disjoint i64 %292, 1152921504606850561
+  %294 = or i64 %47, 1152921504606846977
+  %295 = select i1 %.not.us, i64 %294, i64 %293
+  %296 = or i64 %295, %44
+  br label %297
 
-298:                                              ; preds = %298, %289
-  %299 = phi i64 [ 0, %289 ], [ %301, %298 ]
-  %300 = getelementptr i64, ptr %241, i64 %299
-  store i64 %297, ptr %300, align 8
-  %301 = add nuw nsw i64 %299, 1
-  %302 = icmp eq i64 %301, %245
-  br i1 %302, label %303, label %298, !llvm.loop !30
+297:                                              ; preds = %297, %289
+  %298 = phi i64 [ 0, %289 ], [ %300, %297 ]
+  %299 = getelementptr i64, ptr %241, i64 %298
+  store i64 %296, ptr %299, align 8
+  %300 = add nuw nsw i64 %298, 1
+  %301 = icmp eq i64 %300, %245
+  br i1 %301, label %302, label %297, !llvm.loop !30
 
-303:                                              ; preds = %298
-  %304 = select i1 %291, i8 %240, i8 1
+302:                                              ; preds = %297
+  %303 = icmp eq ptr %290, %11
+  %304 = select i1 %303, i8 %240, i8 1
   %305 = add i64 %46, %3
   %306 = add i64 %47, %3
   %307 = add i64 %48, -1
   br i1 %45, label %311, label %308
 
-308:                                              ; preds = %303
+308:                                              ; preds = %302
   %309 = load i64, ptr %7, align 8
   %310 = add i64 %309, %3
   store i64 %310, ptr %7, align 8
   br label %311
 
-311:                                              ; preds = %308, %303
+311:                                              ; preds = %308, %302
   %312 = icmp eq i64 %307, 0
   br i1 %312, label %.thread25, label %.split.us, !llvm.loop !31
 

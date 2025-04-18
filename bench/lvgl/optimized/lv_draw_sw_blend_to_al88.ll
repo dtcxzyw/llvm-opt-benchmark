@@ -5115,10 +5115,10 @@ lv_color_16a_16a_mix.exit.us261:                  ; preds = %197, %192, %190
 .preheader223.preheader:                          ; preds = %.preheader223.lr.ph
   %209 = zext nneg i32 %7 to i64
   %210 = mul nuw nsw i64 %209, %206
-  %211 = mul nsw i64 %209, %207
-  %212 = mul nsw i64 %209, %208
   %scevgep357 = getelementptr i8, ptr %.2, i64 %210
+  %211 = mul nsw i64 %209, %207
   %scevgep358 = getelementptr i8, ptr %.2139, i64 %211
+  %212 = mul nsw i64 %209, %208
   %scevgep359 = getelementptr i8, ptr %18, i64 %212
   br label %.loopexit225
 

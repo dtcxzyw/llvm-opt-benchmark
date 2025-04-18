@@ -5392,31 +5392,31 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !264
   %.promoted65 = load ptr, ptr %82, align 8, !tbaa !170
-  %83 = shl nuw nsw i64 %79, 1
-  br label %84
+  br label %83
 
-84:                                               ; preds = %.lr.ph62, %84
-  %85 = phi ptr [ %.promoted65, %.lr.ph62 ], [ %87, %84 ]
-  %.061 = phi i64 [ %79, %.lr.ph62 ], [ %86, %84 ]
-  %.13760 = phi i8 [ 1, %.lr.ph62 ], [ %91, %84 ]
-  %.13959 = phi i8 [ 0, %.lr.ph62 ], [ %90, %84 ]
-  %86 = add nsw i64 %.061, -1
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 2
-  %88 = load i16, ptr %85, align 2, !tbaa !266
-  %.not47 = icmp eq i16 %88, 0
-  %89 = select i1 %.not47, i8 0, i8 %.13760
-  %90 = or i8 %89, %.13959
-  %91 = shl i8 %.13760, 1
-  %92 = icmp samesign ugt i64 %.061, 1
-  br i1 %92, label %84, label %._crit_edge63, !llvm.loop !270
+83:                                               ; preds = %.lr.ph62, %83
+  %84 = phi ptr [ %.promoted65, %.lr.ph62 ], [ %86, %83 ]
+  %.061 = phi i64 [ %79, %.lr.ph62 ], [ %85, %83 ]
+  %.13760 = phi i8 [ 1, %.lr.ph62 ], [ %90, %83 ]
+  %.13959 = phi i8 [ 0, %.lr.ph62 ], [ %89, %83 ]
+  %85 = add nsw i64 %.061, -1
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 2
+  %87 = load i16, ptr %84, align 2, !tbaa !266
+  %.not47 = icmp eq i16 %87, 0
+  %88 = select i1 %.not47, i8 0, i8 %.13760
+  %89 = or i8 %88, %.13959
+  %90 = shl i8 %.13760, 1
+  %91 = icmp samesign ugt i64 %.061, 1
+  br i1 %91, label %83, label %._crit_edge63, !llvm.loop !270
 
-._crit_edge63:                                    ; preds = %84
-  %scevgep = getelementptr i8, ptr %.promoted65, i64 %83
+._crit_edge63:                                    ; preds = %83
+  %92 = shl nuw nsw i64 %79, 1
+  %scevgep = getelementptr i8, ptr %.promoted65, i64 %92
   store ptr %scevgep, ptr %82, align 8, !tbaa !170
   br label %93
 
 93:                                               ; preds = %._crit_edge63, %.preheader
-  %.139.lcssa = phi i8 [ %90, %._crit_edge63 ], [ 0, %.preheader ]
+  %.139.lcssa = phi i8 [ %89, %._crit_edge63 ], [ 0, %.preheader ]
   store i8 %.139.lcssa, ptr %.141.lcssa, align 1, !tbaa !51
   br label %94
 
@@ -5568,31 +5568,31 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !271
   %.promoted65 = load ptr, ptr %82, align 8, !tbaa !181
-  %83 = shl nuw nsw i64 %79, 1
-  br label %84
+  br label %83
 
-84:                                               ; preds = %.lr.ph62, %84
-  %85 = phi ptr [ %.promoted65, %.lr.ph62 ], [ %87, %84 ]
-  %.061 = phi i64 [ %79, %.lr.ph62 ], [ %86, %84 ]
-  %.13760 = phi i8 [ 1, %.lr.ph62 ], [ %91, %84 ]
-  %.13959 = phi i8 [ 0, %.lr.ph62 ], [ %90, %84 ]
-  %86 = add nsw i64 %.061, -1
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 2
-  %88 = load i16, ptr %85, align 2, !tbaa !266
-  %.not47 = icmp eq i16 %88, 0
-  %89 = select i1 %.not47, i8 0, i8 %.13760
-  %90 = or i8 %89, %.13959
-  %91 = shl i8 %.13760, 1
-  %92 = icmp samesign ugt i64 %.061, 1
-  br i1 %92, label %84, label %._crit_edge63, !llvm.loop !276
+83:                                               ; preds = %.lr.ph62, %83
+  %84 = phi ptr [ %.promoted65, %.lr.ph62 ], [ %86, %83 ]
+  %.061 = phi i64 [ %79, %.lr.ph62 ], [ %85, %83 ]
+  %.13760 = phi i8 [ 1, %.lr.ph62 ], [ %90, %83 ]
+  %.13959 = phi i8 [ 0, %.lr.ph62 ], [ %89, %83 ]
+  %85 = add nsw i64 %.061, -1
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 2
+  %87 = load i16, ptr %84, align 2, !tbaa !266
+  %.not47 = icmp eq i16 %87, 0
+  %88 = select i1 %.not47, i8 0, i8 %.13760
+  %89 = or i8 %88, %.13959
+  %90 = shl i8 %.13760, 1
+  %91 = icmp samesign ugt i64 %.061, 1
+  br i1 %91, label %83, label %._crit_edge63, !llvm.loop !276
 
-._crit_edge63:                                    ; preds = %84
-  %scevgep = getelementptr i8, ptr %.promoted65, i64 %83
+._crit_edge63:                                    ; preds = %83
+  %92 = shl nuw nsw i64 %79, 1
+  %scevgep = getelementptr i8, ptr %.promoted65, i64 %92
   store ptr %scevgep, ptr %82, align 8, !tbaa !181
   br label %93
 
 93:                                               ; preds = %._crit_edge63, %.preheader
-  %.139.lcssa = phi i8 [ %90, %._crit_edge63 ], [ 0, %.preheader ]
+  %.139.lcssa = phi i8 [ %89, %._crit_edge63 ], [ 0, %.preheader ]
   store i8 %.139.lcssa, ptr %.141.lcssa, align 1, !tbaa !51
   br label %94
 
@@ -5744,31 +5744,31 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !277
   %.promoted65 = load ptr, ptr %82, align 8, !tbaa !191
-  %83 = shl nuw nsw i64 %79, 2
-  br label %84
+  br label %83
 
-84:                                               ; preds = %.lr.ph62, %84
-  %85 = phi ptr [ %.promoted65, %.lr.ph62 ], [ %87, %84 ]
-  %.061 = phi i64 [ %79, %.lr.ph62 ], [ %86, %84 ]
-  %.13760 = phi i8 [ 1, %.lr.ph62 ], [ %91, %84 ]
-  %.13959 = phi i8 [ 0, %.lr.ph62 ], [ %90, %84 ]
-  %86 = add nsw i64 %.061, -1
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %88 = load i32, ptr %85, align 4, !tbaa !52
-  %.not47 = icmp eq i32 %88, 0
-  %89 = select i1 %.not47, i8 0, i8 %.13760
-  %90 = or i8 %89, %.13959
-  %91 = shl i8 %.13760, 1
-  %92 = icmp samesign ugt i64 %.061, 1
-  br i1 %92, label %84, label %._crit_edge63, !llvm.loop !282
+83:                                               ; preds = %.lr.ph62, %83
+  %84 = phi ptr [ %.promoted65, %.lr.ph62 ], [ %86, %83 ]
+  %.061 = phi i64 [ %79, %.lr.ph62 ], [ %85, %83 ]
+  %.13760 = phi i8 [ 1, %.lr.ph62 ], [ %90, %83 ]
+  %.13959 = phi i8 [ 0, %.lr.ph62 ], [ %89, %83 ]
+  %85 = add nsw i64 %.061, -1
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %87 = load i32, ptr %84, align 4, !tbaa !52
+  %.not47 = icmp eq i32 %87, 0
+  %88 = select i1 %.not47, i8 0, i8 %.13760
+  %89 = or i8 %88, %.13959
+  %90 = shl i8 %.13760, 1
+  %91 = icmp samesign ugt i64 %.061, 1
+  br i1 %91, label %83, label %._crit_edge63, !llvm.loop !282
 
-._crit_edge63:                                    ; preds = %84
-  %scevgep = getelementptr i8, ptr %.promoted65, i64 %83
+._crit_edge63:                                    ; preds = %83
+  %92 = shl nuw nsw i64 %79, 2
+  %scevgep = getelementptr i8, ptr %.promoted65, i64 %92
   store ptr %scevgep, ptr %82, align 8, !tbaa !191
   br label %93
 
 93:                                               ; preds = %._crit_edge63, %.preheader
-  %.139.lcssa = phi i8 [ %90, %._crit_edge63 ], [ 0, %.preheader ]
+  %.139.lcssa = phi i8 [ %89, %._crit_edge63 ], [ 0, %.preheader ]
   store i8 %.139.lcssa, ptr %.141.lcssa, align 1, !tbaa !51
   br label %94
 
@@ -5920,31 +5920,31 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !283
   %.promoted65 = load ptr, ptr %82, align 8, !tbaa !202
-  %83 = shl nuw nsw i64 %79, 2
-  br label %84
+  br label %83
 
-84:                                               ; preds = %.lr.ph62, %84
-  %85 = phi ptr [ %.promoted65, %.lr.ph62 ], [ %87, %84 ]
-  %.061 = phi i64 [ %79, %.lr.ph62 ], [ %86, %84 ]
-  %.13760 = phi i8 [ 1, %.lr.ph62 ], [ %91, %84 ]
-  %.13959 = phi i8 [ 0, %.lr.ph62 ], [ %90, %84 ]
-  %86 = add nsw i64 %.061, -1
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %88 = load i32, ptr %85, align 4, !tbaa !52
-  %.not47 = icmp eq i32 %88, 0
-  %89 = select i1 %.not47, i8 0, i8 %.13760
-  %90 = or i8 %89, %.13959
-  %91 = shl i8 %.13760, 1
-  %92 = icmp samesign ugt i64 %.061, 1
-  br i1 %92, label %84, label %._crit_edge63, !llvm.loop !288
+83:                                               ; preds = %.lr.ph62, %83
+  %84 = phi ptr [ %.promoted65, %.lr.ph62 ], [ %86, %83 ]
+  %.061 = phi i64 [ %79, %.lr.ph62 ], [ %85, %83 ]
+  %.13760 = phi i8 [ 1, %.lr.ph62 ], [ %90, %83 ]
+  %.13959 = phi i8 [ 0, %.lr.ph62 ], [ %89, %83 ]
+  %85 = add nsw i64 %.061, -1
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %87 = load i32, ptr %84, align 4, !tbaa !52
+  %.not47 = icmp eq i32 %87, 0
+  %88 = select i1 %.not47, i8 0, i8 %.13760
+  %89 = or i8 %88, %.13959
+  %90 = shl i8 %.13760, 1
+  %91 = icmp samesign ugt i64 %.061, 1
+  br i1 %91, label %83, label %._crit_edge63, !llvm.loop !288
 
-._crit_edge63:                                    ; preds = %84
-  %scevgep = getelementptr i8, ptr %.promoted65, i64 %83
+._crit_edge63:                                    ; preds = %83
+  %92 = shl nuw nsw i64 %79, 2
+  %scevgep = getelementptr i8, ptr %.promoted65, i64 %92
   store ptr %scevgep, ptr %82, align 8, !tbaa !202
   br label %93
 
 93:                                               ; preds = %._crit_edge63, %.preheader
-  %.139.lcssa = phi i8 [ %90, %._crit_edge63 ], [ 0, %.preheader ]
+  %.139.lcssa = phi i8 [ %89, %._crit_edge63 ], [ 0, %.preheader ]
   store i8 %.139.lcssa, ptr %.141.lcssa, align 1, !tbaa !51
   br label %94
 
@@ -6096,31 +6096,31 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !289
   %.promoted65 = load ptr, ptr %82, align 8, !tbaa !212
-  %83 = shl nuw nsw i64 %79, 3
-  br label %84
+  br label %83
 
-84:                                               ; preds = %.lr.ph62, %84
-  %85 = phi ptr [ %.promoted65, %.lr.ph62 ], [ %87, %84 ]
-  %.061 = phi i64 [ %79, %.lr.ph62 ], [ %86, %84 ]
-  %.13760 = phi i8 [ 1, %.lr.ph62 ], [ %91, %84 ]
-  %.13959 = phi i8 [ 0, %.lr.ph62 ], [ %90, %84 ]
-  %86 = add nsw i64 %.061, -1
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %88 = load i64, ptr %85, align 8, !tbaa !120
-  %.not47 = icmp eq i64 %88, 0
-  %89 = select i1 %.not47, i8 0, i8 %.13760
-  %90 = or i8 %89, %.13959
-  %91 = shl i8 %.13760, 1
-  %92 = icmp samesign ugt i64 %.061, 1
-  br i1 %92, label %84, label %._crit_edge63, !llvm.loop !294
+83:                                               ; preds = %.lr.ph62, %83
+  %84 = phi ptr [ %.promoted65, %.lr.ph62 ], [ %86, %83 ]
+  %.061 = phi i64 [ %79, %.lr.ph62 ], [ %85, %83 ]
+  %.13760 = phi i8 [ 1, %.lr.ph62 ], [ %90, %83 ]
+  %.13959 = phi i8 [ 0, %.lr.ph62 ], [ %89, %83 ]
+  %85 = add nsw i64 %.061, -1
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %87 = load i64, ptr %84, align 8, !tbaa !120
+  %.not47 = icmp eq i64 %87, 0
+  %88 = select i1 %.not47, i8 0, i8 %.13760
+  %89 = or i8 %88, %.13959
+  %90 = shl i8 %.13760, 1
+  %91 = icmp samesign ugt i64 %.061, 1
+  br i1 %91, label %83, label %._crit_edge63, !llvm.loop !294
 
-._crit_edge63:                                    ; preds = %84
-  %scevgep = getelementptr i8, ptr %.promoted65, i64 %83
+._crit_edge63:                                    ; preds = %83
+  %92 = shl nuw nsw i64 %79, 3
+  %scevgep = getelementptr i8, ptr %.promoted65, i64 %92
   store ptr %scevgep, ptr %82, align 8, !tbaa !212
   br label %93
 
 93:                                               ; preds = %._crit_edge63, %.preheader
-  %.139.lcssa = phi i8 [ %90, %._crit_edge63 ], [ 0, %.preheader ]
+  %.139.lcssa = phi i8 [ %89, %._crit_edge63 ], [ 0, %.preheader ]
   store i8 %.139.lcssa, ptr %.141.lcssa, align 1, !tbaa !51
   br label %94
 
@@ -6272,31 +6272,31 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !295
   %.promoted65 = load ptr, ptr %82, align 8, !tbaa !223
-  %83 = shl nuw nsw i64 %79, 3
-  br label %84
+  br label %83
 
-84:                                               ; preds = %.lr.ph62, %84
-  %85 = phi ptr [ %.promoted65, %.lr.ph62 ], [ %87, %84 ]
-  %.061 = phi i64 [ %79, %.lr.ph62 ], [ %86, %84 ]
-  %.13760 = phi i8 [ 1, %.lr.ph62 ], [ %91, %84 ]
-  %.13959 = phi i8 [ 0, %.lr.ph62 ], [ %90, %84 ]
-  %86 = add nsw i64 %.061, -1
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %88 = load i64, ptr %85, align 8, !tbaa !120
-  %.not47 = icmp eq i64 %88, 0
-  %89 = select i1 %.not47, i8 0, i8 %.13760
-  %90 = or i8 %89, %.13959
-  %91 = shl i8 %.13760, 1
-  %92 = icmp samesign ugt i64 %.061, 1
-  br i1 %92, label %84, label %._crit_edge63, !llvm.loop !300
+83:                                               ; preds = %.lr.ph62, %83
+  %84 = phi ptr [ %.promoted65, %.lr.ph62 ], [ %86, %83 ]
+  %.061 = phi i64 [ %79, %.lr.ph62 ], [ %85, %83 ]
+  %.13760 = phi i8 [ 1, %.lr.ph62 ], [ %90, %83 ]
+  %.13959 = phi i8 [ 0, %.lr.ph62 ], [ %89, %83 ]
+  %85 = add nsw i64 %.061, -1
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %87 = load i64, ptr %84, align 8, !tbaa !120
+  %.not47 = icmp eq i64 %87, 0
+  %88 = select i1 %.not47, i8 0, i8 %.13760
+  %89 = or i8 %88, %.13959
+  %90 = shl i8 %.13760, 1
+  %91 = icmp samesign ugt i64 %.061, 1
+  br i1 %91, label %83, label %._crit_edge63, !llvm.loop !300
 
-._crit_edge63:                                    ; preds = %84
-  %scevgep = getelementptr i8, ptr %.promoted65, i64 %83
+._crit_edge63:                                    ; preds = %83
+  %92 = shl nuw nsw i64 %79, 3
+  %scevgep = getelementptr i8, ptr %.promoted65, i64 %92
   store ptr %scevgep, ptr %82, align 8, !tbaa !223
   br label %93
 
 93:                                               ; preds = %._crit_edge63, %.preheader
-  %.139.lcssa = phi i8 [ %90, %._crit_edge63 ], [ 0, %.preheader ]
+  %.139.lcssa = phi i8 [ %89, %._crit_edge63 ], [ 0, %.preheader ]
   store i8 %.139.lcssa, ptr %.141.lcssa, align 1, !tbaa !51
   br label %94
 
@@ -6448,31 +6448,31 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !301
   %.promoted63 = load ptr, ptr %83, align 8, !tbaa !233
-  %84 = shl nuw nsw i64 %80, 2
-  br label %85
+  br label %84
 
-85:                                               ; preds = %.lr.ph60, %85
-  %86 = phi ptr [ %.promoted63, %.lr.ph60 ], [ %88, %85 ]
-  %.059 = phi i64 [ %80, %.lr.ph60 ], [ %87, %85 ]
-  %.13758 = phi i8 [ 1, %.lr.ph60 ], [ %93, %85 ]
-  %.13957 = phi i8 [ 0, %.lr.ph60 ], [ %92, %85 ]
-  %87 = add nsw i64 %.059, -1
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  %89 = load float, ptr %86, align 4, !tbaa !303
-  %90 = fcmp une float %89, 0.000000e+00
-  %91 = select i1 %90, i8 %.13758, i8 0
-  %92 = or i8 %91, %.13957
-  %93 = shl i8 %.13758, 1
-  %94 = icmp samesign ugt i64 %.059, 1
-  br i1 %94, label %85, label %._crit_edge61, !llvm.loop !308
+84:                                               ; preds = %.lr.ph60, %84
+  %85 = phi ptr [ %.promoted63, %.lr.ph60 ], [ %87, %84 ]
+  %.059 = phi i64 [ %80, %.lr.ph60 ], [ %86, %84 ]
+  %.13758 = phi i8 [ 1, %.lr.ph60 ], [ %92, %84 ]
+  %.13957 = phi i8 [ 0, %.lr.ph60 ], [ %91, %84 ]
+  %86 = add nsw i64 %.059, -1
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  %88 = load float, ptr %85, align 4, !tbaa !303
+  %89 = fcmp une float %88, 0.000000e+00
+  %90 = select i1 %89, i8 %.13758, i8 0
+  %91 = or i8 %90, %.13957
+  %92 = shl i8 %.13758, 1
+  %93 = icmp samesign ugt i64 %.059, 1
+  br i1 %93, label %84, label %._crit_edge61, !llvm.loop !308
 
-._crit_edge61:                                    ; preds = %85
-  %scevgep = getelementptr i8, ptr %.promoted63, i64 %84
+._crit_edge61:                                    ; preds = %84
+  %94 = shl nuw nsw i64 %80, 2
+  %scevgep = getelementptr i8, ptr %.promoted63, i64 %94
   store ptr %scevgep, ptr %83, align 8, !tbaa !233
   br label %95
 
 95:                                               ; preds = %._crit_edge61, %.preheader
-  %.139.lcssa = phi i8 [ %92, %._crit_edge61 ], [ 0, %.preheader ]
+  %.139.lcssa = phi i8 [ %91, %._crit_edge61 ], [ 0, %.preheader ]
   store i8 %.139.lcssa, ptr %.141.lcssa, align 1, !tbaa !51
   br label %96
 
@@ -6624,31 +6624,31 @@ define linkonce_odr void @_ZN5arrow8internal20GenerateBitsUnrolledIZNS_7compute8
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !309
   %.promoted63 = load ptr, ptr %83, align 8, !tbaa !244
-  %84 = shl nuw nsw i64 %80, 3
-  br label %85
+  br label %84
 
-85:                                               ; preds = %.lr.ph60, %85
-  %86 = phi ptr [ %.promoted63, %.lr.ph60 ], [ %88, %85 ]
-  %.059 = phi i64 [ %80, %.lr.ph60 ], [ %87, %85 ]
-  %.13758 = phi i8 [ 1, %.lr.ph60 ], [ %93, %85 ]
-  %.13957 = phi i8 [ 0, %.lr.ph60 ], [ %92, %85 ]
-  %87 = add nsw i64 %.059, -1
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %89 = load double, ptr %86, align 8, !tbaa !311
-  %90 = fcmp une double %89, 0.000000e+00
-  %91 = select i1 %90, i8 %.13758, i8 0
-  %92 = or i8 %91, %.13957
-  %93 = shl i8 %.13758, 1
-  %94 = icmp samesign ugt i64 %.059, 1
-  br i1 %94, label %85, label %._crit_edge61, !llvm.loop !316
+84:                                               ; preds = %.lr.ph60, %84
+  %85 = phi ptr [ %.promoted63, %.lr.ph60 ], [ %87, %84 ]
+  %.059 = phi i64 [ %80, %.lr.ph60 ], [ %86, %84 ]
+  %.13758 = phi i8 [ 1, %.lr.ph60 ], [ %92, %84 ]
+  %.13957 = phi i8 [ 0, %.lr.ph60 ], [ %91, %84 ]
+  %86 = add nsw i64 %.059, -1
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %88 = load double, ptr %85, align 8, !tbaa !311
+  %89 = fcmp une double %88, 0.000000e+00
+  %90 = select i1 %89, i8 %.13758, i8 0
+  %91 = or i8 %90, %.13957
+  %92 = shl i8 %.13758, 1
+  %93 = icmp samesign ugt i64 %.059, 1
+  br i1 %93, label %84, label %._crit_edge61, !llvm.loop !316
 
-._crit_edge61:                                    ; preds = %85
-  %scevgep = getelementptr i8, ptr %.promoted63, i64 %84
+._crit_edge61:                                    ; preds = %84
+  %94 = shl nuw nsw i64 %80, 3
+  %scevgep = getelementptr i8, ptr %.promoted63, i64 %94
   store ptr %scevgep, ptr %83, align 8, !tbaa !244
   br label %95
 
 95:                                               ; preds = %._crit_edge61, %.preheader
-  %.139.lcssa = phi i8 [ %92, %._crit_edge61 ], [ 0, %.preheader ]
+  %.139.lcssa = phi i8 [ %91, %._crit_edge61 ], [ 0, %.preheader ]
   store i8 %.139.lcssa, ptr %.141.lcssa, align 1, !tbaa !51
   br label %96
 

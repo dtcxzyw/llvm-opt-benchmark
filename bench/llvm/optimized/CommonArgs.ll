@@ -1537,9 +1537,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
   br i1 %.not27.i.i, label %.lr.ph.i.i.us.preheader, label %.lr.ph.i.i
 
 .lr.ph.i.i.us.preheader:                          ; preds = %.lr.ph.i.i.preheader
+  %scevgep = getelementptr i8, ptr %.sroa.042.076, i64 16
   %238 = sub i64 %57, %.sroa.042.07680
   %239 = and i64 %238, -8
-  %scevgep = getelementptr i8, ptr %.sroa.042.076, i64 16
   %scevgep81 = getelementptr i8, ptr %scevgep, i64 %239
   br label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit
 
@@ -4767,9 +4767,9 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_range
 
 _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.us: ; preds = %.lr.ph.split.us
   %.sroa.0.037.us42 = ptrtoint ptr %.sroa.0.037.us to i64
+  %scevgep = getelementptr i8, ptr %.sroa.0.037.us, i64 16
   %25 = sub i64 %17, %.sroa.0.037.us42
   %26 = and i64 %25, -8
-  %scevgep = getelementptr i8, ptr %.sroa.0.037.us, i64 16
   %scevgep43 = getelementptr i8, ptr %scevgep, i64 %26
   %.not.us = icmp eq ptr %scevgep43, %10
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
@@ -28136,9 +28136,9 @@ _ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12
 
 _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.us: ; preds = %.lr.ph.split.us
   %.sroa.0.038.us43 = ptrtoint ptr %.sroa.0.038.us to i64
+  %scevgep = getelementptr i8, ptr %.sroa.0.038.us, i64 16
   %25 = sub i64 %17, %.sroa.0.038.us43
   %26 = and i64 %25, -8
-  %scevgep = getelementptr i8, ptr %.sroa.0.038.us, i64 16
   %scevgep44 = getelementptr i8, ptr %scevgep, i64 %26
   %.not.us = icmp eq ptr %scevgep44, %10
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us

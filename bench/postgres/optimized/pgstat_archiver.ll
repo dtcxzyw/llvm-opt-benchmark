@@ -121,44 +121,44 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_archiver_snapshot_cb() local_unnamed_addr #0 {
   %1 = load ptr, ptr @pgStatLocal, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %pgstat_end_changecount_read.exit.i
 
 pgstat_end_changecount_read.exit.i:               ; preds = %pgstat_end_changecount_read.exit.i.backedge, %0
-  %5 = load i32, ptr %4, align 4
-  %6 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i = icmp eq i32 %6, 0
-  br i1 %.not.i.i, label %pgstat_begin_changecount_read.exit.i, label %7, !prof !6
+  %4 = load i32, ptr %3, align 4
+  %5 = load volatile i32, ptr @InterruptPending, align 4
+  %.not.i.i = icmp eq i32 %5, 0
+  br i1 %.not.i.i, label %pgstat_begin_changecount_read.exit.i, label %6, !prof !6
 
-7:                                                ; preds = %pgstat_end_changecount_read.exit.i
+6:                                                ; preds = %pgstat_end_changecount_read.exit.i
   tail call void @ProcessInterrupts() #3
   br label %pgstat_begin_changecount_read.exit.i
 
-pgstat_begin_changecount_read.exit.i:             ; preds = %7, %pgstat_end_changecount_read.exit.i
+pgstat_begin_changecount_read.exit.i:             ; preds = %6, %pgstat_end_changecount_read.exit.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 56), ptr noundef nonnull readonly align 1 dereferenceable(136) %3, i64 136, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 56), ptr noundef nonnull readonly align 1 dereferenceable(136) %2, i64 136, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
-  %8 = and i32 %5, 1
-  %.not.i5.i = icmp eq i32 %8, 0
-  br i1 %.not.i5.i, label %9, label %pgstat_end_changecount_read.exit.i.backedge
+  %7 = and i32 %4, 1
+  %.not.i5.i = icmp eq i32 %7, 0
+  br i1 %.not.i5.i, label %8, label %pgstat_end_changecount_read.exit.i.backedge
 
-9:                                                ; preds = %pgstat_begin_changecount_read.exit.i
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp eq i32 %5, %10
-  br i1 %11, label %pgstat_copy_changecounted_stats.exit, label %pgstat_end_changecount_read.exit.i.backedge
+8:                                                ; preds = %pgstat_begin_changecount_read.exit.i
+  %9 = load i32, ptr %3, align 4
+  %10 = icmp eq i32 %4, %9
+  br i1 %10, label %pgstat_copy_changecounted_stats.exit, label %pgstat_end_changecount_read.exit.i.backedge
 
-pgstat_end_changecount_read.exit.i.backedge:      ; preds = %9, %pgstat_begin_changecount_read.exit.i
+pgstat_end_changecount_read.exit.i.backedge:      ; preds = %8, %pgstat_begin_changecount_read.exit.i
   br label %pgstat_end_changecount_read.exit.i, !llvm.loop !9
 
-pgstat_copy_changecounted_stats.exit:             ; preds = %9
+pgstat_copy_changecounted_stats.exit:             ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #3
+  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %11, i32 noundef 1) #3
   %.sroa.0.0.copyload = load i64, ptr %12, align 8
   %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.sroa.52.0.copyload = load i64, ptr %.sroa.52.0..sroa_idx, align 8
-  tail call void @LWLockRelease(ptr noundef nonnull %2) #3
+  tail call void @LWLockRelease(ptr noundef nonnull %11) #3
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 56), align 8
   %15 = icmp eq i64 %14, %.sroa.0.0.copyload
   br i1 %15, label %16, label %17

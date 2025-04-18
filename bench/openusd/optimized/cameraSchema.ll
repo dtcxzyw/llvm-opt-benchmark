@@ -5032,11 +5032,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdCameraSchema13BuildRetaine
   %20 = alloca [18 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 16
   %21 = alloca [18 x %"class.std::shared_ptr.18"], align 16
   %22 = alloca %"class.std::shared_ptr.21", align 8
-  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %20, i8 0, i64 144, i1 false)
-  %.0.sroa.gep554 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %21, i8 0, i64 288, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 144
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %.0.sroa.gep554 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 288
   %25 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %25, null

@@ -59343,34 +59343,34 @@ _ZNK4pbrt3XYZixEi.exit.i.i49:                     ; preds = %80, %79, %_ZN4pbrt3
 
 _ZN4pbrtmlILi3ENS_3XYZEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit54: ; preds = %.split.i.i34
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #38
-  %83 = fdiv float %74, %42
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %84, %_ZN4pbrtmlILi3ENS_3XYZEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit54
-  %indvars.iv12.i.i = phi i64 [ 0, %_ZN4pbrtmlILi3ENS_3XYZEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit54 ], [ %indvars.iv.next13.i.i, %84 ]
-  br label %85
+.preheader.i.i:                                   ; preds = %83, %_ZN4pbrtmlILi3ENS_3XYZEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit54
+  %indvars.iv12.i.i = phi i64 [ 0, %_ZN4pbrtmlILi3ENS_3XYZEEET0_RKNS_12SquareMatrixIXT_EEERKS2_.exit54 ], [ %indvars.iv.next13.i.i, %83 ]
+  br label %84
 
-84:                                               ; preds = %85
+83:                                               ; preds = %84
   %indvars.iv.next13.i.i = add nuw nsw i64 %indvars.iv12.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %indvars.iv.next13.i.i, 3
   br i1 %exitcond15.not.i.i, label %_ZN4pbrt12SquareMatrixILi3EE4DiagIJffEEES1_fDpT_.exit, label %.preheader.i.i, !llvm.loop !791
 
-85:                                               ; preds = %85, %.preheader.i.i
-  %indvars.iv.i.i55 = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i56, %85 ]
-  %86 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i55
-  %87 = uitofp i1 %86 to float
-  %88 = getelementptr inbounds nuw [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv12.i.i, i64 %indvars.iv.i.i55
-  store float %87, ptr %88, align 4, !tbaa !35, !alias.scope !836
+84:                                               ; preds = %84, %.preheader.i.i
+  %indvars.iv.i.i55 = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i56, %84 ]
+  %85 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i55
+  %86 = uitofp i1 %85 to float
+  %87 = getelementptr inbounds nuw [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv12.i.i, i64 %indvars.iv.i.i55
+  store float %86, ptr %87, align 4, !tbaa !35, !alias.scope !836
   %indvars.iv.next.i.i56 = add nuw nsw i64 %indvars.iv.i.i55, 1
   %exitcond.not.i.i57 = icmp eq i64 %indvars.iv.next.i.i56, 3
-  br i1 %exitcond.not.i.i57, label %84, label %85, !llvm.loop !792
+  br i1 %exitcond.not.i.i57, label %83, label %84, !llvm.loop !792
 
-_ZN4pbrt12SquareMatrixILi3EE4DiagIJffEEES1_fDpT_.exit: ; preds = %84
-  %89 = fdiv float %73, %41
+_ZN4pbrt12SquareMatrixILi3EE4DiagIJffEEES1_fDpT_.exit: ; preds = %83
+  %88 = fdiv float %73, %41
+  %89 = fdiv float %74, %42
   %90 = fdiv float %72, %40
-  store float %89, ptr %4, align 4, !tbaa !35, !alias.scope !836
+  store float %88, ptr %4, align 4, !tbaa !35, !alias.scope !836
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store float %83, ptr %91, align 4, !tbaa !35, !alias.scope !836
+  store float %89, ptr %91, align 4, !tbaa !35, !alias.scope !836
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store float %90, ptr %92, align 4, !tbaa !35, !alias.scope !836
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #38

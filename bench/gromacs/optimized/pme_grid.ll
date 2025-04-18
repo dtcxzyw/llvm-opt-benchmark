@@ -1658,21 +1658,21 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %170, %172, %174, %1
 
 210:                                              ; preds = %207, %206, %205, %._crit_edge
   %.157 = phi i32 [ %.05673, %._crit_edge ], [ %209, %207 ], [ %9, %206 ], [ %8, %205 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.pre85, i64 184
-  br label %212
+  br label %211
 
-212:                                              ; preds = %212, %210
-  %storemerge = phi i32 [ 0, %210 ], [ %217, %212 ]
-  %213 = mul nsw i32 %199, %storemerge
-  %214 = sdiv i32 %213, %202
-  %215 = icmp slt i32 %214, %.157
-  %216 = icmp slt i32 %storemerge, %202
-  %or.cond = and i1 %216, %215
-  %217 = add nuw nsw i32 %storemerge, 1
-  br i1 %or.cond, label %212, label %.critedge2, !llvm.loop !190
+211:                                              ; preds = %211, %210
+  %storemerge = phi i32 [ 0, %210 ], [ %216, %211 ]
+  %212 = mul nsw i32 %199, %storemerge
+  %213 = sdiv i32 %212, %202
+  %214 = icmp slt i32 %213, %.157
+  %215 = icmp slt i32 %storemerge, %202
+  %or.cond = and i1 %215, %214
+  %216 = add nuw nsw i32 %storemerge, 1
+  br i1 %or.cond, label %211, label %.critedge2, !llvm.loop !190
 
-.critedge2:                                       ; preds = %212
-  %218 = getelementptr inbounds nuw [3 x i32], ptr %211, i64 0, i64 %indvars.iv81
+.critedge2:                                       ; preds = %211
+  %217 = getelementptr inbounds nuw i8, ptr %.pre85, i64 184
+  %218 = getelementptr inbounds nuw [3 x i32], ptr %217, i64 0, i64 %indvars.iv81
   store i32 %storemerge, ptr %218, align 4, !tbaa !11
   %219 = load ptr, ptr @debug, align 8, !tbaa !13
   %.not64 = icmp eq ptr %219, null

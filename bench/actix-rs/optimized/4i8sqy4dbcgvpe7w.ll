@@ -3744,8 +3744,8 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
 _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit370.i.i: ; preds = %.lr.ph1314.i.i
   %885 = mul nuw nsw i64 %.02191313.i.i, 1040
   %scevgep.i.i = getelementptr i8, ptr %445, i64 %885
-  %886 = getelementptr inbounds nuw [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %445, i64 0, i64 %.02191313.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %scevgep.i.i, i8 0, i64 1024, i1 false), !noalias !365
+  %886 = getelementptr inbounds nuw [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %445, i64 0, i64 %.02191313.i.i
   %887 = getelementptr inbounds nuw i8, ptr %886, i64 1024
   store i64 0, ptr %887, align 8, !alias.scope !693, !noalias !365
   %888 = getelementptr inbounds nuw i8, ptr %886, i64 1032
@@ -4190,11 +4190,11 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 .lr.ph412.i.i:                                    ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i", %1139
   %.0118411.i.i = phi float [ %.4.i.i, %1139 ], [ 0x47D2CED320000000, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i" ]
-  %.sroa.7221.0410.i.i = phi i64 [ %1050, %1139 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i" ]
-  %.sroa.0219.0409.i.i = phi ptr [ %1051, %1139 ], [ %355, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i" ]
-  %1050 = add nuw nsw i64 %.sroa.7221.0410.i.i, 1
+  %.sroa.7221.0410.i.i = phi i64 [ %1051, %1139 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i" ]
+  %.sroa.0219.0409.i.i = phi ptr [ %1050, %1139 ], [ %355, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i" ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %149), !noalias !759
-  %1051 = getelementptr inbounds nuw i8, ptr %.sroa.0219.0409.i.i, i64 32
+  %1050 = getelementptr inbounds nuw i8, ptr %.sroa.0219.0409.i.i, i64 32
+  %1051 = add nuw nsw i64 %.sroa.7221.0410.i.i, 1
   %1052 = shl i64 %.sroa.7221.0410.i.i, 3
   %.not.i.i198.i.i = icmp ugt i64 %1052, %1043
   br i1 %.not.i.i198.i.i, label %1134, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i"
@@ -4418,7 +4418,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 1139:                                             ; preds = %1152
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %149), !noalias !759
-  %1140 = icmp eq ptr %1051, %995
+  %1140 = icmp eq ptr %1050, %995
   br i1 %1140, label %._crit_edge413.i.i, label %.lr.ph412.i.i
 
 1141:                                             ; preds = %1152, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i"
@@ -6993,8 +6993,8 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
 _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit370.i.i: ; preds = %.lr.ph1346.i.i285
   %1992 = mul nuw nsw i64 %.02191345.i.i, 2832
   %scevgep.i.i286 = getelementptr i8, ptr %1546, i64 %1992
-  %1993 = getelementptr inbounds nuw [0 x { [704 x i32], i64, float, [1 x i32] }], ptr %1546, i64 0, i64 %.02191345.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2816) %scevgep.i.i286, i8 0, i64 2816, i1 false), !noalias !1090
+  %1993 = getelementptr inbounds nuw [0 x { [704 x i32], i64, float, [1 x i32] }], ptr %1546, i64 0, i64 %.02191345.i.i
   %1994 = getelementptr inbounds nuw i8, ptr %1993, i64 2816
   store i64 0, ptr %1994, align 8, !alias.scope !1422, !noalias !1090
   %1995 = getelementptr inbounds nuw i8, ptr %1993, i64 2824
@@ -7444,11 +7444,11 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 .lr.ph412.i.i153:                                 ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i152", %2248
   %.0118411.i.i154 = phi float [ %.4.i.i163, %2248 ], [ 0x47D2CED320000000, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i152" ]
-  %.sroa.7221.0410.i.i155 = phi i64 [ %2159, %2248 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i152" ]
-  %.sroa.0219.0409.i.i156 = phi ptr [ %2160, %2248 ], [ %1456, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i152" ]
-  %2159 = add nuw nsw i64 %.sroa.7221.0410.i.i155, 1
+  %.sroa.7221.0410.i.i155 = phi i64 [ %2160, %2248 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i152" ]
+  %.sroa.0219.0409.i.i156 = phi ptr [ %2159, %2248 ], [ %1456, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i152" ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %89), !noalias !1490
-  %2160 = getelementptr inbounds nuw i8, ptr %.sroa.0219.0409.i.i156, i64 32
+  %2159 = getelementptr inbounds nuw i8, ptr %.sroa.0219.0409.i.i156, i64 32
+  %2160 = add nuw nsw i64 %.sroa.7221.0410.i.i155, 1
   %2161 = shl i64 %.sroa.7221.0410.i.i155, 3
   %.not.i.i198.i.i157 = icmp ugt i64 %2161, %2152
   br i1 %.not.i.i198.i.i157, label %2243, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i158"
@@ -7672,7 +7672,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 2248:                                             ; preds = %2261
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %89), !noalias !1490
-  %2249 = icmp eq ptr %2160, %2104
+  %2249 = icmp eq ptr %2159, %2104
   br i1 %2249, label %._crit_edge413.i.i165, label %.lr.ph412.i.i153
 
 2250:                                             ; preds = %2261, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i160"
@@ -10261,8 +10261,8 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
 _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit370.i.i: ; preds = %.lr.ph1346.i.i765
   %3104 = mul nuw nsw i64 %.02191345.i.i766, 2192
   %scevgep.i.i769 = getelementptr i8, ptr %2658, i64 %3104
-  %3105 = getelementptr inbounds nuw [0 x { [544 x i32], i64, float, [1 x i32] }], ptr %2658, i64 0, i64 %.02191345.i.i766
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2176) %scevgep.i.i769, i8 0, i64 2176, i1 false), !noalias !1820
+  %3105 = getelementptr inbounds nuw [0 x { [544 x i32], i64, float, [1 x i32] }], ptr %2658, i64 0, i64 %.02191345.i.i766
   %3106 = getelementptr inbounds nuw i8, ptr %3105, i64 2176
   store i64 0, ptr %3106, align 8, !alias.scope !2152, !noalias !1820
   %3107 = getelementptr inbounds nuw i8, ptr %3105, i64 2184
@@ -10712,11 +10712,11 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 .lr.ph412.i.i565:                                 ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i564", %3360
   %.0118411.i.i566 = phi float [ %.4.i.i575, %3360 ], [ 0x47D2CED320000000, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i564" ]
-  %.sroa.7221.0410.i.i567 = phi i64 [ %3271, %3360 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i564" ]
-  %.sroa.0219.0409.i.i568 = phi ptr [ %3272, %3360 ], [ %2568, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i564" ]
-  %3271 = add nuw nsw i64 %.sroa.7221.0410.i.i567, 1
+  %.sroa.7221.0410.i.i567 = phi i64 [ %3272, %3360 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i564" ]
+  %.sroa.0219.0409.i.i568 = phi ptr [ %3271, %3360 ], [ %2568, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i564" ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29), !noalias !2220
-  %3272 = getelementptr inbounds nuw i8, ptr %.sroa.0219.0409.i.i568, i64 32
+  %3271 = getelementptr inbounds nuw i8, ptr %.sroa.0219.0409.i.i568, i64 32
+  %3272 = add nuw nsw i64 %.sroa.7221.0410.i.i567, 1
   %3273 = shl i64 %.sroa.7221.0410.i.i567, 3
   %.not.i.i198.i.i569 = icmp ugt i64 %3273, %3264
   br i1 %.not.i.i198.i.i569, label %3355, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i570"
@@ -10940,7 +10940,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 3360:                                             ; preds = %3373
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29), !noalias !2220
-  %3361 = icmp eq ptr %3272, %3216
+  %3361 = icmp eq ptr %3271, %3216
   br i1 %3361, label %._crit_edge413.i.i577, label %.lr.ph412.i.i565
 
 3362:                                             ; preds = %3373, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i572"

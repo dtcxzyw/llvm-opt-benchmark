@@ -7820,589 +7820,589 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   br i1 %exitcond.not, label %614, label %611, !llvm.loop !15
 
 614:                                              ; preds = %611
-  %615 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %616 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  %617 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 66, ptr noundef nonnull %616)
-  %618 = getelementptr inbounds nuw i8, ptr %0, i64 828
-  %619 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 66, ptr noundef nonnull %618)
-  %620 = getelementptr inbounds nuw i8, ptr %0, i64 840
-  %621 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 66, ptr noundef nonnull %620)
-  %622 = getelementptr inbounds nuw i8, ptr %0, i64 852
-  %623 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 66, ptr noundef nonnull %622)
-  %624 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %625 = trunc i32 %624 to i8
-  %626 = getelementptr inbounds nuw i8, ptr %0, i64 153
-  store i8 %625, ptr %626, align 1
-  %627 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %628 = trunc i32 %627 to i8
-  %629 = getelementptr inbounds nuw i8, ptr %0, i64 154
-  store i8 %628, ptr %629, align 2
-  %630 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 4)
-  %631 = trunc i32 %630 to i8
-  %632 = getelementptr inbounds nuw i8, ptr %0, i64 155
-  store i8 %631, ptr %632, align 1
-  %633 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 4)
-  %634 = trunc i32 %633 to i8
-  %635 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i8 %634, ptr %635, align 4
-  %636 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 4)
-  %637 = trunc i32 %636 to i8
-  %638 = getelementptr inbounds nuw i8, ptr %0, i64 157
-  store i8 %637, ptr %638, align 1
-  %639 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  br label %641
+  %615 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %616 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 66, ptr noundef nonnull %615)
+  %617 = getelementptr inbounds nuw i8, ptr %0, i64 828
+  %618 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 66, ptr noundef nonnull %617)
+  %619 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %620 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 66, ptr noundef nonnull %619)
+  %621 = getelementptr inbounds nuw i8, ptr %0, i64 852
+  %622 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 66, ptr noundef nonnull %621)
+  %623 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %624 = trunc i32 %623 to i8
+  %625 = getelementptr inbounds nuw i8, ptr %0, i64 153
+  store i8 %624, ptr %625, align 1
+  %626 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %627 = trunc i32 %626 to i8
+  %628 = getelementptr inbounds nuw i8, ptr %0, i64 154
+  store i8 %627, ptr %628, align 2
+  %629 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 4)
+  %630 = trunc i32 %629 to i8
+  %631 = getelementptr inbounds nuw i8, ptr %0, i64 155
+  store i8 %630, ptr %631, align 1
+  %632 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 4)
+  %633 = trunc i32 %632 to i8
+  %634 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  store i8 %633, ptr %634, align 4
+  %635 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 4)
+  %636 = trunc i32 %635 to i8
+  %637 = getelementptr inbounds nuw i8, ptr %0, i64 157
+  store i8 %636, ptr %637, align 1
+  %638 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  br label %640
 
-.preheader540:                                    ; preds = %641
-  %640 = getelementptr inbounds nuw i8, ptr %0, i64 1280
-  br label %645
+.preheader540:                                    ; preds = %640
+  %639 = getelementptr inbounds nuw i8, ptr %0, i64 1280
+  br label %644
 
-641:                                              ; preds = %614, %641
-  %indvars.iv572 = phi i64 [ 0, %614 ], [ %indvars.iv.next573, %641 ]
-  %642 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %643 = getelementptr inbounds nuw [32 x i32], ptr %639, i64 0, i64 %indvars.iv572
-  store i32 %642, ptr %643, align 4
+640:                                              ; preds = %614, %640
+  %indvars.iv572 = phi i64 [ 0, %614 ], [ %indvars.iv.next573, %640 ]
+  %641 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %642 = getelementptr inbounds nuw [32 x i32], ptr %638, i64 0, i64 %indvars.iv572
+  store i32 %641, ptr %642, align 4
   %indvars.iv.next573 = add nuw nsw i64 %indvars.iv572, 1
   %exitcond575.not = icmp eq i64 %indvars.iv.next573, 32
-  br i1 %exitcond575.not, label %.preheader540, label %641, !llvm.loop !16
+  br i1 %exitcond575.not, label %.preheader540, label %640, !llvm.loop !16
 
-.preheader539:                                    ; preds = %645
-  %644 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  br label %649
+.preheader539:                                    ; preds = %644
+  %643 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  br label %648
 
-645:                                              ; preds = %.preheader540, %645
-  %indvars.iv576 = phi i64 [ 0, %.preheader540 ], [ %indvars.iv.next577, %645 ]
-  %646 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 6)
-  %647 = trunc i32 %646 to i8
-  %648 = getelementptr inbounds nuw [16 x i8], ptr %640, i64 0, i64 %indvars.iv576
-  store i8 %647, ptr %648, align 1
+644:                                              ; preds = %.preheader540, %644
+  %indvars.iv576 = phi i64 [ 0, %.preheader540 ], [ %indvars.iv.next577, %644 ]
+  %645 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 6)
+  %646 = trunc i32 %645 to i8
+  %647 = getelementptr inbounds nuw [16 x i8], ptr %639, i64 0, i64 %indvars.iv576
+  store i8 %646, ptr %647, align 1
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
   %exitcond579.not = icmp eq i64 %indvars.iv.next577, 16
-  br i1 %exitcond579.not, label %.preheader539, label %645, !llvm.loop !17
+  br i1 %exitcond579.not, label %.preheader539, label %644, !llvm.loop !17
 
-649:                                              ; preds = %.preheader539, %649
-  %indvars.iv580 = phi i64 [ 0, %.preheader539 ], [ %indvars.iv.next581, %649 ]
-  %650 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 2)
-  %651 = trunc i32 %650 to i8
-  %652 = getelementptr inbounds nuw [64 x i8], ptr %644, i64 0, i64 %indvars.iv580
-  store i8 %651, ptr %652, align 1
+648:                                              ; preds = %.preheader539, %648
+  %indvars.iv580 = phi i64 [ 0, %.preheader539 ], [ %indvars.iv.next581, %648 ]
+  %649 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 2)
+  %650 = trunc i32 %649 to i8
+  %651 = getelementptr inbounds nuw [64 x i8], ptr %643, i64 0, i64 %indvars.iv580
+  store i8 %650, ptr %651, align 1
   %indvars.iv.next581 = add nuw nsw i64 %indvars.iv580, 1
   %exitcond583.not = icmp eq i64 %indvars.iv.next581, 64
-  br i1 %exitcond583.not, label %653, label %649, !llvm.loop !18
+  br i1 %exitcond583.not, label %652, label %648, !llvm.loop !18
 
-653:                                              ; preds = %649
-  %654 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %655 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 6)
-  %656 = trunc i32 %655 to i8
-  %657 = getelementptr inbounds nuw i8, ptr %0, i64 158
-  store i8 %656, ptr %657, align 2
-  %658 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %659 = trunc i32 %658 to i8
-  %660 = getelementptr inbounds nuw i8, ptr %0, i64 159
-  store i8 %659, ptr %660, align 1
-  %661 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %662 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store i32 %661, ptr %662, align 8
-  %663 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %664 = getelementptr inbounds nuw i8, ptr %0, i64 572
-  store i32 %663, ptr %664, align 4
-  %665 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %666 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  store i32 %665, ptr %666, align 8
-  %667 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %668 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  store i32 %667, ptr %668, align 4
-  %669 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %670 = trunc i32 %669 to i8
-  %671 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i8 %670, ptr %671, align 8
-  %672 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %673 = trunc i32 %672 to i8
-  %674 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  store i8 %673, ptr %674, align 1
-  %675 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %676 = trunc i32 %675 to i8
-  %677 = getelementptr inbounds nuw i8, ptr %0, i64 162
-  store i8 %676, ptr %677, align 2
-  %678 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %679 = trunc i32 %678 to i8
-  %680 = getelementptr inbounds nuw i8, ptr %0, i64 163
-  store i8 %679, ptr %680, align 1
-  %681 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %682 = trunc i32 %681 to i8
-  %683 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store i8 %682, ptr %683, align 4
-  %684 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %685 = trunc i32 %684 to i8
-  %686 = getelementptr inbounds nuw i8, ptr %0, i64 165
-  store i8 %685, ptr %686, align 1
-  %687 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %688 = trunc i32 %687 to i8
-  %689 = getelementptr inbounds nuw i8, ptr %0, i64 166
-  store i8 %688, ptr %689, align 2
-  %690 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %691 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  store i64 %690, ptr %691, align 8
-  %692 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %693 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  store i64 %692, ptr %693, align 8
-  %694 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %695 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store i32 %694, ptr %695, align 8
-  %696 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %697 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  store i64 %696, ptr %697, align 8
-  %698 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %699 = getelementptr inbounds nuw i8, ptr %0, i64 588
-  store i32 %698, ptr %699, align 4
-  %700 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %701 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store i32 %700, ptr %701, align 8
-  %702 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %703 = getelementptr inbounds nuw i8, ptr %0, i64 596
-  store i32 %702, ptr %703, align 4
-  %704 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %705 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store i32 %704, ptr %705, align 8
-  %706 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %707 = getelementptr inbounds nuw i8, ptr %0, i64 604
-  store i32 %706, ptr %707, align 4
-  %708 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %709 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store i32 %708, ptr %709, align 8
-  %710 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %711 = getelementptr inbounds nuw i8, ptr %0, i64 612
-  store i32 %710, ptr %711, align 4
-  %712 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %713 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  store i64 %712, ptr %713, align 8
-  %714 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 33)
-  %715 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  store i64 %714, ptr %715, align 8
-  %716 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 2)
-  %717 = trunc i32 %716 to i8
-  %718 = getelementptr inbounds nuw i8, ptr %0, i64 167
-  store i8 %717, ptr %718, align 1
-  %719 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 6)
-  %720 = trunc i32 %719 to i8
-  %721 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i8 %720, ptr %721, align 8
-  %722 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 65, ptr noundef nonnull %654)
-  %723 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %724 = getelementptr inbounds nuw i8, ptr %0, i64 628
-  store i32 %723, ptr %724, align 4
-  %725 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %726 = trunc i32 %725 to i8
-  %727 = getelementptr inbounds nuw i8, ptr %0, i64 169
-  store i8 %726, ptr %727, align 1
-  %728 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %729 = trunc i32 %728 to i8
-  %730 = getelementptr inbounds nuw i8, ptr %0, i64 170
-  store i8 %729, ptr %730, align 2
-  %731 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %732 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  store i64 %731, ptr %732, align 8
-  %733 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %734 = trunc i32 %733 to i8
-  %735 = getelementptr inbounds nuw i8, ptr %0, i64 171
-  store i8 %734, ptr %735, align 1
-  %736 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %737 = trunc i32 %736 to i8
-  %738 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i8 %737, ptr %738, align 4
-  %739 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 17)
-  %740 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store i32 %739, ptr %740, align 8
-  %741 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %742 = getelementptr inbounds nuw i8, ptr %0, i64 636
-  store i32 %741, ptr %742, align 4
-  %743 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %744 = trunc i32 %743 to i8
-  %745 = getelementptr inbounds nuw i8, ptr %0, i64 173
-  store i8 %744, ptr %745, align 1
-  %746 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %747 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store i32 %746, ptr %747, align 8
-  %748 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %749 = getelementptr inbounds nuw i8, ptr %0, i64 644
-  store i32 %748, ptr %749, align 4
-  %750 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %751 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  store i32 %750, ptr %751, align 8
-  %752 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %753 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  store i32 %752, ptr %753, align 4
-  %754 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %755 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store i32 %754, ptr %755, align 8
-  %756 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %757 = getelementptr inbounds nuw i8, ptr %0, i64 660
-  store i32 %756, ptr %757, align 4
-  %758 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %759 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  store i32 %758, ptr %759, align 8
-  %760 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %761 = getelementptr inbounds nuw i8, ptr %0, i64 668
-  store i32 %760, ptr %761, align 4
-  %762 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 33)
-  %763 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  store i64 %762, ptr %763, align 8
-  %764 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %765 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  store i32 %764, ptr %765, align 8
-  %766 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %767 = getelementptr inbounds nuw i8, ptr %0, i64 676
-  store i32 %766, ptr %767, align 4
-  %768 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %769 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  store i32 %768, ptr %769, align 8
-  %770 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %771 = getelementptr inbounds nuw i8, ptr %0, i64 684
-  store i32 %770, ptr %771, align 4
-  %772 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %773 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store i32 %772, ptr %773, align 8
-  %774 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %775 = getelementptr inbounds nuw i8, ptr %0, i64 692
-  store i32 %774, ptr %775, align 4
-  %776 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %777 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  store i32 %776, ptr %777, align 8
-  %778 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %779 = getelementptr inbounds nuw i8, ptr %0, i64 700
-  store i32 %778, ptr %779, align 4
-  %780 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %781 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  store i32 %780, ptr %781, align 8
-  %782 = getelementptr inbounds nuw i8, ptr %0, i64 1360
-  br label %784
+652:                                              ; preds = %648
+  %653 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %654 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 6)
+  %655 = trunc i32 %654 to i8
+  %656 = getelementptr inbounds nuw i8, ptr %0, i64 158
+  store i8 %655, ptr %656, align 2
+  %657 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %658 = trunc i32 %657 to i8
+  %659 = getelementptr inbounds nuw i8, ptr %0, i64 159
+  store i8 %658, ptr %659, align 1
+  %660 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %661 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  store i32 %660, ptr %661, align 8
+  %662 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %663 = getelementptr inbounds nuw i8, ptr %0, i64 572
+  store i32 %662, ptr %663, align 4
+  %664 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %665 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  store i32 %664, ptr %665, align 8
+  %666 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %667 = getelementptr inbounds nuw i8, ptr %0, i64 580
+  store i32 %666, ptr %667, align 4
+  %668 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %669 = trunc i32 %668 to i8
+  %670 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i8 %669, ptr %670, align 8
+  %671 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %672 = trunc i32 %671 to i8
+  %673 = getelementptr inbounds nuw i8, ptr %0, i64 161
+  store i8 %672, ptr %673, align 1
+  %674 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %675 = trunc i32 %674 to i8
+  %676 = getelementptr inbounds nuw i8, ptr %0, i64 162
+  store i8 %675, ptr %676, align 2
+  %677 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %678 = trunc i32 %677 to i8
+  %679 = getelementptr inbounds nuw i8, ptr %0, i64 163
+  store i8 %678, ptr %679, align 1
+  %680 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %681 = trunc i32 %680 to i8
+  %682 = getelementptr inbounds nuw i8, ptr %0, i64 164
+  store i8 %681, ptr %682, align 4
+  %683 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %684 = trunc i32 %683 to i8
+  %685 = getelementptr inbounds nuw i8, ptr %0, i64 165
+  store i8 %684, ptr %685, align 1
+  %686 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %687 = trunc i32 %686 to i8
+  %688 = getelementptr inbounds nuw i8, ptr %0, i64 166
+  store i8 %687, ptr %688, align 2
+  %689 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
+  %690 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  store i64 %689, ptr %690, align 8
+  %691 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
+  %692 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  store i64 %691, ptr %692, align 8
+  %693 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %694 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  store i32 %693, ptr %694, align 8
+  %695 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
+  %696 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  store i64 %695, ptr %696, align 8
+  %697 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %698 = getelementptr inbounds nuw i8, ptr %0, i64 588
+  store i32 %697, ptr %698, align 4
+  %699 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %700 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  store i32 %699, ptr %700, align 8
+  %701 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %702 = getelementptr inbounds nuw i8, ptr %0, i64 596
+  store i32 %701, ptr %702, align 4
+  %703 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %704 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  store i32 %703, ptr %704, align 8
+  %705 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %706 = getelementptr inbounds nuw i8, ptr %0, i64 604
+  store i32 %705, ptr %706, align 4
+  %707 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %708 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  store i32 %707, ptr %708, align 8
+  %709 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %710 = getelementptr inbounds nuw i8, ptr %0, i64 612
+  store i32 %709, ptr %710, align 4
+  %711 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
+  %712 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  store i64 %711, ptr %712, align 8
+  %713 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 33)
+  %714 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  store i64 %713, ptr %714, align 8
+  %715 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 2)
+  %716 = trunc i32 %715 to i8
+  %717 = getelementptr inbounds nuw i8, ptr %0, i64 167
+  store i8 %716, ptr %717, align 1
+  %718 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 6)
+  %719 = trunc i32 %718 to i8
+  %720 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i8 %719, ptr %720, align 8
+  %721 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 65, ptr noundef nonnull %653)
+  %722 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %723 = getelementptr inbounds nuw i8, ptr %0, i64 628
+  store i32 %722, ptr %723, align 4
+  %724 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %725 = trunc i32 %724 to i8
+  %726 = getelementptr inbounds nuw i8, ptr %0, i64 169
+  store i8 %725, ptr %726, align 1
+  %727 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %728 = trunc i32 %727 to i8
+  %729 = getelementptr inbounds nuw i8, ptr %0, i64 170
+  store i8 %728, ptr %729, align 2
+  %730 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
+  %731 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  store i64 %730, ptr %731, align 8
+  %732 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %733 = trunc i32 %732 to i8
+  %734 = getelementptr inbounds nuw i8, ptr %0, i64 171
+  store i8 %733, ptr %734, align 1
+  %735 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %736 = trunc i32 %735 to i8
+  %737 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  store i8 %736, ptr %737, align 4
+  %738 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 17)
+  %739 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  store i32 %738, ptr %739, align 8
+  %740 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %741 = getelementptr inbounds nuw i8, ptr %0, i64 636
+  store i32 %740, ptr %741, align 4
+  %742 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %743 = trunc i32 %742 to i8
+  %744 = getelementptr inbounds nuw i8, ptr %0, i64 173
+  store i8 %743, ptr %744, align 1
+  %745 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %746 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  store i32 %745, ptr %746, align 8
+  %747 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %748 = getelementptr inbounds nuw i8, ptr %0, i64 644
+  store i32 %747, ptr %748, align 4
+  %749 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %750 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  store i32 %749, ptr %750, align 8
+  %751 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %752 = getelementptr inbounds nuw i8, ptr %0, i64 652
+  store i32 %751, ptr %752, align 4
+  %753 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %754 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  store i32 %753, ptr %754, align 8
+  %755 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %756 = getelementptr inbounds nuw i8, ptr %0, i64 660
+  store i32 %755, ptr %756, align 4
+  %757 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %758 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  store i32 %757, ptr %758, align 8
+  %759 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %760 = getelementptr inbounds nuw i8, ptr %0, i64 668
+  store i32 %759, ptr %760, align 4
+  %761 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 33)
+  %762 = getelementptr inbounds nuw i8, ptr %0, i64 912
+  store i64 %761, ptr %762, align 8
+  %763 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %764 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  store i32 %763, ptr %764, align 8
+  %765 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %766 = getelementptr inbounds nuw i8, ptr %0, i64 676
+  store i32 %765, ptr %766, align 4
+  %767 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %768 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  store i32 %767, ptr %768, align 8
+  %769 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %770 = getelementptr inbounds nuw i8, ptr %0, i64 684
+  store i32 %769, ptr %770, align 4
+  %771 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %772 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  store i32 %771, ptr %772, align 8
+  %773 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %774 = getelementptr inbounds nuw i8, ptr %0, i64 692
+  store i32 %773, ptr %774, align 4
+  %775 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %776 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  store i32 %775, ptr %776, align 8
+  %777 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %778 = getelementptr inbounds nuw i8, ptr %0, i64 700
+  store i32 %777, ptr %778, align 4
+  %779 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %780 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  store i32 %779, ptr %780, align 8
+  %781 = getelementptr inbounds nuw i8, ptr %0, i64 1360
+  br label %783
 
-.preheader538:                                    ; preds = %784
-  %783 = getelementptr inbounds nuw i8, ptr %0, i64 1456
-  br label %788
+.preheader538:                                    ; preds = %783
+  %782 = getelementptr inbounds nuw i8, ptr %0, i64 1456
+  br label %787
 
-784:                                              ; preds = %653, %784
-  %indvars.iv584 = phi i64 [ 0, %653 ], [ %indvars.iv.next585, %784 ]
-  %785 = getelementptr inbounds nuw [8 x %struct.VlWide], ptr %782, i64 0, i64 %indvars.iv584
-  %786 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 74, ptr noundef nonnull %785)
+783:                                              ; preds = %652, %783
+  %indvars.iv584 = phi i64 [ 0, %652 ], [ %indvars.iv.next585, %783 ]
+  %784 = getelementptr inbounds nuw [8 x %struct.VlWide], ptr %781, i64 0, i64 %indvars.iv584
+  %785 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 74, ptr noundef nonnull %784)
   %indvars.iv.next585 = add nuw nsw i64 %indvars.iv584, 1
   %exitcond587.not = icmp eq i64 %indvars.iv.next585, 8
-  br i1 %exitcond587.not, label %.preheader538, label %784, !llvm.loop !19
+  br i1 %exitcond587.not, label %.preheader538, label %783, !llvm.loop !19
 
-.preheader537:                                    ; preds = %788
-  %787 = getelementptr inbounds nuw i8, ptr %0, i64 1460
-  br label %793
+.preheader537:                                    ; preds = %787
+  %786 = getelementptr inbounds nuw i8, ptr %0, i64 1460
+  br label %792
 
-788:                                              ; preds = %.preheader538, %788
-  %indvars.iv588 = phi i64 [ 0, %.preheader538 ], [ %indvars.iv.next589, %788 ]
-  %789 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 8)
-  %790 = trunc i32 %789 to i8
-  %791 = getelementptr inbounds nuw [3 x i8], ptr %783, i64 0, i64 %indvars.iv588
-  store i8 %790, ptr %791, align 1
+787:                                              ; preds = %.preheader538, %787
+  %indvars.iv588 = phi i64 [ 0, %.preheader538 ], [ %indvars.iv.next589, %787 ]
+  %788 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 8)
+  %789 = trunc i32 %788 to i8
+  %790 = getelementptr inbounds nuw [3 x i8], ptr %782, i64 0, i64 %indvars.iv588
+  store i8 %789, ptr %790, align 1
   %indvars.iv.next589 = add nuw nsw i64 %indvars.iv588, 1
   %exitcond591.not = icmp eq i64 %indvars.iv.next589, 3
-  br i1 %exitcond591.not, label %.preheader537, label %788, !llvm.loop !20
+  br i1 %exitcond591.not, label %.preheader537, label %787, !llvm.loop !20
 
-.preheader536:                                    ; preds = %793
-  %792 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  br label %796
+.preheader536:                                    ; preds = %792
+  %791 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  br label %795
 
-793:                                              ; preds = %.preheader537, %793
-  %indvars.iv592 = phi i64 [ 0, %.preheader537 ], [ %indvars.iv.next593, %793 ]
-  %794 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 19)
-  %795 = getelementptr inbounds nuw [3 x i32], ptr %787, i64 0, i64 %indvars.iv592
-  store i32 %794, ptr %795, align 4
+792:                                              ; preds = %.preheader537, %792
+  %indvars.iv592 = phi i64 [ 0, %.preheader537 ], [ %indvars.iv.next593, %792 ]
+  %793 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 19)
+  %794 = getelementptr inbounds nuw [3 x i32], ptr %786, i64 0, i64 %indvars.iv592
+  store i32 %793, ptr %794, align 4
   %indvars.iv.next593 = add nuw nsw i64 %indvars.iv592, 1
   %exitcond595.not = icmp eq i64 %indvars.iv.next593, 3
-  br i1 %exitcond595.not, label %.preheader536, label %793, !llvm.loop !21
+  br i1 %exitcond595.not, label %.preheader536, label %792, !llvm.loop !21
 
-796:                                              ; preds = %.preheader536, %796
-  %indvars.iv596 = phi i64 [ 0, %.preheader536 ], [ %indvars.iv.next597, %796 ]
-  %797 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 3)
-  %798 = trunc i32 %797 to i8
-  %799 = getelementptr inbounds nuw [3 x i8], ptr %792, i64 0, i64 %indvars.iv596
-  store i8 %798, ptr %799, align 1
+795:                                              ; preds = %.preheader536, %795
+  %indvars.iv596 = phi i64 [ 0, %.preheader536 ], [ %indvars.iv.next597, %795 ]
+  %796 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 3)
+  %797 = trunc i32 %796 to i8
+  %798 = getelementptr inbounds nuw [3 x i8], ptr %791, i64 0, i64 %indvars.iv596
+  store i8 %797, ptr %798, align 1
   %indvars.iv.next597 = add nuw nsw i64 %indvars.iv596, 1
   %exitcond599.not = icmp eq i64 %indvars.iv.next597, 3
-  br i1 %exitcond599.not, label %800, label %796, !llvm.loop !22
+  br i1 %exitcond599.not, label %799, label %795, !llvm.loop !22
 
-800:                                              ; preds = %796
-  %801 = getelementptr inbounds nuw i8, ptr %0, i64 708
-  store i32 0, ptr %801, align 4
-  %802 = getelementptr inbounds nuw i8, ptr %0, i64 1475
-  br label %803
+799:                                              ; preds = %795
+  %800 = getelementptr inbounds nuw i8, ptr %0, i64 708
+  store i32 0, ptr %800, align 4
+  %801 = getelementptr inbounds nuw i8, ptr %0, i64 1475
+  br label %802
 
-803:                                              ; preds = %800, %803
-  %indvars.iv600 = phi i64 [ 0, %800 ], [ %indvars.iv.next601, %803 ]
-  %804 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 3)
-  %805 = trunc i32 %804 to i8
-  %806 = getelementptr inbounds nuw [64 x i8], ptr %802, i64 0, i64 %indvars.iv600
-  store i8 %805, ptr %806, align 1
+802:                                              ; preds = %799, %802
+  %indvars.iv600 = phi i64 [ 0, %799 ], [ %indvars.iv.next601, %802 ]
+  %803 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 3)
+  %804 = trunc i32 %803 to i8
+  %805 = getelementptr inbounds nuw [64 x i8], ptr %801, i64 0, i64 %indvars.iv600
+  store i8 %804, ptr %805, align 1
   %indvars.iv.next601 = add nuw nsw i64 %indvars.iv600, 1
   %exitcond603.not = icmp eq i64 %indvars.iv.next601, 64
-  br i1 %exitcond603.not, label %.preheader535.critedge, label %803, !llvm.loop !23
+  br i1 %exitcond603.not, label %.preheader535.critedge, label %802, !llvm.loop !23
 
-.preheader535.critedge:                           ; preds = %803
-  %807 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 42)
-  %808 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  store i64 %807, ptr %808, align 8
-  %809 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %810 = trunc i32 %809 to i8
-  %811 = getelementptr inbounds nuw i8, ptr %0, i64 174
-  store i8 %810, ptr %811, align 2
-  %812 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
-  %813 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  store i32 %812, ptr %813, align 8
-  %814 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %815 = getelementptr inbounds nuw i8, ptr %0, i64 716
-  store i32 %814, ptr %815, align 4
-  %816 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %817 = trunc i32 %816 to i8
-  %818 = getelementptr inbounds nuw i8, ptr %0, i64 175
-  store i8 %817, ptr %818, align 1
-  %819 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 6)
-  %820 = trunc i32 %819 to i8
-  %821 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i8 %820, ptr %821, align 8
-  %822 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %823 = trunc i32 %822 to i8
-  %824 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 %823, ptr %824, align 1
-  %825 = getelementptr inbounds nuw i8, ptr %0, i64 1544
+.preheader535.critedge:                           ; preds = %802
+  %806 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 42)
+  %807 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  store i64 %806, ptr %807, align 8
+  %808 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %809 = trunc i32 %808 to i8
+  %810 = getelementptr inbounds nuw i8, ptr %0, i64 174
+  store i8 %809, ptr %810, align 2
+  %811 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
+  %812 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  store i32 %811, ptr %812, align 8
+  %813 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %814 = getelementptr inbounds nuw i8, ptr %0, i64 716
+  store i32 %813, ptr %814, align 4
+  %815 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %816 = trunc i32 %815 to i8
+  %817 = getelementptr inbounds nuw i8, ptr %0, i64 175
+  store i8 %816, ptr %817, align 1
+  %818 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 6)
+  %819 = trunc i32 %818 to i8
+  %820 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i8 %819, ptr %820, align 8
+  %821 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %822 = trunc i32 %821 to i8
+  %823 = getelementptr inbounds nuw i8, ptr %0, i64 177
+  store i8 %822, ptr %823, align 1
+  %824 = getelementptr inbounds nuw i8, ptr %0, i64 1544
+  %825 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
+  store i64 %825, ptr %824, align 8
   %826 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  store i64 %826, ptr %825, align 8
-  %827 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %828 = getelementptr inbounds nuw i8, ptr %0, i64 1552
-  store i64 %827, ptr %828, align 8
-  %829 = getelementptr inbounds nuw i8, ptr %0, i64 1560
-  %830 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 8)
-  %831 = trunc i32 %830 to i8
-  store i8 %831, ptr %829, align 1
-  %832 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 8)
-  %833 = trunc i32 %832 to i8
-  %834 = getelementptr inbounds nuw i8, ptr %0, i64 1561
-  store i8 %833, ptr %834, align 1
-  %835 = getelementptr inbounds nuw i8, ptr %0, i64 1562
-  %836 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %837 = trunc i32 %836 to i8
-  store i8 %837, ptr %835, align 1
-  %838 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %839 = trunc i32 %838 to i8
-  %840 = getelementptr inbounds nuw i8, ptr %0, i64 1563
-  store i8 %839, ptr %840, align 1
-  %841 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
-  %842 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  store i32 %841, ptr %842, align 8
-  %843 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %844 = trunc i32 %843 to i8
-  %845 = getelementptr inbounds nuw i8, ptr %0, i64 178
-  store i8 %844, ptr %845, align 2
-  %846 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %847 = trunc i32 %846 to i8
-  %848 = getelementptr inbounds nuw i8, ptr %0, i64 179
-  store i8 %847, ptr %848, align 1
-  %849 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %850 = trunc i32 %849 to i8
-  %851 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i8 %850, ptr %851, align 4
-  %852 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %853 = trunc i32 %852 to i8
-  %854 = getelementptr inbounds nuw i8, ptr %0, i64 181
-  store i8 %853, ptr %854, align 1
-  %855 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %856 = getelementptr inbounds nuw i8, ptr %0, i64 724
-  store i32 %855, ptr %856, align 4
-  %857 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %858 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  store i32 %857, ptr %858, align 8
-  %859 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %860 = getelementptr inbounds nuw i8, ptr %0, i64 732
-  store i32 %859, ptr %860, align 4
-  %861 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %862 = trunc i32 %861 to i8
-  %863 = getelementptr inbounds nuw i8, ptr %0, i64 182
-  store i8 %862, ptr %863, align 2
-  %864 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %865 = trunc i32 %864 to i8
-  %866 = getelementptr inbounds nuw i8, ptr %0, i64 183
-  store i8 %865, ptr %866, align 1
-  %867 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 5)
-  %868 = trunc i32 %867 to i8
-  %869 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i8 %868, ptr %869, align 8
-  %870 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %871 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  store i64 %870, ptr %871, align 8
-  %872 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 9)
-  %873 = trunc i32 %872 to i16
-  %874 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i16 %873, ptr %874, align 8
-  %875 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %876 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i64 %875, ptr %876, align 8
-  %877 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 9)
-  %878 = trunc i32 %877 to i16
-  %879 = getelementptr inbounds nuw i8, ptr %0, i64 234
-  store i16 %878, ptr %879, align 2
-  %880 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
-  %881 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  store i32 %880, ptr %881, align 8
-  %882 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 6)
-  %883 = trunc i32 %882 to i8
-  %884 = getelementptr inbounds nuw i8, ptr %0, i64 185
-  store i8 %883, ptr %884, align 1
-  %885 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %886 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  store i64 %885, ptr %886, align 8
-  %887 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
-  %888 = getelementptr inbounds nuw i8, ptr %0, i64 740
-  store i32 %887, ptr %888, align 4
-  %889 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %890 = trunc i32 %889 to i8
-  %891 = getelementptr inbounds nuw i8, ptr %0, i64 186
-  store i8 %890, ptr %891, align 2
-  %892 = getelementptr inbounds nuw i8, ptr %0, i64 1568
-  br label %894
+  %827 = getelementptr inbounds nuw i8, ptr %0, i64 1552
+  store i64 %826, ptr %827, align 8
+  %828 = getelementptr inbounds nuw i8, ptr %0, i64 1560
+  %829 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 8)
+  %830 = trunc i32 %829 to i8
+  store i8 %830, ptr %828, align 1
+  %831 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 8)
+  %832 = trunc i32 %831 to i8
+  %833 = getelementptr inbounds nuw i8, ptr %0, i64 1561
+  store i8 %832, ptr %833, align 1
+  %834 = getelementptr inbounds nuw i8, ptr %0, i64 1562
+  %835 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %836 = trunc i32 %835 to i8
+  store i8 %836, ptr %834, align 1
+  %837 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %838 = trunc i32 %837 to i8
+  %839 = getelementptr inbounds nuw i8, ptr %0, i64 1563
+  store i8 %838, ptr %839, align 1
+  %840 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
+  %841 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  store i32 %840, ptr %841, align 8
+  %842 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %843 = trunc i32 %842 to i8
+  %844 = getelementptr inbounds nuw i8, ptr %0, i64 178
+  store i8 %843, ptr %844, align 2
+  %845 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %846 = trunc i32 %845 to i8
+  %847 = getelementptr inbounds nuw i8, ptr %0, i64 179
+  store i8 %846, ptr %847, align 1
+  %848 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %849 = trunc i32 %848 to i8
+  %850 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  store i8 %849, ptr %850, align 4
+  %851 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %852 = trunc i32 %851 to i8
+  %853 = getelementptr inbounds nuw i8, ptr %0, i64 181
+  store i8 %852, ptr %853, align 1
+  %854 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %855 = getelementptr inbounds nuw i8, ptr %0, i64 724
+  store i32 %854, ptr %855, align 4
+  %856 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %857 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  store i32 %856, ptr %857, align 8
+  %858 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %859 = getelementptr inbounds nuw i8, ptr %0, i64 732
+  store i32 %858, ptr %859, align 4
+  %860 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %861 = trunc i32 %860 to i8
+  %862 = getelementptr inbounds nuw i8, ptr %0, i64 182
+  store i8 %861, ptr %862, align 2
+  %863 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %864 = trunc i32 %863 to i8
+  %865 = getelementptr inbounds nuw i8, ptr %0, i64 183
+  store i8 %864, ptr %865, align 1
+  %866 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 5)
+  %867 = trunc i32 %866 to i8
+  %868 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i8 %867, ptr %868, align 8
+  %869 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
+  %870 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  store i64 %869, ptr %870, align 8
+  %871 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 9)
+  %872 = trunc i32 %871 to i16
+  %873 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i16 %872, ptr %873, align 8
+  %874 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
+  %875 = getelementptr inbounds nuw i8, ptr %0, i64 936
+  store i64 %874, ptr %875, align 8
+  %876 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 9)
+  %877 = trunc i32 %876 to i16
+  %878 = getelementptr inbounds nuw i8, ptr %0, i64 234
+  store i16 %877, ptr %878, align 2
+  %879 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
+  %880 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  store i32 %879, ptr %880, align 8
+  %881 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 6)
+  %882 = trunc i32 %881 to i8
+  %883 = getelementptr inbounds nuw i8, ptr %0, i64 185
+  store i8 %882, ptr %883, align 1
+  %884 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
+  %885 = getelementptr inbounds nuw i8, ptr %0, i64 944
+  store i64 %884, ptr %885, align 8
+  %886 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
+  %887 = getelementptr inbounds nuw i8, ptr %0, i64 740
+  store i32 %886, ptr %887, align 4
+  %888 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %889 = trunc i32 %888 to i8
+  %890 = getelementptr inbounds nuw i8, ptr %0, i64 186
+  store i8 %889, ptr %890, align 2
+  %891 = getelementptr inbounds nuw i8, ptr %0, i64 1568
+  br label %893
 
-.preheader533:                                    ; preds = %894
-  %893 = getelementptr inbounds nuw i8, ptr %0, i64 5664
-  br label %898
+.preheader533:                                    ; preds = %893
+  %892 = getelementptr inbounds nuw i8, ptr %0, i64 5664
+  br label %897
 
-894:                                              ; preds = %.preheader535.critedge, %894
-  %indvars.iv613 = phi i64 [ 0, %.preheader535.critedge ], [ %indvars.iv.next614, %894 ]
-  %895 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %896 = getelementptr inbounds nuw [512 x i64], ptr %892, i64 0, i64 %indvars.iv613
-  store i64 %895, ptr %896, align 8
+893:                                              ; preds = %.preheader535.critedge, %893
+  %indvars.iv613 = phi i64 [ 0, %.preheader535.critedge ], [ %indvars.iv.next614, %893 ]
+  %894 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
+  %895 = getelementptr inbounds nuw [512 x i64], ptr %891, i64 0, i64 %indvars.iv613
+  store i64 %894, ptr %895, align 8
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %exitcond616.not = icmp eq i64 %indvars.iv.next614, 512
-  br i1 %exitcond616.not, label %.preheader533, label %894, !llvm.loop !24
+  br i1 %exitcond616.not, label %.preheader533, label %893, !llvm.loop !24
 
-.preheader532:                                    ; preds = %898
-  %897 = getelementptr inbounds nuw i8, ptr %0, i64 5920
-  br label %902
+.preheader532:                                    ; preds = %897
+  %896 = getelementptr inbounds nuw i8, ptr %0, i64 5920
+  br label %901
 
-898:                                              ; preds = %.preheader533, %898
-  %indvars.iv617 = phi i64 [ 0, %.preheader533 ], [ %indvars.iv.next618, %898 ]
-  %899 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
-  %900 = getelementptr inbounds nuw [64 x i32], ptr %893, i64 0, i64 %indvars.iv617
-  store i32 %899, ptr %900, align 4
+897:                                              ; preds = %.preheader533, %897
+  %indvars.iv617 = phi i64 [ 0, %.preheader533 ], [ %indvars.iv.next618, %897 ]
+  %898 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
+  %899 = getelementptr inbounds nuw [64 x i32], ptr %892, i64 0, i64 %indvars.iv617
+  store i32 %898, ptr %899, align 4
   %indvars.iv.next618 = add nuw nsw i64 %indvars.iv617, 1
   %exitcond620.not = icmp eq i64 %indvars.iv.next618, 64
-  br i1 %exitcond620.not, label %.preheader532, label %898, !llvm.loop !25
+  br i1 %exitcond620.not, label %.preheader532, label %897, !llvm.loop !25
 
-.preheader531:                                    ; preds = %902
-  %901 = getelementptr inbounds nuw i8, ptr %0, i64 10016
-  br label %905
+.preheader531:                                    ; preds = %901
+  %900 = getelementptr inbounds nuw i8, ptr %0, i64 10016
+  br label %904
 
-902:                                              ; preds = %.preheader532, %902
-  %indvars.iv621 = phi i64 [ 0, %.preheader532 ], [ %indvars.iv.next622, %902 ]
-  %903 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
-  %904 = getelementptr inbounds nuw [512 x i64], ptr %897, i64 0, i64 %indvars.iv621
-  store i64 %903, ptr %904, align 8
+901:                                              ; preds = %.preheader532, %901
+  %indvars.iv621 = phi i64 [ 0, %.preheader532 ], [ %indvars.iv.next622, %901 ]
+  %902 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 64)
+  %903 = getelementptr inbounds nuw [512 x i64], ptr %896, i64 0, i64 %indvars.iv621
+  store i64 %902, ptr %903, align 8
   %indvars.iv.next622 = add nuw nsw i64 %indvars.iv621, 1
   %exitcond624.not = icmp eq i64 %indvars.iv.next622, 512
-  br i1 %exitcond624.not, label %.preheader531, label %902, !llvm.loop !26
+  br i1 %exitcond624.not, label %.preheader531, label %901, !llvm.loop !26
 
-905:                                              ; preds = %.preheader531, %905
-  %indvars.iv625 = phi i64 [ 0, %.preheader531 ], [ %indvars.iv.next626, %905 ]
-  %906 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
-  %907 = getelementptr inbounds nuw [64 x i32], ptr %901, i64 0, i64 %indvars.iv625
-  store i32 %906, ptr %907, align 4
+904:                                              ; preds = %.preheader531, %904
+  %indvars.iv625 = phi i64 [ 0, %.preheader531 ], [ %indvars.iv.next626, %904 ]
+  %905 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 20)
+  %906 = getelementptr inbounds nuw [64 x i32], ptr %900, i64 0, i64 %indvars.iv625
+  store i32 %905, ptr %906, align 4
   %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
   %exitcond628.not = icmp eq i64 %indvars.iv.next626, 64
-  br i1 %exitcond628.not, label %908, label %905, !llvm.loop !27
+  br i1 %exitcond628.not, label %907, label %904, !llvm.loop !27
 
-908:                                              ; preds = %905
-  %909 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 43)
-  %910 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  store i64 %909, ptr %910, align 8
-  %911 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %912 = trunc i32 %911 to i8
-  %913 = getelementptr inbounds nuw i8, ptr %0, i64 187
-  store i8 %912, ptr %913, align 1
-  %914 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %915 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  store i32 %914, ptr %915, align 8
-  %916 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %917 = trunc i32 %916 to i8
-  %918 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store i8 %917, ptr %918, align 4
-  %919 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %920 = trunc i32 %919 to i8
-  %921 = getelementptr inbounds nuw i8, ptr %0, i64 189
-  store i8 %920, ptr %921, align 1
-  %922 = getelementptr inbounds nuw i8, ptr %0, i64 748
-  store i32 0, ptr %922, align 4
-  %923 = getelementptr inbounds nuw i8, ptr %0, i64 10272
-  br label %925
+907:                                              ; preds = %904
+  %908 = tail call noundef i64 @_Z15VL_RAND_RESET_Qi(i32 noundef 43)
+  %909 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  store i64 %908, ptr %909, align 8
+  %910 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %911 = trunc i32 %910 to i8
+  %912 = getelementptr inbounds nuw i8, ptr %0, i64 187
+  store i8 %911, ptr %912, align 1
+  %913 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %914 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  store i32 %913, ptr %914, align 8
+  %915 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %916 = trunc i32 %915 to i8
+  %917 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  store i8 %916, ptr %917, align 4
+  %918 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %919 = trunc i32 %918 to i8
+  %920 = getelementptr inbounds nuw i8, ptr %0, i64 189
+  store i8 %919, ptr %920, align 1
+  %921 = getelementptr inbounds nuw i8, ptr %0, i64 748
+  store i32 0, ptr %921, align 4
+  %922 = getelementptr inbounds nuw i8, ptr %0, i64 10272
+  br label %924
 
-.preheader530:                                    ; preds = %925
-  %924 = getelementptr inbounds nuw i8, ptr %0, i64 10336
-  br label %929
+.preheader530:                                    ; preds = %924
+  %923 = getelementptr inbounds nuw i8, ptr %0, i64 10336
+  br label %928
 
-925:                                              ; preds = %908, %925
-  %indvars.iv629 = phi i64 [ 0, %908 ], [ %indvars.iv.next630, %925 ]
-  %926 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 5)
-  %927 = trunc i32 %926 to i8
-  %928 = getelementptr inbounds nuw [64 x i8], ptr %923, i64 0, i64 %indvars.iv629
-  store i8 %927, ptr %928, align 1
+924:                                              ; preds = %907, %924
+  %indvars.iv629 = phi i64 [ 0, %907 ], [ %indvars.iv.next630, %924 ]
+  %925 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 5)
+  %926 = trunc i32 %925 to i8
+  %927 = getelementptr inbounds nuw [64 x i8], ptr %922, i64 0, i64 %indvars.iv629
+  store i8 %926, ptr %927, align 1
   %indvars.iv.next630 = add nuw nsw i64 %indvars.iv629, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next630, 64
-  br i1 %exitcond632.not, label %.preheader530, label %925, !llvm.loop !28
+  br i1 %exitcond632.not, label %.preheader530, label %924, !llvm.loop !28
 
-929:                                              ; preds = %.preheader530, %929
-  %indvars.iv633 = phi i64 [ 0, %.preheader530 ], [ %indvars.iv.next634, %929 ]
-  %930 = getelementptr inbounds nuw [4 x %struct.VlWide], ptr %924, i64 0, i64 %indvars.iv633
-  %931 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 70, ptr noundef nonnull %930)
+928:                                              ; preds = %.preheader530, %928
+  %indvars.iv633 = phi i64 [ 0, %.preheader530 ], [ %indvars.iv.next634, %928 ]
+  %929 = getelementptr inbounds nuw [4 x %struct.VlWide], ptr %923, i64 0, i64 %indvars.iv633
+  %930 = tail call noundef ptr @_Z15VL_RAND_RESET_WiPj(i32 noundef 70, ptr noundef nonnull %929)
   %indvars.iv.next634 = add nuw nsw i64 %indvars.iv633, 1
   %exitcond636.not = icmp eq i64 %indvars.iv.next634, 4
-  br i1 %exitcond636.not, label %932, label %929, !llvm.loop !29
+  br i1 %exitcond636.not, label %931, label %928, !llvm.loop !29
 
-932:                                              ; preds = %929
-  %933 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 5)
-  %934 = trunc i32 %933 to i8
-  %935 = getelementptr inbounds nuw i8, ptr %0, i64 190
-  store i8 %934, ptr %935, align 2
-  %936 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %937 = trunc i32 %936 to i8
-  %938 = getelementptr inbounds nuw i8, ptr %0, i64 191
-  store i8 %937, ptr %938, align 1
-  %939 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %940 = trunc i32 %939 to i8
-  %941 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i8 %940, ptr %941, align 8
-  %942 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
-  %943 = trunc i32 %942 to i8
-  %944 = getelementptr inbounds nuw i8, ptr %0, i64 193
-  store i8 %943, ptr %944, align 1
-  %945 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 4)
-  %946 = trunc i32 %945 to i8
-  %947 = getelementptr inbounds nuw i8, ptr %0, i64 194
-  store i8 %946, ptr %947, align 2
-  %948 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 10)
-  %949 = trunc i32 %948 to i16
-  %950 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  store i16 %949, ptr %950, align 4
-  %951 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 10)
-  %952 = trunc i32 %951 to i16
-  %953 = getelementptr inbounds nuw i8, ptr %0, i64 238
-  store i16 %952, ptr %953, align 2
-  %954 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 10)
-  %955 = trunc i32 %954 to i16
-  %956 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i16 %955, ptr %956, align 8
-  %957 = getelementptr inbounds nuw i8, ptr %0, i64 10384
-  br label %958
+931:                                              ; preds = %928
+  %932 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 5)
+  %933 = trunc i32 %932 to i8
+  %934 = getelementptr inbounds nuw i8, ptr %0, i64 190
+  store i8 %933, ptr %934, align 2
+  %935 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %936 = trunc i32 %935 to i8
+  %937 = getelementptr inbounds nuw i8, ptr %0, i64 191
+  store i8 %936, ptr %937, align 1
+  %938 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %939 = trunc i32 %938 to i8
+  %940 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i8 %939, ptr %940, align 8
+  %941 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
+  %942 = trunc i32 %941 to i8
+  %943 = getelementptr inbounds nuw i8, ptr %0, i64 193
+  store i8 %942, ptr %943, align 1
+  %944 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 4)
+  %945 = trunc i32 %944 to i8
+  %946 = getelementptr inbounds nuw i8, ptr %0, i64 194
+  store i8 %945, ptr %946, align 2
+  %947 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 10)
+  %948 = trunc i32 %947 to i16
+  %949 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  store i16 %948, ptr %949, align 4
+  %950 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 10)
+  %951 = trunc i32 %950 to i16
+  %952 = getelementptr inbounds nuw i8, ptr %0, i64 238
+  store i16 %951, ptr %952, align 2
+  %953 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 10)
+  %954 = trunc i32 %953 to i16
+  %955 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i16 %954, ptr %955, align 8
+  %956 = getelementptr inbounds nuw i8, ptr %0, i64 10384
+  br label %957
 
-958:                                              ; preds = %932, %958
-  %indvars.iv637 = phi i64 [ 0, %932 ], [ %indvars.iv.next638, %958 ]
-  %959 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
-  %960 = getelementptr inbounds nuw [16 x i32], ptr %957, i64 0, i64 %indvars.iv637
-  store i32 %959, ptr %960, align 4
+957:                                              ; preds = %931, %957
+  %indvars.iv637 = phi i64 [ 0, %931 ], [ %indvars.iv.next638, %957 ]
+  %958 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 32)
+  %959 = getelementptr inbounds nuw [16 x i32], ptr %956, i64 0, i64 %indvars.iv637
+  store i32 %958, ptr %959, align 4
   %indvars.iv.next638 = add nuw nsw i64 %indvars.iv637, 1
   %exitcond640.not = icmp eq i64 %indvars.iv.next638, 16
-  br i1 %exitcond640.not, label %.preheader529.critedge, label %958, !llvm.loop !30
+  br i1 %exitcond640.not, label %.preheader529.critedge, label %957, !llvm.loop !30
 
-.preheader529.critedge:                           ; preds = %958
+.preheader529.critedge:                           ; preds = %957
+  %960 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %961 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
   %962 = trunc i32 %961 to i8
   %963 = getelementptr inbounds nuw i8, ptr %0, i64 195
@@ -8425,7 +8425,7 @@ define dso_local void @_Z37Vmycpu_top___024root___ctor_var_resetP20Vmycpu_top___
   store i8 %974, ptr %975, align 1
   %976 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
   %977 = trunc i32 %976 to i8
-  store i8 %977, ptr %615, align 8
+  store i8 %977, ptr %960, align 8
   %978 = tail call noundef i32 @_Z15VL_RAND_RESET_Ii(i32 noundef 1)
   %979 = trunc i32 %978 to i8
   %980 = getelementptr inbounds nuw i8, ptr %0, i64 201

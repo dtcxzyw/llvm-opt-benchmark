@@ -3709,7 +3709,6 @@ define range(i32 0, 2) i32 @stbi__pic_test(ptr noundef %0) local_unnamed_addr #2
 define noundef ptr @stbi__pic_load(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5) local_unnamed_addr #2 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #37
-  %.not = icmp eq ptr %3, null
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3786,6 +3785,7 @@ stbi__get8.exit:                                  ; preds = %stbi__get8.exit.sin
   br i1 %exitcond.not, label %47, label %18, !llvm.loop !75
 
 47:                                               ; preds = %stbi__get8.exit
+  %.not = icmp eq ptr %3, null
   %spec.store.select = select i1 %.not, ptr %7, ptr %3
   %48 = tail call i32 @stbi__get16be(ptr noundef nonnull %0)
   %49 = tail call i32 @stbi__get16be(ptr noundef nonnull %0)
@@ -19776,9 +19776,9 @@ stbi__zreceive.exit91:                            ; preds = %stbi__zget8.exit.i.
   %160 = load i8, ptr %157, align 1, !tbaa !21
   %161 = zext i32 %.060 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.5, i8 %160, i64 %161, i1 false), !tbaa !21
+  %scevgep = getelementptr i8, ptr %.5, i64 1
   %162 = add i32 %.060, -1
   %163 = zext i32 %162 to i64
-  %scevgep = getelementptr i8, ptr %.5, i64 1
   %scevgep167 = getelementptr i8, ptr %scevgep, i64 %163
   br label %.loopexit.backedge
 
@@ -29123,27 +29123,27 @@ stbi__get8.exit.thread:                           ; preds = %11, %stbi__get8.exi
   %.0.i147 = phi i8 [ %.0.i, %stbi__get8.exit ], [ 0, %11 ]
   %42 = zext nneg i8 %.0.i147 to i32
   %43 = shl nuw nsw i32 1, %42
-  %44 = shl nuw nsw i32 2, %42
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 2100
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 2100
   %wide.trip.count = zext nneg i32 %43 to i64
-  br label %46
+  br label %45
 
-46:                                               ; preds = %stbi__get8.exit.thread, %46
-  %indvars.iv = phi i64 [ 0, %stbi__get8.exit.thread ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds nuw [8192 x %struct.stbi__gif_lzw], ptr %45, i64 0, i64 %indvars.iv
-  store i16 -1, ptr %47, align 4, !tbaa !358
-  %48 = trunc i64 %indvars.iv to i8
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  store i8 %48, ptr %49, align 2, !tbaa !372
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 3
-  store i8 %48, ptr %50, align 1, !tbaa !364
+45:                                               ; preds = %stbi__get8.exit.thread, %45
+  %indvars.iv = phi i64 [ 0, %stbi__get8.exit.thread ], [ %indvars.iv.next, %45 ]
+  %46 = getelementptr inbounds nuw [8192 x %struct.stbi__gif_lzw], ptr %44, i64 0, i64 %indvars.iv
+  store i16 -1, ptr %46, align 4, !tbaa !358
+  %47 = trunc i64 %indvars.iv to i8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 2
+  store i8 %47, ptr %48, align 2, !tbaa !372
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 3
+  store i8 %47, ptr %49, align 1, !tbaa !364
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %51, label %46, !llvm.loop !373
+  br i1 %exitcond.not, label %50, label %45, !llvm.loop !373
 
-51:                                               ; preds = %46
-  %52 = add nuw nsw i32 %42, 1
-  %53 = add nsw i32 %44, -1
+50:                                               ; preds = %45
+  %51 = add nuw nsw i32 %42, 1
+  %52 = shl nuw nsw i32 2, %42
+  %53 = add nsw i32 %52, -1
   %54 = add nuw nsw i32 %43, 2
   %55 = add nuw nsw i32 %43, 1
   %invariant.gep = getelementptr i8, ptr %1, i64 2102
@@ -29157,15 +29157,15 @@ stbi__get8.exit.thread:                           ; preds = %11, %stbi__get8.exi
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 57
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %51
-  %.not117 = phi i1 [ false, %51 ], [ true, %.outer.backedge ]
-  %.0100.ph = phi i32 [ %52, %51 ], [ %.0100.ph.be, %.outer.backedge ]
-  %.095.ph = phi i32 [ %53, %51 ], [ %.095.ph.be, %.outer.backedge ]
-  %.091.ph = phi i32 [ %54, %51 ], [ %.091.ph.be, %.outer.backedge ]
-  %.087.ph = phi i32 [ -1, %51 ], [ %.087.ph.be, %.outer.backedge ]
-  %.085.ph = phi i32 [ 0, %51 ], [ %135, %.outer.backedge ]
-  %.083.ph = phi i32 [ 0, %51 ], [ %136, %.outer.backedge ]
-  %.078.ph = phi i32 [ 0, %51 ], [ %.078, %.outer.backedge ]
+.outer:                                           ; preds = %.outer.backedge, %50
+  %.not117 = phi i1 [ false, %50 ], [ true, %.outer.backedge ]
+  %.0100.ph = phi i32 [ %51, %50 ], [ %.0100.ph.be, %.outer.backedge ]
+  %.095.ph = phi i32 [ %53, %50 ], [ %.095.ph.be, %.outer.backedge ]
+  %.091.ph = phi i32 [ %54, %50 ], [ %.091.ph.be, %.outer.backedge ]
+  %.087.ph = phi i32 [ -1, %50 ], [ %.087.ph.be, %.outer.backedge ]
+  %.085.ph = phi i32 [ 0, %50 ], [ %135, %.outer.backedge ]
+  %.083.ph = phi i32 [ 0, %50 ], [ %136, %.outer.backedge ]
+  %.078.ph = phi i32 [ 0, %50 ], [ %.078, %.outer.backedge ]
   br label %64
 
 64:                                               ; preds = %.outer, %stbi__get8.exit131
@@ -29314,7 +29314,7 @@ stbi__get8.exit131:                               ; preds = %105, %108, %stbi__r
   br i1 %137, label %.outer.backedge, label %138
 
 .outer.backedge:                                  ; preds = %133, %238
-  %.0100.ph.be = phi i32 [ %.4104, %238 ], [ %52, %133 ]
+  %.0100.ph.be = phi i32 [ %.4104, %238 ], [ %51, %133 ]
   %.095.ph.be = phi i32 [ %.499, %238 ], [ %53, %133 ]
   %.091.ph.be = phi i32 [ %.4, %238 ], [ %54, %133 ]
   %.087.ph.be = phi i32 [ %134, %238 ], [ -1, %133 ]
@@ -29490,7 +29490,7 @@ stbi__get8.exit139.thread:                        ; preds = %171, %stbi__get8.ex
 216:                                              ; preds = %214
   %217 = add nsw i32 %.091.ph, 1
   %218 = sext i32 %.091.ph to i64
-  %219 = getelementptr inbounds [8192 x %struct.stbi__gif_lzw], ptr %45, i64 0, i64 %218
+  %219 = getelementptr inbounds [8192 x %struct.stbi__gif_lzw], ptr %44, i64 0, i64 %218
   %220 = icmp sgt i32 %.091.ph, 8191
   br i1 %220, label %221, label %223
 

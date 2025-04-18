@@ -1020,27 +1020,27 @@ define hidden noundef zeroext i1 @_ZN3ue219has_non_eod_acceptsERKNS_7raw_dfaE(pt
 define hidden noundef i64 @_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(560) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i16, ptr %2, align 4
-  %4 = zext i16 %3 to i64
-  %5 = mul i64 %4, 814605021516865831
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 46
-  br label %7
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 46
+  br label %5
 
-7:                                                ; preds = %7, %1
-  %.0.idx11.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i, %7 ]
-  %.0910.i.i = phi i64 [ 0, %1 ], [ %12, %7 ]
-  %.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.0.idx11.i.i
-  %8 = load i16, ptr %.0.ptr.i.i, align 2
-  %9 = zext i16 %8 to i64
-  %10 = mul i64 %9, 814605021516865831
-  %11 = xor i64 %10, %.0910.i.i
-  %12 = add i64 %11, 3571081485394615273
+5:                                                ; preds = %5, %1
+  %.0.idx11.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i, %5 ]
+  %.0910.i.i = phi i64 [ 0, %1 ], [ %10, %5 ]
+  %.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.0.idx11.i.i
+  %6 = load i16, ptr %.0.ptr.i.i, align 2
+  %7 = zext i16 %6 to i64
+  %8 = mul i64 %7, 814605021516865831
+  %9 = xor i64 %8, %.0910.i.i
+  %10 = add i64 %9, 3571081485394615273
   %.0.add.i.i = add nuw nsw i64 %.0.idx11.i.i, 2
   %.not.i.i = icmp eq i64 %.0.add.i.i, 514
-  br i1 %.not.i.i, label %_ZN3ue211hash_detail12hash_combineISt5arrayItLm257EEEEvRmRKT_.exit, label %7
+  br i1 %.not.i.i, label %_ZN3ue211hash_detail12hash_combineISt5arrayItLm257EEEEvRmRKT_.exit, label %5
 
-_ZN3ue211hash_detail12hash_combineISt5arrayItLm257EEEEvRmRKT_.exit: ; preds = %7
-  %13 = add i64 %5, 3571081485394615273
-  %14 = mul i64 %12, 814605021516865831
+_ZN3ue211hash_detail12hash_combineISt5arrayItLm257EEEEvRmRKT_.exit: ; preds = %5
+  %11 = zext i16 %3 to i64
+  %12 = mul i64 %11, 814605021516865831
+  %13 = add i64 %12, 3571081485394615273
+  %14 = mul i64 %10, 814605021516865831
   %15 = xor i64 %14, %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
@@ -1097,27 +1097,27 @@ define hidden noundef i64 @_ZN3ue28hash_dfaERKNS_7raw_dfaE(ptr noundef nonnull r
   %6 = alloca %"class.std::set", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i16, ptr %7, align 4
-  %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 46
-  br label %11
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 46
+  br label %10
 
-11:                                               ; preds = %11, %1
-  %.0.idx11.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i, %11 ]
-  %.0910.i.i.i = phi i64 [ 0, %1 ], [ %16, %11 ]
-  %.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.0.idx11.i.i.i
-  %12 = load i16, ptr %.0.ptr.i.i.i, align 2
-  %13 = zext i16 %12 to i64
-  %14 = mul i64 %13, 814605021516865831
-  %15 = xor i64 %14, %.0910.i.i.i
-  %16 = add i64 %15, 3571081485394615273
+10:                                               ; preds = %10, %1
+  %.0.idx11.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i, %10 ]
+  %.0910.i.i.i = phi i64 [ 0, %1 ], [ %15, %10 ]
+  %.0.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.0.idx11.i.i.i
+  %11 = load i16, ptr %.0.ptr.i.i.i, align 2
+  %12 = zext i16 %11 to i64
+  %13 = mul i64 %12, 814605021516865831
+  %14 = xor i64 %13, %.0910.i.i.i
+  %15 = add i64 %14, 3571081485394615273
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i, 2
   %.not.i.i.i = icmp eq i64 %.0.add.i.i.i, 514
-  br i1 %.not.i.i.i, label %_ZN3ue211hash_detail12hash_combineISt5arrayItLm257EEEEvRmRKT_.exit.i, label %11
+  br i1 %.not.i.i.i, label %_ZN3ue211hash_detail12hash_combineISt5arrayItLm257EEEEvRmRKT_.exit.i, label %10
 
-_ZN3ue211hash_detail12hash_combineISt5arrayItLm257EEEEvRmRKT_.exit.i: ; preds = %11
-  %17 = mul i64 %9, 814605021516865831
+_ZN3ue211hash_detail12hash_combineISt5arrayItLm257EEEEvRmRKT_.exit.i: ; preds = %10
+  %16 = zext i16 %8 to i64
+  %17 = mul i64 %16, 814605021516865831
   %18 = add i64 %17, 3571081485394615273
-  %19 = mul i64 %16, 814605021516865831
+  %19 = mul i64 %15, 814605021516865831
   %20 = xor i64 %19, %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8

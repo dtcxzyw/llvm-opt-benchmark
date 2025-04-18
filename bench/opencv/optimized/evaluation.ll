@@ -1884,9 +1884,6 @@ cdce.end30.i:                                     ; preds = %cdce.call59, %cdce.
   %309 = call i32 @llvm.smin.i32(i32 %307, i32 %308)
   %310 = sitofp i32 %309 to float
   %311 = fdiv float %310, 5.000000e+01
-  %312 = sitofp i32 %307 to float
-  %313 = fdiv float %312, %311
-  %314 = call float @llvm.floor.f32(float %313)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9) #25
   store float %311, ptr %9, align 8, !tbaa !91
   store i32 0, ptr %160, align 4, !tbaa !93
@@ -1903,6 +1900,9 @@ cdce.end30.i:                                     ; preds = %cdce.call59, %cdce.
   store double %257, ptr %.sroa.6.8..sroa_idx.i.i, align 8, !tbaa !3
   store double %258, ptr %.sroa.7.8..sroa_idx.i.i, align 8, !tbaa !3
   store double 0.000000e+00, ptr %.sroa.8.8..sroa_idx.i.i, align 8, !tbaa !3
+  %312 = sitofp i32 %307 to float
+  %313 = fdiv float %312, %311
+  %314 = call float @llvm.floor.f32(float %313)
   %315 = fptosi float %314 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #25
   %316 = add nsw i32 %315, 1

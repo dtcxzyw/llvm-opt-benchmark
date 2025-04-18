@@ -1631,26 +1631,26 @@ _ZN7Archive17ConvertFileHeaderEP10FileHeader.exit: ; preds = %.split.us.split.us
   br i1 %22, label %482, label %471
 
 471:                                              ; preds = %470
-  %472 = getelementptr inbounds nuw i8, ptr %0, i64 52
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #21
-  br label %473
+  br label %472
 
-473:                                              ; preds = %473, %471
-  %indvars.iv.i.i = phi i64 [ 0, %471 ], [ %indvars.iv.next.i.i, %473 ]
-  %474 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
-  store ptr @.str.8, ptr %474, align 8, !tbaa !63
+472:                                              ; preds = %472, %471
+  %indvars.iv.i.i = phi i64 [ 0, %471 ], [ %indvars.iv.next.i.i, %472 ]
+  %473 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
+  store ptr @.str.8, ptr %473, align 8, !tbaa !63
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i, label %473, !llvm.loop !64
+  br i1 %exitcond.not.i.i, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i, label %472, !llvm.loop !64
 
-_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %473
+_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %472
+  %474 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %475 = getelementptr inbounds nuw i8, ptr %170, i64 40
   %476 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %477 = getelementptr inbounds nuw i8, ptr %3, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %476, i8 0, i64 40, i1 false)
   store i32 28, ptr %477, align 8, !tbaa !66
   %478 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store ptr %472, ptr %3, align 8, !tbaa !63
+  store ptr %474, ptr %3, align 8, !tbaa !63
   store i32 2, ptr %478, align 8, !tbaa !69
   %479 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %475, ptr %479, align 8, !tbaa !63
@@ -5260,26 +5260,26 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit23: ; preds = %_Z9uiMsgBaseIRA204
   br i1 %130, label %147, label %132
 
 132:                                              ; preds = %131
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 52
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5) #21
-  br label %134
+  br label %133
 
-134:                                              ; preds = %134, %132
-  %indvars.iv.i.i24 = phi i64 [ 0, %132 ], [ %indvars.iv.next.i.i25, %134 ]
-  %135 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i24
-  store ptr @.str.8, ptr %135, align 8, !tbaa !63
+133:                                              ; preds = %133, %132
+  %indvars.iv.i.i24 = phi i64 [ 0, %132 ], [ %indvars.iv.next.i.i25, %133 ]
+  %134 = getelementptr inbounds nuw [8 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i24
+  store ptr @.str.8, ptr %134, align 8, !tbaa !63
   %indvars.iv.next.i.i25 = add nuw nsw i64 %indvars.iv.i.i24, 1
   %exitcond.not.i.i26 = icmp eq i64 %indvars.iv.next.i.i25, 8
-  br i1 %exitcond.not.i.i26, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i, label %134, !llvm.loop !64
+  br i1 %exitcond.not.i.i26, label %_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i, label %133, !llvm.loop !64
 
-_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %134
+_Z9uiMsgBaseIRA2048_wJS1_EEvR10uiMsgStoreOT_DpOT0_.exit.i: ; preds = %133
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 31264
   %137 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %137, i8 0, i64 40, i1 false)
   store i32 31, ptr %138, align 8, !tbaa !66
   %139 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store ptr %133, ptr %5, align 8, !tbaa !63
+  store ptr %135, ptr %5, align 8, !tbaa !63
   store i32 2, ptr %139, align 8, !tbaa !69
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %136, ptr %140, align 8, !tbaa !63

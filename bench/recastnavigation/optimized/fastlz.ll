@@ -787,9 +787,9 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %190 = zext nneg i32 %189 to i64
   %191 = add nuw nsw i64 %190, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.3194254, i8 -1, i64 %191, i1 false)
+  %scevgep301 = getelementptr i8, ptr %.3194254, i64 %190
   %192 = urem i32 %188, 255
   %scevgep302 = getelementptr i8, ptr %.2193, i64 2
-  %scevgep301 = getelementptr i8, ptr %.3194254, i64 %190
   %scevgep303 = getelementptr i8, ptr %scevgep302, i64 %190
   br label %._crit_edge259
 
@@ -842,9 +842,9 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %217 = zext nneg i32 %216 to i64
   %218 = add nuw nsw i64 %217, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.5247, i8 -1, i64 %218, i1 false)
+  %scevgep297 = getelementptr i8, ptr %.5247, i64 %217
   %219 = urem i32 %215, 255
   %scevgep298 = getelementptr i8, ptr %.2193, i64 2
-  %scevgep297 = getelementptr i8, ptr %.5247, i64 %217
   %scevgep299 = getelementptr i8, ptr %scevgep298, i64 %217
   br label %._crit_edge
 
@@ -1289,9 +1289,9 @@ define dso_local i32 @fastlz_decompress(ptr noundef readonly captures(address) %
 
 .lr.ph140.preheader.i:                            ; preds = %148
   tail call void @llvm.memset.p0.i64(ptr align 1 %150, i8 %146, i64 %131, i1 false)
+  %scevgep.i20 = getelementptr i8, ptr %.096.i, i64 4
   %151 = add i32 %.082.i, -1
   %152 = zext i32 %151 to i64
-  %scevgep.i20 = getelementptr i8, ptr %.096.i, i64 4
   %scevgep148.i = getelementptr i8, ptr %scevgep.i20, i64 %152
   br label %.loopexit.i17
 

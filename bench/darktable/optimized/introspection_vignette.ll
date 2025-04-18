@@ -1378,44 +1378,44 @@ alloc_tea_states.exit:                            ; preds = %68, %87
   br i1 %100, label %147, label %188
 
 147:                                              ; preds = %146
-  %148 = fmul reassoc nsz arcp contract afn float %140, 0x400921FB60000000
-  %149 = tail call reassoc nsz arcp contract afn float @llvm.cos.f32(float %148)
-  %150 = fmul reassoc nsz arcp contract afn float %149, 5.000000e-01
-  %151 = load i32, ptr %86, align 4, !tbaa !57
-  %152 = load i32, ptr %101, align 4, !tbaa !57
-  br label %153
+  %148 = load i32, ptr %86, align 4, !tbaa !57
+  %149 = load i32, ptr %101, align 4, !tbaa !57
+  br label %150
 
-153:                                              ; preds = %153, %147
-  %.025.i = phi i32 [ 0, %147 ], [ %171, %153 ]
-  %.01924.i = phi i32 [ %151, %147 ], [ %162, %153 ]
-  %.02023.i = phi i32 [ 0, %147 ], [ %154, %153 ]
-  %.02122.i = phi i32 [ %152, %147 ], [ %170, %153 ]
-  %154 = add i32 %.02023.i, -1640531527
-  %155 = shl i32 %.02122.i, 4
-  %156 = add i32 %155, -1556008596
-  %157 = add i32 %154, %.02122.i
-  %158 = lshr i32 %.02122.i, 5
-  %159 = add nuw nsw i32 %158, -939442524
-  %160 = xor i32 %156, %157
-  %161 = xor i32 %160, %159
-  %162 = add i32 %161, %.01924.i
-  %163 = shl i32 %162, 4
-  %164 = add i32 %163, -1383041155
-  %165 = add i32 %162, %154
-  %166 = xor i32 %164, %165
-  %167 = lshr i32 %162, 5
-  %168 = add nuw i32 %167, 2123724318
-  %169 = xor i32 %166, %168
-  %170 = add i32 %169, %.02122.i
-  %171 = add nuw nsw i32 %.025.i, 1
-  %exitcond.not.i = icmp eq i32 %171, 8
-  br i1 %exitcond.not.i, label %encrypt_tea.exit, label %153
+150:                                              ; preds = %150, %147
+  %.025.i = phi i32 [ 0, %147 ], [ %168, %150 ]
+  %.01924.i = phi i32 [ %148, %147 ], [ %159, %150 ]
+  %.02023.i = phi i32 [ 0, %147 ], [ %151, %150 ]
+  %.02122.i = phi i32 [ %149, %147 ], [ %167, %150 ]
+  %151 = add i32 %.02023.i, -1640531527
+  %152 = shl i32 %.02122.i, 4
+  %153 = add i32 %152, -1556008596
+  %154 = add i32 %151, %.02122.i
+  %155 = lshr i32 %.02122.i, 5
+  %156 = add nuw nsw i32 %155, -939442524
+  %157 = xor i32 %153, %154
+  %158 = xor i32 %157, %156
+  %159 = add i32 %158, %.01924.i
+  %160 = shl i32 %159, 4
+  %161 = add i32 %160, -1383041155
+  %162 = add i32 %159, %151
+  %163 = xor i32 %161, %162
+  %164 = lshr i32 %159, 5
+  %165 = add nuw i32 %164, 2123724318
+  %166 = xor i32 %163, %165
+  %167 = add i32 %166, %.02122.i
+  %168 = add nuw nsw i32 %.025.i, 1
+  %exitcond.not.i = icmp eq i32 %168, 8
+  br i1 %exitcond.not.i, label %encrypt_tea.exit, label %150
 
-encrypt_tea.exit:                                 ; preds = %153
-  %172 = fsub reassoc nsz arcp contract afn float 5.000000e-01, %150
-  store i32 %162, ptr %86, align 4, !tbaa !57
-  store i32 %170, ptr %101, align 4, !tbaa !57
-  %173 = uitofp i32 %162 to float
+encrypt_tea.exit:                                 ; preds = %150
+  %169 = fmul reassoc nsz arcp contract afn float %140, 0x400921FB60000000
+  %170 = tail call reassoc nsz arcp contract afn float @llvm.cos.f32(float %169)
+  %171 = fmul reassoc nsz arcp contract afn float %170, 5.000000e-01
+  %172 = fsub reassoc nsz arcp contract afn float 5.000000e-01, %171
+  store i32 %159, ptr %86, align 4, !tbaa !57
+  store i32 %167, ptr %101, align 4, !tbaa !57
+  %173 = uitofp i32 %159 to float
   %174 = fmul reassoc nsz arcp contract afn float %173, 0x3DF0000000000000
   %175 = fcmp reassoc nsz arcp contract afn olt float %174, 5.000000e-01
   %176 = fmul reassoc nsz arcp contract afn float %173, 0x3E00000000000000

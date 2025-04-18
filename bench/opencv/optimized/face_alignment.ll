@@ -753,13 +753,13 @@ define hidden noundef zeroext i1 @_ZN2cv4face18FacemarkKazemiImpl15convertToActu
   %5 = alloca [3 x %"class.cv::Point_"], align 16
   %6 = alloca [3 x %"class.cv::Point_"], align 16
   %7 = alloca %"class.cv::Mat", align 8
-  %.sroa.4.0.extract.shift = lshr i64 %1, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  %.sroa.9.8.extract.shift = lshr i64 %2, 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #28
-  %.sroa.7.8.extract.trunc = trunc i64 %2 to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
+  %.sroa.4.0.extract.shift = lshr i64 %1, 32
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
+  %.sroa.7.8.extract.trunc = trunc i64 %2 to i32
+  %.sroa.9.8.extract.shift = lshr i64 %2, 32
   %.sroa.9.8.extract.trunc = trunc nuw i64 %.sroa.9.8.extract.shift to i32
   store i32 0, ptr %5, align 16
   %.sroa_idx24 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -829,13 +829,13 @@ define hidden noundef zeroext i1 @_ZN2cv4face18FacemarkKazemiImpl13convertToUnit
   %5 = alloca [3 x %"class.cv::Point_"], align 16
   %6 = alloca [3 x %"class.cv::Point_"], align 16
   %7 = alloca %"class.cv::Mat", align 8
-  %.sroa.4.0.extract.shift = lshr i64 %1, 32
-  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  %.sroa.9.8.extract.shift = lshr i64 %2, 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #28
-  %.sroa.7.8.extract.trunc = trunc i64 %2 to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
+  %.sroa.4.0.extract.shift = lshr i64 %1, 32
+  %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
+  %.sroa.7.8.extract.trunc = trunc i64 %2 to i32
+  %.sroa.9.8.extract.shift = lshr i64 %2, 32
   %.sroa.9.8.extract.trunc = trunc nuw i64 %.sroa.9.8.extract.shift to i32
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -1264,13 +1264,13 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %58, %63
   %.sroa.0160.0.copyload = load i64, ptr %129, align 4
   %.sroa.8.0..sroa_idx163 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %.sroa.8.0.copyload164 = load i64, ptr %.sroa.8.0..sroa_idx163, align 4
-  %.sroa.4.0.extract.shift.i = lshr i64 %.sroa.0160.0.copyload, 32
-  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %.sroa.9.8.extract.shift.i = lshr i64 %.sroa.8.0.copyload164, 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #28
-  %.sroa.7.8.extract.trunc.i = trunc i64 %.sroa.8.0.copyload164 to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #28
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0160.0.copyload to i32
+  %.sroa.4.0.extract.shift.i = lshr i64 %.sroa.0160.0.copyload, 32
+  %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
+  %.sroa.7.8.extract.trunc.i = trunc i64 %.sroa.8.0.copyload164 to i32
+  %.sroa.9.8.extract.shift.i = lshr i64 %.sroa.8.0.copyload164, 32
   %.sroa.9.8.extract.trunc.i = trunc nuw i64 %.sroa.9.8.extract.shift.i to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i32 1065353216, ptr %72, align 8

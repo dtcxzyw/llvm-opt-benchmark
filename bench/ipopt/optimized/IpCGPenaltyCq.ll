@@ -823,12 +823,12 @@ define noundef double @_ZN5Ipopt11CGPenaltyCq16curr_jac_cd_normEi(ptr noundef no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23
   %30 = load ptr, ptr %5, align 8, !tbaa !22
   invoke void @_ZN5Ipopt25IpoptCalculatedQuantities10curr_jac_dEv(ptr dead_on_unwind nonnull writable sret(%"class.Ipopt::SmartPtr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(2185) %30)
-          to label %31 unwind label %52
+          to label %31 unwind label %51
 
 31:                                               ; preds = %._crit_edge
   %32 = load ptr, ptr %4, align 8, !tbaa !34
   %33 = invoke noundef i32 @_ZN5Ipopt13TripletHelper16GetNumberEntriesERKNS_6MatrixE(ptr noundef nonnull align 8 dereferenceable(69) %32)
-          to label %34 unwind label %54
+          to label %34 unwind label %53
 
 34:                                               ; preds = %31
   %35 = zext i32 %33 to i64
@@ -836,12 +836,12 @@ define noundef double @_ZN5Ipopt11CGPenaltyCq16curr_jac_cd_normEi(ptr noundef no
   %37 = shl nuw nsw i64 %35, 3
   %38 = select i1 %36, i64 -1, i64 %37
   %39 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %38) #25
-          to label %40 unwind label %54
+          to label %40 unwind label %53
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %4, align 8, !tbaa !34
   invoke void @_ZN5Ipopt13TripletHelper10FillValuesEiRKNS_6MatrixEPd(i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(69) %41, ptr noundef nonnull %39)
-          to label %.preheader unwind label %54
+          to label %.preheader unwind label %53
 
 .preheader:                                       ; preds = %40
   %42 = icmp sgt i32 %33, 1
@@ -850,54 +850,51 @@ define noundef double @_ZN5Ipopt11CGPenaltyCq16curr_jac_cd_normEi(ptr noundef no
 .lr.ph89:                                         ; preds = %.preheader
   switch i32 %1, label %._crit_edge90 [
     i32 3, label %.thread68.us
-    i32 1, label %.lr.ph89.split.us95.preheader
+    i32 1, label %.lr.ph89.split.us95
   ]
-
-.lr.ph89.split.us95.preheader:                    ; preds = %.lr.ph89
-  %43 = add nuw i32 %.039.lcssa, %33
-  br label %.lr.ph89.split.us95
 
 .thread68.us:                                     ; preds = %.lr.ph89, %.thread68.us
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.thread68.us ], [ 1, %.lr.ph89 ]
   %.35286.us = phi double [ %.sroa.speculated.i60.us, %.thread68.us ], [ %.049.lcssa, %.lr.ph89 ]
-  %44 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv125
-  %45 = load double, ptr %44, align 8, !tbaa !37
-  %46 = call noundef double @llvm.fabs.f64(double %45)
-  %47 = fcmp olt double %.35286.us, %46
-  %.sroa.speculated.i60.us = select i1 %47, double %46, double %.35286.us
+  %43 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv125
+  %44 = load double, ptr %43, align 8, !tbaa !37
+  %45 = call noundef double @llvm.fabs.f64(double %44)
+  %46 = fcmp olt double %.35286.us, %45
+  %.sroa.speculated.i60.us = select i1 %46, double %45, double %.35286.us
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %35
   br i1 %exitcond129.not, label %._crit_edge90, label %.thread68.us, !llvm.loop !39
 
-.lr.ph89.split.us95:                              ; preds = %.lr.ph89.split.us95.preheader, %.lr.ph89.split.us95
-  %indvars.iv120 = phi i64 [ 1, %.lr.ph89.split.us95.preheader ], [ %indvars.iv.next121, %.lr.ph89.split.us95 ]
-  %.35286.us98 = phi double [ %.049.lcssa, %.lr.ph89.split.us95.preheader ], [ %51, %.lr.ph89.split.us95 ]
-  %48 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv120
-  %49 = load double, ptr %48, align 8, !tbaa !37
-  %50 = call noundef double @llvm.fabs.f64(double %49)
-  %51 = fadd double %.35286.us98, %50
+.lr.ph89.split.us95:                              ; preds = %.lr.ph89, %.lr.ph89.split.us95
+  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.lr.ph89.split.us95 ], [ 1, %.lr.ph89 ]
+  %.35286.us98 = phi double [ %50, %.lr.ph89.split.us95 ], [ %.049.lcssa, %.lr.ph89 ]
+  %47 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv120
+  %48 = load double, ptr %47, align 8, !tbaa !37
+  %49 = call noundef double @llvm.fabs.f64(double %48)
+  %50 = fadd double %.35286.us98, %49
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %35
   br i1 %exitcond124.not, label %._crit_edge90.loopexit106, label %.lr.ph89.split.us95, !llvm.loop !39
 
-52:                                               ; preds = %._crit_edge
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %._crit_edge
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit64
 
-54:                                               ; preds = %40, %34, %31
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %40, %34, %31
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %56 = load ptr, ptr %4, align 8, !tbaa !34
-  %.not.i.i63 = icmp eq ptr %56, null
+  %55 = load ptr, ptr %4, align 8, !tbaa !34
+  %.not.i.i63 = icmp eq ptr %55, null
   br i1 %.not.i.i63, label %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit64, label %81
 
 ._crit_edge90.loopexit106:                        ; preds = %.lr.ph89.split.us95
-  %57 = add i32 %43, -1
+  %56 = add nuw i32 %.039.lcssa, %33
+  %57 = add i32 %56, -1
   br label %._crit_edge90
 
 ._crit_edge90:                                    ; preds = %.thread68.us, %.lr.ph89, %._crit_edge90.loopexit106, %.preheader
-  %.352.lcssa = phi double [ %.049.lcssa, %.preheader ], [ %51, %._crit_edge90.loopexit106 ], [ %.049.lcssa, %.lr.ph89 ], [ %.sroa.speculated.i60.us, %.thread68.us ]
+  %.352.lcssa = phi double [ %.049.lcssa, %.preheader ], [ %50, %._crit_edge90.loopexit106 ], [ %.049.lcssa, %.lr.ph89 ], [ %.sroa.speculated.i60.us, %.thread68.us ]
   %.2.lcssa = phi i32 [ %.039.lcssa, %.preheader ], [ %57, %._crit_edge90.loopexit106 ], [ %.039.lcssa, %.lr.ph89 ], [ %.039.lcssa, %.thread68.us ]
   call void @_ZdaPv(ptr noundef nonnull %39) #24
   %58 = load ptr, ptr %4, align 8, !tbaa !34
@@ -948,8 +945,8 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit62:      ; preds = %_ZN5Ipopt8SmartPtrI
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
   ret double %.6
 
-81:                                               ; preds = %54
-  %82 = getelementptr inbounds nuw i8, ptr %56, i64 8
+81:                                               ; preds = %53
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %83 = load i32, ptr %82, align 8, !tbaa !3
   %84 = add nsw i32 %83, -1
   store i32 %84, ptr %82, align 8, !tbaa !3
@@ -957,14 +954,14 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit62:      ; preds = %_ZN5Ipopt8SmartPtrI
   br i1 %85, label %86, label %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit64
 
 86:                                               ; preds = %81
-  %87 = load ptr, ptr %56, align 8, !tbaa !8
+  %87 = load ptr, ptr %55, align 8, !tbaa !8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(69) %56) #23
+  call void %89(ptr noundef nonnull align 8 dereferenceable(69) %55) #23
   br label %_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit64
 
-_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit64:      ; preds = %86, %81, %54, %52
-  %.pn.pn = phi { ptr, i32 } [ %53, %52 ], [ %55, %54 ], [ %55, %81 ], [ %55, %86 ]
+_ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit64:      ; preds = %86, %81, %53, %51
+  %.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %54, %53 ], [ %54, %81 ], [ %54, %86 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
   br label %90
 

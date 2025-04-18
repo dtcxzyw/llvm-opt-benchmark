@@ -6381,7 +6381,6 @@ if.end80:                                         ; preds = %if.then76, %land.lh
   br i1 %exitcond.not, label %invoke.cont122.preheader, label %for.body, !llvm.loop !164
 
 invoke.cont122.preheader:                         ; preds = %if.end80
-  %p1.sroa.14.0.extract.shift = lshr i48 %p0.coerce, 32
   %call.i723 = call noalias noundef nonnull dereferenceable(490) ptr @_Znam(i64 noundef 490) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(490) %call.i723, i8 0, i64 490, i1 false), !tbaa !12
   %invariant.gep = getelementptr inbounds nuw i8, ptr %call.i723, i64 1
@@ -6489,6 +6488,7 @@ if.end154.1.4:                                    ; preds = %if.then149.1.4, %if
   br i1 %exitcond1396, label %invoke.cont122.preheader.2, label %invoke.cont122.1, !llvm.loop !165
 
 invoke.cont122.preheader.2:                       ; preds = %if.end154.1.4
+  %p1.sroa.14.0.extract.shift = lshr i48 %p0.coerce, 32
   %p1.sroa.0.0.extract.trunc = trunc i48 %p0.coerce to i16
   %mul.i.i817.2 = mul i32 %add.i.i818.1.4, 1103515245
   %add.i.i818.2 = add i32 %mul.i.i817.2, 12345

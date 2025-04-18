@@ -529,8 +529,8 @@ define linkonce_odr dso_local noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTran
   %indvars98.i.i = trunc i64 %indvar.i.i to i32
   %42 = shl nuw nsw i64 %indvar.i.i, 8
   %scevgep.i.i = getelementptr nuw i8, ptr %0, i64 %42
-  %43 = shl nuw nsw i32 %indvars98.i.i, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %9, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.i, i64 256, i1 false)
+  %43 = shl nuw nsw i32 %indvars98.i.i, 7
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %55, %.lr.ph.i.preheader.i
@@ -684,8 +684,8 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %indvars98.i.i103 = trunc i64 %indvar.i.i102 to i32
   %104 = shl nuw nsw i64 %indvar.i.i102, 8
   %scevgep.i.i104 = getelementptr nuw i8, ptr %0, i64 %104
-  %105 = shl nuw nsw i32 %indvars98.i.i103, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.i104, i64 256, i1 false)
+  %105 = shl nuw nsw i32 %indvars98.i.i103, 7
   br label %.lr.ph.i.i105
 
 .lr.ph.i.i105:                                    ; preds = %117, %.lr.ph.i.preheader.i101
@@ -1655,8 +1655,8 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %indvars98.i.i11 = trunc i64 %indvar.i.i10 to i32
   %57 = shl nuw nsw i64 %indvar.i.i10, 8
   %scevgep.i.i12 = getelementptr nuw i8, ptr %17, i64 %57
-  %58 = shl nuw nsw i32 %indvars98.i.i11, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %2, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.i12, i64 256, i1 false)
+  %58 = shl nuw nsw i32 %indvars98.i.i11, 7
   br label %.lr.ph.i.i13
 
 .lr.ph.i.i13:                                     ; preds = %70, %.lr.ph.i.preheader.i9
@@ -1826,8 +1826,8 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %indvars98.i.i = trunc i64 %indvar.i.i to i32
   %126 = shl nuw nsw i64 %indvar.i.i, 8
   %scevgep.i.i = getelementptr nuw i8, ptr %17, i64 %126
-  %127 = shl nuw nsw i32 %indvars98.i.i, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.i, i64 256, i1 false)
+  %127 = shl nuw nsw i32 %indvars98.i.i, 7
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %139, %.lr.ph.i.preheader.i
@@ -5861,26 +5861,26 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, %12
-  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store i64 0, ptr %17, align 16
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store i64 0, ptr %18, align 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  store i64 0, ptr %15, align 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  store i64 0, ptr %16, align 16
   br label %.preheader266
 
 .preheader266:                                    ; preds = %.preheader267.preheader, %.preheader266
   %indvars.iv317 = phi i32 [ 0, %.preheader267.preheader ], [ %indvars.iv.next318, %.preheader266 ]
   %indvars.iv = phi i64 [ 0, %.preheader267.preheader ], [ %indvars.iv.next, %.preheader266 ]
-  %19 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
+  %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars.iv.next318 = add i32 %indvars.iv317, -1
-  br i1 %21, label %.preheader266, label %.preheader265, !llvm.loop !75
+  br i1 %19, label %.preheader266, label %.preheader265, !llvm.loop !75
 
 .preheader265:                                    ; preds = %.preheader266
-  %22 = trunc nuw nsw i64 %16 to i32
+  %20 = and i64 %14, %12
+  %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %20, i1 true)
+  %22 = trunc nuw nsw i64 %21 to i32
   %23 = icmp sgt i64 %indvars.iv, -1
   br i1 %23, label %.lr.ph272, label %._crit_edge273
 
@@ -5905,7 +5905,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 36:                                               ; preds = %.lr.ph272, %33
   %37 = phi ptr [ %35, %33 ], [ %2, %.lr.ph272 ]
-  %.not245268 = icmp eq ptr %20, %37
+  %.not245268 = icmp eq ptr %18, %37
   br i1 %.not245268, label %._crit_edge273, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
@@ -5914,7 +5914,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
-  %.1218269 = phi ptr [ %20, %.lr.ph ], [ %43, %40 ]
+  %.1218269 = phi ptr [ %18, %.lr.ph ], [ %43, %40 ]
   %41 = getelementptr inbounds nuw i8, ptr %.1218269, i64 11200
   call void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm22append_changed_indicesILNS_5ColorE0EEEvNS_6SquareERKNS_10DirtyPieceERNS_9ValueListIjLm32EEESC_(i32 noundef %22, ptr noundef nonnull align 4 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(136) %38, ptr noundef nonnull align 8 dereferenceable(136) %39) #15
   %42 = getelementptr inbounds nuw i8, ptr %.1218269, i64 56
@@ -5929,11 +5929,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %46, label %47, label %141
 
 47:                                               ; preds = %._crit_edge273
-  %48 = load i64, ptr %17, align 16
+  %48 = load i64, ptr %15, align 16
   %49 = icmp eq i64 %48, 1
   %50 = add i64 %48, -1
   %or.cond = icmp ult i64 %50, 2
-  %51 = load i64, ptr %18, align 16
+  %51 = load i64, ptr %16, align 16
   %52 = icmp eq i64 %51, 1
   %or.cond250 = select i1 %or.cond, i1 %52, i1 false
   br i1 %or.cond250, label %53, label %141
@@ -6012,7 +6012,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %103 = shl i32 %102, 3
   %104 = zext i32 %103 to i64
   %105 = getelementptr inbounds nuw [180224 x i32], ptr %99, i64 0, i64 %104
-  %106 = load i64, ptr %17, align 16
+  %106 = load i64, ptr %15, align 16
   %107 = icmp eq i64 %106, 1
   br i1 %107, label %.preheader, label %122
 
@@ -6365,26 +6365,26 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, %12
-  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store i64 0, ptr %17, align 16
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store i64 0, ptr %18, align 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  store i64 0, ptr %15, align 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  store i64 0, ptr %16, align 16
   br label %.preheader266
 
 .preheader266:                                    ; preds = %.preheader267.preheader, %.preheader266
   %indvars.iv317 = phi i32 [ 0, %.preheader267.preheader ], [ %indvars.iv.next318, %.preheader266 ]
   %indvars.iv = phi i64 [ 0, %.preheader267.preheader ], [ %indvars.iv.next, %.preheader266 ]
-  %19 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
+  %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars.iv.next318 = add i32 %indvars.iv317, -1
-  br i1 %21, label %.preheader266, label %.preheader265, !llvm.loop !84
+  br i1 %19, label %.preheader266, label %.preheader265, !llvm.loop !84
 
 .preheader265:                                    ; preds = %.preheader266
-  %22 = trunc nuw nsw i64 %16 to i32
+  %20 = and i64 %14, %12
+  %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %20, i1 true)
+  %22 = trunc nuw nsw i64 %21 to i32
   %23 = icmp sgt i64 %indvars.iv, -1
   br i1 %23, label %.lr.ph272, label %._crit_edge273
 
@@ -6409,7 +6409,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 36:                                               ; preds = %.lr.ph272, %33
   %37 = phi ptr [ %35, %33 ], [ %2, %.lr.ph272 ]
-  %.not245268 = icmp eq ptr %20, %37
+  %.not245268 = icmp eq ptr %18, %37
   br i1 %.not245268, label %._crit_edge273, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
@@ -6418,7 +6418,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
-  %.1218269 = phi ptr [ %20, %.lr.ph ], [ %43, %40 ]
+  %.1218269 = phi ptr [ %18, %.lr.ph ], [ %43, %40 ]
   %41 = getelementptr inbounds nuw i8, ptr %.1218269, i64 11200
   call void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm22append_changed_indicesILNS_5ColorE1EEEvNS_6SquareERKNS_10DirtyPieceERNS_9ValueListIjLm32EEESC_(i32 noundef %22, ptr noundef nonnull align 4 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(136) %38, ptr noundef nonnull align 8 dereferenceable(136) %39) #15
   %42 = getelementptr inbounds nuw i8, ptr %.1218269, i64 56
@@ -6433,11 +6433,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %46, label %47, label %141
 
 47:                                               ; preds = %._crit_edge273
-  %48 = load i64, ptr %17, align 16
+  %48 = load i64, ptr %15, align 16
   %49 = icmp eq i64 %48, 1
   %50 = add i64 %48, -1
   %or.cond = icmp ult i64 %50, 2
-  %51 = load i64, ptr %18, align 16
+  %51 = load i64, ptr %16, align 16
   %52 = icmp eq i64 %51, 1
   %or.cond250 = select i1 %or.cond, i1 %52, i1 false
   br i1 %or.cond250, label %53, label %141
@@ -6516,7 +6516,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %103 = shl i32 %102, 3
   %104 = zext i32 %103 to i64
   %105 = getelementptr inbounds nuw [180224 x i32], ptr %99, i64 0, i64 %104
-  %106 = load i64, ptr %17, align 16
+  %106 = load i64, ptr %15, align 16
   %107 = icmp eq i64 %106, 1
   br i1 %107, label %.preheader, label %122
 
@@ -6860,26 +6860,26 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, %12
-  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store i64 0, ptr %17, align 16
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store i64 0, ptr %18, align 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  store i64 0, ptr %15, align 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  store i64 0, ptr %16, align 16
   br label %.preheader265
 
 .preheader265:                                    ; preds = %.preheader266.preheader, %.preheader265
   %indvars.iv318 = phi i32 [ 0, %.preheader266.preheader ], [ %indvars.iv.next319, %.preheader265 ]
   %indvars.iv = phi i64 [ 0, %.preheader266.preheader ], [ %indvars.iv.next, %.preheader265 ]
-  %19 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
+  %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars.iv.next319 = add i32 %indvars.iv318, -1
-  br i1 %21, label %.preheader265, label %.preheader264, !llvm.loop !93
+  br i1 %19, label %.preheader265, label %.preheader264, !llvm.loop !93
 
 .preheader264:                                    ; preds = %.preheader265
-  %22 = trunc nuw nsw i64 %16 to i32
+  %20 = and i64 %14, %12
+  %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %20, i1 true)
+  %22 = trunc nuw nsw i64 %21 to i32
   %23 = icmp sgt i64 %indvars.iv, -1
   br i1 %23, label %.lr.ph271, label %._crit_edge272
 
@@ -6904,7 +6904,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 36:                                               ; preds = %.lr.ph271, %33
   %37 = phi ptr [ %35, %33 ], [ %2, %.lr.ph271 ]
-  %.not245267 = icmp eq ptr %20, %37
+  %.not245267 = icmp eq ptr %18, %37
   br i1 %.not245267, label %._crit_edge272, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
@@ -6913,7 +6913,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
-  %.1218268 = phi ptr [ %20, %.lr.ph ], [ %43, %40 ]
+  %.1218268 = phi ptr [ %18, %.lr.ph ], [ %43, %40 ]
   %41 = getelementptr inbounds nuw i8, ptr %.1218268, i64 11200
   call void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm22append_changed_indicesILNS_5ColorE0EEEvNS_6SquareERKNS_10DirtyPieceERNS_9ValueListIjLm32EEESC_(i32 noundef %22, ptr noundef nonnull align 4 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(136) %38, ptr noundef nonnull align 8 dereferenceable(136) %39) #15
   %42 = getelementptr inbounds nuw i8, ptr %.1218268, i64 56
@@ -6928,11 +6928,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %46, label %47, label %141
 
 47:                                               ; preds = %._crit_edge272
-  %48 = load i64, ptr %17, align 16
+  %48 = load i64, ptr %15, align 16
   %49 = icmp eq i64 %48, 1
   %50 = add i64 %48, -1
   %or.cond = icmp ult i64 %50, 2
-  %51 = load i64, ptr %18, align 16
+  %51 = load i64, ptr %16, align 16
   %52 = icmp eq i64 %51, 1
   %or.cond248 = select i1 %or.cond, i1 %52, i1 false
   br i1 %or.cond248, label %53, label %141
@@ -7011,7 +7011,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %103 = shl i32 %102, 3
   %104 = zext i32 %103 to i64
   %105 = getelementptr inbounds nuw [180224 x i32], ptr %99, i64 0, i64 %104
-  %106 = load i64, ptr %17, align 16
+  %106 = load i64, ptr %15, align 16
   %107 = icmp eq i64 %106, 1
   br i1 %107, label %.preheader, label %122
 
@@ -7072,8 +7072,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %indvar = phi i64 [ 0, %.preheader263 ], [ %indvar.next, %._crit_edge290 ]
   %143 = shl nuw nsw i64 %indvar, 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %143
-  %144 = shl nuw nsw i64 %indvar, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %gep, i64 256, i1 false)
+  %144 = shl nuw nsw i64 %indvar, 7
   %145 = load ptr, ptr %3, align 8
   %.not287 = icmp eq ptr %145, null
   br i1 %.not287, label %._crit_edge290, label %.lr.ph289.preheader
@@ -7364,26 +7364,26 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %14 = load i64, ptr %13, align 8
-  %15 = and i64 %14, %12
-  %16 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %15, i1 true)
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store i64 0, ptr %17, align 16
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  store i64 0, ptr %18, align 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  store i64 0, ptr %15, align 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  store i64 0, ptr %16, align 16
   br label %.preheader265
 
 .preheader265:                                    ; preds = %.preheader266.preheader, %.preheader265
   %indvars.iv318 = phi i32 [ 0, %.preheader266.preheader ], [ %indvars.iv.next319, %.preheader265 ]
   %indvars.iv = phi i64 [ 0, %.preheader266.preheader ], [ %indvars.iv.next, %.preheader265 ]
-  %19 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp eq ptr %20, null
+  %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars.iv.next319 = add i32 %indvars.iv318, -1
-  br i1 %21, label %.preheader265, label %.preheader264, !llvm.loop !103
+  br i1 %19, label %.preheader265, label %.preheader264, !llvm.loop !103
 
 .preheader264:                                    ; preds = %.preheader265
-  %22 = trunc nuw nsw i64 %16 to i32
+  %20 = and i64 %14, %12
+  %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %20, i1 true)
+  %22 = trunc nuw nsw i64 %21 to i32
   %23 = icmp sgt i64 %indvars.iv, -1
   br i1 %23, label %.lr.ph271, label %._crit_edge272
 
@@ -7408,7 +7408,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 36:                                               ; preds = %.lr.ph271, %33
   %37 = phi ptr [ %35, %33 ], [ %2, %.lr.ph271 ]
-  %.not245267 = icmp eq ptr %20, %37
+  %.not245267 = icmp eq ptr %18, %37
   br i1 %.not245267, label %._crit_edge272, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
@@ -7417,7 +7417,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
-  %.1218268 = phi ptr [ %20, %.lr.ph ], [ %43, %40 ]
+  %.1218268 = phi ptr [ %18, %.lr.ph ], [ %43, %40 ]
   %41 = getelementptr inbounds nuw i8, ptr %.1218268, i64 11200
   call void @_ZN9Stockfish4Eval4NNUE8Features11HalfKAv2_hm22append_changed_indicesILNS_5ColorE1EEEvNS_6SquareERKNS_10DirtyPieceERNS_9ValueListIjLm32EEESC_(i32 noundef %22, ptr noundef nonnull align 4 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(136) %38, ptr noundef nonnull align 8 dereferenceable(136) %39) #15
   %42 = getelementptr inbounds nuw i8, ptr %.1218268, i64 56
@@ -7432,11 +7432,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %46, label %47, label %141
 
 47:                                               ; preds = %._crit_edge272
-  %48 = load i64, ptr %17, align 16
+  %48 = load i64, ptr %15, align 16
   %49 = icmp eq i64 %48, 1
   %50 = add i64 %48, -1
   %or.cond = icmp ult i64 %50, 2
-  %51 = load i64, ptr %18, align 16
+  %51 = load i64, ptr %16, align 16
   %52 = icmp eq i64 %51, 1
   %or.cond248 = select i1 %or.cond, i1 %52, i1 false
   br i1 %or.cond248, label %53, label %141
@@ -7515,7 +7515,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %103 = shl i32 %102, 3
   %104 = zext i32 %103 to i64
   %105 = getelementptr inbounds nuw [180224 x i32], ptr %99, i64 0, i64 %104
-  %106 = load i64, ptr %17, align 16
+  %106 = load i64, ptr %15, align 16
   %107 = icmp eq i64 %106, 1
   br i1 %107, label %.preheader, label %122
 
@@ -7576,8 +7576,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %indvar = phi i64 [ 0, %.preheader263 ], [ %indvar.next, %._crit_edge290 ]
   %143 = shl nuw nsw i64 %indvar, 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %143
-  %144 = shl nuw nsw i64 %indvar, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %gep, i64 256, i1 false)
+  %144 = shl nuw nsw i64 %indvar, 7
   %145 = load ptr, ptr %3, align 8
   %.not287 = icmp eq ptr %145, null
   br i1 %.not287, label %._crit_edge290, label %.lr.ph289.preheader
@@ -7776,43 +7776,43 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %15 = load i64, ptr %14, align 8
-  %16 = and i64 %15, %13
-  %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %16, i1 true)
   %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 128
-  br label %18
+  br label %16
 
-18:                                               ; preds = %18, %11
-  %.idx = phi i64 [ 0, %11 ], [ %.add, %18 ]
+16:                                               ; preds = %16, %11
+  %.idx = phi i64 [ 0, %11 ], [ %.add, %16 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   store i64 0, ptr %gep, align 8
   %.add = add nuw nsw i64 %.idx, 136
-  %19 = icmp eq i64 %.add, 272
-  br i1 %19, label %.preheader272, label %18
+  %17 = icmp eq i64 %.add, 272
+  br i1 %17, label %.preheader272, label %16
 
-.preheader272:                                    ; preds = %18
+.preheader272:                                    ; preds = %16
   %invariant.gep273 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  br label %20
+  br label %18
 
-20:                                               ; preds = %.preheader272, %20
-  %.idx241 = phi i64 [ %.add242, %20 ], [ 0, %.preheader272 ]
+18:                                               ; preds = %.preheader272, %18
+  %.idx241 = phi i64 [ %.add242, %18 ], [ 0, %.preheader272 ]
   %gep274 = getelementptr inbounds nuw i8, ptr %invariant.gep273, i64 %.idx241
   store i64 0, ptr %gep274, align 8
   %.add242 = add nuw nsw i64 %.idx241, 136
-  %21 = icmp eq i64 %.add242, 272
-  br i1 %21, label %.preheader271, label %20
+  %19 = icmp eq i64 %.add242, 272
+  br i1 %19, label %.preheader271, label %18
 
-.preheader271:                                    ; preds = %20, %.preheader271
-  %indvars.iv328 = phi i32 [ %indvars.iv.next329, %.preheader271 ], [ 1, %20 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader271 ], [ 1, %20 ]
-  %22 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
+.preheader271:                                    ; preds = %18, %.preheader271
+  %indvars.iv328 = phi i32 [ %indvars.iv.next329, %.preheader271 ], [ 1, %18 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader271 ], [ 1, %18 ]
+  %20 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars.iv.next329 = add i32 %indvars.iv328, -1
-  br i1 %24, label %.preheader271, label %.preheader270, !llvm.loop !113
+  br i1 %22, label %.preheader271, label %.preheader270, !llvm.loop !113
 
 .preheader270:                                    ; preds = %.preheader271
-  %25 = trunc nuw nsw i64 %17 to i32
+  %23 = and i64 %15, %13
+  %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %23, i1 true)
+  %25 = trunc nuw nsw i64 %24 to i32
   %26 = icmp sgt i64 %indvars.iv, -1
   br i1 %26, label %.lr.ph279, label %._crit_edge280
 
@@ -7824,7 +7824,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 30:                                               ; preds = %.lr.ph279, %._crit_edge
   %indvars.iv330 = phi i64 [ %29, %.lr.ph279 ], [ %indvars.iv.next331, %._crit_edge ]
-  %.0217277 = phi ptr [ %23, %.lr.ph279 ], [ %.1218.lcssa, %._crit_edge ]
+  %.0217277 = phi ptr [ %21, %.lr.ph279 ], [ %.1218.lcssa, %._crit_edge ]
   %31 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv330
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 11136
@@ -8203,43 +8203,43 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %15 = load i64, ptr %14, align 8
-  %16 = and i64 %15, %13
-  %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %16, i1 true)
   %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 128
-  br label %18
+  br label %16
 
-18:                                               ; preds = %18, %11
-  %.idx = phi i64 [ 0, %11 ], [ %.add, %18 ]
+16:                                               ; preds = %16, %11
+  %.idx = phi i64 [ 0, %11 ], [ %.add, %16 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   store i64 0, ptr %gep, align 8
   %.add = add nuw nsw i64 %.idx, 136
-  %19 = icmp eq i64 %.add, 272
-  br i1 %19, label %.preheader272, label %18
+  %17 = icmp eq i64 %.add, 272
+  br i1 %17, label %.preheader272, label %16
 
-.preheader272:                                    ; preds = %18
+.preheader272:                                    ; preds = %16
   %invariant.gep273 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  br label %20
+  br label %18
 
-20:                                               ; preds = %.preheader272, %20
-  %.idx241 = phi i64 [ %.add242, %20 ], [ 0, %.preheader272 ]
+18:                                               ; preds = %.preheader272, %18
+  %.idx241 = phi i64 [ %.add242, %18 ], [ 0, %.preheader272 ]
   %gep274 = getelementptr inbounds nuw i8, ptr %invariant.gep273, i64 %.idx241
   store i64 0, ptr %gep274, align 8
   %.add242 = add nuw nsw i64 %.idx241, 136
-  %21 = icmp eq i64 %.add242, 272
-  br i1 %21, label %.preheader271, label %20
+  %19 = icmp eq i64 %.add242, 272
+  br i1 %19, label %.preheader271, label %18
 
-.preheader271:                                    ; preds = %20, %.preheader271
-  %indvars.iv328 = phi i32 [ %indvars.iv.next329, %.preheader271 ], [ 1, %20 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader271 ], [ 1, %20 ]
-  %22 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
+.preheader271:                                    ; preds = %18, %.preheader271
+  %indvars.iv328 = phi i32 [ %indvars.iv.next329, %.preheader271 ], [ 1, %18 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader271 ], [ 1, %18 ]
+  %20 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars.iv.next329 = add i32 %indvars.iv328, -1
-  br i1 %24, label %.preheader271, label %.preheader270, !llvm.loop !123
+  br i1 %22, label %.preheader271, label %.preheader270, !llvm.loop !123
 
 .preheader270:                                    ; preds = %.preheader271
-  %25 = trunc nuw nsw i64 %17 to i32
+  %23 = and i64 %15, %13
+  %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %23, i1 true)
+  %25 = trunc nuw nsw i64 %24 to i32
   %26 = icmp sgt i64 %indvars.iv, -1
   br i1 %26, label %.lr.ph279, label %._crit_edge280
 
@@ -8251,7 +8251,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 30:                                               ; preds = %.lr.ph279, %._crit_edge
   %indvars.iv330 = phi i64 [ %29, %.lr.ph279 ], [ %indvars.iv.next331, %._crit_edge ]
-  %.0217277 = phi ptr [ %23, %.lr.ph279 ], [ %.1218.lcssa, %._crit_edge ]
+  %.0217277 = phi ptr [ %21, %.lr.ph279 ], [ %.1218.lcssa, %._crit_edge ]
   %31 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv330
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 11137
@@ -8639,43 +8639,43 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %15 = load i64, ptr %14, align 8
-  %16 = and i64 %15, %13
-  %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %16, i1 true)
   %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 128
-  br label %18
+  br label %16
 
-18:                                               ; preds = %18, %11
-  %.idx = phi i64 [ 0, %11 ], [ %.add, %18 ]
+16:                                               ; preds = %16, %11
+  %.idx = phi i64 [ 0, %11 ], [ %.add, %16 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   store i64 0, ptr %gep, align 8
   %.add = add nuw nsw i64 %.idx, 136
-  %19 = icmp eq i64 %.add, 272
-  br i1 %19, label %.preheader271, label %18
+  %17 = icmp eq i64 %.add, 272
+  br i1 %17, label %.preheader271, label %16
 
-.preheader271:                                    ; preds = %18
+.preheader271:                                    ; preds = %16
   %invariant.gep272 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  br label %20
+  br label %18
 
-20:                                               ; preds = %.preheader271, %20
-  %.idx241 = phi i64 [ %.add242, %20 ], [ 0, %.preheader271 ]
+18:                                               ; preds = %.preheader271, %18
+  %.idx241 = phi i64 [ %.add242, %18 ], [ 0, %.preheader271 ]
   %gep273 = getelementptr inbounds nuw i8, ptr %invariant.gep272, i64 %.idx241
   store i64 0, ptr %gep273, align 8
   %.add242 = add nuw nsw i64 %.idx241, 136
-  %21 = icmp eq i64 %.add242, 272
-  br i1 %21, label %.preheader270, label %20
+  %19 = icmp eq i64 %.add242, 272
+  br i1 %19, label %.preheader270, label %18
 
-.preheader270:                                    ; preds = %20, %.preheader270
-  %indvars.iv329 = phi i32 [ %indvars.iv.next330, %.preheader270 ], [ 1, %20 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader270 ], [ 1, %20 ]
-  %22 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
+.preheader270:                                    ; preds = %18, %.preheader270
+  %indvars.iv329 = phi i32 [ %indvars.iv.next330, %.preheader270 ], [ 1, %18 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader270 ], [ 1, %18 ]
+  %20 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars.iv.next330 = add i32 %indvars.iv329, -1
-  br i1 %24, label %.preheader270, label %.preheader269, !llvm.loop !133
+  br i1 %22, label %.preheader270, label %.preheader269, !llvm.loop !133
 
 .preheader269:                                    ; preds = %.preheader270
-  %25 = trunc nuw nsw i64 %17 to i32
+  %23 = and i64 %15, %13
+  %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %23, i1 true)
+  %25 = trunc nuw nsw i64 %24 to i32
   %26 = icmp sgt i64 %indvars.iv, -1
   br i1 %26, label %.lr.ph278, label %._crit_edge279
 
@@ -8687,7 +8687,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 30:                                               ; preds = %.lr.ph278, %._crit_edge
   %indvars.iv331 = phi i64 [ %29, %.lr.ph278 ], [ %indvars.iv.next332, %._crit_edge ]
-  %.0217276 = phi ptr [ %23, %.lr.ph278 ], [ %.1218.lcssa, %._crit_edge ]
+  %.0217276 = phi ptr [ %21, %.lr.ph278 ], [ %.1218.lcssa, %._crit_edge ]
   %31 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv331
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 10496
@@ -8879,8 +8879,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %indvar = phi i64 [ 0, %.preheader268 ], [ %indvar.next, %._crit_edge297 ]
   %148 = shl nuw nsw i64 %indvar, 8
   %gep362 = getelementptr i8, ptr %invariant.gep361, i64 %148
-  %149 = shl nuw nsw i64 %indvar, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %gep362, i64 256, i1 false)
+  %149 = shl nuw nsw i64 %indvar, 7
   %150 = load ptr, ptr %3, align 8
   %.not294 = icmp eq ptr %150, null
   br i1 %.not294, label %._crit_edge297, label %.lr.ph296.preheader
@@ -9079,43 +9079,43 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %15 = load i64, ptr %14, align 8
-  %16 = and i64 %15, %13
-  %17 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %16, i1 true)
   %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 128
-  br label %18
+  br label %16
 
-18:                                               ; preds = %18, %11
-  %.idx = phi i64 [ 0, %11 ], [ %.add, %18 ]
+16:                                               ; preds = %16, %11
+  %.idx = phi i64 [ 0, %11 ], [ %.add, %16 ]
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   store i64 0, ptr %gep, align 8
   %.add = add nuw nsw i64 %.idx, 136
-  %19 = icmp eq i64 %.add, 272
-  br i1 %19, label %.preheader271, label %18
+  %17 = icmp eq i64 %.add, 272
+  br i1 %17, label %.preheader271, label %16
 
-.preheader271:                                    ; preds = %18
+.preheader271:                                    ; preds = %16
   %invariant.gep272 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  br label %20
+  br label %18
 
-20:                                               ; preds = %.preheader271, %20
-  %.idx241 = phi i64 [ %.add242, %20 ], [ 0, %.preheader271 ]
+18:                                               ; preds = %.preheader271, %18
+  %.idx241 = phi i64 [ %.add242, %18 ], [ 0, %.preheader271 ]
   %gep273 = getelementptr inbounds nuw i8, ptr %invariant.gep272, i64 %.idx241
   store i64 0, ptr %gep273, align 8
   %.add242 = add nuw nsw i64 %.idx241, 136
-  %21 = icmp eq i64 %.add242, 272
-  br i1 %21, label %.preheader270, label %20
+  %19 = icmp eq i64 %.add242, 272
+  br i1 %19, label %.preheader270, label %18
 
-.preheader270:                                    ; preds = %20, %.preheader270
-  %indvars.iv329 = phi i32 [ %indvars.iv.next330, %.preheader270 ], [ 1, %20 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader270 ], [ 1, %20 ]
-  %22 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
+.preheader270:                                    ; preds = %18, %.preheader270
+  %indvars.iv329 = phi i32 [ %indvars.iv.next330, %.preheader270 ], [ 1, %18 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader270 ], [ 1, %18 ]
+  %20 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars.iv.next330 = add i32 %indvars.iv329, -1
-  br i1 %24, label %.preheader270, label %.preheader269, !llvm.loop !144
+  br i1 %22, label %.preheader270, label %.preheader269, !llvm.loop !144
 
 .preheader269:                                    ; preds = %.preheader270
-  %25 = trunc nuw nsw i64 %17 to i32
+  %23 = and i64 %15, %13
+  %24 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %23, i1 true)
+  %25 = trunc nuw nsw i64 %24 to i32
   %26 = icmp sgt i64 %indvars.iv, -1
   br i1 %26, label %.lr.ph278, label %._crit_edge279
 
@@ -9127,7 +9127,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 30:                                               ; preds = %.lr.ph278, %._crit_edge
   %indvars.iv331 = phi i64 [ %29, %.lr.ph278 ], [ %indvars.iv.next332, %._crit_edge ]
-  %.0217276 = phi ptr [ %23, %.lr.ph278 ], [ %.1218.lcssa, %._crit_edge ]
+  %.0217276 = phi ptr [ %21, %.lr.ph278 ], [ %.1218.lcssa, %._crit_edge ]
   %31 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv331
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 10497
@@ -9319,8 +9319,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %indvar = phi i64 [ 0, %.preheader268 ], [ %indvar.next, %._crit_edge297 ]
   %148 = shl nuw nsw i64 %indvar, 8
   %gep362 = getelementptr i8, ptr %invariant.gep361, i64 %148
-  %149 = shl nuw nsw i64 %indvar, 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, ptr noundef nonnull align 16 dereferenceable(256) %gep362, i64 256, i1 false)
+  %149 = shl nuw nsw i64 %indvar, 7
   %150 = load ptr, ptr %3, align 8
   %.not294 = icmp eq ptr %150, null
   br i1 %.not294, label %._crit_edge297, label %.lr.ph296.preheader

@@ -33,12 +33,12 @@ define noundef i32 @_ZN6LibRaw13dcraw_processEv(ptr noundef nonnull align 8 dere
   %10 = load i32, ptr %9, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 5172
   %12 = load i32, ptr %11, align 4
-  %.not89 = icmp eq i32 %12, -1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 5176
   br label %19
 
 14:                                               ; preds = %25
   %.not = icmp eq i32 %10, -1
+  %.not89 = icmp eq i32 %12, -1
   %or.cond124 = select i1 %.not, i1 true, i1 %.not89
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #8
   %15 = load ptr, ptr %0, align 8, !tbaa !72

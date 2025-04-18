@@ -35,7 +35,7 @@ define void @Wlc_NtkPrintInputInfo(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %12
 
-.critedge.preheader:                              ; preds = %43, %1
+.critedge.preheader:                              ; preds = %42, %1
   %8 = getelementptr i8, ptr %0, i64 36
   %.val7383 = load i32, ptr %8, align 4, !tbaa !3
   %9 = icmp sgt i32 %.val7383, 0
@@ -46,9 +46,9 @@ define void @Wlc_NtkPrintInputInfo(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr i8, ptr %0, i64 640
   br label %51
 
-12:                                               ; preds = %.lr.ph, %43
-  %indvars.iv87 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next88, %43 ]
-  %.05680 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %43 ]
+12:                                               ; preds = %.lr.ph, %42
+  %indvars.iv87 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next88, %42 ]
+  %.05680 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %42 ]
   %.val65 = load ptr, ptr %5, align 8, !tbaa !10
   %.val66 = load ptr, ptr %6, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i32, ptr %.val65, i64 %indvars.iv87
@@ -60,47 +60,47 @@ define void @Wlc_NtkPrintInputInfo(ptr noundef %0) local_unnamed_addr #0 {
   %18 = getelementptr i8, ptr %16, i64 12
   %.val68 = load i32, ptr %18, align 4, !tbaa !23
   %19 = sub i32 %.val67, %.val68
-  %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
   %. = tail call i32 @llvm.smin.i32(i32 %.val67, i32 %.val68)
-  %21 = ptrtoint ptr %16 to i64
-  %22 = zext nneg i32 %.05680 to i64
+  %20 = ptrtoint ptr %16 to i64
+  %21 = zext nneg i32 %.05680 to i64
   %smax = tail call i32 @llvm.abs.i32(i32 %19, i1 false)
-  %23 = add nuw i32 %smax, 1
-  %wide.trip.count = zext i32 %23 to i64
-  br label %24
+  %22 = add nuw i32 %smax, 1
+  %wide.trip.count = zext i32 %22 to i64
+  br label %23
 
-24:                                               ; preds = %12, %33
-  %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %33 ]
-  %25 = load i16, ptr %16, align 8
-  %26 = and i16 %25, 63
-  %.not = icmp eq i16 %26, 3
-  br i1 %.not, label %27, label %33
+23:                                               ; preds = %12, %32
+  %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %32 ]
+  %24 = load i16, ptr %16, align 8
+  %25 = and i16 %24, 63
+  %.not = icmp eq i16 %25, 3
+  br i1 %.not, label %26, label %32
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %7, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %22
-  %31 = load i8, ptr %30, align 1, !tbaa !25
-  %32 = sext i8 %31 to i32
-  br label %33
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %7, align 8, !tbaa !24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %21
+  %30 = load i8, ptr %29, align 1, !tbaa !25
+  %31 = sext i8 %30 to i32
+  br label %32
 
-33:                                               ; preds = %24, %27
-  %34 = phi i32 [ %32, %27 ], [ 105, %24 ]
+32:                                               ; preds = %23, %26
+  %33 = phi i32 [ %31, %26 ], [ 105, %23 ]
   %.val71 = load ptr, ptr %6, align 8, !tbaa !11
-  %35 = ptrtoint ptr %.val71 to i64
-  %36 = sub i64 %21, %35
-  %37 = sdiv exact i64 %36, 24
-  %38 = trunc i64 %37 to i32
-  %39 = tail call ptr @Wlc_ObjName(ptr noundef nonnull %0, i32 noundef %38) #11
-  %40 = trunc i64 %indvars.iv to i32
-  %41 = add i32 %., %40
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef %39, i32 noundef %41, i32 noundef %34) #11
+  %34 = ptrtoint ptr %.val71 to i64
+  %35 = sub i64 %20, %34
+  %36 = sdiv exact i64 %35, 24
+  %37 = trunc i64 %36 to i32
+  %38 = tail call ptr @Wlc_ObjName(ptr noundef nonnull %0, i32 noundef %37) #11
+  %39 = trunc i64 %indvars.iv to i32
+  %40 = add i32 %., %39
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef %38, i32 noundef %40, i32 noundef %33) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %43, label %24, !llvm.loop !26
+  br i1 %exitcond.not, label %42, label %23, !llvm.loop !26
 
-43:                                               ; preds = %33
-  %44 = add nuw nsw i32 %20, 1
+42:                                               ; preds = %32
+  %43 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
+  %44 = add nuw nsw i32 %43, 1
   %45 = load i16, ptr %16, align 8
   %46 = and i16 %45, 63
   %47 = icmp eq i16 %46, 3

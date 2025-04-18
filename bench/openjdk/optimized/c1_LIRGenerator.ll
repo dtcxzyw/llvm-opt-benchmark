@@ -24665,77 +24665,77 @@ _ZNK11ProfileCall16nb_profiled_argsEv.exit:       ; preds = %159
   br i1 %165, label %166, label %.critedge
 
 166:                                              ; preds = %_ZNK11ProfileCall16nb_profiled_argsEv.exit
-  %167 = trunc nuw nsw i64 %indvars.iv to i32
-  %168 = shl i32 %167, 4
-  %169 = load ptr, ptr %76, align 8
-  %170 = load i32, ptr %151, align 8
+  %167 = load ptr, ptr %76, align 8
+  %168 = load i32, ptr %151, align 8
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %171 = shl i32 %indvars.iv.tr, 1
-  %172 = or disjoint i32 %171, 1
-  %173 = add nsw i32 %172, %170
-  %174 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %177 = sext i32 %173 to i64
-  %178 = getelementptr inbounds [1 x i64], ptr %176, i64 0, i64 %177
-  %179 = load i64, ptr %178, align 8
-  %180 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %169 = shl i32 %indvars.iv.tr, 1
+  %170 = or disjoint i32 %169, 1
+  %171 = add nsw i32 %170, %168
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %175 = sext i32 %171 to i64
+  %176 = getelementptr inbounds [1 x i64], ptr %174, i64 0, i64 %175
+  %177 = load i64, ptr %176, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %160
   %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %160
-  %183 = load ptr, ptr %182, align 8
-  %184 = load i32, ptr %152, align 4
-  %185 = sext i32 %184 to i64
-  %186 = shl nuw nsw i64 1, %160
-  %187 = and i64 %186, %185
-  %188 = icmp eq i64 %187, 0
+  %182 = load i32, ptr %152, align 4
   %.pre111 = load i32, ptr %153, align 4
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %166, %_ZN17ciSignatureStream4nextEv.exit.i
-  %189 = phi i32 [ %199, %_ZN17ciSignatureStream4nextEv.exit.i ], [ %.pre111, %166 ]
+  %183 = phi i32 [ %193, %_ZN17ciSignatureStream4nextEv.exit.i ], [ %.pre111, %166 ]
   %.sroa.3.1 = phi i32 [ %spec.select92, %_ZN17ciSignatureStream4nextEv.exit.i ], [ %.sroa.3.0104, %166 ]
-  %190 = icmp eq i32 %.sroa.3.1, %189
-  br i1 %190, label %_ZN17ciSignatureStream4typeEv.exit.i, label %191
+  %184 = icmp eq i32 %.sroa.3.1, %183
+  br i1 %184, label %_ZN17ciSignatureStream4typeEv.exit.i, label %185
 
-191:                                              ; preds = %.preheader.i
-  %192 = load ptr, ptr %154, align 8
-  %193 = sext i32 %.sroa.3.1 to i64
-  %194 = getelementptr inbounds ptr, ptr %192, i64 %193
+185:                                              ; preds = %.preheader.i
+  %186 = load ptr, ptr %154, align 8
+  %187 = sext i32 %.sroa.3.1 to i64
+  %188 = getelementptr inbounds ptr, ptr %186, i64 %187
   br label %_ZN17ciSignatureStream4typeEv.exit.i
 
-_ZN17ciSignatureStream4typeEv.exit.i:             ; preds = %.preheader.i, %191
-  %.0.in.i.i = phi ptr [ %194, %191 ], [ %155, %.preheader.i ]
+_ZN17ciSignatureStream4typeEv.exit.i:             ; preds = %.preheader.i, %185
+  %.0.in.i.i = phi ptr [ %188, %185 ], [ %155, %.preheader.i ]
   %.0.i.i71 = load ptr, ptr %.0.in.i.i, align 8
-  %195 = load ptr, ptr %.0.i.i71, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 72
-  %197 = load ptr, ptr %196, align 8
-  %198 = call noundef zeroext i1 %197(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i71) #17
-  %199 = load i32, ptr %153, align 4
-  br i1 %198, label %201, label %_ZN17ciSignatureStream4nextEv.exit.i
+  %189 = load ptr, ptr %.0.i.i71, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 72
+  %191 = load ptr, ptr %190, align 8
+  %192 = call noundef zeroext i1 %191(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i71) #17
+  %193 = load i32, ptr %153, align 4
+  br i1 %192, label %195, label %_ZN17ciSignatureStream4nextEv.exit.i
 
 _ZN17ciSignatureStream4nextEv.exit.i:             ; preds = %_ZN17ciSignatureStream4typeEv.exit.i
-  %.not.i.i = icmp sle i32 %.sroa.3.1, %199
-  %200 = zext i1 %.not.i.i to i32
-  %spec.select92 = add nsw i32 %.sroa.3.1, %200
+  %.not.i.i = icmp sle i32 %.sroa.3.1, %193
+  %194 = zext i1 %.not.i.i to i32
+  %spec.select92 = add nsw i32 %.sroa.3.1, %194
   br label %.preheader.i, !llvm.loop !41
 
-201:                                              ; preds = %_ZN17ciSignatureStream4typeEv.exit.i
-  %202 = or disjoint i32 %168, 8
+195:                                              ; preds = %_ZN17ciSignatureStream4typeEv.exit.i
+  %196 = trunc nuw nsw i64 %indvars.iv to i32
+  %197 = shl i32 %196, 4
+  %198 = or disjoint i32 %197, 8
   %or.cond.i.i = icmp samesign ult i64 %160, 32
-  %.0.i.i.not = select i1 %or.cond.i.i, i1 %188, i1 false
-  %203 = icmp eq i32 %.sroa.3.1, %199
+  %199 = sext i32 %182 to i64
+  %200 = shl nuw nsw i64 1, %160
+  %201 = and i64 %200, %199
+  %202 = icmp eq i64 %201, 0
+  %.0.i.i.not = select i1 %or.cond.i.i, i1 %202, i1 false
+  %203 = icmp eq i32 %.sroa.3.1, %193
   br i1 %203, label %_ZN17ciSignatureStream4typeEv.exit5.i, label %204
 
-204:                                              ; preds = %201
+204:                                              ; preds = %195
   %205 = load ptr, ptr %154, align 8
   %206 = sext i32 %.sroa.3.1 to i64
   %207 = getelementptr inbounds ptr, ptr %205, i64 %206
   br label %_ZN17ciSignatureStream4typeEv.exit5.i
 
-_ZN17ciSignatureStream4typeEv.exit5.i:            ; preds = %201, %204
-  %.0.in.i3.i = phi ptr [ %207, %204 ], [ %155, %201 ]
+_ZN17ciSignatureStream4typeEv.exit5.i:            ; preds = %195, %204
+  %.0.in.i3.i = phi ptr [ %207, %204 ], [ %155, %195 ]
   %.0.i4.i = load ptr, ptr %.0.in.i3.i, align 8
-  %.not.i6.i = icmp sle i32 %.sroa.3.1, %199
+  %.not.i6.i = icmp sle i32 %.sroa.3.1, %193
   %208 = zext i1 %.not.i6.i to i32
   %spec.select94 = add nsw i32 %.sroa.3.1, %208
   %.not.i72 = icmp eq ptr %.sroa.891.0105, null
@@ -24794,12 +24794,12 @@ _ZN17ciSignatureStream4typeEv.exit5.i82:          ; preds = %221, %223
 _ZN17ciSignatureStream10next_klassEv.exit86:      ; preds = %_ZN17ciSignatureStream4typeEv.exit5.i82, %_ZN17ciSignatureStream4typeEv.exit5.i
   %.sroa.389.3 = phi i32 [ %.sroa.389.0103, %_ZN17ciSignatureStream4typeEv.exit5.i ], [ %spec.select97, %_ZN17ciSignatureStream4typeEv.exit5.i82 ]
   %.0.i73 = phi ptr [ %.sroa.891.0105, %_ZN17ciSignatureStream4typeEv.exit5.i ], [ %.0.i4.i84, %_ZN17ciSignatureStream4typeEv.exit5.i82 ]
-  %228 = call noundef ptr @_ZN12LIRGenerator12profile_typeEP12ciMethodDataiilP11InstructionR7LIR_OprbP7ciKlassS7_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %20, i32 noundef %70, i32 noundef %202, i64 noundef %179, ptr noundef %183, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %.0.i.i.not, ptr noundef %.0.i4.i, ptr noundef %.0.i73)
+  %228 = call noundef ptr @_ZN12LIRGenerator12profile_typeEP12ciMethodDataiilP11InstructionR7LIR_OprbP7ciKlassS7_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %20, i32 noundef %70, i32 noundef %198, i64 noundef %177, ptr noundef %181, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %.0.i.i.not, ptr noundef %.0.i4.i, ptr noundef %.0.i73)
   %.not60 = icmp eq ptr %228, null
   br i1 %.not60, label %230, label %229
 
 229:                                              ; preds = %_ZN17ciSignatureStream10next_klassEv.exit86
-  call void @_ZN12ciMethodData17set_argument_typeEiiP7ciKlass(ptr noundef nonnull align 8 dereferenceable(176) %20, i32 noundef %17, i32 noundef %167, ptr noundef nonnull %228) #17
+  call void @_ZN12ciMethodData17set_argument_typeEiiP7ciKlass(ptr noundef nonnull align 8 dereferenceable(176) %20, i32 noundef %17, i32 noundef %196, ptr noundef nonnull %228) #17
   br label %230
 
 230:                                              ; preds = %_ZN17ciSignatureStream10next_klassEv.exit86, %229

@@ -2865,56 +2865,56 @@ define void @_Z23calc_distribution_propsiPKifiP9t_karplusPf(i32 noundef %0, ptr 
 
 .lr.ph94.us:                                      ; preds = %.lr.ph94.us.preheader, %._crit_edge95.us
   %indvars.iv127 = phi i64 [ 0, %.lr.ph94.us.preheader ], [ %indvars.iv.next128, %._crit_edge95.us ]
-  %.098.us = phi float [ 0.000000e+00, %.lr.ph94.us.preheader ], [ %39, %._crit_edge95.us ]
+  %.098.us = phi float [ 0.000000e+00, %.lr.ph94.us.preheader ], [ %65, %._crit_edge95.us ]
   %.08396.us = phi float [ 0.000000e+00, %.lr.ph94.us.preheader ], [ %66, %._crit_edge95.us ]
   %29 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv127
   %30 = load i32, ptr %29, align 4, !tbaa !30
-  %31 = sitofp i32 %30 to float
-  %32 = fmul float %26, %31
-  %33 = trunc nuw nsw i64 %indvars.iv127 to i32
-  %34 = uitofp nneg i32 %33 to float
-  %35 = tail call float @llvm.fmuladd.f32(float %34, float %16, float %28)
-  %36 = tail call noundef float @cosf(float noundef %35) #24, !tbaa !30
-  %37 = fmul float %36, %32
-  %38 = tail call noundef float @sinf(float noundef %35) #24, !tbaa !30
-  %39 = fadd float %.098.us, %37
-  br label %40
+  %31 = trunc nuw nsw i64 %indvars.iv127 to i32
+  %32 = uitofp nneg i32 %31 to float
+  %33 = tail call float @llvm.fmuladd.f32(float %32, float %16, float %28)
+  %34 = tail call noundef float @cosf(float noundef %33) #24, !tbaa !30
+  %35 = tail call noundef float @sinf(float noundef %33) #24, !tbaa !30
+  br label %36
 
-40:                                               ; preds = %.lr.ph94.us, %40
-  %indvars.iv122 = phi i64 [ 0, %.lr.ph94.us ], [ %indvars.iv.next123, %40 ]
-  %41 = getelementptr inbounds nuw %struct.t_karplus, ptr %4, i64 %indvars.iv122
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 20
-  %43 = load float, ptr %42, align 4, !tbaa !66
-  %44 = fadd float %35, %43
-  %45 = tail call noundef float @cosf(float noundef %44) #24, !tbaa !30
-  %46 = fmul float %45, %45
-  %47 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %48 = load float, ptr %47, align 8, !tbaa !68
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  %50 = load float, ptr %49, align 4, !tbaa !69
-  %51 = fmul float %45, %50
-  %52 = tail call float @llvm.fmuladd.f32(float %48, float %46, float %51)
-  %53 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %54 = load float, ptr %53, align 8, !tbaa !70
-  %55 = fadd float %54, %52
-  %56 = load i32, ptr %29, align 4, !tbaa !30
-  %57 = sitofp i32 %56 to float
-  %58 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %59 = load float, ptr %58, align 8, !tbaa !71
-  %60 = tail call float @llvm.fmuladd.f32(float %57, float %55, float %59)
-  store float %60, ptr %58, align 8, !tbaa !71
-  %61 = fmul float %55, %55
-  %62 = getelementptr inbounds nuw i8, ptr %41, i64 28
-  %63 = load float, ptr %62, align 4, !tbaa !72
-  %64 = tail call float @llvm.fmuladd.f32(float %57, float %61, float %63)
-  store float %64, ptr %62, align 4, !tbaa !72
+36:                                               ; preds = %.lr.ph94.us, %36
+  %indvars.iv122 = phi i64 [ 0, %.lr.ph94.us ], [ %indvars.iv.next123, %36 ]
+  %37 = getelementptr inbounds nuw %struct.t_karplus, ptr %4, i64 %indvars.iv122
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %39 = load float, ptr %38, align 4, !tbaa !66
+  %40 = fadd float %33, %39
+  %41 = tail call noundef float @cosf(float noundef %40) #24, !tbaa !30
+  %42 = fmul float %41, %41
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %44 = load float, ptr %43, align 8, !tbaa !68
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  %46 = load float, ptr %45, align 4, !tbaa !69
+  %47 = fmul float %41, %46
+  %48 = tail call float @llvm.fmuladd.f32(float %44, float %42, float %47)
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %50 = load float, ptr %49, align 8, !tbaa !70
+  %51 = fadd float %50, %48
+  %52 = load i32, ptr %29, align 4, !tbaa !30
+  %53 = sitofp i32 %52 to float
+  %54 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %55 = load float, ptr %54, align 8, !tbaa !71
+  %56 = tail call float @llvm.fmuladd.f32(float %53, float %51, float %55)
+  store float %56, ptr %54, align 8, !tbaa !71
+  %57 = fmul float %51, %51
+  %58 = getelementptr inbounds nuw i8, ptr %37, i64 28
+  %59 = load float, ptr %58, align 4, !tbaa !72
+  %60 = tail call float @llvm.fmuladd.f32(float %53, float %57, float %59)
+  store float %60, ptr %58, align 4, !tbaa !72
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %._crit_edge95.us, label %40, !llvm.loop !73
+  br i1 %exitcond126.not, label %._crit_edge95.us, label %36, !llvm.loop !73
 
-._crit_edge95.us:                                 ; preds = %40
-  %65 = fmul float %32, %38
-  %66 = fadd float %.08396.us, %65
+._crit_edge95.us:                                 ; preds = %36
+  %61 = sitofp i32 %30 to float
+  %62 = fmul float %26, %61
+  %63 = fmul float %34, %62
+  %64 = fmul float %62, %35
+  %65 = fadd float %.098.us, %63
+  %66 = fadd float %.08396.us, %64
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
   br i1 %exitcond131.not, label %.lr.ph104, label %.lr.ph94.us, !llvm.loop !74
@@ -2931,7 +2931,7 @@ define void @_Z23calc_distribution_propsiPKifiP9t_karplusPf(i32 noundef %0, ptr 
   br i1 %exitcond116.not, label %.preheader86, label %.lr.ph91, !llvm.loop !75
 
 .lr.ph104:                                        ; preds = %._crit_edge95.us, %.preheader86
-  %.0.lcssa147 = phi float [ 0.000000e+00, %.preheader86 ], [ %39, %._crit_edge95.us ]
+  %.0.lcssa147 = phi float [ 0.000000e+00, %.preheader86 ], [ %65, %._crit_edge95.us ]
   %.083.lcssa146 = phi float [ 0.000000e+00, %.preheader86 ], [ %66, %._crit_edge95.us ]
   %70 = sitofp i32 %.079.lcssa142 to float
   %wide.trip.count135 = zext nneg i32 %3 to i64

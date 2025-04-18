@@ -829,18 +829,18 @@ define void @_ZN6icu_779SpoofImpl17setAllowedLocalesEPKcR10UErrorCode(ptr nounde
   %.059 = phi i32 [ 0, %3 ], [ %27, %.critedge ]
   %.0 = phi ptr [ %1, %3 ], [ %.3, %.critedge ]
   %9 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 44) #23
-  %10 = icmp eq ptr %9, null
-  br label %11
+  br label %10
 
-11:                                               ; preds = %11, %8
-  %.1 = phi ptr [ %.0, %8 ], [ %14, %11 ]
-  %12 = load i8, ptr %.1, align 1, !tbaa !38
-  %13 = icmp eq i8 %12, 32
-  %14 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br i1 %13, label %11, label %.preheader, !llvm.loop !39
+10:                                               ; preds = %10, %8
+  %.1 = phi ptr [ %.0, %8 ], [ %13, %10 ]
+  %11 = load i8, ptr %.1, align 1, !tbaa !38
+  %12 = icmp eq i8 %11, 32
+  %13 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  br i1 %12, label %10, label %.preheader, !llvm.loop !39
 
-.preheader:                                       ; preds = %11
-  %spec.select = select i1 %10, ptr %7, ptr %9
+.preheader:                                       ; preds = %10
+  %14 = icmp eq ptr %9, null
+  %spec.select = select i1 %14, ptr %7, ptr %9
   br label %15
 
 15:                                               ; preds = %.preheader, %17

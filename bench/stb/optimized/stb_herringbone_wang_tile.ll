@@ -540,11 +540,11 @@ stbhw__get_template_info.exit:                    ; preds = %8, %18
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %invariant.op = add i32 %111, 3
   %116 = add i32 %.2273, 3
+  %117 = add i32 %116, %111
   %smax = tail call i32 @llvm.smax.i32(i32 %110, i32 1)
-  %117 = add nsw i32 %smax, -1
-  %118 = mul i32 %117, %invariant.op
-  %119 = add i32 %116, %111
-  %120 = add i32 %119, %118
+  %118 = add nsw i32 %smax, -1
+  %119 = mul i32 %118, %invariant.op
+  %120 = add i32 %117, %119
   br label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %stbhw__process_h_row.exit
@@ -953,11 +953,11 @@ stbhw__process_v_row.exit:                        ; preds = %stbhw__process_v_ro
 .lr.ph316.split.us:                               ; preds = %.lr.ph316
   %invariant.op320 = add i32 %309, 3
   %314 = add i32 %.10324, 3
+  %315 = add i32 %314, %309
   %smax388 = tail call i32 @llvm.smax.i32(i32 %308, i32 1)
-  %315 = add nsw i32 %smax388, -1
-  %316 = mul i32 %315, %invariant.op320
-  %317 = add i32 %314, %309
-  %318 = add i32 %317, %316
+  %316 = add nsw i32 %smax388, -1
+  %317 = mul i32 %316, %invariant.op320
+  %318 = add i32 %315, %317
   br label %._crit_edge317
 
 .lr.ph316.split:                                  ; preds = %.lr.ph316, %stbhw__process_h_row.exit206

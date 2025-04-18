@@ -3437,11 +3437,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__33UsdImagingUsdRenderSettingsS
   %14 = alloca [12 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 16
   %15 = alloca [12 x %"class.std::shared_ptr.24"], align 16
   %16 = alloca %"class.std::shared_ptr.27", align 8
-  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %14, i8 0, i64 96, i1 false)
-  %.0.sroa.gep366 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %15, i8 0, i64 192, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 96
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.0.sroa.gep366 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 192
   %19 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %19, null

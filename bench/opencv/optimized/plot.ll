@@ -1774,11 +1774,11 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %84, %91
   %128 = load double, ptr %127, align 8, !tbaa !57
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 552
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %129, i64 32, i1 false), !tbaa !57
-  %130 = fptosi double %101 to i32
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %131, i64 32, i1 false), !tbaa !57
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %130, i64 32, i1 false), !tbaa !57
+  %131 = fptosi double %101 to i32
   %132 = fptosi double %109 to i32
-  invoke void @_ZN2cv4plot10Plot2dImpl8drawAxisEiiddNS_7Scalar_IdEES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %130, i32 noundef %132, double noundef %120, double noundef %128, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  invoke void @_ZN2cv4plot10Plot2dImpl8drawAxisEiiddNS_7Scalar_IdEES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %131, i32 noundef %132, double noundef %120, double noundef %128, ptr noundef nonnull %15, ptr noundef nonnull %16)
           to label %133 unwind label %188
 
 133:                                              ; preds = %_ZN2cv7Scalar_IdEC2ERKS1_.exit
@@ -2452,16 +2452,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %_ZN
 _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74, %7
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %116 = load i32, ptr %115, align 4, !tbaa !83
-  %117 = sitofp i32 %116 to float
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %119 = load i32, ptr %118, align 8, !tbaa !87
-  %120 = sitofp i32 %119 to float
-  %121 = fdiv float %117, %120
-  %122 = insertelement <4 x float> poison, float %121, i64 0
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %124 = load i32, ptr %123, align 8, !tbaa !82
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %118 = load i32, ptr %117, align 8, !tbaa !87
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %120 = load i32, ptr %119, align 8, !tbaa !82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa !57
-  %125 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %122)
+  %121 = sitofp i32 %116 to float
+  %122 = sitofp i32 %118 to float
+  %123 = fdiv float %121, %122
+  %124 = insertelement <4 x float> poison, float %123, i64 0
+  %125 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %124)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #23
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %127 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2471,7 +2471,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %_ZNSt7__cxx1112basi
   store ptr %126, ptr %127, align 8, !tbaa !21
   %.sroa.68.0.insert.ext.i = zext i32 %2 to i64
   %.sroa.68.0.insert.shift.i = shl nuw i64 %.sroa.68.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %124 to i64
+  %.sroa.0.0.insert.ext.i = zext i32 %120 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.68.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %130 = load i32, ptr %129, align 8, !tbaa !84
@@ -2489,7 +2489,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %_ZNSt7__cxx1112basi
   %135 = sub nsw i32 0, %.pre140
   %136 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %137 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.pre = load i32, ptr %123, align 8
+  %.pre = load i32, ptr %119, align 8
   br label %138
 
 138:                                              ; preds = %.lr.ph126, %.loopexit121
@@ -2521,7 +2521,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit90:                 ; preds = %.lr.ph, %_ZN2cv7Sca
   call void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 %.sroa.07.0.insert.insert.i, i64 %.sroa.0.0.insert.insert.i96, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %144, i32 noundef 8, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 10
-  %145 = load i32, ptr %123, align 8, !tbaa !82
+  %145 = load i32, ptr %119, align 8, !tbaa !82
   %146 = trunc nuw i64 %indvars.iv.next to i32
   %147 = icmp sgt i32 %145, %146
   br i1 %147, label %_ZN2cv7Scalar_IdEC2ERKS1_.exit90, label %.loopexit121.loopexit, !llvm.loop !108
@@ -2554,7 +2554,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit90:                 ; preds = %.lr.ph, %_ZN2cv7Sca
   call void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 %.sroa.07.0.insert.ext.i101, i64 %.sroa.0.0.insert.insert.i106, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef %155, i32 noundef 8, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #23
   %156 = sitofp i32 %125 to float
-  %157 = load i32, ptr %123, align 8, !tbaa !82
+  %157 = load i32, ptr %119, align 8, !tbaa !82
   %158 = sitofp i32 %157 to float
   %159 = fmul float %156, %158
   %160 = load i32, ptr %115, align 4, !tbaa !83
@@ -2610,7 +2610,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit110:                ; preds = %.lr.ph128, %_ZN2cv7
   br i1 %180, label %_ZN2cv7Scalar_IdEC2ERKS1_.exit110, label %.loopexit.loopexit, !llvm.loop !110
 
 .loopexit.loopexit:                               ; preds = %_ZN2cv7Scalar_IdEC2ERKS1_.exit110
-  %.pre141 = load i32, ptr %123, align 8, !tbaa !82
+  %.pre141 = load i32, ptr %119, align 8, !tbaa !82
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %171
@@ -2690,11 +2690,11 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %26, %24, %._crit_ed
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   store i8 0, ptr %30, align 1, !tbaa !104
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #23
-  %.sroa.6.0.insert.ext = zext i32 %14 to i64
-  %.sroa.013.0.insert.ext = zext i32 %13 to i64
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false), !tbaa !57
+  %.sroa.6.0.insert.ext = zext i32 %14 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
+  %.sroa.013.0.insert.ext = zext i32 %13 to i64
   %.sroa.013.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %.sroa.013.0.insert.ext
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 %.sroa.013.0.insert.insert, i32 noundef 5, double noundef 1.000000e+00, ptr noundef nonnull %11, i32 noundef 1, i32 noundef 8, i1 noundef zeroext false)
           to label %32 unwind label %37
@@ -2802,11 +2802,11 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %27, %25, %._crit_ed
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %28
   store i8 0, ptr %31, align 1, !tbaa !104
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23
-  %.sroa.6.0.insert.ext = zext i32 %15 to i64
-  %.sroa.014.0.insert.ext = zext i32 %14 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !tbaa !57
+  %.sroa.6.0.insert.ext = zext i32 %15 to i64
   %.sroa.6.0.insert.shift = shl nuw i64 %.sroa.6.0.insert.ext, 32
+  %.sroa.014.0.insert.ext = zext i32 %14 to i64
   %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.shift, %.sroa.014.0.insert.ext
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 %.sroa.014.0.insert.insert, i32 noundef 5, double noundef 1.000000e+00, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 8, i1 noundef zeroext false)
           to label %33 unwind label %38

@@ -158,56 +158,56 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
   %84 = phi i32 [ %73, %66 ], [ %73, %75 ], [ %64, %63 ]
   %85 = phi i32 [ 0, %66 ], [ %81, %75 ], [ 0, %63 ]
   %86 = phi i32 [ %71, %66 ], [ %83, %75 ], [ 0, %63 ]
-  %87 = shl nsw i32 -1, %86
-  %88 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  br label %89
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 5
+  br label %88
 
-89:                                               ; preds = %89, %.thread16
-  %90 = phi i64 [ 0, %.thread16 ], [ %98, %89 ]
-  %91 = phi i32 [ 0, %.thread16 ], [ %97, %89 ]
-  %92 = shl i32 %91, 8
-  %93 = xor i64 %90, -1
-  %94 = getelementptr i8, ptr %88, i64 %93
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i32
-  %97 = or disjoint i32 %92, %96
-  %98 = add nuw nsw i64 %90, 1
-  %99 = icmp eq i64 %98, 4
-  br i1 %99, label %100, label %89, !llvm.loop !9
+88:                                               ; preds = %88, %.thread16
+  %89 = phi i64 [ 0, %.thread16 ], [ %97, %88 ]
+  %90 = phi i32 [ 0, %.thread16 ], [ %96, %88 ]
+  %91 = shl i32 %90, 8
+  %92 = xor i64 %89, -1
+  %93 = getelementptr i8, ptr %87, i64 %92
+  %94 = load i8, ptr %93, align 1
+  %95 = zext i8 %94 to i32
+  %96 = or disjoint i32 %91, %95
+  %97 = add nuw nsw i64 %89, 1
+  %98 = icmp eq i64 %97, 4
+  br i1 %98, label %99, label %88, !llvm.loop !9
 
-100:                                              ; preds = %89
-  %101 = shl nsw i32 -1, %85
-  %102 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i32 %97, ptr %102, align 1
-  %103 = getelementptr inbounds nuw i8, ptr %8, i64 13
-  br label %104
+99:                                               ; preds = %88
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  store i32 %96, ptr %100, align 1
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 13
+  br label %102
 
-104:                                              ; preds = %104, %100
-  %105 = phi i64 [ 0, %100 ], [ %113, %104 ]
-  %106 = phi i64 [ 0, %100 ], [ %112, %104 ]
-  %107 = shl i64 %106, 8
-  %108 = xor i64 %105, -1
-  %109 = getelementptr i8, ptr %103, i64 %108
-  %110 = load i8, ptr %109, align 1
-  %111 = zext i8 %110 to i64
-  %112 = or disjoint i64 %107, %111
-  %113 = add nuw nsw i64 %105, 1
-  %114 = icmp eq i64 %113, 8
-  br i1 %114, label %115, label %104, !llvm.loop !9
+102:                                              ; preds = %102, %99
+  %103 = phi i64 [ 0, %99 ], [ %111, %102 ]
+  %104 = phi i64 [ 0, %99 ], [ %110, %102 ]
+  %105 = shl i64 %104, 8
+  %106 = xor i64 %103, -1
+  %107 = getelementptr i8, ptr %101, i64 %106
+  %108 = load i8, ptr %107, align 1
+  %109 = zext i8 %108 to i64
+  %110 = or disjoint i64 %105, %109
+  %111 = add nuw nsw i64 %103, 1
+  %112 = icmp eq i64 %111, 8
+  br i1 %112, label %113, label %102, !llvm.loop !9
 
-115:                                              ; preds = %104
-  %116 = xor i32 %87, -1
-  %117 = xor i32 %101, -1
-  store i64 %112, ptr %88, align 1
-  %118 = icmp eq i32 %97, 0
+113:                                              ; preds = %102
+  %114 = shl nsw i32 -1, %85
+  %115 = shl nsw i32 -1, %86
+  %116 = xor i32 %115, -1
+  %117 = xor i32 %114, -1
+  store i64 %110, ptr %87, align 1
+  %118 = icmp eq i32 %96, 0
   br i1 %118, label %119, label %120
 
-119:                                              ; preds = %115
-  store i32 1, ptr %102, align 1
+119:                                              ; preds = %113
+  store i32 1, ptr %100, align 1
   br label %120
 
-120:                                              ; preds = %119, %115
-  %121 = phi i32 [ 1, %119 ], [ %97, %115 ]
+120:                                              ; preds = %119, %113
+  %121 = phi i32 [ 1, %119 ], [ %96, %113 ]
   %122 = icmp eq ptr %4, null
   br i1 %122, label %123, label %.thread17
 
@@ -217,7 +217,7 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
 
 123:                                              ; preds = %120
   %124 = zext i32 %121 to i64
-  %125 = call i64 @llvm.umin.i64(i64 %112, i64 %124)
+  %125 = call i64 @llvm.umin.i64(i64 %110, i64 %124)
   %126 = trunc nuw i64 %125 to i32
   %127 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %126, ptr %127, align 8
@@ -296,7 +296,7 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
   %172 = load i64, ptr %26, align 8
   %173 = load i64, ptr %28, align 8
   %174 = add i64 %173, %172
-  %175 = load i64, ptr %88, align 1
+  %175 = load i64, ptr %87, align 1
   %176 = icmp ult i64 %174, %175
   br i1 %176, label %177, label %.thread19
 

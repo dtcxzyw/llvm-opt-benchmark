@@ -3935,24 +3935,24 @@ stbtt_FlattenCurves.exit:                         ; preds = %._crit_edge107.us.i
   br i1 %.not.i91.us.i, label %stbtt__rasterize.exit, label %.lr.ph.preheader.i28
 
 .lr.ph.preheader.i28:                             ; preds = %stbtt_FlattenCurves.exit
-  %118 = fneg float %5
   %wide.trip.count.i29 = zext nneg i32 %spec.select.i to i64
   br label %.lr.ph.i30
 
 .lr.ph.i30:                                       ; preds = %.lr.ph.i30, %.lr.ph.preheader.i28
   %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.preheader.i28 ], [ %indvars.iv.next.i32, %.lr.ph.i30 ]
-  %.085103.i = phi i32 [ 0, %.lr.ph.preheader.i28 ], [ %121, %.lr.ph.i30 ]
-  %119 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i31
-  %120 = load i32, ptr %119, align 4
-  %121 = add nsw i32 %120, %.085103.i
+  %.085103.i = phi i32 [ 0, %.lr.ph.preheader.i28 ], [ %120, %.lr.ph.i30 ]
+  %118 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i31
+  %119 = load i32, ptr %118, align 4
+  %120 = add nsw i32 %119, %.085103.i
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i29
   br i1 %exitcond.not.i33, label %._crit_edge.loopexit.i, label %.lr.ph.i30, !llvm.loop !20
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i30
   %.not.i = icmp eq i32 %10, 0
-  %122 = select i1 %.not.i, float %5, float %118
-  %123 = mul i32 %121, 20
+  %121 = fneg float %5
+  %122 = select i1 %.not.i, float %5, float %121
+  %123 = mul i32 %120, 20
   %124 = add i32 %123, 35
   %125 = and i32 %124, -16
   %126 = load i32, ptr %28, align 8
@@ -16078,12 +16078,12 @@ stbi__zreceive.exit.i.i:                          ; preds = %100
   %107 = lshr i32 %106, 3
   %108 = add nuw nsw i32 %107, 1
   %wide.trip.count.i = zext nneg i32 %108 to i64
-  %109 = and i32 %106, -8
   br label %114
 
 .preheader.i.i:                                   ; preds = %114
-  %110 = add nsw i32 %.pr.i.i, -8
-  %111 = sub nsw i32 %110, %109
+  %109 = add nsw i32 %.pr.i.i, -8
+  %110 = and i32 %106, -8
+  %111 = sub nsw i32 %109, %110
   store i32 %118, ptr %37, align 4
   store i32 %111, ptr %36, align 8
   %112 = icmp samesign ult i64 %indvars.iv.i.i, 3
@@ -17223,9 +17223,9 @@ stbi__zreceive.exit108.i.i:                       ; preds = %stbi__zget8.exit.i.
   %680 = load i8, ptr %677, align 1
   %681 = zext i32 %.052.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.3.i.i, i8 %680, i64 %681, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %.3.i.i, i64 1
   %682 = add i32 %.052.i.i, -1
   %683 = zext i32 %682 to i64
-  %scevgep.i.i = getelementptr i8, ptr %.3.i.i, i64 1
   %scevgep160.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %683
   br label %.loopexit.i.i.backedge
 
@@ -51193,9 +51193,9 @@ stbi__get8.exit.thread.i:                         ; preds = %stbi__get8.exit.i22
   br i1 %exitcond.not.i, label %376, label %371, !llvm.loop !348
 
 376:                                              ; preds = %371
-  %377 = shl nuw nsw i32 2, %368
-  %378 = add nuw nsw i32 %368, 1
-  %379 = add nsw i32 %377, -1
+  %377 = add nuw nsw i32 %368, 1
+  %378 = shl nuw nsw i32 2, %368
+  %379 = add nsw i32 %378, -1
   %380 = add nuw nsw i32 %369, 2
   %381 = add nuw nsw i32 %369, 1
   %invariant.gep.i = getelementptr i8, ptr %1, i64 2102
@@ -51203,7 +51203,7 @@ stbi__get8.exit.thread.i:                         ; preds = %stbi__get8.exit.i22
 
 .outer:                                           ; preds = %.outer.backedge, %376
   %.not101.i = phi i1 [ false, %376 ], [ true, %.outer.backedge ]
-  %.090.i.ph = phi i32 [ %378, %376 ], [ %.090.i.ph.be, %.outer.backedge ]
+  %.090.i.ph = phi i32 [ %377, %376 ], [ %.090.i.ph.be, %.outer.backedge ]
   %.087.i.ph = phi i32 [ %379, %376 ], [ %.087.i.ph.be, %.outer.backedge ]
   %.084.i.ph = phi i32 [ %380, %376 ], [ %.084.i.ph.be, %.outer.backedge ]
   %.082.i.ph = phi i32 [ -1, %376 ], [ %.082.i.ph.be, %.outer.backedge ]
@@ -51528,7 +51528,7 @@ stbi__skip.exit.i.backedge:                       ; preds = %._crit_edge.i125.i,
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %518, %433
-  %.090.i.ph.be = phi i32 [ %378, %433 ], [ %.292.i, %518 ]
+  %.090.i.ph.be = phi i32 [ %377, %433 ], [ %.292.i, %518 ]
   %.087.i.ph.be = phi i32 [ %379, %433 ], [ %.289.i, %518 ]
   %.084.i.ph.be = phi i32 [ %380, %433 ], [ %.286.i, %518 ]
   %.082.i.ph.be = phi i32 [ -1, %433 ], [ %434, %518 ]

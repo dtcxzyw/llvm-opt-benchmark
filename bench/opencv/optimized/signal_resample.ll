@@ -351,50 +351,50 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
   %151 = getelementptr inbounds nuw float, ptr %137, i64 %indvars.iv78.i
   %152 = load float, ptr %151, align 4, !tbaa !32
   %153 = call noundef float @sinf(float noundef %152) #17, !tbaa !38
-  %154 = fdiv float %153, %152
-  %155 = trunc nuw nsw i64 %indvars.iv78.i to i32
-  %156 = uitofp nneg i32 %155 to float
-  %157 = call float @llvm.fmuladd.f32(float %156, float 6.250000e-02, float -1.000000e+00)
-  %square.i = fmul float %157, %157
-  %158 = fsub float 1.000000e+00, %square.i
-  %159 = call float @sqrtf(float noundef %158) #17, !tbaa !38
-  %160 = fmul float %159, 0x400B28F5C0000000
-  %161 = fmul float %160, %160
-  %162 = fmul float %161, 2.500000e-01
-  br label %163
+  %154 = trunc nuw nsw i64 %indvars.iv78.i to i32
+  %155 = uitofp nneg i32 %154 to float
+  %156 = call float @llvm.fmuladd.f32(float %155, float 6.250000e-02, float -1.000000e+00)
+  %square.i = fmul float %156, %156
+  %157 = fsub float 1.000000e+00, %square.i
+  %158 = call float @sqrtf(float noundef %157) #17, !tbaa !38
+  %159 = fmul float %158, 0x400B28F5C0000000
+  %160 = fmul float %159, %159
+  %161 = fmul float %160, 2.500000e-01
+  br label %162
 
-163:                                              ; preds = %163, %.preheader63.i
-  %.014.i.i = phi i32 [ 0, %.preheader63.i ], [ %166, %163 ]
-  %.01213.i.i = phi float [ 0.000000e+00, %.preheader63.i ], [ %170, %163 ]
-  %164 = uitofp nneg i32 %.014.i.i to float
-  %165 = call float @powf(float noundef %162, float noundef %164) #17, !tbaa !38
-  %166 = add nuw nsw i32 %.014.i.i, 1
-  %167 = uitofp nneg i32 %166 to float
-  %168 = call float @tgammaf(float noundef %167) #17, !tbaa !38
-  %square.i.i = fmul float %168, %168
-  %169 = fdiv float %165, %square.i.i
-  %170 = fadd float %.01213.i.i, %169
-  %exitcond.not.i.i = icmp eq i32 %166, 12
-  br i1 %exitcond.not.i.i, label %_ZN2cv6signalL6BesselEf.exit.i, label %163, !llvm.loop !39
+162:                                              ; preds = %162, %.preheader63.i
+  %.014.i.i = phi i32 [ 0, %.preheader63.i ], [ %165, %162 ]
+  %.01213.i.i = phi float [ 0.000000e+00, %.preheader63.i ], [ %169, %162 ]
+  %163 = uitofp nneg i32 %.014.i.i to float
+  %164 = call float @powf(float noundef %161, float noundef %163) #17, !tbaa !38
+  %165 = add nuw nsw i32 %.014.i.i, 1
+  %166 = uitofp nneg i32 %165 to float
+  %167 = call float @tgammaf(float noundef %166) #17, !tbaa !38
+  %square.i.i = fmul float %167, %167
+  %168 = fdiv float %164, %square.i.i
+  %169 = fadd float %.01213.i.i, %168
+  %exitcond.not.i.i = icmp eq i32 %165, 12
+  br i1 %exitcond.not.i.i, label %_ZN2cv6signalL6BesselEf.exit.i, label %162, !llvm.loop !39
 
-_ZN2cv6signalL6BesselEf.exit.i:                   ; preds = %163, %_ZN2cv6signalL6BesselEf.exit.i
-  %.014.i53.i = phi i32 [ %173, %_ZN2cv6signalL6BesselEf.exit.i ], [ 0, %163 ]
-  %.01213.i54.i = phi float [ %177, %_ZN2cv6signalL6BesselEf.exit.i ], [ 0.000000e+00, %163 ]
-  %171 = uitofp nneg i32 %.014.i53.i to float
-  %172 = call float @powf(float noundef 0x40070D5320000000, float noundef %171) #17, !tbaa !38
-  %173 = add nuw nsw i32 %.014.i53.i, 1
-  %174 = uitofp nneg i32 %173 to float
-  %175 = call float @tgammaf(float noundef %174) #17, !tbaa !38
-  %square.i55.i = fmul float %175, %175
-  %176 = fdiv float %172, %square.i55.i
-  %177 = fadd float %.01213.i54.i, %176
-  %exitcond.not.i56.i = icmp eq i32 %173, 12
+_ZN2cv6signalL6BesselEf.exit.i:                   ; preds = %162, %_ZN2cv6signalL6BesselEf.exit.i
+  %.014.i53.i = phi i32 [ %172, %_ZN2cv6signalL6BesselEf.exit.i ], [ 0, %162 ]
+  %.01213.i54.i = phi float [ %176, %_ZN2cv6signalL6BesselEf.exit.i ], [ 0.000000e+00, %162 ]
+  %170 = uitofp nneg i32 %.014.i53.i to float
+  %171 = call float @powf(float noundef 0x40070D5320000000, float noundef %170) #17, !tbaa !38
+  %172 = add nuw nsw i32 %.014.i53.i, 1
+  %173 = uitofp nneg i32 %172 to float
+  %174 = call float @tgammaf(float noundef %173) #17, !tbaa !38
+  %square.i55.i = fmul float %174, %174
+  %175 = fdiv float %171, %square.i55.i
+  %176 = fadd float %.01213.i54.i, %175
+  %exitcond.not.i56.i = icmp eq i32 %172, 12
   br i1 %exitcond.not.i56.i, label %_ZN2cv6signalL6BesselEf.exit57.i, label %_ZN2cv6signalL6BesselEf.exit.i, !llvm.loop !39
 
 _ZN2cv6signalL6BesselEf.exit57.i:                 ; preds = %_ZN2cv6signalL6BesselEf.exit.i
+  %177 = fdiv float %153, %152
   %178 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv78.i
-  %179 = fdiv float %170, %177
-  %180 = fmul float %154, %179
+  %179 = fdiv float %169, %176
+  %180 = fmul float %177, %179
   store float %180, ptr %178, align 4, !tbaa !32
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
   %exitcond81.not.i = icmp eq i64 %indvars.iv.next79.i, 33

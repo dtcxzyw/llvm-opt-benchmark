@@ -899,8 +899,6 @@ define hidden void @_Z9pickPointiiiiPv(i32 noundef %0, i32 noundef %1, i32 nound
   store i64 0, ptr %35, align 8
   store i32 50397184, ptr %11, align 8, !tbaa !21
   store ptr %8, ptr %34, align 8, !tbaa !23
-  %.sroa.5.0.insert.ext = zext i32 %2 to i64
-  %.sroa.030.0.insert.ext = zext i32 %1 to i64
   store double 1.200000e+02, ptr %12, align 8, !tbaa !45
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double 1.200000e+02, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !45
@@ -908,7 +906,9 @@ define hidden void @_Z9pickPointiiiiPv(i32 noundef %0, i32 noundef %1, i32 nound
   store double 1.200000e+02, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !45
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   store double 0.000000e+00, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !45
+  %.sroa.5.0.insert.ext = zext i32 %2 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
+  %.sroa.030.0.insert.ext = zext i32 %1 to i64
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.030.0.insert.ext
   %36 = load i32, ptr @low, align 4, !tbaa !46
   %37 = sitofp i32 %36 to double

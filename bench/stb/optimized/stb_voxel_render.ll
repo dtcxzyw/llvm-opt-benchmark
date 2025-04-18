@@ -1384,7 +1384,7 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8, !tbaa !70
   %.not = icmp eq ptr %51, null
-  br i1 %.not, label %81, label %52
+  br i1 %.not, label %79, label %52
 
 52:                                               ; preds = %3
   %53 = getelementptr inbounds i8, ptr %51, i64 %18
@@ -1412,131 +1412,131 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %70 = load i8, ptr %69, align 1, !tbaa !3
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i8 %70, ptr %71, align 1, !tbaa !3
-  %72 = lshr i8 %54, 4
-  %73 = and i8 %72, 3
-  br label %74
+  br label %72
 
-74:                                               ; preds = %52, %74
-  %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %74 ]
-  %75 = getelementptr inbounds nuw [6 x i8], ptr %5, i64 0, i64 %indvars.iv
-  %76 = load i8, ptr %75, align 1, !tbaa !3
-  %77 = lshr i8 %76, 4
-  %78 = and i8 %77, 3
-  %79 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 0, i64 %indvars.iv
-  store i8 %78, ptr %79, align 1, !tbaa !3
-  %80 = and i8 %76, 15
-  store i8 %80, ptr %75, align 1, !tbaa !3
+72:                                               ; preds = %52, %72
+  %indvars.iv = phi i64 [ 0, %52 ], [ %indvars.iv.next, %72 ]
+  %73 = getelementptr inbounds nuw [6 x i8], ptr %5, i64 0, i64 %indvars.iv
+  %74 = load i8, ptr %73, align 1, !tbaa !3
+  %75 = lshr i8 %74, 4
+  %76 = and i8 %75, 3
+  %77 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 0, i64 %indvars.iv
+  store i8 %76, ptr %77, align 1, !tbaa !3
+  %78 = and i8 %74, 15
+  store i8 %78, ptr %73, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit910, label %74, !llvm.loop !71
+  br i1 %exitcond.not, label %.loopexit910, label %72, !llvm.loop !71
 
-81:                                               ; preds = %3
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %83 = load ptr, ptr %82, align 8, !tbaa !72
-  %84 = zext i8 %20 to i64
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %84
-  %86 = load i8, ptr %85, align 1, !tbaa !3
-  br label %87
+79:                                               ; preds = %3
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %81 = load ptr, ptr %80, align 8, !tbaa !72
+  %82 = zext i8 %20 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 %82
+  %84 = load i8, ptr %83, align 1, !tbaa !3
+  br label %85
 
-87:                                               ; preds = %81, %87
-  %indvars.iv921 = phi i64 [ 0, %81 ], [ %indvars.iv.next922, %87 ]
-  %88 = getelementptr inbounds nuw [6 x i8], ptr %4, i64 0, i64 %indvars.iv921
-  %89 = load i8, ptr %88, align 1, !tbaa !3
-  %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds nuw i8, ptr %83, i64 %90
-  %92 = load i8, ptr %91, align 1, !tbaa !3
-  %93 = getelementptr inbounds nuw [6 x i8], ptr %5, i64 0, i64 %indvars.iv921
-  store i8 %92, ptr %93, align 1, !tbaa !3
+85:                                               ; preds = %79, %85
+  %indvars.iv921 = phi i64 [ 0, %79 ], [ %indvars.iv.next922, %85 ]
+  %86 = getelementptr inbounds nuw [6 x i8], ptr %4, i64 0, i64 %indvars.iv921
+  %87 = load i8, ptr %86, align 1, !tbaa !3
+  %88 = zext i8 %87 to i64
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 %88
+  %90 = load i8, ptr %89, align 1, !tbaa !3
+  %91 = getelementptr inbounds nuw [6 x i8], ptr %5, i64 0, i64 %indvars.iv921
+  store i8 %90, ptr %91, align 1, !tbaa !3
   %indvars.iv.next922 = add nuw nsw i64 %indvars.iv921, 1
   %exitcond924.not = icmp eq i64 %indvars.iv.next922, 6
-  br i1 %exitcond924.not, label %94, label %87, !llvm.loop !73
+  br i1 %exitcond924.not, label %92, label %85, !llvm.loop !73
 
-94:                                               ; preds = %87
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %96 = load ptr, ptr %95, align 8, !tbaa !64
-  %.not829 = icmp eq ptr %96, null
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %98 = load ptr, ptr %97, align 8, !tbaa !68
-  %99 = icmp eq ptr %98, null
-  br i1 %.not829, label %133, label %100
+92:                                               ; preds = %85
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %94 = load ptr, ptr %93, align 8, !tbaa !64
+  %.not829 = icmp eq ptr %94, null
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %96 = load ptr, ptr %95, align 8, !tbaa !68
+  %97 = icmp eq ptr %96, null
+  br i1 %.not829, label %131, label %98
 
-100:                                              ; preds = %94
-  br i1 %99, label %101, label %.loopexit910.thread963
+98:                                               ; preds = %92
+  br i1 %97, label %99, label %.loopexit910.thread963
 
-101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %96, i64 %18
+99:                                               ; preds = %98
+  %100 = getelementptr inbounds i8, ptr %94, i64 %18
+  %101 = load i8, ptr %100, align 1, !tbaa !3
+  %102 = getelementptr inbounds i8, ptr %94, i64 %22
   %103 = load i8, ptr %102, align 1, !tbaa !3
-  %104 = getelementptr inbounds i8, ptr %96, i64 %22
-  %105 = load i8, ptr %104, align 1, !tbaa !3
-  %106 = lshr i8 %105, 4
-  %107 = and i8 %106, 3
-  store i8 %107, ptr %6, align 1, !tbaa !3
-  %108 = getelementptr inbounds i8, ptr %96, i64 %26
-  %109 = load i8, ptr %108, align 1, !tbaa !3
-  %110 = lshr i8 %109, 4
-  %111 = and i8 %110, 3
-  %112 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %111, ptr %112, align 1, !tbaa !3
-  %113 = getelementptr inbounds i8, ptr %96, i64 %31
-  %114 = load i8, ptr %113, align 1, !tbaa !3
-  %115 = lshr i8 %114, 4
-  %116 = and i8 %115, 3
-  %117 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %116, ptr %117, align 1, !tbaa !3
-  %118 = getelementptr inbounds i8, ptr %96, i64 %36
-  %119 = load i8, ptr %118, align 1, !tbaa !3
-  %120 = lshr i8 %119, 4
-  %121 = and i8 %120, 3
-  %122 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 %121, ptr %122, align 1, !tbaa !3
-  %123 = getelementptr inbounds i8, ptr %96, i64 %41
-  %124 = load i8, ptr %123, align 1, !tbaa !3
-  %125 = lshr i8 %124, 4
-  %126 = and i8 %125, 3
-  %127 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 %126, ptr %127, align 1, !tbaa !3
-  %128 = getelementptr inbounds i8, ptr %96, i64 %46
-  %129 = load i8, ptr %128, align 1, !tbaa !3
-  %130 = lshr i8 %129, 4
-  %131 = and i8 %130, 3
-  %132 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  store i8 %131, ptr %132, align 1, !tbaa !3
+  %104 = lshr i8 %103, 4
+  %105 = and i8 %104, 3
+  store i8 %105, ptr %6, align 1, !tbaa !3
+  %106 = getelementptr inbounds i8, ptr %94, i64 %26
+  %107 = load i8, ptr %106, align 1, !tbaa !3
+  %108 = lshr i8 %107, 4
+  %109 = and i8 %108, 3
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store i8 %109, ptr %110, align 1, !tbaa !3
+  %111 = getelementptr inbounds i8, ptr %94, i64 %31
+  %112 = load i8, ptr %111, align 1, !tbaa !3
+  %113 = lshr i8 %112, 4
+  %114 = and i8 %113, 3
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  store i8 %114, ptr %115, align 1, !tbaa !3
+  %116 = getelementptr inbounds i8, ptr %94, i64 %36
+  %117 = load i8, ptr %116, align 1, !tbaa !3
+  %118 = lshr i8 %117, 4
+  %119 = and i8 %118, 3
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  store i8 %119, ptr %120, align 1, !tbaa !3
+  %121 = getelementptr inbounds i8, ptr %94, i64 %41
+  %122 = load i8, ptr %121, align 1, !tbaa !3
+  %123 = lshr i8 %122, 4
+  %124 = and i8 %123, 3
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i8 %124, ptr %125, align 1, !tbaa !3
+  %126 = getelementptr inbounds i8, ptr %94, i64 %46
+  %127 = load i8, ptr %126, align 1, !tbaa !3
+  %128 = lshr i8 %127, 4
+  %129 = and i8 %128, 3
+  %130 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  store i8 %129, ptr %130, align 1, !tbaa !3
   br label %.loopexit910.thread
 
-133:                                              ; preds = %94
-  br i1 %99, label %.preheader1000, label %.loopexit910.thread963
+131:                                              ; preds = %92
+  br i1 %97, label %.preheader999, label %.loopexit910.thread963
 
-.preheader1000:                                   ; preds = %133, %.preheader1000
-  %indvars.iv925 = phi i64 [ %indvars.iv.next926, %.preheader1000 ], [ 0, %133 ]
-  %134 = getelementptr inbounds nuw [6 x i8], ptr %5, i64 0, i64 %indvars.iv925
-  %135 = load i8, ptr %134, align 1, !tbaa !3
-  %136 = lshr i8 %135, 4
-  %137 = and i8 %136, 3
-  %138 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 0, i64 %indvars.iv925
-  store i8 %137, ptr %138, align 1, !tbaa !3
-  %139 = and i8 %135, 15
-  store i8 %139, ptr %134, align 1, !tbaa !3
+.preheader999:                                    ; preds = %131, %.preheader999
+  %indvars.iv925 = phi i64 [ %indvars.iv.next926, %.preheader999 ], [ 0, %131 ]
+  %132 = getelementptr inbounds nuw [6 x i8], ptr %5, i64 0, i64 %indvars.iv925
+  %133 = load i8, ptr %132, align 1, !tbaa !3
+  %134 = lshr i8 %133, 4
+  %135 = and i8 %134, 3
+  %136 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 0, i64 %indvars.iv925
+  store i8 %135, ptr %136, align 1, !tbaa !3
+  %137 = and i8 %133, 15
+  store i8 %137, ptr %132, align 1, !tbaa !3
   %indvars.iv.next926 = add nuw nsw i64 %indvars.iv925, 1
   %exitcond928.not = icmp eq i64 %indvars.iv.next926, 6
-  br i1 %exitcond928.not, label %.loopexit910.loopexit, label %.preheader1000, !llvm.loop !74
+  br i1 %exitcond928.not, label %.loopexit910.loopexit, label %.preheader999, !llvm.loop !74
 
-.loopexit910.loopexit:                            ; preds = %.preheader1000
-  %140 = and i8 %86, 15
+.loopexit910.loopexit:                            ; preds = %.preheader999
+  %138 = and i8 %84, 15
   br label %.loopexit910.thread
 
-.loopexit910.thread:                              ; preds = %101, %.loopexit910.loopexit
-  %.0795.ph.in.in = phi i8 [ %86, %.loopexit910.loopexit ], [ %103, %101 ]
-  %.0792.ph = phi i8 [ %140, %.loopexit910.loopexit ], [ %86, %101 ]
+.loopexit910.thread:                              ; preds = %99, %.loopexit910.loopexit
+  %.0795.ph.in.in = phi i8 [ %84, %.loopexit910.loopexit ], [ %101, %99 ]
+  %.0792.ph = phi i8 [ %138, %.loopexit910.loopexit ], [ %84, %99 ]
   %.0795.ph.in = lshr i8 %.0795.ph.in.in, 4
   %.0795.ph = and i8 %.0795.ph.in, 3
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 336
   br label %175
 
-.loopexit910.thread963:                           ; preds = %100, %133
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 336
+.loopexit910.thread963:                           ; preds = %98, %131
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 336
   br label %145
 
-.loopexit910:                                     ; preds = %74
+.loopexit910:                                     ; preds = %72
+  %141 = lshr i8 %54, 4
+  %142 = and i8 %141, 3
   %143 = and i8 %54, 15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 336
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !68
@@ -1545,10 +1545,10 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   br i1 %.not830, label %175, label %145
 
 145:                                              ; preds = %.loopexit910.thread963, %.loopexit910
-  %146 = phi ptr [ %142, %.loopexit910.thread963 ], [ %144, %.loopexit910 ]
-  %.0792968 = phi i8 [ %86, %.loopexit910.thread963 ], [ %143, %.loopexit910 ]
-  %.0795967 = phi i8 [ undef, %.loopexit910.thread963 ], [ %73, %.loopexit910 ]
-  %147 = phi ptr [ %98, %.loopexit910.thread963 ], [ %.pre, %.loopexit910 ]
+  %146 = phi ptr [ %140, %.loopexit910.thread963 ], [ %144, %.loopexit910 ]
+  %.0792968 = phi i8 [ %84, %.loopexit910.thread963 ], [ %143, %.loopexit910 ]
+  %.0795967 = phi i8 [ undef, %.loopexit910.thread963 ], [ %142, %.loopexit910 ]
+  %147 = phi ptr [ %96, %.loopexit910.thread963 ], [ %.pre, %.loopexit910 ]
   %148 = zext i8 %.0795967 to i64
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 %148
   %150 = load i8, ptr %149, align 1, !tbaa !3
@@ -1585,9 +1585,9 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   br label %175
 
 175:                                              ; preds = %.loopexit910.thread, %145, %.loopexit910
-  %176 = phi ptr [ %146, %145 ], [ %144, %.loopexit910 ], [ %141, %.loopexit910.thread ]
+  %176 = phi ptr [ %146, %145 ], [ %144, %.loopexit910 ], [ %139, %.loopexit910.thread ]
   %.0792961 = phi i8 [ %.0792968, %145 ], [ %143, %.loopexit910 ], [ %.0792.ph, %.loopexit910.thread ]
-  %.2797 = phi i8 [ %151, %145 ], [ %73, %.loopexit910 ], [ %.0795.ph, %.loopexit910.thread ]
+  %.2797 = phi i8 [ %151, %145 ], [ %142, %.loopexit910 ], [ %.0795.ph, %.loopexit910.thread ]
   %177 = icmp eq i8 %.0792961, 3
   br i1 %177, label %.preheader, label %.loopexit
 
@@ -2382,11 +2382,11 @@ define void @stbvox_make_mesh_for_block_with_geo(ptr noundef %0, i24 %1, i32 nou
   %645 = load ptr, ptr %328, align 8, !tbaa !64
   %.not865 = icmp eq ptr %645, null
   %646 = mul nuw i8 %.2797, 69
-  %spec.select999 = select i1 %.not865, i8 0, i8 %646
+  %spec.select1000 = select i1 %.not865, i8 0, i8 %646
   br label %647
 
 647:                                              ; preds = %644, %640
-  %.sroa.0109.0 = phi i8 [ %643, %640 ], [ %spec.select999, %644 ]
+  %.sroa.0109.0 = phi i8 [ %643, %640 ], [ %spec.select1000, %644 ]
   %648 = and i32 %.5, 2
   %.not866 = icmp eq i32 %648, 0
   br i1 %.not866, label %649, label %652

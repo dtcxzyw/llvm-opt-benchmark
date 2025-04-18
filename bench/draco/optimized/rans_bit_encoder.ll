@@ -85,12 +85,12 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i.i:        ; preds = %1
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.preheader.i, %20
-  %22 = sub nuw nsw i64 2, %18
-  %23 = sub i64 8, %17
-  %24 = and i64 %23, -8
-  %25 = add i64 %24, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %25, i1 false), !tbaa !10
-  %26 = getelementptr inbounds nuw i64, ptr %15, i64 %22
+  %22 = sub i64 8, %17
+  %23 = and i64 %22, -8
+  %24 = add i64 %23, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %24, i1 false), !tbaa !10
+  %25 = sub nuw nsw i64 2, %18
+  %26 = getelementptr inbounds nuw i64, ptr %15, i64 %25
   store ptr %26, ptr %14, align 8, !tbaa !12
   br label %_ZNSt6vectorImSaImEE14_M_fill_assignEmRKm.exit.i
 
@@ -205,12 +205,12 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i:          ; preds = %1
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.preheader, %20
-  %25 = sub nuw nsw i64 2, %18
-  %26 = sub i64 8, %17
-  %27 = and i64 %26, -8
-  %28 = add i64 %27, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %28, i1 false), !tbaa !10
-  %29 = getelementptr inbounds nuw i64, ptr %15, i64 %25
+  %25 = sub i64 8, %17
+  %26 = and i64 %25, -8
+  %27 = add i64 %26, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %27, i1 false), !tbaa !10
+  %28 = sub nuw nsw i64 2, %18
+  %29 = getelementptr inbounds nuw i64, ptr %15, i64 %28
   store ptr %29, ptr %14, align 8, !tbaa !12
   br label %_ZNSt6vectorImSaImEE14_M_fill_assignEmRKm.exit
 
@@ -303,12 +303,12 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i.i:        ; preds = %1
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.preheader.i, %20
-  %22 = sub nuw nsw i64 2, %18
-  %23 = sub i64 8, %17
-  %24 = and i64 %23, -8
-  %25 = add i64 %24, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %25, i1 false), !tbaa !10
-  %26 = getelementptr inbounds nuw i64, ptr %15, i64 %22
+  %22 = sub i64 8, %17
+  %23 = and i64 %22, -8
+  %24 = add i64 %23, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 %24, i1 false), !tbaa !10
+  %25 = sub nuw nsw i64 2, %18
+  %26 = getelementptr inbounds nuw i64, ptr %15, i64 %25
   store ptr %26, ptr %14, align 8, !tbaa !12
   br label %_ZNSt6vectorImSaImEE14_M_fill_assignEmRKm.exit.i
 
@@ -969,12 +969,12 @@ _ZNSt6vectorImSaImEEC2EmRKmRKS0_.exit.i.i:        ; preds = %_ZN5draco13EncoderB
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.preheader.i, %177
-  %179 = sub nuw nsw i64 2, %175
-  %180 = sub i64 8, %174
-  %181 = and i64 %180, -8
-  %182 = add i64 %181, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %172, i8 0, i64 %182, i1 false), !tbaa !10
-  %183 = getelementptr inbounds nuw i64, ptr %172, i64 %179
+  %179 = sub i64 8, %174
+  %180 = and i64 %179, -8
+  %181 = add i64 %180, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %172, i8 0, i64 %181, i1 false), !tbaa !10
+  %182 = sub nuw nsw i64 2, %175
+  %183 = getelementptr inbounds nuw i64, ptr %172, i64 %182
   store ptr %183, ptr %171, align 8, !tbaa !12
   br label %_ZNSt6vectorImSaImEE14_M_fill_assignEmRKm.exit.i
 

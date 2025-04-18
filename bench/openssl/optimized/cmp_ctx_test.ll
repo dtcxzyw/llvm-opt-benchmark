@@ -925,8 +925,8 @@ define internal range(i32 0, 2) i32 @test_CTX_print_errors() #1 {
   br i1 %27, label %25, label %28, !llvm.loop !42
 
 28:                                               ; preds = %25
-  %.not.i = icmp ne i32 %8, 0
   %.not22.i = icmp ne i32 %17, 0
+  %.not.i = icmp ne i32 %8, 0
   %.not21.i = icmp ne i32 %13, 0
   %.not24.i = icmp ne i32 %24, 0
   store i32 0, ptr @msg_total_size, align 4, !tbaa !41

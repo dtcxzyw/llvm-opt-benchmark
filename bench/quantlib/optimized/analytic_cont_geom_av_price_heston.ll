@@ -1954,19 +1954,19 @@ if.else24:                                        ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %fMinusN, i8 0, i64 64, i1 false)
   %sigma_25 = getelementptr inbounds nuw i8, ptr %this, i64 376
   %3 = load double, ptr %sigma_25, align 8, !tbaa !108
-  %mul = fmul double %3, -5.000000e-01
-  %mul27 = fmul double %3, %mul
-  %mul28 = fmul double %tau, %mul27
-  %sub = add nsw i32 %n, -1
-  %mul30 = mul nsw i32 %sub, %n
-  %conv = uitofp nneg i32 %mul30 to double
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 504
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 496
   %4 = zext nneg i32 %n to i64
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %if.end50
+  %mul = fmul double %3, -5.000000e-01
+  %mul27 = fmul double %3, %mul
+  %mul28 = fmul double %tau, %mul27
   %mul29 = fmul double %tau, %mul28
+  %sub = add nsw i32 %n, -1
+  %mul30 = mul nsw i32 %sub, %n
+  %conv = uitofp nneg i32 %mul30 to double
   %div = fdiv double %mul29, %conv
   %retval.sroa.0.0.copyload.i34 = load double, ptr %z1, align 8
   %retval.sroa.4.0.__x.sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %z1, i64 8

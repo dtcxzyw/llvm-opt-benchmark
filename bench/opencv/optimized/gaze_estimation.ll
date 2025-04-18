@@ -11359,70 +11359,70 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit924: ; preds = %_Z
   %3901 = sitofp i32 %3900 to double
   %3902 = fmul double %3901, 4.000000e-01
   %3903 = load i32, ptr %3877, align 4, !tbaa !385
-  %3904 = sdiv i32 %3900, 2
-  %3905 = getelementptr inbounds nuw i8, ptr %3877, i64 4
-  %3906 = load i32, ptr %3905, align 4, !tbaa !386
-  %3907 = getelementptr inbounds nuw i8, ptr %3877, i64 12
-  %3908 = load i32, ptr %3907, align 4, !tbaa !387
-  %3909 = sdiv i32 %3908, 2
-  %3910 = add nsw i32 %3909, %3906
+  %3904 = getelementptr inbounds nuw i8, ptr %3877, i64 4
+  %3905 = load i32, ptr %3904, align 4, !tbaa !386
+  %3906 = getelementptr inbounds nuw i8, ptr %3877, i64 12
+  %3907 = load i32, ptr %3906, align 4, !tbaa !387
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #33
-  %3911 = fmul double %3896, %3898
-  %3912 = fmul double %3889, %3892
-  %3913 = fmul double %3912, %3895
-  %3914 = fmul double %3895, %3897
-  store double %3911, ptr %10, align 8, !tbaa !367
-  store double %3913, ptr %3617, align 8, !tbaa !367
+  %3908 = fmul double %3896, %3898
+  %3909 = fmul double %3889, %3892
+  %3910 = fmul double %3909, %3895
+  %3911 = fmul double %3895, %3897
+  store double %3908, ptr %10, align 8, !tbaa !367
+  store double %3910, ptr %3617, align 8, !tbaa !367
   store double 0.000000e+00, ptr %3618, align 8, !tbaa !367
-  store double %3914, ptr %3619, align 8, !tbaa !367
+  store double %3911, ptr %3619, align 8, !tbaa !367
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #33
-  %3915 = fmul double %3889, %3898
-  %3916 = fmul double %3892, %3915
-  %3917 = fmul double %3895, %3896
-  %3918 = fneg double %3897
-  %3919 = fmul double %3898, %3918
-  store double %3916, ptr %11, align 8, !tbaa !367
-  store double %3917, ptr %3620, align 8, !tbaa !367
+  %3912 = fmul double %3889, %3898
+  %3913 = fmul double %3892, %3912
+  %3914 = fmul double %3895, %3896
+  %3915 = fneg double %3897
+  %3916 = fmul double %3898, %3915
+  store double %3913, ptr %11, align 8, !tbaa !367
+  store double %3914, ptr %3620, align 8, !tbaa !367
   store double 0.000000e+00, ptr %3621, align 8, !tbaa !367
-  store double %3919, ptr %3622, align 8, !tbaa !367
+  store double %3916, ptr %3622, align 8, !tbaa !367
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #33
-  %3920 = fmul double %3889, %3897
-  store double %3920, ptr %12, align 8, !tbaa !367
+  %3917 = fmul double %3889, %3897
+  store double %3917, ptr %12, align 8, !tbaa !367
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3623, i8 0, i64 16, i1 false)
   store double %3892, ptr %3624, align 8, !tbaa !367
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #33
   store i64 0, ptr %3626, align 8
   store i32 50397184, ptr %13, align 8, !tbaa !363
   store ptr %178, ptr %3625, align 8, !tbaa !366
-  %.sroa.10.0.insert.ext23.i = zext i32 %3910 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.4.i.i.i)
   br label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %.critedge.i.i.i.i, %.lr.ph1324
-  %3921 = phi i1 [ true, %.lr.ph1324 ], [ false, %.critedge.i.i.i.i ]
+  %3918 = phi i1 [ true, %.lr.ph1324 ], [ false, %.critedge.i.i.i.i ]
   %indvars.iv23.i.sroa.phi.i.i.i = phi ptr [ %.sroa.0.i.i.i, %.lr.ph1324 ], [ %.sroa.4.i.i.i, %.critedge.i.i.i.i ]
   %indvars.iv23.i.i.i.i = phi i64 [ 0, %.lr.ph1324 ], [ 2, %.critedge.i.i.i.i ]
-  br label %3922
+  br label %3919
 
-.critedge.i.i.i.i:                                ; preds = %3922
-  store double %3927, ptr %indvars.iv23.i.sroa.phi.i.i.i, align 8, !tbaa !367, !noalias !388
-  br i1 %3921, label %.preheader.i.i.i.i, label %3928, !llvm.loop !391
+.critedge.i.i.i.i:                                ; preds = %3919
+  store double %3924, ptr %indvars.iv23.i.sroa.phi.i.i.i, align 8, !tbaa !367, !noalias !388
+  br i1 %3918, label %.preheader.i.i.i.i, label %3925, !llvm.loop !391
 
-3922:                                             ; preds = %3922, %.preheader.i.i.i.i
-  %3923 = phi i1 [ true, %.preheader.i.i.i.i ], [ false, %3922 ]
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ 1, %3922 ]
-  %.01619.i.i.i.i = phi double [ 0.000000e+00, %.preheader.i.i.i.i ], [ %3927, %3922 ]
-  %3924 = or disjoint i64 %indvars.iv.i.i.i.i, %indvars.iv23.i.i.i.i
-  %3925 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %3924
-  %3926 = load double, ptr %3925, align 8, !tbaa !367, !noalias !388
-  %3927 = call double @llvm.fmuladd.f64(double %3926, double %3902, double %.01619.i.i.i.i)
-  br i1 %3923, label %3922, label %.critedge.i.i.i.i, !llvm.loop !392
+3919:                                             ; preds = %3919, %.preheader.i.i.i.i
+  %3920 = phi i1 [ true, %.preheader.i.i.i.i ], [ false, %3919 ]
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ 1, %3919 ]
+  %.01619.i.i.i.i = phi double [ 0.000000e+00, %.preheader.i.i.i.i ], [ %3924, %3919 ]
+  %3921 = or disjoint i64 %indvars.iv.i.i.i.i, %indvars.iv23.i.i.i.i
+  %3922 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %3921
+  %3923 = load double, ptr %3922, align 8, !tbaa !367, !noalias !388
+  %3924 = call double @llvm.fmuladd.f64(double %3923, double %3902, double %.01619.i.i.i.i)
+  br i1 %3920, label %3919, label %.critedge.i.i.i.i, !llvm.loop !392
 
-3928:                                             ; preds = %.critedge.i.i.i.i
-  %3929 = add nsw i32 %3903, %3904
-  %.sroa.012.0.insert.ext16.i = zext i32 %3929 to i64
+3925:                                             ; preds = %.critedge.i.i.i.i
+  %3926 = sdiv i32 %3900, 2
+  %3927 = add nsw i32 %3903, %3926
+  %3928 = sdiv i32 %3907, 2
+  %3929 = add nsw i32 %3928, %3905
+  %.sroa.10.0.insert.ext23.i = zext i32 %3929 to i64
   %.sroa.10.0.insert.shift24.i = shl nuw i64 %.sroa.10.0.insert.ext23.i, 32
+  %.sroa.012.0.insert.ext16.i = zext i32 %3927 to i64
   %.sroa.012.0.insert.insert18.i = or disjoint i64 %.sroa.10.0.insert.shift24.i, %.sroa.012.0.insert.ext16.i
   %.sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.i.0..sroa.0.i.i.0..sroa.0.i.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i.i.i = load double, ptr %.sroa.0.i.i.i, align 8, !tbaa !367, !noalias !388
   %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i = load double, ptr %.sroa.4.i.i.i, align 8, !tbaa !367, !noalias !388
@@ -11432,8 +11432,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit924: ; preds = %_Z
   %3930 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %.sroa.07.0.vec.insert.i)
   %3931 = insertelement <2 x double> poison, double %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, i64 0
   %3932 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %3931)
-  %3933 = add nsw i32 %3930, %3929
-  %3934 = add nsw i32 %3932, %3910
+  %3933 = add nsw i32 %3930, %3927
+  %3934 = add nsw i32 %3932, %3929
   %.sroa.2.0.insert.ext.i72.i = zext i32 %3934 to i64
   %.sroa.2.0.insert.shift.i73.i = shl nuw i64 %.sroa.2.0.insert.ext.i72.i, 32
   %.sroa.0.0.insert.ext.i74.i = zext i32 %3933 to i64
@@ -11445,7 +11445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit924: ; preds = %_Z
   invoke void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 %.sroa.012.0.insert.insert18.i, i64 %.sroa.0.0.insert.insert.i75.i, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 2, i32 noundef 8, i32 noundef 0)
           to label %.noexc931 unwind label %4097
 
-.noexc931:                                        ; preds = %3928
+.noexc931:                                        ; preds = %3925
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #33
@@ -11485,8 +11485,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit924: ; preds = %_Z
   %3943 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %.sroa.03.0.vec.insert.i)
   %3944 = insertelement <2 x double> poison, double %.sroa.4.i.i77.i.0..sroa.4.i.i77.i.0..sroa.4.i.i77.i.0..sroa.4.i.i77.0..sroa.4.i.i77.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i86.i, i64 0
   %3945 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %3944)
-  %3946 = add nsw i32 %3943, %3929
-  %3947 = add nsw i32 %3945, %3910
+  %3946 = add nsw i32 %3943, %3927
+  %3947 = add nsw i32 %3945, %3929
   %.sroa.2.0.insert.ext.i94.i = zext i32 %3947 to i64
   %.sroa.2.0.insert.shift.i95.i = shl nuw i64 %.sroa.2.0.insert.ext.i94.i, 32
   %.sroa.0.0.insert.ext.i96.i = zext i32 %3946 to i64
@@ -11538,8 +11538,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit924: ; preds = %_Z
   %3956 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %.sroa.0.0.vec.insert.i)
   %3957 = insertelement <2 x double> poison, double %.sroa.4.i.i99.i.0..sroa.4.i.i99.i.0..sroa.4.i.i99.i.0..sroa.4.i.i99.0..sroa.4.i.i99.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i108.i, i64 0
   %3958 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %3957)
-  %3959 = add nsw i32 %3956, %3929
-  %3960 = add nsw i32 %3958, %3910
+  %3959 = add nsw i32 %3956, %3927
+  %3960 = add nsw i32 %3958, %3929
   %.sroa.2.0.insert.ext.i116.i = zext i32 %3960 to i64
   %.sroa.2.0.insert.shift.i117.i = shl nuw i64 %.sroa.2.0.insert.ext.i116.i, 32
   %.sroa.0.0.insert.ext.i118.i = zext i32 %3959 to i64
@@ -11796,7 +11796,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75.i: ; preds = %_
   %4096 = icmp ult i64 %4089, %4095
   br i1 %4096, label %.lr.ph1324, label %._crit_edge1325, !llvm.loop !402
 
-4097:                                             ; preds = %.noexc938, %.noexc937, %3961, %3955, %3942, %3928
+4097:                                             ; preds = %.noexc938, %.noexc937, %3961, %3955, %3942, %3925
   %4098 = landingpad { ptr, i32 }
           cleanup
   br label %.body940

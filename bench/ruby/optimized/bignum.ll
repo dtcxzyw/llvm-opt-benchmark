@@ -1894,39 +1894,36 @@ bary_add.exit:                                    ; preds = %.lr.ph.i.i285
   %209 = lshr i64 %207, 32
   %210 = add nuw nsw i64 %.05779.i, 1
   %exitcond.not.i296 = icmp eq i64 %210, %44
-  br i1 %exitcond.not.i296, label %bary_addc.exit, label %.lr.ph.i295, !llvm.loop !35
+  br i1 %exitcond.not.i296, label %.lr.ph.i.i299, label %.lr.ph.i295, !llvm.loop !35
 
-bary_addc.exit:                                   ; preds = %.lr.ph.i295
-  %211 = icmp samesign ugt i64 %207, 4294967295
-  br label %.lr.ph.i.i299
+.lr.ph.i.i299:                                    ; preds = %.lr.ph.i295, %.lr.ph.i.i299
+  %.05779.i.i300 = phi i64 [ %221, %.lr.ph.i.i299 ], [ 0, %.lr.ph.i295 ]
+  %.05878.i.i301 = phi i64 [ %220, %.lr.ph.i.i299 ], [ 0, %.lr.ph.i295 ]
+  %211 = getelementptr i32, ptr %59, i64 %.05779.i.i300
+  %212 = load i32, ptr %211, align 4, !tbaa !18
+  %213 = zext i32 %212 to i64
+  %214 = getelementptr i32, ptr %.0192, i64 %.05779.i.i300
+  %215 = load i32, ptr %214, align 4, !tbaa !18
+  %216 = zext i32 %215 to i64
+  %217 = add nuw nsw i64 %.05878.i.i301, %213
+  %218 = add nuw nsw i64 %217, %216
+  %219 = trunc i64 %218 to i32
+  store i32 %219, ptr %211, align 4, !tbaa !18
+  %220 = lshr i64 %218, 32
+  %221 = add nuw nsw i64 %.05779.i.i300, 1
+  %exitcond.not.i.i302 = icmp eq i64 %221, %44
+  br i1 %exitcond.not.i.i302, label %222, label %.lr.ph.i.i299, !llvm.loop !35
 
-.lr.ph.i.i299:                                    ; preds = %bary_addc.exit, %.lr.ph.i.i299
-  %.05779.i.i300 = phi i64 [ %222, %.lr.ph.i.i299 ], [ 0, %bary_addc.exit ]
-  %.05878.i.i301 = phi i64 [ %221, %.lr.ph.i.i299 ], [ 0, %bary_addc.exit ]
-  %212 = getelementptr i32, ptr %59, i64 %.05779.i.i300
-  %213 = load i32, ptr %212, align 4, !tbaa !18
-  %214 = zext i32 %213 to i64
-  %215 = getelementptr i32, ptr %.0192, i64 %.05779.i.i300
-  %216 = load i32, ptr %215, align 4, !tbaa !18
-  %217 = zext i32 %216 to i64
-  %218 = add nuw nsw i64 %.05878.i.i301, %214
-  %219 = add nuw nsw i64 %218, %217
-  %220 = trunc i64 %219 to i32
-  store i32 %220, ptr %212, align 4, !tbaa !18
-  %221 = lshr i64 %219, 32
-  %222 = add nuw nsw i64 %.05779.i.i300, 1
-  %exitcond.not.i.i302 = icmp eq i64 %222, %44
-  br i1 %exitcond.not.i.i302, label %223, label %.lr.ph.i.i299, !llvm.loop !35
-
-223:                                              ; preds = %.lr.ph.i.i299
-  %224 = zext i1 %211 to i32
-  %225 = icmp samesign ult i64 %219, 4294967296
+222:                                              ; preds = %.lr.ph.i.i299
+  %223 = icmp samesign ugt i64 %207, 4294967295
+  %224 = zext i1 %223 to i32
+  %225 = icmp samesign ult i64 %218, 4294967296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.0192, ptr noundef nonnull readonly align 1 %60, i64 noundef range(i64 1, 0) %175, i1 noundef false) #26
   br label %ruby_nonempty_memcpy.exit315
 
-ruby_nonempty_memcpy.exit315:                     ; preds = %bary_mul_karatsuba_start.exit283, %223
-  %.058.lcssa.i.i304570 = phi i1 [ %225, %223 ], [ true, %bary_mul_karatsuba_start.exit283 ]
-  %226 = phi i32 [ %224, %223 ], [ 0, %bary_mul_karatsuba_start.exit283 ]
+ruby_nonempty_memcpy.exit315:                     ; preds = %bary_mul_karatsuba_start.exit283, %222
+  %.058.lcssa.i.i304570 = phi i1 [ %225, %222 ], [ true, %bary_mul_karatsuba_start.exit283 ]
+  %226 = phi i32 [ %224, %222 ], [ 0, %bary_mul_karatsuba_start.exit283 ]
   %227 = sub i64 %1, %46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -8364,54 +8361,54 @@ define dso_local i32 @rb_integer_pack(i64 noundef %0, ptr noundef nonnull %1, i6
   %13 = and i64 %12, 1
   %.not = icmp eq i64 %13, 0
   %indvars.iv.sroa.gep31 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  br i1 %.not, label %21, label %14
+  br i1 %.not, label %20, label %14
 
 14:                                               ; preds = %6
   %15 = ashr i64 %12, 1
-  %16 = icmp slt i64 %15, 0
   %.015 = call i64 @llvm.abs.i64(i64 %15, i1 true)
-  br label %17
+  br label %16
 
-17:                                               ; preds = %14, %17
-  %18 = phi i1 [ true, %14 ], [ false, %17 ]
-  %indvars.iv.sroa.phi = phi ptr [ %8, %14 ], [ %indvars.iv.sroa.gep31, %17 ]
-  %.128 = phi i64 [ %.015, %14 ], [ %20, %17 ]
-  %19 = trunc i64 %.128 to i32
-  store i32 %19, ptr %indvars.iv.sroa.phi, align 4, !tbaa !18
-  %20 = lshr i64 %.128, 32
-  br i1 %18, label %17, label %BIGNUM_LEN.exit.loopexit, !llvm.loop !77
+16:                                               ; preds = %14, %16
+  %17 = phi i1 [ true, %14 ], [ false, %16 ]
+  %indvars.iv.sroa.phi = phi ptr [ %8, %14 ], [ %indvars.iv.sroa.gep31, %16 ]
+  %.128 = phi i64 [ %.015, %14 ], [ %19, %16 ]
+  %18 = trunc i64 %.128 to i32
+  store i32 %18, ptr %indvars.iv.sroa.phi, align 4, !tbaa !18
+  %19 = lshr i64 %.128, 32
+  br i1 %17, label %16, label %BIGNUM_LEN.exit.loopexit, !llvm.loop !77
 
-21:                                               ; preds = %6
-  %22 = inttoptr i64 %12 to ptr
-  %23 = load i64, ptr %22, align 8, !tbaa !11
-  %24 = and i64 %23, 8192
-  %.not27 = icmp eq i64 %24, 0
-  %25 = select i1 %.not27, i32 -1, i32 1
-  %26 = and i64 %23, 16384
-  %.not.i = icmp eq i64 %26, 0
-  br i1 %.not.i, label %27, label %32
+20:                                               ; preds = %6
+  %21 = inttoptr i64 %12 to ptr
+  %22 = load i64, ptr %21, align 8, !tbaa !11
+  %23 = and i64 %22, 8192
+  %.not27 = icmp eq i64 %23, 0
+  %24 = select i1 %.not27, i32 -1, i32 1
+  %25 = and i64 %22, 16384
+  %.not.i = icmp eq i64 %25, 0
+  br i1 %.not.i, label %26, label %31
 
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !13
-  %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %31 = load i64, ptr %30, align 8, !tbaa !13
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %28 = load ptr, ptr %27, align 8, !tbaa !13
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %30 = load i64, ptr %29, align 8, !tbaa !13
   br label %BIGNUM_LEN.exit
 
-32:                                               ; preds = %21
-  %33 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %34 = lshr i64 %23, 15
-  %35 = and i64 %34, 7
+31:                                               ; preds = %20
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %33 = lshr i64 %22, 15
+  %34 = and i64 %33, 7
   br label %BIGNUM_LEN.exit
 
-BIGNUM_LEN.exit.loopexit:                         ; preds = %17
-  %.016 = select i1 %16, i32 -1, i32 1
+BIGNUM_LEN.exit.loopexit:                         ; preds = %16
+  %35 = icmp slt i64 %15, 0
+  %.016 = select i1 %35, i32 -1, i32 1
   br label %BIGNUM_LEN.exit
 
-BIGNUM_LEN.exit:                                  ; preds = %BIGNUM_LEN.exit.loopexit, %32, %27
-  %.019 = phi ptr [ %33, %32 ], [ %29, %27 ], [ %8, %BIGNUM_LEN.exit.loopexit ]
-  %.018 = phi i64 [ %35, %32 ], [ %31, %27 ], [ 2, %BIGNUM_LEN.exit.loopexit ]
-  %.117 = phi i32 [ %25, %32 ], [ %25, %27 ], [ %.016, %BIGNUM_LEN.exit.loopexit ]
+BIGNUM_LEN.exit:                                  ; preds = %BIGNUM_LEN.exit.loopexit, %31, %26
+  %.019 = phi ptr [ %32, %31 ], [ %28, %26 ], [ %8, %BIGNUM_LEN.exit.loopexit ]
+  %.018 = phi i64 [ %34, %31 ], [ %30, %26 ], [ 2, %BIGNUM_LEN.exit.loopexit ]
+  %.117 = phi i32 [ %24, %31 ], [ %24, %26 ], [ %.016, %BIGNUM_LEN.exit.loopexit ]
   %36 = call fastcc i32 @bary_pack(i32 noundef %.117, ptr noundef %.019, i64 noundef %.018, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
   ret i32 %36

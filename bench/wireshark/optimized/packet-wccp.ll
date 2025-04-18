@@ -2894,103 +2894,103 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %.not115 = icmp eq ptr %23, null
   %71 = zext i16 %.0101 to i32
-  %72 = mul nuw i32 %65, %71
   %wide.trip.count = zext nneg i32 %65 to i64
-  br label %73
+  br label %72
 
-73:                                               ; preds = %.lr.ph, %118
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.pre-phi, %118 ]
-  %.099118 = phi i32 [ %25, %.lr.ph ], [ %119, %118 ]
-  switch i16 %11, label %102 [
-    i16 1, label %74
-    i16 2, label %89
+72:                                               ; preds = %.lr.ph, %117
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.pre-phi, %117 ]
+  %.099118 = phi i32 [ %25, %.lr.ph ], [ %118, %117 ]
+  switch i16 %11, label %101 [
+    i16 1, label %73
+    i16 2, label %88
   ]
 
-74:                                               ; preds = %73
-  %75 = load ptr, ptr %66, align 8
-  %76 = tail call ptr @tvb_address_to_str(ptr noundef %75, ptr noundef %0, i32 noundef 2, i32 noundef %.099118)
-  %77 = load i8, ptr %5, align 8, !range !25, !noundef !26
-  %78 = icmp eq i8 %77, 0
-  br i1 %78, label %79, label %107
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %66, align 8
+  %75 = tail call ptr @tvb_address_to_str(ptr noundef %74, ptr noundef %0, i32 noundef 2, i32 noundef %.099118)
+  %76 = load i8, ptr %5, align 8, !range !25, !noundef !26
+  %77 = icmp eq i8 %76, 0
+  br i1 %77, label %78, label %106
 
-79:                                               ; preds = %74
-  %80 = load ptr, ptr %69, align 8
-  %.not114 = icmp eq ptr %80, null
-  br i1 %.not114, label %107, label %81
+78:                                               ; preds = %73
+  %79 = load ptr, ptr %69, align 8
+  %.not114 = icmp eq ptr %79, null
+  br i1 %.not114, label %106, label %80
 
-81:                                               ; preds = %79
-  %82 = load i16, ptr %68, align 2
-  %83 = zext i16 %82 to i64
-  %84 = icmp samesign ult i64 %indvars.iv, %83
-  br i1 %84, label %85, label %107
+80:                                               ; preds = %78
+  %81 = load i16, ptr %68, align 2
+  %82 = zext i16 %81 to i64
+  %83 = icmp samesign ult i64 %indvars.iv, %82
+  br i1 %83, label %84, label %106
 
-85:                                               ; preds = %81
-  %86 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %.099118)
-  %87 = load ptr, ptr %69, align 8
-  %88 = getelementptr i32, ptr %87, i64 %indvars.iv
-  store i32 %86, ptr %88, align 4
-  br label %107
+84:                                               ; preds = %80
+  %85 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %.099118)
+  %86 = load ptr, ptr %69, align 8
+  %87 = getelementptr i32, ptr %86, i64 %indvars.iv
+  store i32 %85, ptr %87, align 4
+  br label %106
 
-89:                                               ; preds = %73
-  %90 = load ptr, ptr %66, align 8
-  %91 = tail call ptr @tvb_address_to_str(ptr noundef %90, ptr noundef %0, i32 noundef 3, i32 noundef %.099118)
-  %92 = load i8, ptr %5, align 8, !range !25, !noundef !26
-  %93 = icmp eq i8 %92, 0
-  br i1 %93, label %94, label %107
+88:                                               ; preds = %72
+  %89 = load ptr, ptr %66, align 8
+  %90 = tail call ptr @tvb_address_to_str(ptr noundef %89, ptr noundef %0, i32 noundef 3, i32 noundef %.099118)
+  %91 = load i8, ptr %5, align 8, !range !25, !noundef !26
+  %92 = icmp eq i8 %91, 0
+  br i1 %92, label %93, label %106
 
-94:                                               ; preds = %89
-  %95 = load ptr, ptr %67, align 8
-  %.not113 = icmp eq ptr %95, null
-  br i1 %.not113, label %107, label %96
+93:                                               ; preds = %88
+  %94 = load ptr, ptr %67, align 8
+  %.not113 = icmp eq ptr %94, null
+  br i1 %.not113, label %106, label %95
 
-96:                                               ; preds = %94
-  %97 = load i16, ptr %68, align 2
-  %98 = zext i16 %97 to i64
-  %99 = icmp samesign ult i64 %indvars.iv, %98
-  br i1 %99, label %100, label %107
+95:                                               ; preds = %93
+  %96 = load i16, ptr %68, align 2
+  %97 = zext i16 %96 to i64
+  %98 = icmp samesign ult i64 %indvars.iv, %97
+  br i1 %98, label %99, label %106
 
-100:                                              ; preds = %96
-  %101 = getelementptr %struct.e_in6_addr, ptr %95, i64 %indvars.iv
-  tail call void @tvb_get_ipv6(ptr noundef %0, i32 noundef %.099118, ptr noundef %101)
-  br label %107
+99:                                               ; preds = %95
+  %100 = getelementptr %struct.e_in6_addr, ptr %94, i64 %indvars.iv
+  tail call void @tvb_get_ipv6(ptr noundef %0, i32 noundef %.099118, ptr noundef %100)
+  br label %106
 
-102:                                              ; preds = %73
-  %103 = tail call ptr @wmem_packet_scope()
-  %104 = load i16, ptr %70, align 2
-  %105 = sext i16 %104 to i32
-  %106 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %103, ptr noundef nonnull @.str.469, i32 noundef %105)
-  br label %107
+101:                                              ; preds = %72
+  %102 = tail call ptr @wmem_packet_scope()
+  %103 = load i16, ptr %70, align 2
+  %104 = sext i16 %103 to i32
+  %105 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %102, ptr noundef nonnull @.str.469, i32 noundef %104)
+  br label %106
 
-107:                                              ; preds = %89, %94, %96, %100, %74, %79, %81, %85, %102
-  %.098 = phi ptr [ %106, %102 ], [ %91, %100 ], [ %91, %96 ], [ %91, %94 ], [ %91, %89 ], [ %76, %85 ], [ %76, %81 ], [ %76, %79 ], [ %76, %74 ]
-  br i1 %.not115, label %._crit_edge121, label %108
+106:                                              ; preds = %88, %93, %95, %99, %73, %78, %80, %84, %101
+  %.098 = phi ptr [ %105, %101 ], [ %90, %99 ], [ %90, %95 ], [ %90, %93 ], [ %90, %88 ], [ %75, %84 ], [ %75, %80 ], [ %75, %78 ], [ %75, %73 ]
+  br i1 %.not115, label %._crit_edge121, label %107
 
-._crit_edge121:                                   ; preds = %107
+._crit_edge121:                                   ; preds = %106
   %.pre = add nuw nsw i64 %indvars.iv, 1
-  br label %118
+  br label %117
 
-108:                                              ; preds = %107
-  %109 = load i32, ptr @hf_address_table_element, align 4
-  %110 = add nuw nsw i64 %indvars.iv, 1
-  %111 = trunc nuw nsw i64 %110 to i32
-  %112 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %23, i32 noundef %109, ptr noundef %0, i32 noundef %.099118, i32 noundef %71, ptr noundef %.098, ptr noundef nonnull @.str.470, i32 noundef %111, ptr noundef %.098)
-  %113 = load i16, ptr %68, align 2
-  %114 = zext i16 %113 to i64
-  %115 = icmp samesign ugt i64 %indvars.iv, %114
-  br i1 %115, label %116, label %118
+107:                                              ; preds = %106
+  %108 = load i32, ptr @hf_address_table_element, align 4
+  %109 = add nuw nsw i64 %indvars.iv, 1
+  %110 = trunc nuw nsw i64 %109 to i32
+  %111 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %23, i32 noundef %108, ptr noundef %0, i32 noundef %.099118, i32 noundef %71, ptr noundef %.098, ptr noundef nonnull @.str.470, i32 noundef %110, ptr noundef %.098)
+  %112 = load i16, ptr %68, align 2
+  %113 = zext i16 %112 to i64
+  %114 = icmp samesign ugt i64 %indvars.iv, %113
+  br i1 %114, label %115, label %117
 
-116:                                              ; preds = %108
-  %117 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %112, ptr noundef nonnull @ei_wccp_length_bad, ptr noundef nonnull @.str.471)
-  br label %118
+115:                                              ; preds = %107
+  %116 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %111, ptr noundef nonnull @ei_wccp_length_bad, ptr noundef nonnull @.str.471)
+  br label %117
 
-118:                                              ; preds = %._crit_edge121, %108, %116
-  %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge121 ], [ %110, %108 ], [ %110, %116 ]
-  %119 = add i32 %.099118, %71
+117:                                              ; preds = %._crit_edge121, %107, %115
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge121 ], [ %109, %107 ], [ %109, %115 ]
+  %118 = add i32 %.099118, %71
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %73, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %72, !llvm.loop !28
 
-._crit_edge.loopexit:                             ; preds = %118
-  %120 = sub i32 %24, %72
+._crit_edge.loopexit:                             ; preds = %117
+  %119 = mul nuw i32 %65, %71
+  %120 = sub i32 %24, %119
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %64

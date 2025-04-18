@@ -2466,39 +2466,36 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @tele_param_srvc_cat_prog_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = icmp ugt i32 %3, 2
-  br i1 %7, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %6
-  %8 = add i32 %3, -3
-  %9 = urem i32 %8, 3
-  %10 = sub nuw i32 %8, %9
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.032 = phi i32 [ %21, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.032)
-  %12 = zext i16 %11 to i32
-  %13 = tail call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @ansi_tsb58_srvc_cat_vals, ptr noundef nonnull @.str.43)
-  %14 = load i32, ptr @hf_ansi_637_tele_srvc_cat_prog_results_srvc_cat, align 4
-  %15 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %.032, i32 noundef 2, i32 noundef %12, ptr noundef nonnull @.str.342, ptr noundef %13, i32 noundef %12)
-  %16 = add i32 %.032, 2
-  %17 = load i32, ptr @hf_ansi_637_tele_srvc_cat_prog_results_result, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0)
-  %19 = load i32, ptr @hf_ansi_637_reserved_bits_8_0f, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef 0)
-  %21 = add i32 %.032, 3
-  %.neg = sub i32 %4, %21
-  %22 = add i32 %.neg, %3
-  %23 = icmp ugt i32 %22, 2
-  br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !20
+.lr.ph:                                           ; preds = %6, %.lr.ph
+  %.032 = phi i32 [ %18, %.lr.ph ], [ %4, %6 ]
+  %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.032)
+  %9 = zext i16 %8 to i32
+  %10 = tail call ptr @val_to_str_const(i32 noundef %9, ptr noundef nonnull @ansi_tsb58_srvc_cat_vals, ptr noundef nonnull @.str.43)
+  %11 = load i32, ptr @hf_ansi_637_tele_srvc_cat_prog_results_srvc_cat, align 4
+  %12 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %.032, i32 noundef 2, i32 noundef %9, ptr noundef nonnull @.str.342, ptr noundef %10, i32 noundef %9)
+  %13 = add i32 %.032, 2
+  %14 = load i32, ptr @hf_ansi_637_tele_srvc_cat_prog_results_result, align 4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef 0)
+  %16 = load i32, ptr @hf_ansi_637_reserved_bits_8_0f, align 4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef 0)
+  %18 = add i32 %.032, 3
+  %.neg = sub i32 %4, %18
+  %19 = add i32 %.neg, %3
+  %20 = icmp ugt i32 %19, 2
+  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %24 = add nuw i32 %10, 3
+  %21 = add i32 %3, -3
+  %22 = urem i32 %21, 3
+  %23 = sub nuw i32 %21, %22
+  %24 = add nuw i32 %23, 3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
   %.lcssa31 = phi i32 [ 0, %6 ], [ %24, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ %3, %6 ], [ %22, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ %3, %6 ], [ %19, %._crit_edge.loopexit ]
   %25 = icmp ugt i32 %3, %.lcssa31
   br i1 %25, label %26, label %28
 

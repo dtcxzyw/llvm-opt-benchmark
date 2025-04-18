@@ -143459,8 +143459,8 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_10Decimal128
   %147 = shl nuw nsw i64 %146, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %147, i1 false), !tbaa !380
   %148 = mul nsw i64 %146, %36
-  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %147
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %148
+  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %147
   %149 = add i64 %.02459.i.i.i.i, %146
   br label %.loopexit.i.i.i.i
 
@@ -144010,8 +144010,8 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_10Decimal1
   %146 = shl nuw nsw i64 %145, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %146, i1 false), !tbaa !380
   %147 = mul nsw i64 %145, %36
-  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %146
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %147
+  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %146
   %148 = add i64 %.02459.i.i.i.i, %145
   br label %.loopexit.i.i.i.i
 
@@ -144313,8 +144313,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %49 = shl nuw nsw i64 %48, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %49, i1 false), !tbaa !380
   %50 = mul nsw i64 %48, %24
-  %scevgep55.i.i.i.i = getelementptr i8, ptr %.0, i64 %49
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %50
+  %scevgep55.i.i.i.i = getelementptr i8, ptr %.0, i64 %49
   %51 = add i64 %.02448.i.i.i.i, %48
   br label %.loopexit.i.i.i.i
 
@@ -144948,8 +144948,8 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal32EE
   %136 = shl nuw nsw i64 %135, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %136, i1 false), !tbaa !380
   %137 = mul nsw i64 %135, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %137
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %138 = add i64 %.02458.i.i.i.i, %135
   br label %.loopexit.i.i.i.i
 
@@ -145475,8 +145475,8 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal32
   %135 = shl nuw nsw i64 %134, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %135, i1 false), !tbaa !380
   %136 = mul nsw i64 %134, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %136
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %137 = add i64 %.02458.i.i.i.i, %134
   br label %.loopexit.i.i.i.i
 
@@ -145768,8 +145768,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %48 = shl nuw nsw i64 %47, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %48, i1 false), !tbaa !380
   %49 = mul nsw i64 %47, %24
-  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %49
+  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %50 = add i64 %.02447.i.i.i.i, %47
   br label %.loopexit.i.i.i.i
 
@@ -146396,8 +146396,8 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIsNS_9Decimal64EE
   %136 = shl nuw nsw i64 %135, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %136, i1 false), !tbaa !380
   %137 = mul nsw i64 %135, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %137
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %138 = add i64 %.02458.i.i.i.i, %135
   br label %.loopexit.i.i.i.i
 
@@ -146923,8 +146923,8 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIsNS_9Decimal64
   %135 = shl nuw nsw i64 %134, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %135, i1 false), !tbaa !380
   %136 = mul nsw i64 %134, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %136
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %137 = add i64 %.02458.i.i.i.i, %134
   br label %.loopexit.i.i.i.i
 
@@ -147216,8 +147216,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %48 = shl nuw nsw i64 %47, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %48, i1 false), !tbaa !380
   %49 = mul nsw i64 %47, %24
-  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %49
+  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %50 = add i64 %.02447.i.i.i.i, %47
   br label %.loopexit.i.i.i.i
 
@@ -147844,8 +147844,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   %139 = shl nuw nsw i64 %138, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %139, i1 false), !tbaa !380
   %140 = mul nsw i64 %138, %36
-  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %139
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %140
+  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %139
   %141 = add i64 %.02454.i.i.i.i, %138
   br label %.loopexit.i.i.i.i
 
@@ -148367,8 +148367,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   %138 = shl nuw nsw i64 %137, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %138, i1 false), !tbaa !380
   %139 = mul nsw i64 %137, %36
-  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %138
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %139
+  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %138
   %140 = add i64 %.02454.i.i.i.i, %137
   br label %.loopexit.i.i.i.i
 
@@ -148660,8 +148660,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %50 = shl nuw nsw i64 %49, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %50, i1 false), !tbaa !380
   %51 = mul nsw i64 %49, %26
-  %scevgep53.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %51
+  %scevgep53.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %52 = add i64 %.02446.i.i.i.i, %49
   br label %.loopexit.i.i.i.i
 
@@ -158292,8 +158292,8 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_10Decimal128
   %144 = shl nuw nsw i64 %143, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %144, i1 false), !tbaa !300
   %145 = mul nsw i64 %143, %36
-  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %144
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %145
+  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %144
   %146 = add i64 %.02459.i.i.i.i, %143
   br label %.loopexit.i.i.i.i
 
@@ -158833,8 +158833,8 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_10Decimal1
   %143 = shl nuw nsw i64 %142, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %143, i1 false), !tbaa !300
   %144 = mul nsw i64 %142, %36
-  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %143
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %144
+  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %143
   %145 = add i64 %.02459.i.i.i.i, %142
   br label %.loopexit.i.i.i.i
 
@@ -159131,8 +159131,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %49 = shl nuw nsw i64 %48, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %49, i1 false), !tbaa !300
   %50 = mul nsw i64 %48, %24
-  %scevgep55.i.i.i.i = getelementptr i8, ptr %.0, i64 %49
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %50
+  %scevgep55.i.i.i.i = getelementptr i8, ptr %.0, i64 %49
   %51 = add i64 %.02448.i.i.i.i, %48
   br label %.loopexit.i.i.i.i
 
@@ -159765,8 +159765,8 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal32EE
   %136 = shl nuw nsw i64 %135, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %136, i1 false), !tbaa !300
   %137 = mul nsw i64 %135, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %137
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %138 = add i64 %.02458.i.i.i.i, %135
   br label %.loopexit.i.i.i.i
 
@@ -160292,8 +160292,8 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal32
   %135 = shl nuw nsw i64 %134, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %135, i1 false), !tbaa !300
   %136 = mul nsw i64 %134, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %136
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %137 = add i64 %.02458.i.i.i.i, %134
   br label %.loopexit.i.i.i.i
 
@@ -160585,8 +160585,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %48 = shl nuw nsw i64 %47, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %48, i1 false), !tbaa !300
   %49 = mul nsw i64 %47, %24
-  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %49
+  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %50 = add i64 %.02447.i.i.i.i, %47
   br label %.loopexit.i.i.i.i
 
@@ -161208,8 +161208,8 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallIlNS_9Decimal64EE
   %133 = shl nuw nsw i64 %132, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %133, i1 false), !tbaa !300
   %134 = mul nsw i64 %132, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %133
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %134
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %133
   %135 = add i64 %.02458.i.i.i.i, %132
   br label %.loopexit.i.i.i.i
 
@@ -161725,8 +161725,8 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallIlNS_9Decimal64
   %132 = shl nuw nsw i64 %131, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %132, i1 false), !tbaa !300
   %133 = mul nsw i64 %131, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %132
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %133
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %132
   %134 = add i64 %.02458.i.i.i.i, %131
   br label %.loopexit.i.i.i.i
 
@@ -162013,8 +162013,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %48 = shl nuw nsw i64 %47, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %48, i1 false), !tbaa !300
   %49 = mul nsw i64 %47, %24
-  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %49
+  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %50 = add i64 %.02447.i.i.i.i, %47
   br label %.loopexit.i.i.i.i
 
@@ -162639,8 +162639,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   %138 = shl nuw nsw i64 %137, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %138, i1 false), !tbaa !300
   %139 = mul nsw i64 %137, %36
-  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %138
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %139
+  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %138
   %140 = add i64 %.02454.i.i.i.i, %137
   br label %.loopexit.i.i.i.i
 
@@ -163160,8 +163160,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   %137 = shl nuw nsw i64 %136, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %137, i1 false), !tbaa !300
   %138 = mul nsw i64 %136, %36
-  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %137
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %138
+  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %137
   %139 = add i64 %.02454.i.i.i.i, %136
   br label %.loopexit.i.i.i.i
 
@@ -163452,8 +163452,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %50 = shl nuw nsw i64 %49, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %50, i1 false), !tbaa !300
   %51 = mul nsw i64 %49, %26
-  %scevgep53.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %51
+  %scevgep53.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %52 = add i64 %.02446.i.i.i.i, %49
   br label %.loopexit.i.i.i.i
 
@@ -172719,8 +172719,8 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_10Decimal128
   %145 = shl nuw nsw i64 %144, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %145, i1 false), !tbaa !380
   %146 = mul nsw i64 %144, %36
-  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %145
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %146
+  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %145
   %147 = add i64 %.02459.i.i.i.i, %144
   br label %.loopexit.i.i.i.i
 
@@ -173266,8 +173266,8 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_10Decimal1
   %144 = shl nuw nsw i64 %143, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %144, i1 false), !tbaa !380
   %145 = mul nsw i64 %143, %36
-  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %144
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %145
+  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %144
   %146 = add i64 %.02459.i.i.i.i, %143
   br label %.loopexit.i.i.i.i
 
@@ -173568,8 +173568,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %49 = shl nuw nsw i64 %48, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %49, i1 false), !tbaa !380
   %50 = mul nsw i64 %48, %24
-  %scevgep55.i.i.i.i = getelementptr i8, ptr %.0, i64 %49
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %50
+  %scevgep55.i.i.i.i = getelementptr i8, ptr %.0, i64 %49
   %51 = add i64 %.02448.i.i.i.i, %48
   br label %.loopexit.i.i.i.i
 
@@ -174201,8 +174201,8 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal32EE
   %136 = shl nuw nsw i64 %135, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %136, i1 false), !tbaa !380
   %137 = mul nsw i64 %135, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %137
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %138 = add i64 %.02458.i.i.i.i, %135
   br label %.loopexit.i.i.i.i
 
@@ -174728,8 +174728,8 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal32
   %135 = shl nuw nsw i64 %134, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %135, i1 false), !tbaa !380
   %136 = mul nsw i64 %134, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %136
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %137 = add i64 %.02458.i.i.i.i, %134
   br label %.loopexit.i.i.i.i
 
@@ -175021,8 +175021,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %48 = shl nuw nsw i64 %47, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %48, i1 false), !tbaa !380
   %49 = mul nsw i64 %47, %24
-  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %49
+  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %50 = add i64 %.02447.i.i.i.i, %47
   br label %.loopexit.i.i.i.i
 
@@ -175649,8 +175649,8 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallItNS_9Decimal64EE
   %136 = shl nuw nsw i64 %135, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %136, i1 false), !tbaa !380
   %137 = mul nsw i64 %135, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %137
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %138 = add i64 %.02458.i.i.i.i, %135
   br label %.loopexit.i.i.i.i
 
@@ -176176,8 +176176,8 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallItNS_9Decimal64
   %135 = shl nuw nsw i64 %134, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %135, i1 false), !tbaa !380
   %136 = mul nsw i64 %134, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %136
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %137 = add i64 %.02458.i.i.i.i, %134
   br label %.loopexit.i.i.i.i
 
@@ -176469,8 +176469,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %48 = shl nuw nsw i64 %47, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %48, i1 false), !tbaa !380
   %49 = mul nsw i64 %47, %24
-  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %49
+  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %50 = add i64 %.02447.i.i.i.i, %47
   br label %.loopexit.i.i.i.i
 
@@ -177094,8 +177094,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   %137 = shl nuw nsw i64 %136, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %137, i1 false), !tbaa !380
   %138 = mul nsw i64 %136, %36
-  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %137
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %138
+  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %137
   %139 = add i64 %.02454.i.i.i.i, %136
   br label %.loopexit.i.i.i.i
 
@@ -177613,8 +177613,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   %136 = shl nuw nsw i64 %135, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %136, i1 false), !tbaa !380
   %137 = mul nsw i64 %135, %36
-  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %137
+  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %138 = add i64 %.02454.i.i.i.i, %135
   br label %.loopexit.i.i.i.i
 
@@ -177905,8 +177905,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %50 = shl nuw nsw i64 %49, 1
   call void @llvm.memset.p0.i64(ptr align 2 %.0, i8 0, i64 %50, i1 false), !tbaa !380
   %51 = mul nsw i64 %49, %26
-  %scevgep53.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %51
+  %scevgep53.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %52 = add i64 %.02446.i.i.i.i, %49
   br label %.loopexit.i.i.i.i
 
@@ -191502,8 +191502,8 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_10Decimal128
   %142 = shl nuw nsw i64 %141, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %142, i1 false), !tbaa !300
   %143 = mul nsw i64 %141, %36
-  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %142
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %143
+  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %142
   %144 = add i64 %.02459.i.i.i.i, %141
   br label %.loopexit.i.i.i.i
 
@@ -192039,8 +192039,8 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_10Decimal1
   %141 = shl nuw nsw i64 %140, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %141, i1 false), !tbaa !300
   %142 = mul nsw i64 %140, %36
-  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %141
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %142
+  %scevgep66.i.i.i.i = getelementptr i8, ptr %.0, i64 %141
   %143 = add i64 %.02459.i.i.i.i, %140
   br label %.loopexit.i.i.i.i
 
@@ -192336,8 +192336,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %49 = shl nuw nsw i64 %48, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %49, i1 false), !tbaa !300
   %50 = mul nsw i64 %48, %24
-  %scevgep55.i.i.i.i = getelementptr i8, ptr %.0, i64 %49
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %50
+  %scevgep55.i.i.i.i = getelementptr i8, ptr %.0, i64 %49
   %51 = add i64 %.02448.i.i.i.i, %48
   br label %.loopexit.i.i.i.i
 
@@ -192968,8 +192968,8 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal32EE
   %136 = shl nuw nsw i64 %135, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %136, i1 false), !tbaa !300
   %137 = mul nsw i64 %135, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %137
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %138 = add i64 %.02458.i.i.i.i, %135
   br label %.loopexit.i.i.i.i
 
@@ -193495,8 +193495,8 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal32
   %135 = shl nuw nsw i64 %134, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %135, i1 false), !tbaa !300
   %136 = mul nsw i64 %134, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %136
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %137 = add i64 %.02458.i.i.i.i, %134
   br label %.loopexit.i.i.i.i
 
@@ -193788,8 +193788,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %48 = shl nuw nsw i64 %47, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %48, i1 false), !tbaa !300
   %49 = mul nsw i64 %47, %24
-  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %49
+  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %50 = add i64 %.02447.i.i.i.i, %47
   br label %.loopexit.i.i.i.i
 
@@ -194411,8 +194411,8 @@ _ZNK5arrow7compute8internal29UnsafeUpscaleDecimalToInteger4CallImNS_9Decimal64EE
   %133 = shl nuw nsw i64 %132, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %133, i1 false), !tbaa !300
   %134 = mul nsw i64 %132, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %133
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %134
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %133
   %135 = add i64 %.02458.i.i.i.i, %132
   br label %.loopexit.i.i.i.i
 
@@ -194928,8 +194928,8 @@ _ZNK5arrow7compute8internal31UnsafeDownscaleDecimalToInteger4CallImNS_9Decimal64
   %132 = shl nuw nsw i64 %131, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %132, i1 false), !tbaa !300
   %133 = mul nsw i64 %131, %36
-  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %132
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %133
+  %scevgep65.i.i.i.i = getelementptr i8, ptr %.0, i64 %132
   %134 = add i64 %.02458.i.i.i.i, %131
   br label %.loopexit.i.i.i.i
 
@@ -195216,8 +195216,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %48 = shl nuw nsw i64 %47, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %48, i1 false), !tbaa !300
   %49 = mul nsw i64 %47, %24
-  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %49
+  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %48
   %50 = add i64 %.02447.i.i.i.i, %47
   br label %.loopexit.i.i.i.i
 
@@ -195839,8 +195839,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   %136 = shl nuw nsw i64 %135, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %136, i1 false), !tbaa !300
   %137 = mul nsw i64 %135, %36
-  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %137
+  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %136
   %138 = add i64 %.02454.i.i.i.i, %135
   br label %.loopexit.i.i.i.i
 
@@ -196356,8 +196356,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
   %135 = shl nuw nsw i64 %134, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %135, i1 false), !tbaa !300
   %136 = mul nsw i64 %134, %36
-  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %136
+  %scevgep61.i.i.i.i = getelementptr i8, ptr %.0, i64 %135
   %137 = add i64 %.02454.i.i.i.i, %134
   br label %.loopexit.i.i.i.i
 
@@ -196647,8 +196647,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.cont: ; preds = %_ZSt26__throw_bad_
   %50 = shl nuw nsw i64 %49, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %50, i1 false), !tbaa !300
   %51 = mul nsw i64 %49, %26
-  %scevgep53.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %51
+  %scevgep53.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %52 = add i64 %.02446.i.i.i.i, %49
   br label %.loopexit.i.i.i.i
 
@@ -198113,8 +198113,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   %50 = shl nuw nsw i64 %49, 2
   call void @llvm.memset.p0.i64(ptr align 4 %.0, i8 0, i64 %50, i1 false), !tbaa !437
   %51 = mul nsw i64 %49, %24
-  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %51
+  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %52 = add i64 %.02447.i.i.i.i, %49
   br label %.loopexit.i.i.i.i
 
@@ -198285,8 +198285,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   %50 = shl nuw nsw i64 %49, 2
   call void @llvm.memset.p0.i64(ptr align 4 %.0, i8 0, i64 %50, i1 false), !tbaa !437
   %51 = mul nsw i64 %49, %24
-  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %51
+  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %52 = add i64 %.02447.i.i.i.i, %49
   br label %.loopexit.i.i.i.i
 
@@ -198462,8 +198462,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   %53 = shl nuw nsw i64 %52, 2
   call void @llvm.memset.p0.i64(ptr align 4 %.0, i8 0, i64 %53, i1 false), !tbaa !437
   %54 = mul nsw i64 %52, %24
-  %scevgep55.i.i.i.i = getelementptr i8, ptr %.0, i64 %53
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %54
+  %scevgep55.i.i.i.i = getelementptr i8, ptr %.0, i64 %53
   %55 = add i64 %.02448.i.i.i.i, %52
   br label %.loopexit.i.i.i.i
 
@@ -198636,8 +198636,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   %50 = shl nuw nsw i64 %49, 2
   call void @llvm.memset.p0.i64(ptr align 4 %.0, i8 0, i64 %50, i1 false), !tbaa !437
   %51 = mul nsw i64 %49, %24
-  %scevgep53.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %51
+  %scevgep53.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %52 = add i64 %.02446.i.i.i.i, %49
   br label %.loopexit.i.i.i.i
 
@@ -199885,8 +199885,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   %50 = shl nuw nsw i64 %49, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %50, i1 false), !tbaa !450
   %51 = mul nsw i64 %49, %24
-  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %51
+  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %52 = add i64 %.02447.i.i.i.i, %49
   br label %.loopexit.i.i.i.i
 
@@ -200057,8 +200057,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   %50 = shl nuw nsw i64 %49, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %50, i1 false), !tbaa !450
   %51 = mul nsw i64 %49, %24
-  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %51
+  %scevgep54.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %52 = add i64 %.02447.i.i.i.i, %49
   br label %.loopexit.i.i.i.i
 
@@ -200234,8 +200234,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   %53 = shl nuw nsw i64 %52, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %53, i1 false), !tbaa !450
   %54 = mul nsw i64 %52, %24
-  %scevgep55.i.i.i.i = getelementptr i8, ptr %.0, i64 %53
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %54
+  %scevgep55.i.i.i.i = getelementptr i8, ptr %.0, i64 %53
   %55 = add i64 %.02448.i.i.i.i, %52
   br label %.loopexit.i.i.i.i
 
@@ -200408,8 +200408,8 @@ _ZSt26__throw_bad_variant_accessb.exit.i.i.i.invoke: ; preds = %5, %_ZSt26__thro
   %50 = shl nuw nsw i64 %49, 3
   call void @llvm.memset.p0.i64(ptr align 8 %.0, i8 0, i64 %50, i1 false), !tbaa !450
   %51 = mul nsw i64 %49, %24
-  %scevgep53.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %scevgep.i.i.i.i = getelementptr i8, ptr %.0.i.i.i, i64 %51
+  %scevgep53.i.i.i.i = getelementptr i8, ptr %.0, i64 %50
   %52 = add i64 %.02446.i.i.i.i, %49
   br label %.loopexit.i.i.i.i
 

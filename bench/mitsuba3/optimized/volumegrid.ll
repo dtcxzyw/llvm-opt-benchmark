@@ -304,24 +304,24 @@ _ZN7mitsuba9TransformINS_5PointIfLm4EEEE5scaleERKNS_6VectorIfLm3EEE.exit: ; pred
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %42, ptr noundef nonnull align 16 dereferenceable(64) %8, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  %43 = fneg <4 x float> %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 48, i1 false), !alias.scope !36, !noalias !33
-  br label %44
+  br label %43
 
-44:                                               ; preds = %44, %_ZN7mitsuba9TransformINS_5PointIfLm4EEEE5scaleERKNS_6VectorIfLm3EEE.exit
-  %.017.i.i.i = phi i64 [ 0, %_ZN7mitsuba9TransformINS_5PointIfLm4EEEE5scaleERKNS_6VectorIfLm3EEE.exit ], [ %47, %44 ]
-  %45 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %3, i64 0, i64 %.017.i.i.i
-  %46 = getelementptr inbounds nuw float, ptr %45, i64 %.017.i.i.i
-  store float 1.000000e+00, ptr %46, align 4, !alias.scope !43, !noalias !33
-  %47 = add nuw nsw i64 %.017.i.i.i, 1
-  %exitcond.not.i.i.i43 = icmp eq i64 %47, 4
-  br i1 %exitcond.not.i.i.i43, label %_ZN5drjit9translateINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS3_ELi1EEEE.exit.i, label %44, !llvm.loop !44
+43:                                               ; preds = %43, %_ZN7mitsuba9TransformINS_5PointIfLm4EEEE5scaleERKNS_6VectorIfLm3EEE.exit
+  %.017.i.i.i = phi i64 [ 0, %_ZN7mitsuba9TransformINS_5PointIfLm4EEEE5scaleERKNS_6VectorIfLm3EEE.exit ], [ %46, %43 ]
+  %44 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %3, i64 0, i64 %.017.i.i.i
+  %45 = getelementptr inbounds nuw float, ptr %44, i64 %.017.i.i.i
+  store float 1.000000e+00, ptr %45, align 4, !alias.scope !43, !noalias !33
+  %46 = add nuw nsw i64 %.017.i.i.i, 1
+  %exitcond.not.i.i.i43 = icmp eq i64 %46, 4
+  br i1 %exitcond.not.i.i.i43, label %_ZN5drjit9translateINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS3_ELi1EEEE.exit.i, label %43, !llvm.loop !44
 
-_ZN5drjit9translateINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS3_ELi1EEEE.exit.i: ; preds = %44
-  %.sroa.012.12.vec.insert.i.i.i44 = insertelement <4 x float> %43, float 1.000000e+00, i64 3
+_ZN5drjit9translateINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS3_ELi1EEEE.exit.i: ; preds = %43
+  %47 = fneg <4 x float> %16
+  %.sroa.012.12.vec.insert.i.i.i44 = insertelement <4 x float> %47, float 1.000000e+00, i64 3
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store <4 x float> %.sroa.012.12.vec.insert.i.i.i44, ptr %48, align 16, !alias.scope !45, !noalias !33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 48, i1 false), !alias.scope !46, !noalias !33

@@ -4348,7 +4348,6 @@ _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE12emplace_backIJRS2_EEES5_DpOT_.exit
 
 .critedge170:                                     ; preds = %201, %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE12emplace_backIJRS2_EEES5_DpOT_.exit, %228
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #17
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %10, align 8
   %232 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %232, align 4, !tbaa !233
@@ -4363,6 +4362,7 @@ _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE12emplace_backIJRS2_EEES5_DpOT_.exit
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !236
 
 _ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_5ValueELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %233 = load ptr, ptr %8, align 8, !tbaa !3
   %234 = load i32, ptr %189, align 8, !tbaa !9

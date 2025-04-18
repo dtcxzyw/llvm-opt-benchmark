@@ -21319,10 +21319,10 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h627e4e9c002c4da2E(ptr noali
   %.promoted12 = load i64, ptr %9, align 8
   %.promoted13 = load i64, ptr %10, align 8
   %.promoted14 = load i64, ptr %11, align 8
-  %12 = shl i64 %1, 3
   br label %15
 
 ._crit_edge:                                      ; preds = %"_ZN68_$LT$citationberg..taxonomy..Locator$u20$as$u20$core..hash..Hash$GT$4hash17h257c5dd53c667271E.llvm.2456044669961016091.exit"
+  %12 = shl i64 %1, 3
   %13 = add i64 %.promoted7, %12
   store i64 %13, ptr %6, align 8, !alias.scope !3808, !noalias !3817
   store i64 %.0.i.i.i.i10, ptr %8, align 8, !alias.scope !3808, !noalias !3817
@@ -21414,10 +21414,10 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h6b69cdc8906eb316E(ptr noali
   %.promoted12 = load i64, ptr %9, align 8
   %.promoted13 = load i64, ptr %10, align 8
   %.promoted14 = load i64, ptr %11, align 8
-  %12 = shl i64 %1, 3
   br label %15
 
 ._crit_edge:                                      ; preds = %"_ZN65_$LT$citationberg..taxonomy..Kind$u20$as$u20$core..hash..Hash$GT$4hash17hb54b67f098399dc1E.llvm.2456044669961016091.exit"
+  %12 = shl i64 %1, 3
   %13 = add i64 %.promoted7, %12
   store i64 %13, ptr %6, align 8, !alias.scope !3823, !noalias !3832
   store i64 %.0.i.i.i.i10, ptr %8, align 8, !alias.scope !3823, !noalias !3832
@@ -21884,10 +21884,10 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hbc990bd7370fa098E(ptr noali
   %.promoted12 = load i64, ptr %9, align 8
   %.promoted13 = load i64, ptr %10, align 8
   %.promoted14 = load i64, ptr %11, align 8
-  %12 = shl i64 %1, 3
   br label %15
 
 ._crit_edge:                                      ; preds = %"_ZN73_$LT$citationberg..taxonomy..DateVariable$u20$as$u20$core..hash..Hash$GT$4hash17h2ecd2f6f19141843E.llvm.2456044669961016091.exit"
+  %12 = shl i64 %1, 3
   %13 = add i64 %.promoted7, %12
   store i64 %13, ptr %6, align 8, !alias.scope !3944, !noalias !3953
   store i64 %.0.i.i.i.i10, ptr %8, align 8, !alias.scope !3944, !noalias !3953
@@ -22057,10 +22057,10 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17hcd91b9025e90470dE(ptr noali
   %.promoted12 = load i64, ptr %9, align 8
   %.promoted13 = load i64, ptr %10, align 8
   %.promoted14 = load i64, ptr %11, align 8
-  %12 = shl i64 %1, 3
   br label %15
 
 ._crit_edge:                                      ; preds = %"_ZN73_$LT$citationberg..taxonomy..NameVariable$u20$as$u20$core..hash..Hash$GT$4hash17hf337a0b3547f9fbaE.llvm.2456044669961016091.exit"
+  %12 = shl i64 %1, 3
   %13 = add i64 %.promoted7, %12
   store i64 %13, ptr %6, align 8, !alias.scope !3998, !noalias !4007
   store i64 %.0.i.i.i.i10, ptr %8, align 8, !alias.scope !3998, !noalias !4007

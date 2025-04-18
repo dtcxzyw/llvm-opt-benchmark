@@ -4220,7 +4220,6 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not, label %cleanup.cont117, label %if.end5
 
 if.end5:                                          ; preds = %if.then2, %if.end
-  %storage.i.i.i.i.i.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %lexicallyDeclaredNames, i64 8
   store i32 1, ptr %lexicallyDeclaredNames, align 8
   %NumTombstones.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %lexicallyDeclaredNames, i64 4
   store i32 0, ptr %NumTombstones.i.i.i.i.i, align 4
@@ -4235,6 +4234,7 @@ for.body.i.i.i:                                   ; preds = %if.end5, %for.body.
   br i1 %cmp.not.i.i.i, label %_ZN4llvh13SmallDenseMapIPN6hermes12UniqueStringEPNS1_6ESTree14IdentifierNodeELj8ENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EEEC2Ej.exit, label %for.body.i.i.i, !llvm.loop !104
 
 _ZN4llvh13SmallDenseMapIPN6hermes12UniqueStringEPNS1_6ESTree14IdentifierNodeELj8ENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S6_EEEC2Ej.exit: ; preds = %for.body.i.i.i
+  %storage.i.i.i.i.i.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %lexicallyDeclaredNames, i64 8
   %NumBuckets.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %lexicallyDeclaredNames, i64 16
   br i1 %cmp, label %if.end52, label %if.then7
 

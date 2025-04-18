@@ -3667,32 +3667,32 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   br label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE25computeChunkCountAndScaleEmbb.exit
 
 18:                                               ; preds = %5
-  %19 = add i64 %.sroa.speculated, -1
-  %20 = udiv i64 %19, 12
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #27
   store i64 72057594037927935, ptr %6, align 8, !tbaa !48
   %.ptr3.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 -1, ptr %.ptr3.i.i, align 8, !tbaa !48
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 1152921504606846975, ptr %22, align 8, !tbaa !48
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 1152921504606846975, ptr %19, align 8, !tbaa !48
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %18
-  %23 = phi i64 [ %26, %.lr.ph.i.i.i.i ], [ 72057594037927935, %18 ]
+  %20 = phi i64 [ %23, %.lr.ph.i.i.i.i ], [ 72057594037927935, %18 ]
   %.idx.i.i = phi i64 [ %.add.i.i, %.lr.ph.i.i.i.i ], [ 8, %18 ]
   %.018.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %6, %18 ]
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
-  %24 = load i64, ptr %.ptr.i.i, align 8, !tbaa !48
-  %25 = icmp ult i64 %24, %23
-  %26 = tail call i64 @llvm.umin.i64(i64 %24, i64 %23)
-  %spec.select.i.i.i.i = select i1 %25, ptr %.ptr.i.i, ptr %.018.i.i.i.i
+  %21 = load i64, ptr %.ptr.i.i, align 8, !tbaa !48
+  %22 = icmp ult i64 %21, %20
+  %23 = tail call i64 @llvm.umin.i64(i64 %21, i64 %20)
+  %spec.select.i.i.i.i = select i1 %22, ptr %.ptr.i.i, ptr %.018.i.i.i.i
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %.add.i.i, 24
   br i1 %.not.i.i.i.i, label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE8max_sizeEv.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !172
 
 _ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE8max_sizeEv.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %27 = sub nuw nsw i64 64, %21
+  %24 = add i64 %.sroa.speculated, -1
+  %25 = udiv i64 %24, 12
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
+  %27 = sub nuw nsw i64 64, %26
   %28 = shl i64 12, %27
   %29 = load i64, ptr %spec.select.i.i.i.i, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27
@@ -12620,32 +12620,32 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   br label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyINSt6thread2idES4_vvvEEE25computeChunkCountAndScaleEmbb.exit
 
 18:                                               ; preds = %5
-  %19 = add i64 %.sroa.speculated, -1
-  %20 = udiv i64 %19, 12
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #27
   store i64 72057594037927935, ptr %6, align 8, !tbaa !48
   %.ptr3.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 -1, ptr %.ptr3.i.i, align 8, !tbaa !48
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 576460752303423487, ptr %22, align 8, !tbaa !48
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 576460752303423487, ptr %19, align 8, !tbaa !48
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %18
-  %23 = phi i64 [ %26, %.lr.ph.i.i.i.i ], [ 72057594037927935, %18 ]
+  %20 = phi i64 [ %23, %.lr.ph.i.i.i.i ], [ 72057594037927935, %18 ]
   %.idx.i.i = phi i64 [ %.add.i.i, %.lr.ph.i.i.i.i ], [ 8, %18 ]
   %.018.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %6, %18 ]
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
-  %24 = load i64, ptr %.ptr.i.i, align 8, !tbaa !48
-  %25 = icmp ult i64 %24, %23
-  %26 = tail call i64 @llvm.umin.i64(i64 %24, i64 %23)
-  %spec.select.i.i.i.i = select i1 %25, ptr %.ptr.i.i, ptr %.018.i.i.i.i
+  %21 = load i64, ptr %.ptr.i.i, align 8, !tbaa !48
+  %22 = icmp ult i64 %21, %20
+  %23 = tail call i64 @llvm.umin.i64(i64 %21, i64 %20)
+  %spec.select.i.i.i.i = select i1 %22, ptr %.ptr.i.i, ptr %.018.i.i.i.i
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %.add.i.i, 24
   br i1 %.not.i.i.i.i, label %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyINSt6thread2idES4_vvvEEE8max_sizeEv.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !172
 
 _ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyINSt6thread2idES4_vvvEEE8max_sizeEv.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %27 = sub nuw nsw i64 64, %21
+  %24 = add i64 %.sroa.speculated, -1
+  %25 = udiv i64 %24, 12
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
+  %27 = sub nuw nsw i64 64, %26
   %28 = shl i64 12, %27
   %29 = load i64, ptr %spec.select.i.i.i.i, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #27

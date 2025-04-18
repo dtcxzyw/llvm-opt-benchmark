@@ -96,38 +96,38 @@ lexbor_conv_int64_to_data.exit:                   ; preds = %.lr.ph57.i, %8, %9,
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq i64 %0, 0
-  br i1 %.not, label %9, label %4
+  br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %3
-  %5 = icmp slt i64 %0, 0
   %.lobit = lshr i64 %0, 63
-  br label %6
+  br label %5
 
-6:                                                ; preds = %4, %6
-  %.150 = phi i64 [ %.lobit, %4 ], [ %7, %6 ]
-  %.03549 = phi i64 [ %0, %4 ], [ %8, %6 ]
-  %7 = add i64 %.150, 1
-  %8 = sdiv i64 %.03549, 10
+5:                                                ; preds = %4, %5
+  %.150 = phi i64 [ %.lobit, %4 ], [ %6, %5 ]
+  %.03549 = phi i64 [ %0, %4 ], [ %7, %5 ]
+  %6 = add i64 %.150, 1
+  %7 = sdiv i64 %.03549, 10
   %.03549.off = add i64 %.03549, 9
   %.not43 = icmp ult i64 %.03549.off, 19
-  br i1 %.not43, label %11, label %6
+  br i1 %.not43, label %10, label %5
 
-9:                                                ; preds = %3
+8:                                                ; preds = %3
   %.not42 = icmp eq i64 %2, 0
-  br i1 %.not42, label %.loopexit, label %10
+  br i1 %.not42, label %.loopexit, label %9
 
-10:                                               ; preds = %9
+9:                                                ; preds = %8
   store i8 48, ptr %1, align 1, !tbaa !4
   br label %.loopexit
 
-11:                                               ; preds = %6
+10:                                               ; preds = %5
+  %11 = icmp slt i64 %0, 0
   %spec.select = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
-  %12 = icmp ult i64 %2, %7
+  %12 = icmp ult i64 %2, %6
   br i1 %12, label %13, label %.loopexit48
 
-13:                                               ; preds = %11
+13:                                               ; preds = %10
   %14 = sub i64 %.lobit, %2
-  %15 = add i64 %14, %7
+  %15 = add i64 %14, %6
   %.not4451 = icmp eq i64 %15, %.lobit
   br i1 %.not4451, label %.loopexit48, label %.lr.ph
 
@@ -139,10 +139,10 @@ define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr noundef writeon
   %.not44 = icmp eq i64 %16, %.lobit
   br i1 %.not44, label %.loopexit48, label %.lr.ph
 
-.loopexit48:                                      ; preds = %.lr.ph, %13, %11
-  %.138 = phi i64 [ %spec.select, %11 ], [ %spec.select, %13 ], [ %17, %.lr.ph ]
-  %.2 = phi i64 [ %7, %11 ], [ %2, %13 ], [ %2, %.lr.ph ]
-  br i1 %5, label %18, label %19
+.loopexit48:                                      ; preds = %.lr.ph, %13, %10
+  %.138 = phi i64 [ %spec.select, %10 ], [ %spec.select, %13 ], [ %17, %.lr.ph ]
+  %.2 = phi i64 [ %6, %10 ], [ %2, %13 ], [ %2, %.lr.ph ]
+  br i1 %11, label %18, label %19
 
 18:                                               ; preds = %.loopexit48
   store i8 45, ptr %1, align 1, !tbaa !4
@@ -167,8 +167,8 @@ define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr noundef writeon
   %.not46 = icmp eq i64 %21, %.lobit
   br i1 %.not46, label %.loopexit, label %.lr.ph57
 
-.loopexit:                                        ; preds = %.lr.ph57, %19, %9, %10
-  %.036 = phi i64 [ 1, %10 ], [ 0, %9 ], [ %.lobit, %19 ], [ %.2, %.lr.ph57 ]
+.loopexit:                                        ; preds = %.lr.ph57, %19, %8, %9
+  %.036 = phi i64 [ 1, %9 ], [ 0, %8 ], [ %.lobit, %19 ], [ %.2, %.lr.ph57 ]
   ret i64 %.036
 }
 

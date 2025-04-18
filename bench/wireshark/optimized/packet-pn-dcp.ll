@@ -2229,23 +2229,23 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %716, %718
   %771 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.260, ptr noundef %771)
   %772 = load i16, ptr %12, align 2
-  %773 = add i32 %750, -16
-  %774 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  br label %775
+  %773 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  br label %774
 
-775:                                              ; preds = %775, %767
-  %indvars.iv222.i = phi i64 [ 0, %767 ], [ %indvars.iv.next223.i, %775 ]
-  %776 = getelementptr [8 x i8], ptr %774, i64 0, i64 %indvars.iv222.i
-  %777 = load i8, ptr %776, align 1
-  %.not208.i = icmp eq i8 %777, 0
+774:                                              ; preds = %774, %767
+  %indvars.iv222.i = phi i64 [ 0, %767 ], [ %indvars.iv.next223.i, %774 ]
+  %775 = getelementptr [8 x i8], ptr %773, i64 0, i64 %indvars.iv222.i
+  %776 = load i8, ptr %775, align 1
+  %.not208.i = icmp eq i8 %776, 0
   %indvars.iv.next223.i = add nuw nsw i64 %indvars.iv222.i, 1
   %exitcond225.i = icmp ne i64 %indvars.iv.next223.i, 8
   %or.cond.not.i = select i1 %.not208.i, i1 %exitcond225.i, i1 false
-  br i1 %or.cond.not.i, label %775, label %778, !llvm.loop !8
+  br i1 %or.cond.not.i, label %774, label %777, !llvm.loop !8
 
-778:                                              ; preds = %775
-  %779 = zext i16 %772 to i32
-  %780 = add i32 %773, %779
+777:                                              ; preds = %774
+  %778 = zext i16 %772 to i32
+  %779 = add i32 %750, -16
+  %780 = add i32 %779, %778
   %781 = load i32, ptr %15, align 4
   %782 = icmp eq i32 %781, 0
   %783 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -2259,11 +2259,11 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %716, %718
   %or.cond17.i = and i1 %.not208.i, %or.cond15.i115
   br i1 %or.cond17.i, label %789, label %790
 
-789:                                              ; preds = %778
+789:                                              ; preds = %777
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.312)
   br label %dissect_PNDCP_Suboption_TSN.exit
 
-790:                                              ; preds = %778
+790:                                              ; preds = %777
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.313)
   br label %dissect_PNDCP_Suboption_TSN.exit
 

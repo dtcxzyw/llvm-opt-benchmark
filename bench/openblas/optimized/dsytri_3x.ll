@@ -1060,15 +1060,15 @@ thread-pre-split707:                              ; preds = %._crit_edge827, %.l
 .lr.ph879.preheader:                              ; preds = %464
   %465 = sext i32 %storemerge645.in844 to i64
   %466 = zext nneg i32 %448 to i64
-  %467 = add nsw i32 %448, -1
-  %468 = add nuw i32 %448, 1
-  %wide.trip.count1101 = zext i32 %468 to i64
+  %467 = add nuw i32 %448, 1
+  %wide.trip.count1101 = zext i32 %467 to i64
   %wide.trip.count1093 = zext nneg i32 %448 to i64
   %invariant.gep1251 = getelementptr double, ptr %19, i64 %465
   br label %.lr.ph879
 
 ..preheader716_crit_edge:                         ; preds = %._crit_edge875
-  store i32 %467, ptr %11, align 4, !tbaa !3
+  %468 = add nsw i32 %448, -1
+  store i32 %468, ptr %11, align 4, !tbaa !3
   br label %.preheader716
 
 .preheader716:                                    ; preds = %..preheader716_crit_edge, %464

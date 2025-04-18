@@ -1990,179 +1990,176 @@ define void @Mpm_ManPrintStats(ptr noundef captures(none) %0) local_unnamed_addr
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph.i58, label %17, !llvm.loop !129
 
-.lr.ph.i58:                                       ; preds = %17
-  %24 = sitofp i32 %23 to double
-  br label %25
-
-25:                                               ; preds = %25, %.lr.ph.i58
-  %indvars.iv.i60 = phi i64 [ 1, %.lr.ph.i58 ], [ %indvars.iv.next.i64, %25 ]
-  %.010.i61 = phi i32 [ 0, %.lr.ph.i58 ], [ %31, %25 ]
-  %26 = getelementptr inbounds nuw %struct.Mmr_Fixed_t_, ptr %15, i64 %indvars.iv.i60
-  %27 = getelementptr i8, ptr %26, i64 4
-  %.val.i62 = load i32, ptr %27, align 4, !tbaa !41
-  %28 = getelementptr i8, ptr %26, i64 28
-  %.val7.i63 = load i32, ptr %28, align 4, !tbaa !48
-  %29 = add nsw i32 %.val.i62, 1
-  %30 = mul nsw i32 %.val7.i63, %29
-  %31 = add nsw i32 %30, %.010.i61
+.lr.ph.i58:                                       ; preds = %17, %.lr.ph.i58
+  %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i64, %.lr.ph.i58 ], [ 1, %17 ]
+  %.010.i61 = phi i32 [ %29, %.lr.ph.i58 ], [ 0, %17 ]
+  %24 = getelementptr inbounds nuw %struct.Mmr_Fixed_t_, ptr %15, i64 %indvars.iv.i60
+  %25 = getelementptr i8, ptr %24, i64 4
+  %.val.i62 = load i32, ptr %25, align 4, !tbaa !41
+  %26 = getelementptr i8, ptr %24, i64 28
+  %.val7.i63 = load i32, ptr %26, align 4, !tbaa !48
+  %27 = add nsw i32 %.val.i62, 1
+  %28 = mul nsw i32 %.val7.i63, %27
+  %29 = add nsw i32 %28, %.010.i61
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i
-  br i1 %exitcond.not.i65, label %Mmr_StepMemory.exit67.loopexit, label %25, !llvm.loop !129
+  br i1 %exitcond.not.i65, label %Mmr_StepMemory.exit67.loopexit, label %.lr.ph.i58, !llvm.loop !129
 
-Mmr_StepMemory.exit67.loopexit:                   ; preds = %25
-  %32 = fmul double %24, 0x3EE0000000000000
-  %33 = sitofp i32 %31 to double
-  %34 = fmul double %33, 0x3EE0000000000000
+Mmr_StepMemory.exit67.loopexit:                   ; preds = %.lr.ph.i58
+  %30 = sitofp i32 %23 to double
+  %31 = fmul double %30, 0x3EE0000000000000
+  %32 = sitofp i32 %29 to double
+  %33 = fmul double %32, 0x3EE0000000000000
   br label %Mmr_StepMemory.exit67
 
 Mmr_StepMemory.exit67:                            ; preds = %Mmr_StepMemory.exit67.loopexit, %1
-  %35 = phi double [ 0.000000e+00, %1 ], [ %32, %Mmr_StepMemory.exit67.loopexit ]
-  %.0.lcssa.i66 = phi double [ 0.000000e+00, %1 ], [ %34, %Mmr_StepMemory.exit67.loopexit ]
-  %36 = fadd double %8, %10
-  %37 = fadd double %36, %.0.lcssa.i66
-  %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %8, double noundef %10, double noundef %35, double noundef %37)
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 13904
-  %40 = load i64, ptr %39, align 8, !tbaa !130
-  %.not = icmp eq i64 %40, 0
-  br i1 %.not, label %115, label %41
+  %34 = phi double [ 0.000000e+00, %1 ], [ %31, %Mmr_StepMemory.exit67.loopexit ]
+  %.0.lcssa.i66 = phi double [ 0.000000e+00, %1 ], [ %33, %Mmr_StepMemory.exit67.loopexit ]
+  %35 = fadd double %8, %10
+  %36 = fadd double %35, %.0.lcssa.i66
+  %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %8, double noundef %10, double noundef %34, double noundef %36)
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 13904
+  %39 = load i64, ptr %38, align 8, !tbaa !130
+  %.not = icmp eq i64 %39, 0
+  br i1 %.not, label %114, label %40
 
-41:                                               ; preds = %Mmr_StepMemory.exit67
+40:                                               ; preds = %Mmr_StepMemory.exit67
   %putchar = tail call i32 @putchar(i32 10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #18
-  %42 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #18
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %Abc_Clock.exit, label %44
+  %41 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #18
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %Abc_Clock.exit, label %43
 
-44:                                               ; preds = %41
-  %45 = load i64, ptr %3, align 8, !tbaa !75
-  %46 = mul nsw i64 %45, 1000000
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !77
-  %49 = sdiv i64 %48, 1000
-  %50 = add nsw i64 %49, %46
+43:                                               ; preds = %40
+  %44 = load i64, ptr %3, align 8, !tbaa !75
+  %45 = mul nsw i64 %44, 1000000
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !77
+  %48 = sdiv i64 %47, 1000
+  %49 = add nsw i64 %48, %45
   br label %Abc_Clock.exit
 
-Abc_Clock.exit:                                   ; preds = %41, %44
-  %.0.i = phi i64 [ %50, %44 ], [ -1, %41 ]
+Abc_Clock.exit:                                   ; preds = %40, %43
+  %.0.i = phi i64 [ %49, %43 ], [ -1, %40 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 13952
-  %52 = load i64, ptr %51, align 8, !tbaa !78
-  %53 = sub nsw i64 %.0.i, %52
-  store i64 %53, ptr %51, align 8, !tbaa !78
-  %54 = load i64, ptr %39, align 8, !tbaa !130
-  %55 = sub nsw i64 %53, %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 13944
-  store i64 %55, ptr %56, align 8, !tbaa !131
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 13952
+  %51 = load i64, ptr %50, align 8, !tbaa !78
+  %52 = sub nsw i64 %.0.i, %51
+  store i64 %52, ptr %50, align 8, !tbaa !78
+  %53 = load i64, ptr %38, align 8, !tbaa !130
+  %54 = sub nsw i64 %52, %53
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 13944
+  store i64 %54, ptr %55, align 8, !tbaa !131
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
-  %57 = load i64, ptr %39, align 8, !tbaa !130
-  %58 = sitofp i64 %57 to double
-  %59 = fdiv double %58, 1.000000e+06
-  %60 = load i64, ptr %51, align 8, !tbaa !78
-  %.not47 = icmp eq i64 %60, 0
-  %61 = sitofp i64 %60 to double
-  %62 = fmul double %58, 1.000000e+02
-  %63 = fdiv double %62, %61
-  %64 = select i1 %.not47, double 0.000000e+00, double %63
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %59, double noundef %64)
+  %56 = load i64, ptr %38, align 8, !tbaa !130
+  %57 = sitofp i64 %56 to double
+  %58 = fdiv double %57, 1.000000e+06
+  %59 = load i64, ptr %50, align 8, !tbaa !78
+  %.not47 = icmp eq i64 %59, 0
+  %60 = sitofp i64 %59 to double
+  %61 = fmul double %57, 1.000000e+02
+  %62 = fdiv double %61, %60
+  %63 = select i1 %.not47, double 0.000000e+00, double %62
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %58, double noundef %63)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10)
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 13912
-  %66 = load i64, ptr %65, align 8, !tbaa !132
-  %67 = sitofp i64 %66 to double
-  %68 = fdiv double %67, 1.000000e+06
-  %69 = load i64, ptr %51, align 8, !tbaa !78
-  %.not48 = icmp eq i64 %69, 0
-  %70 = sitofp i64 %69 to double
-  %71 = fmul double %67, 1.000000e+02
-  %72 = fdiv double %71, %70
-  %73 = select i1 %.not48, double 0.000000e+00, double %72
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %68, double noundef %73)
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 13912
+  %65 = load i64, ptr %64, align 8, !tbaa !132
+  %66 = sitofp i64 %65 to double
+  %67 = fdiv double %66, 1.000000e+06
+  %68 = load i64, ptr %50, align 8, !tbaa !78
+  %.not48 = icmp eq i64 %68, 0
+  %69 = sitofp i64 %68 to double
+  %70 = fmul double %66, 1.000000e+02
+  %71 = fdiv double %70, %69
+  %72 = select i1 %.not48, double 0.000000e+00, double %71
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %67, double noundef %72)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11)
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 13920
-  %75 = load i64, ptr %74, align 8, !tbaa !133
-  %76 = sitofp i64 %75 to double
-  %77 = fdiv double %76, 1.000000e+06
-  %78 = load i64, ptr %51, align 8, !tbaa !78
-  %.not49 = icmp eq i64 %78, 0
-  %79 = sitofp i64 %78 to double
-  %80 = fmul double %76, 1.000000e+02
-  %81 = fdiv double %80, %79
-  %82 = select i1 %.not49, double 0.000000e+00, double %81
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %77, double noundef %82)
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 13920
+  %74 = load i64, ptr %73, align 8, !tbaa !133
+  %75 = sitofp i64 %74 to double
+  %76 = fdiv double %75, 1.000000e+06
+  %77 = load i64, ptr %50, align 8, !tbaa !78
+  %.not49 = icmp eq i64 %77, 0
+  %78 = sitofp i64 %77 to double
+  %79 = fmul double %75, 1.000000e+02
+  %80 = fdiv double %79, %78
+  %81 = select i1 %.not49, double 0.000000e+00, double %80
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %76, double noundef %81)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.12)
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 13928
-  %84 = load i64, ptr %83, align 8, !tbaa !134
-  %85 = sitofp i64 %84 to double
-  %86 = fdiv double %85, 1.000000e+06
-  %87 = load i64, ptr %51, align 8, !tbaa !78
-  %.not50 = icmp eq i64 %87, 0
-  %88 = sitofp i64 %87 to double
-  %89 = fmul double %85, 1.000000e+02
-  %90 = fdiv double %89, %88
-  %91 = select i1 %.not50, double 0.000000e+00, double %90
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %86, double noundef %91)
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 13928
+  %83 = load i64, ptr %82, align 8, !tbaa !134
+  %84 = sitofp i64 %83 to double
+  %85 = fdiv double %84, 1.000000e+06
+  %86 = load i64, ptr %50, align 8, !tbaa !78
+  %.not50 = icmp eq i64 %86, 0
+  %87 = sitofp i64 %86 to double
+  %88 = fmul double %84, 1.000000e+02
+  %89 = fdiv double %88, %87
+  %90 = select i1 %.not50, double 0.000000e+00, double %89
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %85, double noundef %90)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.13)
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 13936
-  %93 = load i64, ptr %92, align 8, !tbaa !135
-  %94 = sitofp i64 %93 to double
-  %95 = fdiv double %94, 1.000000e+06
-  %96 = load i64, ptr %51, align 8, !tbaa !78
-  %.not51 = icmp eq i64 %96, 0
-  %97 = sitofp i64 %96 to double
-  %98 = fmul double %94, 1.000000e+02
-  %99 = fdiv double %98, %97
-  %100 = select i1 %.not51, double 0.000000e+00, double %99
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %95, double noundef %100)
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 13936
+  %92 = load i64, ptr %91, align 8, !tbaa !135
+  %93 = sitofp i64 %92 to double
+  %94 = fdiv double %93, 1.000000e+06
+  %95 = load i64, ptr %50, align 8, !tbaa !78
+  %.not51 = icmp eq i64 %95, 0
+  %96 = sitofp i64 %95 to double
+  %97 = fmul double %93, 1.000000e+02
+  %98 = fdiv double %97, %96
+  %99 = select i1 %.not51, double 0.000000e+00, double %98
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %94, double noundef %99)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.14)
-  %101 = load i64, ptr %56, align 8, !tbaa !131
-  %102 = sitofp i64 %101 to double
-  %103 = fdiv double %102, 1.000000e+06
-  %104 = load i64, ptr %51, align 8, !tbaa !78
-  %.not52 = icmp eq i64 %104, 0
-  %105 = sitofp i64 %104 to double
-  %106 = fmul double %102, 1.000000e+02
-  %107 = fdiv double %106, %105
-  %108 = select i1 %.not52, double 0.000000e+00, double %107
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %103, double noundef %108)
+  %100 = load i64, ptr %55, align 8, !tbaa !131
+  %101 = sitofp i64 %100 to double
+  %102 = fdiv double %101, 1.000000e+06
+  %103 = load i64, ptr %50, align 8, !tbaa !78
+  %.not52 = icmp eq i64 %103, 0
+  %104 = sitofp i64 %103 to double
+  %105 = fmul double %101, 1.000000e+02
+  %106 = fdiv double %105, %104
+  %107 = select i1 %.not52, double 0.000000e+00, double %106
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %102, double noundef %107)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.15)
-  %109 = load i64, ptr %51, align 8, !tbaa !78
-  %110 = sitofp i64 %109 to double
-  %111 = fdiv double %110, 1.000000e+06
-  %.not53 = icmp eq i64 %109, 0
-  %112 = fmul double %110, 1.000000e+02
-  %113 = fdiv double %112, %110
-  %114 = select i1 %.not53, double 0.000000e+00, double %113
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %111, double noundef %114)
-  br label %130
+  %108 = load i64, ptr %50, align 8, !tbaa !78
+  %109 = sitofp i64 %108 to double
+  %110 = fdiv double %109, 1.000000e+06
+  %.not53 = icmp eq i64 %108, 0
+  %111 = fmul double %109, 1.000000e+02
+  %112 = fdiv double %111, %109
+  %113 = select i1 %.not53, double 0.000000e+00, double %112
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %110, double noundef %113)
+  br label %129
 
-115:                                              ; preds = %Mmr_StepMemory.exit67
+114:                                              ; preds = %Mmr_StepMemory.exit67
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
-  %116 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #18
-  %117 = icmp slt i32 %116, 0
-  br i1 %117, label %Abc_Clock.exit69, label %118
+  %115 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #18
+  %116 = icmp slt i32 %115, 0
+  br i1 %116, label %Abc_Clock.exit69, label %117
 
-118:                                              ; preds = %115
-  %119 = load i64, ptr %2, align 8, !tbaa !75
-  %120 = mul nsw i64 %119, 1000000
-  %121 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %122 = load i64, ptr %121, align 8, !tbaa !77
-  %123 = sdiv i64 %122, 1000
-  %124 = add nsw i64 %123, %120
+117:                                              ; preds = %114
+  %118 = load i64, ptr %2, align 8, !tbaa !75
+  %119 = mul nsw i64 %118, 1000000
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %121 = load i64, ptr %120, align 8, !tbaa !77
+  %122 = sdiv i64 %121, 1000
+  %123 = add nsw i64 %122, %119
   br label %Abc_Clock.exit69
 
-Abc_Clock.exit69:                                 ; preds = %115, %118
-  %.0.i68 = phi i64 [ %124, %118 ], [ -1, %115 ]
+Abc_Clock.exit69:                                 ; preds = %114, %117
+  %.0.i68 = phi i64 [ %123, %117 ], [ -1, %114 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #18
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 13952
-  %126 = load i64, ptr %125, align 8, !tbaa !78
-  %127 = sub nsw i64 %.0.i68, %126
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 13952
+  %125 = load i64, ptr %124, align 8, !tbaa !78
+  %126 = sub nsw i64 %.0.i68, %125
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.16)
-  %128 = sitofp i64 %127 to double
-  %129 = fdiv double %128, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.22, double noundef %129)
-  br label %130
+  %127 = sitofp i64 %126 to double
+  %128 = fdiv double %127, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.22, double noundef %128)
+  br label %129
 
-130:                                              ; preds = %Abc_Clock.exit69, %Abc_Clock.exit
+129:                                              ; preds = %Abc_Clock.exit69, %Abc_Clock.exit
   ret void
 }
 

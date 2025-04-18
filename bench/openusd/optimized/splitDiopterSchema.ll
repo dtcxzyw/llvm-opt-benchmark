@@ -1767,11 +1767,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20HdSplitDiopterSchema13BuildR
   %10 = alloca [8 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 16
   %11 = alloca [8 x %"class.std::shared_ptr.6"], align 16
   %12 = alloca %"class.std::shared_ptr.9", align 8
-  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, i8 0, i64 64, i1 false)
-  %.0.sroa.gep249 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %11, i8 0, i64 128, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.0.sroa.gep249 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %15 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %15, null

@@ -7364,21 +7364,18 @@ _ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.55429615
   %32 = lshr i32 %.017.i.i.i9, 1
   %33 = mul i64 %.01216.i.i.i10, %.01216.i.i.i10
   %34 = icmp ugt i32 %.017.i.i.i9, 3
-  br i1 %34, label %.lr.ph.i.i.i8, label %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit
-
-_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit: ; preds = %.lr.ph.i.i.i8
-  %35 = shl i64 %33, 6
-  br label %.lr.ph.i.i
+  br i1 %34, label %.lr.ph.i.i.i8, label %.lr.ph.i.i
 
 ._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i
+  %35 = shl i64 %33, 6
   %36 = mul i64 %35, %spec.select.i.i.i13
   %37 = mul i64 %spec.select.i.i, %41
   br label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
 
-.lr.ph.i.i:                                       ; preds = %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit, %.lr.ph.i.i
-  %.017.i.i = phi i32 [ %40, %.lr.ph.i.i ], [ %10, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit ]
-  %.01216.i.i = phi i64 [ %41, %.lr.ph.i.i ], [ 64, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit ]
-  %.01315.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 1, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.i8, %.lr.ph.i.i
+  %.017.i.i = phi i32 [ %40, %.lr.ph.i.i ], [ %10, %.lr.ph.i.i.i8 ]
+  %.01216.i.i = phi i64 [ %41, %.lr.ph.i.i ], [ 64, %.lr.ph.i.i.i8 ]
+  %.01315.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 1, %.lr.ph.i.i.i8 ]
   %38 = and i32 %.017.i.i, 1
   %.not.i.i = icmp eq i32 %38, 0
   %39 = select i1 %.not.i.i, i64 1, i64 %.01216.i.i

@@ -3040,14 +3040,14 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %76
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i265.preheader, %88
-  %93 = sub nsw i64 %70, %86
-  %94 = shl nsw i64 %70, 3
-  %95 = add nsw i64 %94, -8
-  %96 = sub i64 %95, %85
-  %97 = and i64 %96, -8
-  %98 = add i64 %97, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %.sroa.8.0422, i8 0, i64 %98, i1 false), !tbaa !47
-  %99 = getelementptr inbounds nuw i64, ptr %.sroa.8.0422, i64 %93
+  %93 = shl nsw i64 %70, 3
+  %94 = add nsw i64 %93, -8
+  %95 = sub i64 %94, %85
+  %96 = and i64 %95, -8
+  %97 = add i64 %96, 8
+  call void @llvm.memset.p0.i64(ptr align 8 %.sroa.8.0422, i8 0, i64 %97, i1 false), !tbaa !47
+  %98 = sub nsw i64 %70, %86
+  %99 = getelementptr inbounds nuw i64, ptr %.sroa.8.0422, i64 %98
   br label %_ZNSt6vectorImSaImEE14_M_fill_assignEmRKm.exit
 
 100:                                              ; preds = %83

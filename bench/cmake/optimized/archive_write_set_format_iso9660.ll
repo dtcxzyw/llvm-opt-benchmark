@@ -2880,58 +2880,58 @@ isoent_alloc_path_table.exit90.i:                 ; preds = %553
 isoent_alloc_path_table.exit90.thread.i:          ; preds = %.lr.ph.i86.i, %.preheader.i82.i, %isoent_alloc_path_table.exit.i
   %566 = getelementptr inbounds nuw i8, ptr %515, i64 184
   %567 = load ptr, ptr %566, align 8, !tbaa !167
-  %568 = getelementptr inbounds nuw i8, ptr %515, i64 200
-  br label %569
+  br label %568
 
-569:                                              ; preds = %.loopexit.i.i, %isoent_alloc_path_table.exit90.thread.i
+568:                                              ; preds = %.loopexit.i.i, %isoent_alloc_path_table.exit90.thread.i
   %.018.i.i = phi i32 [ 0, %isoent_alloc_path_table.exit90.thread.i ], [ %.119.i.i, %.loopexit.i.i ]
   %.0.i.i205 = phi ptr [ %567, %isoent_alloc_path_table.exit90.thread.i ], [ %.1.i.i, %.loopexit.i.i ]
-  %570 = sext i32 %.018.i.i to i64
-  %571 = getelementptr inbounds %struct.path_table, ptr %549, i64 %570
-  %572 = getelementptr inbounds nuw i8, ptr %.0.i.i205, i64 128
-  store ptr null, ptr %572, align 8, !tbaa !168
-  %573 = getelementptr inbounds nuw i8, ptr %571, i64 8
-  %574 = load ptr, ptr %573, align 8, !tbaa !163
-  store ptr %.0.i.i205, ptr %574, align 8, !tbaa !106
-  store ptr %572, ptr %573, align 8, !tbaa !163
-  %575 = getelementptr inbounds nuw i8, ptr %571, i64 24
-  %576 = load i32, ptr %575, align 8, !tbaa !165
-  %577 = add nsw i32 %576, 1
-  store i32 %577, ptr %575, align 8, !tbaa !165
-  %578 = getelementptr inbounds nuw i8, ptr %.0.i.i205, i64 80
-  %579 = load ptr, ptr %578, align 8, !tbaa !93
-  %.not.i.i206 = icmp ne ptr %579, null
-  %580 = add nsw i32 %.018.i.i, 1
-  %581 = icmp slt i32 %580, %548
-  %or.cond157.i = select i1 %.not.i.i206, i1 %581, i1 false
-  br i1 %or.cond157.i, label %.loopexit.i.i, label %582
+  %569 = sext i32 %.018.i.i to i64
+  %570 = getelementptr inbounds %struct.path_table, ptr %549, i64 %569
+  %571 = getelementptr inbounds nuw i8, ptr %.0.i.i205, i64 128
+  store ptr null, ptr %571, align 8, !tbaa !168
+  %572 = getelementptr inbounds nuw i8, ptr %570, i64 8
+  %573 = load ptr, ptr %572, align 8, !tbaa !163
+  store ptr %.0.i.i205, ptr %573, align 8, !tbaa !106
+  store ptr %571, ptr %572, align 8, !tbaa !163
+  %574 = getelementptr inbounds nuw i8, ptr %570, i64 24
+  %575 = load i32, ptr %574, align 8, !tbaa !165
+  %576 = add nsw i32 %575, 1
+  store i32 %576, ptr %574, align 8, !tbaa !165
+  %577 = getelementptr inbounds nuw i8, ptr %.0.i.i205, i64 80
+  %578 = load ptr, ptr %577, align 8, !tbaa !93
+  %.not.i.i206 = icmp ne ptr %578, null
+  %579 = add nsw i32 %.018.i.i, 1
+  %580 = icmp slt i32 %579, %548
+  %or.cond157.i = select i1 %.not.i.i206, i1 %580, i1 false
+  br i1 %or.cond157.i, label %.loopexit.i.i, label %581
 
-582:                                              ; preds = %569
+581:                                              ; preds = %568
   %.not2628.i.i = icmp eq ptr %.0.i.i205, %567
   br i1 %.not2628.i.i, label %.loopexit.i.i, label %.lr.ph.i91.i
 
-.lr.ph.i91.i:                                     ; preds = %582, %586
-  %.230.i.i = phi ptr [ %588, %586 ], [ %.0.i.i205, %582 ]
-  %.22029.i.i = phi i32 [ %589, %586 ], [ %.018.i.i, %582 ]
-  %583 = getelementptr inbounds nuw i8, ptr %.230.i.i, i64 120
-  %584 = load ptr, ptr %583, align 8, !tbaa !152
-  %585 = icmp eq ptr %584, null
-  br i1 %585, label %586, label %.loopexit.i.i
+.lr.ph.i91.i:                                     ; preds = %581, %585
+  %.230.i.i = phi ptr [ %587, %585 ], [ %.0.i.i205, %581 ]
+  %.22029.i.i = phi i32 [ %588, %585 ], [ %.018.i.i, %581 ]
+  %582 = getelementptr inbounds nuw i8, ptr %.230.i.i, i64 120
+  %583 = load ptr, ptr %582, align 8, !tbaa !152
+  %584 = icmp eq ptr %583, null
+  br i1 %584, label %585, label %.loopexit.i.i
 
-586:                                              ; preds = %.lr.ph.i91.i
-  %587 = getelementptr inbounds nuw i8, ptr %.230.i.i, i64 32
-  %588 = load ptr, ptr %587, align 8, !tbaa !57
-  %589 = add nsw i32 %.22029.i.i, -1
-  %.not26.i.i = icmp eq ptr %588, %567
+585:                                              ; preds = %.lr.ph.i91.i
+  %586 = getelementptr inbounds nuw i8, ptr %.230.i.i, i64 32
+  %587 = load ptr, ptr %586, align 8, !tbaa !57
+  %588 = add nsw i32 %.22029.i.i, -1
+  %.not26.i.i = icmp eq ptr %587, %567
   br i1 %.not26.i.i, label %.loopexit.i.i, label %.lr.ph.i91.i, !llvm.loop !169
 
-.loopexit.i.i:                                    ; preds = %586, %.lr.ph.i91.i, %582, %569
-  %.119.i.i = phi i32 [ %.018.i.i, %582 ], [ %580, %569 ], [ %589, %586 ], [ %.22029.i.i, %.lr.ph.i91.i ]
-  %.1.i.i = phi ptr [ %.0.i.i205, %582 ], [ %579, %569 ], [ %588, %586 ], [ %584, %.lr.ph.i91.i ]
+.loopexit.i.i:                                    ; preds = %585, %.lr.ph.i91.i, %581, %568
+  %.119.i.i = phi i32 [ %.018.i.i, %581 ], [ %579, %568 ], [ %588, %585 ], [ %.22029.i.i, %.lr.ph.i91.i ]
+  %.1.i.i = phi ptr [ %.0.i.i205, %581 ], [ %578, %568 ], [ %587, %585 ], [ %583, %.lr.ph.i91.i ]
   %.not27.i.i = icmp eq ptr %.1.i.i, %567
-  br i1 %.not27.i.i, label %isoent_collect_dirs.exit.i, label %569, !llvm.loop !170
+  br i1 %.not27.i.i, label %isoent_collect_dirs.exit.i, label %568, !llvm.loop !170
 
 isoent_collect_dirs.exit.i:                       ; preds = %.loopexit.i.i
+  %589 = getelementptr inbounds nuw i8, ptr %515, i64 200
   %590 = getelementptr inbounds nuw i8, ptr %515, i64 208
   %591 = load i32, ptr %551, align 8
   %592 = and i32 %591, 393216
@@ -3441,7 +3441,7 @@ path_table_last_entry.exit.i.i:                   ; preds = %699, %696
   %839 = load i8, ptr %838, align 8
   %840 = and i8 %839, -3
   store i8 %840, ptr %838, align 8
-  %841 = load ptr, ptr %568, align 8, !tbaa !160
+  %841 = load ptr, ptr %589, align 8, !tbaa !160
   br label %842
 
 842:                                              ; preds = %.loopexit.i.i.i, %831
@@ -3638,7 +3638,7 @@ isofile_connect_hardlink_files.exit.i:            ; preds = %._crit_edge.i.i, %i
   br label %isoent_make_path_table.exit.thread
 
 921:                                              ; preds = %.loopexit.i214
-  %922 = load ptr, ptr %568, align 8, !tbaa !160
+  %922 = load ptr, ptr %589, align 8, !tbaa !160
   %923 = load i32, ptr %590, align 8, !tbaa !159
   %924 = icmp sgt i32 %923, 0
   br i1 %924, label %.lr.ph38.preheader.i.i, label %calculate_path_table_size.exit.i

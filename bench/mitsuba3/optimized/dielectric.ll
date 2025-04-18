@@ -2244,11 +2244,11 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ER
 _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4ES5_EEIRKbNS6_IS4_Lm4ES5_EETnNSt3__19enable_ifIXaasr3stdE11is_scalar_vIu7__decayIT_EEntsrT0_14IsOldStyleMaskEiE4typeELi0EEEOSC_.exit913: ; preds = %581
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %47, ptr noundef nonnull align 16 dereferenceable(256) %39, i64 256, i1 false)
   %584 = load i32, ptr %2, align 4
-  %585 = icmp eq i32 %584, 0
-  %spec.select1013 = select i1 %585, float %84, float 1.000000e+00
-  %586 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %586, i8 15, i64 16, i1 false)
+  %585 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %585, i8 15, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11)
+  %586 = icmp eq i32 %584, 0
+  %spec.select1013 = select i1 %586, float %84, float 1.000000e+00
   %587 = fmul contract float %spec.select1013, %spec.select1013
   %588 = insertelement <4 x float> poison, float %587, i64 0
   %589 = shufflevector <4 x float> %588, <4 x float> poison, <4 x i32> zeroinitializer
@@ -2313,7 +2313,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
 
 609:                                              ; preds = %_ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EEEE4mul_ERKS6_.exit.i925, %624
   %.08091027 = phi i64 [ 0, %_ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EEEE4mul_ERKS6_.exit.i925 ], [ %626, %624 ]
-  %610 = getelementptr inbounds nuw [4 x %"struct.drjit::Mask.50"], ptr %586, i64 0, i64 %.08091027
+  %610 = getelementptr inbounds nuw [4 x %"struct.drjit::Mask.50"], ptr %585, i64 0, i64 %.08091027
   %611 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %10, i64 0, i64 %.08091027
   %612 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %47, i64 0, i64 %.08091027
   br label %613

@@ -11507,8 +11507,8 @@ _ZN17duckdb_moodycamel7detailsL13ceil_to_pow_2ImEET_S2_.exit.i.i: ; preds = %41
   br label %122
 
 .loopexit.i.i.i:                                  ; preds = %_ZN17duckdb_moodycamel7detailsL13ceil_to_pow_2ImEET_S2_.exit.i.i
-  %55 = getelementptr inbounds nuw i8, ptr %23, i64 120
-  %56 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  %55 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  %56 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %58 = ptrtoint ptr %57 to i64
   %59 = sub i64 0, %58
@@ -11522,8 +11522,8 @@ _ZN17duckdb_moodycamel7detailsL13ceil_to_pow_2ImEET_S2_.exit.i.i: ; preds = %41
   %64 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store ptr null, ptr %64, align 8, !tbaa !350
   store i64 0, ptr %31, align 8, !tbaa !351
-  store ptr %61, ptr %55, align 8, !tbaa !352
-  store ptr %53, ptr %56, align 8, !tbaa !353
+  store ptr %61, ptr %56, align 8, !tbaa !352
+  store ptr %53, ptr %55, align 8, !tbaa !353
   %65 = ptrtoint ptr %53 to i64
   store atomic i64 %65, ptr %30 release, align 8
   br label %122

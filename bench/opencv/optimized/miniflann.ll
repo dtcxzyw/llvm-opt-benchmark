@@ -23215,76 +23215,76 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_10HammingLUTEE29com
 
 _ZNK7cvflann10HammingLUTclEPKhNS_12ZeroIteratorIhEEm.exit.us: ; preds = %.lr.ph.i.us, %.lr.ph125.split.us
   %.06.lcssa.i.us = phi i32 [ 0, %.lr.ph125.split.us ], [ %33, %.lr.ph.i.us ]
-  %35 = mul nsw i32 %.06.lcssa.i.us, %.06.lcssa.i.us
-  %36 = zext nneg i32 %35 to i64
-  br label %37
+  br label %35
 
-37:                                               ; preds = %_ZNK7cvflann10HammingLUTclEPKhNS_12ZeroIteratorIhEEm.exit.us, %37
-  %.0104121.us = phi i64 [ 0, %_ZNK7cvflann10HammingLUTclEPKhNS_12ZeroIteratorIhEEm.exit.us ], [ %87, %37 ]
-  %.0105120.us = phi i64 [ 0, %_ZNK7cvflann10HammingLUTclEPKhNS_12ZeroIteratorIhEEm.exit.us ], [ %86, %37 ]
-  %38 = getelementptr inbounds nuw i8, ptr %26, i64 %.0104121.us
-  %39 = load i8, ptr %38, align 1, !tbaa !27
-  %40 = and i8 %39, 1
-  %41 = zext nneg i8 %40 to i32
-  %42 = getelementptr inbounds nuw i32, ptr %15, i64 %.0105120.us
-  %43 = load i32, ptr %42, align 4, !tbaa !28
-  %44 = add i32 %43, %41
-  store i32 %44, ptr %42, align 4, !tbaa !28
-  %45 = lshr i8 %39, 1
-  %46 = and i8 %45, 1
-  %47 = zext nneg i8 %46 to i32
-  %48 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !28
-  %50 = add i32 %49, %47
-  store i32 %50, ptr %48, align 4, !tbaa !28
-  %51 = lshr i8 %39, 2
-  %52 = and i8 %51, 1
-  %53 = zext nneg i8 %52 to i32
-  %54 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %55 = load i32, ptr %54, align 4, !tbaa !28
-  %56 = add i32 %55, %53
-  store i32 %56, ptr %54, align 4, !tbaa !28
-  %57 = lshr i8 %39, 3
-  %58 = and i8 %57, 1
-  %59 = zext nneg i8 %58 to i32
-  %60 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  %61 = load i32, ptr %60, align 4, !tbaa !28
-  %62 = add i32 %61, %59
-  store i32 %62, ptr %60, align 4, !tbaa !28
-  %63 = lshr i8 %39, 4
-  %64 = and i8 %63, 1
-  %65 = zext nneg i8 %64 to i32
-  %66 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %67 = load i32, ptr %66, align 4, !tbaa !28
-  %68 = add i32 %67, %65
-  store i32 %68, ptr %66, align 4, !tbaa !28
-  %69 = lshr i8 %39, 5
-  %70 = and i8 %69, 1
-  %71 = zext nneg i8 %70 to i32
-  %72 = getelementptr inbounds nuw i8, ptr %42, i64 20
-  %73 = load i32, ptr %72, align 4, !tbaa !28
-  %74 = add i32 %73, %71
-  store i32 %74, ptr %72, align 4, !tbaa !28
-  %75 = lshr i8 %39, 6
-  %76 = and i8 %75, 1
-  %77 = zext nneg i8 %76 to i32
-  %78 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %79 = load i32, ptr %78, align 4, !tbaa !28
-  %80 = add i32 %79, %77
-  store i32 %80, ptr %78, align 4, !tbaa !28
-  %81 = lshr i8 %39, 7
-  %82 = zext nneg i8 %81 to i32
-  %83 = getelementptr inbounds nuw i8, ptr %42, i64 28
-  %84 = load i32, ptr %83, align 4, !tbaa !28
-  %85 = add i32 %84, %82
-  store i32 %85, ptr %83, align 4, !tbaa !28
-  %86 = add nuw nsw i64 %.0105120.us, 8
-  %87 = add nuw nsw i64 %.0104121.us, 1
+35:                                               ; preds = %_ZNK7cvflann10HammingLUTclEPKhNS_12ZeroIteratorIhEEm.exit.us, %35
+  %.0104121.us = phi i64 [ 0, %_ZNK7cvflann10HammingLUTclEPKhNS_12ZeroIteratorIhEEm.exit.us ], [ %85, %35 ]
+  %.0105120.us = phi i64 [ 0, %_ZNK7cvflann10HammingLUTclEPKhNS_12ZeroIteratorIhEEm.exit.us ], [ %84, %35 ]
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 %.0104121.us
+  %37 = load i8, ptr %36, align 1, !tbaa !27
+  %38 = and i8 %37, 1
+  %39 = zext nneg i8 %38 to i32
+  %40 = getelementptr inbounds nuw i32, ptr %15, i64 %.0105120.us
+  %41 = load i32, ptr %40, align 4, !tbaa !28
+  %42 = add i32 %41, %39
+  store i32 %42, ptr %40, align 4, !tbaa !28
+  %43 = lshr i8 %37, 1
+  %44 = and i8 %43, 1
+  %45 = zext nneg i8 %44 to i32
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %47 = load i32, ptr %46, align 4, !tbaa !28
+  %48 = add i32 %47, %45
+  store i32 %48, ptr %46, align 4, !tbaa !28
+  %49 = lshr i8 %37, 2
+  %50 = and i8 %49, 1
+  %51 = zext nneg i8 %50 to i32
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %53 = load i32, ptr %52, align 4, !tbaa !28
+  %54 = add i32 %53, %51
+  store i32 %54, ptr %52, align 4, !tbaa !28
+  %55 = lshr i8 %37, 3
+  %56 = and i8 %55, 1
+  %57 = zext nneg i8 %56 to i32
+  %58 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  %59 = load i32, ptr %58, align 4, !tbaa !28
+  %60 = add i32 %59, %57
+  store i32 %60, ptr %58, align 4, !tbaa !28
+  %61 = lshr i8 %37, 4
+  %62 = and i8 %61, 1
+  %63 = zext nneg i8 %62 to i32
+  %64 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %65 = load i32, ptr %64, align 4, !tbaa !28
+  %66 = add i32 %65, %63
+  store i32 %66, ptr %64, align 4, !tbaa !28
+  %67 = lshr i8 %37, 5
+  %68 = and i8 %67, 1
+  %69 = zext nneg i8 %68 to i32
+  %70 = getelementptr inbounds nuw i8, ptr %40, i64 20
+  %71 = load i32, ptr %70, align 4, !tbaa !28
+  %72 = add i32 %71, %69
+  store i32 %72, ptr %70, align 4, !tbaa !28
+  %73 = lshr i8 %37, 6
+  %74 = and i8 %73, 1
+  %75 = zext nneg i8 %74 to i32
+  %76 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %77 = load i32, ptr %76, align 4, !tbaa !28
+  %78 = add i32 %77, %75
+  store i32 %78, ptr %76, align 4, !tbaa !28
+  %79 = lshr i8 %37, 7
+  %80 = zext nneg i8 %79 to i32
+  %81 = getelementptr inbounds nuw i8, ptr %40, i64 28
+  %82 = load i32, ptr %81, align 4, !tbaa !28
+  %83 = add i32 %82, %80
+  store i32 %83, ptr %81, align 4, !tbaa !28
+  %84 = add nuw nsw i64 %.0105120.us, 8
+  %85 = add nuw nsw i64 %.0104121.us, 1
   %exitcond.not = icmp eq i64 %.0104121.us, %21
-  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !362
+  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !362
 
-._crit_edge.us:                                   ; preds = %37
-  %88 = add i64 %.0123.us, %36
+._crit_edge.us:                                   ; preds = %35
+  %86 = mul nsw i32 %.06.lcssa.i.us, %.06.lcssa.i.us
+  %87 = zext nneg i32 %86 to i64
+  %88 = add i64 %.0123.us, %87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond153.not, label %._crit_edge126, label %.lr.ph125.split.us, !llvm.loop !363

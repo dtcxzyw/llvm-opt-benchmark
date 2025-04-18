@@ -1567,24 +1567,24 @@ define internal fastcc void @_ZN5ZXing4OneDL8ReadPairERKNS_11PatternViewEb(ptr d
   %7 = alloca %"class.ZXing::PatternView", align 8
   %8 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !112
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #20
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %3
   %.08.i.i.i.idx.i.i.i = phi i64 [ %.08.i.i.i.add.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ 0, %3 ]
-  %.057.i.i.i.i.i.i = phi i16 [ %12, %.lr.ph.i.i.i.i.i.i ], [ 0, %3 ]
+  %.057.i.i.i.i.i.i = phi i16 [ %11, %.lr.ph.i.i.i.i.i.i ], [ 0, %3 ]
   %.08.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.08.i.i.i.idx.i.i.i
-  %11 = load i16, ptr %.08.i.i.i.ptr.i.i.i, align 2, !tbaa !10
-  %12 = add i16 %11, %.057.i.i.i.i.i.i
+  %10 = load i16, ptr %.08.i.i.i.ptr.i.i.i, align 2, !tbaa !10
+  %11 = add i16 %10, %.057.i.i.i.i.i.i
   %.08.i.i.i.add.i.i.i = add nuw nsw i64 %.08.i.i.i.idx.i.i.i, 2
   %.not.i.i.i.i.i.i = icmp eq i64 %.08.i.i.i.add.i.i.i, 10
   br i1 %.not.i.i.i.i.i.i, label %_ZNK5ZXing11PatternView3sumEi.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !12
 
 _ZNK5ZXing11PatternView3sumEi.exit.i.i.i:         ; preds = %.lr.ph.i.i.i.i.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = uitofp i16 %12 to double
+  %14 = uitofp i16 %11 to double
   %15 = fdiv double %14, 1.500000e+01
   %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 18
   br i1 %2, label %_ZNK5ZXing11PatternView3sumEi.exit.split.us.i.i.i, label %_ZNK5ZXing11PatternView3sumEi.exit.split.i.i.i
@@ -1686,7 +1686,7 @@ _ZN5ZXing4OneD18ParseFinderPatternERKNS_11PatternViewEb.exit: ; preds = %40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 26
-  %59 = load ptr, ptr %10, align 8, !tbaa !123, !noalias !124
+  %59 = load ptr, ptr %12, align 8, !tbaa !123, !noalias !124
   %60 = load ptr, ptr %13, align 8, !tbaa !34, !noalias !124
   store ptr %58, ptr %6, align 8, !tbaa !3, !alias.scope !124
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1704,7 +1704,7 @@ _ZN5ZXing4OneD18ParseFinderPatternERKNS_11PatternViewEb.exit: ; preds = %40
 .thread:                                          ; preds = %56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  %66 = load ptr, ptr %10, align 8, !tbaa !123, !noalias !131
+  %66 = load ptr, ptr %12, align 8, !tbaa !123, !noalias !131
   %67 = load ptr, ptr %13, align 8, !tbaa !34, !noalias !131
   store ptr %8, ptr %6, align 8, !tbaa !3, !alias.scope !131
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1733,7 +1733,7 @@ _ZN5ZXing4OneD18ParseFinderPatternERKNS_11PatternViewEb.exit: ; preds = %40
 78:                                               ; preds = %75, %73
   %.sink71 = phi ptr [ %77, %75 ], [ %74, %73 ]
   %.sroa.634.0.extract.trunc4246.in.in = phi i64 [ %71, %75 ], [ %64, %73 ]
-  %79 = load ptr, ptr %10, align 8, !tbaa !123, !noalias !142
+  %79 = load ptr, ptr %12, align 8, !tbaa !123, !noalias !142
   %80 = load ptr, ptr %13, align 8, !tbaa !34, !noalias !142
   store ptr %.sink71, ptr %7, align 8, !tbaa !3
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1749,7 +1749,7 @@ _ZN5ZXing4OneD18ParseFinderPatternERKNS_11PatternViewEb.exit: ; preds = %40
   br i1 %.not54, label %112, label %86
 
 86:                                               ; preds = %78
-  %87 = load ptr, ptr %10, align 8, !tbaa !123
+  %87 = load ptr, ptr %12, align 8, !tbaa !123
   %88 = load ptr, ptr %1, align 8, !tbaa !3
   %.not6.i.i.i = icmp eq ptr %87, %88
   br i1 %.not6.i.i.i, label %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit, label %.lr.ph.i.i.i

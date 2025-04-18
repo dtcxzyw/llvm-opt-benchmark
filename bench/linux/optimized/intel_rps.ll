@@ -3077,7 +3077,6 @@ define internal void @rps_timer(ptr noundef %0) #0 align 16 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i64 0, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 312
-  %.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %5
 
 5:                                                ; preds = %.loopexit, %1
@@ -3126,6 +3125,7 @@ define internal void @rps_timer(ptr noundef %0) #0 align 16 {
   br i1 %34, label %105, label %35
 
 35:                                               ; preds = %26
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = sub i64 %30, %29
   %37 = load i64, ptr %3, align 16
   br label %38

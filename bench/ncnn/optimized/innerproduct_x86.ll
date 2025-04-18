@@ -3510,31 +3510,31 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit197:   ; preds = %.noexc196, %.noexc1
 971:                                              ; preds = %966, %.lr.ph1123
   %.0932 = phi nsz <4 x float> [ zeroinitializer, %.lr.ph1123 ], [ %970, %966 ]
   %972 = icmp sgt i32 %953, 3
-  br i1 %972, label %.lr.ph1105.preheader, label %.preheader1067
+  br i1 %972, label %.lr.ph1105, label %.preheader1067
 
-.lr.ph1105.preheader:                             ; preds = %971
+.preheader1067.loopexit:                          ; preds = %.lr.ph1105
   %973 = and i32 %953, 2147483644
-  br label %.lr.ph1105
+  br label %.preheader1067
 
-.preheader1067:                                   ; preds = %.lr.ph1105, %971
-  %.1933.lcssa = phi <4 x float> [ %.0932, %971 ], [ %998, %.lr.ph1105 ]
-  %.0931.lcssa = phi <4 x float> [ zeroinitializer, %971 ], [ %1000, %.lr.ph1105 ]
-  %.0930.lcssa = phi <4 x float> [ zeroinitializer, %971 ], [ %1002, %.lr.ph1105 ]
-  %.0929.lcssa = phi <4 x float> [ zeroinitializer, %971 ], [ %1004, %.lr.ph1105 ]
-  %.0141.lcssa = phi ptr [ %957, %971 ], [ %1006, %.lr.ph1105 ]
-  %.0139.lcssa = phi ptr [ %964, %971 ], [ %1005, %.lr.ph1105 ]
-  %.0137.lcssa = phi i32 [ 0, %971 ], [ %973, %.lr.ph1105 ]
+.preheader1067:                                   ; preds = %.preheader1067.loopexit, %971
+  %.1933.lcssa = phi <4 x float> [ %.0932, %971 ], [ %998, %.preheader1067.loopexit ]
+  %.0931.lcssa = phi <4 x float> [ zeroinitializer, %971 ], [ %1000, %.preheader1067.loopexit ]
+  %.0930.lcssa = phi <4 x float> [ zeroinitializer, %971 ], [ %1002, %.preheader1067.loopexit ]
+  %.0929.lcssa = phi <4 x float> [ zeroinitializer, %971 ], [ %1004, %.preheader1067.loopexit ]
+  %.0141.lcssa = phi ptr [ %957, %971 ], [ %1006, %.preheader1067.loopexit ]
+  %.0139.lcssa = phi ptr [ %964, %971 ], [ %1005, %.preheader1067.loopexit ]
+  %.0137.lcssa = phi i32 [ 0, %971 ], [ %973, %.preheader1067.loopexit ]
   %974 = icmp slt i32 %.0137.lcssa, %953
   br i1 %974, label %.lr.ph1117, label %._crit_edge1118
 
-.lr.ph1105:                                       ; preds = %.lr.ph1105.preheader, %.lr.ph1105
-  %.01371103 = phi i32 [ %1007, %.lr.ph1105 ], [ 0, %.lr.ph1105.preheader ]
-  %.01391102 = phi ptr [ %1005, %.lr.ph1105 ], [ %964, %.lr.ph1105.preheader ]
-  %.01411101 = phi ptr [ %1006, %.lr.ph1105 ], [ %957, %.lr.ph1105.preheader ]
-  %.09291100 = phi <4 x float> [ %1004, %.lr.ph1105 ], [ zeroinitializer, %.lr.ph1105.preheader ]
-  %.09301099 = phi <4 x float> [ %1002, %.lr.ph1105 ], [ zeroinitializer, %.lr.ph1105.preheader ]
-  %.09311098 = phi <4 x float> [ %1000, %.lr.ph1105 ], [ zeroinitializer, %.lr.ph1105.preheader ]
-  %.19331097 = phi <4 x float> [ %998, %.lr.ph1105 ], [ %.0932, %.lr.ph1105.preheader ]
+.lr.ph1105:                                       ; preds = %971, %.lr.ph1105
+  %.01371103 = phi i32 [ %1007, %.lr.ph1105 ], [ 0, %971 ]
+  %.01391102 = phi ptr [ %1005, %.lr.ph1105 ], [ %964, %971 ]
+  %.01411101 = phi ptr [ %1006, %.lr.ph1105 ], [ %957, %971 ]
+  %.09291100 = phi <4 x float> [ %1004, %.lr.ph1105 ], [ zeroinitializer, %971 ]
+  %.09301099 = phi <4 x float> [ %1002, %.lr.ph1105 ], [ zeroinitializer, %971 ]
+  %.09311098 = phi <4 x float> [ %1000, %.lr.ph1105 ], [ zeroinitializer, %971 ]
+  %.19331097 = phi <4 x float> [ %998, %.lr.ph1105 ], [ %.0932, %971 ]
   %975 = load <4 x float>, ptr %.01391102, align 1, !tbaa !50
   %976 = getelementptr inbounds nuw i8, ptr %.01391102, i64 16
   %977 = load <4 x float>, ptr %976, align 1, !tbaa !50
@@ -3570,7 +3570,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit197:   ; preds = %.noexc196, %.noexc1
   %1007 = add nuw nsw i32 %.01371103, 4
   %1008 = or disjoint i32 %1007, 3
   %1009 = icmp slt i32 %1008, %953
-  br i1 %1009, label %.lr.ph1105, label %.preheader1067, !llvm.loop !77
+  br i1 %1009, label %.lr.ph1105, label %.preheader1067.loopexit, !llvm.loop !77
 
 .lr.ph1117:                                       ; preds = %.preheader1067, %.lr.ph1117
   %.11381116 = phi i32 [ %1018, %.lr.ph1117 ], [ %.0137.lcssa, %.preheader1067 ]
@@ -4104,31 +4104,31 @@ define internal void @_ZN4ncnnL16innerproduct_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6
   %40 = load ptr, ptr %5, align 8, !tbaa !16
   %41 = load i32, ptr %6, align 4, !tbaa !60
   %42 = icmp sgt i32 %41, 3
-  br i1 %42, label %.lr.ph.preheader, label %.preheader
+  br i1 %42, label %.lr.ph, label %.preheader
 
-.lr.ph.preheader:                                 ; preds = %32
+.preheader.loopexit:                              ; preds = %.lr.ph
   %43 = and i32 %41, 2147483644
-  br label %.lr.ph
+  br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %32
-  %.0184.lcssa = phi <4 x float> [ zeroinitializer, %32 ], [ %74, %.lr.ph ]
-  %.0183.lcssa = phi <4 x float> [ zeroinitializer, %32 ], [ %72, %.lr.ph ]
-  %.0182.lcssa = phi <4 x float> [ zeroinitializer, %32 ], [ %70, %.lr.ph ]
-  %.1181.lcssa = phi <4 x float> [ %.0180, %32 ], [ %68, %.lr.ph ]
-  %.046.lcssa = phi ptr [ %39, %32 ], [ %76, %.lr.ph ]
-  %.044.lcssa = phi ptr [ %40, %32 ], [ %75, %.lr.ph ]
-  %.043.lcssa = phi i32 [ 0, %32 ], [ %43, %.lr.ph ]
+.preheader:                                       ; preds = %.preheader.loopexit, %32
+  %.0184.lcssa = phi <4 x float> [ zeroinitializer, %32 ], [ %74, %.preheader.loopexit ]
+  %.0183.lcssa = phi <4 x float> [ zeroinitializer, %32 ], [ %72, %.preheader.loopexit ]
+  %.0182.lcssa = phi <4 x float> [ zeroinitializer, %32 ], [ %70, %.preheader.loopexit ]
+  %.1181.lcssa = phi <4 x float> [ %.0180, %32 ], [ %68, %.preheader.loopexit ]
+  %.046.lcssa = phi ptr [ %39, %32 ], [ %76, %.preheader.loopexit ]
+  %.044.lcssa = phi ptr [ %40, %32 ], [ %75, %.preheader.loopexit ]
+  %.043.lcssa = phi i32 [ 0, %32 ], [ %43, %.preheader.loopexit ]
   %44 = icmp slt i32 %.043.lcssa, %41
   br i1 %44, label %.lr.ph206, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.043194 = phi i32 [ %77, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.044193 = phi ptr [ %75, %.lr.ph ], [ %40, %.lr.ph.preheader ]
-  %.046192 = phi ptr [ %76, %.lr.ph ], [ %39, %.lr.ph.preheader ]
-  %.1181191 = phi <4 x float> [ %68, %.lr.ph ], [ %.0180, %.lr.ph.preheader ]
-  %.0182190 = phi <4 x float> [ %70, %.lr.ph ], [ zeroinitializer, %.lr.ph.preheader ]
-  %.0183189 = phi <4 x float> [ %72, %.lr.ph ], [ zeroinitializer, %.lr.ph.preheader ]
-  %.0184188 = phi <4 x float> [ %74, %.lr.ph ], [ zeroinitializer, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %32, %.lr.ph
+  %.043194 = phi i32 [ %77, %.lr.ph ], [ 0, %32 ]
+  %.044193 = phi ptr [ %75, %.lr.ph ], [ %40, %32 ]
+  %.046192 = phi ptr [ %76, %.lr.ph ], [ %39, %32 ]
+  %.1181191 = phi <4 x float> [ %68, %.lr.ph ], [ %.0180, %32 ]
+  %.0182190 = phi <4 x float> [ %70, %.lr.ph ], [ zeroinitializer, %32 ]
+  %.0183189 = phi <4 x float> [ %72, %.lr.ph ], [ zeroinitializer, %32 ]
+  %.0184188 = phi <4 x float> [ %74, %.lr.ph ], [ zeroinitializer, %32 ]
   %45 = load float, ptr %.044193, align 4, !tbaa !47
   %46 = insertelement <4 x float> poison, float %45, i64 0
   %47 = shufflevector <4 x float> %46, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4164,7 +4164,7 @@ define internal void @_ZN4ncnnL16innerproduct_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6
   %77 = add nuw nsw i32 %.043194, 4
   %78 = or disjoint i32 %77, 3
   %79 = icmp slt i32 %78, %41
-  br i1 %79, label %.lr.ph, label %.preheader, !llvm.loop !85
+  br i1 %79, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !85
 
 .lr.ph206:                                        ; preds = %.preheader, %.lr.ph206
   %.1205 = phi i32 [ %88, %.lr.ph206 ], [ %.043.lcssa, %.preheader ]
@@ -4484,37 +4484,37 @@ define internal void @_ZN4ncnnL16innerproduct_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6
   %55 = getelementptr inbounds float, ptr %39, i64 %54
   %56 = load ptr, ptr %7, align 8, !tbaa !16
   %57 = icmp sgt i32 %40, 3
-  br i1 %57, label %.lr.ph.preheader, label %.preheader
+  br i1 %57, label %.lr.ph, label %.preheader
 
-.lr.ph.preheader:                                 ; preds = %38
+.preheader.loopexit:                              ; preds = %.lr.ph
   %58 = and i32 %40, 2147483644
-  br label %.lr.ph
+  br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %38
-  %.0239.lcssa = phi <4 x float> [ zeroinitializer, %38 ], [ %66, %.lr.ph ]
-  %.0238.lcssa = phi <4 x float> [ zeroinitializer, %38 ], [ %68, %.lr.ph ]
-  %.0237.lcssa = phi <4 x float> [ zeroinitializer, %38 ], [ %70, %.lr.ph ]
-  %.0236.lcssa = phi <4 x float> [ zeroinitializer, %38 ], [ %72, %.lr.ph ]
-  %.086.lcssa = phi ptr [ %56, %38 ], [ %73, %.lr.ph ]
-  %.084.lcssa = phi i32 [ 0, %38 ], [ %58, %.lr.ph ]
-  %.082.lcssa = phi ptr [ %55, %38 ], [ %77, %.lr.ph ]
-  %.080.lcssa = phi ptr [ %51, %38 ], [ %76, %.lr.ph ]
-  %.078.lcssa = phi ptr [ %47, %38 ], [ %75, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %43, %38 ], [ %74, %.lr.ph ]
+.preheader:                                       ; preds = %.preheader.loopexit, %38
+  %.0239.lcssa = phi <4 x float> [ zeroinitializer, %38 ], [ %66, %.preheader.loopexit ]
+  %.0238.lcssa = phi <4 x float> [ zeroinitializer, %38 ], [ %68, %.preheader.loopexit ]
+  %.0237.lcssa = phi <4 x float> [ zeroinitializer, %38 ], [ %70, %.preheader.loopexit ]
+  %.0236.lcssa = phi <4 x float> [ zeroinitializer, %38 ], [ %72, %.preheader.loopexit ]
+  %.086.lcssa = phi ptr [ %56, %38 ], [ %73, %.preheader.loopexit ]
+  %.084.lcssa = phi i32 [ 0, %38 ], [ %58, %.preheader.loopexit ]
+  %.082.lcssa = phi ptr [ %55, %38 ], [ %77, %.preheader.loopexit ]
+  %.080.lcssa = phi ptr [ %51, %38 ], [ %76, %.preheader.loopexit ]
+  %.078.lcssa = phi ptr [ %47, %38 ], [ %75, %.preheader.loopexit ]
+  %.077.lcssa = phi ptr [ %43, %38 ], [ %74, %.preheader.loopexit ]
   %59 = icmp slt i32 %.084.lcssa, %40
   br i1 %59, label %.lr.ph269, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.077252 = phi ptr [ %74, %.lr.ph ], [ %43, %.lr.ph.preheader ]
-  %.078251 = phi ptr [ %75, %.lr.ph ], [ %47, %.lr.ph.preheader ]
-  %.080250 = phi ptr [ %76, %.lr.ph ], [ %51, %.lr.ph.preheader ]
-  %.082249 = phi ptr [ %77, %.lr.ph ], [ %55, %.lr.ph.preheader ]
-  %.084248 = phi i32 [ %78, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.086247 = phi ptr [ %73, %.lr.ph ], [ %56, %.lr.ph.preheader ]
-  %.0236246 = phi <4 x float> [ %72, %.lr.ph ], [ zeroinitializer, %.lr.ph.preheader ]
-  %.0237245 = phi <4 x float> [ %70, %.lr.ph ], [ zeroinitializer, %.lr.ph.preheader ]
-  %.0238244 = phi <4 x float> [ %68, %.lr.ph ], [ zeroinitializer, %.lr.ph.preheader ]
-  %.0239243 = phi <4 x float> [ %66, %.lr.ph ], [ zeroinitializer, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %38, %.lr.ph
+  %.077252 = phi ptr [ %74, %.lr.ph ], [ %43, %38 ]
+  %.078251 = phi ptr [ %75, %.lr.ph ], [ %47, %38 ]
+  %.080250 = phi ptr [ %76, %.lr.ph ], [ %51, %38 ]
+  %.082249 = phi ptr [ %77, %.lr.ph ], [ %55, %38 ]
+  %.084248 = phi i32 [ %78, %.lr.ph ], [ 0, %38 ]
+  %.086247 = phi ptr [ %73, %.lr.ph ], [ %56, %38 ]
+  %.0236246 = phi <4 x float> [ %72, %.lr.ph ], [ zeroinitializer, %38 ]
+  %.0237245 = phi <4 x float> [ %70, %.lr.ph ], [ zeroinitializer, %38 ]
+  %.0238244 = phi <4 x float> [ %68, %.lr.ph ], [ zeroinitializer, %38 ]
+  %.0239243 = phi <4 x float> [ %66, %.lr.ph ], [ zeroinitializer, %38 ]
   %60 = load <4 x float>, ptr %.086247, align 1, !tbaa !50
   %61 = load <4 x float>, ptr %.077252, align 1, !tbaa !50
   %62 = load <4 x float>, ptr %.078251, align 1, !tbaa !50
@@ -4536,7 +4536,7 @@ define internal void @_ZN4ncnnL16innerproduct_sseERKNS_3MatERS0_S2_S2_iS2_RKNS_6
   %78 = add nuw nsw i32 %.084248, 4
   %79 = or disjoint i32 %78, 3
   %80 = icmp slt i32 %79, %40
-  br i1 %80, label %.lr.ph, label %.preheader, !llvm.loop !87
+  br i1 %80, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !87
 
 .lr.ph269:                                        ; preds = %.preheader, %.lr.ph269
   %.1268 = phi ptr [ %95, %.lr.ph269 ], [ %.077.lcssa, %.preheader ]

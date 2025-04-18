@@ -2629,38 +2629,38 @@ _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i:           ; preds = %5, %_ZSt7advanceIPK
   br i1 %31, label %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit, !llvm.loop !281
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit: ; preds = %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i
-  %32 = ptrtoint ptr %18 to i64
-  %33 = ptrtoint ptr %.1.i.i.i.i to i64
-  %34 = sub i64 %33, %32
-  %35 = add nsw i64 %4, -1
-  %36 = add nsw i64 %35, %11
+  %32 = add nsw i64 %4, -1
+  %33 = add nsw i64 %32, %11
   br label %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i34
 
 _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i34:         ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i34
   %.017.i.i.i.i35 = phi ptr [ %.1.i.i.i.i40, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i34 ], [ %18, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit ]
   %.01116.i.i.i.i36 = phi i64 [ %.112.i.i.i.i39, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i34 ], [ %20, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit ]
-  %37 = lshr i64 %.01116.i.i.i.i36, 1
-  %38 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i35, i64 %37
-  %39 = load i16, ptr %38, align 2, !tbaa !280
-  %40 = sext i16 %39 to i64
-  %41 = icmp slt i64 %36, %40
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  %43 = xor i64 %37, -1
-  %44 = add nsw i64 %.01116.i.i.i.i36, %43
-  %.112.i.i.i.i39 = select i1 %41, i64 %37, i64 %44
-  %.1.i.i.i.i40 = select i1 %41, ptr %.017.i.i.i.i35, ptr %42
-  %45 = icmp sgt i64 %.112.i.i.i.i39, 0
-  br i1 %45, label %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i34, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit41.loopexit, !llvm.loop !281
+  %34 = lshr i64 %.01116.i.i.i.i36, 1
+  %35 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i35, i64 %34
+  %36 = load i16, ptr %35, align 2, !tbaa !280
+  %37 = sext i16 %36 to i64
+  %38 = icmp slt i64 %33, %37
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 2
+  %40 = xor i64 %34, -1
+  %41 = add nsw i64 %.01116.i.i.i.i36, %40
+  %.112.i.i.i.i39 = select i1 %38, i64 %34, i64 %41
+  %.1.i.i.i.i40 = select i1 %38, ptr %.017.i.i.i.i35, ptr %39
+  %42 = icmp sgt i64 %.112.i.i.i.i39, 0
+  br i1 %42, label %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i34, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit41.loopexit, !llvm.loop !281
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit41.loopexit: ; preds = %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i34
-  %46 = ashr exact i64 %34, 1
+  %43 = ptrtoint ptr %18 to i64
+  %44 = ptrtoint ptr %.1.i.i.i.i to i64
+  %45 = sub i64 %44, %43
+  %46 = ashr exact i64 %45, 1
   %.pre74 = ptrtoint ptr %.1.i.i.i.i40 to i64
   br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit41
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit41: ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit41.loopexit, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread
   %.pre-phi = phi i64 [ %.pre74, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit41.loopexit ], [ %22, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread ]
   %47 = phi i64 [ %46, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit41.loopexit ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread ]
-  %48 = phi i64 [ %32, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit41.loopexit ], [ %22, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread ]
+  %48 = phi i64 [ %43, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit41.loopexit ], [ %22, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE13PhysicalIndexEl.exit.thread ]
   %49 = sub i64 %.pre-phi, %48
   %50 = ashr exact i64 %49, 1
   %reass.sub = sub nsw i64 %50, %47
@@ -2827,38 +2827,38 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i:           ; preds = %5, %_ZSt7advanceIPK
   br i1 %31, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit, !llvm.loop !300
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit: ; preds = %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i
-  %32 = ptrtoint ptr %18 to i64
-  %33 = ptrtoint ptr %.1.i.i.i.i to i64
-  %34 = sub i64 %33, %32
-  %35 = add nsw i64 %4, -1
-  %36 = add nsw i64 %35, %11
+  %32 = add nsw i64 %4, -1
+  %33 = add nsw i64 %32, %11
   br label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i34
 
 _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i34:         ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i34
   %.017.i.i.i.i35 = phi ptr [ %.1.i.i.i.i40, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i34 ], [ %18, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit ]
   %.01116.i.i.i.i36 = phi i64 [ %.112.i.i.i.i39, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i34 ], [ %20, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit ]
-  %37 = lshr i64 %.01116.i.i.i.i36, 1
-  %38 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i35, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !63
-  %40 = sext i32 %39 to i64
-  %41 = icmp slt i64 %36, %40
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %43 = xor i64 %37, -1
-  %44 = add nsw i64 %.01116.i.i.i.i36, %43
-  %.112.i.i.i.i39 = select i1 %41, i64 %37, i64 %44
-  %.1.i.i.i.i40 = select i1 %41, ptr %.017.i.i.i.i35, ptr %42
-  %45 = icmp sgt i64 %.112.i.i.i.i39, 0
-  br i1 %45, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i34, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit41.loopexit, !llvm.loop !300
+  %34 = lshr i64 %.01116.i.i.i.i36, 1
+  %35 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i35, i64 %34
+  %36 = load i32, ptr %35, align 4, !tbaa !63
+  %37 = sext i32 %36 to i64
+  %38 = icmp slt i64 %33, %37
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %40 = xor i64 %34, -1
+  %41 = add nsw i64 %.01116.i.i.i.i36, %40
+  %.112.i.i.i.i39 = select i1 %38, i64 %34, i64 %41
+  %.1.i.i.i.i40 = select i1 %38, ptr %.017.i.i.i.i35, ptr %39
+  %42 = icmp sgt i64 %.112.i.i.i.i39, 0
+  br i1 %42, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i34, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit41.loopexit, !llvm.loop !300
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit41.loopexit: ; preds = %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i34
-  %46 = ashr exact i64 %34, 2
+  %43 = ptrtoint ptr %18 to i64
+  %44 = ptrtoint ptr %.1.i.i.i.i to i64
+  %45 = sub i64 %44, %43
+  %46 = ashr exact i64 %45, 2
   %.pre74 = ptrtoint ptr %.1.i.i.i.i40 to i64
   br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit41
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit41: ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit41.loopexit, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread
   %.pre-phi = phi i64 [ %.pre74, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit41.loopexit ], [ %22, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread ]
   %47 = phi i64 [ %46, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit41.loopexit ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread ]
-  %48 = phi i64 [ %32, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit41.loopexit ], [ %22, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread ]
+  %48 = phi i64 [ %43, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit41.loopexit ], [ %22, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE13PhysicalIndexEl.exit.thread ]
   %49 = sub i64 %.pre-phi, %48
   %50 = ashr exact i64 %49, 2
   %reass.sub = sub nsw i64 %50, %47
@@ -3024,37 +3024,37 @@ _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i:           ; preds = %5, %_ZSt7advanceIPK
   br i1 %30, label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit, !llvm.loop !320
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit: ; preds = %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i
-  %31 = ptrtoint ptr %18 to i64
-  %32 = ptrtoint ptr %.1.i.i.i.i to i64
-  %33 = sub i64 %32, %31
-  %34 = add nsw i64 %4, -1
-  %35 = add nsw i64 %34, %11
+  %31 = add nsw i64 %4, -1
+  %32 = add nsw i64 %31, %11
   br label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i34
 
 _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i34:         ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i34
   %.017.i.i.i.i35 = phi ptr [ %.1.i.i.i.i40, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i34 ], [ %18, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit ]
   %.01116.i.i.i.i36 = phi i64 [ %.112.i.i.i.i39, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i34 ], [ %20, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit ]
-  %36 = lshr i64 %.01116.i.i.i.i36, 1
-  %37 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i35, i64 %36
-  %38 = load i64, ptr %37, align 8, !tbaa !319
-  %39 = icmp slt i64 %35, %38
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %41 = xor i64 %36, -1
-  %42 = add nsw i64 %.01116.i.i.i.i36, %41
-  %.112.i.i.i.i39 = select i1 %39, i64 %36, i64 %42
-  %.1.i.i.i.i40 = select i1 %39, ptr %.017.i.i.i.i35, ptr %40
-  %43 = icmp sgt i64 %.112.i.i.i.i39, 0
-  br i1 %43, label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i34, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit41.loopexit, !llvm.loop !320
+  %33 = lshr i64 %.01116.i.i.i.i36, 1
+  %34 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i35, i64 %33
+  %35 = load i64, ptr %34, align 8, !tbaa !319
+  %36 = icmp slt i64 %32, %35
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %38 = xor i64 %33, -1
+  %39 = add nsw i64 %.01116.i.i.i.i36, %38
+  %.112.i.i.i.i39 = select i1 %36, i64 %33, i64 %39
+  %.1.i.i.i.i40 = select i1 %36, ptr %.017.i.i.i.i35, ptr %37
+  %40 = icmp sgt i64 %.112.i.i.i.i39, 0
+  br i1 %40, label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i34, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit41.loopexit, !llvm.loop !320
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit41.loopexit: ; preds = %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i34
-  %44 = ashr exact i64 %33, 3
+  %41 = ptrtoint ptr %18 to i64
+  %42 = ptrtoint ptr %.1.i.i.i.i to i64
+  %43 = sub i64 %42, %41
+  %44 = ashr exact i64 %43, 3
   %.pre75 = ptrtoint ptr %.1.i.i.i.i40 to i64
   br label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit41
 
 _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit41: ; preds = %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit41.loopexit, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread
   %.pre-phi = phi i64 [ %.pre75, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit41.loopexit ], [ %22, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread ]
   %45 = phi i64 [ %44, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit41.loopexit ], [ 0, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread ]
-  %46 = phi i64 [ %31, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit41.loopexit ], [ %22, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread ]
+  %46 = phi i64 [ %41, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit41.loopexit ], [ %22, %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE13PhysicalIndexEl.exit.thread ]
   %47 = sub i64 %.pre-phi, %46
   %48 = ashr exact i64 %47, 3
   %reass.sub = sub nsw i64 %48, %45

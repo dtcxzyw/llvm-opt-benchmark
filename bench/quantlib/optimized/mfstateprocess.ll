@@ -1194,8 +1194,6 @@ _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit:        ; preds = %if.end13
   br label %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54
 
 while.body.lr.ph.i.i38:                           ; preds = %while.body.i.i
-  %sub.ptr.lhs.cast90 = ptrtoint ptr %__first.addr.1.i.i to i64
-  %sub.ptr.sub91 = sub i64 %sub.ptr.lhs.cast90, %sub.ptr.rhs.cast.i.i.i.i
   %add2593 = fadd double %t, %dt
   br label %while.body.i.i39
 
@@ -1215,6 +1213,8 @@ while.body.i.i39:                                 ; preds = %while.body.i.i39, %
   br i1 %cmp.i.i53, label %while.body.i.i39, label %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54.loopexit, !llvm.loop !67
 
 _ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54.loopexit: ; preds = %while.body.i.i39
+  %sub.ptr.lhs.cast90 = ptrtoint ptr %__first.addr.1.i.i to i64
+  %sub.ptr.sub91 = sub i64 %sub.ptr.lhs.cast90, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div92 = ashr exact i64 %sub.ptr.sub91, 3
   %.pre107 = ptrtoint ptr %__first.addr.1.i.i52 to i64
   br label %_ZSt11upper_boundIPKddET_S2_S2_RKT0_.exit54

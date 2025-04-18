@@ -104,40 +104,40 @@ define dso_local ptr @mpi_read_raw_data(ptr noundef readonly captures(none) %0, 
   %49 = and i64 %31, 2147483647
   br label %50
 
-50:                                               ; preds = %66, %45
-  %51 = phi i64 [ %49, %45 ], [ %73, %66 ]
-  %52 = phi i32 [ %47, %45 ], [ 0, %66 ]
-  %53 = phi ptr [ %32, %45 ], [ %69, %66 ]
-  %54 = xor i32 %52, 7
-  br label %55
+50:                                               ; preds = %65, %45
+  %51 = phi i64 [ %49, %45 ], [ %73, %65 ]
+  %52 = phi i32 [ %47, %45 ], [ 0, %65 ]
+  %53 = phi ptr [ %32, %45 ], [ %69, %65 ]
+  br label %54
 
-55:                                               ; preds = %55, %50
-  %56 = phi i64 [ 0, %50 ], [ %63, %55 ]
-  %57 = phi i32 [ %52, %50 ], [ %64, %55 ]
-  %58 = phi ptr [ %53, %50 ], [ %60, %55 ]
-  %59 = shl i64 %56, 8
-  %60 = getelementptr i8, ptr %58, i64 1
-  %61 = load i8, ptr %58, align 1
-  %62 = zext i8 %61 to i64
-  %63 = or disjoint i64 %59, %62
-  %64 = add nuw nsw i32 %57, 1
-  %65 = icmp eq i32 %64, 8
-  br i1 %65, label %66, label %55, !llvm.loop !9
+54:                                               ; preds = %54, %50
+  %55 = phi i64 [ 0, %50 ], [ %62, %54 ]
+  %56 = phi i32 [ %52, %50 ], [ %63, %54 ]
+  %57 = phi ptr [ %53, %50 ], [ %59, %54 ]
+  %58 = shl i64 %55, 8
+  %59 = getelementptr i8, ptr %57, i64 1
+  %60 = load i8, ptr %57, align 1
+  %61 = zext i8 %60 to i64
+  %62 = or disjoint i64 %58, %61
+  %63 = add nuw nsw i32 %56, 1
+  %64 = icmp eq i32 %63, 8
+  br i1 %64, label %65, label %54, !llvm.loop !9
 
-66:                                               ; preds = %55
-  %67 = zext nneg i32 %54 to i64
+65:                                               ; preds = %54
+  %66 = xor i32 %52, 7
+  %67 = zext nneg i32 %66 to i64
   %68 = getelementptr i8, ptr %53, i64 1
   %69 = getelementptr i8, ptr %68, i64 %67
   %70 = load ptr, ptr %48, align 8
   %71 = getelementptr i64, ptr %70, i64 %51
   %72 = getelementptr i8, ptr %71, i64 -8
-  store i64 %63, ptr %72, align 8
+  store i64 %62, ptr %72, align 8
   %73 = add nsw i64 %51, -1
   %74 = icmp sgt i64 %51, 1
   br i1 %74, label %50, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %66, %39, %.thread7, %22
-  %75 = phi ptr [ null, %22 ], [ null, %.thread7 ], [ %37, %39 ], [ %37, %66 ]
+.loopexit:                                        ; preds = %65, %39, %.thread7, %22
+  %75 = phi ptr [ null, %22 ], [ null, %.thread7 ], [ %37, %39 ], [ %37, %65 ]
   ret ptr %75
 }
 

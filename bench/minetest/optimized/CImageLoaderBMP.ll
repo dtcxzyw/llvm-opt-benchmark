@@ -309,7 +309,6 @@ vector.memcheck:                                  ; preds = %for.body.preheader
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %18, 8589934560
-  %ind.end206 = getelementptr i8, ptr %d.0198, i64 %n.vec
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -328,6 +327,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %incdec.ptr34, i64 %n.vec
+  %ind.end206 = getelementptr i8, ptr %d.0198, i64 %n.vec
   %ind.end208 = trunc i64 %n.vec to i32
   %cmp.n = icmp eq i64 %18, %n.vec
   %ind.escape = getelementptr i8, ptr %ind.end, i64 -1

@@ -2070,38 +2070,35 @@ define range(i32 -2147483648, 1) i32 @fdt_get_path(ptr noundef %0, i32 noundef %
   %.04367 = phi i32 [ 0, %.preheader59.lr.ph ], [ %.3, %95 ]
   %20 = load i32, ptr %5, align 4, !tbaa !6
   %21 = icmp sgt i32 %.04069, %20
-  br i1 %21, label %.preheader.preheader, label %._crit_edge
+  br i1 %21, label %.preheader, label %._crit_edge
 
-.preheader.preheader:                             ; preds = %.preheader59
-  %22 = add nsw i32 %.04069, -1
-  br label %.preheader
+.preheader:                                       ; preds = %.preheader59, %25
+  %.14164 = phi i32 [ %27, %25 ], [ %.04069, %.preheader59 ]
+  %.14463 = phi i32 [ %26, %25 ], [ %.04367, %.preheader59 ]
+  %22 = sext i32 %.14463 to i64
+  br label %23
 
-.preheader:                                       ; preds = %.preheader.preheader, %26
-  %.14164 = phi i32 [ %28, %26 ], [ %.04069, %.preheader.preheader ]
-  %.14463 = phi i32 [ %27, %26 ], [ %.04367, %.preheader.preheader ]
-  %23 = sext i32 %.14463 to i64
-  br label %24
-
-24:                                               ; preds = %.preheader, %24
-  %indvars.iv = phi i64 [ %23, %.preheader ], [ %indvars.iv.next, %24 ]
+23:                                               ; preds = %.preheader, %23
+  %indvars.iv = phi i64 [ %22, %.preheader ], [ %indvars.iv.next, %23 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %25 = load i8, ptr %gep, align 1, !tbaa !3
-  %.not52 = icmp eq i8 %25, 47
-  br i1 %.not52, label %26, label %24, !llvm.loop !20
+  %24 = load i8, ptr %gep, align 1, !tbaa !3
+  %.not52 = icmp eq i8 %24, 47
+  br i1 %.not52, label %25, label %23, !llvm.loop !20
 
-26:                                               ; preds = %24
-  %27 = trunc nsw i64 %indvars.iv.next to i32
-  %28 = add nsw i32 %.14164, -1
-  %29 = icmp sgt i32 %28, %20
-  br i1 %29, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !21
+25:                                               ; preds = %23
+  %26 = trunc nsw i64 %indvars.iv.next to i32
+  %27 = add nsw i32 %.14164, -1
+  %28 = icmp sgt i32 %27, %20
+  br i1 %28, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !21
 
-._crit_edge.loopexit:                             ; preds = %26
-  %smin = call i32 @llvm.smin.i32(i32 %20, i32 %22)
+._crit_edge.loopexit:                             ; preds = %25
+  %29 = add nsw i32 %.04069, -1
+  %smin = call i32 @llvm.smin.i32(i32 %20, i32 %29)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader59
-  %.144.lcssa = phi i32 [ %.04367, %.preheader59 ], [ %27, %._crit_edge.loopexit ]
+  %.144.lcssa = phi i32 [ %.04367, %.preheader59 ], [ %26, %._crit_edge.loopexit ]
   %.141.lcssa = phi i32 [ %.04069, %.preheader59 ], [ %smin, %._crit_edge.loopexit ]
   %.not = icmp slt i32 %.141.lcssa, %20
   br i1 %.not, label %86, label %30

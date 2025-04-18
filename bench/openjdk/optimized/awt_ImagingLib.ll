@@ -7819,8 +7819,8 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
   br i1 %141, label %.preheader, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %smax = tail call i32 @llvm.smax.i32(i32 %137, i32 1)
   %scevgep = getelementptr i8, ptr %.3200, i64 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %137, i32 1)
   %142 = zext nneg i32 %smax to i64
   %143 = getelementptr i8, ptr %scevgep, i64 %142
   %scevgep214 = getelementptr i8, ptr %143, i64 -1
@@ -8144,8 +8144,8 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
   br i1 %139, label %.preheader, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %smax = tail call i32 @llvm.smax.i32(i32 %135, i32 1)
   %scevgep = getelementptr i8, ptr %.3200, i64 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %135, i32 1)
   %140 = zext nneg i32 %smax to i64
   %141 = getelementptr i8, ptr %scevgep, i64 %140
   %scevgep214 = getelementptr i8, ptr %141, i64 -1

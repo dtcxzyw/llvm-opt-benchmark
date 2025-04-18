@@ -2479,9 +2479,9 @@ define dso_local range(i32 0, 33554433) i32 @dasm_encode(ptr noundef captures(no
   %286 = load i8, ptr %34, align 1, !tbaa !44
   %287 = zext i32 %41 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %.2, i8 %286, i64 %287, i1 false), !tbaa !44
+  %scevgep = getelementptr i8, ptr %.2, i64 1
   %288 = add i32 %41, -1
   %289 = zext i32 %288 to i64
-  %scevgep = getelementptr i8, ptr %.2, i64 1
   %scevgep290 = getelementptr i8, ptr %scevgep, i64 %289
   br label %.loopexit
 

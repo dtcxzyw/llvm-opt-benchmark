@@ -24627,7 +24627,6 @@ _ZNK4llvm3EVT23getVectorMinNumElementsEv.exit:    ; preds = %26, %32
 
 _ZNK4llvm3EVT23getVectorMinNumElementsEv.exit38:  ; preds = %34, %40
   %.sroa.0.0.in.i.i36 = phi i64 [ %.sroa.0.0.insert.insert.i.i.i.i35, %34 ], [ %41, %40 ]
-  %.sroa.0.0.extract.trunc.i37 = trunc i64 %.sroa.0.0.in.i.i36 to i32
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #34
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 8, ptr %42, align 8, !tbaa !809
@@ -24657,6 +24656,7 @@ _ZNK4llvm3EVT23getVectorMinNumElementsEv.exit38:  ; preds = %34, %40
   store ptr %4, ptr %44, align 8, !tbaa !118
   %.sroa.4.0..sroa_idx72 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %5, ptr %.sroa.4.0..sroa_idx72, align 8, !tbaa !66
+  %.sroa.0.0.extract.trunc.i37 = trunc i64 %.sroa.0.0.in.i.i36 to i32
   %.not = icmp ugt i32 %.sroa.0.0.extract.trunc.i, %.sroa.0.0.extract.trunc.i37
   br i1 %.not, label %.preheader, label %.lr.ph
 

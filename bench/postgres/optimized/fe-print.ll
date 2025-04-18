@@ -1045,10 +1045,10 @@ define internal fastcc noundef ptr @do_header(ptr noundef %0, ptr noundef readon
 .lr.ph129.preheader:                              ; preds = %40
   %46 = zext i32 %45 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.2137, i8 45, i64 %46, i1 false)
+  %scevgep = getelementptr i8, ptr %.2137, i64 1
   %47 = add nsw i32 %44, -1
   %48 = add i32 %47, %42
   %49 = zext i32 %48 to i64
-  %scevgep = getelementptr i8, ptr %.2137, i64 1
   %scevgep144 = getelementptr i8, ptr %scevgep, i64 %49
   %.pre = load i8, ptr %11, align 2
   br label %._crit_edge

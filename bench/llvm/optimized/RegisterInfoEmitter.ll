@@ -9382,26 +9382,23 @@ _ZNK4llvm15CodeGenRegister17getNativeRegUnitsEv.exit438: ; preds = %.lr.ph.i.i.i
   %1096 = load i64, ptr %1095, align 8, !tbaa !53
   %.not.i.i439 = icmp eq i64 %1096, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  br i1 %.not.i.i439, label %1093, label %_ZNK4llvm15SparseBitVectorILj128EE10find_firstEv.exit, !llvm.loop !526
+  br i1 %.not.i.i439, label %1093, label %.lr.ph.i.i.i441, !llvm.loop !526
 
-_ZNK4llvm15SparseBitVectorILj128EE10find_firstEv.exit: ; preds = %1093
-  %1097 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %1098 = shl nuw nsw i32 %1097, 6
-  %1099 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1096, i1 true)
-  %1100 = trunc nuw nsw i64 %1099 to i32
-  %1101 = or disjoint i32 %1098, %1100
-  br label %.lr.ph.i.i.i441
-
-.lr.ph.i.i.i441:                                  ; preds = %_ZNK4llvm15SparseBitVectorILj128EE10find_firstEv.exit, %.lr.ph.i.i.i441
-  %.09.i.i.i442 = phi ptr [ %1102, %.lr.ph.i.i.i441 ], [ %.pre.i.i437, %_ZNK4llvm15SparseBitVectorILj128EE10find_firstEv.exit ]
-  %1102 = load ptr, ptr %.09.i.i.i442, align 8, !tbaa !186
+.lr.ph.i.i.i441:                                  ; preds = %1093, %.lr.ph.i.i.i441
+  %.09.i.i.i442 = phi ptr [ %1097, %.lr.ph.i.i.i441 ], [ %.pre.i.i437, %1093 ]
+  %1097 = load ptr, ptr %.09.i.i.i442, align 8, !tbaa !186
   call void @_ZdlPvm(ptr noundef nonnull %.09.i.i.i442, i64 noundef 40) #23
-  %.not.i.i.i443 = icmp eq ptr %1102, %28
+  %.not.i.i.i443 = icmp eq ptr %1097, %28
   br i1 %.not.i.i.i443, label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit444.loopexit, label %.lr.ph.i.i.i441, !llvm.loop !532
 
 _ZN4llvm15SparseBitVectorILj128EED2Ev.exit444.loopexit: ; preds = %.lr.ph.i.i.i441
-  %1103 = shl i32 %1091, 7
-  %1104 = or disjoint i32 %1101, %1103
+  %1098 = shl i32 %1091, 7
+  %1099 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %1100 = shl nuw nsw i32 %1099, 6
+  %1101 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1096, i1 true)
+  %1102 = trunc nuw nsw i64 %1101 to i32
+  %1103 = or disjoint i32 %1100, %1102
+  %1104 = or disjoint i32 %1103, %1098
   br label %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit444
 
 _ZN4llvm15SparseBitVectorILj128EED2Ev.exit444:    ; preds = %1079, %_ZN4llvm15SparseBitVectorILj128EED2Ev.exit444.loopexit, %_ZNK4llvm15CodeGenRegister17getNativeRegUnitsEv.exit438

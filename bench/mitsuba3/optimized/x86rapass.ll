@@ -1040,33 +1040,33 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %675 = icmp eq i64 %674, 0
   %676 = select i1 %675, i64 8, i64 %674
   %677 = sub nuw nsw i64 %673, %676
-  %678 = shl i64 %677, 5
-  br label %679
+  br label %678
 
-679:                                              ; preds = %679, %671
-  %680 = phi ptr [ %663, %671 ], [ %695, %679 ]
-  %681 = phi i64 [ 0, %671 ], [ %694, %679 ]
-  %682 = getelementptr i8, ptr %680, <8 x i64> <i64 0, i64 32, i64 64, i64 96, i64 128, i64 160, i64 192, i64 224>
-  %683 = getelementptr inbounds nuw i8, <8 x ptr> %682, i64 8
-  %684 = call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %683, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !105
-  %685 = and <8 x i32> %684, splat (i32 16777216)
-  %686 = icmp eq <8 x i32> %685, zeroinitializer
-  %687 = select <8 x i1> %686, <8 x i32> splat (i32 255), <8 x i32> splat (i32 15)
-  %688 = getelementptr inbounds nuw i8, <8 x ptr> %682, i64 16
-  %689 = call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %688, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !106
-  %690 = and <8 x i32> %687, %689
-  call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %690, <8 x ptr> %688, i32 4, <8 x i1> splat (i1 true)), !tbaa !106
-  %691 = getelementptr inbounds nuw i8, <8 x ptr> %682, i64 20
-  %692 = call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %691, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !107
-  %693 = and <8 x i32> %692, %687
-  call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %693, <8 x ptr> %691, i32 4, <8 x i1> splat (i1 true)), !tbaa !107
-  %694 = add nuw i64 %681, 8
-  %695 = getelementptr i8, ptr %680, i64 256
-  %696 = icmp eq i64 %694, %677
-  br i1 %696, label %.loopexit34.loopexit, label %679, !llvm.loop !113
+678:                                              ; preds = %678, %671
+  %679 = phi ptr [ %663, %671 ], [ %694, %678 ]
+  %680 = phi i64 [ 0, %671 ], [ %693, %678 ]
+  %681 = getelementptr i8, ptr %679, <8 x i64> <i64 0, i64 32, i64 64, i64 96, i64 128, i64 160, i64 192, i64 224>
+  %682 = getelementptr inbounds nuw i8, <8 x ptr> %681, i64 8
+  %683 = call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %682, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !105
+  %684 = and <8 x i32> %683, splat (i32 16777216)
+  %685 = icmp eq <8 x i32> %684, zeroinitializer
+  %686 = select <8 x i1> %685, <8 x i32> splat (i32 255), <8 x i32> splat (i32 15)
+  %687 = getelementptr inbounds nuw i8, <8 x ptr> %681, i64 16
+  %688 = call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %687, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !106
+  %689 = and <8 x i32> %686, %688
+  call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %689, <8 x ptr> %687, i32 4, <8 x i1> splat (i1 true)), !tbaa !106
+  %690 = getelementptr inbounds nuw i8, <8 x ptr> %681, i64 20
+  %691 = call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %690, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !107
+  %692 = and <8 x i32> %691, %686
+  call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %692, <8 x ptr> %690, i32 4, <8 x i1> splat (i1 true)), !tbaa !107
+  %693 = add nuw i64 %680, 8
+  %694 = getelementptr i8, ptr %679, i64 256
+  %695 = icmp eq i64 %693, %677
+  br i1 %695, label %.loopexit34.loopexit, label %678, !llvm.loop !113
 
-.loopexit34.loopexit:                             ; preds = %679
-  %697 = getelementptr i8, ptr %663, i64 %678
+.loopexit34.loopexit:                             ; preds = %678
+  %696 = shl i64 %677, 5
+  %697 = getelementptr i8, ptr %663, i64 %696
   br label %.loopexit34.preheader
 
 .loopexit34.preheader:                            ; preds = %.loopexit34.loopexit, %667

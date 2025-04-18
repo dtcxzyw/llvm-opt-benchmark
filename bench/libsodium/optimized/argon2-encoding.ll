@@ -435,33 +435,33 @@ u32_to_string.exit:                               ; preds = %20
 37:                                               ; preds = %33
   %38 = getelementptr i8, ptr %16, i64 %31
   store i32 4025636, ptr %38, align 1
-  %39 = getelementptr i8, ptr %38, i64 3
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %8) #9
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %41 = load i32, ptr %40, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %40 = load i32, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #9
-  br label %42
+  br label %41
 
-42:                                               ; preds = %42, %37
-  %.09.i200 = phi i32 [ %41, %37 ], [ %48, %42 ]
-  %.0.i201 = phi i64 [ 10, %37 ], [ %46, %42 ]
-  %43 = urem i32 %.09.i200, 10
-  %44 = trunc nuw nsw i32 %43 to i8
-  %45 = or disjoint i8 %44, 48
-  %46 = add nsw i64 %.0.i201, -1
-  %47 = getelementptr [10 x i8], ptr %5, i64 0, i64 %46
-  store i8 %45, ptr %47, align 1
-  %48 = udiv i32 %.09.i200, 10
-  %49 = icmp ugt i32 %.09.i200, 9
-  %50 = icmp ne i64 %46, 0
-  %51 = and i1 %49, %50
-  br i1 %51, label %42, label %u32_to_string.exit202, !llvm.loop !4
+41:                                               ; preds = %41, %37
+  %.09.i200 = phi i32 [ %40, %37 ], [ %47, %41 ]
+  %.0.i201 = phi i64 [ 10, %37 ], [ %45, %41 ]
+  %42 = urem i32 %.09.i200, 10
+  %43 = trunc nuw nsw i32 %42 to i8
+  %44 = or disjoint i8 %43, 48
+  %45 = add nsw i64 %.0.i201, -1
+  %46 = getelementptr [10 x i8], ptr %5, i64 0, i64 %45
+  store i8 %44, ptr %46, align 1
+  %47 = udiv i32 %.09.i200, 10
+  %48 = icmp ugt i32 %.09.i200, 9
+  %49 = icmp ne i64 %45, 0
+  %50 = and i1 %48, %49
+  br i1 %50, label %41, label %u32_to_string.exit202, !llvm.loop !4
 
-u32_to_string.exit202:                            ; preds = %42
-  %52 = getelementptr [10 x i8], ptr %5, i64 0, i64 %46
+u32_to_string.exit202:                            ; preds = %41
+  %51 = getelementptr [10 x i8], ptr %5, i64 0, i64 %45
+  %52 = getelementptr i8, ptr %38, i64 3
   %53 = add i64 %35, -3
   %54 = sub i64 11, %.0.i201
-  %55 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef nonnull %52, i64 noundef %54, i64 noundef 11) #9, !alias.scope !6
+  %55 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef nonnull %51, i64 noundef %54, i64 noundef 11) #9, !alias.scope !6
   %56 = getelementptr i8, ptr %8, i64 %54
   store i8 0, ptr %56, align 1
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #9
@@ -475,14 +475,14 @@ u32_to_string.exit202:                            ; preds = %42
 
 59:                                               ; preds = %u32_to_string.exit202
   %60 = add nuw i64 %57, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %39, ptr noundef nonnull align 1 dereferenceable(1) %8, i64 noundef %60, i1 noundef false) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 1 dereferenceable(1) %8, i64 noundef %60, i1 noundef false) #9
   %61 = sub nuw i64 %53, %57
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %8) #9
   %62 = icmp ugt i64 %61, 3
   br i1 %62, label %63, label %.thread248
 
 63:                                               ; preds = %59
-  %64 = getelementptr i8, ptr %39, i64 %57
+  %64 = getelementptr i8, ptr %52, i64 %57
   store i32 4027436, ptr %64, align 1
   %65 = add i64 %61, -3
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %9) #9

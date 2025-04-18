@@ -3823,22 +3823,22 @@ _ZL19update_slab_dipolesiiPA3_fPfiiS0_S0_.exit:   ; preds = %855, %852
   %904 = phi float [ 0.000000e+00, %891 ], [ %.pre164.i, %._crit_edge.loopexit.i ]
   %905 = phi float [ 0.000000e+00, %891 ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.0.lcssa.i942 = phi float [ 0.000000e+00, %891 ], [ %902, %._crit_edge.loopexit.i ]
-  %906 = fdiv float 1.000000e+00, %.0.lcssa.i942
-  %907 = fmul float %904, %906
   br label %.preheader103.i
 
 .preheader103.i:                                  ; preds = %.preheader103.i, %._crit_edge.i
   %indvars.iv131.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next132.i, %.preheader103.i ]
-  %908 = getelementptr inbounds nuw ptr, ptr %884, i64 %indvars.iv131.i
-  %909 = load ptr, ptr %908, align 8, !tbaa !108
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %909, i8 0, i64 24, i1 false), !tbaa !91
+  %906 = getelementptr inbounds nuw ptr, ptr %884, i64 %indvars.iv131.i
+  %907 = load ptr, ptr %906, align 8, !tbaa !108
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %907, i8 0, i64 24, i1 false), !tbaa !91
   %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, 1
   %exitcond134.not.i = icmp eq i64 %indvars.iv.next132.i, 3
   br i1 %exitcond134.not.i, label %.preheader102.i, label %.preheader103.i, !llvm.loop !113
 
 .preheader102.i:                                  ; preds = %.preheader103.i
-  %910 = fmul float %905, %906
-  %911 = fmul float %903, %906
+  %908 = fdiv float 1.000000e+00, %.0.lcssa.i942
+  %909 = fmul float %905, %908
+  %910 = fmul float %904, %908
+  %911 = fmul float %903, %908
   br i1 %822, label %.lr.ph113.i, label %._crit_edge114.i
 
 .lr.ph113.i:                                      ; preds = %.preheader102.i
@@ -3853,10 +3853,10 @@ _ZL19update_slab_dipolesiiPA3_fPfiiS0_S0_.exit:   ; preds = %855, %852
   %916 = fmul float %915, 1.000000e+02
   %917 = getelementptr inbounds [3 x float], ptr %883, i64 %indvars.iv143.i
   %918 = load float, ptr %917, align 4, !tbaa !8
-  %919 = fsub float %918, %910
+  %919 = fsub float %918, %909
   %920 = getelementptr inbounds nuw i8, ptr %917, i64 4
   %921 = load float, ptr %920, align 4, !tbaa !8
-  %922 = fsub float %921, %907
+  %922 = fsub float %921, %910
   %923 = getelementptr inbounds nuw i8, ptr %917, i64 8
   %924 = load float, ptr %923, align 4, !tbaa !8
   %925 = fsub float %924, %911
@@ -4346,84 +4346,84 @@ _ZL8mol_quadiiPA3_fPK6t_atomPf.exit:              ; preds = %.noexc955
 
 _ZL9cos_anglePKfS0_.exit.i:                       ; preds = %1168, %1165
   %.026.i.i = phi float [ %1172, %1168 ], [ 1.000000e+00, %1165 ]
-  %1173 = call float @llvm.fabs.f32(float %.026.i.i)
-  %1174 = fcmp ogt float %1173, 1.000000e+00
-  %1175 = select i1 %1174, float 1.000000e+00, float %1173
-  br label %1176
+  br label %1173
 
-1176:                                             ; preds = %1176, %_ZL9cos_anglePKfS0_.exit.i
-  %indvars.iv.i45.i = phi i64 [ 0, %_ZL9cos_anglePKfS0_.exit.i ], [ %indvars.iv.next.i49.i, %1176 ]
-  %.02333.i46.i = phi double [ 0.000000e+00, %_ZL9cos_anglePKfS0_.exit.i ], [ %1185, %1176 ]
-  %.02432.i47.i = phi double [ 0.000000e+00, %_ZL9cos_anglePKfS0_.exit.i ], [ %1184, %1176 ]
-  %.02531.i48.i = phi double [ 0.000000e+00, %_ZL9cos_anglePKfS0_.exit.i ], [ %1183, %1176 ]
-  %1177 = getelementptr inbounds nuw float, ptr %1154, i64 %indvars.iv.i45.i
+1173:                                             ; preds = %1173, %_ZL9cos_anglePKfS0_.exit.i
+  %indvars.iv.i45.i = phi i64 [ 0, %_ZL9cos_anglePKfS0_.exit.i ], [ %indvars.iv.next.i49.i, %1173 ]
+  %.02333.i46.i = phi double [ 0.000000e+00, %_ZL9cos_anglePKfS0_.exit.i ], [ %1182, %1173 ]
+  %.02432.i47.i = phi double [ 0.000000e+00, %_ZL9cos_anglePKfS0_.exit.i ], [ %1181, %1173 ]
+  %.02531.i48.i = phi double [ 0.000000e+00, %_ZL9cos_anglePKfS0_.exit.i ], [ %1180, %1173 ]
+  %1174 = getelementptr inbounds nuw float, ptr %1154, i64 %indvars.iv.i45.i
+  %1175 = load float, ptr %1174, align 4, !tbaa !8
+  %1176 = fpext float %1175 to double
+  %1177 = getelementptr inbounds nuw float, ptr @__const._ZL15compute_avercosiPA3_fPfS1_b.yyy, i64 %indvars.iv.i45.i
   %1178 = load float, ptr %1177, align 4, !tbaa !8
   %1179 = fpext float %1178 to double
-  %1180 = getelementptr inbounds nuw float, ptr @__const._ZL15compute_avercosiPA3_fPfS1_b.yyy, i64 %indvars.iv.i45.i
-  %1181 = load float, ptr %1180, align 4, !tbaa !8
-  %1182 = fpext float %1181 to double
-  %1183 = call double @llvm.fmuladd.f64(double %1179, double %1182, double %.02531.i48.i)
-  %1184 = call double @llvm.fmuladd.f64(double %1179, double %1179, double %.02432.i47.i)
-  %1185 = call double @llvm.fmuladd.f64(double %1182, double %1182, double %.02333.i46.i)
+  %1180 = call double @llvm.fmuladd.f64(double %1176, double %1179, double %.02531.i48.i)
+  %1181 = call double @llvm.fmuladd.f64(double %1176, double %1176, double %.02432.i47.i)
+  %1182 = call double @llvm.fmuladd.f64(double %1179, double %1179, double %.02333.i46.i)
   %indvars.iv.next.i49.i = add nuw nsw i64 %indvars.iv.i45.i, 1
   %exitcond.not.i50.i = icmp eq i64 %indvars.iv.next.i49.i, 3
-  br i1 %exitcond.not.i50.i, label %1186, label %1176, !llvm.loop !126
+  br i1 %exitcond.not.i50.i, label %1183, label %1173, !llvm.loop !126
 
-1186:                                             ; preds = %1176
-  %1187 = fpext float %1175 to double
+1183:                                             ; preds = %1173
+  %1184 = call float @llvm.fabs.f32(float %.026.i.i)
+  %1185 = fcmp ogt float %1184, 1.000000e+00
+  %1186 = select i1 %1185, float 1.000000e+00, float %1184
+  %1187 = fpext float %1186 to double
   %1188 = fadd double %.03694.i, %1187
-  %1189 = fmul double %1184, %1185
+  %1189 = fmul double %1181, %1182
   %1190 = fcmp ogt double %1189, 0.000000e+00
   br i1 %1190, label %1191, label %_ZL9cos_anglePKfS0_.exit54.i
 
-1191:                                             ; preds = %1186
+1191:                                             ; preds = %1183
   %1192 = call double @sqrt(double noundef %1189) #22, !tbaa !4
   %1193 = fdiv double 1.000000e+00, %1192
-  %1194 = fmul double %1183, %1193
+  %1194 = fmul double %1180, %1193
   %1195 = fptrunc double %1194 to float
   br label %_ZL9cos_anglePKfS0_.exit54.i
 
-_ZL9cos_anglePKfS0_.exit54.i:                     ; preds = %1191, %1186
-  %.026.i51.i = phi float [ %1195, %1191 ], [ 1.000000e+00, %1186 ]
-  %1196 = call float @llvm.fabs.f32(float %.026.i51.i)
-  %1197 = fcmp ogt float %1196, 1.000000e+00
-  %1198 = select i1 %1197, float 1.000000e+00, float %1196
-  br label %1199
+_ZL9cos_anglePKfS0_.exit54.i:                     ; preds = %1191, %1183
+  %.026.i51.i = phi float [ %1195, %1191 ], [ 1.000000e+00, %1183 ]
+  br label %1196
 
-1199:                                             ; preds = %1199, %_ZL9cos_anglePKfS0_.exit54.i
-  %indvars.iv.i55.i = phi i64 [ 0, %_ZL9cos_anglePKfS0_.exit54.i ], [ %indvars.iv.next.i59.i, %1199 ]
-  %.02333.i56.i = phi double [ 0.000000e+00, %_ZL9cos_anglePKfS0_.exit54.i ], [ %1208, %1199 ]
-  %.02432.i57.i = phi double [ 0.000000e+00, %_ZL9cos_anglePKfS0_.exit54.i ], [ %1207, %1199 ]
-  %.02531.i58.i = phi double [ 0.000000e+00, %_ZL9cos_anglePKfS0_.exit54.i ], [ %1206, %1199 ]
-  %1200 = getelementptr inbounds nuw float, ptr %1154, i64 %indvars.iv.i55.i
+1196:                                             ; preds = %1196, %_ZL9cos_anglePKfS0_.exit54.i
+  %indvars.iv.i55.i = phi i64 [ 0, %_ZL9cos_anglePKfS0_.exit54.i ], [ %indvars.iv.next.i59.i, %1196 ]
+  %.02333.i56.i = phi double [ 0.000000e+00, %_ZL9cos_anglePKfS0_.exit54.i ], [ %1205, %1196 ]
+  %.02432.i57.i = phi double [ 0.000000e+00, %_ZL9cos_anglePKfS0_.exit54.i ], [ %1204, %1196 ]
+  %.02531.i58.i = phi double [ 0.000000e+00, %_ZL9cos_anglePKfS0_.exit54.i ], [ %1203, %1196 ]
+  %1197 = getelementptr inbounds nuw float, ptr %1154, i64 %indvars.iv.i55.i
+  %1198 = load float, ptr %1197, align 4, !tbaa !8
+  %1199 = fpext float %1198 to double
+  %1200 = getelementptr inbounds nuw float, ptr @__const._ZL15compute_avercosiPA3_fPfS1_b.zzz, i64 %indvars.iv.i55.i
   %1201 = load float, ptr %1200, align 4, !tbaa !8
   %1202 = fpext float %1201 to double
-  %1203 = getelementptr inbounds nuw float, ptr @__const._ZL15compute_avercosiPA3_fPfS1_b.zzz, i64 %indvars.iv.i55.i
-  %1204 = load float, ptr %1203, align 4, !tbaa !8
-  %1205 = fpext float %1204 to double
-  %1206 = call double @llvm.fmuladd.f64(double %1202, double %1205, double %.02531.i58.i)
-  %1207 = call double @llvm.fmuladd.f64(double %1202, double %1202, double %.02432.i57.i)
-  %1208 = call double @llvm.fmuladd.f64(double %1205, double %1205, double %.02333.i56.i)
+  %1203 = call double @llvm.fmuladd.f64(double %1199, double %1202, double %.02531.i58.i)
+  %1204 = call double @llvm.fmuladd.f64(double %1199, double %1199, double %.02432.i57.i)
+  %1205 = call double @llvm.fmuladd.f64(double %1202, double %1202, double %.02333.i56.i)
   %indvars.iv.next.i59.i = add nuw nsw i64 %indvars.iv.i55.i, 1
   %exitcond.not.i60.i = icmp eq i64 %indvars.iv.next.i59.i, 3
-  br i1 %exitcond.not.i60.i, label %1209, label %1199, !llvm.loop !126
+  br i1 %exitcond.not.i60.i, label %1206, label %1196, !llvm.loop !126
 
-1209:                                             ; preds = %1199
-  %1210 = fpext float %1198 to double
+1206:                                             ; preds = %1196
+  %1207 = call float @llvm.fabs.f32(float %.026.i51.i)
+  %1208 = fcmp ogt float %1207, 1.000000e+00
+  %1209 = select i1 %1208, float 1.000000e+00, float %1207
+  %1210 = fpext float %1209 to double
   %1211 = fadd double %.03595.i, %1210
-  %1212 = fmul double %1207, %1208
+  %1212 = fmul double %1204, %1205
   %1213 = fcmp ogt double %1212, 0.000000e+00
   br i1 %1213, label %1214, label %_ZL9cos_anglePKfS0_.exit64.i
 
-1214:                                             ; preds = %1209
+1214:                                             ; preds = %1206
   %1215 = call double @sqrt(double noundef %1212) #22, !tbaa !4
   %1216 = fdiv double 1.000000e+00, %1215
-  %1217 = fmul double %1206, %1216
+  %1217 = fmul double %1203, %1216
   %1218 = fptrunc double %1217 to float
   br label %_ZL9cos_anglePKfS0_.exit64.i
 
-_ZL9cos_anglePKfS0_.exit64.i:                     ; preds = %1214, %1209
-  %.026.i61.i = phi float [ %1218, %1214 ], [ 1.000000e+00, %1209 ]
+_ZL9cos_anglePKfS0_.exit64.i:                     ; preds = %1214, %1206
+  %.026.i61.i = phi float [ %1218, %1214 ], [ 1.000000e+00, %1206 ]
   %1219 = call float @llvm.fabs.f32(float %.026.i61.i)
   %1220 = fcmp ogt float %1219, 1.000000e+00
   %1221 = select i1 %1220, float 1.000000e+00, float %1219

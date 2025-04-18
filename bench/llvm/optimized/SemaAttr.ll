@@ -11698,7 +11698,6 @@ define dso_local void @_ZN5clang4Sema29ActOnPragmaAttributeAttributeERNS_10Parse
 
 49:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23) #24
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 1, ptr %23, align 8
   %50 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 0, ptr %50, align 4, !tbaa !1745
@@ -11713,6 +11712,7 @@ define dso_local void @_ZN5clang4Sema29ActOnPragmaAttributeAttributeERNS_10Parse
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIiSt4pairIiN5clang11SourceRangeEELj2ENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS4_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !1748
 
 _ZN4llvm13SmallDenseMapIiSt4pairIiN5clang11SourceRangeEELj2ENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS4_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %23, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !1749

@@ -91,11 +91,11 @@ define double @sdsdot_k(i64 noundef %0, ptr noundef readonly captures(none) %1, 
 .lr.ph:                                           ; preds = %55
   %57 = shl nsw i64 %2, 1
   %58 = shl nsw i64 %4, 1
-  %59 = add nsw i64 %56, -1
-  %60 = and i64 %59, -2
   br label %63
 
 .preheader76.loopexit:                            ; preds = %63
+  %59 = add nsw i64 %56, -1
+  %60 = and i64 %59, -2
   %61 = add nuw nsw i64 %60, 2
   br label %.preheader76
 

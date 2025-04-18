@@ -18601,10 +18601,10 @@ _ZN6icu_7712RegexMatcher4findEv.exit:             ; preds = %120
   br i1 %181, label %.lr.ph.split.preheader, label %_ZN6icu_77L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit.us.preheader
 
 _ZN6icu_77L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit.us.preheader: ; preds = %.lr.ph
-  %182 = sub i32 %52, %.0185280
-  %umin = call i32 @llvm.umin.i32(i32 %182, i32 %53)
-  %183 = add nsw i32 %.0185280, 1
-  %184 = add i32 %183, %umin
+  %182 = add nsw i32 %.0185280, 1
+  %183 = sub i32 %52, %.0185280
+  %umin = call i32 @llvm.umin.i32(i32 %183, i32 %53)
+  %184 = add i32 %182, %umin
   br label %._crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph

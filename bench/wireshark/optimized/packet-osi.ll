@@ -168,36 +168,33 @@ define hidden noundef zeroext i1 @osi_check_and_get_checksum(ptr noundef %0, i32
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %.06292, i32 5803)
   %.061 = select i1 %.not81, i32 %17, i32 %spec.store.select
   %.not99 = icmp eq i32 %.061, 0
-  br i1 %.not99, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not99, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %18
-  %20 = add nsw i32 %.061, -1
-  %21 = zext i32 %20 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.05985 = phi i32 [ %27, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.16484 = phi i32 [ %26, %.lr.ph ], [ %.06391, %.lr.ph.preheader ]
-  %.16683 = phi i32 [ %25, %.lr.ph ], [ %.06590, %.lr.ph.preheader ]
-  %.17182 = phi ptr [ %22, %.lr.ph ], [ %.07089, %.lr.ph.preheader ]
-  %22 = getelementptr i8, ptr %.17182, i64 1
-  %23 = load i8, ptr %.17182, align 1
-  %24 = zext i8 %23 to i32
-  %25 = add i32 %.16683, %24
-  %26 = add i32 %25, %.16484
-  %27 = add nuw i32 %.05985, 1
-  %exitcond.not = icmp eq i32 %27, %.061
+.lr.ph:                                           ; preds = %18, %.lr.ph
+  %.05985 = phi i32 [ %25, %.lr.ph ], [ 0, %18 ]
+  %.16484 = phi i32 [ %24, %.lr.ph ], [ %.06391, %18 ]
+  %.16683 = phi i32 [ %23, %.lr.ph ], [ %.06590, %18 ]
+  %.17182 = phi ptr [ %20, %.lr.ph ], [ %.07089, %18 ]
+  %20 = getelementptr i8, ptr %.17182, i64 1
+  %21 = load i8, ptr %.17182, align 1
+  %22 = zext i8 %21 to i32
+  %23 = add i32 %.16683, %22
+  %24 = add i32 %23, %.16484
+  %25 = add nuw i32 %.05985, 1
+  %exitcond.not = icmp eq i32 %25, %.061
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %scevgep = getelementptr i8, ptr %.07089, i64 1
-  %scevgep104 = getelementptr i8, ptr %scevgep, i64 %21
+  %26 = add nsw i32 %.061, -1
+  %27 = zext i32 %26 to i64
+  %scevgep104 = getelementptr i8, ptr %scevgep, i64 %27
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
   %.171.lcssa = phi ptr [ %.07089, %18 ], [ %scevgep104, %._crit_edge.loopexit ]
-  %.166.lcssa = phi i32 [ %.06590, %18 ], [ %25, %._crit_edge.loopexit ]
-  %.164.lcssa = phi i32 [ %.06391, %18 ], [ %26, %._crit_edge.loopexit ]
+  %.166.lcssa = phi i32 [ %.06590, %18 ], [ %23, %._crit_edge.loopexit ]
+  %.164.lcssa = phi i32 [ %.06391, %18 ], [ %24, %._crit_edge.loopexit ]
   %28 = shl i32 %.166.lcssa, 1
   %29 = add i32 %.06292, -2
   %.272.idx = select i1 %.not81, i64 2, i64 0

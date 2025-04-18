@@ -4751,31 +4751,31 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
   %.promoted = load i16, ptr %34, align 2, !tbaa !6
-  %38 = trunc i64 %24 to i16
-  br label %39
+  br label %38
 
-39:                                               ; preds = %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, %.lr.ph.split.us.split.us
+38:                                               ; preds = %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, %.lr.ph.split.us.split.us
   %.01843.us.us = phi ptr [ %2, %.lr.ph.split.us.split.us ], [ %.119.us.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
-  %.02042.us.us = phi ptr [ %18, %.lr.ph.split.us.split.us ], [ %42, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
-  %.02141.us.us = phi i64 [ %24, %.lr.ph.split.us.split.us ], [ %43, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
-  %40 = load i32, ptr %.02042.us.us, align 4, !tbaa !8
-  %.not.us.us = icmp eq i32 %40, 0
+  %.02042.us.us = phi ptr [ %18, %.lr.ph.split.us.split.us ], [ %41, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
+  %.02141.us.us = phi i64 [ %24, %.lr.ph.split.us.split.us ], [ %42, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
+  %39 = load i32, ptr %.02042.us.us, align 4, !tbaa !8
+  %.not.us.us = icmp eq i32 %39, 0
   br i1 %.not.us.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us, !prof !59
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us: ; preds = %39
-  %41 = getelementptr inbounds nuw i8, ptr %.01843.us.us, i64 4
-  store i32 %40, ptr %.01843.us.us, align 4, !tbaa !8
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us: ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %.01843.us.us, i64 4
+  store i32 %39, ptr %.01843.us.us, align 4, !tbaa !8
   br label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us
 
-_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us, %39
-  %.119.us.us = phi ptr [ %41, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us ], [ %.01843.us.us, %39 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.02042.us.us, i64 4
-  %43 = add nsw i64 %.02141.us.us, -1
-  %44 = icmp sgt i64 %.02141.us.us, 1
-  br i1 %44, label %39, label %._crit_edge.split.us.split.us, !llvm.loop !170
+_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us, %38
+  %.119.us.us = phi ptr [ %40, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us ], [ %.01843.us.us, %38 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.02042.us.us, i64 4
+  %42 = add nsw i64 %.02141.us.us, -1
+  %43 = icmp sgt i64 %.02141.us.us, 1
+  br i1 %43, label %38, label %._crit_edge.split.us.split.us, !llvm.loop !170
 
 ._crit_edge.split.us.split.us:                    ; preds = %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us
-  %45 = add i16 %.promoted, %38
+  %44 = trunc i64 %24 to i16
+  %45 = add i16 %.promoted, %44
   store i16 %45, ptr %34, align 2, !tbaa !6
   br label %._crit_edge.thread
 
@@ -4993,31 +4993,31 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
   %.promoted = load i16, ptr %34, align 2, !tbaa !6
-  %37 = trunc i64 %24 to i16
-  br label %38
+  br label %37
 
-38:                                               ; preds = %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, %.lr.ph.split.us.split.us
+37:                                               ; preds = %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, %.lr.ph.split.us.split.us
   %.01843.us.us = phi ptr [ %2, %.lr.ph.split.us.split.us ], [ %.119.us.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
-  %.02042.us.us = phi ptr [ %18, %.lr.ph.split.us.split.us ], [ %41, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
-  %.02141.us.us = phi i64 [ %24, %.lr.ph.split.us.split.us ], [ %42, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
-  %39 = load i64, ptr %.02042.us.us, align 8, !tbaa !10
-  %.not.us.us = icmp eq i64 %39, 0
+  %.02042.us.us = phi ptr [ %18, %.lr.ph.split.us.split.us ], [ %40, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
+  %.02141.us.us = phi i64 [ %24, %.lr.ph.split.us.split.us ], [ %41, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
+  %38 = load i64, ptr %.02042.us.us, align 8, !tbaa !10
+  %.not.us.us = icmp eq i64 %38, 0
   br i1 %.not.us.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us, !prof !59
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us: ; preds = %38
-  %40 = getelementptr inbounds nuw i8, ptr %.01843.us.us, i64 8
-  store i64 %39, ptr %.01843.us.us, align 8, !tbaa !10
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us: ; preds = %37
+  %39 = getelementptr inbounds nuw i8, ptr %.01843.us.us, i64 8
+  store i64 %38, ptr %.01843.us.us, align 8, !tbaa !10
   br label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us
 
-_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us, %38
-  %.119.us.us = phi ptr [ %40, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us ], [ %.01843.us.us, %38 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.02042.us.us, i64 8
-  %42 = add nsw i64 %.02141.us.us, -1
-  %43 = icmp sgt i64 %.02141.us.us, 1
-  br i1 %43, label %38, label %._crit_edge.split.us.split.us, !llvm.loop !171
+_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us, %37
+  %.119.us.us = phi ptr [ %39, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEES2_ET0_T_S8_S7_.exit.us.us ], [ %.01843.us.us, %37 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.02042.us.us, i64 8
+  %41 = add nsw i64 %.02141.us.us, -1
+  %42 = icmp sgt i64 %.02141.us.us, 1
+  br i1 %42, label %37, label %._crit_edge.split.us.split.us, !llvm.loop !171
 
 ._crit_edge.split.us.split.us:                    ; preds = %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us
-  %44 = add i16 %.promoted, %37
+  %43 = trunc i64 %24 to i16
+  %44 = add i16 %.promoted, %43
   store i16 %44, ptr %34, align 2, !tbaa !6
   br label %._crit_edge.thread
 
@@ -5447,31 +5447,31 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc30, %_ZNSt6ve
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
   %.promoted = load i32, ptr %34, align 4, !tbaa !8
-  %38 = trunc i64 %24 to i32
-  br label %39
+  br label %38
 
-39:                                               ; preds = %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, %.lr.ph.split.us.split.us
+38:                                               ; preds = %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, %.lr.ph.split.us.split.us
   %.01842.us.us = phi ptr [ %2, %.lr.ph.split.us.split.us ], [ %.119.us.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
-  %.02041.us.us = phi ptr [ %18, %.lr.ph.split.us.split.us ], [ %42, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
-  %.02140.us.us = phi i64 [ %24, %.lr.ph.split.us.split.us ], [ %43, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
-  %40 = load i16, ptr %.02041.us.us, align 2, !tbaa !6
-  %.not.us.us = icmp eq i16 %40, 0
+  %.02041.us.us = phi ptr [ %18, %.lr.ph.split.us.split.us ], [ %41, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
+  %.02140.us.us = phi i64 [ %24, %.lr.ph.split.us.split.us ], [ %42, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
+  %39 = load i16, ptr %.02041.us.us, align 2, !tbaa !6
+  %.not.us.us = icmp eq i16 %39, 0
   br i1 %.not.us.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us, !prof !59
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us: ; preds = %39
-  %41 = getelementptr inbounds nuw i8, ptr %.01842.us.us, i64 2
-  store i16 %40, ptr %.01842.us.us, align 2, !tbaa !6
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us: ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %.01842.us.us, i64 2
+  store i16 %39, ptr %.01842.us.us, align 2, !tbaa !6
   br label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us
 
-_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us, %39
-  %.119.us.us = phi ptr [ %41, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us ], [ %.01842.us.us, %39 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.02041.us.us, i64 2
-  %43 = add nsw i64 %.02140.us.us, -1
-  %44 = icmp sgt i64 %.02140.us.us, 1
-  br i1 %44, label %39, label %._crit_edge.split.us.split.us, !llvm.loop !174
+_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us, %38
+  %.119.us.us = phi ptr [ %40, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us ], [ %.01842.us.us, %38 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.02041.us.us, i64 2
+  %42 = add nsw i64 %.02140.us.us, -1
+  %43 = icmp sgt i64 %.02140.us.us, 1
+  br i1 %43, label %38, label %._crit_edge.split.us.split.us, !llvm.loop !174
 
 ._crit_edge.split.us.split.us:                    ; preds = %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us
-  %45 = add i32 %.promoted, %38
+  %44 = trunc i64 %24 to i32
+  %45 = add i32 %.promoted, %44
   store i32 %45, ptr %34, align 4, !tbaa !8
   br label %._crit_edge.thread
 
@@ -5925,31 +5925,31 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
   %.promoted = load i32, ptr %34, align 4, !tbaa !8
-  %37 = trunc i64 %24 to i32
-  br label %38
+  br label %37
 
-38:                                               ; preds = %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, %.lr.ph.split.us.split.us
+37:                                               ; preds = %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, %.lr.ph.split.us.split.us
   %.01843.us.us = phi ptr [ %2, %.lr.ph.split.us.split.us ], [ %.119.us.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
-  %.02042.us.us = phi ptr [ %18, %.lr.ph.split.us.split.us ], [ %41, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
-  %.02141.us.us = phi i64 [ %24, %.lr.ph.split.us.split.us ], [ %42, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
-  %39 = load i64, ptr %.02042.us.us, align 8, !tbaa !10
-  %.not.us.us = icmp eq i64 %39, 0
+  %.02042.us.us = phi ptr [ %18, %.lr.ph.split.us.split.us ], [ %40, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
+  %.02141.us.us = phi i64 [ %24, %.lr.ph.split.us.split.us ], [ %41, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us ]
+  %38 = load i64, ptr %.02042.us.us, align 8, !tbaa !10
+  %.not.us.us = icmp eq i64 %38, 0
   br i1 %.not.us.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us, !prof !59
 
-_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us: ; preds = %38
-  %40 = getelementptr inbounds nuw i8, ptr %.01843.us.us, i64 8
-  store i64 %39, ptr %.01843.us.us, align 8, !tbaa !10
+_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us: ; preds = %37
+  %39 = getelementptr inbounds nuw i8, ptr %.01843.us.us, i64 8
+  store i64 %38, ptr %.01843.us.us, align 8, !tbaa !10
   br label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us
 
-_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us, %38
-  %.119.us.us = phi ptr [ %40, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us ], [ %.01843.us.us, %38 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.02042.us.us, i64 8
-  %42 = add nsw i64 %.02141.us.us, -1
-  %43 = icmp sgt i64 %.02141.us.us, 1
-  br i1 %43, label %38, label %._crit_edge.split.us.split.us, !llvm.loop !176
+_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us, %37
+  %.119.us.us = phi ptr [ %39, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_ET0_T_S8_S7_.exit.us.us ], [ %.01843.us.us, %37 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.02042.us.us, i64 8
+  %41 = add nsw i64 %.02141.us.us, -1
+  %42 = icmp sgt i64 %.02141.us.us, 1
+  br i1 %42, label %37, label %._crit_edge.split.us.split.us, !llvm.loop !176
 
 ._crit_edge.split.us.split.us:                    ; preds = %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us.us
-  %44 = add i32 %.promoted, %37
+  %43 = trunc i64 %24 to i32
+  %44 = add i32 %.promoted, %43
   store i32 %44, ptr %34, align 4, !tbaa !8
   br label %._crit_edge.thread
 

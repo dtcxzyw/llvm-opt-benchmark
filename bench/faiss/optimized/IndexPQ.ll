@@ -3597,16 +3597,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %68 = add nsw i32 %62, -8
   %69 = lshr i32 %68, 3
   %70 = icmp samesign ugt i32 %62, 15
-  br i1 %70, label %.lr.ph.i.preheader, label %._crit_edge.i
-
-.lr.ph.i.preheader:                               ; preds = %64
-  %71 = add nsw i32 %69, -1
-  %72 = zext i32 %71 to i64
-  br label %.lr.ph.i
+  br i1 %70, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %scevgep = getelementptr i8, ptr %.sroa.034.046, i64 2
-  %scevgep61 = getelementptr i8, ptr %scevgep, i64 %72
+  %71 = zext nneg i32 %69 to i64
+  %72 = getelementptr i8, ptr %scevgep, i64 %71
+  %scevgep61 = getelementptr i8, ptr %72, i64 -1
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %64
@@ -3618,11 +3615,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.not.i = icmp eq i8 %74, 0
   br i1 %.not.i, label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit, label %83
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.013.i = phi i32 [ %82, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.0812.i = phi i64 [ %81, %.lr.ph.i ], [ %66, %.lr.ph.i.preheader ]
-  %.0911.i = phi i64 [ %80, %.lr.ph.i ], [ %61, %.lr.ph.i.preheader ]
-  %75 = phi ptr [ %76, %.lr.ph.i ], [ %67, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %64, %.lr.ph.i
+  %.013.i = phi i32 [ %82, %.lr.ph.i ], [ 0, %64 ]
+  %.0812.i = phi i64 [ %81, %.lr.ph.i ], [ %66, %64 ]
+  %.0911.i = phi i64 [ %80, %.lr.ph.i ], [ %61, %64 ]
+  %75 = phi ptr [ %76, %.lr.ph.i ], [ %67, %64 ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %77 = load i8, ptr %75, align 1, !tbaa !44
   %78 = zext i8 %77 to i64
@@ -3674,16 +3671,13 @@ _ZN5faiss16PQDecoderGeneric6decodeEv.exit:        ; preds = %._crit_edge.i, %83,
   %104 = add nsw i32 %98, -8
   %105 = lshr i32 %104, 3
   %106 = icmp samesign ugt i32 %98, 15
-  br i1 %106, label %.lr.ph.i26.preheader, label %._crit_edge.i22
-
-.lr.ph.i26.preheader:                             ; preds = %100
-  %107 = add nsw i32 %105, -1
-  %108 = zext i32 %107 to i64
-  br label %.lr.ph.i26
+  br i1 %106, label %.lr.ph.i26, label %._crit_edge.i22
 
 ._crit_edge.i22.loopexit:                         ; preds = %.lr.ph.i26
   %scevgep62 = getelementptr i8, ptr %.sroa.0.050, i64 2
-  %scevgep63 = getelementptr i8, ptr %scevgep62, i64 %108
+  %107 = zext nneg i32 %105 to i64
+  %108 = getelementptr i8, ptr %scevgep62, i64 %107
+  %scevgep63 = getelementptr i8, ptr %108, i64 -1
   br label %._crit_edge.i22
 
 ._crit_edge.i22:                                  ; preds = %._crit_edge.i22.loopexit, %100
@@ -3695,11 +3689,11 @@ _ZN5faiss16PQDecoderGeneric6decodeEv.exit:        ; preds = %._crit_edge.i, %83,
   %.not.i25 = icmp eq i8 %110, 0
   br i1 %.not.i25, label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit31, label %119
 
-.lr.ph.i26:                                       ; preds = %.lr.ph.i26.preheader, %.lr.ph.i26
-  %.013.i27 = phi i32 [ %118, %.lr.ph.i26 ], [ 0, %.lr.ph.i26.preheader ]
-  %.0812.i28 = phi i64 [ %117, %.lr.ph.i26 ], [ %102, %.lr.ph.i26.preheader ]
-  %.0911.i29 = phi i64 [ %116, %.lr.ph.i26 ], [ %97, %.lr.ph.i26.preheader ]
-  %111 = phi ptr [ %112, %.lr.ph.i26 ], [ %103, %.lr.ph.i26.preheader ]
+.lr.ph.i26:                                       ; preds = %100, %.lr.ph.i26
+  %.013.i27 = phi i32 [ %118, %.lr.ph.i26 ], [ 0, %100 ]
+  %.0812.i28 = phi i64 [ %117, %.lr.ph.i26 ], [ %102, %100 ]
+  %.0911.i29 = phi i64 [ %116, %.lr.ph.i26 ], [ %97, %100 ]
+  %111 = phi ptr [ %112, %.lr.ph.i26 ], [ %103, %100 ]
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
   %113 = load i8, ptr %111, align 1, !tbaa !44
   %114 = zext i8 %113 to i64

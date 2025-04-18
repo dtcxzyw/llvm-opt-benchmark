@@ -1208,27 +1208,27 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %.0127167.ph = phi i64 [ %.1128.lcssa, %200 ], [ %.0127169, %205 ], [ %.0127169, %212 ], [ %.0127176, %221 ], [ %.0127176, %228 ], [ %.0127176, %239 ], [ %.0127181, %250 ], [ %.0127181, %257 ], [ %.0127181, %268 ], [ %.0127181, %281 ], [ %.1128.lcssa, %.lr.ph.i.preheader ], [ %.1128.lcssa, %.lr.ph212 ], [ %.1128.lcssa, %.lr.ph.i ]
   %.1164.ph = phi i32 [ 1, %200 ], [ 2, %205 ], [ 1, %212 ], [ 3, %221 ], [ 2, %228 ], [ 1, %239 ], [ 4, %250 ], [ 3, %257 ], [ 2, %268 ], [ 1, %281 ], [ %0, %.lr.ph.i.preheader ], [ %294, %.lr.ph.i ], [ %.0163210, %.lr.ph212 ]
   %.1162.ph = phi i64 [ 1, %200 ], [ 1, %205 ], [ %214, %212 ], [ 1, %221 ], [ %230, %228 ], [ %242, %239 ], [ 1, %250 ], [ %259, %257 ], [ %271, %268 ], [ %284, %281 ], [ 1, %.lr.ph.i.preheader ], [ %301, %.lr.ph.i ], [ %292, %.lr.ph212 ]
-  %317 = getelementptr inbounds nuw i8, ptr %4, i64 %.0126170.ph
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %9) #7
-  %318 = zext i32 %.1164.ph to i64
-  %319 = shl nuw nsw i64 %318, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull readonly align 16 %10, i64 %319, i1 false)
+  %317 = zext i32 %.1164.ph to i64
+  %318 = shl nuw nsw i64 %317, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull readonly align 16 %10, i64 %318, i1 false)
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.loopexit
-  %.111.i.i = phi i64 [ %323, %.lr.ph.i.i ], [ 1, %.loopexit ]
-  %.0610.i.i = phi ptr [ %321, %.lr.ph.i.i ], [ %10, %.loopexit ]
-  %.079.i.i = phi i32 [ %320, %.lr.ph.i.i ], [ %.1164.ph, %.loopexit ]
-  %320 = add i32 %.079.i.i, -1
-  %321 = getelementptr inbounds nuw i8, ptr %.0610.i.i, i64 8
-  %322 = load i64, ptr %.0610.i.i, align 8, !tbaa !3
-  %323 = mul i64 %322, %.111.i.i
-  %.not.i.i = icmp eq i32 %320, 0
+  %.111.i.i = phi i64 [ %322, %.lr.ph.i.i ], [ 1, %.loopexit ]
+  %.0610.i.i = phi ptr [ %320, %.lr.ph.i.i ], [ %10, %.loopexit ]
+  %.079.i.i = phi i32 [ %319, %.lr.ph.i.i ], [ %.1164.ph, %.loopexit ]
+  %319 = add i32 %.079.i.i, -1
+  %320 = getelementptr inbounds nuw i8, ptr %.0610.i.i, i64 8
+  %321 = load i64, ptr %.0610.i.i, align 8, !tbaa !3
+  %322 = mul i64 %321, %.111.i.i
+  %.not.i.i = icmp eq i32 %319, 0
   br i1 %.not.i.i, label %H5VM_vector_reduce_product.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
+  %323 = getelementptr inbounds nuw i8, ptr %4, i64 %.0126170.ph
   %324 = getelementptr inbounds nuw i8, ptr %7, i64 %.0127167.ph
-  %.not61.i = icmp eq i64 %323, 0
+  %.not61.i = icmp eq i64 %322, 0
   br i1 %.not61.i, label %H5VM_stride_copy.exit, label %.lr.ph60.i
 
 .lr.ph60.i:                                       ; preds = %H5VM_vector_reduce_product.exit.i
@@ -1238,7 +1238,7 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph60.i, %._crit_edge.us.i
   %.03259.us.i = phi i64 [ %341, %._crit_edge.us.i ], [ 0, %.lr.ph60.i ]
-  %.03358.us.i = phi ptr [ %333, %._crit_edge.us.i ], [ %317, %.lr.ph60.i ]
+  %.03358.us.i = phi ptr [ %333, %._crit_edge.us.i ], [ %323, %.lr.ph60.i ]
   %.03557.us.i = phi ptr [ %330, %._crit_edge.us.i ], [ %324, %.lr.ph60.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03358.us.i, ptr align 1 %.03557.us.i, i64 %.1162.ph, i1 false)
   br label %326
@@ -1271,14 +1271,14 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
 
 ._crit_edge.us.i:                                 ; preds = %337, %326
   %341 = add nuw i64 %.03259.us.i, 1
-  %exitcond65.not.i = icmp eq i64 %341, %323
+  %exitcond65.not.i = icmp eq i64 %341, %322
   br i1 %exitcond65.not.i, label %H5VM_stride_copy.exit, label %.lr.ph.us.i, !llvm.loop !16
 
 .lr.ph60.split.i:                                 ; preds = %.lr.ph60.i, %.lr.ph60.split.i
   %.03259.i = phi i64 [ %342, %.lr.ph60.split.i ], [ 0, %.lr.ph60.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %317, ptr readonly align 1 %324, i64 %.1162.ph, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %323, ptr readonly align 1 %324, i64 %.1162.ph, i1 false)
   %342 = add nuw i64 %.03259.i, 1
-  %exitcond.not.i = icmp eq i64 %342, %323
+  %exitcond.not.i = icmp eq i64 %342, %322
   br i1 %exitcond.not.i, label %H5VM_stride_copy.exit, label %.lr.ph60.split.i, !llvm.loop !16
 
 .loopexit198:                                     ; preds = %298, %.critedge.sink.split.i, %._crit_edge

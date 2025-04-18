@@ -705,9 +705,9 @@ _ZN6memchr4arch3all9rabinkarp6Finder3new17h85b66220665eec02E.exit: ; preds = %20
   br i1 %42, label %.lr.ph.i.i, label %.preheader.i.preheader.i
 
 .preheader.i.preheader.i:                         ; preds = %.lr.ph.i.i
-  %43 = sub nsw i64 0, %3
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %45 = getelementptr inbounds i8, ptr %44, i64 %43
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %44 = sub nsw i64 0, %3
+  %45 = getelementptr inbounds i8, ptr %43, i64 %44
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %50, %.preheader.i.preheader.i

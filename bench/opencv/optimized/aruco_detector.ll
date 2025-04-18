@@ -13438,11 +13438,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
           to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit unwind label %217
 
 _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds = %223, %211
-  %.sroa.0.0.insert.ext = zext i32 %191 to i64
   store double %93, ptr %20, align 8, !tbaa !34
   store double %91, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !34
   store double %96, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !34
   store double %99, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !34
+  %.sroa.0.0.insert.ext = zext i32 %191 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 %.sroa.0.0.insert.insert, i32 noundef 0, double noundef 5.000000e-01, ptr noundef nonnull %20, i32 noundef 2, i32 noundef 8, i1 noundef zeroext false)
           to label %224 unwind label %246
@@ -24187,15 +24187,15 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit.i.i.i.i: ; preds = %159, %158,
   %202 = load i32, ptr %16, align 16, !tbaa !33
   %203 = load i32, ptr %28, align 4, !tbaa !33
   %204 = load i32, ptr %29, align 4
-  %205 = icmp sgt i32 %204, %202
-  %206 = load i32, ptr %30, align 8, !tbaa !33
-  %207 = icmp sgt i32 %206, %204
-  %208 = icmp sgt i32 %203, %206
-  %or.cond98.i.i.i.i = select i1 %207, i1 %208, i1 false
+  %205 = load i32, ptr %30, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %19, i8 0, i64 48, i1 false), !tbaa !36
-  %209 = icmp sgt i32 %202, %203
-  %or.cond.i.i.i.i = select i1 %209, i1 %205, i1 false
+  %206 = icmp sgt i32 %202, %203
+  %207 = icmp sgt i32 %204, %202
+  %or.cond.i.i.i.i = select i1 %206, i1 %207, i1 false
+  %208 = icmp sgt i32 %205, %204
+  %209 = icmp sgt i32 %203, %205
+  %or.cond98.i.i.i.i = select i1 %208, i1 %209, i1 false
   %spec.select99.i.i.i.i = select i1 %or.cond98.i.i.i.i, i1 true, i1 %or.cond.i.i.i.i
   br label %229
 

@@ -12674,8 +12674,6 @@ define hidden noundef ptr @_ZN17label_decl_plugin12mk_func_declEijPK9parameterjP
 .lr.ph.preheader.i.i.i:                           ; preds = %31, %.preheader
   %wide.trip.count.i.i.i.pre-phi = phi i64 [ 2, %.preheader ], [ %wide.trip.count76, %31 ]
   %32 = load i32, ptr %3, align 4, !tbaa !24
-  %.not35 = icmp eq i32 %32, 0
-  %.v = select i1 %.not35, i64 32, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #38
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i32, ptr %33, align 8, !tbaa !211
@@ -12724,6 +12722,8 @@ _ZN6vectorI9parameterLb1EjE9push_backERKS0_.exit.i.i.i: ; preds = %46, %40
   br i1 %exitcond.not.i.i.i, label %_ZN14func_decl_infoC2EiijPK9parameter.exit, label %.lr.ph.i.i.i, !llvm.loop !102
 
 _ZN14func_decl_infoC2EiijPK9parameter.exit:       ; preds = %_ZN6vectorI9parameterLb1EjE9push_backERKS0_.exit.i.i.i
+  %.not35 = icmp eq i32 %32, 0
+  %.v = select i1 %.not35, i64 32, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 0, ptr %56, align 8, !tbaa !103

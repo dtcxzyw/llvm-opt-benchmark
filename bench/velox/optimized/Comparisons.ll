@@ -17001,7 +17001,6 @@ for.body48.us.i.i:                                ; preds = %for.body48.lr.ph.i.
 
 for.body.i.i1692:                                 ; preds = %for.inc41.i.i, %for.body.lr.ph.i.i1689
   %i.03.i.i = phi i32 [ %865, %for.body.lr.ph.i.i1689 ], [ %add42.i.i, %for.inc41.i.i ]
-  %div.i.i1693 = sdiv i32 %i.03.i.i, 8
   br label %for.body10.i.i
 
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.body.i.i1692
@@ -17015,6 +17014,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %876, label %for.body10.i.i, label %for.inc41.i.i, !llvm.loop !211
 
 for.inc41.i.i:                                    ; preds = %for.body10.i.i
+  %div.i.i1693 = sdiv i32 %i.03.i.i, 8
   %idxprom.i.i1694 = sext i32 %div.i.i1693 to i64
   %arrayidx.i.i1695 = getelementptr inbounds i8, ptr %call.i.i1209, i64 %idxprom.i.i1694
   store i8 %conv37.i.i, ptr %arrayidx.i.i1695, align 1
@@ -20089,7 +20089,7 @@ for.body.lr.ph.i.i2810:                           ; preds = %if.then15.i2782
   %1356 = zext i4 %1355 to i32
   br label %for.body.i.i2813
 
-for.cond45.preheader.i.i2784:                     ; preds = %for.inc41.i.i2822, %if.then15.i2782
+for.cond45.preheader.i.i2784:                     ; preds = %for.inc41.i.i2820, %if.then15.i2782
   %conv46.i.i2785 = sext i32 %1349 to i64
   %cmp474.i.i2786 = icmp ult i32 %1350, %1349
   br i1 %cmp474.i.i2786, label %for.body48.lr.ph.i.i2787, label %if.end52.i2736
@@ -20113,25 +20113,25 @@ for.body48.us.i.i2799:                            ; preds = %for.body48.lr.ph.i.
   %cmp47.us.i.i2809 = icmp ult i64 %inc.us.i.i2808, %conv46.i.i2785
   br i1 %cmp47.us.i.i2809, label %for.body48.us.i.i2799, label %if.end52.i2736, !llvm.loop !258
 
-for.body.i.i2813:                                 ; preds = %for.inc41.i.i2822, %for.body.lr.ph.i.i2810
-  %i.03.i.i2814 = phi i32 [ %1348, %for.body.lr.ph.i.i2810 ], [ %add42.i.i2824, %for.inc41.i.i2822 ]
-  %div.i.i2815 = sdiv i32 %i.03.i.i2814, 8
-  br label %for.body10.i.i2817
+for.body.i.i2813:                                 ; preds = %for.inc41.i.i2820, %for.body.lr.ph.i.i2810
+  %i.03.i.i2814 = phi i32 [ %1348, %for.body.lr.ph.i.i2810 ], [ %add42.i.i2824, %for.inc41.i.i2820 ]
+  br label %for.body10.i.i2815
 
-for.body10.i.i2817:                               ; preds = %for.body10.i.i2817, %for.body.i.i2813
-  %j.01.i.i2818 = phi i32 [ 0, %for.body.i.i2813 ], [ %add39.i.i2821, %for.body10.i.i2817 ]
-  %1358 = phi i8 [ 0, %for.body.i.i2813 ], [ %conv37.i.i2820, %for.body10.i.i2817 ]
-  %shl.i.i2819 = shl nuw nsw i32 %1356, %j.01.i.i2818
-  %1359 = trunc nuw i32 %shl.i.i2819 to i8
-  %conv37.i.i2820 = or i8 %1358, %1359
-  %add39.i.i2821 = add nuw nsw i32 %j.01.i.i2818, 4
-  %1360 = icmp samesign ult i32 %add39.i.i2821, %invariant.umin.i.i2811
-  br i1 %1360, label %for.body10.i.i2817, label %for.inc41.i.i2822, !llvm.loop !259
+for.body10.i.i2815:                               ; preds = %for.body10.i.i2815, %for.body.i.i2813
+  %j.01.i.i2816 = phi i32 [ 0, %for.body.i.i2813 ], [ %add39.i.i2819, %for.body10.i.i2815 ]
+  %1358 = phi i8 [ 0, %for.body.i.i2813 ], [ %conv37.i.i2818, %for.body10.i.i2815 ]
+  %shl.i.i2817 = shl nuw nsw i32 %1356, %j.01.i.i2816
+  %1359 = trunc nuw i32 %shl.i.i2817 to i8
+  %conv37.i.i2818 = or i8 %1358, %1359
+  %add39.i.i2819 = add nuw nsw i32 %j.01.i.i2816, 4
+  %1360 = icmp samesign ult i32 %add39.i.i2819, %invariant.umin.i.i2811
+  br i1 %1360, label %for.body10.i.i2815, label %for.inc41.i.i2820, !llvm.loop !259
 
-for.inc41.i.i2822:                                ; preds = %for.body10.i.i2817
-  %idxprom.i.i2816 = sext i32 %div.i.i2815 to i64
-  %arrayidx.i.i2823 = getelementptr inbounds i8, ptr %call.i.i2297, i64 %idxprom.i.i2816
-  store i8 %conv37.i.i2820, ptr %arrayidx.i.i2823, align 1
+for.inc41.i.i2820:                                ; preds = %for.body10.i.i2815
+  %div.i.i2821 = sdiv i32 %i.03.i.i2814, 8
+  %idxprom.i.i2822 = sext i32 %div.i.i2821 to i64
+  %arrayidx.i.i2823 = getelementptr inbounds i8, ptr %call.i.i2297, i64 %idxprom.i.i2822
+  store i8 %conv37.i.i2818, ptr %arrayidx.i.i2823, align 1
   %add42.i.i2824 = add nsw i32 %i.03.i.i2814, 8
   %cmp.i86.i2825 = icmp ult i32 %add42.i.i2824, %1350
   br i1 %cmp.i86.i2825, label %for.body.i.i2813, label %for.cond45.preheader.i.i2784, !llvm.loop !260
@@ -30088,7 +30088,6 @@ for.body48.us.i.i:                                ; preds = %for.body48.lr.ph.i.
 
 for.body.i.i1693:                                 ; preds = %for.inc41.i.i, %for.body.lr.ph.i.i1691
   %i.03.i.i = phi i32 [ %869, %for.body.lr.ph.i.i1691 ], [ %add42.i.i, %for.inc41.i.i ]
-  %div.i.i1694 = sdiv i32 %i.03.i.i, 8
   br label %for.body10.i.i
 
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.body.i.i1693
@@ -30102,6 +30101,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %882, label %for.body10.i.i, label %for.inc41.i.i, !llvm.loop !383
 
 for.inc41.i.i:                                    ; preds = %for.body10.i.i
+  %div.i.i1694 = sdiv i32 %i.03.i.i, 8
   %idxprom.i.i1695 = sext i32 %div.i.i1694 to i64
   %arrayidx.i.i1696 = getelementptr inbounds i8, ptr %call.i.i1212, i64 %idxprom.i.i1695
   store i8 %conv37.i.i, ptr %arrayidx.i.i1696, align 1
@@ -33176,7 +33176,7 @@ for.body.lr.ph.i.i2790:                           ; preds = %if.then15.i2763
   %1364 = zext i4 %1363 to i32
   br label %for.body.i.i2793
 
-for.cond45.preheader.i.i2765:                     ; preds = %for.inc41.i.i2802, %if.then15.i2763
+for.cond45.preheader.i.i2765:                     ; preds = %for.inc41.i.i2800, %if.then15.i2763
   %conv46.i.i2766 = sext i32 %1357 to i64
   %cmp474.i.i2767 = icmp ult i32 %1358, %1357
   br i1 %cmp474.i.i2767, label %for.body48.lr.ph.i.i2768, label %if.end52.i2716
@@ -33200,25 +33200,25 @@ for.body48.us.i.i2780:                            ; preds = %for.body48.lr.ph.i.
   %cmp47.us.i.i2789 = icmp ult i64 %inc.us.i.i2788, %conv46.i.i2766
   br i1 %cmp47.us.i.i2789, label %for.body48.us.i.i2780, label %if.end52.i2716, !llvm.loop !430
 
-for.body.i.i2793:                                 ; preds = %for.inc41.i.i2802, %for.body.lr.ph.i.i2790
-  %i.03.i.i2794 = phi i32 [ %1356, %for.body.lr.ph.i.i2790 ], [ %add42.i.i2804, %for.inc41.i.i2802 ]
-  %div.i.i2795 = sdiv i32 %i.03.i.i2794, 8
-  br label %for.body10.i.i2797
+for.body.i.i2793:                                 ; preds = %for.inc41.i.i2800, %for.body.lr.ph.i.i2790
+  %i.03.i.i2794 = phi i32 [ %1356, %for.body.lr.ph.i.i2790 ], [ %add42.i.i2804, %for.inc41.i.i2800 ]
+  br label %for.body10.i.i2795
 
-for.body10.i.i2797:                               ; preds = %for.body10.i.i2797, %for.body.i.i2793
-  %j.01.i.i2798 = phi i32 [ 0, %for.body.i.i2793 ], [ %add39.i.i2801, %for.body10.i.i2797 ]
-  %1366 = phi i8 [ 0, %for.body.i.i2793 ], [ %conv37.i.i2800, %for.body10.i.i2797 ]
-  %shl.i.i2799 = shl nuw nsw i32 %1364, %j.01.i.i2798
-  %1367 = trunc nuw i32 %shl.i.i2799 to i8
-  %conv37.i.i2800 = or i8 %1366, %1367
-  %add39.i.i2801 = add nuw nsw i32 %j.01.i.i2798, 4
-  %1368 = icmp samesign ult i32 %add39.i.i2801, %invariant.umin.i.i2791
-  br i1 %1368, label %for.body10.i.i2797, label %for.inc41.i.i2802, !llvm.loop !431
+for.body10.i.i2795:                               ; preds = %for.body10.i.i2795, %for.body.i.i2793
+  %j.01.i.i2796 = phi i32 [ 0, %for.body.i.i2793 ], [ %add39.i.i2799, %for.body10.i.i2795 ]
+  %1366 = phi i8 [ 0, %for.body.i.i2793 ], [ %conv37.i.i2798, %for.body10.i.i2795 ]
+  %shl.i.i2797 = shl nuw nsw i32 %1364, %j.01.i.i2796
+  %1367 = trunc nuw i32 %shl.i.i2797 to i8
+  %conv37.i.i2798 = or i8 %1366, %1367
+  %add39.i.i2799 = add nuw nsw i32 %j.01.i.i2796, 4
+  %1368 = icmp samesign ult i32 %add39.i.i2799, %invariant.umin.i.i2791
+  br i1 %1368, label %for.body10.i.i2795, label %for.inc41.i.i2800, !llvm.loop !431
 
-for.inc41.i.i2802:                                ; preds = %for.body10.i.i2797
-  %idxprom.i.i2796 = sext i32 %div.i.i2795 to i64
-  %arrayidx.i.i2803 = getelementptr inbounds i8, ptr %call.i.i2277, i64 %idxprom.i.i2796
-  store i8 %conv37.i.i2800, ptr %arrayidx.i.i2803, align 1
+for.inc41.i.i2800:                                ; preds = %for.body10.i.i2795
+  %div.i.i2801 = sdiv i32 %i.03.i.i2794, 8
+  %idxprom.i.i2802 = sext i32 %div.i.i2801 to i64
+  %arrayidx.i.i2803 = getelementptr inbounds i8, ptr %call.i.i2277, i64 %idxprom.i.i2802
+  store i8 %conv37.i.i2798, ptr %arrayidx.i.i2803, align 1
   %add42.i.i2804 = add nsw i32 %i.03.i.i2794, 8
   %cmp.i86.i2805 = icmp ult i32 %add42.i.i2804, %1358
   br i1 %cmp.i86.i2805, label %for.body.i.i2793, label %for.cond45.preheader.i.i2765, !llvm.loop !432
@@ -42399,7 +42399,6 @@ for.body48.us.i.i:                                ; preds = %for.body48.lr.ph.i.
 
 for.body.i.i1675:                                 ; preds = %for.inc41.i.i, %for.body.lr.ph.i.i1672
   %i.03.i.i = phi i32 [ %865, %for.body.lr.ph.i.i1672 ], [ %add42.i.i, %for.inc41.i.i ]
-  %div.i.i1676 = sdiv i32 %i.03.i.i, 8
   br label %for.body10.i.i
 
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.body.i.i1675
@@ -42413,6 +42412,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %876, label %for.body10.i.i, label %for.inc41.i.i, !llvm.loop !537
 
 for.inc41.i.i:                                    ; preds = %for.body10.i.i
+  %div.i.i1676 = sdiv i32 %i.03.i.i, 8
   %idxprom.i.i1677 = sext i32 %div.i.i1676 to i64
   %arrayidx.i.i1678 = getelementptr inbounds i8, ptr %call.i.i1192, i64 %idxprom.i.i1677
   store i8 %conv37.i.i, ptr %arrayidx.i.i1678, align 1
@@ -45487,7 +45487,7 @@ for.body.lr.ph.i.i2792:                           ; preds = %if.then15.i2764
   %1356 = zext i4 %1355 to i32
   br label %for.body.i.i2795
 
-for.cond45.preheader.i.i2766:                     ; preds = %for.inc41.i.i2804, %if.then15.i2764
+for.cond45.preheader.i.i2766:                     ; preds = %for.inc41.i.i2802, %if.then15.i2764
   %conv46.i.i2767 = sext i32 %1349 to i64
   %cmp474.i.i2768 = icmp ult i32 %1350, %1349
   br i1 %cmp474.i.i2768, label %for.body48.lr.ph.i.i2769, label %if.end52.i2718
@@ -45511,25 +45511,25 @@ for.body48.us.i.i2781:                            ; preds = %for.body48.lr.ph.i.
   %cmp47.us.i.i2791 = icmp ult i64 %inc.us.i.i2790, %conv46.i.i2767
   br i1 %cmp47.us.i.i2791, label %for.body48.us.i.i2781, label %if.end52.i2718, !llvm.loop !584
 
-for.body.i.i2795:                                 ; preds = %for.inc41.i.i2804, %for.body.lr.ph.i.i2792
-  %i.03.i.i2796 = phi i32 [ %1348, %for.body.lr.ph.i.i2792 ], [ %add42.i.i2806, %for.inc41.i.i2804 ]
-  %div.i.i2797 = sdiv i32 %i.03.i.i2796, 8
-  br label %for.body10.i.i2799
+for.body.i.i2795:                                 ; preds = %for.inc41.i.i2802, %for.body.lr.ph.i.i2792
+  %i.03.i.i2796 = phi i32 [ %1348, %for.body.lr.ph.i.i2792 ], [ %add42.i.i2806, %for.inc41.i.i2802 ]
+  br label %for.body10.i.i2797
 
-for.body10.i.i2799:                               ; preds = %for.body10.i.i2799, %for.body.i.i2795
-  %j.01.i.i2800 = phi i32 [ 0, %for.body.i.i2795 ], [ %add39.i.i2803, %for.body10.i.i2799 ]
-  %1358 = phi i8 [ 0, %for.body.i.i2795 ], [ %conv37.i.i2802, %for.body10.i.i2799 ]
-  %shl.i.i2801 = shl nuw nsw i32 %1356, %j.01.i.i2800
-  %1359 = trunc nuw i32 %shl.i.i2801 to i8
-  %conv37.i.i2802 = or i8 %1358, %1359
-  %add39.i.i2803 = add nuw nsw i32 %j.01.i.i2800, 4
-  %1360 = icmp samesign ult i32 %add39.i.i2803, %invariant.umin.i.i2793
-  br i1 %1360, label %for.body10.i.i2799, label %for.inc41.i.i2804, !llvm.loop !585
+for.body10.i.i2797:                               ; preds = %for.body10.i.i2797, %for.body.i.i2795
+  %j.01.i.i2798 = phi i32 [ 0, %for.body.i.i2795 ], [ %add39.i.i2801, %for.body10.i.i2797 ]
+  %1358 = phi i8 [ 0, %for.body.i.i2795 ], [ %conv37.i.i2800, %for.body10.i.i2797 ]
+  %shl.i.i2799 = shl nuw nsw i32 %1356, %j.01.i.i2798
+  %1359 = trunc nuw i32 %shl.i.i2799 to i8
+  %conv37.i.i2800 = or i8 %1358, %1359
+  %add39.i.i2801 = add nuw nsw i32 %j.01.i.i2798, 4
+  %1360 = icmp samesign ult i32 %add39.i.i2801, %invariant.umin.i.i2793
+  br i1 %1360, label %for.body10.i.i2797, label %for.inc41.i.i2802, !llvm.loop !585
 
-for.inc41.i.i2804:                                ; preds = %for.body10.i.i2799
-  %idxprom.i.i2798 = sext i32 %div.i.i2797 to i64
-  %arrayidx.i.i2805 = getelementptr inbounds i8, ptr %call.i.i2279, i64 %idxprom.i.i2798
-  store i8 %conv37.i.i2802, ptr %arrayidx.i.i2805, align 1
+for.inc41.i.i2802:                                ; preds = %for.body10.i.i2797
+  %div.i.i2803 = sdiv i32 %i.03.i.i2796, 8
+  %idxprom.i.i2804 = sext i32 %div.i.i2803 to i64
+  %arrayidx.i.i2805 = getelementptr inbounds i8, ptr %call.i.i2279, i64 %idxprom.i.i2804
+  store i8 %conv37.i.i2800, ptr %arrayidx.i.i2805, align 1
   %add42.i.i2806 = add nsw i32 %i.03.i.i2796, 8
   %cmp.i86.i2807 = icmp ult i32 %add42.i.i2806, %1350
   br i1 %cmp.i86.i2807, label %for.body.i.i2795, label %for.cond45.preheader.i.i2766, !llvm.loop !586
@@ -54710,7 +54710,6 @@ for.body48.us.i.i:                                ; preds = %for.body48.lr.ph.i.
 
 for.body.i.i1691:                                 ; preds = %for.inc41.i.i, %for.body.lr.ph.i.i1688
   %i.03.i.i = phi i32 [ %865, %for.body.lr.ph.i.i1688 ], [ %add42.i.i, %for.inc41.i.i ]
-  %div.i.i1692 = sdiv i32 %i.03.i.i, 8
   br label %for.body10.i.i
 
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.body.i.i1691
@@ -54724,6 +54723,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %876, label %for.body10.i.i, label %for.inc41.i.i, !llvm.loop !691
 
 for.inc41.i.i:                                    ; preds = %for.body10.i.i
+  %div.i.i1692 = sdiv i32 %i.03.i.i, 8
   %idxprom.i.i1693 = sext i32 %div.i.i1692 to i64
   %arrayidx.i.i1694 = getelementptr inbounds i8, ptr %call.i.i1208, i64 %idxprom.i.i1693
   store i8 %conv37.i.i, ptr %arrayidx.i.i1694, align 1
@@ -57798,7 +57798,7 @@ for.body.lr.ph.i.i2810:                           ; preds = %if.then15.i2782
   %1356 = zext i4 %1355 to i32
   br label %for.body.i.i2813
 
-for.cond45.preheader.i.i2784:                     ; preds = %for.inc41.i.i2822, %if.then15.i2782
+for.cond45.preheader.i.i2784:                     ; preds = %for.inc41.i.i2820, %if.then15.i2782
   %conv46.i.i2785 = sext i32 %1349 to i64
   %cmp474.i.i2786 = icmp ult i32 %1350, %1349
   br i1 %cmp474.i.i2786, label %for.body48.lr.ph.i.i2787, label %if.end52.i2736
@@ -57822,25 +57822,25 @@ for.body48.us.i.i2799:                            ; preds = %for.body48.lr.ph.i.
   %cmp47.us.i.i2809 = icmp ult i64 %inc.us.i.i2808, %conv46.i.i2785
   br i1 %cmp47.us.i.i2809, label %for.body48.us.i.i2799, label %if.end52.i2736, !llvm.loop !738
 
-for.body.i.i2813:                                 ; preds = %for.inc41.i.i2822, %for.body.lr.ph.i.i2810
-  %i.03.i.i2814 = phi i32 [ %1348, %for.body.lr.ph.i.i2810 ], [ %add42.i.i2824, %for.inc41.i.i2822 ]
-  %div.i.i2815 = sdiv i32 %i.03.i.i2814, 8
-  br label %for.body10.i.i2817
+for.body.i.i2813:                                 ; preds = %for.inc41.i.i2820, %for.body.lr.ph.i.i2810
+  %i.03.i.i2814 = phi i32 [ %1348, %for.body.lr.ph.i.i2810 ], [ %add42.i.i2824, %for.inc41.i.i2820 ]
+  br label %for.body10.i.i2815
 
-for.body10.i.i2817:                               ; preds = %for.body10.i.i2817, %for.body.i.i2813
-  %j.01.i.i2818 = phi i32 [ 0, %for.body.i.i2813 ], [ %add39.i.i2821, %for.body10.i.i2817 ]
-  %1358 = phi i8 [ 0, %for.body.i.i2813 ], [ %conv37.i.i2820, %for.body10.i.i2817 ]
-  %shl.i.i2819 = shl nuw nsw i32 %1356, %j.01.i.i2818
-  %1359 = trunc nuw i32 %shl.i.i2819 to i8
-  %conv37.i.i2820 = or i8 %1358, %1359
-  %add39.i.i2821 = add nuw nsw i32 %j.01.i.i2818, 4
-  %1360 = icmp samesign ult i32 %add39.i.i2821, %invariant.umin.i.i2811
-  br i1 %1360, label %for.body10.i.i2817, label %for.inc41.i.i2822, !llvm.loop !739
+for.body10.i.i2815:                               ; preds = %for.body10.i.i2815, %for.body.i.i2813
+  %j.01.i.i2816 = phi i32 [ 0, %for.body.i.i2813 ], [ %add39.i.i2819, %for.body10.i.i2815 ]
+  %1358 = phi i8 [ 0, %for.body.i.i2813 ], [ %conv37.i.i2818, %for.body10.i.i2815 ]
+  %shl.i.i2817 = shl nuw nsw i32 %1356, %j.01.i.i2816
+  %1359 = trunc nuw i32 %shl.i.i2817 to i8
+  %conv37.i.i2818 = or i8 %1358, %1359
+  %add39.i.i2819 = add nuw nsw i32 %j.01.i.i2816, 4
+  %1360 = icmp samesign ult i32 %add39.i.i2819, %invariant.umin.i.i2811
+  br i1 %1360, label %for.body10.i.i2815, label %for.inc41.i.i2820, !llvm.loop !739
 
-for.inc41.i.i2822:                                ; preds = %for.body10.i.i2817
-  %idxprom.i.i2816 = sext i32 %div.i.i2815 to i64
-  %arrayidx.i.i2823 = getelementptr inbounds i8, ptr %call.i.i2296, i64 %idxprom.i.i2816
-  store i8 %conv37.i.i2820, ptr %arrayidx.i.i2823, align 1
+for.inc41.i.i2820:                                ; preds = %for.body10.i.i2815
+  %div.i.i2821 = sdiv i32 %i.03.i.i2814, 8
+  %idxprom.i.i2822 = sext i32 %div.i.i2821 to i64
+  %arrayidx.i.i2823 = getelementptr inbounds i8, ptr %call.i.i2296, i64 %idxprom.i.i2822
+  store i8 %conv37.i.i2818, ptr %arrayidx.i.i2823, align 1
   %add42.i.i2824 = add nsw i32 %i.03.i.i2814, 8
   %cmp.i86.i2825 = icmp ult i32 %add42.i.i2824, %1350
   br i1 %cmp.i86.i2825, label %for.body.i.i2813, label %for.cond45.preheader.i.i2784, !llvm.loop !740
@@ -67021,7 +67021,6 @@ for.body48.us.i.i:                                ; preds = %for.body48.lr.ph.i.
 
 for.body.i.i1691:                                 ; preds = %for.inc41.i.i, %for.body.lr.ph.i.i1688
   %i.03.i.i = phi i32 [ %865, %for.body.lr.ph.i.i1688 ], [ %add42.i.i, %for.inc41.i.i ]
-  %div.i.i1692 = sdiv i32 %i.03.i.i, 8
   br label %for.body10.i.i
 
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.body.i.i1691
@@ -67035,6 +67034,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %877, label %for.body10.i.i, label %for.inc41.i.i, !llvm.loop !845
 
 for.inc41.i.i:                                    ; preds = %for.body10.i.i
+  %div.i.i1692 = sdiv i32 %i.03.i.i, 8
   %idxprom.i.i1693 = sext i32 %div.i.i1692 to i64
   %arrayidx.i.i1694 = getelementptr inbounds i8, ptr %call.i.i1208, i64 %idxprom.i.i1693
   store i8 %conv37.i.i, ptr %arrayidx.i.i1694, align 1
@@ -70109,7 +70109,7 @@ for.body.lr.ph.i.i2853:                           ; preds = %if.then15.i2825
   %1356 = zext i4 %1355 to i32
   br label %for.body.i.i2856
 
-for.cond45.preheader.i.i2827:                     ; preds = %for.inc41.i.i2865, %if.then15.i2825
+for.cond45.preheader.i.i2827:                     ; preds = %for.inc41.i.i2863, %if.then15.i2825
   %conv46.i.i2828 = sext i32 %1349 to i64
   %cmp474.i.i2829 = icmp ult i32 %1350, %1349
   br i1 %cmp474.i.i2829, label %for.body48.lr.ph.i.i2830, label %if.end52.i2750
@@ -70133,25 +70133,25 @@ for.body48.us.i.i2843:                            ; preds = %for.body48.lr.ph.i.
   %cmp47.us.i.i2852 = icmp ult i64 %inc.us.i.i2851, %conv46.i.i2828
   br i1 %cmp47.us.i.i2852, label %for.body48.us.i.i2843, label %if.end52.i2750, !llvm.loop !892
 
-for.body.i.i2856:                                 ; preds = %for.inc41.i.i2865, %for.body.lr.ph.i.i2853
-  %i.03.i.i2857 = phi i32 [ %1348, %for.body.lr.ph.i.i2853 ], [ %add42.i.i2867, %for.inc41.i.i2865 ]
-  %div.i.i2858 = sdiv i32 %i.03.i.i2857, 8
-  br label %for.body10.i.i2860
+for.body.i.i2856:                                 ; preds = %for.inc41.i.i2863, %for.body.lr.ph.i.i2853
+  %i.03.i.i2857 = phi i32 [ %1348, %for.body.lr.ph.i.i2853 ], [ %add42.i.i2867, %for.inc41.i.i2863 ]
+  br label %for.body10.i.i2858
 
-for.body10.i.i2860:                               ; preds = %for.body10.i.i2860, %for.body.i.i2856
-  %j.01.i.i2861 = phi i32 [ 0, %for.body.i.i2856 ], [ %add39.i.i2864, %for.body10.i.i2860 ]
-  %1359 = phi i8 [ 0, %for.body.i.i2856 ], [ %conv37.i.i2863, %for.body10.i.i2860 ]
-  %shl.i.i2862 = shl nuw nsw i32 %1356, %j.01.i.i2861
-  %1360 = trunc nuw i32 %shl.i.i2862 to i8
-  %conv37.i.i2863 = or i8 %1359, %1360
-  %add39.i.i2864 = add nuw nsw i32 %j.01.i.i2861, 4
-  %1361 = icmp samesign ult i32 %add39.i.i2864, %invariant.umin.i.i2854
-  br i1 %1361, label %for.body10.i.i2860, label %for.inc41.i.i2865, !llvm.loop !893
+for.body10.i.i2858:                               ; preds = %for.body10.i.i2858, %for.body.i.i2856
+  %j.01.i.i2859 = phi i32 [ 0, %for.body.i.i2856 ], [ %add39.i.i2862, %for.body10.i.i2858 ]
+  %1359 = phi i8 [ 0, %for.body.i.i2856 ], [ %conv37.i.i2861, %for.body10.i.i2858 ]
+  %shl.i.i2860 = shl nuw nsw i32 %1356, %j.01.i.i2859
+  %1360 = trunc nuw i32 %shl.i.i2860 to i8
+  %conv37.i.i2861 = or i8 %1359, %1360
+  %add39.i.i2862 = add nuw nsw i32 %j.01.i.i2859, 4
+  %1361 = icmp samesign ult i32 %add39.i.i2862, %invariant.umin.i.i2854
+  br i1 %1361, label %for.body10.i.i2858, label %for.inc41.i.i2863, !llvm.loop !893
 
-for.inc41.i.i2865:                                ; preds = %for.body10.i.i2860
-  %idxprom.i.i2859 = sext i32 %div.i.i2858 to i64
-  %arrayidx.i.i2866 = getelementptr inbounds i8, ptr %call.i.i2310, i64 %idxprom.i.i2859
-  store i8 %conv37.i.i2863, ptr %arrayidx.i.i2866, align 1
+for.inc41.i.i2863:                                ; preds = %for.body10.i.i2858
+  %div.i.i2864 = sdiv i32 %i.03.i.i2857, 8
+  %idxprom.i.i2865 = sext i32 %div.i.i2864 to i64
+  %arrayidx.i.i2866 = getelementptr inbounds i8, ptr %call.i.i2310, i64 %idxprom.i.i2865
+  store i8 %conv37.i.i2861, ptr %arrayidx.i.i2866, align 1
   %add42.i.i2867 = add nsw i32 %i.03.i.i2857, 8
   %cmp.i86.i2868 = icmp ult i32 %add42.i.i2867, %1350
   br i1 %cmp.i86.i2868, label %for.body.i.i2856, label %for.cond45.preheader.i.i2827, !llvm.loop !894
@@ -79332,7 +79332,6 @@ for.body48.us.i.i:                                ; preds = %for.body48.lr.ph.i.
 
 for.body.i.i1691:                                 ; preds = %for.inc41.i.i, %for.body.lr.ph.i.i1688
   %i.03.i.i = phi i32 [ %865, %for.body.lr.ph.i.i1688 ], [ %add42.i.i, %for.inc41.i.i ]
-  %div.i.i1692 = sdiv i32 %i.03.i.i, 8
   br label %for.body10.i.i
 
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.body.i.i1691
@@ -79346,6 +79345,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %877, label %for.body10.i.i, label %for.inc41.i.i, !llvm.loop !999
 
 for.inc41.i.i:                                    ; preds = %for.body10.i.i
+  %div.i.i1692 = sdiv i32 %i.03.i.i, 8
   %idxprom.i.i1693 = sext i32 %div.i.i1692 to i64
   %arrayidx.i.i1694 = getelementptr inbounds i8, ptr %call.i.i1208, i64 %idxprom.i.i1693
   store i8 %conv37.i.i, ptr %arrayidx.i.i1694, align 1
@@ -82420,7 +82420,7 @@ for.body.lr.ph.i.i2853:                           ; preds = %if.then15.i2825
   %1356 = zext i4 %1355 to i32
   br label %for.body.i.i2856
 
-for.cond45.preheader.i.i2827:                     ; preds = %for.inc41.i.i2865, %if.then15.i2825
+for.cond45.preheader.i.i2827:                     ; preds = %for.inc41.i.i2863, %if.then15.i2825
   %conv46.i.i2828 = sext i32 %1349 to i64
   %cmp474.i.i2829 = icmp ult i32 %1350, %1349
   br i1 %cmp474.i.i2829, label %for.body48.lr.ph.i.i2830, label %if.end52.i2750
@@ -82444,25 +82444,25 @@ for.body48.us.i.i2843:                            ; preds = %for.body48.lr.ph.i.
   %cmp47.us.i.i2852 = icmp ult i64 %inc.us.i.i2851, %conv46.i.i2828
   br i1 %cmp47.us.i.i2852, label %for.body48.us.i.i2843, label %if.end52.i2750, !llvm.loop !1046
 
-for.body.i.i2856:                                 ; preds = %for.inc41.i.i2865, %for.body.lr.ph.i.i2853
-  %i.03.i.i2857 = phi i32 [ %1348, %for.body.lr.ph.i.i2853 ], [ %add42.i.i2867, %for.inc41.i.i2865 ]
-  %div.i.i2858 = sdiv i32 %i.03.i.i2857, 8
-  br label %for.body10.i.i2860
+for.body.i.i2856:                                 ; preds = %for.inc41.i.i2863, %for.body.lr.ph.i.i2853
+  %i.03.i.i2857 = phi i32 [ %1348, %for.body.lr.ph.i.i2853 ], [ %add42.i.i2867, %for.inc41.i.i2863 ]
+  br label %for.body10.i.i2858
 
-for.body10.i.i2860:                               ; preds = %for.body10.i.i2860, %for.body.i.i2856
-  %j.01.i.i2861 = phi i32 [ 0, %for.body.i.i2856 ], [ %add39.i.i2864, %for.body10.i.i2860 ]
-  %1359 = phi i8 [ 0, %for.body.i.i2856 ], [ %conv37.i.i2863, %for.body10.i.i2860 ]
-  %shl.i.i2862 = shl nuw nsw i32 %1356, %j.01.i.i2861
-  %1360 = trunc nuw i32 %shl.i.i2862 to i8
-  %conv37.i.i2863 = or i8 %1359, %1360
-  %add39.i.i2864 = add nuw nsw i32 %j.01.i.i2861, 4
-  %1361 = icmp samesign ult i32 %add39.i.i2864, %invariant.umin.i.i2854
-  br i1 %1361, label %for.body10.i.i2860, label %for.inc41.i.i2865, !llvm.loop !1047
+for.body10.i.i2858:                               ; preds = %for.body10.i.i2858, %for.body.i.i2856
+  %j.01.i.i2859 = phi i32 [ 0, %for.body.i.i2856 ], [ %add39.i.i2862, %for.body10.i.i2858 ]
+  %1359 = phi i8 [ 0, %for.body.i.i2856 ], [ %conv37.i.i2861, %for.body10.i.i2858 ]
+  %shl.i.i2860 = shl nuw nsw i32 %1356, %j.01.i.i2859
+  %1360 = trunc nuw i32 %shl.i.i2860 to i8
+  %conv37.i.i2861 = or i8 %1359, %1360
+  %add39.i.i2862 = add nuw nsw i32 %j.01.i.i2859, 4
+  %1361 = icmp samesign ult i32 %add39.i.i2862, %invariant.umin.i.i2854
+  br i1 %1361, label %for.body10.i.i2858, label %for.inc41.i.i2863, !llvm.loop !1047
 
-for.inc41.i.i2865:                                ; preds = %for.body10.i.i2860
-  %idxprom.i.i2859 = sext i32 %div.i.i2858 to i64
-  %arrayidx.i.i2866 = getelementptr inbounds i8, ptr %call.i.i2310, i64 %idxprom.i.i2859
-  store i8 %conv37.i.i2863, ptr %arrayidx.i.i2866, align 1
+for.inc41.i.i2863:                                ; preds = %for.body10.i.i2858
+  %div.i.i2864 = sdiv i32 %i.03.i.i2857, 8
+  %idxprom.i.i2865 = sext i32 %div.i.i2864 to i64
+  %arrayidx.i.i2866 = getelementptr inbounds i8, ptr %call.i.i2310, i64 %idxprom.i.i2865
+  store i8 %conv37.i.i2861, ptr %arrayidx.i.i2866, align 1
   %add42.i.i2867 = add nsw i32 %i.03.i.i2857, 8
   %cmp.i86.i2868 = icmp ult i32 %add42.i.i2867, %1350
   br i1 %cmp.i86.i2868, label %for.body.i.i2856, label %for.cond45.preheader.i.i2827, !llvm.loop !1048

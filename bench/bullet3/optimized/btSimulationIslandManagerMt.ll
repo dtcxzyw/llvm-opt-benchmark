@@ -3480,36 +3480,36 @@ tailrecurse:                                      ; preds = %41, %4
 
 .preheader:                                       ; preds = %16
   %22 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
-  %23 = trunc nsw i64 %indvars.iv to i32
-  %24 = sext i32 %.030 to i64
-  br label %25
+  %23 = sext i32 %.030 to i64
+  br label %24
 
-25:                                               ; preds = %25, %.preheader
-  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %25 ], [ %24, %.preheader ]
-  %26 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv49
-  %27 = load ptr, ptr %26, align 8, !tbaa !45
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !67
-  %30 = icmp sgt i32 %13, %29
+24:                                               ; preds = %24, %.preheader
+  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %24 ], [ %23, %.preheader ]
+  %25 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv49
+  %26 = load ptr, ptr %25, align 8, !tbaa !45
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load i32, ptr %27, align 8, !tbaa !67
+  %29 = icmp sgt i32 %13, %28
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
-  br i1 %30, label %25, label %31, !llvm.loop !143
+  br i1 %29, label %24, label %30, !llvm.loop !143
 
-31:                                               ; preds = %25
+30:                                               ; preds = %24
+  %31 = trunc nsw i64 %indvars.iv to i32
   %32 = trunc nsw i64 %indvars.iv49 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv49
   br i1 %.not, label %37, label %33
 
-33:                                               ; preds = %31
+33:                                               ; preds = %30
   %34 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv49
-  store ptr %27, ptr %22, align 8, !tbaa !45
+  store ptr %26, ptr %22, align 8, !tbaa !45
   store ptr %18, ptr %34, align 8, !tbaa !45
-  %35 = add nsw i32 %23, 1
+  %35 = add nsw i32 %31, 1
   %36 = add nsw i32 %32, -1
   br label %37
 
-37:                                               ; preds = %31, %33
-  %.232 = phi i32 [ %36, %33 ], [ %32, %31 ]
-  %.2 = phi i32 [ %35, %33 ], [ %23, %31 ]
+37:                                               ; preds = %30, %33
+  %.232 = phi i32 [ %36, %33 ], [ %32, %30 ]
+  %.2 = phi i32 [ %35, %33 ], [ %31, %30 ]
   %.not35 = icmp sgt i32 %.2, %.232
   br i1 %.not35, label %38, label %14, !llvm.loop !144
 
@@ -3580,44 +3580,44 @@ tailrecurse:                                      ; preds = %65, %4
 
 .preheader:                                       ; preds = %24
   %38 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
-  %39 = trunc nsw i64 %indvars.iv to i32
-  %40 = sext i32 %.030 to i64
-  br label %41
+  %39 = sext i32 %.030 to i64
+  br label %40
 
-41:                                               ; preds = %41, %.preheader
-  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %41 ], [ %40, %.preheader ]
-  %42 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv49
-  %43 = load ptr, ptr %42, align 8, !tbaa !45
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !53
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 36
-  %47 = load i32, ptr %46, align 4, !tbaa !46
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 68
-  %49 = load i32, ptr %48, align 4, !tbaa !48
-  %50 = shl nsw i32 %47, 3
-  %51 = add nsw i32 %50, %45
-  %52 = shl nsw i32 %49, 2
-  %53 = add nsw i32 %51, %52
-  %54 = icmp sgt i32 %21, %53
+40:                                               ; preds = %40, %.preheader
+  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %40 ], [ %39, %.preheader ]
+  %41 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv49
+  %42 = load ptr, ptr %41, align 8, !tbaa !45
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %44 = load i32, ptr %43, align 4, !tbaa !53
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 36
+  %46 = load i32, ptr %45, align 4, !tbaa !46
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 68
+  %48 = load i32, ptr %47, align 4, !tbaa !48
+  %49 = shl nsw i32 %46, 3
+  %50 = add nsw i32 %49, %44
+  %51 = shl nsw i32 %48, 2
+  %52 = add nsw i32 %50, %51
+  %53 = icmp sgt i32 %21, %52
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
-  br i1 %54, label %41, label %55, !llvm.loop !146
+  br i1 %53, label %40, label %54, !llvm.loop !146
 
-55:                                               ; preds = %41
+54:                                               ; preds = %40
+  %55 = trunc nsw i64 %indvars.iv to i32
   %56 = trunc nsw i64 %indvars.iv49 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv49
   br i1 %.not, label %61, label %57
 
-57:                                               ; preds = %55
+57:                                               ; preds = %54
   %58 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv49
-  store ptr %43, ptr %38, align 8, !tbaa !45
+  store ptr %42, ptr %38, align 8, !tbaa !45
   store ptr %26, ptr %58, align 8, !tbaa !45
-  %59 = add nsw i32 %39, 1
+  %59 = add nsw i32 %55, 1
   %60 = add nsw i32 %56, -1
   br label %61
 
-61:                                               ; preds = %55, %57
-  %.232 = phi i32 [ %60, %57 ], [ %56, %55 ]
-  %.2 = phi i32 [ %59, %57 ], [ %39, %55 ]
+61:                                               ; preds = %54, %57
+  %.232 = phi i32 [ %60, %57 ], [ %56, %54 ]
+  %.2 = phi i32 [ %59, %57 ], [ %55, %54 ]
   %.not35 = icmp sgt i32 %.2, %.232
   br i1 %.not35, label %62, label %22, !llvm.loop !147
 

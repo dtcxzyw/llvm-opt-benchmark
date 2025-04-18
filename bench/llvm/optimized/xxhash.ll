@@ -474,16 +474,16 @@ _ZL18XXH3_len_0to16_64bPKhmS0_m.exit:             ; preds = %72, %48, %28, %6, %
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
 define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_m(ptr noundef %0, i64 noundef range(i64 129, 241) %1) unnamed_addr #2 {
   %3 = mul i64 %1, -7046029288634856825
-  %4 = lshr i64 %1, 4
   br label %11
 
-5:                                                ; preds = %11
+4:                                                ; preds = %11
+  %5 = lshr i64 %1, 4
   %6 = lshr i64 %25, 37
   %7 = xor i64 %6, %25
   %8 = mul i64 %7, 1609587791953885689
   %9 = lshr i64 %8, 32
   %10 = xor i64 %9, %8
-  %.not = icmp eq i64 %4, 8
+  %.not = icmp eq i64 %5, 8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 11:                                               ; preds = %2, %11
@@ -513,10 +513,10 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_m(ptr nound
   %25 = add i64 %.0261, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %5, label %11, !llvm.loop !11
+  br i1 %exitcond.not, label %4, label %11, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.1.lcssa = phi i64 [ %10, %5 ], [ %57, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %4
+  %.1.lcssa = phi i64 [ %10, %4 ], [ %57, %.lr.ph ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_ZL7kSecret, i64 119), i64 1) ]
@@ -542,9 +542,9 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_m(ptr nound
   %42 = xor i64 %41, %40
   ret i64 %42
 
-.lr.ph:                                           ; preds = %5, %.lr.ph
-  %indvars.iv7 = phi i64 [ %indvars.iv.next8, %.lr.ph ], [ 8, %5 ]
-  %.13 = phi i64 [ %57, %.lr.ph ], [ %10, %5 ]
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %indvars.iv7 = phi i64 [ %indvars.iv.next8, %.lr.ph ], [ 8, %4 ]
+  %.13 = phi i64 [ %57, %.lr.ph ], [ %10, %4 ]
   %43 = shl nuw nsw i64 %indvars.iv7, 4
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 %43
   %45 = getelementptr i8, ptr @_ZL7kSecret, i64 %43
@@ -569,7 +569,7 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_m(ptr nound
   %56 = trunc i128 %55 to i64
   %57 = add i64 %.13, %56
   %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
-  %exitcond10.not = icmp eq i64 %indvars.iv.next8, %4
+  %exitcond10.not = icmp eq i64 %indvars.iv.next8, %5
   br i1 %exitcond10.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 }
 
@@ -1344,45 +1344,45 @@ _ZL26XXH3_accumulate_512_scalarPmPKhS1_.exit21:   ; preds = %317
   br i1 %exitcond.not.i, label %_ZL14XXH3_mergeAccsPKmPKhm.exit, label %334, !llvm.loop !17
 
 _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %334
-  %349 = lshr i64 %347, 37
-  %350 = xor i64 %349, %347
-  %351 = mul i64 %350, 1609587791953885689
-  %352 = lshr i64 %351, 32
-  %353 = mul i64 %1, -4417276706812531889
-  %354 = xor i64 %353, -1
-  br label %355
+  %349 = mul i64 %1, -4417276706812531889
+  %350 = xor i64 %349, -1
+  br label %351
 
-355:                                              ; preds = %355, %_ZL14XXH3_mergeAccsPKmPKhm.exit
-  %.011.i82 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %369, %355 ]
-  %.0810.i83 = phi i64 [ %354, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %368, %355 ]
+351:                                              ; preds = %351, %_ZL14XXH3_mergeAccsPKmPKhm.exit
+  %.011.i82 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %365, %351 ]
+  %.0810.i83 = phi i64 [ %350, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %364, %351 ]
   %.idx.i84 = shl nuw nsw i64 %.011.i82, 4
-  %356 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i84
-  %357 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7kSecret, i64 117), i64 %.idx.i84
-  %.val.i85 = load i64, ptr %356, align 16, !tbaa !13
-  %358 = getelementptr i8, ptr %356, i64 8
-  %.val9.i86 = load i64, ptr %358, align 8, !tbaa !13
-  call void @llvm.assume(i1 true) [ "align"(ptr %357, i64 1) ]
-  %.0.copyload.i.i.i.i.i.i.i.i87 = load i64, ptr %357, align 1
-  %359 = xor i64 %.0.copyload.i.i.i.i.i.i.i.i87, %.val.i85
-  %360 = getelementptr inbounds nuw i8, ptr %357, i64 8
-  call void @llvm.assume(i1 true) [ "align"(ptr %360, i64 1) ]
-  %.0.copyload.i.i.i.i.i.i4.i.i88 = load i64, ptr %360, align 1
-  %361 = xor i64 %.0.copyload.i.i.i.i.i.i4.i.i88, %.val9.i86
-  %362 = zext i64 %359 to i128
-  %363 = zext i64 %361 to i128
-  %364 = mul nuw i128 %363, %362
-  %365 = lshr i128 %364, 64
-  %366 = xor i128 %365, %364
-  %367 = trunc i128 %366 to i64
-  %368 = add i64 %.0810.i83, %367
-  %369 = add nuw nsw i64 %.011.i82, 1
-  %exitcond.not.i89 = icmp eq i64 %369, 4
-  br i1 %exitcond.not.i89, label %_ZL14XXH3_mergeAccsPKmPKhm.exit90, label %355, !llvm.loop !17
+  %352 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i84
+  %353 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7kSecret, i64 117), i64 %.idx.i84
+  %.val.i85 = load i64, ptr %352, align 16, !tbaa !13
+  %354 = getelementptr i8, ptr %352, i64 8
+  %.val9.i86 = load i64, ptr %354, align 8, !tbaa !13
+  call void @llvm.assume(i1 true) [ "align"(ptr %353, i64 1) ]
+  %.0.copyload.i.i.i.i.i.i.i.i87 = load i64, ptr %353, align 1
+  %355 = xor i64 %.0.copyload.i.i.i.i.i.i.i.i87, %.val.i85
+  %356 = getelementptr inbounds nuw i8, ptr %353, i64 8
+  call void @llvm.assume(i1 true) [ "align"(ptr %356, i64 1) ]
+  %.0.copyload.i.i.i.i.i.i4.i.i88 = load i64, ptr %356, align 1
+  %357 = xor i64 %.0.copyload.i.i.i.i.i.i4.i.i88, %.val9.i86
+  %358 = zext i64 %355 to i128
+  %359 = zext i64 %357 to i128
+  %360 = mul nuw i128 %359, %358
+  %361 = lshr i128 %360, 64
+  %362 = xor i128 %361, %360
+  %363 = trunc i128 %362 to i64
+  %364 = add i64 %.0810.i83, %363
+  %365 = add nuw nsw i64 %.011.i82, 1
+  %exitcond.not.i89 = icmp eq i64 %365, 4
+  br i1 %exitcond.not.i89, label %_ZL14XXH3_mergeAccsPKmPKhm.exit90, label %351, !llvm.loop !17
 
-_ZL14XXH3_mergeAccsPKmPKhm.exit90:                ; preds = %355
-  %370 = xor i64 %352, %351
-  %371 = lshr i64 %368, 37
-  %372 = xor i64 %371, %368
+_ZL14XXH3_mergeAccsPKmPKhm.exit90:                ; preds = %351
+  %366 = lshr i64 %347, 37
+  %367 = xor i64 %366, %347
+  %368 = mul i64 %367, 1609587791953885689
+  %369 = lshr i64 %368, 32
+  %370 = xor i64 %369, %368
+  %371 = lshr i64 %364, 37
+  %372 = xor i64 %371, %364
   %373 = mul i64 %372, 1609587791953885689
   %374 = lshr i64 %373, 32
   %375 = xor i64 %374, %373

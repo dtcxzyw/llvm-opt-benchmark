@@ -1549,50 +1549,50 @@ Vec_IntGrow.exit.i.i.i:                           ; preds = %Vec_IntGrow.exit.si
 Bac_ObjPiRange.exit:                              ; preds = %.preheader504, %.preheader503, %.critedge.split.loop.exit.i217, %.critedge.split.loop.exit.i
   %154 = phi ptr [ @.str.4, %.critedge.split.loop.exit.i ], [ @.str.5, %.critedge.split.loop.exit.i217 ], [ @.str.4, %.preheader503 ], [ @.str.5, %.preheader504 ]
   %.lcssa.i.pn = phi i32 [ %148, %.critedge.split.loop.exit.i ], [ %153, %.critedge.split.loop.exit.i217 ], [ %.val162366, %.preheader503 ], [ %.val162366, %.preheader504 ]
-  %155 = sub nsw i32 %.lcssa.i.pn, %indvars402
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
-  br label %156
+  br label %155
 
-156:                                              ; preds = %166, %Bac_ObjPiRange.exit
-  %.015.i = phi i32 [ 0, %Bac_ObjPiRange.exit ], [ %171, %166 ]
-  %.0.i = phi i32 [ 0, %Bac_ObjPiRange.exit ], [ %170, %166 ]
+155:                                              ; preds = %165, %Bac_ObjPiRange.exit
+  %.015.i = phi i32 [ 0, %Bac_ObjPiRange.exit ], [ %170, %165 ]
+  %.0.i = phi i32 [ 0, %Bac_ObjPiRange.exit ], [ %169, %165 ]
   %.not.i219 = icmp eq i32 %.0.i, 0
-  br i1 %.not.i219, label %.critedge.i, label %157
+  br i1 %.not.i219, label %.critedge.i, label %156
 
-157:                                              ; preds = %156
+156:                                              ; preds = %155
   %.val.i220 = load ptr, ptr %81, align 8, !tbaa !23
-  %158 = sext i32 %.0.i to i64
-  %159 = getelementptr inbounds i32, ptr %.val.i220, i64 %158
-  %160 = load i32, ptr %159, align 4, !tbaa !24
-  %.not16.i = icmp eq i32 %160, 0
+  %157 = sext i32 %.0.i to i64
+  %158 = getelementptr inbounds i32, ptr %.val.i220, i64 %157
+  %159 = load i32, ptr %158, align 4, !tbaa !24
+  %.not16.i = icmp eq i32 %159, 0
   br i1 %.not16.i, label %Bac_ManAssignInternTwo.exit, label %.critedge.i
 
-.critedge.i:                                      ; preds = %157, %156
-  %161 = icmp eq i32 %.015.i, 0
-  br i1 %161, label %162, label %164
+.critedge.i:                                      ; preds = %156, %155
+  %160 = icmp eq i32 %.015.i, 0
+  br i1 %160, label %161, label %163
 
-162:                                              ; preds = %.critedge.i
-  %163 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %154, i32 noundef %.09.i, i32 noundef %.0128365) #21
-  br label %166
+161:                                              ; preds = %.critedge.i
+  %162 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %154, i32 noundef %.09.i, i32 noundef %.0128365) #21
+  br label %165
 
-164:                                              ; preds = %.critedge.i
-  %165 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %154, i32 noundef %.09.i, i32 noundef %.0128365, i32 noundef %.015.i) #21
-  br label %166
+163:                                              ; preds = %.critedge.i
+  %164 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %154, i32 noundef %.09.i, i32 noundef %.0128365, i32 noundef %.015.i) #21
+  br label %165
 
-166:                                              ; preds = %164, %162
-  %167 = load ptr, ptr %0, align 8, !tbaa !16
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  %169 = load ptr, ptr %168, align 8, !tbaa !44
-  %170 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %169, ptr noundef nonnull %4, ptr noundef null) #21
-  %171 = add nuw nsw i32 %.015.i, 1
-  br label %156, !llvm.loop !45
+165:                                              ; preds = %163, %161
+  %166 = load ptr, ptr %0, align 8, !tbaa !16
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  %168 = load ptr, ptr %167, align 8, !tbaa !44
+  %169 = call i32 @Abc_NamStrFindOrAdd(ptr noundef %168, ptr noundef nonnull %4, ptr noundef null) #21
+  %170 = add nuw nsw i32 %.015.i, 1
+  br label %155, !llvm.loop !45
 
-Bac_ManAssignInternTwo.exit:                      ; preds = %157
-  %172 = getelementptr inbounds i32, ptr %.val.i220, i64 %158
+Bac_ManAssignInternTwo.exit:                      ; preds = %156
+  %171 = getelementptr inbounds i32, ptr %.val.i220, i64 %157
+  %172 = sub nsw i32 %.lcssa.i.pn, %indvars402
   %173 = add nsw i32 %.0128365, 1
-  store i32 1, ptr %172, align 4, !tbaa !24
+  store i32 1, ptr %171, align 4, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
-  %174 = icmp eq i32 %155, 1
+  %174 = icmp eq i32 %172, 1
   %175 = shl i32 %.0.i, 2
   br i1 %174, label %176, label %210
 

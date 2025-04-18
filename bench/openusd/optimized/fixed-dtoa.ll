@@ -114,30 +114,30 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_con
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit: ; preds = %._crit_edge.i, %._crit_edge35.loopexit.i
   %.pre-phi.i = phi i32 [ %.pre41.i, %._crit_edge35.loopexit.i ], [ %48, %._crit_edge.i ]
   store i32 %.pre-phi.i, ptr %4, align 4
-  %57 = udiv i64 %.094, 10000000
-  %58 = urem i64 %.094, 10000000
-  %59 = udiv i64 %.094, 100000000000000
-  %60 = trunc nuw nsw i64 %59 to i32
-  br label %61
+  %57 = udiv i64 %.094, 100000000000000
+  %58 = trunc nuw nsw i64 %57 to i32
+  br label %59
 
-61:                                               ; preds = %61, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit
-  %.0.in10.i.i = phi i32 [ 3, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit ], [ %.0.i.i, %61 ]
-  %.089.i.i = phi i32 [ %60, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit ], [ %69, %61 ]
+59:                                               ; preds = %59, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit
+  %.0.in10.i.i = phi i32 [ 3, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit ], [ %.0.i.i, %59 ]
+  %.089.i.i = phi i32 [ %58, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0_6VectorIcEEPi.exit ], [ %67, %59 ]
   %.0.i.i = add nsw i32 %.0.in10.i.i, -1
-  %62 = urem i32 %.089.i.i, 10
-  %63 = trunc nuw nsw i32 %62 to i8
-  %64 = or disjoint i8 %63, 48
-  %65 = load i32, ptr %4, align 4
-  %66 = add nsw i32 %65, %.0.i.i
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %2, i64 %67
-  store i8 %64, ptr %68, align 1
-  %69 = udiv i32 %.089.i.i, 10
-  %70 = icmp samesign ugt i32 %.0.in10.i.i, 1
-  br i1 %70, label %61, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i, !llvm.loop !7
+  %60 = urem i32 %.089.i.i, 10
+  %61 = trunc nuw nsw i32 %60 to i8
+  %62 = or disjoint i8 %61, 48
+  %63 = load i32, ptr %4, align 4
+  %64 = add nsw i32 %63, %.0.i.i
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i8, ptr %2, i64 %65
+  store i8 %62, ptr %66, align 1
+  %67 = udiv i32 %.089.i.i, 10
+  %68 = icmp samesign ugt i32 %.0.in10.i.i, 1
+  br i1 %68, label %59, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i, !llvm.loop !7
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i: ; preds = %61
-  %71 = urem i64 %57, 10000000
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit.i: ; preds = %59
+  %69 = udiv i64 %.094, 10000000
+  %70 = urem i64 %.094, 10000000
+  %71 = urem i64 %69, 10000000
   %72 = trunc nuw nsw i64 %71 to i32
   %73 = load i32, ptr %4, align 4
   %74 = add nsw i32 %73, 3
@@ -161,7 +161,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32Fixed
   br i1 %84, label %75, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit23.i, !llvm.loop !7
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32FixedLengthEjiNS0_6VectorIcEEPi.exit23.i: ; preds = %75
-  %85 = trunc nuw nsw i64 %58 to i32
+  %85 = trunc nuw nsw i64 %70 to i32
   %86 = load i32, ptr %4, align 4
   %87 = add nsw i32 %86, 7
   store i32 %87, ptr %4, align 4

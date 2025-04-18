@@ -3586,124 +3586,124 @@ batch_mul.exit:                                   ; preds = %.loopexit.i
   %466 = ashr i64 %464, 56
   %467 = add nsw i64 %466, %454
   %468 = and i64 %464, 72057594037927935
-  %469 = lshr i64 %430, 56
-  %470 = sub nsw i64 %424, %469
+  %469 = lshr i64 %437, 56
+  %470 = sub nsw i64 %431, %469
   %471 = shl nuw nsw i64 %469, 40
-  %472 = add nsw i64 %471, %426
-  %473 = and i64 %430, 72057594037927935
-  %474 = or i64 %426, 1099511627775
-  %475 = and i64 %428, %474
-  %476 = and i64 %475, %430
+  %472 = add nsw i64 %471, %433
+  %473 = and i64 %437, 72057594037927935
+  %474 = or i64 %433, 1099511627775
+  %475 = and i64 %435, %474
+  %476 = and i64 %475, %437
   %477 = add i64 %476, 1
-  %478 = and i64 %426, 1099511627775
-  %479 = add i64 %424, -1
+  %478 = and i64 %433, 1099511627775
+  %479 = add i64 %431, -1
   %480 = add i64 %479, %478
   %481 = ashr i64 %480, 63
   %482 = or i64 %477, %481
   %483 = and i64 %482, 72057594037927935
   %484 = add nsw i64 %483, -1
-  %isnotneg.not.i207 = icmp eq i64 %483, 0
-  %485 = select i1 %isnotneg.not.i207, i64 0, i64 %473
-  %486 = select i1 %isnotneg.not.i207, i64 0, i64 %428
-  %487 = select i1 %isnotneg.not.i207, i64 1099511627775, i64 -1
+  %isnotneg.not.i210 = icmp eq i64 %483, 0
+  %485 = select i1 %isnotneg.not.i210, i64 0, i64 %473
+  %486 = select i1 %isnotneg.not.i210, i64 0, i64 %435
+  %487 = select i1 %isnotneg.not.i210, i64 1099511627775, i64 -1
   %488 = and i64 %487, %472
-  %.neg.i208 = ashr i64 %484, 63
-  %489 = add i64 %.neg.i208, %470
+  %.neg.i211 = ashr i64 %484, 63
+  %489 = add i64 %.neg.i211, %470
   %490 = lshr i64 %489, 7
   %491 = and i64 %490, 72057594037927936
-  %.neg39.i209 = ashr i64 %489, 63
-  %492 = add i64 %.neg39.i209, %488
-  %493 = ashr i64 %492, 56
-  %494 = add nsw i64 %493, %486
-  %495 = ashr i64 %494, 56
-  %496 = add nsw i64 %495, %485
-  %497 = lshr i64 %437, 56
-  %498 = sub nsw i64 %431, %497
-  %499 = shl nuw nsw i64 %497, 40
-  %500 = add nsw i64 %499, %433
-  %501 = and i64 %437, 72057594037927935
-  %502 = or i64 %433, 1099511627775
-  %503 = and i64 %435, %502
-  %504 = and i64 %503, %437
-  %505 = add i64 %504, 1
-  %506 = and i64 %433, 1099511627775
-  %507 = add i64 %431, -1
-  %508 = add i64 %507, %506
-  %509 = ashr i64 %508, 63
-  %510 = or i64 %505, %509
-  %511 = and i64 %510, 72057594037927935
-  %512 = add nsw i64 %511, -1
-  %isnotneg.not.i210 = icmp eq i64 %511, 0
-  %513 = select i1 %isnotneg.not.i210, i64 0, i64 %501
-  %514 = select i1 %isnotneg.not.i210, i64 0, i64 %435
-  %515 = select i1 %isnotneg.not.i210, i64 1099511627775, i64 -1
-  %516 = and i64 %515, %500
-  %.neg.i211 = ashr i64 %512, 63
-  %517 = add i64 %.neg.i211, %498
-  %518 = lshr i64 %517, 7
-  %519 = and i64 %518, 72057594037927936
-  %520 = add nsw i64 %519, %517
-  %.neg39.i212 = ashr i64 %517, 63
-  %521 = add i64 %.neg39.i212, %516
-  %522 = ashr i64 %521, 56
-  %523 = add nsw i64 %522, %514
-  %524 = and i64 %521, 72057594037927935
-  %525 = ashr i64 %523, 56
-  %526 = add nsw i64 %525, %513
-  %527 = and i64 %523, 72057594037927935
-  store i64 %520, ptr %23, align 16, !tbaa !11
-  %528 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i64 %524, ptr %528, align 8, !tbaa !11
-  %529 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i64 %527, ptr %529, align 16, !tbaa !11
-  %530 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i64 %526, ptr %530, align 8, !tbaa !11
+  %492 = add nsw i64 %491, %489
+  %.neg39.i212 = ashr i64 %489, 63
+  %493 = add i64 %.neg39.i212, %488
+  %494 = ashr i64 %493, 56
+  %495 = add nsw i64 %494, %486
+  %496 = and i64 %493, 72057594037927935
+  %497 = ashr i64 %495, 56
+  %498 = add nsw i64 %497, %485
+  %499 = and i64 %495, 72057594037927935
+  store i64 %492, ptr %23, align 16, !tbaa !11
+  %500 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i64 %496, ptr %500, align 8, !tbaa !11
+  %501 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i64 %499, ptr %501, align 16, !tbaa !11
+  %502 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store i64 %498, ptr %502, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %10) #10
-  br label %531
+  br label %503
 
-531:                                              ; preds = %531, %batch_mul.exit
-  %.017.i.i = phi i64 [ 0, %batch_mul.exit ], [ %545, %531 ]
-  %532 = shl nuw nsw i64 %.017.i.i, 3
-  %533 = lshr i64 %461, %532
-  %534 = trunc i64 %533 to i8
-  %535 = getelementptr inbounds nuw i8, ptr %9, i64 %.017.i.i
-  store i8 %534, ptr %535, align 1, !tbaa !6
-  %536 = lshr i64 %465, %532
-  %537 = trunc i64 %536 to i8
-  %538 = getelementptr inbounds nuw i8, ptr %535, i64 7
-  store i8 %537, ptr %538, align 1, !tbaa !6
-  %539 = lshr i64 %468, %532
-  %540 = trunc i64 %539 to i8
-  %541 = getelementptr inbounds nuw i8, ptr %535, i64 14
-  store i8 %540, ptr %541, align 1, !tbaa !6
-  %542 = lshr i64 %467, %532
-  %543 = trunc i64 %542 to i8
-  %544 = getelementptr inbounds nuw i8, ptr %535, i64 21
-  store i8 %543, ptr %544, align 1, !tbaa !6
-  %545 = add nuw nsw i64 %.017.i.i, 1
-  %exitcond.not.i.i213 = icmp eq i64 %545, 7
-  br i1 %exitcond.not.i.i213, label %felem_to_bin28.exit.i, label %531, !llvm.loop !20
+503:                                              ; preds = %503, %batch_mul.exit
+  %.017.i.i = phi i64 [ 0, %batch_mul.exit ], [ %517, %503 ]
+  %504 = shl nuw nsw i64 %.017.i.i, 3
+  %505 = lshr i64 %461, %504
+  %506 = trunc i64 %505 to i8
+  %507 = getelementptr inbounds nuw i8, ptr %9, i64 %.017.i.i
+  store i8 %506, ptr %507, align 1, !tbaa !6
+  %508 = lshr i64 %465, %504
+  %509 = trunc i64 %508 to i8
+  %510 = getelementptr inbounds nuw i8, ptr %507, i64 7
+  store i8 %509, ptr %510, align 1, !tbaa !6
+  %511 = lshr i64 %468, %504
+  %512 = trunc i64 %511 to i8
+  %513 = getelementptr inbounds nuw i8, ptr %507, i64 14
+  store i8 %512, ptr %513, align 1, !tbaa !6
+  %514 = lshr i64 %467, %504
+  %515 = trunc i64 %514 to i8
+  %516 = getelementptr inbounds nuw i8, ptr %507, i64 21
+  store i8 %515, ptr %516, align 1, !tbaa !6
+  %517 = add nuw nsw i64 %.017.i.i, 1
+  %exitcond.not.i.i213 = icmp eq i64 %517, 7
+  br i1 %exitcond.not.i.i213, label %felem_to_bin28.exit.i, label %503, !llvm.loop !20
 
-felem_to_bin28.exit.i:                            ; preds = %531
-  %546 = and i64 %492, 72057594037927935
-  %547 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  br label %548
+felem_to_bin28.exit.i:                            ; preds = %503
+  %518 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  br label %519
 
-548:                                              ; preds = %548, %felem_to_bin28.exit.i
-  %.08.i.i214 = phi i64 [ 0, %felem_to_bin28.exit.i ], [ %553, %548 ]
-  %549 = xor i64 %.08.i.i214, -1
-  %550 = getelementptr i8, ptr %547, i64 %549
-  %551 = load i8, ptr %550, align 1, !tbaa !6
-  %552 = getelementptr inbounds nuw i8, ptr %10, i64 %.08.i.i214
-  store i8 %551, ptr %552, align 1, !tbaa !6
-  %553 = add nuw nsw i64 %.08.i.i214, 1
-  %exitcond.not.i2.i = icmp eq i64 %553, 28
-  br i1 %exitcond.not.i2.i, label %felem_to_BN.exit, label %548, !llvm.loop !9
+519:                                              ; preds = %519, %felem_to_bin28.exit.i
+  %.08.i.i214 = phi i64 [ 0, %felem_to_bin28.exit.i ], [ %524, %519 ]
+  %520 = xor i64 %.08.i.i214, -1
+  %521 = getelementptr i8, ptr %518, i64 %520
+  %522 = load i8, ptr %521, align 1, !tbaa !6
+  %523 = getelementptr inbounds nuw i8, ptr %10, i64 %.08.i.i214
+  store i8 %522, ptr %523, align 1, !tbaa !6
+  %524 = add nuw nsw i64 %.08.i.i214, 1
+  %exitcond.not.i2.i = icmp eq i64 %524, 28
+  br i1 %exitcond.not.i2.i, label %felem_to_BN.exit, label %519, !llvm.loop !9
 
-felem_to_BN.exit:                                 ; preds = %548
-  %554 = add nsw i64 %491, %489
-  %555 = and i64 %494, 72057594037927935
+felem_to_BN.exit:                                 ; preds = %519
+  %525 = lshr i64 %430, 56
+  %526 = sub nsw i64 %424, %525
+  %527 = shl nuw nsw i64 %525, 40
+  %528 = add nsw i64 %527, %426
+  %529 = and i64 %430, 72057594037927935
+  %530 = or i64 %426, 1099511627775
+  %531 = and i64 %428, %530
+  %532 = and i64 %531, %430
+  %533 = add i64 %532, 1
+  %534 = and i64 %426, 1099511627775
+  %535 = add i64 %424, -1
+  %536 = add i64 %535, %534
+  %537 = ashr i64 %536, 63
+  %538 = or i64 %533, %537
+  %539 = and i64 %538, 72057594037927935
+  %540 = add nsw i64 %539, -1
+  %isnotneg.not.i207 = icmp eq i64 %539, 0
+  %541 = select i1 %isnotneg.not.i207, i64 0, i64 %529
+  %542 = select i1 %isnotneg.not.i207, i64 0, i64 %428
+  %543 = select i1 %isnotneg.not.i207, i64 1099511627775, i64 -1
+  %544 = and i64 %543, %528
+  %.neg.i208 = ashr i64 %540, 63
+  %545 = add i64 %.neg.i208, %526
+  %546 = lshr i64 %545, 7
+  %547 = and i64 %546, 72057594037927936
+  %548 = add nsw i64 %547, %545
+  %.neg39.i209 = ashr i64 %545, 63
+  %549 = add i64 %.neg39.i209, %544
+  %550 = ashr i64 %549, 56
+  %551 = add nsw i64 %550, %542
+  %552 = and i64 %549, 72057594037927935
+  %553 = ashr i64 %551, 56
+  %554 = add nsw i64 %553, %541
+  %555 = and i64 %551, 72057594037927935
   %556 = call ptr @BN_bin2bn(ptr noundef nonnull %10, i64 noundef 28, ptr noundef nonnull %29) #10
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %9) #10
@@ -3718,11 +3718,11 @@ felem_to_BN.exit:                                 ; preds = %548
 558:                                              ; preds = %558, %557
   %.017.i.i216 = phi i64 [ 0, %557 ], [ %572, %558 ]
   %559 = shl nuw nsw i64 %.017.i.i216, 3
-  %560 = lshr i64 %554, %559
+  %560 = lshr i64 %548, %559
   %561 = trunc i64 %560 to i8
   %562 = getelementptr inbounds nuw i8, ptr %7, i64 %.017.i.i216
   store i8 %561, ptr %562, align 1, !tbaa !6
-  %563 = lshr i64 %546, %559
+  %563 = lshr i64 %552, %559
   %564 = trunc i64 %563 to i8
   %565 = getelementptr inbounds nuw i8, ptr %562, i64 7
   store i8 %564, ptr %565, align 1, !tbaa !6
@@ -3730,7 +3730,7 @@ felem_to_BN.exit:                                 ; preds = %548
   %567 = trunc i64 %566 to i8
   %568 = getelementptr inbounds nuw i8, ptr %562, i64 14
   store i8 %567, ptr %568, align 1, !tbaa !6
-  %569 = lshr i64 %496, %559
+  %569 = lshr i64 %554, %559
   %570 = trunc i64 %569 to i8
   %571 = getelementptr inbounds nuw i8, ptr %562, i64 21
   store i8 %570, ptr %571, align 1, !tbaa !6

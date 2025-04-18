@@ -25696,7 +25696,6 @@ define dso_local void @_ZN5clang9ASTWriter29WritePragmaDiagnosticMappingsERKNS_1
   %7 = alloca %"class.llvm::SmallVector.108", align 8
   %8 = alloca %class.anon.1815, align 8
   call void @llvm.lifetime.start.p0(i64 1032, ptr nonnull %5) #35
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %9, align 4, !tbaa !703
@@ -25765,6 +25764,7 @@ _ZN4llvm13SmallDenseMapIPKN5clang17DiagnosticsEngine9DiagStateEjLj64ENS_12DenseM
   br i1 %.not.i, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit, label %36
 
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %36
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #35
   %40 = zext i32 %39 to i64
@@ -42141,8 +42141,8 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i:           ; preds = %579, %577
   br i1 %.not.i.i.i46.i, label %571, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i, !llvm.loop !1285
 
 _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit.i.i.i: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i.i
-  %581 = add i32 %.0.lcssa.i.i, 4
   %.not15.i.i = icmp ult i64 %.0.copyload.i.i.i.i.i, 8
+  %581 = add i32 %.0.lcssa.i.i, 4
   %spec.select.i.i = select i1 %.not15.i.i, i32 %.0.lcssa.i.i, i32 %581
   %582 = zext i32 %spec.select.i.i to i64
   br label %583

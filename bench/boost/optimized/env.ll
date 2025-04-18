@@ -76295,27 +76295,27 @@ define linkonce_odr hidden void @_ZN5boost7process2v122basic_environment_implIcN
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = tail call { ptr, ptr } @_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix23native_environment_implEE4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %9 = extractvalue { ptr, ptr } %8, 0
-  %10 = load ptr, ptr %1, align 8, !tbaa !1510
-  br label %11
+  %9 = load ptr, ptr %1, align 8, !tbaa !1510
+  br label %10
 
-11:                                               ; preds = %11, %3
-  %.0.i.i = phi ptr [ %10, %3 ], [ %13, %11 ]
-  %12 = load ptr, ptr %.0.i.i, align 8, !tbaa !174
-  %.not.i.i = icmp eq ptr %12, null
-  %13 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  br i1 %.not.i.i, label %_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix23native_environment_implEE3endEv.exit, label %11, !llvm.loop !1512
+10:                                               ; preds = %10, %3
+  %.0.i.i = phi ptr [ %9, %3 ], [ %12, %10 ]
+  %11 = load ptr, ptr %.0.i.i, align 8, !tbaa !174
+  %.not.i.i = icmp eq ptr %11, null
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  br i1 %.not.i.i, label %_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix23native_environment_implEE3endEv.exit, label %10, !llvm.loop !1512
 
-_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix23native_environment_implEE3endEv.exit: ; preds = %11
+_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix23native_environment_implEE3endEv.exit: ; preds = %10
+  %13 = extractvalue { ptr, ptr } %8, 0
   %14 = extractvalue { ptr, ptr } %8, 1
-  %.not = icmp eq ptr %9, %.0.i.i
+  %.not = icmp eq ptr %13, %.0.i.i
   br i1 %.not, label %50, label %15
 
 15:                                               ; preds = %_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix23native_environment_implEE3endEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1513)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1516)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1519)
-  %16 = load ptr, ptr %9, align 8, !tbaa !174, !noalias !1522
+  %16 = load ptr, ptr %13, align 8, !tbaa !174, !noalias !1522
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1523)
   br label %17
 
@@ -80218,28 +80218,28 @@ define linkonce_odr hidden void @_ZN5boost7process2v122basic_environment_implIcN
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = tail call { ptr, ptr } @_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix22basic_environment_implEE4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %9 = extractvalue { ptr, ptr } %8, 0
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !1560
-  br label %12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %10 = load ptr, ptr %9, align 8, !tbaa !1560
+  br label %11
 
-12:                                               ; preds = %12, %3
-  %.0.i.i = phi ptr [ %11, %3 ], [ %14, %12 ]
-  %13 = load ptr, ptr %.0.i.i, align 8, !tbaa !174
-  %.not.i.i = icmp eq ptr %13, null
-  %14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  br i1 %.not.i.i, label %_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix22basic_environment_implEE3endEv.exit, label %12, !llvm.loop !1565
+11:                                               ; preds = %11, %3
+  %.0.i.i = phi ptr [ %10, %3 ], [ %13, %11 ]
+  %12 = load ptr, ptr %.0.i.i, align 8, !tbaa !174
+  %.not.i.i = icmp eq ptr %12, null
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  br i1 %.not.i.i, label %_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix22basic_environment_implEE3endEv.exit, label %11, !llvm.loop !1565
 
-_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix22basic_environment_implEE3endEv.exit: ; preds = %12
+_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix22basic_environment_implEE3endEv.exit: ; preds = %11
+  %14 = extractvalue { ptr, ptr } %8, 0
   %15 = extractvalue { ptr, ptr } %8, 1
-  %.not = icmp eq ptr %9, %.0.i.i
+  %.not = icmp eq ptr %14, %.0.i.i
   br i1 %.not, label %51, label %16
 
 16:                                               ; preds = %_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix22basic_environment_implEE3endEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1566)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1569)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1572)
-  %17 = load ptr, ptr %9, align 8, !tbaa !174, !noalias !1575
+  %17 = load ptr, ptr %14, align 8, !tbaa !174, !noalias !1575
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1576)
   br label %18
 

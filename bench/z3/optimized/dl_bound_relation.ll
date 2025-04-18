@@ -14197,89 +14197,89 @@ _ZNK7datalog15vector_relationINS_9uint_set2ENS_21bound_relation_helperEEixEj.exi
   %92 = getelementptr inbounds nuw i32, ptr %3, i64 %wide.trip.count
   %93 = load i32, ptr %92, align 4, !tbaa !40
   %94 = load i32, ptr %3, align 4, !tbaa !40
-  %95 = zext i32 %93 to i64
-  %96 = load ptr, ptr %9, align 8, !tbaa !174
-  %97 = load ptr, ptr %10, align 8, !tbaa !194
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !61
-  br label %100
+  %95 = load ptr, ptr %9, align 8, !tbaa !174
+  %96 = load ptr, ptr %10, align 8, !tbaa !194
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  %98 = load ptr, ptr %97, align 8, !tbaa !61
+  br label %99
 
-100:                                              ; preds = %100, %._crit_edge
-  %.08.i.i.i64 = phi i32 [ %94, %._crit_edge ], [ %103, %100 ]
-  %101 = zext i32 %.08.i.i.i64 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %99, i64 %101
-  %103 = load i32, ptr %102, align 4, !tbaa !40
-  %.not.i.i.i65 = icmp eq i32 %103, %.08.i.i.i64
-  br i1 %.not.i.i.i65, label %137, label %100
+99:                                               ; preds = %99, %._crit_edge
+  %.08.i.i.i64 = phi i32 [ %94, %._crit_edge ], [ %102, %99 ]
+  %100 = zext i32 %.08.i.i.i64 to i64
+  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %100
+  %102 = load i32, ptr %101, align 4, !tbaa !40
+  %.not.i.i.i65 = icmp eq i32 %102, %.08.i.i.i64
+  br i1 %.not.i.i.i65, label %136, label %99
 
 .lr.ph:                                           ; preds = %.preheader88, %_ZNK7datalog15vector_relationINS_9uint_set2ENS_21bound_relation_helperEE4findEj.exit72
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %_ZNK7datalog15vector_relationINS_9uint_set2ENS_21bound_relation_helperEE4findEj.exit72 ], [ 0, %.preheader88 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK7datalog15vector_relationINS_9uint_set2ENS_21bound_relation_helperEE4findEj.exit72 ], [ 1, %.preheader88 ]
-  %104 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv104
-  %105 = load i32, ptr %104, align 4, !tbaa !40
-  %106 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  %107 = load i32, ptr %106, align 4, !tbaa !40
-  %108 = load ptr, ptr %7, align 8, !tbaa !174
-  %109 = load ptr, ptr %108, align 8, !tbaa !171
-  %110 = zext i32 %105 to i64
-  %111 = load ptr, ptr %9, align 8, !tbaa !174
-  %112 = load ptr, ptr %10, align 8, !tbaa !194
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %114 = load ptr, ptr %113, align 8, !tbaa !61
-  br label %115
+  %103 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv104
+  %104 = load i32, ptr %103, align 4, !tbaa !40
+  %105 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %106 = load i32, ptr %105, align 4, !tbaa !40
+  %107 = load ptr, ptr %7, align 8, !tbaa !174
+  %108 = load ptr, ptr %107, align 8, !tbaa !171
+  %109 = load ptr, ptr %9, align 8, !tbaa !174
+  %110 = load ptr, ptr %10, align 8, !tbaa !194
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %112 = load ptr, ptr %111, align 8, !tbaa !61
+  br label %113
 
-115:                                              ; preds = %115, %.lr.ph
-  %.08.i.i.i67 = phi i32 [ %107, %.lr.ph ], [ %118, %115 ]
-  %116 = zext i32 %.08.i.i.i67 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %114, i64 %116
-  %118 = load i32, ptr %117, align 4, !tbaa !40
-  %.not.i.i.i68 = icmp eq i32 %118, %.08.i.i.i67
-  br i1 %.not.i.i.i68, label %119, label %115
+113:                                              ; preds = %113, %.lr.ph
+  %.08.i.i.i67 = phi i32 [ %106, %.lr.ph ], [ %116, %113 ]
+  %114 = zext i32 %.08.i.i.i67 to i64
+  %115 = getelementptr inbounds nuw i32, ptr %112, i64 %114
+  %116 = load i32, ptr %115, align 4, !tbaa !40
+  %.not.i.i.i68 = icmp eq i32 %116, %.08.i.i.i67
+  br i1 %.not.i.i.i68, label %117, label %113
 
-119:                                              ; preds = %115
-  %120 = getelementptr inbounds nuw %"struct.datalog::uint_set2", ptr %109, i64 %110
-  %121 = load ptr, ptr %111, align 8, !tbaa !171
-  %122 = getelementptr inbounds nuw %"struct.datalog::uint_set2", ptr %121, i64 %116
-  %123 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7datalog9uint_set2aSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 8 dereferenceable(16) %120)
-          to label %124 unwind label %135
+117:                                              ; preds = %113
+  %118 = zext i32 %104 to i64
+  %119 = getelementptr inbounds nuw %"struct.datalog::uint_set2", ptr %108, i64 %118
+  %120 = load ptr, ptr %109, align 8, !tbaa !171
+  %121 = getelementptr inbounds nuw %"struct.datalog::uint_set2", ptr %120, i64 %114
+  %122 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7datalog9uint_set2aSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %119)
+          to label %123 unwind label %134
 
-124:                                              ; preds = %119
-  %125 = load ptr, ptr %8, align 8, !tbaa !194
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %127 = load ptr, ptr %126, align 8, !tbaa !61
-  br label %128
+123:                                              ; preds = %117
+  %124 = load ptr, ptr %8, align 8, !tbaa !194
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %126 = load ptr, ptr %125, align 8, !tbaa !61
+  br label %127
 
-128:                                              ; preds = %128, %124
-  %.08.i.i70 = phi i32 [ %105, %124 ], [ %131, %128 ]
-  %129 = zext i32 %.08.i.i70 to i64
-  %130 = getelementptr inbounds nuw i32, ptr %127, i64 %129
-  %131 = load i32, ptr %130, align 4, !tbaa !40
-  %.not.i.i71 = icmp eq i32 %131, %.08.i.i70
-  br i1 %.not.i.i71, label %_ZNK7datalog15vector_relationINS_9uint_set2ENS_21bound_relation_helperEE4findEj.exit72, label %128
+127:                                              ; preds = %127, %123
+  %.08.i.i70 = phi i32 [ %104, %123 ], [ %130, %127 ]
+  %128 = zext i32 %.08.i.i70 to i64
+  %129 = getelementptr inbounds nuw i32, ptr %126, i64 %128
+  %130 = load i32, ptr %129, align 4, !tbaa !40
+  %.not.i.i71 = icmp eq i32 %130, %.08.i.i70
+  br i1 %.not.i.i71, label %_ZNK7datalog15vector_relationINS_9uint_set2ENS_21bound_relation_helperEE4findEj.exit72, label %127
 
-_ZNK7datalog15vector_relationINS_9uint_set2ENS_21bound_relation_helperEE4findEj.exit72: ; preds = %128
-  %132 = load ptr, ptr %5, align 8, !tbaa !61
-  %133 = zext i32 %107 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %132, i64 %133
-  store i32 %.08.i.i70, ptr %134, align 4, !tbaa !40
+_ZNK7datalog15vector_relationINS_9uint_set2ENS_21bound_relation_helperEE4findEj.exit72: ; preds = %127
+  %131 = load ptr, ptr %5, align 8, !tbaa !61
+  %132 = zext i32 %106 to i64
+  %133 = getelementptr inbounds nuw i32, ptr %131, i64 %132
+  store i32 %.08.i.i70, ptr %133, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !307
 
-135:                                              ; preds = %119
-  %136 = landingpad { ptr, i32 }
+134:                                              ; preds = %117
+  %135 = landingpad { ptr, i32 }
           cleanup
   br label %261
 
-137:                                              ; preds = %100
-  %138 = getelementptr inbounds nuw %"struct.datalog::uint_set2", ptr %91, i64 %95
-  %139 = load ptr, ptr %96, align 8, !tbaa !171
-  %140 = getelementptr inbounds nuw %"struct.datalog::uint_set2", ptr %139, i64 %101
+136:                                              ; preds = %99
+  %137 = zext i32 %93 to i64
+  %138 = getelementptr inbounds nuw %"struct.datalog::uint_set2", ptr %91, i64 %137
+  %139 = load ptr, ptr %95, align 8, !tbaa !171
+  %140 = getelementptr inbounds nuw %"struct.datalog::uint_set2", ptr %139, i64 %100
   %141 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7datalog9uint_set2aSERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %140, ptr noundef nonnull align 8 dereferenceable(16) %138)
           to label %142 unwind label %162
 
-142:                                              ; preds = %137
+142:                                              ; preds = %136
   %143 = load ptr, ptr %8, align 8, !tbaa !194
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = load ptr, ptr %144, align 8, !tbaa !61
@@ -14318,7 +14318,7 @@ _ZNK6vectorIN7datalog9uint_set2ELb1EjE4sizeEv.exit77: ; preds = %153, %157
   %161 = icmp samesign ult i64 %indvars.iv109, %.0.i76
   br i1 %161, label %164, label %.preheader
 
-162:                                              ; preds = %137
+162:                                              ; preds = %136
   %163 = landingpad { ptr, i32 }
           cleanup
   br label %261
@@ -14528,8 +14528,8 @@ _ZN6vectorIjLb0EjED2Ev.exit86:                    ; preds = %_ZN6vectorIjLb0EjED
   %.pre117 = load ptr, ptr %.pre116, align 8, !tbaa !171
   br label %.preheader, !llvm.loop !309
 
-261:                                              ; preds = %21, %87, %89, %251, %175, %162, %135
-  %.pn.pn = phi { ptr, i32 } [ %136, %135 ], [ %176, %175 ], [ %252, %251 ], [ %163, %162 ], [ %22, %21 ], [ %90, %89 ], [ %88, %87 ]
+261:                                              ; preds = %21, %87, %89, %251, %175, %162, %134
+  %.pn.pn = phi { ptr, i32 } [ %135, %134 ], [ %176, %175 ], [ %252, %251 ], [ %163, %162 ], [ %22, %21 ], [ %90, %89 ], [ %88, %87 ]
   call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
   call void @_ZN6vectorIjLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #24

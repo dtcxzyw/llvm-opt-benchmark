@@ -12694,36 +12694,36 @@ _ZN12_GLOBAL__N_115MachineLICMImpl23CanCauseHighRegPressureERKN4llvm13SmallDense
 634:                                              ; preds = %631
   %635 = load ptr, ptr %129, align 8, !tbaa !310
   %636 = call { ptr, ptr } @_ZNK4llvm19MachineRegisterInfo22use_nodbg_instructionsENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %635, i32 %620)
-  %637 = extractvalue { ptr, ptr } %636, 0
   store ptr %6, ptr %8, align 8, !tbaa !314
-  %638 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %0, ptr %638, align 8, !tbaa !722
-  %639 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %620, ptr %639, align 8, !tbaa !66
-  %640 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 1, ptr %640, align 8
-  %641 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 0, ptr %641, align 4, !tbaa !573
+  %637 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %0, ptr %637, align 8, !tbaa !722
+  %638 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i32 %620, ptr %638, align 8, !tbaa !66
+  %639 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i32 1, ptr %639, align 8
+  %640 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  store i32 0, ptr %640, align 4, !tbaa !573
   br label %.lr.ph.i.i.i110
 
 .lr.ph.i.i.i110:                                  ; preds = %.lr.ph.i.i.i110, %634
   %.06.i.i.idx.i = phi i64 [ %.06.i.i.add.i, %.lr.ph.i.i.i110 ], [ 8, %634 ]
-  %.06.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %640, i64 %.06.i.i.idx.i
+  %.06.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %639, i64 %.06.i.i.idx.i
   store i32 -1, ptr %.06.i.i.ptr.i, align 8, !tbaa !66
   %.06.i.i.add.i = add nuw nsw i64 %.06.i.i.idx.i, 8
   %.not.i.i.i111 = icmp eq i64 %.06.i.i.add.i, 40
-  br i1 %.not.i.i.i111, label %642, label %.lr.ph.i.i.i110, !llvm.loop !576
+  br i1 %.not.i.i.i111, label %641, label %.lr.ph.i.i.i110, !llvm.loop !576
 
-642:                                              ; preds = %.lr.ph.i.i.i110
+641:                                              ; preds = %.lr.ph.i.i.i110
+  %642 = extractvalue { ptr, ptr } %636, 0
   %643 = extractvalue { ptr, ptr } %636, 1
-  call void @_ZN4llvm13SmallDenseMapIjiLj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjiEEE4swapERS6_(ptr noundef nonnull align 8 dereferenceable(40) %640, ptr noundef nonnull align 8 dereferenceable(40) %7)
-  %644 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEZN12_GLOBAL__N_115MachineLICMImpl19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_1EEbOT_T0_"(ptr %637, ptr %643, ptr noundef %8)
-  %645 = load i32, ptr %640, align 8
+  call void @_ZN4llvm13SmallDenseMapIjiLj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjiEEE4swapERS6_(ptr noundef nonnull align 8 dereferenceable(40) %639, ptr noundef nonnull align 8 dereferenceable(40) %7)
+  %644 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_14iterator_rangeINS_19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEEEZN12_GLOBAL__N_115MachineLICMImpl19IsProfitableToHoistERNS_12MachineInstrEPNS_11MachineLoopEE3$_1EEbOT_T0_"(ptr %642, ptr %643, ptr noundef %8)
+  %645 = load i32, ptr %639, align 8
   %646 = and i32 %645, 1
   %.not.i.i.i112 = icmp eq i32 %646, 0
   br i1 %.not.i.i.i112, label %647, label %"_ZZN12_GLOBAL__N_115MachineLICMImpl19IsProfitableToHoistERN4llvm12MachineInstrEPNS1_11MachineLoopEEN3$_1D2Ev.exit"
 
-647:                                              ; preds = %642
+647:                                              ; preds = %641
   %648 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %649 = load ptr, ptr %648, align 8, !tbaa !679
   %650 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -12733,7 +12733,7 @@ _ZN12_GLOBAL__N_115MachineLICMImpl23CanCauseHighRegPressureERKN4llvm13SmallDense
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %649, i64 noundef %653, i64 noundef 4) #19
   br i1 %644, label %.loopexit, label %"_ZZN12_GLOBAL__N_115MachineLICMImpl19IsProfitableToHoistERN4llvm12MachineInstrEPNS1_11MachineLoopEEN3$_1D2Ev.exit.thread"
 
-"_ZZN12_GLOBAL__N_115MachineLICMImpl19IsProfitableToHoistERN4llvm12MachineInstrEPNS1_11MachineLoopEEN3$_1D2Ev.exit": ; preds = %642
+"_ZZN12_GLOBAL__N_115MachineLICMImpl19IsProfitableToHoistERN4llvm12MachineInstrEPNS1_11MachineLoopEEN3$_1D2Ev.exit": ; preds = %641
   br i1 %644, label %.loopexit, label %"_ZZN12_GLOBAL__N_115MachineLICMImpl19IsProfitableToHoistERN4llvm12MachineInstrEPNS1_11MachineLoopEEN3$_1D2Ev.exit.thread"
 
 "_ZZN12_GLOBAL__N_115MachineLICMImpl19IsProfitableToHoistERN4llvm12MachineInstrEPNS1_11MachineLoopEEN3$_1D2Ev.exit.thread": ; preds = %614, %631, %622, %616, %647, %"_ZZN12_GLOBAL__N_115MachineLICMImpl19IsProfitableToHoistERN4llvm12MachineInstrEPNS1_11MachineLoopEEN3$_1D2Ev.exit"

@@ -1308,26 +1308,26 @@ _ZNK7nanogui5ArrayIfLm4EEeqERKS1_.exit:           ; preds = %171
 _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge: ; preds = %178, %_ZNK7nanogui5ArrayIfLm4EEeqERKS1_.exit
   %181 = load i32, ptr %.sroa.0121.0221, align 4
   %182 = load i32, ptr %73, align 8
-  %183 = add nsw i32 %182, %181
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0221, i64 4
-  %185 = load i32, ptr %184, align 4
-  %186 = load i32, ptr %78, align 4
-  %187 = load i32, ptr %74, align 8
-  %188 = add nsw i32 %187, %183
-  br label %189
+  %183 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0221, i64 4
+  %184 = load i32, ptr %183, align 4
+  %185 = load i32, ptr %78, align 4
+  %186 = load i32, ptr %74, align 8
+  br label %187
 
-189:                                              ; preds = %189, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge
-  %.not8.i.i89 = phi i1 [ true, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge ], [ false, %189 ]
-  %.07.i.i90 = phi i64 [ 0, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge ], [ 1, %189 ]
-  %190 = getelementptr inbounds nuw [2 x i32], ptr %71, i64 0, i64 %.07.i.i90
-  %191 = load i32, ptr %190, align 4
-  %.not.i.i91 = icmp eq i32 %191, -1
+187:                                              ; preds = %187, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge
+  %.not8.i.i89 = phi i1 [ true, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge ], [ false, %187 ]
+  %.07.i.i90 = phi i64 [ 0, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit82.critedge ], [ 1, %187 ]
+  %188 = getelementptr inbounds nuw [2 x i32], ptr %71, i64 0, i64 %.07.i.i90
+  %189 = load i32, ptr %188, align 4
+  %.not.i.i91 = icmp eq i32 %189, -1
   %or.cond.i.i92 = and i1 %.not8.i.i89, %.not.i.i91
-  br i1 %or.cond.i.i92, label %189, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit93, !llvm.loop !12
+  br i1 %or.cond.i.i92, label %187, label %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit93, !llvm.loop !12
 
-_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit93:         ; preds = %189
-  %192 = add nsw i32 %186, %185
-  %193 = add nsw i32 %192, %187
+_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit93:         ; preds = %187
+  %190 = add nsw i32 %182, %181
+  %191 = add nsw i32 %185, %184
+  %192 = add nsw i32 %186, %190
+  %193 = add nsw i32 %191, %186
   br i1 %.not.i.i91, label %.critedge2, label %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit95.critedge
 
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit95.critedge:     ; preds = %_ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit93, %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit95.critedge
@@ -1352,7 +1352,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit100:        ; preds = %_ZN7nanogui5ArrayIi
   %.sroa.24.0.copyload = load <2 x float>, ptr %.sroa.24.0..sroa_idx, align 8
   tail call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.03.0.copyload, <2 x float> %.sroa.24.0.copyload)
   tail call void @nvgBeginPath(ptr noundef %1)
-  %200 = sitofp i32 %188 to float
+  %200 = sitofp i32 %192 to float
   %201 = sitofp i32 %193 to float
   %202 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0221, i64 8
   %203 = load i32, ptr %202, align 8
@@ -1367,7 +1367,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit100:        ; preds = %_ZN7nanogui5ArrayIi
   %.sroa.0.0.copyload = load <2 x float>, ptr %7, align 8
   %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.0.0.copyload, <2 x float> %.sroa.2.0.copyload)
-  %207 = sitofp i32 %188 to float
+  %207 = sitofp i32 %192 to float
   %208 = sitofp i32 %193 to float
   %209 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0221, i64 16
   %210 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %209) #17

@@ -11508,8 +11508,8 @@ updateKeyType.exit175.i:                          ; preds = %1545, %updateKeyTyp
   br i1 %or.cond.i.i, label %1559, label %addSizeDist.exit.i, !llvm.loop !313
 
 addSizeDist.exit.i:                               ; preds = %1559
-  %1563 = add i64 %1558, %.sroa.7.1233.i
-  %1564 = add i64 %.sroa.0.1234.i, 1
+  %1563 = add i64 %.sroa.0.1234.i, 1
+  %1564 = add i64 %1558, %.sroa.7.1233.i
   %spec.select.i84 = call i64 @llvm.umax.i64(i64 %1558, i64 %.sroa.11.1235.i)
   %1565 = getelementptr inbounds nuw %struct.size_dist_entry, ptr %42, i64 %indvars.iv.i.i82, i32 1
   %1566 = load i64, ptr %1565, align 8, !tbaa !314
@@ -11520,8 +11520,8 @@ addSizeDist.exit.i:                               ; preds = %1559
 
 1568:                                             ; preds = %addSizeDist.exit.i, %1436, %1431
   %1569 = phi i64 [ %1432, %1431 ], [ %1432, %1436 ], [ %.pre262.i, %addSizeDist.exit.i ]
-  %.sroa.7.2.i = phi i64 [ %.sroa.7.1233.i, %1431 ], [ %.sroa.7.1233.i, %1436 ], [ %1563, %addSizeDist.exit.i ]
-  %.sroa.0.2.i = phi i64 [ %.sroa.0.1234.i, %1431 ], [ %.sroa.0.1234.i, %1436 ], [ %1564, %addSizeDist.exit.i ]
+  %.sroa.7.2.i = phi i64 [ %.sroa.7.1233.i, %1431 ], [ %.sroa.7.1233.i, %1436 ], [ %1564, %addSizeDist.exit.i ]
+  %.sroa.0.2.i = phi i64 [ %.sroa.0.1234.i, %1431 ], [ %.sroa.0.1234.i, %1436 ], [ %1563, %addSizeDist.exit.i ]
   %.sroa.11.2.i = phi i64 [ %.sroa.11.1235.i, %1431 ], [ %.sroa.11.1235.i, %1436 ], [ %spec.select.i84, %addSizeDist.exit.i ]
   %.2127.i = phi i64 [ %.1126237.i, %1431 ], [ %.1126237.i, %1436 ], [ %1442, %addSizeDist.exit.i ]
   %.2.i85 = phi i64 [ %.1238.i, %1431 ], [ %.1238.i, %1436 ], [ %1443, %addSizeDist.exit.i ]

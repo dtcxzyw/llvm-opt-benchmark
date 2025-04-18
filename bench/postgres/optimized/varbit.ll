@@ -2779,10 +2779,10 @@ define dso_local noundef i64 @bitfromint4(ptr noundef readonly captures(none) %0
   %22 = zext nneg i32 %21 to i64
   %23 = add nuw nsw i64 %22, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %15, i8 %18, i64 %23, i1 false)
-  %24 = and i32 %20, -8
-  %25 = getelementptr i8, ptr %12, i64 %22
-  %scevgep = getelementptr i8, ptr %25, i64 9
-  %26 = sub i32 %19, %24
+  %24 = getelementptr i8, ptr %12, i64 %22
+  %scevgep = getelementptr i8, ptr %24, i64 9
+  %25 = and i32 %20, -8
+  %26 = sub i32 %19, %25
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
@@ -2926,10 +2926,10 @@ define dso_local noundef i64 @bitfromint8(ptr noundef readonly captures(none) %0
   %21 = zext nneg i32 %20 to i64
   %22 = add nuw nsw i64 %21, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, i8 %17, i64 %22, i1 false)
-  %23 = and i32 %19, -8
-  %24 = getelementptr i8, ptr %11, i64 %21
-  %scevgep = getelementptr i8, ptr %24, i64 9
-  %25 = sub i32 %18, %23
+  %23 = getelementptr i8, ptr %11, i64 %21
+  %scevgep = getelementptr i8, ptr %23, i64 9
+  %24 = and i32 %19, -8
+  %25 = sub i32 %18, %24
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1

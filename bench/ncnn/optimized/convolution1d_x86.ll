@@ -3196,10 +3196,10 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %65, %63
   br i1 %104, label %.lr.ph358.us.preheader, label %.lr.ph366.split.preheader
 
 .lr.ph366.split.preheader:                        ; preds = %.lr.ph366
-  %109 = sub i32 %62, %.0113.lcssa
-  %110 = and i32 %109, -2
-  %111 = or disjoint i32 %.0113.lcssa, 2
-  %112 = add i32 %111, %110
+  %109 = or disjoint i32 %.0113.lcssa, 2
+  %110 = sub i32 %62, %.0113.lcssa
+  %111 = and i32 %110, -2
+  %112 = add i32 %109, %111
   br label %.preheader313
 
 .lr.ph358.us.preheader:                           ; preds = %.lr.ph366

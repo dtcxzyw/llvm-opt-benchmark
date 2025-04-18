@@ -229,32 +229,32 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
 
 103:                                              ; preds = %101
   %104 = load i8, ptr %18, align 1
-  %105 = and i8 %104, 31
-  %106 = load i8, ptr %19, align 1
-  %107 = zext i8 %106 to i32
-  br label %108
+  %105 = load i8, ptr %19, align 1
+  %106 = zext i8 %105 to i32
+  br label %107
 
-108:                                              ; preds = %108, %103
-  %.2105.i = phi i32 [ 0, %103 ], [ %112, %108 ]
-  %109 = and i32 %.2105.i, 255
-  %110 = add nsw i32 %.2105.i, %107
-  %111 = and i32 %110, 3
-  %.not114.i = icmp eq i32 %111, 0
-  %112 = add nuw nsw i32 %109, 1
-  br i1 %.not114.i, label %113, label %108, !llvm.loop !9
+107:                                              ; preds = %107, %103
+  %.2105.i = phi i32 [ 0, %103 ], [ %111, %107 ]
+  %108 = and i32 %.2105.i, 255
+  %109 = add nsw i32 %.2105.i, %106
+  %110 = and i32 %109, 3
+  %.not114.i = icmp eq i32 %110, 0
+  %111 = add nuw nsw i32 %108, 1
+  br i1 %.not114.i, label %112, label %107, !llvm.loop !9
 
-113:                                              ; preds = %108
-  %114 = zext nneg i8 %105 to i32
+112:                                              ; preds = %107
+  %113 = and i8 %104, 31
+  %114 = zext nneg i8 %113 to i32
   %115 = shl nuw nsw i32 %114, 8
-  %116 = add nuw nsw i32 %107, 68
+  %116 = add nuw nsw i32 %106, 68
   %117 = add nuw nsw i32 %116, %115
-  %118 = add nuw nsw i32 %117, %109
+  %118 = add nuw nsw i32 %117, %108
   %119 = icmp eq i32 %.0.i.i, %118
   %spec.select121.i = select i1 %119, i16 1, i16 1000
   br label %120
 
-120:                                              ; preds = %113, %98
-  %.4.i = phi i16 [ %.3.i, %98 ], [ %spec.select121.i, %113 ]
+120:                                              ; preds = %112, %98
+  %.4.i = phi i16 [ %.3.i, %98 ], [ %spec.select121.i, %112 ]
   %121 = icmp eq i16 %.4.i, 1000
   %or.cond16.i = select i1 %99, i1 %121, i1 false
   br i1 %or.cond16.i, label %122, label %140
@@ -3448,48 +3448,51 @@ get_signature_ts.exit.i72:                        ; preds = %1372, %1370, %find_
 
 .preheader969.i.preheader:                        ; preds = %1529
   %1530 = or disjoint i64 %.0682915.i, 28
-  %1531 = add nuw nsw i64 %.0682915.i, 36
   br label %.preheader969.i
 
-.preheader969.i:                                  ; preds = %.preheader969.i.preheader, %1546
-  %indvars.iv1021.i = phi i64 [ %indvars.iv.next1022.i, %1546 ], [ 0, %.preheader969.i.preheader ]
-  %indvars.iv1019.i = phi i64 [ %indvars.iv.next1020.i, %1546 ], [ %1513, %.preheader969.i.preheader ]
-  %1532 = mul nuw nsw i64 %indvars.iv1021.i, 24
-  %1533 = getelementptr i8, ptr %.0697853883.i, i64 %1532
-  %1534 = getelementptr i8, ptr %1533, i64 8
-  %.val770.i = load i8, ptr %1534, align 1
-  %1535 = getelementptr i8, ptr %1533, i64 9
-  %.val771.i = load i8, ptr %1535, align 1
-  %1536 = zext i8 %.val770.i to i16
-  %1537 = shl nuw i16 %1536, 8
-  %1538 = zext i8 %.val771.i to i16
-  %1539 = or disjoint i16 %1537, %1538
-  %1540 = icmp eq i16 %1539, 0
-  %1541 = getelementptr i8, ptr %.0680855879.i, i64 %indvars.iv1019.i
-  br i1 %1540, label %1542, label %1544
+.preheader969.i:                                  ; preds = %.preheader969.i.preheader, %1545
+  %indvars.iv1021.i = phi i64 [ %indvars.iv.next1022.i, %1545 ], [ 0, %.preheader969.i.preheader ]
+  %indvars.iv1019.i = phi i64 [ %indvars.iv.next1020.i, %1545 ], [ %1513, %.preheader969.i.preheader ]
+  %1531 = mul nuw nsw i64 %indvars.iv1021.i, 24
+  %1532 = getelementptr i8, ptr %.0697853883.i, i64 %1531
+  %1533 = getelementptr i8, ptr %1532, i64 8
+  %.val770.i = load i8, ptr %1533, align 1
+  %1534 = getelementptr i8, ptr %1532, i64 9
+  %.val771.i = load i8, ptr %1534, align 1
+  %1535 = zext i8 %.val770.i to i16
+  %1536 = shl nuw i16 %1535, 8
+  %1537 = zext i8 %.val771.i to i16
+  %1538 = or disjoint i16 %1536, %1537
+  %1539 = icmp eq i16 %1538, 0
+  %1540 = getelementptr i8, ptr %.0680855879.i, i64 %indvars.iv1019.i
+  br i1 %1539, label %1541, label %1543
 
-1542:                                             ; preds = %.preheader969.i
-  store i8 0, ptr %1541, align 1
-  %1543 = getelementptr i8, ptr %1541, i64 1
-  store i8 0, ptr %1543, align 1
-  br label %1546
+1541:                                             ; preds = %.preheader969.i
+  store i8 0, ptr %1540, align 1
+  %1542 = getelementptr i8, ptr %1540, i64 1
+  store i8 0, ptr %1542, align 1
+  br label %1545
 
-1544:                                             ; preds = %.preheader969.i
-  store i8 %.val770.i, ptr %1541, align 1
-  %1545 = load i8, ptr %1535, align 1
+1543:                                             ; preds = %.preheader969.i
+  store i8 %.val770.i, ptr %1540, align 1
+  %1544 = load i8, ptr %1534, align 1
   %gep1152.i = getelementptr i8, ptr %invariant.gep1148.i, i64 %indvars.iv1019.i
-  store i8 %1545, ptr %gep1152.i, align 1
-  br label %1546
+  store i8 %1544, ptr %gep1152.i, align 1
+  br label %1545
 
-1546:                                             ; preds = %1544, %1542
+1545:                                             ; preds = %1543, %1541
   %indvars.iv.next1020.i = add nuw nsw i64 %indvars.iv1019.i, 2
   %indvars.iv.next1022.i = add nuw nsw i64 %indvars.iv1021.i, 1
   %exitcond1026.not.i = icmp eq i64 %indvars.iv.next1022.i, 4
-  br i1 %exitcond1026.not.i, label %.preheader968.i, label %.preheader969.i, !llvm.loop !16
+  br i1 %exitcond1026.not.i, label %.preheader968.i.preheader, label %.preheader969.i, !llvm.loop !16
 
-.preheader968.i:                                  ; preds = %1546, %1561
-  %indvars.iv1035.i = phi i64 [ %indvars.iv.next1036.i, %1561 ], [ 0, %1546 ]
-  %indvars.iv1033.i = phi i64 [ %indvars.iv.next1034.i, %1561 ], [ %1530, %1546 ]
+.preheader968.i.preheader:                        ; preds = %1545
+  %1546 = add nuw nsw i64 %.0682915.i, 36
+  br label %.preheader968.i
+
+.preheader968.i:                                  ; preds = %.preheader968.i.preheader, %1561
+  %indvars.iv1035.i = phi i64 [ %indvars.iv.next1036.i, %1561 ], [ 0, %.preheader968.i.preheader ]
+  %indvars.iv1033.i = phi i64 [ %indvars.iv.next1034.i, %1561 ], [ %1530, %.preheader968.i.preheader ]
   %1547 = mul nuw nsw i64 %indvars.iv1035.i, 24
   %1548 = getelementptr i8, ptr %.0697853883.i, i64 %1547
   %1549 = getelementptr i8, ptr %1548, i64 12
@@ -3529,7 +3532,7 @@ get_signature_ts.exit.i72:                        ; preds = %1372, %1370, %find_
 
 .preheader967.i:                                  ; preds = %.preheader967.i.preheader, %1577
   %indvars.iv1051.i = phi i64 [ %indvars.iv.next1052.i, %1577 ], [ 0, %.preheader967.i.preheader ]
-  %indvars.iv1049.i = phi i64 [ %indvars.iv.next1050.i, %1577 ], [ %1531, %.preheader967.i.preheader ]
+  %indvars.iv1049.i = phi i64 [ %indvars.iv.next1050.i, %1577 ], [ %1546, %.preheader967.i.preheader ]
   %1563 = mul nuw nsw i64 %indvars.iv1051.i, 24
   %1564 = getelementptr i8, ptr %.0697853883.i, i64 %1563
   %1565 = getelementptr i8, ptr %1564, i64 14

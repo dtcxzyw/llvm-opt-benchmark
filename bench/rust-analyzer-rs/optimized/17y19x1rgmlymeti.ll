@@ -875,11 +875,11 @@ define hidden void @_ZN10vfs_notify11NotifyActor3run17h62ca90388ebb12efE(ptr noa
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.9573)
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
   %139 = load i64, ptr %0, align 8, !range !130, !alias.scope !127, !noalias !131, !noundef !5
-  %140 = icmp eq i64 %139, 3
-  %..i = select i1 %140, ptr null, ptr %0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44), !noalias !134
   store i64 5, ptr %44, align 8, !noalias !134
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %43), !noalias !134
+  %140 = icmp eq i64 %139, 3
+  %..i = select i1 %140, ptr null, ptr %0
   %141 = getelementptr inbounds nuw i8, ptr %..i, i64 24
   store ptr %73, ptr %43, align 8, !noalias !134
   store ptr @anon.69429ac27033daec7fa1f6f328b7ec6d.34, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !134

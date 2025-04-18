@@ -469,36 +469,36 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden noundef nonnull ptr @_ZN2cv2fs4itoaElPcib(i64 noundef %0, ptr noundef writeonly captures(ret: address, provenance) initializes((23, 24)) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 23
-  %6 = icmp slt i64 %0, 0
-  %7 = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
-  %8 = select i1 %3, i64 %7, i64 %0
+  %6 = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
+  %7 = select i1 %3, i64 %6, i64 %0
   store i8 0, ptr %5, align 1, !tbaa !5
-  br label %9
+  br label %8
 
-9:                                                ; preds = %9, %4
-  %.015 = phi i64 [ %8, %4 ], [ %10, %9 ]
-  %.0 = phi ptr [ %5, %4 ], [ %14, %9 ]
-  %10 = udiv i64 %.015, 10
-  %.neg = mul i64 %10, 246
-  %11 = add i64 %.neg, %.015
-  %12 = trunc i64 %11 to i8
-  %13 = add i8 %12, 48
-  %14 = getelementptr inbounds i8, ptr %.0, i64 -1
-  store i8 %13, ptr %14, align 1, !tbaa !5
+8:                                                ; preds = %8, %4
+  %.015 = phi i64 [ %7, %4 ], [ %9, %8 ]
+  %.0 = phi ptr [ %5, %4 ], [ %13, %8 ]
+  %9 = udiv i64 %.015, 10
+  %.neg = mul i64 %9, 246
+  %10 = add i64 %.neg, %.015
+  %11 = trunc i64 %10 to i8
+  %12 = add i8 %11, 48
+  %13 = getelementptr inbounds i8, ptr %.0, i64 -1
+  store i8 %12, ptr %13, align 1, !tbaa !5
   %.not = icmp ult i64 %.015, 10
-  br i1 %.not, label %15, label %9, !llvm.loop !9
+  br i1 %.not, label %14, label %8, !llvm.loop !9
 
-15:                                               ; preds = %9
-  %16 = and i1 %6, %3
+14:                                               ; preds = %8
+  %15 = icmp slt i64 %0, 0
+  %16 = and i1 %15, %3
   br i1 %16, label %17, label %19
 
-17:                                               ; preds = %15
+17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %.0, i64 -2
   store i8 45, ptr %18, align 1, !tbaa !5
   br label %19
 
-19:                                               ; preds = %17, %15
-  %.1 = phi ptr [ %18, %17 ], [ %14, %15 ]
+19:                                               ; preds = %17, %14
+  %.1 = phi ptr [ %18, %17 ], [ %13, %14 ]
   ret ptr %.1
 }
 

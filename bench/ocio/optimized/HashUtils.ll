@@ -733,73 +733,73 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit13:                ; preds = %117
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc { i64, i64 } @_ZL22XXH3_len_129to240_128bPKhmS0_mm(ptr noundef readonly captures(none) %0, i64 noundef range(i64 129, 241) %1) unnamed_addr #4 {
-  %3 = trunc nuw nsw i64 %1 to i32
-  %4 = mul i64 %1, -7046029288634856825
-  br label %5
+  %3 = mul i64 %1, -7046029288634856825
+  br label %4
 
-5:                                                ; preds = %2, %5
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %.sroa.13.03 = phi i64 [ 0, %2 ], [ %36, %5 ]
-  %.sroa.020.02 = phi i64 [ %4, %2 ], [ %23, %5 ]
-  %6 = shl nuw nsw i64 %indvars.iv, 5
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = getelementptr inbounds nuw i8, ptr @_ZL12XXH3_kSecret, i64 %6
-  %.0.copyload.i = load i64, ptr %7, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.0.copyload.i56 = load i64, ptr %10, align 1
-  %.0.copyload.i57 = load i64, ptr %9, align 32
-  %11 = xor i64 %.0.copyload.i57, %.0.copyload.i
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.copyload.i58 = load i64, ptr %12, align 8
-  %13 = xor i64 %.0.copyload.i58, %.0.copyload.i56
-  %14 = zext i64 %11 to i128
-  %15 = zext i64 %13 to i128
-  %16 = mul nuw i128 %15, %14
-  %17 = lshr i128 %16, 64
-  %18 = xor i128 %17, %16
-  %19 = trunc i128 %18 to i64
-  %20 = add i64 %.sroa.020.02, %19
-  %.0.copyload.i59 = load i64, ptr %8, align 1
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.0.copyload.i60 = load i64, ptr %21, align 1
-  %22 = add i64 %.0.copyload.i60, %.0.copyload.i59
-  %23 = xor i64 %20, %22
-  %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.0.copyload.i63 = load i64, ptr %24, align 16
-  %25 = xor i64 %.0.copyload.i63, %.0.copyload.i59
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.0.copyload.i64 = load i64, ptr %26, align 8
-  %27 = xor i64 %.0.copyload.i64, %.0.copyload.i60
-  %28 = zext i64 %25 to i128
-  %29 = zext i64 %27 to i128
-  %30 = mul nuw i128 %29, %28
-  %31 = lshr i128 %30, 64
-  %32 = xor i128 %31, %30
-  %33 = trunc i128 %32 to i64
-  %34 = add i64 %.sroa.13.03, %33
-  %35 = add i64 %.0.copyload.i56, %.0.copyload.i
-  %36 = xor i64 %34, %35
+4:                                                ; preds = %2, %4
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
+  %.sroa.13.03 = phi i64 [ 0, %2 ], [ %35, %4 ]
+  %.sroa.020.02 = phi i64 [ %3, %2 ], [ %22, %4 ]
+  %5 = shl nuw nsw i64 %indvars.iv, 5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr @_ZL12XXH3_kSecret, i64 %5
+  %.0.copyload.i = load i64, ptr %6, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.0.copyload.i56 = load i64, ptr %9, align 1
+  %.0.copyload.i57 = load i64, ptr %8, align 32
+  %10 = xor i64 %.0.copyload.i57, %.0.copyload.i
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.0.copyload.i58 = load i64, ptr %11, align 8
+  %12 = xor i64 %.0.copyload.i58, %.0.copyload.i56
+  %13 = zext i64 %10 to i128
+  %14 = zext i64 %12 to i128
+  %15 = mul nuw i128 %14, %13
+  %16 = lshr i128 %15, 64
+  %17 = xor i128 %16, %15
+  %18 = trunc i128 %17 to i64
+  %19 = add i64 %.sroa.020.02, %18
+  %.0.copyload.i59 = load i64, ptr %7, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.0.copyload.i60 = load i64, ptr %20, align 1
+  %21 = add i64 %.0.copyload.i60, %.0.copyload.i59
+  %22 = xor i64 %19, %21
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.0.copyload.i63 = load i64, ptr %23, align 16
+  %24 = xor i64 %.0.copyload.i63, %.0.copyload.i59
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.0.copyload.i64 = load i64, ptr %25, align 8
+  %26 = xor i64 %.0.copyload.i64, %.0.copyload.i60
+  %27 = zext i64 %24 to i128
+  %28 = zext i64 %26 to i128
+  %29 = mul nuw i128 %28, %27
+  %30 = lshr i128 %29, 64
+  %31 = xor i128 %30, %29
+  %32 = trunc i128 %31 to i64
+  %33 = add i64 %.sroa.13.03, %32
+  %34 = add i64 %.0.copyload.i56, %.0.copyload.i
+  %35 = xor i64 %33, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %37, label %5, !llvm.loop !46
+  br i1 %exitcond.not, label %36, label %4, !llvm.loop !46
 
-37:                                               ; preds = %5
-  %38 = lshr i32 %3, 5
-  %39 = lshr i64 %23, 37
-  %40 = xor i64 %39, %23
+36:                                               ; preds = %4
+  %37 = trunc nuw nsw i64 %1 to i32
+  %38 = lshr i32 %37, 5
+  %39 = lshr i64 %22, 37
+  %40 = xor i64 %39, %22
   %41 = mul i64 %40, 1609587791953885689
   %42 = lshr i64 %41, 32
   %43 = xor i64 %42, %41
-  %44 = lshr i64 %36, 37
-  %45 = xor i64 %44, %36
+  %44 = lshr i64 %35, 37
+  %45 = xor i64 %44, %35
   %46 = mul i64 %45, 1609587791953885689
   %47 = lshr i64 %46, 32
   %48 = xor i64 %47, %46
   %.not = icmp eq i32 %38, 4
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %37
+.lr.ph.preheader:                                 ; preds = %36
   %wide.trip.count = zext nneg i32 %38 to i64
   br label %.lr.ph
 
@@ -851,9 +851,9 @@ define internal fastcc { i64, i64 } @_ZL22XXH3_len_129to240_128bPKhmS0_mm(ptr no
   %exitcond15.not = icmp eq i64 %indvars.iv.next13, %wide.trip.count
   br i1 %exitcond15.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %.lr.ph, %37
-  %.sroa.020.1.lcssa = phi i64 [ %43, %37 ], [ %67, %.lr.ph ]
-  %.sroa.13.1.lcssa = phi i64 [ %48, %37 ], [ %80, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %36
+  %.sroa.020.1.lcssa = phi i64 [ %43, %36 ], [ %67, %.lr.ph ]
+  %.sroa.13.1.lcssa = phi i64 [ %48, %36 ], [ %80, %.lr.ph ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %82 = getelementptr inbounds i8, ptr %81, i64 -16
   %83 = getelementptr inbounds i8, ptr %81, i64 -32

@@ -5089,9 +5089,9 @@ _ZNSt3mapIP10SeamVertexS1_St4lessIS1_ESaISt4pairIKS1_S1_EEE4findERS5_.exit127.th
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.promoted.i = load i32, ptr %227, align 8
   %228 = or i32 %_ZZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_9UsedTypesINS_3UseI10SeamVertexE12AsVertexTypeENS4_I8SeamEdgeE10AsEdgeTypeENS_14DefaultDeriverESB_SB_SB_SB_SB_EEEEE5FlagsEvE10dummyflags.promoted.i, 1
-  %229 = trunc i64 %226 to i32
-  %230 = trunc i64 %225 to i32
-  %231 = sub i32 %229, %230
+  %229 = trunc i64 %225 to i32
+  %230 = trunc i64 %226 to i32
+  %231 = sub i32 %230, %229
   %232 = add i32 %231, %.promoted.i
   store i32 %228, ptr @_ZZN3vcg4face9EmptyCoreINS_14FaceTypeHolderINS_9UsedTypesINS_3UseI10SeamVertexE12AsVertexTypeENS4_I8SeamEdgeE10AsEdgeTypeENS_14DefaultDeriverESB_SB_SB_SB_SB_EEEEE5FlagsEvE10dummyflags, align 4
   store i32 %232, ptr %227, align 8

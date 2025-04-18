@@ -176,9 +176,8 @@ check_flag.exit84:                                ; preds = %38
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 2424
   store ptr %56, ptr %57, align 8, !tbaa !23
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 192
-  %59 = getelementptr inbounds nuw i8, ptr %46, i64 480
-  %60 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  store i32 6, ptr %60, align 8, !tbaa !24
+  %59 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  store i32 6, ptr %59, align 8, !tbaa !24
   br label %.preheader79.i
 
 .preheader79.i:                                   ; preds = %64, %53
@@ -186,6 +185,7 @@ check_flag.exit84:                                ; preds = %38
   br label %62
 
 .preheader78.i:                                   ; preds = %64
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 480
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 528
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %46, i64 336
   br label %.preheader.i
@@ -224,9 +224,9 @@ check_flag.exit84:                                ; preds = %38
   store double -1.000000e+00, ptr %69, align 8, !tbaa !25
   %70 = getelementptr inbounds nuw [6 x double], ptr %58, i64 %65, i64 %65
   store double -1.000000e+00, ptr %70, align 8, !tbaa !25
-  %71 = getelementptr inbounds nuw double, ptr %59, i64 %indvars.iv96.i
+  %71 = getelementptr inbounds nuw double, ptr %60, i64 %indvars.iv96.i
   store double 1.000000e+00, ptr %71, align 8, !tbaa !25
-  %72 = getelementptr inbounds nuw double, ptr %59, i64 %65
+  %72 = getelementptr inbounds nuw double, ptr %60, i64 %65
   store double -1.000000e+00, ptr %72, align 8, !tbaa !25
   %73 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv96.i
   store double 1.000000e+00, ptr %73, align 8, !tbaa !25
@@ -364,7 +364,7 @@ InitUserData.exit:                                ; preds = %.preheader.i73.i
   %.059262 = phi i32 [ 1, %.preheader ], [ %400, %PrintFinalStats.exit ]
   %.162261 = phi ptr [ %.061263, %.preheader ], [ %.2172, %PrintFinalStats.exit ]
   %129 = call ptr @N_VGetArrayPointer(ptr noundef nonnull %40) #10
-  %130 = load i32, ptr %60, align 8, !tbaa !24
+  %130 = load i32, ptr %59, align 8, !tbaa !24
   %131 = load double, ptr %79, align 8, !tbaa !27
   %132 = load double, ptr %80, align 8, !tbaa !28
   %invariant.gep.i90 = getelementptr i8, ptr %129, i64 -8

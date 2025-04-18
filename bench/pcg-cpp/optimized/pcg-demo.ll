@@ -666,7 +666,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit163: ; preds = %2
   %.sroa.0.0.copyload = load i64, ptr %10, align 8
   %.sroa.8.0.copyload = load i64, ptr %78, align 8
   %278 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18)
-  br label %434
+  br label %433
 
 279:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit158, %279
   %.052218 = phi i32 [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit158 ], [ %292, %279 ]
@@ -1026,43 +1026,43 @@ _ZN10pcg_extras7shuffleIPcRN10pcg_detail6engineIjmNS2_12xsh_rr_mixinIjmEELb1ENS2
 
 _ZN10pcg_detailmiIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEES4_S6_EET0_RKNS_6engineIT_S7_T1_XT2_ET3_T4_EERKNS8_IS9_S7_SA_XT2_ET5_T6_EE.exit145: ; preds = %.lr.ph.i.i.i133, %_ZN10pcg_extras7shuffleIPcRN10pcg_detail6engineIjmNS2_12xsh_rr_mixinIjmEELb1ENS2_15specific_streamImEENS2_18default_multiplierImEEEEEEvT_SC_OT0_.exit
   %.0.lcssa.i.i.i144 = phi i64 [ 0, %_ZN10pcg_extras7shuffleIPcRN10pcg_detail6engineIjmNS2_12xsh_rr_mixinIjmEELb1ENS2_15specific_streamImEENS2_18default_multiplierImEEEEEEvT_SC_OT0_.exit ], [ %.1.i.i.i141, %.lr.ph.i.i.i133 ]
-  %432 = lshr i64 %.0.lcssa.i.i.i144, 2
-  %433 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22)
+  %432 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22)
   br label %459
 
-434:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit163, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit
-  %.051219 = phi i32 [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit163 ], [ %452, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit ]
-  %435 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.19, i64 noundef 1)
-  %436 = load i64, ptr %10, align 8, !tbaa !4
+433:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit163, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit
+  %.051219 = phi i32 [ 0, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit163 ], [ %451, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit ]
+  %434 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.19, i64 noundef 1)
+  %435 = load i64, ptr %10, align 8, !tbaa !4
   %.promoted.i.i146 = load i64, ptr %78, align 8, !tbaa !9
-  br label %437
+  br label %436
 
-437:                                              ; preds = %437, %434
-  %438 = phi i64 [ %440, %437 ], [ %.promoted.i.i146, %434 ]
-  %439 = mul i64 %438, 6364136223846793005
-  %440 = add i64 %439, %436
-  %441 = lshr i64 %438, 59
-  %442 = trunc nuw nsw i64 %441 to i32
-  %443 = lshr i64 %438, 45
-  %444 = lshr i64 %438, 27
-  %445 = xor i64 %443, %444
-  %446 = trunc i64 %445 to i32
-  %447 = call noundef i32 @llvm.fshr.i32(i32 %446, i32 %446, i32 %442)
-  %.not.i.i147 = icmp ult i32 %447, 4
-  br i1 %.not.i.i147, label %437, label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit
+436:                                              ; preds = %436, %433
+  %437 = phi i64 [ %439, %436 ], [ %.promoted.i.i146, %433 ]
+  %438 = mul i64 %437, 6364136223846793005
+  %439 = add i64 %438, %435
+  %440 = lshr i64 %437, 59
+  %441 = trunc nuw nsw i64 %440 to i32
+  %442 = lshr i64 %437, 45
+  %443 = lshr i64 %437, 27
+  %444 = xor i64 %442, %443
+  %445 = trunc i64 %444 to i32
+  %446 = call noundef i32 @llvm.fshr.i32(i32 %445, i32 %445, i32 %441)
+  %.not.i.i147 = icmp ult i32 %446, 4
+  br i1 %.not.i.i147, label %436, label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit
 
-_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit: ; preds = %437
-  store i64 %440, ptr %78, align 8, !tbaa !9
-  %448 = urem i32 %447, 6
-  %449 = add nuw nsw i32 %448, 1
-  %450 = zext nneg i32 %449 to i64
-  %451 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i64 noundef %450)
-  %452 = add nuw nsw i32 %.051219, 1
-  %exitcond239.not = icmp eq i32 %452, 33
-  br i1 %exitcond239.not, label %293, label %434, !llvm.loop !69
+_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEclEj.exit: ; preds = %436
+  store i64 %439, ptr %78, align 8, !tbaa !9
+  %447 = urem i32 %446, 6
+  %448 = add nuw nsw i32 %447, 1
+  %449 = zext nneg i32 %448 to i64
+  %450 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i64 noundef %449)
+  %451 = add nuw nsw i32 %.051219, 1
+  %exitcond239.not = icmp eq i32 %451, 33
+  br i1 %exitcond239.not, label %293, label %433, !llvm.loop !69
 
-453:                                              ; preds = %492
-  %454 = select i1 %421, i64 %432, i64 %.0.lcssa.i.i.i144
+452:                                              ; preds = %492
+  %453 = lshr i64 %.0.lcssa.i.i.i144, 2
+  %454 = select i1 %421, i64 %453, i64 %.0.lcssa.i.i.i144
   %455 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.23, i64 noundef 28)
   %456 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i64 noundef %.013.i93)
   %457 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %456, ptr noundef nonnull @.str.21, i64 noundef 15)
@@ -1136,16 +1136,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_a.exit152: ; preds = %484, %
 
 492:                                              ; preds = %490, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_a.exit152
   %.not58 = icmp eq i64 %.046.add, 52
-  br i1 %.not58, label %453, label %459
+  br i1 %.not58, label %452, label %459
 
-493:                                              ; preds = %453
+493:                                              ; preds = %452
   %494 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.24, i64 noundef 13)
   %495 = add i64 %.013.i93, -51
   %496 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i64 noundef %495)
   %497 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %496, ptr noundef nonnull @.str.25, i64 noundef 50)
   br label %498
 
-498:                                              ; preds = %493, %453
+498:                                              ; preds = %493, %452
   %499 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.26, i64 noundef 35)
   %500 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i64 noundef %454)
   %501 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %500, ptr noundef nonnull @.str.21, i64 noundef 15)

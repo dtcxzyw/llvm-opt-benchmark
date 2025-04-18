@@ -3304,28 +3304,28 @@ show_funcname_line.exit:                          ; preds = %.critedge.i, %.preh
   %75 = icmp ult i32 %.071.lcssa, %4
   br i1 %75, label %.lr.ph144, label %._crit_edge
 
-.lr.ph144:                                        ; preds = %show_funcname_line.exit, %80
-  %.4143 = phi ptr [ %79, %80 ], [ %.0.lcssa, %show_funcname_line.exit ]
-  %.374142 = phi i32 [ %83, %80 ], [ %.071.lcssa, %show_funcname_line.exit ]
-  %76 = icmp eq i32 %.374142, %.092.lcssa
-  br label %77
+.lr.ph144:                                        ; preds = %show_funcname_line.exit, %79
+  %.4143 = phi ptr [ %78, %79 ], [ %.0.lcssa, %show_funcname_line.exit ]
+  %.374142 = phi i32 [ %83, %79 ], [ %.071.lcssa, %show_funcname_line.exit ]
+  br label %76
 
-77:                                               ; preds = %77, %.lr.ph144
-  %.069 = phi ptr [ %.4143, %.lr.ph144 ], [ %79, %77 ]
-  %78 = load i8, ptr %.069, align 1, !tbaa !23
-  %.not108 = icmp eq i8 %78, 10
-  %79 = getelementptr inbounds nuw i8, ptr %.069, i64 1
-  br i1 %.not108, label %80, label %77, !llvm.loop !147
+76:                                               ; preds = %76, %.lr.ph144
+  %.069 = phi ptr [ %.4143, %.lr.ph144 ], [ %78, %76 ]
+  %77 = load i8, ptr %.069, align 1, !tbaa !23
+  %.not108 = icmp eq i8 %77, 10
+  %78 = getelementptr inbounds nuw i8, ptr %.069, i64 1
+  br i1 %.not108, label %79, label %76, !llvm.loop !147
 
-80:                                               ; preds = %77
-  %81 = select i1 %76, i8 61, i8 45
+79:                                               ; preds = %76
+  %80 = icmp eq i32 %.374142, %.092.lcssa
+  %81 = select i1 %80, i8 61, i8 45
   %82 = load ptr, ptr %1, align 8, !tbaa !77
   tail call fastcc void @show_line(ptr noundef %0, ptr noundef %.4143, ptr noundef nonnull %.069, ptr noundef %82, i32 noundef %.374142, i64 noundef 0, i8 noundef signext %81)
   %83 = add nuw i32 %.374142, 1
   %exitcond.not = icmp eq i32 %83, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph144, !llvm.loop !148
 
-._crit_edge:                                      ; preds = %80, %show_funcname_line.exit
+._crit_edge:                                      ; preds = %79, %show_funcname_line.exit
   ret void
 }
 

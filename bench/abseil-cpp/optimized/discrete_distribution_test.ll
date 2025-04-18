@@ -14791,21 +14791,21 @@ define internal void @_ZN12_GLOBAL__N_146DiscreteDistributionTest_ChiSquaredTest
   %18 = tail call noundef double @_ZN4absl15random_internal14ChiSquareValueEid(i32 noundef 50, double noundef 9.999900e-01)
   %19 = tail call noalias noundef nonnull dereferenceable(400) ptr @_Znwm(i64 noundef 400) #28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %19, i8 0, i64 400, i1 false), !tbaa !196
-  %20 = fptosi double %18 to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.i
-  %.07.i = phi i32 [ %22, %.lr.ph.i ], [ 1, %.noexc ]
+  %.07.i = phi i32 [ %21, %.lr.ph.i ], [ 1, %.noexc ]
   %.sroa.02.06.i.idx = phi i64 [ %.sroa.02.06.i.add, %.lr.ph.i ], [ 0, %.noexc ]
   %.sroa.02.06.i.ptr = getelementptr inbounds nuw i8, ptr %19, i64 %.sroa.02.06.i.idx
-  %21 = uitofp nneg i32 %.07.i to double
-  store double %21, ptr %.sroa.02.06.i.ptr, align 8, !tbaa !196
-  %22 = add nuw nsw i32 %.07.i, 1
+  %20 = uitofp nneg i32 %.07.i to double
+  store double %20, ptr %.sroa.02.06.i.ptr, align 8, !tbaa !196
+  %21 = add nuw nsw i32 %.07.i, 1
   %.sroa.02.06.i.add = add nuw nsw i64 %.sroa.02.06.i.idx, 8
   %.not.i = icmp eq i64 %.sroa.02.06.i.add, 400
   br i1 %.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEiEvT_S7_T0_.exit, label %.lr.ph.i, !llvm.loop !713
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEiEvT_S7_T0_.exit: ; preds = %.lr.ph.i
+  %22 = fptosi double %18 to i32
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 400
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #26
   invoke void @_ZN4absl21discrete_distributionIiE10param_typeC2IN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEET_SB_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr nonnull %19, ptr nonnull %23)
@@ -14886,7 +14886,7 @@ _ZN4absl21discrete_distributionIiEclINS_15random_internal10pcg_engineINS3_13pcg1
   br i1 %or.cond.i, label %.lr.ph.i87, label %_ZN4absl15random_internal9ChiSquareIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS3_IPdS5_IdSaIdEEEEEEdT_SD_T0_SE_.exit, !llvm.loop !715
 
 _ZN4absl15random_internal9ChiSquareIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS3_IPdS5_IdSaIdEEEEEEdT_SD_T0_SE_.exit: ; preds = %.lr.ph.i87
-  %50 = sitofp i32 %20 to double
+  %50 = sitofp i32 %22 to double
   %51 = fcmp ogt double %.1.i, %50
   br i1 %51, label %55, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
@@ -15085,7 +15085,7 @@ _ZN4absl15random_internal9ChiSquareIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIi
   store ptr @.str.75, ptr %127, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #26
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %129 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %20, ptr noundef nonnull %128)
+  %129 = invoke noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %22, ptr noundef nonnull %128)
           to label %.noexc111 unwind label %165
 
 .noexc111:                                        ; preds = %117

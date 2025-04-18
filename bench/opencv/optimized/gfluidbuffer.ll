@@ -647,15 +647,15 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit.i:                 ; preds = %_ZN2cv7Scalar_IdEC2
   %52 = load ptr, ptr %50, align 8, !tbaa !26
   %53 = load ptr, ptr %51, align 8, !tbaa !34
   %54 = load i64, ptr %53, align 8, !tbaa !35
-  %55 = mul i64 %54, %indvars.iv.i
-  %56 = load i32, ptr %8, align 4, !tbaa !40
-  %57 = load i32, ptr %10, align 8, !tbaa !38
-  %58 = lshr i32 %57, 3
-  %59 = and i32 %58, 511
+  %55 = load i32, ptr %8, align 4, !tbaa !40
+  %56 = load i32, ptr %10, align 8, !tbaa !38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false), !tbaa !11
-  %60 = getelementptr inbounds nuw i8, ptr %52, i64 %55
-  %61 = add nuw nsw i32 %59, 1
-  call void %switch.load(ptr noundef %60, i32 noundef %56, i32 noundef %61, i32 noundef %16, ptr noundef nonnull %6), !callees !41
+  %57 = mul i64 %54, %indvars.iv.i
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 %57
+  %59 = lshr i32 %56, 3
+  %60 = and i32 %59, 511
+  %61 = add nuw nsw i32 %60, 1
+  call void %switch.load(ptr noundef %58, i32 noundef %55, i32 noundef %61, i32 noundef %16, ptr noundef nonnull %6), !callees !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %62 = load i32, ptr %47, align 8, !tbaa !39
   %63 = sext i32 %62 to i64

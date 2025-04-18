@@ -11209,28 +11209,28 @@ _ZNK2cv4MatxIdLi4ELi1EE3dotERKS1_.exit:           ; preds = %245, %_ZNK2cv4MatxI
 
 261:                                              ; preds = %256
   %262 = call noundef double @sqrt(double noundef %260) #27, !tbaa !41
-  %263 = call double @llvm.fmuladd.f64(double %255, double %262, double 0x3E80000000000000)
-  %264 = fdiv double %250, %263
-  %265 = fptrunc double %264 to float
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #27
-  %266 = fadd float %265, 1.000000e+00
-  %267 = fmul float %266, 5.000000e-01
-  %268 = fsub float 1.000000e+00, %267
-  br label %269
+  br label %263
 
-269:                                              ; preds = %269, %261
-  %indvars.iv.i156 = phi i64 [ 0, %261 ], [ %indvars.iv.next.i158, %269 ]
-  %.078.i157 = phi double [ 0.000000e+00, %261 ], [ %272, %269 ]
-  %270 = getelementptr inbounds nuw [4 x double], ptr %19, i64 0, i64 %indvars.iv.i156
-  %271 = load double, ptr %270, align 8, !tbaa !139
-  %272 = call double @llvm.fmuladd.f64(double %271, double %271, double %.078.i157)
+263:                                              ; preds = %263, %261
+  %indvars.iv.i156 = phi i64 [ 0, %261 ], [ %indvars.iv.next.i158, %263 ]
+  %.078.i157 = phi double [ 0.000000e+00, %261 ], [ %266, %263 ]
+  %264 = getelementptr inbounds nuw [4 x double], ptr %19, i64 0, i64 %indvars.iv.i156
+  %265 = load double, ptr %264, align 8, !tbaa !139
+  %266 = call double @llvm.fmuladd.f64(double %265, double %265, double %.078.i157)
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i156, 1
   %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, 4
-  br i1 %exitcond.not.i159, label %_ZNK2cv4MatxIdLi4ELi1EE3dotERKS1_.exit160, label %269, !llvm.loop !317
+  br i1 %exitcond.not.i159, label %_ZNK2cv4MatxIdLi4ELi1EE3dotERKS1_.exit160, label %263, !llvm.loop !317
 
-_ZNK2cv4MatxIdLi4ELi1EE3dotERKS1_.exit160:        ; preds = %269
-  %273 = fadd float %.055211, %268
-  %274 = fptrunc double %272 to float
+_ZNK2cv4MatxIdLi4ELi1EE3dotERKS1_.exit160:        ; preds = %263
+  %267 = call double @llvm.fmuladd.f64(double %255, double %262, double 0x3E80000000000000)
+  %268 = fdiv double %250, %267
+  %269 = fptrunc double %268 to float
+  %270 = fadd float %269, 1.000000e+00
+  %271 = fmul float %270, 5.000000e-01
+  %272 = fsub float 1.000000e+00, %271
+  %273 = fadd float %.055211, %272
+  %274 = fptrunc double %266 to float
   %275 = fadd float %.057210, %274
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #27
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21) #27

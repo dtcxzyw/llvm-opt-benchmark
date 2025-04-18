@@ -2001,7 +2001,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
   %12 = add i8 %10, -100
   %13 = select i1 %11, i8 %12, i8 %10
   %14 = select i1 %11, ptr @.str.293, ptr @.str.292
-  switch i8 %13, label %194 [
+  switch i8 %13, label %196 [
     i8 0, label %15
     i8 1, label %28
     i8 2, label %42
@@ -2010,11 +2010,11 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
     i8 5, label %96
     i8 10, label %114
     i8 6, label %114
-    i8 11, label %142
-    i8 7, label %142
-    i8 8, label %170
-    i8 9, label %173
-    i8 12, label %176
+    i8 11, label %143
+    i8 7, label %143
+    i8 8, label %172
+    i8 9, label %175
+    i8 12, label %178
   ]
 
 15:                                               ; preds = %7
@@ -2025,7 +2025,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
 18:                                               ; preds = %15
   %19 = load i32, ptr @hf_telnet_comport_subopt_signature, align 4
   %20 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %5, i32 noundef %19, ptr noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @.str.297, ptr noundef nonnull @.str.439, ptr noundef nonnull %14)
-  br label %203
+  br label %205
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -2034,7 +2034,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
   %25 = tail call ptr @tvb_get_string_enc(ptr noundef %23, ptr noundef %2, i32 noundef %24, i32 noundef %16, i32 noundef 0)
   %26 = load i32, ptr @hf_telnet_comport_subopt_signature, align 4
   %27 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %5, i32 noundef %26, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %25, ptr noundef nonnull @.str.440, ptr noundef nonnull %14, ptr noundef %25)
-  br label %203
+  br label %205
 
 28:                                               ; preds = %7
   %29 = add i32 %4, -1
@@ -2050,15 +2050,15 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
 
 36:                                               ; preds = %31
   %37 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %5, i32 noundef %35, ptr noundef %2, i32 noundef %3, i32 noundef 5, i32 noundef 0, ptr noundef nonnull @.str.441, ptr noundef nonnull %14)
-  br label %203
+  br label %205
 
 38:                                               ; preds = %31
   %39 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %5, i32 noundef %35, ptr noundef %2, i32 noundef %3, i32 noundef 5, i32 noundef %33, ptr noundef nonnull @.str.442, ptr noundef nonnull %14, i32 noundef %33)
-  br label %203
+  br label %205
 
 40:                                               ; preds = %28
   %41 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_baud_rate, ptr noundef nonnull @.str.443, ptr noundef nonnull %14)
-  br label %203
+  br label %205
 
 42:                                               ; preds = %7
   %43 = add i32 %4, -1
@@ -2082,11 +2082,11 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
   %55 = phi ptr [ %53, %50 ], [ @.str.386, %45 ]
   %56 = load i32, ptr @hf_telnet_comport_subopt_data_size, align 4
   %57 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %5, i32 noundef %56, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef %48, ptr noundef nonnull @.str.444, ptr noundef nonnull %14, ptr noundef %55)
-  br label %203
+  br label %205
 
 58:                                               ; preds = %42
   %59 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_data_size, ptr noundef nonnull @.str.445, ptr noundef nonnull %14)
-  br label %203
+  br label %205
 
 60:                                               ; preds = %7
   %61 = add i32 %4, -1
@@ -2110,11 +2110,11 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
   %73 = phi ptr [ %71, %68 ], [ @.str.386, %63 ]
   %74 = load i32, ptr @hf_telnet_comport_subopt_parity, align 4
   %75 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %5, i32 noundef %74, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef %66, ptr noundef nonnull @.str.446, ptr noundef nonnull %14, ptr noundef %73)
-  br label %203
+  br label %205
 
 76:                                               ; preds = %60
   %77 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_parity, ptr noundef nonnull @.str.447, ptr noundef nonnull %14)
-  br label %203
+  br label %205
 
 78:                                               ; preds = %7
   %79 = add i32 %4, -1
@@ -2138,11 +2138,11 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
   %91 = phi ptr [ %89, %86 ], [ @.str.386, %81 ]
   %92 = load i32, ptr @hf_telnet_comport_subopt_stop, align 4
   %93 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %5, i32 noundef %92, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef %84, ptr noundef nonnull @.str.448, ptr noundef nonnull %14, ptr noundef %91)
-  br label %203
+  br label %205
 
 94:                                               ; preds = %78
   %95 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_stop, ptr noundef nonnull @.str.449, ptr noundef nonnull %14)
-  br label %203
+  br label %205
 
 96:                                               ; preds = %7
   %97 = add i32 %4, -1
@@ -2166,76 +2166,76 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
   %109 = phi ptr [ %107, %104 ], [ @.str.450, %99 ]
   %110 = load i32, ptr @hf_telnet_comport_subopt_control, align 4
   %111 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %5, i32 noundef %110, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef %102, ptr noundef nonnull @.str.448, ptr noundef nonnull %14, ptr noundef %109)
-  br label %203
+  br label %205
 
 112:                                              ; preds = %96
   %113 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_control, ptr noundef nonnull @.str.451, ptr noundef nonnull %14)
-  br label %203
+  br label %205
 
 114:                                              ; preds = %7, %7
   %115 = add i32 %4, -1
   %116 = icmp sgt i32 %115, 0
-  %117 = icmp eq i8 %13, 10
-  br i1 %116, label %118, label %139
+  br i1 %116, label %117, label %139
 
-118:                                              ; preds = %114
-  %119 = load i32, ptr @hf_telnet_comport_set_linestate_mask, align 4
-  %120 = load i32, ptr @hf_telnet_comport_linestate, align 4
+117:                                              ; preds = %114
+  %118 = load i32, ptr @hf_telnet_comport_set_linestate_mask, align 4
+  %119 = load i32, ptr @hf_telnet_comport_linestate, align 4
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8) #7
-  %121 = add i32 %3, 1
-  %122 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %121)
+  %120 = add i32 %3, 1
+  %121 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %120)
   store i8 0, ptr %8, align 16
-  br label %123
+  br label %122
 
-123:                                              ; preds = %118, %133
-  %indvars.iv206 = phi i64 [ 0, %118 ], [ %indvars.iv.next207, %133 ]
-  %.0205 = phi i8 [ %122, %118 ], [ %134, %133 ]
-  %.0191204 = phi i32 [ 0, %118 ], [ %.1192, %133 ]
-  %124 = and i8 %.0205, 1
-  %.not198 = icmp eq i8 %124, 0
-  br i1 %.not198, label %133, label %125
+122:                                              ; preds = %117, %132
+  %indvars.iv206 = phi i64 [ 0, %117 ], [ %indvars.iv.next207, %132 ]
+  %.0205 = phi i8 [ %121, %117 ], [ %133, %132 ]
+  %.0191204 = phi i32 [ 0, %117 ], [ %.1192, %132 ]
+  %123 = and i8 %.0205, 1
+  %.not198 = icmp eq i8 %123, 0
+  br i1 %.not198, label %132, label %124
 
-125:                                              ; preds = %123
+124:                                              ; preds = %122
   %.not199 = icmp eq i32 %.0191204, 0
-  br i1 %.not199, label %128, label %126
+  br i1 %.not199, label %127, label %125
 
-126:                                              ; preds = %125
-  %127 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.454, i64 noundef 512)
-  br label %128
+125:                                              ; preds = %124
+  %126 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.454, i64 noundef 512)
+  br label %127
 
-128:                                              ; preds = %126, %125
-  %129 = getelementptr [8 x ptr], ptr @dissect_comport_subopt.linestate_bits, i64 0, i64 %indvars.iv206
-  %130 = load ptr, ptr %129, align 8
-  %131 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef %130, i64 noundef 512)
-  %132 = add i32 %.0191204, 1
-  br label %133
+127:                                              ; preds = %125, %124
+  %128 = getelementptr [8 x ptr], ptr @dissect_comport_subopt.linestate_bits, i64 0, i64 %indvars.iv206
+  %129 = load ptr, ptr %128, align 8
+  %130 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef %129, i64 noundef 512)
+  %131 = add i32 %.0191204, 1
+  br label %132
 
-133:                                              ; preds = %128, %123
-  %.1192 = phi i32 [ %132, %128 ], [ %.0191204, %123 ]
-  %134 = lshr i8 %.0205, 1
+132:                                              ; preds = %127, %122
+  %.1192 = phi i32 [ %131, %127 ], [ %.0191204, %122 ]
+  %133 = lshr i8 %.0205, 1
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next207, 8
-  br i1 %exitcond208.not, label %135, label %123, !llvm.loop !19
+  br i1 %exitcond208.not, label %134, label %122, !llvm.loop !19
 
-135:                                              ; preds = %133
-  %136 = select i1 %117, ptr @.str.452, ptr @.str.453
-  %137 = select i1 %117, i32 %119, i32 %120
+134:                                              ; preds = %132
+  %135 = icmp eq i8 %13, 10
+  %136 = select i1 %135, ptr @.str.452, ptr @.str.453
+  %137 = select i1 %135, i32 %118, i32 %119
   %138 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %5, i32 noundef %137, ptr noundef %2, i32 noundef %3, i32 noundef 2, ptr noundef nonnull %8, ptr noundef nonnull %136, ptr noundef nonnull %14, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8) #7
-  br label %203
+  br label %205
 
 139:                                              ; preds = %114
-  %140 = select i1 %117, ptr @.str.455, ptr @.str.456
-  %141 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_linestate, ptr noundef nonnull %140, ptr noundef nonnull %14)
-  br label %203
+  %140 = icmp eq i8 %13, 10
+  %141 = select i1 %140, ptr @.str.455, ptr @.str.456
+  %142 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_linestate, ptr noundef nonnull %141, ptr noundef nonnull %14)
+  br label %205
 
-142:                                              ; preds = %7, %7
-  %143 = add i32 %4, -1
-  %144 = icmp sgt i32 %143, 0
-  %145 = icmp eq i8 %13, 11
-  br i1 %144, label %146, label %167
+143:                                              ; preds = %7, %7
+  %144 = add i32 %4, -1
+  %145 = icmp sgt i32 %144, 0
+  br i1 %145, label %146, label %168
 
-146:                                              ; preds = %142
+146:                                              ; preds = %143
   %147 = load i32, ptr @hf_telnet_comport_set_modemstate_mask, align 4
   %148 = load i32, ptr @hf_telnet_comport_modemstate, align 4
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #7
@@ -2275,69 +2275,71 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
   br i1 %exitcond.not, label %163, label %151, !llvm.loop !20
 
 163:                                              ; preds = %161
-  %164 = select i1 %145, ptr @.str.457, ptr @.str.458
-  %165 = select i1 %145, i32 %147, i32 %148
-  %166 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %5, i32 noundef %165, ptr noundef %2, i32 noundef %3, i32 noundef 2, ptr noundef nonnull %9, ptr noundef nonnull %164, ptr noundef nonnull %14, ptr noundef nonnull %9)
+  %164 = icmp eq i8 %13, 11
+  %165 = select i1 %164, ptr @.str.457, ptr @.str.458
+  %166 = select i1 %164, i32 %147, i32 %148
+  %167 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %5, i32 noundef %166, ptr noundef %2, i32 noundef %3, i32 noundef 2, ptr noundef nonnull %9, ptr noundef nonnull %165, ptr noundef nonnull %14, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #7
-  br label %203
+  br label %205
 
-167:                                              ; preds = %142
-  %168 = select i1 %145, ptr @.str.459, ptr @.str.460
-  %169 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_modemstate, ptr noundef nonnull %168, ptr noundef nonnull %14)
-  br label %203
+168:                                              ; preds = %143
+  %169 = icmp eq i8 %13, 11
+  %170 = select i1 %169, ptr @.str.459, ptr @.str.460
+  %171 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_modemstate, ptr noundef nonnull %170, ptr noundef nonnull %14)
+  br label %205
 
-170:                                              ; preds = %7
-  %171 = load i32, ptr @hf_telnet_comport_subopt_flow_control_suspend, align 4
-  %172 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %171, ptr noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @.str.461, ptr noundef nonnull %14)
-  br label %203
+172:                                              ; preds = %7
+  %173 = load i32, ptr @hf_telnet_comport_subopt_flow_control_suspend, align 4
+  %174 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %173, ptr noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @.str.461, ptr noundef nonnull %14)
+  br label %205
 
-173:                                              ; preds = %7
-  %174 = load i32, ptr @hf_telnet_comport_subopt_flow_control_resume, align 4
-  %175 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %174, ptr noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @.str.462, ptr noundef nonnull %14)
-  br label %203
+175:                                              ; preds = %7
+  %176 = load i32, ptr @hf_telnet_comport_subopt_flow_control_resume, align 4
+  %177 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %176, ptr noundef %2, i32 noundef %3, i32 noundef 1, ptr noundef nonnull @.str.462, ptr noundef nonnull %14)
+  br label %205
 
-176:                                              ; preds = %7
-  %177 = add i32 %4, -1
-  %178 = icmp sgt i32 %177, 0
-  br i1 %178, label %179, label %192
+178:                                              ; preds = %7
+  %179 = add i32 %4, -1
+  %180 = icmp sgt i32 %179, 0
+  br i1 %180, label %181, label %194
 
-179:                                              ; preds = %176
-  %180 = add i32 %3, 1
-  %181 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %180)
-  %182 = zext i8 %181 to i32
-  %183 = icmp ugt i8 %181, 3
-  br i1 %183, label %188, label %184
+181:                                              ; preds = %178
+  %182 = add i32 %3, 1
+  %183 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %182)
+  %184 = zext i8 %183 to i32
+  %185 = icmp ugt i8 %183, 3
+  br i1 %185, label %190, label %186
 
-184:                                              ; preds = %179
-  %185 = zext nneg i8 %181 to i64
-  %186 = getelementptr [4 x ptr], ptr @dissect_comport_subopt.purges, i64 0, i64 %185
-  %187 = load ptr, ptr %186, align 8
-  br label %188
+186:                                              ; preds = %181
+  %187 = zext nneg i8 %183 to i64
+  %188 = getelementptr [4 x ptr], ptr @dissect_comport_subopt.purges, i64 0, i64 %187
+  %189 = load ptr, ptr %188, align 8
+  br label %190
 
-188:                                              ; preds = %179, %184
-  %189 = phi ptr [ %187, %184 ], [ @.str.463, %179 ]
-  %190 = load i32, ptr @hf_telnet_comport_subopt_purge, align 4
-  %191 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %5, i32 noundef %190, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef %182, ptr noundef nonnull @.str.303, ptr noundef nonnull %14, ptr noundef %189)
-  br label %203
+190:                                              ; preds = %181, %186
+  %191 = phi ptr [ %189, %186 ], [ @.str.463, %181 ]
+  %192 = load i32, ptr @hf_telnet_comport_subopt_purge, align 4
+  %193 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %5, i32 noundef %192, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef %184, ptr noundef nonnull @.str.303, ptr noundef nonnull %14, ptr noundef %191)
+  br label %205
 
-192:                                              ; preds = %176
-  %193 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_purge, ptr noundef nonnull @.str.464, ptr noundef nonnull %14)
-  br label %203
+194:                                              ; preds = %178
+  %195 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_purge, ptr noundef nonnull @.str.464, ptr noundef nonnull %14)
+  br label %205
 
-194:                                              ; preds = %7
-  %195 = zext i8 %13 to i32
-  %196 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_subcommand, ptr noundef nonnull @.str.354, ptr noundef %1, i32 noundef %195)
-  %197 = add i32 %4, -1
-  %198 = icmp sgt i32 %197, 0
-  br i1 %198, label %199, label %203
+196:                                              ; preds = %7
+  %197 = zext i8 %13 to i32
+  %198 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %6, ptr noundef nonnull @ei_telnet_invalid_subcommand, ptr noundef nonnull @.str.354, ptr noundef %1, i32 noundef %197)
+  %199 = add i32 %4, -1
+  %200 = icmp sgt i32 %199, 0
+  br i1 %200, label %201, label %205
 
-199:                                              ; preds = %194
-  %200 = add i32 %3, 1
-  %201 = load i32, ptr @hf_telnet_subcommand_data, align 4
-  %202 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %201, ptr noundef %2, i32 noundef %200, i32 noundef %197, i32 noundef 0)
-  br label %203
+201:                                              ; preds = %196
+  %202 = add i32 %3, 1
+  %203 = load i32, ptr @hf_telnet_subcommand_data, align 4
+  %204 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %203, ptr noundef %2, i32 noundef %202, i32 noundef %199, i32 noundef 0)
+  br label %205
 
-203:                                              ; preds = %170, %173, %21, %18, %40, %58, %54, %76, %72, %94, %90, %112, %108, %139, %135, %167, %163, %192, %188, %38, %36, %194, %199
+205:                                              ; preds = %172, %175, %21, %18, %40, %58, %54, %76, %72, %94, %90, %112, %108, %139, %134, %168, %163, %194, %190, %38, %36, %196, %201
   ret void
 }
 

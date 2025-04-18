@@ -358,7 +358,6 @@ define internal range(i32 0, 2) i32 @aes_gcm_siv_cipher(ptr noundef %0, ptr noun
   store i32 16, ptr %13, align 4, !tbaa !18
   %117 = load ptr, ptr %0, align 8, !tbaa !16
   %118 = call i32 @EVP_EncryptUpdate(ptr noundef %117, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 16) #7
-  %.not22.i.i = icmp eq i32 %118, 0
   %119 = load i32, ptr %14, align 16, !tbaa !17
   %120 = add i32 %119, 1
   store i32 %120, ptr %14, align 16, !tbaa !17
@@ -379,6 +378,7 @@ define internal range(i32 0, 2) i32 @aes_gcm_siv_cipher(ptr noundef %0, ptr noun
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !26
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
+  %.not22.i.i = icmp eq i32 %118, 0
   %129 = zext i1 %.not22.i.i to i32
   %130 = or i32 %.01924.i.i, %129
   %131 = add i64 %.025.i.i, 16
@@ -441,44 +441,44 @@ aes_gcm_siv_encrypt.exit:                         ; preds = %72, %aes_gcm_siv_ct
   %.not29.i.i25 = icmp eq i64 %3, 0
   br i1 %.not29.i.i25, label %aes_gcm_siv_ctr32.exit.i39, label %.lr.ph.preheader.i.i26
 
-.lr.ph.preheader.i.i26:                           ; preds = %146, %._crit_edge.i.i36
-  %indvars.iv.i.i27 = phi i64 [ %indvars.iv.next.i.i37, %._crit_edge.i.i36 ], [ %3, %146 ]
-  %.025.i.i28 = phi i64 [ %163, %._crit_edge.i.i36 ], [ 0, %146 ]
-  %.01924.i.i29 = phi i32 [ %162, %._crit_edge.i.i36 ], [ 0, %146 ]
+.lr.ph.preheader.i.i26:                           ; preds = %146, %._crit_edge.i.i35
+  %indvars.iv.i.i27 = phi i64 [ %indvars.iv.next.i.i37, %._crit_edge.i.i35 ], [ %3, %146 ]
+  %.025.i.i28 = phi i64 [ %163, %._crit_edge.i.i35 ], [ 0, %146 ]
+  %.01924.i.i29 = phi i32 [ %162, %._crit_edge.i.i35 ], [ 0, %146 ]
   %umin.i.i30 = call i64 @llvm.umin.i64(i64 %indvars.iv.i.i27, i64 16)
   %umax.i.i31 = call i64 @llvm.umax.i64(i64 %umin.i.i30, i64 1)
   store i32 16, ptr %6, align 4, !tbaa !18
   %149 = load ptr, ptr %0, align 8, !tbaa !16
   %150 = call i32 @EVP_EncryptUpdate(ptr noundef %149, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 16) #7
-  %.not22.i.i32 = icmp eq i32 %150, 0
   %151 = load i32, ptr %7, align 16, !tbaa !17
   %152 = add i32 %151, 1
   store i32 %152, ptr %7, align 16, !tbaa !17
-  br label %.lr.ph.i.i33
+  br label %.lr.ph.i.i32
 
-.lr.ph.i.i33:                                     ; preds = %.lr.ph.i.i33, %.lr.ph.preheader.i.i26
-  %.02023.i.i34 = phi i64 [ %160, %.lr.ph.i.i33 ], [ 0, %.lr.ph.preheader.i.i26 ]
-  %153 = add nuw nsw i64 %.02023.i.i34, %.025.i.i28
+.lr.ph.i.i32:                                     ; preds = %.lr.ph.i.i32, %.lr.ph.preheader.i.i26
+  %.02023.i.i33 = phi i64 [ %160, %.lr.ph.i.i32 ], [ 0, %.lr.ph.preheader.i.i26 ]
+  %153 = add nuw nsw i64 %.02023.i.i33, %.025.i.i28
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 %153
   %155 = load i8, ptr %154, align 1, !tbaa !17
-  %156 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.02023.i.i34
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.02023.i.i33
   %157 = load i8, ptr %156, align 1, !tbaa !17
   %158 = xor i8 %157, %155
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 %153
   store i8 %158, ptr %159, align 1, !tbaa !17
-  %160 = add nuw nsw i64 %.02023.i.i34, 1
-  %exitcond.not.i.i35 = icmp eq i64 %160, %umax.i.i31
-  br i1 %exitcond.not.i.i35, label %._crit_edge.i.i36, label %.lr.ph.i.i33, !llvm.loop !26
+  %160 = add nuw nsw i64 %.02023.i.i33, 1
+  %exitcond.not.i.i34 = icmp eq i64 %160, %umax.i.i31
+  br i1 %exitcond.not.i.i34, label %._crit_edge.i.i35, label %.lr.ph.i.i32, !llvm.loop !26
 
-._crit_edge.i.i36:                                ; preds = %.lr.ph.i.i33
-  %161 = zext i1 %.not22.i.i32 to i32
+._crit_edge.i.i35:                                ; preds = %.lr.ph.i.i32
+  %.not22.i.i36 = icmp eq i32 %150, 0
+  %161 = zext i1 %.not22.i.i36 to i32
   %162 = or i32 %.01924.i.i29, %161
   %163 = add i64 %.025.i.i28, 16
   %164 = icmp ult i64 %163, %3
   %indvars.iv.next.i.i37 = add i64 %indvars.iv.i.i27, -16
   br i1 %164, label %.lr.ph.preheader.i.i26, label %._crit_edge28.loopexit.i.i38, !llvm.loop !27
 
-._crit_edge28.loopexit.i.i38:                     ; preds = %._crit_edge.i.i36
+._crit_edge28.loopexit.i.i38:                     ; preds = %._crit_edge.i.i35
   %165 = icmp ne i32 %162, 0
   %166 = zext i1 %165 to i32
   br label %aes_gcm_siv_ctr32.exit.i39

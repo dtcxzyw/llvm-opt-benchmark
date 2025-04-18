@@ -114,55 +114,55 @@ define hidden void @av1_get_tile_limits(ptr noundef captures(none) initializes((
   %8 = and i32 %7, %notmask
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %10 = load i32, ptr %9, align 4
-  %11 = add nsw i32 %10, %6
-  %12 = ashr i32 %8, %5
-  %13 = add nsw i32 %5, 2
-  %14 = lshr i32 4096, %13
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 27144
-  store i32 %14, ptr %15, align 4
-  %16 = shl nsw i32 %13, 1
-  br label %17
+  %11 = ashr i32 %8, %5
+  %12 = add nsw i32 %5, 2
+  %13 = lshr i32 4096, %12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 27144
+  store i32 %13, ptr %14, align 4
+  br label %15
 
-17:                                               ; preds = %17, %1
-  %.0.i = phi i32 [ 0, %1 ], [ %20, %17 ]
-  %18 = shl i32 %14, %.0.i
-  %19 = icmp slt i32 %18, %12
-  %20 = add nuw nsw i32 %.0.i, 1
-  br i1 %19, label %17, label %tile_log2.exit, !llvm.loop !4
+15:                                               ; preds = %15, %1
+  %.0.i = phi i32 [ 0, %1 ], [ %18, %15 ]
+  %16 = shl i32 %13, %.0.i
+  %17 = icmp slt i32 %16, %11
+  %18 = add nuw nsw i32 %.0.i, 1
+  br i1 %17, label %15, label %tile_log2.exit, !llvm.loop !4
 
-tile_log2.exit:                                   ; preds = %17
-  %21 = and i32 %11, %notmask
-  %22 = ashr i32 %21, %5
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 27176
-  store i32 %.0.i, ptr %23, align 4
-  %24 = tail call i32 @llvm.smin.i32(i32 %12, i32 64)
-  br label %25
+tile_log2.exit:                                   ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 27176
+  store i32 %.0.i, ptr %19, align 4
+  %20 = tail call i32 @llvm.smin.i32(i32 %11, i32 64)
+  br label %21
 
-25:                                               ; preds = %25, %tile_log2.exit
-  %.0.i34 = phi i32 [ 0, %tile_log2.exit ], [ %28, %25 ]
-  %26 = shl nuw i32 1, %.0.i34
-  %27 = icmp slt i32 %26, %24
-  %28 = add nuw nsw i32 %.0.i34, 1
-  br i1 %27, label %25, label %tile_log2.exit35, !llvm.loop !4
+21:                                               ; preds = %21, %tile_log2.exit
+  %.0.i34 = phi i32 [ 0, %tile_log2.exit ], [ %24, %21 ]
+  %22 = shl nuw i32 1, %.0.i34
+  %23 = icmp slt i32 %22, %20
+  %24 = add nuw nsw i32 %.0.i34, 1
+  br i1 %23, label %21, label %tile_log2.exit35, !llvm.loop !4
 
-tile_log2.exit35:                                 ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 27184
-  store i32 %.0.i34, ptr %29, align 4
-  %30 = tail call i32 @llvm.smin.i32(i32 %22, i32 64)
-  br label %31
+tile_log2.exit35:                                 ; preds = %21
+  %25 = add nsw i32 %10, %6
+  %26 = and i32 %25, %notmask
+  %27 = ashr i32 %26, %5
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 27184
+  store i32 %.0.i34, ptr %28, align 4
+  %29 = tail call i32 @llvm.smin.i32(i32 %27, i32 64)
+  br label %30
 
-31:                                               ; preds = %31, %tile_log2.exit35
-  %.0.i36 = phi i32 [ 0, %tile_log2.exit35 ], [ %34, %31 ]
-  %32 = shl nuw i32 1, %.0.i36
-  %33 = icmp slt i32 %32, %30
-  %34 = add nuw nsw i32 %.0.i36, 1
-  br i1 %33, label %31, label %tile_log2.exit37, !llvm.loop !4
+30:                                               ; preds = %30, %tile_log2.exit35
+  %.0.i36 = phi i32 [ 0, %tile_log2.exit35 ], [ %33, %30 ]
+  %31 = shl nuw i32 1, %.0.i36
+  %32 = icmp slt i32 %31, %29
+  %33 = add nuw nsw i32 %.0.i36, 1
+  br i1 %32, label %30, label %tile_log2.exit37, !llvm.loop !4
 
-tile_log2.exit37:                                 ; preds = %31
-  %35 = lshr i32 9437184, %16
+tile_log2.exit37:                                 ; preds = %30
+  %34 = shl nsw i32 %12, 1
+  %35 = lshr i32 9437184, %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 27188
   store i32 %.0.i36, ptr %36, align 4
-  %37 = mul nsw i32 %12, %22
+  %37 = mul nsw i32 %11, %27
   br label %38
 
 38:                                               ; preds = %38, %tile_log2.exit37

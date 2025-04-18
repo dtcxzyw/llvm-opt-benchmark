@@ -1353,9 +1353,9 @@ stbsp__lead_sign.exit1244:                        ; preds = %531, %.sink.split.i
   %umin2001 = call i64 @llvm.umin.i64(i64 %549, i64 %551)
   %552 = add nuw nsw i64 %umin2001, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.6880.fr, i8 48, i64 %552, i1 false), !tbaa !3
-  %553 = zext i2 %548 to i32
   %scevgep2002 = getelementptr i8, ptr %.6880.fr, i64 1
   %scevgep2004 = getelementptr i8, ptr %scevgep2002, i64 %umin2001
+  %553 = zext i2 %548 to i32
   %554 = call i32 @llvm.usub.sat.i32(i32 %550, i32 %553)
   br label %.preheader1478
 
@@ -1374,9 +1374,9 @@ stbsp__lead_sign.exit1244:                        ; preds = %531, %.sink.split.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.7881.lcssa, i8 48, i64 %560, i1 false), !tbaa !6
   %scevgep2006 = getelementptr i8, ptr %.7881.lcssa, i64 4
   %scevgep2008 = getelementptr i8, ptr %scevgep2006, i64 %559
-  %561 = and i32 %557, -4
-  %562 = add nsw i32 %.0958.lcssa, -4
-  %563 = sub nsw i32 %562, %561
+  %561 = add nsw i32 %.0958.lcssa, -4
+  %562 = and i32 %557, -4
+  %563 = sub nsw i32 %561, %562
   br label %.preheader1477
 
 .preheader1477:                                   ; preds = %.lr.ph1655.preheader, %.preheader1478
@@ -1388,9 +1388,9 @@ stbsp__lead_sign.exit1244:                        ; preds = %531, %.sink.split.i
 .lr.ph1661.preheader:                             ; preds = %.preheader1477
   %564 = zext i32 %.1959.lcssa to i64
   call void @llvm.memset.p0.i64(ptr align 1 %.8882.lcssa, i8 48, i64 %564, i1 false), !tbaa !3
+  %scevgep2009 = getelementptr i8, ptr %.8882.lcssa, i64 1
   %565 = add i32 %.1959.lcssa, -1
   %566 = zext i32 %565 to i64
-  %scevgep2009 = getelementptr i8, ptr %.8882.lcssa, i64 1
   %scevgep2010 = getelementptr i8, ptr %scevgep2009, i64 %566
   br label %._crit_edge1662
 
@@ -1509,9 +1509,9 @@ stbsp__lead_sign.exit1244:                        ; preds = %531, %.sink.split.i
   %umin1988 = call i64 @llvm.umin.i64(i64 %613, i64 %616)
   %617 = add nuw nsw i64 %umin1988, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %600, i8 48, i64 %617, i1 false), !tbaa !3
-  %618 = zext i2 %612 to i32
   %scevgep1990 = getelementptr i8, ptr %.12886, i64 2
   %scevgep1994 = getelementptr i8, ptr %scevgep1990, i64 %umin1988
+  %618 = zext i2 %612 to i32
   %619 = call i32 @llvm.usub.sat.i32(i32 %615, i32 %618)
   br label %.preheader1481
 
@@ -2305,9 +2305,9 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
   %umin2023 = call i64 @llvm.umin.i64(i64 %942, i64 %944)
   %945 = add nuw nsw i64 %umin2023, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.13688.fr, i8 32, i64 %945, i1 false), !tbaa !3
-  %946 = zext i2 %941 to i32
   %scevgep2024 = getelementptr i8, ptr %.13688.fr, i64 1
   %scevgep2026 = getelementptr i8, ptr %scevgep2024, i64 %umin2023
+  %946 = zext i2 %941 to i32
   %947 = call i32 @llvm.usub.sat.i32(i32 %943, i32 %946)
   br label %.preheader1457
 
@@ -2326,9 +2326,9 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.14689.lcssa, i8 32, i64 %953, i1 false), !tbaa !6
   %scevgep2029 = getelementptr i8, ptr %.14689.lcssa, i64 4
   %scevgep2031 = getelementptr i8, ptr %scevgep2029, i64 %952
-  %954 = and i32 %950, -4
-  %955 = add nsw i32 %.2965.lcssa, -4
-  %956 = sub nsw i32 %955, %954
+  %954 = add nsw i32 %.2965.lcssa, -4
+  %955 = and i32 %950, -4
+  %956 = sub nsw i32 %954, %955
   br label %.preheader1456
 
 .preheader1456:                                   ; preds = %.lr.ph1711.preheader, %.preheader1457
@@ -2340,9 +2340,9 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
 .lr.ph1717.preheader:                             ; preds = %.preheader1456
   %957 = zext i32 %.3966.lcssa to i64
   call void @llvm.memset.p0.i64(ptr align 1 %.15690.lcssa, i8 32, i64 %957, i1 false), !tbaa !3
+  %scevgep2032 = getelementptr i8, ptr %.15690.lcssa, i64 1
   %958 = add i32 %.3966.lcssa, -1
   %959 = zext i32 %958 to i64
-  %scevgep2032 = getelementptr i8, ptr %.15690.lcssa, i64 1
   %scevgep2033 = getelementptr i8, ptr %scevgep2032, i64 %959
   br label %._crit_edge1718
 
@@ -2500,9 +2500,9 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
   %umin2034 = call i64 @llvm.umin.i64(i64 %1011, i64 %1013)
   %1014 = add nuw nsw i64 %umin2034, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.267011763.fr, i8 48, i64 %1014, i1 false), !tbaa !3
-  %1015 = zext i2 %1010 to i32
   %scevgep2035 = getelementptr i8, ptr %.267011763.fr, i64 1
   %scevgep2037 = getelementptr i8, ptr %scevgep2035, i64 %umin2034
+  %1015 = zext i2 %1010 to i32
   %1016 = call i32 @llvm.usub.sat.i32(i32 %1012, i32 %1015)
   br label %.preheader1454
 
@@ -2521,9 +2521,9 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.28703.lcssa, i8 48, i64 %1022, i1 false), !tbaa !6
   %scevgep2040 = getelementptr i8, ptr %.28703.lcssa, i64 4
   %scevgep2042 = getelementptr i8, ptr %scevgep2040, i64 %1021
-  %1023 = and i32 %1019, -4
-  %1024 = add nsw i32 %.11974.lcssa, -4
-  %1025 = sub nsw i32 %1024, %1023
+  %1023 = add nsw i32 %.11974.lcssa, -4
+  %1024 = and i32 %1019, -4
+  %1025 = sub nsw i32 %1023, %1024
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph1746.preheader, %.preheader1454
@@ -2538,9 +2538,9 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
 .lr.ph1754.split.us.preheader:                    ; preds = %.loopexit
   %1026 = zext i32 %.10973 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %.27702, i8 48, i64 %1026, i1 false), !tbaa !3
+  %scevgep2043 = getelementptr i8, ptr %.27702, i64 1
   %1027 = add i32 %.10973, -1
   %1028 = zext i32 %1027 to i64
-  %scevgep2043 = getelementptr i8, ptr %.27702, i64 1
   %scevgep2044 = getelementptr i8, ptr %scevgep2043, i64 %1028
   br label %._crit_edge1755
 
@@ -2773,9 +2773,9 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
   %umin2045 = call i64 @llvm.umin.i64(i64 %1100, i64 %1102)
   %1103 = add nuw nsw i64 %umin2045, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.487231836.fr, i8 48, i64 %1103, i1 false), !tbaa !3
-  %1104 = zext i2 %1099 to i32
   %scevgep2046 = getelementptr i8, ptr %.487231836.fr, i64 1
   %scevgep2048 = getelementptr i8, ptr %scevgep2046, i64 %umin2045
+  %1104 = zext i2 %1099 to i32
   %1105 = call i32 @llvm.usub.sat.i32(i32 %1101, i32 %1104)
   br label %.preheader1452
 
@@ -2794,9 +2794,9 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.49724.lcssa, i8 48, i64 %1111, i1 false), !tbaa !6
   %scevgep2051 = getelementptr i8, ptr %.49724.lcssa, i64 4
   %scevgep2053 = getelementptr i8, ptr %scevgep2051, i64 %1110
-  %1112 = and i32 %1108, -4
-  %1113 = add nsw i32 %.2824.lcssa, -4
-  %1114 = sub nsw i32 %1113, %1112
+  %1112 = add nsw i32 %.2824.lcssa, -4
+  %1113 = and i32 %1108, -4
+  %1114 = sub nsw i32 %1112, %1113
   br label %.preheader1451
 
 .preheader1451:                                   ; preds = %.lr.ph1824.preheader, %.preheader1452
@@ -2808,9 +2808,9 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
 .lr.ph1830.preheader:                             ; preds = %.preheader1451
   %1115 = zext i32 %.3825.lcssa to i64
   call void @llvm.memset.p0.i64(ptr align 1 %.50.lcssa, i8 48, i64 %1115, i1 false), !tbaa !3
+  %scevgep2054 = getelementptr i8, ptr %.50.lcssa, i64 1
   %1116 = add i32 %.3825.lcssa, -1
   %1117 = zext i32 %1116 to i64
-  %scevgep2054 = getelementptr i8, ptr %.50.lcssa, i64 1
   %scevgep2055 = getelementptr i8, ptr %scevgep2054, i64 %1117
   br label %._crit_edge1831
 
@@ -2950,9 +2950,9 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
   %umin2056 = call i64 @llvm.umin.i64(i64 %1164, i64 %1166)
   %1167 = add nuw nsw i64 %umin2056, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.62.fr, i8 32, i64 %1167, i1 false), !tbaa !3
-  %1168 = zext i2 %1163 to i32
   %scevgep2057 = getelementptr i8, ptr %.62.fr, i64 1
   %scevgep2059 = getelementptr i8, ptr %scevgep2057, i64 %umin2056
+  %1168 = zext i2 %1163 to i32
   %1169 = call i32 @llvm.usub.sat.i32(i32 %1165, i32 %1168)
   br label %.preheader1450
 
@@ -2971,9 +2971,9 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.63.lcssa, i8 32, i64 %1175, i1 false), !tbaa !6
   %scevgep2062 = getelementptr i8, ptr %.63.lcssa, i64 4
   %scevgep2064 = getelementptr i8, ptr %scevgep2062, i64 %1174
-  %1176 = and i32 %1172, -4
-  %1177 = add nsw i32 %.2727.lcssa, -4
-  %1178 = sub nsw i32 %1177, %1176
+  %1176 = add nsw i32 %.2727.lcssa, -4
+  %1177 = and i32 %1172, -4
+  %1178 = sub nsw i32 %1176, %1177
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph1870.preheader, %.preheader1450
@@ -2985,9 +2985,9 @@ stbsp__lead_sign.exit1250:                        ; preds = %901, %.sink.split.i
 .lr.ph1876.preheader:                             ; preds = %.preheader
   %1179 = zext i32 %.3728.lcssa to i64
   call void @llvm.memset.p0.i64(ptr align 1 %.64.lcssa, i8 32, i64 %1179, i1 false), !tbaa !3
+  %scevgep2065 = getelementptr i8, ptr %.64.lcssa, i64 1
   %1180 = add i32 %.3728.lcssa, -1
   %1181 = zext i32 %1180 to i64
-  %scevgep2065 = getelementptr i8, ptr %.64.lcssa, i64 1
   %scevgep2066 = getelementptr i8, ptr %scevgep2065, i64 %1181
   br label %._crit_edge1877
 
@@ -3305,9 +3305,9 @@ thread-pre-split121:                              ; preds = %thread-pre-split
   %scevgep = getelementptr i8, ptr %.082, i64 -8
   %108 = add nsw i64 %.183.idx.lcssa150188196, 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %108, i1 false), !tbaa !3
-  %109 = trunc i64 %.183.idx.lcssa150188196 to i32
-  %110 = add i32 %.188.lcssa190195, 8
-  %111 = add i32 %110, %109
+  %109 = add i32 %.188.lcssa190195, 8
+  %110 = trunc i64 %.183.idx.lcssa150188196 to i32
+  %111 = add i32 %109, %110
   br label %._crit_edge165
 
 ._crit_edge157.thread.thread:                     ; preds = %.thread, %._crit_edge157
@@ -3667,29 +3667,29 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
 
 53:                                               ; preds = %51
   %54 = fadd double %.1, %52
-  %55 = fsub double %54, %52
-  %56 = add nsw i32 %spec.store.select, -1
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [13 x double], ptr @stbsp__negtop, i64 0, i64 %57
-  %59 = load double, ptr %58, align 8
-  %60 = bitcast double %54 to i64
-  %61 = fsub double %.1, %55
-  %62 = and i64 %60, -134217728
-  %63 = bitcast i64 %62 to double
-  %64 = bitcast double %59 to i64
-  %65 = fmul double %54, %59
-  %66 = and i64 %64, -134217728
-  %67 = bitcast i64 %66 to double
-  %68 = fsub double %54, %63
-  %69 = fsub double %59, %67
-  %70 = fneg double %65
-  %71 = tail call double @llvm.fmuladd.f64(double %63, double %67, double %70)
-  %72 = tail call double @llvm.fmuladd.f64(double %63, double %69, double %71)
-  %73 = tail call double @llvm.fmuladd.f64(double %68, double %67, double %72)
+  %55 = add nsw i32 %spec.store.select, -1
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr inbounds nuw [13 x double], ptr @stbsp__negtop, i64 0, i64 %56
+  %58 = load double, ptr %57, align 8
+  %59 = bitcast double %54 to i64
+  %60 = and i64 %59, -134217728
+  %61 = bitcast i64 %60 to double
+  %62 = bitcast double %58 to i64
+  %63 = and i64 %62, -134217728
+  %64 = bitcast i64 %63 to double
+  %65 = fsub double %54, %52
+  %66 = fsub double %.1, %65
+  %67 = fmul double %54, %58
+  %68 = fsub double %54, %61
+  %69 = fsub double %58, %64
+  %70 = fneg double %67
+  %71 = tail call double @llvm.fmuladd.f64(double %61, double %64, double %70)
+  %72 = tail call double @llvm.fmuladd.f64(double %61, double %69, double %71)
+  %73 = tail call double @llvm.fmuladd.f64(double %68, double %64, double %72)
   %74 = tail call double @llvm.fmuladd.f64(double %68, double %69, double %73)
-  %75 = getelementptr inbounds nuw [13 x double], ptr @stbsp__negtoperr, i64 0, i64 %57
+  %75 = getelementptr inbounds nuw [13 x double], ptr @stbsp__negtoperr, i64 0, i64 %56
   %76 = load double, ptr %75, align 8, !tbaa !18
-  %77 = fmul double %61, %59
+  %77 = fmul double %66, %58
   %78 = tail call double @llvm.fmuladd.f64(double %54, double %76, double %77)
   %79 = fadd double %74, %78
   br label %151
@@ -3722,66 +3722,66 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
 99:                                               ; preds = %81
   %100 = sub nsw i32 %27, %spec.store.select2
   %101 = fadd double %85, %98
-  %102 = fsub double %101, %85
-  %103 = zext nneg i32 %100 to i64
-  %104 = getelementptr inbounds nuw [23 x double], ptr @stbsp__bot, i64 0, i64 %103
-  %105 = load double, ptr %104, align 8
-  %106 = bitcast double %101 to i64
-  %107 = fsub double %98, %102
-  %108 = and i64 %106, -134217728
-  %109 = bitcast i64 %108 to double
-  %110 = bitcast double %105 to i64
-  %111 = fmul double %101, %105
-  %112 = and i64 %110, -134217728
-  %113 = bitcast i64 %112 to double
-  %114 = fsub double %101, %109
-  %115 = fsub double %105, %113
-  %116 = fneg double %111
-  %117 = tail call double @llvm.fmuladd.f64(double %109, double %113, double %116)
-  %118 = tail call double @llvm.fmuladd.f64(double %109, double %115, double %117)
-  %119 = tail call double @llvm.fmuladd.f64(double %114, double %113, double %118)
+  %102 = zext nneg i32 %100 to i64
+  %103 = getelementptr inbounds nuw [23 x double], ptr @stbsp__bot, i64 0, i64 %102
+  %104 = load double, ptr %103, align 8
+  %105 = bitcast double %101 to i64
+  %106 = and i64 %105, -134217728
+  %107 = bitcast i64 %106 to double
+  %108 = bitcast double %104 to i64
+  %109 = and i64 %108, -134217728
+  %110 = bitcast i64 %109 to double
+  %111 = fsub double %101, %85
+  %112 = fsub double %98, %111
+  %113 = fmul double %101, %104
+  %114 = fsub double %101, %107
+  %115 = fsub double %104, %110
+  %116 = fneg double %113
+  %117 = tail call double @llvm.fmuladd.f64(double %107, double %110, double %116)
+  %118 = tail call double @llvm.fmuladd.f64(double %107, double %115, double %117)
+  %119 = tail call double @llvm.fmuladd.f64(double %114, double %110, double %118)
   %120 = tail call double @llvm.fmuladd.f64(double %114, double %115, double %119)
-  %121 = tail call double @llvm.fmuladd.f64(double %105, double %107, double %120)
+  %121 = tail call double @llvm.fmuladd.f64(double %104, double %112, double %120)
   br label %122
 
 122:                                              ; preds = %81, %99, %80
   %.3 = phi double [ %121, %99 ], [ %98, %81 ], [ 0.000000e+00, %80 ]
-  %123 = phi double [ %111, %99 ], [ %85, %81 ], [ %2, %80 ]
+  %123 = phi double [ %113, %99 ], [ %85, %81 ], [ %2, %80 ]
   %.not234 = icmp samesign ult i32 %spec.select, 23
   br i1 %.not234, label %151, label %124
 
 124:                                              ; preds = %122
   %125 = fadd double %.3, %123
-  %126 = fsub double %125, %123
-  %127 = add nsw i32 %spec.store.select, -1
-  %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds nuw [13 x double], ptr @stbsp__top, i64 0, i64 %128
-  %130 = load double, ptr %129, align 8
-  %131 = bitcast double %125 to i64
-  %132 = fsub double %.3, %126
-  %133 = and i64 %131, -134217728
-  %134 = bitcast i64 %133 to double
-  %135 = bitcast double %130 to i64
-  %136 = fmul double %125, %130
-  %137 = and i64 %135, -134217728
-  %138 = bitcast i64 %137 to double
-  %139 = fsub double %125, %134
-  %140 = fsub double %130, %138
-  %141 = fneg double %136
-  %142 = tail call double @llvm.fmuladd.f64(double %134, double %138, double %141)
-  %143 = tail call double @llvm.fmuladd.f64(double %134, double %140, double %142)
-  %144 = tail call double @llvm.fmuladd.f64(double %139, double %138, double %143)
+  %126 = add nsw i32 %spec.store.select, -1
+  %127 = zext nneg i32 %126 to i64
+  %128 = getelementptr inbounds nuw [13 x double], ptr @stbsp__top, i64 0, i64 %127
+  %129 = load double, ptr %128, align 8
+  %130 = bitcast double %125 to i64
+  %131 = and i64 %130, -134217728
+  %132 = bitcast i64 %131 to double
+  %133 = bitcast double %129 to i64
+  %134 = and i64 %133, -134217728
+  %135 = bitcast i64 %134 to double
+  %136 = fsub double %125, %123
+  %137 = fsub double %.3, %136
+  %138 = fmul double %125, %129
+  %139 = fsub double %125, %132
+  %140 = fsub double %129, %135
+  %141 = fneg double %138
+  %142 = tail call double @llvm.fmuladd.f64(double %132, double %135, double %141)
+  %143 = tail call double @llvm.fmuladd.f64(double %132, double %140, double %142)
+  %144 = tail call double @llvm.fmuladd.f64(double %139, double %135, double %143)
   %145 = tail call double @llvm.fmuladd.f64(double %139, double %140, double %144)
-  %146 = getelementptr inbounds nuw [13 x double], ptr @stbsp__toperr, i64 0, i64 %128
+  %146 = getelementptr inbounds nuw [13 x double], ptr @stbsp__toperr, i64 0, i64 %127
   %147 = load double, ptr %146, align 8, !tbaa !18
-  %148 = fmul double %132, %130
+  %148 = fmul double %137, %129
   %149 = tail call double @llvm.fmuladd.f64(double %125, double %147, double %148)
   %150 = fadd double %145, %149
   br label %151
 
 151:                                              ; preds = %53, %51, %124, %122, %5
   %.0 = phi double [ %22, %5 ], [ %79, %53 ], [ %.1, %51 ], [ %150, %124 ], [ %.3, %122 ]
-  %152 = phi double [ %9, %5 ], [ %65, %53 ], [ %52, %51 ], [ %136, %124 ], [ %123, %122 ]
+  %152 = phi double [ %9, %5 ], [ %67, %53 ], [ %52, %51 ], [ %138, %124 ], [ %123, %122 ]
   %153 = fadd double %.0, %152
   %154 = fsub double %153, %152
   %155 = fsub double %.0, %154

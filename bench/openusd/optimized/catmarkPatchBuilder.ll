@@ -5520,46 +5520,46 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_130_combineSparseMatrixRowsInFullIfEEvRNS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE26buildIrregularCornerMatrixEiiPKiRNS1_12SparseMatrixIfEE(ptr noundef nonnull align 8 dereferenceable(896) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(88) %4) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [16 x i32], align 16
-  %7 = shl nsw i32 %1, 1
-  %8 = or disjoint i32 %7, 1
-  %9 = mul nsw i32 %8, 7
-  br label %10
+  br label %7
 
-10:                                               ; preds = %5, %10
-  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
-  store i32 1, ptr %11, align 4
+7:                                                ; preds = %5, %7
+  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %7 ]
+  %8 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
+  store i32 1, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %12, label %10, !llvm.loop !34
+  br i1 %exitcond.not, label %9, label %7, !llvm.loop !34
 
-12:                                               ; preds = %10
-  %13 = add nsw i32 %9, 11
+9:                                                ; preds = %7
+  %10 = shl nsw i32 %1, 1
+  %11 = or disjoint i32 %10, 1
+  %12 = mul nsw i32 %11, 7
+  %13 = add nsw i32 %12, 11
   %14 = load i32, ptr %3, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %15
-  store i32 %8, ptr %16, align 4
+  store i32 %11, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %19
-  store i32 %8, ptr %20, align 4
+  store i32 %11, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %23
-  store i32 %8, ptr %24, align 4
+  store i32 %11, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %27
-  store i32 %8, ptr %28, align 4
+  store i32 %11, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %31
-  store i32 %8, ptr %32, align 4
-  %33 = add nsw i32 %7, 2
+  store i32 %11, ptr %32, align 4
+  %33 = add nsw i32 %10, 2
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
@@ -5579,8 +5579,8 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIfE26buil
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %48
 
-48:                                               ; preds = %12, %105
-  %indvars.iv37 = phi i64 [ 0, %12 ], [ %indvars.iv.next38, %105 ]
+48:                                               ; preds = %9, %105
+  %indvars.iv37 = phi i64 [ 0, %9 ], [ %indvars.iv.next38, %105 ]
   %49 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv37
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %42, align 8
@@ -11180,46 +11180,46 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_130_combineSparseMatrixRowsInFullIdEEvRNS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE26buildIrregularCornerMatrixEiiPKiRNS1_12SparseMatrixIdEE(ptr noundef nonnull align 8 dereferenceable(928) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(88) %4) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [16 x i32], align 16
-  %7 = shl nsw i32 %1, 1
-  %8 = or disjoint i32 %7, 1
-  %9 = mul nsw i32 %8, 7
-  br label %10
+  br label %7
 
-10:                                               ; preds = %5, %10
-  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
-  store i32 1, ptr %11, align 4
+7:                                                ; preds = %5, %7
+  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %7 ]
+  %8 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
+  store i32 1, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %12, label %10, !llvm.loop !64
+  br i1 %exitcond.not, label %9, label %7, !llvm.loop !64
 
-12:                                               ; preds = %10
-  %13 = add nsw i32 %9, 11
+9:                                                ; preds = %7
+  %10 = shl nsw i32 %1, 1
+  %11 = or disjoint i32 %10, 1
+  %12 = mul nsw i32 %11, 7
+  %13 = add nsw i32 %12, 11
   %14 = load i32, ptr %3, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %15
-  store i32 %8, ptr %16, align 4
+  store i32 %11, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %19
-  store i32 %8, ptr %20, align 4
+  store i32 %11, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %23
-  store i32 %8, ptr %24, align 4
+  store i32 %11, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %27
-  store i32 %8, ptr %28, align 4
+  store i32 %11, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %31
-  store i32 %8, ptr %32, align 4
-  %33 = add nsw i32 %7, 2
+  store i32 %11, ptr %32, align 4
+  %33 = add nsw i32 %10, 2
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
@@ -11239,8 +11239,8 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far16BSplineConverterIdE26buil
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %48
 
-48:                                               ; preds = %12, %105
-  %indvars.iv37 = phi i64 [ 0, %12 ], [ %indvars.iv.next38, %105 ]
+48:                                               ; preds = %9, %105
+  %indvars.iv37 = phi i64 [ 0, %9 ], [ %indvars.iv.next38, %105 ]
   %49 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv37
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %42, align 8

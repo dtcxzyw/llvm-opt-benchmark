@@ -15780,36 +15780,36 @@ define linkonce_odr dso_local ptr @_ZN8nlohmann16json_abi_v3_11_311ordered_mapIN
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 6
   %11 = load ptr, ptr %0, align 8, !tbaa !32
-  %12 = ptrtoint ptr %11 to i64
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorISA_SaISA_EEEEET_SG_NSt15iterator_traitsISG_E15difference_typeE.exit
 
 _ZSt4nextIN9__gnu_cxx17__normal_iteratorIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorISA_SaISA_EEEEET_SG_NSt15iterator_traitsISG_E15difference_typeE.exit: ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2EOS7_.exit, %6
   %.sroa.017.0 = phi ptr [ %1, %6 ], [ %87, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2EOS7_.exit ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.017.0, i64 %9
-  %15 = load ptr, ptr %13, align 8, !tbaa !32
-  %.not = icmp eq ptr %14, %15
-  br i1 %.not, label %16, label %45
+  %13 = getelementptr inbounds i8, ptr %.sroa.017.0, i64 %9
+  %14 = load ptr, ptr %12, align 8, !tbaa !32
+  %.not = icmp eq ptr %13, %14
+  br i1 %.not, label %15, label %45
 
-16:                                               ; preds = %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorISA_SaISA_EEEEET_SG_NSt15iterator_traitsISG_E15difference_typeE.exit
-  %17 = sub i64 %8, %12
+15:                                               ; preds = %_ZSt4nextIN9__gnu_cxx17__normal_iteratorIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorISA_SaISA_EEEEET_SG_NSt15iterator_traitsISG_E15difference_typeE.exit
+  %16 = ptrtoint ptr %11 to i64
+  %17 = sub i64 %8, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !18
-  %19 = ptrtoint ptr %14 to i64
+  %19 = ptrtoint ptr %13 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 6
   %23 = icmp ugt i64 %10, %22
   br i1 %23, label %24, label %26
 
-24:                                               ; preds = %16
+24:                                               ; preds = %15
   %25 = sub nsw i64 0, %10
   call void @_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %25)
   br label %_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit
 
-26:                                               ; preds = %16
+26:                                               ; preds = %15
   %27 = sub nuw nsw i64 %22, %10
   %28 = getelementptr inbounds nuw %"struct.std::pair", ptr %18, i64 %27
-  %.not.i.i = icmp eq ptr %14, %28
+  %.not.i.i = icmp eq ptr %13, %28
   br i1 %.not.i.i, label %_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %26, %_ZSt8_DestroyISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvPT_.exit.i.i.i.i.i
@@ -15850,11 +15850,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.
 
 _ZSt8_DestroyISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 64
-  %.not.i.i.i.i.i = icmp eq ptr %42, %14
+  %.not.i.i.i.i.i = icmp eq ptr %42, %13
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_EvT_SA_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !27
 
 _ZSt8_DestroyIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_EvT_SA_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEvPT_.exit.i.i.i.i.i
-  store ptr %28, ptr %13, align 8, !tbaa !21
+  store ptr %28, ptr %12, align 8, !tbaa !21
   br label %_ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit
 
 _ZNSt6vectorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS8_EE6resizeEm.exit: ; preds = %24, %26, %_ZSt8_DestroyIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_EvT_SA_RSaIT0_E.exit.i.i

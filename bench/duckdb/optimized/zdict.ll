@@ -937,24 +937,24 @@ _ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit: ; preds = %.lr.ph.i
   %29 = zext i32 %..i to i64
   %30 = mul nuw nsw i64 %29, 12
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #15
-  %32 = icmp eq i32 %.sroa.028.0.copyload, 0
-  %33 = select i1 %32, i32 9, i32 %.sroa.028.0.copyload
-  %34 = lshr i32 %4, %33
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %.067.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %37, %.lr.ph.i.i ]
-  %35 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.i
-  %36 = load i64, ptr %35, align 8, !tbaa !14
-  %37 = add i64 %36, %.067.i.i
+  %.067.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %34, %.lr.ph.i.i ]
+  %32 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.i
+  %33 = load i64, ptr %32, align 8, !tbaa !14
+  %34 = add i64 %33, %.067.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
   br i1 %exitcond.not.i.i, label %_ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit.i, label %.lr.ph.i.i, !llvm.loop !16
 
 _ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit.i: ; preds = %.lr.ph.i.i
-  %38 = icmp ugt i32 %33, 30
-  %39 = select i1 %38, i32 4, i32 %34
+  %35 = icmp eq i32 %.sroa.028.0.copyload, 0
+  %36 = select i1 %35, i32 9, i32 %.sroa.028.0.copyload
+  %37 = icmp ugt i32 %36, 30
+  %38 = lshr i32 %4, %36
+  %39 = select i1 %37, i32 4, i32 %38
   %.not.i21 = icmp eq ptr %31, null
   br i1 %.not.i21, label %_ZN11duckdb_zstdL35ZDICT_trainFromBuffer_unsafe_legacyEPvmPKvPKmjNS_21ZDICT_legacy_params_tE.exit, label %40
 
@@ -963,7 +963,7 @@ _ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit.i: ; preds = %.lr.ph.i.i
   br i1 %41, label %.thread233.sink.split.i, label %42
 
 42:                                               ; preds = %40
-  %43 = icmp ult i64 %37, 512
+  %43 = icmp ult i64 %34, 512
   br i1 %43, label %.thread233.sink.split.i, label %44
 
 44:                                               ; preds = %42
@@ -972,12 +972,12 @@ _ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit.i: ; preds = %.lr.ph.i.i
   store i32 0, ptr %45, align 4, !tbaa !59
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 -1, ptr %46, align 4, !tbaa !60
-  %47 = shl i64 %37, 2
+  %47 = shl i64 %34, 2
   %48 = add i64 %47, 8
   %49 = tail call noalias ptr @malloc(i64 noundef %48) #15
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = tail call noalias ptr @malloc(i64 noundef %47) #15
-  %52 = add i64 %37, 16
+  %52 = add i64 %34, 16
   %53 = tail call noalias ptr @malloc(i64 noundef %52) #15
   %54 = icmp ugt i32 %.sroa.3.0.copyload, 1
   br i1 %54, label %55, label %60
@@ -1000,7 +1000,7 @@ _ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit.i: ; preds = %.lr.ph.i.i
 64:                                               ; preds = %60
   %spec.store.select.i.i = tail call i32 @llvm.umax.i32(i32 %39, i32 4)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %53, i8 0, i64 %52, i1 false)
-  %65 = icmp ugt i64 %37, 2097152000
+  %65 = icmp ugt i64 %34, 2097152000
   %66 = icmp ugt i32 %.sroa.3.0.copyload, 2
   %or.cond7.i.i = and i1 %66, %65
   br i1 %or.cond7.i.i, label %.thread165.i.i, label %71
@@ -1019,7 +1019,7 @@ _ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit.i: ; preds = %.lr.ph.i.i
   br label %.lr.ph.i192.i
 
 .lr.ph.i192.i:                                    ; preds = %.lr.ph.i192.i.preheader, %.lr.ph.i192.i
-  %.095129.i.i = phi i64 [ %76, %.lr.ph.i192.i ], [ %37, %.lr.ph.i192.i.preheader ]
+  %.095129.i.i = phi i64 [ %76, %.lr.ph.i192.i ], [ %34, %.lr.ph.i192.i.preheader ]
   %.096128.i.i = phi i32 [ %72, %.lr.ph.i192.i ], [ %4, %.lr.ph.i192.i.preheader ]
   %72 = add i32 %.096128.i.i, -1
   %73 = zext i32 %72 to i64
@@ -1031,7 +1031,7 @@ _ZN11duckdb_zstdL21ZDICT_totalSampleSizeEPKmj.exit.i: ; preds = %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i192.i, %71
   %.096.lcssa.i.i = phi i32 [ %4, %71 ], [ %72, %.lr.ph.i192.i ]
-  %.095.lcssa.i.i = phi i64 [ %37, %71 ], [ %76, %.lr.ph.i192.i ]
+  %.095.lcssa.i.i = phi i64 [ %34, %71 ], [ %76, %.lr.ph.i192.i ]
   br i1 %54, label %78, label %85
 
 78:                                               ; preds = %._crit_edge.i.i
@@ -1816,10 +1816,10 @@ _ZN11duckdb_zstdL24ZDICT_trainBuffer_legacyEPNS_8dictItemEjPKvmPKmjjj.exit.i: ; 
   %409 = getelementptr inbounds nuw i8, ptr %407, i64 4
   %410 = load i32, ptr %409, align 4, !tbaa !59
   %411 = zext i32 %408 to i64
-  %412 = icmp ult i64 %37, %411
+  %412 = icmp ult i64 %34, %411
   %413 = add i32 %410, %408
   %414 = zext i32 %413 to i64
-  %415 = icmp ult i64 %37, %414
+  %415 = icmp ult i64 %34, %414
   %or.cond173.i = select i1 %412, i1 true, i1 %415
   br i1 %or.cond173.i, label %.thread233.sink.split.i, label %416
 
@@ -1911,12 +1911,12 @@ _ZN11duckdb_zstdL14ZDICT_dictSizeEPKNS_8dictItemE.exit224.thread.critedge.i: ; p
   %462 = load ptr, ptr @stderr, align 8, !tbaa !11
   %463 = tail call i32 @fflush(ptr noundef %462)
   %464 = mul i64 %1, 10
-  %465 = icmp ult i64 %37, %464
+  %465 = icmp ult i64 %34, %464
   br i1 %465, label %466, label %473
 
 466:                                              ; preds = %458
   %467 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %468 = lshr i64 %37, 20
+  %468 = lshr i64 %34, 20
   %469 = trunc i64 %468 to i32
   %470 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %467, ptr noundef nonnull @.str.23, i32 noundef %469) #17
   %471 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -1929,7 +1929,7 @@ _ZN11duckdb_zstdL14ZDICT_dictSizeEPKNS_8dictItemE.exit224.thread.critedge.i: ; p
 
 475:                                              ; preds = %473
   %476 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %477 = add i32 %33, 1
+  %477 = add i32 %36, 1
   %478 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %476, ptr noundef nonnull @.str.24, i32 noundef %477) #17
   %479 = load ptr, ptr @stderr, align 8, !tbaa !11
   %480 = tail call i32 @fflush(ptr noundef %479)
@@ -1944,12 +1944,12 @@ _ZN11duckdb_zstdL14ZDICT_dictSizeEPKNS_8dictItemE.exit224.thread.critedge.i: ; p
   %486 = icmp ult i64 %485, %455
   %487 = icmp ugt i32 %4, 8
   %or.cond.i = and i1 %487, %486
-  %488 = icmp ugt i32 %33, 1
+  %488 = icmp ugt i32 %36, 1
   %or.cond7.i = select i1 %or.cond.i, i1 %488, i1 false
   br i1 %or.cond7.i, label %.preheader.i, label %.lr.ph261.i.preheader
 
 .preheader.i:                                     ; preds = %.critedge181.i, %.preheader.i
-  %.0150.in.i = phi i32 [ %.0150.i, %.preheader.i ], [ %33, %.critedge181.i ]
+  %.0150.in.i = phi i32 [ %.0150.i, %.preheader.i ], [ %36, %.critedge181.i ]
   %.0150.i = add i32 %.0150.in.i, -1
   %489 = lshr i32 %4, %.0150.i
   %490 = icmp ult i32 %489, 5

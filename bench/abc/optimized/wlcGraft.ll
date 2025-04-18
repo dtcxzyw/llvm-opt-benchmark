@@ -1883,32 +1883,32 @@ define void @Sbc_Mult(i64 noundef %0, i64 noundef %1, ptr noundef writeonly capt
 
 ; Function Attrs: nounwind uwtable
 define void @Sbc_SimMult(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = sub nsw i32 64, %3
-  %6 = zext nneg i32 %5 to i64
-  br label %7
+  br label %5
 
-7:                                                ; preds = %4, %7
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 512
-  store i64 0, ptr %9, align 8, !tbaa !52
+5:                                                ; preds = %4, %5
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %5 ]
+  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 512
+  store i64 0, ptr %7, align 8, !tbaa !52
+  store i64 0, ptr %6, align 8, !tbaa !52
+  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 0, ptr %8, align 8, !tbaa !52
-  %10 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  store i64 0, ptr %10, align 8, !tbaa !52
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
-  store i64 0, ptr %11, align 8, !tbaa !52
+  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  store i64 0, ptr %9, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %12, label %7, !llvm.loop !90
+  br i1 %exitcond.not, label %10, label %5, !llvm.loop !90
 
-12:                                               ; preds = %7
-  %13 = lshr i64 -1, %6
+10:                                               ; preds = %5
+  %11 = sub nsw i32 64, %3
+  %12 = zext nneg i32 %11 to i64
+  %13 = lshr i64 -1, %12
   %14 = tail call i32 @Gia_ManRandom(i32 noundef 1) #18
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 512
   br label %15
 
-15:                                               ; preds = %12, %69
-  %indvars.iv51 = phi i64 [ 0, %12 ], [ %indvars.iv.next52, %69 ]
+15:                                               ; preds = %10, %69
+  %indvars.iv51 = phi i64 [ 0, %10 ], [ %indvars.iv.next52, %69 ]
   %.not = icmp eq i64 %indvars.iv51, 0
   br i1 %.not, label %.thread, label %16
 

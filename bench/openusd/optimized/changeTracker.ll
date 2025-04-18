@@ -9527,9 +9527,9 @@ _ZN3tbb6detail2d219concurrent_hash_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPa
 
 48:                                               ; preds = %._crit_edge
   %49 = load atomic i64, ptr %10 monotonic, align 8
-  %50 = icmp ne i64 %.038, 1
-  %51 = icmp ult i64 %.038, 8
-  %.not.i = and i1 %51, %50
+  %50 = icmp ult i64 %.038, 8
+  %51 = icmp ne i64 %.038, 1
+  %.not.i = and i1 %50, %51
   br i1 %.not.i, label %53, label %52
 
 52:                                               ; preds = %48

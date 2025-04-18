@@ -663,21 +663,21 @@ _ZN6LibRaw5COLOREii.exit340:                      ; preds = %13, %_ZN6LibRaw5COL
   br i1 %180, label %181, label %275
 
 181:                                              ; preds = %176, %138
-  %182 = lshr i32 %102, 4
-  %183 = load i32, ptr %9, align 4
-  %184 = sext i32 %183 to i64
+  %182 = load i32, ptr %9, align 4
+  %183 = sext i32 %182 to i64
   br label %.preheader345
 
 .preheader345:                                    ; preds = %181, %191
   %indvars.iv367 = phi i64 [ -2, %181 ], [ %indvars.iv.next368, %191 ]
   %.0316349 = phi i32 [ 0, %181 ], [ %.2318, %191 ]
-  %185 = mul nsw i64 %indvars.iv367, %184
+  %184 = mul nsw i64 %indvars.iv367, %183
   br label %193
 
-186:                                              ; preds = %191
+185:                                              ; preds = %191
+  %186 = lshr i32 %102, 4
   %187 = shl nuw nsw i32 %102, 4
   %188 = sdiv i32 %.2318, 8
-  %189 = icmp sgt i32 %182, %188
+  %189 = icmp sgt i32 %186, %188
   %190 = icmp slt i32 %187, %188
   %or.cond329 = select i1 %189, i1 true, i1 %190
   br i1 %or.cond329, label %204, label %275
@@ -685,7 +685,7 @@ _ZN6LibRaw5COLOREii.exit340:                      ; preds = %13, %_ZN6LibRaw5COL
 191:                                              ; preds = %202
   %indvars.iv.next368 = add nsw i64 %indvars.iv367, 2
   %192 = icmp slt i64 %indvars.iv367, 1
-  br i1 %192, label %.preheader345, label %186, !llvm.loop !102
+  br i1 %192, label %.preheader345, label %185, !llvm.loop !102
 
 193:                                              ; preds = %.preheader345, %202
   %indvars.iv = phi i64 [ -2, %.preheader345 ], [ %indvars.iv.next, %202 ]
@@ -696,7 +696,7 @@ _ZN6LibRaw5COLOREii.exit340:                      ; preds = %13, %_ZN6LibRaw5COL
   br i1 %or.cond, label %202, label %196
 
 196:                                              ; preds = %193
-  %197 = add nsw i64 %185, %indvars.iv
+  %197 = add nsw i64 %184, %indvars.iv
   %198 = getelementptr inbounds [3 x i16], ptr %99, i64 %197, i64 %80
   %199 = load i16, ptr %198, align 2, !tbaa !83
   %200 = zext i16 %199 to i32
@@ -709,7 +709,7 @@ _ZN6LibRaw5COLOREii.exit340:                      ; preds = %13, %_ZN6LibRaw5COL
   %203 = icmp slt i64 %indvars.iv, 1
   br i1 %203, label %193, label %191, !llvm.loop !103
 
-204:                                              ; preds = %186
+204:                                              ; preds = %185
   %205 = load ptr, ptr %11, align 8, !tbaa !81
   %206 = getelementptr inbounds i8, ptr %205, i64 %indvars.iv372
   %207 = load i8, ptr %206, align 1, !tbaa !104
@@ -786,9 +786,9 @@ _ZN6LibRaw5COLOREii.exit340:                      ; preds = %13, %_ZN6LibRaw5COL
   store i16 %272, ptr %274, align 2, !tbaa !83
   br label %275
 
-275:                                              ; preds = %204, %186, %176, %171, %167, %163, %157, %150, %145, %143
-  %276 = phi i32 [ %230, %204 ], [ %183, %186 ], [ %96, %176 ], [ %96, %171 ], [ %96, %167 ], [ %96, %163 ], [ %96, %157 ], [ %96, %150 ], [ %96, %145 ], [ %96, %143 ]
-  %277 = phi i32 [ %230, %204 ], [ %183, %186 ], [ %96, %176 ], [ %96, %171 ], [ %96, %167 ], [ %96, %163 ], [ %96, %157 ], [ %96, %150 ], [ %97, %145 ], [ %97, %143 ]
+275:                                              ; preds = %204, %185, %176, %171, %167, %163, %157, %150, %145, %143
+  %276 = phi i32 [ %230, %204 ], [ %182, %185 ], [ %96, %176 ], [ %96, %171 ], [ %96, %167 ], [ %96, %163 ], [ %96, %157 ], [ %96, %150 ], [ %96, %145 ], [ %96, %143 ]
+  %277 = phi i32 [ %230, %204 ], [ %182, %185 ], [ %96, %176 ], [ %96, %171 ], [ %96, %167 ], [ %96, %163 ], [ %96, %157 ], [ %96, %150 ], [ %97, %145 ], [ %97, %143 ]
   %278 = add nuw nsw i32 %.0315350, 2
   %indvars.iv.next373 = add nsw i64 %indvars.iv372, 2
   %279 = icmp samesign ult i32 %278, %6
@@ -927,19 +927,19 @@ _ZN6LibRaw5COLOREii.exit340:                      ; preds = %13, %_ZN6LibRaw5COL
 
 373:                                              ; preds = %368, %328
   %.pre-phi = phi i64 [ %369, %368 ], [ %329, %328 ]
-  %374 = lshr i32 %291, 4
   br label %.preheader
 
 .preheader:                                       ; preds = %373, %381
   %indvars.iv378 = phi i64 [ -2, %373 ], [ %indvars.iv.next379, %381 ]
   %.0312354 = phi i32 [ 0, %373 ], [ %.2, %381 ]
-  %375 = mul nsw i64 %.pre-phi, %indvars.iv378
+  %374 = mul nsw i64 %.pre-phi, %indvars.iv378
   br label %383
 
-376:                                              ; preds = %381
+375:                                              ; preds = %381
+  %376 = lshr i32 %291, 4
   %377 = shl nuw nsw i32 %291, 4
   %378 = sdiv i32 %.2, 8
-  %379 = icmp sgt i32 %374, %378
+  %379 = icmp sgt i32 %376, %378
   %380 = icmp slt i32 %377, %378
   %or.cond330 = select i1 %379, i1 true, i1 %380
   br i1 %or.cond330, label %394, label %466
@@ -947,7 +947,7 @@ _ZN6LibRaw5COLOREii.exit340:                      ; preds = %13, %_ZN6LibRaw5COL
 381:                                              ; preds = %392
   %indvars.iv.next379 = add nsw i64 %indvars.iv378, 2
   %382 = icmp slt i64 %indvars.iv378, 1
-  br i1 %382, label %.preheader, label %376, !llvm.loop !107
+  br i1 %382, label %.preheader, label %375, !llvm.loop !107
 
 383:                                              ; preds = %.preheader, %392
   %indvars.iv375 = phi i64 [ -2, %.preheader ], [ %indvars.iv.next376, %392 ]
@@ -958,7 +958,7 @@ _ZN6LibRaw5COLOREii.exit340:                      ; preds = %13, %_ZN6LibRaw5COL
   br i1 %or.cond3, label %392, label %386
 
 386:                                              ; preds = %383
-  %387 = add nsw i64 %375, %indvars.iv375
+  %387 = add nsw i64 %374, %indvars.iv375
   %388 = getelementptr inbounds [3 x i16], ptr %288, i64 %387, i64 1
   %389 = load i16, ptr %388, align 2, !tbaa !83
   %390 = zext i16 %389 to i32
@@ -971,7 +971,7 @@ _ZN6LibRaw5COLOREii.exit340:                      ; preds = %13, %_ZN6LibRaw5COL
   %393 = icmp slt i64 %indvars.iv375, 1
   br i1 %393, label %383, label %381, !llvm.loop !108
 
-394:                                              ; preds = %376
+394:                                              ; preds = %375
   %395 = load ptr, ptr %11, align 8, !tbaa !81
   %396 = getelementptr inbounds i8, ptr %395, i64 %indvars.iv381
   %397 = load i8, ptr %396, align 1, !tbaa !104
@@ -1049,7 +1049,7 @@ _ZN6LibRaw5COLOREii.exit340:                      ; preds = %13, %_ZN6LibRaw5COL
   store i16 %463, ptr %465, align 2, !tbaa !83
   br label %466
 
-466:                                              ; preds = %394, %376, %368, %363, %358, %353, %347, %339, %335, %333
+466:                                              ; preds = %394, %375, %368, %363, %358, %353, %347, %339, %335, %333
   %467 = add nuw nsw i32 %.0319356, 2
   %indvars.iv.next382 = add nsw i64 %indvars.iv381, 2
   %468 = icmp samesign ult i32 %467, %6

@@ -3520,45 +3520,45 @@ _ZN6dmg_fpL6BallocEi.exit61:                      ; preds = %47, %75
   %81 = getelementptr inbounds nuw i8, ptr %.55, i64 20
   %82 = load i32, ptr %81, align 4, !tbaa !37
   %83 = getelementptr inbounds nuw i8, ptr %.55, i64 24
-  %84 = sext i32 %82 to i64
-  %85 = getelementptr inbounds nuw i8, ptr %.54, i64 20
-  %86 = load i32, ptr %85, align 4, !tbaa !37
-  %87 = getelementptr inbounds nuw i8, ptr %.54, i64 24
-  %88 = sext i32 %86 to i64
-  %89 = getelementptr inbounds i32, ptr %87, i64 %88
-  %90 = getelementptr inbounds nuw i8, ptr %.0.i59, i64 24
-  br label %91
+  %84 = getelementptr inbounds nuw i8, ptr %.54, i64 20
+  %85 = load i32, ptr %84, align 4, !tbaa !37
+  %86 = getelementptr inbounds nuw i8, ptr %.54, i64 24
+  %87 = sext i32 %85 to i64
+  %88 = getelementptr inbounds i32, ptr %86, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %.0.i59, i64 24
+  br label %90
 
-91:                                               ; preds = %91, %_ZN6dmg_fpL6BallocEi.exit61
-  %.047 = phi ptr [ %83, %_ZN6dmg_fpL6BallocEi.exit61 ], [ %92, %91 ]
-  %.045 = phi ptr [ %87, %_ZN6dmg_fpL6BallocEi.exit61 ], [ %95, %91 ]
-  %.042 = phi ptr [ %90, %_ZN6dmg_fpL6BallocEi.exit61 ], [ %103, %91 ]
-  %.0 = phi i64 [ 0, %_ZN6dmg_fpL6BallocEi.exit61 ], [ %101, %91 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.047, i64 4
-  %93 = load i32, ptr %.047, align 4, !tbaa !20
-  %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw i8, ptr %.045, i64 4
-  %96 = load i32, ptr %.045, align 4, !tbaa !20
-  %97 = zext i32 %96 to i64
-  %98 = add nuw nsw i64 %.0, %97
-  %99 = sub nsw i64 %94, %98
-  %100 = lshr i64 %99, 32
-  %101 = and i64 %100, 1
-  %102 = trunc i64 %99 to i32
-  %103 = getelementptr inbounds nuw i8, ptr %.042, i64 4
-  store i32 %102, ptr %.042, align 4, !tbaa !20
-  %104 = icmp ult ptr %95, %89
-  br i1 %104, label %91, label %.preheader66, !llvm.loop !55
+90:                                               ; preds = %90, %_ZN6dmg_fpL6BallocEi.exit61
+  %.047 = phi ptr [ %83, %_ZN6dmg_fpL6BallocEi.exit61 ], [ %91, %90 ]
+  %.045 = phi ptr [ %86, %_ZN6dmg_fpL6BallocEi.exit61 ], [ %94, %90 ]
+  %.042 = phi ptr [ %89, %_ZN6dmg_fpL6BallocEi.exit61 ], [ %102, %90 ]
+  %.0 = phi i64 [ 0, %_ZN6dmg_fpL6BallocEi.exit61 ], [ %100, %90 ]
+  %91 = getelementptr inbounds nuw i8, ptr %.047, i64 4
+  %92 = load i32, ptr %.047, align 4, !tbaa !20
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr inbounds nuw i8, ptr %.045, i64 4
+  %95 = load i32, ptr %.045, align 4, !tbaa !20
+  %96 = zext i32 %95 to i64
+  %97 = add nuw nsw i64 %.0, %96
+  %98 = sub nsw i64 %93, %97
+  %99 = lshr i64 %98, 32
+  %100 = and i64 %99, 1
+  %101 = trunc i64 %98 to i32
+  %102 = getelementptr inbounds nuw i8, ptr %.042, i64 4
+  store i32 %101, ptr %.042, align 4, !tbaa !20
+  %103 = icmp ult ptr %94, %88
+  br i1 %103, label %90, label %.preheader66, !llvm.loop !55
 
-.preheader66:                                     ; preds = %91
-  %105 = getelementptr inbounds i32, ptr %83, i64 %84
-  %106 = icmp ult ptr %92, %105
+.preheader66:                                     ; preds = %90
+  %104 = sext i32 %82 to i64
+  %105 = getelementptr inbounds i32, ptr %83, i64 %104
+  %106 = icmp ult ptr %91, %105
   br i1 %106, label %.lr.ph, label %.preheader.preheader
 
 .lr.ph:                                           ; preds = %.preheader66, %.lr.ph
-  %.175 = phi i64 [ %112, %.lr.ph ], [ %101, %.preheader66 ]
-  %.14374 = phi ptr [ %114, %.lr.ph ], [ %103, %.preheader66 ]
-  %.14873 = phi ptr [ %107, %.lr.ph ], [ %92, %.preheader66 ]
+  %.175 = phi i64 [ %112, %.lr.ph ], [ %100, %.preheader66 ]
+  %.14374 = phi ptr [ %114, %.lr.ph ], [ %102, %.preheader66 ]
+  %.14873 = phi ptr [ %107, %.lr.ph ], [ %91, %.preheader66 ]
   %107 = getelementptr inbounds nuw i8, ptr %.14873, i64 4
   %108 = load i32, ptr %.14873, align 4, !tbaa !20
   %109 = zext i32 %108 to i64
@@ -3572,7 +3572,7 @@ _ZN6dmg_fpL6BallocEi.exit61:                      ; preds = %47, %75
   br i1 %115, label %.lr.ph, label %.preheader.preheader, !llvm.loop !56
 
 .preheader.preheader:                             ; preds = %.lr.ph, %.preheader66
-  %.2.ph = phi ptr [ %103, %.preheader66 ], [ %114, %.lr.ph ]
+  %.2.ph = phi ptr [ %102, %.preheader66 ], [ %114, %.lr.ph ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

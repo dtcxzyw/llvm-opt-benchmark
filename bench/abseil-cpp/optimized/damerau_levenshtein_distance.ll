@@ -39,8 +39,6 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
   br label %115
 
 .lr.ph.i.preheader:                               ; preds = %16
-  %.neg = sub i64 %.sroa.080.0, %.sroa.0.0
-  %.neg63 = trunc i64 %.neg to i8
   call void @llvm.lifetime.start.p0(i64 10404, ptr nonnull %6) #3
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 %12
   br label %.lr.ph.i
@@ -58,6 +56,8 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
   %23 = zext nneg i8 %8 to i64
   %24 = getelementptr inbounds nuw [102 x i8], ptr %6, i64 0, i64 %23
   store i8 %8, ptr %24, align 1, !tbaa !4
+  %.neg = sub i64 %.sroa.080.0, %.sroa.0.0
+  %.neg63 = trunc i64 %.neg to i8
   %25 = add i8 %.sroa.speculated, %.neg63
   %26 = zext i8 %25 to i64
   %.ptr91 = getelementptr inbounds nuw i8, ptr %7, i64 1

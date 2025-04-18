@@ -191,7 +191,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %.not.not.not, label %.preheader302, label %.preheader303
 
 .preheader303:                                    ; preds = %74, %91
-  %.2186 = phi i32 [ %83, %91 ], [ %76, %74 ]
+  %.2186 = phi i32 [ %89, %91 ], [ %76, %74 ]
   %.2 = phi i32 [ %93, %91 ], [ %75, %74 ]
   %77 = sext i32 %.2186 to i64
   br label %78
@@ -206,32 +206,32 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .preheader220:                                    ; preds = %78
   %82 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.next
-  %83 = trunc nsw i64 %indvars.iv.next to i32
-  %84 = sext i32 %.2 to i64
-  br label %85
+  %83 = sext i32 %.2 to i64
+  br label %84
 
-85:                                               ; preds = %.preheader220, %85
-  %indvars.iv267 = phi i64 [ %84, %.preheader220 ], [ %indvars.iv.next268, %85 ]
+84:                                               ; preds = %.preheader220, %84
+  %indvars.iv267 = phi i64 [ %83, %.preheader220 ], [ %indvars.iv.next268, %84 ]
   %indvars.iv.next268 = add nsw i64 %indvars.iv267, 1
-  %86 = getelementptr double, ptr %2, i64 %indvars.iv267
-  %87 = load double, ptr %86, align 8, !tbaa !7
-  %88 = fcmp ogt double %87, %.0190
-  br i1 %88, label %85, label %89
+  %85 = getelementptr double, ptr %2, i64 %indvars.iv267
+  %86 = load double, ptr %85, align 8, !tbaa !7
+  %87 = fcmp ogt double %86, %.0190
+  br i1 %87, label %84, label %88
 
-89:                                               ; preds = %85
+88:                                               ; preds = %84
+  %89 = trunc nsw i64 %indvars.iv.next to i32
   %90 = icmp slt i64 %indvars.iv.next268, %indvars.iv.next
   br i1 %90, label %91, label %94
 
-91:                                               ; preds = %89
+91:                                               ; preds = %88
   %92 = getelementptr double, ptr %2, i64 %indvars.iv267
   %93 = trunc nsw i64 %indvars.iv.next268 to i32
   store double %80, ptr %92, align 8, !tbaa !7
-  store double %87, ptr %82, align 8, !tbaa !7
+  store double %86, ptr %82, align 8, !tbaa !7
   br label %.preheader303
 
-94:                                               ; preds = %89
+94:                                               ; preds = %88
   %95 = trunc nsw i64 %indvars.iv to i32
-  %96 = sub nsw i32 %83, %26
+  %96 = sub nsw i32 %89, %26
   %97 = sub i32 %30, %95
   %98 = icmp sgt i32 %96, %97
   %99 = add nuw nsw i32 %.0181, 1
@@ -245,7 +245,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %98, label %107, label %108
 
 107:                                              ; preds = %94
-  store i32 %83, ptr %29, align 4, !tbaa !3
+  store i32 %89, ptr %29, align 4, !tbaa !3
   store i32 %95, ptr %103, align 8, !tbaa !3
   store i32 %30, ptr %106, align 4, !tbaa !3
   br label %.loopexit
@@ -253,11 +253,11 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 108:                                              ; preds = %94
   store i32 %95, ptr %25, align 8, !tbaa !3
   store i32 %26, ptr %103, align 8, !tbaa !3
-  store i32 %83, ptr %106, align 4, !tbaa !3
+  store i32 %89, ptr %106, align 4, !tbaa !3
   br label %.loopexit
 
 .preheader302:                                    ; preds = %74, %123
-  %.4188 = phi i32 [ %115, %123 ], [ %76, %74 ]
+  %.4188 = phi i32 [ %121, %123 ], [ %76, %74 ]
   %.4 = phi i32 [ %125, %123 ], [ %75, %74 ]
   %109 = sext i32 %.4188 to i64
   br label %110
@@ -272,32 +272,32 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .preheader219:                                    ; preds = %110
   %114 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.next271
-  %115 = trunc nsw i64 %indvars.iv.next271 to i32
-  %116 = sext i32 %.4 to i64
-  br label %117
+  %115 = sext i32 %.4 to i64
+  br label %116
 
-117:                                              ; preds = %.preheader219, %117
-  %indvars.iv273 = phi i64 [ %116, %.preheader219 ], [ %indvars.iv.next274, %117 ]
+116:                                              ; preds = %.preheader219, %116
+  %indvars.iv273 = phi i64 [ %115, %.preheader219 ], [ %indvars.iv.next274, %116 ]
   %indvars.iv.next274 = add nsw i64 %indvars.iv273, 1
-  %118 = getelementptr double, ptr %2, i64 %indvars.iv273
-  %119 = load double, ptr %118, align 8, !tbaa !7
-  %120 = fcmp olt double %119, %.0190
-  br i1 %120, label %117, label %121
+  %117 = getelementptr double, ptr %2, i64 %indvars.iv273
+  %118 = load double, ptr %117, align 8, !tbaa !7
+  %119 = fcmp olt double %118, %.0190
+  br i1 %119, label %116, label %120
 
-121:                                              ; preds = %117
+120:                                              ; preds = %116
+  %121 = trunc nsw i64 %indvars.iv.next271 to i32
   %122 = icmp slt i64 %indvars.iv.next274, %indvars.iv.next271
   br i1 %122, label %123, label %126
 
-123:                                              ; preds = %121
+123:                                              ; preds = %120
   %124 = getelementptr double, ptr %2, i64 %indvars.iv273
   %125 = trunc nsw i64 %indvars.iv.next274 to i32
   store double %112, ptr %124, align 8, !tbaa !7
-  store double %119, ptr %114, align 8, !tbaa !7
+  store double %118, ptr %114, align 8, !tbaa !7
   br label %.preheader302
 
-126:                                              ; preds = %121
+126:                                              ; preds = %120
   %127 = trunc nsw i64 %indvars.iv270 to i32
-  %128 = sub nsw i32 %115, %26
+  %128 = sub nsw i32 %121, %26
   %129 = sub i32 %30, %127
   %130 = icmp sgt i32 %128, %129
   %131 = add nuw nsw i32 %.0181, 1
@@ -311,7 +311,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %130, label %139, label %140
 
 139:                                              ; preds = %126
-  store i32 %115, ptr %29, align 4, !tbaa !3
+  store i32 %121, ptr %29, align 4, !tbaa !3
   store i32 %127, ptr %135, align 8, !tbaa !3
   store i32 %30, ptr %138, align 4, !tbaa !3
   br label %.loopexit
@@ -319,7 +319,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 140:                                              ; preds = %126
   store i32 %127, ptr %25, align 8, !tbaa !3
   store i32 %26, ptr %135, align 8, !tbaa !3
-  store i32 %115, ptr %138, align 4, !tbaa !3
+  store i32 %121, ptr %138, align 4, !tbaa !3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge247, %35, %43, %51, %139, %140, %107, %108

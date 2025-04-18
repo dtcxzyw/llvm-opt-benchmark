@@ -1841,13 +1841,10 @@ define internal void @latitude_or_longitude_resolution(ptr noundef %0, i8 nounde
   %4 = zext nneg i8 %3 to i32
   %5 = sub nsw i32 8, %4
   %6 = icmp samesign ult i8 %3, 8
-  br i1 %6, label %.lr.ph.preheader, label %.preheader
-
-.lr.ph.preheader:                                 ; preds = %2
-  %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 1)
-  br label %.lr.ph
+  br i1 %6, label %.lr.ph, label %.preheader
 
 .preheader.loopexit:                              ; preds = %.lr.ph
+  %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 1)
   %7 = add nsw i32 %smin, -1
   br label %.preheader
 
@@ -1857,9 +1854,9 @@ define internal void @latitude_or_longitude_resolution(ptr noundef %0, i8 nounde
   %8 = icmp slt i32 %.014.lcssa, 0
   br i1 %8, label %.lr.ph23, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01419 = phi i32 [ %10, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %.01518 = phi double [ %9, %.lr.ph ], [ 1.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.01419 = phi i32 [ %10, %.lr.ph ], [ %5, %2 ]
+  %.01518 = phi double [ %9, %.lr.ph ], [ 1.000000e+00, %2 ]
   %9 = fmul double %.01518, 2.000000e+00
   %10 = add nsw i32 %.01419, -1
   %11 = icmp sgt i32 %.01419, 1
@@ -1939,13 +1936,10 @@ define internal void @altitude_resolution(ptr noundef %0, i8 noundef zeroext %1)
   %4 = zext nneg i8 %3 to i32
   %5 = sub nsw i32 21, %4
   %6 = icmp samesign ult i8 %3, 21
-  br i1 %6, label %.lr.ph.preheader, label %.preheader
-
-.lr.ph.preheader:                                 ; preds = %2
-  %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 1)
-  br label %.lr.ph
+  br i1 %6, label %.lr.ph, label %.preheader
 
 .preheader.loopexit:                              ; preds = %.lr.ph
+  %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 1)
   %7 = add nsw i32 %smin, -1
   br label %.preheader
 
@@ -1955,9 +1949,9 @@ define internal void @altitude_resolution(ptr noundef %0, i8 noundef zeroext %1)
   %8 = icmp slt i32 %.014.lcssa, 0
   br i1 %8, label %.lr.ph23, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01419 = phi i32 [ %10, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %.01518 = phi double [ %9, %.lr.ph ], [ 1.000000e+00, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.01419 = phi i32 [ %10, %.lr.ph ], [ %5, %2 ]
+  %.01518 = phi double [ %9, %.lr.ph ], [ 1.000000e+00, %2 ]
   %9 = fmul double %.01518, 2.000000e+00
   %10 = add nsw i32 %.01419, -1
   %11 = icmp sgt i32 %.01419, 1

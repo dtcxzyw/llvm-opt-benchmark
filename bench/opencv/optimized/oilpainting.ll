@@ -1282,12 +1282,12 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit125.thread: ; preds = %2
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.preheader, %72
-  %77 = sub nuw nsw i64 256, %70
-  %78 = sub i64 1020, %69
-  %79 = and i64 %78, -4
-  %80 = add i64 %79, 4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %.sroa.15.1209, i8 0, i64 %80, i1 false), !tbaa !48
-  %81 = getelementptr inbounds nuw i32, ptr %.sroa.15.1209, i64 %77
+  %77 = sub i64 1020, %69
+  %78 = and i64 %77, -4
+  %79 = add i64 %78, 4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %.sroa.15.1209, i8 0, i64 %79, i1 false), !tbaa !48
+  %80 = sub nuw nsw i64 256, %70
+  %81 = getelementptr inbounds nuw i32, ptr %.sroa.15.1209, i64 %80
   br label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.loopexit234: ; preds = %67
@@ -2033,12 +2033,12 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit118.thread: ; preds = %2
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.preheader, %77
-  %82 = sub nuw nsw i64 256, %75
-  %83 = sub i64 1020, %74
-  %84 = and i64 %83, -4
-  %85 = add i64 %84, 4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %.sroa.15.1203, i8 0, i64 %85, i1 false), !tbaa !48
-  %86 = getelementptr inbounds nuw i32, ptr %.sroa.15.1203, i64 %82
+  %82 = sub i64 1020, %74
+  %83 = and i64 %82, -4
+  %84 = add i64 %83, 4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %.sroa.15.1203, i8 0, i64 %84, i1 false), !tbaa !48
+  %85 = sub nuw nsw i64 256, %75
+  %86 = getelementptr inbounds nuw i32, ptr %.sroa.15.1203, i64 %85
   br label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.loopexit228: ; preds = %72

@@ -875,29 +875,29 @@ define i32 @Saig_SynchSavePattern(ptr noundef readonly captures(none) %0, ptr no
   %42 = load i32, ptr %41, align 4, !tbaa !25
   %43 = lshr i32 %42, %26
   %44 = and i32 %43, 3
-  %45 = icmp eq i32 %44, 3
-  %46 = zext i1 %45 to i32
-  %47 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  %48 = load i32, ptr %47, align 4, !tbaa !23
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %.val38, i64 %49
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 36
+  %46 = load i32, ptr %45, align 4, !tbaa !23
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds ptr, ptr %.val38, i64 %47
+  %49 = load ptr, ptr %48, align 8, !tbaa !24
   %.not.i.us = icmp eq i32 %44, 0
-  %52 = icmp eq i32 %44, 1
-  %53 = select i1 %52, i32 1431655765, i32 -1
-  %54 = select i1 %.not.i.us, i32 0, i32 %53
-  br label %55
+  %50 = icmp eq i32 %44, 1
+  %51 = select i1 %50, i32 1431655765, i32 -1
+  %52 = select i1 %.not.i.us, i32 0, i32 %51
+  br label %53
 
-55:                                               ; preds = %.lr.ph50.us, %55
-  %indvars.iv61 = phi i64 [ 0, %.lr.ph50.us ], [ %indvars.iv.next62, %55 ]
-  %56 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv61
-  store i32 %54, ptr %56, align 4, !tbaa !25
+53:                                               ; preds = %.lr.ph50.us, %53
+  %indvars.iv61 = phi i64 [ 0, %.lr.ph50.us ], [ %indvars.iv.next62, %53 ]
+  %54 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv61
+  store i32 %52, ptr %54, align 4, !tbaa !25
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
-  br i1 %exitcond65.not, label %._crit_edge.us, label %55, !llvm.loop !58
+  br i1 %exitcond65.not, label %._crit_edge.us, label %53, !llvm.loop !58
 
-._crit_edge.us:                                   ; preds = %55
-  %57 = add nuw nsw i32 %.03752.us, %46
+._crit_edge.us:                                   ; preds = %53
+  %55 = icmp eq i32 %44, 3
+  %56 = zext i1 %55 to i32
+  %57 = add nuw nsw i32 %.03752.us, %56
   %58 = add nuw nsw i32 %.153.us, 1
   %.val41.us = load i32, ptr %15, align 8, !tbaa !26
   %59 = icmp slt i32 %58, %.val41.us

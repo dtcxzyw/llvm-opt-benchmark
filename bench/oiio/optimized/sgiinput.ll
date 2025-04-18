@@ -2149,11 +2149,11 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08SgiInput22uncompress_r
   %36 = load i8, ptr %35, align 1, !tbaa !14
   %37 = zext nneg i8 %26 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.067148, i8 %36, i64 %37, i1 false), !tbaa !14
+  %38 = add nsw i32 %.052150, 2
   %scevgep = getelementptr i8, ptr %.067148, i64 1
-  %38 = add nsw i32 %28, -1
-  %39 = zext i32 %38 to i64
-  %scevgep174 = getelementptr i8, ptr %scevgep, i64 %39
-  %40 = add nsw i32 %.052150, 2
+  %39 = add nsw i32 %28, -1
+  %40 = zext i32 %39 to i64
+  %scevgep174 = getelementptr i8, ptr %scevgep, i64 %40
   br label %.loopexit
 
 .loopexit.loopexit157:                            ; preds = %.preheader
@@ -2162,7 +2162,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08SgiInput22uncompress_r
 
 .loopexit:                                        ; preds = %.loopexit.loopexit157, %.loopexit.loopexit
   %.168 = phi ptr [ %scevgep174, %.loopexit.loopexit ], [ %34, %.loopexit.loopexit157 ]
-  %.153 = phi i32 [ %40, %.loopexit.loopexit ], [ %41, %.loopexit.loopexit157 ]
+  %.153 = phi i32 [ %38, %.loopexit.loopexit ], [ %41, %.loopexit.loopexit157 ]
   %.155 = sub i32 %.054149, %28
   %42 = icmp slt i32 %.153, %2
   br i1 %42, label %.lr.ph151, label %.thread

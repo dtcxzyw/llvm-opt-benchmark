@@ -2199,26 +2199,26 @@ define dso_local i64 @PyLong_AsUnsignedLongMask(ptr noundef %0) local_unnamed_ad
   br label %_PyLong_AsUnsignedLongMask.exit
 
 .lr.ph.i:                                         ; preds = %8
-  %17 = and i64 %.val19.i, 3
-  %18 = lshr i64 %.val19.i, 3
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %20
+  %17 = lshr i64 %.val19.i, 3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %19
 
-20:                                               ; preds = %20, %.lr.ph.i
-  %.01325.i = phi i64 [ %18, %.lr.ph.i ], [ %21, %20 ]
-  %.01424.i = phi i64 [ 0, %.lr.ph.i ], [ %26, %20 ]
-  %21 = add nsw i64 %.01325.i, -1
-  %22 = shl i64 %.01424.i, 30
-  %23 = getelementptr [1 x i32], ptr %19, i64 0, i64 %21
-  %24 = load i32, ptr %23, align 4, !tbaa !33
-  %25 = zext i32 %24 to i64
-  %26 = or i64 %22, %25
-  %27 = icmp samesign ugt i64 %.01325.i, 1
-  br i1 %27, label %20, label %._crit_edge.i, !llvm.loop !56
+19:                                               ; preds = %19, %.lr.ph.i
+  %.01325.i = phi i64 [ %17, %.lr.ph.i ], [ %20, %19 ]
+  %.01424.i = phi i64 [ 0, %.lr.ph.i ], [ %25, %19 ]
+  %20 = add nsw i64 %.01325.i, -1
+  %21 = shl i64 %.01424.i, 30
+  %22 = getelementptr [1 x i32], ptr %18, i64 0, i64 %20
+  %23 = load i32, ptr %22, align 4, !tbaa !33
+  %24 = zext i32 %23 to i64
+  %25 = or i64 %21, %24
+  %26 = icmp samesign ugt i64 %.01325.i, 1
+  br i1 %26, label %19, label %._crit_edge.i, !llvm.loop !56
 
-._crit_edge.i:                                    ; preds = %20
-  %28 = sub nsw i64 1, %17
-  %29 = mul i64 %26, %28
+._crit_edge.i:                                    ; preds = %19
+  %27 = and i64 %.val19.i, 3
+  %28 = sub nsw i64 1, %27
+  %29 = mul i64 %25, %28
   br label %_PyLong_AsUnsignedLongMask.exit
 
 30:                                               ; preds = %4
@@ -2255,26 +2255,26 @@ define dso_local i64 @PyLong_AsUnsignedLongMask(ptr noundef %0) local_unnamed_ad
   br label %_PyLong_AsUnsignedLongMask.exit22
 
 .lr.ph.i18:                                       ; preds = %38
-  %47 = and i64 %.val19.i15, 3
-  %48 = lshr i64 %.val19.i15, 3
-  %49 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  br label %50
+  %47 = lshr i64 %.val19.i15, 3
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  br label %49
 
-50:                                               ; preds = %50, %.lr.ph.i18
-  %.01325.i19 = phi i64 [ %48, %.lr.ph.i18 ], [ %51, %50 ]
-  %.01424.i20 = phi i64 [ 0, %.lr.ph.i18 ], [ %56, %50 ]
-  %51 = add nsw i64 %.01325.i19, -1
-  %52 = shl i64 %.01424.i20, 30
-  %53 = getelementptr [1 x i32], ptr %49, i64 0, i64 %51
-  %54 = load i32, ptr %53, align 4, !tbaa !33
-  %55 = zext i32 %54 to i64
-  %56 = or i64 %52, %55
-  %57 = icmp samesign ugt i64 %.01325.i19, 1
-  br i1 %57, label %50, label %._crit_edge.i21, !llvm.loop !56
+49:                                               ; preds = %49, %.lr.ph.i18
+  %.01325.i19 = phi i64 [ %47, %.lr.ph.i18 ], [ %50, %49 ]
+  %.01424.i20 = phi i64 [ 0, %.lr.ph.i18 ], [ %55, %49 ]
+  %50 = add nsw i64 %.01325.i19, -1
+  %51 = shl i64 %.01424.i20, 30
+  %52 = getelementptr [1 x i32], ptr %48, i64 0, i64 %50
+  %53 = load i32, ptr %52, align 4, !tbaa !33
+  %54 = zext i32 %53 to i64
+  %55 = or i64 %51, %54
+  %56 = icmp samesign ugt i64 %.01325.i19, 1
+  br i1 %56, label %49, label %._crit_edge.i21, !llvm.loop !56
 
-._crit_edge.i21:                                  ; preds = %50
-  %58 = sub nsw i64 1, %47
-  %59 = mul i64 %56, %58
+._crit_edge.i21:                                  ; preds = %49
+  %57 = and i64 %.val19.i15, 3
+  %58 = sub nsw i64 1, %57
+  %59 = mul i64 %55, %58
   br label %_PyLong_AsUnsignedLongMask.exit22
 
 _PyLong_AsUnsignedLongMask.exit22:                ; preds = %37, %41, %._crit_edge.i21
@@ -3831,26 +3831,26 @@ define dso_local i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %0) local_unname
   br label %_PyLong_AsUnsignedLongLongMask.exit
 
 .lr.ph.i:                                         ; preds = %8
-  %17 = and i64 %.val19.i, 3
-  %18 = lshr i64 %.val19.i, 3
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %20
+  %17 = lshr i64 %.val19.i, 3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %19
 
-20:                                               ; preds = %20, %.lr.ph.i
-  %.01325.i = phi i64 [ %18, %.lr.ph.i ], [ %21, %20 ]
-  %.01424.i = phi i64 [ 0, %.lr.ph.i ], [ %26, %20 ]
-  %21 = add nsw i64 %.01325.i, -1
-  %22 = shl i64 %.01424.i, 30
-  %23 = getelementptr [1 x i32], ptr %19, i64 0, i64 %21
-  %24 = load i32, ptr %23, align 4, !tbaa !33
-  %25 = zext i32 %24 to i64
-  %26 = or i64 %22, %25
-  %27 = icmp samesign ugt i64 %.01325.i, 1
-  br i1 %27, label %20, label %._crit_edge.i, !llvm.loop !76
+19:                                               ; preds = %19, %.lr.ph.i
+  %.01325.i = phi i64 [ %17, %.lr.ph.i ], [ %20, %19 ]
+  %.01424.i = phi i64 [ 0, %.lr.ph.i ], [ %25, %19 ]
+  %20 = add nsw i64 %.01325.i, -1
+  %21 = shl i64 %.01424.i, 30
+  %22 = getelementptr [1 x i32], ptr %18, i64 0, i64 %20
+  %23 = load i32, ptr %22, align 4, !tbaa !33
+  %24 = zext i32 %23 to i64
+  %25 = or i64 %21, %24
+  %26 = icmp samesign ugt i64 %.01325.i, 1
+  br i1 %26, label %19, label %._crit_edge.i, !llvm.loop !76
 
-._crit_edge.i:                                    ; preds = %20
-  %28 = sub nsw i64 1, %17
-  %29 = mul i64 %26, %28
+._crit_edge.i:                                    ; preds = %19
+  %27 = and i64 %.val19.i, 3
+  %28 = sub nsw i64 1, %27
+  %29 = mul i64 %25, %28
   br label %_PyLong_AsUnsignedLongLongMask.exit
 
 30:                                               ; preds = %4
@@ -3887,26 +3887,26 @@ define dso_local i64 @PyLong_AsUnsignedLongLongMask(ptr noundef %0) local_unname
   br label %_PyLong_AsUnsignedLongLongMask.exit22
 
 .lr.ph.i18:                                       ; preds = %38
-  %47 = and i64 %.val19.i15, 3
-  %48 = lshr i64 %.val19.i15, 3
-  %49 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  br label %50
+  %47 = lshr i64 %.val19.i15, 3
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  br label %49
 
-50:                                               ; preds = %50, %.lr.ph.i18
-  %.01325.i19 = phi i64 [ %48, %.lr.ph.i18 ], [ %51, %50 ]
-  %.01424.i20 = phi i64 [ 0, %.lr.ph.i18 ], [ %56, %50 ]
-  %51 = add nsw i64 %.01325.i19, -1
-  %52 = shl i64 %.01424.i20, 30
-  %53 = getelementptr [1 x i32], ptr %49, i64 0, i64 %51
-  %54 = load i32, ptr %53, align 4, !tbaa !33
-  %55 = zext i32 %54 to i64
-  %56 = or i64 %52, %55
-  %57 = icmp samesign ugt i64 %.01325.i19, 1
-  br i1 %57, label %50, label %._crit_edge.i21, !llvm.loop !76
+49:                                               ; preds = %49, %.lr.ph.i18
+  %.01325.i19 = phi i64 [ %47, %.lr.ph.i18 ], [ %50, %49 ]
+  %.01424.i20 = phi i64 [ 0, %.lr.ph.i18 ], [ %55, %49 ]
+  %50 = add nsw i64 %.01325.i19, -1
+  %51 = shl i64 %.01424.i20, 30
+  %52 = getelementptr [1 x i32], ptr %48, i64 0, i64 %50
+  %53 = load i32, ptr %52, align 4, !tbaa !33
+  %54 = zext i32 %53 to i64
+  %55 = or i64 %51, %54
+  %56 = icmp samesign ugt i64 %.01325.i19, 1
+  br i1 %56, label %49, label %._crit_edge.i21, !llvm.loop !76
 
-._crit_edge.i21:                                  ; preds = %50
-  %58 = sub nsw i64 1, %47
-  %59 = mul i64 %56, %58
+._crit_edge.i21:                                  ; preds = %49
+  %57 = and i64 %.val19.i15, 3
+  %58 = sub nsw i64 1, %57
+  %59 = mul i64 %55, %58
   br label %_PyLong_AsUnsignedLongLongMask.exit22
 
 _PyLong_AsUnsignedLongLongMask.exit22:            ; preds = %37, %41, %._crit_edge.i21

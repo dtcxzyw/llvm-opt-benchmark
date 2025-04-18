@@ -906,31 +906,31 @@ define void @_ZN6LibRaw42ahd_interpolate_combine_homogeneous_pixelsEiiPA512_A512
   %30 = sub nsw i64 %indvars.iv108, %23
   %31 = load ptr, ptr %7, align 8, !tbaa !86
   %32 = load i16, ptr %13, align 2, !tbaa !82
-  %33 = zext i16 %32 to i32
-  %34 = trunc nsw i64 %indvars.iv108 to i32
-  %35 = mul nsw i32 %34, %33
-  %36 = add nsw i32 %35, %2
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr [4 x i16], ptr %31, i64 %37
-  %39 = getelementptr inbounds [512 x [512 x [3 x i16]]], ptr %3, i64 0, i64 %30, i64 2
-  store ptr %39, ptr %6, align 16, !tbaa !89
-  %40 = getelementptr inbounds [512 x [512 x [3 x i16]]], ptr %3, i64 1, i64 %30, i64 2
-  store ptr %40, ptr %27, align 8, !tbaa !89
-  %41 = getelementptr i8, ptr %38, i64 16
+  %33 = getelementptr inbounds [512 x [512 x [3 x i16]]], ptr %3, i64 0, i64 %30, i64 2
+  store ptr %33, ptr %6, align 16, !tbaa !89
+  %34 = getelementptr inbounds [512 x [512 x [3 x i16]]], ptr %3, i64 1, i64 %30, i64 2
+  store ptr %34, ptr %27, align 8, !tbaa !89
+  %35 = zext i16 %32 to i32
+  %36 = trunc nsw i64 %indvars.iv108 to i32
+  %37 = mul nsw i32 %36, %35
+  %38 = add nsw i32 %37, %2
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr [4 x i16], ptr %31, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 16
   br label %.preheader65.us.critedge
 
 .preheader65.us.critedge:                         ; preds = %.lr.ph79.split.us, %.loopexit.us
-  %42 = phi ptr [ %40, %.lr.ph79.split.us ], [ %46, %.loopexit.us ]
-  %43 = phi ptr [ %39, %.lr.ph79.split.us ], [ %45, %.loopexit.us ]
+  %42 = phi ptr [ %34, %.lr.ph79.split.us ], [ %45, %.loopexit.us ]
+  %43 = phi ptr [ %33, %.lr.ph79.split.us ], [ %44, %.loopexit.us ]
   %indvars.iv92 = phi i64 [ 2, %.lr.ph79.split.us ], [ %indvars.iv.next93, %.loopexit.us ]
   %.076.us = phi ptr [ %41, %.lr.ph79.split.us ], [ %49, %.loopexit.us ]
   %.05275.us = phi i32 [ %21, %.lr.ph79.split.us ], [ %55, %.loopexit.us ]
-  %44 = sub nsw i32 %.05275.us, %2
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 6
-  store ptr %45, ptr %6, align 16, !tbaa !89
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 6
-  store ptr %46, ptr %28, align 8, !tbaa !89
-  %47 = zext i32 %44 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 6
+  store ptr %44, ptr %6, align 16, !tbaa !89
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 6
+  store ptr %45, ptr %28, align 8, !tbaa !89
+  %46 = sub nsw i32 %.05275.us, %2
+  %47 = zext i32 %46 to i64
   br label %67
 
 48:                                               ; preds = %77
@@ -956,10 +956,10 @@ define void @_ZN6LibRaw42ahd_interpolate_combine_homogeneous_pixelsEiiPA512_A512
 
 .preheader.us:                                    ; preds = %48, %.preheader.us
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.preheader.us ], [ 0, %48 ]
-  %57 = getelementptr inbounds nuw [3 x i16], ptr %45, i64 0, i64 %indvars.iv105
+  %57 = getelementptr inbounds nuw [3 x i16], ptr %44, i64 0, i64 %indvars.iv105
   %58 = load i16, ptr %57, align 2, !tbaa !79
   %59 = zext i16 %58 to i32
-  %60 = getelementptr inbounds nuw [3 x i16], ptr %46, i64 0, i64 %indvars.iv105
+  %60 = getelementptr inbounds nuw [3 x i16], ptr %45, i64 0, i64 %indvars.iv105
   %61 = load i16, ptr %60, align 2, !tbaa !79
   %62 = zext i16 %61 to i32
   %63 = add nuw nsw i32 %62, %59
@@ -1592,21 +1592,21 @@ _ZN6LibRaw37ahd_interpolate_build_homogeneity_mapEiiPA512_A512_A3_sPA512_A2_c.ex
   %316 = sub nuw nsw i64 %indvars.iv108.i, %indvars.iv118
   %317 = load ptr, ptr %56, align 8, !tbaa !86
   %318 = load i16, ptr %55, align 2, !tbaa !82
-  %319 = zext i16 %318 to i32
-  %320 = trunc nsw i64 %indvars.iv108.i to i32
-  %321 = mul nsw i32 %319, %320
-  %322 = add nsw i32 %321, %.pre-phi
-  %323 = sext i32 %322 to i64
-  %324 = getelementptr [4 x i16], ptr %317, i64 %323
-  %325 = getelementptr inbounds nuw [512 x [512 x [3 x i16]]], ptr %74, i64 0, i64 %316, i64 2
-  %326 = getelementptr inbounds nuw [512 x [512 x [3 x i16]]], ptr %74, i64 1, i64 %316, i64 2
-  %327 = getelementptr i8, ptr %324, i64 16
+  %319 = getelementptr inbounds nuw [512 x [512 x [3 x i16]]], ptr %74, i64 0, i64 %316, i64 2
+  %320 = getelementptr inbounds nuw [512 x [512 x [3 x i16]]], ptr %74, i64 1, i64 %316, i64 2
+  %321 = zext i16 %318 to i32
+  %322 = trunc nsw i64 %indvars.iv108.i to i32
+  %323 = mul nsw i32 %321, %322
+  %324 = add nsw i32 %323, %.pre-phi
+  %325 = sext i32 %324 to i64
+  %326 = getelementptr [4 x i16], ptr %317, i64 %325
+  %327 = getelementptr i8, ptr %326, i64 16
   br label %.preheader65.us.i.critedge
 
 .preheader65.us.i.critedge:                       ; preds = %.loopexit.us.i, %.lr.ph79.split.us.i
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.loopexit.us.i ], [ 5, %.lr.ph79.split.us.i ]
-  %328 = phi ptr [ %331, %.loopexit.us.i ], [ %326, %.lr.ph79.split.us.i ]
-  %329 = phi ptr [ %330, %.loopexit.us.i ], [ %325, %.lr.ph79.split.us.i ]
+  %328 = phi ptr [ %331, %.loopexit.us.i ], [ %320, %.lr.ph79.split.us.i ]
+  %329 = phi ptr [ %330, %.loopexit.us.i ], [ %319, %.lr.ph79.split.us.i ]
   %indvars.iv92.i = phi i64 [ %indvars.iv.next93.i, %.loopexit.us.i ], [ 2, %.lr.ph79.split.us.i ]
   %.076.us.i = phi ptr [ %333, %.loopexit.us.i ], [ %327, %.lr.ph79.split.us.i ]
   %.05275.us.i = phi i32 [ %339, %.loopexit.us.i ], [ %315, %.lr.ph79.split.us.i ]

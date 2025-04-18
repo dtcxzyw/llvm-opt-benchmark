@@ -2193,9 +2193,9 @@ execute_scripts.exit:                             ; preds = %21, %23, %._crit_ed
   %70 = load ptr, ptr @type_int, align 8
   call fastcc void @setup_int_define(ptr noundef nonnull @.str.82, i64 noundef %69, ptr noundef %70)
   %71 = load i16, ptr getelementptr inbounds nuw (i8, ptr @platform_target, i64 232), align 8
-  %72 = and i16 %71, 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store i32 65, ptr %13, align 4
+  %72 = and i16 %71, 2
   %73 = icmp ne i16 %72, 0
   %74 = call ptr @symtab_add(ptr noundef nonnull @.str.83, i32 noundef 16, i32 noundef 1188444373, ptr noundef nonnull %13) #20
   %75 = load ptr, ptr @type_bool, align 8

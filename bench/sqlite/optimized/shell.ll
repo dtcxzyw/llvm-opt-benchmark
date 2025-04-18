@@ -63171,13 +63171,13 @@ cli_wcwidth.exit:                                 ; preds = %52, %55, %61, %67, 
   %125 = and i32 %.0131205, 7
   %126 = xor i32 %125, 7
   %umin = tail call i32 @llvm.umin.i32(i32 %124, i32 %126)
-  %127 = add i32 %.0123206, 1
-  %128 = add i32 %122, %umin
-  %129 = add i32 %127, %umin
+  %127 = add i32 %122, %umin
+  %128 = add i32 %.0123206, 1
+  %129 = add i32 %128, %umin
   br label %130, !llvm.loop !1160
 
 130:                                              ; preds = %.preheader192.preheader, %117, %cli_wcwidth.exit
-  %.2133 = phi i32 [ %114, %cli_wcwidth.exit ], [ %118, %117 ], [ %128, %.preheader192.preheader ]
+  %.2133 = phi i32 [ %114, %cli_wcwidth.exit ], [ %118, %117 ], [ %127, %.preheader192.preheader ]
   %.2125 = phi i32 [ %113, %cli_wcwidth.exit ], [ %119, %117 ], [ %129, %.preheader192.preheader ]
   %.0.i.pn.pn = phi i32 [ %.0.i.pn, %cli_wcwidth.exit ], [ 1, %117 ], [ 1, %.preheader192.preheader ]
   %.2 = add nsw i32 %.0.i.pn.pn, %.0120207

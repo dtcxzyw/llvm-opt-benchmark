@@ -1532,7 +1532,6 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %1
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 88
   %82 = load i64, ptr %81, align 4
-  %.sroa.2.0.extract.shift = lshr i64 %82, 32
   %83 = load float, ptr %56, align 8
   %84 = fdiv float %83, 5.000000e+00
   %exp2f = tail call float @exp2f(float %84)
@@ -1567,28 +1566,29 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %1
   br i1 %.not.i, label %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit, label %98
 
 _ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit: ; preds = %98
-  %.sroa.0.0.extract.trunc = trunc i64 %82 to i32
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store float 1.000000e+00, ptr %103, align 4, !alias.scope !11
-  %104 = sitofp i32 %.sroa.0.0.extract.trunc to float
-  %105 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %105, i8 0, i64 44, i1 false), !alias.scope !14
-  br label %106
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %104, i8 0, i64 44, i1 false), !alias.scope !14
+  br label %105
 
-106:                                              ; preds = %106, %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit
-  %.05.i.i = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit ], [ %108, %106 ]
-  %107 = getelementptr inbounds nuw [4 x [4 x float]], ptr %9, i64 0, i64 %.05.i.i, i64 %.05.i.i
-  store float 0.000000e+00, ptr %107, align 4, !alias.scope !14
-  %108 = add nuw nsw i64 %.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %108, 4
-  br i1 %exitcond.not.i.i, label %_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit, label %106, !llvm.loop !17
+105:                                              ; preds = %105, %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit
+  %.05.i.i = phi i64 [ 0, %_ZN7nanogui6MatrixIfLm4EE5scaleERKNS_5ArrayIfLm3EEE.exit ], [ %107, %105 ]
+  %106 = getelementptr inbounds nuw [4 x [4 x float]], ptr %9, i64 0, i64 %.05.i.i, i64 %.05.i.i
+  store float 0.000000e+00, ptr %106, align 4, !alias.scope !14
+  %107 = add nuw nsw i64 %.05.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %107, 4
+  br i1 %exitcond.not.i.i, label %_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit, label %105, !llvm.loop !17
 
-_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit: ; preds = %106
+_ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_ffffff.exit: ; preds = %105
+  %.sroa.0.0.extract.trunc = trunc i64 %82 to i32
+  %.sroa.2.0.extract.shift = lshr i64 %82, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
+  %108 = sitofp i32 %.sroa.0.0.extract.trunc to float
   %109 = sitofp i32 %.sroa.2.0.extract.trunc to float
   %110 = fsub float 0.000000e+00, %109
   %111 = fdiv float 1.000000e+00, %110
-  %112 = fdiv float 1.000000e+00, %104
+  %112 = fdiv float 1.000000e+00, %108
   %113 = fmul float %112, 2.000000e+00
   store float %113, ptr %9, align 4, !alias.scope !14
   %114 = fmul float %111, 2.000000e+00
@@ -1599,7 +1599,7 @@ _ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_f
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 60
   store float 1.000000e+00, ptr %118, align 4, !alias.scope !14
-  %119 = fneg float %104
+  %119 = fneg float %108
   %120 = fmul float %112, %119
   store float %120, ptr %117, align 4, !alias.scope !14
   %121 = fneg float %109

@@ -7366,8 +7366,8 @@ node_linebreak.exit:                              ; preds = %651
 663:                                              ; preds = %27
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %13) #25
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14) #25
-  %.1208.sroa.gep.i = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %14, i8 0, i64 128, i1 false), !tbaa !89
+  %.1208.sroa.gep.i = getelementptr inbounds nuw i8, ptr %14, i64 24
   %.1208.sroa.gep320.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %664 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %665 = load ptr, ptr %664, align 8, !tbaa !84

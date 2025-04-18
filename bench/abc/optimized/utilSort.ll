@@ -1437,9 +1437,9 @@ define void @Abc_QuickSort2Inc_rec(ptr noundef captures(none) %0, i32 noundef %1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
   br i1 %exitcond36.not.i, label %Abc_SelectSortInc.exit, label %.lr.ph.preheader.i, !llvm.loop !37
 
-29:                                               ; preds = %.preheader57, %47
-  %.045 = phi i32 [ %44, %47 ], [ %2, %.preheader57 ]
-  %.0 = phi i32 [ %37, %47 ], [ %8, %.preheader57 ]
+29:                                               ; preds = %.preheader57, %46
+  %.045 = phi i32 [ %43, %46 ], [ %2, %.preheader57 ]
+  %.0 = phi i32 [ %48, %46 ], [ %8, %.preheader57 ]
   %30 = sext i32 %.0 to i64
   br label %31
 
@@ -1454,33 +1454,33 @@ define void @Abc_QuickSort2Inc_rec(ptr noundef captures(none) %0, i32 noundef %1
 
 .preheader:                                       ; preds = %31
   %36 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next
-  %37 = trunc nsw i64 %indvars.iv.next to i32
-  %38 = sext i32 %.045 to i64
-  br label %39
+  %37 = sext i32 %.045 to i64
+  br label %38
 
-39:                                               ; preds = %.preheader, %39
-  %indvars.iv82 = phi i64 [ %38, %.preheader ], [ %indvars.iv.next83, %39 ]
+38:                                               ; preds = %.preheader, %38
+  %indvars.iv82 = phi i64 [ %37, %.preheader ], [ %indvars.iv.next83, %38 ]
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, -1
-  %40 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next83
-  %41 = load i64, ptr %40, align 8, !tbaa !35
-  %42 = trunc i64 %41 to i32
-  %43 = icmp uge i32 %10, %42
-  %44 = trunc nsw i64 %indvars.iv.next83 to i32
-  %45 = icmp eq i32 %.tr5570, %44
-  %or.cond = or i1 %45, %43
-  br i1 %or.cond, label %46, label %39, !llvm.loop !39
+  %39 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next83
+  %40 = load i64, ptr %39, align 8, !tbaa !35
+  %41 = trunc i64 %40 to i32
+  %42 = icmp uge i32 %10, %41
+  %43 = trunc nsw i64 %indvars.iv.next83 to i32
+  %44 = icmp eq i32 %.tr5570, %43
+  %or.cond = or i1 %44, %42
+  br i1 %or.cond, label %45, label %38, !llvm.loop !39
 
-46:                                               ; preds = %39
+45:                                               ; preds = %38
   %.not54 = icmp slt i64 %indvars.iv.next, %indvars.iv.next83
-  br i1 %.not54, label %47, label %tailrecurse
+  br i1 %.not54, label %46, label %tailrecurse
 
-47:                                               ; preds = %46
-  %48 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next83
-  store i64 %41, ptr %36, align 8, !tbaa !35
-  store i64 %33, ptr %48, align 8, !tbaa !35
+46:                                               ; preds = %45
+  %47 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next83
+  %48 = trunc nsw i64 %indvars.iv.next to i32
+  store i64 %40, ptr %36, align 8, !tbaa !35
+  store i64 %33, ptr %47, align 8, !tbaa !35
   br label %29
 
-tailrecurse:                                      ; preds = %46
+tailrecurse:                                      ; preds = %45
   %49 = trunc nsw i64 %indvars.iv to i32
   %50 = load i64, ptr %5, align 8, !tbaa !35
   store i64 %50, ptr %36, align 8, !tbaa !35
@@ -1557,9 +1557,9 @@ define void @Abc_QuickSort2Dec_rec(ptr noundef captures(none) %0, i32 noundef %1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
   br i1 %exitcond36.not.i, label %Abc_SelectSortDec.exit, label %.lr.ph.preheader.i, !llvm.loop !41
 
-29:                                               ; preds = %.preheader57, %47
-  %.045 = phi i32 [ %44, %47 ], [ %2, %.preheader57 ]
-  %.0 = phi i32 [ %37, %47 ], [ %8, %.preheader57 ]
+29:                                               ; preds = %.preheader57, %46
+  %.045 = phi i32 [ %43, %46 ], [ %2, %.preheader57 ]
+  %.0 = phi i32 [ %48, %46 ], [ %8, %.preheader57 ]
   %30 = sext i32 %.0 to i64
   br label %31
 
@@ -1574,33 +1574,33 @@ define void @Abc_QuickSort2Dec_rec(ptr noundef captures(none) %0, i32 noundef %1
 
 .preheader:                                       ; preds = %31
   %36 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next
-  %37 = trunc nsw i64 %indvars.iv.next to i32
-  %38 = sext i32 %.045 to i64
-  br label %39
+  %37 = sext i32 %.045 to i64
+  br label %38
 
-39:                                               ; preds = %.preheader, %39
-  %indvars.iv82 = phi i64 [ %38, %.preheader ], [ %indvars.iv.next83, %39 ]
+38:                                               ; preds = %.preheader, %38
+  %indvars.iv82 = phi i64 [ %37, %.preheader ], [ %indvars.iv.next83, %38 ]
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, -1
-  %40 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next83
-  %41 = load i64, ptr %40, align 8, !tbaa !35
-  %42 = trunc i64 %41 to i32
-  %43 = icmp ule i32 %10, %42
-  %44 = trunc nsw i64 %indvars.iv.next83 to i32
-  %45 = icmp eq i32 %.tr5570, %44
-  %or.cond = or i1 %45, %43
-  br i1 %or.cond, label %46, label %39, !llvm.loop !43
+  %39 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next83
+  %40 = load i64, ptr %39, align 8, !tbaa !35
+  %41 = trunc i64 %40 to i32
+  %42 = icmp ule i32 %10, %41
+  %43 = trunc nsw i64 %indvars.iv.next83 to i32
+  %44 = icmp eq i32 %.tr5570, %43
+  %or.cond = or i1 %44, %42
+  br i1 %or.cond, label %45, label %38, !llvm.loop !43
 
-46:                                               ; preds = %39
+45:                                               ; preds = %38
   %.not54 = icmp slt i64 %indvars.iv.next, %indvars.iv.next83
-  br i1 %.not54, label %47, label %tailrecurse
+  br i1 %.not54, label %46, label %tailrecurse
 
-47:                                               ; preds = %46
-  %48 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next83
-  store i64 %41, ptr %36, align 8, !tbaa !35
-  store i64 %33, ptr %48, align 8, !tbaa !35
+46:                                               ; preds = %45
+  %47 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next83
+  %48 = trunc nsw i64 %indvars.iv.next to i32
+  store i64 %40, ptr %36, align 8, !tbaa !35
+  store i64 %33, ptr %47, align 8, !tbaa !35
   br label %29
 
-tailrecurse:                                      ; preds = %46
+tailrecurse:                                      ; preds = %45
   %49 = trunc nsw i64 %indvars.iv to i32
   %50 = load i64, ptr %5, align 8, !tbaa !35
   store i64 %50, ptr %36, align 8, !tbaa !35
@@ -1641,8 +1641,8 @@ define void @Abc_QuickSort3Inc_rec(ptr noundef captures(none) %0, i32 noundef %1
 .outer:                                           ; preds = %63, %.preheader123
   %.0110.ph = phi i32 [ %64, %63 ], [ %2, %.preheader123 ]
   %.0108.ph = phi i32 [ %.1109, %63 ], [ %10, %.preheader123 ]
-  %.0105.ph = phi i32 [ %47, %63 ], [ %2, %.preheader123 ]
-  %.0103.ph = phi i32 [ %40, %63 ], [ %10, %.preheader123 ]
+  %.0105.ph = phi i32 [ %46, %63 ], [ %2, %.preheader123 ]
+  %.0103.ph = phi i32 [ %50, %63 ], [ %10, %.preheader123 ]
   br label %31
 
 .lr.ph27.preheader.i:                             ; preds = %7
@@ -1691,8 +1691,8 @@ define void @Abc_QuickSort3Inc_rec(ptr noundef captures(none) %0, i32 noundef %1
 
 31:                                               ; preds = %.outer, %60
   %.0108 = phi i32 [ %.1109, %60 ], [ %.0108.ph, %.outer ]
-  %.0105 = phi i32 [ %47, %60 ], [ %.0105.ph, %.outer ]
-  %.0103 = phi i32 [ %40, %60 ], [ %.0103.ph, %.outer ]
+  %.0105 = phi i32 [ %46, %60 ], [ %.0105.ph, %.outer ]
+  %.0103 = phi i32 [ %50, %60 ], [ %.0103.ph, %.outer ]
   %32 = sext i32 %.0103 to i64
   %33 = add i32 %.0103, 2
   br label %34
@@ -1710,30 +1710,30 @@ define void @Abc_QuickSort3Inc_rec(ptr noundef captures(none) %0, i32 noundef %1
 
 .preheader:                                       ; preds = %34
   %39 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next
-  %40 = trunc nsw i64 %indvars.iv.next to i32
-  %41 = sext i32 %.0105 to i64
-  br label %42
+  %40 = sext i32 %.0105 to i64
+  br label %41
 
-42:                                               ; preds = %.preheader, %42
-  %indvars.iv159 = phi i64 [ %41, %.preheader ], [ %indvars.iv.next160, %42 ]
+41:                                               ; preds = %.preheader, %41
+  %indvars.iv159 = phi i64 [ %40, %.preheader ], [ %indvars.iv.next160, %41 ]
   %indvars.iv.next160 = add nsw i64 %indvars.iv159, -1
-  %43 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next160
-  %44 = load i64, ptr %43, align 8, !tbaa !35
-  %45 = trunc i64 %44 to i32
-  %46 = icmp uge i32 %12, %45
-  %47 = trunc nsw i64 %indvars.iv.next160 to i32
-  %48 = icmp eq i32 %.tr120143, %47
-  %or.cond = or i1 %48, %46
-  br i1 %or.cond, label %49, label %42, !llvm.loop !45
+  %42 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next160
+  %43 = load i64, ptr %42, align 8, !tbaa !35
+  %44 = trunc i64 %43 to i32
+  %45 = icmp uge i32 %12, %44
+  %46 = trunc nsw i64 %indvars.iv.next160 to i32
+  %47 = icmp eq i32 %.tr120143, %46
+  %or.cond = or i1 %47, %45
+  br i1 %or.cond, label %48, label %41, !llvm.loop !45
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next160
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next160
+  %50 = trunc nsw i64 %indvars.iv.next to i32
   %.not119 = icmp slt i64 %indvars.iv.next, %indvars.iv.next160
   br i1 %.not119, label %51, label %68
 
-51:                                               ; preds = %49
-  store i64 %44, ptr %39, align 8, !tbaa !35
-  store i64 %36, ptr %50, align 8, !tbaa !35
+51:                                               ; preds = %48
+  store i64 %43, ptr %39, align 8, !tbaa !35
+  store i64 %36, ptr %49, align 8, !tbaa !35
   %52 = load i64, ptr %39, align 8, !tbaa !35
   %53 = trunc i64 %52 to i32
   %54 = icmp eq i32 %53, %12
@@ -1746,7 +1746,7 @@ define void @Abc_QuickSort3Inc_rec(ptr noundef captures(none) %0, i32 noundef %1
   %59 = load i64, ptr %58, align 8, !tbaa !35
   store i64 %52, ptr %58, align 8, !tbaa !35
   store i64 %59, ptr %39, align 8, !tbaa !35
-  %.pre = load i64, ptr %50, align 8, !tbaa !35
+  %.pre = load i64, ptr %49, align 8, !tbaa !35
   %.pre179 = trunc i64 %.pre to i32
   br label %60
 
@@ -1762,11 +1762,11 @@ define void @Abc_QuickSort3Inc_rec(ptr noundef captures(none) %0, i32 noundef %1
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i64, ptr %0, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !35
-  store i64 %67, ptr %50, align 8, !tbaa !35
+  store i64 %67, ptr %49, align 8, !tbaa !35
   store i64 %61, ptr %66, align 8, !tbaa !35
   br label %.outer
 
-68:                                               ; preds = %49
+68:                                               ; preds = %48
   %69 = trunc nsw i64 %indvars.iv to i32
   %70 = load i64, ptr %5, align 8, !tbaa !35
   store i64 %70, ptr %39, align 8, !tbaa !35
@@ -1863,8 +1863,8 @@ define void @Abc_QuickSort3Dec_rec(ptr noundef captures(none) %0, i32 noundef %1
 .outer:                                           ; preds = %63, %.preheader123
   %.0110.ph = phi i32 [ %64, %63 ], [ %2, %.preheader123 ]
   %.0108.ph = phi i32 [ %.1109, %63 ], [ %10, %.preheader123 ]
-  %.0105.ph = phi i32 [ %47, %63 ], [ %2, %.preheader123 ]
-  %.0103.ph = phi i32 [ %40, %63 ], [ %10, %.preheader123 ]
+  %.0105.ph = phi i32 [ %46, %63 ], [ %2, %.preheader123 ]
+  %.0103.ph = phi i32 [ %50, %63 ], [ %10, %.preheader123 ]
   br label %31
 
 .lr.ph27.preheader.i:                             ; preds = %7
@@ -1913,8 +1913,8 @@ define void @Abc_QuickSort3Dec_rec(ptr noundef captures(none) %0, i32 noundef %1
 
 31:                                               ; preds = %.outer, %60
   %.0108 = phi i32 [ %.1109, %60 ], [ %.0108.ph, %.outer ]
-  %.0105 = phi i32 [ %47, %60 ], [ %.0105.ph, %.outer ]
-  %.0103 = phi i32 [ %40, %60 ], [ %.0103.ph, %.outer ]
+  %.0105 = phi i32 [ %46, %60 ], [ %.0105.ph, %.outer ]
+  %.0103 = phi i32 [ %50, %60 ], [ %.0103.ph, %.outer ]
   %32 = sext i32 %.0103 to i64
   %33 = add i32 %.0103, 2
   br label %34
@@ -1932,30 +1932,30 @@ define void @Abc_QuickSort3Dec_rec(ptr noundef captures(none) %0, i32 noundef %1
 
 .preheader:                                       ; preds = %34
   %39 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next
-  %40 = trunc nsw i64 %indvars.iv.next to i32
-  %41 = sext i32 %.0105 to i64
-  br label %42
+  %40 = sext i32 %.0105 to i64
+  br label %41
 
-42:                                               ; preds = %.preheader, %42
-  %indvars.iv159 = phi i64 [ %41, %.preheader ], [ %indvars.iv.next160, %42 ]
+41:                                               ; preds = %.preheader, %41
+  %indvars.iv159 = phi i64 [ %40, %.preheader ], [ %indvars.iv.next160, %41 ]
   %indvars.iv.next160 = add nsw i64 %indvars.iv159, -1
-  %43 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next160
-  %44 = load i64, ptr %43, align 8, !tbaa !35
-  %45 = trunc i64 %44 to i32
-  %46 = icmp ule i32 %12, %45
-  %47 = trunc nsw i64 %indvars.iv.next160 to i32
-  %48 = icmp eq i32 %.tr120143, %47
-  %or.cond = or i1 %48, %46
-  br i1 %or.cond, label %49, label %42, !llvm.loop !49
+  %42 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next160
+  %43 = load i64, ptr %42, align 8, !tbaa !35
+  %44 = trunc i64 %43 to i32
+  %45 = icmp ule i32 %12, %44
+  %46 = trunc nsw i64 %indvars.iv.next160 to i32
+  %47 = icmp eq i32 %.tr120143, %46
+  %or.cond = or i1 %47, %45
+  br i1 %or.cond, label %48, label %41, !llvm.loop !49
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next160
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next160
+  %50 = trunc nsw i64 %indvars.iv.next to i32
   %.not119 = icmp slt i64 %indvars.iv.next, %indvars.iv.next160
   br i1 %.not119, label %51, label %68
 
-51:                                               ; preds = %49
-  store i64 %44, ptr %39, align 8, !tbaa !35
-  store i64 %36, ptr %50, align 8, !tbaa !35
+51:                                               ; preds = %48
+  store i64 %43, ptr %39, align 8, !tbaa !35
+  store i64 %36, ptr %49, align 8, !tbaa !35
   %52 = load i64, ptr %39, align 8, !tbaa !35
   %53 = trunc i64 %52 to i32
   %54 = icmp eq i32 %53, %12
@@ -1968,7 +1968,7 @@ define void @Abc_QuickSort3Dec_rec(ptr noundef captures(none) %0, i32 noundef %1
   %59 = load i64, ptr %58, align 8, !tbaa !35
   store i64 %52, ptr %58, align 8, !tbaa !35
   store i64 %59, ptr %39, align 8, !tbaa !35
-  %.pre = load i64, ptr %50, align 8, !tbaa !35
+  %.pre = load i64, ptr %49, align 8, !tbaa !35
   %.pre179 = trunc i64 %.pre to i32
   br label %60
 
@@ -1984,11 +1984,11 @@ define void @Abc_QuickSort3Dec_rec(ptr noundef captures(none) %0, i32 noundef %1
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i64, ptr %0, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !35
-  store i64 %67, ptr %50, align 8, !tbaa !35
+  store i64 %67, ptr %49, align 8, !tbaa !35
   store i64 %61, ptr %66, align 8, !tbaa !35
   br label %.outer
 
-68:                                               ; preds = %49
+68:                                               ; preds = %48
   %69 = trunc nsw i64 %indvars.iv to i32
   %70 = load i64, ptr %5, align 8, !tbaa !35
   store i64 %70, ptr %39, align 8, !tbaa !35

@@ -1479,10 +1479,10 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %77, %.noexc74, %_ZN
   br i1 %201, label %.preheader.us.us.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph127.split.us
-  %202 = add nsw i32 %198, -1
-  %203 = mul i32 %183, %202
-  %204 = add i32 %183, %.049139
-  %205 = add i32 %204, %203
+  %202 = add i32 %183, %.049139
+  %203 = add nsw i32 %198, -1
+  %204 = mul i32 %183, %203
+  %205 = add i32 %202, %204
   br label %242
 
 .preheader.us.us.preheader:                       ; preds = %.lr.ph127.split.us
@@ -1524,10 +1524,10 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %77, %.noexc74, %_ZN
   br i1 %201, label %.preheader108.us.preheader, label %.preheader108.preheader
 
 .preheader108.preheader:                          ; preds = %.lr.ph127.split
-  %219 = add nsw i32 %198, -1
-  %220 = mul i32 %183, %219
-  %221 = add i32 %183, %.049139
-  %222 = add i32 %221, %220
+  %219 = add i32 %183, %.049139
+  %220 = add nsw i32 %198, -1
+  %221 = mul i32 %183, %220
+  %222 = add i32 %219, %221
   br label %._crit_edge
 
 .preheader108.us.preheader:                       ; preds = %.lr.ph127.split

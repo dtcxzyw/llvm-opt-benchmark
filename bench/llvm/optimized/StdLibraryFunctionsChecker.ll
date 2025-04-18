@@ -9101,181 +9101,181 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   br i1 %.not.i.i.i.i.i.i6451, label %2759, label %.lr.ph.i.i.i.i.i.i6443, !llvm.loop !918
 
 2759:                                             ; preds = %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6450
-  %2760 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr %2758, ptr %2744, align 8, !tbaa !420
-  %2761 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary4CaseEOSt6vectorISt10shared_ptrINS0_15ValueConstraintEESaIS5_EERKNS0_19ErrnoConstraintBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %60, ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(8) %1060, ptr nonnull @.str.41, i64 48)
+  %2760 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary4CaseEOSt6vectorISt10shared_ptrINS0_15ValueConstraintEESaIS5_EERKNS0_19ErrnoConstraintBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %60, ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(8) %1060, ptr nonnull @.str.41, i64 48)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %65) #22
-  %2762 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  store i64 128, ptr %2762, align 8
-  %.sroa.43733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2762, i64 8
+  %2761 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
+  store i64 128, ptr %2761, align 8
+  %.sroa.43733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2761, i64 8
   store i64 %.sroa.speculated, ptr %.sroa.43733.0..sroa_idx, align 8
-  %2763 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !1218
-  %2764 = getelementptr inbounds nuw i8, ptr %2763, i64 8
-  store i32 1, ptr %2764, align 8, !tbaa !424, !noalias !1225
-  %2765 = getelementptr inbounds nuw i8, ptr %2763, i64 12
-  store i32 1, ptr %2765, align 4, !tbaa !426, !noalias !1225
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2763, align 8, !tbaa !7, !noalias !1225
-  %2766 = getelementptr inbounds nuw i8, ptr %2763, i64 16
-  %2767 = getelementptr inbounds nuw i8, ptr %2763, i64 24
-  store i32 0, ptr %2767, align 8, !tbaa !464, !noalias !1225
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2766, align 8, !tbaa !7, !noalias !1225
-  %2768 = getelementptr inbounds nuw i8, ptr %2763, i64 28
-  store i32 1, ptr %2768, align 4, !tbaa !900, !noalias !1225
-  %2769 = getelementptr inbounds nuw i8, ptr %2763, i64 32
-  %2770 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !1225
-  store ptr %2770, ptr %2769, align 8, !tbaa !907, !noalias !1225
-  %2771 = getelementptr inbounds nuw i8, ptr %2770, i64 16
-  %2772 = getelementptr inbounds nuw i8, ptr %2763, i64 48
-  store ptr %2771, ptr %2772, align 8, !tbaa !908, !noalias !1225
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2770, ptr noundef nonnull align 8 dereferenceable(16) %2762, i64 16, i1 false), !noalias !1225
-  %2773 = getelementptr inbounds nuw i8, ptr %2763, i64 40
-  store ptr %2771, ptr %2773, align 8, !tbaa !909, !noalias !1225
-  %2774 = getelementptr inbounds nuw i8, ptr %2763, i64 56
-  store ptr @.str.4, ptr %2774, align 8, !tbaa !9, !noalias !1225
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i6458 = getelementptr inbounds nuw i8, ptr %2763, i64 64
+  %2762 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !1218
+  %2763 = getelementptr inbounds nuw i8, ptr %2762, i64 8
+  store i32 1, ptr %2763, align 8, !tbaa !424, !noalias !1225
+  %2764 = getelementptr inbounds nuw i8, ptr %2762, i64 12
+  store i32 1, ptr %2764, align 4, !tbaa !426, !noalias !1225
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2762, align 8, !tbaa !7, !noalias !1225
+  %2765 = getelementptr inbounds nuw i8, ptr %2762, i64 16
+  %2766 = getelementptr inbounds nuw i8, ptr %2762, i64 24
+  store i32 0, ptr %2766, align 8, !tbaa !464, !noalias !1225
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2765, align 8, !tbaa !7, !noalias !1225
+  %2767 = getelementptr inbounds nuw i8, ptr %2762, i64 28
+  store i32 1, ptr %2767, align 4, !tbaa !900, !noalias !1225
+  %2768 = getelementptr inbounds nuw i8, ptr %2762, i64 32
+  %2769 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !1225
+  store ptr %2769, ptr %2768, align 8, !tbaa !907, !noalias !1225
+  %2770 = getelementptr inbounds nuw i8, ptr %2769, i64 16
+  %2771 = getelementptr inbounds nuw i8, ptr %2762, i64 48
+  store ptr %2770, ptr %2771, align 8, !tbaa !908, !noalias !1225
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2769, ptr noundef nonnull align 8 dereferenceable(16) %2761, i64 16, i1 false), !noalias !1225
+  %2772 = getelementptr inbounds nuw i8, ptr %2762, i64 40
+  store ptr %2770, ptr %2772, align 8, !tbaa !909, !noalias !1225
+  %2773 = getelementptr inbounds nuw i8, ptr %2762, i64 56
+  store ptr @.str.4, ptr %2773, align 8, !tbaa !9, !noalias !1225
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i6458 = getelementptr inbounds nuw i8, ptr %2762, i64 64
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i6458, align 8, !tbaa !37, !noalias !1225
-  %2775 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i64 0, ptr %2775, align 8
-  %2776 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  store ptr %2776, ptr %65, align 8, !tbaa !417
-  %2777 = getelementptr inbounds nuw i8, ptr %2776, i64 16
-  %2778 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store ptr %2777, ptr %2778, align 8, !tbaa !430
-  store ptr %2766, ptr %2776, align 8, !tbaa !447
-  %2779 = getelementptr inbounds nuw i8, ptr %2776, i64 8
-  store ptr %2763, ptr %2779, align 8, !tbaa !421
-  %2780 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !239
-  %.not.i.i.i.i.i.i.i.i.i.i.i6467 = icmp eq i8 %2780, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i6467, label %2782, label %2781
+  %2774 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store i64 0, ptr %2774, align 8
+  %2775 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
+  store ptr %2775, ptr %65, align 8, !tbaa !417
+  %2776 = getelementptr inbounds nuw i8, ptr %2775, i64 16
+  %2777 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store ptr %2776, ptr %2777, align 8, !tbaa !430
+  store ptr %2765, ptr %2775, align 8, !tbaa !447
+  %2778 = getelementptr inbounds nuw i8, ptr %2775, i64 8
+  store ptr %2762, ptr %2778, align 8, !tbaa !421
+  %2779 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !239
+  %.not.i.i.i.i.i.i.i.i.i.i.i6467 = icmp eq i8 %2779, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i6467, label %2781, label %2780
+
+2780:                                             ; preds = %2759
+  store i32 2, ptr %2763, align 4, !tbaa !427
+  br label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6468
 
 2781:                                             ; preds = %2759
-  store i32 2, ptr %2764, align 4, !tbaa !427
+  %2782 = atomicrmw volatile add ptr %2763, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6468
 
-2782:                                             ; preds = %2759
-  %2783 = atomicrmw volatile add ptr %2764, i32 1 acq_rel, align 4
-  br label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6468
-
-_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6468: ; preds = %2782, %2781
-  store ptr %2777, ptr %2775, align 8, !tbaa !420
-  %2784 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary4CaseEOSt6vectorISt10shared_ptrINS0_15ValueConstraintEESaIS5_EERKNS0_19ErrnoConstraintBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %60, ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(8) %1060, ptr nonnull @.str.4, i64 0)
+_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6468: ; preds = %2781, %2780
+  store ptr %2776, ptr %2774, align 8, !tbaa !420
+  %2783 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary4CaseEOSt6vectorISt10shared_ptrINS0_15ValueConstraintEESaIS5_EERKNS0_19ErrnoConstraintBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %60, ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(8) %1060, ptr nonnull @.str.4, i64 0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %66) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67) #22
-  %2785 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !1226
-  store i64 0, ptr %2785, align 8, !noalias !1226
-  %.sroa.4.0..sroa_idx.i6471 = getelementptr inbounds nuw i8, ptr %2785, i64 8
+  %2784 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !1226
+  store i64 0, ptr %2784, align 8, !noalias !1226
+  %.sroa.4.0..sroa_idx.i6471 = getelementptr inbounds nuw i8, ptr %2784, i64 8
   store i64 %.sroa.speculated, ptr %.sroa.4.0..sroa_idx.i6471, align 8, !noalias !1226
-  %2786 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !1229
-  %2787 = getelementptr inbounds nuw i8, ptr %2786, i64 8
-  store i32 1, ptr %2787, align 8, !tbaa !424, !noalias !1236
-  %2788 = getelementptr inbounds nuw i8, ptr %2786, i64 12
-  store i32 1, ptr %2788, align 4, !tbaa !426, !noalias !1236
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2786, align 8, !tbaa !7, !noalias !1236
-  %2789 = getelementptr inbounds nuw i8, ptr %2786, i64 16
-  %2790 = getelementptr inbounds nuw i8, ptr %2786, i64 24
-  store i32 0, ptr %2790, align 8, !tbaa !464, !noalias !1236
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2789, align 8, !tbaa !7, !noalias !1236
-  %2791 = getelementptr inbounds nuw i8, ptr %2786, i64 28
-  store i32 0, ptr %2791, align 4, !tbaa !900, !noalias !1236
-  %2792 = getelementptr inbounds nuw i8, ptr %2786, i64 32
-  %2793 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !1236
-  store ptr %2793, ptr %2792, align 8, !tbaa !907, !noalias !1236
-  %2794 = getelementptr inbounds nuw i8, ptr %2793, i64 16
-  %2795 = getelementptr inbounds nuw i8, ptr %2786, i64 48
-  store ptr %2794, ptr %2795, align 8, !tbaa !908, !noalias !1236
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2793, ptr noundef nonnull align 8 dereferenceable(16) %2785, i64 16, i1 false), !noalias !1236
-  %2796 = getelementptr inbounds nuw i8, ptr %2786, i64 40
-  store ptr %2794, ptr %2796, align 8, !tbaa !909, !noalias !1236
-  %2797 = getelementptr inbounds nuw i8, ptr %2786, i64 56
-  store ptr @.str.4, ptr %2797, align 8, !tbaa !9, !noalias !1236
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i6476 = getelementptr inbounds nuw i8, ptr %2786, i64 64
+  %2785 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !1229
+  %2786 = getelementptr inbounds nuw i8, ptr %2785, i64 8
+  store i32 1, ptr %2786, align 8, !tbaa !424, !noalias !1236
+  %2787 = getelementptr inbounds nuw i8, ptr %2785, i64 12
+  store i32 1, ptr %2787, align 4, !tbaa !426, !noalias !1236
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2785, align 8, !tbaa !7, !noalias !1236
+  %2788 = getelementptr inbounds nuw i8, ptr %2785, i64 16
+  %2789 = getelementptr inbounds nuw i8, ptr %2785, i64 24
+  store i32 0, ptr %2789, align 8, !tbaa !464, !noalias !1236
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2788, align 8, !tbaa !7, !noalias !1236
+  %2790 = getelementptr inbounds nuw i8, ptr %2785, i64 28
+  store i32 0, ptr %2790, align 4, !tbaa !900, !noalias !1236
+  %2791 = getelementptr inbounds nuw i8, ptr %2785, i64 32
+  %2792 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !1236
+  store ptr %2792, ptr %2791, align 8, !tbaa !907, !noalias !1236
+  %2793 = getelementptr inbounds nuw i8, ptr %2792, i64 16
+  %2794 = getelementptr inbounds nuw i8, ptr %2785, i64 48
+  store ptr %2793, ptr %2794, align 8, !tbaa !908, !noalias !1236
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2792, ptr noundef nonnull align 8 dereferenceable(16) %2784, i64 16, i1 false), !noalias !1236
+  %2795 = getelementptr inbounds nuw i8, ptr %2785, i64 40
+  store ptr %2793, ptr %2795, align 8, !tbaa !909, !noalias !1236
+  %2796 = getelementptr inbounds nuw i8, ptr %2785, i64 56
+  store ptr @.str.4, ptr %2796, align 8, !tbaa !9, !noalias !1236
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i6476 = getelementptr inbounds nuw i8, ptr %2785, i64 64
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i6476, align 8, !tbaa !37, !noalias !1236
-  store ptr %2789, ptr %67, align 8, !tbaa !447
-  %2798 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store ptr %2786, ptr %2798, align 8, !tbaa !421
-  %2799 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %2800 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !1237
-  %2801 = getelementptr inbounds nuw i8, ptr %2800, i64 8
-  store i32 1, ptr %2801, align 8, !tbaa !424, !noalias !1244
-  %2802 = getelementptr inbounds nuw i8, ptr %2800, i64 12
-  store i32 1, ptr %2802, align 4, !tbaa !426, !noalias !1244
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2800, align 8, !tbaa !7, !noalias !1244
-  %2803 = getelementptr inbounds nuw i8, ptr %2800, i64 16
-  %2804 = getelementptr inbounds nuw i8, ptr %2800, i64 24
-  store i32 -1, ptr %2804, align 8, !tbaa !464, !noalias !1244
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2803, align 8, !tbaa !7, !noalias !1244
-  %2805 = getelementptr inbounds nuw i8, ptr %2800, i64 28
-  store i32 1, ptr %2805, align 4, !tbaa !900, !noalias !1244
-  %2806 = getelementptr inbounds nuw i8, ptr %2800, i64 32
-  %2807 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !1244
-  store ptr %2807, ptr %2806, align 8, !tbaa !907, !noalias !1244
-  %2808 = getelementptr inbounds nuw i8, ptr %2807, i64 16
-  %2809 = getelementptr inbounds nuw i8, ptr %2800, i64 48
-  store ptr %2808, ptr %2809, align 8, !tbaa !908, !noalias !1244
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2807, i8 0, i64 16, i1 false)
-  %2810 = getelementptr inbounds nuw i8, ptr %2800, i64 40
-  store ptr %2808, ptr %2810, align 8, !tbaa !909, !noalias !1244
-  %2811 = getelementptr inbounds nuw i8, ptr %2800, i64 56
-  store ptr @.str.4, ptr %2811, align 8, !tbaa !9, !noalias !1244
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i6484 = getelementptr inbounds nuw i8, ptr %2800, i64 64
+  store ptr %2788, ptr %67, align 8, !tbaa !447
+  %2797 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  store ptr %2785, ptr %2797, align 8, !tbaa !421
+  %2798 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %2799 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !1237
+  %2800 = getelementptr inbounds nuw i8, ptr %2799, i64 8
+  store i32 1, ptr %2800, align 8, !tbaa !424, !noalias !1244
+  %2801 = getelementptr inbounds nuw i8, ptr %2799, i64 12
+  store i32 1, ptr %2801, align 4, !tbaa !426, !noalias !1244
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %2799, align 8, !tbaa !7, !noalias !1244
+  %2802 = getelementptr inbounds nuw i8, ptr %2799, i64 16
+  %2803 = getelementptr inbounds nuw i8, ptr %2799, i64 24
+  store i32 -1, ptr %2803, align 8, !tbaa !464, !noalias !1244
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %2802, align 8, !tbaa !7, !noalias !1244
+  %2804 = getelementptr inbounds nuw i8, ptr %2799, i64 28
+  store i32 1, ptr %2804, align 4, !tbaa !900, !noalias !1244
+  %2805 = getelementptr inbounds nuw i8, ptr %2799, i64 32
+  %2806 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !1244
+  store ptr %2806, ptr %2805, align 8, !tbaa !907, !noalias !1244
+  %2807 = getelementptr inbounds nuw i8, ptr %2806, i64 16
+  %2808 = getelementptr inbounds nuw i8, ptr %2799, i64 48
+  store ptr %2807, ptr %2808, align 8, !tbaa !908, !noalias !1244
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2806, i8 0, i64 16, i1 false)
+  %2809 = getelementptr inbounds nuw i8, ptr %2799, i64 40
+  store ptr %2807, ptr %2809, align 8, !tbaa !909, !noalias !1244
+  %2810 = getelementptr inbounds nuw i8, ptr %2799, i64 56
+  store ptr @.str.4, ptr %2810, align 8, !tbaa !9, !noalias !1244
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i6484 = getelementptr inbounds nuw i8, ptr %2799, i64 64
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i6484, align 8, !tbaa !37, !noalias !1244
-  store ptr %2803, ptr %2799, align 8, !tbaa !447
-  %2812 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store ptr %2800, ptr %2812, align 8, !tbaa !421
-  %2813 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i64 0, ptr %2813, align 8
-  %2814 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
-  store ptr %2814, ptr %66, align 8, !tbaa !417
-  %2815 = getelementptr inbounds nuw i8, ptr %2814, i64 32
-  %2816 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store ptr %2815, ptr %2816, align 8, !tbaa !430
+  store ptr %2802, ptr %2798, align 8, !tbaa !447
+  %2811 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  store ptr %2799, ptr %2811, align 8, !tbaa !421
+  %2812 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store i64 0, ptr %2812, align 8
+  %2813 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  store ptr %2813, ptr %66, align 8, !tbaa !417
+  %2814 = getelementptr inbounds nuw i8, ptr %2813, i64 32
+  %2815 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  store ptr %2814, ptr %2815, align 8, !tbaa !430
   br label %.lr.ph.i.i.i.i.i.i6487
 
 .lr.ph.i.i.i.i.i.i6487:                           ; preds = %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6494, %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6468
-  %.012.i.i.i.i.i.i6488 = phi ptr [ %2827, %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6494 ], [ %2814, %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6468 ]
+  %.012.i.i.i.i.i.i6488 = phi ptr [ %2826, %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6494 ], [ %2813, %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6468 ]
   %.0811.i.i.i.i.i.i6489.idx = phi i64 [ %.0811.i.i.i.i.i.i6489.add, %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6494 ], [ 0, %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6468 ]
   %.0811.i.i.i.i.i.i6489.ptr = getelementptr inbounds nuw i8, ptr %67, i64 %.0811.i.i.i.i.i.i6489.idx
   %.08.val.i.i.i.i.i.i6490 = load ptr, ptr %.0811.i.i.i.i.i.i6489.ptr, align 8, !tbaa !447
-  %2817 = getelementptr i8, ptr %.0811.i.i.i.i.i.i6489.ptr, i64 8
-  %.08.val9.i.i.i.i.i.i6491 = load ptr, ptr %2817, align 8, !tbaa !421
+  %2816 = getelementptr i8, ptr %.0811.i.i.i.i.i.i6489.ptr, i64 8
+  %.08.val9.i.i.i.i.i.i6491 = load ptr, ptr %2816, align 8, !tbaa !421
   store ptr %.08.val.i.i.i.i.i.i6490, ptr %.012.i.i.i.i.i.i6488, align 8, !tbaa !447
-  %2818 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i6488, i64 8
-  store ptr %.08.val9.i.i.i.i.i.i6491, ptr %2818, align 8, !tbaa !421
+  %2817 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i6488, i64 8
+  store ptr %.08.val9.i.i.i.i.i.i6491, ptr %2817, align 8, !tbaa !421
   %.not.i.i.i.i.i.i.i.i.i.i6492 = icmp eq ptr %.08.val9.i.i.i.i.i.i6491, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i6492, label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6494, label %2819
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i6492, label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6494, label %2818
 
-2819:                                             ; preds = %.lr.ph.i.i.i.i.i.i6487
-  %2820 = getelementptr inbounds nuw i8, ptr %.08.val9.i.i.i.i.i.i6491, i64 8
-  %2821 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !239
-  %.not.i.i.i.i.i.i.i.i.i.i.i6493 = icmp eq i8 %2821, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i6493, label %2825, label %2822
+2818:                                             ; preds = %.lr.ph.i.i.i.i.i.i6487
+  %2819 = getelementptr inbounds nuw i8, ptr %.08.val9.i.i.i.i.i.i6491, i64 8
+  %2820 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !239
+  %.not.i.i.i.i.i.i.i.i.i.i.i6493 = icmp eq i8 %2820, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i6493, label %2824, label %2821
 
-2822:                                             ; preds = %2819
-  %2823 = load i32, ptr %2820, align 4, !tbaa !427
-  %2824 = add nsw i32 %2823, 1
-  store i32 %2824, ptr %2820, align 4, !tbaa !427
+2821:                                             ; preds = %2818
+  %2822 = load i32, ptr %2819, align 4, !tbaa !427
+  %2823 = add nsw i32 %2822, 1
+  store i32 %2823, ptr %2819, align 4, !tbaa !427
   br label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6494
 
-2825:                                             ; preds = %2819
-  %2826 = atomicrmw volatile add ptr %2820, i32 1 acq_rel, align 4
+2824:                                             ; preds = %2818
+  %2825 = atomicrmw volatile add ptr %2819, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6494
 
-_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6494: ; preds = %2825, %2822, %.lr.ph.i.i.i.i.i.i6487
+_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6494: ; preds = %2824, %2821, %.lr.ph.i.i.i.i.i.i6487
   %.0811.i.i.i.i.i.i6489.add = add nuw nsw i64 %.0811.i.i.i.i.i.i6489.idx, 16
-  %2827 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i6488, i64 16
+  %2826 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i6488, i64 16
   %.not.i.i.i.i.i.i6495 = icmp eq i64 %.0811.i.i.i.i.i.i6489.add, 32
   br i1 %.not.i.i.i.i.i.i6495, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EEC2ESt16initializer_listIS4_ERKS5_.exit6496, label %.lr.ph.i.i.i.i.i.i6487, !llvm.loop !918
 
 _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EEC2ESt16initializer_listIS4_ERKS5_.exit6496: ; preds = %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i6494
+  %2827 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %2828 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %2829 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  store ptr %2827, ptr %2813, align 8, !tbaa !420
+  store ptr %2826, ptr %2812, align 8, !tbaa !420
   %2830 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary4CaseEOSt6vectorISt10shared_ptrINS0_15ValueConstraintEESaIS5_EERKNS0_19ErrnoConstraintBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %60, ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(8) %1060, ptr nonnull @.str.4, i64 0)
   call fastcc void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(64) %60)
   %2831 = call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4ento14CheckerContextEEN23AddToFunctionSummaryMapclEN4llvm9StringRefENS0_9SignatureENS0_7SummaryE(ptr noundef nonnull align 8 dereferenceable(17) %6, ptr nonnull @.str.39, i64 7, ptr noundef %58, ptr noundef %59)
   call fastcc void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %59) #22
   %2832 = load ptr, ptr %66, align 8, !tbaa !417
-  %2833 = load ptr, ptr %2813, align 8, !tbaa !420
+  %2833 = load ptr, ptr %2812, align 8, !tbaa !420
   %.not4.i.i.i.i6497 = icmp eq ptr %2832, %2833
   br i1 %.not4.i.i.i.i6497, label %_ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEES4_EvT_S6_RSaIT0_E.exit.i6509, label %.lr.ph.i.i.i.i6498
 
@@ -9345,7 +9345,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Value
   br i1 %.not.i.i.i6511, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit6513.preheader, label %2857
 
 2857:                                             ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEES4_EvT_S6_RSaIT0_E.exit.i6509
-  %.val1.i6512 = load ptr, ptr %2816, align 8, !tbaa !430
+  %.val1.i6512 = load ptr, ptr %2815, align 8, !tbaa !430
   %2858 = ptrtoint ptr %.val1.i6512 to i64
   %2859 = ptrtoint ptr %.val.i6510 to i64
   %2860 = sub i64 %2858, %2859
@@ -9412,11 +9412,11 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraint
   br i1 %2885, label %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6532, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit6513
 
 _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6532:    ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit6518
-  call void @_ZdlPvm(ptr noundef nonnull %2785, i64 noundef 16) #25
+  call void @_ZdlPvm(ptr noundef nonnull %2784, i64 noundef 16) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %67) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66) #22
   %2886 = load ptr, ptr %65, align 8, !tbaa !417
-  %2887 = load ptr, ptr %2775, align 8, !tbaa !420
+  %2887 = load ptr, ptr %2774, align 8, !tbaa !420
   %.not4.i.i.i.i6533 = icmp eq ptr %2886, %2887
   br i1 %.not4.i.i.i.i6533, label %_ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEES4_EvT_S6_RSaIT0_E.exit.i6545, label %.lr.ph.i.i.i.i6534
 
@@ -9486,7 +9486,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Value
   br i1 %.not.i.i.i6547, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit6549, label %2911
 
 2911:                                             ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEES4_EvT_S6_RSaIT0_E.exit.i6545
-  %.val1.i6548 = load ptr, ptr %2778, align 8, !tbaa !430
+  %.val1.i6548 = load ptr, ptr %2777, align 8, !tbaa !430
   %2912 = ptrtoint ptr %.val1.i6548 to i64
   %2913 = ptrtoint ptr %.val.i6546 to i64
   %2914 = sub i64 %2912, %2913
@@ -9494,22 +9494,22 @@ _ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Value
   br label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit6549
 
 _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit6549: ; preds = %2911, %_ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEES4_EvT_S6_RSaIT0_E.exit.i6545
-  %2915 = load atomic i64, ptr %2764 acquire, align 8
+  %2915 = load atomic i64, ptr %2763 acquire, align 8
   %2916 = icmp eq i64 %2915, 4294967297
   %2917 = trunc i64 %2915 to i32
   br i1 %2916, label %2918, label %2925
 
 2918:                                             ; preds = %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit6549
-  store i32 0, ptr %2764, align 8, !tbaa !424
-  store i32 0, ptr %2765, align 4, !tbaa !426
-  %2919 = load ptr, ptr %2763, align 8, !tbaa !7
+  store i32 0, ptr %2763, align 8, !tbaa !424
+  store i32 0, ptr %2764, align 4, !tbaa !426
+  %2919 = load ptr, ptr %2762, align 8, !tbaa !7
   %2920 = getelementptr inbounds nuw i8, ptr %2919, i64 16
   %2921 = load ptr, ptr %2920, align 8
-  call void %2921(ptr noundef nonnull align 8 dereferenceable(16) %2763) #22
-  %2922 = load ptr, ptr %2763, align 8, !tbaa !7
+  call void %2921(ptr noundef nonnull align 8 dereferenceable(16) %2762) #22
+  %2922 = load ptr, ptr %2762, align 8, !tbaa !7
   %2923 = getelementptr inbounds nuw i8, ptr %2922, i64 24
   %2924 = load ptr, ptr %2923, align 8
-  call void %2924(ptr noundef nonnull align 8 dereferenceable(16) %2763) #22
+  call void %2924(ptr noundef nonnull align 8 dereferenceable(16) %2762) #22
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit6554
 
 2925:                                             ; preds = %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit6549
@@ -9519,11 +9519,11 @@ _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueCo
 
 2927:                                             ; preds = %2925
   %2928 = add nsw i32 %2917, -1
-  store i32 %2928, ptr %2764, align 4, !tbaa !427
+  store i32 %2928, ptr %2763, align 4, !tbaa !427
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6552
 
 2929:                                             ; preds = %2925
-  %2930 = atomicrmw volatile add ptr %2764, i32 -1 acq_rel, align 4
+  %2930 = atomicrmw volatile add ptr %2763, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6552
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6552: ; preds = %2929, %2927
@@ -9532,11 +9532,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6552: ; preds = %2929, 
   br i1 %2931, label %2932, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit6554, !prof !428
 
 2932:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6552
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %2763) #22
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %2762) #22
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit6554
 
 _ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit6554: ; preds = %2918, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i6552, %2932
-  call void @_ZdlPvm(ptr noundef nonnull %2762, i64 noundef 16) #25
+  call void @_ZdlPvm(ptr noundef nonnull %2761, i64 noundef 16) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65) #22
   %2933 = load ptr, ptr %63, align 8, !tbaa !417
   %2934 = load ptr, ptr %2744, align 8, !tbaa !420
@@ -9762,7 +9762,7 @@ _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueCo
   br label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit6621
 
 _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit6621: ; preds = %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit6621.preheader, %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit6626
-  %3016 = phi ptr [ %3017, %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit6626 ], [ %2760, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit6621.preheader ]
+  %3016 = phi ptr [ %3017, %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit6626 ], [ %2827, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit6621.preheader ]
   %3017 = getelementptr inbounds i8, ptr %3016, i64 -16
   %3018 = getelementptr i8, ptr %3016, i64 -8
   %.val2656 = load ptr, ptr %3018, align 8, !tbaa !421
@@ -21117,64 +21117,64 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   br i1 %.not.i.i.i.i.i.i9486, label %7457, label %.lr.ph.i.i.i.i.i.i9478, !llvm.loop !918
 
 7457:                                             ; preds = %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i9485
-  %7458 = getelementptr inbounds nuw i8, ptr %210, i64 32
   store ptr %7456, ptr %7442, align 8, !tbaa !420
-  %7459 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary4CaseEOSt6vectorISt10shared_ptrINS0_15ValueConstraintEESaIS5_EERKNS0_19ErrnoConstraintBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %208, ptr noundef nonnull align 8 dereferenceable(24) %211, ptr noundef nonnull align 8 dereferenceable(8) %4567, ptr nonnull @.str.15, i64 33)
+  %7458 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary4CaseEOSt6vectorISt10shared_ptrINS0_15ValueConstraintEESaIS5_EERKNS0_19ErrnoConstraintBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %208, ptr noundef nonnull align 8 dereferenceable(24) %211, ptr noundef nonnull align 8 dereferenceable(8) %4567, ptr nonnull @.str.15, i64 33)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %213) #22
-  %7460 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !2045
-  store i64 %1133, ptr %7460, align 8, !noalias !2045
-  %.sroa.4.0..sroa_idx.i9488 = getelementptr inbounds nuw i8, ptr %7460, i64 8
+  %7459 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !2045
+  store i64 %1133, ptr %7459, align 8, !noalias !2045
+  %.sroa.4.0..sroa_idx.i9488 = getelementptr inbounds nuw i8, ptr %7459, i64 8
   store i64 %1133, ptr %.sroa.4.0..sroa_idx.i9488, align 8, !noalias !2045
-  %7461 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !2048
-  %7462 = getelementptr inbounds nuw i8, ptr %7461, i64 8
-  store i32 1, ptr %7462, align 8, !tbaa !424, !noalias !2055
-  %7463 = getelementptr inbounds nuw i8, ptr %7461, i64 12
-  store i32 1, ptr %7463, align 4, !tbaa !426, !noalias !2055
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7461, align 8, !tbaa !7, !noalias !2055
-  %7464 = getelementptr inbounds nuw i8, ptr %7461, i64 16
-  %7465 = getelementptr inbounds nuw i8, ptr %7461, i64 24
-  store i32 -1, ptr %7465, align 8, !tbaa !464, !noalias !2055
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7464, align 8, !tbaa !7, !noalias !2055
-  %7466 = getelementptr inbounds nuw i8, ptr %7461, i64 28
-  store i32 1, ptr %7466, align 4, !tbaa !900, !noalias !2055
-  %7467 = getelementptr inbounds nuw i8, ptr %7461, i64 32
-  %7468 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !2055
-  store ptr %7468, ptr %7467, align 8, !tbaa !907, !noalias !2055
-  %7469 = getelementptr inbounds nuw i8, ptr %7468, i64 16
-  %7470 = getelementptr inbounds nuw i8, ptr %7461, i64 48
-  store ptr %7469, ptr %7470, align 8, !tbaa !908, !noalias !2055
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7468, ptr noundef nonnull align 8 dereferenceable(16) %7460, i64 16, i1 false), !noalias !2055
-  %7471 = getelementptr inbounds nuw i8, ptr %7461, i64 40
-  store ptr %7469, ptr %7471, align 8, !tbaa !909, !noalias !2055
-  %7472 = getelementptr inbounds nuw i8, ptr %7461, i64 56
-  store ptr @.str.4, ptr %7472, align 8, !tbaa !9, !noalias !2055
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i9493 = getelementptr inbounds nuw i8, ptr %7461, i64 64
+  %7460 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !2048
+  %7461 = getelementptr inbounds nuw i8, ptr %7460, i64 8
+  store i32 1, ptr %7461, align 8, !tbaa !424, !noalias !2055
+  %7462 = getelementptr inbounds nuw i8, ptr %7460, i64 12
+  store i32 1, ptr %7462, align 4, !tbaa !426, !noalias !2055
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7460, align 8, !tbaa !7, !noalias !2055
+  %7463 = getelementptr inbounds nuw i8, ptr %7460, i64 16
+  %7464 = getelementptr inbounds nuw i8, ptr %7460, i64 24
+  store i32 -1, ptr %7464, align 8, !tbaa !464, !noalias !2055
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %7463, align 8, !tbaa !7, !noalias !2055
+  %7465 = getelementptr inbounds nuw i8, ptr %7460, i64 28
+  store i32 1, ptr %7465, align 4, !tbaa !900, !noalias !2055
+  %7466 = getelementptr inbounds nuw i8, ptr %7460, i64 32
+  %7467 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !2055
+  store ptr %7467, ptr %7466, align 8, !tbaa !907, !noalias !2055
+  %7468 = getelementptr inbounds nuw i8, ptr %7467, i64 16
+  %7469 = getelementptr inbounds nuw i8, ptr %7460, i64 48
+  store ptr %7468, ptr %7469, align 8, !tbaa !908, !noalias !2055
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7467, ptr noundef nonnull align 8 dereferenceable(16) %7459, i64 16, i1 false), !noalias !2055
+  %7470 = getelementptr inbounds nuw i8, ptr %7460, i64 40
+  store ptr %7468, ptr %7470, align 8, !tbaa !909, !noalias !2055
+  %7471 = getelementptr inbounds nuw i8, ptr %7460, i64 56
+  store ptr @.str.4, ptr %7471, align 8, !tbaa !9, !noalias !2055
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i9493 = getelementptr inbounds nuw i8, ptr %7460, i64 64
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i9493, align 8, !tbaa !37, !noalias !2055
-  %7473 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  store i64 0, ptr %7473, align 8
-  %7474 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  store ptr %7474, ptr %213, align 8, !tbaa !417
-  %7475 = getelementptr inbounds nuw i8, ptr %7474, i64 16
-  %7476 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  store ptr %7475, ptr %7476, align 8, !tbaa !430
-  store ptr %7464, ptr %7474, align 8, !tbaa !447
-  %7477 = getelementptr inbounds nuw i8, ptr %7474, i64 8
-  store ptr %7461, ptr %7477, align 8, !tbaa !421
-  %7478 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !239
-  %.not.i.i.i.i.i.i.i.i.i.i.i9502 = icmp eq i8 %7478, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i9502, label %7480, label %7479
+  %7472 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  store i64 0, ptr %7472, align 8
+  %7473 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
+  store ptr %7473, ptr %213, align 8, !tbaa !417
+  %7474 = getelementptr inbounds nuw i8, ptr %7473, i64 16
+  %7475 = getelementptr inbounds nuw i8, ptr %213, i64 16
+  store ptr %7474, ptr %7475, align 8, !tbaa !430
+  store ptr %7463, ptr %7473, align 8, !tbaa !447
+  %7476 = getelementptr inbounds nuw i8, ptr %7473, i64 8
+  store ptr %7460, ptr %7476, align 8, !tbaa !421
+  %7477 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !239
+  %.not.i.i.i.i.i.i.i.i.i.i.i9502 = icmp eq i8 %7477, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i9502, label %7479, label %7478
+
+7478:                                             ; preds = %7457
+  store i32 2, ptr %7461, align 4, !tbaa !427
+  br label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i9503
 
 7479:                                             ; preds = %7457
-  store i32 2, ptr %7462, align 4, !tbaa !427
+  %7480 = atomicrmw volatile add ptr %7461, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i9503
 
-7480:                                             ; preds = %7457
-  %7481 = atomicrmw volatile add ptr %7462, i32 1 acq_rel, align 4
-  br label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i9503
-
-_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i9503: ; preds = %7480, %7479
+_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i9503: ; preds = %7479, %7478
+  %7481 = getelementptr inbounds nuw i8, ptr %210, i64 32
   %7482 = getelementptr inbounds nuw i8, ptr %212, i64 32
-  store ptr %7475, ptr %7473, align 8, !tbaa !420
+  store ptr %7474, ptr %7472, align 8, !tbaa !420
   %7483 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary4CaseEOSt6vectorISt10shared_ptrINS0_15ValueConstraintEESaIS5_EERKNS0_19ErrnoConstraintBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %208, ptr noundef nonnull align 8 dereferenceable(24) %213, ptr noundef nonnull align 8 dereferenceable(8) %4512, ptr nonnull @.str.16, i64 25)
   %7484 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !2056
   %7485 = getelementptr inbounds nuw i8, ptr %7484, i64 8
@@ -21235,7 +21235,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9508: ; preds = %7505, 
 
 _ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit9515: ; preds = %7508, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9508, %7494
   %7509 = load ptr, ptr %213, align 8, !tbaa !417
-  %7510 = load ptr, ptr %7473, align 8, !tbaa !420
+  %7510 = load ptr, ptr %7472, align 8, !tbaa !420
   %.not4.i.i.i.i9516 = icmp eq ptr %7509, %7510
   br i1 %.not4.i.i.i.i9516, label %_ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEES4_EvT_S6_RSaIT0_E.exit.i9528, label %.lr.ph.i.i.i.i9517
 
@@ -21305,7 +21305,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Value
   br i1 %.not.i.i.i9530, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit9532, label %7534
 
 7534:                                             ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEES4_EvT_S6_RSaIT0_E.exit.i9528
-  %.val1.i9531 = load ptr, ptr %7476, align 8, !tbaa !430
+  %.val1.i9531 = load ptr, ptr %7475, align 8, !tbaa !430
   %7535 = ptrtoint ptr %.val1.i9531 to i64
   %7536 = ptrtoint ptr %.val.i9529 to i64
   %7537 = sub i64 %7535, %7536
@@ -21313,22 +21313,22 @@ _ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Value
   br label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit9532
 
 _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit9532: ; preds = %7534, %_ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEES4_EvT_S6_RSaIT0_E.exit.i9528
-  %7538 = load atomic i64, ptr %7462 acquire, align 8
+  %7538 = load atomic i64, ptr %7461 acquire, align 8
   %7539 = icmp eq i64 %7538, 4294967297
   %7540 = trunc i64 %7538 to i32
   br i1 %7539, label %7541, label %7548
 
 7541:                                             ; preds = %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit9532
-  store i32 0, ptr %7462, align 8, !tbaa !424
-  store i32 0, ptr %7463, align 4, !tbaa !426
-  %7542 = load ptr, ptr %7461, align 8, !tbaa !7
+  store i32 0, ptr %7461, align 8, !tbaa !424
+  store i32 0, ptr %7462, align 4, !tbaa !426
+  %7542 = load ptr, ptr %7460, align 8, !tbaa !7
   %7543 = getelementptr inbounds nuw i8, ptr %7542, i64 16
   %7544 = load ptr, ptr %7543, align 8
-  call void %7544(ptr noundef nonnull align 8 dereferenceable(16) %7461) #22
-  %7545 = load ptr, ptr %7461, align 8, !tbaa !7
+  call void %7544(ptr noundef nonnull align 8 dereferenceable(16) %7460) #22
+  %7545 = load ptr, ptr %7460, align 8, !tbaa !7
   %7546 = getelementptr inbounds nuw i8, ptr %7545, i64 24
   %7547 = load ptr, ptr %7546, align 8
-  call void %7547(ptr noundef nonnull align 8 dereferenceable(16) %7461) #22
+  call void %7547(ptr noundef nonnull align 8 dereferenceable(16) %7460) #22
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit9537
 
 7548:                                             ; preds = %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit9532
@@ -21338,11 +21338,11 @@ _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueCo
 
 7550:                                             ; preds = %7548
   %7551 = add nsw i32 %7540, -1
-  store i32 %7551, ptr %7462, align 4, !tbaa !427
+  store i32 %7551, ptr %7461, align 4, !tbaa !427
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9535
 
 7552:                                             ; preds = %7548
-  %7553 = atomicrmw volatile add ptr %7462, i32 -1 acq_rel, align 4
+  %7553 = atomicrmw volatile add ptr %7461, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9535
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9535: ; preds = %7552, %7550
@@ -21351,11 +21351,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9535: ; preds = %7552, 
   br i1 %7554, label %7555, label %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit9537, !prof !428
 
 7555:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9535
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7461) #22
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7460) #22
   br label %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit9537
 
 _ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit9537: ; preds = %7541, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i9535, %7555
-  call void @_ZdlPvm(ptr noundef nonnull %7460, i64 noundef 16) #25
+  call void @_ZdlPvm(ptr noundef nonnull %7459, i64 noundef 16) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %213) #22
   %7556 = load ptr, ptr %211, align 8, !tbaa !417
   %7557 = load ptr, ptr %7442, align 8, !tbaa !420
@@ -21581,7 +21581,7 @@ _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueCo
   br label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit9597
 
 _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit9597: ; preds = %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit9597.preheader, %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit9602
-  %7639 = phi ptr [ %7640, %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit9602 ], [ %7458, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit9597.preheader ]
+  %7639 = phi ptr [ %7640, %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit9602 ], [ %7481, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit9597.preheader ]
   %7640 = getelementptr inbounds i8, ptr %7639, i64 -16
   %7641 = getelementptr i8, ptr %7639, i64 -8
   %.val2592 = load ptr, ptr %7641, align 8, !tbaa !421
@@ -62601,139 +62601,139 @@ _ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Val
   br i1 %.not.i.i.i.i.i.i19550, label %"_ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4ento14CheckerContextEEN3$_1clENS0_9RangeKindESt6vectorISt4pairImmESaIS9_EE.exit19567", label %.lr.ph.i.i.i.i.i.i19542, !llvm.loop !918
 
 "_ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4ento14CheckerContextEEN3$_1clENS0_9RangeKindESt6vectorISt4pairImmESaIS9_EE.exit19567": ; preds = %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i19549
-  %23801 = getelementptr inbounds nuw i8, ptr %881, i64 32
   store ptr %23800, ptr %23786, align 8, !tbaa !420
-  %23802 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary4CaseEOSt6vectorISt10shared_ptrINS0_15ValueConstraintEESaIS5_EERKNS0_19ErrnoConstraintBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %879, ptr noundef nonnull align 8 dereferenceable(24) %884, ptr noundef nonnull align 8 dereferenceable(8) %1060, ptr nonnull @.str.4, i64 0)
+  %23801 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary4CaseEOSt6vectorISt10shared_ptrINS0_15ValueConstraintEESaIS5_EERKNS0_19ErrnoConstraintBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %879, ptr noundef nonnull align 8 dereferenceable(24) %884, ptr noundef nonnull align 8 dereferenceable(8) %1060, ptr nonnull @.str.4, i64 0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %886) #22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %887) #22
-  %23803 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
-  store i64 %21594, ptr %23803, align 8
-  %.sroa.4.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %23803, i64 8
+  %23802 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
+  store i64 %21594, ptr %23802, align 8
+  %.sroa.4.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %23802, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx13, align 8
-  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23803, i64 16
+  %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23802, i64 16
   store i64 3, ptr %.sroa.514.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23803, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23802, i64 24
   store i64 3, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23803, i64 32
+  %.sroa.715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23802, i64 32
   store i64 7, ptr %.sroa.715.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23803, i64 40
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23802, i64 40
   store i64 %941, ptr %.sroa.8.0..sroa_idx, align 8
-  %23804 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !5384
-  %23805 = getelementptr inbounds nuw i8, ptr %23804, i64 8
-  store i32 1, ptr %23805, align 8, !tbaa !424, !noalias !5391
-  %23806 = getelementptr inbounds nuw i8, ptr %23804, i64 12
-  store i32 1, ptr %23806, align 4, !tbaa !426, !noalias !5391
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23804, align 8, !tbaa !7, !noalias !5391
-  %23807 = getelementptr inbounds nuw i8, ptr %23804, i64 16
-  %23808 = getelementptr inbounds nuw i8, ptr %23804, i64 24
-  store i32 0, ptr %23808, align 8, !tbaa !464, !noalias !5391
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23807, align 8, !tbaa !7, !noalias !5391
-  %23809 = getelementptr inbounds nuw i8, ptr %23804, i64 28
-  store i32 1, ptr %23809, align 4, !tbaa !900, !noalias !5391
-  %23810 = getelementptr inbounds nuw i8, ptr %23804, i64 32
-  %23811 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23, !noalias !5391
-  store ptr %23811, ptr %23810, align 8, !tbaa !907, !noalias !5391
-  %23812 = getelementptr inbounds nuw i8, ptr %23811, i64 48
-  %23813 = getelementptr inbounds nuw i8, ptr %23804, i64 48
-  store ptr %23812, ptr %23813, align 8, !tbaa !908, !noalias !5391
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23811, ptr noundef nonnull align 8 dereferenceable(48) %23803, i64 48, i1 false), !noalias !5391
-  %23814 = getelementptr inbounds nuw i8, ptr %23804, i64 40
-  store ptr %23812, ptr %23814, align 8, !tbaa !909, !noalias !5391
-  %23815 = getelementptr inbounds nuw i8, ptr %23804, i64 56
-  store ptr @.str.4, ptr %23815, align 8, !tbaa !9, !noalias !5391
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i19557 = getelementptr inbounds nuw i8, ptr %23804, i64 64
+  %23803 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !5384
+  %23804 = getelementptr inbounds nuw i8, ptr %23803, i64 8
+  store i32 1, ptr %23804, align 8, !tbaa !424, !noalias !5391
+  %23805 = getelementptr inbounds nuw i8, ptr %23803, i64 12
+  store i32 1, ptr %23805, align 4, !tbaa !426, !noalias !5391
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23803, align 8, !tbaa !7, !noalias !5391
+  %23806 = getelementptr inbounds nuw i8, ptr %23803, i64 16
+  %23807 = getelementptr inbounds nuw i8, ptr %23803, i64 24
+  store i32 0, ptr %23807, align 8, !tbaa !464, !noalias !5391
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23806, align 8, !tbaa !7, !noalias !5391
+  %23808 = getelementptr inbounds nuw i8, ptr %23803, i64 28
+  store i32 1, ptr %23808, align 4, !tbaa !900, !noalias !5391
+  %23809 = getelementptr inbounds nuw i8, ptr %23803, i64 32
+  %23810 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23, !noalias !5391
+  store ptr %23810, ptr %23809, align 8, !tbaa !907, !noalias !5391
+  %23811 = getelementptr inbounds nuw i8, ptr %23810, i64 48
+  %23812 = getelementptr inbounds nuw i8, ptr %23803, i64 48
+  store ptr %23811, ptr %23812, align 8, !tbaa !908, !noalias !5391
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23810, ptr noundef nonnull align 8 dereferenceable(48) %23802, i64 48, i1 false), !noalias !5391
+  %23813 = getelementptr inbounds nuw i8, ptr %23803, i64 40
+  store ptr %23811, ptr %23813, align 8, !tbaa !909, !noalias !5391
+  %23814 = getelementptr inbounds nuw i8, ptr %23803, i64 56
+  store ptr @.str.4, ptr %23814, align 8, !tbaa !9, !noalias !5391
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i19557 = getelementptr inbounds nuw i8, ptr %23803, i64 64
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i19557, align 8, !tbaa !37, !noalias !5391
-  store ptr %23807, ptr %887, align 8, !tbaa !447
-  %23816 = getelementptr inbounds nuw i8, ptr %887, i64 8
-  store ptr %23804, ptr %23816, align 8, !tbaa !421
-  %23817 = getelementptr inbounds nuw i8, ptr %887, i64 16
-  %23818 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !5392
-  store i64 4, ptr %23818, align 8, !noalias !5392
-  %.sroa.4.0..sroa_idx.i19560 = getelementptr inbounds nuw i8, ptr %23818, i64 8
+  store ptr %23806, ptr %887, align 8, !tbaa !447
+  %23815 = getelementptr inbounds nuw i8, ptr %887, i64 8
+  store ptr %23803, ptr %23815, align 8, !tbaa !421
+  %23816 = getelementptr inbounds nuw i8, ptr %887, i64 16
+  %23817 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !5392
+  store i64 4, ptr %23817, align 8, !noalias !5392
+  %.sroa.4.0..sroa_idx.i19560 = getelementptr inbounds nuw i8, ptr %23817, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx.i19560, align 8, !noalias !5392
-  %23819 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !5395
-  %23820 = getelementptr inbounds nuw i8, ptr %23819, i64 8
-  store i32 1, ptr %23820, align 8, !tbaa !424, !noalias !5402
-  %23821 = getelementptr inbounds nuw i8, ptr %23819, i64 12
-  store i32 1, ptr %23821, align 4, !tbaa !426, !noalias !5402
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23819, align 8, !tbaa !7, !noalias !5402
-  %23822 = getelementptr inbounds nuw i8, ptr %23819, i64 16
-  %23823 = getelementptr inbounds nuw i8, ptr %23819, i64 24
-  store i32 -1, ptr %23823, align 8, !tbaa !464, !noalias !5402
-  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23822, align 8, !tbaa !7, !noalias !5402
-  %23824 = getelementptr inbounds nuw i8, ptr %23819, i64 28
-  store i32 1, ptr %23824, align 4, !tbaa !900, !noalias !5402
-  %23825 = getelementptr inbounds nuw i8, ptr %23819, i64 32
-  %23826 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !5402
-  store ptr %23826, ptr %23825, align 8, !tbaa !907, !noalias !5402
-  %23827 = getelementptr inbounds nuw i8, ptr %23826, i64 16
-  %23828 = getelementptr inbounds nuw i8, ptr %23819, i64 48
-  store ptr %23827, ptr %23828, align 8, !tbaa !908, !noalias !5402
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23826, ptr noundef nonnull align 8 dereferenceable(16) %23818, i64 16, i1 false), !noalias !5402
-  %23829 = getelementptr inbounds nuw i8, ptr %23819, i64 40
-  store ptr %23827, ptr %23829, align 8, !tbaa !909, !noalias !5402
-  %23830 = getelementptr inbounds nuw i8, ptr %23819, i64 56
-  store ptr @.str.4, ptr %23830, align 8, !tbaa !9, !noalias !5402
-  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i19565 = getelementptr inbounds nuw i8, ptr %23819, i64 64
+  %23818 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !5395
+  %23819 = getelementptr inbounds nuw i8, ptr %23818, i64 8
+  store i32 1, ptr %23819, align 8, !tbaa !424, !noalias !5402
+  %23820 = getelementptr inbounds nuw i8, ptr %23818, i64 12
+  store i32 1, ptr %23820, align 4, !tbaa !426, !noalias !5402
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %23818, align 8, !tbaa !7, !noalias !5402
+  %23821 = getelementptr inbounds nuw i8, ptr %23818, i64 16
+  %23822 = getelementptr inbounds nuw i8, ptr %23818, i64 24
+  store i32 -1, ptr %23822, align 8, !tbaa !464, !noalias !5402
+  store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %23821, align 8, !tbaa !7, !noalias !5402
+  %23823 = getelementptr inbounds nuw i8, ptr %23818, i64 28
+  store i32 1, ptr %23823, align 4, !tbaa !900, !noalias !5402
+  %23824 = getelementptr inbounds nuw i8, ptr %23818, i64 32
+  %23825 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !5402
+  store ptr %23825, ptr %23824, align 8, !tbaa !907, !noalias !5402
+  %23826 = getelementptr inbounds nuw i8, ptr %23825, i64 16
+  %23827 = getelementptr inbounds nuw i8, ptr %23818, i64 48
+  store ptr %23826, ptr %23827, align 8, !tbaa !908, !noalias !5402
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23825, ptr noundef nonnull align 8 dereferenceable(16) %23817, i64 16, i1 false), !noalias !5402
+  %23828 = getelementptr inbounds nuw i8, ptr %23818, i64 40
+  store ptr %23826, ptr %23828, align 8, !tbaa !909, !noalias !5402
+  %23829 = getelementptr inbounds nuw i8, ptr %23818, i64 56
+  store ptr @.str.4, ptr %23829, align 8, !tbaa !9, !noalias !5402
+  %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i19565 = getelementptr inbounds nuw i8, ptr %23818, i64 64
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i19565, align 8, !tbaa !37, !noalias !5402
-  store ptr %23822, ptr %23817, align 8, !tbaa !447
-  %23831 = getelementptr inbounds nuw i8, ptr %887, i64 24
-  store ptr %23819, ptr %23831, align 8, !tbaa !421
-  %23832 = getelementptr inbounds nuw i8, ptr %886, i64 8
-  store i64 0, ptr %23832, align 8
-  %23833 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
-  store ptr %23833, ptr %886, align 8, !tbaa !417
-  %23834 = getelementptr inbounds nuw i8, ptr %23833, i64 32
-  %23835 = getelementptr inbounds nuw i8, ptr %886, i64 16
-  store ptr %23834, ptr %23835, align 8, !tbaa !430
+  store ptr %23821, ptr %23816, align 8, !tbaa !447
+  %23830 = getelementptr inbounds nuw i8, ptr %887, i64 24
+  store ptr %23818, ptr %23830, align 8, !tbaa !421
+  %23831 = getelementptr inbounds nuw i8, ptr %886, i64 8
+  store i64 0, ptr %23831, align 8
+  %23832 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
+  store ptr %23832, ptr %886, align 8, !tbaa !417
+  %23833 = getelementptr inbounds nuw i8, ptr %23832, i64 32
+  %23834 = getelementptr inbounds nuw i8, ptr %886, i64 16
+  store ptr %23833, ptr %23834, align 8, !tbaa !430
   br label %.lr.ph.i.i.i.i.i.i19568
 
 .lr.ph.i.i.i.i.i.i19568:                          ; preds = %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i19575, %"_ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4ento14CheckerContextEEN3$_1clENS0_9RangeKindESt6vectorISt4pairImmESaIS9_EE.exit19567"
-  %.012.i.i.i.i.i.i19569 = phi ptr [ %23846, %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i19575 ], [ %23833, %"_ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4ento14CheckerContextEEN3$_1clENS0_9RangeKindESt6vectorISt4pairImmESaIS9_EE.exit19567" ]
+  %.012.i.i.i.i.i.i19569 = phi ptr [ %23845, %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i19575 ], [ %23832, %"_ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4ento14CheckerContextEEN3$_1clENS0_9RangeKindESt6vectorISt4pairImmESaIS9_EE.exit19567" ]
   %.0811.i.i.i.i.i.i19570.idx = phi i64 [ %.0811.i.i.i.i.i.i19570.add, %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i19575 ], [ 0, %"_ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4ento14CheckerContextEEN3$_1clENS0_9RangeKindESt6vectorISt4pairImmESaIS9_EE.exit19567" ]
   %.0811.i.i.i.i.i.i19570.ptr = getelementptr inbounds nuw i8, ptr %887, i64 %.0811.i.i.i.i.i.i19570.idx
   %.08.val.i.i.i.i.i.i19571 = load ptr, ptr %.0811.i.i.i.i.i.i19570.ptr, align 8, !tbaa !447
-  %23836 = getelementptr i8, ptr %.0811.i.i.i.i.i.i19570.ptr, i64 8
-  %.08.val9.i.i.i.i.i.i19572 = load ptr, ptr %23836, align 8, !tbaa !421
+  %23835 = getelementptr i8, ptr %.0811.i.i.i.i.i.i19570.ptr, i64 8
+  %.08.val9.i.i.i.i.i.i19572 = load ptr, ptr %23835, align 8, !tbaa !421
   store ptr %.08.val.i.i.i.i.i.i19571, ptr %.012.i.i.i.i.i.i19569, align 8, !tbaa !447
-  %23837 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i19569, i64 8
-  store ptr %.08.val9.i.i.i.i.i.i19572, ptr %23837, align 8, !tbaa !421
+  %23836 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i19569, i64 8
+  store ptr %.08.val9.i.i.i.i.i.i19572, ptr %23836, align 8, !tbaa !421
   %.not.i.i.i.i.i.i.i.i.i.i19573 = icmp eq ptr %.08.val9.i.i.i.i.i.i19572, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i19573, label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i19575, label %23838
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i19573, label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i19575, label %23837
 
-23838:                                            ; preds = %.lr.ph.i.i.i.i.i.i19568
-  %23839 = getelementptr inbounds nuw i8, ptr %.08.val9.i.i.i.i.i.i19572, i64 8
-  %23840 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !239
-  %.not.i.i.i.i.i.i.i.i.i.i.i19574 = icmp eq i8 %23840, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i19574, label %23844, label %23841
+23837:                                            ; preds = %.lr.ph.i.i.i.i.i.i19568
+  %23838 = getelementptr inbounds nuw i8, ptr %.08.val9.i.i.i.i.i.i19572, i64 8
+  %23839 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !239
+  %.not.i.i.i.i.i.i.i.i.i.i.i19574 = icmp eq i8 %23839, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i19574, label %23843, label %23840
 
-23841:                                            ; preds = %23838
-  %23842 = load i32, ptr %23839, align 4, !tbaa !427
-  %23843 = add nsw i32 %23842, 1
-  store i32 %23843, ptr %23839, align 4, !tbaa !427
+23840:                                            ; preds = %23837
+  %23841 = load i32, ptr %23838, align 4, !tbaa !427
+  %23842 = add nsw i32 %23841, 1
+  store i32 %23842, ptr %23838, align 4, !tbaa !427
   br label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i19575
 
-23844:                                            ; preds = %23838
-  %23845 = atomicrmw volatile add ptr %23839, i32 1 acq_rel, align 4
+23843:                                            ; preds = %23837
+  %23844 = atomicrmw volatile add ptr %23838, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i19575
 
-_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i19575: ; preds = %23844, %23841, %.lr.ph.i.i.i.i.i.i19568
+_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i19575: ; preds = %23843, %23840, %.lr.ph.i.i.i.i.i.i19568
   %.0811.i.i.i.i.i.i19570.add = add nuw nsw i64 %.0811.i.i.i.i.i.i19570.idx, 16
-  %23846 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i19569, i64 16
+  %23845 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i19569, i64 16
   %.not.i.i.i.i.i.i19576 = icmp eq i64 %.0811.i.i.i.i.i.i19570.add, 32
   br i1 %.not.i.i.i.i.i.i19576, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EEC2ESt16initializer_listIS4_ERKS5_.exit19577, label %.lr.ph.i.i.i.i.i.i19568, !llvm.loop !918
 
 _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EEC2ESt16initializer_listIS4_ERKS5_.exit19577: ; preds = %_ZSt10_ConstructISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i19575
+  %23846 = getelementptr inbounds nuw i8, ptr %881, i64 32
   %23847 = getelementptr inbounds nuw i8, ptr %883, i64 32
   %23848 = getelementptr inbounds nuw i8, ptr %885, i64 32
   %23849 = getelementptr inbounds nuw i8, ptr %887, i64 32
-  store ptr %23846, ptr %23832, align 8, !tbaa !420
+  store ptr %23845, ptr %23831, align 8, !tbaa !420
   %23850 = call fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7Summary4CaseEOSt6vectorISt10shared_ptrINS0_15ValueConstraintEESaIS5_EERKNS0_19ErrnoConstraintBaseEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(64) %879, ptr noundef nonnull align 8 dereferenceable(24) %886, ptr noundef nonnull align 8 dereferenceable(8) %1060, ptr nonnull @.str.4, i64 0)
   call fastcc void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %878, ptr noundef nonnull align 8 dereferenceable(64) %879)
   %23851 = call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4ento14CheckerContextEEN23AddToFunctionSummaryMapclEN4llvm9StringRefENS0_9SignatureENS0_7SummaryE(ptr noundef nonnull align 8 dereferenceable(17) %6, ptr nonnull @.str.288, i64 26, ptr noundef %877, ptr noundef %878)
   call fastcc void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %878) #22
   %23852 = load ptr, ptr %886, align 8, !tbaa !417
-  %23853 = load ptr, ptr %23832, align 8, !tbaa !420
+  %23853 = load ptr, ptr %23831, align 8, !tbaa !420
   %.not4.i.i.i.i19578 = icmp eq ptr %23852, %23853
   br i1 %.not4.i.i.i.i19578, label %_ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEES4_EvT_S6_RSaIT0_E.exit.i19590, label %.lr.ph.i.i.i.i19579
 
@@ -62803,7 +62803,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15Value
   br i1 %.not.i.i.i19592, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit19594.preheader, label %23877
 
 23877:                                            ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEES4_EvT_S6_RSaIT0_E.exit.i19590
-  %.val1.i19593 = load ptr, ptr %23835, align 8, !tbaa !430
+  %.val1.i19593 = load ptr, ptr %23834, align 8, !tbaa !430
   %23878 = ptrtoint ptr %.val1.i19593 to i64
   %23879 = ptrtoint ptr %.val.i19591 to i64
   %23880 = sub i64 %23878, %23879
@@ -62870,8 +62870,8 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraint
   br i1 %23905, label %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19613, label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit19594
 
 _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit19613:   ; preds = %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit19599
-  call void @_ZdlPvm(ptr noundef nonnull %23818, i64 noundef 16) #25
-  call void @_ZdlPvm(ptr noundef nonnull %23803, i64 noundef 48) #25
+  call void @_ZdlPvm(ptr noundef nonnull %23817, i64 noundef 16) #25
+  call void @_ZdlPvm(ptr noundef nonnull %23802, i64 noundef 48) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %887) #22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %886) #22
   %23906 = load ptr, ptr %884, align 8, !tbaa !417
@@ -63240,7 +63240,7 @@ _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueCo
   br label %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit19702
 
 _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit19702: ; preds = %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit19702.preheader, %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit19707
-  %24043 = phi ptr [ %24044, %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit19707 ], [ %23801, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit19702.preheader ]
+  %24043 = phi ptr [ %24044, %_ZNSt12__shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit19707 ], [ %23846, %_ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraintEESaIS4_EED2Ev.exit19702.preheader ]
   %24044 = getelementptr inbounds i8, ptr %24043, i64 -16
   %24045 = getelementptr i8, ptr %24043, i64 -8
   %.val = load ptr, ptr %24045, align 8, !tbaa !421

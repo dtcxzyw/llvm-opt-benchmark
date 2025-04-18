@@ -540,24 +540,24 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %282 = load i32, ptr %281, align 1, !tbaa !3
   %283 = getelementptr inbounds i8, ptr %.4924, i64 -4
   %284 = load i32, ptr %283, align 1, !tbaa !3
-  %285 = zext i32 %284 to i64
-  %286 = zext i32 %4 to i64
-  %287 = sub nsw i64 0, %286
   store i32 -1, ptr %.4924, align 1, !tbaa !3
-  %288 = getelementptr inbounds nuw i8, ptr %.4924, i64 4
-  store i32 0, ptr %288, align 1, !tbaa !3
-  %289 = getelementptr inbounds nuw i8, ptr %.4924, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %.4924, i64 4
+  store i32 0, ptr %285, align 1, !tbaa !3
+  %286 = getelementptr inbounds nuw i8, ptr %.4924, i64 8
   br label %292
 
 .preheader1228:                                   ; preds = %292
-  %290 = getelementptr inbounds nuw i8, ptr %1, i64 %285
-  %291 = getelementptr inbounds i8, ptr %290, i64 %287
+  %287 = zext i32 %284 to i64
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 %287
+  %289 = zext i32 %4 to i64
+  %290 = sub nsw i64 0, %289
+  %291 = getelementptr inbounds i8, ptr %288, i64 %290
   %.not1293 = icmp eq i8 %107, 0
   br i1 %.not1293, label %._crit_edge, label %.lr.ph
 
 292:                                              ; preds = %.loopexit, %292
   %.28811253 = phi i32 [ 0, %.loopexit ], [ %293, %292 ]
-  %.69261252 = phi ptr [ %289, %.loopexit ], [ %294, %292 ]
+  %.69261252 = phi ptr [ %286, %.loopexit ], [ %294, %292 ]
   store i32 1, ptr %.69261252, align 1, !tbaa !3
   %293 = add nuw nsw i32 %.28811253, 1
   %294 = getelementptr inbounds nuw i8, ptr %.69261252, i64 4
@@ -578,8 +578,8 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %298 = load i32, ptr %297, align 1, !tbaa !3
   %299 = sext i32 %298 to i64
   %300 = getelementptr inbounds i8, ptr %1, i64 %299
-  %301 = getelementptr inbounds i8, ptr %300, i64 %287
-  %302 = getelementptr inbounds nuw i8, ptr %1, i64 %286
+  %301 = getelementptr inbounds i8, ptr %300, i64 %290
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 %289
   %303 = zext i32 %6 to i64
   %304 = sub nsw i64 0, %303
   %305 = getelementptr inbounds i8, ptr %302, i64 %304
@@ -602,7 +602,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %.pn1103.in = load i32, ptr %.pn1103.in.in, align 1, !tbaa !3
   %.pn1103 = sext i32 %.pn1103.in to i64
   %.pn1102 = getelementptr inbounds i8, ptr %1, i64 %.pn1103
-  %.1915 = getelementptr inbounds i8, ptr %.pn1102, i64 %287
+  %.1915 = getelementptr inbounds i8, ptr %.pn1102, i64 %290
   %313 = icmp ugt ptr %.8928, %.1915
   br i1 %313, label %314, label %315
 
@@ -839,16 +839,16 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 435:                                              ; preds = %._crit_edge1267
   %436 = load i32, ptr %403, align 1, !tbaa !3
   %437 = and i64 %397, 4294967295
-  %438 = add nuw nsw i64 %437, 4
-  %439 = add i32 %436, -1
-  %440 = zext i32 %439 to i64
-  %441 = mul i64 %438, %440
-  %442 = add i64 %441, %401
-  %443 = add i64 %442, %437
-  %444 = add i64 %443, 4
-  %445 = sub i64 %444, %393
-  %446 = getelementptr inbounds nuw i8, ptr %403, i64 4
-  %scevgep = getelementptr i8, ptr %1, i64 %445
+  %438 = getelementptr inbounds nuw i8, ptr %403, i64 4
+  %439 = add nuw nsw i64 %437, 4
+  %440 = add i32 %436, -1
+  %441 = zext i32 %440 to i64
+  %442 = mul i64 %439, %441
+  %443 = add i64 %442, %401
+  %444 = add i64 %443, %437
+  %445 = add i64 %444, 4
+  %446 = sub i64 %445, %393
+  %scevgep = getelementptr i8, ptr %1, i64 %446
   %447 = getelementptr inbounds nuw i8, ptr %scevgep, i64 4
   %.not1042 = icmp ult ptr %447, %1
   br i1 %.not1042, label %.thread1181, label %448
@@ -893,7 +893,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %464 = add i32 %463, %398
   store i32 %464, ptr %457, align 1, !tbaa !3
   %465 = getelementptr inbounds nuw i8, ptr %scevgep, i64 28
-  %466 = load i32, ptr %446, align 1, !tbaa !3
+  %466 = load i32, ptr %438, align 1, !tbaa !3
   %467 = sub i32 %466, %6
   %468 = zext i32 %467 to i64
   %469 = getelementptr inbounds nuw i8, ptr %1, i64 %468

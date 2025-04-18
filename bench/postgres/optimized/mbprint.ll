@@ -218,9 +218,9 @@ define dso_local void @pg_wcsformat(ptr noundef %0, i64 noundef %1, i32 noundef 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.05990, i8 32, i64 %23, i1 false)
   %scevgep = getelementptr i8, ptr %.05990, i64 1
   %scevgep106 = getelementptr i8, ptr %scevgep, i64 %22
-  %24 = zext i3 %21 to i32
-  %25 = add i32 %.06089, 1
-  %26 = add i32 %25, %24
+  %24 = add i32 %.06089, 1
+  %25 = zext i3 %21 to i32
+  %26 = add i32 %24, %25
   br label %.loopexit
 
 27:                                               ; preds = %17

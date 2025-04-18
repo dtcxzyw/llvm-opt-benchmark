@@ -161,8 +161,8 @@ solve.exit.loopexit.us:                           ; preds = %70
   br i1 %33, label %solve.exit.us322, label %solve.exit.preheader
 
 solve.exit.preheader:                             ; preds = %.preheader295.split
-  %80 = mul i64 %22, %.0163335
   %scevgep372 = getelementptr i8, ptr %.1174333, i64 %21
+  %80 = mul i64 %22, %.0163335
   %scevgep373 = getelementptr i8, ptr %scevgep372, i64 %80
   br label %.loopexit296
 

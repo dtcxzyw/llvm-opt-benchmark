@@ -4944,26 +4944,26 @@ _ZN5clangeqEPKNS_9FileEntryERKNS_12FileEntryRefE.exit: ; preds = %48
   %.4 = phi ptr [ %19, %_ZN5clangeqEPKNS_9FileEntryERKNS_12FileEntryRefE.exit ], [ %19, %._crit_edge ], [ %spec.select48, %54 ]
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %65 = load i64, ptr %64, align 8, !tbaa !665
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %65
-  %67 = icmp ugt ptr %.4, %66
-  br label %68
+  br label %66
 
-68:                                               ; preds = %68, %62
-  %.05.i.i.i35 = phi ptr [ %1, %62 ], [ %72, %68 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.05.i.i.i35, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i36 = load i64, ptr %69, align 8
-  %70 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i36, 4
-  %.not.i.i.i.i.i.i.i37 = icmp eq i64 %70, 0
-  %71 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i36, -8
-  %72 = inttoptr i64 %71 to ptr
-  %.not7.i.i.i38 = icmp eq i64 %71, 0
+66:                                               ; preds = %66, %62
+  %.05.i.i.i35 = phi ptr [ %1, %62 ], [ %70, %66 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.05.i.i.i35, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i36 = load i64, ptr %67, align 8
+  %68 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i36, 4
+  %.not.i.i.i.i.i.i.i37 = icmp eq i64 %68, 0
+  %69 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i36, -8
+  %70 = inttoptr i64 %69 to ptr
+  %.not7.i.i.i38 = icmp eq i64 %69, 0
   %.not.i.i.i39 = or i1 %.not.i.i.i.i.i.i.i37, %.not7.i.i.i38
-  br i1 %.not.i.i.i39, label %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit, label %68
+  br i1 %.not.i.i.i39, label %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit, label %66
 
-_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit: ; preds = %68
-  %spec.select49 = select i1 %67, ptr %66, ptr %.4
+_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit: ; preds = %66
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 %65
+  %72 = icmp ugt ptr %.4, %71
+  %spec.select49 = select i1 %72, ptr %71, ptr %.4
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  store ptr %72, ptr %73, align 8, !tbaa !666
+  store ptr %70, ptr %73, align 8, !tbaa !666
   %74 = ptrtoint ptr %spec.select49 to i64
   %75 = ptrtoint ptr %63 to i64
   %76 = sub i64 %74, %75

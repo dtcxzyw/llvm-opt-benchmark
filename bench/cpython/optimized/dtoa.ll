@@ -3226,45 +3226,45 @@ cmp.exit:                                         ; preds = %22
   %104 = getelementptr inbounds nuw i8, ptr %.59, i64 20
   %105 = load i32, ptr %104, align 4, !tbaa !125
   %106 = getelementptr inbounds nuw i8, ptr %.59, i64 24
-  %107 = sext i32 %105 to i64
-  %108 = getelementptr inbounds nuw i8, ptr %.58, i64 20
-  %109 = load i32, ptr %108, align 4, !tbaa !125
-  %110 = getelementptr inbounds nuw i8, ptr %.58, i64 24
-  %111 = sext i32 %109 to i64
-  %112 = getelementptr i32, ptr %110, i64 %111
-  %113 = getelementptr inbounds nuw i8, ptr %.024.i63, i64 24
-  br label %114
+  %107 = getelementptr inbounds nuw i8, ptr %.58, i64 20
+  %108 = load i32, ptr %107, align 4, !tbaa !125
+  %109 = getelementptr inbounds nuw i8, ptr %.58, i64 24
+  %110 = sext i32 %108 to i64
+  %111 = getelementptr i32, ptr %109, i64 %110
+  %112 = getelementptr inbounds nuw i8, ptr %.024.i63, i64 24
+  br label %113
 
-114:                                              ; preds = %114, %101
-  %.049 = phi ptr [ %106, %101 ], [ %115, %114 ]
-  %.047 = phi ptr [ %110, %101 ], [ %118, %114 ]
-  %.044 = phi ptr [ %113, %101 ], [ %126, %114 ]
-  %.0 = phi i64 [ 0, %101 ], [ %124, %114 ]
-  %115 = getelementptr i8, ptr %.049, i64 4
-  %116 = load i32, ptr %.049, align 4, !tbaa !124
-  %117 = zext i32 %116 to i64
-  %118 = getelementptr i8, ptr %.047, i64 4
-  %119 = load i32, ptr %.047, align 4, !tbaa !124
-  %120 = zext i32 %119 to i64
-  %121 = add nuw nsw i64 %.0, %120
-  %122 = sub nsw i64 %117, %121
-  %123 = lshr i64 %122, 32
-  %124 = and i64 %123, 1
-  %125 = trunc i64 %122 to i32
-  %126 = getelementptr i8, ptr %.044, i64 4
-  store i32 %125, ptr %.044, align 4, !tbaa !124
-  %127 = icmp ult ptr %118, %112
-  br i1 %127, label %114, label %.preheader73, !llvm.loop !134
+113:                                              ; preds = %113, %101
+  %.049 = phi ptr [ %106, %101 ], [ %114, %113 ]
+  %.047 = phi ptr [ %109, %101 ], [ %117, %113 ]
+  %.044 = phi ptr [ %112, %101 ], [ %125, %113 ]
+  %.0 = phi i64 [ 0, %101 ], [ %123, %113 ]
+  %114 = getelementptr i8, ptr %.049, i64 4
+  %115 = load i32, ptr %.049, align 4, !tbaa !124
+  %116 = zext i32 %115 to i64
+  %117 = getelementptr i8, ptr %.047, i64 4
+  %118 = load i32, ptr %.047, align 4, !tbaa !124
+  %119 = zext i32 %118 to i64
+  %120 = add nuw nsw i64 %.0, %119
+  %121 = sub nsw i64 %116, %120
+  %122 = lshr i64 %121, 32
+  %123 = and i64 %122, 1
+  %124 = trunc i64 %121 to i32
+  %125 = getelementptr i8, ptr %.044, i64 4
+  store i32 %124, ptr %.044, align 4, !tbaa !124
+  %126 = icmp ult ptr %117, %111
+  br i1 %126, label %113, label %.preheader73, !llvm.loop !134
 
-.preheader73:                                     ; preds = %114
-  %128 = getelementptr i32, ptr %106, i64 %107
-  %129 = icmp ult ptr %115, %128
+.preheader73:                                     ; preds = %113
+  %127 = sext i32 %105 to i64
+  %128 = getelementptr i32, ptr %106, i64 %127
+  %129 = icmp ult ptr %114, %128
   br i1 %129, label %.lr.ph, label %.preheader.preheader
 
 .lr.ph:                                           ; preds = %.preheader73, %.lr.ph
-  %.182 = phi i64 [ %135, %.lr.ph ], [ %124, %.preheader73 ]
-  %.14581 = phi ptr [ %137, %.lr.ph ], [ %126, %.preheader73 ]
-  %.15080 = phi ptr [ %130, %.lr.ph ], [ %115, %.preheader73 ]
+  %.182 = phi i64 [ %135, %.lr.ph ], [ %123, %.preheader73 ]
+  %.14581 = phi ptr [ %137, %.lr.ph ], [ %125, %.preheader73 ]
+  %.15080 = phi ptr [ %130, %.lr.ph ], [ %114, %.preheader73 ]
   %130 = getelementptr i8, ptr %.15080, i64 4
   %131 = load i32, ptr %.15080, align 4, !tbaa !124
   %132 = zext i32 %131 to i64
@@ -3278,7 +3278,7 @@ cmp.exit:                                         ; preds = %22
   br i1 %138, label %.lr.ph, label %.preheader.preheader, !llvm.loop !135
 
 .preheader.preheader:                             ; preds = %.lr.ph, %.preheader73
-  %.2.ph = phi ptr [ %126, %.preheader73 ], [ %137, %.lr.ph ]
+  %.2.ph = phi ptr [ %125, %.preheader73 ], [ %137, %.lr.ph ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

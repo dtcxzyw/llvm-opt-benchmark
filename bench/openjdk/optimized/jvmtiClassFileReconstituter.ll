@@ -1189,34 +1189,34 @@ _ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle.exi
   br i1 %.not79, label %58, label %38
 
 38:                                               ; preds = %35
-  %39 = add nuw nsw i16 %.171, 1
-  %40 = add i32 %.168, 8
-  %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = call noundef ptr @_ZNK11ConstMethod25localvariable_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %43) #12
+  %39 = load ptr, ptr %1, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = call noundef ptr @_ZNK11ConstMethod25localvariable_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %41) #12
   %wide.trip.count = zext i16 %36 to i64
-  br label %45
+  br label %43
 
-45:                                               ; preds = %38, %45
-  %indvars.iv = phi i64 [ 0, %38 ], [ %indvars.iv.next, %45 ]
-  %.1137 = phi i16 [ 0, %38 ], [ %spec.select, %45 ]
-  %46 = getelementptr inbounds nuw %class.LocalVariableTableElement, ptr %44, i64 %indvars.iv, i32 4
-  %47 = load i16, ptr %46, align 2
-  %.not85 = icmp ne i16 %47, 0
-  %48 = zext i1 %.not85 to i16
-  %spec.select = add i16 %.1137, %48
+43:                                               ; preds = %38, %43
+  %indvars.iv = phi i64 [ 0, %38 ], [ %indvars.iv.next, %43 ]
+  %.1137 = phi i16 [ 0, %38 ], [ %spec.select, %43 ]
+  %44 = getelementptr inbounds nuw %class.LocalVariableTableElement, ptr %42, i64 %indvars.iv, i32 4
+  %45 = load i16, ptr %44, align 2
+  %.not85 = icmp ne i16 %45, 0
+  %46 = zext i1 %.not85 to i16
+  %spec.select = add i16 %.1137, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %49, label %45, !llvm.loop !11
+  br i1 %exitcond.not, label %47, label %43, !llvm.loop !11
 
-49:                                               ; preds = %45
-  %50 = mul nuw nsw i32 %37, 10
-  %51 = add i32 %40, %50
+47:                                               ; preds = %43
+  %48 = add nuw nsw i16 %.171, 1
+  %49 = mul nuw nsw i32 %37, 10
+  %50 = add i32 %.168, 8
+  %51 = add i32 %50, %49
   %.not80 = icmp eq i16 %spec.select, 0
   br i1 %.not80, label %58, label %52
 
-52:                                               ; preds = %49
+52:                                               ; preds = %47
   %53 = zext i16 %spec.select to i32
   %54 = add nuw nsw i16 %.171, 2
   %55 = mul nuw nsw i32 %53, 10
@@ -1224,11 +1224,11 @@ _ZN27JvmtiClassFileReconstituter25line_number_table_entriesERK12methodHandle.exi
   %57 = add i32 %56, %55
   br label %58
 
-58:                                               ; preds = %35, %52, %49, %31
-  %.272 = phi i16 [ %54, %52 ], [ %39, %49 ], [ %.171, %35 ], [ %.171, %31 ]
-  %.269 = phi i32 [ %57, %52 ], [ %51, %49 ], [ %.168, %35 ], [ %.168, %31 ]
-  %.066 = phi i16 [ %spec.select, %52 ], [ 0, %49 ], [ 0, %35 ], [ 0, %31 ]
-  %.064 = phi i16 [ %36, %52 ], [ %36, %49 ], [ 0, %35 ], [ 0, %31 ]
+58:                                               ; preds = %35, %52, %47, %31
+  %.272 = phi i16 [ %54, %52 ], [ %48, %47 ], [ %.171, %35 ], [ %.171, %31 ]
+  %.269 = phi i32 [ %57, %52 ], [ %51, %47 ], [ %.168, %35 ], [ %.168, %31 ]
+  %.066 = phi i16 [ %spec.select, %52 ], [ 0, %47 ], [ 0, %35 ], [ 0, %31 ]
+  %.064 = phi i16 [ %36, %52 ], [ %36, %47 ], [ 0, %35 ], [ 0, %31 ]
   %59 = load ptr, ptr %1, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8

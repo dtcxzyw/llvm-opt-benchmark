@@ -5817,16 +5817,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
 .lr.ph249.split.preheader:                        ; preds = %.lr.ph249
   %135 = shl nuw nsw i64 %132, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0193.0251, i8 0, i64 %135, i1 false)
-  %136 = shl nuw nsw i64 %134, 4
   %scevgep = getelementptr i8, ptr %.sroa.0193.0251, i64 16
+  %136 = shl nuw nsw i64 %134, 4
   %scevgep272 = getelementptr i8, ptr %scevgep, i64 %136
   br label %.loopexit
 
 .lr.ph249.split.us.preheader:                     ; preds = %.lr.ph249
   %137 = mul nuw nsw i64 %132, 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0193.0251, i8 0, i64 %137, i1 false)
-  %138 = mul nuw nsw i64 %134, 24
   %scevgep274 = getelementptr i8, ptr %.sroa.0193.0251, i64 24
+  %138 = mul nuw nsw i64 %134, 24
   %scevgep276 = getelementptr i8, ptr %scevgep274, i64 %138
   br label %.loopexit
 

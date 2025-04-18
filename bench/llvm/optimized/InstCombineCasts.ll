@@ -12887,7 +12887,6 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit218: ; pr
 
 .critedge212:                                     ; preds = %.critedge210, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #16
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 1, ptr %13, align 8
   %152 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %152, align 4, !tbaa !379
@@ -12902,6 +12901,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit218: ; pr
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPNS_7PHINodeES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !382
 
 _ZN4llvm13SmallDenseMapIPNS_7PHINodeES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   %153 = load ptr, ptr %38, align 8, !tbaa !97
   %154 = load i32, ptr %40, align 8, !tbaa !99

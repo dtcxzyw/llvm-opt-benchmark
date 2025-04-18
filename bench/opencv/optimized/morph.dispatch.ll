@@ -5159,8 +5159,8 @@ define void @_ZN2cv3hal5morphEiiiPhmS1_miiiiiiiiiiiS1_miiiiiPKdib(i32 noundef %0
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %29, ptr %41, align 8, !tbaa !211
   %.sroa.5.0.insert.ext.i = zext i32 %23 to i64
-  %.sroa.050.0.insert.ext.i = zext i32 %22 to i64
   %.sroa.5.0.insert.shift.i = shl nuw i64 %.sroa.5.0.insert.ext.i, 32
+  %.sroa.050.0.insert.ext.i = zext i32 %22 to i64
   %.sroa.050.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.shift.i, %.sroa.050.0.insert.ext.i
   invoke void @_ZN2cv22createMorphologyFilterEiiRKNS_11_InputArrayENS_6Point_IiEEiiRKNS_7Scalar_IdEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.128") align 8 %30, i32 noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 %.sroa.050.0.insert.insert.i, i32 noundef %24, i32 noundef %24, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %42 unwind label %78
@@ -12441,23 +12441,23 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %55, label %.preheader82.us, label %.preheader81, !llvm.loop !373
 
 .preheader82.preheader:                           ; preds = %.preheader82.lr.ph
-  %56 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
-  %57 = add nuw i32 %56, 1
-  %58 = and i32 %57, -2
-  %59 = lshr i32 %57, 1
-  %60 = zext nneg i32 %59 to i64
-  %61 = add nuw nsw i64 %60, 1
-  %62 = mul nsw i64 %61, %16
-  %63 = shl nuw nsw i64 %60, 4
-  %64 = add nsw i32 %4, -2
-  %65 = sub nsw i32 %64, %58
-  %scevgep = getelementptr i8, ptr %2, i64 %62
-  %66 = getelementptr i8, ptr %1, i64 %63
+  %56 = add nsw i32 %4, -2
+  %57 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
+  %58 = add nuw i32 %57, 1
+  %59 = and i32 %58, -2
+  %60 = sub nsw i32 %56, %59
+  %61 = lshr i32 %58, 1
+  %62 = zext nneg i32 %61 to i64
+  %63 = add nuw nsw i64 %62, 1
+  %64 = mul nsw i64 %63, %16
+  %scevgep = getelementptr i8, ptr %2, i64 %64
+  %65 = shl nuw nsw i64 %62, 4
+  %66 = getelementptr i8, ptr %1, i64 %65
   %scevgep162 = getelementptr i8, ptr %66, i64 16
   br label %.preheader81
 
 .preheader81:                                     ; preds = %._crit_edge88.split.us99, %._crit_edge88.split.us.us.us, %.preheader82.preheader, %6
-  %.068.lcssa = phi i32 [ %4, %6 ], [ %65, %.preheader82.preheader ], [ %36, %._crit_edge88.split.us.us.us ], [ %53, %._crit_edge88.split.us99 ]
+  %.068.lcssa = phi i32 [ %4, %6 ], [ %60, %.preheader82.preheader ], [ %36, %._crit_edge88.split.us.us.us ], [ %53, %._crit_edge88.split.us99 ]
   %.066.lcssa = phi ptr [ %1, %6 ], [ %scevgep162, %.preheader82.preheader ], [ %38, %._crit_edge88.split.us.us.us ], [ %41, %._crit_edge88.split.us99 ]
   %.065.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.preheader82.preheader ], [ %37, %._crit_edge88.split.us.us.us ], [ %54, %._crit_edge88.split.us99 ]
   %67 = icmp sgt i32 %.068.lcssa, 0
@@ -12745,24 +12745,24 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %56, label %.preheader82.us, label %.preheader81, !llvm.loop !381
 
 .preheader82.preheader:                           ; preds = %.preheader82.lr.ph
-  %57 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
-  %58 = add nuw i32 %57, 1
-  %59 = and i32 %58, -2
-  %60 = lshr i32 %58, 1
-  %61 = zext nneg i32 %60 to i64
-  %62 = shl nuw nsw i64 %61, 1
-  %63 = add nuw nsw i64 %62, 2
-  %64 = mul nsw i64 %63, %16
-  %65 = shl nuw nsw i64 %61, 4
-  %66 = add nsw i32 %4, -2
-  %67 = sub nsw i32 %66, %59
-  %scevgep = getelementptr i8, ptr %2, i64 %64
-  %68 = getelementptr i8, ptr %1, i64 %65
+  %57 = add nsw i32 %4, -2
+  %58 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
+  %59 = add nuw i32 %58, 1
+  %60 = and i32 %59, -2
+  %61 = sub nsw i32 %57, %60
+  %62 = lshr i32 %59, 1
+  %63 = zext nneg i32 %62 to i64
+  %64 = shl nuw nsw i64 %63, 1
+  %65 = add nuw nsw i64 %64, 2
+  %66 = mul nsw i64 %65, %16
+  %scevgep = getelementptr i8, ptr %2, i64 %66
+  %67 = shl nuw nsw i64 %63, 4
+  %68 = getelementptr i8, ptr %1, i64 %67
   %scevgep162 = getelementptr i8, ptr %68, i64 16
   br label %.preheader81
 
 .preheader81:                                     ; preds = %._crit_edge88.split.us99, %._crit_edge88.split.us.us.us, %.preheader82.preheader, %6
-  %.068.lcssa = phi i32 [ %4, %6 ], [ %67, %.preheader82.preheader ], [ %37, %._crit_edge88.split.us.us.us ], [ %54, %._crit_edge88.split.us99 ]
+  %.068.lcssa = phi i32 [ %4, %6 ], [ %61, %.preheader82.preheader ], [ %37, %._crit_edge88.split.us.us.us ], [ %54, %._crit_edge88.split.us99 ]
   %.066.lcssa = phi ptr [ %1, %6 ], [ %scevgep162, %.preheader82.preheader ], [ %39, %._crit_edge88.split.us.us.us ], [ %44, %._crit_edge88.split.us99 ]
   %.065.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.preheader82.preheader ], [ %38, %._crit_edge88.split.us.us.us ], [ %55, %._crit_edge88.split.us99 ]
   %69 = icmp sgt i32 %.068.lcssa, 0
@@ -13051,24 +13051,24 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %56, label %.preheader82.us, label %.preheader81, !llvm.loop !387
 
 .preheader82.preheader:                           ; preds = %.preheader82.lr.ph
-  %57 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
-  %58 = add nuw i32 %57, 1
-  %59 = and i32 %58, -2
-  %60 = lshr i32 %58, 1
-  %61 = zext nneg i32 %60 to i64
-  %62 = shl nuw nsw i64 %61, 1
-  %63 = add nuw nsw i64 %62, 2
-  %64 = mul nsw i64 %63, %16
-  %65 = shl nuw nsw i64 %61, 4
-  %66 = add nsw i32 %4, -2
-  %67 = sub nsw i32 %66, %59
-  %scevgep = getelementptr i8, ptr %2, i64 %64
-  %68 = getelementptr i8, ptr %1, i64 %65
+  %57 = add nsw i32 %4, -2
+  %58 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
+  %59 = add nuw i32 %58, 1
+  %60 = and i32 %59, -2
+  %61 = sub nsw i32 %57, %60
+  %62 = lshr i32 %59, 1
+  %63 = zext nneg i32 %62 to i64
+  %64 = shl nuw nsw i64 %63, 1
+  %65 = add nuw nsw i64 %64, 2
+  %66 = mul nsw i64 %65, %16
+  %scevgep = getelementptr i8, ptr %2, i64 %66
+  %67 = shl nuw nsw i64 %63, 4
+  %68 = getelementptr i8, ptr %1, i64 %67
   %scevgep162 = getelementptr i8, ptr %68, i64 16
   br label %.preheader81
 
 .preheader81:                                     ; preds = %._crit_edge88.split.us99, %._crit_edge88.split.us.us.us, %.preheader82.preheader, %6
-  %.068.lcssa = phi i32 [ %4, %6 ], [ %67, %.preheader82.preheader ], [ %37, %._crit_edge88.split.us.us.us ], [ %54, %._crit_edge88.split.us99 ]
+  %.068.lcssa = phi i32 [ %4, %6 ], [ %61, %.preheader82.preheader ], [ %37, %._crit_edge88.split.us.us.us ], [ %54, %._crit_edge88.split.us99 ]
   %.066.lcssa = phi ptr [ %1, %6 ], [ %scevgep162, %.preheader82.preheader ], [ %39, %._crit_edge88.split.us.us.us ], [ %44, %._crit_edge88.split.us99 ]
   %.065.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.preheader82.preheader ], [ %38, %._crit_edge88.split.us.us.us ], [ %55, %._crit_edge88.split.us99 ]
   %69 = icmp sgt i32 %.068.lcssa, 0
@@ -13362,24 +13362,24 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %61, label %.preheader82.us, label %.preheader81, !llvm.loop !395
 
 .preheader82.preheader:                           ; preds = %.preheader82.lr.ph
-  %62 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
-  %63 = add nuw i32 %62, 1
-  %64 = and i32 %63, -2
-  %65 = lshr i32 %63, 1
-  %66 = zext nneg i32 %65 to i64
-  %67 = shl nuw nsw i64 %66, 2
-  %68 = add nuw nsw i64 %67, 4
-  %69 = mul nsw i64 %68, %16
-  %70 = shl nuw nsw i64 %66, 4
-  %71 = add nsw i32 %4, -2
-  %72 = sub nsw i32 %71, %64
-  %scevgep = getelementptr i8, ptr %2, i64 %69
-  %73 = getelementptr i8, ptr %1, i64 %70
+  %62 = add nsw i32 %4, -2
+  %63 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
+  %64 = add nuw i32 %63, 1
+  %65 = and i32 %64, -2
+  %66 = sub nsw i32 %62, %65
+  %67 = lshr i32 %64, 1
+  %68 = zext nneg i32 %67 to i64
+  %69 = shl nuw nsw i64 %68, 2
+  %70 = add nuw nsw i64 %69, 4
+  %71 = mul nsw i64 %70, %16
+  %scevgep = getelementptr i8, ptr %2, i64 %71
+  %72 = shl nuw nsw i64 %68, 4
+  %73 = getelementptr i8, ptr %1, i64 %72
   %scevgep162 = getelementptr i8, ptr %73, i64 16
   br label %.preheader81
 
 .preheader81:                                     ; preds = %._crit_edge88.split.us99, %._crit_edge88.split.us.us.us, %.preheader82.preheader, %6
-  %.068.lcssa = phi i32 [ %4, %6 ], [ %72, %.preheader82.preheader ], [ %40, %._crit_edge88.split.us.us.us ], [ %59, %._crit_edge88.split.us99 ]
+  %.068.lcssa = phi i32 [ %4, %6 ], [ %66, %.preheader82.preheader ], [ %40, %._crit_edge88.split.us.us.us ], [ %59, %._crit_edge88.split.us99 ]
   %.066.lcssa = phi ptr [ %1, %6 ], [ %scevgep162, %.preheader82.preheader ], [ %42, %._crit_edge88.split.us.us.us ], [ %47, %._crit_edge88.split.us99 ]
   %.065.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.preheader82.preheader ], [ %41, %._crit_edge88.split.us.us.us ], [ %60, %._crit_edge88.split.us99 ]
   %74 = icmp sgt i32 %.068.lcssa, 0
@@ -13674,24 +13674,24 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %61, label %.preheader82.us, label %.preheader81, !llvm.loop !403
 
 .preheader82.preheader:                           ; preds = %.preheader82.lr.ph
-  %62 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
-  %63 = add nuw i32 %62, 1
-  %64 = and i32 %63, -2
-  %65 = lshr i32 %63, 1
-  %66 = zext nneg i32 %65 to i64
-  %67 = shl nuw nsw i64 %66, 3
-  %68 = add nuw nsw i64 %67, 8
-  %69 = mul nsw i64 %68, %16
-  %70 = shl nuw nsw i64 %66, 4
-  %71 = add nsw i32 %4, -2
-  %72 = sub nsw i32 %71, %64
-  %scevgep = getelementptr i8, ptr %2, i64 %69
-  %73 = getelementptr i8, ptr %1, i64 %70
+  %62 = add nsw i32 %4, -2
+  %63 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
+  %64 = add nuw i32 %63, 1
+  %65 = and i32 %64, -2
+  %66 = sub nsw i32 %62, %65
+  %67 = lshr i32 %64, 1
+  %68 = zext nneg i32 %67 to i64
+  %69 = shl nuw nsw i64 %68, 3
+  %70 = add nuw nsw i64 %69, 8
+  %71 = mul nsw i64 %70, %16
+  %scevgep = getelementptr i8, ptr %2, i64 %71
+  %72 = shl nuw nsw i64 %68, 4
+  %73 = getelementptr i8, ptr %1, i64 %72
   %scevgep162 = getelementptr i8, ptr %73, i64 16
   br label %.preheader81
 
 .preheader81:                                     ; preds = %._crit_edge88.split.us99, %._crit_edge88.split.us.us.us, %.preheader82.preheader, %6
-  %.068.lcssa = phi i32 [ %4, %6 ], [ %72, %.preheader82.preheader ], [ %40, %._crit_edge88.split.us.us.us ], [ %59, %._crit_edge88.split.us99 ]
+  %.068.lcssa = phi i32 [ %4, %6 ], [ %66, %.preheader82.preheader ], [ %40, %._crit_edge88.split.us.us.us ], [ %59, %._crit_edge88.split.us99 ]
   %.066.lcssa = phi ptr [ %1, %6 ], [ %scevgep162, %.preheader82.preheader ], [ %42, %._crit_edge88.split.us.us.us ], [ %47, %._crit_edge88.split.us99 ]
   %.065.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.preheader82.preheader ], [ %41, %._crit_edge88.split.us.us.us ], [ %60, %._crit_edge88.split.us99 ]
   %74 = icmp sgt i32 %.068.lcssa, 0
@@ -13975,23 +13975,23 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %55, label %.preheader82.us, label %.preheader81, !llvm.loop !409
 
 .preheader82.preheader:                           ; preds = %.preheader82.lr.ph
-  %56 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
-  %57 = add nuw i32 %56, 1
-  %58 = and i32 %57, -2
-  %59 = lshr i32 %57, 1
-  %60 = zext nneg i32 %59 to i64
-  %61 = add nuw nsw i64 %60, 1
-  %62 = mul nsw i64 %61, %16
-  %63 = shl nuw nsw i64 %60, 4
-  %64 = add nsw i32 %4, -2
-  %65 = sub nsw i32 %64, %58
-  %scevgep = getelementptr i8, ptr %2, i64 %62
-  %66 = getelementptr i8, ptr %1, i64 %63
+  %56 = add nsw i32 %4, -2
+  %57 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
+  %58 = add nuw i32 %57, 1
+  %59 = and i32 %58, -2
+  %60 = sub nsw i32 %56, %59
+  %61 = lshr i32 %58, 1
+  %62 = zext nneg i32 %61 to i64
+  %63 = add nuw nsw i64 %62, 1
+  %64 = mul nsw i64 %63, %16
+  %scevgep = getelementptr i8, ptr %2, i64 %64
+  %65 = shl nuw nsw i64 %62, 4
+  %66 = getelementptr i8, ptr %1, i64 %65
   %scevgep162 = getelementptr i8, ptr %66, i64 16
   br label %.preheader81
 
 .preheader81:                                     ; preds = %._crit_edge88.split.us99, %._crit_edge88.split.us.us.us, %.preheader82.preheader, %6
-  %.068.lcssa = phi i32 [ %4, %6 ], [ %65, %.preheader82.preheader ], [ %36, %._crit_edge88.split.us.us.us ], [ %53, %._crit_edge88.split.us99 ]
+  %.068.lcssa = phi i32 [ %4, %6 ], [ %60, %.preheader82.preheader ], [ %36, %._crit_edge88.split.us.us.us ], [ %53, %._crit_edge88.split.us99 ]
   %.066.lcssa = phi ptr [ %1, %6 ], [ %scevgep162, %.preheader82.preheader ], [ %38, %._crit_edge88.split.us.us.us ], [ %41, %._crit_edge88.split.us99 ]
   %.065.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.preheader82.preheader ], [ %37, %._crit_edge88.split.us.us.us ], [ %54, %._crit_edge88.split.us99 ]
   %67 = icmp sgt i32 %.068.lcssa, 0
@@ -14277,24 +14277,24 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %56, label %.preheader82.us, label %.preheader81, !llvm.loop !415
 
 .preheader82.preheader:                           ; preds = %.preheader82.lr.ph
-  %57 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
-  %58 = add nuw i32 %57, 1
-  %59 = and i32 %58, -2
-  %60 = lshr i32 %58, 1
-  %61 = zext nneg i32 %60 to i64
-  %62 = shl nuw nsw i64 %61, 1
-  %63 = add nuw nsw i64 %62, 2
-  %64 = mul nsw i64 %63, %16
-  %65 = shl nuw nsw i64 %61, 4
-  %66 = add nsw i32 %4, -2
-  %67 = sub nsw i32 %66, %59
-  %scevgep = getelementptr i8, ptr %2, i64 %64
-  %68 = getelementptr i8, ptr %1, i64 %65
+  %57 = add nsw i32 %4, -2
+  %58 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
+  %59 = add nuw i32 %58, 1
+  %60 = and i32 %59, -2
+  %61 = sub nsw i32 %57, %60
+  %62 = lshr i32 %59, 1
+  %63 = zext nneg i32 %62 to i64
+  %64 = shl nuw nsw i64 %63, 1
+  %65 = add nuw nsw i64 %64, 2
+  %66 = mul nsw i64 %65, %16
+  %scevgep = getelementptr i8, ptr %2, i64 %66
+  %67 = shl nuw nsw i64 %63, 4
+  %68 = getelementptr i8, ptr %1, i64 %67
   %scevgep162 = getelementptr i8, ptr %68, i64 16
   br label %.preheader81
 
 .preheader81:                                     ; preds = %._crit_edge88.split.us99, %._crit_edge88.split.us.us.us, %.preheader82.preheader, %6
-  %.068.lcssa = phi i32 [ %4, %6 ], [ %67, %.preheader82.preheader ], [ %37, %._crit_edge88.split.us.us.us ], [ %54, %._crit_edge88.split.us99 ]
+  %.068.lcssa = phi i32 [ %4, %6 ], [ %61, %.preheader82.preheader ], [ %37, %._crit_edge88.split.us.us.us ], [ %54, %._crit_edge88.split.us99 ]
   %.066.lcssa = phi ptr [ %1, %6 ], [ %scevgep162, %.preheader82.preheader ], [ %39, %._crit_edge88.split.us.us.us ], [ %44, %._crit_edge88.split.us99 ]
   %.065.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.preheader82.preheader ], [ %38, %._crit_edge88.split.us.us.us ], [ %55, %._crit_edge88.split.us99 ]
   %69 = icmp sgt i32 %.068.lcssa, 0
@@ -14583,24 +14583,24 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %56, label %.preheader82.us, label %.preheader81, !llvm.loop !421
 
 .preheader82.preheader:                           ; preds = %.preheader82.lr.ph
-  %57 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
-  %58 = add nuw i32 %57, 1
-  %59 = and i32 %58, -2
-  %60 = lshr i32 %58, 1
-  %61 = zext nneg i32 %60 to i64
-  %62 = shl nuw nsw i64 %61, 1
-  %63 = add nuw nsw i64 %62, 2
-  %64 = mul nsw i64 %63, %16
-  %65 = shl nuw nsw i64 %61, 4
-  %66 = add nsw i32 %4, -2
-  %67 = sub nsw i32 %66, %59
-  %scevgep = getelementptr i8, ptr %2, i64 %64
-  %68 = getelementptr i8, ptr %1, i64 %65
+  %57 = add nsw i32 %4, -2
+  %58 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
+  %59 = add nuw i32 %58, 1
+  %60 = and i32 %59, -2
+  %61 = sub nsw i32 %57, %60
+  %62 = lshr i32 %59, 1
+  %63 = zext nneg i32 %62 to i64
+  %64 = shl nuw nsw i64 %63, 1
+  %65 = add nuw nsw i64 %64, 2
+  %66 = mul nsw i64 %65, %16
+  %scevgep = getelementptr i8, ptr %2, i64 %66
+  %67 = shl nuw nsw i64 %63, 4
+  %68 = getelementptr i8, ptr %1, i64 %67
   %scevgep162 = getelementptr i8, ptr %68, i64 16
   br label %.preheader81
 
 .preheader81:                                     ; preds = %._crit_edge88.split.us99, %._crit_edge88.split.us.us.us, %.preheader82.preheader, %6
-  %.068.lcssa = phi i32 [ %4, %6 ], [ %67, %.preheader82.preheader ], [ %37, %._crit_edge88.split.us.us.us ], [ %54, %._crit_edge88.split.us99 ]
+  %.068.lcssa = phi i32 [ %4, %6 ], [ %61, %.preheader82.preheader ], [ %37, %._crit_edge88.split.us.us.us ], [ %54, %._crit_edge88.split.us99 ]
   %.066.lcssa = phi ptr [ %1, %6 ], [ %scevgep162, %.preheader82.preheader ], [ %39, %._crit_edge88.split.us.us.us ], [ %44, %._crit_edge88.split.us99 ]
   %.065.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.preheader82.preheader ], [ %38, %._crit_edge88.split.us.us.us ], [ %55, %._crit_edge88.split.us99 ]
   %69 = icmp sgt i32 %.068.lcssa, 0
@@ -14894,24 +14894,24 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %61, label %.preheader82.us, label %.preheader81, !llvm.loop !427
 
 .preheader82.preheader:                           ; preds = %.preheader82.lr.ph
-  %62 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
-  %63 = add nuw i32 %62, 1
-  %64 = and i32 %63, -2
-  %65 = lshr i32 %63, 1
-  %66 = zext nneg i32 %65 to i64
-  %67 = shl nuw nsw i64 %66, 2
-  %68 = add nuw nsw i64 %67, 4
-  %69 = mul nsw i64 %68, %16
-  %70 = shl nuw nsw i64 %66, 4
-  %71 = add nsw i32 %4, -2
-  %72 = sub nsw i32 %71, %64
-  %scevgep = getelementptr i8, ptr %2, i64 %69
-  %73 = getelementptr i8, ptr %1, i64 %70
+  %62 = add nsw i32 %4, -2
+  %63 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
+  %64 = add nuw i32 %63, 1
+  %65 = and i32 %64, -2
+  %66 = sub nsw i32 %62, %65
+  %67 = lshr i32 %64, 1
+  %68 = zext nneg i32 %67 to i64
+  %69 = shl nuw nsw i64 %68, 2
+  %70 = add nuw nsw i64 %69, 4
+  %71 = mul nsw i64 %70, %16
+  %scevgep = getelementptr i8, ptr %2, i64 %71
+  %72 = shl nuw nsw i64 %68, 4
+  %73 = getelementptr i8, ptr %1, i64 %72
   %scevgep162 = getelementptr i8, ptr %73, i64 16
   br label %.preheader81
 
 .preheader81:                                     ; preds = %._crit_edge88.split.us99, %._crit_edge88.split.us.us.us, %.preheader82.preheader, %6
-  %.068.lcssa = phi i32 [ %4, %6 ], [ %72, %.preheader82.preheader ], [ %40, %._crit_edge88.split.us.us.us ], [ %59, %._crit_edge88.split.us99 ]
+  %.068.lcssa = phi i32 [ %4, %6 ], [ %66, %.preheader82.preheader ], [ %40, %._crit_edge88.split.us.us.us ], [ %59, %._crit_edge88.split.us99 ]
   %.066.lcssa = phi ptr [ %1, %6 ], [ %scevgep162, %.preheader82.preheader ], [ %42, %._crit_edge88.split.us.us.us ], [ %47, %._crit_edge88.split.us99 ]
   %.065.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.preheader82.preheader ], [ %41, %._crit_edge88.split.us.us.us ], [ %60, %._crit_edge88.split.us99 ]
   %74 = icmp sgt i32 %.068.lcssa, 0
@@ -15209,24 +15209,24 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %61, label %.preheader82.us, label %.preheader81, !llvm.loop !433
 
 .preheader82.preheader:                           ; preds = %.preheader82.lr.ph
-  %62 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
-  %63 = add nuw i32 %62, 1
-  %64 = and i32 %63, -2
-  %65 = lshr i32 %63, 1
-  %66 = zext nneg i32 %65 to i64
-  %67 = shl nuw nsw i64 %66, 3
-  %68 = add nuw nsw i64 %67, 8
-  %69 = mul nsw i64 %68, %16
-  %70 = shl nuw nsw i64 %66, 4
-  %71 = add nsw i32 %4, -2
-  %72 = sub nsw i32 %71, %64
-  %scevgep = getelementptr i8, ptr %2, i64 %69
-  %73 = getelementptr i8, ptr %1, i64 %70
+  %62 = add nsw i32 %4, -2
+  %63 = call i32 @llvm.usub.sat.i32(i32 %4, i32 3)
+  %64 = add nuw i32 %63, 1
+  %65 = and i32 %64, -2
+  %66 = sub nsw i32 %62, %65
+  %67 = lshr i32 %64, 1
+  %68 = zext nneg i32 %67 to i64
+  %69 = shl nuw nsw i64 %68, 3
+  %70 = add nuw nsw i64 %69, 8
+  %71 = mul nsw i64 %70, %16
+  %scevgep = getelementptr i8, ptr %2, i64 %71
+  %72 = shl nuw nsw i64 %68, 4
+  %73 = getelementptr i8, ptr %1, i64 %72
   %scevgep162 = getelementptr i8, ptr %73, i64 16
   br label %.preheader81
 
 .preheader81:                                     ; preds = %._crit_edge88.split.us99, %._crit_edge88.split.us.us.us, %.preheader82.preheader, %6
-  %.068.lcssa = phi i32 [ %4, %6 ], [ %72, %.preheader82.preheader ], [ %40, %._crit_edge88.split.us.us.us ], [ %59, %._crit_edge88.split.us99 ]
+  %.068.lcssa = phi i32 [ %4, %6 ], [ %66, %.preheader82.preheader ], [ %40, %._crit_edge88.split.us.us.us ], [ %59, %._crit_edge88.split.us99 ]
   %.066.lcssa = phi ptr [ %1, %6 ], [ %scevgep162, %.preheader82.preheader ], [ %42, %._crit_edge88.split.us.us.us ], [ %47, %._crit_edge88.split.us99 ]
   %.065.lcssa = phi ptr [ %2, %6 ], [ %scevgep, %.preheader82.preheader ], [ %41, %._crit_edge88.split.us.us.us ], [ %60, %._crit_edge88.split.us99 ]
   %74 = icmp sgt i32 %.068.lcssa, 0

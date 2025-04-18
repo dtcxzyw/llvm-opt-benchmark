@@ -1149,11 +1149,11 @@ get_docrep.exit:                                  ; preds = %152, %115
   store i16 %.sroa.9.0.lcssa.i, ptr %.sroa.9.0..sroa_idx4.i, align 8
   %.sroa.148.0..sroa_idx9.i = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 16
   store i16 %.sroa.148.0.lcssa.i, ptr %.sroa.148.0..sroa_idx9.i, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   %158 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 24
   %159 = ptrtoint ptr %158 to i64
   %160 = sub i64 %159, %125
   %161 = sdiv exact i64 %160, 24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   %sext = shl i64 %161, 32
   %162 = ashr exact i64 %sext, 32
   %sext199 = shl i64 %161, 32

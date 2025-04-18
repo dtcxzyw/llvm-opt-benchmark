@@ -596,199 +596,196 @@ define void @_ZN2cv11RotatedRectC2ERKNS_6Point_IfEES4_S4_(ptr noundef nonnull wr
   store float %13, ptr %15, align 8
   %.sroa_idx76 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float %14, ptr %.sroa_idx76, align 4
-  %16 = fpext float %.val38 to double
-  %17 = fpext float %.val39 to double
+  %16 = fpext float %.val30 to double
+  %17 = fpext float %.val31 to double
   %18 = fmul double %17, %17
   %19 = tail call double @llvm.fmuladd.f64(double %16, double %16, double %18)
-  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %19)
-  %20 = fpext float %.val30 to double
-  %21 = fpext float %.val31 to double
-  %22 = fmul double %21, %21
-  %23 = tail call double @llvm.fmuladd.f64(double %20, double %20, double %22)
-  %sqrt.i50 = tail call noundef double @llvm.sqrt.f64(double %23)
-  %24 = fpext float %.val40 to double
-  %25 = fpext float %.val41 to double
-  %26 = fmul double %25, %25
-  %27 = tail call double @llvm.fmuladd.f64(double %24, double %24, double %26)
-  %sqrt.i51 = tail call noundef double @llvm.sqrt.f64(double %27)
-  %28 = fcmp olt double %sqrt.i50, %sqrt.i51
-  %29 = select i1 %28, double %sqrt.i51, double %sqrt.i50
-  %30 = fcmp olt double %sqrt.i, %29
-  br label %31
+  %sqrt.i50 = tail call noundef double @llvm.sqrt.f64(double %19)
+  br label %20
 
-31:                                               ; preds = %31, %4
-  %32 = phi i1 [ true, %4 ], [ false, %31 ]
-  %indvars.iv.i.i.sroa.phi = phi ptr [ %5, %4 ], [ %indvars.iv.i.i.sroa.gep83, %31 ]
-  %.010.i.i = phi double [ 0.000000e+00, %4 ], [ %35, %31 ]
-  %33 = load float, ptr %indvars.iv.i.i.sroa.phi, align 4, !tbaa !44
-  %34 = fpext float %33 to double
-  %35 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %.010.i.i)
-  br i1 %32, label %31, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit, !llvm.loop !54
+20:                                               ; preds = %20, %4
+  %21 = phi i1 [ true, %4 ], [ false, %20 ]
+  %indvars.iv.i.i.sroa.phi = phi ptr [ %5, %4 ], [ %indvars.iv.i.i.sroa.gep83, %20 ]
+  %.010.i.i = phi double [ 0.000000e+00, %4 ], [ %24, %20 ]
+  %22 = load float, ptr %indvars.iv.i.i.sroa.phi, align 4, !tbaa !44
+  %23 = fpext float %22 to double
+  %24 = tail call double @llvm.fmuladd.f64(double %23, double %23, double %.010.i.i)
+  br i1 %21, label %20, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit, !llvm.loop !54
 
-_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %31
-  %36 = tail call noundef double @sqrt(double noundef %35) #21, !tbaa !31
-  br label %37
+_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %20
+  %25 = tail call noundef double @sqrt(double noundef %24) #21, !tbaa !31
+  br label %26
 
-37:                                               ; preds = %37, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit
-  %38 = phi i1 [ true, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ false, %37 ]
-  %indvars.iv.i.i53 = phi i64 [ 0, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ 1, %37 ]
-  %.010.i.i54 = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ %42, %37 ]
-  %39 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i53
-  %40 = load float, ptr %39, align 4, !tbaa !44
-  %41 = fpext float %40 to double
-  %42 = tail call double @llvm.fmuladd.f64(double %41, double %41, double %.010.i.i54)
-  br i1 %38, label %37, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55, !llvm.loop !54
+26:                                               ; preds = %26, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit
+  %27 = phi i1 [ true, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ false, %26 ]
+  %indvars.iv.i.i53 = phi i64 [ 0, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ 1, %26 ]
+  %.010.i.i54 = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ %31, %26 ]
+  %28 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i53
+  %29 = load float, ptr %28, align 4, !tbaa !44
+  %30 = fpext float %29 to double
+  %31 = tail call double @llvm.fmuladd.f64(double %30, double %30, double %.010.i.i54)
+  br i1 %27, label %26, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55, !llvm.loop !54
 
-_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55: ; preds = %37
-  %43 = tail call noundef double @sqrt(double noundef %42) #21, !tbaa !31
-  %44 = fcmp olt double %43, %36
-  br label %45
+_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55: ; preds = %26
+  %32 = tail call noundef double @sqrt(double noundef %31) #21, !tbaa !31
+  br label %33
 
-45:                                               ; preds = %45, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55
-  %46 = phi i1 [ true, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55 ], [ false, %45 ]
-  %indvars.iv.i.sroa.phi = phi ptr [ %5, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55 ], [ %indvars.iv.i.i.sroa.gep83, %45 ]
-  %indvars.iv.i = phi i64 [ 0, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55 ], [ 1, %45 ]
-  %.078.i = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55 ], [ %52, %45 ]
-  %47 = load float, ptr %indvars.iv.i.sroa.phi, align 4, !tbaa !44
-  %48 = fpext float %47 to double
-  %49 = getelementptr inbounds nuw [2 x float], ptr %15, i64 0, i64 %indvars.iv.i
-  %50 = load float, ptr %49, align 4, !tbaa !44
-  %51 = fpext float %50 to double
-  %52 = tail call double @llvm.fmuladd.f64(double %48, double %51, double %.078.i)
-  br i1 %46, label %45, label %_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit, !llvm.loop !55
+33:                                               ; preds = %33, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55
+  %34 = phi i1 [ true, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55 ], [ false, %33 ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %5, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55 ], [ %indvars.iv.i.i.sroa.gep83, %33 ]
+  %indvars.iv.i = phi i64 [ 0, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55 ], [ 1, %33 ]
+  %.078.i = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55 ], [ %40, %33 ]
+  %35 = load float, ptr %indvars.iv.i.sroa.phi, align 4, !tbaa !44
+  %36 = fpext float %35 to double
+  %37 = getelementptr inbounds nuw [2 x float], ptr %15, i64 0, i64 %indvars.iv.i
+  %38 = load float, ptr %37, align 4, !tbaa !44
+  %39 = fpext float %38 to double
+  %40 = tail call double @llvm.fmuladd.f64(double %36, double %39, double %.078.i)
+  br i1 %34, label %33, label %_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit, !llvm.loop !55
 
-_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit:          ; preds = %45
-  %.sroa.speculated = select i1 %44, double %43, double %36
-  %53 = tail call double @llvm.fabs.f64(double %52)
-  %54 = fmul double %.sroa.speculated, %53
-  br label %55
+_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit:          ; preds = %33, %_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit
+  %41 = phi i1 [ false, %_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit ], [ true, %33 ]
+  %indvars.iv.i.i57.sroa.phi = phi ptr [ %indvars.iv.i.i.sroa.gep83, %_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit ], [ %5, %33 ]
+  %.010.i.i58 = phi double [ %44, %_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit ], [ 0.000000e+00, %33 ]
+  %42 = load float, ptr %indvars.iv.i.i57.sroa.phi, align 4, !tbaa !44
+  %43 = fpext float %42 to double
+  %44 = tail call double @llvm.fmuladd.f64(double %43, double %43, double %.010.i.i58)
+  br i1 %41, label %_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59, !llvm.loop !54
 
-55:                                               ; preds = %55, %_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit
-  %56 = phi i1 [ true, %_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit ], [ false, %55 ]
-  %indvars.iv.i.i57.sroa.phi = phi ptr [ %5, %_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit ], [ %indvars.iv.i.i.sroa.gep83, %55 ]
-  %.010.i.i58 = phi double [ 0.000000e+00, %_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit ], [ %59, %55 ]
-  %57 = load float, ptr %indvars.iv.i.i57.sroa.phi, align 4, !tbaa !44
-  %58 = fpext float %57 to double
-  %59 = tail call double @llvm.fmuladd.f64(double %58, double %58, double %.010.i.i58)
-  br i1 %56, label %55, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59, !llvm.loop !54
+_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59: ; preds = %_ZNK2cv4MatxIfLi2ELi1EE4ddotERKS1_.exit
+  %45 = tail call noundef double @sqrt(double noundef %44) #21, !tbaa !31
+  br label %46
 
-_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59: ; preds = %55
-  %.sroa.speculated73 = select i1 %30, double %29, double %sqrt.i
-  %60 = tail call noundef double @sqrt(double noundef %59) #21, !tbaa !31
-  br label %61
+46:                                               ; preds = %46, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59
+  %47 = phi i1 [ true, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59 ], [ false, %46 ]
+  %indvars.iv.i.i60 = phi i64 [ 0, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59 ], [ 1, %46 ]
+  %.010.i.i61 = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59 ], [ %51, %46 ]
+  %48 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i60
+  %49 = load float, ptr %48, align 4, !tbaa !44
+  %50 = fpext float %49 to double
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double %50, double %.010.i.i61)
+  br i1 %47, label %46, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit62, !llvm.loop !54
 
-61:                                               ; preds = %61, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59
-  %62 = phi i1 [ true, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59 ], [ false, %61 ]
-  %indvars.iv.i.i60 = phi i64 [ 0, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59 ], [ 1, %61 ]
-  %.010.i.i61 = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59 ], [ %66, %61 ]
-  %63 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i60
-  %64 = load float, ptr %63, align 4, !tbaa !44
-  %65 = fpext float %64 to double
-  %66 = tail call double @llvm.fmuladd.f64(double %65, double %65, double %.010.i.i61)
-  br i1 %62, label %61, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit62, !llvm.loop !54
+_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit62: ; preds = %46
+  %52 = fpext float %.val38 to double
+  %53 = fpext float %.val39 to double
+  %54 = fmul double %53, %53
+  %55 = tail call double @llvm.fmuladd.f64(double %52, double %52, double %54)
+  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %55)
+  %56 = fpext float %.val40 to double
+  %57 = fpext float %.val41 to double
+  %58 = fmul double %57, %57
+  %59 = tail call double @llvm.fmuladd.f64(double %56, double %56, double %58)
+  %sqrt.i51 = tail call noundef double @llvm.sqrt.f64(double %59)
+  %60 = fcmp olt double %sqrt.i50, %sqrt.i51
+  %61 = select i1 %60, double %sqrt.i51, double %sqrt.i50
+  %62 = fcmp olt double %sqrt.i, %61
+  %.sroa.speculated73 = select i1 %62, double %61, double %sqrt.i
+  %63 = fcmp olt double %32, %25
+  %.sroa.speculated = select i1 %63, double %32, double %25
+  %64 = tail call double @llvm.fabs.f64(double %40)
+  %65 = fmul double %.sroa.speculated, %64
+  %66 = fmul double %.sroa.speculated73, 0x3EB2000000000000
+  %67 = tail call noundef double @sqrt(double noundef %51) #21, !tbaa !31
+  %68 = fmul double %45, %67
+  %69 = fmul double %66, %68
+  %70 = fcmp ugt double %65, %69
+  br i1 %70, label %71, label %81
 
-_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit62: ; preds = %61
-  %67 = fmul double %.sroa.speculated73, 0x3EB2000000000000
-  %68 = tail call noundef double @sqrt(double noundef %66) #21, !tbaa !31
-  %69 = fmul double %60, %68
-  %70 = fmul double %67, %69
-  %71 = fcmp ugt double %54, %70
-  br i1 %71, label %72, label %82
-
-72:                                               ; preds = %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit62
+71:                                               ; preds = %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit62
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.4, ptr noundef nonnull align 1 dereferenceable(1) %7)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cv11RotatedRectC2ERKNS_6Point_IfEES4_S4_, ptr noundef nonnull @.str.1, i32 noundef 156) #22
-          to label %73 unwind label %74
+          to label %72 unwind label %73
 
-73:                                               ; preds = %72
+72:                                               ; preds = %71
   unreachable
 
-74:                                               ; preds = %72
-  %75 = landingpad { ptr, i32 }
+73:                                               ; preds = %71
+  %74 = landingpad { ptr, i32 }
           cleanup
-  %76 = load ptr, ptr %6, align 8, !tbaa !33
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %78 = icmp eq ptr %76, %77
-  br i1 %78, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %75 = load ptr, ptr %6, align 8, !tbaa !33
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %77 = icmp eq ptr %75, %76
+  br i1 %77, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %80 = load i64, ptr %79, align 8, !tbaa !38
-  %81 = icmp ult i64 %80, 16
-  call void @llvm.assume(i1 %81)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %73
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %79 = load i64, ptr %78, align 8, !tbaa !38
+  %80 = icmp ult i64 %79, 16
+  call void @llvm.assume(i1 %80)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %74
-  call void @_ZdlPv(ptr noundef %76) #23
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %73
+  call void @_ZdlPv(ptr noundef %75) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
-  resume { ptr, i32 } %75
+  resume { ptr, i32 } %74
 
-82:                                               ; preds = %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit62
-  %83 = tail call noundef float @llvm.fabs.f32(float %14)
-  %84 = tail call noundef float @llvm.fabs.f32(float %13)
-  %85 = fcmp olt float %83, %84
-  %86 = zext i1 %85 to i64
-  %87 = getelementptr inbounds nuw [2 x %"class.cv::Vec"], ptr %5, i64 0, i64 %86
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %89 = load float, ptr %88, align 4, !tbaa !44
-  %90 = load float, ptr %87, align 8, !tbaa !44
-  %91 = fdiv float %89, %90
-  %92 = tail call noundef float @atanf(float noundef %91) #21, !tbaa !31
-  br label %93
+81:                                               ; preds = %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit62
+  %82 = tail call noundef float @llvm.fabs.f32(float %14)
+  %83 = tail call noundef float @llvm.fabs.f32(float %13)
+  %84 = fcmp olt float %82, %83
+  %85 = zext i1 %84 to i64
+  %86 = getelementptr inbounds nuw [2 x %"class.cv::Vec"], ptr %5, i64 0, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
+  %88 = load float, ptr %87, align 4, !tbaa !44
+  %89 = load float, ptr %86, align 8, !tbaa !44
+  %90 = fdiv float %88, %89
+  %91 = tail call noundef float @atanf(float noundef %90) #21, !tbaa !31
+  br label %92
 
-93:                                               ; preds = %93, %82
-  %94 = phi i1 [ true, %82 ], [ false, %93 ]
-  %indvars.iv.i.i63 = phi i64 [ 0, %82 ], [ 1, %93 ]
-  %.010.i.i64 = phi double [ 0.000000e+00, %82 ], [ %98, %93 ]
-  %95 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv.i.i63
-  %96 = load float, ptr %95, align 4, !tbaa !44
-  %97 = fpext float %96 to double
-  %98 = tail call double @llvm.fmuladd.f64(double %97, double %97, double %.010.i.i64)
-  br i1 %94, label %93, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65, !llvm.loop !54
+92:                                               ; preds = %92, %81
+  %93 = phi i1 [ true, %81 ], [ false, %92 ]
+  %indvars.iv.i.i63 = phi i64 [ 0, %81 ], [ 1, %92 ]
+  %.010.i.i64 = phi double [ 0.000000e+00, %81 ], [ %97, %92 ]
+  %94 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv.i.i63
+  %95 = load float, ptr %94, align 4, !tbaa !44
+  %96 = fpext float %95 to double
+  %97 = tail call double @llvm.fmuladd.f64(double %96, double %96, double %.010.i.i64)
+  br i1 %93, label %92, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65, !llvm.loop !54
 
-_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65: ; preds = %93
-  %99 = xor i1 %85, true
-  %100 = tail call noundef double @sqrt(double noundef %98) #21, !tbaa !31
-  %101 = zext i1 %99 to i64
-  %102 = getelementptr inbounds nuw [2 x %"class.cv::Vec"], ptr %5, i64 0, i64 %101
-  br label %103
+_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65: ; preds = %92
+  %98 = xor i1 %84, true
+  %99 = tail call noundef double @sqrt(double noundef %97) #21, !tbaa !31
+  %100 = zext i1 %98 to i64
+  %101 = getelementptr inbounds nuw [2 x %"class.cv::Vec"], ptr %5, i64 0, i64 %100
+  br label %102
 
-103:                                              ; preds = %103, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65
-  %104 = phi i1 [ true, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65 ], [ false, %103 ]
-  %indvars.iv.i.i66 = phi i64 [ 0, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65 ], [ 1, %103 ]
-  %.010.i.i67 = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65 ], [ %108, %103 ]
-  %105 = getelementptr inbounds nuw float, ptr %102, i64 %indvars.iv.i.i66
-  %106 = load float, ptr %105, align 4, !tbaa !44
-  %107 = fpext float %106 to double
-  %108 = tail call double @llvm.fmuladd.f64(double %107, double %107, double %.010.i.i67)
-  br i1 %104, label %103, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit68, !llvm.loop !54
+102:                                              ; preds = %102, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65
+  %103 = phi i1 [ true, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65 ], [ false, %102 ]
+  %indvars.iv.i.i66 = phi i64 [ 0, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65 ], [ 1, %102 ]
+  %.010.i.i67 = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit65 ], [ %107, %102 ]
+  %104 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv.i.i66
+  %105 = load float, ptr %104, align 4, !tbaa !44
+  %106 = fpext float %105 to double
+  %107 = tail call double @llvm.fmuladd.f64(double %106, double %106, double %.010.i.i67)
+  br i1 %103, label %102, label %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit68, !llvm.loop !54
 
-_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit68: ; preds = %103
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %111 = fptrunc double %100 to float
-  %112 = fmul float %92, 1.800000e+02
-  %113 = fdiv float %112, 0x400921FB60000000
-  %114 = fadd float %.val38, %.val40
-  %115 = fmul float %114, 5.000000e-01
-  %.sroa.0.0.vec.insert.i44 = insertelement <2 x float> poison, float %115, i64 0
-  %116 = fadd float %.val39, %.val41
-  %117 = fmul float %116, 5.000000e-01
-  %.sroa.0.4.vec.insert.i45 = insertelement <2 x float> %.sroa.0.0.vec.insert.i44, float %117, i64 1
-  %118 = tail call noundef double @sqrt(double noundef %108) #21, !tbaa !31
-  %119 = fptrunc double %118 to float
+_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit68: ; preds = %102
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %110 = fptrunc double %99 to float
+  %111 = fmul float %91, 1.800000e+02
+  %112 = fdiv float %111, 0x400921FB60000000
+  %113 = fadd float %.val38, %.val40
+  %114 = fmul float %113, 5.000000e-01
+  %.sroa.0.0.vec.insert.i44 = insertelement <2 x float> poison, float %114, i64 0
+  %115 = fadd float %.val39, %.val41
+  %116 = fmul float %115, 5.000000e-01
+  %.sroa.0.4.vec.insert.i45 = insertelement <2 x float> %.sroa.0.0.vec.insert.i44, float %116, i64 1
+  %117 = tail call noundef double @sqrt(double noundef %107) #21, !tbaa !31
+  %118 = fptrunc double %117 to float
   store <2 x float> %.sroa.0.4.vec.insert.i45, ptr %0, align 4
-  store float %111, ptr %110, align 4
-  store float %119, ptr %109, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %113, ptr %120, align 4, !tbaa !56
+  store float %110, ptr %109, align 4
+  store float %118, ptr %108, align 4
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store float %112, ptr %119, align 4, !tbaa !56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
   ret void
 }

@@ -413,29 +413,29 @@ fsm_set_and_search.exit:                          ; preds = %BufferGetPage.exit.
 ; Function Attrs: nounwind uwtable
 define dso_local void @XLogRecordPageWithFreeSpace(i64 %0, i32 %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
 .preheader.i:
-  %4 = lshr i64 %3, 5
-  %5 = trunc nuw i64 %4 to i8
-  %6 = udiv i32 %2, 4069
-  %7 = urem i32 %2, 4069
-  %.sroa.2.0.insert.ext.i = zext nneg i32 %6 to i64
-  br label %8
+  %4 = udiv i32 %2, 4069
+  %5 = urem i32 %2, 4069
+  %.sroa.2.0.insert.ext.i = zext nneg i32 %4 to i64
+  br label %6
 
-8:                                                ; preds = %8, %.preheader.i
-  %.119.i = phi i32 [ 0, %.preheader.i ], [ %12, %8 ]
-  %.112.in18.i = phi i64 [ %.sroa.2.0.insert.ext.i, %.preheader.i ], [ %11, %8 ]
-  %.01317.i = phi i32 [ 0, %.preheader.i ], [ %10, %8 ]
+6:                                                ; preds = %6, %.preheader.i
+  %.119.i = phi i32 [ 0, %.preheader.i ], [ %10, %6 ]
+  %.112.in18.i = phi i64 [ %.sroa.2.0.insert.ext.i, %.preheader.i ], [ %9, %6 ]
+  %.01317.i = phi i32 [ 0, %.preheader.i ], [ %8, %6 ]
   %.112.i = trunc nuw nsw i64 %.112.in18.i to i32
-  %9 = add i32 %.01317.i, %.112.i
-  %10 = add i32 %9, 1
-  %11 = udiv i64 %.112.in18.i, 4069
-  %12 = add nuw nsw i32 %.119.i, 1
-  %exitcond21.not.i = icmp eq i32 %12, 3
-  br i1 %exitcond21.not.i, label %fsm_logical_to_physical.exit, label %8, !llvm.loop !5
+  %7 = add i32 %.01317.i, %.112.i
+  %8 = add i32 %7, 1
+  %9 = udiv i64 %.112.in18.i, 4069
+  %10 = add nuw nsw i32 %.119.i, 1
+  %exitcond21.not.i = icmp eq i32 %10, 3
+  br i1 %exitcond21.not.i, label %fsm_logical_to_physical.exit, label %6, !llvm.loop !5
 
-fsm_logical_to_physical.exit:                     ; preds = %8
-  %13 = icmp ugt i64 %3, 8159
-  %.0.i = select i1 %13, i8 -1, i8 %5
-  %14 = tail call i32 @XLogReadBufferExtended(i64 %0, i32 %1, i32 noundef 1, i32 noundef %9, i32 noundef 3, i32 noundef 0) #8
+fsm_logical_to_physical.exit:                     ; preds = %6
+  %11 = icmp ugt i64 %3, 8159
+  %12 = lshr i64 %3, 5
+  %13 = trunc nuw i64 %12 to i8
+  %.0.i = select i1 %11, i8 -1, i8 %13
+  %14 = tail call i32 @XLogReadBufferExtended(i64 %0, i32 %1, i32 noundef 1, i32 noundef %7, i32 noundef 3, i32 noundef 0) #8
   tail call void @LockBuffer(i32 noundef %14, i32 noundef 2) #8
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %22
@@ -468,7 +468,7 @@ BufferGetPage.exit:                               ; preds = %16, %22
   br label %31
 
 31:                                               ; preds = %30, %BufferGetPage.exit
-  %32 = tail call zeroext i1 @fsm_set_avail(ptr noundef nonnull %.0.i.i, i32 noundef %7, i8 noundef zeroext %.0.i) #8
+  %32 = tail call zeroext i1 @fsm_set_avail(ptr noundef nonnull %.0.i.i, i32 noundef %5, i8 noundef zeroext %.0.i) #8
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %31

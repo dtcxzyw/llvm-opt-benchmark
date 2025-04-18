@@ -692,9 +692,9 @@ define void @Fra_ClausProcessClausesCut3(ptr noundef readonly captures(none) %0,
 .preheader62.lr.ph.split:                         ; preds = %.preheader62.lr.ph
   %.promoted75 = load i32, ptr %3, align 4, !tbaa !38
   %49 = shl i32 %8, 5
-  %50 = shl i32 %10, 5
-  %51 = add i32 %.promoted75, %49
-  %52 = sub i32 %51, %50
+  %50 = add i32 %.promoted75, %49
+  %51 = shl i32 %10, 5
+  %52 = sub i32 %50, %51
   store i32 %52, ptr %3, align 4, !tbaa !38
   br label %.loopexit
 
@@ -6449,17 +6449,17 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %43 = load i32, ptr %42, align 4, !tbaa !45
-  %44 = mul nsw i32 %43, %40
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %.val65.val, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !33
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 36
-  %49 = load i32, ptr %48, align 4, !tbaa !37
-  %50 = mul nsw i32 %49, %43
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %41, i64 %51
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(8192) %52, i8 0, i64 8192, i1 false), !tbaa !38
-  %53 = getelementptr inbounds i32, ptr %41, i64 %45
+  %44 = getelementptr inbounds nuw i8, ptr %.val65.val, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !33
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 36
+  %47 = load i32, ptr %46, align 4, !tbaa !37
+  %48 = mul nsw i32 %47, %43
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i32, ptr %41, i64 %49
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(8192) %50, i8 0, i64 8192, i1 false), !tbaa !38
+  %51 = mul nsw i32 %43, %40
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i32, ptr %41, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %55 = load ptr, ptr %54, align 8, !tbaa !135
   %56 = getelementptr i8, ptr %55, i64 8
@@ -6567,7 +6567,7 @@ Fra_ClausEstimateCoverageOne.exit:                ; preds = %.lr.ph30.split.i, %
   %indvars.iv90 = phi i64 [ 0, %Fra_ClausEstimateCoverageOne.exit ], [ %indvars.iv.next91, %102 ]
   %103 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv90
   %104 = load i32, ptr %103, align 4, !tbaa !38
-  %105 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv90
+  %105 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv90
   %106 = load i32, ptr %105, align 4, !tbaa !38
   %107 = or i32 %106, %104
   store i32 %107, ptr %105, align 4, !tbaa !38
@@ -6588,7 +6588,7 @@ Fra_ClausEstimateCoverageOne.exit:                ; preds = %.lr.ph30.split.i, %
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.critedge ], [ 0, %.critedge.preheader ]
   %.084 = phi i32 [ %132, %.critedge ], [ 0, %.critedge.preheader ]
-  %111 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv97
+  %111 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv97
   %112 = load i32, ptr %111, align 4, !tbaa !38
   %113 = and i32 %112, 1431655765
   %114 = lshr i32 %112, 1

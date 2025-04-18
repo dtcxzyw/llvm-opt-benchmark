@@ -1093,8 +1093,8 @@ define internal fastcc noundef zeroext i1 @_ZL23optimizeGlobalsInModuleRN4llvm6M
   %.sroa.2724.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2652.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2650.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %39, i64 128
   %73 = getelementptr inbounds nuw i8, ptr %39, i64 136

@@ -2428,7 +2428,6 @@ define dso_local void @_ZN4llvm4coro10BaseCloner16salvageDebugInfoEv(ptr noundef
   %8 = load ptr, ptr %7, align 8, !tbaa !84
   call fastcc void @_ZL28collectDbgVariableIntrinsicsRN4llvm8FunctionE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(136) %8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #17
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %9, align 4, !tbaa !247
@@ -2444,6 +2443,7 @@ define dso_local void @_ZN4llvm4coro10BaseCloner16salvageDebugInfoEv(ptr noundef
 
 _ZN4llvm13SmallDenseMapIPNS_8ArgumentEPNS_10AllocaInstELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
@@ -10199,8 +10199,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13LazyCallGraph4NodeELb1EE9push_backES3_.e
   %186 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %187 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %188 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   %189 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 16
   %190 = getelementptr inbounds nuw i8, ptr %47, i64 80
   %191 = getelementptr inbounds nuw i8, ptr %47, i64 8

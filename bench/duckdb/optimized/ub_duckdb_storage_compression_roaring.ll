@@ -3033,36 +3033,36 @@ _ZN6duckdb20BitpackingPrimitives11UnPackGroupIhEEvPhS2_hb.exit.i: ; preds = %27
 
 .lr.ph.i31:                                       ; preds = %51, %47
   %.0.i.i28 = phi i64 [ %54, %51 ], [ %.025.lcssa, %47 ]
-  %55 = mul i64 %.0.i.i28, 7
-  %56 = load ptr, ptr %36, align 8, !tbaa !200
-  br label %57
+  %55 = load ptr, ptr %36, align 8, !tbaa !200
+  br label %56
 
-57:                                               ; preds = %_ZN6duckdb20BitpackingPrimitives11UnPackGroupIhEEvPhS2_hb.exit.i36, %.lr.ph.i31
-  %.09.i32 = phi i64 [ 0, %.lr.ph.i31 ], [ %67, %_ZN6duckdb20BitpackingPrimitives11UnPackGroupIhEEvPhS2_hb.exit.i36 ]
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 %.09.i32
-  %59 = mul i64 %.09.i32, 7
-  %60 = lshr exact i64 %59, 3
-  %61 = getelementptr inbounds nuw i8, ptr %34, i64 %60
-  br label %62
+56:                                               ; preds = %_ZN6duckdb20BitpackingPrimitives11UnPackGroupIhEEvPhS2_hb.exit.i36, %.lr.ph.i31
+  %.09.i32 = phi i64 [ 0, %.lr.ph.i31 ], [ %66, %_ZN6duckdb20BitpackingPrimitives11UnPackGroupIhEEvPhS2_hb.exit.i36 ]
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %.09.i32
+  %58 = mul i64 %.09.i32, 7
+  %59 = lshr exact i64 %58, 3
+  %60 = getelementptr inbounds nuw i8, ptr %34, i64 %59
+  br label %61
 
-62:                                               ; preds = %62, %57
-  %indvars.iv9.i.i.i33 = phi i64 [ 0, %57 ], [ %indvars.iv.next10.i.i.i34, %62 ]
-  %63 = mul nuw nsw i64 %indvars.iv9.i.i.i33, 7
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %63
-  %65 = shl nuw nsw i64 %indvars.iv9.i.i.i33, 3
-  %66 = getelementptr inbounds nuw i8, ptr %58, i64 %65
-  tail call void @_ZN18duckdb_fastpforlib8internal13__fastunpack7EPKhPh(ptr noundef %64, ptr noundef %66)
+61:                                               ; preds = %61, %56
+  %indvars.iv9.i.i.i33 = phi i64 [ 0, %56 ], [ %indvars.iv.next10.i.i.i34, %61 ]
+  %62 = mul nuw nsw i64 %indvars.iv9.i.i.i33, 7
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %62
+  %64 = shl nuw nsw i64 %indvars.iv9.i.i.i33, 3
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 %64
+  tail call void @_ZN18duckdb_fastpforlib8internal13__fastunpack7EPKhPh(ptr noundef %63, ptr noundef %65)
   %indvars.iv.next10.i.i.i34 = add nuw nsw i64 %indvars.iv9.i.i.i33, 1
   %exitcond.not.i.i.i35 = icmp eq i64 %indvars.iv.next10.i.i.i34, 4
-  br i1 %exitcond.not.i.i.i35, label %_ZN6duckdb20BitpackingPrimitives11UnPackGroupIhEEvPhS2_hb.exit.i36, label %62, !llvm.loop !299
+  br i1 %exitcond.not.i.i.i35, label %_ZN6duckdb20BitpackingPrimitives11UnPackGroupIhEEvPhS2_hb.exit.i36, label %61, !llvm.loop !299
 
-_ZN6duckdb20BitpackingPrimitives11UnPackGroupIhEEvPhS2_hb.exit.i36: ; preds = %62
-  %67 = add i64 %.09.i32, 32
-  %68 = icmp ult i64 %67, %.025.lcssa
-  br i1 %68, label %57, label %_ZN6duckdb20BitpackingPrimitives12UnPackBufferIhEEvPhS2_mhb.exit37, !llvm.loop !300
+_ZN6duckdb20BitpackingPrimitives11UnPackGroupIhEEvPhS2_hb.exit.i36: ; preds = %61
+  %66 = add i64 %.09.i32, 32
+  %67 = icmp ult i64 %66, %.025.lcssa
+  br i1 %67, label %56, label %_ZN6duckdb20BitpackingPrimitives12UnPackBufferIhEEvPhS2_mhb.exit37, !llvm.loop !300
 
 _ZN6duckdb20BitpackingPrimitives12UnPackBufferIhEEvPhS2_mhb.exit37: ; preds = %_ZN6duckdb20BitpackingPrimitives11UnPackGroupIhEEvPhS2_hb.exit.i36
-  %69 = lshr i64 %55, 3
+  %68 = mul i64 %.0.i.i28, 7
+  %69 = lshr i64 %68, 3
   %70 = getelementptr inbounds nuw i8, ptr %34, i64 %69
   br label %71
 
@@ -3678,10 +3678,10 @@ define void @_ZN6duckdb7roaring19RoaringAnalyzeState16HandleRaggedByteERS1_hm(pt
   %.promoted9 = load i16, ptr %7, align 8, !tbaa !119
   %.promoted11 = load i16, ptr %8, align 2, !tbaa !118
   %9 = trunc nuw i8 %.promoted to i1
-  %10 = trunc i64 %2 to i16
   br label %14
 
 ._crit_edge:                                      ; preds = %_ZN6duckdb7roaringL9HandleBitERNS0_19RoaringAnalyzeStateEb.exit
+  %10 = trunc i64 %2 to i16
   %11 = add i16 %.phi.trans.insert.i.promoted, %10
   %12 = zext i1 %23 to i8
   store i16 %11, ptr %.phi.trans.insert.i, align 8, !tbaa !117

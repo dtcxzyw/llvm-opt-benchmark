@@ -215,48 +215,48 @@ define i32 @Supp_ManCostInit(ptr noundef readonly captures(none) %0, i32 noundef
   %9 = shl nuw nsw i64 %indvars.iv, 1
   %10 = mul nuw nsw i64 %9, %wide.trip.count.i
   %11 = getelementptr inbounds nuw i64, ptr %.val20, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = mul nuw nsw i64 %12, %wide.trip.count.i
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %Abc_TtCountOnes2.exit.i.us, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %Abc_TtCountOnes2.exit.i.us ]
-  %.08.i.us = phi i32 [ 0, %.lr.ph.preheader.i.us ], [ %36, %Abc_TtCountOnes2.exit.i.us ]
-  %14 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i.us
-  %15 = load i64, ptr %14, align 8, !tbaa !11
-  %.not.i.i.us = icmp eq i64 %15, 0
-  br i1 %.not.i.i.us, label %Abc_TtCountOnes2.exit.i.us, label %16
+  %.08.i.us = phi i32 [ 0, %.lr.ph.preheader.i.us ], [ %34, %Abc_TtCountOnes2.exit.i.us ]
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i.us
+  %13 = load i64, ptr %12, align 8, !tbaa !11
+  %.not.i.i.us = icmp eq i64 %13, 0
+  br i1 %.not.i.i.us, label %Abc_TtCountOnes2.exit.i.us, label %14
 
-16:                                               ; preds = %.lr.ph.i.us
-  %17 = lshr i64 %15, 1
-  %18 = and i64 %17, 6148914691236517205
-  %19 = sub i64 %15, %18
+14:                                               ; preds = %.lr.ph.i.us
+  %15 = lshr i64 %13, 1
+  %16 = and i64 %15, 6148914691236517205
+  %17 = sub i64 %13, %16
+  %18 = and i64 %17, 3689348814741910323
+  %19 = lshr i64 %17, 2
   %20 = and i64 %19, 3689348814741910323
-  %21 = lshr i64 %19, 2
-  %22 = and i64 %21, 3689348814741910323
-  %23 = add nuw nsw i64 %22, %20
-  %24 = lshr i64 %23, 4
-  %25 = add nuw nsw i64 %24, %23
-  %26 = and i64 %25, 1085102592571150095
-  %27 = lshr i64 %26, 8
+  %21 = add nuw nsw i64 %20, %18
+  %22 = lshr i64 %21, 4
+  %23 = add nuw nsw i64 %22, %21
+  %24 = and i64 %23, 1085102592571150095
+  %25 = lshr i64 %24, 8
+  %26 = add nuw nsw i64 %25, %24
+  %27 = lshr i64 %26, 16
   %28 = add nuw nsw i64 %27, %26
-  %29 = lshr i64 %28, 16
+  %29 = lshr i64 %28, 32
   %30 = add nuw nsw i64 %29, %28
-  %31 = lshr i64 %30, 32
-  %32 = add nuw nsw i64 %31, %30
-  %33 = trunc i64 %32 to i32
-  %34 = and i32 %33, 255
+  %31 = trunc i64 %30 to i32
+  %32 = and i32 %31, 255
   br label %Abc_TtCountOnes2.exit.i.us
 
-Abc_TtCountOnes2.exit.i.us:                       ; preds = %16, %.lr.ph.i.us
-  %35 = phi i32 [ %34, %16 ], [ 0, %.lr.ph.i.us ]
-  %36 = add nuw nsw i32 %35, %.08.i.us
+Abc_TtCountOnes2.exit.i.us:                       ; preds = %14, %.lr.ph.i.us
+  %33 = phi i32 [ %32, %14 ], [ 0, %.lr.ph.i.us ]
+  %34 = add nuw nsw i32 %33, %.08.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %.lr.ph.preheader.i22.us, label %.lr.ph.i.us, !llvm.loop !17
 
 .lr.ph.preheader.i22.us:                          ; preds = %Abc_TtCountOnes2.exit.i.us
-  %37 = getelementptr inbounds nuw i64, ptr %.val20, i64 %13
+  %35 = or disjoint i64 %9, 1
+  %36 = mul nuw nsw i64 %35, %wide.trip.count.i
+  %37 = getelementptr inbounds nuw i64, ptr %.val20, i64 %36
   br label %.lr.ph.i24.us
 
 .lr.ph.i24.us:                                    ; preds = %Abc_TtCountOnes2.exit.i28.us, %.lr.ph.preheader.i22.us
@@ -296,7 +296,7 @@ Abc_TtCountOnes2.exit.i28.us:                     ; preds = %40, %.lr.ph.i24.us
   br i1 %exitcond.not.i30.us, label %Abc_TtCountOnesVec.exit31.loopexit.us, label %.lr.ph.i24.us, !llvm.loop !17
 
 Abc_TtCountOnesVec.exit31.loopexit.us:            ; preds = %Abc_TtCountOnes2.exit.i28.us
-  %61 = mul nuw nsw i32 %60, %36
+  %61 = mul nuw nsw i32 %60, %34
   %62 = add nuw nsw i32 %61, %.036.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6303,37 +6303,37 @@ define void @Supp_ManFillBlock(ptr noundef readonly captures(none) %0, ptr nound
   %25 = getelementptr inbounds i64, ptr %.val35, i64 %24
   %26 = mul nuw nsw i32 %10, %22
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %.val35, i64 %27
-  %29 = getelementptr inbounds nuw i64, ptr %.val33, i64 %27
-  %30 = mul nuw nsw i64 %indvars.iv, %wide.trip.count.i
-  %31 = getelementptr inbounds nuw i64, ptr %.val, i64 %30
+  %28 = getelementptr inbounds nuw i64, ptr %.val33, i64 %27
+  %29 = mul nuw nsw i64 %indvars.iv, %wide.trip.count.i
+  %30 = getelementptr inbounds nuw i64, ptr %.val, i64 %29
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph.i.us ]
-  %32 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i.us
-  %33 = load i64, ptr %32, align 8, !tbaa !11
-  %34 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv.i.us
-  %35 = load i64, ptr %34, align 8, !tbaa !11
-  %36 = and i64 %35, %33
-  %37 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv.i.us
-  store i64 %36, ptr %37, align 8, !tbaa !11
+  %31 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv.i.us
+  %32 = load i64, ptr %31, align 8, !tbaa !11
+  %33 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv.i.us
+  %34 = load i64, ptr %33, align 8, !tbaa !11
+  %35 = and i64 %34, %32
+  %36 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv.i.us
+  store i64 %35, ptr %36, align 8, !tbaa !11
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %.lr.ph.i40.us.preheader, label %.lr.ph.i.us, !llvm.loop !135
 
 .lr.ph.i40.us.preheader:                          ; preds = %.lr.ph.i.us
+  %37 = getelementptr inbounds nuw i64, ptr %.val35, i64 %27
   %38 = getelementptr inbounds i64, ptr %.val33, i64 %24
   br label %.lr.ph.i40.us
 
 .lr.ph.i40.us:                                    ; preds = %.lr.ph.i40.us.preheader, %.lr.ph.i40.us
   %indvars.iv.i41.us = phi i64 [ %indvars.iv.next.i42.us, %.lr.ph.i40.us ], [ 0, %.lr.ph.i40.us.preheader ]
-  %39 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv.i41.us
+  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i41.us
   %40 = load i64, ptr %39, align 8, !tbaa !11
   %41 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv.i41.us
   %42 = load i64, ptr %41, align 8, !tbaa !11
   %43 = and i64 %42, %40
-  %44 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv.i41.us
+  %44 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv.i41.us
   %45 = load i64, ptr %44, align 8, !tbaa !11
   %46 = or i64 %45, %43
   store i64 %46, ptr %44, align 8, !tbaa !11

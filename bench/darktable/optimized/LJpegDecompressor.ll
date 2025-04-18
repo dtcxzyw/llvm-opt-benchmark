@@ -925,39 +925,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %.sroa.0.0..sroa.0.0..i.i, ptr %2, align 8
-  %177 = trunc i64 %.sroa.0.0..sroa.0.0..i.i to i32
-  %178 = sub nuw nsw i32 32, %.sroa.33.3666
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i
-  %.0.in8.i.i.i = phi i1 [ %181, %.lr.ph.i.i.i ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
+  %.0.in8.i.i.i = phi i1 [ %179, %.lr.ph.i.i.i ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
   %.057.i.idx.i.i = phi i64 [ %.057.i.add.i.i, %.lr.ph.i.i.i ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
   %.057.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.057.i.idx.i.i
-  %179 = load i8, ptr %.057.i.ptr.i.i, align 1, !tbaa !133
-  %180 = icmp ne i8 %179, -1
-  %181 = and i1 %.0.in8.i.i.i, %180
+  %177 = load i8, ptr %.057.i.ptr.i.i, align 1, !tbaa !133
+  %178 = icmp ne i8 %177, -1
+  %179 = and i1 %.0.in8.i.i.i, %178
   %.057.i.add.i.i = add nuw nsw i64 %.057.i.idx.i.i, 1
   %.not.i.i.i = icmp eq i64 %.057.i.add.i.i, 4
   br i1 %.not.i.i.i, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  br i1 %181, label %183, label %.preheader.i.i
+  br i1 %179, label %181, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
-  %182 = zext nneg i32 %.sroa.33.3666 to i64
+  %180 = zext nneg i32 %.sroa.33.3666 to i64
   br label %190
 
-183:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
-  %184 = zext nneg i32 %178 to i64
-  %185 = tail call i32 @llvm.bswap.i32(i32 %177)
-  %186 = zext i32 %185 to i64
-  %187 = shl nuw i64 %186, %184
+181:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
+  %182 = trunc i64 %.sroa.0.0..sroa.0.0..i.i to i32
+  %183 = tail call i32 @llvm.bswap.i32(i32 %182)
+  %184 = zext i32 %183 to i64
+  %185 = sub nuw nsw i32 32, %.sroa.33.3666
+  %186 = zext nneg i32 %185 to i64
+  %187 = shl nuw i64 %184, %186
   %188 = or i64 %187, %.sroa.0212.2665
   %189 = or disjoint i32 %.sroa.33.3666, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i
 
 190:                                              ; preds = %211, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %182, %.preheader.i.i ], [ %indvars.iv.next.i.i, %211 ]
+  %indvars.iv.i.i = phi i64 [ %180, %.preheader.i.i ], [ %indvars.iv.next.i.i, %211 ]
   %.01970.i.i = phi i32 [ 0, %.preheader.i.i ], [ %212, %211 ]
   %.02169.i.i = phi i32 [ 0, %.preheader.i.i ], [ %213, %211 ]
   %191 = phi i64 [ %.sroa.0212.2665, %.preheader.i.i ], [ %199, %211 ]
@@ -1011,11 +1011,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %216)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i: ; preds = %215, %183
-  %.sroa.0212.9 = phi i64 [ %188, %183 ], [ %.sroa.0212.8, %215 ]
-  %.sroa.115284.6 = phi i32 [ %.sroa.115284.3669, %183 ], [ %.sroa.115284.5, %215 ]
-  %217 = phi i32 [ %189, %183 ], [ %.sroa.33.9, %215 ]
-  %.0.i.i = phi i32 [ 4, %183 ], [ %.120.i.i, %215 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i: ; preds = %215, %181
+  %.sroa.0212.9 = phi i64 [ %188, %181 ], [ %.sroa.0212.8, %215 ]
+  %.sroa.115284.6 = phi i32 [ %.sroa.115284.3669, %181 ], [ %.sroa.115284.5, %215 ]
+  %217 = phi i32 [ %189, %181 ], [ %.sroa.33.9, %215 ]
+  %.0.i.i = phi i32 [ 4, %181 ], [ %.120.i.i, %215 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %218 = add nuw nsw i32 %.0.i.i, %.sroa.97269.3667
   %219 = icmp samesign ugt i32 %217, 31
@@ -1268,39 +1268,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i69)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 %.sroa.0.0..sroa.0.0..i.i74, ptr %1, align 8
-  %330 = trunc i64 %.sroa.0.0..sroa.0.0..i.i74 to i32
-  %331 = sub nuw nsw i32 32, %.sroa.33.4678
   br label %.lr.ph.i.i.i76
 
 .lr.ph.i.i.i76:                                   ; preds = %.lr.ph.i.i.i76, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i72
-  %.0.in8.i.i.i77 = phi i1 [ %334, %.lr.ph.i.i.i76 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i72 ]
+  %.0.in8.i.i.i77 = phi i1 [ %332, %.lr.ph.i.i.i76 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i72 ]
   %.057.i.idx.i.i78 = phi i64 [ %.057.i.add.i.i80, %.lr.ph.i.i.i76 ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i72 ]
   %.057.i.ptr.i.i79 = getelementptr inbounds nuw i8, ptr %1, i64 %.057.i.idx.i.i78
-  %332 = load i8, ptr %.057.i.ptr.i.i79, align 1, !tbaa !133
-  %333 = icmp ne i8 %332, -1
-  %334 = and i1 %.0.in8.i.i.i77, %333
+  %330 = load i8, ptr %.057.i.ptr.i.i79, align 1, !tbaa !133
+  %331 = icmp ne i8 %330, -1
+  %332 = and i1 %.0.in8.i.i.i77, %331
   %.057.i.add.i.i80 = add nuw nsw i64 %.057.i.idx.i.i78, 1
   %.not.i.i.i81 = icmp eq i64 %.057.i.add.i.i80, 4
   br i1 %.not.i.i.i81, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i82, label %.lr.ph.i.i.i76, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i82: ; preds = %.lr.ph.i.i.i76
-  br i1 %334, label %336, label %.preheader.i.i83
+  br i1 %332, label %334, label %.preheader.i.i83
 
 .preheader.i.i83:                                 ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i82
-  %335 = zext nneg i32 %.sroa.33.4678 to i64
+  %333 = zext nneg i32 %.sroa.33.4678 to i64
   br label %343
 
-336:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i82
-  %337 = zext nneg i32 %331 to i64
-  %338 = tail call i32 @llvm.bswap.i32(i32 %330)
-  %339 = zext i32 %338 to i64
-  %340 = shl nuw i64 %339, %337
+334:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i82
+  %335 = trunc i64 %.sroa.0.0..sroa.0.0..i.i74 to i32
+  %336 = tail call i32 @llvm.bswap.i32(i32 %335)
+  %337 = zext i32 %336 to i64
+  %338 = sub nuw nsw i32 32, %.sroa.33.4678
+  %339 = zext nneg i32 %338 to i64
+  %340 = shl nuw i64 %337, %339
   %341 = or i64 %340, %.sroa.0212.3677
   %342 = or disjoint i32 %.sroa.33.4678, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i94
 
 343:                                              ; preds = %364, %.preheader.i.i83
-  %indvars.iv.i.i85 = phi i64 [ %335, %.preheader.i.i83 ], [ %indvars.iv.next.i.i88, %364 ]
+  %indvars.iv.i.i85 = phi i64 [ %333, %.preheader.i.i83 ], [ %indvars.iv.next.i.i88, %364 ]
   %.01970.i.i86 = phi i32 [ 0, %.preheader.i.i83 ], [ %365, %364 ]
   %.02169.i.i87 = phi i32 [ 0, %.preheader.i.i83 ], [ %366, %364 ]
   %344 = phi i64 [ %.sroa.0212.3677, %.preheader.i.i83 ], [ %352, %364 ]
@@ -1354,11 +1354,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %369)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i94
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i94: ; preds = %368, %336
-  %.sroa.0212.15 = phi i64 [ %341, %336 ], [ %.sroa.0212.14, %368 ]
-  %.sroa.115284.9 = phi i32 [ %.sroa.115284.4681, %336 ], [ %.sroa.115284.8, %368 ]
-  %370 = phi i32 [ %342, %336 ], [ %.sroa.33.15, %368 ]
-  %.0.i.i95 = phi i32 [ 4, %336 ], [ %.120.i.i93, %368 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i94: ; preds = %368, %334
+  %.sroa.0212.15 = phi i64 [ %341, %334 ], [ %.sroa.0212.14, %368 ]
+  %.sroa.115284.9 = phi i32 [ %.sroa.115284.4681, %334 ], [ %.sroa.115284.8, %368 ]
+  %370 = phi i32 [ %342, %334 ], [ %.sroa.33.15, %368 ]
+  %.0.i.i95 = phi i32 [ 4, %334 ], [ %.120.i.i93, %368 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %371 = add nuw nsw i32 %.0.i.i95, %.sroa.97269.4679
   %372 = icmp samesign ugt i32 %370, 31
@@ -1957,39 +1957,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %.sroa.0.0..sroa.0.0..i.i, ptr %3, align 8
-  %184 = trunc i64 %.sroa.0.0..sroa.0.0..i.i to i32
-  %185 = sub nuw nsw i32 32, %.sroa.48.12899
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i
-  %.0.in8.i.i.i = phi i1 [ %188, %.lr.ph.i.i.i ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
+  %.0.in8.i.i.i = phi i1 [ %186, %.lr.ph.i.i.i ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
   %.057.i.idx.i.i = phi i64 [ %.057.i.add.i.i, %.lr.ph.i.i.i ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
   %.057.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.057.i.idx.i.i
-  %186 = load i8, ptr %.057.i.ptr.i.i, align 1, !tbaa !133
-  %187 = icmp ne i8 %186, -1
-  %188 = and i1 %.0.in8.i.i.i, %187
+  %184 = load i8, ptr %.057.i.ptr.i.i, align 1, !tbaa !133
+  %185 = icmp ne i8 %184, -1
+  %186 = and i1 %.0.in8.i.i.i, %185
   %.057.i.add.i.i = add nuw nsw i64 %.057.i.idx.i.i, 1
   %.not.i.i.i = icmp eq i64 %.057.i.add.i.i, 4
   br i1 %.not.i.i.i, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  br i1 %188, label %190, label %.preheader.i.i
+  br i1 %186, label %188, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
-  %189 = zext nneg i32 %.sroa.48.12899 to i64
+  %187 = zext nneg i32 %.sroa.48.12899 to i64
   br label %197
 
-190:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
-  %191 = zext nneg i32 %185 to i64
-  %192 = tail call i32 @llvm.bswap.i32(i32 %184)
-  %193 = zext i32 %192 to i64
-  %194 = shl nuw i64 %193, %191
+188:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
+  %189 = trunc i64 %.sroa.0.0..sroa.0.0..i.i to i32
+  %190 = tail call i32 @llvm.bswap.i32(i32 %189)
+  %191 = zext i32 %190 to i64
+  %192 = sub nuw nsw i32 32, %.sroa.48.12899
+  %193 = zext nneg i32 %192 to i64
+  %194 = shl nuw i64 %191, %193
   %195 = or i64 %194, %.sroa.0279.11898
   %196 = or disjoint i32 %.sroa.48.12899, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i
 
 197:                                              ; preds = %218, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %189, %.preheader.i.i ], [ %indvars.iv.next.i.i, %218 ]
+  %indvars.iv.i.i = phi i64 [ %187, %.preheader.i.i ], [ %indvars.iv.next.i.i, %218 ]
   %.01970.i.i = phi i32 [ 0, %.preheader.i.i ], [ %219, %218 ]
   %.02169.i.i = phi i32 [ 0, %.preheader.i.i ], [ %220, %218 ]
   %198 = phi i64 [ %.sroa.0279.11898, %.preheader.i.i ], [ %206, %218 ]
@@ -2043,11 +2043,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %223)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i: ; preds = %222, %190
-  %.sroa.0279.15 = phi i64 [ %195, %190 ], [ %.sroa.0279.14, %222 ]
-  %.sroa.167386.10 = phi i32 [ %.sroa.167386.8902, %190 ], [ %.sroa.167386.9, %222 ]
-  %224 = phi i32 [ %196, %190 ], [ %.sroa.48.15, %222 ]
-  %.0.i.i57 = phi i32 [ 4, %190 ], [ %.120.i.i, %222 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i: ; preds = %222, %188
+  %.sroa.0279.15 = phi i64 [ %195, %188 ], [ %.sroa.0279.14, %222 ]
+  %.sroa.167386.10 = phi i32 [ %.sroa.167386.8902, %188 ], [ %.sroa.167386.9, %222 ]
+  %224 = phi i32 [ %196, %188 ], [ %.sroa.48.15, %222 ]
+  %.0.i.i57 = phi i32 [ 4, %188 ], [ %.120.i.i, %222 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %225 = add nuw nsw i32 %.0.i.i57, %.sroa.141364.8900
   %226 = icmp samesign ugt i32 %224, 31
@@ -2322,39 +2322,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i66)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %.sroa.0.0..sroa.0.0..i.i71, ptr %2, align 8
-  %355 = trunc i64 %.sroa.0.0..sroa.0.0..i.i71 to i32
-  %356 = sub nuw nsw i32 32, %.sroa.48.4916
   br label %.lr.ph.i.i.i73
 
 .lr.ph.i.i.i73:                                   ; preds = %.lr.ph.i.i.i73, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i69
-  %.0.in8.i.i.i74 = phi i1 [ %359, %.lr.ph.i.i.i73 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i69 ]
+  %.0.in8.i.i.i74 = phi i1 [ %357, %.lr.ph.i.i.i73 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i69 ]
   %.057.i.idx.i.i75 = phi i64 [ %.057.i.add.i.i77, %.lr.ph.i.i.i73 ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i69 ]
   %.057.i.ptr.i.i76 = getelementptr inbounds nuw i8, ptr %2, i64 %.057.i.idx.i.i75
-  %357 = load i8, ptr %.057.i.ptr.i.i76, align 1, !tbaa !133
-  %358 = icmp ne i8 %357, -1
-  %359 = and i1 %.0.in8.i.i.i74, %358
+  %355 = load i8, ptr %.057.i.ptr.i.i76, align 1, !tbaa !133
+  %356 = icmp ne i8 %355, -1
+  %357 = and i1 %.0.in8.i.i.i74, %356
   %.057.i.add.i.i77 = add nuw nsw i64 %.057.i.idx.i.i75, 1
   %.not.i.i.i78 = icmp eq i64 %.057.i.add.i.i77, 4
   br i1 %.not.i.i.i78, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i79, label %.lr.ph.i.i.i73, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i79: ; preds = %.lr.ph.i.i.i73
-  br i1 %359, label %361, label %.preheader.i.i80
+  br i1 %357, label %359, label %.preheader.i.i80
 
 .preheader.i.i80:                                 ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i79
-  %360 = zext nneg i32 %.sroa.48.4916 to i64
+  %358 = zext nneg i32 %.sroa.48.4916 to i64
   br label %368
 
-361:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i79
-  %362 = zext nneg i32 %356 to i64
-  %363 = tail call i32 @llvm.bswap.i32(i32 %355)
-  %364 = zext i32 %363 to i64
-  %365 = shl nuw i64 %364, %362
+359:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i79
+  %360 = trunc i64 %.sroa.0.0..sroa.0.0..i.i71 to i32
+  %361 = tail call i32 @llvm.bswap.i32(i32 %360)
+  %362 = zext i32 %361 to i64
+  %363 = sub nuw nsw i32 32, %.sroa.48.4916
+  %364 = zext nneg i32 %363 to i64
+  %365 = shl nuw i64 %362, %364
   %366 = or i64 %365, %.sroa.0279.3915
   %367 = or disjoint i32 %.sroa.48.4916, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i91
 
 368:                                              ; preds = %389, %.preheader.i.i80
-  %indvars.iv.i.i82 = phi i64 [ %360, %.preheader.i.i80 ], [ %indvars.iv.next.i.i85, %389 ]
+  %indvars.iv.i.i82 = phi i64 [ %358, %.preheader.i.i80 ], [ %indvars.iv.next.i.i85, %389 ]
   %.01970.i.i83 = phi i32 [ 0, %.preheader.i.i80 ], [ %390, %389 ]
   %.02169.i.i84 = phi i32 [ 0, %.preheader.i.i80 ], [ %391, %389 ]
   %369 = phi i64 [ %.sroa.0279.3915, %.preheader.i.i80 ], [ %377, %389 ]
@@ -2408,11 +2408,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %394)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i91
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i91: ; preds = %393, %361
-  %.sroa.0279.21 = phi i64 [ %366, %361 ], [ %.sroa.0279.20, %393 ]
-  %.sroa.167386.13 = phi i32 [ %.sroa.167386.4919, %361 ], [ %.sroa.167386.12, %393 ]
-  %395 = phi i32 [ %367, %361 ], [ %.sroa.48.21, %393 ]
-  %.0.i.i92 = phi i32 [ 4, %361 ], [ %.120.i.i90, %393 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i91: ; preds = %393, %359
+  %.sroa.0279.21 = phi i64 [ %366, %359 ], [ %.sroa.0279.20, %393 ]
+  %.sroa.167386.13 = phi i32 [ %.sroa.167386.4919, %359 ], [ %.sroa.167386.12, %393 ]
+  %395 = phi i32 [ %367, %359 ], [ %.sroa.48.21, %393 ]
+  %.0.i.i92 = phi i32 [ 4, %359 ], [ %.120.i.i90, %393 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %396 = add nuw nsw i32 %.0.i.i92, %.sroa.141364.4917
   %397 = icmp samesign ugt i32 %395, 31
@@ -2694,39 +2694,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i136)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 %.sroa.0.0..sroa.0.0..i.i141, ptr %1, align 8
-  %527 = trunc i64 %.sroa.0.0..sroa.0.0..i.i141 to i32
-  %528 = sub nuw nsw i32 32, %.sroa.48.9922
   br label %.lr.ph.i.i.i143
 
 .lr.ph.i.i.i143:                                  ; preds = %.lr.ph.i.i.i143, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i139
-  %.0.in8.i.i.i144 = phi i1 [ %531, %.lr.ph.i.i.i143 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i139 ]
+  %.0.in8.i.i.i144 = phi i1 [ %529, %.lr.ph.i.i.i143 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i139 ]
   %.057.i.idx.i.i145 = phi i64 [ %.057.i.add.i.i147, %.lr.ph.i.i.i143 ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i139 ]
   %.057.i.ptr.i.i146 = getelementptr inbounds nuw i8, ptr %1, i64 %.057.i.idx.i.i145
-  %529 = load i8, ptr %.057.i.ptr.i.i146, align 1, !tbaa !133
-  %530 = icmp ne i8 %529, -1
-  %531 = and i1 %.0.in8.i.i.i144, %530
+  %527 = load i8, ptr %.057.i.ptr.i.i146, align 1, !tbaa !133
+  %528 = icmp ne i8 %527, -1
+  %529 = and i1 %.0.in8.i.i.i144, %528
   %.057.i.add.i.i147 = add nuw nsw i64 %.057.i.idx.i.i145, 1
   %.not.i.i.i148 = icmp eq i64 %.057.i.add.i.i147, 4
   br i1 %.not.i.i.i148, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i149, label %.lr.ph.i.i.i143, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i149: ; preds = %.lr.ph.i.i.i143
-  br i1 %531, label %533, label %.preheader.i.i150
+  br i1 %529, label %531, label %.preheader.i.i150
 
 .preheader.i.i150:                                ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i149
-  %532 = zext nneg i32 %.sroa.48.9922 to i64
+  %530 = zext nneg i32 %.sroa.48.9922 to i64
   br label %540
 
-533:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i149
-  %534 = zext nneg i32 %528 to i64
-  %535 = tail call i32 @llvm.bswap.i32(i32 %527)
-  %536 = zext i32 %535 to i64
-  %537 = shl nuw i64 %536, %534
+531:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i149
+  %532 = trunc i64 %.sroa.0.0..sroa.0.0..i.i141 to i32
+  %533 = tail call i32 @llvm.bswap.i32(i32 %532)
+  %534 = zext i32 %533 to i64
+  %535 = sub nuw nsw i32 32, %.sroa.48.9922
+  %536 = zext nneg i32 %535 to i64
+  %537 = shl nuw i64 %534, %536
   %538 = or i64 %537, %.sroa.0279.8921
   %539 = or disjoint i32 %.sroa.48.9922, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i161
 
 540:                                              ; preds = %561, %.preheader.i.i150
-  %indvars.iv.i.i152 = phi i64 [ %532, %.preheader.i.i150 ], [ %indvars.iv.next.i.i155, %561 ]
+  %indvars.iv.i.i152 = phi i64 [ %530, %.preheader.i.i150 ], [ %indvars.iv.next.i.i155, %561 ]
   %.01970.i.i153 = phi i32 [ 0, %.preheader.i.i150 ], [ %562, %561 ]
   %.02169.i.i154 = phi i32 [ 0, %.preheader.i.i150 ], [ %563, %561 ]
   %541 = phi i64 [ %.sroa.0279.8921, %.preheader.i.i150 ], [ %549, %561 ]
@@ -2780,11 +2780,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %566)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i161
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i161: ; preds = %565, %533
-  %.sroa.0279.27 = phi i64 [ %538, %533 ], [ %.sroa.0279.26, %565 ]
-  %.sroa.167386.16 = phi i32 [ %.sroa.167386.7925, %533 ], [ %.sroa.167386.15, %565 ]
-  %567 = phi i32 [ %539, %533 ], [ %.sroa.48.27, %565 ]
-  %.0.i.i162 = phi i32 [ 4, %533 ], [ %.120.i.i160, %565 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i161: ; preds = %565, %531
+  %.sroa.0279.27 = phi i64 [ %538, %531 ], [ %.sroa.0279.26, %565 ]
+  %.sroa.167386.16 = phi i32 [ %.sroa.167386.7925, %531 ], [ %.sroa.167386.15, %565 ]
+  %567 = phi i32 [ %539, %531 ], [ %.sroa.48.27, %565 ]
+  %.0.i.i162 = phi i32 [ 4, %531 ], [ %.120.i.i160, %565 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %568 = add nuw nsw i32 %.0.i.i162, %.sroa.141364.7923
   %569 = icmp samesign ugt i32 %567, 31
@@ -3399,39 +3399,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %.sroa.0.0..sroa.0.0..i.i, ptr %3, align 8
-  %185 = trunc i64 %.sroa.0.0..sroa.0.0..i.i to i32
-  %186 = sub nuw nsw i32 32, %.sroa.48.12898
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i
-  %.0.in8.i.i.i = phi i1 [ %189, %.lr.ph.i.i.i ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
+  %.0.in8.i.i.i = phi i1 [ %187, %.lr.ph.i.i.i ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
   %.057.i.idx.i.i = phi i64 [ %.057.i.add.i.i, %.lr.ph.i.i.i ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
   %.057.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.057.i.idx.i.i
-  %187 = load i8, ptr %.057.i.ptr.i.i, align 1, !tbaa !133
-  %188 = icmp ne i8 %187, -1
-  %189 = and i1 %.0.in8.i.i.i, %188
+  %185 = load i8, ptr %.057.i.ptr.i.i, align 1, !tbaa !133
+  %186 = icmp ne i8 %185, -1
+  %187 = and i1 %.0.in8.i.i.i, %186
   %.057.i.add.i.i = add nuw nsw i64 %.057.i.idx.i.i, 1
   %.not.i.i.i = icmp eq i64 %.057.i.add.i.i, 4
   br i1 %.not.i.i.i, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  br i1 %189, label %191, label %.preheader.i.i
+  br i1 %187, label %189, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
-  %190 = zext nneg i32 %.sroa.48.12898 to i64
+  %188 = zext nneg i32 %.sroa.48.12898 to i64
   br label %198
 
-191:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
-  %192 = zext nneg i32 %186 to i64
-  %193 = tail call i32 @llvm.bswap.i32(i32 %185)
-  %194 = zext i32 %193 to i64
-  %195 = shl nuw i64 %194, %192
+189:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
+  %190 = trunc i64 %.sroa.0.0..sroa.0.0..i.i to i32
+  %191 = tail call i32 @llvm.bswap.i32(i32 %190)
+  %192 = zext i32 %191 to i64
+  %193 = sub nuw nsw i32 32, %.sroa.48.12898
+  %194 = zext nneg i32 %193 to i64
+  %195 = shl nuw i64 %192, %194
   %196 = or i64 %195, %.sroa.0275.11897
   %197 = or disjoint i32 %.sroa.48.12898, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i
 
 198:                                              ; preds = %219, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %190, %.preheader.i.i ], [ %indvars.iv.next.i.i, %219 ]
+  %indvars.iv.i.i = phi i64 [ %188, %.preheader.i.i ], [ %indvars.iv.next.i.i, %219 ]
   %.01970.i.i = phi i32 [ 0, %.preheader.i.i ], [ %220, %219 ]
   %.02169.i.i = phi i32 [ 0, %.preheader.i.i ], [ %221, %219 ]
   %199 = phi i64 [ %.sroa.0275.11897, %.preheader.i.i ], [ %207, %219 ]
@@ -3485,11 +3485,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %224)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i: ; preds = %223, %191
-  %.sroa.0275.15 = phi i64 [ %196, %191 ], [ %.sroa.0275.14, %223 ]
-  %.sroa.167382.10 = phi i32 [ %.sroa.167382.8901, %191 ], [ %.sroa.167382.9, %223 ]
-  %225 = phi i32 [ %197, %191 ], [ %.sroa.48.15, %223 ]
-  %.0.i.i52 = phi i32 [ 4, %191 ], [ %.120.i.i, %223 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i: ; preds = %223, %189
+  %.sroa.0275.15 = phi i64 [ %196, %189 ], [ %.sroa.0275.14, %223 ]
+  %.sroa.167382.10 = phi i32 [ %.sroa.167382.8901, %189 ], [ %.sroa.167382.9, %223 ]
+  %225 = phi i32 [ %197, %189 ], [ %.sroa.48.15, %223 ]
+  %.0.i.i52 = phi i32 [ 4, %189 ], [ %.120.i.i, %223 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %226 = add nuw nsw i32 %.0.i.i52, %.sroa.141360.8899
   %227 = icmp samesign ugt i32 %225, 31
@@ -3764,39 +3764,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i61)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %.sroa.0.0..sroa.0.0..i.i66, ptr %2, align 8
-  %356 = trunc i64 %.sroa.0.0..sroa.0.0..i.i66 to i32
-  %357 = sub nuw nsw i32 32, %.sroa.48.4915
   br label %.lr.ph.i.i.i68
 
 .lr.ph.i.i.i68:                                   ; preds = %.lr.ph.i.i.i68, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i64
-  %.0.in8.i.i.i69 = phi i1 [ %360, %.lr.ph.i.i.i68 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i64 ]
+  %.0.in8.i.i.i69 = phi i1 [ %358, %.lr.ph.i.i.i68 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i64 ]
   %.057.i.idx.i.i70 = phi i64 [ %.057.i.add.i.i72, %.lr.ph.i.i.i68 ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i64 ]
   %.057.i.ptr.i.i71 = getelementptr inbounds nuw i8, ptr %2, i64 %.057.i.idx.i.i70
-  %358 = load i8, ptr %.057.i.ptr.i.i71, align 1, !tbaa !133
-  %359 = icmp ne i8 %358, -1
-  %360 = and i1 %.0.in8.i.i.i69, %359
+  %356 = load i8, ptr %.057.i.ptr.i.i71, align 1, !tbaa !133
+  %357 = icmp ne i8 %356, -1
+  %358 = and i1 %.0.in8.i.i.i69, %357
   %.057.i.add.i.i72 = add nuw nsw i64 %.057.i.idx.i.i70, 1
   %.not.i.i.i73 = icmp eq i64 %.057.i.add.i.i72, 4
   br i1 %.not.i.i.i73, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i74, label %.lr.ph.i.i.i68, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i74: ; preds = %.lr.ph.i.i.i68
-  br i1 %360, label %362, label %.preheader.i.i75
+  br i1 %358, label %360, label %.preheader.i.i75
 
 .preheader.i.i75:                                 ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i74
-  %361 = zext nneg i32 %.sroa.48.4915 to i64
+  %359 = zext nneg i32 %.sroa.48.4915 to i64
   br label %369
 
-362:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i74
-  %363 = zext nneg i32 %357 to i64
-  %364 = tail call i32 @llvm.bswap.i32(i32 %356)
-  %365 = zext i32 %364 to i64
-  %366 = shl nuw i64 %365, %363
+360:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i74
+  %361 = trunc i64 %.sroa.0.0..sroa.0.0..i.i66 to i32
+  %362 = tail call i32 @llvm.bswap.i32(i32 %361)
+  %363 = zext i32 %362 to i64
+  %364 = sub nuw nsw i32 32, %.sroa.48.4915
+  %365 = zext nneg i32 %364 to i64
+  %366 = shl nuw i64 %363, %365
   %367 = or i64 %366, %.sroa.0275.3914
   %368 = or disjoint i32 %.sroa.48.4915, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i86
 
 369:                                              ; preds = %390, %.preheader.i.i75
-  %indvars.iv.i.i77 = phi i64 [ %361, %.preheader.i.i75 ], [ %indvars.iv.next.i.i80, %390 ]
+  %indvars.iv.i.i77 = phi i64 [ %359, %.preheader.i.i75 ], [ %indvars.iv.next.i.i80, %390 ]
   %.01970.i.i78 = phi i32 [ 0, %.preheader.i.i75 ], [ %391, %390 ]
   %.02169.i.i79 = phi i32 [ 0, %.preheader.i.i75 ], [ %392, %390 ]
   %370 = phi i64 [ %.sroa.0275.3914, %.preheader.i.i75 ], [ %378, %390 ]
@@ -3850,11 +3850,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %395)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i86
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i86: ; preds = %394, %362
-  %.sroa.0275.21 = phi i64 [ %367, %362 ], [ %.sroa.0275.20, %394 ]
-  %.sroa.167382.13 = phi i32 [ %.sroa.167382.4918, %362 ], [ %.sroa.167382.12, %394 ]
-  %396 = phi i32 [ %368, %362 ], [ %.sroa.48.21, %394 ]
-  %.0.i.i87 = phi i32 [ 4, %362 ], [ %.120.i.i85, %394 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i86: ; preds = %394, %360
+  %.sroa.0275.21 = phi i64 [ %367, %360 ], [ %.sroa.0275.20, %394 ]
+  %.sroa.167382.13 = phi i32 [ %.sroa.167382.4918, %360 ], [ %.sroa.167382.12, %394 ]
+  %396 = phi i32 [ %368, %360 ], [ %.sroa.48.21, %394 ]
+  %.0.i.i87 = phi i32 [ 4, %360 ], [ %.120.i.i85, %394 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %397 = add nuw nsw i32 %.0.i.i87, %.sroa.141360.4916
   %398 = icmp samesign ugt i32 %396, 31
@@ -4136,39 +4136,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i131)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 %.sroa.0.0..sroa.0.0..i.i136, ptr %1, align 8
-  %528 = trunc i64 %.sroa.0.0..sroa.0.0..i.i136 to i32
-  %529 = sub nuw nsw i32 32, %.sroa.48.9921
   br label %.lr.ph.i.i.i138
 
 .lr.ph.i.i.i138:                                  ; preds = %.lr.ph.i.i.i138, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i134
-  %.0.in8.i.i.i139 = phi i1 [ %532, %.lr.ph.i.i.i138 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i134 ]
+  %.0.in8.i.i.i139 = phi i1 [ %530, %.lr.ph.i.i.i138 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i134 ]
   %.057.i.idx.i.i140 = phi i64 [ %.057.i.add.i.i142, %.lr.ph.i.i.i138 ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i134 ]
   %.057.i.ptr.i.i141 = getelementptr inbounds nuw i8, ptr %1, i64 %.057.i.idx.i.i140
-  %530 = load i8, ptr %.057.i.ptr.i.i141, align 1, !tbaa !133
-  %531 = icmp ne i8 %530, -1
-  %532 = and i1 %.0.in8.i.i.i139, %531
+  %528 = load i8, ptr %.057.i.ptr.i.i141, align 1, !tbaa !133
+  %529 = icmp ne i8 %528, -1
+  %530 = and i1 %.0.in8.i.i.i139, %529
   %.057.i.add.i.i142 = add nuw nsw i64 %.057.i.idx.i.i140, 1
   %.not.i.i.i143 = icmp eq i64 %.057.i.add.i.i142, 4
   br i1 %.not.i.i.i143, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i144, label %.lr.ph.i.i.i138, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i144: ; preds = %.lr.ph.i.i.i138
-  br i1 %532, label %534, label %.preheader.i.i145
+  br i1 %530, label %532, label %.preheader.i.i145
 
 .preheader.i.i145:                                ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i144
-  %533 = zext nneg i32 %.sroa.48.9921 to i64
+  %531 = zext nneg i32 %.sroa.48.9921 to i64
   br label %541
 
-534:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i144
-  %535 = zext nneg i32 %529 to i64
-  %536 = tail call i32 @llvm.bswap.i32(i32 %528)
-  %537 = zext i32 %536 to i64
-  %538 = shl nuw i64 %537, %535
+532:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i144
+  %533 = trunc i64 %.sroa.0.0..sroa.0.0..i.i136 to i32
+  %534 = tail call i32 @llvm.bswap.i32(i32 %533)
+  %535 = zext i32 %534 to i64
+  %536 = sub nuw nsw i32 32, %.sroa.48.9921
+  %537 = zext nneg i32 %536 to i64
+  %538 = shl nuw i64 %535, %537
   %539 = or i64 %538, %.sroa.0275.8920
   %540 = or disjoint i32 %.sroa.48.9921, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i156
 
 541:                                              ; preds = %562, %.preheader.i.i145
-  %indvars.iv.i.i147 = phi i64 [ %533, %.preheader.i.i145 ], [ %indvars.iv.next.i.i150, %562 ]
+  %indvars.iv.i.i147 = phi i64 [ %531, %.preheader.i.i145 ], [ %indvars.iv.next.i.i150, %562 ]
   %.01970.i.i148 = phi i32 [ 0, %.preheader.i.i145 ], [ %563, %562 ]
   %.02169.i.i149 = phi i32 [ 0, %.preheader.i.i145 ], [ %564, %562 ]
   %542 = phi i64 [ %.sroa.0275.8920, %.preheader.i.i145 ], [ %550, %562 ]
@@ -4222,11 +4222,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %567)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i156
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i156: ; preds = %566, %534
-  %.sroa.0275.27 = phi i64 [ %539, %534 ], [ %.sroa.0275.26, %566 ]
-  %.sroa.167382.16 = phi i32 [ %.sroa.167382.7924, %534 ], [ %.sroa.167382.15, %566 ]
-  %568 = phi i32 [ %540, %534 ], [ %.sroa.48.27, %566 ]
-  %.0.i.i157 = phi i32 [ 4, %534 ], [ %.120.i.i155, %566 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i156: ; preds = %566, %532
+  %.sroa.0275.27 = phi i64 [ %539, %532 ], [ %.sroa.0275.26, %566 ]
+  %.sroa.167382.16 = phi i32 [ %.sroa.167382.7924, %532 ], [ %.sroa.167382.15, %566 ]
+  %568 = phi i32 [ %540, %532 ], [ %.sroa.48.27, %566 ]
+  %.0.i.i157 = phi i32 [ 4, %532 ], [ %.120.i.i155, %566 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %569 = add nuw nsw i32 %.0.i.i157, %.sroa.141360.7922
   %570 = icmp samesign ugt i32 %568, 31
@@ -4845,39 +4845,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %.sroa.0.0..sroa.0.0..i.i, ptr %3, align 8
-  %188 = trunc i64 %.sroa.0.0..sroa.0.0..i.i to i32
-  %189 = sub nuw nsw i32 32, %.sroa.48.12899
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i
-  %.0.in8.i.i.i = phi i1 [ %192, %.lr.ph.i.i.i ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
+  %.0.in8.i.i.i = phi i1 [ %190, %.lr.ph.i.i.i ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
   %.057.i.idx.i.i = phi i64 [ %.057.i.add.i.i, %.lr.ph.i.i.i ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
   %.057.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.057.i.idx.i.i
-  %190 = load i8, ptr %.057.i.ptr.i.i, align 1, !tbaa !133
-  %191 = icmp ne i8 %190, -1
-  %192 = and i1 %.0.in8.i.i.i, %191
+  %188 = load i8, ptr %.057.i.ptr.i.i, align 1, !tbaa !133
+  %189 = icmp ne i8 %188, -1
+  %190 = and i1 %.0.in8.i.i.i, %189
   %.057.i.add.i.i = add nuw nsw i64 %.057.i.idx.i.i, 1
   %.not.i.i.i = icmp eq i64 %.057.i.add.i.i, 4
   br i1 %.not.i.i.i, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  br i1 %192, label %194, label %.preheader.i.i
+  br i1 %190, label %192, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
-  %193 = zext nneg i32 %.sroa.48.12899 to i64
+  %191 = zext nneg i32 %.sroa.48.12899 to i64
   br label %201
 
-194:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
-  %195 = zext nneg i32 %189 to i64
-  %196 = tail call i32 @llvm.bswap.i32(i32 %188)
-  %197 = zext i32 %196 to i64
-  %198 = shl nuw i64 %197, %195
+192:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
+  %193 = trunc i64 %.sroa.0.0..sroa.0.0..i.i to i32
+  %194 = tail call i32 @llvm.bswap.i32(i32 %193)
+  %195 = zext i32 %194 to i64
+  %196 = sub nuw nsw i32 32, %.sroa.48.12899
+  %197 = zext nneg i32 %196 to i64
+  %198 = shl nuw i64 %195, %197
   %199 = or i64 %198, %.sroa.0275.11898
   %200 = or disjoint i32 %.sroa.48.12899, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i
 
 201:                                              ; preds = %222, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %193, %.preheader.i.i ], [ %indvars.iv.next.i.i, %222 ]
+  %indvars.iv.i.i = phi i64 [ %191, %.preheader.i.i ], [ %indvars.iv.next.i.i, %222 ]
   %.01970.i.i = phi i32 [ 0, %.preheader.i.i ], [ %223, %222 ]
   %.02169.i.i = phi i32 [ 0, %.preheader.i.i ], [ %224, %222 ]
   %202 = phi i64 [ %.sroa.0275.11898, %.preheader.i.i ], [ %210, %222 ]
@@ -4931,11 +4931,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %227)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i: ; preds = %226, %194
-  %.sroa.0275.15 = phi i64 [ %199, %194 ], [ %.sroa.0275.14, %226 ]
-  %.sroa.167382.10 = phi i32 [ %.sroa.167382.8902, %194 ], [ %.sroa.167382.9, %226 ]
-  %228 = phi i32 [ %200, %194 ], [ %.sroa.48.15, %226 ]
-  %.0.i.i52 = phi i32 [ 4, %194 ], [ %.120.i.i, %226 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i: ; preds = %226, %192
+  %.sroa.0275.15 = phi i64 [ %199, %192 ], [ %.sroa.0275.14, %226 ]
+  %.sroa.167382.10 = phi i32 [ %.sroa.167382.8902, %192 ], [ %.sroa.167382.9, %226 ]
+  %228 = phi i32 [ %200, %192 ], [ %.sroa.48.15, %226 ]
+  %.0.i.i52 = phi i32 [ 4, %192 ], [ %.120.i.i, %226 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %229 = add nuw nsw i32 %.0.i.i52, %.sroa.141360.8900
   %230 = icmp samesign ugt i32 %228, 31
@@ -5210,39 +5210,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i61)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %.sroa.0.0..sroa.0.0..i.i66, ptr %2, align 8
-  %359 = trunc i64 %.sroa.0.0..sroa.0.0..i.i66 to i32
-  %360 = sub nuw nsw i32 32, %.sroa.48.4916
   br label %.lr.ph.i.i.i68
 
 .lr.ph.i.i.i68:                                   ; preds = %.lr.ph.i.i.i68, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i64
-  %.0.in8.i.i.i69 = phi i1 [ %363, %.lr.ph.i.i.i68 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i64 ]
+  %.0.in8.i.i.i69 = phi i1 [ %361, %.lr.ph.i.i.i68 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i64 ]
   %.057.i.idx.i.i70 = phi i64 [ %.057.i.add.i.i72, %.lr.ph.i.i.i68 ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i64 ]
   %.057.i.ptr.i.i71 = getelementptr inbounds nuw i8, ptr %2, i64 %.057.i.idx.i.i70
-  %361 = load i8, ptr %.057.i.ptr.i.i71, align 1, !tbaa !133
-  %362 = icmp ne i8 %361, -1
-  %363 = and i1 %.0.in8.i.i.i69, %362
+  %359 = load i8, ptr %.057.i.ptr.i.i71, align 1, !tbaa !133
+  %360 = icmp ne i8 %359, -1
+  %361 = and i1 %.0.in8.i.i.i69, %360
   %.057.i.add.i.i72 = add nuw nsw i64 %.057.i.idx.i.i70, 1
   %.not.i.i.i73 = icmp eq i64 %.057.i.add.i.i72, 4
   br i1 %.not.i.i.i73, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i74, label %.lr.ph.i.i.i68, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i74: ; preds = %.lr.ph.i.i.i68
-  br i1 %363, label %365, label %.preheader.i.i75
+  br i1 %361, label %363, label %.preheader.i.i75
 
 .preheader.i.i75:                                 ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i74
-  %364 = zext nneg i32 %.sroa.48.4916 to i64
+  %362 = zext nneg i32 %.sroa.48.4916 to i64
   br label %372
 
-365:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i74
-  %366 = zext nneg i32 %360 to i64
-  %367 = tail call i32 @llvm.bswap.i32(i32 %359)
-  %368 = zext i32 %367 to i64
-  %369 = shl nuw i64 %368, %366
+363:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i74
+  %364 = trunc i64 %.sroa.0.0..sroa.0.0..i.i66 to i32
+  %365 = tail call i32 @llvm.bswap.i32(i32 %364)
+  %366 = zext i32 %365 to i64
+  %367 = sub nuw nsw i32 32, %.sroa.48.4916
+  %368 = zext nneg i32 %367 to i64
+  %369 = shl nuw i64 %366, %368
   %370 = or i64 %369, %.sroa.0275.3915
   %371 = or disjoint i32 %.sroa.48.4916, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i86
 
 372:                                              ; preds = %393, %.preheader.i.i75
-  %indvars.iv.i.i77 = phi i64 [ %364, %.preheader.i.i75 ], [ %indvars.iv.next.i.i80, %393 ]
+  %indvars.iv.i.i77 = phi i64 [ %362, %.preheader.i.i75 ], [ %indvars.iv.next.i.i80, %393 ]
   %.01970.i.i78 = phi i32 [ 0, %.preheader.i.i75 ], [ %394, %393 ]
   %.02169.i.i79 = phi i32 [ 0, %.preheader.i.i75 ], [ %395, %393 ]
   %373 = phi i64 [ %.sroa.0275.3915, %.preheader.i.i75 ], [ %381, %393 ]
@@ -5296,11 +5296,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %398)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i86
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i86: ; preds = %397, %365
-  %.sroa.0275.21 = phi i64 [ %370, %365 ], [ %.sroa.0275.20, %397 ]
-  %.sroa.167382.13 = phi i32 [ %.sroa.167382.4919, %365 ], [ %.sroa.167382.12, %397 ]
-  %399 = phi i32 [ %371, %365 ], [ %.sroa.48.21, %397 ]
-  %.0.i.i87 = phi i32 [ 4, %365 ], [ %.120.i.i85, %397 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i86: ; preds = %397, %363
+  %.sroa.0275.21 = phi i64 [ %370, %363 ], [ %.sroa.0275.20, %397 ]
+  %.sroa.167382.13 = phi i32 [ %.sroa.167382.4919, %363 ], [ %.sroa.167382.12, %397 ]
+  %399 = phi i32 [ %371, %363 ], [ %.sroa.48.21, %397 ]
+  %.0.i.i87 = phi i32 [ 4, %363 ], [ %.120.i.i85, %397 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %400 = add nuw nsw i32 %.0.i.i87, %.sroa.141360.4917
   %401 = icmp samesign ugt i32 %399, 31
@@ -5582,39 +5582,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i131)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 %.sroa.0.0..sroa.0.0..i.i136, ptr %1, align 8
-  %531 = trunc i64 %.sroa.0.0..sroa.0.0..i.i136 to i32
-  %532 = sub nuw nsw i32 32, %.sroa.48.9922
   br label %.lr.ph.i.i.i138
 
 .lr.ph.i.i.i138:                                  ; preds = %.lr.ph.i.i.i138, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i134
-  %.0.in8.i.i.i139 = phi i1 [ %535, %.lr.ph.i.i.i138 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i134 ]
+  %.0.in8.i.i.i139 = phi i1 [ %533, %.lr.ph.i.i.i138 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i134 ]
   %.057.i.idx.i.i140 = phi i64 [ %.057.i.add.i.i142, %.lr.ph.i.i.i138 ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i134 ]
   %.057.i.ptr.i.i141 = getelementptr inbounds nuw i8, ptr %1, i64 %.057.i.idx.i.i140
-  %533 = load i8, ptr %.057.i.ptr.i.i141, align 1, !tbaa !133
-  %534 = icmp ne i8 %533, -1
-  %535 = and i1 %.0.in8.i.i.i139, %534
+  %531 = load i8, ptr %.057.i.ptr.i.i141, align 1, !tbaa !133
+  %532 = icmp ne i8 %531, -1
+  %533 = and i1 %.0.in8.i.i.i139, %532
   %.057.i.add.i.i142 = add nuw nsw i64 %.057.i.idx.i.i140, 1
   %.not.i.i.i143 = icmp eq i64 %.057.i.add.i.i142, 4
   br i1 %.not.i.i.i143, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i144, label %.lr.ph.i.i.i138, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i144: ; preds = %.lr.ph.i.i.i138
-  br i1 %535, label %537, label %.preheader.i.i145
+  br i1 %533, label %535, label %.preheader.i.i145
 
 .preheader.i.i145:                                ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i144
-  %536 = zext nneg i32 %.sroa.48.9922 to i64
+  %534 = zext nneg i32 %.sroa.48.9922 to i64
   br label %544
 
-537:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i144
-  %538 = zext nneg i32 %532 to i64
-  %539 = tail call i32 @llvm.bswap.i32(i32 %531)
-  %540 = zext i32 %539 to i64
-  %541 = shl nuw i64 %540, %538
+535:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i144
+  %536 = trunc i64 %.sroa.0.0..sroa.0.0..i.i136 to i32
+  %537 = tail call i32 @llvm.bswap.i32(i32 %536)
+  %538 = zext i32 %537 to i64
+  %539 = sub nuw nsw i32 32, %.sroa.48.9922
+  %540 = zext nneg i32 %539 to i64
+  %541 = shl nuw i64 %538, %540
   %542 = or i64 %541, %.sroa.0275.8921
   %543 = or disjoint i32 %.sroa.48.9922, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i156
 
 544:                                              ; preds = %565, %.preheader.i.i145
-  %indvars.iv.i.i147 = phi i64 [ %536, %.preheader.i.i145 ], [ %indvars.iv.next.i.i150, %565 ]
+  %indvars.iv.i.i147 = phi i64 [ %534, %.preheader.i.i145 ], [ %indvars.iv.next.i.i150, %565 ]
   %.01970.i.i148 = phi i32 [ 0, %.preheader.i.i145 ], [ %566, %565 ]
   %.02169.i.i149 = phi i32 [ 0, %.preheader.i.i145 ], [ %567, %565 ]
   %545 = phi i64 [ %.sroa.0275.8921, %.preheader.i.i145 ], [ %553, %565 ]
@@ -5668,11 +5668,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %570)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i156
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i156: ; preds = %569, %537
-  %.sroa.0275.27 = phi i64 [ %542, %537 ], [ %.sroa.0275.26, %569 ]
-  %.sroa.167382.16 = phi i32 [ %.sroa.167382.7925, %537 ], [ %.sroa.167382.15, %569 ]
-  %571 = phi i32 [ %543, %537 ], [ %.sroa.48.27, %569 ]
-  %.0.i.i157 = phi i32 [ 4, %537 ], [ %.120.i.i155, %569 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i156: ; preds = %569, %535
+  %.sroa.0275.27 = phi i64 [ %542, %535 ], [ %.sroa.0275.26, %569 ]
+  %.sroa.167382.16 = phi i32 [ %.sroa.167382.7925, %535 ], [ %.sroa.167382.15, %569 ]
+  %571 = phi i32 [ %543, %535 ], [ %.sroa.48.27, %569 ]
+  %.0.i.i157 = phi i32 [ 4, %535 ], [ %.120.i.i155, %569 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %572 = add nuw nsw i32 %.0.i.i157, %.sroa.141360.7923
   %573 = icmp samesign ugt i32 %571, 31
@@ -6349,39 +6349,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %.sroa.0.0..sroa.0.0..i.i, ptr %3, align 8
-  %223 = trunc i64 %.sroa.0.0..sroa.0.0..i.i to i32
-  %224 = sub nuw nsw i32 32, %.sroa.48.14920
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i
-  %.0.in8.i.i.i = phi i1 [ %227, %.lr.ph.i.i.i ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
+  %.0.in8.i.i.i = phi i1 [ %225, %.lr.ph.i.i.i ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
   %.057.i.idx.i.i = phi i64 [ %.057.i.add.i.i, %.lr.ph.i.i.i ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i ]
   %.057.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.057.i.idx.i.i
-  %225 = load i8, ptr %.057.i.ptr.i.i, align 1, !tbaa !133
-  %226 = icmp ne i8 %225, -1
-  %227 = and i1 %.0.in8.i.i.i, %226
+  %223 = load i8, ptr %.057.i.ptr.i.i, align 1, !tbaa !133
+  %224 = icmp ne i8 %223, -1
+  %225 = and i1 %.0.in8.i.i.i, %224
   %.057.i.add.i.i = add nuw nsw i64 %.057.i.idx.i.i, 1
   %.not.i.i.i = icmp eq i64 %.057.i.add.i.i, 4
   br i1 %.not.i.i.i, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i: ; preds = %.lr.ph.i.i.i
-  br i1 %227, label %229, label %.preheader.i.i
+  br i1 %225, label %227, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
-  %228 = zext nneg i32 %.sroa.48.14920 to i64
+  %226 = zext nneg i32 %.sroa.48.14920 to i64
   br label %236
 
-229:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
-  %230 = zext nneg i32 %224 to i64
-  %231 = tail call i32 @llvm.bswap.i32(i32 %223)
-  %232 = zext i32 %231 to i64
-  %233 = shl nuw i64 %232, %230
+227:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i
+  %228 = trunc i64 %.sroa.0.0..sroa.0.0..i.i to i32
+  %229 = tail call i32 @llvm.bswap.i32(i32 %228)
+  %230 = zext i32 %229 to i64
+  %231 = sub nuw nsw i32 32, %.sroa.48.14920
+  %232 = zext nneg i32 %231 to i64
+  %233 = shl nuw i64 %230, %232
   %234 = or i64 %233, %.sroa.0274.13919
   %235 = or disjoint i32 %.sroa.48.14920, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i
 
 236:                                              ; preds = %257, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %228, %.preheader.i.i ], [ %indvars.iv.next.i.i, %257 ]
+  %indvars.iv.i.i = phi i64 [ %226, %.preheader.i.i ], [ %indvars.iv.next.i.i, %257 ]
   %.01970.i.i = phi i32 [ 0, %.preheader.i.i ], [ %258, %257 ]
   %.02169.i.i = phi i32 [ 0, %.preheader.i.i ], [ %259, %257 ]
   %237 = phi i64 [ %.sroa.0274.13919, %.preheader.i.i ], [ %245, %257 ]
@@ -6435,11 +6435,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %262)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i: ; preds = %261, %229
-  %.sroa.0274.17 = phi i64 [ %234, %229 ], [ %.sroa.0274.16, %261 ]
-  %.sroa.167381.12 = phi i32 [ %.sroa.167381.10923, %229 ], [ %.sroa.167381.11, %261 ]
-  %263 = phi i32 [ %235, %229 ], [ %.sroa.48.17, %261 ]
-  %.0.i.i52 = phi i32 [ 4, %229 ], [ %.120.i.i, %261 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i: ; preds = %261, %227
+  %.sroa.0274.17 = phi i64 [ %234, %227 ], [ %.sroa.0274.16, %261 ]
+  %.sroa.167381.12 = phi i32 [ %.sroa.167381.10923, %227 ], [ %.sroa.167381.11, %261 ]
+  %263 = phi i32 [ %235, %227 ], [ %.sroa.48.17, %261 ]
+  %.0.i.i52 = phi i32 [ 4, %227 ], [ %.120.i.i, %261 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %264 = add nuw nsw i32 %.0.i.i52, %.sroa.141359.10921
   %265 = icmp samesign ugt i32 %263, 31
@@ -6747,39 +6747,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i60)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %.sroa.0.0..sroa.0.0..i.i65, ptr %2, align 8
-  %410 = trunc i64 %.sroa.0.0..sroa.0.0..i.i65 to i32
-  %411 = sub nuw nsw i32 32, %.sroa.48.5946
   br label %.lr.ph.i.i.i67
 
 .lr.ph.i.i.i67:                                   ; preds = %.lr.ph.i.i.i67, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i63
-  %.0.in8.i.i.i68 = phi i1 [ %414, %.lr.ph.i.i.i67 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i63 ]
+  %.0.in8.i.i.i68 = phi i1 [ %412, %.lr.ph.i.i.i67 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i63 ]
   %.057.i.idx.i.i69 = phi i64 [ %.057.i.add.i.i71, %.lr.ph.i.i.i67 ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i63 ]
   %.057.i.ptr.i.i70 = getelementptr inbounds nuw i8, ptr %2, i64 %.057.i.idx.i.i69
-  %412 = load i8, ptr %.057.i.ptr.i.i70, align 1, !tbaa !133
-  %413 = icmp ne i8 %412, -1
-  %414 = and i1 %.0.in8.i.i.i68, %413
+  %410 = load i8, ptr %.057.i.ptr.i.i70, align 1, !tbaa !133
+  %411 = icmp ne i8 %410, -1
+  %412 = and i1 %.0.in8.i.i.i68, %411
   %.057.i.add.i.i71 = add nuw nsw i64 %.057.i.idx.i.i69, 1
   %.not.i.i.i72 = icmp eq i64 %.057.i.add.i.i71, 4
   br i1 %.not.i.i.i72, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i73, label %.lr.ph.i.i.i67, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i73: ; preds = %.lr.ph.i.i.i67
-  br i1 %414, label %416, label %.preheader.i.i74
+  br i1 %412, label %414, label %.preheader.i.i74
 
 .preheader.i.i74:                                 ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i73
-  %415 = zext nneg i32 %.sroa.48.5946 to i64
+  %413 = zext nneg i32 %.sroa.48.5946 to i64
   br label %423
 
-416:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i73
-  %417 = zext nneg i32 %411 to i64
-  %418 = tail call i32 @llvm.bswap.i32(i32 %410)
-  %419 = zext i32 %418 to i64
-  %420 = shl nuw i64 %419, %417
+414:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i73
+  %415 = trunc i64 %.sroa.0.0..sroa.0.0..i.i65 to i32
+  %416 = tail call i32 @llvm.bswap.i32(i32 %415)
+  %417 = zext i32 %416 to i64
+  %418 = sub nuw nsw i32 32, %.sroa.48.5946
+  %419 = zext nneg i32 %418 to i64
+  %420 = shl nuw i64 %417, %419
   %421 = or i64 %420, %.sroa.0274.4945
   %422 = or disjoint i32 %.sroa.48.5946, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i85
 
 423:                                              ; preds = %444, %.preheader.i.i74
-  %indvars.iv.i.i76 = phi i64 [ %415, %.preheader.i.i74 ], [ %indvars.iv.next.i.i79, %444 ]
+  %indvars.iv.i.i76 = phi i64 [ %413, %.preheader.i.i74 ], [ %indvars.iv.next.i.i79, %444 ]
   %.01970.i.i77 = phi i32 [ 0, %.preheader.i.i74 ], [ %445, %444 ]
   %.02169.i.i78 = phi i32 [ 0, %.preheader.i.i74 ], [ %446, %444 ]
   %424 = phi i64 [ %.sroa.0274.4945, %.preheader.i.i74 ], [ %432, %444 ]
@@ -6833,11 +6833,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %449)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i85
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i85: ; preds = %448, %416
-  %.sroa.0274.23 = phi i64 [ %421, %416 ], [ %.sroa.0274.22, %448 ]
-  %.sroa.167381.15 = phi i32 [ %.sroa.167381.5949, %416 ], [ %.sroa.167381.14, %448 ]
-  %450 = phi i32 [ %422, %416 ], [ %.sroa.48.23, %448 ]
-  %.0.i.i86 = phi i32 [ 4, %416 ], [ %.120.i.i84, %448 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i85: ; preds = %448, %414
+  %.sroa.0274.23 = phi i64 [ %421, %414 ], [ %.sroa.0274.22, %448 ]
+  %.sroa.167381.15 = phi i32 [ %.sroa.167381.5949, %414 ], [ %.sroa.167381.14, %448 ]
+  %450 = phi i32 [ %422, %414 ], [ %.sroa.48.23, %448 ]
+  %.0.i.i86 = phi i32 [ 4, %414 ], [ %.120.i.i84, %448 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %451 = add nuw nsw i32 %.0.i.i86, %.sroa.141359.5947
   %452 = icmp samesign ugt i32 %450, 31
@@ -7120,39 +7120,39 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8get
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i.i130)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 %.sroa.0.0..sroa.0.0..i.i135, ptr %1, align 8
-  %582 = trunc i64 %.sroa.0.0..sroa.0.0..i.i135 to i32
-  %583 = sub nuw nsw i32 32, %.sroa.48.10957
   br label %.lr.ph.i.i.i137
 
 .lr.ph.i.i.i137:                                  ; preds = %.lr.ph.i.i.i137, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i133
-  %.0.in8.i.i.i138 = phi i1 [ %586, %.lr.ph.i.i.i137 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i133 ]
+  %.0.in8.i.i.i138 = phi i1 [ %584, %.lr.ph.i.i.i137 ], [ true, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i133 ]
   %.057.i.idx.i.i139 = phi i64 [ %.057.i.add.i.i141, %.lr.ph.i.i.i137 ], [ 0, %_ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_15BitStreamerJPEGEE8getInputEv.exit.i133 ]
   %.057.i.ptr.i.i140 = getelementptr inbounds nuw i8, ptr %1, i64 %.057.i.idx.i.i139
-  %584 = load i8, ptr %.057.i.ptr.i.i140, align 1, !tbaa !133
-  %585 = icmp ne i8 %584, -1
-  %586 = and i1 %.0.in8.i.i.i138, %585
+  %582 = load i8, ptr %.057.i.ptr.i.i140, align 1, !tbaa !133
+  %583 = icmp ne i8 %582, -1
+  %584 = and i1 %.0.in8.i.i.i138, %583
   %.057.i.add.i.i141 = add nuw nsw i64 %.057.i.idx.i.i139, 1
   %.not.i.i.i142 = icmp eq i64 %.057.i.add.i.i141, 4
   br i1 %.not.i.i.i142, label %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i143, label %.lr.ph.i.i.i137, !llvm.loop !150
 
 _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i143: ; preds = %.lr.ph.i.i.i137
-  br i1 %586, label %588, label %.preheader.i.i144
+  br i1 %584, label %586, label %.preheader.i.i144
 
 .preheader.i.i144:                                ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i143
-  %587 = zext nneg i32 %.sroa.48.10957 to i64
+  %585 = zext nneg i32 %.sroa.48.10957 to i64
   br label %595
 
-588:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i143
-  %589 = zext nneg i32 %583 to i64
-  %590 = tail call i32 @llvm.bswap.i32(i32 %582)
-  %591 = zext i32 %590 to i64
-  %592 = shl nuw i64 %591, %589
+586:                                              ; preds = %_ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8EEEUlbS0_E_ET0_T_S8_S7_T1_.exit.i.i143
+  %587 = trunc i64 %.sroa.0.0..sroa.0.0..i.i135 to i32
+  %588 = tail call i32 @llvm.bswap.i32(i32 %587)
+  %589 = zext i32 %588 to i64
+  %590 = sub nuw nsw i32 32, %.sroa.48.10957
+  %591 = zext nneg i32 %590 to i64
+  %592 = shl nuw i64 %589, %591
   %593 = or i64 %592, %.sroa.0274.9956
   %594 = or disjoint i32 %.sroa.48.10957, 32
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i155
 
 595:                                              ; preds = %616, %.preheader.i.i144
-  %indvars.iv.i.i146 = phi i64 [ %587, %.preheader.i.i144 ], [ %indvars.iv.next.i.i149, %616 ]
+  %indvars.iv.i.i146 = phi i64 [ %585, %.preheader.i.i144 ], [ %indvars.iv.next.i.i149, %616 ]
   %.01970.i.i147 = phi i32 [ 0, %.preheader.i.i144 ], [ %617, %616 ]
   %.02169.i.i148 = phi i32 [ 0, %.preheader.i.i144 ], [ %618, %616 ]
   %596 = phi i64 [ %.sroa.0274.9956, %.preheader.i.i144 ], [ %604, %616 ]
@@ -7206,11 +7206,11 @@ _ZSt10accumulateIPSt4bytebZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayIS0_Lm8
   tail call void @llvm.assume(i1 %621)
   br label %_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i155
 
-_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i155: ; preds = %620, %588
-  %.sroa.0274.29 = phi i64 [ %593, %588 ], [ %.sroa.0274.28, %620 ]
-  %.sroa.167381.18 = phi i32 [ %.sroa.167381.8960, %588 ], [ %.sroa.167381.17, %620 ]
-  %622 = phi i32 [ %594, %588 ], [ %.sroa.48.29, %620 ]
-  %.0.i.i156 = phi i32 [ 4, %588 ], [ %.120.i.i154, %620 ]
+_ZN8rawspeed15BitStreamerJPEG9fillCacheESt5arrayISt4byteLm8EE.exit.i155: ; preds = %620, %586
+  %.sroa.0274.29 = phi i64 [ %593, %586 ], [ %.sroa.0274.28, %620 ]
+  %.sroa.167381.18 = phi i32 [ %.sroa.167381.8960, %586 ], [ %.sroa.167381.17, %620 ]
+  %622 = phi i32 [ %594, %586 ], [ %.sroa.48.29, %620 ]
+  %.0.i.i156 = phi i32 [ 4, %586 ], [ %.120.i.i154, %620 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   %623 = add nuw nsw i32 %.0.i.i156, %.sroa.141359.8958
   %624 = icmp samesign ugt i32 %622, 31

@@ -581,53 +581,53 @@ define internal fastcc void @_ZN9Stockfish12_GLOBAL__N_111init_magicsENS_9PieceT
   %.04293 = phi i32 [ 0, %3 ], [ %127, %154 ]
   %.04492 = phi i64 [ 0, %3 ], [ %indvars.iv.next, %154 ]
   %indvars104 = trunc i64 %indvars.iv102 to i32
-  %9 = and i64 %indvars.iv102, 56
-  %10 = and i64 %indvars.iv102, 7
-  br label %11
+  br label %9
 
-11:                                               ; preds = %.critedge.i, %8
+9:                                                ; preds = %.critedge.i, %8
   %.0.idx25.i = phi i64 [ 0, %8 ], [ %.0.add.i, %.critedge.i ]
   %.01724.i = phi i64 [ 0, %8 ], [ %.1.lcssa.i, %.critedge.i ]
   %.0.ptr.i = getelementptr inbounds nuw i8, ptr %..i, i64 %.0.idx25.i
-  %12 = load i32, ptr %.0.ptr.i, align 4
-  %13 = add nsw i32 %12, %indvars104
-  %14 = icmp ult i32 %13, 64
-  br i1 %14, label %.lr.ph.preheader.i, label %.critedge.i
+  %10 = load i32, ptr %.0.ptr.i, align 4
+  %11 = add nsw i32 %10, %indvars104
+  %12 = icmp ult i32 %11, 64
+  br i1 %12, label %.lr.ph.preheader.i, label %.critedge.i
 
-.lr.ph.preheader.i:                               ; preds = %11
-  %15 = sext i32 %12 to i64
-  %16 = add nsw i64 %indvars.iv102, %15
+.lr.ph.preheader.i:                               ; preds = %9
+  %13 = sext i32 %10 to i64
+  %14 = add nsw i64 %indvars.iv102, %13
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %16, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i ]
+  %indvars.iv.i = phi i64 [ %14, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i ]
   %.020.i = phi i64 [ %indvars.iv102, %.lr.ph.preheader.i ], [ %indvars.iv.i, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i ]
-  %.119.i = phi i64 [ %.01724.i, %.lr.ph.preheader.i ], [ %22, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i ]
+  %.119.i = phi i64 [ %.01724.i, %.lr.ph.preheader.i ], [ %20, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i ]
   %sext = shl i64 %.020.i, 32
-  %17 = ashr exact i64 %sext, 32
-  %18 = getelementptr inbounds [64 x [64 x i8]], ptr @_ZN9Stockfish14SquareDistanceE, i64 0, i64 %17, i64 %indvars.iv.i
-  %19 = load i8, ptr %18, align 1
-  %20 = icmp ult i8 %19, 3
-  br i1 %20, label %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i, label %.critedge.i
+  %15 = ashr exact i64 %sext, 32
+  %16 = getelementptr inbounds [64 x [64 x i8]], ptr @_ZN9Stockfish14SquareDistanceE, i64 0, i64 %15, i64 %indvars.iv.i
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp ult i8 %17, 3
+  br i1 %18, label %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i, label %.critedge.i
 
 _ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i: ; preds = %.lr.ph.i
-  %21 = shl nuw i64 1, %indvars.iv.i
-  %22 = or i64 %.119.i, %21
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, %15
-  %23 = icmp ult i64 %indvars.iv.next.i, 64
-  br i1 %23, label %.lr.ph.i, label %.critedge.i, !llvm.loop !21
+  %19 = shl nuw i64 1, %indvars.iv.i
+  %20 = or i64 %.119.i, %19
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, %13
+  %21 = icmp ult i64 %indvars.iv.next.i, 64
+  br i1 %21, label %.lr.ph.i, label %.critedge.i, !llvm.loop !21
 
-.critedge.i:                                      ; preds = %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i, %.lr.ph.i, %11
-  %.1.lcssa.i = phi i64 [ %.01724.i, %11 ], [ %22, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i ], [ %.119.i, %.lr.ph.i ]
+.critedge.i:                                      ; preds = %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i, %.lr.ph.i, %9
+  %.1.lcssa.i = phi i64 [ %.01724.i, %9 ], [ %20, %_ZN9Stockfish12_GLOBAL__N_116safe_destinationENS_6SquareEi.exit.i ], [ %.119.i, %.lr.ph.i ]
   %.0.add.i = add nuw nsw i64 %.0.idx25.i, 4
   %.not.i = icmp eq i64 %.0.add.i, 16
-  br i1 %.not.i, label %_ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit, label %11
+  br i1 %.not.i, label %_ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit, label %9
 
 _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit: ; preds = %.critedge.i
-  %24 = shl nuw i64 255, %9
-  %25 = shl nuw i64 72340172838076673, %10
+  %22 = and i64 %indvars.iv102, 56
+  %23 = shl nuw i64 255, %22
+  %24 = and i64 %indvars.iv102, 7
+  %25 = shl nuw i64 72340172838076673, %24
   %26 = getelementptr %"struct.Stockfish::Magic", ptr %2, i64 %indvars.iv102
-  %27 = or i64 %24, 72057594037927680
+  %27 = or i64 %23, 72057594037927680
   %28 = or i64 %25, 9114861777597660798
   %29 = and i64 %27, %28
   %30 = and i64 %29, %.1.lcssa.i

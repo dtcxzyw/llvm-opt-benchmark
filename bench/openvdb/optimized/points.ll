@@ -125759,8 +125759,8 @@ for.inc15.i.i:                                    ; preds = %.noexc.i, %for.body
 
 for.end16.i.i:                                    ; preds = %for.inc15.i.i
   %7 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
-  %cmp3.i.i.i = icmp ne i64 %s.0.i.i, 1
   %cmp.i22.i.i = icmp ult i64 %s.0.i.i, 8
+  %cmp3.i.i.i = icmp ne i64 %s.0.i.i, 1
   %cmp8.not.i.i.i = and i1 %cmp.i22.i.i, %cmp3.i.i.i
   br i1 %cmp8.not.i.i.i, label %if.end11.i.i.i, label %if.then9.i.i.i
 
@@ -125843,9 +125843,9 @@ for.inc15.i.i15:                                  ; preds = %.noexc.i37, %for.bo
 
 for.end16.i.i19:                                  ; preds = %for.inc15.i.i15
   %16 = load atomic i64, ptr %arrayidx.i.i8 monotonic, align 8
-  %cmp3.i.i.i20 = icmp ne i64 %s.0.i.i7, 1
-  %cmp.i22.i.i21 = icmp ult i64 %s.0.i.i7, 8
-  %cmp8.not.i.i.i22 = and i1 %cmp.i22.i.i21, %cmp3.i.i.i20
+  %cmp.i22.i.i20 = icmp ult i64 %s.0.i.i7, 8
+  %cmp3.i.i.i21 = icmp ne i64 %s.0.i.i7, 1
+  %cmp8.not.i.i.i22 = and i1 %cmp.i22.i.i20, %cmp3.i.i.i21
   br i1 %cmp8.not.i.i.i22, label %if.end11.i.i.i29, label %if.then9.i.i.i23
 
 if.then9.i.i.i23:                                 ; preds = %for.end16.i.i19
@@ -129642,8 +129642,8 @@ for.inc15.i:                                      ; preds = %for.body9.i, %for.b
 
 for.end16.i:                                      ; preds = %for.inc15.i
   %21 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %cmp3.i.i = icmp ne i64 %s.0.i, 1
   %cmp.i22.i = icmp ult i64 %s.0.i, 8
+  %cmp3.i.i = icmp ne i64 %s.0.i, 1
   %cmp8.not.i.i = and i1 %cmp.i22.i, %cmp3.i.i
   br i1 %cmp8.not.i.i, label %if.end11.i.i, label %if.then9.i.i
 
@@ -129831,9 +129831,9 @@ for.inc15.i100:                                   ; preds = %for.body9.i113, %fo
 
 for.end16.i104:                                   ; preds = %for.inc15.i100
   %43 = load atomic i64, ptr %arrayidx.i93 monotonic, align 8
-  %cmp3.i.i105 = icmp ne i64 %s.0.i92, 1
-  %cmp.i22.i106 = icmp ult i64 %s.0.i92, 8
-  %cmp8.not.i.i107 = and i1 %cmp.i22.i106, %cmp3.i.i105
+  %cmp.i22.i105 = icmp ult i64 %s.0.i92, 8
+  %cmp3.i.i106 = icmp ne i64 %s.0.i92, 1
+  %cmp8.not.i.i107 = and i1 %cmp.i22.i105, %cmp3.i.i106
   br i1 %cmp8.not.i.i107, label %if.end11.i.i110, label %if.then9.i.i108
 
 if.then9.i.i108:                                  ; preds = %for.end16.i104
@@ -174698,11 +174698,9 @@ for.body:                                         ; preds = %for.cond.preheader,
 invoke.cont:                                      ; preds = %for.body
   %1 = trunc nuw nsw i64 %indvars.iv to i32
   %call16 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #28
-  %2 = lshr i32 %1, 5
-  %3 = lshr i32 %1, 1
-  %4 = load i32, ptr %mOrigin.i.i, align 8
-  %5 = load i32, ptr %arrayidx.i.i.i.i2.i, align 4
-  %6 = load i32, ptr %arrayidx.i.i.i4.i.i, align 8
+  %2 = load i32, ptr %mOrigin.i.i, align 8
+  %3 = load i32, ptr %arrayidx.i.i.i.i2.i, align 4
+  %4 = load i32, ptr %arrayidx.i.i.i4.i.i, align 8
   store ptr null, ptr %call16, align 8
   %mMutex.i.i.i = getelementptr inbounds nuw i8, ptr %call16, i64 12
   store i8 0, ptr %mMutex.i.i.i, align 1
@@ -174710,14 +174708,16 @@ invoke.cont:                                      ; preds = %for.body
   store atomic i32 0, ptr %mOutOfCore2.i.i.i seq_cst, align 4
   %mValueMask.i.i = getelementptr inbounds nuw i8, ptr %call16, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mValueMask.i.i, i8 0, i64 64, i1 false)
-  %shl.i.i24 = and i32 %2, 120
-  %shl5.i.i = and i32 %3, 120
+  %5 = lshr i32 %1, 5
+  %shl.i.i24 = and i32 %5, 120
+  %6 = lshr i32 %1, 1
+  %shl5.i.i = and i32 %6, 120
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %7 = shl i32 %indvars.iv.tr, 3
   %shl9.i.i = and i32 %7, 120
-  %add.i.i = add nsw i32 %4, %shl.i.i24
-  %add6.i.i = add nsw i32 %5, %shl5.i.i
-  %add10.i.i = add nsw i32 %6, %shl9.i.i
+  %add.i.i = add nsw i32 %2, %shl.i.i24
+  %add6.i.i = add nsw i32 %3, %shl5.i.i
+  %add10.i.i = add nsw i32 %4, %shl9.i.i
   %and.i.i.i = and i32 %add.i.i, -8
   %and4.i.i.i = and i32 %add6.i.i, -8
   %and7.i.i.i = and i32 %add10.i.i, -8
@@ -175042,15 +175042,12 @@ for.body90:                                       ; preds = %_ZN7openvdb5v11_04t
 
 invoke.cont96:                                    ; preds = %for.body90
   %39 = load i32, ptr %mMaskIter.i.i.i.i98, align 8
-  %40 = lshr i32 %39, 5
-  %41 = lshr i32 %39, 1
-  %and3.i.i.i = shl i32 %39, 3
   %mOrigin.i.i.i = getelementptr inbounds nuw i8, ptr %call.i106114, i64 33792
-  %42 = load i32, ptr %mOrigin.i.i.i, align 8
+  %40 = load i32, ptr %mOrigin.i.i.i, align 8
   %arrayidx.i.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %call.i106114, i64 33796
-  %43 = load i32, ptr %arrayidx.i.i.i.i2.i.i, align 4
+  %41 = load i32, ptr %arrayidx.i.i.i.i2.i.i, align 4
   %arrayidx.i.i.i4.i.i.i = getelementptr inbounds nuw i8, ptr %call.i106114, i64 33800
-  %44 = load i32, ptr %arrayidx.i.i.i4.i.i.i, align 8
+  %42 = load i32, ptr %arrayidx.i.i.i4.i.i.i, align 8
   store ptr null, ptr %call92, align 8
   %mMutex.i.i.i115 = getelementptr inbounds nuw i8, ptr %call92, i64 12
   store i8 0, ptr %mMutex.i.i.i115, align 1
@@ -175058,12 +175055,15 @@ invoke.cont96:                                    ; preds = %for.body90
   store atomic i32 0, ptr %mOutOfCore2.i.i.i116 seq_cst, align 4
   %mValueMask.i.i117 = getelementptr inbounds nuw i8, ptr %call92, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mValueMask.i.i117, i8 0, i64 64, i1 false)
-  %shl.i.i.i108 = and i32 %40, 134217720
-  %shl5.i.i.i = and i32 %41, 120
+  %43 = lshr i32 %39, 5
+  %shl.i.i.i108 = and i32 %43, 134217720
+  %44 = lshr i32 %39, 1
+  %shl5.i.i.i = and i32 %44, 120
+  %and3.i.i.i = shl i32 %39, 3
   %shl9.i.i.i = and i32 %and3.i.i.i, 120
-  %add.i.i.i109 = add nsw i32 %shl.i.i.i108, %42
-  %add6.i.i.i = add nsw i32 %43, %shl5.i.i.i
-  %add10.i.i.i = add nsw i32 %44, %shl9.i.i.i
+  %add.i.i.i109 = add nsw i32 %shl.i.i.i108, %40
+  %add6.i.i.i = add nsw i32 %41, %shl5.i.i.i
+  %add10.i.i.i = add nsw i32 %42, %shl9.i.i.i
   %and.i.i.i125 = and i32 %add.i.i.i109, -8
   %and4.i.i.i127 = and i32 %add6.i.i.i, -8
   %and7.i.i.i129 = and i32 %add10.i.i.i, -8

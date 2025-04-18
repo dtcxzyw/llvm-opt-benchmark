@@ -17337,7 +17337,6 @@ _ZNK4llvm4Type13getScalarTypeEv.exit385:          ; preds = %_ZNK4llvm4Type13get
   %694 = load i32, ptr %637, align 8, !tbaa !131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   %695 = call { i64, i32 } @_ZNK4llvm19TargetTransformInfo22getArithmeticInstrCostEjPNS_4TypeENS0_14TargetCostKindENS0_16OperandValueInfoES4_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(8) %689, i32 noundef %693, ptr noundef %677, i32 noundef %694, i64 0, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.152") align 8 %36, ptr noundef null, ptr noundef null) #26
-  %.fca.0.extract67 = extractvalue { i64, i32 } %695, 0
   %696 = load ptr, ptr %630, align 8, !tbaa !199
   %697 = load ptr, ptr %7, align 8, !tbaa !162
   %698 = load i8, ptr %697, align 8, !tbaa !182
@@ -17346,53 +17345,54 @@ _ZNK4llvm4Type13getScalarTypeEv.exit385:          ; preds = %_ZNK4llvm4Type13get
   %701 = load i32, ptr %637, align 8, !tbaa !131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   %702 = call { i64, i32 } @_ZNK4llvm19TargetTransformInfo22getArithmeticInstrCostEjPNS_4TypeENS0_14TargetCostKindENS0_16OperandValueInfoES4_NS_8ArrayRefIPKNS_5ValueEEEPKNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(8) %696, i32 noundef %700, ptr noundef %688, i32 noundef %701, i64 0, i64 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef.152") align 8 %37, ptr noundef null, ptr noundef null) #26
-  %.fca.1.extract60 = extractvalue { i64, i32 } %702, 1
-  %703 = icmp eq i32 %.fca.1.extract60, 1
-  %704 = load ptr, ptr %28, align 8, !tbaa !25
-  %705 = load i32, ptr %462, align 8, !tbaa !26
-  %706 = zext i32 %705 to i64
-  %707 = getelementptr inbounds nuw %"class.llvm::SmallVector.201", ptr %704, i64 %706
-  %708 = call fastcc { i64, i32 } @"_ZSt10accumulateIPN4llvm11SmallVectorIiLj12EEENS0_15InstructionCostEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS0_11InstructionEbE3$_7ET0_T_SB_SA_T1_"(ptr noundef %704, ptr noundef %707, i64 0, i32 0, ptr %0, ptr %5)
-  %.fca.1.extract50 = extractvalue { i64, i32 } %708, 1
-  %709 = icmp eq i32 %.fca.1.extract50, 1
+  %703 = load ptr, ptr %28, align 8, !tbaa !25
+  %704 = load i32, ptr %462, align 8, !tbaa !26
+  %705 = zext i32 %704 to i64
+  %706 = getelementptr inbounds nuw %"class.llvm::SmallVector.201", ptr %703, i64 %705
+  %707 = call fastcc { i64, i32 } @"_ZSt10accumulateIPN4llvm11SmallVectorIiLj12EEENS0_15InstructionCostEZN12_GLOBAL__N_113VectorCombine17foldSelectShuffleERNS0_11InstructionEbE3$_7ET0_T_SB_SA_T1_"(ptr noundef %703, ptr noundef %706, i64 0, i32 0, ptr %0, ptr %5)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %38) #26
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %39) #26
   call void @_ZN4llvm11SmallVectorIiLj12EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %39, ptr noundef nonnull align 8 dereferenceable(64) %30)
-  %710 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  call void @_ZN4llvm11SmallVectorIiLj12EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %710, ptr noundef nonnull align 8 dereferenceable(64) %31)
-  %711 = getelementptr inbounds nuw i8, ptr %39, i64 128
-  call void @_ZN4llvm11SmallVectorIiLj12EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %711, ptr noundef nonnull align 8 dereferenceable(64) %32)
-  %712 = getelementptr inbounds nuw i8, ptr %39, i64 192
-  call void @_ZN4llvm11SmallVectorIiLj12EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %712, ptr noundef nonnull align 8 dereferenceable(64) %33)
+  %708 = getelementptr inbounds nuw i8, ptr %39, i64 64
+  call void @_ZN4llvm11SmallVectorIiLj12EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %708, ptr noundef nonnull align 8 dereferenceable(64) %31)
+  %709 = getelementptr inbounds nuw i8, ptr %39, i64 128
+  call void @_ZN4llvm11SmallVectorIiLj12EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %709, ptr noundef nonnull align 8 dereferenceable(64) %32)
+  %710 = getelementptr inbounds nuw i8, ptr %39, i64 192
+  call void @_ZN4llvm11SmallVectorIiLj12EEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %710, ptr noundef nonnull align 8 dereferenceable(64) %33)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %40) #26
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %41) #26
   call void @_ZNSt3setIN4llvm11SmallVectorIiLj12EEESt4lessIS2_ESaIS2_EEC2ESt16initializer_listIS2_ERKS4_RKS5_(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr nonnull %39, i64 4, ptr noundef nonnull align 1 dereferenceable(1) %40, ptr noundef nonnull align 1 dereferenceable(1) %41)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %41) #26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %40) #26
-  %713 = getelementptr inbounds nuw i8, ptr %39, i64 256
-  br label %714
+  %711 = getelementptr inbounds nuw i8, ptr %39, i64 256
+  br label %712
 
-714:                                              ; preds = %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit395, %_ZNK4llvm4Type13getScalarTypeEv.exit385
-  %715 = phi ptr [ %713, %_ZNK4llvm4Type13getScalarTypeEv.exit385 ], [ %716, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit395 ]
-  %716 = getelementptr inbounds i8, ptr %715, i64 -64
-  %717 = load ptr, ptr %716, align 8, !tbaa !25
-  %718 = getelementptr inbounds i8, ptr %715, i64 -48
-  %719 = icmp eq ptr %717, %718
-  br i1 %719, label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit395, label %720
+712:                                              ; preds = %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit395, %_ZNK4llvm4Type13getScalarTypeEv.exit385
+  %713 = phi ptr [ %711, %_ZNK4llvm4Type13getScalarTypeEv.exit385 ], [ %714, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit395 ]
+  %714 = getelementptr inbounds i8, ptr %713, i64 -64
+  %715 = load ptr, ptr %714, align 8, !tbaa !25
+  %716 = getelementptr inbounds i8, ptr %713, i64 -48
+  %717 = icmp eq ptr %715, %716
+  br i1 %717, label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit395, label %718
 
-720:                                              ; preds = %714
-  call void @free(ptr noundef %717) #26
+718:                                              ; preds = %712
+  call void @free(ptr noundef %715) #26
   br label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit395
 
-_ZN4llvm11SmallVectorIiLj12EED2Ev.exit395:        ; preds = %714, %720
-  %721 = icmp eq ptr %716, %39
-  br i1 %721, label %_ZN4llvm15InstructionCostpLERKS0_.exit397, label %714
+_ZN4llvm11SmallVectorIiLj12EED2Ev.exit395:        ; preds = %712, %718
+  %719 = icmp eq ptr %714, %39
+  br i1 %719, label %_ZN4llvm15InstructionCostpLERKS0_.exit397, label %712
 
 _ZN4llvm15InstructionCostpLERKS0_.exit397:        ; preds = %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit395
+  %.fca.0.extract67 = extractvalue { i64, i32 } %695, 0
   %.fca.1.extract68 = extractvalue { i64, i32 } %695, 1
   %.fca.0.extract59 = extractvalue { i64, i32 } %702, 0
+  %.fca.1.extract60 = extractvalue { i64, i32 } %702, 1
+  %720 = icmp eq i32 %.fca.1.extract60, 1
   %.0.i.i390 = call i64 @llvm.sadd.sat.i64(i64 %.fca.0.extract67, i64 %.fca.0.extract59)
-  %.fca.0.extract49 = extractvalue { i64, i32 } %708, 0
+  %.fca.0.extract49 = extractvalue { i64, i32 } %707, 0
+  %.fca.1.extract50 = extractvalue { i64, i32 } %707, 1
+  %721 = icmp eq i32 %.fca.1.extract50, 1
   %.0.i393 = call i64 @llvm.sadd.sat.i64(i64 %.0.i.i390, i64 %.fca.0.extract49)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %39) #26
   %722 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -17402,8 +17402,8 @@ _ZN4llvm15InstructionCostpLERKS0_.exit397:        ; preds = %_ZN4llvm11SmallVect
   %.fca.0.extract = extractvalue { i64, i32 } %725, 0
   %.fca.1.extract = extractvalue { i64, i32 } %725, 1
   %726 = icmp eq i32 %.fca.1.extract, 1
-  %727 = select i1 %726, i1 true, i1 %709
-  %728 = select i1 %727, i1 true, i1 %703
+  %727 = select i1 %726, i1 true, i1 %721
+  %728 = select i1 %727, i1 true, i1 %720
   %spec.select509 = select i1 %728, i32 1, i32 %.fca.1.extract68
   %.0.i396 = call i64 @llvm.sadd.sat.i64(i64 %.0.i393, i64 %.fca.0.extract)
   %.not.i.i398 = icmp eq i32 %spec.select509, %spec.select507

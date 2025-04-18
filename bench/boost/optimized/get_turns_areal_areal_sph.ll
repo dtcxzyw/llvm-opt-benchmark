@@ -178831,41 +178831,41 @@ _ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_i
 _ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i: ; preds = %329
   %342 = load float, ptr %12, align 4, !tbaa !2374, !noalias !2828
   %343 = load float, ptr %28, align 4, !tbaa !2374, !noalias !2828
-  %344 = fcmp olt float %343, 0.000000e+00
-  %345 = fneg float %342
-  %346 = fneg float %343
-  %.sroa.0.0 = select i1 %344, float %345, float %342
-  %.sroa.5.0 = select i1 %344, float %346, float %343
-  %347 = fmul float %.sroa.0.0, 1.000000e+06
-  %348 = fdiv float %347, %.sroa.5.0
   call void @llvm.experimental.noalias.scope.decl(metadata !2841)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #58, !noalias !2841
   call void @llvm.experimental.noalias.scope.decl(metadata !2844)
-  br label %349
+  br label %344
 
-349:                                              ; preds = %349, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i
-  %.idx.i.i.i316 = phi i64 [ 24, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i ], [ %.add.i.i.i318, %349 ]
+344:                                              ; preds = %344, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i
+  %.idx.i.i.i316 = phi i64 [ 24, %_ZN5boost8geometry13segment_ratioIfEC2ERKfS4_.exit.i ], [ %.add.i.i.i318, %344 ]
   %.ptr.i.i.i317 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i.i.i316
   store float 0.000000e+00, ptr %.ptr.i.i.i317, align 4, !tbaa !2643, !alias.scope !2844, !noalias !2841
-  %350 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i317, i64 4
-  store float 1.000000e+00, ptr %350, align 4, !tbaa !2644, !alias.scope !2844, !noalias !2841
-  %351 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i317, i64 8
-  store float 0.000000e+00, ptr %351, align 4, !tbaa !2645, !alias.scope !2844, !noalias !2841
-  %352 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i317, i64 12
-  store float 0.000000e+00, ptr %352, align 4, !tbaa !2643, !alias.scope !2844, !noalias !2841
-  %353 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i317, i64 16
-  store float 1.000000e+00, ptr %353, align 4, !tbaa !2644, !alias.scope !2844, !noalias !2841
-  %354 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i317, i64 20
-  store float 0.000000e+00, ptr %354, align 4, !tbaa !2645, !alias.scope !2844, !noalias !2841
-  %355 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i317, i64 24
-  store i8 0, ptr %355, align 4, !tbaa !2771, !alias.scope !2844, !noalias !2841
+  %345 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i317, i64 4
+  store float 1.000000e+00, ptr %345, align 4, !tbaa !2644, !alias.scope !2844, !noalias !2841
+  %346 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i317, i64 8
+  store float 0.000000e+00, ptr %346, align 4, !tbaa !2645, !alias.scope !2844, !noalias !2841
+  %347 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i317, i64 12
+  store float 0.000000e+00, ptr %347, align 4, !tbaa !2643, !alias.scope !2844, !noalias !2841
+  %348 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i317, i64 16
+  store float 1.000000e+00, ptr %348, align 4, !tbaa !2644, !alias.scope !2844, !noalias !2841
+  %349 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i317, i64 20
+  store float 0.000000e+00, ptr %349, align 4, !tbaa !2645, !alias.scope !2844, !noalias !2841
+  %350 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i317, i64 24
+  store i8 0, ptr %350, align 4, !tbaa !2771, !alias.scope !2844, !noalias !2841
   %.add.i.i.i318 = add nuw nsw i64 %.idx.i.i.i316, 28
-  %356 = icmp eq i64 %.add.i.i.i318, 80
-  br i1 %356, label %_ZN5boost8geometry27segment_intersection_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEEEC2Ev.exit.i.i, label %349
+  %351 = icmp eq i64 %.add.i.i.i318, 80
+  br i1 %351, label %_ZN5boost8geometry27segment_intersection_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEEEC2Ev.exit.i.i, label %344
 
-_ZN5boost8geometry27segment_intersection_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEEEC2Ev.exit.i.i: ; preds = %349
-  %357 = fcmp oeq float %343, 0.000000e+00
-  %358 = select i1 %357, float 0.000000e+00, float %348
+_ZN5boost8geometry27segment_intersection_pointsINS0_5model5pointIfLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIfEEEC2Ev.exit.i.i: ; preds = %344
+  %352 = fcmp olt float %343, 0.000000e+00
+  %353 = fneg float %342
+  %354 = fneg float %343
+  %.sroa.0.0 = select i1 %352, float %353, float %342
+  %.sroa.5.0 = select i1 %352, float %354, float %343
+  %355 = fcmp oeq float %343, 0.000000e+00
+  %356 = fmul float %.sroa.0.0, 1.000000e+06
+  %357 = fdiv float %356, %.sroa.5.0
+  %358 = select i1 %355, float 0.000000e+00, float %357
   store i64 1, ptr %5, align 8, !tbaa !2773, !alias.scope !2844, !noalias !2841
   %359 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %360 = load ptr, ptr %20, align 8, !tbaa !2507, !noalias !2847
@@ -202460,39 +202460,39 @@ _ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_i
 _ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit: ; preds = %14
   %28 = load double, ptr %17, align 8, !tbaa !3066
   %29 = load double, ptr %12, align 8, !tbaa !3066
-  %30 = fcmp olt double %29, 0.000000e+00
-  %31 = fneg double %28
-  %32 = fneg double %29
-  %.sroa.5.0 = select i1 %30, double %32, double %29
-  %.sroa.0.0 = select i1 %30, double %31, double %28
-  %33 = fmul double %.sroa.0.0, 1.000000e+06
-  %34 = fdiv double %33, %.sroa.5.0
   call void @llvm.experimental.noalias.scope.decl(metadata !3589)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %15) #58, !noalias !3589
   call void @llvm.experimental.noalias.scope.decl(metadata !3592)
-  br label %35
+  br label %30
 
-35:                                               ; preds = %35, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit
-  %.idx.i.i.i14 = phi i64 [ 40, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit ], [ %.add.i.i.i16, %35 ]
+30:                                               ; preds = %30, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit
+  %.idx.i.i.i14 = phi i64 [ 40, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit ], [ %.add.i.i.i16, %30 ]
   %.ptr.i.i.i15 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i14
   store double 0.000000e+00, ptr %.ptr.i.i.i15, align 8, !tbaa !3322, !alias.scope !3592, !noalias !3589
-  %36 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i15, i64 8
-  store double 1.000000e+00, ptr %36, align 8, !tbaa !3323, !alias.scope !3592, !noalias !3589
-  %37 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i15, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i15, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false), !alias.scope !3592, !noalias !3589
-  store double 1.000000e+00, ptr %38, align 8, !tbaa !3323, !alias.scope !3592, !noalias !3589
-  %39 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i15, i64 40
-  store double 0.000000e+00, ptr %39, align 8, !tbaa !3400, !alias.scope !3592, !noalias !3589
-  %40 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i15, i64 48
-  store i8 0, ptr %40, align 8, !tbaa !3443, !alias.scope !3592, !noalias !3589
+  %31 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i15, i64 8
+  store double 1.000000e+00, ptr %31, align 8, !tbaa !3323, !alias.scope !3592, !noalias !3589
+  %32 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i15, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i15, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false), !alias.scope !3592, !noalias !3589
+  store double 1.000000e+00, ptr %33, align 8, !tbaa !3323, !alias.scope !3592, !noalias !3589
+  %34 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i15, i64 40
+  store double 0.000000e+00, ptr %34, align 8, !tbaa !3400, !alias.scope !3592, !noalias !3589
+  %35 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i15, i64 48
+  store i8 0, ptr %35, align 8, !tbaa !3443, !alias.scope !3592, !noalias !3589
   %.add.i.i.i16 = add nuw nsw i64 %.idx.i.i.i14, 56
-  %41 = icmp eq i64 %.add.i.i.i16, 152
-  br i1 %41, label %_ZN5boost8geometry27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEEEC2Ev.exit.i.i, label %35
+  %36 = icmp eq i64 %.add.i.i.i16, 152
+  br i1 %36, label %_ZN5boost8geometry27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEEEC2Ev.exit.i.i, label %30
 
-_ZN5boost8geometry27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEEEC2Ev.exit.i.i: ; preds = %35
-  %42 = fcmp oeq double %29, 0.000000e+00
-  %43 = select i1 %42, double 0.000000e+00, double %34
+_ZN5boost8geometry27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS0_13segment_ratioIdEEEC2Ev.exit.i.i: ; preds = %30
+  %37 = fcmp olt double %29, 0.000000e+00
+  %38 = fneg double %28
+  %39 = fneg double %29
+  %.sroa.5.0 = select i1 %37, double %39, double %29
+  %.sroa.0.0 = select i1 %37, double %38, double %28
+  %40 = fcmp oeq double %29, 0.000000e+00
+  %41 = fmul double %.sroa.0.0, 1.000000e+06
+  %42 = fdiv double %41, %.sroa.5.0
+  %43 = select i1 %40, double 0.000000e+00, double %42
   store i64 1, ptr %15, align 8, !tbaa !3445, !alias.scope !3592, !noalias !3589
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %45 = load ptr, ptr %1, align 8, !tbaa !3169, !noalias !3595

@@ -347,10 +347,10 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %6, label %12, label %.loopexit
 
 .loopexit:                                        ; preds = %4
+  %.promoted = load i64, ptr %2, align 8
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %0 to i64
   %9 = sub nuw i64 %7, %8
-  %.promoted = load i64, ptr %2, align 8
   %10 = lshr exact i64 %9, 2
   %11 = add i64 %.promoted, %10
   store i64 %11, ptr %2, align 8

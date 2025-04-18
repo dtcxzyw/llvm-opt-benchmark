@@ -208,9 +208,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 75:                                               ; preds = %67
   %76 = load ptr, ptr %10, align 8
   %77 = load ptr, ptr %25, align 8
-  %78 = ptrtoint ptr %76 to i64
-  %79 = ptrtoint ptr %77 to i64
-  %80 = sub i64 %79, %78
+  %78 = ptrtoint ptr %77 to i64
+  %79 = ptrtoint ptr %76 to i64
+  %80 = sub i64 %78, %79
   %81 = getelementptr inbounds i8, ptr %76, i64 %80
   %82 = getelementptr inbounds i8, ptr %81, i64 -4
   %83 = load i32, ptr %82, align 4
@@ -277,7 +277,7 @@ _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.ex
 
 _ZSt5equalIPKiN9__gnu_cxx17__normal_iteratorIS1_St6vectorIiSaIiEEEEEbT_S8_T0_.exit: ; preds = %95
   %96 = ptrtoint ptr %.sroa.015.0.i to i64
-  %97 = sub i64 %79, %96
+  %97 = sub i64 %78, %96
   %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull %.sroa.015.0.i, ptr nonnull %93, i64 %97)
   %.not7.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)

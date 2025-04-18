@@ -6138,7 +6138,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   br i1 %60, label %.lr.ph, label %.preheader240
 
 .preheader240:                                    ; preds = %_ZN5faiss12simd16uint16pLERKS0_.exit142, %.critedge.critedge
-  %.097.lcssa = phi ptr [ %2, %.critedge.critedge ], [ %66, %_ZN5faiss12simd16uint16pLERKS0_.exit142 ]
+  %.097.lcssa = phi ptr [ %2, %.critedge.critedge ], [ %140, %_ZN5faiss12simd16uint16pLERKS0_.exit142 ]
   %.096.lcssa = phi ptr [ %1, %.critedge.critedge ], [ %141, %_ZN5faiss12simd16uint16pLERKS0_.exit142 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0254)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.0254, ptr noundef nonnull align 1 dereferenceable(32) %.097.lcssa, i64 32, i1 false)
@@ -6156,7 +6156,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
 .lr.ph:                                           ; preds = %.critedge.critedge, %_ZN5faiss12simd16uint16pLERKS0_.exit142
   %.093247 = phi i32 [ %142, %_ZN5faiss12simd16uint16pLERKS0_.exit142 ], [ 0, %.critedge.critedge ]
   %.096246 = phi ptr [ %141, %_ZN5faiss12simd16uint16pLERKS0_.exit142 ], [ %1, %.critedge.critedge ]
-  %.097245 = phi ptr [ %66, %_ZN5faiss12simd16uint16pLERKS0_.exit142 ], [ %2, %.critedge.critedge ]
+  %.097245 = phi ptr [ %140, %_ZN5faiss12simd16uint16pLERKS0_.exit142 ], [ %2, %.critedge.critedge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %24, ptr noundef nonnull align 1 dereferenceable(32) %.096246, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #19
@@ -6180,28 +6180,27 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12simd16uint16rsEi.exit, label %61, !llvm.loop !146
 
 _ZNK5faiss12simd16uint16rsEi.exit:                ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %.097245, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %26, ptr noundef nonnull align 4 dereferenceable(32) %27, i64 32, i1 false), !tbaa.struct !147
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #19, !noalias !148
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %22, i8 15, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !151)
-  br label %67
+  br label %66
 
-67:                                               ; preds = %67, %_ZNK5faiss12simd16uint16rsEi.exit
-  %indvars.iv.i.i108 = phi i64 [ 0, %_ZNK5faiss12simd16uint16rsEi.exit ], [ %indvars.iv.next.i.i109, %67 ]
-  %68 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 0, i64 %indvars.iv.i.i108
-  %69 = load i8, ptr %68, align 1, !tbaa !16, !noalias !154
-  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 0, i64 %indvars.iv.i.i108
-  %71 = load i8, ptr %70, align 1, !tbaa !16, !noalias !154
-  %72 = and i8 %71, %69
-  %73 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 0, i64 %indvars.iv.i.i108
-  store i8 %72, ptr %73, align 1, !tbaa !16, !alias.scope !154
+66:                                               ; preds = %66, %_ZNK5faiss12simd16uint16rsEi.exit
+  %indvars.iv.i.i108 = phi i64 [ 0, %_ZNK5faiss12simd16uint16rsEi.exit ], [ %indvars.iv.next.i.i109, %66 ]
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 0, i64 %indvars.iv.i.i108
+  %68 = load i8, ptr %67, align 1, !tbaa !16, !noalias !154
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 0, i64 %indvars.iv.i.i108
+  %70 = load i8, ptr %69, align 1, !tbaa !16, !noalias !154
+  %71 = and i8 %70, %68
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 0, i64 %indvars.iv.i.i108
+  store i8 %71, ptr %72, align 1, !tbaa !16, !alias.scope !154
   %indvars.iv.next.i.i109 = add nuw nsw i64 %indvars.iv.i.i108, 1
   %exitcond.not.i.i110 = icmp eq i64 %indvars.iv.next.i.i109, 32
-  br i1 %exitcond.not.i.i110, label %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit, label %67, !llvm.loop !155
+  br i1 %exitcond.not.i.i110, label %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit, label %66, !llvm.loop !155
 
-_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit: ; preds = %67
+_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit: ; preds = %66
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #19, !noalias !148
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27) #19
@@ -6211,106 +6210,106 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit: ; preds = %67
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #19, !noalias !156
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %21, i8 15, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
-  br label %74
+  br label %73
 
-74:                                               ; preds = %74, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit
-  %indvars.iv.i.i111 = phi i64 [ 0, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit ], [ %indvars.iv.next.i.i112, %74 ]
-  %75 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 0, i64 %indvars.iv.i.i111
-  %76 = load i8, ptr %75, align 1, !tbaa !16, !noalias !162
-  %77 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %indvars.iv.i.i111
-  %78 = load i8, ptr %77, align 1, !tbaa !16, !noalias !162
-  %79 = and i8 %78, %76
-  %80 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 0, i64 %indvars.iv.i.i111
-  store i8 %79, ptr %80, align 1, !tbaa !16, !alias.scope !162
+73:                                               ; preds = %73, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit
+  %indvars.iv.i.i111 = phi i64 [ 0, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit ], [ %indvars.iv.next.i.i112, %73 ]
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 0, i64 %indvars.iv.i.i111
+  %75 = load i8, ptr %74, align 1, !tbaa !16, !noalias !162
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %indvars.iv.i.i111
+  %77 = load i8, ptr %76, align 1, !tbaa !16, !noalias !162
+  %78 = and i8 %77, %75
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 0, i64 %indvars.iv.i.i111
+  store i8 %78, ptr %79, align 1, !tbaa !16, !alias.scope !162
   %indvars.iv.next.i.i112 = add nuw nsw i64 %indvars.iv.i.i111, 1
   %exitcond.not.i.i113 = icmp eq i64 %indvars.iv.next.i.i112, 32
-  br i1 %exitcond.not.i.i113, label %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114, label %74, !llvm.loop !155
+  br i1 %exitcond.not.i.i113, label %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114, label %73, !llvm.loop !155
 
-_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %74
+_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114: ; preds = %73
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #19, !noalias !156
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %30, ptr noundef nonnull align 1 dereferenceable(32) %.097245, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  br label %81
+  br label %80
 
-81:                                               ; preds = %90, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114
-  %indvars.iv.i = phi i64 [ 0, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114 ], [ %indvars.iv.next.i, %90 ]
-  %82 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 0, i64 %indvars.iv.i
-  %83 = load i8, ptr %82, align 1, !tbaa !16, !noalias !163
-  %.not.i = icmp sgt i8 %83, -1
-  br i1 %.not.i, label %.sink.split.i, label %90
+80:                                               ; preds = %89, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114
+  %indvars.iv.i = phi i64 [ 0, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit114 ], [ %indvars.iv.next.i, %89 ]
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 0, i64 %indvars.iv.i
+  %82 = load i8, ptr %81, align 1, !tbaa !16, !noalias !163
+  %.not.i = icmp sgt i8 %82, -1
+  br i1 %.not.i, label %.sink.split.i, label %89
 
-.sink.split.i:                                    ; preds = %81
-  %84 = and i8 %83, 15
-  %85 = icmp samesign ult i64 %indvars.iv.i, 16
-  %86 = or disjoint i8 %84, 16
-  %.sink17.i = select i1 %85, i8 %84, i8 %86
-  %87 = zext nneg i8 %.sink17.i to i64
-  %88 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 0, i64 %87
-  %89 = load i8, ptr %88, align 1, !tbaa !16, !noalias !163
-  br label %90
+.sink.split.i:                                    ; preds = %80
+  %83 = and i8 %82, 15
+  %84 = icmp samesign ult i64 %indvars.iv.i, 16
+  %85 = or disjoint i8 %83, 16
+  %.sink17.i = select i1 %84, i8 %83, i8 %85
+  %86 = zext nneg i8 %.sink17.i to i64
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 0, i64 %86
+  %88 = load i8, ptr %87, align 1, !tbaa !16, !noalias !163
+  br label %89
 
-90:                                               ; preds = %.sink.split.i, %81
-  %.sink.i = phi i8 [ 0, %81 ], [ %89, %.sink.split.i ]
-  %91 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 0, i64 %indvars.iv.i
-  store i8 %.sink.i, ptr %91, align 1, !tbaa !16, !alias.scope !163
+89:                                               ; preds = %.sink.split.i, %80
+  %.sink.i = phi i8 [ 0, %80 ], [ %88, %.sink.split.i ]
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 0, i64 %indvars.iv.i
+  store i8 %.sink.i, ptr %90, align 1, !tbaa !16, !alias.scope !163
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit, label %81, !llvm.loop !166
+  br i1 %exitcond.not.i, label %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit, label %80, !llvm.loop !166
 
-_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %90
+_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %89
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32) #19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
-  br label %92
+  br label %91
 
-92:                                               ; preds = %101, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit
-  %indvars.iv.i115 = phi i64 [ 0, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit ], [ %indvars.iv.next.i118, %101 ]
-  %93 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 0, i64 %indvars.iv.i115
-  %94 = load i8, ptr %93, align 1, !tbaa !16, !noalias !167
-  %.not.i116 = icmp sgt i8 %94, -1
-  br i1 %.not.i116, label %.sink.split.i120, label %101
+91:                                               ; preds = %100, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit
+  %indvars.iv.i115 = phi i64 [ 0, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit ], [ %indvars.iv.next.i118, %100 ]
+  %92 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 0, i64 %indvars.iv.i115
+  %93 = load i8, ptr %92, align 1, !tbaa !16, !noalias !167
+  %.not.i116 = icmp sgt i8 %93, -1
+  br i1 %.not.i116, label %.sink.split.i120, label %100
 
-.sink.split.i120:                                 ; preds = %92
-  %95 = and i8 %94, 15
-  %96 = icmp samesign ult i64 %indvars.iv.i115, 16
-  %97 = or disjoint i8 %95, 16
-  %.sink17.i121 = select i1 %96, i8 %95, i8 %97
-  %98 = zext nneg i8 %.sink17.i121 to i64
-  %99 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 0, i64 %98
-  %100 = load i8, ptr %99, align 1, !tbaa !16, !noalias !167
-  br label %101
+.sink.split.i120:                                 ; preds = %91
+  %94 = and i8 %93, 15
+  %95 = icmp samesign ult i64 %indvars.iv.i115, 16
+  %96 = or disjoint i8 %94, 16
+  %.sink17.i121 = select i1 %95, i8 %94, i8 %96
+  %97 = zext nneg i8 %.sink17.i121 to i64
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 0, i64 %97
+  %99 = load i8, ptr %98, align 1, !tbaa !16, !noalias !167
+  br label %100
 
-101:                                              ; preds = %.sink.split.i120, %92
-  %.sink.i117 = phi i8 [ 0, %92 ], [ %100, %.sink.split.i120 ]
-  %102 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 0, i64 %indvars.iv.i115
-  store i8 %.sink.i117, ptr %102, align 1, !tbaa !16, !alias.scope !167
+100:                                              ; preds = %.sink.split.i120, %91
+  %.sink.i117 = phi i8 [ 0, %91 ], [ %99, %.sink.split.i120 ]
+  %101 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 0, i64 %indvars.iv.i115
+  store i8 %.sink.i117, ptr %101, align 1, !tbaa !16, !alias.scope !167
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i115, 1
   %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i118, 32
-  br i1 %exitcond.not.i119, label %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit122, label %92, !llvm.loop !166
+  br i1 %exitcond.not.i119, label %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit122, label %91, !llvm.loop !166
 
-_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit122: ; preds = %101
+_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit122: ; preds = %100
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %33, ptr noundef nonnull align 4 dereferenceable(32) %31, i64 32, i1 false), !tbaa.struct !147
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #19, !noalias !170
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
-  br label %103
+  br label %102
 
-103:                                              ; preds = %103, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit122
-  %indvars.iv.i.i.i = phi i64 [ 0, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit122 ], [ %indvars.iv.next.i.i.i, %103 ]
-  %104 = getelementptr inbounds nuw [16 x i16], ptr %23, i64 0, i64 %indvars.iv.i.i.i
-  %105 = load i16, ptr %104, align 2, !tbaa !16, !noalias !179
-  %106 = getelementptr inbounds nuw [16 x i16], ptr %33, i64 0, i64 %indvars.iv.i.i.i
-  %107 = load i16, ptr %106, align 2, !tbaa !16, !noalias !179
-  %108 = add i16 %107, %105
-  %109 = getelementptr inbounds nuw [16 x i16], ptr %20, i64 0, i64 %indvars.iv.i.i.i
-  store i16 %108, ptr %109, align 2, !tbaa !16, !alias.scope !180, !noalias !170
+102:                                              ; preds = %102, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit122
+  %indvars.iv.i.i.i = phi i64 [ 0, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit122 ], [ %indvars.iv.next.i.i.i, %102 ]
+  %103 = getelementptr inbounds nuw [16 x i16], ptr %23, i64 0, i64 %indvars.iv.i.i.i
+  %104 = load i16, ptr %103, align 2, !tbaa !16, !noalias !179
+  %105 = getelementptr inbounds nuw [16 x i16], ptr %33, i64 0, i64 %indvars.iv.i.i.i
+  %106 = load i16, ptr %105, align 2, !tbaa !16, !noalias !179
+  %107 = add i16 %106, %104
+  %108 = getelementptr inbounds nuw [16 x i16], ptr %20, i64 0, i64 %indvars.iv.i.i.i
+  store i16 %107, ptr %108, align 2, !tbaa !16, !alias.scope !180, !noalias !170
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16
-  br i1 %exitcond.not.i.i.i, label %_ZN5faiss12simd16uint16pLERKS0_.exit, label %103, !llvm.loop !181
+  br i1 %exitcond.not.i.i.i, label %_ZN5faiss12simd16uint16pLERKS0_.exit, label %102, !llvm.loop !181
 
-_ZN5faiss12simd16uint16pLERKS0_.exit:             ; preds = %103
+_ZN5faiss12simd16uint16pLERKS0_.exit:             ; preds = %102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %23, ptr noundef nonnull align 4 dereferenceable(32) %20, i64 32, i1 false), !noalias !170
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #19, !noalias !170
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33) #19
@@ -6319,39 +6318,39 @@ _ZN5faiss12simd16uint16pLERKS0_.exit:             ; preds = %103
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %35, ptr noundef nonnull align 4 dereferenceable(32) %31, i64 32, i1 false), !tbaa.struct !147
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  br label %110
+  br label %109
 
-110:                                              ; preds = %110, %_ZN5faiss12simd16uint16pLERKS0_.exit
-  %indvars.iv.i.i123 = phi i64 [ 0, %_ZN5faiss12simd16uint16pLERKS0_.exit ], [ %indvars.iv.next.i.i124, %110 ]
-  %111 = getelementptr inbounds nuw [16 x i16], ptr %35, i64 0, i64 %indvars.iv.i.i123
-  %112 = load i16, ptr %111, align 2, !tbaa !16, !noalias !188
-  %113 = lshr i16 %112, 8
-  %114 = getelementptr inbounds nuw [16 x i16], ptr %34, i64 0, i64 %indvars.iv.i.i123
-  store i16 %113, ptr %114, align 2, !tbaa !16, !alias.scope !188
+109:                                              ; preds = %109, %_ZN5faiss12simd16uint16pLERKS0_.exit
+  %indvars.iv.i.i123 = phi i64 [ 0, %_ZN5faiss12simd16uint16pLERKS0_.exit ], [ %indvars.iv.next.i.i124, %109 ]
+  %110 = getelementptr inbounds nuw [16 x i16], ptr %35, i64 0, i64 %indvars.iv.i.i123
+  %111 = load i16, ptr %110, align 2, !tbaa !16, !noalias !188
+  %112 = lshr i16 %111, 8
+  %113 = getelementptr inbounds nuw [16 x i16], ptr %34, i64 0, i64 %indvars.iv.i.i123
+  store i16 %112, ptr %113, align 2, !tbaa !16, !alias.scope !188
   %indvars.iv.next.i.i124 = add nuw nsw i64 %indvars.iv.i.i123, 1
   %exitcond.not.i.i125 = icmp eq i64 %indvars.iv.next.i.i124, 16
-  br i1 %exitcond.not.i.i125, label %_ZNK5faiss12simd16uint16rsEi.exit126, label %110, !llvm.loop !146
+  br i1 %exitcond.not.i.i125, label %_ZNK5faiss12simd16uint16rsEi.exit126, label %109, !llvm.loop !146
 
-_ZNK5faiss12simd16uint16rsEi.exit126:             ; preds = %110
+_ZNK5faiss12simd16uint16rsEi.exit126:             ; preds = %109
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #19, !noalias !189
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
-  br label %115
+  br label %114
 
-115:                                              ; preds = %115, %_ZNK5faiss12simd16uint16rsEi.exit126
-  %indvars.iv.i.i.i127 = phi i64 [ 0, %_ZNK5faiss12simd16uint16rsEi.exit126 ], [ %indvars.iv.next.i.i.i128, %115 ]
-  %116 = getelementptr inbounds nuw [16 x i16], ptr %56, i64 0, i64 %indvars.iv.i.i.i127
-  %117 = load i16, ptr %116, align 2, !tbaa !16, !noalias !198
-  %118 = getelementptr inbounds nuw [16 x i16], ptr %34, i64 0, i64 %indvars.iv.i.i.i127
-  %119 = load i16, ptr %118, align 2, !tbaa !16, !noalias !198
-  %120 = add i16 %119, %117
-  %121 = getelementptr inbounds nuw [16 x i16], ptr %19, i64 0, i64 %indvars.iv.i.i.i127
-  store i16 %120, ptr %121, align 2, !tbaa !16, !alias.scope !199, !noalias !189
+114:                                              ; preds = %114, %_ZNK5faiss12simd16uint16rsEi.exit126
+  %indvars.iv.i.i.i127 = phi i64 [ 0, %_ZNK5faiss12simd16uint16rsEi.exit126 ], [ %indvars.iv.next.i.i.i128, %114 ]
+  %115 = getelementptr inbounds nuw [16 x i16], ptr %56, i64 0, i64 %indvars.iv.i.i.i127
+  %116 = load i16, ptr %115, align 2, !tbaa !16, !noalias !198
+  %117 = getelementptr inbounds nuw [16 x i16], ptr %34, i64 0, i64 %indvars.iv.i.i.i127
+  %118 = load i16, ptr %117, align 2, !tbaa !16, !noalias !198
+  %119 = add i16 %118, %116
+  %120 = getelementptr inbounds nuw [16 x i16], ptr %19, i64 0, i64 %indvars.iv.i.i.i127
+  store i16 %119, ptr %120, align 2, !tbaa !16, !alias.scope !199, !noalias !189
   %indvars.iv.next.i.i.i128 = add nuw nsw i64 %indvars.iv.i.i.i127, 1
   %exitcond.not.i.i.i129 = icmp eq i64 %indvars.iv.next.i.i.i128, 16
-  br i1 %exitcond.not.i.i.i129, label %_ZN5faiss12simd16uint16pLERKS0_.exit130, label %115, !llvm.loop !181
+  br i1 %exitcond.not.i.i.i129, label %_ZN5faiss12simd16uint16pLERKS0_.exit130, label %114, !llvm.loop !181
 
-_ZN5faiss12simd16uint16pLERKS0_.exit130:          ; preds = %115
+_ZN5faiss12simd16uint16pLERKS0_.exit130:          ; preds = %114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %56, ptr noundef nonnull align 4 dereferenceable(32) %19, i64 32, i1 false), !noalias !189
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #19, !noalias !189
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #19
@@ -6361,22 +6360,22 @@ _ZN5faiss12simd16uint16pLERKS0_.exit130:          ; preds = %115
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #19, !noalias !200
   tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  br label %122
+  br label %121
 
-122:                                              ; preds = %122, %_ZN5faiss12simd16uint16pLERKS0_.exit130
-  %indvars.iv.i.i.i131 = phi i64 [ 0, %_ZN5faiss12simd16uint16pLERKS0_.exit130 ], [ %indvars.iv.next.i.i.i132, %122 ]
-  %123 = getelementptr inbounds nuw [16 x i16], ptr %57, i64 0, i64 %indvars.iv.i.i.i131
-  %124 = load i16, ptr %123, align 2, !tbaa !16, !noalias !209
-  %125 = getelementptr inbounds nuw [16 x i16], ptr %36, i64 0, i64 %indvars.iv.i.i.i131
-  %126 = load i16, ptr %125, align 2, !tbaa !16, !noalias !209
-  %127 = add i16 %126, %124
-  %128 = getelementptr inbounds nuw [16 x i16], ptr %18, i64 0, i64 %indvars.iv.i.i.i131
-  store i16 %127, ptr %128, align 2, !tbaa !16, !alias.scope !210, !noalias !200
+121:                                              ; preds = %121, %_ZN5faiss12simd16uint16pLERKS0_.exit130
+  %indvars.iv.i.i.i131 = phi i64 [ 0, %_ZN5faiss12simd16uint16pLERKS0_.exit130 ], [ %indvars.iv.next.i.i.i132, %121 ]
+  %122 = getelementptr inbounds nuw [16 x i16], ptr %57, i64 0, i64 %indvars.iv.i.i.i131
+  %123 = load i16, ptr %122, align 2, !tbaa !16, !noalias !209
+  %124 = getelementptr inbounds nuw [16 x i16], ptr %36, i64 0, i64 %indvars.iv.i.i.i131
+  %125 = load i16, ptr %124, align 2, !tbaa !16, !noalias !209
+  %126 = add i16 %125, %123
+  %127 = getelementptr inbounds nuw [16 x i16], ptr %18, i64 0, i64 %indvars.iv.i.i.i131
+  store i16 %126, ptr %127, align 2, !tbaa !16, !alias.scope !210, !noalias !200
   %indvars.iv.next.i.i.i132 = add nuw nsw i64 %indvars.iv.i.i.i131, 1
   %exitcond.not.i.i.i133 = icmp eq i64 %indvars.iv.next.i.i.i132, 16
-  br i1 %exitcond.not.i.i.i133, label %_ZN5faiss12simd16uint16pLERKS0_.exit134, label %122, !llvm.loop !181
+  br i1 %exitcond.not.i.i.i133, label %_ZN5faiss12simd16uint16pLERKS0_.exit134, label %121, !llvm.loop !181
 
-_ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %122
+_ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %57, ptr noundef nonnull align 4 dereferenceable(32) %18, i64 32, i1 false), !noalias !200
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #19, !noalias !200
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36) #19
@@ -6385,39 +6384,40 @@ _ZN5faiss12simd16uint16pLERKS0_.exit134:          ; preds = %122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %38, ptr noundef nonnull align 4 dereferenceable(32) %32, i64 32, i1 false), !tbaa.struct !147
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
-  br label %129
+  br label %128
 
-129:                                              ; preds = %129, %_ZN5faiss12simd16uint16pLERKS0_.exit134
-  %indvars.iv.i.i135 = phi i64 [ 0, %_ZN5faiss12simd16uint16pLERKS0_.exit134 ], [ %indvars.iv.next.i.i136, %129 ]
-  %130 = getelementptr inbounds nuw [16 x i16], ptr %38, i64 0, i64 %indvars.iv.i.i135
-  %131 = load i16, ptr %130, align 2, !tbaa !16, !noalias !217
-  %132 = lshr i16 %131, 8
-  %133 = getelementptr inbounds nuw [16 x i16], ptr %37, i64 0, i64 %indvars.iv.i.i135
-  store i16 %132, ptr %133, align 2, !tbaa !16, !alias.scope !217
+128:                                              ; preds = %128, %_ZN5faiss12simd16uint16pLERKS0_.exit134
+  %indvars.iv.i.i135 = phi i64 [ 0, %_ZN5faiss12simd16uint16pLERKS0_.exit134 ], [ %indvars.iv.next.i.i136, %128 ]
+  %129 = getelementptr inbounds nuw [16 x i16], ptr %38, i64 0, i64 %indvars.iv.i.i135
+  %130 = load i16, ptr %129, align 2, !tbaa !16, !noalias !217
+  %131 = lshr i16 %130, 8
+  %132 = getelementptr inbounds nuw [16 x i16], ptr %37, i64 0, i64 %indvars.iv.i.i135
+  store i16 %131, ptr %132, align 2, !tbaa !16, !alias.scope !217
   %indvars.iv.next.i.i136 = add nuw nsw i64 %indvars.iv.i.i135, 1
   %exitcond.not.i.i137 = icmp eq i64 %indvars.iv.next.i.i136, 16
-  br i1 %exitcond.not.i.i137, label %_ZNK5faiss12simd16uint16rsEi.exit138, label %129, !llvm.loop !146
+  br i1 %exitcond.not.i.i137, label %_ZNK5faiss12simd16uint16rsEi.exit138, label %128, !llvm.loop !146
 
-_ZNK5faiss12simd16uint16rsEi.exit138:             ; preds = %129
+_ZNK5faiss12simd16uint16rsEi.exit138:             ; preds = %128
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #19, !noalias !218
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
-  br label %134
+  br label %133
 
-134:                                              ; preds = %134, %_ZNK5faiss12simd16uint16rsEi.exit138
-  %indvars.iv.i.i.i139 = phi i64 [ 0, %_ZNK5faiss12simd16uint16rsEi.exit138 ], [ %indvars.iv.next.i.i.i140, %134 ]
-  %135 = getelementptr inbounds nuw [16 x i16], ptr %58, i64 0, i64 %indvars.iv.i.i.i139
-  %136 = load i16, ptr %135, align 2, !tbaa !16, !noalias !227
-  %137 = getelementptr inbounds nuw [16 x i16], ptr %37, i64 0, i64 %indvars.iv.i.i.i139
-  %138 = load i16, ptr %137, align 2, !tbaa !16, !noalias !227
-  %139 = add i16 %138, %136
-  %140 = getelementptr inbounds nuw [16 x i16], ptr %17, i64 0, i64 %indvars.iv.i.i.i139
-  store i16 %139, ptr %140, align 2, !tbaa !16, !alias.scope !228, !noalias !218
+133:                                              ; preds = %133, %_ZNK5faiss12simd16uint16rsEi.exit138
+  %indvars.iv.i.i.i139 = phi i64 [ 0, %_ZNK5faiss12simd16uint16rsEi.exit138 ], [ %indvars.iv.next.i.i.i140, %133 ]
+  %134 = getelementptr inbounds nuw [16 x i16], ptr %58, i64 0, i64 %indvars.iv.i.i.i139
+  %135 = load i16, ptr %134, align 2, !tbaa !16, !noalias !227
+  %136 = getelementptr inbounds nuw [16 x i16], ptr %37, i64 0, i64 %indvars.iv.i.i.i139
+  %137 = load i16, ptr %136, align 2, !tbaa !16, !noalias !227
+  %138 = add i16 %137, %135
+  %139 = getelementptr inbounds nuw [16 x i16], ptr %17, i64 0, i64 %indvars.iv.i.i.i139
+  store i16 %138, ptr %139, align 2, !tbaa !16, !alias.scope !228, !noalias !218
   %indvars.iv.next.i.i.i140 = add nuw nsw i64 %indvars.iv.i.i.i139, 1
   %exitcond.not.i.i.i141 = icmp eq i64 %indvars.iv.next.i.i.i140, 16
-  br i1 %exitcond.not.i.i.i141, label %_ZN5faiss12simd16uint16pLERKS0_.exit142, label %134, !llvm.loop !181
+  br i1 %exitcond.not.i.i.i141, label %_ZN5faiss12simd16uint16pLERKS0_.exit142, label %133, !llvm.loop !181
 
-_ZN5faiss12simd16uint16pLERKS0_.exit142:          ; preds = %134
+_ZN5faiss12simd16uint16pLERKS0_.exit142:          ; preds = %133
+  %140 = getelementptr inbounds nuw i8, ptr %.097245, i64 32
   %141 = getelementptr inbounds nuw i8, ptr %.096246, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %58, ptr noundef nonnull align 4 dereferenceable(32) %17, i64 32, i1 false), !noalias !218
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #19, !noalias !218
@@ -14571,7 +14571,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
 .lr.ph:                                           ; preds = %.critedge.critedge, %_ZN5faiss12simd16uint16pLERKS0_.exit140
   %.09318 = phi i32 [ %117, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ], [ 0, %.critedge.critedge ]
   %.09617 = phi ptr [ %116, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ], [ %1, %.critedge.critedge ]
-  %.09716 = phi ptr [ %41, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ], [ %2, %.critedge.critedge ]
+  %.09716 = phi ptr [ %115, %_ZN5faiss12simd16uint16pLERKS0_.exit140 ], [ %2, %.critedge.critedge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %13, ptr noundef nonnull align 1 dereferenceable(32) %.09617, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #19
@@ -14595,28 +14595,27 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_123kernel_accumulate_blockILi
   br i1 %exitcond.not.i.i, label %_ZNK5faiss12simd16uint16rsEi.exit, label %36, !llvm.loop !146
 
 _ZNK5faiss12simd16uint16rsEi.exit:                ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %.09716, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %15, ptr noundef nonnull align 4 dereferenceable(32) %16, i64 32, i1 false), !tbaa.struct !147
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2551)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #19, !noalias !2551
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %11, i8 15, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2554)
-  br label %42
+  br label %41
 
-42:                                               ; preds = %42, %_ZNK5faiss12simd16uint16rsEi.exit
-  %indvars.iv.i.i106 = phi i64 [ 0, %_ZNK5faiss12simd16uint16rsEi.exit ], [ %indvars.iv.next.i.i107, %42 ]
-  %43 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %indvars.iv.i.i106
-  %44 = load i8, ptr %43, align 1, !tbaa !16, !noalias !2557
-  %45 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %indvars.iv.i.i106
-  %46 = load i8, ptr %45, align 1, !tbaa !16, !noalias !2557
-  %47 = and i8 %46, %44
-  %48 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 0, i64 %indvars.iv.i.i106
-  store i8 %47, ptr %48, align 1, !tbaa !16, !alias.scope !2557
+41:                                               ; preds = %41, %_ZNK5faiss12simd16uint16rsEi.exit
+  %indvars.iv.i.i106 = phi i64 [ 0, %_ZNK5faiss12simd16uint16rsEi.exit ], [ %indvars.iv.next.i.i107, %41 ]
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %indvars.iv.i.i106
+  %43 = load i8, ptr %42, align 1, !tbaa !16, !noalias !2557
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %indvars.iv.i.i106
+  %45 = load i8, ptr %44, align 1, !tbaa !16, !noalias !2557
+  %46 = and i8 %45, %43
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 0, i64 %indvars.iv.i.i106
+  store i8 %46, ptr %47, align 1, !tbaa !16, !alias.scope !2557
   %indvars.iv.next.i.i107 = add nuw nsw i64 %indvars.iv.i.i106, 1
   %exitcond.not.i.i108 = icmp eq i64 %indvars.iv.next.i.i107, 32
-  br i1 %exitcond.not.i.i108, label %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit, label %42, !llvm.loop !155
+  br i1 %exitcond.not.i.i108, label %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit, label %41, !llvm.loop !155
 
-_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit: ; preds = %42
+_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit: ; preds = %41
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #19, !noalias !2551
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #19
@@ -14626,106 +14625,106 @@ _ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit: ; preds = %42
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #19, !noalias !2558
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %10, i8 15, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2561)
-  br label %49
+  br label %48
 
-49:                                               ; preds = %49, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit
-  %indvars.iv.i.i109 = phi i64 [ 0, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit ], [ %indvars.iv.next.i.i110, %49 ]
-  %50 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 0, i64 %indvars.iv.i.i109
-  %51 = load i8, ptr %50, align 1, !tbaa !16, !noalias !2564
-  %52 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %indvars.iv.i.i109
-  %53 = load i8, ptr %52, align 1, !tbaa !16, !noalias !2564
-  %54 = and i8 %53, %51
-  %55 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 0, i64 %indvars.iv.i.i109
-  store i8 %54, ptr %55, align 1, !tbaa !16, !alias.scope !2564
+48:                                               ; preds = %48, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit
+  %indvars.iv.i.i109 = phi i64 [ 0, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit ], [ %indvars.iv.next.i.i110, %48 ]
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 0, i64 %indvars.iv.i.i109
+  %50 = load i8, ptr %49, align 1, !tbaa !16, !noalias !2564
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %indvars.iv.i.i109
+  %52 = load i8, ptr %51, align 1, !tbaa !16, !noalias !2564
+  %53 = and i8 %52, %50
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 0, i64 %indvars.iv.i.i109
+  store i8 %53, ptr %54, align 1, !tbaa !16, !alias.scope !2564
   %indvars.iv.next.i.i110 = add nuw nsw i64 %indvars.iv.i.i109, 1
   %exitcond.not.i.i111 = icmp eq i64 %indvars.iv.next.i.i110, 32
-  br i1 %exitcond.not.i.i111, label %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112, label %49, !llvm.loop !155
+  br i1 %exitcond.not.i.i111, label %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112, label %48, !llvm.loop !155
 
-_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %49
+_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112: ; preds = %48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #19, !noalias !2558
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %19, ptr noundef nonnull align 1 dereferenceable(32) %.09716, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2565)
-  br label %56
+  br label %55
 
-56:                                               ; preds = %65, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112
-  %indvars.iv.i = phi i64 [ 0, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112 ], [ %indvars.iv.next.i, %65 ]
-  %57 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 0, i64 %indvars.iv.i
-  %58 = load i8, ptr %57, align 1, !tbaa !16, !noalias !2565
-  %.not.i = icmp sgt i8 %58, -1
-  br i1 %.not.i, label %.sink.split.i, label %65
+55:                                               ; preds = %64, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112
+  %indvars.iv.i = phi i64 [ 0, %_ZNK5faiss11simd32uint8anERKNS_10simd256bitE.exit112 ], [ %indvars.iv.next.i, %64 ]
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 0, i64 %indvars.iv.i
+  %57 = load i8, ptr %56, align 1, !tbaa !16, !noalias !2565
+  %.not.i = icmp sgt i8 %57, -1
+  br i1 %.not.i, label %.sink.split.i, label %64
 
-.sink.split.i:                                    ; preds = %56
-  %59 = and i8 %58, 15
-  %60 = icmp samesign ult i64 %indvars.iv.i, 16
-  %61 = or disjoint i8 %59, 16
-  %.sink17.i = select i1 %60, i8 %59, i8 %61
-  %62 = zext nneg i8 %.sink17.i to i64
-  %63 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !16, !noalias !2565
-  br label %65
+.sink.split.i:                                    ; preds = %55
+  %58 = and i8 %57, 15
+  %59 = icmp samesign ult i64 %indvars.iv.i, 16
+  %60 = or disjoint i8 %58, 16
+  %.sink17.i = select i1 %59, i8 %58, i8 %60
+  %61 = zext nneg i8 %.sink17.i to i64
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %61
+  %63 = load i8, ptr %62, align 1, !tbaa !16, !noalias !2565
+  br label %64
 
-65:                                               ; preds = %.sink.split.i, %56
-  %.sink.i = phi i8 [ 0, %56 ], [ %64, %.sink.split.i ]
-  %66 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i
-  store i8 %.sink.i, ptr %66, align 1, !tbaa !16, !alias.scope !2565
+64:                                               ; preds = %.sink.split.i, %55
+  %.sink.i = phi i8 [ 0, %55 ], [ %63, %.sink.split.i ]
+  %65 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 0, i64 %indvars.iv.i
+  store i8 %.sink.i, ptr %65, align 1, !tbaa !16, !alias.scope !2565
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit, label %56, !llvm.loop !166
+  br i1 %exitcond.not.i, label %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit, label %55, !llvm.loop !166
 
-_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %65
+_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit: ; preds = %64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2568)
-  br label %67
+  br label %66
 
-67:                                               ; preds = %76, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit
-  %indvars.iv.i113 = phi i64 [ 0, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit ], [ %indvars.iv.next.i116, %76 ]
-  %68 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 0, i64 %indvars.iv.i113
-  %69 = load i8, ptr %68, align 1, !tbaa !16, !noalias !2568
-  %.not.i114 = icmp sgt i8 %69, -1
-  br i1 %.not.i114, label %.sink.split.i118, label %76
+66:                                               ; preds = %75, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit
+  %indvars.iv.i113 = phi i64 [ 0, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit ], [ %indvars.iv.next.i116, %75 ]
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 0, i64 %indvars.iv.i113
+  %68 = load i8, ptr %67, align 1, !tbaa !16, !noalias !2568
+  %.not.i114 = icmp sgt i8 %68, -1
+  br i1 %.not.i114, label %.sink.split.i118, label %75
 
-.sink.split.i118:                                 ; preds = %67
-  %70 = and i8 %69, 15
-  %71 = icmp samesign ult i64 %indvars.iv.i113, 16
-  %72 = or disjoint i8 %70, 16
-  %.sink17.i119 = select i1 %71, i8 %70, i8 %72
-  %73 = zext nneg i8 %.sink17.i119 to i64
-  %74 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %73
-  %75 = load i8, ptr %74, align 1, !tbaa !16, !noalias !2568
-  br label %76
+.sink.split.i118:                                 ; preds = %66
+  %69 = and i8 %68, 15
+  %70 = icmp samesign ult i64 %indvars.iv.i113, 16
+  %71 = or disjoint i8 %69, 16
+  %.sink17.i119 = select i1 %70, i8 %69, i8 %71
+  %72 = zext nneg i8 %.sink17.i119 to i64
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %72
+  %74 = load i8, ptr %73, align 1, !tbaa !16, !noalias !2568
+  br label %75
 
-76:                                               ; preds = %.sink.split.i118, %67
-  %.sink.i115 = phi i8 [ 0, %67 ], [ %75, %.sink.split.i118 ]
-  %77 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %indvars.iv.i113
-  store i8 %.sink.i115, ptr %77, align 1, !tbaa !16, !alias.scope !2568
+75:                                               ; preds = %.sink.split.i118, %66
+  %.sink.i115 = phi i8 [ 0, %66 ], [ %74, %.sink.split.i118 ]
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 0, i64 %indvars.iv.i113
+  store i8 %.sink.i115, ptr %76, align 1, !tbaa !16, !alias.scope !2568
   %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i113, 1
   %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.i116, 32
-  br i1 %exitcond.not.i117, label %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit120, label %67, !llvm.loop !166
+  br i1 %exitcond.not.i117, label %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit120, label %66, !llvm.loop !166
 
-_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit120: ; preds = %76
+_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit120: ; preds = %75
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %22, ptr noundef nonnull align 4 dereferenceable(32) %20, i64 32, i1 false), !tbaa.struct !147
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #19, !noalias !2571
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2574)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2577)
-  br label %78
+  br label %77
 
-78:                                               ; preds = %78, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit120
-  %indvars.iv.i.i.i = phi i64 [ 0, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit120 ], [ %indvars.iv.next.i.i.i, %78 ]
-  %79 = getelementptr inbounds nuw [16 x i16], ptr %12, i64 0, i64 %indvars.iv.i.i.i
-  %80 = load i16, ptr %79, align 2, !tbaa !16, !noalias !2580
-  %81 = getelementptr inbounds nuw [16 x i16], ptr %22, i64 0, i64 %indvars.iv.i.i.i
-  %82 = load i16, ptr %81, align 2, !tbaa !16, !noalias !2580
-  %83 = add i16 %82, %80
-  %84 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %indvars.iv.i.i.i
-  store i16 %83, ptr %84, align 2, !tbaa !16, !alias.scope !2581, !noalias !2571
+77:                                               ; preds = %77, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit120
+  %indvars.iv.i.i.i = phi i64 [ 0, %_ZNK5faiss11simd32uint814lookup_2_lanesERKS0_.exit120 ], [ %indvars.iv.next.i.i.i, %77 ]
+  %78 = getelementptr inbounds nuw [16 x i16], ptr %12, i64 0, i64 %indvars.iv.i.i.i
+  %79 = load i16, ptr %78, align 2, !tbaa !16, !noalias !2580
+  %80 = getelementptr inbounds nuw [16 x i16], ptr %22, i64 0, i64 %indvars.iv.i.i.i
+  %81 = load i16, ptr %80, align 2, !tbaa !16, !noalias !2580
+  %82 = add i16 %81, %79
+  %83 = getelementptr inbounds nuw [16 x i16], ptr %9, i64 0, i64 %indvars.iv.i.i.i
+  store i16 %82, ptr %83, align 2, !tbaa !16, !alias.scope !2581, !noalias !2571
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16
-  br i1 %exitcond.not.i.i.i, label %_ZN5faiss12simd16uint16pLERKS0_.exit, label %78, !llvm.loop !181
+  br i1 %exitcond.not.i.i.i, label %_ZN5faiss12simd16uint16pLERKS0_.exit, label %77, !llvm.loop !181
 
-_ZN5faiss12simd16uint16pLERKS0_.exit:             ; preds = %78
+_ZN5faiss12simd16uint16pLERKS0_.exit:             ; preds = %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %9, i64 32, i1 false), !noalias !2571
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #19, !noalias !2571
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #19
@@ -14734,39 +14733,39 @@ _ZN5faiss12simd16uint16pLERKS0_.exit:             ; preds = %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %24, ptr noundef nonnull align 4 dereferenceable(32) %20, i64 32, i1 false), !tbaa.struct !147
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2582)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2585)
-  br label %85
+  br label %84
 
-85:                                               ; preds = %85, %_ZN5faiss12simd16uint16pLERKS0_.exit
-  %indvars.iv.i.i121 = phi i64 [ 0, %_ZN5faiss12simd16uint16pLERKS0_.exit ], [ %indvars.iv.next.i.i122, %85 ]
-  %86 = getelementptr inbounds nuw [16 x i16], ptr %24, i64 0, i64 %indvars.iv.i.i121
-  %87 = load i16, ptr %86, align 2, !tbaa !16, !noalias !2588
-  %88 = lshr i16 %87, 8
-  %89 = getelementptr inbounds nuw [16 x i16], ptr %23, i64 0, i64 %indvars.iv.i.i121
-  store i16 %88, ptr %89, align 2, !tbaa !16, !alias.scope !2588
+84:                                               ; preds = %84, %_ZN5faiss12simd16uint16pLERKS0_.exit
+  %indvars.iv.i.i121 = phi i64 [ 0, %_ZN5faiss12simd16uint16pLERKS0_.exit ], [ %indvars.iv.next.i.i122, %84 ]
+  %85 = getelementptr inbounds nuw [16 x i16], ptr %24, i64 0, i64 %indvars.iv.i.i121
+  %86 = load i16, ptr %85, align 2, !tbaa !16, !noalias !2588
+  %87 = lshr i16 %86, 8
+  %88 = getelementptr inbounds nuw [16 x i16], ptr %23, i64 0, i64 %indvars.iv.i.i121
+  store i16 %87, ptr %88, align 2, !tbaa !16, !alias.scope !2588
   %indvars.iv.next.i.i122 = add nuw nsw i64 %indvars.iv.i.i121, 1
   %exitcond.not.i.i123 = icmp eq i64 %indvars.iv.next.i.i122, 16
-  br i1 %exitcond.not.i.i123, label %_ZNK5faiss12simd16uint16rsEi.exit124, label %85, !llvm.loop !146
+  br i1 %exitcond.not.i.i123, label %_ZNK5faiss12simd16uint16rsEi.exit124, label %84, !llvm.loop !146
 
-_ZNK5faiss12simd16uint16rsEi.exit124:             ; preds = %85
+_ZNK5faiss12simd16uint16rsEi.exit124:             ; preds = %84
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #19, !noalias !2589
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2592)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2595)
-  br label %90
+  br label %89
 
-90:                                               ; preds = %90, %_ZNK5faiss12simd16uint16rsEi.exit124
-  %indvars.iv.i.i.i125 = phi i64 [ 0, %_ZNK5faiss12simd16uint16rsEi.exit124 ], [ %indvars.iv.next.i.i.i126, %90 ]
-  %91 = getelementptr inbounds nuw [16 x i16], ptr %32, i64 0, i64 %indvars.iv.i.i.i125
-  %92 = load i16, ptr %91, align 2, !tbaa !16, !noalias !2598
-  %93 = getelementptr inbounds nuw [16 x i16], ptr %23, i64 0, i64 %indvars.iv.i.i.i125
-  %94 = load i16, ptr %93, align 2, !tbaa !16, !noalias !2598
-  %95 = add i16 %94, %92
-  %96 = getelementptr inbounds nuw [16 x i16], ptr %8, i64 0, i64 %indvars.iv.i.i.i125
-  store i16 %95, ptr %96, align 2, !tbaa !16, !alias.scope !2599, !noalias !2589
+89:                                               ; preds = %89, %_ZNK5faiss12simd16uint16rsEi.exit124
+  %indvars.iv.i.i.i125 = phi i64 [ 0, %_ZNK5faiss12simd16uint16rsEi.exit124 ], [ %indvars.iv.next.i.i.i126, %89 ]
+  %90 = getelementptr inbounds nuw [16 x i16], ptr %32, i64 0, i64 %indvars.iv.i.i.i125
+  %91 = load i16, ptr %90, align 2, !tbaa !16, !noalias !2598
+  %92 = getelementptr inbounds nuw [16 x i16], ptr %23, i64 0, i64 %indvars.iv.i.i.i125
+  %93 = load i16, ptr %92, align 2, !tbaa !16, !noalias !2598
+  %94 = add i16 %93, %91
+  %95 = getelementptr inbounds nuw [16 x i16], ptr %8, i64 0, i64 %indvars.iv.i.i.i125
+  store i16 %94, ptr %95, align 2, !tbaa !16, !alias.scope !2599, !noalias !2589
   %indvars.iv.next.i.i.i126 = add nuw nsw i64 %indvars.iv.i.i.i125, 1
   %exitcond.not.i.i.i127 = icmp eq i64 %indvars.iv.next.i.i.i126, 16
-  br i1 %exitcond.not.i.i.i127, label %_ZN5faiss12simd16uint16pLERKS0_.exit128, label %90, !llvm.loop !181
+  br i1 %exitcond.not.i.i.i127, label %_ZN5faiss12simd16uint16pLERKS0_.exit128, label %89, !llvm.loop !181
 
-_ZN5faiss12simd16uint16pLERKS0_.exit128:          ; preds = %90
+_ZN5faiss12simd16uint16pLERKS0_.exit128:          ; preds = %89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %32, ptr noundef nonnull align 4 dereferenceable(32) %8, i64 32, i1 false), !noalias !2589
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #19, !noalias !2589
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24) #19
@@ -14776,22 +14775,22 @@ _ZN5faiss12simd16uint16pLERKS0_.exit128:          ; preds = %90
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19, !noalias !2600
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2603)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2606)
-  br label %97
+  br label %96
 
-97:                                               ; preds = %97, %_ZN5faiss12simd16uint16pLERKS0_.exit128
-  %indvars.iv.i.i.i129 = phi i64 [ 0, %_ZN5faiss12simd16uint16pLERKS0_.exit128 ], [ %indvars.iv.next.i.i.i130, %97 ]
-  %98 = getelementptr inbounds nuw [16 x i16], ptr %33, i64 0, i64 %indvars.iv.i.i.i129
-  %99 = load i16, ptr %98, align 2, !tbaa !16, !noalias !2609
-  %100 = getelementptr inbounds nuw [16 x i16], ptr %25, i64 0, i64 %indvars.iv.i.i.i129
-  %101 = load i16, ptr %100, align 2, !tbaa !16, !noalias !2609
-  %102 = add i16 %101, %99
-  %103 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i.i129
-  store i16 %102, ptr %103, align 2, !tbaa !16, !alias.scope !2610, !noalias !2600
+96:                                               ; preds = %96, %_ZN5faiss12simd16uint16pLERKS0_.exit128
+  %indvars.iv.i.i.i129 = phi i64 [ 0, %_ZN5faiss12simd16uint16pLERKS0_.exit128 ], [ %indvars.iv.next.i.i.i130, %96 ]
+  %97 = getelementptr inbounds nuw [16 x i16], ptr %33, i64 0, i64 %indvars.iv.i.i.i129
+  %98 = load i16, ptr %97, align 2, !tbaa !16, !noalias !2609
+  %99 = getelementptr inbounds nuw [16 x i16], ptr %25, i64 0, i64 %indvars.iv.i.i.i129
+  %100 = load i16, ptr %99, align 2, !tbaa !16, !noalias !2609
+  %101 = add i16 %100, %98
+  %102 = getelementptr inbounds nuw [16 x i16], ptr %7, i64 0, i64 %indvars.iv.i.i.i129
+  store i16 %101, ptr %102, align 2, !tbaa !16, !alias.scope !2610, !noalias !2600
   %indvars.iv.next.i.i.i130 = add nuw nsw i64 %indvars.iv.i.i.i129, 1
   %exitcond.not.i.i.i131 = icmp eq i64 %indvars.iv.next.i.i.i130, 16
-  br i1 %exitcond.not.i.i.i131, label %_ZN5faiss12simd16uint16pLERKS0_.exit132, label %97, !llvm.loop !181
+  br i1 %exitcond.not.i.i.i131, label %_ZN5faiss12simd16uint16pLERKS0_.exit132, label %96, !llvm.loop !181
 
-_ZN5faiss12simd16uint16pLERKS0_.exit132:          ; preds = %97
+_ZN5faiss12simd16uint16pLERKS0_.exit132:          ; preds = %96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %33, ptr noundef nonnull align 4 dereferenceable(32) %7, i64 32, i1 false), !noalias !2600
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19, !noalias !2600
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #19
@@ -14800,39 +14799,40 @@ _ZN5faiss12simd16uint16pLERKS0_.exit132:          ; preds = %97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %27, ptr noundef nonnull align 4 dereferenceable(32) %21, i64 32, i1 false), !tbaa.struct !147
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2611)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2614)
-  br label %104
+  br label %103
 
-104:                                              ; preds = %104, %_ZN5faiss12simd16uint16pLERKS0_.exit132
-  %indvars.iv.i.i133 = phi i64 [ 0, %_ZN5faiss12simd16uint16pLERKS0_.exit132 ], [ %indvars.iv.next.i.i134, %104 ]
-  %105 = getelementptr inbounds nuw [16 x i16], ptr %27, i64 0, i64 %indvars.iv.i.i133
-  %106 = load i16, ptr %105, align 2, !tbaa !16, !noalias !2617
-  %107 = lshr i16 %106, 8
-  %108 = getelementptr inbounds nuw [16 x i16], ptr %26, i64 0, i64 %indvars.iv.i.i133
-  store i16 %107, ptr %108, align 2, !tbaa !16, !alias.scope !2617
+103:                                              ; preds = %103, %_ZN5faiss12simd16uint16pLERKS0_.exit132
+  %indvars.iv.i.i133 = phi i64 [ 0, %_ZN5faiss12simd16uint16pLERKS0_.exit132 ], [ %indvars.iv.next.i.i134, %103 ]
+  %104 = getelementptr inbounds nuw [16 x i16], ptr %27, i64 0, i64 %indvars.iv.i.i133
+  %105 = load i16, ptr %104, align 2, !tbaa !16, !noalias !2617
+  %106 = lshr i16 %105, 8
+  %107 = getelementptr inbounds nuw [16 x i16], ptr %26, i64 0, i64 %indvars.iv.i.i133
+  store i16 %106, ptr %107, align 2, !tbaa !16, !alias.scope !2617
   %indvars.iv.next.i.i134 = add nuw nsw i64 %indvars.iv.i.i133, 1
   %exitcond.not.i.i135 = icmp eq i64 %indvars.iv.next.i.i134, 16
-  br i1 %exitcond.not.i.i135, label %_ZNK5faiss12simd16uint16rsEi.exit136, label %104, !llvm.loop !146
+  br i1 %exitcond.not.i.i135, label %_ZNK5faiss12simd16uint16rsEi.exit136, label %103, !llvm.loop !146
 
-_ZNK5faiss12simd16uint16rsEi.exit136:             ; preds = %104
+_ZNK5faiss12simd16uint16rsEi.exit136:             ; preds = %103
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #19, !noalias !2618
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2621)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2624)
-  br label %109
+  br label %108
 
-109:                                              ; preds = %109, %_ZNK5faiss12simd16uint16rsEi.exit136
-  %indvars.iv.i.i.i137 = phi i64 [ 0, %_ZNK5faiss12simd16uint16rsEi.exit136 ], [ %indvars.iv.next.i.i.i138, %109 ]
-  %110 = getelementptr inbounds nuw [16 x i16], ptr %34, i64 0, i64 %indvars.iv.i.i.i137
-  %111 = load i16, ptr %110, align 2, !tbaa !16, !noalias !2627
-  %112 = getelementptr inbounds nuw [16 x i16], ptr %26, i64 0, i64 %indvars.iv.i.i.i137
-  %113 = load i16, ptr %112, align 2, !tbaa !16, !noalias !2627
-  %114 = add i16 %113, %111
-  %115 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i137
-  store i16 %114, ptr %115, align 2, !tbaa !16, !alias.scope !2628, !noalias !2618
+108:                                              ; preds = %108, %_ZNK5faiss12simd16uint16rsEi.exit136
+  %indvars.iv.i.i.i137 = phi i64 [ 0, %_ZNK5faiss12simd16uint16rsEi.exit136 ], [ %indvars.iv.next.i.i.i138, %108 ]
+  %109 = getelementptr inbounds nuw [16 x i16], ptr %34, i64 0, i64 %indvars.iv.i.i.i137
+  %110 = load i16, ptr %109, align 2, !tbaa !16, !noalias !2627
+  %111 = getelementptr inbounds nuw [16 x i16], ptr %26, i64 0, i64 %indvars.iv.i.i.i137
+  %112 = load i16, ptr %111, align 2, !tbaa !16, !noalias !2627
+  %113 = add i16 %112, %110
+  %114 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i.i.i137
+  store i16 %113, ptr %114, align 2, !tbaa !16, !alias.scope !2628, !noalias !2618
   %indvars.iv.next.i.i.i138 = add nuw nsw i64 %indvars.iv.i.i.i137, 1
   %exitcond.not.i.i.i139 = icmp eq i64 %indvars.iv.next.i.i.i138, 16
-  br i1 %exitcond.not.i.i.i139, label %_ZN5faiss12simd16uint16pLERKS0_.exit140, label %109, !llvm.loop !181
+  br i1 %exitcond.not.i.i.i139, label %_ZN5faiss12simd16uint16pLERKS0_.exit140, label %108, !llvm.loop !181
 
-_ZN5faiss12simd16uint16pLERKS0_.exit140:          ; preds = %109
+_ZN5faiss12simd16uint16pLERKS0_.exit140:          ; preds = %108
+  %115 = getelementptr inbounds nuw i8, ptr %.09716, i64 32
   %116 = getelementptr inbounds nuw i8, ptr %.09617, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %34, ptr noundef nonnull align 4 dereferenceable(32) %6, i64 32, i1 false), !noalias !2618
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19, !noalias !2618

@@ -122,27 +122,27 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %31 = load float, ptr %30, align 8, !tbaa !32
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %33 = load float, ptr %32, align 4, !tbaa !33
-  %34 = fmul reassoc nsz arcp contract afn float %33, %29
-  %35 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %36 = load float, ptr %35, align 4, !tbaa !34
-  %37 = fmul reassoc nsz arcp contract afn float %36, %29
-  %38 = fdiv reassoc nsz arcp contract afn float %37, %31
-  %39 = fdiv reassoc nsz arcp contract afn float %31, %29
-  %40 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %41 = load float, ptr %40, align 4, !tbaa !35
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %35 = load float, ptr %34, align 4, !tbaa !34
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  %37 = load float, ptr %36, align 4, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false), !tbaa !36
   br label %50
 
-42:                                               ; preds = %50
-  %43 = fmul reassoc nsz arcp contract afn float %29, %27
+38:                                               ; preds = %50
+  %39 = fmul reassoc nsz arcp contract afn float %29, %27
+  %40 = fdiv reassoc nsz arcp contract afn float %39, %31
+  %41 = fmul reassoc nsz arcp contract afn float %33, %29
+  %42 = fdiv reassoc nsz arcp contract afn float %41, %31
+  %43 = fmul reassoc nsz arcp contract afn float %35, %29
   %44 = fdiv reassoc nsz arcp contract afn float %43, %31
-  %45 = fdiv reassoc nsz arcp contract afn float %34, %31
-  %46 = fptoui float %38 to i64
-  %47 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %39, float 1.000000e+00)
-  %48 = fdiv reassoc nsz arcp contract afn float %41, %47
-  %49 = fcmp reassoc nsz arcp contract afn une float %44, 0.000000e+00
+  %45 = fptoui float %44 to i64
+  %46 = fdiv reassoc nsz arcp contract afn float %31, %29
+  %47 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %46, float 1.000000e+00)
+  %48 = fdiv reassoc nsz arcp contract afn float %37, %47
+  %49 = fcmp reassoc nsz arcp contract afn une float %40, 0.000000e+00
   br i1 %49, label %52, label %55
 
 50:                                               ; preds = %20, %50
@@ -151,10 +151,10 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store float 0x47EFFFFFE0000000, ptr %51, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %42, label %50
+  br i1 %exitcond.not, label %38, label %50
 
-52:                                               ; preds = %42
-  %53 = call ptr @dt_gaussian_init(i32 noundef %24, i32 noundef %26, i32 noundef 4, ptr noundef nonnull %8, ptr noundef nonnull %9, float noundef %44, i32 noundef 0) #15
+52:                                               ; preds = %38
+  %53 = call ptr @dt_gaussian_init(i32 noundef %24, i32 noundef %26, i32 noundef 4, ptr noundef nonnull %8, ptr noundef nonnull %9, float noundef %40, i32 noundef 0) #15
   %.not194.not = icmp eq ptr %53, null
   br i1 %.not194.not, label %.critedge, label %54
 
@@ -163,15 +163,15 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   call void @dt_gaussian_free(ptr noundef nonnull %53) #15
   br label %55
 
-55:                                               ; preds = %54, %42
-  %.0168 = phi ptr [ %3, %54 ], [ %2, %42 ]
+55:                                               ; preds = %54, %38
+  %.0168 = phi ptr [ %3, %54 ], [ %2, %38 ]
   %56 = load ptr, ptr %7, align 8, !tbaa !37
-  %.not195 = icmp eq i64 %46, 0
+  %.not195 = icmp eq i64 %45, 0
   br i1 %.not195, label %.loopexit, label %57
 
 57:                                               ; preds = %55
   %58 = sext i32 %24 to i64
-  %59 = shl i64 %46, 1
+  %59 = shl i64 %45, 1
   %60 = sext i32 %26 to i64
   %61 = udiv i64 %60, %59
   %62 = add i64 %61, 1
@@ -206,9 +206,9 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %76 = mul i64 %59, %.0172213.us
   %umin = call i64 @llvm.umin.i64(i64 %76, i64 %68)
   %77 = mul i64 %umin, %58
-  %78 = add i64 %umin, %46
+  %78 = add i64 %umin, %45
   %79 = call i64 @llvm.umin.i64(i64 %78, i64 %68)
-  %80 = add i64 %79, %46
+  %80 = add i64 %79, %45
   %81 = call i64 @llvm.umin.i64(i64 %80, i64 %68)
   %82 = icmp ult i64 %76, %81
   br i1 %82, label %.lr.ph.split.us.us, label %.lr.ph.split.us220
@@ -217,9 +217,9 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.0173208.us214 = phi i64 [ %107, %.preheader199.us218 ], [ 0, %.preheader200.us ]
   %83 = mul i64 %.0173208.us214, %59
   %84 = call i64 @llvm.umin.i64(i64 %83, i64 %66)
-  %85 = add i64 %84, %46
+  %85 = add i64 %84, %45
   %86 = call i64 @llvm.umin.i64(i64 %85, i64 %66)
-  %87 = add i64 %86, %46
+  %87 = add i64 %86, %45
   %88 = call i64 @llvm.umin.i64(i64 %87, i64 %66)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #15
   store i64 %84, ptr %10, align 16, !tbaa !39
@@ -284,9 +284,9 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %111 = mul i64 %59, %.0173208.us.us
   %umin231 = call i64 @llvm.umin.i64(i64 %111, i64 %66)
   %112 = add i64 %77, %umin231
-  %113 = add i64 %umin231, %46
+  %113 = add i64 %umin231, %45
   %114 = call i64 @llvm.umin.i64(i64 %113, i64 %66)
-  %115 = add i64 %114, %46
+  %115 = add i64 %114, %45
   %116 = call i64 @llvm.umin.i64(i64 %115, i64 %66)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10) #15
   store i64 %umin231, ptr %10, align 16, !tbaa !39
@@ -377,7 +377,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader200.lr.ph, %57, %55
   %.2 = phi ptr [ %.0168, %55 ], [ %56, %57 ], [ %56, %.preheader200.lr.ph ], [ %56, %._crit_edge.us ]
-  %149 = fcmp reassoc nsz arcp contract afn une float %45, 0.000000e+00
+  %149 = fcmp reassoc nsz arcp contract afn une float %42, 0.000000e+00
   br i1 %149, label %150, label %158
 
 150:                                              ; preds = %.loopexit
@@ -391,7 +391,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %155
 
 155:                                              ; preds = %152, %150
-  %156 = call ptr @dt_gaussian_init(i32 noundef %24, i32 noundef %26, i32 noundef 4, ptr noundef nonnull %8, ptr noundef nonnull %9, float noundef %45, i32 noundef 0) #15
+  %156 = call ptr @dt_gaussian_init(i32 noundef %24, i32 noundef %26, i32 noundef 4, ptr noundef nonnull %8, ptr noundef nonnull %9, float noundef %42, i32 noundef 0) #15
   %.not196.not = icmp eq ptr %156, null
   br i1 %.not196.not, label %.critedge, label %157
 

@@ -1189,23 +1189,23 @@ define hidden void @proto_register_dect_nwk() local_unnamed_addr #0 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @fmt_dect_nwk_ipei(ptr noundef %0, i64 noundef %1) #1 {
   %3 = lshr i64 %1, 20
-  %4 = trunc i64 %1 to i32
-  %5 = and i64 %3, 65535
-  %6 = mul nuw nsw i64 %5, 10000000
-  %7 = and i64 %1, 1048575
-  %8 = add nuw nsw i64 %6, %7
+  %4 = and i64 %3, 65535
+  %5 = mul nuw nsw i64 %4, 10000000
+  %6 = and i64 %1, 1048575
+  %7 = add nuw nsw i64 %5, %6
   br label %14
 
-9:                                                ; preds = %14
-  %10 = trunc i64 %3 to i32
-  %11 = and i32 %4, 1048575
+8:                                                ; preds = %14
+  %9 = trunc i64 %3 to i32
+  %10 = trunc i64 %1 to i32
+  %11 = and i32 %10, 1048575
   %12 = urem i16 %18, 11
   %13 = icmp eq i16 %12, 10
   br i1 %13, label %21, label %24
 
 14:                                               ; preds = %2, %14
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %14 ]
-  %.02329 = phi i64 [ %8, %2 ], [ %19, %14 ]
+  %.02329 = phi i64 [ %7, %2 ], [ %19, %14 ]
   %.02428 = phi i64 [ 100000000000, %2 ], [ %20, %14 ]
   %.02527 = phi i16 [ 0, %2 ], [ %18, %14 ]
   %15 = udiv i64 %.02329, %.02428
@@ -1216,16 +1216,16 @@ define internal void @fmt_dect_nwk_ipei(ptr noundef %0, i64 noundef %1) #1 {
   %20 = udiv i64 %.02428, 10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %9, label %14, !llvm.loop !6
+  br i1 %exitcond.not, label %8, label %14, !llvm.loop !6
 
-21:                                               ; preds = %9
-  %22 = and i32 %10, 65535
+21:                                               ; preds = %8
+  %22 = and i32 %9, 65535
   %23 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 16, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.803, i32 noundef %22, i32 noundef %11)
   br label %28
 
-24:                                               ; preds = %9
+24:                                               ; preds = %8
   %25 = zext nneg i16 %12 to i32
-  %26 = and i32 %10, 65535
+  %26 = and i32 %9, 65535
   %27 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 16, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.804, i32 noundef %26, i32 noundef %11, i32 noundef %25)
   br label %28
 

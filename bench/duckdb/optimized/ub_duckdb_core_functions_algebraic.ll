@@ -10095,10 +10095,10 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   %.promoted.us = load i64, ptr %2, align 8, !tbaa !152
   %.promoted44.us = load double, ptr %9, align 8, !tbaa !154
   %.promoted46.us = load double, ptr %10, align 8, !tbaa !155
-  %30 = add i64 %.promoted.us, %12
   br label %14
 
 ..loopexit_crit_edge.us:                          ; preds = %14
+  %30 = add i64 %.promoted.us, %12
   %31 = sub i64 %30, %.sroa.4.048.us
   store i64 %31, ptr %2, align 8, !tbaa !152
   store double %24, ptr %9, align 8, !tbaa !154
@@ -10132,69 +10132,69 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   %.promoted = load i64, ptr %2, align 8, !tbaa !152
   %.promoted44 = load double, ptr %9, align 8, !tbaa !154
   %.promoted46 = load double, ptr %10, align 8, !tbaa !155
-  %39 = add i64 %.promoted, %35
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.lr.ph42, %40
-  %41 = phi double [ %.promoted46, %.lr.ph42 ], [ %53, %40 ]
-  %42 = phi double [ %.promoted44, %.lr.ph42 ], [ %50, %40 ]
-  %43 = phi i64 [ %.promoted, %.lr.ph42 ], [ %45, %40 ]
-  %.sroa.4.141 = phi i64 [ %.sroa.4.048, %.lr.ph42 ], [ %54, %40 ]
-  %44 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.141
-  %45 = add i64 %43, 1
-  %46 = load double, ptr %44, align 8, !tbaa !45
-  %47 = fsub double %46, %42
-  %48 = uitofp i64 %45 to double
-  %49 = fdiv double %47, %48
-  %50 = fadd double %42, %49
-  %51 = fsub double %46, %50
-  %52 = fmul double %47, %51
-  %53 = fadd double %41, %52
-  %54 = add nuw i64 %.sroa.4.141, 1
-  %exitcond.not = icmp eq i64 %54, %35
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %40, !llvm.loop !181
+39:                                               ; preds = %.lr.ph42, %39
+  %40 = phi double [ %.promoted46, %.lr.ph42 ], [ %52, %39 ]
+  %41 = phi double [ %.promoted44, %.lr.ph42 ], [ %49, %39 ]
+  %42 = phi i64 [ %.promoted, %.lr.ph42 ], [ %44, %39 ]
+  %.sroa.4.141 = phi i64 [ %.sroa.4.048, %.lr.ph42 ], [ %53, %39 ]
+  %43 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.141
+  %44 = add i64 %42, 1
+  %45 = load double, ptr %43, align 8, !tbaa !45
+  %46 = fsub double %45, %41
+  %47 = uitofp i64 %44 to double
+  %48 = fdiv double %46, %47
+  %49 = fadd double %41, %48
+  %50 = fsub double %45, %49
+  %51 = fmul double %46, %50
+  %52 = fadd double %40, %51
+  %53 = add nuw i64 %.sroa.4.141, 1
+  %exitcond.not = icmp eq i64 %53, %35
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %39, !llvm.loop !181
 
-.lr.ph:                                           ; preds = %.preheader, %72
-  %.sroa.4.340 = phi i64 [ %73, %72 ], [ %.sroa.4.048, %.preheader ]
-  %55 = sub nuw i64 %.sroa.4.340, %.sroa.4.048
-  %56 = shl nuw i64 1, %55
-  %57 = and i64 %56, %33
-  %.not = icmp eq i64 %57, 0
-  br i1 %.not, label %72, label %58
+.lr.ph:                                           ; preds = %.preheader, %71
+  %.sroa.4.340 = phi i64 [ %72, %71 ], [ %.sroa.4.048, %.preheader ]
+  %54 = sub nuw i64 %.sroa.4.340, %.sroa.4.048
+  %55 = shl nuw i64 1, %54
+  %56 = and i64 %55, %33
+  %.not = icmp eq i64 %56, 0
+  br i1 %.not, label %71, label %57
 
-58:                                               ; preds = %.lr.ph
-  %59 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.340
-  %60 = load i64, ptr %2, align 8, !tbaa !152
-  %61 = add i64 %60, 1
-  store i64 %61, ptr %2, align 8, !tbaa !152
-  %62 = load double, ptr %59, align 8, !tbaa !45
-  %63 = load double, ptr %9, align 8, !tbaa !154
-  %64 = fsub double %62, %63
-  %65 = uitofp i64 %61 to double
-  %66 = fdiv double %64, %65
-  %67 = fadd double %63, %66
-  %68 = fsub double %62, %67
-  %69 = fmul double %64, %68
-  %70 = load double, ptr %10, align 8, !tbaa !155
-  %71 = fadd double %70, %69
-  store double %67, ptr %9, align 8, !tbaa !154
-  store double %71, ptr %10, align 8, !tbaa !155
-  br label %72
+57:                                               ; preds = %.lr.ph
+  %58 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.340
+  %59 = load i64, ptr %2, align 8, !tbaa !152
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %2, align 8, !tbaa !152
+  %61 = load double, ptr %58, align 8, !tbaa !45
+  %62 = load double, ptr %9, align 8, !tbaa !154
+  %63 = fsub double %61, %62
+  %64 = uitofp i64 %60 to double
+  %65 = fdiv double %63, %64
+  %66 = fadd double %62, %65
+  %67 = fsub double %61, %66
+  %68 = fmul double %63, %67
+  %69 = load double, ptr %10, align 8, !tbaa !155
+  %70 = fadd double %69, %68
+  store double %66, ptr %9, align 8, !tbaa !154
+  store double %70, ptr %10, align 8, !tbaa !155
+  br label %71
 
-72:                                               ; preds = %.lr.ph, %58
-  %73 = add nuw i64 %.sroa.4.340, 1
-  %exitcond62.not = icmp eq i64 %73, %35
+71:                                               ; preds = %.lr.ph, %57
+  %72 = add nuw i64 %.sroa.4.340, 1
+  %exitcond62.not = icmp eq i64 %72, %35
   br i1 %exitcond62.not, label %.loopexit, label %.lr.ph, !llvm.loop !183
 
-..loopexit_crit_edge:                             ; preds = %40
-  %74 = sub i64 %39, %.sroa.4.048
+..loopexit_crit_edge:                             ; preds = %39
+  %73 = add i64 %.promoted, %35
+  %74 = sub i64 %73, %.sroa.4.048
   store i64 %74, ptr %2, align 8, !tbaa !152
-  store double %50, ptr %9, align 8, !tbaa !154
-  store double %53, ptr %10, align 8, !tbaa !155
+  store double %49, ptr %9, align 8, !tbaa !154
+  store double %52, ptr %10, align 8, !tbaa !155
   br label %.loopexit
 
-.loopexit:                                        ; preds = %72, %.preheader, %37, %..loopexit_crit_edge, %.lr.ph51.split
-  %.sroa.4.2 = phi i64 [ %35, %.lr.ph51.split ], [ %35, %..loopexit_crit_edge ], [ %.sroa.4.048, %37 ], [ %.sroa.4.048, %.preheader ], [ %35, %72 ]
+.loopexit:                                        ; preds = %71, %.preheader, %37, %..loopexit_crit_edge, %.lr.ph51.split
+  %.sroa.4.2 = phi i64 [ %35, %.lr.ph51.split ], [ %35, %..loopexit_crit_edge ], [ %.sroa.4.048, %37 ], [ %.sroa.4.048, %.preheader ], [ %35, %71 ]
   %75 = add nuw nsw i64 %.049, 1
   %exitcond63.not = icmp eq i64 %75, %7
   br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph51.split, !llvm.loop !182
@@ -11574,10 +11574,10 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   %.promoted.us = load i64, ptr %2, align 8, !tbaa !152
   %.promoted44.us = load double, ptr %9, align 8, !tbaa !154
   %.promoted46.us = load double, ptr %10, align 8, !tbaa !155
-  %30 = add i64 %.promoted.us, %12
   br label %14
 
 ..loopexit_crit_edge.us:                          ; preds = %14
+  %30 = add i64 %.promoted.us, %12
   %31 = sub i64 %30, %.sroa.4.048.us
   store i64 %31, ptr %2, align 8, !tbaa !152
   store double %24, ptr %9, align 8, !tbaa !154
@@ -11611,69 +11611,69 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   %.promoted = load i64, ptr %2, align 8, !tbaa !152
   %.promoted44 = load double, ptr %9, align 8, !tbaa !154
   %.promoted46 = load double, ptr %10, align 8, !tbaa !155
-  %39 = add i64 %.promoted, %35
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.lr.ph42, %40
-  %41 = phi double [ %.promoted46, %.lr.ph42 ], [ %53, %40 ]
-  %42 = phi double [ %.promoted44, %.lr.ph42 ], [ %50, %40 ]
-  %43 = phi i64 [ %.promoted, %.lr.ph42 ], [ %45, %40 ]
-  %.sroa.4.141 = phi i64 [ %.sroa.4.048, %.lr.ph42 ], [ %54, %40 ]
-  %44 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.141
-  %45 = add i64 %43, 1
-  %46 = load double, ptr %44, align 8, !tbaa !45
-  %47 = fsub double %46, %42
-  %48 = uitofp i64 %45 to double
-  %49 = fdiv double %47, %48
-  %50 = fadd double %42, %49
-  %51 = fsub double %46, %50
-  %52 = fmul double %47, %51
-  %53 = fadd double %41, %52
-  %54 = add nuw i64 %.sroa.4.141, 1
-  %exitcond.not = icmp eq i64 %54, %35
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %40, !llvm.loop !195
+39:                                               ; preds = %.lr.ph42, %39
+  %40 = phi double [ %.promoted46, %.lr.ph42 ], [ %52, %39 ]
+  %41 = phi double [ %.promoted44, %.lr.ph42 ], [ %49, %39 ]
+  %42 = phi i64 [ %.promoted, %.lr.ph42 ], [ %44, %39 ]
+  %.sroa.4.141 = phi i64 [ %.sroa.4.048, %.lr.ph42 ], [ %53, %39 ]
+  %43 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.141
+  %44 = add i64 %42, 1
+  %45 = load double, ptr %43, align 8, !tbaa !45
+  %46 = fsub double %45, %41
+  %47 = uitofp i64 %44 to double
+  %48 = fdiv double %46, %47
+  %49 = fadd double %41, %48
+  %50 = fsub double %45, %49
+  %51 = fmul double %46, %50
+  %52 = fadd double %40, %51
+  %53 = add nuw i64 %.sroa.4.141, 1
+  %exitcond.not = icmp eq i64 %53, %35
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %39, !llvm.loop !195
 
-.lr.ph:                                           ; preds = %.preheader, %72
-  %.sroa.4.340 = phi i64 [ %73, %72 ], [ %.sroa.4.048, %.preheader ]
-  %55 = sub nuw i64 %.sroa.4.340, %.sroa.4.048
-  %56 = shl nuw i64 1, %55
-  %57 = and i64 %56, %33
-  %.not = icmp eq i64 %57, 0
-  br i1 %.not, label %72, label %58
+.lr.ph:                                           ; preds = %.preheader, %71
+  %.sroa.4.340 = phi i64 [ %72, %71 ], [ %.sroa.4.048, %.preheader ]
+  %54 = sub nuw i64 %.sroa.4.340, %.sroa.4.048
+  %55 = shl nuw i64 1, %54
+  %56 = and i64 %55, %33
+  %.not = icmp eq i64 %56, 0
+  br i1 %.not, label %71, label %57
 
-58:                                               ; preds = %.lr.ph
-  %59 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.340
-  %60 = load i64, ptr %2, align 8, !tbaa !152
-  %61 = add i64 %60, 1
-  store i64 %61, ptr %2, align 8, !tbaa !152
-  %62 = load double, ptr %59, align 8, !tbaa !45
-  %63 = load double, ptr %9, align 8, !tbaa !154
-  %64 = fsub double %62, %63
-  %65 = uitofp i64 %61 to double
-  %66 = fdiv double %64, %65
-  %67 = fadd double %63, %66
-  %68 = fsub double %62, %67
-  %69 = fmul double %64, %68
-  %70 = load double, ptr %10, align 8, !tbaa !155
-  %71 = fadd double %70, %69
-  store double %67, ptr %9, align 8, !tbaa !154
-  store double %71, ptr %10, align 8, !tbaa !155
-  br label %72
+57:                                               ; preds = %.lr.ph
+  %58 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.340
+  %59 = load i64, ptr %2, align 8, !tbaa !152
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %2, align 8, !tbaa !152
+  %61 = load double, ptr %58, align 8, !tbaa !45
+  %62 = load double, ptr %9, align 8, !tbaa !154
+  %63 = fsub double %61, %62
+  %64 = uitofp i64 %60 to double
+  %65 = fdiv double %63, %64
+  %66 = fadd double %62, %65
+  %67 = fsub double %61, %66
+  %68 = fmul double %63, %67
+  %69 = load double, ptr %10, align 8, !tbaa !155
+  %70 = fadd double %69, %68
+  store double %66, ptr %9, align 8, !tbaa !154
+  store double %70, ptr %10, align 8, !tbaa !155
+  br label %71
 
-72:                                               ; preds = %.lr.ph, %58
-  %73 = add nuw i64 %.sroa.4.340, 1
-  %exitcond62.not = icmp eq i64 %73, %35
+71:                                               ; preds = %.lr.ph, %57
+  %72 = add nuw i64 %.sroa.4.340, 1
+  %exitcond62.not = icmp eq i64 %72, %35
   br i1 %exitcond62.not, label %.loopexit, label %.lr.ph, !llvm.loop !197
 
-..loopexit_crit_edge:                             ; preds = %40
-  %74 = sub i64 %39, %.sroa.4.048
+..loopexit_crit_edge:                             ; preds = %39
+  %73 = add i64 %.promoted, %35
+  %74 = sub i64 %73, %.sroa.4.048
   store i64 %74, ptr %2, align 8, !tbaa !152
-  store double %50, ptr %9, align 8, !tbaa !154
-  store double %53, ptr %10, align 8, !tbaa !155
+  store double %49, ptr %9, align 8, !tbaa !154
+  store double %52, ptr %10, align 8, !tbaa !155
   br label %.loopexit
 
-.loopexit:                                        ; preds = %72, %.preheader, %37, %..loopexit_crit_edge, %.lr.ph51.split
-  %.sroa.4.2 = phi i64 [ %35, %.lr.ph51.split ], [ %35, %..loopexit_crit_edge ], [ %.sroa.4.048, %37 ], [ %.sroa.4.048, %.preheader ], [ %35, %72 ]
+.loopexit:                                        ; preds = %71, %.preheader, %37, %..loopexit_crit_edge, %.lr.ph51.split
+  %.sroa.4.2 = phi i64 [ %35, %.lr.ph51.split ], [ %35, %..loopexit_crit_edge ], [ %.sroa.4.048, %37 ], [ %.sroa.4.048, %.preheader ], [ %35, %71 ]
   %75 = add nuw nsw i64 %.049, 1
   %exitcond63.not = icmp eq i64 %75, %7
   br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph51.split, !llvm.loop !196
@@ -13052,10 +13052,10 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   %.promoted.us = load i64, ptr %2, align 8, !tbaa !152
   %.promoted44.us = load double, ptr %9, align 8, !tbaa !154
   %.promoted46.us = load double, ptr %10, align 8, !tbaa !155
-  %30 = add i64 %.promoted.us, %12
   br label %14
 
 ..loopexit_crit_edge.us:                          ; preds = %14
+  %30 = add i64 %.promoted.us, %12
   %31 = sub i64 %30, %.sroa.4.048.us
   store i64 %31, ptr %2, align 8, !tbaa !152
   store double %24, ptr %9, align 8, !tbaa !154
@@ -13089,69 +13089,69 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   %.promoted = load i64, ptr %2, align 8, !tbaa !152
   %.promoted44 = load double, ptr %9, align 8, !tbaa !154
   %.promoted46 = load double, ptr %10, align 8, !tbaa !155
-  %39 = add i64 %.promoted, %35
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.lr.ph42, %40
-  %41 = phi double [ %.promoted46, %.lr.ph42 ], [ %53, %40 ]
-  %42 = phi double [ %.promoted44, %.lr.ph42 ], [ %50, %40 ]
-  %43 = phi i64 [ %.promoted, %.lr.ph42 ], [ %45, %40 ]
-  %.sroa.4.141 = phi i64 [ %.sroa.4.048, %.lr.ph42 ], [ %54, %40 ]
-  %44 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.141
-  %45 = add i64 %43, 1
-  %46 = load double, ptr %44, align 8, !tbaa !45
-  %47 = fsub double %46, %42
-  %48 = uitofp i64 %45 to double
-  %49 = fdiv double %47, %48
-  %50 = fadd double %42, %49
-  %51 = fsub double %46, %50
-  %52 = fmul double %47, %51
-  %53 = fadd double %41, %52
-  %54 = add nuw i64 %.sroa.4.141, 1
-  %exitcond.not = icmp eq i64 %54, %35
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %40, !llvm.loop !209
+39:                                               ; preds = %.lr.ph42, %39
+  %40 = phi double [ %.promoted46, %.lr.ph42 ], [ %52, %39 ]
+  %41 = phi double [ %.promoted44, %.lr.ph42 ], [ %49, %39 ]
+  %42 = phi i64 [ %.promoted, %.lr.ph42 ], [ %44, %39 ]
+  %.sroa.4.141 = phi i64 [ %.sroa.4.048, %.lr.ph42 ], [ %53, %39 ]
+  %43 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.141
+  %44 = add i64 %42, 1
+  %45 = load double, ptr %43, align 8, !tbaa !45
+  %46 = fsub double %45, %41
+  %47 = uitofp i64 %44 to double
+  %48 = fdiv double %46, %47
+  %49 = fadd double %41, %48
+  %50 = fsub double %45, %49
+  %51 = fmul double %46, %50
+  %52 = fadd double %40, %51
+  %53 = add nuw i64 %.sroa.4.141, 1
+  %exitcond.not = icmp eq i64 %53, %35
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %39, !llvm.loop !209
 
-.lr.ph:                                           ; preds = %.preheader, %72
-  %.sroa.4.340 = phi i64 [ %73, %72 ], [ %.sroa.4.048, %.preheader ]
-  %55 = sub nuw i64 %.sroa.4.340, %.sroa.4.048
-  %56 = shl nuw i64 1, %55
-  %57 = and i64 %56, %33
-  %.not = icmp eq i64 %57, 0
-  br i1 %.not, label %72, label %58
+.lr.ph:                                           ; preds = %.preheader, %71
+  %.sroa.4.340 = phi i64 [ %72, %71 ], [ %.sroa.4.048, %.preheader ]
+  %54 = sub nuw i64 %.sroa.4.340, %.sroa.4.048
+  %55 = shl nuw i64 1, %54
+  %56 = and i64 %55, %33
+  %.not = icmp eq i64 %56, 0
+  br i1 %.not, label %71, label %57
 
-58:                                               ; preds = %.lr.ph
-  %59 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.340
-  %60 = load i64, ptr %2, align 8, !tbaa !152
-  %61 = add i64 %60, 1
-  store i64 %61, ptr %2, align 8, !tbaa !152
-  %62 = load double, ptr %59, align 8, !tbaa !45
-  %63 = load double, ptr %9, align 8, !tbaa !154
-  %64 = fsub double %62, %63
-  %65 = uitofp i64 %61 to double
-  %66 = fdiv double %64, %65
-  %67 = fadd double %63, %66
-  %68 = fsub double %62, %67
-  %69 = fmul double %64, %68
-  %70 = load double, ptr %10, align 8, !tbaa !155
-  %71 = fadd double %70, %69
-  store double %67, ptr %9, align 8, !tbaa !154
-  store double %71, ptr %10, align 8, !tbaa !155
-  br label %72
+57:                                               ; preds = %.lr.ph
+  %58 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.340
+  %59 = load i64, ptr %2, align 8, !tbaa !152
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %2, align 8, !tbaa !152
+  %61 = load double, ptr %58, align 8, !tbaa !45
+  %62 = load double, ptr %9, align 8, !tbaa !154
+  %63 = fsub double %61, %62
+  %64 = uitofp i64 %60 to double
+  %65 = fdiv double %63, %64
+  %66 = fadd double %62, %65
+  %67 = fsub double %61, %66
+  %68 = fmul double %63, %67
+  %69 = load double, ptr %10, align 8, !tbaa !155
+  %70 = fadd double %69, %68
+  store double %66, ptr %9, align 8, !tbaa !154
+  store double %70, ptr %10, align 8, !tbaa !155
+  br label %71
 
-72:                                               ; preds = %.lr.ph, %58
-  %73 = add nuw i64 %.sroa.4.340, 1
-  %exitcond62.not = icmp eq i64 %73, %35
+71:                                               ; preds = %.lr.ph, %57
+  %72 = add nuw i64 %.sroa.4.340, 1
+  %exitcond62.not = icmp eq i64 %72, %35
   br i1 %exitcond62.not, label %.loopexit, label %.lr.ph, !llvm.loop !211
 
-..loopexit_crit_edge:                             ; preds = %40
-  %74 = sub i64 %39, %.sroa.4.048
+..loopexit_crit_edge:                             ; preds = %39
+  %73 = add i64 %.promoted, %35
+  %74 = sub i64 %73, %.sroa.4.048
   store i64 %74, ptr %2, align 8, !tbaa !152
-  store double %50, ptr %9, align 8, !tbaa !154
-  store double %53, ptr %10, align 8, !tbaa !155
+  store double %49, ptr %9, align 8, !tbaa !154
+  store double %52, ptr %10, align 8, !tbaa !155
   br label %.loopexit
 
-.loopexit:                                        ; preds = %72, %.preheader, %37, %..loopexit_crit_edge, %.lr.ph51.split
-  %.sroa.4.2 = phi i64 [ %35, %.lr.ph51.split ], [ %35, %..loopexit_crit_edge ], [ %.sroa.4.048, %37 ], [ %.sroa.4.048, %.preheader ], [ %35, %72 ]
+.loopexit:                                        ; preds = %71, %.preheader, %37, %..loopexit_crit_edge, %.lr.ph51.split
+  %.sroa.4.2 = phi i64 [ %35, %.lr.ph51.split ], [ %35, %..loopexit_crit_edge ], [ %.sroa.4.048, %37 ], [ %.sroa.4.048, %.preheader ], [ %35, %71 ]
   %75 = add nuw nsw i64 %.049, 1
   %exitcond63.not = icmp eq i64 %75, %7
   br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph51.split, !llvm.loop !210
@@ -14525,10 +14525,10 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   %.promoted.us = load i64, ptr %2, align 8, !tbaa !152
   %.promoted44.us = load double, ptr %9, align 8, !tbaa !154
   %.promoted46.us = load double, ptr %10, align 8, !tbaa !155
-  %30 = add i64 %.promoted.us, %12
   br label %14
 
 ..loopexit_crit_edge.us:                          ; preds = %14
+  %30 = add i64 %.promoted.us, %12
   %31 = sub i64 %30, %.sroa.4.048.us
   store i64 %31, ptr %2, align 8, !tbaa !152
   store double %24, ptr %9, align 8, !tbaa !154
@@ -14562,69 +14562,69 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   %.promoted = load i64, ptr %2, align 8, !tbaa !152
   %.promoted44 = load double, ptr %9, align 8, !tbaa !154
   %.promoted46 = load double, ptr %10, align 8, !tbaa !155
-  %39 = add i64 %.promoted, %35
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.lr.ph42, %40
-  %41 = phi double [ %.promoted46, %.lr.ph42 ], [ %53, %40 ]
-  %42 = phi double [ %.promoted44, %.lr.ph42 ], [ %50, %40 ]
-  %43 = phi i64 [ %.promoted, %.lr.ph42 ], [ %45, %40 ]
-  %.sroa.4.141 = phi i64 [ %.sroa.4.048, %.lr.ph42 ], [ %54, %40 ]
-  %44 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.141
-  %45 = add i64 %43, 1
-  %46 = load double, ptr %44, align 8, !tbaa !45
-  %47 = fsub double %46, %42
-  %48 = uitofp i64 %45 to double
-  %49 = fdiv double %47, %48
-  %50 = fadd double %42, %49
-  %51 = fsub double %46, %50
-  %52 = fmul double %47, %51
-  %53 = fadd double %41, %52
-  %54 = add nuw i64 %.sroa.4.141, 1
-  %exitcond.not = icmp eq i64 %54, %35
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %40, !llvm.loop !223
+39:                                               ; preds = %.lr.ph42, %39
+  %40 = phi double [ %.promoted46, %.lr.ph42 ], [ %52, %39 ]
+  %41 = phi double [ %.promoted44, %.lr.ph42 ], [ %49, %39 ]
+  %42 = phi i64 [ %.promoted, %.lr.ph42 ], [ %44, %39 ]
+  %.sroa.4.141 = phi i64 [ %.sroa.4.048, %.lr.ph42 ], [ %53, %39 ]
+  %43 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.141
+  %44 = add i64 %42, 1
+  %45 = load double, ptr %43, align 8, !tbaa !45
+  %46 = fsub double %45, %41
+  %47 = uitofp i64 %44 to double
+  %48 = fdiv double %46, %47
+  %49 = fadd double %41, %48
+  %50 = fsub double %45, %49
+  %51 = fmul double %46, %50
+  %52 = fadd double %40, %51
+  %53 = add nuw i64 %.sroa.4.141, 1
+  %exitcond.not = icmp eq i64 %53, %35
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %39, !llvm.loop !223
 
-.lr.ph:                                           ; preds = %.preheader, %72
-  %.sroa.4.340 = phi i64 [ %73, %72 ], [ %.sroa.4.048, %.preheader ]
-  %55 = sub nuw i64 %.sroa.4.340, %.sroa.4.048
-  %56 = shl nuw i64 1, %55
-  %57 = and i64 %56, %33
-  %.not = icmp eq i64 %57, 0
-  br i1 %.not, label %72, label %58
+.lr.ph:                                           ; preds = %.preheader, %71
+  %.sroa.4.340 = phi i64 [ %72, %71 ], [ %.sroa.4.048, %.preheader ]
+  %54 = sub nuw i64 %.sroa.4.340, %.sroa.4.048
+  %55 = shl nuw i64 1, %54
+  %56 = and i64 %55, %33
+  %.not = icmp eq i64 %56, 0
+  br i1 %.not, label %71, label %57
 
-58:                                               ; preds = %.lr.ph
-  %59 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.340
-  %60 = load i64, ptr %2, align 8, !tbaa !152
-  %61 = add i64 %60, 1
-  store i64 %61, ptr %2, align 8, !tbaa !152
-  %62 = load double, ptr %59, align 8, !tbaa !45
-  %63 = load double, ptr %9, align 8, !tbaa !154
-  %64 = fsub double %62, %63
-  %65 = uitofp i64 %61 to double
-  %66 = fdiv double %64, %65
-  %67 = fadd double %63, %66
-  %68 = fsub double %62, %67
-  %69 = fmul double %64, %68
-  %70 = load double, ptr %10, align 8, !tbaa !155
-  %71 = fadd double %70, %69
-  store double %67, ptr %9, align 8, !tbaa !154
-  store double %71, ptr %10, align 8, !tbaa !155
-  br label %72
+57:                                               ; preds = %.lr.ph
+  %58 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.340
+  %59 = load i64, ptr %2, align 8, !tbaa !152
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %2, align 8, !tbaa !152
+  %61 = load double, ptr %58, align 8, !tbaa !45
+  %62 = load double, ptr %9, align 8, !tbaa !154
+  %63 = fsub double %61, %62
+  %64 = uitofp i64 %60 to double
+  %65 = fdiv double %63, %64
+  %66 = fadd double %62, %65
+  %67 = fsub double %61, %66
+  %68 = fmul double %63, %67
+  %69 = load double, ptr %10, align 8, !tbaa !155
+  %70 = fadd double %69, %68
+  store double %66, ptr %9, align 8, !tbaa !154
+  store double %70, ptr %10, align 8, !tbaa !155
+  br label %71
 
-72:                                               ; preds = %.lr.ph, %58
-  %73 = add nuw i64 %.sroa.4.340, 1
-  %exitcond62.not = icmp eq i64 %73, %35
+71:                                               ; preds = %.lr.ph, %57
+  %72 = add nuw i64 %.sroa.4.340, 1
+  %exitcond62.not = icmp eq i64 %72, %35
   br i1 %exitcond62.not, label %.loopexit, label %.lr.ph, !llvm.loop !225
 
-..loopexit_crit_edge:                             ; preds = %40
-  %74 = sub i64 %39, %.sroa.4.048
+..loopexit_crit_edge:                             ; preds = %39
+  %73 = add i64 %.promoted, %35
+  %74 = sub i64 %73, %.sroa.4.048
   store i64 %74, ptr %2, align 8, !tbaa !152
-  store double %50, ptr %9, align 8, !tbaa !154
-  store double %53, ptr %10, align 8, !tbaa !155
+  store double %49, ptr %9, align 8, !tbaa !154
+  store double %52, ptr %10, align 8, !tbaa !155
   br label %.loopexit
 
-.loopexit:                                        ; preds = %72, %.preheader, %37, %..loopexit_crit_edge, %.lr.ph51.split
-  %.sroa.4.2 = phi i64 [ %35, %.lr.ph51.split ], [ %35, %..loopexit_crit_edge ], [ %.sroa.4.048, %37 ], [ %.sroa.4.048, %.preheader ], [ %35, %72 ]
+.loopexit:                                        ; preds = %71, %.preheader, %37, %..loopexit_crit_edge, %.lr.ph51.split
+  %.sroa.4.2 = phi i64 [ %35, %.lr.ph51.split ], [ %35, %..loopexit_crit_edge ], [ %.sroa.4.048, %37 ], [ %.sroa.4.048, %.preheader ], [ %35, %71 ]
   %75 = add nuw nsw i64 %.049, 1
   %exitcond63.not = icmp eq i64 %75, %7
   br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph51.split, !llvm.loop !224
@@ -16000,10 +16000,10 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   %.promoted.us = load i64, ptr %2, align 8, !tbaa !152
   %.promoted44.us = load double, ptr %9, align 8, !tbaa !154
   %.promoted46.us = load double, ptr %10, align 8, !tbaa !155
-  %30 = add i64 %.promoted.us, %12
   br label %14
 
 ..loopexit_crit_edge.us:                          ; preds = %14
+  %30 = add i64 %.promoted.us, %12
   %31 = sub i64 %30, %.sroa.4.048.us
   store i64 %31, ptr %2, align 8, !tbaa !152
   store double %24, ptr %9, align 8, !tbaa !154
@@ -16037,69 +16037,69 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   %.promoted = load i64, ptr %2, align 8, !tbaa !152
   %.promoted44 = load double, ptr %9, align 8, !tbaa !154
   %.promoted46 = load double, ptr %10, align 8, !tbaa !155
-  %39 = add i64 %.promoted, %35
-  br label %40
+  br label %39
 
-40:                                               ; preds = %.lr.ph42, %40
-  %41 = phi double [ %.promoted46, %.lr.ph42 ], [ %53, %40 ]
-  %42 = phi double [ %.promoted44, %.lr.ph42 ], [ %50, %40 ]
-  %43 = phi i64 [ %.promoted, %.lr.ph42 ], [ %45, %40 ]
-  %.sroa.4.141 = phi i64 [ %.sroa.4.048, %.lr.ph42 ], [ %54, %40 ]
-  %44 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.141
-  %45 = add i64 %43, 1
-  %46 = load double, ptr %44, align 8, !tbaa !45
-  %47 = fsub double %46, %42
-  %48 = uitofp i64 %45 to double
-  %49 = fdiv double %47, %48
-  %50 = fadd double %42, %49
-  %51 = fsub double %46, %50
-  %52 = fmul double %47, %51
-  %53 = fadd double %41, %52
-  %54 = add nuw i64 %.sroa.4.141, 1
-  %exitcond.not = icmp eq i64 %54, %35
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %40, !llvm.loop !237
+39:                                               ; preds = %.lr.ph42, %39
+  %40 = phi double [ %.promoted46, %.lr.ph42 ], [ %52, %39 ]
+  %41 = phi double [ %.promoted44, %.lr.ph42 ], [ %49, %39 ]
+  %42 = phi i64 [ %.promoted, %.lr.ph42 ], [ %44, %39 ]
+  %.sroa.4.141 = phi i64 [ %.sroa.4.048, %.lr.ph42 ], [ %53, %39 ]
+  %43 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.141
+  %44 = add i64 %42, 1
+  %45 = load double, ptr %43, align 8, !tbaa !45
+  %46 = fsub double %45, %41
+  %47 = uitofp i64 %44 to double
+  %48 = fdiv double %46, %47
+  %49 = fadd double %41, %48
+  %50 = fsub double %45, %49
+  %51 = fmul double %46, %50
+  %52 = fadd double %40, %51
+  %53 = add nuw i64 %.sroa.4.141, 1
+  %exitcond.not = icmp eq i64 %53, %35
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %39, !llvm.loop !237
 
-.lr.ph:                                           ; preds = %.preheader, %72
-  %.sroa.4.340 = phi i64 [ %73, %72 ], [ %.sroa.4.048, %.preheader ]
-  %55 = sub nuw i64 %.sroa.4.340, %.sroa.4.048
-  %56 = shl nuw i64 1, %55
-  %57 = and i64 %56, %33
-  %.not = icmp eq i64 %57, 0
-  br i1 %.not, label %72, label %58
+.lr.ph:                                           ; preds = %.preheader, %71
+  %.sroa.4.340 = phi i64 [ %72, %71 ], [ %.sroa.4.048, %.preheader ]
+  %54 = sub nuw i64 %.sroa.4.340, %.sroa.4.048
+  %55 = shl nuw i64 1, %54
+  %56 = and i64 %55, %33
+  %.not = icmp eq i64 %56, 0
+  br i1 %.not, label %71, label %57
 
-58:                                               ; preds = %.lr.ph
-  %59 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.340
-  %60 = load i64, ptr %2, align 8, !tbaa !152
-  %61 = add i64 %60, 1
-  store i64 %61, ptr %2, align 8, !tbaa !152
-  %62 = load double, ptr %59, align 8, !tbaa !45
-  %63 = load double, ptr %9, align 8, !tbaa !154
-  %64 = fsub double %62, %63
-  %65 = uitofp i64 %61 to double
-  %66 = fdiv double %64, %65
-  %67 = fadd double %63, %66
-  %68 = fsub double %62, %67
-  %69 = fmul double %64, %68
-  %70 = load double, ptr %10, align 8, !tbaa !155
-  %71 = fadd double %70, %69
-  store double %67, ptr %9, align 8, !tbaa !154
-  store double %71, ptr %10, align 8, !tbaa !155
-  br label %72
+57:                                               ; preds = %.lr.ph
+  %58 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.340
+  %59 = load i64, ptr %2, align 8, !tbaa !152
+  %60 = add i64 %59, 1
+  store i64 %60, ptr %2, align 8, !tbaa !152
+  %61 = load double, ptr %58, align 8, !tbaa !45
+  %62 = load double, ptr %9, align 8, !tbaa !154
+  %63 = fsub double %61, %62
+  %64 = uitofp i64 %60 to double
+  %65 = fdiv double %63, %64
+  %66 = fadd double %62, %65
+  %67 = fsub double %61, %66
+  %68 = fmul double %63, %67
+  %69 = load double, ptr %10, align 8, !tbaa !155
+  %70 = fadd double %69, %68
+  store double %66, ptr %9, align 8, !tbaa !154
+  store double %70, ptr %10, align 8, !tbaa !155
+  br label %71
 
-72:                                               ; preds = %.lr.ph, %58
-  %73 = add nuw i64 %.sroa.4.340, 1
-  %exitcond62.not = icmp eq i64 %73, %35
+71:                                               ; preds = %.lr.ph, %57
+  %72 = add nuw i64 %.sroa.4.340, 1
+  %exitcond62.not = icmp eq i64 %72, %35
   br i1 %exitcond62.not, label %.loopexit, label %.lr.ph, !llvm.loop !239
 
-..loopexit_crit_edge:                             ; preds = %40
-  %74 = sub i64 %39, %.sroa.4.048
+..loopexit_crit_edge:                             ; preds = %39
+  %73 = add i64 %.promoted, %35
+  %74 = sub i64 %73, %.sroa.4.048
   store i64 %74, ptr %2, align 8, !tbaa !152
-  store double %50, ptr %9, align 8, !tbaa !154
-  store double %53, ptr %10, align 8, !tbaa !155
+  store double %49, ptr %9, align 8, !tbaa !154
+  store double %52, ptr %10, align 8, !tbaa !155
   br label %.loopexit
 
-.loopexit:                                        ; preds = %72, %.preheader, %37, %..loopexit_crit_edge, %.lr.ph51.split
-  %.sroa.4.2 = phi i64 [ %35, %.lr.ph51.split ], [ %35, %..loopexit_crit_edge ], [ %.sroa.4.048, %37 ], [ %.sroa.4.048, %.preheader ], [ %35, %72 ]
+.loopexit:                                        ; preds = %71, %.preheader, %37, %..loopexit_crit_edge, %.lr.ph51.split
+  %.sroa.4.2 = phi i64 [ %35, %.lr.ph51.split ], [ %35, %..loopexit_crit_edge ], [ %.sroa.4.048, %37 ], [ %.sroa.4.048, %.preheader ], [ %35, %71 ]
   %75 = add nuw nsw i64 %.049, 1
   %exitcond63.not = icmp eq i64 %75, %7
   br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph51.split, !llvm.loop !238
@@ -18460,7 +18460,7 @@ define linkonce_odr void @_ZN6duckdb12AddToHugeint11AddConstantINS_8AvgStateINS_
 
 20:                                               ; preds = %3
   %21 = icmp ult i64 %2, 8
-  br i1 %21, label %.preheader, label %34
+  br i1 %21, label %.preheader, label %33
 
 .preheader:                                       ; preds = %20
   %.not21 = icmp eq i64 %2, 0
@@ -18472,77 +18472,77 @@ define linkonce_odr void @_ZN6duckdb12AddToHugeint11AddConstantINS_8AvgStateINS_
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted = load i64, ptr %22, align 8, !tbaa !296
   %.promoted20 = load i64, ptr %24, align 8
-  %25 = mul nsw i64 %2, %23
-  br label %26
+  br label %25
 
-26:                                               ; preds = %.lr.ph, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18
-  %27 = phi i64 [ %.promoted20, %.lr.ph ], [ %32, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18 ]
-  %28 = phi i64 [ %.promoted, %.lr.ph ], [ %29, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18 ]
-  %.019 = phi i64 [ 0, %.lr.ph ], [ %33, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18 ]
-  %29 = add i64 %28, %23
-  %.not = icmp ult i64 %29, %23
-  br i1 %.not, label %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18, label %30
+25:                                               ; preds = %.lr.ph, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18
+  %26 = phi i64 [ %.promoted20, %.lr.ph ], [ %31, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18 ]
+  %27 = phi i64 [ %.promoted, %.lr.ph ], [ %28, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18 ]
+  %.019 = phi i64 [ 0, %.lr.ph ], [ %32, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18 ]
+  %28 = add i64 %27, %23
+  %.not = icmp ult i64 %28, %23
+  br i1 %.not, label %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18, label %29
 
-30:                                               ; preds = %26
-  %31 = add nsw i64 %27, -1
-  store i64 %31, ptr %24, align 8, !tbaa !297
+29:                                               ; preds = %25
+  %30 = add nsw i64 %26, -1
+  store i64 %30, ptr %24, align 8, !tbaa !297
   br label %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18
 
-_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18: ; preds = %26, %30
-  %32 = phi i64 [ %27, %26 ], [ %31, %30 ]
-  %33 = add nuw nsw i64 %.019, 1
-  %exitcond.not = icmp eq i64 %33, %2
-  br i1 %exitcond.not, label %._ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit.loopexit_crit_edge, label %26, !llvm.loop !304
+_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18: ; preds = %25, %29
+  %31 = phi i64 [ %26, %25 ], [ %30, %29 ]
+  %32 = add nuw nsw i64 %.019, 1
+  %exitcond.not = icmp eq i64 %32, %2
+  br i1 %exitcond.not, label %._ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit.loopexit_crit_edge, label %25, !llvm.loop !304
 
-34:                                               ; preds = %20
+33:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
-  %35 = sext i32 %1 to i64
-  call void @_ZN6duckdb9hugeint_tC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %35)
+  %34 = sext i32 %1 to i64
+  call void @_ZN6duckdb9hugeint_tC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %34)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %36 = call noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertImEEbT_RNS_9hugeint_tE(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %36, label %_ZN6duckdb7Hugeint7ConvertImEENS_9hugeint_tET_.exit, label %37
+  %35 = call noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertImEEbT_RNS_9hugeint_tE(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  br i1 %35, label %_ZN6duckdb7Hugeint7ConvertImEENS_9hugeint_tET_.exit, label %36
 
-37:                                               ; preds = %34
-  %38 = call ptr @__cxa_allocate_exception(i64 16) #21
-  %39 = uitofp i64 %2 to double
-  invoke void @_ZN6duckdb19OutOfRangeExceptionC1EdNS_12PhysicalTypeES1_(ptr noundef nonnull align 8 dereferenceable(16) %38, double noundef %39, i8 noundef zeroext 8, i8 noundef zeroext -52)
-          to label %40 unwind label %41
+36:                                               ; preds = %33
+  %37 = call ptr @__cxa_allocate_exception(i64 16) #21
+  %38 = uitofp i64 %2 to double
+  invoke void @_ZN6duckdb19OutOfRangeExceptionC1EdNS_12PhysicalTypeES1_(ptr noundef nonnull align 8 dereferenceable(16) %37, double noundef %38, i8 noundef zeroext 8, i8 noundef zeroext -52)
+          to label %39 unwind label %40
 
-40:                                               ; preds = %37
-  call void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTIN6duckdb19OutOfRangeExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #23
+39:                                               ; preds = %36
+  call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN6duckdb19OutOfRangeExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #23
   unreachable
 
-41:                                               ; preds = %37
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %36
+  %41 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %38) #21
-  resume { ptr, i32 } %42
+  call void @__cxa_free_exception(ptr nonnull %37) #21
+  resume { ptr, i32 } %41
 
-_ZN6duckdb7Hugeint7ConvertImEENS_9hugeint_tET_.exit: ; preds = %34
+_ZN6duckdb7Hugeint7ConvertImEENS_9hugeint_tET_.exit: ; preds = %33
   %.fca.0.load.i = load i64, ptr %4, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   store i64 %.fca.0.load.i, ptr %7, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.fca.1.load.i, ptr %43, align 8
-  %44 = call { i64, i64 } @_ZNK6duckdb9hugeint_tmlERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %45 = extractvalue { i64, i64 } %44, 0
-  store i64 %45, ptr %5, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %47 = extractvalue { i64, i64 } %44, 1
-  store i64 %47, ptr %46, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %.fca.1.load.i, ptr %42, align 8
+  %43 = call { i64, i64 } @_ZNK6duckdb9hugeint_tmlERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %44 = extractvalue { i64, i64 } %43, 0
+  store i64 %44, ptr %5, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %46 = extractvalue { i64, i64 } %43, 1
+  store i64 %46, ptr %45, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tpLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tpLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
   br label %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit
 
 ._ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit.loopexit_crit_edge: ; preds = %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit18
-  %50 = add i64 %.promoted, %25
+  %49 = mul nsw i64 %2, %23
+  %50 = add i64 %.promoted, %49
   store i64 %50, ptr %22, align 8, !tbaa !296
   br label %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit
 
@@ -18929,10 +18929,10 @@ _ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9Operat
 .lr.ph44.us:                                      ; preds = %.thread.us
   %.promoted.us = load i64, ptr %2, align 8, !tbaa !290
   %.promoted46.us = load i64, ptr %9, align 8, !tbaa !296
-  %28 = add i64 %.promoted.us, %12
   br label %14
 
 ..loopexit_crit_edge.us:                          ; preds = %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit.us
+  %28 = add i64 %.promoted.us, %12
   %29 = sub i64 %28, %.sroa.4.048.us
   store i64 %29, ptr %2, align 8, !tbaa !290
   store i64 %20, ptr %9, align 8, !tbaa !296
@@ -18964,72 +18964,72 @@ _ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9Operat
 .lr.ph44:                                         ; preds = %35
   %.promoted = load i64, ptr %2, align 8, !tbaa !290
   %.promoted46 = load i64, ptr %9, align 8, !tbaa !296
-  %37 = add i64 %.promoted, %33
-  br label %38
+  br label %37
 
-38:                                               ; preds = %.lr.ph44, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
-  %39 = phi i64 [ %.promoted46, %.lr.ph44 ], [ %44, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
-  %.sroa.4.143 = phi i64 [ %.sroa.4.048, %.lr.ph44 ], [ %50, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
-  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.4.143
-  %41 = load i32, ptr %40, align 4, !tbaa !39
-  %42 = sext i32 %41 to i64
-  %43 = icmp sgt i32 %41, -1
-  %44 = add i64 %39, %42
-  %45 = icmp uge i64 %44, %42
-  %.not.i.i.i = xor i1 %43, %45
-  br i1 %.not.i.i.i, label %46, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
+37:                                               ; preds = %.lr.ph44, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
+  %38 = phi i64 [ %.promoted46, %.lr.ph44 ], [ %43, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
+  %.sroa.4.143 = phi i64 [ %.sroa.4.048, %.lr.ph44 ], [ %49, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
+  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.4.143
+  %40 = load i32, ptr %39, align 4, !tbaa !39
+  %41 = sext i32 %40 to i64
+  %42 = icmp sgt i32 %40, -1
+  %43 = add i64 %38, %41
+  %44 = icmp uge i64 %43, %41
+  %.not.i.i.i = xor i1 %42, %44
+  br i1 %.not.i.i.i, label %45, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
 
-46:                                               ; preds = %38
-  %47 = select i1 %43, i64 1, i64 -1
-  %48 = load i64, ptr %10, align 8, !tbaa !297
-  %49 = add nsw i64 %48, %47
-  store i64 %49, ptr %10, align 8, !tbaa !297
+45:                                               ; preds = %37
+  %46 = select i1 %42, i64 1, i64 -1
+  %47 = load i64, ptr %10, align 8, !tbaa !297
+  %48 = add nsw i64 %47, %46
+  store i64 %48, ptr %10, align 8, !tbaa !297
   br label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
 
-_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit: ; preds = %38, %46
-  %50 = add nuw i64 %.sroa.4.143, 1
-  %exitcond.not = icmp eq i64 %50, %33
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %38, !llvm.loop !308
+_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit: ; preds = %37, %45
+  %49 = add nuw i64 %.sroa.4.143, 1
+  %exitcond.not = icmp eq i64 %49, %33
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %37, !llvm.loop !308
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29
-  %.sroa.4.342 = phi i64 [ %68, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29 ], [ %.sroa.4.048, %.preheader ]
-  %51 = sub nuw i64 %.sroa.4.342, %.sroa.4.048
-  %52 = shl nuw i64 1, %51
-  %53 = and i64 %52, %31
-  %.not = icmp eq i64 %53, 0
-  br i1 %.not, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29, label %54
+  %.sroa.4.342 = phi i64 [ %67, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29 ], [ %.sroa.4.048, %.preheader ]
+  %50 = sub nuw i64 %.sroa.4.342, %.sroa.4.048
+  %51 = shl nuw i64 1, %50
+  %52 = and i64 %51, %31
+  %.not = icmp eq i64 %52, 0
+  br i1 %.not, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29, label %53
 
-54:                                               ; preds = %.lr.ph
-  %55 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.4.342
-  %56 = load i64, ptr %2, align 8, !tbaa !290
-  %57 = add i64 %56, 1
-  store i64 %57, ptr %2, align 8, !tbaa !290
-  %58 = load i32, ptr %55, align 4, !tbaa !39
-  %59 = sext i32 %58 to i64
-  %60 = icmp sgt i32 %58, -1
-  %61 = load i64, ptr %9, align 8, !tbaa !296
-  %62 = add i64 %61, %59
-  store i64 %62, ptr %9, align 8, !tbaa !296
-  %63 = icmp uge i64 %62, %59
-  %.not.i.i.i28 = xor i1 %60, %63
-  br i1 %.not.i.i.i28, label %64, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29
+53:                                               ; preds = %.lr.ph
+  %54 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.4.342
+  %55 = load i64, ptr %2, align 8, !tbaa !290
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %2, align 8, !tbaa !290
+  %57 = load i32, ptr %54, align 4, !tbaa !39
+  %58 = sext i32 %57 to i64
+  %59 = icmp sgt i32 %57, -1
+  %60 = load i64, ptr %9, align 8, !tbaa !296
+  %61 = add i64 %60, %58
+  store i64 %61, ptr %9, align 8, !tbaa !296
+  %62 = icmp uge i64 %61, %58
+  %.not.i.i.i28 = xor i1 %59, %62
+  br i1 %.not.i.i.i28, label %63, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29
 
-64:                                               ; preds = %54
-  %65 = select i1 %60, i64 1, i64 -1
-  %66 = load i64, ptr %10, align 8, !tbaa !297
-  %67 = add nsw i64 %66, %65
-  store i64 %67, ptr %10, align 8, !tbaa !297
+63:                                               ; preds = %53
+  %64 = select i1 %59, i64 1, i64 -1
+  %65 = load i64, ptr %10, align 8, !tbaa !297
+  %66 = add nsw i64 %65, %64
+  store i64 %66, ptr %10, align 8, !tbaa !297
   br label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29
 
-_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29: ; preds = %64, %54, %.lr.ph
-  %68 = add nuw i64 %.sroa.4.342, 1
-  %exitcond60.not = icmp eq i64 %68, %33
+_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29: ; preds = %63, %53, %.lr.ph
+  %67 = add nuw i64 %.sroa.4.342, 1
+  %exitcond60.not = icmp eq i64 %67, %33
   br i1 %exitcond60.not, label %.loopexit, label %.lr.ph, !llvm.loop !310
 
 ..loopexit_crit_edge:                             ; preds = %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
-  %69 = sub i64 %37, %.sroa.4.048
+  %68 = add i64 %.promoted, %33
+  %69 = sub i64 %68, %.sroa.4.048
   store i64 %69, ptr %2, align 8, !tbaa !290
-  store i64 %44, ptr %9, align 8, !tbaa !296
+  store i64 %43, ptr %9, align 8, !tbaa !296
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIiNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29, %.preheader, %35, %..loopexit_crit_edge, %.lr.ph51.split
@@ -19994,7 +19994,7 @@ define linkonce_odr void @_ZN6duckdb12AddToHugeint11AddConstantINS_8AvgStateINS_
 
 19:                                               ; preds = %3
   %20 = icmp ult i64 %2, 8
-  br i1 %20, label %.preheader, label %34
+  br i1 %20, label %.preheader, label %33
 
 .preheader:                                       ; preds = %19
   %.not = icmp eq i64 %2, 0
@@ -20006,77 +20006,77 @@ define linkonce_odr void @_ZN6duckdb12AddToHugeint11AddConstantINS_8AvgStateINS_
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted = load i64, ptr %21, align 8, !tbaa !296
   %.promoted19 = load i64, ptr %23, align 8
-  %24 = mul i64 %2, %1
-  br label %25
+  br label %24
 
-25:                                               ; preds = %.lr.ph, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17
-  %26 = phi i64 [ %.promoted19, %.lr.ph ], [ %32, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17 ]
-  %27 = phi i64 [ %.promoted, %.lr.ph ], [ %28, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17 ]
-  %.018 = phi i64 [ 0, %.lr.ph ], [ %33, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17 ]
-  %28 = add i64 %27, %1
-  %29 = icmp uge i64 %28, %1
-  %.not.i = xor i1 %8, %29
-  br i1 %.not.i, label %30, label %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17
+24:                                               ; preds = %.lr.ph, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17
+  %25 = phi i64 [ %.promoted19, %.lr.ph ], [ %31, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17 ]
+  %26 = phi i64 [ %.promoted, %.lr.ph ], [ %27, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17 ]
+  %.018 = phi i64 [ 0, %.lr.ph ], [ %32, %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17 ]
+  %27 = add i64 %26, %1
+  %28 = icmp uge i64 %27, %1
+  %.not.i = xor i1 %8, %28
+  br i1 %.not.i, label %29, label %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17
 
-30:                                               ; preds = %25
-  %31 = add nsw i64 %26, %22
-  store i64 %31, ptr %23, align 8, !tbaa !297
+29:                                               ; preds = %24
+  %30 = add nsw i64 %25, %22
+  store i64 %30, ptr %23, align 8, !tbaa !297
   br label %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17
 
-_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17: ; preds = %25, %30
-  %32 = phi i64 [ %26, %25 ], [ %31, %30 ]
-  %33 = add nuw nsw i64 %.018, 1
-  %exitcond.not = icmp eq i64 %33, %2
-  br i1 %exitcond.not, label %._ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit.loopexit_crit_edge, label %25, !llvm.loop !319
+_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17: ; preds = %24, %29
+  %31 = phi i64 [ %25, %24 ], [ %30, %29 ]
+  %32 = add nuw nsw i64 %.018, 1
+  %exitcond.not = icmp eq i64 %32, %2
+  br i1 %exitcond.not, label %._ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit.loopexit_crit_edge, label %24, !llvm.loop !319
 
-34:                                               ; preds = %19
+33:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
   call void @_ZN6duckdb9hugeint_tC1El(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %35 = call noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertImEEbT_RNS_9hugeint_tE(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  br i1 %35, label %_ZN6duckdb7Hugeint7ConvertImEENS_9hugeint_tET_.exit, label %36
+  %34 = call noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertImEEbT_RNS_9hugeint_tE(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %4)
+  br i1 %34, label %_ZN6duckdb7Hugeint7ConvertImEENS_9hugeint_tET_.exit, label %35
 
-36:                                               ; preds = %34
-  %37 = call ptr @__cxa_allocate_exception(i64 16) #21
-  %38 = uitofp i64 %2 to double
-  invoke void @_ZN6duckdb19OutOfRangeExceptionC1EdNS_12PhysicalTypeES1_(ptr noundef nonnull align 8 dereferenceable(16) %37, double noundef %38, i8 noundef zeroext 8, i8 noundef zeroext -52)
-          to label %39 unwind label %40
+35:                                               ; preds = %33
+  %36 = call ptr @__cxa_allocate_exception(i64 16) #21
+  %37 = uitofp i64 %2 to double
+  invoke void @_ZN6duckdb19OutOfRangeExceptionC1EdNS_12PhysicalTypeES1_(ptr noundef nonnull align 8 dereferenceable(16) %36, double noundef %37, i8 noundef zeroext 8, i8 noundef zeroext -52)
+          to label %38 unwind label %39
 
-39:                                               ; preds = %36
-  call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN6duckdb19OutOfRangeExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #23
+38:                                               ; preds = %35
+  call void @__cxa_throw(ptr nonnull %36, ptr nonnull @_ZTIN6duckdb19OutOfRangeExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #23
   unreachable
 
-40:                                               ; preds = %36
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %35
+  %40 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %37) #21
-  resume { ptr, i32 } %41
+  call void @__cxa_free_exception(ptr nonnull %36) #21
+  resume { ptr, i32 } %40
 
-_ZN6duckdb7Hugeint7ConvertImEENS_9hugeint_tET_.exit: ; preds = %34
+_ZN6duckdb7Hugeint7ConvertImEENS_9hugeint_tET_.exit: ; preds = %33
   %.fca.0.load.i = load i64, ptr %4, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   store i64 %.fca.0.load.i, ptr %7, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.fca.1.load.i, ptr %42, align 8
-  %43 = call { i64, i64 } @_ZNK6duckdb9hugeint_tmlERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %44 = extractvalue { i64, i64 } %43, 0
-  store i64 %44, ptr %5, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %46 = extractvalue { i64, i64 } %43, 1
-  store i64 %46, ptr %45, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %.fca.1.load.i, ptr %41, align 8
+  %42 = call { i64, i64 } @_ZNK6duckdb9hugeint_tmlERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %43 = extractvalue { i64, i64 } %42, 0
+  store i64 %43, ptr %5, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %45 = extractvalue { i64, i64 } %42, 1
+  store i64 %45, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tpLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tpLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
   br label %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit
 
 ._ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit.loopexit_crit_edge: ; preds = %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit17
-  %49 = add i64 %.promoted, %24
+  %48 = mul i64 %2, %1
+  %49 = add i64 %.promoted, %48
   store i64 %49, ptr %21, align 8, !tbaa !296
   br label %_ZN6duckdb12AddToHugeint8AddValueERNS_9hugeint_tEmi.exit
 
@@ -20306,10 +20306,10 @@ _ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9Operat
 .lr.ph44.us:                                      ; preds = %.thread.us
   %.promoted.us = load i64, ptr %2, align 8, !tbaa !290
   %.promoted46.us = load i64, ptr %9, align 8, !tbaa !296
-  %27 = add i64 %.promoted.us, %12
   br label %14
 
 ..loopexit_crit_edge.us:                          ; preds = %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit.us
+  %27 = add i64 %.promoted.us, %12
   %28 = sub i64 %27, %.sroa.4.048.us
   store i64 %28, ptr %2, align 8, !tbaa !290
   store i64 %19, ptr %9, align 8, !tbaa !296
@@ -20341,70 +20341,70 @@ _ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9Operat
 .lr.ph44:                                         ; preds = %34
   %.promoted = load i64, ptr %2, align 8, !tbaa !290
   %.promoted46 = load i64, ptr %9, align 8, !tbaa !296
-  %36 = add i64 %.promoted, %32
-  br label %37
+  br label %36
 
-37:                                               ; preds = %.lr.ph44, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
-  %38 = phi i64 [ %.promoted46, %.lr.ph44 ], [ %42, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
-  %.sroa.4.143 = phi i64 [ %.sroa.4.048, %.lr.ph44 ], [ %48, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
-  %39 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.4.143
-  %40 = load i64, ptr %39, align 8, !tbaa !44
-  %41 = icmp sgt i64 %40, -1
-  %42 = add i64 %38, %40
-  %43 = icmp uge i64 %42, %40
-  %.not.i.i.i = xor i1 %41, %43
-  br i1 %.not.i.i.i, label %44, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
+36:                                               ; preds = %.lr.ph44, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
+  %37 = phi i64 [ %.promoted46, %.lr.ph44 ], [ %41, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
+  %.sroa.4.143 = phi i64 [ %.sroa.4.048, %.lr.ph44 ], [ %47, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
+  %38 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.4.143
+  %39 = load i64, ptr %38, align 8, !tbaa !44
+  %40 = icmp sgt i64 %39, -1
+  %41 = add i64 %37, %39
+  %42 = icmp uge i64 %41, %39
+  %.not.i.i.i = xor i1 %40, %42
+  br i1 %.not.i.i.i, label %43, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
 
-44:                                               ; preds = %37
-  %45 = select i1 %41, i64 1, i64 -1
-  %46 = load i64, ptr %10, align 8, !tbaa !297
-  %47 = add nsw i64 %46, %45
-  store i64 %47, ptr %10, align 8, !tbaa !297
+43:                                               ; preds = %36
+  %44 = select i1 %40, i64 1, i64 -1
+  %45 = load i64, ptr %10, align 8, !tbaa !297
+  %46 = add nsw i64 %45, %44
+  store i64 %46, ptr %10, align 8, !tbaa !297
   br label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
 
-_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit: ; preds = %37, %44
-  %48 = add nuw i64 %.sroa.4.143, 1
-  %exitcond.not = icmp eq i64 %48, %32
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %37, !llvm.loop !320
+_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit: ; preds = %36, %43
+  %47 = add nuw i64 %.sroa.4.143, 1
+  %exitcond.not = icmp eq i64 %47, %32
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %36, !llvm.loop !320
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29
-  %.sroa.4.342 = phi i64 [ %65, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29 ], [ %.sroa.4.048, %.preheader ]
-  %49 = sub nuw i64 %.sroa.4.342, %.sroa.4.048
-  %50 = shl nuw i64 1, %49
-  %51 = and i64 %50, %30
-  %.not = icmp eq i64 %51, 0
-  br i1 %.not, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29, label %52
+  %.sroa.4.342 = phi i64 [ %64, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29 ], [ %.sroa.4.048, %.preheader ]
+  %48 = sub nuw i64 %.sroa.4.342, %.sroa.4.048
+  %49 = shl nuw i64 1, %48
+  %50 = and i64 %49, %30
+  %.not = icmp eq i64 %50, 0
+  br i1 %.not, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29, label %51
 
-52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.4.342
-  %54 = load i64, ptr %2, align 8, !tbaa !290
-  %55 = add i64 %54, 1
-  store i64 %55, ptr %2, align 8, !tbaa !290
-  %56 = load i64, ptr %53, align 8, !tbaa !44
-  %57 = icmp sgt i64 %56, -1
-  %58 = load i64, ptr %9, align 8, !tbaa !296
-  %59 = add i64 %58, %56
-  store i64 %59, ptr %9, align 8, !tbaa !296
-  %60 = icmp uge i64 %59, %56
-  %.not.i.i.i28 = xor i1 %57, %60
-  br i1 %.not.i.i.i28, label %61, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29
+51:                                               ; preds = %.lr.ph
+  %52 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.4.342
+  %53 = load i64, ptr %2, align 8, !tbaa !290
+  %54 = add i64 %53, 1
+  store i64 %54, ptr %2, align 8, !tbaa !290
+  %55 = load i64, ptr %52, align 8, !tbaa !44
+  %56 = icmp sgt i64 %55, -1
+  %57 = load i64, ptr %9, align 8, !tbaa !296
+  %58 = add i64 %57, %55
+  store i64 %58, ptr %9, align 8, !tbaa !296
+  %59 = icmp uge i64 %58, %55
+  %.not.i.i.i28 = xor i1 %56, %59
+  br i1 %.not.i.i.i28, label %60, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29
 
-61:                                               ; preds = %52
-  %62 = select i1 %57, i64 1, i64 -1
-  %63 = load i64, ptr %10, align 8, !tbaa !297
-  %64 = add nsw i64 %63, %62
-  store i64 %64, ptr %10, align 8, !tbaa !297
+60:                                               ; preds = %51
+  %61 = select i1 %56, i64 1, i64 -1
+  %62 = load i64, ptr %10, align 8, !tbaa !297
+  %63 = add nsw i64 %62, %61
+  store i64 %63, ptr %10, align 8, !tbaa !297
   br label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29
 
-_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29: ; preds = %61, %52, %.lr.ph
-  %65 = add nuw i64 %.sroa.4.342, 1
-  %exitcond60.not = icmp eq i64 %65, %32
+_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29: ; preds = %60, %51, %.lr.ph
+  %64 = add nuw i64 %.sroa.4.342, 1
+  %exitcond60.not = icmp eq i64 %64, %32
   br i1 %exitcond60.not, label %.loopexit, label %.lr.ph, !llvm.loop !322
 
 ..loopexit_crit_edge:                             ; preds = %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
-  %66 = sub i64 %36, %.sroa.4.048
+  %65 = add i64 %.promoted, %32
+  %66 = sub i64 %65, %.sroa.4.048
   store i64 %66, ptr %2, align 8, !tbaa !290
-  store i64 %42, ptr %9, align 8, !tbaa !296
+  store i64 %41, ptr %9, align 8, !tbaa !296
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_30IntegerAverageOperationHugeintEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29, %.preheader, %34, %..loopexit_crit_edge, %.lr.ph51.split
@@ -28483,10 +28483,10 @@ _ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9Operat
 .lr.ph44.us:                                      ; preds = %.thread.us
   %.promoted.us = load i64, ptr %2, align 8, !tbaa !290
   %.promoted46.us = load i64, ptr %9, align 8, !tbaa !296
-  %27 = add i64 %.promoted.us, %12
   br label %14
 
 ..loopexit_crit_edge.us:                          ; preds = %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit.us
+  %27 = add i64 %.promoted.us, %12
   %28 = sub i64 %27, %.sroa.4.048.us
   store i64 %28, ptr %2, align 8, !tbaa !290
   store i64 %19, ptr %9, align 8, !tbaa !296
@@ -28518,70 +28518,70 @@ _ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9Operat
 .lr.ph44:                                         ; preds = %34
   %.promoted = load i64, ptr %2, align 8, !tbaa !290
   %.promoted46 = load i64, ptr %9, align 8, !tbaa !296
-  %36 = add i64 %.promoted, %32
-  br label %37
+  br label %36
 
-37:                                               ; preds = %.lr.ph44, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
-  %38 = phi i64 [ %.promoted46, %.lr.ph44 ], [ %42, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
-  %.sroa.4.143 = phi i64 [ %.sroa.4.048, %.lr.ph44 ], [ %48, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
-  %39 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.4.143
-  %40 = load i64, ptr %39, align 8, !tbaa !44
-  %41 = icmp sgt i64 %40, -1
-  %42 = add i64 %38, %40
-  %43 = icmp uge i64 %42, %40
-  %.not.i.i.i = xor i1 %41, %43
-  br i1 %.not.i.i.i, label %44, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
+36:                                               ; preds = %.lr.ph44, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
+  %37 = phi i64 [ %.promoted46, %.lr.ph44 ], [ %41, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
+  %.sroa.4.143 = phi i64 [ %.sroa.4.048, %.lr.ph44 ], [ %47, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit ]
+  %38 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.4.143
+  %39 = load i64, ptr %38, align 8, !tbaa !44
+  %40 = icmp sgt i64 %39, -1
+  %41 = add i64 %37, %39
+  %42 = icmp uge i64 %41, %39
+  %.not.i.i.i = xor i1 %40, %42
+  br i1 %.not.i.i.i, label %43, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
 
-44:                                               ; preds = %37
-  %45 = select i1 %41, i64 1, i64 -1
-  %46 = load i64, ptr %10, align 8, !tbaa !297
-  %47 = add nsw i64 %46, %45
-  store i64 %47, ptr %10, align 8, !tbaa !297
+43:                                               ; preds = %36
+  %44 = select i1 %40, i64 1, i64 -1
+  %45 = load i64, ptr %10, align 8, !tbaa !297
+  %46 = add nsw i64 %45, %44
+  store i64 %46, ptr %10, align 8, !tbaa !297
   br label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
 
-_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit: ; preds = %37, %44
-  %48 = add nuw i64 %.sroa.4.143, 1
-  %exitcond.not = icmp eq i64 %48, %32
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %37, !llvm.loop !458
+_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit: ; preds = %36, %43
+  %47 = add nuw i64 %.sroa.4.143, 1
+  %exitcond.not = icmp eq i64 %47, %32
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %36, !llvm.loop !458
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29
-  %.sroa.4.342 = phi i64 [ %65, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29 ], [ %.sroa.4.048, %.preheader ]
-  %49 = sub nuw i64 %.sroa.4.342, %.sroa.4.048
-  %50 = shl nuw i64 1, %49
-  %51 = and i64 %50, %30
-  %.not = icmp eq i64 %51, 0
-  br i1 %.not, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29, label %52
+  %.sroa.4.342 = phi i64 [ %64, %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29 ], [ %.sroa.4.048, %.preheader ]
+  %48 = sub nuw i64 %.sroa.4.342, %.sroa.4.048
+  %49 = shl nuw i64 1, %48
+  %50 = and i64 %49, %30
+  %.not = icmp eq i64 %50, 0
+  br i1 %.not, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29, label %51
 
-52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.4.342
-  %54 = load i64, ptr %2, align 8, !tbaa !290
-  %55 = add i64 %54, 1
-  store i64 %55, ptr %2, align 8, !tbaa !290
-  %56 = load i64, ptr %53, align 8, !tbaa !44
-  %57 = icmp sgt i64 %56, -1
-  %58 = load i64, ptr %9, align 8, !tbaa !296
-  %59 = add i64 %58, %56
-  store i64 %59, ptr %9, align 8, !tbaa !296
-  %60 = icmp uge i64 %59, %56
-  %.not.i.i.i28 = xor i1 %57, %60
-  br i1 %.not.i.i.i28, label %61, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29
+51:                                               ; preds = %.lr.ph
+  %52 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.4.342
+  %53 = load i64, ptr %2, align 8, !tbaa !290
+  %54 = add i64 %53, 1
+  store i64 %54, ptr %2, align 8, !tbaa !290
+  %55 = load i64, ptr %52, align 8, !tbaa !44
+  %56 = icmp sgt i64 %55, -1
+  %57 = load i64, ptr %9, align 8, !tbaa !296
+  %58 = add i64 %57, %55
+  store i64 %58, ptr %9, align 8, !tbaa !296
+  %59 = icmp uge i64 %58, %55
+  %.not.i.i.i28 = xor i1 %56, %59
+  br i1 %.not.i.i.i28, label %60, label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29
 
-61:                                               ; preds = %52
-  %62 = select i1 %57, i64 1, i64 -1
-  %63 = load i64, ptr %10, align 8, !tbaa !297
-  %64 = add nsw i64 %63, %62
-  store i64 %64, ptr %10, align 8, !tbaa !297
+60:                                               ; preds = %51
+  %61 = select i1 %56, i64 1, i64 -1
+  %62 = load i64, ptr %10, align 8, !tbaa !297
+  %63 = add nsw i64 %62, %61
+  store i64 %63, ptr %10, align 8, !tbaa !297
   br label %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29
 
-_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29: ; preds = %61, %52, %.lr.ph
-  %65 = add nuw i64 %.sroa.4.342, 1
-  %exitcond60.not = icmp eq i64 %65, %32
+_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29: ; preds = %60, %51, %.lr.ph
+  %64 = add nuw i64 %.sroa.4.342, 1
+  %exitcond60.not = icmp eq i64 %64, %32
   br i1 %exitcond60.not, label %.loopexit, label %.lr.ph, !llvm.loop !460
 
 ..loopexit_crit_edge:                             ; preds = %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit
-  %66 = sub i64 %36, %.sroa.4.048
+  %65 = add i64 %.promoted, %32
+  %66 = sub i64 %65, %.sroa.4.048
   store i64 %66, ptr %2, align 8, !tbaa !290
-  store i64 %42, ptr %9, align 8, !tbaa !296
+  store i64 %41, ptr %9, align 8, !tbaa !296
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN6duckdb16BaseSumOperationINS_19AverageSetOperationENS_12AddToHugeintEE9OperationIlNS_8AvgStateINS_9hugeint_tEEENS_24DiscreteAverageOperationEEEvRT0_RKT_RNS_19AggregateUnaryInputE.exit29, %.preheader, %34, %..loopexit_crit_edge, %.lr.ph51.split
@@ -29851,10 +29851,10 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   %.promoted.us = load i64, ptr %2, align 8, !tbaa !465
   %.promoted44.us = load double, ptr %10, align 8, !tbaa !45
   %.promoted46.us = load double, ptr %9, align 8, !tbaa !45
-  %25 = add i64 %.promoted.us, %12
   br label %14
 
 ..loopexit_crit_edge.us:                          ; preds = %14
+  %25 = add i64 %.promoted.us, %12
   %26 = sub i64 %25, %.sroa.4.048.us
   store i64 %26, ptr %2, align 8, !tbaa !465
   store double %22, ptr %10, align 8, !tbaa !45
@@ -29888,61 +29888,61 @@ define linkonce_odr void @_ZN6duckdb17AggregateExecutor19UnaryFlatUpdateLoopINS_
   %.promoted = load i64, ptr %2, align 8, !tbaa !465
   %.promoted44 = load double, ptr %10, align 8, !tbaa !45
   %.promoted46 = load double, ptr %9, align 8, !tbaa !45
-  %34 = add i64 %.promoted, %30
-  br label %35
+  br label %34
 
-35:                                               ; preds = %.lr.ph42, %35
-  %36 = phi double [ %.promoted46, %.lr.ph42 ], [ %41, %35 ]
-  %37 = phi double [ %.promoted44, %.lr.ph42 ], [ %43, %35 ]
-  %.sroa.4.141 = phi i64 [ %.sroa.4.048, %.lr.ph42 ], [ %44, %35 ]
-  %38 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.141
-  %39 = load double, ptr %38, align 8, !tbaa !45
-  %40 = fsub double %39, %37
-  %41 = fadd double %36, %40
-  %42 = fsub double %41, %36
-  %43 = fsub double %42, %40
-  %44 = add nuw i64 %.sroa.4.141, 1
-  %exitcond.not = icmp eq i64 %44, %30
-  br i1 %exitcond.not, label %..loopexit_crit_edge, label %35, !llvm.loop !477
+34:                                               ; preds = %.lr.ph42, %34
+  %35 = phi double [ %.promoted46, %.lr.ph42 ], [ %40, %34 ]
+  %36 = phi double [ %.promoted44, %.lr.ph42 ], [ %42, %34 ]
+  %.sroa.4.141 = phi i64 [ %.sroa.4.048, %.lr.ph42 ], [ %43, %34 ]
+  %37 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.141
+  %38 = load double, ptr %37, align 8, !tbaa !45
+  %39 = fsub double %38, %36
+  %40 = fadd double %35, %39
+  %41 = fsub double %40, %35
+  %42 = fsub double %41, %39
+  %43 = add nuw i64 %.sroa.4.141, 1
+  %exitcond.not = icmp eq i64 %43, %30
+  br i1 %exitcond.not, label %..loopexit_crit_edge, label %34, !llvm.loop !477
 
-.lr.ph:                                           ; preds = %.preheader, %59
-  %.sroa.4.340 = phi i64 [ %60, %59 ], [ %.sroa.4.048, %.preheader ]
-  %45 = sub nuw i64 %.sroa.4.340, %.sroa.4.048
-  %46 = shl nuw i64 1, %45
-  %47 = and i64 %46, %28
-  %.not = icmp eq i64 %47, 0
-  br i1 %.not, label %59, label %48
+.lr.ph:                                           ; preds = %.preheader, %58
+  %.sroa.4.340 = phi i64 [ %59, %58 ], [ %.sroa.4.048, %.preheader ]
+  %44 = sub nuw i64 %.sroa.4.340, %.sroa.4.048
+  %45 = shl nuw i64 1, %44
+  %46 = and i64 %45, %28
+  %.not = icmp eq i64 %46, 0
+  br i1 %.not, label %58, label %47
 
-48:                                               ; preds = %.lr.ph
-  %49 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.340
-  %50 = load i64, ptr %2, align 8, !tbaa !465
-  %51 = add i64 %50, 1
-  store i64 %51, ptr %2, align 8, !tbaa !465
-  %52 = load double, ptr %49, align 8, !tbaa !45
-  %53 = load double, ptr %10, align 8, !tbaa !45
-  %54 = fsub double %52, %53
-  %55 = load double, ptr %9, align 8, !tbaa !45
-  %56 = fadd double %55, %54
-  %57 = fsub double %56, %55
-  %58 = fsub double %57, %54
-  store double %58, ptr %10, align 8, !tbaa !45
-  store double %56, ptr %9, align 8, !tbaa !45
-  br label %59
+47:                                               ; preds = %.lr.ph
+  %48 = getelementptr inbounds nuw double, ptr %0, i64 %.sroa.4.340
+  %49 = load i64, ptr %2, align 8, !tbaa !465
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %2, align 8, !tbaa !465
+  %51 = load double, ptr %48, align 8, !tbaa !45
+  %52 = load double, ptr %10, align 8, !tbaa !45
+  %53 = fsub double %51, %52
+  %54 = load double, ptr %9, align 8, !tbaa !45
+  %55 = fadd double %54, %53
+  %56 = fsub double %55, %54
+  %57 = fsub double %56, %53
+  store double %57, ptr %10, align 8, !tbaa !45
+  store double %55, ptr %9, align 8, !tbaa !45
+  br label %58
 
-59:                                               ; preds = %.lr.ph, %48
-  %60 = add nuw i64 %.sroa.4.340, 1
-  %exitcond62.not = icmp eq i64 %60, %30
+58:                                               ; preds = %.lr.ph, %47
+  %59 = add nuw i64 %.sroa.4.340, 1
+  %exitcond62.not = icmp eq i64 %59, %30
   br i1 %exitcond62.not, label %.loopexit, label %.lr.ph, !llvm.loop !479
 
-..loopexit_crit_edge:                             ; preds = %35
-  %61 = sub i64 %34, %.sroa.4.048
+..loopexit_crit_edge:                             ; preds = %34
+  %60 = add i64 %.promoted, %30
+  %61 = sub i64 %60, %.sroa.4.048
   store i64 %61, ptr %2, align 8, !tbaa !465
-  store double %43, ptr %10, align 8, !tbaa !45
-  store double %41, ptr %9, align 8, !tbaa !45
+  store double %42, ptr %10, align 8, !tbaa !45
+  store double %40, ptr %9, align 8, !tbaa !45
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %.preheader, %32, %..loopexit_crit_edge, %.lr.ph51.split
-  %.sroa.4.2 = phi i64 [ %30, %.lr.ph51.split ], [ %30, %..loopexit_crit_edge ], [ %.sroa.4.048, %32 ], [ %.sroa.4.048, %.preheader ], [ %30, %59 ]
+.loopexit:                                        ; preds = %58, %.preheader, %32, %..loopexit_crit_edge, %.lr.ph51.split
+  %.sroa.4.2 = phi i64 [ %30, %.lr.ph51.split ], [ %30, %..loopexit_crit_edge ], [ %.sroa.4.048, %32 ], [ %.sroa.4.048, %.preheader ], [ %30, %58 ]
   %62 = add nuw nsw i64 %.049, 1
   %exitcond63.not = icmp eq i64 %62, %7
   br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph51.split, !llvm.loop !478

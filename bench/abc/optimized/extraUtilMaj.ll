@@ -2450,57 +2450,57 @@ define noundef i32 @Gem_FuncCheckMajority(ptr noundef readonly captures(none) %0
   %.not48.i = icmp eq i32 %26, 0
   br i1 %.not48.i, label %Abc_TtIsFullySymmetric.exit.thread19, label %.lr.ph.us.i
 
-.lr.ph.us.i:                                      ; preds = %2, %39
-  %.02545.us.i = phi i32 [ %.12640.us.i, %39 ], [ 0, %2 ]
-  %.02844.us.i = phi i32 [ %.12939.us.i, %39 ], [ 0, %2 ]
-  %.03243.us.i = phi i32 [ %40, %39 ], [ 0, %2 ]
+.lr.ph.us.i:                                      ; preds = %2, %36
+  %.02545.us.i = phi i32 [ %.12640.us.i, %36 ], [ 0, %2 ]
+  %.02844.us.i = phi i32 [ %.12939.us.i, %36 ], [ 0, %2 ]
+  %.03243.us.i = phi i32 [ %37, %36 ], [ 0, %2 ]
   %27 = lshr i32 %.03243.us.i, 6
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds nuw i64, ptr %24, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !40
-  %31 = and i32 %.03243.us.i, 63
-  %32 = zext nneg i32 %31 to i64
-  %33 = lshr i64 %30, %32
-  br label %42
-
-34:                                               ; preds = %._crit_edge.us.i
-  %35 = lshr i32 %.02844.us.i, %45
-  %36 = and i32 %35, 1
-  %.not34.us.i = icmp eq i32 %48, %36
-  br i1 %.not34.us.i, label %39, label %Abc_TtIsFullySymmetric.exit.thread
-
-.thread.us.i:                                     ; preds = %._crit_edge.us.i
-  %37 = or i32 %49, %.02545.us.i
-  %.not33.us.i = icmp eq i32 %48, 0
-  %38 = select i1 %.not33.us.i, i32 0, i32 %49
-  %spec.select.us.i = or i32 %38, %.02844.us.i
   br label %39
 
-39:                                               ; preds = %.thread.us.i, %34
-  %.12640.us.i = phi i32 [ %37, %.thread.us.i ], [ %.02545.us.i, %34 ]
-  %.12939.us.i = phi i32 [ %spec.select.us.i, %.thread.us.i ], [ %.02844.us.i, %34 ]
-  %40 = add nuw nsw i32 %.03243.us.i, 1
-  %.032.highbits.us.i = lshr i32 %40, %26
-  %41 = icmp eq i32 %.032.highbits.us.i, 0
-  br i1 %41, label %.lr.ph.us.i, label %Abc_TtIsFullySymmetric.exit, !llvm.loop !83
+31:                                               ; preds = %._crit_edge.us.i
+  %32 = lshr i32 %.02844.us.i, %42
+  %33 = and i32 %32, 1
+  %.not34.us.i = icmp eq i32 %48, %33
+  br i1 %.not34.us.i, label %36, label %Abc_TtIsFullySymmetric.exit.thread
 
-42:                                               ; preds = %42, %.lr.ph.us.i
-  %.02442.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %45, %42 ]
-  %.03141.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %46, %42 ]
-  %43 = lshr i32 %.03243.us.i, %.03141.us.i
-  %44 = and i32 %43, 1
-  %45 = add nuw nsw i32 %44, %.02442.us.i
-  %46 = add nuw nsw i32 %.03141.us.i, 1
-  %exitcond.not.i = icmp eq i32 %46, %26
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %42, !llvm.loop !84
+.thread.us.i:                                     ; preds = %._crit_edge.us.i
+  %34 = or i32 %49, %.02545.us.i
+  %.not33.us.i = icmp eq i32 %48, 0
+  %35 = select i1 %.not33.us.i, i32 0, i32 %49
+  %spec.select.us.i = or i32 %35, %.02844.us.i
+  br label %36
 
-._crit_edge.us.i:                                 ; preds = %42
-  %47 = trunc i64 %33 to i32
+36:                                               ; preds = %.thread.us.i, %31
+  %.12640.us.i = phi i32 [ %34, %.thread.us.i ], [ %.02545.us.i, %31 ]
+  %.12939.us.i = phi i32 [ %spec.select.us.i, %.thread.us.i ], [ %.02844.us.i, %31 ]
+  %37 = add nuw nsw i32 %.03243.us.i, 1
+  %.032.highbits.us.i = lshr i32 %37, %26
+  %38 = icmp eq i32 %.032.highbits.us.i, 0
+  br i1 %38, label %.lr.ph.us.i, label %Abc_TtIsFullySymmetric.exit, !llvm.loop !83
+
+39:                                               ; preds = %39, %.lr.ph.us.i
+  %.02442.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %42, %39 ]
+  %.03141.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %43, %39 ]
+  %40 = lshr i32 %.03243.us.i, %.03141.us.i
+  %41 = and i32 %40, 1
+  %42 = add nuw nsw i32 %41, %.02442.us.i
+  %43 = add nuw nsw i32 %.03141.us.i, 1
+  %exitcond.not.i = icmp eq i32 %43, %26
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %39, !llvm.loop !84
+
+._crit_edge.us.i:                                 ; preds = %39
+  %44 = and i32 %.03243.us.i, 63
+  %45 = zext nneg i32 %44 to i64
+  %46 = lshr i64 %30, %45
+  %47 = trunc i64 %46 to i32
   %48 = and i32 %47, 1
-  %49 = shl nuw i32 1, %45
+  %49 = shl nuw i32 1, %42
   %50 = and i32 %49, %.02545.us.i
   %.not.us.i = icmp eq i32 %50, 0
-  br i1 %.not.us.i, label %.thread.us.i, label %34
+  br i1 %.not.us.i, label %.thread.us.i, label %31
 
 Abc_TtIsFullySymmetric.exit.thread19:             ; preds = %2
   %51 = load i64, ptr %24, align 8, !tbaa !40
@@ -2509,7 +2509,7 @@ Abc_TtIsFullySymmetric.exit.thread19:             ; preds = %2
   store i32 %53, ptr %3, align 4, !tbaa !12
   br label %54
 
-Abc_TtIsFullySymmetric.exit:                      ; preds = %39
+Abc_TtIsFullySymmetric.exit:                      ; preds = %36
   store i32 %.12939.us.i, ptr %3, align 4, !tbaa !12
   %.not = icmp eq i32 %.12939.us.i, -1
   br i1 %.not, label %Abc_TtIsFullySymmetric.exit.thread, label %54
@@ -2548,7 +2548,7 @@ Abc_TtIsFullySymmetric.exit:                      ; preds = %39
   %putchar = call i32 @putchar(i32 10)
   br label %Abc_TtIsFullySymmetric.exit.thread
 
-Abc_TtIsFullySymmetric.exit.thread:               ; preds = %34, %Abc_TtIsFullySymmetric.exit, %75, %.critedge
+Abc_TtIsFullySymmetric.exit.thread:               ; preds = %31, %Abc_TtIsFullySymmetric.exit, %75, %.critedge
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #22
   ret i32 0
 }

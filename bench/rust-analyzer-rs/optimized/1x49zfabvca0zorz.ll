@@ -6635,16 +6635,16 @@ define internal fastcc { ptr, ptr } @"_ZN99_$LT$core..iter..adapters..zip..Zip$L
 
 .lr.ph14:                                         ; preds = %.lr.ph.split.us
   %.val.us = load ptr, ptr %.val.i.i.us, align 8, !alias.scope !1735, !noundef !11
-  %17 = getelementptr inbounds nuw i8, ptr %.val.us, i64 8
-  %18 = ptrtoint ptr %4 to i64
-  %19 = add i64 %18, -24
-  %20 = sub i64 %19, %6
-  %21 = urem i64 %20, 24
-  %22 = sub nuw i64 %20, %21
-  %23 = getelementptr i8, ptr %5, i64 %22
-  %24 = icmp eq ptr %.val.us, null
-  %.0.i.i.i11.us = select i1 %24, ptr null, ptr %17
-  %scevgep26 = getelementptr i8, ptr %5, i64 %22
+  %17 = icmp eq ptr %.val.us, null
+  %18 = getelementptr inbounds nuw i8, ptr %.val.us, i64 8
+  %.0.i.i.i11.us = select i1 %17, ptr null, ptr %18
+  %19 = ptrtoint ptr %4 to i64
+  %20 = add i64 %19, -24
+  %21 = sub i64 %20, %6
+  %22 = urem i64 %21, 24
+  %23 = sub nuw i64 %21, %22
+  %24 = getelementptr i8, ptr %5, i64 %23
+  %scevgep26 = getelementptr i8, ptr %5, i64 %23
   br label %select.unfold.sink.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %50
@@ -6746,7 +6746,7 @@ _ZN4core3ops8function6FnOnce9call_once17h26557315fdbc7467E.exit.i.i.i: ; preds =
   br i1 %55, label %select.unfold, label %.lr.ph.splitthread-pre-split, !llvm.loop !1761
 
 select.unfold.sink.split:                         ; preds = %.lr.ph.split.us, %.lr.ph14
-  %.pn = phi ptr [ %23, %.lr.ph14 ], [ %5, %.lr.ph.split.us ]
+  %.pn = phi ptr [ %24, %.lr.ph14 ], [ %5, %.lr.ph.split.us ]
   %.sroa.6.0.lcssa.ph = phi ptr [ %.0.i.i.i11.us, %.lr.ph14 ], [ undef, %.lr.ph.split.us ]
   %.sroa.0.0.lcssa.ph = phi ptr [ %scevgep26, %.lr.ph14 ], [ null, %.lr.ph.split.us ]
   %scevgep.sink = getelementptr i8, ptr %.pn, i64 24

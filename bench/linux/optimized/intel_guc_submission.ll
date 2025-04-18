@@ -4410,53 +4410,53 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
   %64 = load i32, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %66 = load i8, ptr %65, align 8
-  %67 = zext i8 %66 to i32
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %69 = load ptr, ptr %68, align 8
-  %70 = zext i8 %66 to i64
-  %71 = shl nuw nsw i64 %70, 12
-  %72 = getelementptr i8, ptr %69, i64 %71
-  %73 = getelementptr i8, ptr %72, i64 -4096
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(128) %73, i8 0, i64 128, i1 false)
-  %74 = getelementptr i8, ptr %72, i64 -4084
-  store i32 1, ptr %74, align 1
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  store ptr %73, ptr %75, align 8
-  %76 = getelementptr i8, ptr %72, i64 -4092
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  store ptr %76, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  store ptr %74, ptr %78, align 8
-  %79 = load ptr, ptr %68, align 8
-  %80 = load i8, ptr %65, align 8
-  %81 = zext i8 %80 to i64
-  %82 = shl nuw nsw i64 %81, 12
-  %83 = getelementptr i8, ptr %79, i64 %82
-  %84 = getelementptr i8, ptr %83, i64 -3904
-  store i32 0, ptr %84, align 4
-  %85 = getelementptr i8, ptr %83, i64 -3840
-  br label %86
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %68 = load ptr, ptr %67, align 8
+  %69 = zext i8 %66 to i64
+  %70 = shl nuw nsw i64 %69, 12
+  %71 = getelementptr i8, ptr %68, i64 %70
+  %72 = getelementptr i8, ptr %71, i64 -4096
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(128) %72, i8 0, i64 128, i1 false)
+  %73 = getelementptr i8, ptr %71, i64 -4084
+  store i32 1, ptr %73, align 1
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  store ptr %72, ptr %74, align 8
+  %75 = getelementptr i8, ptr %71, i64 -4092
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  store ptr %75, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  store ptr %73, ptr %77, align 8
+  %78 = load ptr, ptr %67, align 8
+  %79 = load i8, ptr %65, align 8
+  %80 = zext i8 %79 to i64
+  %81 = shl nuw nsw i64 %80, 12
+  %82 = getelementptr i8, ptr %78, i64 %81
+  %83 = getelementptr i8, ptr %82, i64 -3904
+  store i32 0, ptr %83, align 4
+  %84 = getelementptr i8, ptr %82, i64 -3840
+  br label %85
 
-86:                                               ; preds = %86, %56
-  %87 = phi i64 [ 0, %56 ], [ %89, %86 ]
-  %88 = getelementptr [9 x %struct.sync_semaphore], ptr %85, i64 0, i64 %87
-  store i32 0, ptr %88, align 4
-  %89 = add nuw nsw i64 %87, 1
-  %90 = load i8, ptr %53, align 4
-  %91 = zext i8 %90 to i64
-  %92 = icmp samesign ult i64 %87, %91
-  br i1 %92, label %86, label %93, !llvm.loop !77
+85:                                               ; preds = %85, %56
+  %86 = phi i64 [ 0, %56 ], [ %88, %85 ]
+  %87 = getelementptr [9 x %struct.sync_semaphore], ptr %84, i64 0, i64 %86
+  store i32 0, ptr %87, align 4
+  %88 = add nuw nsw i64 %86, 1
+  %89 = load i8, ptr %53, align 4
+  %90 = zext i8 %89 to i64
+  %91 = icmp samesign ult i64 %86, %90
+  br i1 %91, label %85, label %92, !llvm.loop !77
 
-93:                                               ; preds = %86
-  %94 = trunc i64 %62 to i32
-  %95 = shl nuw nsw i32 %67, 12
-  %96 = add i32 %64, %94
+92:                                               ; preds = %85
+  %93 = trunc i64 %62 to i32
+  %94 = zext i8 %66 to i32
+  %95 = shl nuw nsw i32 %94, 12
+  %96 = add i32 %64, %93
   %97 = add i32 %96, %95
   %98 = add i32 %97, 2048
-  %99 = icmp eq i8 %90, 0
+  %99 = icmp eq i8 %89, 0
   br i1 %99, label %.thread, label %100
 
-100:                                              ; preds = %93
+100:                                              ; preds = %92
   call void @llvm.lifetime.start.p0(i64 116, ptr nonnull %6) #20
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %101, i8 0, i64 68, i1 false), !annotation !47
@@ -4480,7 +4480,7 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 2048, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %112 = zext i8 %90 to i32
+  %112 = zext i8 %89 to i32
   %113 = add nuw nsw i32 %112, 1
   %114 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %113, ptr %114, align 8
@@ -4513,10 +4513,10 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
   call void @llvm.lifetime.end.p0(i64 116, ptr nonnull %6) #20
   br label %333
 
-.thread:                                          ; preds = %51, %93
-  %132 = phi i32 [ 2048, %93 ], [ 0, %51 ]
-  %133 = phi i32 [ %98, %93 ], [ 0, %51 ]
-  %134 = phi i32 [ %97, %93 ], [ 0, %51 ]
+.thread:                                          ; preds = %51, %92
+  %132 = phi i32 [ 2048, %92 ], [ 0, %51 ]
+  %133 = phi i32 [ %98, %92 ], [ 0, %51 ]
+  %134 = phi i32 [ %97, %92 ], [ 0, %51 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #20
   store i32 17666, ptr %5, align 16
   %135 = getelementptr inbounds nuw i8, ptr %5, i64 4

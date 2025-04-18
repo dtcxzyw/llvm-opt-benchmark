@@ -15085,147 +15085,147 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10o
   br i1 %.not.i.i54, label %.lr.ph.i.i58, label %96, !llvm.loop !86
 
 .lr.ph.i.i58:                                     ; preds = %96
-  %101 = mul nsw i64 %spec.select.i.i53, %94
-  %102 = sitofp i64 %101 to double
-  %103 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElStoneE, align 8
-  br label %104
+  %101 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElStoneE, align 8
+  br label %102
 
-104:                                              ; preds = %104, %.lr.ph.i.i58
-  %.07.i.i59 = phi i64 [ 0, %.lr.ph.i.i58 ], [ %spec.select.i.i61, %104 ]
-  %.sroa.03.06.i.i60 = phi ptr [ %52, %.lr.ph.i.i58 ], [ %108, %104 ]
-  %105 = load i32, ptr %.sroa.03.06.i.i60, align 4
-  %106 = icmp eq i32 %105, %103
-  %107 = zext i1 %106 to i64
-  %spec.select.i.i61 = add nuw nsw i64 %.07.i.i59, %107
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i60, i64 16
-  %.not.i.i62 = icmp eq ptr %108, %54
-  br i1 %.not.i.i62, label %.lr.ph.i.i66, label %104, !llvm.loop !86
+102:                                              ; preds = %102, %.lr.ph.i.i58
+  %.07.i.i59 = phi i64 [ 0, %.lr.ph.i.i58 ], [ %spec.select.i.i61, %102 ]
+  %.sroa.03.06.i.i60 = phi ptr [ %52, %.lr.ph.i.i58 ], [ %106, %102 ]
+  %103 = load i32, ptr %.sroa.03.06.i.i60, align 4
+  %104 = icmp eq i32 %103, %101
+  %105 = zext i1 %104 to i64
+  %spec.select.i.i61 = add nuw nsw i64 %.07.i.i59, %105
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i60, i64 16
+  %.not.i.i62 = icmp eq ptr %106, %54
+  br i1 %.not.i.i62, label %.lr.ph.i.i66, label %102, !llvm.loop !86
 
-.lr.ph.i.i66:                                     ; preds = %104
-  %109 = uitofp nneg i64 %spec.select.i.i61 to double
-  %110 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, align 8
-  br label %111
+.lr.ph.i.i66:                                     ; preds = %102
+  %107 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_115kElStoneFallingE, align 8
+  br label %108
 
-111:                                              ; preds = %111, %.lr.ph.i.i66
-  %.07.i.i67 = phi i64 [ 0, %.lr.ph.i.i66 ], [ %spec.select.i.i69, %111 ]
-  %.sroa.03.06.i.i68 = phi ptr [ %52, %.lr.ph.i.i66 ], [ %115, %111 ]
-  %112 = load i32, ptr %.sroa.03.06.i.i68, align 4
-  %113 = icmp eq i32 %112, %110
-  %114 = zext i1 %113 to i64
-  %spec.select.i.i69 = add nuw nsw i64 %.07.i.i67, %114
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i68, i64 16
-  %.not.i.i70 = icmp eq ptr %115, %54
-  br i1 %.not.i.i70, label %.lr.ph.i.i74, label %111, !llvm.loop !86
+108:                                              ; preds = %108, %.lr.ph.i.i66
+  %.07.i.i67 = phi i64 [ 0, %.lr.ph.i.i66 ], [ %spec.select.i.i69, %108 ]
+  %.sroa.03.06.i.i68 = phi ptr [ %52, %.lr.ph.i.i66 ], [ %112, %108 ]
+  %109 = load i32, ptr %.sroa.03.06.i.i68, align 4
+  %110 = icmp eq i32 %109, %107
+  %111 = zext i1 %110 to i64
+  %spec.select.i.i69 = add nuw nsw i64 %.07.i.i67, %111
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i68, i64 16
+  %.not.i.i70 = icmp eq ptr %112, %54
+  br i1 %.not.i.i70, label %.lr.ph.i.i74, label %108, !llvm.loop !86
 
-.lr.ph.i.i74:                                     ; preds = %111
-  %116 = fadd double %61, %102
-  %117 = uitofp nneg i64 %spec.select.i.i69 to double
-  %118 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElButterflyUpE, align 4
-  br label %119
+.lr.ph.i.i74:                                     ; preds = %108
+  %113 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_114kElButterflyUpE, align 4
+  br label %114
 
-119:                                              ; preds = %119, %.lr.ph.i.i74
-  %.07.i.i75 = phi i64 [ 0, %.lr.ph.i.i74 ], [ %spec.select.i.i77, %119 ]
-  %.sroa.03.06.i.i76 = phi ptr [ %52, %.lr.ph.i.i74 ], [ %123, %119 ]
-  %120 = load i32, ptr %.sroa.03.06.i.i76, align 4
-  %121 = icmp eq i32 %120, %118
-  %122 = zext i1 %121 to i64
-  %spec.select.i.i77 = add nuw nsw i64 %.07.i.i75, %122
-  %123 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i76, i64 16
-  %.not.i.i78 = icmp eq ptr %123, %54
-  br i1 %.not.i.i78, label %.lr.ph.i.i82, label %119, !llvm.loop !86
+114:                                              ; preds = %114, %.lr.ph.i.i74
+  %.07.i.i75 = phi i64 [ 0, %.lr.ph.i.i74 ], [ %spec.select.i.i77, %114 ]
+  %.sroa.03.06.i.i76 = phi ptr [ %52, %.lr.ph.i.i74 ], [ %118, %114 ]
+  %115 = load i32, ptr %.sroa.03.06.i.i76, align 4
+  %116 = icmp eq i32 %115, %113
+  %117 = zext i1 %116 to i64
+  %spec.select.i.i77 = add nuw nsw i64 %.07.i.i75, %117
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i76, i64 16
+  %.not.i.i78 = icmp eq ptr %118, %54
+  br i1 %.not.i.i78, label %.lr.ph.i.i82, label %114, !llvm.loop !86
 
-.lr.ph.i.i82:                                     ; preds = %119
-  %124 = fadd double %116, %109
-  %125 = mul nuw nsw i64 %spec.select.i.i77, 9
-  %126 = uitofp nneg i64 %125 to double
-  %127 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kElButterflyLeftE, align 4
-  br label %128
+.lr.ph.i.i82:                                     ; preds = %114
+  %119 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kElButterflyLeftE, align 4
+  br label %120
 
-128:                                              ; preds = %128, %.lr.ph.i.i82
-  %.07.i.i83 = phi i64 [ 0, %.lr.ph.i.i82 ], [ %spec.select.i.i85, %128 ]
-  %.sroa.03.06.i.i84 = phi ptr [ %52, %.lr.ph.i.i82 ], [ %132, %128 ]
-  %129 = load i32, ptr %.sroa.03.06.i.i84, align 4
-  %130 = icmp eq i32 %129, %127
-  %131 = zext i1 %130 to i64
-  %spec.select.i.i85 = add nuw nsw i64 %.07.i.i83, %131
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i84, i64 16
-  %.not.i.i86 = icmp eq ptr %132, %54
-  br i1 %.not.i.i86, label %.lr.ph.i.i90, label %128, !llvm.loop !86
+120:                                              ; preds = %120, %.lr.ph.i.i82
+  %.07.i.i83 = phi i64 [ 0, %.lr.ph.i.i82 ], [ %spec.select.i.i85, %120 ]
+  %.sroa.03.06.i.i84 = phi ptr [ %52, %.lr.ph.i.i82 ], [ %124, %120 ]
+  %121 = load i32, ptr %.sroa.03.06.i.i84, align 4
+  %122 = icmp eq i32 %121, %119
+  %123 = zext i1 %122 to i64
+  %spec.select.i.i85 = add nuw nsw i64 %.07.i.i83, %123
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i84, i64 16
+  %.not.i.i86 = icmp eq ptr %124, %54
+  br i1 %.not.i.i86, label %.lr.ph.i.i90, label %120, !llvm.loop !86
 
-.lr.ph.i.i90:                                     ; preds = %128
-  %133 = fadd double %124, %117
-  %134 = mul nuw nsw i64 %spec.select.i.i85, 9
-  %135 = uitofp nneg i64 %134 to double
-  %136 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kElButterflyDownE, align 4
-  br label %137
+.lr.ph.i.i90:                                     ; preds = %120
+  %125 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_116kElButterflyDownE, align 4
+  br label %126
 
-137:                                              ; preds = %137, %.lr.ph.i.i90
-  %.07.i.i91 = phi i64 [ 0, %.lr.ph.i.i90 ], [ %spec.select.i.i93, %137 ]
-  %.sroa.03.06.i.i92 = phi ptr [ %52, %.lr.ph.i.i90 ], [ %141, %137 ]
-  %138 = load i32, ptr %.sroa.03.06.i.i92, align 4
-  %139 = icmp eq i32 %138, %136
-  %140 = zext i1 %139 to i64
-  %spec.select.i.i93 = add nuw nsw i64 %.07.i.i91, %140
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i92, i64 16
-  %.not.i.i94 = icmp eq ptr %141, %54
-  br i1 %.not.i.i94, label %.lr.ph.i.i98, label %137, !llvm.loop !86
+126:                                              ; preds = %126, %.lr.ph.i.i90
+  %.07.i.i91 = phi i64 [ 0, %.lr.ph.i.i90 ], [ %spec.select.i.i93, %126 ]
+  %.sroa.03.06.i.i92 = phi ptr [ %52, %.lr.ph.i.i90 ], [ %130, %126 ]
+  %127 = load i32, ptr %.sroa.03.06.i.i92, align 4
+  %128 = icmp eq i32 %127, %125
+  %129 = zext i1 %128 to i64
+  %spec.select.i.i93 = add nuw nsw i64 %.07.i.i91, %129
+  %130 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i92, i64 16
+  %.not.i.i94 = icmp eq ptr %130, %54
+  br i1 %.not.i.i94, label %.lr.ph.i.i98, label %126, !llvm.loop !86
 
-.lr.ph.i.i98:                                     ; preds = %137
-  %142 = fadd double %133, %126
-  %143 = mul nuw nsw i64 %spec.select.i.i93, 9
-  %144 = uitofp nneg i64 %143 to double
-  %145 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElButterflyRightE, align 4
-  br label %146
+.lr.ph.i.i98:                                     ; preds = %126
+  %131 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_117kElButterflyRightE, align 4
+  br label %132
 
-146:                                              ; preds = %146, %.lr.ph.i.i98
-  %.07.i.i99 = phi i64 [ 0, %.lr.ph.i.i98 ], [ %spec.select.i.i101, %146 ]
-  %.sroa.03.06.i.i100 = phi ptr [ %52, %.lr.ph.i.i98 ], [ %150, %146 ]
-  %147 = load i32, ptr %.sroa.03.06.i.i100, align 4
-  %148 = icmp eq i32 %147, %145
-  %149 = zext i1 %148 to i64
-  %spec.select.i.i101 = add nuw nsw i64 %.07.i.i99, %149
-  %150 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i100, i64 16
-  %.not.i.i102 = icmp eq ptr %150, %54
-  br i1 %.not.i.i102, label %.lr.ph.i.i106, label %146, !llvm.loop !86
+132:                                              ; preds = %132, %.lr.ph.i.i98
+  %.07.i.i99 = phi i64 [ 0, %.lr.ph.i.i98 ], [ %spec.select.i.i101, %132 ]
+  %.sroa.03.06.i.i100 = phi ptr [ %52, %.lr.ph.i.i98 ], [ %136, %132 ]
+  %133 = load i32, ptr %.sroa.03.06.i.i100, align 4
+  %134 = icmp eq i32 %133, %131
+  %135 = zext i1 %134 to i64
+  %spec.select.i.i101 = add nuw nsw i64 %.07.i.i99, %135
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i100, i64 16
+  %.not.i.i102 = icmp eq ptr %136, %54
+  br i1 %.not.i.i102, label %.lr.ph.i.i106, label %132, !llvm.loop !86
 
-.lr.ph.i.i106:                                    ; preds = %146
-  %151 = fadd double %142, %135
-  %152 = mul nuw nsw i64 %spec.select.i.i101, 9
-  %153 = uitofp nneg i64 %152 to double
-  %154 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_16kElNutE, align 8
-  br label %155
+.lr.ph.i.i106:                                    ; preds = %132
+  %137 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_16kElNutE, align 8
+  br label %138
 
-155:                                              ; preds = %155, %.lr.ph.i.i106
-  %.07.i.i107 = phi i64 [ 0, %.lr.ph.i.i106 ], [ %spec.select.i.i109, %155 ]
-  %.sroa.03.06.i.i108 = phi ptr [ %52, %.lr.ph.i.i106 ], [ %159, %155 ]
-  %156 = load i32, ptr %.sroa.03.06.i.i108, align 4
-  %157 = icmp eq i32 %156, %154
-  %158 = zext i1 %157 to i64
-  %spec.select.i.i109 = add nuw nsw i64 %.07.i.i107, %158
-  %159 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i108, i64 16
-  %.not.i.i110 = icmp eq ptr %159, %54
-  br i1 %.not.i.i110, label %.lr.ph.i.i114, label %155, !llvm.loop !86
+138:                                              ; preds = %138, %.lr.ph.i.i106
+  %.07.i.i107 = phi i64 [ 0, %.lr.ph.i.i106 ], [ %spec.select.i.i109, %138 ]
+  %.sroa.03.06.i.i108 = phi ptr [ %52, %.lr.ph.i.i106 ], [ %142, %138 ]
+  %139 = load i32, ptr %.sroa.03.06.i.i108, align 4
+  %140 = icmp eq i32 %139, %137
+  %141 = zext i1 %140 to i64
+  %spec.select.i.i109 = add nuw nsw i64 %.07.i.i107, %141
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i108, i64 16
+  %.not.i.i110 = icmp eq ptr %142, %54
+  br i1 %.not.i.i110, label %.lr.ph.i.i114, label %138, !llvm.loop !86
 
-.lr.ph.i.i114:                                    ; preds = %155
-  %160 = fadd double %151, %144
-  %161 = uitofp nneg i64 %spec.select.i.i109 to double
-  %162 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, align 8
-  br label %163
+.lr.ph.i.i114:                                    ; preds = %138
+  %143 = load i32, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_113kElNutFallingE, align 8
+  br label %144
 
-163:                                              ; preds = %163, %.lr.ph.i.i114
-  %.07.i.i115 = phi i64 [ 0, %.lr.ph.i.i114 ], [ %spec.select.i.i117, %163 ]
-  %.sroa.03.06.i.i116 = phi ptr [ %52, %.lr.ph.i.i114 ], [ %167, %163 ]
-  %164 = load i32, ptr %.sroa.03.06.i.i116, align 4
-  %165 = icmp eq i32 %164, %162
-  %166 = zext i1 %165 to i64
-  %spec.select.i.i117 = add nuw nsw i64 %.07.i.i115, %166
-  %167 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i116, i64 16
-  %.not.i.i118 = icmp eq ptr %167, %54
-  br i1 %.not.i.i118, label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120.loopexit, label %163, !llvm.loop !86
+144:                                              ; preds = %144, %.lr.ph.i.i114
+  %.07.i.i115 = phi i64 [ 0, %.lr.ph.i.i114 ], [ %spec.select.i.i117, %144 ]
+  %.sroa.03.06.i.i116 = phi ptr [ %52, %.lr.ph.i.i114 ], [ %148, %144 ]
+  %145 = load i32, ptr %.sroa.03.06.i.i116, align 4
+  %146 = icmp eq i32 %145, %143
+  %147 = zext i1 %146 to i64
+  %spec.select.i.i117 = add nuw nsw i64 %.07.i.i115, %147
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i.i116, i64 16
+  %.not.i.i118 = icmp eq ptr %148, %54
+  br i1 %.not.i.i118, label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120.loopexit, label %144, !llvm.loop !86
 
-_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120.loopexit: ; preds = %163
-  %168 = fadd double %160, %153
-  %169 = fadd double %168, %161
+_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120.loopexit: ; preds = %144
+  %149 = mul nsw i64 %spec.select.i.i53, %94
+  %150 = sitofp i64 %149 to double
+  %151 = fadd double %61, %150
+  %152 = uitofp nneg i64 %spec.select.i.i61 to double
+  %153 = fadd double %151, %152
+  %154 = uitofp nneg i64 %spec.select.i.i69 to double
+  %155 = fadd double %153, %154
+  %156 = mul nuw nsw i64 %spec.select.i.i77, 9
+  %157 = uitofp nneg i64 %156 to double
+  %158 = fadd double %155, %157
+  %159 = mul nuw nsw i64 %spec.select.i.i85, 9
+  %160 = uitofp nneg i64 %159 to double
+  %161 = fadd double %158, %160
+  %162 = mul nuw nsw i64 %spec.select.i.i93, 9
+  %163 = uitofp nneg i64 %162 to double
+  %164 = fadd double %161, %163
+  %165 = mul nuw nsw i64 %spec.select.i.i101, 9
+  %166 = uitofp nneg i64 %165 to double
+  %167 = fadd double %164, %166
+  %168 = uitofp nneg i64 %spec.select.i.i109 to double
+  %169 = fadd double %167, %168
   %170 = uitofp nneg i64 %spec.select.i.i117 to double
   br label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7ElementESt6vectorIS4_SaIS4_EEEES4_ENSt15iterator_traitsIT_E15difference_typeESC_SC_RKT0_.exit120
 

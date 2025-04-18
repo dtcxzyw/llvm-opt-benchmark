@@ -6917,33 +6917,33 @@ define internal fastcc void @ssl_bitmask_set(ptr noundef captures(none) %0, i64 
   br i1 %.not46, label %..loopexit50_crit_edge, label %11, !llvm.loop !173
 
 19:                                               ; preds = %7
-  %20 = add nuw nsw i64 %1, %9
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %8
-  %.promoted53 = load i8, ptr %21, align 1, !tbaa !32
-  br label %22
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %8
+  %.promoted53 = load i8, ptr %20, align 1, !tbaa !32
+  br label %21
 
-22:                                               ; preds = %19, %22
-  %.03855 = phi i32 [ %6, %19 ], [ %24, %22 ]
-  %23 = phi i8 [ %.promoted53, %19 ], [ %27, %22 ]
-  %24 = add nsw i32 %.03855, -1
-  %25 = shl nuw nsw i32 1, %24
-  %26 = trunc i32 %25 to i8
-  %27 = or i8 %23, %26
-  %.not45 = icmp eq i32 %24, 0
-  br i1 %.not45, label %.loopexit50, label %22, !llvm.loop !174
+21:                                               ; preds = %19, %21
+  %.03855 = phi i32 [ %6, %19 ], [ %23, %21 ]
+  %22 = phi i8 [ %.promoted53, %19 ], [ %26, %21 ]
+  %23 = add nsw i32 %.03855, -1
+  %24 = shl nuw nsw i32 1, %23
+  %25 = trunc i32 %24 to i8
+  %26 = or i8 %22, %25
+  %.not45 = icmp eq i32 %23, 0
+  br i1 %.not45, label %.loopexit50, label %21, !llvm.loop !174
 
 ..loopexit50_crit_edge:                           ; preds = %11
   store i8 %17, ptr %10, align 1, !tbaa !32
   br label %.loopexit50.thread
 
-.loopexit50:                                      ; preds = %22
+.loopexit50:                                      ; preds = %21
+  %27 = add nuw nsw i64 %1, %9
   %28 = sub nuw nsw i64 %2, %9
-  store i8 %27, ptr %21, align 1, !tbaa !32
+  store i8 %26, ptr %20, align 1, !tbaa !32
   br label %29
 
 29:                                               ; preds = %.loopexit50, %3
   %.035 = phi i64 [ %28, %.loopexit50 ], [ %2, %3 ]
-  %.0 = phi i64 [ %20, %.loopexit50 ], [ %1, %3 ]
+  %.0 = phi i64 [ %27, %.loopexit50 ], [ %1, %3 ]
   %30 = trunc nuw nsw i64 %.035 to i32
   %31 = and i32 %30, 7
   %.not47 = icmp eq i32 %31, 0

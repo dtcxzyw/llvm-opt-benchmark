@@ -4353,24 +4353,24 @@ define dso_local ptr @_PyCompile_CleanDoc(ptr noundef %0) local_unnamed_addr #0 
 
 ._crit_edge:                                      ; preds = %.critedge2, %.critedge
   %.078.lcssa = phi i64 [ 9223372036854775807, %.critedge ], [ %.179, %.critedge2 ]
-  %39 = icmp eq i64 %.078.lcssa, 9223372036854775807
-  br label %40
+  br label %39
 
-40:                                               ; preds = %40, %._crit_edge
-  %.6 = phi ptr [ %6, %._crit_edge ], [ %43, %40 ]
-  %41 = load i8, ptr %.6, align 1, !tbaa !4
-  %42 = icmp eq i8 %41, 32
-  %43 = getelementptr i8, ptr %.6, i64 1
-  br i1 %42, label %40, label %44, !llvm.loop !110
+39:                                               ; preds = %39, %._crit_edge
+  %.6 = phi ptr [ %6, %._crit_edge ], [ %42, %39 ]
+  %40 = load i8, ptr %.6, align 1, !tbaa !4
+  %41 = icmp eq i8 %40, 32
+  %42 = getelementptr i8, ptr %.6, i64 1
+  br i1 %41, label %39, label %43, !llvm.loop !110
 
-44:                                               ; preds = %40
-  %spec.store.select = select i1 %39, i64 0, i64 %.078.lcssa
+43:                                               ; preds = %39
+  %44 = icmp eq i64 %.078.lcssa, 9223372036854775807
+  %spec.store.select = select i1 %44, i64 0, i64 %.078.lcssa
   %45 = icmp eq ptr %.6, %6
   %46 = icmp eq i64 %spec.store.select, 0
   %or.cond = select i1 %45, i1 %46, i1 false
   br i1 %or.cond, label %Py_DECREF.exit94, label %47
 
-47:                                               ; preds = %44
+47:                                               ; preds = %43
   %48 = call ptr @PyMem_Malloc(i64 noundef %15) #11
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %.preheader97
@@ -4510,8 +4510,8 @@ Py_DECREF.exit:                                   ; preds = %._crit_edge109, %88
   call void @PyMem_Free(ptr noundef nonnull %48) #11
   br label %Py_DECREF.exit94
 
-Py_DECREF.exit94:                                 ; preds = %13, %10, %8, %44, %Py_DECREF.exit, %Py_DECREF.exit92
-  %.1 = phi ptr [ %3, %44 ], [ null, %Py_DECREF.exit92 ], [ %95, %Py_DECREF.exit ], [ null, %8 ], [ null, %10 ], [ null, %13 ]
+Py_DECREF.exit94:                                 ; preds = %13, %10, %8, %43, %Py_DECREF.exit, %Py_DECREF.exit92
+  %.1 = phi ptr [ %3, %43 ], [ null, %Py_DECREF.exit92 ], [ %95, %Py_DECREF.exit ], [ null, %8 ], [ null, %10 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   br label %96
 

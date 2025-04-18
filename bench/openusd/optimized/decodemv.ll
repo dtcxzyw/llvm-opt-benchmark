@@ -7007,19 +7007,19 @@ aom_read_literal_.exit.i:                         ; preds = %aom_read_literal_.e
   %147 = getelementptr inbounds [24 x i16], ptr %13, i64 0, i64 %146
   store i16 %.06.lcssa.i.i, ptr %147, align 2
   %148 = icmp slt i32 %145, %121
-  br i1 %148, label %.preheader120, label %.loopexit.i
+  br i1 %148, label %.preheader121, label %.loopexit.i
 
-.preheader120:                                    ; preds = %aom_read_literal_.exit.i, %.preheader120
-  %.0.in8.i56.i = phi i32 [ %.0.i58.i, %.preheader120 ], [ 2, %aom_read_literal_.exit.i ]
-  %.067.i57.i = phi i32 [ %151, %.preheader120 ], [ 0, %aom_read_literal_.exit.i ]
+.preheader121:                                    ; preds = %aom_read_literal_.exit.i, %.preheader121
+  %.0.in8.i56.i = phi i32 [ %.0.i58.i, %.preheader121 ], [ 2, %aom_read_literal_.exit.i ]
+  %.067.i57.i = phi i32 [ %151, %.preheader121 ], [ 0, %aom_read_literal_.exit.i ]
   %.0.i58.i = add nsw i32 %.0.in8.i56.i, -1
   %149 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %43, i32 noundef 16384) #9
   %150 = shl i32 %149, %.0.i58.i
   %151 = or i32 %150, %.067.i57.i
   %152 = icmp samesign ugt i32 %.0.in8.i56.i, 1
-  br i1 %152, label %.preheader120, label %.lr.ph89.i, !llvm.loop !15
+  br i1 %152, label %.preheader121, label %.lr.ph89.i, !llvm.loop !15
 
-.lr.ph89.i:                                       ; preds = %.preheader120
+.lr.ph89.i:                                       ; preds = %.preheader121
   %153 = add nsw i32 %118, -3
   %154 = load i16, ptr %147, align 2
   %155 = zext i16 %154 to i32
@@ -7393,19 +7393,19 @@ aom_read_literal_.exit.i83:                       ; preds = %aom_read_literal_.e
   store i16 %.06.lcssa.i.i84, ptr %331, align 2
   %332 = add nuw nsw i32 %303, 8
   %333 = icmp slt i32 %329, %332
-  br i1 %333, label %.preheader, label %.loopexit163.i
+  br i1 %333, label %.preheader120, label %.loopexit163.i
 
-.preheader:                                       ; preds = %aom_read_literal_.exit.i83, %.preheader
-  %.0.in8.i109.i = phi i32 [ %.0.i111.i, %.preheader ], [ 2, %aom_read_literal_.exit.i83 ]
-  %.067.i110.i = phi i32 [ %336, %.preheader ], [ 0, %aom_read_literal_.exit.i83 ]
+.preheader120:                                    ; preds = %aom_read_literal_.exit.i83, %.preheader120
+  %.0.in8.i109.i = phi i32 [ %.0.i111.i, %.preheader120 ], [ 2, %aom_read_literal_.exit.i83 ]
+  %.067.i110.i = phi i32 [ %336, %.preheader120 ], [ 0, %aom_read_literal_.exit.i83 ]
   %.0.i111.i = add nsw i32 %.0.in8.i109.i, -1
   %334 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %226, i32 noundef 16384) #9
   %335 = shl i32 %334, %.0.i111.i
   %336 = or i32 %335, %.067.i110.i
   %337 = icmp samesign ugt i32 %.0.in8.i109.i, 1
-  br i1 %337, label %.preheader, label %.lr.ph179.i, !llvm.loop !15
+  br i1 %337, label %.preheader120, label %.lr.ph179.i, !llvm.loop !15
 
-.lr.ph179.i:                                      ; preds = %.preheader
+.lr.ph179.i:                                      ; preds = %.preheader120
   %338 = add nsw i32 %302, -3
   %339 = shl nuw i32 1, %302
   %340 = load i16, ptr %331, align 2
@@ -7557,7 +7557,7 @@ av1_ceil_log2.exit127.i:                          ; preds = %.lr.ph.i123.i, %av1
 merge_colors.exit.i:                              ; preds = %387, %389, %.loopexit163.i
   %393 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %226, i32 noundef 16384) #9
   %.not.i78 = icmp eq i32 %393, 0
-  br i1 %.not.i78, label %.preheader.i, label %.preheader163
+  br i1 %.not.i78, label %.preheader.i, label %.preheader
 
 .preheader.i:                                     ; preds = %merge_colors.exit.i
   %.not184.i = icmp eq i8 %299, 0
@@ -7601,17 +7601,17 @@ aom_read_literal_.exit157.loopexit.us.i:          ; preds = %.lr.ph.i153.us.i
   %exitcond211.not.i = icmp eq i64 %indvars.iv.next208.i, %wide.trip.count210.i
   br i1 %exitcond211.not.i, label %read_palette_colors_uv.exit, label %.lr.ph.i153.preheader.us.i, !llvm.loop !23
 
-.preheader163:                                    ; preds = %merge_colors.exit.i, %.preheader163
-  %.0.in8.i131.i = phi i32 [ %.0.i133.i, %.preheader163 ], [ 2, %merge_colors.exit.i ]
-  %.067.i132.i = phi i32 [ %406, %.preheader163 ], [ 0, %merge_colors.exit.i ]
+.preheader:                                       ; preds = %merge_colors.exit.i, %.preheader
+  %.0.in8.i131.i = phi i32 [ %.0.i133.i, %.preheader ], [ 2, %merge_colors.exit.i ]
+  %.067.i132.i = phi i32 [ %406, %.preheader ], [ 0, %merge_colors.exit.i ]
   %.0.i133.i = add nsw i32 %.0.in8.i131.i, -1
   %404 = call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %226, i32 noundef 16384) #9
   %405 = shl i32 %404, %.0.i133.i
   %406 = or i32 %405, %.067.i132.i
   %407 = icmp samesign ugt i32 %.0.in8.i131.i, 1
-  br i1 %407, label %.preheader163, label %aom_read_literal_.exit136.i, !llvm.loop !15
+  br i1 %407, label %.preheader, label %aom_read_literal_.exit136.i, !llvm.loop !15
 
-aom_read_literal_.exit136.i:                      ; preds = %.preheader163
+aom_read_literal_.exit136.i:                      ; preds = %.preheader
   %408 = add nsw i32 %302, -4
   %409 = shl nuw i32 1, %302
   %410 = add nsw i32 %408, %406

@@ -356,10 +356,10 @@ entry:
 
 invoke.cont.lr.ph:                                ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %aligned_to_1, i8 0, i64 144, i1 false)
-  %arrayctor.end = getelementptr inbounds nuw i8, ptr %aligned_to_1, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %aligned_to_4, i8 0, i64 144, i1 false)
-  %arrayctor.end2 = getelementptr inbounds nuw i8, ptr %aligned_to_4, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %aligned_to_8, i8 0, i64 144, i1 false)
+  %arrayctor.end = getelementptr inbounds nuw i8, ptr %aligned_to_1, i64 144
+  %arrayctor.end2 = getelementptr inbounds nuw i8, ptr %aligned_to_4, i64 144
   %arrayctor.end9 = getelementptr inbounds nuw i8, ptr %aligned_to_8, i64 144
   %fields_.i120 = getelementptr inbounds nuw i8, ptr %ref.tmp60, i64 8
   %_M_finish.i.i.i.i121 = getelementptr inbounds nuw i8, ptr %ref.tmp60, i64 16

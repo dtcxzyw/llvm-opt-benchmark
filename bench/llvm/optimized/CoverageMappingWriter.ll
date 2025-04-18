@@ -1235,69 +1235,69 @@ _ZL12writeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE
   %295 = getelementptr inbounds nuw i8, ptr %.0116386, i64 18
   %296 = getelementptr inbounds nuw i8, ptr %.0116386, i64 20
   %297 = load i16, ptr %296, align 2, !tbaa !82
-  %298 = sext i16 %297 to i64
-  %299 = load i16, ptr %295, align 2, !tbaa !82
-  %300 = sext i16 %299 to i64
-  %301 = and i64 %294, 4294967295
-  br label %302
+  %298 = load i16, ptr %295, align 2, !tbaa !82
+  %299 = and i64 %294, 4294967295
+  br label %300
 
-302:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i277, %_ZL12writeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterERNS_11raw_ostreamE.exit271
-  %.019.i272 = phi i64 [ %301, %_ZL12writeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterERNS_11raw_ostreamE.exit271 ], [ %303, %_ZN4llvm11raw_ostreamlsEc.exit.i277 ]
-  %303 = lshr i64 %.019.i272, 7
+300:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i277, %_ZL12writeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterERNS_11raw_ostreamE.exit271
+  %.019.i272 = phi i64 [ %299, %_ZL12writeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterERNS_11raw_ostreamE.exit271 ], [ %301, %_ZN4llvm11raw_ostreamlsEc.exit.i277 ]
+  %301 = lshr i64 %.019.i272, 7
   %.not.i274 = icmp samesign ugt i64 %.019.i272, 127
-  %304 = trunc i64 %.019.i272 to i8
-  %305 = or i8 %304, -128
-  %.0.i275 = select i1 %.not.i274, i8 %305, i8 %304
-  %306 = load ptr, ptr %19, align 8, !tbaa !32
-  %307 = load ptr, ptr %20, align 8, !tbaa !33
-  %.not.i.i276 = icmp ult ptr %306, %307
-  br i1 %.not.i.i276, label %310, label %308
+  %302 = trunc i64 %.019.i272 to i8
+  %303 = or i8 %302, -128
+  %.0.i275 = select i1 %.not.i274, i8 %303, i8 %302
+  %304 = load ptr, ptr %19, align 8, !tbaa !32
+  %305 = load ptr, ptr %20, align 8, !tbaa !33
+  %.not.i.i276 = icmp ult ptr %304, %305
+  br i1 %.not.i.i276, label %308, label %306
 
-308:                                              ; preds = %302
-  %309 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext %.0.i275) #16
+306:                                              ; preds = %300
+  %307 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext %.0.i275) #16
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i277
 
-310:                                              ; preds = %302
-  %311 = getelementptr inbounds nuw i8, ptr %306, i64 1
-  store ptr %311, ptr %19, align 8, !tbaa !32
-  store i8 %.0.i275, ptr %306, align 1, !tbaa !15
+308:                                              ; preds = %300
+  %309 = getelementptr inbounds nuw i8, ptr %304, i64 1
+  store ptr %309, ptr %19, align 8, !tbaa !32
+  store i8 %.0.i275, ptr %304, align 1, !tbaa !15
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i277
 
-_ZN4llvm11raw_ostreamlsEc.exit.i277:              ; preds = %310, %308
-  br i1 %.not.i274, label %302, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit279, !llvm.loop !34
+_ZN4llvm11raw_ostreamlsEc.exit.i277:              ; preds = %308, %306
+  br i1 %.not.i274, label %300, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit279, !llvm.loop !34
 
 _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit279: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i277
-  %312 = add nsw i64 %298, 1
-  %313 = and i64 %312, 4294967295
-  br label %314
+  %310 = sext i16 %297 to i64
+  %311 = add nsw i64 %310, 1
+  %312 = and i64 %311, 4294967295
+  br label %313
 
-314:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i285, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit279
-  %.019.i280 = phi i64 [ %313, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit279 ], [ %315, %_ZN4llvm11raw_ostreamlsEc.exit.i285 ]
-  %315 = lshr i64 %.019.i280, 7
+313:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i285, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit279
+  %.019.i280 = phi i64 [ %312, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit279 ], [ %314, %_ZN4llvm11raw_ostreamlsEc.exit.i285 ]
+  %314 = lshr i64 %.019.i280, 7
   %.not.i282 = icmp samesign ugt i64 %.019.i280, 127
-  %316 = trunc i64 %.019.i280 to i8
-  %317 = or i8 %316, -128
-  %.0.i283 = select i1 %.not.i282, i8 %317, i8 %316
-  %318 = load ptr, ptr %19, align 8, !tbaa !32
-  %319 = load ptr, ptr %20, align 8, !tbaa !33
-  %.not.i.i284 = icmp ult ptr %318, %319
-  br i1 %.not.i.i284, label %322, label %320
+  %315 = trunc i64 %.019.i280 to i8
+  %316 = or i8 %315, -128
+  %.0.i283 = select i1 %.not.i282, i8 %316, i8 %315
+  %317 = load ptr, ptr %19, align 8, !tbaa !32
+  %318 = load ptr, ptr %20, align 8, !tbaa !33
+  %.not.i.i284 = icmp ult ptr %317, %318
+  br i1 %.not.i.i284, label %321, label %319
 
-320:                                              ; preds = %314
-  %321 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext %.0.i283) #16
+319:                                              ; preds = %313
+  %320 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 noundef zeroext %.0.i283) #16
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i285
 
-322:                                              ; preds = %314
-  %323 = getelementptr inbounds nuw i8, ptr %318, i64 1
-  store ptr %323, ptr %19, align 8, !tbaa !32
-  store i8 %.0.i283, ptr %318, align 1, !tbaa !15
+321:                                              ; preds = %313
+  %322 = getelementptr inbounds nuw i8, ptr %317, i64 1
+  store ptr %322, ptr %19, align 8, !tbaa !32
+  store i8 %.0.i283, ptr %317, align 1, !tbaa !15
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i285
 
-_ZN4llvm11raw_ostreamlsEc.exit.i285:              ; preds = %322, %320
-  br i1 %.not.i282, label %314, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit287, !llvm.loop !34
+_ZN4llvm11raw_ostreamlsEc.exit.i285:              ; preds = %321, %319
+  br i1 %.not.i282, label %313, label %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit287, !llvm.loop !34
 
 _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit287: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i285
-  %324 = add nsw i64 %300, 1
+  %323 = sext i16 %298 to i64
+  %324 = add nsw i64 %323, 1
   %325 = and i64 %324, 4294967295
   br label %326
 

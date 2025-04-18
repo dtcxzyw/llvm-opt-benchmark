@@ -1155,12 +1155,12 @@ _ZN10OpenSubdiv6v3_6_03Osd20ComputeStencilKernelILi8EEEvPKfPfPKiS7_S4_ii.exit: ;
   br i1 %137, label %.lr.ph.i71.preheader.us, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.preheader
 
 _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.preheader: ; preds = %.lr.ph
+  %scevgep = getelementptr i8, ptr %.13682, i64 4
   %139 = add nsw i32 %132, -1
   %140 = zext nneg i32 %139 to i64
   %141 = shl nuw nsw i64 %140, 2
-  %scevgep97 = getelementptr i8, ptr %.13483, i64 4
-  %scevgep = getelementptr i8, ptr %.13682, i64 4
   %scevgep96 = getelementptr i8, ptr %scevgep, i64 %141
+  %scevgep97 = getelementptr i8, ptr %.13483, i64 4
   %scevgep98 = getelementptr i8, ptr %scevgep97, i64 %141
   br label %._crit_edge
 

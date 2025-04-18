@@ -425,17 +425,14 @@ _ZN5faiss16PQEncoderGenericD2Ev.exit:             ; preds = %_ZN5faiss16PQEncode
   %91 = add nsw i32 %85, -8
   %92 = lshr i32 %91, 3
   %93 = icmp samesign ugt i32 %85, 15
-  br i1 %93, label %.lr.ph.i30.preheader, label %._crit_edge.i28
+  br i1 %93, label %.lr.ph.i30, label %._crit_edge.i28
 
-.lr.ph.i30.preheader:                             ; preds = %87
+._crit_edge.i28.loopexit:                         ; preds = %.lr.ph.i30
+  %scevgep = getelementptr i8, ptr %.sroa.0.093, i64 2
   %94 = add i32 %indvars.iv, %82
   %95 = lshr i32 %94, 3
   %96 = add nsw i32 %95, -1
   %97 = zext i32 %96 to i64
-  br label %.lr.ph.i30
-
-._crit_edge.i28.loopexit:                         ; preds = %.lr.ph.i30
-  %scevgep = getelementptr i8, ptr %.sroa.0.093, i64 2
   %scevgep107 = getelementptr i8, ptr %scevgep, i64 %97
   br label %._crit_edge.i28
 
@@ -448,11 +445,11 @@ _ZN5faiss16PQEncoderGenericD2Ev.exit:             ; preds = %_ZN5faiss16PQEncode
   %.not.i29 = icmp eq i8 %99, 0
   br i1 %.not.i29, label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit, label %108
 
-.lr.ph.i30:                                       ; preds = %.lr.ph.i30.preheader, %.lr.ph.i30
-  %.013.i = phi i32 [ %107, %.lr.ph.i30 ], [ 0, %.lr.ph.i30.preheader ]
-  %.0812.i = phi i64 [ %106, %.lr.ph.i30 ], [ %89, %.lr.ph.i30.preheader ]
-  %.0911.i = phi i64 [ %105, %.lr.ph.i30 ], [ %84, %.lr.ph.i30.preheader ]
-  %100 = phi ptr [ %101, %.lr.ph.i30 ], [ %90, %.lr.ph.i30.preheader ]
+.lr.ph.i30:                                       ; preds = %87, %.lr.ph.i30
+  %.013.i = phi i32 [ %107, %.lr.ph.i30 ], [ 0, %87 ]
+  %.0812.i = phi i64 [ %106, %.lr.ph.i30 ], [ %89, %87 ]
+  %.0911.i = phi i64 [ %105, %.lr.ph.i30 ], [ %84, %87 ]
+  %100 = phi ptr [ %101, %.lr.ph.i30 ], [ %90, %87 ]
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
   %102 = load i8, ptr %100, align 1, !tbaa !40
   %103 = zext i8 %102 to i64

@@ -66090,11 +66090,11 @@ _ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_21UsdImaging_XfStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i: ; preds = %_ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_33UsdImaging_ResolvedAttributeCacheINS3_21UsdImaging_XfStrategyEbE6_EntryENS3_6TfHashESt8equal_toIS4_ENS1_13tbb_allocatorISt4pairIKS4_S8_EEEEC2Ev.exit.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %35 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  store ptr %35, ptr %36, align 8
-  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_21UsdImaging_XfStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  store ptr %34, ptr %36, align 8
+  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_21UsdImaging_XfStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(600) %2)
           to label %39 unwind label %37
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_21UsdImaging_XfStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i
@@ -66914,11 +66914,11 @@ _ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_27UsdImaging_MaterialStrategyENS_34UsdImaging_MaterialBindingImplDataEE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SD_EEEEEEEEEEC2EOSO_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISS_EEEE.exit.i: ; preds = %_ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_33UsdImaging_ResolvedAttributeCacheINS3_27UsdImaging_MaterialStrategyENS3_34UsdImaging_MaterialBindingImplDataEE6_EntryENS3_6TfHashESt8equal_toIS4_ENS1_13tbb_allocatorISt4pairIKS4_S9_EEEEC2Ev.exit.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %35 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  store ptr %35, ptr %36, align 8
-  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_27UsdImaging_MaterialStrategyENS4_34UsdImaging_MaterialBindingImplDataEE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SF_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  store ptr %34, ptr %36, align 8
+  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_27UsdImaging_MaterialStrategyENS4_34UsdImaging_MaterialBindingImplDataEE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SF_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(600) %2)
           to label %39 unwind label %37
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_27UsdImaging_MaterialStrategyENS_34UsdImaging_MaterialBindingImplDataEE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SD_EEEEEEEEEEC2EOSO_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISS_EEEE.exit.i
@@ -67518,11 +67518,11 @@ _ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_34UsdImaging_CoordSysBindingStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i: ; preds = %_ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_33UsdImaging_ResolvedAttributeCacheINS3_34UsdImaging_CoordSysBindingStrategyEbE6_EntryENS3_6TfHashESt8equal_toIS4_ENS1_13tbb_allocatorISt4pairIKS4_S8_EEEEC2Ev.exit.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %35 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  store ptr %35, ptr %36, align 8
-  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_34UsdImaging_CoordSysBindingStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  store ptr %34, ptr %36, align 8
+  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_34UsdImaging_CoordSysBindingStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(600) %2)
           to label %39 unwind label %37
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_34UsdImaging_CoordSysBindingStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i
@@ -68192,11 +68192,11 @@ _ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_22UsdImaging_VisStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i: ; preds = %_ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_33UsdImaging_ResolvedAttributeCacheINS3_22UsdImaging_VisStrategyEbE6_EntryENS3_6TfHashESt8equal_toIS4_ENS1_13tbb_allocatorISt4pairIKS4_S8_EEEEC2Ev.exit.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %35 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  store ptr %35, ptr %36, align 8
-  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_22UsdImaging_VisStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  store ptr %34, ptr %36, align 8
+  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_22UsdImaging_VisStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(600) %2)
           to label %39 unwind label %37
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_22UsdImaging_VisStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i
@@ -68796,11 +68796,11 @@ _ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_26UsdImaging_PurposeStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i: ; preds = %_ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_33UsdImaging_ResolvedAttributeCacheINS3_26UsdImaging_PurposeStrategyEbE6_EntryENS3_6TfHashESt8equal_toIS4_ENS1_13tbb_allocatorISt4pairIKS4_S8_EEEEC2Ev.exit.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %35 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  store ptr %35, ptr %36, align 8
-  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_26UsdImaging_PurposeStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  store ptr %34, ptr %36, align 8
+  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_26UsdImaging_PurposeStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(600) %2)
           to label %39 unwind label %37
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_26UsdImaging_PurposeStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i
@@ -69482,11 +69482,11 @@ _ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_27UsdImaging_DrawModeStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i: ; preds = %_ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_33UsdImaging_ResolvedAttributeCacheINS3_27UsdImaging_DrawModeStrategyEbE6_EntryENS3_6TfHashESt8equal_toIS4_ENS1_13tbb_allocatorISt4pairIKS4_S8_EEEEC2Ev.exit.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %35 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  store ptr %35, ptr %36, align 8
-  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_27UsdImaging_DrawModeStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  store ptr %34, ptr %36, align 8
+  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_27UsdImaging_DrawModeStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(600) %2)
           to label %39 unwind label %37
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_27UsdImaging_DrawModeStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i
@@ -70086,11 +70086,11 @@ _ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_35UsdImaging_InheritedPrimvarStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i: ; preds = %_ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_33UsdImaging_ResolvedAttributeCacheINS3_35UsdImaging_InheritedPrimvarStrategyEbE6_EntryENS3_6TfHashESt8equal_toIS4_ENS1_13tbb_allocatorISt4pairIKS4_S8_EEEEC2Ev.exit.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %35 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  store ptr %35, ptr %36, align 8
-  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_35UsdImaging_InheritedPrimvarStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  store ptr %34, ptr %36, align 8
+  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_35UsdImaging_InheritedPrimvarStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(600) %2)
           to label %39 unwind label %37
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_35UsdImaging_InheritedPrimvarStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i
@@ -70832,11 +70832,11 @@ _ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_40UsdImaging_PointInstancerIndicesStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i: ; preds = %_ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_33UsdImaging_ResolvedAttributeCacheINS3_40UsdImaging_PointInstancerIndicesStrategyEbE6_EntryENS3_6TfHashESt8equal_toIS4_ENS1_13tbb_allocatorISt4pairIKS4_S8_EEEEC2Ev.exit.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %35 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  store ptr %35, ptr %36, align 8
-  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_40UsdImaging_PointInstancerIndicesStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  store ptr %34, ptr %36, align 8
+  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_40UsdImaging_PointInstancerIndicesStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(600) %2)
           to label %39 unwind label %37
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_40UsdImaging_PointInstancerIndicesStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i
@@ -71436,11 +71436,11 @@ _ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_39UsdImaging_NonlinearSampleCountStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i: ; preds = %_ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_33UsdImaging_ResolvedAttributeCacheINS3_39UsdImaging_NonlinearSampleCountStrategyEbE6_EntryENS3_6TfHashESt8equal_toIS4_ENS1_13tbb_allocatorISt4pairIKS4_S8_EEEEC2Ev.exit.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %35 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  store ptr %35, ptr %36, align 8
-  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_39UsdImaging_NonlinearSampleCountStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  store ptr %34, ptr %36, align 8
+  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_39UsdImaging_NonlinearSampleCountStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(600) %2)
           to label %39 unwind label %37
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_39UsdImaging_NonlinearSampleCountStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i
@@ -72040,11 +72040,11 @@ _ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_28UsdImaging_BlurScaleStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i: ; preds = %_ZN3tbb6detail2d124concurrent_unordered_mapIN32pxrInternal_v0_24__pxrReserved__7UsdPrimENS3_33UsdImaging_ResolvedAttributeCacheINS3_28UsdImaging_BlurScaleStrategyEbE6_EntryENS3_6TfHashESt8equal_toIS4_ENS1_13tbb_allocatorISt4pairIKS4_S8_EEEEC2Ev.exit.i.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %35 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 592
-  store ptr %35, ptr %36, align 8
-  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_28UsdImaging_BlurScaleStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  store ptr %34, ptr %36, align 8
+  invoke void @_ZN3tbb6detail2d110task_group3runIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS4_17Work_DetachedTaskINS4_27Work_AsyncSwapDestroyHelperINS1_24concurrent_unordered_mapINS4_7UsdPrimENS4_33UsdImaging_ResolvedAttributeCacheINS4_28UsdImaging_BlurScaleStrategyEbE6_EntryENS4_6TfHashESt8equal_toISA_ENS1_13tbb_allocatorISt4pairIKSA_SE_EEEEEEEEEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(144) %35, ptr noundef nonnull align 8 dereferenceable(600) %2)
           to label %39 unwind label %37
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_17Work_DetachedTaskINS_27Work_AsyncSwapDestroyHelperIN3tbb6detail2d124concurrent_unordered_mapINS_7UsdPrimENS_33UsdImaging_ResolvedAttributeCacheINS_28UsdImaging_BlurScaleStrategyEbE6_EntryENS_6TfHashESt8equal_toIS8_ENS6_13tbb_allocatorISt4pairIKS8_SC_EEEEEEEEEEC2EOSN_PNS6_17concurrent_vectorINS_16TfErrorTransportENS6_23cache_aligned_allocatorISR_EEEE.exit.i

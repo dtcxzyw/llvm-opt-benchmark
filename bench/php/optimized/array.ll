@@ -18079,25 +18079,25 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   %70 = zext i32 %64 to i64
   %71 = getelementptr inbounds nuw %struct._zval_struct, ptr %62, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %73 = trunc i64 %31 to i32
-  %74 = add i32 %64, %73
-  br label %75
+  br label %73
 
-75:                                               ; preds = %.lr.ph, %75
-  %.0261 = phi i64 [ 0, %.lr.ph ], [ %80, %75 ]
-  %.0203260 = phi ptr [ %71, %.lr.ph ], [ %79, %75 ]
-  %76 = load ptr, ptr %21, align 8, !tbaa !8
-  %77 = load i32, ptr %72, align 8, !tbaa !8
-  store ptr %76, ptr %.0203260, align 8, !tbaa !8
-  %78 = getelementptr inbounds nuw i8, ptr %.0203260, i64 8
-  store i32 %77, ptr %78, align 8, !tbaa !8
-  %79 = getelementptr inbounds nuw i8, ptr %.0203260, i64 16
-  %80 = add nuw nsw i64 %.0261, 1
-  %exitcond.not = icmp eq i64 %80, %40
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %75
+73:                                               ; preds = %.lr.ph, %73
+  %.0261 = phi i64 [ 0, %.lr.ph ], [ %78, %73 ]
+  %.0203260 = phi ptr [ %71, %.lr.ph ], [ %77, %73 ]
+  %74 = load ptr, ptr %21, align 8, !tbaa !8
+  %75 = load i32, ptr %72, align 8, !tbaa !8
+  store ptr %74, ptr %.0203260, align 8, !tbaa !8
+  %76 = getelementptr inbounds nuw i8, ptr %.0203260, i64 8
+  store i32 %75, ptr %76, align 8, !tbaa !8
+  %77 = getelementptr inbounds nuw i8, ptr %.0203260, i64 16
+  %78 = add nuw nsw i64 %.0261, 1
+  %exitcond.not = icmp eq i64 %78, %40
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %73
 
-._crit_edge.loopexit:                             ; preds = %75
-  %81 = sub i32 %74, %29
+._crit_edge.loopexit:                             ; preds = %73
+  %79 = trunc i64 %31 to i32
+  %80 = add i32 %64, %79
+  %81 = sub i32 %80, %29
   %.pre294 = load i32, ptr %63, align 8, !tbaa !19
   br label %._crit_edge
 
@@ -18228,25 +18228,25 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   %151 = zext i32 %145 to i64
   %152 = getelementptr inbounds nuw %struct._zval_struct, ptr %143, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %154 = trunc i64 %31 to i32
-  %155 = add i32 %145, %154
-  br label %156
+  br label %154
 
-156:                                              ; preds = %.lr.ph275, %156
-  %.1273 = phi i64 [ 0, %.lr.ph275 ], [ %161, %156 ]
-  %.0202271 = phi ptr [ %152, %.lr.ph275 ], [ %160, %156 ]
-  %157 = load ptr, ptr %21, align 8, !tbaa !8
-  %158 = load i32, ptr %153, align 8, !tbaa !8
-  store ptr %157, ptr %.0202271, align 8, !tbaa !8
-  %159 = getelementptr inbounds nuw i8, ptr %.0202271, i64 8
-  store i32 %158, ptr %159, align 8, !tbaa !8
-  %160 = getelementptr inbounds nuw i8, ptr %.0202271, i64 16
-  %161 = add nuw nsw i64 %.1273, 1
-  %exitcond291.not = icmp eq i64 %161, %40
-  br i1 %exitcond291.not, label %._crit_edge276.loopexit, label %156
+154:                                              ; preds = %.lr.ph275, %154
+  %.1273 = phi i64 [ 0, %.lr.ph275 ], [ %159, %154 ]
+  %.0202271 = phi ptr [ %152, %.lr.ph275 ], [ %158, %154 ]
+  %155 = load ptr, ptr %21, align 8, !tbaa !8
+  %156 = load i32, ptr %153, align 8, !tbaa !8
+  store ptr %155, ptr %.0202271, align 8, !tbaa !8
+  %157 = getelementptr inbounds nuw i8, ptr %.0202271, i64 8
+  store i32 %156, ptr %157, align 8, !tbaa !8
+  %158 = getelementptr inbounds nuw i8, ptr %.0202271, i64 16
+  %159 = add nuw nsw i64 %.1273, 1
+  %exitcond291.not = icmp eq i64 %159, %40
+  br i1 %exitcond291.not, label %._crit_edge276.loopexit, label %154
 
-._crit_edge276.loopexit:                          ; preds = %156
-  %162 = sub i32 %155, %29
+._crit_edge276.loopexit:                          ; preds = %154
+  %160 = trunc i64 %31 to i32
+  %161 = add i32 %145, %160
+  %162 = sub i32 %161, %29
   %.pre296 = load i32, ptr %144, align 8, !tbaa !19
   br label %._crit_edge276
 

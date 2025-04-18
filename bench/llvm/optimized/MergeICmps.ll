@@ -6663,9 +6663,8 @@ _ZN12_GLOBAL__N_111BCECmpBlockC2EOS0_.exit.i:     ; preds = %.lr.ph.i.i.i.i.i.i.
   %181 = getelementptr inbounds i8, ptr %.sroa.0.02.i.i, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(16) %181, i64 16, i1 false)
   %182 = call fastcc noundef nonnull align 8 dereferenceable(184) ptr @_ZN12_GLOBAL__N_111BCECmpBlockaSEOS0_(ptr noundef nonnull align 8 dereferenceable(184) %166, ptr noundef nonnull align 8 dereferenceable(184) %0)
-  %183 = ptrtoint ptr %166 to i64
-  %184 = load ptr, ptr %9, align 8, !tbaa !177
-  store ptr %184, ptr %10, align 8, !tbaa !177
+  %183 = load ptr, ptr %9, align 8, !tbaa !177
+  store ptr %183, ptr %10, align 8, !tbaa !177
   store i32 1, ptr %152, align 8
   store i32 0, ptr %153, align 4, !tbaa !163
   br label %.lr.ph.i.i.i.i.i.i6.i
@@ -6679,7 +6678,8 @@ _ZN12_GLOBAL__N_111BCECmpBlockC2EOS0_.exit.i:     ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %.not.i.i.i.i.i.i10.i, label %_ZN12_GLOBAL__N_111BCECmpBlockC2EOS0_.exit11.i, label %.lr.ph.i.i.i.i.i.i6.i, !llvm.loop !166
 
 _ZN12_GLOBAL__N_111BCECmpBlockC2EOS0_.exit11.i:   ; preds = %.lr.ph.i.i.i.i.i.i6.i
-  %185 = sub i64 %183, %13
+  %184 = ptrtoint ptr %166 to i64
+  %185 = sub i64 %184, %13
   %186 = sdiv exact i64 %185, 184
   call void @_ZN4llvm13SmallDenseMapIPKNS_11InstructionENS_6detail13DenseSetEmptyELj8ENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEE4swapERSA_(ptr noundef nonnull align 8 dereferenceable(72) %152, ptr noundef nonnull align 8 dereferenceable(72) %142)
   %187 = load i64, ptr %144, align 8

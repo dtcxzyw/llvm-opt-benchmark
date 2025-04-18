@@ -843,43 +843,40 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %9 = icmp eq ptr %.promoted.i, %7
   br i1 %9, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h82029ad7c92685eeE.llvm.6093752533286553222.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %5
-  %.sroa.42.0..sroa.5.0..sroa_idx2.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %10
-
-10:                                               ; preds = %10, %.lr.ph.i
-  %.sroa.6.015.i = phi ptr [ %2, %.lr.ph.i ], [ %scevgep.i.i.i, %10 ]
-  %11 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %12, %10 ]
+.lr.ph.i:                                         ; preds = %5, %.lr.ph.i
+  %.sroa.6.015.i = phi ptr [ %scevgep.i.i.i, %.lr.ph.i ], [ %2, %5 ]
+  %10 = phi ptr [ %11, %.lr.ph.i ], [ %.promoted.i, %5 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !395)
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i32, ptr %11, align 4, !noalias !396, !noundef !23
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %15 = load i32, ptr %14, align 4, !noalias !396, !noundef !23
-  %.sroa.2.0.insert.ext.i.i.i.i = zext i32 %15 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i32, ptr %10, align 4, !noalias !396, !noundef !23
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %14 = load i32, ptr %13, align 4, !noalias !396, !noundef !23
+  %.sroa.2.0.insert.ext.i.i.i.i = zext i32 %14 to i64
   %.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i, 32
-  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %13 to i64
+  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %12 to i64
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !397)
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %.sroa.6.015.i, align 4, !noalias !400
   %scevgep.i.i.i = getelementptr i8, ptr %.sroa.6.015.i, i64 8
-  %16 = icmp eq ptr %12, %7
-  br i1 %16, label %._crit_edge.i, label %10
+  %15 = icmp eq ptr %11, %7
+  br i1 %15, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %10
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.sroa.5.0..sroa_idx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.42.0..sroa.5.0..sroa_idx2.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.5.0..sroa.5.0..sroa_idx2.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %4, align 8, !alias.scope !401, !noalias !403
   store i64 2, ptr %.sroa.42.0..sroa.5.0..sroa_idx2.i.sroa_idx.i.i.i, align 8, !alias.scope !404, !noalias !400
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %.sroa.5.0..sroa.5.0..sroa_idx2.i.sroa_idx.i.i.i, align 8, !alias.scope !404, !noalias !400
   store i64 2, ptr %.sroa.5.0..sroa_idx2.i.i.i.i, align 8, !alias.scope !405, !noalias !400
-  store ptr %12, ptr %8, align 8, !alias.scope !389, !noalias !392
+  store ptr %11, ptr %8, align 8, !alias.scope !389, !noalias !392
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h82029ad7c92685eeE.llvm.6093752533286553222.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h82029ad7c92685eeE.llvm.6093752533286553222.exit: ; preds = %5, %._crit_edge.i
   %.sroa.6.0.lcssa.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.i ], [ %2, %5 ]
-  %17 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.6.0.lcssa.i, 1
-  ret { ptr, ptr } %18
+  %16 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.6.0.lcssa.i, 1
+  ret { ptr, ptr } %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -892,43 +889,40 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %9 = icmp eq ptr %.promoted.i, %7
   br i1 %9, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf83c807c02333505E.llvm.6093752533286553222.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %5
-  %.sroa.42.0..sroa.5.0..sroa_idx2.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %10
-
-10:                                               ; preds = %10, %.lr.ph.i
-  %.sroa.6.015.i = phi ptr [ %2, %.lr.ph.i ], [ %scevgep.i.i.i, %10 ]
-  %11 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %12, %10 ]
+.lr.ph.i:                                         ; preds = %5, %.lr.ph.i
+  %.sroa.6.015.i = phi ptr [ %scevgep.i.i.i, %.lr.ph.i ], [ %2, %5 ]
+  %10 = phi ptr [ %11, %.lr.ph.i ], [ %.promoted.i, %5 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !421)
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i32, ptr %11, align 4, !noalias !422, !noundef !23
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %15 = load i32, ptr %14, align 4, !noalias !422, !noundef !23
-  %.sroa.2.0.insert.ext.i.i.i.i = zext i32 %15 to i64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %12 = load i32, ptr %10, align 4, !noalias !422, !noundef !23
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %14 = load i32, ptr %13, align 4, !noalias !422, !noundef !23
+  %.sroa.2.0.insert.ext.i.i.i.i = zext i32 %14 to i64
   %.sroa.2.0.insert.shift.i.i.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i.i.i, 32
-  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %13 to i64
+  %.sroa.0.0.insert.ext.i.i.i.i = zext i32 %12 to i64
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !423)
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %.sroa.6.015.i, align 4, !noalias !426
   %scevgep.i.i.i = getelementptr i8, ptr %.sroa.6.015.i, i64 8
-  %16 = icmp eq ptr %12, %7
-  br i1 %16, label %._crit_edge.i, label %10
+  %15 = icmp eq ptr %11, %7
+  br i1 %15, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %10
+._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.sroa.5.0..sroa_idx2.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.42.0..sroa.5.0..sroa_idx2.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.5.0..sroa.5.0..sroa_idx2.i.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %4, align 8, !alias.scope !427, !noalias !429
   store i64 2, ptr %.sroa.42.0..sroa.5.0..sroa_idx2.i.sroa_idx.i.i.i, align 8, !alias.scope !430, !noalias !426
   store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %.sroa.5.0..sroa.5.0..sroa_idx2.i.sroa_idx.i.i.i, align 8, !alias.scope !430, !noalias !426
   store i64 2, ptr %.sroa.5.0..sroa_idx2.i.i.i.i, align 8, !alias.scope !431, !noalias !426
-  store ptr %12, ptr %8, align 8, !alias.scope !415, !noalias !418
+  store ptr %11, ptr %8, align 8, !alias.scope !415, !noalias !418
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf83c807c02333505E.llvm.6093752533286553222.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hf83c807c02333505E.llvm.6093752533286553222.exit: ; preds = %5, %._crit_edge.i
   %.sroa.6.0.lcssa.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.i ], [ %2, %5 ]
-  %17 = insertvalue { ptr, ptr } poison, ptr %1, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.6.0.lcssa.i, 1
-  ret { ptr, ptr } %18
+  %16 = insertvalue { ptr, ptr } poison, ptr %1, 0
+  %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.6.0.lcssa.i, 1
+  ret { ptr, ptr } %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable

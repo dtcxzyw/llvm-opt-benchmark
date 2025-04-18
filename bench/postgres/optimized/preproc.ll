@@ -276,7 +276,7 @@ define dso_local range(i32 0, 3) i32 @base_yyparse() local_unnamed_addr #0 {
   %.11366 = phi ptr [ %2888, %yylloc_default.exit1610 ], [ %2825, %2845 ], [ %102, %101 ]
   %.11356 = phi ptr [ %.51360, %yylloc_default.exit1610 ], [ %2824, %2845 ], [ %.21357, %101 ]
   %.11341 = phi i32 [ 3, %yylloc_default.exit1610 ], [ %.01340, %2845 ], [ %spec.select, %101 ]
-  %.1 = phi i32 [ %2889, %yylloc_default.exit1610 ], [ %2846, %2845 ], [ %95, %101 ]
+  %.1 = phi i32 [ %2908, %yylloc_default.exit1610 ], [ %2846, %2845 ], [ %95, %101 ]
   %22 = getelementptr inbounds nuw i8, ptr %.11356, i64 2
   br label %23
 
@@ -6095,57 +6095,57 @@ sub_01752:                                        ; preds = %sub_01748, %2200, %
   br label %.preheader.i1592
 
 .lr.ph.preheader.i1599:                           ; preds = %.preheader.i1592
-  %2889 = zext nneg i16 %2877 to i32
-  %2890 = add i64 %2898, 1
-  %2891 = call ptr @loc_alloc(i64 noundef %2890) #15
+  %2889 = add i64 %2897, 1
+  %2890 = call ptr @loc_alloc(i64 noundef %2889) #15
   br label %.lr.ph.i1600
 
 .preheader.i1592:                                 ; preds = %.preheader.i1592, %2887
   %indvars.iv.i1593 = phi i64 [ 1, %2887 ], [ %indvars.iv.next.i1597, %.preheader.i1592 ]
-  %.03844.i1594 = phi i64 [ 0, %2887 ], [ %2898, %.preheader.i1592 ]
-  %2892 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i1593
-  %2893 = load ptr, ptr %2892, align 8
-  %2894 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2893) #17
-  %2895 = icmp ne i64 %.03844.i1594, 0
-  %2896 = icmp ne i64 %2894, 0
-  %or.cond.i1595 = select i1 %2895, i1 %2896, i1 false
-  %2897 = zext i1 %or.cond.i1595 to i64
-  %spec.select.i1596 = add i64 %2894, %.03844.i1594
-  %2898 = add i64 %spec.select.i1596, %2897
+  %.03844.i1594 = phi i64 [ 0, %2887 ], [ %2897, %.preheader.i1592 ]
+  %2891 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i1593
+  %2892 = load ptr, ptr %2891, align 8
+  %2893 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2892) #17
+  %2894 = icmp ne i64 %.03844.i1594, 0
+  %2895 = icmp ne i64 %2893, 0
+  %or.cond.i1595 = select i1 %2894, i1 %2895, i1 false
+  %2896 = zext i1 %or.cond.i1595 to i64
+  %spec.select.i1596 = add i64 %2893, %.03844.i1594
+  %2897 = add i64 %spec.select.i1596, %2896
   %indvars.iv.next.i1597 = add nuw nsw i64 %indvars.iv.i1593, 1
   %exitcond.not.i1598 = icmp eq i64 %indvars.iv.next.i1597, 3
   br i1 %exitcond.not.i1598, label %.lr.ph.preheader.i1599, label %.preheader.i1592, !llvm.loop !4
 
-.lr.ph.i1600:                                     ; preds = %2906, %.lr.ph.preheader.i1599
-  %indvars.iv50.i1601 = phi i64 [ 1, %.lr.ph.preheader.i1599 ], [ %indvars.iv.next51.i1605, %2906 ]
-  %.047.i1602 = phi ptr [ %2891, %.lr.ph.preheader.i1599 ], [ %2908, %2906 ]
-  %2899 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv50.i1601
-  %2900 = load ptr, ptr %2899, align 8
-  %2901 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2900) #17
-  %2902 = icmp ugt ptr %.047.i1602, %2891
-  %2903 = icmp ne i64 %2901, 0
-  %or.cond3.i1603 = select i1 %2902, i1 %2903, i1 false
-  br i1 %or.cond3.i1603, label %2904, label %2906
+.lr.ph.i1600:                                     ; preds = %2905, %.lr.ph.preheader.i1599
+  %indvars.iv50.i1601 = phi i64 [ 1, %.lr.ph.preheader.i1599 ], [ %indvars.iv.next51.i1605, %2905 ]
+  %.047.i1602 = phi ptr [ %2890, %.lr.ph.preheader.i1599 ], [ %2907, %2905 ]
+  %2898 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv50.i1601
+  %2899 = load ptr, ptr %2898, align 8
+  %2900 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2899) #17
+  %2901 = icmp ugt ptr %.047.i1602, %2890
+  %2902 = icmp ne i64 %2900, 0
+  %or.cond3.i1603 = select i1 %2901, i1 %2902, i1 false
+  br i1 %or.cond3.i1603, label %2903, label %2905
 
-2904:                                             ; preds = %.lr.ph.i1600
-  %2905 = getelementptr inbounds nuw i8, ptr %.047.i1602, i64 1
+2903:                                             ; preds = %.lr.ph.i1600
+  %2904 = getelementptr inbounds nuw i8, ptr %.047.i1602, i64 1
   store i8 32, ptr %.047.i1602, align 1
-  %.pre.i1609 = load ptr, ptr %2899, align 8
-  br label %2906
+  %.pre.i1609 = load ptr, ptr %2898, align 8
+  br label %2905
 
-2906:                                             ; preds = %2904, %.lr.ph.i1600
-  %2907 = phi ptr [ %.pre.i1609, %2904 ], [ %2900, %.lr.ph.i1600 ]
-  %.1.i1604 = phi ptr [ %2905, %2904 ], [ %.047.i1602, %.lr.ph.i1600 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1.i1604, ptr align 1 %2907, i64 %2901, i1 false)
-  %2908 = getelementptr inbounds nuw i8, ptr %.1.i1604, i64 %2901
+2905:                                             ; preds = %2903, %.lr.ph.i1600
+  %2906 = phi ptr [ %.pre.i1609, %2903 ], [ %2899, %.lr.ph.i1600 ]
+  %.1.i1604 = phi ptr [ %2904, %2903 ], [ %.047.i1602, %.lr.ph.i1600 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1.i1604, ptr align 1 %2906, i64 %2900, i1 false)
+  %2907 = getelementptr inbounds nuw i8, ptr %.1.i1604, i64 %2900
   %indvars.iv.next51.i1605 = add nuw nsw i64 %indvars.iv50.i1601, 1
   %exitcond54.not.i1606 = icmp eq i64 %indvars.iv.next51.i1605, 3
   br i1 %exitcond54.not.i1606, label %yylloc_default.exit1610, label %.lr.ph.i1600, !llvm.loop !6
 
-yylloc_default.exit1610:                          ; preds = %2906
+yylloc_default.exit1610:                          ; preds = %2905
+  %2908 = zext nneg i16 %2877 to i32
   %2909 = getelementptr inbounds nuw i8, ptr %.51382, i64 8
-  store i8 0, ptr %2908, align 1
-  store ptr %2891, ptr %2909, align 8
+  store i8 0, ptr %2907, align 1
+  store ptr %2890, ptr %2909, align 8
   br label %21
 
 2910:                                             ; preds = %27, %34

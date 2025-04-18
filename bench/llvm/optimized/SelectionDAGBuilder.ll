@@ -54609,7 +54609,6 @@ _ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4252: ; preds = %1243, %_ZNK4l
   %1294 = call fastcc noundef ptr @_ZL20FindPreallocatedCallPKN4llvm5ValueE(ptr %.val4145)
   %1295 = load ptr, ptr %412, align 8, !tbaa !450
   %1296 = call { ptr, i32 } @_ZN4llvm12SelectionDAG11getSrcValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(952) %1295, ptr noundef %1294) #36
-  %.fca.0.extract2995 = extractvalue { ptr, i32 } %1296, 0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %164) #36
   br label %1297
 
@@ -54624,6 +54623,7 @@ _ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit4252: ; preds = %1243, %_ZNK4l
   br i1 %1299, label %1300, label %1297
 
 1300:                                             ; preds = %1297
+  %.fca.0.extract2995 = extractvalue { ptr, i32 } %1296, 0
   %.fca.1.extract2996 = extractvalue { ptr, i32 } %1296, 1
   %1301 = call { ptr, i32 } @_ZN4llvm19SelectionDAGBuilder7getRootEv(ptr noundef nonnull align 8 dereferenceable(984) %0)
   %.fca.0.extract2988 = extractvalue { ptr, i32 } %1301, 0

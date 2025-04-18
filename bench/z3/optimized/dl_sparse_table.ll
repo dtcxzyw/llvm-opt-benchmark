@@ -4667,65 +4667,65 @@ _ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPK
 
 .lr.ph.preheader.i34:                             ; preds = %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit
   %wide.trip.count.i35 = zext i32 %23 to i64
-  %63 = add i32 %.0.i28, %15
   br label %.lr.ph.i37
 
-.lr.ph.i37:                                       ; preds = %96, %.lr.ph.preheader.i34
-  %.294 = phi i32 [ %15, %.lr.ph.preheader.i34 ], [ %97, %96 ]
-  %.384 = phi i32 [ %.283, %.lr.ph.preheader.i34 ], [ %.485, %96 ]
-  %.3 = phi ptr [ %.2, %.lr.ph.preheader.i34 ], [ %.4, %96 ]
-  %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.preheader.i34 ], [ %indvars.iv.next.i42, %96 ]
-  %64 = load i32, ptr %.3, align 4, !tbaa !59
-  %65 = icmp eq i32 %64, %.294
-  br i1 %65, label %66, label %68
+.lr.ph.i37:                                       ; preds = %95, %.lr.ph.preheader.i34
+  %.294 = phi i32 [ %15, %.lr.ph.preheader.i34 ], [ %96, %95 ]
+  %.384 = phi i32 [ %.283, %.lr.ph.preheader.i34 ], [ %.485, %95 ]
+  %.3 = phi ptr [ %.2, %.lr.ph.preheader.i34 ], [ %.4, %95 ]
+  %indvars.iv.i38 = phi i64 [ 0, %.lr.ph.preheader.i34 ], [ %indvars.iv.next.i42, %95 ]
+  %63 = load i32, ptr %.3, align 4, !tbaa !59
+  %64 = icmp eq i32 %63, %.294
+  br i1 %64, label %65, label %67
 
-66:                                               ; preds = %.lr.ph.i37
-  %67 = getelementptr inbounds nuw i8, ptr %.3, i64 4
-  br label %96
+65:                                               ; preds = %.lr.ph.i37
+  %66 = getelementptr inbounds nuw i8, ptr %.3, i64 4
+  br label %95
 
-68:                                               ; preds = %.lr.ph.i37
-  %69 = add i32 %.384, 1
-  %70 = load ptr, ptr %1, align 8, !tbaa !46
-  %71 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %70, i64 %indvars.iv.i38
-  %72 = load i32, ptr %71, align 8, !tbaa !168
-  %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 %73
-  %.0.copyload.i.i.i39 = load i64, ptr %74, align 1
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !170
-  %77 = zext nneg i32 %76 to i64
-  %78 = lshr i64 %.0.copyload.i.i.i39, %77
-  %79 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %80 = load i64, ptr %79, align 8, !tbaa !172
-  %81 = and i64 %78, %80
-  %82 = load ptr, ptr %2, align 8, !tbaa !46
-  %83 = zext i32 %.384 to i64
-  %84 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %82, i64 %83
-  %85 = load i32, ptr %84, align 8, !tbaa !168
-  %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 %86
-  %.0.copyload.i.i13.i40 = load i64, ptr %87, align 1
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %89 = load i64, ptr %88, align 8, !tbaa !169
-  %90 = and i64 %89, %.0.copyload.i.i13.i40
-  %91 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %92 = load i32, ptr %91, align 4, !tbaa !170
-  %93 = zext nneg i32 %92 to i64
-  %94 = shl i64 %81, %93
-  %95 = or i64 %94, %90
-  store i64 %95, ptr %87, align 1
-  br label %96
+67:                                               ; preds = %.lr.ph.i37
+  %68 = add i32 %.384, 1
+  %69 = load ptr, ptr %1, align 8, !tbaa !46
+  %70 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %69, i64 %indvars.iv.i38
+  %71 = load i32, ptr %70, align 8, !tbaa !168
+  %72 = zext i32 %71 to i64
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 %72
+  %.0.copyload.i.i.i39 = load i64, ptr %73, align 1
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %75 = load i32, ptr %74, align 4, !tbaa !170
+  %76 = zext nneg i32 %75 to i64
+  %77 = lshr i64 %.0.copyload.i.i.i39, %76
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %79 = load i64, ptr %78, align 8, !tbaa !172
+  %80 = and i64 %77, %79
+  %81 = load ptr, ptr %2, align 8, !tbaa !46
+  %82 = zext i32 %.384 to i64
+  %83 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %81, i64 %82
+  %84 = load i32, ptr %83, align 8, !tbaa !168
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 %85
+  %.0.copyload.i.i13.i40 = load i64, ptr %86, align 1
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %88 = load i64, ptr %87, align 8, !tbaa !169
+  %89 = and i64 %88, %.0.copyload.i.i13.i40
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %91 = load i32, ptr %90, align 4, !tbaa !170
+  %92 = zext nneg i32 %91 to i64
+  %93 = shl i64 %80, %92
+  %94 = or i64 %93, %89
+  store i64 %94, ptr %86, align 1
+  br label %95
 
-96:                                               ; preds = %68, %66
-  %.485 = phi i32 [ %.384, %66 ], [ %69, %68 ]
-  %.4 = phi ptr [ %67, %66 ], [ %.3, %68 ]
+95:                                               ; preds = %67, %65
+  %.485 = phi i32 [ %.384, %65 ], [ %68, %67 ]
+  %.4 = phi ptr [ %66, %65 ], [ %.3, %67 ]
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i38, 1
-  %97 = add i32 %.294, 1
+  %96 = add i32 %.294, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i35
   br i1 %exitcond.not.i43, label %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit44.loopexit, label %.lr.ph.i37, !llvm.loop !177
 
-_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit44.loopexit: ; preds = %96
-  %98 = sub i32 %63, %22
+_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit44.loopexit: ; preds = %95
+  %97 = add i32 %.0.i28, %15
+  %98 = sub i32 %97, %22
   br label %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit44
 
 _ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit44: ; preds = %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit44.loopexit, %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit
@@ -4738,66 +4738,66 @@ _ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPK
 .lr.ph.preheader.i45:                             ; preds = %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit44
   %100 = zext i32 %15 to i64
   %wide.trip.count.i46 = zext i32 %.0.i30 to i64
-  %101 = add i32 %.395, %.0.i30
-  %102 = add i32 %101, %14
   br label %.lr.ph.i48
 
-.lr.ph.i48:                                       ; preds = %135, %.lr.ph.preheader.i45
-  %.496 = phi i32 [ %.395, %.lr.ph.preheader.i45 ], [ %136, %135 ]
-  %.687 = phi i32 [ %.586, %.lr.ph.preheader.i45 ], [ %.788, %135 ]
-  %.6 = phi ptr [ %.5, %.lr.ph.preheader.i45 ], [ %.7, %135 ]
-  %indvars.iv.i49 = phi i64 [ %100, %.lr.ph.preheader.i45 ], [ %indvars.iv.next.i53, %135 ]
-  %103 = load i32, ptr %.6, align 4, !tbaa !59
-  %104 = icmp eq i32 %103, %.496
-  br i1 %104, label %105, label %107
+.lr.ph.i48:                                       ; preds = %133, %.lr.ph.preheader.i45
+  %.496 = phi i32 [ %.395, %.lr.ph.preheader.i45 ], [ %134, %133 ]
+  %.687 = phi i32 [ %.586, %.lr.ph.preheader.i45 ], [ %.788, %133 ]
+  %.6 = phi ptr [ %.5, %.lr.ph.preheader.i45 ], [ %.7, %133 ]
+  %indvars.iv.i49 = phi i64 [ %100, %.lr.ph.preheader.i45 ], [ %indvars.iv.next.i53, %133 ]
+  %101 = load i32, ptr %.6, align 4, !tbaa !59
+  %102 = icmp eq i32 %101, %.496
+  br i1 %102, label %103, label %105
+
+103:                                              ; preds = %.lr.ph.i48
+  %104 = getelementptr inbounds nuw i8, ptr %.6, i64 4
+  br label %133
 
 105:                                              ; preds = %.lr.ph.i48
-  %106 = getelementptr inbounds nuw i8, ptr %.6, i64 4
-  br label %135
+  %106 = add i32 %.687, 1
+  %107 = load ptr, ptr %0, align 8, !tbaa !46
+  %108 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %107, i64 %indvars.iv.i49
+  %109 = load i32, ptr %108, align 8, !tbaa !168
+  %110 = zext i32 %109 to i64
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 %110
+  %.0.copyload.i.i.i50 = load i64, ptr %111, align 1
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 4
+  %113 = load i32, ptr %112, align 4, !tbaa !170
+  %114 = zext nneg i32 %113 to i64
+  %115 = lshr i64 %.0.copyload.i.i.i50, %114
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %117 = load i64, ptr %116, align 8, !tbaa !172
+  %118 = and i64 %115, %117
+  %119 = load ptr, ptr %2, align 8, !tbaa !46
+  %120 = zext i32 %.687 to i64
+  %121 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %119, i64 %120
+  %122 = load i32, ptr %121, align 8, !tbaa !168
+  %123 = zext i32 %122 to i64
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 %123
+  %.0.copyload.i.i13.i51 = load i64, ptr %124, align 1
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %126 = load i64, ptr %125, align 8, !tbaa !169
+  %127 = and i64 %126, %.0.copyload.i.i13.i51
+  %128 = getelementptr inbounds nuw i8, ptr %121, i64 4
+  %129 = load i32, ptr %128, align 4, !tbaa !170
+  %130 = zext nneg i32 %129 to i64
+  %131 = shl i64 %118, %130
+  %132 = or i64 %131, %127
+  store i64 %132, ptr %124, align 1
+  br label %133
 
-107:                                              ; preds = %.lr.ph.i48
-  %108 = add i32 %.687, 1
-  %109 = load ptr, ptr %0, align 8, !tbaa !46
-  %110 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %109, i64 %indvars.iv.i49
-  %111 = load i32, ptr %110, align 8, !tbaa !168
-  %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw i8, ptr %3, i64 %112
-  %.0.copyload.i.i.i50 = load i64, ptr %113, align 1
-  %114 = getelementptr inbounds nuw i8, ptr %110, i64 4
-  %115 = load i32, ptr %114, align 4, !tbaa !170
-  %116 = zext nneg i32 %115 to i64
-  %117 = lshr i64 %.0.copyload.i.i.i50, %116
-  %118 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %119 = load i64, ptr %118, align 8, !tbaa !172
-  %120 = and i64 %117, %119
-  %121 = load ptr, ptr %2, align 8, !tbaa !46
-  %122 = zext i32 %.687 to i64
-  %123 = getelementptr inbounds nuw %"class.datalog::sparse_table::column_info", ptr %121, i64 %122
-  %124 = load i32, ptr %123, align 8, !tbaa !168
-  %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw i8, ptr %5, i64 %125
-  %.0.copyload.i.i13.i51 = load i64, ptr %126, align 1
-  %127 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %128 = load i64, ptr %127, align 8, !tbaa !169
-  %129 = and i64 %128, %.0.copyload.i.i13.i51
-  %130 = getelementptr inbounds nuw i8, ptr %123, i64 4
-  %131 = load i32, ptr %130, align 4, !tbaa !170
-  %132 = zext nneg i32 %131 to i64
-  %133 = shl i64 %120, %132
-  %134 = or i64 %133, %129
-  store i64 %134, ptr %126, align 1
-  br label %135
-
-135:                                              ; preds = %107, %105
-  %.788 = phi i32 [ %.687, %105 ], [ %108, %107 ]
-  %.7 = phi ptr [ %106, %105 ], [ %.6, %107 ]
+133:                                              ; preds = %105, %103
+  %.788 = phi i32 [ %.687, %103 ], [ %106, %105 ]
+  %.7 = phi ptr [ %104, %103 ], [ %.6, %105 ]
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i49, 1
-  %136 = add i32 %.496, 1
+  %134 = add i32 %.496, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i46
   br i1 %exitcond.not.i54, label %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit55.loopexit, label %.lr.ph.i48, !llvm.loop !177
 
-_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit55.loopexit: ; preds = %135
-  %137 = sub i32 %102, %.0.i
+_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit55.loopexit: ; preds = %133
+  %135 = add i32 %.395, %.0.i30
+  %136 = add i32 %135, %14
+  %137 = sub i32 %136, %.0.i
   br label %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit55
 
 _ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit55: ; preds = %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit55.loopexit, %_ZN7datalog12sparse_table12copy_columnsERKNS0_13column_layoutES3_jjPKcPcRjS7_RPKj.exit44

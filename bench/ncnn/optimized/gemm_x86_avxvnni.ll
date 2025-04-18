@@ -7297,14 +7297,14 @@ define hidden void @_ZN4ncnn36gemm_transB_packed_tile_int8_avxvnniERKNS_3MatES2_
   %.013532031.i = phi i32 [ 0, %.preheader1775.lr.ph.i ], [ %440, %._crit_edge2029.i ]
   br i1 %17, label %.lr.ph1917.i, label %.preheader1774.i
 
-.preheader1767.i.loopexit:                        ; preds = %._crit_edge2029.i
+.preheader1767.loopexit.i:                        ; preds = %._crit_edge2029.i
   %24 = and i32 %4, 2147483640
   br label %.preheader1767.i
 
-.preheader1767.i:                                 ; preds = %.preheader1767.i.loopexit, %12
-  %.01353.lcssa.i = phi i32 [ 0, %12 ], [ %24, %.preheader1767.i.loopexit ]
-  %.01328.lcssa.i = phi ptr [ %15, %12 ], [ %.41332.lcssa.i, %.preheader1767.i.loopexit ]
-  %.0.lcssa.i = phi ptr [ %13, %12 ], [ %spec.select.i, %.preheader1767.i.loopexit ]
+.preheader1767.i:                                 ; preds = %.preheader1767.loopexit.i, %12
+  %.01353.lcssa.i = phi i32 [ 0, %12 ], [ %24, %.preheader1767.loopexit.i ]
+  %.01328.lcssa.i = phi ptr [ %15, %12 ], [ %.41332.lcssa.i, %.preheader1767.loopexit.i ]
+  %.0.lcssa.i = phi ptr [ %13, %12 ], [ %spec.select.i, %.preheader1767.loopexit.i ]
   %25 = or disjoint i32 %.01353.lcssa.i, 3
   %26 = icmp slt i32 %25, %4
   br i1 %26, label %.preheader1766.lr.ph.i, label %.preheader1758.i
@@ -7984,7 +7984,7 @@ define hidden void @_ZN4ncnn36gemm_transB_packed_tile_int8_avxvnniERKNS_3MatES2_
   %440 = add nuw nsw i32 %.013532031.i, 8
   %441 = or disjoint i32 %440, 7
   %442 = icmp slt i32 %441, %4
-  br i1 %442, label %.preheader1775.i, label %.preheader1767.i.loopexit, !llvm.loop !195
+  br i1 %442, label %.preheader1775.i, label %.preheader1767.loopexit.i, !llvm.loop !195
 
 .preheader1766.i:                                 ; preds = %._crit_edge2187.i, %.preheader1766.lr.ph.i
   %.22191.i = phi ptr [ %.0.lcssa.i, %.preheader1766.lr.ph.i ], [ %spec.select1740.i, %._crit_edge2187.i ]

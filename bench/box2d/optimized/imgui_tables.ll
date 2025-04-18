@@ -12057,9 +12057,9 @@ _ZN5ImGui15TableSetBgColorEiji.exit:              ; preds = %170, %179
   %240 = getelementptr inbounds nuw %struct.ImGuiTableHeaderData, ptr %3, i64 %indvars.iv
   %241 = load i16, ptr %240, align 4, !tbaa !573
   %242 = load ptr, ptr %207, align 8, !tbaa !271
-  %243 = sext i16 %241 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, i8 0, i64 32, i1 false), !tbaa !216
+  %243 = sext i16 %241 to i64
   %244 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %242, i64 %243
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 12
   %246 = load i32, ptr %245, align 4, !tbaa !397

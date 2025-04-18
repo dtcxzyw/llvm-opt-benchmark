@@ -12123,15 +12123,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.
   %.sroa.011.1.i.i.i.i.i.i = select i1 %95, ptr %96, ptr %.sroa.011.012.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = select i1 %95, i64 %98, i64 %92
   %99 = icmp sgt i64 %.1.i.i.i.i.i.i, 0
-  br i1 %99, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i, label %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i, !llvm.loop !82
+  br i1 %99, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i, !llvm.loop !82
 
-_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i
-  %.pre.i.i.i.i = ptrtoint ptr %.sroa.011.1.i.i.i.i.i.i to i64
-  br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i
-
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i
-  %.013.i.i.i12.i.i.i = phi i64 [ %.1.i.i.i17.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i ], [ %82, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i ]
-  %.sroa.011.012.i.i.i13.i.i.i = phi ptr [ %.sroa.011.1.i.i.i16.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i ], [ %76, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i ]
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i
+  %.013.i.i.i12.i.i.i = phi i64 [ %.1.i.i.i17.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i ], [ %82, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i ]
+  %.sroa.011.012.i.i.i13.i.i.i = phi ptr [ %.sroa.011.1.i.i.i16.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i ], [ %76, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i ]
   %100 = lshr i64 %.013.i.i.i12.i.i.i, 1
   %101 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i.i, i64 %100
   %102 = load float, ptr %101, align 4
@@ -12145,6 +12141,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.
   br i1 %107, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i, !llvm.loop !82
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i
+  %.pre.i.i.i.i = ptrtoint ptr %.sroa.011.1.i.i.i.i.i.i to i64
   %108 = sub i64 %.pre.i.i.i.i, %80
   %109 = lshr exact i64 %108, 2
   %110 = trunc i64 %109 to i32
@@ -12255,38 +12252,35 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.
   %.sroa.011.1.i.i.i.i.i.i55 = select i1 %164, ptr %165, ptr %.sroa.011.012.i.i.i.i.i.i52
   %.1.i.i.i.i.i.i56 = select i1 %164, i64 %167, i64 %161
   %168 = icmp sgt i64 %.1.i.i.i.i.i.i56, 0
-  br i1 %168, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50, label %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i57, !llvm.loop !82
+  br i1 %168, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58, !llvm.loop !82
 
-_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i57:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50
-  %.pre.i.i.i.i58 = ptrtoint ptr %.sroa.011.1.i.i.i.i.i.i55 to i64
-  br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i59
-
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i59: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i59, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i57
-  %.013.i.i.i12.i.i.i60 = phi i64 [ %.1.i.i.i17.i.i.i65, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i59 ], [ %151, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i57 ]
-  %.sroa.011.012.i.i.i13.i.i.i61 = phi ptr [ %.sroa.011.1.i.i.i16.i.i.i64, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i59 ], [ %145, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i57 ]
-  %169 = lshr i64 %.013.i.i.i12.i.i.i60, 1
-  %170 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i.i61, i64 %169
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58
+  %.013.i.i.i12.i.i.i59 = phi i64 [ %.1.i.i.i17.i.i.i64, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58 ], [ %151, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50 ]
+  %.sroa.011.012.i.i.i13.i.i.i60 = phi ptr [ %.sroa.011.1.i.i.i16.i.i.i63, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58 ], [ %145, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i50 ]
+  %169 = lshr i64 %.013.i.i.i12.i.i.i59, 1
+  %170 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i.i60, i64 %169
   %171 = load float, ptr %170, align 4
   %172 = fcmp olt float %171, %160
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 4
   %174 = xor i64 %169, -1
-  %175 = add nsw i64 %.013.i.i.i12.i.i.i60, %174
-  %.sroa.011.1.i.i.i16.i.i.i64 = select i1 %172, ptr %173, ptr %.sroa.011.012.i.i.i13.i.i.i61
-  %.1.i.i.i17.i.i.i65 = select i1 %172, i64 %175, i64 %169
-  %176 = icmp sgt i64 %.1.i.i.i17.i.i.i65, 0
-  br i1 %176, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i59, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i66, !llvm.loop !82
+  %175 = add nsw i64 %.013.i.i.i12.i.i.i59, %174
+  %.sroa.011.1.i.i.i16.i.i.i63 = select i1 %172, ptr %173, ptr %.sroa.011.012.i.i.i13.i.i.i60
+  %.1.i.i.i17.i.i.i64 = select i1 %172, i64 %175, i64 %169
+  %176 = icmp sgt i64 %.1.i.i.i17.i.i.i64, 0
+  br i1 %176, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65, !llvm.loop !82
 
-_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i66: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i59
-  %177 = sub i64 %.pre.i.i.i.i58, %149
+_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i58
+  %.pre.i.i.i.i66 = ptrtoint ptr %.sroa.011.1.i.i.i.i.i.i55 to i64
+  %177 = sub i64 %.pre.i.i.i.i66, %149
   %178 = lshr exact i64 %177, 2
   %179 = trunc i64 %178 to i32
   %180 = add nsw i32 %179, -1
-  %.pre.i19.i.i.i67 = ptrtoint ptr %.sroa.011.1.i.i.i16.i.i.i64 to i64
+  %.pre.i19.i.i.i67 = ptrtoint ptr %.sroa.011.1.i.i.i16.i.i.i63 to i64
   br label %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i35
 
-_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i35:   ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i66, %153
-  %181 = phi i32 [ %180, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i66 ], [ -1, %153 ]
-  %.pre-phi.i10.i.i.i36 = phi i64 [ %.pre.i19.i.i.i67, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i66 ], [ %149, %153 ]
+_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i35:   ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65, %153
+  %181 = phi i32 [ %180, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65 ], [ -1, %153 ]
+  %.pre-phi.i10.i.i.i36 = phi i64 [ %.pre.i19.i.i.i67, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i65 ], [ %149, %153 ]
   %182 = sub i64 %.pre-phi.i10.i.i.i36, %149
   %183 = lshr exact i64 %182, 2
   %184 = trunc i64 %183 to i32
@@ -12446,38 +12440,35 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.
   %.sroa.011.1.i.i.i.i.i.i91 = select i1 %269, ptr %270, ptr %.sroa.011.012.i.i.i.i.i.i88
   %.1.i.i.i.i.i.i92 = select i1 %269, i64 %272, i64 %266
   %273 = icmp sgt i64 %.1.i.i.i.i.i.i92, 0
-  br i1 %273, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i86, label %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i93, !llvm.loop !82
+  br i1 %273, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i86, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i94, !llvm.loop !82
 
-_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i93:     ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i86
-  %.pre.i.i.i.i94 = ptrtoint ptr %.sroa.011.1.i.i.i.i.i.i91 to i64
-  br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i95
-
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i95: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i95, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i93
-  %.013.i.i.i12.i.i.i96 = phi i64 [ %.1.i.i.i17.i.i.i101, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i95 ], [ %256, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i93 ]
-  %.sroa.011.012.i.i.i13.i.i.i97 = phi ptr [ %.sroa.011.1.i.i.i16.i.i.i100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i95 ], [ %250, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i93 ]
-  %274 = lshr i64 %.013.i.i.i12.i.i.i96, 1
-  %275 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i.i97, i64 %274
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i94: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i86, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i94
+  %.013.i.i.i12.i.i.i95 = phi i64 [ %.1.i.i.i17.i.i.i100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i94 ], [ %256, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i86 ]
+  %.sroa.011.012.i.i.i13.i.i.i96 = phi ptr [ %.sroa.011.1.i.i.i16.i.i.i99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i94 ], [ %250, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i86 ]
+  %274 = lshr i64 %.013.i.i.i12.i.i.i95, 1
+  %275 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i.i96, i64 %274
   %276 = load float, ptr %275, align 4
   %277 = fcmp olt float %276, %265
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 4
   %279 = xor i64 %274, -1
-  %280 = add nsw i64 %.013.i.i.i12.i.i.i96, %279
-  %.sroa.011.1.i.i.i16.i.i.i100 = select i1 %277, ptr %278, ptr %.sroa.011.012.i.i.i13.i.i.i97
-  %.1.i.i.i17.i.i.i101 = select i1 %277, i64 %280, i64 %274
-  %281 = icmp sgt i64 %.1.i.i.i17.i.i.i101, 0
-  br i1 %281, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i95, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i102, !llvm.loop !82
+  %280 = add nsw i64 %.013.i.i.i12.i.i.i95, %279
+  %.sroa.011.1.i.i.i16.i.i.i99 = select i1 %277, ptr %278, ptr %.sroa.011.012.i.i.i13.i.i.i96
+  %.1.i.i.i17.i.i.i100 = select i1 %277, i64 %280, i64 %274
+  %281 = icmp sgt i64 %.1.i.i.i17.i.i.i100, 0
+  br i1 %281, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i94, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i101, !llvm.loop !82
 
-_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i102: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i95
-  %282 = sub i64 %.pre.i.i.i.i94, %254
+_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i101: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i94
+  %.pre.i.i.i.i102 = ptrtoint ptr %.sroa.011.1.i.i.i.i.i.i91 to i64
+  %282 = sub i64 %.pre.i.i.i.i102, %254
   %283 = lshr exact i64 %282, 2
   %284 = trunc i64 %283 to i32
   %285 = add nsw i32 %284, -1
-  %.pre.i19.i.i.i103 = ptrtoint ptr %.sroa.011.1.i.i.i16.i.i.i100 to i64
+  %.pre.i19.i.i.i103 = ptrtoint ptr %.sroa.011.1.i.i.i16.i.i.i99 to i64
   br label %_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i71
 
-_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i71:   ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i102, %258
-  %286 = phi i32 [ %285, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i102 ], [ -1, %258 ]
-  %.pre-phi.i10.i.i.i72 = phi i64 [ %.pre.i19.i.i.i103, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i102 ], [ %254, %258 ]
+_ZN3vcg9HistogramIfE8BinIndexEf.exit20.i.i.i71:   ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i101, %258
+  %286 = phi i32 [ %285, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i101 ], [ -1, %258 ]
+  %.pre-phi.i10.i.i.i72 = phi i64 [ %.pre.i19.i.i.i103, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i101 ], [ %254, %258 ]
   %287 = sub i64 %.pre-phi.i10.i.i.i72, %254
   %288 = lshr exact i64 %287, 2
   %289 = trunc i64 %288 to i32
@@ -12892,15 +12883,11 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.
   %.sroa.011.1.i.i.i.i.i.i = select i1 %41, ptr %42, ptr %.sroa.011.012.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = select i1 %41, i64 %44, i64 %38
   %45 = icmp sgt i64 %.1.i.i.i.i.i.i, 0
-  br i1 %45, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i, label %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i, !llvm.loop !82
+  br i1 %45, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i, !llvm.loop !82
 
-_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i:       ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i
-  %.pre.i.i.i.i = ptrtoint ptr %.sroa.011.1.i.i.i.i.i.i to i64
-  br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i
-
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i
-  %.013.i.i.i12.i.i.i = phi i64 [ %.1.i.i.i17.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i ], [ %28, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i ]
-  %.sroa.011.012.i.i.i13.i.i.i = phi ptr [ %.sroa.011.1.i.i.i16.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i ], [ %22, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i.i ]
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i
+  %.013.i.i.i12.i.i.i = phi i64 [ %.1.i.i.i17.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i ], [ %28, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i ]
+  %.sroa.011.012.i.i.i13.i.i.i = phi ptr [ %.sroa.011.1.i.i.i16.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i ], [ %22, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i.i ]
   %46 = lshr i64 %.013.i.i.i12.i.i.i, 1
   %47 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i.i, i64 %46
   %48 = load float, ptr %47, align 4
@@ -12914,6 +12901,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.
   br i1 %53, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i, !llvm.loop !82
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i.i
+  %.pre.i.i.i.i = ptrtoint ptr %.sroa.011.1.i.i.i.i.i.i to i64
   %54 = sub i64 %.pre.i.i.i.i, %26
   %55 = lshr exact i64 %54, 2
   %56 = trunc i64 %55 to i32
@@ -13041,30 +13029,27 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.
   %.sroa.011.1.i.i.i.i.i = select i1 %29, ptr %30, ptr %.sroa.011.012.i.i.i.i.i
   %.1.i.i.i.i.i = select i1 %29, i64 %32, i64 %26
   %33 = icmp sgt i64 %.1.i.i.i.i.i, 0
-  br i1 %33, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i, label %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i, !llvm.loop !82
+  br i1 %33, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i, !llvm.loop !82
 
-_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i:         ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i
-  %.pre.i.i.i = ptrtoint ptr %.sroa.011.1.i.i.i.i.i to i64
-  %34 = sub i64 %.pre.i.i.i, %14
-  br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i
-
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i
-  %.013.i.i.i12.i.i = phi i64 [ %.1.i.i.i17.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i ], [ %16, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i ]
-  %.sroa.011.012.i.i.i13.i.i = phi ptr [ %.sroa.011.1.i.i.i16.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i ], [ %10, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i ]
-  %35 = lshr i64 %.013.i.i.i12.i.i, 1
-  %36 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i, i64 %35
-  %37 = load float, ptr %36, align 4
-  %38 = fcmp olt float %37, %25
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %40 = xor i64 %35, -1
-  %41 = add nsw i64 %.013.i.i.i12.i.i, %40
-  %.sroa.011.1.i.i.i16.i.i = select i1 %38, ptr %39, ptr %.sroa.011.012.i.i.i13.i.i
-  %.1.i.i.i17.i.i = select i1 %38, i64 %41, i64 %35
-  %42 = icmp sgt i64 %.1.i.i.i17.i.i, 0
-  br i1 %42, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i, !llvm.loop !82
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i
+  %.013.i.i.i12.i.i = phi i64 [ %.1.i.i.i17.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i ], [ %16, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i ]
+  %.sroa.011.012.i.i.i13.i.i = phi ptr [ %.sroa.011.1.i.i.i16.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i ], [ %10, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i ]
+  %34 = lshr i64 %.013.i.i.i12.i.i, 1
+  %35 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i, i64 %34
+  %36 = load float, ptr %35, align 4
+  %37 = fcmp olt float %36, %25
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %39 = xor i64 %34, -1
+  %40 = add nsw i64 %.013.i.i.i12.i.i, %39
+  %.sroa.011.1.i.i.i16.i.i = select i1 %37, ptr %38, ptr %.sroa.011.012.i.i.i13.i.i
+  %.1.i.i.i17.i.i = select i1 %37, i64 %40, i64 %34
+  %41 = icmp sgt i64 %.1.i.i.i17.i.i, 0
+  br i1 %41, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i, !llvm.loop !82
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i
-  %43 = lshr exact i64 %34, 2
+  %.pre.i.i.i = ptrtoint ptr %.sroa.011.1.i.i.i.i.i to i64
+  %42 = sub i64 %.pre.i.i.i, %14
+  %43 = lshr exact i64 %42, 2
   %44 = trunc i64 %43 to i32
   %45 = add nsw i32 %44, -1
   %.pre.i19.i.i = ptrtoint ptr %.sroa.011.1.i.i.i16.i.i to i64
@@ -13209,30 +13194,27 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.
   %.sroa.011.1.i.i.i.i.i = select i1 %81, ptr %82, ptr %.sroa.011.012.i.i.i.i.i
   %.1.i.i.i.i.i = select i1 %81, i64 %84, i64 %78
   %85 = icmp sgt i64 %.1.i.i.i.i.i, 0
-  br i1 %85, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i, label %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i, !llvm.loop !82
+  br i1 %85, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i, !llvm.loop !82
 
-_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i:         ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i
-  %.pre.i.i.i = ptrtoint ptr %.sroa.011.1.i.i.i.i.i to i64
-  %86 = sub i64 %.pre.i.i.i, %74
-  br label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i
-
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i
-  %.013.i.i.i12.i.i = phi i64 [ %.1.i.i.i17.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i ], [ %76, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i ]
-  %.sroa.011.012.i.i.i13.i.i = phi ptr [ %.sroa.011.1.i.i.i16.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i ], [ %70, %_ZN3vcg9HistogramIfE8BinIndexEf.exit.i.i ]
-  %87 = lshr i64 %.013.i.i.i12.i.i, 1
-  %88 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i, i64 %87
-  %89 = load float, ptr %88, align 4
-  %90 = fcmp olt float %89, %68
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %92 = xor i64 %87, -1
-  %93 = add nsw i64 %.013.i.i.i12.i.i, %92
-  %.sroa.011.1.i.i.i16.i.i = select i1 %90, ptr %91, ptr %.sroa.011.012.i.i.i13.i.i
-  %.1.i.i.i17.i.i = select i1 %90, i64 %93, i64 %87
-  %94 = icmp sgt i64 %.1.i.i.i17.i.i, 0
-  br i1 %94, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i, !llvm.loop !82
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i
+  %.013.i.i.i12.i.i = phi i64 [ %.1.i.i.i17.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i ], [ %76, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i ]
+  %.sroa.011.012.i.i.i13.i.i = phi ptr [ %.sroa.011.1.i.i.i16.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i ], [ %70, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i.i ]
+  %86 = lshr i64 %.013.i.i.i12.i.i, 1
+  %87 = getelementptr inbounds nuw float, ptr %.sroa.011.012.i.i.i13.i.i, i64 %86
+  %88 = load float, ptr %87, align 4
+  %89 = fcmp olt float %88, %68
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  %91 = xor i64 %86, -1
+  %92 = add nsw i64 %.013.i.i.i12.i.i, %91
+  %.sroa.011.1.i.i.i16.i.i = select i1 %89, ptr %90, ptr %.sroa.011.012.i.i.i13.i.i
+  %.1.i.i.i17.i.i = select i1 %89, i64 %92, i64 %86
+  %93 = icmp sgt i64 %.1.i.i.i17.i.i, 0
+  br i1 %93, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i, !llvm.loop !82
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_RKT0_.exit.loopexit.i18.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i11.i.i
-  %95 = lshr exact i64 %86, 2
+  %.pre.i.i.i = ptrtoint ptr %.sroa.011.1.i.i.i.i.i to i64
+  %94 = sub i64 %.pre.i.i.i, %74
+  %95 = lshr exact i64 %94, 2
   %96 = trunc i64 %95 to i32
   %97 = add nsw i32 %96, -1
   %.pre.i19.i.i = ptrtoint ptr %.sroa.011.1.i.i.i16.i.i to i64

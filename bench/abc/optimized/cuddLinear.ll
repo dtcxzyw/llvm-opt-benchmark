@@ -959,15 +959,13 @@ define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   %34 = load ptr, ptr %33, align 8, !tbaa !69
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !54
-  %37 = icmp eq i32 %36, 1
-  %38 = sext i32 %11 to i64
-  %39 = getelementptr inbounds ptr, ptr %31, i64 %38
-  %40 = load ptr, ptr %39, align 8, !tbaa !69
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !54
-  %43 = icmp eq i32 %42, 1
-  %44 = icmp sgt i32 %19, 0
-  tail call void @llvm.assume(i1 %44)
+  %37 = sext i32 %11 to i64
+  %38 = getelementptr inbounds ptr, ptr %31, i64 %37
+  %39 = load ptr, ptr %38, align 8, !tbaa !69
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %41 = load i32, ptr %40, align 4, !tbaa !54
+  %42 = icmp sgt i32 %19, 0
+  tail call void @llvm.assume(i1 %42)
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %.lr.ph
 
@@ -975,42 +973,44 @@ define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %.loopexit ]
   %.0245306 = phi ptr [ null, %13 ], [ %.1246, %.loopexit ]
   %.0247305 = phi ptr [ null, %13 ], [ %.1248, %.loopexit ]
-  %45 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
-  %46 = load ptr, ptr %45, align 8, !tbaa !69
-  %47 = icmp eq ptr %46, %0
-  br i1 %47, label %.loopexit, label %48
+  %43 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %44 = load ptr, ptr %43, align 8, !tbaa !69
+  %45 = icmp eq ptr %44, %0
+  br i1 %45, label %.loopexit, label %46
 
-48:                                               ; preds = %.lr.ph
-  store ptr %0, ptr %45, align 8, !tbaa !69
-  %49 = icmp eq ptr %.0247305, null
-  br i1 %49, label %52, label %50
+46:                                               ; preds = %.lr.ph
+  store ptr %0, ptr %43, align 8, !tbaa !69
+  %47 = icmp eq ptr %.0247305, null
+  br i1 %47, label %50, label %48
 
-50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i8, ptr %.0245306, i64 8
-  store ptr %46, ptr %51, align 8, !tbaa !55
-  br label %52
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %.0245306, i64 8
+  store ptr %44, ptr %49, align 8, !tbaa !55
+  br label %50
 
-52:                                               ; preds = %48, %50
-  %.2249 = phi ptr [ %.0247305, %50 ], [ %46, %48 ]
-  br label %53
+50:                                               ; preds = %46, %48
+  %.2249 = phi ptr [ %.0247305, %48 ], [ %44, %46 ]
+  br label %51
 
-53:                                               ; preds = %53, %52
-  %.0266 = phi ptr [ %46, %52 ], [ %55, %53 ]
-  %54 = getelementptr inbounds nuw i8, ptr %.0266, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !55
-  %.not291 = icmp eq ptr %55, %0
-  br i1 %.not291, label %.loopexit, label %53, !llvm.loop !70
+51:                                               ; preds = %51, %50
+  %.0266 = phi ptr [ %44, %50 ], [ %53, %51 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.0266, i64 8
+  %53 = load ptr, ptr %52, align 8, !tbaa !55
+  %.not291 = icmp eq ptr %53, %0
+  br i1 %.not291, label %.loopexit, label %51, !llvm.loop !70
 
-.loopexit:                                        ; preds = %53, %.lr.ph
-  %.1248 = phi ptr [ %.0247305, %.lr.ph ], [ %.2249, %53 ]
-  %.1246 = phi ptr [ %.0245306, %.lr.ph ], [ %.0266, %53 ]
+.loopexit:                                        ; preds = %51, %.lr.ph
+  %.1248 = phi ptr [ %.0247305, %.lr.ph ], [ %.2249, %51 ]
+  %.1246 = phi ptr [ %.0245306, %.lr.ph ], [ %.0266, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %.neg = sext i1 %37 to i32
-  %.neg285 = sext i1 %43 to i32
+  %54 = icmp eq i32 %36, 1
+  %.neg = sext i1 %54 to i32
+  %55 = icmp eq i32 %41, 1
+  %.neg285 = sext i1 %55 to i32
   %56 = getelementptr inbounds nuw i8, ptr %.1246, i64 8
   store ptr null, ptr %56, align 8, !tbaa !55
   %.not287322 = icmp eq ptr %.1248, null
@@ -1485,7 +1485,7 @@ define i32 @cuddLinearInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   %314 = load i32, ptr %313, align 4, !tbaa !54
   %315 = icmp eq i32 %314, 1
   %316 = zext i1 %315 to i32
-  %317 = getelementptr inbounds ptr, ptr %310, i64 %38
+  %317 = getelementptr inbounds ptr, ptr %310, i64 %37
   %318 = load ptr, ptr %317, align 8, !tbaa !69
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %320 = load i32, ptr %319, align 4, !tbaa !54

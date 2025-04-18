@@ -3620,7 +3620,6 @@ define dso_local noundef ptr @_ZN4llvm18ScheduleDAGSDNodes12EmitScheduleERNS_26M
   %.sroa.0137.0.copyload = load ptr, ptr %1, align 8
   call void @_ZN4llvm12InstrEmitterC1ERKNS_13TargetMachineEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE(ptr noundef nonnull align 8 dereferenceable(57) %7, ptr noundef nonnull align 8 dereferenceable(1264) %16, ptr noundef %18, ptr %.sroa.0137.0.copyload) #24
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %8) #24
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %8, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %19, align 4, !tbaa !464
@@ -3638,7 +3637,6 @@ define dso_local noundef ptr @_ZN4llvm18ScheduleDAGSDNodes12EmitScheduleERNS_26M
 
 _ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %9) #24
-  %.phi.trans.insert.i.i186.ptr = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %9, align 8
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %20, align 4, !tbaa !468
@@ -3653,7 +3651,9 @@ _ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS
   br i1 %.not.i.i.i192, label %_ZN4llvm13SmallDenseMapIPNS_5SUnitENS_8RegisterELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEC2Ej.exit, label %.lr.ph.i.i.i190, !llvm.loop !471
 
 _ZN4llvm13SmallDenseMapIPNS_5SUnitENS_8RegisterELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i190
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.phi.trans.insert.i.i186.ptr = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.phi.trans.insert3.i.i188 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %10) #24
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 16

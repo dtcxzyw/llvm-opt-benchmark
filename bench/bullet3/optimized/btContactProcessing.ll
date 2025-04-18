@@ -951,24 +951,24 @@ tailrecurse:                                      ; preds = %40, %4
 
 .preheader:                                       ; preds = %15
   %19 = getelementptr inbounds %struct.CONTACT_KEY_TOKEN, ptr %13, i64 %indvars.iv
-  %20 = trunc nsw i64 %indvars.iv to i32
-  %21 = sext i32 %.0 to i64
-  br label %22
+  %20 = sext i32 %.0 to i64
+  br label %21
 
-22:                                               ; preds = %22, %.preheader
-  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %22 ], [ %21, %.preheader ]
-  %23 = getelementptr inbounds %struct.CONTACT_KEY_TOKEN, ptr %13, i64 %indvars.iv45
-  %24 = load i32, ptr %23, align 4, !tbaa !34
-  %25 = icmp ult i32 %11, %24
+21:                                               ; preds = %21, %.preheader
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %21 ], [ %20, %.preheader ]
+  %22 = getelementptr inbounds %struct.CONTACT_KEY_TOKEN, ptr %13, i64 %indvars.iv45
+  %23 = load i32, ptr %22, align 4, !tbaa !34
+  %24 = icmp ult i32 %11, %23
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
-  br i1 %25, label %22, label %26, !llvm.loop !46
+  br i1 %24, label %21, label %25, !llvm.loop !46
 
-26:                                               ; preds = %22
+25:                                               ; preds = %21
+  %26 = trunc nsw i64 %indvars.iv to i32
   %27 = trunc nsw i64 %indvars.iv45 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv45
   br i1 %.not, label %36, label %28
 
-28:                                               ; preds = %26
+28:                                               ; preds = %25
   %29 = getelementptr inbounds %struct.CONTACT_KEY_TOKEN, ptr %13, i64 %indvars.iv45
   %30 = load i64, ptr %19, align 4
   %31 = load i64, ptr %29, align 4
@@ -976,13 +976,13 @@ tailrecurse:                                      ; preds = %40, %4
   %32 = load ptr, ptr %5, align 8, !tbaa !31
   %33 = getelementptr inbounds %struct.CONTACT_KEY_TOKEN, ptr %32, i64 %indvars.iv45
   store i64 %30, ptr %33, align 4
-  %34 = add nsw i32 %20, 1
+  %34 = add nsw i32 %26, 1
   %35 = add nsw i32 %27, -1
   br label %36
 
-36:                                               ; preds = %26, %28
-  %.230 = phi i32 [ %34, %28 ], [ %20, %26 ]
-  %.2 = phi i32 [ %35, %28 ], [ %27, %26 ]
+36:                                               ; preds = %25, %28
+  %.230 = phi i32 [ %34, %28 ], [ %26, %25 ]
+  %.2 = phi i32 [ %35, %28 ], [ %27, %25 ]
   %.not33 = icmp sgt i32 %.230, %.2
   br i1 %.not33, label %37, label %12, !llvm.loop !47
 

@@ -977,34 +977,34 @@ Gia_ManSwiSimInfoRandom.exit.us.i:                ; preds = %.lr.ph34.i.us.i, %.
 
 .lr.ph.split.split.us.i180:                       ; preds = %.lr.ph.split.i164, %Gia_ManSwiSimInfoRandom.exit.us46.i
   %indvars.iv303 = phi i64 [ %indvars.iv.next304, %Gia_ManSwiSimInfoRandom.exit.us46.i ], [ 0, %.lr.ph.split.i164 ]
-  %397 = mul nsw i64 %indvars.iv303, %136
-  %398 = call i32 @Gia_ManRandom(i32 noundef 0) #17
-  br label %399
+  %397 = call i32 @Gia_ManRandom(i32 noundef 0) #17
+  br label %398
 
-399:                                              ; preds = %399, %.lr.ph.split.split.us.i180
-  %.030.i.us.i = phi i32 [ 0, %.lr.ph.split.split.us.i180 ], [ %402, %399 ]
-  %.02429.i.us.i = phi i32 [ %398, %.lr.ph.split.split.us.i180 ], [ %401, %399 ]
-  %400 = call i32 @Gia_ManRandom(i32 noundef 0) #17
-  %401 = and i32 %400, %.02429.i.us.i
-  %402 = add nuw nsw i32 %.030.i.us.i, 1
-  %exitcond.not.i.us.i181 = icmp eq i32 %402, %292
-  br i1 %exitcond.not.i.us.i181, label %403, label %399, !llvm.loop !78
+398:                                              ; preds = %398, %.lr.ph.split.split.us.i180
+  %.030.i.us.i = phi i32 [ 0, %.lr.ph.split.split.us.i180 ], [ %401, %398 ]
+  %.02429.i.us.i = phi i32 [ %397, %.lr.ph.split.split.us.i180 ], [ %400, %398 ]
+  %399 = call i32 @Gia_ManRandom(i32 noundef 0) #17
+  %400 = and i32 %399, %.02429.i.us.i
+  %401 = add nuw nsw i32 %.030.i.us.i, 1
+  %exitcond.not.i.us.i181 = icmp eq i32 %401, %292
+  br i1 %exitcond.not.i.us.i181, label %402, label %398, !llvm.loop !78
 
-403:                                              ; preds = %399
-  %404 = getelementptr inbounds i32, ptr %42, i64 %397
+402:                                              ; preds = %398
+  %403 = mul nsw i64 %indvars.iv303, %136
+  %404 = getelementptr inbounds i32, ptr %42, i64 %403
   br i1 %129, label %Gia_ManSwiSimInfoRandom.exit.us46.i, label %.lr.ph32.i.us.i
 
-.lr.ph32.i.us.i:                                  ; preds = %403, %.lr.ph32.i.us.i
-  %indvars.iv38.i.us.i = phi i64 [ %indvars.iv.next39.i.us.i, %.lr.ph32.i.us.i ], [ %130, %403 ]
+.lr.ph32.i.us.i:                                  ; preds = %402, %.lr.ph32.i.us.i
+  %indvars.iv38.i.us.i = phi i64 [ %indvars.iv.next39.i.us.i, %.lr.ph32.i.us.i ], [ %130, %402 ]
   %indvars.iv.next39.i.us.i = add nsw i64 %indvars.iv38.i.us.i, -1
   %405 = getelementptr inbounds nuw i32, ptr %404, i64 %indvars.iv.next39.i.us.i
   %406 = load i32, ptr %405, align 4, !tbaa !53
-  %407 = xor i32 %406, %401
+  %407 = xor i32 %406, %400
   store i32 %407, ptr %405, align 4, !tbaa !53
   %408 = icmp samesign ugt i64 %indvars.iv38.i.us.i, 1
   br i1 %408, label %.lr.ph32.i.us.i, label %Gia_ManSwiSimInfoRandom.exit.us46.i, !llvm.loop !79
 
-Gia_ManSwiSimInfoRandom.exit.us46.i:              ; preds = %.lr.ph32.i.us.i, %403
+Gia_ManSwiSimInfoRandom.exit.us46.i:              ; preds = %.lr.ph32.i.us.i, %402
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %.val19.us47.i = load i32, ptr %99, align 8, !tbaa !52
   %.val20.us48.i = load ptr, ptr %37, align 8, !tbaa !42

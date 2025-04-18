@@ -2670,7 +2670,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %11
 
 _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %34 = phi ptr [ %28, %.lr.ph ], [ %65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %.01228 = phi i32 [ 0, %.lr.ph ], [ %55, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.01228 = phi i32 [ 0, %.lr.ph ], [ %56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %.01327 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
   %35 = load ptr, ptr %2, align 8, !tbaa !95
@@ -2721,23 +2721,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
           to label %_ZN2cv7Scalar_IdEC2ERKS1_.exit20 unwind label %71
 
 _ZN2cv7Scalar_IdEC2ERKS1_.exit20:                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
-  %.sroa.01.0.extract.trunc = trunc i64 %51 to i32
-  %.sroa.5.0.extract.shift = lshr i64 %51, 32
-  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %52 = sitofp i32 %.sroa.5.0.extract.trunc to double
-  %53 = fmul double %52, 1.300000e+00
-  %54 = fptosi double %53 to i32
-  %55 = add nsw i32 %.01228, %54
-  %56 = load i32, ptr %31, align 4, !tbaa !144
-  %57 = sub nsw i32 %56, %.sroa.01.0.extract.trunc
+  %52 = load i32, ptr %31, align 4, !tbaa !144
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #23
   store i64 0, ptr %33, align 8
   store i32 50397184, ptr %7, align 8, !tbaa !50
   store ptr %9, ptr %32, align 8, !tbaa !52
-  %.sroa.5.0.insert.ext = zext i32 %55 to i64
-  %.sroa.0.0.insert.ext = zext i32 %57 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false), !tbaa !86
+  %.sroa.01.0.extract.trunc = trunc i64 %51 to i32
+  %.sroa.5.0.extract.shift = lshr i64 %51, 32
+  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
+  %53 = sitofp i32 %.sroa.5.0.extract.trunc to double
+  %54 = fmul double %53, 1.300000e+00
+  %55 = fptosi double %54 to i32
+  %56 = add nsw i32 %.01228, %55
+  %57 = sub nsw i32 %52, %.sroa.01.0.extract.trunc
+  %.sroa.5.0.insert.ext = zext i32 %56 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
+  %.sroa.0.0.insert.ext = zext i32 %57 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0.0.insert.ext
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 %.sroa.0.0.insert.insert, i32 noundef 3, double noundef 1.000000e+00, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 8, i1 noundef zeroext false)
           to label %58 unwind label %73

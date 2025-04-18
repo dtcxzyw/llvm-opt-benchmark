@@ -1469,80 +1469,80 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   %140 = getelementptr i8, ptr %139, i64 %138
   %141 = load i8, ptr %140, align 1, !tbaa !24
   %142 = zext i8 %141 to i32
-  %143 = icmp ult i32 %.0777.i, 10
-  br label %144
+  br label %143
 
-144:                                              ; preds = %180, %133
-  %.5929.i = phi ptr [ %.1925.i, %133 ], [ %.6930.i, %180 ]
-  %.6874.i = phi i32 [ %81, %133 ], [ %.8876.i, %180 ]
-  %.6858.i = phi i32 [ %.1853.i, %133 ], [ %.8860.i, %180 ]
-  %.3846.i = phi i32 [ 1, %133 ], [ %.4847.i, %180 ]
-  %.0842.i = phi i32 [ %142, %133 ], [ %145, %180 ]
-  %.0840.i = phi i32 [ 256, %133 ], [ %.1841.i, %180 ]
-  %145 = shl i32 %.0842.i, 1
-  %146 = and i32 %145, %.0840.i
-  %147 = zext nneg i32 %.0840.i to i64
-  %148 = getelementptr inbounds nuw i16, ptr %.0850.i, i64 %147
-  %149 = zext nneg i32 %146 to i64
-  %150 = getelementptr inbounds nuw i16, ptr %148, i64 %149
-  %151 = zext nneg i32 %.3846.i to i64
-  %152 = getelementptr inbounds nuw i16, ptr %150, i64 %151
-  %153 = load i16, ptr %152, align 2, !tbaa !30
-  %154 = zext i16 %153 to i32
-  %155 = icmp ult i32 %.6874.i, 16777216
-  br i1 %155, label %156, label %163
+143:                                              ; preds = %179, %133
+  %.5929.i = phi ptr [ %.1925.i, %133 ], [ %.6930.i, %179 ]
+  %.6874.i = phi i32 [ %81, %133 ], [ %.8876.i, %179 ]
+  %.6858.i = phi i32 [ %.1853.i, %133 ], [ %.8860.i, %179 ]
+  %.3846.i = phi i32 [ 1, %133 ], [ %.4847.i, %179 ]
+  %.0842.i = phi i32 [ %142, %133 ], [ %144, %179 ]
+  %.0840.i = phi i32 [ 256, %133 ], [ %.1841.i, %179 ]
+  %144 = shl i32 %.0842.i, 1
+  %145 = and i32 %144, %.0840.i
+  %146 = zext nneg i32 %.0840.i to i64
+  %147 = getelementptr inbounds nuw i16, ptr %.0850.i, i64 %146
+  %148 = zext nneg i32 %145 to i64
+  %149 = getelementptr inbounds nuw i16, ptr %147, i64 %148
+  %150 = zext nneg i32 %.3846.i to i64
+  %151 = getelementptr inbounds nuw i16, ptr %149, i64 %150
+  %152 = load i16, ptr %151, align 2, !tbaa !30
+  %153 = zext i16 %152 to i32
+  %154 = icmp ult i32 %.6874.i, 16777216
+  br i1 %154, label %155, label %162
 
-156:                                              ; preds = %144
-  %157 = shl nuw i32 %.6874.i, 8
-  %158 = shl i32 %.6858.i, 8
-  %159 = getelementptr inbounds nuw i8, ptr %.5929.i, i64 1
-  %160 = load i8, ptr %.5929.i, align 1, !tbaa !24
-  %161 = zext i8 %160 to i32
-  %162 = or disjoint i32 %158, %161
-  br label %163
+155:                                              ; preds = %143
+  %156 = shl nuw i32 %.6874.i, 8
+  %157 = shl i32 %.6858.i, 8
+  %158 = getelementptr inbounds nuw i8, ptr %.5929.i, i64 1
+  %159 = load i8, ptr %.5929.i, align 1, !tbaa !24
+  %160 = zext i8 %159 to i32
+  %161 = or disjoint i32 %157, %160
+  br label %162
 
-163:                                              ; preds = %156, %144
-  %.6930.i = phi ptr [ %159, %156 ], [ %.5929.i, %144 ]
-  %.7875.i = phi i32 [ %157, %156 ], [ %.6874.i, %144 ]
-  %.7859.i = phi i32 [ %162, %156 ], [ %.6858.i, %144 ]
-  %164 = lshr i32 %.7875.i, 11
-  %165 = mul i32 %164, %154
-  %166 = icmp ult i32 %.7859.i, %165
-  %167 = shl nuw nsw i32 %.3846.i, 1
-  br i1 %166, label %168, label %174
+162:                                              ; preds = %155, %143
+  %.6930.i = phi ptr [ %158, %155 ], [ %.5929.i, %143 ]
+  %.7875.i = phi i32 [ %156, %155 ], [ %.6874.i, %143 ]
+  %.7859.i = phi i32 [ %161, %155 ], [ %.6858.i, %143 ]
+  %163 = lshr i32 %.7875.i, 11
+  %164 = mul i32 %163, %153
+  %165 = icmp ult i32 %.7859.i, %164
+  %166 = shl nuw nsw i32 %.3846.i, 1
+  br i1 %165, label %167, label %173
 
-168:                                              ; preds = %163
-  %169 = sub nsw i32 2048, %154
-  %170 = lshr i32 %169, 5
-  %171 = trunc i32 %170 to i16
-  %172 = add i16 %153, %171
-  %173 = xor i32 %146, %.0840.i
-  br label %180
+167:                                              ; preds = %162
+  %168 = sub nsw i32 2048, %153
+  %169 = lshr i32 %168, 5
+  %170 = trunc i32 %169 to i16
+  %171 = add i16 %152, %170
+  %172 = xor i32 %145, %.0840.i
+  br label %179
 
-174:                                              ; preds = %163
-  %175 = sub i32 %.7875.i, %165
-  %176 = sub nuw i32 %.7859.i, %165
-  %177 = lshr i16 %153, 5
-  %178 = sub i16 %153, %177
-  %179 = or disjoint i32 %167, 1
-  br label %180
+173:                                              ; preds = %162
+  %174 = sub i32 %.7875.i, %164
+  %175 = sub nuw i32 %.7859.i, %164
+  %176 = lshr i16 %152, 5
+  %177 = sub i16 %152, %176
+  %178 = or disjoint i32 %166, 1
+  br label %179
 
-180:                                              ; preds = %174, %168
-  %.sink1169.i = phi i16 [ %172, %168 ], [ %178, %174 ]
-  %.8876.i = phi i32 [ %165, %168 ], [ %175, %174 ]
-  %.8860.i = phi i32 [ %.7859.i, %168 ], [ %176, %174 ]
-  %.4847.i = phi i32 [ %167, %168 ], [ %179, %174 ]
-  %.1841.i = phi i32 [ %173, %168 ], [ %146, %174 ]
-  store i16 %.sink1169.i, ptr %152, align 2, !tbaa !30
-  %181 = icmp ult i32 %.4847.i, 256
-  br i1 %181, label %144, label %.loopexit.loopexit1157.i
+179:                                              ; preds = %173, %167
+  %.sink1169.i = phi i16 [ %171, %167 ], [ %177, %173 ]
+  %.8876.i = phi i32 [ %164, %167 ], [ %174, %173 ]
+  %.8860.i = phi i32 [ %.7859.i, %167 ], [ %175, %173 ]
+  %.4847.i = phi i32 [ %166, %167 ], [ %178, %173 ]
+  %.1841.i = phi i32 [ %172, %167 ], [ %145, %173 ]
+  store i16 %.sink1169.i, ptr %151, align 2, !tbaa !30
+  %180 = icmp ult i32 %.4847.i, 256
+  br i1 %180, label %143, label %.loopexit.loopexit1157.i
 
 .loopexit.loopexit.i:                             ; preds = %131
-  %182 = tail call i32 @llvm.usub.sat.i32(i32 %.0777.i, i32 3)
+  %181 = tail call i32 @llvm.usub.sat.i32(i32 %.0777.i, i32 3)
   br label %.loopexit.i
 
-.loopexit.loopexit1157.i:                         ; preds = %180
-  %.neg1043.i = select i1 %143, i32 -3, i32 -6
+.loopexit.loopexit1157.i:                         ; preds = %179
+  %182 = icmp ult i32 %.0777.i, 10
+  %.neg1043.i = select i1 %182, i32 -3, i32 -6
   %183 = add i32 %.neg1043.i, %.0777.i
   br label %.loopexit.i
 
@@ -1551,7 +1551,7 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   %.5873.i = phi i32 [ %.4872.i, %.loopexit.loopexit.i ], [ %.8876.i, %.loopexit.loopexit1157.i ]
   %.5857.i = phi i32 [ %.4856.i, %.loopexit.loopexit.i ], [ %.8860.i, %.loopexit.loopexit1157.i ]
   %.2845.i = phi i32 [ %.1844.i, %.loopexit.loopexit.i ], [ %.4847.i, %.loopexit.loopexit1157.i ]
-  %.1778.i = phi i32 [ %182, %.loopexit.loopexit.i ], [ %183, %.loopexit.loopexit1157.i ]
+  %.1778.i = phi i32 [ %181, %.loopexit.loopexit.i ], [ %183, %.loopexit.loopexit1157.i ]
   %184 = trunc i32 %.2845.i to i8
   %185 = add i64 %.0836.i, 1
   %186 = getelementptr inbounds nuw i8, ptr %44, i64 %.0836.i

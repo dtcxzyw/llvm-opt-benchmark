@@ -739,30 +739,30 @@ define hidden void @handleMessage(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %8, label %54, label %9
 
 9:                                                ; preds = %6
-  %10 = icmp eq i32 %3, 0
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp ugt i64 %12, 15
-  tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %15 = load ptr, ptr %14, align 8, !nonnull !8, !noundef !8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %11 = load i64, ptr %10, align 8
+  %12 = icmp ugt i64 %11, 15
+  tail call void @llvm.assume(i1 %12)
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %14 = load ptr, ptr %13, align 8, !nonnull !8, !noundef !8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %9
-  %.019.i = phi ptr [ %44, %43 ], [ %15, %9 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %17, 132
-  br i1 %18, label %19, label %43
+  %.019.i = phi ptr [ %44, %43 ], [ %14, %9 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp eq i32 %16, 132
+  br i1 %17, label %18, label %43
 
-19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds nuw i8, ptr %.019.i, i64 12
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp eq i32 %21, 1
-  br i1 %22, label %getControlData.exit, label %43
+18:                                               ; preds = %.lr.ph.i
+  %19 = getelementptr inbounds nuw i8, ptr %.019.i, i64 12
+  %20 = load i32, ptr %19, align 4
+  %21 = icmp eq i32 %20, 1
+  br i1 %21, label %getControlData.exit, label %43
 
-getControlData.exit:                              ; preds = %19
-  %spec.store.select = select i1 %10, i32 -1, i32 %3
+getControlData.exit:                              ; preds = %18
+  %22 = icmp eq i32 %3, 0
+  %spec.store.select = select i1 %22, i32 -1, i32 %3
   %23 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %.019.i, i64 44
   %25 = load i32, ptr %24, align 4
@@ -786,7 +786,7 @@ getControlData.exit:                              ; preds = %19
   %42 = icmp eq ptr %41, null
   br i1 %42, label %54, label %45
 
-43:                                               ; preds = %19, %.lr.ph.i
+43:                                               ; preds = %18, %.lr.ph.i
   %44 = tail call ptr @__cmsg_nxthdr(ptr noundef %2, ptr noundef nonnull %.019.i) #12
   %.not.i = icmp ne ptr %44, null
   tail call void @llvm.assume(i1 %.not.i)

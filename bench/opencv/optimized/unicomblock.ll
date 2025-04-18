@@ -477,7 +477,9 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
 .loopexit:                                        ; preds = %103
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %.sroa.speculated77 = tail call i32 @llvm.smax.i32(i32 %41, i32 %.095104)
+  %.sroa.speculated66 = tail call i32 @llvm.smax.i32(i32 %42, i32 %.096103)
   %.sroa.speculated74 = tail call i32 @llvm.smin.i32(i32 %.098101, i32 %41)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %.097102, i32 %42)
   %34 = add nuw nsw i32 %.052105, 1
   %35 = sext i32 %.3 to i64
   %36 = icmp slt i64 %indvars.iv.next111, %35
@@ -496,8 +498,6 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
   %40 = load i32, ptr %39, align 4, !tbaa !32
   %41 = and i32 %40, 65535
   %42 = ashr i32 %40, 16
-  %.sroa.speculated66 = tail call i32 @llvm.smax.i32(i32 %42, i32 %.096103)
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %.097102, i32 %42)
   br label %43
 
 43:                                               ; preds = %37, %103

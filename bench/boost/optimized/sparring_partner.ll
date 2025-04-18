@@ -6530,27 +6530,27 @@ define linkonce_odr hidden void @_ZN5boost7process2v122basic_environment_implIcN
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = tail call { ptr, ptr } @_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix23native_environment_implEE4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %9 = extractvalue { ptr, ptr } %8, 0
-  %10 = load ptr, ptr %1, align 8, !tbaa !102
-  br label %11
+  %9 = load ptr, ptr %1, align 8, !tbaa !102
+  br label %10
 
-11:                                               ; preds = %11, %3
-  %.0.i.i = phi ptr [ %10, %3 ], [ %13, %11 ]
-  %12 = load ptr, ptr %.0.i.i, align 8, !tbaa !63
-  %.not.i.i = icmp eq ptr %12, null
-  %13 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  br i1 %.not.i.i, label %_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix23native_environment_implEE3endEv.exit, label %11, !llvm.loop !104
+10:                                               ; preds = %10, %3
+  %.0.i.i = phi ptr [ %9, %3 ], [ %12, %10 ]
+  %11 = load ptr, ptr %.0.i.i, align 8, !tbaa !63
+  %.not.i.i = icmp eq ptr %11, null
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  br i1 %.not.i.i, label %_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix23native_environment_implEE3endEv.exit, label %10, !llvm.loop !104
 
-_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix23native_environment_implEE3endEv.exit: ; preds = %11
+_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix23native_environment_implEE3endEv.exit: ; preds = %10
+  %13 = extractvalue { ptr, ptr } %8, 0
   %14 = extractvalue { ptr, ptr } %8, 1
-  %.not = icmp eq ptr %9, %.0.i.i
+  %.not = icmp eq ptr %13, %.0.i.i
   br i1 %.not, label %50, label %15
 
 15:                                               ; preds = %_ZN5boost7process2v122basic_environment_implIcNS1_6detail5posix23native_environment_implEE3endEv.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  %16 = load ptr, ptr %9, align 8, !tbaa !63, !noalias !114
+  %16 = load ptr, ptr %13, align 8, !tbaa !63, !noalias !114
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   br label %17
 

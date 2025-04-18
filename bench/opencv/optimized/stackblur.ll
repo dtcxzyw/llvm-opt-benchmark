@@ -2532,62 +2532,62 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %7, %30
   %narrow152.us = select i1 %124, i32 %117, i32 0
   %.3.idx.us = sext i32 %narrow152.us to i64
   %.3.us = getelementptr inbounds i8, ptr %.2131165.us, i64 %.3.idx.us
-  %125 = zext i1 %124 to i32
-  %126 = mul nsw i32 %spec.select149.us, %20
-  %127 = mul nsw i32 %spec.store.select.us, %20
+  %125 = mul nsw i32 %spec.select149.us, %20
+  %126 = mul nsw i32 %spec.store.select.us, %20
+  %127 = sext i32 %125 to i64
   %128 = sext i32 %126 to i64
-  %129 = sext i32 %127 to i64
-  %invariant.gep197 = getelementptr i8, ptr %40, i64 %128
-  %invariant.gep199 = getelementptr i8, ptr %40, i64 %129
-  br label %130
+  %invariant.gep197 = getelementptr i8, ptr %40, i64 %127
+  %invariant.gep199 = getelementptr i8, ptr %40, i64 %128
+  br label %129
 
-130:                                              ; preds = %.lr.ph.us173, %130
-  %indvars.iv189 = phi i64 [ 0, %.lr.ph.us173 ], [ %indvars.iv.next190, %130 ]
-  %131 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv189
-  %132 = load i32, ptr %131, align 4, !tbaa !22
-  %133 = sitofp i32 %132 to float
-  %134 = load float, ptr %103, align 4, !tbaa !55
-  %135 = fmul float %134, %133
-  %136 = fptoui float %135 to i8
-  %137 = getelementptr inbounds nuw i8, ptr %.0126168.us, i64 %indvars.iv189
-  store i8 %136, ptr %137, align 1, !tbaa !56
-  %138 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv189
-  %139 = load i32, ptr %138, align 4, !tbaa !22
-  %140 = load i32, ptr %131, align 4, !tbaa !22
-  %141 = sub nsw i32 %140, %139
-  store i32 %141, ptr %131, align 4, !tbaa !22
+129:                                              ; preds = %.lr.ph.us173, %129
+  %indvars.iv189 = phi i64 [ 0, %.lr.ph.us173 ], [ %indvars.iv.next190, %129 ]
+  %130 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv189
+  %131 = load i32, ptr %130, align 4, !tbaa !22
+  %132 = sitofp i32 %131 to float
+  %133 = load float, ptr %103, align 4, !tbaa !55
+  %134 = fmul float %133, %132
+  %135 = fptoui float %134 to i8
+  %136 = getelementptr inbounds nuw i8, ptr %.0126168.us, i64 %indvars.iv189
+  store i8 %135, ptr %136, align 1, !tbaa !56
+  %137 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv189
+  %138 = load i32, ptr %137, align 4, !tbaa !22
+  %139 = load i32, ptr %130, align 4, !tbaa !22
+  %140 = sub nsw i32 %139, %138
+  store i32 %140, ptr %130, align 4, !tbaa !22
   %gep198 = getelementptr i8, ptr %invariant.gep197, i64 %indvars.iv189
-  %142 = load i8, ptr %gep198, align 1, !tbaa !56
-  %143 = zext i8 %142 to i32
-  %144 = sub nsw i32 %139, %143
-  store i32 %144, ptr %138, align 4, !tbaa !22
-  %145 = getelementptr inbounds nuw i8, ptr %.3.us, i64 %indvars.iv189
-  %146 = load i8, ptr %145, align 1, !tbaa !56
-  store i8 %146, ptr %gep198, align 1, !tbaa !56
-  %147 = zext i8 %146 to i32
-  %148 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv189
-  %149 = load i32, ptr %148, align 4, !tbaa !22
-  %150 = add nsw i32 %149, %147
-  store i32 %150, ptr %148, align 4, !tbaa !22
-  %151 = load i32, ptr %131, align 4, !tbaa !22
-  %152 = add nsw i32 %151, %150
-  store i32 %152, ptr %131, align 4, !tbaa !22
+  %141 = load i8, ptr %gep198, align 1, !tbaa !56
+  %142 = zext i8 %141 to i32
+  %143 = sub nsw i32 %138, %142
+  store i32 %143, ptr %137, align 4, !tbaa !22
+  %144 = getelementptr inbounds nuw i8, ptr %.3.us, i64 %indvars.iv189
+  %145 = load i8, ptr %144, align 1, !tbaa !56
+  store i8 %145, ptr %gep198, align 1, !tbaa !56
+  %146 = zext i8 %145 to i32
+  %147 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv189
+  %148 = load i32, ptr %147, align 4, !tbaa !22
+  %149 = add nsw i32 %148, %146
+  store i32 %149, ptr %147, align 4, !tbaa !22
+  %150 = load i32, ptr %130, align 4, !tbaa !22
+  %151 = add nsw i32 %150, %149
+  store i32 %151, ptr %130, align 4, !tbaa !22
   %gep200 = getelementptr i8, ptr %invariant.gep199, i64 %indvars.iv189
-  %153 = load i8, ptr %gep200, align 1, !tbaa !56
-  %154 = zext i8 %153 to i32
-  %155 = load i32, ptr %138, align 4, !tbaa !22
-  %156 = add nsw i32 %155, %154
-  store i32 %156, ptr %138, align 4, !tbaa !22
-  %157 = load i8, ptr %gep200, align 1, !tbaa !56
-  %158 = zext i8 %157 to i32
-  %159 = sub nsw i32 %150, %158
-  store i32 %159, ptr %148, align 4, !tbaa !22
+  %152 = load i8, ptr %gep200, align 1, !tbaa !56
+  %153 = zext i8 %152 to i32
+  %154 = load i32, ptr %137, align 4, !tbaa !22
+  %155 = add nsw i32 %154, %153
+  store i32 %155, ptr %137, align 4, !tbaa !22
+  %156 = load i8, ptr %gep200, align 1, !tbaa !56
+  %157 = zext i8 %156 to i32
+  %158 = sub nsw i32 %149, %157
+  store i32 %158, ptr %147, align 4, !tbaa !22
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %._crit_edge.us174, label %130, !llvm.loop !148
+  br i1 %exitcond193.not, label %._crit_edge.us174, label %129, !llvm.loop !148
 
-._crit_edge.us174:                                ; preds = %130
-  %.2.us = add nsw i32 %.1167.us, %125
+._crit_edge.us174:                                ; preds = %129
+  %159 = zext i1 %124 to i32
+  %.2.us = add nsw i32 %.1167.us, %159
   %160 = load i32, ptr %101, align 4, !tbaa !52
   %161 = sext i32 %160 to i64
   %162 = getelementptr inbounds i8, ptr %.0126168.us, i64 %161
@@ -3972,56 +3972,56 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %7, %31
   %narrow152.us = select i1 %120, i32 %113, i32 0
   %.3.idx.us = sext i32 %narrow152.us to i64
   %.3.us = getelementptr inbounds i16, ptr %.2131165.us, i64 %.3.idx.us
-  %121 = zext i1 %120 to i32
-  %122 = mul nsw i32 %spec.select149.us, %20
-  %123 = mul nsw i32 %spec.store.select.us, %20
+  %121 = mul nsw i32 %spec.select149.us, %20
+  %122 = mul nsw i32 %spec.store.select.us, %20
+  %123 = sext i32 %121 to i64
   %124 = sext i32 %122 to i64
-  %125 = sext i32 %123 to i64
-  %invariant.gep197 = getelementptr i16, ptr %41, i64 %124
-  %invariant.gep199 = getelementptr i16, ptr %41, i64 %125
-  br label %126
+  %invariant.gep197 = getelementptr i16, ptr %41, i64 %123
+  %invariant.gep199 = getelementptr i16, ptr %41, i64 %124
+  br label %125
 
-126:                                              ; preds = %.lr.ph.us173, %126
-  %indvars.iv189 = phi i64 [ 0, %.lr.ph.us173 ], [ %indvars.iv.next190, %126 ]
-  %127 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv189
-  %128 = load i32, ptr %127, align 4, !tbaa !22
-  %129 = sitofp i32 %128 to float
-  %130 = fmul float %104, %129
-  %131 = fptosi float %130 to i16
-  %132 = getelementptr inbounds nuw i16, ptr %.0126168.us, i64 %indvars.iv189
-  store i16 %131, ptr %132, align 2, !tbaa !57
-  %133 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv189
-  %134 = load i32, ptr %133, align 4, !tbaa !22
-  %135 = sub nsw i32 %128, %134
+125:                                              ; preds = %.lr.ph.us173, %125
+  %indvars.iv189 = phi i64 [ 0, %.lr.ph.us173 ], [ %indvars.iv.next190, %125 ]
+  %126 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv189
+  %127 = load i32, ptr %126, align 4, !tbaa !22
+  %128 = sitofp i32 %127 to float
+  %129 = fmul float %104, %128
+  %130 = fptosi float %129 to i16
+  %131 = getelementptr inbounds nuw i16, ptr %.0126168.us, i64 %indvars.iv189
+  store i16 %130, ptr %131, align 2, !tbaa !57
+  %132 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv189
+  %133 = load i32, ptr %132, align 4, !tbaa !22
+  %134 = sub nsw i32 %127, %133
   %gep198 = getelementptr i16, ptr %invariant.gep197, i64 %indvars.iv189
-  %136 = load i16, ptr %gep198, align 2, !tbaa !57
-  %137 = sext i16 %136 to i32
-  %138 = sub nsw i32 %134, %137
-  store i32 %138, ptr %133, align 4, !tbaa !22
-  %139 = getelementptr inbounds nuw i16, ptr %.3.us, i64 %indvars.iv189
-  %140 = load i16, ptr %139, align 2, !tbaa !57
-  store i16 %140, ptr %gep198, align 2, !tbaa !57
-  %141 = sext i16 %140 to i32
-  %142 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv189
-  %143 = load i32, ptr %142, align 4, !tbaa !22
-  %144 = add nsw i32 %143, %141
-  store i32 %144, ptr %142, align 4, !tbaa !22
-  %145 = add nsw i32 %135, %144
-  store i32 %145, ptr %127, align 4, !tbaa !22
+  %135 = load i16, ptr %gep198, align 2, !tbaa !57
+  %136 = sext i16 %135 to i32
+  %137 = sub nsw i32 %133, %136
+  store i32 %137, ptr %132, align 4, !tbaa !22
+  %138 = getelementptr inbounds nuw i16, ptr %.3.us, i64 %indvars.iv189
+  %139 = load i16, ptr %138, align 2, !tbaa !57
+  store i16 %139, ptr %gep198, align 2, !tbaa !57
+  %140 = sext i16 %139 to i32
+  %141 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv189
+  %142 = load i32, ptr %141, align 4, !tbaa !22
+  %143 = add nsw i32 %142, %140
+  store i32 %143, ptr %141, align 4, !tbaa !22
+  %144 = add nsw i32 %134, %143
+  store i32 %144, ptr %126, align 4, !tbaa !22
   %gep200 = getelementptr i16, ptr %invariant.gep199, i64 %indvars.iv189
-  %146 = load i16, ptr %gep200, align 2, !tbaa !57
-  %147 = sext i16 %146 to i32
-  %148 = load i32, ptr %133, align 4, !tbaa !22
-  %149 = add nsw i32 %148, %147
-  store i32 %149, ptr %133, align 4, !tbaa !22
-  %150 = sub nsw i32 %144, %147
-  store i32 %150, ptr %142, align 4, !tbaa !22
+  %145 = load i16, ptr %gep200, align 2, !tbaa !57
+  %146 = sext i16 %145 to i32
+  %147 = load i32, ptr %132, align 4, !tbaa !22
+  %148 = add nsw i32 %147, %146
+  store i32 %148, ptr %132, align 4, !tbaa !22
+  %149 = sub nsw i32 %143, %146
+  store i32 %149, ptr %141, align 4, !tbaa !22
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %._crit_edge.us174, label %126, !llvm.loop !181
+  br i1 %exitcond193.not, label %._crit_edge.us174, label %125, !llvm.loop !181
 
-._crit_edge.us174:                                ; preds = %126
-  %.2.us = add nsw i32 %.1167.us, %121
+._crit_edge.us174:                                ; preds = %125
+  %150 = zext i1 %120 to i32
+  %.2.us = add nsw i32 %.1167.us, %150
   %151 = load i32, ptr %101, align 4, !tbaa !70
   %152 = sext i32 %151 to i64
   %153 = getelementptr inbounds i16, ptr %.0126168.us, i64 %152
@@ -5406,56 +5406,56 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %7, %31
   %narrow152.us = select i1 %120, i32 %113, i32 0
   %.3.idx.us = sext i32 %narrow152.us to i64
   %.3.us = getelementptr inbounds i16, ptr %.2131165.us, i64 %.3.idx.us
-  %121 = zext i1 %120 to i32
-  %122 = mul nsw i32 %spec.select149.us, %20
-  %123 = mul nsw i32 %spec.store.select.us, %20
+  %121 = mul nsw i32 %spec.select149.us, %20
+  %122 = mul nsw i32 %spec.store.select.us, %20
+  %123 = sext i32 %121 to i64
   %124 = sext i32 %122 to i64
-  %125 = sext i32 %123 to i64
-  %invariant.gep197 = getelementptr i16, ptr %41, i64 %124
-  %invariant.gep199 = getelementptr i16, ptr %41, i64 %125
-  br label %126
+  %invariant.gep197 = getelementptr i16, ptr %41, i64 %123
+  %invariant.gep199 = getelementptr i16, ptr %41, i64 %124
+  br label %125
 
-126:                                              ; preds = %.lr.ph.us173, %126
-  %indvars.iv189 = phi i64 [ 0, %.lr.ph.us173 ], [ %indvars.iv.next190, %126 ]
-  %127 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv189
-  %128 = load i32, ptr %127, align 4, !tbaa !22
-  %129 = sitofp i32 %128 to float
-  %130 = fmul float %104, %129
-  %131 = fptoui float %130 to i16
-  %132 = getelementptr inbounds nuw i16, ptr %.0126168.us, i64 %indvars.iv189
-  store i16 %131, ptr %132, align 2, !tbaa !57
-  %133 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv189
-  %134 = load i32, ptr %133, align 4, !tbaa !22
-  %135 = sub nsw i32 %128, %134
+125:                                              ; preds = %.lr.ph.us173, %125
+  %indvars.iv189 = phi i64 [ 0, %.lr.ph.us173 ], [ %indvars.iv.next190, %125 ]
+  %126 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv189
+  %127 = load i32, ptr %126, align 4, !tbaa !22
+  %128 = sitofp i32 %127 to float
+  %129 = fmul float %104, %128
+  %130 = fptoui float %129 to i16
+  %131 = getelementptr inbounds nuw i16, ptr %.0126168.us, i64 %indvars.iv189
+  store i16 %130, ptr %131, align 2, !tbaa !57
+  %132 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv189
+  %133 = load i32, ptr %132, align 4, !tbaa !22
+  %134 = sub nsw i32 %127, %133
   %gep198 = getelementptr i16, ptr %invariant.gep197, i64 %indvars.iv189
-  %136 = load i16, ptr %gep198, align 2, !tbaa !57
-  %137 = zext i16 %136 to i32
-  %138 = sub nsw i32 %134, %137
-  store i32 %138, ptr %133, align 4, !tbaa !22
-  %139 = getelementptr inbounds nuw i16, ptr %.3.us, i64 %indvars.iv189
-  %140 = load i16, ptr %139, align 2, !tbaa !57
-  store i16 %140, ptr %gep198, align 2, !tbaa !57
-  %141 = zext i16 %140 to i32
-  %142 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv189
-  %143 = load i32, ptr %142, align 4, !tbaa !22
-  %144 = add nsw i32 %143, %141
-  store i32 %144, ptr %142, align 4, !tbaa !22
-  %145 = add nsw i32 %135, %144
-  store i32 %145, ptr %127, align 4, !tbaa !22
+  %135 = load i16, ptr %gep198, align 2, !tbaa !57
+  %136 = zext i16 %135 to i32
+  %137 = sub nsw i32 %133, %136
+  store i32 %137, ptr %132, align 4, !tbaa !22
+  %138 = getelementptr inbounds nuw i16, ptr %.3.us, i64 %indvars.iv189
+  %139 = load i16, ptr %138, align 2, !tbaa !57
+  store i16 %139, ptr %gep198, align 2, !tbaa !57
+  %140 = zext i16 %139 to i32
+  %141 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv189
+  %142 = load i32, ptr %141, align 4, !tbaa !22
+  %143 = add nsw i32 %142, %140
+  store i32 %143, ptr %141, align 4, !tbaa !22
+  %144 = add nsw i32 %134, %143
+  store i32 %144, ptr %126, align 4, !tbaa !22
   %gep200 = getelementptr i16, ptr %invariant.gep199, i64 %indvars.iv189
-  %146 = load i16, ptr %gep200, align 2, !tbaa !57
-  %147 = zext i16 %146 to i32
-  %148 = load i32, ptr %133, align 4, !tbaa !22
-  %149 = add nsw i32 %148, %147
-  store i32 %149, ptr %133, align 4, !tbaa !22
-  %150 = sub nsw i32 %144, %147
-  store i32 %150, ptr %142, align 4, !tbaa !22
+  %145 = load i16, ptr %gep200, align 2, !tbaa !57
+  %146 = zext i16 %145 to i32
+  %147 = load i32, ptr %132, align 4, !tbaa !22
+  %148 = add nsw i32 %147, %146
+  store i32 %148, ptr %132, align 4, !tbaa !22
+  %149 = sub nsw i32 %143, %146
+  store i32 %149, ptr %141, align 4, !tbaa !22
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %._crit_edge.us174, label %126, !llvm.loop !214
+  br i1 %exitcond193.not, label %._crit_edge.us174, label %125, !llvm.loop !214
 
-._crit_edge.us174:                                ; preds = %126
-  %.2.us = add nsw i32 %.1167.us, %121
+._crit_edge.us174:                                ; preds = %125
+  %150 = zext i1 %120 to i32
+  %.2.us = add nsw i32 %.1167.us, %150
   %151 = load i32, ptr %101, align 4, !tbaa !85
   %152 = sext i32 %151 to i64
   %153 = getelementptr inbounds i16, ptr %.0126168.us, i64 %152
@@ -6693,56 +6693,56 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %7, %30
   %109 = sext i32 %108 to i64
   %.3.idx.us = select i1 %107, i64 %109, i64 0
   %.3.us = getelementptr inbounds float, ptr %.2131164.us, i64 %.3.idx.us
-  %110 = zext i1 %107 to i32
-  %111 = mul nsw i32 %spec.select149.us, %20
-  %112 = mul nsw i32 %spec.store.select.us, %20
+  %110 = mul nsw i32 %spec.select149.us, %20
+  %111 = mul nsw i32 %spec.store.select.us, %20
+  %112 = sext i32 %110 to i64
   %113 = sext i32 %111 to i64
-  %114 = sext i32 %112 to i64
-  %invariant.gep203 = getelementptr float, ptr %40, i64 %113
-  %invariant.gep205 = getelementptr float, ptr %40, i64 %114
-  br label %115
+  %invariant.gep203 = getelementptr float, ptr %40, i64 %112
+  %invariant.gep205 = getelementptr float, ptr %40, i64 %113
+  br label %114
 
-115:                                              ; preds = %.lr.ph.us172, %115
-  %indvars.iv194 = phi i64 [ 0, %.lr.ph.us172 ], [ %indvars.iv.next195, %115 ]
-  %116 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv194
-  %117 = load float, ptr %116, align 4, !tbaa !219
-  %118 = load float, ptr %98, align 4, !tbaa !103
-  %119 = fmul float %117, %118
-  %120 = getelementptr inbounds nuw float, ptr %.0126167.us, i64 %indvars.iv194
-  store float %119, ptr %120, align 4, !tbaa !219
-  %121 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv194
-  %122 = load float, ptr %121, align 4, !tbaa !219
-  %123 = load float, ptr %116, align 4, !tbaa !219
-  %124 = fsub float %123, %122
-  store float %124, ptr %116, align 4, !tbaa !219
+114:                                              ; preds = %.lr.ph.us172, %114
+  %indvars.iv194 = phi i64 [ 0, %.lr.ph.us172 ], [ %indvars.iv.next195, %114 ]
+  %115 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv194
+  %116 = load float, ptr %115, align 4, !tbaa !219
+  %117 = load float, ptr %98, align 4, !tbaa !103
+  %118 = fmul float %116, %117
+  %119 = getelementptr inbounds nuw float, ptr %.0126167.us, i64 %indvars.iv194
+  store float %118, ptr %119, align 4, !tbaa !219
+  %120 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv194
+  %121 = load float, ptr %120, align 4, !tbaa !219
+  %122 = load float, ptr %115, align 4, !tbaa !219
+  %123 = fsub float %122, %121
+  store float %123, ptr %115, align 4, !tbaa !219
   %gep204 = getelementptr float, ptr %invariant.gep203, i64 %indvars.iv194
-  %125 = load float, ptr %gep204, align 4, !tbaa !219
-  %126 = fsub float %122, %125
-  store float %126, ptr %121, align 4, !tbaa !219
-  %127 = getelementptr inbounds nuw float, ptr %.3.us, i64 %indvars.iv194
-  %128 = load float, ptr %127, align 4, !tbaa !219
-  store float %128, ptr %gep204, align 4, !tbaa !219
-  %129 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv194
-  %130 = load float, ptr %129, align 4, !tbaa !219
-  %131 = fadd float %128, %130
-  store float %131, ptr %129, align 4, !tbaa !219
-  %132 = load float, ptr %116, align 4, !tbaa !219
-  %133 = fadd float %131, %132
-  store float %133, ptr %116, align 4, !tbaa !219
+  %124 = load float, ptr %gep204, align 4, !tbaa !219
+  %125 = fsub float %121, %124
+  store float %125, ptr %120, align 4, !tbaa !219
+  %126 = getelementptr inbounds nuw float, ptr %.3.us, i64 %indvars.iv194
+  %127 = load float, ptr %126, align 4, !tbaa !219
+  store float %127, ptr %gep204, align 4, !tbaa !219
+  %128 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv194
+  %129 = load float, ptr %128, align 4, !tbaa !219
+  %130 = fadd float %127, %129
+  store float %130, ptr %128, align 4, !tbaa !219
+  %131 = load float, ptr %115, align 4, !tbaa !219
+  %132 = fadd float %130, %131
+  store float %132, ptr %115, align 4, !tbaa !219
   %gep206 = getelementptr float, ptr %invariant.gep205, i64 %indvars.iv194
-  %134 = load float, ptr %gep206, align 4, !tbaa !219
-  %135 = load float, ptr %121, align 4, !tbaa !219
-  %136 = fadd float %134, %135
-  store float %136, ptr %121, align 4, !tbaa !219
-  %137 = load float, ptr %gep206, align 4, !tbaa !219
-  %138 = fsub float %131, %137
-  store float %138, ptr %129, align 4, !tbaa !219
+  %133 = load float, ptr %gep206, align 4, !tbaa !219
+  %134 = load float, ptr %120, align 4, !tbaa !219
+  %135 = fadd float %133, %134
+  store float %135, ptr %120, align 4, !tbaa !219
+  %136 = load float, ptr %gep206, align 4, !tbaa !219
+  %137 = fsub float %130, %136
+  store float %137, ptr %128, align 4, !tbaa !219
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count197
-  br i1 %exitcond198.not, label %._crit_edge.us173, label %115, !llvm.loop !248
+  br i1 %exitcond198.not, label %._crit_edge.us173, label %114, !llvm.loop !248
 
-._crit_edge.us173:                                ; preds = %115
-  %.2.us = add nsw i32 %.1166.us, %110
+._crit_edge.us173:                                ; preds = %114
+  %138 = zext i1 %107 to i32
+  %.2.us = add nsw i32 %.1166.us, %138
   %139 = getelementptr inbounds float, ptr %.0126167.us, i64 %109
   %140 = add nuw nsw i32 %.0124168.us, 1
   %exitcond199.not = icmp eq i32 %140, %93

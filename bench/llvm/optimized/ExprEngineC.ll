@@ -4854,7 +4854,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit63: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, %29
   %.in.in = phi i64 [ %.sroa.3.0.copyload.i117, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread ], [ %.sroa.3.0.copyload.i, %29 ]
   %.sroa.3.0..sroa_idx.i118 = phi ptr [ %.sroa.3.0..sroa_idx.i116, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread ], [ %.sroa.3.0..sroa_idx.i, %29 ]
-  %.in = and i64 %.in.in, -8
   br label %30
 
 30:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit63
@@ -4885,6 +4884,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit63: ; pre
   ]
 
 42:                                               ; preds = %30
+  %.in = and i64 %.in.in, -8
   %43 = inttoptr i64 %.in to ptr
   %44 = getelementptr inbounds nuw i8, ptr %.051, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !185

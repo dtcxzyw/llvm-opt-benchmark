@@ -1016,63 +1016,63 @@ common.resume:                                    ; preds = %40, %42, %336
 _ZN3gmxL15invertBoxMatrixEPA3_KfPA3_f.exit:       ; preds = %11
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %46 = fdiv float 1.000000e+00, %23
-  %47 = fdiv float 1.000000e+00, %25
-  %48 = load float, ptr %45, align 4, !tbaa !114
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %50 = load float, ptr %49, align 4, !tbaa !114
-  %51 = fmul float %48, %50
-  %52 = load float, ptr %44, align 4, !tbaa !114
-  %53 = fneg float %52
-  %54 = tail call float @llvm.fmuladd.f32(float %51, float %47, float %53)
-  %55 = fmul float %46, %54
-  %56 = fneg float %48
-  %57 = fmul float %46, %56
-  %58 = fneg float %50
-  %59 = fmul float %47, %58
+  %46 = load float, ptr %45, align 4, !tbaa !114
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 28
+  %48 = load float, ptr %47, align 4, !tbaa !114
+  %49 = load float, ptr %44, align 4, !tbaa !114
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %16) #22
-  %60 = fcmp olt float %23, %25
-  %61 = select i1 %60, float %25, float %23
-  %62 = fcmp olt float %61, %28
-  %.sroa.speculated.i = select i1 %62, float %28, float %61
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %65 = load float, ptr %64, align 4, !tbaa !156
-  %66 = fmul float %65, 3.000000e+00
-  %67 = fmul float %65, %66
-  %68 = fmul float %.sroa.speculated.i, %67
-  %69 = fpext float %68 to double
+  %50 = fcmp olt float %23, %25
+  %51 = select i1 %50, float %25, float %23
+  %52 = fcmp olt float %51, %28
+  %.sroa.speculated.i = select i1 %52, float %28, float %51
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %55 = load float, ptr %54, align 4, !tbaa !156
+  %56 = fmul float %55, 3.000000e+00
+  %57 = fmul float %55, %56
+  %58 = fmul float %.sroa.speculated.i, %57
+  %59 = fpext float %58 to double
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %70, %_ZN3gmxL15invertBoxMatrixEPA3_KfPA3_f.exit
-  %indvars.iv21.i = phi i64 [ 0, %_ZN3gmxL15invertBoxMatrixEPA3_KfPA3_f.exit ], [ %indvars.iv.next22.i, %70 ]
-  br label %71
+.preheader.i:                                     ; preds = %60, %_ZN3gmxL15invertBoxMatrixEPA3_KfPA3_f.exit
+  %indvars.iv21.i = phi i64 [ 0, %_ZN3gmxL15invertBoxMatrixEPA3_KfPA3_f.exit ], [ %indvars.iv.next22.i, %60 ]
+  br label %61
 
-70:                                               ; preds = %71
+60:                                               ; preds = %61
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next22.i, 3
   br i1 %exitcond24.not.i, label %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit, label %.preheader.i, !llvm.loop !157
 
-71:                                               ; preds = %71, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %71 ]
-  %72 = getelementptr inbounds nuw [3 x [3 x float]], ptr %63, i64 0, i64 %indvars.iv21.i, i64 %indvars.iv.i
-  %73 = load float, ptr %72, align 4, !tbaa !114
-  %74 = fpext float %73 to double
-  %75 = fmul double %74, 0x4043BD3CC9BE45DE
-  %76 = fdiv double %75, %69
-  %77 = fptrunc double %76 to float
-  %78 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv21.i, i64 %indvars.iv.i
-  store float %77, ptr %78, align 4, !tbaa !114
+61:                                               ; preds = %61, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %61 ]
+  %62 = getelementptr inbounds nuw [3 x [3 x float]], ptr %53, i64 0, i64 %indvars.iv21.i, i64 %indvars.iv.i
+  %63 = load float, ptr %62, align 4, !tbaa !114
+  %64 = fpext float %63 to double
+  %65 = fmul double %64, 0x4043BD3CC9BE45DE
+  %66 = fdiv double %65, %59
+  %67 = fptrunc double %66 to float
+  %68 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv21.i, i64 %indvars.iv.i
+  store float %67, ptr %68, align 4, !tbaa !114
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %70, label %71, !llvm.loop !158
+  br i1 %exitcond.not.i, label %60, label %61, !llvm.loop !158
 
-_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; preds = %70
-  %79 = fdiv float 1.000000e+00, %28
-  %80 = fmul float %79, %55
-  %81 = fmul float %47, %57
-  %82 = fmul float %79, %59
+_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; preds = %60
+  %69 = fdiv float 1.000000e+00, %23
+  %70 = fdiv float 1.000000e+00, %25
+  %71 = fdiv float 1.000000e+00, %28
+  %72 = fmul float %46, %48
+  %73 = fneg float %49
+  %74 = tail call float @llvm.fmuladd.f32(float %72, float %70, float %73)
+  %75 = fmul float %69, %74
+  %76 = fmul float %71, %75
+  %77 = fneg float %46
+  %78 = fmul float %69, %77
+  %79 = fmul float %70, %78
+  %80 = fneg float %48
+  %81 = fmul float %70, %80
+  %82 = fmul float %71, %81
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %84 = load float, ptr %5, align 4, !tbaa !114
   %85 = load float, ptr %83, align 4, !tbaa !114
@@ -1142,48 +1142,48 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
 .loopexit187:                                     ; preds = %.loopexit187.loopexit.critedge, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit
   %144 = phi float [ %143, %.loopexit187.loopexit.critedge ], [ %106, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit ]
   %145 = phi float [ %136, %.loopexit187.loopexit.critedge ], [ %86, %_ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit ]
-  %146 = fmul float %81, %101
-  %147 = tail call float @llvm.fmuladd.f32(float %46, float %145, float %146)
-  %148 = tail call float @llvm.fmuladd.f32(float %80, float %116, float %147)
+  %146 = fmul float %79, %101
+  %147 = tail call float @llvm.fmuladd.f32(float %69, float %145, float %146)
+  %148 = tail call float @llvm.fmuladd.f32(float %76, float %116, float %147)
   store float %148, ptr %15, align 16, !tbaa !114
-  %149 = fmul float %81, %144
-  %150 = tail call float @llvm.fmuladd.f32(float %46, float %91, float %149)
-  %151 = tail call float @llvm.fmuladd.f32(float %80, float %121, float %150)
+  %149 = fmul float %79, %144
+  %150 = tail call float @llvm.fmuladd.f32(float %69, float %91, float %149)
+  %151 = tail call float @llvm.fmuladd.f32(float %76, float %121, float %150)
   %152 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float %151, ptr %152, align 4, !tbaa !114
-  %153 = fmul float %81, %111
-  %154 = tail call float @llvm.fmuladd.f32(float %46, float %96, float %153)
-  %155 = tail call float @llvm.fmuladd.f32(float %80, float %126, float %154)
+  %153 = fmul float %79, %111
+  %154 = tail call float @llvm.fmuladd.f32(float %69, float %96, float %153)
+  %155 = tail call float @llvm.fmuladd.f32(float %76, float %126, float %154)
   %156 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store float %155, ptr %156, align 8, !tbaa !114
-  %157 = fmul float %47, %101
+  %157 = fmul float %70, %101
   %158 = tail call float @llvm.fmuladd.f32(float %145, float 0.000000e+00, float %157)
   %159 = tail call float @llvm.fmuladd.f32(float %82, float %116, float %158)
   %160 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store float %159, ptr %160, align 4, !tbaa !114
-  %161 = fmul float %47, %144
+  %161 = fmul float %70, %144
   %162 = tail call float @llvm.fmuladd.f32(float %91, float 0.000000e+00, float %161)
   %163 = tail call float @llvm.fmuladd.f32(float %82, float %121, float %162)
   %164 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store float %163, ptr %164, align 16, !tbaa !114
-  %165 = fmul float %47, %111
+  %165 = fmul float %70, %111
   %166 = tail call float @llvm.fmuladd.f32(float %96, float 0.000000e+00, float %165)
   %167 = tail call float @llvm.fmuladd.f32(float %82, float %126, float %166)
   %168 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store float %167, ptr %168, align 4, !tbaa !114
   %169 = fmul float %101, 0.000000e+00
   %170 = tail call float @llvm.fmuladd.f32(float %145, float 0.000000e+00, float %169)
-  %171 = tail call float @llvm.fmuladd.f32(float %79, float %116, float %170)
+  %171 = tail call float @llvm.fmuladd.f32(float %71, float %116, float %170)
   %172 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store float %171, ptr %172, align 8, !tbaa !114
   %173 = fmul float %144, 0.000000e+00
   %174 = tail call float @llvm.fmuladd.f32(float %91, float 0.000000e+00, float %173)
-  %175 = tail call float @llvm.fmuladd.f32(float %79, float %121, float %174)
+  %175 = tail call float @llvm.fmuladd.f32(float %71, float %121, float %174)
   %176 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store float %175, ptr %176, align 4, !tbaa !114
   %177 = fmul float %111, 0.000000e+00
   %178 = tail call float @llvm.fmuladd.f32(float %96, float 0.000000e+00, float %177)
-  %179 = tail call float @llvm.fmuladd.f32(float %79, float %126, float %178)
+  %179 = tail call float @llvm.fmuladd.f32(float %71, float %126, float %178)
   %180 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store float %179, ptr %180, align 16, !tbaa !114
   br label %.preheader186
@@ -1469,23 +1469,23 @@ _ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit: ; preds = %250, %265, %_Z
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19) #22
   %292 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr %19, ptr %292, align 8, !tbaa !177, !alias.scope !185
-  store float %46, ptr %19, align 8, !tbaa !114
+  store float %69, ptr %19, align 8, !tbaa !114
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float 0.000000e+00, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !114
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   store float 0.000000e+00, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !114
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 12
-  store float %81, ptr %.sroa.16.0..sroa_idx, align 4, !tbaa !114
+  store float %79, ptr %.sroa.16.0..sroa_idx, align 4, !tbaa !114
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store float %47, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !114
+  store float %70, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !114
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 20
   store float 0.000000e+00, ptr %.sroa.24.0..sroa_idx, align 4, !tbaa !114
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store float %80, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !114
+  store float %76, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !114
   %.sroa.32.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 28
   store float %82, ptr %.sroa.32.0..sroa_idx, align 4, !tbaa !114
   %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store float %79, ptr %.sroa.36.0..sroa_idx, align 8, !tbaa !114
+  store float %71, ptr %.sroa.36.0..sroa_idx, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20) #22
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21) #22
   %293 = getelementptr inbounds nuw i8, ptr %21, i64 48
@@ -1507,26 +1507,26 @@ _ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit: ; preds = %250, %265, %_Z
 
 303:                                              ; preds = %_ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit
   %304 = load float, ptr %21, align 8, !tbaa !114, !noalias !194
-  %305 = fmul float %46, %304
+  %305 = fmul float %69, %304
   %306 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %307 = load float, ptr %306, align 4, !tbaa !114, !noalias !194
-  %308 = fmul float %47, %307
-  %309 = call float @llvm.fmuladd.f32(float %81, float %304, float %308)
+  %308 = fmul float %70, %307
+  %309 = call float @llvm.fmuladd.f32(float %79, float %304, float %308)
   %310 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %311 = load float, ptr %310, align 8, !tbaa !114, !noalias !194
-  %312 = fmul float %47, %311
+  %312 = fmul float %70, %311
   %313 = fmul float %82, %307
-  %314 = call float @llvm.fmuladd.f32(float %80, float %304, float %313)
+  %314 = call float @llvm.fmuladd.f32(float %76, float %304, float %313)
   %315 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %316 = load float, ptr %315, align 8, !tbaa !114, !noalias !194
-  %317 = call float @llvm.fmuladd.f32(float %79, float %316, float %314)
+  %317 = call float @llvm.fmuladd.f32(float %71, float %316, float %314)
   %318 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %319 = load float, ptr %318, align 4, !tbaa !114, !noalias !194
-  %320 = fmul float %79, %319
+  %320 = fmul float %71, %319
   %321 = call float @llvm.fmuladd.f32(float %82, float %311, float %320)
   %322 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %323 = load float, ptr %322, align 8, !tbaa !114, !noalias !194
-  %324 = fmul float %79, %323
+  %324 = fmul float %71, %323
   store float %305, ptr %20, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 4
   store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 4

@@ -5431,20 +5431,20 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %43 = shl nuw nsw i64 %42, 2
   %44 = zext nneg i32 %23 to i64
   %45 = shl nuw nsw i64 %44, 2
-  %46 = mul i32 %23, %23
   br label %.preheader638.us
 
 .preheader638.us:                                 ; preds = %.preheader638.us, %.preheader638.lr.ph
   %indvar = phi i64 [ %indvar.next, %.preheader638.us ], [ 0, %.preheader638.lr.ph ]
-  %47 = mul i64 %43, %indvar
-  %scevgep = getelementptr i8, ptr %41, i64 %47
+  %46 = mul i64 %43, %indvar
+  %scevgep = getelementptr i8, ptr %41, i64 %46
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %45, i1 false), !tbaa !62
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, %44
   br i1 %exitcond.not, label %..loopexit640_crit_edge.split.us, label %.preheader638.us, !llvm.loop !148
 
 ..loopexit640_crit_edge.split.us:                 ; preds = %.preheader638.us
-  %48 = add i32 %.promoted, %46
+  %47 = mul i32 %23, %23
+  %48 = add i32 %.promoted, %47
   store i32 %48, ptr %39, align 8, !tbaa !53
   br label %.loopexit640
 

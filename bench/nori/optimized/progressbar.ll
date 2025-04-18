@@ -63,64 +63,55 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i:
   tail call void @_ZN7nanogui6Widget4drawEP10NVGcontext(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %1)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i32, ptr %22, align 8
-  %24 = add nsw i32 %23, 1
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %26 = load i32, ptr %25, align 4
-  %27 = add nsw i32 %26, 1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load i32, ptr %28, align 8
-  %30 = add nsw i32 %29, -2
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %32 = load i32, ptr %31, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %25 = load i32, ptr %24, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %27 = load i32, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %29 = load i32, ptr %28, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %17, i8 0, i64 12, i1 false)
-  %33 = sitofp i32 %24 to float
-  %34 = sitofp i32 %30 to float
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %16)
-  br label %35
+  br label %30
 
-35:                                               ; preds = %35, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i
-  %.05.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i ], [ %40, %35 ]
-  %36 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %.05.i.i.i
-  %37 = load i32, ptr %36, align 4
-  %38 = sitofp i32 %37 to float
-  %39 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %.05.i.i.i
-  store float %38, ptr %39, align 4
-  %40 = add nuw nsw i64 %.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %40, 3
-  br i1 %exitcond.not.i.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i.preheader, label %35, !llvm.loop !5
+30:                                               ; preds = %30, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i
+  %.05.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i ], [ %35, %30 ]
+  %31 = getelementptr inbounds nuw [3 x i32], ptr %17, i64 0, i64 %.05.i.i.i
+  %32 = load i32, ptr %31, align 4
+  %33 = sitofp i32 %32 to float
+  %34 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %.05.i.i.i
+  store float %33, ptr %34, align 4
+  %35 = add nuw nsw i64 %.05.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %35, 3
+  br i1 %exitcond.not.i.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, label %30, !llvm.loop !5
 
-_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i.preheader: ; preds = %35
-  %41 = sitofp i32 %27 to float
-  br label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
-
-_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i: ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i.preheader, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
-  %.04.i.i.i = phi i64 [ %43, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i ], [ 0, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i.preheader ]
-  %42 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %.04.i.i.i
-  store float 2.550000e+02, ptr %42, align 4
-  %43 = add nuw nsw i64 %.04.i.i.i, 1
-  %exitcond.not.i2.i.i = icmp eq i64 %43, 3
+_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i: ; preds = %30, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
+  %.04.i.i.i = phi i64 [ %37, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i ], [ 0, %30 ]
+  %36 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %.04.i.i.i
+  store float 2.550000e+02, ptr %36, align 4
+  %37 = add nuw nsw i64 %.04.i.i.i, 1
+  %exitcond.not.i2.i.i = icmp eq i64 %37, 3
   br i1 %exitcond.not.i2.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i:            ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
-  br label %44
+  br label %38
 
-44:                                               ; preds = %44, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i
-  %.06.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i ], [ %51, %44 ]
-  %45 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %.06.i.i.i
-  %46 = load float, ptr %45, align 4
-  %47 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %.06.i.i.i
-  %48 = load float, ptr %47, align 4
-  %49 = fdiv float %46, %48
-  %50 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %.06.i.i.i
-  store float %49, ptr %50, align 4
-  %51 = add nuw nsw i64 %.06.i.i.i, 1
-  %exitcond.not.i3.i.i = icmp eq i64 %51, 3
-  br i1 %exitcond.not.i3.i.i, label %_ZN7nanogui5ColorC2Eii.exit, label %44, !llvm.loop !8
+38:                                               ; preds = %38, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i
+  %.06.i.i.i = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i ], [ %45, %38 ]
+  %39 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %.06.i.i.i
+  %40 = load float, ptr %39, align 4
+  %41 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %.06.i.i.i
+  %42 = load float, ptr %41, align 4
+  %43 = fdiv float %40, %42
+  %44 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %.06.i.i.i
+  store float %43, ptr %44, align 4
+  %45 = add nuw nsw i64 %.06.i.i.i, 1
+  %exitcond.not.i3.i.i = icmp eq i64 %45, 3
+  br i1 %exitcond.not.i3.i.i, label %_ZN7nanogui5ColorC2Eii.exit, label %38, !llvm.loop !8
 
-_ZN7nanogui5ColorC2Eii.exit:                      ; preds = %44
+_ZN7nanogui5ColorC2Eii.exit:                      ; preds = %38
   %.sroa.0.0.copyload.i.i.i = load <2 x float>, ptr %14, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.2.0.copyload.i.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
@@ -130,48 +121,54 @@ _ZN7nanogui5ColorC2Eii.exit:                      ; preds = %44
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, i8 0, i64 12, i1 false)
-  %52 = sitofp i32 %32 to float
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12)
-  br label %53
+  br label %46
 
-53:                                               ; preds = %53, %_ZN7nanogui5ColorC2Eii.exit
-  %.05.i.i.i19 = phi i64 [ 0, %_ZN7nanogui5ColorC2Eii.exit ], [ %58, %53 ]
-  %54 = getelementptr inbounds nuw [3 x i32], ptr %13, i64 0, i64 %.05.i.i.i19
-  %55 = load i32, ptr %54, align 4
-  %56 = sitofp i32 %55 to float
-  %57 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %.05.i.i.i19
-  store float %56, ptr %57, align 4
-  %58 = add nuw nsw i64 %.05.i.i.i19, 1
-  %exitcond.not.i.i.i20 = icmp eq i64 %58, 3
-  br i1 %exitcond.not.i.i.i20, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21, label %53, !llvm.loop !5
+46:                                               ; preds = %46, %_ZN7nanogui5ColorC2Eii.exit
+  %.05.i.i.i19 = phi i64 [ 0, %_ZN7nanogui5ColorC2Eii.exit ], [ %51, %46 ]
+  %47 = getelementptr inbounds nuw [3 x i32], ptr %13, i64 0, i64 %.05.i.i.i19
+  %48 = load i32, ptr %47, align 4
+  %49 = sitofp i32 %48 to float
+  %50 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %.05.i.i.i19
+  store float %49, ptr %50, align 4
+  %51 = add nuw nsw i64 %.05.i.i.i19, 1
+  %exitcond.not.i.i.i20 = icmp eq i64 %51, 3
+  br i1 %exitcond.not.i.i.i20, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21, label %46, !llvm.loop !5
 
-_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21: ; preds = %53, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21
-  %.04.i.i.i22 = phi i64 [ %60, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21 ], [ 0, %53 ]
-  %59 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %.04.i.i.i22
-  store float 2.550000e+02, ptr %59, align 4
-  %60 = add nuw nsw i64 %.04.i.i.i22, 1
-  %exitcond.not.i2.i.i23 = icmp eq i64 %60, 3
+_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21: ; preds = %46, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21
+  %.04.i.i.i22 = phi i64 [ %53, %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21 ], [ 0, %46 ]
+  %52 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %.04.i.i.i22
+  store float 2.550000e+02, ptr %52, align 4
+  %53 = add nuw nsw i64 %.04.i.i.i22, 1
+  %exitcond.not.i2.i.i23 = icmp eq i64 %53, 3
   br i1 %exitcond.not.i2.i.i23, label %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24, label %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21, !llvm.loop !7
 
 _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24:          ; preds = %_ZN7nanogui5ArrayIfLm3EEC2IiEERKNS0_IT_Lm3EEE.exit.i.i21
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
-  br label %61
+  br label %54
 
-61:                                               ; preds = %61, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24
-  %.06.i.i.i25 = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24 ], [ %68, %61 ]
-  %62 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %.06.i.i.i25
-  %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %.06.i.i.i25
-  %65 = load float, ptr %64, align 4
-  %66 = fdiv float %63, %65
-  %67 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %.06.i.i.i25
-  store float %66, ptr %67, align 4
-  %68 = add nuw nsw i64 %.06.i.i.i25, 1
-  %exitcond.not.i3.i.i26 = icmp eq i64 %68, 3
-  br i1 %exitcond.not.i3.i.i26, label %_ZN7nanogui5ColorC2Eii.exit35, label %61, !llvm.loop !8
+54:                                               ; preds = %54, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24
+  %.06.i.i.i25 = phi i64 [ 0, %_ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i24 ], [ %61, %54 ]
+  %55 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %.06.i.i.i25
+  %56 = load float, ptr %55, align 4
+  %57 = getelementptr inbounds nuw [3 x float], ptr %12, i64 0, i64 %.06.i.i.i25
+  %58 = load float, ptr %57, align 4
+  %59 = fdiv float %56, %58
+  %60 = getelementptr inbounds nuw [3 x float], ptr %10, i64 0, i64 %.06.i.i.i25
+  store float %59, ptr %60, align 4
+  %61 = add nuw nsw i64 %.06.i.i.i25, 1
+  %exitcond.not.i3.i.i26 = icmp eq i64 %61, 3
+  br i1 %exitcond.not.i3.i.i26, label %_ZN7nanogui5ColorC2Eii.exit35, label %54, !llvm.loop !8
 
-_ZN7nanogui5ColorC2Eii.exit35:                    ; preds = %61
+_ZN7nanogui5ColorC2Eii.exit35:                    ; preds = %54
+  %62 = add nsw i32 %23, 1
+  %63 = sitofp i32 %62 to float
+  %64 = add nsw i32 %25, 1
+  %65 = sitofp i32 %64 to float
+  %66 = add nsw i32 %27, -2
+  %67 = sitofp i32 %66 to float
+  %68 = sitofp i32 %29 to float
   %.sroa.392.12.vec.insert = insertelement <2 x float> <float poison, float 0x3FC0101020000000>, float %.sroa.2.0.copyload.i.i.i, i64 0
   %.sroa.0.0.copyload.i.i.i27 = load <2 x float>, ptr %10, align 8
   %.sroa.2.0..sroa_idx.i.i.i28 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -189,25 +186,25 @@ _ZN7nanogui5ColorC2Eii.exit35:                    ; preds = %61
   store float %.sroa.2.0.copyload.i.i.i29, ptr %.sroa.388.0..sroa_idx, align 8
   %.sroa.489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 12
   store float 0x3FD7171720000000, ptr %.sroa.489.0..sroa_idx, align 4
-  call void @nvgBoxGradient(ptr dead_on_unwind nonnull writable sret(%struct.NVGpaint) align 4 %18, ptr noundef %1, float noundef %33, float noundef %41, float noundef %34, float noundef %52, float noundef 3.000000e+00, float noundef 4.000000e+00, <2 x float> %.sroa.0.0.copyload.i.i.i, <2 x float> %.sroa.392.12.vec.insert, ptr noundef nonnull byval(%struct.NVGcolor) align 8 %19)
+  call void @nvgBoxGradient(ptr dead_on_unwind nonnull writable sret(%struct.NVGpaint) align 4 %18, ptr noundef %1, float noundef %63, float noundef %65, float noundef %67, float noundef %68, float noundef 3.000000e+00, float noundef 4.000000e+00, <2 x float> %.sroa.0.0.copyload.i.i.i, <2 x float> %.sroa.392.12.vec.insert, ptr noundef nonnull byval(%struct.NVGcolor) align 8 %19)
   call void @nvgBeginPath(ptr noundef %1)
   %69 = load i32, ptr %22, align 8
   %70 = sitofp i32 %69 to float
-  %71 = load i32, ptr %25, align 4
+  %71 = load i32, ptr %24, align 4
   %72 = sitofp i32 %71 to float
-  %73 = load i32, ptr %28, align 8
+  %73 = load i32, ptr %26, align 8
   %74 = sitofp i32 %73 to float
-  %75 = load i32, ptr %31, align 4
+  %75 = load i32, ptr %28, align 4
   %76 = sitofp i32 %75 to float
   call void @nvgRoundedRect(ptr noundef %1, float noundef %70, float noundef %72, float noundef %74, float noundef %76, float noundef 3.000000e+00)
   call void @nvgFillPaint(ptr noundef %1, ptr noundef nonnull byval(%struct.NVGpaint) align 8 %18)
   call void @nvgFill(ptr noundef %1)
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %78 = load float, ptr %77, align 4
-  %79 = load i32, ptr %28, align 8
+  %79 = load i32, ptr %26, align 8
   %80 = load i32, ptr %22, align 8
-  %81 = load i32, ptr %25, align 4
-  %82 = load i32, ptr %31, align 4
+  %81 = load i32, ptr %24, align 4
+  %82 = load i32, ptr %28, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
   br label %83
 
@@ -359,10 +356,10 @@ _ZN7nanogui5ColorC2Eii.exit76:                    ; preds = %113
   %134 = load i32, ptr %22, align 8
   %135 = add nsw i32 %134, 1
   %136 = sitofp i32 %135 to float
-  %137 = load i32, ptr %25, align 4
+  %137 = load i32, ptr %24, align 4
   %138 = add nsw i32 %137, 1
   %139 = sitofp i32 %138 to float
-  %140 = load i32, ptr %31, align 4
+  %140 = load i32, ptr %28, align 4
   %141 = add nsw i32 %140, -2
   %142 = sitofp i32 %141 to float
   call void @nvgRoundedRect(ptr noundef %1, float noundef %136, float noundef %139, float noundef %130, float noundef %142, float noundef 3.000000e+00)

@@ -462,38 +462,38 @@ _ZL18calc_pos_av_stddevN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEPfS5_PKP10tmpi_comm
   br i1 %181, label %197, label %242
 
 197:                                              ; preds = %180
-  %198 = fmul float %188, %188
-  %199 = load float, ptr %125, align 4, !tbaa !113
-  %200 = fdiv float 1.000000e+00, %199
-  %201 = getelementptr inbounds nuw i8, ptr %179, i64 24
-  %202 = load float, ptr %124, align 4, !tbaa !113
-  %203 = fmul float %200, %202
-  store float %203, ptr %201, align 4, !tbaa !113
-  %204 = load float, ptr %126, align 4, !tbaa !113
-  %205 = fmul float %200, %204
-  %206 = getelementptr inbounds nuw i8, ptr %179, i64 28
-  store float %205, ptr %206, align 4, !tbaa !113
-  %207 = load float, ptr %125, align 4, !tbaa !113
-  %208 = fmul float %200, %207
-  %209 = getelementptr inbounds nuw i8, ptr %179, i64 32
-  store float %208, ptr %209, align 4, !tbaa !113
-  %210 = getelementptr inbounds nuw [3 x float], ptr %201, i64 0, i64 %indvar.next.i
-  %211 = load float, ptr %210, align 4, !tbaa !113
-  %212 = getelementptr inbounds nuw [3 x float], ptr %179, i64 %indvar.next.i, i64 %indvar.next.i
-  %213 = load float, ptr %212, align 4, !tbaa !113
-  %214 = fneg float %211
-  %215 = fdiv float %214, %213
+  %198 = load float, ptr %125, align 4, !tbaa !113
+  %199 = fdiv float 1.000000e+00, %198
+  %200 = getelementptr inbounds nuw i8, ptr %179, i64 24
+  %201 = load float, ptr %124, align 4, !tbaa !113
+  %202 = fmul float %199, %201
+  store float %202, ptr %200, align 4, !tbaa !113
+  %203 = load float, ptr %126, align 4, !tbaa !113
+  %204 = fmul float %199, %203
+  %205 = getelementptr inbounds nuw i8, ptr %179, i64 28
+  store float %204, ptr %205, align 4, !tbaa !113
+  %206 = load float, ptr %125, align 4, !tbaa !113
+  %207 = fmul float %199, %206
+  %208 = getelementptr inbounds nuw i8, ptr %179, i64 32
+  store float %207, ptr %208, align 4, !tbaa !113
+  %209 = getelementptr inbounds nuw [3 x float], ptr %200, i64 0, i64 %indvar.next.i
+  %210 = load float, ptr %209, align 4, !tbaa !113
+  %211 = getelementptr inbounds nuw [3 x float], ptr %179, i64 %indvar.next.i, i64 %indvar.next.i
+  %212 = load float, ptr %211, align 4, !tbaa !113
+  %213 = fneg float %210
+  %214 = fdiv float %213, %212
   br label %236
 
-216:                                              ; preds = %236
-  %217 = fadd float %198, 1.000000e+00
-  %218 = load float, ptr %201, align 4, !tbaa !113
+215:                                              ; preds = %236
+  %216 = fmul float %188, %188
+  %217 = fadd float %216, 1.000000e+00
+  %218 = load float, ptr %200, align 4, !tbaa !113
   %219 = fmul float %218, %218
   %220 = fadd float %217, %219
   %221 = load float, ptr %192, align 4, !tbaa !113
-  %222 = load float, ptr %209, align 4, !tbaa !113
+  %222 = load float, ptr %208, align 4, !tbaa !113
   %223 = load float, ptr %196, align 4, !tbaa !113
-  %224 = load float, ptr %206, align 4, !tbaa !113
+  %224 = load float, ptr %205, align 4, !tbaa !113
   %225 = fneg float %224
   %226 = fmul float %223, %225
   %227 = call float @llvm.fmuladd.f32(float %221, float %222, float %226)
@@ -514,13 +514,13 @@ _ZL18calc_pos_av_stddevN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEPfS5_PKP10tmpi_comm
   %indvars.iv187.i = phi i64 [ 0, %197 ], [ %indvars.iv.next188.i, %236 ]
   %237 = getelementptr inbounds nuw [3 x float], ptr %179, i64 %indvar.next.i, i64 %indvars.iv187.i
   %238 = load float, ptr %237, align 4, !tbaa !113
-  %239 = getelementptr inbounds nuw [3 x float], ptr %201, i64 0, i64 %indvars.iv187.i
+  %239 = getelementptr inbounds nuw [3 x float], ptr %200, i64 0, i64 %indvars.iv187.i
   %240 = load float, ptr %239, align 4, !tbaa !113
-  %241 = call float @llvm.fmuladd.f32(float %215, float %238, float %240)
+  %241 = call float @llvm.fmuladd.f32(float %214, float %238, float %240)
   store float %241, ptr %239, align 4, !tbaa !113
   %indvars.iv.next188.i = add nuw nsw i64 %indvars.iv187.i, 1
   %exitcond190.not.i = icmp eq i64 %indvars.iv.next188.i, 3
-  br i1 %exitcond190.not.i, label %216, label %236, !llvm.loop !130
+  br i1 %exitcond190.not.i, label %215, label %236, !llvm.loop !130
 
 242:                                              ; preds = %180
   call void @llvm.memset.p0.i64(ptr align 4 %gep.i, i8 0, i64 %133, i1 false), !tbaa !113
@@ -539,8 +539,8 @@ _ZL18calc_pos_av_stddevN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEPfS5_PKP10tmpi_comm
   store float %251, ptr %252, align 4, !tbaa !113
   br label %253
 
-253:                                              ; preds = %242, %216
-  %.1.i = phi float [ %220, %216 ], [ %246, %242 ]
+253:                                              ; preds = %242, %215
+  %.1.i = phi float [ %220, %215 ], [ %246, %242 ]
   %254 = load ptr, ptr @debug, align 8, !tbaa !124
   %.not162.i = icmp eq ptr %254, null
   br i1 %.not162.i, label %.loopexit.i, label %255

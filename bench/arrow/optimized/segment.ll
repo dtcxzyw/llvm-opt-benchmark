@@ -2982,24 +2982,24 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @mi_segment_span_allocate(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr %.896.val) unnamed_addr #5 {
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %5 = shl i64 %1, 16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  br label %8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  br label %5
 
-8:                                                ; preds = %8, %3
-  %.057.i.i = phi i64 [ 0, %3 ], [ %11, %8 ]
-  %9 = getelementptr inbounds nuw [16 x i64], ptr %7, i64 0, i64 %.057.i.i
-  %10 = load i64, ptr %9, align 8, !tbaa !3
-  %.not.i.i = icmp eq i64 %10, -1
-  %11 = add nuw nsw i64 %.057.i.i, 1
-  %exitcond.i.i = icmp ne i64 %11, 16
+5:                                                ; preds = %5, %3
+  %.057.i.i = phi i64 [ 0, %3 ], [ %8, %5 ]
+  %6 = getelementptr inbounds nuw [16 x i64], ptr %4, i64 0, i64 %.057.i.i
+  %7 = load i64, ptr %6, align 8, !tbaa !3
+  %.not.i.i = icmp eq i64 %7, -1
+  %8 = add nuw nsw i64 %.057.i.i, 1
+  %exitcond.i.i = icmp ne i64 %8, 16
   %or.cond.not.i.i = select i1 %.not.i.i, i1 %exitcond.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %8, label %mi_commit_mask_is_full.exit.i, !llvm.loop !99
+  br i1 %or.cond.not.i.i, label %5, label %mi_commit_mask_is_full.exit.i, !llvm.loop !99
 
-mi_commit_mask_is_full.exit.i:                    ; preds = %8
-  %12 = getelementptr [1024 x %struct.mi_page_s], ptr %4, i64 0, i64 %1
+mi_commit_mask_is_full.exit.i:                    ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %10 = getelementptr [1024 x %struct.mi_page_s], ptr %9, i64 0, i64 %1
+  %11 = shl i64 %1, 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %13 = shl i64 %2, 16
   br i1 %.not.i.i, label %14, label %mi_segment_ensure_committed.exit
 
@@ -3021,17 +3021,17 @@ mi_commit_mask_is_empty.exit.i:                   ; preds = %16
   br i1 %.not.i7.i, label %mi_segment_ensure_committed.exit.thread, label %mi_segment_ensure_committed.exit
 
 mi_segment_ensure_committed.exit:                 ; preds = %mi_commit_mask_is_full.exit.i, %mi_commit_mask_is_empty.exit.i
-  %20 = tail call fastcc zeroext i1 @mi_segment_commitx(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %6, i64 noundef %13, ptr noundef %.896.val)
+  %20 = tail call fastcc zeroext i1 @mi_segment_commitx(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %12, i64 noundef %13, ptr noundef %.896.val)
   br i1 %20, label %mi_segment_ensure_committed.exit.thread, label %55
 
 mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_empty.exit.i, %mi_segment_ensure_committed.exit
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %21, align 4, !tbaa !90
   %22 = trunc i64 %2 to i32
-  store i32 %22, ptr %12, align 8, !tbaa !21
+  store i32 %22, ptr %10, align 8, !tbaa !21
   %23 = tail call i64 @llvm.umin.i64(i64 %13, i64 2147483648)
   %24 = trunc nuw i64 %23 to i32
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %24, ptr %25, align 4, !tbaa !14
   %26 = add i64 %2, -1
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %26, i64 15)
@@ -3042,7 +3042,7 @@ mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_e
   %30 = xor i64 %1, -1
   %31 = add i64 %29, %30
   %.047 = select i1 %.not, i64 %spec.store.select, i64 %31
-  %.0482 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %.0482 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %.not513 = icmp eq i64 %.047, 0
   br i1 %.not513, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3053,9 +3053,9 @@ mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_e
 
 ._crit_edge:                                      ; preds = %.lr.ph, %mi_segment_ensure_committed.exit.thread
   %.048.lcssa = phi ptr [ %.0482, %mi_segment_ensure_committed.exit.thread ], [ %.048, %.lr.ph ]
-  %33 = getelementptr %struct.mi_page_s, ptr %12, i64 %2
+  %33 = getelementptr %struct.mi_page_s, ptr %10, i64 %2
   %34 = getelementptr i8, ptr %33, i64 -80
-  %35 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %4, i64 0, i64 %29
+  %35 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %9, i64 0, i64 %29
   %36 = icmp uge ptr %34, %35
   %.not52 = icmp ult ptr %34, %.048.lcssa
   %or.cond = select i1 %36, i1 true, i1 %.not52
@@ -3064,7 +3064,7 @@ mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_e
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0486 = phi ptr [ %.048, %.lr.ph ], [ %.0482, %.lr.ph.preheader ]
   %.0465 = phi i64 [ %41, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.pn4 = phi ptr [ %.0486, %.lr.ph ], [ %12, %.lr.ph.preheader ]
+  %.pn4 = phi ptr [ %.0486, %.lr.ph ], [ %10, %.lr.ph.preheader ]
   %37 = trunc i64 %.0465 to i32
   %38 = mul i32 %37, 80
   %39 = getelementptr inbounds nuw i8, ptr %.pn4, i64 84
@@ -3088,7 +3088,7 @@ mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_e
   br label %47
 
 47:                                               ; preds = %42, %._crit_edge
-  %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %49 = load i8, ptr %48, align 8
   %50 = and i8 %49, -4
   %51 = or disjoint i8 %50, 2
@@ -3100,7 +3100,7 @@ mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_e
   br label %55
 
 55:                                               ; preds = %mi_segment_ensure_committed.exit, %47
-  %.0 = phi ptr [ %12, %47 ], [ null, %mi_segment_ensure_committed.exit ]
+  %.0 = phi ptr [ %10, %47 ], [ null, %mi_segment_ensure_committed.exit ]
   ret ptr %.0
 }
 

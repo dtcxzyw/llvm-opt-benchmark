@@ -2491,82 +2491,82 @@ define hidden void @bcdec_bc6h_half(ptr noundef readonly captures(none) %0, ptr 
   %1049 = trunc i64 %1047 to i32
   %1050 = and i32 %1049, 255
   %1051 = tail call i64 @llvm.fshl.i64(i64 %1048, i64 %1047, i64 56)
-  %1052 = lshr i64 %.sroa.501.0, 38
   store i32 %1050, ptr %13, align 4, !tbaa !7
-  %1053 = tail call i64 @llvm.fshl.i64(i64 %1052, i64 %1051, i64 62)
-  %1054 = trunc i64 %1051 to i32
-  %1055 = and i32 %1054, 3
+  %1052 = trunc i64 %1051 to i32
+  %1053 = and i32 %1052, 3
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %1036
-  %.012.i = phi i32 [ %1059, %.lr.ph.i ], [ 0, %1036 ]
-  %.0711.i = phi i32 [ %1060, %.lr.ph.i ], [ %1055, %1036 ]
-  %.0810.i = phi i32 [ %1056, %.lr.ph.i ], [ 2, %1036 ]
-  %1056 = add nsw i32 %.0810.i, -1
-  %1057 = shl i32 %.012.i, 1
-  %1058 = and i32 %.0711.i, 1
-  %1059 = or disjoint i32 %1058, %1057
-  %1060 = lshr i32 %.0711.i, 1
-  %.not.i = icmp eq i32 %1056, 0
+  %.012.i = phi i32 [ %1057, %.lr.ph.i ], [ 0, %1036 ]
+  %.0711.i = phi i32 [ %1058, %.lr.ph.i ], [ %1053, %1036 ]
+  %.0810.i = phi i32 [ %1054, %.lr.ph.i ], [ 2, %1036 ]
+  %1054 = add nsw i32 %.0810.i, -1
+  %1055 = shl i32 %.012.i, 1
+  %1056 = and i32 %.0711.i, 1
+  %1057 = or disjoint i32 %1056, %1055
+  %1058 = lshr i32 %.0711.i, 1
+  %.not.i = icmp eq i32 %1054, 0
   br i1 %.not.i, label %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit, label %.lr.ph.i, !llvm.loop !22
 
 _Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit: ; preds = %.lr.ph.i
+  %1059 = lshr i64 %.sroa.501.0, 38
+  %1060 = tail call i64 @llvm.fshl.i64(i64 %1059, i64 %1051, i64 62)
   %1061 = lshr i64 %.sroa.501.0, 40
-  %1062 = shl i32 %1059, 10
+  %1062 = shl i32 %1057, 10
   %1063 = or disjoint i32 %1062, %1038
   store i32 %1063, ptr %5, align 16, !tbaa !7
-  %1064 = trunc i64 %1053 to i32
+  %1064 = trunc i64 %1060 to i32
   %1065 = and i32 %1064, 255
-  %1066 = tail call i64 @llvm.fshl.i64(i64 %1061, i64 %1053, i64 56)
-  %1067 = lshr i64 %.sroa.501.0, 48
+  %1066 = tail call i64 @llvm.fshl.i64(i64 %1061, i64 %1060, i64 56)
   store i32 %1065, ptr %16, align 4, !tbaa !7
-  %1068 = tail call i64 @llvm.fshl.i64(i64 %1067, i64 %1066, i64 62)
-  %1069 = trunc i64 %1066 to i32
-  %1070 = and i32 %1069, 3
+  %1067 = trunc i64 %1066 to i32
+  %1068 = and i32 %1067, 3
   br label %.lr.ph.i126
 
 .lr.ph.i126:                                      ; preds = %.lr.ph.i126, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit
-  %.012.i127 = phi i32 [ %1074, %.lr.ph.i126 ], [ 0, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit ]
-  %.0711.i128 = phi i32 [ %1075, %.lr.ph.i126 ], [ %1070, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit ]
-  %.0810.i129 = phi i32 [ %1071, %.lr.ph.i126 ], [ 2, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit ]
-  %1071 = add nsw i32 %.0810.i129, -1
-  %1072 = shl i32 %.012.i127, 1
-  %1073 = and i32 %.0711.i128, 1
-  %1074 = or disjoint i32 %1073, %1072
-  %1075 = lshr i32 %.0711.i128, 1
-  %.not.i130 = icmp eq i32 %1071, 0
+  %.012.i127 = phi i32 [ %1072, %.lr.ph.i126 ], [ 0, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit ]
+  %.0711.i128 = phi i32 [ %1073, %.lr.ph.i126 ], [ %1068, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit ]
+  %.0810.i129 = phi i32 [ %1069, %.lr.ph.i126 ], [ 2, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit ]
+  %1069 = add nsw i32 %.0810.i129, -1
+  %1070 = shl i32 %.012.i127, 1
+  %1071 = and i32 %.0711.i128, 1
+  %1072 = or disjoint i32 %1071, %1070
+  %1073 = lshr i32 %.0711.i128, 1
+  %.not.i130 = icmp eq i32 %1069, 0
   br i1 %.not.i130, label %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit131, label %.lr.ph.i126, !llvm.loop !22
 
 _Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit131: ; preds = %.lr.ph.i126
+  %1074 = lshr i64 %.sroa.501.0, 48
+  %1075 = tail call i64 @llvm.fshl.i64(i64 %1074, i64 %1066, i64 62)
   %1076 = lshr i64 %.sroa.501.0, 50
-  %1077 = shl i32 %1074, 10
+  %1077 = shl i32 %1072, 10
   %1078 = or disjoint i32 %1077, %1042
   store i32 %1078, ptr %6, align 16, !tbaa !7
-  %1079 = trunc i64 %1068 to i32
+  %1079 = trunc i64 %1075 to i32
   %1080 = and i32 %1079, 255
-  %1081 = tail call i64 @llvm.fshl.i64(i64 %1076, i64 %1068, i64 56)
-  %1082 = lshr i64 %.sroa.501.0, 58
+  %1081 = tail call i64 @llvm.fshl.i64(i64 %1076, i64 %1075, i64 56)
   store i32 %1080, ptr %19, align 4, !tbaa !7
-  %1083 = tail call i64 @llvm.fshl.i64(i64 %1082, i64 %1081, i64 62)
-  %1084 = trunc i64 %1081 to i32
-  %1085 = and i32 %1084, 3
+  %1082 = trunc i64 %1081 to i32
+  %1083 = and i32 %1082, 3
   br label %.lr.ph.i132
 
 .lr.ph.i132:                                      ; preds = %.lr.ph.i132, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit131
-  %.012.i133 = phi i32 [ %1089, %.lr.ph.i132 ], [ 0, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit131 ]
-  %.0711.i134 = phi i32 [ %1090, %.lr.ph.i132 ], [ %1085, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit131 ]
-  %.0810.i135 = phi i32 [ %1086, %.lr.ph.i132 ], [ 2, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit131 ]
-  %1086 = add nsw i32 %.0810.i135, -1
-  %1087 = shl i32 %.012.i133, 1
-  %1088 = and i32 %.0711.i134, 1
-  %1089 = or disjoint i32 %1088, %1087
-  %1090 = lshr i32 %.0711.i134, 1
-  %.not.i136 = icmp eq i32 %1086, 0
+  %.012.i133 = phi i32 [ %1087, %.lr.ph.i132 ], [ 0, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit131 ]
+  %.0711.i134 = phi i32 [ %1088, %.lr.ph.i132 ], [ %1083, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit131 ]
+  %.0810.i135 = phi i32 [ %1084, %.lr.ph.i132 ], [ 2, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit131 ]
+  %1084 = add nsw i32 %.0810.i135, -1
+  %1085 = shl i32 %.012.i133, 1
+  %1086 = and i32 %.0711.i134, 1
+  %1087 = or disjoint i32 %1086, %1085
+  %1088 = lshr i32 %.0711.i134, 1
+  %.not.i136 = icmp eq i32 %1084, 0
   br i1 %.not.i136, label %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit137, label %.lr.ph.i132, !llvm.loop !22
 
 _Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit137: ; preds = %.lr.ph.i132
+  %1089 = lshr i64 %.sroa.501.0, 58
+  %1090 = tail call i64 @llvm.fshl.i64(i64 %1089, i64 %1081, i64 62)
   %1091 = lshr i64 %.sroa.501.0, 60
-  %1092 = shl i32 %1089, 10
+  %1092 = shl i32 %1087, 10
   %1093 = or disjoint i32 %1092, %1046
   store i32 %1093, ptr %7, align 16, !tbaa !7
   br label %1157
@@ -2587,82 +2587,82 @@ _Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit137: ; preds = %.lr.ph.
   %1107 = trunc i64 %1105 to i32
   %1108 = and i32 %1107, 15
   %1109 = tail call i64 @llvm.fshl.i64(i64 %1106, i64 %1105, i64 60)
-  %1110 = lshr i64 %.sroa.501.0, 34
   store i32 %1108, ptr %13, align 4, !tbaa !7
-  %1111 = tail call i64 @llvm.fshl.i64(i64 %1110, i64 %1109, i64 58)
-  %1112 = trunc i64 %1109 to i32
-  %1113 = and i32 %1112, 63
+  %1110 = trunc i64 %1109 to i32
+  %1111 = and i32 %1110, 63
   br label %.lr.ph.i138
 
 .lr.ph.i138:                                      ; preds = %.lr.ph.i138, %1094
-  %.012.i139 = phi i32 [ %1117, %.lr.ph.i138 ], [ 0, %1094 ]
-  %.0711.i140 = phi i32 [ %1118, %.lr.ph.i138 ], [ %1113, %1094 ]
-  %.0810.i141 = phi i32 [ %1114, %.lr.ph.i138 ], [ 6, %1094 ]
-  %1114 = add nsw i32 %.0810.i141, -1
-  %1115 = shl i32 %.012.i139, 1
-  %1116 = and i32 %.0711.i140, 1
-  %1117 = or disjoint i32 %1116, %1115
-  %1118 = lshr i32 %.0711.i140, 1
-  %.not.i142 = icmp eq i32 %1114, 0
+  %.012.i139 = phi i32 [ %1115, %.lr.ph.i138 ], [ 0, %1094 ]
+  %.0711.i140 = phi i32 [ %1116, %.lr.ph.i138 ], [ %1111, %1094 ]
+  %.0810.i141 = phi i32 [ %1112, %.lr.ph.i138 ], [ 6, %1094 ]
+  %1112 = add nsw i32 %.0810.i141, -1
+  %1113 = shl i32 %.012.i139, 1
+  %1114 = and i32 %.0711.i140, 1
+  %1115 = or disjoint i32 %1114, %1113
+  %1116 = lshr i32 %.0711.i140, 1
+  %.not.i142 = icmp eq i32 %1112, 0
   br i1 %.not.i142, label %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit143, label %.lr.ph.i138, !llvm.loop !22
 
 _Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit143: ; preds = %.lr.ph.i138
+  %1117 = lshr i64 %.sroa.501.0, 34
+  %1118 = tail call i64 @llvm.fshl.i64(i64 %1117, i64 %1109, i64 58)
   %1119 = lshr i64 %.sroa.501.0, 40
-  %1120 = shl i32 %1117, 10
+  %1120 = shl i32 %1115, 10
   %1121 = or disjoint i32 %1120, %1096
   store i32 %1121, ptr %5, align 16, !tbaa !7
-  %1122 = trunc i64 %1111 to i32
+  %1122 = trunc i64 %1118 to i32
   %1123 = and i32 %1122, 15
-  %1124 = tail call i64 @llvm.fshl.i64(i64 %1119, i64 %1111, i64 60)
-  %1125 = lshr i64 %.sroa.501.0, 44
+  %1124 = tail call i64 @llvm.fshl.i64(i64 %1119, i64 %1118, i64 60)
   store i32 %1123, ptr %16, align 4, !tbaa !7
-  %1126 = tail call i64 @llvm.fshl.i64(i64 %1125, i64 %1124, i64 58)
-  %1127 = trunc i64 %1124 to i32
-  %1128 = and i32 %1127, 63
+  %1125 = trunc i64 %1124 to i32
+  %1126 = and i32 %1125, 63
   br label %.lr.ph.i144
 
 .lr.ph.i144:                                      ; preds = %.lr.ph.i144, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit143
-  %.012.i145 = phi i32 [ %1132, %.lr.ph.i144 ], [ 0, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit143 ]
-  %.0711.i146 = phi i32 [ %1133, %.lr.ph.i144 ], [ %1128, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit143 ]
-  %.0810.i147 = phi i32 [ %1129, %.lr.ph.i144 ], [ 6, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit143 ]
-  %1129 = add nsw i32 %.0810.i147, -1
-  %1130 = shl i32 %.012.i145, 1
-  %1131 = and i32 %.0711.i146, 1
-  %1132 = or disjoint i32 %1131, %1130
-  %1133 = lshr i32 %.0711.i146, 1
-  %.not.i148 = icmp eq i32 %1129, 0
+  %.012.i145 = phi i32 [ %1130, %.lr.ph.i144 ], [ 0, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit143 ]
+  %.0711.i146 = phi i32 [ %1131, %.lr.ph.i144 ], [ %1126, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit143 ]
+  %.0810.i147 = phi i32 [ %1127, %.lr.ph.i144 ], [ 6, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit143 ]
+  %1127 = add nsw i32 %.0810.i147, -1
+  %1128 = shl i32 %.012.i145, 1
+  %1129 = and i32 %.0711.i146, 1
+  %1130 = or disjoint i32 %1129, %1128
+  %1131 = lshr i32 %.0711.i146, 1
+  %.not.i148 = icmp eq i32 %1127, 0
   br i1 %.not.i148, label %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit149, label %.lr.ph.i144, !llvm.loop !22
 
 _Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit149: ; preds = %.lr.ph.i144
+  %1132 = lshr i64 %.sroa.501.0, 44
+  %1133 = tail call i64 @llvm.fshl.i64(i64 %1132, i64 %1124, i64 58)
   %1134 = lshr i64 %.sroa.501.0, 50
-  %1135 = shl i32 %1132, 10
+  %1135 = shl i32 %1130, 10
   %1136 = or disjoint i32 %1135, %1100
   store i32 %1136, ptr %6, align 16, !tbaa !7
-  %1137 = trunc i64 %1126 to i32
+  %1137 = trunc i64 %1133 to i32
   %1138 = and i32 %1137, 15
-  %1139 = tail call i64 @llvm.fshl.i64(i64 %1134, i64 %1126, i64 60)
-  %1140 = lshr i64 %.sroa.501.0, 54
+  %1139 = tail call i64 @llvm.fshl.i64(i64 %1134, i64 %1133, i64 60)
   store i32 %1138, ptr %19, align 4, !tbaa !7
-  %1141 = tail call i64 @llvm.fshl.i64(i64 %1140, i64 %1139, i64 58)
-  %1142 = trunc i64 %1139 to i32
-  %1143 = and i32 %1142, 63
+  %1140 = trunc i64 %1139 to i32
+  %1141 = and i32 %1140, 63
   br label %.lr.ph.i150
 
 .lr.ph.i150:                                      ; preds = %.lr.ph.i150, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit149
-  %.012.i151 = phi i32 [ %1147, %.lr.ph.i150 ], [ 0, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit149 ]
-  %.0711.i152 = phi i32 [ %1148, %.lr.ph.i150 ], [ %1143, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit149 ]
-  %.0810.i153 = phi i32 [ %1144, %.lr.ph.i150 ], [ 6, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit149 ]
-  %1144 = add nsw i32 %.0810.i153, -1
-  %1145 = shl i32 %.012.i151, 1
-  %1146 = and i32 %.0711.i152, 1
-  %1147 = or disjoint i32 %1146, %1145
-  %1148 = lshr i32 %.0711.i152, 1
-  %.not.i154 = icmp eq i32 %1144, 0
+  %.012.i151 = phi i32 [ %1145, %.lr.ph.i150 ], [ 0, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit149 ]
+  %.0711.i152 = phi i32 [ %1146, %.lr.ph.i150 ], [ %1141, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit149 ]
+  %.0810.i153 = phi i32 [ %1142, %.lr.ph.i150 ], [ 6, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit149 ]
+  %1142 = add nsw i32 %.0810.i153, -1
+  %1143 = shl i32 %.012.i151, 1
+  %1144 = and i32 %.0711.i152, 1
+  %1145 = or disjoint i32 %1144, %1143
+  %1146 = lshr i32 %.0711.i152, 1
+  %.not.i154 = icmp eq i32 %1142, 0
   br i1 %.not.i154, label %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit155, label %.lr.ph.i150, !llvm.loop !22
 
 _Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit155: ; preds = %.lr.ph.i150
+  %1147 = lshr i64 %.sroa.501.0, 54
+  %1148 = tail call i64 @llvm.fshl.i64(i64 %1147, i64 %1139, i64 58)
   %1149 = lshr i64 %.sroa.501.0, 60
-  %1150 = shl i32 %1147, 10
+  %1150 = shl i32 %1145, 10
   %1151 = or disjoint i32 %1150, %1104
   store i32 %1151, ptr %7, align 16, !tbaa !7
   br label %1157
@@ -2690,7 +2690,7 @@ _Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit155: ; preds = %.lr.ph.
   %1158 = phi i32 [ %1155, %1154 ], [ %1151, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit155 ], [ %1093, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit137 ], [ %1035, %993 ], [ %978, %968 ]
   %wide.trip.count891 = phi i64 [ 4, %1154 ], [ 2, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit155 ], [ 2, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit137 ], [ 2, %993 ], [ 2, %968 ]
   %.sroa.501.1730741 = phi i64 [ 0, %1154 ], [ %1149, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit155 ], [ %1091, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit137 ], [ %1032, %993 ], [ %992, %968 ]
-  %.sroa.0.1731739 = phi i64 [ %.sroa.0.1.ph, %1154 ], [ %1141, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit155 ], [ %1083, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit137 ], [ %1031, %993 ], [ %991, %968 ]
+  %.sroa.0.1731739 = phi i64 [ %.sroa.0.1.ph, %1154 ], [ %1148, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit155 ], [ %1090, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit137 ], [ %1031, %993 ], [ %991, %968 ]
   %1159 = phi i1 [ false, %1154 ], [ true, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit155 ], [ true, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit137 ], [ true, %993 ], [ true, %968 ]
   %1160 = phi i1 [ %.ph, %1154 ], [ true, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit155 ], [ true, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit137 ], [ true, %993 ], [ true, %968 ]
   %1161 = phi i1 [ true, %1154 ], [ true, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit155 ], [ true, %_Z28bcdec__bitstream_read_bits_rP16bcdec__bitstreami.exit137 ], [ true, %993 ], [ false, %968 ]
@@ -3654,81 +3654,81 @@ switch.early.test:                                ; preds = %.loopexit327
   br i1 %exitcond426.not, label %99, label %.preheader325, !llvm.loop !38
 
 99:                                               ; preds = %98
-  br i1 %20, label %100, label %124
+  br i1 %20, label %100, label %122
 
 100:                                              ; preds = %99
   %101 = trunc i64 %.sroa.0.6 to i32
   %102 = and i32 %101, 1
   %103 = tail call i64 @llvm.fshl.i64(i64 %.sroa.25.6, i64 %.sroa.0.6, i64 63)
-  %104 = lshr i64 %.sroa.25.6, 1
-  %105 = trunc i64 %103 to i32
-  %106 = and i32 %105, 1
-  %107 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %103, i64 63)
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  br label %111
+  %104 = trunc i64 %103 to i32
+  %105 = and i32 %104, 1
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  br label %109
 
-111:                                              ; preds = %100, %111
-  %indvars.iv436 = phi i64 [ 0, %100 ], [ %indvars.iv.next437, %111 ]
-  %112 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv436
-  %113 = load i32, ptr %112, align 4, !tbaa !7
-  %114 = or i32 %113, %102
-  store i32 %114, ptr %112, align 4, !tbaa !7
-  %115 = getelementptr inbounds nuw [4 x i32], ptr %108, i64 0, i64 %indvars.iv436
-  %116 = load i32, ptr %115, align 4, !tbaa !7
-  %117 = or i32 %116, %102
-  store i32 %117, ptr %115, align 4, !tbaa !7
-  %118 = getelementptr inbounds nuw [4 x i32], ptr %109, i64 0, i64 %indvars.iv436
-  %119 = load i32, ptr %118, align 4, !tbaa !7
-  %120 = or i32 %119, %106
-  store i32 %120, ptr %118, align 4, !tbaa !7
-  %121 = getelementptr inbounds nuw [4 x i32], ptr %110, i64 0, i64 %indvars.iv436
-  %122 = load i32, ptr %121, align 4, !tbaa !7
-  %123 = or i32 %122, %106
-  store i32 %123, ptr %121, align 4, !tbaa !7
+109:                                              ; preds = %100, %109
+  %indvars.iv436 = phi i64 [ 0, %100 ], [ %indvars.iv.next437, %109 ]
+  %110 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv436
+  %111 = load i32, ptr %110, align 4, !tbaa !7
+  %112 = or i32 %111, %102
+  store i32 %112, ptr %110, align 4, !tbaa !7
+  %113 = getelementptr inbounds nuw [4 x i32], ptr %106, i64 0, i64 %indvars.iv436
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+  %115 = or i32 %114, %102
+  store i32 %115, ptr %113, align 4, !tbaa !7
+  %116 = getelementptr inbounds nuw [4 x i32], ptr %107, i64 0, i64 %indvars.iv436
+  %117 = load i32, ptr %116, align 4, !tbaa !7
+  %118 = or i32 %117, %105
+  store i32 %118, ptr %116, align 4, !tbaa !7
+  %119 = getelementptr inbounds nuw [4 x i32], ptr %108, i64 0, i64 %indvars.iv436
+  %120 = load i32, ptr %119, align 4, !tbaa !7
+  %121 = or i32 %120, %105
+  store i32 %121, ptr %119, align 4, !tbaa !7
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %exitcond439.not = icmp eq i64 %indvars.iv.next437, 3
-  br i1 %exitcond439.not, label %.loopexit322.loopexit, label %111, !llvm.loop !39
+  br i1 %exitcond439.not, label %.loopexit322.loopexit, label %109, !llvm.loop !39
 
-124:                                              ; preds = %99
-  %125 = shl nuw nsw i32 1, %.0237337
-  %126 = and i32 %125, 203
-  %.not = icmp eq i32 %126, 0
+122:                                              ; preds = %99
+  %123 = shl nuw nsw i32 1, %.0237337
+  %124 = and i32 %123, 203
+  %.not = icmp eq i32 %124, 0
   br i1 %.not, label %.loopexit322, label %.preheader323
 
-.preheader323:                                    ; preds = %124, %134
-  %indvars.iv431 = phi i64 [ %indvars.iv.next432, %134 ], [ 0, %124 ]
-  %.sroa.0.9354 = phi i64 [ %129, %134 ], [ %.sroa.0.6, %124 ]
-  %.sroa.25.9353 = phi i64 [ %135, %134 ], [ %.sroa.25.6, %124 ]
-  %127 = trunc i64 %.sroa.0.9354 to i32
-  %128 = and i32 %127, 1
-  %129 = tail call i64 @llvm.fshl.i64(i64 %.sroa.25.9353, i64 %.sroa.0.9354, i64 63)
-  br label %130
+.preheader323:                                    ; preds = %122, %131
+  %indvars.iv431 = phi i64 [ %indvars.iv.next432, %131 ], [ 0, %122 ]
+  %.sroa.0.9354 = phi i64 [ %132, %131 ], [ %.sroa.0.6, %122 ]
+  %.sroa.25.9353 = phi i64 [ %133, %131 ], [ %.sroa.25.6, %122 ]
+  %125 = trunc i64 %.sroa.0.9354 to i32
+  %126 = and i32 %125, 1
+  br label %127
 
-130:                                              ; preds = %.preheader323, %130
-  %indvars.iv427 = phi i64 [ 0, %.preheader323 ], [ %indvars.iv.next428, %130 ]
-  %131 = getelementptr inbounds nuw [6 x [4 x i32]], ptr %4, i64 0, i64 %indvars.iv431, i64 %indvars.iv427
-  %132 = load i32, ptr %131, align 4, !tbaa !7
-  %133 = or i32 %132, %128
-  store i32 %133, ptr %131, align 4, !tbaa !7
+127:                                              ; preds = %.preheader323, %127
+  %indvars.iv427 = phi i64 [ 0, %.preheader323 ], [ %indvars.iv.next428, %127 ]
+  %128 = getelementptr inbounds nuw [6 x [4 x i32]], ptr %4, i64 0, i64 %indvars.iv431, i64 %indvars.iv427
+  %129 = load i32, ptr %128, align 4, !tbaa !7
+  %130 = or i32 %129, %126
+  store i32 %130, ptr %128, align 4, !tbaa !7
   %indvars.iv.next428 = add nuw nsw i64 %indvars.iv427, 1
   %exitcond430.not = icmp eq i64 %indvars.iv.next428, 4
-  br i1 %exitcond430.not, label %134, label %130, !llvm.loop !40
+  br i1 %exitcond430.not, label %131, label %127, !llvm.loop !40
 
-134:                                              ; preds = %130
-  %135 = lshr i64 %.sroa.25.9353, 1
+131:                                              ; preds = %127
+  %132 = tail call i64 @llvm.fshl.i64(i64 %.sroa.25.9353, i64 %.sroa.0.9354, i64 63)
+  %133 = lshr i64 %.sroa.25.9353, 1
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %exitcond435.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count
   br i1 %exitcond435.not, label %.loopexit322, label %.preheader323, !llvm.loop !41
 
-.loopexit322.loopexit:                            ; preds = %111
+.loopexit322.loopexit:                            ; preds = %109
+  %134 = lshr i64 %.sroa.25.6, 1
+  %135 = tail call i64 @llvm.fshl.i64(i64 %134, i64 %103, i64 63)
   %136 = lshr i64 %.sroa.25.6, 2
   br label %.loopexit322
 
-.loopexit322:                                     ; preds = %134, %.loopexit322.loopexit, %switch.early.test, %124
-  %.sroa.25.8 = phi i64 [ %.sroa.25.6, %124 ], [ %.sroa.25.6, %switch.early.test ], [ %136, %.loopexit322.loopexit ], [ %135, %134 ]
-  %.sroa.0.8 = phi i64 [ %.sroa.0.6, %124 ], [ %.sroa.0.6, %switch.early.test ], [ %107, %.loopexit322.loopexit ], [ %129, %134 ]
+.loopexit322:                                     ; preds = %131, %.loopexit322.loopexit, %switch.early.test, %122
+  %.sroa.25.8 = phi i64 [ %.sroa.25.6, %122 ], [ %.sroa.25.6, %switch.early.test ], [ %136, %.loopexit322.loopexit ], [ %133, %131 ]
+  %.sroa.0.8 = phi i64 [ %.sroa.0.6, %122 ], [ %.sroa.0.6, %switch.early.test ], [ %135, %.loopexit322.loopexit ], [ %132, %131 ]
   %137 = lshr i32 203, %.0237337
   %138 = and i32 %137, 1
   %139 = add nsw i32 %138, %58

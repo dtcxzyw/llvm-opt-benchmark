@@ -8852,43 +8852,43 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   br label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE25computeChunkCountAndScaleEmbb.exit
 
 18:                                               ; preds = %5
-  %19 = add i64 %.sroa.speculated, -1
-  %20 = udiv i64 %19, 10
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
-  %22 = trunc nuw nsw i64 %21 to i32
-  %23 = sub nuw nsw i32 64, %22
-  %24 = zext nneg i32 %23 to i64
-  %25 = shl nuw nsw i64 1, %24
-  %26 = icmp ugt i64 %19, 20479
-  %27 = add nsw i64 %25, -1
-  %28 = lshr i64 %27, 12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #33
   store i64 72057594037927935, ptr %6, align 8, !tbaa !64
   %.ptr3.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 4294967295, ptr %.ptr3.i.i, align 8, !tbaa !64
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 384307168202282325, ptr %29, align 8, !tbaa !64
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 384307168202282325, ptr %19, align 8, !tbaa !64
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %18
-  %30 = phi i64 [ %33, %.lr.ph.i.i.i.i ], [ 72057594037927935, %18 ]
+  %20 = phi i64 [ %23, %.lr.ph.i.i.i.i ], [ 72057594037927935, %18 ]
   %.idx.i.i = phi i64 [ %.add.i.i, %.lr.ph.i.i.i.i ], [ 8, %18 ]
   %.018.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %6, %18 ]
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i
-  %31 = load i64, ptr %.ptr.i.i, align 8, !tbaa !64
-  %32 = icmp ult i64 %31, %30
-  %33 = tail call i64 @llvm.umin.i64(i64 %31, i64 %30)
-  %spec.select.i.i.i.i = select i1 %32, ptr %.ptr.i.i, ptr %.018.i.i.i.i
+  %21 = load i64, ptr %.ptr.i.i, align 8, !tbaa !64
+  %22 = icmp ult i64 %21, %20
+  %23 = tail call i64 @llvm.umin.i64(i64 %21, i64 %20)
+  %spec.select.i.i.i.i = select i1 %22, ptr %.ptr.i.i, ptr %.018.i.i.i.i
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %.add.i.i, 24
   br i1 %.not.i.i.i.i, label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8max_sizeEv.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !268
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8max_sizeEv.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %34 = shl i32 10, %23
-  %35 = add nuw nsw i64 %28, 1
-  %36 = zext i32 %34 to i64
-  %37 = select i1 %26, i64 40960, i64 %36
-  %38 = mul i64 %35, %37
+  %24 = add i64 %.sroa.speculated, -1
+  %25 = udiv i64 %24, 10
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
+  %27 = trunc nuw nsw i64 %26 to i32
+  %28 = sub nuw nsw i32 64, %27
+  %29 = zext nneg i32 %28 to i64
+  %30 = shl nuw nsw i64 1, %29
+  %31 = icmp ugt i64 %24, 20479
+  %32 = shl i32 10, %28
+  %33 = zext i32 %32 to i64
+  %34 = select i1 %31, i64 40960, i64 %33
+  %35 = add nsw i64 %30, -1
+  %36 = lshr i64 %35, 12
+  %37 = add nuw nsw i64 %36, 1
+  %38 = mul i64 %37, %34
   %39 = load i64, ptr %spec.select.i.i.i.i, align 8, !tbaa !64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #33
   %40 = icmp ugt i64 %38, %39
@@ -8899,8 +8899,8 @@ _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17
   unreachable
 
 _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE25computeChunkCountAndScaleEmbb.exit: ; preds = %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8max_sizeEv.exit.i, %15, %17
-  %.pn21.i = phi i64 [ 1, %17 ], [ 1, %15 ], [ %25, %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8max_sizeEv.exit.i ]
-  %.0.pn.i = phi i64 [ %spec.select.i, %17 ], [ 2, %15 ], [ %37, %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8max_sizeEv.exit.i ]
+  %.pn21.i = phi i64 [ 1, %17 ], [ 1, %15 ], [ %30, %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8max_sizeEv.exit.i ]
+  %.0.pn.i = phi i64 [ %spec.select.i, %17 ], [ 2, %15 ], [ %34, %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEEEE8max_sizeEv.exit.i ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !18
   %44 = lshr i64 %43, 8

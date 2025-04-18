@@ -8685,27 +8685,27 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit.i.i:       ; preds = %_ZL11stbi__zget8P10
   %130 = lshr i32 %129, 3
   %131 = add nuw nsw i32 %130, 1
   %wide.trip.count.i = zext nneg i32 %131 to i64
-  %132 = and i32 %129, -8
-  br label %133
+  br label %132
 
-133:                                              ; preds = %133, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %133 ]
-  %134 = phi i32 [ %.promoted.i.i, %.lr.ph.i.i ], [ %137, %133 ]
-  %135 = trunc i32 %134 to i8
+132:                                              ; preds = %132, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %132 ]
+  %133 = phi i32 [ %.promoted.i.i, %.lr.ph.i.i ], [ %136, %132 ]
+  %134 = trunc i32 %133 to i8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %136 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 0, i64 %indvars.iv.i.i
-  store i8 %135, ptr %136, align 1
-  %137 = lshr i32 %134, 8
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 0, i64 %indvars.iv.i.i
+  store i8 %134, ptr %135, align 1
+  %136 = lshr i32 %133, 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %138, label %133, !llvm.loop !35
+  br i1 %exitcond.not.i, label %137, label %132, !llvm.loop !35
 
-138:                                              ; preds = %133
+137:                                              ; preds = %132
+  %138 = add nsw i32 %.pr.i.i, -8
   %139 = and i32 %129, -8
-  %140 = add nsw i32 %.pr.i.i, -8
-  %141 = sub nsw i32 %140, %132
-  %142 = sub nsw i32 %.pr.i.i, %139
-  store i32 %137, ptr %38, align 8
-  store i32 %141, ptr %37, align 8
+  %140 = sub nsw i32 %138, %139
+  %141 = and i32 %129, -8
+  %142 = sub nsw i32 %.pr.i.i, %141
+  store i32 %136, ptr %38, align 8
+  store i32 %140, ptr %37, align 8
   %.not79.i.i = icmp eq i32 %142, 8
   br i1 %.not79.i.i, label %.preheader.i.i, label %_ZL30stbi__parse_uncompressed_blockP10stbi__zbuf.exit.thread.i
 
@@ -8713,7 +8713,7 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit.i.i:       ; preds = %_ZL11stbi__zget8P10
   %143 = icmp slt i32 %.pr.i.i, 0
   br i1 %143, label %_ZL30stbi__parse_uncompressed_blockP10stbi__zbuf.exit.thread.i, label %.lr.ph49.i.i
 
-.preheader.i.i:                                   ; preds = %138
+.preheader.i.i:                                   ; preds = %137
   %144 = icmp samesign ult i64 %indvars.iv.i.i, 3
   br i1 %144, label %.lr.ph49.i.i, label %._crit_edge50.i.i
 
@@ -8821,8 +8821,8 @@ _ZL13stbi__zexpandP10stbi__zbufPci.exit.i.i:      ; preds = %._crit_edge.i.i.i
   %.pre.i.i = load ptr, ptr %0, align 8
   br label %_ZL30stbi__parse_uncompressed_blockP10stbi__zbuf.exit.i
 
-_ZL30stbi__parse_uncompressed_blockP10stbi__zbuf.exit.thread.i: ; preds = %._crit_edge.i.i.i, %174, %172, %162, %._crit_edge50.i.i, %.thread.i.i, %138, %.lr.ph.i.i.i
-  %.str.35.sink.i = phi ptr [ @.str.26, %.lr.ph.i.i.i ], [ @.str.26, %._crit_edge.i.i.i ], [ @.str.26, %174 ], [ @.str.37, %172 ], [ @.str.36, %162 ], [ @.str.35, %._crit_edge50.i.i ], [ @.str.35, %138 ], [ @.str.35, %.thread.i.i ]
+_ZL30stbi__parse_uncompressed_blockP10stbi__zbuf.exit.thread.i: ; preds = %._crit_edge.i.i.i, %174, %172, %162, %._crit_edge50.i.i, %.thread.i.i, %137, %.lr.ph.i.i.i
+  %.str.35.sink.i = phi ptr [ @.str.26, %.lr.ph.i.i.i ], [ @.str.26, %._crit_edge.i.i.i ], [ @.str.26, %174 ], [ @.str.37, %172 ], [ @.str.36, %162 ], [ @.str.35, %._crit_edge50.i.i ], [ @.str.35, %137 ], [ @.str.35, %.thread.i.i ]
   %197 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr %.str.35.sink.i, ptr %197, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #48
@@ -9997,9 +9997,9 @@ _ZL14stbi__zreceiveP10stbi__zbufi.exit122.i.i:    ; preds = %_ZL11stbi__zget8P10
   %739 = load i8, ptr %736, align 1
   %740 = zext i32 %.060.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.5.i.i, i8 %739, i64 %740, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %.5.i.i, i64 1
   %741 = add i32 %.060.i.i, -1
   %742 = zext i32 %741 to i64
-  %scevgep.i.i = getelementptr i8, ptr %.5.i.i, i64 1
   %scevgep229.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %742
   br label %.loopexit.i.i
 

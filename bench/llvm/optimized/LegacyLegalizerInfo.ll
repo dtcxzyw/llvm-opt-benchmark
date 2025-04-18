@@ -2547,7 +2547,6 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm2
 
 .lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i, %448
   %458 = load i32, ptr %.sroa.07.020.i.ptr.i, align 2
-  %.sroa.4.0.extract.shift.i.i = lshr i32 %458, 16
   %459 = lshr exact i64 %.sroa.07.020.i.idx.i, 2
   %460 = getelementptr inbounds nuw i8, ptr %.pn19.i.i, i64 8
   br label %.lr.ph.i.i.i.i.i.i.i
@@ -2570,6 +2569,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm2
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %.sroa.0.0.extract.trunc.i.i = trunc i32 %458 to i16
+  %.sroa.4.0.extract.shift.i.i = lshr i32 %458, 16
   %.sroa.4.0.extract.trunc.i.i = trunc i32 %.sroa.4.0.extract.shift.i.i to i8
   store i16 %.sroa.0.0.extract.trunc.i.i, ptr %436, align 2, !tbaa !96
   store i8 %.sroa.4.0.extract.trunc.i.i, ptr %447, align 2, !tbaa !98
@@ -3219,7 +3219,6 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm2
 
 .lr.ph.i.i.i.i.i.preheader.i.i331:                ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i300, %695
   %705 = load i32, ptr %.sroa.07.020.i.ptr.i299, align 2
-  %.sroa.4.0.extract.shift.i.i333 = lshr i32 %705, 16
   %706 = lshr exact i64 %.sroa.07.020.i.idx.i297, 2
   %707 = getelementptr inbounds nuw i8, ptr %.pn19.i.i298, i64 8
   br label %.lr.ph.i.i.i.i.i.i.i335
@@ -3242,6 +3241,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm2
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i339: ; preds = %.lr.ph.i.i.i.i.i.i.i335
   %.sroa.0.0.extract.trunc.i.i332 = trunc i32 %705 to i16
+  %.sroa.4.0.extract.shift.i.i333 = lshr i32 %705, 16
   %.sroa.4.0.extract.trunc.i.i334 = trunc i32 %.sroa.4.0.extract.shift.i.i333 to i8
   store i16 %.sroa.0.0.extract.trunc.i.i332, ptr %683, align 2, !tbaa !96
   store i8 %.sroa.4.0.extract.trunc.i.i334, ptr %694, align 2, !tbaa !98
@@ -3999,7 +3999,6 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm2
 
 .lr.ph.i.i.i.i.i.preheader.i.i454:                ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i423, %995
   %1005 = load i32, ptr %.sroa.07.020.i.ptr.i422, align 2
-  %.sroa.4.0.extract.shift.i.i456 = lshr i32 %1005, 16
   %1006 = lshr exact i64 %.sroa.07.020.i.idx.i420, 2
   %1007 = getelementptr inbounds nuw i8, ptr %.pn19.i.i421, i64 8
   br label %.lr.ph.i.i.i.i.i.i.i458
@@ -4022,6 +4021,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm2
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i462: ; preds = %.lr.ph.i.i.i.i.i.i.i458
   %.sroa.0.0.extract.trunc.i.i455 = trunc i32 %1005 to i16
+  %.sroa.4.0.extract.shift.i.i456 = lshr i32 %1005, 16
   %.sroa.4.0.extract.trunc.i.i457 = trunc i32 %.sroa.4.0.extract.shift.i.i456 to i8
   store i16 %.sroa.0.0.extract.trunc.i.i455, ptr %.pre999, align 2, !tbaa !96
   store i8 %.sroa.4.0.extract.trunc.i.i457, ptr %994, align 2, !tbaa !98
@@ -4328,7 +4328,6 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm2
 
 .lr.ph.i.i.i.i.i.preheader.i.i530:                ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i499, %1110
   %1120 = load i32, ptr %.sroa.07.020.i.ptr.i498, align 2
-  %.sroa.4.0.extract.shift.i.i532 = lshr i32 %1120, 16
   %1121 = lshr exact i64 %.sroa.07.020.i.idx.i496, 2
   %1122 = getelementptr inbounds nuw i8, ptr %.pn19.i.i497, i64 8
   br label %.lr.ph.i.i.i.i.i.i.i534
@@ -4351,6 +4350,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt4pairItN4llvm2
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairItN4llvm21LegacyLegalizeActions20LegacyLegalizeActionEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i538: ; preds = %.lr.ph.i.i.i.i.i.i.i534
   %.sroa.0.0.extract.trunc.i.i531 = trunc i32 %1120 to i16
+  %.sroa.4.0.extract.shift.i.i532 = lshr i32 %1120, 16
   %.sroa.4.0.extract.trunc.i.i533 = trunc i32 %.sroa.4.0.extract.shift.i.i532 to i8
   store i16 %.sroa.0.0.extract.trunc.i.i531, ptr %1099, align 2, !tbaa !96
   store i8 %.sroa.4.0.extract.trunc.i.i533, ptr %1109, align 2, !tbaa !98

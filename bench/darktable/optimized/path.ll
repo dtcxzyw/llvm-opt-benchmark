@@ -7852,16 +7852,16 @@ dt_masks_dynbuf_free.exit538:                     ; preds = %670, %677
   br i1 %704, label %.lr.ph.i549, label %711
 
 .lr.ph.i549:                                      ; preds = %701
-  %705 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %706 = sext i32 %702 to i64
+  %705 = sext i32 %702 to i64
   %wide.trip.count.i = sext i32 %699 to i64
   br label %713
 
 ._crit_edge.i551:                                 ; preds = %727
-  %707 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %706 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %707 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %708 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  store i32 %.0246387398.i, ptr %707, align 4
-  store i32 %.0246387401.i, ptr %705, align 8
+  store i32 %.0246387398.i, ptr %706, align 4
+  store i32 %.0246387401.i, ptr %707, align 8
   store i32 %.0246387404.i, ptr %708, align 4
   %709 = add nsw i32 %.1241.i, 1
   %710 = add nsw i32 %.1245.i, 1
@@ -7879,7 +7879,7 @@ dt_masks_dynbuf_free.exit538:                     ; preds = %670, %677
   br label %754
 
 713:                                              ; preds = %727, %.lr.ph.i549
-  %indvars.iv.i = phi i64 [ %706, %.lr.ph.i549 ], [ %indvars.iv.next.i, %727 ]
+  %indvars.iv.i = phi i64 [ %705, %.lr.ph.i549 ], [ %indvars.iv.next.i, %727 ]
   %.0246387403.i = phi i32 [ 0, %.lr.ph.i549 ], [ %.0246387404.i, %727 ]
   %.0246387400.i = phi i32 [ 0, %.lr.ph.i549 ], [ %.0246387401.i, %727 ]
   %.0246387397.i = phi i32 [ 0, %.lr.ph.i549 ], [ %.0246387398.i, %727 ]

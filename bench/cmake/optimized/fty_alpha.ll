@@ -112,21 +112,21 @@ define internal zeroext i1 @Check_Alpha_Field(ptr noundef %0, ptr noundef readon
 
 .critedge2:                                       ; preds = %11, %17
   %.2.lcssa.ph = phi ptr [ %.237, %11 ], [ %18, %17 ]
-  %19 = ptrtoint ptr %.2.lcssa.ph to i64
-  %20 = ptrtoint ptr %.0 to i64
-  %21 = sub i64 %19, %20
-  br label %22
+  br label %19
 
-22:                                               ; preds = %22, %.critedge2
-  %.3 = phi ptr [ %.2.lcssa.ph, %.critedge2 ], [ %24, %22 ]
-  %23 = load i8, ptr %.3, align 1, !tbaa !10
-  %cond32 = icmp eq i8 %23, 32
-  %24 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  br i1 %cond32, label %22, label %.critedge4.loopexit, !llvm.loop !19
+19:                                               ; preds = %19, %.critedge2
+  %.3 = phi ptr [ %.2.lcssa.ph, %.critedge2 ], [ %21, %19 ]
+  %20 = load i8, ptr %.3, align 1, !tbaa !10
+  %cond32 = icmp eq i8 %20, 32
+  %21 = getelementptr inbounds nuw i8, ptr %.3, i64 1
+  br i1 %cond32, label %19, label %.critedge4.loopexit, !llvm.loop !19
 
-.critedge4.loopexit:                              ; preds = %22
-  %25 = trunc i64 %21 to i32
-  %26 = icmp eq i8 %23, 0
+.critedge4.loopexit:                              ; preds = %19
+  %22 = ptrtoint ptr %.2.lcssa.ph to i64
+  %23 = ptrtoint ptr %.0 to i64
+  %24 = sub i64 %22, %23
+  %25 = trunc i64 %24 to i32
+  %26 = icmp eq i8 %20, 0
   br label %.critedge4
 
 .critedge4:                                       ; preds = %5, %.critedge4.loopexit

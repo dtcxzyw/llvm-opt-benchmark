@@ -3094,22 +3094,22 @@ _ZNSolsEd.exit.i:                                 ; preds = %_ZStlsISt11char_tra
   %1080 = getelementptr inbounds nuw i8, ptr %1079, i64 8
   %1081 = load ptr, ptr %1080, align 8, !tbaa !121
   %1082 = load ptr, ptr %1079, align 8, !tbaa !124
-  %1083 = ptrtoint ptr %1081 to i64
-  %1084 = ptrtoint ptr %1082 to i64
-  %1085 = sub i64 %1083, %1084
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %57) #27
-  br label %1086
+  br label %1083
 
-1086:                                             ; preds = %1086, %1077
-  %.idx499.i = phi i64 [ 0, %1077 ], [ %.add500.i, %1086 ]
+1083:                                             ; preds = %1083, %1077
+  %.idx499.i = phi i64 [ 0, %1077 ], [ %.add500.i, %1083 ]
   %.ptr501.i = getelementptr inbounds nuw i8, ptr %57, i64 %.idx499.i
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr501.i) #27
   %.add500.i = add nuw nsw i64 %.idx499.i, 96
-  %1087 = icmp eq i64 %.add500.i, 192
-  br i1 %1087, label %.preheader826.preheader.i, label %1086
+  %1084 = icmp eq i64 %.add500.i, 192
+  br i1 %1084, label %.preheader826.preheader.i, label %1083
 
-.preheader826.preheader.i:                        ; preds = %1086
-  %1088 = lshr i64 %1085, 3
+.preheader826.preheader.i:                        ; preds = %1083
+  %1085 = ptrtoint ptr %1081 to i64
+  %1086 = ptrtoint ptr %1082 to i64
+  %1087 = sub i64 %1085, %1086
+  %1088 = lshr i64 %1087, 3
   %1089 = trunc i64 %1088 to i32
   br label %.preheader826.i
 

@@ -1510,31 +1510,31 @@ _ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit: ; preds = %1
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 32, ptr %48, align 8, !tbaa !60
   %49 = load ptr, ptr %9, align 8, !tbaa !53
-  %50 = ptrtoint ptr %45 to i64
-  %51 = ptrtoint ptr %49 to i64
-  %52 = sub i64 %50, %51
-  %53 = load i32, ptr %13, align 8, !tbaa !18
-  br label %54
+  %50 = load i32, ptr %13, align 8, !tbaa !18
+  br label %51
 
-54:                                               ; preds = %54, %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit
-  %.0.i = phi i32 [ 1, %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit ], [ %63, %54 ]
-  %55 = zext i32 %.0.i to i64
-  %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds i8, ptr %45, i64 %56
-  %58 = load i8, ptr %57, align 1, !tbaa !49
-  %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %59
-  %61 = load i16, ptr %60, align 2, !tbaa !50
-  %62 = and i16 %61, 7
-  %.not.i12 = icmp eq i16 %62, 0
-  %63 = add i32 %.0.i, 1
-  br i1 %.not.i12, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i, label %54, !llvm.loop !84
+51:                                               ; preds = %51, %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit
+  %.0.i = phi i32 [ 1, %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit ], [ %60, %51 ]
+  %52 = zext i32 %.0.i to i64
+  %53 = sub nsw i64 0, %52
+  %54 = getelementptr inbounds i8, ptr %45, i64 %53
+  %55 = load i8, ptr %54, align 1, !tbaa !49
+  %56 = zext i8 %55 to i64
+  %57 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %56
+  %58 = load i16, ptr %57, align 2, !tbaa !50
+  %59 = and i16 %58, 7
+  %.not.i12 = icmp eq i16 %59, 0
+  %60 = add i32 %.0.i, 1
+  br i1 %.not.i12, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i, label %51, !llvm.loop !84
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %54
-  %64 = getelementptr inbounds i8, ptr %45, i64 %56
-  %65 = trunc i64 %52 to i32
-  %66 = add i32 %53, %65
-  %67 = getelementptr inbounds i8, ptr %64, i64 -3
+_ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %51
+  %61 = getelementptr inbounds i8, ptr %45, i64 %53
+  %62 = ptrtoint ptr %45 to i64
+  %63 = ptrtoint ptr %49 to i64
+  %64 = sub i64 %62, %63
+  %65 = trunc i64 %64 to i32
+  %66 = add i32 %50, %65
+  %67 = getelementptr inbounds i8, ptr %61, i64 -3
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %67, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
   %68 = icmp eq i32 %bcmp.i.i, 0
   br i1 %68, label %_ZN5clang8comments20TextTokenRetokenizer20startsWithParCommandEv.exit.preheader, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread11.i

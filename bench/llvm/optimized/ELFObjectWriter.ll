@@ -4274,17 +4274,17 @@ _ZNSt6vectorIN12_GLOBAL__N_19ELFWriter13ELFSymbolDataESaIS2_EE9push_backERKS2_.e
   %1082 = load ptr, ptr %1081, align 8, !tbaa !419
   %1083 = getelementptr inbounds nuw i8, ptr %1076, i64 16
   %1084 = load ptr, ptr %1083, align 8, !tbaa !423
-  %1085 = ptrtoint ptr %1082 to i64
-  %1086 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %1087 = load ptr, ptr %1086, align 8, !tbaa !416
-  %1088 = getelementptr inbounds nuw ptr, ptr %1087, i64 %.0111.i
-  %1089 = load ptr, ptr %1088, align 8, !tbaa !69
+  %1085 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %1086 = load ptr, ptr %1085, align 8, !tbaa !416
+  %1087 = getelementptr inbounds nuw ptr, ptr %1086, i64 %.0111.i
+  %1088 = load ptr, ptr %1087, align 8, !tbaa !69
   br label %1109
 
-1090:                                             ; preds = %1109
-  %1091 = add i64 %1080, %1085
-  %1092 = ptrtoint ptr %1084 to i64
-  %1093 = sub i64 %1091, %1092
+1089:                                             ; preds = %1109
+  %1090 = ptrtoint ptr %1082 to i64
+  %1091 = ptrtoint ptr %1084 to i64
+  %1092 = add i64 %1080, %1090
+  %1093 = sub i64 %1092, %1091
   %1094 = load ptr, ptr %79, align 8, !tbaa !418
   %1095 = load ptr, ptr %1094, align 8, !tbaa !18
   %1096 = getelementptr inbounds nuw i8, ptr %1095, i64 80
@@ -4298,9 +4298,9 @@ _ZNSt6vectorIN12_GLOBAL__N_19ELFWriter13ELFSymbolDataESaIS2_EE9push_backERKS2_.e
   %1104 = ptrtoint ptr %1102 to i64
   %1105 = add i64 %1098, %1103
   %1106 = sub i64 %1105, %1104
-  %1107 = getelementptr inbounds nuw i8, ptr %1089, i64 184
+  %1107 = getelementptr inbounds nuw i8, ptr %1088, i64 184
   store i64 %1093, ptr %1107, align 8, !tbaa !440
-  %1108 = getelementptr inbounds nuw i8, ptr %1089, i64 192
+  %1108 = getelementptr inbounds nuw i8, ptr %1088, i64 192
   store i64 %1106, ptr %1108, align 8, !tbaa !441
   br label %1114
 
@@ -4318,9 +4318,9 @@ _ZNSt6vectorIN12_GLOBAL__N_19ELFWriter13ELFSymbolDataESaIS2_EE9push_backERKS2_.e
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   %1113 = getelementptr inbounds nuw i8, ptr %.0106401.i, i64 4
   %.not121.i = icmp eq ptr %1113, %.val144.i
-  br i1 %.not121.i, label %1090, label %1109
+  br i1 %.not121.i, label %1089, label %1109
 
-1114:                                             ; preds = %1090, %._crit_edge400.i
+1114:                                             ; preds = %1089, %._crit_edge400.i
   %.not.i.i.i218.i = icmp eq ptr %.sroa.0297.0.lcssa415.i, null
   br i1 %.not.i.i.i218.i, label %_ZNSt6vectorIN12_GLOBAL__N_19ELFWriter13ELFSymbolDataESaIS2_EED2Ev.exit.i, label %1115
 

@@ -2249,11 +2249,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26HdLegacyDisplayStyleSchema13
   %11 = alloca [9 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 16
   %12 = alloca [9 x %"class.std::shared_ptr.12"], align 16
   %13 = alloca %"class.std::shared_ptr.15", align 8
-  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %11, i8 0, i64 72, i1 false)
-  %.0.sroa.gep278 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %12, i8 0, i64 144, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.0.sroa.gep278 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %16 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %16, null

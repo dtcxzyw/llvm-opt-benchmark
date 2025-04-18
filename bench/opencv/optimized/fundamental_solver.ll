@@ -5164,49 +5164,49 @@ _ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit75: ; preds = %_ZN2cvdVId
 
 _ZN2cvdVIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit79:    ; preds = %132
   %136 = call noundef zeroext i1 @_ZN2cv4usac17satisfyCheiralityERKNS_4MatxIdLi3ELi3EEERKNS_3VecIdLi3EEES8_S8_(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
-  %137 = zext i1 %136 to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22) #24
   call void @llvm.experimental.noalias.scope.decl(metadata !234)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false), !tbaa !108, !alias.scope !234
-  br label %138
+  br label %137
 
-138:                                              ; preds = %138, %_ZN2cvdVIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit79
-  %indvars.iv.i80 = phi i64 [ 0, %_ZN2cvdVIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit79 ], [ %indvars.iv.next.i81, %138 ]
-  %139 = getelementptr inbounds nuw [3 x double], ptr %14, i64 0, i64 %indvars.iv.i80
-  %140 = load double, ptr %139, align 8, !tbaa !108, !noalias !234
-  %141 = fneg double %140
-  %142 = getelementptr inbounds nuw [3 x double], ptr %22, i64 0, i64 %indvars.iv.i80
-  store double %141, ptr %142, align 8, !tbaa !108, !alias.scope !234
+137:                                              ; preds = %137, %_ZN2cvdVIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit79
+  %indvars.iv.i80 = phi i64 [ 0, %_ZN2cvdVIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit79 ], [ %indvars.iv.next.i81, %137 ]
+  %138 = getelementptr inbounds nuw [3 x double], ptr %14, i64 0, i64 %indvars.iv.i80
+  %139 = load double, ptr %138, align 8, !tbaa !108, !noalias !234
+  %140 = fneg double %139
+  %141 = getelementptr inbounds nuw [3 x double], ptr %22, i64 0, i64 %indvars.iv.i80
+  store double %140, ptr %141, align 8, !tbaa !108, !alias.scope !234
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 3
-  br i1 %exitcond.not.i82, label %_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit, label %138, !llvm.loop !237
+  br i1 %exitcond.not.i82, label %_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit, label %137, !llvm.loop !237
 
-_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit:      ; preds = %138
-  %143 = call noundef zeroext i1 @_ZN2cv4usac17satisfyCheiralityERKNS_4MatxIdLi3ELi3EEERKNS_3VecIdLi3EEES8_S8_(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit:      ; preds = %137
+  %142 = call noundef zeroext i1 @_ZN2cv4usac17satisfyCheiralityERKNS_4MatxIdLi3ELi3EEERKNS_3VecIdLi3EEES8_S8_(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #24
-  %144 = zext i1 %143 to i32
-  %145 = call noundef zeroext i1 @_ZN2cv4usac17satisfyCheiralityERKNS_4MatxIdLi3ELi3EEERKNS_3VecIdLi3EEES8_S8_(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
-  %146 = zext i1 %145 to i32
+  %143 = call noundef zeroext i1 @_ZN2cv4usac17satisfyCheiralityERKNS_4MatxIdLi3ELi3EEERKNS_3VecIdLi3EEES8_S8_(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #24
   call void @llvm.experimental.noalias.scope.decl(metadata !238)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false), !tbaa !108, !alias.scope !238
-  br label %147
+  br label %144
 
-147:                                              ; preds = %147, %_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit
-  %indvars.iv.i83 = phi i64 [ 0, %_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %indvars.iv.next.i84, %147 ]
-  %148 = getelementptr inbounds nuw [3 x double], ptr %14, i64 0, i64 %indvars.iv.i83
-  %149 = load double, ptr %148, align 8, !tbaa !108, !noalias !238
-  %150 = fneg double %149
-  %151 = getelementptr inbounds nuw [3 x double], ptr %23, i64 0, i64 %indvars.iv.i83
-  store double %150, ptr %151, align 8, !tbaa !108, !alias.scope !238
+144:                                              ; preds = %144, %_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit
+  %indvars.iv.i83 = phi i64 [ 0, %_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit ], [ %indvars.iv.next.i84, %144 ]
+  %145 = getelementptr inbounds nuw [3 x double], ptr %14, i64 0, i64 %indvars.iv.i83
+  %146 = load double, ptr %145, align 8, !tbaa !108, !noalias !238
+  %147 = fneg double %146
+  %148 = getelementptr inbounds nuw [3 x double], ptr %23, i64 0, i64 %indvars.iv.i83
+  store double %147, ptr %148, align 8, !tbaa !108, !alias.scope !238
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, 3
-  br i1 %exitcond.not.i85, label %_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit86, label %147, !llvm.loop !237
+  br i1 %exitcond.not.i85, label %_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit86, label %144, !llvm.loop !237
 
-_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit86:    ; preds = %147
-  %spec.select175 = add nuw nsw i32 %92, %137
-  %spec.select176 = add nuw nsw i32 %91, %144
-  %152 = add nuw nsw i32 %90, %146
+_ZN2cvngIdLi3EEENS_3VecIT_XT0_EEERKS3_.exit86:    ; preds = %144
+  %149 = zext i1 %136 to i32
+  %spec.select175 = add nuw nsw i32 %92, %149
+  %150 = zext i1 %142 to i32
+  %spec.select176 = add nuw nsw i32 %91, %150
+  %151 = zext i1 %143 to i32
+  %152 = add nuw nsw i32 %90, %151
   %153 = call noundef zeroext i1 @_ZN2cv4usac17satisfyCheiralityERKNS_4MatxIdLi3ELi3EEERKNS_3VecIdLi3EEES8_S8_(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #24
   %154 = zext i1 %153 to i32

@@ -2323,28 +2323,28 @@ dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %542, %_ryb2rgb.exit
   store float %794, ptr %795, align 8, !tbaa !196
   %796 = getelementptr inbounds nuw i8, ptr %795, i64 4
   store float %793, ptr %796, align 4, !tbaa !196
-  %797 = fmul reassoc nsz arcp contract afn float %794, %794
-  %798 = fmul reassoc nsz arcp contract afn float %793, %793
-  %799 = fadd reassoc nsz arcp contract afn float %797, %798
-  %800 = load float, ptr %10, align 16, !tbaa !196
-  %801 = load float, ptr %349, align 4, !tbaa !196
+  %797 = load float, ptr %10, align 16, !tbaa !196
+  %798 = load float, ptr %349, align 4, !tbaa !196
+  %799 = fcmp reassoc nsz arcp contract afn ogt float %797, %798
+  %800 = select reassoc nsz arcp contract afn i1 %799, float %797, float %798
+  %801 = load float, ptr %348, align 8, !tbaa !196
   %802 = fcmp reassoc nsz arcp contract afn ogt float %800, %801
-  %803 = select reassoc nsz arcp contract afn i1 %802, float %800, float %801
-  %804 = load float, ptr %348, align 8, !tbaa !196
-  %805 = fcmp reassoc nsz arcp contract afn ogt float %803, %804
-  %..i.i = select reassoc nsz arcp contract afn i1 %805, float %803, float %804
-  %806 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i.i
+  %..i.i = select reassoc nsz arcp contract afn i1 %802, float %800, float %801
+  %803 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i.i
   br label %812
 
-807:                                              ; preds = %812
-  %808 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %799)
+804:                                              ; preds = %812
+  %805 = fmul reassoc nsz arcp contract afn float %794, %794
+  %806 = fmul reassoc nsz arcp contract afn float %793, %793
+  %807 = fadd reassoc nsz arcp contract afn float %805, %806
+  %808 = call reassoc nsz arcp contract afn noundef float @llvm.sqrt.f32(float %807)
   %809 = fcmp reassoc nsz arcp contract afn ogt float %.1196.i.i, %808
   %810 = select reassoc nsz arcp contract afn i1 %809, float %.1196.i.i, float %808
   %811 = or i32 %415, %402
   %or.cond.i.i = icmp eq i32 %811, 0
   br i1 %or.cond.i.i, label %.preheader177.preheader.i.i, label %817
 
-.preheader177.preheader.i.i:                      ; preds = %807
+.preheader177.preheader.i.i:                      ; preds = %804
   %.sroa.0.0.copyload.i.i = load float, ptr %10, align 16, !tbaa !196
   %.sroa.5.0.copyload.i.i = load float, ptr %349, align 4, !tbaa !196
   %.sroa.6.0.copyload.i.i = load float, ptr %348, align 8, !tbaa !196
@@ -2356,13 +2356,13 @@ dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %542, %_ryb2rgb.exit
   %.0146190.i.i = phi i64 [ 0, %dt_XYZ_to_Rec709_D50.exit.i.i ], [ %816, %812 ]
   %813 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %.0146190.i.i
   %814 = load float, ptr %813, align 4, !tbaa !196
-  %815 = fmul reassoc nsz arcp contract afn float %814, %806
+  %815 = fmul reassoc nsz arcp contract afn float %814, %803
   store float %815, ptr %813, align 4, !tbaa !196
   %816 = add nuw nsw i64 %.0146190.i.i, 1
   %exitcond206.not.i.i = icmp eq i64 %816, 4
-  br i1 %exitcond206.not.i.i, label %807, label %812
+  br i1 %exitcond206.not.i.i, label %804, label %812
 
-817:                                              ; preds = %807
+817:                                              ; preds = %804
   %818 = fcmp reassoc nsz arcp contract afn ult float %808, 0x3810000000000000
   %819 = fdiv reassoc nsz arcp contract afn float %810, %808
   %820 = fmul reassoc nsz arcp contract afn float %819, %794

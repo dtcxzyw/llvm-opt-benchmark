@@ -7179,7 +7179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #30
   br label %217
 
-._crit_edge.loopexit:                             ; preds = %148
+._crit_edge.loopexit:                             ; preds = %145
   %.pre = load ptr, ptr %4, align 8, !tbaa !303
   %.pre137 = load ptr, ptr %75, align 8, !tbaa !303
   br label %._crit_edge
@@ -7203,8 +7203,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
   %124 = getelementptr inbounds nuw i8, ptr %23, i64 24
   br label %167
 
-125:                                              ; preds = %.lr.ph, %148
-  %.sroa.0110.0129 = phi ptr [ %26, %.lr.ph ], [ %165, %148 ]
+125:                                              ; preds = %.lr.ph, %145
+  %.sroa.0110.0129 = phi ptr [ %26, %.lr.ph ], [ %165, %145 ]
   %126 = load ptr, ptr %1, align 8, !tbaa !303
   %127 = ptrtoint ptr %.sroa.0110.0129 to i64
   %128 = ptrtoint ptr %126 to i64
@@ -7233,27 +7233,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
   br i1 %.not.i.i, label %_ZSt11max_elementIPKfET_S2_S2_.exit, label %.lr.ph.i.i, !llvm.loop !304
 
 _ZSt11max_elementIPKfET_S2_S2_.exit:              ; preds = %.lr.ph.i.i
-  %141 = ptrtoint ptr %spec.select.i.i to i64
-  %142 = ptrtoint ptr %133 to i64
-  %143 = sub i64 %141, %142
   %.pre.i.i85 = load float, ptr %136, align 4, !tbaa !65
   br label %.lr.ph.i.i86
 
 .lr.ph.i.i86:                                     ; preds = %.lr.ph.i.i86, %_ZSt11max_elementIPKfET_S2_S2_.exit
-  %144 = phi float [ %147, %.lr.ph.i.i86 ], [ %.pre.i.i85, %_ZSt11max_elementIPKfET_S2_S2_.exit ]
+  %141 = phi float [ %144, %.lr.ph.i.i86 ], [ %.pre.i.i85, %_ZSt11max_elementIPKfET_S2_S2_.exit ]
   %.idx116 = phi i64 [ %.add117, %.lr.ph.i.i86 ], [ 4, %_ZSt11max_elementIPKfET_S2_S2_.exit ]
   %.018.i.i87 = phi ptr [ %spec.select.i.i88, %.lr.ph.i.i86 ], [ %136, %_ZSt11max_elementIPKfET_S2_S2_.exit ]
   %.ptr118 = getelementptr inbounds nuw i8, ptr %136, i64 %.idx116
-  %145 = load float, ptr %.ptr118, align 4, !tbaa !65
-  %146 = fcmp olt float %144, %145
-  %147 = select i1 %146, float %145, float %144
-  %spec.select.i.i88 = select i1 %146, ptr %.ptr118, ptr %.018.i.i87
+  %142 = load float, ptr %.ptr118, align 4, !tbaa !65
+  %143 = fcmp olt float %141, %142
+  %144 = select i1 %143, float %142, float %141
+  %spec.select.i.i88 = select i1 %143, ptr %.ptr118, ptr %.018.i.i87
   %.add117 = add nuw nsw i64 %.idx116, 4
   %.not.i.i89 = icmp eq i64 %.add117, 16
-  br i1 %.not.i.i89, label %148, label %.lr.ph.i.i86, !llvm.loop !304
+  br i1 %.not.i.i89, label %145, label %.lr.ph.i.i86, !llvm.loop !304
 
-148:                                              ; preds = %.lr.ph.i.i86
-  %149 = ashr exact i64 %143, 2
+145:                                              ; preds = %.lr.ph.i.i86
+  %146 = ptrtoint ptr %spec.select.i.i to i64
+  %147 = ptrtoint ptr %133 to i64
+  %148 = sub i64 %146, %147
+  %149 = ashr exact i64 %148, 2
   %150 = ptrtoint ptr %spec.select.i.i88 to i64
   %151 = ptrtoint ptr %136 to i64
   %152 = sub i64 %150, %151

@@ -2494,13 +2494,13 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   br i1 %46, label %91, label %47
 
 47:                                               ; preds = %43
-  %48 = icmp eq ptr %3, null
-  %49 = add nsw i32 %5, 1
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %8) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %8, i8 0, i64 272, i1 false)
-  %50 = icmp eq i32 %5, 0
-  %or.cond = and i1 %48, %50
-  %.045 = select i1 %or.cond, i32 0, i32 %49
+  %48 = icmp eq i32 %5, 0
+  %49 = icmp eq ptr %3, null
+  %or.cond = and i1 %49, %48
+  %50 = add nsw i32 %5, 1
+  %.045 = select i1 %or.cond, i32 0, i32 %50
   %51 = icmp slt i32 %.045, 18
   br i1 %51, label %.thread, label %52
 
@@ -2527,7 +2527,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 63:                                               ; preds = %.thread, %52
   %.04357 = phi ptr [ null, %.thread ], [ %55, %52 ]
   %.04456 = phi ptr [ %8, %.thread ], [ %55, %52 ]
-  br i1 %48, label %70, label %64
+  br i1 %49, label %70, label %64
 
 64:                                               ; preds = %63
   %.044.val = load ptr, ptr %.04456, align 8, !tbaa !29
@@ -2543,7 +2543,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 
 70:                                               ; preds = %64, %63
   %71 = icmp eq ptr %4, null
-  %or.cond4 = or i1 %71, %50
+  %or.cond4 = or i1 %71, %48
   br i1 %or.cond4, label %72, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %70

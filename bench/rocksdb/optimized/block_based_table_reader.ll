@@ -8739,7 +8739,6 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit386: ; preds = %258, %255, %_ZNK
           to label %_ZNK7rocksdb15BlockBasedTable16NewIndexIteratorERKNS_11ReadOptionsEbPNS_14IndexBlockIterEPNS_10GetContextEPNS_23BlockCacheLookupContextE.exit unwind label %275
 
 _ZNK7rocksdb15BlockBasedTable16NewIndexIteratorERKNS_11ReadOptionsEbPNS_14IndexBlockIterEPNS_10GetContextEPNS_23BlockCacheLookupContextE.exit: ; preds = %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit386
-  %.not294 = icmp eq ptr %271, %20
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %21) #39
   store i64 0, ptr %21, align 8, !tbaa !586
   %272 = getelementptr inbounds nuw i8, ptr %21, i64 520
@@ -8778,6 +8777,7 @@ _ZNSt5arrayIN7rocksdb13CachableEntryINS0_11Block_kDataEEELm32EEC2Ev.exit: ; pred
   br i1 %281, label %_ZNSt5arrayIN7rocksdb6StatusELm32EEC2Ev.exit, label %279
 
 _ZNSt5arrayIN7rocksdb6StatusELm32EEC2Ev.exit:     ; preds = %279
+  %.not294 = icmp eq ptr %271, %20
   %spec.select = select i1 %.not294, ptr null, ptr %271
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)

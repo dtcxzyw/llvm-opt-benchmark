@@ -393,56 +393,56 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %195 = add nsw i32 %.0557.lcssa, -7
   %.0562678 = getelementptr inbounds nuw i8, ptr %.0552.lcssa, i64 4
   %196 = icmp sgt i32 %.0557.lcssa, 7
-  br i1 %196, label %.lr.ph684.preheader, label %._crit_edge685
+  br i1 %196, label %.lr.ph684, label %._crit_edge685
 
-.lr.ph684.preheader:                              ; preds = %._crit_edge674
-  %197 = and i32 %.0557.lcssa, 2147483644
-  br label %.lr.ph684
-
-.lr.ph684:                                        ; preds = %.lr.ph684.preheader, %.lr.ph684
-  %.0562682 = phi ptr [ %.0562, %.lr.ph684 ], [ %.0562678, %.lr.ph684.preheader ]
-  %.1555681 = phi ptr [ %223, %.lr.ph684 ], [ %.0554.lcssa, %.lr.ph684.preheader ]
-  %.0560680 = phi i32 [ %218, %.lr.ph684 ], [ %194, %.lr.ph684.preheader ]
-  %.1565679 = phi i32 [ %222, %.lr.ph684 ], [ 0, %.lr.ph684.preheader ]
-  %198 = shl i32 %.0560680, 3
-  %199 = and i32 %198, 2040
-  %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw i8, ptr %182, i64 %200
-  %202 = load double, ptr %201, align 8
-  %203 = lshr i32 %.0560680, 5
-  %204 = and i32 %203, 2040
-  %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr inbounds nuw i8, ptr %182, i64 %205
-  %207 = load double, ptr %206, align 8
-  %208 = lshr i32 %.0560680, 13
-  %209 = and i32 %208, 2040
-  %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr inbounds nuw i8, ptr %182, i64 %210
-  %212 = load double, ptr %211, align 8
-  %213 = lshr i32 %.0560680, 21
-  %214 = and i32 %213, 2040
-  %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds nuw i8, ptr %182, i64 %215
-  %217 = load double, ptr %216, align 8
-  %218 = load i32, ptr %.0562682, align 4
-  store double %202, ptr %.1555681, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %.1555681, i64 8
-  store double %207, ptr %219, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %.1555681, i64 16
-  store double %212, ptr %220, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %.1555681, i64 24
-  store double %217, ptr %221, align 8
-  %222 = add nuw nsw i32 %.1565679, 4
-  %223 = getelementptr inbounds nuw i8, ptr %.1555681, i64 32
+.lr.ph684:                                        ; preds = %._crit_edge674, %.lr.ph684
+  %.0562682 = phi ptr [ %.0562, %.lr.ph684 ], [ %.0562678, %._crit_edge674 ]
+  %.1555681 = phi ptr [ %222, %.lr.ph684 ], [ %.0554.lcssa, %._crit_edge674 ]
+  %.0560680 = phi i32 [ %217, %.lr.ph684 ], [ %194, %._crit_edge674 ]
+  %.1565679 = phi i32 [ %221, %.lr.ph684 ], [ 0, %._crit_edge674 ]
+  %197 = shl i32 %.0560680, 3
+  %198 = and i32 %197, 2040
+  %199 = zext nneg i32 %198 to i64
+  %200 = getelementptr inbounds nuw i8, ptr %182, i64 %199
+  %201 = load double, ptr %200, align 8
+  %202 = lshr i32 %.0560680, 5
+  %203 = and i32 %202, 2040
+  %204 = zext nneg i32 %203 to i64
+  %205 = getelementptr inbounds nuw i8, ptr %182, i64 %204
+  %206 = load double, ptr %205, align 8
+  %207 = lshr i32 %.0560680, 13
+  %208 = and i32 %207, 2040
+  %209 = zext nneg i32 %208 to i64
+  %210 = getelementptr inbounds nuw i8, ptr %182, i64 %209
+  %211 = load double, ptr %210, align 8
+  %212 = lshr i32 %.0560680, 21
+  %213 = and i32 %212, 2040
+  %214 = zext nneg i32 %213 to i64
+  %215 = getelementptr inbounds nuw i8, ptr %182, i64 %214
+  %216 = load double, ptr %215, align 8
+  %217 = load i32, ptr %.0562682, align 4
+  store double %201, ptr %.1555681, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %.1555681, i64 8
+  store double %206, ptr %218, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %.1555681, i64 16
+  store double %211, ptr %219, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %.1555681, i64 24
+  store double %216, ptr %220, align 8
+  %221 = add nuw nsw i32 %.1565679, 4
+  %222 = getelementptr inbounds nuw i8, ptr %.1555681, i64 32
   %.0562 = getelementptr inbounds nuw i8, ptr %.0562682, i64 4
-  %224 = icmp slt i32 %222, %195
-  br i1 %224, label %.lr.ph684, label %._crit_edge685, !llvm.loop !13
+  %223 = icmp slt i32 %221, %195
+  br i1 %223, label %.lr.ph684, label %._crit_edge685.loopexit, !llvm.loop !13
 
-._crit_edge685:                                   ; preds = %.lr.ph684, %._crit_edge674
-  %.1565.lcssa = phi i32 [ 4, %._crit_edge674 ], [ %197, %.lr.ph684 ]
-  %.0560.lcssa = phi i32 [ %194, %._crit_edge674 ], [ %218, %.lr.ph684 ]
-  %.1555.lcssa = phi ptr [ %.0554.lcssa, %._crit_edge674 ], [ %223, %.lr.ph684 ]
-  %.0562.lcssa = phi ptr [ %.0562678, %._crit_edge674 ], [ %.0562, %.lr.ph684 ]
+._crit_edge685.loopexit:                          ; preds = %.lr.ph684
+  %224 = and i32 %.0557.lcssa, 2147483644
+  br label %._crit_edge685
+
+._crit_edge685:                                   ; preds = %._crit_edge685.loopexit, %._crit_edge674
+  %.1565.lcssa = phi i32 [ 4, %._crit_edge674 ], [ %224, %._crit_edge685.loopexit ]
+  %.0560.lcssa = phi i32 [ %194, %._crit_edge674 ], [ %217, %._crit_edge685.loopexit ]
+  %.1555.lcssa = phi ptr [ %.0554.lcssa, %._crit_edge674 ], [ %222, %._crit_edge685.loopexit ]
+  %.0562.lcssa = phi ptr [ %.0562678, %._crit_edge674 ], [ %.0562, %._crit_edge685.loopexit ]
   %225 = shl i32 %.0560.lcssa, 3
   %226 = and i32 %225, 2040
   %227 = zext nneg i32 %226 to i64
@@ -559,56 +559,56 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %290 = add nsw i32 %.1539, -7
   %.0547643 = getelementptr inbounds nuw i8, ptr %.1532, i64 4
   %291 = icmp sgt i32 %.1539, 7
-  br i1 %291, label %.lr.ph649.preheader, label %._crit_edge650
+  br i1 %291, label %.lr.ph649, label %._crit_edge650
 
-.lr.ph649.preheader:                              ; preds = %288
-  %292 = and i32 %.1539, 2147483644
-  br label %.lr.ph649
-
-.lr.ph649:                                        ; preds = %.lr.ph649.preheader, %.lr.ph649
-  %.0547647 = phi ptr [ %.0547, %.lr.ph649 ], [ %.0547643, %.lr.ph649.preheader ]
-  %.2536646 = phi ptr [ %318, %.lr.ph649 ], [ %.1535, %.lr.ph649.preheader ]
-  %.0542645 = phi i32 [ %313, %.lr.ph649 ], [ %289, %.lr.ph649.preheader ]
-  %.1550644 = phi i32 [ %317, %.lr.ph649 ], [ 0, %.lr.ph649.preheader ]
-  %293 = shl i32 %.0542645, 3
-  %294 = and i32 %293, 2040
-  %295 = zext nneg i32 %294 to i64
-  %296 = getelementptr inbounds nuw i8, ptr %.0546, i64 %295
-  %297 = load double, ptr %296, align 8
-  %298 = lshr i32 %.0542645, 5
-  %299 = and i32 %298, 2040
-  %300 = zext nneg i32 %299 to i64
-  %301 = getelementptr inbounds nuw i8, ptr %.0545, i64 %300
-  %302 = load double, ptr %301, align 8
-  %303 = lshr i32 %.0542645, 13
-  %304 = and i32 %303, 2040
-  %305 = zext nneg i32 %304 to i64
-  %306 = getelementptr inbounds nuw i8, ptr %.0546, i64 %305
-  %307 = load double, ptr %306, align 8
-  %308 = lshr i32 %.0542645, 21
-  %309 = and i32 %308, 2040
-  %310 = zext nneg i32 %309 to i64
-  %311 = getelementptr inbounds nuw i8, ptr %.0545, i64 %310
-  %312 = load double, ptr %311, align 8
-  %313 = load i32, ptr %.0547647, align 4
-  store double %297, ptr %.2536646, align 8
-  %314 = getelementptr inbounds nuw i8, ptr %.2536646, i64 8
-  store double %302, ptr %314, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %.2536646, i64 16
-  store double %307, ptr %315, align 8
-  %316 = getelementptr inbounds nuw i8, ptr %.2536646, i64 24
-  store double %312, ptr %316, align 8
-  %317 = add nuw nsw i32 %.1550644, 4
-  %318 = getelementptr inbounds nuw i8, ptr %.2536646, i64 32
+.lr.ph649:                                        ; preds = %288, %.lr.ph649
+  %.0547647 = phi ptr [ %.0547, %.lr.ph649 ], [ %.0547643, %288 ]
+  %.2536646 = phi ptr [ %317, %.lr.ph649 ], [ %.1535, %288 ]
+  %.0542645 = phi i32 [ %312, %.lr.ph649 ], [ %289, %288 ]
+  %.1550644 = phi i32 [ %316, %.lr.ph649 ], [ 0, %288 ]
+  %292 = shl i32 %.0542645, 3
+  %293 = and i32 %292, 2040
+  %294 = zext nneg i32 %293 to i64
+  %295 = getelementptr inbounds nuw i8, ptr %.0546, i64 %294
+  %296 = load double, ptr %295, align 8
+  %297 = lshr i32 %.0542645, 5
+  %298 = and i32 %297, 2040
+  %299 = zext nneg i32 %298 to i64
+  %300 = getelementptr inbounds nuw i8, ptr %.0545, i64 %299
+  %301 = load double, ptr %300, align 8
+  %302 = lshr i32 %.0542645, 13
+  %303 = and i32 %302, 2040
+  %304 = zext nneg i32 %303 to i64
+  %305 = getelementptr inbounds nuw i8, ptr %.0546, i64 %304
+  %306 = load double, ptr %305, align 8
+  %307 = lshr i32 %.0542645, 21
+  %308 = and i32 %307, 2040
+  %309 = zext nneg i32 %308 to i64
+  %310 = getelementptr inbounds nuw i8, ptr %.0545, i64 %309
+  %311 = load double, ptr %310, align 8
+  %312 = load i32, ptr %.0547647, align 4
+  store double %296, ptr %.2536646, align 8
+  %313 = getelementptr inbounds nuw i8, ptr %.2536646, i64 8
+  store double %301, ptr %313, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %.2536646, i64 16
+  store double %306, ptr %314, align 8
+  %315 = getelementptr inbounds nuw i8, ptr %.2536646, i64 24
+  store double %311, ptr %315, align 8
+  %316 = add nuw nsw i32 %.1550644, 4
+  %317 = getelementptr inbounds nuw i8, ptr %.2536646, i64 32
   %.0547 = getelementptr inbounds nuw i8, ptr %.0547647, i64 4
-  %319 = icmp slt i32 %317, %290
-  br i1 %319, label %.lr.ph649, label %._crit_edge650, !llvm.loop !16
+  %318 = icmp slt i32 %316, %290
+  br i1 %318, label %.lr.ph649, label %._crit_edge650.loopexit, !llvm.loop !16
 
-._crit_edge650:                                   ; preds = %.lr.ph649, %288
-  %.1550.lcssa = phi i32 [ 4, %288 ], [ %292, %.lr.ph649 ]
-  %.0542.lcssa = phi i32 [ %289, %288 ], [ %313, %.lr.ph649 ]
-  %.2536.lcssa = phi ptr [ %.1535, %288 ], [ %318, %.lr.ph649 ]
-  %.0547.lcssa = phi ptr [ %.0547643, %288 ], [ %.0547, %.lr.ph649 ]
+._crit_edge650.loopexit:                          ; preds = %.lr.ph649
+  %319 = and i32 %.1539, 2147483644
+  br label %._crit_edge650
+
+._crit_edge650:                                   ; preds = %._crit_edge650.loopexit, %288
+  %.1550.lcssa = phi i32 [ 4, %288 ], [ %319, %._crit_edge650.loopexit ]
+  %.0542.lcssa = phi i32 [ %289, %288 ], [ %312, %._crit_edge650.loopexit ]
+  %.2536.lcssa = phi ptr [ %.1535, %288 ], [ %317, %._crit_edge650.loopexit ]
+  %.0547.lcssa = phi ptr [ %.0547643, %288 ], [ %.0547, %._crit_edge650.loopexit ]
   %320 = shl i32 %.0542.lcssa, 3
   %321 = and i32 %320, 2040
   %322 = zext nneg i32 %321 to i64
@@ -771,56 +771,53 @@ default.unreachable:                              ; preds = %505
   %419 = add nsw i32 %.0512, -7
   %.0526610 = getelementptr inbounds nuw i8, ptr %.0505, i64 4
   %420 = icmp sgt i32 %.0512, 7
-  br i1 %420, label %.lr.ph619.preheader, label %._crit_edge620
+  br i1 %420, label %.lr.ph619, label %._crit_edge620
 
-.lr.ph619.preheader:                              ; preds = %417
-  %421 = and i32 %.0512, 2147483644
-  br label %.lr.ph619
-
-.lr.ph619:                                        ; preds = %.lr.ph619.preheader, %.lr.ph619
-  %.0526617 = phi ptr [ %.0526, %.lr.ph619 ], [ %.0526610, %.lr.ph619.preheader ]
-  %.1509616 = phi ptr [ %447, %.lr.ph619 ], [ %.0508, %.lr.ph619.preheader ]
-  %.0519615 = phi i32 [ %442, %.lr.ph619 ], [ %418, %.lr.ph619.preheader ]
-  %.1521614 = phi ptr [ %.1525612, %.lr.ph619 ], [ %.0520, %.lr.ph619.preheader ]
-  %.1523613 = phi ptr [ %.1521614, %.lr.ph619 ], [ %.0522, %.lr.ph619.preheader ]
-  %.1525612 = phi ptr [ %.1523613, %.lr.ph619 ], [ %.0524, %.lr.ph619.preheader ]
-  %.0528611 = phi i32 [ %446, %.lr.ph619 ], [ 0, %.lr.ph619.preheader ]
-  %422 = shl i32 %.0519615, 3
-  %423 = and i32 %422, 2040
-  %424 = zext nneg i32 %423 to i64
-  %425 = getelementptr inbounds nuw i8, ptr %.1525612, i64 %424
-  %426 = load double, ptr %425, align 8
-  %427 = lshr i32 %.0519615, 5
-  %428 = and i32 %427, 2040
-  %429 = zext nneg i32 %428 to i64
-  %430 = getelementptr inbounds nuw i8, ptr %.1523613, i64 %429
-  %431 = load double, ptr %430, align 8
-  %432 = lshr i32 %.0519615, 13
-  %433 = and i32 %432, 2040
-  %434 = zext nneg i32 %433 to i64
-  %435 = getelementptr inbounds nuw i8, ptr %.1521614, i64 %434
-  %436 = load double, ptr %435, align 8
-  %437 = lshr i32 %.0519615, 21
-  %438 = and i32 %437, 2040
-  %439 = zext nneg i32 %438 to i64
-  %440 = getelementptr inbounds nuw i8, ptr %.1525612, i64 %439
-  %441 = load double, ptr %440, align 8
-  %442 = load i32, ptr %.0526617, align 4
-  store double %426, ptr %.1509616, align 8
-  %443 = getelementptr inbounds nuw i8, ptr %.1509616, i64 8
-  store double %431, ptr %443, align 8
-  %444 = getelementptr inbounds nuw i8, ptr %.1509616, i64 16
-  store double %436, ptr %444, align 8
-  %445 = getelementptr inbounds nuw i8, ptr %.1509616, i64 24
-  store double %441, ptr %445, align 8
-  %446 = add nuw nsw i32 %.0528611, 4
-  %447 = getelementptr inbounds nuw i8, ptr %.1509616, i64 32
+.lr.ph619:                                        ; preds = %417, %.lr.ph619
+  %.0526617 = phi ptr [ %.0526, %.lr.ph619 ], [ %.0526610, %417 ]
+  %.1509616 = phi ptr [ %446, %.lr.ph619 ], [ %.0508, %417 ]
+  %.0519615 = phi i32 [ %441, %.lr.ph619 ], [ %418, %417 ]
+  %.1521614 = phi ptr [ %.1525612, %.lr.ph619 ], [ %.0520, %417 ]
+  %.1523613 = phi ptr [ %.1521614, %.lr.ph619 ], [ %.0522, %417 ]
+  %.1525612 = phi ptr [ %.1523613, %.lr.ph619 ], [ %.0524, %417 ]
+  %.0528611 = phi i32 [ %445, %.lr.ph619 ], [ 0, %417 ]
+  %421 = shl i32 %.0519615, 3
+  %422 = and i32 %421, 2040
+  %423 = zext nneg i32 %422 to i64
+  %424 = getelementptr inbounds nuw i8, ptr %.1525612, i64 %423
+  %425 = load double, ptr %424, align 8
+  %426 = lshr i32 %.0519615, 5
+  %427 = and i32 %426, 2040
+  %428 = zext nneg i32 %427 to i64
+  %429 = getelementptr inbounds nuw i8, ptr %.1523613, i64 %428
+  %430 = load double, ptr %429, align 8
+  %431 = lshr i32 %.0519615, 13
+  %432 = and i32 %431, 2040
+  %433 = zext nneg i32 %432 to i64
+  %434 = getelementptr inbounds nuw i8, ptr %.1521614, i64 %433
+  %435 = load double, ptr %434, align 8
+  %436 = lshr i32 %.0519615, 21
+  %437 = and i32 %436, 2040
+  %438 = zext nneg i32 %437 to i64
+  %439 = getelementptr inbounds nuw i8, ptr %.1525612, i64 %438
+  %440 = load double, ptr %439, align 8
+  %441 = load i32, ptr %.0526617, align 4
+  store double %425, ptr %.1509616, align 8
+  %442 = getelementptr inbounds nuw i8, ptr %.1509616, i64 8
+  store double %430, ptr %442, align 8
+  %443 = getelementptr inbounds nuw i8, ptr %.1509616, i64 16
+  store double %435, ptr %443, align 8
+  %444 = getelementptr inbounds nuw i8, ptr %.1509616, i64 24
+  store double %440, ptr %444, align 8
+  %445 = add nuw nsw i32 %.0528611, 4
+  %446 = getelementptr inbounds nuw i8, ptr %.1509616, i64 32
   %.0526 = getelementptr inbounds nuw i8, ptr %.0526617, i64 4
-  %448 = icmp slt i32 %446, %419
-  br i1 %448, label %.lr.ph619, label %._crit_edge620.loopexit, !llvm.loop !19
+  %447 = icmp slt i32 %445, %419
+  br i1 %447, label %.lr.ph619, label %._crit_edge620.loopexit, !llvm.loop !19
 
 ._crit_edge620.loopexit:                          ; preds = %.lr.ph619
-  %449 = add nsw i32 %421, -4
+  %448 = and i32 %.0512, 2147483644
+  %449 = add nsw i32 %448, -4
   br label %._crit_edge620
 
 ._crit_edge620:                                   ; preds = %._crit_edge620.loopexit, %417
@@ -829,8 +826,8 @@ default.unreachable:                              ; preds = %505
   %.1525.lcssa = phi ptr [ %.0524, %417 ], [ %.1523613, %._crit_edge620.loopexit ]
   %.1523.lcssa = phi ptr [ %.0522, %417 ], [ %.1521614, %._crit_edge620.loopexit ]
   %.1521.lcssa = phi ptr [ %.0520, %417 ], [ %.1525612, %._crit_edge620.loopexit ]
-  %.0519.lcssa = phi i32 [ %418, %417 ], [ %442, %._crit_edge620.loopexit ]
-  %.1509.lcssa = phi ptr [ %.0508, %417 ], [ %447, %._crit_edge620.loopexit ]
+  %.0519.lcssa = phi i32 [ %418, %417 ], [ %441, %._crit_edge620.loopexit ]
+  %.1509.lcssa = phi ptr [ %.0508, %417 ], [ %446, %._crit_edge620.loopexit ]
   %.0526.lcssa = phi ptr [ %.0526610, %417 ], [ %.0526, %._crit_edge620.loopexit ]
   %450 = shl i32 %.0519.lcssa, 3
   %451 = and i32 %450, 2040
@@ -997,60 +994,57 @@ default.unreachable:                              ; preds = %505
   %555 = add nsw i32 %.0490, -7
   %.0500597 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %556 = icmp sgt i32 %.0490, 7
-  br i1 %556, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %556, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %553
-  %557 = and i32 %.0490, 2147483644
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0500601 = phi ptr [ %.0500, %.lr.ph ], [ %.0500597, %.lr.ph.preheader ]
-  %.1488600 = phi ptr [ %583, %.lr.ph ], [ %.0487, %.lr.ph.preheader ]
-  %.0495599 = phi i32 [ %578, %.lr.ph ], [ %554, %.lr.ph.preheader ]
-  %.0502598 = phi i32 [ %582, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %558 = shl i32 %.0495599, 3
-  %559 = and i32 %558, 2040
-  %560 = zext nneg i32 %559 to i64
-  %561 = getelementptr inbounds nuw i8, ptr %.0499, i64 %560
-  %562 = load double, ptr %561, align 8
-  %563 = lshr i32 %.0495599, 5
-  %564 = and i32 %563, 2040
-  %565 = zext nneg i32 %564 to i64
-  %566 = getelementptr inbounds nuw i8, ptr %.0498, i64 %565
-  %567 = load double, ptr %566, align 8
-  %568 = lshr i32 %.0495599, 13
-  %569 = and i32 %568, 2040
-  %570 = zext nneg i32 %569 to i64
-  %571 = getelementptr inbounds nuw i8, ptr %.0497, i64 %570
-  %572 = load double, ptr %571, align 8
-  %573 = lshr i32 %.0495599, 21
-  %574 = and i32 %573, 2040
-  %575 = zext nneg i32 %574 to i64
-  %576 = getelementptr inbounds nuw i8, ptr %.0496, i64 %575
-  %577 = load double, ptr %576, align 8
-  %578 = load i32, ptr %.0500601, align 4
-  store double %562, ptr %.1488600, align 8
-  %579 = getelementptr inbounds nuw i8, ptr %.1488600, i64 8
-  store double %567, ptr %579, align 8
-  %580 = getelementptr inbounds nuw i8, ptr %.1488600, i64 16
-  store double %572, ptr %580, align 8
-  %581 = getelementptr inbounds nuw i8, ptr %.1488600, i64 24
-  store double %577, ptr %581, align 8
-  %582 = add nuw nsw i32 %.0502598, 4
-  %583 = getelementptr inbounds nuw i8, ptr %.1488600, i64 32
+.lr.ph:                                           ; preds = %553, %.lr.ph
+  %.0500601 = phi ptr [ %.0500, %.lr.ph ], [ %.0500597, %553 ]
+  %.1488600 = phi ptr [ %582, %.lr.ph ], [ %.0487, %553 ]
+  %.0495599 = phi i32 [ %577, %.lr.ph ], [ %554, %553 ]
+  %.0502598 = phi i32 [ %581, %.lr.ph ], [ 0, %553 ]
+  %557 = shl i32 %.0495599, 3
+  %558 = and i32 %557, 2040
+  %559 = zext nneg i32 %558 to i64
+  %560 = getelementptr inbounds nuw i8, ptr %.0499, i64 %559
+  %561 = load double, ptr %560, align 8
+  %562 = lshr i32 %.0495599, 5
+  %563 = and i32 %562, 2040
+  %564 = zext nneg i32 %563 to i64
+  %565 = getelementptr inbounds nuw i8, ptr %.0498, i64 %564
+  %566 = load double, ptr %565, align 8
+  %567 = lshr i32 %.0495599, 13
+  %568 = and i32 %567, 2040
+  %569 = zext nneg i32 %568 to i64
+  %570 = getelementptr inbounds nuw i8, ptr %.0497, i64 %569
+  %571 = load double, ptr %570, align 8
+  %572 = lshr i32 %.0495599, 21
+  %573 = and i32 %572, 2040
+  %574 = zext nneg i32 %573 to i64
+  %575 = getelementptr inbounds nuw i8, ptr %.0496, i64 %574
+  %576 = load double, ptr %575, align 8
+  %577 = load i32, ptr %.0500601, align 4
+  store double %561, ptr %.1488600, align 8
+  %578 = getelementptr inbounds nuw i8, ptr %.1488600, i64 8
+  store double %566, ptr %578, align 8
+  %579 = getelementptr inbounds nuw i8, ptr %.1488600, i64 16
+  store double %571, ptr %579, align 8
+  %580 = getelementptr inbounds nuw i8, ptr %.1488600, i64 24
+  store double %576, ptr %580, align 8
+  %581 = add nuw nsw i32 %.0502598, 4
+  %582 = getelementptr inbounds nuw i8, ptr %.1488600, i64 32
   %.0500 = getelementptr inbounds nuw i8, ptr %.0500601, i64 4
-  %584 = icmp slt i32 %582, %555
-  br i1 %584, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !21
+  %583 = icmp slt i32 %581, %555
+  br i1 %583, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %585 = add nsw i32 %557, -4
+  %584 = and i32 %.0490, 2147483644
+  %585 = add nsw i32 %584, -4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %553
   %.0502.lcssa = phi i32 [ 0, %553 ], [ %585, %._crit_edge.loopexit ]
   %.0.pn.lcssa = phi ptr [ %.0, %553 ], [ %.0500601, %._crit_edge.loopexit ]
-  %.0495.lcssa = phi i32 [ %554, %553 ], [ %578, %._crit_edge.loopexit ]
-  %.1488.lcssa = phi ptr [ %.0487, %553 ], [ %583, %._crit_edge.loopexit ]
+  %.0495.lcssa = phi i32 [ %554, %553 ], [ %577, %._crit_edge.loopexit ]
+  %.1488.lcssa = phi ptr [ %.0487, %553 ], [ %582, %._crit_edge.loopexit ]
   %.0500.lcssa = phi ptr [ %.0500597, %553 ], [ %.0500, %._crit_edge.loopexit ]
   %586 = shl i32 %.0495.lcssa, 3
   %587 = and i32 %586, 2040
@@ -2423,72 +2417,72 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %188 = add nsw i32 %.0568.lcssa, -7
   %.0572662 = getelementptr inbounds nuw i8, ptr %.0563.lcssa, i64 4
   %189 = icmp sgt i32 %.0568.lcssa, 7
-  br i1 %189, label %.lr.ph668.preheader, label %._crit_edge669
+  br i1 %189, label %.lr.ph668, label %._crit_edge669
 
-.lr.ph668.preheader:                              ; preds = %._crit_edge658
-  %190 = and i32 %.0568.lcssa, 2147483644
-  br label %.lr.ph668
-
-.lr.ph668:                                        ; preds = %.lr.ph668.preheader, %.lr.ph668
-  %.0572666 = phi ptr [ %.0572, %.lr.ph668 ], [ %.0572662, %.lr.ph668.preheader ]
-  %.1566665 = phi ptr [ %228, %.lr.ph668 ], [ %.0565.lcssa, %.lr.ph668.preheader ]
-  %.0570664 = phi i32 [ %222, %.lr.ph668 ], [ %187, %.lr.ph668.preheader ]
-  %.1575663 = phi i32 [ %227, %.lr.ph668 ], [ 0, %.lr.ph668.preheader ]
-  %191 = shl i32 %.0570664, 3
-  %192 = and i32 %191, 2040
-  %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw i8, ptr %169, i64 %193
-  %195 = load double, ptr %194, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %170, i64 %193
-  %197 = load double, ptr %196, align 8
-  %198 = lshr i32 %.0570664, 5
-  %199 = and i32 %198, 2040
-  %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw i8, ptr %169, i64 %200
-  %202 = load double, ptr %201, align 8
-  %203 = getelementptr inbounds nuw i8, ptr %170, i64 %200
-  %204 = load double, ptr %203, align 8
-  store double %195, ptr %.1566665, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %.1566665, i64 8
-  store double %197, ptr %205, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %.1566665, i64 16
-  store double %202, ptr %206, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %.1566665, i64 24
-  store double %204, ptr %207, align 8
-  %208 = lshr i32 %.0570664, 13
-  %209 = and i32 %208, 2040
-  %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr inbounds nuw i8, ptr %169, i64 %210
-  %212 = load double, ptr %211, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %170, i64 %210
-  %214 = load double, ptr %213, align 8
-  %215 = lshr i32 %.0570664, 21
-  %216 = and i32 %215, 2040
-  %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds nuw i8, ptr %169, i64 %217
-  %219 = load double, ptr %218, align 8
-  %220 = getelementptr inbounds nuw i8, ptr %170, i64 %217
-  %221 = load double, ptr %220, align 8
-  %222 = load i32, ptr %.0572666, align 4
-  %223 = getelementptr inbounds nuw i8, ptr %.1566665, i64 32
-  store double %212, ptr %223, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %.1566665, i64 40
-  store double %214, ptr %224, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %.1566665, i64 48
-  store double %219, ptr %225, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %.1566665, i64 56
-  store double %221, ptr %226, align 8
-  %227 = add nuw nsw i32 %.1575663, 4
-  %228 = getelementptr inbounds nuw i8, ptr %.1566665, i64 64
+.lr.ph668:                                        ; preds = %._crit_edge658, %.lr.ph668
+  %.0572666 = phi ptr [ %.0572, %.lr.ph668 ], [ %.0572662, %._crit_edge658 ]
+  %.1566665 = phi ptr [ %227, %.lr.ph668 ], [ %.0565.lcssa, %._crit_edge658 ]
+  %.0570664 = phi i32 [ %221, %.lr.ph668 ], [ %187, %._crit_edge658 ]
+  %.1575663 = phi i32 [ %226, %.lr.ph668 ], [ 0, %._crit_edge658 ]
+  %190 = shl i32 %.0570664, 3
+  %191 = and i32 %190, 2040
+  %192 = zext nneg i32 %191 to i64
+  %193 = getelementptr inbounds nuw i8, ptr %169, i64 %192
+  %194 = load double, ptr %193, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %170, i64 %192
+  %196 = load double, ptr %195, align 8
+  %197 = lshr i32 %.0570664, 5
+  %198 = and i32 %197, 2040
+  %199 = zext nneg i32 %198 to i64
+  %200 = getelementptr inbounds nuw i8, ptr %169, i64 %199
+  %201 = load double, ptr %200, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %170, i64 %199
+  %203 = load double, ptr %202, align 8
+  store double %194, ptr %.1566665, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %.1566665, i64 8
+  store double %196, ptr %204, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %.1566665, i64 16
+  store double %201, ptr %205, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %.1566665, i64 24
+  store double %203, ptr %206, align 8
+  %207 = lshr i32 %.0570664, 13
+  %208 = and i32 %207, 2040
+  %209 = zext nneg i32 %208 to i64
+  %210 = getelementptr inbounds nuw i8, ptr %169, i64 %209
+  %211 = load double, ptr %210, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %170, i64 %209
+  %213 = load double, ptr %212, align 8
+  %214 = lshr i32 %.0570664, 21
+  %215 = and i32 %214, 2040
+  %216 = zext nneg i32 %215 to i64
+  %217 = getelementptr inbounds nuw i8, ptr %169, i64 %216
+  %218 = load double, ptr %217, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %170, i64 %216
+  %220 = load double, ptr %219, align 8
+  %221 = load i32, ptr %.0572666, align 4
+  %222 = getelementptr inbounds nuw i8, ptr %.1566665, i64 32
+  store double %211, ptr %222, align 8
+  %223 = getelementptr inbounds nuw i8, ptr %.1566665, i64 40
+  store double %213, ptr %223, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %.1566665, i64 48
+  store double %218, ptr %224, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %.1566665, i64 56
+  store double %220, ptr %225, align 8
+  %226 = add nuw nsw i32 %.1575663, 4
+  %227 = getelementptr inbounds nuw i8, ptr %.1566665, i64 64
   %.0572 = getelementptr inbounds nuw i8, ptr %.0572666, i64 4
-  %229 = icmp slt i32 %227, %188
-  br i1 %229, label %.lr.ph668, label %._crit_edge669, !llvm.loop !46
+  %228 = icmp slt i32 %226, %188
+  br i1 %228, label %.lr.ph668, label %._crit_edge669.loopexit, !llvm.loop !46
 
-._crit_edge669:                                   ; preds = %.lr.ph668, %._crit_edge658
-  %.1575.lcssa = phi i32 [ 4, %._crit_edge658 ], [ %190, %.lr.ph668 ]
-  %.0570.lcssa = phi i32 [ %187, %._crit_edge658 ], [ %222, %.lr.ph668 ]
-  %.1566.lcssa = phi ptr [ %.0565.lcssa, %._crit_edge658 ], [ %228, %.lr.ph668 ]
-  %.0572.lcssa = phi ptr [ %.0572662, %._crit_edge658 ], [ %.0572, %.lr.ph668 ]
+._crit_edge669.loopexit:                          ; preds = %.lr.ph668
+  %229 = and i32 %.0568.lcssa, 2147483644
+  br label %._crit_edge669
+
+._crit_edge669:                                   ; preds = %._crit_edge669.loopexit, %._crit_edge658
+  %.1575.lcssa = phi i32 [ 4, %._crit_edge658 ], [ %229, %._crit_edge669.loopexit ]
+  %.0570.lcssa = phi i32 [ %187, %._crit_edge658 ], [ %221, %._crit_edge669.loopexit ]
+  %.1566.lcssa = phi ptr [ %.0565.lcssa, %._crit_edge658 ], [ %227, %._crit_edge669.loopexit ]
+  %.0572.lcssa = phi ptr [ %.0572662, %._crit_edge658 ], [ %.0572, %._crit_edge669.loopexit ]
   %230 = shl i32 %.0570.lcssa, 3
   %231 = and i32 %230, 2040
   %232 = zext nneg i32 %231 to i64
@@ -2620,88 +2614,88 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %310 = add nsw i32 %.0552.lcssa, -7
   %.0558630 = getelementptr inbounds nuw i8, ptr %.0547.lcssa, i64 4
   %311 = icmp sgt i32 %.0552.lcssa, 7
-  br i1 %311, label %.lr.ph636.preheader, label %._crit_edge637
+  br i1 %311, label %.lr.ph636, label %._crit_edge637
 
-.lr.ph636.preheader:                              ; preds = %._crit_edge626
-  %312 = and i32 %.0552.lcssa, 2147483644
-  br label %.lr.ph636
-
-.lr.ph636:                                        ; preds = %.lr.ph636.preheader, %.lr.ph636
-  %.0558634 = phi ptr [ %.0558, %.lr.ph636 ], [ %.0558630, %.lr.ph636.preheader ]
-  %.1550633 = phi ptr [ %362, %.lr.ph636 ], [ %.0549.lcssa, %.lr.ph636.preheader ]
-  %.0554632 = phi i32 [ %354, %.lr.ph636 ], [ %309, %.lr.ph636.preheader ]
-  %.1561631 = phi i32 [ %361, %.lr.ph636 ], [ 0, %.lr.ph636.preheader ]
-  %313 = shl i32 %.0554632, 3
-  %314 = and i32 %313, 2040
-  %315 = zext nneg i32 %314 to i64
-  %316 = getelementptr inbounds nuw i8, ptr %285, i64 %315
-  %317 = load double, ptr %316, align 8
-  %318 = getelementptr inbounds nuw i8, ptr %286, i64 %315
-  %319 = load double, ptr %318, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %287, i64 %315
-  %321 = load double, ptr %320, align 8
-  %322 = lshr i32 %.0554632, 5
-  %323 = and i32 %322, 2040
-  %324 = zext nneg i32 %323 to i64
-  %325 = getelementptr inbounds nuw i8, ptr %285, i64 %324
-  %326 = load double, ptr %325, align 8
-  %327 = getelementptr inbounds nuw i8, ptr %286, i64 %324
-  %328 = load double, ptr %327, align 8
-  %329 = getelementptr inbounds nuw i8, ptr %287, i64 %324
-  %330 = load double, ptr %329, align 8
-  store double %317, ptr %.1550633, align 8
-  %331 = getelementptr inbounds nuw i8, ptr %.1550633, i64 8
-  store double %319, ptr %331, align 8
-  %332 = getelementptr inbounds nuw i8, ptr %.1550633, i64 16
-  store double %321, ptr %332, align 8
-  %333 = getelementptr inbounds nuw i8, ptr %.1550633, i64 24
-  store double %326, ptr %333, align 8
-  %334 = getelementptr inbounds nuw i8, ptr %.1550633, i64 32
-  store double %328, ptr %334, align 8
-  %335 = getelementptr inbounds nuw i8, ptr %.1550633, i64 40
-  store double %330, ptr %335, align 8
-  %336 = lshr i32 %.0554632, 13
-  %337 = and i32 %336, 2040
-  %338 = zext nneg i32 %337 to i64
-  %339 = getelementptr inbounds nuw i8, ptr %285, i64 %338
-  %340 = load double, ptr %339, align 8
-  %341 = getelementptr inbounds nuw i8, ptr %286, i64 %338
-  %342 = load double, ptr %341, align 8
-  %343 = getelementptr inbounds nuw i8, ptr %287, i64 %338
-  %344 = load double, ptr %343, align 8
-  %345 = lshr i32 %.0554632, 21
-  %346 = and i32 %345, 2040
-  %347 = zext nneg i32 %346 to i64
-  %348 = getelementptr inbounds nuw i8, ptr %285, i64 %347
-  %349 = load double, ptr %348, align 8
-  %350 = getelementptr inbounds nuw i8, ptr %286, i64 %347
-  %351 = load double, ptr %350, align 8
-  %352 = getelementptr inbounds nuw i8, ptr %287, i64 %347
-  %353 = load double, ptr %352, align 8
-  %354 = load i32, ptr %.0558634, align 4
-  %355 = getelementptr inbounds nuw i8, ptr %.1550633, i64 48
-  store double %340, ptr %355, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %.1550633, i64 56
-  store double %342, ptr %356, align 8
-  %357 = getelementptr inbounds nuw i8, ptr %.1550633, i64 64
-  store double %344, ptr %357, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %.1550633, i64 72
-  store double %349, ptr %358, align 8
-  %359 = getelementptr inbounds nuw i8, ptr %.1550633, i64 80
-  store double %351, ptr %359, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %.1550633, i64 88
-  store double %353, ptr %360, align 8
-  %361 = add nuw nsw i32 %.1561631, 4
-  %362 = getelementptr inbounds nuw i8, ptr %.1550633, i64 96
+.lr.ph636:                                        ; preds = %._crit_edge626, %.lr.ph636
+  %.0558634 = phi ptr [ %.0558, %.lr.ph636 ], [ %.0558630, %._crit_edge626 ]
+  %.1550633 = phi ptr [ %361, %.lr.ph636 ], [ %.0549.lcssa, %._crit_edge626 ]
+  %.0554632 = phi i32 [ %353, %.lr.ph636 ], [ %309, %._crit_edge626 ]
+  %.1561631 = phi i32 [ %360, %.lr.ph636 ], [ 0, %._crit_edge626 ]
+  %312 = shl i32 %.0554632, 3
+  %313 = and i32 %312, 2040
+  %314 = zext nneg i32 %313 to i64
+  %315 = getelementptr inbounds nuw i8, ptr %285, i64 %314
+  %316 = load double, ptr %315, align 8
+  %317 = getelementptr inbounds nuw i8, ptr %286, i64 %314
+  %318 = load double, ptr %317, align 8
+  %319 = getelementptr inbounds nuw i8, ptr %287, i64 %314
+  %320 = load double, ptr %319, align 8
+  %321 = lshr i32 %.0554632, 5
+  %322 = and i32 %321, 2040
+  %323 = zext nneg i32 %322 to i64
+  %324 = getelementptr inbounds nuw i8, ptr %285, i64 %323
+  %325 = load double, ptr %324, align 8
+  %326 = getelementptr inbounds nuw i8, ptr %286, i64 %323
+  %327 = load double, ptr %326, align 8
+  %328 = getelementptr inbounds nuw i8, ptr %287, i64 %323
+  %329 = load double, ptr %328, align 8
+  store double %316, ptr %.1550633, align 8
+  %330 = getelementptr inbounds nuw i8, ptr %.1550633, i64 8
+  store double %318, ptr %330, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %.1550633, i64 16
+  store double %320, ptr %331, align 8
+  %332 = getelementptr inbounds nuw i8, ptr %.1550633, i64 24
+  store double %325, ptr %332, align 8
+  %333 = getelementptr inbounds nuw i8, ptr %.1550633, i64 32
+  store double %327, ptr %333, align 8
+  %334 = getelementptr inbounds nuw i8, ptr %.1550633, i64 40
+  store double %329, ptr %334, align 8
+  %335 = lshr i32 %.0554632, 13
+  %336 = and i32 %335, 2040
+  %337 = zext nneg i32 %336 to i64
+  %338 = getelementptr inbounds nuw i8, ptr %285, i64 %337
+  %339 = load double, ptr %338, align 8
+  %340 = getelementptr inbounds nuw i8, ptr %286, i64 %337
+  %341 = load double, ptr %340, align 8
+  %342 = getelementptr inbounds nuw i8, ptr %287, i64 %337
+  %343 = load double, ptr %342, align 8
+  %344 = lshr i32 %.0554632, 21
+  %345 = and i32 %344, 2040
+  %346 = zext nneg i32 %345 to i64
+  %347 = getelementptr inbounds nuw i8, ptr %285, i64 %346
+  %348 = load double, ptr %347, align 8
+  %349 = getelementptr inbounds nuw i8, ptr %286, i64 %346
+  %350 = load double, ptr %349, align 8
+  %351 = getelementptr inbounds nuw i8, ptr %287, i64 %346
+  %352 = load double, ptr %351, align 8
+  %353 = load i32, ptr %.0558634, align 4
+  %354 = getelementptr inbounds nuw i8, ptr %.1550633, i64 48
+  store double %339, ptr %354, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %.1550633, i64 56
+  store double %341, ptr %355, align 8
+  %356 = getelementptr inbounds nuw i8, ptr %.1550633, i64 64
+  store double %343, ptr %356, align 8
+  %357 = getelementptr inbounds nuw i8, ptr %.1550633, i64 72
+  store double %348, ptr %357, align 8
+  %358 = getelementptr inbounds nuw i8, ptr %.1550633, i64 80
+  store double %350, ptr %358, align 8
+  %359 = getelementptr inbounds nuw i8, ptr %.1550633, i64 88
+  store double %352, ptr %359, align 8
+  %360 = add nuw nsw i32 %.1561631, 4
+  %361 = getelementptr inbounds nuw i8, ptr %.1550633, i64 96
   %.0558 = getelementptr inbounds nuw i8, ptr %.0558634, i64 4
-  %363 = icmp slt i32 %361, %310
-  br i1 %363, label %.lr.ph636, label %._crit_edge637, !llvm.loop !50
+  %362 = icmp slt i32 %360, %310
+  br i1 %362, label %.lr.ph636, label %._crit_edge637.loopexit, !llvm.loop !50
 
-._crit_edge637:                                   ; preds = %.lr.ph636, %._crit_edge626
-  %.1561.lcssa = phi i32 [ 4, %._crit_edge626 ], [ %312, %.lr.ph636 ]
-  %.0554.lcssa = phi i32 [ %309, %._crit_edge626 ], [ %354, %.lr.ph636 ]
-  %.1550.lcssa = phi ptr [ %.0549.lcssa, %._crit_edge626 ], [ %362, %.lr.ph636 ]
-  %.0558.lcssa = phi ptr [ %.0558630, %._crit_edge626 ], [ %.0558, %.lr.ph636 ]
+._crit_edge637.loopexit:                          ; preds = %.lr.ph636
+  %363 = and i32 %.0552.lcssa, 2147483644
+  br label %._crit_edge637
+
+._crit_edge637:                                   ; preds = %._crit_edge637.loopexit, %._crit_edge626
+  %.1561.lcssa = phi i32 [ 4, %._crit_edge626 ], [ %363, %._crit_edge637.loopexit ]
+  %.0554.lcssa = phi i32 [ %309, %._crit_edge626 ], [ %353, %._crit_edge637.loopexit ]
+  %.1550.lcssa = phi ptr [ %.0549.lcssa, %._crit_edge626 ], [ %361, %._crit_edge637.loopexit ]
+  %.0558.lcssa = phi ptr [ %.0558630, %._crit_edge626 ], [ %.0558, %._crit_edge637.loopexit ]
   %364 = shl i32 %.0554.lcssa, 3
   %365 = and i32 %364, 2040
   %366 = zext nneg i32 %365 to i64
@@ -2862,104 +2856,104 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %467 = add nsw i32 %.0526.lcssa, -7
   %.0542598 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
   %468 = icmp sgt i32 %.0526.lcssa, 7
-  br i1 %468, label %.lr.ph604.preheader, label %._crit_edge605
+  br i1 %468, label %.lr.ph604, label %._crit_edge605
 
-.lr.ph604.preheader:                              ; preds = %._crit_edge
-  %469 = and i32 %.0526.lcssa, 2147483644
-  br label %.lr.ph604
-
-.lr.ph604:                                        ; preds = %.lr.ph604.preheader, %.lr.ph604
-  %.0542602 = phi ptr [ %.0542, %.lr.ph604 ], [ %.0542598, %.lr.ph604.preheader ]
-  %.1525601 = phi ptr [ %531, %.lr.ph604 ], [ %.0524.lcssa, %.lr.ph604.preheader ]
-  %.0530600 = phi i32 [ %525, %.lr.ph604 ], [ %466, %.lr.ph604.preheader ]
-  %.1545599 = phi i32 [ %530, %.lr.ph604 ], [ 0, %.lr.ph604.preheader ]
-  %470 = shl i32 %.0530600, 3
-  %471 = and i32 %470, 2040
-  %472 = zext nneg i32 %471 to i64
-  %473 = getelementptr inbounds nuw i8, ptr %436, i64 %472
-  %474 = load double, ptr %473, align 8
-  %475 = getelementptr inbounds nuw i8, ptr %437, i64 %472
-  %476 = load double, ptr %475, align 8
-  %477 = getelementptr inbounds nuw i8, ptr %438, i64 %472
-  %478 = load double, ptr %477, align 8
-  %479 = getelementptr inbounds nuw i8, ptr %439, i64 %472
-  %480 = load double, ptr %479, align 8
-  store double %474, ptr %.1525601, align 8
-  %481 = getelementptr inbounds nuw i8, ptr %.1525601, i64 8
-  store double %476, ptr %481, align 8
-  %482 = getelementptr inbounds nuw i8, ptr %.1525601, i64 16
-  store double %478, ptr %482, align 8
-  %483 = getelementptr inbounds nuw i8, ptr %.1525601, i64 24
-  store double %480, ptr %483, align 8
-  %484 = lshr i32 %.0530600, 5
-  %485 = and i32 %484, 2040
-  %486 = zext nneg i32 %485 to i64
-  %487 = getelementptr inbounds nuw i8, ptr %436, i64 %486
-  %488 = load double, ptr %487, align 8
-  %489 = getelementptr inbounds nuw i8, ptr %437, i64 %486
-  %490 = load double, ptr %489, align 8
-  %491 = getelementptr inbounds nuw i8, ptr %438, i64 %486
-  %492 = load double, ptr %491, align 8
-  %493 = getelementptr inbounds nuw i8, ptr %439, i64 %486
-  %494 = load double, ptr %493, align 8
-  %495 = getelementptr inbounds nuw i8, ptr %.1525601, i64 32
-  store double %488, ptr %495, align 8
-  %496 = getelementptr inbounds nuw i8, ptr %.1525601, i64 40
-  store double %490, ptr %496, align 8
-  %497 = getelementptr inbounds nuw i8, ptr %.1525601, i64 48
-  store double %492, ptr %497, align 8
-  %498 = getelementptr inbounds nuw i8, ptr %.1525601, i64 56
-  store double %494, ptr %498, align 8
-  %499 = lshr i32 %.0530600, 13
-  %500 = and i32 %499, 2040
-  %501 = zext nneg i32 %500 to i64
-  %502 = getelementptr inbounds nuw i8, ptr %436, i64 %501
-  %503 = load double, ptr %502, align 8
-  %504 = getelementptr inbounds nuw i8, ptr %437, i64 %501
-  %505 = load double, ptr %504, align 8
-  %506 = getelementptr inbounds nuw i8, ptr %438, i64 %501
-  %507 = load double, ptr %506, align 8
-  %508 = getelementptr inbounds nuw i8, ptr %439, i64 %501
-  %509 = load double, ptr %508, align 8
-  %510 = getelementptr inbounds nuw i8, ptr %.1525601, i64 64
-  store double %503, ptr %510, align 8
-  %511 = getelementptr inbounds nuw i8, ptr %.1525601, i64 72
-  store double %505, ptr %511, align 8
-  %512 = getelementptr inbounds nuw i8, ptr %.1525601, i64 80
-  store double %507, ptr %512, align 8
-  %513 = getelementptr inbounds nuw i8, ptr %.1525601, i64 88
-  store double %509, ptr %513, align 8
-  %514 = lshr i32 %.0530600, 21
-  %515 = and i32 %514, 2040
-  %516 = zext nneg i32 %515 to i64
-  %517 = getelementptr inbounds nuw i8, ptr %436, i64 %516
-  %518 = load double, ptr %517, align 8
-  %519 = getelementptr inbounds nuw i8, ptr %437, i64 %516
-  %520 = load double, ptr %519, align 8
-  %521 = getelementptr inbounds nuw i8, ptr %438, i64 %516
-  %522 = load double, ptr %521, align 8
-  %523 = getelementptr inbounds nuw i8, ptr %439, i64 %516
-  %524 = load double, ptr %523, align 8
-  %525 = load i32, ptr %.0542602, align 4
-  %526 = getelementptr inbounds nuw i8, ptr %.1525601, i64 96
-  store double %518, ptr %526, align 8
-  %527 = getelementptr inbounds nuw i8, ptr %.1525601, i64 104
-  store double %520, ptr %527, align 8
-  %528 = getelementptr inbounds nuw i8, ptr %.1525601, i64 112
-  store double %522, ptr %528, align 8
-  %529 = getelementptr inbounds nuw i8, ptr %.1525601, i64 120
-  store double %524, ptr %529, align 8
-  %530 = add nuw nsw i32 %.1545599, 4
-  %531 = getelementptr inbounds nuw i8, ptr %.1525601, i64 128
+.lr.ph604:                                        ; preds = %._crit_edge, %.lr.ph604
+  %.0542602 = phi ptr [ %.0542, %.lr.ph604 ], [ %.0542598, %._crit_edge ]
+  %.1525601 = phi ptr [ %530, %.lr.ph604 ], [ %.0524.lcssa, %._crit_edge ]
+  %.0530600 = phi i32 [ %524, %.lr.ph604 ], [ %466, %._crit_edge ]
+  %.1545599 = phi i32 [ %529, %.lr.ph604 ], [ 0, %._crit_edge ]
+  %469 = shl i32 %.0530600, 3
+  %470 = and i32 %469, 2040
+  %471 = zext nneg i32 %470 to i64
+  %472 = getelementptr inbounds nuw i8, ptr %436, i64 %471
+  %473 = load double, ptr %472, align 8
+  %474 = getelementptr inbounds nuw i8, ptr %437, i64 %471
+  %475 = load double, ptr %474, align 8
+  %476 = getelementptr inbounds nuw i8, ptr %438, i64 %471
+  %477 = load double, ptr %476, align 8
+  %478 = getelementptr inbounds nuw i8, ptr %439, i64 %471
+  %479 = load double, ptr %478, align 8
+  store double %473, ptr %.1525601, align 8
+  %480 = getelementptr inbounds nuw i8, ptr %.1525601, i64 8
+  store double %475, ptr %480, align 8
+  %481 = getelementptr inbounds nuw i8, ptr %.1525601, i64 16
+  store double %477, ptr %481, align 8
+  %482 = getelementptr inbounds nuw i8, ptr %.1525601, i64 24
+  store double %479, ptr %482, align 8
+  %483 = lshr i32 %.0530600, 5
+  %484 = and i32 %483, 2040
+  %485 = zext nneg i32 %484 to i64
+  %486 = getelementptr inbounds nuw i8, ptr %436, i64 %485
+  %487 = load double, ptr %486, align 8
+  %488 = getelementptr inbounds nuw i8, ptr %437, i64 %485
+  %489 = load double, ptr %488, align 8
+  %490 = getelementptr inbounds nuw i8, ptr %438, i64 %485
+  %491 = load double, ptr %490, align 8
+  %492 = getelementptr inbounds nuw i8, ptr %439, i64 %485
+  %493 = load double, ptr %492, align 8
+  %494 = getelementptr inbounds nuw i8, ptr %.1525601, i64 32
+  store double %487, ptr %494, align 8
+  %495 = getelementptr inbounds nuw i8, ptr %.1525601, i64 40
+  store double %489, ptr %495, align 8
+  %496 = getelementptr inbounds nuw i8, ptr %.1525601, i64 48
+  store double %491, ptr %496, align 8
+  %497 = getelementptr inbounds nuw i8, ptr %.1525601, i64 56
+  store double %493, ptr %497, align 8
+  %498 = lshr i32 %.0530600, 13
+  %499 = and i32 %498, 2040
+  %500 = zext nneg i32 %499 to i64
+  %501 = getelementptr inbounds nuw i8, ptr %436, i64 %500
+  %502 = load double, ptr %501, align 8
+  %503 = getelementptr inbounds nuw i8, ptr %437, i64 %500
+  %504 = load double, ptr %503, align 8
+  %505 = getelementptr inbounds nuw i8, ptr %438, i64 %500
+  %506 = load double, ptr %505, align 8
+  %507 = getelementptr inbounds nuw i8, ptr %439, i64 %500
+  %508 = load double, ptr %507, align 8
+  %509 = getelementptr inbounds nuw i8, ptr %.1525601, i64 64
+  store double %502, ptr %509, align 8
+  %510 = getelementptr inbounds nuw i8, ptr %.1525601, i64 72
+  store double %504, ptr %510, align 8
+  %511 = getelementptr inbounds nuw i8, ptr %.1525601, i64 80
+  store double %506, ptr %511, align 8
+  %512 = getelementptr inbounds nuw i8, ptr %.1525601, i64 88
+  store double %508, ptr %512, align 8
+  %513 = lshr i32 %.0530600, 21
+  %514 = and i32 %513, 2040
+  %515 = zext nneg i32 %514 to i64
+  %516 = getelementptr inbounds nuw i8, ptr %436, i64 %515
+  %517 = load double, ptr %516, align 8
+  %518 = getelementptr inbounds nuw i8, ptr %437, i64 %515
+  %519 = load double, ptr %518, align 8
+  %520 = getelementptr inbounds nuw i8, ptr %438, i64 %515
+  %521 = load double, ptr %520, align 8
+  %522 = getelementptr inbounds nuw i8, ptr %439, i64 %515
+  %523 = load double, ptr %522, align 8
+  %524 = load i32, ptr %.0542602, align 4
+  %525 = getelementptr inbounds nuw i8, ptr %.1525601, i64 96
+  store double %517, ptr %525, align 8
+  %526 = getelementptr inbounds nuw i8, ptr %.1525601, i64 104
+  store double %519, ptr %526, align 8
+  %527 = getelementptr inbounds nuw i8, ptr %.1525601, i64 112
+  store double %521, ptr %527, align 8
+  %528 = getelementptr inbounds nuw i8, ptr %.1525601, i64 120
+  store double %523, ptr %528, align 8
+  %529 = add nuw nsw i32 %.1545599, 4
+  %530 = getelementptr inbounds nuw i8, ptr %.1525601, i64 128
   %.0542 = getelementptr inbounds nuw i8, ptr %.0542602, i64 4
-  %532 = icmp slt i32 %530, %467
-  br i1 %532, label %.lr.ph604, label %._crit_edge605, !llvm.loop !54
+  %531 = icmp slt i32 %529, %467
+  br i1 %531, label %.lr.ph604, label %._crit_edge605.loopexit, !llvm.loop !54
 
-._crit_edge605:                                   ; preds = %.lr.ph604, %._crit_edge
-  %.1545.lcssa = phi i32 [ 4, %._crit_edge ], [ %469, %.lr.ph604 ]
-  %.0530.lcssa = phi i32 [ %466, %._crit_edge ], [ %525, %.lr.ph604 ]
-  %.1525.lcssa = phi ptr [ %.0524.lcssa, %._crit_edge ], [ %531, %.lr.ph604 ]
-  %.0542.lcssa = phi ptr [ %.0542598, %._crit_edge ], [ %.0542, %.lr.ph604 ]
+._crit_edge605.loopexit:                          ; preds = %.lr.ph604
+  %532 = and i32 %.0526.lcssa, 2147483644
+  br label %._crit_edge605
+
+._crit_edge605:                                   ; preds = %._crit_edge605.loopexit, %._crit_edge
+  %.1545.lcssa = phi i32 [ 4, %._crit_edge ], [ %532, %._crit_edge605.loopexit ]
+  %.0530.lcssa = phi i32 [ %466, %._crit_edge ], [ %524, %._crit_edge605.loopexit ]
+  %.1525.lcssa = phi ptr [ %.0524.lcssa, %._crit_edge ], [ %530, %._crit_edge605.loopexit ]
+  %.0542.lcssa = phi ptr [ %.0542598, %._crit_edge ], [ %.0542, %._crit_edge605.loopexit ]
   %533 = shl i32 %.0530.lcssa, 3
   %534 = and i32 %533, 2040
   %535 = zext nneg i32 %534 to i64

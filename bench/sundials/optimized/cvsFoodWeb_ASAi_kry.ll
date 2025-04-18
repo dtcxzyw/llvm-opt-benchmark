@@ -96,9 +96,8 @@ check_retval.exit:                                ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 39232
   store ptr %30, ptr %31, align 8, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 304
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 592
-  %34 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  store i32 6, ptr %34, align 8, !tbaa !23
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  store i32 6, ptr %33, align 8, !tbaa !23
   br label %.preheader79.i
 
 .preheader79.i:                                   ; preds = %38, %19
@@ -106,6 +105,7 @@ check_retval.exit:                                ; preds = %2
   br label %36
 
 .preheader78.i:                                   ; preds = %38
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 592
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 640
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %12, i64 448
   br label %.preheader.i
@@ -144,9 +144,9 @@ check_retval.exit:                                ; preds = %2
   store double -1.000000e+00, ptr %43, align 8, !tbaa !24
   %44 = getelementptr inbounds nuw [6 x double], ptr %32, i64 %39, i64 %39
   store double -1.000000e+00, ptr %44, align 8, !tbaa !24
-  %45 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv96.i
+  %45 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv96.i
   store double 1.000000e+00, ptr %45, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw double, ptr %33, i64 %39
+  %46 = getelementptr inbounds nuw double, ptr %34, i64 %39
   store double -1.000000e+00, ptr %46, align 8, !tbaa !24
   %47 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv96.i
   store double 1.000000e+00, ptr %47, align 8, !tbaa !24
@@ -257,7 +257,7 @@ check_retval.exit66:                              ; preds = %InitUserData.exit
 
 89:                                               ; preds = %InitUserData.exit
   %90 = tail call ptr @N_VGetArrayPointer(ptr noundef nonnull %85) #9
-  %91 = load i32, ptr %34, align 8, !tbaa !23
+  %91 = load i32, ptr %33, align 8, !tbaa !23
   %92 = load double, ptr %53, align 8, !tbaa !26
   %93 = load double, ptr %54, align 8, !tbaa !27
   %invariant.gep.i67 = getelementptr i8, ptr %90, i64 -8

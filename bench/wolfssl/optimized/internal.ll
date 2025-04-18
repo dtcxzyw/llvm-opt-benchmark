@@ -2068,7 +2068,6 @@ define i32 @RsaDec(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 n
   %19 = sext i8 %18 to i32
   %20 = and i32 %14, %19
   store i32 %20, ptr %4, align 4, !tbaa !49
-  %isneg = icmp slt i32 %15, 0
   br label %21
 
 21:                                               ; preds = %21, %13
@@ -2086,6 +2085,7 @@ define i32 @RsaDec(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 n
   br i1 %exitcond.not.i, label %ctMaskCopy.exit.loopexit, label %21, !llvm.loop !118
 
 ctMaskCopy.exit.loopexit:                         ; preds = %21
+  %isneg = icmp slt i32 %15, 0
   %29 = select i1 %isneg, i32 %14, i32 0
   br label %ctMaskCopy.exit
 

@@ -289,8 +289,6 @@ for.body.i.i.i.i.preheader:                       ; preds = %_ZSt4copyIPN3irr5vi
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.preheader
   %n.vec = and i64 %20, 9223372036854775800
-  %22 = shl i64 %n.vec, 2
-  %ind.end = getelementptr i8, ptr %11, i64 %22
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -298,18 +296,20 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %offset.idx = shl i64 %index, 2
   %next.gep = getelementptr i8, ptr %11, i64 %offset.idx
   %next.gep127 = getelementptr i8, ptr %add.ptr62, i64 %offset.idx
-  %23 = getelementptr i8, ptr %next.gep127, i64 16
+  %22 = getelementptr i8, ptr %next.gep127, i64 16
   %wide.load = load <4 x i32>, ptr %next.gep127, align 4, !tbaa !20
-  %wide.load129 = load <4 x i32>, ptr %23, align 4, !tbaa !20
-  %24 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load129 = load <4 x i32>, ptr %22, align 4, !tbaa !20
+  %23 = getelementptr i8, ptr %next.gep, i64 16
   store <4 x i32> %wide.load, ptr %next.gep, align 4, !tbaa !20
-  store <4 x i32> %wide.load129, ptr %24, align 4, !tbaa !20
+  store <4 x i32> %wide.load129, ptr %23, align 4, !tbaa !20
   %index.next = add nuw i64 %index, 8
-  %25 = icmp eq i64 %index.next, %n.vec
-  br i1 %25, label %middle.block, label %vector.body, !llvm.loop !31
+  %24 = icmp eq i64 %index.next, %n.vec
+  br i1 %24, label %middle.block, label %vector.body, !llvm.loop !31
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end123 = getelementptr i8, ptr %add.ptr62, i64 %22
+  %25 = shl i64 %n.vec, 2
+  %ind.end = getelementptr i8, ptr %11, i64 %25
+  %ind.end123 = getelementptr i8, ptr %add.ptr62, i64 %25
   %cmp.n = icmp eq i64 %20, %n.vec
   br i1 %cmp.n, label %if.end69, label %for.body.i.i.i.i.preheader4
 
@@ -507,8 +507,6 @@ for.body.i.i.i.i.preheader:                       ; preds = %_ZNSt12_Vector_base
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.preheader
   %n.vec = and i64 %11, 9223372036854775800
-  %13 = shl i64 %n.vec, 2
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i, i64 %13
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -518,18 +516,20 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep366 = getelementptr i8, ptr %5, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %14 = getelementptr i8, ptr %next.gep366, i64 16
+  %13 = getelementptr i8, ptr %next.gep366, i64 16
   %wide.load = load <4 x i32>, ptr %next.gep366, align 4, !tbaa !20, !alias.scope !39, !noalias !36
-  %wide.load368 = load <4 x i32>, ptr %14, align 4, !tbaa !20, !alias.scope !39, !noalias !36
-  %15 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load368 = load <4 x i32>, ptr %13, align 4, !tbaa !20, !alias.scope !39, !noalias !36
+  %14 = getelementptr i8, ptr %next.gep, i64 16
   store <4 x i32> %wide.load, ptr %next.gep, align 4, !tbaa !20, !alias.scope !36, !noalias !39
-  store <4 x i32> %wide.load368, ptr %15, align 4, !tbaa !20, !alias.scope !36, !noalias !39
+  store <4 x i32> %wide.load368, ptr %14, align 4, !tbaa !20, !alias.scope !36, !noalias !39
   %index.next = add nuw i64 %index, 8
-  %16 = icmp eq i64 %index.next, %n.vec
-  br i1 %16, label %middle.block, label %vector.body, !llvm.loop !41
+  %15 = icmp eq i64 %index.next, %n.vec
+  br i1 %15, label %middle.block, label %vector.body, !llvm.loop !41
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end362 = getelementptr i8, ptr %5, i64 %13
+  %16 = shl i64 %n.vec, 2
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i, i64 %16
+  %ind.end362 = getelementptr i8, ptr %5, i64 %16
   %cmp.n = icmp eq i64 %11, %n.vec
   br i1 %cmp.n, label %if.then.i.i, label %for.body.i.i.i.i.preheader148
 
@@ -695,8 +695,6 @@ for.body.i.i.i.i.i.preheader123:                  ; preds = %middle.block372, %f
 
 vector.ph375:                                     ; preds = %for.body.i.i.i.i.i.preheader
   %n.vec377 = and i64 %44, 9223372036854775800
-  %46 = shl i64 %n.vec377, 2
-  %ind.end378 = getelementptr i8, ptr %call5.i.i.i.i.i, i64 %46
   br label %vector.body383
 
 vector.body383:                                   ; preds = %vector.body383, %vector.ph375
@@ -706,18 +704,20 @@ vector.body383:                                   ; preds = %vector.body383, %ve
   %next.gep389 = getelementptr i8, ptr %37, i64 %offset.idx385
   call void @llvm.experimental.noalias.scope.decl(metadata !44)
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %47 = getelementptr i8, ptr %next.gep389, i64 16
+  %46 = getelementptr i8, ptr %next.gep389, i64 16
   %wide.load391 = load <4 x i32>, ptr %next.gep389, align 4, !tbaa !20, !alias.scope !47, !noalias !44
-  %wide.load392 = load <4 x i32>, ptr %47, align 4, !tbaa !20, !alias.scope !47, !noalias !44
-  %48 = getelementptr i8, ptr %next.gep386, i64 16
+  %wide.load392 = load <4 x i32>, ptr %46, align 4, !tbaa !20, !alias.scope !47, !noalias !44
+  %47 = getelementptr i8, ptr %next.gep386, i64 16
   store <4 x i32> %wide.load391, ptr %next.gep386, align 4, !tbaa !20, !alias.scope !44, !noalias !47
-  store <4 x i32> %wide.load392, ptr %48, align 4, !tbaa !20, !alias.scope !44, !noalias !47
+  store <4 x i32> %wide.load392, ptr %47, align 4, !tbaa !20, !alias.scope !44, !noalias !47
   %index.next393 = add nuw i64 %index384, 8
-  %49 = icmp eq i64 %index.next393, %n.vec377
-  br i1 %49, label %middle.block372, label %vector.body383, !llvm.loop !49
+  %48 = icmp eq i64 %index.next393, %n.vec377
+  br i1 %48, label %middle.block372, label %vector.body383, !llvm.loop !49
 
 middle.block372:                                  ; preds = %vector.body383
-  %ind.end380 = getelementptr i8, ptr %37, i64 %46
+  %49 = shl i64 %n.vec377, 2
+  %ind.end378 = getelementptr i8, ptr %call5.i.i.i.i.i, i64 %49
+  %ind.end380 = getelementptr i8, ptr %37, i64 %49
   %cmp.n382 = icmp eq i64 %44, %n.vec377
   br i1 %cmp.n382, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.thread, label %for.body.i.i.i.i.i.preheader123
 
@@ -2003,8 +2003,6 @@ for.body.i.i.i.i.i.preheader7:                    ; preds = %middle.block, %for.
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader
   %n.vec = and i64 %19, 9223372036854775800
-  %21 = shl i64 %n.vec, 2
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i, i64 %21
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -2014,18 +2012,20 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep14 = getelementptr i8, ptr %12, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %22 = getelementptr i8, ptr %next.gep14, i64 16
+  %21 = getelementptr i8, ptr %next.gep14, i64 16
   %wide.load = load <4 x i32>, ptr %next.gep14, align 4, !tbaa !20, !alias.scope !67, !noalias !64
-  %wide.load16 = load <4 x i32>, ptr %22, align 4, !tbaa !20, !alias.scope !67, !noalias !64
-  %23 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load16 = load <4 x i32>, ptr %21, align 4, !tbaa !20, !alias.scope !67, !noalias !64
+  %22 = getelementptr i8, ptr %next.gep, i64 16
   store <4 x i32> %wide.load, ptr %next.gep, align 4, !tbaa !20, !alias.scope !64, !noalias !67
-  store <4 x i32> %wide.load16, ptr %23, align 4, !tbaa !20, !alias.scope !64, !noalias !67
+  store <4 x i32> %wide.load16, ptr %22, align 4, !tbaa !20, !alias.scope !64, !noalias !67
   %index.next = add nuw i64 %index, 8
-  %24 = icmp eq i64 %index.next, %n.vec
-  br i1 %24, label %middle.block, label %vector.body, !llvm.loop !69
+  %23 = icmp eq i64 %index.next, %n.vec
+  br i1 %23, label %middle.block, label %vector.body, !llvm.loop !69
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end10 = getelementptr i8, ptr %12, i64 %21
+  %24 = shl i64 %n.vec, 2
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i, i64 %24
+  %ind.end10 = getelementptr i8, ptr %12, i64 %24
   %cmp.n = icmp eq i64 %19, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.thread, label %for.body.i.i.i.i.i.preheader7
 
@@ -2193,8 +2193,6 @@ _ZNKSt6vectorIN3irr5video6SColorESaIS2_EE12_M_check_lenEmPKc.exit.i.i23: ; preds
 
 vector.ph:                                        ; preds = %_ZNKSt6vectorIN3irr5video6SColorESaIS2_EE12_M_check_lenEmPKc.exit.i.i23
   %n.vec = and i64 %19, 9223372036854775800
-  %21 = shl i64 %n.vec, 2
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i32, i64 %21
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -2204,18 +2202,20 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep61 = getelementptr i8, ptr %5, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %22 = getelementptr i8, ptr %next.gep61, i64 16
+  %21 = getelementptr i8, ptr %next.gep61, i64 16
   %wide.load = load <4 x i32>, ptr %next.gep61, align 4, !tbaa !20, !alias.scope !74, !noalias !71
-  %wide.load63 = load <4 x i32>, ptr %22, align 4, !tbaa !20, !alias.scope !74, !noalias !71
-  %23 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load63 = load <4 x i32>, ptr %21, align 4, !tbaa !20, !alias.scope !74, !noalias !71
+  %22 = getelementptr i8, ptr %next.gep, i64 16
   store <4 x i32> %wide.load, ptr %next.gep, align 4, !tbaa !20, !alias.scope !71, !noalias !74
-  store <4 x i32> %wide.load63, ptr %23, align 4, !tbaa !20, !alias.scope !71, !noalias !74
+  store <4 x i32> %wide.load63, ptr %22, align 4, !tbaa !20, !alias.scope !71, !noalias !74
   %index.next = add nuw i64 %index, 8
-  %24 = icmp eq i64 %index.next, %n.vec
-  br i1 %24, label %middle.block, label %vector.body, !llvm.loop !76
+  %23 = icmp eq i64 %index.next, %n.vec
+  br i1 %23, label %middle.block, label %vector.body, !llvm.loop !76
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end51 = getelementptr i8, ptr %5, i64 %21
+  %24 = shl i64 %n.vec, 2
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i32, i64 %24
+  %ind.end51 = getelementptr i8, ptr %5, i64 %24
   %cmp.n = icmp eq i64 %19, %n.vec
   %ind.escape = getelementptr i8, ptr %ind.end, i64 -4
   br i1 %cmp.n, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %for.body.i.i.i.i.i37.preheader
@@ -2372,8 +2372,6 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %invoke.cont.i
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader
   %n.vec = and i64 %18, 9223372036854775800
-  %20 = shl i64 %n.vec, 2
-  %ind.end = getelementptr i8, ptr %cond.i.i.i.i, i64 %20
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -2381,18 +2379,20 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %offset.idx = shl i64 %index, 2
   %next.gep = getelementptr i8, ptr %cond.i.i.i.i, i64 %offset.idx
   %next.gep16 = getelementptr i8, ptr %12, i64 %offset.idx
-  %21 = getelementptr i8, ptr %next.gep16, i64 16
+  %20 = getelementptr i8, ptr %next.gep16, i64 16
   %wide.load = load <4 x i32>, ptr %next.gep16, align 4, !tbaa !20
-  %wide.load18 = load <4 x i32>, ptr %21, align 4, !tbaa !20
-  %22 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load18 = load <4 x i32>, ptr %20, align 4, !tbaa !20
+  %21 = getelementptr i8, ptr %next.gep, i64 16
   store <4 x i32> %wide.load, ptr %next.gep, align 4, !tbaa !20
-  store <4 x i32> %wide.load18, ptr %22, align 4, !tbaa !20
+  store <4 x i32> %wide.load18, ptr %21, align 4, !tbaa !20
   %index.next = add nuw i64 %index, 8
-  %23 = icmp eq i64 %index.next, %n.vec
-  br i1 %23, label %middle.block, label %vector.body, !llvm.loop !78
+  %22 = icmp eq i64 %index.next, %n.vec
+  br i1 %22, label %middle.block, label %vector.body, !llvm.loop !78
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end12 = getelementptr i8, ptr %12, i64 %20
+  %23 = shl i64 %n.vec, 2
+  %ind.end = getelementptr i8, ptr %cond.i.i.i.i, i64 %23
+  %ind.end12 = getelementptr i8, ptr %12, i64 %23
   %cmp.n = icmp eq i64 %18, %n.vec
   br i1 %cmp.n, label %invoke.cont, label %for.body.i.i.i.i.i.preheader4
 
@@ -3296,8 +3296,6 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
 
 vector.ph233:                                     ; preds = %for.body.i.i.i.i.i.preheader
   %n.vec235 = and i64 %4, 9223372036854775800
-  %5 = shl i64 %n.vec235, 2
-  %ind.end236 = getelementptr i8, ptr %1, i64 %5
   br label %vector.body241
 
 vector.body241:                                   ; preds = %vector.body241, %vector.ph233
@@ -3305,18 +3303,20 @@ vector.body241:                                   ; preds = %vector.body241, %ve
   %offset.idx243 = shl i64 %index242, 2
   %next.gep244 = getelementptr i8, ptr %1, i64 %offset.idx243
   %next.gep247 = getelementptr i8, ptr %add.ptr, i64 %offset.idx243
-  %6 = getelementptr i8, ptr %next.gep247, i64 16
+  %5 = getelementptr i8, ptr %next.gep247, i64 16
   %wide.load249 = load <4 x i32>, ptr %next.gep247, align 4, !tbaa !20
-  %wide.load250 = load <4 x i32>, ptr %6, align 4, !tbaa !20
-  %7 = getelementptr i8, ptr %next.gep244, i64 16
+  %wide.load250 = load <4 x i32>, ptr %5, align 4, !tbaa !20
+  %6 = getelementptr i8, ptr %next.gep244, i64 16
   store <4 x i32> %wide.load249, ptr %next.gep244, align 4, !tbaa !20
-  store <4 x i32> %wide.load250, ptr %7, align 4, !tbaa !20
+  store <4 x i32> %wide.load250, ptr %6, align 4, !tbaa !20
   %index.next251 = add nuw i64 %index242, 8
-  %8 = icmp eq i64 %index.next251, %n.vec235
-  br i1 %8, label %middle.block230, label %vector.body241, !llvm.loop !102
+  %7 = icmp eq i64 %index.next251, %n.vec235
+  br i1 %7, label %middle.block230, label %vector.body241, !llvm.loop !102
 
 middle.block230:                                  ; preds = %vector.body241
-  %ind.end238 = getelementptr i8, ptr %add.ptr, i64 %5
+  %8 = shl i64 %n.vec235, 2
+  %ind.end236 = getelementptr i8, ptr %1, i64 %8
+  %ind.end238 = getelementptr i8, ptr %add.ptr, i64 %8
   %cmp.n240 = icmp eq i64 %4, %n.vec235
   br i1 %cmp.n240, label %_ZSt22__uninitialized_move_aIPN3irr5video6SColorES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %for.body.i.i.i.i.i.preheader12
 
@@ -3374,8 +3374,6 @@ for.body.i.i.i.i.preheader:                       ; preds = %_ZSt7advanceIN9__gn
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.preheader
   %n.vec = and i64 %14, 9223372036854775800
-  %16 = shl i64 %n.vec, 2
-  %ind.end = getelementptr i8, ptr %1, i64 %16
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -3383,18 +3381,20 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %offset.idx = shl i64 %index, 2
   %next.gep = getelementptr i8, ptr %1, i64 %offset.idx
   %next.gep201 = getelementptr i8, ptr %incdec.ptr.i.i.i, i64 %offset.idx
-  %17 = getelementptr i8, ptr %next.gep201, i64 16
+  %16 = getelementptr i8, ptr %next.gep201, i64 16
   %wide.load = load <4 x i32>, ptr %next.gep201, align 4, !tbaa !20
-  %wide.load203 = load <4 x i32>, ptr %17, align 4, !tbaa !20
-  %18 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load203 = load <4 x i32>, ptr %16, align 4, !tbaa !20
+  %17 = getelementptr i8, ptr %next.gep, i64 16
   store <4 x i32> %wide.load, ptr %next.gep, align 4, !tbaa !20
-  store <4 x i32> %wide.load203, ptr %18, align 4, !tbaa !20
+  store <4 x i32> %wide.load203, ptr %17, align 4, !tbaa !20
   %index.next = add nuw i64 %index, 8
-  %19 = icmp eq i64 %index.next, %n.vec
-  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !104
+  %18 = icmp eq i64 %index.next, %n.vec
+  br i1 %18, label %middle.block, label %vector.body, !llvm.loop !104
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end197 = getelementptr i8, ptr %incdec.ptr.i.i.i, i64 %16
+  %19 = shl i64 %n.vec, 2
+  %ind.end = getelementptr i8, ptr %1, i64 %19
+  %ind.end197 = getelementptr i8, ptr %incdec.ptr.i.i.i, i64 %19
   %cmp.n = icmp eq i64 %14, %n.vec
   br i1 %cmp.n, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3irr5video6SColorESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit, label %for.body.i.i.i.i.preheader14
 
@@ -3430,8 +3430,6 @@ for.body.i.i.i.i.i145.preheader:                  ; preds = %_ZSt22__uninitializ
 
 vector.ph209:                                     ; preds = %for.body.i.i.i.i.i145.preheader
   %n.vec211 = and i64 %23, 9223372036854775800
-  %24 = shl i64 %n.vec211, 2
-  %ind.end212 = getelementptr i8, ptr %add.ptr50, i64 %24
   br label %vector.body217
 
 vector.body217:                                   ; preds = %vector.body217, %vector.ph209
@@ -3439,18 +3437,20 @@ vector.body217:                                   ; preds = %vector.body217, %ve
   %offset.idx219 = shl i64 %index218, 2
   %next.gep220 = getelementptr i8, ptr %add.ptr50, i64 %offset.idx219
   %next.gep223 = getelementptr i8, ptr %__position.coerce, i64 %offset.idx219
-  %25 = getelementptr i8, ptr %next.gep223, i64 16
+  %24 = getelementptr i8, ptr %next.gep223, i64 16
   %wide.load225 = load <4 x i32>, ptr %next.gep223, align 4, !tbaa !20
-  %wide.load226 = load <4 x i32>, ptr %25, align 4, !tbaa !20
-  %26 = getelementptr i8, ptr %next.gep220, i64 16
+  %wide.load226 = load <4 x i32>, ptr %24, align 4, !tbaa !20
+  %25 = getelementptr i8, ptr %next.gep220, i64 16
   store <4 x i32> %wide.load225, ptr %next.gep220, align 4, !tbaa !20
-  store <4 x i32> %wide.load226, ptr %26, align 4, !tbaa !20
+  store <4 x i32> %wide.load226, ptr %25, align 4, !tbaa !20
   %index.next227 = add nuw i64 %index218, 8
-  %27 = icmp eq i64 %index.next227, %n.vec211
-  br i1 %27, label %middle.block206, label %vector.body217, !llvm.loop !106
+  %26 = icmp eq i64 %index.next227, %n.vec211
+  br i1 %26, label %middle.block206, label %vector.body217, !llvm.loop !106
 
 middle.block206:                                  ; preds = %vector.body217
-  %ind.end214 = getelementptr i8, ptr %__position.coerce, i64 %24
+  %27 = shl i64 %n.vec211, 2
+  %ind.end212 = getelementptr i8, ptr %add.ptr50, i64 %27
+  %ind.end214 = getelementptr i8, ptr %__position.coerce, i64 %27
   %cmp.n216 = icmp eq i64 %23, %n.vec211
   br i1 %cmp.n216, label %if.then.i.i.i.i.i157, label %for.body.i.i.i.i.i145.preheader13
 
@@ -3521,8 +3521,6 @@ for.body.i.i.i.i.i163.preheader:                  ; preds = %_ZNSt12_Vector_base
 
 vector.ph259:                                     ; preds = %for.body.i.i.i.i.i163.preheader
   %n.vec261 = and i64 %34, 9223372036854775800
-  %36 = shl i64 %n.vec261, 2
-  %ind.end262 = getelementptr i8, ptr %cond.i161, i64 %36
   br label %vector.body267
 
 vector.body267:                                   ; preds = %vector.body267, %vector.ph259
@@ -3530,18 +3528,20 @@ vector.body267:                                   ; preds = %vector.body267, %ve
   %offset.idx269 = shl i64 %index268, 2
   %next.gep270 = getelementptr i8, ptr %cond.i161, i64 %offset.idx269
   %next.gep273 = getelementptr i8, ptr %29, i64 %offset.idx269
-  %37 = getelementptr i8, ptr %next.gep273, i64 16
+  %36 = getelementptr i8, ptr %next.gep273, i64 16
   %wide.load275 = load <4 x i32>, ptr %next.gep273, align 4, !tbaa !20
-  %wide.load276 = load <4 x i32>, ptr %37, align 4, !tbaa !20
-  %38 = getelementptr i8, ptr %next.gep270, i64 16
+  %wide.load276 = load <4 x i32>, ptr %36, align 4, !tbaa !20
+  %37 = getelementptr i8, ptr %next.gep270, i64 16
   store <4 x i32> %wide.load275, ptr %next.gep270, align 4, !tbaa !20
-  store <4 x i32> %wide.load276, ptr %38, align 4, !tbaa !20
+  store <4 x i32> %wide.load276, ptr %37, align 4, !tbaa !20
   %index.next277 = add nuw i64 %index268, 8
-  %39 = icmp eq i64 %index.next277, %n.vec261
-  br i1 %39, label %middle.block256, label %vector.body267, !llvm.loop !108
+  %38 = icmp eq i64 %index.next277, %n.vec261
+  br i1 %38, label %middle.block256, label %vector.body267, !llvm.loop !108
 
 middle.block256:                                  ; preds = %vector.body267
-  %ind.end264 = getelementptr i8, ptr %29, i64 %36
+  %39 = shl i64 %n.vec261, 2
+  %ind.end262 = getelementptr i8, ptr %cond.i161, i64 %39
+  %ind.end264 = getelementptr i8, ptr %29, i64 %39
   %cmp.n266 = icmp eq i64 %34, %n.vec261
   br i1 %cmp.n266, label %for.body.i.i.i.i171.preheader, label %for.body.i.i.i.i.i163.preheader11
 
@@ -3575,8 +3575,6 @@ for.body.i.i.i.i171.preheader:                    ; preds = %for.body.i.i.i.i.i1
 
 vector.ph284:                                     ; preds = %for.body.i.i.i.i171.preheader
   %n.vec286 = and i64 %44, 9223372036854775800
-  %46 = shl i64 %n.vec286, 2
-  %ind.end287 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i169, i64 %46
   br label %vector.body292
 
 vector.body292:                                   ; preds = %vector.body292, %vector.ph284
@@ -3584,18 +3582,20 @@ vector.body292:                                   ; preds = %vector.body292, %ve
   %offset.idx294 = shl i64 %index293, 2
   %next.gep295 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i169, i64 %offset.idx294
   %next.gep298 = getelementptr i8, ptr %__first.coerce, i64 %offset.idx294
-  %47 = getelementptr i8, ptr %next.gep298, i64 16
+  %46 = getelementptr i8, ptr %next.gep298, i64 16
   %wide.load300 = load <4 x i32>, ptr %next.gep298, align 4, !tbaa !20
-  %wide.load301 = load <4 x i32>, ptr %47, align 4, !tbaa !20
-  %48 = getelementptr i8, ptr %next.gep295, i64 16
+  %wide.load301 = load <4 x i32>, ptr %46, align 4, !tbaa !20
+  %47 = getelementptr i8, ptr %next.gep295, i64 16
   store <4 x i32> %wide.load300, ptr %next.gep295, align 4, !tbaa !20
-  store <4 x i32> %wide.load301, ptr %48, align 4, !tbaa !20
+  store <4 x i32> %wide.load301, ptr %47, align 4, !tbaa !20
   %index.next302 = add nuw i64 %index293, 8
-  %49 = icmp eq i64 %index.next302, %n.vec286
-  br i1 %49, label %middle.block281, label %vector.body292, !llvm.loop !110
+  %48 = icmp eq i64 %index.next302, %n.vec286
+  br i1 %48, label %middle.block281, label %vector.body292, !llvm.loop !110
 
 middle.block281:                                  ; preds = %vector.body292
-  %ind.end289 = getelementptr i8, ptr %__first.coerce, i64 %46
+  %49 = shl i64 %n.vec286, 2
+  %ind.end287 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i169, i64 %49
+  %ind.end289 = getelementptr i8, ptr %__first.coerce, i64 %49
   %cmp.n291 = icmp eq i64 %44, %n.vec286
   br i1 %cmp.n291, label %invoke.cont83, label %for.body.i.i.i.i171.preheader9
 
@@ -3633,8 +3633,6 @@ for.body.i.i.i.i.i180.preheader:                  ; preds = %invoke.cont83
 
 vector.ph309:                                     ; preds = %for.body.i.i.i.i.i180.preheader
   %n.vec311 = and i64 %53, 9223372036854775800
-  %55 = shl i64 %n.vec311, 2
-  %ind.end312 = getelementptr i8, ptr %incdec.ptr.i.i.i.i175.lcssa, i64 %55
   br label %vector.body317
 
 vector.body317:                                   ; preds = %vector.body317, %vector.ph309
@@ -3642,18 +3640,20 @@ vector.body317:                                   ; preds = %vector.body317, %ve
   %offset.idx319 = shl i64 %index318, 2
   %next.gep320 = getelementptr i8, ptr %incdec.ptr.i.i.i.i175.lcssa, i64 %offset.idx319
   %next.gep323 = getelementptr i8, ptr %__position.coerce, i64 %offset.idx319
-  %56 = getelementptr i8, ptr %next.gep323, i64 16
+  %55 = getelementptr i8, ptr %next.gep323, i64 16
   %wide.load325 = load <4 x i32>, ptr %next.gep323, align 4, !tbaa !20
-  %wide.load326 = load <4 x i32>, ptr %56, align 4, !tbaa !20
-  %57 = getelementptr i8, ptr %next.gep320, i64 16
+  %wide.load326 = load <4 x i32>, ptr %55, align 4, !tbaa !20
+  %56 = getelementptr i8, ptr %next.gep320, i64 16
   store <4 x i32> %wide.load325, ptr %next.gep320, align 4, !tbaa !20
-  store <4 x i32> %wide.load326, ptr %57, align 4, !tbaa !20
+  store <4 x i32> %wide.load326, ptr %56, align 4, !tbaa !20
   %index.next327 = add nuw i64 %index318, 8
-  %58 = icmp eq i64 %index.next327, %n.vec311
-  br i1 %58, label %middle.block306, label %vector.body317, !llvm.loop !112
+  %57 = icmp eq i64 %index.next327, %n.vec311
+  br i1 %57, label %middle.block306, label %vector.body317, !llvm.loop !112
 
 middle.block306:                                  ; preds = %vector.body317
-  %ind.end314 = getelementptr i8, ptr %__position.coerce, i64 %55
+  %58 = shl i64 %n.vec311, 2
+  %ind.end312 = getelementptr i8, ptr %incdec.ptr.i.i.i.i175.lcssa, i64 %58
+  %ind.end314 = getelementptr i8, ptr %__position.coerce, i64 %58
   %cmp.n316 = icmp eq i64 %53, %n.vec311
   br i1 %cmp.n316, label %invoke.cont87, label %for.body.i.i.i.i.i180.preheader8
 

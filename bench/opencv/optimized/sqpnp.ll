@@ -2355,60 +2355,60 @@ _ZN2cvmlIdLi9ELi1EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit: ; preds = %59
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #21
   %64 = load double, ptr %4, align 8, !tbaa !70
   %65 = load double, ptr %29, align 8, !tbaa !70
-  %66 = fmul double %65, %65
-  %67 = load double, ptr %30, align 8, !tbaa !70
-  %68 = load double, ptr %31, align 8, !tbaa !70
-  %69 = load double, ptr %32, align 8, !tbaa !70
-  %70 = fmul double %69, %69
-  %71 = call double @llvm.fmuladd.f64(double %68, double %68, double %70)
-  %72 = load double, ptr %33, align 8, !tbaa !70
-  %73 = call double @llvm.fmuladd.f64(double %72, double %72, double %71)
-  %74 = load double, ptr %34, align 8, !tbaa !70
-  %75 = load double, ptr %35, align 8, !tbaa !70
-  %76 = fmul double %75, %75
-  %77 = call double @llvm.fmuladd.f64(double %74, double %74, double %76)
-  %78 = load double, ptr %36, align 8, !tbaa !70
-  %79 = call double @llvm.fmuladd.f64(double %78, double %78, double %77)
-  %80 = fmul double %65, %69
-  %81 = call double @llvm.fmuladd.f64(double %64, double %68, double %80)
-  %82 = call double @llvm.fmuladd.f64(double %67, double %72, double %81)
-  %83 = fmul double %65, %75
-  %84 = call double @llvm.fmuladd.f64(double %64, double %74, double %83)
-  %85 = call double @llvm.fmuladd.f64(double %67, double %78, double %84)
-  %86 = fmul double %69, %75
-  %87 = call double @llvm.fmuladd.f64(double %68, double %74, double %86)
-  %88 = call double @llvm.fmuladd.f64(double %72, double %78, double %87)
-  %89 = fadd double %73, -1.000000e+00
-  %90 = fmul double %89, %89
-  %91 = fadd double %79, -1.000000e+00
-  %92 = fmul double %85, %85
-  %93 = call double @llvm.fmuladd.f64(double %82, double %82, double %92)
-  %94 = call double @llvm.fmuladd.f64(double %88, double %88, double %93)
-  %95 = fmul double %94, 2.000000e+00
-  %96 = call double @llvm.fmuladd.f64(double %91, double %91, double %95)
+  %66 = load double, ptr %30, align 8, !tbaa !70
+  %67 = load double, ptr %31, align 8, !tbaa !70
+  %68 = load double, ptr %32, align 8, !tbaa !70
+  %69 = load double, ptr %33, align 8, !tbaa !70
+  %70 = load double, ptr %34, align 8, !tbaa !70
+  %71 = load double, ptr %35, align 8, !tbaa !70
+  %72 = load double, ptr %36, align 8, !tbaa !70
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %6, i8 0, i64 208, i1 false)
-  %97 = call double @llvm.fmuladd.f64(double %64, double %64, double %66)
-  %98 = call double @llvm.fmuladd.f64(double %67, double %67, double %97)
-  %99 = fadd double %98, -1.000000e+00
-  %100 = call double @llvm.fmuladd.f64(double %99, double %99, double %90)
-  %101 = fadd double %100, %96
+  %73 = fmul double %65, %65
+  %74 = call double @llvm.fmuladd.f64(double %64, double %64, double %73)
+  %75 = call double @llvm.fmuladd.f64(double %66, double %66, double %74)
+  %76 = fmul double %68, %68
+  %77 = call double @llvm.fmuladd.f64(double %67, double %67, double %76)
+  %78 = call double @llvm.fmuladd.f64(double %69, double %69, double %77)
+  %79 = fmul double %71, %71
+  %80 = call double @llvm.fmuladd.f64(double %70, double %70, double %79)
+  %81 = call double @llvm.fmuladd.f64(double %72, double %72, double %80)
+  %82 = fmul double %65, %68
+  %83 = call double @llvm.fmuladd.f64(double %64, double %67, double %82)
+  %84 = call double @llvm.fmuladd.f64(double %66, double %69, double %83)
+  %85 = fmul double %65, %71
+  %86 = call double @llvm.fmuladd.f64(double %64, double %70, double %85)
+  %87 = call double @llvm.fmuladd.f64(double %66, double %72, double %86)
+  %88 = fmul double %68, %71
+  %89 = call double @llvm.fmuladd.f64(double %67, double %70, double %88)
+  %90 = call double @llvm.fmuladd.f64(double %69, double %72, double %89)
+  %91 = fadd double %75, -1.000000e+00
+  %92 = fadd double %78, -1.000000e+00
+  %93 = fmul double %92, %92
+  %94 = call double @llvm.fmuladd.f64(double %91, double %91, double %93)
+  %95 = fadd double %81, -1.000000e+00
+  %96 = fmul double %87, %87
+  %97 = call double @llvm.fmuladd.f64(double %84, double %84, double %96)
+  %98 = call double @llvm.fmuladd.f64(double %90, double %90, double %97)
+  %99 = fmul double %98, 2.000000e+00
+  %100 = call double @llvm.fmuladd.f64(double %95, double %95, double %99)
+  %101 = fadd double %94, %100
   %102 = fcmp olt double %101, 1.000000e-08
   br i1 %102, label %103, label %131
 
 103:                                              ; preds = %_ZN2cvmlIdLi9ELi1EEENS_4MatxIT_XT0_EXT1_EEEdRKS3_.exit
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #21
-  %104 = fmul double %64, %69
-  %105 = fmul double %65, %72
-  %106 = fmul double %105, %74
-  %107 = call double @llvm.fmuladd.f64(double %104, double %78, double %106)
-  %108 = fmul double %67, %68
-  %109 = call double @llvm.fmuladd.f64(double %108, double %75, double %107)
-  %110 = fmul double %69, %74
-  %111 = fmul double %72, %75
+  %104 = fmul double %64, %68
+  %105 = fmul double %65, %69
+  %106 = fmul double %105, %70
+  %107 = call double @llvm.fmuladd.f64(double %104, double %72, double %106)
+  %108 = fmul double %66, %67
+  %109 = call double @llvm.fmuladd.f64(double %108, double %71, double %107)
+  %110 = fmul double %68, %70
+  %111 = fmul double %69, %71
   %112 = fmul double %64, %111
-  %113 = call double @llvm.fmuladd.f64(double %110, double %67, double %112)
-  %114 = fmul double %68, %78
+  %113 = call double @llvm.fmuladd.f64(double %110, double %66, double %112)
+  %114 = fmul double %67, %72
   %115 = call double @llvm.fmuladd.f64(double %114, double %65, double %113)
   %116 = fsub double %109, %115
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
@@ -5552,41 +5552,41 @@ _ZNK2cv4MatxIdLi9ELi9EE3colEi.exit589:            ; preds = %674, %_ZNK2cv4MatxI
   br i1 %exitcond.not.i593, label %_ZNK2cv4MatxIdLi9ELi1EE3dotERKS1_.exit594, label %_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit589, !llvm.loop !269
 
 _ZNK2cv4MatxIdLi9ELi1EE3dotERKS1_.exit594:        ; preds = %_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit589
-  %685 = fdiv double 1.000000e+00, %671
-  %686 = fmul double %685, %684
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %20) #21
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21) #21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %21, i8 0, i64 72, i1 false), !tbaa !70, !alias.scope !296
-  br label %687
+  br label %685
 
-687:                                              ; preds = %687, %_ZNK2cv4MatxIdLi9ELi1EE3dotERKS1_.exit594
-  %indvars.iv.i595 = phi i64 [ 0, %_ZNK2cv4MatxIdLi9ELi1EE3dotERKS1_.exit594 ], [ %indvars.iv.next.i596, %687 ]
-  %688 = mul nuw nsw i64 %indvars.iv.i595, 9
-  %689 = add nuw nsw i64 %688, %indvars.iv643
-  %690 = getelementptr inbounds nuw [81 x double], ptr %9, i64 0, i64 %689
-  %691 = load double, ptr %690, align 8, !tbaa !70, !noalias !296
-  %692 = getelementptr inbounds nuw [9 x double], ptr %21, i64 0, i64 %indvars.iv.i595
-  store double %691, ptr %692, align 8, !tbaa !70, !alias.scope !296
+685:                                              ; preds = %685, %_ZNK2cv4MatxIdLi9ELi1EE3dotERKS1_.exit594
+  %indvars.iv.i595 = phi i64 [ 0, %_ZNK2cv4MatxIdLi9ELi1EE3dotERKS1_.exit594 ], [ %indvars.iv.next.i596, %685 ]
+  %686 = mul nuw nsw i64 %indvars.iv.i595, 9
+  %687 = add nuw nsw i64 %686, %indvars.iv643
+  %688 = getelementptr inbounds nuw [81 x double], ptr %9, i64 0, i64 %687
+  %689 = load double, ptr %688, align 8, !tbaa !70, !noalias !296
+  %690 = getelementptr inbounds nuw [9 x double], ptr %21, i64 0, i64 %indvars.iv.i595
+  store double %689, ptr %690, align 8, !tbaa !70, !alias.scope !296
   %indvars.iv.next.i596 = add nuw nsw i64 %indvars.iv.i595, 1
   %exitcond.not.i597 = icmp eq i64 %indvars.iv.next.i596, 9
-  br i1 %exitcond.not.i597, label %_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit598, label %687, !llvm.loop !122
+  br i1 %exitcond.not.i597, label %_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit598, label %685, !llvm.loop !122
 
-_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit598:            ; preds = %687, %_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit598
-  %indvars.iv.i599 = phi i64 [ %indvars.iv.next.i601, %_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit598 ], [ 0, %687 ]
-  %.078.i600 = phi double [ %697, %_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit598 ], [ 0.000000e+00, %687 ]
-  %693 = getelementptr inbounds nuw [9 x double], ptr %21, i64 0, i64 %indvars.iv.i599
+_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit598:            ; preds = %685, %_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit598
+  %indvars.iv.i599 = phi i64 [ %indvars.iv.next.i601, %_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit598 ], [ 0, %685 ]
+  %.078.i600 = phi double [ %695, %_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit598 ], [ 0.000000e+00, %685 ]
+  %691 = getelementptr inbounds nuw [9 x double], ptr %21, i64 0, i64 %indvars.iv.i599
+  %692 = load double, ptr %691, align 8, !tbaa !70
+  %693 = getelementptr inbounds nuw [9 x double], ptr %17, i64 0, i64 %indvars.iv.i599
   %694 = load double, ptr %693, align 8, !tbaa !70
-  %695 = getelementptr inbounds nuw [9 x double], ptr %17, i64 0, i64 %indvars.iv.i599
-  %696 = load double, ptr %695, align 8, !tbaa !70
-  %697 = tail call double @llvm.fmuladd.f64(double %694, double %696, double %.078.i600)
+  %695 = tail call double @llvm.fmuladd.f64(double %692, double %694, double %.078.i600)
   %indvars.iv.next.i601 = add nuw nsw i64 %indvars.iv.i599, 1
   %exitcond.not.i602 = icmp eq i64 %indvars.iv.next.i601, 9
   br i1 %exitcond.not.i602, label %_ZNK2cv4MatxIdLi9ELi1EE3dotERKS1_.exit603, label %_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit598, !llvm.loop !269
 
 _ZNK2cv4MatxIdLi9ELi1EE3dotERKS1_.exit603:        ; preds = %_ZNK2cv4MatxIdLi9ELi9EE3colEi.exit598
-  %698 = tail call double @llvm.fabs.f64(double %686)
-  %699 = fmul double %685, %697
+  %696 = fdiv double 1.000000e+00, %671
+  %697 = fmul double %696, %684
+  %698 = tail call double @llvm.fabs.f64(double %697)
+  %699 = fmul double %696, %695
   %700 = tail call double @llvm.fabs.f64(double %699)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %21) #21
   %701 = fadd double %698, %700

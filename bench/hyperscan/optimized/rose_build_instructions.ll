@@ -6386,26 +6386,29 @@ define linkonce_odr hidden noundef i32 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue224RoseInstrCheckShufti32x84hashEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %4
+  br label %3
 
-4:                                                ; preds = %4, %1
-  %.0.idx11.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i.i, %4 ]
-  %.0910.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %9, %4 ]
+3:                                                ; preds = %3, %1
+  %.0.idx11.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i.i, %3 ]
+  %.0910.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %8, %3 ]
   %.0.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx11.i.i.i.i.i.i
-  %5 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
-  %6 = zext i8 %5 to i64
-  %7 = mul i64 %6, 814605021516865831
-  %8 = xor i64 %7, %.0910.i.i.i.i.i.i
-  %9 = add i64 %8, 3571081485394615273
+  %4 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
+  %5 = zext i8 %4 to i64
+  %6 = mul i64 %5, 814605021516865831
+  %7 = xor i64 %6, %.0910.i.i.i.i.i.i
+  %8 = add i64 %7, 3571081485394615273
   %.0.add.i.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i, 16
-  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i, label %4
+  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i.preheader, label %3
 
-_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i: ; preds = %4, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i
-  %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i ], [ 0, %4 ]
-  %.0910.i.i.i.i.i.i.i = phi i64 [ %14, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i ], [ 0, %4 ]
-  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx11.i.i.i.i.i.i.i
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i.preheader: ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i
+
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i.preheader, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i
+  %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0910.i.i.i.i.i.i.i = phi i64 [ %14, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm16EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.0.idx11.i.i.i.i.i.i.i
   %10 = load i8, ptr %.0.ptr.i.i.i.i.i.i.i, align 1
   %11 = zext i8 %10 to i64
   %12 = mul i64 %11, 814605021516865831
@@ -6436,7 +6439,7 @@ _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm16EES7_RKS4_IhLm32EERKjRK
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = mul i64 %14, 814605021516865831
-  %24 = mul i64 %9, 814605021516865831
+  %24 = mul i64 %8, 814605021516865831
   %25 = xor i64 %24, -4285797308595680540
   %26 = add i64 %25, 3571081485394615273
   %27 = xor i64 %23, %26
@@ -6508,26 +6511,29 @@ define linkonce_odr hidden noundef i32 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue225RoseInstrCheckShufti16x164hashEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %4
+  br label %3
 
-4:                                                ; preds = %4, %1
-  %.0.idx11.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i.i, %4 ]
-  %.0910.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %9, %4 ]
+3:                                                ; preds = %3, %1
+  %.0.idx11.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i.i, %3 ]
+  %.0910.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %8, %3 ]
   %.0.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx11.i.i.i.i.i.i
-  %5 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
-  %6 = zext i8 %5 to i64
-  %7 = mul i64 %6, 814605021516865831
-  %8 = xor i64 %7, %.0910.i.i.i.i.i.i
-  %9 = add i64 %8, 3571081485394615273
+  %4 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
+  %5 = zext i8 %4 to i64
+  %6 = mul i64 %5, 814605021516865831
+  %7 = xor i64 %6, %.0910.i.i.i.i.i.i
+  %8 = add i64 %7, 3571081485394615273
   %.0.add.i.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i, 32
-  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i, label %4
+  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader, label %3
 
-_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i: ; preds = %4, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
-  %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %4 ]
-  %.0910.i.i.i.i.i.i.i = phi i64 [ %14, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %4 ]
-  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx11.i.i.i.i.i.i.i
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader: ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
+
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
+  %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0910.i.i.i.i.i.i.i = phi i64 [ %14, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.0.idx11.i.i.i.i.i.i.i
   %10 = load i8, ptr %.0.ptr.i.i.i.i.i.i.i, align 1
   %11 = zext i8 %10 to i64
   %12 = mul i64 %11, 814605021516865831
@@ -6558,7 +6564,7 @@ _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_S7_RKjRKiEEEmDpOT_
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = mul i64 %14, 814605021516865831
-  %24 = mul i64 %9, 814605021516865831
+  %24 = mul i64 %8, 814605021516865831
   %25 = xor i64 %24, -3471192287078814709
   %26 = add i64 %25, 3571081485394615273
   %27 = xor i64 %23, %26
@@ -6630,43 +6636,46 @@ define linkonce_odr hidden noundef i32 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue225RoseInstrCheckShufti32x164hashEv(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %4
+  br label %3
 
-4:                                                ; preds = %4, %1
-  %.0.idx11.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i.i, %4 ]
-  %.0910.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %9, %4 ]
+3:                                                ; preds = %3, %1
+  %.0.idx11.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i.i, %3 ]
+  %.0910.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %8, %3 ]
   %.0.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx11.i.i.i.i.i.i
-  %5 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
-  %6 = zext i8 %5 to i64
-  %7 = mul i64 %6, 814605021516865831
-  %8 = xor i64 %7, %.0910.i.i.i.i.i.i
-  %9 = add i64 %8, 3571081485394615273
+  %4 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
+  %5 = zext i8 %4 to i64
+  %6 = mul i64 %5, 814605021516865831
+  %7 = xor i64 %6, %.0910.i.i.i.i.i.i
+  %8 = add i64 %7, 3571081485394615273
   %.0.add.i.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i, 32
-  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader, label %4
+  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader, label %3
 
-_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader: ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader: ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
 
 _ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
   %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader ]
-  %.0910.i.i.i.i.i.i.i = phi i64 [ %15, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader ]
-  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.0.idx11.i.i.i.i.i.i.i
-  %11 = load i8, ptr %.0.ptr.i.i.i.i.i.i.i, align 1
-  %12 = zext i8 %11 to i64
-  %13 = mul i64 %12, 814605021516865831
-  %14 = xor i64 %13, %.0910.i.i.i.i.i.i.i
-  %15 = add i64 %14, 3571081485394615273
+  %.0910.i.i.i.i.i.i.i = phi i64 [ %14, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.0.idx11.i.i.i.i.i.i.i
+  %10 = load i8, ptr %.0.ptr.i.i.i.i.i.i.i, align 1
+  %11 = zext i8 %10 to i64
+  %12 = mul i64 %11, 814605021516865831
+  %13 = xor i64 %12, %.0910.i.i.i.i.i.i.i
+  %14 = add i64 %13, 3571081485394615273
   %.0.add.i.i.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i.i, 32
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i.preheader, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
 
-_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i
-  %.0.idx11.i.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ]
-  %.0910.i.i.i.i.i.i.i.i = phi i64 [ %20, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ]
-  %.0.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx11.i.i.i.i.i.i.i.i
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i.preheader: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i
+
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i.preheader, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i
+  %.0.idx11.i.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i.preheader ]
+  %.0910.i.i.i.i.i.i.i.i = phi i64 [ %20, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.i.preheader ]
+  %.0.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.0.idx11.i.i.i.i.i.i.i.i
   %16 = load i8, ptr %.0.ptr.i.i.i.i.i.i.i.i, align 1
   %17 = zext i8 %16 to i64
   %18 = mul i64 %17, 814605021516865831
@@ -6697,8 +6706,8 @@ _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_S7_S7_RKjRKiEEEmDp
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %29 = mul i64 %20, 814605021516865831
-  %30 = mul i64 %15, 814605021516865831
-  %31 = mul i64 %9, 814605021516865831
+  %30 = mul i64 %14, 814605021516865831
+  %31 = mul i64 %8, 814605021516865831
   %32 = xor i64 %31, -2656587265561948878
   %33 = add i64 %32, 3571081485394615273
   %34 = xor i64 %30, %33
@@ -6772,26 +6781,29 @@ define linkonce_odr hidden noundef i32 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue224RoseInstrCheckShufti64x84hashEv(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %4
+  br label %3
 
-4:                                                ; preds = %4, %1
-  %.0.idx11.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i.i, %4 ]
-  %.0910.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %9, %4 ]
+3:                                                ; preds = %3, %1
+  %.0.idx11.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i.i, %3 ]
+  %.0910.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %8, %3 ]
   %.0.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx11.i.i.i.i.i.i
-  %5 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
-  %6 = zext i8 %5 to i64
-  %7 = mul i64 %6, 814605021516865831
-  %8 = xor i64 %7, %.0910.i.i.i.i.i.i
-  %9 = add i64 %8, 3571081485394615273
+  %4 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
+  %5 = zext i8 %4 to i64
+  %6 = mul i64 %5, 814605021516865831
+  %7 = xor i64 %6, %.0910.i.i.i.i.i.i
+  %8 = add i64 %7, 3571081485394615273
   %.0.add.i.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i, 64
-  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i, label %4
+  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i.preheader, label %3
 
-_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i: ; preds = %4, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i
-  %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i ], [ 0, %4 ]
-  %.0910.i.i.i.i.i.i.i = phi i64 [ %14, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i ], [ 0, %4 ]
-  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx11.i.i.i.i.i.i.i
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i.preheader: ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i
+
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i.preheader, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i
+  %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0910.i.i.i.i.i.i.i = phi i64 [ %14, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm64EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.0.idx11.i.i.i.i.i.i.i
   %10 = load i8, ptr %.0.ptr.i.i.i.i.i.i.i, align 1
   %11 = zext i8 %10 to i64
   %12 = mul i64 %11, 814605021516865831
@@ -6822,7 +6834,7 @@ _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm64EES7_S7_RKyRKiEEEmDpOT_
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %23 = mul i64 %14, 814605021516865831
-  %24 = mul i64 %9, 814605021516865831
+  %24 = mul i64 %8, 814605021516865831
   %25 = xor i64 %24, 2809385705895971102
   %26 = add i64 %25, 3571081485394615273
   %27 = xor i64 %23, %26
@@ -9608,26 +9620,29 @@ define linkonce_odr hidden noundef i32 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue233RoseInstrCheckMultipathShufti16x84hashEv(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %4
+  br label %3
 
-4:                                                ; preds = %4, %1
-  %.0.idx11.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i.i, %4 ]
-  %.0910.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %9, %4 ]
+3:                                                ; preds = %3, %1
+  %.0.idx11.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i.i, %3 ]
+  %.0910.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %8, %3 ]
   %.0.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx11.i.i.i.i.i.i
-  %5 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
-  %6 = zext i8 %5 to i64
-  %7 = mul i64 %6, 814605021516865831
-  %8 = xor i64 %7, %.0910.i.i.i.i.i.i
-  %9 = add i64 %8, 3571081485394615273
+  %4 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
+  %5 = zext i8 %4 to i64
+  %6 = mul i64 %5, 814605021516865831
+  %7 = xor i64 %6, %.0910.i.i.i.i.i.i
+  %8 = add i64 %7, 3571081485394615273
   %.0.add.i.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i, 32
-  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i, label %4
+  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader, label %3
 
-_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i: ; preds = %4, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
-  %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %4 ]
-  %.0910.i.i.i.i.i.i.i = phi i64 [ %14, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %4 ]
-  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx11.i.i.i.i.i.i.i
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader: ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
+
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
+  %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0910.i.i.i.i.i.i.i = phi i64 [ %14, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.0.idx11.i.i.i.i.i.i.i
   %10 = load i8, ptr %.0.ptr.i.i.i.i.i.i.i, align 1
   %11 = zext i8 %10 to i64
   %12 = mul i64 %11, 814605021516865831
@@ -9661,7 +9676,7 @@ _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EERKS4_IhLm64EESA_RKtSC
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 170
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %26 = mul i64 %14, 814605021516865831
-  %27 = mul i64 %9, 814605021516865831
+  %27 = mul i64 %8, 814605021516865831
   %28 = xor i64 %27, -5336664509272687208
   %29 = add i64 %28, 3571081485394615273
   %30 = xor i64 %26, %29
@@ -9748,43 +9763,46 @@ define linkonce_odr hidden noundef i32 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue233RoseInstrCheckMultipathShufti32x84hashEv(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %4
+  br label %3
 
-4:                                                ; preds = %4, %1
-  %.0.idx11.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i, %4 ]
-  %.0910.i.i.i.i.i = phi i64 [ 0, %1 ], [ %9, %4 ]
+3:                                                ; preds = %3, %1
+  %.0.idx11.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i, %3 ]
+  %.0910.i.i.i.i.i = phi i64 [ 0, %1 ], [ %8, %3 ]
   %.0.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx11.i.i.i.i.i
-  %5 = load i8, ptr %.0.ptr.i.i.i.i.i, align 1
-  %6 = zext i8 %5 to i64
-  %7 = mul i64 %6, 814605021516865831
-  %8 = xor i64 %7, %.0910.i.i.i.i.i
-  %9 = add i64 %8, 3571081485394615273
+  %4 = load i8, ptr %.0.ptr.i.i.i.i.i, align 1
+  %5 = zext i8 %4 to i64
+  %6 = mul i64 %5, 814605021516865831
+  %7 = xor i64 %6, %.0910.i.i.i.i.i
+  %8 = add i64 %7, 3571081485394615273
   %.0.add.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i, 1
   %.not.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i, 32
-  br i1 %.not.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader, label %4
+  br i1 %.not.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader, label %3
 
-_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader: ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader: ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i
 
 _ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i
   %.0.idx11.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader ]
-  %.0910.i.i.i.i.i.i = phi i64 [ %15, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader ]
-  %.0.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.0.idx11.i.i.i.i.i.i
-  %11 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
-  %12 = zext i8 %11 to i64
-  %13 = mul i64 %12, 814605021516865831
-  %14 = xor i64 %13, %.0910.i.i.i.i.i.i
-  %15 = add i64 %14, 3571081485394615273
+  %.0910.i.i.i.i.i.i = phi i64 [ %14, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader ]
+  %.0.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.0.idx11.i.i.i.i.i.i
+  %10 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
+  %11 = zext i8 %10 to i64
+  %12 = mul i64 %11, 814605021516865831
+  %13 = xor i64 %12, %.0910.i.i.i.i.i.i
+  %14 = add i64 %13, 3571081485394615273
   %.0.add.i.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i, 32
-  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i
 
-_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
-  %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i ]
-  %.0910.i.i.i.i.i.i.i = phi i64 [ %20, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i ]
-  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx11.i.i.i.i.i.i.i
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
+
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
+  %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0910.i.i.i.i.i.i.i = phi i64 [ %20, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.0.idx11.i.i.i.i.i.i.i
   %16 = load i8, ptr %.0.ptr.i.i.i.i.i.i.i, align 1
   %17 = zext i8 %16 to i64
   %18 = mul i64 %17, 814605021516865831
@@ -9818,8 +9836,8 @@ _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_RKS4_IhLm64EESA_RK
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %32 = mul i64 %20, 814605021516865831
-  %33 = mul i64 %15, 814605021516865831
-  %34 = mul i64 %9, 814605021516865831
+  %33 = mul i64 %14, 814605021516865831
+  %34 = mul i64 %8, 814605021516865831
   %35 = xor i64 %34, -4522059487755821377
   %36 = add i64 %35, 3571081485394615273
   %37 = xor i64 %33, %36
@@ -9972,43 +9990,46 @@ define linkonce_odr hidden noundef i32 @_ZNK3ue213RoseInstrBaseIL19RoseInstructi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZNK3ue231RoseInstrCheckMultipathShufti644hashEv(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %4
+  br label %3
 
-4:                                                ; preds = %4, %1
-  %.0.idx11.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i, %4 ]
-  %.0910.i.i.i.i.i = phi i64 [ 0, %1 ], [ %9, %4 ]
+3:                                                ; preds = %3, %1
+  %.0.idx11.i.i.i.i.i = phi i64 [ 0, %1 ], [ %.0.add.i.i.i.i.i, %3 ]
+  %.0910.i.i.i.i.i = phi i64 [ 0, %1 ], [ %8, %3 ]
   %.0.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx11.i.i.i.i.i
-  %5 = load i8, ptr %.0.ptr.i.i.i.i.i, align 1
-  %6 = zext i8 %5 to i64
-  %7 = mul i64 %6, 814605021516865831
-  %8 = xor i64 %7, %.0910.i.i.i.i.i
-  %9 = add i64 %8, 3571081485394615273
+  %4 = load i8, ptr %.0.ptr.i.i.i.i.i, align 1
+  %5 = zext i8 %4 to i64
+  %6 = mul i64 %5, 814605021516865831
+  %7 = xor i64 %6, %.0910.i.i.i.i.i
+  %8 = add i64 %7, 3571081485394615273
   %.0.add.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i, 1
   %.not.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i, 32
-  br i1 %.not.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader, label %4
+  br i1 %.not.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader, label %3
 
-_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader: ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader: ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i
 
 _ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i
   %.0.idx11.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader ]
-  %.0910.i.i.i.i.i.i = phi i64 [ %15, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader ]
-  %.0.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.0.idx11.i.i.i.i.i.i
-  %11 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
-  %12 = zext i8 %11 to i64
-  %13 = mul i64 %12, 814605021516865831
-  %14 = xor i64 %13, %.0910.i.i.i.i.i.i
-  %15 = add i64 %14, 3571081485394615273
+  %.0910.i.i.i.i.i.i = phi i64 [ %14, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.preheader ]
+  %.0.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.0.idx11.i.i.i.i.i.i
+  %10 = load i8, ptr %.0.ptr.i.i.i.i.i.i, align 1
+  %11 = zext i8 %10 to i64
+  %12 = mul i64 %11, 814605021516865831
+  %13 = xor i64 %12, %.0910.i.i.i.i.i.i
+  %14 = add i64 %13, 3571081485394615273
   %.0.add.i.i.i.i.i.i = add nuw nsw i64 %.0.idx11.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %.0.add.i.i.i.i.i.i, 32
-  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader, label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i
 
-_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
-  %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i ]
-  %.0910.i.i.i.i.i.i.i = phi i64 [ %20, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i ]
-  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx11.i.i.i.i.i.i.i
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
+
+_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i: ; preds = %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i
+  %.0.idx11.i.i.i.i.i.i.i = phi i64 [ %.0.add.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0910.i.i.i.i.i.i.i = phi i64 [ %20, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildISt5arrayIhLm32EEEEvRmRKT_.exit.i.i.i.preheader ]
+  %.0.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.0.idx11.i.i.i.i.i.i.i
   %16 = load i8, ptr %.0.ptr.i.i.i.i.i.i.i, align 1
   %17 = zext i8 %16 to i64
   %18 = mul i64 %17, 814605021516865831
@@ -10042,8 +10063,8 @@ _ZN3ue28hash_allIJRK19RoseInstructionCodeRKSt5arrayIhLm32EES7_RKS4_IhLm64EESA_RK
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %32 = mul i64 %20, 814605021516865831
-  %33 = mul i64 %15, 814605021516865831
-  %34 = mul i64 %9, 814605021516865831
+  %33 = mul i64 %14, 814605021516865831
+  %34 = mul i64 %8, 814605021516865831
   %35 = xor i64 %34, -2892849444722089715
   %36 = add i64 %35, 3571081485394615273
   %37 = xor i64 %33, %36

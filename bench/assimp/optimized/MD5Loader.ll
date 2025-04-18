@@ -2510,83 +2510,83 @@ _ZN6Assimp11MD5Importer18LoadFileIntoMemoryEPNS_8IOStreamE.exit: ; preds = %.noe
   %281 = load i32, ptr %280, align 8
   %282 = add i32 %281, 1
   store i32 %282, ptr %280, align 8
-  %283 = zext i32 %281 to i64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.13)
   store float 0.000000e+00, ptr %.sroa.0, align 4
   store float 0.000000e+00, ptr %.sroa.8, align 4
   store float 0.000000e+00, ptr %.sroa.13, align 4
-  %284 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0162, i64 1032
-  %285 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  %286 = getelementptr inbounds nuw i8, ptr %277, i64 12
-  %287 = getelementptr inbounds nuw i8, ptr %277, i64 16
-  %288 = getelementptr inbounds nuw i8, ptr %.061164, i64 4
-  %289 = getelementptr inbounds nuw i8, ptr %.061164, i64 8
-  br label %293
+  %283 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0162, i64 1032
+  %284 = getelementptr inbounds nuw i8, ptr %277, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %277, i64 12
+  %286 = getelementptr inbounds nuw i8, ptr %277, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %.061164, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %.061164, i64 8
+  br label %292
 
-.preheader:                                       ; preds = %306
-  %290 = getelementptr inbounds nuw i8, ptr %.061164, i64 16
-  %291 = getelementptr inbounds nuw i8, ptr %.061164, i64 20
-  %292 = getelementptr inbounds nuw i8, ptr %.061164, i64 12
-  %.pre175 = load i32, ptr %284, align 4
+.preheader:                                       ; preds = %305
+  %289 = getelementptr inbounds nuw i8, ptr %.061164, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %.061164, i64 20
+  %291 = getelementptr inbounds nuw i8, ptr %.061164, i64 12
+  %.pre175 = load i32, ptr %283, align 4
   br label %323
 
-293:                                              ; preds = %268, %306
-  %.047158 = phi i32 [ 0, %268 ], [ %307, %306 ]
-  %.057157 = phi ptr [ %269, %268 ], [ %.158, %306 ]
-  %294 = load i32, ptr %284, align 4
-  %295 = shl nuw nsw i32 1, %.047158
-  %296 = and i32 %294, %295
-  %.not72 = icmp eq i32 %296, 0
-  br i1 %.not72, label %302, label %297
+292:                                              ; preds = %268, %305
+  %.047158 = phi i32 [ 0, %268 ], [ %306, %305 ]
+  %.057157 = phi ptr [ %269, %268 ], [ %.158, %305 ]
+  %293 = load i32, ptr %283, align 4
+  %294 = shl nuw nsw i32 1, %.047158
+  %295 = and i32 %293, %294
+  %.not72 = icmp eq i32 %295, 0
+  br i1 %.not72, label %301, label %296
 
-297:                                              ; preds = %293
-  %298 = getelementptr inbounds nuw i8, ptr %.057157, i64 4
-  %299 = load float, ptr %.057157, align 4
+296:                                              ; preds = %292
+  %297 = getelementptr inbounds nuw i8, ptr %.057157, i64 4
+  %298 = load float, ptr %.057157, align 4
   switch i32 %.047158, label %_ZN10aiVector3tIfEixEj.exit [
-    i32 2, label %301
-    i32 1, label %300
+    i32 2, label %300
+    i32 1, label %299
   ]
 
-300:                                              ; preds = %297
+299:                                              ; preds = %296
   br label %_ZN10aiVector3tIfEixEj.exit
 
-301:                                              ; preds = %297
+300:                                              ; preds = %296
   br label %_ZN10aiVector3tIfEixEj.exit
 
-_ZN10aiVector3tIfEixEj.exit:                      ; preds = %297, %300, %301
-  %.0.i = phi ptr [ %287, %301 ], [ %286, %300 ], [ %285, %297 ]
-  store float %299, ptr %.0.i, align 4
-  br label %306
+_ZN10aiVector3tIfEixEj.exit:                      ; preds = %296, %299, %300
+  %.0.i = phi ptr [ %286, %300 ], [ %285, %299 ], [ %284, %296 ]
+  store float %298, ptr %.0.i, align 4
+  br label %305
 
-302:                                              ; preds = %293
+301:                                              ; preds = %292
   switch i32 %.047158, label %_ZN10aiVector3tIfEixEj.exit97 [
-    i32 2, label %304
-    i32 1, label %303
+    i32 2, label %303
+    i32 1, label %302
   ]
 
-303:                                              ; preds = %302
+302:                                              ; preds = %301
   br label %_ZN10aiVector3tIfEixEj.exit97
 
-304:                                              ; preds = %302
+303:                                              ; preds = %301
   br label %_ZN10aiVector3tIfEixEj.exit97
 
-_ZN10aiVector3tIfEixEj.exit97:                    ; preds = %302, %303, %304
-  %.in153 = phi ptr [ %289, %304 ], [ %288, %303 ], [ %.061164, %302 ]
-  %.0.i96 = phi ptr [ %287, %304 ], [ %286, %303 ], [ %285, %302 ]
-  %305 = load float, ptr %.in153, align 4
-  store float %305, ptr %.0.i96, align 4
-  br label %306
+_ZN10aiVector3tIfEixEj.exit97:                    ; preds = %301, %302, %303
+  %.in153 = phi ptr [ %288, %303 ], [ %287, %302 ], [ %.061164, %301 ]
+  %.0.i96 = phi ptr [ %286, %303 ], [ %285, %302 ], [ %284, %301 ]
+  %304 = load float, ptr %.in153, align 4
+  store float %304, ptr %.0.i96, align 4
+  br label %305
 
-306:                                              ; preds = %_ZN10aiVector3tIfEixEj.exit, %_ZN10aiVector3tIfEixEj.exit97
-  %.158 = phi ptr [ %298, %_ZN10aiVector3tIfEixEj.exit ], [ %.057157, %_ZN10aiVector3tIfEixEj.exit97 ]
-  %307 = add nuw nsw i32 %.047158, 1
-  %exitcond.not = icmp eq i32 %307, 3
-  br i1 %exitcond.not, label %.preheader, label %293, !llvm.loop !19
+305:                                              ; preds = %_ZN10aiVector3tIfEixEj.exit, %_ZN10aiVector3tIfEixEj.exit97
+  %.158 = phi ptr [ %297, %_ZN10aiVector3tIfEixEj.exit ], [ %.057157, %_ZN10aiVector3tIfEixEj.exit97 ]
+  %306 = add nuw nsw i32 %.047158, 1
+  %exitcond.not = icmp eq i32 %306, 3
+  br i1 %exitcond.not, label %.preheader, label %292, !llvm.loop !19
 
-308:                                              ; preds = %335
-  %309 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %279, i64 %283
+307:                                              ; preds = %335
+  %308 = zext i32 %281 to i64
+  %309 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %279, i64 %308
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4
   %311 = getelementptr inbounds nuw i8, ptr %309, i64 12
@@ -2606,7 +2606,7 @@ _ZN10aiVector3tIfEixEj.exit97:                    ; preds = %302, %303, %304
   %320 = fcmp olt float %319, 0.000000e+00
   br i1 %320, label %337, label %321
 
-321:                                              ; preds = %308
+321:                                              ; preds = %307
   %322 = call noundef float @sqrtf(float noundef %319) #25
   br label %337
 
@@ -2650,7 +2650,7 @@ _ZN10aiVector3tIfEixEj.exit99:                    ; preds = %326, %329, %330
   br label %_ZN10aiVector3tIfEixEj.exit103
 
 _ZN10aiVector3tIfEixEj.exit103:                   ; preds = %331, %332, %333
-  %.in = phi ptr [ %291, %333 ], [ %290, %332 ], [ %292, %331 ]
+  %.in = phi ptr [ %290, %333 ], [ %289, %332 ], [ %291, %331 ]
   %.0.i102 = phi ptr [ %.sroa.13, %333 ], [ %.sroa.8, %332 ], [ %.sroa.0, %331 ]
   %334 = load float, ptr %.in, align 4
   store float %334, ptr %.0.i102, align 4
@@ -2660,10 +2660,10 @@ _ZN10aiVector3tIfEixEj.exit103:                   ; preds = %331, %332, %333
   %.360 = phi ptr [ %327, %_ZN10aiVector3tIfEixEj.exit99 ], [ %.259159, %_ZN10aiVector3tIfEixEj.exit103 ]
   %336 = add nuw nsw i32 %.0160, 1
   %exitcond173.not = icmp eq i32 %336, 3
-  br i1 %exitcond173.not, label %308, label %323, !llvm.loop !20
+  br i1 %exitcond173.not, label %307, label %323, !llvm.loop !20
 
-337:                                              ; preds = %321, %308
-  %storemerge.i = phi float [ %322, %321 ], [ 0.000000e+00, %308 ]
+337:                                              ; preds = %321, %307
+  %storemerge.i = phi float [ %322, %321 ], [ 0.000000e+00, %307 ]
   %338 = fneg float %storemerge.i
   store float %338, ptr %310, align 4
   store double %236, ptr %277, align 8

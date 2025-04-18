@@ -2139,11 +2139,11 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   store float %8, ptr %.sroa.438, align 4, !tbaa !155
   store float %6, ptr %.sroa.034, align 4, !tbaa !155
   store float %9, ptr %.sroa.5, align 4, !tbaa !155
-  %16 = fmul float %0, %0
-  %17 = tail call noundef float @sqrtf(float noundef %0) #18, !tbaa !154
-  %18 = fmul float %0, %16
+  %16 = tail call noundef float @sqrtf(float noundef %0) #18, !tbaa !154
+  %17 = fmul float %0, %0
+  %18 = fmul float %0, %17
   %19 = fdiv float 1.000000e+00, %18
-  %20 = fmul float %1, %17
+  %20 = fmul float %1, %16
   %21 = fptosi float %20 to i32
   %22 = sitofp i32 %21 to float
   %23 = fsub float %20, %22
@@ -2166,7 +2166,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %40 = getelementptr i8, ptr %34, i64 36
   %41 = getelementptr i8, ptr %34, i64 40
   %42 = getelementptr i8, ptr %34, i64 44
-  %43 = fmul float %19, %17
+  %43 = fmul float %19, %16
   %44 = fmul float %1, %43
   br label %45
 
@@ -2211,7 +2211,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   store float %64, ptr %indvars.iv.sroa.phi11, align 4, !tbaa !155
   %65 = fneg float %47
   %66 = fmul float %63, %65
-  %67 = fmul float %17, %66
+  %67 = fmul float %16, %66
   %68 = fmul float %19, %67
   %69 = fmul float %1, %68
   store float %69, ptr %indvars.iv.sroa.phi17, align 4, !tbaa !155
@@ -2276,7 +2276,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %111 = load float, ptr %indvars.iv14.sroa.phi25, align 4, !tbaa !155
   %112 = fmul float %107, %111
   %113 = tail call float @llvm.fmuladd.f32(float %103, float %110, float %112)
-  %114 = tail call float @llvm.fmuladd.f32(float %113, float %16, float %.08)
+  %114 = tail call float @llvm.fmuladd.f32(float %113, float %17, float %.08)
   %115 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv14
   %116 = load float, ptr %115, align 4, !tbaa !155
   %117 = tail call float @llvm.fmuladd.f32(float %104, float %116, float %.01617)
@@ -2660,38 +2660,38 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   store float %10, ptr %.sroa.794, align 4, !tbaa !155
   store float %8, ptr %.sroa.082, align 4, !tbaa !155
   store float %11, ptr %.sroa.7, align 4, !tbaa !155
-  %20 = fmul float %0, %0
-  %21 = tail call noundef float @sqrtf(float noundef %0) #18, !tbaa !154
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %23 = load float, ptr %22, align 4
-  br label %24
+  %20 = tail call noundef float @sqrtf(float noundef %0) #18, !tbaa !154
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %22 = load float, ptr %21, align 4
+  br label %23
 
-24:                                               ; preds = %19, %34
-  %25 = phi i1 [ true, %19 ], [ false, %34 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %19 ], [ %.sroa.4, %34 ]
-  %indvars.iv.sroa.phi72 = phi ptr [ %.sroa.082, %19 ], [ %.sroa.7, %34 ]
-  %indvars.iv.sroa.phi83 = phi ptr [ %.sroa.093, %19 ], [ %.sroa.794, %34 ]
-  %26 = load float, ptr %indvars.iv.sroa.phi83, align 4, !tbaa !155
-  %27 = fcmp ogt float %26, 0.000000e+00
-  br i1 %27, label %28, label %34
+23:                                               ; preds = %19, %33
+  %24 = phi i1 [ true, %19 ], [ false, %33 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0, %19 ], [ %.sroa.4, %33 ]
+  %indvars.iv.sroa.phi72 = phi ptr [ %.sroa.082, %19 ], [ %.sroa.7, %33 ]
+  %indvars.iv.sroa.phi83 = phi ptr [ %.sroa.093, %19 ], [ %.sroa.794, %33 ]
+  %25 = load float, ptr %indvars.iv.sroa.phi83, align 4, !tbaa !155
+  %26 = fcmp ogt float %25, 0.000000e+00
+  br i1 %26, label %27, label %33
 
-28:                                               ; preds = %24
-  %29 = load float, ptr %indvars.iv.sroa.phi72, align 4, !tbaa !155
-  %30 = fcmp ogt float %29, 0.000000e+00
-  br i1 %30, label %31, label %34
+27:                                               ; preds = %23
+  %28 = load float, ptr %indvars.iv.sroa.phi72, align 4, !tbaa !155
+  %29 = fcmp ogt float %28, 0.000000e+00
+  br i1 %29, label %30, label %33
 
-31:                                               ; preds = %28
-  %32 = fmul float %29, 5.000000e-01
-  %33 = fdiv float %32, %26
-  br label %34
+30:                                               ; preds = %27
+  %31 = fmul float %28, 5.000000e-01
+  %32 = fdiv float %31, %25
+  br label %33
 
-34:                                               ; preds = %24, %28, %31
-  %.sink25 = phi float [ %33, %31 ], [ %23, %28 ], [ %23, %24 ]
+33:                                               ; preds = %23, %27, %30
+  %.sink25 = phi float [ %32, %30 ], [ %22, %27 ], [ %22, %23 ]
   store float %.sink25, ptr %indvars.iv.sroa.phi, align 4, !tbaa !155
-  br i1 %25, label %24, label %35, !llvm.loop !219
+  br i1 %24, label %23, label %34, !llvm.loop !219
 
-35:                                               ; preds = %34
-  %36 = fmul float %0, %20
+34:                                               ; preds = %33
+  %35 = fmul float %0, %0
+  %36 = fmul float %0, %35
   %37 = fcmp ogt float %8, 0.000000e+00
   %38 = fcmp ogt float %11, 0.000000e+00
   %or.cond = and i1 %37, %38
@@ -2703,7 +2703,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %.0291 = select i1 %or.cond, float 0.000000e+00, float %42
   %43 = fdiv float 1.000000e+00, %36
   %44 = fcmp une float %12, 0.000000e+00
-  %45 = fmul float %3, %21
+  %45 = fmul float %3, %20
   %46 = fptosi float %45 to i32
   %47 = sitofp i32 %46 to float
   %48 = fsub float %45, %47
@@ -2726,23 +2726,23 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %65 = getelementptr i8, ptr %59, i64 36
   %66 = getelementptr i8, ptr %59, i64 40
   %67 = getelementptr i8, ptr %59, i64 44
-  %68 = fmul float %43, %21
+  %68 = fmul float %43, %20
   %69 = fmul float %3, %68
   br label %70
 
-70:                                               ; preds = %35, %234
-  %71 = phi i1 [ true, %35 ], [ false, %234 ]
-  %indvars.iv14.sroa.phi = phi ptr [ %.sroa.0, %35 ], [ %.sroa.4, %234 ]
-  %indvars.iv14.sroa.phi37 = phi ptr [ %.sroa.040, %35 ], [ %.sroa.441, %234 ]
-  %indvars.iv14.sroa.phi42 = phi ptr [ %.sroa.046, %35 ], [ %.sroa.447, %234 ]
-  %indvars.iv14.sroa.phi48 = phi ptr [ %.sroa.052, %35 ], [ %.sroa.453, %234 ]
-  %indvars.iv14.sroa.phi54 = phi ptr [ %.sroa.058, %35 ], [ %.sroa.459, %234 ]
-  %indvars.iv14.sroa.phi60 = phi ptr [ %.sroa.064, %35 ], [ %.sroa.465, %234 ]
-  %indvars.iv14.sroa.phi66 = phi ptr [ %.sroa.070, %35 ], [ %.sroa.471, %234 ]
-  %indvars.iv14.sroa.phi79 = phi ptr [ %.sroa.082, %35 ], [ %.sroa.7, %234 ]
-  %indvars.iv14.sroa.phi90 = phi ptr [ %.sroa.093, %35 ], [ %.sroa.794, %234 ]
-  %indvars.iv14.sroa.phi95 = phi ptr [ %.sroa.097, %35 ], [ %.sroa.498, %234 ]
-  %indvars.iv14 = phi i64 [ 0, %35 ], [ 1, %234 ]
+70:                                               ; preds = %34, %234
+  %71 = phi i1 [ true, %34 ], [ false, %234 ]
+  %indvars.iv14.sroa.phi = phi ptr [ %.sroa.0, %34 ], [ %.sroa.4, %234 ]
+  %indvars.iv14.sroa.phi37 = phi ptr [ %.sroa.040, %34 ], [ %.sroa.441, %234 ]
+  %indvars.iv14.sroa.phi42 = phi ptr [ %.sroa.046, %34 ], [ %.sroa.447, %234 ]
+  %indvars.iv14.sroa.phi48 = phi ptr [ %.sroa.052, %34 ], [ %.sroa.453, %234 ]
+  %indvars.iv14.sroa.phi54 = phi ptr [ %.sroa.058, %34 ], [ %.sroa.459, %234 ]
+  %indvars.iv14.sroa.phi60 = phi ptr [ %.sroa.064, %34 ], [ %.sroa.465, %234 ]
+  %indvars.iv14.sroa.phi66 = phi ptr [ %.sroa.070, %34 ], [ %.sroa.471, %234 ]
+  %indvars.iv14.sroa.phi79 = phi ptr [ %.sroa.082, %34 ], [ %.sroa.7, %234 ]
+  %indvars.iv14.sroa.phi90 = phi ptr [ %.sroa.093, %34 ], [ %.sroa.794, %234 ]
+  %indvars.iv14.sroa.phi95 = phi ptr [ %.sroa.097, %34 ], [ %.sroa.498, %234 ]
+  %indvars.iv14 = phi i64 [ 0, %34 ], [ 1, %234 ]
   store float 0.000000e+00, ptr %indvars.iv14.sroa.phi60, align 4, !tbaa !155
   store float 0.000000e+00, ptr %indvars.iv14.sroa.phi66, align 4, !tbaa !155
   store float 0.000000e+00, ptr %indvars.iv14.sroa.phi54, align 4, !tbaa !155
@@ -2787,16 +2787,16 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %.0293 = phi float [ %93, %85 ], [ 0.000000e+00, %81 ], [ 0.000000e+00, %80 ]
   %95 = fcmp ogt float %.0293, %1
   %.1 = select i1 %95, float %1, float %.0293
-  %96 = fcmp olt float %21, %.1
+  %96 = fcmp olt float %20, %.1
   br i1 %96, label %97, label %121
 
 97:                                               ; preds = %94
   %.0295 = select i1 %95, float 0.000000e+00, float 1.000000e+00
   %98 = fdiv float 1.000000e+00, %.1
   %99 = fmul float %72, %98
-  %100 = fmul float %21, %99
+  %100 = fmul float %20, %99
   %101 = fmul float %98, %100
-  %102 = fmul float %21, %101
+  %102 = fmul float %20, %101
   %103 = fmul float %98, %102
   %104 = fmul float %101, 3.000000e+00
   %105 = tail call float @llvm.fmuladd.f32(float %103, float -2.000000e+00, float %104)
@@ -2833,7 +2833,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %133 = fmul float %72, %130
   %134 = fneg float %72
   %135 = fmul float %132, %134
-  %136 = fmul float %21, %135
+  %136 = fmul float %20, %135
   %137 = fmul float %43, %136
   %138 = fmul float %3, %137
   br label %139
@@ -2860,7 +2860,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
 
 151:                                              ; preds = %139, %143
   %.0294 = phi float [ %150, %143 ], [ 0.000000e+00, %139 ]
-  %152 = fcmp olt float %21, %.0294
+  %152 = fcmp olt float %20, %.0294
   br i1 %152, label %153, label %202
 
 153:                                              ; preds = %151
@@ -2878,12 +2878,12 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %165 = fmul float %162, %164
   %166 = fmul float %0, %165
   %167 = fmul float %161, %164
-  %168 = fmul float %21, %167
+  %168 = fmul float %20, %167
   %169 = fmul float %161, %157
   %170 = fmul float %161, %169
   %171 = fmul float %0, %155
   %172 = fmul float %163, %171
-  %173 = fmul float %21, %155
+  %173 = fmul float %20, %155
   %174 = fmul float %162, %173
   %175 = fmul float %161, %155
   %176 = fmul float %172, -4.200000e+01
@@ -2982,7 +2982,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   %245 = load float, ptr %indvars.iv17.sroa.phi68, align 4, !tbaa !155
   %246 = fmul float %241, %245
   %247 = tail call float @llvm.fmuladd.f32(float %237, float %244, float %246)
-  %248 = tail call float @llvm.fmuladd.f32(float %247, float %20, float %.08)
+  %248 = tail call float @llvm.fmuladd.f32(float %247, float %35, float %.08)
   %249 = load float, ptr %indvars.iv17.sroa.phi44, align 4, !tbaa !155
   %250 = fadd float %.02877, %249
   %251 = load float, ptr %indvars.iv17.sroa.phi, align 4, !tbaa !155

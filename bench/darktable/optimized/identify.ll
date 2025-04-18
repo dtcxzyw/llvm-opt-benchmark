@@ -439,140 +439,140 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br i1 %exitcond660.not, label %68, label %69, !llvm.loop !108
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 381416
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 381480
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 192580
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %74, i8 0, i64 128, i1 false)
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 136576
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %75, i8 0, i64 16416, i1 false)
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 153048
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %76, i8 0, i64 128, i1 false)
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %77, i8 0, i64 128, i1 false)
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 193358
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 193356
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 193360
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 381456
-  store i64 0, ptr %81, align 8, !tbaa !109
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 767584
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 381480
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 192580
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %73, i8 0, i64 128, i1 false)
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 136576
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %74, i8 0, i64 16416, i1 false)
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 153048
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %75, i8 0, i64 128, i1 false)
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %76, i8 0, i64 128, i1 false)
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 193358
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 193356
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 193360
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 381456
+  store i64 0, ptr %80, align 8, !tbaa !109
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 767584
   %.repack251 = getelementptr inbounds nuw i8, ptr %0, i64 767592
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 381644
-  store i64 0, ptr %79, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
-  store i32 4, ptr %83, align 4, !tbaa !110
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 381660
-  store i32 0, ptr %84, align 4, !tbaa !111
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 381656
-  store i32 0, ptr %85, align 8, !tbaa !112
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 381628
-  store i32 0, ptr %86, align 4, !tbaa !113
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 381584
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 381680
-  store i32 0, ptr %88, align 8, !tbaa !114
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  store i32 0, ptr %89, align 4, !tbaa !115
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 381668
-  store i32 0, ptr %90, align 4, !tbaa !116
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 381568
-  store i32 0, ptr %91, align 8, !tbaa !117
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i32 0, ptr %92, align 8, !tbaa !118
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 152992
-  store i32 0, ptr %93, align 8, !tbaa !119
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 381652
-  store i32 0, ptr %94, align 4, !tbaa !120
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 192576
-  store i32 0, ptr %95, align 8, !tbaa !121
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 192568
-  store i64 0, ptr %96, align 8, !tbaa !122
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 381488
-  store i32 0, ptr %97, align 8, !tbaa !123
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 381684
-  store i32 0, ptr %98, align 4, !tbaa !124
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 153792
-  store i32 0, ptr %99, align 8, !tbaa !125
-  store i32 0, ptr %73, align 8, !tbaa !126
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 381484
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
-  store i32 1, ptr %100, align 4, !tbaa !127
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i32 1, ptr %101, align 8, !tbaa !128
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store double 1.000000e+00, ptr %102, align 8, !tbaa !129
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 381676
-  store i32 0, ptr %103, align 4, !tbaa !130
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 381672
-  store i32 0, ptr %104, align 8, !tbaa !131
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 381544
-  store i32 0, ptr %105, align 8, !tbaa !132
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 153176
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 153192
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 153208
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 153304
-  br label %110
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 381644
+  store i64 0, ptr %78, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
+  store i32 4, ptr %82, align 4, !tbaa !110
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 381660
+  store i32 0, ptr %83, align 4, !tbaa !111
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 381656
+  store i32 0, ptr %84, align 8, !tbaa !112
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 381628
+  store i32 0, ptr %85, align 4, !tbaa !113
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 381584
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 381680
+  store i32 0, ptr %87, align 8, !tbaa !114
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 532
+  store i32 0, ptr %88, align 4, !tbaa !115
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 381668
+  store i32 0, ptr %89, align 4, !tbaa !116
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 381568
+  store i32 0, ptr %90, align 8, !tbaa !117
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  store i32 0, ptr %91, align 8, !tbaa !118
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 152992
+  store i32 0, ptr %92, align 8, !tbaa !119
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 381652
+  store i32 0, ptr %93, align 4, !tbaa !120
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 192576
+  store i32 0, ptr %94, align 8, !tbaa !121
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 192568
+  store i64 0, ptr %95, align 8, !tbaa !122
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 381488
+  store i32 0, ptr %96, align 8, !tbaa !123
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 381684
+  store i32 0, ptr %97, align 4, !tbaa !124
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 153792
+  store i32 0, ptr %98, align 8, !tbaa !125
+  store i32 0, ptr %72, align 8, !tbaa !126
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 381484
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
+  store i32 1, ptr %99, align 4, !tbaa !127
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store i32 1, ptr %100, align 8, !tbaa !128
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store double 1.000000e+00, ptr %101, align 8, !tbaa !129
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 381676
+  store i32 0, ptr %102, align 4, !tbaa !130
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 381672
+  store i32 0, ptr %103, align 8, !tbaa !131
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 381544
+  store i32 0, ptr %104, align 8, !tbaa !132
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 153176
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 153192
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 153208
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 153304
+  br label %109
 
-110:                                              ; preds = %71, %122
-  %indvars.iv673 = phi i64 [ 0, %71 ], [ %indvars.iv.next674, %122 ]
-  %111 = icmp eq i64 %indvars.iv673, 1
-  %112 = uitofp i1 %111 to float
-  %113 = getelementptr inbounds nuw [4 x float], ptr %106, i64 0, i64 %indvars.iv673
-  store float %112, ptr %113, align 4, !tbaa !107
-  %114 = icmp ne i64 %indvars.iv673, 3
-  %115 = uitofp i1 %114 to float
-  %116 = getelementptr inbounds nuw [4 x float], ptr %107, i64 0, i64 %indvars.iv673
-  store float %115, ptr %116, align 4, !tbaa !107
-  br label %117
+109:                                              ; preds = %71, %121
+  %indvars.iv673 = phi i64 [ 0, %71 ], [ %indvars.iv.next674, %121 ]
+  %110 = icmp eq i64 %indvars.iv673, 1
+  %111 = uitofp i1 %110 to float
+  %112 = getelementptr inbounds nuw [4 x float], ptr %105, i64 0, i64 %indvars.iv673
+  store float %111, ptr %112, align 4, !tbaa !107
+  %113 = icmp ne i64 %indvars.iv673, 3
+  %114 = uitofp i1 %113 to float
+  %115 = getelementptr inbounds nuw [4 x float], ptr %106, i64 0, i64 %indvars.iv673
+  store float %114, ptr %115, align 4, !tbaa !107
+  br label %116
 
-117:                                              ; preds = %110, %117
-  %indvars.iv665 = phi i64 [ 0, %110 ], [ %indvars.iv.next666, %117 ]
-  %118 = getelementptr inbounds nuw [3 x [4 x float]], ptr %108, i64 0, i64 %indvars.iv665, i64 %indvars.iv673
-  store float 0.000000e+00, ptr %118, align 4, !tbaa !107
+116:                                              ; preds = %109, %116
+  %indvars.iv665 = phi i64 [ 0, %109 ], [ %indvars.iv.next666, %116 ]
+  %117 = getelementptr inbounds nuw [3 x [4 x float]], ptr %107, i64 0, i64 %indvars.iv665, i64 %indvars.iv673
+  store float 0.000000e+00, ptr %117, align 4, !tbaa !107
   %indvars.iv.next666 = add nuw nsw i64 %indvars.iv665, 1
   %exitcond668.not = icmp eq i64 %indvars.iv.next666, 3
-  br i1 %exitcond668.not, label %.preheader601, label %117, !llvm.loop !133
+  br i1 %exitcond668.not, label %.preheader601, label %116, !llvm.loop !133
 
-.preheader601:                                    ; preds = %117, %.preheader601
-  %indvars.iv669 = phi i64 [ %indvars.iv.next670, %.preheader601 ], [ 0, %117 ]
-  %119 = icmp eq i64 %indvars.iv669, %indvars.iv673
-  %120 = uitofp i1 %119 to float
-  %121 = getelementptr inbounds nuw [3 x [4 x float]], ptr %109, i64 0, i64 %indvars.iv669, i64 %indvars.iv673
-  store float %120, ptr %121, align 4, !tbaa !107
+.preheader601:                                    ; preds = %116, %.preheader601
+  %indvars.iv669 = phi i64 [ %indvars.iv.next670, %.preheader601 ], [ 0, %116 ]
+  %118 = icmp eq i64 %indvars.iv669, %indvars.iv673
+  %119 = uitofp i1 %118 to float
+  %120 = getelementptr inbounds nuw [3 x [4 x float]], ptr %108, i64 0, i64 %indvars.iv669, i64 %indvars.iv673
+  store float %119, ptr %120, align 4, !tbaa !107
   %indvars.iv.next670 = add nuw nsw i64 %indvars.iv669, 1
   %exitcond672.not = icmp eq i64 %indvars.iv.next670, 3
-  br i1 %exitcond672.not, label %122, label %.preheader601, !llvm.loop !134
+  br i1 %exitcond672.not, label %121, label %.preheader601, !llvm.loop !134
 
-122:                                              ; preds = %.preheader601
+121:                                              ; preds = %.preheader601
   %indvars.iv.next674 = add nuw nsw i64 %indvars.iv673, 1
   %exitcond676.not = icmp eq i64 %indvars.iv.next674, 4
-  br i1 %exitcond676.not, label %123, label %110, !llvm.loop !135
+  br i1 %exitcond676.not, label %122, label %109, !llvm.loop !135
 
-123:                                              ; preds = %122
-  %124 = add i32 %12, 147
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 5504
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  store i32 3, ptr %126, align 4, !tbaa !136
-  br label %127
+122:                                              ; preds = %121
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 5504
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 540
+  store i32 3, ptr %124, align 4, !tbaa !136
+  br label %125
 
-127:                                              ; preds = %123, %127
-  %indvars.iv677 = phi i64 [ 0, %123 ], [ %indvars.iv.next678, %127 ]
-  %128 = trunc i64 %indvars.iv677 to i16
-  %129 = getelementptr inbounds nuw [65536 x i16], ptr %125, i64 0, i64 %indvars.iv677
-  store i16 %128, ptr %129, align 2, !tbaa !81
+125:                                              ; preds = %122, %125
+  %indvars.iv677 = phi i64 [ 0, %122 ], [ %indvars.iv.next678, %125 ]
+  %126 = trunc i64 %indvars.iv677 to i16
+  %127 = getelementptr inbounds nuw [65536 x i16], ptr %123, i64 0, i64 %indvars.iv677
+  store i16 %126, ptr %127, align 2, !tbaa !81
   %indvars.iv.next678 = add nuw nsw i64 %indvars.iv677, 1
   %exitcond680.not = icmp eq i64 %indvars.iv.next678, 65536
-  br i1 %exitcond680.not, label %130, label %127, !llvm.loop !137
+  br i1 %exitcond680.not, label %128, label %125, !llvm.loop !137
 
-130:                                              ; preds = %127
+128:                                              ; preds = %125
+  %129 = add i32 %12, 147
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   %132 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   store i16 %132, ptr %131, align 8, !tbaa !138
   %133 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %134 = load ptr, ptr %72, align 8, !tbaa !139
+  %134 = load ptr, ptr %130, align 8, !tbaa !139
   %135 = load ptr, ptr %134, align 8, !tbaa !140
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %137 = load ptr, ptr %136, align 8
   %138 = call noundef i32 %137(ptr noundef nonnull align 8 dereferenceable(8) %134, i64 noundef 0, i32 noundef 0)
-  %139 = load ptr, ptr %72, align 8, !tbaa !139
+  %139 = load ptr, ptr %130, align 8, !tbaa !139
   %140 = load ptr, ptr %139, align 8, !tbaa !140
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = load ptr, ptr %141, align 8
@@ -580,23 +580,23 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %144 = icmp slt i32 %143, 64
   br i1 %144, label %145, label %147
 
-145:                                              ; preds = %130
+145:                                              ; preds = %128
   %146 = call ptr @__cxa_allocate_exception(i64 4) #17
   store i32 5, ptr %146, align 16, !tbaa !142
   call void @__cxa_throw(ptr nonnull %146, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #18
   unreachable
 
-147:                                              ; preds = %130
+147:                                              ; preds = %128
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 381696
   store i64 0, ptr %148, align 8, !tbaa !144
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 381704
   store i32 0, ptr %149, align 8, !tbaa !145
-  %150 = load ptr, ptr %72, align 8, !tbaa !139
+  %150 = load ptr, ptr %130, align 8, !tbaa !139
   %151 = load ptr, ptr %150, align 8, !tbaa !140
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 32
   %153 = load ptr, ptr %152, align 8
   %154 = call noundef i32 %153(ptr noundef nonnull align 8 dereferenceable(8) %150, i64 noundef 0, i32 noundef 2)
-  %155 = load ptr, ptr %72, align 8, !tbaa !139
+  %155 = load ptr, ptr %130, align 8, !tbaa !139
   %156 = load ptr, ptr %155, align 8, !tbaa !140
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 40
   %158 = load ptr, ptr %157, align 8
@@ -611,7 +611,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   unreachable
 
 163:                                              ; preds = %147
-  %164 = load ptr, ptr %72, align 8, !tbaa !139
+  %164 = load ptr, ptr %130, align 8, !tbaa !139
   %165 = load ptr, ptr %164, align 8, !tbaa !140
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 40
   %167 = load ptr, ptr %166, align 8
@@ -660,10 +660,10 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 
 185:                                              ; preds = %183
   %186 = sext i32 %133 to i64
-  store i64 %186, ptr %87, align 8, !tbaa !146
+  store i64 %186, ptr %86, align 8, !tbaa !146
   %187 = sub nsw i32 %169, %133
   call void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %133, i32 noundef %187, i32 noundef 0)
-  store i64 ptrtoint (ptr @_ZN6LibRaw14canon_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw14canon_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %412
 
@@ -688,7 +688,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br i1 %.not254, label %194, label %.thread
 
 194:                                              ; preds = %192
-  %195 = load ptr, ptr %72, align 8, !tbaa !139
+  %195 = load ptr, ptr %130, align 8, !tbaa !139
   %196 = load ptr, ptr %195, align 8, !tbaa !140
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8
@@ -696,13 +696,13 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %200 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %201 = zext i16 %200 to i64
   %202 = add nuw nsw i64 %201, 4
-  store i64 %202, ptr %87, align 8, !tbaa !146
-  %203 = load ptr, ptr %72, align 8, !tbaa !139
+  store i64 %202, ptr %86, align 8, !tbaa !146
+  %203 = load ptr, ptr %130, align 8, !tbaa !139
   %204 = load ptr, ptr %203, align 8, !tbaa !140
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 32
   %206 = load ptr, ptr %205, align 8
   %207 = call noundef i32 %206(ptr noundef nonnull align 8 dereferenceable(8) %203, i64 noundef %202, i32 noundef 0)
-  %208 = load ptr, ptr %72, align 8, !tbaa !139
+  %208 = load ptr, ptr %130, align 8, !tbaa !139
   %209 = load ptr, ptr %208, align 8, !tbaa !140
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 56
   %211 = load ptr, ptr %210, align 8
@@ -715,7 +715,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br label %215
 
 215:                                              ; preds = %213, %194
-  store i64 0, ptr %81, align 8, !tbaa !109
+  store i64 0, ptr %80, align 8, !tbaa !109
   br label %412
 
 216:                                              ; preds = %191
@@ -753,7 +753,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 222:                                              ; preds = %.thread557
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %29, ptr noundef nonnull align 1 dereferenceable(6) @.str.12, i64 6, i1 false) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %28, ptr noundef nonnull align 1 dereferenceable(14) @.str.13, i64 14, i1 false) #17
-  store i64 ptrtoint (ptr @_ZN6LibRaw22quicktake_100_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw22quicktake_100_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %412
 
@@ -765,7 +765,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 224:                                              ; preds = %223
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %29, ptr noundef nonnull align 1 dereferenceable(6) @.str.12, i64 6, i1 false) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %28, ptr noundef nonnull align 1 dereferenceable(14) @.str.15, i64 14, i1 false) #17
-  store i64 ptrtoint (ptr @_ZN6LibRaw19kodak_radc_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw19kodak_radc_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %412
 
@@ -840,29 +840,29 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   store i32 %257, ptr %255, align 4
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 2912
   store i8 0, ptr %258, align 8, !tbaa !85
-  %259 = load ptr, ptr %72, align 8, !tbaa !139
+  %259 = load ptr, ptr %130, align 8, !tbaa !139
   %260 = load ptr, ptr %259, align 8, !tbaa !140
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 32
   %262 = load ptr, ptr %261, align 8
   %263 = call noundef i32 %262(ptr noundef nonnull align 8 dereferenceable(8) %259, i64 noundef 84, i32 noundef 0)
   %264 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %265 = zext i32 %264 to i64
-  store i64 %265, ptr %81, align 8, !tbaa !109
+  store i64 %265, ptr %80, align 8, !tbaa !109
   %266 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  store i32 %266, ptr %80, align 8, !tbaa !149
-  %267 = load ptr, ptr %72, align 8, !tbaa !139
+  store i32 %266, ptr %79, align 8, !tbaa !149
+  %267 = load ptr, ptr %130, align 8, !tbaa !139
   %268 = load ptr, ptr %267, align 8, !tbaa !140
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 32
   %270 = load ptr, ptr %269, align 8
   %271 = call noundef i32 %270(ptr noundef nonnull align 8 dereferenceable(8) %267, i64 noundef 92, i32 noundef 0)
   %272 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   call void @_ZN6LibRaw10parse_fujiEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %272)
-  %273 = load i64, ptr %81, align 8, !tbaa !109
+  %273 = load i64, ptr %80, align 8, !tbaa !109
   %274 = icmp sgt i64 %273, 120
   br i1 %274, label %275, label %289
 
 275:                                              ; preds = %.critedge.thread
-  %276 = load ptr, ptr %72, align 8, !tbaa !139
+  %276 = load ptr, ptr %130, align 8, !tbaa !139
   %277 = load ptr, ptr %276, align 8, !tbaa !140
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 32
   %279 = load ptr, ptr %278, align 8
@@ -870,9 +870,9 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %281 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %.not269 = icmp ne i32 %281, 0
   %282 = zext i1 %.not269 to i32
-  %283 = load i32, ptr %101, align 8, !tbaa !128
+  %283 = load i32, ptr %100, align 8, !tbaa !128
   %284 = add i32 %283, %282
-  store i32 %284, ptr %101, align 8, !tbaa !128
+  store i32 %284, ptr %100, align 8, !tbaa !128
   %285 = icmp ne i32 %284, 2
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 5460
   %287 = load i32, ptr %286, align 4
@@ -885,9 +885,9 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br label %289
 
 289:                                              ; preds = %275, %288, %.critedge.thread
-  store i64 ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
-  %290 = load ptr, ptr %72, align 8, !tbaa !139
+  %290 = load ptr, ptr %130, align 8, !tbaa !139
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 5460
   %292 = load i32, ptr %291, align 4, !tbaa !150
   %.not272 = icmp eq i32 %292, 0
@@ -898,13 +898,13 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %297 = call noundef i32 %296(ptr noundef nonnull align 8 dereferenceable(8) %290, i64 noundef %293, i32 noundef 0)
   %298 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %299 = zext i32 %298 to i64
-  store i64 %299, ptr %87, align 8, !tbaa !146
+  store i64 %299, ptr %86, align 8, !tbaa !146
   %300 = call noundef i32 @_ZN6LibRaw10parse_tiffEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %298)
-  %301 = load i64, ptr %81, align 8, !tbaa !109
+  %301 = load i64, ptr %80, align 8, !tbaa !109
   %302 = trunc i64 %301 to i32
   %303 = add i32 %302, 12
   %304 = call noundef i32 @_ZN6LibRaw10parse_tiffEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %303)
-  %305 = load i64, ptr %81, align 8, !tbaa !109
+  %305 = load i64, ptr %80, align 8, !tbaa !109
   %306 = trunc i64 %305 to i32
   call void @_ZN6LibRaw20parse_fuji_thumbnailEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %306)
   call void @_ZN6LibRaw10apply_tiffEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -915,7 +915,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br i1 %.not274, label %308, label %314
 
 308:                                              ; preds = %307
-  %309 = load ptr, ptr %72, align 8, !tbaa !139
+  %309 = load ptr, ptr %130, align 8, !tbaa !139
   %310 = load ptr, ptr %309, align 8, !tbaa !140
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 32
   %312 = load ptr, ptr %311, align 8
@@ -930,13 +930,13 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br i1 %.not276, label %316, label %322
 
 316:                                              ; preds = %314
-  %317 = load ptr, ptr %72, align 8, !tbaa !139
+  %317 = load ptr, ptr %130, align 8, !tbaa !139
   %318 = load ptr, ptr %317, align 8, !tbaa !140
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 32
   %320 = load ptr, ptr %319, align 8
   %321 = call noundef i32 %320(ptr noundef nonnull align 8 dereferenceable(8) %317, i64 noundef 0, i32 noundef 0)
   call void @_ZN6LibRaw8parse_qtEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %169)
-  store i32 0, ptr %101, align 8, !tbaa !128
+  store i32 0, ptr %100, align 8, !tbaa !128
   br label %412
 
 322:                                              ; preds = %314
@@ -945,35 +945,35 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br i1 %.not278, label %323, label %349
 
 323:                                              ; preds = %322
-  %324 = load ptr, ptr %72, align 8, !tbaa !139
+  %324 = load ptr, ptr %130, align 8, !tbaa !139
   %325 = load ptr, ptr %324, align 8, !tbaa !140
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 32
   %327 = load ptr, ptr %326, align 8
   %328 = call noundef i32 %327(ptr noundef nonnull align 8 dereferenceable(8) %324, i64 noundef 6, i32 noundef 0)
-  %329 = load ptr, ptr %72, align 8, !tbaa !139
+  %329 = load ptr, ptr %130, align 8, !tbaa !139
   %330 = load ptr, ptr %329, align 8, !tbaa !140
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 24
   %332 = load ptr, ptr %331, align 8
   %333 = call noundef i32 %332(ptr noundef nonnull align 8 dereferenceable(8) %329, ptr noundef nonnull %29, i64 noundef 1, i64 noundef 8)
-  %334 = load ptr, ptr %72, align 8, !tbaa !139
+  %334 = load ptr, ptr %130, align 8, !tbaa !139
   %335 = load ptr, ptr %334, align 8, !tbaa !140
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 24
   %337 = load ptr, ptr %336, align 8
   %338 = call noundef i32 %337(ptr noundef nonnull align 8 dereferenceable(8) %334, ptr noundef nonnull %28, i64 noundef 1, i64 noundef 8)
-  %339 = load ptr, ptr %72, align 8, !tbaa !139
+  %339 = load ptr, ptr %130, align 8, !tbaa !139
   %340 = load ptr, ptr %339, align 8, !tbaa !140
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 24
   %342 = load ptr, ptr %341, align 8
   %343 = call noundef i32 %342(ptr noundef nonnull align 8 dereferenceable(8) %339, ptr noundef nonnull %27, i64 noundef 1, i64 noundef 16)
   %344 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %345 = zext i16 %344 to i64
-  store i64 %345, ptr %87, align 8, !tbaa !146
+  store i64 %345, ptr %86, align 8, !tbaa !146
   %346 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %347 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   store i16 %347, ptr %21, align 2, !tbaa !151
   %348 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   store i16 %348, ptr %15, align 8, !tbaa !152
-  store i64 ptrtoint (ptr @_ZN6LibRaw14nokia_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw14nokia_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   store i32 1633771873, ptr %14, align 8, !tbaa !78
   br label %412
@@ -985,14 +985,14 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 350:                                              ; preds = %349
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %29, ptr noundef nonnull align 1 dereferenceable(6) @.str.21, i64 6, i1 false) #17
   store i16 18761, ptr %131, align 8, !tbaa !138
-  %351 = load ptr, ptr %72, align 8, !tbaa !139
+  %351 = load ptr, ptr %130, align 8, !tbaa !139
   %352 = load ptr, ptr %351, align 8, !tbaa !140
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 32
   %354 = load ptr, ptr %353, align 8
   %355 = call noundef i32 %354(ptr noundef nonnull align 8 dereferenceable(8) %351, i64 noundef 300, i32 noundef 0)
   %356 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %357 = zext i32 %356 to i64
-  store i64 %357, ptr %87, align 8, !tbaa !146
+  store i64 %357, ptr %86, align 8, !tbaa !146
   %358 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %359 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   store i16 %359, ptr %24, align 2, !tbaa !153
@@ -1030,7 +1030,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 376:                                              ; preds = %370
   %377 = shl nuw nsw i32 %358, 3
   %378 = udiv i32 %377, %368
-  store i32 %378, ptr %85, align 8, !tbaa !112
+  store i32 %378, ptr %84, align 8, !tbaa !112
   switch i32 %378, label %382 [
     i32 8, label %.sink.split
     i32 10, label %379
@@ -1048,7 +1048,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 
 .sink.split:                                      ; preds = %376, %379
   %.sink = phi i64 [ ptrtoint (ptr @_ZN6LibRaw14nokia_load_rawEv to i64), %379 ], [ ptrtoint (ptr @_ZN6LibRaw18eight_bit_load_rawEv to i64), %376 ]
-  store i64 %.sink, ptr %82, align 8, !tbaa !147
+  store i64 %.sink, ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %382
 
@@ -1111,7 +1111,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #17
   call void @llvm.lifetime.start.p0(i64 129, ptr nonnull %8) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %29, ptr noundef nonnull align 1 dereferenceable(6) @.str.28, i64 6, i1 false) #17
-  %399 = load ptr, ptr %72, align 8, !tbaa !139
+  %399 = load ptr, ptr %130, align 8, !tbaa !139
   %400 = load ptr, ptr %399, align 8, !tbaa !140
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 48
   %402 = load ptr, ptr %401, align 8
@@ -1144,11 +1144,11 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br i1 %414, label %.preheader599, label %.thread732
 
 .preheader599:                                    ; preds = %412
-  %415 = icmp sgt i32 %124, 0
+  %415 = icmp sgt i32 %129, 0
   br i1 %415, label %.lr.ph618.preheader, label %.loopexit600
 
 .lr.ph618.preheader:                              ; preds = %.preheader599
-  %wide.trip.count = zext nneg i32 %124 to i64
+  %wide.trip.count = zext nneg i32 %129 to i64
   br label %.lr.ph618
 
 416:                                              ; preds = %.lr.ph618
@@ -1175,13 +1175,13 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   store i32 %428, ptr %16, align 8, !tbaa !79
   %429 = and i8 %426, 2
   %430 = zext nneg i8 %429 to i32
-  store i32 %430, ptr %97, align 8, !tbaa !123
+  store i32 %430, ptr %96, align 8, !tbaa !123
   %431 = getelementptr inbounds nuw i8, ptr %417, i64 48
   %432 = load i16, ptr %431, align 4, !tbaa !160
   %433 = icmp eq i16 %432, -1
   %narrow578 = select i1 %433, i16 0, i16 %432
   %spec.select = zext i16 %narrow578 to i64
-  store i64 %spec.select, ptr %87, align 8, !tbaa !146
+  store i64 %spec.select, ptr %86, align 8, !tbaa !146
   %434 = getelementptr inbounds nuw i8, ptr %417, i64 4
   %435 = load i16, ptr %434, align 4, !tbaa !161
   store i16 %435, ptr %21, align 2, !tbaa !151
@@ -1218,18 +1218,18 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %460 = and i32 %459, %458
   %.not303 = icmp eq i32 %460, 0
   %461 = select i1 %.not303, i32 3, i32 4
-  store i32 %461, ptr %126, align 4, !tbaa !136
+  store i32 %461, ptr %124, align 4, !tbaa !136
   %462 = getelementptr inbounds nuw i8, ptr %417, i64 12
   %463 = load i16, ptr %462, align 4, !tbaa !169
   %464 = and i16 %463, 255
   %465 = zext nneg i16 %464 to i32
-  store i32 %465, ptr %88, align 8, !tbaa !114
+  store i32 %465, ptr %87, align 8, !tbaa !114
   %466 = and i16 %463, 256
   %.not304 = icmp eq i16 %466, 0
   br i1 %.not304, label %468, label %467
 
 467:                                              ; preds = %420
-  store i32 1, ptr %126, align 4, !tbaa !136
+  store i32 1, ptr %124, align 4, !tbaa !136
   store i32 0, ptr %14, align 8, !tbaa !78
   br label %468
 
@@ -1243,7 +1243,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %474 = mul nuw nsw i64 %473, %472
   %475 = sdiv i64 %471, %474
   %476 = trunc i64 %475 to i32
-  store i32 %476, ptr %85, align 8, !tbaa !112
+  store i32 %476, ptr %84, align 8, !tbaa !112
   switch i32 %476, label %498 [
     i32 6, label %477
     i32 8, label %479
@@ -1253,14 +1253,14 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   ]
 
 477:                                              ; preds = %468
-  store i64 ptrtoint (ptr @_ZN6LibRaw22minolta_rd175_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw22minolta_rd175_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 1354
   store i16 25, ptr %478, align 2, !tbaa !170
   br label %498
 
 479:                                              ; preds = %468
-  store i64 ptrtoint (ptr @_ZN6LibRaw18eight_bit_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw18eight_bit_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %498
 
@@ -1272,7 +1272,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br i1 %.not307, label %485, label %484
 
 484:                                              ; preds = %480
-  store i64 ptrtoint (ptr @_ZN6LibRaw22android_loose_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw22android_loose_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %498
 
@@ -1282,14 +1282,14 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br i1 %.not308, label %488, label %487
 
 487:                                              ; preds = %485
-  store i64 ptrtoint (ptr @_ZN6LibRaw22android_tight_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw22android_tight_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %498
 
 488:                                              ; preds = %485, %468
   %489 = or i32 %465, 128
-  store i32 %489, ptr %88, align 8, !tbaa !114
-  store i64 ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i32 %489, ptr %87, align 8, !tbaa !114
+  store i64 ptrtoint (ptr @_ZN6LibRaw15packed_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %498
 
@@ -1300,12 +1300,12 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   %493 = lshr i32 %465, 4
   %494 = lshr i32 %465, 1
   %495 = and i32 %494, 7
-  store i32 %495, ptr %88, align 8, !tbaa !114
+  store i32 %495, ptr %87, align 8, !tbaa !114
   %496 = add nuw nsw i32 %493, %495
   %497 = sub nsw i32 16, %496
-  store i32 %497, ptr %85, align 8, !tbaa !112
+  store i32 %497, ptr %84, align 8, !tbaa !112
   %.elt = select i1 %433, i64 ptrtoint (ptr @_ZN6LibRaw26unpacked_load_raw_reversedEv to i64), i64 ptrtoint (ptr @_ZN6LibRaw17unpacked_load_rawEv to i64)
-  store i64 %.elt, ptr %82, align 8, !tbaa !147
+  store i64 %.elt, ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %498
 
@@ -1340,12 +1340,12 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
 
 512:                                              ; preds = %509
   %513 = call noundef i32 @_ZN6LibRaw10parse_jpegEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 0)
-  %514 = load ptr, ptr %72, align 8, !tbaa !139
+  %514 = load ptr, ptr %130, align 8, !tbaa !139
   %515 = load ptr, ptr %514, align 8, !tbaa !140
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 32
   %517 = load ptr, ptr %516, align 8
   %518 = call noundef i32 %517(ptr noundef nonnull align 8 dereferenceable(8) %514, i64 noundef 0, i32 noundef 2)
-  %519 = load ptr, ptr %72, align 8, !tbaa !139
+  %519 = load ptr, ptr %130, align 8, !tbaa !139
   %520 = load ptr, ptr %519, align 8, !tbaa !140
   %521 = getelementptr inbounds nuw i8, ptr %520, i64 40
   %522 = load ptr, ptr %521, align 8
@@ -1358,7 +1358,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br i1 %or.cond10, label %527, label %552
 
 527:                                              ; preds = %512
-  %528 = load ptr, ptr %72, align 8, !tbaa !139
+  %528 = load ptr, ptr %130, align 8, !tbaa !139
   %529 = load ptr, ptr %528, align 8, !tbaa !140
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 32
   %531 = load ptr, ptr %530, align 8
@@ -1367,7 +1367,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br i1 %.not316, label %533, label %552
 
 533:                                              ; preds = %527
-  %534 = load ptr, ptr %72, align 8, !tbaa !139
+  %534 = load ptr, ptr %130, align 8, !tbaa !139
   %535 = load ptr, ptr %534, align 8, !tbaa !140
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 24
   %537 = load ptr, ptr %536, align 8
@@ -1391,21 +1391,21 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br label %544
 
 544:                                              ; preds = %543, %539
-  %545 = load ptr, ptr %72, align 8, !tbaa !139
+  %545 = load ptr, ptr %130, align 8, !tbaa !139
   %546 = load ptr, ptr %545, align 8, !tbaa !140
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 40
   %548 = load ptr, ptr %547, align 8
   %549 = call noundef i64 %548(ptr noundef nonnull align 8 dereferenceable(8) %545)
   %550 = add nsw i64 %549, 32736
-  store i64 %550, ptr %87, align 8, !tbaa !146
+  store i64 %550, ptr %86, align 8, !tbaa !146
   call void @_ZN6LibRaw14parse_broadcomEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  store i32 66, ptr %93, align 8, !tbaa !119
+  store i32 66, ptr %92, align 8, !tbaa !119
   store i32 1023, ptr %26, align 8, !tbaa !84
-  store i64 ptrtoint (ptr @_ZN6LibRaw17broadcom_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw17broadcom_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
-  store i64 0, ptr %81, align 8, !tbaa !109
+  store i64 0, ptr %80, align 8, !tbaa !109
   %551 = add nsw i32 %524, -10270209
-  store i32 %551, ptr %80, align 8, !tbaa !149
+  store i32 %551, ptr %79, align 8, !tbaa !149
   br label %.thread732
 
 552:                                              ; preds = %533, %527, %512
@@ -1425,7 +1425,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br i1 %.old11, label %557, label %585
 
 557:                                              ; preds = %553, %556
-  %558 = load ptr, ptr %72, align 8, !tbaa !139
+  %558 = load ptr, ptr %130, align 8, !tbaa !139
   %559 = load ptr, ptr %558, align 8, !tbaa !140
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 32
   %561 = load ptr, ptr %560, align 8
@@ -1434,7 +1434,7 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br i1 %.not325, label %563, label %585
 
 563:                                              ; preds = %557
-  %564 = load ptr, ptr %72, align 8, !tbaa !139
+  %564 = load ptr, ptr %130, align 8, !tbaa !139
   %565 = load ptr, ptr %564, align 8, !tbaa !140
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 24
   %567 = load ptr, ptr %566, align 8
@@ -1470,25 +1470,25 @@ define void @_ZN6LibRaw8identifyEv(ptr noundef nonnull align 8 dereferenceable(7
   br label %577
 
 577:                                              ; preds = %576, %572
-  %578 = load ptr, ptr %72, align 8, !tbaa !139
+  %578 = load ptr, ptr %130, align 8, !tbaa !139
   %579 = load ptr, ptr %578, align 8, !tbaa !140
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 40
   %581 = load ptr, ptr %580, align 8
   %582 = call noundef i64 %581(ptr noundef nonnull align 8 dereferenceable(8) %578)
   %583 = add nsw i64 %582, 32736
-  store i64 %583, ptr %87, align 8, !tbaa !146
+  store i64 %583, ptr %86, align 8, !tbaa !146
   call void @_ZN6LibRaw14parse_broadcomEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  store i32 16, ptr %93, align 8, !tbaa !119
+  store i32 16, ptr %92, align 8, !tbaa !119
   store i32 1023, ptr %26, align 8, !tbaa !84
-  store i64 ptrtoint (ptr @_ZN6LibRaw17broadcom_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw17broadcom_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
-  store i64 0, ptr %81, align 8, !tbaa !109
+  store i64 0, ptr %80, align 8, !tbaa !109
   %584 = add nsw i32 %524, -6404097
-  store i32 %584, ptr %80, align 8, !tbaa !149
+  store i32 %584, ptr %79, align 8, !tbaa !149
   br label %.thread732
 
 585:                                              ; preds = %563, %557, %556, %553
-  store i32 0, ptr %101, align 8, !tbaa !128
+  store i32 0, ptr %100, align 8, !tbaa !128
   br label %.thread732
 
 .thread732:                                       ; preds = %412, %544, %585, %577, %509
@@ -1674,7 +1674,7 @@ thread-pre-split:                                 ; preds = %591
   store i8 0, ptr %588, align 1, !tbaa !85
   store i8 0, ptr %589, align 1, !tbaa !85
   store i8 0, ptr %590, align 1, !tbaa !85
-  %654 = load i32, ptr %101, align 8, !tbaa !128
+  %654 = load i32, ptr %100, align 8, !tbaa !128
   %.not347 = icmp eq i32 %654, 0
   br i1 %.not347, label %1124, label %655
 
@@ -1700,7 +1700,7 @@ thread-pre-split:                                 ; preds = %591
 
 663:                                              ; preds = %661, %659
   call void @_ZN6LibRaw24identify_finetune_pentaxEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %664 = load i32, ptr %89, align 4, !tbaa !115
+  %664 = load i32, ptr %88, align 4, !tbaa !115
   %.not350 = icmp eq i32 %664, 0
   br i1 %.not350, label %718, label %665
 
@@ -1716,12 +1716,12 @@ thread-pre-split:                                 ; preds = %591
   br label %667
 
 667:                                              ; preds = %665, %.thread565
-  %668 = load i32, ptr %94, align 4, !tbaa !120
-  store i32 %668, ptr %126, align 4, !tbaa !136
+  %668 = load i32, ptr %93, align 4, !tbaa !120
+  store i32 %668, ptr %124, align 4, !tbaa !136
   br label %669
 
 669:                                              ; preds = %665, %667
-  %670 = load i32, ptr %84, align 4, !tbaa !111
+  %670 = load i32, ptr %83, align 4, !tbaa !111
   switch i32 %670, label %695 [
     i32 0, label %671
     i32 1, label %671
@@ -1731,7 +1731,7 @@ thread-pre-split:                                 ; preds = %591
   ]
 
 671:                                              ; preds = %669, %669
-  %.unpack380 = load i64, ptr %82, align 8, !tbaa !147
+  %.unpack380 = load i64, ptr %81, align 8, !tbaa !147
   %.unpack382 = load i64, ptr %.repack251, align 8, !tbaa !147
   %672 = icmp eq i64 %.unpack380, ptrtoint (ptr @_ZN6LibRaw28uncompressed_fp_dng_load_rawEv to i64)
   %673 = icmp eq i64 %.unpack382, 0
@@ -1743,12 +1743,12 @@ thread-pre-split:                                 ; preds = %591
   br i1 %or.cond459, label %.thread567, label %676
 
 676:                                              ; preds = %671
-  store i64 ptrtoint (ptr @_ZN6LibRaw19packed_dng_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw19packed_dng_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %.thread567
 
 677:                                              ; preds = %669
-  store i64 ptrtoint (ptr @_ZN6LibRaw21lossless_dng_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw21lossless_dng_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %.thread567
 
@@ -1759,7 +1759,7 @@ thread-pre-split:                                 ; preds = %591
   br i1 %681, label %682, label %689
 
 682:                                              ; preds = %678
-  %683 = load i32, ptr %85, align 8, !tbaa !112
+  %683 = load i32, ptr %84, align 8, !tbaa !112
   %684 = and i32 %683, 7
   %685 = icmp eq i32 %684, 0
   %686 = add i32 %683, -9
@@ -1768,7 +1768,7 @@ thread-pre-split:                                 ; preds = %591
   br i1 %or.cond462, label %688, label %.thread567
 
 688:                                              ; preds = %682
-  store i64 ptrtoint (ptr @_ZN6LibRaw20deflate_dng_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw20deflate_dng_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %.thread567
 
@@ -1777,23 +1777,23 @@ thread-pre-split:                                 ; preds = %591
   br i1 %switch554, label %690, label %.thread567
 
 690:                                              ; preds = %689
-  %691 = load i32, ptr %85, align 8, !tbaa !112
+  %691 = load i32, ptr %84, align 8, !tbaa !112
   %692 = add i32 %691, -8
   %or.cond463 = icmp ult i32 %692, 9
   br i1 %or.cond463, label %693, label %.thread567
 
 693:                                              ; preds = %690
-  store i64 ptrtoint (ptr @_ZN6LibRaw20deflate_dng_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw20deflate_dng_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %.thread567
 
 694:                                              ; preds = %669
-  store i64 ptrtoint (ptr @_ZN6LibRaw18lossy_dng_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw18lossy_dng_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %.thread567
 
 695:                                              ; preds = %669
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
   br label %.thread567
 
 .thread567:                                       ; preds = %682, %689, %688, %693, %690, %671, %676, %695, %694, %677
@@ -1854,18 +1854,18 @@ thread-pre-split:                                 ; preds = %591
   %720 = icmp ne i32 %719, 8
   %721 = icmp ne i32 %spec.select454731734, 0
   %or.cond15 = or i1 %721, %720
-  %722 = load i32, ptr %85, align 8
+  %722 = load i32, ptr %84, align 8
   %.not351 = icmp eq i32 %722, 15
   %or.cond464 = select i1 %or.cond15, i1 true, i1 %.not351
   br i1 %or.cond464, label %814, label %723
 
 723:                                              ; preds = %718
-  %.unpack = load i64, ptr %82, align 8, !tbaa !147
+  %.unpack = load i64, ptr %81, align 8, !tbaa !147
   %.not355 = icmp eq i64 %.unpack, 0
   br i1 %.not355, label %724, label %725
 
 724:                                              ; preds = %723
-  store i64 ptrtoint (ptr @_ZN6LibRaw22lossless_jpeg_load_rawEv to i64), ptr %82, align 8, !tbaa !147
+  store i64 ptrtoint (ptr @_ZN6LibRaw22lossless_jpeg_load_rawEv to i64), ptr %81, align 8, !tbaa !147
   store i64 0, ptr %.repack251, align 8, !tbaa !147
   br label %725
 
@@ -1970,7 +1970,7 @@ thread-pre-split:                                 ; preds = %591
   %indvars.iv698 = phi i64 [ 0, %.preheader598 ], [ %indvars.iv.next699, %782 ]
   %783 = getelementptr inbounds nuw [4 x i32], ptr %781, i64 0, i64 %indvars.iv698
   %784 = load i32, ptr %783, align 4, !tbaa !92
-  %785 = getelementptr inbounds nuw [4104 x i32], ptr %75, i64 0, i64 %indvars.iv698
+  %785 = getelementptr inbounds nuw [4104 x i32], ptr %74, i64 0, i64 %indvars.iv698
   store i32 %784, ptr %785, align 4, !tbaa !92
   %indvars.iv.next699 = add nuw nsw i64 %indvars.iv698, 1
   %exitcond701.not = icmp eq i64 %indvars.iv.next699, 4
@@ -1981,7 +1981,7 @@ thread-pre-split:                                 ; preds = %591
   store i32 0, ptr %787, align 4, !tbaa !92
   %788 = getelementptr inbounds nuw i8, ptr %0, i64 136592
   store i32 0, ptr %788, align 8, !tbaa !92
-  store i32 0, ptr %93, align 8, !tbaa !119
+  store i32 0, ptr %92, align 8, !tbaa !119
   store i32 1, ptr %729, align 8, !tbaa !92
   store i32 2, ptr %728, align 8, !tbaa !92
   %789 = getelementptr inbounds nuw i8, ptr %0, i64 2016
@@ -2039,7 +2039,7 @@ thread-pre-split:                                 ; preds = %591
 819:                                              ; preds = %818, %815, %814
   call void @_ZN6LibRaw18GetNormalizedModelEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   call void @_ZN6LibRaw21identify_finetune_dcrEPcii(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %3, i32 noundef %spec.select454731734, i32 noundef %169)
-  %.unpack362 = load i64, ptr %82, align 8, !tbaa !147
+  %.unpack362 = load i64, ptr %81, align 8, !tbaa !147
   %.unpack364 = load i64, ptr %.repack251, align 8, !tbaa !147
   %.not365 = icmp eq i64 %.unpack362, 0
   %820 = load i16, ptr %25, align 4
@@ -2051,7 +2051,7 @@ thread-pre-split:                                 ; preds = %591
   br i1 %or.cond470, label %850, label %824
 
 824:                                              ; preds = %819
-  %825 = load i32, ptr %85, align 8, !tbaa !112
+  %825 = load i32, ptr %84, align 8, !tbaa !112
   %826 = icmp ugt i32 %825, 16
   br i1 %826, label %827, label %834
 
@@ -2061,18 +2061,18 @@ thread-pre-split:                                 ; preds = %591
   %830 = icmp ne i64 %.unpack362, ptrtoint (ptr @_ZN6LibRaw28uncompressed_fp_dng_load_rawEv to i64)
   %831 = and i1 %828, %830
   %or.cond472 = or i1 %831, %829
-  %832 = load i32, ptr %94, align 4
+  %832 = load i32, ptr %93, align 4
   %833 = icmp ugt i32 %832, 4
   %or.cond474 = select i1 %or.cond472, i1 true, i1 %833
   br i1 %or.cond474, label %850, label %835
 
 834:                                              ; preds = %824
-  %.old = load i32, ptr %94, align 4, !tbaa !120
+  %.old = load i32, ptr %93, align 4, !tbaa !120
   %.old473 = icmp ugt i32 %.old, 4
   br i1 %.old473, label %850, label %835
 
 835:                                              ; preds = %827, %834
-  %836 = load i32, ptr %126, align 4, !tbaa !136
+  %836 = load i32, ptr %124, align 4, !tbaa !136
   %837 = add i32 %836, -5
   %or.cond476 = icmp ult i32 %837, -4
   br i1 %or.cond476, label %850, label %838
@@ -2094,7 +2094,7 @@ thread-pre-split:                                 ; preds = %591
   br i1 %849, label %850, label %859
 
 850:                                              ; preds = %827, %844, %838, %835, %834, %819
-  store i32 0, ptr %101, align 8, !tbaa !128
+  store i32 0, ptr %100, align 8, !tbaa !128
   %851 = getelementptr inbounds nuw i8, ptr %0, i64 767448
   %852 = load ptr, ptr %851, align 8, !tbaa !183
   %.not372 = icmp eq ptr %852, null
@@ -2139,13 +2139,13 @@ thread-pre-split:                                 ; preds = %591
 871:                                              ; preds = %870
   %872 = load i32, ptr %35, align 8, !tbaa !87
   %.not368 = icmp ne i32 %872, 0
-  %873 = load i32, ptr %94, align 4
+  %873 = load i32, ptr %93, align 4
   %874 = icmp eq i32 %873, 1
   %or.cond482 = select i1 %.not368, i1 %874, i1 false
   br i1 %or.cond482, label %875, label %.sink.split754
 
 875:                                              ; preds = %871
-  store i32 1, ptr %126, align 4, !tbaa !136
+  store i32 1, ptr %124, align 4, !tbaa !136
   br label %.sink.split754
 
 .sink.split754:                                   ; preds = %871, %864, %875
@@ -2154,15 +2154,15 @@ thread-pre-split:                                 ; preds = %591
   br label %876
 
 876:                                              ; preds = %.sink.split754, %870
-  %877 = load i64, ptr %81, align 8, !tbaa !109
+  %877 = load i64, ptr %80, align 8, !tbaa !109
   %.not369 = icmp ne i64 %877, 0
-  %878 = load i16, ptr %78, align 2
+  %878 = load i16, ptr %77, align 2
   %.not370 = icmp eq i16 %878, 0
   %or.cond484 = select i1 %.not369, i1 %.not370, i1 false
   br i1 %or.cond484, label %879, label %893
 
 879:                                              ; preds = %876
-  %880 = load ptr, ptr %72, align 8, !tbaa !139
+  %880 = load ptr, ptr %130, align 8, !tbaa !139
   %881 = load ptr, ptr %880, align 8, !tbaa !140
   %882 = getelementptr inbounds nuw i8, ptr %881, i64 32
   %883 = load ptr, ptr %882, align 8
@@ -2175,15 +2175,15 @@ thread-pre-split:                                 ; preds = %591
   %887 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %888 = load i32, ptr %887, align 4, !tbaa !186
   %889 = trunc i32 %888 to i16
-  store i16 %889, ptr %79, align 4, !tbaa !188
+  store i16 %889, ptr %78, align 4, !tbaa !188
   %890 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %891 = load i32, ptr %890, align 8, !tbaa !189
   %892 = trunc i32 %891 to i16
-  store i16 %892, ptr %78, align 2, !tbaa !190
+  store i16 %892, ptr %77, align 2, !tbaa !190
   br label %893
 
 893:                                              ; preds = %.thread567, %876, %886, %879, %703, %701, %715, %713, %706
-  %894 = load i32, ptr %89, align 4, !tbaa !115
+  %894 = load i32, ptr %88, align 4, !tbaa !115
   %.not392 = icmp eq i32 %894, 0
   br i1 %.not392, label %896, label %895
 
@@ -2192,7 +2192,7 @@ thread-pre-split:                                 ; preds = %591
   br label %896
 
 896:                                              ; preds = %895, %893
-  %.unpack394 = load i64, ptr %82, align 8, !tbaa !147
+  %.unpack394 = load i64, ptr %81, align 8, !tbaa !147
   %.unpack396 = load i64, ptr %.repack251, align 8, !tbaa !147
   %.not397 = icmp eq i64 %.unpack394, 0
   %897 = load i16, ptr %25, align 4
@@ -2204,7 +2204,7 @@ thread-pre-split:                                 ; preds = %591
   br i1 %or.cond490, label %923, label %901
 
 901:                                              ; preds = %896
-  %902 = load i32, ptr %85, align 8, !tbaa !112
+  %902 = load i32, ptr %84, align 8, !tbaa !112
   %903 = icmp ugt i32 %902, 16
   br i1 %903, label %904, label %909
 
@@ -2230,18 +2230,18 @@ thread-pre-split:                                 ; preds = %591
   %916 = and i32 %902, 7
   %.not402 = icmp ne i32 %916, 0
   %or.cond500.not582 = or i1 %or.cond498, %.not402
-  %917 = load i32, ptr %94, align 4
+  %917 = load i32, ptr %93, align 4
   %918 = icmp ugt i32 %917, 4
   %or.cond503 = select i1 %or.cond500.not582, i1 true, i1 %918
   br i1 %or.cond503, label %923, label %920
 
 919:                                              ; preds = %909
-  %.old501 = load i32, ptr %94, align 4, !tbaa !120
+  %.old501 = load i32, ptr %93, align 4, !tbaa !120
   %.old502 = icmp ugt i32 %.old501, 4
   br i1 %.old502, label %923, label %920
 
 920:                                              ; preds = %914, %919
-  %921 = load i32, ptr %126, align 4, !tbaa !136
+  %921 = load i32, ptr %124, align 4, !tbaa !136
   %922 = add i32 %921, -5
   %or.cond505 = icmp ult i32 %922, -4
   br i1 %or.cond505, label %923, label %.lr.ph626
@@ -2251,7 +2251,7 @@ thread-pre-split:                                 ; preds = %591
   br label %932
 
 923:                                              ; preds = %904, %920, %919, %914, %896
-  store i32 0, ptr %101, align 8, !tbaa !128
+  store i32 0, ptr %100, align 8, !tbaa !128
   %924 = getelementptr inbounds nuw i8, ptr %0, i64 767448
   %925 = load ptr, ptr %924, align 8, !tbaa !183
   %.not449 = icmp eq ptr %925, null
@@ -2273,7 +2273,7 @@ thread-pre-split:                                 ; preds = %591
 932:                                              ; preds = %.lr.ph626, %932
   %indvars.iv702 = phi i64 [ 0, %.lr.ph626 ], [ %indvars.iv.next703, %932 ]
   %.0186625 = phi i32 [ 1, %.lr.ph626 ], [ %.1187, %932 ]
-  %933 = getelementptr inbounds nuw [4 x float], ptr %106, i64 0, i64 %indvars.iv702
+  %933 = getelementptr inbounds nuw [4 x float], ptr %105, i64 0, i64 %indvars.iv702
   %934 = load float, ptr %933, align 4, !tbaa !107
   %935 = fcmp reassoc nsz arcp contract afn ugt float %934, 0x3F50624DE0000000
   %.1187 = select i1 %935, i32 %.0186625, i32 0
@@ -2283,7 +2283,7 @@ thread-pre-split:                                 ; preds = %591
 
 ._crit_edge:                                      ; preds = %932
   %936 = icmp eq i32 %.1187, 0
-  %.pre724 = load float, ptr %106, align 8, !tbaa !107
+  %.pre724 = load float, ptr %105, align 8, !tbaa !107
   br i1 %936, label %.critedge507, label %.lr.ph633.preheader
 
 .lr.ph633.preheader:                              ; preds = %._crit_edge
@@ -2300,7 +2300,7 @@ thread-pre-split:                                 ; preds = %591
 .lr.ph633:                                        ; preds = %.lr.ph633.preheader, %.lr.ph633
   %indvars.iv707 = phi i64 [ 0, %.lr.ph633.preheader ], [ %indvars.iv.next708, %.lr.ph633 ]
   %.0184631 = phi double [ %937, %.lr.ph633.preheader ], [ %.0184., %.lr.ph633 ]
-  %939 = getelementptr inbounds nuw [4 x float], ptr %106, i64 0, i64 %indvars.iv707
+  %939 = getelementptr inbounds nuw [4 x float], ptr %105, i64 0, i64 %indvars.iv707
   %940 = load float, ptr %939, align 4, !tbaa !107
   %941 = fpext reassoc nsz arcp contract afn float %940 to double
   %942 = fcmp reassoc nsz arcp contract afn olt double %.0184631, %941
@@ -2311,7 +2311,7 @@ thread-pre-split:                                 ; preds = %591
 
 .lr.ph638:                                        ; preds = %.lr.ph638.preheader, %.lr.ph638
   %indvars.iv712 = phi i64 [ 0, %.lr.ph638.preheader ], [ %indvars.iv.next713, %.lr.ph638 ]
-  %943 = getelementptr inbounds nuw [4 x float], ptr %106, i64 0, i64 %indvars.iv712
+  %943 = getelementptr inbounds nuw [4 x float], ptr %105, i64 0, i64 %indvars.iv712
   %944 = load float, ptr %943, align 4, !tbaa !107
   %945 = fpext reassoc nsz arcp contract afn float %944 to double
   %946 = fmul reassoc nsz arcp contract afn double %945, %938
@@ -2352,7 +2352,7 @@ thread-pre-split:                                 ; preds = %591
   br i1 %955, label %956, label %957
 
 956:                                              ; preds = %.critedge507
-  store float 0.000000e+00, ptr %106, align 8, !tbaa !107
+  store float 0.000000e+00, ptr %105, align 8, !tbaa !107
   br label %957
 
 957:                                              ; preds = %956, %.critedge507
@@ -2366,25 +2366,25 @@ thread-pre-split:                                 ; preds = %591
   %962 = getelementptr inbounds nuw i8, ptr %0, i64 5296
   %963 = load i32, ptr %962, align 8, !tbaa !197
   %.not405 = icmp eq i32 %963, 0
-  %964 = load i32, ptr %89, align 4
+  %964 = load i32, ptr %88, align 4
   %965 = icmp ne i32 %964, 0
   %966 = zext i1 %965 to i32
   %967 = or disjoint i32 %966, 2
   %968 = select i1 %.not405, i32 %967, i32 3
   %969 = and i32 %968, %961
   %.not406 = icmp ne i32 %969, 0
-  %970 = load float, ptr %108, align 8
+  %970 = load float, ptr %107, align 8
   %971 = fcmp reassoc nsz arcp contract afn ogt float %970, 1.250000e-01
   %or.cond758 = select i1 %.not406, i1 %971, i1 false
   br i1 %or.cond758, label %972, label %973
 
 972:                                              ; preds = %959
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %109, ptr noundef nonnull align 8 dereferenceable(48) %108, i64 48, i1 false)
-  store i32 0, ptr %100, align 4, !tbaa !127
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %108, ptr noundef nonnull align 8 dereferenceable(48) %107, i64 48, i1 false)
+  store i32 0, ptr %99, align 4, !tbaa !127
   br label %973
 
 973:                                              ; preds = %972, %959
-  %974 = load i32, ptr %100, align 4, !tbaa !127
+  %974 = load i32, ptr %99, align 4, !tbaa !127
   %.not407 = icmp ne i32 %974, 0
   %975 = load i32, ptr %40, align 4
   %.not408 = icmp eq i32 %975, 0
@@ -2411,12 +2411,12 @@ thread-pre-split:                                 ; preds = %591
 
 986:                                              ; preds = %.sink.split759, %976
   %987 = phi i32 [ %975, %976 ], [ %985, %.sink.split759 ]
-  %.unpack411 = load i64, ptr %82, align 8, !tbaa !147
+  %.unpack411 = load i64, ptr %81, align 8, !tbaa !147
   %.unpack413 = load i64, ptr %.repack251, align 8, !tbaa !147
   %988 = icmp eq i64 %.unpack411, ptrtoint (ptr @_ZN6LibRaw19kodak_radc_load_rawEv to i64)
   %989 = icmp eq i64 %.unpack413, 0
   %.not585.not589 = and i1 %988, %989
-  %990 = load i32, ptr %100, align 4
+  %990 = load i32, ptr %99, align 4
   %.not414 = icmp ne i32 %990, 0
   %or.cond514.not586 = select i1 %.not585.not589, i1 %.not414, i1 false
   %.not415 = icmp eq i32 %987, 0
@@ -2446,7 +2446,7 @@ thread-pre-split:                                 ; preds = %591
 1000:                                             ; preds = %999, %996
   %1001 = load i16, ptr %20, align 2, !tbaa !83
   %.not418 = icmp ne i16 %1001, 0
-  %1002 = load i32, ptr %89, align 4
+  %1002 = load i32, ptr %88, align 4
   %.not419 = icmp eq i32 %1002, 0
   %or.cond520 = select i1 %.not418, i1 %.not419, i1 false
   br i1 %or.cond520, label %1003, label %thread-pre-split569
@@ -2491,7 +2491,7 @@ thread-pre-split569:                              ; preds = %1000
   store i16 %1017, ptr %24, align 2, !tbaa !153
   %1018 = add i16 %1017, -1
   store i16 %1018, ptr %25, align 4, !tbaa !154
-  store double 1.000000e+00, ptr %102, align 8, !tbaa !129
+  store double 1.000000e+00, ptr %101, align 8, !tbaa !129
   %1019 = zext i16 %1017 to i64
   %1020 = zext i16 %1018 to i64
   %1021 = mul nuw nsw i64 %1020, %1019
@@ -2505,7 +2505,7 @@ thread-pre-split569:                              ; preds = %1000
   br i1 %1028, label %1029, label %1041
 
 1029:                                             ; preds = %1007
-  store i32 0, ptr %101, align 8, !tbaa !128
+  store i32 0, ptr %100, align 8, !tbaa !128
   br label %1041
 
 1030:                                             ; preds = %.thread571, %thread-pre-split569
@@ -2534,12 +2534,12 @@ thread-pre-split569:                              ; preds = %1000
   %1043 = phi i16 [ %1037, %1035 ], [ %1038, %1040 ], [ %1022, %1007 ], [ %1022, %1029 ]
   %1044 = phi i16 [ %1038, %1035 ], [ %1038, %1040 ], [ %1017, %1007 ], [ %1017, %1029 ]
   %1045 = phi i16 [ %1031, %1035 ], [ %1031, %1040 ], [ %1018, %1007 ], [ %1018, %1029 ]
-  %1046 = load i32, ptr %85, align 8, !tbaa !112
+  %1046 = load i32, ptr %84, align 8, !tbaa !112
   %.not424 = icmp eq i32 %1046, 0
   br i1 %.not424, label %1047, label %1048
 
 1047:                                             ; preds = %1041
-  store i32 12, ptr %85, align 8, !tbaa !112
+  store i32 12, ptr %84, align 8, !tbaa !112
   br label %1048
 
 1048:                                             ; preds = %1047, %1041
@@ -2557,14 +2557,14 @@ thread-pre-split569:                              ; preds = %1000
 
 1054:                                             ; preds = %1051
   %1055 = zext nneg i32 %1052 to i64
-  %1056 = getelementptr inbounds nuw [65536 x i16], ptr %125, i64 0, i64 %1055
+  %1056 = getelementptr inbounds nuw [65536 x i16], ptr %123, i64 0, i64 %1055
   %1057 = load i16, ptr %1056, align 2, !tbaa !81
   %.not426 = icmp eq i16 %1057, 0
   br i1 %.not426, label %thread-pre-split573, label %1058
 
 1058:                                             ; preds = %1054
   %1059 = zext i16 %1057 to i32
-  %.unpack428 = load i64, ptr %82, align 8, !tbaa !147
+  %.unpack428 = load i64, ptr %81, align 8, !tbaa !147
   %.unpack430 = load i64, ptr %.repack251, align 8, !tbaa !147
   %1060 = icmp eq i64 %.unpack428, ptrtoint (ptr @_ZN6LibRaw18sony_arw2_load_rawEv to i64)
   %1061 = icmp eq i64 %.unpack430, 0
@@ -2582,7 +2582,7 @@ thread-pre-split573:                              ; preds = %1054, %1058, %1051,
   br label %1065
 
 1065:                                             ; preds = %.sink.split767, %thread-pre-split573
-  %.unpack432 = load i64, ptr %82, align 8, !tbaa !147
+  %.unpack432 = load i64, ptr %81, align 8, !tbaa !147
   %.unpack434 = load i64, ptr %.repack251, align 8, !tbaa !147
   %.not435 = icmp eq i64 %.unpack432, 0
   %1066 = icmp ult i16 %1045, 22
@@ -2601,25 +2601,25 @@ thread-pre-split573:                              ; preds = %1054, %1058, %1051,
   %1073 = icmp ne i64 %.unpack432, ptrtoint (ptr @_ZN6LibRaw28uncompressed_fp_dng_load_rawEv to i64)
   %1074 = and i1 %1071, %1073
   %or.cond529 = or i1 %1074, %1072
-  %1075 = load i32, ptr %94, align 4
+  %1075 = load i32, ptr %93, align 4
   %1076 = icmp ugt i32 %1075, 6
   %or.cond532 = select i1 %or.cond529, i1 true, i1 %1076
   br i1 %or.cond532, label %1082, label %1078
 
 1077:                                             ; preds = %1068
-  %.old530 = load i32, ptr %94, align 4, !tbaa !120
+  %.old530 = load i32, ptr %93, align 4, !tbaa !120
   %.old531 = icmp ugt i32 %.old530, 6
   br i1 %.old531, label %1082, label %1078
 
 1078:                                             ; preds = %1070, %1077
-  %1079 = load i32, ptr %126, align 4, !tbaa !136
+  %1079 = load i32, ptr %124, align 4, !tbaa !136
   %1080 = icmp sgt i32 %1079, 4
   %1081 = icmp eq i32 %1079, 2
   %or.cond534 = or i1 %1080, %1081
   br i1 %or.cond534, label %1082, label %1083
 
 1082:                                             ; preds = %1070, %1078, %1077, %1065
-  store i32 0, ptr %101, align 8, !tbaa !128
+  store i32 0, ptr %100, align 8, !tbaa !128
   br label %1083
 
 1083:                                             ; preds = %1078, %1082
@@ -2630,7 +2630,7 @@ thread-pre-split573:                              ; preds = %1054, %1058, %1051,
   br i1 %or.cond770, label %1091, label %1086
 
 1086:                                             ; preds = %1083
-  %1087 = load double, ptr %102, align 8, !tbaa !129
+  %1087 = load double, ptr %101, align 8, !tbaa !129
   %1088 = fcmp reassoc nsz arcp contract afn olt double %1087, 1.000000e-01
   %1089 = fcmp reassoc nsz arcp contract afn ogt double %1087, 1.000000e+01
   %or.cond538 = or i1 %1088, %1089
@@ -2639,7 +2639,7 @@ thread-pre-split573:                              ; preds = %1054, %1058, %1051,
   br i1 %or.cond540, label %1091, label %1092
 
 1091:                                             ; preds = %1086, %1083
-  store i32 0, ptr %101, align 8, !tbaa !128
+  store i32 0, ptr %100, align 8, !tbaa !128
   br label %1092
 
 1092:                                             ; preds = %1086, %1091
@@ -2651,20 +2651,20 @@ thread-pre-split573:                              ; preds = %1054, %1058, %1051,
   br i1 %or.cond772, label %1096, label %1095
 
 1095:                                             ; preds = %1092
-  store i32 0, ptr %101, align 8, !tbaa !128
+  store i32 0, ptr %100, align 8, !tbaa !128
   br label %1096
 
 1096:                                             ; preds = %1092, %1095
   br i1 %.not419, label %1101, label %1097
 
 1097:                                             ; preds = %1096
-  %1098 = load i32, ptr %94, align 4, !tbaa !120
+  %1098 = load i32, ptr %93, align 4, !tbaa !120
   %1099 = add i32 %1098, -5
   %or.cond542 = icmp ult i32 %1099, -4
   br i1 %or.cond542, label %1100, label %1101
 
 1100:                                             ; preds = %1097
-  store i32 0, ptr %101, align 8, !tbaa !128
+  store i32 0, ptr %100, align 8, !tbaa !128
   br label %1101
 
 1101:                                             ; preds = %1097, %1100, %1096
@@ -2673,7 +2673,7 @@ thread-pre-split573:                              ; preds = %1054, %1058, %1051,
   br i1 %.not439, label %1103, label %1106
 
 1103:                                             ; preds = %1101
-  %1104 = load i32, ptr %126, align 4, !tbaa !136
+  %1104 = load i32, ptr %124, align 4, !tbaa !136
   %1105 = icmp eq i32 %1104, 3
   %.str.51..str.52 = select i1 %1105, ptr @.str.51, ptr @.str.52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %33, ptr noundef nonnull align 1 dereferenceable(5) %.str.51..str.52, i64 5, i1 false) #17
@@ -2698,7 +2698,7 @@ thread-pre-split573:                              ; preds = %1054, %1058, %1051,
 1110:                                             ; preds = %1109, %1108
   %1111 = load i32, ptr %14, align 8, !tbaa !78
   %1112 = icmp ugt i32 %1111, 999
-  %1113 = load i32, ptr %126, align 4
+  %1113 = load i32, ptr %124, align 4
   %1114 = icmp eq i32 %1113, 3
   %or.cond545 = select i1 %1112, i1 %1114, i1 false
   br i1 %or.cond545, label %1115, label %1124
@@ -2760,7 +2760,7 @@ thread-pre-split573:                              ; preds = %1054, %1058, %1051,
   br i1 %.not442, label %1140, label %1151
 
 1140:                                             ; preds = %1137
-  %.unpack444 = load i64, ptr %82, align 8, !tbaa !147
+  %.unpack444 = load i64, ptr %81, align 8, !tbaa !147
   %.unpack446 = load i64, ptr %.repack251, align 8, !tbaa !147
   %1141 = icmp eq i64 %.unpack444, ptrtoint (ptr @_ZN6LibRaw18phase_one_load_rawEv to i64)
   %1142 = icmp eq i64 %.unpack446, 0
@@ -2777,7 +2777,7 @@ thread-pre-split573:                              ; preds = %1054, %1058, %1051,
   br label %1151
 
 1149:                                             ; preds = %1140
-  %1150 = load i32, ptr %85, align 8, !tbaa !112
+  %1150 = load i32, ptr %84, align 8, !tbaa !112
   br label %1151
 
 1151:                                             ; preds = %1137, %1146, %1149

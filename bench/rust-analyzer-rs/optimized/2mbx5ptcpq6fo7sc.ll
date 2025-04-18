@@ -53656,10 +53656,10 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8dce9a2204
   %10 = sub i64 %9, %.promoted15
   %11 = udiv i64 %10, 24
   %12 = mul nuw i64 %11, 24
-  %13 = add i64 %.val.promoted, %11
-  %14 = getelementptr i8, ptr %.promoted, i64 %12
-  %scevgep = getelementptr i8, ptr %14, i64 24
-  %15 = add i64 %13, 1
+  %13 = getelementptr i8, ptr %.promoted, i64 %12
+  %scevgep = getelementptr i8, ptr %13, i64 24
+  %14 = add i64 %.val.promoted, %11
+  %15 = add i64 %14, 1
   store ptr %scevgep, ptr %1, align 8, !alias.scope !20265
   store i64 %15, ptr %.val, align 8, !noalias !20268
   br label %16

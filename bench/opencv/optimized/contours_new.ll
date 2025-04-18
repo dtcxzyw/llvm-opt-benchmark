@@ -685,60 +685,60 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN15ContourScan
   %44 = ashr exact i64 %sext.i, 30
   %45 = getelementptr inbounds i8, ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !17
-  %47 = trunc i32 %46 to i8
-  %48 = tail call noundef i64 @_ZNK2cv3Mat5step1Ei(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0)
-  %49 = load ptr, ptr %36, align 8, !tbaa !74
-  %50 = sext i32 %4 to i64
-  %51 = load ptr, ptr %38, align 8, !tbaa !75
-  %52 = load i64, ptr %51, align 8, !tbaa !76
-  %53 = mul i64 %52, %50
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 %53
+  %47 = tail call noundef i64 @_ZNK2cv3Mat5step1Ei(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0)
+  %48 = load ptr, ptr %36, align 8, !tbaa !74
+  %49 = sext i32 %4 to i64
+  %50 = load ptr, ptr %38, align 8, !tbaa !75
+  %51 = load i64, ptr %50, align 8, !tbaa !76
+  %52 = mul i64 %51, %49
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 %52
   %sext = shl i64 %.sroa.0.0.copyload, 32
-  %55 = ashr exact i64 %sext, 32
-  %56 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %57 = load i64, ptr %56, align 8, !tbaa !76
-  %58 = mul i64 %57, %55
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 %58
-  %60 = load i64, ptr %29, align 8
-  %61 = load i8, ptr %23, align 8, !tbaa !77, !range !78, !noundef !79
-  %62 = shl nuw nsw i8 %61, 2
-  %63 = xor i8 %62, 4
-  %64 = trunc i64 %48 to i32
-  %.val68.i = load i32, ptr %59, align 4, !tbaa !17
-  br label %65
+  %54 = ashr exact i64 %sext, 32
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %56 = load i64, ptr %55, align 8, !tbaa !76
+  %57 = mul i64 %56, %54
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 %57
+  %59 = load i64, ptr %29, align 8
+  %60 = load i8, ptr %23, align 8, !tbaa !77, !range !78, !noundef !79
+  %61 = shl nuw nsw i8 %60, 2
+  %62 = xor i8 %61, 4
+  %63 = trunc i64 %47 to i32
+  %.val68.i = load i32, ptr %58, align 4, !tbaa !17
+  br label %64
 
-65:                                               ; preds = %65, %35
-  %.0.i = phi i8 [ %63, %35 ], [ %67, %65 ]
-  %66 = add nuw nsw i8 %.0.i, 7
-  %67 = and i8 %66, 7
-  %68 = zext nneg i8 %67 to i64
-  %69 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %68
-  %.sroa.0.0.copyload.i.i = load i32, ptr %69, align 8, !tbaa !17
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %69, i64 4
+64:                                               ; preds = %64, %35
+  %.0.i = phi i8 [ %62, %35 ], [ %66, %64 ]
+  %65 = add nuw nsw i8 %.0.i, 7
+  %66 = and i8 %65, 7
+  %67 = zext nneg i8 %66 to i64
+  %68 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %67
+  %.sroa.0.0.copyload.i.i = load i32, ptr %68, align 8, !tbaa !17
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %68, i64 4
   %.sroa.4.0.copyload.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !17
-  %70 = mul nsw i32 %.sroa.4.0.copyload.i.i, %64
-  %71 = add nsw i32 %70, %.sroa.0.0.copyload.i.i
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %59, i64 %72
-  %.val67.i = load i32, ptr %73, align 4, !tbaa !17
-  %74 = xor i32 %.val67.i, %.val68.i
-  %75 = and i32 %74, 1073741823
-  %76 = icmp eq i32 %75, 0
-  %77 = icmp eq i8 %67, %63
-  %.not61.i = select i1 %76, i1 true, i1 %77
-  br i1 %.not61.i, label %78, label %65, !llvm.loop !80
+  %69 = mul nsw i32 %.sroa.4.0.copyload.i.i, %63
+  %70 = add nsw i32 %69, %.sroa.0.0.copyload.i.i
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %58, i64 %71
+  %.val67.i = load i32, ptr %72, align 4, !tbaa !17
+  %73 = xor i32 %.val67.i, %.val68.i
+  %74 = and i32 %73, 1073741823
+  %75 = icmp eq i32 %74, 0
+  %76 = icmp eq i8 %66, %62
+  %.not61.i = select i1 %75, i1 true, i1 %76
+  br i1 %.not61.i, label %77, label %64, !llvm.loop !80
 
-78:                                               ; preds = %65
-  %79 = getelementptr inbounds i32, ptr %59, i64 %72
-  %80 = and i8 %47, 127
-  %.sroa.12126.0.extract.shift.i = lshr i64 %60, 32
-  %.sroa.0110.0.extract.trunc.i = trunc i64 %60 to i32
+77:                                               ; preds = %64
+  %78 = getelementptr inbounds i32, ptr %58, i64 %71
+  %79 = trunc i32 %46 to i8
+  %80 = and i8 %79, 127
+  %.sroa.0110.0.extract.trunc.i = trunc i64 %59 to i32
+  %.sroa.12126.0.extract.shift.i = lshr i64 %59, 32
   %.sroa.12126.0.extract.trunc.i = trunc nuw i64 %.sroa.12126.0.extract.shift.i to i32
-  br i1 %77, label %81, label %115
+  br i1 %76, label %81, label %115
 
-81:                                               ; preds = %78
+81:                                               ; preds = %77
   %82 = or i32 %.val68.i, -1073741824
-  store i32 %82, ptr %59, align 4, !tbaa !17
+  store i32 %82, ptr %58, align 4, !tbaa !17
   %83 = load i8, ptr %24, align 1, !tbaa !82, !range !78, !noundef !79
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %_ZN12_GLOBAL__N_117icvFetchContourExIiEEvRN2cv3MatERKNS1_6Point_IiEET_RNS1_7ContourEb.exit, label %85
@@ -753,7 +753,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN15ContourScan
   br i1 %.not.i.i, label %94, label %91
 
 91:                                               ; preds = %85
-  store i64 %60, ptr %88, align 4
+  store i64 %59, ptr %88, align 4
   %92 = load ptr, ptr %87, align 8, !tbaa !83
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr %93, ptr %87, align 8, !tbaa !83
@@ -783,7 +783,7 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %
   %106 = shl nuw nsw i64 %105, 3
   %107 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %106) #24
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 %98
-  store i64 %60, ptr %108, align 4
+  store i64 %59, ptr %108, align 4
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %95, %88
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -816,8 +816,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   store ptr %114, ptr %89, align 8, !tbaa !84
   br label %_ZN12_GLOBAL__N_117icvFetchContourExIiEEvRN2cv3MatERKNS1_6Point_IiEET_RNS1_7ContourEb.exit
 
-115:                                              ; preds = %78
-  %116 = xor i8 %67, 4
+115:                                              ; preds = %77
+  %116 = xor i8 %66, 4
   %117 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %118 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %119 = getelementptr inbounds nuw i8, ptr %21, i64 64
@@ -834,8 +834,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   %.sroa.12.1.i = phi i32 [ %.sroa.0110.0.extract.trunc.i, %115 ], [ %.sroa.12.2.i, %215 ]
   %.sroa.8.1.i = phi i32 [ %.sroa.12126.0.extract.trunc.i, %115 ], [ %.sroa.8.2.i, %215 ]
   %.sroa.0.1.i = phi i32 [ %.sroa.0110.0.extract.trunc.i, %115 ], [ %.sroa.0.2.i, %215 ]
-  %.1144.i = phi i8 [ %67, %115 ], [ %221, %215 ]
-  %.053.i = phi ptr [ %59, %115 ], [ %137, %215 ]
+  %.1144.i = phi i8 [ %66, %115 ], [ %221, %215 ]
+  %.053.i = phi ptr [ %58, %115 ], [ %137, %215 ]
   %.051.i = phi i8 [ %116, %115 ], [ %138, %215 ]
   br label %124
 
@@ -847,7 +847,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   %127 = getelementptr inbounds nuw [8 x %"class.cv::Point_"], ptr @_ZN2cvL15chainCodeDeltasE, i64 0, i64 %126
   %.sroa.4.0..sroa_idx.i76.i = getelementptr inbounds nuw i8, ptr %127, i64 4
   %.sroa.4.0.copyload.i77.i = load i32, ptr %.sroa.4.0..sroa_idx.i76.i, align 4, !tbaa !17
-  %128 = mul nsw i32 %.sroa.4.0.copyload.i77.i, %64
+  %128 = mul nsw i32 %.sroa.4.0.copyload.i77.i, %63
   %.sroa.0.0.copyload.i75.i = load i32, ptr %127, align 8, !tbaa !17
   %129 = add nsw i32 %128, %.sroa.0.0.copyload.i75.i
   %130 = sext i32 %129 to i64
@@ -1062,8 +1062,8 @@ _ZNSt6vectorIaSaIaEE9push_backERKa.exit.i:        ; preds = %_ZNSt6vectorIN2cv6P
   %.sroa.12.2.i = phi i32 [ %.sroa.12.1.i, %_ZNSt6vectorIaSaIaEE9push_backERKa.exit.i ], [ %.sroa.12.3.i, %208 ], [ %.sroa.12.3.i, %211 ]
   %.sroa.8.2.i = phi i32 [ %.sroa.8.1.i, %_ZNSt6vectorIaSaIaEE9push_backERKa.exit.i ], [ %.sroa.12126.0.i, %208 ], [ %.sroa.8.1.i, %211 ]
   %.sroa.0.2.i = phi i32 [ %.sroa.0.1.i, %_ZNSt6vectorIaSaIaEE9push_backERKa.exit.i ], [ %.sroa.0.3.i, %208 ], [ %.sroa.0.3.i, %211 ]
-  %213 = icmp eq ptr %137, %59
-  %214 = icmp eq ptr %.053.i, %79
+  %213 = icmp eq ptr %137, %58
+  %214 = icmp eq ptr %.053.i, %78
   %or.cond65.i = and i1 %214, %213
   br i1 %or.cond65.i, label %_ZN12_GLOBAL__N_117icvFetchContourExIiEEvRN2cv3MatERKNS1_6Point_IiEET_RNS1_7ContourEb.exit, label %215
 
@@ -1076,7 +1076,7 @@ _ZNSt6vectorIaSaIaEE9push_backERKa.exit.i:        ; preds = %_ZNSt6vectorIN2cv6P
   %.val.i = load i32, ptr %217, align 8, !tbaa !71
   %220 = add nsw i32 %.val.i, %.sroa.0110.0.i
   %221 = xor i8 %138, 4
-  %.val70.pre.i = load i32, ptr %59, align 4, !tbaa !17
+  %.val70.pre.i = load i32, ptr %58, align 4, !tbaa !17
   br label %123, !llvm.loop !99
 
 _ZN12_GLOBAL__N_117icvFetchContourExIiEEvRN2cv3MatERKNS1_6Point_IiEET_RNS1_7ContourEb.exit: ; preds = %212, %81, %91, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
@@ -1324,7 +1324,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_117icvFetchContourExIaEEvRN2cv3MatE
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = load i64, ptr %23, align 8
-  %.sroa.12120.0.extract.shift = lshr i64 %24, 32
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %26 = load i8, ptr %25, align 8, !tbaa !77, !range !78, !noundef !79
   %27 = shl nuw nsw i8 %26, 2
@@ -1354,6 +1353,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117icvFetchContourExIaEEvRN2cv3MatE
 41:                                               ; preds = %30
   %42 = getelementptr inbounds i8, ptr %22, i64 %37
   %.sroa.0104.0.extract.trunc = trunc i64 %24 to i32
+  %.sroa.12120.0.extract.shift = lshr i64 %24, 32
   %.sroa.12120.0.extract.trunc = trunc nuw i64 %.sroa.12120.0.extract.shift to i32
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 73
   br i1 %40, label %44, label %.split.lr.ph
@@ -1968,8 +1968,8 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %15 = sext i32 %2 to i64
   %16 = sext i32 %9 to i64
   br label %17
 
@@ -2012,14 +2012,14 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %44 = load i32, ptr %12, align 4, !tbaa !36
   %45 = icmp eq i32 %44, 4
   %46 = load ptr, ptr %13, align 8, !tbaa !74
-  %47 = load ptr, ptr %15, align 8, !tbaa !75
+  %47 = load ptr, ptr %14, align 8, !tbaa !75
   %48 = load i64, ptr %47, align 8, !tbaa !76
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !76
   %51 = tail call noundef i64 @_ZNK2cv3Mat5step1Ei(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0)
   %52 = load ptr, ptr %13, align 8, !tbaa !74
   %53 = ashr i64 %41, 32
-  %54 = load ptr, ptr %15, align 8, !tbaa !75
+  %54 = load ptr, ptr %14, align 8, !tbaa !75
   %55 = load i64, ptr %54, align 8, !tbaa !76
   %56 = mul i64 %55, %53
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 %56
@@ -2061,10 +2061,10 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
 
 80:                                               ; preds = %67
   %81 = getelementptr inbounds i32, ptr %62, i64 %74
-  %82 = mul i64 %48, %14
-  %83 = mul i64 %50, %16
-  %84 = getelementptr inbounds nuw i8, ptr %46, i64 %82
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %83
+  %82 = mul i64 %48, %15
+  %83 = getelementptr inbounds nuw i8, ptr %46, i64 %82
+  %84 = mul i64 %50, %16
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 %84
   br i1 %79, label %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit, label %.preheader1.i
 
 .preheader1.i:                                    ; preds = %80
@@ -2168,10 +2168,10 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
 
 135:                                              ; preds = %.preheader
   %136 = getelementptr inbounds i8, ptr %62, i64 %131
-  %137 = mul i64 %48, %14
-  %138 = mul i64 %50, %16
-  %139 = getelementptr inbounds nuw i8, ptr %46, i64 %137
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 %138
+  %137 = mul i64 %48, %15
+  %138 = getelementptr inbounds nuw i8, ptr %46, i64 %137
+  %139 = mul i64 %50, %16
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 %139
   br i1 %134, label %_ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit, label %.preheader5.i
 
 .preheader5.i:                                    ; preds = %135, %171

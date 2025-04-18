@@ -7694,8 +7694,8 @@ define noundef zeroext i1 @_ZN7glslang13TGlslIoMapper5doMapEPNS_14TIoMapResolver
   %39 = load i32, ptr %38, align 8
   call void @_ZN7glslang16TSymbolValidaterC2ERNS_14TIoMapResolverER9TInfoSinkPPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEENS_13TVarEntryInfoESt4lessISC_ESaISt4pairIKSC_SD_EEESM_SM_Rb8EProfilei(ptr noundef nonnull align 8 dereferenceable(368) %11, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %26, ptr noundef nonnull align 1 dereferenceable(1) %22, i32 noundef %37, i32 noundef %39)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %12, i8 0, i64 336, i1 false)
-  %40 = getelementptr inbounds nuw i8, ptr %12, i64 336
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %13, i8 0, i64 336, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 336
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 336
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   %42 = load ptr, ptr %1, align 8

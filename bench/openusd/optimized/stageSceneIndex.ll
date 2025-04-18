@@ -13705,9 +13705,9 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_22HdDataSourceLocato
 
 76:                                               ; preds = %._crit_edge
   %77 = load atomic i64, ptr %10 monotonic, align 8
-  %78 = icmp ne i64 %.038, 1
-  %79 = icmp ult i64 %.038, 8
-  %.not.i = and i1 %79, %78
+  %78 = icmp ult i64 %.038, 8
+  %79 = icmp ne i64 %.038, 1
+  %.not.i = and i1 %78, %79
   br i1 %.not.i, label %81, label %80
 
 80:                                               ; preds = %76

@@ -972,7 +972,6 @@ vector.scevcheck:                                 ; preds = %for.body.lr.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
   %n.vec = and i32 %12, -4
-  %.cast = trunc i32 %n.vec to i16
   %.splatinsert = insertelement <4 x i16> poison, i16 %nmax.sroa.2.0.extract.trunc, i64 0
   %.splat = shufflevector <4 x i16> %.splatinsert, <4 x i16> poison, <4 x i32> zeroinitializer
   %induction = add <4 x i16> %.splat, <i16 0, i16 -1, i16 -2, i16 -3>
@@ -1001,6 +1000,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = trunc i32 %n.vec to i8
+  %.cast = trunc i32 %n.vec to i16
   %ind.end195 = sub i16 %nmax.sroa.2.0.extract.trunc, %.cast
   %cmp.n = icmp eq i32 %12, %n.vec
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader

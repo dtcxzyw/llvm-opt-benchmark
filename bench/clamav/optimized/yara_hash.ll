@@ -217,32 +217,32 @@ hash.exit:                                        ; preds = %3, %._crit_edge.loo
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
   %24 = trunc i64 %23 to i32
   %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %.lr.ph.i27, label %hash.exit34
+  br i1 %25, label %.lr.ph.i26, label %hash.exit33
 
-.lr.ph.i27:                                       ; preds = %22, %.lr.ph.i27
-  %.016.i28 = phi i32 [ %31, %.lr.ph.i27 ], [ %21, %22 ]
-  %.012.in15.i29 = phi i32 [ %.012.i31, %.lr.ph.i27 ], [ %24, %22 ]
-  %.01314.i30 = phi ptr [ %32, %.lr.ph.i27 ], [ %2, %22 ]
-  %.012.i31 = add nsw i32 %.012.in15.i29, -1
-  %26 = load i8, ptr %.01314.i30, align 1, !tbaa !3
+.lr.ph.i26:                                       ; preds = %22, %.lr.ph.i26
+  %.016.i27 = phi i32 [ %31, %.lr.ph.i26 ], [ %21, %22 ]
+  %.012.in15.i28 = phi i32 [ %.012.i30, %.lr.ph.i26 ], [ %24, %22 ]
+  %.01314.i29 = phi ptr [ %32, %.lr.ph.i26 ], [ %2, %22 ]
+  %.012.i30 = add nsw i32 %.012.in15.i28, -1
+  %26 = load i8, ptr %.01314.i29, align 1, !tbaa !3
   %27 = zext i8 %26 to i64
   %28 = getelementptr inbounds nuw [256 x i32], ptr @byte_to_int32, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !6
-  %30 = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 %.012.i31)
-  %31 = xor i32 %30, %.016.i28
-  %32 = getelementptr inbounds nuw i8, ptr %.01314.i30, i64 1
-  %33 = icmp samesign ugt i32 %.012.in15.i29, 2
-  br i1 %33, label %.lr.ph.i27, label %._crit_edge.loopexit.i32
+  %30 = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 %.012.i30)
+  %31 = xor i32 %30, %.016.i27
+  %32 = getelementptr inbounds nuw i8, ptr %.01314.i29, i64 1
+  %33 = icmp samesign ugt i32 %.012.in15.i28, 2
+  br i1 %33, label %.lr.ph.i26, label %._crit_edge.loopexit.i31
 
-._crit_edge.loopexit.i32:                         ; preds = %.lr.ph.i27
+._crit_edge.loopexit.i31:                         ; preds = %.lr.ph.i26
   %34 = and i64 %23, 2147483647
   %35 = getelementptr i8, ptr %2, i64 %34
-  %scevgep.i33 = getelementptr i8, ptr %35, i64 -1
-  br label %hash.exit34
+  %scevgep.i32 = getelementptr i8, ptr %35, i64 -1
+  br label %hash.exit33
 
-hash.exit34:                                      ; preds = %22, %._crit_edge.loopexit.i32
-  %.013.lcssa.i24 = phi ptr [ %2, %22 ], [ %scevgep.i33, %._crit_edge.loopexit.i32 ]
-  %.0.lcssa.i25 = phi i32 [ %21, %22 ], [ %31, %._crit_edge.loopexit.i32 ]
+hash.exit33:                                      ; preds = %22, %._crit_edge.loopexit.i31
+  %.013.lcssa.i24 = phi ptr [ %2, %22 ], [ %scevgep.i32, %._crit_edge.loopexit.i31 ]
+  %.0.lcssa.i25 = phi i32 [ %21, %22 ], [ %31, %._crit_edge.loopexit.i31 ]
   %36 = load i8, ptr %.013.lcssa.i24, align 1, !tbaa !3
   %37 = zext i8 %36 to i64
   %38 = getelementptr inbounds nuw [256 x i32], ptr @byte_to_int32, i64 0, i64 %37
@@ -250,26 +250,26 @@ hash.exit34:                                      ; preds = %22, %._crit_edge.lo
   %40 = xor i32 %39, %.0.lcssa.i25
   br label %41
 
-41:                                               ; preds = %hash.exit34, %hash.exit
-  %.0 = phi i32 [ %40, %hash.exit34 ], [ %21, %hash.exit ]
+41:                                               ; preds = %hash.exit33, %hash.exit
+  %.0 = phi i32 [ %40, %hash.exit33 ], [ %21, %hash.exit ]
   %42 = load i32, ptr %0, align 8, !tbaa !8
   %43 = urem i32 %.0, %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = zext i32 %43 to i64
   %46 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %45
-  %.01937 = load ptr, ptr %46, align 8, !tbaa !10
-  %.not2338 = icmp eq ptr %.01937, null
-  br i1 %.not2338, label %.loopexit, label %.lr.ph
+  %.01936 = load ptr, ptr %46, align 8, !tbaa !10
+  %.not2337 = icmp eq ptr %.01936, null
+  br i1 %.not2337, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41, %60
-  %.01939 = phi ptr [ %.019, %60 ], [ %.01937, %41 ]
-  %47 = load ptr, ptr %.01939, align 8, !tbaa !19
+  %.01938 = phi ptr [ %.019, %60 ], [ %.01936, %41 ]
+  %47 = load ptr, ptr %.01938, align 8, !tbaa !19
   %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %47, ptr noundef nonnull dereferenceable(1) %1) #9
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds nuw i8, ptr %.01939, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.01938, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !18
   %53 = icmp eq ptr %52, %2
   br i1 %53, label %57, label %54
@@ -280,12 +280,12 @@ hash.exit34:                                      ; preds = %22, %._crit_edge.lo
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %54, %50
-  %58 = getelementptr inbounds nuw i8, ptr %.01939, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.01938, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !20
   br label %.loopexit
 
 60:                                               ; preds = %54, %.lr.ph
-  %61 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.01938, i64 24
   %.019 = load ptr, ptr %61, align 8, !tbaa !10
   %.not23 = icmp eq ptr %.019, null
   br i1 %.not23, label %.loopexit, label %.lr.ph
@@ -382,32 +382,32 @@ hash.exit:                                        ; preds = %20, %._crit_edge.lo
   %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
   %42 = trunc i64 %41 to i32
   %43 = icmp sgt i32 %42, 1
-  br i1 %43, label %.lr.ph.i34, label %hash.exit41
+  br i1 %43, label %.lr.ph.i33, label %hash.exit40
 
-.lr.ph.i34:                                       ; preds = %40, %.lr.ph.i34
-  %.016.i35 = phi i32 [ %49, %.lr.ph.i34 ], [ %39, %40 ]
-  %.012.in15.i36 = phi i32 [ %.012.i38, %.lr.ph.i34 ], [ %42, %40 ]
-  %.01314.i37 = phi ptr [ %50, %.lr.ph.i34 ], [ %2, %40 ]
-  %.012.i38 = add nsw i32 %.012.in15.i36, -1
-  %44 = load i8, ptr %.01314.i37, align 1, !tbaa !3
+.lr.ph.i33:                                       ; preds = %40, %.lr.ph.i33
+  %.016.i34 = phi i32 [ %49, %.lr.ph.i33 ], [ %39, %40 ]
+  %.012.in15.i35 = phi i32 [ %.012.i37, %.lr.ph.i33 ], [ %42, %40 ]
+  %.01314.i36 = phi ptr [ %50, %.lr.ph.i33 ], [ %2, %40 ]
+  %.012.i37 = add nsw i32 %.012.in15.i35, -1
+  %44 = load i8, ptr %.01314.i36, align 1, !tbaa !3
   %45 = zext i8 %44 to i64
   %46 = getelementptr inbounds nuw [256 x i32], ptr @byte_to_int32, i64 0, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !6
-  %48 = tail call i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 %.012.i38)
-  %49 = xor i32 %48, %.016.i35
-  %50 = getelementptr inbounds nuw i8, ptr %.01314.i37, i64 1
-  %51 = icmp samesign ugt i32 %.012.in15.i36, 2
-  br i1 %51, label %.lr.ph.i34, label %._crit_edge.loopexit.i39
+  %48 = tail call i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 %.012.i37)
+  %49 = xor i32 %48, %.016.i34
+  %50 = getelementptr inbounds nuw i8, ptr %.01314.i36, i64 1
+  %51 = icmp samesign ugt i32 %.012.in15.i35, 2
+  br i1 %51, label %.lr.ph.i33, label %._crit_edge.loopexit.i38
 
-._crit_edge.loopexit.i39:                         ; preds = %.lr.ph.i34
+._crit_edge.loopexit.i38:                         ; preds = %.lr.ph.i33
   %52 = and i64 %41, 2147483647
   %53 = getelementptr i8, ptr %2, i64 %52
-  %scevgep.i40 = getelementptr i8, ptr %53, i64 -1
-  br label %hash.exit41
+  %scevgep.i39 = getelementptr i8, ptr %53, i64 -1
+  br label %hash.exit40
 
-hash.exit41:                                      ; preds = %40, %._crit_edge.loopexit.i39
-  %.013.lcssa.i31 = phi ptr [ %2, %40 ], [ %scevgep.i40, %._crit_edge.loopexit.i39 ]
-  %.0.lcssa.i32 = phi i32 [ %39, %40 ], [ %49, %._crit_edge.loopexit.i39 ]
+hash.exit40:                                      ; preds = %40, %._crit_edge.loopexit.i38
+  %.013.lcssa.i31 = phi ptr [ %2, %40 ], [ %scevgep.i39, %._crit_edge.loopexit.i38 ]
+  %.0.lcssa.i32 = phi i32 [ %39, %40 ], [ %49, %._crit_edge.loopexit.i38 ]
   %54 = load i8, ptr %.013.lcssa.i31, align 1, !tbaa !3
   %55 = zext i8 %54 to i64
   %56 = getelementptr inbounds nuw [256 x i32], ptr @byte_to_int32, i64 0, i64 %55
@@ -415,8 +415,8 @@ hash.exit41:                                      ; preds = %40, %._crit_edge.lo
   %58 = xor i32 %57, %.0.lcssa.i32
   br label %59
 
-59:                                               ; preds = %hash.exit41, %hash.exit
-  %.0 = phi i32 [ %58, %hash.exit41 ], [ %39, %hash.exit ]
+59:                                               ; preds = %hash.exit40, %hash.exit
+  %.0 = phi i32 [ %58, %hash.exit40 ], [ %39, %hash.exit ]
   %60 = load i32, ptr %0, align 8, !tbaa !8
   %61 = urem i32 %.0, %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8

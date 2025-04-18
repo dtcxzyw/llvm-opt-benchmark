@@ -957,20 +957,20 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 7304
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 7312
   %11 = load i16, ptr %10, align 8, !tbaa !18
-  %12 = ashr i16 %11, 5
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 7316
-  %14 = load i32, ptr %13, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 7316
+  %13 = load i32, ptr %12, align 4
   br label %26
 
-15:                                               ; preds = %26
-  %16 = icmp slt i16 %11, 0
-  %17 = sext i16 %12 to i32
-  %18 = select i1 %16, i32 %14, i32 %17
+14:                                               ; preds = %26
+  %15 = icmp slt i16 %11, 0
+  %16 = ashr i16 %11, 5
+  %17 = sext i16 %16 to i32
+  %18 = select i1 %15, i32 %13, i32 %17
   %19 = load i16, ptr %10, align 8, !tbaa !18
   %20 = icmp slt i16 %19, 0
   %21 = ashr i16 %19, 5
   %22 = sext i16 %21 to i32
-  %23 = load i32, ptr %13, align 4
+  %23 = load i32, ptr %12, align 4
   %24 = select i1 %20, i32 %23, i32 %22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %33
@@ -983,7 +983,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   %28 = add nuw nsw i32 %.02129, 1
   %exitcond.not = icmp eq i32 %28, 448
-  br i1 %exitcond.not, label %15, label %26, !llvm.loop !57
+  br i1 %exitcond.not, label %14, label %26, !llvm.loop !57
 
 29:                                               ; preds = %64
   %30 = load i32, ptr %1, align 4, !tbaa !20
@@ -991,8 +991,8 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder1
   %32 = zext i1 %31 to i8
   br label %65
 
-33:                                               ; preds = %15, %64
-  %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %64 ]
+33:                                               ; preds = %14, %64
+  %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %64 ]
   %34 = getelementptr inbounds nuw [448 x [2 x i64]], ptr %25, i64 0, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8, !tbaa !47
   %.mask.i = and i64 %35, -4294967296
@@ -1013,7 +1013,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder1
   %45 = icmp slt i16 %44, 0
   %46 = ashr i16 %44, 5
   %47 = sext i16 %46 to i32
-  %48 = load i32, ptr %13, align 4
+  %48 = load i32, ptr %12, align 4
   %49 = select i1 %45, i32 %48, i32 %47
   %50 = sub nsw i32 %49, %24
   %51 = icmp sgt i32 %50, 1023
@@ -1071,30 +1071,30 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 7304
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 7312
   %17 = load i16, ptr %16, align 8, !tbaa !18
-  %18 = ashr i16 %17, 5
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 7316
-  %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 7200
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 7216
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 7316
+  %19 = load i32, ptr %18, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 7200
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 7216
   br label %35
 
-24:                                               ; preds = %112
-  %25 = icmp slt i16 %17, 0
-  %26 = sext i16 %18 to i32
-  %27 = select i1 %25, i32 %20, i32 %26
+23:                                               ; preds = %112
+  %24 = icmp slt i16 %17, 0
+  %25 = ashr i16 %17, 5
+  %26 = sext i16 %25 to i32
+  %27 = select i1 %24, i32 %19, i32 %26
   %28 = load i16, ptr %16, align 8, !tbaa !18
   %29 = icmp slt i16 %28, 0
   %30 = ashr i16 %28, 5
   %31 = sext i16 %30 to i32
-  %32 = load i32, ptr %19, align 4
+  %32 = load i32, ptr %18, align 4
   %33 = select i1 %29, i32 %32, i32 %31
   %34 = icmp sgt i32 %33, %27
   br i1 %34, label %113, label %115
 
 35:                                               ; preds = %12, %112
   %indvars.iv50 = phi i64 [ 0, %12 ], [ %indvars.iv.next51, %112 ]
-  %36 = getelementptr inbounds nuw [448 x [2 x i64]], ptr %21, i64 0, i64 %indvars.iv50
+  %36 = getelementptr inbounds nuw [448 x [2 x i64]], ptr %20, i64 0, i64 %indvars.iv50
   %37 = load i64, ptr %36, align 8, !tbaa !47
   %.mask.i = and i64 %37, -4294967296
   %38 = icmp ne i64 %.mask.i, 4294967296
@@ -1107,7 +1107,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder1
   %42 = icmp slt i16 %41, 0
   %43 = ashr i16 %41, 5
   %44 = sext i16 %43 to i32
-  %45 = load i32, ptr %19, align 4
+  %45 = load i32, ptr %18, align 4
   %46 = select i1 %42, i32 %45, i32 %44
   %reass.sub = sub i32 %46, %14
   %47 = add i32 %reass.sub, -448
@@ -1128,13 +1128,13 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7725CollationFastLatinBuilder1
 56:                                               ; preds = %105, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %105 ], [ %55, %54 ]
   %57 = phi i1 [ false, %105 ], [ true, %54 ]
-  %58 = load i32, ptr %22, align 8
+  %58 = load i32, ptr %21, align 8
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv, %59
   br i1 %60, label %_ZNK6icu_779UVector6410elementAtiEi.exit, label %_ZNK6icu_779UVector6410elementAtiEi.exit.thread
 
 _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %56
-  %61 = load ptr, ptr %23, align 8, !tbaa !46
+  %61 = load ptr, ptr %22, align 8, !tbaa !46
   %62 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
   %63 = load i64, ptr %62, align 8, !tbaa !47
   %64 = and i64 %63, 4294967295
@@ -1150,7 +1150,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.thread:  ; preds = %56, %_ZNK6icu_779UV
   br i1 %69, label %70, label %_ZNK6icu_779UVector6410elementAtiEi.exit42
 
 70:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit.thread
-  %71 = load ptr, ptr %23, align 8, !tbaa !46
+  %71 = load ptr, ptr %22, align 8, !tbaa !46
   %72 = getelementptr inbounds nuw i64, ptr %71, i64 %67
   %73 = load i64, ptr %72, align 8, !tbaa !47
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit42
@@ -1163,7 +1163,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit42:       ; preds = %_ZNK6icu_779UVector
   br i1 %77, label %78, label %_ZNK6icu_779UVector6410elementAtiEi.exit44
 
 78:                                               ; preds = %_ZNK6icu_779UVector6410elementAtiEi.exit42
-  %79 = load ptr, ptr %23, align 8, !tbaa !46
+  %79 = load ptr, ptr %22, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i64, ptr %79, i64 %75
   %81 = load i64, ptr %80, align 8, !tbaa !47
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit44
@@ -1236,9 +1236,9 @@ _ZNK6icu_779UVector6410elementAtiEi.exit44:       ; preds = %_ZNK6icu_779UVector
 112:                                              ; preds = %49, %.critedge, %35
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next51, 448
-  br i1 %exitcond.not, label %24, label %35, !llvm.loop !60
+  br i1 %exitcond.not, label %23, label %35, !llvm.loop !60
 
-113:                                              ; preds = %24
+113:                                              ; preds = %23
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   store i16 511, ptr %3, align 2, !tbaa !26
   %114 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 1)
@@ -1246,8 +1246,8 @@ _ZNK6icu_779UVector6410elementAtiEi.exit44:       ; preds = %_ZNK6icu_779UVector
   %.pre = load i16, ptr %16, align 8, !tbaa !18
   br label %115
 
-115:                                              ; preds = %113, %24
-  %116 = phi i16 [ %.pre, %113 ], [ %28, %24 ]
+115:                                              ; preds = %113, %23
+  %116 = phi i16 [ %.pre, %113 ], [ %28, %23 ]
   %117 = and i16 %116, 1
   %.not39 = icmp eq i16 %117, 0
   br i1 %.not39, label %119, label %118

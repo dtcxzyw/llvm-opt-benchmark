@@ -202998,38 +202998,38 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_6SDNodeELb1EE9push_backES3_.exit43: ; pre
 63:                                               ; preds = %.loopexit
   %64 = load i32, ptr %9, align 4, !tbaa !37
   %65 = load i32, ptr %10, align 8, !tbaa !38
-  %66 = sub i32 %64, %65
   %wide.trip.count = zext i32 %2 to i64
-  br label %67
+  br label %66
 
-67:                                               ; preds = %63, %._crit_edge
-  %68 = phi i32 [ 0, %63 ], [ %77, %._crit_edge ]
+66:                                               ; preds = %63, %._crit_edge
+  %67 = phi i32 [ 0, %63 ], [ %76, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %63 ], [ %indvars.iv.next, %._crit_edge ]
   %.val39 = load ptr, ptr %1, align 8, !tbaa !32
-  %69 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %.val39, i64 %indvars.iv
-  %70 = load ptr, ptr %69, align 8, !tbaa !1039
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
-  %72 = load ptr, ptr %71, align 8, !tbaa !218
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 64
-  %74 = load i16, ptr %73, align 8, !tbaa !219
-  %75 = zext i16 %74 to i64
-  %76 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %72, i64 %75
-  %.not6369 = icmp eq i16 %74, 0
+  %68 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %.val39, i64 %indvars.iv
+  %69 = load ptr, ptr %68, align 8, !tbaa !1039
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  %71 = load ptr, ptr %70, align 8, !tbaa !218
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 64
+  %73 = load i16, ptr %72, align 8, !tbaa !219
+  %74 = zext i16 %73 to i64
+  %75 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %71, i64 %74
+  %.not6369 = icmp eq i16 %73, 0
   br i1 %.not6369, label %._crit_edge, label %.lr.ph71
 
-._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6SDNodeELb1EE9push_backES3_.exit47, %67
-  %77 = phi i32 [ %68, %67 ], [ %91, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6SDNodeELb1EE9push_backES3_.exit47 ]
+._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6SDNodeELb1EE9push_backES3_.exit47, %66
+  %76 = phi i32 [ %67, %66 ], [ %91, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6SDNodeELb1EE9push_backES3_.exit47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.preheader, label %67, !llvm.loop !1956
+  br i1 %exitcond.not, label %.preheader.preheader, label %66, !llvm.loop !1956
 
 .preheader.preheader:                             ; preds = %._crit_edge
-  %78 = add i32 %66, 1024
+  %77 = sub i32 %64, %65
+  %78 = add i32 %77, 1024
   br label %.preheader
 
-.lr.ph71:                                         ; preds = %67, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6SDNodeELb1EE9push_backES3_.exit47
-  %79 = phi i32 [ %91, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6SDNodeELb1EE9push_backES3_.exit47 ], [ %68, %67 ]
-  %.sroa.049.070 = phi ptr [ %92, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6SDNodeELb1EE9push_backES3_.exit47 ], [ %72, %67 ]
+.lr.ph71:                                         ; preds = %66, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6SDNodeELb1EE9push_backES3_.exit47
+  %79 = phi i32 [ %91, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6SDNodeELb1EE9push_backES3_.exit47 ], [ %67, %66 ]
+  %.sroa.049.070 = phi ptr [ %92, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_6SDNodeELb1EE9push_backES3_.exit47 ], [ %71, %66 ]
   %80 = load ptr, ptr %.sroa.049.070, align 8, !tbaa !206
   %81 = load i32, ptr %14, align 4, !tbaa !34
   %.not.i.i.not.i45 = icmp ult i32 %79, %81
@@ -203053,7 +203053,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_6SDNodeELb1EE9push_backES3_.exit47: ; pre
   %91 = add i32 %90, 1
   store i32 %91, ptr %13, align 8, !tbaa !33
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.049.070, i64 40
-  %.not63 = icmp eq ptr %92, %76
+  %.not63 = icmp eq ptr %92, %75
   br i1 %.not63, label %._crit_edge, label %.lr.ph71
 
 93:                                               ; preds = %.preheader

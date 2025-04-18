@@ -2087,34 +2087,34 @@ define internal fastcc range(i32 0, 2) i32 @fmtint(ptr noundef nonnull captures(
   %.not105 = phi i1 [ true, %9 ], [ false, %14 ], [ false, %16 ], [ %.not100, %18 ]
   %.093 = phi i32 [ 0, %9 ], [ 45, %14 ], [ 43, %16 ], [ %spec.select116, %18 ]
   %.088 = phi i64 [ %4, %9 ], [ %15, %14 ], [ %4, %16 ], [ %4, %18 ]
-  %21 = and i32 %8, 8
-  %22 = icmp eq i32 %5, 8
-  %spec.select117 = select i1 %22, ptr @.str.2, ptr @.str.1
-  %23 = icmp eq i32 %5, 16
-  %spec.select119 = select i1 %23, ptr @.str.3, ptr %spec.select117
-  %24 = and i32 %8, 32
-  %.not102 = icmp eq i32 %24, 0
-  %25 = select i1 %.not102, ptr @.str.5, ptr @.str.4
-  %26 = zext nneg i32 %5 to i64
-  br label %27
+  %21 = and i32 %8, 32
+  %.not102 = icmp eq i32 %21, 0
+  %22 = select i1 %.not102, ptr @.str.5, ptr @.str.4
+  %23 = zext nneg i32 %5 to i64
+  br label %24
 
-27:                                               ; preds = %27, %20
-  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %20 ]
-  %.189 = phi i64 [ %32, %27 ], [ %.088, %20 ]
-  %28 = urem i64 %.189, %26
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !10
+24:                                               ; preds = %24, %20
+  %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %20 ]
+  %.189 = phi i64 [ %29, %24 ], [ %.088, %20 ]
+  %25 = urem i64 %.189, %23
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = getelementptr inbounds nuw [26 x i8], ptr %10, i64 0, i64 %indvars.iv
-  store i8 %30, ptr %31, align 1, !tbaa !10
-  %32 = udiv i64 %.189, %26
-  %33 = icmp uge i64 %.189, %26
-  %34 = icmp samesign ult i64 %indvars.iv, 25
-  %35 = select i1 %33, i1 %34, i1 false
-  br i1 %35, label %27, label %36, !llvm.loop !26
+  %28 = getelementptr inbounds nuw [26 x i8], ptr %10, i64 0, i64 %indvars.iv
+  store i8 %27, ptr %28, align 1, !tbaa !10
+  %29 = udiv i64 %.189, %23
+  %30 = icmp uge i64 %.189, %23
+  %31 = icmp samesign ult i64 %indvars.iv, 25
+  %32 = select i1 %30, i1 %31, i1 false
+  br i1 %32, label %24, label %33, !llvm.loop !26
 
-36:                                               ; preds = %27
-  %.not101 = icmp eq i32 %21, 0
+33:                                               ; preds = %24
+  %34 = and i32 %8, 8
+  %.not101 = icmp eq i32 %34, 0
+  %35 = icmp eq i32 %5, 8
+  %spec.select117 = select i1 %35, ptr @.str.2, ptr @.str.1
+  %36 = icmp eq i32 %5, 16
+  %spec.select119 = select i1 %36, ptr @.str.3, ptr %spec.select117
   %.090 = select i1 %.not101, ptr @.str.1, ptr %spec.select119
   %37 = icmp eq i64 %indvars.iv.next, 26
   %spec.select118.v = select i1 %37, i64 %indvars.iv, i64 %indvars.iv.next
@@ -2145,8 +2145,8 @@ define internal fastcc range(i32 0, 2) i32 @fmtint(ptr noundef nonnull captures(
   %50 = icmp sgt i32 %spec.select, 0
   br i1 %50, label %.lr.ph, label %select.unfold._crit_edge
 
-.lr.ph:                                           ; preds = %36, %select.unfold
-  %.2131 = phi i32 [ %52, %select.unfold ], [ %spec.select, %36 ]
+.lr.ph:                                           ; preds = %33, %select.unfold
+  %.2131 = phi i32 [ %52, %select.unfold ], [ %spec.select, %33 ]
   %51 = tail call fastcc i32 @doapr_outch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 32)
   %.not115 = icmp eq i32 %51, 0
   br i1 %.not115, label %.loopexit, label %select.unfold
@@ -2156,8 +2156,8 @@ select.unfold:                                    ; preds = %.lr.ph
   %53 = icmp sgt i32 %.2131, 1
   br i1 %53, label %.lr.ph, label %select.unfold._crit_edge, !llvm.loop !27
 
-select.unfold._crit_edge:                         ; preds = %select.unfold, %36
-  %.2.lcssa = phi i32 [ %spec.select, %36 ], [ 0, %select.unfold ]
+select.unfold._crit_edge:                         ; preds = %select.unfold, %33
+  %.2.lcssa = phi i32 [ %spec.select, %33 ], [ 0, %select.unfold ]
   br i1 %.not105, label %56, label %54
 
 54:                                               ; preds = %select.unfold._crit_edge
@@ -2385,31 +2385,28 @@ pow_10.exit:                                      ; preds = %.lr.ph.i
   %60 = fmul double %.06.i275, 1.000000e+01
   %61 = add nsw i32 %.035.i276, -1
   %.not.i277 = icmp eq i32 %61, 0
-  br i1 %.not.i277, label %pow_10.exit279, label %.lr.ph.i274, !llvm.loop !31
+  br i1 %.not.i277, label %.lr.ph.i282, label %.lr.ph.i274, !llvm.loop !31
 
-pow_10.exit279:                                   ; preds = %.lr.ph.i274
-  %62 = fptosi double %60 to i64
-  %63 = sitofp i64 %62 to double
-  %64 = fsub double %60, %63
-  %65 = fcmp oge double %64, 5.000000e-01
-  %66 = zext i1 %65 to i64
-  br label %.lr.ph.i282
-
-.lr.ph.i282:                                      ; preds = %pow_10.exit279, %.lr.ph.i282
-  %.06.i283 = phi double [ %67, %.lr.ph.i282 ], [ 1.000000e+00, %pow_10.exit279 ]
-  %.035.i284 = phi i32 [ %68, %.lr.ph.i282 ], [ %59, %pow_10.exit279 ]
-  %67 = fmul double %.06.i283, 1.000000e+01
-  %68 = add nsw i32 %.035.i284, -1
-  %.not.i285 = icmp eq i32 %68, 0
+.lr.ph.i282:                                      ; preds = %.lr.ph.i274, %.lr.ph.i282
+  %.06.i283 = phi double [ %62, %.lr.ph.i282 ], [ 1.000000e+00, %.lr.ph.i274 ]
+  %.035.i284 = phi i32 [ %63, %.lr.ph.i282 ], [ %59, %.lr.ph.i274 ]
+  %62 = fmul double %.06.i283, 1.000000e+01
+  %63 = add nsw i32 %.035.i284, -1
+  %.not.i285 = icmp eq i32 %63, 0
   br i1 %.not.i285, label %pow_10.exit287.loopexit, label %.lr.ph.i282, !llvm.loop !31
 
 pow_10.exit287.loopexit:                          ; preds = %.lr.ph.i282
-  %.0.i280 = add nsw i64 %66, %62
+  %64 = fptosi double %60 to i64
+  %65 = sitofp i64 %64 to double
+  %66 = fsub double %60, %65
+  %67 = fcmp oge double %66, 5.000000e-01
+  %68 = zext i1 %67 to i64
+  %.0.i280 = add nsw i64 %68, %64
   br label %pow_10.exit287
 
 pow_10.exit287:                                   ; preds = %pow_10.exit287.loopexit, %57
   %.0.i280297 = phi i64 [ 1, %57 ], [ %.0.i280, %pow_10.exit287.loopexit ]
-  %.0.lcssa.i286 = phi double [ 1.000000e+00, %57 ], [ %67, %pow_10.exit287.loopexit ]
+  %.0.lcssa.i286 = phi double [ 1.000000e+00, %57 ], [ %62, %pow_10.exit287.loopexit ]
   %69 = uitofp i64 %58 to double
   %70 = fsub double %.0.i, %69
   %71 = fmul double %70, %.0.lcssa.i286
@@ -2422,26 +2419,26 @@ pow_10.exit287:                                   ; preds = %pow_10.exit287.loop
   %.not248 = icmp uge i64 %.0.i288, %.0.i280297
   %77 = zext i1 %.not248 to i64
   %.0202 = add i64 %77, %58
-  %78 = select i1 %.not248, i64 %.0.i280297, i64 0
-  br label %79
+  br label %78
 
-79:                                               ; preds = %79, %pow_10.exit287
-  %indvars.iv = phi i64 [ %indvars.iv.next, %79 ], [ 0, %pow_10.exit287 ]
-  %.1203 = phi i64 [ %84, %79 ], [ %.0202, %pow_10.exit287 ]
-  %80 = urem i64 %.1203, 10
-  %81 = getelementptr inbounds nuw [11 x i8], ptr @.str.6, i64 0, i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !10
+78:                                               ; preds = %78, %pow_10.exit287
+  %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %pow_10.exit287 ]
+  %.1203 = phi i64 [ %83, %78 ], [ %.0202, %pow_10.exit287 ]
+  %79 = urem i64 %.1203, 10
+  %80 = getelementptr inbounds nuw [11 x i8], ptr @.str.6, i64 0, i64 %79
+  %81 = load i8, ptr %80, align 1, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %83 = getelementptr inbounds nuw [20 x i8], ptr %10, i64 0, i64 %indvars.iv
-  store i8 %82, ptr %83, align 1, !tbaa !10
-  %84 = udiv i64 %.1203, 10
-  %85 = icmp ugt i64 %.1203, 9
-  %86 = icmp samesign ult i64 %indvars.iv, 19
-  %87 = select i1 %85, i1 %86, i1 false
-  br i1 %87, label %79, label %88, !llvm.loop !34
+  %82 = getelementptr inbounds nuw [20 x i8], ptr %10, i64 0, i64 %indvars.iv
+  store i8 %81, ptr %82, align 1, !tbaa !10
+  %83 = udiv i64 %.1203, 10
+  %84 = icmp ugt i64 %.1203, 9
+  %85 = icmp samesign ult i64 %indvars.iv, 19
+  %86 = select i1 %84, i1 %85, i1 false
+  br i1 %86, label %78, label %87, !llvm.loop !34
 
-88:                                               ; preds = %79
-  %.0200 = sub nuw i64 %.0.i288, %78
+87:                                               ; preds = %78
+  %88 = select i1 %.not248, i64 %.0.i280297, i64 0
+  %.0200 = sub nuw i64 %.0.i288, %88
   %89 = icmp eq i64 %indvars.iv.next, 20
   %spec.select268.v = select i1 %89, i64 %indvars.iv, i64 %indvars.iv.next
   %spec.select268 = trunc i64 %spec.select268.v to i32
@@ -2450,7 +2447,7 @@ pow_10.exit287:                                   ; preds = %pow_10.exit287.loop
   store i8 0, ptr %91, align 1, !tbaa !10
   br i1 %20, label %.outer.us.preheader, label %.outer
 
-.outer.us.preheader:                              ; preds = %88
+.outer.us.preheader:                              ; preds = %87
   %92 = zext nneg i32 %59 to i64
   br label %.outer.us
 
@@ -2486,7 +2483,7 @@ pow_10.exit287:                                   ; preds = %pow_10.exit287.loop
   %.not377 = icmp eq i64 %indvars.iv411, 1
   br i1 %.not377, label %.loopexit313, label %.outer.us, !llvm.loop !35
 
-.outer:                                           ; preds = %88
+.outer:                                           ; preds = %87
   %.not458 = icmp eq i32 %.0230, 0
   br i1 %.not458, label %.loopexit313, label %.lr.ph339.split.us
 

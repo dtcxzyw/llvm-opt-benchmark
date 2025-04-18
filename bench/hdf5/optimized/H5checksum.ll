@@ -26,50 +26,50 @@ define i32 @H5_checksum_fletcher32(ptr noundef readonly captures(none) %0, i64 n
   %9 = lshr i64 %1, 1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
-  %.148 = phi i32 [ %31, %24 ], [ 0, %.lr.ph.preheader ]
-  %.13447 = phi i32 [ %28, %24 ], [ 0, %.lr.ph.preheader ]
-  %.03746 = phi i64 [ %25, %24 ], [ %9, %.lr.ph.preheader ]
-  %.03845 = phi ptr [ %scevgep, %24 ], [ %0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
+  %.148 = phi i32 [ %31, %23 ], [ 0, %.lr.ph.preheader ]
+  %.13447 = phi i32 [ %28, %23 ], [ 0, %.lr.ph.preheader ]
+  %.03746 = phi i64 [ %24, %23 ], [ %9, %.lr.ph.preheader ]
+  %.03845 = phi ptr [ %scevgep, %23 ], [ %0, %.lr.ph.preheader ]
   %10 = tail call i64 @llvm.umin.i64(i64 %.03746, i64 360)
-  %11 = shl nuw nsw i64 %10, 1
-  br label %12
+  br label %11
 
-12:                                               ; preds = %12, %.lr.ph
-  %.139 = phi ptr [ %.03845, %.lr.ph ], [ %21, %12 ]
-  %.235 = phi i32 [ %.13447, %.lr.ph ], [ %20, %12 ]
-  %.2 = phi i32 [ %.148, %.lr.ph ], [ %22, %12 ]
-  %.0 = phi i64 [ %10, %.lr.ph ], [ %23, %12 ]
-  %13 = load i8, ptr %.139, align 1, !tbaa !10
-  %14 = zext i8 %13 to i32
-  %15 = shl nuw nsw i32 %14, 8
-  %16 = getelementptr inbounds nuw i8, ptr %.139, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !10
-  %18 = zext i8 %17 to i32
-  %19 = or disjoint i32 %15, %18
-  %20 = add i32 %19, %.235
-  %21 = getelementptr inbounds nuw i8, ptr %.139, i64 2
-  %22 = add i32 %20, %.2
-  %23 = add i64 %.0, -1
-  %.not41 = icmp eq i64 %23, 0
-  br i1 %.not41, label %24, label %12, !llvm.loop !11
+11:                                               ; preds = %11, %.lr.ph
+  %.139 = phi ptr [ %.03845, %.lr.ph ], [ %20, %11 ]
+  %.235 = phi i32 [ %.13447, %.lr.ph ], [ %19, %11 ]
+  %.2 = phi i32 [ %.148, %.lr.ph ], [ %21, %11 ]
+  %.0 = phi i64 [ %10, %.lr.ph ], [ %22, %11 ]
+  %12 = load i8, ptr %.139, align 1, !tbaa !10
+  %13 = zext i8 %12 to i32
+  %14 = shl nuw nsw i32 %13, 8
+  %15 = getelementptr inbounds nuw i8, ptr %.139, i64 1
+  %16 = load i8, ptr %15, align 1, !tbaa !10
+  %17 = zext i8 %16 to i32
+  %18 = or disjoint i32 %14, %17
+  %19 = add i32 %18, %.235
+  %20 = getelementptr inbounds nuw i8, ptr %.139, i64 2
+  %21 = add i32 %19, %.2
+  %22 = add i64 %.0, -1
+  %.not41 = icmp eq i64 %22, 0
+  br i1 %.not41, label %23, label %11, !llvm.loop !11
 
-24:                                               ; preds = %12
-  %25 = sub i64 %.03746, %10
-  %scevgep = getelementptr i8, ptr %.03845, i64 %11
-  %26 = and i32 %20, 65535
-  %27 = lshr i32 %20, 16
+23:                                               ; preds = %11
+  %24 = sub i64 %.03746, %10
+  %25 = shl nuw nsw i64 %10, 1
+  %scevgep = getelementptr i8, ptr %.03845, i64 %25
+  %26 = and i32 %19, 65535
+  %27 = lshr i32 %19, 16
   %28 = add nuw nsw i32 %26, %27
-  %29 = and i32 %22, 65535
-  %30 = lshr i32 %22, 16
+  %29 = and i32 %21, 65535
+  %30 = lshr i32 %21, 16
   %31 = add nuw nsw i32 %29, %30
-  %.not = icmp eq i64 %25, 0
+  %.not = icmp eq i64 %24, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %24, %.preheader
-  %.038.lcssa = phi ptr [ %0, %.preheader ], [ %scevgep, %24 ]
-  %.134.lcssa = phi i32 [ 0, %.preheader ], [ %28, %24 ]
-  %.1.lcssa = phi i32 [ 0, %.preheader ], [ %31, %24 ]
+._crit_edge:                                      ; preds = %23, %.preheader
+  %.038.lcssa = phi ptr [ %0, %.preheader ], [ %scevgep, %23 ]
+  %.134.lcssa = phi i32 [ 0, %.preheader ], [ %28, %23 ]
+  %.1.lcssa = phi i32 [ 0, %.preheader ], [ %31, %23 ]
   %32 = and i64 %1, 1
   %.not40 = icmp eq i64 %32, 0
   br i1 %.not40, label %45, label %33

@@ -15737,12 +15737,12 @@ peek_offset.exit:                                 ; preds = %403
   %439 = load ptr, ptr %6, align 8, !tbaa !74
   %440 = getelementptr i8, ptr %439, i64 %421
   store ptr %440, ptr %6, align 8, !tbaa !74
-  %441 = add i32 %.04521062, 1
-  %442 = icmp eq i32 %441, 2
-  %or.cond = select i1 %411, i1 %442, i1 false
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
+  %441 = add i32 %.04521062, 1
+  %442 = icmp eq i32 %441, 2
+  %or.cond = select i1 %411, i1 %442, i1 false
   %spec.select = select i1 %or.cond, ptr %415, ptr %.04501063
   %443 = and i32 %spec.select.i595, -2048
   %or.cond.i = icmp eq i32 %443, 55296

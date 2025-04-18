@@ -3362,41 +3362,14 @@ _ZN4pbrt17MaxComponentValueINS_7Vector3EfEET0_NS_6Tuple3IT_S2_EE.exit.i: ; preds
 
 _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.exit: ; preds = %_ZN4pbrt17MaxComponentValueINS_7Vector3EfEET0_NS_6Tuple3IT_S2_EE.exit.i, %337, %338
   %.0.i.sroa.speculated.i = phi float [ %112, %337 ], [ %94, %338 ], [ %110, %_ZN4pbrt17MaxComponentValueINS_7Vector3EfEET0_NS_6Tuple3IT_S2_EE.exit.i ]
-  %339 = fsub float 1.000000e+00, %.sroa.12447.0
-  %340 = fmul float %339, 0x401921FB60000000
-  %341 = fmul float %.sroa.12447.0, %.sroa.12447.0
-  %342 = fsub float 1.000000e+00, %341
-  %343 = fcmp ogt float %342, 0.000000e+00
-  %.sroa.speculated.i.i210 = select i1 %343, float %342, float 0.000000e+00
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i210)
-  %344 = fmul float %sqrt.i.i, %329
-  %345 = fsub float %344, %331
-  %346 = fmul float %325, 2.000000e+00
-  %347 = fmul float %sqrt.i.i, %346
-  %348 = fsub float %345, %347
-  %349 = fadd float %.sroa.12447.0, %348
-  %350 = fmul float %349, 0x3FF921FB60000000
-  %351 = fadd float %340, %350
-  %352 = fmul float %.sroa.9432.0, %351
-  %353 = fsub <2 x float> %.sroa.7422.0, %.sroa.0414.0
-  %354 = extractelement <2 x float> %353, i64 0
-  %355 = fsub <2 x float> %.sroa.7422.0, %.sroa.0414.0
-  %356 = extractelement <2 x float> %355, i64 1
-  %357 = fsub float %.sroa.8427.0, %.sroa.6417.0
-  %358 = fmul float %354, %356
-  %359 = fmul float %357, %354
-  %360 = fadd float %358, %359
-  %361 = fmul float %357, %356
-  %362 = fadd float %361, %360
-  %363 = fmul float %362, 2.000000e+00
-  %364 = call noundef float @acosf(float noundef %.sroa.12.0) #25, !tbaa !25
-  %365 = call noundef float @acosf(float noundef %.sroa.13.0) #25, !tbaa !25
-  %366 = fadd float %364, %365
-  %367 = fcmp ogt float %366, 0x400921FB60000000
-  %.sroa.speculated.i211 = select i1 %367, float 0x400921FB60000000, float %366
-  %368 = fmul float %.sroa.speculated.i211, 2.000000e+00
-  %369 = fsub float %364, %368
-  %370 = call noundef float @cosf(float noundef %369) #25, !tbaa !25
+  %339 = call noundef float @acosf(float noundef %.sroa.12.0) #25, !tbaa !25
+  %340 = call noundef float @acosf(float noundef %.sroa.13.0) #25, !tbaa !25
+  %341 = fadd float %339, %340
+  %342 = fcmp ogt float %341, 0x400921FB60000000
+  %.sroa.speculated.i211 = select i1 %342, float 0x400921FB60000000, float %341
+  %343 = fmul float %.sroa.speculated.i211, 2.000000e+00
+  %344 = fsub float %339, %343
+  %345 = call noundef float @cosf(float noundef %344) #25, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #25
   store float %110, ptr %13, align 4, !tbaa !27
   store float %112, ptr %.ptr5.i.i217, align 4, !tbaa !27
@@ -3404,22 +3377,49 @@ _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.e
   br label %.lr.ph.i.i.i.i218
 
 .lr.ph.i.i.i.i218:                                ; preds = %.lr.ph.i.i.i.i218, %_ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.exit
-  %371 = phi float [ %374, %.lr.ph.i.i.i.i218 ], [ %110, %_ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.exit ]
+  %346 = phi float [ %349, %.lr.ph.i.i.i.i218 ], [ %110, %_ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.exit ]
   %.idx.i.i219 = phi i64 [ %.add.i.i223, %.lr.ph.i.i.i.i218 ], [ 4, %_ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.exit ]
   %.018.i.i.i.i220 = phi ptr [ %spec.select.i.i.i.i222, %.lr.ph.i.i.i.i218 ], [ %13, %_ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.exit ]
   %.ptr.i.i221 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i219
-  %372 = load float, ptr %.ptr.i.i221, align 4, !tbaa !27
-  %373 = fcmp olt float %371, %372
-  %374 = select i1 %373, float %372, float %371
-  %spec.select.i.i.i.i222 = select i1 %373, ptr %.ptr.i.i221, ptr %.018.i.i.i.i220
+  %347 = load float, ptr %.ptr.i.i221, align 4, !tbaa !27
+  %348 = fcmp olt float %346, %347
+  %349 = select i1 %348, float %347, float %346
+  %spec.select.i.i.i.i222 = select i1 %348, ptr %.ptr.i.i221, ptr %.018.i.i.i.i220
   %.add.i.i223 = add nuw nsw i64 %.idx.i.i219, 4
   %.not.i.i.i.i224 = icmp eq i64 %.add.i.i223, 12
   br i1 %.not.i.i.i.i224, label %_ZN4pbrt17MaxComponentValueINS_7Vector3EfEET0_NS_6Tuple3IT_S2_EE.exit.i225, label %.lr.ph.i.i.i.i218, !llvm.loop !220
 
 _ZN4pbrt17MaxComponentValueINS_7Vector3EfEET0_NS_6Tuple3IT_S2_EE.exit.i225: ; preds = %.lr.ph.i.i.i.i218
-  %375 = fdiv float %336, %.0.i.sroa.speculated.i
-  %376 = fmul float %352, %375
-  %377 = fmul float %363, %376
+  %350 = fsub float 1.000000e+00, %.sroa.12447.0
+  %351 = fmul float %350, 0x401921FB60000000
+  %352 = fmul float %.sroa.12447.0, %.sroa.12447.0
+  %353 = fsub float 1.000000e+00, %352
+  %354 = fcmp ogt float %353, 0.000000e+00
+  %.sroa.speculated.i.i210 = select i1 %354, float %353, float 0.000000e+00
+  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i210)
+  %355 = fmul float %sqrt.i.i, %329
+  %356 = fsub float %355, %331
+  %357 = fmul float %325, 2.000000e+00
+  %358 = fmul float %sqrt.i.i, %357
+  %359 = fsub float %356, %358
+  %360 = fadd float %.sroa.12447.0, %359
+  %361 = fmul float %360, 0x3FF921FB60000000
+  %362 = fadd float %351, %361
+  %363 = fdiv float %336, %.0.i.sroa.speculated.i
+  %364 = fmul float %.sroa.9432.0, %362
+  %365 = fmul float %364, %363
+  %366 = fsub <2 x float> %.sroa.7422.0, %.sroa.0414.0
+  %367 = extractelement <2 x float> %366, i64 0
+  %368 = fsub <2 x float> %.sroa.7422.0, %.sroa.0414.0
+  %369 = extractelement <2 x float> %368, i64 1
+  %370 = fsub float %.sroa.8427.0, %.sroa.6417.0
+  %371 = fmul float %367, %369
+  %372 = fmul float %370, %367
+  %373 = fadd float %371, %372
+  %374 = fmul float %370, %369
+  %375 = fadd float %374, %373
+  %376 = fmul float %375, 2.000000e+00
+  %377 = fmul float %376, %365
   %378 = load float, ptr %spec.select.i.i.i.i222, align 4, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #25
   switch i32 %.0114704, label %380 [
@@ -3442,9 +3442,9 @@ _ZNK4pbrt15BVHLightSampler12EvaluateCostERKNS_11LightBoundsERKNS_7Bounds3IfEEi.e
   %385 = fcmp ogt float %384, 0.000000e+00
   %.sroa.speculated.i.i227 = select i1 %385, float %384, float 0.000000e+00
   %sqrt.i.i228 = call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i227)
-  %386 = fmul float %sqrt.i.i228, %368
-  %387 = fsub float %386, %370
-  %388 = fmul float %364, 2.000000e+00
+  %386 = fmul float %sqrt.i.i228, %343
+  %387 = fsub float %386, %345
+  %388 = fmul float %339, 2.000000e+00
   %389 = fmul float %sqrt.i.i228, %388
   %390 = fsub float %387, %389
   %391 = fadd float %.sroa.12.0, %390

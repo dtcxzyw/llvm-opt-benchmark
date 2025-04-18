@@ -5430,15 +5430,15 @@ create_filter.exit.i.i:                           ; preds = %417, %416
   %538 = phi i32 [ %.pre408, %536 ], [ %535, %525 ]
   %539 = load i64, ptr %9, align 8, !tbaa !187
   %540 = sub nsw i32 %538, %534
-  %541 = zext nneg i32 %540 to i64
-  %542 = lshr i64 %539, %541
-  %543 = trunc i64 %542 to i32
-  %544 = zext i8 %533 to i64
-  %545 = getelementptr inbounds nuw [36 x i32], ptr @cache_masks, i64 0, i64 %544
-  %546 = load i32, ptr %545, align 4, !tbaa !153
-  %547 = and i32 %546, %543
+  %541 = zext i8 %533 to i64
+  %542 = getelementptr inbounds nuw [36 x i32], ptr @cache_masks, i64 0, i64 %541
+  %543 = load i32, ptr %542, align 4, !tbaa !153
   store i32 %540, ptr %36, align 8, !tbaa !178
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %41, i64 12, i1 false), !tbaa !153
+  %544 = zext nneg i32 %540 to i64
+  %545 = lshr i64 %539, %544
+  %546 = trunc i64 %545 to i32
+  %547 = and i32 %543, %546
   %548 = add i32 %531, %547
   store i32 %548, ptr %41, align 8, !tbaa !153
   store i32 %548, ptr %22, align 4, !tbaa !234
@@ -5610,12 +5610,12 @@ create_filter.exit.i.i:                           ; preds = %417, %416
 
 642:                                              ; preds = %630, %621, %624, %612, %579
   %.1 = phi i32 [ %615, %612 ], [ %623, %621 ], [ %625, %624 ], [ %641, %630 ], [ %583, %579 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %41, i64 12, i1 false), !tbaa !153
   %643 = icmp sgt i32 %.1, 262143
   %644 = zext i1 %643 to i32
+  %spec.select = add nsw i32 %.1189, %644
   %645 = icmp sgt i32 %.1, 8191
   %646 = zext i1 %645 to i32
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep, ptr noundef nonnull align 4 dereferenceable(12) %41, i64 12, i1 false), !tbaa !153
-  %spec.select = add nsw i32 %.1189, %644
   %.3191 = add nsw i32 %spec.select, %646
   store i32 %.1, ptr %41, align 8, !tbaa !153
   br label %647

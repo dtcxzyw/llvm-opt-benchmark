@@ -19106,25 +19106,25 @@ objspace_available_slots.exit:                    ; preds = %144
   %spec.select = tail call i64 @llvm.umin.i64(i64 %143, i64 8)
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %149 = load i64, ptr %148, align 8, !tbaa !397
-  %150 = uitofp i64 %147 to double
-  %151 = load double, ptr getelementptr inbounds nuw (i8, ptr @gc_params, i64 80), align 8, !tbaa !364
-  %152 = fmul double %151, %150
-  %153 = load double, ptr getelementptr inbounds nuw (i8, ptr @gc_params, i64 64), align 8, !tbaa !414
-  %154 = fmul double %153, %150
-  %155 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_params, i64 40), align 8, !tbaa !539
-  %156 = mul i64 %155, %spec.select
-  %157 = load i16, ptr %3, align 4
-  %158 = and i16 %157, 1024
+  %150 = load double, ptr getelementptr inbounds nuw (i8, ptr @gc_params, i64 80), align 8, !tbaa !364
+  %151 = load double, ptr getelementptr inbounds nuw (i8, ptr @gc_params, i64 64), align 8, !tbaa !414
+  %152 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_params, i64 40), align 8, !tbaa !539
+  %153 = load i16, ptr %3, align 4
   br label %165
 
-159:                                              ; preds = %165
-  %160 = sub i64 %147, %149
-  %161 = fptoui double %152 to i64
-  %162 = fptoui double %154 to i64
-  %.062 = tail call i64 @llvm.umax.i64(i64 %156, i64 %162)
-  %163 = icmp eq i16 %158, 0
-  %spec.select71 = tail call i64 @llvm.umax.i64(i64 %169, i64 %161)
-  %164 = icmp ugt i64 %160, %spec.select71
+154:                                              ; preds = %165
+  %155 = sub i64 %147, %149
+  %156 = uitofp i64 %147 to double
+  %157 = fmul double %150, %156
+  %158 = fptoui double %157 to i64
+  %159 = fmul double %151, %156
+  %160 = fptoui double %159 to i64
+  %161 = mul i64 %152, %spec.select
+  %.062 = tail call i64 @llvm.umax.i64(i64 %161, i64 %160)
+  %162 = and i16 %153, 1024
+  %163 = icmp eq i16 %162, 0
+  %spec.select71 = tail call i64 @llvm.umax.i64(i64 %169, i64 %158)
+  %164 = icmp ugt i64 %155, %spec.select71
   br i1 %164, label %170, label %173
 
 165:                                              ; preds = %objspace_available_slots.exit, %165
@@ -19136,21 +19136,21 @@ objspace_available_slots.exit:                    ; preds = %144
   %169 = add i64 %168, %.06081
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 5
-  br i1 %exitcond90.not, label %159, label %165, !llvm.loop !540
+  br i1 %exitcond90.not, label %154, label %165, !llvm.loop !540
 
-170:                                              ; preds = %159
-  %171 = sub nuw i64 %160, %spec.select71
+170:                                              ; preds = %154
+  %171 = sub nuw i64 %155, %spec.select71
   %172 = udiv i64 %171, 1638
   br label %173
 
-173:                                              ; preds = %159, %170
-  %.sink = phi i64 [ %172, %170 ], [ 0, %159 ]
+173:                                              ; preds = %154, %170
+  %.sink = phi i64 [ %172, %170 ], [ 0, %154 ]
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store i64 %.sink, ptr %174, align 8, !tbaa !541
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %176 = load i64, ptr %175, align 8, !tbaa !363
   %177 = icmp ne i64 %176, 0
-  %178 = icmp uge i64 %160, %.062
+  %178 = icmp uge i64 %155, %.062
   %179 = select i1 %177, i1 true, i1 %178
   %or.cond72 = select i1 %179, i1 true, i1 %163
   br i1 %or.cond72, label %190, label %180

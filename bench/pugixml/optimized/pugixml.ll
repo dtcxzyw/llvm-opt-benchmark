@@ -805,34 +805,34 @@ define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEi(ptr noundef nonnu
   br i1 %.not, label %23, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #51
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 63
-  %8 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
-  br label %9
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 63
+  %7 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
+  br label %8
 
-9:                                                ; preds = %9, %5
-  %.010.i.i = phi ptr [ %7, %5 ], [ %13, %9 ]
-  %.0.i.i = phi i32 [ %8, %5 ], [ %14, %9 ]
-  %10 = urem i32 %.0.i.i, 10
-  %11 = trunc nuw nsw i32 %10 to i8
-  %12 = or disjoint i8 %11, 48
-  %13 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
-  store i8 %12, ptr %.010.i.i, align 1, !tbaa !28
-  %14 = udiv i32 %.0.i.i, 10
+8:                                                ; preds = %8, %5
+  %.010.i.i = phi ptr [ %6, %5 ], [ %12, %8 ]
+  %.0.i.i = phi i32 [ %7, %5 ], [ %13, %8 ]
+  %9 = urem i32 %.0.i.i, 10
+  %10 = trunc nuw nsw i32 %9 to i8
+  %11 = or disjoint i8 %10, 48
+  %12 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
+  store i8 %11, ptr %.010.i.i, align 1, !tbaa !28
+  %13 = udiv i32 %.0.i.i, 10
   %.not.i.i = icmp ult i32 %.0.i.i, 10
-  br i1 %.not.i.i, label %_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIjPcmEEbRT0_RT1_mT_b.exit, label %9, !llvm.loop !30
+  br i1 %.not.i.i, label %_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIjPcmEEbRT0_RT1_mT_b.exit, label %8, !llvm.loop !30
 
-_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIjPcmEEbRT0_RT1_mT_b.exit: ; preds = %9
+_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIjPcmEEbRT0_RT1_mT_b.exit: ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = icmp sgt i32 %1, -1
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i8 45, ptr %13, align 1, !tbaa !28
+  store i8 45, ptr %12, align 1, !tbaa !28
   %17 = zext i1 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %17
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
-  %22 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 16, ptr noundef nonnull %18, i64 noundef %21)
+  %22 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 16, ptr noundef nonnull %18, i64 noundef %21)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #51
   br label %23
 
@@ -971,34 +971,34 @@ define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEl(ptr noundef nonnu
   br i1 %.not, label %23, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #51
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 63
-  %8 = tail call i64 @llvm.abs.i64(i64 %1, i1 false)
-  br label %9
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 63
+  %7 = tail call i64 @llvm.abs.i64(i64 %1, i1 false)
+  br label %8
 
-9:                                                ; preds = %9, %5
-  %.010.i.i = phi ptr [ %7, %5 ], [ %13, %9 ]
-  %.0.i.i = phi i64 [ %8, %5 ], [ %14, %9 ]
-  %10 = urem i64 %.0.i.i, 10
-  %11 = trunc nuw nsw i64 %10 to i8
-  %12 = or disjoint i8 %11, 48
-  %13 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
-  store i8 %12, ptr %.010.i.i, align 1, !tbaa !28
-  %14 = udiv i64 %.0.i.i, 10
+8:                                                ; preds = %8, %5
+  %.010.i.i = phi ptr [ %6, %5 ], [ %12, %8 ]
+  %.0.i.i = phi i64 [ %7, %5 ], [ %13, %8 ]
+  %9 = urem i64 %.0.i.i, 10
+  %10 = trunc nuw nsw i64 %9 to i8
+  %11 = or disjoint i8 %10, 48
+  %12 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
+  store i8 %11, ptr %.010.i.i, align 1, !tbaa !28
+  %13 = udiv i64 %.0.i.i, 10
   %.not.i.i = icmp ult i64 %.0.i.i, 10
-  br i1 %.not.i.i, label %_ZN4pugi4impl12_GLOBAL__N_117set_value_integerImPcmEEbRT0_RT1_mT_b.exit, label %9, !llvm.loop !32
+  br i1 %.not.i.i, label %_ZN4pugi4impl12_GLOBAL__N_117set_value_integerImPcmEEbRT0_RT1_mT_b.exit, label %8, !llvm.loop !32
 
-_ZN4pugi4impl12_GLOBAL__N_117set_value_integerImPcmEEbRT0_RT1_mT_b.exit: ; preds = %9
+_ZN4pugi4impl12_GLOBAL__N_117set_value_integerImPcmEEbRT0_RT1_mT_b.exit: ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = icmp sgt i64 %1, -1
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i8 45, ptr %13, align 1, !tbaa !28
+  store i8 45, ptr %12, align 1, !tbaa !28
   %17 = zext i1 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %17
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
-  %22 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 16, ptr noundef nonnull %18, i64 noundef %21)
+  %22 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 16, ptr noundef nonnull %18, i64 noundef %21)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #51
   br label %23
 
@@ -1290,34 +1290,34 @@ define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEx(ptr noundef nonnu
   br i1 %.not, label %23, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #51
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 63
-  %8 = tail call i64 @llvm.abs.i64(i64 %1, i1 false)
-  br label %9
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 63
+  %7 = tail call i64 @llvm.abs.i64(i64 %1, i1 false)
+  br label %8
 
-9:                                                ; preds = %9, %5
-  %.010.i.i = phi ptr [ %7, %5 ], [ %13, %9 ]
-  %.0.i.i = phi i64 [ %8, %5 ], [ %14, %9 ]
-  %10 = urem i64 %.0.i.i, 10
-  %11 = trunc nuw nsw i64 %10 to i8
-  %12 = or disjoint i8 %11, 48
-  %13 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
-  store i8 %12, ptr %.010.i.i, align 1, !tbaa !28
-  %14 = udiv i64 %.0.i.i, 10
+8:                                                ; preds = %8, %5
+  %.010.i.i = phi ptr [ %6, %5 ], [ %12, %8 ]
+  %.0.i.i = phi i64 [ %7, %5 ], [ %13, %8 ]
+  %9 = urem i64 %.0.i.i, 10
+  %10 = trunc nuw nsw i64 %9 to i8
+  %11 = or disjoint i8 %10, 48
+  %12 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
+  store i8 %11, ptr %.010.i.i, align 1, !tbaa !28
+  %13 = udiv i64 %.0.i.i, 10
   %.not.i.i = icmp ult i64 %.0.i.i, 10
-  br i1 %.not.i.i, label %_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIyPcmEEbRT0_RT1_mT_b.exit, label %9, !llvm.loop !33
+  br i1 %.not.i.i, label %_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIyPcmEEbRT0_RT1_mT_b.exit, label %8, !llvm.loop !33
 
-_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIyPcmEEbRT0_RT1_mT_b.exit: ; preds = %9
+_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIyPcmEEbRT0_RT1_mT_b.exit: ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = icmp sgt i64 %1, -1
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i8 45, ptr %13, align 1, !tbaa !28
+  store i8 45, ptr %12, align 1, !tbaa !28
   %17 = zext i1 %15 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %17
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
-  %22 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 16, ptr noundef nonnull %18, i64 noundef %21)
+  %22 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 16, ptr noundef nonnull %18, i64 noundef %21)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #51
   br label %23
 
@@ -13982,34 +13982,34 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %2, %17
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
   %.0.i8 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0613.i.i, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #51
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 63
-  %28 = call i32 @llvm.abs.i32(i32 %1, i1 false)
-  br label %29
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 63
+  %27 = call i32 @llvm.abs.i32(i32 %1, i1 false)
+  br label %28
 
-29:                                               ; preds = %29, %_ZN4pugi8xml_text9_data_newEv.exit.thread
-  %.010.i.i = phi ptr [ %27, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %33, %29 ]
-  %.0.i.i = phi i32 [ %28, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %34, %29 ]
-  %30 = urem i32 %.0.i.i, 10
-  %31 = trunc nuw nsw i32 %30 to i8
-  %32 = or disjoint i8 %31, 48
-  %33 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
-  store i8 %32, ptr %.010.i.i, align 1, !tbaa !28
-  %34 = udiv i32 %.0.i.i, 10
+28:                                               ; preds = %28, %_ZN4pugi8xml_text9_data_newEv.exit.thread
+  %.010.i.i = phi ptr [ %26, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %32, %28 ]
+  %.0.i.i = phi i32 [ %27, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %33, %28 ]
+  %29 = urem i32 %.0.i.i, 10
+  %30 = trunc nuw nsw i32 %29 to i8
+  %31 = or disjoint i8 %30, 48
+  %32 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
+  store i8 %31, ptr %.010.i.i, align 1, !tbaa !28
+  %33 = udiv i32 %.0.i.i, 10
   %.not.i.i5 = icmp ult i32 %.0.i.i, 10
-  br i1 %.not.i.i5, label %_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIjPcmEEbRT0_RT1_mT_b.exit, label %29, !llvm.loop !30
+  br i1 %.not.i.i5, label %_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIjPcmEEbRT0_RT1_mT_b.exit, label %28, !llvm.loop !30
 
-_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIjPcmEEbRT0_RT1_mT_b.exit: ; preds = %29
+_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIjPcmEEbRT0_RT1_mT_b.exit: ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 16
   %35 = icmp sgt i32 %1, -1
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i8 45, ptr %33, align 1, !tbaa !28
+  store i8 45, ptr %32, align 1, !tbaa !28
   %37 = zext i1 %35 to i64
-  %38 = getelementptr inbounds nuw i8, ptr %33, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 %37
   %39 = ptrtoint ptr %36 to i64
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
-  %42 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %.0.i8, i64 noundef 16, ptr noundef nonnull %38, i64 noundef %41)
+  %42 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %.0.i8, i64 noundef 16, ptr noundef nonnull %38, i64 noundef %41)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #51
   br label %43
 
@@ -14166,34 +14166,34 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %2, %17
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
   %.0.i8 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0613.i.i, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #51
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 63
-  %28 = call i64 @llvm.abs.i64(i64 %1, i1 false)
-  br label %29
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 63
+  %27 = call i64 @llvm.abs.i64(i64 %1, i1 false)
+  br label %28
 
-29:                                               ; preds = %29, %_ZN4pugi8xml_text9_data_newEv.exit.thread
-  %.010.i.i = phi ptr [ %27, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %33, %29 ]
-  %.0.i.i = phi i64 [ %28, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %34, %29 ]
-  %30 = urem i64 %.0.i.i, 10
-  %31 = trunc nuw nsw i64 %30 to i8
-  %32 = or disjoint i8 %31, 48
-  %33 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
-  store i8 %32, ptr %.010.i.i, align 1, !tbaa !28
-  %34 = udiv i64 %.0.i.i, 10
+28:                                               ; preds = %28, %_ZN4pugi8xml_text9_data_newEv.exit.thread
+  %.010.i.i = phi ptr [ %26, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %32, %28 ]
+  %.0.i.i = phi i64 [ %27, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %33, %28 ]
+  %29 = urem i64 %.0.i.i, 10
+  %30 = trunc nuw nsw i64 %29 to i8
+  %31 = or disjoint i8 %30, 48
+  %32 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
+  store i8 %31, ptr %.010.i.i, align 1, !tbaa !28
+  %33 = udiv i64 %.0.i.i, 10
   %.not.i.i5 = icmp ult i64 %.0.i.i, 10
-  br i1 %.not.i.i5, label %_ZN4pugi4impl12_GLOBAL__N_117set_value_integerImPcmEEbRT0_RT1_mT_b.exit, label %29, !llvm.loop !32
+  br i1 %.not.i.i5, label %_ZN4pugi4impl12_GLOBAL__N_117set_value_integerImPcmEEbRT0_RT1_mT_b.exit, label %28, !llvm.loop !32
 
-_ZN4pugi4impl12_GLOBAL__N_117set_value_integerImPcmEEbRT0_RT1_mT_b.exit: ; preds = %29
+_ZN4pugi4impl12_GLOBAL__N_117set_value_integerImPcmEEbRT0_RT1_mT_b.exit: ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 16
   %35 = icmp sgt i64 %1, -1
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i8 45, ptr %33, align 1, !tbaa !28
+  store i8 45, ptr %32, align 1, !tbaa !28
   %37 = zext i1 %35 to i64
-  %38 = getelementptr inbounds nuw i8, ptr %33, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 %37
   %39 = ptrtoint ptr %36 to i64
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
-  %42 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %.0.i8, i64 noundef 16, ptr noundef nonnull %38, i64 noundef %41)
+  %42 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %.0.i8, i64 noundef 16, ptr noundef nonnull %38, i64 noundef %41)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #51
   br label %43
 
@@ -14704,34 +14704,34 @@ _ZN4pugi8xml_text9_data_newEv.exit:               ; preds = %23, %2, %17
 
 _ZN4pugi8xml_text9_data_newEv.exit.thread:        ; preds = %.lr.ph.i.i, %6, %14, %_ZN4pugi8xml_text9_data_newEv.exit
   %.0.i8 = phi ptr [ %25, %_ZN4pugi8xml_text9_data_newEv.exit ], [ %5, %6 ], [ %5, %14 ], [ %.0613.i.i, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #51
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 63
-  %28 = call i64 @llvm.abs.i64(i64 %1, i1 false)
-  br label %29
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 63
+  %27 = call i64 @llvm.abs.i64(i64 %1, i1 false)
+  br label %28
 
-29:                                               ; preds = %29, %_ZN4pugi8xml_text9_data_newEv.exit.thread
-  %.010.i.i = phi ptr [ %27, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %33, %29 ]
-  %.0.i.i = phi i64 [ %28, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %34, %29 ]
-  %30 = urem i64 %.0.i.i, 10
-  %31 = trunc nuw nsw i64 %30 to i8
-  %32 = or disjoint i8 %31, 48
-  %33 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
-  store i8 %32, ptr %.010.i.i, align 1, !tbaa !28
-  %34 = udiv i64 %.0.i.i, 10
+28:                                               ; preds = %28, %_ZN4pugi8xml_text9_data_newEv.exit.thread
+  %.010.i.i = phi ptr [ %26, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %32, %28 ]
+  %.0.i.i = phi i64 [ %27, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %33, %28 ]
+  %29 = urem i64 %.0.i.i, 10
+  %30 = trunc nuw nsw i64 %29 to i8
+  %31 = or disjoint i8 %30, 48
+  %32 = getelementptr inbounds i8, ptr %.010.i.i, i64 -1
+  store i8 %31, ptr %.010.i.i, align 1, !tbaa !28
+  %33 = udiv i64 %.0.i.i, 10
   %.not.i.i5 = icmp ult i64 %.0.i.i, 10
-  br i1 %.not.i.i5, label %_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIyPcmEEbRT0_RT1_mT_b.exit, label %29, !llvm.loop !33
+  br i1 %.not.i.i5, label %_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIyPcmEEbRT0_RT1_mT_b.exit, label %28, !llvm.loop !33
 
-_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIyPcmEEbRT0_RT1_mT_b.exit: ; preds = %29
+_ZN4pugi4impl12_GLOBAL__N_117set_value_integerIyPcmEEbRT0_RT1_mT_b.exit: ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 16
   %35 = icmp sgt i64 %1, -1
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i8 45, ptr %33, align 1, !tbaa !28
+  store i8 45, ptr %32, align 1, !tbaa !28
   %37 = zext i1 %35 to i64
-  %38 = getelementptr inbounds nuw i8, ptr %33, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 %37
   %39 = ptrtoint ptr %36 to i64
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
-  %42 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %.0.i8, i64 noundef 16, ptr noundef nonnull %38, i64 noundef %41)
+  %42 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %.0.i8, i64 noundef 16, ptr noundef nonnull %38, i64 noundef %41)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #51
   br label %43
 

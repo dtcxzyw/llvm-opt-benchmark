@@ -28275,37 +28275,37 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
   %10 = load i8, ptr %0, align 1, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1, !noundef !4
-  %13 = zext i8 %12 to i16
-  %14 = shl nuw i16 %13, 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %14 = load i8, ptr %13, align 1, !noundef !4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %16 = load i8, ptr %15, align 1, !noundef !4
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %18 = load i8, ptr %17, align 1, !noundef !4
-  %19 = zext i8 %18 to i16
-  %20 = shl nuw i16 %19, 8
-  %21 = getelementptr i8, ptr %0, i64 4
-  %22 = load i32, ptr %21, align 1
+  %17 = getelementptr i8, ptr %0, i64 4
+  %18 = load i32, ptr %17, align 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
-  br label %23
+  br label %19
 
-23:                                               ; preds = %9, %23
-  %24 = phi i64 [ 0, %9 ], [ %26, %23 ]
-  %25 = getelementptr inbounds nuw [4 x [3 x i8]], ptr %6, i64 0, i64 %24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %25, i8 0, i64 3, i1 false)
-  %26 = add nuw nsw i64 %24, 1
-  %exitcond.not = icmp eq i64 %26, 4
-  br i1 %exitcond.not, label %27, label %23
+19:                                               ; preds = %9, %19
+  %20 = phi i64 [ 0, %9 ], [ %22, %19 ]
+  %21 = getelementptr inbounds nuw [4 x [3 x i8]], ptr %6, i64 0, i64 %20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %21, i8 0, i64 3, i1 false)
+  %22 = add nuw nsw i64 %20, 1
+  %exitcond.not = icmp eq i64 %22, 4
+  br i1 %exitcond.not, label %23, label %19
 
-27:                                               ; preds = %23
-  %28 = lshr i64 %3, 4
-  %29 = zext i8 %10 to i16
-  %30 = or disjoint i16 %14, %29
-  %31 = zext i8 %16 to i16
-  %32 = or disjoint i16 %20, %31
-  %33 = lshr i16 %13, 3
-  %34 = lshr i16 %30, 5
+23:                                               ; preds = %19
+  %24 = lshr i64 %3, 4
+  %25 = zext i8 %10 to i16
+  %26 = zext i8 %12 to i16
+  %27 = shl nuw i16 %26, 8
+  %28 = or disjoint i16 %27, %25
+  %29 = zext i8 %14 to i16
+  %30 = zext i8 %16 to i16
+  %31 = shl nuw i16 %30, 8
+  %32 = or disjoint i16 %31, %29
+  %33 = lshr i16 %26, 3
+  %34 = lshr i16 %28, 5
   %35 = and i16 %34, 63
-  %36 = and i16 %29, 31
+  %36 = and i16 %25, 31
   %37 = mul nuw nsw i16 %33, 255
   %38 = udiv i16 %37, 31
   %39 = mul nuw nsw i16 %35, 255
@@ -28320,10 +28320,10 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
   %.sroa.2.0.insert.insert.i = or disjoint i24 %.sroa.3.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = add nuw nsw i24 %.sroa.2.0.insert.insert.i, %.sroa.2.0.insert.shift.i
   store i24 %.sroa.0.0.insert.insert.i, ptr %6, align 4
-  %44 = lshr i16 %19, 3
+  %44 = lshr i16 %30, 3
   %45 = lshr i16 %32, 5
   %46 = and i16 %45, 63
-  %47 = and i16 %31, 31
+  %47 = and i16 %29, 31
   %48 = mul nuw nsw i16 %44, 255
   %49 = udiv i16 %48, 31
   %50 = mul nuw nsw i16 %46, 255
@@ -28339,26 +28339,26 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
   %.sroa.0.0.insert.insert.i29 = add nuw nsw i24 %.sroa.2.0.insert.insert.i27, %.sroa.2.0.insert.shift.i26
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i24 %.sroa.0.0.insert.insert.i29, ptr %55, align 1
-  %56 = icmp ule i16 %30, %32
+  %56 = icmp ule i16 %28, %32
   %brmerge.not = and i1 %4, %56
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 6
   br i1 %brmerge.not, label %.preheader, label %.preheader41
 
-.preheader41:                                     ; preds = %27
+.preheader41:                                     ; preds = %23
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 9
   br label %86
 
 .thread:                                          ; preds = %86, %.preheader
   %59 = trunc nuw nsw i64 %3 to i8
   %.lhs.trunc = add nsw i8 %59, -3
-  %.rhs.trunc = trunc nuw nsw i64 %28 to i8
+  %.rhs.trunc = trunc nuw nsw i64 %24 to i8
   %60 = udiv i8 %.lhs.trunc, %.rhs.trunc
   %.zext = zext i8 %60 to i64
   %61 = add nuw nsw i64 %.zext, 1
   br label %75
 
-.preheader:                                       ; preds = %27, %.preheader
-  %.sroa.04.044 = phi i64 [ %62, %.preheader ], [ 0, %27 ]
+.preheader:                                       ; preds = %23, %.preheader
+  %.sroa.04.044 = phi i64 [ %62, %.preheader ], [ 0, %23 ]
   %62 = add nuw nsw i64 %.sroa.04.044, 1
   %63 = getelementptr inbounds nuw [3 x i8], ptr %6, i64 0, i64 %.sroa.04.044
   %64 = load i8, ptr %63, align 1, !noundef !4
@@ -28381,7 +28381,7 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
 
 75:                                               ; preds = %.thread, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit"
   %.sroa.09.045 = phi i64 [ 0, %.thread ], [ %79, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit" ]
-  %76 = mul nuw nsw i64 %.sroa.09.045, %28
+  %76 = mul nuw nsw i64 %.sroa.09.045, %24
   %exitcond50 = icmp eq i64 %.sroa.09.045, %61
   br i1 %exitcond50, label %77, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit"
 
@@ -28395,7 +28395,7 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 %76
   %.sroa.613.1.tr = trunc nuw nsw i64 %.sroa.09.045 to i32
   %81 = shl nuw nsw i32 %.sroa.613.1.tr, 1
-  %82 = lshr i32 %22, %81
+  %82 = lshr i32 %18, %81
   %83 = and i32 %82, 3
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds nuw [4 x [3 x i8]], ptr %6, i64 0, i64 %84
@@ -30344,7 +30344,7 @@ _ZN5image6codecs3dxt16alpha_table_dxt517hf828886a08bcc26fE.exit.i84.i: ; preds =
 141:                                              ; preds = %152, %_ZN5image6codecs3dxt16alpha_table_dxt517hf828886a08bcc26fE.exit.i84.i
   %.030.i85.i = phi i64 [ 0, %_ZN5image6codecs3dxt16alpha_table_dxt517hf828886a08bcc26fE.exit.i84.i ], [ %156, %152 ]
   %.01629.i86.i = phi i32 [ 0, %_ZN5image6codecs3dxt16alpha_table_dxt517hf828886a08bcc26fE.exit.i84.i ], [ %153, %152 ]
-  %.sroa.0.0.idx28.i87.i = phi i64 [ 0, %_ZN5image6codecs3dxt16alpha_table_dxt517hf828886a08bcc26fE.exit.i84.i ], [ %.sroa.0.0.add.i89.i, %152 ]
+  %.sroa.0.0.idx28.i87.i = phi i64 [ 0, %_ZN5image6codecs3dxt16alpha_table_dxt517hf828886a08bcc26fE.exit.i84.i ], [ %.sroa.0.0.add.i99.i, %152 ]
   %.sroa.0.0.ptr.i88.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx28.i87.i
   %142 = load i8, ptr %.sroa.0.0.ptr.i88.i, align 1, !alias.scope !7480, !noalias !7399, !noundef !4
   %143 = zext i8 %142 to i32
@@ -30353,30 +30353,30 @@ _ZN5image6codecs3dxt16alpha_table_dxt517hf828886a08bcc26fE.exit.i84.i: ; preds =
   br label %146
 
 146:                                              ; preds = %146, %141
-  %.sroa.043.0.i.i.i.i90.i = phi i32 [ %145, %141 ], [ %.sroa.043.0.copyload44.sroa.speculated.i.i.i.i97.i, %146 ]
-  %.sroa.847.0.i.i.i.i91.i = phi i64 [ 0, %141 ], [ %.sroa.847.0.copyload48.sroa.speculated.i.i.i.i98.i, %146 ]
-  %.sroa.10.0.i.i.i.i92.i = phi i32 [ %145, %141 ], [ %.sroa.10.0.copyload49.sroa.speculated.i.i.i.i99.i, %146 ]
-  %.sroa.2.0.i.i.i.i.i.in.i.i.i93.i = phi i64 [ 0, %141 ], [ %.sroa.2.0.i.i.i.i.i.i.i.i94.i, %146 ]
-  %.sroa.2.0.i.i.i.i.i.i.i.i94.i = add nuw nsw i64 %.sroa.2.0.i.i.i.i.i.in.i.i.i93.i, 1
-  %147 = getelementptr inbounds nuw i8, ptr %32, i64 %.sroa.2.0.i.i.i.i.i.in.i.i.i93.i
-  %.val1.i.i.i.i.i.i.i.i.i95.i = load i8, ptr %147, align 1, !alias.scope !7484, !noalias !7487, !noundef !4
-  %148 = zext i8 %.val1.i.i.i.i.i.i.i.i.i95.i to i32
+  %.sroa.043.0.i.i.i.i89.i = phi i32 [ %145, %141 ], [ %.sroa.043.0.copyload44.sroa.speculated.i.i.i.i96.i, %146 ]
+  %.sroa.847.0.i.i.i.i90.i = phi i64 [ 0, %141 ], [ %.sroa.847.0.copyload48.sroa.speculated.i.i.i.i97.i, %146 ]
+  %.sroa.10.0.i.i.i.i91.i = phi i32 [ %145, %141 ], [ %.sroa.10.0.copyload49.sroa.speculated.i.i.i.i98.i, %146 ]
+  %.sroa.2.0.i.i.i.i.i.in.i.i.i92.i = phi i64 [ 0, %141 ], [ %.sroa.2.0.i.i.i.i.i.i.i.i93.i, %146 ]
+  %.sroa.2.0.i.i.i.i.i.i.i.i93.i = add nuw nsw i64 %.sroa.2.0.i.i.i.i.i.in.i.i.i92.i, 1
+  %147 = getelementptr inbounds nuw i8, ptr %32, i64 %.sroa.2.0.i.i.i.i.i.in.i.i.i92.i
+  %.val1.i.i.i.i.i.i.i.i.i94.i = load i8, ptr %147, align 1, !alias.scope !7484, !noalias !7487, !noundef !4
+  %148 = zext i8 %.val1.i.i.i.i.i.i.i.i.i94.i to i32
   %149 = sub nsw i32 %148, %143
   %150 = mul nsw i32 %149, %149
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i96.i = icmp samesign ugt i32 %.sroa.043.0.i.i.i.i90.i, %150
-  %.sroa.043.0.copyload44.sroa.speculated.i.i.i.i97.i = tail call i32 @llvm.umin.i32(i32 %.sroa.043.0.i.i.i.i90.i, i32 %150)
-  %.sroa.847.0.copyload48.sroa.speculated.i.i.i.i98.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i96.i, i64 %.sroa.2.0.i.i.i.i.i.i.i.i94.i, i64 %.sroa.847.0.i.i.i.i91.i
-  %.sroa.10.0.copyload49.sroa.speculated.i.i.i.i99.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i96.i, i32 %150, i32 %.sroa.10.0.i.i.i.i92.i
-  %151 = icmp eq i64 %.sroa.2.0.i.i.i.i.i.i.i.i94.i, 7
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i95.i = icmp samesign ugt i32 %.sroa.043.0.i.i.i.i89.i, %150
+  %.sroa.043.0.copyload44.sroa.speculated.i.i.i.i96.i = tail call i32 @llvm.umin.i32(i32 %.sroa.043.0.i.i.i.i89.i, i32 %150)
+  %.sroa.847.0.copyload48.sroa.speculated.i.i.i.i97.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i95.i, i64 %.sroa.2.0.i.i.i.i.i.i.i.i93.i, i64 %.sroa.847.0.i.i.i.i90.i
+  %.sroa.10.0.copyload49.sroa.speculated.i.i.i.i98.i = select i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i95.i, i32 %150, i32 %.sroa.10.0.i.i.i.i91.i
+  %151 = icmp eq i64 %.sroa.2.0.i.i.i.i.i.i.i.i93.i, 7
   br i1 %151, label %152, label %146
 
 152:                                              ; preds = %146
-  %.sroa.0.0.add.i89.i = add nuw nsw i64 %.sroa.0.0.idx28.i87.i, 1
-  %153 = add i32 %.sroa.10.0.copyload49.sroa.speculated.i.i.i.i99.i, %.01629.i86.i
+  %.sroa.0.0.add.i99.i = add nuw nsw i64 %.sroa.0.0.idx28.i87.i, 1
+  %153 = add i32 %.sroa.10.0.copyload49.sroa.speculated.i.i.i.i98.i, %.01629.i86.i
   %154 = mul nuw nsw i64 %.sroa.0.0.idx28.i87.i, 3
-  %155 = shl i64 %.sroa.847.0.copyload48.sroa.speculated.i.i.i.i98.i, %154
+  %155 = shl i64 %.sroa.847.0.copyload48.sroa.speculated.i.i.i.i97.i, %154
   %156 = or i64 %155, %.030.i85.i
-  %157 = icmp eq i64 %.sroa.0.0.add.i89.i, 16
+  %157 = icmp eq i64 %.sroa.0.0.add.i99.i, 16
   br i1 %157, label %_ZN5image6codecs3dxt17encode_dxt5_alpha17h9fea82578024f908E.exit105.i, label %141
 
 _ZN5image6codecs3dxt17encode_dxt5_alpha17h9fea82578024f908E.exit105.i: ; preds = %152

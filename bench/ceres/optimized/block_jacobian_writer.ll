@@ -484,8 +484,8 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_bas
   br i1 %184, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i.i, !llvm.loop !92
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
-  %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i64 %174, 32
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %174 to i32
+  %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i64 %174, 32
   %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i.i.i to i32
   store i32 %.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %.sroa.0159.3.i, align 4, !tbaa !91
   store i32 %.sroa.4.0.extract.trunc.i.i.i.i.i, ptr %160, align 4, !tbaa !89

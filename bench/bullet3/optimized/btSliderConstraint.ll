@@ -1694,8 +1694,6 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   %355 = fsub float %.sroa.5782.48.copyload, %.sroa.5787.48.copyload
   %356 = fsub float %.sroa.8.48.copyload, %.sroa.8789.48.copyload
   %357 = fsub float %.sroa.10.48.copyload, %.sroa.10791.48.copyload
-  %.sroa.0.0.vec.insert.i603 = insertelement <2 x float> poison, float %355, i64 0
-  %.sroa.0.4.vec.insert.i604 = insertelement <2 x float> %.sroa.0.0.vec.insert.i603, float %356, i64 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #20
   %358 = fmul float %357, %142
   %359 = tail call float @llvm.fmuladd.f32(float %356, float %121, float %358)
@@ -1822,6 +1820,8 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
   br i1 %exitcond1048.not, label %402, label %398, !llvm.loop !112
 
 402:                                              ; preds = %398
+  %.sroa.0.0.vec.insert.i603 = insertelement <2 x float> poison, float %355, i64 0
+  %.sroa.0.4.vec.insert.i604 = insertelement <2 x float> %.sroa.0.0.vec.insert.i603, float %356, i64 1
   %.sroa.3.12.vec.insert.i605 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %357, i64 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #20
   br label %.loopexit

@@ -1395,42 +1395,42 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   tail call void @col_set_str(ptr noundef %15, i32 noundef 35, ptr noundef nonnull @.str.742)
   %16 = load ptr, ptr %14, align 8
   tail call void @col_clear(ptr noundef %16, i32 noundef 25)
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br label %19
+  br label %17
 
-19:                                               ; preds = %19, %4
-  %.0292 = phi i32 [ 0, %4 ], [ %33, %19 ]
-  %20 = add nuw i32 %.0292, 1
-  %21 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0292)
-  %22 = add i32 %.0292, 2
-  %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %20)
-  %24 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %22)
-  %25 = add i32 %.0292, 4
+17:                                               ; preds = %17, %4
+  %.0292 = phi i32 [ 0, %4 ], [ %31, %17 ]
+  %18 = add nuw i32 %.0292, 1
+  %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0292)
+  %20 = add i32 %.0292, 2
+  %21 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %18)
+  %22 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %20)
+  %23 = add i32 %.0292, 4
+  %24 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %23)
+  %25 = add i32 %.0292, 6
   %26 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %25)
-  %27 = add i32 %.0292, 6
+  %27 = add i32 %.0292, 8
   %28 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %27)
-  %29 = add i32 %.0292, 8
-  %30 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %29)
-  %31 = and i16 %28, 2047
-  %narrow.i = add nuw nsw i16 %31, 12
-  %32 = zext nneg i16 %narrow.i to i32
-  %33 = add i32 %.0292, %32
-  %34 = icmp ult i32 %33, %13
-  %35 = icmp slt i16 %28, 0
-  %36 = select i1 %34, i1 %35, i1 false
-  br i1 %36, label %19, label %37, !llvm.loop !6
+  %29 = and i16 %26, 2047
+  %narrow.i = add nuw nsw i16 %29, 12
+  %30 = zext nneg i16 %narrow.i to i32
+  %31 = add i32 %.0292, %30
+  %32 = icmp ult i32 %31, %13
+  %33 = icmp slt i16 %26, 0
+  %34 = select i1 %32, i1 %33, i1 false
+  br i1 %34, label %17, label %35, !llvm.loop !6
 
-37:                                               ; preds = %19
-  %38 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %39 = getelementptr inbounds nuw i8, ptr %9, i64 6
+35:                                               ; preds = %17
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 6
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  store i8 %23, ptr %38, align 1
-  store i16 %24, ptr %17, align 4
-  store i16 %26, ptr %39, align 2
-  store i16 %28, ptr %18, align 4
-  store i16 %30, ptr %40, align 2
-  store i8 %21, ptr %9, align 4
+  store i8 %21, ptr %36, align 1
+  store i16 %22, ptr %37, align 4
+  store i16 %24, ptr %38, align 2
+  store i16 %26, ptr %39, align 4
+  store i16 %28, ptr %40, align 2
+  store i8 %19, ptr %9, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #5
   %41 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
@@ -1439,13 +1439,13 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %44 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4)
   %45 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6)
   %46 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 8)
-  %.not90.i = icmp eq i32 %33, 0
+  %.not90.i = icmp eq i32 %31, 0
   br i1 %.not90.i, label %.thread78.thread.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %37, %70
-  %.085.i = phi i32 [ %67, %70 ], [ 0, %37 ]
-  %.04784.i = phi i32 [ %68, %70 ], [ 0, %37 ]
-  %.05182.i = phi i32 [ %72, %70 ], [ 0, %37 ]
+.lr.ph.i:                                         ; preds = %35, %70
+  %.085.i = phi i32 [ %67, %70 ], [ 0, %35 ]
+  %.04784.i = phi i32 [ %68, %70 ], [ 0, %35 ]
+  %.05182.i = phi i32 [ %72, %70 ], [ 0, %35 ]
   %.not.i = icmp eq i32 %.085.i, 0
   br i1 %.not.i, label %.thread.i, label %47
 
@@ -1494,7 +1494,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %narrow.i.i = add nuw nsw i16 %.pre-phi.i, 12
   %71 = zext nneg i16 %narrow.i.i to i32
   %72 = add i32 %.05182.i, %71
-  %73 = icmp ult i32 %72, %33
+  %73 = icmp ult i32 %72, %31
   br i1 %73, label %.lr.ph.i, label %.thread78.i
 
 .thread78.i:                                      ; preds = %70, %66
@@ -1578,9 +1578,9 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %138 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.849, i32 noundef 4, ptr noundef %118, i32 noundef %119, ptr noundef %123, i32 noundef %125, ptr noundef %129, i32 noundef %131, ptr noundef %135, i32 noundef %137)
   br label %EcSummaryFormater.exit
 
-.thread78.thread.i:                               ; preds = %.thread78.i, %37
-  %.197.i = phi i32 [ %67, %.thread78.i ], [ 0, %37 ]
-  %.14896.i = phi i32 [ %68, %.thread78.i ], [ 0, %37 ]
+.thread78.thread.i:                               ; preds = %.thread78.i, %35
+  %.197.i = phi i32 [ %67, %.thread78.i ], [ 0, %35 ]
+  %.14896.i = phi i32 [ %68, %.thread78.i ], [ 0, %35 ]
   %139 = zext i8 %41 to i32
   %140 = tail call ptr @val_to_str(i32 noundef range(i32 0, 256) %139, ptr noundef nonnull @EcCmdShort, ptr noundef nonnull @.str.851)
   %141 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.850, i32 noundef %.197.i, i32 noundef %.14896.i, ptr noundef %140)
@@ -1619,15 +1619,15 @@ EcSummaryFormater.exit:                           ; preds = %74, %85, %97, %115,
   store i8 %155, ptr %9, align 4
   %156 = add i32 %.0290, 2
   %157 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %154)
-  store i8 %157, ptr %38, align 1
+  store i8 %157, ptr %36, align 1
   %158 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %156)
-  store i16 %158, ptr %17, align 4
+  store i16 %158, ptr %37, align 4
   %159 = add i32 %.0290, 4
   %160 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %159)
-  store i16 %160, ptr %39, align 2
+  store i16 %160, ptr %38, align 2
   %161 = add i32 %.0290, 6
   %162 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %161)
-  store i16 %162, ptr %18, align 4
+  store i16 %162, ptr %39, align 4
   %163 = add i32 %.0290, 8
   %164 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %163)
   store i16 %164, ptr %40, align 2
@@ -2264,7 +2264,7 @@ proto_item_set_hidden.exit364:                    ; preds = %481, %478, %473, %4
   br i1 %489, label %153, label %490, !llvm.loop !9
 
 490:                                              ; preds = %proto_item_set_hidden.exit364
-  %.not318 = icmp eq i32 %13, %33
+  %.not318 = icmp eq i32 %13, %31
   br i1 %.not318, label %495, label %491
 
 491:                                              ; preds = %490

@@ -195937,29 +195937,29 @@ _ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE3ENS1_6
   br label %_ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE3ENS1_6buffer24buffered_ring_collectionINS5_13buffered_ringINS0_5model4ringINS8_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEEEEEESH_SE_INS5_16buffer_turn_infoISD_NS0_13segment_ratioIdEEEESaISL_EESt3mapIlNS2_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS1_17no_rescale_policyENS0_10strategies6buffer9cartesianIvEENS5_22buffer_overlay_visitorEE33priority_of_turn_in_cluster_unionElRKNS2_12sort_by_side12ranked_pointISD_EERKSP_li.exit
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %109
-  %116 = icmp eq i64 %97, %5
-  %117 = getelementptr inbounds nuw i8, ptr %102, i64 96
-  %118 = load i64, ptr %117, align 8, !tbaa !2595
-  %119 = icmp eq i64 %118, -1
-  %120 = getelementptr inbounds nuw i8, ptr %102, i64 88
-  %121 = load i64, ptr %120, align 8
-  %122 = select i1 %119, i64 %121, i64 %118
+  %116 = getelementptr inbounds nuw i8, ptr %102, i64 96
+  %117 = load i64, ptr %116, align 8, !tbaa !2595
+  %118 = icmp eq i64 %117, -1
+  %119 = getelementptr inbounds nuw i8, ptr %102, i64 88
+  %120 = load i64, ptr %119, align 8
+  %121 = select i1 %118, i64 %120, i64 %117
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.fr, %.lr.ph.i.i.i.i.preheader ]
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %49, %.lr.ph.i.i.i.i.preheader ]
-  %123 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %124 = load i64, ptr %123, align 8, !tbaa !93
-  %125 = icmp slt i64 %124, %122
-  %.19.i.i.i.i = select i1 %125, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %125, i64 24, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %123 = load i64, ptr %122, align 8, !tbaa !93
+  %124 = icmp slt i64 %123, %121
+  %.19.i.i.i.i = select i1 %124, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %124, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !174
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !3332
 
 _ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  %125 = icmp eq i64 %97, %5
   %126 = icmp eq i32 %100, %6
   %127 = icmp eq ptr %.19.i.i.i.i, %49
   br i1 %127, label %_ZNKSt3setIlSt4lessIlESaIlEE5countERKl.exit.i, label %128
@@ -195967,7 +195967,7 @@ _ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree
 128:                                              ; preds = %_ZNKSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE14_M_lower_boundEPKSt13_Rb_tree_nodeIlEPKSt18_Rb_tree_node_baseRKl.exit.i.i.i
   %129 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %130 = load i64, ptr %129, align 8, !tbaa !93
-  %131 = icmp slt i64 %122, %130
+  %131 = icmp slt i64 %121, %130
   %spec.select.i.i.i = select i1 %131, ptr %49, ptr %.19.i.i.i.i
   br label %_ZNKSt3setIlSt4lessIlESaIlEE5countERKl.exit.i
 
@@ -195976,7 +195976,7 @@ _ZNKSt3setIlSt4lessIlESaIlEE5countERKl.exit.i:    ; preds = %128, %_ZNKSt8_Rb_tr
   %.not27.i = icmp eq ptr %.sroa.0.0.i.i.i, %49
   %132 = select i1 %.not27.i, i32 3, i32 2
   %133 = select i1 %126, i32 5, i32 4
-  %134 = select i1 %116, i32 %133, i32 %132
+  %134 = select i1 %125, i32 %133, i32 %132
   br label %_ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE3ENS1_6buffer24buffered_ring_collectionINS5_13buffered_ringINS0_5model4ringINS8_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEEEEEESH_SE_INS5_16buffer_turn_infoISD_NS0_13segment_ratioIdEEEESaISL_EESt3mapIlNS2_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS1_17no_rescale_policyENS0_10strategies6buffer9cartesianIvEENS5_22buffer_overlay_visitorEE33priority_of_turn_in_cluster_unionElRKNS2_12sort_by_side12ranked_pointISD_EERKSP_li.exit
 
 _ZNK5boost8geometry6detail7overlay9traversalILb0ELb0ELNS0_12overlay_typeE3ENS1_6buffer24buffered_ring_collectionINS5_13buffered_ringINS0_5model4ringINS8_5pointIdLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEEEEEESH_SE_INS5_16buffer_turn_infoISD_NS0_13segment_ratioIdEEEESaISL_EESt3mapIlNS2_12cluster_infoESt4lessIlESaISt4pairIKlSP_EEENS1_17no_rescale_policyENS0_10strategies6buffer9cartesianIvEENS5_22buffer_overlay_visitorEE33priority_of_turn_in_cluster_unionElRKNS2_12sort_by_side12ranked_pointISD_EERKSP_li.exit: ; preds = %113, %_ZNKSt3setIlSt4lessIlESaIlEE5countERKl.exit.i

@@ -2285,33 +2285,33 @@ define internal fastcc range(i64 0, 4294967296) i64 @zlib_adler32(i64 noundef %0
   %106 = phi i64 [ %99, %103 ], [ %10, %.preheader4 ]
   %107 = phi i64 [ %98, %103 ], [ %11, %.preheader4 ]
   %108 = phi ptr [ %100, %103 ], [ %13, %.preheader4 ]
-  %109 = add nsw i32 %105, -1
-  br label %110
+  br label %109
 
-110:                                              ; preds = %110, %.thread
-  %111 = phi ptr [ %115, %110 ], [ %108, %.thread ]
-  %112 = phi i64 [ %118, %110 ], [ %107, %.thread ]
-  %113 = phi i64 [ %119, %110 ], [ %106, %.thread ]
-  %114 = phi i32 [ %120, %110 ], [ %105, %.thread ]
-  %115 = getelementptr i8, ptr %111, i64 1
-  %116 = load i8, ptr %111, align 1
-  %117 = zext i8 %116 to i64
-  %118 = add i64 %112, %117
-  %119 = add i64 %118, %113
-  %120 = add i32 %114, -1
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %122, label %110, !llvm.loop !31
+109:                                              ; preds = %109, %.thread
+  %110 = phi ptr [ %114, %109 ], [ %108, %.thread ]
+  %111 = phi i64 [ %117, %109 ], [ %107, %.thread ]
+  %112 = phi i64 [ %118, %109 ], [ %106, %.thread ]
+  %113 = phi i32 [ %119, %109 ], [ %105, %.thread ]
+  %114 = getelementptr i8, ptr %110, i64 1
+  %115 = load i8, ptr %110, align 1
+  %116 = zext i8 %115 to i64
+  %117 = add i64 %111, %116
+  %118 = add i64 %117, %112
+  %119 = add i32 %113, -1
+  %120 = icmp eq i32 %119, 0
+  br i1 %120, label %121, label %109, !llvm.loop !31
 
-122:                                              ; preds = %110
-  %123 = zext i32 %109 to i64
+121:                                              ; preds = %109
+  %122 = add nsw i32 %105, -1
+  %123 = zext i32 %122 to i64
   %124 = getelementptr i8, ptr %108, i64 1
   %125 = getelementptr i8, ptr %124, i64 %123
   br label %126
 
-126:                                              ; preds = %122, %103
-  %127 = phi ptr [ %100, %103 ], [ %125, %122 ]
-  %128 = phi i64 [ %98, %103 ], [ %118, %122 ]
-  %129 = phi i64 [ %99, %103 ], [ %119, %122 ]
+126:                                              ; preds = %121, %103
+  %127 = phi ptr [ %100, %103 ], [ %125, %121 ]
+  %128 = phi i64 [ %98, %103 ], [ %117, %121 ]
+  %129 = phi i64 [ %99, %103 ], [ %118, %121 ]
   %130 = urem i64 %128, 65521
   %131 = urem i64 %129, 65521
   %132 = icmp eq i32 %15, 0

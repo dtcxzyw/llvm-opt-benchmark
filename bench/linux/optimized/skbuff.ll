@@ -4893,30 +4893,30 @@ define dso_local noundef range(i32 -22, 1) i32 @skb_copy_ubufs(ptr noundef %0, i
 
 .preheader24:                                     ; preds = %35, %.loopexit25
   %44 = phi i32 [ %57, %.loopexit25 ], [ 0, %35 ]
-  %45 = zext nneg i32 %44 to i64
-  %46 = shl i64 4096, %45
-  br label %47
+  br label %45
 
-47:                                               ; preds = %.preheader24, %47
-  %48 = phi i64 [ %50, %47 ], [ %43, %.preheader24 ]
-  %49 = phi i32 [ %52, %47 ], [ 0, %.preheader24 ]
-  %50 = add nsw i64 %48, -1
-  %.idx = shl i64 %50, 4
+45:                                               ; preds = %.preheader24, %45
+  %46 = phi i64 [ %48, %45 ], [ %43, %.preheader24 ]
+  %47 = phi i32 [ %50, %45 ], [ 0, %.preheader24 ]
+  %48 = add nsw i64 %46, -1
+  %.idx = shl i64 %48, 4
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %51 = load i32, ptr %gep, align 8
-  %52 = add i32 %51, %49
-  %53 = icmp sgt i64 %48, 1
-  br i1 %53, label %47, label %.loopexit25, !llvm.loop !106
+  %49 = load i32, ptr %gep, align 8
+  %50 = add i32 %49, %47
+  %51 = icmp sgt i64 %46, 1
+  br i1 %51, label %45, label %.loopexit25, !llvm.loop !106
 
-.loopexit25:                                      ; preds = %47
-  %54 = mul i64 %46, 17
-  %55 = zext i32 %52 to i64
+.loopexit25:                                      ; preds = %45
+  %52 = zext nneg i32 %44 to i64
+  %53 = shl i64 4096, %52
+  %54 = mul i64 %53, 17
+  %55 = zext i32 %50 to i64
   %56 = icmp ult i64 %54, %55
   %57 = add i32 %44, 1
   br i1 %56, label %.preheader24, label %.split40, !llvm.loop !107
 
 .split40:                                         ; preds = %.loopexit25
-  %58 = trunc i64 %46 to i32
+  %58 = trunc i64 %53 to i32
   br label %.preheader22
 
 .preheader22:                                     ; preds = %.split40, %.preheader22

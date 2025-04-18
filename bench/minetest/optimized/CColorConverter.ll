@@ -1381,8 +1381,6 @@ for.body.preheader:                               ; preds = %entry
 
 vector.ph:                                        ; preds = %for.body.preheader
   %n.vec = and i64 %0, 2147483632
-  %2 = shl nuw nsw i64 %n.vec, 1
-  %ind.end14 = getelementptr i8, ptr %dP, i64 %2
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -1390,21 +1388,23 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %offset.idx = shl nuw i64 %index, 1
   %next.gep = getelementptr i8, ptr %dP, i64 %offset.idx
   %next.gep20 = getelementptr i8, ptr %sP, i64 %offset.idx
-  %3 = getelementptr i8, ptr %next.gep20, i64 16
+  %2 = getelementptr i8, ptr %next.gep20, i64 16
   %wide.load = load <8 x i16>, ptr %next.gep20, align 2, !tbaa !6
-  %wide.load22 = load <8 x i16>, ptr %3, align 2, !tbaa !6
-  %4 = tail call <8 x i16> @llvm.fshl.v8i16(<8 x i16> %wide.load, <8 x i16> %wide.load, <8 x i16> splat (i16 1))
-  %5 = tail call <8 x i16> @llvm.fshl.v8i16(<8 x i16> %wide.load22, <8 x i16> %wide.load22, <8 x i16> splat (i16 1))
-  %6 = getelementptr i8, ptr %next.gep, i64 16
-  store <8 x i16> %4, ptr %next.gep, align 2, !tbaa !6
-  store <8 x i16> %5, ptr %6, align 2, !tbaa !6
+  %wide.load22 = load <8 x i16>, ptr %2, align 2, !tbaa !6
+  %3 = tail call <8 x i16> @llvm.fshl.v8i16(<8 x i16> %wide.load, <8 x i16> %wide.load, <8 x i16> splat (i16 1))
+  %4 = tail call <8 x i16> @llvm.fshl.v8i16(<8 x i16> %wide.load22, <8 x i16> %wide.load22, <8 x i16> splat (i16 1))
+  %5 = getelementptr i8, ptr %next.gep, i64 16
+  store <8 x i16> %3, ptr %next.gep, align 2, !tbaa !6
+  store <8 x i16> %4, ptr %5, align 2, !tbaa !6
   %index.next = add nuw nsw i64 %index, 16
-  %7 = icmp eq i64 %index.next, %n.vec
-  br i1 %7, label %middle.block, label %vector.body, !llvm.loop !44
+  %6 = icmp eq i64 %index.next, %n.vec
+  br i1 %6, label %middle.block, label %vector.body, !llvm.loop !44
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = trunc nuw nsw i64 %n.vec to i32
-  %ind.end16 = getelementptr i8, ptr %sP, i64 %2
+  %7 = shl nuw nsw i64 %n.vec, 1
+  %ind.end14 = getelementptr i8, ptr %dP, i64 %7
+  %ind.end16 = getelementptr i8, ptr %sP, i64 %7
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader23
 
@@ -1493,8 +1493,6 @@ for.body.preheader1:                              ; preds = %middle.block, %for.
 
 vector.ph:                                        ; preds = %for.body.preheader
   %n.vec = and i64 %0, 2147483644
-  %1 = shl nuw nsw i64 %n.vec, 2
-  %2 = shl nuw nsw i64 %n.vec, 1
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -1504,36 +1502,38 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %offset.idx11 = shl nuw i64 %index, 1
   %next.gep12 = getelementptr i8, ptr %sP, i64 %offset.idx11
   %wide.load = load <4 x i16>, ptr %next.gep12, align 2, !tbaa !6
-  %3 = zext <4 x i16> %wide.load to <4 x i32>
-  %4 = sext <4 x i16> %wide.load to <4 x i32>
-  %5 = and <4 x i32> %4, splat (i32 -16777216)
-  %6 = shl nuw nsw <4 x i32> %3, splat (i32 9)
-  %7 = and <4 x i32> %6, splat (i32 16252928)
-  %8 = or disjoint <4 x i32> %7, %5
-  %9 = shl nuw nsw <4 x i32> %3, splat (i32 4)
-  %10 = and <4 x i32> %9, splat (i32 458752)
-  %11 = or disjoint <4 x i32> %8, %10
-  %12 = shl nuw nsw <4 x i32> %3, splat (i32 6)
-  %13 = and <4 x i32> %12, splat (i32 63488)
-  %14 = or disjoint <4 x i32> %11, %13
-  %15 = shl nuw nsw <4 x i32> %3, splat (i32 1)
-  %16 = and <4 x i32> %15, splat (i32 1792)
-  %17 = or disjoint <4 x i32> %14, %16
-  %18 = shl nuw nsw <4 x i32> %3, splat (i32 3)
-  %19 = and <4 x i32> %18, splat (i32 248)
-  %20 = or disjoint <4 x i32> %17, %19
-  %21 = lshr <4 x i32> %3, splat (i32 2)
-  %22 = and <4 x i32> %21, splat (i32 7)
-  %23 = or <4 x i32> %20, %22
-  store <4 x i32> %23, ptr %next.gep, align 4, !tbaa !11
+  %1 = zext <4 x i16> %wide.load to <4 x i32>
+  %2 = sext <4 x i16> %wide.load to <4 x i32>
+  %3 = and <4 x i32> %2, splat (i32 -16777216)
+  %4 = shl nuw nsw <4 x i32> %1, splat (i32 9)
+  %5 = and <4 x i32> %4, splat (i32 16252928)
+  %6 = or disjoint <4 x i32> %5, %3
+  %7 = shl nuw nsw <4 x i32> %1, splat (i32 4)
+  %8 = and <4 x i32> %7, splat (i32 458752)
+  %9 = or disjoint <4 x i32> %6, %8
+  %10 = shl nuw nsw <4 x i32> %1, splat (i32 6)
+  %11 = and <4 x i32> %10, splat (i32 63488)
+  %12 = or disjoint <4 x i32> %9, %11
+  %13 = shl nuw nsw <4 x i32> %1, splat (i32 1)
+  %14 = and <4 x i32> %13, splat (i32 1792)
+  %15 = or disjoint <4 x i32> %12, %14
+  %16 = shl nuw nsw <4 x i32> %1, splat (i32 3)
+  %17 = and <4 x i32> %16, splat (i32 248)
+  %18 = or disjoint <4 x i32> %15, %17
+  %19 = lshr <4 x i32> %1, splat (i32 2)
+  %20 = and <4 x i32> %19, splat (i32 7)
+  %21 = or <4 x i32> %18, %20
+  store <4 x i32> %21, ptr %next.gep, align 4, !tbaa !11
   %index.next = add nuw nsw i64 %index, 4
-  %24 = icmp eq i64 %index.next, %n.vec
-  br i1 %24, label %middle.block, label %vector.body, !llvm.loop !47
+  %22 = icmp eq i64 %index.next, %n.vec
+  br i1 %22, label %middle.block, label %vector.body, !llvm.loop !47
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = trunc nuw nsw i64 %n.vec to i32
-  %ind.end7 = getelementptr i8, ptr %dP, i64 %1
-  %ind.end9 = getelementptr i8, ptr %sP, i64 %2
+  %23 = shl nuw nsw i64 %n.vec, 2
+  %ind.end7 = getelementptr i8, ptr %dP, i64 %23
+  %24 = shl nuw nsw i64 %n.vec, 1
+  %ind.end9 = getelementptr i8, ptr %sP, i64 %24
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader1
 
@@ -1601,8 +1601,6 @@ for.body.preheader:                               ; preds = %entry
 
 vector.ph:                                        ; preds = %for.body.preheader
   %n.vec = and i64 %0, 2147483632
-  %2 = shl nuw nsw i64 %n.vec, 1
-  %ind.end9 = getelementptr i8, ptr %dP, i64 %2
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -1610,27 +1608,29 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %offset.idx = shl nuw i64 %index, 1
   %next.gep = getelementptr i8, ptr %dP, i64 %offset.idx
   %next.gep15 = getelementptr i8, ptr %sP, i64 %offset.idx
-  %3 = getelementptr i8, ptr %next.gep15, i64 16
+  %2 = getelementptr i8, ptr %next.gep15, i64 16
   %wide.load = load <8 x i16>, ptr %next.gep15, align 2, !tbaa !6
-  %wide.load17 = load <8 x i16>, ptr %3, align 2, !tbaa !6
-  %4 = shl <8 x i16> %wide.load, splat (i16 1)
-  %5 = shl <8 x i16> %wide.load17, splat (i16 1)
+  %wide.load17 = load <8 x i16>, ptr %2, align 2, !tbaa !6
+  %3 = shl <8 x i16> %wide.load, splat (i16 1)
+  %4 = shl <8 x i16> %wide.load17, splat (i16 1)
+  %5 = and <8 x i16> %3, splat (i16 -64)
   %6 = and <8 x i16> %4, splat (i16 -64)
-  %7 = and <8 x i16> %5, splat (i16 -64)
-  %8 = and <8 x i16> %wide.load, splat (i16 31)
-  %9 = and <8 x i16> %wide.load17, splat (i16 31)
+  %7 = and <8 x i16> %wide.load, splat (i16 31)
+  %8 = and <8 x i16> %wide.load17, splat (i16 31)
+  %9 = or disjoint <8 x i16> %5, %7
   %10 = or disjoint <8 x i16> %6, %8
-  %11 = or disjoint <8 x i16> %7, %9
-  %12 = getelementptr i8, ptr %next.gep, i64 16
-  store <8 x i16> %10, ptr %next.gep, align 2, !tbaa !6
-  store <8 x i16> %11, ptr %12, align 2, !tbaa !6
+  %11 = getelementptr i8, ptr %next.gep, i64 16
+  store <8 x i16> %9, ptr %next.gep, align 2, !tbaa !6
+  store <8 x i16> %10, ptr %11, align 2, !tbaa !6
   %index.next = add nuw nsw i64 %index, 16
-  %13 = icmp eq i64 %index.next, %n.vec
-  br i1 %13, label %middle.block, label %vector.body, !llvm.loop !49
+  %12 = icmp eq i64 %index.next, %n.vec
+  br i1 %12, label %middle.block, label %vector.body, !llvm.loop !49
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = trunc nuw nsw i64 %n.vec to i32
-  %ind.end11 = getelementptr i8, ptr %sP, i64 %2
+  %13 = shl nuw nsw i64 %n.vec, 1
+  %ind.end9 = getelementptr i8, ptr %dP, i64 %13
+  %ind.end11 = getelementptr i8, ptr %sP, i64 %13
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader18
 
@@ -1859,8 +1859,6 @@ for.body.preheader1:                              ; preds = %middle.block, %for.
 
 vector.ph:                                        ; preds = %for.body.preheader
   %n.vec = and i64 %0, 2147483640
-  %1 = shl nuw nsw i64 %n.vec, 1
-  %2 = shl nuw nsw i64 %n.vec, 2
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -1869,44 +1867,46 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep = getelementptr i8, ptr %dP, i64 %offset.idx
   %offset.idx12 = shl i64 %index, 2
   %next.gep13 = getelementptr i8, ptr %sP, i64 %offset.idx12
-  %3 = getelementptr i8, ptr %next.gep13, i64 16
+  %1 = getelementptr i8, ptr %next.gep13, i64 16
   %wide.load = load <4 x i32>, ptr %next.gep13, align 4, !tbaa !11
-  %wide.load15 = load <4 x i32>, ptr %3, align 4, !tbaa !11
-  %4 = lshr <4 x i32> %wide.load, splat (i32 16)
-  %5 = lshr <4 x i32> %wide.load15, splat (i32 16)
-  %6 = and <4 x i32> %4, splat (i32 32768)
-  %7 = and <4 x i32> %5, splat (i32 32768)
-  %8 = lshr <4 x i32> %wide.load, splat (i32 9)
-  %9 = lshr <4 x i32> %wide.load15, splat (i32 9)
-  %10 = and <4 x i32> %8, splat (i32 31744)
-  %11 = and <4 x i32> %9, splat (i32 31744)
-  %12 = or disjoint <4 x i32> %6, %10
-  %13 = or disjoint <4 x i32> %7, %11
-  %14 = lshr <4 x i32> %wide.load, splat (i32 6)
-  %15 = lshr <4 x i32> %wide.load15, splat (i32 6)
-  %16 = and <4 x i32> %14, splat (i32 992)
-  %17 = and <4 x i32> %15, splat (i32 992)
-  %18 = or disjoint <4 x i32> %12, %16
-  %19 = or disjoint <4 x i32> %13, %17
-  %20 = lshr <4 x i32> %wide.load, splat (i32 3)
-  %21 = lshr <4 x i32> %wide.load15, splat (i32 3)
-  %22 = and <4 x i32> %20, splat (i32 31)
-  %23 = and <4 x i32> %21, splat (i32 31)
-  %24 = or disjoint <4 x i32> %18, %22
-  %25 = or disjoint <4 x i32> %19, %23
-  %26 = trunc nuw <4 x i32> %24 to <4 x i16>
-  %27 = trunc nuw <4 x i32> %25 to <4 x i16>
-  %28 = getelementptr i8, ptr %next.gep, i64 8
-  store <4 x i16> %26, ptr %next.gep, align 2, !tbaa !6
-  store <4 x i16> %27, ptr %28, align 2, !tbaa !6
+  %wide.load15 = load <4 x i32>, ptr %1, align 4, !tbaa !11
+  %2 = lshr <4 x i32> %wide.load, splat (i32 16)
+  %3 = lshr <4 x i32> %wide.load15, splat (i32 16)
+  %4 = and <4 x i32> %2, splat (i32 32768)
+  %5 = and <4 x i32> %3, splat (i32 32768)
+  %6 = lshr <4 x i32> %wide.load, splat (i32 9)
+  %7 = lshr <4 x i32> %wide.load15, splat (i32 9)
+  %8 = and <4 x i32> %6, splat (i32 31744)
+  %9 = and <4 x i32> %7, splat (i32 31744)
+  %10 = or disjoint <4 x i32> %4, %8
+  %11 = or disjoint <4 x i32> %5, %9
+  %12 = lshr <4 x i32> %wide.load, splat (i32 6)
+  %13 = lshr <4 x i32> %wide.load15, splat (i32 6)
+  %14 = and <4 x i32> %12, splat (i32 992)
+  %15 = and <4 x i32> %13, splat (i32 992)
+  %16 = or disjoint <4 x i32> %10, %14
+  %17 = or disjoint <4 x i32> %11, %15
+  %18 = lshr <4 x i32> %wide.load, splat (i32 3)
+  %19 = lshr <4 x i32> %wide.load15, splat (i32 3)
+  %20 = and <4 x i32> %18, splat (i32 31)
+  %21 = and <4 x i32> %19, splat (i32 31)
+  %22 = or disjoint <4 x i32> %16, %20
+  %23 = or disjoint <4 x i32> %17, %21
+  %24 = trunc nuw <4 x i32> %22 to <4 x i16>
+  %25 = trunc nuw <4 x i32> %23 to <4 x i16>
+  %26 = getelementptr i8, ptr %next.gep, i64 8
+  store <4 x i16> %24, ptr %next.gep, align 2, !tbaa !6
+  store <4 x i16> %25, ptr %26, align 2, !tbaa !6
   %index.next = add nuw nsw i64 %index, 8
-  %29 = icmp eq i64 %index.next, %n.vec
-  br i1 %29, label %middle.block, label %vector.body, !llvm.loop !53
+  %27 = icmp eq i64 %index.next, %n.vec
+  br i1 %27, label %middle.block, label %vector.body, !llvm.loop !53
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = trunc nuw nsw i64 %n.vec to i32
-  %ind.end7 = getelementptr i8, ptr %dP, i64 %1
-  %ind.end9 = getelementptr i8, ptr %sP, i64 %2
+  %28 = shl nuw nsw i64 %n.vec, 1
+  %ind.end7 = getelementptr i8, ptr %dP, i64 %28
+  %29 = shl nuw nsw i64 %n.vec, 2
+  %ind.end9 = getelementptr i8, ptr %sP, i64 %29
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader1
 
@@ -1971,9 +1971,6 @@ vector.memcheck:                                  ; preds = %for.body.preheader
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %0, 2147483640
-  %7 = shl nuw nsw i64 %n.vec, 2
-  %8 = shl nuw nsw i64 %n.vec, 1
-  %ind.end28 = getelementptr i8, ptr %dP, i64 %8
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -1987,27 +1984,30 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %strided.vec34 = shufflevector <32 x i8> %wide.vec, <32 x i8> poison, <8 x i32> <i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
   %strided.vec35 = shufflevector <32 x i8> %wide.vec, <32 x i8> poison, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30>
   %strided.vec36 = shufflevector <32 x i8> %wide.vec, <32 x i8> poison, <8 x i32> <i32 3, i32 7, i32 11, i32 15, i32 19, i32 23, i32 27, i32 31>
-  %9 = lshr <8 x i8> %strided.vec, splat (i8 3)
+  %7 = lshr <8 x i8> %strided.vec, splat (i8 3)
+  %8 = zext nneg <8 x i8> %7 to <8 x i16>
+  %9 = lshr <8 x i8> %strided.vec34, splat (i8 3)
   %10 = zext nneg <8 x i8> %9 to <8 x i16>
-  %11 = lshr <8 x i8> %strided.vec34, splat (i8 3)
+  %11 = lshr <8 x i8> %strided.vec35, splat (i8 3)
   %12 = zext nneg <8 x i8> %11 to <8 x i16>
-  %13 = lshr <8 x i8> %strided.vec35, splat (i8 3)
+  %13 = lshr <8 x i8> %strided.vec36, splat (i8 3)
   %14 = zext nneg <8 x i8> %13 to <8 x i16>
-  %15 = lshr <8 x i8> %strided.vec36, splat (i8 3)
-  %16 = zext nneg <8 x i8> %15 to <8 x i16>
-  %17 = shl <8 x i16> %16, splat (i16 15)
-  %18 = shl nuw nsw <8 x i16> %10, splat (i16 10)
+  %15 = shl <8 x i16> %14, splat (i16 15)
+  %16 = shl nuw nsw <8 x i16> %8, splat (i16 10)
+  %17 = or disjoint <8 x i16> %15, %16
+  %18 = shl nuw nsw <8 x i16> %10, splat (i16 5)
   %19 = or disjoint <8 x i16> %17, %18
-  %20 = shl nuw nsw <8 x i16> %12, splat (i16 5)
-  %21 = or disjoint <8 x i16> %19, %20
-  %22 = or disjoint <8 x i16> %21, %14
-  store <8 x i16> %22, ptr %next.gep33, align 2, !tbaa !6, !alias.scope !55, !noalias !58
+  %20 = or disjoint <8 x i16> %19, %12
+  store <8 x i16> %20, ptr %next.gep33, align 2, !tbaa !6, !alias.scope !55, !noalias !58
   %index.next = add nuw nsw i64 %index, 8
-  %23 = icmp eq i64 %index.next, %n.vec
-  br i1 %23, label %middle.block, label %vector.body, !llvm.loop !60
+  %21 = icmp eq i64 %index.next, %n.vec
+  br i1 %21, label %middle.block, label %vector.body, !llvm.loop !60
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = getelementptr i8, ptr %sP, i64 %7
+  %22 = shl nuw nsw i64 %n.vec, 2
+  %ind.end = getelementptr i8, ptr %sP, i64 %22
+  %23 = shl nuw nsw i64 %n.vec, 1
+  %ind.end28 = getelementptr i8, ptr %dP, i64 %23
   %ind.end30 = trunc nuw nsw i64 %n.vec to i32
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader1
@@ -2066,19 +2066,22 @@ for.body.preheader1:                              ; preds = %for.body.preheader3
   br label %for.body
 
 for.body.preheader35.loopexit:                    ; preds = %vector.body
-  %ind.end = getelementptr i8, ptr %sP, i64 %9
+  %1 = shl nsw i64 %n.vec, 2
+  %ind.end = getelementptr i8, ptr %sP, i64 %1
+  %2 = shl nsw i64 %n.vec, 1
+  %ind.end22 = getelementptr i8, ptr %dP, i64 %2
   %ind.end24 = trunc nsw i64 %n.vec to i32
   br label %for.body.preheader1
 
 vector.memcheck:                                  ; preds = %for.body.preheader
-  %1 = add nsw i32 %sN, -1
-  %2 = zext nneg i32 %1 to i64
-  %3 = shl nuw nsw i64 %2, 1
-  %4 = getelementptr i8, ptr %dP, i64 %3
-  %scevgep = getelementptr i8, ptr %4, i64 2
-  %5 = shl nuw nsw i64 %2, 2
-  %6 = getelementptr i8, ptr %sP, i64 %5
-  %scevgep21 = getelementptr i8, ptr %6, i64 3
+  %3 = add nsw i32 %sN, -1
+  %4 = zext nneg i32 %3 to i64
+  %5 = shl nuw nsw i64 %4, 1
+  %6 = getelementptr i8, ptr %dP, i64 %5
+  %scevgep = getelementptr i8, ptr %6, i64 2
+  %7 = shl nuw nsw i64 %4, 2
+  %8 = getelementptr i8, ptr %sP, i64 %7
+  %scevgep21 = getelementptr i8, ptr %8, i64 3
   %bound0 = icmp ugt ptr %scevgep21, %dP
   %bound1 = icmp ugt ptr %scevgep, %sP
   %found.conflict = and i1 %bound0, %bound1
@@ -2086,12 +2089,9 @@ vector.memcheck:                                  ; preds = %for.body.preheader
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.mod.vf = and i64 %0, 7
-  %7 = icmp eq i64 %n.mod.vf, 0
-  %8 = select i1 %7, i64 8, i64 %n.mod.vf
-  %n.vec = sub nsw i64 %0, %8
-  %9 = shl nsw i64 %n.vec, 2
-  %10 = shl nsw i64 %n.vec, 1
-  %ind.end22 = getelementptr i8, ptr %dP, i64 %10
+  %9 = icmp eq i64 %n.mod.vf, 0
+  %10 = select i1 %9, i64 8, i64 %n.mod.vf
+  %n.vec = sub nsw i64 %0, %10
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -2418,7 +2418,9 @@ vec.epilog.iter.check:                            ; preds = %vector.body
   br i1 %min.epilog.iters.check, label %for.body.preheader, label %vec.epilog.ph
 
 for.body.preheader.loopexit:                      ; preds = %vec.epilog.vector.body
-  %ind.end = getelementptr i8, ptr %sP, i64 %155
+  %143 = shl nsw i64 %n.vec48, 2
+  %ind.end = getelementptr i8, ptr %sP, i64 %143
+  %ind.end50 = getelementptr i8, ptr %dP, i64 %n.vec48
   %ind.end53 = trunc nsw i64 %n.vec48 to i32
   br label %for.body.preheader
 
@@ -2426,23 +2428,23 @@ for.body.preheader:                               ; preds = %for.body.preheader.
   %sB.028.ph = phi ptr [ %sP, %iter.check ], [ %sP, %vector.memcheck ], [ %ind.end49, %vec.epilog.iter.check ], [ %ind.end, %for.body.preheader.loopexit ]
   %dB.027.ph = phi ptr [ %dP, %iter.check ], [ %dP, %vector.memcheck ], [ %ind.end51, %vec.epilog.iter.check ], [ %ind.end50, %for.body.preheader.loopexit ]
   %x.026.ph = phi i32 [ 0, %iter.check ], [ 0, %vector.memcheck ], [ %ind.end54, %vec.epilog.iter.check ], [ %ind.end53, %for.body.preheader.loopexit ]
-  %143 = sub i32 %sN, %x.026.ph
-  %xtraiter = and i32 %143, 1
+  %144 = sub i32 %sN, %x.026.ph
+  %xtraiter = and i32 %144, 1
   %lcmp.mod.not = icmp eq i32 %xtraiter, 0
   br i1 %lcmp.mod.not, label %for.body.prol.loopexit, label %for.body.prol
 
 for.body.prol:                                    ; preds = %for.body.preheader
   %arrayidx.prol = getelementptr inbounds nuw i8, ptr %sB.028.ph, i64 2
-  %144 = load i8, ptr %arrayidx.prol, align 1, !tbaa !3
-  %145 = and i8 %144, -32
+  %145 = load i8, ptr %arrayidx.prol, align 1, !tbaa !3
+  %146 = and i8 %145, -32
   %arrayidx2.prol = getelementptr inbounds nuw i8, ptr %sB.028.ph, i64 1
-  %146 = load i8, ptr %arrayidx2.prol, align 1, !tbaa !3
-  %147 = lshr i8 %146, 3
-  %148 = and i8 %147, 28
-  %149 = load i8, ptr %sB.028.ph, align 1, !tbaa !3
-  %150 = lshr i8 %149, 6
-  %or23.prol = or disjoint i8 %148, %145
-  %or1424.prol = or disjoint i8 %or23.prol, %150
+  %147 = load i8, ptr %arrayidx2.prol, align 1, !tbaa !3
+  %148 = lshr i8 %147, 3
+  %149 = and i8 %148, 28
+  %150 = load i8, ptr %sB.028.ph, align 1, !tbaa !3
+  %151 = lshr i8 %150, 6
+  %or23.prol = or disjoint i8 %149, %146
+  %or1424.prol = or disjoint i8 %or23.prol, %151
   store i8 %or1424.prol, ptr %dB.027.ph, align 1, !tbaa !3
   %add.ptr.prol = getelementptr inbounds nuw i8, ptr %sB.028.ph, i64 4
   %add.ptr17.prol = getelementptr inbounds nuw i8, ptr %dB.027.ph, i64 1
@@ -2453,18 +2455,16 @@ for.body.prol.loopexit:                           ; preds = %for.body.prol, %for
   %sB.028.unr = phi ptr [ %sB.028.ph, %for.body.preheader ], [ %add.ptr.prol, %for.body.prol ]
   %dB.027.unr = phi ptr [ %dB.027.ph, %for.body.preheader ], [ %add.ptr17.prol, %for.body.prol ]
   %x.026.unr = phi i32 [ %x.026.ph, %for.body.preheader ], [ %inc.prol, %for.body.prol ]
-  %151 = add nsw i32 %sN, -1
-  %152 = icmp eq i32 %x.026.ph, %151
-  br i1 %152, label %for.cond.cleanup, label %for.body
+  %152 = add nsw i32 %sN, -1
+  %153 = icmp eq i32 %x.026.ph, %152
+  br i1 %153, label %for.cond.cleanup, label %for.body
 
 vec.epilog.ph:                                    ; preds = %vec.epilog.iter.check, %vector.main.loop.iter.check
   %vec.epilog.resume.val = phi i64 [ %n.vec, %vec.epilog.iter.check ], [ 0, %vector.main.loop.iter.check ]
   %n.mod.vf47 = and i64 %0, 7
-  %153 = icmp eq i64 %n.mod.vf47, 0
-  %154 = select i1 %153, i64 8, i64 %n.mod.vf47
-  %n.vec48 = sub nsw i64 %0, %154
-  %155 = shl nsw i64 %n.vec48, 2
-  %ind.end50 = getelementptr i8, ptr %dP, i64 %n.vec48
+  %154 = icmp eq i64 %n.mod.vf47, 0
+  %155 = select i1 %154, i64 8, i64 %n.mod.vf47
+  %n.vec48 = sub nsw i64 %0, %155
   br label %vec.epilog.vector.body
 
 vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.body, %vec.epilog.ph
@@ -2718,9 +2718,6 @@ vector.memcheck:                                  ; preds = %for.body.preheader
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %0, 2147483640
-  %7 = mul nuw nsw i64 %n.vec, 3
-  %8 = shl nuw nsw i64 %n.vec, 1
-  %ind.end23 = getelementptr i8, ptr %dP, i64 %8
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -2733,24 +2730,27 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %strided.vec = shufflevector <24 x i8> %wide.vec, <24 x i8> poison, <8 x i32> <i32 0, i32 3, i32 6, i32 9, i32 12, i32 15, i32 18, i32 21>
   %strided.vec29 = shufflevector <24 x i8> %wide.vec, <24 x i8> poison, <8 x i32> <i32 1, i32 4, i32 7, i32 10, i32 13, i32 16, i32 19, i32 22>
   %strided.vec30 = shufflevector <24 x i8> %wide.vec, <24 x i8> poison, <8 x i32> <i32 2, i32 5, i32 8, i32 11, i32 14, i32 17, i32 20, i32 23>
-  %9 = lshr <8 x i8> %strided.vec, splat (i8 3)
+  %7 = lshr <8 x i8> %strided.vec, splat (i8 3)
+  %8 = zext nneg <8 x i8> %7 to <8 x i16>
+  %9 = lshr <8 x i8> %strided.vec29, splat (i8 3)
   %10 = zext nneg <8 x i8> %9 to <8 x i16>
-  %11 = lshr <8 x i8> %strided.vec29, splat (i8 3)
+  %11 = lshr <8 x i8> %strided.vec30, splat (i8 3)
   %12 = zext nneg <8 x i8> %11 to <8 x i16>
-  %13 = lshr <8 x i8> %strided.vec30, splat (i8 3)
-  %14 = zext nneg <8 x i8> %13 to <8 x i16>
-  %15 = shl nuw nsw <8 x i16> %10, splat (i16 10)
-  %16 = shl nuw nsw <8 x i16> %12, splat (i16 5)
-  %17 = or disjoint <8 x i16> %16, %15
-  %18 = or disjoint <8 x i16> %17, %14
-  %19 = or disjoint <8 x i16> %18, splat (i16 -32768)
-  store <8 x i16> %19, ptr %next.gep28, align 2, !tbaa !6, !alias.scope !83, !noalias !86
+  %13 = shl nuw nsw <8 x i16> %8, splat (i16 10)
+  %14 = shl nuw nsw <8 x i16> %10, splat (i16 5)
+  %15 = or disjoint <8 x i16> %14, %13
+  %16 = or disjoint <8 x i16> %15, %12
+  %17 = or disjoint <8 x i16> %16, splat (i16 -32768)
+  store <8 x i16> %17, ptr %next.gep28, align 2, !tbaa !6, !alias.scope !83, !noalias !86
   %index.next = add nuw nsw i64 %index, 8
-  %20 = icmp eq i64 %index.next, %n.vec
-  br i1 %20, label %middle.block, label %vector.body, !llvm.loop !88
+  %18 = icmp eq i64 %index.next, %n.vec
+  br i1 %18, label %middle.block, label %vector.body, !llvm.loop !88
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = getelementptr i8, ptr %sP, i64 %7
+  %19 = mul nuw nsw i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %sP, i64 %19
+  %20 = shl nuw nsw i64 %n.vec, 1
+  %ind.end23 = getelementptr i8, ptr %dP, i64 %20
   %ind.end25 = trunc nuw nsw i64 %n.vec to i32
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader1
@@ -2868,8 +2868,6 @@ for.body.preheader:                               ; preds = %entry
 
 vector.ph:                                        ; preds = %for.body.preheader
   %n.vec = and i64 %0, 2147483640
-  %2 = shl nuw nsw i64 %n.vec, 2
-  %ind.end11 = getelementptr i8, ptr %dP, i64 %2
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -2877,21 +2875,23 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %offset.idx = shl i64 %index, 2
   %next.gep = getelementptr i8, ptr %dP, i64 %offset.idx
   %next.gep17 = getelementptr i8, ptr %sP, i64 %offset.idx
-  %3 = getelementptr i8, ptr %next.gep17, i64 16
+  %2 = getelementptr i8, ptr %next.gep17, i64 16
   %wide.load = load <4 x i32>, ptr %next.gep17, align 4, !tbaa !11
-  %wide.load19 = load <4 x i32>, ptr %3, align 4, !tbaa !11
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %wide.load, <4 x i32> %wide.load, <4 x i32> splat (i32 8))
-  %5 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %wide.load19, <4 x i32> %wide.load19, <4 x i32> splat (i32 8))
-  %6 = getelementptr i8, ptr %next.gep, i64 16
-  store <4 x i32> %4, ptr %next.gep, align 4, !tbaa !11
-  store <4 x i32> %5, ptr %6, align 4, !tbaa !11
+  %wide.load19 = load <4 x i32>, ptr %2, align 4, !tbaa !11
+  %3 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %wide.load, <4 x i32> %wide.load, <4 x i32> splat (i32 8))
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %wide.load19, <4 x i32> %wide.load19, <4 x i32> splat (i32 8))
+  %5 = getelementptr i8, ptr %next.gep, i64 16
+  store <4 x i32> %3, ptr %next.gep, align 4, !tbaa !11
+  store <4 x i32> %4, ptr %5, align 4, !tbaa !11
   %index.next = add nuw nsw i64 %index, 8
-  %7 = icmp eq i64 %index.next, %n.vec
-  br i1 %7, label %middle.block, label %vector.body, !llvm.loop !91
+  %6 = icmp eq i64 %index.next, %n.vec
+  br i1 %6, label %middle.block, label %vector.body, !llvm.loop !91
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = trunc nuw nsw i64 %n.vec to i32
-  %ind.end13 = getelementptr i8, ptr %sP, i64 %2
+  %7 = shl nuw nsw i64 %n.vec, 2
+  %ind.end11 = getelementptr i8, ptr %dP, i64 %7
+  %ind.end13 = getelementptr i8, ptr %sP, i64 %7
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader20
 
@@ -2979,8 +2979,6 @@ for.body.preheader:                               ; preds = %entry
 
 vector.ph:                                        ; preds = %for.body.preheader
   %n.vec = and i64 %0, 2147483640
-  %2 = shl nuw nsw i64 %n.vec, 2
-  %ind.end15 = getelementptr i8, ptr %dP, i64 %2
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -2988,33 +2986,35 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %offset.idx = shl i64 %index, 2
   %next.gep = getelementptr i8, ptr %dP, i64 %offset.idx
   %next.gep21 = getelementptr i8, ptr %sP, i64 %offset.idx
-  %3 = getelementptr i8, ptr %next.gep21, i64 16
+  %2 = getelementptr i8, ptr %next.gep21, i64 16
   %wide.load = load <4 x i32>, ptr %next.gep21, align 4, !tbaa !11
-  %wide.load23 = load <4 x i32>, ptr %3, align 4, !tbaa !11
-  %4 = and <4 x i32> %wide.load, splat (i32 -16711936)
-  %5 = and <4 x i32> %wide.load23, splat (i32 -16711936)
-  %6 = lshr <4 x i32> %wide.load, splat (i32 16)
-  %7 = lshr <4 x i32> %wide.load23, splat (i32 16)
+  %wide.load23 = load <4 x i32>, ptr %2, align 4, !tbaa !11
+  %3 = and <4 x i32> %wide.load, splat (i32 -16711936)
+  %4 = and <4 x i32> %wide.load23, splat (i32 -16711936)
+  %5 = lshr <4 x i32> %wide.load, splat (i32 16)
+  %6 = lshr <4 x i32> %wide.load23, splat (i32 16)
+  %7 = and <4 x i32> %5, splat (i32 255)
   %8 = and <4 x i32> %6, splat (i32 255)
-  %9 = and <4 x i32> %7, splat (i32 255)
+  %9 = or disjoint <4 x i32> %7, %3
   %10 = or disjoint <4 x i32> %8, %4
-  %11 = or disjoint <4 x i32> %9, %5
-  %12 = shl <4 x i32> %wide.load, splat (i32 16)
-  %13 = shl <4 x i32> %wide.load23, splat (i32 16)
+  %11 = shl <4 x i32> %wide.load, splat (i32 16)
+  %12 = shl <4 x i32> %wide.load23, splat (i32 16)
+  %13 = and <4 x i32> %11, splat (i32 16711680)
   %14 = and <4 x i32> %12, splat (i32 16711680)
-  %15 = and <4 x i32> %13, splat (i32 16711680)
+  %15 = or disjoint <4 x i32> %9, %13
   %16 = or disjoint <4 x i32> %10, %14
-  %17 = or disjoint <4 x i32> %11, %15
-  %18 = getelementptr i8, ptr %next.gep, i64 16
-  store <4 x i32> %16, ptr %next.gep, align 4, !tbaa !11
-  store <4 x i32> %17, ptr %18, align 4, !tbaa !11
+  %17 = getelementptr i8, ptr %next.gep, i64 16
+  store <4 x i32> %15, ptr %next.gep, align 4, !tbaa !11
+  store <4 x i32> %16, ptr %17, align 4, !tbaa !11
   %index.next = add nuw nsw i64 %index, 8
-  %19 = icmp eq i64 %index.next, %n.vec
-  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !94
+  %18 = icmp eq i64 %index.next, %n.vec
+  br i1 %18, label %middle.block, label %vector.body, !llvm.loop !94
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = trunc nuw nsw i64 %n.vec to i32
-  %ind.end17 = getelementptr i8, ptr %sP, i64 %2
+  %19 = shl nuw nsw i64 %n.vec, 2
+  %ind.end15 = getelementptr i8, ptr %dP, i64 %19
+  %ind.end17 = getelementptr i8, ptr %sP, i64 %19
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader24
 
@@ -3269,9 +3269,6 @@ vector.memcheck:                                  ; preds = %for.body.preheader
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %0, 2147483640
-  %7 = mul nuw nsw i64 %n.vec, 3
-  %8 = shl nuw nsw i64 %n.vec, 1
-  %ind.end22 = getelementptr i8, ptr %dP, i64 %8
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -3284,23 +3281,26 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %strided.vec = shufflevector <24 x i8> %wide.vec, <24 x i8> poison, <8 x i32> <i32 0, i32 3, i32 6, i32 9, i32 12, i32 15, i32 18, i32 21>
   %strided.vec28 = shufflevector <24 x i8> %wide.vec, <24 x i8> poison, <8 x i32> <i32 1, i32 4, i32 7, i32 10, i32 13, i32 16, i32 19, i32 22>
   %strided.vec29 = shufflevector <24 x i8> %wide.vec, <24 x i8> poison, <8 x i32> <i32 2, i32 5, i32 8, i32 11, i32 14, i32 17, i32 20, i32 23>
-  %9 = lshr <8 x i8> %strided.vec, splat (i8 3)
+  %7 = lshr <8 x i8> %strided.vec, splat (i8 3)
+  %8 = zext nneg <8 x i8> %7 to <8 x i16>
+  %9 = lshr <8 x i8> %strided.vec28, splat (i8 2)
   %10 = zext nneg <8 x i8> %9 to <8 x i16>
-  %11 = lshr <8 x i8> %strided.vec28, splat (i8 2)
+  %11 = lshr <8 x i8> %strided.vec29, splat (i8 3)
   %12 = zext nneg <8 x i8> %11 to <8 x i16>
-  %13 = lshr <8 x i8> %strided.vec29, splat (i8 3)
-  %14 = zext nneg <8 x i8> %13 to <8 x i16>
-  %15 = shl nuw <8 x i16> %10, splat (i16 11)
-  %16 = shl nuw nsw <8 x i16> %12, splat (i16 5)
-  %17 = or disjoint <8 x i16> %16, %15
-  %18 = or disjoint <8 x i16> %17, %14
-  store <8 x i16> %18, ptr %next.gep27, align 2, !tbaa !6, !alias.scope !98, !noalias !101
+  %13 = shl nuw <8 x i16> %8, splat (i16 11)
+  %14 = shl nuw nsw <8 x i16> %10, splat (i16 5)
+  %15 = or disjoint <8 x i16> %14, %13
+  %16 = or disjoint <8 x i16> %15, %12
+  store <8 x i16> %16, ptr %next.gep27, align 2, !tbaa !6, !alias.scope !98, !noalias !101
   %index.next = add nuw nsw i64 %index, 8
-  %19 = icmp eq i64 %index.next, %n.vec
-  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !103
+  %17 = icmp eq i64 %index.next, %n.vec
+  br i1 %17, label %middle.block, label %vector.body, !llvm.loop !103
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = getelementptr i8, ptr %sP, i64 %7
+  %18 = mul nuw nsw i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %sP, i64 %18
+  %19 = shl nuw nsw i64 %n.vec, 1
+  %ind.end22 = getelementptr i8, ptr %dP, i64 %19
   %ind.end24 = trunc nuw nsw i64 %n.vec to i32
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader1
@@ -3539,8 +3539,6 @@ for.body.preheader1:                              ; preds = %middle.block, %for.
 
 vector.ph:                                        ; preds = %for.body.preheader
   %n.vec = and i64 %0, 2147483640
-  %1 = shl nuw nsw i64 %n.vec, 2
-  %2 = shl nuw nsw i64 %n.vec, 1
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -3549,40 +3547,42 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep = getelementptr i8, ptr %dP, i64 %offset.idx
   %offset.idx12 = shl nuw i64 %index, 1
   %next.gep13 = getelementptr i8, ptr %sP, i64 %offset.idx12
-  %3 = getelementptr i8, ptr %next.gep13, i64 8
+  %1 = getelementptr i8, ptr %next.gep13, i64 8
   %wide.load = load <4 x i16>, ptr %next.gep13, align 2, !tbaa !6
-  %wide.load15 = load <4 x i16>, ptr %3, align 2, !tbaa !6
-  %4 = zext <4 x i16> %wide.load to <4 x i32>
-  %5 = zext <4 x i16> %wide.load15 to <4 x i32>
-  %6 = shl nuw nsw <4 x i32> %4, splat (i32 8)
-  %7 = shl nuw nsw <4 x i32> %5, splat (i32 8)
-  %8 = and <4 x i32> %6, splat (i32 16252928)
-  %9 = and <4 x i32> %7, splat (i32 16252928)
-  %10 = shl nuw nsw <4 x i32> %4, splat (i32 5)
-  %11 = shl nuw nsw <4 x i32> %5, splat (i32 5)
-  %12 = and <4 x i32> %10, splat (i32 64512)
-  %13 = and <4 x i32> %11, splat (i32 64512)
-  %14 = shl nuw nsw <4 x i32> %4, splat (i32 3)
-  %15 = shl nuw nsw <4 x i32> %5, splat (i32 3)
-  %16 = and <4 x i32> %14, splat (i32 248)
-  %17 = and <4 x i32> %15, splat (i32 248)
-  %18 = or disjoint <4 x i32> %12, splat (i32 -16777216)
-  %19 = or disjoint <4 x i32> %18, %8
-  %20 = or disjoint <4 x i32> %19, %16
-  %21 = or disjoint <4 x i32> %13, splat (i32 -16777216)
-  %22 = or disjoint <4 x i32> %21, %9
-  %23 = or disjoint <4 x i32> %22, %17
-  %24 = getelementptr i8, ptr %next.gep, i64 16
-  store <4 x i32> %20, ptr %next.gep, align 4, !tbaa !11
-  store <4 x i32> %23, ptr %24, align 4, !tbaa !11
+  %wide.load15 = load <4 x i16>, ptr %1, align 2, !tbaa !6
+  %2 = zext <4 x i16> %wide.load to <4 x i32>
+  %3 = zext <4 x i16> %wide.load15 to <4 x i32>
+  %4 = shl nuw nsw <4 x i32> %2, splat (i32 8)
+  %5 = shl nuw nsw <4 x i32> %3, splat (i32 8)
+  %6 = and <4 x i32> %4, splat (i32 16252928)
+  %7 = and <4 x i32> %5, splat (i32 16252928)
+  %8 = shl nuw nsw <4 x i32> %2, splat (i32 5)
+  %9 = shl nuw nsw <4 x i32> %3, splat (i32 5)
+  %10 = and <4 x i32> %8, splat (i32 64512)
+  %11 = and <4 x i32> %9, splat (i32 64512)
+  %12 = shl nuw nsw <4 x i32> %2, splat (i32 3)
+  %13 = shl nuw nsw <4 x i32> %3, splat (i32 3)
+  %14 = and <4 x i32> %12, splat (i32 248)
+  %15 = and <4 x i32> %13, splat (i32 248)
+  %16 = or disjoint <4 x i32> %10, splat (i32 -16777216)
+  %17 = or disjoint <4 x i32> %16, %6
+  %18 = or disjoint <4 x i32> %17, %14
+  %19 = or disjoint <4 x i32> %11, splat (i32 -16777216)
+  %20 = or disjoint <4 x i32> %19, %7
+  %21 = or disjoint <4 x i32> %20, %15
+  %22 = getelementptr i8, ptr %next.gep, i64 16
+  store <4 x i32> %18, ptr %next.gep, align 4, !tbaa !11
+  store <4 x i32> %21, ptr %22, align 4, !tbaa !11
   %index.next = add nuw nsw i64 %index, 8
-  %25 = icmp eq i64 %index.next, %n.vec
-  br i1 %25, label %middle.block, label %vector.body, !llvm.loop !107
+  %23 = icmp eq i64 %index.next, %n.vec
+  br i1 %23, label %middle.block, label %vector.body, !llvm.loop !107
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = trunc nuw nsw i64 %n.vec to i32
-  %ind.end7 = getelementptr i8, ptr %dP, i64 %1
-  %ind.end9 = getelementptr i8, ptr %sP, i64 %2
+  %24 = shl nuw nsw i64 %n.vec, 2
+  %ind.end7 = getelementptr i8, ptr %dP, i64 %24
+  %25 = shl nuw nsw i64 %n.vec, 1
+  %ind.end9 = getelementptr i8, ptr %sP, i64 %25
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader1
 
@@ -3630,8 +3630,6 @@ for.body.preheader:                               ; preds = %entry
 
 vector.ph:                                        ; preds = %for.body.preheader
   %n.vec = and i64 %0, 2147483632
-  %2 = shl nuw nsw i64 %n.vec, 1
-  %ind.end9 = getelementptr i8, ptr %dP, i64 %2
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -3639,29 +3637,31 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %offset.idx = shl nuw i64 %index, 1
   %next.gep = getelementptr i8, ptr %dP, i64 %offset.idx
   %next.gep15 = getelementptr i8, ptr %sP, i64 %offset.idx
-  %3 = getelementptr i8, ptr %next.gep15, i64 16
+  %2 = getelementptr i8, ptr %next.gep15, i64 16
   %wide.load = load <8 x i16>, ptr %next.gep15, align 2, !tbaa !6
-  %wide.load17 = load <8 x i16>, ptr %3, align 2, !tbaa !6
-  %4 = lshr <8 x i16> %wide.load, splat (i16 1)
-  %5 = lshr <8 x i16> %wide.load17, splat (i16 1)
+  %wide.load17 = load <8 x i16>, ptr %2, align 2, !tbaa !6
+  %3 = lshr <8 x i16> %wide.load, splat (i16 1)
+  %4 = lshr <8 x i16> %wide.load17, splat (i16 1)
+  %5 = and <8 x i16> %3, splat (i16 32736)
   %6 = and <8 x i16> %4, splat (i16 32736)
-  %7 = and <8 x i16> %5, splat (i16 32736)
-  %8 = and <8 x i16> %wide.load, splat (i16 31)
-  %9 = and <8 x i16> %wide.load17, splat (i16 31)
-  %10 = or disjoint <8 x i16> %8, splat (i16 -32768)
-  %11 = or disjoint <8 x i16> %10, %6
-  %12 = or disjoint <8 x i16> %9, splat (i16 -32768)
-  %13 = or disjoint <8 x i16> %12, %7
-  %14 = getelementptr i8, ptr %next.gep, i64 16
-  store <8 x i16> %11, ptr %next.gep, align 2, !tbaa !6
-  store <8 x i16> %13, ptr %14, align 2, !tbaa !6
+  %7 = and <8 x i16> %wide.load, splat (i16 31)
+  %8 = and <8 x i16> %wide.load17, splat (i16 31)
+  %9 = or disjoint <8 x i16> %7, splat (i16 -32768)
+  %10 = or disjoint <8 x i16> %9, %5
+  %11 = or disjoint <8 x i16> %8, splat (i16 -32768)
+  %12 = or disjoint <8 x i16> %11, %6
+  %13 = getelementptr i8, ptr %next.gep, i64 16
+  store <8 x i16> %10, ptr %next.gep, align 2, !tbaa !6
+  store <8 x i16> %12, ptr %13, align 2, !tbaa !6
   %index.next = add nuw nsw i64 %index, 16
-  %15 = icmp eq i64 %index.next, %n.vec
-  br i1 %15, label %middle.block, label %vector.body, !llvm.loop !109
+  %14 = icmp eq i64 %index.next, %n.vec
+  br i1 %14, label %middle.block, label %vector.body, !llvm.loop !109
 
 middle.block:                                     ; preds = %vector.body
   %ind.end = trunc nuw nsw i64 %n.vec to i32
-  %ind.end11 = getelementptr i8, ptr %sP, i64 %2
+  %15 = shl nuw nsw i64 %n.vec, 1
+  %ind.end9 = getelementptr i8, ptr %dP, i64 %15
+  %ind.end11 = getelementptr i8, ptr %sP, i64 %15
   %cmp.n = icmp eq i64 %n.vec, %0
   br i1 %cmp.n, label %for.cond.cleanup, label %for.body.preheader18
 
@@ -3797,8 +3797,6 @@ for.body.i.preheader:                             ; preds = %sw.bb2
 
 vector.ph423:                                     ; preds = %for.body.i.preheader
   %n.vec425 = and i64 %0, 2147483632
-  %2 = shl nuw nsw i64 %n.vec425, 1
-  %ind.end428 = getelementptr i8, ptr %dP, i64 %2
   br label %vector.body433
 
 vector.body433:                                   ; preds = %vector.body433, %vector.ph423
@@ -3806,27 +3804,29 @@ vector.body433:                                   ; preds = %vector.body433, %ve
   %offset.idx435 = shl nuw i64 %index434, 1
   %next.gep436 = getelementptr i8, ptr %dP, i64 %offset.idx435
   %next.gep439 = getelementptr i8, ptr %sP, i64 %offset.idx435
-  %3 = getelementptr i8, ptr %next.gep439, i64 16
+  %2 = getelementptr i8, ptr %next.gep439, i64 16
   %wide.load441 = load <8 x i16>, ptr %next.gep439, align 2, !tbaa !6
-  %wide.load442 = load <8 x i16>, ptr %3, align 2, !tbaa !6
-  %4 = shl <8 x i16> %wide.load441, splat (i16 1)
-  %5 = shl <8 x i16> %wide.load442, splat (i16 1)
+  %wide.load442 = load <8 x i16>, ptr %2, align 2, !tbaa !6
+  %3 = shl <8 x i16> %wide.load441, splat (i16 1)
+  %4 = shl <8 x i16> %wide.load442, splat (i16 1)
+  %5 = and <8 x i16> %3, splat (i16 -64)
   %6 = and <8 x i16> %4, splat (i16 -64)
-  %7 = and <8 x i16> %5, splat (i16 -64)
-  %8 = and <8 x i16> %wide.load441, splat (i16 31)
-  %9 = and <8 x i16> %wide.load442, splat (i16 31)
+  %7 = and <8 x i16> %wide.load441, splat (i16 31)
+  %8 = and <8 x i16> %wide.load442, splat (i16 31)
+  %9 = or disjoint <8 x i16> %5, %7
   %10 = or disjoint <8 x i16> %6, %8
-  %11 = or disjoint <8 x i16> %7, %9
-  %12 = getelementptr i8, ptr %next.gep436, i64 16
-  store <8 x i16> %10, ptr %next.gep436, align 2, !tbaa !6
-  store <8 x i16> %11, ptr %12, align 2, !tbaa !6
+  %11 = getelementptr i8, ptr %next.gep436, i64 16
+  store <8 x i16> %9, ptr %next.gep436, align 2, !tbaa !6
+  store <8 x i16> %10, ptr %11, align 2, !tbaa !6
   %index.next443 = add nuw nsw i64 %index434, 16
-  %13 = icmp eq i64 %index.next443, %n.vec425
-  br i1 %13, label %middle.block420, label %vector.body433, !llvm.loop !111
+  %12 = icmp eq i64 %index.next443, %n.vec425
+  br i1 %12, label %middle.block420, label %vector.body433, !llvm.loop !111
 
 middle.block420:                                  ; preds = %vector.body433
   %ind.end426 = trunc nuw nsw i64 %n.vec425 to i32
-  %ind.end430 = getelementptr i8, ptr %sP, i64 %2
+  %13 = shl nuw nsw i64 %n.vec425, 1
+  %ind.end428 = getelementptr i8, ptr %dP, i64 %13
+  %ind.end430 = getelementptr i8, ptr %sP, i64 %13
   %cmp.n432 = icmp eq i64 %n.vec425, %0
   br i1 %cmp.n432, label %sw.epilog27, label %for.body.i.preheader445
 
@@ -3894,8 +3894,6 @@ for.body.i77.preheader:                           ; preds = %sw.bb3
 
 vector.ph398:                                     ; preds = %for.body.i77.preheader
   %n.vec400 = and i64 %20, 2147483644
-  %21 = shl nuw nsw i64 %n.vec400, 2
-  %22 = shl nuw nsw i64 %n.vec400, 1
   br label %vector.body408
 
 vector.body408:                                   ; preds = %vector.body408, %vector.ph398
@@ -3905,36 +3903,38 @@ vector.body408:                                   ; preds = %vector.body408, %ve
   %offset.idx412 = shl nuw i64 %index409, 1
   %next.gep413 = getelementptr i8, ptr %sP, i64 %offset.idx412
   %wide.load414 = load <4 x i16>, ptr %next.gep413, align 2, !tbaa !6
-  %23 = zext <4 x i16> %wide.load414 to <4 x i32>
-  %24 = sext <4 x i16> %wide.load414 to <4 x i32>
-  %25 = and <4 x i32> %24, splat (i32 -16777216)
-  %26 = shl nuw nsw <4 x i32> %23, splat (i32 9)
-  %27 = and <4 x i32> %26, splat (i32 16252928)
-  %28 = or disjoint <4 x i32> %27, %25
-  %29 = shl nuw nsw <4 x i32> %23, splat (i32 4)
-  %30 = and <4 x i32> %29, splat (i32 458752)
-  %31 = or disjoint <4 x i32> %28, %30
-  %32 = shl nuw nsw <4 x i32> %23, splat (i32 6)
-  %33 = and <4 x i32> %32, splat (i32 63488)
-  %34 = or disjoint <4 x i32> %31, %33
-  %35 = shl nuw nsw <4 x i32> %23, splat (i32 1)
-  %36 = and <4 x i32> %35, splat (i32 1792)
-  %37 = or disjoint <4 x i32> %34, %36
-  %38 = shl nuw nsw <4 x i32> %23, splat (i32 3)
-  %39 = and <4 x i32> %38, splat (i32 248)
-  %40 = or disjoint <4 x i32> %37, %39
-  %41 = lshr <4 x i32> %23, splat (i32 2)
-  %42 = and <4 x i32> %41, splat (i32 7)
-  %43 = or <4 x i32> %40, %42
-  store <4 x i32> %43, ptr %next.gep411, align 4, !tbaa !11
+  %21 = zext <4 x i16> %wide.load414 to <4 x i32>
+  %22 = sext <4 x i16> %wide.load414 to <4 x i32>
+  %23 = and <4 x i32> %22, splat (i32 -16777216)
+  %24 = shl nuw nsw <4 x i32> %21, splat (i32 9)
+  %25 = and <4 x i32> %24, splat (i32 16252928)
+  %26 = or disjoint <4 x i32> %25, %23
+  %27 = shl nuw nsw <4 x i32> %21, splat (i32 4)
+  %28 = and <4 x i32> %27, splat (i32 458752)
+  %29 = or disjoint <4 x i32> %26, %28
+  %30 = shl nuw nsw <4 x i32> %21, splat (i32 6)
+  %31 = and <4 x i32> %30, splat (i32 63488)
+  %32 = or disjoint <4 x i32> %29, %31
+  %33 = shl nuw nsw <4 x i32> %21, splat (i32 1)
+  %34 = and <4 x i32> %33, splat (i32 1792)
+  %35 = or disjoint <4 x i32> %32, %34
+  %36 = shl nuw nsw <4 x i32> %21, splat (i32 3)
+  %37 = and <4 x i32> %36, splat (i32 248)
+  %38 = or disjoint <4 x i32> %35, %37
+  %39 = lshr <4 x i32> %21, splat (i32 2)
+  %40 = and <4 x i32> %39, splat (i32 7)
+  %41 = or <4 x i32> %38, %40
+  store <4 x i32> %41, ptr %next.gep411, align 4, !tbaa !11
   %index.next415 = add nuw nsw i64 %index409, 4
-  %44 = icmp eq i64 %index.next415, %n.vec400
-  br i1 %44, label %middle.block395, label %vector.body408, !llvm.loop !113
+  %42 = icmp eq i64 %index.next415, %n.vec400
+  br i1 %42, label %middle.block395, label %vector.body408, !llvm.loop !113
 
 middle.block395:                                  ; preds = %vector.body408
   %ind.end401 = trunc nuw nsw i64 %n.vec400 to i32
-  %ind.end403 = getelementptr i8, ptr %dP, i64 %21
-  %ind.end405 = getelementptr i8, ptr %sP, i64 %22
+  %43 = shl nuw nsw i64 %n.vec400, 2
+  %ind.end403 = getelementptr i8, ptr %dP, i64 %43
+  %44 = shl nuw nsw i64 %n.vec400, 1
+  %ind.end405 = getelementptr i8, ptr %sP, i64 %44
   %cmp.n407 = icmp eq i64 %n.vec400, %20
   br i1 %cmp.n407, label %sw.epilog27, label %for.body.i77.preheader56
 
@@ -4056,8 +4056,6 @@ for.body.i91.preheader:                           ; preds = %sw.bb6
 
 vector.ph374:                                     ; preds = %for.body.i91.preheader
   %n.vec376 = and i64 %61, 2147483632
-  %63 = shl nuw nsw i64 %n.vec376, 1
-  %ind.end379 = getelementptr i8, ptr %dP, i64 %63
   br label %vector.body384
 
 vector.body384:                                   ; preds = %vector.body384, %vector.ph374
@@ -4065,29 +4063,31 @@ vector.body384:                                   ; preds = %vector.body384, %ve
   %offset.idx386 = shl nuw i64 %index385, 1
   %next.gep387 = getelementptr i8, ptr %dP, i64 %offset.idx386
   %next.gep390 = getelementptr i8, ptr %sP, i64 %offset.idx386
-  %64 = getelementptr i8, ptr %next.gep390, i64 16
+  %63 = getelementptr i8, ptr %next.gep390, i64 16
   %wide.load392 = load <8 x i16>, ptr %next.gep390, align 2, !tbaa !6
-  %wide.load393 = load <8 x i16>, ptr %64, align 2, !tbaa !6
-  %65 = lshr <8 x i16> %wide.load392, splat (i16 1)
-  %66 = lshr <8 x i16> %wide.load393, splat (i16 1)
+  %wide.load393 = load <8 x i16>, ptr %63, align 2, !tbaa !6
+  %64 = lshr <8 x i16> %wide.load392, splat (i16 1)
+  %65 = lshr <8 x i16> %wide.load393, splat (i16 1)
+  %66 = and <8 x i16> %64, splat (i16 32736)
   %67 = and <8 x i16> %65, splat (i16 32736)
-  %68 = and <8 x i16> %66, splat (i16 32736)
-  %69 = and <8 x i16> %wide.load392, splat (i16 31)
-  %70 = and <8 x i16> %wide.load393, splat (i16 31)
-  %71 = or disjoint <8 x i16> %69, splat (i16 -32768)
-  %72 = or disjoint <8 x i16> %71, %67
-  %73 = or disjoint <8 x i16> %70, splat (i16 -32768)
-  %74 = or disjoint <8 x i16> %73, %68
-  %75 = getelementptr i8, ptr %next.gep387, i64 16
-  store <8 x i16> %72, ptr %next.gep387, align 2, !tbaa !6
-  store <8 x i16> %74, ptr %75, align 2, !tbaa !6
+  %68 = and <8 x i16> %wide.load392, splat (i16 31)
+  %69 = and <8 x i16> %wide.load393, splat (i16 31)
+  %70 = or disjoint <8 x i16> %68, splat (i16 -32768)
+  %71 = or disjoint <8 x i16> %70, %66
+  %72 = or disjoint <8 x i16> %69, splat (i16 -32768)
+  %73 = or disjoint <8 x i16> %72, %67
+  %74 = getelementptr i8, ptr %next.gep387, i64 16
+  store <8 x i16> %71, ptr %next.gep387, align 2, !tbaa !6
+  store <8 x i16> %73, ptr %74, align 2, !tbaa !6
   %index.next394 = add nuw nsw i64 %index385, 16
-  %76 = icmp eq i64 %index.next394, %n.vec376
-  br i1 %76, label %middle.block371, label %vector.body384, !llvm.loop !115
+  %75 = icmp eq i64 %index.next394, %n.vec376
+  br i1 %75, label %middle.block371, label %vector.body384, !llvm.loop !115
 
 middle.block371:                                  ; preds = %vector.body384
   %ind.end377 = trunc nuw nsw i64 %n.vec376 to i32
-  %ind.end381 = getelementptr i8, ptr %sP, i64 %63
+  %76 = shl nuw nsw i64 %n.vec376, 1
+  %ind.end379 = getelementptr i8, ptr %dP, i64 %76
+  %ind.end381 = getelementptr i8, ptr %sP, i64 %76
   %cmp.n383 = icmp eq i64 %n.vec376, %61
   br i1 %cmp.n383, label %sw.epilog27, label %for.body.i91.preheader449
 
@@ -4162,8 +4162,6 @@ for.body.i106.preheader:                          ; preds = %sw.bb8
 
 vector.ph347:                                     ; preds = %for.body.i106.preheader
   %n.vec349 = and i64 %83, 2147483640
-  %84 = shl nuw nsw i64 %n.vec349, 2
-  %85 = shl nuw nsw i64 %n.vec349, 1
   br label %vector.body357
 
 vector.body357:                                   ; preds = %vector.body357, %vector.ph347
@@ -4172,40 +4170,42 @@ vector.body357:                                   ; preds = %vector.body357, %ve
   %next.gep360 = getelementptr i8, ptr %dP, i64 %offset.idx359
   %offset.idx362 = shl nuw i64 %index358, 1
   %next.gep363 = getelementptr i8, ptr %sP, i64 %offset.idx362
-  %86 = getelementptr i8, ptr %next.gep363, i64 8
+  %84 = getelementptr i8, ptr %next.gep363, i64 8
   %wide.load365 = load <4 x i16>, ptr %next.gep363, align 2, !tbaa !6
-  %wide.load366 = load <4 x i16>, ptr %86, align 2, !tbaa !6
-  %87 = zext <4 x i16> %wide.load365 to <4 x i32>
-  %88 = zext <4 x i16> %wide.load366 to <4 x i32>
-  %89 = shl nuw nsw <4 x i32> %87, splat (i32 8)
-  %90 = shl nuw nsw <4 x i32> %88, splat (i32 8)
-  %91 = and <4 x i32> %89, splat (i32 16252928)
-  %92 = and <4 x i32> %90, splat (i32 16252928)
-  %93 = shl nuw nsw <4 x i32> %87, splat (i32 5)
-  %94 = shl nuw nsw <4 x i32> %88, splat (i32 5)
-  %95 = and <4 x i32> %93, splat (i32 64512)
-  %96 = and <4 x i32> %94, splat (i32 64512)
-  %97 = shl nuw nsw <4 x i32> %87, splat (i32 3)
-  %98 = shl nuw nsw <4 x i32> %88, splat (i32 3)
-  %99 = and <4 x i32> %97, splat (i32 248)
-  %100 = and <4 x i32> %98, splat (i32 248)
-  %101 = or disjoint <4 x i32> %91, splat (i32 -16777216)
-  %102 = or disjoint <4 x i32> %101, %95
-  %103 = or disjoint <4 x i32> %102, %99
-  %104 = or disjoint <4 x i32> %92, splat (i32 -16777216)
-  %105 = or disjoint <4 x i32> %104, %96
-  %106 = or disjoint <4 x i32> %105, %100
-  %107 = getelementptr i8, ptr %next.gep360, i64 16
-  store <4 x i32> %103, ptr %next.gep360, align 4, !tbaa !11
-  store <4 x i32> %106, ptr %107, align 4, !tbaa !11
+  %wide.load366 = load <4 x i16>, ptr %84, align 2, !tbaa !6
+  %85 = zext <4 x i16> %wide.load365 to <4 x i32>
+  %86 = zext <4 x i16> %wide.load366 to <4 x i32>
+  %87 = shl nuw nsw <4 x i32> %85, splat (i32 8)
+  %88 = shl nuw nsw <4 x i32> %86, splat (i32 8)
+  %89 = and <4 x i32> %87, splat (i32 16252928)
+  %90 = and <4 x i32> %88, splat (i32 16252928)
+  %91 = shl nuw nsw <4 x i32> %85, splat (i32 5)
+  %92 = shl nuw nsw <4 x i32> %86, splat (i32 5)
+  %93 = and <4 x i32> %91, splat (i32 64512)
+  %94 = and <4 x i32> %92, splat (i32 64512)
+  %95 = shl nuw nsw <4 x i32> %85, splat (i32 3)
+  %96 = shl nuw nsw <4 x i32> %86, splat (i32 3)
+  %97 = and <4 x i32> %95, splat (i32 248)
+  %98 = and <4 x i32> %96, splat (i32 248)
+  %99 = or disjoint <4 x i32> %89, splat (i32 -16777216)
+  %100 = or disjoint <4 x i32> %99, %93
+  %101 = or disjoint <4 x i32> %100, %97
+  %102 = or disjoint <4 x i32> %90, splat (i32 -16777216)
+  %103 = or disjoint <4 x i32> %102, %94
+  %104 = or disjoint <4 x i32> %103, %98
+  %105 = getelementptr i8, ptr %next.gep360, i64 16
+  store <4 x i32> %101, ptr %next.gep360, align 4, !tbaa !11
+  store <4 x i32> %104, ptr %105, align 4, !tbaa !11
   %index.next367 = add nuw nsw i64 %index358, 8
-  %108 = icmp eq i64 %index.next367, %n.vec349
-  br i1 %108, label %middle.block344, label %vector.body357, !llvm.loop !117
+  %106 = icmp eq i64 %index.next367, %n.vec349
+  br i1 %106, label %middle.block344, label %vector.body357, !llvm.loop !117
 
 middle.block344:                                  ; preds = %vector.body357
   %ind.end350 = trunc nuw nsw i64 %n.vec349 to i32
-  %ind.end352 = getelementptr i8, ptr %dP, i64 %84
-  %ind.end354 = getelementptr i8, ptr %sP, i64 %85
+  %107 = shl nuw nsw i64 %n.vec349, 2
+  %ind.end352 = getelementptr i8, ptr %dP, i64 %107
+  %108 = shl nuw nsw i64 %n.vec349, 1
+  %ind.end354 = getelementptr i8, ptr %sP, i64 %108
   %cmp.n356 = icmp eq i64 %n.vec349, %83
   br i1 %cmp.n356, label %sw.epilog27, label %for.body.i106.preheader60
 
@@ -4313,8 +4313,6 @@ for.body.i134.preheader:                          ; preds = %sw.bb13
 
 vector.ph324:                                     ; preds = %for.body.i134.preheader
   %n.vec326 = and i64 %125, 2147483640
-  %126 = shl nuw nsw i64 %n.vec326, 1
-  %127 = shl nuw nsw i64 %n.vec326, 2
   br label %vector.body334
 
 vector.body334:                                   ; preds = %vector.body334, %vector.ph324
@@ -4323,44 +4321,46 @@ vector.body334:                                   ; preds = %vector.body334, %ve
   %next.gep337 = getelementptr i8, ptr %dP, i64 %offset.idx336
   %offset.idx339 = shl i64 %index335, 2
   %next.gep340 = getelementptr i8, ptr %sP, i64 %offset.idx339
-  %128 = getelementptr i8, ptr %next.gep340, i64 16
+  %126 = getelementptr i8, ptr %next.gep340, i64 16
   %wide.load = load <4 x i32>, ptr %next.gep340, align 4, !tbaa !11
-  %wide.load342 = load <4 x i32>, ptr %128, align 4, !tbaa !11
-  %129 = lshr <4 x i32> %wide.load, splat (i32 16)
-  %130 = lshr <4 x i32> %wide.load342, splat (i32 16)
-  %131 = and <4 x i32> %129, splat (i32 32768)
-  %132 = and <4 x i32> %130, splat (i32 32768)
-  %133 = lshr <4 x i32> %wide.load, splat (i32 9)
-  %134 = lshr <4 x i32> %wide.load342, splat (i32 9)
-  %135 = and <4 x i32> %133, splat (i32 31744)
-  %136 = and <4 x i32> %134, splat (i32 31744)
-  %137 = or disjoint <4 x i32> %131, %135
-  %138 = or disjoint <4 x i32> %132, %136
-  %139 = lshr <4 x i32> %wide.load, splat (i32 6)
-  %140 = lshr <4 x i32> %wide.load342, splat (i32 6)
-  %141 = and <4 x i32> %139, splat (i32 992)
-  %142 = and <4 x i32> %140, splat (i32 992)
-  %143 = or disjoint <4 x i32> %137, %141
-  %144 = or disjoint <4 x i32> %138, %142
-  %145 = lshr <4 x i32> %wide.load, splat (i32 3)
-  %146 = lshr <4 x i32> %wide.load342, splat (i32 3)
-  %147 = and <4 x i32> %145, splat (i32 31)
-  %148 = and <4 x i32> %146, splat (i32 31)
-  %149 = or disjoint <4 x i32> %143, %147
-  %150 = or disjoint <4 x i32> %144, %148
-  %151 = trunc nuw <4 x i32> %149 to <4 x i16>
-  %152 = trunc nuw <4 x i32> %150 to <4 x i16>
-  %153 = getelementptr i8, ptr %next.gep337, i64 8
-  store <4 x i16> %151, ptr %next.gep337, align 2, !tbaa !6
-  store <4 x i16> %152, ptr %153, align 2, !tbaa !6
+  %wide.load342 = load <4 x i32>, ptr %126, align 4, !tbaa !11
+  %127 = lshr <4 x i32> %wide.load, splat (i32 16)
+  %128 = lshr <4 x i32> %wide.load342, splat (i32 16)
+  %129 = and <4 x i32> %127, splat (i32 32768)
+  %130 = and <4 x i32> %128, splat (i32 32768)
+  %131 = lshr <4 x i32> %wide.load, splat (i32 9)
+  %132 = lshr <4 x i32> %wide.load342, splat (i32 9)
+  %133 = and <4 x i32> %131, splat (i32 31744)
+  %134 = and <4 x i32> %132, splat (i32 31744)
+  %135 = or disjoint <4 x i32> %129, %133
+  %136 = or disjoint <4 x i32> %130, %134
+  %137 = lshr <4 x i32> %wide.load, splat (i32 6)
+  %138 = lshr <4 x i32> %wide.load342, splat (i32 6)
+  %139 = and <4 x i32> %137, splat (i32 992)
+  %140 = and <4 x i32> %138, splat (i32 992)
+  %141 = or disjoint <4 x i32> %135, %139
+  %142 = or disjoint <4 x i32> %136, %140
+  %143 = lshr <4 x i32> %wide.load, splat (i32 3)
+  %144 = lshr <4 x i32> %wide.load342, splat (i32 3)
+  %145 = and <4 x i32> %143, splat (i32 31)
+  %146 = and <4 x i32> %144, splat (i32 31)
+  %147 = or disjoint <4 x i32> %141, %145
+  %148 = or disjoint <4 x i32> %142, %146
+  %149 = trunc nuw <4 x i32> %147 to <4 x i16>
+  %150 = trunc nuw <4 x i32> %148 to <4 x i16>
+  %151 = getelementptr i8, ptr %next.gep337, i64 8
+  store <4 x i16> %149, ptr %next.gep337, align 2, !tbaa !6
+  store <4 x i16> %150, ptr %151, align 2, !tbaa !6
   %index.next343 = add nuw nsw i64 %index335, 8
-  %154 = icmp eq i64 %index.next343, %n.vec326
-  br i1 %154, label %middle.block321, label %vector.body334, !llvm.loop !119
+  %152 = icmp eq i64 %index.next343, %n.vec326
+  br i1 %152, label %middle.block321, label %vector.body334, !llvm.loop !119
 
 middle.block321:                                  ; preds = %vector.body334
   %ind.end327 = trunc nuw nsw i64 %n.vec326 to i32
-  %ind.end329 = getelementptr i8, ptr %dP, i64 %126
-  %ind.end331 = getelementptr i8, ptr %sP, i64 %127
+  %153 = shl nuw nsw i64 %n.vec326, 1
+  %ind.end329 = getelementptr i8, ptr %dP, i64 %153
+  %154 = shl nuw nsw i64 %n.vec326, 2
+  %ind.end331 = getelementptr i8, ptr %sP, i64 %154
   %cmp.n333 = icmp eq i64 %n.vec326, %125
   br i1 %cmp.n333, label %sw.epilog27, label %for.body.i134.preheader62
 
@@ -4422,9 +4422,6 @@ vector.ph298:                                     ; preds = %vector.memcheck289
   %163 = icmp eq i64 %n.mod.vf299, 0
   %164 = select i1 %163, i64 8, i64 %n.mod.vf299
   %n.vec300 = sub nsw i64 %156, %164
-  %165 = shl nsw i64 %n.vec300, 2
-  %166 = shl nsw i64 %n.vec300, 1
-  %ind.end303 = getelementptr i8, ptr %dP, i64 %166
   br label %vector.body307
 
 vector.body307:                                   ; preds = %vector.body307, %vector.ph298
@@ -4440,87 +4437,90 @@ vector.body307:                                   ; preds = %vector.body307, %ve
   %next.gep317 = getelementptr i8, ptr %next.gep310, i64 28
   %offset.idx318 = shl i64 %index308, 1
   %next.gep319 = getelementptr i8, ptr %dP, i64 %offset.idx318
-  %167 = getelementptr inbounds nuw i8, ptr %next.gep310, i64 2
-  %168 = getelementptr i8, ptr %next.gep310, i64 6
-  %169 = getelementptr i8, ptr %next.gep310, i64 10
-  %170 = getelementptr i8, ptr %next.gep310, i64 14
-  %171 = getelementptr i8, ptr %next.gep310, i64 18
-  %172 = getelementptr i8, ptr %next.gep310, i64 22
-  %173 = getelementptr i8, ptr %next.gep310, i64 26
-  %174 = getelementptr i8, ptr %next.gep310, i64 30
+  %165 = getelementptr inbounds nuw i8, ptr %next.gep310, i64 2
+  %166 = getelementptr i8, ptr %next.gep310, i64 6
+  %167 = getelementptr i8, ptr %next.gep310, i64 10
+  %168 = getelementptr i8, ptr %next.gep310, i64 14
+  %169 = getelementptr i8, ptr %next.gep310, i64 18
+  %170 = getelementptr i8, ptr %next.gep310, i64 22
+  %171 = getelementptr i8, ptr %next.gep310, i64 26
+  %172 = getelementptr i8, ptr %next.gep310, i64 30
+  %173 = load i8, ptr %165, align 1, !tbaa !3, !alias.scope !121
+  %174 = load i8, ptr %166, align 1, !tbaa !3, !alias.scope !121
   %175 = load i8, ptr %167, align 1, !tbaa !3, !alias.scope !121
   %176 = load i8, ptr %168, align 1, !tbaa !3, !alias.scope !121
   %177 = load i8, ptr %169, align 1, !tbaa !3, !alias.scope !121
   %178 = load i8, ptr %170, align 1, !tbaa !3, !alias.scope !121
   %179 = load i8, ptr %171, align 1, !tbaa !3, !alias.scope !121
   %180 = load i8, ptr %172, align 1, !tbaa !3, !alias.scope !121
-  %181 = load i8, ptr %173, align 1, !tbaa !3, !alias.scope !121
-  %182 = load i8, ptr %174, align 1, !tbaa !3, !alias.scope !121
-  %183 = insertelement <8 x i8> poison, i8 %175, i64 0
-  %184 = insertelement <8 x i8> %183, i8 %176, i64 1
-  %185 = insertelement <8 x i8> %184, i8 %177, i64 2
-  %186 = insertelement <8 x i8> %185, i8 %178, i64 3
-  %187 = insertelement <8 x i8> %186, i8 %179, i64 4
-  %188 = insertelement <8 x i8> %187, i8 %180, i64 5
-  %189 = insertelement <8 x i8> %188, i8 %181, i64 6
-  %190 = insertelement <8 x i8> %189, i8 %182, i64 7
-  %191 = lshr <8 x i8> %190, splat (i8 3)
-  %192 = zext nneg <8 x i8> %191 to <8 x i16>
-  %193 = getelementptr inbounds nuw i8, ptr %next.gep310, i64 1
-  %194 = getelementptr i8, ptr %next.gep310, i64 5
-  %195 = getelementptr i8, ptr %next.gep310, i64 9
-  %196 = getelementptr i8, ptr %next.gep310, i64 13
-  %197 = getelementptr i8, ptr %next.gep310, i64 17
-  %198 = getelementptr i8, ptr %next.gep310, i64 21
-  %199 = getelementptr i8, ptr %next.gep310, i64 25
-  %200 = getelementptr i8, ptr %next.gep310, i64 29
+  %181 = insertelement <8 x i8> poison, i8 %173, i64 0
+  %182 = insertelement <8 x i8> %181, i8 %174, i64 1
+  %183 = insertelement <8 x i8> %182, i8 %175, i64 2
+  %184 = insertelement <8 x i8> %183, i8 %176, i64 3
+  %185 = insertelement <8 x i8> %184, i8 %177, i64 4
+  %186 = insertelement <8 x i8> %185, i8 %178, i64 5
+  %187 = insertelement <8 x i8> %186, i8 %179, i64 6
+  %188 = insertelement <8 x i8> %187, i8 %180, i64 7
+  %189 = lshr <8 x i8> %188, splat (i8 3)
+  %190 = zext nneg <8 x i8> %189 to <8 x i16>
+  %191 = getelementptr inbounds nuw i8, ptr %next.gep310, i64 1
+  %192 = getelementptr i8, ptr %next.gep310, i64 5
+  %193 = getelementptr i8, ptr %next.gep310, i64 9
+  %194 = getelementptr i8, ptr %next.gep310, i64 13
+  %195 = getelementptr i8, ptr %next.gep310, i64 17
+  %196 = getelementptr i8, ptr %next.gep310, i64 21
+  %197 = getelementptr i8, ptr %next.gep310, i64 25
+  %198 = getelementptr i8, ptr %next.gep310, i64 29
+  %199 = load i8, ptr %191, align 1, !tbaa !3, !alias.scope !121
+  %200 = load i8, ptr %192, align 1, !tbaa !3, !alias.scope !121
   %201 = load i8, ptr %193, align 1, !tbaa !3, !alias.scope !121
   %202 = load i8, ptr %194, align 1, !tbaa !3, !alias.scope !121
   %203 = load i8, ptr %195, align 1, !tbaa !3, !alias.scope !121
   %204 = load i8, ptr %196, align 1, !tbaa !3, !alias.scope !121
   %205 = load i8, ptr %197, align 1, !tbaa !3, !alias.scope !121
   %206 = load i8, ptr %198, align 1, !tbaa !3, !alias.scope !121
-  %207 = load i8, ptr %199, align 1, !tbaa !3, !alias.scope !121
-  %208 = load i8, ptr %200, align 1, !tbaa !3, !alias.scope !121
-  %209 = insertelement <8 x i8> poison, i8 %201, i64 0
-  %210 = insertelement <8 x i8> %209, i8 %202, i64 1
-  %211 = insertelement <8 x i8> %210, i8 %203, i64 2
-  %212 = insertelement <8 x i8> %211, i8 %204, i64 3
-  %213 = insertelement <8 x i8> %212, i8 %205, i64 4
-  %214 = insertelement <8 x i8> %213, i8 %206, i64 5
-  %215 = insertelement <8 x i8> %214, i8 %207, i64 6
-  %216 = insertelement <8 x i8> %215, i8 %208, i64 7
-  %217 = lshr <8 x i8> %216, splat (i8 2)
-  %218 = zext nneg <8 x i8> %217 to <8 x i16>
-  %219 = load i8, ptr %next.gep310, align 1, !tbaa !3, !alias.scope !121
-  %220 = load i8, ptr %next.gep311, align 1, !tbaa !3, !alias.scope !121
-  %221 = load i8, ptr %next.gep312, align 1, !tbaa !3, !alias.scope !121
-  %222 = load i8, ptr %next.gep313, align 1, !tbaa !3, !alias.scope !121
-  %223 = load i8, ptr %next.gep314, align 1, !tbaa !3, !alias.scope !121
-  %224 = load i8, ptr %next.gep315, align 1, !tbaa !3, !alias.scope !121
-  %225 = load i8, ptr %next.gep316, align 1, !tbaa !3, !alias.scope !121
-  %226 = load i8, ptr %next.gep317, align 1, !tbaa !3, !alias.scope !121
-  %227 = insertelement <8 x i8> poison, i8 %219, i64 0
-  %228 = insertelement <8 x i8> %227, i8 %220, i64 1
-  %229 = insertelement <8 x i8> %228, i8 %221, i64 2
-  %230 = insertelement <8 x i8> %229, i8 %222, i64 3
-  %231 = insertelement <8 x i8> %230, i8 %223, i64 4
-  %232 = insertelement <8 x i8> %231, i8 %224, i64 5
-  %233 = insertelement <8 x i8> %232, i8 %225, i64 6
-  %234 = insertelement <8 x i8> %233, i8 %226, i64 7
-  %235 = lshr <8 x i8> %234, splat (i8 3)
-  %236 = zext nneg <8 x i8> %235 to <8 x i16>
-  %237 = shl nuw <8 x i16> %192, splat (i16 11)
-  %238 = shl nuw nsw <8 x i16> %218, splat (i16 5)
-  %239 = or disjoint <8 x i16> %238, %237
-  %240 = or disjoint <8 x i16> %239, %236
-  store <8 x i16> %240, ptr %next.gep319, align 2, !tbaa !6, !alias.scope !124, !noalias !121
+  %207 = insertelement <8 x i8> poison, i8 %199, i64 0
+  %208 = insertelement <8 x i8> %207, i8 %200, i64 1
+  %209 = insertelement <8 x i8> %208, i8 %201, i64 2
+  %210 = insertelement <8 x i8> %209, i8 %202, i64 3
+  %211 = insertelement <8 x i8> %210, i8 %203, i64 4
+  %212 = insertelement <8 x i8> %211, i8 %204, i64 5
+  %213 = insertelement <8 x i8> %212, i8 %205, i64 6
+  %214 = insertelement <8 x i8> %213, i8 %206, i64 7
+  %215 = lshr <8 x i8> %214, splat (i8 2)
+  %216 = zext nneg <8 x i8> %215 to <8 x i16>
+  %217 = load i8, ptr %next.gep310, align 1, !tbaa !3, !alias.scope !121
+  %218 = load i8, ptr %next.gep311, align 1, !tbaa !3, !alias.scope !121
+  %219 = load i8, ptr %next.gep312, align 1, !tbaa !3, !alias.scope !121
+  %220 = load i8, ptr %next.gep313, align 1, !tbaa !3, !alias.scope !121
+  %221 = load i8, ptr %next.gep314, align 1, !tbaa !3, !alias.scope !121
+  %222 = load i8, ptr %next.gep315, align 1, !tbaa !3, !alias.scope !121
+  %223 = load i8, ptr %next.gep316, align 1, !tbaa !3, !alias.scope !121
+  %224 = load i8, ptr %next.gep317, align 1, !tbaa !3, !alias.scope !121
+  %225 = insertelement <8 x i8> poison, i8 %217, i64 0
+  %226 = insertelement <8 x i8> %225, i8 %218, i64 1
+  %227 = insertelement <8 x i8> %226, i8 %219, i64 2
+  %228 = insertelement <8 x i8> %227, i8 %220, i64 3
+  %229 = insertelement <8 x i8> %228, i8 %221, i64 4
+  %230 = insertelement <8 x i8> %229, i8 %222, i64 5
+  %231 = insertelement <8 x i8> %230, i8 %223, i64 6
+  %232 = insertelement <8 x i8> %231, i8 %224, i64 7
+  %233 = lshr <8 x i8> %232, splat (i8 3)
+  %234 = zext nneg <8 x i8> %233 to <8 x i16>
+  %235 = shl nuw <8 x i16> %190, splat (i16 11)
+  %236 = shl nuw nsw <8 x i16> %216, splat (i16 5)
+  %237 = or disjoint <8 x i16> %236, %235
+  %238 = or disjoint <8 x i16> %237, %234
+  store <8 x i16> %238, ptr %next.gep319, align 2, !tbaa !6, !alias.scope !124, !noalias !121
   %index.next320 = add nuw i64 %index308, 8
-  %241 = icmp eq i64 %index.next320, %n.vec300
-  br i1 %241, label %for.body.i150.preheader456.loopexit, label %vector.body307, !llvm.loop !126
+  %239 = icmp eq i64 %index.next320, %n.vec300
+  br i1 %239, label %for.body.i150.preheader456.loopexit, label %vector.body307, !llvm.loop !126
 
 for.body.i150.preheader456.loopexit:              ; preds = %vector.body307
-  %ind.end301 = getelementptr i8, ptr %sP, i64 %165
+  %240 = shl nsw i64 %n.vec300, 2
+  %ind.end301 = getelementptr i8, ptr %sP, i64 %240
+  %241 = shl nsw i64 %n.vec300, 1
+  %ind.end303 = getelementptr i8, ptr %dP, i64 %241
   %ind.end305 = trunc nsw i64 %n.vec300 to i32
   br label %for.body.i150.preheader64
 
@@ -4638,9 +4638,6 @@ vector.memcheck259:                               ; preds = %for.body.i164.prehe
 
 vector.ph268:                                     ; preds = %vector.memcheck259
   %n.vec270 = and i64 %255, 2147483640
-  %262 = mul nuw nsw i64 %n.vec270, 3
-  %263 = shl nuw nsw i64 %n.vec270, 1
-  %ind.end273 = getelementptr i8, ptr %dP, i64 %263
   br label %vector.body278
 
 vector.body278:                                   ; preds = %vector.body278, %vector.ph268
@@ -4653,24 +4650,27 @@ vector.body278:                                   ; preds = %vector.body278, %ve
   %strided.vec285 = shufflevector <24 x i8> %wide.vec284, <24 x i8> poison, <8 x i32> <i32 0, i32 3, i32 6, i32 9, i32 12, i32 15, i32 18, i32 21>
   %strided.vec286 = shufflevector <24 x i8> %wide.vec284, <24 x i8> poison, <8 x i32> <i32 1, i32 4, i32 7, i32 10, i32 13, i32 16, i32 19, i32 22>
   %strided.vec287 = shufflevector <24 x i8> %wide.vec284, <24 x i8> poison, <8 x i32> <i32 2, i32 5, i32 8, i32 11, i32 14, i32 17, i32 20, i32 23>
-  %264 = lshr <8 x i8> %strided.vec285, splat (i8 3)
+  %262 = lshr <8 x i8> %strided.vec285, splat (i8 3)
+  %263 = zext nneg <8 x i8> %262 to <8 x i16>
+  %264 = lshr <8 x i8> %strided.vec286, splat (i8 3)
   %265 = zext nneg <8 x i8> %264 to <8 x i16>
-  %266 = lshr <8 x i8> %strided.vec286, splat (i8 3)
+  %266 = lshr <8 x i8> %strided.vec287, splat (i8 3)
   %267 = zext nneg <8 x i8> %266 to <8 x i16>
-  %268 = lshr <8 x i8> %strided.vec287, splat (i8 3)
-  %269 = zext nneg <8 x i8> %268 to <8 x i16>
-  %270 = shl nuw nsw <8 x i16> %265, splat (i16 10)
-  %271 = shl nuw nsw <8 x i16> %267, splat (i16 5)
-  %272 = or disjoint <8 x i16> %271, %270
-  %273 = or disjoint <8 x i16> %272, %269
-  %274 = or disjoint <8 x i16> %273, splat (i16 -32768)
-  store <8 x i16> %274, ptr %next.gep283, align 2, !tbaa !6, !alias.scope !128, !noalias !131
+  %268 = shl nuw nsw <8 x i16> %263, splat (i16 10)
+  %269 = shl nuw nsw <8 x i16> %265, splat (i16 5)
+  %270 = or disjoint <8 x i16> %269, %268
+  %271 = or disjoint <8 x i16> %270, %267
+  %272 = or disjoint <8 x i16> %271, splat (i16 -32768)
+  store <8 x i16> %272, ptr %next.gep283, align 2, !tbaa !6, !alias.scope !128, !noalias !131
   %index.next288 = add nuw nsw i64 %index279, 8
-  %275 = icmp eq i64 %index.next288, %n.vec270
-  br i1 %275, label %middle.block265, label %vector.body278, !llvm.loop !133
+  %273 = icmp eq i64 %index.next288, %n.vec270
+  br i1 %273, label %middle.block265, label %vector.body278, !llvm.loop !133
 
 middle.block265:                                  ; preds = %vector.body278
-  %ind.end271 = getelementptr i8, ptr %sP, i64 %262
+  %274 = mul nuw nsw i64 %n.vec270, 3
+  %ind.end271 = getelementptr i8, ptr %sP, i64 %274
+  %275 = shl nuw nsw i64 %n.vec270, 1
+  %ind.end273 = getelementptr i8, ptr %dP, i64 %275
   %ind.end275 = trunc nuw nsw i64 %n.vec270 to i32
   %cmp.n277 = icmp eq i64 %n.vec270, %255
   br i1 %cmp.n277, label %sw.epilog27, label %for.body.i164.preheader66
@@ -4730,9 +4730,6 @@ vector.memcheck:                                  ; preds = %for.body.i177.prehe
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %283, 2147483640
-  %290 = mul nuw nsw i64 %n.vec, 3
-  %291 = shl nuw nsw i64 %n.vec, 1
-  %ind.end251 = getelementptr i8, ptr %dP, i64 %291
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -4745,23 +4742,26 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %strided.vec = shufflevector <24 x i8> %wide.vec, <24 x i8> poison, <8 x i32> <i32 0, i32 3, i32 6, i32 9, i32 12, i32 15, i32 18, i32 21>
   %strided.vec257 = shufflevector <24 x i8> %wide.vec, <24 x i8> poison, <8 x i32> <i32 1, i32 4, i32 7, i32 10, i32 13, i32 16, i32 19, i32 22>
   %strided.vec258 = shufflevector <24 x i8> %wide.vec, <24 x i8> poison, <8 x i32> <i32 2, i32 5, i32 8, i32 11, i32 14, i32 17, i32 20, i32 23>
-  %292 = lshr <8 x i8> %strided.vec, splat (i8 3)
+  %290 = lshr <8 x i8> %strided.vec, splat (i8 3)
+  %291 = zext nneg <8 x i8> %290 to <8 x i16>
+  %292 = lshr <8 x i8> %strided.vec257, splat (i8 2)
   %293 = zext nneg <8 x i8> %292 to <8 x i16>
-  %294 = lshr <8 x i8> %strided.vec257, splat (i8 2)
+  %294 = lshr <8 x i8> %strided.vec258, splat (i8 3)
   %295 = zext nneg <8 x i8> %294 to <8 x i16>
-  %296 = lshr <8 x i8> %strided.vec258, splat (i8 3)
-  %297 = zext nneg <8 x i8> %296 to <8 x i16>
-  %298 = shl nuw <8 x i16> %293, splat (i16 11)
-  %299 = shl nuw nsw <8 x i16> %295, splat (i16 5)
-  %300 = or disjoint <8 x i16> %299, %298
-  %301 = or disjoint <8 x i16> %300, %297
-  store <8 x i16> %301, ptr %next.gep256, align 2, !tbaa !6, !alias.scope !135, !noalias !138
+  %296 = shl nuw <8 x i16> %291, splat (i16 11)
+  %297 = shl nuw nsw <8 x i16> %293, splat (i16 5)
+  %298 = or disjoint <8 x i16> %297, %296
+  %299 = or disjoint <8 x i16> %298, %295
+  store <8 x i16> %299, ptr %next.gep256, align 2, !tbaa !6, !alias.scope !135, !noalias !138
   %index.next = add nuw nsw i64 %index, 8
-  %302 = icmp eq i64 %index.next, %n.vec
-  br i1 %302, label %middle.block, label %vector.body, !llvm.loop !140
+  %300 = icmp eq i64 %index.next, %n.vec
+  br i1 %300, label %middle.block, label %vector.body, !llvm.loop !140
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = getelementptr i8, ptr %sP, i64 %290
+  %301 = mul nuw nsw i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %sP, i64 %301
+  %302 = shl nuw nsw i64 %n.vec, 1
+  %ind.end251 = getelementptr i8, ptr %dP, i64 %302
   %ind.end253 = trunc nuw nsw i64 %n.vec to i32
   %cmp.n = icmp eq i64 %n.vec, %283
   br i1 %cmp.n, label %sw.epilog27, label %for.body.i177.preheader68

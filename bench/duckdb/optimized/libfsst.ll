@@ -197,17 +197,13 @@ define hidden noundef nonnull ptr @_Z16buildSymbolTableR8CountersSt6vectorIPhSaI
   store i64 %16, ptr %.sroa.433.0..sroa_idx.i, align 8, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %.preheader36.i.preheader, label %14, !llvm.loop !31
+  br i1 %exitcond.not.i, label %.preheader36.i, label %14, !llvm.loop !31
 
-.preheader36.i.preheader:                         ; preds = %14
-  %18 = zext i1 %3 to i8
-  br label %.preheader36.i
-
-.preheader36.i:                                   ; preds = %.preheader36.i.preheader, %.preheader36.i
-  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %.preheader36.i ], [ 256, %.preheader36.i.preheader ]
-  %19 = getelementptr inbounds nuw [512 x %struct.Symbol], ptr %.ptr25.i, i64 0, i64 %indvars.iv43.i
-  store i64 0, ptr %19, align 8, !tbaa !8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 8
+.preheader36.i:                                   ; preds = %14, %.preheader36.i
+  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %.preheader36.i ], [ 256, %14 ]
+  %18 = getelementptr inbounds nuw [512 x %struct.Symbol], ptr %.ptr25.i, i64 0, i64 %indvars.iv43.i
+  store i64 0, ptr %18, align 8, !tbaa !8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 301924408, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !30
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond46.not.i = icmp eq i64 %indvars.iv.next44.i, 512
@@ -218,127 +214,128 @@ define hidden noundef nonnull ptr @_Z16buildSymbolTableR8CountersSt6vectorIPhSaI
   br label %.preheader35.i
 
 .preheader34.i:                                   ; preds = %.preheader35.i
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 131072
-  br label %22
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 131072
+  br label %21
 
 .preheader35.i:                                   ; preds = %.preheader35.i.preheader, %.preheader35.i
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %.preheader35.i ], [ 0, %.preheader35.i.preheader ]
-  %21 = getelementptr inbounds nuw [1024 x %struct.Symbol], ptr %.ptr30.i, i64 0, i64 %indvars.iv47.i
-  store i64 0, ptr %21, align 8, !tbaa !8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %20 = getelementptr inbounds nuw [1024 x %struct.Symbol], ptr %.ptr30.i, i64 0, i64 %indvars.iv47.i
+  store i64 0, ptr %20, align 8, !tbaa !8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 4060020736, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !30
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next48.i, 1024
   br i1 %exitcond50.not.i, label %.preheader34.i, label %.preheader35.i, !llvm.loop !33
 
-22:                                               ; preds = %22, %.preheader34.i
-  %indvars.iv51.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next52.i, %22 ]
-  %23 = trunc i64 %indvars.iv51.i to i16
-  %24 = or disjoint i16 %23, 4096
-  %25 = getelementptr inbounds nuw [256 x i16], ptr %20, i64 0, i64 %indvars.iv51.i
-  store i16 %24, ptr %25, align 2, !tbaa !34
+21:                                               ; preds = %21, %.preheader34.i
+  %indvars.iv51.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next52.i, %21 ]
+  %22 = trunc i64 %indvars.iv51.i to i16
+  %23 = or disjoint i16 %22, 4096
+  %24 = getelementptr inbounds nuw [256 x i16], ptr %19, i64 0, i64 %indvars.iv51.i
+  store i16 %23, ptr %24, align 2, !tbaa !34
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next52.i, 256
-  br i1 %exitcond54.not.i, label %.preheader.i, label %22, !llvm.loop !35
+  br i1 %exitcond54.not.i, label %.preheader.i, label %21, !llvm.loop !35
 
-.preheader.i:                                     ; preds = %22, %.preheader.i
-  %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %.preheader.i ], [ 0, %22 ]
-  %26 = trunc i64 %indvars.iv55.i to i16
-  %27 = and i16 %26, 255
-  %28 = or disjoint i16 %27, 4096
-  %29 = getelementptr inbounds nuw [65536 x i16], ptr %10, i64 0, i64 %indvars.iv55.i
-  store i16 %28, ptr %29, align 2, !tbaa !34
+.preheader.i:                                     ; preds = %21, %.preheader.i
+  %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %.preheader.i ], [ 0, %21 ]
+  %25 = trunc i64 %indvars.iv55.i to i16
+  %26 = and i16 %25, 255
+  %27 = or disjoint i16 %26, 4096
+  %28 = getelementptr inbounds nuw [65536 x i16], ptr %10, i64 0, i64 %indvars.iv55.i
+  store i16 %27, ptr %28, align 2, !tbaa !34
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next56.i, 65536
-  br i1 %exitcond58.not.i, label %30, label %.preheader.i, !llvm.loop !36
+  br i1 %exitcond58.not.i, label %29, label %.preheader.i, !llvm.loop !36
 
-30:                                               ; preds = %.preheader.i
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 156168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %31, i8 0, i64 18, i1 false)
-  %32 = tail call noalias noundef nonnull dereferenceable(156192) ptr @_Znwm(i64 noundef 156192) #23
-  %.ptr25.i49 = getelementptr inbounds nuw i8, ptr %32, i64 131584
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 156162
+29:                                               ; preds = %.preheader.i
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 156168
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %30, i8 0, i64 18, i1 false)
+  %31 = tail call noalias noundef nonnull dereferenceable(156192) ptr @_Znwm(i64 noundef 156192) #23
+  %.ptr25.i49 = getelementptr inbounds nuw i8, ptr %31, i64 131584
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 156162
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24578) %.ptr25.i49, i8 0, i64 24578, i1 false)
-  store i16 512, ptr %33, align 2, !tbaa !24
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 156164
-  store i16 0, ptr %34, align 4, !tbaa !28
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 156166
-  store i8 0, ptr %35, align 2, !tbaa !29
-  br label %36
+  store i16 512, ptr %32, align 2, !tbaa !24
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 156164
+  store i16 0, ptr %33, align 4, !tbaa !28
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 156166
+  store i8 0, ptr %34, align 2, !tbaa !29
+  br label %35
 
-36:                                               ; preds = %36, %30
-  %indvars.iv.i51 = phi i64 [ 0, %30 ], [ %indvars.iv.next.i53, %36 ]
-  %37 = shl nuw nsw i64 %indvars.iv.i51, 16
-  %38 = add nuw nsw i64 %37, 268435512
-  %39 = getelementptr inbounds nuw [512 x %struct.Symbol], ptr %.ptr25.i49, i64 0, i64 %indvars.iv.i51
-  store i64 %indvars.iv.i51, ptr %39, align 8, !tbaa !8
-  %.sroa.433.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i64 %38, ptr %.sroa.433.0..sroa_idx.i52, align 8, !tbaa !30
+35:                                               ; preds = %35, %29
+  %indvars.iv.i51 = phi i64 [ 0, %29 ], [ %indvars.iv.next.i53, %35 ]
+  %36 = shl nuw nsw i64 %indvars.iv.i51, 16
+  %37 = add nuw nsw i64 %36, 268435512
+  %38 = getelementptr inbounds nuw [512 x %struct.Symbol], ptr %.ptr25.i49, i64 0, i64 %indvars.iv.i51
+  store i64 %indvars.iv.i51, ptr %38, align 8, !tbaa !8
+  %.sroa.433.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i64 %37, ptr %.sroa.433.0..sroa_idx.i52, align 8, !tbaa !30
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, 256
-  br i1 %exitcond.not.i54, label %.preheader36.i55, label %36, !llvm.loop !31
+  br i1 %exitcond.not.i54, label %.preheader36.i55, label %35, !llvm.loop !31
 
-.preheader36.i55:                                 ; preds = %36, %.preheader36.i55
-  %indvars.iv43.i56 = phi i64 [ %indvars.iv.next44.i58, %.preheader36.i55 ], [ 256, %36 ]
-  %40 = getelementptr inbounds nuw [512 x %struct.Symbol], ptr %.ptr25.i49, i64 0, i64 %indvars.iv43.i56
-  store i64 0, ptr %40, align 8, !tbaa !8
-  %.sroa.4.0..sroa_idx.i57 = getelementptr inbounds nuw i8, ptr %40, i64 8
+.preheader36.i55:                                 ; preds = %35, %.preheader36.i55
+  %indvars.iv43.i56 = phi i64 [ %indvars.iv.next44.i58, %.preheader36.i55 ], [ 256, %35 ]
+  %39 = getelementptr inbounds nuw [512 x %struct.Symbol], ptr %.ptr25.i49, i64 0, i64 %indvars.iv43.i56
+  store i64 0, ptr %39, align 8, !tbaa !8
+  %.sroa.4.0..sroa_idx.i57 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 301924408, ptr %.sroa.4.0..sroa_idx.i57, align 8, !tbaa !30
   %indvars.iv.next44.i58 = add nuw nsw i64 %indvars.iv43.i56, 1
   %exitcond46.not.i59 = icmp eq i64 %indvars.iv.next44.i58, 512
   br i1 %exitcond46.not.i59, label %.preheader35.i60.preheader, label %.preheader36.i55, !llvm.loop !32
 
 .preheader35.i60.preheader:                       ; preds = %.preheader36.i55
-  %.ptr30.i50 = getelementptr inbounds nuw i8, ptr %32, i64 139776
+  %.ptr30.i50 = getelementptr inbounds nuw i8, ptr %31, i64 139776
   br label %.preheader35.i60
 
 .preheader34.i65:                                 ; preds = %.preheader35.i60
-  %41 = getelementptr inbounds nuw i8, ptr %32, i64 131072
-  br label %43
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 131072
+  br label %42
 
 .preheader35.i60:                                 ; preds = %.preheader35.i60.preheader, %.preheader35.i60
   %indvars.iv47.i61 = phi i64 [ %indvars.iv.next48.i63, %.preheader35.i60 ], [ 0, %.preheader35.i60.preheader ]
-  %42 = getelementptr inbounds nuw [1024 x %struct.Symbol], ptr %.ptr30.i50, i64 0, i64 %indvars.iv47.i61
-  store i64 0, ptr %42, align 8, !tbaa !8
-  %.sroa.5.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %41 = getelementptr inbounds nuw [1024 x %struct.Symbol], ptr %.ptr30.i50, i64 0, i64 %indvars.iv47.i61
+  store i64 0, ptr %41, align 8, !tbaa !8
+  %.sroa.5.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 4060020736, ptr %.sroa.5.0..sroa_idx.i62, align 8, !tbaa !30
   %indvars.iv.next48.i63 = add nuw nsw i64 %indvars.iv47.i61, 1
   %exitcond50.not.i64 = icmp eq i64 %indvars.iv.next48.i63, 1024
   br i1 %exitcond50.not.i64, label %.preheader34.i65, label %.preheader35.i60, !llvm.loop !33
 
-43:                                               ; preds = %43, %.preheader34.i65
-  %indvars.iv51.i66 = phi i64 [ 0, %.preheader34.i65 ], [ %indvars.iv.next52.i67, %43 ]
-  %44 = trunc i64 %indvars.iv51.i66 to i16
-  %45 = or disjoint i16 %44, 4096
-  %46 = getelementptr inbounds nuw [256 x i16], ptr %41, i64 0, i64 %indvars.iv51.i66
-  store i16 %45, ptr %46, align 2, !tbaa !34
+42:                                               ; preds = %42, %.preheader34.i65
+  %indvars.iv51.i66 = phi i64 [ 0, %.preheader34.i65 ], [ %indvars.iv.next52.i67, %42 ]
+  %43 = trunc i64 %indvars.iv51.i66 to i16
+  %44 = or disjoint i16 %43, 4096
+  %45 = getelementptr inbounds nuw [256 x i16], ptr %40, i64 0, i64 %indvars.iv51.i66
+  store i16 %44, ptr %45, align 2, !tbaa !34
   %indvars.iv.next52.i67 = add nuw nsw i64 %indvars.iv51.i66, 1
   %exitcond54.not.i68 = icmp eq i64 %indvars.iv.next52.i67, 256
-  br i1 %exitcond54.not.i68, label %.preheader.i69, label %43, !llvm.loop !35
+  br i1 %exitcond54.not.i68, label %.preheader.i69, label %42, !llvm.loop !35
 
-.preheader.i69:                                   ; preds = %43, %.preheader.i69
-  %indvars.iv55.i70 = phi i64 [ %indvars.iv.next56.i71, %.preheader.i69 ], [ 0, %43 ]
-  %47 = trunc i64 %indvars.iv55.i70 to i16
-  %48 = and i16 %47, 255
-  %49 = or disjoint i16 %48, 4096
-  %50 = getelementptr inbounds nuw [65536 x i16], ptr %32, i64 0, i64 %indvars.iv55.i70
-  store i16 %49, ptr %50, align 2, !tbaa !34
+.preheader.i69:                                   ; preds = %42, %.preheader.i69
+  %indvars.iv55.i70 = phi i64 [ %indvars.iv.next56.i71, %.preheader.i69 ], [ 0, %42 ]
+  %46 = trunc i64 %indvars.iv55.i70 to i16
+  %47 = and i16 %46, 255
+  %48 = or disjoint i16 %47, 4096
+  %49 = getelementptr inbounds nuw [65536 x i16], ptr %31, i64 0, i64 %indvars.iv55.i70
+  store i16 %48, ptr %49, align 2, !tbaa !34
   %indvars.iv.next56.i71 = add nuw nsw i64 %indvars.iv55.i70, 1
   %exitcond58.not.i72 = icmp eq i64 %indvars.iv.next56.i71, 65536
-  br i1 %exitcond58.not.i72, label %51, label %.preheader.i69, !llvm.loop !36
+  br i1 %exitcond58.not.i72, label %50, label %.preheader.i69, !llvm.loop !36
 
-51:                                               ; preds = %.preheader.i69
-  %52 = getelementptr inbounds nuw i8, ptr %32, i64 156168
+50:                                               ; preds = %.preheader.i69
+  %51 = zext i1 %3 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %31, i64 156168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %52, i8 0, i64 18, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
-  store i8 %18, ptr %13, align 2, !tbaa !29
+  store i8 %51, ptr %13, align 2, !tbaa !29
   br i1 %3, label %53, label %54
 
-53:                                               ; preds = %51
+53:                                               ; preds = %50
   store i16 0, ptr %12, align 4, !tbaa !28
   br label %86
 
-54:                                               ; preds = %51
+54:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %8, i8 0, i64 512, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -525,7 +522,7 @@ _ZN6SymbolC2EPhS0_.exit.i.i:                      ; preds = %116, %113
 
 146:                                              ; preds = %140, %139
   %147 = and i64 %.0..0..i.i, 255
-  %148 = getelementptr inbounds nuw [256 x i16], ptr %20, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw [256 x i16], ptr %19, i64 0, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !34
   %150 = and i16 %149, 511
   br label %_ZNK11SymbolTable17findLongestSymbolEPhS0_.exit.i
@@ -637,7 +634,7 @@ _ZN8Counters9count1IncEj.exit79.i:                ; preds = %178, %172, %_ZN8Cou
 
 209:                                              ; preds = %203
   %210 = and i64 %194, 255
-  %211 = getelementptr inbounds nuw [256 x i16], ptr %20, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw [256 x i16], ptr %19, i64 0, i64 %210
   %212 = load i16, ptr %211, align 2, !tbaa !34
   %213 = and i16 %212, 511
   br label %258
@@ -702,7 +699,7 @@ _ZN6SymbolC2EPhS0_.exit.i81.i:                    ; preds = %218, %214
 
 248:                                              ; preds = %242, %241
   %249 = and i64 %.0..0..i84.i, 255
-  %250 = getelementptr inbounds nuw [256 x i16], ptr %20, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw [256 x i16], ptr %19, i64 0, i64 %249
   %251 = load i16, ptr %250, align 2, !tbaa !34
   %252 = and i16 %251, 511
   br label %_ZNK11SymbolTable17findLongestSymbolEPhS0_.exit88.i
@@ -805,7 +802,7 @@ _ZN8Counters9count2IncEjj.exit91.i.backedge:      ; preds = %286, %280, %_ZN8Cou
 303:                                              ; preds = %"_ZZ16buildSymbolTableR8CountersSt6vectorIPhSaIS2_EEPmbENK3$_1clEP11SymbolTableS0_.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %9, ptr noundef nonnull align 1 dereferenceable(394240) %0, i64 512, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %91, ptr noundef nonnull align 1 dereferenceable(512) %88, i64 512, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(156186) %32, ptr noundef nonnull align 8 dereferenceable(156186) %10, i64 156186, i1 false), !tbaa.struct !48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(156186) %31, ptr noundef nonnull align 8 dereferenceable(156186) %10, i64 156186, i1 false), !tbaa.struct !48
   br label %304
 
 304:                                              ; preds = %303, %"_ZZ16buildSymbolTableR8CountersSt6vectorIPhSaIS2_EEPmbENK3$_1clEP11SymbolTableS0_.exit"
@@ -822,11 +819,11 @@ _ZN8Counters9count2IncEjj.exit91.i.backedge:      ; preds = %286, %280, %_ZN8Cou
   tail call void @_ZdlPv(ptr noundef nonnull %10) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(394240) %0, ptr noundef nonnull align 16 dereferenceable(512) %9, i64 512, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %88, ptr noundef nonnull align 16 dereferenceable(512) %91, i64 512, i1 false)
-  call fastcc void @"_ZZ16buildSymbolTableR8CountersSt6vectorIPhSaIS2_EEPmbENK3$_2clEP11SymbolTableS0_"(ptr nonnull %7, ptr noundef %32, ptr noundef nonnull align 1 dereferenceable(394240) %0)
-  tail call void @_ZN11SymbolTable8finalizeEh(ptr noundef nonnull align 8 dereferenceable(156186) %32, i8 noundef zeroext %18)
+  call fastcc void @"_ZZ16buildSymbolTableR8CountersSt6vectorIPhSaIS2_EEPmbENK3$_2clEP11SymbolTableS0_"(ptr nonnull %7, ptr noundef %31, ptr noundef nonnull align 1 dereferenceable(394240) %0)
+  tail call void @_ZN11SymbolTable8finalizeEh(ptr noundef nonnull align 8 dereferenceable(156186) %31, i8 noundef zeroext %51)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
-  ret ptr %32
+  ret ptr %31
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

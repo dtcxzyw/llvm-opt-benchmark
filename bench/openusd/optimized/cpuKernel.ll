@@ -212,12 +212,12 @@ _ZN10OpenSubdiv6v3_6_03Osd20ComputeStencilKernelILi8EEEvPKfPfPKiS7_S4_ii.exit: ;
   br i1 %101, label %.lr.ph.i102.preheader.us, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.preheader
 
 _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.preheader: ; preds = %.lr.ph
+  %scevgep = getelementptr i8, ptr %.158114, i64 4
   %102 = add nsw i32 %98, -1
   %103 = zext nneg i32 %102 to i64
   %104 = shl nuw nsw i64 %103, 2
-  %scevgep128 = getelementptr i8, ptr %.160113, i64 4
-  %scevgep = getelementptr i8, ptr %.158114, i64 4
   %scevgep127 = getelementptr i8, ptr %scevgep, i64 %104
+  %scevgep128 = getelementptr i8, ptr %.160113, i64 4
   %scevgep129 = getelementptr i8, ptr %scevgep128, i64 %104
   br label %._crit_edge
 
@@ -362,16 +362,16 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuEvalStencilsEPKfRKNS1_16BufferDescri
   br i1 %68, label %.lr.ph.i.preheader.us, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.preheader
 
 _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.preheader: ; preds = %.lr.ph
+  %scevgep = getelementptr i8, ptr %.174109, i64 4
   %70 = add nsw i32 %64, -1
   %71 = zext nneg i32 %70 to i64
   %72 = shl nuw nsw i64 %71, 2
-  %scevgep125 = getelementptr i8, ptr %.180107, i64 4
-  %scevgep127 = getelementptr i8, ptr %.177108, i64 4
-  %scevgep129 = getelementptr i8, ptr %.172110, i64 4
-  %scevgep = getelementptr i8, ptr %.174109, i64 4
   %scevgep124 = getelementptr i8, ptr %scevgep, i64 %72
+  %scevgep125 = getelementptr i8, ptr %.180107, i64 4
   %scevgep126 = getelementptr i8, ptr %scevgep125, i64 %72
+  %scevgep127 = getelementptr i8, ptr %.177108, i64 4
   %scevgep128 = getelementptr i8, ptr %scevgep127, i64 %72
+  %scevgep129 = getelementptr i8, ptr %.172110, i64 4
   %scevgep130 = getelementptr i8, ptr %scevgep129, i64 %72
   br label %._crit_edge
 
@@ -605,22 +605,22 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuEvalStencilsEPKfRKNS1_16BufferDescri
   br i1 %107, label %.lr.ph.i.preheader.us, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader
 
 _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader: ; preds = %.lr.ph
+  %scevgep = getelementptr i8, ptr %.1125199, i64 4
   %109 = add nsw i32 %103, -1
   %110 = zext nneg i32 %109 to i64
   %111 = shl nuw nsw i64 %110, 2
-  %scevgep221 = getelementptr i8, ptr %.1131197, i64 4
-  %scevgep223 = getelementptr i8, ptr %.1137195, i64 4
-  %scevgep225 = getelementptr i8, ptr %.1140194, i64 4
-  %scevgep227 = getelementptr i8, ptr %.1134196, i64 4
-  %scevgep229 = getelementptr i8, ptr %.1128198, i64 4
-  %scevgep231 = getelementptr i8, ptr %.1123200, i64 4
-  %scevgep = getelementptr i8, ptr %.1125199, i64 4
   %scevgep220 = getelementptr i8, ptr %scevgep, i64 %111
+  %scevgep221 = getelementptr i8, ptr %.1131197, i64 4
   %scevgep222 = getelementptr i8, ptr %scevgep221, i64 %111
+  %scevgep223 = getelementptr i8, ptr %.1137195, i64 4
   %scevgep224 = getelementptr i8, ptr %scevgep223, i64 %111
+  %scevgep225 = getelementptr i8, ptr %.1140194, i64 4
   %scevgep226 = getelementptr i8, ptr %scevgep225, i64 %111
+  %scevgep227 = getelementptr i8, ptr %.1134196, i64 4
   %scevgep228 = getelementptr i8, ptr %scevgep227, i64 %111
+  %scevgep229 = getelementptr i8, ptr %.1128198, i64 4
   %scevgep230 = getelementptr i8, ptr %scevgep229, i64 %111
+  %scevgep231 = getelementptr i8, ptr %.1123200, i64 4
   %scevgep232 = getelementptr i8, ptr %scevgep231, i64 %111
   br label %._crit_edge
 

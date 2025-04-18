@@ -258,9 +258,9 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   %9 = add nuw nsw i32 %8, %umin
   %10 = mul i32 %9, 400
   %11 = add i32 %year, %10
-  %12 = zext nneg i32 %9 to i64
-  %.neg = mul nsw i64 %12, -146097
-  %13 = add i32 %11, 400
+  %12 = add i32 %11, 400
+  %13 = zext nneg i32 %9 to i64
+  %.neg = mul nsw i64 %13, -146097
   %14 = add nsw i64 %.neg, -146097
   br label %while.cond1.preheader
 
@@ -269,26 +269,26 @@ if.then:                                          ; preds = %entry, %_ZN8faceboo
   unreachable
 
 while.cond1.preheader:                            ; preds = %while.body.preheader, %while.cond.preheader
-  %year.addr.0.lcssa = phi i32 [ %year, %while.cond.preheader ], [ %13, %while.body.preheader ]
+  %year.addr.0.lcssa = phi i32 [ %year, %while.cond.preheader ], [ %12, %while.body.preheader ]
   %daysSinceEpoch.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %14, %while.body.preheader ]
   %cmp236 = icmp samesign ugt i32 %year.addr.0.lcssa, 2369
   br i1 %cmp236, label %while.body3.preheader, label %while.end6
 
 while.body3.preheader:                            ; preds = %while.cond1.preheader
-  %15 = add i32 %year.addr.0.lcssa, -2370
-  %16 = urem i32 %15, 400
-  %.neg42 = sub i32 %16, %15
-  %17 = udiv i32 %15, 400
-  %18 = zext nneg i32 %17 to i64
-  %19 = mul nuw nsw i64 %18, 146097
-  %20 = add nsw i64 %daysSinceEpoch.0.lcssa, %19
-  %21 = add i32 %year.addr.0.lcssa, -400
-  %22 = add i32 %.neg42, %21
-  %23 = add nsw i64 %20, 146097
+  %15 = add i32 %year.addr.0.lcssa, -400
+  %16 = add i32 %year.addr.0.lcssa, -2370
+  %17 = urem i32 %16, 400
+  %.neg42 = sub i32 %17, %16
+  %18 = add i32 %.neg42, %15
+  %19 = udiv i32 %16, 400
+  %20 = zext nneg i32 %19 to i64
+  %21 = mul nuw nsw i64 %20, 146097
+  %22 = add nsw i64 %daysSinceEpoch.0.lcssa, %21
+  %23 = add nsw i64 %22, 146097
   br label %while.end6
 
 while.end6:                                       ; preds = %while.body3.preheader, %while.cond1.preheader
-  %year.addr.1.lcssa = phi i32 [ %year.addr.0.lcssa, %while.cond1.preheader ], [ %22, %while.body3.preheader ]
+  %year.addr.1.lcssa = phi i32 [ %year.addr.0.lcssa, %while.cond1.preheader ], [ %18, %while.body3.preheader ]
   %daysSinceEpoch.1.lcssa = phi i64 [ %daysSinceEpoch.0.lcssa, %while.cond1.preheader ], [ %23, %while.body3.preheader ]
   %sub7 = add nsw i32 %year.addr.1.lcssa, -1970
   %idxprom = zext nneg i32 %sub7 to i64
@@ -395,10 +395,10 @@ while.body.preheader.i:                           ; preds = %while.cond.preheade
   %8 = udiv i32 %7, 400
   %9 = add nuw nsw i32 %8, %umin.i
   %10 = mul i32 %9, 400
-  %11 = zext nneg i32 %9 to i64
-  %.neg.i = mul nsw i64 %11, -146097
-  %12 = add nsw i32 %weekYear, 400
-  %13 = add i32 %12, %10
+  %11 = add nsw i32 %weekYear, 400
+  %12 = add i32 %11, %10
+  %13 = zext nneg i32 %9 to i64
+  %.neg.i = mul nsw i64 %13, -146097
   %14 = add nsw i64 %.neg.i, -146097
   br label %while.cond1.preheader.i
 
@@ -407,7 +407,7 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox4
   unreachable
 
 while.cond1.preheader.i:                          ; preds = %while.body.preheader.i, %while.cond.preheader.i
-  %year.addr.0.lcssa.i = phi i32 [ %weekYear, %while.cond.preheader.i ], [ %13, %while.body.preheader.i ]
+  %year.addr.0.lcssa.i = phi i32 [ %weekYear, %while.cond.preheader.i ], [ %12, %while.body.preheader.i ]
   %daysSinceEpoch.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %14, %while.body.preheader.i ]
   %cmp236.i = icmp samesign ugt i32 %year.addr.0.lcssa.i, 2369
   br i1 %cmp236.i, label %while.body3.preheader.i, label %while.end6.i
@@ -415,16 +415,16 @@ while.cond1.preheader.i:                          ; preds = %while.body.preheade
 while.body3.preheader.i:                          ; preds = %while.cond1.preheader.i
   %15 = add i32 %year.addr.0.lcssa.i, -2370
   %16 = urem i32 %15, 400
-  %17 = udiv i32 %15, 400
-  %18 = zext nneg i32 %17 to i64
-  %19 = mul nuw nsw i64 %18, 146097
-  %20 = add nuw nsw i32 %16, 1970
+  %17 = add nuw nsw i32 %16, 1970
+  %18 = udiv i32 %15, 400
+  %19 = zext nneg i32 %18 to i64
+  %20 = mul nuw nsw i64 %19, 146097
   %21 = add nsw i64 %daysSinceEpoch.0.lcssa.i, 146097
-  %22 = add nsw i64 %21, %19
+  %22 = add nsw i64 %21, %20
   br label %while.end6.i
 
 while.end6.i:                                     ; preds = %while.body3.preheader.i, %while.cond1.preheader.i
-  %year.addr.1.lcssa.i = phi i32 [ %year.addr.0.lcssa.i, %while.cond1.preheader.i ], [ %20, %while.body3.preheader.i ]
+  %year.addr.1.lcssa.i = phi i32 [ %year.addr.0.lcssa.i, %while.cond1.preheader.i ], [ %17, %while.body3.preheader.i ]
   %daysSinceEpoch.1.lcssa.i = phi i64 [ %daysSinceEpoch.0.lcssa.i, %while.cond1.preheader.i ], [ %22, %while.body3.preheader.i ]
   %sub7.i = add nsw i32 %year.addr.1.lcssa.i, -1970
   %idxprom.i = zext nneg i32 %sub7.i to i64
@@ -569,10 +569,10 @@ while.body.preheader.i:                           ; preds = %while.cond.preheade
   %6 = udiv i32 %5, 400
   %7 = add nuw nsw i32 %6, %umin.i
   %8 = mul i32 %7, 400
-  %9 = zext nneg i32 %7 to i64
-  %.neg.i = mul nsw i64 %9, -146097
-  %10 = add nsw i32 %year, 400
-  %11 = add i32 %10, %8
+  %9 = add nsw i32 %year, 400
+  %10 = add i32 %9, %8
+  %11 = zext nneg i32 %7 to i64
+  %.neg.i = mul nsw i64 %11, -146097
   %12 = add nsw i64 %.neg.i, -146097
   br label %while.cond1.preheader.i
 
@@ -581,7 +581,7 @@ if.then.i:                                        ; preds = %_ZN8facebook5velox4
   unreachable
 
 while.cond1.preheader.i:                          ; preds = %while.body.preheader.i, %while.cond.preheader.i
-  %year.addr.0.lcssa.i = phi i32 [ %year, %while.cond.preheader.i ], [ %11, %while.body.preheader.i ]
+  %year.addr.0.lcssa.i = phi i32 [ %year, %while.cond.preheader.i ], [ %10, %while.body.preheader.i ]
   %daysSinceEpoch.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %12, %while.body.preheader.i ]
   %cmp236.i = icmp samesign ugt i32 %year.addr.0.lcssa.i, 2369
   br i1 %cmp236.i, label %while.body3.preheader.i, label %while.end6.i
@@ -589,16 +589,16 @@ while.cond1.preheader.i:                          ; preds = %while.body.preheade
 while.body3.preheader.i:                          ; preds = %while.cond1.preheader.i
   %13 = add i32 %year.addr.0.lcssa.i, -2370
   %14 = urem i32 %13, 400
-  %15 = udiv i32 %13, 400
-  %16 = zext nneg i32 %15 to i64
-  %17 = mul nuw nsw i64 %16, 146097
-  %18 = add nuw nsw i32 %14, 1970
+  %15 = add nuw nsw i32 %14, 1970
+  %16 = udiv i32 %13, 400
+  %17 = zext nneg i32 %16 to i64
+  %18 = mul nuw nsw i64 %17, 146097
   %19 = add nsw i64 %daysSinceEpoch.0.lcssa.i, 146097
-  %20 = add nsw i64 %19, %17
+  %20 = add nsw i64 %19, %18
   br label %while.end6.i
 
 while.end6.i:                                     ; preds = %while.body3.preheader.i, %while.cond1.preheader.i
-  %year.addr.1.lcssa.i = phi i32 [ %year.addr.0.lcssa.i, %while.cond1.preheader.i ], [ %18, %while.body3.preheader.i ]
+  %year.addr.1.lcssa.i = phi i32 [ %year.addr.0.lcssa.i, %while.cond1.preheader.i ], [ %15, %while.body3.preheader.i ]
   %daysSinceEpoch.1.lcssa.i = phi i64 [ %daysSinceEpoch.0.lcssa.i, %while.cond1.preheader.i ], [ %20, %while.body3.preheader.i ]
   %sub7.i = add nsw i32 %year.addr.1.lcssa.i, -1970
   %idxprom.i = zext nneg i32 %sub7.i to i64
@@ -825,10 +825,10 @@ while.body.preheader.i:                           ; preds = %while.cond.preheade
   %21 = udiv i32 %20, 400
   %22 = add nuw nsw i32 %21, %umin.i
   %23 = mul i32 %22, 400
-  %24 = zext nneg i32 %22 to i64
-  %.neg.i = mul nsw i64 %24, -146097
-  %25 = add nsw i32 %year.2, 400
-  %26 = add i32 %25, %23
+  %24 = add nsw i32 %year.2, 400
+  %25 = add i32 %24, %23
+  %26 = zext nneg i32 %22 to i64
+  %.neg.i = mul nsw i64 %26, -146097
   %27 = add nsw i64 %.neg.i, -146097
   br label %while.cond1.preheader.i
 
@@ -837,7 +837,7 @@ if.then.i114:                                     ; preds = %_ZN8facebook5velox4
   unreachable
 
 while.cond1.preheader.i:                          ; preds = %while.body.preheader.i, %while.cond.preheader.i
-  %year.addr.0.lcssa.i = phi i32 [ %year.2, %while.cond.preheader.i ], [ %26, %while.body.preheader.i ]
+  %year.addr.0.lcssa.i = phi i32 [ %year.2, %while.cond.preheader.i ], [ %25, %while.body.preheader.i ]
   %daysSinceEpoch.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %27, %while.body.preheader.i ]
   %cmp236.i = icmp samesign ugt i32 %year.addr.0.lcssa.i, 2369
   br i1 %cmp236.i, label %while.body3.preheader.i, label %while.end6.i
@@ -845,16 +845,16 @@ while.cond1.preheader.i:                          ; preds = %while.body.preheade
 while.body3.preheader.i:                          ; preds = %while.cond1.preheader.i
   %28 = add i32 %year.addr.0.lcssa.i, -2370
   %29 = urem i32 %28, 400
-  %30 = udiv i32 %28, 400
-  %31 = zext nneg i32 %30 to i64
-  %32 = mul nuw nsw i64 %31, 146097
-  %33 = add nuw nsw i32 %29, 1970
+  %30 = add nuw nsw i32 %29, 1970
+  %31 = udiv i32 %28, 400
+  %32 = zext nneg i32 %31 to i64
+  %33 = mul nuw nsw i64 %32, 146097
   %34 = add nsw i64 %daysSinceEpoch.0.lcssa.i, 146097
-  %35 = add nsw i64 %34, %32
+  %35 = add nsw i64 %34, %33
   br label %while.end6.i
 
 while.end6.i:                                     ; preds = %while.body3.preheader.i, %while.cond1.preheader.i
-  %year.addr.1.lcssa.i = phi i32 [ %year.addr.0.lcssa.i, %while.cond1.preheader.i ], [ %33, %while.body3.preheader.i ]
+  %year.addr.1.lcssa.i = phi i32 [ %year.addr.0.lcssa.i, %while.cond1.preheader.i ], [ %30, %while.body3.preheader.i ]
   %daysSinceEpoch.1.lcssa.i = phi i64 [ %daysSinceEpoch.0.lcssa.i, %while.cond1.preheader.i ], [ %35, %while.body3.preheader.i ]
   %sub7.i = add nsw i32 %year.addr.1.lcssa.i, -1970
   %idxprom.i = zext nneg i32 %sub7.i to i64

@@ -3794,11 +3794,11 @@ _ZN2cvL19find_neighbor_pointEiiRKNS_3MatEiRi.exit.thread.us: ; preds = %._crit_e
   br i1 %148, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !190
 
 .lr.ph.split:                                     ; preds = %.lr.ph
+  %149 = add i64 %.082125, 1
   %smax = call i32 @llvm.smax.i32(i32 %94, i32 1)
-  %149 = add nsw i32 %smax, -1
-  %150 = zext nneg i32 %149 to i64
-  %151 = add i64 %.082125, 1
-  %152 = add i64 %151, %150
+  %150 = add nsw i32 %smax, -1
+  %151 = zext nneg i32 %150 to i64
+  %152 = add i64 %149, %151
   br label %._crit_edge
 
 ._crit_edge126.loopexit:                          ; preds = %._crit_edge

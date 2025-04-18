@@ -110,18 +110,18 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_mq_vopen(ptr noundef 
 60:                                               ; preds = %49, %56, %21
   %.041 = phi ptr [ %52, %56 ], [ null, %49 ], [ null, %21 ]
   %.039 = phi i32 [ %50, %56 ], [ %50, %49 ], [ 0, %21 ]
-  %61 = xor i32 %3, -1
-  br label %62
+  br label %61
 
-62:                                               ; preds = %62, %60
-  %.042 = phi ptr [ %1, %60 ], [ %65, %62 ]
-  %63 = load i8, ptr %.042, align 1
-  %64 = icmp eq i8 %63, 47
-  %65 = getelementptr inbounds nuw i8, ptr %.042, i64 1
-  br i1 %64, label %62, label %66, !llvm.loop !6
+61:                                               ; preds = %61, %60
+  %.042 = phi ptr [ %1, %60 ], [ %64, %61 ]
+  %62 = load i8, ptr %.042, align 1
+  %63 = icmp eq i8 %62, 47
+  %64 = getelementptr inbounds nuw i8, ptr %.042, i64 1
+  br i1 %63, label %61, label %65, !llvm.loop !6
 
-66:                                               ; preds = %62
-  %67 = and i32 %.039, %61
+65:                                               ; preds = %61
+  %66 = xor i32 %3, -1
+  %67 = and i32 %.039, %66
   %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %.042) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #8, !srcloc !8
@@ -136,7 +136,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_mq_vopen(ptr noundef 
   %73 = icmp sgt i32 %72, -1
   br i1 %73, label %74, label %85
 
-74:                                               ; preds = %66
+74:                                               ; preds = %65
   %75 = load ptr, ptr %70, align 8
   store ptr %75, ptr %8, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 26
@@ -158,7 +158,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @file_mq_vopen(ptr noundef 
   %.not58 = icmp eq ptr %5, null
   br i1 %.not58, label %106, label %.sink.split
 
-85:                                               ; preds = %66
+85:                                               ; preds = %65
   br i1 %.not, label %114, label %86
 
 86:                                               ; preds = %85

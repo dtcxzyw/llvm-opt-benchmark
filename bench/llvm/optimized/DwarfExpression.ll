@@ -2269,24 +2269,24 @@ thread-pre-split:                                 ; preds = %201, %190
   br i1 %or.cond74, label %_ZN4llvm18DIExpressionCursor7consumeEj.exit, label %231
 
 231:                                              ; preds = %227
-  %232 = trunc nuw i64 %210 to i32
   %.pre.i.i.i84 = load ptr, ptr %2, align 8, !tbaa !171
   br label %.lr.ph.i.i.i85
 
 .lr.ph.i.i.i85:                                   ; preds = %.lr.ph.i.i.i85, %231
-  %233 = phi ptr [ %237, %.lr.ph.i.i.i85 ], [ %.pre.i.i.i84, %231 ]
-  %.02.i.i.i86 = phi i64 [ %234, %.lr.ph.i.i.i85 ], [ 2, %231 ]
-  %234 = add nsw i64 %.02.i.i.i86, -1
-  %235 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #15
-  %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds nuw i64, ptr %233, i64 %236
-  %238 = ptrtoint ptr %237 to i64
-  store i64 %238, ptr %2, align 8, !tbaa !164
-  %.not.i.i.i87 = icmp eq i64 %234, 0
+  %232 = phi ptr [ %236, %.lr.ph.i.i.i85 ], [ %.pre.i.i.i84, %231 ]
+  %.02.i.i.i86 = phi i64 [ %233, %.lr.ph.i.i.i85 ], [ 2, %231 ]
+  %233 = add nsw i64 %.02.i.i.i86, -1
+  %234 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #15
+  %235 = zext i32 %234 to i64
+  %236 = getelementptr inbounds nuw i64, ptr %232, i64 %235
+  %237 = ptrtoint ptr %236 to i64
+  store i64 %237, ptr %2, align 8, !tbaa !164
+  %.not.i.i.i87 = icmp eq i64 %233, 0
   br i1 %.not.i.i.i87, label %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit, label %.lr.ph.i.i.i85, !llvm.loop !176
 
 _ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit: ; preds = %.lr.ph.i.i.i85
-  %239 = sub i32 0, %232
+  %238 = trunc nuw i64 %210 to i32
+  %239 = sub i32 0, %238
   br label %_ZN4llvm18DIExpressionCursor7consumeEj.exit
 
 _ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit134: ; preds = %.lr.ph.i.i.i

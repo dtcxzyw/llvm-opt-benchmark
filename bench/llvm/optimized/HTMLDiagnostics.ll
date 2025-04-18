@@ -7925,29 +7925,29 @@ _ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit:
   store ptr %45, ptr %44, align 8
   %46 = call noundef ptr @_ZNK5clang13FullSourceLoc16getCharacterDataEPb(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef null) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #20
-  %47 = zext i32 %41 to i64
-  %48 = sub nsw i64 0, %47
-  %49 = load ptr, ptr %11, align 8, !tbaa !608
-  %50 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %51 = load i64, ptr %50, align 8, !tbaa !609
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %51
-  br label %53
+  %47 = load ptr, ptr %11, align 8, !tbaa !608
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !609
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
+  br label %51
 
-53:                                               ; preds = %53, %_ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit
-  %.0 = phi ptr [ %46, %_ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit ], [ %58, %53 ]
-  %54 = load i8, ptr %.0, align 1, !tbaa !14
-  %55 = icmp ne i8 %54, 10
-  %56 = icmp ne ptr %.0, %52
-  %57 = and i1 %56, %55
-  %58 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br i1 %57, label %53, label %.preheader315, !llvm.loop !610
+51:                                               ; preds = %51, %_ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit
+  %.0 = phi ptr [ %46, %_ZNK5clang13SourceManager15getBufferOrFakeENS_6FileIDENS_14SourceLocationE.exit ], [ %56, %51 ]
+  %52 = load i8, ptr %.0, align 1, !tbaa !14
+  %53 = icmp ne i8 %52, 10
+  %54 = icmp ne ptr %.0, %50
+  %55 = and i1 %54, %53
+  %56 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  br i1 %55, label %51, label %.preheader315, !llvm.loop !610
 
-.preheader315:                                    ; preds = %53
+.preheader315:                                    ; preds = %51
   %.not317 = icmp eq i32 %41, 0
   br i1 %.not317, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader315
-  %59 = getelementptr inbounds i8, ptr %46, i64 %48
+  %57 = zext i32 %41 to i64
+  %58 = sub nsw i64 0, %57
+  %59 = getelementptr inbounds i8, ptr %46, i64 %58
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph

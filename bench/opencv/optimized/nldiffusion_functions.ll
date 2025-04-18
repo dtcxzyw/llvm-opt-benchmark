@@ -1814,12 +1814,12 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %60
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.preheader, %70
-  %75 = sub nsw i64 %36, %68
-  %76 = sub i64 %45, %67
-  %77 = and i64 %76, -4
-  %78 = add i64 %77, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %.sroa.15.091, i8 0, i64 %78, i1 false), !tbaa !36
-  %79 = getelementptr inbounds nuw float, ptr %.sroa.15.091, i64 %75
+  %75 = sub i64 %45, %67
+  %76 = and i64 %75, -4
+  %77 = add i64 %76, 4
+  call void @llvm.memset.p0.i64(ptr align 4 %.sroa.15.091, i8 0, i64 %77, i1 false), !tbaa !36
+  %78 = sub nsw i64 %36, %68
+  %79 = getelementptr inbounds nuw float, ptr %.sroa.15.091, i64 %78
   br label %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit
 
 _ZNSt6vectorIfSaIfEE6assignEmRKf.exit.loopexit95: ; preds = %65

@@ -118,35 +118,32 @@ gettag.exit.thread31:                             ; preds = %8, %gettag.exit
 
 .preheader.i24:                                   ; preds = %29
   %.not31.i = icmp eq i8 %26, 0
-  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %.preheader.i24
-  %31 = add nsw i8 %26, -1
-  %32 = zext nneg i8 %31 to i64
-  %33 = add i64 %.134, %32
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %34 = phi i64 [ %36, %.lr.ph.i ], [ %25, %.lr.ph.i.preheader ]
-  %.02330.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.02429.i = phi i8 [ %41, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %35 = shl i64 %.02330.i, 8
-  %36 = add i64 %34, 1
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 %34
-  %38 = load i8, ptr %37, align 1, !tbaa !18
-  %39 = zext i8 %38 to i64
-  %40 = or disjoint i64 %35, %39
-  %41 = add nuw nsw i8 %.02429.i, 1
-  %exitcond.not.i = icmp eq i8 %41, %26
+.lr.ph.i:                                         ; preds = %.preheader.i24, %.lr.ph.i
+  %31 = phi i64 [ %33, %.lr.ph.i ], [ %25, %.preheader.i24 ]
+  %.02330.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %.preheader.i24 ]
+  %.02429.i = phi i8 [ %38, %.lr.ph.i ], [ 0, %.preheader.i24 ]
+  %32 = shl i64 %.02330.i, 8
+  %33 = add i64 %31, 1
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 %31
+  %35 = load i8, ptr %34, align 1, !tbaa !18
+  %36 = zext i8 %35 to i64
+  %37 = or disjoint i64 %32, %36
+  %38 = add nuw nsw i8 %.02429.i, 1
+  %exitcond.not.i = icmp eq i8 %38, %26
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %42 = add i64 %33, 2
+  %39 = add nsw i8 %26, -1
+  %40 = zext nneg i8 %39 to i64
+  %41 = add i64 %.134, %40
+  %42 = add i64 %41, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader.i24
   %.2 = phi i64 [ %25, %.preheader.i24 ], [ %42, %._crit_edge.i.loopexit ]
-  %.023.lcssa.i = phi i64 [ 0, %.preheader.i24 ], [ %40, %._crit_edge.i.loopexit ]
+  %.023.lcssa.i = phi i64 [ 0, %.preheader.i24 ], [ %37, %._crit_edge.i.loopexit ]
   %43 = sub i64 4294967295, %.2
   %44 = icmp ugt i64 %.023.lcssa.i, %43
   %45 = add i64 %.023.lcssa.i, %.2
@@ -272,39 +269,36 @@ gettag.exit:                                      ; preds = %.preheader.i
 
 .preheader.i51:                                   ; preds = %32
   %.not31.i = icmp eq i8 %29, 0
-  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %.preheader.i51
-  %34 = add nsw i8 %29, -1
-  %35 = zext nneg i8 %34 to i64
-  %36 = add i64 %.165, %35
-  br label %.lr.ph.i
+  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i
 
 getlength.exit.thread69:                          ; preds = %32
-  %37 = zext nneg i8 %29 to i32
+  %34 = zext nneg i8 %29 to i32
   br label %53
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %38 = phi i64 [ %40, %.lr.ph.i ], [ %28, %.lr.ph.i.preheader ]
-  %.02330.i = phi i64 [ %44, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.02429.i = phi i8 [ %45, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %39 = shl i64 %.02330.i, 8
-  %40 = add i64 %38, 1
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 %38
-  %42 = load i8, ptr %41, align 1, !tbaa !18
-  %43 = zext i8 %42 to i64
-  %44 = or disjoint i64 %39, %43
-  %45 = add nuw nsw i8 %.02429.i, 1
-  %exitcond.not.i = icmp eq i8 %45, %29
+.lr.ph.i:                                         ; preds = %.preheader.i51, %.lr.ph.i
+  %35 = phi i64 [ %37, %.lr.ph.i ], [ %28, %.preheader.i51 ]
+  %.02330.i = phi i64 [ %41, %.lr.ph.i ], [ 0, %.preheader.i51 ]
+  %.02429.i = phi i8 [ %42, %.lr.ph.i ], [ 0, %.preheader.i51 ]
+  %36 = shl i64 %.02330.i, 8
+  %37 = add i64 %35, 1
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 %35
+  %39 = load i8, ptr %38, align 1, !tbaa !18
+  %40 = zext i8 %39 to i64
+  %41 = or disjoint i64 %36, %40
+  %42 = add nuw nsw i8 %.02429.i, 1
+  %exitcond.not.i = icmp eq i8 %42, %29
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %46 = add i64 %36, 2
+  %43 = add nsw i8 %29, -1
+  %44 = zext nneg i8 %43 to i64
+  %45 = add i64 %.165, %44
+  %46 = add i64 %45, 2
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader.i51
   %.2 = phi i64 [ %28, %.preheader.i51 ], [ %46, %._crit_edge.i.loopexit ]
-  %.023.lcssa.i = phi i64 [ 0, %.preheader.i51 ], [ %44, %._crit_edge.i.loopexit ]
+  %.023.lcssa.i = phi i64 [ 0, %.preheader.i51 ], [ %41, %._crit_edge.i.loopexit ]
   %47 = sub i64 4294967295, %.2
   %48 = icmp ugt i64 %.023.lcssa.i, %47
   %49 = add i64 %.023.lcssa.i, %.2
@@ -316,7 +310,7 @@ getlength.exit.thread69:                          ; preds = %32
   br i1 %or.cond, label %gettag.exit.thread, label %53
 
 53:                                               ; preds = %._crit_edge.i, %getlength.exit.thread69
-  %.0.i5073 = phi i32 [ %37, %getlength.exit.thread69 ], [ %51, %._crit_edge.i ]
+  %.0.i5073 = phi i32 [ %34, %getlength.exit.thread69 ], [ %51, %._crit_edge.i ]
   %.372 = phi i64 [ %28, %getlength.exit.thread69 ], [ %.2, %._crit_edge.i ]
   %54 = icmp ult i32 %.016.i66, 37
   br i1 %54, label %55, label %60

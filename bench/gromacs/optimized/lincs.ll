@@ -8364,36 +8364,24 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %85 = load ptr, ptr %84, align 8, !tbaa !140
   %86 = getelementptr inbounds nuw i8, ptr %38, i64 472
   %87 = load ptr, ptr %86, align 8, !tbaa !192
-  %88 = ptrtoint ptr %87 to i64
-  %89 = ptrtoint ptr %85 to i64
-  %90 = sub i64 %88, %89
-  %91 = getelementptr inbounds nuw i8, ptr %38, i64 488
-  %92 = load ptr, ptr %91, align 8, !tbaa !140
-  %93 = getelementptr inbounds nuw i8, ptr %38, i64 496
-  %94 = load ptr, ptr %93, align 8, !tbaa !192
-  %95 = ptrtoint ptr %94 to i64
-  %96 = ptrtoint ptr %92 to i64
-  %97 = sub i64 %95, %96
-  %98 = getelementptr inbounds nuw i8, ptr %38, i64 512
+  %88 = getelementptr inbounds nuw i8, ptr %38, i64 488
+  %89 = load ptr, ptr %88, align 8, !tbaa !140
+  %90 = getelementptr inbounds nuw i8, ptr %38, i64 496
+  %91 = load ptr, ptr %90, align 8, !tbaa !192
+  %92 = getelementptr inbounds nuw i8, ptr %38, i64 512
+  %93 = load ptr, ptr %92, align 8, !tbaa !140
+  %94 = getelementptr inbounds nuw i8, ptr %38, i64 536
+  %95 = load ptr, ptr %94, align 8, !tbaa !140
+  %96 = getelementptr inbounds nuw i8, ptr %38, i64 544
+  %97 = load ptr, ptr %96, align 8, !tbaa !192
+  %98 = getelementptr inbounds nuw i8, ptr %38, i64 560
   %99 = load ptr, ptr %98, align 8, !tbaa !140
-  %100 = getelementptr inbounds nuw i8, ptr %38, i64 536
-  %101 = load ptr, ptr %100, align 8, !tbaa !140
-  %102 = getelementptr inbounds nuw i8, ptr %38, i64 544
-  %103 = load ptr, ptr %102, align 8, !tbaa !192
-  %104 = ptrtoint ptr %103 to i64
-  %105 = ptrtoint ptr %101 to i64
-  %106 = sub i64 %104, %105
-  %107 = getelementptr inbounds nuw i8, ptr %38, i64 560
-  %108 = load ptr, ptr %107, align 8, !tbaa !140
-  %109 = getelementptr inbounds nuw i8, ptr %38, i64 568
-  %110 = load ptr, ptr %109, align 8, !tbaa !192
-  %111 = ptrtoint ptr %110 to i64
-  %112 = ptrtoint ptr %108 to i64
-  %113 = sub i64 %111, %112
-  %114 = getelementptr inbounds nuw i8, ptr %38, i64 320
-  %115 = load ptr, ptr %114, align 8, !tbaa !17
-  %116 = getelementptr inbounds nuw i8, ptr %38, i64 328
-  %117 = load ptr, ptr %116, align 8, !tbaa !13
+  %100 = getelementptr inbounds nuw i8, ptr %38, i64 568
+  %101 = load ptr, ptr %100, align 8, !tbaa !192
+  %102 = getelementptr inbounds nuw i8, ptr %38, i64 320
+  %103 = load ptr, ptr %102, align 8, !tbaa !17
+  %104 = getelementptr inbounds nuw i8, ptr %38, i64 328
+  %105 = load ptr, ptr %104, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %23) #20
   invoke void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef %37, ptr noundef nonnull %23)
           to label %.noexc unwind label %753
@@ -8410,11 +8398,23 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   br label %179
 
 .preheader.i.i:                                   ; preds = %179
-  %118 = getelementptr inbounds nuw i8, ptr %85, i64 %90
-  %119 = getelementptr inbounds nuw i8, ptr %92, i64 %97
+  %106 = ptrtoint ptr %87 to i64
+  %107 = ptrtoint ptr %85 to i64
+  %108 = sub i64 %106, %107
+  %109 = getelementptr inbounds nuw i8, ptr %85, i64 %108
+  %110 = ptrtoint ptr %91 to i64
+  %111 = ptrtoint ptr %89 to i64
+  %112 = sub i64 %110, %111
+  %113 = getelementptr inbounds nuw i8, ptr %89, i64 %112
+  %114 = ptrtoint ptr %93 to i64
+  %115 = ptrtoint ptr %97 to i64
+  %116 = ptrtoint ptr %95 to i64
+  %117 = sub i64 %115, %116
+  %118 = getelementptr inbounds nuw i8, ptr %95, i64 %117
+  %119 = ptrtoint ptr %101 to i64
   %120 = ptrtoint ptr %99 to i64
-  %121 = getelementptr inbounds nuw i8, ptr %101, i64 %106
-  %122 = getelementptr inbounds nuw i8, ptr %108, i64 %113
+  %121 = sub i64 %119, %120
+  %122 = getelementptr inbounds nuw i8, ptr %99, i64 %121
   %123 = icmp slt i32 %66, %68
   br i1 %123, label %.lr.ph.i.i, label %_ZN3gmxL17calc_dr_x_xp_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_PS5_S8_S8_PA3_fPfSB_.exit.i
 
@@ -8757,7 +8757,7 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %426 = fmul <8 x float> %.val83.i.i, %425
   %427 = getelementptr inbounds float, ptr %85, i64 %indvars.iv158.i.i
   store <8 x float> %426, ptr %427, align 32, !tbaa !134, !alias.scope !414, !noalias !425
-  %428 = getelementptr inbounds float, ptr %99, i64 %indvars.iv158.i.i
+  %428 = getelementptr inbounds float, ptr %93, i64 %indvars.iv158.i.i
   store <8 x float> %426, ptr %428, align 32, !tbaa !134, !alias.scope !416, !noalias !426
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #20, !noalias !418
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #20, !noalias !418
@@ -8807,10 +8807,10 @@ _ZN3gmxL17calc_dr_x_xp_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_
 ._crit_edge.i:                                    ; preds = %.loopexit101.i
   %.val170.i = load ptr, ptr %64, align 8, !tbaa !117
   %442 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Task", ptr %.val170.i, i64 %30
-  store ptr %92, ptr %24, align 8, !tbaa !430
+  store ptr %89, ptr %24, align 8, !tbaa !430
   %443 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %119, ptr %443, align 8, !tbaa !430
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %442, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.335") align 8 %24, i64 %120)
+  store ptr %113, ptr %443, align 8, !tbaa !430
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %442, ptr %83, ptr %85, ptr %109, ptr noundef nonnull byval(%"class.gmx::ArrayRef.335") align 8 %24, i64 %114)
   br label %.lr.ph108.i
 
 .lr.ph105.i:                                      ; preds = %.loopexit101.i, %.lr.ph105.preheader.i
@@ -8858,14 +8858,14 @@ _ZN3gmxL17calc_dr_x_xp_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_
 ._crit_edge109.critedge.i:                        ; preds = %440
   %.val170.c.i = load ptr, ptr %64, align 8, !tbaa !117
   %463 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Task", ptr %.val170.c.i, i64 %30
-  store ptr %92, ptr %24, align 8, !tbaa !430
+  store ptr %89, ptr %24, align 8, !tbaa !430
   %464 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %119, ptr %464, align 8, !tbaa !430
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %463, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.335") align 8 %24, i64 %120)
+  store ptr %113, ptr %464, align 8, !tbaa !430
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %463, ptr %83, ptr %85, ptr %109, ptr noundef nonnull byval(%"class.gmx::ArrayRef.335") align 8 %24, i64 %114)
   br label %._crit_edge109.i
 
 ._crit_edge109.i:                                 ; preds = %.lr.ph108.i, %._crit_edge109.critedge.i
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %38, i32 noundef %26, float noundef 1.000000e+00, ptr %108, ptr %122, ptr %71, ptr %39, ptr %45, ptr noundef %33)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %38, i32 noundef %26, float noundef 1.000000e+00, ptr %99, ptr %122, ptr %71, ptr %39, ptr %45, ptr noundef %33)
   %465 = fpext float %50 to double
   %466 = fmul double %465, 0x3F91DF46A2529D39
   %467 = call double @cos(double noundef %466) #20, !tbaa !18
@@ -8912,9 +8912,9 @@ _ZN3gmxL17calc_dr_x_xp_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_
   %indvars.iv136.i = phi i64 [ %441, %._crit_edge.i ], [ %indvars.iv.next137.i, %.lr.ph108.i ]
   %502 = getelementptr inbounds float, ptr %77, i64 %indvars.iv136.i
   %.val181.i = load <8 x float>, ptr %502, align 32, !tbaa !134
-  %503 = getelementptr inbounds float, ptr %99, i64 %indvars.iv136.i
+  %503 = getelementptr inbounds float, ptr %93, i64 %indvars.iv136.i
   %.val182.i = load <8 x float>, ptr %503, align 32, !tbaa !134
-  %504 = getelementptr inbounds float, ptr %108, i64 %indvars.iv136.i
+  %504 = getelementptr inbounds float, ptr %99, i64 %indvars.iv136.i
   %505 = fmul <8 x float> %.val181.i, %.val182.i
   store <8 x float> %505, ptr %504, align 32, !tbaa !134
   %indvars.iv.next137.i = add nsw i64 %indvars.iv136.i, 8
@@ -9158,7 +9158,7 @@ _ZN3gmxL17calc_dr_x_xp_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_
   %675 = fmul <8 x float> %.val71.i.i, %673
   %676 = getelementptr inbounds float, ptr %85, i64 %indvars.iv109.i.i
   store <8 x float> %675, ptr %676, align 32, !tbaa !134, !alias.scope !441, !noalias !449
-  %677 = getelementptr inbounds float, ptr %99, i64 %indvars.iv109.i.i
+  %677 = getelementptr inbounds float, ptr %93, i64 %indvars.iv109.i.i
   store <8 x float> %675, ptr %677, align 32, !tbaa !134, !alias.scope !443, !noalias !450
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #20, !noalias !445
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #20, !noalias !445
@@ -9187,21 +9187,21 @@ _ZN3gmxL17calc_dr_x_xp_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_
 _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfPS5_S8_S8_fPfS9_Pb.exit.i: ; preds = %685, %._crit_edge.i.i
   %.val169.i = load ptr, ptr %64, align 8, !tbaa !117
   %686 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Task", ptr %.val169.i, i64 %30
-  store ptr %92, ptr %25, align 8, !tbaa !430
-  store ptr %119, ptr %501, align 8, !tbaa !430
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %686, ptr %83, ptr nonnull %85, ptr nonnull %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.335") align 8 %25, i64 %120)
+  store ptr %89, ptr %25, align 8, !tbaa !430
+  store ptr %113, ptr %501, align 8, !tbaa !430
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %686, ptr %83, ptr nonnull %85, ptr nonnull %109, ptr noundef nonnull byval(%"class.gmx::ArrayRef.335") align 8 %25, i64 %114)
   br label %.lr.ph111.i
 
 ._crit_edge112.critedge.i:                        ; preds = %524
   %.val169.c.i = load ptr, ptr %64, align 8, !tbaa !117
   %687 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Task", ptr %.val169.c.i, i64 %30
-  store ptr %92, ptr %25, align 8, !tbaa !430
-  store ptr %119, ptr %501, align 8, !tbaa !430
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %687, ptr %83, ptr %85, ptr %118, ptr noundef nonnull byval(%"class.gmx::ArrayRef.335") align 8 %25, i64 %120)
+  store ptr %89, ptr %25, align 8, !tbaa !430
+  store ptr %113, ptr %501, align 8, !tbaa !430
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %38, ptr noundef nonnull align 8 dereferenceable(176) %687, ptr %83, ptr %85, ptr %109, ptr noundef nonnull byval(%"class.gmx::ArrayRef.335") align 8 %25, i64 %114)
   br label %._crit_edge112.i
 
 ._crit_edge112.i:                                 ; preds = %.lr.ph111.i, %._crit_edge112.critedge.i
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %38, i32 noundef %26, float noundef 1.000000e+00, ptr %101, ptr %121, ptr %71, ptr %39, ptr %45, ptr noundef %33)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %38, i32 noundef %26, float noundef 1.000000e+00, ptr %95, ptr %118, ptr %71, ptr %39, ptr %45, ptr noundef %33)
   %688 = add nuw nsw i32 %.0162113.i, 1
   %689 = load i32, ptr %468, align 4, !tbaa !72
   %690 = icmp slt i32 %688, %689
@@ -9211,12 +9211,12 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
   %indvars.iv139.i = phi i64 [ %indvars.iv.next140.i, %.lr.ph111.i ], [ %499, %_ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfPS5_S8_S8_fPfS9_Pb.exit.i ]
   %691 = getelementptr inbounds float, ptr %77, i64 %indvars.iv139.i
   %.val183.i = load <8 x float>, ptr %691, align 32, !tbaa !134
-  %692 = getelementptr inbounds float, ptr %99, i64 %indvars.iv139.i
+  %692 = getelementptr inbounds float, ptr %93, i64 %indvars.iv139.i
   %.val184.i = load <8 x float>, ptr %692, align 32, !tbaa !134
   %693 = fmul <8 x float> %.val183.i, %.val184.i
-  %694 = getelementptr inbounds float, ptr %101, i64 %indvars.iv139.i
+  %694 = getelementptr inbounds float, ptr %95, i64 %indvars.iv139.i
   store <8 x float> %693, ptr %694, align 32, !tbaa !134
-  %695 = getelementptr inbounds float, ptr %108, i64 %indvars.iv139.i
+  %695 = getelementptr inbounds float, ptr %99, i64 %indvars.iv139.i
   %.val185.i = load <8 x float>, ptr %695, align 32, !tbaa !134
   %696 = fadd <8 x float> %693, %.val185.i
   store <8 x float> %696, ptr %695, align 32, !tbaa !134
@@ -9225,11 +9225,11 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
   br i1 %697, label %.lr.ph111.i, label %._crit_edge112.i, !llvm.loop !454
 
 698:                                              ; preds = %._crit_edge116.i
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %38, i32 noundef %26, float noundef %51, ptr %108, ptr %122, ptr %71, ptr %39, ptr %45, ptr noundef nonnull %52)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %38, i32 noundef %26, float noundef %51, ptr %99, ptr %122, ptr %71, ptr %39, ptr %45, ptr noundef nonnull %52)
   br label %699
 
 699:                                              ; preds = %698, %._crit_edge116.i
-  %700 = icmp ne ptr %115, %117
+  %700 = icmp ne ptr %103, %105
   %701 = or i8 %53, %47
   %or.cond.i = icmp ne i8 %701, 0
   %or.cond168.i = and i1 %or.cond.i, %700
@@ -9254,11 +9254,11 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
 
 .lr.ph119.i:                                      ; preds = %.lr.ph119.i, %.lr.ph119.preheader.i
   %indvars.iv142.i = phi i64 [ %707, %.lr.ph119.preheader.i ], [ %indvars.iv.next143.i, %.lr.ph119.i ]
-  %708 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv142.i
+  %708 = getelementptr inbounds i32, ptr %103, i64 %indvars.iv142.i
   %709 = load i32, ptr %708, align 4, !tbaa !18
   %710 = sitofp i32 %709 to double
   %711 = fmul double %710, 5.000000e-01
-  %712 = getelementptr inbounds float, ptr %108, i64 %indvars.iv142.i
+  %712 = getelementptr inbounds float, ptr %99, i64 %indvars.iv142.i
   %713 = load float, ptr %712, align 4, !tbaa !201
   %714 = fpext float %713 to double
   %715 = fmul double %711, %714
@@ -9288,7 +9288,7 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
 .lr.ph122.i:                                      ; preds = %.preheader99.i..lr.ph122.i_crit_edge, %.loopexit100.thread165.i
   %wide.trip.count150.i.pre-phi = phi i64 [ %.pre36, %.preheader99.i..lr.ph122.i_crit_edge ], [ %wide.trip.count145.i, %.loopexit100.thread165.i ]
   %.pre-phi = phi i64 [ %.pre, %.preheader99.i..lr.ph122.i_crit_edge ], [ %707, %.loopexit100.thread165.i ]
-  %717 = load ptr, ptr %107, align 8, !tbaa !140
+  %717 = load ptr, ptr %98, align 8, !tbaa !140
   %718 = getelementptr inbounds nuw i8, ptr %38, i64 88
   %719 = load ptr, ptr %718, align 8, !tbaa !140
   br label %721
@@ -9327,7 +9327,7 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
   %730 = getelementptr inbounds float, ptr %81, i64 %indvars.iv160.i
   %731 = load float, ptr %730, align 4, !tbaa !201
   %732 = fneg float %731
-  %733 = getelementptr inbounds float, ptr %108, i64 %indvars.iv160.i
+  %733 = getelementptr inbounds float, ptr %99, i64 %indvars.iv160.i
   %734 = load float, ptr %733, align 4, !tbaa !201
   %735 = fmul float %734, %732
   %736 = getelementptr inbounds %"class.gmx::BasicVector", ptr %71, i64 %indvars.iv160.i
@@ -9663,23 +9663,14 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %62 = load ptr, ptr %61, align 8, !tbaa !140
   %63 = getelementptr inbounds nuw i8, ptr %24, i64 472
   %64 = load ptr, ptr %63, align 8, !tbaa !192
-  %65 = ptrtoint ptr %64 to i64
-  %66 = ptrtoint ptr %62 to i64
-  %67 = sub i64 %65, %66
-  %68 = getelementptr inbounds nuw i8, ptr %24, i64 488
-  %69 = load ptr, ptr %68, align 8, !tbaa !140
-  %70 = getelementptr inbounds nuw i8, ptr %24, i64 496
-  %71 = load ptr, ptr %70, align 8, !tbaa !192
-  %72 = ptrtoint ptr %71 to i64
-  %73 = ptrtoint ptr %69 to i64
-  %74 = sub i64 %72, %73
-  %75 = getelementptr inbounds nuw i8, ptr %24, i64 512
-  %76 = load ptr, ptr %75, align 8, !tbaa !140
-  %77 = getelementptr inbounds nuw i8, ptr %24, i64 520
-  %78 = load ptr, ptr %77, align 8, !tbaa !192
-  %79 = ptrtoint ptr %78 to i64
-  %80 = ptrtoint ptr %76 to i64
-  %81 = sub i64 %79, %80
+  %65 = getelementptr inbounds nuw i8, ptr %24, i64 488
+  %66 = load ptr, ptr %65, align 8, !tbaa !140
+  %67 = getelementptr inbounds nuw i8, ptr %24, i64 496
+  %68 = load ptr, ptr %67, align 8, !tbaa !192
+  %69 = getelementptr inbounds nuw i8, ptr %24, i64 512
+  %70 = load ptr, ptr %69, align 8, !tbaa !140
+  %71 = getelementptr inbounds nuw i8, ptr %24, i64 520
+  %72 = load ptr, ptr %71, align 8, !tbaa !192
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %16) #20
   invoke void @_Z12set_pbc_simdPK5t_pbcPf(ptr noundef %23, ptr noundef nonnull %16)
           to label %.noexc unwind label %470
@@ -9695,9 +9686,18 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   br label %141
 
 .preheader.i.i:                                   ; preds = %141
-  %82 = getelementptr inbounds nuw i8, ptr %62, i64 %67
-  %83 = getelementptr inbounds nuw i8, ptr %69, i64 %74
-  %84 = getelementptr inbounds nuw i8, ptr %76, i64 %81
+  %73 = ptrtoint ptr %64 to i64
+  %74 = ptrtoint ptr %62 to i64
+  %75 = sub i64 %73, %74
+  %76 = getelementptr inbounds nuw i8, ptr %62, i64 %75
+  %77 = ptrtoint ptr %68 to i64
+  %78 = ptrtoint ptr %66 to i64
+  %79 = sub i64 %77, %78
+  %80 = getelementptr inbounds nuw i8, ptr %66, i64 %79
+  %81 = ptrtoint ptr %72 to i64
+  %82 = ptrtoint ptr %70 to i64
+  %83 = sub i64 %81, %82
+  %84 = getelementptr inbounds nuw i8, ptr %70, i64 %83
   %85 = icmp slt i32 %49, %51
   br i1 %85, label %.lr.ph.i.i, label %_ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_PS5_S8_PA3_fPfSB_.exit.i
 
@@ -10019,7 +10019,7 @@ define internal void @_ZN3gmx15constrain_lincsEbRK10t_inputreclPNS_5LincsENS_8Ar
   %368 = fmul <8 x float> %.val78.i.i, %366
   %369 = getelementptr inbounds float, ptr %62, i64 %indvars.iv127.i.i
   store <8 x float> %368, ptr %369, align 32, !tbaa !134, !alias.scope !473, !noalias !483
-  %370 = getelementptr inbounds float, ptr %76, i64 %indvars.iv127.i.i
+  %370 = getelementptr inbounds float, ptr %70, i64 %indvars.iv127.i.i
   store <8 x float> %368, ptr %370, align 32, !tbaa !134, !alias.scope !475, !noalias !484
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #20, !noalias !477
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #20, !noalias !477
@@ -10069,10 +10069,10 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
 ._crit_edge.i:                                    ; preds = %.loopexit58.i, %382
   %.val98.i = load ptr, ptr %47, align 8, !tbaa !117
   %384 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Task", ptr %.val98.i, i64 %.pre-phi
-  store ptr %69, ptr %17, align 8, !tbaa !430
+  store ptr %66, ptr %17, align 8, !tbaa !430
   %385 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %83, ptr %385, align 8, !tbaa !430
-  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %24, ptr noundef nonnull align 8 dereferenceable(176) %384, ptr %60, ptr %62, ptr %82, ptr noundef nonnull byval(%"class.gmx::ArrayRef.335") align 8 %17, i64 %80)
+  store ptr %80, ptr %385, align 8, !tbaa !430
+  call fastcc void @_ZN3gmxL19lincs_matrix_expandERKNS_5LincsERKN12_GLOBAL__N_14TaskENS_8ArrayRefIKfEENS7_IfEESA_SA_(ptr noundef nonnull readonly align 8 dereferenceable(656) %24, ptr noundef nonnull align 8 dereferenceable(176) %384, ptr %60, ptr %62, ptr %76, ptr noundef nonnull byval(%"class.gmx::ArrayRef.335") align 8 %17, i64 %82)
   %386 = icmp eq i32 %32, 3
   %or.cond.i = and i1 %386, %85
   br i1 %or.cond.i, label %.lr.ph63.i, label %.loopexit57.i
@@ -10143,7 +10143,7 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
   br i1 %427, label %430, label %428
 
 428:                                              ; preds = %423, %419
-  %429 = getelementptr inbounds float, ptr %76, i64 %indvars.iv83.i
+  %429 = getelementptr inbounds float, ptr %70, i64 %indvars.iv83.i
   store float 0.000000e+00, ptr %429, align 4, !tbaa !201
   br label %430
 
@@ -10163,13 +10163,13 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
 ._crit_edge67.i:                                  ; preds = %.lr.ph66.i
   %.sroa.3.0.i = select i1 %.not.i, ptr null, ptr %31
   %.sroa.01.0.i = select i1 %.not.i, ptr null, ptr %25
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %24, i32 noundef %18, float noundef 1.000000e+00, ptr nonnull %76, ptr nonnull %84, ptr %54, ptr %.sroa.01.0.i, ptr %.sroa.3.0.i, ptr noundef %22)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %24, i32 noundef %18, float noundef 1.000000e+00, ptr nonnull %70, ptr nonnull %84, ptr %54, ptr %.sroa.01.0.i, ptr %.sroa.3.0.i, ptr noundef %22)
   br i1 %34, label %.lr.ph70.i, label %447
 
 ._crit_edge67.i.thread:                           ; preds = %.loopexit57.i
   %.sroa.3.0.i25 = select i1 %.not.i, ptr null, ptr %31
   %.sroa.01.0.i26 = select i1 %.not.i, ptr null, ptr %25
-  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %24, i32 noundef %18, float noundef 1.000000e+00, ptr %76, ptr %84, ptr %54, ptr %.sroa.01.0.i26, ptr %.sroa.3.0.i25, ptr noundef %22)
+  call fastcc void @_ZN3gmxL18lincs_update_atomsEPNS_5LincsEifNS_8ArrayRefIKfEENS2_IKNS_11BasicVectorIfEEEES4_PA3_f(ptr noundef nonnull readonly %24, i32 noundef %18, float noundef 1.000000e+00, ptr %70, ptr %84, ptr %54, ptr %.sroa.01.0.i26, ptr %.sroa.3.0.i25, ptr noundef %22)
   br i1 %34, label %._crit_edge71.i, label %.thread
 
 .lr.ph70.i:                                       ; preds = %._crit_edge67.i
@@ -10181,7 +10181,7 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
   %indvars.iv88.i = phi i64 [ %431, %.lr.ph66.preheader.i ], [ %indvars.iv.next89.i, %.lr.ph66.i ]
   %434 = getelementptr inbounds float, ptr %.sroa.039.0.i, i64 %indvars.iv88.i
   %435 = load float, ptr %434, align 4, !tbaa !201
-  %436 = getelementptr inbounds float, ptr %76, i64 %indvars.iv88.i
+  %436 = getelementptr inbounds float, ptr %70, i64 %indvars.iv88.i
   %437 = load float, ptr %436, align 4, !tbaa !201
   %438 = fmul float %435, %437
   store float %438, ptr %436, align 4, !tbaa !201
@@ -10199,7 +10199,7 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
 440:                                              ; preds = %440, %.lr.ph70.i
   %indvars.iv93.i = phi i64 [ %431, %.lr.ph70.i ], [ %indvars.iv.next94.i, %440 ]
   %.09368.i = phi float [ 0.000000e+00, %.lr.ph70.i ], [ %446, %440 ]
-  %441 = getelementptr inbounds float, ptr %76, i64 %indvars.iv93.i
+  %441 = getelementptr inbounds float, ptr %70, i64 %indvars.iv93.i
   %442 = load float, ptr %441, align 4, !tbaa !201
   %443 = getelementptr inbounds nuw float, ptr %433, i64 %indvars.iv93.i
   %444 = load float, ptr %443, align 4, !tbaa !201
@@ -10224,7 +10224,7 @@ _ZN3gmxL16calc_dr_x_f_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfS7_P
   %indvars.iv106.i = phi i64 [ %450, %.lr.ph75.i ], [ %indvars.iv.next107.i, %458 ]
   %452 = getelementptr inbounds nuw float, ptr %449, i64 %indvars.iv106.i
   %453 = load float, ptr %452, align 4, !tbaa !201
-  %454 = getelementptr inbounds float, ptr %76, i64 %indvars.iv106.i
+  %454 = getelementptr inbounds float, ptr %70, i64 %indvars.iv106.i
   %455 = load float, ptr %454, align 4, !tbaa !201
   %456 = fmul float %453, %455
   %457 = getelementptr inbounds %"class.gmx::BasicVector", ptr %54, i64 %indvars.iv106.i

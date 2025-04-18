@@ -4692,13 +4692,13 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %19 = load float, ptr %18, align 4, !tbaa !6
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load float, ptr %20, align 4, !tbaa !6
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %24 = load float, ptr %23, align 4, !tbaa !6
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %26 = load float, ptr %25, align 4, !tbaa !6
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %28 = load float, ptr %27, align 4, !tbaa !6
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %23 = load float, ptr %22, align 4, !tbaa !6
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %25 = load float, ptr %24, align 4, !tbaa !6
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %27 = load float, ptr %26, align 4, !tbaa !6
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 36
   switch i32 %9, label %.loopexit [
@@ -4737,7 +4737,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   br i1 %exitcond.not.i.i, label %dt_prophotorgb_to_XYZ.exit, label %35
 
 dt_prophotorgb_to_XYZ.exit:                       ; preds = %35
-  %49 = load float, ptr %22, align 4, !tbaa !6
+  %49 = load float, ptr %28, align 4, !tbaa !6
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %49, ptr %50, align 4, !tbaa !6
   %51 = load float, ptr %10, align 4, !tbaa !6
@@ -4802,14 +4802,14 @@ dt_prophotorgb_to_XYZ.exit97:                     ; preds = %64
   %.012.i.i98 = phi i64 [ 0, %dt_prophotorgb_to_XYZ.exit97 ], [ %105, %92 ]
   %93 = getelementptr inbounds nuw [4 x float], ptr @prophotorgb_to_xyz_transpose, i64 0, i64 %.012.i.i98
   %94 = load float, ptr %93, align 4, !tbaa !6
-  %95 = fmul reassoc nsz arcp contract afn float %24, %94
+  %95 = fmul reassoc nsz arcp contract afn float %23, %94
   %96 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @prophotorgb_to_xyz_transpose, i64 16), i64 0, i64 %.012.i.i98
   %97 = load float, ptr %96, align 4, !tbaa !6
-  %98 = fmul reassoc nsz arcp contract afn float %26, %97
+  %98 = fmul reassoc nsz arcp contract afn float %25, %97
   %99 = fadd reassoc nsz arcp contract afn float %98, %95
   %100 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @prophotorgb_to_xyz_transpose, i64 32), i64 0, i64 %.012.i.i98
   %101 = load float, ptr %100, align 4, !tbaa !6
-  %102 = fmul reassoc nsz arcp contract afn float %28, %101
+  %102 = fmul reassoc nsz arcp contract afn float %27, %101
   %103 = fadd reassoc nsz arcp contract afn float %99, %102
   %104 = getelementptr inbounds nuw float, ptr %5, i64 %.012.i.i98
   store float %103, ptr %104, align 4, !tbaa !6
@@ -4821,18 +4821,18 @@ dt_prophotorgb_to_XYZ.exit100:                    ; preds = %92
   %106 = load float, ptr %30, align 4, !tbaa !6
   %107 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store float %106, ptr %107, align 4, !tbaa !6
-  %108 = load float, ptr %23, align 4, !tbaa !6
+  %108 = load float, ptr %22, align 4, !tbaa !6
   %109 = load float, ptr %52, align 4, !tbaa !6
   %110 = fadd reassoc nsz arcp contract afn float %108, 1.000000e+00
   %111 = fsub reassoc nsz arcp contract afn float %110, %109
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store float %111, ptr %112, align 4, !tbaa !6
-  %113 = load float, ptr %25, align 4, !tbaa !6
+  %113 = load float, ptr %24, align 4, !tbaa !6
   %114 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %109
   %115 = fadd reassoc nsz arcp contract afn float %114, %113
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store float %115, ptr %116, align 4, !tbaa !6
-  %117 = load float, ptr %27, align 4, !tbaa !6
+  %117 = load float, ptr %26, align 4, !tbaa !6
   %118 = fadd reassoc nsz arcp contract afn float %114, %117
   %119 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store float %118, ptr %119, align 4, !tbaa !6
@@ -4841,7 +4841,7 @@ dt_prophotorgb_to_XYZ.exit100:                    ; preds = %92
 
 120:                                              ; preds = %.preheader, %120
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %120 ]
-  %121 = getelementptr inbounds nuw [4 x float], ptr %22, i64 0, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [4 x float], ptr %28, i64 0, i64 %indvars.iv
   %122 = load float, ptr %121, align 4, !tbaa !6
   %123 = getelementptr inbounds nuw [4 x float], ptr %31, i64 0, i64 %indvars.iv
   store float %122, ptr %123, align 4, !tbaa !6
@@ -4881,7 +4881,7 @@ dt_prophotorgb_to_XYZ.exit100:                    ; preds = %92
   br i1 %exitcond.not.i.i102, label %dt_prophotorgb_to_XYZ.exit103, label %131
 
 dt_prophotorgb_to_XYZ.exit103:                    ; preds = %131
-  %145 = load float, ptr %22, align 4, !tbaa !6
+  %145 = load float, ptr %28, align 4, !tbaa !6
   %146 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float %145, ptr %146, align 4, !tbaa !6
   %147 = load float, ptr %10, align 4, !tbaa !6
@@ -4946,14 +4946,14 @@ dt_prophotorgb_to_XYZ.exit106:                    ; preds = %160
   %.012.i.i107 = phi i64 [ 0, %dt_prophotorgb_to_XYZ.exit106 ], [ %201, %188 ]
   %189 = getelementptr inbounds nuw [4 x float], ptr @prophotorgb_to_xyz_transpose, i64 0, i64 %.012.i.i107
   %190 = load float, ptr %189, align 4, !tbaa !6
-  %191 = fmul reassoc nsz arcp contract afn float %24, %190
+  %191 = fmul reassoc nsz arcp contract afn float %23, %190
   %192 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @prophotorgb_to_xyz_transpose, i64 16), i64 0, i64 %.012.i.i107
   %193 = load float, ptr %192, align 4, !tbaa !6
-  %194 = fmul reassoc nsz arcp contract afn float %26, %193
+  %194 = fmul reassoc nsz arcp contract afn float %25, %193
   %195 = fadd reassoc nsz arcp contract afn float %194, %191
   %196 = getelementptr inbounds nuw [4 x float], ptr getelementptr inbounds nuw (i8, ptr @prophotorgb_to_xyz_transpose, i64 32), i64 0, i64 %.012.i.i107
   %197 = load float, ptr %196, align 4, !tbaa !6
-  %198 = fmul reassoc nsz arcp contract afn float %28, %197
+  %198 = fmul reassoc nsz arcp contract afn float %27, %197
   %199 = fadd reassoc nsz arcp contract afn float %195, %198
   %200 = getelementptr inbounds nuw float, ptr %6, i64 %.012.i.i107
   store float %199, ptr %200, align 4, !tbaa !6
@@ -4965,18 +4965,18 @@ dt_prophotorgb_to_XYZ.exit109:                    ; preds = %188
   %202 = load float, ptr %30, align 4, !tbaa !6
   %203 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store float %202, ptr %203, align 4, !tbaa !6
-  %204 = load float, ptr %23, align 4, !tbaa !6
+  %204 = load float, ptr %22, align 4, !tbaa !6
   %205 = load float, ptr %148, align 4, !tbaa !6
   %206 = fadd reassoc nsz arcp contract afn float %204, 1.000000e+00
   %207 = fsub reassoc nsz arcp contract afn float %206, %205
   %208 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store float %207, ptr %208, align 4, !tbaa !6
-  %209 = load float, ptr %25, align 4, !tbaa !6
+  %209 = load float, ptr %24, align 4, !tbaa !6
   %210 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %205
   %211 = fadd reassoc nsz arcp contract afn float %210, %209
   %212 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store float %211, ptr %212, align 4, !tbaa !6
-  %213 = load float, ptr %27, align 4, !tbaa !6
+  %213 = load float, ptr %26, align 4, !tbaa !6
   %214 = fadd reassoc nsz arcp contract afn float %210, %213
   %215 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store float %214, ptr %215, align 4, !tbaa !6

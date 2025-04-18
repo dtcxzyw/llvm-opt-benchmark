@@ -699,8 +699,8 @@ ir_gdbjit_uleb128.exit83.i.i:                     ; preds = %.lr.ph.i80.i.i, %25
 .lr.ph96.preheader.i.i:                           ; preds = %264
   %267 = sub nuw nsw i64 8, %266
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.1.i.i, i8 0, i64 %267, i1 false), !tbaa !18
-  %268 = or i64 %265, 7
   %scevgep109.i.i = getelementptr i8, ptr %.1.i.i, i64 %267
+  %268 = or i64 %265, 7
   %269 = add i64 %268, 1
   %.pre.i = ptrtoint ptr %scevgep109.i.i to i64
   br label %ir_gdbjit_buildobj.exit

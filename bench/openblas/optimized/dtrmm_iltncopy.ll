@@ -1677,275 +1677,275 @@ define noundef i32 @dtrmm_iltncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1169 = mul nsw i64 %1168, %3
   %1170 = getelementptr inbounds double, ptr %1145, i64 %1169
   %1171 = shl nsw i64 %3, 3
-  %1172 = and i64 %0, -8
-  br label %1173
+  br label %1172
 
-1173:                                             ; preds = %.preheader2047, %1343
-  %.231930 = phi ptr [ %.241931, %1343 ], [ %.01907, %.preheader2047 ]
-  %.11903 = phi i64 [ %1345, %1343 ], [ %1166, %.preheader2047 ]
-  %.31889 = phi i64 [ %1344, %1343 ], [ %4, %.preheader2047 ]
-  %.81875 = phi ptr [ %.91876, %1343 ], [ %1147, %.preheader2047 ]
-  %.71859 = phi ptr [ %.81860, %1343 ], [ %1150, %.preheader2047 ]
-  %.71844 = phi ptr [ %.81845, %1343 ], [ %1153, %.preheader2047 ]
-  %.71834 = phi ptr [ %.81835, %1343 ], [ %1156, %.preheader2047 ]
-  %.71824 = phi ptr [ %.81825, %1343 ], [ %1159, %.preheader2047 ]
-  %.71814 = phi ptr [ %.81815, %1343 ], [ %1162, %.preheader2047 ]
-  %.71804 = phi ptr [ %.81805, %1343 ], [ %1165, %.preheader2047 ]
-  %.7 = phi ptr [ %.8, %1343 ], [ %1170, %.preheader2047 ]
-  %1174 = icmp sgt i64 %.31889, %.01932
-  br i1 %1174, label %1175, label %1185
+1172:                                             ; preds = %.preheader2047, %1342
+  %.231930 = phi ptr [ %.241931, %1342 ], [ %.01907, %.preheader2047 ]
+  %.11903 = phi i64 [ %1344, %1342 ], [ %1166, %.preheader2047 ]
+  %.31889 = phi i64 [ %1343, %1342 ], [ %4, %.preheader2047 ]
+  %.81875 = phi ptr [ %.91876, %1342 ], [ %1147, %.preheader2047 ]
+  %.71859 = phi ptr [ %.81860, %1342 ], [ %1150, %.preheader2047 ]
+  %.71844 = phi ptr [ %.81845, %1342 ], [ %1153, %.preheader2047 ]
+  %.71834 = phi ptr [ %.81835, %1342 ], [ %1156, %.preheader2047 ]
+  %.71824 = phi ptr [ %.81825, %1342 ], [ %1159, %.preheader2047 ]
+  %.71814 = phi ptr [ %.81815, %1342 ], [ %1162, %.preheader2047 ]
+  %.71804 = phi ptr [ %.81805, %1342 ], [ %1165, %.preheader2047 ]
+  %.7 = phi ptr [ %.8, %1342 ], [ %1170, %.preheader2047 ]
+  %1173 = icmp sgt i64 %.31889, %.01932
+  br i1 %1173, label %1174, label %1184
 
-1175:                                             ; preds = %1173
-  %1176 = getelementptr inbounds nuw i8, ptr %.81875, i64 64
-  %1177 = getelementptr inbounds nuw i8, ptr %.71859, i64 64
-  %1178 = getelementptr inbounds nuw i8, ptr %.71844, i64 64
-  %1179 = getelementptr inbounds nuw i8, ptr %.71834, i64 64
-  %1180 = getelementptr inbounds nuw i8, ptr %.71824, i64 64
-  %1181 = getelementptr inbounds nuw i8, ptr %.71814, i64 64
-  %1182 = getelementptr inbounds nuw i8, ptr %.71804, i64 64
-  %1183 = getelementptr inbounds nuw i8, ptr %.7, i64 64
-  %1184 = getelementptr inbounds nuw i8, ptr %.231930, i64 512
-  br label %1343
+1174:                                             ; preds = %1172
+  %1175 = getelementptr inbounds nuw i8, ptr %.81875, i64 64
+  %1176 = getelementptr inbounds nuw i8, ptr %.71859, i64 64
+  %1177 = getelementptr inbounds nuw i8, ptr %.71844, i64 64
+  %1178 = getelementptr inbounds nuw i8, ptr %.71834, i64 64
+  %1179 = getelementptr inbounds nuw i8, ptr %.71824, i64 64
+  %1180 = getelementptr inbounds nuw i8, ptr %.71814, i64 64
+  %1181 = getelementptr inbounds nuw i8, ptr %.71804, i64 64
+  %1182 = getelementptr inbounds nuw i8, ptr %.7, i64 64
+  %1183 = getelementptr inbounds nuw i8, ptr %.231930, i64 512
+  br label %1342
 
-1185:                                             ; preds = %1173
-  %1186 = icmp slt i64 %.31889, %.01932
-  br i1 %1186, label %.preheader2046, label %1220
+1184:                                             ; preds = %1172
+  %1185 = icmp slt i64 %.31889, %.01932
+  br i1 %1185, label %.preheader2046, label %1219
 
-.preheader2046:                                   ; preds = %1185, %.preheader2046
-  %.1018772067 = phi ptr [ %1209, %.preheader2046 ], [ %.81875, %1185 ]
-  %.218972066 = phi i64 [ %1211, %.preheader2046 ], [ 0, %1185 ]
-  %.252065 = phi ptr [ %1210, %.preheader2046 ], [ %.231930, %1185 ]
-  %1187 = load double, ptr %.1018772067, align 8, !tbaa !3
-  store double %1187, ptr %.252065, align 8, !tbaa !3
-  %1188 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 8
-  %1189 = load double, ptr %1188, align 8, !tbaa !3
-  %1190 = getelementptr inbounds nuw i8, ptr %.252065, i64 8
-  store double %1189, ptr %1190, align 8, !tbaa !3
-  %1191 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 16
-  %1192 = load double, ptr %1191, align 8, !tbaa !3
-  %1193 = getelementptr inbounds nuw i8, ptr %.252065, i64 16
-  store double %1192, ptr %1193, align 8, !tbaa !3
-  %1194 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 24
-  %1195 = load double, ptr %1194, align 8, !tbaa !3
-  %1196 = getelementptr inbounds nuw i8, ptr %.252065, i64 24
-  store double %1195, ptr %1196, align 8, !tbaa !3
-  %1197 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 32
-  %1198 = load double, ptr %1197, align 8, !tbaa !3
-  %1199 = getelementptr inbounds nuw i8, ptr %.252065, i64 32
-  store double %1198, ptr %1199, align 8, !tbaa !3
-  %1200 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 40
-  %1201 = load double, ptr %1200, align 8, !tbaa !3
-  %1202 = getelementptr inbounds nuw i8, ptr %.252065, i64 40
-  store double %1201, ptr %1202, align 8, !tbaa !3
-  %1203 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 48
-  %1204 = load double, ptr %1203, align 8, !tbaa !3
-  %1205 = getelementptr inbounds nuw i8, ptr %.252065, i64 48
-  store double %1204, ptr %1205, align 8, !tbaa !3
-  %1206 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 56
-  %1207 = load double, ptr %1206, align 8, !tbaa !3
-  %1208 = getelementptr inbounds nuw i8, ptr %.252065, i64 56
-  store double %1207, ptr %1208, align 8, !tbaa !3
-  %1209 = getelementptr inbounds double, ptr %.1018772067, i64 %3
-  %1210 = getelementptr inbounds nuw i8, ptr %.252065, i64 64
-  %1211 = add nuw nsw i64 %.218972066, 1
-  %exitcond2091.not = icmp eq i64 %1211, 8
-  br i1 %exitcond2091.not, label %1212, label %.preheader2046, !llvm.loop !12
+.preheader2046:                                   ; preds = %1184, %.preheader2046
+  %.1018772067 = phi ptr [ %1208, %.preheader2046 ], [ %.81875, %1184 ]
+  %.218972066 = phi i64 [ %1210, %.preheader2046 ], [ 0, %1184 ]
+  %.252065 = phi ptr [ %1209, %.preheader2046 ], [ %.231930, %1184 ]
+  %1186 = load double, ptr %.1018772067, align 8, !tbaa !3
+  store double %1186, ptr %.252065, align 8, !tbaa !3
+  %1187 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 8
+  %1188 = load double, ptr %1187, align 8, !tbaa !3
+  %1189 = getelementptr inbounds nuw i8, ptr %.252065, i64 8
+  store double %1188, ptr %1189, align 8, !tbaa !3
+  %1190 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 16
+  %1191 = load double, ptr %1190, align 8, !tbaa !3
+  %1192 = getelementptr inbounds nuw i8, ptr %.252065, i64 16
+  store double %1191, ptr %1192, align 8, !tbaa !3
+  %1193 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 24
+  %1194 = load double, ptr %1193, align 8, !tbaa !3
+  %1195 = getelementptr inbounds nuw i8, ptr %.252065, i64 24
+  store double %1194, ptr %1195, align 8, !tbaa !3
+  %1196 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 32
+  %1197 = load double, ptr %1196, align 8, !tbaa !3
+  %1198 = getelementptr inbounds nuw i8, ptr %.252065, i64 32
+  store double %1197, ptr %1198, align 8, !tbaa !3
+  %1199 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 40
+  %1200 = load double, ptr %1199, align 8, !tbaa !3
+  %1201 = getelementptr inbounds nuw i8, ptr %.252065, i64 40
+  store double %1200, ptr %1201, align 8, !tbaa !3
+  %1202 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 48
+  %1203 = load double, ptr %1202, align 8, !tbaa !3
+  %1204 = getelementptr inbounds nuw i8, ptr %.252065, i64 48
+  store double %1203, ptr %1204, align 8, !tbaa !3
+  %1205 = getelementptr inbounds nuw i8, ptr %.1018772067, i64 56
+  %1206 = load double, ptr %1205, align 8, !tbaa !3
+  %1207 = getelementptr inbounds nuw i8, ptr %.252065, i64 56
+  store double %1206, ptr %1207, align 8, !tbaa !3
+  %1208 = getelementptr inbounds double, ptr %.1018772067, i64 %3
+  %1209 = getelementptr inbounds nuw i8, ptr %.252065, i64 64
+  %1210 = add nuw nsw i64 %.218972066, 1
+  %exitcond2091.not = icmp eq i64 %1210, 8
+  br i1 %exitcond2091.not, label %1211, label %.preheader2046, !llvm.loop !12
 
-1212:                                             ; preds = %.preheader2046
-  %1213 = getelementptr inbounds double, ptr %.71859, i64 %1171
-  %1214 = getelementptr inbounds double, ptr %.71844, i64 %1171
-  %1215 = getelementptr inbounds double, ptr %.71834, i64 %1171
-  %1216 = getelementptr inbounds double, ptr %.71824, i64 %1171
-  %1217 = getelementptr inbounds double, ptr %.71814, i64 %1171
-  %1218 = getelementptr inbounds double, ptr %.71804, i64 %1171
-  %1219 = getelementptr inbounds double, ptr %.7, i64 %1171
-  br label %1343
+1211:                                             ; preds = %.preheader2046
+  %1212 = getelementptr inbounds double, ptr %.71859, i64 %1171
+  %1213 = getelementptr inbounds double, ptr %.71844, i64 %1171
+  %1214 = getelementptr inbounds double, ptr %.71834, i64 %1171
+  %1215 = getelementptr inbounds double, ptr %.71824, i64 %1171
+  %1216 = getelementptr inbounds double, ptr %.71814, i64 %1171
+  %1217 = getelementptr inbounds double, ptr %.71804, i64 %1171
+  %1218 = getelementptr inbounds double, ptr %.7, i64 %1171
+  br label %1342
 
-1220:                                             ; preds = %1185
-  %1221 = load double, ptr %.81875, align 8, !tbaa !3
-  store double %1221, ptr %.231930, align 8, !tbaa !3
-  %1222 = getelementptr inbounds nuw i8, ptr %.81875, i64 8
-  %1223 = load double, ptr %1222, align 8, !tbaa !3
-  %1224 = getelementptr inbounds nuw i8, ptr %.231930, i64 8
-  store double %1223, ptr %1224, align 8, !tbaa !3
-  %1225 = getelementptr inbounds nuw i8, ptr %.81875, i64 16
-  %1226 = load double, ptr %1225, align 8, !tbaa !3
-  %1227 = getelementptr inbounds nuw i8, ptr %.231930, i64 16
-  store double %1226, ptr %1227, align 8, !tbaa !3
-  %1228 = getelementptr inbounds nuw i8, ptr %.81875, i64 24
-  %1229 = load double, ptr %1228, align 8, !tbaa !3
-  %1230 = getelementptr inbounds nuw i8, ptr %.231930, i64 24
-  store double %1229, ptr %1230, align 8, !tbaa !3
-  %1231 = getelementptr inbounds nuw i8, ptr %.81875, i64 32
-  %1232 = load double, ptr %1231, align 8, !tbaa !3
-  %1233 = getelementptr inbounds nuw i8, ptr %.231930, i64 32
-  store double %1232, ptr %1233, align 8, !tbaa !3
-  %1234 = getelementptr inbounds nuw i8, ptr %.81875, i64 40
-  %1235 = load double, ptr %1234, align 8, !tbaa !3
-  %1236 = getelementptr inbounds nuw i8, ptr %.231930, i64 40
-  store double %1235, ptr %1236, align 8, !tbaa !3
-  %1237 = getelementptr inbounds nuw i8, ptr %.81875, i64 48
-  %1238 = load double, ptr %1237, align 8, !tbaa !3
-  %1239 = getelementptr inbounds nuw i8, ptr %.231930, i64 48
-  store double %1238, ptr %1239, align 8, !tbaa !3
-  %1240 = getelementptr inbounds nuw i8, ptr %.81875, i64 56
-  %1241 = load double, ptr %1240, align 8, !tbaa !3
-  %1242 = getelementptr inbounds nuw i8, ptr %.231930, i64 56
-  store double %1241, ptr %1242, align 8, !tbaa !3
-  %1243 = getelementptr inbounds nuw i8, ptr %.231930, i64 64
-  store double 0.000000e+00, ptr %1243, align 8, !tbaa !3
-  %1244 = getelementptr inbounds nuw i8, ptr %.71859, i64 8
-  %1245 = load double, ptr %1244, align 8, !tbaa !3
-  %1246 = getelementptr inbounds nuw i8, ptr %.231930, i64 72
-  store double %1245, ptr %1246, align 8, !tbaa !3
-  %1247 = getelementptr inbounds nuw i8, ptr %.71859, i64 16
-  %1248 = load double, ptr %1247, align 8, !tbaa !3
-  %1249 = getelementptr inbounds nuw i8, ptr %.231930, i64 80
-  store double %1248, ptr %1249, align 8, !tbaa !3
-  %1250 = getelementptr inbounds nuw i8, ptr %.71859, i64 24
-  %1251 = load double, ptr %1250, align 8, !tbaa !3
-  %1252 = getelementptr inbounds nuw i8, ptr %.231930, i64 88
-  store double %1251, ptr %1252, align 8, !tbaa !3
-  %1253 = getelementptr inbounds nuw i8, ptr %.71859, i64 32
-  %1254 = load double, ptr %1253, align 8, !tbaa !3
-  %1255 = getelementptr inbounds nuw i8, ptr %.231930, i64 96
-  store double %1254, ptr %1255, align 8, !tbaa !3
-  %1256 = getelementptr inbounds nuw i8, ptr %.71859, i64 40
-  %1257 = load double, ptr %1256, align 8, !tbaa !3
-  %1258 = getelementptr inbounds nuw i8, ptr %.231930, i64 104
-  store double %1257, ptr %1258, align 8, !tbaa !3
-  %1259 = getelementptr inbounds nuw i8, ptr %.71859, i64 48
-  %1260 = load double, ptr %1259, align 8, !tbaa !3
-  %1261 = getelementptr inbounds nuw i8, ptr %.231930, i64 112
-  store double %1260, ptr %1261, align 8, !tbaa !3
-  %1262 = getelementptr inbounds nuw i8, ptr %.71859, i64 56
-  %1263 = load double, ptr %1262, align 8, !tbaa !3
-  %1264 = getelementptr inbounds nuw i8, ptr %.231930, i64 120
-  store double %1263, ptr %1264, align 8, !tbaa !3
-  %1265 = getelementptr inbounds nuw i8, ptr %.231930, i64 128
-  %1266 = getelementptr inbounds nuw i8, ptr %.71844, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1265, i8 0, i64 16, i1 false)
-  %1267 = load double, ptr %1266, align 8, !tbaa !3
-  %1268 = getelementptr inbounds nuw i8, ptr %.231930, i64 144
-  store double %1267, ptr %1268, align 8, !tbaa !3
-  %1269 = getelementptr inbounds nuw i8, ptr %.71844, i64 24
-  %1270 = load double, ptr %1269, align 8, !tbaa !3
-  %1271 = getelementptr inbounds nuw i8, ptr %.231930, i64 152
-  store double %1270, ptr %1271, align 8, !tbaa !3
-  %1272 = getelementptr inbounds nuw i8, ptr %.71844, i64 32
-  %1273 = load double, ptr %1272, align 8, !tbaa !3
-  %1274 = getelementptr inbounds nuw i8, ptr %.231930, i64 160
-  store double %1273, ptr %1274, align 8, !tbaa !3
-  %1275 = getelementptr inbounds nuw i8, ptr %.71844, i64 40
-  %1276 = load double, ptr %1275, align 8, !tbaa !3
-  %1277 = getelementptr inbounds nuw i8, ptr %.231930, i64 168
-  store double %1276, ptr %1277, align 8, !tbaa !3
-  %1278 = getelementptr inbounds nuw i8, ptr %.71844, i64 48
-  %1279 = load double, ptr %1278, align 8, !tbaa !3
-  %1280 = getelementptr inbounds nuw i8, ptr %.231930, i64 176
-  store double %1279, ptr %1280, align 8, !tbaa !3
-  %1281 = getelementptr inbounds nuw i8, ptr %.71844, i64 56
-  %1282 = load double, ptr %1281, align 8, !tbaa !3
-  %1283 = getelementptr inbounds nuw i8, ptr %.231930, i64 184
-  store double %1282, ptr %1283, align 8, !tbaa !3
-  %1284 = getelementptr inbounds nuw i8, ptr %.231930, i64 192
-  %1285 = getelementptr inbounds nuw i8, ptr %.71834, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1284, i8 0, i64 24, i1 false)
-  %1286 = load double, ptr %1285, align 8, !tbaa !3
-  %1287 = getelementptr inbounds nuw i8, ptr %.231930, i64 216
-  store double %1286, ptr %1287, align 8, !tbaa !3
-  %1288 = getelementptr inbounds nuw i8, ptr %.71834, i64 32
-  %1289 = load double, ptr %1288, align 8, !tbaa !3
-  %1290 = getelementptr inbounds nuw i8, ptr %.231930, i64 224
-  store double %1289, ptr %1290, align 8, !tbaa !3
-  %1291 = getelementptr inbounds nuw i8, ptr %.71834, i64 40
-  %1292 = load double, ptr %1291, align 8, !tbaa !3
-  %1293 = getelementptr inbounds nuw i8, ptr %.231930, i64 232
-  store double %1292, ptr %1293, align 8, !tbaa !3
-  %1294 = getelementptr inbounds nuw i8, ptr %.71834, i64 48
-  %1295 = load double, ptr %1294, align 8, !tbaa !3
-  %1296 = getelementptr inbounds nuw i8, ptr %.231930, i64 240
-  store double %1295, ptr %1296, align 8, !tbaa !3
-  %1297 = getelementptr inbounds nuw i8, ptr %.71834, i64 56
-  %1298 = load double, ptr %1297, align 8, !tbaa !3
-  %1299 = getelementptr inbounds nuw i8, ptr %.231930, i64 248
-  store double %1298, ptr %1299, align 8, !tbaa !3
-  %1300 = getelementptr inbounds nuw i8, ptr %.231930, i64 256
-  %1301 = getelementptr inbounds nuw i8, ptr %.71824, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1300, i8 0, i64 32, i1 false)
-  %1302 = load double, ptr %1301, align 8, !tbaa !3
-  %1303 = getelementptr inbounds nuw i8, ptr %.231930, i64 288
-  store double %1302, ptr %1303, align 8, !tbaa !3
-  %1304 = getelementptr inbounds nuw i8, ptr %.71824, i64 40
-  %1305 = load double, ptr %1304, align 8, !tbaa !3
-  %1306 = getelementptr inbounds nuw i8, ptr %.231930, i64 296
-  store double %1305, ptr %1306, align 8, !tbaa !3
-  %1307 = getelementptr inbounds nuw i8, ptr %.71824, i64 48
-  %1308 = load double, ptr %1307, align 8, !tbaa !3
-  %1309 = getelementptr inbounds nuw i8, ptr %.231930, i64 304
-  store double %1308, ptr %1309, align 8, !tbaa !3
-  %1310 = getelementptr inbounds nuw i8, ptr %.71824, i64 56
-  %1311 = load double, ptr %1310, align 8, !tbaa !3
-  %1312 = getelementptr inbounds nuw i8, ptr %.231930, i64 312
-  store double %1311, ptr %1312, align 8, !tbaa !3
-  %1313 = getelementptr inbounds nuw i8, ptr %.231930, i64 320
-  %1314 = getelementptr inbounds nuw i8, ptr %.71814, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1313, i8 0, i64 40, i1 false)
-  %1315 = load double, ptr %1314, align 8, !tbaa !3
-  %1316 = getelementptr inbounds nuw i8, ptr %.231930, i64 360
-  store double %1315, ptr %1316, align 8, !tbaa !3
-  %1317 = getelementptr inbounds nuw i8, ptr %.71814, i64 48
-  %1318 = load double, ptr %1317, align 8, !tbaa !3
-  %1319 = getelementptr inbounds nuw i8, ptr %.231930, i64 368
-  store double %1318, ptr %1319, align 8, !tbaa !3
-  %1320 = getelementptr inbounds nuw i8, ptr %.71814, i64 56
-  %1321 = load double, ptr %1320, align 8, !tbaa !3
-  %1322 = getelementptr inbounds nuw i8, ptr %.231930, i64 376
-  store double %1321, ptr %1322, align 8, !tbaa !3
-  %1323 = getelementptr inbounds nuw i8, ptr %.231930, i64 384
-  %1324 = getelementptr inbounds nuw i8, ptr %.71804, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1323, i8 0, i64 48, i1 false)
-  %1325 = load double, ptr %1324, align 8, !tbaa !3
-  %1326 = getelementptr inbounds nuw i8, ptr %.231930, i64 432
-  store double %1325, ptr %1326, align 8, !tbaa !3
-  %1327 = getelementptr inbounds nuw i8, ptr %.71804, i64 56
-  %1328 = load double, ptr %1327, align 8, !tbaa !3
-  %1329 = getelementptr inbounds nuw i8, ptr %.231930, i64 440
-  store double %1328, ptr %1329, align 8, !tbaa !3
-  %1330 = getelementptr inbounds nuw i8, ptr %.231930, i64 448
-  %1331 = getelementptr inbounds nuw i8, ptr %.7, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1330, i8 0, i64 56, i1 false)
-  %1332 = load double, ptr %1331, align 8, !tbaa !3
-  %1333 = getelementptr inbounds nuw i8, ptr %.231930, i64 504
-  store double %1332, ptr %1333, align 8, !tbaa !3
-  %1334 = getelementptr inbounds nuw i8, ptr %.81875, i64 64
-  %1335 = getelementptr inbounds nuw i8, ptr %.71859, i64 64
-  %1336 = getelementptr inbounds nuw i8, ptr %.71844, i64 64
-  %1337 = getelementptr inbounds nuw i8, ptr %.71834, i64 64
-  %1338 = getelementptr inbounds nuw i8, ptr %.71824, i64 64
-  %1339 = getelementptr inbounds nuw i8, ptr %.71814, i64 64
-  %1340 = getelementptr inbounds nuw i8, ptr %.71804, i64 64
-  %1341 = getelementptr inbounds nuw i8, ptr %.7, i64 64
-  %1342 = getelementptr inbounds nuw i8, ptr %.231930, i64 512
-  br label %1343
+1219:                                             ; preds = %1184
+  %1220 = load double, ptr %.81875, align 8, !tbaa !3
+  store double %1220, ptr %.231930, align 8, !tbaa !3
+  %1221 = getelementptr inbounds nuw i8, ptr %.81875, i64 8
+  %1222 = load double, ptr %1221, align 8, !tbaa !3
+  %1223 = getelementptr inbounds nuw i8, ptr %.231930, i64 8
+  store double %1222, ptr %1223, align 8, !tbaa !3
+  %1224 = getelementptr inbounds nuw i8, ptr %.81875, i64 16
+  %1225 = load double, ptr %1224, align 8, !tbaa !3
+  %1226 = getelementptr inbounds nuw i8, ptr %.231930, i64 16
+  store double %1225, ptr %1226, align 8, !tbaa !3
+  %1227 = getelementptr inbounds nuw i8, ptr %.81875, i64 24
+  %1228 = load double, ptr %1227, align 8, !tbaa !3
+  %1229 = getelementptr inbounds nuw i8, ptr %.231930, i64 24
+  store double %1228, ptr %1229, align 8, !tbaa !3
+  %1230 = getelementptr inbounds nuw i8, ptr %.81875, i64 32
+  %1231 = load double, ptr %1230, align 8, !tbaa !3
+  %1232 = getelementptr inbounds nuw i8, ptr %.231930, i64 32
+  store double %1231, ptr %1232, align 8, !tbaa !3
+  %1233 = getelementptr inbounds nuw i8, ptr %.81875, i64 40
+  %1234 = load double, ptr %1233, align 8, !tbaa !3
+  %1235 = getelementptr inbounds nuw i8, ptr %.231930, i64 40
+  store double %1234, ptr %1235, align 8, !tbaa !3
+  %1236 = getelementptr inbounds nuw i8, ptr %.81875, i64 48
+  %1237 = load double, ptr %1236, align 8, !tbaa !3
+  %1238 = getelementptr inbounds nuw i8, ptr %.231930, i64 48
+  store double %1237, ptr %1238, align 8, !tbaa !3
+  %1239 = getelementptr inbounds nuw i8, ptr %.81875, i64 56
+  %1240 = load double, ptr %1239, align 8, !tbaa !3
+  %1241 = getelementptr inbounds nuw i8, ptr %.231930, i64 56
+  store double %1240, ptr %1241, align 8, !tbaa !3
+  %1242 = getelementptr inbounds nuw i8, ptr %.231930, i64 64
+  store double 0.000000e+00, ptr %1242, align 8, !tbaa !3
+  %1243 = getelementptr inbounds nuw i8, ptr %.71859, i64 8
+  %1244 = load double, ptr %1243, align 8, !tbaa !3
+  %1245 = getelementptr inbounds nuw i8, ptr %.231930, i64 72
+  store double %1244, ptr %1245, align 8, !tbaa !3
+  %1246 = getelementptr inbounds nuw i8, ptr %.71859, i64 16
+  %1247 = load double, ptr %1246, align 8, !tbaa !3
+  %1248 = getelementptr inbounds nuw i8, ptr %.231930, i64 80
+  store double %1247, ptr %1248, align 8, !tbaa !3
+  %1249 = getelementptr inbounds nuw i8, ptr %.71859, i64 24
+  %1250 = load double, ptr %1249, align 8, !tbaa !3
+  %1251 = getelementptr inbounds nuw i8, ptr %.231930, i64 88
+  store double %1250, ptr %1251, align 8, !tbaa !3
+  %1252 = getelementptr inbounds nuw i8, ptr %.71859, i64 32
+  %1253 = load double, ptr %1252, align 8, !tbaa !3
+  %1254 = getelementptr inbounds nuw i8, ptr %.231930, i64 96
+  store double %1253, ptr %1254, align 8, !tbaa !3
+  %1255 = getelementptr inbounds nuw i8, ptr %.71859, i64 40
+  %1256 = load double, ptr %1255, align 8, !tbaa !3
+  %1257 = getelementptr inbounds nuw i8, ptr %.231930, i64 104
+  store double %1256, ptr %1257, align 8, !tbaa !3
+  %1258 = getelementptr inbounds nuw i8, ptr %.71859, i64 48
+  %1259 = load double, ptr %1258, align 8, !tbaa !3
+  %1260 = getelementptr inbounds nuw i8, ptr %.231930, i64 112
+  store double %1259, ptr %1260, align 8, !tbaa !3
+  %1261 = getelementptr inbounds nuw i8, ptr %.71859, i64 56
+  %1262 = load double, ptr %1261, align 8, !tbaa !3
+  %1263 = getelementptr inbounds nuw i8, ptr %.231930, i64 120
+  store double %1262, ptr %1263, align 8, !tbaa !3
+  %1264 = getelementptr inbounds nuw i8, ptr %.231930, i64 128
+  %1265 = getelementptr inbounds nuw i8, ptr %.71844, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1264, i8 0, i64 16, i1 false)
+  %1266 = load double, ptr %1265, align 8, !tbaa !3
+  %1267 = getelementptr inbounds nuw i8, ptr %.231930, i64 144
+  store double %1266, ptr %1267, align 8, !tbaa !3
+  %1268 = getelementptr inbounds nuw i8, ptr %.71844, i64 24
+  %1269 = load double, ptr %1268, align 8, !tbaa !3
+  %1270 = getelementptr inbounds nuw i8, ptr %.231930, i64 152
+  store double %1269, ptr %1270, align 8, !tbaa !3
+  %1271 = getelementptr inbounds nuw i8, ptr %.71844, i64 32
+  %1272 = load double, ptr %1271, align 8, !tbaa !3
+  %1273 = getelementptr inbounds nuw i8, ptr %.231930, i64 160
+  store double %1272, ptr %1273, align 8, !tbaa !3
+  %1274 = getelementptr inbounds nuw i8, ptr %.71844, i64 40
+  %1275 = load double, ptr %1274, align 8, !tbaa !3
+  %1276 = getelementptr inbounds nuw i8, ptr %.231930, i64 168
+  store double %1275, ptr %1276, align 8, !tbaa !3
+  %1277 = getelementptr inbounds nuw i8, ptr %.71844, i64 48
+  %1278 = load double, ptr %1277, align 8, !tbaa !3
+  %1279 = getelementptr inbounds nuw i8, ptr %.231930, i64 176
+  store double %1278, ptr %1279, align 8, !tbaa !3
+  %1280 = getelementptr inbounds nuw i8, ptr %.71844, i64 56
+  %1281 = load double, ptr %1280, align 8, !tbaa !3
+  %1282 = getelementptr inbounds nuw i8, ptr %.231930, i64 184
+  store double %1281, ptr %1282, align 8, !tbaa !3
+  %1283 = getelementptr inbounds nuw i8, ptr %.231930, i64 192
+  %1284 = getelementptr inbounds nuw i8, ptr %.71834, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1283, i8 0, i64 24, i1 false)
+  %1285 = load double, ptr %1284, align 8, !tbaa !3
+  %1286 = getelementptr inbounds nuw i8, ptr %.231930, i64 216
+  store double %1285, ptr %1286, align 8, !tbaa !3
+  %1287 = getelementptr inbounds nuw i8, ptr %.71834, i64 32
+  %1288 = load double, ptr %1287, align 8, !tbaa !3
+  %1289 = getelementptr inbounds nuw i8, ptr %.231930, i64 224
+  store double %1288, ptr %1289, align 8, !tbaa !3
+  %1290 = getelementptr inbounds nuw i8, ptr %.71834, i64 40
+  %1291 = load double, ptr %1290, align 8, !tbaa !3
+  %1292 = getelementptr inbounds nuw i8, ptr %.231930, i64 232
+  store double %1291, ptr %1292, align 8, !tbaa !3
+  %1293 = getelementptr inbounds nuw i8, ptr %.71834, i64 48
+  %1294 = load double, ptr %1293, align 8, !tbaa !3
+  %1295 = getelementptr inbounds nuw i8, ptr %.231930, i64 240
+  store double %1294, ptr %1295, align 8, !tbaa !3
+  %1296 = getelementptr inbounds nuw i8, ptr %.71834, i64 56
+  %1297 = load double, ptr %1296, align 8, !tbaa !3
+  %1298 = getelementptr inbounds nuw i8, ptr %.231930, i64 248
+  store double %1297, ptr %1298, align 8, !tbaa !3
+  %1299 = getelementptr inbounds nuw i8, ptr %.231930, i64 256
+  %1300 = getelementptr inbounds nuw i8, ptr %.71824, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1299, i8 0, i64 32, i1 false)
+  %1301 = load double, ptr %1300, align 8, !tbaa !3
+  %1302 = getelementptr inbounds nuw i8, ptr %.231930, i64 288
+  store double %1301, ptr %1302, align 8, !tbaa !3
+  %1303 = getelementptr inbounds nuw i8, ptr %.71824, i64 40
+  %1304 = load double, ptr %1303, align 8, !tbaa !3
+  %1305 = getelementptr inbounds nuw i8, ptr %.231930, i64 296
+  store double %1304, ptr %1305, align 8, !tbaa !3
+  %1306 = getelementptr inbounds nuw i8, ptr %.71824, i64 48
+  %1307 = load double, ptr %1306, align 8, !tbaa !3
+  %1308 = getelementptr inbounds nuw i8, ptr %.231930, i64 304
+  store double %1307, ptr %1308, align 8, !tbaa !3
+  %1309 = getelementptr inbounds nuw i8, ptr %.71824, i64 56
+  %1310 = load double, ptr %1309, align 8, !tbaa !3
+  %1311 = getelementptr inbounds nuw i8, ptr %.231930, i64 312
+  store double %1310, ptr %1311, align 8, !tbaa !3
+  %1312 = getelementptr inbounds nuw i8, ptr %.231930, i64 320
+  %1313 = getelementptr inbounds nuw i8, ptr %.71814, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1312, i8 0, i64 40, i1 false)
+  %1314 = load double, ptr %1313, align 8, !tbaa !3
+  %1315 = getelementptr inbounds nuw i8, ptr %.231930, i64 360
+  store double %1314, ptr %1315, align 8, !tbaa !3
+  %1316 = getelementptr inbounds nuw i8, ptr %.71814, i64 48
+  %1317 = load double, ptr %1316, align 8, !tbaa !3
+  %1318 = getelementptr inbounds nuw i8, ptr %.231930, i64 368
+  store double %1317, ptr %1318, align 8, !tbaa !3
+  %1319 = getelementptr inbounds nuw i8, ptr %.71814, i64 56
+  %1320 = load double, ptr %1319, align 8, !tbaa !3
+  %1321 = getelementptr inbounds nuw i8, ptr %.231930, i64 376
+  store double %1320, ptr %1321, align 8, !tbaa !3
+  %1322 = getelementptr inbounds nuw i8, ptr %.231930, i64 384
+  %1323 = getelementptr inbounds nuw i8, ptr %.71804, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1322, i8 0, i64 48, i1 false)
+  %1324 = load double, ptr %1323, align 8, !tbaa !3
+  %1325 = getelementptr inbounds nuw i8, ptr %.231930, i64 432
+  store double %1324, ptr %1325, align 8, !tbaa !3
+  %1326 = getelementptr inbounds nuw i8, ptr %.71804, i64 56
+  %1327 = load double, ptr %1326, align 8, !tbaa !3
+  %1328 = getelementptr inbounds nuw i8, ptr %.231930, i64 440
+  store double %1327, ptr %1328, align 8, !tbaa !3
+  %1329 = getelementptr inbounds nuw i8, ptr %.231930, i64 448
+  %1330 = getelementptr inbounds nuw i8, ptr %.7, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1329, i8 0, i64 56, i1 false)
+  %1331 = load double, ptr %1330, align 8, !tbaa !3
+  %1332 = getelementptr inbounds nuw i8, ptr %.231930, i64 504
+  store double %1331, ptr %1332, align 8, !tbaa !3
+  %1333 = getelementptr inbounds nuw i8, ptr %.81875, i64 64
+  %1334 = getelementptr inbounds nuw i8, ptr %.71859, i64 64
+  %1335 = getelementptr inbounds nuw i8, ptr %.71844, i64 64
+  %1336 = getelementptr inbounds nuw i8, ptr %.71834, i64 64
+  %1337 = getelementptr inbounds nuw i8, ptr %.71824, i64 64
+  %1338 = getelementptr inbounds nuw i8, ptr %.71814, i64 64
+  %1339 = getelementptr inbounds nuw i8, ptr %.71804, i64 64
+  %1340 = getelementptr inbounds nuw i8, ptr %.7, i64 64
+  %1341 = getelementptr inbounds nuw i8, ptr %.231930, i64 512
+  br label %1342
 
-1343:                                             ; preds = %1212, %1220, %1175
-  %.241931 = phi ptr [ %1184, %1175 ], [ %1210, %1212 ], [ %1342, %1220 ]
-  %.91876 = phi ptr [ %1176, %1175 ], [ %1209, %1212 ], [ %1334, %1220 ]
-  %.81860 = phi ptr [ %1177, %1175 ], [ %1213, %1212 ], [ %1335, %1220 ]
-  %.81845 = phi ptr [ %1178, %1175 ], [ %1214, %1212 ], [ %1336, %1220 ]
-  %.81835 = phi ptr [ %1179, %1175 ], [ %1215, %1212 ], [ %1337, %1220 ]
-  %.81825 = phi ptr [ %1180, %1175 ], [ %1216, %1212 ], [ %1338, %1220 ]
-  %.81815 = phi ptr [ %1181, %1175 ], [ %1217, %1212 ], [ %1339, %1220 ]
-  %.81805 = phi ptr [ %1182, %1175 ], [ %1218, %1212 ], [ %1340, %1220 ]
-  %.8 = phi ptr [ %1183, %1175 ], [ %1219, %1212 ], [ %1341, %1220 ]
-  %1344 = add nsw i64 %.31889, 8
-  %1345 = add nsw i64 %.11903, -1
-  %1346 = icmp sgt i64 %.11903, 1
-  br i1 %1346, label %1173, label %.loopexit2048.loopexit, !llvm.loop !13
+1342:                                             ; preds = %1211, %1219, %1174
+  %.241931 = phi ptr [ %1183, %1174 ], [ %1209, %1211 ], [ %1341, %1219 ]
+  %.91876 = phi ptr [ %1175, %1174 ], [ %1208, %1211 ], [ %1333, %1219 ]
+  %.81860 = phi ptr [ %1176, %1174 ], [ %1212, %1211 ], [ %1334, %1219 ]
+  %.81845 = phi ptr [ %1177, %1174 ], [ %1213, %1211 ], [ %1335, %1219 ]
+  %.81835 = phi ptr [ %1178, %1174 ], [ %1214, %1211 ], [ %1336, %1219 ]
+  %.81825 = phi ptr [ %1179, %1174 ], [ %1215, %1211 ], [ %1337, %1219 ]
+  %.81815 = phi ptr [ %1180, %1174 ], [ %1216, %1211 ], [ %1338, %1219 ]
+  %.81805 = phi ptr [ %1181, %1174 ], [ %1217, %1211 ], [ %1339, %1219 ]
+  %.8 = phi ptr [ %1182, %1174 ], [ %1218, %1211 ], [ %1340, %1219 ]
+  %1343 = add nsw i64 %.31889, 8
+  %1344 = add nsw i64 %.11903, -1
+  %1345 = icmp sgt i64 %.11903, 1
+  br i1 %1345, label %1172, label %.loopexit2048.loopexit, !llvm.loop !13
 
-.loopexit2048.loopexit:                           ; preds = %1343
-  %1347 = add i64 %4, %1172
+.loopexit2048.loopexit:                           ; preds = %1342
+  %1346 = and i64 %0, -8
+  %1347 = add i64 %4, %1346
   br label %.loopexit2048
 
 .loopexit2048:                                    ; preds = %.loopexit2048.loopexit, %1144
@@ -2226,127 +2226,127 @@ define noundef i32 @dtrmm_iltncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1516 = mul nsw i64 %1515, %3
   %1517 = getelementptr inbounds double, ptr %1504, i64 %1516
   %1518 = shl nsw i64 %3, 2
-  %1519 = and i64 %0, -4
-  br label %1520
+  br label %1519
 
-1520:                                             ; preds = %.preheader2043, %1584
-  %.35 = phi ptr [ %.36, %1584 ], [ %.211928, %.preheader2043 ]
-  %.21904 = phi i64 [ %1586, %1584 ], [ %1513, %.preheader2043 ]
-  %.51891 = phi i64 [ %1585, %1584 ], [ %4, %.preheader2043 ]
-  %.141881 = phi ptr [ %.151882, %1584 ], [ %1506, %.preheader2043 ]
-  %.121864 = phi ptr [ %.131865, %1584 ], [ %1509, %.preheader2043 ]
-  %.121849 = phi ptr [ %.131850, %1584 ], [ %1512, %.preheader2043 ]
-  %.12 = phi ptr [ %.13, %1584 ], [ %1517, %.preheader2043 ]
-  %1521 = icmp sgt i64 %.51891, %.21934
-  br i1 %1521, label %1522, label %1528
+1519:                                             ; preds = %.preheader2043, %1583
+  %.35 = phi ptr [ %.36, %1583 ], [ %.211928, %.preheader2043 ]
+  %.21904 = phi i64 [ %1585, %1583 ], [ %1513, %.preheader2043 ]
+  %.51891 = phi i64 [ %1584, %1583 ], [ %4, %.preheader2043 ]
+  %.141881 = phi ptr [ %.151882, %1583 ], [ %1506, %.preheader2043 ]
+  %.121864 = phi ptr [ %.131865, %1583 ], [ %1509, %.preheader2043 ]
+  %.121849 = phi ptr [ %.131850, %1583 ], [ %1512, %.preheader2043 ]
+  %.12 = phi ptr [ %.13, %1583 ], [ %1517, %.preheader2043 ]
+  %1520 = icmp sgt i64 %.51891, %.21934
+  br i1 %1520, label %1521, label %1527
 
-1522:                                             ; preds = %1520
-  %1523 = getelementptr inbounds nuw i8, ptr %.141881, i64 32
-  %1524 = getelementptr inbounds nuw i8, ptr %.121864, i64 32
-  %1525 = getelementptr inbounds nuw i8, ptr %.121849, i64 32
-  %1526 = getelementptr inbounds nuw i8, ptr %.12, i64 32
-  %1527 = getelementptr inbounds nuw i8, ptr %.35, i64 128
-  br label %1584
+1521:                                             ; preds = %1519
+  %1522 = getelementptr inbounds nuw i8, ptr %.141881, i64 32
+  %1523 = getelementptr inbounds nuw i8, ptr %.121864, i64 32
+  %1524 = getelementptr inbounds nuw i8, ptr %.121849, i64 32
+  %1525 = getelementptr inbounds nuw i8, ptr %.12, i64 32
+  %1526 = getelementptr inbounds nuw i8, ptr %.35, i64 128
+  br label %1583
 
-1528:                                             ; preds = %1520
-  %1529 = icmp slt i64 %.51891, %.21934
-  br i1 %1529, label %.preheader2042, label %1547
+1527:                                             ; preds = %1519
+  %1528 = icmp slt i64 %.51891, %.21934
+  br i1 %1528, label %.preheader2042, label %1546
 
-.preheader2042:                                   ; preds = %1528, %.preheader2042
-  %.1618832073 = phi ptr [ %1540, %.preheader2042 ], [ %.141881, %1528 ]
-  %.418992072 = phi i64 [ %1542, %.preheader2042 ], [ 0, %1528 ]
-  %.372071 = phi ptr [ %1541, %.preheader2042 ], [ %.35, %1528 ]
-  %1530 = load double, ptr %.1618832073, align 8, !tbaa !3
-  store double %1530, ptr %.372071, align 8, !tbaa !3
-  %1531 = getelementptr inbounds nuw i8, ptr %.1618832073, i64 8
-  %1532 = load double, ptr %1531, align 8, !tbaa !3
-  %1533 = getelementptr inbounds nuw i8, ptr %.372071, i64 8
-  store double %1532, ptr %1533, align 8, !tbaa !3
-  %1534 = getelementptr inbounds nuw i8, ptr %.1618832073, i64 16
-  %1535 = load double, ptr %1534, align 8, !tbaa !3
-  %1536 = getelementptr inbounds nuw i8, ptr %.372071, i64 16
-  store double %1535, ptr %1536, align 8, !tbaa !3
-  %1537 = getelementptr inbounds nuw i8, ptr %.1618832073, i64 24
-  %1538 = load double, ptr %1537, align 8, !tbaa !3
-  %1539 = getelementptr inbounds nuw i8, ptr %.372071, i64 24
-  store double %1538, ptr %1539, align 8, !tbaa !3
-  %1540 = getelementptr inbounds double, ptr %.1618832073, i64 %3
-  %1541 = getelementptr inbounds nuw i8, ptr %.372071, i64 32
-  %1542 = add nuw nsw i64 %.418992072, 1
-  %exitcond2093.not = icmp eq i64 %1542, 4
-  br i1 %exitcond2093.not, label %1543, label %.preheader2042, !llvm.loop !15
+.preheader2042:                                   ; preds = %1527, %.preheader2042
+  %.1618832073 = phi ptr [ %1539, %.preheader2042 ], [ %.141881, %1527 ]
+  %.418992072 = phi i64 [ %1541, %.preheader2042 ], [ 0, %1527 ]
+  %.372071 = phi ptr [ %1540, %.preheader2042 ], [ %.35, %1527 ]
+  %1529 = load double, ptr %.1618832073, align 8, !tbaa !3
+  store double %1529, ptr %.372071, align 8, !tbaa !3
+  %1530 = getelementptr inbounds nuw i8, ptr %.1618832073, i64 8
+  %1531 = load double, ptr %1530, align 8, !tbaa !3
+  %1532 = getelementptr inbounds nuw i8, ptr %.372071, i64 8
+  store double %1531, ptr %1532, align 8, !tbaa !3
+  %1533 = getelementptr inbounds nuw i8, ptr %.1618832073, i64 16
+  %1534 = load double, ptr %1533, align 8, !tbaa !3
+  %1535 = getelementptr inbounds nuw i8, ptr %.372071, i64 16
+  store double %1534, ptr %1535, align 8, !tbaa !3
+  %1536 = getelementptr inbounds nuw i8, ptr %.1618832073, i64 24
+  %1537 = load double, ptr %1536, align 8, !tbaa !3
+  %1538 = getelementptr inbounds nuw i8, ptr %.372071, i64 24
+  store double %1537, ptr %1538, align 8, !tbaa !3
+  %1539 = getelementptr inbounds double, ptr %.1618832073, i64 %3
+  %1540 = getelementptr inbounds nuw i8, ptr %.372071, i64 32
+  %1541 = add nuw nsw i64 %.418992072, 1
+  %exitcond2093.not = icmp eq i64 %1541, 4
+  br i1 %exitcond2093.not, label %1542, label %.preheader2042, !llvm.loop !15
 
-1543:                                             ; preds = %.preheader2042
-  %1544 = getelementptr inbounds double, ptr %.121864, i64 %1518
-  %1545 = getelementptr inbounds double, ptr %.121849, i64 %1518
-  %1546 = getelementptr inbounds double, ptr %.12, i64 %1518
-  br label %1584
+1542:                                             ; preds = %.preheader2042
+  %1543 = getelementptr inbounds double, ptr %.121864, i64 %1518
+  %1544 = getelementptr inbounds double, ptr %.121849, i64 %1518
+  %1545 = getelementptr inbounds double, ptr %.12, i64 %1518
+  br label %1583
 
-1547:                                             ; preds = %1528
-  %1548 = load double, ptr %.141881, align 8, !tbaa !3
-  store double %1548, ptr %.35, align 8, !tbaa !3
-  %1549 = getelementptr inbounds nuw i8, ptr %.141881, i64 8
-  %1550 = load double, ptr %1549, align 8, !tbaa !3
-  %1551 = getelementptr inbounds nuw i8, ptr %.35, i64 8
-  store double %1550, ptr %1551, align 8, !tbaa !3
-  %1552 = getelementptr inbounds nuw i8, ptr %.141881, i64 16
-  %1553 = load double, ptr %1552, align 8, !tbaa !3
-  %1554 = getelementptr inbounds nuw i8, ptr %.35, i64 16
-  store double %1553, ptr %1554, align 8, !tbaa !3
-  %1555 = getelementptr inbounds nuw i8, ptr %.141881, i64 24
-  %1556 = load double, ptr %1555, align 8, !tbaa !3
-  %1557 = getelementptr inbounds nuw i8, ptr %.35, i64 24
-  store double %1556, ptr %1557, align 8, !tbaa !3
-  %1558 = getelementptr inbounds nuw i8, ptr %.35, i64 32
-  store double 0.000000e+00, ptr %1558, align 8, !tbaa !3
-  %1559 = getelementptr inbounds nuw i8, ptr %.121864, i64 8
-  %1560 = load double, ptr %1559, align 8, !tbaa !3
-  %1561 = getelementptr inbounds nuw i8, ptr %.35, i64 40
-  store double %1560, ptr %1561, align 8, !tbaa !3
-  %1562 = getelementptr inbounds nuw i8, ptr %.121864, i64 16
-  %1563 = load double, ptr %1562, align 8, !tbaa !3
-  %1564 = getelementptr inbounds nuw i8, ptr %.35, i64 48
-  store double %1563, ptr %1564, align 8, !tbaa !3
-  %1565 = getelementptr inbounds nuw i8, ptr %.121864, i64 24
-  %1566 = load double, ptr %1565, align 8, !tbaa !3
-  %1567 = getelementptr inbounds nuw i8, ptr %.35, i64 56
-  store double %1566, ptr %1567, align 8, !tbaa !3
-  %1568 = getelementptr inbounds nuw i8, ptr %.35, i64 64
-  %1569 = getelementptr inbounds nuw i8, ptr %.121849, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1568, i8 0, i64 16, i1 false)
-  %1570 = load double, ptr %1569, align 8, !tbaa !3
-  %1571 = getelementptr inbounds nuw i8, ptr %.35, i64 80
-  store double %1570, ptr %1571, align 8, !tbaa !3
-  %1572 = getelementptr inbounds nuw i8, ptr %.121849, i64 24
-  %1573 = load double, ptr %1572, align 8, !tbaa !3
-  %1574 = getelementptr inbounds nuw i8, ptr %.35, i64 88
-  store double %1573, ptr %1574, align 8, !tbaa !3
-  %1575 = getelementptr inbounds nuw i8, ptr %.35, i64 96
-  %1576 = getelementptr inbounds nuw i8, ptr %.12, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1575, i8 0, i64 24, i1 false)
-  %1577 = load double, ptr %1576, align 8, !tbaa !3
-  %1578 = getelementptr inbounds nuw i8, ptr %.35, i64 120
-  store double %1577, ptr %1578, align 8, !tbaa !3
-  %1579 = getelementptr inbounds nuw i8, ptr %.141881, i64 32
-  %1580 = getelementptr inbounds nuw i8, ptr %.121864, i64 32
-  %1581 = getelementptr inbounds nuw i8, ptr %.121849, i64 32
-  %1582 = getelementptr inbounds nuw i8, ptr %.12, i64 32
-  %1583 = getelementptr inbounds nuw i8, ptr %.35, i64 128
-  br label %1584
+1546:                                             ; preds = %1527
+  %1547 = load double, ptr %.141881, align 8, !tbaa !3
+  store double %1547, ptr %.35, align 8, !tbaa !3
+  %1548 = getelementptr inbounds nuw i8, ptr %.141881, i64 8
+  %1549 = load double, ptr %1548, align 8, !tbaa !3
+  %1550 = getelementptr inbounds nuw i8, ptr %.35, i64 8
+  store double %1549, ptr %1550, align 8, !tbaa !3
+  %1551 = getelementptr inbounds nuw i8, ptr %.141881, i64 16
+  %1552 = load double, ptr %1551, align 8, !tbaa !3
+  %1553 = getelementptr inbounds nuw i8, ptr %.35, i64 16
+  store double %1552, ptr %1553, align 8, !tbaa !3
+  %1554 = getelementptr inbounds nuw i8, ptr %.141881, i64 24
+  %1555 = load double, ptr %1554, align 8, !tbaa !3
+  %1556 = getelementptr inbounds nuw i8, ptr %.35, i64 24
+  store double %1555, ptr %1556, align 8, !tbaa !3
+  %1557 = getelementptr inbounds nuw i8, ptr %.35, i64 32
+  store double 0.000000e+00, ptr %1557, align 8, !tbaa !3
+  %1558 = getelementptr inbounds nuw i8, ptr %.121864, i64 8
+  %1559 = load double, ptr %1558, align 8, !tbaa !3
+  %1560 = getelementptr inbounds nuw i8, ptr %.35, i64 40
+  store double %1559, ptr %1560, align 8, !tbaa !3
+  %1561 = getelementptr inbounds nuw i8, ptr %.121864, i64 16
+  %1562 = load double, ptr %1561, align 8, !tbaa !3
+  %1563 = getelementptr inbounds nuw i8, ptr %.35, i64 48
+  store double %1562, ptr %1563, align 8, !tbaa !3
+  %1564 = getelementptr inbounds nuw i8, ptr %.121864, i64 24
+  %1565 = load double, ptr %1564, align 8, !tbaa !3
+  %1566 = getelementptr inbounds nuw i8, ptr %.35, i64 56
+  store double %1565, ptr %1566, align 8, !tbaa !3
+  %1567 = getelementptr inbounds nuw i8, ptr %.35, i64 64
+  %1568 = getelementptr inbounds nuw i8, ptr %.121849, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1567, i8 0, i64 16, i1 false)
+  %1569 = load double, ptr %1568, align 8, !tbaa !3
+  %1570 = getelementptr inbounds nuw i8, ptr %.35, i64 80
+  store double %1569, ptr %1570, align 8, !tbaa !3
+  %1571 = getelementptr inbounds nuw i8, ptr %.121849, i64 24
+  %1572 = load double, ptr %1571, align 8, !tbaa !3
+  %1573 = getelementptr inbounds nuw i8, ptr %.35, i64 88
+  store double %1572, ptr %1573, align 8, !tbaa !3
+  %1574 = getelementptr inbounds nuw i8, ptr %.35, i64 96
+  %1575 = getelementptr inbounds nuw i8, ptr %.12, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1574, i8 0, i64 24, i1 false)
+  %1576 = load double, ptr %1575, align 8, !tbaa !3
+  %1577 = getelementptr inbounds nuw i8, ptr %.35, i64 120
+  store double %1576, ptr %1577, align 8, !tbaa !3
+  %1578 = getelementptr inbounds nuw i8, ptr %.141881, i64 32
+  %1579 = getelementptr inbounds nuw i8, ptr %.121864, i64 32
+  %1580 = getelementptr inbounds nuw i8, ptr %.121849, i64 32
+  %1581 = getelementptr inbounds nuw i8, ptr %.12, i64 32
+  %1582 = getelementptr inbounds nuw i8, ptr %.35, i64 128
+  br label %1583
 
-1584:                                             ; preds = %1543, %1547, %1522
-  %.36 = phi ptr [ %1527, %1522 ], [ %1541, %1543 ], [ %1583, %1547 ]
-  %.151882 = phi ptr [ %1523, %1522 ], [ %1540, %1543 ], [ %1579, %1547 ]
-  %.131865 = phi ptr [ %1524, %1522 ], [ %1544, %1543 ], [ %1580, %1547 ]
-  %.131850 = phi ptr [ %1525, %1522 ], [ %1545, %1543 ], [ %1581, %1547 ]
-  %.13 = phi ptr [ %1526, %1522 ], [ %1546, %1543 ], [ %1582, %1547 ]
-  %1585 = add nsw i64 %.51891, 4
-  %1586 = add nsw i64 %.21904, -1
-  %1587 = icmp sgt i64 %.21904, 1
-  br i1 %1587, label %1520, label %.loopexit2044.loopexit, !llvm.loop !16
+1583:                                             ; preds = %1542, %1546, %1521
+  %.36 = phi ptr [ %1526, %1521 ], [ %1540, %1542 ], [ %1582, %1546 ]
+  %.151882 = phi ptr [ %1522, %1521 ], [ %1539, %1542 ], [ %1578, %1546 ]
+  %.131865 = phi ptr [ %1523, %1521 ], [ %1543, %1542 ], [ %1579, %1546 ]
+  %.131850 = phi ptr [ %1524, %1521 ], [ %1544, %1542 ], [ %1580, %1546 ]
+  %.13 = phi ptr [ %1525, %1521 ], [ %1545, %1542 ], [ %1581, %1546 ]
+  %1584 = add nsw i64 %.51891, 4
+  %1585 = add nsw i64 %.21904, -1
+  %1586 = icmp sgt i64 %.21904, 1
+  br i1 %1586, label %1519, label %.loopexit2044.loopexit, !llvm.loop !16
 
-.loopexit2044.loopexit:                           ; preds = %1584
-  %1588 = add i64 %4, %1519
+.loopexit2044.loopexit:                           ; preds = %1583
+  %1587 = and i64 %0, -4
+  %1588 = add i64 %4, %1587
   br label %.loopexit2044
 
 .loopexit2044:                                    ; preds = %.loopexit2044.loopexit, %1503
@@ -2473,67 +2473,67 @@ define noundef i32 @dtrmm_iltncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1651 = mul nsw i64 %1650, %3
   %1652 = getelementptr inbounds double, ptr %1645, i64 %1651
   %1653 = shl nsw i64 %3, 1
-  %1654 = and i64 %0, -2
-  br label %1655
+  br label %1654
 
-1655:                                             ; preds = %.preheader2039, %1681
-  %.43 = phi ptr [ %.44, %1681 ], [ %.33, %.preheader2039 ]
-  %.31905 = phi i64 [ %1683, %1681 ], [ %1648, %.preheader2039 ]
-  %.71893 = phi i64 [ %1682, %1681 ], [ %4, %.preheader2039 ]
-  %.20 = phi ptr [ %.21, %1681 ], [ %1647, %.preheader2039 ]
-  %.17 = phi ptr [ %.18, %1681 ], [ %1652, %.preheader2039 ]
-  %1656 = icmp sgt i64 %.71893, %.31935
-  br i1 %1656, label %1657, label %1660
+1654:                                             ; preds = %.preheader2039, %1680
+  %.43 = phi ptr [ %.44, %1680 ], [ %.33, %.preheader2039 ]
+  %.31905 = phi i64 [ %1682, %1680 ], [ %1648, %.preheader2039 ]
+  %.71893 = phi i64 [ %1681, %1680 ], [ %4, %.preheader2039 ]
+  %.20 = phi ptr [ %.21, %1680 ], [ %1647, %.preheader2039 ]
+  %.17 = phi ptr [ %.18, %1680 ], [ %1652, %.preheader2039 ]
+  %1655 = icmp sgt i64 %.71893, %.31935
+  br i1 %1655, label %1656, label %1659
 
-1657:                                             ; preds = %1655
-  %1658 = getelementptr inbounds nuw i8, ptr %.20, i64 16
-  %1659 = getelementptr inbounds nuw i8, ptr %.17, i64 16
-  br label %1681
+1656:                                             ; preds = %1654
+  %1657 = getelementptr inbounds nuw i8, ptr %.20, i64 16
+  %1658 = getelementptr inbounds nuw i8, ptr %.17, i64 16
+  br label %1680
 
-1660:                                             ; preds = %1655
-  %1661 = icmp slt i64 %.71893, %.31935
-  %1662 = load double, ptr %.20, align 8, !tbaa !3
-  store double %1662, ptr %.43, align 8, !tbaa !3
-  %1663 = getelementptr inbounds nuw i8, ptr %.20, i64 8
-  %1664 = load double, ptr %1663, align 8, !tbaa !3
-  %1665 = getelementptr inbounds nuw i8, ptr %.43, i64 8
-  store double %1664, ptr %1665, align 8, !tbaa !3
-  br i1 %1661, label %1666, label %1674
+1659:                                             ; preds = %1654
+  %1660 = icmp slt i64 %.71893, %.31935
+  %1661 = load double, ptr %.20, align 8, !tbaa !3
+  store double %1661, ptr %.43, align 8, !tbaa !3
+  %1662 = getelementptr inbounds nuw i8, ptr %.20, i64 8
+  %1663 = load double, ptr %1662, align 8, !tbaa !3
+  %1664 = getelementptr inbounds nuw i8, ptr %.43, i64 8
+  store double %1663, ptr %1664, align 8, !tbaa !3
+  br i1 %1660, label %1665, label %1673
 
-1666:                                             ; preds = %1660
-  %1667 = load double, ptr %.17, align 8, !tbaa !3
-  %1668 = getelementptr inbounds nuw i8, ptr %.43, i64 16
-  store double %1667, ptr %1668, align 8, !tbaa !3
-  %1669 = getelementptr inbounds nuw i8, ptr %.17, i64 8
-  %1670 = load double, ptr %1669, align 8, !tbaa !3
-  %1671 = getelementptr inbounds nuw i8, ptr %.43, i64 24
-  store double %1670, ptr %1671, align 8, !tbaa !3
-  %1672 = getelementptr inbounds double, ptr %.20, i64 %1653
-  %1673 = getelementptr inbounds double, ptr %.17, i64 %1653
-  br label %1681
+1665:                                             ; preds = %1659
+  %1666 = load double, ptr %.17, align 8, !tbaa !3
+  %1667 = getelementptr inbounds nuw i8, ptr %.43, i64 16
+  store double %1666, ptr %1667, align 8, !tbaa !3
+  %1668 = getelementptr inbounds nuw i8, ptr %.17, i64 8
+  %1669 = load double, ptr %1668, align 8, !tbaa !3
+  %1670 = getelementptr inbounds nuw i8, ptr %.43, i64 24
+  store double %1669, ptr %1670, align 8, !tbaa !3
+  %1671 = getelementptr inbounds double, ptr %.20, i64 %1653
+  %1672 = getelementptr inbounds double, ptr %.17, i64 %1653
+  br label %1680
 
-1674:                                             ; preds = %1660
-  %1675 = getelementptr inbounds nuw i8, ptr %.43, i64 16
-  store double 0.000000e+00, ptr %1675, align 8, !tbaa !3
-  %1676 = getelementptr inbounds nuw i8, ptr %.17, i64 8
-  %1677 = load double, ptr %1676, align 8, !tbaa !3
-  %1678 = getelementptr inbounds nuw i8, ptr %.43, i64 24
-  store double %1677, ptr %1678, align 8, !tbaa !3
-  %1679 = getelementptr inbounds nuw i8, ptr %.20, i64 16
-  %1680 = getelementptr inbounds nuw i8, ptr %.17, i64 16
-  br label %1681
+1673:                                             ; preds = %1659
+  %1674 = getelementptr inbounds nuw i8, ptr %.43, i64 16
+  store double 0.000000e+00, ptr %1674, align 8, !tbaa !3
+  %1675 = getelementptr inbounds nuw i8, ptr %.17, i64 8
+  %1676 = load double, ptr %1675, align 8, !tbaa !3
+  %1677 = getelementptr inbounds nuw i8, ptr %.43, i64 24
+  store double %1676, ptr %1677, align 8, !tbaa !3
+  %1678 = getelementptr inbounds nuw i8, ptr %.20, i64 16
+  %1679 = getelementptr inbounds nuw i8, ptr %.17, i64 16
+  br label %1680
 
-1681:                                             ; preds = %1666, %1674, %1657
-  %.21 = phi ptr [ %1658, %1657 ], [ %1672, %1666 ], [ %1679, %1674 ]
-  %.18 = phi ptr [ %1659, %1657 ], [ %1673, %1666 ], [ %1680, %1674 ]
+1680:                                             ; preds = %1665, %1673, %1656
+  %.21 = phi ptr [ %1657, %1656 ], [ %1671, %1665 ], [ %1678, %1673 ]
+  %.18 = phi ptr [ %1658, %1656 ], [ %1672, %1665 ], [ %1679, %1673 ]
   %.44 = getelementptr inbounds nuw i8, ptr %.43, i64 32
-  %1682 = add nsw i64 %.71893, 2
-  %1683 = add nsw i64 %.31905, -1
-  %1684 = icmp sgt i64 %.31905, 1
-  br i1 %1684, label %1655, label %.loopexit2040.loopexit, !llvm.loop !18
+  %1681 = add nsw i64 %.71893, 2
+  %1682 = add nsw i64 %.31905, -1
+  %1683 = icmp sgt i64 %.31905, 1
+  br i1 %1683, label %1654, label %.loopexit2040.loopexit, !llvm.loop !18
 
-.loopexit2040.loopexit:                           ; preds = %1681
-  %1685 = add i64 %4, %1654
+.loopexit2040.loopexit:                           ; preds = %1680
+  %1684 = and i64 %0, -2
+  %1685 = add i64 %4, %1684
   br label %.loopexit2040
 
 .loopexit2040:                                    ; preds = %.loopexit2040.loopexit, %1644

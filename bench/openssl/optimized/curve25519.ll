@@ -3411,40 +3411,40 @@ ge_p3_to_cached.exit110:                          ; preds = %229
   call fastcc void @fe_mul(ptr noundef %109, ptr noundef nonnull readonly %105, ptr noundef nonnull readonly %106)
   call fastcc void @fe_mul(ptr noundef %110, ptr noundef nonnull readonly %106, ptr noundef nonnull readonly %103)
   call fastcc void @fe_mul(ptr noundef %111, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %105)
-  %.nonneg124 = sub i8 0, %255
-  %264 = lshr i8 %.nonneg124, 1
-  %265 = zext nneg i8 %264 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
-  br label %266
+  br label %264
 
-266:                                              ; preds = %266, %263
-  %indvars.iv.i.i111 = phi i64 [ 0, %263 ], [ %indvars.iv.next.i.i112, %266 ]
-  %267 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.i.i111
+264:                                              ; preds = %264, %263
+  %indvars.iv.i.i111 = phi i64 [ 0, %263 ], [ %indvars.iv.next.i.i112, %264 ]
+  %265 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.i.i111
+  %266 = load i32, ptr %265, align 4, !tbaa !9
+  %267 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i111
   %268 = load i32, ptr %267, align 4, !tbaa !9
-  %269 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i111
-  %270 = load i32, ptr %269, align 4, !tbaa !9
-  %271 = add nsw i32 %270, %268
-  %272 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i111
-  store i32 %271, ptr %272, align 4, !tbaa !9
+  %269 = add nsw i32 %268, %266
+  %270 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i111
+  store i32 %269, ptr %270, align 4, !tbaa !9
   %indvars.iv.next.i.i112 = add nuw nsw i64 %indvars.iv.i.i111, 1
   %exitcond.not.i.i113 = icmp eq i64 %indvars.iv.next.i.i112, 10
-  br i1 %exitcond.not.i.i113, label %fe_add.exit.i114, label %266, !llvm.loop !14
+  br i1 %exitcond.not.i.i113, label %fe_add.exit.i114, label %264, !llvm.loop !14
 
-fe_add.exit.i114:                                 ; preds = %266, %fe_add.exit.i114
-  %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i31.i, %fe_add.exit.i114 ], [ 0, %266 ]
-  %273 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.i30.i
+fe_add.exit.i114:                                 ; preds = %264, %fe_add.exit.i114
+  %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i31.i, %fe_add.exit.i114 ], [ 0, %264 ]
+  %271 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.i30.i
+  %272 = load i32, ptr %271, align 4, !tbaa !9
+  %273 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i30.i
   %274 = load i32, ptr %273, align 4, !tbaa !9
-  %275 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i30.i
-  %276 = load i32, ptr %275, align 4, !tbaa !9
-  %277 = sub nsw i32 %274, %276
-  %278 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i30.i
-  store i32 %277, ptr %278, align 4, !tbaa !9
+  %275 = sub nsw i32 %272, %274
+  %276 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i30.i
+  store i32 %275, ptr %276, align 4, !tbaa !9
   %indvars.iv.next.i31.i = add nuw nsw i64 %indvars.iv.i30.i, 1
   %exitcond.not.i32.i = icmp eq i64 %indvars.iv.next.i31.i, 10
   br i1 %exitcond.not.i32.i, label %fe_sub.exit.i, label %fe_add.exit.i114, !llvm.loop !13
 
 fe_sub.exit.i:                                    ; preds = %fe_add.exit.i114
-  %279 = getelementptr inbounds nuw [8 x %struct.ge_cached], ptr %10, i64 0, i64 %265
+  %.nonneg124 = sub i8 0, %255
+  %277 = lshr i8 %.nonneg124, 1
+  %278 = zext nneg i8 %277 to i64
+  %279 = getelementptr inbounds nuw [8 x %struct.ge_cached], ptr %10, i64 0, i64 %278
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 40
   call fastcc void @fe_mul(ptr noundef %106, ptr noundef nonnull %11, ptr noundef nonnull readonly %280)
   call fastcc void @fe_mul(ptr noundef %105, ptr noundef nonnull %105, ptr noundef nonnull readonly %279)
@@ -3545,40 +3545,40 @@ ge_sub.exit:                                      ; preds = %fe_sub.exit48.i
   call fastcc void @fe_mul(ptr noundef %109, ptr noundef nonnull readonly %105, ptr noundef nonnull readonly %106)
   call fastcc void @fe_mul(ptr noundef %110, ptr noundef nonnull readonly %106, ptr noundef nonnull readonly %103)
   call fastcc void @fe_mul(ptr noundef %111, ptr noundef nonnull readonly %11, ptr noundef nonnull readonly %105)
-  %.nonneg = sub i8 0, %312
-  %321 = lshr i8 %.nonneg, 1
-  %322 = zext nneg i8 %321 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #9
-  br label %323
+  br label %321
 
-323:                                              ; preds = %323, %320
-  %indvars.iv.i.i115 = phi i64 [ 0, %320 ], [ %indvars.iv.next.i.i116, %323 ]
-  %324 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.i.i115
+321:                                              ; preds = %321, %320
+  %indvars.iv.i.i115 = phi i64 [ 0, %320 ], [ %indvars.iv.next.i.i116, %321 ]
+  %322 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.i.i115
+  %323 = load i32, ptr %322, align 4, !tbaa !9
+  %324 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i115
   %325 = load i32, ptr %324, align 4, !tbaa !9
-  %326 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i115
-  %327 = load i32, ptr %326, align 4, !tbaa !9
-  %328 = add nsw i32 %327, %325
-  %329 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i115
-  store i32 %328, ptr %329, align 4, !tbaa !9
+  %326 = add nsw i32 %325, %323
+  %327 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.i115
+  store i32 %326, ptr %327, align 4, !tbaa !9
   %indvars.iv.next.i.i116 = add nuw nsw i64 %indvars.iv.i.i115, 1
   %exitcond.not.i.i117 = icmp eq i64 %indvars.iv.next.i.i116, 10
-  br i1 %exitcond.not.i.i117, label %fe_add.exit.i118, label %323, !llvm.loop !14
+  br i1 %exitcond.not.i.i117, label %fe_add.exit.i118, label %321, !llvm.loop !14
 
-fe_add.exit.i118:                                 ; preds = %323, %fe_add.exit.i118
-  %indvars.iv.i27.i = phi i64 [ %indvars.iv.next.i28.i, %fe_add.exit.i118 ], [ 0, %323 ]
-  %330 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.i27.i
+fe_add.exit.i118:                                 ; preds = %321, %fe_add.exit.i118
+  %indvars.iv.i27.i = phi i64 [ %indvars.iv.next.i28.i, %fe_add.exit.i118 ], [ 0, %321 ]
+  %328 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.i27.i
+  %329 = load i32, ptr %328, align 4, !tbaa !9
+  %330 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i27.i
   %331 = load i32, ptr %330, align 4, !tbaa !9
-  %332 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i27.i
-  %333 = load i32, ptr %332, align 4, !tbaa !9
-  %334 = sub nsw i32 %331, %333
-  %335 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i27.i
-  store i32 %334, ptr %335, align 4, !tbaa !9
+  %332 = sub nsw i32 %329, %331
+  %333 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i27.i
+  store i32 %332, ptr %333, align 4, !tbaa !9
   %indvars.iv.next.i28.i = add nuw nsw i64 %indvars.iv.i27.i, 1
   %exitcond.not.i29.i = icmp eq i64 %indvars.iv.next.i28.i, 10
   br i1 %exitcond.not.i29.i, label %fe_sub.exit.i119, label %fe_add.exit.i118, !llvm.loop !13
 
 fe_sub.exit.i119:                                 ; preds = %fe_add.exit.i118
-  %336 = getelementptr inbounds nuw [8 x %struct.ge_precomp], ptr @Bi, i64 0, i64 %322
+  %.nonneg = sub i8 0, %312
+  %334 = lshr i8 %.nonneg, 1
+  %335 = zext nneg i8 %334 to i64
+  %336 = getelementptr inbounds nuw [8 x %struct.ge_precomp], ptr @Bi, i64 0, i64 %335
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 40
   call fastcc void @fe_mul(ptr noundef %106, ptr noundef nonnull %11, ptr noundef nonnull readonly %337)
   call fastcc void @fe_mul(ptr noundef %105, ptr noundef nonnull %105, ptr noundef nonnull readonly %336)

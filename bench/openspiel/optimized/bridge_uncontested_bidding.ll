@@ -3519,9 +3519,9 @@ _ZSt4fillIPjiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPjiEvT_S1
   %indvar = phi i64 [ 1, %191 ], [ 0, %_ZSt4fillIPjiEvT_S1_RKT0_.exit.preheader ]
   %177 = shl nuw nsw i64 %indvar, 5
   %gep = getelementptr i8, ptr %invariant.gep, i64 %177
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep, i8 0, i64 16, i1 false)
   %178 = shl nuw nsw i64 %indvar, 1
   %179 = or disjoint i64 %178, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep, i8 0, i64 16, i1 false)
   br label %180
 
 180:                                              ; preds = %_ZSt4fillIPjiEvT_S1_RKT0_.exit, %180

@@ -693,74 +693,74 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(38) ptr @_ZN5Eigen2
   %4 = alloca %"class.Eigen::Matrix.13", align 4
   %5 = alloca %"class.Eigen::HouseholderSequence", align 8
   %6 = alloca [4 x float], align 16
-  %7 = and i32 %2, 128
-  %8 = icmp ne i32 %7, 0
   %.sroa.025.0.copyload = load ptr, ptr %1, align 8
-  %9 = load float, ptr %.sroa.025.0.copyload, align 4, !tbaa !6
-  store float %9, ptr %0, align 16, !tbaa !6
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = getelementptr i8, ptr %.sroa.025.0.copyload, i64 4
-  %12 = load float, ptr %11, align 4, !tbaa !6
-  store float %12, ptr %10, align 4, !tbaa !6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float 0.000000e+00, ptr %13, align 8, !tbaa !6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = getelementptr i8, ptr %.sroa.025.0.copyload, i64 16
-  %16 = load float, ptr %15, align 4, !tbaa !6
-  store float %16, ptr %14, align 4, !tbaa !6
-  %17 = load <4 x float>, ptr %0, align 16
-  %18 = tail call noundef <4 x float> @llvm.fabs.v4f32(<4 x float> %17)
+  %7 = load float, ptr %.sroa.025.0.copyload, align 4, !tbaa !6
+  store float %7, ptr %0, align 16, !tbaa !6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %9 = getelementptr i8, ptr %.sroa.025.0.copyload, i64 4
+  %10 = load float, ptr %9, align 4, !tbaa !6
+  store float %10, ptr %8, align 4, !tbaa !6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store float 0.000000e+00, ptr %11, align 8, !tbaa !6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %13 = getelementptr i8, ptr %.sroa.025.0.copyload, i64 16
+  %14 = load float, ptr %13, align 4, !tbaa !6
+  store float %14, ptr %12, align 4, !tbaa !6
+  %15 = load <4 x float>, ptr %0, align 16
+  %16 = tail call noundef <4 x float> @llvm.fabs.v4f32(<4 x float> %15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29
-  store <4 x float> %18, ptr %6, align 16, !tbaa !48
-  %19 = extractelement <4 x float> %17, i64 0
+  store <4 x float> %16, ptr %6, align 16, !tbaa !48
+  %17 = extractelement <4 x float> %15, i64 0
   br label %.preheader.i.i.i.i.i.i.i
 
-.preheader.i.i.i.i.i.i.i:                         ; preds = %20, %3
-  %.01012.i.i.i.i.i.i.i = phi i64 [ 2, %3 ], [ %21, %20 ]
-  br label %22
+.preheader.i.i.i.i.i.i.i:                         ; preds = %18, %3
+  %.01012.i.i.i.i.i.i.i = phi i64 [ 2, %3 ], [ %19, %18 ]
+  br label %20
 
-20:                                               ; preds = %22
-  %21 = lshr i64 %.01012.i.i.i.i.i.i.i, 1
+18:                                               ; preds = %20
+  %19 = lshr i64 %.01012.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %.01012.i.i.i.i.i.i.i, 2
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEEEEE8maxCoeffEv.exit, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !73
 
-22:                                               ; preds = %22, %.preheader.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %30, %22 ]
-  %23 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.011.i.i.i.i.i.i.i
-  %24 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, %.01012.i.i.i.i.i.i.i
-  %25 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %24
-  %26 = load float, ptr %23, align 4, !tbaa !6
-  %27 = load float, ptr %25, align 4, !tbaa !6
-  %28 = fcmp olt float %26, %27
-  %29 = select i1 %28, float %27, float %26
-  store float %29, ptr %23, align 4, !tbaa !6
-  %30 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %30, %.01012.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %20, label %22, !llvm.loop !74
+20:                                               ; preds = %20, %.preheader.i.i.i.i.i.i.i
+  %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %28, %20 ]
+  %21 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %.011.i.i.i.i.i.i.i
+  %22 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, %.01012.i.i.i.i.i.i.i
+  %23 = getelementptr inbounds nuw [4 x float], ptr %6, i64 0, i64 %22
+  %24 = load float, ptr %21, align 4, !tbaa !6
+  %25 = load float, ptr %23, align 4, !tbaa !6
+  %26 = fcmp olt float %24, %25
+  %27 = select i1 %26, float %25, float %24
+  store float %27, ptr %21, align 4, !tbaa !6
+  %28 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %28, %.01012.i.i.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %18, label %20, !llvm.loop !74
 
-_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEEEEE8maxCoeffEv.exit: ; preds = %20
+_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEEEEE8maxCoeffEv.exit: ; preds = %18
+  %29 = and i32 %2, 128
+  %30 = icmp ne i32 %29, 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load float, ptr %6, align 16, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
   %33 = fcmp oeq float %32, 0.000000e+00
   %storemerge = select i1 %33, float 1.000000e+00, float %32
-  %34 = fdiv float %19, %storemerge
+  %34 = fdiv float %17, %storemerge
   store float %34, ptr %0, align 16, !tbaa !6
-  %35 = fdiv float %12, %storemerge
-  store float %35, ptr %10, align 4, !tbaa !6
-  %36 = fdiv float %16, %storemerge
-  store float %36, ptr %14, align 4, !tbaa !6
+  %35 = fdiv float %10, %storemerge
+  store float %35, ptr %8, align 4, !tbaa !6
+  %36 = fdiv float %14, %storemerge
+  store float %36, ptr %12, align 4, !tbaa !6
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @_ZN5Eigen8internal26tridiagonalization_inplaceINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEENS2_IfLi1ELi1ELi0ELi1ELi1EEEEEvRT_RT0_(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %38)
   %39 = load float, ptr %0, align 16, !tbaa !6
   store float %39, ptr %31, align 16, !tbaa !6
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %41 = load float, ptr %14, align 4, !tbaa !6
+  %41 = load float, ptr %12, align 4, !tbaa !6
   store float %41, ptr %40, align 4, !tbaa !6
-  %42 = load float, ptr %10, align 4, !tbaa !6
+  %42 = load float, ptr %8, align 4, !tbaa !6
   store float %42, ptr %37, align 8, !tbaa !6
-  br i1 %8, label %43, label %48
+  br i1 %30, label %43, label %48
 
 43:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEEEEE8maxCoeffEv.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #29
@@ -780,8 +780,8 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6Matri
   br label %48
 
 48:                                               ; preds = %43, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEEEEE8maxCoeffEv.exit
-  %49 = zext i1 %8 to i8
-  %50 = call noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_implINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEENS2_IfLi2ELi1ELi0ELi2ELi1EEENS2_IfLi1ELi1ELi0ELi1ELi1EEEEENS_15ComputationInfoERT0_RT1_lbRT_(ptr noundef nonnull align 4 dereferenceable(8) %31, ptr noundef nonnull align 4 dereferenceable(4) %37, i64 noundef 30, i1 noundef zeroext %8, ptr noundef nonnull align 16 dereferenceable(16) %0)
+  %49 = zext i1 %30 to i8
+  %50 = call noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_implINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEENS2_IfLi2ELi1ELi0ELi2ELi1EEENS2_IfLi1ELi1ELi0ELi1ELi1EEEEENS_15ComputationInfoERT0_RT1_lbRT_(ptr noundef nonnull align 4 dereferenceable(8) %31, ptr noundef nonnull align 4 dereferenceable(4) %37, i64 noundef 30, i1 noundef zeroext %30, ptr noundef nonnull align 16 dereferenceable(16) %0)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %50, ptr %51, align 16, !tbaa !83
   %52 = load float, ptr %31, align 16, !tbaa !6

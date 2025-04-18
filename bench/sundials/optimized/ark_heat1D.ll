@@ -247,9 +247,9 @@ check_flag.exit107:                               ; preds = %74
   %100 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, double noundef 0.000000e+00, double noundef %99)
   br label %101
 
-101:                                              ; preds = %96, %119
-  %.0180 = phi i32 [ 0, %96 ], [ %121, %119 ]
-  %.069179 = phi double [ 1.000000e-01, %96 ], [ %120, %119 ]
+101:                                              ; preds = %96, %117
+  %.0180 = phi i32 [ 0, %96 ], [ %121, %117 ]
+  %.069179 = phi double [ 1.000000e-01, %96 ], [ %120, %117 ]
   %102 = call i32 @ARKodeEvolve(ptr noundef nonnull %34, double noundef %.069179, ptr noundef nonnull %28, ptr noundef nonnull %2, i32 noundef 1) #9
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %check_flag.exit109, label %106
@@ -265,27 +265,27 @@ check_flag.exit109:                               ; preds = %101
   %109 = fdiv double %108, 2.010000e+02
   %110 = call double @sqrt(double noundef %109) #9, !tbaa !19
   %111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, double noundef %107, double noundef %110)
-  %112 = fadd double %.069179, 1.000000e-01
-  %113 = fcmp ogt double %112, 1.000000e+00
-  br label %114
+  br label %112
 
-114:                                              ; preds = %106, %114
-  %.2178 = phi i64 [ 0, %106 ], [ %118, %114 ]
-  %115 = getelementptr inbounds nuw double, ptr %90, i64 %.2178
-  %116 = load double, ptr %115, align 8, !tbaa !18
-  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.18, double noundef %116) #9
-  %118 = add nuw nsw i64 %.2178, 1
-  %exitcond183.not = icmp eq i64 %118, 201
-  br i1 %exitcond183.not, label %119, label %114
+112:                                              ; preds = %106, %112
+  %.2178 = phi i64 [ 0, %106 ], [ %116, %112 ]
+  %113 = getelementptr inbounds nuw double, ptr %90, i64 %.2178
+  %114 = load double, ptr %113, align 8, !tbaa !18
+  %115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.18, double noundef %114) #9
+  %116 = add nuw nsw i64 %.2178, 1
+  %exitcond183.not = icmp eq i64 %116, 201
+  br i1 %exitcond183.not, label %117, label %112
 
-119:                                              ; preds = %114
-  %120 = select i1 %113, double 1.000000e+00, double %112
+117:                                              ; preds = %112
+  %118 = fadd double %.069179, 1.000000e-01
+  %119 = fcmp ogt double %118, 1.000000e+00
+  %120 = select i1 %119, double 1.000000e+00, double %118
   %fputc85 = call i32 @fputc(i32 10, ptr %89)
   %121 = add nuw nsw i32 %.0180, 1
   %exitcond184.not = icmp eq i32 %121, 10
   br i1 %exitcond184.not, label %.loopexit, label %101
 
-.loopexit:                                        ; preds = %119, %check_flag.exit109
+.loopexit:                                        ; preds = %117, %check_flag.exit109
   %puts86 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   %122 = call i32 @fclose(ptr noundef %89)
   %123 = call i32 @ARKodeGetNumSteps(ptr noundef nonnull %34, ptr noundef nonnull %3) #9

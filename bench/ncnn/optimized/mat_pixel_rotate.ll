@@ -42,10 +42,10 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   %narrow.i = add nuw nsw i32 %20, 1
   %21 = zext nneg i32 %narrow.i to i64
   %22 = mul nsw i64 %21, %16
-  %23 = mul nsw i64 %18, %21
-  %24 = and i32 %19, -2
   %scevgep.i = getelementptr i8, ptr %0, i64 %22
+  %23 = mul nsw i64 %18, %21
   %scevgep98.i = getelementptr i8, ptr %4, i64 %23
+  %24 = and i32 %19, -2
   %25 = add nuw nsw i32 %24, 2
   br label %.preheader55.i
 
@@ -90,16 +90,16 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   %43 = add nuw nsw i32 %.04469.us.i, 2
   %44 = or disjoint i32 %43, 1
   %45 = icmp slt i32 %44, %2
-  br i1 %45, label %.preheader56.us.i, label %.preheader55.i.loopexit, !llvm.loop !9
+  br i1 %45, label %.preheader56.us.i, label %.preheader55.loopexit.i, !llvm.loop !9
 
-.preheader55.i.loopexit:                          ; preds = %._crit_edge.us.i
+.preheader55.loopexit.i:                          ; preds = %._crit_edge.us.i
   %46 = and i32 %2, 2147483646
   br label %.preheader55.i
 
-.preheader55.i:                                   ; preds = %.preheader55.i.loopexit, %.preheader56.preheader.i, %10
-  %.051.lcssa.i = phi ptr [ %0, %10 ], [ %scevgep.i, %.preheader56.preheader.i ], [ %39, %.preheader55.i.loopexit ]
-  %.047.lcssa.i = phi ptr [ %4, %10 ], [ %scevgep98.i, %.preheader56.preheader.i ], [ %41, %.preheader55.i.loopexit ]
-  %.044.lcssa.i = phi i32 [ 0, %10 ], [ %25, %.preheader56.preheader.i ], [ %46, %.preheader55.i.loopexit ]
+.preheader55.i:                                   ; preds = %.preheader55.loopexit.i, %.preheader56.preheader.i, %10
+  %.051.lcssa.i = phi ptr [ %0, %10 ], [ %39, %.preheader55.loopexit.i ], [ %scevgep.i, %.preheader56.preheader.i ]
+  %.047.lcssa.i = phi ptr [ %4, %10 ], [ %41, %.preheader55.loopexit.i ], [ %scevgep98.i, %.preheader56.preheader.i ]
+  %.044.lcssa.i = phi i32 [ 0, %10 ], [ %46, %.preheader55.loopexit.i ], [ %25, %.preheader56.preheader.i ]
   %47 = icmp slt i32 %.044.lcssa.i, %2
   br i1 %47, label %.preheader.lr.ph.i, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit
 
@@ -248,13 +248,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   %117 = zext nneg i32 %116 to i64
   %118 = add nuw nsw i64 %117, 1
   %119 = mul nsw i64 %118, %111
+  %scevgep.i77 = getelementptr i8, ptr %0, i64 %119
   %120 = xor i64 %117, -1
   %121 = mul nsw i64 %113, %120
-  %122 = and i32 %115, -2
-  %scevgep.i77 = getelementptr i8, ptr %0, i64 %119
-  %123 = getelementptr i8, ptr %4, i64 %121
-  %scevgep101.i = getelementptr i8, ptr %123, i64 %106
-  %124 = add nuw nsw i32 %122, 2
+  %122 = getelementptr i8, ptr %4, i64 %121
+  %scevgep101.i = getelementptr i8, ptr %122, i64 %106
+  %123 = and i32 %115, -2
+  %124 = add nuw nsw i32 %123, 2
   br label %.preheader58.i
 
 .preheader59.us.preheader.i:                      ; preds = %.preheader59.lr.ph.i
@@ -299,16 +299,16 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr noundef readonly 
   %143 = add nuw nsw i32 %.04772.us.i, 2
   %144 = or disjoint i32 %143, 1
   %145 = icmp slt i32 %144, %2
-  br i1 %145, label %.preheader59.us.i, label %.preheader58.i.loopexit, !llvm.loop !17
+  br i1 %145, label %.preheader59.us.i, label %.preheader58.loopexit.i, !llvm.loop !17
 
-.preheader58.i.loopexit:                          ; preds = %._crit_edge.us.i78
+.preheader58.loopexit.i:                          ; preds = %._crit_edge.us.i78
   %146 = and i32 %2, 2147483646
   br label %.preheader58.i
 
-.preheader58.i:                                   ; preds = %.preheader58.i.loopexit, %.preheader59.preheader.i, %101
-  %.054.lcssa.i = phi ptr [ %0, %101 ], [ %scevgep.i77, %.preheader59.preheader.i ], [ %139, %.preheader58.i.loopexit ]
-  %.050.lcssa.i = phi ptr [ %107, %101 ], [ %scevgep101.i, %.preheader59.preheader.i ], [ %141, %.preheader58.i.loopexit ]
-  %.047.lcssa.i73 = phi i32 [ 0, %101 ], [ %124, %.preheader59.preheader.i ], [ %146, %.preheader58.i.loopexit ]
+.preheader58.i:                                   ; preds = %.preheader58.loopexit.i, %.preheader59.preheader.i, %101
+  %.054.lcssa.i = phi ptr [ %0, %101 ], [ %139, %.preheader58.loopexit.i ], [ %scevgep.i77, %.preheader59.preheader.i ]
+  %.050.lcssa.i = phi ptr [ %107, %101 ], [ %141, %.preheader58.loopexit.i ], [ %scevgep101.i, %.preheader59.preheader.i ]
+  %.047.lcssa.i73 = phi i32 [ 0, %101 ], [ %146, %.preheader58.loopexit.i ], [ %124, %.preheader59.preheader.i ]
   %147 = icmp slt i32 %.047.lcssa.i73, %2
   br i1 %147, label %.preheader.lr.ph.i74, label %_ZN4ncnnL17kanna_rotate_1_c1EPKhiiiPhiii.exit
 
@@ -565,10 +565,10 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %narrow.i = add nuw nsw i32 %22, 1
   %23 = zext nneg i32 %narrow.i to i64
   %24 = mul nsw i64 %23, %18
-  %25 = mul nsw i64 %20, %23
-  %26 = and i32 %21, -2
   %scevgep.i = getelementptr i8, ptr %0, i64 %24
+  %25 = mul nsw i64 %20, %23
   %scevgep99.i = getelementptr i8, ptr %4, i64 %25
+  %26 = and i32 %21, -2
   %27 = add nuw nsw i32 %26, 2
   br label %.preheader56.i
 
@@ -613,16 +613,16 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %45 = add nuw nsw i32 %.04570.us.i, 2
   %46 = or disjoint i32 %45, 1
   %47 = icmp slt i32 %46, %2
-  br i1 %47, label %.preheader57.us.i, label %.preheader56.i.loopexit, !llvm.loop !29
+  br i1 %47, label %.preheader57.us.i, label %.preheader56.loopexit.i, !llvm.loop !29
 
-.preheader56.i.loopexit:                          ; preds = %._crit_edge.us.i
+.preheader56.loopexit.i:                          ; preds = %._crit_edge.us.i
   %48 = and i32 %2, 2147483646
   br label %.preheader56.i
 
-.preheader56.i:                                   ; preds = %.preheader56.i.loopexit, %.preheader57.preheader.i, %10
-  %.052.lcssa.i = phi ptr [ %0, %10 ], [ %scevgep.i, %.preheader57.preheader.i ], [ %41, %.preheader56.i.loopexit ]
-  %.048.lcssa.i = phi ptr [ %4, %10 ], [ %scevgep99.i, %.preheader57.preheader.i ], [ %43, %.preheader56.i.loopexit ]
-  %.045.lcssa.i = phi i32 [ 0, %10 ], [ %27, %.preheader57.preheader.i ], [ %48, %.preheader56.i.loopexit ]
+.preheader56.i:                                   ; preds = %.preheader56.loopexit.i, %.preheader57.preheader.i, %10
+  %.052.lcssa.i = phi ptr [ %0, %10 ], [ %41, %.preheader56.loopexit.i ], [ %scevgep.i, %.preheader57.preheader.i ]
+  %.048.lcssa.i = phi ptr [ %4, %10 ], [ %43, %.preheader56.loopexit.i ], [ %scevgep99.i, %.preheader57.preheader.i ]
+  %.045.lcssa.i = phi i32 [ 0, %10 ], [ %48, %.preheader56.loopexit.i ], [ %27, %.preheader57.preheader.i ]
   %49 = icmp slt i32 %.045.lcssa.i, %2
   br i1 %49, label %.preheader.lr.ph.i, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit
 
@@ -785,13 +785,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %131 = zext nneg i32 %130 to i64
   %132 = add nuw nsw i64 %131, 1
   %133 = mul nsw i64 %132, %125
+  %scevgep.i77 = getelementptr i8, ptr %0, i64 %133
   %134 = xor i64 %131, -1
   %135 = mul nsw i64 %127, %134
-  %136 = and i32 %129, -2
-  %scevgep.i77 = getelementptr i8, ptr %0, i64 %133
-  %137 = getelementptr i8, ptr %4, i64 %135
-  %scevgep102.i = getelementptr i8, ptr %137, i64 %120
-  %138 = add nuw nsw i32 %136, 2
+  %136 = getelementptr i8, ptr %4, i64 %135
+  %scevgep102.i = getelementptr i8, ptr %136, i64 %120
+  %137 = and i32 %129, -2
+  %138 = add nuw nsw i32 %137, 2
   br label %.preheader59.i
 
 .preheader60.us.preheader.i:                      ; preds = %.preheader60.lr.ph.i
@@ -836,16 +836,16 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %157 = add nuw nsw i32 %.04873.us.i, 2
   %158 = or disjoint i32 %157, 1
   %159 = icmp slt i32 %158, %2
-  br i1 %159, label %.preheader60.us.i, label %.preheader59.i.loopexit, !llvm.loop !37
+  br i1 %159, label %.preheader60.us.i, label %.preheader59.loopexit.i, !llvm.loop !37
 
-.preheader59.i.loopexit:                          ; preds = %._crit_edge.us.i78
+.preheader59.loopexit.i:                          ; preds = %._crit_edge.us.i78
   %160 = and i32 %2, 2147483646
   br label %.preheader59.i
 
-.preheader59.i:                                   ; preds = %.preheader59.i.loopexit, %.preheader60.preheader.i, %113
-  %.055.lcssa.i = phi ptr [ %0, %113 ], [ %scevgep.i77, %.preheader60.preheader.i ], [ %153, %.preheader59.i.loopexit ]
-  %.051.lcssa.i = phi ptr [ %121, %113 ], [ %scevgep102.i, %.preheader60.preheader.i ], [ %155, %.preheader59.i.loopexit ]
-  %.048.lcssa.i73 = phi i32 [ 0, %113 ], [ %138, %.preheader60.preheader.i ], [ %160, %.preheader59.i.loopexit ]
+.preheader59.i:                                   ; preds = %.preheader59.loopexit.i, %.preheader60.preheader.i, %113
+  %.055.lcssa.i = phi ptr [ %0, %113 ], [ %153, %.preheader59.loopexit.i ], [ %scevgep.i77, %.preheader60.preheader.i ]
+  %.051.lcssa.i = phi ptr [ %121, %113 ], [ %155, %.preheader59.loopexit.i ], [ %scevgep102.i, %.preheader60.preheader.i ]
+  %.048.lcssa.i73 = phi i32 [ 0, %113 ], [ %160, %.preheader59.loopexit.i ], [ %138, %.preheader60.preheader.i ]
   %161 = icmp slt i32 %.048.lcssa.i73, %2
   br i1 %161, label %.preheader.lr.ph.i74, label %_ZN4ncnnL17kanna_rotate_1_c2EPKhiiiPhiii.exit
 
@@ -1126,10 +1126,10 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %narrow.i = add nuw nsw i32 %21, 1
   %22 = zext nneg i32 %narrow.i to i64
   %23 = mul nsw i64 %22, %17
-  %24 = mul nsw i64 %19, %22
-  %25 = and i32 %20, -2
   %scevgep.i = getelementptr i8, ptr %0, i64 %23
+  %24 = mul nsw i64 %19, %22
   %scevgep99.i = getelementptr i8, ptr %4, i64 %24
+  %25 = and i32 %20, -2
   %26 = add nuw nsw i32 %25, 2
   br label %.preheader56.i
 
@@ -1174,16 +1174,16 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %44 = add nuw nsw i32 %.04570.us.i, 2
   %45 = or disjoint i32 %44, 1
   %46 = icmp slt i32 %45, %2
-  br i1 %46, label %.preheader57.us.i, label %.preheader56.i.loopexit, !llvm.loop !49
+  br i1 %46, label %.preheader57.us.i, label %.preheader56.loopexit.i, !llvm.loop !49
 
-.preheader56.i.loopexit:                          ; preds = %._crit_edge.us.i
+.preheader56.loopexit.i:                          ; preds = %._crit_edge.us.i
   %47 = and i32 %2, 2147483646
   br label %.preheader56.i
 
-.preheader56.i:                                   ; preds = %.preheader56.i.loopexit, %.preheader57.preheader.i, %10
-  %.052.lcssa.i = phi ptr [ %0, %10 ], [ %scevgep.i, %.preheader57.preheader.i ], [ %40, %.preheader56.i.loopexit ]
-  %.048.lcssa.i = phi ptr [ %4, %10 ], [ %scevgep99.i, %.preheader57.preheader.i ], [ %42, %.preheader56.i.loopexit ]
-  %.045.lcssa.i = phi i32 [ 0, %10 ], [ %26, %.preheader57.preheader.i ], [ %47, %.preheader56.i.loopexit ]
+.preheader56.i:                                   ; preds = %.preheader56.loopexit.i, %.preheader57.preheader.i, %10
+  %.052.lcssa.i = phi ptr [ %0, %10 ], [ %40, %.preheader56.loopexit.i ], [ %scevgep.i, %.preheader57.preheader.i ]
+  %.048.lcssa.i = phi ptr [ %4, %10 ], [ %42, %.preheader56.loopexit.i ], [ %scevgep99.i, %.preheader57.preheader.i ]
+  %.045.lcssa.i = phi i32 [ 0, %10 ], [ %47, %.preheader56.loopexit.i ], [ %26, %.preheader57.preheader.i ]
   %48 = icmp slt i32 %.045.lcssa.i, %2
   br i1 %48, label %.preheader.lr.ph.i, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit
 
@@ -1354,13 +1354,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %133 = zext nneg i32 %132 to i64
   %134 = add nuw nsw i64 %133, 1
   %135 = mul nsw i64 %134, %127
+  %scevgep.i79 = getelementptr i8, ptr %0, i64 %135
   %136 = xor i64 %133, -1
   %137 = mul nsw i64 %129, %136
-  %138 = and i32 %131, -2
-  %scevgep.i79 = getelementptr i8, ptr %0, i64 %135
-  %139 = getelementptr i8, ptr %4, i64 %137
-  %scevgep102.i = getelementptr i8, ptr %139, i64 %122
-  %140 = add nuw nsw i32 %138, 2
+  %138 = getelementptr i8, ptr %4, i64 %137
+  %scevgep102.i = getelementptr i8, ptr %138, i64 %122
+  %139 = and i32 %131, -2
+  %140 = add nuw nsw i32 %139, 2
   br label %.preheader59.i
 
 .preheader60.us.preheader.i:                      ; preds = %.preheader60.lr.ph.i
@@ -1405,16 +1405,16 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %159 = add nuw nsw i32 %.04873.us.i, 2
   %160 = or disjoint i32 %159, 1
   %161 = icmp slt i32 %160, %2
-  br i1 %161, label %.preheader60.us.i, label %.preheader59.i.loopexit, !llvm.loop !57
+  br i1 %161, label %.preheader60.us.i, label %.preheader59.loopexit.i, !llvm.loop !57
 
-.preheader59.i.loopexit:                          ; preds = %._crit_edge.us.i80
+.preheader59.loopexit.i:                          ; preds = %._crit_edge.us.i80
   %162 = and i32 %2, 2147483646
   br label %.preheader59.i
 
-.preheader59.i:                                   ; preds = %.preheader59.i.loopexit, %.preheader60.preheader.i, %115
-  %.055.lcssa.i = phi ptr [ %0, %115 ], [ %scevgep.i79, %.preheader60.preheader.i ], [ %155, %.preheader59.i.loopexit ]
-  %.051.lcssa.i = phi ptr [ %123, %115 ], [ %scevgep102.i, %.preheader60.preheader.i ], [ %157, %.preheader59.i.loopexit ]
-  %.048.lcssa.i75 = phi i32 [ 0, %115 ], [ %140, %.preheader60.preheader.i ], [ %162, %.preheader59.i.loopexit ]
+.preheader59.i:                                   ; preds = %.preheader59.loopexit.i, %.preheader60.preheader.i, %115
+  %.055.lcssa.i = phi ptr [ %0, %115 ], [ %155, %.preheader59.loopexit.i ], [ %scevgep.i79, %.preheader60.preheader.i ]
+  %.051.lcssa.i = phi ptr [ %123, %115 ], [ %157, %.preheader59.loopexit.i ], [ %scevgep102.i, %.preheader60.preheader.i ]
+  %.048.lcssa.i75 = phi i32 [ 0, %115 ], [ %162, %.preheader59.loopexit.i ], [ %140, %.preheader60.preheader.i ]
   %163 = icmp slt i32 %.048.lcssa.i75, %2
   br i1 %163, label %.preheader.lr.ph.i76, label %_ZN4ncnnL17kanna_rotate_1_c3EPKhiiiPhiii.exit
 
@@ -1711,10 +1711,10 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %narrow.i = add nuw nsw i32 %22, 1
   %23 = zext nneg i32 %narrow.i to i64
   %24 = mul nsw i64 %23, %18
-  %25 = mul nsw i64 %20, %23
-  %26 = and i32 %21, -2
   %scevgep.i = getelementptr i8, ptr %0, i64 %24
+  %25 = mul nsw i64 %20, %23
   %scevgep99.i = getelementptr i8, ptr %4, i64 %25
+  %26 = and i32 %21, -2
   %27 = add nuw nsw i32 %26, 2
   br label %.preheader56.i
 
@@ -1759,16 +1759,16 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %45 = add nuw nsw i32 %.04570.us.i, 2
   %46 = or disjoint i32 %45, 1
   %47 = icmp slt i32 %46, %2
-  br i1 %47, label %.preheader57.us.i, label %.preheader56.i.loopexit, !llvm.loop !69
+  br i1 %47, label %.preheader57.us.i, label %.preheader56.loopexit.i, !llvm.loop !69
 
-.preheader56.i.loopexit:                          ; preds = %._crit_edge.us.i
+.preheader56.loopexit.i:                          ; preds = %._crit_edge.us.i
   %48 = and i32 %2, 2147483646
   br label %.preheader56.i
 
-.preheader56.i:                                   ; preds = %.preheader56.i.loopexit, %.preheader57.preheader.i, %10
-  %.052.lcssa.i = phi ptr [ %0, %10 ], [ %scevgep.i, %.preheader57.preheader.i ], [ %41, %.preheader56.i.loopexit ]
-  %.048.lcssa.i = phi ptr [ %4, %10 ], [ %scevgep99.i, %.preheader57.preheader.i ], [ %43, %.preheader56.i.loopexit ]
-  %.045.lcssa.i = phi i32 [ 0, %10 ], [ %27, %.preheader57.preheader.i ], [ %48, %.preheader56.i.loopexit ]
+.preheader56.i:                                   ; preds = %.preheader56.loopexit.i, %.preheader57.preheader.i, %10
+  %.052.lcssa.i = phi ptr [ %0, %10 ], [ %41, %.preheader56.loopexit.i ], [ %scevgep.i, %.preheader57.preheader.i ]
+  %.048.lcssa.i = phi ptr [ %4, %10 ], [ %43, %.preheader56.loopexit.i ], [ %scevgep99.i, %.preheader57.preheader.i ]
+  %.045.lcssa.i = phi i32 [ 0, %10 ], [ %48, %.preheader56.loopexit.i ], [ %27, %.preheader57.preheader.i ]
   %49 = icmp slt i32 %.045.lcssa.i, %2
   br i1 %49, label %.preheader.lr.ph.i, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit
 
@@ -1947,13 +1947,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %143 = zext nneg i32 %142 to i64
   %144 = add nuw nsw i64 %143, 1
   %145 = mul nsw i64 %144, %137
+  %scevgep.i77 = getelementptr i8, ptr %0, i64 %145
   %146 = xor i64 %143, -1
   %147 = mul nsw i64 %139, %146
-  %148 = and i32 %141, -2
-  %scevgep.i77 = getelementptr i8, ptr %0, i64 %145
-  %149 = getelementptr i8, ptr %4, i64 %147
-  %scevgep102.i = getelementptr i8, ptr %149, i64 %132
-  %150 = add nuw nsw i32 %148, 2
+  %148 = getelementptr i8, ptr %4, i64 %147
+  %scevgep102.i = getelementptr i8, ptr %148, i64 %132
+  %149 = and i32 %141, -2
+  %150 = add nuw nsw i32 %149, 2
   br label %.preheader59.i
 
 .preheader60.us.preheader.i:                      ; preds = %.preheader60.lr.ph.i
@@ -1998,16 +1998,16 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %169 = add nuw nsw i32 %.04873.us.i, 2
   %170 = or disjoint i32 %169, 1
   %171 = icmp slt i32 %170, %2
-  br i1 %171, label %.preheader60.us.i, label %.preheader59.i.loopexit, !llvm.loop !77
+  br i1 %171, label %.preheader60.us.i, label %.preheader59.loopexit.i, !llvm.loop !77
 
-.preheader59.i.loopexit:                          ; preds = %._crit_edge.us.i78
+.preheader59.loopexit.i:                          ; preds = %._crit_edge.us.i78
   %172 = and i32 %2, 2147483646
   br label %.preheader59.i
 
-.preheader59.i:                                   ; preds = %.preheader59.i.loopexit, %.preheader60.preheader.i, %125
-  %.055.lcssa.i = phi ptr [ %0, %125 ], [ %scevgep.i77, %.preheader60.preheader.i ], [ %165, %.preheader59.i.loopexit ]
-  %.051.lcssa.i = phi ptr [ %133, %125 ], [ %scevgep102.i, %.preheader60.preheader.i ], [ %167, %.preheader59.i.loopexit ]
-  %.048.lcssa.i73 = phi i32 [ 0, %125 ], [ %150, %.preheader60.preheader.i ], [ %172, %.preheader59.i.loopexit ]
+.preheader59.i:                                   ; preds = %.preheader59.loopexit.i, %.preheader60.preheader.i, %125
+  %.055.lcssa.i = phi ptr [ %0, %125 ], [ %165, %.preheader59.loopexit.i ], [ %scevgep.i77, %.preheader60.preheader.i ]
+  %.051.lcssa.i = phi ptr [ %133, %125 ], [ %167, %.preheader59.loopexit.i ], [ %scevgep102.i, %.preheader60.preheader.i ]
+  %.048.lcssa.i73 = phi i32 [ 0, %125 ], [ %172, %.preheader59.loopexit.i ], [ %150, %.preheader60.preheader.i ]
   %173 = icmp slt i32 %.048.lcssa.i73, %2
   br i1 %173, label %.preheader.lr.ph.i74, label %_ZN4ncnnL17kanna_rotate_1_c4EPKhiiiPhiii.exit
 

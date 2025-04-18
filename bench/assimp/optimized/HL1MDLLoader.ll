@@ -17865,43 +17865,43 @@ _ZNSt6vectorIP6aiNodeSaIS1_EE9push_backERKS1_.exit: ; preds = %28, %_ZNSt6vector
   %51 = load ptr, ptr %5, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 240
   %53 = load i32, ptr %52, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 236
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp ne i32 %56, 0
-  call void @llvm.assume(i1 %57)
-  %58 = mul nsw i32 %56, %56
-  %59 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 %58, ptr %59, align 8
-  %61 = zext nneg i32 %58 to i64
-  %62 = mul nuw nsw i64 %61, 1028
-  %63 = call noalias noundef nonnull ptr @_Znam(i64 noundef %62) #26
-  %64 = add nsw i64 %62, -1028
-  %65 = urem i64 %64, 1028
-  %66 = sub nsw i64 %62, %65
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %63, i8 0, i64 %66, i1 false)
-  store ptr %63, ptr %60, align 8
-  %67 = shl nuw nsw i64 %61, 4
-  %68 = call noalias noundef nonnull ptr @_Znam(i64 noundef %67) #26
-  %69 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %68, i64 %61
-  br label %70
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 236
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp ne i32 %55, 0
+  call void @llvm.assume(i1 %56)
+  %57 = mul nsw i32 %55, %55
+  %58 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store i32 %57, ptr %58, align 8
+  %60 = zext nneg i32 %57 to i64
+  %61 = mul nuw nsw i64 %60, 1028
+  %62 = call noalias noundef nonnull ptr @_Znam(i64 noundef %61) #26
+  %63 = add nsw i64 %61, -1028
+  %64 = urem i64 %63, 1028
+  %65 = sub nsw i64 %61, %64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %62, i8 0, i64 %65, i1 false)
+  store ptr %62, ptr %59, align 8
+  %66 = shl nuw nsw i64 %60, 4
+  %67 = call noalias noundef nonnull ptr @_Znam(i64 noundef %66) #26
+  %68 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %67, i64 %60
+  br label %69
 
-70:                                               ; preds = %70, %_ZNSt6vectorIP6aiNodeSaIS1_EE9push_backERKS1_.exit
-  %71 = phi ptr [ %68, %_ZNSt6vectorIP6aiNodeSaIS1_EE9push_backERKS1_.exit ], [ %73, %70 ]
-  store i32 10, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr null, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %74 = icmp eq ptr %73, %69
-  br i1 %74, label %.lr.ph, label %70
+69:                                               ; preds = %69, %_ZNSt6vectorIP6aiNodeSaIS1_EE9push_backERKS1_.exit
+  %70 = phi ptr [ %67, %_ZNSt6vectorIP6aiNodeSaIS1_EE9push_backERKS1_.exit ], [ %72, %69 ]
+  store i32 10, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store ptr null, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %73 = icmp eq ptr %72, %68
+  br i1 %73, label %.lr.ph, label %69
 
-.lr.ph:                                           ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %51, i64 %54
-  %76 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store ptr %68, ptr %76, align 8
+.lr.ph:                                           ; preds = %69
+  %74 = sext i32 %53 to i64
+  %75 = getelementptr inbounds i8, ptr %51, i64 %74
+  %76 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  store ptr %67, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 1136
-  store ptr %59, ptr %77, align 8
+  store ptr %58, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %90
@@ -18058,7 +18058,7 @@ _ZNSt7__cxx119to_stringEj.exit:                   ; preds = %133, %143
   %149 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv
   %150 = load i8, ptr %149, align 1
   %151 = zext i8 %150 to i32
-  %152 = load i32, ptr %59, align 8
+  %152 = load i32, ptr %58, align 8
   %153 = zext i32 %152 to i64
   %.not.i21 = icmp samesign ult i64 %indvars.iv, %153
   br i1 %.not.i21, label %154, label %_ZN10aiMetadata3SetIiEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
@@ -18073,7 +18073,7 @@ _ZNSt7__cxx119to_stringEj.exit:                   ; preds = %133, %143
   br i1 %158, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i, label %159
 
 159:                                              ; preds = %157
-  %160 = load ptr, ptr %60, align 8
+  %160 = load ptr, ptr %59, align 8
   %161 = getelementptr inbounds nuw %struct.aiString, ptr %160, i64 %indvars.iv
   %162 = trunc nuw nsw i64 %155 to i32
   store i32 %162, ptr %161, align 4
@@ -18138,7 +18138,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %184 = load i32, ptr %59, align 8
+  %184 = load i32, ptr %58, align 8
   %185 = zext i32 %184 to i64
   %186 = icmp samesign ult i64 %indvars.iv.next, %185
   br i1 %186, label %90, label %.loopexit, !llvm.loop !234

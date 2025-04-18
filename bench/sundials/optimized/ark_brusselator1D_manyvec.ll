@@ -362,9 +362,9 @@ check_flag.exit217:                               ; preds = %128
   %puts183 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   br label %160
 
-160:                                              ; preds = %159, %192
-  %.0306 = phi i32 [ 0, %159 ], [ %194, %192 ]
-  %.0165305 = phi double [ 1.000000e-01, %159 ], [ %193, %192 ]
+160:                                              ; preds = %159, %190
+  %.0306 = phi i32 [ 0, %159 ], [ %194, %190 ]
+  %.0165305 = phi double [ 1.000000e-01, %159 ], [ %193, %190 ]
   %161 = call i32 @ARKodeEvolve(ptr noundef nonnull %103, double noundef %.0165305, ptr noundef nonnull %64, ptr noundef nonnull %3, i32 noundef 1) #9
   %162 = icmp slt i32 %161, 0
   br i1 %162, label %check_flag.exit219, label %165
@@ -386,39 +386,39 @@ check_flag.exit219:                               ; preds = %160
   %174 = call double @sqrt(double noundef %173) #9, !tbaa !25
   %175 = load double, ptr %3, align 8, !tbaa !27
   %176 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, double noundef %175, double noundef %168, double noundef %171, double noundef %174)
-  %177 = fadd double %.0165305, 1.000000e-01
-  %178 = fcmp ogt double %177, 1.000000e+01
-  br label %179
+  br label %177
 
-179:                                              ; preds = %165, %179
-  %.5302 = phi i64 [ 0, %165 ], [ %183, %179 ]
-  %180 = getelementptr inbounds nuw double, ptr %69, i64 %.5302
-  %181 = load double, ptr %180, align 8, !tbaa !27
-  %182 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.23, double noundef %181) #9
-  %183 = add nuw nsw i64 %.5302, 1
-  %exitcond312.not = icmp eq i64 %183, 201
-  br i1 %exitcond312.not, label %.preheader294, label %179
+177:                                              ; preds = %165, %177
+  %.5302 = phi i64 [ 0, %165 ], [ %181, %177 ]
+  %178 = getelementptr inbounds nuw double, ptr %69, i64 %.5302
+  %179 = load double, ptr %178, align 8, !tbaa !27
+  %180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.23, double noundef %179) #9
+  %181 = add nuw nsw i64 %.5302, 1
+  %exitcond312.not = icmp eq i64 %181, 201
+  br i1 %exitcond312.not, label %.preheader294, label %177
 
-.preheader294:                                    ; preds = %179, %.preheader294
-  %.6303 = phi i64 [ %187, %.preheader294 ], [ 0, %179 ]
-  %184 = getelementptr inbounds nuw double, ptr %74, i64 %.6303
-  %185 = load double, ptr %184, align 8, !tbaa !27
-  %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.23, double noundef %185) #9
-  %187 = add nuw nsw i64 %.6303, 1
-  %exitcond313.not = icmp eq i64 %187, 201
+.preheader294:                                    ; preds = %177, %.preheader294
+  %.6303 = phi i64 [ %185, %.preheader294 ], [ 0, %177 ]
+  %182 = getelementptr inbounds nuw double, ptr %74, i64 %.6303
+  %183 = load double, ptr %182, align 8, !tbaa !27
+  %184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.23, double noundef %183) #9
+  %185 = add nuw nsw i64 %.6303, 1
+  %exitcond313.not = icmp eq i64 %185, 201
   br i1 %exitcond313.not, label %.preheader, label %.preheader294
 
 .preheader:                                       ; preds = %.preheader294, %.preheader
-  %.7304 = phi i64 [ %191, %.preheader ], [ 0, %.preheader294 ]
-  %188 = getelementptr inbounds nuw double, ptr %79, i64 %.7304
-  %189 = load double, ptr %188, align 8, !tbaa !27
-  %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.23, double noundef %189) #9
-  %191 = add nuw nsw i64 %.7304, 1
-  %exitcond314.not = icmp eq i64 %191, 201
-  br i1 %exitcond314.not, label %192, label %.preheader
+  %.7304 = phi i64 [ %189, %.preheader ], [ 0, %.preheader294 ]
+  %186 = getelementptr inbounds nuw double, ptr %79, i64 %.7304
+  %187 = load double, ptr %186, align 8, !tbaa !27
+  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.23, double noundef %187) #9
+  %189 = add nuw nsw i64 %.7304, 1
+  %exitcond314.not = icmp eq i64 %189, 201
+  br i1 %exitcond314.not, label %190, label %.preheader
 
-192:                                              ; preds = %.preheader
-  %193 = select i1 %178, double 1.000000e+01, double %177
+190:                                              ; preds = %.preheader
+  %191 = fadd double %.0165305, 1.000000e-01
+  %192 = fcmp ogt double %191, 1.000000e+01
+  %193 = select i1 %192, double 1.000000e+01, double %191
   %fputc185 = call i32 @fputc(i32 10, ptr %143)
   %fputc186 = call i32 @fputc(i32 10, ptr %144)
   %fputc187 = call i32 @fputc(i32 10, ptr %145)
@@ -426,7 +426,7 @@ check_flag.exit219:                               ; preds = %160
   %exitcond315.not = icmp eq i32 %194, 100
   br i1 %exitcond315.not, label %.loopexit, label %160
 
-.loopexit:                                        ; preds = %192, %check_flag.exit219
+.loopexit:                                        ; preds = %190, %check_flag.exit219
   %puts188 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   %195 = call i32 @fclose(ptr noundef %143)
   %196 = call i32 @fclose(ptr noundef %144)

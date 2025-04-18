@@ -13078,8 +13078,8 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 
 .body5862:                                        ; preds = %4649, %4725
   %eh.lpad-body5863 = phi { ptr, i32 } [ %4726, %4725 ], [ %4650, %4649 ]
-  %4727 = extractvalue { ptr, i32 } %eh.lpad-body5863, 0
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %379) #26
+  %4727 = extractvalue { ptr, i32 } %eh.lpad-body5863, 0
   %4728 = extractvalue { ptr, i32 } %eh.lpad-body5863, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %379) #26
   %4729 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #26
@@ -13248,26 +13248,26 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %4788 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE
           catch ptr null
-  %4789 = extractvalue { ptr, i32 } %4788, 0
-  %4790 = getelementptr inbounds nuw i8, ptr %382, i64 48
-  br label %4791
+  %4789 = getelementptr inbounds nuw i8, ptr %382, i64 48
+  br label %4790
 
-4791:                                             ; preds = %4791, %4787
-  %4792 = phi ptr [ %4790, %4787 ], [ %4793, %4791 ]
-  %4793 = getelementptr inbounds i8, ptr %4792, i64 -24
-  call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4793) #26
-  %4794 = icmp eq ptr %4793, %382
-  br i1 %4794, label %4795, label %4791
+4790:                                             ; preds = %4790, %4787
+  %4791 = phi ptr [ %4789, %4787 ], [ %4792, %4790 ]
+  %4792 = getelementptr inbounds i8, ptr %4791, i64 -24
+  call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4792) #26
+  %4793 = icmp eq ptr %4792, %382
+  br i1 %4793, label %4794, label %4790
 
-4795:                                             ; preds = %4791
+4794:                                             ; preds = %4790
+  %4795 = extractvalue { ptr, i32 } %4788, 0
   %4796 = extractvalue { ptr, i32 } %4788, 1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %382) #26
   %4797 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #26
   %4798 = icmp eq i32 %4796, %4797
-  %4799 = call ptr @__cxa_begin_catch(ptr %4789) #26
+  %4799 = call ptr @__cxa_begin_catch(ptr %4795) #26
   br i1 %4798, label %4800, label %4807
 
-4800:                                             ; preds = %4795
+4800:                                             ; preds = %4794
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %380)
           to label %4801 unwind label %4813
 
@@ -13288,7 +13288,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !73
   br label %4817
 
-4807:                                             ; preds = %4795
+4807:                                             ; preds = %4794
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %380)
           to label %4808 unwind label %4809
 
@@ -13471,26 +13471,26 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 
 .body5873:                                        ; preds = %4850, %4869
   %eh.lpad-body5874 = phi { ptr, i32 } [ %4870, %4869 ], [ %4851, %4850 ]
-  %4871 = extractvalue { ptr, i32 } %eh.lpad-body5874, 0
-  %4872 = getelementptr inbounds nuw i8, ptr %385, i64 96
-  br label %4873
+  %4871 = getelementptr inbounds nuw i8, ptr %385, i64 96
+  br label %4872
 
-4873:                                             ; preds = %4873, %.body5873
-  %4874 = phi ptr [ %4872, %.body5873 ], [ %4875, %4873 ]
-  %4875 = getelementptr inbounds i8, ptr %4874, i64 -24
-  call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4875) #26
-  %4876 = icmp eq ptr %4875, %385
-  br i1 %4876, label %4877, label %4873
+4872:                                             ; preds = %4872, %.body5873
+  %4873 = phi ptr [ %4871, %.body5873 ], [ %4874, %4872 ]
+  %4874 = getelementptr inbounds i8, ptr %4873, i64 -24
+  call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4874) #26
+  %4875 = icmp eq ptr %4874, %385
+  br i1 %4875, label %4876, label %4872
 
-4877:                                             ; preds = %4873
+4876:                                             ; preds = %4872
+  %4877 = extractvalue { ptr, i32 } %eh.lpad-body5874, 0
   %4878 = extractvalue { ptr, i32 } %eh.lpad-body5874, 1
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %385) #26
   %4879 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #26
   %4880 = icmp eq i32 %4878, %4879
-  %4881 = call ptr @__cxa_begin_catch(ptr %4871) #26
+  %4881 = call ptr @__cxa_begin_catch(ptr %4877) #26
   br i1 %4880, label %4882, label %4889
 
-4882:                                             ; preds = %4877
+4882:                                             ; preds = %4876
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %383)
           to label %4883 unwind label %4895
 
@@ -13511,7 +13511,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !74
   br label %4899
 
-4889:                                             ; preds = %4877
+4889:                                             ; preds = %4876
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %383)
           to label %4890 unwind label %4891
 
@@ -22692,26 +22692,26 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
 
 .body7669:                                        ; preds = %7683, %7773
   %eh.lpad-body7670 = phi { ptr, i32 } [ %7774, %7773 ], [ %7684, %7683 ]
-  %7775 = extractvalue { ptr, i32 } %eh.lpad-body7670, 0
-  %7776 = getelementptr inbounds nuw i8, ptr %708, i64 96
-  br label %7777
+  %7775 = getelementptr inbounds nuw i8, ptr %708, i64 96
+  br label %7776
 
-7777:                                             ; preds = %7777, %.body7669
-  %7778 = phi ptr [ %7776, %.body7669 ], [ %7779, %7777 ]
-  %7779 = getelementptr inbounds i8, ptr %7778, i64 -24
-  call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7779) #26
-  %7780 = icmp eq ptr %7779, %708
-  br i1 %7780, label %7781, label %7777
+7776:                                             ; preds = %7776, %.body7669
+  %7777 = phi ptr [ %7775, %.body7669 ], [ %7778, %7776 ]
+  %7778 = getelementptr inbounds i8, ptr %7777, i64 -24
+  call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7778) #26
+  %7779 = icmp eq ptr %7778, %708
+  br i1 %7779, label %7780, label %7776
 
-7781:                                             ; preds = %7777
+7780:                                             ; preds = %7776
+  %7781 = extractvalue { ptr, i32 } %eh.lpad-body7670, 0
   %7782 = extractvalue { ptr, i32 } %eh.lpad-body7670, 1
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %708) #26
   %7783 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #26
   %7784 = icmp eq i32 %7782, %7783
-  %7785 = call ptr @__cxa_begin_catch(ptr %7775) #26
+  %7785 = call ptr @__cxa_begin_catch(ptr %7781) #26
   br i1 %7784, label %7786, label %7793
 
-7786:                                             ; preds = %7781
+7786:                                             ; preds = %7780
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %706)
           to label %7787 unwind label %7799
 
@@ -22732,7 +22732,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !81
   br label %7803
 
-7793:                                             ; preds = %7781
+7793:                                             ; preds = %7780
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %706)
           to label %7794 unwind label %7795
 
@@ -34533,27 +34533,27 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %11752 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE
           catch ptr null
-  %11753 = extractvalue { ptr, i32 } %11752, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1131) #26
-  %11754 = getelementptr inbounds nuw i8, ptr %1130, i64 96
-  br label %11755
+  %11753 = getelementptr inbounds nuw i8, ptr %1130, i64 96
+  br label %11754
 
-11755:                                            ; preds = %11755, %11751
-  %11756 = phi ptr [ %11754, %11751 ], [ %11757, %11755 ]
-  %11757 = getelementptr inbounds i8, ptr %11756, i64 -24
-  call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11757) #26
-  %11758 = icmp eq ptr %11757, %1130
-  br i1 %11758, label %11759, label %11755
+11754:                                            ; preds = %11754, %11751
+  %11755 = phi ptr [ %11753, %11751 ], [ %11756, %11754 ]
+  %11756 = getelementptr inbounds i8, ptr %11755, i64 -24
+  call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11756) #26
+  %11757 = icmp eq ptr %11756, %1130
+  br i1 %11757, label %11758, label %11754
 
-11759:                                            ; preds = %11755
+11758:                                            ; preds = %11754
+  %11759 = extractvalue { ptr, i32 } %11752, 0
   %11760 = extractvalue { ptr, i32 } %11752, 1
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %1130) #26
   %11761 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #26
   %11762 = icmp eq i32 %11760, %11761
-  %11763 = call ptr @__cxa_begin_catch(ptr %11753) #26
+  %11763 = call ptr @__cxa_begin_catch(ptr %11759) #26
   br i1 %11762, label %11764, label %11771
 
-11764:                                            ; preds = %11759
+11764:                                            ; preds = %11758
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %1127)
           to label %11765 unwind label %11777
 
@@ -34574,7 +34574,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !318
   br label %11781
 
-11771:                                            ; preds = %11759
+11771:                                            ; preds = %11758
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %1127)
           to label %11772 unwind label %11773
 
@@ -35688,27 +35688,27 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   %12136 = landingpad { ptr, i32 }
           catch ptr @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE
           catch ptr null
-  %12137 = extractvalue { ptr, i32 } %12136, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1160) #26
-  %12138 = getelementptr inbounds nuw i8, ptr %1159, i64 96
-  br label %12139
+  %12137 = getelementptr inbounds nuw i8, ptr %1159, i64 96
+  br label %12138
 
-12139:                                            ; preds = %12139, %12135
-  %12140 = phi ptr [ %12138, %12135 ], [ %12141, %12139 ]
-  %12141 = getelementptr inbounds i8, ptr %12140, i64 -24
-  call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12141) #26
-  %12142 = icmp eq ptr %12141, %1159
-  br i1 %12142, label %12143, label %12139
+12138:                                            ; preds = %12138, %12135
+  %12139 = phi ptr [ %12137, %12135 ], [ %12140, %12138 ]
+  %12140 = getelementptr inbounds i8, ptr %12139, i64 -24
+  call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12140) #26
+  %12141 = icmp eq ptr %12140, %1159
+  br i1 %12141, label %12142, label %12138
 
-12143:                                            ; preds = %12139
+12142:                                            ; preds = %12138
+  %12143 = extractvalue { ptr, i32 } %12136, 0
   %12144 = extractvalue { ptr, i32 } %12136, 1
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %1159) #26
   %12145 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #26
   %12146 = icmp eq i32 %12144, %12145
-  %12147 = call ptr @__cxa_begin_catch(ptr %12137) #26
+  %12147 = call ptr @__cxa_begin_catch(ptr %12143) #26
   br i1 %12146, label %12148, label %12155
 
-12148:                                            ; preds = %12143
+12148:                                            ; preds = %12142
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %1156)
           to label %12149 unwind label %12161
 
@@ -35729,7 +35729,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorN
   call void asm sideeffect "int $$3\0A", "~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !347
   br label %12165
 
-12155:                                            ; preds = %12143
+12155:                                            ; preds = %12142
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %1156)
           to label %12156 unwind label %12157
 

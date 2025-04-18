@@ -2187,10 +2187,10 @@ _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %.thread211
 .lr.ph.i4.preheader.i:                            ; preds = %.lr.ph.i.i
   %266 = zext i16 %260 to i32
   %.0.i.i.i.i3.i = load i16, ptr %264, align 1
-  %267 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i3.i)
   br label %.lr.ph.i4.i
 
 .preheader.i.i103.loopexit:                       ; preds = %.lr.ph.i4.i
+  %267 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i3.i)
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 2
   br label %.preheader.i.i103
 

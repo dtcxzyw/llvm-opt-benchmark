@@ -1701,7 +1701,7 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) 
   br i1 %80, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %73, %.critedge.i
-  %.05647.i = phi ptr [ %54, %.critedge.i ], [ %.157.i, %73 ]
+  %.05648.i = phi ptr [ %54, %.critedge.i ], [ %.157.i, %73 ]
   %81 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %82 = getelementptr i8, ptr %3, i64 16
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -1717,10 +1717,10 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) 
   %93 = add i32 %.fr, 65532
   %94 = and i32 %93, 65535
   %95 = add nsw i32 %94, -4
-  br i1 %92, label %decrypt_data.exit.thread.i.thread.i.us, label %.preheader40.i.preheader
+  br i1 %92, label %decrypt_data.exit.thread.i.thread.i.us, label %.preheader41.i.preheader
 
 decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_data.exit.thread.i.thread.i.us
-  %.222.i.us = phi ptr [ %99, %decrypt_data.exit.thread.i.thread.i.us ], [ %.05647.i, %.lr.ph.i ]
+  %.222.i.us = phi ptr [ %99, %decrypt_data.exit.thread.i.thread.i.us ], [ %.05648.i, %.lr.ph.i ]
   %96 = load ptr, ptr %0, align 8
   %97 = call ptr @tvb_get_ptr(ptr noundef %96, i32 noundef 0, i32 noundef %91)
   %98 = getelementptr inbounds nuw i8, ptr %.222.i.us, i64 8
@@ -1728,8 +1728,8 @@ decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_
   %100 = icmp eq ptr %99, null
   br i1 %100, label %._crit_edge.i, label %decrypt_data.exit.thread.i.thread.i.us, !llvm.loop !19
 
-.preheader40.i.preheader:                         ; preds = %.lr.ph.i, %141
-  %.222.i = phi ptr [ %143, %141 ], [ %.05647.i, %.lr.ph.i ]
+.preheader41.i.preheader:                         ; preds = %.lr.ph.i, %141
+  %.222.i = phi ptr [ %143, %141 ], [ %.05648.i, %.lr.ph.i ]
   %101 = load ptr, ptr %0, align 8
   %102 = call ptr @tvb_get_ptr(ptr noundef %101, i32 noundef 0, i32 noundef %91)
   %103 = load ptr, ptr %.222.i, align 8
@@ -1742,10 +1742,10 @@ decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_
   %105 = load i32, ptr %102, align 1
   store i32 %105, ptr %81, align 8
   store i64 %.val.i, ptr %14, align 8
-  br label %.preheader40.i
+  br label %.preheader41.i
 
-.preheader40.i:                                   ; preds = %.preheader40.i.preheader, %.preheader40.i
-  %.09.i.i.i.i.i = phi i64 [ %110, %.preheader40.i ], [ 0, %.preheader40.i.preheader ]
+.preheader41.i:                                   ; preds = %.preheader41.i.preheader, %.preheader41.i
+  %.09.i.i.i.i.i = phi i64 [ %110, %.preheader41.i ], [ 0, %.preheader41.i.preheader ]
   %106 = xor i64 %.09.i.i.i.i.i, -1
   %107 = getelementptr i8, ptr %82, i64 %106
   %108 = load i8, ptr %107, align 1
@@ -1753,40 +1753,40 @@ decrypt_data.exit.thread.i.thread.i.us:           ; preds = %.lr.ph.i, %decrypt_
   store i8 %108, ptr %109, align 1
   %110 = add nuw nsw i64 %.09.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %110, 16
-  br i1 %exitcond.not.i.i.i.i.i, label %memcpy_reverse.exit.i.i.i.i, label %.preheader40.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i.i.i, label %memcpy_reverse.exit.i.i.i.i, label %.preheader41.i, !llvm.loop !12
 
-memcpy_reverse.exit.i.i.i.i:                      ; preds = %.preheader40.i
-  %111 = getelementptr inbounds nuw i8, ptr %103, i64 4
+memcpy_reverse.exit.i.i.i.i:                      ; preds = %.preheader41.i
   store i8 0, ptr %83, align 16
-  br label %112
+  br label %111
 
-112:                                              ; preds = %112, %memcpy_reverse.exit.i.i.i.i
-  %.09.i6.i.i.i.i = phi i64 [ 0, %memcpy_reverse.exit.i.i.i.i ], [ %117, %112 ]
-  %113 = xor i64 %.09.i6.i.i.i.i, -1
-  %114 = getelementptr i8, ptr %85, i64 %113
-  %115 = load i8, ptr %114, align 1
-  %116 = getelementptr i8, ptr %84, i64 %.09.i6.i.i.i.i
-  store i8 %115, ptr %116, align 1
-  %117 = add nuw nsw i64 %.09.i6.i.i.i.i, 1
-  %exitcond.not.i7.i.i.i.i = icmp eq i64 %117, 16
-  br i1 %exitcond.not.i7.i.i.i.i, label %create_auth_string.exit.i.i.i, label %112, !llvm.loop !12
+111:                                              ; preds = %111, %memcpy_reverse.exit.i.i.i.i
+  %.09.i6.i.i.i.i = phi i64 [ 0, %memcpy_reverse.exit.i.i.i.i ], [ %116, %111 ]
+  %112 = xor i64 %.09.i6.i.i.i.i, -1
+  %113 = getelementptr i8, ptr %85, i64 %112
+  %114 = load i8, ptr %113, align 1
+  %115 = getelementptr i8, ptr %84, i64 %.09.i6.i.i.i.i
+  store i8 %114, ptr %115, align 1
+  %116 = add nuw nsw i64 %.09.i6.i.i.i.i, 1
+  %exitcond.not.i7.i.i.i.i = icmp eq i64 %116, 16
+  br i1 %exitcond.not.i7.i.i.i.i, label %create_auth_string.exit.i.i.i, label %111, !llvm.loop !12
 
-create_auth_string.exit.i.i.i:                    ; preds = %112
-  %118 = getelementptr inbounds nuw i8, ptr %103, i64 20
-  %119 = getelementptr i8, ptr %102, i64 4
+create_auth_string.exit.i.i.i:                    ; preds = %111
+  %117 = getelementptr inbounds nuw i8, ptr %103, i64 20
+  %118 = getelementptr i8, ptr %102, i64 4
   store i8 0, ptr %86, align 1
-  %120 = call zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef nonnull %118, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef %119, ptr noundef nonnull %13, i32 noundef 34, i32 noundef %95, i32 noundef 4)
-  br i1 %120, label %try_decrypt.exit.thread.i, label %123
+  %119 = call zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef nonnull %117, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef %118, ptr noundef nonnull %13, i32 noundef 34, i32 noundef %95, i32 noundef 4)
+  br i1 %119, label %try_decrypt.exit.thread.i, label %122
 
 try_decrypt.exit.thread.i:                        ; preds = %create_auth_string.exit.i.i.i
-  %121 = zext nneg i32 %95 to i64
-  %122 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %13, i64 noundef range(i64 0, 65536) %121, i64 noundef 512) #13, !alias.scope !20
+  %120 = zext nneg i32 %95 to i64
+  %121 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %13, i64 noundef range(i64 0, 65536) %120, i64 noundef 512) #13, !alias.scope !20
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %14) #13
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %12) #13
   br label %.loopexit.i
 
-123:                                              ; preds = %create_auth_string.exit.i.i.i
+122:                                              ; preds = %create_auth_string.exit.i.i.i
+  %123 = getelementptr inbounds nuw i8, ptr %103, i64 4
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %14) #13
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 34, ptr nonnull %12) #13
@@ -1796,12 +1796,12 @@ try_decrypt.exit.thread.i:                        ; preds = %create_auth_string.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %11, ptr noundef nonnull align 1 dereferenceable(13) @__const.decrypt_data.nonce, i64 13, i1 false)
   %124 = load i32, ptr %102, align 1
   store i32 %124, ptr %87, align 8
-  %125 = load i64, ptr %111, align 1
+  %125 = load i64, ptr %123, align 1
   store i64 %125, ptr %11, align 8
   br label %126
 
-126:                                              ; preds = %126, %123
-  %.09.i.i.i20.i.i = phi i64 [ 0, %123 ], [ %131, %126 ]
+126:                                              ; preds = %126, %122
+  %.09.i.i.i20.i.i = phi i64 [ 0, %122 ], [ %131, %126 ]
   %127 = xor i64 %.09.i.i.i20.i.i, -1
   %128 = getelementptr i8, ptr %82, i64 %127
   %129 = load i8, ptr %128, align 1
@@ -1828,7 +1828,7 @@ memcpy_reverse.exit.i.i22.i.i:                    ; preds = %126
 
 create_auth_string.exit.i25.i.i:                  ; preds = %132
   store i8 0, ptr %90, align 1
-  %138 = call zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef nonnull %118, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef %119, ptr noundef nonnull %10, i32 noundef 34, i32 noundef %95, i32 noundef 4)
+  %138 = call zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef nonnull %117, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef %118, ptr noundef nonnull %10, i32 noundef 34, i32 noundef %95, i32 noundef 4)
   br i1 %138, label %try_decrypt.exit.i, label %141
 
 try_decrypt.exit.i:                               ; preds = %create_auth_string.exit.i25.i.i
@@ -1846,7 +1846,7 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
   %142 = getelementptr inbounds nuw i8, ptr %.222.i, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, null
-  br i1 %144, label %._crit_edge.i, label %.preheader40.i.preheader, !llvm.loop !19
+  br i1 %144, label %._crit_edge.i, label %.preheader41.i.preheader, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %77, %141, %decrypt_data.exit.thread.i.thread.i.us, %.critedge.i
   %145 = load ptr, ptr @zbee_table_nwk_keyring, align 8
@@ -1915,10 +1915,10 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
   %176 = load i32, ptr %173, align 1
   store i32 %176, ptr %150, align 8
   store i64 %.sroa.0.0.insert.insert.i, ptr %8, align 8
-  br i1 %160, label %192, label %.preheader
+  br i1 %160, label %192, label %.preheader40.i
 
-.preheader:                                       ; preds = %171, %.preheader
-  %.09.i.i.i.i = phi i64 [ %181, %.preheader ], [ 0, %171 ]
+.preheader40.i:                                   ; preds = %171, %.preheader40.i
+  %.09.i.i.i.i = phi i64 [ %181, %.preheader40.i ], [ 0, %171 ]
   %177 = xor i64 %.09.i.i.i.i, -1
   %178 = getelementptr i8, ptr %151, i64 %177
   %179 = load i8, ptr %178, align 1
@@ -1926,9 +1926,9 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
   store i8 %179, ptr %180, align 1
   %181 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %181, 16
-  br i1 %exitcond.not.i.i.i.i, label %memcpy_reverse.exit.i.i.i, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i.i.i.i, label %memcpy_reverse.exit.i.i.i, label %.preheader40.i, !llvm.loop !12
 
-memcpy_reverse.exit.i.i.i:                        ; preds = %.preheader
+memcpy_reverse.exit.i.i.i:                        ; preds = %.preheader40.i
   store i8 0, ptr %152, align 16
   br label %182
 
@@ -1947,9 +1947,9 @@ create_auth_string.exit.i.i:                      ; preds = %182
   %188 = getelementptr i8, ptr %173, i64 4
   store i8 0, ptr %155, align 1
   %189 = call zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef nonnull %175, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef %188, ptr noundef nonnull %7, i32 noundef 34, i32 noundef %163, i32 noundef 4)
-  br i1 %189, label %.thread56.i, label %192
+  br i1 %189, label %.thread57.i, label %192
 
-.thread56.i:                                      ; preds = %create_auth_string.exit.i.i
+.thread57.i:                                      ; preds = %create_auth_string.exit.i.i
   %190 = zext nneg i32 %163 to i64
   %191 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %7, i64 noundef range(i64 0, 65536) %190, i64 noundef 512) #13, !alias.scope !28
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %8) #13
@@ -1970,10 +1970,10 @@ create_auth_string.exit.i.i:                      ; preds = %182
   %196 = icmp eq ptr %.5.i, null
   br i1 %196, label %.loopexit.thread.i, label %.lr.ph28.i, !llvm.loop !32
 
-.loopexit.i:                                      ; preds = %.thread56.i, %try_decrypt.exit.i, %try_decrypt.exit.thread.i
-  %.891.in.i = phi i32 [ %95, %try_decrypt.exit.thread.i ], [ %95, %try_decrypt.exit.i ], [ %163, %.thread56.i ]
+.loopexit.i:                                      ; preds = %.thread57.i, %try_decrypt.exit.i, %try_decrypt.exit.thread.i
+  %.892.in.i = phi i32 [ %95, %try_decrypt.exit.thread.i ], [ %95, %try_decrypt.exit.i ], [ %163, %.thread57.i ]
   %197 = load ptr, ptr %0, align 8
-  %198 = and i32 %.891.in.i, 65535
+  %198 = and i32 %.892.in.i, 65535
   %199 = call ptr @tvb_new_child_real_data(ptr noundef %197, ptr noundef %53, i32 noundef %198, i32 noundef %198)
   store ptr %199, ptr %0, align 8
   call void @add_new_data_source(ptr noundef %1, ptr noundef %199, ptr noundef nonnull @.str.122)

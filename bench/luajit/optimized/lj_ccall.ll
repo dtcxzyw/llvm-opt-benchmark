@@ -739,61 +739,61 @@ ctype_rawchild.exit.i37:                          ; preds = %308
   %319 = load ptr, ptr %48, align 8, !tbaa !49
   %320 = getelementptr inbounds i8, ptr %319, i64 -8
   %321 = load i64, ptr %320, align 8, !tbaa !4
-  %322 = and i64 %321, 140737488355327
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   store i32 0, ptr %indvars.iv.i.sroa.gep33.i, align 4, !tbaa !45
   store i32 0, ptr %4, align 4, !tbaa !45
-  %323 = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %15, ptr noundef nonnull %312, ptr noundef %4, i32 noundef 0)
-  %324 = getelementptr inbounds nuw i8, ptr %312, i64 4
-  %325 = load i32, ptr %324, align 4, !tbaa !23
+  %322 = call fastcc i32 @ccall_classify_struct(ptr noundef nonnull %15, ptr noundef nonnull %312, ptr noundef %4, i32 noundef 0)
+  %323 = getelementptr inbounds nuw i8, ptr %312, i64 4
+  %324 = load i32, ptr %323, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  br label %326
+  br label %325
 
-326:                                              ; preds = %340, %318
-  %327 = phi i1 [ true, %318 ], [ false, %340 ]
-  %indvars.iv.i.sroa.phi.i = phi ptr [ %4, %318 ], [ %indvars.iv.i.sroa.gep33.i, %340 ]
-  %indvars.iv.i.sroa.phi34.i = phi ptr [ %3, %318 ], [ %.8..8..8..8..8.gep36.sroa_idx, %340 ]
-  %.01318.i.i = phi i32 [ 0, %318 ], [ %.1.i.i, %340 ]
-  %.01417.i.i = phi i32 [ 0, %318 ], [ %.115.i.i, %340 ]
-  %328 = load i32, ptr %indvars.iv.i.sroa.phi.i, align 4, !tbaa !45
-  %329 = and i32 %328, 1
-  %.not.i.i = icmp eq i32 %329, 0
-  br i1 %.not.i.i, label %334, label %330
+325:                                              ; preds = %339, %318
+  %326 = phi i1 [ true, %318 ], [ false, %339 ]
+  %indvars.iv.i.sroa.phi.i = phi ptr [ %4, %318 ], [ %indvars.iv.i.sroa.gep33.i, %339 ]
+  %indvars.iv.i.sroa.phi34.i = phi ptr [ %3, %318 ], [ %.8..8..8..8..8.gep36.sroa_idx, %339 ]
+  %.01318.i.i = phi i32 [ 0, %318 ], [ %.1.i.i, %339 ]
+  %.01417.i.i = phi i32 [ 0, %318 ], [ %.115.i.i, %339 ]
+  %327 = load i32, ptr %indvars.iv.i.sroa.phi.i, align 4, !tbaa !45
+  %328 = and i32 %327, 1
+  %.not.i.i = icmp eq i32 %328, 0
+  br i1 %.not.i.i, label %333, label %329
 
-330:                                              ; preds = %326
-  %331 = add i32 %.01417.i.i, 1
-  %332 = zext i32 %.01417.i.i to i64
-  %333 = getelementptr inbounds nuw [6 x i64], ptr %58, i64 0, i64 %332
+329:                                              ; preds = %325
+  %330 = add i32 %.01417.i.i, 1
+  %331 = zext i32 %.01417.i.i to i64
+  %332 = getelementptr inbounds nuw [6 x i64], ptr %58, i64 0, i64 %331
   br label %.sink.split.i.i
 
-334:                                              ; preds = %326
-  %335 = and i32 %328, 2
-  %.not16.i.i = icmp eq i32 %335, 0
-  br i1 %.not16.i.i, label %340, label %336
+333:                                              ; preds = %325
+  %334 = and i32 %327, 2
+  %.not16.i.i = icmp eq i32 %334, 0
+  br i1 %.not16.i.i, label %339, label %335
 
-336:                                              ; preds = %334
-  %337 = add i32 %.01318.i.i, 1
-  %338 = zext i32 %.01318.i.i to i64
-  %339 = getelementptr inbounds nuw [8 x %union.FPRArg], ptr %50, i64 0, i64 %338
+335:                                              ; preds = %333
+  %336 = add i32 %.01318.i.i, 1
+  %337 = zext i32 %.01318.i.i to i64
+  %338 = getelementptr inbounds nuw [8 x %union.FPRArg], ptr %50, i64 0, i64 %337
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %336, %330
-  %.sink.in.i.i = phi ptr [ %333, %330 ], [ %339, %336 ]
-  %.115.ph.i.i = phi i32 [ %331, %330 ], [ %.01417.i.i, %336 ]
-  %.1.ph.i.i = phi i32 [ %.01318.i.i, %330 ], [ %337, %336 ]
+.sink.split.i.i:                                  ; preds = %335, %329
+  %.sink.in.i.i = phi ptr [ %332, %329 ], [ %338, %335 ]
+  %.115.ph.i.i = phi i32 [ %330, %329 ], [ %.01417.i.i, %335 ]
+  %.1.ph.i.i = phi i32 [ %.01318.i.i, %329 ], [ %336, %335 ]
   %.sink.i.i = load i64, ptr %.sink.in.i.i, align 8, !tbaa !4
   store i64 %.sink.i.i, ptr %indvars.iv.i.sroa.phi34.i, align 8, !tbaa !51
-  br label %340
+  br label %339
 
-340:                                              ; preds = %.sink.split.i.i, %334
-  %.115.i.i = phi i32 [ %.01417.i.i, %334 ], [ %.115.ph.i.i, %.sink.split.i.i ]
-  %.1.i.i = phi i32 [ %.01318.i.i, %334 ], [ %.1.ph.i.i, %.sink.split.i.i ]
-  br i1 %327, label %326, label %ccall_struct_ret.exit.i, !llvm.loop !64
+339:                                              ; preds = %.sink.split.i.i, %333
+  %.115.i.i = phi i32 [ %.01417.i.i, %333 ], [ %.115.ph.i.i, %.sink.split.i.i ]
+  %.1.i.i = phi i32 [ %.01318.i.i, %333 ], [ %.1.ph.i.i, %.sink.split.i.i ]
+  br i1 %326, label %325, label %ccall_struct_ret.exit.i, !llvm.loop !64
 
-ccall_struct_ret.exit.i:                          ; preds = %340
-  %341 = inttoptr i64 %322 to ptr
+ccall_struct_ret.exit.i:                          ; preds = %339
+  %340 = and i64 %321, 140737488355327
+  %341 = inttoptr i64 %340 to ptr
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 16
-  %343 = zext i32 %325 to i64
+  %343 = zext i32 %324 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %342, ptr nonnull align 16 %3, i64 %343, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7

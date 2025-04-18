@@ -4336,8 +4336,8 @@ define noundef i32 @PQconnectPoll(ptr noundef %0) local_unnamed_addr #0 {
 release_conn_addrinfo.exit:                       ; preds = %107, %109
   %110 = phi i32 [ %storemerge, %107 ], [ %.pre785, %109 ]
   %111 = load ptr, ptr %62, align 8
-  %112 = sext i32 %110 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, i8 0, i64 48, i1 false)
+  %112 = sext i32 %110 to i64
   %113 = getelementptr inbounds %struct.pg_conn_host, ptr %111, i64 %112
   store i32 1, ptr %63, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24

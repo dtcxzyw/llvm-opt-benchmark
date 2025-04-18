@@ -1065,7 +1065,6 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_125TwoAddressInstruct
   %35 = or i64 %34, 256
   store i64 %35, ptr %33, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %22) #18
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 1, ptr %22, align 8
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 0, ptr %36, align 4, !tbaa !429
@@ -1080,6 +1079,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_125TwoAddressInstruct
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !432
 
 _ZN4llvm13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 328
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 320

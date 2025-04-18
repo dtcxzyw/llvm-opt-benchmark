@@ -8884,28 +8884,28 @@ if.then27:                                        ; preds = %if.else
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then27
   %xtraiter = and i64 %sub.ptr.div.i, 7
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
-  br i1 %lcmp.mod.not, label %for.body.i.i.i.i.i.prol.loopexit, label %for.body.i.i.i.i.i.prol.preheader
+  br i1 %lcmp.mod.not, label %for.body.i.i.i.i.i.prol.loopexit, label %for.body.i.i.i.i.i.prol
 
-for.body.i.i.i.i.i.prol.preheader:                ; preds = %for.body.i.i.i.i.i.preheader
-  %9 = and i64 %sub.ptr.div.i, 9223372036854775800
-  br label %for.body.i.i.i.i.i.prol
-
-for.body.i.i.i.i.i.prol:                          ; preds = %for.body.i.i.i.i.i.prol.preheader, %for.body.i.i.i.i.i.prol
-  %__result.addr.09.i.i.i.i.i.prol = phi ptr [ %incdec.ptr1.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol ], [ %3, %for.body.i.i.i.i.i.prol.preheader ]
-  %__first.addr.08.i.i.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol ], [ %1, %for.body.i.i.i.i.i.prol.preheader ]
-  %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.i.i.prol ], [ 0, %for.body.i.i.i.i.i.prol.preheader ]
-  %10 = load <2 x ptr>, ptr %__first.addr.08.i.i.i.i.i.prol, align 8, !tbaa !103
-  store <2 x ptr> %10, ptr %__result.addr.09.i.i.i.i.i.prol, align 8, !tbaa !103
+for.body.i.i.i.i.i.prol:                          ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.prol
+  %__result.addr.09.i.i.i.i.i.prol = phi ptr [ %incdec.ptr1.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol ], [ %3, %for.body.i.i.i.i.i.preheader ]
+  %__first.addr.08.i.i.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol ], [ %1, %for.body.i.i.i.i.i.preheader ]
+  %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.i.i.prol ], [ 0, %for.body.i.i.i.i.i.preheader ]
+  %9 = load <2 x ptr>, ptr %__first.addr.08.i.i.i.i.i.prol, align 8, !tbaa !103
+  store <2 x ptr> %9, ptr %__result.addr.09.i.i.i.i.i.prol, align 8, !tbaa !103
   %incdec.ptr.i.i.i.i.i.prol = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.prol, i64 16
   %incdec.ptr1.i.i.i.i.i.prol = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i.prol, i64 16
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
   %prol.iter.cmp.not = icmp eq i64 %prol.iter.next, %xtraiter
-  br i1 %prol.iter.cmp.not, label %for.body.i.i.i.i.i.prol.loopexit, label %for.body.i.i.i.i.i.prol, !llvm.loop !425
+  br i1 %prol.iter.cmp.not, label %for.body.i.i.i.i.i.prol.loopexit.loopexit, label %for.body.i.i.i.i.i.prol, !llvm.loop !425
 
-for.body.i.i.i.i.i.prol.loopexit:                 ; preds = %for.body.i.i.i.i.i.prol, %for.body.i.i.i.i.i.preheader
-  %__n.010.i.i.i.i.i.unr = phi i64 [ %sub.ptr.div.i, %for.body.i.i.i.i.i.preheader ], [ %9, %for.body.i.i.i.i.i.prol ]
-  %__result.addr.09.i.i.i.i.i.unr = phi ptr [ %3, %for.body.i.i.i.i.i.preheader ], [ %incdec.ptr1.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol ]
-  %__first.addr.08.i.i.i.i.i.unr = phi ptr [ %1, %for.body.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol ]
+for.body.i.i.i.i.i.prol.loopexit.loopexit:        ; preds = %for.body.i.i.i.i.i.prol
+  %10 = and i64 %sub.ptr.div.i, 9223372036854775800
+  br label %for.body.i.i.i.i.i.prol.loopexit
+
+for.body.i.i.i.i.i.prol.loopexit:                 ; preds = %for.body.i.i.i.i.i.prol.loopexit.loopexit, %for.body.i.i.i.i.i.preheader
+  %__n.010.i.i.i.i.i.unr = phi i64 [ %sub.ptr.div.i, %for.body.i.i.i.i.i.preheader ], [ %10, %for.body.i.i.i.i.i.prol.loopexit.loopexit ]
+  %__result.addr.09.i.i.i.i.i.unr = phi ptr [ %3, %for.body.i.i.i.i.i.preheader ], [ %incdec.ptr1.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol.loopexit.loopexit ]
+  %__first.addr.08.i.i.i.i.i.unr = phi ptr [ %1, %for.body.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol.loopexit.loopexit ]
   %11 = icmp samesign ult i64 %sub.ptr.div.i, 8
   br i1 %11, label %if.end69, label %for.body.i.i.i.i.i
 
@@ -8959,28 +8959,28 @@ if.else49:                                        ; preds = %if.else
 for.body.i.i.i.i.i112.preheader:                  ; preds = %if.else49
   %xtraiter132 = and i64 %sub.ptr.div.i.i.i.i.i109, 7
   %lcmp.mod133.not = icmp eq i64 %xtraiter132, 0
-  br i1 %lcmp.mod133.not, label %for.body.i.i.i.i.i112.prol.loopexit, label %for.body.i.i.i.i.i112.prol.preheader
+  br i1 %lcmp.mod133.not, label %for.body.i.i.i.i.i112.prol.loopexit, label %for.body.i.i.i.i.i112.prol
 
-for.body.i.i.i.i.i112.prol.preheader:             ; preds = %for.body.i.i.i.i.i112.preheader
-  %21 = and i64 %sub.ptr.div.i.i.i.i.i109, 9223372036854775800
-  br label %for.body.i.i.i.i.i112.prol
-
-for.body.i.i.i.i.i112.prol:                       ; preds = %for.body.i.i.i.i.i112.prol.preheader, %for.body.i.i.i.i.i112.prol
-  %__result.addr.09.i.i.i.i.i114.prol = phi ptr [ %incdec.ptr1.i.i.i.i.i119.prol, %for.body.i.i.i.i.i112.prol ], [ %3, %for.body.i.i.i.i.i112.prol.preheader ]
-  %__first.addr.08.i.i.i.i.i115.prol = phi ptr [ %incdec.ptr.i.i.i.i.i118.prol, %for.body.i.i.i.i.i112.prol ], [ %1, %for.body.i.i.i.i.i112.prol.preheader ]
-  %prol.iter134 = phi i64 [ %prol.iter134.next, %for.body.i.i.i.i.i112.prol ], [ 0, %for.body.i.i.i.i.i112.prol.preheader ]
-  %22 = load <2 x ptr>, ptr %__first.addr.08.i.i.i.i.i115.prol, align 8, !tbaa !103
-  store <2 x ptr> %22, ptr %__result.addr.09.i.i.i.i.i114.prol, align 8, !tbaa !103
+for.body.i.i.i.i.i112.prol:                       ; preds = %for.body.i.i.i.i.i112.preheader, %for.body.i.i.i.i.i112.prol
+  %__result.addr.09.i.i.i.i.i114.prol = phi ptr [ %incdec.ptr1.i.i.i.i.i119.prol, %for.body.i.i.i.i.i112.prol ], [ %3, %for.body.i.i.i.i.i112.preheader ]
+  %__first.addr.08.i.i.i.i.i115.prol = phi ptr [ %incdec.ptr.i.i.i.i.i118.prol, %for.body.i.i.i.i.i112.prol ], [ %1, %for.body.i.i.i.i.i112.preheader ]
+  %prol.iter134 = phi i64 [ %prol.iter134.next, %for.body.i.i.i.i.i112.prol ], [ 0, %for.body.i.i.i.i.i112.preheader ]
+  %21 = load <2 x ptr>, ptr %__first.addr.08.i.i.i.i.i115.prol, align 8, !tbaa !103
+  store <2 x ptr> %21, ptr %__result.addr.09.i.i.i.i.i114.prol, align 8, !tbaa !103
   %incdec.ptr.i.i.i.i.i118.prol = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i115.prol, i64 16
   %incdec.ptr1.i.i.i.i.i119.prol = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i114.prol, i64 16
   %prol.iter134.next = add nuw nsw i64 %prol.iter134, 1
   %prol.iter134.cmp.not = icmp eq i64 %prol.iter134.next, %xtraiter132
-  br i1 %prol.iter134.cmp.not, label %for.body.i.i.i.i.i112.prol.loopexit, label %for.body.i.i.i.i.i112.prol, !llvm.loop !428
+  br i1 %prol.iter134.cmp.not, label %for.body.i.i.i.i.i112.prol.loopexit.loopexit, label %for.body.i.i.i.i.i112.prol, !llvm.loop !428
 
-for.body.i.i.i.i.i112.prol.loopexit:              ; preds = %for.body.i.i.i.i.i112.prol, %for.body.i.i.i.i.i112.preheader
-  %__n.010.i.i.i.i.i113.unr = phi i64 [ %sub.ptr.div.i.i.i.i.i109, %for.body.i.i.i.i.i112.preheader ], [ %21, %for.body.i.i.i.i.i112.prol ]
-  %__result.addr.09.i.i.i.i.i114.unr = phi ptr [ %3, %for.body.i.i.i.i.i112.preheader ], [ %incdec.ptr1.i.i.i.i.i119.prol, %for.body.i.i.i.i.i112.prol ]
-  %__first.addr.08.i.i.i.i.i115.unr = phi ptr [ %1, %for.body.i.i.i.i.i112.preheader ], [ %incdec.ptr.i.i.i.i.i118.prol, %for.body.i.i.i.i.i112.prol ]
+for.body.i.i.i.i.i112.prol.loopexit.loopexit:     ; preds = %for.body.i.i.i.i.i112.prol
+  %22 = and i64 %sub.ptr.div.i.i.i.i.i109, 9223372036854775800
+  br label %for.body.i.i.i.i.i112.prol.loopexit
+
+for.body.i.i.i.i.i112.prol.loopexit:              ; preds = %for.body.i.i.i.i.i112.prol.loopexit.loopexit, %for.body.i.i.i.i.i112.preheader
+  %__n.010.i.i.i.i.i113.unr = phi i64 [ %sub.ptr.div.i.i.i.i.i109, %for.body.i.i.i.i.i112.preheader ], [ %22, %for.body.i.i.i.i.i112.prol.loopexit.loopexit ]
+  %__result.addr.09.i.i.i.i.i114.unr = phi ptr [ %3, %for.body.i.i.i.i.i112.preheader ], [ %incdec.ptr1.i.i.i.i.i119.prol, %for.body.i.i.i.i.i112.prol.loopexit.loopexit ]
+  %__first.addr.08.i.i.i.i.i115.unr = phi ptr [ %1, %for.body.i.i.i.i.i112.preheader ], [ %incdec.ptr.i.i.i.i.i118.prol, %for.body.i.i.i.i.i112.prol.loopexit.loopexit ]
   %23 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i109, 8
   br i1 %23, label %_ZSt4copyIPSt4pairIPFvN3irr4core8vector3dIsEE12EmergeActionPvES6_ESA_ET0_T_SC_SB_.exit, label %for.body.i.i.i.i.i112
 

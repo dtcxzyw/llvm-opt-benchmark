@@ -1879,32 +1879,32 @@ aes_ctr_set_key.exit:                             ; preds = %26, %23
   %31 = trunc nuw nsw i64 %spec.store.select to i8
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 488
   store i8 %31, ptr %32, align 8, !tbaa !55
-  %33 = getelementptr inbounds nuw i8, ptr %16, i64 264
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %9
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull readonly align 1 dereferenceable(32) %34, i64 32, i1 false)
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %35, i8 54, i64 32, i1 false)
-  br label %36
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull readonly align 1 dereferenceable(32) %33, i64 32, i1 false)
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %34, i8 54, i64 32, i1 false)
+  br label %35
 
-36:                                               ; preds = %36, %aes_ctr_set_key.exit
-  %indvars.iv.i = phi i64 [ 0, %aes_ctr_set_key.exit ], [ %indvars.iv.next.i, %36 ]
-  %37 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv.i
-  %38 = load i8, ptr %37, align 1, !tbaa !20
-  %39 = xor i8 %38, 54
-  store i8 %39, ptr %37, align 1, !tbaa !20
+35:                                               ; preds = %35, %aes_ctr_set_key.exit
+  %indvars.iv.i = phi i64 [ 0, %aes_ctr_set_key.exit ], [ %indvars.iv.next.i, %35 ]
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %37 = load i8, ptr %36, align 1, !tbaa !20
+  %38 = xor i8 %37, 54
+  store i8 %38, ptr %36, align 1, !tbaa !20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %40, label %36, !llvm.loop !56
+  br i1 %exitcond.not.i, label %39, label %35, !llvm.loop !56
 
-40:                                               ; preds = %36
-  %41 = tail call i32 @SHA256_Init(ptr noundef nonnull %33) #10
-  %42 = call i32 @SHA256_Update(ptr noundef nonnull %33, ptr noundef nonnull %5, i64 noundef 64) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %35, i8 92, i64 32, i1 false)
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 264
+  %41 = tail call i32 @SHA256_Init(ptr noundef nonnull %40) #10
+  %42 = call i32 @SHA256_Update(ptr noundef nonnull %40, ptr noundef nonnull %5, i64 noundef 64) #10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %34, i8 92, i64 32, i1 false)
   br label %43
 
-43:                                               ; preds = %43, %40
-  %indvars.iv15.i = phi i64 [ 0, %40 ], [ %indvars.iv.next16.i, %43 ]
+43:                                               ; preds = %43, %39
+  %indvars.iv15.i = phi i64 [ 0, %39 ], [ %indvars.iv.next16.i, %43 ]
   %44 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %indvars.iv15.i
   %45 = load i8, ptr %44, align 1, !tbaa !20
   %46 = xor i8 %45, 106

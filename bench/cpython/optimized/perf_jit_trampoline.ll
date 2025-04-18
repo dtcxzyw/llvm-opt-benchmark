@@ -1095,14 +1095,14 @@ define internal void @perf_map_jit_write_entry(ptr readnone captures(none) %0, p
 elf_init_ehframe.exit:                            ; preds = %26
   %32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %30, i64 noundef %29, ptr noundef nonnull @.str.3, ptr noundef %.039, ptr noundef %.040) #9
   %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #10
-  %34 = ptrtoint ptr %1 to i64
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #9
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 0, ptr %35, align 4, !tbaa !195
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 9
-  store i8 1, ptr %36, align 8, !tbaa !196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %37, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false), !tbaa !196
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 0, ptr %34, align 4, !tbaa !195
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  store i8 1, ptr %35, align 8, !tbaa !196
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %36, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false), !tbaa !196
+  %37 = ptrtoint ptr %1 to i64
   %38 = zext i32 %2 to i64
   %scevgep88 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 13
@@ -1305,9 +1305,9 @@ get_current_monotonic_ticks.exit64:               ; preds = %perf_map_jit_write_
   %127 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 %126, ptr %127, align 4, !tbaa !222
   %128 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 %34, ptr %128, align 8, !tbaa !223
+  store i64 %37, ptr %128, align 8, !tbaa !223
   %129 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i64 %34, ptr %129, align 8, !tbaa !224
+  store i64 %37, ptr %129, align 8, !tbaa !224
   %130 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 %38, ptr %130, align 8, !tbaa !225
   %131 = load i32, ptr getelementptr inbounds nuw (i8, ptr @perf_jit_map_state, i64 32), align 8, !tbaa !26

@@ -719,14 +719,14 @@ _ZN4ncnn3MatD2Ev.exit1005.i:                      ; preds = %._crit_edge1244.i, 
   %376 = zext i32 %375 to i64
   %377 = add nuw nsw i64 %376, 4
   %378 = mul nsw i64 %377, %215
-  %scevgep1646.i = getelementptr i8, ptr %.0840.lcssa18291842.i, i64 %378
-  %scevgep1648.i = getelementptr i8, ptr %.0851.lcssa18271844.i, i64 %378
-  %scevgep1650.i = getelementptr i8, ptr %.0858.lcssa18251846.i, i64 %378
-  %scevgep1652.i = getelementptr i8, ptr %.0884.lcssa18231848.i, i64 %378
   %scevgep1645.i = getelementptr i8, ptr %.0837.lcssa18301841.i, i64 %378
+  %scevgep1646.i = getelementptr i8, ptr %.0840.lcssa18291842.i, i64 %378
   %scevgep1647.i = getelementptr i8, ptr %.0848.lcssa18281843.i, i64 %378
+  %scevgep1648.i = getelementptr i8, ptr %.0851.lcssa18271844.i, i64 %378
   %scevgep1649.i = getelementptr i8, ptr %.0855.lcssa18261845.i, i64 %378
+  %scevgep1650.i = getelementptr i8, ptr %.0858.lcssa18251846.i, i64 %378
   %scevgep1651.i = getelementptr i8, ptr %.0881.lcssa18241847.i, i64 %378
+  %scevgep1652.i = getelementptr i8, ptr %.0884.lcssa18231848.i, i64 %378
   %379 = add i32 %.0898.lcssa18211850.i, 4
   %380 = add i32 %379, %375
   br label %.preheader1109.i
@@ -1200,10 +1200,10 @@ _ZN4ncnn3MatD2Ev.exit1004.i:                      ; preds = %._crit_edge1337.i, 
   %608 = zext i32 %607 to i64
   %609 = add nuw nsw i64 %608, 4
   %610 = mul nsw i64 %609, %252
-  %scevgep1704.i = getelementptr i8, ptr %.0942.lcssa18881903.i, i64 %610
-  %scevgep1706.i = getelementptr i8, ptr %.0936.lcssa18901901.i, i64 %610
   %scevgep1703.i = getelementptr i8, ptr %.0945.lcssa18871904.i, i64 %610
+  %scevgep1704.i = getelementptr i8, ptr %.0942.lcssa18881903.i, i64 %610
   %scevgep1705.i = getelementptr i8, ptr %.0939.lcssa18891902.i, i64 %610
+  %scevgep1706.i = getelementptr i8, ptr %.0936.lcssa18901901.i, i64 %610
   %611 = add i32 %.0921.lcssa18921899.i, 4
   %612 = add i32 %611, %607
   br label %.preheader1101.i
@@ -1584,8 +1584,8 @@ _ZN4ncnn3MatD2Ev.exit1003.i:                      ; preds = %._crit_edge1400.i, 
   %795 = zext i32 %794 to i64
   %796 = add nuw nsw i64 %795, 4
   %797 = mul nsw i64 %796, %524
-  %scevgep1750.i = getelementptr i8, ptr %.0875.lcssa19281937.i, i64 %797
   %scevgep1749.i = getelementptr i8, ptr %.0878.lcssa19271938.i, i64 %797
+  %scevgep1750.i = getelementptr i8, ptr %.0875.lcssa19281937.i, i64 %797
   %798 = add i32 %.0862.lcssa19301935.i, 4
   %799 = add i32 %798, %794
   br label %.preheader1093.i
@@ -5806,13 +5806,13 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %67, %65
   br i1 %341, label %.lr.ph648.us.preheader, label %.lr.ph656.split.preheader
 
 .lr.ph656.split.preheader:                        ; preds = %.lr.ph656
-  %346 = add i32 %.1202.lcssa, 3
-  %smax = call i32 @llvm.smax.i32(i32 %43, i32 %346)
-  %347 = add i32 %smax, -2
-  %348 = sub i32 %347, %.1202.lcssa
-  %349 = and i32 %348, -2
-  %350 = add i32 %.1202.lcssa, 2
-  %351 = add i32 %350, %349
+  %346 = add i32 %.1202.lcssa, 2
+  %347 = add i32 %.1202.lcssa, 3
+  %smax = call i32 @llvm.smax.i32(i32 %43, i32 %347)
+  %348 = add i32 %smax, -2
+  %349 = sub i32 %348, %.1202.lcssa
+  %350 = and i32 %349, -2
+  %351 = add i32 %346, %350
   br label %.preheader543
 
 .lr.ph648.us.preheader:                           ; preds = %.lr.ph656

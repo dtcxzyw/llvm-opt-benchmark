@@ -27745,11 +27745,11 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit561:        ; preds = %_ZNSt6vectorImSaImE
   %786 = getelementptr inbounds nuw i8, ptr %46, i64 20
   store i8 1, ptr %786, align 4, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47) #28
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 1, ptr %47, align 8
   %787 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 0, ptr %787, align 4, !tbaa !1212
-  store ptr inttoptr (i64 -4096 to ptr), ptr %.phi.trans.insert.i.i.ptr, align 8, !tbaa !1190
+  %.07.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i.i.ptr, align 8, !tbaa !1190
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %47, i64 16
   %788 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm11Instruction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #28
   %789 = load ptr, ptr %37, align 8, !tbaa !25
@@ -29408,8 +29408,8 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_11InstructionEZN12_GLOBAL__N_14SR
   %1506 = load i32, ptr %47, align 8, !noalias !1267
   %1507 = and i32 %1506, 1
   %.not.i.i.i.i.i.i675 = icmp eq i32 %1507, 0
-  %1508 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8, !noalias !1267
-  %1509 = select i1 %.not.i.i.i.i.i.i675, ptr %1508, ptr %.phi.trans.insert.i.i.ptr
+  %1508 = load ptr, ptr %.07.i.i.i.ptr, align 8, !noalias !1267
+  %1509 = select i1 %.not.i.i.i.i.i.i675, ptr %1508, ptr %.07.i.i.i.ptr
   %1510 = load i32, ptr %.phi.trans.insert3.i.i, align 8, !noalias !1267
   %1511 = select i1 %.not.i.i.i.i.i.i675, i32 %1510, i32 1
   %1512 = icmp eq i32 %1511, 0
@@ -29991,8 +29991,8 @@ _ZNSt6vectorIPN4llvm8LoadInstESaIS2_EED2Ev.exit:  ; preds = %_ZN4llvm9SetVectorI
   br i1 %1702, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_8LoadInstESt6vectorIS3_SaIS3_EELj1ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNSt6vectorIPN4llvm8LoadInstESaIS2_EED2Ev.exit
-  %1703 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8
-  %1704 = select i1 %.not.i.i.i.i729, ptr %1703, ptr %.phi.trans.insert.i.i.ptr
+  %1703 = load ptr, ptr %.07.i.i.i.ptr, align 8
+  %1704 = select i1 %.not.i.i.i.i729, ptr %1703, ptr %.07.i.i.i.ptr
   %1705 = zext i32 %1701 to i64
   %1706 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.597", ptr %1704, i64 %1705
   br label %.lr.ph.i.i730
@@ -30037,7 +30037,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_8LoadInstESt6vectorIS3_SaIS3_EELj1
   br i1 %.not.i1.i, label %1720, label %_ZN4llvm13SmallDenseMapIPNS_8LoadInstESt6vectorIS2_SaIS2_EELj1ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEED2Ev.exit
 
 1720:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_8LoadInstESt6vectorIS3_SaIS3_EELj1ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E10destroyAllEv.exit.i
-  %1721 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8, !tbaa !1276
+  %1721 = load ptr, ptr %.07.i.i.i.ptr, align 8, !tbaa !1276
   %1722 = load i32, ptr %.phi.trans.insert3.i.i, align 8, !tbaa !1279
   %1723 = zext i32 %1722 to i64
   %1724 = shl nuw nsw i64 %1723, 5
@@ -30125,8 +30125,8 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserte
   %1763 = load i32, ptr %47, align 8
   %1764 = and i32 %1763, 1
   %.not.i.i.i.i.i734 = icmp eq i32 %1764, 0
-  %1765 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8
-  %1766 = select i1 %.not.i.i.i.i.i734, ptr %1765, ptr %.phi.trans.insert.i.i.ptr
+  %1765 = load ptr, ptr %.07.i.i.i.ptr, align 8
+  %1766 = select i1 %.not.i.i.i.i.i734, ptr %1765, ptr %.07.i.i.i.ptr
   %1767 = load i32, ptr %.phi.trans.insert3.i.i, align 8
   %1768 = select i1 %.not.i.i.i.i.i734, i32 %1767, i32 1
   %1769 = icmp eq i32 %1768, 0

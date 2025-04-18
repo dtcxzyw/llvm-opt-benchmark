@@ -6055,7 +6055,6 @@ entry:
   %ref.tmp = alloca %"struct.std::pair.81", align 8
   %ref.tmp40 = alloca %"struct.std::pair.81", align 8
   %ref.tmp47 = alloca %"struct.std::pair.81", align 8
-  %storage.i.i.i.i.i.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %Operations, i64 8
   store i32 1, ptr %Operations, align 8
   %NumTombstones.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Operations, i64 4
   store i32 0, ptr %NumTombstones.i.i.i.i.i, align 4
@@ -6072,6 +6071,7 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   br i1 %cmp.not.i.i.i, label %_ZN4llvh13SmallDenseMapISt4pairIPN6hermes10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_iEEEC2Ej.exit, label %for.body.i.i.i, !llvm.loop !55
 
 _ZN4llvh13SmallDenseMapISt4pairIPN6hermes10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_iEEEC2Ej.exit: ; preds = %for.body.i.i.i
+  %storage.i.i.i.i.i.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %Operations, i64 8
   %NumBuckets.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %Operations, i64 16
   %conv = trunc i64 %AllUpdates.coerce1 to i32
   %cmp.i.i = icmp eq i32 %conv, 0

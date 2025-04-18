@@ -1426,63 +1426,63 @@ define internal void @_ZN8LightGBM19GradientDiscretizer4InitEiiiPKNS_7DatasetE.o
   %38 = phi i32 [ %73, %._crit_edge ], [ %36, %.preheader ]
   %.02564 = phi i32 [ %74, %._crit_edge ], [ %37, %.preheader ]
   %39 = load i32, ptr %3, align 4, !tbaa !24
-  %40 = mul i32 %39, %.02564
-  %41 = load i32, ptr %4, align 4, !tbaa !24
+  %40 = load i32, ptr %4, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 5000, ptr nonnull %12) #8
-  %42 = load i32, ptr %22, align 4, !tbaa !72
-  %43 = add nsw i32 %42, %.02564
-  %44 = zext i32 %43 to i64
-  store i64 %44, ptr %12, align 8, !tbaa !73
-  br label %45
+  %41 = load i32, ptr %22, align 4, !tbaa !72
+  %42 = add nsw i32 %41, %.02564
+  %43 = zext i32 %42 to i64
+  store i64 %43, ptr %12, align 8, !tbaa !73
+  br label %44
 
-45:                                               ; preds = %45, %.lr.ph65
-  %46 = phi i64 [ %44, %.lr.ph65 ], [ %51, %45 ]
-  %.011.i.i = phi i64 [ 1, %.lr.ph65 ], [ %53, %45 ]
-  %47 = lshr i64 %46, 30
-  %48 = xor i64 %47, %46
-  %49 = mul nuw nsw i64 %48, 1812433253
-  %50 = add nuw i64 %49, %.011.i.i
-  %51 = and i64 %50, 4294967295
-  %52 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %.011.i.i
-  store i64 %51, ptr %52, align 8, !tbaa !73
-  %53 = add nuw nsw i64 %.011.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %53, 624
-  br i1 %exitcond.not.i.i, label %54, label %45, !llvm.loop !74
+44:                                               ; preds = %44, %.lr.ph65
+  %45 = phi i64 [ %43, %.lr.ph65 ], [ %50, %44 ]
+  %.011.i.i = phi i64 [ 1, %.lr.ph65 ], [ %52, %44 ]
+  %46 = lshr i64 %45, 30
+  %47 = xor i64 %46, %45
+  %48 = mul nuw nsw i64 %47, 1812433253
+  %49 = add nuw i64 %48, %.011.i.i
+  %50 = and i64 %49, 4294967295
+  %51 = getelementptr inbounds nuw [624 x i64], ptr %12, i64 0, i64 %.011.i.i
+  store i64 %50, ptr %51, align 8, !tbaa !73
+  %52 = add nuw nsw i64 %.011.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %52, 624
+  br i1 %exitcond.not.i.i, label %53, label %44, !llvm.loop !74
 
-54:                                               ; preds = %45
-  %55 = add nsw i32 %40, %39
+53:                                               ; preds = %44
   store i64 624, ptr %23, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 5000, ptr nonnull %13) #8
-  %56 = load i32, ptr %6, align 4, !tbaa !24
-  %57 = add nsw i32 %56, %43
-  %58 = zext i32 %57 to i64
-  store i64 %58, ptr %13, align 8, !tbaa !73
-  br label %59
+  %54 = load i32, ptr %6, align 4, !tbaa !24
+  %55 = add nsw i32 %54, %42
+  %56 = zext i32 %55 to i64
+  store i64 %56, ptr %13, align 8, !tbaa !73
+  br label %57
 
-59:                                               ; preds = %59, %54
-  %60 = phi i64 [ %58, %54 ], [ %65, %59 ]
-  %.011.i.i28 = phi i64 [ 1, %54 ], [ %67, %59 ]
-  %61 = lshr i64 %60, 30
-  %62 = xor i64 %61, %60
-  %63 = mul nuw nsw i64 %62, 1812433253
-  %64 = add nuw i64 %63, %.011.i.i28
-  %65 = and i64 %64, 4294967295
-  %66 = getelementptr inbounds nuw [624 x i64], ptr %13, i64 0, i64 %.011.i.i28
-  store i64 %65, ptr %66, align 8, !tbaa !73
-  %67 = add nuw nsw i64 %.011.i.i28, 1
-  %exitcond.not.i.i29 = icmp eq i64 %67, 624
-  br i1 %exitcond.not.i.i29, label %68, label %59, !llvm.loop !74
+57:                                               ; preds = %57, %53
+  %58 = phi i64 [ %56, %53 ], [ %63, %57 ]
+  %.011.i.i28 = phi i64 [ 1, %53 ], [ %65, %57 ]
+  %59 = lshr i64 %58, 30
+  %60 = xor i64 %59, %58
+  %61 = mul nuw nsw i64 %60, 1812433253
+  %62 = add nuw i64 %61, %.011.i.i28
+  %63 = and i64 %62, 4294967295
+  %64 = getelementptr inbounds nuw [624 x i64], ptr %13, i64 0, i64 %.011.i.i28
+  store i64 %63, ptr %64, align 8, !tbaa !73
+  %65 = add nuw nsw i64 %.011.i.i28, 1
+  %exitcond.not.i.i29 = icmp eq i64 %65, 624
+  br i1 %exitcond.not.i.i29, label %66, label %57, !llvm.loop !74
 
-68:                                               ; preds = %59
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %41, i32 %55)
+66:                                               ; preds = %57
+  %67 = mul i32 %39, %.02564
+  %68 = add nsw i32 %67, %39
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %40, i32 %68)
   store i64 624, ptr %24, align 8, !tbaa !75
-  %69 = icmp slt i32 %40, %.sroa.speculated
+  %69 = icmp slt i32 %67, %.sroa.speculated
   br i1 %69, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %68
+.lr.ph:                                           ; preds = %66
   %70 = udiv i64 %29, %28
   %spec.select.i.i.i.i = call i64 @llvm.umax.i64(i64 %70, i64 1)
-  %71 = sext i32 %40 to i64
+  %71 = sext i32 %67 to i64
   %72 = sext i32 %.sroa.speculated to i64
   br label %75
 
@@ -1490,8 +1490,8 @@ define internal void @_ZN8LightGBM19GradientDiscretizer4InitEiiiPKNS_7DatasetE.o
   %.pre = load i32, ptr %9, align 4, !tbaa !24
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %68
-  %73 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %38, %68 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %66
+  %73 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %38, %66 ]
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %13) #8
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %12) #8
   %74 = add nsw i32 %.02564, 1
@@ -1499,9 +1499,9 @@ define internal void @_ZN8LightGBM19GradientDiscretizer4InitEiiiPKNS_7DatasetE.o
   br i1 %.not27.not, label %.lr.ph65, label %._crit_edge66.loopexit
 
 75:                                               ; preds = %.lr.ph, %224
-  %.pre.i.i4178 = phi i64 [ %58, %.lr.ph ], [ %.pre.i.i4179, %224 ]
+  %.pre.i.i4178 = phi i64 [ %56, %.lr.ph ], [ %.pre.i.i4179, %224 ]
   %76 = phi i64 [ 624, %.lr.ph ], [ %202, %224 ]
-  %.pre.i.i75 = phi i64 [ %44, %.lr.ph ], [ %.pre.i.i76, %224 ]
+  %.pre.i.i75 = phi i64 [ %43, %.lr.ph ], [ %.pre.i.i76, %224 ]
   %77 = phi i64 [ 624, %.lr.ph ], [ %127, %224 ]
   %indvars.iv = phi i64 [ %71, %.lr.ph ], [ %indvars.iv.next, %224 ]
   br label %select.unfold.i.i.i.i

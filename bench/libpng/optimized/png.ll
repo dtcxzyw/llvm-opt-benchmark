@@ -4871,23 +4871,23 @@ png_gamma_8bit_correct.exit.i91:                  ; preds = %102, %95
   br i1 %.not68, label %183, label %129
 
 129:                                              ; preds = %121
-  %130 = sitofp i32 %.063 to double
-  %131 = fdiv double 1.000000e+10, %130
-  %132 = fadd double %131, 5.000000e-01
-  %133 = tail call double @llvm.floor.f64(double %132)
-  %134 = fcmp ole double %133, 0x41DFFFFFFFC00000
-  %135 = fcmp oge double %133, 0xC1E0000000000000
-  %or.cond.i100 = and i1 %134, %135
-  %136 = sub nuw nsw i32 8, %126
-  %137 = shl nuw nsw i32 1, %136
-  %138 = zext nneg i32 %137 to i64
-  %139 = shl nuw nsw i64 %138, 3
-  %140 = tail call noalias ptr @png_calloc(ptr noundef nonnull %0, i64 noundef %139) #28
-  store ptr %140, ptr %128, align 8, !tbaa !49, !noalias !184
+  %130 = sub nuw nsw i32 8, %126
+  %131 = shl nuw nsw i32 1, %130
+  %132 = zext nneg i32 %131 to i64
+  %133 = shl nuw nsw i64 %132, 3
+  %134 = tail call noalias ptr @png_calloc(ptr noundef nonnull %0, i64 noundef %133) #28
+  store ptr %134, ptr %128, align 8, !tbaa !49, !noalias !184
   br label %147
 
 .preheader38.i:                                   ; preds = %147
-  %141 = fptosi double %133 to i32
+  %135 = sitofp i32 %.063 to double
+  %136 = fdiv double 1.000000e+10, %135
+  %137 = fadd double %136, 5.000000e-01
+  %138 = tail call double @llvm.floor.f64(double %137)
+  %139 = fcmp ole double %138, 0x41DFFFFFFFC00000
+  %140 = fcmp oge double %138, 0xC1E0000000000000
+  %or.cond.i100 = and i1 %139, %140
+  %141 = fptosi double %138 to i32
   %142 = sub nuw nsw i32 16, %126
   %143 = sitofp i32 %141 to double
   %144 = fmul double %143, 1.000000e-05
@@ -4898,14 +4898,14 @@ png_gamma_8bit_correct.exit.i91:                  ; preds = %102, %95
 147:                                              ; preds = %147, %129
   %indvars.iv.i102 = phi i64 [ 0, %129 ], [ %indvars.iv.next.i103, %147 ]
   %148 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef 512) #28
-  %149 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv.i102
+  %149 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv.i102
   store ptr %148, ptr %149, align 8, !tbaa !157
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
-  %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, %138
+  %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, %132
   br i1 %exitcond.not.i104, label %.preheader38.i, label %147, !llvm.loop !187
 
 .preheader.i105:                                  ; preds = %._crit_edge.i
-  %150 = shl nuw nsw i32 256, %136
+  %150 = shl nuw nsw i32 256, %130
   %151 = icmp ult i32 %.135.lcssa.i, %150
   br i1 %151, label %.lr.ph45.i, label %png_build_16to8_table.exit
 
@@ -4935,9 +4935,9 @@ png_gamma_16bit_correct.exit.i:                   ; preds = %._crit_edge.i, %.pr
   %.13541.i = phi i32 [ %172, %.lr.ph.i ], [ %.03442.i, %png_gamma_16bit_correct.exit.i ]
   %165 = and i32 %.13541.i, %146
   %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds nuw ptr, ptr %140, i64 %166
+  %167 = getelementptr inbounds nuw ptr, ptr %134, i64 %166
   %168 = load ptr, ptr %167, align 8, !tbaa !157
-  %169 = lshr i32 %.13541.i, %136
+  %169 = lshr i32 %.13541.i, %130
   %170 = zext nneg i32 %169 to i64
   %171 = getelementptr inbounds nuw i16, ptr %168, i64 %170
   store i16 %153, ptr %171, align 2, !tbaa !48
@@ -4959,9 +4959,9 @@ png_gamma_16bit_correct.exit.i:                   ; preds = %._crit_edge.i, %.pr
   %.244.i = phi i32 [ %182, %.lr.ph45.i ], [ %.135.lcssa.i, %.preheader.i105 ]
   %175 = and i32 %.244.i, %146
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw ptr, ptr %140, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %134, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !157
-  %179 = lshr i32 %.244.i, %136
+  %179 = lshr i32 %.244.i, %130
   %180 = zext i32 %179 to i64
   %181 = getelementptr inbounds nuw i16, ptr %178, i64 %180
   store i16 -1, ptr %181, align 2, !tbaa !48

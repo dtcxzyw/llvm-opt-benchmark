@@ -2618,66 +2618,66 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   %684 = load ptr, ptr %221, align 8
   tail call void %684(ptr noundef nonnull %203, i32 %682, i32 noundef %683, i1 noundef zeroext true) #7
   %685 = load i32, ptr %13, align 4
-  %686 = shl i32 %685, 9
-  br label %687
+  br label %686
 
-687:                                              ; preds = %687, %.loopexit
-  %688 = phi i1 [ true, %.loopexit ], [ false, %687 ]
-  %689 = phi i64 [ 0, %.loopexit ], [ 1, %687 ]
-  %690 = phi i32 [ 0, %.loopexit ], [ %699, %687 ]
-  %691 = shl nuw nsw i64 1, %689
-  %692 = and i64 %691, %249
-  %693 = icmp eq i64 %692, 0
-  %694 = shl nuw nsw i64 %689, 2
-  %695 = xor i64 %694, 31
-  %696 = shl nuw nsw i64 1, %695
-  %697 = trunc nuw i64 %696 to i32
-  %698 = select i1 %693, i32 0, i32 %697
-  %699 = or i32 %698, %690
-  br i1 %688, label %687, label %700, !llvm.loop !82
+686:                                              ; preds = %686, %.loopexit
+  %687 = phi i1 [ true, %.loopexit ], [ false, %686 ]
+  %688 = phi i64 [ 0, %.loopexit ], [ 1, %686 ]
+  %689 = phi i32 [ 0, %.loopexit ], [ %698, %686 ]
+  %690 = shl nuw nsw i64 1, %688
+  %691 = and i64 %690, %249
+  %692 = icmp eq i64 %691, 0
+  %693 = shl nuw nsw i64 %688, 2
+  %694 = xor i64 %693, 31
+  %695 = shl nuw nsw i64 1, %694
+  %696 = trunc nuw i64 %695 to i32
+  %697 = select i1 %692, i32 0, i32 %696
+  %698 = or i32 %697, %689
+  br i1 %687, label %686, label %699, !llvm.loop !82
 
-700:                                              ; preds = %687
+699:                                              ; preds = %686
+  %700 = shl i32 %685, 9
   %701 = shl i32 %685, 8
-  %702 = add i32 %686, 1502304
+  %702 = add i32 %700, 1502304
   %703 = add i32 %701, 409824
   %704 = icmp slt i32 %685, 3
   %705 = select i1 %704, i32 %703, i32 %702
   %706 = load ptr, ptr %216, align 8
   %707 = tail call i32 %706(ptr noundef nonnull %203, i32 %705, i1 noundef zeroext true) #7
   %708 = and i32 %707, 2013265919
-  %709 = or i32 %708, %699
+  %709 = or i32 %708, %698
   %710 = load ptr, ptr %221, align 8
   tail call void %710(ptr noundef nonnull %203, i32 %705, i32 noundef %709, i1 noundef zeroext true) #7
   %711 = load i32, ptr %13, align 4
-  %712 = shl i32 %711, 9
-  br label %713
+  br label %712
 
-713:                                              ; preds = %713, %700
-  %714 = phi i1 [ false, %713 ], [ true, %700 ]
-  %715 = phi i64 [ 1, %713 ], [ 0, %700 ]
-  %716 = phi i32 [ %725, %713 ], [ 0, %700 ]
-  %717 = shl nuw nsw i64 1, %715
-  %718 = and i64 %717, %249
-  %719 = icmp eq i64 %718, 0
-  %720 = shl nuw nsw i64 %715, 2
-  %721 = sub nuw nsw i64 30, %720
-  %722 = shl nuw nsw i64 1, %721
-  %723 = trunc nuw nsw i64 %722 to i32
-  %724 = select i1 %719, i32 0, i32 %723
-  %725 = or i32 %724, %716
-  br i1 %714, label %713, label %726, !llvm.loop !83
+712:                                              ; preds = %712, %699
+  %713 = phi i1 [ false, %712 ], [ true, %699 ]
+  %714 = phi i64 [ 1, %712 ], [ 0, %699 ]
+  %715 = phi i32 [ %724, %712 ], [ 0, %699 ]
+  %716 = shl nuw nsw i64 1, %714
+  %717 = and i64 %716, %249
+  %718 = icmp eq i64 %717, 0
+  %719 = shl nuw nsw i64 %714, 2
+  %720 = sub nuw nsw i64 30, %719
+  %721 = shl nuw nsw i64 1, %720
+  %722 = trunc nuw nsw i64 %721 to i32
+  %723 = select i1 %718, i32 0, i32 %722
+  %724 = or i32 %723, %715
+  br i1 %713, label %712, label %725, !llvm.loop !83
 
-726:                                              ; preds = %713
+725:                                              ; preds = %712
+  %726 = shl i32 %711, 9
   %727 = shl i32 %711, 8
-  %728 = add i32 %712, 1502304
+  %728 = add i32 %726, 1502304
   %729 = add i32 %727, 409824
   %730 = icmp slt i32 %711, 3
   %731 = select i1 %730, i32 %729, i32 %728
-  %732 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %203, i32 %731, i32 noundef 1140850688, i32 noundef %725, i32 noundef 3200, i32 noundef 0, ptr noundef null) #7
+  %732 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %203, i32 %731, i32 noundef 1140850688, i32 noundef %724, i32 noundef 3200, i32 noundef 0, ptr noundef null) #7
   %733 = icmp eq i32 %732, 0
   br i1 %733, label %742, label %734
 
-734:                                              ; preds = %726
+734:                                              ; preds = %725
   %735 = icmp eq ptr %12, null
   br i1 %735, label %739, label %736
 
@@ -2692,7 +2692,7 @@ define dso_local void @intel_mtl_pll_enable(ptr noundef %0, ptr noundef readonly
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %740, ptr noundef nonnull @.str.40, i32 noundef %741, i32 noundef 3200) #9
   br label %742
 
-742:                                              ; preds = %739, %726
+742:                                              ; preds = %739, %725
   %743 = load ptr, ptr %0, align 8
   %744 = load i32, ptr %3, align 8
   switch i32 %744, label %748 [
@@ -4567,47 +4567,47 @@ define internal fastcc void @intel_cx0_powerdown_change_sequence(ptr noundef %0,
   %.sroa.0 = alloca i32, align 4
   %.sroa.4 = alloca i32, align 4
   %4 = tail call i32 @intel_port_to_phy(ptr noundef %0, i32 noundef %1) #7
-  %5 = shl i32 %1, 8
-  %6 = shl i32 %1, 9
-  %7 = add i32 %6, 1502208
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4)
-  br label %8
+  br label %5
 
-8:                                                ; preds = %8, %3
-  %9 = phi i1 [ true, %3 ], [ false, %8 ]
-  %.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.4, %8 ]
-  %10 = phi i32 [ 0, %3 ], [ %12, %8 ]
+5:                                                ; preds = %5, %3
+  %6 = phi i1 [ true, %3 ], [ false, %5 ]
+  %.sroa.phi = phi ptr [ %.sroa.0, %3 ], [ %.sroa.4, %5 ]
+  %7 = phi i32 [ 0, %3 ], [ %9, %5 ]
   store i32 15728640, ptr %.sroa.0, align 4
   store i32 983040, ptr %.sroa.4, align 4
-  %11 = load i32, ptr %.sroa.phi, align 4
-  %12 = or i32 %11, %10
-  br i1 %9, label %8, label %13, !llvm.loop !142
+  %8 = load i32, ptr %.sroa.phi, align 4
+  %9 = or i32 %8, %7
+  br i1 %6, label %5, label %10, !llvm.loop !142
 
-13:                                               ; preds = %8
-  %14 = add i32 %5, 409604
+10:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.012)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.413)
-  %15 = zext nneg i8 %2 to i32
-  %16 = shl nuw nsw i32 %15, 20
-  %17 = shl nuw nsw i32 %15, 16
-  br label %18
+  %11 = zext nneg i8 %2 to i32
+  %12 = shl nuw nsw i32 %11, 20
+  %13 = shl nuw nsw i32 %11, 16
+  br label %14
 
-18:                                               ; preds = %18, %13
-  %19 = phi i1 [ true, %13 ], [ false, %18 ]
-  %.sroa.phi10 = phi ptr [ %.sroa.012, %13 ], [ %.sroa.413, %18 ]
-  %20 = phi i32 [ 0, %13 ], [ %22, %18 ]
-  store i32 %16, ptr %.sroa.012, align 4
-  store i32 %17, ptr %.sroa.413, align 4
-  %21 = load i32, ptr %.sroa.phi10, align 4
-  %22 = or i32 %21, %20
-  br i1 %19, label %18, label %23, !llvm.loop !142
+14:                                               ; preds = %14, %10
+  %15 = phi i1 [ true, %10 ], [ false, %14 ]
+  %.sroa.phi10 = phi ptr [ %.sroa.012, %10 ], [ %.sroa.413, %14 ]
+  %16 = phi i32 [ 0, %10 ], [ %18, %14 ]
+  store i32 %12, ptr %.sroa.012, align 4
+  store i32 %13, ptr %.sroa.413, align 4
+  %17 = load i32, ptr %.sroa.phi10, align 4
+  %18 = or i32 %17, %16
+  br i1 %15, label %14, label %19, !llvm.loop !142
 
-23:                                               ; preds = %18
-  %24 = icmp slt i32 %1, 3
-  %25 = select i1 %24, i32 %14, i32 %7
+19:                                               ; preds = %14
+  %20 = icmp slt i32 %1, 3
+  %21 = shl i32 %1, 8
+  %22 = add i32 %21, 409604
+  %23 = shl i32 %1, 9
+  %24 = add i32 %23, 1502208
+  %25 = select i1 %20, i32 %22, i32 %24
   %26 = add nuw nsw i32 %25, 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.012)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.413)
@@ -4615,23 +4615,23 @@ define internal fastcc void @intel_cx0_powerdown_change_sequence(ptr noundef %0,
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %29(ptr noundef nonnull %27, i32 %26, i1 noundef zeroext true) #7
-  %31 = xor i32 %12, -1
+  %31 = xor i32 %9, -1
   %32 = and i32 %30, %31
-  %33 = or i32 %32, %22
+  %33 = or i32 %32, %18
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull %27, i32 %26, i32 noundef %33, i1 noundef zeroext true) #7
-  %36 = add i32 %5, 409664
-  %37 = add i32 %6, 1502272
-  %38 = select i1 %24, i32 %36, i32 %37
+  %36 = add i32 %21, 409664
+  %37 = add i32 %23, 1502272
+  %38 = select i1 %20, i32 %36, i32 %37
   %39 = icmp eq ptr %0, null
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = add i32 %4, 65
   br label %42
 
-42:                                               ; preds = %54, %23
-  %43 = phi i1 [ true, %23 ], [ false, %54 ]
-  %44 = phi i32 [ 0, %23 ], [ 1, %54 ]
+42:                                               ; preds = %54, %19
+  %43 = phi i1 [ true, %19 ], [ false, %54 ]
+  %44 = phi i32 [ 0, %19 ], [ 1, %54 ]
   %45 = shl nuw nsw i32 %44, 2
   %46 = or disjoint i32 %45, %38
   %47 = tail call i32 @__intel_wait_for_register(ptr noundef nonnull %27, i32 %46, i32 noundef -2147483648, i32 noundef 0, i32 noundef 2, i32 noundef 1, ptr noundef null) #7

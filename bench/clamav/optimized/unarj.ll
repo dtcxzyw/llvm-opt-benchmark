@@ -3029,37 +3029,37 @@ fmap_need_off_once_len.exit.i127:                 ; preds = %163
   %.sroa.228284.5 = phi i32 [ %.sroa.228284.4, %.thread.i ], [ 26, %122 ], [ %.sroa.228284.4, %130 ], [ %.sroa.228284.4, %._crit_edge.i112 ], [ 26, %fmap_need_off_once_len.exit.i127 ], [ 26, %163 ]
   %182 = phi i16 [ %114, %.thread.i ], [ 16, %122 ], [ 16, %130 ], [ 16, %._crit_edge.i112 ], [ 16, %fmap_need_off_once_len.exit.i127 ], [ 16, %163 ]
   %.promoted.i = phi i16 [ %113, %.thread.i ], [ %127, %122 ], [ %127, %130 ], [ %127, %._crit_edge.i112 ], [ %127, %fmap_need_off_once_len.exit.i127 ], [ %127, %163 ]
-  %183 = zext i16 %.promoted.i to i32
-  %184 = sub nsw i32 16, %121
-  %185 = lshr i32 %183, %184
-  br label %186
+  br label %183
 
-186:                                              ; preds = %186, %.lr.ph.i
-  %187 = phi i16 [ %.promoted.i, %.lr.ph.i ], [ %188, %186 ]
-  %.03657.i = phi i32 [ 0, %.lr.ph.i ], [ %189, %186 ]
-  %188 = shl i16 %187, 1
-  %189 = add nuw nsw i32 %.03657.i, 1
-  %exitcond62.not.i = icmp eq i32 %189, %121
-  br i1 %exitcond62.not.i, label %190, label %186
+183:                                              ; preds = %183, %.lr.ph.i
+  %184 = phi i16 [ %.promoted.i, %.lr.ph.i ], [ %185, %183 ]
+  %.03657.i = phi i32 [ 0, %.lr.ph.i ], [ %186, %183 ]
+  %185 = shl i16 %184, 1
+  %186 = add nuw nsw i32 %.03657.i, 1
+  %exitcond62.not.i = icmp eq i32 %186, %121
+  br i1 %exitcond62.not.i, label %187, label %183
 
-190:                                              ; preds = %186
-  %191 = trunc nuw i32 %185 to i16
+187:                                              ; preds = %183
+  %188 = zext i16 %.promoted.i to i32
+  %189 = sub nsw i32 16, %121
+  %190 = lshr i32 %188, %189
+  %191 = trunc nuw i32 %190 to i16
   %192 = sub i16 %182, %.03950.i
   br label %decode_len.exit
 
-decode_len.exit:                                  ; preds = %120, %190
-  %.sroa.23.7 = phi i64 [ %.sroa.23.5, %120 ], [ %.sroa.23.6, %190 ]
-  %.sroa.49.6 = phi ptr [ %.sroa.49.4, %120 ], [ %.sroa.49.5, %190 ]
-  %.sroa.73.6 = phi ptr [ %.sroa.73.4, %120 ], [ %.sroa.73.5, %190 ]
-  %.sroa.85246.6 = phi i16 [ %.sroa.85246.4, %120 ], [ %.sroa.85246.5, %190 ]
-  %.sroa.127.6 = phi i32 [ %.sroa.127.4, %120 ], [ %.sroa.127.5, %190 ]
-  %.sroa.146.6 = phi i32 [ %.sroa.146.4, %120 ], [ %.sroa.146.5, %190 ]
-  %.sroa.165.3 = phi i16 [ %114, %120 ], [ %192, %190 ]
-  %.sroa.177.4 = phi i16 [ %113, %120 ], [ %188, %190 ]
-  %.sroa.197283.6 = phi i8 [ %.sroa.197283.4, %120 ], [ %.sroa.197283.5, %190 ]
-  %.sroa.228284.6 = phi i32 [ %.sroa.228284.4, %120 ], [ %.sroa.228284.5, %190 ]
-  %.03848.i = phi i16 [ %.03855.i, %120 ], [ %.03847.i, %190 ]
-  %.2.i = phi i16 [ 0, %120 ], [ %191, %190 ]
+decode_len.exit:                                  ; preds = %120, %187
+  %.sroa.23.7 = phi i64 [ %.sroa.23.5, %120 ], [ %.sroa.23.6, %187 ]
+  %.sroa.49.6 = phi ptr [ %.sroa.49.4, %120 ], [ %.sroa.49.5, %187 ]
+  %.sroa.73.6 = phi ptr [ %.sroa.73.4, %120 ], [ %.sroa.73.5, %187 ]
+  %.sroa.85246.6 = phi i16 [ %.sroa.85246.4, %120 ], [ %.sroa.85246.5, %187 ]
+  %.sroa.127.6 = phi i32 [ %.sroa.127.4, %120 ], [ %.sroa.127.5, %187 ]
+  %.sroa.146.6 = phi i32 [ %.sroa.146.4, %120 ], [ %.sroa.146.5, %187 ]
+  %.sroa.165.3 = phi i16 [ %114, %120 ], [ %192, %187 ]
+  %.sroa.177.4 = phi i16 [ %113, %120 ], [ %185, %187 ]
+  %.sroa.197283.6 = phi i8 [ %.sroa.197283.4, %120 ], [ %.sroa.197283.5, %187 ]
+  %.sroa.228284.6 = phi i32 [ %.sroa.228284.4, %120 ], [ %.sroa.228284.5, %187 ]
+  %.03848.i = phi i16 [ %.03855.i, %120 ], [ %.03847.i, %187 ]
+  %.2.i = phi i16 [ 0, %120 ], [ %191, %187 ]
   %193 = add i16 %.2.i, %.03848.i
   %.not66 = icmp eq i32 %.sroa.228284.6, 0
   br i1 %.not66, label %194, label %.sink.split

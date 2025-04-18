@@ -23604,13 +23604,13 @@ _ZN12_GLOBAL__N_18vlineSetIhNS_13ufixedpoint16EEEvPT0_PT_i.exit: ; preds = %.lr.
   %.249.lcssa = phi i32 [ %.148143, %79 ], [ %107, %105 ]
   %.lcssa116 = phi i32 [ %83, %79 ], [ %108, %105 ]
   %.lcssa = phi i32 [ %85, %79 ], [ %110, %105 ]
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
+  store i32 0, ptr %4, align 4
   %115 = add nsw i32 %.lcssa, -2
   %.sroa.speculated91 = call i32 @llvm.smax.i32(i32 %.lcssa116, i32 %115)
   %116 = add nsw i32 %.sroa.speculated91, %.249.lcssa
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.1108141, i32 %115)
   %117 = sub i32 %116, %.sroa.speculated
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
-  store i32 0, ptr %4, align 4
   %118 = srem i32 %117, 2
   %119 = icmp sgt i32 %118, 0
   %.pre175 = load ptr, ptr %58, align 8, !tbaa !180
@@ -25167,13 +25167,13 @@ _ZN12_GLOBAL__N_18vlineSetIaNS_12fixedpoint32EEEvPT0_PT_i.exit: ; preds = %.lr.p
   %.249.lcssa = phi i32 [ %.148146, %81 ], [ %109, %107 ]
   %.lcssa119 = phi i32 [ %85, %81 ], [ %110, %107 ]
   %.lcssa = phi i32 [ %87, %81 ], [ %112, %107 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  store i64 0, ptr %4, align 8
   %117 = add nsw i32 %.lcssa, -2
   %.sroa.speculated94 = call i32 @llvm.smax.i32(i32 %.lcssa119, i32 %117)
   %118 = add nsw i32 %.sroa.speculated94, %.249.lcssa
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.1111144, i32 %117)
   %119 = sub i32 %118, %.sroa.speculated
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  store i64 0, ptr %4, align 8
   %120 = srem i32 %119, 2
   %121 = icmp sgt i32 %120, 0
   %.pre178 = load ptr, ptr %59, align 8, !tbaa !216
@@ -27312,13 +27312,13 @@ _ZN12_GLOBAL__N_18vlineSetItNS_13ufixedpoint32EEEvPT0_PT_i.exit.loopexit.us: ; p
   %114 = phi i32 [ %79, %78 ], [ %109, %104 ]
   %.249.lcssa = phi i32 [ %.148146, %78 ], [ %106, %104 ]
   %.lcssa119 = phi i32 [ %83, %78 ], [ %107, %104 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  store i64 0, ptr %4, align 8
   %115 = add nsw i32 %114, -2
   %.sroa.speculated94 = call i32 @llvm.smax.i32(i32 %.lcssa119, i32 %115)
   %116 = add nsw i32 %.sroa.speculated94, %.249.lcssa
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.1111144, i32 %115)
   %117 = sub i32 %116, %.sroa.speculated
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  store i64 0, ptr %4, align 8
   %118 = srem i32 %117, 2
   %119 = icmp sgt i32 %118, 0
   %.pre184 = load ptr, ptr %73, align 8, !tbaa !252
@@ -28868,13 +28868,13 @@ _ZN12_GLOBAL__N_18vlineSetIsNS_12fixedpoint32EEEvPT0_PT_i.exit.loopexit.us: ; pr
   %114 = phi i32 [ %79, %78 ], [ %109, %104 ]
   %.249.lcssa = phi i32 [ %.148146, %78 ], [ %106, %104 ]
   %.lcssa119 = phi i32 [ %83, %78 ], [ %107, %104 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  store i64 0, ptr %4, align 8
   %115 = add nsw i32 %114, -2
   %.sroa.speculated94 = call i32 @llvm.smax.i32(i32 %.lcssa119, i32 %115)
   %116 = add nsw i32 %.sroa.speculated94, %.249.lcssa
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.1111144, i32 %115)
   %117 = sub i32 %116, %.sroa.speculated
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  store i64 0, ptr %4, align 8
   %118 = srem i32 %117, 2
   %119 = icmp sgt i32 %118, 0
   %.pre184 = load ptr, ptr %73, align 8, !tbaa !287
@@ -31221,13 +31221,13 @@ _ZN12_GLOBAL__N_18vlineSetIiNS_12fixedpoint64EEEvPT0_PT_i.exit: ; preds = %.lr.p
   %.249.lcssa = phi i32 [ %.148147, %79 ], [ %107, %105 ]
   %.lcssa120 = phi i32 [ %83, %79 ], [ %108, %105 ]
   %.lcssa = phi i32 [ %85, %79 ], [ %110, %105 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !1346
   %115 = add nsw i32 %.lcssa, -2
   %.sroa.speculated95 = call i32 @llvm.smax.i32(i32 %.lcssa120, i32 %115)
   %116 = add nsw i32 %.sroa.speculated95, %.249.lcssa
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.1112145, i32 %115)
   %117 = sub i32 %116, %.sroa.speculated
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !1346
   %118 = srem i32 %117, 2
   %119 = icmp sgt i32 %118, 0
   %.pre179 = load ptr, ptr %61, align 8, !tbaa !323

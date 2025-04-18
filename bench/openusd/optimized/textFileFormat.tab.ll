@@ -2691,10 +2691,6 @@ define noundef range(i32 0, 3) i32 @_Z21textFileFormatYyparsePN32pxrInternal_v0_
   store i64 0, ptr %88, align 8
   %202 = getelementptr inbounds nuw i8, ptr %88, i64 64
   store i8 0, ptr %202, align 8
-  %.sink119.i.sroa.gep = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %.sink119.i.sroa.gep2306 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %.sink119.i.sroa.gep2309 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %.sink119.i.sroa.gep2312 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.sink.sroa.gep4363 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %.sink.sroa.gep4364 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -2749,9 +2745,13 @@ define noundef range(i32 0, 3) i32 @_Z21textFileFormatYyparsePN32pxrInternal_v0_
 
 206:                                              ; preds = %203
   %207 = getelementptr inbounds nuw i8, ptr %90, i64 108000
+  %.sink119.i.sroa.gep = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sink119.i.sroa.gep2304 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %.sink119.i.sroa.gep2306 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %.sink119.i.sroa.gep2307 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %.sink119.i.sroa.gep2309 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %.sink119.i.sroa.gep2310 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %.sink119.i.sroa.gep2312 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %.sink119.i.sroa.gep2313 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store i64 0, ptr %91, align 8
   %208 = getelementptr inbounds nuw i8, ptr %91, i64 64

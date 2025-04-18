@@ -604,9 +604,9 @@ inc_128.exit87:                                   ; preds = %.preheader
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 96
   br label %44
 
-44:                                               ; preds = %68, %41
-  %.053 = phi i64 [ %2, %41 ], [ %71, %68 ]
-  %.052 = phi ptr [ %1, %41 ], [ %70, %68 ]
+44:                                               ; preds = %66, %41
+  %.053 = phi i64 [ %2, %41 ], [ %69, %66 ]
+  %.052 = phi ptr [ %1, %41 ], [ %68, %66 ]
   %45 = load ptr, ptr %42, align 8, !tbaa !16
   %46 = call i32 @EVP_CipherInit_ex(ptr noundef %45, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, i32 noundef -1) #7
   %.not67 = icmp eq i32 %46, 0
@@ -621,57 +621,54 @@ inc_128.exit87:                                   ; preds = %.preheader
   %53 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %52) #8, !srcloc !39
   %54 = add i32 %53, %51
   %55 = icmp ult i32 %54, %51
-  br i1 %55, label %56, label %ctr96_inc.exit
+  br i1 %55, label %.preheader92, label %ctr96_inc.exit
 
-56:                                               ; preds = %47
-  %.neg = mul i32 %53, -16
-  br label %57
-
-57:                                               ; preds = %57, %56
-  %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i90, %57 ], [ 12, %56 ]
-  %.0.i89 = phi i32 [ %63, %57 ], [ 1, %56 ]
+.preheader92:                                     ; preds = %47, %.preheader92
+  %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i90, %.preheader92 ], [ 12, %47 ]
+  %.0.i89 = phi i32 [ %61, %.preheader92 ], [ 1, %47 ]
   %indvars.iv.next.i90 = add nsw i64 %indvars.iv.i88, -1
-  %58 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.next.i90
-  %59 = load i8, ptr %58, align 1, !tbaa !26
-  %60 = zext i8 %59 to i32
-  %61 = add nuw nsw i32 %.0.i89, %60
-  %62 = trunc i32 %61 to i8
-  store i8 %62, ptr %58, align 1, !tbaa !26
-  %63 = lshr i32 %61, 8
+  %56 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.next.i90
+  %57 = load i8, ptr %56, align 1, !tbaa !26
+  %58 = zext i8 %57 to i32
+  %59 = add nuw nsw i32 %.0.i89, %58
+  %60 = trunc i32 %59 to i8
+  store i8 %60, ptr %56, align 1, !tbaa !26
+  %61 = lshr i32 %59, 8
   %.not.i91 = icmp eq i64 %indvars.iv.next.i90, 0
-  br i1 %.not.i91, label %ctr96_inc.exit.loopexit, label %57, !llvm.loop !40
+  br i1 %.not.i91, label %ctr96_inc.exit.loopexit, label %.preheader92, !llvm.loop !40
 
-ctr96_inc.exit.loopexit:                          ; preds = %57
+ctr96_inc.exit.loopexit:                          ; preds = %.preheader92
   %.not68 = icmp eq i32 %54, 0
+  %.neg = mul i32 %53, -16
   %spec.select75 = select i1 %.not68, i32 %49, i32 %.neg
   br label %ctr96_inc.exit
 
 ctr96_inc.exit:                                   ; preds = %ctr96_inc.exit.loopexit, %47
   %.056 = phi i32 [ %54, %47 ], [ 0, %ctr96_inc.exit.loopexit ]
   %.055 = phi i32 [ %49, %47 ], [ %spec.select75, %ctr96_inc.exit.loopexit ]
-  %64 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.056) #8, !srcloc !41
-  store i32 %64, ptr %43, align 4, !tbaa !22
-  %65 = load ptr, ptr %42, align 8, !tbaa !16
-  %66 = call i32 @EVP_CipherUpdate(ptr noundef %65, ptr noundef %.052, ptr noundef nonnull %6, ptr noundef %.052, i32 noundef %.055) #7
-  %.not69 = icmp ne i32 %66, 0
-  %67 = load i32, ptr %6, align 4
-  %.not70 = icmp eq i32 %67, %.055
+  %62 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.056) #8, !srcloc !41
+  store i32 %62, ptr %43, align 4, !tbaa !22
+  %63 = load ptr, ptr %42, align 8, !tbaa !16
+  %64 = call i32 @EVP_CipherUpdate(ptr noundef %63, ptr noundef %.052, ptr noundef nonnull %6, ptr noundef %.052, i32 noundef %.055) #7
+  %.not69 = icmp ne i32 %64, 0
+  %65 = load i32, ptr %6, align 4
+  %.not70 = icmp eq i32 %65, %.055
   %or.cond76 = select i1 %.not69, i1 %.not70, i1 false
-  br i1 %or.cond76, label %68, label %.loopexit
+  br i1 %or.cond76, label %66, label %.loopexit
 
-68:                                               ; preds = %ctr96_inc.exit
-  %69 = sext i32 %.055 to i64
-  %70 = getelementptr inbounds i8, ptr %.052, i64 %69
-  %71 = sub i64 %.053, %69
-  %.not71 = icmp eq i64 %71, 0
-  br i1 %.not71, label %72, label %44, !llvm.loop !42
+66:                                               ; preds = %ctr96_inc.exit
+  %67 = sext i32 %.055 to i64
+  %68 = getelementptr inbounds i8, ptr %.052, i64 %67
+  %69 = sub i64 %.053, %67
+  %.not71 = icmp eq i64 %69, 0
+  br i1 %.not71, label %70, label %44, !llvm.loop !42
 
-72:                                               ; preds = %68
-  %73 = call fastcc i32 @ctr_update(ptr noundef %0, ptr noundef %.054, i64 noundef %.058, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+70:                                               ; preds = %66
+  %71 = call fastcc i32 @ctr_update(ptr noundef %0, ptr noundef %.054, i64 noundef %.058, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %ctr96_inc.exit, %44, %72, %inc_128.exit87, %inc_128.exit
-  %.0 = phi i32 [ 0, %inc_128.exit ], [ %40, %inc_128.exit87 ], [ %73, %72 ], [ 0, %44 ], [ 0, %ctr96_inc.exit ]
+.loopexit:                                        ; preds = %ctr96_inc.exit, %44, %70, %inc_128.exit87, %inc_128.exit
+  %.0 = phi i32 [ 0, %inc_128.exit ], [ %40, %inc_128.exit87 ], [ %71, %70 ], [ 0, %44 ], [ 0, %ctr96_inc.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   ret i32 %.0
 }

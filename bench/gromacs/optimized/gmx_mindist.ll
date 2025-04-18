@@ -1397,38 +1397,38 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123.i: ; preds = %
   %548 = getelementptr inbounds nuw i8, ptr %542, i64 8
   %549 = load float, ptr %548, align 4, !tbaa !10
   %550 = fsub float %538, %549
-  %551 = fmul float %547, %547
-  %552 = call float @llvm.fmuladd.f32(float %544, float %544, float %551)
-  %553 = trunc nuw nsw i64 %indvars.iv149.i.i to i32
-  br label %554
+  %551 = trunc nuw nsw i64 %indvars.iv149.i.i to i32
+  br label %552
 
-554:                                              ; preds = %554, %.lr.ph.us.us.i.i
-  %.sroa.0139.4.i = phi i32 [ %.sroa.0139.3.i, %.lr.ph.us.us.i.i ], [ %.sroa.0139.5.i, %554 ]
-  %.sroa.6.4.i = phi i32 [ %.sroa.6.3.i, %.lr.ph.us.us.i.i ], [ %.sroa.6.5.i, %554 ]
-  %indvars.iv142.i.i = phi i64 [ 0, %.lr.ph.us.us.i.i ], [ %indvars.iv.next143.i.i, %554 ]
-  %.272109.us.us.i.i = phi float [ %.171112.us.us.i.i, %.lr.ph.us.us.i.i ], [ %.373.us.us.i.i, %554 ]
-  %555 = getelementptr inbounds nuw [26 x [3 x float]], ptr %47, i64 0, i64 %indvars.iv142.i.i
-  %556 = load float, ptr %555, align 4, !tbaa !10
-  %557 = fadd float %544, %556
-  %558 = getelementptr inbounds nuw i8, ptr %555, i64 4
-  %559 = load float, ptr %558, align 4, !tbaa !10
-  %560 = fadd float %547, %559
-  %561 = getelementptr inbounds nuw i8, ptr %555, i64 8
-  %562 = load float, ptr %561, align 4, !tbaa !10
-  %563 = fadd float %550, %562
-  %564 = fmul float %560, %560
-  %565 = call float @llvm.fmuladd.f32(float %557, float %557, float %564)
-  %566 = call noundef float @llvm.fmuladd.f32(float %563, float %563, float %565)
-  %567 = fcmp olt float %566, %.272109.us.us.i.i
-  %.sroa.0139.5.i = select i1 %567, i32 %530, i32 %.sroa.0139.4.i
-  %.sroa.6.5.i = select i1 %567, i32 %553, i32 %.sroa.6.4.i
-  %.373.us.us.i.i = select i1 %567, float %566, float %.272109.us.us.i.i
+552:                                              ; preds = %552, %.lr.ph.us.us.i.i
+  %.sroa.0139.4.i = phi i32 [ %.sroa.0139.3.i, %.lr.ph.us.us.i.i ], [ %.sroa.0139.5.i, %552 ]
+  %.sroa.6.4.i = phi i32 [ %.sroa.6.3.i, %.lr.ph.us.us.i.i ], [ %.sroa.6.5.i, %552 ]
+  %indvars.iv142.i.i = phi i64 [ 0, %.lr.ph.us.us.i.i ], [ %indvars.iv.next143.i.i, %552 ]
+  %.272109.us.us.i.i = phi float [ %.171112.us.us.i.i, %.lr.ph.us.us.i.i ], [ %.373.us.us.i.i, %552 ]
+  %553 = getelementptr inbounds nuw [26 x [3 x float]], ptr %47, i64 0, i64 %indvars.iv142.i.i
+  %554 = load float, ptr %553, align 4, !tbaa !10
+  %555 = fadd float %544, %554
+  %556 = getelementptr inbounds nuw i8, ptr %553, i64 4
+  %557 = load float, ptr %556, align 4, !tbaa !10
+  %558 = fadd float %547, %557
+  %559 = getelementptr inbounds nuw i8, ptr %553, i64 8
+  %560 = load float, ptr %559, align 4, !tbaa !10
+  %561 = fadd float %550, %560
+  %562 = fmul float %558, %558
+  %563 = call float @llvm.fmuladd.f32(float %555, float %555, float %562)
+  %564 = call noundef float @llvm.fmuladd.f32(float %561, float %561, float %563)
+  %565 = fcmp olt float %564, %.272109.us.us.i.i
+  %.sroa.0139.5.i = select i1 %565, i32 %530, i32 %.sroa.0139.4.i
+  %.sroa.6.5.i = select i1 %565, i32 %551, i32 %.sroa.6.4.i
+  %.373.us.us.i.i = select i1 %565, float %564, float %.272109.us.us.i.i
   %indvars.iv.next143.i.i = add nuw nsw i64 %indvars.iv142.i.i, 1
   %exitcond146.not.i.i = icmp eq i64 %indvars.iv.next143.i.i, %wide.trip.count145.i.i
-  br i1 %exitcond146.not.i.i, label %._crit_edge.us.us.i.i, label %554, !llvm.loop !71
+  br i1 %exitcond146.not.i.i, label %._crit_edge.us.us.i.i, label %552, !llvm.loop !71
 
-._crit_edge.us.us.i.i:                            ; preds = %554
-  %568 = call noundef float @llvm.fmuladd.f32(float %550, float %550, float %552)
+._crit_edge.us.us.i.i:                            ; preds = %552
+  %566 = fmul float %547, %547
+  %567 = call float @llvm.fmuladd.f32(float %544, float %544, float %566)
+  %568 = call noundef float @llvm.fmuladd.f32(float %550, float %550, float %567)
   %569 = fcmp ogt float %568, %.168113.us.us.i.i
   %.269.us.us.i.i = select i1 %569, float %568, float %.168113.us.us.i.i
   %indvars.iv.next150.i.i = add nuw nsw i64 %indvars.iv149.i.i, 1

@@ -1402,24 +1402,24 @@ Maj_ManValue.exit.i:                              ; preds = %Abc_Clock.exit33
   br label %._crit_edge.i34
 
 .lr.ph.i42:                                       ; preds = %.lr.ph.i.i40
-  %598 = lshr i32 %591, 1
   %wide.trip.count.i43 = zext nneg i32 %591 to i64
-  br label %599
+  br label %598
 
-599:                                              ; preds = %599, %.lr.ph.i42
-  %indvars.iv.i44 = phi i64 [ 0, %.lr.ph.i42 ], [ %indvars.iv.next.i45, %599 ]
-  %600 = trunc nuw nsw i64 %indvars.iv.i44 to i32
-  %601 = lshr i32 %590, %600
-  %602 = and i32 %601, 1
-  %603 = add nuw nsw i64 %indvars.iv.i44, 2
-  %604 = getelementptr inbounds nuw [34 x i32], ptr %578, i64 0, i64 %603
-  store i32 %602, ptr %604, align 4, !tbaa !3
+598:                                              ; preds = %598, %.lr.ph.i42
+  %indvars.iv.i44 = phi i64 [ 0, %.lr.ph.i42 ], [ %indvars.iv.next.i45, %598 ]
+  %599 = trunc nuw nsw i64 %indvars.iv.i44 to i32
+  %600 = lshr i32 %590, %599
+  %601 = and i32 %600, 1
+  %602 = add nuw nsw i64 %indvars.iv.i44, 2
+  %603 = getelementptr inbounds nuw [34 x i32], ptr %578, i64 0, i64 %602
+  store i32 %601, ptr %603, align 4, !tbaa !3
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i43
-  br i1 %exitcond.not.i46, label %._crit_edge.i34.loopexit, label %599, !llvm.loop !73
+  br i1 %exitcond.not.i46, label %._crit_edge.i34.loopexit, label %598, !llvm.loop !73
 
-._crit_edge.i34.loopexit:                         ; preds = %599
-  %605 = icmp samesign ugt i32 %595, %598
+._crit_edge.i34.loopexit:                         ; preds = %598
+  %604 = lshr i32 %591, 1
+  %605 = icmp samesign ugt i32 %595, %604
   br label %._crit_edge.i34
 
 ._crit_edge.i34:                                  ; preds = %._crit_edge.i34.loopexit, %Maj_ManValue.exit.i

@@ -10010,8 +10010,8 @@ define internal void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_1
   br label %25
 
 25:                                               ; preds = %.lr.ph49, %._crit_edge45
-  %26 = phi i64 [ %.pre, %.lr.ph49 ], [ %50, %._crit_edge45 ]
-  %.03647 = phi i64 [ %22, %.lr.ph49 ], [ %51, %._crit_edge45 ]
+  %26 = phi i64 [ %.pre, %.lr.ph49 ], [ %49, %._crit_edge45 ]
+  %.03647 = phi i64 [ %22, %.lr.ph49 ], [ %50, %._crit_edge45 ]
   %27 = load ptr, ptr %3, align 8, !tbaa !66
   %28 = mul nsw i64 %26, %.03647
   %29 = getelementptr inbounds float, ptr %27, i64 %28
@@ -10051,18 +10051,18 @@ define internal void @_ZNK5faiss23ResidualCoarseQuantizer6searchElPKflPfPlPKNS_1
 
 .lr.ph:                                           ; preds = %.preheader
   %48 = load ptr, ptr %24, align 8, !tbaa !197
-  %49 = shl i64 %46, 2
   br label %59
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %25
-  %50 = phi i64 [ %36, %25 ], [ %57, %._crit_edge ]
-  %51 = add nsw i64 %.03647, 1
-  %52 = load i64, ptr %12, align 8, !tbaa !69
-  %.not.not = icmp slt i64 %.03647, %52
+  %49 = phi i64 [ %36, %25 ], [ %57, %._crit_edge ]
+  %50 = add nsw i64 %.03647, 1
+  %51 = load i64, ptr %12, align 8, !tbaa !69
+  %.not.not = icmp slt i64 %.03647, %51
   br i1 %.not.not, label %25, label %._crit_edge50
 
 ._crit_edge.loopexit:                             ; preds = %59
-  %scevgep = getelementptr i8, ptr %.03543, i64 %49
+  %52 = shl i64 %46, 2
+  %scevgep = getelementptr i8, ptr %.03543, i64 %52
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader

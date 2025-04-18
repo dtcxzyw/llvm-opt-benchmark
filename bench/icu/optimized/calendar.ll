@@ -5606,13 +5606,13 @@ define void @_ZN6icu_778Calendar13computeFieldsER10UErrorCode(ptr noundef nonnul
 19:                                               ; preds = %9
   %20 = load i32, ptr %4, align 4, !tbaa !12
   %21 = load i32, ptr %5, align 4, !tbaa !12
-  %22 = add nsw i32 %21, %20
-  %23 = sitofp i32 %22 to double
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %31
 
-25:                                               ; preds = %31
-  %26 = fadd double %11, %23
+23:                                               ; preds = %31
+  %24 = add nsw i32 %21, %20
+  %25 = sitofp i32 %24 to double
+  %26 = fadd double %11, %25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #25
   %27 = call noundef double @_ZN6icu_779ClockMath11floorDivideEdiPi(double noundef %26, i32 noundef 86400000, ptr noundef nonnull %6)
   %28 = fadd double %27, 0x41429EC600000000
@@ -5624,7 +5624,7 @@ define void @_ZN6icu_778Calendar13computeFieldsER10UErrorCode(ptr noundef nonnul
 31:                                               ; preds = %19, %31
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %31 ]
   %.02125 = phi i32 [ 8912999, %19 ], [ %35, %31 ]
-  %32 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 0, i64 %indvars.iv
   %33 = trunc i32 %.02125 to i8
   %34 = and i8 %33, 1
   %. = xor i8 %34, 1
@@ -5632,13 +5632,13 @@ define void @_ZN6icu_778Calendar13computeFieldsER10UErrorCode(ptr noundef nonnul
   %35 = lshr i32 %.02125, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %25, label %31, !llvm.loop !71
+  br i1 %exitcond.not, label %23, label %31, !llvm.loop !71
 
-36:                                               ; preds = %25
+36:                                               ; preds = %23
   store i32 1, ptr %1, align 4, !tbaa !13
   br label %79
 
-37:                                               ; preds = %25
+37:                                               ; preds = %23
   %38 = fptosi double %28 to i32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %38, ptr %39, align 8, !tbaa !12

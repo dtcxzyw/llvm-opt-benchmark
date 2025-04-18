@@ -1458,7 +1458,6 @@ define hidden signext i8 @av1_read_profile(ptr noundef %0) local_unnamed_addr #0
 define hidden i32 @av1_decode_frame_headers_and_setup(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 73229
   %.val = load i8, ptr %4, align 1
-  %.not.i = icmp eq i8 %.val, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72800
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48600
   br label %7
@@ -1477,6 +1476,7 @@ define hidden i32 @av1_decode_frame_headers_and_setup(ptr noundef %0, ptr nounde
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 47968
+  %.not.i = icmp eq i8 %.val, 0
   %14 = select i1 %.not.i, i32 3, i32 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 10744
   store ptr %5, ptr %15, align 8

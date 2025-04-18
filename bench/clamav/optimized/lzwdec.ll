@@ -191,24 +191,24 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 
 74:                                               ; preds = %51
   %75 = getelementptr inbounds i8, ptr %9, i64 %57
-  %76 = trunc i64 %57 to i32
-  br label %77
+  br label %76
 
-77:                                               ; preds = %77, %74
-  %.2315 = phi ptr [ %53, %74 ], [ %81, %77 ]
-  %.1293 = phi ptr [ %75, %74 ], [ %80, %77 ]
-  %.1 = phi i64 [ %57, %74 ], [ %82, %77 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.2315, i64 10
-  %79 = load i8, ptr %78, align 2, !tbaa !15
-  %80 = getelementptr inbounds i8, ptr %.1293, i64 -1
-  store i8 %79, ptr %80, align 1, !tbaa !36
-  %81 = load ptr, ptr %.2315, align 8, !tbaa !12
-  %82 = add nsw i64 %.1, -1
-  %.not420 = icmp eq i64 %82, 0
-  br i1 %.not420, label %.thread, label %77
+76:                                               ; preds = %76, %74
+  %.2315 = phi ptr [ %53, %74 ], [ %80, %76 ]
+  %.1293 = phi ptr [ %75, %74 ], [ %79, %76 ]
+  %.1 = phi i64 [ %57, %74 ], [ %81, %76 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.2315, i64 10
+  %78 = load i8, ptr %77, align 2, !tbaa !15
+  %79 = getelementptr inbounds i8, ptr %.1293, i64 -1
+  store i8 %78, ptr %79, align 1, !tbaa !36
+  %80 = load ptr, ptr %.2315, align 8, !tbaa !12
+  %81 = add nsw i64 %.1, -1
+  %.not420 = icmp eq i64 %81, 0
+  br i1 %.not420, label %.thread, label %76
 
-.thread:                                          ; preds = %77
-  %83 = sub i32 %19, %76
+.thread:                                          ; preds = %76
+  %82 = trunc i64 %57 to i32
+  %83 = sub i32 %19, %82
   store i64 0, ptr %49, align 8, !tbaa !17
   br label %84
 

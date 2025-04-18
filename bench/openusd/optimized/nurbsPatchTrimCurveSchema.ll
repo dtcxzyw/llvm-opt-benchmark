@@ -1751,11 +1751,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27HdNurbsPatchTrimCurveSchema1
   %8 = alloca [6 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 16
   %9 = alloca [6 x %"class.std::shared_ptr.12"], align 16
   %10 = alloca %"class.std::shared_ptr.15", align 8
-  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %8, i8 0, i64 48, i1 false)
-  %.0.sroa.gep185 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %9, i8 0, i64 96, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.0.sroa.gep185 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %13 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %13, null

@@ -5836,35 +5836,35 @@ define internal fastcc noundef zeroext i1 @vfio_add_capabilities(ptr noundef %0,
   %40 = zext nneg i16 %.050.i to i64
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 %40
   %.val41.i = load i32, ptr %41, align 1
-  %42 = lshr i32 %.val41.i, 16
-  br label %43
+  br label %42
 
-43:                                               ; preds = %43, %39
-  %.012.i.i = phi i16 [ 4096, %39 ], [ %.1.i.i, %43 ]
-  %.0911.i.i = phi i16 [ 256, %39 ], [ %50, %43 ]
-  %44 = icmp samesign ugt i16 %.0911.i.i, %.050.i
-  %45 = tail call i16 @llvm.umin.i16(i16 %.0911.i.i, i16 %.012.i.i)
-  %.1.i.i = select i1 %44, i16 %45, i16 %.012.i.i
-  %46 = zext nneg i16 %.0911.i.i to i64
-  %47 = getelementptr inbounds nuw i8, ptr %28, i64 %46
-  %.val.i.i = load i32, ptr %47, align 1
-  %48 = lshr i32 %.val.i.i, 20
-  %49 = trunc nuw nsw i32 %48 to i16
-  %50 = and i16 %49, 4092
-  %.not.i.i = icmp eq i16 %50, 0
-  br i1 %.not.i.i, label %vfio_ext_cap_max_size.exit.i, label %43, !llvm.loop !35
+42:                                               ; preds = %42, %39
+  %.012.i.i = phi i16 [ 4096, %39 ], [ %.1.i.i, %42 ]
+  %.0911.i.i = phi i16 [ 256, %39 ], [ %49, %42 ]
+  %43 = icmp samesign ugt i16 %.0911.i.i, %.050.i
+  %44 = tail call i16 @llvm.umin.i16(i16 %.0911.i.i, i16 %.012.i.i)
+  %.1.i.i = select i1 %43, i16 %44, i16 %.012.i.i
+  %45 = zext nneg i16 %.0911.i.i to i64
+  %46 = getelementptr inbounds nuw i8, ptr %28, i64 %45
+  %.val.i.i = load i32, ptr %46, align 1
+  %47 = lshr i32 %.val.i.i, 20
+  %48 = trunc nuw nsw i32 %47 to i16
+  %49 = and i16 %48, 4092
+  %.not.i.i = icmp eq i16 %49, 0
+  br i1 %.not.i.i, label %vfio_ext_cap_max_size.exit.i, label %42, !llvm.loop !35
 
-vfio_ext_cap_max_size.exit.i:                     ; preds = %43
-  %51 = trunc i32 %42 to i8
-  %52 = trunc i32 %.val41.i to i16
-  %53 = and i8 %51, 15
+vfio_ext_cap_max_size.exit.i:                     ; preds = %42
+  %50 = trunc i32 %.val41.i to i16
+  %51 = lshr i32 %.val41.i, 16
+  %52 = trunc i32 %51 to i8
+  %53 = and i8 %52, 15
   %54 = sub nsw i16 %.1.i.i, %.050.i
   %55 = load ptr, ptr %34, align 16
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %40
   %.val.i45.i = load i32, ptr %56, align 1
   %57 = or i32 %.val.i45.i, -4194304
   store i32 %57, ptr %56, align 1
-  switch i16 %52, label %117 [
+  switch i16 %50, label %117 [
     i16 0, label %58
     i16 16, label %58
     i16 14, label %58
@@ -5978,7 +5978,7 @@ vfio_ext_cap_max_size.exit.i:                     ; preds = %43
   br label %trace_vfio_add_ext_cap_dropped.exit.i
 
 117:                                              ; preds = %vfio_ext_cap_max_size.exit.i
-  tail call void @pcie_add_capability(ptr noundef nonnull %0, i16 noundef zeroext %52, i8 noundef zeroext %53, i16 noundef zeroext %.050.i, i16 noundef zeroext %54) #26
+  tail call void @pcie_add_capability(ptr noundef nonnull %0, i16 noundef zeroext %50, i8 noundef zeroext %53, i16 noundef zeroext %.050.i, i16 noundef zeroext %54) #26
   br label %trace_vfio_add_ext_cap_dropped.exit.i
 
 trace_vfio_add_ext_cap_dropped.exit.i:            ; preds = %90, %117, %.loopexit.i, %76, %69, %63, %61, %58

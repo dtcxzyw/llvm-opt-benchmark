@@ -712,12 +712,12 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
   br label %.preheader
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %346 = tail call i16 @llvm.umax.i16(i16 %334, i16 1)
-  %umax = zext i16 %346 to i32
-  %347 = add nsw i32 %umax, -1
-  %348 = mul i32 %320, %347
-  %349 = add i32 %320, %.0121227
-  %350 = add i32 %349, %348
+  %346 = add i32 %320, %.0121227
+  %347 = tail call i16 @llvm.umax.i16(i16 %334, i16 1)
+  %umax = zext i16 %347 to i32
+  %348 = add nsw i32 %umax, -1
+  %349 = mul i32 %320, %348
+  %350 = add i32 %346, %349
   br label %._crit_edge225
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge222

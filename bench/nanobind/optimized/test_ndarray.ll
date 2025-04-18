@@ -8900,11 +8900,11 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
   %.05.i = phi i64 [ 0, %10 ], [ %20, %.preheader.i ]
   %14 = getelementptr inbounds nuw %"class.std::complex", ptr %13, i64 %.05.i
   %15 = load float, ptr %14, align 4, !tbaa !192
-  %16 = fneg float %15
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %18 = load float, ptr %17, align 4, !tbaa !192
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %16, i64 0
-  %19 = fneg float %18
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %17 = load float, ptr %16, align 4, !tbaa !192
+  %18 = fneg float %15
+  %19 = fneg float %17
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %18, i64 0
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %19, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %14, align 4, !tbaa !60
   %20 = add nuw nsw i64 %.05.i, 1

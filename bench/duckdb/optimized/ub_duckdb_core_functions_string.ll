@@ -63393,35 +63393,35 @@ define internal fastcc noundef i64 @"_ZN6duckdb19BinaryLambdaWrapper9OperationIZ
   br i1 %23, label %"_ZZN6duckdbL19LevenshteinFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorEENK3$_0clENS_8string_tES7_.exit", label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i: ; preds = %22
-  %24 = icmp ult i32 %17, 13
-  %25 = icmp ult i32 %19, 13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #27
-  %26 = add nuw nsw i64 %20, 1
-  %27 = shl nuw nsw i64 %26, 3
-  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #28
-  store ptr %28, ptr %11, align 8, !tbaa !1594
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %26
-  %30 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %29, ptr %30, align 8, !tbaa !1596
-  %31 = shl nuw nsw i64 %20, 3
-  %32 = add nuw nsw i64 %31, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %28, i8 0, i64 %32, i1 false), !tbaa !84
-  %33 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %34 = select i1 %24, ptr %33, ptr %1
+  %24 = add nuw nsw i64 %20, 1
+  %25 = shl nuw nsw i64 %24, 3
+  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #28
+  store ptr %26, ptr %11, align 8, !tbaa !1594
+  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %24
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %27, ptr %28, align 8, !tbaa !1596
+  %29 = shl nuw nsw i64 %20, 3
+  %30 = add nuw nsw i64 %29, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, i8 0, i64 %30, i1 false), !tbaa !84
+  %31 = icmp ult i32 %17, 13
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %33 = select i1 %31, ptr %32, ptr %1
+  %34 = icmp ult i32 %19, 13
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %36 = select i1 %25, ptr %35, ptr %3
+  %36 = select i1 %34, ptr %35, ptr %3
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %29, ptr %37, align 8, !tbaa !1597
+  store ptr %27, ptr %37, align 8, !tbaa !1597
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #27
-  %38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #28
+  %38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #28
           to label %.noexc60.i.i.i unwind label %42
 
 .noexc60.i.i.i:                                   ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i
   store ptr %38, ptr %12, align 8, !tbaa !1594
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %26
+  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %24
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %39, ptr %40, align 8, !tbaa !1596
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, i8 0, i64 %32, i1 false), !tbaa !84
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, i8 0, i64 %30, i1 false), !tbaa !84
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %39, ptr %41, align 8, !tbaa !1597
   br label %44
@@ -63471,7 +63471,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i: ; preds = %22
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
   %66 = ashr exact i64 %65, 3
-  %67 = getelementptr inbounds nuw i8, ptr %34, i64 %.037139.i.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %33, i64 %.037139.i.i.i
   %injected.cond.i.i.i = icmp ule i64 %60, %66
   %injected.cond.fr.i.i.i = freeze i1 %injected.cond.i.i.i
   %68 = call i64 @llvm.usub.sat.i64(i64 %60, i64 1)
@@ -63514,7 +63514,7 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i: ; preds = %22
   br i1 %exitcond176.not.i.i.i, label %.split138.us.i.i.i, label %.split.us.i.i.i, !llvm.loop !1599
 
 .split138.us.i.i.i:                               ; preds = %163, %72
-  %88 = load ptr, ptr %30, align 8, !tbaa !1596
+  %88 = load ptr, ptr %28, align 8, !tbaa !1596
   %89 = ptrtoint ptr %88 to i64
   %90 = sub i64 %89, %58
   %91 = icmp ugt i64 %65, %90
@@ -63547,7 +63547,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i.i.i: ; preds = %96, %.no
   call void @_ZdlPv(ptr noundef nonnull %56) #31
   store ptr %95, ptr %11, align 8, !tbaa !1594
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 %65
-  store ptr %97, ptr %30, align 8, !tbaa !1596
+  store ptr %97, ptr %28, align 8, !tbaa !1596
   br label %_ZN6duckdb6vectorImLb1EEaSERKS1_.exit.i.i.i
 
 98:                                               ; preds = %.split138.us.i.i.i

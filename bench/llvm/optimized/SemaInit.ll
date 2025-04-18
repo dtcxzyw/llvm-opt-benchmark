@@ -42277,9 +42277,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_115InitListChecker14CheckArrayTypeE
   br i1 %.not.i, label %57, label %54, !llvm.loop !1781
 
 57:                                               ; preds = %54
-  %58 = ptrtoint ptr %48 to i64
-  %59 = ptrtoint ptr %50 to i64
-  %60 = sub i64 %59, %58
+  %58 = ptrtoint ptr %50 to i64
+  %59 = ptrtoint ptr %48 to i64
+  %60 = sub i64 %58, %59
   %.sroa.0.0.in.le.i = getelementptr inbounds nuw i8, ptr %.01121.i, i64 16
   %.sroa.0.0.le.i = load i64, ptr %.sroa.0.0.in.le.i, align 8, !tbaa !676
   %61 = and i64 %60, 34359738360

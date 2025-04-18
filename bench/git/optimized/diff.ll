@@ -1748,9 +1748,9 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 172
   br label %16
 
-16:                                               ; preds = %.lr.ph, %80
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
-  %.03147 = phi i32 [ 0, %.lr.ph ], [ %.1, %80 ]
+16:                                               ; preds = %.lr.ph, %78
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
+  %.03147 = phi i32 [ 0, %.lr.ph ], [ %.1, %78 ]
   %17 = load ptr, ptr %4, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw %struct.string_list_item, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !22
@@ -1761,7 +1761,7 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
 21:                                               ; preds = %16
   store i32 0, ptr %14, align 8, !tbaa !42
   store i32 0, ptr %15, align 4, !tbaa !43
-  br label %80
+  br label %78
 
 22:                                               ; preds = %16
   %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.297) #34
@@ -1771,7 +1771,7 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
 24:                                               ; preds = %22
   store i32 1, ptr %14, align 8, !tbaa !42
   store i32 0, ptr %15, align 4, !tbaa !43
-  br label %80
+  br label %78
 
 25:                                               ; preds = %22
   %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.298) #34
@@ -1781,7 +1781,7 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
 27:                                               ; preds = %25
   store i32 0, ptr %14, align 8, !tbaa !42
   store i32 1, ptr %15, align 4, !tbaa !43
-  br label %80
+  br label %78
 
 28:                                               ; preds = %25
   %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(14) @.str.299) #34
@@ -1790,7 +1790,7 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
 
 30:                                               ; preds = %28
   store i32 0, ptr %13, align 8, !tbaa !44
-  br label %80
+  br label %78
 
 31:                                               ; preds = %28
   %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(11) @.str.85) #34
@@ -1799,7 +1799,7 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
 
 33:                                               ; preds = %31
   store i32 1, ptr %13, align 8, !tbaa !44
-  br label %80
+  br label %78
 
 34:                                               ; preds = %31
   %35 = load i8, ptr %19, align 1, !tbaa !38
@@ -1808,7 +1808,7 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
   %38 = load i8, ptr %37, align 1, !tbaa !38
   %39 = and i8 %38, 2
   %.not39 = icmp eq i8 %39, 0
-  br i1 %.not39, label %75, label %40
+  br i1 %.not39, label %73, label %40
 
 40:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #33
@@ -1818,7 +1818,7 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
   %44 = load ptr, ptr %5, align 8, !tbaa !4
   %45 = load i8, ptr %44, align 1, !tbaa !38
   %46 = icmp eq i8 %45, 46
-  br i1 %46, label %47, label %66
+  br i1 %46, label %47, label %64
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 1
@@ -1828,82 +1828,79 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
   %52 = load i8, ptr %51, align 1, !tbaa !38
   %53 = and i8 %52, 2
   %.not40 = icmp eq i8 %53, 0
-  br i1 %.not40, label %66, label %54
+  br i1 %.not40, label %64, label %.preheader
 
-54:                                               ; preds = %47
-  %55 = add i32 %43, -48
-  br label %56
-
-56:                                               ; preds = %56, %54
-  %57 = phi ptr [ %58, %56 ], [ %48, %54 ]
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
+.preheader:                                       ; preds = %47, %.preheader
+  %54 = phi ptr [ %55, %.preheader ], [ %48, %47 ]
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
+  %56 = load i8, ptr %55, align 1, !tbaa !38
+  %57 = zext i8 %56 to i64
+  %58 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !38
-  %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !38
-  %63 = and i8 %62, 2
-  %.not41 = icmp eq i8 %63, 0
-  br i1 %.not41, label %.loopexit, label %56, !llvm.loop !45
+  %60 = and i8 %59, 2
+  %.not41 = icmp eq i8 %60, 0
+  br i1 %.not41, label %.loopexit, label %.preheader, !llvm.loop !45
 
-.loopexit:                                        ; preds = %56
-  %64 = sext i8 %49 to i32
-  %65 = add i32 %55, %64
-  br label %66
+.loopexit:                                        ; preds = %.preheader
+  %61 = sext i8 %49 to i32
+  %62 = add i32 %43, -48
+  %63 = add i32 %62, %61
+  br label %64
 
-66:                                               ; preds = %.loopexit, %47, %40
-  %67 = phi i8 [ %49, %47 ], [ %45, %40 ], [ %59, %.loopexit ]
-  %.0 = phi i32 [ %43, %47 ], [ %43, %40 ], [ %65, %.loopexit ]
-  %.not42 = icmp eq i8 %67, 0
-  br i1 %.not42, label %68, label %69
+64:                                               ; preds = %.loopexit, %47, %40
+  %65 = phi i8 [ %49, %47 ], [ %45, %40 ], [ %56, %.loopexit ]
+  %.0 = phi i32 [ %43, %47 ], [ %43, %40 ], [ %63, %.loopexit ]
+  %.not42 = icmp eq i8 %65, 0
+  br i1 %.not42, label %66, label %67
 
-68:                                               ; preds = %66
+66:                                               ; preds = %64
   store i32 %.0, ptr %12, align 4, !tbaa !40
-  br label %74
+  br label %72
 
-69:                                               ; preds = %66
-  %70 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !11
-  %.not4.i = icmp eq i32 %70, 0
-  br i1 %.not4.i, label %_.exit, label %71
+67:                                               ; preds = %64
+  %68 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !11
+  %.not4.i = icmp eq i32 %68, 0
+  br i1 %.not4.i, label %_.exit, label %69
 
-71:                                               ; preds = %69
-  %72 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.300, i32 noundef 5) #33
+69:                                               ; preds = %67
+  %70 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.300, i32 noundef 5) #33
   br label %_.exit
 
-_.exit:                                           ; preds = %69, %71
-  %.0.i = phi ptr [ %72, %71 ], [ @.str.300, %69 ]
+_.exit:                                           ; preds = %67, %69
+  %.0.i = phi ptr [ %70, %69 ], [ @.str.300, %67 ]
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %2, ptr noundef %.0.i, ptr noundef nonnull %19) #33
-  %73 = add nsw i32 %.03147, 1
-  br label %74
+  %71 = add nsw i32 %.03147, 1
+  br label %72
 
-74:                                               ; preds = %_.exit, %68
-  %.2 = phi i32 [ %73, %_.exit ], [ %.03147, %68 ]
+72:                                               ; preds = %_.exit, %66
+  %.2 = phi i32 [ %71, %_.exit ], [ %.03147, %66 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #33
-  br label %80
+  br label %78
 
-75:                                               ; preds = %34
-  %76 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !11
-  %.not4.i43 = icmp eq i32 %76, 0
-  br i1 %.not4.i43, label %_.exit45, label %77
+73:                                               ; preds = %34
+  %74 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !11
+  %.not4.i43 = icmp eq i32 %74, 0
+  br i1 %.not4.i43, label %_.exit45, label %75
 
-77:                                               ; preds = %75
-  %78 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.301, i32 noundef 5) #33
+75:                                               ; preds = %73
+  %76 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.301, i32 noundef 5) #33
   br label %_.exit45
 
-_.exit45:                                         ; preds = %75, %77
-  %.0.i44 = phi ptr [ %78, %77 ], [ @.str.301, %75 ]
+_.exit45:                                         ; preds = %73, %75
+  %.0.i44 = phi ptr [ %76, %75 ], [ @.str.301, %73 ]
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %2, ptr noundef %.0.i44, ptr noundef nonnull %19) #33
-  %79 = add nsw i32 %.03147, 1
-  br label %80
+  %77 = add nsw i32 %.03147, 1
+  br label %78
 
-80:                                               ; preds = %24, %30, %74, %_.exit45, %33, %27, %21
-  %.1 = phi i32 [ %.2, %74 ], [ %79, %_.exit45 ], [ %.03147, %33 ], [ %.03147, %30 ], [ %.03147, %27 ], [ %.03147, %24 ], [ %.03147, %21 ]
+78:                                               ; preds = %24, %30, %72, %_.exit45, %33, %27, %21
+  %.1 = phi i32 [ %.2, %72 ], [ %77, %_.exit45 ], [ %.03147, %33 ], [ %.03147, %30 ], [ %.03147, %27 ], [ %.03147, %24 ], [ %.03147, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = load i64, ptr %11, align 8, !tbaa !21
-  %82 = icmp ugt i64 %81, %indvars.iv.next
-  br i1 %82, label %16, label %._crit_edge, !llvm.loop !46
+  %79 = load i64, ptr %11, align 8, !tbaa !21
+  %80 = icmp ugt i64 %79, %indvars.iv.next
+  br i1 %80, label %16, label %._crit_edge, !llvm.loop !46
 
-._crit_edge:                                      ; preds = %80, %3, %8
-  %.031.lcssa = phi i32 [ 0, %8 ], [ 0, %3 ], [ %.1, %80 ]
+._crit_edge:                                      ; preds = %78, %3, %8
+  %.031.lcssa = phi i32 [ 0, %8 ], [ 0, %3 ], [ %.1, %78 ]
   call void @string_list_clear(ptr noundef nonnull %4, i32 noundef 0) #33
   call void @free(ptr noundef %6) #33
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #33

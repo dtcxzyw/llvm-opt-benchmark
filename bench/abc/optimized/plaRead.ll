@@ -992,58 +992,58 @@ Vec_WrdFillExtra.exit74:                          ; preds = %Vec_WrdFillExtra.ex
   %.04781.us.us = phi i32 [ %172, %.critedge2..critedge4_crit_edge.us.us ], [ 0, %.lr.ph83.split.us.split.us ]
   %137 = mul nsw i64 %indvars.iv126, %135
   %138 = getelementptr inbounds i64, ptr %.val56, i64 %137
-  %139 = mul nsw i64 %indvars.iv126, %136
-  %140 = sext i32 %.04781.us.us to i64
-  br label %155
+  %139 = sext i32 %.04781.us.us to i64
+  br label %154
 
 .critedge2.us.us:                                 ; preds = %.critedge2.us.us.preheader, %.critedge2.us.us
   %indvars.iv122 = phi i64 [ %171, %.critedge2.us.us.preheader ], [ %indvars.iv.next123, %.critedge2.us.us ]
-  %.14977.us.us = phi i32 [ 0, %.critedge2.us.us.preheader ], [ %154, %.critedge2.us.us ]
-  %141 = lshr i32 %.14977.us.us, 5
-  %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw i64, ptr %170, i64 %142
-  %144 = load i64, ptr %143, align 8, !tbaa !38
-  %145 = shl nuw i32 %.14977.us.us, 1
-  %146 = and i32 %145, 62
-  %147 = zext nneg i32 %146 to i64
+  %.14977.us.us = phi i32 [ 0, %.critedge2.us.us.preheader ], [ %153, %.critedge2.us.us ]
+  %140 = lshr i32 %.14977.us.us, 5
+  %141 = zext nneg i32 %140 to i64
+  %142 = getelementptr inbounds nuw i64, ptr %170, i64 %141
+  %143 = load i64, ptr %142, align 8, !tbaa !38
+  %144 = shl nuw i32 %.14977.us.us, 1
+  %145 = and i32 %144, 62
+  %146 = zext nneg i32 %145 to i64
   %indvars.iv.next123 = add nsw i64 %indvars.iv122, 1
-  %148 = getelementptr inbounds i8, ptr %.val59.us, i64 %indvars.iv122
-  %149 = load i8, ptr %148, align 1, !tbaa !3
-  %150 = sext i8 %149 to i64
-  %151 = and i64 %150, 4294967295
-  %152 = shl i64 %151, %147
-  %153 = or i64 %152, %144
-  store i64 %153, ptr %143, align 8, !tbaa !38
-  %154 = add nuw nsw i32 %.14977.us.us, 1
-  %exitcond125.not = icmp eq i32 %154, %131
+  %147 = getelementptr inbounds i8, ptr %.val59.us, i64 %indvars.iv122
+  %148 = load i8, ptr %147, align 1, !tbaa !3
+  %149 = sext i8 %148 to i64
+  %150 = and i64 %149, 4294967295
+  %151 = shl i64 %150, %146
+  %152 = or i64 %151, %143
+  store i64 %152, ptr %142, align 8, !tbaa !38
+  %153 = add nuw nsw i32 %.14977.us.us, 1
+  %exitcond125.not = icmp eq i32 %153, %131
   br i1 %exitcond125.not, label %.critedge2..critedge4_crit_edge.us.us, label %.critedge2.us.us, !llvm.loop !41
 
-155:                                              ; preds = %155, %.lr.ph.us.us
-  %indvars.iv120.in = phi i32 [ %indvars.iv120, %155 ], [ %.04781.us.us, %.lr.ph.us.us ]
-  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %155 ], [ %140, %.lr.ph.us.us ]
-  %.04875.us.us = phi i32 [ %169, %155 ], [ 0, %.lr.ph.us.us ]
+154:                                              ; preds = %154, %.lr.ph.us.us
+  %indvars.iv120.in = phi i32 [ %indvars.iv120, %154 ], [ %.04781.us.us, %.lr.ph.us.us ]
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %154 ], [ %139, %.lr.ph.us.us ]
+  %.04875.us.us = phi i32 [ %168, %154 ], [ 0, %.lr.ph.us.us ]
   %indvars.iv120 = add i32 %indvars.iv120.in, 1
-  %156 = lshr i32 %.04875.us.us, 5
-  %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw i64, ptr %138, i64 %157
-  %159 = load i64, ptr %158, align 8, !tbaa !38
-  %160 = shl nuw i32 %.04875.us.us, 1
-  %161 = and i32 %160, 62
-  %162 = zext nneg i32 %161 to i64
+  %155 = lshr i32 %.04875.us.us, 5
+  %156 = zext nneg i32 %155 to i64
+  %157 = getelementptr inbounds nuw i64, ptr %138, i64 %156
+  %158 = load i64, ptr %157, align 8, !tbaa !38
+  %159 = shl nuw i32 %.04875.us.us, 1
+  %160 = and i32 %159, 62
+  %161 = zext nneg i32 %160 to i64
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 1
-  %163 = getelementptr inbounds i8, ptr %.val59.us, i64 %indvars.iv116
-  %164 = load i8, ptr %163, align 1, !tbaa !3
-  %165 = sext i8 %164 to i64
-  %166 = and i64 %165, 4294967295
-  %167 = shl i64 %166, %162
-  %168 = or i64 %167, %159
-  store i64 %168, ptr %158, align 8, !tbaa !38
-  %169 = add nuw nsw i32 %.04875.us.us, 1
-  %exitcond119.not = icmp eq i32 %169, %129
-  br i1 %exitcond119.not, label %.critedge2.us.us.preheader, label %155, !llvm.loop !42
+  %162 = getelementptr inbounds i8, ptr %.val59.us, i64 %indvars.iv116
+  %163 = load i8, ptr %162, align 1, !tbaa !3
+  %164 = sext i8 %163 to i64
+  %165 = and i64 %164, 4294967295
+  %166 = shl i64 %165, %161
+  %167 = or i64 %166, %158
+  store i64 %167, ptr %157, align 8, !tbaa !38
+  %168 = add nuw nsw i32 %.04875.us.us, 1
+  %exitcond119.not = icmp eq i32 %168, %129
+  br i1 %exitcond119.not, label %.critedge2.us.us.preheader, label %154, !llvm.loop !42
 
-.critedge2.us.us.preheader:                       ; preds = %155
-  %170 = getelementptr inbounds i64, ptr %.val58, i64 %139
+.critedge2.us.us.preheader:                       ; preds = %154
+  %169 = mul nsw i64 %indvars.iv126, %136
+  %170 = getelementptr inbounds i64, ptr %.val58, i64 %169
   %171 = sext i32 %indvars.iv120 to i64
   br label %.critedge2.us.us
 

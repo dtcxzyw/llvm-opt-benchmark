@@ -34,7 +34,6 @@ define hidden void @BrotliInitDistanceParams(ptr noundef writeonly captures(none
 
 17:                                               ; preds = %15
   %18 = sub nuw nsw i32 2147483644, %2
-  %notmask.i = shl nsw i32 -1, %1
   %19 = lshr i32 %18, %1
   %20 = add nuw i32 %19, 4
   br label %21
@@ -57,6 +56,7 @@ define hidden void @BrotliInitDistanceParams(ptr noundef writeonly captures(none
   br i1 %29, label %47, label %30
 
 30:                                               ; preds = %23
+  %notmask.i = shl nsw i32 -1, %1
   %31 = xor i32 %notmask.i, -1
   %32 = add i32 %28, -1
   %33 = lshr i32 %32, 1

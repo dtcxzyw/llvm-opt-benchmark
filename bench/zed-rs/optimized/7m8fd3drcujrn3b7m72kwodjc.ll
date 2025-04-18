@@ -9674,27 +9674,24 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8df718491db7
   %6 = load i64, ptr %0, align 8, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %1, %7
-  br i1 %8, label %16, label %9
+  br i1 %8, label %15, label %9
 
-9:                                                ; preds = %16, %3
-  %10 = phi i64 [ %.pre, %16 ], [ %5, %3 ]
+9:                                                ; preds = %15, %3
+  %10 = phi i64 [ %.pre, %15 ], [ %5, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds float, ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
-  br i1 %14, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %14, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %9
-  %15 = add i64 %10, %1
-  br label %.lr.ph
-
-16:                                               ; preds = %3
+15:                                               ; preds = %3
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h213f73ef59a40986E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5, i64 noundef %1)
   %.pre = load i64, ptr %4, align 8
   br label %9
 
 ._crit_edge.thread:                               ; preds = %.lr.ph
-  %17 = add i64 %15, -1
+  %16 = add i64 %10, %1
+  %17 = add i64 %16, -1
   br label %18
 
 ._crit_edge:                                      ; preds = %9
@@ -9713,9 +9710,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h8df718491db7
   store i64 %storemerge21, ptr %4, align 8
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.0.024 = phi ptr [ %22, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %.sroa.03.023 = phi i64 [ %21, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %9, %.lr.ph
+  %.sroa.0.024 = phi ptr [ %22, %.lr.ph ], [ %13, %9 ]
+  %.sroa.03.023 = phi i64 [ %21, %.lr.ph ], [ 1, %9 ]
   %21 = add nuw i64 %.sroa.03.023, 1
   store float %2, ptr %.sroa.0.024, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.024, i64 4
@@ -9730,27 +9727,24 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hdd7f43beb35a
   %7 = load i64, ptr %0, align 8, !noundef !4
   %8 = sub i64 %7, %6
   %9 = icmp ugt i64 %1, %8
-  br i1 %9, label %17, label %10
+  br i1 %9, label %16, label %10
 
-10:                                               ; preds = %17, %4
-  %11 = phi i64 [ %.pre, %17 ], [ %6, %4 ]
+10:                                               ; preds = %16, %4
+  %11 = phi i64 [ %.pre, %16 ], [ %6, %4 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds { i16, i16 }, ptr %13, i64 %11
   %15 = icmp ugt i64 %1, 1
-  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %15, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %10
-  %16 = add i64 %11, %1
-  br label %.lr.ph
-
-17:                                               ; preds = %4
+16:                                               ; preds = %4
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hd24351f914a4dbb6E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6, i64 noundef %1)
   %.pre = load i64, ptr %5, align 8
   br label %10
 
 ._crit_edge.thread:                               ; preds = %.lr.ph
-  %18 = add i64 %16, -1
+  %17 = add i64 %11, %1
+  %18 = add i64 %17, -1
   br label %19
 
 ._crit_edge:                                      ; preds = %10
@@ -9771,9 +9765,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hdd7f43beb35a
   store i64 %storemerge24, ptr %5, align 8
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.0.027 = phi ptr [ %25, %.lr.ph ], [ %14, %.lr.ph.preheader ]
-  %.sroa.03.026 = phi i64 [ %23, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %10, %.lr.ph
+  %.sroa.0.027 = phi ptr [ %25, %.lr.ph ], [ %14, %10 ]
+  %.sroa.03.026 = phi i64 [ %23, %.lr.ph ], [ 1, %10 ]
   %23 = add nuw i64 %.sroa.03.026, 1
   store i16 %2, ptr %.sroa.0.027, align 2
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 2

@@ -60,33 +60,33 @@ define void @_ZN10open_spiel12EvaluateBotsEPNS_5StateERKSt6vectorIPNS_3BotESaIS4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %2, align 8
-  %14 = ptrtoint ptr %12 to i64
-  %15 = ptrtoint ptr %13 to i64
-  %16 = sub i64 %14, %15
-  %17 = ashr exact i64 %16, 3
-  %18 = zext i32 %3 to i64
-  store i64 %18, ptr %5, align 8
-  br label %19
+  %14 = zext i32 %3 to i64
+  store i64 %14, ptr %5, align 8
+  br label %15
 
-19:                                               ; preds = %19, %4
-  %20 = phi i64 [ %18, %4 ], [ %25, %19 ]
-  %.011.i.i = phi i64 [ 1, %4 ], [ %27, %19 ]
-  %21 = lshr i64 %20, 30
-  %22 = xor i64 %21, %20
-  %23 = mul nuw nsw i64 %22, 1812433253
-  %24 = add nuw i64 %23, %.011.i.i
-  %25 = and i64 %24, 4294967295
-  %26 = getelementptr inbounds nuw [624 x i64], ptr %5, i64 0, i64 %.011.i.i
-  store i64 %25, ptr %26, align 8
-  %27 = add nuw nsw i64 %.011.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %27, 624
-  br i1 %exitcond.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit, label %19, !llvm.loop !4
+15:                                               ; preds = %15, %4
+  %16 = phi i64 [ %14, %4 ], [ %21, %15 ]
+  %.011.i.i = phi i64 [ 1, %4 ], [ %23, %15 ]
+  %17 = lshr i64 %16, 30
+  %18 = xor i64 %17, %16
+  %19 = mul nuw nsw i64 %18, 1812433253
+  %20 = add nuw i64 %19, %.011.i.i
+  %21 = and i64 %20, 4294967295
+  %22 = getelementptr inbounds nuw [624 x i64], ptr %5, i64 0, i64 %.011.i.i
+  store i64 %21, ptr %22, align 8
+  %23 = add nuw nsw i64 %.011.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %23, 624
+  br i1 %exitcond.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit, label %15, !llvm.loop !4
 
-_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit: ; preds = %19
-  %28 = trunc i64 %17 to i32
+_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit: ; preds = %15
+  %24 = ptrtoint ptr %12 to i64
+  %25 = ptrtoint ptr %13 to i64
+  %26 = sub i64 %24, %25
+  %27 = ashr exact i64 %26, 3
+  %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4992
   store i64 624, ptr %29, align 8
-  %30 = icmp ugt i64 %17, 1152921504606846975
+  %30 = icmp ugt i64 %27, 1152921504606846975
   br i1 %30, label %.noexc, label %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit
@@ -102,18 +102,18 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIlSaI
   br label %37
 
 .noexc61:                                         ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
-  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #16
+  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #16
   store ptr %31, ptr %6, align 8
-  %32 = getelementptr i8, ptr %31, i64 %16
+  %32 = getelementptr i8, ptr %31, i64 %26
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %32, ptr %33, align 8
   store i64 0, ptr %31, align 8
   %34 = getelementptr i8, ptr %31, i64 8
-  %35 = icmp eq i64 %16, 8
+  %35 = icmp eq i64 %26, 8
   br i1 %35, label %37, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc61
-  %36 = add nsw i64 %16, -8
+  %36 = add nsw i64 %26, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %36, i1 false)
   br label %37
 
@@ -224,8 +224,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %39, %44
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %wide.trip.count = and i64 %17, 2147483647
-  %wide.trip.count121 = and i64 %17, 2147483647
+  %wide.trip.count = and i64 %27, 2147483647
+  %wide.trip.count121 = and i64 %27, 2147483647
   br label %73
 
 73:                                               ; preds = %.backedge, %.loopexit95

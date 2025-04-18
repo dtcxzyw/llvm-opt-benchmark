@@ -6698,37 +6698,37 @@ _ZN7oopDesc16oop_iterate_sizeI22PCAdjustPointerClosureEEmPT_.exit.i.i: ; preds =
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17PSParallelCompact25adjust_pointers_in_spacesEjPVj(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #25
-  %4 = extractvalue { i64, i64 } %3, 0
   tail call void @_ZN17PSParallelCompact19adjust_in_old_spaceEPVj(ptr noundef %1)
-  br label %5
+  br label %4
 
-5:                                                ; preds = %2, %5
-  %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %7 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @_ZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVj(i32 noundef %7, ptr noundef nonnull %6)
+4:                                                ; preds = %2, %4
+  %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %4 ]
+  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @_ZN17PSParallelCompact21adjust_in_young_spaceENS_7SpaceIdEPVj(i32 noundef %6, ptr noundef nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %8, label %5, !llvm.loop !34
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !34
 
-8:                                                ; preds = %5
-  %9 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %19, label %10
+7:                                                ; preds = %4
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %19, label %9
 
-10:                                               ; preds = %8
-  %11 = extractvalue { i64, i64 } %3, 1
+9:                                                ; preds = %7
+  %10 = extractvalue { i64, i64 } %3, 1
+  %11 = extractvalue { i64, i64 } %3, 0
   %12 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #25
   %13 = extractvalue { i64, i64 } %12, 0
   %14 = extractvalue { i64, i64 } %12, 1
-  %15 = sub nsw i64 %13, %4
-  %16 = sub nsw i64 %14, %11
+  %15 = sub nsw i64 %13, %11
+  %16 = sub nsw i64 %14, %10
   %17 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %15, i64 %16) #25
   %18 = fmul double %17, 1.000000e+03
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.35, i32 noundef %0, double noundef %18)
   br label %19
 
-19:                                               ; preds = %8, %10
+19:                                               ; preds = %7, %9
   ret void
 }
 
@@ -12175,13 +12175,13 @@ define linkonce_odr hidden void @_ZN12PSAdjustTask4workEj(ptr noundef nonnull al
   br i1 %.not.i, label %_ZN17PSParallelCompact25adjust_pointers_in_spacesEjPVj.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = extractvalue { i64, i64 } %11, 0
-  %19 = extractvalue { i64, i64 } %11, 1
+  %18 = extractvalue { i64, i64 } %11, 1
+  %19 = extractvalue { i64, i64 } %11, 0
   %20 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #25
   %21 = extractvalue { i64, i64 } %20, 0
   %22 = extractvalue { i64, i64 } %20, 1
-  %23 = sub nsw i64 %21, %18
-  %24 = sub nsw i64 %22, %19
+  %23 = sub nsw i64 %21, %19
+  %24 = sub nsw i64 %22, %18
   %25 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %23, i64 %24) #25
   %26 = fmul double %25, 1.000000e+03
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.35, i32 noundef %1, double noundef %26)

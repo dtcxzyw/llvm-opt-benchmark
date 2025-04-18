@@ -2104,8 +2104,8 @@ _ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit:         ; preds = %.preheader
 
 _ZN6Assimp16IsSpaceOrNewLineIcEEbT_.exit20.preheader: ; preds = %21
   %23 = sub i64 0, %.sroa.025.0.lcssa37
-  %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 %indvars.iv)
   %scevgep = getelementptr i8, ptr %.sroa.025.0.lcssa, i64 %23
+  %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 %indvars.iv)
   %scevgep38 = getelementptr i8, ptr %scevgep, i64 %umax
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #30
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -11505,8 +11505,8 @@ _ZN6Assimp9IsLineEndIcEEbT_.exit:                 ; preds = %.preheader26
 
 .preheader.preheader:                             ; preds = %17
   %19 = sub i64 0, %.sroa.018.0.lcssa28
-  %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 %indvars.iv)
   %scevgep = getelementptr i8, ptr %.sroa.018.0.lcssa, i64 %19
+  %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 %indvars.iv)
   %scevgep29 = getelementptr i8, ptr %scevgep, i64 %umax
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #30
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16

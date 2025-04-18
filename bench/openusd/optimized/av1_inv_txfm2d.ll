@@ -41,11 +41,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @av1_highbd_iwht4x4_16_add_c(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i32], align 16
-  %6 = ptrtoint ptr %1 to i64
-  %7 = shl i64 %6, 1
   br label %104
 
 .preheader:                                       ; preds = %104
+  %6 = ptrtoint ptr %1 to i64
+  %7 = shl i64 %6, 1
   %8 = inttoptr i64 %7 to ptr
   %9 = sext i32 %2 to i64
   %10 = shl nsw i32 %2, 1

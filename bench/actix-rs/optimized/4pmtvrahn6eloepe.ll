@@ -1836,8 +1836,8 @@ define internal fastcc void @"_ZN6brotli3enc11find_stride30EntropyPyramid$LT$All
   %9 = alloca [2 x { ptr, i64 }], align 8
   %10 = alloca [8 x double], align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
-  %.sroa.8.090.i.sroa.gep65 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false)
+  %.sroa.8.090.i.sroa.gep65 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.8.090.i.sroa.gep68 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i64, ptr %4, align 8, !range !66, !noundef !13
   %trunc = trunc nuw i64 %11 to i1
@@ -6156,32 +6156,32 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %16 = load i32, ptr %15, align 8, !noundef !13
-  %17 = icmp eq i32 %16, 11
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %13)
-  br label %18
+  br label %17
 
-18:                                               ; preds = %11, %18
-  %19 = phi i64 [ 0, %11 ], [ %21, %18 ]
-  %20 = getelementptr inbounds nuw [38 x i32], ptr %13, i64 0, i64 %19
-  store i32 268435455, ptr %20, align 4
-  %21 = add nuw nsw i64 %19, 1
-  %exitcond.not = icmp eq i64 %21, 38
-  br i1 %exitcond.not, label %.split, label %18
+17:                                               ; preds = %11, %17
+  %18 = phi i64 [ 0, %11 ], [ %20, %17 ]
+  %19 = getelementptr inbounds nuw [38 x i32], ptr %13, i64 0, i64 %18
+  store i32 268435455, ptr %19, align 4
+  %20 = add nuw nsw i64 %18, 1
+  %exitcond.not = icmp eq i64 %20, 38
+  br i1 %exitcond.not, label %.split, label %17
 
-.split:                                           ; preds = %18
-  %22 = and i64 %5, %4
-  %. = select i1 %17, i64 64, i64 16
+.split:                                           ; preds = %17
+  %21 = and i64 %5, %4
+  %22 = icmp eq i32 %16, 11
+  %. = select i1 %22, i64 64, i64 16
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %.)
   %.075138 = add i64 %5, -1
   %23 = icmp ugt i64 %.075138, %spec.select
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.split
-  %24 = icmp ult i64 %22, %3
-  %25 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %22
-  %26 = add i64 %22, 1
+  %24 = icmp ult i64 %21, %3
+  %25 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %21
+  %26 = add i64 %21, 1
   %27 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %26
-  %28 = sub nuw i64 %3, %22
+  %28 = sub nuw i64 %3, %21
   br i1 %24, label %.lr.ph.split.us, label %.lr.ph.split, !prof !217
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -6283,7 +6283,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
   br i1 %75, label %._crit_edge, label %76
 
 76:                                               ; preds = %.lr.ph.split
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %22, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.854811f44bca550c56cb6f681a6a9a44.168) #31
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %21, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.854811f44bca550c56cb6f681a6a9a44.168) #31
   unreachable
 
 .split151.us:                                     ; preds = %65, %33
@@ -6340,18 +6340,18 @@ define internal fastcc noundef i64 @_ZN6brotli3enc19backward_references2hq17Find
   br i1 %.not97, label %.loopexit, label %91
 
 91:                                               ; preds = %88
-  %92 = icmp ugt i64 %22, %3
+  %92 = icmp ugt i64 %21, %3
   br i1 %92, label %98, label %93
 
 93:                                               ; preds = %91
-  %94 = sub nuw i64 %3, %22
-  %95 = getelementptr inbounds i8, ptr %2, i64 %22
+  %94 = sub nuw i64 %3, %21
+  %95 = getelementptr inbounds i8, ptr %2, i64 %21
   %96 = call noundef i32 @_ZN6brotli3enc11static_dict36BrotliFindAllStaticDictionaryMatches17h6ed95f27290d08acE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %95, i64 noundef %94, i64 noundef %.0.sroa.speculated.i, i64 noundef %6, ptr noalias noundef nonnull align 4 %13, i64 noundef 38)
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %.loopexit, label %99
 
 98:                                               ; preds = %91
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %22, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.854811f44bca550c56cb6f681a6a9a44.181) #31
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %21, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.854811f44bca550c56cb6f681a6a9a44.181) #31
   unreachable
 
 99:                                               ; preds = %93
@@ -9251,10 +9251,9 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
   br label %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit"
 
 .critedge:                                        ; preds = %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit", %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit"
-  %.sroa.01.0.pre-phi = phi ptr [ %34, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit" ], [ %26, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit" ]
-  %.sroa.0.022 = phi ptr [ %30, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit" ], [ %20, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit" ]
-  %.val13 = phi i64 [ %32, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit" ], [ %22, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit" ]
-  %.pn = phi { ptr, i64 } [ %33, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit" ], [ %25, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit" ]
+  %.sroa.0.022 = phi ptr [ %20, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit" ], [ %30, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit" ]
+  %.val13 = phi i64 [ %22, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit" ], [ %32, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit" ]
+  %.pn = phi { ptr, i64 } [ %25, %"_ZN85_$LT$alloc_stdlib..heap_alloc..WrapBox$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h355fc6b337709264E.exit" ], [ %33, %"_ZN111_$LT$alloc_stdlib..std_alloc..StandardAlloc$u20$as$u20$alloc_no_stdlib..stack_allocator..Allocator$LT$T$GT$$GT$10alloc_cell17he8154117a6573e40E.exit" ]
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %14)
   br label %40
 
@@ -9290,6 +9289,7 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
   br i1 %exitcond25.not, label %49, label %45
 
 49:                                               ; preds = %45
+  %.sroa.01.0 = extractvalue { ptr, i64 } %.pn, 0
   %.sroa.5.0 = extractvalue { ptr, i64 } %.pn, 1
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
@@ -9307,45 +9307,47 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
   store ptr %.sroa.0.022, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 104
   store i64 %.val13, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  store ptr %.sroa.01.0.pre-phi, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  store i64 %.sroa.5.0, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %15, i64 520
-  store i64 %3, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %15, i64 528
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %60, ptr noundef nonnull align 4 dereferenceable(384) %12, i64 384, i1 false)
+  %57 = icmp ne ptr %.sroa.01.0, null
+  tail call void @llvm.assume(i1 %57)
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  store ptr %.sroa.01.0, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 120
+  store i64 %.sroa.5.0, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 520
+  store i64 %3, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 528
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %61, ptr noundef nonnull align 4 dereferenceable(384) %12, i64 384, i1 false)
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %14)
-  br i1 %.not, label %61, label %64
+  br i1 %.not, label %62, label %65
 
-61:                                               ; preds = %65, %49
+62:                                               ; preds = %66, %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(920) %15, i64 920, i1 false)
   call void @llvm.lifetime.end.p0(i64 920, ptr nonnull %15)
   ret void
 
-62:                                               ; preds = %65, %64
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %66, %65
+  %64 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr118drop_in_place$LT$brotli..enc..context_map_entropy..ContextMapEntropy$LT$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h63388906616979a3E"(ptr noalias noundef nonnull align 8 dereferenceable(920) %15) #33
-          to label %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit" unwind label %66
+          to label %"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit" unwind label %67
 
-64:                                               ; preds = %49
+65:                                               ; preds = %49
   invoke void @_ZN6brotli3enc19context_map_entropy9init_cdfs17h5e196023ca08d51dE(ptr noalias noundef nonnull align 2 %.sroa.0.022, i64 noundef %.val13)
-          to label %65 unwind label %62
+          to label %66 unwind label %63
 
-65:                                               ; preds = %64
-  invoke void @_ZN6brotli3enc19context_map_entropy9init_cdfs17h5e196023ca08d51dE(ptr noalias noundef nonnull align 2 %.sroa.01.0.pre-phi, i64 noundef %.sroa.5.0)
-          to label %61 unwind label %62
+66:                                               ; preds = %65
+  invoke void @_ZN6brotli3enc19context_map_entropy9init_cdfs17h5e196023ca08d51dE(ptr noalias noundef nonnull align 2 %.sroa.01.0, i64 noundef %.sroa.5.0)
+          to label %62 unwind label %63
 
-66:                                               ; preds = %62
-  %67 = landingpad { ptr, i32 }
+67:                                               ; preds = %63
+  %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34
   unreachable
 
-"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i", %36, %62
-  %.pn9 = phi { ptr, i32 } [ %63, %62 ], [ %37, %36 ], [ %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i" ]
+"_ZN4core3ptr65drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$u16$GT$$GT$17h101bb5fdf3451eabE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i", %36, %63
+  %.pn9 = phi { ptr, i32 } [ %64, %63 ], [ %37, %36 ], [ %37, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i" ]
   resume { ptr, i32 } %.pn9
 }
 

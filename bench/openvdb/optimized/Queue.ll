@@ -4637,8 +4637,8 @@ for.inc15.i.i:                                    ; preds = %.noexc.i, %for.body
 
 for.end16.i.i:                                    ; preds = %for.inc15.i.i
   %10 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
-  %cmp3.i.i.i = icmp ne i64 %s.0.i.i, 1
   %cmp.i22.i.i = icmp ult i64 %s.0.i.i, 8
+  %cmp3.i.i.i = icmp ne i64 %s.0.i.i, 1
   %cmp8.not.i.i.i = and i1 %cmp.i22.i.i, %cmp3.i.i.i
   br i1 %cmp8.not.i.i.i, label %if.end11.i.i.i, label %if.then9.i.i.i
 

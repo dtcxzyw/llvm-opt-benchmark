@@ -6509,9 +6509,9 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d219concurrent_hash_mapIPN4mo
 
 13:                                               ; preds = %._crit_edge
   %14 = load atomic i64, ptr %10 monotonic, align 8
-  %15 = icmp ne i64 %.019, 1
-  %16 = icmp ult i64 %.019, 8
-  %.not.i = and i1 %16, %15
+  %15 = icmp ult i64 %.019, 8
+  %16 = icmp ne i64 %.019, 1
+  %.not.i = and i1 %15, %16
   br i1 %.not.i, label %18, label %17
 
 17:                                               ; preds = %13

@@ -4056,112 +4056,112 @@ define void @_ZN13duckdb_brotli24BrotliStoreMetaBlockFastEPNS_13MemoryManagerEPK
   br label %123
 
 .lr.ph29.i:                                       ; preds = %11
-  %65 = add i32 %15, -1
-  %66 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %65, i1 true)
-  %67 = getelementptr inbounds nuw i8, ptr %13, i64 1024
-  %68 = getelementptr inbounds nuw i8, ptr %13, i64 1032
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 1024
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %13, i8 0, i64 1032, i1 false)
-  store double 0x7FF0000000000000, ptr %68, align 8, !tbaa !517
-  %69 = getelementptr inbounds nuw i8, ptr %13, i64 1040
-  %70 = getelementptr inbounds nuw i8, ptr %13, i64 3856
-  %71 = getelementptr inbounds nuw i8, ptr %13, i64 3864
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %69, i8 0, i64 2824, i1 false)
-  store double 0x7FF0000000000000, ptr %71, align 8, !tbaa !520
-  %72 = getelementptr inbounds nuw i8, ptr %13, i64 3872
-  %73 = getelementptr inbounds nuw i8, ptr %13, i64 6048
-  %74 = getelementptr inbounds nuw i8, ptr %13, i64 6056
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %72, i8 0, i64 2184, i1 false)
-  store double 0x7FF0000000000000, ptr %74, align 8, !tbaa !522
-  br label %75
+  store double 0x7FF0000000000000, ptr %66, align 8, !tbaa !517
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 1040
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 3856
+  %69 = getelementptr inbounds nuw i8, ptr %13, i64 3864
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %67, i8 0, i64 2824, i1 false)
+  store double 0x7FF0000000000000, ptr %69, align 8, !tbaa !520
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 3872
+  %71 = getelementptr inbounds nuw i8, ptr %13, i64 6048
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 6056
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %70, i8 0, i64 2184, i1 false)
+  store double 0x7FF0000000000000, ptr %72, align 8, !tbaa !522
+  br label %73
 
-75:                                               ; preds = %110, %.lr.ph29.i
-  %76 = phi i64 [ 0, %.lr.ph29.i ], [ %111, %110 ]
-  %.promoted.i = phi i64 [ 0, %.lr.ph29.i ], [ %97, %110 ]
-  %77 = phi i64 [ 0, %.lr.ph29.i ], [ %83, %110 ]
-  %.01926.i = phi i64 [ %2, %.lr.ph29.i ], [ %100, %110 ]
-  %78 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %77
-  %.sroa.0.0.copyload.i = load i32, ptr %78, align 4, !tbaa !8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 4
+73:                                               ; preds = %108, %.lr.ph29.i
+  %74 = phi i64 [ 0, %.lr.ph29.i ], [ %109, %108 ]
+  %.promoted.i = phi i64 [ 0, %.lr.ph29.i ], [ %95, %108 ]
+  %75 = phi i64 [ 0, %.lr.ph29.i ], [ %81, %108 ]
+  %.01926.i = phi i64 [ %2, %.lr.ph29.i ], [ %98, %108 ]
+  %76 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %75
+  %.sroa.0.0.copyload.i = load i32, ptr %76, align 4, !tbaa !8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %76, i64 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !8
-  %.sroa.621.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 12
+  %.sroa.621.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %76, i64 12
   %.sroa.621.0.copyload.i = load i16, ptr %.sroa.621.0..sroa_idx.i, align 4, !tbaa !30
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 14
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %76, i64 14
   %.sroa.8.0.copyload.i = load i16, ptr %.sroa.8.0..sroa_idx.i, align 2, !tbaa !30
-  %79 = zext i16 %.sroa.621.0.copyload.i to i64
-  %80 = getelementptr inbounds nuw [704 x i32], ptr %69, i64 0, i64 %79
-  %81 = load i32, ptr %80, align 4, !tbaa !8
-  %82 = add i32 %81, 1
-  store i32 %82, ptr %80, align 4, !tbaa !8
-  %83 = add nuw i64 %77, 1
-  store i64 %83, ptr %70, align 8, !tbaa !524
+  %77 = zext i16 %.sroa.621.0.copyload.i to i64
+  %78 = getelementptr inbounds nuw [704 x i32], ptr %67, i64 0, i64 %77
+  %79 = load i32, ptr %78, align 4, !tbaa !8
+  %80 = add i32 %79, 1
+  store i32 %80, ptr %78, align 4, !tbaa !8
+  %81 = add nuw i64 %75, 1
+  store i64 %81, ptr %68, align 8, !tbaa !524
   %.not23.i = icmp eq i32 %.sroa.0.0.copyload.i, 0
   br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %75
-  %84 = zext i32 %.sroa.0.0.copyload.i to i64
-  br label %85
+.lr.ph.i:                                         ; preds = %73
+  %82 = zext i32 %.sroa.0.0.copyload.i to i64
+  br label %83
 
-85:                                               ; preds = %85, %.lr.ph.i
-  %86 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %94, %85 ]
-  %.025.i = phi i64 [ %84, %.lr.ph.i ], [ %96, %85 ]
-  %.124.i = phi i64 [ %.01926.i, %.lr.ph.i ], [ %95, %85 ]
-  %87 = and i64 %.124.i, %4
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 %87
-  %89 = load i8, ptr %88, align 1, !tbaa !7
-  %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !8
-  %93 = add i32 %92, 1
-  store i32 %93, ptr %91, align 4, !tbaa !8
-  %94 = add i64 %86, 1
-  store i64 %94, ptr %67, align 8, !tbaa !525
-  %95 = add i64 %.124.i, 1
-  %96 = add nsw i64 %.025.i, -1
-  %.not.i = icmp eq i64 %96, 0
-  br i1 %.not.i, label %._crit_edge.i, label %85, !llvm.loop !526
+83:                                               ; preds = %83, %.lr.ph.i
+  %84 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %92, %83 ]
+  %.025.i = phi i64 [ %82, %.lr.ph.i ], [ %94, %83 ]
+  %.124.i = phi i64 [ %.01926.i, %.lr.ph.i ], [ %93, %83 ]
+  %85 = and i64 %.124.i, %4
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 %85
+  %87 = load i8, ptr %86, align 1, !tbaa !7
+  %88 = zext i8 %87 to i64
+  %89 = getelementptr inbounds nuw [256 x i32], ptr %13, i64 0, i64 %88
+  %90 = load i32, ptr %89, align 4, !tbaa !8
+  %91 = add i32 %90, 1
+  store i32 %91, ptr %89, align 4, !tbaa !8
+  %92 = add i64 %84, 1
+  store i64 %92, ptr %65, align 8, !tbaa !525
+  %93 = add i64 %.124.i, 1
+  %94 = add nsw i64 %.025.i, -1
+  %.not.i = icmp eq i64 %94, 0
+  br i1 %.not.i, label %._crit_edge.i, label %83, !llvm.loop !526
 
-._crit_edge.i:                                    ; preds = %85, %75
-  %97 = phi i64 [ %.promoted.i, %75 ], [ %94, %85 ]
-  %.1.lcssa.i = phi i64 [ %.01926.i, %75 ], [ %95, %85 ]
-  %98 = and i32 %.sroa.4.0.copyload.i, 33554431
-  %99 = zext nneg i32 %98 to i64
-  %100 = add i64 %.1.lcssa.i, %99
-  %101 = icmp ne i32 %98, 0
-  %102 = icmp ugt i16 %.sroa.621.0.copyload.i, 127
-  %or.cond.i = and i1 %101, %102
-  br i1 %or.cond.i, label %103, label %110
+._crit_edge.i:                                    ; preds = %83, %73
+  %95 = phi i64 [ %.promoted.i, %73 ], [ %92, %83 ]
+  %.1.lcssa.i = phi i64 [ %.01926.i, %73 ], [ %93, %83 ]
+  %96 = and i32 %.sroa.4.0.copyload.i, 33554431
+  %97 = zext nneg i32 %96 to i64
+  %98 = add i64 %.1.lcssa.i, %97
+  %99 = icmp ne i32 %96, 0
+  %100 = icmp ugt i16 %.sroa.621.0.copyload.i, 127
+  %or.cond.i = and i1 %99, %100
+  br i1 %or.cond.i, label %101, label %108
 
-103:                                              ; preds = %._crit_edge.i
-  %104 = and i16 %.sroa.8.0.copyload.i, 1023
-  %105 = zext nneg i16 %104 to i64
-  %106 = getelementptr inbounds nuw [544 x i32], ptr %72, i64 0, i64 %105
-  %107 = load i32, ptr %106, align 4, !tbaa !8
-  %108 = add i32 %107, 1
-  store i32 %108, ptr %106, align 4, !tbaa !8
-  %109 = add i64 %76, 1
-  store i64 %109, ptr %73, align 8, !tbaa !527
-  br label %110
+101:                                              ; preds = %._crit_edge.i
+  %102 = and i16 %.sroa.8.0.copyload.i, 1023
+  %103 = zext nneg i16 %102 to i64
+  %104 = getelementptr inbounds nuw [544 x i32], ptr %70, i64 0, i64 %103
+  %105 = load i32, ptr %104, align 4, !tbaa !8
+  %106 = add i32 %105, 1
+  store i32 %106, ptr %104, align 4, !tbaa !8
+  %107 = add i64 %74, 1
+  store i64 %107, ptr %71, align 8, !tbaa !527
+  br label %108
 
-110:                                              ; preds = %103, %._crit_edge.i
-  %111 = phi i64 [ %109, %103 ], [ %76, %._crit_edge.i ]
-  %exitcond.not.i = icmp eq i64 %83, %8
-  br i1 %exitcond.not.i, label %_ZL15BuildHistogramsPKhmmPKN13duckdb_brotli7CommandEmPNS1_16HistogramLiteralEPNS1_16HistogramCommandEPNS1_17HistogramDistanceE.exit, label %75, !llvm.loop !528
+108:                                              ; preds = %101, %._crit_edge.i
+  %109 = phi i64 [ %107, %101 ], [ %74, %._crit_edge.i ]
+  %exitcond.not.i = icmp eq i64 %81, %8
+  br i1 %exitcond.not.i, label %_ZL15BuildHistogramsPKhmmPKN13duckdb_brotli7CommandEmPNS1_16HistogramLiteralEPNS1_16HistogramCommandEPNS1_17HistogramDistanceE.exit, label %73, !llvm.loop !528
 
-_ZL15BuildHistogramsPKhmmPKN13duckdb_brotli7CommandEmPNS1_16HistogramLiteralEPNS1_16HistogramCommandEPNS1_17HistogramDistanceE.exit: ; preds = %110
-  %112 = sub nuw nsw i32 32, %66
+_ZL15BuildHistogramsPKhmmPKN13duckdb_brotli7CommandEmPNS1_16HistogramLiteralEPNS1_16HistogramCommandEPNS1_17HistogramDistanceE.exit: ; preds = %108
+  %110 = add i32 %15, -1
+  %111 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %110, i1 true)
+  %112 = sub nuw nsw i32 32, %111
   %113 = getelementptr inbounds nuw i8, ptr %13, i64 9364
   %114 = getelementptr inbounds nuw i8, ptr %13, i64 6064
   %115 = getelementptr inbounds nuw i8, ptr %13, i64 6320
-  tail call void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11HuffmanTreeEPKjmmPhPtPmS4_(ptr noundef nonnull %113, ptr noundef nonnull %13, i64 noundef %97, i64 noundef 8, ptr noundef nonnull %114, ptr noundef nonnull %115, ptr noundef nonnull %9, ptr noundef %10)
-  %116 = load i64, ptr %70, align 8, !tbaa !656
+  tail call void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11HuffmanTreeEPKjmmPhPtPmS4_(ptr noundef nonnull %113, ptr noundef nonnull %13, i64 noundef %95, i64 noundef 8, ptr noundef nonnull %114, ptr noundef nonnull %115, ptr noundef nonnull %9, ptr noundef %10)
+  %116 = load i64, ptr %68, align 8, !tbaa !656
   %117 = getelementptr inbounds nuw i8, ptr %13, i64 6832
   %118 = getelementptr inbounds nuw i8, ptr %13, i64 7536
-  tail call void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11HuffmanTreeEPKjmmPhPtPmS4_(ptr noundef nonnull %113, ptr noundef nonnull %69, i64 noundef %116, i64 noundef 10, ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef nonnull %9, ptr noundef %10)
-  %119 = load i64, ptr %73, align 8, !tbaa !658
+  tail call void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11HuffmanTreeEPKjmmPhPtPmS4_(ptr noundef nonnull %113, ptr noundef nonnull %67, i64 noundef %116, i64 noundef 10, ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef nonnull %9, ptr noundef %10)
+  %119 = load i64, ptr %71, align 8, !tbaa !658
   %120 = zext nneg i32 %112 to i64
   %121 = getelementptr inbounds nuw i8, ptr %13, i64 8944
   %122 = getelementptr inbounds nuw i8, ptr %13, i64 9084
-  tail call void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11HuffmanTreeEPKjmmPhPtPmS4_(ptr noundef nonnull %113, ptr noundef nonnull %72, i64 noundef %119, i64 noundef %120, ptr noundef nonnull %121, ptr noundef nonnull %122, ptr noundef nonnull %9, ptr noundef %10)
+  tail call void @_ZN13duckdb_brotli34BrotliBuildAndStoreHuffmanTreeFastEPNS_11HuffmanTreeEPKjmmPhPtPmS4_(ptr noundef nonnull %113, ptr noundef nonnull %70, i64 noundef %119, i64 noundef %120, ptr noundef nonnull %121, ptr noundef nonnull %122, ptr noundef nonnull %9, ptr noundef %10)
   tail call fastcc void @_ZL25StoreDataWithHuffmanCodesPKhmmPKN13duckdb_brotli7CommandEmS0_PKtS0_S6_S0_S6_PmPh(ptr noundef %1, i64 noundef %2, i64 noundef %4, ptr noundef nonnull %7, i64 noundef %8, ptr noundef nonnull %114, ptr noundef nonnull %115, ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef nonnull %121, ptr noundef nonnull %122, ptr noundef nonnull %9, ptr noundef %10)
   br label %123
 

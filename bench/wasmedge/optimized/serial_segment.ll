@@ -1596,53 +1596,53 @@ define void @_ZNK8WasmEdge6Loader10Serializer16serializeSegmentERKNS_3AST11CodeS
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %19 = load ptr, ptr %18, align 8
-  %20 = ptrtoint ptr %19 to i64
-  %21 = ptrtoint ptr %17 to i64
-  %22 = sub i64 %20, %21
-  %23 = sdiv exact i64 %22, 12
-  %24 = trunc i64 %23 to i32
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %18 = load ptr, ptr %17, align 8
+  %19 = ptrtoint ptr %18 to i64
+  %20 = ptrtoint ptr %16 to i64
+  %21 = sub i64 %19, %20
+  %22 = sdiv exact i64 %21, 12
+  %23 = trunc i64 %22 to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %8)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %25, %4
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %25 ], [ 0, %4 ]
-  %.0.i.i = phi i32 [ %28, %25 ], [ %24, %4 ]
-  %26 = trunc i32 %.0.i.i to i8
-  %27 = and i8 %26, 127
-  %28 = lshr i32 %.0.i.i, 7
+24:                                               ; preds = %24, %4
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %24 ], [ 0, %4 ]
+  %.0.i.i = phi i32 [ %27, %24 ], [ %23, %4 ]
+  %25 = trunc i32 %.0.i.i to i8
+  %26 = and i8 %25, 127
+  %27 = lshr i32 %.0.i.i, 7
   %.not.i.i = icmp ult i32 %.0.i.i, 128
   %masksel.i.i = select i1 %.not.i.i, i8 0, i8 -128
-  %.09.i.i = or disjoint i8 %27, %masksel.i.i
-  %29 = getelementptr inbounds nuw [5 x i8], ptr %8, i64 0, i64 %indvars.iv.i.i
-  store i8 %.09.i.i, ptr %29, align 1
+  %.09.i.i = or disjoint i8 %26, %masksel.i.i
+  %28 = getelementptr inbounds nuw [5 x i8], ptr %8, i64 0, i64 %indvars.iv.i.i
+  store i8 %.09.i.i, ptr %28, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  br i1 %.not.i.i, label %30, label %25, !llvm.loop !19
+  br i1 %.not.i.i, label %29, label %24, !llvm.loop !19
 
-30:                                               ; preds = %25
-  %31 = ptrtoint ptr %13 to i64
-  %32 = sub i64 %31, %15
+29:                                               ; preds = %24
+  %30 = ptrtoint ptr %13 to i64
+  %31 = ptrtoint ptr %14 to i64
+  %32 = sub i64 %30, %31
   %33 = and i64 %indvars.iv.next.i.i, 4294967295
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 %33
   %35 = getelementptr inbounds i8, ptr %14, i64 %32
   invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIPhEEvN9__gnu_cxx17__normal_iteratorIS3_S1_EET_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %35, ptr noundef nonnull %8, ptr noundef nonnull %34)
           to label %_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit unwind label %36
 
-36:                                               ; preds = %30
+36:                                               ; preds = %29
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
   call void @__clang_call_terminate(ptr %38) #19
   unreachable
 
-_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit: ; preds = %30
+_ZNK8WasmEdge6Loader10Serializer12serializeU32EjRSt6vectorIhSaIhEE.exit: ; preds = %29
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %8)
-  %39 = load ptr, ptr %16, align 8
-  %40 = load ptr, ptr %18, align 8
+  %39 = load ptr, ptr %15, align 8
+  %40 = load ptr, ptr %17, align 8
   %.not44 = icmp eq ptr %39, %40
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 

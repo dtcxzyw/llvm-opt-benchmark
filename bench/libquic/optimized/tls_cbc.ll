@@ -283,46 +283,46 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %.0117 = phi i32 [ 48, %23 ], [ 32, %21 ], [ 20, %19 ]
   %.0116 = phi ptr [ @SHA512_Transform, %23 ], [ @SHA256_Transform, %21 ], [ @SHA1_Transform, %19 ]
   %.0114 = phi ptr [ @tls1_sha512_final_raw, %23 ], [ @tls1_sha256_final_raw, %21 ], [ @tls1_sha1_final_raw, %19 ]
-  %27 = add i64 %6, 13
-  %28 = trunc i64 %27 to i32
-  %29 = add nsw i32 %.0123, -1
-  %30 = add i32 %29, %28
-  %31 = add i32 %30, %.0118
-  %32 = sub i32 %31, %.0117
-  %33 = call range(i32 6, 33) i32 @llvm.cttz.i32(i32 %.0123, i1 true)
-  %34 = lshr i32 %32, %33
-  %35 = trunc i64 %5 to i32
-  %36 = add i32 %35, 13
-  %37 = sub i32 %36, %.0117
-  %38 = and i32 %37, %29
-  %39 = add i32 %37, %.0118
-  %40 = icmp samesign ugt i32 %34, 6
-  %41 = add nsw i32 %34, -6
-  %42 = mul i32 %41, %.0123
-  %.0125 = select i1 %40, i32 %42, i32 0
-  %43 = add i32 %37, %.0123
-  %44 = zext nneg i32 %.0123 to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %12, i8 0, i64 %44, i1 false)
-  %45 = zext i32 %8 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr align 1 %7, i64 %45, i1 false)
-  br label %46
+  %27 = zext nneg i32 %.0123 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %12, i8 0, i64 %27, i1 false)
+  %28 = zext i32 %8 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr align 1 %7, i64 %28, i1 false)
+  br label %29
 
-46:                                               ; preds = %26, %46
-  %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 0, i64 %indvars.iv
-  %48 = load i8, ptr %47, align 1, !tbaa !6
-  %49 = xor i8 %48, 54
-  store i8 %49, ptr %47, align 1, !tbaa !6
+29:                                               ; preds = %26, %29
+  %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %29 ]
+  %30 = getelementptr inbounds nuw [128 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %31 = load i8, ptr %30, align 1, !tbaa !6
+  %32 = xor i8 %31, 54
+  store i8 %32, ptr %30, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %44
-  br i1 %exitcond.not, label %50, label %46, !llvm.loop !17
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %27
+  br i1 %exitcond.not, label %33, label %29, !llvm.loop !17
 
-50:                                               ; preds = %46
-  %51 = zext nneg i32 %.0117 to i64
-  %52 = lshr i32 %37, %33
-  %53 = lshr i32 %39, %33
-  %.0124 = call i32 @llvm.usub.sat.i32(i32 %34, i32 6)
-  %54 = shl i32 %43, 3
+33:                                               ; preds = %29
+  %34 = add i64 %6, 13
+  %35 = trunc i64 %34 to i32
+  %36 = add nsw i32 %.0123, -1
+  %37 = add i32 %36, %35
+  %38 = add i32 %37, %.0118
+  %39 = sub i32 %38, %.0117
+  %40 = call range(i32 6, 33) i32 @llvm.cttz.i32(i32 %.0123, i1 true)
+  %41 = lshr i32 %39, %40
+  %42 = zext nneg i32 %.0117 to i64
+  %43 = trunc i64 %5 to i32
+  %44 = add i32 %43, 13
+  %45 = sub i32 %44, %.0117
+  %46 = and i32 %45, %36
+  %47 = lshr i32 %45, %40
+  %48 = add i32 %45, %.0118
+  %49 = lshr i32 %48, %40
+  %50 = icmp samesign ugt i32 %41, 6
+  %51 = add nsw i32 %41, -6
+  %52 = mul i32 %51, %.0123
+  %.0125 = select i1 %50, i32 %52, i32 0
+  %.0124 = call i32 @llvm.usub.sat.i32(i32 %41, i32 6)
+  %53 = add i32 %45, %.0123
+  %54 = shl i32 %53, 3
   call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %12) #9, !callees !18
   %55 = add nsw i32 %.0118, -4
   %56 = zext nneg i32 %55 to i64
@@ -351,14 +351,14 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %.not = icmp eq i32 %.0125, 0
   br i1 %.not, label %.loopexit, label %74
 
-74:                                               ; preds = %50
+74:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(13) %13, ptr noundef nonnull align 1 dereferenceable(13) %3, i64 13, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 13
   %76 = add nsw i32 %.0123, -13
   %77 = zext nneg i32 %76 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %75, ptr noundef nonnull align 1 dereferenceable(1) %4, i64 %77, i1 false)
   call void %.0116(ptr noundef nonnull %10, ptr noundef nonnull %13) #9, !callees !18
-  %78 = lshr i32 %.0125, %33
+  %78 = lshr i32 %.0125, %40
   %invariant.gep = getelementptr i8, ptr %4, i64 -13
   %79 = icmp samesign ugt i32 %78, 1
   br i1 %79, label %.lr.ph.preheader, label %.loopexit
@@ -378,10 +378,10 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
   br i1 %exitcond147.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
-.loopexit:                                        ; preds = %.lr.ph, %74, %50
+.loopexit:                                        ; preds = %.lr.ph, %74, %33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %14, i8 0, i64 64, i1 false)
   %83 = add nuw nsw i32 %.0124, 6
-  %84 = add nuw nsw i32 %38, 1
+  %84 = add nuw nsw i32 %46, 1
   %85 = sub nuw nsw i32 %.0123, %.0118
   %86 = zext nneg i32 %85 to i64
   br label %87
@@ -390,11 +390,11 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %.2140 = phi i32 [ %.0124, %.loopexit ], [ %142, %141 ]
   %.1126139 = phi i32 [ %.0125, %.loopexit ], [ %115, %141 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %17) #9
-  %88 = xor i32 %.2140, %52
+  %88 = xor i32 %.2140, %47
   %89 = add nsw i32 %88, -1
   %90 = ashr i32 %89, 31
   %91 = trunc nsw i32 %90 to i8
-  %92 = xor i32 %.2140, %53
+  %92 = xor i32 %.2140, %49
   %93 = add nsw i32 %92, -1
   %94 = ashr i32 %93, 31
   %95 = trunc nsw i32 %94 to i8
@@ -418,7 +418,7 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   br label %114
 
 107:                                              ; preds = %101
-  %108 = icmp ugt i64 %27, %103
+  %108 = icmp ugt i64 %34, %103
   br i1 %108, label %109, label %114
 
 109:                                              ; preds = %107
@@ -432,8 +432,8 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %.0115 = phi i8 [ %106, %104 ], [ %113, %109 ], [ 0, %107 ]
   %115 = add i32 %.2127136, 1
   %116 = trunc nuw nsw i64 %indvars.iv148 to i32
-  %117 = sub i32 %116, %38
-  %118 = or i32 %117, %38
+  %117 = sub i32 %116, %46
+  %118 = or i32 %117, %46
   %isnotneg.i.i = icmp sgt i32 %118, -1
   %119 = sub i32 %116, %84
   %120 = or i32 %119, %84
@@ -458,7 +458,7 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %132 = getelementptr inbounds nuw [128 x i8], ptr %17, i64 0, i64 %indvars.iv148
   store i8 %.1, ptr %132, align 1, !tbaa !6
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %44
+  %exitcond152.not = icmp eq i64 %indvars.iv.next149, %27
   br i1 %exitcond152.not, label %133, label %101, !llvm.loop !20
 
 133:                                              ; preds = %131
@@ -476,7 +476,7 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %140 = or i8 %139, %137
   store i8 %140, ptr %138, align 1, !tbaa !6
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %51
+  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %42
   br i1 %exitcond157.not, label %141, label %134, !llvm.loop !22
 
 141:                                              ; preds = %134
@@ -502,12 +502,12 @@ define hidden range(i32 0, 2) i32 @EVP_tls_cbc_digest_record(ptr noundef %0, ptr
   %149 = xor i8 %148, 106
   store i8 %149, ptr %147, align 1, !tbaa !6
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
-  %exitcond162.not = icmp eq i64 %indvars.iv.next159, %44
+  %exitcond162.not = icmp eq i64 %indvars.iv.next159, %27
   br i1 %exitcond162.not, label %150, label %.preheader, !llvm.loop !24
 
 150:                                              ; preds = %.preheader
-  %151 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %16, ptr noundef nonnull %12, i64 noundef %44) #9
-  %152 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %16, ptr noundef nonnull %14, i64 noundef %51) #9
+  %151 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %16, ptr noundef nonnull %12, i64 noundef %27) #9
+  %152 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %16, ptr noundef nonnull %14, i64 noundef %42) #9
   %153 = call i32 @EVP_DigestFinal(ptr noundef nonnull %16, ptr noundef %1, ptr noundef nonnull %15) #9
   %154 = load i32, ptr %15, align 4, !tbaa !11
   %155 = zext i32 %154 to i64

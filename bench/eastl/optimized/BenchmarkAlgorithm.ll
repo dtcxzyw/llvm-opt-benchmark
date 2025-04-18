@@ -10491,8 +10491,6 @@ for.body.lr.ph.i476:                              ; preds = %for.inc.i.i.i.i.i45
   %_ZN10TestObject18sTOMoveAssignCountE.promoted1573 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted1575 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   %_ZN10TestObject12sTODtorCountE.promoted1578 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %158 = add i64 %_ZN10TestObject12sTODtorCountE.promoted1578, 10000
-  %159 = add i64 %_ZN10TestObject19sTODefaultCtorCountE.promoted.i458, 20000
   br label %for.body.i478
 
 for.body.i478:                                    ; preds = %_ZN10TestObjectD2Ev.exit.i489, %for.body.lr.ph.i476
@@ -10502,11 +10500,11 @@ for.body.i478:                                    ; preds = %_ZN10TestObjectD2Ev
   %inc.i.i480 = add nuw nsw i32 %generator.sroa.0.010.i, 1
   store i32 %generator.sroa.0.010.i, ptr %first.sroa.0.09.i, align 4
   %mMagicValue.i.i484 = getelementptr inbounds nuw i8, ptr %first.sroa.0.09.i, i64 16
-  %160 = load i32, ptr %mMagicValue.i.i484, align 4
+  %158 = load i32, ptr %mMagicValue.i.i484, align 4
   store i32 32623592, ptr %mMagicValue.i.i484, align 4
   %mbThrowOnCopy.i.i485 = getelementptr inbounds nuw i8, ptr %first.sroa.0.09.i, i64 4
   store i8 0, ptr %mbThrowOnCopy.i.i485, align 1
-  %cmp.not.i3.i486 = icmp eq i32 %160, 32623592
+  %cmp.not.i3.i486 = icmp eq i32 %158, 32623592
   br i1 %cmp.not.i3.i486, label %_ZN10TestObjectD2Ev.exit.i489, label %if.then.i4.i487
 
 if.then.i4.i487:                                  ; preds = %for.body.i478
@@ -10521,13 +10519,15 @@ _ZN10TestObjectD2Ev.exit.i489:                    ; preds = %if.then.i4.i487, %f
   br i1 %cmp.i.not.i493, label %invoke.cont241, label %for.body.i478, !llvm.loop !129
 
 invoke.cont241:                                   ; preds = %_ZN10TestObjectD2Ev.exit.i489
-  %161 = add i64 %_ZN10TestObject12sTOCtorCountE.promoted.i457, 20000
+  %159 = add i64 %_ZN10TestObject12sTODtorCountE.promoted1578, 10000
+  %160 = add i64 %_ZN10TestObject12sTOCtorCountE.promoted.i457, 20000
+  %161 = add i64 %_ZN10TestObject19sTODefaultCtorCountE.promoted.i458, 20000
   %162 = add i64 %_ZN10TestObject18sTOMoveAssignCountE.promoted1573, 10000
   store i64 %156, ptr @_ZN10TestObject8sTOCountE, align 8
-  store i64 %161, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !130
-  store i64 %159, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !130
+  store i64 %160, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !130
+  store i64 %161, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !130
   store i64 %162, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  store i64 %158, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  store i64 %159, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %call.i.i.i.i.i513 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 240000, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.noexc512 unwind label %lpad236
 
@@ -10812,8 +10812,6 @@ for.body.lr.ph.i621:                              ; preds = %for.inc.i.i.i.i.i60
   %_ZN10TestObject18sTOMoveAssignCountE.promoted1596 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %_ZN10TestObject16sMagicErrorCountE.promoted1598 = load i32, ptr @_ZN10TestObject16sMagicErrorCountE, align 4
   %_ZN10TestObject12sTODtorCountE.promoted1601 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %187 = add i64 %_ZN10TestObject12sTODtorCountE.promoted1601, 10
-  %188 = add i64 %_ZN10TestObject19sTODefaultCtorCountE.promoted.i602, 20
   br label %for.body.i623
 
 for.body.i623:                                    ; preds = %_ZN10TestObjectD2Ev.exit.i636, %for.body.lr.ph.i621
@@ -10823,11 +10821,11 @@ for.body.i623:                                    ; preds = %_ZN10TestObjectD2Ev
   %inc.i.i627 = add nuw nsw i32 %generator.sroa.0.010.i625, 1
   store i32 %generator.sroa.0.010.i625, ptr %first.sroa.0.09.i626, align 4
   %mMagicValue.i.i631 = getelementptr inbounds nuw i8, ptr %first.sroa.0.09.i626, i64 16
-  %189 = load i32, ptr %mMagicValue.i.i631, align 4
+  %187 = load i32, ptr %mMagicValue.i.i631, align 4
   store i32 32623592, ptr %mMagicValue.i.i631, align 4
   %mbThrowOnCopy.i.i632 = getelementptr inbounds nuw i8, ptr %first.sroa.0.09.i626, i64 4
   store i8 0, ptr %mbThrowOnCopy.i.i632, align 1
-  %cmp.not.i3.i633 = icmp eq i32 %189, 32623592
+  %cmp.not.i3.i633 = icmp eq i32 %187, 32623592
   br i1 %cmp.not.i3.i633, label %_ZN10TestObjectD2Ev.exit.i636, label %if.then.i4.i634
 
 if.then.i4.i634:                                  ; preds = %for.body.i623
@@ -10842,13 +10840,15 @@ _ZN10TestObjectD2Ev.exit.i636:                    ; preds = %if.then.i4.i634, %f
   br i1 %cmp.i.not.i640, label %invoke.cont295, label %for.body.i623, !llvm.loop !129
 
 invoke.cont295:                                   ; preds = %_ZN10TestObjectD2Ev.exit.i636
-  %190 = add i64 %_ZN10TestObject12sTOCtorCountE.promoted.i601, 20
+  %188 = add i64 %_ZN10TestObject12sTODtorCountE.promoted1601, 10
+  %189 = add i64 %_ZN10TestObject12sTOCtorCountE.promoted.i601, 20
+  %190 = add i64 %_ZN10TestObject19sTODefaultCtorCountE.promoted.i602, 20
   %191 = add i64 %_ZN10TestObject18sTOMoveAssignCountE.promoted1596, 10
   store i64 %185, ptr @_ZN10TestObject8sTOCountE, align 8
-  store i64 %190, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !146
-  store i64 %188, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !146
+  store i64 %189, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !146
+  store i64 %190, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8, !noalias !146
   store i64 %191, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  store i64 %187, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  store i64 %188, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %call.i.i.i.i.i661 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 240, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.noexc660 unwind label %lpad290
 

@@ -1294,44 +1294,44 @@ define i32 @Ptngc_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %indvar.i = phi i64 [ 0, %.preheader1.preheader.i ], [ %indvar.next.i, %.split22.us.i ]
   %.05626.i = phi ptr [ %52, %.preheader1.preheader.i ], [ %.us-phi23.i, %.split22.us.i ]
   %.05825.i = phi i32 [ 128, %.preheader1.preheader.i ], [ %.us-phi.i, %.split22.us.i ]
-  %57 = mul nuw nsw i64 %indvar.i, 12
-  br label %58
+  br label %57
 
-58:                                               ; preds = %58, %.preheader1.i
-  %.0528.i = phi i32 [ 0, %.preheader1.i ], [ %spec.select.i44, %58 ]
-  %.1577.i = phi ptr [ %.05626.i, %.preheader1.i ], [ %.2.i, %58 ]
-  %.1596.i = phi i32 [ %.05825.i, %.preheader1.i ], [ %.260.i, %58 ]
-  %59 = phi i1 [ true, %.preheader1.i ], [ false, %58 ]
-  %60 = load i8, ptr %.1577.i, align 1, !tbaa !12
-  %61 = zext i8 %60 to i32
-  %62 = and i32 %.1596.i, %61
-  %63 = shl i32 %.0528.i, 1
-  %.not71.i = icmp ne i32 %62, 0
-  %64 = zext i1 %.not71.i to i32
-  %spec.select.i44 = or disjoint i32 %63, %64
-  %65 = lshr i32 %.1596.i, 1
+57:                                               ; preds = %57, %.preheader1.i
+  %.0528.i = phi i32 [ 0, %.preheader1.i ], [ %spec.select.i44, %57 ]
+  %.1577.i = phi ptr [ %.05626.i, %.preheader1.i ], [ %.2.i, %57 ]
+  %.1596.i = phi i32 [ %.05825.i, %.preheader1.i ], [ %.260.i, %57 ]
+  %58 = phi i1 [ true, %.preheader1.i ], [ false, %57 ]
+  %59 = load i8, ptr %.1577.i, align 1, !tbaa !12
+  %60 = zext i8 %59 to i32
+  %61 = and i32 %.1596.i, %60
+  %62 = shl i32 %.0528.i, 1
+  %.not71.i = icmp ne i32 %61, 0
+  %63 = zext i1 %.not71.i to i32
+  %spec.select.i44 = or disjoint i32 %62, %63
+  %64 = lshr i32 %.1596.i, 1
   %.not72.i = icmp ult i32 %.1596.i, 2
-  %.260.i = select i1 %.not72.i, i32 128, i32 %65
+  %.260.i = select i1 %.not72.i, i32 128, i32 %64
   %.2.idx.i = zext i1 %.not72.i to i64
   %.2.i = getelementptr inbounds nuw i8, ptr %.1577.i, i64 %.2.idx.i
-  br i1 %59, label %58, label %66, !llvm.loop !39
+  br i1 %58, label %57, label %65, !llvm.loop !39
 
-66:                                               ; preds = %58
-  %scevgep.i = getelementptr i8, ptr %2, i64 %57
+65:                                               ; preds = %57
+  %66 = mul nuw nsw i64 %indvar.i, 12
+  %scevgep.i = getelementptr i8, ptr %2, i64 %66
   %67 = icmp eq i32 %spec.select.i44, 3
   %68 = add i32 %spec.select.i44, %5
   %.051.i = select i1 %67, i32 %.054.lcssa.i, i32 %68
   %.not28.i = icmp eq i32 %.051.i, 0
   br i1 %.not28.i, label %.preheader.preheader.i48, label %.preheader.us.i
 
-.preheader.preheader.i48:                         ; preds = %66
+.preheader.preheader.i48:                         ; preds = %65
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %scevgep.i, i8 0, i64 12, i1 false), !tbaa !19
   br label %.split22.us.i
 
-.preheader.us.i:                                  ; preds = %66, %._crit_edge14.us.i
-  %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i47, %._crit_edge14.us.i ], [ 0, %66 ]
-  %.320.us.i = phi ptr [ %.5.us.i, %._crit_edge14.us.i ], [ %.2.i, %66 ]
-  %.36119.us.i = phi i32 [ %.563.us.i, %._crit_edge14.us.i ], [ %.260.i, %66 ]
+.preheader.us.i:                                  ; preds = %65, %._crit_edge14.us.i
+  %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i47, %._crit_edge14.us.i ], [ 0, %65 ]
+  %.320.us.i = phi ptr [ %.5.us.i, %._crit_edge14.us.i ], [ %.2.i, %65 ]
+  %.36119.us.i = phi i32 [ %.563.us.i, %._crit_edge14.us.i ], [ %.260.i, %65 ]
   br label %69
 
 69:                                               ; preds = %69, %.preheader.us.i

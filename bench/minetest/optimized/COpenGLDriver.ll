@@ -17324,7 +17324,6 @@ if.then6:                                         ; preds = %if.end
   %7 = load i32, ptr %ScreenSize, align 8
   %Height10 = getelementptr inbounds nuw i8, ptr %this, i64 324
   %8 = load i32, ptr %Height10, align 4
-  %9 = tail call i32 @llvm.umin.i32(i32 %7, i32 %4)
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then6
@@ -17340,6 +17339,7 @@ while.cond10.i:                                   ; preds = %while.cond.i, %whil
   br i1 %cmp11.i, label %while.cond10.i, label %_ZNK3irr4core11dimension2dIjE14getOptimalSizeEbbbj.exit, !llvm.loop !453
 
 _ZNK3irr4core11dimension2dIjE14getOptimalSizeEbbbj.exit: ; preds = %while.cond10.i
+  %9 = tail call i32 @llvm.umin.i32(i32 %7, i32 %4)
   %10 = tail call i32 @llvm.umin.i32(i32 %6, i32 %8)
   %cmp20.not.i = icmp eq i32 %j.0.i, %6
   %cmp.i.i = icmp eq i32 %i.0.i, %4
@@ -17350,20 +17350,17 @@ while.cond.i41:                                   ; preds = %_ZNK3irr4core11dime
   %i.0.i42 = phi i32 [ %shl.i44, %while.cond.i41 ], [ 1, %_ZNK3irr4core11dimension2dIjE14getOptimalSizeEbbbj.exit ]
   %cmp.i43 = icmp ult i32 %i.0.i42, %9
   %shl.i44 = shl i32 %i.0.i42, 1
-  br i1 %cmp.i43, label %while.cond.i41, label %while.end.i45, !llvm.loop !452
+  br i1 %cmp.i43, label %while.cond.i41, label %while.cond10.i49, !llvm.loop !452
 
-while.end.i45:                                    ; preds = %while.cond.i41
-  %cmp8.not.i47 = icmp ne i32 %i.0.i42, %9
-  br label %while.cond10.i49
-
-while.cond10.i49:                                 ; preds = %while.cond10.i49, %while.end.i45
-  %j.0.i50 = phi i32 [ 1, %while.end.i45 ], [ %shl13.i52, %while.cond10.i49 ]
+while.cond10.i49:                                 ; preds = %while.cond.i41, %while.cond10.i49
+  %j.0.i50 = phi i32 [ %shl13.i52, %while.cond10.i49 ], [ 1, %while.cond.i41 ]
   %cmp11.i51 = icmp ult i32 %j.0.i50, %10
   %shl13.i52 = shl i32 %j.0.i50, 1
   br i1 %cmp11.i51, label %while.cond10.i49, label %while.end14.i, !llvm.loop !453
 
 while.end14.i:                                    ; preds = %while.cond10.i49
   %cmp5.i46 = icmp ne i32 %i.0.i42, 1
+  %cmp8.not.i47 = icmp ne i32 %i.0.i42, %9
   %.not = and i1 %cmp5.i46, %cmp8.not.i47
   %shr.i = zext i1 %.not to i32
   %i.1.i = lshr i32 %i.0.i42, %shr.i
@@ -17670,7 +17667,6 @@ if.then6:                                         ; preds = %if.end
   %3 = load i32, ptr %ScreenSize, align 8, !tbaa !129
   %Height10 = getelementptr inbounds nuw i8, ptr %this, i64 324
   %4 = load i32, ptr %Height10, align 4, !tbaa !129
-  %.sroa.speculated61 = tail call i32 @llvm.umin.i32(i32 %3, i32 %sideLen)
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then6
@@ -17686,6 +17682,7 @@ while.cond10.i:                                   ; preds = %while.cond.i, %whil
   br i1 %cmp11.i, label %while.cond10.i, label %_ZNK3irr4core11dimension2dIjE14getOptimalSizeEbbbj.exit, !llvm.loop !453
 
 _ZNK3irr4core11dimension2dIjE14getOptimalSizeEbbbj.exit: ; preds = %while.cond10.i
+  %.sroa.speculated61 = tail call i32 @llvm.umin.i32(i32 %3, i32 %sideLen)
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %4, i32 %sideLen)
   %cmp20.not.i = icmp eq i32 %j.0.i, %sideLen
   %cmp.i.i = icmp eq i32 %i.0.i, %sideLen
@@ -17696,20 +17693,17 @@ while.cond.i38:                                   ; preds = %_ZNK3irr4core11dime
   %i.0.i39 = phi i32 [ %shl.i41, %while.cond.i38 ], [ 1, %_ZNK3irr4core11dimension2dIjE14getOptimalSizeEbbbj.exit ]
   %cmp.i40 = icmp ult i32 %i.0.i39, %.sroa.speculated61
   %shl.i41 = shl i32 %i.0.i39, 1
-  br i1 %cmp.i40, label %while.cond.i38, label %while.end.i42, !llvm.loop !452
+  br i1 %cmp.i40, label %while.cond.i38, label %while.cond10.i46, !llvm.loop !452
 
-while.end.i42:                                    ; preds = %while.cond.i38
-  %cmp8.not.i44 = icmp ne i32 %i.0.i39, %.sroa.speculated61
-  br label %while.cond10.i46
-
-while.cond10.i46:                                 ; preds = %while.cond10.i46, %while.end.i42
-  %j.0.i47 = phi i32 [ 1, %while.end.i42 ], [ %shl13.i49, %while.cond10.i46 ]
+while.cond10.i46:                                 ; preds = %while.cond.i38, %while.cond10.i46
+  %j.0.i47 = phi i32 [ %shl13.i49, %while.cond10.i46 ], [ 1, %while.cond.i38 ]
   %cmp11.i48 = icmp ult i32 %j.0.i47, %.sroa.speculated
   %shl13.i49 = shl i32 %j.0.i47, 1
   br i1 %cmp11.i48, label %while.cond10.i46, label %while.end14.i, !llvm.loop !453
 
 while.end14.i:                                    ; preds = %while.cond10.i46
   %cmp5.i43 = icmp ne i32 %i.0.i39, 1
+  %cmp8.not.i44 = icmp ne i32 %i.0.i39, %.sroa.speculated61
   %.not = and i1 %cmp5.i43, %cmp8.not.i44
   %shr.i = zext i1 %.not to i32
   %i.1.i = lshr i32 %i.0.i39, %shr.i
@@ -22049,27 +22043,27 @@ if.then:                                          ; preds = %entry
 for.body.i.i.i.preheader:                         ; preds = %if.then
   %xtraiter = and i64 %__n, 7
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
-  br i1 %lcmp.mod.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol.preheader
+  br i1 %lcmp.mod.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol
 
-for.body.i.i.i.prol.preheader:                    ; preds = %for.body.i.i.i.preheader
-  %3 = and i64 %__n, -8
-  br label %for.body.i.i.i.prol
-
-for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.prol.preheader, %for.body.i.i.i.prol
-  %__cur.06.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ], [ %0, %for.body.i.i.i.prol.preheader ]
-  %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.prol ], [ 0, %for.body.i.i.i.prol.preheader ]
+for.body.i.i.i.prol:                              ; preds = %for.body.i.i.i.preheader, %for.body.i.i.i.prol
+  %__cur.06.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ], [ %0, %for.body.i.i.i.preheader ]
+  %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.prol ], [ 0, %for.body.i.i.i.preheader ]
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float -0.000000e+00>, ptr %__cur.06.i.i.i.prol, align 4, !tbaa !103
   %Enabled.i.i.i.i.i.prol = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.prol, i64 16
   store i8 0, ptr %Enabled.i.i.i.i.i.prol, align 4, !tbaa !237
   %incdec.ptr.i.i.i.prol = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.prol, i64 20
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
   %prol.iter.cmp.not = icmp eq i64 %prol.iter.next, %xtraiter
-  br i1 %prol.iter.cmp.not, label %for.body.i.i.i.prol.loopexit, label %for.body.i.i.i.prol, !llvm.loop !490
+  br i1 %prol.iter.cmp.not, label %for.body.i.i.i.prol.loopexit.loopexit, label %for.body.i.i.i.prol, !llvm.loop !490
 
-for.body.i.i.i.prol.loopexit:                     ; preds = %for.body.i.i.i.prol, %for.body.i.i.i.preheader
-  %incdec.ptr.i.i.i.lcssa.unr = phi ptr [ undef, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ]
-  %__cur.06.i.i.i.unr = phi ptr [ %0, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol ]
-  %__n.addr.05.i.i.i.unr = phi i64 [ %__n, %for.body.i.i.i.preheader ], [ %3, %for.body.i.i.i.prol ]
+for.body.i.i.i.prol.loopexit.loopexit:            ; preds = %for.body.i.i.i.prol
+  %3 = and i64 %__n, -8
+  br label %for.body.i.i.i.prol.loopexit
+
+for.body.i.i.i.prol.loopexit:                     ; preds = %for.body.i.i.i.prol.loopexit.loopexit, %for.body.i.i.i.preheader
+  %incdec.ptr.i.i.i.lcssa.unr = phi ptr [ undef, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol.loopexit.loopexit ]
+  %__cur.06.i.i.i.unr = phi ptr [ %0, %for.body.i.i.i.preheader ], [ %incdec.ptr.i.i.i.prol, %for.body.i.i.i.prol.loopexit.loopexit ]
+  %__n.addr.05.i.i.i.unr = phi i64 [ %__n, %for.body.i.i.i.preheader ], [ %3, %for.body.i.i.i.prol.loopexit.loopexit ]
   %4 = icmp ult i64 %__n, 8
   br i1 %4, label %_ZSt27__uninitialized_default_n_aIPN3irr5video13COpenGLDriver14SUserClipPlaneEmS3_ET_S5_T0_RSaIT1_E.exit, label %for.body.i.i.i
 
@@ -22134,26 +22128,26 @@ _ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenE
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   %xtraiter77 = and i64 %__n, 7
   %lcmp.mod78.not = icmp eq i64 %xtraiter77, 0
-  br i1 %lcmp.mod78.not, label %for.body.i.i.i60.prol.loopexit, label %for.body.i.i.i60.prol.preheader
+  br i1 %lcmp.mod78.not, label %for.body.i.i.i60.prol.loopexit, label %for.body.i.i.i60.prol
 
-for.body.i.i.i60.prol.preheader:                  ; preds = %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit
-  %6 = and i64 %__n, -8
-  br label %for.body.i.i.i60.prol
-
-for.body.i.i.i60.prol:                            ; preds = %for.body.i.i.i60.prol.preheader, %for.body.i.i.i60.prol
-  %__cur.06.i.i.i61.prol = phi ptr [ %incdec.ptr.i.i.i68.prol, %for.body.i.i.i60.prol ], [ %add.ptr, %for.body.i.i.i60.prol.preheader ]
-  %prol.iter79 = phi i64 [ %prol.iter79.next, %for.body.i.i.i60.prol ], [ 0, %for.body.i.i.i60.prol.preheader ]
+for.body.i.i.i60.prol:                            ; preds = %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i60.prol
+  %__cur.06.i.i.i61.prol = phi ptr [ %incdec.ptr.i.i.i68.prol, %for.body.i.i.i60.prol ], [ %add.ptr, %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit ]
+  %prol.iter79 = phi i64 [ %prol.iter79.next, %for.body.i.i.i60.prol ], [ 0, %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit ]
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float -0.000000e+00>, ptr %__cur.06.i.i.i61.prol, align 4, !tbaa !103
   %Enabled.i.i.i.i.i66.prol = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i61.prol, i64 16
   store i8 0, ptr %Enabled.i.i.i.i.i66.prol, align 4, !tbaa !237
   %incdec.ptr.i.i.i68.prol = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i61.prol, i64 20
   %prol.iter79.next = add nuw nsw i64 %prol.iter79, 1
   %prol.iter79.cmp.not = icmp eq i64 %prol.iter79.next, %xtraiter77
-  br i1 %prol.iter79.cmp.not, label %for.body.i.i.i60.prol.loopexit, label %for.body.i.i.i60.prol, !llvm.loop !492
+  br i1 %prol.iter79.cmp.not, label %for.body.i.i.i60.prol.loopexit.loopexit, label %for.body.i.i.i60.prol, !llvm.loop !492
 
-for.body.i.i.i60.prol.loopexit:                   ; preds = %for.body.i.i.i60.prol, %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit
-  %__cur.06.i.i.i61.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i68.prol, %for.body.i.i.i60.prol ]
-  %__n.addr.05.i.i.i62.unr = phi i64 [ %__n, %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit ], [ %6, %for.body.i.i.i60.prol ]
+for.body.i.i.i60.prol.loopexit.loopexit:          ; preds = %for.body.i.i.i60.prol
+  %6 = and i64 %__n, -8
+  br label %for.body.i.i.i60.prol.loopexit
+
+for.body.i.i.i60.prol.loopexit:                   ; preds = %for.body.i.i.i60.prol.loopexit.loopexit, %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit
+  %__cur.06.i.i.i61.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i68.prol, %for.body.i.i.i60.prol.loopexit.loopexit ]
+  %__n.addr.05.i.i.i62.unr = phi i64 [ %__n, %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit ], [ %6, %for.body.i.i.i60.prol.loopexit.loopexit ]
   %7 = icmp samesign ult i64 %__n, 8
   br i1 %7, label %_ZSt27__uninitialized_default_n_aIPN3irr5video13COpenGLDriver14SUserClipPlaneEmS3_ET_S5_T0_RSaIT1_E.exit71, label %for.body.i.i.i60
 

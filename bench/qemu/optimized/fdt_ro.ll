@@ -1762,39 +1762,36 @@ define dso_local range(i32 -2147483648, 1) i32 @fdt_get_path(ptr noundef %0, i32
   %.04166 = phi i32 [ 0, %.preheader58.lr.ph ], [ %.243, %99 ]
   %20 = load i32, ptr %5, align 4
   %21 = icmp sgt i32 %.04166, %20
-  br i1 %21, label %.preheader.preheader, label %._crit_edge
+  br i1 %21, label %.preheader, label %._crit_edge
 
-.preheader.preheader:                             ; preds = %.preheader58
-  %22 = add nsw i32 %.04166, -1
-  br label %.preheader
+.preheader:                                       ; preds = %.preheader58, %28
+  %.163 = phi i32 [ %23, %28 ], [ %.04067, %.preheader58 ]
+  %.14262 = phi i32 [ %29, %28 ], [ %.04166, %.preheader58 ]
+  br label %22
 
-.preheader:                                       ; preds = %.preheader.preheader, %29
-  %.163 = phi i32 [ %24, %29 ], [ %.04067, %.preheader.preheader ]
-  %.14262 = phi i32 [ %30, %29 ], [ %.04166, %.preheader.preheader ]
-  br label %23
+22:                                               ; preds = %.preheader, %22
+  %.2 = phi i32 [ %23, %22 ], [ %.163, %.preheader ]
+  %23 = add i32 %.2, -1
+  %24 = add i32 %.2, -2
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds i8, ptr %2, i64 %25
+  %27 = load i8, ptr %26, align 1
+  %.not51 = icmp eq i8 %27, 47
+  br i1 %.not51, label %28, label %22, !llvm.loop !12
 
-23:                                               ; preds = %.preheader, %23
-  %.2 = phi i32 [ %24, %23 ], [ %.163, %.preheader ]
-  %24 = add i32 %.2, -1
-  %25 = add i32 %.2, -2
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %2, i64 %26
-  %28 = load i8, ptr %27, align 1
-  %.not51 = icmp eq i8 %28, 47
-  br i1 %.not51, label %29, label %23, !llvm.loop !12
+28:                                               ; preds = %22
+  %29 = add nsw i32 %.14262, -1
+  %30 = icmp sgt i32 %29, %20
+  br i1 %30, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !13
 
-29:                                               ; preds = %23
-  %30 = add nsw i32 %.14262, -1
-  %31 = icmp sgt i32 %30, %20
-  br i1 %31, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !13
-
-._crit_edge.loopexit:                             ; preds = %29
-  %smin = call i32 @llvm.smin.i32(i32 %20, i32 %22)
+._crit_edge.loopexit:                             ; preds = %28
+  %31 = add nsw i32 %.04166, -1
+  %smin = call i32 @llvm.smin.i32(i32 %20, i32 %31)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader58
   %.142.lcssa = phi i32 [ %.04166, %.preheader58 ], [ %smin, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.04067, %.preheader58 ], [ %24, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.04067, %.preheader58 ], [ %23, %._crit_edge.loopexit ]
   %.not = icmp slt i32 %.142.lcssa, %20
   br i1 %.not, label %88, label %32
 

@@ -1339,7 +1339,6 @@ _ZNK4llvm6MDNode10getContextEv.exit:              ; preds = %14, %19
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 6, ptr %26, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #25
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %27, align 4, !tbaa !128
@@ -1364,6 +1363,7 @@ _ZN4llvm13SmallDenseMapISt4pairIPKNS_12DISubprogramEPKNS_10DILocationEEjLj4ENS_1
   br label %31
 
 .loopexit194:                                     ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i50, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i55, %_ZNK4llvm10DILocation12getInlinedAtEv.exit56
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25
   %29 = load ptr, ptr %4, align 8, !tbaa !25, !noalias !132

@@ -8445,38 +8445,38 @@ ata_id_n_sectors.exit:                            ; preds = %227, %245, %267, %2
 
 ata_id_xfermask.exit:                             ; preds = %600, %605
   %611 = phi i32 [ %610, %605 ], [ 0, %600 ]
-  %612 = and i32 %601, 127
-  %613 = shl nuw nsw i32 %602, 7
-  %614 = and i32 %613, 3968
-  %615 = or disjoint i32 %614, %612
-  br label %616
+  br label %612
 
-616:                                              ; preds = %616, %ata_id_xfermask.exit
-  %617 = phi i64 [ %627, %616 ], [ 23, %ata_id_xfermask.exit ]
-  %618 = phi i32 [ %628, %616 ], [ 8, %ata_id_xfermask.exit ]
-  %619 = phi ptr [ %626, %616 ], [ %5, %ata_id_xfermask.exit ]
-  %620 = getelementptr i16, ptr %14, i64 %617
-  %621 = load i16, ptr %620, align 2
-  %622 = lshr i16 %621, 8
-  %623 = trunc nuw i16 %622 to i8
-  store i8 %623, ptr %619, align 1
-  %624 = getelementptr i8, ptr %619, i64 1
-  %625 = trunc i16 %621 to i8
-  store i8 %625, ptr %624, align 1
-  %626 = getelementptr i8, ptr %619, i64 2
-  %627 = add nuw nsw i64 %617, 1
-  %628 = add nsw i32 %618, -2
-  %629 = icmp eq i32 %628, 0
-  br i1 %629, label %630, label %616, !llvm.loop !71
+612:                                              ; preds = %612, %ata_id_xfermask.exit
+  %613 = phi i64 [ %623, %612 ], [ 23, %ata_id_xfermask.exit ]
+  %614 = phi i32 [ %624, %612 ], [ 8, %ata_id_xfermask.exit ]
+  %615 = phi ptr [ %622, %612 ], [ %5, %ata_id_xfermask.exit ]
+  %616 = getelementptr i16, ptr %14, i64 %613
+  %617 = load i16, ptr %616, align 2
+  %618 = lshr i16 %617, 8
+  %619 = trunc nuw i16 %618 to i8
+  store i8 %619, ptr %615, align 1
+  %620 = getelementptr i8, ptr %615, i64 1
+  %621 = trunc i16 %617 to i8
+  store i8 %621, ptr %620, align 1
+  %622 = getelementptr i8, ptr %615, i64 2
+  %623 = add nuw nsw i64 %613, 1
+  %624 = add nsw i32 %614, -2
+  %625 = icmp eq i32 %624, 0
+  br i1 %625, label %626, label %612, !llvm.loop !71
 
-630:                                              ; preds = %616
-  %631 = or disjoint i32 %615, %611
+626:                                              ; preds = %612
+  %627 = and i32 %601, 127
+  %628 = shl nuw nsw i32 %602, 7
+  %629 = and i32 %628, 3968
+  %630 = or disjoint i32 %629, %627
+  %631 = or disjoint i32 %630, %611
   %632 = call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 8)
   %633 = getelementptr i8, ptr %5, i64 %632
   br label %634
 
-634:                                              ; preds = %637, %630
-  %635 = phi ptr [ %633, %630 ], [ %638, %637 ]
+634:                                              ; preds = %637, %626
+  %635 = phi ptr [ %633, %626 ], [ %638, %637 ]
   %636 = icmp ugt ptr %635, %5
   br i1 %636, label %637, label %641
 

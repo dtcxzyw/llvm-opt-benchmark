@@ -179,52 +179,52 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %42 = add nsw i32 %21, -4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %42, ptr %43, align 8
-  %44 = add nsw i32 %21, -1
-  %45 = sub nsw i32 52, %21
-  %46 = srem i32 %45, 4
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %48 = load i32, ptr %47, align 4
-  %49 = add nsw i32 %48, %46
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 4940
-  store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1532
-  store i32 %46, ptr %51, align 4
-  %52 = load i32, ptr %47, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %54 = sext i32 %42 to i64
-  %55 = getelementptr inbounds [50 x i32], ptr %53, i64 0, i64 %54
-  store i32 %52, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1536
-  store i32 0, ptr %56, align 4
+  %44 = sub nsw i32 52, %21
+  %45 = srem i32 %44, 4
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4940
+  store i32 0, ptr %48, align 4
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1532
+  store i32 %45, ptr %49, align 4
+  %50 = load i32, ptr %46, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 532
+  %52 = sext i32 %42 to i64
+  %53 = getelementptr inbounds [50 x i32], ptr %51, i64 0, i64 %52
+  store i32 %50, ptr %53, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1536
+  store i32 0, ptr %54, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 3100
-  br label %58
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 3100
+  br label %56
 
-58:                                               ; preds = %38, %58
-  %indvars.iv530 = phi i64 [ 0, %38 ], [ %indvars.iv.next531, %58 ]
-  %59 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %57, i64 0, i64 %indvars.iv530
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  store i32 0, ptr %60, align 4
-  store i32 0, ptr %59, align 4
+56:                                               ; preds = %38, %56
+  %indvars.iv530 = phi i64 [ 0, %38 ], [ %indvars.iv.next531, %56 ]
+  %57 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %55, i64 0, i64 %indvars.iv530
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  store i32 0, ptr %58, align 4
+  store i32 0, ptr %57, align 4
   %indvars.iv.next531 = add nuw nsw i64 %indvars.iv530, 1
   %exitcond533.not = icmp eq i64 %indvars.iv.next531, 14
-  br i1 %exitcond533.not, label %61, label %58, !llvm.loop !7
+  br i1 %exitcond533.not, label %59, label %56, !llvm.loop !7
 
-61:                                               ; preds = %58
+59:                                               ; preds = %56
   %.not462 = icmp ne i32 %39, %41
-  %62 = ashr i32 %44, 2
-  %63 = and i32 %49, 3
+  %60 = add nsw i32 %21, -1
+  %61 = ashr i32 %60, 2
+  %62 = add nsw i32 %47, %45
+  %63 = and i32 %62, 3
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %65 = tail call noundef i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadData(ptr noundef nonnull align 4 dereferenceable(96) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %0)
   %.not463 = icmp eq i32 %65, 1
   br i1 %.not463, label %66, label %377
 
-66:                                               ; preds = %61
+66:                                               ; preds = %59
   %67 = icmp slt i32 %21, 5
   br i1 %67, label %68, label %79
 
 68:                                               ; preds = %66
-  call void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr noundef nonnull align 4 dereferenceable(96) %1, ptr noundef nonnull %0, i32 noundef %63, i32 noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  call void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr noundef nonnull align 4 dereferenceable(96) %1, ptr noundef nonnull %0, i32 noundef %63, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   store i32 0, ptr %5, align 4
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %69, align 4
@@ -298,7 +298,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 98:                                               ; preds = %93, %97, %92
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 1604
   store i8 0, ptr %99, align 4
-  %100 = and i32 %49, 1
+  %100 = and i32 %62, 1
   %spec.select586 = xor i32 %100, 1
   store i32 %spec.select586, ptr %0, align 8
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -307,7 +307,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   store i32 %spec.select586, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %100, ptr %103, align 4
-  %104 = icmp sgt i32 %46, 0
+  %104 = icmp sgt i32 %45, 0
   br i1 %104, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %98
@@ -317,13 +317,13 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 987992
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 3324
-  %111 = getelementptr inbounds [50 x %struct.moveType], ptr %110, i64 0, i64 %54
+  %111 = getelementptr inbounds [50 x %struct.moveType], ptr %110, i64 0, i64 %52
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 4124
-  %113 = getelementptr inbounds [50 x %struct.moveType], ptr %112, i64 0, i64 %54
+  %113 = getelementptr inbounds [50 x %struct.moveType], ptr %112, i64 0, i64 %52
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 4944
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 732
-  %116 = add nuw nsw i32 %46, %42
-  %wide.trip.count = zext nneg i32 %46 to i64
+  %116 = add nuw nsw i32 %45, %42
+  %wide.trip.count = zext nneg i32 %45 to i64
   br label %117
 
 117:                                              ; preds = %.lr.ph, %130
@@ -336,18 +336,18 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   store i32 %121, ptr %7, align 4
   store i32 0, ptr %108, align 4
   %122 = load i32, ptr %40, align 8
-  %123 = load i32, ptr %55, align 4
+  %123 = load i32, ptr %53, align 4
   %124 = trunc nuw nsw i64 %indvars.iv534 to i32
-  call void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 dereferenceable(39992) %109, i32 noundef %62, i32 noundef %124, ptr noundef nonnull %105, ptr noundef nonnull %107, ptr noundef nonnull %64, i32 noundef %122, i32 noundef %123)
+  call void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 dereferenceable(39992) %109, i32 noundef %61, i32 noundef %124, ptr noundef nonnull %105, ptr noundef nonnull %107, ptr noundef nonnull %64, i32 noundef %122, i32 noundef %123)
   %125 = icmp eq i64 %indvars.iv534, 0
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %117
-  %127 = call noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull align 8 dereferenceable(39992) %109, i32 noundef %62, ptr noundef nonnull align 4 dereferenceable(1544) %64, ptr noundef nonnull align 4 dereferenceable(16) %111, ptr noundef nonnull align 4 dereferenceable(16) %113, ptr noundef nonnull %114)
+  %127 = call noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull align 8 dereferenceable(39992) %109, i32 noundef %61, ptr noundef nonnull align 4 dereferenceable(1544) %64, ptr noundef nonnull align 4 dereferenceable(16) %111, ptr noundef nonnull align 4 dereferenceable(16) %113, ptr noundef nonnull %114)
   br label %130
 
 128:                                              ; preds = %117
-  %129 = call noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 dereferenceable(39992) %109, i32 noundef %62, i32 noundef %124, ptr noundef nonnull align 4 dereferenceable(1544) %64)
+  %129 = call noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 dereferenceable(39992) %109, i32 noundef %61, i32 noundef %124, ptr noundef nonnull align 4 dereferenceable(1544) %64)
   br label %130
 
 130:                                              ; preds = %128, %126
@@ -355,7 +355,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds [50 x %struct.moveType], ptr %115, i64 0, i64 %132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %133, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
-  call void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 dereferenceable(39992) %109, ptr noundef nonnull align 4 dereferenceable(16) %7, i32 noundef %62, i32 noundef %124)
+  call void @_ZN5Moves12MakeSpecificERK8moveTypeii(ptr noundef nonnull align 8 dereferenceable(39992) %109, ptr noundef nonnull align 4 dereferenceable(16) %7, i32 noundef %61, i32 noundef %124)
   %indvars.iv.next535 = add nuw nsw i64 %indvars.iv534, 1
   %exitcond537.not = icmp eq i64 %indvars.iv.next535, %wide.trip.count
   br i1 %exitcond537.not, label %._crit_edge, label %117, !llvm.loop !8
@@ -366,33 +366,33 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %137 = load i32, ptr %40, align 8
-  %138 = load i32, ptr %55, align 4
-  call void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46, ptr noundef nonnull %135, ptr noundef nonnull %136, ptr noundef nonnull %64, i32 noundef %137, i32 noundef %138)
-  %139 = icmp eq i32 %46, 0
+  %138 = load i32, ptr %53, align 4
+  call void @_ZN5Moves4InitEiiPKiS1_PA4_Ktii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45, ptr noundef nonnull %135, ptr noundef nonnull %136, ptr noundef nonnull %64, i32 noundef %137, i32 noundef %138)
+  %139 = icmp eq i32 %45, 0
   br i1 %139, label %140, label %147
 
 140:                                              ; preds = %._crit_edge
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 3324
-  %142 = getelementptr inbounds [50 x %struct.moveType], ptr %141, i64 0, i64 %54
+  %142 = getelementptr inbounds [50 x %struct.moveType], ptr %141, i64 0, i64 %52
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 4124
-  %144 = getelementptr inbounds [50 x %struct.moveType], ptr %143, i64 0, i64 %54
+  %144 = getelementptr inbounds [50 x %struct.moveType], ptr %143, i64 0, i64 %52
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 4944
-  %146 = call noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, ptr noundef nonnull align 4 dereferenceable(1544) %64, ptr noundef nonnull align 4 dereferenceable(16) %142, ptr noundef nonnull align 4 dereferenceable(16) %144, ptr noundef nonnull %145)
+  %146 = call noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, ptr noundef nonnull align 4 dereferenceable(1544) %64, ptr noundef nonnull align 4 dereferenceable(16) %142, ptr noundef nonnull align 4 dereferenceable(16) %144, ptr noundef nonnull %145)
   br label %149
 
 147:                                              ; preds = %._crit_edge
-  %148 = call noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46, ptr noundef nonnull align 4 dereferenceable(1544) %64)
+  %148 = call noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(1544) %64)
   br label %149
 
 149:                                              ; preds = %147, %140
-  %150 = call noundef i32 @_ZNK5Moves9GetLengthEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46)
+  %150 = call noundef i32 @_ZNK5Moves9GetLengthEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45)
   %151 = icmp eq i32 %4, 0
   %152 = icmp eq i32 %150, 1
   %or.cond12 = and i1 %151, %152
   br i1 %or.cond12, label %153, label %165
 
 153:                                              ; preds = %149
-  %154 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46)
+  %154 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45)
   store i32 0, ptr %5, align 4
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %155, align 4
@@ -422,11 +422,11 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 
 .preheader.lr.ph:                                 ; preds = %167
   %170 = xor i32 %100, 7
-  %171 = sext i32 %46 to i64
+  %171 = sext i32 %45 to i64
   %172 = getelementptr inbounds [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 3324
-  %175 = getelementptr inbounds [50 x %struct.moveType], ptr %174, i64 0, i64 %54
+  %175 = getelementptr inbounds [50 x %struct.moveType], ptr %174, i64 0, i64 %52
   %176 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %177 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 60
@@ -488,7 +488,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %201 = getelementptr inbounds nuw [13 x i32], ptr %181, i64 0, i64 %indvars.iv556
   store i32 %.2435, ptr %201, align 4
   %indvars.iv.next557 = add nuw nsw i64 %indvars.iv556, 1
-  %202 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %57, i64 0, i64 %indvars.iv.next557
+  %202 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %55, i64 0, i64 %indvars.iv.next557
   store i32 %194, ptr %202, align 4
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
   store i32 %196, ptr %203, align 4
@@ -496,8 +496,8 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   br i1 %exitcond560.not, label %.loopexit469.preheader, label %.preheader, !llvm.loop !10
 
 204:                                              ; preds = %192
-  %205 = call noundef i32 @_ZNK5Moves9GetLengthEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46)
-  call void @_ZN5Moves6RewindEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46)
+  %205 = call noundef i32 @_ZNK5Moves9GetLengthEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45)
+  call void @_ZN5Moves6RewindEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45)
   %206 = icmp sgt i32 %205, 0
   br i1 %206, label %.lr.ph512, label %.loopexit469.preheader
 
@@ -508,7 +508,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 
 208:                                              ; preds = %.lr.ph512, %208
   %indvars.iv561 = phi i64 [ 0, %.lr.ph512 ], [ %indvars.iv.next562, %208 ]
-  %209 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46)
+  %209 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45)
   %210 = load i32, ptr %209, align 4
   %211 = add nuw nsw i64 %indvars.iv561, %207
   %212 = getelementptr inbounds nuw [13 x i32], ptr %176, i64 0, i64 %211
@@ -553,7 +553,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 
 231:                                              ; preds = %.lr.ph494, %231
   %indvars.iv543 = phi i64 [ 0, %.lr.ph494 ], [ %indvars.iv.next544, %231 ]
-  %232 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46)
+  %232 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45)
   %233 = load i32, ptr %232, align 4
   %234 = getelementptr inbounds nuw [13 x i32], ptr %227, i64 0, i64 %indvars.iv543
   store i32 %233, ptr %234, align 4
@@ -574,11 +574,11 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 
 243:                                              ; preds = %221
   %244 = xor i32 %100, 7
-  %245 = sext i32 %46 to i64
+  %245 = sext i32 %45 to i64
   %246 = getelementptr inbounds [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 3324
-  %249 = getelementptr inbounds [50 x %struct.moveType], ptr %248, i64 0, i64 %54
+  %249 = getelementptr inbounds [50 x %struct.moveType], ptr %248, i64 0, i64 %52
   br label %250
 
 250:                                              ; preds = %258, %243
@@ -618,7 +618,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %spec.select588 = select i1 %263, i32 1, i32 %150
   %264 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %spec.select588, ptr %264, align 4
-  call void @_ZN5Moves6RewindEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46)
+  call void @_ZN5Moves6RewindEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45)
   %265 = icmp sgt i32 %150, 0
   br i1 %265, label %.lr.ph491, label %.loopexit469.preheader
 
@@ -632,7 +632,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 
 270:                                              ; preds = %.lr.ph491, %270
   %indvars.iv538 = phi i64 [ 0, %.lr.ph491 ], [ %indvars.iv.next539, %270 ]
-  %271 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46)
+  %271 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45)
   %272 = getelementptr inbounds nuw [13 x i32], ptr %266, i64 0, i64 %indvars.iv538
   store i32 0, ptr %272, align 4
   %273 = load i32, ptr %271, align 4
@@ -674,7 +674,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   br i1 %or.cond515, label %.lr.ph505, label %.loopexit469.preheader
 
 294:                                              ; preds = %221
-  %295 = sext i32 %46 to i64
+  %295 = sext i32 %45 to i64
   %296 = getelementptr inbounds [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %295
   %297 = load ptr, ptr %296, align 8
   %298 = call noundef zeroext i1 %297(ptr noundef nonnull %64, i32 noundef %2, i32 noundef %42, ptr noundef nonnull %0)
@@ -695,7 +695,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 306:                                              ; preds = %294
   store i32 1, ptr %301, align 4
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 3324
-  %308 = getelementptr inbounds [50 x %struct.moveType], ptr %307, i64 0, i64 %54
+  %308 = getelementptr inbounds [50 x %struct.moveType], ptr %307, i64 0, i64 %52
   %309 = load i32, ptr %308, align 4
   %310 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %309, ptr %310, align 4
@@ -718,7 +718,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 .lr.ph505:                                        ; preds = %282, %306
   %.pre-phi = phi i64 [ %245, %282 ], [ %295, %306 ]
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 3324
-  %321 = getelementptr inbounds [50 x %struct.moveType], ptr %320, i64 0, i64 %54
+  %321 = getelementptr inbounds [50 x %struct.moveType], ptr %320, i64 0, i64 %52
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 4
   %323 = getelementptr inbounds [4 x ptr], ptr @AB_ptr_list, i64 0, i64 %.pre-phi
   %324 = getelementptr inbounds nuw i8, ptr %5, i64 164
@@ -734,8 +734,8 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 331:                                              ; preds = %.lr.ph505, %353
   %indvars.iv551 = phi i64 [ 1, %.lr.ph505 ], [ %indvars.iv.next552, %353 ]
   %.0449502 = phi i32 [ 1, %.lr.ph505 ], [ %.2451, %353 ]
-  call void @_ZN5Moves6RewindEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46)
-  %332 = call noundef i32 @_ZNK5Moves9GetLengthEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46)
+  call void @_ZN5Moves6RewindEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45)
+  %332 = call noundef i32 @_ZNK5Moves9GetLengthEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45)
   %333 = icmp sgt i32 %332, 0
   br i1 %333, label %.lr.ph498.preheader, label %._crit_edge499
 
@@ -746,8 +746,8 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 .lr.ph498:                                        ; preds = %.lr.ph498.backedge, %.lr.ph498.preheader
   %indvars.iv548 = phi i64 [ %334, %.lr.ph498.preheader ], [ %indvars.iv.next549, %.lr.ph498.backedge ]
   %.0416496 = phi i32 [ 0, %.lr.ph498.preheader ], [ %.0416496.be, %.lr.ph498.backedge ]
-  %335 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %62, i32 noundef %46)
-  %336 = getelementptr inbounds [14 x %struct.moveType], ptr %57, i64 0, i64 %indvars.iv548
+  %335 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %134, i32 noundef %61, i32 noundef %45)
+  %336 = getelementptr inbounds [14 x %struct.moveType], ptr %55, i64 0, i64 %indvars.iv548
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %336, ptr noundef nonnull align 4 dereferenceable(16) %335, i64 16, i1 false)
   %indvars.iv.next549 = add nsw i64 %indvars.iv548, 1
   %337 = load i32, ptr %321, align 4
@@ -813,7 +813,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 
 .loopexit469:                                     ; preds = %.loopexit469.preheader, %.loopexit469
   %indvars.iv566 = phi i64 [ %indvars.iv.next567, %.loopexit469 ], [ 0, %.loopexit469.preheader ]
-  %364 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %57, i64 0, i64 %indvars.iv566
+  %364 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %55, i64 0, i64 %indvars.iv566
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 4
   store i32 0, ptr %365, align 4
   store i32 0, ptr %364, align 4
@@ -838,12 +838,12 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %374 = fadd double %372, %373
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 4928
   store double %374, ptr %375, align 8
-  %376 = load i32, ptr %50, align 4
+  %376 = load i32, ptr %48, align 4
   store i32 %376, ptr %5, align 4
   br label %377
 
-377:                                              ; preds = %61, %6, %.loopexit
-  %.0415 = phi i32 [ 1, %.loopexit ], [ %11, %6 ], [ %65, %61 ]
+377:                                              ; preds = %59, %6, %.loopexit
+  %.0415 = phi i32 [ 1, %.loopexit ], [ %11, %6 ], [ %65, %59 ]
   ret i32 %.0415
 }
 

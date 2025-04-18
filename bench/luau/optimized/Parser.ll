@@ -4079,12 +4079,12 @@ _ZNSt6vectorIN4Luau6Parser8FunctionESaIS2_EE9push_backERKS2_.exit: ; preds = %_Z
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEjEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i93.preheader, %131
-  %136 = sub nuw nsw i64 311, %129
-  %137 = sub i64 1240, %128
-  %138 = and i64 %137, -4
-  %139 = add i64 %138, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %126, i8 0, i64 %139, i1 false), !tbaa !4
-  %140 = getelementptr inbounds nuw i32, ptr %126, i64 %136
+  %136 = sub i64 1240, %128
+  %137 = and i64 %136, -4
+  %138 = add i64 %137, 4
+  call void @llvm.memset.p0.i64(ptr align 4 %126, i8 0, i64 %138, i1 false), !tbaa !4
+  %139 = sub nuw nsw i64 311, %129
+  %140 = getelementptr inbounds nuw i32, ptr %126, i64 %139
   store ptr %140, ptr %125, align 8, !tbaa !261
   br label %_ZNSt6vectorIjSaIjEE6assignEmRKj.exit
 

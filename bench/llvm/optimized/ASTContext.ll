@@ -131968,7 +131968,6 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit111: ; preds = %_ZNK5clang4Type5g
 68:                                               ; preds = %66, %64
   %69 = phi i1 [ true, %64 ], [ %67, %66 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #31
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %4, align 8
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %70, align 4, !tbaa !1747
@@ -131983,6 +131982,7 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit111: ; preds = %_ZNK5clang4Type5g
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPKN5clang17ObjCInterfaceDeclEPKNS1_14ObjCObjectTypeELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEC2Ej.exit.preheader, label %.lr.ph.i.i.i, !llvm.loop !1750
 
 _ZN4llvm13SmallDenseMapIPKN5clang17ObjCInterfaceDeclEPKNS1_14ObjCObjectTypeELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEC2Ej.exit.preheader: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %_ZN4llvm13SmallDenseMapIPKN5clang17ObjCInterfaceDeclEPKNS1_14ObjCObjectTypeELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEC2Ej.exit
 

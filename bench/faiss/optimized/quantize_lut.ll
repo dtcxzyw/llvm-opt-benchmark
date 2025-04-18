@@ -262,25 +262,22 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc62
   %.1.i.us = select i1 %21, float %20, float %.0811.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %3
-  br i1 %exitcond.not.i.us, label %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit.us, label %.lr.ph.i.us, !llvm.loop !11
+  br i1 %exitcond.not.i.us, label %.lr.ph.i64.us, label %.lr.ph.i.us, !llvm.loop !11
 
-_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit.us: ; preds = %.lr.ph.i.us
-  %22 = fcmp olt float %.1.i.us, %.09397.us
-  br label %.lr.ph.i64.us
-
-.lr.ph.i64.us:                                    ; preds = %.lr.ph.i64.us, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit.us
-  %indvars.iv.i65.us = phi i64 [ %indvars.iv.next.i68.us, %.lr.ph.i64.us ], [ 0, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit.us ]
-  %.0811.i66.us = phi float [ %.1.i67.us, %.lr.ph.i64.us ], [ 0xFFF0000000000000, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit.us ]
-  %23 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i65.us
-  %24 = load float, ptr %23, align 4, !tbaa !4
-  %25 = fcmp ogt float %24, %.0811.i66.us
-  %.1.i67.us = select i1 %25, float %24, float %.0811.i66.us
+.lr.ph.i64.us:                                    ; preds = %.lr.ph.i.us, %.lr.ph.i64.us
+  %indvars.iv.i65.us = phi i64 [ %indvars.iv.next.i68.us, %.lr.ph.i64.us ], [ 0, %.lr.ph.i.us ]
+  %.0811.i66.us = phi float [ %.1.i67.us, %.lr.ph.i64.us ], [ 0xFFF0000000000000, %.lr.ph.i.us ]
+  %22 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i65.us
+  %23 = load float, ptr %22, align 4, !tbaa !4
+  %24 = fcmp ogt float %23, %.0811.i66.us
+  %.1.i67.us = select i1 %24, float %23, float %.0811.i66.us
   %indvars.iv.next.i68.us = add nuw nsw i64 %indvars.iv.i65.us, 1
   %exitcond.not.i69.us = icmp eq i64 %indvars.iv.next.i68.us, %3
   br i1 %exitcond.not.i69.us, label %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit.us, label %.lr.ph.i64.us, !llvm.loop !12
 
 _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit.us: ; preds = %.lr.ph.i64.us
-  %.sroa.speculated78.us = select i1 %22, float %.1.i.us, float %.09397.us
+  %25 = fcmp olt float %.1.i.us, %.09397.us
+  %.sroa.speculated78.us = select i1 %25, float %.1.i.us, float %.09397.us
   %26 = fcmp olt float %.09298.us, %.1.i67.us
   %.sroa.speculated.us = select i1 %26, float %.1.i67.us, float %.09298.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

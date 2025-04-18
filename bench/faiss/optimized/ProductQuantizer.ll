@@ -462,39 +462,39 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
 
 .lr.ph72.us.i:                                    ; preds = %._crit_edge.us78.i, %.lr.ph72.us.preheader.i
   %indvar114.i = phi i64 [ 0, %.lr.ph72.us.preheader.i ], [ %indvar.next115.i, %._crit_edge.us78.i ]
-  %157 = mul nuw nsw i64 %150, %indvar114.i
-  %158 = mul nuw nsw i64 %indvar114.i, %149
-  %159 = getelementptr inbounds nuw float, ptr %121, i64 %158
-  %160 = trunc nuw nsw i64 %indvar114.i to i32
-  br label %161
+  %157 = mul nuw nsw i64 %indvar114.i, %149
+  %158 = getelementptr inbounds nuw float, ptr %121, i64 %157
+  %159 = trunc nuw nsw i64 %indvar114.i to i32
+  br label %160
 
 ._crit_edge.us78.i:                               ; preds = %.lr.ph74.us.preheader.i, %..preheader_crit_edge.us.i
   %indvar.next115.i = add nuw nsw i64 %indvar114.i, 1
   %exitcond124.not.i = icmp eq i64 %indvar.next115.i, %wide.trip.count123.i
   br i1 %exitcond124.not.i, label %._crit_edge77.thread.i, label %.lr.ph72.us.i, !llvm.loop !35
 
-161:                                              ; preds = %161, %.lr.ph72.us.i
-  %indvars.iv109.i = phi i64 [ 0, %.lr.ph72.us.i ], [ %indvars.iv.next110.i, %161 ]
-  %162 = getelementptr inbounds nuw float, ptr %.sroa.054.0129137.i, i64 %indvars.iv109.i
-  %163 = load float, ptr %162, align 4, !tbaa !31
-  %164 = trunc nuw nsw i64 %indvars.iv109.i to i32
-  %165 = shl nuw i32 1, %164
-  %166 = and i32 %165, %160
-  %.not.us.i = icmp eq i32 %166, 0
-  %167 = select i1 %.not.us.i, i32 -1, i32 1
-  %168 = sitofp i32 %167 to float
-  %169 = call float @llvm.fmuladd.f32(float %168, float %.047.lcssa.i, float %163)
-  %170 = getelementptr inbounds nuw float, ptr %159, i64 %indvars.iv109.i
-  store float %169, ptr %170, align 4, !tbaa !31
+160:                                              ; preds = %160, %.lr.ph72.us.i
+  %indvars.iv109.i = phi i64 [ 0, %.lr.ph72.us.i ], [ %indvars.iv.next110.i, %160 ]
+  %161 = getelementptr inbounds nuw float, ptr %.sroa.054.0129137.i, i64 %indvars.iv109.i
+  %162 = load float, ptr %161, align 4, !tbaa !31
+  %163 = trunc nuw nsw i64 %indvars.iv109.i to i32
+  %164 = shl nuw i32 1, %163
+  %165 = and i32 %164, %159
+  %.not.us.i = icmp eq i32 %165, 0
+  %166 = select i1 %.not.us.i, i32 -1, i32 1
+  %167 = sitofp i32 %166 to float
+  %168 = call float @llvm.fmuladd.f32(float %167, float %.047.lcssa.i, float %162)
+  %169 = getelementptr inbounds nuw float, ptr %158, i64 %indvars.iv109.i
+  store float %168, ptr %169, align 4, !tbaa !31
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond113.not.i = icmp eq i64 %indvars.iv.next110.i, %147
-  br i1 %exitcond113.not.i, label %..preheader_crit_edge.us.i, label %161, !llvm.loop !36
+  br i1 %exitcond113.not.i, label %..preheader_crit_edge.us.i, label %160, !llvm.loop !36
 
-..preheader_crit_edge.us.i:                       ; preds = %161
+..preheader_crit_edge.us.i:                       ; preds = %160
   br i1 %146, label %.lr.ph74.us.preheader.i, label %._crit_edge.us78.i
 
 .lr.ph74.us.preheader.i:                          ; preds = %..preheader_crit_edge.us.i
-  %scevgep116.i = getelementptr i8, ptr %156, i64 %157
+  %170 = mul nuw nsw i64 %150, %indvar114.i
+  %scevgep116.i = getelementptr i8, ptr %156, i64 %170
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep116.i, ptr noundef nonnull align 4 dereferenceable(1) %scevgep117.i, i64 %155, i1 false), !tbaa !31
   br label %._crit_edge.us78.i
 
@@ -2715,25 +2715,22 @@ define void @_ZNK5faiss16ProductQuantizer32compute_code_from_distance_tableEPKfP
   %.sroa.19.033 = phi i8 [ 0, %.preheader.lr.ph ], [ %.sroa.19.1, %_ZN5faiss16PQEncoderGeneric6encodeEm.exit ]
   %12 = load i64, ptr %9, align 8, !tbaa !25
   %.not42 = icmp eq i64 %12, 0
-  br i1 %.not42, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %13 = shl i64 %12, 2
-  br label %.lr.ph
+  br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 ._crit_edge38:                                    ; preds = %_ZN5faiss16PQEncoderGeneric6encodeEm.exit
-  %14 = icmp eq i8 %.sroa.8.1, 0
-  br i1 %14, label %_ZN5faiss16PQEncoderGenericD2Ev.exit, label %15
+  %13 = icmp eq i8 %.sroa.8.1, 0
+  br i1 %13, label %_ZN5faiss16PQEncoderGenericD2Ev.exit, label %14
 
-15:                                               ; preds = %._crit_edge38
+14:                                               ; preds = %._crit_edge38
   store i8 %.sroa.19.1, ptr %.sroa.0.3, align 1, !tbaa !76
   br label %_ZN5faiss16PQEncoderGenericD2Ev.exit
 
-_ZN5faiss16PQEncoderGenericD2Ev.exit:             ; preds = %3, %._crit_edge38, %15
+_ZN5faiss16PQEncoderGenericD2Ev.exit:             ; preds = %3, %._crit_edge38, %14
   ret void
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %scevgep = getelementptr i8, ptr %.037, i64 %13
+  %15 = shl i64 %12, 2
+  %scevgep = getelementptr i8, ptr %.037, i64 %15
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -2796,11 +2793,11 @@ _ZN5faiss16PQEncoderGeneric6encodeEm.exit:        ; preds = %._crit_edge.i, %38
   %42 = icmp ult i64 %41, %40
   br i1 %42, label %.preheader, label %._crit_edge38, !llvm.loop !90
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.131 = phi ptr [ %43, %.lr.ph ], [ %.037, %.lr.ph.preheader ]
-  %.01130 = phi i64 [ %46, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01229 = phi i64 [ %.113, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01428 = phi float [ %.115, %.lr.ph ], [ 0x4415AF1D80000000, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %.131 = phi ptr [ %43, %.lr.ph ], [ %.037, %.preheader ]
+  %.01130 = phi i64 [ %46, %.lr.ph ], [ 0, %.preheader ]
+  %.01229 = phi i64 [ %.113, %.lr.ph ], [ 0, %.preheader ]
+  %.01428 = phi float [ %.115, %.lr.ph ], [ 0x4415AF1D80000000, %.preheader ]
   %43 = getelementptr inbounds nuw i8, ptr %.131, i64 4
   %44 = load float, ptr %.131, align 4, !tbaa !31
   %45 = fcmp olt float %44, %.01428

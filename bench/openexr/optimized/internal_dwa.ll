@@ -6785,28 +6785,28 @@ define internal fastcc range(i32 0, 4) i32 @DwaCompressor_initializeBuffers(ptr 
   %2 = alloca [3 x i64], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !47
-  %5 = sitofp i32 %4 to float
-  %6 = fmul float %5, 1.250000e-01
-  %7 = tail call float @llvm.ceil.f32(float %6)
-  %8 = fptoui float %7 to i64
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load i32, ptr %9, align 8, !tbaa !49
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !49
-  %13 = sub nsw i32 %10, %12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = load i32, ptr %5, align 8, !tbaa !49
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load i32, ptr %7, align 8, !tbaa !49
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false), !tbaa !74
+  %9 = sitofp i32 %4 to float
+  %10 = fmul float %9, 1.250000e-01
+  %11 = tail call float @llvm.ceil.f32(float %10)
+  %12 = fptoui float %11 to i64
+  %13 = sub nsw i32 %6, %8
   %14 = add nsw i32 %13, 1
   %15 = sitofp i32 %14 to float
   %16 = fmul float %15, 1.250000e-01
   %17 = tail call float @llvm.ceil.f32(float %16)
   %18 = fptoui float %17 to i64
-  %19 = mul i64 %18, %8
-  %20 = shl i64 %19, 1
-  %21 = sext i32 %14 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false), !tbaa !74
-  %22 = mul i64 %19, 126
-  %23 = sext i32 %4 to i64
-  %24 = mul nsw i64 %21, %23
+  %19 = mul i64 %18, %12
+  %20 = mul i64 %19, 126
+  %21 = shl i64 %19, 1
+  %22 = sext i32 %4 to i64
+  %23 = sext i32 %14 to i64
+  %24 = mul nsw i64 %23, %22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load i64, ptr %25, align 8, !tbaa !76
   %.not = icmp eq i64 %26, 0
@@ -7199,7 +7199,7 @@ DwaCompressor_classifyChannels.exit:              ; preds = %146, %195, %43, %.p
   ]
 
 223:                                              ; preds = %213
-  %224 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %22) #20
+  %224 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %20) #20
   %225 = tail call noundef i64 @llvm.umax.i64(i64 %206, i64 %224)
   %226 = add i64 %225, %.1129211
   %227 = add i64 %.0133210, 1
@@ -7250,14 +7250,14 @@ DwaCompressor_classifyChannels.exit:              ; preds = %146, %195, %43, %.p
   store i64 %248, ptr %2, align 16
   %249 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %.0137.lcssa) #20
   %250 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %.0141.lcssa) #20
-  %251 = mul i64 %.0133.lcssa, %20
+  %251 = mul i64 %.0133.lcssa, %21
   %252 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %251) #20
   %253 = add i64 %.1129.lcssa, 88
   %254 = add i64 %253, %249
   %255 = add i64 %254, %250
   %256 = add i64 %255, %252
   store i64 %256, ptr %1, align 8, !tbaa !74
-  %257 = mul i64 %.0133.lcssa, %22
+  %257 = mul i64 %.0133.lcssa, %20
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %259 = load i64, ptr %258, align 8, !tbaa !149
   %260 = icmp ugt i64 %257, %259

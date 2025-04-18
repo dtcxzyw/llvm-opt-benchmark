@@ -31,8 +31,8 @@ define noundef i32 @strsm_ilnncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 .lr.ph434.split.preheader:                        ; preds = %.lr.ph434
   %10 = mul i64 %7, %3
   %11 = shl i64 %10, 6
-  %12 = and i64 %1, -16
   %scevgep = getelementptr i8, ptr %2, i64 %11
+  %12 = and i64 %1, -16
   %13 = add i64 %4, %12
   br label %._crit_edge435
 

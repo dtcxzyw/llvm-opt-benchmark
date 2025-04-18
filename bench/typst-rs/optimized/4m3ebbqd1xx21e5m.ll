@@ -62858,7 +62858,7 @@ define hidden noundef i64 @_ZN5typst6layout6inline4Line12justifiables17h14c27480
   %.sroa.12.0 = phi ptr [ %..i, %1 ], [ %.sroa.12.3.ph, %.loopexit ]
   %.sroa.15.0 = phi ptr [ %5, %1 ], [ %.sroa.15.4.ph, %.loopexit ]
   %.sroa.829.0 = phi i64 [ 1, %1 ], [ %.sroa.829.3.ph, %.loopexit ]
-  %.0 = phi i64 [ 0, %1 ], [ %35, %.loopexit ]
+  %.0 = phi i64 [ 0, %1 ], [ %33, %.loopexit ]
   switch i64 %.sroa.829.0, label %.preheader47 [
     i64 2, label %.loopexit.i
     i64 0, label %.preheader.preheader
@@ -62908,25 +62908,22 @@ define hidden noundef i64 @_ZN5typst6layout6inline4Line12justifiables17h14c27480
   %.01.i.i.i.i.i.i = phi ptr [ null, %.preheader.i.i ], [ %..i, %22 ]
   %.0.i.i.i.i.i.i = phi ptr [ %.01.i.i.i.i.i.i, %.preheader.i.i ], [ null, %22 ]
   %.not.i.i.i.i.i.i = icmp eq ptr %.01.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %27, label %.preheader.i.i
+  br i1 %.not.i.i.i.i.i.i, label %.preheader72, label %.preheader.i.i
 
-27:                                               ; preds = %.preheader.i.i
-  %28 = getelementptr inbounds i8, ptr %8, i64 -104
-  br label %29
-
-29:                                               ; preds = %29, %27
-  %.01.i.i.i.i = phi ptr [ %..i.i.i, %27 ], [ null, %29 ]
-  %.0.i.i.i.i = phi ptr [ null, %27 ], [ %.01.i.i.i.i, %29 ]
+.preheader72:                                     ; preds = %.preheader.i.i, %.preheader72
+  %.01.i.i.i.i = phi ptr [ null, %.preheader72 ], [ %..i.i.i, %.preheader.i.i ]
+  %.0.i.i.i.i = phi ptr [ %.01.i.i.i.i, %.preheader72 ], [ null, %.preheader.i.i ]
   %.not.i.i.i.i = icmp eq ptr %.01.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4last17h7cdde0156d688ef2E.exit", label %29
+  br i1 %.not.i.i.i.i, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4last17h7cdde0156d688ef2E.exit", label %.preheader72
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4last17h7cdde0156d688ef2E.exit": ; preds = %29
-  %30 = icmp eq i64 %7, 0
-  %..i.i.i.i = select i1 %30, ptr %.0.i.i.i.i.i.i, ptr %28
-  %31 = icmp eq ptr %.0.i.i.i.i, null
-  %..i.i = select i1 %31, ptr %..i.i.i.i, ptr %.0.i.i.i.i
-  %32 = icmp eq ptr %..i.i, null
-  br i1 %32, label %.thread, label %36
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4last17h7cdde0156d688ef2E.exit": ; preds = %.preheader72
+  %27 = icmp eq i64 %7, 0
+  %28 = getelementptr inbounds i8, ptr %8, i64 -104
+  %..i.i.i.i = select i1 %27, ptr %.0.i.i.i.i.i.i, ptr %28
+  %29 = icmp eq ptr %.0.i.i.i.i, null
+  %..i.i = select i1 %29, ptr %..i.i.i.i, ptr %.0.i.i.i.i
+  %30 = icmp eq ptr %..i.i, null
+  br i1 %30, label %.thread, label %34
 
 .loopexit:                                        ; preds = %14, %18, %24
   %.sroa.428.1.ph = phi ptr [ null, %24 ], [ %.sroa.428.0, %18 ], [ %.sroa.428.0, %14 ]
@@ -62939,23 +62936,23 @@ define hidden noundef i64 @_ZN5typst6layout6inline4Line12justifiables17h14c27480
   %.pn1.i.i = load i64, ptr %.pn1.in.i.i, align 8, !alias.scope !10749, !noundef !4
   %.pn3.in.i.i = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 8
   %.pn3.i.i = load ptr, ptr %.pn3.in.i.i, align 8, !alias.scope !10749, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds { ptr, { i64, i16, [3 x i16] }, double, double, double, { { double, double }, { double, double } }, { i64, i64 }, i32, i16, i8, i8, i8, [7 x i8] }, ptr %.pn3.i.i, i64 %.pn1.i.i
-  %34 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h320207aac62ad3faE.llvm.14728845296163125433"(ptr noundef nonnull %.pn3.i.i, ptr noundef nonnull %33, i64 noundef 0), !noalias !10746
-  %35 = add i64 %34, %.0
+  %31 = getelementptr inbounds { ptr, { i64, i16, [3 x i16] }, double, double, double, { { double, double }, { double, double } }, { i64, i64 }, i32, i16, i8, i8, i8, [7 x i8] }, ptr %.pn3.i.i, i64 %.pn1.i.i
+  %32 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h320207aac62ad3faE.llvm.14728845296163125433"(ptr noundef nonnull %.pn3.i.i, ptr noundef nonnull %31, i64 noundef 0), !noalias !10746
+  %33 = add i64 %32, %.0
   br label %12
 
-36:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4last17h7cdde0156d688ef2E.exit"
-  %37 = load i64, ptr %..i.i, align 8, !range !181, !alias.scope !10752, !noundef !4
-  %38 = icmp ult i64 %37, -9223372036854775807
-  br i1 %38, label %39, label %.thread
+34:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4last17h7cdde0156d688ef2E.exit"
+  %35 = load i64, ptr %..i.i, align 8, !range !181, !alias.scope !10752, !noundef !4
+  %36 = icmp ult i64 %35, -9223372036854775807
+  br i1 %36, label %37, label %.thread
 
-39:                                               ; preds = %36
-  %40 = tail call noundef zeroext i1 @_ZN5typst6layout6inline7shaping10ShapedText23cjk_justifiable_at_last17hd1d2354c64b164feE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %..i.i)
-  %41 = sext i1 %40 to i64
+37:                                               ; preds = %34
+  %38 = tail call noundef zeroext i1 @_ZN5typst6layout6inline7shaping10ShapedText23cjk_justifiable_at_last17hd1d2354c64b164feE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %..i.i)
+  %39 = sext i1 %38 to i64
   br label %.thread
 
-.thread:                                          ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4last17h7cdde0156d688ef2E.exit", %36, %39
-  %.016 = phi i64 [ %41, %39 ], [ 0, %36 ], [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4last17h7cdde0156d688ef2E.exit" ]
+.thread:                                          ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4last17h7cdde0156d688ef2E.exit", %34, %37
+  %.016 = phi i64 [ %39, %37 ], [ 0, %34 ], [ 0, %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4last17h7cdde0156d688ef2E.exit" ]
   %.1 = add i64 %.016, %.0
   ret i64 %.1
 }

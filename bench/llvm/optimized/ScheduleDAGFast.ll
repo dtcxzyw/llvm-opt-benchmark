@@ -5090,7 +5090,6 @@ define internal noundef ptr @_ZN12_GLOBAL__N_120ScheduleDAGLinearize12EmitSchedu
   %.sroa.021.0.copyload = load ptr, ptr %1, align 8
   call void @_ZN4llvm12InstrEmitterC1ERKNS_13TargetMachineEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE(ptr noundef nonnull align 8 dereferenceable(57) %3, ptr noundef nonnull align 1 %7, ptr noundef %9, ptr %.sroa.021.0.copyload) #20
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %4) #20
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %10, align 4, !tbaa !359
@@ -5107,6 +5106,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_120ScheduleDAGLinearize12EmitSchedu
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !362
 
 _ZN4llvm13SmallDenseMapINS_7SDValueENS_8RegisterELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 640

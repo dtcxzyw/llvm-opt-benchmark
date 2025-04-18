@@ -1120,10 +1120,10 @@ list_head.exit69.i:                               ; preds = %455, %list_head.exi
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #16
-  %493 = icmp eq ptr %487, null
-  %494 = icmp eq ptr %491, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
+  %493 = icmp eq ptr %487, null
   %spec.store.select.i.i = select i1 %493, ptr @.str.54, ptr %487
+  %494 = icmp eq ptr %491, null
   %spec.store.select7.i.i = select i1 %494, ptr @.str.55, ptr %491
   store i32 2, ptr %464, align 8
   %495 = call i64 @strtol(ptr noundef nonnull captures(none) %spec.store.select.i.i, ptr noundef null, i32 noundef 10) #16

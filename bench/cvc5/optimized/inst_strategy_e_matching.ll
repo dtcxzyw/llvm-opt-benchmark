@@ -386,78 +386,78 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTr
   br i1 %28, label %29, label %22
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i32 0, ptr %31, align 8, !tbaa !6
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store ptr null, ptr %32, align 8, !tbaa !14
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store ptr %31, ptr %33, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store ptr %31, ptr %34, align 8, !tbaa !16
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store i64 0, ptr %35, align 8, !tbaa !17
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr %37, ptr %36, align 8, !tbaa !18
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  store i64 1, ptr %38, align 8, !tbaa !25
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %40, align 8, !tbaa !26
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store i32 0, ptr %42, align 8, !tbaa !6
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store ptr null, ptr %43, align 8, !tbaa !14
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store ptr %42, ptr %44, align 8, !tbaa !15
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store ptr %42, ptr %45, align 8, !tbaa !16
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store i64 0, ptr %46, align 8, !tbaa !17
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store i32 0, ptr %47, align 8, !tbaa !6
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store ptr null, ptr %48, align 8, !tbaa !14
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store ptr %47, ptr %49, align 8, !tbaa !15
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  store ptr %47, ptr %50, align 8, !tbaa !16
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store i64 0, ptr %51, align 8, !tbaa !17
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store i32 0, ptr %52, align 8, !tbaa !6
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store ptr null, ptr %53, align 8, !tbaa !14
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store ptr %52, ptr %54, align 8, !tbaa !15
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store ptr %52, ptr %55, align 8, !tbaa !16
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %56, align 8, !tbaa !17
-  br label %57
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store i32 0, ptr %30, align 8, !tbaa !6
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  store ptr null, ptr %31, align 8, !tbaa !14
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  store ptr %30, ptr %32, align 8, !tbaa !15
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  store ptr %30, ptr %33, align 8, !tbaa !16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  store i64 0, ptr %34, align 8, !tbaa !17
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  store ptr %36, ptr %35, align 8, !tbaa !18
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  store i64 1, ptr %37, align 8, !tbaa !25
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %39, align 8, !tbaa !26
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  store i32 0, ptr %41, align 8, !tbaa !6
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  store ptr null, ptr %42, align 8, !tbaa !14
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  store ptr %41, ptr %43, align 8, !tbaa !15
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  store ptr %41, ptr %44, align 8, !tbaa !16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  store i64 0, ptr %45, align 8, !tbaa !17
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  store i32 0, ptr %46, align 8, !tbaa !6
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  store ptr null, ptr %47, align 8, !tbaa !14
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  store ptr %46, ptr %48, align 8, !tbaa !15
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  store ptr %46, ptr %49, align 8, !tbaa !16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  store i64 0, ptr %50, align 8, !tbaa !17
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  store i32 0, ptr %51, align 8, !tbaa !6
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  store ptr null, ptr %52, align 8, !tbaa !14
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  store ptr %51, ptr %53, align 8, !tbaa !15
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  store ptr %51, ptr %54, align 8, !tbaa !16
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  store i64 0, ptr %55, align 8, !tbaa !17
+  br label %56
 
-57:                                               ; preds = %57, %29
-  %.idx18 = phi i64 [ 560, %29 ], [ %.add19, %57 ]
+56:                                               ; preds = %56, %29
+  %.idx18 = phi i64 [ 560, %29 ], [ %.add19, %56 ]
   %.ptr20 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx18
-  %58 = getelementptr inbounds nuw i8, ptr %.ptr20, i64 8
-  store i32 0, ptr %58, align 8, !tbaa !6
-  %59 = getelementptr inbounds nuw i8, ptr %.ptr20, i64 16
-  store ptr null, ptr %59, align 8, !tbaa !14
-  %60 = getelementptr inbounds nuw i8, ptr %.ptr20, i64 24
-  store ptr %58, ptr %60, align 8, !tbaa !15
-  %61 = getelementptr inbounds nuw i8, ptr %.ptr20, i64 32
-  store ptr %58, ptr %61, align 8, !tbaa !16
-  %62 = getelementptr inbounds nuw i8, ptr %.ptr20, i64 40
-  store i64 0, ptr %62, align 8, !tbaa !17
+  %57 = getelementptr inbounds nuw i8, ptr %.ptr20, i64 8
+  store i32 0, ptr %57, align 8, !tbaa !6
+  %58 = getelementptr inbounds nuw i8, ptr %.ptr20, i64 16
+  store ptr null, ptr %58, align 8, !tbaa !14
+  %59 = getelementptr inbounds nuw i8, ptr %.ptr20, i64 24
+  store ptr %57, ptr %59, align 8, !tbaa !15
+  %60 = getelementptr inbounds nuw i8, ptr %.ptr20, i64 32
+  store ptr %57, ptr %60, align 8, !tbaa !16
+  %61 = getelementptr inbounds nuw i8, ptr %.ptr20, i64 40
+  store i64 0, ptr %61, align 8, !tbaa !17
   %.add19 = add nuw nsw i64 %.idx18, 48
-  %63 = icmp eq i64 %.add19, 656
-  br i1 %63, label %64, label %57
+  %62 = icmp eq i64 %.add19, 656
+  br i1 %62, label %63, label %56
 
-64:                                               ; preds = %57
+63:                                               ; preds = %56
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -489,7 +489,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTr
   %82 = invoke noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %83 unwind label %98
 
-83:                                               ; preds = %64
+83:                                               ; preds = %63
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 344
   %85 = load ptr, ptr %84, align 8, !tbaa !65
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 764
@@ -512,7 +512,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTr
   store i8 %94, ptr %97, align 4, !tbaa !292
   ret void
 
-98:                                               ; preds = %83, %64
+98:                                               ; preds = %83, %63
   %99 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %75) #22
@@ -531,7 +531,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTr
   tail call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %68) #22
   tail call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %67) #22
   tail call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IPNS1_6theory11quantifiers4inst7TriggerEbSt4lessIS8_ESaISt4pairIKS8_bEEES9_IS3_ESaISB_IKS3_SF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %66) #22
-  tail call void @_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %36) #22
+  tail call void @_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %35) #22
   tail call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_bSt4lessIS3_ESaISt4pairIKS3_bEEES5_SaIS6_IS7_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %65) #22
   br label %103
 
@@ -544,7 +544,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTr
   br i1 %104, label %105, label %103
 
 105:                                              ; preds = %103
-  tail call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEiSt4lessIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #22
+  tail call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEiSt4lessIS3_ESaISt4pairIKS3_iEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %64) #22
   br label %106
 
 106:                                              ; preds = %106, %105

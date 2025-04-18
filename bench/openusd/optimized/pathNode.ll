@@ -7377,9 +7377,9 @@ _ZN3tbb6detail2d219concurrent_hash_mapIPKN32pxrInternal_v0_24__pxrReserved__12Sd
 
 74:                                               ; preds = %._crit_edge.i.i.i.i
   %75 = load atomic i64, ptr %26 monotonic, align 8
-  %76 = icmp ne i64 %.038.i.i.i.i, 1
-  %77 = icmp ult i64 %.038.i.i.i.i, 8
-  %.not.i.i.i.i.i = and i1 %77, %76
+  %76 = icmp ult i64 %.038.i.i.i.i, 8
+  %77 = icmp ne i64 %.038.i.i.i.i, 1
+  %.not.i.i.i.i.i = and i1 %76, %77
   br i1 %.not.i.i.i.i.i, label %.noexc1.i.i.i, label %78
 
 78:                                               ; preds = %74

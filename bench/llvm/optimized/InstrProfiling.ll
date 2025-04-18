@@ -6780,26 +6780,26 @@ _ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE9push_backEOS2_.exit: ; preds = %36, %
   %172 = load ptr, ptr %171, align 8, !tbaa !418
   %173 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %174 = load i32, ptr %173, align 8
-  %175 = lshr i32 %174, 4
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %177 = load i32, ptr %176, align 4, !tbaa !228
-  %178 = icmp eq i32 %177, 8
-  %179 = call noundef zeroext i1 @_ZN4llvm21needsComdatForCounterERKNS_12GlobalObjectERKNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %172, ptr noundef nonnull align 8 dereferenceable(841) %167) #20
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %176 = load i32, ptr %175, align 4, !tbaa !228
+  %177 = call noundef zeroext i1 @_ZN4llvm21needsComdatForCounterERKNS_12GlobalObjectERKNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %172, ptr noundef nonnull align 8 dereferenceable(841) %167) #20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #20
   call fastcc void @_ZL10getVarNameB5cxx11PN4llvm17InstrProfInstBaseENS_9StringRefERb(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull %1, ptr nonnull @.str.73, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #20
   call fastcc void @_ZL10getVarNameB5cxx11PN4llvm17InstrProfInstBaseENS_9StringRefERb(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %1, ptr nonnull @.str.79, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %7)
-  %180 = call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %168, i32 noundef 0) #20
-  %181 = call noundef ptr @_ZN4llvm19ConstantPointerNull3getEPNS_11PointerTypeE(ptr noundef %180) #20
+  %178 = call noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %168, i32 noundef 0) #20
+  %179 = call noundef ptr @_ZN4llvm19ConstantPointerNull3getEPNS_11PointerTypeE(ptr noundef %178) #20
   br label %188
 
-182:                                              ; preds = %188
-  %183 = and i32 %175, 3
-  %spec.select.i = select i1 %178, i32 0, i32 %183
-  %184 = and i32 %174, 15
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %spec.select119.i = select i1 %178, i32 8, i32 %184
+180:                                              ; preds = %188
+  %181 = and i32 %174, 15
+  %182 = lshr i32 %174, 4
+  %183 = and i32 %182, 3
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %185 = icmp eq i32 %176, 8
+  %spec.select.i = select i1 %185, i32 0, i32 %183
+  %spec.select119.i = select i1 %185, i32 8, i32 %181
   %.not116.i = icmp ne i64 %192, 0
   %186 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_123ValueProfileStaticAllocE, i64 120), align 8, !range !50
   %187 = trunc nuw i8 %186 to i1
@@ -6815,10 +6815,10 @@ _ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE9push_backEOS2_.exit: ; preds = %36, %
   %192 = add i64 %.0112180.i, %191
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %182, label %188, !llvm.loop !432
+  br i1 %exitcond.not.i, label %180, label %188, !llvm.loop !432
 
-193:                                              ; preds = %182
-  %.val.i = load i32, ptr %176, align 4, !tbaa !228
+193:                                              ; preds = %180
+  %.val.i = load i32, ptr %175, align 4, !tbaa !228
   switch i32 %.val.i, label %_ZL38needsRuntimeRegistrationOfSectionRangeRKN4llvm6TripleE.exit.thread.i [
     i32 3, label %_ZL38needsRuntimeRegistrationOfSectionRangeRKN4llvm6TripleE.exit.i
     i32 1, label %_ZL38needsRuntimeRegistrationOfSectionRangeRKN4llvm6TripleE.exit.i
@@ -6886,9 +6886,9 @@ _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i: ; preds = %_ZNK4ll
   br label %_ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.i
 
 _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i.i
-  call void @_ZN4llvm29setGlobalVariableLargeSectionERKNS_6TripleERNS_14GlobalVariableE(ptr noundef nonnull align 8 dereferenceable(56) %185, ptr noundef nonnull align 8 dereferenceable(81) %196) #20
+  call void @_ZN4llvm29setGlobalVariableLargeSectionERKNS_6TripleERNS_14GlobalVariableE(ptr noundef nonnull align 8 dereferenceable(56) %184, ptr noundef nonnull align 8 dereferenceable(81) %196) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #20
-  %219 = load i32, ptr %176, align 4, !tbaa !228
+  %219 = load i32, ptr %175, align 4, !tbaa !228
   call void @_ZN4llvm23getInstrProfSectionNameB5cxx11ENS_17InstrProfSectKindENS_6Triple16ObjectFormatTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, i32 noundef 5, i32 noundef %219, i1 noundef zeroext true) #20
   %220 = load ptr, ptr %12, align 8, !tbaa !121
   %221 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -6919,7 +6919,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i: ; preds = %
   %232 = load i64, ptr %231, align 8, !tbaa !122
   %233 = load ptr, ptr %0, align 8, !tbaa !172
   %234 = call noundef zeroext i1 @_ZN4llvm21needsComdatForCounterERKNS_12GlobalObjectERKNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %172, ptr noundef nonnull align 8 dereferenceable(841) %233) #20
-  %235 = load i32, ptr %176, align 4
+  %235 = load i32, ptr %175, align 4
   %236 = icmp eq i32 %235, 3
   %or.cond18.i = select i1 %234, i1 true, i1 %236
   br i1 %or.cond18.i, label %.critedge.i, label %_ZN12_GLOBAL__N_112InstrLowerer14maybeSetComdatEPN4llvm14GlobalVariableEPNS1_12GlobalObjectENS1_9StringRefE.exit
@@ -6952,7 +6952,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122.i: ; preds = %
 
 250:                                              ; preds = %248, %245
   call void @_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE(ptr noundef nonnull align 8 dereferenceable(56) %196, ptr noundef %247) #20
-  %251 = load i32, ptr %176, align 4, !tbaa !228
+  %251 = load i32, ptr %175, align 4, !tbaa !228
   %252 = icmp eq i32 %251, 1
   br i1 %252, label %253, label %_ZN12_GLOBAL__N_112InstrLowerer14maybeSetComdatEPN4llvm14GlobalVariableEPNS1_12GlobalObjectENS1_9StringRefE.exit
 
@@ -6974,8 +6974,8 @@ _ZN12_GLOBAL__N_112InstrLowerer14maybeSetComdatEPN4llvm14GlobalVariableEPNS1_12G
   %262 = call noundef ptr @_ZN4llvm12ConstantExpr32getPointerBitCastOrAddrSpaceCastEPNS_8ConstantEPNS_4TypeE(ptr noundef nonnull %196, ptr noundef %261) #20
   br label %_ZL38needsRuntimeRegistrationOfSectionRangeRKN4llvm6TripleE.exit.thread.i
 
-_ZL38needsRuntimeRegistrationOfSectionRangeRKN4llvm6TripleE.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_112InstrLowerer14maybeSetComdatEPN4llvm14GlobalVariableEPNS1_12GlobalObjectENS1_9StringRefE.exit, %193, %182
-  %.0110.i = phi ptr [ %262, %_ZN12_GLOBAL__N_112InstrLowerer14maybeSetComdatEPN4llvm14GlobalVariableEPNS1_12GlobalObjectENS1_9StringRefE.exit ], [ %181, %182 ], [ %181, %193 ]
+_ZL38needsRuntimeRegistrationOfSectionRangeRKN4llvm6TripleE.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_112InstrLowerer14maybeSetComdatEPN4llvm14GlobalVariableEPNS1_12GlobalObjectENS1_9StringRefE.exit, %193, %180
+  %.0110.i = phi ptr [ %262, %_ZN12_GLOBAL__N_112InstrLowerer14maybeSetComdatEPN4llvm14GlobalVariableEPNS1_12GlobalObjectENS1_9StringRefE.exit ], [ %179, %180 ], [ %179, %193 ]
   %263 = call noundef ptr @_ZNK4llvm21InstrProfCntrInstBase14getNumCountersEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #20
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
   %265 = getelementptr inbounds nuw i8, ptr %263, i64 32
@@ -7228,7 +7228,7 @@ _ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i: ; preds = %_ZNK4llvm11Globa
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %384 = load i8, ptr %383, align 8, !tbaa !170, !range !50, !noundef !51
   %385 = trunc nuw i8 %384 to i1
-  %or.cond.i = and i1 %179, %385
+  %or.cond.i = and i1 %177, %385
   %or.cond.not.i = xor i1 %or.cond.i, true
   %386 = load i8, ptr %7, align 1, !range !50
   %387 = trunc nuw i8 %386 to i1
@@ -7236,7 +7236,7 @@ _ZL22getFuncAddrForProfDataPN4llvm8FunctionE.exit.i: ; preds = %_ZNK4llvm11Globa
   br i1 %or.cond3.i, label %388, label %392
 
 388:                                              ; preds = %382
-  %389 = load i32, ptr %176, align 4, !tbaa !228
+  %389 = load i32, ptr %175, align 4, !tbaa !228
   %390 = icmp ne i32 %389, 3
   %391 = icmp ne i32 %389, 1
   %or.cond174.not.i = or i1 %391, %385
@@ -7377,7 +7377,7 @@ _ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i130.i: ; preds = %_ZNK
 
 _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit131.i: ; preds = %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.thread.i130.i, %_ZNK4llvm11GlobalValue18isImplicitDSOLocalEv.exit.i128.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #20
-  %465 = load i32, ptr %176, align 4, !tbaa !228
+  %465 = load i32, ptr %175, align 4, !tbaa !228
   call void @_ZN4llvm23getInstrProfSectionNameB5cxx11ENS_17InstrProfSectKindENS_6Triple16ObjectFormatTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, i32 noundef %.0105.i, i32 noundef %465, i1 noundef zeroext true) #20
   %466 = load ptr, ptr %17, align 8, !tbaa !121
   %467 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -7408,7 +7408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134.i: ; preds = %
   %478 = load i64, ptr %477, align 8, !tbaa !122
   %479 = load ptr, ptr %0, align 8, !tbaa !172
   %480 = call noundef zeroext i1 @_ZN4llvm21needsComdatForCounterERKNS_12GlobalObjectERKNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %172, ptr noundef nonnull align 8 dereferenceable(841) %479) #20
-  %481 = load i32, ptr %176, align 4
+  %481 = load i32, ptr %175, align 4
   %482 = icmp eq i32 %481, 3
   %or.cond18.i.i = select i1 %480, i1 true, i1 %482
   br i1 %or.cond18.i.i, label %.critedge.i.i, label %_ZN12_GLOBAL__N_112InstrLowerer14maybeSetComdatEPN4llvm14GlobalVariableEPNS1_12GlobalObjectENS1_9StringRefE.exit.i
@@ -7441,7 +7441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134.i: ; preds = %
 
 496:                                              ; preds = %494, %491
   call void @_ZN4llvm12GlobalObject9setComdatEPNS_6ComdatE(ptr noundef nonnull align 8 dereferenceable(56) %393, ptr noundef %493) #20
-  %497 = load i32, ptr %176, align 4, !tbaa !228
+  %497 = load i32, ptr %175, align 4, !tbaa !228
   %498 = icmp eq i32 %497, 1
   br i1 %498, label %499, label %_ZN12_GLOBAL__N_112InstrLowerer14maybeSetComdatEPN4llvm14GlobalVariableEPNS1_12GlobalObjectENS1_9StringRefE.exit.i
 

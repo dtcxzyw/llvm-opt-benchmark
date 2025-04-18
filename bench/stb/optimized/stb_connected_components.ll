@@ -1251,15 +1251,15 @@ stbcc__remove_clump_connection.exit:              ; preds = %112, %113, %80, %64
 define void @stbcc__build_clumps_for_cluster(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca %struct.stbcc__cluster_build_info, align 2
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #10
-  %5 = shl i32 %1, 5
   br label %.preheader360
 
 .preheader360:                                    ; preds = %3, %14
   %indvars.iv386 = phi i64 [ 0, %3 ], [ %indvars.iv.next387, %14 ]
-  %6 = trunc i64 %indvars.iv386 to i8
+  %5 = trunc i64 %indvars.iv386 to i8
   br label %10
 
 .preheader359:                                    ; preds = %14
+  %6 = shl i32 %1, 5
   %7 = shl i32 %2, 5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = sext i32 %7 to i64
@@ -1272,7 +1272,7 @@ define void @stbcc__build_clumps_for_cluster(ptr noundef captures(none) %0, i32 
   %12 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %4, i64 0, i64 %indvars.iv386, i64 %indvars.iv
   store i8 %11, ptr %12, align 2, !tbaa !37
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store i8 %6, ptr %13, align 1, !tbaa !39
+  store i8 %5, ptr %13, align 1, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %14, label %10, !llvm.loop !40
@@ -1301,7 +1301,7 @@ define void @stbcc__build_clumps_for_cluster(ptr noundef captures(none) %0, i32 
 
 22:                                               ; preds = %.preheader358, %stbcc__incluster_union.exit
   %.1302363 = phi i32 [ 0, %.preheader358 ], [ %48, %stbcc__incluster_union.exit ]
-  %23 = or disjoint i32 %.1302363, %5
+  %23 = or disjoint i32 %.1302363, %6
   %24 = ashr i32 %23, 3
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds [1024 x [128 x i8]], ptr %8, i64 0, i64 %17, i64 %25
@@ -1357,7 +1357,7 @@ stbcc__incluster_union.exit:                      ; preds = %44, %37, %22, %32
 
 50:                                               ; preds = %.loopexit, %stbcc__incluster_union.exit343
   %.2303364 = phi i32 [ 0, %.loopexit ], [ %82, %stbcc__incluster_union.exit343 ]
-  %51 = or disjoint i32 %.2303364, %5
+  %51 = or disjoint i32 %.2303364, %6
   %52 = ashr i32 %51, 3
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds [1024 x [128 x i8]], ptr %8, i64 0, i64 %.pre-phi, i64 %53
@@ -1564,7 +1564,7 @@ stbcc__incluster_union.exit343:                   ; preds = %78, %70, %50, %60
   %indvars.iv408 = phi i64 [ 1, %.preheader354 ], [ %indvars.iv.next409, %206 ]
   %.5373 = phi i32 [ %.4, %.preheader354 ], [ %.9, %206 ]
   %151 = trunc i64 %indvars.iv408 to i32
-  %152 = or i32 %5, %151
+  %152 = or i32 %6, %151
   %153 = ashr i32 %152, 3
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds [1024 x [128 x i8]], ptr %8, i64 0, i64 %9, i64 %154
@@ -1707,7 +1707,7 @@ stbcc__incluster_union.exit343:                   ; preds = %78, %70, %50, %60
 
 .sink.split452:                                   ; preds = %219
   %222 = trunc nuw nsw i64 %indvars.iv412 to i32
-  %223 = or i32 %5, %222
+  %223 = or i32 %6, %222
   %224 = ashr i32 %223, 3
   %225 = sext i32 %224 to i64
   %226 = getelementptr inbounds [1024 x [128 x i8]], ptr %8, i64 0, i64 %214, i64 %225
@@ -1759,7 +1759,7 @@ stbcc__incluster_union.exit343:                   ; preds = %78, %70, %50, %60
 
 245:                                              ; preds = %240
   %246 = trunc i64 %indvars.iv420 to i32
-  %247 = or i32 %5, %246
+  %247 = or i32 %6, %246
   %248 = ashr i32 %247, 3
   %249 = sext i32 %248 to i64
   %250 = getelementptr inbounds [1024 x [128 x i8]], ptr %8, i64 0, i64 %238, i64 %249
@@ -1802,7 +1802,7 @@ stbcc__incluster_union.exit343:                   ; preds = %78, %70, %50, %60
 
 .preheader350:                                    ; preds = %273, %263
   %267 = shl nsw i64 %9, 11
-  %268 = sext i32 %5 to i64
+  %268 = sext i32 %6 to i64
   %269 = shl nsw i64 %268, 1
   %270 = getelementptr i8, ptr %0, i64 %267
   %271 = getelementptr i8, ptr %270, i64 %269

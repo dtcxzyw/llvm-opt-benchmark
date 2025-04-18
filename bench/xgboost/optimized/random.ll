@@ -1423,14 +1423,14 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
 92:                                               ; preds = %90
   %93 = getelementptr inbounds nuw float, ptr %71, i64 %.03289
   %94 = load float, ptr %93, align 4, !tbaa !61
-  %95 = fcmp olt float %94, 0x3EB0C6F7A0000000
-  %96 = udiv i64 %80, %79
-  %spec.select.i.i.i.i = call i64 @llvm.umax.i64(i64 %96, i64 1)
+  %95 = udiv i64 %80, %79
+  %spec.select.i.i.i.i = call i64 @llvm.umax.i64(i64 %95, i64 1)
   %.pre = load i64, ptr %81, align 8, !tbaa !69
   br label %select.unfold.i.i.i.i
 
-97:                                               ; preds = %.noexc55
-  %98 = select i1 %95, float 0x3EB0C6F7A0000000, float %94
+96:                                               ; preds = %.noexc55
+  %97 = fcmp olt float %94, 0x3EB0C6F7A0000000
+  %98 = select i1 %97, float 0x3EB0C6F7A0000000, float %94
   %99 = fdiv float %164, %165
   %100 = fcmp ult float %99, 1.000000e+00
   br i1 %100, label %169, label %167, !prof !70
@@ -1535,14 +1535,14 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %165 = fmul float %.01422.i.i.i.i, 0x41F0000000000000
   %166 = add i64 %.023.i.i.i.i, -1
   %.not.i.i.i.i54 = icmp eq i64 %166, 0
-  br i1 %.not.i.i.i.i54, label %97, label %select.unfold.i.i.i.i, !llvm.loop !73
+  br i1 %.not.i.i.i.i54, label %96, label %select.unfold.i.i.i.i, !llvm.loop !73
 
-167:                                              ; preds = %97
+167:                                              ; preds = %96
   %168 = call noundef float @nextafterf(float noundef 1.000000e+00, float noundef 0.000000e+00) #11, !tbaa !47
   br label %169
 
-169:                                              ; preds = %167, %97
-  %.016.i.i.i.i = phi float [ %168, %167 ], [ %99, %97 ]
+169:                                              ; preds = %167, %96
+  %.016.i.i.i.i = phi float [ %168, %167 ], [ %99, %96 ]
   %170 = fadd float %.016.i.i.i.i, 0.000000e+00
   %171 = call noundef float @logf(float noundef %170) #11, !tbaa !47
   %172 = fdiv float %171, %98

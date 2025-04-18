@@ -1177,7 +1177,6 @@ entry:
   %badHeaders = alloca %"class.llvh::SmallPtrSet.78", align 8
   %header = alloca ptr, align 8
   %BB120 = alloca ptr, align 8
-  %storage.i.i.i.i.i.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 1, ptr %this, align 8
   %NumTombstones.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %NumTombstones.i.i.i.i.i, align 4
@@ -1193,7 +1192,6 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
 
 _ZN4llvh13SmallDenseMapIPKN6hermes10BasicBlockEPS2_Lj16ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEC2Ej.exit: ; preds = %for.body.i.i.i
   %headerToPreheader_ = getelementptr inbounds nuw i8, ptr %this, i64 264
-  %storage.i.i.i.i.i.phi.trans.insert.i.i16.ptr = getelementptr inbounds nuw i8, ptr %this, i64 272
   store i32 1, ptr %headerToPreheader_, align 8
   %NumTombstones.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 268
   store i32 0, ptr %NumTombstones.i.i.i.i.i20, align 4
@@ -1208,8 +1206,6 @@ for.body.i.i.i23:                                 ; preds = %_ZN4llvh13SmallDens
   br i1 %cmp.not.i.i.i26, label %_ZN4llvh13SmallDenseMapIPKN6hermes10BasicBlockEPS2_Lj16ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEC2Ej.exit27, label %for.body.i.i.i23, !llvm.loop !11
 
 _ZN4llvh13SmallDenseMapIPKN6hermes10BasicBlockEPS2_Lj16ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEC2Ej.exit27: ; preds = %for.body.i.i.i23
-  %NumBuckets.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %storage.i.i.i.i.i.phi.trans.insert.i.i28.ptr = getelementptr inbounds nuw i8, ptr %discovered, i64 8
   store i32 1, ptr %discovered, align 8
   %NumTombstones.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %discovered, i64 4
   store i32 0, ptr %NumTombstones.i.i.i.i.i32, align 4
@@ -1224,7 +1220,6 @@ for.body.i.i.i35:                                 ; preds = %_ZN4llvh13SmallDens
   br i1 %cmp.not.i.i.i38, label %_ZN4llvh13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_iEEEC2Ej.exit, label %for.body.i.i.i35, !llvm.loop !12
 
 _ZN4llvh13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_iEEEC2Ej.exit: ; preds = %for.body.i.i.i35
-  %NumBuckets.i.i.i.i.phi.trans.insert.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 280
   %SmallStorage.i = getelementptr inbounds nuw i8, ptr %finished, i64 32
   store ptr %SmallStorage.i, ptr %finished, align 8
   %CurArray.i.i.i = getelementptr inbounds nuw i8, ptr %finished, i64 8
@@ -1235,7 +1230,6 @@ _ZN4llvh13SmallDenseMapIPKN6hermes10BasicBlockEiLj16ENS_12DenseMapInfoIS4_EENS_6
   store i32 0, ptr %NumNonEmpty.i.i.i, align 4
   %NumTombstones.i.i.i = getelementptr inbounds nuw i8, ptr %finished, i64 24
   store i32 0, ptr %NumTombstones.i.i.i, align 8
-  %storage.i.i.i.i.i.phi.trans.insert.i.i39.ptr = getelementptr inbounds nuw i8, ptr %parent, i64 8
   store i32 1, ptr %parent, align 8
   %NumTombstones.i.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %parent, i64 4
   store i32 0, ptr %NumTombstones.i.i.i.i.i43, align 4
@@ -1250,8 +1244,6 @@ for.body.i.i.i46:                                 ; preds = %_ZN4llvh13SmallDens
   br i1 %cmp.not.i.i.i49, label %_ZN4llvh13SmallDenseMapIPKN6hermes10BasicBlockEPS2_Lj16ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEC2Ej.exit50, label %for.body.i.i.i46, !llvm.loop !11
 
 _ZN4llvh13SmallDenseMapIPKN6hermes10BasicBlockEPS2_Lj16ENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S5_EEEC2Ej.exit50: ; preds = %for.body.i.i.i46
-  %NumBuckets.i.i.i.i.phi.trans.insert.i.i30 = getelementptr inbounds nuw i8, ptr %discovered, i64 16
-  %storage.i.i.i.i.i.phi.trans.insert.i.i51.ptr = getelementptr inbounds nuw i8, ptr %headerSets, i64 8
   store i32 1, ptr %headerSets, align 8
   %NumTombstones.i.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %headerSets, i64 4
   store i32 0, ptr %NumTombstones.i.i.i.i.i55, align 4
@@ -1266,7 +1258,15 @@ for.body.i.i.i58:                                 ; preds = %_ZN4llvh13SmallDens
   br i1 %cmp.not.i.i.i61, label %while.body.lr.ph.lr.ph, label %for.body.i.i.i58, !llvm.loop !13
 
 while.body.lr.ph.lr.ph:                           ; preds = %for.body.i.i.i58
+  %storage.i.i.i.i.i.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %NumBuckets.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %storage.i.i.i.i.i.phi.trans.insert.i.i16.ptr = getelementptr inbounds nuw i8, ptr %this, i64 272
+  %NumBuckets.i.i.i.i.phi.trans.insert.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 280
+  %storage.i.i.i.i.i.phi.trans.insert.i.i28.ptr = getelementptr inbounds nuw i8, ptr %discovered, i64 8
+  %NumBuckets.i.i.i.i.phi.trans.insert.i.i30 = getelementptr inbounds nuw i8, ptr %discovered, i64 16
+  %storage.i.i.i.i.i.phi.trans.insert.i.i39.ptr = getelementptr inbounds nuw i8, ptr %parent, i64 8
   %NumBuckets.i.i.i.i.phi.trans.insert.i.i41 = getelementptr inbounds nuw i8, ptr %parent, i64 16
+  %storage.i.i.i.i.i.phi.trans.insert.i.i51.ptr = getelementptr inbounds nuw i8, ptr %headerSets, i64 8
   %NumBuckets.i.i.i.i.phi.trans.insert.i.i53 = getelementptr inbounds nuw i8, ptr %headerSets, i64 16
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %stack, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %stack, align 8

@@ -604,10 +604,10 @@ define void @_RNvMs2_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15tur
   %6 = load i64, ptr %0, align 8, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %1, %7
-  br i1 %8, label %21, label %9
+  br i1 %8, label %20, label %9
 
-9:                                                ; preds = %21, %3
-  %10 = phi i64 [ %.pre, %21 ], [ %5, %3 ]
+9:                                                ; preds = %20, %3
+  %10 = phi i64 [ %.pre, %20 ], [ %5, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %12, i64 %10
@@ -620,16 +620,16 @@ define void @_RNvMs2_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15tur
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load i8, ptr %18, align 4, !range !116, !alias.scope !168, !noalias !171, !noundef !4
-  %20 = add i64 %10, %1
   br label %26
 
-21:                                               ; preds = %3
+20:                                               ; preds = %3
   tail call void @_RINvNvMs0_NtCs68wO5nsWeTG_5alloc7raw_vecINtB8_6RawVecppE7reserve21do_reserve_and_handleNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellNtNtBa_5alloc6GlobalEB1r_(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5, i64 noundef %1)
   %.pre = load i64, ptr %4, align 8
   br label %9
 
 ._crit_edge.thread:                               ; preds = %26
-  %22 = add i64 %20, -1
+  %21 = add i64 %10, %1
+  %22 = add i64 %21, -1
   br label %23
 
 ._crit_edge:                                      ; preds = %9

@@ -2371,35 +2371,35 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   br i1 %28, label %388, label %29
 
 29:                                               ; preds = %26
-  %30 = icmp eq i32 %13, 12
-  %31 = add nuw nsw i32 %27, 1
-  br label %32
+  %30 = add nuw nsw i32 %27, 1
+  br label %31
 
-32:                                               ; preds = %32, %29
-  %33 = phi i32 [ %44, %32 ], [ 0, %29 ]
-  %34 = phi i32 [ %43, %32 ], [ 1, %29 ]
-  %35 = phi i32 [ %42, %32 ], [ %31, %29 ]
-  %36 = phi i32 [ %41, %32 ], [ %27, %29 ]
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr [13 x i32], ptr %19, i64 0, i64 %37
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp eq i32 %39, 0
-  %41 = add i32 %36, -1
-  %42 = add i32 %35, -1
-  %43 = add i32 %34, 1
-  %44 = add i32 %33, -1
-  br i1 %40, label %32, label %45, !llvm.loop !28
+31:                                               ; preds = %31, %29
+  %32 = phi i32 [ %43, %31 ], [ 0, %29 ]
+  %33 = phi i32 [ %42, %31 ], [ 1, %29 ]
+  %34 = phi i32 [ %41, %31 ], [ %30, %29 ]
+  %35 = phi i32 [ %40, %31 ], [ %27, %29 ]
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr [13 x i32], ptr %19, i64 0, i64 %36
+  %38 = load i32, ptr %37, align 4
+  %39 = icmp eq i32 %38, 0
+  %40 = add i32 %35, -1
+  %41 = add i32 %34, -1
+  %42 = add i32 %33, 1
+  %43 = add i32 %32, -1
+  br i1 %39, label %31, label %44, !llvm.loop !28
 
-45:                                               ; preds = %32
-  %46 = icmp samesign ult i32 %27, 12
-  %47 = select i1 %46, i1 %30, i1 false
+44:                                               ; preds = %31
+  %45 = icmp samesign ult i32 %27, 12
+  %46 = icmp eq i32 %13, 12
+  %47 = select i1 %45, i1 %46, i1 false
   %48 = select i1 %47, i32 11, i32 %13
-  %49 = add i32 %36, 1
+  %49 = add i32 %35, 1
   %50 = icmp ugt i32 %49, 1
   br i1 %50, label %51, label %.loopexit28
 
-51:                                               ; preds = %45
-  %52 = zext i32 %35 to i64
+51:                                               ; preds = %44
+  %52 = zext i32 %34 to i64
   br label %53
 
 53:                                               ; preds = %53, %51
@@ -2414,8 +2414,8 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %61 = icmp eq i64 %60, %52
   br i1 %61, label %.loopexit28, label %53, !llvm.loop !29
 
-.loopexit28:                                      ; preds = %53, %45
-  %62 = phi i32 [ 0, %45 ], [ %58, %53 ]
+.loopexit28:                                      ; preds = %53, %44
+  %62 = phi i32 [ 0, %44 ], [ %58, %53 ]
   store i32 %62, ptr %18, align 4
   %63 = zext i32 %49 to i64
   %64 = getelementptr i32, ptr %18, i64 %63
@@ -2453,7 +2453,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   br i1 %50, label %85, label %.loopexit23
 
 85:                                               ; preds = %.loopexit27
-  %86 = zext i32 %35 to i64
+  %86 = zext i32 %34 to i64
   br label %87
 
 87:                                               ; preds = %87, %85
@@ -2472,16 +2472,16 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   br i1 %98, label %.loopexit26, label %87, !llvm.loop !31
 
 .loopexit26:                                      ; preds = %87
-  %99 = sub i32 %31, %36
+  %99 = sub i32 %30, %35
   %100 = add nuw nsw i32 %48, 1
   %101 = sub i32 %100, %99
   %102 = icmp ult i32 %99, %101
   br i1 %102, label %.split.us.preheader, label %.loopexit25
 
 .split.us.preheader:                              ; preds = %.loopexit26
-  %103 = zext i32 %35 to i64
-  %104 = zext i32 %34 to i64
-  %105 = add i32 %48, %33
+  %103 = zext i32 %34 to i64
+  %104 = zext i32 %33 to i64
+  %105 = add i32 %48, %32
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %.loopexit24.us
@@ -2509,7 +2509,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 
 .loopexit25:                                      ; preds = %.loopexit24.us, %.loopexit26
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 736
-  %119 = sub nsw i32 %31, %48
+  %119 = sub nsw i32 %30, %48
   %120 = icmp sgt i32 %49, 1
   br i1 %120, label %.preheader22, label %.loopexit23
 
@@ -2521,7 +2521,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %125 = getelementptr i32, ptr %17, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = trunc i64 %121 to i32
-  %128 = sub i32 %31, %127
+  %128 = sub i32 %30, %127
   %129 = sub i32 %48, %128
   %130 = icmp ult i32 %129, %99
   br i1 %130, label %290, label %131
@@ -2545,7 +2545,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %145 = zext nneg i32 %137 to i64
   %146 = getelementptr i32, ptr %141, i64 %145
   %147 = icmp slt i32 %137, %49
-  %148 = add i32 %128, %31
+  %148 = add i32 %128, %30
   br label %149
 
 149:                                              ; preds = %.loopexit, %135

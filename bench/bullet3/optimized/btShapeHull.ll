@@ -191,8 +191,8 @@ define dso_local noundef zeroext i1 @_ZN11btShapeHull9buildHullEfi(ptr noundef n
   %5 = alloca %class.HullDesc, align 8
   %6 = alloca %class.HullLibrary, align 8
   %7 = alloca %class.HullResult, align 8
-  %.not = icmp eq i32 %2, 0
   call void @llvm.lifetime.start.p0(i64 4416, ptr nonnull %3) #14
+  %.not = icmp eq i32 %2, 0
   %8 = select i1 %.not, i32 42, i32 256
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %wide.trip.count = zext nneg i32 %8 to i64

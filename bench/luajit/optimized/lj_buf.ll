@@ -39,18 +39,18 @@ define internal fastcc void @buf_grow(ptr noundef captures(none) %0, i32 noundef
   %9 = sub i64 %7, %8
   %10 = trunc i64 %9 to i32
   %11 = load ptr, ptr %0, align 8, !tbaa !15
-  %12 = ptrtoint ptr %11 to i64
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %10, i32 32)
-  br label %13
+  br label %12
 
-13:                                               ; preds = %13, %2
-  %.0 = phi i32 [ %spec.store.select, %2 ], [ %15, %13 ]
-  %14 = icmp ult i32 %.0, %1
-  %15 = shl i32 %.0, 1
-  br i1 %14, label %13, label %16, !llvm.loop !16
+12:                                               ; preds = %12, %2
+  %.0 = phi i32 [ %spec.store.select, %2 ], [ %14, %12 ]
+  %13 = icmp ult i32 %.0, %1
+  %14 = shl i32 %.0, 1
+  br i1 %13, label %12, label %15, !llvm.loop !16
 
-16:                                               ; preds = %13
-  %17 = sub i64 %12, %8
+15:                                               ; preds = %12
+  %16 = ptrtoint ptr %11 to i64
+  %17 = sub i64 %16, %8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8, !tbaa !5
   %20 = and i64 %19, 2
@@ -59,7 +59,7 @@ define internal fastcc void @buf_grow(ptr noundef captures(none) %0, i32 noundef
   %22 = inttoptr i64 %21 to ptr
   br i1 %.not, label %30, label %23
 
-23:                                               ; preds = %16
+23:                                               ; preds = %15
   %24 = zext i32 %.0 to i64
   %25 = tail call ptr @lj_mem_realloc(ptr noundef %22, ptr noundef null, i64 noundef 0, i64 noundef %24) #9
   %26 = and i64 %19, -3
@@ -71,7 +71,7 @@ define internal fastcc void @buf_grow(ptr noundef captures(none) %0, i32 noundef
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %28, i64 %29, i1 false)
   br label %34
 
-30:                                               ; preds = %16
+30:                                               ; preds = %15
   %31 = and i64 %9, 4294967295
   %32 = zext i32 %.0 to i64
   %33 = tail call ptr @lj_mem_realloc(ptr noundef %22, ptr noundef %6, i64 noundef %31, i64 noundef %32) #9

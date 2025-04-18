@@ -30481,15 +30481,15 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
 _ZL20GetUniformRandomUpToPSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm.exit.i: ; preds = %..loopexit_crit_edge.i.i.i.i.i, %86, %.noexc, %80
   %.0.i.i = phi i64 [ 0, %80 ], [ %extract.t16.i.i.i.i.i, %.noexc ], [ %extract.t20.le.i.i.i.i.i, %..loopexit_crit_edge.i.i.i.i.i ], [ %extract.t16.i.i.i.i.i, %86 ]
   %155 = load i64, ptr %67, align 8, !tbaa !22
-  %156 = sub i64 %155, %.02648.i
-  %157 = udiv i64 %79, %78
-  %spec.select.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %157, i64 1)
+  %156 = udiv i64 %79, %78
+  %spec.select.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %156, i64 1)
   %.pre52.i = load i64, ptr %66, align 8, !tbaa !380
   br label %select.unfold.i.i.i.i.i
 
-158:                                              ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit41.i
-  %159 = add nuw nsw i64 %.0.i.i, 1
-  %spec.select45.i = call i64 @llvm.umin.i64(i64 %159, i64 %156)
+157:                                              ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit41.i
+  %158 = add nuw nsw i64 %.0.i.i, 1
+  %159 = sub i64 %155, %.02648.i
+  %spec.select45.i = call i64 @llvm.umin.i64(i64 %158, i64 %159)
   %160 = fdiv double %225, %228
   %161 = fcmp ult double %160, 1.000000e+00
   br i1 %161, label %_ZNSt22bernoulli_distributionclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEbRT_.exit.i, label %230, !prof !117
@@ -30596,14 +30596,14 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %228 = fptrunc x86_fp80 %227 to double
   %229 = add i64 %.023.i.i.i.i.i, -1
   %.not.i.i.i.i.i = icmp eq i64 %229, 0
-  br i1 %.not.i.i.i.i.i, label %158, label %select.unfold.i.i.i.i.i, !llvm.loop !385
+  br i1 %.not.i.i.i.i.i, label %157, label %select.unfold.i.i.i.i.i, !llvm.loop !385
 
-230:                                              ; preds = %158
+230:                                              ; preds = %157
   %231 = call double @nextafter(double noundef 1.000000e+00, double noundef 0.000000e+00) #39, !tbaa !56
   br label %_ZNSt22bernoulli_distributionclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEbRT_.exit.i
 
-_ZNSt22bernoulli_distributionclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEbRT_.exit.i: ; preds = %230, %158
-  %.016.i.i.i.i.i = phi double [ %231, %230 ], [ %160, %158 ]
+_ZNSt22bernoulli_distributionclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEbRT_.exit.i: ; preds = %230, %157
+  %.016.i.i.i.i.i = phi double [ %231, %230 ], [ %160, %157 ]
   %232 = fcmp olt double %.016.i.i.i.i.i, 5.000000e-01
   %233 = load ptr, ptr %8, align 8, !tbaa !20
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 %.02648.i

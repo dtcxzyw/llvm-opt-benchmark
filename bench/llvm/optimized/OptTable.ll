@@ -3840,9 +3840,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZN
   br i1 %.not27.i.i, label %.lr.ph.i.i.us.preheader, label %.lr.ph.i.i
 
 .lr.ph.i.i.us.preheader:                          ; preds = %.lr.ph.i.i.preheader
+  %scevgep = getelementptr i8, ptr %.sroa.059.098, i64 16
   %245 = sub i64 %105, %.sroa.059.098101
   %246 = and i64 %245, -8
-  %scevgep = getelementptr i8, ptr %.sroa.059.098, i64 16
   %scevgep102 = getelementptr i8, ptr %scevgep, i64 %246
   br label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit
 

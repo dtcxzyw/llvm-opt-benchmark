@@ -2335,20 +2335,20 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #25
-  %221 = fadd float %55, 1.000000e+01
-  %222 = fadd float %56, -1.000000e+01
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18) #25
   store i64 0, ptr %45, align 8
   store i32 50397184, ptr %18, align 8, !tbaa !30
   store ptr %0, ptr %44, align 8, !tbaa !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa !35
+  %221 = fadd float %55, 1.000000e+01
+  %222 = fadd float %56, -1.000000e+01
   %223 = insertelement <4 x float> poison, float %221, i64 0
   %224 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %223)
   %225 = insertelement <4 x float> poison, float %222, i64 0
   %226 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %225)
   %.sroa.2.0.insert.ext.i100 = zext i32 %226 to i64
-  %.sroa.0.0.insert.ext.i102 = zext i32 %224 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa !35
   %.sroa.2.0.insert.shift.i101 = shl nuw i64 %.sroa.2.0.insert.ext.i100, 32
+  %.sroa.0.0.insert.ext.i102 = zext i32 %224 to i64
   %.sroa.0.0.insert.insert.i103 = or disjoint i64 %.sroa.2.0.insert.shift.i101, %.sroa.0.0.insert.ext.i102
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 %.sroa.0.0.insert.insert.i103, i32 noundef 16, double noundef 3.750000e-01, ptr noundef nonnull %19, i32 noundef 2, i32 noundef 8, i1 noundef zeroext false)
           to label %227 unwind label %293
@@ -2906,57 +2906,57 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %19 = load ptr, ptr %1, align 8, !tbaa !67
   %20 = load float, ptr %19, align 4, !tbaa !98
-  %21 = insertelement <4 x float> poison, float %20, i64 0
-  %22 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %21)
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %24 = load float, ptr %23, align 4, !tbaa !100
-  %25 = insertelement <4 x float> poison, float %24, i64 0
-  %26 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %25)
-  %.sroa.2.0.insert.ext.i = zext i32 %26 to i64
-  %.sroa.0.0.insert.ext.i = zext i32 %22 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %22 = load float, ptr %21, align 4, !tbaa !100
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %24 = load float, ptr %23, align 4, !tbaa !98
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %26 = load float, ptr %25, align 4, !tbaa !100
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %28 = load float, ptr %27, align 4, !tbaa !98
-  %29 = insertelement <4 x float> poison, float %28, i64 0
-  %30 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %29)
-  %31 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %32 = load float, ptr %31, align 4, !tbaa !100
-  %33 = insertelement <4 x float> poison, float %32, i64 0
-  %34 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %33)
-  %.sroa.2.0.insert.ext.i20 = zext i32 %34 to i64
-  %.sroa.0.0.insert.ext.i22 = zext i32 %30 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %36 = load float, ptr %35, align 4, !tbaa !98
-  %37 = insertelement <4 x float> poison, float %36, i64 0
-  %38 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %37)
-  %39 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  %40 = load float, ptr %39, align 4, !tbaa !100
-  %41 = insertelement <4 x float> poison, float %40, i64 0
-  %42 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %41)
-  %.sroa.2.0.insert.ext.i24 = zext i32 %42 to i64
-  %.sroa.0.0.insert.ext.i26 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %44 = load float, ptr %43, align 4, !tbaa !98
-  %45 = insertelement <4 x float> poison, float %44, i64 0
-  %46 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %45)
-  %47 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  %48 = load float, ptr %47, align 4, !tbaa !100
-  %49 = insertelement <4 x float> poison, float %48, i64 0
-  %50 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %49)
-  %.sroa.2.0.insert.ext.i28 = zext i32 %50 to i64
-  %.sroa.0.0.insert.ext.i30 = zext i32 %46 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  %30 = load float, ptr %29, align 4, !tbaa !100
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %32 = load float, ptr %31, align 4, !tbaa !98
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 28
+  %34 = load float, ptr %33, align 4, !tbaa !100
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %.sroa.676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store double 2.550000e+02, ptr %.sroa.676.0..sroa_idx, align 8, !tbaa !35
   %.sroa.777.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
   store double 0.000000e+00, ptr %.sroa.777.0..sroa_idx, align 8, !tbaa !35
+  %35 = insertelement <4 x float> poison, float %20, i64 0
+  %36 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %35)
+  %37 = insertelement <4 x float> poison, float %22, i64 0
+  %38 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %37)
+  %.sroa.2.0.insert.ext.i = zext i32 %38 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
+  %.sroa.0.0.insert.ext.i = zext i32 %36 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
+  %39 = insertelement <4 x float> poison, float %24, i64 0
+  %40 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %39)
+  %41 = insertelement <4 x float> poison, float %26, i64 0
+  %42 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %41)
+  %.sroa.2.0.insert.ext.i20 = zext i32 %42 to i64
   %.sroa.2.0.insert.shift.i21 = shl nuw i64 %.sroa.2.0.insert.ext.i20, 32
+  %.sroa.0.0.insert.ext.i22 = zext i32 %40 to i64
   %.sroa.0.0.insert.insert.i23 = or disjoint i64 %.sroa.2.0.insert.shift.i21, %.sroa.0.0.insert.ext.i22
+  %43 = insertelement <4 x float> poison, float %28, i64 0
+  %44 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %43)
+  %45 = insertelement <4 x float> poison, float %30, i64 0
+  %46 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %45)
+  %.sroa.2.0.insert.ext.i24 = zext i32 %46 to i64
   %.sroa.2.0.insert.shift.i25 = shl nuw i64 %.sroa.2.0.insert.ext.i24, 32
+  %.sroa.0.0.insert.ext.i26 = zext i32 %44 to i64
   %.sroa.0.0.insert.insert.i27 = or disjoint i64 %.sroa.2.0.insert.shift.i25, %.sroa.0.0.insert.ext.i26
+  %47 = insertelement <4 x float> poison, float %32, i64 0
+  %48 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %47)
+  %49 = insertelement <4 x float> poison, float %34, i64 0
+  %50 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %49)
+  %.sroa.2.0.insert.ext.i28 = zext i32 %50 to i64
   %.sroa.2.0.insert.shift.i29 = shl nuw i64 %.sroa.2.0.insert.ext.i28, 32
+  %.sroa.0.0.insert.ext.i30 = zext i32 %48 to i64
   %.sroa.0.0.insert.insert.i31 = or disjoint i64 %.sroa.2.0.insert.shift.i29, %.sroa.0.0.insert.ext.i30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #25
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2969,11 +2969,11 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:
 
 .noexc:                                           ; preds = %_ZN2cv7Scalar_IdEC2ERKS1_.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #25
-  %53 = sitofp i32 %26 to double
-  %54 = sitofp i32 %34 to double
+  %53 = sitofp i32 %38 to double
+  %54 = sitofp i32 %42 to double
   %55 = fsub double %53, %54
-  %56 = sitofp i32 %22 to double
-  %57 = sitofp i32 %30 to double
+  %56 = sitofp i32 %36 to double
+  %57 = sitofp i32 %40 to double
   %58 = fsub double %56, %57
   %59 = call double @atan2(double noundef %55, double noundef %58) #25, !tbaa !97
   %60 = fadd double %59, 0x3FE921FB54442D18
@@ -3038,9 +3038,9 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit37:                 ; preds = %.noexc32
 
 .noexc48:                                         ; preds = %_ZN2cv7Scalar_IdEC2ERKS1_.exit37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #25
-  %80 = sitofp i32 %42 to double
+  %80 = sitofp i32 %46 to double
   %81 = fsub double %53, %80
-  %82 = sitofp i32 %38 to double
+  %82 = sitofp i32 %44 to double
   %83 = fsub double %56, %82
   %84 = call double @atan2(double noundef %81, double noundef %83) #25, !tbaa !97
   %85 = fadd double %84, 0x3FE921FB54442D18
@@ -3105,7 +3105,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit55:                 ; preds = %.noexc49
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #25
   %105 = sitofp i32 %50 to double
   %106 = fsub double %53, %105
-  %107 = sitofp i32 %46 to double
+  %107 = sitofp i32 %48 to double
   %108 = fsub double %56, %107
   %109 = call double @atan2(double noundef %106, double noundef %108) #25, !tbaa !97
   %110 = fadd double %109, 0x3FE921FB54442D18

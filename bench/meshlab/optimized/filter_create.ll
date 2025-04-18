@@ -26297,94 +26297,94 @@ declare void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 4 dereferenceable(70) ptr @_ZN5Eigen22SelfAdjointEigenSolverINS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEE7computeIS2_EERS3_RKNS_9EigenBaseIT_EEi(ptr noundef nonnull align 4 dereferenceable(70) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef %2) local_unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [4 x float], align 16
-  %5 = and i32 %2, 128
-  %6 = icmp ne i32 %5, 0
-  %7 = load float, ptr %1, align 4
-  store float %7, ptr %0, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %9 = getelementptr i8, ptr %1, i64 4
-  %10 = load float, ptr %9, align 4
-  store float %10, ptr %8, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr i8, ptr %1, i64 8
-  %13 = load float, ptr %12, align 4
-  store float %13, ptr %11, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float 0.000000e+00, ptr %14, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = getelementptr i8, ptr %1, i64 16
-  %17 = load float, ptr %16, align 4
-  store float %17, ptr %15, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %19 = getelementptr i8, ptr %1, i64 20
-  %20 = load float, ptr %19, align 4
-  store float %20, ptr %18, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float 0.000000e+00, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float 0.000000e+00, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = getelementptr i8, ptr %1, i64 32
-  %25 = load float, ptr %24, align 4
-  %26 = load <4 x i32>, ptr %0, align 4
-  %27 = and <4 x i32> %26, splat (i32 2147483647)
-  %28 = bitcast <4 x i32> %27 to <4 x float>
-  %29 = load <4 x i32>, ptr %15, align 4
-  %30 = and <4 x i32> %29, splat (i32 2147483647)
-  %31 = bitcast <4 x i32> %30 to <4 x float>
-  %32 = tail call noundef <4 x float> asm "maxps $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<4 x float> %28, <4 x float> %31) #33, !srcloc !309
+  %5 = load float, ptr %1, align 4
+  store float %5, ptr %0, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = getelementptr i8, ptr %1, i64 4
+  %8 = load float, ptr %7, align 4
+  store float %8, ptr %6, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr i8, ptr %1, i64 8
+  %11 = load float, ptr %10, align 4
+  store float %11, ptr %9, align 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store float 0.000000e+00, ptr %12, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr i8, ptr %1, i64 16
+  %15 = load float, ptr %14, align 4
+  store float %15, ptr %13, align 4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %17 = getelementptr i8, ptr %1, i64 20
+  %18 = load float, ptr %17, align 4
+  store float %18, ptr %16, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store float 0.000000e+00, ptr %19, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store float 0.000000e+00, ptr %20, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = getelementptr i8, ptr %1, i64 32
+  %23 = load float, ptr %22, align 4
+  %24 = load <4 x i32>, ptr %0, align 4
+  %25 = and <4 x i32> %24, splat (i32 2147483647)
+  %26 = bitcast <4 x i32> %25 to <4 x float>
+  %27 = load <4 x i32>, ptr %13, align 4
+  %28 = and <4 x i32> %27, splat (i32 2147483647)
+  %29 = bitcast <4 x i32> %28 to <4 x float>
+  %30 = tail call noundef <4 x float> asm "maxps $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<4 x float> %26, <4 x float> %29) #33, !srcloc !309
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store <4 x float> %32, ptr %4, align 16
-  %bc = bitcast <4 x i32> %26 to <4 x float>
-  %33 = extractelement <4 x float> %bc, i64 0
-  %bc26 = bitcast <4 x i32> %29 to <4 x float>
-  %34 = extractelement <4 x float> %bc26, i64 0
+  store <4 x float> %30, ptr %4, align 16
+  %bc = bitcast <4 x i32> %24 to <4 x float>
+  %31 = extractelement <4 x float> %bc, i64 0
+  %bc26 = bitcast <4 x i32> %27 to <4 x float>
+  %32 = extractelement <4 x float> %bc26, i64 0
   br label %.preheader.i.i.i.i.i.i.i
 
-.preheader.i.i.i.i.i.i.i:                         ; preds = %44, %3
-  %.01012.i.i.i.i.i.i.i = phi i64 [ 2, %3 ], [ %45, %44 ]
-  br label %35
+.preheader.i.i.i.i.i.i.i:                         ; preds = %42, %3
+  %.01012.i.i.i.i.i.i.i = phi i64 [ 2, %3 ], [ %43, %42 ]
+  br label %33
 
-35:                                               ; preds = %35, %.preheader.i.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %43, %35 ]
-  %36 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %.011.i.i.i.i.i.i.i
-  %37 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, %.01012.i.i.i.i.i.i.i
-  %38 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %37
-  %39 = load float, ptr %36, align 4
-  %40 = load float, ptr %38, align 4
-  %41 = fcmp olt float %39, %40
-  %42 = select i1 %41, float %40, float %39
-  store float %42, ptr %36, align 4
-  %43 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %43, %.01012.i.i.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %44, label %35, !llvm.loop !310
+33:                                               ; preds = %33, %.preheader.i.i.i.i.i.i.i
+  %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %41, %33 ]
+  %34 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %.011.i.i.i.i.i.i.i
+  %35 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, %.01012.i.i.i.i.i.i.i
+  %36 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %35
+  %37 = load float, ptr %34, align 4
+  %38 = load float, ptr %36, align 4
+  %39 = fcmp olt float %37, %38
+  %40 = select i1 %39, float %38, float %37
+  store float %40, ptr %34, align 4
+  %41 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %41, %.01012.i.i.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %42, label %33, !llvm.loop !310
 
-44:                                               ; preds = %35
-  %45 = lshr i64 %.01012.i.i.i.i.i.i.i, 1
+42:                                               ; preds = %33
+  %43 = lshr i64 %.01012.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i = icmp samesign ult i64 %.01012.i.i.i.i.i.i.i, 2
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEEEE8maxCoeffEv.exit, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !311
 
-_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEEEE8maxCoeffEv.exit: ; preds = %44
+_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEEEE8maxCoeffEv.exit: ; preds = %42
+  %44 = and i32 %2, 128
+  %45 = icmp ne i32 %44, 0
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %47 = load float, ptr %4, align 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %48 = tail call noundef float @llvm.fabs.f32(float %25)
+  %48 = tail call noundef float @llvm.fabs.f32(float %23)
   %49 = fcmp olt float %47, %48
   %50 = select i1 %49, float %48, float %47
   %51 = fcmp oeq float %50, 0.000000e+00
   %storemerge = select i1 %51, float 1.000000e+00, float %50
-  %52 = fdiv float %33, %storemerge
+  %52 = fdiv float %31, %storemerge
   store float %52, ptr %0, align 4
-  %53 = fdiv float %10, %storemerge
-  store float %53, ptr %8, align 4
-  %54 = fdiv float %13, %storemerge
-  store float %54, ptr %11, align 4
-  %55 = fdiv float %34, %storemerge
-  store float %55, ptr %15, align 4
-  %56 = fdiv float %20, %storemerge
-  store float %56, ptr %18, align 4
-  %57 = fdiv float %25, %storemerge
-  store float %57, ptr %23, align 4
+  %53 = fdiv float %8, %storemerge
+  store float %53, ptr %6, align 4
+  %54 = fdiv float %11, %storemerge
+  store float %54, ptr %9, align 4
+  %55 = fdiv float %32, %storemerge
+  store float %55, ptr %13, align 4
+  %56 = fdiv float %18, %storemerge
+  store float %56, ptr %16, align 4
+  %57 = fdiv float %23, %storemerge
+  store float %57, ptr %21, align 4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store float %52, ptr %46, align 4
   %59 = fmul float %54, %54
@@ -26399,17 +26399,17 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6Matri
   store float %53, ptr %58, align 4
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store float %56, ptr %64, align 4
-  br i1 %6, label %65, label %84
+  br i1 %45, label %65, label %84
 
 65:                                               ; preds = %61
   store float 1.000000e+00, ptr %0, align 4
-  store float 0.000000e+00, ptr %8, align 4
-  store float 0.000000e+00, ptr %11, align 4
-  store float 0.000000e+00, ptr %14, align 4
-  store float 1.000000e+00, ptr %15, align 4
-  store float 0.000000e+00, ptr %18, align 4
-  store float 0.000000e+00, ptr %21, align 4
-  store float 0.000000e+00, ptr %22, align 4
+  store float 0.000000e+00, ptr %6, align 4
+  store float 0.000000e+00, ptr %9, align 4
+  store float 0.000000e+00, ptr %12, align 4
+  store float 1.000000e+00, ptr %13, align 4
+  store float 0.000000e+00, ptr %16, align 4
+  store float 0.000000e+00, ptr %19, align 4
+  store float 0.000000e+00, ptr %20, align 4
   br label %.sink.split
 
 66:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEEEE8maxCoeffEv.exit
@@ -26435,27 +26435,27 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6Matri
   %82 = tail call float @llvm.fmuladd.f32(float %81, float %75, float %56)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store float %82, ptr %83, align 4
-  br i1 %6, label %_ZN5Eigen16CommaInitializerINS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEEcmERKf.exit70.i.i, label %84
+  br i1 %45, label %_ZN5Eigen16CommaInitializerINS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEEcmERKf.exit70.i.i, label %84
 
 _ZN5Eigen16CommaInitializerINS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEEcmERKf.exit70.i.i: ; preds = %66
   store float 1.000000e+00, ptr %0, align 4, !noalias !312
-  store float 0.000000e+00, ptr %14, align 4
-  store float 0.000000e+00, ptr %21, align 4
-  store float 0.000000e+00, ptr %8, align 4
-  store float %70, ptr %15, align 4
-  store float %71, ptr %22, align 4
-  store float 0.000000e+00, ptr %11, align 4
-  store float %71, ptr %18, align 4
+  store float 0.000000e+00, ptr %12, align 4
+  store float 0.000000e+00, ptr %19, align 4
+  store float 0.000000e+00, ptr %6, align 4
+  store float %70, ptr %13, align 4
+  store float %71, ptr %20, align 4
+  store float 0.000000e+00, ptr %9, align 4
+  store float %71, ptr %16, align 4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %65, %_ZN5Eigen16CommaInitializerINS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEEcmERKf.exit70.i.i
   %.sink = phi float [ %81, %_ZN5Eigen16CommaInitializerINS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEEEcmERKf.exit70.i.i ], [ 1.000000e+00, %65 ]
-  store float %.sink, ptr %23, align 4
+  store float %.sink, ptr %21, align 4
   br label %84
 
 84:                                               ; preds = %.sink.split, %66, %61
-  %85 = zext i1 %6 to i8
-  %86 = tail call noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_implINS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEENS2_IfLi3ELi1ELi0ELi3ELi1EEENS2_IfLi2ELi1ELi0ELi2ELi1EEEEENS_15ComputationInfoERT0_RT1_lbRT_(ptr noundef nonnull align 4 dereferenceable(12) %46, ptr noundef nonnull align 4 dereferenceable(8) %58, i64 noundef 30, i1 noundef zeroext %6, ptr noundef nonnull align 4 dereferenceable(36) %0)
+  %85 = zext i1 %45 to i8
+  %86 = tail call noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_implINS_6MatrixIfLi3ELi3ELi0ELi3ELi3EEENS2_IfLi3ELi1ELi0ELi3ELi1EEENS2_IfLi2ELi1ELi0ELi2ELi1EEEEENS_15ComputationInfoERT0_RT1_lbRT_(ptr noundef nonnull align 4 dereferenceable(12) %46, ptr noundef nonnull align 4 dereferenceable(8) %58, i64 noundef 30, i1 noundef zeroext %45, ptr noundef nonnull align 4 dereferenceable(36) %0)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %86, ptr %87, align 4
   %88 = load float, ptr %46, align 4

@@ -4986,8 +4986,8 @@ PyByteArray_AS_STRING.exit78.i:                   ; preds = %73, %PyByteArray_AS
   %87 = sub nsw i64 %78, %86
   %88 = add i64 %87, %.396.us.i
   call void @llvm.memset.p0.i64(ptr align 1 %.05695.us.i, i8 32, i64 %87, i1 false), !tbaa !17
-  %89 = sub nsw i64 0, %86
   %scevgep.i = getelementptr i8, ptr %.05695.us.i, i64 %78
+  %89 = sub nsw i64 0, %86
   %scevgep103.i = getelementptr i8, ptr %scevgep.i, i64 %89
   br label %.loopexit.us.i
 

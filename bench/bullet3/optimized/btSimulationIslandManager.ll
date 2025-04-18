@@ -1691,15 +1691,15 @@ tailrecurse:                                      ; preds = %101, %4
 
 18:                                               ; preds = %.split54.us.us
   %19 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv85
-  store ptr %42, ptr %38, align 8, !tbaa !67
+  store ptr %41, ptr %38, align 8, !tbaa !67
   store ptr %25, ptr %19, align 8, !tbaa !67
-  %20 = add nsw i32 %39, 1
+  %20 = add nsw i32 %54, 1
   %21 = add nsw i32 %55, -1
   br label %22
 
 22:                                               ; preds = %.split54.us.us, %18
   %.232.us = phi i32 [ %21, %18 ], [ %55, %.split54.us.us ]
-  %.2.us = phi i32 [ %20, %18 ], [ %39, %.split54.us.us ]
+  %.2.us = phi i32 [ %20, %18 ], [ %54, %.split54.us.us ]
   %.not35.us = icmp sgt i32 %.2.us, %.232.us
   br i1 %.not35.us, label %.split67.us, label %.split.us.us, !llvm.loop !96
 
@@ -1729,35 +1729,35 @@ _Z11getIslandIdPK20btPersistentManifold.exit.i.us.us: ; preds = %31, %23
 
 .preheader.split.us.us:                           ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i.us.us
   %38 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv82
-  %39 = trunc nsw i64 %indvars.iv82 to i32
-  %40 = sext i32 %.030.us to i64
+  %39 = sext i32 %.030.us to i64
   br label %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us
 
 _Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us: ; preds = %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us, %.preheader.split.us.us
-  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us ], [ %40, %.preheader.split.us.us ]
-  %41 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv85
-  %42 = load ptr, ptr %41, align 8, !tbaa !67
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 840
-  %44 = load ptr, ptr %43, align 8, !tbaa !83
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 228
-  %46 = load i32, ptr %45, align 4, !tbaa !54
-  %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us, label %48
+  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us ], [ %39, %.preheader.split.us.us ]
+  %40 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv85
+  %41 = load ptr, ptr %40, align 8, !tbaa !67
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 840
+  %43 = load ptr, ptr %42, align 8, !tbaa !83
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 228
+  %45 = load i32, ptr %44, align 4, !tbaa !54
+  %46 = icmp sgt i32 %45, -1
+  br i1 %46, label %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us, label %47
 
-48:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 848
-  %50 = load ptr, ptr %49, align 8, !tbaa !84
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 228
-  %52 = load i32, ptr %51, align 4, !tbaa !54
+47:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 848
+  %49 = load ptr, ptr %48, align 8, !tbaa !84
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 228
+  %51 = load i32, ptr %50, align 4, !tbaa !54
   br label %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us
 
-_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us: ; preds = %48, %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us
-  %53 = phi i32 [ %52, %48 ], [ %46, %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us ]
-  %54 = icmp slt i32 %15, %53
+_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us: ; preds = %47, %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us
+  %52 = phi i32 [ %51, %47 ], [ %45, %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us ]
+  %53 = icmp slt i32 %15, %52
   %indvars.iv.next86 = add nsw i64 %indvars.iv85, -1
-  br i1 %54, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us, label %.split54.us.us, !llvm.loop !98
+  br i1 %53, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36.us.us, label %.split54.us.us, !llvm.loop !98
 
 .split54.us.us:                                   ; preds = %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37.us.us
+  %54 = trunc nsw i64 %indvars.iv82 to i32
   %55 = trunc nsw i64 %indvars.iv85 to i32
   %.not.us = icmp sgt i64 %indvars.iv82, %indvars.iv85
   br i1 %.not.us, label %22, label %18
@@ -1801,50 +1801,50 @@ _Z11getIslandIdPK20btPersistentManifold.exit.i:   ; preds = %69, %61
 
 .preheader.split:                                 ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i
   %76 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
-  %77 = trunc nsw i64 %indvars.iv to i32
-  %78 = sext i32 %.030 to i64
+  %77 = sext i32 %.030 to i64
   br label %_Z11getIslandIdPK20btPersistentManifold.exit.i36
 
 _Z11getIslandIdPK20btPersistentManifold.exit.i36: ; preds = %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37, %.preheader.split
-  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37 ], [ %78, %.preheader.split ]
-  %79 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv79
-  %80 = load ptr, ptr %79, align 8, !tbaa !67
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 840
-  %82 = load ptr, ptr %81, align 8, !tbaa !83
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 228
-  %84 = load i32, ptr %83, align 4, !tbaa !54
-  %85 = icmp sgt i32 %84, -1
-  br i1 %85, label %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37, label %86
+  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37 ], [ %77, %.preheader.split ]
+  %78 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv79
+  %79 = load ptr, ptr %78, align 8, !tbaa !67
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 840
+  %81 = load ptr, ptr %80, align 8, !tbaa !83
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 228
+  %83 = load i32, ptr %82, align 4, !tbaa !54
+  %84 = icmp sgt i32 %83, -1
+  br i1 %84, label %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37, label %85
 
-86:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i36
-  %87 = getelementptr inbounds nuw i8, ptr %80, i64 848
-  %88 = load ptr, ptr %87, align 8, !tbaa !84
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 228
-  %90 = load i32, ptr %89, align 4, !tbaa !54
+85:                                               ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i36
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 848
+  %87 = load ptr, ptr %86, align 8, !tbaa !84
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 228
+  %89 = load i32, ptr %88, align 4, !tbaa !54
   br label %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37
 
-_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37: ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i36, %86
-  %91 = phi i32 [ %90, %86 ], [ %84, %_Z11getIslandIdPK20btPersistentManifold.exit.i36 ]
-  %92 = icmp slt i32 %59, %91
+_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37: ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit.i36, %85
+  %90 = phi i32 [ %89, %85 ], [ %83, %_Z11getIslandIdPK20btPersistentManifold.exit.i36 ]
+  %91 = icmp slt i32 %59, %90
   %indvars.iv.next80 = add nsw i64 %indvars.iv79, -1
-  br i1 %92, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36, label %.split54, !llvm.loop !98
+  br i1 %91, label %_Z11getIslandIdPK20btPersistentManifold.exit.i36, label %.split54, !llvm.loop !98
 
 .split54:                                         ; preds = %_ZNK33btPersistentManifoldSortPredicateclEPK20btPersistentManifoldS2_.exit37
+  %92 = trunc nsw i64 %indvars.iv to i32
   %93 = trunc nsw i64 %indvars.iv79 to i32
   %.not = icmp sgt i64 %indvars.iv, %indvars.iv79
   br i1 %.not, label %98, label %94
 
 94:                                               ; preds = %.split54
   %95 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv79
-  store ptr %80, ptr %76, align 8, !tbaa !67
+  store ptr %79, ptr %76, align 8, !tbaa !67
   store ptr %63, ptr %95, align 8, !tbaa !67
-  %96 = add nsw i32 %77, 1
+  %96 = add nsw i32 %92, 1
   %97 = add nsw i32 %93, -1
   br label %98
 
 98:                                               ; preds = %.split54, %94
   %.232 = phi i32 [ %97, %94 ], [ %93, %.split54 ]
-  %.2 = phi i32 [ %96, %94 ], [ %77, %.split54 ]
+  %.2 = phi i32 [ %96, %94 ], [ %92, %.split54 ]
   %.not35 = icmp sgt i32 %.2, %.232
   br i1 %.not35, label %.split67.us, label %.split, !llvm.loop !96
 

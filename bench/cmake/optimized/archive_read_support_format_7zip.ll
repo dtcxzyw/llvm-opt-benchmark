@@ -1706,7 +1706,6 @@ define internal fastcc i32 @setup_decode_folder(ptr noundef %0, ptr noundef read
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %11 = load ptr, ptr %10, align 8, !tbaa !41
   %12 = load ptr, ptr %11, align 8, !tbaa !55
-  %.not = icmp eq i32 %2, 0
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 20040
   br label %14
 
@@ -1721,6 +1720,7 @@ define internal fastcc i32 @setup_decode_folder(ptr noundef %0, ptr noundef read
   br i1 %exitcond.not, label %17, label %14, !llvm.loop !133
 
 17:                                               ; preds = %14
+  %.not = icmp eq i32 %2, 0
   %18 = select i1 %.not, ptr @.str.36, ptr @.str.35
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i64, ptr %19, align 8, !tbaa !134

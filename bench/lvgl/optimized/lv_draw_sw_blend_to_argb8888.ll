@@ -4744,10 +4744,10 @@ lv_color_32_32_mix.exit.us405:                    ; preds = %233, %._crit_edge.i
 .preheader353.preheader:                          ; preds = %.preheader353.lr.ph
   %246 = zext nneg i32 %7 to i64
   %247 = mul nuw nsw i64 %246, %243
-  %248 = mul nuw nsw i64 %246, %244
-  %249 = mul nsw i64 %246, %245
   %scevgep511 = getelementptr i8, ptr %.3, i64 %247
+  %248 = mul nuw nsw i64 %246, %244
   %scevgep512 = getelementptr i8, ptr %.3216, i64 %248
+  %249 = mul nsw i64 %246, %245
   %scevgep513 = getelementptr i8, ptr %18, i64 %249
   br label %.loopexit355
 

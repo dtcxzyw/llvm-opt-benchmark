@@ -1026,8 +1026,8 @@ dt_get_perf_times.exit109.i:                      ; preds = %108, %105
   br label %212
 
 200:                                              ; preds = %204
-  %201 = trunc nsw i64 %indvars.iv.next.i to i32
   %indvars.iv.next176.i = add nsw i64 %indvars.iv175.i, 1
+  %201 = trunc nsw i64 %indvars.iv.next.i to i32
   %indvars.iv.next174.i = add nsw i64 %indvars.iv173.i, 1
   %202 = sub nsw i32 %201, %164
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #13
@@ -1429,39 +1429,36 @@ dt_get_perf_times.exit105.i:                      ; preds = %97, %94
   %140 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv194.i
   %141 = load i32, ptr %140, align 4, !tbaa !81
   %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.lr.ph.us.us.us.preheader.i, label %.lr.ph120.split.us149.us.preheader.i
-
-.lr.ph120.split.us149.us.preheader.i:             ; preds = %.lr.ph120.us.us.i
-  %143 = mul i32 %141, %132
-  br label %.lr.ph120.split.us149.us.i
+  br i1 %142, label %.lr.ph.us.us.us.preheader.i, label %.lr.ph120.split.us149.us.i
 
 .lr.ph.us.us.us.preheader.i:                      ; preds = %.lr.ph120.us.us.i
-  %144 = sext i32 %.092132.us.us.i to i64
-  %145 = sext i32 %.094131.us.us.i to i64
+  %143 = sext i32 %.092132.us.us.i to i64
+  %144 = sext i32 %.094131.us.us.i to i64
   br label %.lr.ph.us.us.us.i
 
-.lr.ph120.split.us149.us.i:                       ; preds = %.lr.ph120.split.us149.us.i, %.lr.ph120.split.us149.us.preheader.i
-  %indvars.iv.i = phi i64 [ %138, %.lr.ph120.split.us149.us.preheader.i ], [ %indvars.iv.next.i, %.lr.ph120.split.us149.us.i ]
-  %.088116.us139.us.i = phi i32 [ 0, %.lr.ph120.split.us149.us.preheader.i ], [ %150, %.lr.ph120.split.us149.us.i ]
-  %.090115.us140.us.i = phi float [ 0.000000e+00, %.lr.ph120.split.us149.us.preheader.i ], [ %149, %.lr.ph120.split.us149.us.i ]
+.lr.ph120.split.us149.us.i:                       ; preds = %.lr.ph120.us.us.i, %.lr.ph120.split.us149.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph120.split.us149.us.i ], [ %138, %.lr.ph120.us.us.i ]
+  %.088116.us139.us.i = phi i32 [ %149, %.lr.ph120.split.us149.us.i ], [ 0, %.lr.ph120.us.us.i ]
+  %.090115.us140.us.i = phi float [ %148, %.lr.ph120.split.us149.us.i ], [ 0.000000e+00, %.lr.ph120.us.us.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %146 = getelementptr inbounds float, ptr %124, i64 %indvars.iv.i
-  %147 = load float, ptr %146, align 4, !tbaa !15
-  %148 = fmul reassoc nsz arcp contract afn float %147, 0.000000e+00
-  %149 = fadd reassoc nsz arcp contract afn float %148, %.090115.us140.us.i
-  %150 = add nuw nsw i32 %.088116.us139.us.i, 1
-  %exitcond.not.i = icmp eq i32 %150, %132
+  %145 = getelementptr inbounds float, ptr %124, i64 %indvars.iv.i
+  %146 = load float, ptr %145, align 4, !tbaa !15
+  %147 = fmul reassoc nsz arcp contract afn float %146, 0.000000e+00
+  %148 = fadd reassoc nsz arcp contract afn float %147, %.090115.us140.us.i
+  %149 = add nuw nsw i32 %.088116.us139.us.i, 1
+  %exitcond.not.i = icmp eq i32 %149, %132
   br i1 %exitcond.not.i, label %._crit_edge121.us.us.loopexit161.i, label %.lr.ph120.split.us149.us.i
 
 ._crit_edge121.us.us.loopexit161.i:               ; preds = %.lr.ph120.split.us149.us.i
-  %151 = sub i32 %.092132.us.us.i, %143
-  %152 = sub i32 %.094131.us.us.i, %143
+  %150 = mul i32 %141, %132
+  %151 = sub i32 %.092132.us.us.i, %150
+  %152 = sub i32 %.094131.us.us.i, %150
   br label %._crit_edge121.us.us.i
 
 ._crit_edge121.us.us.i:                           ; preds = %._crit_edge.us.us.us.i, %._crit_edge121.us.us.loopexit161.i
   %.us-phi.us.us.i = phi i32 [ %152, %._crit_edge121.us.us.loopexit161.i ], [ %.094131.us.us.i, %._crit_edge.us.us.us.i ]
   %.us-phi127.us.us.i = phi i32 [ %151, %._crit_edge121.us.us.loopexit161.i ], [ %.092132.us.us.i, %._crit_edge.us.us.us.i ]
-  %.us-phi128.us.us.i = phi float [ %149, %._crit_edge121.us.us.loopexit161.i ], [ %176, %._crit_edge.us.us.us.i ]
+  %.us-phi128.us.us.i = phi float [ %148, %._crit_edge121.us.us.loopexit161.i ], [ %176, %._crit_edge.us.us.us.i ]
   %153 = shl nuw nsw i64 %indvars.iv194.i, 2
   %154 = getelementptr inbounds nuw i8, ptr %scevgep.i, i64 %153
   store float %.us-phi128.us.us.i, ptr %154, align 4, !tbaa !15
@@ -1483,8 +1480,8 @@ dt_get_perf_times.exit105.i:                      ; preds = %97, %94
   br label %162
 
 162:                                              ; preds = %162, %.lr.ph.us.us.us.i
-  %indvars.iv180.i = phi i64 [ %indvars.iv.next181.i, %162 ], [ %145, %.lr.ph.us.us.us.i ]
-  %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %162 ], [ %144, %.lr.ph.us.us.us.i ]
+  %indvars.iv180.i = phi i64 [ %indvars.iv.next181.i, %162 ], [ %144, %.lr.ph.us.us.us.i ]
+  %indvars.iv178.i = phi i64 [ %indvars.iv.next179.i, %162 ], [ %143, %.lr.ph.us.us.us.i ]
   %.084110.us.us.us.i = phi i32 [ %172, %162 ], [ 0, %.lr.ph.us.us.us.i ]
   %.085109.us.us.us.i = phi float [ %171, %162 ], [ 0.000000e+00, %.lr.ph.us.us.us.i ]
   %indvars.iv.next181.i = add nsw i64 %indvars.iv180.i, 1

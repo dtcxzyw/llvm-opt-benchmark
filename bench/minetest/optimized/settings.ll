@@ -12502,32 +12502,32 @@ if.then.i.i:                                      ; preds = %if.then27
 for.body.i.i.i.i.i.i.i.preheader:                 ; preds = %if.then.i.i
   %xtraiter = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 3
   %lcmp.mod.not = icmp eq i64 %xtraiter, 0
-  br i1 %lcmp.mod.not, label %for.body.i.i.i.i.i.i.i.prol.loopexit, label %for.body.i.i.i.i.i.i.i.prol.preheader
+  br i1 %lcmp.mod.not, label %for.body.i.i.i.i.i.i.i.prol.loopexit, label %for.body.i.i.i.i.i.i.i.prol
 
-for.body.i.i.i.i.i.i.i.prol.preheader:            ; preds = %for.body.i.i.i.i.i.i.i.preheader
-  %5 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 9223372036854775804
-  br label %for.body.i.i.i.i.i.i.i.prol
-
-for.body.i.i.i.i.i.i.i.prol:                      ; preds = %for.body.i.i.i.i.i.i.i.prol.preheader, %for.body.i.i.i.i.i.i.i.prol
-  %__result.addr.09.i.i.i.i.i.i.i.prol = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.prol ], [ %add.ptr.i.i, %for.body.i.i.i.i.i.i.i.prol.preheader ]
-  %__first.addr.08.i.i.i.i.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.prol ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.prol.preheader ]
-  %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.i.i.i.i.prol ], [ 0, %for.body.i.i.i.i.i.i.i.prol.preheader ]
-  %6 = load ptr, ptr %__first.addr.08.i.i.i.i.i.i.i.prol, align 8, !tbaa !24
-  store ptr %6, ptr %__result.addr.09.i.i.i.i.i.i.i.prol, align 8, !tbaa !135
+for.body.i.i.i.i.i.i.i.prol:                      ; preds = %for.body.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i.prol
+  %__result.addr.09.i.i.i.i.i.i.i.prol = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.prol ], [ %add.ptr.i.i, %for.body.i.i.i.i.i.i.i.preheader ]
+  %__first.addr.08.i.i.i.i.i.i.i.prol = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.prol ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.preheader ]
+  %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.i.i.i.i.i.i.prol ], [ 0, %for.body.i.i.i.i.i.i.i.preheader ]
+  %5 = load ptr, ptr %__first.addr.08.i.i.i.i.i.i.i.prol, align 8, !tbaa !24
+  store ptr %5, ptr %__result.addr.09.i.i.i.i.i.i.i.prol, align 8, !tbaa !135
   %second.i.i.i.i.i.i.i.i.prol = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.i.i.prol, i64 8
-  %7 = load ptr, ptr %second.i.i.i.i.i.i.i.i.prol, align 8, !tbaa !24
+  %6 = load ptr, ptr %second.i.i.i.i.i.i.i.i.prol, align 8, !tbaa !24
   %second3.i.i.i.i.i.i.i.i.prol = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i.i.i.prol, i64 8
-  store ptr %7, ptr %second3.i.i.i.i.i.i.i.i.prol, align 8, !tbaa !137
+  store ptr %6, ptr %second3.i.i.i.i.i.i.i.i.prol, align 8, !tbaa !137
   %incdec.ptr.i.i.i.i.i.i.i.prol = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.i.i.prol, i64 16
   %incdec.ptr1.i.i.i.i.i.i.i.prol = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i.i.i.prol, i64 16
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
   %prol.iter.cmp.not = icmp eq i64 %prol.iter.next, %xtraiter
-  br i1 %prol.iter.cmp.not, label %for.body.i.i.i.i.i.i.i.prol.loopexit, label %for.body.i.i.i.i.i.i.i.prol, !llvm.loop !237
+  br i1 %prol.iter.cmp.not, label %for.body.i.i.i.i.i.i.i.prol.loopexit.loopexit, label %for.body.i.i.i.i.i.i.i.prol, !llvm.loop !237
 
-for.body.i.i.i.i.i.i.i.prol.loopexit:             ; preds = %for.body.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.preheader
-  %__n.010.i.i.i.i.i.i.i.unr = phi i64 [ %sub.ptr.div.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.preheader ], [ %5, %for.body.i.i.i.i.i.i.i.prol ]
-  %__result.addr.09.i.i.i.i.i.i.i.unr = phi ptr [ %add.ptr.i.i, %for.body.i.i.i.i.i.i.i.preheader ], [ %incdec.ptr1.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.prol ]
-  %__first.addr.08.i.i.i.i.i.i.i.unr = phi ptr [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.prol ]
+for.body.i.i.i.i.i.i.i.prol.loopexit.loopexit:    ; preds = %for.body.i.i.i.i.i.i.i.prol
+  %7 = and i64 %sub.ptr.div.i.i.i.i.i.i.i, 9223372036854775804
+  br label %for.body.i.i.i.i.i.i.i.prol.loopexit
+
+for.body.i.i.i.i.i.i.i.prol.loopexit:             ; preds = %for.body.i.i.i.i.i.i.i.prol.loopexit.loopexit, %for.body.i.i.i.i.i.i.i.preheader
+  %__n.010.i.i.i.i.i.i.i.unr = phi i64 [ %sub.ptr.div.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.preheader ], [ %7, %for.body.i.i.i.i.i.i.i.prol.loopexit.loopexit ]
+  %__result.addr.09.i.i.i.i.i.i.i.unr = phi ptr [ %add.ptr.i.i, %for.body.i.i.i.i.i.i.i.preheader ], [ %incdec.ptr1.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.prol.loopexit.loopexit ]
+  %__first.addr.08.i.i.i.i.i.i.i.unr = phi ptr [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.prol.loopexit.loopexit ]
   %8 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i.i, 4
   br i1 %8, label %_ZNSt6vectorISt4pairIPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvES9_ESaISC_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSC_SE_EE.exit, label %for.body.i.i.i.i.i.i.i
 

@@ -130218,83 +130218,83 @@ JS_ThisTimeValue.exit.thread:                     ; preds = %JS_ThisTimeValue.ex
   %49 = add nsw i64 %48, %47
   %50 = sub i64 %.044, %49
   %51 = sdiv i64 %50, 86400000
-  %.lhs.trunc = trunc nsw i64 %49 to i32
-  %52 = sdiv i32 %.lhs.trunc, 1000
-  %53 = srem i32 %.lhs.trunc, 1000
-  %54 = sdiv i32 %.lhs.trunc, 60000
-  %.lhs.trunc67 = trunc nsw i32 %54 to i16
-  %55 = add nsw i64 %51, 4
-  %56 = srem i64 %55, 7
-  %isneg.i50 = icmp slt i64 %56, 0
-  %57 = select i1 %isneg.i50, i64 7, i64 0
-  %58 = mul nsw i64 %51, 10000
-  %59 = srem i64 %58, 3652425
-  %isneg.i.i = icmp slt i64 %59, 0
+  %52 = mul nsw i64 %51, 10000
+  %53 = srem i64 %52, 3652425
+  %isneg.i.i = icmp slt i64 %53, 0
   %.neg34.i = select i1 %isneg.i.i, i64 -3652425, i64 0
-  %.neg24.i = sub nsw i64 %58, %59
-  %60 = add nsw i64 %.neg24.i, %.neg34.i
-  %61 = sdiv i64 %60, 3652425
-  %62 = add nsw i64 %61, 1970
+  %.neg24.i = sub nsw i64 %52, %53
+  %54 = add nsw i64 %.neg24.i, %.neg34.i
+  %55 = sdiv i64 %54, 3652425
+  %56 = add nsw i64 %55, 1970
   %.neg29.i = add nsw i64 %51, 719050
-  br label %63
+  br label %57
 
-63:                                               ; preds = %88, %46
-  %.0.i = phi i64 [ %62, %46 ], [ %89, %88 ]
-  %64 = add i64 %.0.i, -1969
-  %65 = ashr i64 %64, 2
-  %66 = add i64 %.0.i, -1901
-  %67 = srem i64 %66, 100
-  %isneg.i4.i.i = icmp slt i64 %67, 0
+57:                                               ; preds = %88, %46
+  %.0.i = phi i64 [ %56, %46 ], [ %89, %88 ]
+  %58 = add i64 %.0.i, -1969
+  %59 = ashr i64 %58, 2
+  %60 = add i64 %.0.i, -1901
+  %61 = srem i64 %60, 100
+  %isneg.i4.i.i = icmp slt i64 %61, 0
   %.neg12.i.i = select i1 %isneg.i4.i.i, i64 -100, i64 0
-  %.neg8.i.i = sub i64 %66, %67
-  %68 = add i64 %.neg8.i.i, %.neg12.i.i
-  %.neg.i.neg35.i = sdiv i64 %68, 100
-  %69 = add i64 %.0.i, -1601
-  %70 = srem i64 %69, 400
-  %isneg.i5.i.i = icmp slt i64 %70, 0
+  %.neg8.i.i = sub i64 %60, %61
+  %62 = add i64 %.neg8.i.i, %.neg12.i.i
+  %.neg.i.neg35.i = sdiv i64 %62, 100
+  %63 = add i64 %.0.i, -1601
+  %64 = srem i64 %63, 400
+  %isneg.i5.i.i = icmp slt i64 %64, 0
   %.neg13.i.i = select i1 %isneg.i5.i.i, i64 -400, i64 0
-  %.neg11.i.i = sub i64 %69, %70
-  %71 = add i64 %.neg11.i.i, %.neg13.i.i
-  %.neg.i = sdiv i64 %71, -400
+  %.neg11.i.i = sub i64 %63, %64
+  %65 = add i64 %.neg11.i.i, %.neg13.i.i
+  %.neg.i = sdiv i64 %65, -400
   %.neg28.i = mul i64 %.0.i, -365
   %.neg31.i = add i64 %.neg29.i, %.neg28.i
-  %.neg32.i = sub i64 %.neg31.i, %65
+  %.neg32.i = sub i64 %.neg31.i, %59
   %.neg33.i = add i64 %.neg32.i, %.neg.i.neg35.i
-  %72 = add i64 %.neg33.i, %.neg.i
-  %73 = icmp slt i64 %72, 0
-  br i1 %73, label %88, label %74
+  %66 = add i64 %.neg33.i, %.neg.i
+  %67 = icmp slt i64 %66, 0
+  br i1 %67, label %88, label %68
 
-74:                                               ; preds = %63
-  %75 = and i64 %.0.i, 3
-  %.not.i18.i = icmp eq i64 %75, 0
-  %76 = select i1 %.not.i18.i, i64 366, i64 365
-  %77 = srem i64 %.0.i, 100
-  %.not3.i19.i = icmp eq i64 %77, 0
+68:                                               ; preds = %57
+  %69 = and i64 %.0.i, 3
+  %.not.i18.i = icmp eq i64 %69, 0
+  %70 = select i1 %.not.i18.i, i64 366, i64 365
+  %71 = srem i64 %.0.i, 100
+  %.not3.i19.i = icmp eq i64 %71, 0
   %.neg.i20.i = sext i1 %.not3.i19.i to i64
-  %78 = add nsw i64 %76, %.neg.i20.i
-  %79 = srem i64 %.0.i, 400
-  %.not4.i21.i = icmp eq i64 %79, 0
-  %80 = zext i1 %.not4.i21.i to i64
-  %81 = add nuw nsw i64 %78, %80
-  %82 = icmp samesign ult i64 %72, %81
-  br i1 %82, label %year_from_days.exit.preheader, label %88
+  %72 = add nsw i64 %70, %.neg.i20.i
+  %73 = srem i64 %.0.i, 400
+  %.not4.i21.i = icmp eq i64 %73, 0
+  %74 = zext i1 %.not4.i21.i to i64
+  %75 = add nuw nsw i64 %72, %74
+  %76 = icmp samesign ult i64 %66, %75
+  br i1 %76, label %year_from_days.exit.preheader, label %88
 
-year_from_days.exit.preheader:                    ; preds = %74
-  %83 = srem i32 %52, 60
-  %84 = srem i16 %.lhs.trunc67, 60
-  %85 = sdiv i32 %.lhs.trunc, 3600000
-  %86 = add nsw i64 %57, %56
-  %87 = add nsw i64 %81, -365
+year_from_days.exit.preheader:                    ; preds = %68
+  %.lhs.trunc = trunc nsw i64 %49 to i32
+  %77 = srem i32 %.lhs.trunc, 1000
+  %78 = sdiv i32 %.lhs.trunc, 1000
+  %79 = srem i32 %78, 60
+  %80 = sdiv i32 %.lhs.trunc, 60000
+  %.lhs.trunc67 = trunc nsw i32 %80 to i16
+  %81 = srem i16 %.lhs.trunc67, 60
+  %82 = sdiv i32 %.lhs.trunc, 3600000
+  %83 = add nsw i64 %51, 4
+  %84 = srem i64 %83, 7
+  %isneg.i50 = icmp slt i64 %84, 0
+  %85 = select i1 %isneg.i50, i64 7, i64 0
+  %86 = add nsw i64 %85, %84
+  %87 = add nsw i64 %75, -365
   br label %90
 
-88:                                               ; preds = %74, %63
-  %.sink.i = phi i64 [ -1, %63 ], [ 1, %74 ]
+88:                                               ; preds = %68, %57
+  %.sink.i = phi i64 [ -1, %57 ], [ 1, %68 ]
   %89 = add i64 %.sink.i, %.0.i
-  br label %63
+  br label %57
 
 90:                                               ; preds = %year_from_days.exit.preheader, %year_from_days.exit
   %.04578 = phi i64 [ 0, %year_from_days.exit.preheader ], [ %98, %year_from_days.exit ]
-  %.05577 = phi i64 [ %72, %year_from_days.exit.preheader ], [ %97, %year_from_days.exit ]
+  %.05577 = phi i64 [ %66, %year_from_days.exit.preheader ], [ %97, %year_from_days.exit ]
   %91 = getelementptr inbounds nuw [12 x i32], ptr @month_days, i64 0, i64 %.04578
   %92 = load i32, ptr %91, align 4, !tbaa !67
   %93 = sext i32 %92 to i64
@@ -130322,16 +130322,16 @@ year_from_days.exit:                              ; preds = %90
   %104 = sitofp i64 %103 to double
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %104, ptr %105, align 8, !tbaa !109
-  %106 = sitofp i32 %85 to double
+  %106 = sitofp i32 %82 to double
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %106, ptr %107, align 8, !tbaa !109
-  %108 = sitofp i16 %84 to double
+  %108 = sitofp i16 %81 to double
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store double %108, ptr %109, align 8, !tbaa !109
-  %110 = sitofp i32 %83 to double
+  %110 = sitofp i32 %79 to double
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store double %110, ptr %111, align 8, !tbaa !109
-  %112 = sitofp i32 %53 to double
+  %112 = sitofp i32 %77 to double
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store double %112, ptr %113, align 8, !tbaa !109
   %114 = sitofp i64 %86 to double

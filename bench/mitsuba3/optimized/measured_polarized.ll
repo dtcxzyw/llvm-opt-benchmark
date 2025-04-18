@@ -7389,7 +7389,6 @@ _ZNSt3__1lsB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic_ostrea
 define linkonce_odr hidden void @_ZN7mitsuba14Distribution2DIfLm4EEC2ERKNS_6VectorIjLm2EEERKNSt3__15arrayIjLm4EEERKNS7_IPKfLm4EEE(ptr noundef nonnull align 8 dereferenceable(132) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__1::basic_string", align 8
   %6 = alloca %"class.std::__1::basic_string", align 8
-  %.ptr82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %7
 
 7:                                                ; preds = %7, %4
@@ -7408,6 +7407,7 @@ define linkonce_odr hidden void @_ZN7mitsuba14Distribution2DIfLm4EEC2ERKNS_6Vect
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp ugt i32 %13, 1
+  %.ptr82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %or.cond.not = and i1 %11, %14
   br i1 %or.cond.not, label %.critedge, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIjLm2EEEE4any_Ev.exit.thread
 
@@ -7910,17 +7910,17 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE8minimum_ERKS3_.exit.critedge:
   %.1.i.i = select i1 %211, float 0xFFF0000000000000, float %spec.select.i.i
   %212 = fcmp contract ult float %177, 0.000000e+00
   %213 = select i1 %212, float 0xFFFFFFFFE0000000, float %.1.i.i
-  %214 = fneg contract float %213
-  %215 = fsub contract float -2.500000e+00, %213
-  %216 = tail call contract noundef float @llvm.sqrt.f32(float %214)
-  %217 = tail call contract noundef float @llvm.fma.f32(float %215, float 0x3FCF91EC60000000, float 0x3FF805C5E0000000)
-  %218 = tail call contract noundef float @llvm.fma.f32(float %215, float 0xBF548A8100000000, float 0xBF711C9DE0000000)
-  %219 = tail call contract noundef float @llvm.fma.f32(float %215, float 0xBED26B5820000000, float 0x3F2CA65B60000000)
-  %220 = tail call contract noundef float @llvm.fma.f32(float %215, float 0x3E970966C0000000, float 0xBECD8E6AE0000000)
-  %221 = fmul contract float %215, %215
-  %222 = tail call contract noundef float @llvm.fma.f32(float %221, float %218, float %217)
-  %223 = tail call contract noundef float @llvm.fma.f32(float %221, float %220, float %219)
-  %224 = fadd contract float %216, -3.000000e+00
+  %214 = fsub contract float -2.500000e+00, %213
+  %215 = tail call contract noundef float @llvm.fma.f32(float %214, float 0x3FCF91EC60000000, float 0x3FF805C5E0000000)
+  %216 = tail call contract noundef float @llvm.fma.f32(float %214, float 0xBF548A8100000000, float 0xBF711C9DE0000000)
+  %217 = tail call contract noundef float @llvm.fma.f32(float %214, float 0xBED26B5820000000, float 0x3F2CA65B60000000)
+  %218 = tail call contract noundef float @llvm.fma.f32(float %214, float 0x3E970966C0000000, float 0xBECD8E6AE0000000)
+  %219 = fmul contract float %214, %214
+  %220 = tail call contract noundef float @llvm.fma.f32(float %219, float %216, float %215)
+  %221 = tail call contract noundef float @llvm.fma.f32(float %219, float %218, float %217)
+  %222 = fneg contract float %213
+  %223 = tail call contract noundef float @llvm.sqrt.f32(float %222)
+  %224 = fadd contract float %223, -3.000000e+00
   %225 = tail call contract noundef float @llvm.fma.f32(float %224, float 0x3FF006DB60000000, float 0x4006A9EFC0000000)
   %226 = tail call contract noundef float @llvm.fma.f32(float %224, float 0xBF7F38BAE0000000, float 0x3F8354AFC0000000)
   %227 = tail call contract noundef float @llvm.fma.f32(float %224, float 0xBF6E17BCE0000000, float 0x3F77824F60000000)
@@ -7928,9 +7928,9 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE8minimum_ERKS3_.exit.critedge:
   %229 = fmul contract float %224, %224
   %230 = tail call contract noundef float @llvm.fma.f32(float %229, float %226, float %225)
   %231 = tail call contract noundef float @llvm.fma.f32(float %229, float %228, float %227)
-  %232 = fmul contract float %221, %221
+  %232 = fmul contract float %219, %219
   %233 = fmul contract float %232, %232
-  %234 = tail call contract noundef float @llvm.fma.f32(float %232, float %223, float %222)
+  %234 = tail call contract noundef float @llvm.fma.f32(float %232, float %221, float %220)
   %235 = tail call contract noundef float @llvm.fma.f32(float %233, float 0x3E5E2CB100000000, float %234)
   %236 = fmul contract float %229, %229
   %237 = tail call contract noundef float @llvm.fma.f32(float %236, float %231, float %230)

@@ -2638,11 +2638,11 @@ _ZN5cmsys13RegExpCompile4regcEc.exit65:           ; preds = %_ZN5cmsys13RegExpCo
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.promoted = load i64, ptr %86, align 8, !tbaa !31
-  %107 = xor i32 %102, -1
-  %108 = add nsw i32 %107, %103
-  %109 = zext i32 %108 to i64
-  %110 = add i64 %.promoted, 1
-  %111 = add i64 %110, %109
+  %107 = add i64 %.promoted, 1
+  %108 = xor i32 %102, -1
+  %109 = add nsw i32 %108, %103
+  %110 = zext i32 %109 to i64
+  %111 = add i64 %107, %110
   store i64 %111, ptr %86, align 8, !tbaa !31
   br label %._crit_edge
 
@@ -2909,8 +2909,8 @@ _ZN5cmsys13RegExpCompile4regcEc.exit76:           ; preds = %174, %176
   %209 = add nsw i32 %.03484, -1
   %210 = zext nneg i32 %209 to i64
   %211 = zext nneg i32 %.03484 to i64
-  %212 = add i64 %.promoted97, %210
   %scevgep = getelementptr i8, ptr %.promoted95, i64 %211
+  %212 = add i64 %.promoted97, %210
   %213 = add i64 %212, 1
   store ptr %scevgep, ptr %0, align 8, !tbaa !27
   store i64 %213, ptr %208, align 8, !tbaa !31

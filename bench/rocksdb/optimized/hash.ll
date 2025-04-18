@@ -1066,47 +1066,47 @@ define void @_ZN7rocksdb19BijectiveUnhash2x64EmmPmS0_(i64 noundef %0, i64 nounde
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc noundef i64 @_ZL22XXPH3_len_129to240_64bPKhmS0_mm(ptr noundef readonly captures(none) %0, i64 noundef range(i64 129, 241) %1, i64 noundef %2) unnamed_addr #11 {
   %4 = mul i64 %1, -7046029288634856825
-  %5 = trunc nuw nsw i64 %1 to i32
-  br label %6
+  br label %5
 
-6:                                                ; preds = %3, %6
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %6 ]
-  %.0251 = phi i64 [ %4, %3 ], [ %22, %6 ]
-  %7 = shl nuw nsw i64 %indvars.iv, 4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
-  %9 = getelementptr inbounds nuw i8, ptr @_ZL7kSecret, i64 %7
-  %.val37 = load i64, ptr %8, align 1
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val36 = load i64, ptr %10, align 1
-  %.val35 = load i64, ptr %9, align 16
-  %11 = add i64 %.val35, %2
-  %12 = xor i64 %11, %.val37
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.val34 = load i64, ptr %13, align 8
-  %14 = sub i64 %.val34, %2
-  %15 = xor i64 %14, %.val36
-  %16 = zext i64 %12 to i128
-  %17 = zext i64 %15 to i128
-  %18 = mul nuw i128 %17, %16
-  %19 = lshr i128 %18, 64
-  %20 = xor i128 %19, %18
-  %21 = trunc i128 %20 to i64
-  %22 = add i64 %.0251, %21
+5:                                                ; preds = %3, %5
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
+  %.0251 = phi i64 [ %4, %3 ], [ %21, %5 ]
+  %6 = shl nuw nsw i64 %indvars.iv, 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr @_ZL7kSecret, i64 %6
+  %.val37 = load i64, ptr %7, align 1
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.val36 = load i64, ptr %9, align 1
+  %.val35 = load i64, ptr %8, align 16
+  %10 = add i64 %.val35, %2
+  %11 = xor i64 %10, %.val37
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.val34 = load i64, ptr %12, align 8
+  %13 = sub i64 %.val34, %2
+  %14 = xor i64 %13, %.val36
+  %15 = zext i64 %11 to i128
+  %16 = zext i64 %14 to i128
+  %17 = mul nuw i128 %16, %15
+  %18 = lshr i128 %17, 64
+  %19 = xor i128 %18, %17
+  %20 = trunc i128 %19 to i64
+  %21 = add i64 %.0251, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %23, label %6, !llvm.loop !28
+  br i1 %exitcond.not, label %22, label %5, !llvm.loop !28
 
-23:                                               ; preds = %6
-  %24 = lshr i32 %5, 4
-  %25 = lshr i64 %22, 37
-  %26 = xor i64 %25, %22
+22:                                               ; preds = %5
+  %23 = trunc nuw nsw i64 %1 to i32
+  %24 = lshr i32 %23, 4
+  %25 = lshr i64 %21, 37
+  %26 = xor i64 %25, %21
   %27 = mul i64 %26, 1609587929392839161
   %28 = lshr i64 %27, 32
   %29 = xor i64 %28, %27
   %.not = icmp eq i32 %24, 8
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %23
+.lr.ph.preheader:                                 ; preds = %22
   %wide.trip.count = zext nneg i32 %24 to i64
   br label %.lr.ph
 
@@ -1138,8 +1138,8 @@ define internal fastcc noundef i64 @_ZL22XXPH3_len_129to240_64bPKhmS0_mm(ptr nou
   %exitcond10.not = icmp eq i64 %indvars.iv.next8, %wide.trip.count
   br i1 %exitcond10.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph, %23
-  %.126.lcssa = phi i64 [ %29, %23 ], [ %46, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %22
+  %.126.lcssa = phi i64 [ %29, %22 ], [ %46, %.lr.ph ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %48 = getelementptr inbounds i8, ptr %47, i64 -16
   %.val29 = load i64, ptr %48, align 1

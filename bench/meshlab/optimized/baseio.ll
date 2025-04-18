@@ -47804,8 +47804,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %7, %2
   %98 = icmp ugt i64 %97, -9223372036854775808
   %storemerge.idx.i.i.i.i.i44 = select i1 %98, i64 -8, i64 0
   %storemerge.i.i.i.i.i45 = getelementptr inbounds i8, ptr %96, i64 %storemerge.idx.i.i.i.i.i44
-  %99 = and i64 %94, 63
   %storemerge.i.i.i.i.i45.promoted = load i64, ptr %storemerge.i.i.i.i.i45, align 8
+  %99 = and i64 %94, 63
   %100 = shl nuw i64 1, %99
   %101 = or i64 %storemerge.i.i.i.i.i45.promoted, %100
   store i64 %101, ptr %storemerge.i.i.i.i.i45, align 8
@@ -55569,29 +55569,29 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %463 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %464 = load ptr, ptr %463, align 8
   %465 = load ptr, ptr %1, align 8
-  %466 = ptrtoint ptr %465 to i64
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %461
   %indvars.iv.i.i = phi i64 [ 0, %461 ], [ %indvars.iv.next.i.i, %.preheader.i.i ]
-  %467 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %466 = getelementptr inbounds nuw [3 x %"class.vcg::Point3"], ptr %3, i64 0, i64 %indvars.iv.i.i
+  store float 0.000000e+00, ptr %466, align 4
+  %467 = getelementptr inbounds nuw i8, ptr %466, i64 4
   store float 0.000000e+00, ptr %467, align 4
-  %468 = getelementptr inbounds nuw i8, ptr %467, i64 4
-  store float 0.000000e+00, ptr %468, align 4
-  %469 = getelementptr inbounds nuw i8, ptr %467, i64 8
-  store float 1.000000e+00, ptr %469, align 4
+  %468 = getelementptr inbounds nuw i8, ptr %466, i64 8
+  store float 1.000000e+00, ptr %468, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %_ZN3vcg4face10vector_ocfI6CFaceOE19WedgeNormalTypePackC2Ev.exit.i, label %.preheader.i.i, !llvm.loop !240
 
 _ZN3vcg4face10vector_ocfI6CFaceOE19WedgeNormalTypePackC2Ev.exit.i: ; preds = %.preheader.i.i
+  %469 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %470 = ptrtoint ptr %464 to i64
-  %471 = sub i64 %470, %466
-  %472 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %473 = sdiv exact i64 %471, 48
+  %471 = ptrtoint ptr %465 to i64
+  %472 = sub i64 %470, %471
+  %473 = sdiv exact i64 %472, 48
   %474 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %475 = load ptr, ptr %474, align 8
-  %476 = load ptr, ptr %472, align 8
+  %476 = load ptr, ptr %469, align 8
   %477 = ptrtoint ptr %475 to i64
   %478 = ptrtoint ptr %476 to i64
   %479 = sub i64 %477, %478
@@ -55601,11 +55601,11 @@ _ZN3vcg4face10vector_ocfI6CFaceOE19WedgeNormalTypePackC2Ev.exit.i: ; preds = %.p
 
 482:                                              ; preds = %_ZN3vcg4face10vector_ocfI6CFaceOE19WedgeNormalTypePackC2Ev.exit.i
   %483 = sub nuw nsw i64 %473, %480
-  invoke void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE19WedgeNormalTypePackESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %472, ptr %475, i64 noundef %483, ptr noundef nonnull align 4 dereferenceable(36) %3)
+  invoke void @_ZNSt6vectorIN3vcg4face10vector_ocfI6CFaceOE19WedgeNormalTypePackESaIS5_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS5_S7_EEmRKS5_(ptr noundef nonnull align 8 dereferenceable(24) %469, ptr %475, i64 noundef %483, ptr noundef nonnull align 4 dereferenceable(36) %3)
           to label %._crit_edge109 unwind label %79
 
 ._crit_edge109:                                   ; preds = %482
-  %.pre110 = load ptr, ptr %472, align 8
+  %.pre110 = load ptr, ptr %469, align 8
   %.pre111 = load ptr, ptr %463, align 8
   %.pre112 = load ptr, ptr %1, align 8
   %.pre168 = ptrtoint ptr %.pre111 to i64

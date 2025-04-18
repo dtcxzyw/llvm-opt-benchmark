@@ -366,25 +366,25 @@ define hidden noundef i32 @_ZNK4ncnn13BatchNorm_x8615forward_inplaceERNS_3MatERK
   %27 = load ptr, ptr %26, align 8, !tbaa !16
   %28 = mul nsw i32 %21, %13
   %29 = icmp sgt i32 %28, 3
-  br i1 %29, label %.lr.ph.preheader, label %.preheader
+  br i1 %29, label %.lr.ph, label %.preheader
 
-.lr.ph.preheader:                                 ; preds = %22
+.preheader.loopexit:                              ; preds = %.lr.ph
   %30 = and i32 %28, 2147483644
-  br label %.lr.ph
+  br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %22
-  %.044.lcssa = phi ptr [ %25, %22 ], [ %38, %.lr.ph ]
-  %.042.lcssa = phi ptr [ %27, %22 ], [ %39, %.lr.ph ]
-  %.040.lcssa = phi ptr [ %23, %22 ], [ %37, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %22 ], [ %30, %.lr.ph ]
+.preheader:                                       ; preds = %.preheader.loopexit, %22
+  %.044.lcssa = phi ptr [ %25, %22 ], [ %38, %.preheader.loopexit ]
+  %.042.lcssa = phi ptr [ %27, %22 ], [ %39, %.preheader.loopexit ]
+  %.040.lcssa = phi ptr [ %23, %22 ], [ %37, %.preheader.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %22 ], [ %30, %.preheader.loopexit ]
   %31 = icmp slt i32 %.0.lcssa, %28
   br i1 %31, label %.lr.ph60, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.052 = phi i32 [ %40, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.04051 = phi ptr [ %37, %.lr.ph ], [ %23, %.lr.ph.preheader ]
-  %.04250 = phi ptr [ %39, %.lr.ph ], [ %27, %.lr.ph.preheader ]
-  %.04449 = phi ptr [ %38, %.lr.ph ], [ %25, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %22, %.lr.ph
+  %.052 = phi i32 [ %40, %.lr.ph ], [ 0, %22 ]
+  %.04051 = phi ptr [ %37, %.lr.ph ], [ %23, %22 ]
+  %.04250 = phi ptr [ %39, %.lr.ph ], [ %27, %22 ]
+  %.04449 = phi ptr [ %38, %.lr.ph ], [ %25, %22 ]
   %32 = load <4 x float>, ptr %.04051, align 1, !tbaa !25
   %33 = load <4 x float>, ptr %.04449, align 1, !tbaa !25
   %34 = load <4 x float>, ptr %.04250, align 1, !tbaa !25
@@ -397,7 +397,7 @@ define hidden noundef i32 @_ZNK4ncnn13BatchNorm_x8615forward_inplaceERNS_3MatERK
   %40 = add nuw nsw i32 %.052, 4
   %41 = or disjoint i32 %40, 3
   %42 = icmp slt i32 %41, %28
-  br i1 %42, label %.lr.ph, label %.preheader, !llvm.loop !26
+  br i1 %42, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !26
 
 .lr.ph60:                                         ; preds = %.preheader, %.lr.ph60
   %.159 = phi i32 [ %51, %.lr.ph60 ], [ %.0.lcssa, %.preheader ]

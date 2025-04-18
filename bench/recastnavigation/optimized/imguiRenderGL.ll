@@ -3714,26 +3714,23 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread: ; preds = %._crit
 
 _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11.us.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  br i1 %.not.i87.us.i, label %1347, label %.lr.ph.preheader.i22
+  br i1 %.not.i87.us.i, label %1347, label %.lr.ph.i24
 
-.lr.ph.preheader.i22:                             ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit
-  %93 = fneg float %5
-  br label %.lr.ph.i24
-
-.lr.ph.i24:                                       ; preds = %.lr.ph.i24, %.lr.ph.preheader.i22
-  %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.preheader.i22 ], [ %indvars.iv.next.i26, %.lr.ph.i24 ]
-  %.0854.i = phi i32 [ 0, %.lr.ph.preheader.i22 ], [ %96, %.lr.ph.i24 ]
-  %94 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i25
-  %95 = load i32, ptr %94, align 4
-  %96 = add nsw i32 %95, %.0854.i
+.lr.ph.i24:                                       ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit, %.lr.ph.i24
+  %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %.lr.ph.i24 ], [ 0, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit ]
+  %.0854.i = phi i32 [ %95, %.lr.ph.i24 ], [ 0, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit ]
+  %93 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i25
+  %94 = load i32, ptr %93, align 4
+  %95 = add nsw i32 %94, %.0854.i
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %27
   br i1 %exitcond.not.i27, label %._crit_edge.i28, label %.lr.ph.i24, !llvm.loop !20
 
 ._crit_edge.i28:                                  ; preds = %.lr.ph.i24
   %.not.i = icmp eq i32 %10, 0
-  %97 = select i1 %.not.i, float %5, float %93
-  %98 = add nsw i32 %96, 1
+  %96 = fneg float %5
+  %97 = select i1 %.not.i, float %5, float %96
+  %98 = add nsw i32 %95, 1
   %99 = sext i32 %98 to i64
   %100 = mul nsw i64 %99, 20
   %101 = tail call noalias noundef ptr @malloc(i64 noundef %100) #27

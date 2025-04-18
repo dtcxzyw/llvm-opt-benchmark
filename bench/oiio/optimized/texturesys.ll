@@ -4204,24 +4204,24 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
   %107 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv141
   %108 = load float, ptr %107, align 4, !tbaa !98
   %109 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7textureEPNS0_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS0_13TextureOpt_v2EffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(76) %16, float noundef %98, float noundef %100, float noundef %102, float noundef %104, float noundef %106, float noundef %108, i32 noundef %11, ptr noundef nonnull %72, ptr noundef null, ptr noundef null)
-  %110 = icmp ne i8 %.099110.us.us, 0
-  %111 = select i1 %109, i1 %110, i1 false
   %invariant.gep = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv141
-  br label %112
+  br label %110
 
-112:                                              ; preds = %.lr.ph108.us.us, %112
-  %indvars.iv136 = phi i64 [ 0, %.lr.ph108.us.us ], [ %indvars.iv.next137, %112 ]
-  %113 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv136
-  %114 = load float, ptr %113, align 4, !tbaa !98
+110:                                              ; preds = %.lr.ph108.us.us, %110
+  %indvars.iv136 = phi i64 [ 0, %.lr.ph108.us.us ], [ %indvars.iv.next137, %110 ]
+  %111 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv136
+  %112 = load float, ptr %111, align 4, !tbaa !98
   %.idx = shl nsw i64 %indvars.iv136, 6
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  store float %114, ptr %gep, align 4, !tbaa !98
+  store float %112, ptr %gep, align 4, !tbaa !98
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %..loopexit_crit_edge.us.us.loopexit, label %112, !llvm.loop !265
+  br i1 %exitcond140.not, label %..loopexit_crit_edge.us.us.loopexit, label %110, !llvm.loop !265
 
-..loopexit_crit_edge.us.us.loopexit:              ; preds = %112
-  %115 = zext i1 %111 to i8
+..loopexit_crit_edge.us.us.loopexit:              ; preds = %110
+  %113 = icmp ne i8 %.099110.us.us, 0
+  %114 = select i1 %109, i1 %113, i1 false
+  %115 = zext i1 %114 to i8
   br label %..loopexit_crit_edge.us.us
 
 ..loopexit_crit_edge.us.us:                       ; preds = %..loopexit_crit_edge.us.us.loopexit, %.split.us.split.us
@@ -4334,32 +4334,32 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7tex
   %174 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv130
   %175 = load float, ptr %174, align 4, !tbaa !98
   %176 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_017TextureSystemImpl7textureEPNS0_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS0_13TextureOpt_v2EffffffiPfS9_S9_(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(76) %16, float noundef %165, float noundef %167, float noundef %169, float noundef %171, float noundef %173, float noundef %175, i32 noundef %11, ptr noundef nonnull %72, ptr noundef nonnull %74, ptr noundef nonnull %75)
-  %177 = icmp ne i8 %.099110.us116, 0
-  %178 = select i1 %176, i1 %177, i1 false
-  br label %179
+  br label %177
 
-179:                                              ; preds = %.lr.ph.us, %179
-  %indvars.iv126 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next127, %179 ]
-  %180 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv126
-  %181 = load float, ptr %180, align 4, !tbaa !98
-  %182 = shl nsw i64 %indvars.iv126, 4
-  %183 = add nuw nsw i64 %182, %indvars.iv130
-  %184 = getelementptr inbounds nuw float, ptr %12, i64 %183
-  store float %181, ptr %184, align 4, !tbaa !98
-  %185 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv126
-  %186 = load float, ptr %185, align 4, !tbaa !98
-  %187 = getelementptr inbounds nuw float, ptr %13, i64 %183
-  store float %186, ptr %187, align 4, !tbaa !98
-  %188 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv126
-  %189 = load float, ptr %188, align 4, !tbaa !98
-  %190 = getelementptr inbounds nuw float, ptr %14, i64 %183
-  store float %189, ptr %190, align 4, !tbaa !98
+177:                                              ; preds = %.lr.ph.us, %177
+  %indvars.iv126 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next127, %177 ]
+  %178 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv126
+  %179 = load float, ptr %178, align 4, !tbaa !98
+  %180 = shl nsw i64 %indvars.iv126, 4
+  %181 = add nuw nsw i64 %180, %indvars.iv130
+  %182 = getelementptr inbounds nuw float, ptr %12, i64 %181
+  store float %179, ptr %182, align 4, !tbaa !98
+  %183 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv126
+  %184 = load float, ptr %183, align 4, !tbaa !98
+  %185 = getelementptr inbounds nuw float, ptr %13, i64 %181
+  store float %184, ptr %185, align 4, !tbaa !98
+  %186 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv126
+  %187 = load float, ptr %186, align 4, !tbaa !98
+  %188 = getelementptr inbounds nuw float, ptr %14, i64 %181
+  store float %187, ptr %188, align 4, !tbaa !98
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond129.not, label %..loopexit105_crit_edge.us.loopexit, label %179, !llvm.loop !267
+  br i1 %exitcond129.not, label %..loopexit105_crit_edge.us.loopexit, label %177, !llvm.loop !267
 
-..loopexit105_crit_edge.us.loopexit:              ; preds = %179
-  %191 = zext i1 %178 to i8
+..loopexit105_crit_edge.us.loopexit:              ; preds = %177
+  %189 = icmp ne i8 %.099110.us116, 0
+  %190 = select i1 %176, i1 %189, i1 false
+  %191 = zext i1 %190 to i8
   br label %..loopexit105_crit_edge.us
 
 ..loopexit105_crit_edge.us:                       ; preds = %..loopexit105_crit_edge.us.loopexit, %.split.split.us
@@ -7928,12 +7928,12 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 
 _ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit: ; preds = %161, %228
   %.016.i.i.i.i = phi float [ %229, %228 ], [ %162, %161 ]
-  %230 = fadd float %.016.i.i.i.i, 0.000000e+00
-  %231 = fadd float %230, -5.000000e-01
   br label %select.unfold.i.i.i.i137
 
-232:                                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit179
-  %233 = fmul float %231, 1.500000e+00
+230:                                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit179
+  %231 = fadd float %.016.i.i.i.i, 0.000000e+00
+  %232 = fadd float %231, -5.000000e-01
+  %233 = fmul float %232, 1.500000e+00
   %234 = fdiv float %297, %298
   %235 = fcmp ult float %234, 1.000000e+00
   br i1 %235, label %_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit143, label %300, !prof !299
@@ -8036,20 +8036,20 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %298 = fmul float %.01422.i.i.i.i139, 0x41F0000000000000
   %299 = add i64 %.023.i.i.i.i138, -1
   %.not.i.i.i.i141 = icmp eq i64 %299, 0
-  br i1 %.not.i.i.i.i141, label %232, label %select.unfold.i.i.i.i137, !llvm.loop !344
+  br i1 %.not.i.i.i.i141, label %230, label %select.unfold.i.i.i.i137, !llvm.loop !344
 
-300:                                              ; preds = %232
+300:                                              ; preds = %230
   %301 = call noundef float @nextafterf(float noundef 1.000000e+00, float noundef 0.000000e+00) #47
   br label %_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit143
 
-_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit143: ; preds = %232, %300
-  %.016.i.i.i.i142 = phi float [ %301, %300 ], [ %234, %232 ]
-  %302 = fadd float %.016.i.i.i.i142, 0.000000e+00
-  %303 = fadd float %302, -5.000000e-01
+_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit143: ; preds = %230, %300
+  %.016.i.i.i.i142 = phi float [ %301, %300 ], [ %234, %230 ]
   br label %select.unfold.i.i.i.i145
 
-304:                                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit193
-  %305 = fmul float %303, 1.500000e+00
+302:                                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit193
+  %303 = fadd float %.016.i.i.i.i142, 0.000000e+00
+  %304 = fadd float %303, -5.000000e-01
+  %305 = fmul float %304, 1.500000e+00
   %306 = fdiv float %369, %370
   %307 = fcmp ult float %306, 1.000000e+00
   br i1 %307, label %_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit151, label %372, !prof !299
@@ -8152,20 +8152,20 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %370 = fmul float %.01422.i.i.i.i147, 0x41F0000000000000
   %371 = add i64 %.023.i.i.i.i146, -1
   %.not.i.i.i.i149 = icmp eq i64 %371, 0
-  br i1 %.not.i.i.i.i149, label %304, label %select.unfold.i.i.i.i145, !llvm.loop !344
+  br i1 %.not.i.i.i.i149, label %302, label %select.unfold.i.i.i.i145, !llvm.loop !344
 
-372:                                              ; preds = %304
+372:                                              ; preds = %302
   %373 = call noundef float @nextafterf(float noundef 1.000000e+00, float noundef 0.000000e+00) #47
   br label %_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit151
 
-_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit151: ; preds = %304, %372
-  %.016.i.i.i.i150 = phi float [ %373, %372 ], [ %306, %304 ]
-  %374 = fadd float %.016.i.i.i.i150, 0.000000e+00
-  %375 = fadd float %374, -5.000000e-01
+_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit151: ; preds = %302, %372
+  %.016.i.i.i.i150 = phi float [ %373, %372 ], [ %306, %302 ]
   br label %select.unfold.i.i.i.i153
 
-376:                                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit207
-  %377 = fmul float %375, 1.500000e+00
+374:                                              ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit207
+  %375 = fadd float %.016.i.i.i.i150, 0.000000e+00
+  %376 = fadd float %375, -5.000000e-01
+  %377 = fmul float %376, 1.500000e+00
   %378 = fdiv float %441, %442
   %379 = fcmp ult float %378, 1.000000e+00
   br i1 %379, label %_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit159, label %444, !prof !299
@@ -8268,14 +8268,14 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %442 = fmul float %.01422.i.i.i.i155, 0x41F0000000000000
   %443 = add i64 %.023.i.i.i.i154, -1
   %.not.i.i.i.i157 = icmp eq i64 %443, 0
-  br i1 %.not.i.i.i.i157, label %376, label %select.unfold.i.i.i.i153, !llvm.loop !344
+  br i1 %.not.i.i.i.i157, label %374, label %select.unfold.i.i.i.i153, !llvm.loop !344
 
-444:                                              ; preds = %376
+444:                                              ; preds = %374
   %445 = call noundef float @nextafterf(float noundef 1.000000e+00, float noundef 0.000000e+00) #47
   br label %_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit159
 
-_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit159: ; preds = %376, %444
-  %.016.i.i.i.i158 = phi float [ %445, %444 ], [ %378, %376 ]
+_ZNSt25uniform_real_distributionIfEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEfRT_.exit159: ; preds = %374, %444
+  %.016.i.i.i.i158 = phi float [ %445, %444 ], [ %378, %374 ]
   %446 = fadd float %.016.i.i.i.i158, 0.000000e+00
   %447 = fadd float %446, -5.000000e-01
   %448 = fmul float %447, 1.500000e+00

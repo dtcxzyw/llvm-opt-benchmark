@@ -23354,27 +23354,27 @@ define noundef range(i32 -1, 1) i32 @_ZN6LibRaw19crxParseImageHeaderEPhii(ptr no
   br i1 %or.cond92, label %129, label %5
 
 5:                                                ; preds = %4
-  %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %5
-  %.07.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %5 ]
-  %.036.i = phi ptr [ %10, %.lr.ph.i ], [ %7, %5 ]
-  %.045.i = phi i32 [ %8, %.lr.ph.i ], [ 2, %5 ]
-  %8 = add nsw i32 %.045.i, -1
-  %9 = shl i32 %.07.i, 8
-  %10 = getelementptr inbounds nuw i8, ptr %.036.i, i64 1
-  %11 = load i8, ptr %.036.i, align 1, !tbaa !34
-  %12 = zext i8 %11 to i32
-  %13 = or disjoint i32 %9, %12
-  %14 = icmp samesign ugt i32 %.045.i, 1
-  br i1 %14, label %.lr.ph.i, label %_ZN6LibRaw5sgetnEiPh.exit, !llvm.loop !195
+  %.07.i = phi i32 [ %12, %.lr.ph.i ], [ 0, %5 ]
+  %.036.i = phi ptr [ %9, %.lr.ph.i ], [ %6, %5 ]
+  %.045.i = phi i32 [ %7, %.lr.ph.i ], [ 2, %5 ]
+  %7 = add nsw i32 %.045.i, -1
+  %8 = shl i32 %.07.i, 8
+  %9 = getelementptr inbounds nuw i8, ptr %.036.i, i64 1
+  %10 = load i8, ptr %.036.i, align 1, !tbaa !34
+  %11 = zext i8 %10 to i32
+  %12 = or disjoint i32 %8, %11
+  %13 = icmp samesign ugt i32 %.045.i, 1
+  br i1 %13, label %.lr.ph.i, label %_ZN6LibRaw5sgetnEiPh.exit, !llvm.loop !195
 
 _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 381992
-  %16 = getelementptr inbounds nuw [16 x %struct.crx_data_header_t], ptr %15, i64 0, i64 %6
-  store i32 %13, ptr %16, align 8, !tbaa !189
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 381992
+  %15 = zext nneg i32 %2 to i64
+  %16 = getelementptr inbounds nuw [16 x %struct.crx_data_header_t], ptr %14, i64 0, i64 %15
+  store i32 %12, ptr %16, align 8, !tbaa !189
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph.i93
 
@@ -23537,7 +23537,7 @@ _ZN6LibRaw5sgetnEiPh.exit117:                     ; preds = %.lr.ph.i113
   br label %.thread
 
 .thread:                                          ; preds = %_ZN6LibRaw5sgetnEiPh.exit117, %106, %100
-  switch i32 %13, label %129 [
+  switch i32 %12, label %129 [
     i32 256, label %110
     i32 512, label %110
   ]

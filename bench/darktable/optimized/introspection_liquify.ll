@@ -2391,16 +2391,16 @@ _layers_showing.exit.thread:                      ; preds = %update_warp_count.e
   store i32 0, ptr %65, align 4
   call fastcc void @_distort_paths_locked(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %9)
   call void @cairo_scale(ptr noundef %1, double noundef %62, double noundef %62) #29
-  %66 = fmul reassoc nsz arcp contract afn float %6, %23
-  %67 = load ptr, ptr %13, align 16, !tbaa !157
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 80
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 88
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 96
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 104
+  %66 = load ptr, ptr %13, align 16, !tbaa !157
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 80
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 88
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 104
   br label %1032
 
-72:                                               ; preds = %1072
-  %73 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %66
+71:                                               ; preds = %1072
+  %72 = fmul reassoc nsz arcp contract afn float %6, %23
+  %73 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %72
   %74 = call ptr @g_list_reverse(ptr noundef %.4.i) #29
   %.val.i = load ptr, ptr %13, align 16, !tbaa !157
   call void @cairo_set_line_cap(ptr noundef %1, i32 noundef 1) #29
@@ -2412,7 +2412,7 @@ _layers_showing.exit.thread:                      ; preds = %update_warp_count.e
   %.not47.i.i = icmp eq ptr %.val558.i.i, null
   br i1 %.not47.i.i, label %79, label %87
 
-79:                                               ; preds = %72
+79:                                               ; preds = %71
   %80 = getelementptr inbounds nuw i8, ptr %.val.i, i64 12
   %81 = load float, ptr %80, align 4
   %82 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
@@ -2422,7 +2422,7 @@ _layers_showing.exit.thread:                      ; preds = %update_warp_count.e
   %86 = or i1 %84, %85
   br i1 %86, label %87, label %90
 
-87:                                               ; preds = %79, %72
+87:                                               ; preds = %79, %71
   %88 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %89 = load i32, ptr %88, align 8, !tbaa !186
   %.not539.i.i = icmp eq i32 %89, 18
@@ -3987,7 +3987,7 @@ _layers_showing.exit.thread:                      ; preds = %update_warp_count.e
 1032:                                             ; preds = %1072, %_layers_showing.exit.thread
   %indvars.iv.i32 = phi i64 [ 0, %_layers_showing.exit.thread ], [ %indvars.iv.next.i34, %1072 ]
   %.02533.i = phi ptr [ null, %_layers_showing.exit.thread ], [ %.4.i, %1072 ]
-  %1033 = load ptr, ptr %68, align 8, !tbaa !181
+  %1033 = load ptr, ptr %67, align 8, !tbaa !181
   %1034 = call i32 @gtk_toggle_button_get_active(ptr noundef %1033) #29
   %.not.i33 = icmp eq i32 %1034, 0
   br i1 %.not.i33, label %1042, label %1035
@@ -4006,7 +4006,7 @@ _layers_showing.exit.thread:                      ; preds = %update_warp_count.e
 
 1042:                                             ; preds = %1039, %1035, %1032
   %.1.i = phi ptr [ %1041, %1039 ], [ %.02533.i, %1035 ], [ %.02533.i, %1032 ]
-  %1043 = load ptr, ptr %69, align 8, !tbaa !182
+  %1043 = load ptr, ptr %68, align 8, !tbaa !182
   %1044 = call i32 @gtk_toggle_button_get_active(ptr noundef %1043) #29
   %.not27.i = icmp eq i32 %1044, 0
   br i1 %.not27.i, label %1052, label %1045
@@ -4025,7 +4025,7 @@ _layers_showing.exit.thread:                      ; preds = %update_warp_count.e
 
 1052:                                             ; preds = %1049, %1045, %1042
   %.2.i = phi ptr [ %1051, %1049 ], [ %.1.i, %1045 ], [ %.1.i, %1042 ]
-  %1053 = load ptr, ptr %70, align 8, !tbaa !183
+  %1053 = load ptr, ptr %69, align 8, !tbaa !183
   %1054 = call i32 @gtk_toggle_button_get_active(ptr noundef %1053) #29
   %.not29.i = icmp eq i32 %1054, 0
   br i1 %.not29.i, label %1062, label %1055
@@ -4044,7 +4044,7 @@ _layers_showing.exit.thread:                      ; preds = %update_warp_count.e
 
 1062:                                             ; preds = %1059, %1055, %1052
   %.3.i = phi ptr [ %1061, %1059 ], [ %.2.i, %1055 ], [ %.2.i, %1052 ]
-  %1063 = load ptr, ptr %71, align 8, !tbaa !180
+  %1063 = load ptr, ptr %70, align 8, !tbaa !180
   %1064 = call i32 @gtk_toggle_button_get_active(ptr noundef %1063) #29
   %.not31.i = icmp eq i32 %1064, 0
   br i1 %.not31.i, label %1072, label %1065
@@ -4065,7 +4065,7 @@ _layers_showing.exit.thread:                      ; preds = %update_warp_count.e
   %.4.i = phi ptr [ %1071, %1069 ], [ %.3.i, %1065 ], [ %.3.i, %1062 ]
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 19
-  br i1 %exitcond.not.i35, label %72, label %1032
+  br i1 %exitcond.not.i35, label %71, label %1032
 
 draw_paths.exit:                                  ; preds = %1029, %92
   call void @g_list_free_full(ptr noundef %93, ptr noundef nonnull @free) #29

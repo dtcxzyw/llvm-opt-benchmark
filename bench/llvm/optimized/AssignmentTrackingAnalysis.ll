@@ -27439,20 +27439,20 @@ _ZL39removeRedundantDbgLocsUsingBackwardScanPKN4llvm10BasicBlockER22FunctionVarL
   store i32 1, ptr %16, align 8
   %982 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 0, ptr %982, align 4, !tbaa !919
-  br label %.lr.ph.i.i.i.i12
+  br label %.lr.ph.i.i.i.i11
 
-.lr.ph.i.i.i.i12:                                 ; preds = %.lr.ph.i.i.i.i12, %981
-  %.06.i.i.i.idx.i13 = phi i64 [ %.06.i.i.i.add.i16, %.lr.ph.i.i.i.i12 ], [ 8, %981 ]
-  %.06.i.i.i.ptr.i14 = getelementptr inbounds nuw i8, ptr %16, i64 %.06.i.i.i.idx.i13
-  store ptr inttoptr (i64 -4096 to ptr), ptr %.06.i.i.i.ptr.i14, align 8
-  %.sroa.4.0..sroa_idx.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.ptr.i14, i64 8
-  store ptr inttoptr (i64 -4096 to ptr), ptr %.sroa.4.0..sroa_idx.i.i.i.i15, align 8
-  %.06.i.i.i.add.i16 = add nuw nsw i64 %.06.i.i.i.idx.i13, 88
-  %.not.i.i.i.i17 = icmp eq i64 %.06.i.i.i.add.i16, 360
-  br i1 %.not.i.i.i.i17, label %_ZN4llvm13SmallDenseMapISt4pairIPKNS_15DILocalVariableEPKNS_10DILocationEENS_13SmallDenseSetINS_23DbgVariableFragmentInfoELj4ENS_12DenseMapInfoISA_vEEEELj4ENSB_IS8_vEENS_6detail12DenseMapPairIS8_SD_EEEC2Ej.exit.i, label %.lr.ph.i.i.i.i12, !llvm.loop !922
+.lr.ph.i.i.i.i11:                                 ; preds = %.lr.ph.i.i.i.i11, %981
+  %.06.i.i.i.idx.i12 = phi i64 [ %.06.i.i.i.add.i15, %.lr.ph.i.i.i.i11 ], [ 8, %981 ]
+  %.06.i.i.i.ptr.i13 = getelementptr inbounds nuw i8, ptr %16, i64 %.06.i.i.i.idx.i12
+  store ptr inttoptr (i64 -4096 to ptr), ptr %.06.i.i.i.ptr.i13, align 8
+  %.sroa.4.0..sroa_idx.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.ptr.i13, i64 8
+  store ptr inttoptr (i64 -4096 to ptr), ptr %.sroa.4.0..sroa_idx.i.i.i.i14, align 8
+  %.06.i.i.i.add.i15 = add nuw nsw i64 %.06.i.i.i.idx.i12, 88
+  %.not.i.i.i.i16 = icmp eq i64 %.06.i.i.i.add.i15, 360
+  br i1 %.not.i.i.i.i16, label %_ZN4llvm13SmallDenseMapISt4pairIPKNS_15DILocalVariableEPKNS_10DILocationEENS_13SmallDenseSetINS_23DbgVariableFragmentInfoELj4ENS_12DenseMapInfoISA_vEEEELj4ENSB_IS8_vEENS_6detail12DenseMapPairIS8_SD_EEEC2Ej.exit.i, label %.lr.ph.i.i.i.i11, !llvm.loop !922
 
-_ZN4llvm13SmallDenseMapISt4pairIPKNS_15DILocalVariableEPKNS_10DILocationEENS_13SmallDenseSetINS_23DbgVariableFragmentInfoELj4ENS_12DenseMapInfoISA_vEEEELj4ENSB_IS8_vEENS_6detail12DenseMapPairIS8_SD_EEEC2Ej.exit.i: ; preds = %.lr.ph.i.i.i.i12
-  %.phi.trans.insert.i.i.ptr.i11 = getelementptr inbounds nuw i8, ptr %16, i64 8
+_ZN4llvm13SmallDenseMapISt4pairIPKNS_15DILocalVariableEPKNS_10DILocationEENS_13SmallDenseSetINS_23DbgVariableFragmentInfoELj4ENS_12DenseMapInfoISA_vEEEELj4ENSB_IS8_vEENS_6detail12DenseMapPairIS8_SD_EEEC2Ej.exit.i: ; preds = %.lr.ph.i.i.i.i11
+  %.phi.trans.insert.i.i.ptr.i17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.phi.trans.insert3.i.i.i18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %983 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sroa.0296.0422.i = load ptr, ptr %983, align 8, !tbaa !112
@@ -27487,8 +27487,8 @@ _ZN4llvm13SmallDenseMapISt4pairIPKNS_15DILocalVariableEPKNS_10DILocationEENS_13S
   br i1 %1002, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPKNS_15DILocalVariableEPKNS_10DILocationEENS_13SmallDenseSetINS_23DbgVariableFragmentInfoELj4ENS_12DenseMapInfoISB_vEEEELj4ENSC_IS9_vEENS_6detail12DenseMapPairIS9_SE_EEEES9_SE_SF_SI_E10destroyAllEv.exit.i.i, label %.lr.ph.preheader.i.i.i44
 
 .lr.ph.preheader.i.i.i44:                         ; preds = %._crit_edge427.i
-  %1003 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i11, align 8
-  %1004 = select i1 %.not.i.i.i.i.i43, ptr %1003, ptr %.phi.trans.insert.i.i.ptr.i11
+  %1003 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i17, align 8
+  %1004 = select i1 %.not.i.i.i.i.i43, ptr %1003, ptr %.phi.trans.insert.i.i.ptr.i17
   %1005 = zext i32 %1001 to i64
   %1006 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.762", ptr %1004, i64 %1005
   br label %.lr.ph.i.i.i45
@@ -27542,7 +27542,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPKNS_15DILocalVariableEPKNS_10
   br i1 %.not.i1.i.i48, label %1031, label %_ZL32removeUndefDbgLocsFromEntryBlockPKN4llvm10BasicBlockER22FunctionVarLocsBuilder.exit
 
 1031:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPKNS_15DILocalVariableEPKNS_10DILocationEENS_13SmallDenseSetINS_23DbgVariableFragmentInfoELj4ENS_12DenseMapInfoISB_vEEEELj4ENSC_IS9_vEENS_6detail12DenseMapPairIS9_SE_EEEES9_SE_SF_SI_E10destroyAllEv.exit.i.i
-  %1032 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i11, align 8, !tbaa !928
+  %1032 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i17, align 8, !tbaa !928
   %1033 = load i32, ptr %.phi.trans.insert3.i.i.i18, align 8, !tbaa !931
   %1034 = zext i32 %1033 to i64
   %1035 = mul nuw nsw i64 %1034, 88
@@ -27767,8 +27767,8 @@ _ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread.i
   %1129 = load i32, ptr %16, align 8
   %1130 = and i32 %1129, 1
   %.not.i.i.i.i.i.i120.i = icmp eq i32 %1130, 0
-  %1131 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i11, align 8
-  %1132 = select i1 %.not.i.i.i.i.i.i120.i, ptr %1131, ptr %.phi.trans.insert.i.i.ptr.i11
+  %1131 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i17, align 8
+  %1132 = select i1 %.not.i.i.i.i.i.i120.i, ptr %1131, ptr %.phi.trans.insert.i.i.ptr.i17
   %1133 = load i32, ptr %.phi.trans.insert3.i.i.i18, align 8
   %1134 = select i1 %.not.i.i.i.i.i.i120.i, i32 %1133, i32 4
   %1135 = icmp eq i32 %1134, 0
@@ -27963,8 +27963,8 @@ _ZN4llvm6detail12DenseSetImplINS_23DbgVariableFragmentInfoENS_13SmallDenseMapIS2
   %1241 = load i32, ptr %16, align 8
   %1242 = and i32 %1241, 1
   %.not.i.i.i.i.i110.i = icmp eq i32 %1242, 0
-  %1243 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i11, align 8
-  %1244 = select i1 %.not.i.i.i.i.i110.i, ptr %1243, ptr %.phi.trans.insert.i.i.ptr.i11
+  %1243 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i17, align 8
+  %1244 = select i1 %.not.i.i.i.i.i110.i, ptr %1243, ptr %.phi.trans.insert.i.i.ptr.i17
   %1245 = load i32, ptr %.phi.trans.insert3.i.i.i18, align 8
   %1246 = select i1 %.not.i.i.i.i.i110.i, i32 %1245, i32 4
   %1247 = icmp eq i32 %1246, 0
@@ -28066,8 +28066,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPKNS_15DILocalVariableEPKNS_10
   %1311 = load i32, ptr %16, align 8
   %1312 = and i32 %1311, 1
   %.not.i.i.i.i254.i = icmp eq i32 %1312, 0
-  %1313 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i11, align 8
-  %1314 = select i1 %.not.i.i.i.i254.i, ptr %1313, ptr %.phi.trans.insert.i.i.ptr.i11
+  %1313 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i17, align 8
+  %1314 = select i1 %.not.i.i.i.i254.i, ptr %1313, ptr %.phi.trans.insert.i.i.ptr.i17
   %1315 = load i32, ptr %.phi.trans.insert3.i.i.i18, align 8
   %1316 = select i1 %.not.i.i.i.i254.i, i32 %1315, i32 4
   %1317 = icmp eq i32 %1316, 0
@@ -28672,8 +28672,8 @@ _ZNK4llvm18RawLocationWrapper14isKillLocationEPKNS_12DIExpressionE.exit.thread.i
   %1636 = load i32, ptr %16, align 8
   %1637 = and i32 %1636, 1
   %.not.i.i.i.i.i.i170.i = icmp eq i32 %1637, 0
-  %1638 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i11, align 8
-  %1639 = select i1 %.not.i.i.i.i.i.i170.i, ptr %1638, ptr %.phi.trans.insert.i.i.ptr.i11
+  %1638 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i17, align 8
+  %1639 = select i1 %.not.i.i.i.i.i.i170.i, ptr %1638, ptr %.phi.trans.insert.i.i.ptr.i17
   %1640 = load i32, ptr %.phi.trans.insert3.i.i.i18, align 8
   %1641 = select i1 %.not.i.i.i.i.i.i170.i, i32 %1640, i32 4
   %1642 = icmp eq i32 %1641, 0
@@ -28868,8 +28868,8 @@ _ZN4llvm6detail12DenseSetImplINS_23DbgVariableFragmentInfoENS_13SmallDenseMapIS2
   %1748 = load i32, ptr %16, align 8
   %1749 = and i32 %1748, 1
   %.not.i.i.i.i.i156.i = icmp eq i32 %1749, 0
-  %1750 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i11, align 8
-  %1751 = select i1 %.not.i.i.i.i.i156.i, ptr %1750, ptr %.phi.trans.insert.i.i.ptr.i11
+  %1750 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i17, align 8
+  %1751 = select i1 %.not.i.i.i.i.i156.i, ptr %1750, ptr %.phi.trans.insert.i.i.ptr.i17
   %1752 = load i32, ptr %.phi.trans.insert3.i.i.i18, align 8
   %1753 = select i1 %.not.i.i.i.i.i156.i, i32 %1752, i32 4
   %1754 = icmp eq i32 %1753, 0
@@ -28971,8 +28971,8 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPKNS_15DILocalVariableEPKNS_10
   %1818 = load i32, ptr %16, align 8
   %1819 = and i32 %1818, 1
   %.not.i.i.i.i265.i = icmp eq i32 %1819, 0
-  %1820 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i11, align 8
-  %1821 = select i1 %.not.i.i.i.i265.i, ptr %1820, ptr %.phi.trans.insert.i.i.ptr.i11
+  %1820 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i17, align 8
+  %1821 = select i1 %.not.i.i.i.i265.i, ptr %1820, ptr %.phi.trans.insert.i.i.ptr.i17
   %1822 = load i32, ptr %.phi.trans.insert3.i.i.i18, align 8
   %1823 = select i1 %.not.i.i.i.i265.i, i32 %1822, i32 4
   %1824 = icmp eq i32 %1823, 0

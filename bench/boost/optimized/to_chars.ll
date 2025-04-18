@@ -7651,7 +7651,6 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE8generateImEET_S5_Pmm.exi
   %1879 = mul nuw nsw i128 %1878, 3022314549036573
   %sum.shift2409 = lshr i128 %1879, 78
   %1880 = trunc nuw nsw i128 %sum.shift2409 to i64
-  %.neg1103 = mul nuw nsw i64 %1880, 4194967296
   %1881 = mul nuw nsw i64 %1880, 140737489
   %1882 = lshr i64 %1881, 15
   %1883 = add nuw nsw i64 %1882, 1
@@ -7680,6 +7679,7 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE8generateImEET_S5_Pmm.exi
   br i1 %exitcond.not.i, label %_ZN5boost8charconv6detail14print_8_digitsEjPc.exit, label %1888, !llvm.loop !54
 
 _ZN5boost8charconv6detail14print_8_digitsEjPc.exit: ; preds = %1888
+  %.neg1103 = mul nuw nsw i64 %1880, 4194967296
   %1896 = add nuw nsw i64 %.neg1103, %1877
   %1897 = getelementptr inbounds nuw i8, ptr %.68, i64 8
   %1898 = and i64 %1896, 4294967295

@@ -58546,7 +58546,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser16sortUseListOrderEPNS_5Va
 
 21:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %10) #25
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %10, align 8
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %22, align 4, !tbaa !2212
@@ -58561,6 +58560,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser16sortUseListOrderEPNS_5Va
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEC2Ej.exit.preheader.preheader, label %.lr.ph.i.i.i, !llvm.loop !2215
 
 _ZN4llvm13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEC2Ej.exit.preheader.preheader: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %_ZN4llvm13SmallDenseMapIPKNS_3UseEjLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEC2Ej.exit.preheader
 

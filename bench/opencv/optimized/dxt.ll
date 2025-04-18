@@ -6335,31 +6335,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !46
-  %71 = mul nsw i32 %70, %14
-  %72 = ashr exact i32 %71, 1
-  br label %73
+  br label %71
 
-73:                                               ; preds = %73, %68
-  %.1 = phi i32 [ 0, %68 ], [ %76, %73 ]
-  %74 = shl nuw i32 1, %.1
-  %75 = icmp ult i32 %74, %14
-  %76 = add nuw nsw i32 %.1, 1
-  br i1 %75, label %73, label %77, !llvm.loop !195
+71:                                               ; preds = %71, %68
+  %.1 = phi i32 [ 0, %68 ], [ %74, %71 ]
+  %72 = shl nuw i32 1, %.1
+  %73 = icmp ult i32 %72, %14
+  %74 = add nuw nsw i32 %.1, 1
+  br i1 %73, label %71, label %75, !llvm.loop !195
 
-77:                                               ; preds = %73
-  %78 = ashr i32 %71, 2
+75:                                               ; preds = %71
+  %76 = mul nsw i32 %70, %14
+  %77 = ashr exact i32 %76, 1
+  %78 = ashr i32 %76, 2
   %79 = icmp slt i32 %14, 3
   br i1 %79, label %80, label %82
 
-80:                                               ; preds = %77
+80:                                               ; preds = %75
   store i32 0, ptr %.0, align 4, !tbaa !46
   %81 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  store i32 %72, ptr %81, align 4, !tbaa !46
+  store i32 %77, ptr %81, align 4, !tbaa !46
   br label %.loopexit271
 
-82:                                               ; preds = %77
+82:                                               ; preds = %75
   %83 = icmp samesign ult i32 %14, 257
-  %invariant.op286 = add nsw i32 %72, %78
+  %invariant.op286 = add nsw i32 %77, %78
   br i1 %83, label %.lr.ph291.preheader, label %99
 
 .lr.ph291.preheader:                              ; preds = %82
@@ -6378,7 +6378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %92 = mul nsw i32 %91, %70
   %93 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv336
   store i32 %92, ptr %93, align 4, !tbaa !46
-  %94 = add nsw i32 %92, %72
+  %94 = add nsw i32 %92, %77
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 %94, ptr %95, align 4, !tbaa !46
   %96 = add nsw i32 %92, %78
@@ -6427,7 +6427,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %129 = mul nsw i32 %128, %70
   %130 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv333
   store i32 %129, ptr %130, align 4, !tbaa !46
-  %131 = add nsw i32 %129, %72
+  %131 = add nsw i32 %129, %77
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 4
   store i32 %131, ptr %132, align 4, !tbaa !46
   %133 = add nsw i32 %129, %78

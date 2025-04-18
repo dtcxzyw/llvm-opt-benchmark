@@ -896,39 +896,39 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   br i1 %exitcond.not.i.i.i.i, label %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i", label %80, !llvm.loop !54
 
 "_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i": ; preds = %80
-  %89 = sext i16 %74 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #32
-  %90 = add nsw i32 %88, 4
-  %91 = ashr i32 %90, 3
-  %92 = add nsw i32 %91, %89
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #32
   store i64 25769803775, ptr %10, align 8
   store i64 -4294967292, ptr %.sroa.3.0..sroa_idx.i.i33.i, align 8, !tbaa !42
-  br label %93
+  br label %89
 
-93:                                               ; preds = %93, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i"
-  %indvars.iv.i.i.i34.i = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i36.i, %93 ]
-  %.067.i.i.i35.i = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %101, %93 ]
+89:                                               ; preds = %89, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i"
+  %indvars.iv.i.i.i34.i = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i36.i, %89 ]
+  %.067.i.i.i35.i = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %97, %89 ]
   %indvars.iv.next.i.i.i36.i = add nuw nsw i64 %indvars.iv.i.i.i34.i, 1
-  %94 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv.next.i.i.i36.i
-  %95 = load i32, ptr %94, align 4, !tbaa !35
-  %96 = icmp samesign ult i64 %indvars.iv.i.i.i34.i, %56
-  tail call void @llvm.assume(i1 %96)
-  %97 = getelementptr inbounds nuw i16, ptr %79, i64 %indvars.iv.i.i.i34.i
-  %98 = load i16, ptr %97, align 2, !tbaa !41
-  %99 = sext i16 %98 to i32
-  %100 = mul nsw i32 %95, %99
-  %101 = add nsw i32 %100, %.067.i.i.i35.i
+  %90 = getelementptr inbounds nuw [4 x i32], ptr %10, i64 0, i64 %indvars.iv.next.i.i.i36.i
+  %91 = load i32, ptr %90, align 4, !tbaa !35
+  %92 = icmp samesign ult i64 %indvars.iv.i.i.i34.i, %56
+  tail call void @llvm.assume(i1 %92)
+  %93 = getelementptr inbounds nuw i16, ptr %79, i64 %indvars.iv.i.i.i34.i
+  %94 = load i16, ptr %93, align 2, !tbaa !41
+  %95 = sext i16 %94 to i32
+  %96 = mul nsw i32 %91, %95
+  %97 = add nsw i32 %96, %.067.i.i.i35.i
   %exitcond.not.i.i.i37.i = icmp eq i64 %indvars.iv.next.i.i.i36.i, 3
-  br i1 %exitcond.not.i.i.i37.i, label %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit38.i", label %93, !llvm.loop !54
+  br i1 %exitcond.not.i.i.i37.i, label %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit38.i", label %89, !llvm.loop !54
 
-"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit38.i": ; preds = %93
-  %102 = shl i32 %92, %3
+"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit38.i": ; preds = %89
+  %98 = sext i16 %74 to i32
+  %99 = add nsw i32 %88, 4
+  %100 = ashr i32 %99, 3
+  %101 = add nsw i32 %100, %98
+  %102 = shl i32 %101, %3
   %103 = ashr i32 %102, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #32
-  %104 = add nsw i32 %101, 4
+  %104 = add nsw i32 %97, 4
   %105 = ashr i32 %104, 3
-  %106 = sub nsw i32 %105, %89
+  %106 = sub nsw i32 %105, %98
   %107 = shl i32 %106, %3
   %108 = ashr i32 %107, 1
   br i1 %4, label %109, label %"_ZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams5FirstEEEDaii.exit"
@@ -985,40 +985,40 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   br i1 %exitcond.not.i.i.i.i28, label %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i", label %123, !llvm.loop !55
 
 "_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i": ; preds = %123
-  %133 = sext i16 %121 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #32
-  %134 = add nsw i32 %132, 4
-  %135 = ashr i32 %134, 3
-  %136 = add nsw i32 %135, %133
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #32
   store i64 -1, ptr %8, align 8
   store i64 4294967304, ptr %.sroa.3.0..sroa_idx.i.i33.i29, align 8, !tbaa !42
-  br label %137
+  br label %133
 
-137:                                              ; preds = %137, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i"
-  %indvars.iv.i.i.i35.i = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i37.i, %137 ]
-  %.067.i.i.i36.i = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %146, %137 ]
+133:                                              ; preds = %133, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i"
+  %indvars.iv.i.i.i35.i = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i37.i, %133 ]
+  %.067.i.i.i36.i = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %142, %133 ]
   %indvars.iv.next.i.i.i37.i = add nuw nsw i64 %indvars.iv.i.i.i35.i, 1
-  %138 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv.next.i.i.i37.i
-  %139 = load i32, ptr %138, align 4, !tbaa !35
-  %140 = add nuw nsw i64 %indvars.iv.i.i.i35.i, %122
-  %141 = icmp samesign ult i64 %140, %56
-  tail call void @llvm.assume(i1 %141)
-  %142 = getelementptr inbounds nuw i16, ptr %79, i64 %140
-  %143 = load i16, ptr %142, align 2, !tbaa !41
-  %144 = sext i16 %143 to i32
-  %145 = mul nsw i32 %139, %144
-  %146 = add nsw i32 %145, %.067.i.i.i36.i
+  %134 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv.next.i.i.i37.i
+  %135 = load i32, ptr %134, align 4, !tbaa !35
+  %136 = add nuw nsw i64 %indvars.iv.i.i.i35.i, %122
+  %137 = icmp samesign ult i64 %136, %56
+  tail call void @llvm.assume(i1 %137)
+  %138 = getelementptr inbounds nuw i16, ptr %79, i64 %136
+  %139 = load i16, ptr %138, align 2, !tbaa !41
+  %140 = sext i16 %139 to i32
+  %141 = mul nsw i32 %135, %140
+  %142 = add nsw i32 %141, %.067.i.i.i36.i
   %exitcond.not.i.i.i38.i = icmp eq i64 %indvars.iv.next.i.i.i37.i, 3
-  br i1 %exitcond.not.i.i.i38.i, label %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit39.i", label %137, !llvm.loop !55
+  br i1 %exitcond.not.i.i.i38.i, label %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit39.i", label %133, !llvm.loop !55
 
-"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit39.i": ; preds = %137
-  %147 = shl i32 %136, %3
+"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit39.i": ; preds = %133
+  %143 = sext i16 %121 to i32
+  %144 = add nsw i32 %132, 4
+  %145 = ashr i32 %144, 3
+  %146 = add nsw i32 %145, %143
+  %147 = shl i32 %146, %3
   %148 = ashr i32 %147, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #32
-  %149 = add nsw i32 %146, 4
+  %149 = add nsw i32 %142, 4
   %150 = ashr i32 %149, 3
-  %151 = sub nsw i32 %150, %133
+  %151 = sub nsw i32 %150, %143
   %152 = shl i32 %151, %3
   %153 = ashr i32 %152, 1
   br i1 %4, label %154, label %"_ZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams6MiddleEEEDaii.exit"
@@ -1081,40 +1081,40 @@ _ZNSt16allocator_traitsIN8rawspeed27DefaultInitAllocatorAdaptorIsSaIsEEEE8alloca
   br i1 %exitcond.not.i.i.i.i56, label %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i", label %170, !llvm.loop !56
 
 "_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i": ; preds = %170
-  %180 = sext i16 %167 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #32
-  %181 = add nsw i32 %179, 4
-  %182 = ashr i32 %181, 3
-  %183 = add nsw i32 %182, %180
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #32
   store i64 8589934591, ptr %6, align 8
   store i64 51539607548, ptr %.sroa.3.0..sroa_idx.i.i33.i57, align 8, !tbaa !42
-  br label %184
+  br label %180
 
-184:                                              ; preds = %184, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i"
-  %indvars.iv.i.i.i35.i58 = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i37.i60, %184 ]
-  %.067.i.i.i36.i59 = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %193, %184 ]
+180:                                              ; preds = %180, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i"
+  %indvars.iv.i.i.i35.i58 = phi i64 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %indvars.iv.next.i.i.i37.i60, %180 ]
+  %.067.i.i.i36.i59 = phi i32 [ 0, %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit.i" ], [ %189, %180 ]
   %indvars.iv.next.i.i.i37.i60 = add nuw nsw i64 %indvars.iv.i.i.i35.i58, 1
-  %185 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv.next.i.i.i37.i60
-  %186 = load i32, ptr %185, align 4, !tbaa !35
-  %187 = add nuw nsw i64 %indvars.iv.i.i.i35.i58, %168
-  %188 = icmp samesign ult i64 %187, %56
-  tail call void @llvm.assume(i1 %188)
-  %189 = getelementptr inbounds nuw i16, ptr %79, i64 %187
-  %190 = load i16, ptr %189, align 2, !tbaa !41
-  %191 = sext i16 %190 to i32
-  %192 = mul nsw i32 %186, %191
-  %193 = add nsw i32 %192, %.067.i.i.i36.i59
+  %181 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv.next.i.i.i37.i60
+  %182 = load i32, ptr %181, align 4, !tbaa !35
+  %183 = add nuw nsw i64 %indvars.iv.i.i.i35.i58, %168
+  %184 = icmp samesign ult i64 %183, %56
+  tail call void @llvm.assume(i1 %184)
+  %185 = getelementptr inbounds nuw i16, ptr %79, i64 %183
+  %186 = load i16, ptr %185, align 2, !tbaa !41
+  %187 = sext i16 %186 to i32
+  %188 = mul nsw i32 %182, %187
+  %189 = add nsw i32 %188, %.067.i.i.i36.i59
   %exitcond.not.i.i.i38.i61 = icmp eq i64 %indvars.iv.next.i.i.i37.i60, 3
-  br i1 %exitcond.not.i.i.i38.i61, label %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit39.i", label %184, !llvm.loop !56
+  br i1 %exitcond.not.i.i.i38.i61, label %"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit39.i", label %180, !llvm.loop !56
 
-"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit39.i": ; preds = %184
-  %194 = shl i32 %183, %3
+"_ZZZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibbENK3$_0clINS_12_GLOBAL__N_117ConvolutionParams4LastEEEDaiiENKUlSt5arrayIiLm4EEE_clESB_.exit39.i": ; preds = %180
+  %190 = sext i16 %167 to i32
+  %191 = add nsw i32 %179, 4
+  %192 = ashr i32 %191, 3
+  %193 = add nsw i32 %192, %190
+  %194 = shl i32 %193, %3
   %195 = ashr i32 %194, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
-  %196 = add nsw i32 %193, 4
+  %196 = add nsw i32 %189, 4
   %197 = ashr i32 %196, 3
-  %198 = sub nsw i32 %197, %180
+  %198 = sub nsw i32 %197, %190
   %199 = shl i32 %198, %3
   %200 = ashr i32 %199, 1
   br i1 %4, label %201, label %204

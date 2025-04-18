@@ -1272,10 +1272,10 @@ define hidden noundef ptr @_ZN15G1CollectedHeap41humongous_obj_allocate_initiali
 _ZN4Copy13fill_to_wordsEPP12HeapWordImplmj.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
-  %6 = add i32 %2, -1
-  %7 = load ptr, ptr %1, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %8 = add i32 %6, %5
+  %6 = load ptr, ptr %1, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  %7 = add i32 %2, -1
+  %8 = add i32 %7, %5
   tail call void @_ZN15G1CollectedHeap22set_humongous_metadataEP12G1HeapRegionjmb(ptr noundef nonnull align 8 dereferenceable(1488) %0, ptr noundef nonnull %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext true)
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 496
@@ -1344,7 +1344,7 @@ _ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit: ; preds = %_ZN19G1HeapRegio
   br i1 %.not, label %._crit_edge, label %25, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit, %_ZN4Copy13fill_to_wordsEPP12HeapWordImplmj.exit
-  ret ptr %7
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable

@@ -7246,7 +7246,6 @@ _ZL32ShouldUseComplexStaticContextMapPKhmmmimPmPPKjPj.exit: ; preds = %136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, i8 0, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  %.0.i37.idx.sroa.gep106.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %159
 
 .preheader.i44:                                   ; preds = %159
@@ -7329,6 +7328,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit51.i:          ; preds = %194, %191
   br i1 %185, label %171, label %198
 
 198:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit51.i
+  %.0.i37.idx.sroa.gep106.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.not27.i44.i = icmp eq i64 %188, 0
   br i1 %.not27.i44.i, label %_ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit46.i, label %199
 

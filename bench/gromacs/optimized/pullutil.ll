@@ -1335,34 +1335,34 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %687, %685, %683, %6
   %734 = load ptr, ptr %651, align 8, !tbaa !122
   %735 = getelementptr inbounds nuw float, ptr %734, i64 %.015435.i
   store float %733, ptr %735, align 4, !tbaa !9
-  %736 = fmul double %730, %728
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #14
-  %737 = fmul double %732, %728
-  %738 = load double, ptr %14, align 16, !tbaa !124
-  %739 = fmul double %737, %738
-  store double %739, ptr %15, align 16, !tbaa !124
-  %740 = load double, ptr %601, align 8, !tbaa !124
-  %741 = fmul double %737, %740
-  store double %741, ptr %602, align 8, !tbaa !124
-  %742 = load double, ptr %603, align 16, !tbaa !124
-  %743 = fmul double %737, %742
-  store double %743, ptr %604, align 16, !tbaa !124
-  %744 = load ptr, ptr %671, align 8, !tbaa !91
-  %745 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %744, i64 %.015435.i
-  store double %739, ptr %745, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %745, i64 8
-  store double %741, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %745, i64 16
-  store double %743, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !191
-  %746 = load ptr, ptr %672, align 8, !tbaa !188
-  %747 = getelementptr inbounds nuw double, ptr %746, i64 %.015435.i
-  store double %709, ptr %747, align 8, !tbaa !124
+  %736 = fmul double %732, %728
+  %737 = load double, ptr %14, align 16, !tbaa !124
+  %738 = fmul double %736, %737
+  store double %738, ptr %15, align 16, !tbaa !124
+  %739 = load double, ptr %601, align 8, !tbaa !124
+  %740 = fmul double %736, %739
+  store double %740, ptr %602, align 8, !tbaa !124
+  %741 = load double, ptr %603, align 16, !tbaa !124
+  %742 = fmul double %736, %741
+  store double %742, ptr %604, align 16, !tbaa !124
+  %743 = load ptr, ptr %671, align 8, !tbaa !91
+  %744 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %743, i64 %.015435.i
+  store double %738, ptr %744, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %744, i64 8
+  store double %740, ptr %.sroa.4.0..sroa_idx.i, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %744, i64 16
+  store double %742, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !191
+  %745 = load ptr, ptr %672, align 8, !tbaa !188
+  %746 = getelementptr inbounds nuw double, ptr %745, i64 %.015435.i
+  store double %709, ptr %746, align 8, !tbaa !124
   br label %752
 
-748:                                              ; preds = %752
-  %749 = call double @llvm.fmuladd.f64(double %728, double %730, double %.114837.i)
-  %750 = call double @llvm.fmuladd.f64(double %736, double %709, double %.114538.i)
-  %751 = call double @llvm.fmuladd.f64(double %736, double %730, double %.115136.i)
+747:                                              ; preds = %752
+  %748 = fmul double %730, %728
+  %749 = call double @llvm.fmuladd.f64(double %748, double %709, double %.114538.i)
+  %750 = call double @llvm.fmuladd.f64(double %728, double %730, double %.114837.i)
+  %751 = call double @llvm.fmuladd.f64(double %748, double %730, double %.115136.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #14
   br label %764
 
@@ -1380,7 +1380,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %687, %685, %683, %6
   store double %760, ptr %758, align 8, !tbaa !124
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, 3
-  br i1 %exitcond66.not.i, label %748, label %752, !llvm.loop !192
+  br i1 %exitcond66.not.i, label %747, label %752, !llvm.loop !192
 
 761:                                              ; preds = %711
   %762 = load ptr, ptr %651, align 8, !tbaa !122
@@ -1388,10 +1388,10 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %687, %685, %683, %6
   store float 0.000000e+00, ptr %763, align 4, !tbaa !9
   br label %764
 
-764:                                              ; preds = %761, %748
-  %.2152.i = phi double [ %751, %748 ], [ %.115136.i, %761 ]
-  %.2149.i = phi double [ %749, %748 ], [ %.114837.i, %761 ]
-  %.2146.i = phi double [ %750, %748 ], [ %.114538.i, %761 ]
+764:                                              ; preds = %761, %747
+  %.2152.i = phi double [ %751, %747 ], [ %.115136.i, %761 ]
+  %.2149.i = phi double [ %750, %747 ], [ %.114837.i, %761 ]
+  %.2146.i = phi double [ %749, %747 ], [ %.114538.i, %761 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #14
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #14
   %765 = add nuw nsw i64 %.015435.i, 1

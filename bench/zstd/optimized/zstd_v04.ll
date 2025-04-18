@@ -2188,19 +2188,19 @@ ZSTD_wildcopy.exit.i.i:                           ; preds = %.preheader123.i.i
 
 604:                                              ; preds = %600
   %605 = icmp ult ptr %601, %406
-  br i1 %605, label %.preheader, label %612
+  br i1 %605, label %.preheader.i, label %612
 
-.preheader:                                       ; preds = %604, %.preheader
-  %.09.i111.i.i = phi ptr [ %606, %.preheader ], [ %601, %604 ]
-  %.0.i112.i.i = phi ptr [ %607, %.preheader ], [ %602, %604 ]
+.preheader.i:                                     ; preds = %604, %.preheader.i
+  %.09.i111.i.i = phi ptr [ %606, %.preheader.i ], [ %601, %604 ]
+  %.0.i112.i.i = phi ptr [ %607, %.preheader.i ], [ %602, %604 ]
   %.0.val.i113.i.i = load i64, ptr %.0.i112.i.i, align 1
   store i64 %.0.val.i113.i.i, ptr %.09.i111.i.i, align 1
   %606 = getelementptr inbounds nuw i8, ptr %.09.i111.i.i, i64 8
   %607 = getelementptr inbounds nuw i8, ptr %.0.i112.i.i, i64 8
   %608 = icmp ult ptr %606, %406
-  br i1 %608, label %.preheader, label %ZSTD_wildcopy.exit114.i.i, !llvm.loop !59
+  br i1 %608, label %.preheader.i, label %ZSTD_wildcopy.exit114.i.i, !llvm.loop !59
 
-ZSTD_wildcopy.exit114.i.i:                        ; preds = %.preheader
+ZSTD_wildcopy.exit114.i.i:                        ; preds = %.preheader.i
   %609 = ptrtoint ptr %601 to i64
   %610 = sub i64 %412, %609
   %611 = getelementptr inbounds i8, ptr %602, i64 %610

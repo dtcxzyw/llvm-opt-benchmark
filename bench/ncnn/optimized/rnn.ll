@@ -8870,7 +8870,6 @@ define internal void @_ZN4ncnnL8rnn_int8ERKNS_3MatERS0_iS2_PKfS2_S2_S5_S3_RKNS_6
   %indvars.iv111 = phi i64 [ %49, %.lr.ph.us.us.preheader ], [ %indvars.iv.next112, %._crit_edge.us.us ]
   %.reass.us.us = mul i64 %factor.op.mul, %indvars.iv111
   %51 = getelementptr inbounds nuw i8, ptr %27, i64 %.reass.us.us
-  %.reass64.us.us = mul i64 %factor.op.mul63, %indvars.iv111
   %52 = getelementptr inbounds float, ptr %39, i64 %indvars.iv111
   %53 = load float, ptr %52, align 4, !tbaa !46
   %54 = getelementptr inbounds float, ptr %40, i64 %indvars.iv111
@@ -8908,6 +8907,7 @@ define internal void @_ZN4ncnnL8rnn_int8ERKNS_3MatERS0_iS2_PKfS2_S2_S5_S3_RKNS_6
   br i1 %exitcond105.not, label %..preheader_crit_edge.us.us, label %65, !llvm.loop !186
 
 ..preheader_crit_edge.us.us:                      ; preds = %65
+  %.reass64.us.us = mul i64 %factor.op.mul63, %indvars.iv111
   %74 = getelementptr inbounds nuw i8, ptr %33, i64 %.reass64.us.us
   br label %56
 
@@ -9196,7 +9196,6 @@ define internal void @_ZN4ncnnL3rnnERKNS_3MatERS0_iS2_S2_S2_S3_RKNS_6OptionE.omp
   %indvars.iv101 = phi i64 [ %43, %.lr.ph.us.us.preheader ], [ %indvars.iv.next102, %._crit_edge.us.us ]
   %.reass.us.us = mul i64 %factor.op.mul, %indvars.iv101
   %45 = getelementptr inbounds nuw i8, ptr %23, i64 %.reass.us.us
-  %.reass54.us.us = mul i64 %factor.op.mul53, %indvars.iv101
   %46 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv101
   %47 = load float, ptr %46, align 4, !tbaa !46
   br label %54
@@ -9228,6 +9227,7 @@ define internal void @_ZN4ncnnL3rnnERKNS_3MatERS0_iS2_S2_S2_S3_RKNS_6OptionE.omp
   br i1 %exitcond95.not, label %..preheader_crit_edge.us.us.preheader, label %54, !llvm.loop !190
 
 ..preheader_crit_edge.us.us.preheader:            ; preds = %54
+  %.reass54.us.us = mul i64 %factor.op.mul53, %indvars.iv101
   %61 = getelementptr inbounds nuw i8, ptr %29, i64 %.reass54.us.us
   br label %..preheader_crit_edge.us.us
 

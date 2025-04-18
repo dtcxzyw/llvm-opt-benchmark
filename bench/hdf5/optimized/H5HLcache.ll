@@ -1260,7 +1260,6 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
 
 42:                                               ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %scevgep = getelementptr i8, ptr %35, i64 1
   br label %44
 
 44:                                               ; preds = %42, %44
@@ -1277,6 +1276,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   br i1 %exitcond.not, label %51, label %44, !llvm.loop !58
 
 51:                                               ; preds = %44
+  %scevgep = getelementptr i8, ptr %35, i64 1
   %scevgep128 = getelementptr i8, ptr %scevgep, i64 %.088123
   %52 = getelementptr inbounds nuw i8, ptr %scevgep128, i64 7
   br label %57

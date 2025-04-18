@@ -305,7 +305,6 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %.7621 = phi i64 [ %86, %82 ], [ %75, %.preheader908 ], [ %.5619, %105 ]
   %.7606 = phi ptr [ %92, %82 ], [ %.3602, %.preheader908 ], [ %.5604, %105 ]
   %109 = zext nneg i32 %71 to i64
-  %.neg1058 = mul nsw i32 %70, -3
   br label %110
 
 110:                                              ; preds = %110, %.loopexit909
@@ -327,6 +326,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
 
 .preheader907:                                    ; preds = %110
   %118 = add i32 %.5654, -9
+  %.neg1058 = mul nsw i32 %70, -3
   %119 = add i32 %.neg1058, %118
   %120 = icmp samesign ult i64 %indvars.iv, 18
   br i1 %120, label %.lr.ph979, label %._crit_edge
@@ -1506,7 +1506,6 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %.7621 = phi i64 [ %86, %82 ], [ %75, %.preheader908 ], [ %.5619, %105 ]
   %.7606 = phi ptr [ %92, %82 ], [ %.3602, %.preheader908 ], [ %.5604, %105 ]
   %109 = zext nneg i32 %71 to i64
-  %.neg1058 = mul nsw i32 %70, -3
   br label %110
 
 110:                                              ; preds = %110, %.loopexit909
@@ -1528,6 +1527,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
 
 .preheader907:                                    ; preds = %110
   %118 = add i32 %.5654, -9
+  %.neg1058 = mul nsw i32 %70, -3
   %119 = add i32 %.neg1058, %118
   %120 = icmp samesign ult i64 %indvars.iv, 18
   br i1 %120, label %.lr.ph979, label %._crit_edge

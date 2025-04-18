@@ -1128,47 +1128,47 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 define void @Pf_StoPrintOne(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !65
-  %9 = sext i32 %4 to i64
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !7
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !43
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !44
-  %16 = ashr i32 %2, %15
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %13, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !45
-  %20 = load i32, ptr %11, align 8, !tbaa !47
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !48
-  %23 = and i32 %22, %2
-  %24 = mul nsw i32 %23, %20
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i64, ptr %19, i64 %25
-  %.val.i = load i64, ptr %26, align 8, !tbaa !3
-  br label %27
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !7
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %12 = load ptr, ptr %11, align 8, !tbaa !43
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %14 = load i32, ptr %13, align 8, !tbaa !44
+  %15 = ashr i32 %2, %14
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds ptr, ptr %12, i64 %16
+  %18 = load ptr, ptr %17, align 8, !tbaa !45
+  %19 = load i32, ptr %10, align 8, !tbaa !47
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %21 = load i32, ptr %20, align 4, !tbaa !48
+  %22 = and i32 %21, %2
+  %23 = mul nsw i32 %22, %19
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i64, ptr %18, i64 %24
+  %.val.i = load i64, ptr %25, align 8, !tbaa !3
+  br label %26
 
-27:                                               ; preds = %27, %6
-  %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %27 ]
-  %.011.i = phi i32 [ 0, %6 ], [ %spec.select.i, %27 ]
-  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %29 = shl nuw nsw i32 1, %28
-  %30 = zext nneg i32 %29 to i64
-  %31 = lshr i64 %.val.i, %30
-  %32 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i
-  %33 = load i64, ptr %32, align 8, !tbaa !3
-  %34 = xor i64 %31, %.val.i
-  %35 = and i64 %34, %33
-  %.not9.i = icmp ne i64 %35, 0
-  %36 = zext i1 %.not9.i to i32
-  %spec.select.i = add nuw nsw i32 %.011.i, %36
+26:                                               ; preds = %26, %6
+  %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %26 ]
+  %.011.i = phi i32 [ 0, %6 ], [ %spec.select.i, %26 ]
+  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %28 = shl nuw nsw i32 1, %27
+  %29 = zext nneg i32 %28 to i64
+  %30 = lshr i64 %.val.i, %29
+  %31 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i
+  %32 = load i64, ptr %31, align 8, !tbaa !3
+  %33 = xor i64 %30, %.val.i
+  %34 = and i64 %33, %32
+  %.not9.i = icmp ne i64 %34, 0
+  %35 = zext i1 %.not9.i to i32
+  %spec.select.i = add nuw nsw i32 %.011.i, %35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %Abc_TtSupportSize.exit, label %27, !llvm.loop !70
+  br i1 %exitcond.not.i, label %Abc_TtSupportSize.exit, label %26, !llvm.loop !70
 
-Abc_TtSupportSize.exit:                           ; preds = %27
-  %37 = getelementptr inbounds %struct.Mio_Cell_t_, ptr %8, i64 %9
+Abc_TtSupportSize.exit:                           ; preds = %26
+  %36 = sext i32 %4 to i64
+  %37 = getelementptr inbounds %struct.Mio_Cell_t_, ptr %8, i64 %36
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %1)
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %2)
   %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3)
@@ -1215,7 +1215,7 @@ Abc_TtSupportSize.exit:                           ; preds = %27
 
 ._crit_edge:                                      ; preds = %57, %Abc_TtSupportSize.exit
   %70 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7)
-  tail call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %26, i32 noundef %spec.select.i) #23
+  tail call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %25, i32 noundef %spec.select.i) #23
   ret void
 }
 
@@ -1258,11 +1258,11 @@ define void @Pf_StoPrint(ptr noundef readonly captures(none) %0, i32 noundef %1)
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !74
 
 .lr.ph.us:                                        ; preds = %7
-  %10 = tail call i32 @llvm.umax.i32(i32 %.val32.us, i32 3)
-  %11 = add nsw i32 %10, -2
-  %12 = lshr i32 %11, 1
-  %13 = add i32 %.02536.us, 1
-  %14 = add i32 %13, %12
+  %10 = add i32 %.02536.us, 1
+  %11 = tail call i32 @llvm.umax.i32(i32 %.val32.us, i32 3)
+  %12 = add nsw i32 %11, -2
+  %13 = lshr i32 %12, 1
+  %14 = add i32 %10, %13
   br label %.critedge.us
 
 .lr.ph39.split:                                   ; preds = %.lr.ph39, %.critedge
@@ -1306,11 +1306,11 @@ define void @Pf_StoPrint(ptr noundef readonly captures(none) %0, i32 noundef %1)
   br i1 %32, label %.lr.ph.split.us, label %.critedge.loopexit, !llvm.loop !75
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %33 = tail call i32 @llvm.umax.i32(i32 %.val32, i32 3)
-  %34 = add nsw i32 %33, -2
-  %35 = lshr i32 %34, 1
-  %36 = add i32 %.02536, 1
-  %37 = add i32 %36, %35
+  %33 = add i32 %.02536, 1
+  %34 = tail call i32 @llvm.umax.i32(i32 %.val32, i32 3)
+  %35 = add nsw i32 %34, -2
+  %36 = lshr i32 %35, 1
+  %37 = add i32 %33, %36
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %.lr.ph.split.us
@@ -5647,11 +5647,11 @@ define ptr @Pf_ManPerformMapping(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %35, label %.lr.ph.split.us.i, label %.critedge.loopexit.i, !llvm.loop !75
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  %36 = tail call i32 @llvm.umax.i32(i32 %.val32.i, i32 3)
-  %37 = add nsw i32 %36, -2
-  %38 = lshr i32 %37, 1
-  %39 = add i32 %.02536.i, 1
-  %40 = add i32 %39, %38
+  %36 = add i32 %.02536.i, 1
+  %37 = tail call i32 @llvm.umax.i32(i32 %.val32.i, i32 3)
+  %38 = add nsw i32 %37, -2
+  %39 = lshr i32 %38, 1
+  %40 = add i32 %36, %39
   br label %.critedge.i
 
 .critedge.loopexit.i:                             ; preds = %.lr.ph.split.us.i

@@ -1419,16 +1419,16 @@ for.body.i219:                                    ; preds = %call3.i.i.i.noexc, 
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %for.body.i219
   %__i.0.i.i.i = phi i64 [ 0, %for.body.i219 ], [ %inc.i.i.i, %while.cond.i.i.i ]
-  %arrayidx.i.i.i222 = getelementptr inbounds i16, ptr %pInsert1_16, i64 %__i.0.i.i.i
-  %102 = load i16, ptr %arrayidx.i.i.i222, align 2
+  %arrayidx.i.i.i221 = getelementptr inbounds i16, ptr %pInsert1_16, i64 %__i.0.i.i.i
+  %102 = load i16, ptr %arrayidx.i.i.i221, align 2
   %cmp.i.i.i5.i = icmp eq i16 %102, 0
   %inc.i.i.i = add i64 %__i.0.i.i.i, 1
   br i1 %cmp.i.i.i5.i, label %_ZNSt11char_traitsIDsE6lengthEPKDs.exit.i.i, label %while.cond.i.i.i, !llvm.loop !12
 
 _ZNSt11char_traitsIDsE6lengthEPKDs.exit.i.i:      ; preds = %while.cond.i.i.i
-  %arrayidx.i.i.i222.le = getelementptr inbounds i16, ptr %pInsert1_16, i64 %__i.0.i.i.i
-  %.neg.i221 = mul nsw i64 %indvars.iv.i220, -317
-  %sub.i223 = add i64 %.neg.i221, %97
+  %arrayidx.i.i.i221.le = getelementptr inbounds i16, ptr %pInsert1_16, i64 %__i.0.i.i.i
+  %.neg.i222 = mul nsw i64 %indvars.iv.i220, -317
+  %sub.i223 = add i64 %.neg.i222, %97
   %103 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %cmp.i.i2.i.i = icmp ugt i64 %sub.i223, %103
   br i1 %cmp.i.i2.i.i, label %if.then.i.i.i6.i.invoke, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE6insertEmPKDs.exit.i
@@ -1537,7 +1537,7 @@ if.end26.i:                                       ; preds = %if.else.i2525
   br i1 %cmp8.not.i2528, label %call3.i.i.i.noexc, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.then.i78.i, %if.end.i.i79.i, %if.end26.i
-  %cmp31.not.i = icmp ugt ptr %arrayidx.i.i.i222.le, %add.ptr.i2523
+  %cmp31.not.i = icmp ugt ptr %arrayidx.i.i.i221.le, %add.ptr.i2523
   br i1 %cmp31.not.i, label %if.else33.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %if.then28.i
@@ -4498,11 +4498,7 @@ invoke.cont230:                                   ; preds = %invoke.cont228
 if.end233:                                        ; preds = %invoke.cont230, %invoke.cont223
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %pFind1_16, ptr noundef nonnull align 2 dereferenceable(14) @__const._Z15BenchmarkStringv.pFind1_16, i64 14, i1 false)
   %416 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
-  %tobool.i.i.i1134 = icmp slt i8 %416, 0
   %417 = load i64, ptr %mnSize.i.i6.i.i, align 8
-  %conv.i.i.i1136 = zext nneg i8 %416 to i64
-  %sub.i.i.i1137 = sub nsw i64 23, %conv.i.i.i1136
-  %cond.i.i1138 = select i1 %tobool.i.i.i1134, i64 %417, i64 %sub.i.i.i1137
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.end233
@@ -4513,6 +4509,10 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %if
   br i1 %tobool.not.i.i, label %_ZN5eastl10CharStrlenIDsEEmPKT_.exit.i, label %while.cond.i.i, !llvm.loop !14
 
 _ZN5eastl10CharStrlenIDsEEmPKT_.exit.i:           ; preds = %while.cond.i.i
+  %tobool.i.i.i1134 = icmp slt i8 %416, 0
+  %conv.i.i.i1136 = zext nneg i8 %416 to i64
+  %sub.i.i.i1137 = sub nsw i64 23, %conv.i.i.i1136
+  %cond.i.i1138 = select i1 %tobool.i.i.i1134, i64 %417, i64 %sub.i.i.i1137
   %div23536 = lshr i64 %cond.i.i1138, 1
   %sub.ptr.lhs.cast.i.i1140 = ptrtoint ptr %pCurrent.0.i.i to i64
   %sub.ptr.sub.i.i1142 = sub i64 %sub.ptr.lhs.cast.i.i1140, %sub.ptr.rhs.cast.i.i1141

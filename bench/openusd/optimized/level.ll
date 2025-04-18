@@ -4169,27 +4169,27 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegula
   %44 = getelementptr inbounds i32, ptr %28, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i16, ptr %46, i64 %36
-  br label %48
+  br label %47
 
-48:                                               ; preds = %5, %48
-  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %48 ]
-  %.0212 = phi i32 [ -1, %5 ], [ %spec.select, %48 ]
-  %.0153211 = phi i32 [ -1, %5 ], [ %.1154, %48 ]
-  %49 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp eq i32 %1, %50
-  %52 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %51, i32 %52, i32 %.0212
-  %53 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %1, %54
-  %.1154 = select i1 %55, i32 %52, i32 %.0153211
+47:                                               ; preds = %5, %47
+  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %47 ]
+  %.0212 = phi i32 [ -1, %5 ], [ %spec.select, %47 ]
+  %.0153211 = phi i32 [ -1, %5 ], [ %.1154, %47 ]
+  %48 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %1, %49
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %50, i32 %51, i32 %.0212
+  %52 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %53 = load i32, ptr %52, align 4
+  %54 = icmp eq i32 %1, %53
+  %.1154 = select i1 %54, i32 %51, i32 %.0153211
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %56, label %48, !llvm.loop !50
+  br i1 %exitcond.not, label %55, label %47, !llvm.loop !50
 
-56:                                               ; preds = %48
+55:                                               ; preds = %47
+  %56 = getelementptr inbounds i16, ptr %46, i64 %36
   %57 = getelementptr inbounds i16, ptr %46, i64 %43
   %58 = add nsw i32 %spec.select, 1
   %59 = and i32 %58, 3
@@ -4211,9 +4211,9 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegula
   %75 = zext nneg i32 %65 to i64
   %76 = getelementptr inbounds nuw i32, ptr %44, i64 %75
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds nuw i16, ptr %47, i64 %66
+  %78 = getelementptr inbounds nuw i16, ptr %56, i64 %66
   %79 = load i16, ptr %78, align 2
-  %80 = getelementptr inbounds nuw i16, ptr %47, i64 %69
+  %80 = getelementptr inbounds nuw i16, ptr %56, i64 %69
   %81 = load i16, ptr %80, align 2
   %82 = getelementptr inbounds nuw i16, ptr %57, i64 %72
   %83 = load i16, ptr %82, align 2
@@ -4222,7 +4222,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegula
   %86 = icmp slt i32 %4, 0
   br i1 %86, label %103, label %87
 
-87:                                               ; preds = %56
+87:                                               ; preds = %55
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %89 = zext nneg i32 %4 to i64
   %90 = load ptr, ptr %88, align 8
@@ -4240,10 +4240,10 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegula
   %102 = getelementptr inbounds i32, ptr %101, i64 %100
   br label %103
 
-103:                                              ; preds = %56, %87
-  %.sink242 = phi ptr [ %95, %87 ], [ %13, %56 ]
-  %.sink237 = phi ptr [ %101, %87 ], [ %19, %56 ]
-  %.sroa.0190.0 = phi ptr [ %102, %87 ], [ %20, %56 ]
+103:                                              ; preds = %55, %87
+  %.sink242 = phi ptr [ %95, %87 ], [ %13, %55 ]
+  %.sink237 = phi ptr [ %101, %87 ], [ %19, %55 ]
+  %.sroa.0190.0 = phi ptr [ %102, %87 ], [ %20, %55 ]
   %104 = shl nsw i32 %68, 1
   %105 = sext i32 %104 to i64
   %106 = getelementptr i32, ptr %.sink242, i64 %105

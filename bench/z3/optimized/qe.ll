@@ -19965,54 +19965,54 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %_ZN7obj_refI4expr11
   br label %_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit
 
 _ZN7obj_refI4expr11ast_managerEaSERKS2_.exit:     ; preds = %._crit_edge, %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit.i, %_ZN11ast_manager7inc_refEP3ast.exit.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @_ZN11th_rewriterclER7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %23)
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @_ZN11th_rewriterclER7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %23)
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.backedge, %_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN7obj_refI4expr11ast_managerEaSERKS2_.exit ], [ %indvars.iv.i.be173, %.preheader.i.backedge ]
-  %42 = load ptr, ptr %41, align 8, !tbaa !118
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %_ZNK6vectorIPN2qe16qe_solver_pluginELb0EjE4sizeEv.exit.i, label %44
+  %41 = load ptr, ptr %40, align 8, !tbaa !118
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %_ZNK6vectorIPN2qe16qe_solver_pluginELb0EjE4sizeEv.exit.i, label %43
 
-44:                                               ; preds = %.preheader.i
-  %45 = getelementptr inbounds i8, ptr %42, i64 -4
-  %46 = load i32, ptr %45, align 4, !tbaa !12
-  %47 = zext i32 %46 to i64
+43:                                               ; preds = %.preheader.i
+  %44 = getelementptr inbounds i8, ptr %41, i64 -4
+  %45 = load i32, ptr %44, align 4, !tbaa !12
+  %46 = zext i32 %45 to i64
   br label %_ZNK6vectorIPN2qe16qe_solver_pluginELb0EjE4sizeEv.exit.i
 
-_ZNK6vectorIPN2qe16qe_solver_pluginELb0EjE4sizeEv.exit.i: ; preds = %44, %.preheader.i
-  %.0.i.i = phi i64 [ %47, %44 ], [ 0, %.preheader.i ]
-  %48 = icmp samesign ult i64 %indvars.iv.i, %.0.i.i
-  br i1 %48, label %49, label %_ZN2qe17quant_elim_plugin9normalizeER7obj_refI4expr11ast_managerER13obj_hashtableI3appES9_.exit
+_ZNK6vectorIPN2qe16qe_solver_pluginELb0EjE4sizeEv.exit.i: ; preds = %43, %.preheader.i
+  %.0.i.i = phi i64 [ %46, %43 ], [ 0, %.preheader.i ]
+  %47 = icmp samesign ult i64 %indvars.iv.i, %.0.i.i
+  br i1 %47, label %48, label %_ZN2qe17quant_elim_plugin9normalizeER7obj_refI4expr11ast_managerER13obj_hashtableI3appES9_.exit
 
-49:                                               ; preds = %_ZNK6vectorIPN2qe16qe_solver_pluginELb0EjE4sizeEv.exit.i
-  %50 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
-  %51 = load ptr, ptr %50, align 8, !tbaa !121
-  %.not.i66 = icmp eq ptr %51, null
-  br i1 %.not.i66, label %.backedge, label %52
+48:                                               ; preds = %_ZNK6vectorIPN2qe16qe_solver_pluginELb0EjE4sizeEv.exit.i
+  %49 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i
+  %50 = load ptr, ptr %49, align 8, !tbaa !121
+  %.not.i66 = icmp eq ptr %50, null
+  br i1 %.not.i66, label %.backedge, label %51
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %51, align 8, !tbaa !72
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(16) %23)
-  br i1 %56, label %.preheader.i.backedge, label %.backedge
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %50, align 8, !tbaa !72
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
+  %54 = load ptr, ptr %53, align 8
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(16) %23)
+  br i1 %55, label %.preheader.i.backedge, label %.backedge
 
-.backedge:                                        ; preds = %49, %52
+.backedge:                                        ; preds = %48, %51
   %indvars.iv.i.be = add nuw nsw i64 %indvars.iv.i, 1
   br label %.preheader.i.backedge
 
-.preheader.i.backedge:                            ; preds = %.backedge, %52
-  %indvars.iv.i.be173 = phi i64 [ %indvars.iv.i.be, %.backedge ], [ 0, %52 ]
+.preheader.i.backedge:                            ; preds = %.backedge, %51
+  %indvars.iv.i.be173 = phi i64 [ %indvars.iv.i.be, %.backedge ], [ 0, %51 ]
   br label %.preheader.i, !llvm.loop !508
 
 _ZN2qe17quant_elim_plugin9normalizeER7obj_refI4expr11ast_managerER13obj_hashtableI3appES9_.exit: ; preds = %_ZNK6vectorIPN2qe16qe_solver_pluginELb0EjE4sizeEv.exit.i
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  tail call void @_ZN2qe14nnf_normalizerclER7obj_refI4expr11ast_managerER13obj_hashtableI3appES9_(ptr noundef nonnull align 8 dereferenceable(384) %58, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(20) %39, ptr noundef nonnull align 8 dereferenceable(20) %57)
+  tail call void @_ZN2qe14nnf_normalizerclER7obj_refI4expr11ast_managerER13obj_hashtableI3appES9_(ptr noundef nonnull align 8 dereferenceable(384) %58, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(20) %56, ptr noundef nonnull align 8 dereferenceable(20) %57)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #28
   %59 = load ptr, ptr %23, align 8, !tbaa !35
   store ptr %59, ptr %10, align 8, !tbaa !35

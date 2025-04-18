@@ -878,12 +878,12 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i311.preheader, %391
-  %396 = sub nuw nsw i64 2, %389
-  %397 = sub i64 4, %388
-  %398 = and i64 %397, -4
-  %399 = add i64 %398, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %386, i8 0, i64 %399, i1 false), !tbaa !57
-  %400 = getelementptr inbounds nuw i32, ptr %386, i64 %396
+  %396 = sub i64 4, %388
+  %397 = and i64 %396, -4
+  %398 = add i64 %397, 4
+  call void @llvm.memset.p0.i64(ptr align 4 %386, i8 0, i64 %398, i1 false), !tbaa !57
+  %399 = sub nuw nsw i64 2, %389
+  %400 = getelementptr inbounds nuw i32, ptr %386, i64 %399
   store ptr %400, ptr getelementptr inbounds nuw (i8, ptr @classCounters, i64 8), align 8, !tbaa !55
   br label %_ZNSt6vectorIiSaIiEE14_M_fill_assignEmRKi.exit
 

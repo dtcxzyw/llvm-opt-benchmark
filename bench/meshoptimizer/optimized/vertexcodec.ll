@@ -80,54 +80,51 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
   %44 = load i32, ptr %43, align 1
   br label %.preheader53.i
 
-.preheader53.i:                                   ; preds = %64, %42
-  %indvars.iv.i = phi i64 [ %40, %42 ], [ %indvars.iv.next.i, %64 ]
-  %.04461.i = phi ptr [ %43, %42 ], [ %scevgep, %64 ]
-  %.04660.i = phi i32 [ %44, %42 ], [ %58, %64 ]
-  %.04859.i = phi i64 [ 0, %42 ], [ %65, %64 ]
-  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i, i64 15)
-  %45 = add nuw nsw i64 %umin, 1
-  br label %46
+.preheader53.i:                                   ; preds = %62, %42
+  %indvars.iv.i = phi i64 [ %40, %42 ], [ %indvars.iv.next.i, %62 ]
+  %.04461.i = phi ptr [ %43, %42 ], [ %scevgep, %62 ]
+  %.04660.i = phi i32 [ %44, %42 ], [ %57, %62 ]
+  %.04859.i = phi i64 [ 0, %42 ], [ %65, %62 ]
+  %umin.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i, i64 15)
+  br label %45
 
-46:                                               ; preds = %46, %.preheader53.i
-  %.157.i = phi ptr [ %.04461.i, %.preheader53.i ], [ %61, %46 ]
-  %.14756.i = phi i32 [ %.04660.i, %.preheader53.i ], [ %58, %46 ]
-  %.04955.i = phi i64 [ 0, %.preheader53.i ], [ %62, %46 ]
-  %.05054.i = phi i32 [ 0, %.preheader53.i ], [ %60, %46 ]
-  %47 = load i16, ptr %.157.i, align 1
-  %48 = zext i16 %47 to i32
-  %49 = getelementptr inbounds nuw i8, ptr %.157.i, i64 2
-  %50 = load i8, ptr %49, align 1, !tbaa !8
-  %51 = zext i8 %50 to i32
-  %52 = shl nuw nsw i32 %51, 16
-  %53 = or disjoint i32 %52, %48
-  %54 = getelementptr inbounds nuw i8, ptr %.157.i, i64 3
-  %55 = load i8, ptr %54, align 1, !tbaa !8
-  %56 = zext i8 %55 to i32
-  %57 = shl nuw i32 %56, 24
-  %58 = or disjoint i32 %53, %57
-  %59 = xor i32 %58, %.14756.i
-  %60 = or i32 %59, %.05054.i
-  %61 = getelementptr inbounds nuw i8, ptr %.157.i, i64 %4
-  %62 = add nuw nsw i64 %.04955.i, 1
-  %exitcond.not.i = icmp eq i64 %.04955.i, %umin
-  br i1 %exitcond.not.i, label %.critedge.i.preheader, label %46, !llvm.loop !9
+45:                                               ; preds = %45, %.preheader53.i
+  %.157.i = phi ptr [ %.04461.i, %.preheader53.i ], [ %60, %45 ]
+  %.14756.i = phi i32 [ %.04660.i, %.preheader53.i ], [ %57, %45 ]
+  %.04955.i = phi i64 [ 0, %.preheader53.i ], [ %61, %45 ]
+  %.05054.i = phi i32 [ 0, %.preheader53.i ], [ %59, %45 ]
+  %46 = load i16, ptr %.157.i, align 1
+  %47 = zext i16 %46 to i32
+  %48 = getelementptr inbounds nuw i8, ptr %.157.i, i64 2
+  %49 = load i8, ptr %48, align 1, !tbaa !8
+  %50 = zext i8 %49 to i32
+  %51 = shl nuw nsw i32 %50, 16
+  %52 = or disjoint i32 %51, %47
+  %53 = getelementptr inbounds nuw i8, ptr %.157.i, i64 3
+  %54 = load i8, ptr %53, align 1, !tbaa !8
+  %55 = zext i8 %54 to i32
+  %56 = shl nuw i32 %55, 24
+  %57 = or disjoint i32 %52, %56
+  %58 = xor i32 %57, %.14756.i
+  %59 = or i32 %58, %.05054.i
+  %60 = getelementptr inbounds nuw i8, ptr %.157.i, i64 %4
+  %61 = add nuw nsw i64 %.04955.i, 1
+  %exitcond.not.i = icmp eq i64 %.04955.i, %umin.i
+  br i1 %exitcond.not.i, label %.critedge.i, label %45, !llvm.loop !9
 
-.critedge.i.preheader:                            ; preds = %46
-  %63 = mul i64 %4, %45
-  br label %.critedge.i
-
-64:                                               ; preds = %.critedge.i
-  %scevgep = getelementptr i8, ptr %.04461.i, i64 %63
+62:                                               ; preds = %.critedge.i
+  %63 = add nuw nsw i64 %umin.i, 1
+  %64 = mul i64 %4, %63
+  %scevgep = getelementptr i8, ptr %.04461.i, i64 %64
   %65 = add nuw i64 %.04859.i, 16
   %66 = icmp ult i64 %65, %3
   %indvars.iv.next.i = add i64 %indvars.iv.i, -16
   br i1 %66, label %.preheader53.i, label %.preheader.i, !llvm.loop !11
 
-.critedge.i:                                      ; preds = %.critedge.i.preheader, %.critedge.i
-  %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %.critedge.i ], [ 0, %.critedge.i.preheader ]
+.critedge.i:                                      ; preds = %45, %.critedge.i
+  %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %.critedge.i ], [ 0, %45 ]
   %67 = trunc nuw nsw i64 %indvars.iv67.i to i32
-  %68 = tail call noundef i32 @llvm.fshl.i32(i32 %60, i32 %60, i32 %67)
+  %68 = tail call noundef i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 %67)
   %69 = trunc i32 %68 to i8
   %70 = icmp ult i8 %69, 16
   %71 = icmp samesign ult i8 %69, 4
@@ -166,11 +163,11 @@ define dso_local i64 @meshopt_encodeVertexBufferLevel(ptr noundef %0, i64 nounde
   store i64 %103, ptr %84, align 8, !tbaa !12
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, 8
-  br i1 %exitcond70.not.i, label %64, label %.critedge.i, !llvm.loop !14
+  br i1 %exitcond70.not.i, label %62, label %.critedge.i, !llvm.loop !14
 
-.preheader.i:                                     ; preds = %64, %.preheader.i
-  %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %.preheader.i ], [ 1, %64 ]
-  %.04362.i = phi i32 [ %111, %.preheader.i ], [ 0, %64 ]
+.preheader.i:                                     ; preds = %62, %.preheader.i
+  %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %.preheader.i ], [ 1, %62 ]
+  %.04362.i = phi i32 [ %111, %.preheader.i ], [ 0, %62 ]
   %104 = getelementptr inbounds nuw [8 x i64], ptr %11, i64 0, i64 %indvars.iv71.i
   %105 = load i64, ptr %104, align 8, !tbaa !12
   %106 = zext nneg i32 %.04362.i to i64
@@ -330,8 +327,8 @@ _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
   br label %191
 
 187:                                              ; preds = %191
-  %.tr.i24.i.i = trunc i64 %.07092.i to i32
-  %188 = shl i32 %.tr.i24.i.i, 3
+  %.tr.i25.i.i = trunc i64 %.07092.i to i32
+  %188 = shl i32 %.tr.i25.i.i, 3
   %189 = and i32 %188, 24
   br i1 %.not.i26.i.i, label %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i, label %.lr.ph.preheader.i27.i.i
 
@@ -350,8 +347,8 @@ _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
   %196 = shl nuw i32 %194, %195
   %197 = or i32 %196, %.038.i.i.i
   %198 = add nuw nsw i64 %.03637.i.i.i, 1
-  %exitcond.not.i25.i.i = icmp eq i64 %198, 4
-  br i1 %exitcond.not.i25.i.i, label %187, label %191, !llvm.loop !20
+  %exitcond.not.i24.i.i = icmp eq i64 %198, 4
+  br i1 %exitcond.not.i24.i.i, label %187, label %191, !llvm.loop !20
 
 .lr.ph.i28.i.i:                                   ; preds = %201, %.lr.ph.preheader.i27.i.i
   %.143.i.i.i = phi i32 [ %215, %201 ], [ %197, %.lr.ph.preheader.i27.i.i ]
@@ -621,9 +618,9 @@ _ZN7meshoptL15estimateChannelEPKhmmmmmii.exit:    ; preds = %.preheader.i104
   br label %341
 
 336:                                              ; preds = %341
-  %.tr.i24.i.i115 = trunc i64 %.054132.i to i32
   %337 = lshr i32 %290, 4
-  %338 = shl i32 %.tr.i24.i.i115, 3
+  %.tr.i25.i.i115 = trunc i64 %.054132.i to i32
+  %338 = shl i32 %.tr.i25.i.i115, 3
   %339 = and i32 %338, 24
   br i1 %.not.i26.i.i106, label %.thread86.i, label %.lr.ph.preheader.i27.i.i116
 
@@ -642,8 +639,8 @@ _ZN7meshoptL15estimateChannelEPKhmmmmmii.exit:    ; preds = %.preheader.i104
   %346 = shl nuw i32 %344, %345
   %347 = or i32 %346, %.038.i.i.i111
   %348 = add nuw nsw i64 %.03637.i.i.i112, 1
-  %exitcond.not.i25.i.i114 = icmp eq i64 %348, 4
-  br i1 %exitcond.not.i25.i.i114, label %336, label %341, !llvm.loop !20
+  %exitcond.not.i24.i.i114 = icmp eq i64 %348, 4
+  br i1 %exitcond.not.i24.i.i114, label %336, label %341, !llvm.loop !20
 
 .lr.ph.i28.i.i117:                                ; preds = %351, %.lr.ph.preheader.i27.i.i116
   %.143.i.i.i118 = phi i32 [ %365, %351 ], [ %347, %.lr.ph.preheader.i27.i.i116 ]

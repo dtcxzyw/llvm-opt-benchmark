@@ -577,11 +577,11 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   br label %.preheader97.us.us
 
 .preheader97.lr.ph.split.us156:                   ; preds = %.preheader97.lr.ph.us
+  %118 = add i32 %71, %.065147.us
   %umax234 = zext i16 %87 to i32
-  %118 = add nsw i32 %umax234, -1
-  %119 = mul i32 %71, %118
-  %120 = add i32 %71, %.065147.us
-  %121 = add i32 %120, %119
+  %119 = add nsw i32 %umax234, -1
+  %120 = mul i32 %71, %119
+  %121 = add i32 %118, %120
   br label %.loopexit.us
 
 .preheader97.us.us:                               ; preds = %.preheader97.us.us.preheader, %._crit_edge130.us.us
@@ -622,11 +622,11 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   br label %.preheader.us
 
 .preheader.lr.ph.us.split.us:                     ; preds = %.preheader.lr.ph.us
+  %136 = add i32 %71, %.065147.us
   %umax243 = zext i16 %87 to i32
-  %136 = add nsw i32 %umax243, -1
-  %137 = mul i32 %71, %136
-  %138 = add i32 %71, %.065147.us
-  %139 = add i32 %138, %137
+  %137 = add nsw i32 %umax243, -1
+  %138 = mul i32 %71, %137
+  %139 = add i32 %136, %138
   br label %.loopexit.us
 
 .lr.ph149.split:                                  ; preds = %.lr.ph149
@@ -769,11 +769,11 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   br i1 %195, label %.lr.ph.us, label %.loopexit102.loopexit184, !llvm.loop !116
 
 .lr.ph116.split:                                  ; preds = %.lr.ph116
+  %196 = add i32 %71, %.065147
   %umax = zext i16 %178 to i32
-  %196 = add nsw i32 %umax, -1
-  %197 = mul i32 %71, %196
-  %198 = add i32 %71, %.065147
-  %199 = add i32 %198, %197
+  %197 = add nsw i32 %umax, -1
+  %198 = mul i32 %71, %197
+  %199 = add i32 %196, %198
   br label %.loopexit102
 
 .preheader101:                                    ; preds = %.lr.ph149.split.split
@@ -789,11 +789,11 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw14copy_mem_imageEPvii(ptr noundef
   br label %.lr.ph124.split
 
 .lr.ph124.split.us:                               ; preds = %.lr.ph124
+  %203 = add i32 %71, %.065147
   %umax224 = zext i16 %178 to i32
-  %203 = add nsw i32 %umax224, -1
-  %204 = mul i32 %71, %203
-  %205 = add i32 %71, %.065147
-  %206 = add i32 %205, %204
+  %204 = add nsw i32 %umax224, -1
+  %205 = mul i32 %71, %204
+  %206 = add i32 %203, %205
   br label %.loopexit102
 
 .lr.ph124.splitthread-pre-split:                  ; preds = %._crit_edge

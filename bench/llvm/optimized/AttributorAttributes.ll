@@ -128555,23 +128555,23 @@ _ZNK4llvm10IRPosition16getCallSiteArgNoEv.exit.thread: ; preds = %82, %_ZNK4llvm
   br label %.thread
 
 _ZN4llvm15SmallVectorImplINS_2AA7RangeTyEE12emplace_backIJRKlRlEEERS2_DpOT_.exit.i: ; preds = %_ZNK4llvm10IRPosition16getCallSiteArgNoEv.exit
-  %106 = icmp eq i32 %.1.i.i, 0
-  %107 = select i1 %106, i32 9, i32 5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #39
-  %108 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %108, ptr %6, align 8, !tbaa !32
-  %109 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %110 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 3, ptr %110, align 4, !tbaa !34
-  store i64 0, ptr %108, align 8, !tbaa !117
-  %111 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %77, ptr %111, align 8, !tbaa !140
-  store i32 1, ptr %109, align 8, !tbaa !33
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %106, ptr %6, align 8, !tbaa !32
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 3, ptr %108, align 4, !tbaa !34
+  store i64 0, ptr %106, align 8, !tbaa !117
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %77, ptr %109, align 8, !tbaa !140
+  store i32 1, ptr %107, align 8, !tbaa !33
+  %110 = icmp eq i32 %.1.i.i, 0
+  %111 = select i1 %110, i32 9, i32 5
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %113 = call noundef i32 @_ZN4llvm2AA11PointerInfo5State9addAccessERNS_10AttributorERKNS_13AAPointerInfo9RangeListERNS_11InstructionESt8optionalIPNS_5ValueEENS5_10AccessKindEPNS_4TypeEPS9_(ptr noundef nonnull align 8 dereferenceable(296) %112, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(72) %.1.i, ptr null, i8 1, i32 noundef %107, ptr noundef null, ptr noundef null)
+  %113 = call noundef i32 @_ZN4llvm2AA11PointerInfo5State9addAccessERNS_10AttributorERKNS_13AAPointerInfo9RangeListERNS_11InstructionESt8optionalIPNS_5ValueEENS5_10AccessKindEPNS_4TypeEPS9_(ptr noundef nonnull align 8 dereferenceable(296) %112, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(72) %.1.i, ptr null, i8 1, i32 noundef %111, ptr noundef null, ptr noundef null)
   %114 = call noundef i32 @_ZN4llvmorENS_12ChangeStatusES0_(i32 noundef 1, i32 noundef %113) #39
   %115 = load ptr, ptr %6, align 8, !tbaa !32
-  %116 = icmp eq ptr %115, %108
+  %116 = icmp eq ptr %115, %106
   br i1 %116, label %_ZN4llvm13AAPointerInfo9RangeListD2Ev.exit, label %117
 
 117:                                              ; preds = %_ZN4llvm15SmallVectorImplINS_2AA7RangeTyEE12emplace_backIJRKlRlEEERS2_DpOT_.exit.i

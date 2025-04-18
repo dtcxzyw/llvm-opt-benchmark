@@ -51718,67 +51718,67 @@ _ZN2OT20hb_closure_context_t22push_cur_active_glyphsEv.exit: ; preds = %42, %43
 _ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13hb_is_sink_ofIT_jEE5valueEvE4typeELPv0EEEvRKS4_OS7_.exit: ; preds = %52, %76, %77
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i32
-  %81 = shl nuw nsw i32 %80, 8
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %81 = load i8, ptr %80, align 1
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %83 = load i8, ptr %82, align 1
-  %84 = zext i8 %83 to i32
-  %85 = or disjoint i32 %81, %84
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 %86
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %85 = load i8, ptr %84, align 1
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %87 = load i8, ptr %86, align 1
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %89 = load i8, ptr %88, align 1
-  %90 = zext i8 %89 to i32
-  %91 = shl nuw nsw i32 %90, 8
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %93 = load i8, ptr %92, align 1
-  %94 = zext i8 %93 to i32
-  %95 = or disjoint i32 %91, %94
-  %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 %96
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %99 = load i8, ptr %98, align 1
-  %100 = zext i8 %99 to i32
-  %101 = shl nuw nsw i32 %100, 8
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %103 = load i8, ptr %102, align 1
-  %104 = zext i8 %103 to i32
-  %105 = or disjoint i32 %101, %104
-  %106 = icmp eq i32 %105, 0
-  %107 = zext nneg i32 %105 to i64
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 %107
-  %.0.i.i24 = select i1 %106, ptr @_hb_NullPool, ptr %108
-  br label %109
+  br label %90
 
-109:                                              ; preds = %_ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13hb_is_sink_ofIT_jEE5valueEvE4typeELPv0EEEvRKS4_OS7_.exit, %109
-  %.idx = phi i64 [ 0, %_ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13hb_is_sink_ofIT_jEE5valueEvE4typeELPv0EEEvRKS4_OS7_.exit ], [ %.add, %109 ]
+90:                                               ; preds = %_ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13hb_is_sink_ofIT_jEE5valueEvE4typeELPv0EEEvRKS4_OS7_.exit, %90
+  %.idx = phi i64 [ 0, %_ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13hb_is_sink_ofIT_jEE5valueEvE4typeELPv0EEEvRKS4_OS7_.exit ], [ %.add, %90 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   store atomic i32 1, ptr %.ptr monotonic, align 16
-  %110 = getelementptr inbounds nuw i8, ptr %.ptr, i64 4
-  store atomic i32 1, ptr %110 monotonic, align 4
-  %111 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
-  store atomic i64 0, ptr %111 monotonic, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %.ptr, i64 16
-  %113 = getelementptr inbounds nuw i8, ptr %.ptr, i64 20
-  store i32 0, ptr %113, align 4
-  store i32 1, ptr %112, align 16
-  %114 = getelementptr inbounds nuw i8, ptr %.ptr, i64 24
-  store i32 0, ptr %114, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %.ptr, i64 28
-  store i32 0, ptr %115, align 4
-  %116 = getelementptr inbounds nuw i8, ptr %.ptr, i64 32
-  store i32 0, ptr %116, align 16
-  %117 = getelementptr inbounds nuw i8, ptr %.ptr, i64 40
-  store ptr null, ptr %117, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %.ptr, i64 4
+  store atomic i32 1, ptr %91 monotonic, align 4
+  %92 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
+  store atomic i64 0, ptr %92 monotonic, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %.ptr, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.ptr, i64 20
+  store i32 0, ptr %94, align 4
+  store i32 1, ptr %93, align 16
+  %95 = getelementptr inbounds nuw i8, ptr %.ptr, i64 24
+  store i32 0, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %.ptr, i64 28
+  store i32 0, ptr %96, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %.ptr, i64 32
+  store i32 0, ptr %97, align 16
+  %98 = getelementptr inbounds nuw i8, ptr %.ptr, i64 40
+  store ptr null, ptr %98, align 8
   %.add = add nuw nsw i64 %.idx, 48
-  %118 = icmp eq i64 %.add, 144
-  br i1 %118, label %119, label %109
+  %99 = icmp eq i64 %.add, 144
+  br i1 %99, label %100, label %90
 
-119:                                              ; preds = %109
-  %120 = icmp eq i32 %85, 0
-  %.0.i.i22 = select i1 %120, ptr @_hb_NullPool, ptr %87
-  %121 = icmp eq i32 %95, 0
-  %.0.i.i23 = select i1 %121, ptr @_hb_NullPool, ptr %97
+100:                                              ; preds = %90
+  %101 = zext i8 %79 to i32
+  %102 = shl nuw nsw i32 %101, 8
+  %103 = zext i8 %81 to i32
+  %104 = or disjoint i32 %102, %103
+  %105 = icmp eq i32 %104, 0
+  %106 = zext nneg i32 %104 to i64
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 %106
+  %.0.i.i22 = select i1 %105, ptr @_hb_NullPool, ptr %107
+  %108 = zext i8 %83 to i32
+  %109 = shl nuw nsw i32 %108, 8
+  %110 = zext i8 %85 to i32
+  %111 = or disjoint i32 %109, %110
+  %112 = icmp eq i32 %111, 0
+  %113 = zext nneg i32 %111 to i64
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 %113
+  %.0.i.i23 = select i1 %112, ptr @_hb_NullPool, ptr %114
+  %115 = zext i8 %87 to i32
+  %116 = shl nuw nsw i32 %115, 8
+  %117 = zext i8 %89 to i32
+  %118 = or disjoint i32 %116, %117
+  %119 = icmp eq i32 %118, 0
+  %120 = zext nneg i32 %118 to i64
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 %120
+  %.0.i.i24 = select i1 %119, ptr @_hb_NullPool, ptr %121
   %122 = getelementptr inbounds nuw i8, ptr %11, i64 144
   store atomic i32 1, ptr %12 monotonic, align 8
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -51829,7 +51829,7 @@ _ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13
   %.not10.i.i.i = icmp eq i32 %.sroa.2.8.insert.ext.i.i.i.i.i.i, 0
   br i1 %.not10.i.i.i, label %"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEELb1EEEEEZNKS5_21ChainContextFormat2_5IS9_E7closureEPNS5_20hb_closure_context_tEEUljE_RK3$_5LPv0EE10hb_apply_tIZNKSI_7closureESK_EUl9hb_pair_tIjRSE_EE_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSY_6item_tEEE5valueEvE4typeELSP_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISY_Efp_EEEOSY_OS13_.exit", label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %119
+.lr.ph.i.i.i:                                     ; preds = %100
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %150 = getelementptr inbounds nuw i8, ptr %.0.i.i23, i64 1
   br label %151
@@ -52428,7 +52428,7 @@ _ZNK2OT17ClassDefFormat2_4INS_6Layout10SmallTypesEE16intersects_classEPK8hb_set_
   %.not.i.i.i.i = icmp eq i32 %415, 0
   br i1 %.not.i.i.i.i, label %"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEELb1EEEEEZNKS5_21ChainContextFormat2_5IS9_E7closureEPNS5_20hb_closure_context_tEEUljE_RK3$_5LPv0EE10hb_apply_tIZNKSI_7closureESK_EUl9hb_pair_tIjRSE_EE_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSY_6item_tEEE5valueEvE4typeELSP_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISY_Efp_EEEOSY_OS13_.exit", label %.lr.ph.i
 
-"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEELb1EEEEEZNKS5_21ChainContextFormat2_5IS9_E7closureEPNS5_20hb_closure_context_tEEUljE_RK3$_5LPv0EE10hb_apply_tIZNKSI_7closureESK_EUl9hb_pair_tIjRSE_EE_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSY_6item_tEEE5valueEvE4typeELSP_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISY_Efp_EEEOSY_OS13_.exit": ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIKN2OT8OffsetToINS4_12ChainRuleSetINS4_6Layout10SmallTypesEEENS4_7IntTypeItLj2EEELb1EEEEE9hb_pair_tIjRSD_EEppEv.exit.i.i.i, %.noexc29, %"_ZNK4$_15clIRZNK2OT21ChainContextFormat2_5INS1_6Layout10SmallTypesEE7closureEPNS1_20hb_closure_context_tEEUljE_jEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSB_OSC_.exit.backedge.i.i.i.i", %119
+"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEELb1EEEEEZNKS5_21ChainContextFormat2_5IS9_E7closureEPNS5_20hb_closure_context_tEEUljE_RK3$_5LPv0EE10hb_apply_tIZNKSI_7closureESK_EUl9hb_pair_tIjRSE_EE_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSY_6item_tEEE5valueEvE4typeELSP_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISY_Efp_EEEOSY_OS13_.exit": ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIKN2OT8OffsetToINS4_12ChainRuleSetINS4_6Layout10SmallTypesEEENS4_7IntTypeItLj2EEELb1EEEEE9hb_pair_tIjRSD_EEppEv.exit.i.i.i, %.noexc29, %"_ZNK4$_15clIRZNK2OT21ChainContextFormat2_5INS1_6Layout10SmallTypesEE7closureEPNS1_20hb_closure_context_tEEUljE_jEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSB_OSC_.exit.backedge.i.i.i.i", %100
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   %416 = load i32, ptr %38, align 4
   %.not73 = icmp eq i32 %416, 0

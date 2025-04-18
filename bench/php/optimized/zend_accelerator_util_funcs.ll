@@ -1590,61 +1590,61 @@ define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly captures(ad
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %adler32_do16_loop.exit
-  %.069 = phi i32 [ %7, %adler32_do16_loop.exit ], [ %2, %3 ]
+  %.069 = phi i32 [ %27, %adler32_do16_loop.exit ], [ %2, %3 ]
   %.02268 = phi ptr [ %28, %adler32_do16_loop.exit ], [ %1, %3 ]
   %storemerge67 = phi i32 [ %38, %adler32_do16_loop.exit ], [ %5, %3 ]
   %.04666 = phi i32 [ %37, %adler32_do16_loop.exit ], [ %4, %3 ]
-  %7 = add i32 %.069, -5552
-  br label %8
+  br label %7
 
-8:                                                ; preds = %8, %.lr.ph
-  %.038.i = phi i32 [ 0, %.lr.ph ], [ %19, %8 ]
-  %9 = phi <4 x i32> [ zeroinitializer, %.lr.ph ], [ %18, %8 ]
-  %.036.i = phi i32 [ %.04666, %.lr.ph ], [ %27, %8 ]
-  %.0.i.idx = phi i64 [ 0, %.lr.ph ], [ %.0.i.add, %8 ]
+7:                                                ; preds = %7, %.lr.ph
+  %.038.i = phi i32 [ 0, %.lr.ph ], [ %18, %7 ]
+  %8 = phi <4 x i32> [ zeroinitializer, %.lr.ph ], [ %17, %7 ]
+  %.036.i = phi i32 [ %.04666, %.lr.ph ], [ %26, %7 ]
+  %.0.i.idx = phi i64 [ 0, %.lr.ph ], [ %.0.i.add, %7 ]
   %.0.i.ptr = getelementptr inbounds nuw i8, ptr %.02268, i64 %.0.i.idx
-  %10 = load <16 x i8>, ptr %.0.i.ptr, align 1, !tbaa !34
-  %11 = shufflevector <16 x i8> %10, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  %12 = shufflevector <16 x i8> %10, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %13 = bitcast <16 x i8> %11 to <8 x i16>
-  %14 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %13, <8 x i16> <i16 16, i16 15, i16 14, i16 13, i16 12, i16 11, i16 10, i16 9>)
-  %15 = bitcast <16 x i8> %12 to <8 x i16>
-  %16 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %15, <8 x i16> <i16 8, i16 7, i16 6, i16 5, i16 4, i16 3, i16 2, i16 1>)
-  %17 = add <4 x i32> %14, %9
-  %18 = add <4 x i32> %17, %16
-  %19 = add i32 %.036.i, %.038.i
-  %20 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %10, <16 x i8> zeroinitializer)
-  %21 = bitcast <2 x i64> %20 to <4 x i32>
-  %22 = extractelement <4 x i32> %21, i64 0
-  %23 = bitcast <2 x i64> %20 to <8 x i16>
-  %24 = extractelement <8 x i16> %23, i64 4
-  %25 = zext i16 %24 to i32
-  %26 = add i32 %22, %.036.i
-  %27 = add i32 %26, %25
+  %9 = load <16 x i8>, ptr %.0.i.ptr, align 1, !tbaa !34
+  %10 = shufflevector <16 x i8> %9, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  %11 = shufflevector <16 x i8> %9, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %12 = bitcast <16 x i8> %10 to <8 x i16>
+  %13 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %12, <8 x i16> <i16 16, i16 15, i16 14, i16 13, i16 12, i16 11, i16 10, i16 9>)
+  %14 = bitcast <16 x i8> %11 to <8 x i16>
+  %15 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %14, <8 x i16> <i16 8, i16 7, i16 6, i16 5, i16 4, i16 3, i16 2, i16 1>)
+  %16 = add <4 x i32> %13, %8
+  %17 = add <4 x i32> %16, %15
+  %18 = add i32 %.036.i, %.038.i
+  %19 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %9, <16 x i8> zeroinitializer)
+  %20 = bitcast <2 x i64> %19 to <4 x i32>
+  %21 = extractelement <4 x i32> %20, i64 0
+  %22 = bitcast <2 x i64> %19 to <8 x i16>
+  %23 = extractelement <8 x i16> %22, i64 4
+  %24 = zext i16 %23 to i32
+  %25 = add i32 %21, %.036.i
+  %26 = add i32 %25, %24
   %.0.i.add = add nuw nsw i64 %.0.i.idx, 16
   %.not.i = icmp eq i64 %.0.i.add, 5552
-  br i1 %.not.i, label %adler32_do16_loop.exit, label %8
+  br i1 %.not.i, label %adler32_do16_loop.exit, label %7
 
-adler32_do16_loop.exit:                           ; preds = %8
+adler32_do16_loop.exit:                           ; preds = %7
+  %27 = add i32 %.069, -5552
   %28 = getelementptr inbounds nuw i8, ptr %.02268, i64 5552
-  %29 = shufflevector <4 x i32> %18, <4 x i32> poison, <4 x i32> <i32 2, i32 0, i32 0, i32 1>
-  %30 = add <4 x i32> %29, %18
+  %29 = shufflevector <4 x i32> %17, <4 x i32> poison, <4 x i32> <i32 2, i32 0, i32 0, i32 1>
+  %30 = add <4 x i32> %29, %17
   %31 = shufflevector <4 x i32> %30, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
   %32 = add <4 x i32> %31, %30
-  %33 = shl i32 %19, 4
+  %33 = shl i32 %18, 4
   %34 = extractelement <4 x i32> %32, i64 0
   %35 = add i32 %33, %storemerge67
   %36 = add i32 %35, %34
-  %37 = urem i32 %27, 65521
+  %37 = urem i32 %26, 65521
   %38 = urem i32 %36, 65521
-  %39 = icmp ugt i32 %7, 5551
+  %39 = icmp ugt i32 %27, 5551
   br i1 %39, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %adler32_do16_loop.exit, %3
   %.046.lcssa = phi i32 [ %4, %3 ], [ %37, %adler32_do16_loop.exit ]
   %storemerge.lcssa = phi i32 [ %5, %3 ], [ %38, %adler32_do16_loop.exit ]
   %.022.lcssa = phi ptr [ %1, %3 ], [ %28, %adler32_do16_loop.exit ]
-  %.0.lcssa = phi i32 [ %2, %3 ], [ %7, %adler32_do16_loop.exit ]
+  %.0.lcssa = phi i32 [ %2, %3 ], [ %27, %adler32_do16_loop.exit ]
   %.not = icmp eq i32 %.0.lcssa, 0
   br i1 %.not, label %87, label %40
 

@@ -3946,139 +3946,139 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %142 = fcmp contract une float %.0..i, 0.000000e+00
   %143 = call noundef float @_ZNK7mitsuba22MicrofacetDistributionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE1GERKNS_6VectorIfLm3EEESA_SA_(ptr noundef nonnull align 4 dereferenceable(13) %20, ptr noundef nonnull align 16 dereferenceable(16) %30, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %19)
   %144 = load float, ptr %31, align 8
-  %145 = fmul contract float %143, %.0..i
-  %146 = fmul contract float %144, 4.000000e+00
-  %147 = fdiv contract float %145, %146
-  %148 = insertelement <4 x float> poison, float %147, i64 0
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %150 = load ptr, ptr %149, align 8
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 72
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %146 = load ptr, ptr %145, align 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 72
+  %149 = load ptr, ptr %148, align 8
+  %150 = call <4 x float> %149(ptr noundef nonnull align 8 dereferenceable(40) %146, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext %142)
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %152, align 8
-  %154 = call <4 x float> %153(ptr noundef nonnull align 8 dereferenceable(40) %150, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext %142)
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %156 = load ptr, ptr %155, align 8
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 72
-  %159 = load ptr, ptr %158, align 8
-  %160 = call <4 x float> %159(ptr noundef nonnull align 8 dereferenceable(40) %156, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext %142)
-  %161 = load i32, ptr %2, align 4
-  %162 = icmp eq i32 %161, 0
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 72
+  %155 = load ptr, ptr %154, align 8
+  %156 = call <4 x float> %155(ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext %142)
+  %157 = load i32, ptr %2, align 4
+  %158 = icmp eq i32 %157, 0
   %.val = load <4 x float>, ptr %4, align 16
   %.val438 = load <4 x float>, ptr %30, align 16
-  %.sroa.0428.0.copyload = select i1 %162, <4 x float> %.val, <4 x float> %.val438
-  %163 = select i1 %162, ptr %30, ptr %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, ptr noundef nonnull align 16 dereferenceable(16) %163, i64 16, i1 false)
-  %164 = load <4 x float>, ptr %19, align 16
-  %165 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %.sroa.0428.0.copyload, <4 x float> %164, i8 113)
-  %166 = shufflevector <4 x float> %165, <4 x float> poison, <4 x i32> zeroinitializer
+  %.sroa.0428.0.copyload = select i1 %158, <4 x float> %.val, <4 x float> %.val438
+  %159 = select i1 %158, ptr %30, ptr %4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, ptr noundef nonnull align 16 dereferenceable(16) %159, i64 16, i1 false)
+  %160 = load <4 x float>, ptr %19, align 16
+  %161 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %.sroa.0428.0.copyload, <4 x float> %160, i8 113)
+  %162 = shufflevector <4 x float> %161, <4 x float> poison, <4 x i32> zeroinitializer
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14)
-  store <4 x float> %154, ptr %15, align 16
+  store <4 x float> %150, ptr %15, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store <4 x float> %160, ptr %.sroa.2.0..sroa_idx, align 16
-  call void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm4EEEEENSt3__15tupleIJN5drjit7ComplexIT_EES8_S7_S8_S8_EEES7_S8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.138") align 16 %14, <4 x float> %166, ptr noundef nonnull byval(%"struct.drjit::Complex") align 16 %15)
+  store <4 x float> %156, ptr %.sroa.2.0..sroa_idx, align 16
+  call void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm4EEEEENSt3__15tupleIJN5drjit7ComplexIT_EES8_S7_S8_S8_EEES7_S8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.138") align 16 %14, <4 x float> %162, ptr noundef nonnull byval(%"struct.drjit::Complex") align 16 %15)
   %.sroa.0290.0.copyload.i = load <4 x float>, ptr %14, align 16, !noalias !114
   %.sroa.4293.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.4293.0.copyload.i = load <4 x float>, ptr %.sroa.4293.0..sroa_idx.i, align 16, !noalias !114
-  %167 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sroa.0.0.copyload.i = load <4 x float>, ptr %167, align 16, !noalias !114
+  %163 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sroa.0.0.copyload.i = load <4 x float>, ptr %163, align 16, !noalias !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 48
   %.sroa.4.0.copyload.i = load <4 x float>, ptr %.sroa.4.0..sroa_idx.i, align 16, !noalias !114
-  %168 = fmul contract <4 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i
-  %169 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.4.0.copyload.i, <4 x float> %.sroa.4.0.copyload.i, <4 x float> %168)
-  %170 = fmul contract <4 x float> %.sroa.0290.0.copyload.i, %.sroa.0290.0.copyload.i
-  %171 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.4293.0.copyload.i, <4 x float> %.sroa.4293.0.copyload.i, <4 x float> %170)
-  %172 = fmul contract <4 x float> %171, %169
-  %173 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %172, <4 x float> zeroinitializer, i8 -1)
-  %174 = fmul contract <4 x float> %173, splat (float 5.000000e-01)
-  %175 = fneg contract <4 x float> %172
-  %176 = fmul contract <4 x float> %173, %175
-  %177 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %176, <4 x float> %173, <4 x float> splat (float 3.000000e+00))
-  %178 = fmul contract <4 x float> %174, %177
-  %179 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %178, <4 x float> %172, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
-  %180 = fneg <4 x float> %.sroa.4293.0.copyload.i
-  %181 = fmul contract <4 x float> %.sroa.4293.0.copyload.i, %.sroa.4.0.copyload.i
-  %182 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %.sroa.0290.0.copyload.i, <4 x float> %181)
-  %183 = fmul contract <4 x float> %.sroa.0290.0.copyload.i, %.sroa.4.0.copyload.i
-  %184 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %180, <4 x float> %183)
-  %185 = fmul contract <4 x float> %179, %182
-  %186 = fmul contract <4 x float> %179, %184
-  %187 = fmul contract <4 x float> %.sroa.4293.0.copyload.i, %180
-  %188 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0290.0.copyload.i, <4 x float> %.sroa.0290.0.copyload.i, <4 x float> %187)
-  %189 = fmul contract <4 x float> %.sroa.0290.0.copyload.i, %.sroa.4293.0.copyload.i
-  %190 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0290.0.copyload.i, <4 x float> %.sroa.4293.0.copyload.i, <4 x float> %189)
-  %191 = fmul contract <4 x float> %188, %188
-  %192 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %190, <4 x float> %190, <4 x float> %191)
-  %193 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %192)
-  %194 = fneg contract <4 x float> %.sroa.4.0.copyload.i
-  %195 = fmul contract <4 x float> %.sroa.4.0.copyload.i, %194
-  %196 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %.sroa.0.0.copyload.i, <4 x float> %195)
-  %197 = fmul contract <4 x float> %.sroa.0.0.copyload.i, %.sroa.4.0.copyload.i
-  %198 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %.sroa.4.0.copyload.i, <4 x float> %197)
-  %199 = fmul contract <4 x float> %196, %196
-  %200 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %198, <4 x float> %198, <4 x float> %199)
-  %201 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %200)
-  %202 = fadd contract <4 x float> %193, %201
-  %203 = fmul contract <4 x float> %202, splat (float 5.000000e-01)
-  %204 = fsub contract <4 x float> %193, %201
-  %205 = fmul contract <4 x float> %204, splat (float 5.000000e-01)
-  %206 = fmul contract <4 x float> %193, %201
-  %207 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %206)
-  %208 = fcmp contract oeq <4 x float> %206, zeroinitializer
-  %209 = select contract <4 x i1> %208, <4 x float> zeroinitializer, <4 x float> %186
-  %210 = select contract <4 x i1> %208, <4 x float> zeroinitializer, <4 x float> %185
-  %211 = fmul contract <4 x float> %207, %210
-  %212 = fneg <4 x float> %207
-  %213 = fmul contract <4 x float> %209, %212
-  %214 = fmul contract <4 x float> %207, %209
-  store <4 x float> %203, ptr %13, align 16, !noalias !114
-  %215 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store <4 x float> %205, ptr %215, align 16, !noalias !114
-  %216 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %217 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %216, i8 0, i64 32, i1 false), !noalias !114
-  store <4 x float> %205, ptr %217, align 16, !noalias !114
-  %218 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store <4 x float> %203, ptr %218, align 16, !noalias !114
-  %219 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  %220 = getelementptr inbounds nuw i8, ptr %13, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %219, i8 0, i64 64, i1 false), !noalias !114
-  store <4 x float> %211, ptr %220, align 16, !noalias !114
-  %221 = getelementptr inbounds nuw i8, ptr %13, i64 176
-  store <4 x float> %213, ptr %221, align 16, !noalias !114
-  %222 = getelementptr inbounds nuw i8, ptr %13, i64 192
-  %223 = getelementptr inbounds nuw i8, ptr %13, i64 224
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %222, i8 0, i64 32, i1 false), !noalias !114
-  store <4 x float> %214, ptr %223, align 16, !noalias !114
-  %224 = getelementptr inbounds nuw i8, ptr %13, i64 240
-  store <4 x float> %211, ptr %224, align 16, !noalias !114
+  %164 = fmul contract <4 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i
+  %165 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.4.0.copyload.i, <4 x float> %.sroa.4.0.copyload.i, <4 x float> %164)
+  %166 = fmul contract <4 x float> %.sroa.0290.0.copyload.i, %.sroa.0290.0.copyload.i
+  %167 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.4293.0.copyload.i, <4 x float> %.sroa.4293.0.copyload.i, <4 x float> %166)
+  %168 = fmul contract <4 x float> %167, %165
+  %169 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %168, <4 x float> zeroinitializer, i8 -1)
+  %170 = fmul contract <4 x float> %169, splat (float 5.000000e-01)
+  %171 = fneg contract <4 x float> %168
+  %172 = fmul contract <4 x float> %169, %171
+  %173 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %172, <4 x float> %169, <4 x float> splat (float 3.000000e+00))
+  %174 = fmul contract <4 x float> %170, %173
+  %175 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %174, <4 x float> %168, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %176 = fneg <4 x float> %.sroa.4293.0.copyload.i
+  %177 = fmul contract <4 x float> %.sroa.4293.0.copyload.i, %.sroa.4.0.copyload.i
+  %178 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %.sroa.0290.0.copyload.i, <4 x float> %177)
+  %179 = fmul contract <4 x float> %.sroa.0290.0.copyload.i, %.sroa.4.0.copyload.i
+  %180 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %176, <4 x float> %179)
+  %181 = fmul contract <4 x float> %175, %178
+  %182 = fmul contract <4 x float> %175, %180
+  %183 = fmul contract <4 x float> %.sroa.4293.0.copyload.i, %176
+  %184 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0290.0.copyload.i, <4 x float> %.sroa.0290.0.copyload.i, <4 x float> %183)
+  %185 = fmul contract <4 x float> %.sroa.0290.0.copyload.i, %.sroa.4293.0.copyload.i
+  %186 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0290.0.copyload.i, <4 x float> %.sroa.4293.0.copyload.i, <4 x float> %185)
+  %187 = fmul contract <4 x float> %184, %184
+  %188 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %186, <4 x float> %186, <4 x float> %187)
+  %189 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %188)
+  %190 = fneg contract <4 x float> %.sroa.4.0.copyload.i
+  %191 = fmul contract <4 x float> %.sroa.4.0.copyload.i, %190
+  %192 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %.sroa.0.0.copyload.i, <4 x float> %191)
+  %193 = fmul contract <4 x float> %.sroa.0.0.copyload.i, %.sroa.4.0.copyload.i
+  %194 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %.sroa.4.0.copyload.i, <4 x float> %193)
+  %195 = fmul contract <4 x float> %192, %192
+  %196 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %194, <4 x float> %194, <4 x float> %195)
+  %197 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %196)
+  %198 = fadd contract <4 x float> %189, %197
+  %199 = fmul contract <4 x float> %198, splat (float 5.000000e-01)
+  %200 = fsub contract <4 x float> %189, %197
+  %201 = fmul contract <4 x float> %200, splat (float 5.000000e-01)
+  %202 = fmul contract <4 x float> %189, %197
+  %203 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %202)
+  %204 = fcmp contract oeq <4 x float> %202, zeroinitializer
+  %205 = select contract <4 x i1> %204, <4 x float> zeroinitializer, <4 x float> %182
+  %206 = select contract <4 x i1> %204, <4 x float> zeroinitializer, <4 x float> %181
+  %207 = fmul contract <4 x float> %203, %206
+  %208 = fneg <4 x float> %203
+  %209 = fmul contract <4 x float> %205, %208
+  %210 = fmul contract <4 x float> %203, %205
+  store <4 x float> %199, ptr %13, align 16, !noalias !114
+  %211 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store <4 x float> %201, ptr %211, align 16, !noalias !114
+  %212 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %212, i8 0, i64 32, i1 false), !noalias !114
+  store <4 x float> %201, ptr %213, align 16, !noalias !114
+  %214 = getelementptr inbounds nuw i8, ptr %13, i64 80
+  store <4 x float> %199, ptr %214, align 16, !noalias !114
+  %215 = getelementptr inbounds nuw i8, ptr %13, i64 96
+  %216 = getelementptr inbounds nuw i8, ptr %13, i64 160
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %215, i8 0, i64 64, i1 false), !noalias !114
+  store <4 x float> %207, ptr %216, align 16, !noalias !114
+  %217 = getelementptr inbounds nuw i8, ptr %13, i64 176
+  store <4 x float> %209, ptr %217, align 16, !noalias !114
+  %218 = getelementptr inbounds nuw i8, ptr %13, i64 192
+  %219 = getelementptr inbounds nuw i8, ptr %13, i64 224
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %218, i8 0, i64 32, i1 false), !noalias !114
+  store <4 x float> %210, ptr %219, align 16, !noalias !114
+  %220 = getelementptr inbounds nuw i8, ptr %13, i64 240
+  store <4 x float> %207, ptr %220, align 16, !noalias !114
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %232, %.noexc
-  %.0297.i = phi i64 [ 0, %.noexc ], [ %233, %232 ]
-  %225 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %23, i64 0, i64 %.0297.i
-  br label %226
+.preheader.i:                                     ; preds = %228, %.noexc
+  %.0297.i = phi i64 [ 0, %.noexc ], [ %229, %228 ]
+  %221 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %23, i64 0, i64 %.0297.i
+  br label %222
 
-226:                                              ; preds = %226, %.preheader.i
-  %.0210296.i = phi i64 [ 0, %.preheader.i ], [ %231, %226 ]
-  %227 = shl nuw nsw i64 %.0210296.i, 2
-  %228 = add nuw nsw i64 %227, %.0297.i
-  %229 = getelementptr inbounds nuw [16 x %"struct.mitsuba::Spectrum"], ptr %13, i64 0, i64 %228
-  %230 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %225, i64 0, i64 %.0210296.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %230, ptr noundef nonnull align 16 dereferenceable(16) %229, i64 16, i1 false)
-  %231 = add nuw nsw i64 %.0210296.i, 1
-  %exitcond.not.i439 = icmp eq i64 %231, 4
-  br i1 %exitcond.not.i439, label %232, label %226, !llvm.loop !27
+222:                                              ; preds = %222, %.preheader.i
+  %.0210296.i = phi i64 [ 0, %.preheader.i ], [ %227, %222 ]
+  %223 = shl nuw nsw i64 %.0210296.i, 2
+  %224 = add nuw nsw i64 %223, %.0297.i
+  %225 = getelementptr inbounds nuw [16 x %"struct.mitsuba::Spectrum"], ptr %13, i64 0, i64 %224
+  %226 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %221, i64 0, i64 %.0210296.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %226, ptr noundef nonnull align 16 dereferenceable(16) %225, i64 16, i1 false)
+  %227 = add nuw nsw i64 %.0210296.i, 1
+  %exitcond.not.i439 = icmp eq i64 %227, 4
+  br i1 %exitcond.not.i439, label %228, label %222, !llvm.loop !27
 
-232:                                              ; preds = %226
-  %233 = add nuw nsw i64 %.0297.i, 1
-  %exitcond298.not.i = icmp eq i64 %233, 4
-  br i1 %exitcond298.not.i, label %234, label %.preheader.i, !llvm.loop !28
+228:                                              ; preds = %222
+  %229 = add nuw nsw i64 %.0297.i, 1
+  %exitcond298.not.i = icmp eq i64 %229, 4
+  br i1 %exitcond298.not.i, label %230, label %.preheader.i, !llvm.loop !28
 
-234:                                              ; preds = %232
-  %235 = shufflevector <4 x float> %148, <4 x float> poison, <4 x i32> zeroinitializer
+230:                                              ; preds = %228
+  %231 = fmul contract float %143, %.0..i
+  %232 = fmul contract float %144, 4.000000e+00
+  %233 = fdiv contract float %231, %232
+  %234 = insertelement <4 x float> poison, float %233, i64 0
+  %235 = shufflevector <4 x float> %234, <4 x float> poison, <4 x i32> zeroinitializer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14)
@@ -4198,7 +4198,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.not498 = icmp eq ptr %330, null
   br i1 %.not498, label %_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i, label %331
 
-331:                                              ; preds = %234
+331:                                              ; preds = %230
   %332 = load ptr, ptr %330, align 8
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 72
   %334 = load ptr, ptr %333, align 8
@@ -4206,8 +4206,8 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %336 = fmul contract <4 x float> %235, %335
   br label %_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i
 
-_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i: ; preds = %331, %234
-  %.sroa.0453.0 = phi <4 x float> [ %336, %331 ], [ %235, %234 ]
+_ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImplIS4_Lm4ELb0ES5_iEEIS4_NS_6MatrixIS3_Lm4EEES5_TnNSt3__19enable_ifIXaaeqsrT1_4SizesrT0_4SizeeqsrSB_5DepthsrSC_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESC_EE.exit.i: ; preds = %331, %230
+  %.sroa.0453.0 = phi <4 x float> [ %336, %331 ], [ %235, %230 ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %11, ptr noundef nonnull align 16 dereferenceable(256) %21, i64 256, i1 false), !noalias !117
@@ -4980,147 +4980,147 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
 
 .noexc:                                           ; preds = %217, %207, %203
   %storemerge.i457 = phi float [ %221, %217 ], [ %216, %207 ], [ 1.000000e+00, %203 ]
-  %222 = fcmp contract oeq float %199, 0.000000e+00
-  %spec.select.i458 = select i1 %222, float 1.000000e+00, float %storemerge.i457
-  %223 = load <4 x float>, ptr %4, align 16
-  %224 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %223, <4 x float> %47, i8 113)
-  %225 = extractelement <4 x float> %224, i64 0
-  %226 = fmul contract float %200, %225
-  %227 = fcmp contract ole float %226, 0.000000e+00
-  %.1.i459 = select i1 %227, float 0.000000e+00, float %spec.select.i458
-  %228 = fmul contract float %.1.i, %.1.i459
-  %229 = fmul contract float %.0..i, %228
-  %230 = fmul contract float %163, 4.000000e+00
-  %231 = fdiv contract float %229, %230
-  %232 = insertelement <4 x float> poison, float %231, i64 0
-  %233 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %234 = load ptr, ptr %233, align 8
-  %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 72
-  %237 = load ptr, ptr %236, align 8
-  %238 = tail call <4 x float> %237(ptr noundef nonnull align 8 dereferenceable(40) %234, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext %154)
-  %239 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %240 = load ptr, ptr %239, align 8
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 72
-  %243 = load ptr, ptr %242, align 8
-  %244 = tail call <4 x float> %243(ptr noundef nonnull align 8 dereferenceable(40) %240, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext %154)
-  %245 = load i32, ptr %2, align 4
-  %246 = icmp eq i32 %245, 0
+  %222 = load <4 x float>, ptr %4, align 16
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %224 = load ptr, ptr %223, align 8
+  %225 = load ptr, ptr %224, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 72
+  %227 = load ptr, ptr %226, align 8
+  %228 = tail call <4 x float> %227(ptr noundef nonnull align 8 dereferenceable(40) %224, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext %154)
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %230 = load ptr, ptr %229, align 8
+  %231 = load ptr, ptr %230, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 72
+  %233 = load ptr, ptr %232, align 8
+  %234 = tail call <4 x float> %233(ptr noundef nonnull align 8 dereferenceable(40) %230, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext %154)
+  %235 = load i32, ptr %2, align 4
+  %236 = icmp eq i32 %235, 0
   %.val = load <4 x float>, ptr %4, align 16
   %.val455 = load <4 x float>, ptr %31, align 16
-  %.sroa.0444.0.copyload = select i1 %246, <4 x float> %.val, <4 x float> %.val455
-  %247 = select i1 %246, ptr %31, ptr %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, ptr noundef nonnull align 16 dereferenceable(16) %247, i64 16, i1 false)
-  %248 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %.sroa.0444.0.copyload, <4 x float> %47, i8 113)
-  %249 = shufflevector <4 x float> %248, <4 x float> poison, <4 x i32> zeroinitializer
+  %.sroa.0444.0.copyload = select i1 %236, <4 x float> %.val, <4 x float> %.val455
+  %237 = select i1 %236, ptr %31, ptr %4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, ptr noundef nonnull align 16 dereferenceable(16) %237, i64 16, i1 false)
+  %238 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %.sroa.0444.0.copyload, <4 x float> %47, i8 113)
+  %239 = shufflevector <4 x float> %238, <4 x float> poison, <4 x i32> zeroinitializer
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14)
-  store <4 x float> %238, ptr %15, align 16
+  store <4 x float> %228, ptr %15, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store <4 x float> %244, ptr %.sroa.2.0..sroa_idx, align 16
-  call void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm4EEEEENSt3__15tupleIJN5drjit7ComplexIT_EES8_S7_S8_S8_EEES7_S8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.138") align 16 %14, <4 x float> %249, ptr noundef nonnull byval(%"struct.drjit::Complex") align 16 %15)
+  store <4 x float> %234, ptr %.sroa.2.0..sroa_idx, align 16
+  call void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm4EEEEENSt3__15tupleIJN5drjit7ComplexIT_EES8_S7_S8_S8_EEES7_S8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.138") align 16 %14, <4 x float> %239, ptr noundef nonnull byval(%"struct.drjit::Complex") align 16 %15)
   %.sroa.0290.0.copyload.i = load <4 x float>, ptr %14, align 16, !noalias !144
   %.sroa.4293.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.4293.0.copyload.i = load <4 x float>, ptr %.sroa.4293.0..sroa_idx.i, align 16, !noalias !144
-  %250 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.sroa.0.0.copyload.i = load <4 x float>, ptr %250, align 16, !noalias !144
+  %240 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %.sroa.0.0.copyload.i = load <4 x float>, ptr %240, align 16, !noalias !144
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 48
   %.sroa.4.0.copyload.i = load <4 x float>, ptr %.sroa.4.0..sroa_idx.i, align 16, !noalias !144
-  %251 = fmul contract <4 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i
-  %252 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.4.0.copyload.i, <4 x float> %.sroa.4.0.copyload.i, <4 x float> %251)
-  %253 = fmul contract <4 x float> %.sroa.0290.0.copyload.i, %.sroa.0290.0.copyload.i
-  %254 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.4293.0.copyload.i, <4 x float> %.sroa.4293.0.copyload.i, <4 x float> %253)
-  %255 = fmul contract <4 x float> %254, %252
-  %256 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %255, <4 x float> zeroinitializer, i8 -1)
-  %257 = fmul contract <4 x float> %256, splat (float 5.000000e-01)
-  %258 = fneg contract <4 x float> %255
-  %259 = fmul contract <4 x float> %256, %258
-  %260 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %259, <4 x float> %256, <4 x float> splat (float 3.000000e+00))
-  %261 = fmul contract <4 x float> %257, %260
-  %262 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %261, <4 x float> %255, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
-  %263 = fneg <4 x float> %.sroa.4293.0.copyload.i
-  %264 = fmul contract <4 x float> %.sroa.4293.0.copyload.i, %.sroa.4.0.copyload.i
-  %265 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %.sroa.0290.0.copyload.i, <4 x float> %264)
-  %266 = fmul contract <4 x float> %.sroa.0290.0.copyload.i, %.sroa.4.0.copyload.i
-  %267 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %263, <4 x float> %266)
-  %268 = fmul contract <4 x float> %262, %265
-  %269 = fmul contract <4 x float> %262, %267
-  %270 = fmul contract <4 x float> %.sroa.4293.0.copyload.i, %263
-  %271 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0290.0.copyload.i, <4 x float> %.sroa.0290.0.copyload.i, <4 x float> %270)
-  %272 = fmul contract <4 x float> %.sroa.0290.0.copyload.i, %.sroa.4293.0.copyload.i
-  %273 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0290.0.copyload.i, <4 x float> %.sroa.4293.0.copyload.i, <4 x float> %272)
-  %274 = fmul contract <4 x float> %271, %271
-  %275 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %273, <4 x float> %273, <4 x float> %274)
-  %276 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %275)
-  %277 = fneg contract <4 x float> %.sroa.4.0.copyload.i
-  %278 = fmul contract <4 x float> %.sroa.4.0.copyload.i, %277
-  %279 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %.sroa.0.0.copyload.i, <4 x float> %278)
-  %280 = fmul contract <4 x float> %.sroa.0.0.copyload.i, %.sroa.4.0.copyload.i
-  %281 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %.sroa.4.0.copyload.i, <4 x float> %280)
-  %282 = fmul contract <4 x float> %279, %279
-  %283 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %281, <4 x float> %281, <4 x float> %282)
-  %284 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %283)
-  %285 = fadd contract <4 x float> %276, %284
-  %286 = fmul contract <4 x float> %285, splat (float 5.000000e-01)
-  %287 = fsub contract <4 x float> %276, %284
-  %288 = fmul contract <4 x float> %287, splat (float 5.000000e-01)
-  %289 = fmul contract <4 x float> %276, %284
-  %290 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %289)
-  %291 = fcmp contract oeq <4 x float> %289, zeroinitializer
-  %292 = select contract <4 x i1> %291, <4 x float> zeroinitializer, <4 x float> %269
-  %293 = select contract <4 x i1> %291, <4 x float> zeroinitializer, <4 x float> %268
-  %294 = fmul contract <4 x float> %290, %293
-  %295 = fneg <4 x float> %290
-  %296 = fmul contract <4 x float> %292, %295
-  %297 = fmul contract <4 x float> %290, %292
-  store <4 x float> %286, ptr %13, align 16, !noalias !144
-  %298 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store <4 x float> %288, ptr %298, align 16, !noalias !144
-  %299 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %300 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %299, i8 0, i64 32, i1 false), !noalias !144
-  store <4 x float> %288, ptr %300, align 16, !noalias !144
-  %301 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store <4 x float> %286, ptr %301, align 16, !noalias !144
-  %302 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  %303 = getelementptr inbounds nuw i8, ptr %13, i64 160
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %302, i8 0, i64 64, i1 false), !noalias !144
-  store <4 x float> %294, ptr %303, align 16, !noalias !144
-  %304 = getelementptr inbounds nuw i8, ptr %13, i64 176
-  store <4 x float> %296, ptr %304, align 16, !noalias !144
-  %305 = getelementptr inbounds nuw i8, ptr %13, i64 192
-  %306 = getelementptr inbounds nuw i8, ptr %13, i64 224
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %305, i8 0, i64 32, i1 false), !noalias !144
-  store <4 x float> %297, ptr %306, align 16, !noalias !144
-  %307 = getelementptr inbounds nuw i8, ptr %13, i64 240
-  store <4 x float> %294, ptr %307, align 16, !noalias !144
+  %241 = fmul contract <4 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i
+  %242 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.4.0.copyload.i, <4 x float> %.sroa.4.0.copyload.i, <4 x float> %241)
+  %243 = fmul contract <4 x float> %.sroa.0290.0.copyload.i, %.sroa.0290.0.copyload.i
+  %244 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.4293.0.copyload.i, <4 x float> %.sroa.4293.0.copyload.i, <4 x float> %243)
+  %245 = fmul contract <4 x float> %244, %242
+  %246 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %245, <4 x float> zeroinitializer, i8 -1)
+  %247 = fmul contract <4 x float> %246, splat (float 5.000000e-01)
+  %248 = fneg contract <4 x float> %245
+  %249 = fmul contract <4 x float> %246, %248
+  %250 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %249, <4 x float> %246, <4 x float> splat (float 3.000000e+00))
+  %251 = fmul contract <4 x float> %247, %250
+  %252 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %251, <4 x float> %245, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %253 = fneg <4 x float> %.sroa.4293.0.copyload.i
+  %254 = fmul contract <4 x float> %.sroa.4293.0.copyload.i, %.sroa.4.0.copyload.i
+  %255 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %.sroa.0290.0.copyload.i, <4 x float> %254)
+  %256 = fmul contract <4 x float> %.sroa.0290.0.copyload.i, %.sroa.4.0.copyload.i
+  %257 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %253, <4 x float> %256)
+  %258 = fmul contract <4 x float> %252, %255
+  %259 = fmul contract <4 x float> %252, %257
+  %260 = fmul contract <4 x float> %.sroa.4293.0.copyload.i, %253
+  %261 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0290.0.copyload.i, <4 x float> %.sroa.0290.0.copyload.i, <4 x float> %260)
+  %262 = fmul contract <4 x float> %.sroa.0290.0.copyload.i, %.sroa.4293.0.copyload.i
+  %263 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0290.0.copyload.i, <4 x float> %.sroa.4293.0.copyload.i, <4 x float> %262)
+  %264 = fmul contract <4 x float> %261, %261
+  %265 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %263, <4 x float> %263, <4 x float> %264)
+  %266 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %265)
+  %267 = fneg contract <4 x float> %.sroa.4.0.copyload.i
+  %268 = fmul contract <4 x float> %.sroa.4.0.copyload.i, %267
+  %269 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %.sroa.0.0.copyload.i, <4 x float> %268)
+  %270 = fmul contract <4 x float> %.sroa.0.0.copyload.i, %.sroa.4.0.copyload.i
+  %271 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.0.0.copyload.i, <4 x float> %.sroa.4.0.copyload.i, <4 x float> %270)
+  %272 = fmul contract <4 x float> %269, %269
+  %273 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %271, <4 x float> %271, <4 x float> %272)
+  %274 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %273)
+  %275 = fadd contract <4 x float> %266, %274
+  %276 = fmul contract <4 x float> %275, splat (float 5.000000e-01)
+  %277 = fsub contract <4 x float> %266, %274
+  %278 = fmul contract <4 x float> %277, splat (float 5.000000e-01)
+  %279 = fmul contract <4 x float> %266, %274
+  %280 = call contract noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %279)
+  %281 = fcmp contract oeq <4 x float> %279, zeroinitializer
+  %282 = select contract <4 x i1> %281, <4 x float> zeroinitializer, <4 x float> %259
+  %283 = select contract <4 x i1> %281, <4 x float> zeroinitializer, <4 x float> %258
+  %284 = fmul contract <4 x float> %280, %283
+  %285 = fneg <4 x float> %280
+  %286 = fmul contract <4 x float> %282, %285
+  %287 = fmul contract <4 x float> %280, %282
+  store <4 x float> %276, ptr %13, align 16, !noalias !144
+  %288 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store <4 x float> %278, ptr %288, align 16, !noalias !144
+  %289 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %290 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %289, i8 0, i64 32, i1 false), !noalias !144
+  store <4 x float> %278, ptr %290, align 16, !noalias !144
+  %291 = getelementptr inbounds nuw i8, ptr %13, i64 80
+  store <4 x float> %276, ptr %291, align 16, !noalias !144
+  %292 = getelementptr inbounds nuw i8, ptr %13, i64 96
+  %293 = getelementptr inbounds nuw i8, ptr %13, i64 160
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %292, i8 0, i64 64, i1 false), !noalias !144
+  store <4 x float> %284, ptr %293, align 16, !noalias !144
+  %294 = getelementptr inbounds nuw i8, ptr %13, i64 176
+  store <4 x float> %286, ptr %294, align 16, !noalias !144
+  %295 = getelementptr inbounds nuw i8, ptr %13, i64 192
+  %296 = getelementptr inbounds nuw i8, ptr %13, i64 224
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %295, i8 0, i64 32, i1 false), !noalias !144
+  store <4 x float> %287, ptr %296, align 16, !noalias !144
+  %297 = getelementptr inbounds nuw i8, ptr %13, i64 240
+  store <4 x float> %284, ptr %297, align 16, !noalias !144
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %315, %.noexc
-  %.0297.i = phi i64 [ 0, %.noexc ], [ %316, %315 ]
-  %308 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %23, i64 0, i64 %.0297.i
-  br label %309
+.preheader.i:                                     ; preds = %305, %.noexc
+  %.0297.i = phi i64 [ 0, %.noexc ], [ %306, %305 ]
+  %298 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %23, i64 0, i64 %.0297.i
+  br label %299
 
-309:                                              ; preds = %309, %.preheader.i
-  %.0210296.i = phi i64 [ 0, %.preheader.i ], [ %314, %309 ]
-  %310 = shl nuw nsw i64 %.0210296.i, 2
-  %311 = add nuw nsw i64 %310, %.0297.i
-  %312 = getelementptr inbounds nuw [16 x %"struct.mitsuba::Spectrum"], ptr %13, i64 0, i64 %311
-  %313 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %308, i64 0, i64 %.0210296.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %313, ptr noundef nonnull align 16 dereferenceable(16) %312, i64 16, i1 false)
-  %314 = add nuw nsw i64 %.0210296.i, 1
-  %exitcond.not.i461 = icmp eq i64 %314, 4
-  br i1 %exitcond.not.i461, label %315, label %309, !llvm.loop !27
+299:                                              ; preds = %299, %.preheader.i
+  %.0210296.i = phi i64 [ 0, %.preheader.i ], [ %304, %299 ]
+  %300 = shl nuw nsw i64 %.0210296.i, 2
+  %301 = add nuw nsw i64 %300, %.0297.i
+  %302 = getelementptr inbounds nuw [16 x %"struct.mitsuba::Spectrum"], ptr %13, i64 0, i64 %301
+  %303 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %298, i64 0, i64 %.0210296.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %303, ptr noundef nonnull align 16 dereferenceable(16) %302, i64 16, i1 false)
+  %304 = add nuw nsw i64 %.0210296.i, 1
+  %exitcond.not.i461 = icmp eq i64 %304, 4
+  br i1 %exitcond.not.i461, label %305, label %299, !llvm.loop !27
 
-315:                                              ; preds = %309
-  %316 = add nuw nsw i64 %.0297.i, 1
-  %exitcond298.not.i = icmp eq i64 %316, 4
-  br i1 %exitcond298.not.i, label %317, label %.preheader.i, !llvm.loop !28
+305:                                              ; preds = %299
+  %306 = add nuw nsw i64 %.0297.i, 1
+  %exitcond298.not.i = icmp eq i64 %306, 4
+  br i1 %exitcond298.not.i, label %307, label %.preheader.i, !llvm.loop !28
 
-317:                                              ; preds = %315
-  %318 = shufflevector <4 x float> %232, <4 x float> poison, <4 x i32> zeroinitializer
+307:                                              ; preds = %305
+  %308 = fcmp contract oeq float %199, 0.000000e+00
+  %spec.select.i458 = select i1 %308, float 1.000000e+00, float %storemerge.i457
+  %309 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %222, <4 x float> %47, i8 113)
+  %310 = extractelement <4 x float> %309, i64 0
+  %311 = fmul contract float %200, %310
+  %312 = fcmp contract ole float %311, 0.000000e+00
+  %.1.i459 = select i1 %312, float 0.000000e+00, float %spec.select.i458
+  %313 = fmul contract float %.1.i, %.1.i459
+  %314 = fmul contract float %.0..i, %313
+  %315 = fmul contract float %163, 4.000000e+00
+  %316 = fdiv contract float %314, %315
+  %317 = insertelement <4 x float> poison, float %316, i64 0
+  %318 = shufflevector <4 x float> %317, <4 x float> poison, <4 x i32> zeroinitializer
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %14)
@@ -5240,7 +5240,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %.not523 = icmp eq ptr %413, null
   br i1 %.not523, label %420, label %414
 
-414:                                              ; preds = %317
+414:                                              ; preds = %307
   %415 = load ptr, ptr %413, align 8
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 72
   %417 = load ptr, ptr %416, align 8
@@ -5248,8 +5248,8 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %419 = fmul contract <4 x float> %318, %418
   br label %420
 
-420:                                              ; preds = %414, %317
-  %.sroa.0476.0 = phi <4 x float> [ %419, %414 ], [ %318, %317 ]
+420:                                              ; preds = %414, %307
+  %.sroa.0476.0 = phi <4 x float> [ %419, %414 ], [ %318, %307 ]
   %421 = load i8, ptr %99, align 8
   %422 = trunc i8 %421 to i1
   br i1 %422, label %423, label %425
@@ -9049,17 +9049,17 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE8minimum_ERKS3_.exit.critedge:
   %.1.i.i = select i1 %211, float 0xFFF0000000000000, float %spec.select.i.i
   %212 = fcmp contract ult float %177, 0.000000e+00
   %213 = select i1 %212, float 0xFFFFFFFFE0000000, float %.1.i.i
-  %214 = fneg contract float %213
-  %215 = fsub contract float -2.500000e+00, %213
-  %216 = tail call contract noundef float @llvm.sqrt.f32(float %214)
-  %217 = tail call contract noundef float @llvm.fma.f32(float %215, float 0x3FCF91EC60000000, float 0x3FF805C5E0000000)
-  %218 = tail call contract noundef float @llvm.fma.f32(float %215, float 0xBF548A8100000000, float 0xBF711C9DE0000000)
-  %219 = tail call contract noundef float @llvm.fma.f32(float %215, float 0xBED26B5820000000, float 0x3F2CA65B60000000)
-  %220 = tail call contract noundef float @llvm.fma.f32(float %215, float 0x3E970966C0000000, float 0xBECD8E6AE0000000)
-  %221 = fmul contract float %215, %215
-  %222 = tail call contract noundef float @llvm.fma.f32(float %221, float %218, float %217)
-  %223 = tail call contract noundef float @llvm.fma.f32(float %221, float %220, float %219)
-  %224 = fadd contract float %216, -3.000000e+00
+  %214 = fsub contract float -2.500000e+00, %213
+  %215 = tail call contract noundef float @llvm.fma.f32(float %214, float 0x3FCF91EC60000000, float 0x3FF805C5E0000000)
+  %216 = tail call contract noundef float @llvm.fma.f32(float %214, float 0xBF548A8100000000, float 0xBF711C9DE0000000)
+  %217 = tail call contract noundef float @llvm.fma.f32(float %214, float 0xBED26B5820000000, float 0x3F2CA65B60000000)
+  %218 = tail call contract noundef float @llvm.fma.f32(float %214, float 0x3E970966C0000000, float 0xBECD8E6AE0000000)
+  %219 = fmul contract float %214, %214
+  %220 = tail call contract noundef float @llvm.fma.f32(float %219, float %216, float %215)
+  %221 = tail call contract noundef float @llvm.fma.f32(float %219, float %218, float %217)
+  %222 = fneg contract float %213
+  %223 = tail call contract noundef float @llvm.sqrt.f32(float %222)
+  %224 = fadd contract float %223, -3.000000e+00
   %225 = tail call contract noundef float @llvm.fma.f32(float %224, float 0x3FF006DB60000000, float 0x4006A9EFC0000000)
   %226 = tail call contract noundef float @llvm.fma.f32(float %224, float 0xBF7F38BAE0000000, float 0x3F8354AFC0000000)
   %227 = tail call contract noundef float @llvm.fma.f32(float %224, float 0xBF6E17BCE0000000, float 0x3F77824F60000000)
@@ -9067,9 +9067,9 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE8minimum_ERKS3_.exit.critedge:
   %229 = fmul contract float %224, %224
   %230 = tail call contract noundef float @llvm.fma.f32(float %229, float %226, float %225)
   %231 = tail call contract noundef float @llvm.fma.f32(float %229, float %228, float %227)
-  %232 = fmul contract float %221, %221
+  %232 = fmul contract float %219, %219
   %233 = fmul contract float %232, %232
-  %234 = tail call contract noundef float @llvm.fma.f32(float %232, float %223, float %222)
+  %234 = tail call contract noundef float @llvm.fma.f32(float %232, float %221, float %220)
   %235 = tail call contract noundef float @llvm.fma.f32(float %233, float 0x3E5E2CB100000000, float %234)
   %236 = fmul contract float %229, %229
   %237 = tail call contract noundef float @llvm.fma.f32(float %236, float %231, float %230)
@@ -9549,23 +9549,23 @@ _ZNK5drjit9ArrayBaseIiLb0EN7mitsuba6VectorIiLm2EEEE4and_IS3_EES3_RKT_.exit.crite
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm4EEEEENSt3__15tupleIJN5drjit7ComplexIT_EES8_S7_S8_S8_EEES7_S8_(ptr dead_on_unwind noalias writable sret(%"class.std::__1::tuple.138") align 16 %0, <4 x float> %1, ptr noundef byval(%"struct.drjit::Complex") align 16 %2) local_unnamed_addr #4 comdat {
 .critedge:
-  %3 = fcmp contract oge <4 x float> %1, zeroinitializer
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %5 = load <4 x i32>, ptr %4, align 16, !noalias !198
-  %6 = xor <4 x i32> %5, splat (i32 -2147483648)
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %4 = load <4 x i32>, ptr %3, align 16, !noalias !198
+  %5 = xor <4 x i32> %4, splat (i32 -2147483648)
   %.sroa.0841.0.copyload = load <4 x float>, ptr %2, align 16
-  %.sroa.028.0.copyload.cast = bitcast <4 x i32> %5 to <4 x float>
-  %7 = fcmp contract ogt <4 x float> %.sroa.028.0.copyload.cast, zeroinitializer
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %9 = load <4 x float>, ptr %8, align 16, !noalias !201
-  %10 = bitcast <4 x i32> %6 to <4 x float>
-  %11 = select contract <4 x i1> %7, <4 x float> %10, <4 x float> %9
+  %.sroa.028.0.copyload.cast = bitcast <4 x i32> %4 to <4 x float>
+  %6 = fcmp contract ogt <4 x float> %.sroa.028.0.copyload.cast, zeroinitializer
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %8 = load <4 x float>, ptr %7, align 16, !noalias !201
+  %9 = bitcast <4 x i32> %5 to <4 x float>
+  %10 = select contract <4 x i1> %6, <4 x float> %9, <4 x float> %8
+  %11 = fcmp contract oge <4 x float> %1, zeroinitializer
   store <4 x float> %.sroa.0841.0.copyload, ptr %2, align 16
   %.sroa.2847.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store <4 x float> %11, ptr %.sroa.2847.0..sroa_idx, align 16
-  %12 = fneg <4 x float> %11
+  store <4 x float> %10, ptr %.sroa.2847.0..sroa_idx, align 16
+  %12 = fneg <4 x float> %10
   %13 = fmul contract <4 x float> %.sroa.0841.0.copyload, %.sroa.0841.0.copyload
-  %14 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %11, <4 x float> %11, <4 x float> %13)
+  %14 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %10, <4 x float> %10, <4 x float> %13)
   %15 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %14, <4 x float> zeroinitializer, i8 -1)
   %16 = fadd contract <4 x float> %15, %15
   %17 = fneg contract <4 x float> %14
@@ -9575,12 +9575,12 @@ define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm
   %21 = fmul contract <4 x float> %.sroa.0841.0.copyload, %20
   %22 = fmul contract <4 x float> %20, %12
   %23 = load <4 x float>, ptr %2, align 16, !noalias !204
-  %24 = select contract <4 x i1> %3, <4 x float> %23, <4 x float> %21
+  %24 = select contract <4 x i1> %11, <4 x float> %23, <4 x float> %21
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load <4 x float>, ptr %25, align 16, !noalias !204
-  %27 = select contract <4 x i1> %3, <4 x float> %26, <4 x float> %22
-  %28 = select contract <4 x i1> %3, <4 x float> %21, <4 x float> %23
-  %29 = select contract <4 x i1> %3, <4 x float> %22, <4 x float> %26
+  %27 = select contract <4 x i1> %11, <4 x float> %26, <4 x float> %22
+  %28 = select contract <4 x i1> %11, <4 x float> %21, <4 x float> %23
+  %29 = select contract <4 x i1> %11, <4 x float> %22, <4 x float> %26
   %30 = fneg contract <4 x float> %29
   %31 = fmul contract <4 x float> %29, %30
   %32 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %28, <4 x float> %28, <4 x float> %31)
@@ -9664,9 +9664,9 @@ define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm
   %108 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %91, <4 x float> %104, <4 x float> %107)
   %109 = fmul contract <4 x float> %92, %104
   %110 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %91, <4 x float> %105, <4 x float> %109)
-  %111 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %11, <4 x float> %11, <4 x float> %13)
+  %111 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %10, <4 x float> %10, <4 x float> %13)
   %112 = fcmp contract oeq <4 x float> %111, splat (float 1.000000e+00)
-  %113 = fcmp contract oeq <4 x float> %11, zeroinitializer
+  %113 = fcmp contract oeq <4 x float> %10, zeroinitializer
   %114 = and <4 x i1> %113, %112
   %115 = fcmp contract oeq <4 x float> %111, zeroinitializer
   %116 = or <4 x i1> %115, %114
@@ -9685,7 +9685,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm
   %125 = select contract <4 x i1> %124, <4 x float> zeroinitializer, <4 x float> %108
   %126 = select contract <4 x i1> %116, <4 x float> zeroinitializer, <4 x float> %110
   %127 = fneg <4 x float> %.sroa.0720.0..sroa.0720.0.copyload.cast
-  %128 = select contract <4 x i1> %3, <4 x float> %127, <4 x float> %.sroa.0720.0..sroa.0720.0.copyload.cast
+  %128 = select contract <4 x i1> %11, <4 x float> %127, <4 x float> %.sroa.0720.0..sroa.0720.0.copyload.cast
   %129 = select contract <4 x i1> %52, <4 x float> %128, <4 x float> zeroinitializer
   store <4 x float> %121, ptr %0, align 16
   %.sroa.2855.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

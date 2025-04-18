@@ -1883,10 +1883,10 @@ VP8LPrefixEncode.exit.i.i:                        ; preds = %525, %521
   br i1 %110, label %.preheader124.split.us.i.i, label %.preheader124.split.preheader.i.i
 
 .preheader124.split.preheader.i.i:                ; preds = %.preheader124.i.i, %VP8LPrefixEncode.exit.i.i
+  %scevgep.i.i = getelementptr i8, ptr %.092144.i.i, i64 4
   %535 = add nsw i32 %517, -1
   %536 = zext i32 %535 to i64
   %537 = shl nuw nsw i64 %536, 2
-  %scevgep.i.i = getelementptr i8, ptr %.092144.i.i, i64 4
   %scevgep164.i.i = getelementptr i8, ptr %scevgep.i.i, i64 %537
   br label %.loopexit123.i.i
 

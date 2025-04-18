@@ -5206,9 +5206,9 @@ define hidden noundef ptr @_ZN10polynomial7manager7convertEPKNS_8monomialE(ptr n
   br i1 %.not9.i.i, label %35, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %30
-  %33 = add i32 %32, 1
-  %34 = add i32 %.lcssa16.i.i, 1
-  %umax.i.i = tail call i32 @llvm.umax.i32(i32 %34, i32 %33)
+  %33 = add i32 %.lcssa16.i.i, 1
+  %34 = add i32 %32, 1
+  %umax.i.i = tail call i32 @llvm.umax.i32(i32 %33, i32 %34)
   store i32 %umax.i.i, ptr %9, align 8, !tbaa !153
   br label %35
 

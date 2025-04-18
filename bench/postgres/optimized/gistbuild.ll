@@ -851,66 +851,66 @@ select.unfold.i:                                  ; preds = %150, %138
   %172 = fdiv double %171, %170
   %173 = uitofp nneg i32 %156 to double
   %174 = call double @pow(double noundef %172, double noundef %173) #10
-  %175 = fmul double %174, 2.000000e+00
-  br label %176
+  br label %175
 
-176:                                              ; preds = %198, %163
-  %.015.i.i = phi i32 [ 0, %163 ], [ %207, %198 ]
-  %.014.i.i = phi i32 [ 0, %163 ], [ %208, %198 ]
-  %177 = call i32 @ReadBuffer(ptr noundef %115, i32 noundef %.015.i.i) #10
-  call void @LockBuffer(i32 noundef %177, i32 noundef 1) #10
-  %178 = icmp slt i32 %177, 0
-  br i1 %178, label %179, label %185
+175:                                              ; preds = %197, %163
+  %.015.i.i = phi i32 [ 0, %163 ], [ %206, %197 ]
+  %.014.i.i = phi i32 [ 0, %163 ], [ %207, %197 ]
+  %176 = call i32 @ReadBuffer(ptr noundef %115, i32 noundef %.015.i.i) #10
+  call void @LockBuffer(i32 noundef %176, i32 noundef 1) #10
+  %177 = icmp slt i32 %176, 0
+  br i1 %177, label %178, label %184
 
-179:                                              ; preds = %176
-  %180 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %181 = xor i32 %177, -1
-  %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds nuw ptr, ptr %180, i64 %182
-  %184 = load ptr, ptr %183, align 8
+178:                                              ; preds = %175
+  %179 = load ptr, ptr @LocalBufferBlockPointers, align 8
+  %180 = xor i32 %176, -1
+  %181 = zext nneg i32 %180 to i64
+  %182 = getelementptr inbounds nuw ptr, ptr %179, i64 %181
+  %183 = load ptr, ptr %182, align 8
   br label %BufferGetPage.exit.i.i
 
-185:                                              ; preds = %176
-  %186 = load ptr, ptr @BufferBlocks, align 8
-  %187 = add nsw i32 %177, -1
-  %188 = sext i32 %187 to i64
-  %189 = shl nsw i64 %188, 13
-  %190 = getelementptr inbounds nuw i8, ptr %186, i64 %189
+184:                                              ; preds = %175
+  %185 = load ptr, ptr @BufferBlocks, align 8
+  %186 = add nsw i32 %176, -1
+  %187 = sext i32 %186 to i64
+  %188 = shl nsw i64 %187, 13
+  %189 = getelementptr inbounds nuw i8, ptr %185, i64 %188
   br label %BufferGetPage.exit.i.i
 
-BufferGetPage.exit.i.i:                           ; preds = %185, %179
-  %.0.i.i.i.i = phi ptr [ %184, %179 ], [ %190, %185 ]
-  %191 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  %192 = load i16, ptr %191, align 4
-  %193 = zext i16 %192 to i64
-  %194 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %193
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 12
-  %196 = load i16, ptr %195, align 4
-  %197 = and i16 %196, 1
-  %.not.i.i32 = icmp eq i16 %197, 0
-  br i1 %.not.i.i32, label %198, label %gistGetMaxLevel.exit.i
+BufferGetPage.exit.i.i:                           ; preds = %184, %178
+  %.0.i.i.i.i = phi ptr [ %183, %178 ], [ %189, %184 ]
+  %190 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  %191 = load i16, ptr %190, align 4
+  %192 = zext i16 %191 to i64
+  %193 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %192
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 12
+  %195 = load i16, ptr %194, align 4
+  %196 = and i16 %195, 1
+  %.not.i.i32 = icmp eq i16 %196, 0
+  br i1 %.not.i.i32, label %197, label %gistGetMaxLevel.exit.i
 
-198:                                              ; preds = %BufferGetPage.exit.i.i
-  %199 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  %.val.i.i33 = load i32, ptr %199, align 4
-  %200 = and i32 %.val.i.i33, 32767
-  %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %201
-  %.val17.i.i = load i16, ptr %202, align 2
-  %203 = getelementptr i8, ptr %202, i64 2
-  %.val18.i.i = load i16, ptr %203, align 2
-  %204 = zext i16 %.val17.i.i to i32
-  %205 = shl nuw i32 %204, 16
-  %206 = zext i16 %.val18.i.i to i32
-  %207 = or disjoint i32 %205, %206
-  call void @UnlockReleaseBuffer(i32 noundef %177) #10
-  %208 = add i32 %.014.i.i, 1
-  br label %176
+197:                                              ; preds = %BufferGetPage.exit.i.i
+  %198 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  %.val.i.i33 = load i32, ptr %198, align 4
+  %199 = and i32 %.val.i.i33, 32767
+  %200 = zext nneg i32 %199 to i64
+  %201 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 %200
+  %.val17.i.i = load i16, ptr %201, align 2
+  %202 = getelementptr i8, ptr %201, i64 2
+  %.val18.i.i = load i16, ptr %202, align 2
+  %203 = zext i16 %.val17.i.i to i32
+  %204 = shl nuw i32 %203, 16
+  %205 = zext i16 %.val18.i.i to i32
+  %206 = or disjoint i32 %204, %205
+  call void @UnlockReleaseBuffer(i32 noundef %176) #10
+  %207 = add i32 %.014.i.i, 1
+  br label %175
 
 gistGetMaxLevel.exit.i:                           ; preds = %BufferGetPage.exit.i.i
-  %209 = call double @llvm.rint.f64(double %175)
+  %208 = fmul double %174, 2.000000e+00
+  %209 = call double @llvm.rint.f64(double %208)
   %210 = fptosi double %209 to i32
-  call void @UnlockReleaseBuffer(i32 noundef %177) #10
+  call void @UnlockReleaseBuffer(i32 noundef %176) #10
   %211 = call ptr @gistInitBuildBuffers(i32 noundef %210, i32 noundef %156, i32 noundef %.014.i.i) #10
   %212 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %211, ptr %212, align 8

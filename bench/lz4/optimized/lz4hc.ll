@@ -2782,8 +2782,8 @@ LZ4_count.exit.i684:                              ; preds = %372, %.thread569.i,
   %442 = add nuw nsw i64 %441, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %427, i8 -1, i64 %442, i1 false), !tbaa !26
   %scevgep.i = getelementptr i8, ptr %.1724.i, i64 2
-  %.neg.i676 = mul i64 %441, -255
   %scevgep792.i = getelementptr i8, ptr %scevgep.i, i64 %441
+  %.neg.i676 = mul i64 %441, -255
   %443 = add i64 %.neg.i676, %440
   br label %._crit_edge711.i
 
@@ -3009,8 +3009,8 @@ LZ4_wildCopy8.exit393.i:                          ; preds = %449
   %555 = udiv i64 %554, 255
   %556 = add nuw nsw i64 %555, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.4498742.i, i8 -1, i64 %556, i1 false), !tbaa !26
-  %.neg814.i = mul i64 %555, -255
   %scevgep805.i = getelementptr i8, ptr %.0495626.i, i64 %556
+  %.neg814.i = mul i64 %555, -255
   %557 = add i64 %.neg814.i, %554
   %558 = getelementptr i8, ptr %.0495626.i, i64 %555
   %scevgep806.i = getelementptr i8, ptr %558, i64 2
@@ -3093,8 +3093,8 @@ LZ4_wildCopy8.exit393.i:                          ; preds = %449
   %601 = add nuw nsw i64 %600, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %427, i8 -1, i64 %601, i1 false), !tbaa !26
   %scevgep798.i = getelementptr i8, ptr %.1724.i, i64 2
-  %.neg812.i = mul i64 %600, -255
   %scevgep799.i = getelementptr i8, ptr %scevgep798.i, i64 %600
+  %.neg812.i = mul i64 %600, -255
   %602 = add i64 %.neg812.i, %599
   br label %._crit_edge732.i
 
@@ -5801,8 +5801,8 @@ LZ4HC_InsertAndGetWiderMatch.exit573:             ; preds = %1696, %1783, %1667,
   %1813 = add nuw nsw i64 %1812, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1797, i8 -1, i64 %1813, i1 false), !tbaa !26
   %scevgep2716 = getelementptr i8, ptr %.1.ph, i64 2
-  %.neg2779 = mul i64 %1812, -255
   %scevgep2717 = getelementptr i8, ptr %scevgep2716, i64 %1812
+  %.neg2779 = mul i64 %1812, -255
   %1814 = add i64 %.neg2779, %1811
   br label %._crit_edge2102
 
@@ -7369,8 +7369,8 @@ LZ4HC_InsertAndGetWiderMatch.exit337:             ; preds = %2386, %2473, %2357,
   %2507 = add nuw nsw i64 %2506, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2491, i8 -1, i64 %2507, i1 false), !tbaa !26
   %scevgep2728 = getelementptr i8, ptr %.5.ph, i64 2
-  %.neg2787 = mul i64 %2506, -255
   %scevgep2729 = getelementptr i8, ptr %scevgep2728, i64 %2506
+  %.neg2787 = mul i64 %2506, -255
   %2508 = add i64 %.neg2787, %2505
   br label %._crit_edge2116
 
@@ -7499,8 +7499,8 @@ LZ4_wildCopy8.exit110:                            ; preds = %2514
   %2567 = add nuw nsw i64 %2566, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2552, i8 -1, i64 %2567, i1 false), !tbaa !26
   %scevgep2736 = getelementptr i8, ptr %.25, i64 2
-  %.neg2790 = mul i64 %2566, -255
   %scevgep2737 = getelementptr i8, ptr %scevgep2736, i64 %2566
+  %.neg2790 = mul i64 %2566, -255
   %2568 = add i64 %.neg2790, %2565
   br label %._crit_edge2130
 
@@ -7667,8 +7667,8 @@ LZ4_wildCopy8.exit113:                            ; preds = %2574
   %2642 = add nuw nsw i64 %2641, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2626, i8 -1, i64 %2642, i1 false), !tbaa !26
   %scevgep2705 = getelementptr i8, ptr %.5.ph, i64 2
-  %.neg2794 = mul i64 %2641, -255
   %scevgep2706 = getelementptr i8, ptr %scevgep2705, i64 %2641
+  %.neg2794 = mul i64 %2641, -255
   %2643 = add i64 %.neg2794, %2640
   br label %._crit_edge2088
 
@@ -7849,8 +7849,8 @@ LZ4_wildCopy8.exit119:                            ; preds = %2649
   %2721 = add nuw nsw i64 %2720, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2705, i8 -1, i64 %2721, i1 false), !tbaa !26
   %scevgep = getelementptr i8, ptr %.5.ph, i64 2
-  %.neg2792 = mul i64 %2720, -255
   %scevgep2699 = getelementptr i8, ptr %scevgep, i64 %2720
+  %.neg2792 = mul i64 %2720, -255
   %2722 = add i64 %.neg2792, %2719
   br label %._crit_edge2074
 
@@ -8040,8 +8040,8 @@ LZ4_wildCopy8.exit116:                            ; preds = %2728
   %2807 = udiv i64 %2806, 255
   %2808 = add nuw nsw i64 %2807, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.42194, i8 -1, i64 %2808, i1 false), !tbaa !26
-  %.neg2798 = mul i64 %2807, -255
   %scevgep2743 = getelementptr i8, ptr %.21410, i64 %2808
+  %.neg2798 = mul i64 %2807, -255
   %2809 = add i64 %.neg2798, %2806
   %2810 = getelementptr i8, ptr %.21410, i64 %2807
   %scevgep2744 = getelementptr i8, ptr %2810, i64 2
@@ -8141,9 +8141,9 @@ LZ4HC_encodeSequence.exit:                        ; preds = %2486, %LZ4_wildCopy
   %2856 = udiv i64 %2855, 255
   %2857 = add nuw nsw i64 %2856, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %2849, i8 -1, i64 %2857, i1 false), !tbaa !26
-  %.neg2796 = mul i64 %2856, -255
   %2858 = getelementptr i8, ptr %.0328.i, i64 %2856
   %scevgep2741 = getelementptr i8, ptr %2858, i64 2
+  %.neg2796 = mul i64 %2856, -255
   %2859 = add i64 %.neg2796, %2855
   br label %._crit_edge2184
 
@@ -9524,8 +9524,8 @@ LZ4HC_FindLongerMatch.exit.thread.i:              ; preds = %LZ4HC_InsertAndGetW
   %3493 = add nuw nsw i64 %3492, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3480, i8 -1, i64 %3493, i1 false), !tbaa !26
   %scevgep2220.i = getelementptr i8, ptr %.013352029.i, i64 2
-  %.neg2240.i = mul i64 %3492, -255
   %scevgep2221.i = getelementptr i8, ptr %scevgep2220.i, i64 %3492
+  %.neg2240.i = mul i64 %3492, -255
   %3494 = add i64 %.neg2240.i, %3491
   br label %._crit_edge2016.i
 
@@ -12402,8 +12402,8 @@ LZ4HC_literalsPrice.exit936.i:                    ; preds = %LZ4HC_literalsPrice
   %4776 = add nuw nsw i64 %4775, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %4760, i8 -1, i64 %4776, i1 false), !tbaa !26
   %scevgep.i962 = getelementptr i8, ptr %.213362006.i, i64 2
-  %.neg.i963 = mul i64 %4775, -255
   %scevgep2217.i = getelementptr i8, ptr %scevgep.i962, i64 %4775
+  %.neg.i963 = mul i64 %4775, -255
   %4777 = add i64 %.neg.i963, %4774
   br label %._crit_edge1994.i
 
@@ -12592,8 +12592,8 @@ select.unfold1634.i:                              ; preds = %3532, %3529
   %4857 = udiv i64 %4856, 255
   %4858 = add nuw nsw i64 %4857, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.62048.i, i8 -1, i64 %4858, i1 false), !tbaa !26
-  %.neg2244.i = mul i64 %4857, -255
   %scevgep2226.i = getelementptr i8, ptr %.41662.i, i64 %4858
+  %.neg2244.i = mul i64 %4857, -255
   %4859 = add i64 %.neg2244.i, %4856
   %4860 = getelementptr i8, ptr %.41662.i, i64 %4857
   %scevgep2227.i = getelementptr i8, ptr %4860, i64 2
@@ -12685,9 +12685,9 @@ select.unfold1634.i:                              ; preds = %3532, %3529
   %4907 = udiv i64 %4906, 255
   %4908 = add nuw nsw i64 %4907, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %4900, i8 -1, i64 %4908, i1 false), !tbaa !26
-  %.neg2242.i = mul i64 %4907, -255
   %4909 = getelementptr i8, ptr %.1338.ph.i, i64 %4907
   %scevgep2224.i = getelementptr i8, ptr %4909, i64 2
+  %.neg2242.i = mul i64 %4907, -255
   %4910 = add i64 %.neg2242.i, %4906
   br label %._crit_edge2038.i
 

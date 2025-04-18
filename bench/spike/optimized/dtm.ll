@@ -1337,19 +1337,19 @@ define void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 captures(none) dere
   store i64 4504093548613647, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 916
   %6 = load i32, ptr %5, align 4, !tbaa !97
-  %7 = icmp eq i32 %6, 64
-  %8 = select i1 %7, i32 3608576, i32 2560000
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 744
   br label %15
 
 ._crit_edge.i:                                    ; preds = %15
-  %11 = icmp eq i32 %6, 128
-  %12 = select i1 %11, i32 4657152, i32 %8
-  store i64 8589934615, ptr %9, align 8
+  %9 = icmp eq i32 %6, 128
+  %10 = icmp eq i32 %6, 64
+  %11 = select i1 %10, i32 3608576, i32 2560000
+  %12 = select i1 %9, i32 4657152, i32 %11
+  store i64 8589934615, ptr %7, align 8
   store i32 %12, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !3
-  %13 = load ptr, ptr %10, align 8, !tbaa !7
+  %13 = load ptr, ptr %8, align 8, !tbaa !7
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 904
   br label %21
@@ -1360,18 +1360,18 @@ define void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 captures(none) dere
   %17 = getelementptr inbounds nuw i32, ptr %2, i64 %.02541.i
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %.sroa.01.0.insert.insert.i.i = or disjoint i64 %16, 8589934592
-  store i64 %.sroa.01.0.insert.insert.i.i, ptr %9, align 8
+  store i64 %.sroa.01.0.insert.insert.i.i, ptr %7, align 8
   store i32 %18, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !3
-  %19 = load ptr, ptr %10, align 8, !tbaa !7
+  %19 = load ptr, ptr %8, align 8, !tbaa !7
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %19)
   %20 = add nuw nsw i64 %.02541.i, 1
   %exitcond.not.i = icmp eq i64 %20, 2
   br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !99
 
 21:                                               ; preds = %21, %._crit_edge.i
-  store i64 4294967318, ptr %9, align 8
+  store i64 4294967318, ptr %7, align 8
   store i32 0, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !3
-  %22 = load ptr, ptr %10, align 8, !tbaa !7
+  %22 = load ptr, ptr %8, align 8, !tbaa !7
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %22)
   %23 = load i32, ptr %14, align 8, !tbaa !88
   %24 = and i32 %23, 4096
@@ -1398,9 +1398,9 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %27, %29
   %.0.i = phi ptr [ %32, %29 ], [ @.str.5, %27 ]
   %33 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull @.str.7, i32 noundef 357, i32 noundef %26, ptr noundef %.0.i)
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull @.str.7, i32 noundef 358)
-  store i64 8589934614, ptr %9, align 8
+  store i64 8589934614, ptr %7, align 8
   store i32 1792, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !3
-  %35 = load ptr, ptr %10, align 8, !tbaa !7
+  %35 = load ptr, ptr %8, align 8, !tbaa !7
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %35)
   br label %36
 

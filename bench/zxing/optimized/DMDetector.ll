@@ -1032,48 +1032,48 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing10DataMatrix16DMRegressionLine1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !45
   %4 = load ptr, ptr %0, align 8, !tbaa !48
-  %5 = ptrtoint ptr %3 to i64
-  %6 = ptrtoint ptr %4 to i64
-  %7 = sub i64 %5, %6
-  %8 = lshr exact i64 %7, 4
   %.sroa.021.0.copyload = load double, ptr %4, align 8, !tbaa !43
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.222.0.copyload = load double, ptr %.sroa.222.0..sroa_idx, align 8, !tbaa !43
-  %9 = getelementptr inbounds i8, ptr %3, i64 -16
-  %.sroa.019.0.copyload = load double, ptr %9, align 8, !tbaa !43
+  %5 = getelementptr inbounds i8, ptr %3, i64 -16
+  %.sroa.019.0.copyload = load double, ptr %5, align 8, !tbaa !43
   %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 -8
   %.sroa.220.0.copyload = load double, ptr %.sroa.220.0..sroa_idx, align 8, !tbaa !43
-  %10 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
-  store double %.sroa.021.0.copyload, ptr %10, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
+  store double %.sroa.021.0.copyload, ptr %6, align 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %.sroa.222.0.copyload, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store double %.sroa.019.0.copyload, ptr %.sroa.6.0..sroa_idx.i, align 8
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store double %.sroa.220.0.copyload, ptr %.sroa.7.0..sroa_idx.i, align 8
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.08.i.i.i.idx = phi i64 [ %.08.i.i.i.add, %.lr.ph.i.i.i ], [ 0, %1 ]
-  %.sroa.0.07.i.i.i = phi double [ %12, %.lr.ph.i.i.i ], [ 0.000000e+00, %1 ]
-  %.sroa.4.06.i.i.i = phi double [ %15, %.lr.ph.i.i.i ], [ 0.000000e+00, %1 ]
-  %.08.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.08.i.i.i.idx
-  %11 = load double, ptr %.08.i.i.i.ptr, align 8, !tbaa !49
-  %12 = fadd double %.sroa.0.07.i.i.i, %11
-  %13 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.ptr, i64 8
-  %14 = load double, ptr %13, align 8, !tbaa !51
-  %15 = fadd double %.sroa.4.06.i.i.i, %14
+  %.sroa.0.07.i.i.i = phi double [ %8, %.lr.ph.i.i.i ], [ 0.000000e+00, %1 ]
+  %.sroa.4.06.i.i.i = phi double [ %11, %.lr.ph.i.i.i ], [ 0.000000e+00, %1 ]
+  %.08.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.08.i.i.i.idx
+  %7 = load double, ptr %.08.i.i.i.ptr, align 8, !tbaa !49
+  %8 = fadd double %.sroa.0.07.i.i.i, %7
+  %9 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.ptr, i64 8
+  %10 = load double, ptr %9, align 8, !tbaa !51
+  %11 = fadd double %.sroa.4.06.i.i.i, %10
   %.08.i.i.i.add = add nuw nsw i64 %.08.i.i.i.idx, 16
   %.not.i.i.i = icmp eq i64 %.08.i.i.i.add, 32
   br i1 %.not.i.i.i, label %.lr.ph.preheader.i, label %.lr.ph.i.i.i, !llvm.loop !63
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.i.i.i
-  %16 = fmul double %12, 5.000000e-01
-  %17 = fmul double %15, 5.000000e-01
+  %12 = fmul double %8, 5.000000e-01
+  %13 = fmul double %11, 5.000000e-01
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %18 = trunc i64 %8 to i32
+  %14 = ptrtoint ptr %3 to i64
+  %15 = ptrtoint ptr %4 to i64
+  %16 = sub i64 %14, %15
+  %17 = lshr exact i64 %16, 4
+  %18 = trunc i64 %17 to i32
   %19 = fcmp ult double %43, %42
   %20 = fmul double %44, %44
   %21 = tail call double @llvm.fmuladd.f64(double %42, double %42, double %20)
@@ -1098,9 +1098,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing10DataMatrix16DMRegressionLine1
   %33 = fcmp ord double %.sroa.16.0, 0.000000e+00
   %.sroa.3.0.i45.i = select i1 %33, double %.sroa.21.0, double 0.000000e+00
   %.sroa.0.0.i46.i = select i1 %33, double %.sroa.16.0, double 0.000000e+00
-  %34 = fmul double %17, %.sroa.3.0.i45.i
-  %35 = tail call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i46.i, double %16, double %34)
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 32) #25
+  %34 = fmul double %13, %.sroa.3.0.i45.i
+  %35 = tail call noundef double @llvm.fmuladd.f64(double %.sroa.0.0.i46.i, double %12, double %34)
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 32) #25
   %36 = icmp slt i32 %18, 16
   br i1 %36, label %_ZN5ZXing14RegressionLineD2Ev.exit, label %45
 
@@ -1109,12 +1109,12 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing10DataMatrix16DMRegressionLine1
   %.03573.i = phi double [ %43, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.preheader.i ]
   %.03672.i = phi double [ %44, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.preheader.i ]
   %.03771.i.idx = phi i64 [ %.03771.i.add, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.03771.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.03771.i.idx
+  %.03771.i.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.03771.i.idx
   %37 = load double, ptr %.03771.i.ptr, align 8, !tbaa !49
-  %38 = fsub double %37, %16
+  %38 = fsub double %37, %12
   %39 = getelementptr inbounds nuw i8, ptr %.03771.i.ptr, i64 8
   %40 = load double, ptr %39, align 8, !tbaa !51
-  %41 = fsub double %40, %17
+  %41 = fsub double %40, %13
   %42 = tail call double @llvm.fmuladd.f64(double %38, double %38, double %.074.i)
   %43 = tail call double @llvm.fmuladd.f64(double %41, double %41, double %.03573.i)
   %44 = tail call double @llvm.fmuladd.f64(double %38, double %41, double %.03672.i)
@@ -1123,7 +1123,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing10DataMatrix16DMRegressionLine1
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !64
 
 45:                                               ; preds = %._crit_edge.i
-  %46 = lshr i64 %7, 5
+  %46 = lshr i64 %16, 5
   %47 = and i64 %46, 2147483647
   %48 = load ptr, ptr %0, align 8, !tbaa !48
   %49 = getelementptr inbounds nuw %"struct.ZXing::PointT.3", ptr %48, i64 %47

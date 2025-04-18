@@ -19078,8 +19078,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %7, %2
   %98 = icmp ugt i64 %97, -9223372036854775808
   %storemerge.idx.i.i.i.i.i44 = select i1 %98, i64 -8, i64 0
   %storemerge.i.i.i.i.i45 = getelementptr inbounds i8, ptr %96, i64 %storemerge.idx.i.i.i.i.i44
-  %99 = and i64 %94, 63
   %storemerge.i.i.i.i.i45.promoted = load i64, ptr %storemerge.i.i.i.i.i45, align 8
+  %99 = and i64 %94, 63
   %100 = shl nuw i64 1, %99
   %101 = or i64 %storemerge.i.i.i.i.i45.promoted, %100
   store i64 %101, ptr %storemerge.i.i.i.i.i45, align 8

@@ -2360,40 +2360,40 @@ define internal fastcc void @CopyBW2Grey8(ptr noundef readonly captures(none) %0
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph55.split.us, %._crit_edge.us.us
   %12 = phi i32 [ %27, %._crit_edge.us.us ], [ %9, %.lr.ph55.split.us ]
-  %.03453.us.us = phi ptr [ %13, %._crit_edge.us.us ], [ %0, %.lr.ph55.split.us ]
+  %.03453.us.us = phi ptr [ %25, %._crit_edge.us.us ], [ %0, %.lr.ph55.split.us ]
   %.03552.us.us = phi ptr [ %26, %._crit_edge.us.us ], [ %2, %.lr.ph55.split.us ]
-  %13 = getelementptr inbounds i8, ptr %.03453.us.us, i64 %10
-  br label %14
+  br label %13
 
-14:                                               ; preds = %17, %.lr.ph.us.us
-  %.02746.us.us = phi ptr [ %.03552.us.us, %.lr.ph.us.us ], [ %23, %17 ]
-  %.02945.us.us = phi ptr [ %.03453.us.us, %.lr.ph.us.us ], [ %18, %17 ]
-  %.03244.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %19, %17 ]
-  %15 = load i8, ptr %.02945.us.us, align 1
-  %16 = zext i8 %15 to i32
-  br label %20
+13:                                               ; preds = %16, %.lr.ph.us.us
+  %.02746.us.us = phi ptr [ %.03552.us.us, %.lr.ph.us.us ], [ %22, %16 ]
+  %.02945.us.us = phi ptr [ %.03453.us.us, %.lr.ph.us.us ], [ %17, %16 ]
+  %.03244.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %18, %16 ]
+  %14 = load i8, ptr %.02945.us.us, align 1
+  %15 = zext i8 %14 to i32
+  br label %19
 
-17:                                               ; preds = %20
-  %18 = getelementptr inbounds nuw i8, ptr %.02945.us.us, i64 1
-  %19 = add nuw nsw i32 %.03244.us.us, 1
-  %exitcond69.not = icmp eq i32 %19, %7
-  br i1 %exitcond69.not, label %._crit_edge.us.us, label %14, !llvm.loop !9
+16:                                               ; preds = %19
+  %17 = getelementptr inbounds nuw i8, ptr %.02945.us.us, i64 1
+  %18 = add nuw nsw i32 %.03244.us.us, 1
+  %exitcond69.not = icmp eq i32 %18, %7
+  br i1 %exitcond69.not, label %._crit_edge.us.us, label %13, !llvm.loop !9
 
-20:                                               ; preds = %20, %14
-  %.043.us.us = phi i32 [ %16, %14 ], [ %24, %20 ]
-  %.12842.us.us = phi ptr [ %.02746.us.us, %14 ], [ %23, %20 ]
-  %.03041.us.us = phi i32 [ 0, %14 ], [ %25, %20 ]
-  %21 = shl i32 %.043.us.us, 24
-  %sext40.us.us = ashr i32 %21, 31
-  %22 = trunc nsw i32 %sext40.us.us to i8
-  %23 = getelementptr inbounds nuw i8, ptr %.12842.us.us, i64 1
-  store i8 %22, ptr %.12842.us.us, align 1
-  %24 = shl i32 %.043.us.us, 1
-  %25 = add nuw nsw i32 %.03041.us.us, 1
-  %exitcond68.not = icmp eq i32 %25, 8
-  br i1 %exitcond68.not, label %17, label %20, !llvm.loop !10
+19:                                               ; preds = %19, %13
+  %.043.us.us = phi i32 [ %15, %13 ], [ %23, %19 ]
+  %.12842.us.us = phi ptr [ %.02746.us.us, %13 ], [ %22, %19 ]
+  %.03041.us.us = phi i32 [ 0, %13 ], [ %24, %19 ]
+  %20 = shl i32 %.043.us.us, 24
+  %sext40.us.us = ashr i32 %20, 31
+  %21 = trunc nsw i32 %sext40.us.us to i8
+  %22 = getelementptr inbounds nuw i8, ptr %.12842.us.us, i64 1
+  store i8 %21, ptr %.12842.us.us, align 1
+  %23 = shl i32 %.043.us.us, 1
+  %24 = add nuw nsw i32 %.03041.us.us, 1
+  %exitcond68.not = icmp eq i32 %24, 8
+  br i1 %exitcond68.not, label %16, label %19, !llvm.loop !10
 
-._crit_edge.us.us:                                ; preds = %17
+._crit_edge.us.us:                                ; preds = %16
+  %25 = getelementptr inbounds i8, ptr %.03453.us.us, i64 %10
   %26 = getelementptr inbounds nuw i8, ptr %.03552.us.us, i64 %11
   %27 = add nsw i32 %12, -1
   %.not.us.us = icmp eq i32 %12, 0
@@ -2401,91 +2401,91 @@ define internal fastcc void @CopyBW2Grey8(ptr noundef readonly captures(none) %0
 
 .lr.ph.us:                                        ; preds = %.lr.ph55.split.us, %.loopexit.us
   %28 = phi i32 [ %49, %.loopexit.us ], [ %9, %.lr.ph55.split.us ]
-  %.03453.us = phi ptr [ %29, %.loopexit.us ], [ %0, %.lr.ph55.split.us ]
+  %.03453.us = phi ptr [ %47, %.loopexit.us ], [ %0, %.lr.ph55.split.us ]
   %.03552.us = phi ptr [ %48, %.loopexit.us ], [ %2, %.lr.ph55.split.us ]
-  %29 = getelementptr inbounds i8, ptr %.03453.us, i64 %10
-  br label %36
+  br label %35
 
-30:                                               ; preds = %30, %._crit_edge.us
-  %.150.us = phi i32 [ %51, %._crit_edge.us ], [ %34, %30 ]
-  %.249.us = phi ptr [ %45, %._crit_edge.us ], [ %33, %30 ]
-  %.13148.us = phi i32 [ 0, %._crit_edge.us ], [ %35, %30 ]
-  %31 = shl i32 %.150.us, 24
-  %sext.us = ashr i32 %31, 31
-  %32 = trunc nsw i32 %sext.us to i8
-  %33 = getelementptr inbounds nuw i8, ptr %.249.us, i64 1
-  store i8 %32, ptr %.249.us, align 1
-  %34 = shl i32 %.150.us, 1
-  %35 = add nuw nsw i32 %.13148.us, 1
-  %exitcond67.not = icmp eq i32 %35, %8
-  br i1 %exitcond67.not, label %.loopexit.us, label %30, !llvm.loop !12
+29:                                               ; preds = %29, %._crit_edge.us
+  %.150.us = phi i32 [ %51, %._crit_edge.us ], [ %33, %29 ]
+  %.249.us = phi ptr [ %44, %._crit_edge.us ], [ %32, %29 ]
+  %.13148.us = phi i32 [ 0, %._crit_edge.us ], [ %34, %29 ]
+  %30 = shl i32 %.150.us, 24
+  %sext.us = ashr i32 %30, 31
+  %31 = trunc nsw i32 %sext.us to i8
+  %32 = getelementptr inbounds nuw i8, ptr %.249.us, i64 1
+  store i8 %31, ptr %.249.us, align 1
+  %33 = shl i32 %.150.us, 1
+  %34 = add nuw nsw i32 %.13148.us, 1
+  %exitcond67.not = icmp eq i32 %34, %8
+  br i1 %exitcond67.not, label %.loopexit.us, label %29, !llvm.loop !12
 
-36:                                               ; preds = %.lr.ph.us, %39
-  %.02746.us = phi ptr [ %.03552.us, %.lr.ph.us ], [ %45, %39 ]
-  %.02945.us = phi ptr [ %.03453.us, %.lr.ph.us ], [ %40, %39 ]
-  %.03244.us = phi i32 [ 0, %.lr.ph.us ], [ %41, %39 ]
-  %37 = load i8, ptr %.02945.us, align 1
-  %38 = zext i8 %37 to i32
-  br label %42
+35:                                               ; preds = %.lr.ph.us, %38
+  %.02746.us = phi ptr [ %.03552.us, %.lr.ph.us ], [ %44, %38 ]
+  %.02945.us = phi ptr [ %.03453.us, %.lr.ph.us ], [ %39, %38 ]
+  %.03244.us = phi i32 [ 0, %.lr.ph.us ], [ %40, %38 ]
+  %36 = load i8, ptr %.02945.us, align 1
+  %37 = zext i8 %36 to i32
+  br label %41
 
-39:                                               ; preds = %42
-  %40 = getelementptr inbounds nuw i8, ptr %.02945.us, i64 1
-  %41 = add nuw nsw i32 %.03244.us, 1
-  %exitcond66.not = icmp eq i32 %41, %7
-  br i1 %exitcond66.not, label %._crit_edge.us, label %36, !llvm.loop !9
+38:                                               ; preds = %41
+  %39 = getelementptr inbounds nuw i8, ptr %.02945.us, i64 1
+  %40 = add nuw nsw i32 %.03244.us, 1
+  %exitcond66.not = icmp eq i32 %40, %7
+  br i1 %exitcond66.not, label %._crit_edge.us, label %35, !llvm.loop !9
 
-42:                                               ; preds = %42, %36
-  %.043.us = phi i32 [ %38, %36 ], [ %46, %42 ]
-  %.12842.us = phi ptr [ %.02746.us, %36 ], [ %45, %42 ]
-  %.03041.us = phi i32 [ 0, %36 ], [ %47, %42 ]
-  %43 = shl i32 %.043.us, 24
-  %sext40.us = ashr i32 %43, 31
-  %44 = trunc nsw i32 %sext40.us to i8
-  %45 = getelementptr inbounds nuw i8, ptr %.12842.us, i64 1
-  store i8 %44, ptr %.12842.us, align 1
-  %46 = shl i32 %.043.us, 1
-  %47 = add nuw nsw i32 %.03041.us, 1
-  %exitcond.not = icmp eq i32 %47, 8
-  br i1 %exitcond.not, label %39, label %42, !llvm.loop !10
+41:                                               ; preds = %41, %35
+  %.043.us = phi i32 [ %37, %35 ], [ %45, %41 ]
+  %.12842.us = phi ptr [ %.02746.us, %35 ], [ %44, %41 ]
+  %.03041.us = phi i32 [ 0, %35 ], [ %46, %41 ]
+  %42 = shl i32 %.043.us, 24
+  %sext40.us = ashr i32 %42, 31
+  %43 = trunc nsw i32 %sext40.us to i8
+  %44 = getelementptr inbounds nuw i8, ptr %.12842.us, i64 1
+  store i8 %43, ptr %.12842.us, align 1
+  %45 = shl i32 %.043.us, 1
+  %46 = add nuw nsw i32 %.03041.us, 1
+  %exitcond.not = icmp eq i32 %46, 8
+  br i1 %exitcond.not, label %38, label %41, !llvm.loop !10
 
-.loopexit.us:                                     ; preds = %30
+.loopexit.us:                                     ; preds = %29
+  %47 = getelementptr inbounds i8, ptr %.03453.us, i64 %10
   %48 = getelementptr inbounds nuw i8, ptr %.03552.us, i64 %11
   %49 = add nsw i32 %28, -1
   %.not.us = icmp eq i32 %28, 0
   br i1 %.not.us, label %._crit_edge56, label %.lr.ph.us, !llvm.loop !11
 
-._crit_edge.us:                                   ; preds = %39
-  %50 = load i8, ptr %40, align 1
+._crit_edge.us:                                   ; preds = %38
+  %50 = load i8, ptr %39, align 1
   %51 = zext i8 %50 to i32
-  br label %30
+  br label %29
 
 .lr.ph55.split:                                   ; preds = %.lr.ph55
   br i1 %.not37, label %._crit_edge56, label %.lr.ph55.split.split
 
 .lr.ph55.split.split:                             ; preds = %.lr.ph55.split, %.loopexit
   %52 = phi i32 [ %63, %.loopexit ], [ %9, %.lr.ph55.split ]
-  %.03453 = phi ptr [ %53, %.loopexit ], [ %0, %.lr.ph55.split ]
+  %.03453 = phi ptr [ %61, %.loopexit ], [ %0, %.lr.ph55.split ]
   %.03552 = phi ptr [ %62, %.loopexit ], [ %2, %.lr.ph55.split ]
-  %53 = getelementptr inbounds i8, ptr %.03453, i64 %10
-  %54 = load i8, ptr %.03453, align 1
-  %55 = zext i8 %54 to i32
-  br label %56
+  %53 = load i8, ptr %.03453, align 1
+  %54 = zext i8 %53 to i32
+  br label %55
 
-56:                                               ; preds = %.lr.ph55.split.split, %56
-  %.150 = phi i32 [ %55, %.lr.ph55.split.split ], [ %60, %56 ]
-  %.249 = phi ptr [ %.03552, %.lr.ph55.split.split ], [ %59, %56 ]
-  %.13148 = phi i32 [ 0, %.lr.ph55.split.split ], [ %61, %56 ]
-  %57 = shl i32 %.150, 24
-  %sext = ashr i32 %57, 31
-  %58 = trunc nsw i32 %sext to i8
-  %59 = getelementptr inbounds nuw i8, ptr %.249, i64 1
-  store i8 %58, ptr %.249, align 1
-  %60 = shl i32 %.150, 1
-  %61 = add nuw nsw i32 %.13148, 1
-  %exitcond70.not = icmp eq i32 %61, %8
-  br i1 %exitcond70.not, label %.loopexit, label %56, !llvm.loop !12
+55:                                               ; preds = %.lr.ph55.split.split, %55
+  %.150 = phi i32 [ %54, %.lr.ph55.split.split ], [ %59, %55 ]
+  %.249 = phi ptr [ %.03552, %.lr.ph55.split.split ], [ %58, %55 ]
+  %.13148 = phi i32 [ 0, %.lr.ph55.split.split ], [ %60, %55 ]
+  %56 = shl i32 %.150, 24
+  %sext = ashr i32 %56, 31
+  %57 = trunc nsw i32 %sext to i8
+  %58 = getelementptr inbounds nuw i8, ptr %.249, i64 1
+  store i8 %57, ptr %.249, align 1
+  %59 = shl i32 %.150, 1
+  %60 = add nuw nsw i32 %.13148, 1
+  %exitcond70.not = icmp eq i32 %60, %8
+  br i1 %exitcond70.not, label %.loopexit, label %55, !llvm.loop !12
 
-.loopexit:                                        ; preds = %56
+.loopexit:                                        ; preds = %55
+  %61 = getelementptr inbounds i8, ptr %.03453, i64 %10
   %62 = getelementptr inbounds nuw i8, ptr %.03552, i64 %11
   %63 = add nsw i32 %52, -1
   %.not = icmp eq i32 %52, 0
@@ -2509,33 +2509,33 @@ define internal fastcc void @CopyGrey4ToGrey8(ptr noundef readonly captures(none
 .lr.ph.us:                                        ; preds = %.lr.ph29, %..loopexit_crit_edge.us
   %.in = phi i32 [ %9, %..loopexit_crit_edge.us ], [ %5, %.lr.ph29 ]
   %.02128.us = phi ptr [ %24, %..loopexit_crit_edge.us ], [ %2, %.lr.ph29 ]
-  %.02227.us = phi ptr [ %10, %..loopexit_crit_edge.us ], [ %0, %.lr.ph29 ]
+  %.02227.us = phi ptr [ %23, %..loopexit_crit_edge.us ], [ %0, %.lr.ph29 ]
   %9 = add nsw i32 %.in, -1
-  %10 = getelementptr inbounds i8, ptr %.02227.us, i64 %7
-  br label %11
+  br label %10
 
-11:                                               ; preds = %.lr.ph.us, %11
-  %.01825.us = phi ptr [ %.02128.us, %.lr.ph.us ], [ %22, %11 ]
-  %.01924.us = phi ptr [ %.02227.us, %.lr.ph.us ], [ %12, %11 ]
-  %.02023.us = phi i32 [ 0, %.lr.ph.us ], [ %23, %11 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.01924.us, i64 1
-  %13 = load i8, ptr %.01924.us, align 1
-  %14 = shl i8 %13, 4
-  %15 = lshr i8 %13, 3
-  %16 = and i8 %15, 1
-  %17 = or disjoint i8 %16, %14
-  %18 = getelementptr inbounds nuw i8, ptr %.01825.us, i64 1
-  store i8 %17, ptr %.01825.us, align 1
-  %19 = lshr i8 %13, 7
-  %20 = and i8 %13, -16
-  %21 = or disjoint i8 %20, %19
-  %22 = getelementptr inbounds nuw i8, ptr %.01825.us, i64 2
-  store i8 %21, ptr %18, align 1
-  %23 = add nuw nsw i32 %.02023.us, 1
-  %exitcond.not = icmp eq i32 %23, %4
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %11, !llvm.loop !13
+10:                                               ; preds = %.lr.ph.us, %10
+  %.01825.us = phi ptr [ %.02128.us, %.lr.ph.us ], [ %21, %10 ]
+  %.01924.us = phi ptr [ %.02227.us, %.lr.ph.us ], [ %11, %10 ]
+  %.02023.us = phi i32 [ 0, %.lr.ph.us ], [ %22, %10 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.01924.us, i64 1
+  %12 = load i8, ptr %.01924.us, align 1
+  %13 = shl i8 %12, 4
+  %14 = lshr i8 %12, 3
+  %15 = and i8 %14, 1
+  %16 = or disjoint i8 %15, %13
+  %17 = getelementptr inbounds nuw i8, ptr %.01825.us, i64 1
+  store i8 %16, ptr %.01825.us, align 1
+  %18 = lshr i8 %12, 7
+  %19 = and i8 %12, -16
+  %20 = or disjoint i8 %19, %18
+  %21 = getelementptr inbounds nuw i8, ptr %.01825.us, i64 2
+  store i8 %20, ptr %17, align 1
+  %22 = add nuw nsw i32 %.02023.us, 1
+  %exitcond.not = icmp eq i32 %22, %4
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %10, !llvm.loop !13
 
-..loopexit_crit_edge.us:                          ; preds = %11
+..loopexit_crit_edge.us:                          ; preds = %10
+  %23 = getelementptr inbounds i8, ptr %.02227.us, i64 %7
   %24 = getelementptr inbounds nuw i8, ptr %.02128.us, i64 %8
   %.not.us = icmp eq i32 %9, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.us, !llvm.loop !14

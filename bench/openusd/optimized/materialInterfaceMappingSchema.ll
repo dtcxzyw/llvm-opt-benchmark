@@ -1079,11 +1079,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32HdMaterialInterfaceMappingSc
   %4 = alloca [2 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 16
   %5 = alloca [2 x %"class.std::shared_ptr.9"], align 16
   %6 = alloca %"class.std::shared_ptr.12", align 8
-  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %.0.sroa.gep64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.0.sroa.gep64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %9, null

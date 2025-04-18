@@ -3924,17 +3924,17 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit43:  ; preds = %111, %114
 162:                                              ; preds = %159
   %163 = load i32, ptr %91, align 8, !tbaa !182
   %164 = load i32, ptr %88, align 4, !tbaa !180
-  %165 = add nsw i32 %164, -2
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %167 = load ptr, ptr %166, align 8, !tbaa !152
-  %scevgep = getelementptr nuw i8, ptr %167, i64 131068
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %166 = load ptr, ptr %165, align 8, !tbaa !152
+  %scevgep = getelementptr nuw i8, ptr %166, i64 131068
   %load_initial = load i32, ptr %scevgep, align 4
-  %invariant.gep = getelementptr i8, ptr %167, i64 -4
+  %invariant.gep = getelementptr i8, ptr %166, i64 -4
   br label %173
 
 .preheader46:                                     ; preds = %173
-  %168 = add nsw i32 %163, -2
-  %169 = mul nsw i32 %165, %168
+  %167 = add nsw i32 %163, -2
+  %168 = add nsw i32 %164, -2
+  %169 = mul nsw i32 %168, %167
   %170 = sitofp i32 %169 to double
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %172 = load ptr, ptr %171, align 8, !tbaa !151
@@ -3973,7 +3973,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit43:  ; preds = %111, %114
 
 188:                                              ; preds = %.preheader46, %188
   %indvars.iv53 = phi i64 [ 0, %.preheader46 ], [ %indvars.iv.next54, %188 ]
-  %189 = getelementptr inbounds nuw i32, ptr %167, i64 %indvars.iv53
+  %189 = getelementptr inbounds nuw i32, ptr %166, i64 %indvars.iv53
   %190 = load i32, ptr %189, align 4, !tbaa !15
   %191 = sitofp i32 %190 to double
   %192 = fdiv double %191, %170
@@ -8389,7 +8389,6 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl18SplitSegment2LinesEPdS2_ii
 
 .lr.ph145.preheader.i:                            ; preds = %.lr.ph.i
   %27 = fcmp olt double %31, %35
-  %.0115..0116.i = select i1 %27, double %23, double %26
   %.131.i = select i1 %27, ptr %.1263, ptr %.174262
   %.132.i = select i1 %27, ptr %.174262, ptr %.1263
   br label %.lr.ph145.i
@@ -8412,6 +8411,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl18SplitSegment2LinesEPdS2_ii
 
 ._crit_edge146.i:                                 ; preds = %.lr.ph145.i
   %..i = zext i1 %27 to i32
+  %.0115..0116.i = select i1 %27, double %23, double %26
   %.0116..0115.i = select i1 %27, double %26, double %23
   %36 = fneg double %.0116..0115.i
   %37 = fmul double %.0116..0115.i, %36

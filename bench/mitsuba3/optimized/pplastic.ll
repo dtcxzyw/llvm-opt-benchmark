@@ -3087,44 +3087,44 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
 
 211:                                              ; preds = %204, %174
   %.0.i = phi float [ %203, %174 ], [ %210, %204 ]
-  %212 = fmul contract float %165, %.0.i
-  %213 = fcmp contract ogt float %212, 0x3BC79CA100000000
-  %214 = bitcast <4 x i32> %.sroa.0915.0.copyload to <4 x float>
-  %215 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %214, <4 x float> %163, i8 113)
-  %216 = extractelement <4 x float> %215, i64 0
-  %217 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %218 = load float, ptr %217, align 8
-  call void @_ZN7mitsuba7mueller19specular_reflectionIffEEN5drjit6MatrixIT_Lm4EEES4_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.drjit::Matrix.53") align 16 %60, float noundef %216, float noundef %218)
+  %212 = bitcast <4 x i32> %.sroa.0915.0.copyload to <4 x float>
+  %213 = tail call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %212, <4 x float> %163, i8 113)
+  %214 = extractelement <4 x float> %213, i64 0
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %216 = load float, ptr %215, align 8
+  call void @_ZN7mitsuba7mueller19specular_reflectionIffEEN5drjit6MatrixIT_Lm4EEES4_T0_(ptr dead_on_unwind nonnull writable sret(%"struct.drjit::Matrix.53") align 16 %60, float noundef %214, float noundef %216)
+  br label %217
+
+217:                                              ; preds = %211, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
+  %.07121004 = phi i64 [ 0, %211 ], [ %227, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit ]
+  %218 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.57"], ptr %60, i64 0, i64 %.07121004
+  %.sroa.0701.0.copyload = load <4 x float>, ptr %218, align 16
+  store <4 x float> %.sroa.0701.0.copyload, ptr %51, align 16
   br label %219
 
-219:                                              ; preds = %211, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
-  %.07121004 = phi i64 [ 0, %211 ], [ %229, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit ]
-  %220 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.57"], ptr %60, i64 0, i64 %.07121004
-  %.sroa.0701.0.copyload = load <4 x float>, ptr %220, align 16
-  store <4 x float> %.sroa.0701.0.copyload, ptr %51, align 16
-  br label %221
+219:                                              ; preds = %219, %217
+  %.012.i.i = phi i64 [ 0, %217 ], [ %225, %219 ]
+  %220 = getelementptr inbounds nuw float, ptr %51, i64 %.012.i.i
+  %221 = load float, ptr %220, align 4
+  %222 = insertelement <4 x float> poison, float %221, i64 0
+  %223 = shufflevector <4 x float> %222, <4 x float> poison, <4 x i32> zeroinitializer
+  %224 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %50, i64 0, i64 %.012.i.i
+  store <4 x float> %223, ptr %224, align 16
+  %225 = add nuw nsw i64 %.012.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %225, 4
+  br i1 %exitcond.not.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit, label %219, !llvm.loop !47
 
-221:                                              ; preds = %221, %219
-  %.012.i.i = phi i64 [ 0, %219 ], [ %227, %221 ]
-  %222 = getelementptr inbounds nuw float, ptr %51, i64 %.012.i.i
-  %223 = load float, ptr %222, align 4
-  %224 = insertelement <4 x float> poison, float %223, i64 0
-  %225 = shufflevector <4 x float> %224, <4 x float> poison, <4 x i32> zeroinitializer
-  %226 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %50, i64 0, i64 %.012.i.i
-  store <4 x float> %225, ptr %226, align 16
-  %227 = add nuw nsw i64 %.012.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %227, 4
-  br i1 %exitcond.not.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit, label %221, !llvm.loop !47
+_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit: ; preds = %219
+  %226 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %59, i64 0, i64 %.07121004
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %226, ptr noundef nonnull align 16 dereferenceable(64) %50, i64 64, i1 false)
+  %227 = add nuw nsw i64 %.07121004, 1
+  %exitcond1009.not = icmp eq i64 %227, 4
+  br i1 %exitcond1009.not, label %228, label %217, !llvm.loop !48
 
-_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit: ; preds = %221
-  %228 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %59, i64 0, i64 %.07121004
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %228, ptr noundef nonnull align 16 dereferenceable(64) %50, i64 64, i1 false)
-  %229 = add nuw nsw i64 %.07121004, 1
-  %exitcond1009.not = icmp eq i64 %229, 4
-  br i1 %exitcond1009.not, label %230, label %219, !llvm.loop !48
-
-230:                                              ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
-  %.0..i = select contract i1 %213, float %.0.i, float 0.000000e+00
+228:                                              ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfNS0_IfLm4EEES4_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrS9_5DepthsrSA_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESA_EE.exit
+  %229 = fmul contract float %165, %.0.i
+  %230 = fcmp contract ogt float %229, 0x3BC79CA100000000
+  %.0..i = select contract i1 %230, float %.0.i, float 0.000000e+00
   %231 = xor <4 x i32> %.sroa.0915.0.copyload, splat (i32 -2147483648)
   %232 = bitcast <4 x i32> %231 to <4 x float>
   %233 = load <4 x float>, ptr %58, align 16
@@ -3245,15 +3245,15 @@ _ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb
   %.not1001 = icmp eq ptr %330, null
   br i1 %.not1001, label %336, label %331
 
-331:                                              ; preds = %230
+331:                                              ; preds = %228
   %332 = load ptr, ptr %330, align 8
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 72
   %334 = load ptr, ptr %333, align 8
   %335 = call <4 x float> %334(ptr noundef nonnull align 8 dereferenceable(40) %330, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext true)
   br label %336
 
-336:                                              ; preds = %331, %230
-  %.sroa.0908.0 = phi <4 x float> [ %335, %331 ], [ splat (float 1.000000e+00), %230 ]
+336:                                              ; preds = %331, %228
+  %.sroa.0908.0 = phi <4 x float> [ %335, %331 ], [ splat (float 1.000000e+00), %228 ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %40)
@@ -8678,17 +8678,17 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE8minimum_ERKS3_.exit.critedge:
   %.1.i.i = select i1 %211, float 0xFFF0000000000000, float %spec.select.i.i
   %212 = fcmp contract ult float %177, 0.000000e+00
   %213 = select i1 %212, float 0xFFFFFFFFE0000000, float %.1.i.i
-  %214 = fneg contract float %213
-  %215 = fsub contract float -2.500000e+00, %213
-  %216 = tail call contract noundef float @llvm.sqrt.f32(float %214)
-  %217 = tail call contract noundef float @llvm.fma.f32(float %215, float 0x3FCF91EC60000000, float 0x3FF805C5E0000000)
-  %218 = tail call contract noundef float @llvm.fma.f32(float %215, float 0xBF548A8100000000, float 0xBF711C9DE0000000)
-  %219 = tail call contract noundef float @llvm.fma.f32(float %215, float 0xBED26B5820000000, float 0x3F2CA65B60000000)
-  %220 = tail call contract noundef float @llvm.fma.f32(float %215, float 0x3E970966C0000000, float 0xBECD8E6AE0000000)
-  %221 = fmul contract float %215, %215
-  %222 = tail call contract noundef float @llvm.fma.f32(float %221, float %218, float %217)
-  %223 = tail call contract noundef float @llvm.fma.f32(float %221, float %220, float %219)
-  %224 = fadd contract float %216, -3.000000e+00
+  %214 = fsub contract float -2.500000e+00, %213
+  %215 = tail call contract noundef float @llvm.fma.f32(float %214, float 0x3FCF91EC60000000, float 0x3FF805C5E0000000)
+  %216 = tail call contract noundef float @llvm.fma.f32(float %214, float 0xBF548A8100000000, float 0xBF711C9DE0000000)
+  %217 = tail call contract noundef float @llvm.fma.f32(float %214, float 0xBED26B5820000000, float 0x3F2CA65B60000000)
+  %218 = tail call contract noundef float @llvm.fma.f32(float %214, float 0x3E970966C0000000, float 0xBECD8E6AE0000000)
+  %219 = fmul contract float %214, %214
+  %220 = tail call contract noundef float @llvm.fma.f32(float %219, float %216, float %215)
+  %221 = tail call contract noundef float @llvm.fma.f32(float %219, float %218, float %217)
+  %222 = fneg contract float %213
+  %223 = tail call contract noundef float @llvm.sqrt.f32(float %222)
+  %224 = fadd contract float %223, -3.000000e+00
   %225 = tail call contract noundef float @llvm.fma.f32(float %224, float 0x3FF006DB60000000, float 0x4006A9EFC0000000)
   %226 = tail call contract noundef float @llvm.fma.f32(float %224, float 0xBF7F38BAE0000000, float 0x3F8354AFC0000000)
   %227 = tail call contract noundef float @llvm.fma.f32(float %224, float 0xBF6E17BCE0000000, float 0x3F77824F60000000)
@@ -8696,9 +8696,9 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE8minimum_ERKS3_.exit.critedge:
   %229 = fmul contract float %224, %224
   %230 = tail call contract noundef float @llvm.fma.f32(float %229, float %226, float %225)
   %231 = tail call contract noundef float @llvm.fma.f32(float %229, float %228, float %227)
-  %232 = fmul contract float %221, %221
+  %232 = fmul contract float %219, %219
   %233 = fmul contract float %232, %232
-  %234 = tail call contract noundef float @llvm.fma.f32(float %232, float %223, float %222)
+  %234 = tail call contract noundef float @llvm.fma.f32(float %232, float %221, float %220)
   %235 = tail call contract noundef float @llvm.fma.f32(float %233, float 0x3E5E2CB100000000, float %234)
   %236 = fmul contract float %229, %229
   %237 = tail call contract noundef float @llvm.fma.f32(float %236, float %231, float %230)

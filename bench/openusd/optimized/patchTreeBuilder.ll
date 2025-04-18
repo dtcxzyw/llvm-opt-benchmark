@@ -9289,8 +9289,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIdE5ClearEv.exit.preheader: 
   %indvar = phi i64 [ 0, %.lr.ph.i.preheader.us.preheader ], [ %indvar.next, %._crit_edge.split.us.us ]
   %24 = mul nuw nsw i64 %22, %indvar
   %scevgep = getelementptr i8, ptr %23, i64 %24
-  %25 = mul nuw nsw i64 %indvar, %16
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %22, i1 false)
+  %25 = mul nuw nsw i64 %indvar, %16
   %26 = getelementptr inbounds nuw double, ptr %13, i64 %25
   %27 = load ptr, ptr %18, align 8
   %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvar
@@ -11434,8 +11434,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110StencilRowIfE5ClearEv.exit.preheader: 
   %indvar = phi i64 [ 0, %.lr.ph.i.preheader.us.preheader ], [ %indvar.next, %._crit_edge.split.us.us ]
   %24 = mul nuw nsw i64 %22, %indvar
   %scevgep = getelementptr i8, ptr %23, i64 %24
-  %25 = mul nuw nsw i64 %indvar, %16
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %22, i1 false)
+  %25 = mul nuw nsw i64 %indvar, %16
   %26 = getelementptr inbounds nuw float, ptr %13, i64 %25
   %27 = load ptr, ptr %18, align 8
   %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvar

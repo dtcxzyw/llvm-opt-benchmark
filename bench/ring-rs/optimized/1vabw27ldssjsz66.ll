@@ -1366,9 +1366,8 @@ _ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit.lr.ph: ; p
 
 _ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit: ; preds = %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit.lr.ph, %_ZN4ring4aead3gcm7Context12update_block17h70ca3aa9756cd3a1E.exit
   %.sroa.5.029 = phi i64 [ %3, %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit.lr.ph ], [ %28, %_ZN4ring4aead3gcm7Context12update_block17h70ca3aa9756cd3a1E.exit ]
-  %.sroa.022.028 = phi ptr [ %2, %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit.lr.ph ], [ %20, %_ZN4ring4aead3gcm7Context12update_block17h70ca3aa9756cd3a1E.exit ]
+  %.sroa.022.028 = phi ptr [ %2, %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit.lr.ph ], [ %27, %_ZN4ring4aead3gcm7Context12update_block17h70ca3aa9756cd3a1E.exit ]
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 range(i64 1, 0) %.sroa.5.029, i64 16)
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.022.028, i64 %.0.sroa.speculated.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
   store <16 x i8> zeroinitializer, ptr %.sroa.0.i, align 16, !noalias !92
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.sroa.0.i, ptr nonnull readonly align 1 %.sroa.022.028, i64 %.0.sroa.speculated.i.i, i1 false), !alias.scope !96, !noalias !100
@@ -1380,21 +1379,22 @@ _ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit: ; preds =
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  br label %21
+  br label %20
 
-21:                                               ; preds = %21, %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit
-  %.sroa.8.013.i.i = phi i64 [ 0, %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit ], [ %22, %21 ]
-  %22 = add nuw nsw i64 %.sroa.8.013.i.i, 1
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.8.013.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.8.013.i.i
-  %25 = load i8, ptr %24, align 1, !alias.scope !112, !noalias !113, !noundef !4
-  %26 = load i8, ptr %23, align 1, !alias.scope !113, !noalias !112, !noundef !4
-  %27 = xor i8 %26, %25
-  store i8 %27, ptr %23, align 1, !alias.scope !113, !noalias !112
-  %exitcond.not.i.i = icmp eq i64 %22, 16
-  br i1 %exitcond.not.i.i, label %"_ZN73_$LT$ring..aead..block..Block$u20$as$u20$core..ops..bit..BitXorAssign$GT$13bitxor_assign17h96600cb7c244d0b6E.llvm.2657819220133375221.exit.i", label %21
+20:                                               ; preds = %20, %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit
+  %.sroa.8.013.i.i = phi i64 [ 0, %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit ], [ %21, %20 ]
+  %21 = add nuw nsw i64 %.sroa.8.013.i.i, 1
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.8.013.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.8.013.i.i
+  %24 = load i8, ptr %23, align 1, !alias.scope !112, !noalias !113, !noundef !4
+  %25 = load i8, ptr %22, align 1, !alias.scope !113, !noalias !112, !noundef !4
+  %26 = xor i8 %25, %24
+  store i8 %26, ptr %22, align 1, !alias.scope !113, !noalias !112
+  %exitcond.not.i.i = icmp eq i64 %21, 16
+  br i1 %exitcond.not.i.i, label %"_ZN73_$LT$ring..aead..block..Block$u20$as$u20$core..ops..bit..BitXorAssign$GT$13bitxor_assign17h96600cb7c244d0b6E.llvm.2657819220133375221.exit.i", label %20
 
-"_ZN73_$LT$ring..aead..block..Block$u20$as$u20$core..ops..bit..BitXorAssign$GT$13bitxor_assign17h96600cb7c244d0b6E.llvm.2657819220133375221.exit.i": ; preds = %21
+"_ZN73_$LT$ring..aead..block..Block$u20$as$u20$core..ops..bit..BitXorAssign$GT$13bitxor_assign17h96600cb7c244d0b6E.llvm.2657819220133375221.exit.i": ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.022.028, i64 %.0.sroa.speculated.i.i
   %28 = sub nuw i64 %.sroa.5.029, %.0.sroa.speculated.i.i
   %29 = load i32, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, align 4, !noalias !114, !noundef !4
   %30 = and i32 %29, 16777216

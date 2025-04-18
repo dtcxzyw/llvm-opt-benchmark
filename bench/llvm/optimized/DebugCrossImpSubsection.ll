@@ -1510,27 +1510,27 @@ _ZNK4llvm9StringMapISt6vectorINS_7support6detail31packed_endian_specific_integra
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit.loopexit: ; preds = %.critedge.i.i
   %11 = add i32 %.011, 8
-  %12 = add i32 %11, %22
+  %12 = ptrtoint ptr %21 to i64
+  %13 = ptrtoint ptr %22 to i64
+  %14 = sub i64 %12, %13
+  %15 = trunc i64 %14 to i32
+  %16 = and i32 %15, -4
+  %17 = add i32 %11, %16
   %.not = icmp eq ptr %storemerge.i, %10
   br i1 %.not, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit._crit_edge, label %.lr.ph
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit._crit_edge: ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit.loopexit, %_ZNK4llvm9StringMapISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS6_EENS_15MallocAllocatorEE5beginEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZNK4llvm9StringMapISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS6_EENS_15MallocAllocatorEE5beginEv.exit ], [ %12, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %_ZNK4llvm9StringMapISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS6_EENS_15MallocAllocatorEE5beginEv.exit ], [ %17, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit.loopexit ]
   ret i32 %.0.lcssa
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit.loopexit
-  %13 = phi ptr [ %23, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit.loopexit ], [ %.pre, %.lr.ph.preheader ]
-  %.011 = phi i32 [ %12, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit.loopexit ], [ 0, %.lr.ph.preheader ]
+  %18 = phi ptr [ %23, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit.loopexit ], [ %.pre, %.lr.ph.preheader ]
+  %.011 = phi i32 [ %17, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit.loopexit ], [ 0, %.lr.ph.preheader ]
   %.sroa.06.010 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt6vectorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEESaIS7_EEEEKNS_14StringMapEntryIS9_EEEppEv.exit.loopexit ], [ %.sroa.0.1.i, %.lr.ph.preheader ]
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !96
-  %17 = load ptr, ptr %14, align 8, !tbaa !92
-  %18 = ptrtoint ptr %16 to i64
-  %19 = ptrtoint ptr %17 to i64
-  %20 = sub i64 %18, %19
-  %21 = trunc i64 %20 to i32
-  %22 = and i32 %21, -4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %21 = load ptr, ptr %20, align 8, !tbaa !96
+  %22 = load ptr, ptr %19, align 8, !tbaa !92
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %.lr.ph

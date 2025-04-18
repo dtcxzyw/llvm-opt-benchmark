@@ -519,16 +519,16 @@ define internal fastcc void @_ZN4ncnnL10requantizeEPKiPaRKNS_3MatES5_S5_iS5_ii(p
 
 .preheader932:                                    ; preds = %26
   %28 = icmp sgt i32 %7, 15
-  br i1 %28, label %.lr.ph963.preheader, label %.preheader931
+  br i1 %28, label %.lr.ph963, label %.preheader931
 
-.lr.ph963.preheader:                              ; preds = %.preheader932
+.preheader931.loopexit:                           ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156
   %29 = and i32 %7, 2147483632
-  br label %.lr.ph963
+  br label %.preheader931
 
-.preheader931:                                    ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156, %.preheader932
-  %.0150.lcssa = phi i32 [ 0, %.preheader932 ], [ %29, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156 ]
-  %.0137.lcssa = phi ptr [ %1, %.preheader932 ], [ %317, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156 ]
-  %.0.lcssa = phi ptr [ %0, %.preheader932 ], [ %316, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156 ]
+.preheader931:                                    ; preds = %.preheader931.loopexit, %.preheader932
+  %.0150.lcssa = phi i32 [ 0, %.preheader932 ], [ %29, %.preheader931.loopexit ]
+  %.0137.lcssa = phi ptr [ %1, %.preheader932 ], [ %317, %.preheader931.loopexit ]
+  %.0.lcssa = phi ptr [ %0, %.preheader932 ], [ %316, %.preheader931.loopexit ]
   %30 = or disjoint i32 %.0150.lcssa, 7
   %31 = icmp slt i32 %30, %7
   br i1 %31, label %.lr.ph970, label %.preheader930
@@ -538,10 +538,10 @@ define internal fastcc void @_ZN4ncnnL10requantizeEPKiPaRKNS_3MatES5_S5_iS5_ii(p
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   br label %323
 
-.lr.ph963:                                        ; preds = %.lr.ph963.preheader, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156
-  %.0962 = phi ptr [ %316, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156 ], [ %0, %.lr.ph963.preheader ]
-  %.0137961 = phi ptr [ %317, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156 ], [ %1, %.lr.ph963.preheader ]
-  %.0150960 = phi i32 [ %318, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156 ], [ 0, %.lr.ph963.preheader ]
+.lr.ph963:                                        ; preds = %.preheader932, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156
+  %.0962 = phi ptr [ %316, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156 ], [ %0, %.preheader932 ]
+  %.0137961 = phi ptr [ %317, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156 ], [ %1, %.preheader932 ]
+  %.0150960 = phi i32 [ %318, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156 ], [ 0, %.preheader932 ]
   %34 = load <8 x i32>, ptr %.0962, align 1, !tbaa !46
   %35 = sitofp <8 x i32> %34 to <8 x float>
   %36 = getelementptr inbounds nuw i8, ptr %.0962, i64 32
@@ -866,7 +866,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit156:   ; preds = %.lr.ph963, %_ZL14ac
   %318 = add nuw nsw i32 %.0150960, 16
   %319 = or disjoint i32 %318, 15
   %320 = icmp slt i32 %319, %7
-  br i1 %320, label %.lr.ph963, label %.preheader931, !llvm.loop !47
+  br i1 %320, label %.lr.ph963, label %.preheader931.loopexit, !llvm.loop !47
 
 .preheader930:                                    ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit158, %.preheader931
   %.1151.lcssa = phi i32 [ %.0150.lcssa, %.preheader931 ], [ %480, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit158 ]
@@ -1399,16 +1399,16 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %692, %.lr.ph984, %6
 723:                                              ; preds = %721, %714
   %.0877 = phi nsz <8 x float> [ %722, %721 ], [ %719, %714 ]
   %724 = icmp sgt i32 %7, 15
-  br i1 %724, label %.lr.ph.preheader, label %.preheader936
+  br i1 %724, label %.lr.ph, label %.preheader936
 
-.lr.ph.preheader:                                 ; preds = %723
+.preheader936.loopexit:                           ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162
   %725 = and i32 %7, 2147483632
-  br label %.lr.ph
+  br label %.preheader936
 
-.preheader936:                                    ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162, %723
-  %.0145.lcssa = phi i32 [ 0, %723 ], [ %725, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162 ]
-  %.4141.lcssa = phi ptr [ %1, %723 ], [ %1013, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162 ]
-  %.4.lcssa = phi ptr [ %0, %723 ], [ %1012, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162 ]
+.preheader936:                                    ; preds = %.preheader936.loopexit, %723
+  %.0145.lcssa = phi i32 [ 0, %723 ], [ %725, %.preheader936.loopexit ]
+  %.4141.lcssa = phi ptr [ %1, %723 ], [ %1013, %.preheader936.loopexit ]
+  %.4.lcssa = phi ptr [ %0, %723 ], [ %1012, %.preheader936.loopexit ]
   %726 = or disjoint i32 %.0145.lcssa, 7
   %727 = icmp slt i32 %726, %7
   br i1 %727, label %.lr.ph945, label %.preheader935
@@ -1418,10 +1418,10 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %692, %.lr.ph984, %6
   %729 = getelementptr inbounds nuw i8, ptr %728, i64 4
   br label %1019
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162
-  %.4939 = phi ptr [ %1012, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162 ], [ %0, %.lr.ph.preheader ]
-  %.4141938 = phi ptr [ %1013, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162 ], [ %1, %.lr.ph.preheader ]
-  %.0145937 = phi i32 [ %1014, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %723, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162
+  %.4939 = phi ptr [ %1012, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162 ], [ %0, %723 ]
+  %.4141938 = phi ptr [ %1013, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162 ], [ %1, %723 ]
+  %.0145937 = phi i32 [ %1014, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162 ], [ 0, %723 ]
   %730 = load <8 x i32>, ptr %.4939, align 1, !tbaa !46
   %731 = sitofp <8 x i32> %730 to <8 x float>
   %732 = getelementptr inbounds nuw i8, ptr %.4939, i64 32
@@ -1746,7 +1746,7 @@ _ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit162:   ; preds = %.lr.ph, %_ZL14activ
   %1014 = add nuw nsw i32 %.0145937, 16
   %1015 = or disjoint i32 %1014, 15
   %1016 = icmp slt i32 %1015, %7
-  br i1 %1016, label %.lr.ph, label %.preheader936, !llvm.loop !53
+  br i1 %1016, label %.lr.ph, label %.preheader936.loopexit, !llvm.loop !53
 
 .preheader935:                                    ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit164, %.preheader936
   %.1146.lcssa = phi i32 [ %.0145.lcssa, %.preheader936 ], [ %1176, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit164 ]

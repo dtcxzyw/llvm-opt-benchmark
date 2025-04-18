@@ -981,27 +981,27 @@ define void @cvMixChannels(ptr noundef readonly captures(none) %0, i32 noundef %
   %8 = alloca %"class.cv::Mat", align 8
   %9 = alloca %"class.cv::Mat", align 8
   call void @llvm.lifetime.start.p0(i64 1744, ptr nonnull %7) #12
-  %10 = add nsw i32 %3, %1
-  br label %11
+  br label %10
 
-11:                                               ; preds = %11, %6
-  %.idx.i = phi i64 [ 16, %6 ], [ %.add.i, %11 ]
+10:                                               ; preds = %10, %6
+  %.idx.i = phi i64 [ 16, %6 ], [ %.add.i, %10 ]
   %.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr.i) #12
   %.add.i = add nuw nsw i64 %.idx.i, 96
-  %12 = icmp eq i64 %.add.i, 1744
-  br i1 %12, label %13, label %11
+  %11 = icmp eq i64 %.add.i, 1744
+  br i1 %11, label %12, label %10
 
-13:                                               ; preds = %11
-  %14 = sext i32 %10 to i64
+12:                                               ; preds = %10
+  %13 = add nsw i32 %3, %1
+  %14 = sext i32 %13 to i64
   %.ptr4.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.ptr4.i, ptr %7, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.not.i.i = icmp ugt i32 %10, 18
+  %.not.i.i = icmp ugt i32 %13, 18
   store i64 %14, ptr %15, align 8, !tbaa !44
   br i1 %.not.i.i, label %16, label %_ZN2cv10AutoBufferINS_3MatELm18EEC2Em.exit
 
-16:                                               ; preds = %13
+16:                                               ; preds = %12
   %17 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %14, i64 96)
   %18 = extractvalue { i64, i1 } %17, 1
   %19 = extractvalue { i64, i1 } %17, 0
@@ -1044,7 +1044,7 @@ common.resume:                                    ; preds = %32, %82
   %common.resume.op = phi { ptr, i32 } [ %.pn29.pn, %82 ], [ %31, %32 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN2cv10AutoBufferINS_3MatELm18EEC2Em.exit:       ; preds = %13, %29
+_ZN2cv10AutoBufferINS_3MatELm18EEC2Em.exit:       ; preds = %12, %29
   %34 = icmp sgt i32 %1, 0
   br i1 %34, label %.lr.ph.preheader, label %.preheader
 

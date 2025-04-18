@@ -129,11 +129,11 @@ saxpy_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   %.idx70 = mul i64 %7, 12
   %82 = shl nsw i64 %5, 2
   %83 = shl nsw i64 %7, 2
-  %84 = add nsw i64 %81, -1
-  %85 = and i64 %84, -4
   br label %88
 
 .preheader.loopexit:                              ; preds = %88
+  %84 = add nsw i64 %81, -1
+  %85 = and i64 %84, -4
   %86 = add nuw nsw i64 %85, 4
   br label %.preheader
 

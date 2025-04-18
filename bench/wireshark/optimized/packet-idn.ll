@@ -870,12 +870,12 @@ dissect_idn_channel_configuration_header.exit.i.i: ; preds = %210, %208
 
 266:                                              ; preds = %262
   %267 = zext nneg i8 %.05585.i.i.i to i32
-  %268 = mul nuw nsw i32 %247, %267
-  %269 = add i32 %.07284.i.i.i, %247
+  %268 = add i32 %.07284.i.i.i, %247
+  %269 = mul nuw nsw i32 %247, %267
   %270 = xor i8 %.05585.i.i.i, 1
   %271 = zext nneg i8 %270 to i32
   %272 = sub i32 %.05286.i.i.i, %271
-  %spec.select63.i.i.i = add i32 %272, %268
+  %spec.select63.i.i.i = add i32 %272, %269
   br label %dissect_idn_dimmer_level_subset.exit.i.i.i
 
 273:                                              ; preds = %245
@@ -938,7 +938,7 @@ dissect_idn_channel_configuration_header.exit.i.i: ; preds = %210, %208
   br label %dissect_idn_dimmer_level_subset.exit.i.i.i
 
 dissect_idn_dimmer_level_subset.exit.i.i.i:       ; preds = %308, %304, %295, %275, %266, %251
-  %.274.i.i.i = phi i32 [ %255, %251 ], [ %269, %266 ], [ %312, %308 ], [ %280, %275 ], [ %305, %304 ], [ %303, %295 ]
+  %.274.i.i.i = phi i32 [ %255, %251 ], [ %268, %266 ], [ %312, %308 ], [ %280, %275 ], [ %305, %304 ], [ %303, %295 ]
   %.3.i.i.i = phi i32 [ %spec.select.i.i.i, %251 ], [ %spec.select63.i.i.i, %266 ], [ %.05286.i.i.i, %308 ], [ %.05286.i.i.i, %275 ], [ %.05286.i.i.i, %304 ], [ %.05286.i.i.i, %295 ]
   %.2.i.i.i = phi i32 [ %254, %251 ], [ %.1.i.i.i, %266 ], [ %313, %308 ], [ %281, %275 ], [ %293, %304 ], [ %302, %295 ]
   %314 = load i8, ptr %.077.i.i.i, align 8

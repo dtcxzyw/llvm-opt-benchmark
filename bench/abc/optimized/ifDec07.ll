@@ -464,10 +464,10 @@ define i64 @If_Dec6Perform(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4
   %6 = alloca [6 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14
-  %indvars.iv11.i.sroa.gep80 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br label %8
 
 .preheader89:                                     ; preds = %8
+  %indvars.iv11.i.sroa.gep80 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %indvars.iv72.i.sroa.gep81 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not48 = icmp eq i32 %1, 0
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -716,26 +716,26 @@ If_Dec6DeriveDisjoint.exit:                       ; preds = %122
   %139 = zext nneg i32 %138 to i64
   %140 = shl i64 %136, %139
   %141 = or i64 %140, %136
-  %142 = and i64 %134, %.0.lcssa.i54
-  %143 = lshr i64 %142, %139
-  br label %144
+  br label %142
 
-144:                                              ; preds = %144, %.preheader87
-  %indvars.iv.i59 = phi i64 [ 0, %.preheader87 ], [ %indvars.iv.next.i61, %144 ]
-  %.08.i60 = phi i32 [ 0, %.preheader87 ], [ %150, %144 ]
-  %145 = shl nuw nsw i64 %indvars.iv.i59, 2
-  %146 = lshr i64 %141, %145
-  %147 = trunc i64 %146 to i32
-  %148 = and i32 %147, 15
-  %149 = shl nuw nsw i32 1, %148
-  %150 = or i32 %149, %.08.i60
+142:                                              ; preds = %142, %.preheader87
+  %indvars.iv.i59 = phi i64 [ 0, %.preheader87 ], [ %indvars.iv.next.i61, %142 ]
+  %.08.i60 = phi i32 [ 0, %.preheader87 ], [ %148, %142 ]
+  %143 = shl nuw nsw i64 %indvars.iv.i59, 2
+  %144 = lshr i64 %141, %143
+  %145 = trunc i64 %144 to i32
+  %146 = and i32 %145, 15
+  %147 = shl nuw nsw i32 1, %146
+  %148 = or i32 %147, %.08.i60
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, 16
-  br i1 %exitcond.not.i62, label %If_Dec6CofCount2.exit63, label %144, !llvm.loop !24
+  br i1 %exitcond.not.i62, label %If_Dec6CofCount2.exit63, label %142, !llvm.loop !24
 
-If_Dec6CofCount2.exit63:                          ; preds = %144
-  %151 = or i64 %143, %142
-  %152 = and i32 %150, 65535
+If_Dec6CofCount2.exit63:                          ; preds = %142
+  %149 = and i64 %134, %.0.lcssa.i54
+  %150 = lshr i64 %149, %139
+  %151 = or i64 %150, %149
+  %152 = and i32 %148, 65535
   %153 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %152)
   %154 = icmp samesign ult i32 %153, 3
   br i1 %154, label %.preheader, label %256
@@ -841,12 +841,12 @@ If_Dec6CofCount2.exit68:                          ; preds = %.preheader
   br i1 %exitcond.not.i.i74, label %If_Dec6DeriveCount2.exit.i75, label %198, !llvm.loop !25
 
 If_Dec6DeriveCount2.exit.i75:                     ; preds = %198
-  %206 = lshr i64 %.043.lcssa.i, 32
-  %207 = and i64 %.043.lcssa.i, -4294967296
-  %208 = or disjoint i64 %206, %207
-  %209 = trunc nuw i64 %206 to i32
+  %206 = and i64 %.043.lcssa.i, -4294967296
+  %207 = lshr i64 %.043.lcssa.i, 32
+  %208 = or disjoint i64 %207, %206
+  %209 = trunc nuw i64 %207 to i32
   %210 = and i32 %209, 15
-  %211 = and i64 %206, 15
+  %211 = and i64 %207, 15
   br label %212
 
 212:                                              ; preds = %212, %If_Dec6DeriveCount2.exit.i75

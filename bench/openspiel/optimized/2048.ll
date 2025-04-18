@@ -3865,7 +3865,6 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   %47 = getelementptr inbounds nuw %"struct.open_spiel::twenty_forty_eight::Tile", ptr %46, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx
   %.sroa.0.0.copyload.i = load i64, ptr %48, align 4
-  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   br label %49
 
 49:                                               ; preds = %49, %45
@@ -3890,6 +3889,7 @@ _ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i: ; preds = %49
   unreachable
 
 _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit: ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
+  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i32
   %58 = sitofp i32 %.sroa.0.0.extract.trunc to float
   %59 = getelementptr inbounds float, ptr %2, i64 %55
   store float %58, ptr %59, align 4

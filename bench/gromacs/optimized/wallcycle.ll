@@ -2120,32 +2120,32 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit: ; preds = %378, %377, %322
 
 421:                                              ; preds = %416, %400
   %.0283 = phi double [ %420, %416 ], [ %407, %400 ]
-  %422 = fmul double %6, 1.000000e+03
-  %423 = fdiv double %422, %.fr
-  %424 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.6) #27
-  %425 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef 37) #27
-  %426 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.6) #27
-  %427 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %428 = load i32, ptr %427, align 8, !tbaa !137
-  %429 = load double, ptr %390, align 8, !tbaa !130
-  call fastcc void @_ZL14print_gputimesP8_IO_FILEPKcidd(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %428, double noundef %429, double noundef %403)
-  %430 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  %431 = load i32, ptr %430, align 8, !tbaa !138
-  %432 = load double, ptr %392, align 8, !tbaa !132
-  call fastcc void @_ZL14print_gputimesP8_IO_FILEPKcidd(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %431, double noundef %432, double noundef %403)
+  %422 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.6) #27
+  %423 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef 37) #27
+  %424 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.6) #27
+  %425 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %426 = load i32, ptr %425, align 8, !tbaa !137
+  %427 = load double, ptr %390, align 8, !tbaa !130
+  call fastcc void @_ZL14print_gputimesP8_IO_FILEPKcidd(ptr noundef %0, ptr noundef nonnull @.str.24, i32 noundef %426, double noundef %427, double noundef %403)
+  %428 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  %429 = load i32, ptr %428, align 8, !tbaa !138
+  %430 = load double, ptr %392, align 8, !tbaa !132
+  call fastcc void @_ZL14print_gputimesP8_IO_FILEPKcidd(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %429, double noundef %430, double noundef %403)
   br label %.preheader487
 
 .preheader487:                                    ; preds = %421, %436
-  %433 = phi i1 [ true, %421 ], [ false, %436 ]
+  %431 = phi i1 [ true, %421 ], [ false, %436 ]
   %indvars.iv577 = phi i64 [ 0, %421 ], [ 1, %436 ]
   br label %437
 
-434:                                              ; preds = %436
-  %435 = fmul double %423, %.0283
+432:                                              ; preds = %436
+  %433 = fmul double %6, 1.000000e+03
+  %434 = fdiv double %433, %.fr
+  %435 = fmul double %434, %.0283
   br i1 %.not, label %.loopexit, label %.preheader
 
 436:                                              ; preds = %446
-  br i1 %433, label %.preheader487, label %434, !llvm.loop !139
+  br i1 %431, label %.preheader487, label %432, !llvm.loop !139
 
 437:                                              ; preds = %.preheader487, %446
   %438 = phi i1 [ true, %.preheader487 ], [ false, %446 ]
@@ -2166,8 +2166,8 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit: ; preds = %378, %377, %322
 446:                                              ; preds = %437, %442
   br i1 %438, label %437, label %436, !llvm.loop !141
 
-.preheader:                                       ; preds = %434, %454
-  %indvars.iv580 = phi i64 [ %indvars.iv.next581, %454 ], [ 0, %434 ]
+.preheader:                                       ; preds = %432, %454
+  %indvars.iv580 = phi i64 [ %indvars.iv.next581, %454 ], [ 0, %432 ]
   %447 = getelementptr inbounds nuw [7 x %struct.gmx_kernel_timing_data_t], ptr %10, i64 0, i64 %indvars.iv580
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 8
   %449 = load i32, ptr %448, align 8, !tbaa !140
@@ -2186,7 +2186,7 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit: ; preds = %378, %377, %322
   %.not486 = icmp eq i64 %indvars.iv.next581, 7
   br i1 %.not486, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %454, %434
+.loopexit:                                        ; preds = %454, %432
   %455 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %456 = load i32, ptr %455, align 8, !tbaa !142
   %.not315 = icmp eq i32 %456, 0
@@ -2198,11 +2198,11 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit: ; preds = %378, %377, %322
   br label %459
 
 459:                                              ; preds = %457, %.loopexit
-  %460 = load i32, ptr %430, align 8, !tbaa !138
+  %460 = load i32, ptr %428, align 8, !tbaa !138
   %461 = load double, ptr %395, align 8, !tbaa !133
   call fastcc void @_ZL14print_gputimesP8_IO_FILEPKcidd(ptr noundef %0, ptr noundef nonnull @.str.27, i32 noundef %460, double noundef %461, double noundef %403)
   %462 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.6) #27
-  %463 = load i32, ptr %430, align 8, !tbaa !138
+  %463 = load i32, ptr %428, align 8, !tbaa !138
   call fastcc void @_ZL14print_gputimesP8_IO_FILEPKcidd(ptr noundef %0, ptr noundef nonnull @.str.28, i32 noundef %463, double noundef %403, double noundef %403)
   %464 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.6) #27
   %465 = getelementptr inbounds nuw i8, ptr %9, i64 88
@@ -2219,7 +2219,7 @@ _ZNSt6vectorI16WallCycleCounterSaIS0_EED2Ev.exit: ; preds = %378, %377, %322
 
 471:                                              ; preds = %467, %459
   %472 = fdiv double %403, %435
-  %473 = load i32, ptr %430, align 8, !tbaa !138
+  %473 = load i32, ptr %428, align 8, !tbaa !138
   %474 = icmp sgt i32 %473, 0
   br i1 %474, label %475, label %484
 

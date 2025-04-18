@@ -3625,6 +3625,7 @@ Vec_IntFill.exit78:                               ; preds = %Vec_IntGrow.exit.i7
   br label %49
 
 .loopexit:                                        ; preds = %103
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count123
@@ -3647,7 +3648,6 @@ Vec_IntFill.exit78:                               ; preds = %Vec_IntGrow.exit.i7
   br label %58
 
 .preheader:                                       ; preds = %58
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %57 = add nuw nsw i64 %indvars.iv116, 2
   br label %61
 

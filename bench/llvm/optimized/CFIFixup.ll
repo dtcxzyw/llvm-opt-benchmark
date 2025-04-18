@@ -558,7 +558,6 @@ _ZL16containsEpilogueRKN4llvm17MachineBasicBlockE.exit.i: ; preds = %_ZN4llvm26M
 _ZL16computeBlockInfoRKN4llvm15MachineFunctionEPKNS_17MachineBasicBlockE.exit: ; preds = %._crit_edge.i, %90
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #15, !noalias !168
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %14) #15
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 1, ptr %14, align 8
   %164 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %164, align 4, !tbaa !228
@@ -584,6 +583,7 @@ _ZN4llvm13SmallDenseMapINS_12MBBSectionIDE14InsertionPointLj4ENS_12DenseMapInfoI
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
   %167 = getelementptr inbounds nuw i8, ptr %.sroa.028.049.i, i64 8
   %168 = load ptr, ptr %167, align 8, !tbaa !177
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.not45 = icmp eq ptr %168, %38
   br i1 %.not45, label %_ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineBasicBlockELb0ELb0EvLb0EvEELb0ELb0EEEET_S7_NSt15iterator_traitsIS7_E15difference_typeE.exit._crit_edge, label %.lr.ph

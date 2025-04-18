@@ -14757,27 +14757,27 @@ define void @Gia_ManDeriveNext(ptr noundef captures(none) %0, i32 noundef %1, pt
   %14 = shl nuw nsw i64 %indvars.iv74, 1
   %15 = mul nuw nsw i64 %14, %12
   %16 = getelementptr inbounds nuw i64, ptr %.val45, i64 %15
-  %17 = or disjoint i64 %14, 1
-  %18 = mul nuw nsw i64 %17, %12
   %gep = getelementptr i64, ptr %invariant.gep, i64 %15
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph.i.us ]
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i.us
+  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i.us
+  %18 = load i64, ptr %17, align 8, !tbaa !94
+  %19 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i.us
   %20 = load i64, ptr %19, align 8, !tbaa !94
-  %21 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i.us
-  %22 = load i64, ptr %21, align 8, !tbaa !94
-  %23 = and i64 %22, %20
-  %24 = getelementptr inbounds nuw i64, ptr %gep, i64 %indvars.iv.i.us
-  store i64 %23, ptr %24, align 8, !tbaa !94
+  %21 = and i64 %20, %18
+  %22 = getelementptr inbounds nuw i64, ptr %gep, i64 %indvars.iv.i.us
+  store i64 %21, ptr %22, align 8, !tbaa !94
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %.lr.ph.i51.us.preheader, label %.lr.ph.i.us, !llvm.loop !220
 
 .lr.ph.i51.us.preheader:                          ; preds = %.lr.ph.i.us
-  %25 = getelementptr inbounds nuw i64, ptr %.val45, i64 %18
-  %gep82 = getelementptr i64, ptr %invariant.gep81, i64 %18
+  %23 = or disjoint i64 %14, 1
+  %24 = mul nuw nsw i64 %23, %12
+  %25 = getelementptr inbounds nuw i64, ptr %.val45, i64 %24
+  %gep82 = getelementptr i64, ptr %invariant.gep81, i64 %24
   br label %.lr.ph.i51.us
 
 .lr.ph.i51.us:                                    ; preds = %.lr.ph.i51.us.preheader, %.lr.ph.i51.us

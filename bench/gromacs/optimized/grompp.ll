@@ -15460,7 +15460,6 @@ _ZN12t_gromppoptsD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
 
 5511:                                             ; preds = %5510, %603
   %.pn491.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn491.pn.pn.pn, %5510 ], [ %604, %603 ]
-  %.18 = extractvalue { ptr, i32 } %.pn491.pn.pn.pn.pn, 0
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %127) #29
   %5512 = getelementptr inbounds nuw i8, ptr %126, i64 9880
   br label %5513
@@ -15473,6 +15472,7 @@ _ZN12t_gromppoptsD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
   br i1 %5516, label %_ZNSt5arrayI18InteractionsOfTypeLm95EED2Ev.exit1187, label %5513
 
 _ZNSt5arrayI18InteractionsOfTypeLm95EED2Ev.exit1187: ; preds = %5513
+  %.18 = extractvalue { ptr, i32 } %.pn491.pn.pn.pn.pn, 0
   %.18272 = extractvalue { ptr, i32 } %.pn491.pn.pn.pn.pn, 1
   call void @llvm.lifetime.end.p0(i64 9880, ptr nonnull %126) #29
   br label %5517

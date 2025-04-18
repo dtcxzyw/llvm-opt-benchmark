@@ -642,7 +642,6 @@ define hidden void @_Z14sobelExtractorN2cv3MatENS_5Rect_IiEERS0_(ptr noundef %0,
   %20 = alloca %"class.cv::MatExpr", align 8
   %21 = alloca %"class.cv::MatExpr", align 8
   %22 = alloca %"class.cv::Scalar_", align 8
-  %.sroa.0.sroa.9.0.extract.shift = lshr i64 %1, 32
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #17
   br label %23
 
@@ -656,6 +655,7 @@ define hidden void @_Z14sobelExtractorN2cv3MatENS_5Rect_IiEERS0_(ptr noundef %0,
 
 25:                                               ; preds = %23
   %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %1 to i32
+  %.sroa.0.sroa.9.0.extract.shift = lshr i64 %1, 32
   %.sroa.0.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.0.sroa.9.0.extract.shift to i32
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 192
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #17

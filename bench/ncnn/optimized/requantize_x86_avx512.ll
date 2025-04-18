@@ -604,13 +604,16 @@ define internal fastcc void @_ZN4ncnnL10requantizeEPKiPaRKNS_3MatES5_S5_iS5_ii(p
   %67 = load <16 x float>, ptr @_ZL20_ps512_cephes_log_q1, align 64
   %68 = fneg fast <16 x float> %42
   %69 = load <16 x float>, ptr @_ZL20_ps512_cephes_log_q2, align 64
-  %70 = and i32 %7, 2147483632
   br label %75
 
-.preheader472:                                    ; preds = %_ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit, %.preheader473
-  %.0157.lcssa = phi i32 [ 0, %.preheader473 ], [ %70, %_ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit ]
-  %.0138.lcssa = phi ptr [ %1, %.preheader473 ], [ %227, %_ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit ]
-  %.0.lcssa = phi ptr [ %0, %.preheader473 ], [ %226, %_ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit ]
+.preheader472.loopexit:                           ; preds = %_ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit
+  %70 = and i32 %7, 2147483632
+  br label %.preheader472
+
+.preheader472:                                    ; preds = %.preheader472.loopexit, %.preheader473
+  %.0157.lcssa = phi i32 [ 0, %.preheader473 ], [ %70, %.preheader472.loopexit ]
+  %.0138.lcssa = phi ptr [ %1, %.preheader473 ], [ %227, %.preheader472.loopexit ]
+  %.0.lcssa = phi ptr [ %0, %.preheader473 ], [ %226, %.preheader472.loopexit ]
   %71 = or disjoint i32 %.0157.lcssa, 7
   %72 = icmp slt i32 %71, %7
   br i1 %72, label %.lr.ph511, label %.preheader471
@@ -804,7 +807,7 @@ _ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit:  ; preds = %75, %79, %81, %89, 
   %228 = add nuw nsw i32 %.0157501, 16
   %229 = or disjoint i32 %228, 15
   %230 = icmp slt i32 %229, %7
-  br i1 %230, label %75, label %.preheader472, !llvm.loop !47
+  br i1 %230, label %75, label %.preheader472.loopexit, !llvm.loop !47
 
 .preheader471:                                    ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit, %.preheader472
   %.1158.lcssa = phi i32 [ %.0157.lcssa, %.preheader472 ], [ %388, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit ]
@@ -1381,13 +1384,16 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %600, %.lr.ph525, %5
   %667 = load <16 x float>, ptr @_ZL20_ps512_cephes_log_q1, align 64
   %668 = fneg fast <16 x float> %642
   %669 = load <16 x float>, ptr @_ZL20_ps512_cephes_log_q2, align 64
-  %670 = and i32 %7, 2147483632
   br label %675
 
-.preheader477:                                    ; preds = %_ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit163, %636
-  %.0146.lcssa = phi i32 [ 0, %636 ], [ %670, %_ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit163 ]
-  %.4142.lcssa = phi ptr [ %1, %636 ], [ %827, %_ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit163 ]
-  %.4.lcssa = phi ptr [ %0, %636 ], [ %826, %_ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit163 ]
+.preheader477.loopexit:                           ; preds = %_ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit163
+  %670 = and i32 %7, 2147483632
+  br label %.preheader477
+
+.preheader477:                                    ; preds = %.preheader477.loopexit, %636
+  %.0146.lcssa = phi i32 [ 0, %636 ], [ %670, %.preheader477.loopexit ]
+  %.4142.lcssa = phi ptr [ %1, %636 ], [ %827, %.preheader477.loopexit ]
+  %.4.lcssa = phi ptr [ %0, %636 ], [ %826, %.preheader477.loopexit ]
   %671 = or disjoint i32 %.0146.lcssa, 7
   %672 = icmp slt i32 %671, %7
   br i1 %672, label %.lr.ph486, label %.preheader476
@@ -1581,7 +1587,7 @@ _ZL17activation_avx512Dv16_fiRKN4ncnn3MatE.exit163: ; preds = %675, %679, %681, 
   %828 = add nuw nsw i32 %.0146478, 16
   %829 = or disjoint i32 %828, 15
   %830 = icmp slt i32 %829, %7
-  br i1 %830, label %675, label %.preheader477, !llvm.loop !53
+  br i1 %830, label %675, label %.preheader477.loopexit, !llvm.loop !53
 
 .preheader476:                                    ; preds = %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit166, %.preheader477
   %.1147.lcssa = phi i32 [ %.0146.lcssa, %.preheader477 ], [ %988, %_ZL14activation_avxDv8_fiRKN4ncnn3MatE.exit166 ]

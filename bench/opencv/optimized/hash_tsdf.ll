@@ -9358,8 +9358,8 @@ _ZN2cvL4normIfLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i.i.i.i: ; preds = %156
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %_ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit.i.i.i, label %165, !llvm.loop !466
 
 _ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit.i.i.i: ; preds = %165
-  %.sroa.0240.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %130, i64 0
-  %.sroa.0244.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0240.0.vec.insert.i.i.i, float %131, i64 1
+  %.sroa.0244.0.vec.insert.i.i.i = insertelement <2 x float> poison, float %130, i64 0
+  %.sroa.0244.4.vec.insert.i.i.i = insertelement <2 x float> %.sroa.0244.0.vec.insert.i.i.i, float %131, i64 1
   %172 = load float, ptr %9, align 4, !tbaa !34
   %173 = load float, ptr %90, align 4, !tbaa !34
   %174 = load float, ptr %91, align 4, !tbaa !34

@@ -370,7 +370,6 @@ for.end:                                          ; preds = %for.body12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
   call void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_RT0_(ptr noundef nonnull %call6, ptr noundef nonnull %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
-  %add.ptr19 = getelementptr inbounds nuw i32, ptr %call9, i64 %wide.trip.count
   %shr.i = lshr i64 %mul.i.i, 33
   %add.i181 = add nuw nsw i64 %shr.i, 1
   %invariant.gep.i.i.i = getelementptr i8, ptr %call9, i64 4
@@ -449,6 +448,7 @@ _ZN5eastl11adjust_heapIPjljEEvT_T0_S3_S3_OT1_.exit.i: ; preds = %for.body.i.i.i.
   br i1 %cmp2.not.i, label %_ZN5eastl9make_heapIPjEEvT_S2_.exit, label %do.body.i, !llvm.loop !13
 
 _ZN5eastl9make_heapIPjEEvT_S2_.exit:              ; preds = %_ZN5eastl11adjust_heapIPjljEEvT_T0_S3_S3_OT1_.exit.i
+  %add.ptr19 = getelementptr inbounds nuw i32, ptr %call9, i64 %wide.trip.count
   %sub.ptr.rhs.cast.i = ptrtoint ptr %call9 to i64
   %call20 = call noundef i32 @_Z11VerifyHeapsPjS_j(ptr noundef nonnull %call6, ptr noundef nonnull %call9, i32 noundef %add.i)
   store i32 501, ptr %add.ptr19, align 4

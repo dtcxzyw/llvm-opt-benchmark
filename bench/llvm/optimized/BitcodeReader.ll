@@ -19396,7 +19396,6 @@ define internal fastcc void @_ZN12_GLOBAL__N_113BitcodeReader16materializeValueE
 
 .critedge:                                        ; preds = %85, %4, %89
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #31
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %7, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %95, align 4, !tbaa !1640
@@ -19411,6 +19410,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113BitcodeReader16materializeValueE
   br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, label %.lr.ph.i.i.i, !llvm.loop !1643
 
 _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #31
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -24061,18 +24061,14 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
 ._crit_edge:                                      ; preds = %_ZN4llvm22BitcodeReaderValueList9push_backEPNS_5ValueEj.exit, %_ZN4llvm8Function4argsEv.exit
   %466 = load ptr, ptr %435, align 8, !tbaa !1409
   %467 = load ptr, ptr %434, align 8, !tbaa !1408
-  %468 = ptrtoint ptr %466 to i64
-  %469 = ptrtoint ptr %467 to i64
-  %470 = sub i64 %468, %469
-  %471 = lshr exact i64 %470, 5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #31
   store ptr null, ptr %10, align 8, !tbaa !1636
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #31
   store i32 0, ptr %11, align 4, !tbaa !129
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %12) #31
   store i32 1, ptr %12, align 8
-  %472 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 0, ptr %472, align 4, !tbaa !1812
+  %468 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 0, ptr %468, align 4, !tbaa !1812
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge
@@ -24086,7 +24082,11 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm14SmallMapVectorISt4pairIPNS_10BasicBlockES3_ES3_Lj4EEC2Ev.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !1815
 
 _ZN4llvm14SmallMapVectorISt4pairIPNS_10BasicBlockES3_ES3_Lj4EEC2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %473 = trunc i64 %471 to i32
+  %469 = ptrtoint ptr %466 to i64
+  %470 = ptrtoint ptr %467 to i64
+  %471 = sub i64 %469, %470
+  %472 = lshr exact i64 %471, 5
+  %473 = trunc i64 %472 to i32
   %474 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %475 = getelementptr inbounds nuw i8, ptr %12, i64 120
   store ptr %475, ptr %474, align 8, !tbaa !25

@@ -7023,12 +7023,12 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
   %116 = or disjoint i64 %113, %115
   %117 = add nuw nsw i32 %.0811.i.i.i.i.i, 1
   %.not.i65.i.i.i.i = icmp eq i32 %117, 4
-  br i1 %.not.i65.i.i.i.i, label %.preheader.i.i, label %112, !llvm.loop !125
+  br i1 %.not.i65.i.i.i.i, label %.preheader10.i.i.i, label %112, !llvm.loop !125
 
-.preheader.i.i:                                   ; preds = %112, %.preheader.i.i
-  %.0712.i66.i.i.i.i = phi ptr [ %119, %.preheader.i.i ], [ %101, %112 ]
-  %.0811.i67.i.i.i.i = phi i32 [ %122, %.preheader.i.i ], [ 0, %112 ]
-  %.0910.i68.i.i.i.i = phi i64 [ %121, %.preheader.i.i ], [ 0, %112 ]
+.preheader10.i.i.i:                               ; preds = %112, %.preheader10.i.i.i
+  %.0712.i66.i.i.i.i = phi ptr [ %119, %.preheader10.i.i.i ], [ %101, %112 ]
+  %.0811.i67.i.i.i.i = phi i32 [ %122, %.preheader10.i.i.i ], [ 0, %112 ]
+  %.0910.i68.i.i.i.i = phi i64 [ %121, %.preheader10.i.i.i ], [ 0, %112 ]
   %118 = shl i64 %.0910.i68.i.i.i.i, 8
   %119 = getelementptr inbounds nuw i8, ptr %.0712.i66.i.i.i.i, i64 1
   %.07.val.i69.i.i.i.i = load i8, ptr %.0712.i66.i.i.i.i, align 1, !tbaa !33, !noalias !284
@@ -7036,12 +7036,12 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
   %121 = or disjoint i64 %118, %120
   %122 = add nuw nsw i32 %.0811.i67.i.i.i.i, 1
   %.not.i70.i.i.i.i = icmp eq i32 %122, 4
-  br i1 %.not.i70.i.i.i.i, label %123, label %.preheader.i.i, !llvm.loop !125
+  br i1 %.not.i70.i.i.i.i, label %123, label %.preheader10.i.i.i, !llvm.loop !125
 
-123:                                              ; preds = %.preheader.i.i
-  %124 = add i64 %116, -4294967296
-  %125 = icmp ult i64 %113, 2147483648
-  %.0.i.i.i.i.i = select i1 %125, i64 %116, i64 %124
+123:                                              ; preds = %.preheader10.i.i.i
+  %124 = icmp ult i64 %113, 2147483648
+  %125 = add i64 %116, -4294967296
+  %.0.i.i.i.i.i = select i1 %124, i64 %116, i64 %125
   %126 = icmp ult i64 %118, 2147483648
   %127 = add i64 %121, -4294967296
   %.0.i71.i.i.i.i = select i1 %126, i64 %121, i64 %127
@@ -7087,12 +7087,12 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
   %142 = or disjoint i64 %139, %141
   %143 = add nuw nsw i32 %.0811.i74.i.i.i.i, 1
   %.not.i77.i.i.i.i = icmp eq i32 %143, 4
-  br i1 %.not.i77.i.i.i.i, label %.preheader.i, label %.preheader169.i.i.i.i, !llvm.loop !125
+  br i1 %.not.i77.i.i.i.i, label %.preheader.i.i.i, label %.preheader169.i.i.i.i, !llvm.loop !125
 
-.preheader.i:                                     ; preds = %.preheader169.i.i.i.i, %.preheader.i
-  %.0712.i80.i.i.i.i = phi ptr [ %145, %.preheader.i ], [ %103, %.preheader169.i.i.i.i ]
-  %.0811.i81.i.i.i.i = phi i32 [ %148, %.preheader.i ], [ 0, %.preheader169.i.i.i.i ]
-  %.0910.i82.i.i.i.i = phi i64 [ %147, %.preheader.i ], [ 0, %.preheader169.i.i.i.i ]
+.preheader.i.i.i:                                 ; preds = %.preheader169.i.i.i.i, %.preheader.i.i.i
+  %.0712.i80.i.i.i.i = phi ptr [ %145, %.preheader.i.i.i ], [ %103, %.preheader169.i.i.i.i ]
+  %.0811.i81.i.i.i.i = phi i32 [ %148, %.preheader.i.i.i ], [ 0, %.preheader169.i.i.i.i ]
+  %.0910.i82.i.i.i.i = phi i64 [ %147, %.preheader.i.i.i ], [ 0, %.preheader169.i.i.i.i ]
   %144 = shl i64 %.0910.i82.i.i.i.i, 8
   %145 = getelementptr inbounds nuw i8, ptr %.0712.i80.i.i.i.i, i64 1
   %.07.val.i83.i.i.i.i = load i8, ptr %.0712.i80.i.i.i.i, align 1, !tbaa !33, !noalias !284
@@ -7100,12 +7100,12 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSource4OpenERKNSt7__cxx1
   %147 = or disjoint i64 %144, %146
   %148 = add nuw nsw i32 %.0811.i81.i.i.i.i, 1
   %.not.i84.i.i.i.i = icmp eq i32 %148, 4
-  br i1 %.not.i84.i.i.i.i, label %149, label %.preheader.i, !llvm.loop !125
+  br i1 %.not.i84.i.i.i.i, label %149, label %.preheader.i.i.i, !llvm.loop !125
 
-149:                                              ; preds = %.preheader.i
-  %150 = add i64 %142, -4294967296
-  %151 = icmp ult i64 %139, 2147483648
-  %.0.i78.i.i.i.i = select i1 %151, i64 %142, i64 %150
+149:                                              ; preds = %.preheader.i.i.i
+  %150 = icmp ult i64 %139, 2147483648
+  %151 = add i64 %142, -4294967296
+  %.0.i78.i.i.i.i = select i1 %150, i64 %142, i64 %151
   %152 = add nsw i64 %.0.i78.i.i.i.i, %.0.i71.i.i.i.i
   %153 = icmp ult i64 %144, 2147483648
   %154 = add i64 %147, -4294967296
@@ -7491,11 +7491,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i30.i.i
   %287 = phi ptr [ %282, %._crit_edge.i.i.i.thread.i.i.i.i ], [ %279, %._crit_edge.i.i.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %287, ptr align 1 %280, i64 %276, i1 false), !noalias !293
   %.pre.i.i.i = load i64, ptr %4, align 8, !tbaa !74, !noalias !301
-  %.pre42.i.i.i = load ptr, ptr %13, align 8, !tbaa !22, !alias.scope !298, !noalias !293
+  %.pre43.i.i.i = load ptr, ptr %13, align 8, !tbaa !22, !alias.scope !298, !noalias !293
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i.i.i.i.i: ; preds = %286, %284
-  %288 = phi ptr [ %.pre42.i.i.i, %286 ], [ %279, %284 ]
+  %288 = phi ptr [ %.pre43.i.i.i, %286 ], [ %279, %284 ]
   %289 = phi i64 [ %.pre.i.i.i, %286 ], [ 1, %284 ]
   %290 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %289, ptr %290, align 8, !tbaa !4, !alias.scope !298, !noalias !293
@@ -7702,11 +7702,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i: ; pre
   br i1 %369, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i._crit_edge.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i._crit_edge.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i
-  %.pre43.i.i.i = add nuw nsw i64 %.pre.i33.i.i.i, 1
+  %.pre44.i.i.i = add nuw nsw i64 %.pre.i33.i.i.i, 1
   br label %370
 
 370:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i._crit_edge.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread.i.i.i
-  %.pre-phi.i.i.i = phi i64 [ %.pre43.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i._crit_edge.i.i.i ], [ %355, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread.i.i.i ]
+  %.pre-phi.i.i.i = phi i64 [ %.pre44.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i._crit_edge.i.i.i ], [ %355, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread.i.i.i ]
   %371 = phi ptr [ %368, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i._crit_edge.i.i.i ], [ %361, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread.i.i.i ]
   %372 = phi ptr [ %363, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i._crit_edge.i.i.i ], [ %356, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread.i.i.i ]
   %373 = phi i64 [ %.pre.i33.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i._crit_edge.i.i.i ], [ %353, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread.i.i.i ]

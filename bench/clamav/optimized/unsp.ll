@@ -1460,134 +1460,131 @@ get_byte.exit.i457:                               ; preds = %656, %655
   %.promoted594 = phi i32 [ %661, %get_byte.exit.i457 ], [ %650, %649 ]
   %.promoted593 = phi i32 [ %653, %get_byte.exit.i457 ], [ %644, %649 ]
   %.not.i455 = icmp eq i32 %643, 0
-  br i1 %.not.i455, label %get_bitmap.exit, label %639
+  br i1 %.not.i455, label %.preheader.i459, label %639
 
-get_bitmap.exit:                                  ; preds = %662
-  %663 = shl i32 %.1.i, 4
-  br label %.preheader.i459
-
-.preheader.i459:                                  ; preds = %getbit_from_table.exit517, %get_bitmap.exit
-  %664 = phi ptr [ %713, %getbit_from_table.exit517 ], [ %.promoted595, %get_bitmap.exit ]
-  %665 = phi i32 [ %714, %getbit_from_table.exit517 ], [ %.promoted594, %get_bitmap.exit ]
-  %666 = phi i32 [ %715, %getbit_from_table.exit517 ], [ %.promoted593, %get_bitmap.exit ]
-  %.01319.i460 = phi i32 [ %720, %getbit_from_table.exit517 ], [ 0, %get_bitmap.exit ]
-  %.01418.i461 = phi i32 [ %719, %getbit_from_table.exit517 ], [ 0, %get_bitmap.exit ]
-  %.01517.i462 = phi i32 [ %717, %getbit_from_table.exit517 ], [ 1, %get_bitmap.exit ]
-  %667 = zext i32 %.01517.i462 to i64
-  %668 = getelementptr inbounds nuw i16, ptr %53, i64 %667
-  %.not52.i506 = icmp ult ptr %668, %505
+.preheader.i459:                                  ; preds = %662, %getbit_from_table.exit517
+  %663 = phi ptr [ %712, %getbit_from_table.exit517 ], [ %.promoted595, %662 ]
+  %664 = phi i32 [ %713, %getbit_from_table.exit517 ], [ %.promoted594, %662 ]
+  %665 = phi i32 [ %714, %getbit_from_table.exit517 ], [ %.promoted593, %662 ]
+  %.01319.i460 = phi i32 [ %719, %getbit_from_table.exit517 ], [ 0, %662 ]
+  %.01418.i461 = phi i32 [ %718, %getbit_from_table.exit517 ], [ 0, %662 ]
+  %.01517.i462 = phi i32 [ %716, %getbit_from_table.exit517 ], [ 1, %662 ]
+  %666 = zext i32 %.01517.i462 to i64
+  %667 = getelementptr inbounds nuw i16, ptr %53, i64 %666
+  %.not52.i506 = icmp ult ptr %667, %505
   %or.cond655 = select i1 %switch.i479, i1 true, i1 %.not52.i506
-  br i1 %or.cond655, label %674, label %669
+  br i1 %or.cond655, label %673, label %668
 
-669:                                              ; preds = %.preheader.i459
-  %670 = ptrtoint ptr %668 to i64
-  %671 = add i64 %670, 2
-  %.not53.i507 = icmp ule i64 %671, %507
-  %672 = icmp ugt i64 %671, %506
-  %or.cond.i508 = and i1 %672, %.not53.i507
-  %673 = icmp ugt i64 %507, %670
-  %or.cond54.i509 = and i1 %673, %or.cond.i508
-  br i1 %or.cond54.i509, label %675, label %674
+668:                                              ; preds = %.preheader.i459
+  %669 = ptrtoint ptr %667 to i64
+  %670 = add i64 %669, 2
+  %.not53.i507 = icmp ule i64 %670, %507
+  %671 = icmp ugt i64 %670, %506
+  %or.cond.i508 = and i1 %671, %.not53.i507
+  %672 = icmp ugt i64 %507, %669
+  %or.cond54.i509 = and i1 %672, %or.cond.i508
+  br i1 %or.cond54.i509, label %674, label %673
 
-674:                                              ; preds = %669, %.preheader.i459
+673:                                              ; preds = %668, %.preheader.i459
   store i32 1, ptr %25, align 8, !tbaa !14
   br label %getbit_from_table.exit517
 
-675:                                              ; preds = %669
-  %676 = load i16, ptr %668, align 2, !tbaa !12
-  %677 = zext i16 %676 to i32
-  %678 = lshr i32 %666, 11
-  %679 = mul i32 %678, %677
-  %680 = icmp ult i32 %665, %679
-  br i1 %680, label %681, label %697
+674:                                              ; preds = %668
+  %675 = load i16, ptr %667, align 2, !tbaa !12
+  %676 = zext i16 %675 to i32
+  %677 = lshr i32 %665, 11
+  %678 = mul i32 %677, %676
+  %679 = icmp ult i32 %664, %678
+  br i1 %679, label %680, label %696
 
-681:                                              ; preds = %675
-  store i32 %679, ptr %27, align 8, !tbaa !18
-  %682 = sub nsw i32 2048, %677
-  %683 = lshr i32 %682, 5
-  %684 = trunc i32 %683 to i16
-  %685 = add i16 %676, %684
-  store i16 %685, ptr %668, align 2, !tbaa !12
-  %686 = icmp ult i32 %679, 16777216
-  br i1 %686, label %687, label %getbit_from_table.exit517
+680:                                              ; preds = %674
+  store i32 %678, ptr %27, align 8, !tbaa !18
+  %681 = sub nsw i32 2048, %676
+  %682 = lshr i32 %681, 5
+  %683 = trunc i32 %682 to i16
+  %684 = add i16 %675, %683
+  store i16 %684, ptr %667, align 2, !tbaa !12
+  %685 = icmp ult i32 %678, 16777216
+  br i1 %685, label %686, label %getbit_from_table.exit517
 
-687:                                              ; preds = %681
-  %688 = shl i32 %665, 8
-  %.not.i.i514 = icmp ult ptr %664, %508
-  br i1 %.not.i.i514, label %690, label %689
+686:                                              ; preds = %680
+  %687 = shl i32 %664, 8
+  %.not.i.i514 = icmp ult ptr %663, %508
+  br i1 %.not.i.i514, label %689, label %688
 
-689:                                              ; preds = %687
+688:                                              ; preds = %686
   store i32 1, ptr %25, align 8, !tbaa !14
   br label %get_byte.exit.i515
 
-690:                                              ; preds = %687
-  %691 = load i8, ptr %664, align 1, !tbaa !3
-  %692 = zext i8 %691 to i32
-  %693 = getelementptr inbounds nuw i8, ptr %664, i64 1
-  store ptr %693, ptr %10, align 8, !tbaa !22
+689:                                              ; preds = %686
+  %690 = load i8, ptr %663, align 1, !tbaa !3
+  %691 = zext i8 %690 to i32
+  %692 = getelementptr inbounds nuw i8, ptr %663, i64 1
+  store ptr %692, ptr %10, align 8, !tbaa !22
   br label %get_byte.exit.i515
 
-get_byte.exit.i515:                               ; preds = %690, %689
-  %694 = phi ptr [ %664, %689 ], [ %693, %690 ]
-  %.0.i.i516 = phi i32 [ 255, %689 ], [ %692, %690 ]
-  %695 = or disjoint i32 %.0.i.i516, %688
-  store i32 %695, ptr %26, align 4, !tbaa !23
-  %696 = shl nuw i32 %679, 8
-  store i32 %696, ptr %27, align 8, !tbaa !18
+get_byte.exit.i515:                               ; preds = %689, %688
+  %693 = phi ptr [ %663, %688 ], [ %692, %689 ]
+  %.0.i.i516 = phi i32 [ 255, %688 ], [ %691, %689 ]
+  %694 = or disjoint i32 %.0.i.i516, %687
+  store i32 %694, ptr %26, align 4, !tbaa !23
+  %695 = shl nuw i32 %678, 8
+  store i32 %695, ptr %27, align 8, !tbaa !18
   br label %getbit_from_table.exit517
 
-697:                                              ; preds = %675
-  %698 = sub i32 %666, %679
-  store i32 %698, ptr %27, align 8, !tbaa !18
-  %699 = sub nuw i32 %665, %679
-  store i32 %699, ptr %26, align 4, !tbaa !23
-  %700 = lshr i16 %676, 5
-  %701 = sub i16 %676, %700
-  store i16 %701, ptr %668, align 2, !tbaa !12
-  %702 = icmp ult i32 %698, 16777216
-  br i1 %702, label %703, label %getbit_from_table.exit517
+696:                                              ; preds = %674
+  %697 = sub i32 %665, %678
+  store i32 %697, ptr %27, align 8, !tbaa !18
+  %698 = sub nuw i32 %664, %678
+  store i32 %698, ptr %26, align 4, !tbaa !23
+  %699 = lshr i16 %675, 5
+  %700 = sub i16 %675, %699
+  store i16 %700, ptr %667, align 2, !tbaa !12
+  %701 = icmp ult i32 %697, 16777216
+  br i1 %701, label %702, label %getbit_from_table.exit517
 
-703:                                              ; preds = %697
-  %704 = shl i32 %699, 8
-  %.not.i55.i511 = icmp ult ptr %664, %508
-  br i1 %.not.i55.i511, label %706, label %705
+702:                                              ; preds = %696
+  %703 = shl i32 %698, 8
+  %.not.i55.i511 = icmp ult ptr %663, %508
+  br i1 %.not.i55.i511, label %705, label %704
 
-705:                                              ; preds = %703
+704:                                              ; preds = %702
   store i32 1, ptr %25, align 8, !tbaa !14
   br label %get_byte.exit57.i512
 
-706:                                              ; preds = %703
-  %707 = load i8, ptr %664, align 1, !tbaa !3
-  %708 = zext i8 %707 to i32
-  %709 = getelementptr inbounds nuw i8, ptr %664, i64 1
-  store ptr %709, ptr %10, align 8, !tbaa !22
+705:                                              ; preds = %702
+  %706 = load i8, ptr %663, align 1, !tbaa !3
+  %707 = zext i8 %706 to i32
+  %708 = getelementptr inbounds nuw i8, ptr %663, i64 1
+  store ptr %708, ptr %10, align 8, !tbaa !22
   br label %get_byte.exit57.i512
 
-get_byte.exit57.i512:                             ; preds = %706, %705
-  %710 = phi ptr [ %664, %705 ], [ %709, %706 ]
-  %.0.i56.i513 = phi i32 [ 255, %705 ], [ %708, %706 ]
-  %711 = or disjoint i32 %.0.i56.i513, %704
-  store i32 %711, ptr %26, align 4, !tbaa !23
-  %712 = shl nuw i32 %698, 8
-  store i32 %712, ptr %27, align 8, !tbaa !18
+get_byte.exit57.i512:                             ; preds = %705, %704
+  %709 = phi ptr [ %663, %704 ], [ %708, %705 ]
+  %.0.i56.i513 = phi i32 [ 255, %704 ], [ %707, %705 ]
+  %710 = or disjoint i32 %.0.i56.i513, %703
+  store i32 %710, ptr %26, align 4, !tbaa !23
+  %711 = shl nuw i32 %697, 8
+  store i32 %711, ptr %27, align 8, !tbaa !18
   br label %getbit_from_table.exit517
 
-getbit_from_table.exit517:                        ; preds = %674, %681, %get_byte.exit.i515, %697, %get_byte.exit57.i512
-  %713 = phi ptr [ %664, %674 ], [ %694, %get_byte.exit.i515 ], [ %664, %681 ], [ %710, %get_byte.exit57.i512 ], [ %664, %697 ]
-  %714 = phi i32 [ %665, %674 ], [ %695, %get_byte.exit.i515 ], [ %665, %681 ], [ %711, %get_byte.exit57.i512 ], [ %699, %697 ]
-  %715 = phi i32 [ %666, %674 ], [ %696, %get_byte.exit.i515 ], [ %679, %681 ], [ %712, %get_byte.exit57.i512 ], [ %698, %697 ]
-  %.0.i510 = phi i32 [ 255, %674 ], [ 0, %get_byte.exit.i515 ], [ 0, %681 ], [ 1, %get_byte.exit57.i512 ], [ 1, %697 ]
-  %716 = shl i32 %.01517.i462, 1
-  %717 = add i32 %.0.i510, %716
-  %718 = shl i32 %.0.i510, %.01319.i460
-  %719 = or i32 %718, %.01418.i461
-  %720 = add nuw nsw i32 %.01319.i460, 1
-  %exitcond.not.i463 = icmp eq i32 %720, 4
+getbit_from_table.exit517:                        ; preds = %673, %680, %get_byte.exit.i515, %696, %get_byte.exit57.i512
+  %712 = phi ptr [ %663, %673 ], [ %693, %get_byte.exit.i515 ], [ %663, %680 ], [ %709, %get_byte.exit57.i512 ], [ %663, %696 ]
+  %713 = phi i32 [ %664, %673 ], [ %694, %get_byte.exit.i515 ], [ %664, %680 ], [ %710, %get_byte.exit57.i512 ], [ %698, %696 ]
+  %714 = phi i32 [ %665, %673 ], [ %695, %get_byte.exit.i515 ], [ %678, %680 ], [ %711, %get_byte.exit57.i512 ], [ %697, %696 ]
+  %.0.i510 = phi i32 [ 255, %673 ], [ 0, %get_byte.exit.i515 ], [ 0, %680 ], [ 1, %get_byte.exit57.i512 ], [ 1, %696 ]
+  %715 = shl i32 %.01517.i462, 1
+  %716 = add i32 %.0.i510, %715
+  %717 = shl i32 %.0.i510, %.01319.i460
+  %718 = or i32 %717, %.01418.i461
+  %719 = add nuw nsw i32 %.01319.i460, 1
+  %exitcond.not.i463 = icmp eq i32 %719, 4
   br i1 %exitcond.not.i463, label %get_bb.exit465, label %.preheader.i459
 
 get_bb.exit465:                                   ; preds = %getbit_from_table.exit517
-  %721 = add i32 %663, %636
-  %722 = add i32 %721, %719
+  %720 = shl i32 %.1.i, 4
+  %721 = add i32 %720, %636
+  %722 = add i32 %721, %718
   br label %723
 
 723:                                              ; preds = %get_n_bits_from_table.exit, %get_bb.exit, %get_bb.exit465

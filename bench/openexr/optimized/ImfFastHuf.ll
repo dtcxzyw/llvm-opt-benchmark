@@ -971,38 +971,35 @@ define hidden void @_ZN7Imf_3_414FastHufDecoder6decodeEPKhiPti(ptr noundef nonnu
 
 57:                                               ; preds = %49
   %58 = icmp sgt i32 %.0190222, 0
-  br i1 %58, label %.lr.ph.i.preheader, label %.sink.split.i
+  br i1 %58, label %.lr.ph.i, label %.sink.split.i
 
-.lr.ph.i.preheader:                               ; preds = %57
-  %59 = add nsw i32 %.0190222, -1
-  %60 = lshr i32 %59, 3
-  %61 = zext nneg i32 %60 to i64
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.039.i = phi i64 [ %70, %.lr.ph.i ], [ 56, %.lr.ph.i.preheader ]
-  %62 = phi i32 [ %71, %.lr.ph.i ], [ %.0190222, %.lr.ph.i.preheader ]
-  %63 = phi ptr [ %69, %.lr.ph.i ], [ %.0172223, %.lr.ph.i.preheader ]
-  %64 = phi i64 [ %68, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %65 = load i8, ptr %63, align 1, !tbaa !18
-  %66 = zext i8 %65 to i64
-  %67 = shl i64 %66, %.039.i
-  %68 = or i64 %67, %64
-  %69 = getelementptr inbounds nuw i8, ptr %63, i64 1
-  %70 = add nsw i64 %.039.i, -8
-  %71 = add nsw i32 %62, -8
-  %72 = icmp samesign ugt i32 %62, 8
-  br i1 %72, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !37
+.lr.ph.i:                                         ; preds = %57, %.lr.ph.i
+  %.039.i = phi i64 [ %67, %.lr.ph.i ], [ 56, %57 ]
+  %59 = phi i32 [ %68, %.lr.ph.i ], [ %.0190222, %57 ]
+  %60 = phi ptr [ %66, %.lr.ph.i ], [ %.0172223, %57 ]
+  %61 = phi i64 [ %65, %.lr.ph.i ], [ 0, %57 ]
+  %62 = load i8, ptr %60, align 1, !tbaa !18
+  %63 = zext i8 %62 to i64
+  %64 = shl i64 %63, %.039.i
+  %65 = or i64 %64, %61
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 1
+  %67 = add nsw i64 %.039.i, -8
+  %68 = add nsw i32 %59, -8
+  %69 = icmp samesign ugt i32 %59, 8
+  br i1 %69, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !37
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %scevgep = getelementptr i8, ptr %.0172223, i64 1
-  %scevgep242 = getelementptr i8, ptr %scevgep, i64 %61
+  %70 = add nsw i32 %.0190222, -1
+  %71 = lshr i32 %70, 3
+  %72 = zext nneg i32 %71 to i64
+  %scevgep242 = getelementptr i8, ptr %scevgep, i64 %72
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %57, %._crit_edge.i.loopexit, %52
   %.7197 = phi i32 [ %56, %52 ], [ 0, %._crit_edge.i.loopexit ], [ 0, %57 ]
   %.7179 = phi ptr [ %55, %52 ], [ %scevgep242, %._crit_edge.i.loopexit ], [ %.0172223, %57 ]
-  %73 = phi i64 [ %54, %52 ], [ %68, %._crit_edge.i.loopexit ], [ 0, %57 ]
+  %73 = phi i64 [ %54, %52 ], [ %65, %._crit_edge.i.loopexit ], [ 0, %57 ]
   %74 = sub nsw i32 64, %50
   %75 = zext nneg i32 %74 to i64
   %76 = lshr i64 %73, %75
@@ -1136,38 +1133,35 @@ _ZN7Imf_3_414FastHufDecoder6refillERmiS1_RiRPKhS2_.exit: ; preds = %._ZN7Imf_3_4
 
 130:                                              ; preds = %122
   %131 = icmp sgt i32 %.1191, 0
-  br i1 %131, label %.lr.ph.i90.preheader, label %.sink.split.i85
+  br i1 %131, label %.lr.ph.i90, label %.sink.split.i85
 
-.lr.ph.i90.preheader:                             ; preds = %130
-  %132 = add nsw i32 %.1191, -1
-  %133 = lshr i32 %132, 3
-  %134 = zext nneg i32 %133 to i64
-  br label %.lr.ph.i90
-
-.lr.ph.i90:                                       ; preds = %.lr.ph.i90.preheader, %.lr.ph.i90
-  %.039.i91 = phi i64 [ %143, %.lr.ph.i90 ], [ 56, %.lr.ph.i90.preheader ]
-  %135 = phi i32 [ %144, %.lr.ph.i90 ], [ %.1191, %.lr.ph.i90.preheader ]
-  %136 = phi ptr [ %142, %.lr.ph.i90 ], [ %.1173, %.lr.ph.i90.preheader ]
-  %137 = phi i64 [ %141, %.lr.ph.i90 ], [ 0, %.lr.ph.i90.preheader ]
-  %138 = load i8, ptr %136, align 1, !tbaa !18
-  %139 = zext i8 %138 to i64
-  %140 = shl i64 %139, %.039.i91
-  %141 = or i64 %140, %137
-  %142 = getelementptr inbounds nuw i8, ptr %136, i64 1
-  %143 = add nsw i64 %.039.i91, -8
-  %144 = add nsw i32 %135, -8
-  %145 = icmp samesign ugt i32 %135, 8
-  br i1 %145, label %.lr.ph.i90, label %._crit_edge.i82.loopexit, !llvm.loop !37
+.lr.ph.i90:                                       ; preds = %130, %.lr.ph.i90
+  %.039.i91 = phi i64 [ %140, %.lr.ph.i90 ], [ 56, %130 ]
+  %132 = phi i32 [ %141, %.lr.ph.i90 ], [ %.1191, %130 ]
+  %133 = phi ptr [ %139, %.lr.ph.i90 ], [ %.1173, %130 ]
+  %134 = phi i64 [ %138, %.lr.ph.i90 ], [ 0, %130 ]
+  %135 = load i8, ptr %133, align 1, !tbaa !18
+  %136 = zext i8 %135 to i64
+  %137 = shl i64 %136, %.039.i91
+  %138 = or i64 %137, %134
+  %139 = getelementptr inbounds nuw i8, ptr %133, i64 1
+  %140 = add nsw i64 %.039.i91, -8
+  %141 = add nsw i32 %132, -8
+  %142 = icmp samesign ugt i32 %132, 8
+  br i1 %142, label %.lr.ph.i90, label %._crit_edge.i82.loopexit, !llvm.loop !37
 
 ._crit_edge.i82.loopexit:                         ; preds = %.lr.ph.i90
   %scevgep244 = getelementptr i8, ptr %.1173, i64 1
-  %scevgep245 = getelementptr i8, ptr %scevgep244, i64 %134
+  %143 = add nsw i32 %.1191, -1
+  %144 = lshr i32 %143, 3
+  %145 = zext nneg i32 %144 to i64
+  %scevgep245 = getelementptr i8, ptr %scevgep244, i64 %145
   br label %.sink.split.i85
 
 .sink.split.i85:                                  ; preds = %130, %._crit_edge.i82.loopexit, %125
   %.10200 = phi i32 [ %129, %125 ], [ 0, %._crit_edge.i82.loopexit ], [ 0, %130 ]
   %.11183 = phi ptr [ %128, %125 ], [ %scevgep245, %._crit_edge.i82.loopexit ], [ %.1173, %130 ]
-  %146 = phi i64 [ %127, %125 ], [ %141, %._crit_edge.i82.loopexit ], [ 0, %130 ]
+  %146 = phi i64 [ %127, %125 ], [ %138, %._crit_edge.i82.loopexit ], [ 0, %130 ]
   %147 = sub nsw i32 64, %123
   %148 = zext nneg i32 %147 to i64
   %149 = lshr i64 %146, %148
@@ -1316,38 +1310,35 @@ _ZN7Imf_3_414FastHufDecoder6refillERmiS1_RiRPKhS2_.exit92: ; preds = %._ZN7Imf_3
 
 203:                                              ; preds = %195
   %204 = icmp sgt i32 %.4194, 0
-  br i1 %204, label %.lr.ph.i106.preheader, label %.sink.split.i101
+  br i1 %204, label %.lr.ph.i106, label %.sink.split.i101
 
-.lr.ph.i106.preheader:                            ; preds = %203
-  %205 = add nsw i32 %.4194, -1
-  %206 = lshr i32 %205, 3
-  %207 = zext nneg i32 %206 to i64
-  br label %.lr.ph.i106
-
-.lr.ph.i106:                                      ; preds = %.lr.ph.i106.preheader, %.lr.ph.i106
-  %.039.i107 = phi i64 [ %216, %.lr.ph.i106 ], [ 56, %.lr.ph.i106.preheader ]
-  %208 = phi i32 [ %217, %.lr.ph.i106 ], [ %.4194, %.lr.ph.i106.preheader ]
-  %209 = phi ptr [ %215, %.lr.ph.i106 ], [ %.4176, %.lr.ph.i106.preheader ]
-  %210 = phi i64 [ %214, %.lr.ph.i106 ], [ 0, %.lr.ph.i106.preheader ]
-  %211 = load i8, ptr %209, align 1, !tbaa !18
-  %212 = zext i8 %211 to i64
-  %213 = shl i64 %212, %.039.i107
-  %214 = or i64 %213, %210
-  %215 = getelementptr inbounds nuw i8, ptr %209, i64 1
-  %216 = add nsw i64 %.039.i107, -8
-  %217 = add nsw i32 %208, -8
-  %218 = icmp samesign ugt i32 %208, 8
-  br i1 %218, label %.lr.ph.i106, label %._crit_edge.i98.loopexit, !llvm.loop !37
+.lr.ph.i106:                                      ; preds = %203, %.lr.ph.i106
+  %.039.i107 = phi i64 [ %213, %.lr.ph.i106 ], [ 56, %203 ]
+  %205 = phi i32 [ %214, %.lr.ph.i106 ], [ %.4194, %203 ]
+  %206 = phi ptr [ %212, %.lr.ph.i106 ], [ %.4176, %203 ]
+  %207 = phi i64 [ %211, %.lr.ph.i106 ], [ 0, %203 ]
+  %208 = load i8, ptr %206, align 1, !tbaa !18
+  %209 = zext i8 %208 to i64
+  %210 = shl i64 %209, %.039.i107
+  %211 = or i64 %210, %207
+  %212 = getelementptr inbounds nuw i8, ptr %206, i64 1
+  %213 = add nsw i64 %.039.i107, -8
+  %214 = add nsw i32 %205, -8
+  %215 = icmp samesign ugt i32 %205, 8
+  br i1 %215, label %.lr.ph.i106, label %._crit_edge.i98.loopexit, !llvm.loop !37
 
 ._crit_edge.i98.loopexit:                         ; preds = %.lr.ph.i106
   %scevgep249 = getelementptr i8, ptr %.4176, i64 1
-  %scevgep250 = getelementptr i8, ptr %scevgep249, i64 %207
+  %216 = add nsw i32 %.4194, -1
+  %217 = lshr i32 %216, 3
+  %218 = zext nneg i32 %217 to i64
+  %scevgep250 = getelementptr i8, ptr %scevgep249, i64 %218
   br label %.sink.split.i101
 
 .sink.split.i101:                                 ; preds = %203, %._crit_edge.i98.loopexit, %198
   %.13203 = phi i32 [ %202, %198 ], [ 0, %._crit_edge.i98.loopexit ], [ 0, %203 ]
   %.15187 = phi ptr [ %201, %198 ], [ %scevgep250, %._crit_edge.i98.loopexit ], [ %.4176, %203 ]
-  %219 = phi i64 [ %200, %198 ], [ %214, %._crit_edge.i98.loopexit ], [ 0, %203 ]
+  %219 = phi i64 [ %200, %198 ], [ %211, %._crit_edge.i98.loopexit ], [ 0, %203 ]
   %220 = sub nsw i32 64, %196
   %221 = zext nneg i32 %220 to i64
   %222 = lshr i64 %219, %221

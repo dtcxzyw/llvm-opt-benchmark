@@ -89402,8 +89402,8 @@ define internal fastcc void @_ZL21genMapInfoForCapturesRN12_GLOBAL__N_120Mappabl
   %190 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %191 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %192 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   %193 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 16
   %194 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %195 = getelementptr inbounds nuw i8, ptr %53, i64 8

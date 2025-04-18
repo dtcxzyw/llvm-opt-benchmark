@@ -59863,47 +59863,47 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit: ; preds = %2
 20:                                               ; preds = %17, %_ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load i16, ptr %21, align 1, !tbaa !40
-  %23 = tail call i16 @llvm.bswap.i16(i16 %22)
-  %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %27 = load i16, ptr %26, align 1, !tbaa !40
-  %28 = tail call i16 @llvm.bswap.i16(i16 %27)
-  %29 = zext i16 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load i16, ptr %31, align 1, !tbaa !40
-  %33 = tail call i16 @llvm.bswap.i16(i16 %32)
-  %34 = zext i16 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %34
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %24 = load i16, ptr %23, align 1, !tbaa !40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load i16, ptr %25, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #20
-  br label %36
+  br label %27
 
-36:                                               ; preds = %36, %20
-  %.idx = phi i64 [ 0, %20 ], [ %.add, %36 ]
+27:                                               ; preds = %27, %20
+  %.idx = phi i64 [ 0, %20 ], [ %.add, %27 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   store atomic i32 1, ptr %.ptr monotonic, align 16
-  %37 = getelementptr inbounds nuw i8, ptr %.ptr, i64 4
-  store atomic i32 1, ptr %37 monotonic, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
-  store atomic i64 0, ptr %38 monotonic, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %.ptr, i64 16
-  store i8 1, ptr %39, align 16, !tbaa !163
-  %40 = getelementptr inbounds nuw i8, ptr %.ptr, i64 18
-  %41 = getelementptr inbounds nuw i8, ptr %.ptr, i64 40
-  store ptr null, ptr %41, align 8, !tbaa !124
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %40, i8 0, i64 18, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %.ptr, i64 4
+  store atomic i32 1, ptr %28 monotonic, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
+  store atomic i64 0, ptr %29 monotonic, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %.ptr, i64 16
+  store i8 1, ptr %30, align 16, !tbaa !163
+  %31 = getelementptr inbounds nuw i8, ptr %.ptr, i64 18
+  %32 = getelementptr inbounds nuw i8, ptr %.ptr, i64 40
+  store ptr null, ptr %32, align 8, !tbaa !124
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %31, i8 0, i64 18, i1 false)
   %.add = add nuw nsw i64 %.idx, 48
-  %42 = icmp eq i64 %.add, 144
-  br i1 %42, label %43, label %36
+  %33 = icmp eq i64 %.add, 144
+  br i1 %33, label %34, label %27
 
-43:                                               ; preds = %36
-  %44 = icmp eq i16 %22, 0
-  %.0.i.i16 = select i1 %44, ptr @_hb_NullPool, ptr %25, !prof !33
-  %45 = icmp eq i16 %27, 0
-  %.0.i.i17 = select i1 %45, ptr @_hb_NullPool, ptr %30, !prof !33
-  %46 = icmp eq i16 %32, 0
-  %.0.i.i18 = select i1 %46, ptr @_hb_NullPool, ptr %35, !prof !33
+34:                                               ; preds = %27
+  %35 = icmp eq i16 %22, 0
+  %36 = tail call i16 @llvm.bswap.i16(i16 %22)
+  %37 = zext i16 %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
+  %.0.i.i16 = select i1 %35, ptr @_hb_NullPool, ptr %38, !prof !33
+  %39 = icmp eq i16 %24, 0
+  %40 = tail call i16 @llvm.bswap.i16(i16 %24)
+  %41 = zext i16 %40 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %41
+  %.0.i.i17 = select i1 %39, ptr @_hb_NullPool, ptr %42, !prof !33
+  %43 = icmp eq i16 %26, 0
+  %44 = tail call i16 @llvm.bswap.i16(i16 %26)
+  %45 = zext i16 %44 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
+  %.0.i.i18 = select i1 %43, ptr @_hb_NullPool, ptr %46, !prof !33
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 144
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #20
   store ptr @_ZN2OTL16intersects_classEPK8hb_set_tjPKvPv, ptr %6, align 8, !tbaa !1136
@@ -59954,15 +59954,15 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit: ; preds = %2
     i16 2, label %73
   ]
 
-72:                                               ; preds = %43
+72:                                               ; preds = %34
   call void @_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13hb_is_sink_ofIT_jEE5valueEvE4typeELPv0EEEvRKS6_OS9_(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i19, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %7)
   br label %_ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13hb_is_sink_ofIT_jEE5valueEvE4typeELPv0EEEvRKS4_OS7_.exit
 
-73:                                               ; preds = %43
+73:                                               ; preds = %34
   call void @_ZNK2OT6Layout6Common17CoverageFormat2_4INS0_10SmallTypesEE13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13hb_is_sink_ofIT_jEE5valueEvE4typeELPv0EEEvRKS6_OS9_(ptr noundef nonnull align 1 dereferenceable(10) %.0.i.i19, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %7)
   br label %_ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13hb_is_sink_ofIT_jEE5valueEvE4typeELPv0EEEvRKS4_OS7_.exit
 
-_ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13hb_is_sink_ofIT_jEE5valueEvE4typeELPv0EEEvRKS4_OS7_.exit: ; preds = %43, %72, %73
+_ZNK2OT6Layout6Common8Coverage13intersect_setIR8hb_set_tTnPN12hb_enable_ifIXsr13hb_is_sink_ofIT_jEE5valueEvE4typeELPv0EEEvRKS4_OS7_.exit: ; preds = %34, %72, %73
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #20
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -61978,47 +61978,47 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit: ; preds = %2
 18:                                               ; preds = %15, %_ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i16, ptr %19, align 1, !tbaa !40
-  %21 = tail call i16 @llvm.bswap.i16(i16 %20)
-  %22 = zext i16 %21 to i64
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %25 = load i16, ptr %24, align 1, !tbaa !40
-  %26 = tail call i16 @llvm.bswap.i16(i16 %25)
-  %27 = zext i16 %26 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i16, ptr %29, align 1, !tbaa !40
-  %31 = tail call i16 @llvm.bswap.i16(i16 %30)
-  %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %22 = load i16, ptr %21, align 1, !tbaa !40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load i16, ptr %23, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #20
-  br label %34
+  br label %25
 
-34:                                               ; preds = %34, %18
-  %.idx = phi i64 [ 0, %18 ], [ %.add, %34 ]
+25:                                               ; preds = %25, %18
+  %.idx = phi i64 [ 0, %18 ], [ %.add, %25 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   store atomic i32 1, ptr %.ptr monotonic, align 16
-  %35 = getelementptr inbounds nuw i8, ptr %.ptr, i64 4
-  store atomic i32 1, ptr %35 monotonic, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
-  store atomic i64 0, ptr %36 monotonic, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %.ptr, i64 16
-  store i8 1, ptr %37, align 16, !tbaa !163
-  %38 = getelementptr inbounds nuw i8, ptr %.ptr, i64 18
-  %39 = getelementptr inbounds nuw i8, ptr %.ptr, i64 40
-  store ptr null, ptr %39, align 8, !tbaa !124
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %38, i8 0, i64 18, i1 false)
+  %26 = getelementptr inbounds nuw i8, ptr %.ptr, i64 4
+  store atomic i32 1, ptr %26 monotonic, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %.ptr, i64 8
+  store atomic i64 0, ptr %27 monotonic, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %.ptr, i64 16
+  store i8 1, ptr %28, align 16, !tbaa !163
+  %29 = getelementptr inbounds nuw i8, ptr %.ptr, i64 18
+  %30 = getelementptr inbounds nuw i8, ptr %.ptr, i64 40
+  store ptr null, ptr %30, align 8, !tbaa !124
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %29, i8 0, i64 18, i1 false)
   %.add = add nuw nsw i64 %.idx, 48
-  %40 = icmp eq i64 %.add, 144
-  br i1 %40, label %41, label %34
+  %31 = icmp eq i64 %.add, 144
+  br i1 %31, label %32, label %25
 
-41:                                               ; preds = %34
-  %42 = icmp eq i16 %20, 0
-  %.0.i.i20 = select i1 %42, ptr @_hb_NullPool, ptr %23, !prof !33
-  %43 = icmp eq i16 %25, 0
-  %.0.i.i21 = select i1 %43, ptr @_hb_NullPool, ptr %28, !prof !33
-  %44 = icmp eq i16 %30, 0
-  %.0.i.i22 = select i1 %44, ptr @_hb_NullPool, ptr %33, !prof !33
+32:                                               ; preds = %25
+  %33 = icmp eq i16 %20, 0
+  %34 = tail call i16 @llvm.bswap.i16(i16 %20)
+  %35 = zext i16 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %35
+  %.0.i.i20 = select i1 %33, ptr @_hb_NullPool, ptr %36, !prof !33
+  %37 = icmp eq i16 %22, 0
+  %38 = tail call i16 @llvm.bswap.i16(i16 %22)
+  %39 = zext i16 %38 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %39
+  %.0.i.i21 = select i1 %37, ptr @_hb_NullPool, ptr %40, !prof !33
+  %41 = icmp eq i16 %24, 0
+  %42 = tail call i16 @llvm.bswap.i16(i16 %24)
+  %43 = zext i16 %42 to i64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %43
+  %.0.i.i22 = select i1 %41, ptr @_hb_NullPool, ptr %44, !prof !33
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 144
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #20
   store ptr @_ZN2OTL16intersects_classEPK8hb_set_tjPKvPv, ptr %4, align 8, !tbaa !1136
@@ -62047,7 +62047,7 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit: ; preds = %2
   %.not13.i.i.i = icmp eq i16 %58, 0
   br i1 %.not13.i.i.i, label %"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS6_12ChainRuleSetINS6_6Layout10SmallTypesEEENS6_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_38PKNS6_21ChainContextFormat2_5ISA_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSM_15closure_lookupsEPNS6_28hb_closure_lookups_context_tEEUljE_RK3$_6LSR_0EERK3$_7LSQ_0ELSR_0EE10hb_apply_tIZNKSM_15closure_lookupsESV_EUlRKSB_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS1B_6item_tEEE5valueEvE4typeELSR_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS1B_Efp_EEEOS1B_OS1G_.exit", label %.lr.ph.i.i.i.preheader
 
-.lr.ph.i.i.i.preheader:                           ; preds = %41
+.lr.ph.i.i.i.preheader:                           ; preds = %32
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %60 = call noundef i16 @llvm.bswap.i16(i16 %58)
   %.sroa.10.sroa.0.0.extract.trunc = zext i16 %60 to i32
@@ -62147,7 +62147,7 @@ _ZNK2OT6Layout6Common8Coverage10intersectsEPK8hb_set_t.exit: ; preds = %2
   %.not.i.i.i.i9.i.i = icmp eq i32 %93, 0
   br i1 %.not.i.i.i.i9.i.i, label %"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS6_12ChainRuleSetINS6_6Layout10SmallTypesEEENS6_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_38PKNS6_21ChainContextFormat2_5ISA_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSM_15closure_lookupsEPNS6_28hb_closure_lookups_context_tEEUljE_RK3$_6LSR_0EERK3$_7LSQ_0ELSR_0EE10hb_apply_tIZNKSM_15closure_lookupsESV_EUlRKSB_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS1B_6item_tEEE5valueEvE4typeELSR_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS1B_Efp_EEEOS1B_OS1G_.exit", label %.lr.ph.i.i.backedge
 
-"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS6_12ChainRuleSetINS6_6Layout10SmallTypesEEENS6_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_38PKNS6_21ChainContextFormat2_5ISA_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSM_15closure_lookupsEPNS6_28hb_closure_lookups_context_tEEUljE_RK3$_6LSR_0EERK3$_7LSQ_0ELSR_0EE10hb_apply_tIZNKSM_15closure_lookupsESV_EUlRKSB_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS1B_6item_tEEE5valueEvE4typeELSR_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS1B_Efp_EEEOS1B_OS1G_.exit": ; preds = %"_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE13hb_map_iter_tI10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_38PKNS5_21ChainContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEE9hb_pair_tIjRKSA_EEppEv.exit.i.i.i", %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS6_12ChainRuleSetINS6_6Layout10SmallTypesEEENS6_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_38PKNS6_21ChainContextFormat2_5ISA_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSM_15closure_lookupsEPNS6_28hb_closure_lookups_context_tEEUljE_RK3$_6LSR_0EERK3$_7LSQ_0ELSR_0EERKSB_EppEv.exit.i.i", %"_ZNK4$_23clIRZNK2OT21ChainContextFormat2_5INS1_6Layout10SmallTypesEE15closure_lookupsEPNS1_28hb_closure_lookups_context_tEEUljE_jEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSB_OSC_.exit.backedge.i.i.i.i.i.i", %41, %"_ZorI13hb_zip_iter_tI14hb_iota_iter_tIjjE13hb_map_iter_tI10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_38PKNS5_21ChainContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEE24hb_filter_iter_factory_tIZNKSL_15closure_lookupsEPNS5_28hb_closure_lookups_context_tEEUljE_RK3$_6ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS12_6item_tEEE5valueEvE4typeELSQ_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS12_Efp_EEEOS12_OS17_.exit", %"_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE13hb_map_iter_tI10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_38PKNS5_21ChainContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEE9hb_pair_tIjRKSA_EEppEv.exit.lr.ph.i.i.i.i.i.preheader.i"
+"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS6_12ChainRuleSetINS6_6Layout10SmallTypesEEENS6_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_38PKNS6_21ChainContextFormat2_5ISA_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSM_15closure_lookupsEPNS6_28hb_closure_lookups_context_tEEUljE_RK3$_6LSR_0EERK3$_7LSQ_0ELSR_0EE10hb_apply_tIZNKSM_15closure_lookupsESV_EUlRKSB_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS1B_6item_tEEE5valueEvE4typeELSR_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS1B_Efp_EEEOS1B_OS1G_.exit": ; preds = %"_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE13hb_map_iter_tI10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_38PKNS5_21ChainContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEE9hb_pair_tIjRKSA_EEppEv.exit.i.i.i", %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjES0_I10hb_array_tIKN2OT8OffsetToINS6_12ChainRuleSetINS6_6Layout10SmallTypesEEENS6_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_38PKNS6_21ChainContextFormat2_5ISA_EEEL24hb_function_sortedness_t0ELPv0EEEZNKSM_15closure_lookupsEPNS6_28hb_closure_lookups_context_tEEUljE_RK3$_6LSR_0EERK3$_7LSQ_0ELSR_0EERKSB_EppEv.exit.i.i", %"_ZNK4$_23clIRZNK2OT21ChainContextFormat2_5INS1_6Layout10SmallTypesEE15closure_lookupsEPNS1_28hb_closure_lookups_context_tEEUljE_jEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSB_OSC_.exit.backedge.i.i.i.i.i.i", %32, %"_ZorI13hb_zip_iter_tI14hb_iota_iter_tIjjE13hb_map_iter_tI10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_38PKNS5_21ChainContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEE24hb_filter_iter_factory_tIZNKSL_15closure_lookupsEPNS5_28hb_closure_lookups_context_tEEUljE_RK3$_6ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS12_6item_tEEE5valueEvE4typeELSQ_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS12_Efp_EEEOS12_OS17_.exit", %"_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE13hb_map_iter_tI10hb_array_tIKN2OT8OffsetToINS5_12ChainRuleSetINS5_6Layout10SmallTypesEEENS5_7IntTypeItLj2EEEvLb1EEEE12hb_partial_tILj2EPK4$_38PKNS5_21ChainContextFormat2_5IS9_EEEL24hb_function_sortedness_t0ELPv0EEE9hb_pair_tIjRKSA_EEppEv.exit.lr.ph.i.i.i.i.i.preheader.i"
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #20
   br label %94
 

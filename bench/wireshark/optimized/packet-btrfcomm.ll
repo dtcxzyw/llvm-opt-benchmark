@@ -882,34 +882,34 @@ switch.early.test:                                ; preds = %90
   %269 = load i32, ptr @ett_btrfcomm_ctrl, align 4
   %270 = call ptr @proto_item_add_subtree(ptr noundef %268, i32 noundef %269)
   %271 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 3, 6) %.0.i)
-  %272 = lshr i8 %271, 1
-  %.lobit.i238 = and i8 %272, 1
-  br label %273
+  br label %272
 
-273:                                              ; preds = %273, %266
-  %indvars.iv.i.i = phi i32 [ %indvars.iv.next.i.i, %273 ], [ 0, %266 ]
-  %.019.i.i = phi i32 [ %280, %273 ], [ 0, %266 ]
-  %.0.i.i = phi i32 [ %275, %273 ], [ %.0.i, %266 ]
-  %274 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0.i.i)
-  %275 = add nuw nsw i32 %.0.i.i, 1
-  %276 = zext i8 %274 to i32
-  %277 = lshr i32 %276, 1
+272:                                              ; preds = %272, %266
+  %indvars.iv.i.i = phi i32 [ %indvars.iv.next.i.i, %272 ], [ 0, %266 ]
+  %.019.i.i = phi i32 [ %279, %272 ], [ 0, %266 ]
+  %.0.i.i = phi i32 [ %274, %272 ], [ %.0.i, %266 ]
+  %273 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0.i.i)
+  %274 = add nuw nsw i32 %.0.i.i, 1
+  %275 = zext i8 %273 to i32
+  %276 = lshr i32 %275, 1
   %indvars.iv.next.i.i = add nuw nsw i32 %indvars.iv.i.i, 1
-  %278 = mul nuw nsw i32 %indvars.iv.i.i, 7
-  %279 = shl i32 %277, %278
-  %280 = or i32 %279, %.019.i.i
-  %281 = and i32 %276, 1
-  %282 = icmp eq i32 %281, 0
-  %283 = icmp samesign ult i32 %indvars.iv.i.i, 4
-  %284 = select i1 %282, i1 %283, i1 false
-  br i1 %284, label %273, label %dissect_btrfcomm_MccType.exit, !llvm.loop !8
+  %277 = mul nuw nsw i32 %indvars.iv.i.i, 7
+  %278 = shl i32 %276, %277
+  %279 = or i32 %278, %.019.i.i
+  %280 = and i32 %275, 1
+  %281 = icmp eq i32 %280, 0
+  %282 = icmp samesign ult i32 %indvars.iv.i.i, 4
+  %283 = select i1 %281, i1 %282, i1 false
+  br i1 %283, label %272, label %dissect_btrfcomm_MccType.exit, !llvm.loop !8
 
-dissect_btrfcomm_MccType.exit:                    ; preds = %273
+dissect_btrfcomm_MccType.exit:                    ; preds = %272
+  %284 = lshr i8 %271, 1
+  %.lobit.i238 = and i8 %284, 1
   %285 = and i8 %271, 1
-  %286 = lshr i32 %280, 1
+  %286 = lshr i32 %279, 1
   %287 = and i32 %286, 63
   %288 = load i32, ptr @hf_mcc_types, align 4
-  %289 = sub nsw i32 %275, %.0.i
+  %289 = sub nsw i32 %274, %.0.i
   %290 = call ptr @val_to_str_const(i32 noundef %287, ptr noundef nonnull @vs_ctl, ptr noundef nonnull @.str.163)
   %291 = zext nneg i8 %.lobit.i238 to i32
   %292 = zext nneg i8 %285 to i32
@@ -928,7 +928,7 @@ dissect_btrfcomm_MccType.exit:                    ; preds = %273
 303:                                              ; preds = %303, %dissect_btrfcomm_MccType.exit
   %indvars.iv.i = phi i32 [ %indvars.iv.next.i, %303 ], [ 0, %dissect_btrfcomm_MccType.exit ]
   %.019.i = phi i32 [ %310, %303 ], [ 0, %dissect_btrfcomm_MccType.exit ]
-  %.0.i240 = phi i32 [ %305, %303 ], [ %275, %dissect_btrfcomm_MccType.exit ]
+  %.0.i240 = phi i32 [ %305, %303 ], [ %274, %dissect_btrfcomm_MccType.exit ]
   %304 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0.i240)
   %305 = add nuw nsw i32 %.0.i240, 1
   %306 = zext i8 %304 to i32
@@ -949,7 +949,7 @@ dissect_btrfcomm_MccType.exit:                    ; preds = %273
 
 317:                                              ; preds = %315
   %318 = sub nsw i32 %.0.i240, %.0.i.i
-  %319 = call ptr @proto_tree_add_uint(ptr noundef %270, i32 noundef %302, ptr noundef %0, i32 noundef %275, i32 noundef %318, i32 noundef %310)
+  %319 = call ptr @proto_tree_add_uint(ptr noundef %270, i32 noundef %302, ptr noundef %0, i32 noundef %274, i32 noundef %318, i32 noundef %310)
   br label %get_le_multi_byte_value.exit
 
 get_le_multi_byte_value.exit:                     ; preds = %315, %317

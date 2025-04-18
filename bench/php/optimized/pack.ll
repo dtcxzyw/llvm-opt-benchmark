@@ -894,13 +894,13 @@ zval_get_tmp_string.exit476:                      ; preds = %281, %283
 .lr.ph679:                                        ; preds = %.lr.ph679.preheader, %.lr.ph679
   %indvars.iv787 = phi i64 [ %339, %.lr.ph679.preheader ], [ %indvars.iv.next788, %.lr.ph679 ]
   %indvars.iv785 = phi i64 [ %338, %.lr.ph679.preheader ], [ %indvars.iv.next786, %.lr.ph679 ]
-  %.2407675 = phi i32 [ %222, %.lr.ph679.preheader ], [ %340, %.lr.ph679 ]
-  %340 = add nsw i32 %.2407675, -1
-  %341 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv785
-  %342 = getelementptr inbounds [1 x i8], ptr %216, i64 0, i64 %indvars.iv787
-  call void @convert_to_long(ptr noundef %341) #12
-  %343 = load i8, ptr %341, align 1, !tbaa !4
-  store i8 %343, ptr %342, align 1, !tbaa !4
+  %.2407675 = phi i32 [ %222, %.lr.ph679.preheader ], [ %343, %.lr.ph679 ]
+  %340 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv785
+  %341 = getelementptr inbounds [1 x i8], ptr %216, i64 0, i64 %indvars.iv787
+  call void @convert_to_long(ptr noundef %340) #12
+  %342 = load i8, ptr %340, align 1, !tbaa !4
+  store i8 %342, ptr %341, align 1, !tbaa !4
+  %343 = add nsw i32 %.2407675, -1
   %indvars.iv.next786 = add nsw i64 %indvars.iv785, 1
   %indvars.iv.next788 = add nsw i64 %indvars.iv787, 1
   %344 = icmp samesign ugt i32 %.2407675, 1
@@ -925,31 +925,31 @@ zval_get_tmp_string.exit476:                      ; preds = %281, %283
 .lr.ph659:                                        ; preds = %.lr.ph659.preheader, %php_pack.exit491
   %indvars.iv774 = phi i64 [ %349, %.lr.ph659.preheader ], [ %indvars.iv.next775, %php_pack.exit491 ]
   %indvars.iv772 = phi i64 [ %348, %.lr.ph659.preheader ], [ %indvars.iv.next773, %php_pack.exit491 ]
-  %.3408655 = phi i32 [ %222, %.lr.ph659.preheader ], [ %350, %php_pack.exit491 ]
-  %350 = add nsw i32 %.3408655, -1
-  %351 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv772
-  %352 = getelementptr inbounds [1 x i8], ptr %216, i64 0, i64 %indvars.iv774
-  call void @convert_to_long(ptr noundef %351) #12
-  br label %353
+  %.3408655 = phi i32 [ %222, %.lr.ph659.preheader ], [ %360, %php_pack.exit491 ]
+  %350 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv772
+  %351 = getelementptr inbounds [1 x i8], ptr %216, i64 0, i64 %indvars.iv774
+  call void @convert_to_long(ptr noundef %350) #12
+  br label %352
 
-353:                                              ; preds = %353, %.lr.ph659
-  %.010.i488 = phi ptr [ %352, %.lr.ph659 ], [ %359, %353 ]
-  %.089.i489 = phi i64 [ 0, %.lr.ph659 ], [ %360, %353 ]
-  %354 = getelementptr inbounds nuw i32, ptr %.0397, i64 %.089.i489
-  %355 = load i32, ptr %354, align 4, !tbaa !47
-  %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds i8, ptr %351, i64 %356
-  %358 = load i8, ptr %357, align 1, !tbaa !4
-  %359 = getelementptr inbounds nuw i8, ptr %.010.i488, i64 1
-  store i8 %358, ptr %.010.i488, align 1, !tbaa !4
-  %360 = add nuw nsw i64 %.089.i489, 1
-  %exitcond.not.i490 = icmp eq i64 %360, 2
-  br i1 %exitcond.not.i490, label %php_pack.exit491, label %353
+352:                                              ; preds = %352, %.lr.ph659
+  %.010.i488 = phi ptr [ %351, %.lr.ph659 ], [ %358, %352 ]
+  %.089.i489 = phi i64 [ 0, %.lr.ph659 ], [ %359, %352 ]
+  %353 = getelementptr inbounds nuw i32, ptr %.0397, i64 %.089.i489
+  %354 = load i32, ptr %353, align 4, !tbaa !47
+  %355 = sext i32 %354 to i64
+  %356 = getelementptr inbounds i8, ptr %350, i64 %355
+  %357 = load i8, ptr %356, align 1, !tbaa !4
+  %358 = getelementptr inbounds nuw i8, ptr %.010.i488, i64 1
+  store i8 %357, ptr %.010.i488, align 1, !tbaa !4
+  %359 = add nuw nsw i64 %.089.i489, 1
+  %exitcond.not.i490 = icmp eq i64 %359, 2
+  br i1 %exitcond.not.i490, label %php_pack.exit491, label %352
 
-php_pack.exit491:                                 ; preds = %353
+php_pack.exit491:                                 ; preds = %352
+  %360 = add nsw i32 %.3408655, -1
   %indvars.iv.next773 = add nsw i64 %indvars.iv772, 1
   %indvars.iv.next775 = add nsw i64 %indvars.iv774, 2
-  %361 = icmp samesign ugt i32 %.3408655, 1
+  %361 = icmp sgt i32 %.3408655, 1
   br i1 %361, label %.lr.ph659, label %zend_tmp_string_release.exit.loopexit701
 
 362:                                              ; preds = %217, %217
@@ -963,32 +963,32 @@ php_pack.exit491:                                 ; preds = %353
 .lr.ph666:                                        ; preds = %.lr.ph666.preheader, %php_pack.exit495
   %indvars.iv779 = phi i64 [ %364, %.lr.ph666.preheader ], [ %indvars.iv.next780, %php_pack.exit495 ]
   %.9382663 = phi i32 [ %.3376690, %.lr.ph666.preheader ], [ %377, %php_pack.exit495 ]
-  %.4409662 = phi i32 [ %222, %.lr.ph666.preheader ], [ %365, %php_pack.exit495 ]
-  %365 = add nsw i32 %.4409662, -1
-  %366 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv779
-  %367 = sext i32 %.9382663 to i64
-  %368 = getelementptr inbounds [1 x i8], ptr %216, i64 0, i64 %367
-  call void @convert_to_long(ptr noundef %366) #12
-  br label %369
+  %.4409662 = phi i32 [ %222, %.lr.ph666.preheader ], [ %376, %php_pack.exit495 ]
+  %365 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv779
+  %366 = sext i32 %.9382663 to i64
+  %367 = getelementptr inbounds [1 x i8], ptr %216, i64 0, i64 %366
+  call void @convert_to_long(ptr noundef %365) #12
+  br label %368
 
-369:                                              ; preds = %369, %.lr.ph666
-  %.010.i492 = phi ptr [ %368, %.lr.ph666 ], [ %375, %369 ]
-  %.089.i493 = phi i64 [ 0, %.lr.ph666 ], [ %376, %369 ]
-  %370 = getelementptr inbounds nuw i32, ptr @int_map, i64 %.089.i493
-  %371 = load i32, ptr %370, align 4, !tbaa !47
-  %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds i8, ptr %366, i64 %372
-  %374 = load i8, ptr %373, align 1, !tbaa !4
-  %375 = getelementptr inbounds nuw i8, ptr %.010.i492, i64 1
-  store i8 %374, ptr %.010.i492, align 1, !tbaa !4
-  %376 = add nuw nsw i64 %.089.i493, 1
-  %exitcond.not.i494 = icmp eq i64 %376, 4
-  br i1 %exitcond.not.i494, label %php_pack.exit495, label %369
+368:                                              ; preds = %368, %.lr.ph666
+  %.010.i492 = phi ptr [ %367, %.lr.ph666 ], [ %374, %368 ]
+  %.089.i493 = phi i64 [ 0, %.lr.ph666 ], [ %375, %368 ]
+  %369 = getelementptr inbounds nuw i32, ptr @int_map, i64 %.089.i493
+  %370 = load i32, ptr %369, align 4, !tbaa !47
+  %371 = sext i32 %370 to i64
+  %372 = getelementptr inbounds i8, ptr %365, i64 %371
+  %373 = load i8, ptr %372, align 1, !tbaa !4
+  %374 = getelementptr inbounds nuw i8, ptr %.010.i492, i64 1
+  store i8 %373, ptr %.010.i492, align 1, !tbaa !4
+  %375 = add nuw nsw i64 %.089.i493, 1
+  %exitcond.not.i494 = icmp eq i64 %375, 4
+  br i1 %exitcond.not.i494, label %php_pack.exit495, label %368
 
-php_pack.exit495:                                 ; preds = %369
+php_pack.exit495:                                 ; preds = %368
+  %376 = add nsw i32 %.4409662, -1
   %indvars.iv.next780 = add nsw i64 %indvars.iv779, 1
   %377 = add i32 %.9382663, 4
-  %378 = icmp samesign ugt i32 %.4409662, 1
+  %378 = icmp sgt i32 %.4409662, 1
   br i1 %378, label %.lr.ph666, label %zend_tmp_string_release.exit.loopexit700
 
 379:                                              ; preds = %217
@@ -1010,31 +1010,31 @@ php_pack.exit495:                                 ; preds = %369
 .lr.ph652:                                        ; preds = %.lr.ph652.preheader, %php_pack.exit499
   %indvars.iv767 = phi i64 [ %383, %.lr.ph652.preheader ], [ %indvars.iv.next768, %php_pack.exit499 ]
   %indvars.iv765 = phi i64 [ %382, %.lr.ph652.preheader ], [ %indvars.iv.next766, %php_pack.exit499 ]
-  %.5410648 = phi i32 [ %222, %.lr.ph652.preheader ], [ %384, %php_pack.exit499 ]
-  %384 = add nsw i32 %.5410648, -1
-  %385 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv765
-  %386 = getelementptr inbounds [1 x i8], ptr %216, i64 0, i64 %indvars.iv767
-  call void @convert_to_long(ptr noundef %385) #12
-  br label %387
+  %.5410648 = phi i32 [ %222, %.lr.ph652.preheader ], [ %394, %php_pack.exit499 ]
+  %384 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv765
+  %385 = getelementptr inbounds [1 x i8], ptr %216, i64 0, i64 %indvars.iv767
+  call void @convert_to_long(ptr noundef %384) #12
+  br label %386
 
-387:                                              ; preds = %387, %.lr.ph652
-  %.010.i496 = phi ptr [ %386, %.lr.ph652 ], [ %393, %387 ]
-  %.089.i497 = phi i64 [ 0, %.lr.ph652 ], [ %394, %387 ]
-  %388 = getelementptr inbounds nuw i32, ptr %.0396, i64 %.089.i497
-  %389 = load i32, ptr %388, align 4, !tbaa !47
-  %390 = sext i32 %389 to i64
-  %391 = getelementptr inbounds i8, ptr %385, i64 %390
-  %392 = load i8, ptr %391, align 1, !tbaa !4
-  %393 = getelementptr inbounds nuw i8, ptr %.010.i496, i64 1
-  store i8 %392, ptr %.010.i496, align 1, !tbaa !4
-  %394 = add nuw nsw i64 %.089.i497, 1
-  %exitcond.not.i498 = icmp eq i64 %394, 4
-  br i1 %exitcond.not.i498, label %php_pack.exit499, label %387
+386:                                              ; preds = %386, %.lr.ph652
+  %.010.i496 = phi ptr [ %385, %.lr.ph652 ], [ %392, %386 ]
+  %.089.i497 = phi i64 [ 0, %.lr.ph652 ], [ %393, %386 ]
+  %387 = getelementptr inbounds nuw i32, ptr %.0396, i64 %.089.i497
+  %388 = load i32, ptr %387, align 4, !tbaa !47
+  %389 = sext i32 %388 to i64
+  %390 = getelementptr inbounds i8, ptr %384, i64 %389
+  %391 = load i8, ptr %390, align 1, !tbaa !4
+  %392 = getelementptr inbounds nuw i8, ptr %.010.i496, i64 1
+  store i8 %391, ptr %.010.i496, align 1, !tbaa !4
+  %393 = add nuw nsw i64 %.089.i497, 1
+  %exitcond.not.i498 = icmp eq i64 %393, 4
+  br i1 %exitcond.not.i498, label %php_pack.exit499, label %386
 
-php_pack.exit499:                                 ; preds = %387
+php_pack.exit499:                                 ; preds = %386
+  %394 = add nsw i32 %.5410648, -1
   %indvars.iv.next766 = add nsw i64 %indvars.iv765, 1
   %indvars.iv.next768 = add nsw i64 %indvars.iv767, 4
-  %395 = icmp samesign ugt i32 %.5410648, 1
+  %395 = icmp sgt i32 %.5410648, 1
   br i1 %395, label %.lr.ph652, label %zend_tmp_string_release.exit.loopexit702
 
 396:                                              ; preds = %217
@@ -1056,31 +1056,31 @@ php_pack.exit499:                                 ; preds = %387
 .lr.ph615:                                        ; preds = %.lr.ph615.preheader, %php_pack.exit503
   %indvars.iv745 = phi i64 [ %400, %.lr.ph615.preheader ], [ %indvars.iv.next746, %php_pack.exit503 ]
   %indvars.iv = phi i64 [ %399, %.lr.ph615.preheader ], [ %indvars.iv.next, %php_pack.exit503 ]
-  %.6411611 = phi i32 [ %222, %.lr.ph615.preheader ], [ %401, %php_pack.exit503 ]
-  %401 = add nsw i32 %.6411611, -1
-  %402 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv
-  %403 = getelementptr inbounds [1 x i8], ptr %216, i64 0, i64 %indvars.iv745
-  call void @convert_to_long(ptr noundef %402) #12
-  br label %404
+  %.6411611 = phi i32 [ %222, %.lr.ph615.preheader ], [ %411, %php_pack.exit503 ]
+  %401 = getelementptr inbounds %struct._zval_struct, ptr %.1, i64 %indvars.iv
+  %402 = getelementptr inbounds [1 x i8], ptr %216, i64 0, i64 %indvars.iv745
+  call void @convert_to_long(ptr noundef %401) #12
+  br label %403
 
-404:                                              ; preds = %404, %.lr.ph615
-  %.010.i500 = phi ptr [ %403, %.lr.ph615 ], [ %410, %404 ]
-  %.089.i501 = phi i64 [ 0, %.lr.ph615 ], [ %411, %404 ]
-  %405 = getelementptr inbounds nuw i32, ptr %.0395, i64 %.089.i501
-  %406 = load i32, ptr %405, align 4, !tbaa !47
-  %407 = sext i32 %406 to i64
-  %408 = getelementptr inbounds i8, ptr %402, i64 %407
-  %409 = load i8, ptr %408, align 1, !tbaa !4
-  %410 = getelementptr inbounds nuw i8, ptr %.010.i500, i64 1
-  store i8 %409, ptr %.010.i500, align 1, !tbaa !4
-  %411 = add nuw nsw i64 %.089.i501, 1
-  %exitcond.not.i502 = icmp eq i64 %411, 8
-  br i1 %exitcond.not.i502, label %php_pack.exit503, label %404
+403:                                              ; preds = %403, %.lr.ph615
+  %.010.i500 = phi ptr [ %402, %.lr.ph615 ], [ %409, %403 ]
+  %.089.i501 = phi i64 [ 0, %.lr.ph615 ], [ %410, %403 ]
+  %404 = getelementptr inbounds nuw i32, ptr %.0395, i64 %.089.i501
+  %405 = load i32, ptr %404, align 4, !tbaa !47
+  %406 = sext i32 %405 to i64
+  %407 = getelementptr inbounds i8, ptr %401, i64 %406
+  %408 = load i8, ptr %407, align 1, !tbaa !4
+  %409 = getelementptr inbounds nuw i8, ptr %.010.i500, i64 1
+  store i8 %408, ptr %.010.i500, align 1, !tbaa !4
+  %410 = add nuw nsw i64 %.089.i501, 1
+  %exitcond.not.i502 = icmp eq i64 %410, 8
+  br i1 %exitcond.not.i502, label %php_pack.exit503, label %403
 
-php_pack.exit503:                                 ; preds = %404
+php_pack.exit503:                                 ; preds = %403
+  %411 = add nsw i32 %.6411611, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %indvars.iv.next746 = add nsw i64 %indvars.iv745, 8
-  %412 = icmp samesign ugt i32 %.6411611, 1
+  %412 = icmp sgt i32 %.6411611, 1
   br i1 %412, label %.lr.ph615, label %zend_tmp_string_release.exit.loopexit708
 
 .lr.ph645:                                        ; preds = %.lr.ph645.preheader, %zval_get_double.exit

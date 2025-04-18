@@ -691,7 +691,6 @@ _ZN12_GLOBAL__N_114VarLocBasedLDV13OpenRangesSetC2ERN4llvm18RecyclingAllocatorIN
   %129 = getelementptr inbounds nuw i8, ptr %48, i64 1392
   store ptr %47, ptr %129, align 8, !tbaa !222
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %49) #22
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 1, ptr %49, align 8
   %130 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 0, ptr %130, align 4, !tbaa !224
@@ -707,7 +706,6 @@ _ZN12_GLOBAL__N_114VarLocBasedLDV13OpenRangesSetC2ERN4llvm18RecyclingAllocatorIN
 
 _ZN4llvm13SmallDenseMapIPKNS_17MachineBasicBlockESt10unique_ptrINS_19CoalescingBitVectorImEESt14default_deleteIS6_EELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %50) #22
-  %.phi.trans.insert.i.i123.ptr = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 1, ptr %50, align 8
   %131 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 0, ptr %131, align 4, !tbaa !224
@@ -722,7 +720,9 @@ _ZN4llvm13SmallDenseMapIPKNS_17MachineBasicBlockESt10unique_ptrINS_19CoalescingB
   br i1 %.not.i.i.i129, label %_ZN4llvm13SmallDenseMapIPKNS_17MachineBasicBlockESt10unique_ptrINS_19CoalescingBitVectorImEESt14default_deleteIS6_EELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEC2Ej.exit130, label %.lr.ph.i.i.i127, !llvm.loop !229
 
 _ZN4llvm13SmallDenseMapIPKNS_17MachineBasicBlockESt10unique_ptrINS_19CoalescingBitVectorImEESt14default_deleteIS6_EELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEC2Ej.exit130: ; preds = %.lr.ph.i.i.i127
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %.phi.trans.insert.i.i123.ptr = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.phi.trans.insert3.i.i125 = getelementptr inbounds nuw i8, ptr %50, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %51) #22
   %132 = getelementptr inbounds nuw i8, ptr %51, i64 16

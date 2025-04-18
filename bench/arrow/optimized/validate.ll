@@ -2883,11 +2883,11 @@ _ZN5arrow6StatusD2Ev.exit68.lr.ph.i.i.i.i:        ; preds = %.preheader98.i.i.i.
   %scevgep.i.i.i = getelementptr i8, ptr %.026.i.i.i, i64 -4
   %74 = shl nuw nsw i64 %72, 2
   %scevgep45.i.i.i = getelementptr i8, ptr %scevgep.i.i.i, i64 %74
-  %75 = add i64 %.val.i.promoted.i.i.i.i, %72
   %scevgep46.i.i.i = getelementptr i8, ptr %.026.i.i.i, i64 %74
-  %76 = load i32, ptr %scevgep45.i.i.i, align 4, !tbaa !123, !noalias !274
+  %75 = load i32, ptr %scevgep45.i.i.i, align 4, !tbaa !123, !noalias !274
+  %76 = add i64 %.val.i.promoted.i.i.i.i, %72
   %77 = add i64 %.048117.i.i.i.i, %72
-  store i64 %75, ptr %17, align 8, !tbaa !79, !noalias !269
+  store i64 %76, ptr %17, align 8, !tbaa !79, !noalias !269
   store ptr null, ptr %0, align 8, !tbaa !161, !alias.scope !275
   br label %.critedge.i.i.i.i
 
@@ -2959,7 +2959,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i.i:              ; preds = %_ZN5arrow6StatusD2E
 
 .critedge.i.i.i.i:                                ; preds = %_ZN5arrow6StatusD2Ev.exit75.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit66.i.i.i.i, %_ZN5arrow6StatusD2Ev.exit68.lr.ph.i.i.i.i, %.preheader98.i.i.i.i, %.preheader100.i.i.i.i, %.preheader.i.i.i.i
   %.127.i.i.i = phi ptr [ %.026.i.i.i, %.preheader.i.i.i.i ], [ %scevgep46.i.i.i, %_ZN5arrow6StatusD2Ev.exit68.lr.ph.i.i.i.i ], [ %.026.i.i.i, %.preheader98.i.i.i.i ], [ %.026.i.i.i, %.preheader100.i.i.i.i ], [ %64, %_ZN5arrow6StatusD2Ev.exit66.i.i.i.i ], [ %.329.i.i.i, %_ZN5arrow6StatusD2Ev.exit75.i.i.i.i ]
-  %.1.i.i.i = phi i32 [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %76, %_ZN5arrow6StatusD2Ev.exit68.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.preheader98.i.i.i.i ], [ %.0.i.i.i, %.preheader100.i.i.i.i ], [ %61, %_ZN5arrow6StatusD2Ev.exit66.i.i.i.i ], [ %.3.i.i.i, %_ZN5arrow6StatusD2Ev.exit75.i.i.i.i ]
+  %.1.i.i.i = phi i32 [ %.0.i.i.i, %.preheader.i.i.i.i ], [ %75, %_ZN5arrow6StatusD2Ev.exit68.lr.ph.i.i.i.i ], [ %.0.i.i.i, %.preheader98.i.i.i.i ], [ %.0.i.i.i, %.preheader100.i.i.i.i ], [ %61, %_ZN5arrow6StatusD2Ev.exit66.i.i.i.i ], [ %.3.i.i.i, %_ZN5arrow6StatusD2Ev.exit75.i.i.i.i ]
   %.250.i.i.i.i = phi i64 [ %.048117.i.i.i.i, %.preheader.i.i.i.i ], [ %77, %_ZN5arrow6StatusD2Ev.exit68.lr.ph.i.i.i.i ], [ %.048117.i.i.i.i, %.preheader98.i.i.i.i ], [ %.048117.i.i.i.i, %.preheader100.i.i.i.i ], [ %58, %_ZN5arrow6StatusD2Ev.exit66.i.i.i.i ], [ %73, %_ZN5arrow6StatusD2Ev.exit75.i.i.i.i ]
   %102 = icmp slt i64 %.250.i.i.i.i, %39
   br i1 %102, label %.lr.ph118.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !300

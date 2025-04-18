@@ -6892,11 +6892,11 @@ define hidden void @_ZN12ZStatWorkers6at_endEv(ptr noundef nonnull align 8 deref
   %19 = add i64 %17, %18
   %20 = shl i64 %7, 1
   %21 = sub i64 %19, %20
-  %22 = shl i64 %5, 1
-  %23 = shl i64 %10, 1
-  %24 = mul i64 %11, %16
-  %25 = add i64 %24, %22
-  %26 = sub i64 %25, %23
+  %22 = mul i64 %11, %16
+  %23 = shl i64 %5, 1
+  %24 = add i64 %22, %23
+  %25 = shl i64 %10, 1
+  %26 = sub i64 %24, %25
   br label %_ZN7ZLockerI5ZLockED2Ev.exit
 
 _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %.lr.ph.preheader, %1
@@ -6949,15 +6949,15 @@ define hidden noundef double @_ZN12ZStatWorkers16accumulated_timeEv(ptr noundef 
   %13 = zext i32 %12 to i64
   %14 = mul i64 %9, %13
   %15 = add i64 %11, %14
-  %16 = add i64 %7, %.sroa.4.0.copyload
-  %17 = mul i64 %10, %13
-  %18 = add i64 %16, %17
-  %19 = sub i64 %15, %.sroa.07.0.copyload
-  %20 = sub i64 %18, %.sroa.28.0.copyload
+  %16 = sub i64 %15, %.sroa.07.0.copyload
+  %17 = add i64 %7, %.sroa.4.0.copyload
+  %18 = mul i64 %10, %13
+  %19 = add i64 %17, %18
+  %20 = sub i64 %19, %.sroa.28.0.copyload
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %1
-  %.sroa.05.0 = phi i64 [ %.sroa.05.0.copyload, %1 ], [ %19, %.preheader ]
+  %.sroa.05.0 = phi i64 [ %.sroa.05.0.copyload, %1 ], [ %16, %.preheader ]
   %.sroa.4.0 = phi i64 [ %.sroa.4.0.copyload, %1 ], [ %20, %.preheader ]
   %21 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.05.0, i64 %.sroa.4.0) #20
   ret double %21
@@ -7028,16 +7028,16 @@ define hidden { double, double } @_ZN12ZStatWorkers5statsEv(ptr noundef nonnull 
   %13 = add i32 %4, -1
   %14 = zext i32 %13 to i64
   %15 = mul i64 %10, %14
-  %16 = add i64 %.sroa.4.0.copyload.i, %8
-  %17 = mul i64 %11, %14
-  %18 = sub i64 %12, %.sroa.07.0.copyload.i
-  %19 = add i64 %18, %15
-  %20 = sub i64 %16, %.sroa.28.0.copyload.i
-  %21 = add i64 %20, %17
+  %16 = sub i64 %12, %.sroa.07.0.copyload.i
+  %17 = add i64 %16, %15
+  %18 = add i64 %.sroa.4.0.copyload.i, %8
+  %19 = mul i64 %11, %14
+  %20 = sub i64 %18, %.sroa.28.0.copyload.i
+  %21 = add i64 %20, %19
   br label %_ZN12ZStatWorkers16accumulated_timeEv.exit
 
 _ZN12ZStatWorkers16accumulated_timeEv.exit:       ; preds = %1, %.preheader.i
-  %.sroa.05.0.i = phi i64 [ %.sroa.05.0.copyload.i, %1 ], [ %19, %.preheader.i ]
+  %.sroa.05.0.i = phi i64 [ %.sroa.05.0.copyload.i, %1 ], [ %17, %.preheader.i ]
   %.sroa.4.0.i = phi i64 [ %.sroa.4.0.copyload.i, %1 ], [ %21, %.preheader.i ]
   %22 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.05.0.i, i64 %.sroa.4.0.i) #20
   %23 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #20

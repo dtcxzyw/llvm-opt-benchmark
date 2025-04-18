@@ -4350,27 +4350,27 @@ define hidden void @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$co
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %11, align 8, !alias.scope !1071, !noalias !1074, !nonnull !4, !align !39, !noundef !4
   %.promoted = load i64, ptr %10, align 8, !alias.scope !1071, !noalias !1074
-  %12 = add i64 %.promoted, %7
-  br label %13
+  br label %12
 
-13:                                               ; preds = %13, %6
-  %.0 = phi i64 [ 0, %6 ], [ %18, %13 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 %.0
+12:                                               ; preds = %12, %6
+  %.0 = phi i64 [ 0, %6 ], [ %17, %12 ]
+  %13 = getelementptr inbounds i8, ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1071)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1074)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1076)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1079)
-  store i8 0, ptr %14, align 1, !alias.scope !1082, !noalias !1071
-  %15 = load ptr, ptr %.val.i, align 8, !noalias !1083, !nonnull !4, !align !39, !noundef !4
-  %16 = load i64, ptr %15, align 8, !noalias !1083, !noundef !4
-  %17 = add i64 %16, 1
-  store i64 %17, ptr %15, align 8, !noalias !1083
-  %18 = add nuw i64 %.0, 1
-  %19 = icmp eq i64 %18, %9
-  br i1 %19, label %.loopexit, label %13
+  store i8 0, ptr %13, align 1, !alias.scope !1082, !noalias !1071
+  %14 = load ptr, ptr %.val.i, align 8, !noalias !1083, !nonnull !4, !align !39, !noundef !4
+  %15 = load i64, ptr %14, align 8, !noalias !1083, !noundef !4
+  %16 = add i64 %15, 1
+  store i64 %16, ptr %14, align 8, !noalias !1083
+  %17 = add nuw i64 %.0, 1
+  %18 = icmp eq i64 %17, %9
+  br i1 %18, label %.loopexit, label %12
 
-.loopexit:                                        ; preds = %13
-  %20 = sub i64 %12, %8
+.loopexit:                                        ; preds = %12
+  %19 = add i64 %.promoted, %7
+  %20 = sub i64 %19, %8
   store i64 %20, ptr %10, align 8, !alias.scope !1071, !noalias !1074
   br label %21
 
@@ -4393,27 +4393,27 @@ define hidden void @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$co
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %11, align 8, !alias.scope !1084, !noalias !1087, !nonnull !4, !align !39, !noundef !4
   %.promoted = load i64, ptr %10, align 8, !alias.scope !1084, !noalias !1087
-  %12 = add i64 %.promoted, %7
-  br label %13
+  br label %12
 
-13:                                               ; preds = %13, %6
-  %.0 = phi i64 [ 0, %6 ], [ %18, %13 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 %.0
+12:                                               ; preds = %12, %6
+  %.0 = phi i64 [ 0, %6 ], [ %17, %12 ]
+  %13 = getelementptr inbounds i8, ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1084)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1087)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1089)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1092)
-  store i8 0, ptr %14, align 1, !alias.scope !1095, !noalias !1084
-  %15 = load ptr, ptr %.val.i, align 8, !noalias !1096, !nonnull !4, !align !39, !noundef !4
-  %16 = load i64, ptr %15, align 8, !noalias !1096, !noundef !4
-  %17 = add i64 %16, 1
-  store i64 %17, ptr %15, align 8, !noalias !1096
-  %18 = add nuw i64 %.0, 1
-  %19 = icmp eq i64 %18, %9
-  br i1 %19, label %.loopexit, label %13
+  store i8 0, ptr %13, align 1, !alias.scope !1095, !noalias !1084
+  %14 = load ptr, ptr %.val.i, align 8, !noalias !1096, !nonnull !4, !align !39, !noundef !4
+  %15 = load i64, ptr %14, align 8, !noalias !1096, !noundef !4
+  %16 = add i64 %15, 1
+  store i64 %16, ptr %14, align 8, !noalias !1096
+  %17 = add nuw i64 %.0, 1
+  %18 = icmp eq i64 %17, %9
+  br i1 %18, label %.loopexit, label %12
 
-.loopexit:                                        ; preds = %13
-  %20 = sub i64 %12, %8
+.loopexit:                                        ; preds = %12
+  %19 = add i64 %.promoted, %7
+  %20 = sub i64 %19, %8
   store i64 %20, ptr %10, align 8, !alias.scope !1084, !noalias !1087
   br label %21
 

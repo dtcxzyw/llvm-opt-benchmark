@@ -886,51 +886,51 @@ Sml_NodeCheckImp.exit:                            ; preds = %.lr.ph.i
   br label %163
 
 Sml_NodeCheckImp.exit165:                         ; preds = %.lr.ph.i159
-  %110 = shl i32 %71, 16
   %wide.trip.count.i = sext i32 %92 to i64
   br label %.lr.ph.i167
 
 .lr.ph.i167:                                      ; preds = %.lr.ph.i167, %Sml_NodeCheckImp.exit165
   %indvars.iv.i168 = phi i64 [ %101, %Sml_NodeCheckImp.exit165 ], [ %indvars.iv.next.i169, %.lr.ph.i167 ]
-  %.015.i = phi i32 [ 0, %Sml_NodeCheckImp.exit165 ], [ %136, %.lr.ph.i167 ]
-  %111 = getelementptr inbounds i32, ptr %95, i64 %indvars.iv.i168
-  %112 = load i32, ptr %111, align 4, !tbaa !29
-  %113 = getelementptr inbounds i32, ptr %98, i64 %indvars.iv.i168
-  %114 = load i32, ptr %113, align 4, !tbaa !29
-  %115 = xor i32 %114, -1
-  %116 = and i32 %112, %115
-  %117 = and i32 %116, 1431655765
-  %118 = lshr i32 %116, 1
-  %119 = and i32 %118, 1431655765
-  %120 = add nuw i32 %119, %117
-  %121 = and i32 %120, 858993459
-  %122 = lshr i32 %120, 2
-  %123 = and i32 %122, 858993459
-  %124 = add nuw nsw i32 %123, %121
-  %125 = and i32 %124, 117901063
-  %126 = lshr i32 %124, 4
-  %127 = and i32 %126, 117901063
-  %128 = add nuw nsw i32 %127, %125
-  %129 = and i32 %128, 983055
-  %130 = lshr i32 %128, 8
-  %131 = and i32 %130, 983055
-  %132 = add nuw nsw i32 %131, %129
-  %133 = and i32 %132, 31
-  %134 = lshr i32 %132, 16
-  %135 = add nuw nsw i32 %134, %.015.i
-  %136 = add nuw nsw i32 %135, %133
+  %.015.i = phi i32 [ 0, %Sml_NodeCheckImp.exit165 ], [ %135, %.lr.ph.i167 ]
+  %110 = getelementptr inbounds i32, ptr %95, i64 %indvars.iv.i168
+  %111 = load i32, ptr %110, align 4, !tbaa !29
+  %112 = getelementptr inbounds i32, ptr %98, i64 %indvars.iv.i168
+  %113 = load i32, ptr %112, align 4, !tbaa !29
+  %114 = xor i32 %113, -1
+  %115 = and i32 %111, %114
+  %116 = and i32 %115, 1431655765
+  %117 = lshr i32 %115, 1
+  %118 = and i32 %117, 1431655765
+  %119 = add nuw i32 %118, %116
+  %120 = and i32 %119, 858993459
+  %121 = lshr i32 %119, 2
+  %122 = and i32 %121, 858993459
+  %123 = add nuw nsw i32 %122, %120
+  %124 = and i32 %123, 117901063
+  %125 = lshr i32 %123, 4
+  %126 = and i32 %125, 117901063
+  %127 = add nuw nsw i32 %126, %124
+  %128 = and i32 %127, 983055
+  %129 = lshr i32 %127, 8
+  %130 = and i32 %129, 983055
+  %131 = add nuw nsw i32 %130, %128
+  %132 = and i32 %131, 31
+  %133 = lshr i32 %131, 16
+  %134 = add nuw nsw i32 %133, %.015.i
+  %135 = add nuw nsw i32 %134, %132
   %indvars.iv.next.i169 = add nsw i64 %indvars.iv.i168, 1
   %exitcond.not.i170 = icmp eq i64 %indvars.iv.next.i169, %wide.trip.count.i
   br i1 %exitcond.not.i170, label %Sml_NodeNotImpWeight.exit, label %.lr.ph.i167, !llvm.loop !67
 
 Sml_NodeNotImpWeight.exit:                        ; preds = %.lr.ph.i167
-  %137 = add nsw i32 %.3106237, 1
-  %138 = or i32 %73, %110
+  %136 = add nsw i32 %.3106237, 1
+  %137 = shl i32 %71, 16
+  %138 = or i32 %73, %137
   %139 = sext i32 %.val154 to i64
   %140 = getelementptr inbounds i32, ptr %38, i64 %139
-  store i32 %136, ptr %140, align 4, !tbaa !29
-  %141 = call noundef i32 @llvm.smin.i32(i32 %.3100238, i32 %136)
-  %142 = call noundef i32 @llvm.smax.i32(i32 %.3239, i32 %136)
+  store i32 %135, ptr %140, align 4, !tbaa !29
+  %141 = call noundef i32 @llvm.smin.i32(i32 %.3100238, i32 %135)
+  %142 = call noundef i32 @llvm.smax.i32(i32 %.3239, i32 %135)
   %143 = load i32, ptr %39, align 8, !tbaa !42
   %144 = icmp eq i32 %.val154, %143
   br i1 %144, label %145, label %Vec_IntPush.exit
@@ -988,7 +988,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %.val154326 = phi i32 [ %.val154, %.loopexit ], [ %.val151, %Vec_IntPush.exit ], [ %.val154, %Sml_NodeCheckImp.exit ]
   %.4119 = phi i32 [ %.3118235, %.loopexit ], [ %.3118235, %Vec_IntPush.exit ], [ %91, %Sml_NodeCheckImp.exit ]
   %.4113 = phi i32 [ %109, %.loopexit ], [ %.3112236, %Vec_IntPush.exit ], [ %.3112236, %Sml_NodeCheckImp.exit ]
-  %.4107 = phi i32 [ %.3106237, %.loopexit ], [ %137, %Vec_IntPush.exit ], [ %.3106237, %Sml_NodeCheckImp.exit ]
+  %.4107 = phi i32 [ %.3106237, %.loopexit ], [ %136, %Vec_IntPush.exit ], [ %.3106237, %Sml_NodeCheckImp.exit ]
   %.4101 = phi i32 [ %.3100238, %.loopexit ], [ %141, %Vec_IntPush.exit ], [ %.3100238, %Sml_NodeCheckImp.exit ]
   %.4 = phi i32 [ %.3239, %.loopexit ], [ %142, %Vec_IntPush.exit ], [ %.3239, %Sml_NodeCheckImp.exit ]
   %164 = getelementptr inbounds nuw i8, ptr %.1131233, i64 4
@@ -1022,7 +1022,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %.4125 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %72, %Vec_IntPush.exit ], [ %.2123.lcssa, %._crit_edge280 ]
   %.5120 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %.3118235, %Vec_IntPush.exit ], [ %.2117.lcssa, %._crit_edge280 ]
   %.5114 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %.3112236, %Vec_IntPush.exit ], [ %.2111.lcssa, %._crit_edge280 ]
-  %.5108 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %137, %Vec_IntPush.exit ], [ %.2105.lcssa, %._crit_edge280 ]
+  %.5108 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %136, %Vec_IntPush.exit ], [ %.2105.lcssa, %._crit_edge280 ]
   %.5102 = phi i32 [ 1000000000, %Vec_IntAlloc.exit ], [ 1000000000, %.preheader.lr.ph ], [ %141, %Vec_IntPush.exit ], [ %.299.lcssa, %._crit_edge280 ]
   %.5 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ 0, %.preheader.lr.ph ], [ %142, %Vec_IntPush.exit ], [ %.2.lcssa, %._crit_edge280 ]
   call void @Fra_SmlStop(ptr noundef %16) #21

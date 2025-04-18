@@ -3381,15 +3381,15 @@ proto_tree_add_data.exit226:                      ; preds = %.lr.ph.split.us.spl
 .lr.ph.preheader.i:                               ; preds = %.loopexit
   %scevgep.i = getelementptr inbounds nuw i8, ptr %15, i64 17
   %strlen.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep.i)
-  %123 = trunc i64 %strlen.i to i32
-  %124 = getelementptr i8, ptr %15, i64 %strlen.i
-  %125 = add i64 %strlen.i, 17
-  %scevgep313.i = getelementptr i8, ptr %124, i64 17
-  %126 = sub i32 127, %123
+  %123 = getelementptr i8, ptr %15, i64 %strlen.i
+  %124 = add i64 %strlen.i, 17
+  %scevgep313.i = getelementptr i8, ptr %123, i64 17
+  %125 = trunc i64 %strlen.i to i32
+  %126 = sub i32 127, %125
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %.loopexit
-  %127 = phi i64 [ 16, %.loopexit ], [ %125, %.lr.ph.preheader.i ]
+  %127 = phi i64 [ 16, %.loopexit ], [ %124, %.lr.ph.preheader.i ]
   %.099.lcssa.i = phi ptr [ %93, %.loopexit ], [ %scevgep313.i, %.lr.ph.preheader.i ]
   %.098.lcssa.i = phi i32 [ 128, %.loopexit ], [ %126, %.lr.ph.preheader.i ]
   %.not157.i.not = icmp eq i8 %9, 0

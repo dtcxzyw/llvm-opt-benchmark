@@ -7025,8 +7025,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i394.i: ; preds = %1
   br i1 %1490, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i400.i, label %1487, !llvm.loop !132
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i400.i: ; preds = %1487
-  %.sroa.0545.sroa.3.0.insert.mask.i = and i64 %.sroa.0545.sroa.3.0662.i, -256
   %.sroa.0545.sroa.3.0.insert.ext.i = zext i8 %.sroa.0545.sroa.3.0.copyload.i to i64
+  %.sroa.0545.sroa.3.0.insert.mask.i = and i64 %.sroa.0545.sroa.3.0662.i, -256
   %.sroa.0545.sroa.3.0.insert.insert.i = or disjoint i64 %.sroa.0545.sroa.3.0.insert.mask.i, %.sroa.0545.sroa.3.0.insert.ext.i
   %1492 = load atomic i32, ptr %1485 monotonic, align 8, !noalias !357
   %.fr.i.i.i.i.i401.i = freeze i32 %1492

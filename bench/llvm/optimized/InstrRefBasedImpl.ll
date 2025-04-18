@@ -6432,7 +6432,6 @@ _ZN4llvm23SmallVectorTemplateBaseIN15LiveDebugValues7DbgOpIDELb1EE9push_backES2_
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN15LiveDebugValues5DbgOpELb1EE9push_backERKS2_.exit, %143
   %154 = phi i32 [ 0, %143 ], [ %198, %_ZN4llvm23SmallVectorTemplateBaseIN15LiveDebugValues5DbgOpELb1EE9push_backERKS2_.exit ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15) #25
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 1, ptr %15, align 8
   %155 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 0, ptr %155, align 4, !tbaa !785
@@ -6448,6 +6447,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN15LiveDebugValues7DbgOpIDELb1EE9push_backES2_
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIN15LiveDebugValues10ValueIDNumEN15TransferTracker18LocationAndQualityELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !788
 
 _ZN4llvm13SmallDenseMapIN15LiveDebugValues10ValueIDNumEN15TransferTracker18LocationAndQualityELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #25
   %156 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -23244,7 +23244,6 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   %.not11271247 = phi i1 [ true, %_ZN4llvm15SmallVectorImplIN15LiveDebugValues8DbgValueEE7reserveEm.exit165 ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIN15LiveDebugValues8DbgValueELb1EE9push_backERKS2_.exit190 ]
   %167 = phi ptr [ %141, %_ZN4llvm15SmallVectorImplIN15LiveDebugValues8DbgValueEE7reserveEm.exit165 ], [ %142, %_ZN4llvm23SmallVectorTemplateBaseIN15LiveDebugValues8DbgValueELb1EE9push_backERKS2_.exit190 ]
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %20) #25
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 1, ptr %20, align 8
   %168 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %168, align 4, !tbaa !1308
@@ -23260,7 +23259,6 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
 
 _ZN4llvm13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %21) #25
-  %.phi.trans.insert.i.i170.ptr = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 1, ptr %21, align 8
   %169 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 0, ptr %169, align 4, !tbaa !1308
@@ -23275,7 +23273,9 @@ _ZN4llvm13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj
   br i1 %.not.i.i.i176, label %_ZN4llvm13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEC2Ej.exit177, label %.lr.ph.i.i.i174, !llvm.loop !1311
 
 _ZN4llvm13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEC2Ej.exit177: ; preds = %.lr.ph.i.i.i174
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %.phi.trans.insert.i.i170.ptr = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.phi.trans.insert3.i.i172 = getelementptr inbounds nuw i8, ptr %21, i64 16
   br i1 %.not11271247, label %._crit_edge1042, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueELj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E31getMinBucketToReserveForEntriesEj.exit.i
 
@@ -44310,7 +44310,6 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN15TransferTracker12UseBef
 
 34:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN15TransferTracker12UseBeforeDefELj1EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E4findERKj.exit
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #25
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %4, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %35, align 4, !tbaa !785
@@ -44326,6 +44325,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN15TransferTracker12UseBef
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIN15LiveDebugValues10ValueIDNumEN15TransferTracker18LocationAndQualityELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !788
 
 _ZN4llvm13SmallDenseMapIN15LiveDebugValues10ValueIDNumEN15TransferTracker18LocationAndQualityELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !25

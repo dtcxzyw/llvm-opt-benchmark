@@ -666,22 +666,22 @@ _nearest_color.exit.i:                            ; preds = %207, %.preheader.i.
   br i1 %exitcond186.not.i, label %_nearest_color.exit623.i, label %183
 
 222:                                              ; preds = %_get_dither_parameters.exit.thread.i
-  %223 = add nsw i32 %110, -1
-  %224 = shl i32 %110, 2
   %wide.trip.count152.i = zext nneg i32 %110 to i64
   br label %234
 
-225:                                              ; preds = %_clipnan_pixel.exit346.i
-  %226 = shl nsw i32 %223, 2
-  %227 = add i32 %224, 4
-  %228 = zext nneg i32 %226 to i64
-  %229 = zext nneg i32 %224 to i64
-  %230 = zext nneg i32 %227 to i64
+223:                                              ; preds = %_clipnan_pixel.exit346.i
+  %224 = add nsw i32 %110, -1
+  %225 = shl nsw i32 %224, 2
+  %226 = zext nneg i32 %225 to i64
+  %227 = shl i32 %110, 2
+  %228 = zext nneg i32 %227 to i64
+  %229 = add i32 %227, 4
+  %230 = zext nneg i32 %229 to i64
   %.not.i39 = icmp eq i32 %108, 0
-  %wide.trip.count170.i = zext nneg i32 %223 to i64
+  %wide.trip.count170.i = zext nneg i32 %224 to i64
   br i1 %.not.i39, label %.preheader13.i, label %.preheader26.i
 
-.preheader26.i:                                   ; preds = %225
+.preheader26.i:                                   ; preds = %223
   %231 = add nsw i32 %112, -2
   %factor.op.fmul42.i = fmul reassoc nsz arcp contract afn float %177, 0x3FBC28F5C0000000
   %factor.op.fmul44.i = fmul reassoc nsz arcp contract afn float %177, 0x3FD3333340000000
@@ -689,7 +689,7 @@ _nearest_color.exit.i:                            ; preds = %207, %.preheader.i.
   %232 = zext nneg i32 %231 to i64
   br label %251
 
-.preheader13.i:                                   ; preds = %225
+.preheader13.i:                                   ; preds = %223
   %factor.op.fmul98.i = fmul reassoc nsz arcp contract afn float %177, 0x3FBC28F5C0000000
   %factor.op.fmul100.i = fmul reassoc nsz arcp contract afn float %177, 0x3FD3333340000000
   %factor.op.fmul102.i = fmul reassoc nsz arcp contract afn float %177, 0x3FE2E147A0000000
@@ -725,7 +725,7 @@ _nearest_color.exit.i:                            ; preds = %207, %.preheader.i.
 _clipnan_pixel.exit346.i:                         ; preds = %238
   %indvars.iv.next150.i = add nuw nsw i64 %indvars.iv149.i, 1
   %exitcond153.not.i = icmp eq i64 %indvars.iv.next150.i, %wide.trip.count152.i
-  br i1 %exitcond153.not.i, label %225, label %234
+  br i1 %exitcond153.not.i, label %223, label %234
 
 ._crit_edge.i:                                    ; preds = %_diffuse_error.exit458.i
   %249 = and i32 %112, 1
@@ -787,8 +787,8 @@ _clipnan_pixel.exit346.i:                         ; preds = %238
   br i1 %exitcond33.not.i352.i, label %_nearest_color.exit353.i, label %.preheader.i350.i
 
 _nearest_color.exit353.i:                         ; preds = %267, %.preheader.i350.i
-  %282 = getelementptr inbounds nuw float, ptr %255, i64 %229
-  %283 = getelementptr inbounds nuw float, ptr %254, i64 %229
+  %282 = getelementptr inbounds nuw float, ptr %255, i64 %228
+  %283 = getelementptr inbounds nuw float, ptr %254, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
   br label %284
@@ -980,7 +980,7 @@ _clipnan_pixel.exit376.i:                         ; preds = %362
   br i1 %exitcond.not.i378.i, label %_diffuse_error.exit379.i, label %374
 
 _diffuse_error.exit379.i:                         ; preds = %374
-  %382 = getelementptr inbounds nuw float, ptr %308, i64 %228
+  %382 = getelementptr inbounds nuw float, ptr %308, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
   br label %383
@@ -999,7 +999,7 @@ _diffuse_error.exit379.i:                         ; preds = %374
   br i1 %exitcond.not.i381.i, label %_diffuse_error.exit382.i, label %383
 
 _diffuse_error.exit382.i:                         ; preds = %383
-  %391 = getelementptr inbounds nuw float, ptr %308, i64 %229
+  %391 = getelementptr inbounds nuw float, ptr %308, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
   br label %392
@@ -1085,8 +1085,8 @@ _diffuse_error.exit388.i:                         ; preds = %400
   br i1 %exitcond33.not.i394.i, label %_nearest_color.exit395.i, label %.preheader.i392.i
 
 _nearest_color.exit395.i:                         ; preds = %419, %.preheader.i392.i
-  %434 = getelementptr inbounds nuw float, ptr %282, i64 %229
-  %435 = getelementptr inbounds nuw float, ptr %283, i64 %229
+  %434 = getelementptr inbounds nuw float, ptr %282, i64 %228
+  %435 = getelementptr inbounds nuw float, ptr %283, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
   br label %436
@@ -1186,7 +1186,7 @@ _diffuse_error.exit407.i:                         ; preds = %469
   br i1 %exitcond.not.i409.i, label %.lr.ph41.i, label %477
 
 _diffuse_error.exit410._crit_edge.i.loopexit:     ; preds = %_diffuse_error.exit502.i
-  %485 = getelementptr inbounds nuw float, ptr %255, i64 %228
+  %485 = getelementptr inbounds nuw float, ptr %255, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
   br i1 %.0.i5.i, label %.preheader.i414.i, label %486
@@ -1236,7 +1236,7 @@ _diffuse_error.exit410._crit_edge.i.loopexit:     ; preds = %_diffuse_error.exit
   br i1 %exitcond33.not.i416.i, label %_nearest_color.exit417.i, label %.preheader.i414.i
 
 _nearest_color.exit417.i:                         ; preds = %497, %.preheader.i414.i
-  %512 = getelementptr inbounds nuw float, ptr %485, i64 %228
+  %512 = getelementptr inbounds nuw float, ptr %485, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
   br label %513
@@ -1255,7 +1255,7 @@ _nearest_color.exit417.i:                         ; preds = %497, %.preheader.i4
   br i1 %exitcond.not.i419.i, label %_diffuse_error.exit420.i, label %513
 
 _diffuse_error.exit420.i:                         ; preds = %513
-  %521 = getelementptr inbounds nuw float, ptr %485, i64 %229
+  %521 = getelementptr inbounds nuw float, ptr %485, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   br label %522
@@ -1274,8 +1274,8 @@ _diffuse_error.exit420.i:                         ; preds = %513
   br i1 %exitcond.not.i422.i, label %_diffuse_error.exit423.i, label %522
 
 _diffuse_error.exit423.i:                         ; preds = %522
-  %530 = getelementptr inbounds nuw float, ptr %254, i64 %228
-  %531 = getelementptr inbounds nuw float, ptr %530, i64 %228
+  %530 = getelementptr inbounds nuw float, ptr %254, i64 %226
+  %531 = getelementptr inbounds nuw float, ptr %530, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !245)
   br i1 %.0.i5.i, label %.preheader.i427.i, label %532
@@ -1367,7 +1367,7 @@ _clipnan_pixel.exit433.i:                         ; preds = %560
   br i1 %exitcond.not.i435.i, label %_diffuse_error.exit436.i, label %572
 
 _diffuse_error.exit436.i:                         ; preds = %572
-  %580 = getelementptr inbounds nuw float, ptr %512, i64 %228
+  %580 = getelementptr inbounds nuw float, ptr %512, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
   br label %581
@@ -1386,7 +1386,7 @@ _diffuse_error.exit436.i:                         ; preds = %572
   br i1 %exitcond.not.i438.i, label %_diffuse_error.exit439.i, label %581
 
 _diffuse_error.exit439.i:                         ; preds = %581
-  %589 = getelementptr inbounds nuw float, ptr %512, i64 %229
+  %589 = getelementptr inbounds nuw float, ptr %512, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !265)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
   br label %590
@@ -1472,7 +1472,7 @@ _diffuse_error.exit445.i:                         ; preds = %598
   br i1 %exitcond33.not.i451.i, label %_nearest_color.exit452.i, label %.preheader.i449.i
 
 _nearest_color.exit452.i:                         ; preds = %617, %.preheader.i449.i
-  %632 = getelementptr inbounds nuw float, ptr %521, i64 %228
+  %632 = getelementptr inbounds nuw float, ptr %521, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
   br label %633
@@ -1491,7 +1491,7 @@ _nearest_color.exit452.i:                         ; preds = %617, %.preheader.i4
   br i1 %exitcond.not.i454.i, label %_diffuse_error.exit455.i, label %633
 
 _diffuse_error.exit455.i:                         ; preds = %633
-  %641 = getelementptr inbounds nuw float, ptr %521, i64 %229
+  %641 = getelementptr inbounds nuw float, ptr %521, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !288)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !291)
   br label %642
@@ -1610,7 +1610,7 @@ _clipnan_pixel.exit468.i:                         ; preds = %682
   br i1 %exitcond.not.i470.i, label %_diffuse_error.exit471.i, label %694
 
 _diffuse_error.exit471.i:                         ; preds = %694
-  %702 = getelementptr inbounds nuw float, ptr %652, i64 %228
+  %702 = getelementptr inbounds nuw float, ptr %652, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
   br label %703
@@ -1629,7 +1629,7 @@ _diffuse_error.exit471.i:                         ; preds = %694
   br i1 %exitcond.not.i473.i, label %_diffuse_error.exit474.i, label %703
 
 _diffuse_error.exit474.i:                         ; preds = %703
-  %711 = getelementptr inbounds nuw float, ptr %652, i64 %229
+  %711 = getelementptr inbounds nuw float, ptr %652, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !319)
   br label %712
@@ -1716,7 +1716,7 @@ _diffuse_error.exit480.i:                         ; preds = %720
 
 _nearest_color.exit487.i:                         ; preds = %739, %.preheader.i484.i
   %754 = getelementptr inbounds nuw float, ptr %702, i64 %230
-  %755 = getelementptr inbounds nuw float, ptr %680, i64 %228
+  %755 = getelementptr inbounds nuw float, ptr %680, i64 %226
   %756 = getelementptr inbounds nuw float, ptr %755, i64 %230
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
@@ -1758,7 +1758,7 @@ _clipnan_pixel.exit490.i:                         ; preds = %757
   br i1 %exitcond.not.i492.i, label %_diffuse_error.exit493.i, label %769
 
 _diffuse_error.exit493.i:                         ; preds = %769
-  %777 = getelementptr inbounds nuw float, ptr %702, i64 %228
+  %777 = getelementptr inbounds nuw float, ptr %702, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !344)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !347)
   br label %778
@@ -1777,7 +1777,7 @@ _diffuse_error.exit493.i:                         ; preds = %769
   br i1 %exitcond.not.i495.i, label %_diffuse_error.exit496.i, label %778
 
 _diffuse_error.exit496.i:                         ; preds = %778
-  %786 = getelementptr inbounds nuw float, ptr %702, i64 %229
+  %786 = getelementptr inbounds nuw float, ptr %702, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !349)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
   br label %787
@@ -1873,8 +1873,8 @@ _diffuse_error.exit502.i:                         ; preds = %795
   br i1 %exitcond33.not.i508.i, label %_nearest_color.exit509.i, label %.preheader.i506.i
 
 _nearest_color.exit509.i:                         ; preds = %823, %.preheader.i506.i
-  %838 = getelementptr inbounds nuw float, ptr %807, i64 %229
-  %839 = getelementptr inbounds nuw float, ptr %806, i64 %229
+  %838 = getelementptr inbounds nuw float, ptr %807, i64 %228
+  %839 = getelementptr inbounds nuw float, ptr %806, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !367)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !370)
   br label %840
@@ -1974,7 +1974,7 @@ _diffuse_error.exit521.i:                         ; preds = %873
   br i1 %exitcond.not.i523.i, label %.lr.ph87.i, label %881
 
 _diffuse_error.exit524._crit_edge.i:              ; preds = %_diffuse_error.exit559.i
-  %889 = getelementptr inbounds nuw float, ptr %807, i64 %228
+  %889 = getelementptr inbounds nuw float, ptr %807, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !392)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !395)
   br i1 %.0.i5.i, label %.preheader.i528.i, label %890
@@ -2025,7 +2025,7 @@ _diffuse_error.exit524._crit_edge.i:              ; preds = %_diffuse_error.exit
   br i1 %exitcond33.not.i530.i, label %_nearest_color.exit531.i, label %.preheader.i528.i
 
 _nearest_color.exit531.i:                         ; preds = %905, %.preheader.i528.i
-  %920 = getelementptr inbounds nuw float, ptr %889, i64 %228
+  %920 = getelementptr inbounds nuw float, ptr %889, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !400)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !403)
   br label %921
@@ -2044,7 +2044,7 @@ _nearest_color.exit531.i:                         ; preds = %905, %.preheader.i5
   br i1 %exitcond.not.i533.i, label %_diffuse_error.exit534.i, label %921
 
 _diffuse_error.exit534.i:                         ; preds = %921
-  %929 = getelementptr inbounds nuw float, ptr %889, i64 %229
+  %929 = getelementptr inbounds nuw float, ptr %889, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !405)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
   br label %930
@@ -2157,7 +2157,7 @@ _clipnan_pixel.exit547.i:                         ; preds = %967
   br i1 %exitcond.not.i549.i, label %_diffuse_error.exit550.i, label %979
 
 _diffuse_error.exit550.i:                         ; preds = %979
-  %987 = getelementptr inbounds nuw float, ptr %939, i64 %228
+  %987 = getelementptr inbounds nuw float, ptr %939, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
   br label %988
@@ -2176,7 +2176,7 @@ _diffuse_error.exit550.i:                         ; preds = %979
   br i1 %exitcond.not.i552.i, label %_diffuse_error.exit553.i, label %988
 
 _diffuse_error.exit553.i:                         ; preds = %988
-  %996 = getelementptr inbounds nuw float, ptr %939, i64 %229
+  %996 = getelementptr inbounds nuw float, ptr %939, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !433)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !436)
   br label %997
@@ -2272,8 +2272,8 @@ _diffuse_error.exit559.i:                         ; preds = %1005
   br i1 %exitcond33.not.i565.i, label %_nearest_color.exit566.i, label %.preheader.i563.i
 
 _nearest_color.exit566.i:                         ; preds = %1029, %.preheader.i563.i
-  %1044 = getelementptr inbounds nuw float, ptr %1017, i64 %229
-  %1045 = getelementptr inbounds nuw float, ptr %1016, i64 %229
+  %1044 = getelementptr inbounds nuw float, ptr %1017, i64 %228
+  %1045 = getelementptr inbounds nuw float, ptr %1016, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !451)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !454)
   br label %1046
@@ -2373,7 +2373,7 @@ _diffuse_error.exit578.i:                         ; preds = %1079
   br i1 %exitcond.not.i580.i, label %.lr.ph97.i, label %1087
 
 _diffuse_error.exit581._crit_edge.i.loopexit:     ; preds = %_diffuse_error.exit616.i
-  %1095 = getelementptr inbounds nuw float, ptr %1017, i64 %228
+  %1095 = getelementptr inbounds nuw float, ptr %1017, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !476)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
   br i1 %.0.i5.i, label %.preheader.i585.i, label %1096
@@ -2423,7 +2423,7 @@ _diffuse_error.exit581._crit_edge.i.loopexit:     ; preds = %_diffuse_error.exit
   br i1 %exitcond33.not.i587.i, label %_nearest_color.exit588.i, label %.preheader.i585.i
 
 _nearest_color.exit588.i:                         ; preds = %1107, %.preheader.i585.i
-  %1122 = getelementptr inbounds nuw float, ptr %1095, i64 %228
+  %1122 = getelementptr inbounds nuw float, ptr %1095, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !484)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !487)
   br label %1123
@@ -2442,7 +2442,7 @@ _nearest_color.exit588.i:                         ; preds = %1107, %.preheader.i
   br i1 %exitcond.not.i590.i, label %_diffuse_error.exit591.i, label %1123
 
 _diffuse_error.exit591.i:                         ; preds = %1123
-  %1131 = getelementptr inbounds nuw float, ptr %1095, i64 %229
+  %1131 = getelementptr inbounds nuw float, ptr %1095, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !489)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !492)
   br label %1132
@@ -2560,7 +2560,7 @@ _clipnan_pixel.exit604.i:                         ; preds = %1169
   br i1 %exitcond.not.i606.i, label %_diffuse_error.exit607.i, label %1181
 
 _diffuse_error.exit607.i:                         ; preds = %1181
-  %1189 = getelementptr inbounds nuw float, ptr %1141, i64 %228
+  %1189 = getelementptr inbounds nuw float, ptr %1141, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !512)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !515)
   br label %1190
@@ -2579,7 +2579,7 @@ _diffuse_error.exit607.i:                         ; preds = %1181
   br i1 %exitcond.not.i609.i, label %_diffuse_error.exit610.i, label %1190
 
 _diffuse_error.exit610.i:                         ; preds = %1190
-  %1198 = getelementptr inbounds nuw float, ptr %1141, i64 %229
+  %1198 = getelementptr inbounds nuw float, ptr %1141, i64 %228
   tail call void @llvm.experimental.noalias.scope.decl(metadata !517)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !520)
   br label %1199
@@ -2632,7 +2632,7 @@ _diffuse_error.exit537.i:                         ; preds = %930, %_diffuse_erro
   br label %1251
 
 ._crit_edge120.i:                                 ; preds = %_diffuse_error.exit633.i
-  %1220 = getelementptr inbounds nuw float, ptr %1219, i64 %228
+  %1220 = getelementptr inbounds nuw float, ptr %1219, i64 %226
   tail call void @llvm.experimental.noalias.scope.decl(metadata !527)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !530)
   br i1 %.0.i5.i, label %.preheader.i620.i, label %1221

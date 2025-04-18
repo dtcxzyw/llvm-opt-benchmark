@@ -104,28 +104,28 @@ lookup_lazy_params.exit:                          ; preds = %.lookup_lazy_params
   %29 = load i8, ptr %28, align 8
   %30 = and i8 %29, -2
   store i8 %30, ptr %28, align 8
-  %31 = add nsw i32 %.0.i, -1
-  %32 = zext i32 %.pre36 to i64
-  %33 = tail call ptr @xcalloc(i64 noundef %32, i64 noundef 16) #14
-  %34 = load i32, ptr @lazy_nr_dir_threads, align 4, !tbaa !4
-  %35 = zext nneg i32 %34 to i64
-  %36 = tail call ptr @xcalloc(i64 noundef %35, i64 noundef 32) #14
-  %37 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 24) #14
-  %38 = tail call ptr @xcalloc(i64 noundef 32, i64 noundef 40) #14
-  store ptr %38, ptr @lazy_dir_mutex_array, align 8, !tbaa !27
-  br label %39
+  %31 = zext i32 %.pre36 to i64
+  %32 = tail call ptr @xcalloc(i64 noundef %31, i64 noundef 16) #14
+  %33 = load i32, ptr @lazy_nr_dir_threads, align 4, !tbaa !4
+  %34 = zext nneg i32 %33 to i64
+  %35 = tail call ptr @xcalloc(i64 noundef %34, i64 noundef 32) #14
+  %36 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 24) #14
+  %37 = tail call ptr @xcalloc(i64 noundef 32, i64 noundef 40) #14
+  store ptr %37, ptr @lazy_dir_mutex_array, align 8, !tbaa !27
+  br label %38
 
-39:                                               ; preds = %39, %24
-  %indvars.iv.i.i = phi i64 [ 0, %24 ], [ %indvars.iv.next.i.i, %39 ]
-  %40 = load ptr, ptr @lazy_dir_mutex_array, align 8, !tbaa !27
-  %41 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %40, i64 %indvars.iv.i.i
-  %42 = tail call i32 @init_recursive_mutex(ptr noundef %41) #14
+38:                                               ; preds = %38, %24
+  %indvars.iv.i.i = phi i64 [ 0, %24 ], [ %indvars.iv.next.i.i, %38 ]
+  %39 = load ptr, ptr @lazy_dir_mutex_array, align 8, !tbaa !27
+  %40 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %39, i64 %indvars.iv.i.i
+  %41 = tail call i32 @init_recursive_mutex(ptr noundef %40) #14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
-  br i1 %exitcond.not.i.i, label %init_dir_mutex.exit.preheader.i, label %39, !llvm.loop !28
+  br i1 %exitcond.not.i.i, label %init_dir_mutex.exit.preheader.i, label %38, !llvm.loop !28
 
-init_dir_mutex.exit.preheader.i:                  ; preds = %39
-  %43 = add i32 %31, %.pre36
+init_dir_mutex.exit.preheader.i:                  ; preds = %38
+  %42 = add nsw i32 %.0.i, -1
+  %43 = add i32 %42, %.pre36
   %44 = udiv i32 %43, %.0.i
   %45 = load i32, ptr @lazy_nr_dir_threads, align 4, !tbaa !4
   %46 = icmp sgt i32 %45, 0
@@ -145,11 +145,11 @@ init_dir_mutex.exit.i:                            ; preds = %.lr.ph.i
 .lr.ph.i:                                         ; preds = %init_dir_mutex.exit.preheader.i, %init_dir_mutex.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %init_dir_mutex.exit.i ], [ 0, %init_dir_mutex.exit.preheader.i ]
   %.060.i = phi i32 [ %spec.select.i, %init_dir_mutex.exit.i ], [ 0, %init_dir_mutex.exit.preheader.i ]
-  %51 = getelementptr inbounds nuw %struct.lazy_dir_thread_data, ptr %36, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw %struct.lazy_dir_thread_data, ptr %35, i64 %indvars.iv.i
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %0, ptr %52, align 8, !tbaa !31
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store ptr %33, ptr %53, align 8, !tbaa !36
+  store ptr %32, ptr %53, align 8, !tbaa !36
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i32 %.060.i, ptr %54, align 8, !tbaa !37
   %55 = add nsw i32 %.060.i, %44
@@ -176,7 +176,7 @@ init_dir_mutex.exit.i:                            ; preds = %.lr.ph.i
 
 .lr.ph62.i:                                       ; preds = %.preheader58.i, %62
   %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %62 ], [ 0, %.preheader58.i ]
-  %66 = getelementptr inbounds nuw %struct.lazy_dir_thread_data, ptr %36, i64 %indvars.iv65.i
+  %66 = getelementptr inbounds nuw %struct.lazy_dir_thread_data, ptr %35, i64 %indvars.iv65.i
   %67 = load i64, ptr %66, align 8, !tbaa !40
   %68 = tail call i32 @pthread_join(i64 noundef %67, ptr noundef null) #14
   %.not51.i = icmp eq i32 %68, 0
@@ -187,11 +187,11 @@ init_dir_mutex.exit.i:                            ; preds = %.lr.ph.i
   unreachable
 
 ._crit_edge.i:                                    ; preds = %62, %.preheader58.i, %init_dir_mutex.exit.preheader.i
-  %70 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %0, ptr %70, align 8, !tbaa !41
-  %71 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store ptr %33, ptr %71, align 8, !tbaa !43
-  %72 = tail call i32 @pthread_create(ptr noundef %37, ptr noundef null, ptr noundef nonnull @lazy_name_thread_proc, ptr noundef %37) #14
+  %71 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store ptr %32, ptr %71, align 8, !tbaa !43
+  %72 = tail call i32 @pthread_create(ptr noundef %36, ptr noundef null, ptr noundef nonnull @lazy_name_thread_proc, ptr noundef %36) #14
   %.not.i19 = icmp eq i32 %72, 0
   br i1 %.not.i19, label %76, label %73
 
@@ -209,7 +209,7 @@ init_dir_mutex.exit.i:                            ; preds = %.lr.ph.i
 .lr.ph.i.i:                                       ; preds = %76, %85
   %78 = phi i32 [ %86, %85 ], [ %77, %76 ]
   %indvars.iv.i53.i = phi i64 [ %indvars.iv.next.i54.i, %85 ], [ 0, %76 ]
-  %79 = getelementptr inbounds nuw %struct.lazy_entry, ptr %33, i64 %indvars.iv.i53.i
+  %79 = getelementptr inbounds nuw %struct.lazy_entry, ptr %32, i64 %indvars.iv.i53.i
   %80 = load ptr, ptr %79, align 8, !tbaa !44
   %.not.i.i = icmp eq ptr %80, null
   br i1 %.not.i.i, label %85, label %81
@@ -230,7 +230,7 @@ init_dir_mutex.exit.i:                            ; preds = %.lr.ph.i
   br i1 %88, label %.lr.ph.i.i, label %lazy_update_dir_ref_counts.exit.i, !llvm.loop !47
 
 lazy_update_dir_ref_counts.exit.i:                ; preds = %85, %76
-  %89 = load i64, ptr %37, align 8, !tbaa !48
+  %89 = load i64, ptr %36, align 8, !tbaa !48
   %90 = tail call i32 @pthread_join(i64 noundef %89, ptr noundef null) #14
   %.not50.i = icmp eq i32 %90, 0
   br i1 %.not50.i, label %.preheader.i, label %91
@@ -253,9 +253,9 @@ lazy_update_dir_ref_counts.exit.i:                ; preds = %85, %76
 threaded_lazy_init_name_hash.exit:                ; preds = %.preheader.i
   %97 = load ptr, ptr @lazy_dir_mutex_array, align 8, !tbaa !27
   tail call void @free(ptr noundef %97) #14
-  tail call void @free(ptr noundef nonnull %37) #14
-  tail call void @free(ptr noundef %36) #14
-  tail call void @free(ptr noundef %33) #14
+  tail call void @free(ptr noundef nonnull %36) #14
+  tail call void @free(ptr noundef %35) #14
+  tail call void @free(ptr noundef %32) #14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14
   %98 = load i8, ptr %28, align 8
   %99 = and i8 %98, 1

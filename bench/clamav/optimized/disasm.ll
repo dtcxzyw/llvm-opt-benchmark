@@ -1253,35 +1253,32 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 .lr.ph809.preheader.i:                            ; preds = %395
   %398 = add nsw i32 %397, -1
   %.not926.i = icmp ugt i32 %.9528.i, %398
-  br i1 %.not926.i, label %.lr.ph809.preheader.split.i, label %.loopexit
+  br i1 %.not926.i, label %.lr.ph809.i, label %.loopexit
 
-.lr.ph809.preheader.split.i:                      ; preds = %.lr.ph809.preheader.i
-  %399 = sub i32 %.9528.i, %397
-  br label %.lr.ph809.i
+.lr.ph809.i:                                      ; preds = %.lr.ph809.preheader.i, %.lr.ph809.i
+  %.9807.i = phi ptr [ %400, %.lr.ph809.i ], [ %.8.i, %.lr.ph809.preheader.i ]
+  %.3543805.i = phi i32 [ %406, %.lr.ph809.i ], [ 0, %.lr.ph809.preheader.i ]
+  %.0549804.i = phi i64 [ %405, %.lr.ph809.i ], [ 0, %.lr.ph809.preheader.i ]
+  %399 = load i8, ptr %.9807.i, align 1, !tbaa !3
+  %400 = getelementptr inbounds nuw i8, ptr %.9807.i, i64 1
+  %401 = zext i8 %399 to i32
+  %402 = shl nuw nsw i32 %.3543805.i, 3
+  %403 = shl nuw i32 %401, %402
+  %404 = sext i32 %403 to i64
+  %405 = add nsw i64 %.0549804.i, %404
+  %406 = add nuw nsw i32 %.3543805.i, 1
+  %exitcond913.not.i = icmp eq i32 %406, %397
+  br i1 %exitcond913.not.i, label %407, label %.lr.ph809.i
 
-.lr.ph809.i:                                      ; preds = %.lr.ph809.i, %.lr.ph809.preheader.split.i
-  %.9807.i = phi ptr [ %401, %.lr.ph809.i ], [ %.8.i, %.lr.ph809.preheader.split.i ]
-  %.3543805.i = phi i32 [ %407, %.lr.ph809.i ], [ 0, %.lr.ph809.preheader.split.i ]
-  %.0549804.i = phi i64 [ %406, %.lr.ph809.i ], [ 0, %.lr.ph809.preheader.split.i ]
-  %400 = load i8, ptr %.9807.i, align 1, !tbaa !3
-  %401 = getelementptr inbounds nuw i8, ptr %.9807.i, i64 1
-  %402 = zext i8 %400 to i32
-  %403 = shl nuw nsw i32 %.3543805.i, 3
-  %404 = shl nuw i32 %402, %403
-  %405 = sext i32 %404 to i64
-  %406 = add nsw i64 %.0549804.i, %405
-  %407 = add nuw nsw i32 %.3543805.i, 1
-  %exitcond913.not.i = icmp eq i32 %407, %397
-  br i1 %exitcond913.not.i, label %408, label %.lr.ph809.i
-
-408:                                              ; preds = %.lr.ph809.i
-  %409 = zext nneg i32 %398 to i64
+407:                                              ; preds = %.lr.ph809.i
+  %408 = sub i32 %.9528.i, %397
   %scevgep914.i = getelementptr i8, ptr %.8.i, i64 1
+  %409 = zext nneg i32 %398 to i64
   %scevgep915.i = getelementptr i8, ptr %scevgep914.i, i64 %409
   %410 = shl nuw nsw i32 %397, 3
   %411 = sub nuw nsw i32 64, %410
   %412 = zext nneg i32 %411 to i64
-  %413 = shl i64 %406, %412
+  %413 = shl i64 %405, %412
   %414 = ashr exact i64 %413, %412
   %415 = trunc nsw i64 %414 to i32
   br label %447
@@ -1316,30 +1313,27 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
   %.5563940.i = phi i32 [ 2, %.thread936.i ], [ %428, %420 ]
   %430 = add nsw i32 %.5563940.i, -1
   %.not925.i = icmp ugt i32 %275, %430
-  br i1 %.not925.i, label %.lr.ph799.preheader.split.i, label %.loopexit
+  br i1 %.not925.i, label %.lr.ph799.i, label %.loopexit
 
-.lr.ph799.preheader.split.i:                      ; preds = %.lr.ph799.preheader.i
-  %431 = sub i32 %275, %.5563940.i
-  br label %.lr.ph799.i
-
-.lr.ph799.i:                                      ; preds = %.lr.ph799.i, %.lr.ph799.preheader.split.i
-  %.11797.i = phi ptr [ %433, %.lr.ph799.i ], [ %278, %.lr.ph799.preheader.split.i ]
-  %.4544795.i = phi i32 [ %439, %.lr.ph799.i ], [ 0, %.lr.ph799.preheader.split.i ]
-  %.1550794.i = phi i64 [ %438, %.lr.ph799.i ], [ 0, %.lr.ph799.preheader.split.i ]
-  %432 = load i8, ptr %.11797.i, align 1, !tbaa !3
-  %433 = getelementptr inbounds nuw i8, ptr %.11797.i, i64 1
-  %434 = zext i8 %432 to i32
-  %435 = shl nuw nsw i32 %.4544795.i, 3
-  %436 = shl nuw nsw i32 %434, %435
-  %437 = zext nneg i32 %436 to i64
-  %438 = add nuw nsw i64 %.1550794.i, %437
-  %439 = add nuw nsw i32 %.4544795.i, 1
-  %exitcond910.not.i = icmp eq i32 %439, %.5563940.i
+.lr.ph799.i:                                      ; preds = %.lr.ph799.preheader.i, %.lr.ph799.i
+  %.11797.i = phi ptr [ %432, %.lr.ph799.i ], [ %278, %.lr.ph799.preheader.i ]
+  %.4544795.i = phi i32 [ %438, %.lr.ph799.i ], [ 0, %.lr.ph799.preheader.i ]
+  %.1550794.i = phi i64 [ %437, %.lr.ph799.i ], [ 0, %.lr.ph799.preheader.i ]
+  %431 = load i8, ptr %.11797.i, align 1, !tbaa !3
+  %432 = getelementptr inbounds nuw i8, ptr %.11797.i, i64 1
+  %433 = zext i8 %431 to i32
+  %434 = shl nuw nsw i32 %.4544795.i, 3
+  %435 = shl nuw nsw i32 %433, %434
+  %436 = zext nneg i32 %435 to i64
+  %437 = add nuw nsw i64 %.1550794.i, %436
+  %438 = add nuw nsw i32 %.4544795.i, 1
+  %exitcond910.not.i = icmp eq i32 %438, %.5563940.i
   br i1 %exitcond910.not.i, label %._crit_edge800.loopexit.i, label %.lr.ph799.i
 
 ._crit_edge800.loopexit.i:                        ; preds = %.lr.ph799.i
-  %440 = zext nneg i32 %430 to i64
+  %439 = sub i32 %275, %.5563940.i
   %scevgep.i = getelementptr i8, ptr %.0518.i, i64 2
+  %440 = zext nneg i32 %430 to i64
   %scevgep911.i = getelementptr i8, ptr %scevgep.i, i64 %440
   %441 = shl nuw nsw i32 %.5563940.i, 3
   %442 = sub nuw nsw i32 64, %441
@@ -1348,18 +1342,18 @@ define ptr @cli_disasm_one(ptr noundef readonly captures(address, ret: address, 
 
 ._crit_edge800.i:                                 ; preds = %._crit_edge800.loopexit.i, %420
   %.5563941.i = phi i64 [ 64, %420 ], [ %443, %._crit_edge800.loopexit.i ]
-  %.1550.lcssa.i = phi i64 [ 0, %420 ], [ %438, %._crit_edge800.loopexit.i ]
-  %.12531.lcssa.i = phi i32 [ %275, %420 ], [ %431, %._crit_edge800.loopexit.i ]
+  %.1550.lcssa.i = phi i64 [ 0, %420 ], [ %437, %._crit_edge800.loopexit.i ]
+  %.12531.lcssa.i = phi i32 [ %275, %420 ], [ %439, %._crit_edge800.loopexit.i ]
   %.11.lcssa.i = phi ptr [ %278, %420 ], [ %scevgep911.i, %._crit_edge800.loopexit.i ]
   %444 = shl i64 %.1550.lcssa.i, %.5563941.i
   %445 = ashr exact i64 %444, %.5563941.i
   %446 = trunc nsw i64 %445 to i32
   br label %447
 
-447:                                              ; preds = %._crit_edge800.i, %408, %395
-  %.sink1049.i = phi i32 [ %415, %408 ], [ %446, %._crit_edge800.i ], [ 0, %395 ]
-  %.11530.i = phi i32 [ %399, %408 ], [ %.12531.lcssa.i, %._crit_edge800.i ], [ %.9528.i, %395 ]
-  %.10.i = phi ptr [ %scevgep915.i, %408 ], [ %.11.lcssa.i, %._crit_edge800.i ], [ %.8.i, %395 ]
+447:                                              ; preds = %._crit_edge800.i, %407, %395
+  %.sink1049.i = phi i32 [ %415, %407 ], [ %446, %._crit_edge800.i ], [ 0, %395 ]
+  %.11530.i = phi i32 [ %408, %407 ], [ %.12531.lcssa.i, %._crit_edge800.i ], [ %.9528.i, %395 ]
+  %.10.i = phi ptr [ %scevgep915.i, %407 ], [ %.11.lcssa.i, %._crit_edge800.i ], [ %.8.i, %395 ]
   %448 = getelementptr inbounds nuw i8, ptr %288, i64 28
   store i32 %.sink1049.i, ptr %448, align 4, !tbaa !3
   %.off655.i = add nsw i32 %193, -21

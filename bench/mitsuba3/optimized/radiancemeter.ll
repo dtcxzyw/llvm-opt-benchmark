@@ -728,22 +728,22 @@ define weak_odr void @_ZNK7mitsuba13RadianceMeterIfN5drjit6MatrixINS_8SpectrumIf
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0251.0.copyload = load <4 x float>, ptr %14, align 16
   %15 = load <4 x float>, ptr %13, align 16
-  %16 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %15, <4 x float> zeroinitializer, <4 x float> %.sroa.0251.0.copyload)
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load <4 x float>, ptr %17, align 16
-  %19 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> zeroinitializer, <4 x float> %16)
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %21 = load <4 x float>, ptr %20, align 16
-  %22 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %21, <4 x float> zeroinitializer, <4 x float> %19)
-  %23 = fmul contract <4 x float> %15, zeroinitializer
-  %24 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> zeroinitializer, <4 x float> %23)
-  %25 = fadd contract <4 x float> %21, %24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %17 = load <4 x float>, ptr %16, align 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %19 = load <4 x float>, ptr %18, align 16
+  %20 = fmul contract <4 x float> %15, zeroinitializer
+  %21 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %17, <4 x float> zeroinitializer, <4 x float> %20)
+  %22 = fadd contract <4 x float> %19, %21
+  %23 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %15, <4 x float> zeroinitializer, <4 x float> %.sroa.0251.0.copyload)
+  %24 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %17, <4 x float> zeroinitializer, <4 x float> %23)
+  %25 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %19, <4 x float> zeroinitializer, <4 x float> %24)
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %27 = fmul contract <4 x float> %25, splat (float 0x3F17700000000000)
-  %28 = fadd contract <4 x float> %22, %27
+  %27 = fmul contract <4 x float> %22, splat (float 0x3F17700000000000)
+  %28 = fadd contract <4 x float> %25, %27
   store <4 x float> %28, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store <4 x float> %25, ptr %.sroa.4.0..sroa_idx, align 16
+  store <4 x float> %22, ptr %.sroa.4.0..sroa_idx, align 16
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 0x47EFFFFFE0000000, ptr %.sroa.6.0..sroa_idx, align 16
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -790,22 +790,22 @@ define weak_odr void @_ZNK7mitsuba13RadianceMeterIfN5drjit6MatrixINS_8SpectrumIf
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0252.0.copyload = load <4 x float>, ptr %14, align 16
   %15 = load <4 x float>, ptr %13, align 16
-  %16 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %15, <4 x float> zeroinitializer, <4 x float> %.sroa.0252.0.copyload)
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load <4 x float>, ptr %17, align 16
-  %19 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> zeroinitializer, <4 x float> %16)
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %21 = load <4 x float>, ptr %20, align 16
-  %22 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %21, <4 x float> zeroinitializer, <4 x float> %19)
-  %23 = fmul contract <4 x float> %15, zeroinitializer
-  %24 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> zeroinitializer, <4 x float> %23)
-  %25 = fadd contract <4 x float> %21, %24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %17 = load <4 x float>, ptr %16, align 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %19 = load <4 x float>, ptr %18, align 16
+  %20 = fmul contract <4 x float> %15, zeroinitializer
+  %21 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %17, <4 x float> zeroinitializer, <4 x float> %20)
+  %22 = fadd contract <4 x float> %19, %21
+  %23 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %15, <4 x float> zeroinitializer, <4 x float> %.sroa.0252.0.copyload)
+  %24 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %17, <4 x float> zeroinitializer, <4 x float> %23)
+  %25 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %19, <4 x float> zeroinitializer, <4 x float> %24)
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %27 = fmul contract <4 x float> %25, splat (float 0x3F17700000000000)
-  %28 = fadd contract <4 x float> %22, %27
+  %27 = fmul contract <4 x float> %22, splat (float 0x3F17700000000000)
+  %28 = fadd contract <4 x float> %25, %27
   store <4 x float> %28, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store <4 x float> %25, ptr %.sroa.4.0..sroa_idx, align 16
+  store <4 x float> %22, ptr %.sroa.4.0..sroa_idx, align 16
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 0x47EFFFFFE0000000, ptr %.sroa.6.0..sroa_idx, align 16
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36

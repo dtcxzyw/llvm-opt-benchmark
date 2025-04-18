@@ -1487,7 +1487,6 @@ define noundef ptr @_ZNK21FilterPluginContainer14pluginOfFilterEPK7QAction(ptr n
 
 _ZSt4findISt14_List_iteratorIP7QActionEPKS1_ET_S6_S6_RKT0_.exit: ; preds = %15, %.lr.ph.i.i.i
   %.sroa.03.0.lcssa.i.i.i = phi ptr [ %3, %15 ], [ %.sroa.03.06.i.i.i, %.lr.ph.i.i.i ]
-  %.not28 = icmp eq ptr %.sroa.03.0.lcssa.i.i.i, %3
   br label %.lr.ph.i.i.i10
 
 .lr.ph.i.i.i10:                                   ; preds = %_ZSt4findISt14_List_iteratorIP7QActionEPKS1_ET_S6_S6_RKT0_.exit, %.lr.ph.i.i.i10
@@ -1498,6 +1497,7 @@ _ZSt4findISt14_List_iteratorIP7QActionEPKS1_ET_S6_S6_RKT0_.exit: ; preds = %15, 
   br i1 %.not.i.i.i11, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i10, !llvm.loop !10
 
 _ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit:    ; preds = %.lr.ph.i.i.i10
+  %.not28 = icmp eq ptr %.sroa.03.0.lcssa.i.i.i, %3
   br i1 %.not28, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit.thread, label %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit._crit_edge
 
 _ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit.thread: ; preds = %.lr.ph, %_ZNSt7__cxx114listIP7QActionSaIS2_EED2Ev.exit

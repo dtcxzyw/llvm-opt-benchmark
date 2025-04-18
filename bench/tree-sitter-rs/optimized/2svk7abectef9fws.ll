@@ -600,10 +600,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hf6d3d0724ae2
   %trunc.i = trunc nuw i64 %2 to i1
   %spec.select.i = select i1 %trunc.i, i64 %3, i64 undef
   %spec.select1.i = and i64 %2, 1
-  %16 = add i64 %11, %1
   br label %22
 
 ._crit_edge.thread:                               ; preds = %22
+  %16 = add i64 %11, %1
   %17 = add i64 %16, -1
   br label %19
 

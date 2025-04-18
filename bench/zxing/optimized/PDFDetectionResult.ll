@@ -843,8 +843,8 @@ _ZN5ZXing6Pdf417L21AdjustRowNumbersByRowERSt6vectorINS_8NullableINS0_21Detection
 
 .lr.ph.i:                                         ; preds = %248
   %259 = getelementptr i8, ptr %245, i64 160
-  %260 = getelementptr i8, ptr %245, i64 288
-  %261 = getelementptr i8, ptr %245, i64 -32
+  %260 = getelementptr i8, ptr %245, i64 -32
+  %261 = getelementptr i8, ptr %245, i64 288
   %262 = shl i64 %256, 32
   %sext.i = add nsw i64 %262, -8589934592
   %263 = ashr exact i64 %sext.i, 32
@@ -893,8 +893,8 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i: ; preds = %_ZNK5Z
 
 _ZNSt5arrayIN5ZXing8NullableINS0_6Pdf4178CodewordEEELm14EEC2Ev.exit.i.i: ; preds = %278
   %282 = trunc nuw i8 %277 to i1
-  %283 = select i1 %282, ptr %260, ptr %261
-  %284 = load ptr, ptr %261, align 8, !tbaa !19
+  %283 = select i1 %282, ptr %261, ptr %260
+  %284 = load ptr, ptr %260, align 8, !tbaa !19
   %285 = getelementptr inbounds nuw %"class.ZXing::Nullable.7", ptr %284, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %16, ptr noundef nonnull align 4 dereferenceable(24) %285, i64 24, i1 false), !tbaa.struct !53
   %286 = load ptr, ptr %283, align 8, !tbaa !19

@@ -59568,15 +59568,15 @@ tailrecurse.i:                                    ; preds = %226, %220
 vm_block_iseq.exit:                               ; preds = %tailrecurse.i, %tailrecurse.i, %223
   %.0.i47 = phi ptr [ %225, %223 ], [ null, %tailrecurse.i ], [ null, %tailrecurse.i ]
   %232 = tail call i32 @rb_get_coverage_mode() #21
-  %233 = lshr i32 %232, 4
-  %234 = getelementptr i8, ptr %3, i64 24
-  %.val.i50103 = load i32, ptr %234, align 8, !tbaa !399
+  %233 = getelementptr i8, ptr %3, i64 24
+  %.val.i50103 = load i32, ptr %233, align 8, !tbaa !399
   %switch104 = icmp ult i32 %.val.i50103, 2
   br i1 %switch104, label %vm_block_ep.exit, label %tailrecurse.i48
 
 vm_block_ep.exit:                                 ; preds = %tailrecurse.i48, %vm_block_iseq.exit
   %.tr.i49.lcssa = phi ptr [ %3, %vm_block_iseq.exit ], [ %241, %tailrecurse.i48 ]
-  %.lobit = and i32 %233, 1
+  %234 = lshr i32 %232, 4
+  %.lobit = and i32 %234, 1
   %235 = getelementptr inbounds nuw i8, ptr %.tr.i49.lcssa, i64 8
   %236 = load ptr, ptr %235, align 8, !tbaa !26
   %.0.val78 = load i64, ptr %236, align 8, !tbaa !7

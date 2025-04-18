@@ -868,9 +868,9 @@ define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef reado
   %narrow = add nuw nsw i32 %80, 1
   %81 = zext nneg i32 %narrow to i64
   %82 = add i64 %.promoted.i, %81
-  %83 = and i32 %79, 2147483632
-  %84 = add nsw i32 %.03664.i, -16
-  %85 = sub nsw i32 %84, %83
+  %83 = add nsw i32 %.03664.i, -16
+  %84 = and i32 %79, 2147483632
+  %85 = sub nsw i32 %83, %84
   store i64 %82, ptr %70, align 8, !tbaa !43
   br label %86
 

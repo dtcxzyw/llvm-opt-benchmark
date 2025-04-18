@@ -6754,9 +6754,9 @@ _ZN3tbb6detail2d219concurrent_hash_mapINSt7__cxx1112basic_stringIcSt11char_trait
 
 61:                                               ; preds = %._crit_edge
   %62 = load atomic i64, ptr %10 monotonic, align 8
-  %63 = icmp ne i64 %.038, 1
-  %64 = icmp ult i64 %.038, 8
-  %.not.i = and i1 %64, %63
+  %63 = icmp ult i64 %.038, 8
+  %64 = icmp ne i64 %.038, 1
+  %.not.i = and i1 %63, %64
   br i1 %.not.i, label %66, label %65
 
 65:                                               ; preds = %61

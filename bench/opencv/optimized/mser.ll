@@ -2171,42 +2171,42 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   store ptr %16, ptr %8, align 8, !tbaa !161
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !71
-  %19 = shl i64 %4, 32
-  %sext = add i64 %19, 4294967296
-  %20 = ashr exact i64 %sext, 30
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !89
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !89
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %9) #23
   call void @llvm.lifetime.start.p0(i64 6168, ptr nonnull %10) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(6168) %10, i8 0, i64 6168, i1 false)
   %.sroa.0.0.extract.trunc = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11) #23
-  %23 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %11, ptr noundef nonnull align 8 dereferenceable(60) %24, i64 60, i1 false), !tbaa.struct !162
-  %25 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store ptr %2, ptr %25, align 8, !tbaa !164
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  store ptr %3, ptr %26, align 8, !tbaa !168
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 80
-  store ptr %18, ptr %27, align 8, !tbaa !169
-  %28 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  store i32 %.sroa.0.0.extract.trunc, ptr %28, align 8, !tbaa !170
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %30 = load ptr, ptr %29, align 8, !tbaa !154
-  store ptr %30, ptr %9, align 16, !tbaa !171
-  store ptr null, ptr %30, align 8, !tbaa !172
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %11, ptr noundef nonnull align 8 dereferenceable(60) %22, i64 60, i1 false), !tbaa.struct !162
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  store ptr %2, ptr %23, align 8, !tbaa !164
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  store ptr %3, ptr %24, align 8, !tbaa !168
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  store ptr %18, ptr %25, align 8, !tbaa !169
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  store i32 %.sroa.0.0.extract.trunc, ptr %26, align 8, !tbaa !170
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %28 = load ptr, ptr %27, align 8, !tbaa !154
+  store ptr %28, ptr %9, align 16, !tbaa !171
+  store ptr null, ptr %28, align 8, !tbaa !172
   %invariant.gep = getelementptr i8, ptr %5, i64 -4
   br label %50
 
-31:                                               ; preds = %50
-  %32 = getelementptr inbounds i8, ptr %18, i64 %20
+29:                                               ; preds = %50
+  %30 = shl i64 %4, 32
+  %sext = add i64 %30, 4294967296
+  %31 = ashr exact i64 %sext, 30
+  %32 = getelementptr inbounds i8, ptr %18, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 256, ptr %33, align 16, !tbaa !173
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %35 = ptrtoint ptr %18 to i64
   %36 = ashr exact i64 %sext, 32
-  %37 = getelementptr inbounds i8, ptr %22, i64 %36
+  %37 = getelementptr inbounds i8, ptr %20, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !90
   %39 = zext i8 %38 to i32
   %40 = xor i32 %6, %39
@@ -2230,7 +2230,7 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   br label %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit
 
 50:                                               ; preds = %7, %50
-  %51 = phi ptr [ %30, %7 ], [ %55, %50 ]
+  %51 = phi ptr [ %28, %7 ], [ %55, %50 ]
   %indvars.iv = phi i64 [ 1, %7 ], [ %indvars.iv.next, %50 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %52 = load i32, ptr %gep, align 4, !tbaa !41
@@ -2242,15 +2242,15 @@ define linkonce_odr hidden void @_ZN2cv9MSER_Impl4passERKNS_3MatERSt6vectorIS4_I
   store ptr null, ptr %55, align 8, !tbaa !172
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %31, label %50, !llvm.loop !175
+  br i1 %exitcond.not, label %29, label %50, !llvm.loop !175
 
-_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit: ; preds = %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit.backedge, %31
-  %.095 = phi ptr [ %34, %31 ], [ %.095.be, %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit.backedge ]
-  %.092 = phi ptr [ %32, %31 ], [ %.092.be, %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit.backedge ]
+_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit: ; preds = %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit.backedge, %29
+  %.095 = phi ptr [ %34, %29 ], [ %.095.be, %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit.backedge ]
+  %.092 = phi ptr [ %32, %29 ], [ %.092.be, %_ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEib.exit.backedge ]
   %57 = ptrtoint ptr %.092 to i64
   %58 = sub i64 %57, %35
   %59 = ashr exact i64 %58, 2
-  %60 = getelementptr inbounds i8, ptr %22, i64 %59
+  %60 = getelementptr inbounds i8, ptr %20, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !90
   %62 = zext i8 %61 to i32
   %63 = xor i32 %6, %62
@@ -2278,7 +2278,7 @@ _ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEi
   %75 = ptrtoint ptr %71 to i64
   %76 = sub i64 %75, %35
   %77 = ashr exact i64 %76, 2
-  %78 = getelementptr inbounds i8, ptr %22, i64 %77
+  %78 = getelementptr inbounds i8, ptr %20, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !90
   %80 = zext i8 %79 to i32
   %81 = xor i32 %6, %80
@@ -2496,7 +2496,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store float 0x47EFFFFFE0000000, ptr %170, align 8, !tbaa !190
   %171 = getelementptr inbounds nuw i8, ptr %.023.i, i64 40
   store i8 1, ptr %171, align 8, !tbaa !191
-  %172 = load i32, ptr %23, align 4, !tbaa !192
+  %172 = load i32, ptr %21, align 4, !tbaa !192
   %.not30.i = icmp slt i32 %126, %172
   br i1 %.not30.i, label %174, label %173
 
@@ -2582,7 +2582,7 @@ _ZN2cv9MSER_Impl13ConnectedComp11growHistoryERPNS0_11CompHistoryERNS0_7WParamsEi
   store float 0x47EFFFFFE0000000, ptr %203, align 8, !tbaa !190
   %204 = getelementptr inbounds nuw i8, ptr %.023.i127, i64 40
   store i8 1, ptr %204, align 8, !tbaa !191
-  %205 = load i32, ptr %23, align 4, !tbaa !192
+  %205 = load i32, ptr %21, align 4, !tbaa !192
   %.not30.i128 = icmp slt i32 %199, %205
   br i1 %.not30.i128, label %207, label %206
 

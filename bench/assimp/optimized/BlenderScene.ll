@@ -13016,12 +13016,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Assimp7Blender9Structure12Re
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load ptr, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %6, i8 0, i64 144, i1 false)
   %15 = ptrtoint ptr %12 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %sext = shl i64 %17, 32
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %6, i8 0, i64 144, i1 false)
   %18 = ashr exact i64 %sext, 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #23
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16

@@ -320,14 +320,14 @@ define internal void @_ZNK4ncnn21Dequantize_x86_avx5127forwardERKNS_3MatERS1_RKN
   %45 = icmp sgt i32 %36, 15
   br i1 %45, label %.lr.ph61.i, label %.preheader29.i
 
-.preheader29.i.loopexit:                          ; preds = %.lr.ph61.i
+.preheader29.loopexit.i:                          ; preds = %.lr.ph61.i
   %46 = and i32 %36, 2147483632
   br label %.preheader29.i
 
-.preheader29.i:                                   ; preds = %.preheader29.i.loopexit, %.preheader30.i
-  %.0114.lcssa.i = phi i32 [ 0, %.preheader30.i ], [ %46, %.preheader29.i.loopexit ]
-  %.0103.lcssa.i = phi ptr [ %33, %.preheader30.i ], [ %53, %.preheader29.i.loopexit ]
-  %.0.lcssa.i = phi ptr [ %31, %.preheader30.i ], [ %52, %.preheader29.i.loopexit ]
+.preheader29.i:                                   ; preds = %.preheader29.loopexit.i, %.preheader30.i
+  %.0114.lcssa.i = phi i32 [ 0, %.preheader30.i ], [ %46, %.preheader29.loopexit.i ]
+  %.0103.lcssa.i = phi ptr [ %33, %.preheader30.i ], [ %53, %.preheader29.loopexit.i ]
+  %.0.lcssa.i = phi ptr [ %31, %.preheader30.i ], [ %52, %.preheader29.loopexit.i ]
   %47 = or disjoint i32 %.0114.lcssa.i, 7
   %48 = icmp slt i32 %47, %36
   br i1 %48, label %.lr.ph68.i, label %.preheader28.i
@@ -345,7 +345,7 @@ define internal void @_ZNK4ncnn21Dequantize_x86_avx5127forwardERKNS_3MatERS1_RKN
   %54 = add nuw nsw i32 %.011458.i, 16
   %55 = or disjoint i32 %54, 15
   %56 = icmp slt i32 %55, %36
-  br i1 %56, label %.lr.ph61.i, label %.preheader29.i.loopexit, !llvm.loop !45
+  br i1 %56, label %.lr.ph61.i, label %.preheader29.loopexit.i, !llvm.loop !45
 
 .preheader28.i:                                   ; preds = %.lr.ph68.i, %.preheader29.i
   %.1115.lcssa.i = phi i32 [ %.0114.lcssa.i, %.preheader29.i ], [ %64, %.lr.ph68.i ]
@@ -418,14 +418,14 @@ define internal void @_ZNK4ncnn21Dequantize_x86_avx5127forwardERKNS_3MatERS1_RKN
   %89 = icmp sgt i32 %36, 15
   br i1 %89, label %.lr.ph.i, label %.preheader34.i
 
-.preheader34.i.loopexit:                          ; preds = %.lr.ph.i
+.preheader34.loopexit.i:                          ; preds = %.lr.ph.i
   %90 = and i32 %36, 2147483632
   br label %.preheader34.i
 
-.preheader34.i:                                   ; preds = %.preheader34.i.loopexit, %.thread25.i
-  %.4107.lcssa.i = phi ptr [ %33, %.thread25.i ], [ %97, %.preheader34.i.loopexit ]
-  %.096.lcssa.i = phi i32 [ 0, %.thread25.i ], [ %90, %.preheader34.i.loopexit ]
-  %.4.lcssa.i = phi ptr [ %31, %.thread25.i ], [ %96, %.preheader34.i.loopexit ]
+.preheader34.i:                                   ; preds = %.preheader34.loopexit.i, %.thread25.i
+  %.4107.lcssa.i = phi ptr [ %33, %.thread25.i ], [ %97, %.preheader34.loopexit.i ]
+  %.096.lcssa.i = phi i32 [ 0, %.thread25.i ], [ %90, %.preheader34.loopexit.i ]
+  %.4.lcssa.i = phi ptr [ %31, %.thread25.i ], [ %96, %.preheader34.loopexit.i ]
   %91 = or disjoint i32 %.096.lcssa.i, 7
   %92 = icmp slt i32 %91, %36
   br i1 %92, label %.lr.ph43.i, label %.preheader33.i
@@ -443,7 +443,7 @@ define internal void @_ZNK4ncnn21Dequantize_x86_avx5127forwardERKNS_3MatERS1_RKN
   %98 = add nuw nsw i32 %.09636.i, 16
   %99 = or disjoint i32 %98, 15
   %100 = icmp slt i32 %99, %36
-  br i1 %100, label %.lr.ph.i, label %.preheader34.i.loopexit, !llvm.loop !50
+  br i1 %100, label %.lr.ph.i, label %.preheader34.loopexit.i, !llvm.loop !50
 
 .preheader33.i:                                   ; preds = %.lr.ph43.i, %.preheader34.i
   %.5108.lcssa.i = phi ptr [ %.4107.lcssa.i, %.preheader34.i ], [ %107, %.lr.ph43.i ]
@@ -583,24 +583,24 @@ define internal fastcc void @_ZN4ncnnL10dequantizeEPKiPfRKNS_3MatES5_ii(ptr noun
 
 .preheader30:                                     ; preds = %.thread19
   %24 = icmp sgt i32 %5, 15
-  br i1 %24, label %.lr.ph61.preheader, label %.preheader29
+  br i1 %24, label %.lr.ph61, label %.preheader29
 
-.lr.ph61.preheader:                               ; preds = %.preheader30
+.preheader29.loopexit:                            ; preds = %.lr.ph61
   %25 = and i32 %5, 2147483632
-  br label %.lr.ph61
+  br label %.preheader29
 
-.preheader29:                                     ; preds = %.lr.ph61, %.preheader30
-  %.0114.lcssa = phi i32 [ 0, %.preheader30 ], [ %25, %.lr.ph61 ]
-  %.0103.lcssa = phi ptr [ %1, %.preheader30 ], [ %32, %.lr.ph61 ]
-  %.0.lcssa = phi ptr [ %0, %.preheader30 ], [ %31, %.lr.ph61 ]
+.preheader29:                                     ; preds = %.preheader29.loopexit, %.preheader30
+  %.0114.lcssa = phi i32 [ 0, %.preheader30 ], [ %25, %.preheader29.loopexit ]
+  %.0103.lcssa = phi ptr [ %1, %.preheader30 ], [ %32, %.preheader29.loopexit ]
+  %.0.lcssa = phi ptr [ %0, %.preheader30 ], [ %31, %.preheader29.loopexit ]
   %26 = or disjoint i32 %.0114.lcssa, 7
   %27 = icmp slt i32 %26, %5
   br i1 %27, label %.lr.ph68, label %.preheader28
 
-.lr.ph61:                                         ; preds = %.lr.ph61.preheader, %.lr.ph61
-  %.060 = phi ptr [ %31, %.lr.ph61 ], [ %0, %.lr.ph61.preheader ]
-  %.010359 = phi ptr [ %32, %.lr.ph61 ], [ %1, %.lr.ph61.preheader ]
-  %.011458 = phi i32 [ %33, %.lr.ph61 ], [ 0, %.lr.ph61.preheader ]
+.lr.ph61:                                         ; preds = %.preheader30, %.lr.ph61
+  %.060 = phi ptr [ %31, %.lr.ph61 ], [ %0, %.preheader30 ]
+  %.010359 = phi ptr [ %32, %.lr.ph61 ], [ %1, %.preheader30 ]
+  %.011458 = phi i32 [ %33, %.lr.ph61 ], [ 0, %.preheader30 ]
   %28 = load <16 x i32>, ptr %.060, align 1, !tbaa !44
   %29 = sitofp <16 x i32> %28 to <16 x float>
   %30 = fmul fast <16 x float> %.0111, %29
@@ -610,7 +610,7 @@ define internal fastcc void @_ZN4ncnnL10dequantizeEPKiPfRKNS_3MatES5_ii(ptr noun
   %33 = add nuw nsw i32 %.011458, 16
   %34 = or disjoint i32 %33, 15
   %35 = icmp slt i32 %34, %5
-  br i1 %35, label %.lr.ph61, label %.preheader29, !llvm.loop !45
+  br i1 %35, label %.lr.ph61, label %.preheader29.loopexit, !llvm.loop !45
 
 .preheader28:                                     ; preds = %.lr.ph68, %.preheader29
   %.1115.lcssa = phi i32 [ %.0114.lcssa, %.preheader29 ], [ %43, %.lr.ph68 ]
@@ -709,24 +709,24 @@ define internal fastcc void @_ZN4ncnnL10dequantizeEPKiPfRKNS_3MatES5_ii(ptr noun
   %.116 = phi nsz <8 x float> [ %77, %75 ], [ %66, %61 ], [ %66, %.thread22 ], [ %73, %72 ], [ %66, %70 ]
   %.0100 = phi nsz <16 x float> [ %78, %75 ], [ %68, %61 ], [ %71, %.thread22 ], [ %74, %72 ], [ %68, %70 ]
   %79 = icmp sgt i32 %5, 15
-  br i1 %79, label %.lr.ph.preheader, label %.preheader34
+  br i1 %79, label %.lr.ph, label %.preheader34
 
-.lr.ph.preheader:                                 ; preds = %.thread25
+.preheader34.loopexit:                            ; preds = %.lr.ph
   %80 = and i32 %5, 2147483632
-  br label %.lr.ph
+  br label %.preheader34
 
-.preheader34:                                     ; preds = %.lr.ph, %.thread25
-  %.4107.lcssa = phi ptr [ %1, %.thread25 ], [ %87, %.lr.ph ]
-  %.096.lcssa = phi i32 [ 0, %.thread25 ], [ %80, %.lr.ph ]
-  %.4.lcssa = phi ptr [ %0, %.thread25 ], [ %86, %.lr.ph ]
+.preheader34:                                     ; preds = %.preheader34.loopexit, %.thread25
+  %.4107.lcssa = phi ptr [ %1, %.thread25 ], [ %87, %.preheader34.loopexit ]
+  %.096.lcssa = phi i32 [ 0, %.thread25 ], [ %80, %.preheader34.loopexit ]
+  %.4.lcssa = phi ptr [ %0, %.thread25 ], [ %86, %.preheader34.loopexit ]
   %81 = or disjoint i32 %.096.lcssa, 7
   %82 = icmp slt i32 %81, %5
   br i1 %82, label %.lr.ph43, label %.preheader33
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.437 = phi ptr [ %86, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.09636 = phi i32 [ %88, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.410735 = phi ptr [ %87, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.thread25, %.lr.ph
+  %.437 = phi ptr [ %86, %.lr.ph ], [ %0, %.thread25 ]
+  %.09636 = phi i32 [ %88, %.lr.ph ], [ 0, %.thread25 ]
+  %.410735 = phi ptr [ %87, %.lr.ph ], [ %1, %.thread25 ]
   %83 = load <16 x i32>, ptr %.437, align 1, !tbaa !44
   %84 = sitofp <16 x i32> %83 to <16 x float>
   %85 = tail call fast noundef <16 x float> @llvm.fma.v16f32(<16 x float> nofpclass(nan inf) %84, <16 x float> nofpclass(nan inf) %.0111, <16 x float> nofpclass(nan inf) %.0100)
@@ -736,7 +736,7 @@ define internal fastcc void @_ZN4ncnnL10dequantizeEPKiPfRKNS_3MatES5_ii(ptr noun
   %88 = add nuw nsw i32 %.09636, 16
   %89 = or disjoint i32 %88, 15
   %90 = icmp slt i32 %89, %5
-  br i1 %90, label %.lr.ph, label %.preheader34, !llvm.loop !50
+  br i1 %90, label %.lr.ph, label %.preheader34.loopexit, !llvm.loop !50
 
 .preheader33:                                     ; preds = %.lr.ph43, %.preheader34
   %.5108.lcssa = phi ptr [ %.4107.lcssa, %.preheader34 ], [ %97, %.lr.ph43 ]

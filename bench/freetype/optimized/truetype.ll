@@ -18567,13 +18567,13 @@ define internal fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr noundef nonnull captu
 
 119:                                              ; preds = %116
   %120 = load i32, ptr %19, align 8, !tbaa !317
-  %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw i64, ptr %103, i64 %121
-  %123 = getelementptr inbounds nuw i64, ptr %122, i64 %121
-  %124 = load ptr, ptr %24, align 8, !tbaa !710
+  %121 = load ptr, ptr %24, align 8, !tbaa !710
   br label %129
 
 .preheader399:                                    ; preds = %129
+  %122 = zext i32 %120 to i64
+  %123 = getelementptr inbounds nuw i64, ptr %103, i64 %122
+  %124 = getelementptr inbounds nuw i64, ptr %123, i64 %122
   %125 = getelementptr inbounds nuw i64, ptr %108, i64 %wide.trip.count
   %.not419 = icmp eq i16 %66, 0
   br i1 %.not419, label %._crit_edge417, label %.lr.ph416
@@ -18586,12 +18586,12 @@ define internal fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr noundef nonnull captu
 
 129:                                              ; preds = %119, %129
   %indvars.iv426 = phi i64 [ 0, %119 ], [ %indvars.iv.next427, %129 ]
-  %130 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %124, i64 %indvars.iv426
+  %130 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %121, i64 %indvars.iv426
   %131 = load i64, ptr %130, align 8, !tbaa !263
   %132 = shl i64 %131, 16
   %133 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %111, i64 %indvars.iv426
   store i64 %132, ptr %133, align 8, !tbaa !263
-  %134 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %124, i64 %indvars.iv426, i32 1
+  %134 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %121, i64 %indvars.iv426, i32 1
   %135 = load i64, ptr %134, align 8, !tbaa !330
   %136 = shl i64 %135, 16
   %137 = getelementptr inbounds nuw i8, ptr %133, i64 8
@@ -18660,7 +18660,7 @@ define internal fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr noundef nonnull captu
   %163 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef nonnull %9) #22
   %164 = sext i16 %163 to i64
   %165 = shl nsw i64 %164, 2
-  %166 = getelementptr inbounds nuw i64, ptr %122, i64 %indvars.iv434
+  %166 = getelementptr inbounds nuw i64, ptr %123, i64 %indvars.iv434
   store i64 %165, ptr %166, align 8, !tbaa !223
   %indvars.iv.next435 = add nuw nsw i64 %indvars.iv434, 1
   %167 = load i32, ptr %19, align 8, !tbaa !317
@@ -18673,7 +18673,7 @@ define internal fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr noundef nonnull captu
   %170 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef nonnull %9) #22
   %171 = sext i16 %170 to i64
   %172 = shl nsw i64 %171, 2
-  %173 = getelementptr inbounds nuw i64, ptr %123, i64 %indvars.iv437
+  %173 = getelementptr inbounds nuw i64, ptr %124, i64 %indvars.iv437
   store i64 %172, ptr %173, align 8, !tbaa !223
   %indvars.iv.next438 = add nuw nsw i64 %indvars.iv437, 1
   %174 = load i32, ptr %19, align 8, !tbaa !317
@@ -18683,7 +18683,7 @@ define internal fastcc i32 @TT_Vary_Apply_Glyph_Deltas(ptr noundef nonnull captu
 
 .loopexit395:                                     ; preds = %.lr.ph407, %.preheader397, %.preheader394, %.loopexit398
   %.0333470 = phi ptr [ %.0333, %.preheader394 ], [ %.0333, %.loopexit398 ], [ %103, %.preheader397 ], [ %.0333, %.lr.ph407 ]
-  %177 = call fastcc i64 @ft_var_apply_tuple(ptr noundef %19, i16 noundef zeroext %140, ptr noundef %.0333470, ptr noundef %122, ptr noundef %123)
+  %177 = call fastcc i64 @ft_var_apply_tuple(ptr noundef %19, i16 noundef zeroext %140, ptr noundef %.0333470, ptr noundef %123, ptr noundef %124)
   %178 = icmp eq i64 %177, 0
   br i1 %178, label %297, label %179
 
@@ -22634,9 +22634,9 @@ define internal i32 @TT_Load_Simple_Glyph(ptr noundef captures(none) %0) #2 {
 
 .lr.ph232.preheader:                              ; preds = %.preheader217
   call void @llvm.memset.p0.i64(ptr align 1 %107, i8 %106, i64 %114, i1 false), !tbaa !224
+  %scevgep = getelementptr i8, ptr %.0152234, i64 2
   %117 = add i8 %113, -1
   %118 = zext i8 %117 to i64
-  %scevgep = getelementptr i8, ptr %.0152234, i64 2
   %scevgep262 = getelementptr i8, ptr %scevgep, i64 %118
   br label %.loopexit
 

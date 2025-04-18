@@ -2009,33 +2009,33 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
   br i1 %7, label %8, label %150
 
 8:                                                ; preds = %3
-  %9 = urem i32 %2, 6
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %11 = load i8, ptr %10, align 2
-  %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 552
-  br label %14
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  %10 = load i8, ptr %9, align 2
+  %11 = zext i8 %10 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 552
+  br label %13
 
-14:                                               ; preds = %14, %8
-  %15 = phi i64 [ %26, %14 ], [ 0, %8 ]
-  %16 = phi i32 [ %24, %14 ], [ 0, %8 ]
-  %17 = getelementptr [3 x [1 x i64]], ptr %13, i64 0, i64 %15
-  %18 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %17, i64 %12) #8, !srcloc !28
-  %19 = icmp ult i8 %18, 2
-  tail call void @llvm.assume(i1 %19)
-  %20 = icmp eq i8 %18, 0
-  %21 = trunc i64 %15 to i32
-  %22 = shl nuw nsw i32 1, %21
-  %23 = select i1 %20, i32 0, i32 %22
-  %24 = or i32 %23, %16
-  %25 = icmp eq i64 %15, 2
-  %26 = add nuw nsw i64 %15, 1
-  br i1 %25, label %27, label %14, !llvm.loop !35
+13:                                               ; preds = %13, %8
+  %14 = phi i64 [ %25, %13 ], [ 0, %8 ]
+  %15 = phi i32 [ %23, %13 ], [ 0, %8 ]
+  %16 = getelementptr [3 x [1 x i64]], ptr %12, i64 0, i64 %14
+  %17 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 %11) #8, !srcloc !28
+  %18 = icmp ult i8 %17, 2
+  tail call void @llvm.assume(i1 %18)
+  %19 = icmp eq i8 %17, 0
+  %20 = trunc i64 %14 to i32
+  %21 = shl nuw nsw i32 1, %20
+  %22 = select i1 %19, i32 0, i32 %21
+  %23 = or i32 %22, %15
+  %24 = icmp eq i64 %14, 2
+  %25 = add nuw nsw i64 %14, 1
+  br i1 %24, label %26, label %13, !llvm.loop !35
 
-27:                                               ; preds = %14
-  %28 = shl nsw i32 -1, %9
+26:                                               ; preds = %13
+  %27 = urem i32 %2, 6
+  %28 = shl nsw i32 -1, %27
   %29 = xor i32 %28, -1
-  %30 = load i8, ptr %10, align 2
+  %30 = load i8, ptr %9, align 2
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %31, %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2054,9 +2054,9 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %47
 
-47:                                               ; preds = %136, %27
-  %48 = phi i8 [ 0, %27 ], [ %137, %136 ]
-  %49 = phi i32 [ %32, %27 ], [ %139, %136 ]
+47:                                               ; preds = %136, %26
+  %48 = phi i8 [ 0, %26 ], [ %137, %136 ]
+  %49 = phi i32 [ %32, %26 ], [ %139, %136 ]
   %50 = load i8, ptr %33, align 8
   %51 = load i8, ptr %6, align 8
   %52 = icmp ult i8 %50, %51
@@ -2087,12 +2087,12 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
   %66 = phi i64 [ %77, %75 ], [ 0, %53 ]
   %67 = trunc i64 %66 to i32
   %68 = shl nuw nsw i32 1, %67
-  %69 = and i32 %68, %24
+  %69 = and i32 %68, %23
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %75, label %71
 
 71:                                               ; preds = %.split.us
-  %72 = getelementptr [3 x [1 x i64]], ptr %13, i64 0, i64 %66
+  %72 = getelementptr [3 x [1 x i64]], ptr %12, i64 0, i64 %66
   %73 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %72, i64 %63) #8, !srcloc !12
   %74 = icmp ult i8 %73, 2
   tail call void @llvm.assume(i1 %74)
@@ -2107,12 +2107,12 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
   %78 = phi i64 [ %90, %88 ], [ 0, %53 ]
   %79 = trunc i64 %78 to i32
   %80 = shl nuw nsw i32 1, %79
-  %81 = and i32 %80, %24
+  %81 = and i32 %80, %23
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %88, label %83
 
 83:                                               ; preds = %.split
-  %84 = getelementptr [3 x [1 x i64]], ptr %13, i64 0, i64 %78
+  %84 = getelementptr [3 x [1 x i64]], ptr %12, i64 0, i64 %78
   %85 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %84, i64 %63) #8, !srcloc !12
   %86 = icmp ult i8 %85, 2
   tail call void @llvm.assume(i1 %86)
@@ -2152,12 +2152,12 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
   %105 = phi i64 [ %116, %114 ], [ 0, %99 ]
   %106 = trunc i64 %105 to i32
   %107 = shl nuw nsw i32 1, %106
-  %108 = and i32 %107, %24
+  %108 = and i32 %107, %23
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %114, label %110
 
 110:                                              ; preds = %104
-  %111 = getelementptr [3 x [1 x i64]], ptr %13, i64 0, i64 %105
+  %111 = getelementptr [3 x [1 x i64]], ptr %12, i64 0, i64 %105
   %112 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %111, i64 %103) #8, !srcloc !12
   %113 = icmp ult i8 %112, 2
   tail call void @llvm.assume(i1 %113)
@@ -2204,7 +2204,7 @@ define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, 
   %137 = phi i8 [ %135, %.loopexit ], [ %95, %.split7.us ], [ %95, %98 ]
   %138 = phi i32 [ %131, %.loopexit ], [ %49, %.split7.us ], [ %49, %98 ]
   %139 = add i32 %138, -1
-  %140 = load i8, ptr %10, align 2
+  %140 = load i8, ptr %9, align 2
   %141 = zext i8 %140 to i32
   %142 = icmp ugt i32 %138, %141
   br i1 %142, label %47, label %143, !llvm.loop !41

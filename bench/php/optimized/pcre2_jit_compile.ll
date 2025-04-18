@@ -5781,34 +5781,34 @@ sljit_set_label.exit1132:                         ; preds = %2253, %sljit_set_la
   %2282 = load i64, ptr %2281, align 8, !tbaa !162
   %2283 = getelementptr inbounds i8, ptr %2280, i64 %2282
   %2284 = load i8, ptr %2283, align 1, !tbaa !75
-  %2285 = icmp eq i8 %2284, -119
-  br label %2286
+  br label %2285
 
-2286:                                             ; preds = %2286, %2277
-  %.0.i.i1133 = phi ptr [ %2283, %2277 ], [ %2295, %2286 ]
-  %2287 = getelementptr inbounds nuw i8, ptr %.0.i.i1133, i64 1
-  %2288 = load i8, ptr %2287, align 1, !tbaa !75
-  %2289 = zext i8 %2288 to i64
-  %2290 = shl nuw nsw i64 %2289, 8
-  %2291 = getelementptr inbounds nuw i8, ptr %.0.i.i1133, i64 2
-  %2292 = load i8, ptr %2291, align 1, !tbaa !75
-  %2293 = zext i8 %2292 to i64
-  %2294 = getelementptr inbounds nuw i8, ptr %.0.i.i1133, i64 %2290
-  %2295 = getelementptr inbounds nuw i8, ptr %2294, i64 %2293
-  %2296 = load i8, ptr %2295, align 1, !tbaa !75
-  %2297 = icmp eq i8 %2296, 121
-  br i1 %2297, label %2286, label %bracketend.exit.i1134
+2285:                                             ; preds = %2285, %2277
+  %.0.i.i1133 = phi ptr [ %2283, %2277 ], [ %2294, %2285 ]
+  %2286 = getelementptr inbounds nuw i8, ptr %.0.i.i1133, i64 1
+  %2287 = load i8, ptr %2286, align 1, !tbaa !75
+  %2288 = zext i8 %2287 to i64
+  %2289 = shl nuw nsw i64 %2288, 8
+  %2290 = getelementptr inbounds nuw i8, ptr %.0.i.i1133, i64 2
+  %2291 = load i8, ptr %2290, align 1, !tbaa !75
+  %2292 = zext i8 %2291 to i64
+  %2293 = getelementptr inbounds nuw i8, ptr %.0.i.i1133, i64 %2289
+  %2294 = getelementptr inbounds nuw i8, ptr %2293, i64 %2292
+  %2295 = load i8, ptr %2294, align 1, !tbaa !75
+  %2296 = icmp eq i8 %2295, 121
+  br i1 %2296, label %2285, label %bracketend.exit.i1134
 
-bracketend.exit.i1134:                            ; preds = %2286
-  %2298 = getelementptr inbounds nuw i8, ptr %2283, i64 1
-  %2299 = select i1 %2285, i64 0, i64 2
-  %2300 = getelementptr inbounds nuw i8, ptr %2283, i64 3
-  %2301 = getelementptr inbounds nuw i8, ptr %2300, i64 %2299
+bracketend.exit.i1134:                            ; preds = %2285
+  %2297 = getelementptr inbounds nuw i8, ptr %2283, i64 1
+  %2298 = getelementptr inbounds nuw i8, ptr %2283, i64 3
+  %2299 = icmp eq i8 %2284, -119
+  %2300 = select i1 %2299, i64 0, i64 2
+  %2301 = getelementptr inbounds nuw i8, ptr %2298, i64 %2300
   %2302 = load ptr, ptr %2271, align 8, !tbaa !161
   %2303 = load i32, ptr %2268, align 8, !tbaa !160
   %2304 = sext i32 %2303 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %2302, i8 0, i64 %2304, i1 false)
-  %2305 = icmp ult ptr %2301, %2295
+  %2305 = icmp ult ptr %2301, %2294
   br i1 %2305, label %.lr.ph.i.i1170, label %get_recurse_data_length.exit.i
 
 .lr.ph.i.i1170:                                   ; preds = %bracketend.exit.i1134, %2834
@@ -6732,7 +6732,7 @@ recurse_check_bit.exit344.thread.i.i:             ; preds = %get_class_iterator_
   %.1193.i.i = phi i32 [ %.0192384.i.i, %2832 ], [ %.0192384.i.i, %2829 ], [ %.0192384.i.i, %2826 ], [ %.0192384.i.i, %2819 ], [ %.0192384.i.i, %2816 ], [ %.0192384.i.i, %2807 ], [ %.21.i.i, %recurse_check_bit.exit344.thread.i.i ], [ %.20.i.i, %2741 ], [ %.19.i.i, %2719 ], [ %.18.i.i, %2697 ], [ %.17.i.i, %2670 ], [ %.17.i.i, %2666 ], [ %.17.i.i, %2663 ], [ %.16.i.i, %2636 ], [ %.16.i.i, %2632 ], [ %.16.i.i, %2629 ], [ %.15.i.i, %2602 ], [ %.15.i.i, %2598 ], [ %.15.i.i, %2595 ], [ %.14.i.i, %2573 ], [ %.13.i.i, %2541 ], [ %.9.i.i, %2465 ], [ %2404, %2403 ], [ %2382, %2381 ], [ %.3195.i.i, %2360 ], [ %.2194.i.i, %2328 ], [ %.0192384.i.i, %2307 ]
   %.1190.i.i = phi ptr [ %2833, %2832 ], [ %2831, %2829 ], [ %2828, %2826 ], [ %2825, %2819 ], [ %2818, %2816 ], [ %2815, %2807 ], [ %2806, %recurse_check_bit.exit344.thread.i.i ], [ %2742, %2741 ], [ %2720, %2719 ], [ %2698, %2697 ], [ %2676, %2670 ], [ %2664, %2666 ], [ %2664, %2663 ], [ %2642, %2636 ], [ %2630, %2632 ], [ %2630, %2629 ], [ %2608, %2602 ], [ %2596, %2598 ], [ %2596, %2595 ], [ %2574, %2573 ], [ %2542, %2541 ], [ %2466, %2465 ], [ %2405, %2403 ], [ %2383, %2381 ], [ %2361, %2360 ], [ %2329, %2328 ], [ %2309, %2307 ]
   %.1.i.i1171 = phi i32 [ %.0386.i.i, %2832 ], [ %2830, %2829 ], [ %2827, %2826 ], [ %2820, %2819 ], [ %2817, %2816 ], [ %.5.i.i, %2807 ], [ %.0386.i.i, %recurse_check_bit.exit344.thread.i.i ], [ %.0386.i.i, %2741 ], [ %.0386.i.i, %2719 ], [ %.0386.i.i, %2697 ], [ %.0386.i.i, %2670 ], [ %.0386.i.i, %2666 ], [ %.0386.i.i, %2663 ], [ %.0386.i.i, %2636 ], [ %.0386.i.i, %2632 ], [ %.0386.i.i, %2629 ], [ %.0386.i.i, %2602 ], [ %.0386.i.i, %2598 ], [ %.0386.i.i, %2595 ], [ %.0386.i.i, %2573 ], [ %.0386.i.i, %2541 ], [ %.0386.i.i, %2465 ], [ %.0386.i.i, %2403 ], [ %.0386.i.i, %2381 ], [ %.0386.i.i, %2360 ], [ %.3.i.i, %2328 ], [ %2308, %2307 ]
-  %2835 = icmp ult ptr %.1190.i.i, %2295
+  %2835 = icmp ult ptr %.1190.i.i, %2294
   br i1 %2835, label %.lr.ph.i.i1170, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %2834
@@ -6897,7 +6897,7 @@ emit_mov.exit.thread.i1169:                       ; preds = %2905
   br label %sljit_emit_op1.exit.i1136
 
 sljit_emit_op1.exit.i1136:                        ; preds = %emit_mov.exit.thread.i1169, %2905, %sljit_emit_op_dst.exit.i
-  call fastcc void @copy_recurse_data(ptr noundef nonnull %5, ptr noundef nonnull %2301, ptr noundef nonnull %2295, i32 noundef 0, i32 noundef %2899, i32 noundef %.0.lcssa396.i.i)
+  call fastcc void @copy_recurse_data(ptr noundef nonnull %5, ptr noundef nonnull %2301, ptr noundef nonnull %2294, i32 noundef 0, i32 noundef %2899, i32 noundef %.0.lcssa396.i.i)
   %2908 = load i32, ptr %2279, align 8, !tbaa !110
   %.not.i203.i = icmp eq i32 %2908, 0
   br i1 %.not.i203.i, label %2909, label %sljit_emit_op1.exit207.i, !prof !111
@@ -6964,7 +6964,7 @@ sljit_emit_op1.exit217.i:                         ; preds = %emit_mov.exit464.th
   store ptr null, ptr %1812, align 8, !tbaa !150
   store ptr null, ptr %1403, align 8, !tbaa !141
   store ptr %2301, ptr %2274, align 8, !tbaa !44
-  %2927 = load i8, ptr %2298, align 1, !tbaa !75
+  %2927 = load i8, ptr %2297, align 1, !tbaa !75
   %2928 = zext i8 %2927 to i64
   %2929 = shl nuw nsw i64 %2928, 8
   %2930 = getelementptr inbounds nuw i8, ptr %2283, i64 2
@@ -7483,7 +7483,7 @@ emit_mov.exit490.thread.i:                        ; preds = %sljit_emit_op1.exit
 
 sljit_emit_op1.exit268.i:                         ; preds = %emit_mov.exit490.thread.i, %sljit_emit_op1.exit263.thread.i, %sljit_emit_op1.exit263.i, %sljit_emit_op1.exit263.thread855.i, %emit_mov.exit487.i, %sljit_emit_cmp.exit.i, %3121, %3096, %3076, %sljit_emit_op2u.exit.i, %3072, %sljit_emit_op_dst.exit256.thread.i
   %.1169745751.i = phi ptr [ %.1169.ph.i, %sljit_emit_op1.exit263.i ], [ %.1169.ph.i, %emit_mov.exit490.thread.i ], [ %.1169.ph.i, %sljit_emit_cmp.exit.i ], [ %.1169.ph.i, %sljit_emit_op1.exit263.thread.i ], [ %.0168.i, %sljit_emit_op_dst.exit256.thread.i ], [ null, %3121 ], [ null, %3096 ], [ null, %3076 ], [ null, %3072 ], [ null, %sljit_emit_op2u.exit.i ], [ %.1169.ph.i, %emit_mov.exit487.i ], [ null, %sljit_emit_op1.exit263.thread855.i ]
-  call fastcc void @copy_recurse_data(ptr noundef nonnull %5, ptr noundef nonnull %2301, ptr noundef nonnull %2295, i32 noundef 4, i32 noundef %2899, i32 noundef %.0.lcssa396.i.i)
+  call fastcc void @copy_recurse_data(ptr noundef nonnull %5, ptr noundef nonnull %2301, ptr noundef nonnull %2294, i32 noundef 4, i32 noundef %2899, i32 noundef %.0.lcssa396.i.i)
   br i1 %2898, label %3128, label %3243
 
 3128:                                             ; preds = %sljit_emit_op1.exit268.i
@@ -7986,7 +7986,7 @@ set_jumps.exit308.i:                              ; preds = %sljit_set_label.exi
 
 3339:                                             ; preds = %set_jumps.exit308.i
   %3340 = call fastcc ptr @sljit_emit_label(ptr noundef %2279)
-  call fastcc void @copy_recurse_data(ptr noundef nonnull %5, ptr noundef nonnull %2301, ptr noundef nonnull %2295, i32 noundef 1, i32 noundef %2899, i32 noundef %.0.lcssa396.i.i)
+  call fastcc void @copy_recurse_data(ptr noundef nonnull %5, ptr noundef nonnull %2301, ptr noundef nonnull %2294, i32 noundef 1, i32 noundef %2899, i32 noundef %.0.lcssa396.i.i)
   %3341 = load i32, ptr %2279, align 8, !tbaa !110
   %.not.i309.i = icmp eq i32 %3341, 0
   br i1 %.not.i309.i, label %3342, label %sljit_emit_op1.exit313.i, !prof !111
@@ -8179,7 +8179,7 @@ emit_mov.exit542.thread.i:                        ; preds = %3410
   br label %sljit_emit_op1.exit343.i
 
 sljit_emit_op1.exit343.i:                         ; preds = %emit_mov.exit542.thread.i, %3410, %set_jumps.exit338.i
-  call fastcc void @copy_recurse_data(ptr noundef nonnull %5, ptr noundef nonnull %2301, ptr noundef nonnull %2295, i32 noundef 2, i32 noundef %2899, i32 noundef %.0.lcssa396.i.i)
+  call fastcc void @copy_recurse_data(ptr noundef nonnull %5, ptr noundef nonnull %2301, ptr noundef nonnull %2294, i32 noundef 2, i32 noundef %2899, i32 noundef %.0.lcssa396.i.i)
   %3414 = load i32, ptr %2279, align 8, !tbaa !110
   %.not.i344.i = icmp eq i32 %3414, 0
   br i1 %.not.i344.i, label %3415, label %sljit_set_label.exit360.i, !prof !111
@@ -8392,7 +8392,7 @@ emit_mov.exit548.thread.i:                        ; preds = %3500
   br label %sljit_emit_op1.exit371.i
 
 sljit_emit_op1.exit371.i:                         ; preds = %emit_mov.exit548.thread.i, %3500, %free_stack.exit366.i
-  call fastcc void @copy_recurse_data(ptr noundef nonnull %5, ptr noundef nonnull %2301, ptr noundef nonnull %2295, i32 noundef 3, i32 noundef %2899, i32 noundef %.0.lcssa396.i.i)
+  call fastcc void @copy_recurse_data(ptr noundef nonnull %5, ptr noundef nonnull %2301, ptr noundef nonnull %2294, i32 noundef 3, i32 noundef %2899, i32 noundef %.0.lcssa396.i.i)
   %3502 = load i32, ptr %2279, align 8, !tbaa !110
   %.not.i372.i = icmp eq i32 %3502, 0
   br i1 %.not.i372.i, label %3503, label %sljit_emit_op1.exit376.i, !prof !111
@@ -8711,7 +8711,7 @@ emit_mov.exit572.thread.i:                        ; preds = %3613
   br label %sljit_emit_op1.exit437.i
 
 sljit_emit_op1.exit437.i:                         ; preds = %emit_mov.exit572.thread.i, %3613, %set_jumps.exit432.i
-  call fastcc void @copy_recurse_data(ptr noundef nonnull %5, ptr noundef nonnull %2301, ptr noundef nonnull %2295, i32 noundef 4, i32 noundef %2899, i32 noundef %.0.lcssa396.i.i)
+  call fastcc void @copy_recurse_data(ptr noundef nonnull %5, ptr noundef nonnull %2301, ptr noundef nonnull %2294, i32 noundef 4, i32 noundef %2899, i32 noundef %.0.lcssa396.i.i)
   %3615 = load i32, ptr %2279, align 8, !tbaa !110
   %.not.i438.i = icmp eq i32 %3615, 0
   br i1 %.not.i438.i, label %3616, label %compile_recurse.exit, !prof !111

@@ -51,48 +51,48 @@ define range(i32 0, 2) i32 @ossl_rsaz_mod_exp_avx512_x2(ptr noundef %0, ptr noun
   %41 = and i64 %40, 63
   %42 = sub nuw nsw i64 64, %41
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 %42
-  %44 = sext i32 %23 to i64
-  %45 = shl nsw i32 %22, 3
-  %46 = sext i32 %45 to i64
-  %47 = mul nsw i32 %22, 12
-  %48 = sext i32 %47 to i64
-  %49 = shl nsw i32 %22, 4
-  %50 = sext i32 %49 to i64
-  %51 = mul nsw i32 %22, 20
-  %52 = sext i32 %51 to i64
-  %53 = mul nsw i32 %22, 24
-  %54 = sext i32 %53 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %39, %.lr.ph.i
-  %.054.i = phi ptr [ %63, %.lr.ph.i ], [ %43, %39 ]
-  %.03353.i = phi i32 [ %61, %.lr.ph.i ], [ %23, %39 ]
-  %.03552.i = phi ptr [ %60, %.lr.ph.i ], [ %1, %39 ]
-  %.03651.i = phi i32 [ %62, %.lr.ph.i ], [ %12, %39 ]
+  %.054.i = phi ptr [ %52, %.lr.ph.i ], [ %43, %39 ]
+  %.03353.i = phi i32 [ %50, %.lr.ph.i ], [ %23, %39 ]
+  %.03552.i = phi ptr [ %49, %.lr.ph.i ], [ %1, %39 ]
+  %.03651.i = phi i32 [ %51, %.lr.ph.i ], [ %12, %39 ]
   %.0.copyload.i = load i64, ptr %.03552.i, align 1
-  %55 = and i64 %.0.copyload.i, 4503599627370495
-  store i64 %55, ptr %.054.i, align 8, !tbaa !7
-  %56 = getelementptr inbounds nuw i8, ptr %.03552.i, i64 6
-  %.0.copyload3.i = load i64, ptr %56, align 1
-  %57 = lshr i64 %.0.copyload3.i, 4
-  %58 = and i64 %57, 4503599627370495
-  %59 = getelementptr inbounds nuw i8, ptr %.054.i, i64 8
-  store i64 %58, ptr %59, align 8, !tbaa !7
-  %60 = getelementptr inbounds nuw i8, ptr %.03552.i, i64 13
-  %61 = add nsw i32 %.03353.i, -2
-  %62 = add nsw i32 %.03651.i, -104
-  %63 = getelementptr inbounds nuw i8, ptr %.054.i, i64 16
-  %64 = icmp samesign ugt i32 %.03651.i, 207
-  br i1 %64, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  %44 = and i64 %.0.copyload.i, 4503599627370495
+  store i64 %44, ptr %.054.i, align 8, !tbaa !7
+  %45 = getelementptr inbounds nuw i8, ptr %.03552.i, i64 6
+  %.0.copyload3.i = load i64, ptr %45, align 1
+  %46 = lshr i64 %.0.copyload3.i, 4
+  %47 = and i64 %46, 4503599627370495
+  %48 = getelementptr inbounds nuw i8, ptr %.054.i, i64 8
+  store i64 %47, ptr %48, align 8, !tbaa !7
+  %49 = getelementptr inbounds nuw i8, ptr %.03552.i, i64 13
+  %50 = add nsw i32 %.03353.i, -2
+  %51 = add nsw i32 %.03651.i, -104
+  %52 = getelementptr inbounds nuw i8, ptr %.054.i, i64 16
+  %53 = icmp samesign ugt i32 %.03651.i, 207
+  br i1 %53, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %65 = getelementptr inbounds i64, ptr %43, i64 %44
-  %66 = getelementptr inbounds i64, ptr %43, i64 %46
-  %67 = getelementptr inbounds i64, ptr %43, i64 %48
-  %68 = getelementptr inbounds i64, ptr %43, i64 %50
-  %69 = getelementptr inbounds i64, ptr %43, i64 %52
-  %70 = getelementptr inbounds i64, ptr %43, i64 %54
-  %71 = icmp samesign ugt i32 %62, 52
+  %54 = sext i32 %23 to i64
+  %55 = getelementptr inbounds i64, ptr %43, i64 %54
+  %56 = shl nsw i32 %22, 3
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds i64, ptr %43, i64 %57
+  %59 = mul nsw i32 %22, 12
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds i64, ptr %43, i64 %60
+  %62 = shl nsw i32 %22, 4
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds i64, ptr %43, i64 %63
+  %65 = mul nsw i32 %22, 20
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i64, ptr %43, i64 %66
+  %68 = mul nsw i32 %22, 24
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds i64, ptr %43, i64 %69
+  %71 = icmp samesign ugt i32 %51, 52
   br i1 %71, label %72, label %93
 
 72:                                               ; preds = %._crit_edge.i
@@ -113,7 +113,7 @@ define range(i32 0, 2) i32 @ossl_rsaz_mod_exp_avx512_x2(ptr noundef %0, ptr noun
 
 get_digit.exit.i:                                 ; preds = %73
   %79 = and i64 %77, 4503599627370495
-  store i64 %79, ptr %63, align 8, !tbaa !7
+  store i64 %79, ptr %52, align 8, !tbaa !7
   %80 = add nsw i32 %.03651.i, -149
   %81 = lshr i32 %80, 3
   %invariant.gep.i37.i = getelementptr i8, ptr %.03552.i, i64 18
@@ -141,7 +141,7 @@ get_digit.exit42.i:                               ; preds = %83
   br label %to_words52.exit
 
 93:                                               ; preds = %._crit_edge.i
-  %.not = icmp eq i32 %62, 0
+  %.not = icmp eq i32 %51, 0
   br i1 %.not, label %to_words52.exit, label %94
 
 94:                                               ; preds = %93
@@ -164,21 +164,21 @@ get_digit.exit42.i:                               ; preds = %83
   br i1 %103, label %98, label %get_digit.exit48.i, !llvm.loop !12
 
 get_digit.exit48.i:                               ; preds = %98
-  store i64 %102, ptr %63, align 8, !tbaa !7
+  store i64 %102, ptr %52, align 8, !tbaa !7
   %104 = getelementptr inbounds nuw i8, ptr %.054.i, i64 24
   %105 = add nsw i32 %.03353.i, -3
   br label %to_words52.exit
 
 to_words52.exit:                                  ; preds = %get_digit.exit42.i, %93, %get_digit.exit48.i
-  %.134.i = phi i32 [ %92, %get_digit.exit42.i ], [ %105, %get_digit.exit48.i ], [ %61, %93 ]
-  %.1.i = phi ptr [ %91, %get_digit.exit42.i ], [ %104, %get_digit.exit48.i ], [ %63, %93 ]
+  %.134.i = phi i32 [ %92, %get_digit.exit42.i ], [ %105, %get_digit.exit48.i ], [ %50, %93 ]
+  %.1.i = phi ptr [ %91, %get_digit.exit42.i ], [ %104, %get_digit.exit48.i ], [ %52, %93 ]
   %106 = sext i32 %.134.i to i64
   %107 = shl nsw i64 %106, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.1.i, i8 0, i64 %107, i1 false)
   br label %.lr.ph.i144
 
 .lr.ph.i144:                                      ; preds = %to_words52.exit, %.lr.ph.i144
-  %.054.i145 = phi ptr [ %116, %.lr.ph.i144 ], [ %65, %to_words52.exit ]
+  %.054.i145 = phi ptr [ %116, %.lr.ph.i144 ], [ %55, %to_words52.exit ]
   %.03353.i146 = phi i32 [ %114, %.lr.ph.i144 ], [ %23, %to_words52.exit ]
   %.03552.i147 = phi ptr [ %113, %.lr.ph.i144 ], [ %7, %to_words52.exit ]
   %.03651.i148 = phi i32 [ %115, %.lr.ph.i144 ], [ %12, %to_words52.exit ]
@@ -285,7 +285,7 @@ to_words52.exit151:                               ; preds = %get_digit.exit42.i1
   br label %.lr.ph.i177
 
 .lr.ph.i177:                                      ; preds = %to_words52.exit151, %.lr.ph.i177
-  %.054.i178 = phi ptr [ %163, %.lr.ph.i177 ], [ %66, %to_words52.exit151 ]
+  %.054.i178 = phi ptr [ %163, %.lr.ph.i177 ], [ %58, %to_words52.exit151 ]
   %.03353.i179 = phi i32 [ %161, %.lr.ph.i177 ], [ %23, %to_words52.exit151 ]
   %.03552.i180 = phi ptr [ %160, %.lr.ph.i177 ], [ %3, %to_words52.exit151 ]
   %.03651.i181 = phi i32 [ %162, %.lr.ph.i177 ], [ %12, %to_words52.exit151 ]
@@ -392,7 +392,7 @@ to_words52.exit184:                               ; preds = %get_digit.exit42.i1
   br label %.lr.ph.i210
 
 .lr.ph.i210:                                      ; preds = %to_words52.exit184, %.lr.ph.i210
-  %.054.i211 = phi ptr [ %210, %.lr.ph.i210 ], [ %67, %to_words52.exit184 ]
+  %.054.i211 = phi ptr [ %210, %.lr.ph.i210 ], [ %61, %to_words52.exit184 ]
   %.03353.i212 = phi i32 [ %208, %.lr.ph.i210 ], [ %23, %to_words52.exit184 ]
   %.03552.i213 = phi ptr [ %207, %.lr.ph.i210 ], [ %9, %to_words52.exit184 ]
   %.03651.i214 = phi i32 [ %209, %.lr.ph.i210 ], [ %12, %to_words52.exit184 ]
@@ -499,7 +499,7 @@ to_words52.exit217:                               ; preds = %get_digit.exit42.i2
   br label %.lr.ph.i243
 
 .lr.ph.i243:                                      ; preds = %to_words52.exit217, %.lr.ph.i243
-  %.054.i244 = phi ptr [ %257, %.lr.ph.i243 ], [ %68, %to_words52.exit217 ]
+  %.054.i244 = phi ptr [ %257, %.lr.ph.i243 ], [ %64, %to_words52.exit217 ]
   %.03353.i245 = phi i32 [ %255, %.lr.ph.i243 ], [ %23, %to_words52.exit217 ]
   %.03552.i246 = phi ptr [ %254, %.lr.ph.i243 ], [ %4, %to_words52.exit217 ]
   %.03651.i247 = phi i32 [ %256, %.lr.ph.i243 ], [ %12, %to_words52.exit217 ]
@@ -606,7 +606,7 @@ to_words52.exit250:                               ; preds = %get_digit.exit42.i2
   br label %.lr.ph.i276
 
 .lr.ph.i276:                                      ; preds = %to_words52.exit250, %.lr.ph.i276
-  %.054.i277 = phi ptr [ %304, %.lr.ph.i276 ], [ %69, %to_words52.exit250 ]
+  %.054.i277 = phi ptr [ %304, %.lr.ph.i276 ], [ %67, %to_words52.exit250 ]
   %.03353.i278 = phi i32 [ %302, %.lr.ph.i276 ], [ %23, %to_words52.exit250 ]
   %.03552.i279 = phi ptr [ %301, %.lr.ph.i276 ], [ %10, %to_words52.exit250 ]
   %.03651.i280 = phi i32 [ %303, %.lr.ph.i276 ], [ %12, %to_words52.exit250 ]
@@ -726,10 +726,10 @@ to_words52.exit283:                               ; preds = %get_digit.exit42.i2
   %355 = load i64, ptr %354, align 8, !tbaa !7
   %356 = or i64 %355, %352
   store i64 %356, ptr %354, align 8, !tbaa !7
-  tail call void %35(ptr noundef nonnull %68, ptr noundef nonnull %68, ptr noundef nonnull %68, ptr noundef nonnull %66, i64 noundef %5) #6
-  tail call void %35(ptr noundef nonnull %68, ptr noundef nonnull %68, ptr noundef nonnull %70, ptr noundef nonnull %66, i64 noundef %5) #6
-  tail call void %35(ptr noundef nonnull %69, ptr noundef nonnull %69, ptr noundef nonnull %69, ptr noundef nonnull %67, i64 noundef %11) #6
-  tail call void %35(ptr noundef nonnull %69, ptr noundef nonnull %69, ptr noundef nonnull %70, ptr noundef nonnull %67, i64 noundef %11) #6
+  tail call void %35(ptr noundef nonnull %64, ptr noundef nonnull %64, ptr noundef nonnull %64, ptr noundef nonnull %58, i64 noundef %5) #6
+  tail call void %35(ptr noundef nonnull %64, ptr noundef nonnull %64, ptr noundef nonnull %70, ptr noundef nonnull %58, i64 noundef %5) #6
+  tail call void %35(ptr noundef nonnull %67, ptr noundef nonnull %67, ptr noundef nonnull %67, ptr noundef nonnull %61, i64 noundef %11) #6
+  tail call void %35(ptr noundef nonnull %67, ptr noundef nonnull %67, ptr noundef nonnull %70, ptr noundef nonnull %61, i64 noundef %11) #6
   store i64 %5, ptr %14, align 16, !tbaa !7
   %357 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 %11, ptr %357, align 8, !tbaa !7
@@ -788,9 +788,9 @@ to_words52.exit283:                               ; preds = %get_digit.exit42.i2
   %388 = zext nneg i32 %.0210.i to i64
   %389 = getelementptr inbounds nuw i64, ptr %386, i64 %388
   store i64 1, ptr %389, align 8, !tbaa !7
-  call void %365(ptr noundef nonnull %387, ptr noundef nonnull %386, ptr noundef nonnull %68, ptr noundef nonnull %66, ptr noundef nonnull %14) #6
+  call void %365(ptr noundef nonnull %387, ptr noundef nonnull %386, ptr noundef nonnull %64, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
   %390 = getelementptr inbounds nuw i64, ptr %387, i64 %385
-  call void %365(ptr noundef nonnull %390, ptr noundef nonnull %43, ptr noundef nonnull %68, ptr noundef nonnull %66, ptr noundef nonnull %14) #6
+  call void %365(ptr noundef nonnull %390, ptr noundef nonnull %43, ptr noundef nonnull %64, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
   br label %391
 
 391:                                              ; preds = %391, %379
@@ -800,11 +800,11 @@ to_words52.exit283:                               ; preds = %get_digit.exit42.i2
   %394 = getelementptr inbounds nuw i64, ptr %387, i64 %393
   %395 = mul nuw nsw i64 %indvars.iv.i, %385
   %396 = getelementptr inbounds nuw i64, ptr %387, i64 %395
-  call void %365(ptr noundef nonnull %394, ptr noundef nonnull %396, ptr noundef nonnull %396, ptr noundef nonnull %66, ptr noundef nonnull %14) #6
+  call void %365(ptr noundef nonnull %394, ptr noundef nonnull %396, ptr noundef nonnull %396, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
   %397 = or disjoint i64 %392, 2
   %398 = mul nuw nsw i64 %397, %388
   %399 = getelementptr inbounds nuw i64, ptr %387, i64 %398
-  call void %365(ptr noundef nonnull %399, ptr noundef nonnull %394, ptr noundef nonnull %390, ptr noundef nonnull %66, ptr noundef nonnull %14) #6
+  call void %365(ptr noundef nonnull %399, ptr noundef nonnull %394, ptr noundef nonnull %390, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %400, label %391, !llvm.loop !13
@@ -904,12 +904,12 @@ to_words52.exit283:                               ; preds = %get_digit.exit42.i2
   %463 = trunc i64 %.0.i to i32
   %464 = and i32 %463, 31
   call void %367(ptr noundef nonnull %386, ptr noundef nonnull %387, i32 noundef %462, i32 noundef %464) #6
-  call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %66, ptr noundef nonnull %14) #6
-  call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %66, ptr noundef nonnull %14) #6
-  call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %66, ptr noundef nonnull %14) #6
-  call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %66, ptr noundef nonnull %14) #6
-  call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %66, ptr noundef nonnull %14) #6
-  call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %386, ptr noundef nonnull %66, ptr noundef nonnull %14) #6
+  call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
+  call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
+  call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
+  call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
+  call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
+  call void %365(ptr noundef nonnull %384, ptr noundef nonnull %384, ptr noundef nonnull %386, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
   %465 = icmp samesign ugt i32 %.020712.in.i, 9
   br i1 %465, label %.lr.ph.i284, label %466, !llvm.loop !14
 
@@ -918,7 +918,7 @@ to_words52.exit283:                               ; preds = %get_digit.exit42.i2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %386, i8 0, i64 %467, i1 false)
   store i64 1, ptr %386, align 8, !tbaa !7
   store i64 1, ptr %389, align 8, !tbaa !7
-  call void %365(ptr noundef nonnull %68, ptr noundef nonnull %384, ptr noundef nonnull %386, ptr noundef nonnull %66, ptr noundef nonnull %14) #6
+  call void %365(ptr noundef nonnull %64, ptr noundef nonnull %384, ptr noundef nonnull %386, ptr noundef nonnull %58, ptr noundef nonnull %14) #6
   call void @OPENSSL_cleanse(ptr noundef nonnull %377, i64 noundef %376) #6
   call void @CRYPTO_free(ptr noundef nonnull %377, ptr noundef nonnull @.str, i32 noundef 560) #6
   %468 = add nsw i32 %12, 63
@@ -938,7 +938,7 @@ to_words52.exit283:                               ; preds = %get_digit.exit42.i2
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i.preheader, %.lr.ph48.i
   %.047.i = phi i32 [ %481, %.lr.ph48.i ], [ %12, %.lr.ph48.i.preheader ]
   %.03046.i = phi ptr [ %480, %.lr.ph48.i ], [ %0, %.lr.ph48.i.preheader ]
-  %.03145.i = phi ptr [ %482, %.lr.ph48.i ], [ %68, %.lr.ph48.i.preheader ]
+  %.03145.i = phi ptr [ %482, %.lr.ph48.i ], [ %64, %.lr.ph48.i.preheader ]
   %473 = load i64, ptr %.03145.i, align 8, !tbaa !7
   store i64 %473, ptr %.03046.i, align 1
   %474 = getelementptr inbounds nuw i8, ptr %.03046.i, i64 6
@@ -1038,7 +1038,7 @@ from_words52.exit:                                ; preds = %.lr.ph.i38.i, %.lr.
 .lr.ph48.i312:                                    ; preds = %.lr.ph48.i312.preheader, %.lr.ph48.i312
   %.047.i313 = phi i32 [ %526, %.lr.ph48.i312 ], [ %12, %.lr.ph48.i312.preheader ]
   %.03046.i314 = phi ptr [ %525, %.lr.ph48.i312 ], [ %6, %.lr.ph48.i312.preheader ]
-  %.03145.i315 = phi ptr [ %527, %.lr.ph48.i312 ], [ %69, %.lr.ph48.i312.preheader ]
+  %.03145.i315 = phi ptr [ %527, %.lr.ph48.i312 ], [ %67, %.lr.ph48.i312.preheader ]
   %518 = load i64, ptr %.03145.i315, align 8, !tbaa !7
   store i64 %518, ptr %.03046.i314, align 1
   %519 = getelementptr inbounds nuw i8, ptr %.03046.i314, i64 6

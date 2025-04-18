@@ -427,7 +427,6 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 define dso_local noundef zeroext i1 @_ZN4llvm24formLCSSAForInstructionsERNS_15SmallVectorImplIPNS_11InstructionEEERKNS_13DominatorTreeERKNS_8LoopInfoEPNS_15ScalarEvolutionEPNS0_IPNS_7PHINodeEEESG_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca %"class.llvm::SmallDenseMap", align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %7) #19
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %8, align 4, !tbaa !61
@@ -442,6 +441,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm24formLCSSAForInstructionsERNS_15Sm
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPNS_4LoopENS_11SmallVectorIPNS_10BasicBlockELj1EEELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !66
 
 _ZN4llvm13SmallDenseMapIPNS_4LoopENS_11SmallVectorIPNS_10BasicBlockELj1EEELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = call fastcc noundef zeroext i1 @_ZL28formLCSSAForInstructionsImplRN4llvm15SmallVectorImplIPNS_11InstructionEEERKNS_13DominatorTreeERKNS_8LoopInfoEPNS_15ScalarEvolutionEPNS0_IPNS_7PHINodeEEESG_RNS_13SmallDenseMapIPNS_4LoopENS_11SmallVectorIPNS_10BasicBlockELj1EEELj4ENS_12DenseMapInfoISJ_vEENS_6detail12DenseMapPairISJ_SN_EEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(136) %7)
   %10 = load i32, ptr %7, align 8
@@ -2312,7 +2312,6 @@ _ZN4llvm11SmallVectorIPNS_3UseELj16EED2Ev.exit:   ; preds = %_ZN4llvm9SetVectorI
 define dso_local noundef zeroext i1 @_ZN4llvm9formLCSSAERNS_4LoopERKNS_13DominatorTreeEPKNS_8LoopInfoEPNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca %"class.llvm::SmallDenseMap", align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #19
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4, !tbaa !61
@@ -2327,6 +2326,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9formLCSSAERNS_4LoopERKNS_13Dominat
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPNS_4LoopENS_11SmallVectorIPNS_10BasicBlockELj1EEELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !66
 
 _ZN4llvm13SmallDenseMapIPNS_4LoopENS_11SmallVectorIPNS_10BasicBlockELj1EEELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = call fastcc noundef zeroext i1 @_ZL13formLCSSAImplRN4llvm4LoopERKNS_13DominatorTreeEPKNS_8LoopInfoEPNS_15ScalarEvolutionERNS_13SmallDenseMapIPS0_NS_11SmallVectorIPNS_10BasicBlockELj1EEELj4ENS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_SF_EEEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(136) %5)
   %8 = load i32, ptr %5, align 8
@@ -2832,7 +2832,6 @@ _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit.thread
 define dso_local noundef zeroext i1 @_ZN4llvm20formLCSSARecursivelyERNS_4LoopERKNS_13DominatorTreeEPKNS_8LoopInfoEPNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca %"class.llvm::SmallDenseMap", align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #19
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4, !tbaa !61
@@ -2847,6 +2846,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20formLCSSARecursivelyERNS_4LoopERK
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPNS_4LoopENS_11SmallVectorIPNS_10BasicBlockELj1EEELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !66
 
 _ZN4llvm13SmallDenseMapIPNS_4LoopENS_11SmallVectorIPNS_10BasicBlockELj1EEELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = call fastcc noundef zeroext i1 @_ZL24formLCSSARecursivelyImplRN4llvm4LoopERKNS_13DominatorTreeEPKNS_8LoopInfoEPNS_15ScalarEvolutionERNS_13SmallDenseMapIPS0_NS_11SmallVectorIPNS_10BasicBlockELj1EEELj4ENS_12DenseMapInfoISB_vEENS_6detail12DenseMapPairISB_SF_EEEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(136) %5)
   %8 = load i32, ptr %5, align 8

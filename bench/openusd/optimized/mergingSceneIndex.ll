@@ -1280,47 +1280,47 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %436, %438, %4
   %456 = load i32, ptr %32, align 4
   %457 = load ptr, ptr %10, align 8
   %458 = load i32, ptr %31, align 8
-  %459 = zext i32 %458 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %460 = load ptr, ptr %319, align 8, !noalias !26
+  %459 = load ptr, ptr %319, align 8, !noalias !26
   store ptr null, ptr %17, align 8, !alias.scope !26
-  %461 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %460, ptr %461, align 8, !alias.scope !26
-  %462 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %463 = getelementptr inbounds nuw i8, ptr %460, i64 384
-  %464 = load atomic i64, ptr %463 monotonic, align 8, !noalias !26
-  store i64 %464, ptr %462, align 8, !alias.scope !26
+  %460 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %459, ptr %460, align 8, !alias.scope !26
+  %461 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %462 = getelementptr inbounds nuw i8, ptr %459, i64 384
+  %463 = load atomic i64, ptr %462 monotonic, align 8, !noalias !26
+  store i64 %463, ptr %461, align 8, !alias.scope !26
   %.ptr11.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr11.i.i.i.i, i8 0, i64 64, i1 false), !alias.scope !26
-  br label %465
+  br label %464
 
-465:                                              ; preds = %465, %455
-  %.013.i.i.i.i = phi i64 [ 0, %455 ], [ %469, %465 ]
-  %466 = getelementptr inbounds nuw [8 x %"class.tbb::detail::d2::micro_queue"], ptr %460, i64 0, i64 %.013.i.i.i.i
-  %467 = load atomic i64, ptr %466 monotonic, align 8, !noalias !26
-  %.0.i.i.i.i.i.i = inttoptr i64 %467 to ptr
-  %468 = getelementptr inbounds nuw [8 x ptr], ptr %.ptr11.i.i.i.i, i64 0, i64 %.013.i.i.i.i
-  store ptr %.0.i.i.i.i.i.i, ptr %468, align 8, !alias.scope !26
-  %469 = add nuw nsw i64 %.013.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %469, 8
-  br i1 %exitcond.not.i.i.i.i, label %470, label %465, !llvm.loop !27
+464:                                              ; preds = %464, %455
+  %.013.i.i.i.i = phi i64 [ 0, %455 ], [ %468, %464 ]
+  %465 = getelementptr inbounds nuw [8 x %"class.tbb::detail::d2::micro_queue"], ptr %459, i64 0, i64 %.013.i.i.i.i
+  %466 = load atomic i64, ptr %465 monotonic, align 8, !noalias !26
+  %.0.i.i.i.i.i.i = inttoptr i64 %466 to ptr
+  %467 = getelementptr inbounds nuw [8 x ptr], ptr %.ptr11.i.i.i.i, i64 0, i64 %.013.i.i.i.i
+  store ptr %.0.i.i.i.i.i.i, ptr %467, align 8, !alias.scope !26
+  %468 = add nuw nsw i64 %.013.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %468, 8
+  br i1 %exitcond.not.i.i.i.i, label %469, label %464, !llvm.loop !27
 
-470:                                              ; preds = %465
-  %471 = icmp ult i32 %456, 17
-  %spec.select.i.i = select i1 %471, ptr %10, ptr %457
-  %472 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i, i64 %459
-  %473 = getelementptr inbounds nuw i8, ptr %460, i64 512
+469:                                              ; preds = %464
+  %470 = icmp ult i32 %456, 17
+  %spec.select.i.i = select i1 %470, ptr %10, ptr %457
+  %471 = zext i32 %458 to i64
+  %472 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry", ptr %spec.select.i.i, i64 %471
+  %473 = getelementptr inbounds nuw i8, ptr %459, i64 512
   %474 = load atomic i64, ptr %473 monotonic, align 8, !noalias !26
-  %475 = icmp eq i64 %464, %474
+  %475 = icmp eq i64 %463, %474
   br i1 %475, label %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE7advanceEv.exit.sink.split.i.i.i.i, label %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i.i.i
 
-_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i.i.i: ; preds = %470
-  %476 = mul i64 %464, 3
+_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i.i.i: ; preds = %469
+  %476 = mul i64 %463, 3
   %477 = and i64 %476, 7
   %478 = getelementptr inbounds nuw [8 x ptr], ptr %.ptr11.i.i.i.i, i64 0, i64 %477
   %479 = load ptr, ptr %478, align 8, !alias.scope !26
-  %480 = lshr i64 %464, 3
+  %480 = lshr i64 %463, 3
   %481 = and i64 %480, 15
   %482 = getelementptr inbounds nuw i8, ptr %479, i64 16
   %483 = getelementptr inbounds nuw [16 x %"struct.pxrInternal_v0_24__pxrReserved__::HdSceneIndexObserver::AddedPrimEntry"], ptr %482, i64 0, i64 %481
@@ -1333,7 +1333,7 @@ _ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReser
   br i1 %.not.i.i.i.i61, label %tailrecurse.i.i.i.i.i, label %_ZN3tbb6detail2d216concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE12unsafe_beginEv.exit
 
 tailrecurse.i.i.i.i.i:                            ; preds = %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i.i.i, %_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE8get_itemERPS5_m.exit.i.i.i.i.i
-  %488 = load i64, ptr %462, align 8, !alias.scope !26
+  %488 = load i64, ptr %461, align 8, !alias.scope !26
   %489 = and i64 %488, 120
   %490 = icmp eq i64 %489, 120
   br i1 %490, label %491, label %497
@@ -1349,8 +1349,8 @@ tailrecurse.i.i.i.i.i:                            ; preds = %_ZN3tbb6detail2d230
 
 497:                                              ; preds = %491, %tailrecurse.i.i.i.i.i
   %498 = add i64 %488, 1
-  store i64 %498, ptr %462, align 8, !alias.scope !26
-  %499 = load ptr, ptr %461, align 8, !alias.scope !26
+  store i64 %498, ptr %461, align 8, !alias.scope !26
+  %499 = load ptr, ptr %460, align 8, !alias.scope !26
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 512
   %501 = load atomic i64, ptr %500 monotonic, align 8, !noalias !26
   %502 = icmp eq i64 %498, %501
@@ -1373,7 +1373,7 @@ _ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReser
   %.not.i.i.i.i.i62 = icmp eq i64 %514, 0
   br i1 %.not.i.i.i.i.i62, label %tailrecurse.i.i.i.i.i, label %_ZN3tbb6detail2d216concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE12unsafe_beginEv.exit
 
-_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE7advanceEv.exit.sink.split.i.i.i.i: ; preds = %497, %470
+_ZN3tbb6detail2d230concurrent_queue_iterator_baseIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE7advanceEv.exit.sink.split.i.i.i.i: ; preds = %497, %469
   store ptr null, ptr %17, align 8, !alias.scope !26
   br label %_ZN3tbb6detail2d216concurrent_queueIN32pxrInternal_v0_24__pxrReserved__20HdSceneIndexObserver14AddedPrimEntryENS0_2d123cache_aligned_allocatorIS5_EEE12unsafe_beginEv.exit
 

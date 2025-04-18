@@ -3518,25 +3518,25 @@ define internal fastcc void @_ZN5ZXing4OneDL8ReadPairERKNS_11PatternViewENS0_9Di
   %7 = alloca %"class.ZXing::PatternView", align 8
   %8 = load ptr, ptr %1, align 8, !tbaa !29, !noalias !162
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #23
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %3
   %.08.i.i.i.idx.i.i.i = phi i64 [ %.08.i.i.i.add.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ 0, %3 ]
-  %.057.i.i.i.i.i.i = phi i16 [ %12, %.lr.ph.i.i.i.i.i.i ], [ 0, %3 ]
+  %.057.i.i.i.i.i.i = phi i16 [ %11, %.lr.ph.i.i.i.i.i.i ], [ 0, %3 ]
   %.08.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.08.i.i.i.idx.i.i.i
-  %11 = load i16, ptr %.08.i.i.i.ptr.i.i.i, align 2, !tbaa !34
-  %12 = add i16 %11, %.057.i.i.i.i.i.i
+  %10 = load i16, ptr %.08.i.i.i.ptr.i.i.i, align 2, !tbaa !34
+  %11 = add i16 %10, %.057.i.i.i.i.i.i
   %.08.i.i.i.add.i.i.i = add nuw nsw i64 %.08.i.i.i.idx.i.i.i, 2
   %.not.i.i.i.i.i.i = icmp eq i64 %.08.i.i.i.add.i.i.i, 10
   br i1 %.not.i.i.i.i.i.i, label %_ZNK5ZXing11PatternView3sumEi.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !36
 
 _ZNK5ZXing11PatternView3sumEi.exit.i.i.i:         ; preds = %.lr.ph.i.i.i.i.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = icmp eq i32 %2, -1
-  %15 = uitofp i16 %12 to double
+  %15 = uitofp i16 %11 to double
   %16 = fdiv double %15, 1.500000e+01
   %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 18
   br i1 %14, label %_ZNK5ZXing11PatternView3sumEi.exit.split.us.i.i.i, label %_ZNK5ZXing11PatternView3sumEi.exit.split.i.i.i
@@ -3634,7 +3634,7 @@ _ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit: ; p
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
-  %58 = load ptr, ptr %10, align 8, !tbaa !176, !noalias !177
+  %58 = load ptr, ptr %12, align 8, !tbaa !176, !noalias !177
   %59 = load ptr, ptr %13, align 8, !tbaa !33, !noalias !177
   store ptr %8, ptr %6, align 8, !tbaa !29, !alias.scope !177
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3667,7 +3667,7 @@ _ZN5ZXing4OneDL18ParseFinderPatternERKNS_11PatternViewENS0_9DirectionE.exit: ; p
 73:                                               ; preds = %66, %65
   %74 = load ptr, ptr %1, align 8, !tbaa !29, !noalias !178
   %.ptr75 = getelementptr inbounds nuw i8, ptr %74, i64 26
-  %75 = load ptr, ptr %10, align 8, !tbaa !176, !noalias !178
+  %75 = load ptr, ptr %12, align 8, !tbaa !176, !noalias !178
   %76 = load ptr, ptr %13, align 8, !tbaa !33, !noalias !178
   %.not1.i.i = icmp ult ptr %.ptr75, %75
   br i1 %.not1.i.i, label %_ZNK5ZXing11PatternView7isValidEv.exit.thread, label %_ZNK5ZXing11PatternView7isValidEv.exit
@@ -3690,25 +3690,22 @@ _ZNK5ZXing11PatternView7isValidEv.exit:           ; preds = %73
   %79 = add i16 %78, %.057.i.i.i.i
   %.08.i.i.i.add.i = add nuw nsw i64 %.08.i.i.i.idx.i, 2
   %.not.i.i.i.i = icmp eq i64 %.08.i.i.i.add.i, 26
-  br i1 %.not.i.i.i.i, label %_ZN5ZXing4OneD7DataBar13ModSizeFinderERKNS_11PatternViewE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !36
+  br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i.i16, label %.lr.ph.i.i.i.i, !llvm.loop !36
 
-_ZN5ZXing4OneD7DataBar13ModSizeFinderERKNS_11PatternViewE.exit: ; preds = %.lr.ph.i.i.i.i
-  %80 = uitofp i16 %79 to float
-  br label %.lr.ph.i.i.i.i16
-
-.lr.ph.i.i.i.i16:                                 ; preds = %_ZN5ZXing4OneD7DataBar13ModSizeFinderERKNS_11PatternViewE.exit, %.lr.ph.i.i.i.i16
-  %.08.i.i.i.i.idx = phi i64 [ %.08.i.i.i.i.add, %.lr.ph.i.i.i.i16 ], [ 26, %_ZN5ZXing4OneD7DataBar13ModSizeFinderERKNS_11PatternViewE.exit ]
-  %.057.i.i.i.i17 = phi i16 [ %82, %.lr.ph.i.i.i.i16 ], [ 0, %_ZN5ZXing4OneD7DataBar13ModSizeFinderERKNS_11PatternViewE.exit ]
+.lr.ph.i.i.i.i16:                                 ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i16
+  %.08.i.i.i.i.idx = phi i64 [ %.08.i.i.i.i.add, %.lr.ph.i.i.i.i16 ], [ 26, %.lr.ph.i.i.i.i ]
+  %.057.i.i.i.i17 = phi i16 [ %81, %.lr.ph.i.i.i.i16 ], [ 0, %.lr.ph.i.i.i.i ]
   %.08.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %74, i64 %.08.i.i.i.i.idx
-  %81 = load i16, ptr %.08.i.i.i.i.ptr, align 2, !tbaa !34
-  %82 = add i16 %81, %.057.i.i.i.i17
+  %80 = load i16, ptr %.08.i.i.i.i.ptr, align 2, !tbaa !34
+  %81 = add i16 %80, %.057.i.i.i.i17
   %.08.i.i.i.i.add = add nuw nsw i64 %.08.i.i.i.i.idx, 2
   %.not.i.i.i.i18 = icmp eq i64 %.08.i.i.i.i.add, 42
   br i1 %.not.i.i.i.i18, label %_ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit, label %.lr.ph.i.i.i.i16, !llvm.loop !36
 
 _ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit: ; preds = %.lr.ph.i.i.i.i16
-  %83 = fdiv float %80, 1.500000e+01
-  %84 = uitofp i16 %82 to float
+  %82 = uitofp i16 %79 to float
+  %83 = fdiv float %82, 1.500000e+01
+  %84 = uitofp i16 %81 to float
   %85 = fdiv float %84, 1.700000e+01
   %86 = fdiv float %85, %83
   %87 = fadd float %86, -1.000000e+00
@@ -3760,7 +3757,7 @@ _ZN5ZXing8ContainsISt5arrayIiLm7EEiEEDTcmclsr3stdE5beginfp_Ecvb_EERKT_RKT0_.exit
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %56, ptr %99, align 4, !tbaa !154
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %101 = load ptr, ptr %10, align 8, !tbaa !176
+  %101 = load ptr, ptr %12, align 8, !tbaa !176
   %102 = load ptr, ptr %1, align 8, !tbaa !29
   %.not6.i.i.i = icmp eq ptr %101, %102
   br i1 %.not6.i.i.i, label %_ZNK5ZXing11PatternView13pixelsInFrontEv.exit, label %.lr.ph.i.i.i

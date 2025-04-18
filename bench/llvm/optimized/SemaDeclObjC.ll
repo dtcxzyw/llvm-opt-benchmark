@@ -9255,7 +9255,6 @@ define dso_local noundef ptr @_ZN5clang8SemaObjC22actOnObjCTypeParamListEPNS_5Sc
   %14 = alloca %"struct.std::pair.1300", align 8
   %15 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #22
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 1, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %16, align 4, !tbaa !1223
@@ -9270,6 +9269,7 @@ define dso_local noundef ptr @_ZN5clang8SemaObjC22actOnObjCTypeParamListEPNS_5Sc
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPN5clang14IdentifierInfoEPNS1_17ObjCTypeParamDeclELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !1226
 
 _ZN4llvm13SmallDenseMapIPN5clang14IdentifierInfoEPNS1_17ObjCTypeParamDeclELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
   %.not49 = icmp eq i64 %4, 0

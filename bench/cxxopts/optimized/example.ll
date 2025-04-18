@@ -70813,40 +70813,40 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit100.i: ; preds =
 800:                                              ; preds = %799, %.lr.ph192.i
   %.sroa.0130.1.i = phi ptr [ %.sroa.0136.0189.i, %799 ], [ %.sroa.0130.0188.i, %.lr.ph192.i ]
   %801 = load i8, ptr %.sroa.0136.0189.i, align 1, !tbaa !14
-  %.not.i = icmp eq i8 %801, 32
-  %.not46.i = icmp eq i8 %801, 9
-  %802 = or i1 %.not.i, %.not46.i
-  %803 = icmp eq i8 %801, 10
-  br i1 %803, label %thread-pre-split.i.lr.ph, label %806, !llvm.loop !1384
+  %802 = icmp eq i8 %801, 10
+  br i1 %802, label %thread-pre-split.i.lr.ph, label %805, !llvm.loop !1384
 
 thread-pre-split.i.lr.ph:                         ; preds = %800
   br label %thread-pre-split.i, !llvm.loop !1384
 
 thread-pre-split.i:                               ; preds = %thread-pre-split.i.lr.ph, %thread-pre-split.i
-  %.sroa.0136.1.i553 = phi ptr [ %.sroa.0136.0189.i, %thread-pre-split.i.lr.ph ], [ %804, %thread-pre-split.i ]
-  %804 = getelementptr inbounds nuw i8, ptr %.sroa.0136.1.i553, i64 1
-  %.pr.i104 = load i8, ptr %804, align 1, !tbaa !14
-  %805 = icmp eq i8 %.pr.i104, 10
-  br i1 %805, label %thread-pre-split.i, label %.thread.i, !llvm.loop !1384
+  %.sroa.0136.1.i553 = phi ptr [ %.sroa.0136.0189.i, %thread-pre-split.i.lr.ph ], [ %803, %thread-pre-split.i ]
+  %803 = getelementptr inbounds nuw i8, ptr %.sroa.0136.1.i553, i64 1
+  %.pr.i104 = load i8, ptr %803, align 1, !tbaa !14
+  %804 = icmp eq i8 %.pr.i104, 10
+  br i1 %804, label %thread-pre-split.i, label %.thread.i, !llvm.loop !1384
 
-806:                                              ; preds = %800
+805:                                              ; preds = %800
   %.not47.i = icmp ult i64 %.036191.i, %.032
-  br i1 %.not47.i, label %808, label %807
+  br i1 %.not47.i, label %807, label %806
 
-807:                                              ; preds = %806
+806:                                              ; preds = %805
   %.not164.i = icmp eq ptr %.sroa.0130.1.i, %.sroa.0131.0187.i
   %spec.select159.i = select i1 %.not164.i, ptr %.sroa.0136.0189.i, ptr %.sroa.0130.1.i
   %spec.select160.i = select i1 %.not164.i, ptr %.sroa.0132.0186.i, ptr %.sroa.0130.1.i
   br label %.thread.i
 
-808:                                              ; preds = %806
-  %.141.i = select i1 %802, i1 %.040190.i, i1 false
+807:                                              ; preds = %805
+  %.not.i = icmp eq i8 %801, 32
+  %.not46.i = icmp eq i8 %801, 9
+  %808 = or i1 %.not.i, %.not46.i
+  %.141.i = select i1 %808, i1 %.040190.i, i1 false
   %809 = add i64 %.036191.i, 1
   br label %_ZN7cxxopts12stringAppendIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERS9_SB_T_SC_.exit117.i
 
-.thread.i:                                        ; preds = %thread-pre-split.i, %807
-  %.sroa.0136.2157.i = phi ptr [ %spec.select159.i, %807 ], [ %804, %thread-pre-split.i ]
-  %.sroa.0132.2156.i = phi ptr [ %spec.select160.i, %807 ], [ %.sroa.0136.1.i553, %thread-pre-split.i ]
+.thread.i:                                        ; preds = %thread-pre-split.i, %806
+  %.sroa.0136.2157.i = phi ptr [ %spec.select159.i, %806 ], [ %803, %thread-pre-split.i ]
+  %.sroa.0132.2156.i = phi ptr [ %spec.select160.i, %806 ], [ %.sroa.0136.1.i553, %thread-pre-split.i ]
   %810 = load i64, ptr %203, align 8, !tbaa !15, !alias.scope !1372
   %811 = ptrtoint ptr %.sroa.0136.2157.i to i64
   %812 = ptrtoint ptr %.sroa.0131.0187.i to i64
@@ -70958,12 +70958,12 @@ _ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm
   %839 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %29, i64 noundef %838, i64 noundef 0, ptr noundef %.sroa.0136.2157.i, i64 noundef 0)
           to label %_ZN7cxxopts12stringAppendIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERS9_SB_T_SC_.exit117.i unwind label %.loopexit.i
 
-_ZN7cxxopts12stringAppendIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERS9_SB_T_SC_.exit117.i: ; preds = %808, %837, %_ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmc.exit115.i
-  %.sroa.0136.2158.i = phi ptr [ %.sroa.0136.2157.i, %_ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmc.exit115.i ], [ %.sroa.0136.0189.i, %808 ], [ %.sroa.0136.2157.i, %837 ]
-  %.sroa.0131.1.i = phi ptr [ %.sroa.0136.2157.i, %_ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmc.exit115.i ], [ %.sroa.0131.0187.i, %808 ], [ %.sroa.0136.2157.i, %837 ]
-  %.sroa.0130.2.i = phi ptr [ %.sroa.0136.2157.i, %_ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmc.exit115.i ], [ %.sroa.0130.1.i, %808 ], [ %.sroa.0136.2157.i, %837 ]
-  %.242.i = phi i1 [ true, %_ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmc.exit115.i ], [ %.141.i, %808 ], [ true, %837 ]
-  %.137.i = phi i64 [ 1, %_ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmc.exit115.i ], [ %809, %808 ], [ 1, %837 ]
+_ZN7cxxopts12stringAppendIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEERS9_SB_T_SC_.exit117.i: ; preds = %807, %837, %_ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmc.exit115.i
+  %.sroa.0136.2158.i = phi ptr [ %.sroa.0136.2157.i, %_ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmc.exit115.i ], [ %.sroa.0136.0189.i, %807 ], [ %.sroa.0136.2157.i, %837 ]
+  %.sroa.0131.1.i = phi ptr [ %.sroa.0136.2157.i, %_ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmc.exit115.i ], [ %.sroa.0131.0187.i, %807 ], [ %.sroa.0136.2157.i, %837 ]
+  %.sroa.0130.2.i = phi ptr [ %.sroa.0136.2157.i, %_ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmc.exit115.i ], [ %.sroa.0130.1.i, %807 ], [ %.sroa.0136.2157.i, %837 ]
+  %.242.i = phi i1 [ true, %_ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmc.exit115.i ], [ %.141.i, %807 ], [ true, %837 ]
+  %.137.i = phi i64 [ 1, %_ZN7cxxopts12stringAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmc.exit115.i ], [ %809, %807 ], [ 1, %837 ]
   %840 = getelementptr inbounds nuw i8, ptr %.sroa.0136.2158.i, i64 1
   %841 = load ptr, ptr %5, align 8, !tbaa !12, !noalias !1372
   %842 = load i64, ptr %195, align 8, !tbaa !15, !noalias !1372

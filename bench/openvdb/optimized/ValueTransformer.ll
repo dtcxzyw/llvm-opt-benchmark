@@ -13415,7 +13415,6 @@ invoke.cont32:                                    ; preds = %_ZNK7openvdb5v11_05
   %call27 = tail call noalias noundef nonnull dereferenceable(532496) ptr @_Znwm(i64 noundef 532496) #21
   %31 = load ptr, ptr %second.i42, align 8
   %32 = load i8, ptr %active.i.i47, align 4
-  %tobool.i.i58 = trunc i8 %32 to i1
   br label %arrayctor.loop.i59
 
 arrayctor.loop.i59:                               ; preds = %arrayctor.loop.i59, %invoke.cont32
@@ -13429,6 +13428,7 @@ arrayctor.loop.i59:                               ; preds = %arrayctor.loop.i59,
 invoke.cont.i64:                                  ; preds = %arrayctor.loop.i59
   %tile.i54 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 56
   %cmp.i.i.i56 = icmp eq ptr %31, null
+  %tobool.i.i58 = trunc i8 %32 to i1
   %33 = select i1 %cmp.i.i.i56, i1 %tobool.i.i58, i1 false
   %arrayctor.end.i65 = getelementptr inbounds nuw i8, ptr %call27, i64 524288
   %mOrigin.i66 = getelementptr inbounds nuw i8, ptr %call27, i64 532480
@@ -13516,11 +13516,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre43 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre43
+  %idxprom = zext nneg i32 %add8.i to i64
+  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %modifiedVal, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx, i64 12, i1 false)
   br label %for.body.i.i.i
 
@@ -13573,7 +13573,7 @@ if.end:                                           ; preds = %land.lhs.true.i.i
   %cmp.i9.i.i = fcmp oeq float %15, %16
   br i1 %cmp.i9.i.i, label %if.end30, label %if.then14
 
-if.then14:                                        ; preds = %if.then, %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IfEEEclERS6_.exit, %land.lhs.true.i.i, %if.end
+if.then14:                                        ; preds = %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IfEEEclERS6_.exit, %land.lhs.true.i.i, %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(66576) ptr @_Znwm(i64 noundef 66576) #21
   br label %arrayctor.loop.i
 
@@ -13586,7 +13586,8 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre43
+  %idxprom17 = zext nneg i32 %add8.i to i64
+  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %idxprom17
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %call15, i64 65536
   %mOrigin.i = getelementptr inbounds nuw i8, ptr %call15, i64 66560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -16374,7 +16375,6 @@ invoke.cont32:                                    ; preds = %_ZNK7openvdb5v11_05
   %call27 = tail call noalias noundef nonnull dereferenceable(794640) ptr @_Znwm(i64 noundef 794640) #21
   %31 = load ptr, ptr %second.i42, align 8
   %32 = load i8, ptr %active.i.i, align 8
-  %tobool.i.i57 = trunc i8 %32 to i1
   br label %arrayctor.loop.i58
 
 arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58, %invoke.cont32
@@ -16388,6 +16388,7 @@ arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58,
 invoke.cont.i63:                                  ; preds = %arrayctor.loop.i58
   %tile.i53 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 56
   %cmp.i.i.i55 = icmp eq ptr %31, null
+  %tobool.i.i57 = trunc i8 %32 to i1
   %33 = select i1 %cmp.i.i.i55, i1 %tobool.i.i57, i1 false
   %arrayctor.end.i64 = getelementptr inbounds nuw i8, ptr %call27, i64 786432
   %mOrigin.i65 = getelementptr inbounds nuw i8, ptr %call27, i64 794624
@@ -16475,11 +16476,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre43 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre43
+  %idxprom = zext nneg i32 %add8.i to i64
+  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %modifiedVal, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i64 24, i1 false)
   br label %for.body.i.i.i
 
@@ -16532,7 +16533,7 @@ if.end:                                           ; preds = %land.lhs.true.i.i
   %cmp.i9.i.i = fcmp oeq double %15, %16
   br i1 %cmp.i9.i.i, label %if.end30, label %if.then14
 
-if.then14:                                        ; preds = %if.then, %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IdEEEclERS6_.exit, %land.lhs.true.i.i, %if.end
+if.then14:                                        ; preds = %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IdEEEclERS6_.exit, %land.lhs.true.i.i, %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(99344) ptr @_Znwm(i64 noundef 99344) #21
   br label %arrayctor.loop.i
 
@@ -16545,7 +16546,8 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre43
+  %idxprom17 = zext nneg i32 %add8.i to i64
+  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %idxprom17
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %call15, i64 98304
   %mOrigin.i = getelementptr inbounds nuw i8, ptr %call15, i64 99328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -19347,7 +19349,6 @@ invoke.cont32:                                    ; preds = %_ZNK7openvdb5v11_05
   %call27 = tail call noalias noundef nonnull dereferenceable(532496) ptr @_Znwm(i64 noundef 532496) #21
   %31 = load ptr, ptr %second.i42, align 8
   %32 = load i8, ptr %active.i.i47, align 4
-  %tobool.i.i58 = trunc i8 %32 to i1
   br label %arrayctor.loop.i59
 
 arrayctor.loop.i59:                               ; preds = %arrayctor.loop.i59, %invoke.cont32
@@ -19361,6 +19362,7 @@ arrayctor.loop.i59:                               ; preds = %arrayctor.loop.i59,
 invoke.cont.i64:                                  ; preds = %arrayctor.loop.i59
   %tile.i54 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 56
   %cmp.i.i.i56 = icmp eq ptr %31, null
+  %tobool.i.i58 = trunc i8 %32 to i1
   %33 = select i1 %cmp.i.i.i56, i1 %tobool.i.i58, i1 false
   %arrayctor.end.i65 = getelementptr inbounds nuw i8, ptr %call27, i64 524288
   %mOrigin.i66 = getelementptr inbounds nuw i8, ptr %call27, i64 532480
@@ -19448,11 +19450,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre43 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre43
+  %idxprom = zext nneg i32 %add8.i to i64
+  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %modifiedVal, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx, i64 12, i1 false)
   br label %for.body.i.i.i
 
@@ -19505,7 +19507,7 @@ if.end:                                           ; preds = %land.lhs.true.i.i
   %cmp.i9.i.i = icmp eq i32 %15, %16
   br i1 %cmp.i9.i.i, label %if.end30, label %if.then14
 
-if.then14:                                        ; preds = %if.then, %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IiEEEclERS6_.exit, %land.lhs.true.i.i, %if.end
+if.then14:                                        ; preds = %_ZNK7openvdb5v11_05tools8valxform5MinOpINS0_4math4Vec3IiEEEclERS6_.exit, %land.lhs.true.i.i, %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(66576) ptr @_Znwm(i64 noundef 66576) #21
   br label %arrayctor.loop.i
 
@@ -19518,7 +19520,8 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre43
+  %idxprom17 = zext nneg i32 %add8.i to i64
+  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %idxprom17
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %call15, i64 65536
   %mOrigin.i = getelementptr inbounds nuw i8, ptr %call15, i64 66560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -25067,7 +25070,6 @@ invoke.cont31:                                    ; preds = %_ZNK7openvdb5v11_05
   %call27 = tail call noalias noundef nonnull dereferenceable(532496) ptr @_Znwm(i64 noundef 532496) #21
   %31 = load ptr, ptr %second.i42, align 8
   %32 = load i8, ptr %active.i.i47, align 4
-  %tobool.i.i58 = trunc i8 %32 to i1
   br label %arrayctor.loop.i59
 
 arrayctor.loop.i59:                               ; preds = %arrayctor.loop.i59, %invoke.cont31
@@ -25081,6 +25083,7 @@ arrayctor.loop.i59:                               ; preds = %arrayctor.loop.i59,
 invoke.cont.i64:                                  ; preds = %arrayctor.loop.i59
   %tile.i54 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 56
   %cmp.i.i.i56 = icmp eq ptr %31, null
+  %tobool.i.i58 = trunc i8 %32 to i1
   %33 = select i1 %cmp.i.i.i56, i1 %tobool.i.i58, i1 false
   %arrayctor.end.i65 = getelementptr inbounds nuw i8, ptr %call27, i64 524288
   %mOrigin.i66 = getelementptr inbounds nuw i8, ptr %call27, i64 532480
@@ -25168,11 +25171,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre43 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre43
+  %idxprom = zext nneg i32 %add8.i to i64
+  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %modifiedVal, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx, i64 12, i1 false)
   br label %for.body.i.i.i
 
@@ -25225,7 +25228,7 @@ if.end:                                           ; preds = %land.lhs.true.i.i
   %cmp.i9.i.i = fcmp oeq float %15, %16
   br i1 %cmp.i9.i.i, label %if.end29, label %if.then14
 
-if.then14:                                        ; preds = %if.then, %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IfEEEclERS6_.exit, %land.lhs.true.i.i, %if.end
+if.then14:                                        ; preds = %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IfEEEclERS6_.exit, %land.lhs.true.i.i, %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(66576) ptr @_Znwm(i64 noundef 66576) #21
   br label %arrayctor.loop.i
 
@@ -25238,7 +25241,8 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre43
+  %idxprom17 = zext nneg i32 %add8.i to i64
+  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %idxprom17
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %call15, i64 65536
   %mOrigin.i = getelementptr inbounds nuw i8, ptr %call15, i64 66560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -25905,7 +25909,6 @@ invoke.cont31:                                    ; preds = %_ZNK7openvdb5v11_05
   %call27 = tail call noalias noundef nonnull dereferenceable(794640) ptr @_Znwm(i64 noundef 794640) #21
   %31 = load ptr, ptr %second.i42, align 8
   %32 = load i8, ptr %active.i.i, align 8
-  %tobool.i.i57 = trunc i8 %32 to i1
   br label %arrayctor.loop.i58
 
 arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58, %invoke.cont31
@@ -25919,6 +25922,7 @@ arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58,
 invoke.cont.i63:                                  ; preds = %arrayctor.loop.i58
   %tile.i53 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 56
   %cmp.i.i.i55 = icmp eq ptr %31, null
+  %tobool.i.i57 = trunc i8 %32 to i1
   %33 = select i1 %cmp.i.i.i55, i1 %tobool.i.i57, i1 false
   %arrayctor.end.i64 = getelementptr inbounds nuw i8, ptr %call27, i64 786432
   %mOrigin.i65 = getelementptr inbounds nuw i8, ptr %call27, i64 794624
@@ -26006,11 +26010,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre43 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre43
+  %idxprom = zext nneg i32 %add8.i to i64
+  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %modifiedVal, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i64 24, i1 false)
   br label %for.body.i.i.i
 
@@ -26063,7 +26067,7 @@ if.end:                                           ; preds = %land.lhs.true.i.i
   %cmp.i9.i.i = fcmp oeq double %15, %16
   br i1 %cmp.i9.i.i, label %if.end29, label %if.then14
 
-if.then14:                                        ; preds = %if.then, %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IdEEEclERS6_.exit, %land.lhs.true.i.i, %if.end
+if.then14:                                        ; preds = %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IdEEEclERS6_.exit, %land.lhs.true.i.i, %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(99344) ptr @_Znwm(i64 noundef 99344) #21
   br label %arrayctor.loop.i
 
@@ -26076,7 +26080,8 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre43
+  %idxprom17 = zext nneg i32 %add8.i to i64
+  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %idxprom17
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %call15, i64 98304
   %mOrigin.i = getelementptr inbounds nuw i8, ptr %call15, i64 99328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -26744,7 +26749,6 @@ invoke.cont31:                                    ; preds = %_ZNK7openvdb5v11_05
   %call27 = tail call noalias noundef nonnull dereferenceable(532496) ptr @_Znwm(i64 noundef 532496) #21
   %31 = load ptr, ptr %second.i42, align 8
   %32 = load i8, ptr %active.i.i47, align 4
-  %tobool.i.i58 = trunc i8 %32 to i1
   br label %arrayctor.loop.i59
 
 arrayctor.loop.i59:                               ; preds = %arrayctor.loop.i59, %invoke.cont31
@@ -26758,6 +26762,7 @@ arrayctor.loop.i59:                               ; preds = %arrayctor.loop.i59,
 invoke.cont.i64:                                  ; preds = %arrayctor.loop.i59
   %tile.i54 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 56
   %cmp.i.i.i56 = icmp eq ptr %31, null
+  %tobool.i.i58 = trunc i8 %32 to i1
   %33 = select i1 %cmp.i.i.i56, i1 %tobool.i.i58, i1 false
   %arrayctor.end.i65 = getelementptr inbounds nuw i8, ptr %call27, i64 524288
   %mOrigin.i66 = getelementptr inbounds nuw i8, ptr %call27, i64 532480
@@ -26845,11 +26850,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre43 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre43
+  %idxprom = zext nneg i32 %add8.i to i64
+  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %modifiedVal, ptr noundef nonnull align 8 dereferenceable(12) %arrayidx, i64 12, i1 false)
   br label %for.body.i.i.i
 
@@ -26902,7 +26907,7 @@ if.end:                                           ; preds = %land.lhs.true.i.i
   %cmp.i9.i.i = icmp eq i32 %15, %16
   br i1 %cmp.i9.i.i, label %if.end29, label %if.then14
 
-if.then14:                                        ; preds = %if.then, %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IiEEEclERS6_.exit, %land.lhs.true.i.i, %if.end
+if.then14:                                        ; preds = %_ZNK7openvdb5v11_05tools8valxform5MaxOpINS0_4math4Vec3IiEEEclERS6_.exit, %land.lhs.true.i.i, %if.then, %if.end
   %call15 = tail call noalias noundef nonnull dereferenceable(66576) ptr @_Znwm(i64 noundef 66576) #21
   br label %arrayctor.loop.i
 
@@ -26915,7 +26920,8 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre43
+  %idxprom17 = zext nneg i32 %add8.i to i64
+  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %idxprom17
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %call15, i64 65536
   %mOrigin.i = getelementptr inbounds nuw i8, ptr %call15, i64 66560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -30528,7 +30534,6 @@ invoke.cont31:                                    ; preds = %if.then21, %if.else
   %call27 = tail call noalias noundef nonnull dereferenceable(532496) ptr @_Znwm(i64 noundef 532496) #21
   %24 = load ptr, ptr %second.i42, align 8
   %25 = load i8, ptr %active.i.i47, align 4
-  %tobool.i.i57 = trunc i8 %25 to i1
   br label %arrayctor.loop.i58
 
 arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58, %invoke.cont31
@@ -30542,6 +30547,7 @@ arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58,
 invoke.cont.i63:                                  ; preds = %arrayctor.loop.i58
   %tile.i53 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 56
   %cmp.i.i.i55 = icmp eq ptr %24, null
+  %tobool.i.i57 = trunc i8 %25 to i1
   %26 = select i1 %cmp.i.i.i55, i1 %tobool.i.i57, i1 false
   %arrayctor.end.i64 = getelementptr inbounds nuw i8, ptr %call27, i64 524288
   %mOrigin.i65 = getelementptr inbounds nuw i8, ptr %call27, i64 532480
@@ -30627,11 +30633,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre40 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre40
+  %idxprom = zext nneg i32 %add8.i to i64
+  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %idxprom
   %modifiedVal.sroa.0.0.copyload = load float, ptr %arrayidx, align 8
   %modifiedVal.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %modifiedVal.sroa.4.0.copyload = load float, ptr %modifiedVal.sroa.4.0.arrayidx.sroa_idx, align 4
@@ -30652,7 +30658,7 @@ if.then8:                                         ; preds = %if.then
   %or.cond39 = select i1 %or.cond, i1 %cmp.i9.i.i, i1 false
   br i1 %or.cond39, label %if.end29, label %if.then14
 
-if.then14:                                        ; preds = %if.then, %if.then8
+if.then14:                                        ; preds = %if.then8, %if.then
   %call15 = tail call noalias noundef nonnull dereferenceable(66576) ptr @_Znwm(i64 noundef 66576) #21
   br label %arrayctor.loop.i
 
@@ -30665,7 +30671,8 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre40
+  %idxprom17 = zext nneg i32 %add8.i to i64
+  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %idxprom17
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %call15, i64 65536
   %mOrigin.i = getelementptr inbounds nuw i8, ptr %call15, i64 66560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -31249,7 +31256,6 @@ invoke.cont31:                                    ; preds = %if.then21, %if.else
   %call27 = tail call noalias noundef nonnull dereferenceable(794640) ptr @_Znwm(i64 noundef 794640) #21
   %24 = load ptr, ptr %second.i42, align 8
   %25 = load i8, ptr %active.i.i, align 8
-  %tobool.i.i56 = trunc i8 %25 to i1
   br label %arrayctor.loop.i57
 
 arrayctor.loop.i57:                               ; preds = %arrayctor.loop.i57, %invoke.cont31
@@ -31263,6 +31269,7 @@ arrayctor.loop.i57:                               ; preds = %arrayctor.loop.i57,
 invoke.cont.i62:                                  ; preds = %arrayctor.loop.i57
   %tile.i52 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 56
   %cmp.i.i.i54 = icmp eq ptr %24, null
+  %tobool.i.i56 = trunc i8 %25 to i1
   %26 = select i1 %cmp.i.i.i54, i1 %tobool.i.i56, i1 false
   %arrayctor.end.i63 = getelementptr inbounds nuw i8, ptr %call27, i64 786432
   %mOrigin.i64 = getelementptr inbounds nuw i8, ptr %call27, i64 794624
@@ -31348,11 +31355,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre40 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre40
+  %idxprom = zext nneg i32 %add8.i to i64
+  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %idxprom
   %modifiedVal.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
   %modifiedVal.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %modifiedVal.sroa.4.0.copyload = load double, ptr %modifiedVal.sroa.4.0.arrayidx.sroa_idx, align 8
@@ -31373,7 +31380,7 @@ if.then8:                                         ; preds = %if.then
   %or.cond39 = select i1 %or.cond, i1 %cmp.i9.i.i, i1 false
   br i1 %or.cond39, label %if.end29, label %if.then14
 
-if.then14:                                        ; preds = %if.then, %if.then8
+if.then14:                                        ; preds = %if.then8, %if.then
   %call15 = tail call noalias noundef nonnull dereferenceable(99344) ptr @_Znwm(i64 noundef 99344) #21
   br label %arrayctor.loop.i
 
@@ -31386,7 +31393,8 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre40
+  %idxprom17 = zext nneg i32 %add8.i to i64
+  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %idxprom17
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %call15, i64 98304
   %mOrigin.i = getelementptr inbounds nuw i8, ptr %call15, i64 99328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -31962,7 +31970,6 @@ invoke.cont31:                                    ; preds = %if.then21, %if.else
   %call27 = tail call noalias noundef nonnull dereferenceable(532496) ptr @_Znwm(i64 noundef 532496) #21
   %24 = load ptr, ptr %second.i42, align 8
   %25 = load i8, ptr %active.i.i47, align 4
-  %tobool.i.i57 = trunc i8 %25 to i1
   br label %arrayctor.loop.i58
 
 arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58, %invoke.cont31
@@ -31976,6 +31983,7 @@ arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58,
 invoke.cont.i63:                                  ; preds = %arrayctor.loop.i58
   %tile.i53 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 56
   %cmp.i.i.i55 = icmp eq ptr %24, null
+  %tobool.i.i57 = trunc i8 %25 to i1
   %26 = select i1 %cmp.i.i.i55, i1 %tobool.i.i57, i1 false
   %arrayctor.end.i64 = getelementptr inbounds nuw i8, ptr %call27, i64 524288
   %mOrigin.i65 = getelementptr inbounds nuw i8, ptr %call27, i64 532480
@@ -32078,7 +32086,6 @@ if.then8:                                         ; preds = %if.then
 
 if.then14:                                        ; preds = %if.then8, %if.then
   %call15 = tail call noalias noundef nonnull dereferenceable(66576) ptr @_Znwm(i64 noundef 66576) #21
-  %idxprom17 = zext nneg i32 %add8.i to i64
   br label %arrayctor.loop.i
 
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %if.then14
@@ -32090,6 +32097,7 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
+  %idxprom17 = zext nneg i32 %add8.i to i64
   %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %idxprom17
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %call15, i64 65536
   %mOrigin.i = getelementptr inbounds nuw i8, ptr %call15, i64 66560
@@ -35675,7 +35683,6 @@ invoke.cont31:                                    ; preds = %if.then21, %if.else
   %call27 = tail call noalias noundef nonnull dereferenceable(532496) ptr @_Znwm(i64 noundef 532496) #21
   %24 = load ptr, ptr %second.i42, align 8
   %25 = load i8, ptr %active.i.i47, align 4
-  %tobool.i.i57 = trunc i8 %25 to i1
   br label %arrayctor.loop.i58
 
 arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58, %invoke.cont31
@@ -35689,6 +35696,7 @@ arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58,
 invoke.cont.i63:                                  ; preds = %arrayctor.loop.i58
   %tile.i53 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 56
   %cmp.i.i.i55 = icmp eq ptr %24, null
+  %tobool.i.i57 = trunc i8 %25 to i1
   %26 = select i1 %cmp.i.i.i55, i1 %tobool.i.i57, i1 false
   %arrayctor.end.i64 = getelementptr inbounds nuw i8, ptr %call27, i64 524288
   %mOrigin.i65 = getelementptr inbounds nuw i8, ptr %call27, i64 532480
@@ -35774,11 +35782,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre40 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre40
+  %idxprom = zext nneg i32 %add8.i to i64
+  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %idxprom
   %modifiedVal.sroa.0.0.copyload = load float, ptr %arrayidx, align 8
   %modifiedVal.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %modifiedVal.sroa.4.0.copyload = load float, ptr %modifiedVal.sroa.4.0.arrayidx.sroa_idx, align 4
@@ -35799,7 +35807,7 @@ if.then8:                                         ; preds = %if.then
   %or.cond39 = select i1 %or.cond, i1 %cmp.i9.i.i, i1 false
   br i1 %or.cond39, label %if.end29, label %if.then14
 
-if.then14:                                        ; preds = %if.then, %if.then8
+if.then14:                                        ; preds = %if.then8, %if.then
   %call15 = tail call noalias noundef nonnull dereferenceable(66576) ptr @_Znwm(i64 noundef 66576) #21
   br label %arrayctor.loop.i
 
@@ -35812,7 +35820,8 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %.pre40
+  %idxprom17 = zext nneg i32 %add8.i to i64
+  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.529"], ptr %this, i64 0, i64 %idxprom17
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %call15, i64 65536
   %mOrigin.i = getelementptr inbounds nuw i8, ptr %call15, i64 66560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -36396,7 +36405,6 @@ invoke.cont31:                                    ; preds = %if.then21, %if.else
   %call27 = tail call noalias noundef nonnull dereferenceable(794640) ptr @_Znwm(i64 noundef 794640) #21
   %24 = load ptr, ptr %second.i42, align 8
   %25 = load i8, ptr %active.i.i, align 8
-  %tobool.i.i56 = trunc i8 %25 to i1
   br label %arrayctor.loop.i57
 
 arrayctor.loop.i57:                               ; preds = %arrayctor.loop.i57, %invoke.cont31
@@ -36410,6 +36418,7 @@ arrayctor.loop.i57:                               ; preds = %arrayctor.loop.i57,
 invoke.cont.i62:                                  ; preds = %arrayctor.loop.i57
   %tile.i52 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 56
   %cmp.i.i.i54 = icmp eq ptr %24, null
+  %tobool.i.i56 = trunc i8 %25 to i1
   %26 = select i1 %cmp.i.i.i54, i1 %tobool.i.i56, i1 false
   %arrayctor.end.i63 = getelementptr inbounds nuw i8, ptr %call27, i64 786432
   %mOrigin.i64 = getelementptr inbounds nuw i8, ptr %call27, i64 794624
@@ -36495,11 +36504,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre40 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre40
+  %idxprom = zext nneg i32 %add8.i to i64
+  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %idxprom
   %modifiedVal.sroa.0.0.copyload = load double, ptr %arrayidx, align 8
   %modifiedVal.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %modifiedVal.sroa.4.0.copyload = load double, ptr %modifiedVal.sroa.4.0.arrayidx.sroa_idx, align 8
@@ -36520,7 +36529,7 @@ if.then8:                                         ; preds = %if.then
   %or.cond39 = select i1 %or.cond, i1 %cmp.i9.i.i, i1 false
   br i1 %or.cond39, label %if.end29, label %if.then14
 
-if.then14:                                        ; preds = %if.then, %if.then8
+if.then14:                                        ; preds = %if.then8, %if.then
   %call15 = tail call noalias noundef nonnull dereferenceable(99344) ptr @_Znwm(i64 noundef 99344) #21
   br label %arrayctor.loop.i
 
@@ -36533,7 +36542,8 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %.pre40
+  %idxprom17 = zext nneg i32 %add8.i to i64
+  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.580"], ptr %this, i64 0, i64 %idxprom17
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %call15, i64 98304
   %mOrigin.i = getelementptr inbounds nuw i8, ptr %call15, i64 99328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)
@@ -37118,7 +37128,6 @@ invoke.cont31:                                    ; preds = %if.then21, %if.else
   %call27 = tail call noalias noundef nonnull dereferenceable(532496) ptr @_Znwm(i64 noundef 532496) #21
   %24 = load ptr, ptr %second.i42, align 8
   %25 = load i8, ptr %active.i.i47, align 4
-  %tobool.i.i57 = trunc i8 %25 to i1
   br label %arrayctor.loop.i58
 
 arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58, %invoke.cont31
@@ -37132,6 +37141,7 @@ arrayctor.loop.i58:                               ; preds = %arrayctor.loop.i58,
 invoke.cont.i63:                                  ; preds = %arrayctor.loop.i58
   %tile.i53 = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 56
   %cmp.i.i.i55 = icmp eq ptr %24, null
+  %tobool.i.i57 = trunc i8 %25 to i1
   %26 = select i1 %cmp.i.i.i55, i1 %tobool.i.i57, i1 false
   %arrayctor.end.i64 = getelementptr inbounds nuw i8, ptr %call27, i64 524288
   %mOrigin.i65 = getelementptr inbounds nuw i8, ptr %call27, i64 532480
@@ -37217,11 +37227,11 @@ if.then:                                          ; preds = %entry
   %6 = load i64, ptr %arrayidx.i.i15, align 8
   %and2.i.i19 = and i64 %6, %shl.i.i
   %cmp.i.i20.not = icmp eq i64 %and2.i.i19, 0
-  %.pre40 = zext nneg i32 %add8.i to i64
   br i1 %cmp.i.i20.not, label %if.then14, label %if.then8
 
 if.then8:                                         ; preds = %if.then
-  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre40
+  %idxprom = zext nneg i32 %add8.i to i64
+  %arrayidx = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %idxprom
   %modifiedVal.sroa.0.0.copyload = load i32, ptr %arrayidx, align 8
   %modifiedVal.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %modifiedVal.sroa.4.0.copyload = load i32, ptr %modifiedVal.sroa.4.0.arrayidx.sroa_idx, align 4
@@ -37242,7 +37252,7 @@ if.then8:                                         ; preds = %if.then
   %or.cond39 = select i1 %or.cond, i1 %cmp.i9.i.i, i1 false
   br i1 %or.cond39, label %if.end29, label %if.then14
 
-if.then14:                                        ; preds = %if.then, %if.then8
+if.then14:                                        ; preds = %if.then8, %if.then
   %call15 = tail call noalias noundef nonnull dereferenceable(66576) ptr @_Znwm(i64 noundef 66576) #21
   br label %arrayctor.loop.i
 
@@ -37255,7 +37265,8 @@ arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %
   br i1 %arrayctor.done.i, label %invoke.cont.i, label %arrayctor.loop.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
-  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %.pre40
+  %idxprom17 = zext nneg i32 %add8.i to i64
+  %arrayidx18 = getelementptr inbounds nuw [32768 x %"class.openvdb::v11_0::tree::NodeUnion.622"], ptr %this, i64 0, i64 %idxprom17
   %arrayctor.end.i = getelementptr inbounds nuw i8, ptr %call15, i64 65536
   %mOrigin.i = getelementptr inbounds nuw i8, ptr %call15, i64 66560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %arrayctor.end.i, i8 0, i64 1024, i1 false)

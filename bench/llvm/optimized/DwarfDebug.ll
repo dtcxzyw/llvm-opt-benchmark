@@ -13702,7 +13702,6 @@ define dso_local void @_ZN4llvm10DwarfDebug30collectVariableInfoFromMFTableERNS_
   %15 = alloca %"struct.std::pair.1114", align 8
   %16 = alloca %"class.std::unique_ptr.1043", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10) #29
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %10, align 8
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %17, align 4, !tbaa !1444
@@ -13719,6 +13718,7 @@ define dso_local void @_ZN4llvm10DwarfDebug30collectVariableInfoFromMFTableERNS_
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapISt4pairIPKNS_6DINodeEPKNS_10DILocationEEPNS_11DbgVariableELj4ENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !1447
 
 _ZN4llvm13SmallDenseMapISt4pairIPKNS_6DINodeEPKNS_10DILocationEEPNS_11DbgVariableELj4ENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !614
@@ -18829,7 +18829,6 @@ _ZN4llvm6detail12DenseSetImplIPKNS_12MachineInstrENS_13SmallDenseMapIS4_NS0_13De
 
 _ZN4llvm13SmallDenseSetIPNS_17MachineBasicBlockELj4ENS_12DenseMapInfoIS2_vEEEC2Ev.exit: ; preds = %.lr.ph.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #29
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %45, align 4, !tbaa !1645
@@ -18844,6 +18843,7 @@ _ZN4llvm13SmallDenseSetIPNS_17MachineBasicBlockELj4ENS_12DenseMapInfoIS2_vEEEC2E
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPNS_17MachineBasicBlockEPNS_12MachineInstrELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !1648
 
 _ZN4llvm13SmallDenseMapIPNS_17MachineBasicBlockEPNS_12MachineInstrELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 320
@@ -25566,15 +25566,14 @@ _ZL23emitRnglistsTableHeaderPN4llvm10AsmPrinterERKNS_9DwarfFileE.exit: ; preds =
   %.pre16.i = load ptr, ptr %.phi.trans.insert15.i, align 8, !tbaa !837
   %.phi.trans.insert17.i = getelementptr inbounds nuw i8, ptr %.pre16.i, i64 1880
   %.pre18.i = load i16, ptr %.phi.trans.insert17.i, align 8, !tbaa !869
-  %109 = icmp ugt i16 %.pre18.i, 4
-  %110 = getelementptr inbounds nuw i8, ptr %101, i64 64
-  %111 = load ptr, ptr %110, align 8, !tbaa !1384
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load i32, ptr %112, align 8, !tbaa !1385
-  %114 = load ptr, ptr %.pre14.i, align 8, !tbaa !3
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 208
-  %116 = load ptr, ptr %115, align 8
-  call void %116(ptr noundef nonnull align 8 dereferenceable(296) %.pre14.i, ptr noundef %102, ptr null) #29
+  %109 = getelementptr inbounds nuw i8, ptr %101, i64 64
+  %110 = load ptr, ptr %109, align 8, !tbaa !1384
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load i32, ptr %111, align 8, !tbaa !1385
+  %113 = load ptr, ptr %.pre14.i, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 208
+  %115 = load ptr, ptr %114, align 8
+  call void %115(ptr noundef nonnull align 8 dereferenceable(296) %.pre14.i, ptr noundef %102, ptr null) #29
   call void @llvm.lifetime.start.p0(i64 792, ptr nonnull %5) #29
   store i32 1, ptr %5, align 8
   store i32 0, ptr %62, align 4, !tbaa !1855
@@ -25589,8 +25588,9 @@ _ZL23emitRnglistsTableHeaderPN4llvm10AsmPrinterERKNS_9DwarfFileE.exit: ; preds =
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm14SmallMapVectorIPKNS_9MCSectionESt6vectorIPKNS_9RangeSpanESaIS7_EELj16EEC2Ev.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1858
 
 _ZN4llvm14SmallMapVectorIPKNS_9MCSectionESt6vectorIPKNS_9RangeSpanESaIS7_EELj16EEC2Ev.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %117 = trunc nuw i8 %108 to i1
-  %118 = select i1 %117, i1 true, i1 %109
+  %116 = trunc nuw i8 %108 to i1
+  %117 = icmp ugt i16 %.pre18.i, 4
+  %118 = select i1 %116, i1 true, i1 %117
   %119 = getelementptr inbounds nuw i8, ptr %.01455, i64 16
   %120 = icmp ult i16 %.pre18.i, 5
   store ptr %64, ptr %63, align 8, !tbaa !25
@@ -26051,7 +26051,7 @@ _ZN4llvm10DwarfDebug15getSectionLabelEPKNS_9MCSectionE.exit.i.i: ; preds = %.lr.
   %353 = load ptr, ptr %352, align 8, !tbaa !3
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 544
   %355 = load ptr, ptr %354, align 8
-  call void %355(ptr noundef nonnull align 8 dereferenceable(296) %352, i64 noundef -1, i32 noundef %113) #29
+  call void %355(ptr noundef nonnull align 8 dereferenceable(296) %352, i64 noundef -1, i32 noundef %112) #29
   %356 = load ptr, ptr %.phi.trans.insert13.i, align 8, !tbaa !270
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #29
   store i8 1, ptr %82, align 1, !tbaa !146
@@ -26063,7 +26063,7 @@ _ZN4llvm10DwarfDebug15getSectionLabelEPKNS_9MCSectionE.exit.i.i: ; preds = %.lr.
   call void %359(ptr noundef nonnull align 8 dereferenceable(296) %356, ptr noundef nonnull align 8 dereferenceable(34) %6, i1 noundef zeroext true) #29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #29
   %360 = load ptr, ptr %.phi.trans.insert13.i, align 8, !tbaa !270
-  call void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(296) %360, ptr noundef %350, i32 noundef %113, i1 noundef zeroext false) #29
+  call void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(296) %360, ptr noundef %350, i32 noundef %112, i1 noundef zeroext false) #29
   br label %394
 
 361:                                              ; preds = %_ZN4llvm10DwarfDebug15getSectionLabelEPKNS_9MCSectionE.exit.i.i
@@ -26120,12 +26120,12 @@ _ZN4llvm10DwarfDebug15getSectionLabelEPKNS_9MCSectionE.exit.i.i: ; preds = %.lr.
   %387 = load ptr, ptr %386, align 8, !tbaa !3
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 544
   %389 = load ptr, ptr %388, align 8
-  call void %389(ptr noundef nonnull align 8 dereferenceable(296) %386, i64 noundef -1, i32 noundef %113) #29
+  call void %389(ptr noundef nonnull align 8 dereferenceable(296) %386, i64 noundef -1, i32 noundef %112) #29
   %390 = load ptr, ptr %.phi.trans.insert13.i, align 8, !tbaa !270
   %391 = load ptr, ptr %390, align 8, !tbaa !3
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 544
   %393 = load ptr, ptr %392, align 8
-  call void %393(ptr noundef nonnull align 8 dereferenceable(296) %390, i64 noundef 0, i32 noundef %113) #29
+  call void %393(ptr noundef nonnull align 8 dereferenceable(296) %390, i64 noundef 0, i32 noundef %112) #29
   br label %394
 
 394:                                              ; preds = %385, %384, %370, %362, %351, %300
@@ -26152,9 +26152,9 @@ _ZN4llvm10DwarfDebug15getSectionLabelEPKNS_9MCSectionE.exit.i.i: ; preds = %.lr.
   %401 = getelementptr inbounds nuw i8, ptr %399, i64 8
   %402 = load ptr, ptr %401, align 8, !tbaa !1346
   %403 = load ptr, ptr %.phi.trans.insert13.i, align 8, !tbaa !270
-  call void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(296) %403, ptr noundef %400, i32 noundef %113, i1 noundef zeroext false) #29
+  call void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(296) %403, ptr noundef %400, i32 noundef %112, i1 noundef zeroext false) #29
   %404 = load ptr, ptr %.phi.trans.insert13.i, align 8, !tbaa !270
-  call void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(296) %404, ptr noundef %402, i32 noundef %113, i1 noundef zeroext false) #29
+  call void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(296) %404, ptr noundef %402, i32 noundef %112, i1 noundef zeroext false) #29
   %405 = getelementptr inbounds nuw i8, ptr %.sroa.06.020.us.us.i.i, i64 8
   %.not16.us.us.i.i = icmp eq ptr %405, %398
   br i1 %.not16.us.us.i.i, label %._crit_edge23.i.i, label %.lr.ph22.split.us.split.us.i.i
@@ -26217,8 +26217,8 @@ _ZN4llvm10DwarfDebug15getSectionLabelEPKNS_9MCSectionE.exit.i.i: ; preds = %.lr.
   %429 = load ptr, ptr %428, align 8, !tbaa !1313
   %430 = getelementptr inbounds nuw i8, ptr %428, i64 8
   %431 = load ptr, ptr %430, align 8, !tbaa !1346
-  call void @_ZNK4llvm10AsmPrinter19emitLabelDifferenceEPKNS_8MCSymbolES3_j(ptr noundef nonnull align 8 dereferenceable(777) %101, ptr noundef %429, ptr noundef nonnull %.0118.i.i, i32 noundef %113) #29
-  call void @_ZNK4llvm10AsmPrinter19emitLabelDifferenceEPKNS_8MCSymbolES3_j(ptr noundef nonnull align 8 dereferenceable(777) %101, ptr noundef %431, ptr noundef nonnull %.0118.i.i, i32 noundef %113) #29
+  call void @_ZNK4llvm10AsmPrinter19emitLabelDifferenceEPKNS_8MCSymbolES3_j(ptr noundef nonnull align 8 dereferenceable(777) %101, ptr noundef %429, ptr noundef nonnull %.0118.i.i, i32 noundef %112) #29
+  call void @_ZNK4llvm10AsmPrinter19emitLabelDifferenceEPKNS_8MCSymbolES3_j(ptr noundef nonnull align 8 dereferenceable(777) %101, ptr noundef %431, ptr noundef nonnull %.0118.i.i, i32 noundef %112) #29
   %432 = getelementptr inbounds nuw i8, ptr %.sroa.06.020.us24.i.i, i64 8
   %.not16.us25.i.i = icmp eq ptr %432, %398
   br i1 %.not16.us25.i.i, label %._crit_edge23.i.i, label %.lr.ph22.split.split.us.i.i
@@ -26296,12 +26296,12 @@ _ZN4llvm10DwarfDebug15getSectionLabelEPKNS_9MCSectionE.exit.i.i: ; preds = %.lr.
   %462 = load ptr, ptr %299, align 8, !tbaa !3
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 544
   %464 = load ptr, ptr %463, align 8
-  call void %464(ptr noundef nonnull align 8 dereferenceable(296) %299, i64 noundef 0, i32 noundef %113) #29
+  call void %464(ptr noundef nonnull align 8 dereferenceable(296) %299, i64 noundef 0, i32 noundef %112) #29
   %465 = load ptr, ptr %.phi.trans.insert13.i, align 8, !tbaa !270
   %466 = load ptr, ptr %465, align 8, !tbaa !3
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 544
   %468 = load ptr, ptr %467, align 8
-  call void %468(ptr noundef nonnull align 8 dereferenceable(296) %465, i64 noundef 0, i32 noundef %113) #29
+  call void %468(ptr noundef nonnull align 8 dereferenceable(296) %465, i64 noundef 0, i32 noundef %112) #29
   br label %469
 
 469:                                              ; preds = %461, %454

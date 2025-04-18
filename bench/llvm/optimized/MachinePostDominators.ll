@@ -2197,7 +2197,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define linkonce_odr hidden void @_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb1EEC2ENS_8ArrayRefINS_3cfg6UpdateIS2_EEEEb(ptr noundef nonnull align 8 dereferenceable(680) %0, ptr %1, i64 %2, i1 noundef zeroext %3) unnamed_addr #0 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %7, align 4, !tbaa !109
@@ -2213,7 +2212,6 @@ define linkonce_odr hidden void @_ZN4llvm9GraphDiffIPNS_17MachineBasicBlockELb1E
 
 _ZN4llvm13SmallDenseMapIPNS_17MachineBasicBlockENS_9GraphDiffIS2_Lb1EE14DeletesInsertsELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %.phi.trans.insert.i.i12.ptr = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 0, ptr %9, align 4, !tbaa !109
@@ -2228,7 +2226,9 @@ _ZN4llvm13SmallDenseMapIPNS_17MachineBasicBlockENS_9GraphDiffIS2_Lb1EE14DeletesI
   br i1 %.not.i.i.i18, label %_ZN4llvm13SmallDenseMapIPNS_17MachineBasicBlockENS_9GraphDiffIS2_Lb1EE14DeletesInsertsELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEEC2Ej.exit19, label %.lr.ph.i.i.i16, !llvm.loop !112
 
 _ZN4llvm13SmallDenseMapIPNS_17MachineBasicBlockENS_9GraphDiffIS2_Lb1EE14DeletesInsertsELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EEEC2Ej.exit19: ; preds = %.lr.ph.i.i.i16
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.phi.trans.insert.i.i12.ptr = getelementptr inbounds nuw i8, ptr %0, i64 304
   %.phi.trans.insert3.i.i14 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 616
@@ -9475,7 +9475,6 @@ define linkonce_odr void @_ZN4llvm3cfg15LegalizeUpdatesIPNS_17MachineBasicBlockE
   %11 = zext i1 %4 to i8
   store i8 %11, ptr %6, align 1, !tbaa !348
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #16
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %12, align 4, !tbaa !355
@@ -9492,6 +9491,7 @@ define linkonce_odr void @_ZN4llvm3cfg15LegalizeUpdatesIPNS_17MachineBasicBlockE
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapISt4pairIPNS_17MachineBasicBlockES3_EiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !358
 
 _ZN4llvm13SmallDenseMapISt4pairIPNS_17MachineBasicBlockES3_EiLj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = trunc i64 %1 to i32
   %14 = icmp eq i32 %13, 0

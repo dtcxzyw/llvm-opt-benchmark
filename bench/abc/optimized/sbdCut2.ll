@@ -322,22 +322,22 @@ define void @Sbd_ManCutExpand(ptr noundef readonly captures(none) %0, ptr nounde
   %35 = lshr i32 %27, 1
   %36 = icmp slt i32 %27, 0
   %spec.select.i = select i1 %36, i32 %24, i32 %35
-  %37 = icmp slt i32 %34, 0
-  br label %38
+  br label %37
 
-38:                                               ; preds = %38, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %38 ]
-  %39 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i.i
-  %40 = load i32, ptr %39, align 4, !tbaa !33
-  %41 = icmp ne i32 %40, %spec.select.i
+37:                                               ; preds = %37, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %37 ]
+  %38 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i.i
+  %39 = load i32, ptr %38, align 4, !tbaa !33
+  %40 = icmp ne i32 %39, %spec.select.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  %or.cond.not.i = select i1 %41, i1 %exitcond.not.i.i, i1 false
-  br i1 %or.cond.not.i, label %38, label %.lr.ph.i62.i.preheader, !llvm.loop !54
+  %or.cond.not.i = select i1 %40, i1 %exitcond.not.i.i, i1 false
+  br i1 %or.cond.not.i, label %37, label %.lr.ph.i62.i.preheader, !llvm.loop !54
 
-.lr.ph.i62.i.preheader:                           ; preds = %38
-  %42 = lshr i32 %34, 1
-  %43 = select i1 %37, i32 %31, i32 %42
+.lr.ph.i62.i.preheader:                           ; preds = %37
+  %41 = lshr i32 %34, 1
+  %42 = icmp slt i32 %34, 0
+  %43 = select i1 %42, i32 %31, i32 %41
   br label %.lr.ph.i62.i
 
 .lr.ph.i62.i:                                     ; preds = %.lr.ph.i62.i.preheader, %46
@@ -353,7 +353,7 @@ define void @Sbd_ManCutExpand(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %exitcond.not.i66.i, label %Vec_IntFind.exit68.i, label %.lr.ph.i62.i, !llvm.loop !54
 
 Vec_IntFind.exit68.i:                             ; preds = %46
-  br i1 %41, label %126, label %Vec_IntFind.exit68.thread.i
+  br i1 %40, label %126, label %Vec_IntFind.exit68.thread.i
 
 Vec_IntFind.exit68.thread.i:                      ; preds = %.lr.ph.i62.i, %Vec_IntFind.exit68.i
   %47 = sext i32 %spec.select.i to i64
@@ -390,7 +390,7 @@ Vec_IntFind.exit68.thread.i:                      ; preds = %.lr.ph.i62.i, %Vec_
 Vec_IntDrop.exit.i:                               ; preds = %.lr.ph.i69.i, %56
   %65 = phi i32 [ %13, %56 ], [ %62, %.lr.ph.i69.i ]
   %66 = icmp ne i32 %spec.select.i, 0
-  %or.cond3.i = and i1 %66, %41
+  %or.cond3.i = and i1 %66, %40
   br i1 %or.cond3.i, label %67, label %90
 
 67:                                               ; preds = %Vec_IntDrop.exit.i

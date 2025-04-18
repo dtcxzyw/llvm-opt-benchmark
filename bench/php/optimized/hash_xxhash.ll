@@ -4087,48 +4087,48 @@ XXH3_digest_long.exit.i:                          ; preds = %132, %XXH3_accumula
   br i1 %exitcond.not.i.i, label %XXH3_mergeAccs.exit.i, label %183
 
 XXH3_mergeAccs.exit.i:                            ; preds = %183
-  %200 = lshr i64 %198, 37
-  %201 = xor i64 %200, %198
-  %202 = mul i64 %201, 1609587791953885689
-  %203 = getelementptr inbounds nuw i8, ptr %9, i64 %180
-  %204 = getelementptr inbounds i8, ptr %203, i64 -11
-  %205 = mul i64 %11, -4417276706812531889
-  %206 = xor i64 %205, -1
+  %200 = getelementptr inbounds nuw i8, ptr %9, i64 %180
+  %201 = getelementptr inbounds i8, ptr %200, i64 -11
+  %202 = mul i64 %11, -4417276706812531889
+  %203 = xor i64 %202, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !616)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !619)
-  br label %207
+  br label %204
 
-207:                                              ; preds = %207, %XXH3_mergeAccs.exit.i
-  %.011.i21.i = phi i64 [ 0, %XXH3_mergeAccs.exit.i ], [ %223, %207 ]
-  %.0810.i22.i = phi i64 [ %206, %XXH3_mergeAccs.exit.i ], [ %222, %207 ]
+204:                                              ; preds = %204, %XXH3_mergeAccs.exit.i
+  %.011.i21.i = phi i64 [ 0, %XXH3_mergeAccs.exit.i ], [ %220, %204 ]
+  %.0810.i22.i = phi i64 [ %203, %XXH3_mergeAccs.exit.i ], [ %219, %204 ]
   %.idx.i23.i = shl nuw nsw i64 %.011.i21.i, 4
-  %208 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i23.i
-  %209 = getelementptr inbounds nuw i8, ptr %204, i64 %.idx.i23.i
+  %205 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i23.i
+  %206 = getelementptr inbounds nuw i8, ptr %201, i64 %.idx.i23.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !621)
-  %210 = load i64, ptr %208, align 16, !tbaa !31, !alias.scope !624, !noalias !625
-  %.0.copyload.i.i24.i = load i64, ptr %209, align 1, !alias.scope !619, !noalias !624
-  %211 = xor i64 %.0.copyload.i.i24.i, %210
-  %212 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  %213 = load i64, ptr %212, align 8, !tbaa !31, !alias.scope !624, !noalias !625
-  %214 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  %.0.copyload.i9.i25.i = load i64, ptr %214, align 1, !alias.scope !619, !noalias !624
-  %215 = xor i64 %.0.copyload.i9.i25.i, %213
-  %216 = zext i64 %211 to i128
-  %217 = zext i64 %215 to i128
-  %218 = mul nuw i128 %217, %216
-  %219 = lshr i128 %218, 64
-  %220 = xor i128 %219, %218
-  %221 = trunc i128 %220 to i64
-  %222 = add i64 %.0810.i22.i, %221
-  %223 = add nuw nsw i64 %.011.i21.i, 1
-  %exitcond.not.i26.i = icmp eq i64 %223, 4
-  br i1 %exitcond.not.i26.i, label %XXH3_mergeAccs.exit27.i, label %207
+  %207 = load i64, ptr %205, align 16, !tbaa !31, !alias.scope !624, !noalias !625
+  %.0.copyload.i.i24.i = load i64, ptr %206, align 1, !alias.scope !619, !noalias !624
+  %208 = xor i64 %.0.copyload.i.i24.i, %207
+  %209 = getelementptr inbounds nuw i8, ptr %205, i64 8
+  %210 = load i64, ptr %209, align 8, !tbaa !31, !alias.scope !624, !noalias !625
+  %211 = getelementptr inbounds nuw i8, ptr %206, i64 8
+  %.0.copyload.i9.i25.i = load i64, ptr %211, align 1, !alias.scope !619, !noalias !624
+  %212 = xor i64 %.0.copyload.i9.i25.i, %210
+  %213 = zext i64 %208 to i128
+  %214 = zext i64 %212 to i128
+  %215 = mul nuw i128 %214, %213
+  %216 = lshr i128 %215, 64
+  %217 = xor i128 %216, %215
+  %218 = trunc i128 %217 to i64
+  %219 = add i64 %.0810.i22.i, %218
+  %220 = add nuw nsw i64 %.011.i21.i, 1
+  %exitcond.not.i26.i = icmp eq i64 %220, 4
+  br i1 %exitcond.not.i26.i, label %XXH3_mergeAccs.exit27.i, label %204
 
-XXH3_mergeAccs.exit27.i:                          ; preds = %207
-  %224 = lshr i64 %202, 32
-  %225 = xor i64 %224, %202
-  %226 = lshr i64 %222, 37
-  %227 = xor i64 %226, %222
+XXH3_mergeAccs.exit27.i:                          ; preds = %204
+  %221 = lshr i64 %198, 37
+  %222 = xor i64 %221, %198
+  %223 = mul i64 %222, 1609587791953885689
+  %224 = lshr i64 %223, 32
+  %225 = xor i64 %224, %223
+  %226 = lshr i64 %219, 37
+  %227 = xor i64 %226, %219
   %228 = mul i64 %227, 1609587791953885689
   %229 = lshr i64 %228, 32
   %230 = xor i64 %229, %228
@@ -4959,47 +4959,47 @@ declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 imma
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc i64 @XXH3_len_129to240_64b(ptr noalias noundef readonly captures(none) %0, i64 noundef range(i64 129, 241) %1, ptr noalias noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #13 {
   %5 = mul i64 %1, -7046029288634856825
-  %6 = trunc nuw nsw i64 %1 to i32
-  br label %7
+  br label %6
 
-7:                                                ; preds = %4, %7
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %7 ]
-  %.02538 = phi i64 [ %5, %4 ], [ %23, %7 ]
-  %8 = shl nuw nsw i64 %indvars.iv, 4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %8
-  %.0.copyload.i = load i64, ptr %9, align 1, !noalias !651
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.copyload.i27 = load i64, ptr %11, align 1, !noalias !651
-  %.0.copyload.i28 = load i64, ptr %10, align 1
-  %12 = add i64 %.0.copyload.i28, %3
-  %13 = xor i64 %12, %.0.copyload.i
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.0.copyload.i29 = load i64, ptr %14, align 1
-  %15 = sub i64 %.0.copyload.i29, %3
-  %16 = xor i64 %15, %.0.copyload.i27
-  %17 = zext i64 %13 to i128
-  %18 = zext i64 %16 to i128
-  %19 = mul nuw i128 %18, %17
-  %20 = lshr i128 %19, 64
-  %21 = xor i128 %20, %19
-  %22 = trunc i128 %21 to i64
-  %23 = add i64 %.02538, %22
+6:                                                ; preds = %4, %6
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %6 ]
+  %.02538 = phi i64 [ %5, %4 ], [ %22, %6 ]
+  %7 = shl nuw nsw i64 %indvars.iv, 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %7
+  %.0.copyload.i = load i64, ptr %8, align 1, !noalias !651
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.0.copyload.i27 = load i64, ptr %10, align 1, !noalias !651
+  %.0.copyload.i28 = load i64, ptr %9, align 1
+  %11 = add i64 %.0.copyload.i28, %3
+  %12 = xor i64 %11, %.0.copyload.i
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.0.copyload.i29 = load i64, ptr %13, align 1
+  %14 = sub i64 %.0.copyload.i29, %3
+  %15 = xor i64 %14, %.0.copyload.i27
+  %16 = zext i64 %12 to i128
+  %17 = zext i64 %15 to i128
+  %18 = mul nuw i128 %17, %16
+  %19 = lshr i128 %18, 64
+  %20 = xor i128 %19, %18
+  %21 = trunc i128 %20 to i64
+  %22 = add i64 %.02538, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %24, label %7
+  br i1 %exitcond.not, label %23, label %6
 
-24:                                               ; preds = %7
-  %25 = lshr i32 %6, 4
-  %26 = lshr i64 %23, 37
-  %27 = xor i64 %26, %23
+23:                                               ; preds = %6
+  %24 = trunc nuw nsw i64 %1 to i32
+  %25 = lshr i32 %24, 4
+  %26 = lshr i64 %22, 37
+  %27 = xor i64 %26, %22
   %28 = mul i64 %27, 1609587791953885689
   %29 = lshr i64 %28, 32
   %30 = xor i64 %29, %28
   %.not = icmp eq i32 %25, 8
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %24
+.lr.ph.preheader:                                 ; preds = %23
   %wide.trip.count = zext nneg i32 %25 to i64
   br label %.lr.ph
 
@@ -5031,8 +5031,8 @@ define internal fastcc i64 @XXH3_len_129to240_64b(ptr noalias noundef readonly c
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
   br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %24
-  %.126.lcssa = phi i64 [ %30, %24 ], [ %47, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %23
+  %.126.lcssa = phi i64 [ %30, %23 ], [ %47, %.lr.ph ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %49 = getelementptr inbounds i8, ptr %48, i64 -16
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 119
@@ -5063,77 +5063,77 @@ define internal fastcc i64 @XXH3_len_129to240_64b(ptr noalias noundef readonly c
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc { i64, i64 } @XXH3_len_129to240_128b(ptr noalias noundef readonly captures(none) %0, i64 noundef range(i64 129, 241) %1, ptr noalias noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #13 {
-  %5 = trunc nuw nsw i64 %1 to i32
-  %6 = mul i64 %1, -7046029288634856825
-  br label %7
+  %5 = mul i64 %1, -7046029288634856825
+  br label %6
 
-7:                                                ; preds = %4, %7
-  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %7 ]
-  %.sroa.13.088 = phi i64 [ 0, %4 ], [ %42, %7 ]
-  %.sroa.015.087 = phi i64 [ %6, %4 ], [ %27, %7 ]
-  %8 = shl nuw nsw i64 %indvars.iv, 5
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %8
-  %.0.copyload.i = load i64, ptr %9, align 1, !noalias !660
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.0.copyload.i51 = load i64, ptr %12, align 1, !noalias !660
-  %.0.copyload.i52 = load i64, ptr %11, align 1
-  %13 = add i64 %.0.copyload.i52, %3
-  %14 = xor i64 %13, %.0.copyload.i
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.0.copyload.i53 = load i64, ptr %15, align 1
-  %16 = sub i64 %.0.copyload.i53, %3
-  %17 = xor i64 %16, %.0.copyload.i51
-  %18 = zext i64 %14 to i128
-  %19 = zext i64 %17 to i128
-  %20 = mul nuw i128 %19, %18
-  %21 = lshr i128 %20, 64
-  %22 = xor i128 %21, %20
-  %23 = trunc i128 %22 to i64
-  %24 = add i64 %.sroa.015.087, %23
-  %.0.copyload.i54 = load i64, ptr %10, align 1
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.0.copyload.i55 = load i64, ptr %25, align 1
-  %26 = add i64 %.0.copyload.i55, %.0.copyload.i54
-  %27 = xor i64 %24, %26
-  %28 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.0.copyload.i58 = load i64, ptr %28, align 1
-  %29 = add i64 %.0.copyload.i58, %3
-  %30 = xor i64 %29, %.0.copyload.i54
-  %31 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.0.copyload.i59 = load i64, ptr %31, align 1
-  %32 = sub i64 %.0.copyload.i59, %3
-  %33 = xor i64 %32, %.0.copyload.i55
-  %34 = zext i64 %30 to i128
-  %35 = zext i64 %33 to i128
-  %36 = mul nuw i128 %35, %34
-  %37 = lshr i128 %36, 64
-  %38 = xor i128 %37, %36
-  %39 = trunc i128 %38 to i64
-  %40 = add i64 %.sroa.13.088, %39
-  %41 = add i64 %.0.copyload.i51, %.0.copyload.i
-  %42 = xor i64 %40, %41
+6:                                                ; preds = %4, %6
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %6 ]
+  %.sroa.13.088 = phi i64 [ 0, %4 ], [ %41, %6 ]
+  %.sroa.015.087 = phi i64 [ %5, %4 ], [ %26, %6 ]
+  %7 = shl nuw nsw i64 %indvars.iv, 5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 %7
+  %.0.copyload.i = load i64, ptr %8, align 1, !noalias !660
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.0.copyload.i51 = load i64, ptr %11, align 1, !noalias !660
+  %.0.copyload.i52 = load i64, ptr %10, align 1
+  %12 = add i64 %.0.copyload.i52, %3
+  %13 = xor i64 %12, %.0.copyload.i
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.0.copyload.i53 = load i64, ptr %14, align 1
+  %15 = sub i64 %.0.copyload.i53, %3
+  %16 = xor i64 %15, %.0.copyload.i51
+  %17 = zext i64 %13 to i128
+  %18 = zext i64 %16 to i128
+  %19 = mul nuw i128 %18, %17
+  %20 = lshr i128 %19, 64
+  %21 = xor i128 %20, %19
+  %22 = trunc i128 %21 to i64
+  %23 = add i64 %.sroa.015.087, %22
+  %.0.copyload.i54 = load i64, ptr %9, align 1
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.0.copyload.i55 = load i64, ptr %24, align 1
+  %25 = add i64 %.0.copyload.i55, %.0.copyload.i54
+  %26 = xor i64 %23, %25
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.0.copyload.i58 = load i64, ptr %27, align 1
+  %28 = add i64 %.0.copyload.i58, %3
+  %29 = xor i64 %28, %.0.copyload.i54
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.0.copyload.i59 = load i64, ptr %30, align 1
+  %31 = sub i64 %.0.copyload.i59, %3
+  %32 = xor i64 %31, %.0.copyload.i55
+  %33 = zext i64 %29 to i128
+  %34 = zext i64 %32 to i128
+  %35 = mul nuw i128 %34, %33
+  %36 = lshr i128 %35, 64
+  %37 = xor i128 %36, %35
+  %38 = trunc i128 %37 to i64
+  %39 = add i64 %.sroa.13.088, %38
+  %40 = add i64 %.0.copyload.i51, %.0.copyload.i
+  %41 = xor i64 %39, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %43, label %7
+  br i1 %exitcond.not, label %42, label %6
 
-43:                                               ; preds = %7
-  %44 = lshr i32 %5, 5
-  %45 = lshr i64 %27, 37
-  %46 = xor i64 %45, %27
+42:                                               ; preds = %6
+  %43 = trunc nuw nsw i64 %1 to i32
+  %44 = lshr i32 %43, 5
+  %45 = lshr i64 %26, 37
+  %46 = xor i64 %45, %26
   %47 = mul i64 %46, 1609587791953885689
   %48 = lshr i64 %47, 32
   %49 = xor i64 %48, %47
-  %50 = lshr i64 %42, 37
-  %51 = xor i64 %50, %42
+  %50 = lshr i64 %41, 37
+  %51 = xor i64 %50, %41
   %52 = mul i64 %51, 1609587791953885689
   %53 = lshr i64 %52, 32
   %54 = xor i64 %53, %52
   %.not = icmp eq i32 %44, 4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %43
+.lr.ph:                                           ; preds = %42
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %wide.trip.count = zext nneg i32 %44 to i64
   br label %56
@@ -5190,9 +5190,9 @@ define internal fastcc { i64, i64 } @XXH3_len_129to240_128b(ptr noalias noundef 
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
   br i1 %exitcond100.not, label %._crit_edge, label %56
 
-._crit_edge:                                      ; preds = %56, %43
-  %.sroa.015.1.lcssa = phi i64 [ %49, %43 ], [ %77, %56 ]
-  %.sroa.13.1.lcssa = phi i64 [ %54, %43 ], [ %92, %56 ]
+._crit_edge:                                      ; preds = %56, %42
+  %.sroa.015.1.lcssa = phi i64 [ %49, %42 ], [ %77, %56 ]
+  %.sroa.13.1.lcssa = phi i64 [ %54, %42 ], [ %92, %56 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %94 = getelementptr inbounds i8, ptr %93, i64 -16
   %95 = getelementptr inbounds i8, ptr %93, i64 -32

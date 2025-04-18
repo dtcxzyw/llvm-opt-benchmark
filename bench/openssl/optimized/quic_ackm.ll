@@ -1901,36 +1901,36 @@ define internal fastcc i64 @ackm_get_pto_time_and_space(ptr noundef readonly cap
   call void @ossl_statm_get_rtt_info(ptr noundef %5, ptr noundef nonnull %3) #12
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = icmp ugt i64 %7, 4611686018427387903
-  %9 = shl i64 %7, 2
-  %10 = call i64 @llvm.umax.i64(i64 %9, i64 1000000)
-  %11 = load i64, ptr %3, align 8
-  %12 = call i64 @llvm.uadd.sat.i64(i64 %11, i64 %10)
-  %.sroa.03.0.i = select i1 %8, i64 -1, i64 %12
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %14 = load i32, ptr %13, align 8, !tbaa !87
-  %15 = call noundef range(i32 0, 17) i32 @llvm.umin.i32(i32 %14, i32 16)
-  %16 = zext nneg i32 %15 to i64
-  %17 = shl nuw nsw i64 1, %16
-  %18 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.03.0.i, i64 %17)
-  %19 = extractvalue { i64, i1 } %18, 0
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  br label %21
+  %8 = load i64, ptr %3, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %10 = load i32, ptr %9, align 8, !tbaa !87
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  br label %12
 
-21:                                               ; preds = %21, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %21 ]
-  %.07.i = phi i64 [ 0, %2 ], [ %24, %21 ]
-  %22 = getelementptr inbounds nuw [3 x i64], ptr %20, i64 0, i64 %indvars.iv.i
-  %23 = load i64, ptr %22, align 8, !tbaa !3
-  %24 = add i64 %23, %.07.i
+12:                                               ; preds = %12, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %12 ]
+  %.07.i = phi i64 [ 0, %2 ], [ %15, %12 ]
+  %13 = getelementptr inbounds nuw [3 x i64], ptr %11, i64 0, i64 %indvars.iv.i
+  %14 = load i64, ptr %13, align 8, !tbaa !3
+  %15 = add i64 %14, %.07.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %ackm_ack_eliciting_bytes_in_flight.exit, label %21, !llvm.loop !54
+  br i1 %exitcond.not.i, label %ackm_ack_eliciting_bytes_in_flight.exit, label %12, !llvm.loop !54
 
-ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %21
-  %25 = extractvalue { i64, i1 } %18, 1
-  %.sroa.02.0.i40 = select i1 %25, i64 -1, i64 %19
-  %26 = icmp eq i64 %24, 0
+ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %12
+  %16 = icmp ugt i64 %7, 4611686018427387903
+  %17 = shl i64 %7, 2
+  %18 = call i64 @llvm.umax.i64(i64 %17, i64 1000000)
+  %19 = call i64 @llvm.uadd.sat.i64(i64 %8, i64 %18)
+  %.sroa.03.0.i = select i1 %16, i64 -1, i64 %19
+  %20 = call noundef range(i32 0, 17) i32 @llvm.umin.i32(i32 %10, i32 16)
+  %21 = zext nneg i32 %20 to i64
+  %22 = shl nuw nsw i64 1, %21
+  %23 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.03.0.i, i64 %22)
+  %24 = extractvalue { i64, i1 } %23, 1
+  %25 = extractvalue { i64, i1 } %23, 0
+  %.sroa.02.0.i40 = select i1 %24, i64 -1, i64 %25
+  %26 = icmp eq i64 %15, 0
   br i1 %26, label %30, label %.preheader
 
 .preheader:                                       ; preds = %ackm_ack_eliciting_bytes_in_flight.exit
@@ -1958,7 +1958,7 @@ ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %21
   %.sroa.018.049 = phi i64 [ %.sroa.02.0.i40, %.preheader ], [ %.sroa.018.1, %59 ]
   %.sroa.017.048 = phi i64 [ -1, %.preheader ], [ %.sroa.017.1, %59 ]
   %.047 = phi i32 [ 0, %.preheader ], [ %.1, %59 ]
-  %40 = getelementptr inbounds nuw [3 x i64], ptr %20, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [3 x i64], ptr %11, i64 0, i64 %indvars.iv
   %41 = load i64, ptr %40, align 8, !tbaa !3
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %59, label %43
@@ -1978,7 +1978,7 @@ ackm_ack_eliciting_bytes_in_flight.exit:          ; preds = %21
   br i1 %.not45, label %54, label %49
 
 49:                                               ; preds = %47
-  %50 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %48, i64 %17)
+  %50 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %48, i64 %22)
   %51 = extractvalue { i64, i1 } %50, 1
   %52 = extractvalue { i64, i1 } %50, 0
   %53 = call i64 @llvm.uadd.sat.i64(i64 %.sroa.018.049, i64 %52)
@@ -2675,54 +2675,54 @@ tx_pkt_history_remove.exit:                       ; preds = %13, %ossl_list_tx_h
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br label %.split.i
 
-.split.i:                                         ; preds = %63, %tx_pkt_history_remove.exit
-  %.02935.i = phi ptr [ %46, %63 ], [ %11, %tx_pkt_history_remove.exit ]
-  %45 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 96
-  %46 = load ptr, ptr %45, align 8, !tbaa !70
-  %47 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 32
-  %48 = load i8, ptr %47, align 8
-  %49 = and i8 %48, 4
-  %.not32.i = icmp eq i8 %49, 0
-  br i1 %.not32.i, label %63, label %50
+.split.i:                                         ; preds = %62, %tx_pkt_history_remove.exit
+  %.02935.i = phi ptr [ %45, %62 ], [ %11, %tx_pkt_history_remove.exit ]
+  %44 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 96
+  %45 = load ptr, ptr %44, align 8, !tbaa !70
+  %46 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 32
+  %47 = load i8, ptr %46, align 8
+  %48 = and i8 %47, 4
+  %.not32.i = icmp eq i8 %48, 0
+  br i1 %.not32.i, label %62, label %49
 
-50:                                               ; preds = %.split.i
-  %51 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 8
-  %52 = load i64, ptr %51, align 8, !tbaa !35
-  %53 = load i64, ptr %42, align 8, !tbaa !48
-  %54 = sub i64 %53, %52
-  store i64 %54, ptr %42, align 8, !tbaa !48
-  %55 = load i8, ptr %47, align 8
-  %56 = and i8 %55, 8
-  %.not33.i = icmp eq i8 %56, 0
-  br i1 %.not33.i, label %63, label %57
+49:                                               ; preds = %.split.i
+  %50 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 8
+  %51 = load i64, ptr %50, align 8, !tbaa !35
+  %52 = load i64, ptr %42, align 8, !tbaa !48
+  %53 = sub i64 %52, %51
+  store i64 %53, ptr %42, align 8, !tbaa !48
+  %54 = load i8, ptr %46, align 8
+  %55 = and i8 %54, 8
+  %.not33.i = icmp eq i8 %55, 0
+  br i1 %.not33.i, label %62, label %56
 
-57:                                               ; preds = %50
-  %58 = and i8 %55, 3
-  %59 = zext nneg i8 %58 to i64
-  %60 = getelementptr inbounds nuw [3 x i64], ptr %43, i64 0, i64 %59
-  %61 = load i64, ptr %60, align 8, !tbaa !3
-  %62 = sub i64 %61, %52
-  store i64 %62, ptr %60, align 8, !tbaa !3
-  br label %63
+56:                                               ; preds = %49
+  %57 = and i8 %54, 3
+  %58 = zext nneg i8 %57 to i64
+  %59 = getelementptr inbounds nuw [3 x i64], ptr %43, i64 0, i64 %58
+  %60 = load i64, ptr %59, align 8, !tbaa !3
+  %61 = sub i64 %60, %51
+  store i64 %61, ptr %59, align 8, !tbaa !3
+  br label %62
 
-63:                                               ; preds = %57, %50, %.split.i
-  %64 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 40
-  %65 = load ptr, ptr %64, align 8, !tbaa !74
-  %66 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 64
-  %67 = load ptr, ptr %66, align 8, !tbaa !75
-  call void %65(ptr noundef %67) #12
-  %.not.i = icmp eq ptr %46, null
+62:                                               ; preds = %56, %49, %.split.i
+  %63 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 40
+  %64 = load ptr, ptr %63, align 8, !tbaa !74
+  %65 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 64
+  %66 = load ptr, ptr %65, align 8, !tbaa !75
+  call void %64(ptr noundef %66) #12
+  %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %ackm_on_pkts_lost.exit, label %.split.i, !llvm.loop !76
 
-ackm_on_pkts_lost.exit:                           ; preds = %63
+ackm_on_pkts_lost.exit:                           ; preds = %62
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %70 = load ptr, ptr %69, align 8, !tbaa !29
   call void @ossl_statm_get_rtt_info(ptr noundef %70, ptr noundef nonnull %4) #12
-  %71 = load ptr, ptr %44, align 8, !tbaa !30
+  %71 = load ptr, ptr %67, align 8, !tbaa !30
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 88
   %73 = load ptr, ptr %72, align 8, !tbaa !77
   %74 = load ptr, ptr %68, align 8, !tbaa !31

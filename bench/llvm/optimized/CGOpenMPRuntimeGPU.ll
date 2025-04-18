@@ -4159,7 +4159,6 @@ define dso_local noundef ptr @_ZN5clang7CodeGen18CGOpenMPRuntimeGPU25emitTeamsOu
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 4, ptr %16, align 4, !tbaa !211
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #19
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 1, ptr %11, align 8
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %17, align 4, !tbaa !1321
@@ -4174,6 +4173,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen18CGOpenMPRuntimeGPU25emitTeamsOu
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPKN5clang9ValueDeclEPKNS1_9FieldDeclELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !1324
 
 _ZN4llvm13SmallDenseMapIPKN5clang9ValueDeclEPKNS1_9FieldDeclELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !805
@@ -6855,7 +6855,6 @@ define dso_local void @_ZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS0
 
 42:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #19
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 1, ptr %12, align 8
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %43, align 4, !tbaa !1321
@@ -6870,6 +6869,7 @@ define dso_local void @_ZN5clang7CodeGen18CGOpenMPRuntimeGPU13emitReductionERNS0
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPKN5clang9ValueDeclEPKNS1_9FieldDeclELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !1324
 
 _ZN4llvm13SmallDenseMapIPKN5clang9ValueDeclEPKNS1_9FieldDeclELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #19
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 16

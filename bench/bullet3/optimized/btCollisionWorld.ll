@@ -2249,66 +2249,66 @@ define linkonce_odr dso_local void @_ZN6btDbvt7rayTestEPK10btDbvtNodeRK9btVector
 .preheader:                                       ; preds = %4
   %8 = load float, ptr %2, align 4, !tbaa !66
   %9 = load float, ptr %1, align 4, !tbaa !66
-  %10 = fsub float %8, %9
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %12 = load float, ptr %11, align 4, !tbaa !66
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %14 = load float, ptr %13, align 4, !tbaa !66
-  %15 = fsub float %12, %14
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %11 = load float, ptr %10, align 4, !tbaa !66
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %13 = load float, ptr %12, align 4, !tbaa !66
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %15 = load float, ptr %14, align 4, !tbaa !66
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load float, ptr %16, align 4, !tbaa !66
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load float, ptr %18, align 4, !tbaa !66
-  %20 = fsub float %17, %19
-  %21 = fmul float %15, %15
-  %22 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %21)
-  %23 = tail call noundef float @llvm.fmuladd.f32(float %20, float %20, float %22)
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %23)
-  %24 = fdiv float 1.000000e+00, %sqrt.i.i
-  %25 = fmul float %10, %24
-  %26 = fmul float %15, %24
-  %27 = fmul float %20, %24
-  %28 = fdiv float 1.000000e+00, %25
-  %29 = fcmp oeq float %26, 0.000000e+00
-  %30 = fdiv float 1.000000e+00, %26
-  %31 = select i1 %29, float 0x43ABC16D60000000, float %30
-  %32 = fcmp oeq float %27, 0.000000e+00
-  %33 = fdiv float 1.000000e+00, %27
-  %34 = select i1 %32, float 0x43ABC16D60000000, float %33
-  %35 = fcmp olt float %31, 0.000000e+00
-  %36 = fmul float %15, %26
-  %37 = tail call float @llvm.fmuladd.f32(float %25, float %10, float %36)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #22
-  store i8 0, ptr %38, align 8, !tbaa !157
-  store ptr %6, ptr %39, align 8, !tbaa !161
-  store i32 128, ptr %40, align 4, !tbaa !162
-  store i32 128, ptr %41, align 8, !tbaa !163
+  store i8 0, ptr %18, align 8, !tbaa !157
+  store ptr %6, ptr %19, align 8, !tbaa !161
+  store i32 128, ptr %20, align 4, !tbaa !162
+  store i32 128, ptr %21, align 8, !tbaa !163
   store ptr %0, ptr %6, align 16, !tbaa !164
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
-  %42 = fcmp oeq float %25, 0.000000e+00
-  %43 = select i1 %42, float 0x43ABC16D60000000, float %28
-  %44 = fcmp olt float %43, 0.000000e+00
-  %45 = fcmp olt float %34, 0.000000e+00
-  %46 = tail call noundef float @llvm.fmuladd.f32(float %27, float %20, float %37)
+  %22 = fsub float %8, %9
+  %23 = fsub float %11, %13
+  %24 = fsub float %15, %17
+  %25 = fmul float %23, %23
+  %26 = tail call float @llvm.fmuladd.f32(float %22, float %22, float %25)
+  %27 = tail call noundef float @llvm.fmuladd.f32(float %24, float %24, float %26)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %27)
+  %28 = fdiv float 1.000000e+00, %sqrt.i.i
+  %29 = fmul float %22, %28
+  %30 = fmul float %23, %28
+  %31 = fmul float %24, %28
+  %32 = fcmp oeq float %29, 0.000000e+00
+  %33 = fdiv float 1.000000e+00, %29
+  %34 = select i1 %32, float 0x43ABC16D60000000, float %33
+  %35 = fcmp oeq float %30, 0.000000e+00
+  %36 = fdiv float 1.000000e+00, %30
+  %37 = select i1 %35, float 0x43ABC16D60000000, float %36
+  %38 = fcmp oeq float %31, 0.000000e+00
+  %39 = fdiv float 1.000000e+00, %31
+  %40 = select i1 %38, float 0x43ABC16D60000000, float %39
+  %41 = fcmp olt float %34, 0.000000e+00
+  %42 = fcmp olt float %37, 0.000000e+00
+  %43 = fcmp olt float %40, 0.000000e+00
+  %44 = fmul float %23, %30
+  %45 = tail call float @llvm.fmuladd.f32(float %29, float %22, float %44)
+  %46 = tail call noundef float @llvm.fmuladd.f32(float %31, float %24, float %45)
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %48 = zext i1 %44 to i64
+  %48 = zext i1 %41 to i64
   %49 = getelementptr inbounds nuw %class.btVector3, ptr %7, i64 %48
-  %not. = xor i1 %44, true
+  %not. = xor i1 %41, true
   %50 = zext i1 %not. to i64
   %51 = getelementptr inbounds nuw %class.btVector3, ptr %7, i64 %50
-  %52 = zext i1 %35 to i64
+  %52 = zext i1 %42 to i64
   %53 = getelementptr inbounds nuw %class.btVector3, ptr %7, i64 %52, i32 0, i64 1
-  %not.77 = xor i1 %35, true
+  %not.77 = xor i1 %42, true
   %54 = zext i1 %not.77 to i64
   %55 = getelementptr inbounds nuw %class.btVector3, ptr %7, i64 %54, i32 0, i64 1
-  %56 = zext i1 %45 to i64
+  %56 = zext i1 %43 to i64
   %57 = getelementptr inbounds nuw %class.btVector3, ptr %7, i64 %56, i32 0, i64 2
-  %not.78 = xor i1 %45, true
+  %not.78 = xor i1 %43, true
   %58 = zext i1 %not.78 to i64
   %59 = getelementptr inbounds nuw %class.btVector3, ptr %7, i64 %58, i32 0, i64 2
   br label %60
@@ -2331,17 +2331,17 @@ define linkonce_odr dso_local void @_ZN6btDbvt7rayTestEPK10btDbvtNodeRK9btVector
   %69 = load float, ptr %49, align 16, !tbaa !66
   %70 = load float, ptr %1, align 4, !tbaa !66
   %71 = fsub float %69, %70
-  %72 = fmul float %43, %71
+  %72 = fmul float %34, %71
   %73 = load float, ptr %51, align 16, !tbaa !66
   %74 = fsub float %73, %70
-  %75 = fmul float %43, %74
+  %75 = fmul float %34, %74
   %76 = load float, ptr %53, align 4, !tbaa !66
-  %77 = load float, ptr %13, align 4, !tbaa !66
+  %77 = load float, ptr %12, align 4, !tbaa !66
   %78 = fsub float %76, %77
-  %79 = fmul float %31, %78
+  %79 = fmul float %37, %78
   %80 = load float, ptr %55, align 4, !tbaa !66
   %81 = fsub float %80, %77
-  %82 = fmul float %31, %81
+  %82 = fmul float %37, %81
   %83 = fcmp ogt float %72, %82
   %84 = fcmp ogt float %79, %75
   %or.cond.i = select i1 %83, i1 true, i1 %84
@@ -2353,12 +2353,12 @@ define linkonce_odr dso_local void @_ZN6btDbvt7rayTestEPK10btDbvtNodeRK9btVector
   %88 = fcmp olt float %82, %75
   %.052.i = select i1 %88, float %82, float %75
   %89 = load float, ptr %57, align 8, !tbaa !66
-  %90 = load float, ptr %18, align 4, !tbaa !66
+  %90 = load float, ptr %16, align 4, !tbaa !66
   %91 = fsub float %89, %90
-  %92 = fmul float %34, %91
+  %92 = fmul float %40, %91
   %93 = load float, ptr %59, align 8, !tbaa !66
   %94 = fsub float %93, %90
-  %95 = fmul float %34, %94
+  %95 = fmul float %40, %94
   %96 = fcmp ogt float %87, %95
   %97 = fcmp ogt float %92, %.052.i
   %or.cond60.i = select i1 %96, i1 true, i1 %97
@@ -2437,9 +2437,9 @@ _ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.thread.i.i: ; preds 
 
 _ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i: ; preds = %125, %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i
   %.0.i.i.i81 = phi ptr [ %.0.i.i.i82, %125 ], [ %118, %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.thread.i.i ], [ %.0.i.i.i83, %_ZNK20btAlignedObjectArrayIPK10btDbvtNodeE4copyEiiPS2_.exit.i.i ]
-  store i8 1, ptr %38, align 8, !tbaa !157
-  store ptr %.0.i.i.i81, ptr %39, align 8, !tbaa !161
-  store i32 %110, ptr %41, align 8, !tbaa !163
+  store i8 1, ptr %18, align 8, !tbaa !157
+  store ptr %.0.i.i.i81, ptr %19, align 8, !tbaa !161
+  store i32 %110, ptr %21, align 8, !tbaa !163
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i, %112
@@ -2460,7 +2460,7 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i: ; preds = %125
   %134 = phi ptr [ %126, %.lr.ph.i ], [ %61, %109 ]
   %135 = phi i8 [ %128, %.lr.ph.i ], [ %.old25.i, %109 ]
   %136 = phi i32 [ %129, %.lr.ph.i ], [ %62, %109 ]
-  store i32 %110, ptr %40, align 4, !tbaa !162
+  store i32 %110, ptr %20, align 4, !tbaa !162
   %137 = add nsw i32 %110, -2
   br label %142
 

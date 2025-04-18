@@ -8407,8 +8407,6 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %invoke.cont.i.i
 
 vector.ph:                                        ; preds = %for.body.i.i.i.i.i.preheader
   %n.vec = and i64 %27, -16
-  %29 = shl i64 %n.vec, 1
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i207, i64 %29
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -8418,18 +8416,20 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep526 = getelementptr i8, ptr %BufferMaterialCullingList.sroa.0.2388, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
-  %30 = getelementptr i8, ptr %next.gep526, i64 16
+  %29 = getelementptr i8, ptr %next.gep526, i64 16
   %wide.load = load <8 x i16>, ptr %next.gep526, align 1, !alias.scope !233, !noalias !230
-  %wide.load528 = load <8 x i16>, ptr %30, align 1, !alias.scope !233, !noalias !230
-  %31 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load528 = load <8 x i16>, ptr %29, align 1, !alias.scope !233, !noalias !230
+  %30 = getelementptr i8, ptr %next.gep, i64 16
   store <8 x i16> %wide.load, ptr %next.gep, align 1, !alias.scope !230, !noalias !233
-  store <8 x i16> %wide.load528, ptr %31, align 1, !alias.scope !230, !noalias !233
+  store <8 x i16> %wide.load528, ptr %30, align 1, !alias.scope !230, !noalias !233
   %index.next = add nuw i64 %index, 16
-  %32 = icmp eq i64 %index.next, %n.vec
-  br i1 %32, label %middle.block, label %vector.body, !llvm.loop !235
+  %31 = icmp eq i64 %index.next, %n.vec
+  br i1 %31, label %middle.block, label %vector.body, !llvm.loop !235
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end522 = getelementptr i8, ptr %BufferMaterialCullingList.sroa.0.2388, i64 %29
+  %32 = shl i64 %n.vec, 1
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i207, i64 %32
+  %ind.end522 = getelementptr i8, ptr %BufferMaterialCullingList.sroa.0.2388, i64 %32
   %cmp.n = icmp eq i64 %27, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt4pairIbbESaIS1_EE17_M_realloc_insertIJbbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %for.body.i.i.i.i.i.preheader114
 

@@ -9286,22 +9286,22 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit498:     ; preds = %162, %166
 
 "_ZN4llvm6all_ofINS_6detail5zippyINS1_14zip_enumeratorEJNS1_12index_streamERNS_8ArrayRefIiEEEEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeES6_NSA_14TargetCostKindEiSD_NS5_IPKNS_5ValueEEEPKNS_11InstructionEE3$_2EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm10X86TTIImpl14getShuffleCostENS2_19TargetTransformInfo11ShuffleKindEPNS2_10VectorTypeENS2_8ArrayRefIiEENS4_14TargetCostKindEiS7_NS8_IPKNS2_5ValueEEEPKNS2_11InstructionEE3$_2EclINS2_6detail14zip_enumeratorIJNSL_14index_iteratorEPKiEEEEEbT_.exit.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm10X86TTIImpl14getShuffleCostENS2_19TargetTransformInfo11ShuffleKindEPNS2_10VectorTypeENS2_8ArrayRefIiEENS4_14TargetCostKindEiS7_NS8_IPKNS2_5ValueEEEPKNS2_11InstructionEE3$_2EclINS2_6detail14zip_enumeratorIJNSL_14index_iteratorEPKiEEEEEbT_.exit.thread.i.i.i.i.i"
   %.ph.i.i = phi i64 [ %192, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm10X86TTIImpl14getShuffleCostENS2_19TargetTransformInfo11ShuffleKindEPNS2_10VectorTypeENS2_8ArrayRefIiEENS4_14TargetCostKindEiS7_NS8_IPKNS2_5ValueEEEPKNS2_11InstructionEE3$_2EclINS2_6detail14zip_enumeratorIJNSL_14index_iteratorEPKiEEEEEbT_.exit.i.i.i.i.i" ], [ %201, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm10X86TTIImpl14getShuffleCostENS2_19TargetTransformInfo11ShuffleKindEPNS2_10VectorTypeENS2_8ArrayRefIiEENS4_14TargetCostKindEiS7_NS8_IPKNS2_5ValueEEEPKNS2_11InstructionEE3$_2EclINS2_6detail14zip_enumeratorIJNSL_14index_iteratorEPKiEEEEEbT_.exit.thread.i.i.i.i.i" ]
-  %202 = inttoptr i64 %.ph.i.i to ptr
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN4llvm6all_ofINS_6detail5zippyINS1_14zip_enumeratorEJNS1_12index_streamERNS_8ArrayRefIiEEEEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeES6_NSA_14TargetCostKindEiSD_NS5_IPKNS_5ValueEEEPKNS_11InstructionEE3$_2EEbOT_T0_.exit", %.lr.ph.i.i.i
   %.08.i.i.i = phi i64 [ %spec.select.i.i.i503, %.lr.ph.i.i.i ], [ 0, %"_ZN4llvm6all_ofINS_6detail5zippyINS1_14zip_enumeratorEJNS1_12index_streamERNS_8ArrayRefIiEEEEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeES6_NSA_14TargetCostKindEiSD_NS5_IPKNS_5ValueEEEPKNS_11InstructionEE3$_2EEbOT_T0_.exit" ]
-  %.057.i.i.i = phi ptr [ %205, %.lr.ph.i.i.i ], [ %3, %"_ZN4llvm6all_ofINS_6detail5zippyINS1_14zip_enumeratorEJNS1_12index_streamERNS_8ArrayRefIiEEEEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeES6_NSA_14TargetCostKindEiSD_NS5_IPKNS_5ValueEEEPKNS_11InstructionEE3$_2EEbOT_T0_.exit" ]
+  %.057.i.i.i = phi ptr [ %204, %.lr.ph.i.i.i ], [ %3, %"_ZN4llvm6all_ofINS_6detail5zippyINS1_14zip_enumeratorEJNS1_12index_streamERNS_8ArrayRefIiEEEEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeES6_NSA_14TargetCostKindEiSD_NS5_IPKNS_5ValueEEEPKNS_11InstructionEE3$_2EEbOT_T0_.exit" ]
   %.05.val.i.i.i = load i32, ptr %.057.i.i.i, align 4, !tbaa !202
-  %203 = icmp eq i32 %.05.val.i.i.i, -1
-  %204 = zext i1 %203 to i64
-  %spec.select.i.i.i503 = add nuw nsw i64 %.08.i.i.i, %204
-  %205 = getelementptr inbounds nuw i8, ptr %.057.i.i.i, i64 4
-  %.not.i.i.i504 = icmp eq ptr %205, %188
+  %202 = icmp eq i32 %.05.val.i.i.i, -1
+  %203 = zext i1 %202 to i64
+  %spec.select.i.i.i503 = add nuw nsw i64 %.08.i.i.i, %203
+  %204 = getelementptr inbounds nuw i8, ptr %.057.i.i.i, i64 4
+  %.not.i.i.i504 = icmp eq ptr %204, %188
   br i1 %.not.i.i.i504, label %"_ZN4llvm8count_ifIRNS_8ArrayRefIiEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeES2_NS5_14TargetCostKindEiS8_NS1_IPKNS_5ValueEEEPKNS_11InstructionEE3$_0EEDaOT_T0_.exit.loopexit", label %.lr.ph.i.i.i, !llvm.loop !266
 
 "_ZN4llvm8count_ifIRNS_8ArrayRefIiEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeES2_NS5_14TargetCostKindEiS8_NS1_IPKNS_5ValueEEEPKNS_11InstructionEE3$_0EEDaOT_T0_.exit.loopexit": ; preds = %.lr.ph.i.i.i
-  %206 = icmp eq ptr %188, %202
+  %205 = inttoptr i64 %.ph.i.i to ptr
+  %206 = icmp eq ptr %188, %205
   %207 = add i64 %4, -1
   %208 = and i64 %spec.select.i.i.i503, 4294967295
   br label %"_ZN4llvm8count_ifIRNS_8ArrayRefIiEEZNS_10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeES2_NS5_14TargetCostKindEiS8_NS1_IPKNS_5ValueEEEPKNS_11InstructionEE3$_0EEDaOT_T0_.exit"

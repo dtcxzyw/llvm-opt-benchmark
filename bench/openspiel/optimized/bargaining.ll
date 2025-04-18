@@ -1925,29 +1925,29 @@ define void @_ZNK10open_spiel10bargaining15BargainingState7ReturnsEv(ptr dead_on
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = ptrtoint ptr %8 to i64
-  %11 = ptrtoint ptr %9 to i64
-  %12 = sub i64 %10, %11
-  %13 = sdiv exact i64 %12, 24
-  %14 = and i64 %13, 1
-  %15 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  store ptr %15, ptr %0, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %18, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %19 = xor i64 %14, 1
-  store ptr %17, ptr %16, align 8
+  %10 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
+  store ptr %10, ptr %0, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %12, ptr %13, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
+  %14 = ptrtoint ptr %8 to i64
+  %15 = ptrtoint ptr %9 to i64
+  %16 = sub i64 %14, %15
+  %17 = sdiv exact i64 %16, 24
+  %18 = and i64 %17, 1
+  %19 = xor i64 %18, 1
+  store ptr %12, ptr %11, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw %"class.std::vector.9", ptr %21, i64 %19
   %23 = getelementptr inbounds i8, ptr %8, i64 -24
-  %24 = getelementptr inbounds nuw double, ptr %15, i64 %19
-  %25 = getelementptr inbounds nuw %"class.std::vector.9", ptr %21, i64 %14
+  %24 = getelementptr inbounds nuw double, ptr %10, i64 %19
+  %25 = getelementptr inbounds nuw %"class.std::vector.9", ptr %21, i64 %18
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw double, ptr %15, i64 %14
+  %28 = getelementptr inbounds nuw double, ptr %10, i64 %18
   %.pre = load ptr, ptr %23, align 8
   %.pre35 = load double, ptr %24, align 8
   %.pre36 = load double, ptr %28, align 8
@@ -1999,7 +1999,7 @@ define void @_ZNK10open_spiel10bargaining15BargainingState7ReturnsEv(ptr dead_on
 
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv31 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next32, %57 ]
-  %58 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv31
+  %58 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv31
   %59 = load double, ptr %58, align 8
   %60 = fmul double %52, %59
   store double %60, ptr %58, align 8

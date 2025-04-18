@@ -10171,8 +10171,8 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h63089e7
   %.promoted12 = ptrtoint ptr %.promoted to i64
   %5 = ptrtoint ptr %4 to i64
   %6 = sub i64 %5, %.promoted12
-  %7 = add i64 %1, %5
   %scevgep = getelementptr i8, ptr %.promoted, i64 %6
+  %7 = add i64 %1, %5
   %8 = sub i64 %7, %.promoted12
   store ptr %scevgep, ptr %0, align 8, !alias.scope !1763
   br label %9

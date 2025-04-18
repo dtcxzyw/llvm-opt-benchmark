@@ -1490,8 +1490,6 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %14, 4611686018427387900
-  %17 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %17
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -1501,19 +1499,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep20 = getelementptr i8, ptr %7, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %18 = getelementptr i8, ptr %next.gep20, i64 16
+  %17 = getelementptr i8, ptr %next.gep20, i64 16
   %wide.load = load <2 x i64>, ptr %next.gep20, align 8, !tbaa !29, !alias.scope !76, !noalias !71
-  %wide.load22 = load <2 x i64>, ptr %18, align 8, !tbaa !29, !alias.scope !76, !noalias !71
-  %19 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load22 = load <2 x i64>, ptr %17, align 8, !tbaa !29, !alias.scope !76, !noalias !71
+  %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !29, !alias.scope !79, !noalias !76
-  store <2 x i64> %wide.load22, ptr %19, align 8, !tbaa !29, !alias.scope !79, !noalias !76
+  store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !29, !alias.scope !79, !noalias !76
   %index.next = add nuw i64 %index, 4
-  %20 = icmp eq i64 %index.next, %n.vec
+  %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
-  br i1 %20, label %middle.block, label %vector.body, !llvm.loop !81
+  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !81
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end16 = getelementptr i8, ptr %7, i64 %17
+  %20 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %20
+  %ind.end16 = getelementptr i8, ptr %7, i64 %20
   %cmp.n = icmp eq i64 %14, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader9
 
@@ -2756,8 +2756,6 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %14, 4611686018427387900
-  %17 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %17
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -2767,19 +2765,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep20 = getelementptr i8, ptr %7, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
-  %18 = getelementptr i8, ptr %next.gep20, i64 16
+  %17 = getelementptr i8, ptr %next.gep20, i64 16
   %wide.load = load <2 x i64>, ptr %next.gep20, align 8, !tbaa !29, !alias.scope !118, !noalias !113
-  %wide.load22 = load <2 x i64>, ptr %18, align 8, !tbaa !29, !alias.scope !118, !noalias !113
-  %19 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load22 = load <2 x i64>, ptr %17, align 8, !tbaa !29, !alias.scope !118, !noalias !113
+  %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !29, !alias.scope !121, !noalias !118
-  store <2 x i64> %wide.load22, ptr %19, align 8, !tbaa !29, !alias.scope !121, !noalias !118
+  store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !29, !alias.scope !121, !noalias !118
   %index.next = add nuw i64 %index, 4
-  %20 = icmp eq i64 %index.next, %n.vec
+  %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
-  br i1 %20, label %middle.block, label %vector.body, !llvm.loop !123
+  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !123
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end16 = getelementptr i8, ptr %7, i64 %17
+  %20 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %20
+  %ind.end16 = getelementptr i8, ptr %7, i64 %20
   %cmp.n = icmp eq i64 %14, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader9
 
@@ -2932,8 +2932,6 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %14, 4611686018427387900
-  %17 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %17
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -2943,19 +2941,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep20 = getelementptr i8, ptr %7, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  %18 = getelementptr i8, ptr %next.gep20, i64 16
+  %17 = getelementptr i8, ptr %next.gep20, i64 16
   %wide.load = load <2 x i64>, ptr %next.gep20, align 8, !tbaa !29, !alias.scope !130, !noalias !125
-  %wide.load22 = load <2 x i64>, ptr %18, align 8, !tbaa !29, !alias.scope !130, !noalias !125
-  %19 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load22 = load <2 x i64>, ptr %17, align 8, !tbaa !29, !alias.scope !130, !noalias !125
+  %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !29, !alias.scope !133, !noalias !130
-  store <2 x i64> %wide.load22, ptr %19, align 8, !tbaa !29, !alias.scope !133, !noalias !130
+  store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !29, !alias.scope !133, !noalias !130
   %index.next = add nuw i64 %index, 4
-  %20 = icmp eq i64 %index.next, %n.vec
+  %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
-  br i1 %20, label %middle.block, label %vector.body, !llvm.loop !135
+  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !135
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end16 = getelementptr i8, ptr %7, i64 %17
+  %20 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %20
+  %ind.end16 = getelementptr i8, ptr %7, i64 %20
   %cmp.n = icmp eq i64 %14, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader9
 
@@ -3108,8 +3108,6 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %14, 4611686018427387900
-  %17 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %17
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -3119,19 +3117,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep20 = getelementptr i8, ptr %7, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
-  %18 = getelementptr i8, ptr %next.gep20, i64 16
+  %17 = getelementptr i8, ptr %next.gep20, i64 16
   %wide.load = load <2 x i64>, ptr %next.gep20, align 8, !tbaa !29, !alias.scope !142, !noalias !137
-  %wide.load22 = load <2 x i64>, ptr %18, align 8, !tbaa !29, !alias.scope !142, !noalias !137
-  %19 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load22 = load <2 x i64>, ptr %17, align 8, !tbaa !29, !alias.scope !142, !noalias !137
+  %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !29, !alias.scope !145, !noalias !142
-  store <2 x i64> %wide.load22, ptr %19, align 8, !tbaa !29, !alias.scope !145, !noalias !142
+  store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !29, !alias.scope !145, !noalias !142
   %index.next = add nuw i64 %index, 4
-  %20 = icmp eq i64 %index.next, %n.vec
+  %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
-  br i1 %20, label %middle.block, label %vector.body, !llvm.loop !147
+  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !147
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end16 = getelementptr i8, ptr %7, i64 %17
+  %20 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %20
+  %ind.end16 = getelementptr i8, ptr %7, i64 %20
   %cmp.n = icmp eq i64 %14, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader9
 
@@ -3286,8 +3286,6 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %14, 4611686018427387900
-  %17 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %17
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -3297,19 +3295,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep20 = getelementptr i8, ptr %7, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
-  %18 = getelementptr i8, ptr %next.gep20, i64 16
+  %17 = getelementptr i8, ptr %next.gep20, i64 16
   %wide.load = load <2 x i64>, ptr %next.gep20, align 8, !tbaa !29, !alias.scope !154, !noalias !149
-  %wide.load22 = load <2 x i64>, ptr %18, align 8, !tbaa !29, !alias.scope !154, !noalias !149
-  %19 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load22 = load <2 x i64>, ptr %17, align 8, !tbaa !29, !alias.scope !154, !noalias !149
+  %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !29, !alias.scope !157, !noalias !154
-  store <2 x i64> %wide.load22, ptr %19, align 8, !tbaa !29, !alias.scope !157, !noalias !154
+  store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !29, !alias.scope !157, !noalias !154
   %index.next = add nuw i64 %index, 4
-  %20 = icmp eq i64 %index.next, %n.vec
+  %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
-  br i1 %20, label %middle.block, label %vector.body, !llvm.loop !159
+  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !159
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end16 = getelementptr i8, ptr %7, i64 %17
+  %20 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %20
+  %ind.end16 = getelementptr i8, ptr %7, i64 %20
   %cmp.n = icmp eq i64 %14, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader9
 
@@ -3464,8 +3464,6 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %14, 4611686018427387900
-  %17 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %17
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -3475,19 +3473,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep20 = getelementptr i8, ptr %7, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
-  %18 = getelementptr i8, ptr %next.gep20, i64 16
+  %17 = getelementptr i8, ptr %next.gep20, i64 16
   %wide.load = load <2 x i64>, ptr %next.gep20, align 8, !tbaa !29, !alias.scope !166, !noalias !161
-  %wide.load22 = load <2 x i64>, ptr %18, align 8, !tbaa !29, !alias.scope !166, !noalias !161
-  %19 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load22 = load <2 x i64>, ptr %17, align 8, !tbaa !29, !alias.scope !166, !noalias !161
+  %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !29, !alias.scope !169, !noalias !166
-  store <2 x i64> %wide.load22, ptr %19, align 8, !tbaa !29, !alias.scope !169, !noalias !166
+  store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !29, !alias.scope !169, !noalias !166
   %index.next = add nuw i64 %index, 4
-  %20 = icmp eq i64 %index.next, %n.vec
+  %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
-  br i1 %20, label %middle.block, label %vector.body, !llvm.loop !171
+  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !171
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end16 = getelementptr i8, ptr %7, i64 %17
+  %20 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %20
+  %ind.end16 = getelementptr i8, ptr %7, i64 %20
   %cmp.n = icmp eq i64 %14, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader9
 
@@ -3642,8 +3642,6 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %14, 4611686018427387900
-  %17 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %17
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -3653,19 +3651,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep20 = getelementptr i8, ptr %7, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
-  %18 = getelementptr i8, ptr %next.gep20, i64 16
+  %17 = getelementptr i8, ptr %next.gep20, i64 16
   %wide.load = load <2 x i64>, ptr %next.gep20, align 8, !tbaa !29, !alias.scope !178, !noalias !173
-  %wide.load22 = load <2 x i64>, ptr %18, align 8, !tbaa !29, !alias.scope !178, !noalias !173
-  %19 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load22 = load <2 x i64>, ptr %17, align 8, !tbaa !29, !alias.scope !178, !noalias !173
+  %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !29, !alias.scope !181, !noalias !178
-  store <2 x i64> %wide.load22, ptr %19, align 8, !tbaa !29, !alias.scope !181, !noalias !178
+  store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !29, !alias.scope !181, !noalias !178
   %index.next = add nuw i64 %index, 4
-  %20 = icmp eq i64 %index.next, %n.vec
+  %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
-  br i1 %20, label %middle.block, label %vector.body, !llvm.loop !183
+  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !183
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end16 = getelementptr i8, ptr %7, i64 %17
+  %20 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %20
+  %ind.end16 = getelementptr i8, ptr %7, i64 %20
   %cmp.n = icmp eq i64 %14, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader9
 
@@ -3818,8 +3818,6 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %14, 4611686018427387900
-  %17 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %17
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -3829,19 +3827,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep20 = getelementptr i8, ptr %7, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
-  %18 = getelementptr i8, ptr %next.gep20, i64 16
+  %17 = getelementptr i8, ptr %next.gep20, i64 16
   %wide.load = load <2 x i64>, ptr %next.gep20, align 8, !tbaa !29, !alias.scope !190, !noalias !185
-  %wide.load22 = load <2 x i64>, ptr %18, align 8, !tbaa !29, !alias.scope !190, !noalias !185
-  %19 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load22 = load <2 x i64>, ptr %17, align 8, !tbaa !29, !alias.scope !190, !noalias !185
+  %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !29, !alias.scope !193, !noalias !190
-  store <2 x i64> %wide.load22, ptr %19, align 8, !tbaa !29, !alias.scope !193, !noalias !190
+  store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !29, !alias.scope !193, !noalias !190
   %index.next = add nuw i64 %index, 4
-  %20 = icmp eq i64 %index.next, %n.vec
+  %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
-  br i1 %20, label %middle.block, label %vector.body, !llvm.loop !195
+  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !195
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end16 = getelementptr i8, ptr %7, i64 %17
+  %20 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %20
+  %ind.end16 = getelementptr i8, ptr %7, i64 %20
   %cmp.n = icmp eq i64 %14, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader9
 
@@ -3996,8 +3996,6 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %14, 4611686018427387900
-  %17 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %17
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -4007,19 +4005,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep20 = getelementptr i8, ptr %7, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  %18 = getelementptr i8, ptr %next.gep20, i64 16
+  %17 = getelementptr i8, ptr %next.gep20, i64 16
   %wide.load = load <2 x i64>, ptr %next.gep20, align 8, !tbaa !29, !alias.scope !202, !noalias !197
-  %wide.load22 = load <2 x i64>, ptr %18, align 8, !tbaa !29, !alias.scope !202, !noalias !197
-  %19 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load22 = load <2 x i64>, ptr %17, align 8, !tbaa !29, !alias.scope !202, !noalias !197
+  %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !29, !alias.scope !205, !noalias !202
-  store <2 x i64> %wide.load22, ptr %19, align 8, !tbaa !29, !alias.scope !205, !noalias !202
+  store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !29, !alias.scope !205, !noalias !202
   %index.next = add nuw i64 %index, 4
-  %20 = icmp eq i64 %index.next, %n.vec
+  %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
-  br i1 %20, label %middle.block, label %vector.body, !llvm.loop !207
+  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !207
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end16 = getelementptr i8, ptr %7, i64 %17
+  %20 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %20
+  %ind.end16 = getelementptr i8, ptr %7, i64 %20
   %cmp.n = icmp eq i64 %14, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader9
 
@@ -4174,8 +4174,6 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %14, 4611686018427387900
-  %17 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %17
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -4185,19 +4183,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep20 = getelementptr i8, ptr %7, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
-  %18 = getelementptr i8, ptr %next.gep20, i64 16
+  %17 = getelementptr i8, ptr %next.gep20, i64 16
   %wide.load = load <2 x i64>, ptr %next.gep20, align 8, !tbaa !29, !alias.scope !214, !noalias !209
-  %wide.load22 = load <2 x i64>, ptr %18, align 8, !tbaa !29, !alias.scope !214, !noalias !209
-  %19 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load22 = load <2 x i64>, ptr %17, align 8, !tbaa !29, !alias.scope !214, !noalias !209
+  %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !29, !alias.scope !217, !noalias !214
-  store <2 x i64> %wide.load22, ptr %19, align 8, !tbaa !29, !alias.scope !217, !noalias !214
+  store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !29, !alias.scope !217, !noalias !214
   %index.next = add nuw i64 %index, 4
-  %20 = icmp eq i64 %index.next, %n.vec
+  %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
-  br i1 %20, label %middle.block, label %vector.body, !llvm.loop !219
+  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !219
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end16 = getelementptr i8, ptr %7, i64 %17
+  %20 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %20
+  %ind.end16 = getelementptr i8, ptr %7, i64 %20
   %cmp.n = icmp eq i64 %14, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader9
 
@@ -4350,8 +4350,6 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %14, 4611686018427387900
-  %17 = shl i64 %n.vec, 3
-  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %17
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -4361,19 +4359,21 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep20 = getelementptr i8, ptr %7, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
-  %18 = getelementptr i8, ptr %next.gep20, i64 16
+  %17 = getelementptr i8, ptr %next.gep20, i64 16
   %wide.load = load <2 x i64>, ptr %next.gep20, align 8, !tbaa !29, !alias.scope !226, !noalias !221
-  %wide.load22 = load <2 x i64>, ptr %18, align 8, !tbaa !29, !alias.scope !226, !noalias !221
-  %19 = getelementptr i8, ptr %next.gep, i64 16
+  %wide.load22 = load <2 x i64>, ptr %17, align 8, !tbaa !29, !alias.scope !226, !noalias !221
+  %18 = getelementptr i8, ptr %next.gep, i64 16
   store <2 x i64> %wide.load, ptr %next.gep, align 8, !tbaa !29, !alias.scope !229, !noalias !226
-  store <2 x i64> %wide.load22, ptr %19, align 8, !tbaa !29, !alias.scope !229, !noalias !226
+  store <2 x i64> %wide.load22, ptr %18, align 8, !tbaa !29, !alias.scope !229, !noalias !226
   %index.next = add nuw i64 %index, 4
-  %20 = icmp eq i64 %index.next, %n.vec
+  %19 = icmp eq i64 %index.next, %n.vec
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %next.gep20, i8 0, i64 32, i1 false)
-  br i1 %20, label %middle.block, label %vector.body, !llvm.loop !231
+  br i1 %19, label %middle.block, label %vector.body, !llvm.loop !231
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end16 = getelementptr i8, ptr %7, i64 %17
+  %20 = shl i64 %n.vec, 3
+  %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %20
+  %ind.end16 = getelementptr i8, ptr %7, i64 %20
   %cmp.n = icmp eq i64 %14, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader9
 

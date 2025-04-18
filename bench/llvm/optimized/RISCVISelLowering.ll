@@ -109001,39 +109001,39 @@ define dso_local noundef ptr @_ZNK4llvm19RISCVTargetLowering22emitDynamicProbedA
   %46 = call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(413544) %42) #35
   %47 = load ptr, ptr %23, align 8, !tbaa !559
   %48 = call noundef i64 @_ZNK4llvm8Function29getFnAttributeAsParsedIntegerENS_9StringRefEm(ptr noundef nonnull align 8 dereferenceable(136) %47, ptr nonnull @.str.479, i64 16, i64 noundef 4096) #35
-  %49 = zext nneg i8 %.sroa.0.0.copyload.i to i64
-  %50 = shl nuw i64 1, %49
-  %.not6.i = sub i64 0, %50
-  %51 = and i64 %.not6.i, 4294967295
-  %52 = and i64 %51, %48
-  %53 = and i64 %50, 4294967295
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !1686
-  %56 = trunc nuw i8 %36 to i1
-  %.not.i = icmp eq i64 %52, 0
-  %57 = select i1 %.not.i, i64 %53, i64 %52
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !1686
+  %51 = trunc nuw i8 %36 to i1
+  %52 = zext nneg i8 %.sroa.0.0.copyload.i to i64
+  %53 = shl nuw i64 1, %52
+  %.not6.i = sub i64 0, %53
+  %54 = and i64 %.not6.i, 4294967295
+  %55 = and i64 %54, %48
+  %.not.i = icmp eq i64 %55, 0
+  %56 = and i64 %53, 4294967295
+  %57 = select i1 %.not.i, i64 %56, i64 %55
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !1685
   %60 = call noundef ptr @_ZN4llvm15MachineFunction23CreateMachineBasicBlockEPKNS_10BasicBlockESt8optionalINS_10UniqueBBIDEE(ptr noundef nonnull align 8 dereferenceable(1065) %23, ptr noundef %59, i64 undef, i8 0) #35
   %61 = getelementptr inbounds nuw i8, ptr %23, i64 320
   call void @_ZN4llvm21ilist_callback_traitsINS_17MachineBasicBlockEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef %60) #35
-  %62 = load ptr, ptr %55, align 8, !tbaa !1687
+  %62 = load ptr, ptr %50, align 8, !tbaa !1687
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %55, ptr %63, align 8, !tbaa !1686
+  store ptr %50, ptr %63, align 8, !tbaa !1686
   store ptr %62, ptr %60, align 8, !tbaa !1687
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %60, ptr %64, align 8, !tbaa !1686
-  store ptr %60, ptr %55, align 8, !tbaa !1687
+  store ptr %60, ptr %50, align 8, !tbaa !1687
   %65 = load ptr, ptr %58, align 8, !tbaa !1685
   %66 = call noundef ptr @_ZN4llvm15MachineFunction23CreateMachineBasicBlockEPKNS_10BasicBlockESt8optionalINS_10UniqueBBIDEE(ptr noundef nonnull align 8 dereferenceable(1065) %23, ptr noundef %65, i64 undef, i8 0) #35
   call void @_ZN4llvm21ilist_callback_traitsINS_17MachineBasicBlockEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef %66) #35
-  %67 = load ptr, ptr %55, align 8, !tbaa !1687
+  %67 = load ptr, ptr %50, align 8, !tbaa !1687
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store ptr %55, ptr %68, align 8, !tbaa !1686
+  store ptr %50, ptr %68, align 8, !tbaa !1686
   store ptr %67, ptr %66, align 8, !tbaa !1687
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %66, ptr %69, align 8, !tbaa !1686
-  store ptr %66, ptr %55, align 8, !tbaa !1687
+  store ptr %66, ptr %50, align 8, !tbaa !1687
   %70 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %71 = load ptr, ptr %70, align 8, !tbaa !1690
   %72 = call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetRegisterClassENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(504) %71, ptr noundef nonnull @_ZN4llvm5RISCV11GPRRegClassE, ptr nonnull @.str.70, i64 0) #35
@@ -109135,7 +109135,7 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit89: ; preds = %_ZN4llvm1
   %99 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
   %100 = load ptr, ptr %79, align 8, !tbaa !1692
-  %.neg = select i1 %56, i64 -12867, i64 -12938
+  %.neg = select i1 %51, i64 -12867, i64 -12938
   %101 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %100, i64 %.neg
   %102 = call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(288) %60, ptr nonnull %73, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(32) %101)
   %103 = extractvalue { ptr, ptr } %102, 0

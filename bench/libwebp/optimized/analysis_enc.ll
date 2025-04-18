@@ -844,49 +844,49 @@ define internal i32 @DoSegmentsJob(ptr noundef captures(none) %0, ptr noundef %1
   %31 = load ptr, ptr %30, align 8, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load float, ptr %32, align 4, !tbaa !82
-  %34 = fptosi float %33 to i32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
-  br label %35
+  br label %34
 
-35:                                               ; preds = %35, %29
-  %indvars.iv.i.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i.i, %35 ]
-  %36 = load ptr, ptr @VP8Mean16x4, align 8, !tbaa !83
-  %37 = load ptr, ptr %19, align 8, !tbaa !84
-  %38 = shl nuw nsw i64 %indvars.iv.i.i, 5
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
-  %40 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
-  call void %36(ptr noundef %39, ptr noundef nonnull %40) #6
+34:                                               ; preds = %34, %29
+  %indvars.iv.i.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i.i, %34 ]
+  %35 = load ptr, ptr @VP8Mean16x4, align 8, !tbaa !83
+  %36 = load ptr, ptr %19, align 8, !tbaa !84
+  %37 = shl nuw nsw i64 %indvars.iv.i.i, 5
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
+  %39 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
+  call void %35(ptr noundef %38, ptr noundef nonnull %39) #6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
-  %41 = icmp samesign ult i64 %indvars.iv.i.i, 12
-  br i1 %41, label %35, label %.preheader.i.i, !llvm.loop !85
+  %40 = icmp samesign ult i64 %indvars.iv.i.i, 12
+  br i1 %40, label %34, label %.preheader.i.i, !llvm.loop !85
 
-.preheader.i.i:                                   ; preds = %35, %.preheader.i.i
-  %indvars.iv27.i.i = phi i64 [ %indvars.iv.next28.i.i, %.preheader.i.i ], [ 0, %35 ]
-  %.024.i.i = phi i32 [ %46, %.preheader.i.i ], [ 0, %35 ]
-  %.01923.i.i = phi i32 [ %44, %.preheader.i.i ], [ 0, %35 ]
-  %42 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv27.i.i
-  %43 = load i32, ptr %42, align 4, !tbaa !47
-  %44 = add i32 %43, %.01923.i.i
-  %45 = mul i32 %43, %43
-  %46 = add i32 %45, %.024.i.i
+.preheader.i.i:                                   ; preds = %34, %.preheader.i.i
+  %indvars.iv27.i.i = phi i64 [ %indvars.iv.next28.i.i, %.preheader.i.i ], [ 0, %34 ]
+  %.024.i.i = phi i32 [ %45, %.preheader.i.i ], [ 0, %34 ]
+  %.01923.i.i = phi i32 [ %43, %.preheader.i.i ], [ 0, %34 ]
+  %41 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv27.i.i
+  %42 = load i32, ptr %41, align 4, !tbaa !47
+  %43 = add i32 %42, %.01923.i.i
+  %44 = mul i32 %42, %42
+  %45 = add i32 %44, %.024.i.i
   %indvars.iv.next28.i.i = add nuw nsw i64 %indvars.iv27.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next28.i.i, 16
-  br i1 %exitcond.not.i.i, label %47, label %.preheader.i.i, !llvm.loop !86
+  br i1 %exitcond.not.i.i, label %46, label %.preheader.i.i, !llvm.loop !86
 
-47:                                               ; preds = %.preheader.i.i
-  %48 = mul nsw i32 %34, 9
+46:                                               ; preds = %.preheader.i.i
+  %47 = fptosi float %33 to i32
+  %48 = mul nsw i32 %47, 9
   %49 = sdiv i32 %48, 100
   %50 = add nsw i32 %49, 8
-  %51 = mul i32 %46, %50
-  %52 = mul i32 %44, %44
+  %51 = mul i32 %45, %50
+  %52 = mul i32 %43, %43
   %53 = icmp ult i32 %51, %52
   br i1 %53, label %54, label %55
 
-54:                                               ; preds = %47
+54:                                               ; preds = %46
   call void @VP8SetIntra16Mode(ptr noundef nonnull %1, i32 noundef 0) #6
   br label %FastMBAnalyze.exit.i
 
-55:                                               ; preds = %47
+55:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @VP8SetIntra4Mode(ptr noundef nonnull %1, ptr noundef nonnull %6) #6

@@ -277,16 +277,16 @@ _ZN4ncnn3MatD2Ev.exit75.i:                        ; preds = %110, %109, %105, %9
   %128 = add nuw nsw i32 %.02141.i.i, 8
   %129 = or disjoint i32 %128, 7
   %130 = icmp slt i32 %129, %121
-  br i1 %130, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i, !llvm.loop !27
+  br i1 %130, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !27
 
-._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i
+._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %131 = and i32 %121, 2147483640
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %116
-  %.024.lcssa.i.i = phi <8 x float> [ zeroinitializer, %116 ], [ %126, %._crit_edge.i.loopexit.i ]
-  %.021.lcssa.i.i = phi i32 [ 0, %116 ], [ %131, %._crit_edge.i.loopexit.i ]
-  %.0.lcssa.i.i = phi ptr [ %120, %116 ], [ %127, %._crit_edge.i.loopexit.i ]
+._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %116
+  %.024.lcssa.i.i = phi <8 x float> [ zeroinitializer, %116 ], [ %126, %._crit_edge.loopexit.i.i ]
+  %.021.lcssa.i.i = phi i32 [ 0, %116 ], [ %131, %._crit_edge.loopexit.i.i ]
+  %.0.lcssa.i.i = phi ptr [ %120, %116 ], [ %127, %._crit_edge.loopexit.i.i ]
   %132 = shufflevector <8 x float> %.024.lcssa.i.i, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %133 = shufflevector <8 x float> %.024.lcssa.i.i, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %134 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %132, <4 x float> nofpclass(nan inf) %133)
@@ -380,12 +380,12 @@ _ZN4ncnnL32lstm_dynamic_quantize_get_absmaxEPKfi.exit.i: ; preds = %.lr.ph58.i.i
 178:                                              ; preds = %.noexc116.i
   %179 = insertelement <8 x float> poison, float %175, i64 0
   %180 = shufflevector <8 x float> %179, <8 x float> poison, <8 x i32> zeroinitializer
-  br i1 %122, label %.lr.ph.i115.i, label %._crit_edge.i110.i
+  br i1 %122, label %.lr.ph.i114.i, label %._crit_edge.i110.i
 
-.lr.ph.i115.i:                                    ; preds = %178, %.lr.ph.i115.i
-  %.041.i.i = phi ptr [ %194, %.lr.ph.i115.i ], [ %120, %178 ]
-  %.02740.i.i = phi ptr [ %195, %.lr.ph.i115.i ], [ %174, %178 ]
-  %.03039.i.i = phi i32 [ %196, %.lr.ph.i115.i ], [ 0, %178 ]
+.lr.ph.i114.i:                                    ; preds = %178, %.lr.ph.i114.i
+  %.041.i.i = phi ptr [ %194, %.lr.ph.i114.i ], [ %120, %178 ]
+  %.02740.i.i = phi ptr [ %195, %.lr.ph.i114.i ], [ %174, %178 ]
+  %.03039.i.i = phi i32 [ %196, %.lr.ph.i114.i ], [ 0, %178 ]
   %181 = load <8 x float>, ptr %.041.i.i, align 1, !tbaa !26
   %182 = fmul fast <8 x float> %181, %180
   %183 = call <8 x float> @llvm.copysign.v8f32(<8 x float> splat (float 5.000000e-01), <8 x float> %182)
@@ -405,16 +405,16 @@ _ZN4ncnnL32lstm_dynamic_quantize_get_absmaxEPKfi.exit.i: ; preds = %.lr.ph58.i.i
   %196 = add nuw nsw i32 %.03039.i.i, 8
   %197 = or disjoint i32 %196, 7
   %198 = icmp slt i32 %197, %121
-  br i1 %198, label %.lr.ph.i115.i, label %._crit_edge.i110.loopexit.i, !llvm.loop !33
+  br i1 %198, label %.lr.ph.i114.i, label %._crit_edge.loopexit.i115.i, !llvm.loop !33
 
-._crit_edge.i110.loopexit.i:                      ; preds = %.lr.ph.i115.i
+._crit_edge.loopexit.i115.i:                      ; preds = %.lr.ph.i114.i
   %199 = and i32 %121, 2147483640
   br label %._crit_edge.i110.i
 
-._crit_edge.i110.i:                               ; preds = %._crit_edge.i110.loopexit.i, %178
-  %.030.lcssa.i.i = phi i32 [ 0, %178 ], [ %199, %._crit_edge.i110.loopexit.i ]
-  %.027.lcssa.i.i = phi ptr [ %174, %178 ], [ %195, %._crit_edge.i110.loopexit.i ]
-  %.0.lcssa.i111.i = phi ptr [ %120, %178 ], [ %194, %._crit_edge.i110.loopexit.i ]
+._crit_edge.i110.i:                               ; preds = %._crit_edge.loopexit.i115.i, %178
+  %.030.lcssa.i.i = phi i32 [ 0, %178 ], [ %199, %._crit_edge.loopexit.i115.i ]
+  %.027.lcssa.i.i = phi ptr [ %174, %178 ], [ %195, %._crit_edge.loopexit.i115.i ]
+  %.0.lcssa.i111.i = phi ptr [ %120, %178 ], [ %194, %._crit_edge.loopexit.i115.i ]
   %200 = insertelement <4 x float> poison, float %175, i64 0
   %201 = shufflevector <4 x float> %200, <4 x float> poison, <4 x i32> zeroinitializer
   %202 = or disjoint i32 %.030.lcssa.i.i, 3

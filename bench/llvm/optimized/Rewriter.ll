@@ -1360,111 +1360,108 @@ define dso_local noundef zeroext i1 @_ZN5clang8Rewriter19IncreaseIndentationENS_
   %49 = add i32 %.067, 1
   br label %44, !llvm.loop !94
 
-_ZL20isWhitespaceExceptNLh.exit:                  ; preds = %44
-  %50 = extractvalue { ptr, i64 } %20, 1
-  %51 = zext i32 %40 to i64
-  %52 = sub i32 %.067, %40
-  %.sroa.speculated4.i = tail call i64 @llvm.umin.i64(i64 %50, i64 %51)
-  %53 = sub i64 %50, %.sroa.speculated4.i
-  br label %54
-
-54:                                               ; preds = %58, %_ZL20isWhitespaceExceptNLh.exit
-  %.168 = phi i32 [ %43, %_ZL20isWhitespaceExceptNLh.exit ], [ %59, %58 ]
-  %55 = zext i32 %.168 to i64
-  %56 = getelementptr inbounds nuw i8, ptr %21, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !41
-  switch i8 %57, label %_ZL20isWhitespaceExceptNLh.exit83 [
-    i8 32, label %58
-    i8 12, label %58
-    i8 11, label %58
-    i8 9, label %58
-    i8 13, label %58
+_ZL20isWhitespaceExceptNLh.exit:                  ; preds = %44, %53
+  %.168 = phi i32 [ %54, %53 ], [ %43, %44 ]
+  %50 = zext i32 %.168 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %21, i64 %50
+  %52 = load i8, ptr %51, align 1, !tbaa !41
+  switch i8 %52, label %_ZL20isWhitespaceExceptNLh.exit83 [
+    i8 32, label %53
+    i8 12, label %53
+    i8 11, label %53
+    i8 9, label %53
+    i8 13, label %53
   ]
 
-58:                                               ; preds = %54, %54, %54, %54, %54
-  %59 = add i32 %.168, 1
-  br label %54, !llvm.loop !95
+53:                                               ; preds = %_ZL20isWhitespaceExceptNLh.exit, %_ZL20isWhitespaceExceptNLh.exit, %_ZL20isWhitespaceExceptNLh.exit, %_ZL20isWhitespaceExceptNLh.exit, %_ZL20isWhitespaceExceptNLh.exit
+  %54 = add i32 %.168, 1
+  br label %_ZL20isWhitespaceExceptNLh.exit, !llvm.loop !95
 
-_ZL20isWhitespaceExceptNLh.exit83:                ; preds = %54
-  %60 = add i32 %29, -1
-  %61 = zext i32 %52 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.speculated4.i
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %53, i64 %61)
-  %63 = zext i32 %43 to i64
-  %64 = sub i32 %.168, %43
-  %65 = zext i32 %64 to i64
-  %.sroa.speculated4.i84 = tail call i64 @llvm.umin.i64(i64 %50, i64 %63)
-  %66 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.speculated4.i84
-  %67 = sub i64 %50, %.sroa.speculated4.i84
-  %.sroa.speculated.i85 = tail call i64 @llvm.umin.i64(i64 %67, i64 %65)
+_ZL20isWhitespaceExceptNLh.exit83:                ; preds = %_ZL20isWhitespaceExceptNLh.exit
+  %55 = extractvalue { ptr, i64 } %20, 1
+  %56 = add i32 %29, -1
+  %57 = zext i32 %40 to i64
+  %58 = sub i32 %.067, %40
+  %59 = zext i32 %58 to i64
+  %.sroa.speculated4.i = tail call i64 @llvm.umin.i64(i64 %55, i64 %57)
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.speculated4.i
+  %61 = sub i64 %55, %.sroa.speculated4.i
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %61, i64 %59)
+  %62 = zext i32 %43 to i64
+  %63 = sub i32 %.168, %43
+  %64 = zext i32 %63 to i64
+  %.sroa.speculated4.i84 = tail call i64 @llvm.umin.i64(i64 %55, i64 %62)
+  %65 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.speculated4.i84
+  %66 = sub i64 %55, %.sroa.speculated4.i84
+  %.sroa.speculated.i85 = tail call i64 @llvm.umin.i64(i64 %66, i64 %64)
   %.not = icmp samesign ult i64 %.sroa.speculated.i, %.sroa.speculated.i85
-  br i1 %.not, label %68, label %.loopexit
+  br i1 %.not, label %67, label %.loopexit
 
-68:                                               ; preds = %_ZL20isWhitespaceExceptNLh.exit83
-  %69 = icmp eq i64 %.sroa.speculated.i, 0
-  br i1 %69, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+67:                                               ; preds = %_ZL20isWhitespaceExceptNLh.exit83
+  %68 = icmp eq i64 %.sroa.speculated.i, 0
+  br i1 %68, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
-_ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %68
-  %bcmp.i = tail call i32 @bcmp(ptr %66, ptr nonnull %62, i64 %.sroa.speculated.i)
-  %70 = icmp eq i32 %bcmp.i, 0
-  br i1 %70, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %.loopexit
+_ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %67
+  %bcmp.i = tail call i32 @bcmp(ptr %65, ptr nonnull %60, i64 %.sroa.speculated.i)
+  %69 = icmp eq i32 %bcmp.i, 0
+  br i1 %69, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %.loopexit
 
-_ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %68, %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 %.sroa.speculated.i
-  %72 = sub nsw i64 %.sroa.speculated.i85, %.sroa.speculated.i
-  %73 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5clang8Rewriter13getEditBufferENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 %.sroa.01.0.extract.trunc.i)
-  %.not73131 = icmp ugt i32 %27, %60
+_ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %67, %_ZNK4llvm9StringRef11starts_withES0_.exit
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.speculated.i
+  %71 = sub nsw i64 %.sroa.speculated.i85, %.sroa.speculated.i
+  %72 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5clang8Rewriter13getEditBufferENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 %.sroa.01.0.extract.trunc.i)
+  %.not73131 = icmp ugt i32 %27, %56
   br i1 %.not73131, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit99.thread
-  %.069132 = phi i32 [ %92, %_ZNK4llvm9StringRef11starts_withES0_.exit99.thread ], [ %27, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ]
-  %74 = load ptr, ptr %35, align 8, !tbaa !86
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %76 = sext i32 %.069132 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %75, i64 %76
-  %78 = load i32, ptr %77, align 4, !tbaa !3
-  br label %79
+  %.069132 = phi i32 [ %91, %_ZNK4llvm9StringRef11starts_withES0_.exit99.thread ], [ %27, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ]
+  %73 = load ptr, ptr %35, align 8, !tbaa !86
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %75 = sext i32 %.069132 to i64
+  %76 = getelementptr inbounds nuw i32, ptr %74, i64 %75
+  %77 = load i32, ptr %76, align 4, !tbaa !3
+  br label %78
 
-79:                                               ; preds = %83, %.lr.ph
-  %.070 = phi i32 [ %78, %.lr.ph ], [ %84, %83 ]
-  %80 = zext i32 %.070 to i64
-  %81 = getelementptr inbounds nuw i8, ptr %21, i64 %80
-  %82 = load i8, ptr %81, align 1, !tbaa !41
-  switch i8 %82, label %_ZL20isWhitespaceExceptNLh.exit92 [
-    i8 32, label %83
-    i8 12, label %83
-    i8 11, label %83
-    i8 9, label %83
-    i8 13, label %83
+78:                                               ; preds = %82, %.lr.ph
+  %.070 = phi i32 [ %77, %.lr.ph ], [ %83, %82 ]
+  %79 = zext i32 %.070 to i64
+  %80 = getelementptr inbounds nuw i8, ptr %21, i64 %79
+  %81 = load i8, ptr %80, align 1, !tbaa !41
+  switch i8 %81, label %_ZL20isWhitespaceExceptNLh.exit92 [
+    i8 32, label %82
+    i8 12, label %82
+    i8 11, label %82
+    i8 9, label %82
+    i8 13, label %82
   ]
 
-83:                                               ; preds = %79, %79, %79, %79, %79
-  %84 = add i32 %.070, 1
-  br label %79, !llvm.loop !96
+82:                                               ; preds = %78, %78, %78, %78, %78
+  %83 = add i32 %.070, 1
+  br label %78, !llvm.loop !96
 
-_ZL20isWhitespaceExceptNLh.exit92:                ; preds = %79
-  %85 = zext i32 %78 to i64
-  %86 = sub i32 %.070, %78
-  %87 = zext i32 %86 to i64
-  %.sroa.speculated4.i93 = tail call i64 @llvm.umin.i64(i64 %50, i64 %85)
-  %88 = sub i64 %50, %.sroa.speculated4.i93
-  %.sroa.speculated.i94 = tail call i64 @llvm.umin.i64(i64 %88, i64 %87)
+_ZL20isWhitespaceExceptNLh.exit92:                ; preds = %78
+  %84 = zext i32 %77 to i64
+  %85 = sub i32 %.070, %77
+  %86 = zext i32 %85 to i64
+  %.sroa.speculated4.i93 = tail call i64 @llvm.umin.i64(i64 %55, i64 %84)
+  %87 = sub i64 %55, %.sroa.speculated4.i93
+  %.sroa.speculated.i94 = tail call i64 @llvm.umin.i64(i64 %87, i64 %86)
   %.not.i97 = icmp samesign ult i64 %.sroa.speculated.i94, %.sroa.speculated.i85
   br i1 %.not.i97, label %_ZNK4llvm9StringRef11starts_withES0_.exit99.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit99
 
 _ZNK4llvm9StringRef11starts_withES0_.exit99:      ; preds = %_ZL20isWhitespaceExceptNLh.exit92
-  %89 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.speculated4.i93
-  %bcmp.i98 = tail call i32 @bcmp(ptr %89, ptr nonnull %66, i64 %.sroa.speculated.i85)
-  %90 = icmp eq i32 %bcmp.i98, 0
-  br i1 %90, label %91, label %_ZNK4llvm9StringRef11starts_withES0_.exit99.thread
+  %88 = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.speculated4.i93
+  %bcmp.i98 = tail call i32 @bcmp(ptr %88, ptr nonnull %65, i64 %.sroa.speculated.i85)
+  %89 = icmp eq i32 %bcmp.i98, 0
+  br i1 %89, label %90, label %_ZNK4llvm9StringRef11starts_withES0_.exit99.thread
 
-91:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit99
-  tail call void @_ZN4llvm13RewriteBuffer10InsertTextEjNS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(32) %73, i32 noundef %78, ptr nonnull %71, i64 %72, i1 noundef zeroext false) #19
+90:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit99
+  tail call void @_ZN4llvm13RewriteBuffer10InsertTextEjNS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(32) %72, i32 noundef %77, ptr nonnull %70, i64 %71, i1 noundef zeroext false) #19
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit99.thread
 
-_ZNK4llvm9StringRef11starts_withES0_.exit99.thread: ; preds = %_ZL20isWhitespaceExceptNLh.exit92, %91, %_ZNK4llvm9StringRef11starts_withES0_.exit99
-  %92 = add i32 %.069132, 1
-  %.not73 = icmp ugt i32 %92, %60
+_ZNK4llvm9StringRef11starts_withES0_.exit99.thread: ; preds = %_ZL20isWhitespaceExceptNLh.exit92, %90, %_ZNK4llvm9StringRef11starts_withES0_.exit99
+  %91 = add i32 %.069132, 1
+  %.not73 = icmp ugt i32 %91, %56
   br i1 %.not73, label %.loopexit, label %.lr.ph, !llvm.loop !97
 
 .loopexit:                                        ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit99.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %15, %8, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZL20isWhitespaceExceptNLh.exit83, %4

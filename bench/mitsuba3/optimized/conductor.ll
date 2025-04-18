@@ -1209,24 +1209,24 @@ _ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb
   br i1 %exitcond.not.i, label %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit, label %40, !llvm.loop !15
 
 _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit: ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 208
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %18)
-  br label %51
+  br label %50
 
-51:                                               ; preds = %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit, %51
-  %.0425 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %54, %51 ]
-  %52 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %23, i64 0, i64 %.0425
-  %53 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %52, i64 0, i64 %.0425
-  store <4 x float> zeroinitializer, ptr %53, align 16
-  %54 = add nuw nsw i64 %.0425, 1
-  %exitcond.not = icmp eq i64 %54, 4
-  br i1 %exitcond.not, label %55, label %51, !llvm.loop !16
+50:                                               ; preds = %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit, %50
+  %.0425 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %53, %50 ]
+  %51 = getelementptr inbounds nuw [4 x %"struct.drjit::Array"], ptr %23, i64 0, i64 %.0425
+  %52 = getelementptr inbounds nuw [4 x %"struct.mitsuba::Spectrum"], ptr %51, i64 0, i64 %.0425
+  store <4 x float> zeroinitializer, ptr %52, align 16
+  %53 = add nuw nsw i64 %.0425, 1
+  %exitcond.not = icmp eq i64 %53, 4
+  br i1 %exitcond.not, label %54, label %50, !llvm.loop !16
 
-55:                                               ; preds = %51
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %56 = fcmp contract ogt float %35, 0.000000e+00
   br i1 %56, label %57, label %.critedge
 
-57:                                               ; preds = %55
+57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 32
@@ -1240,7 +1240,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %57
   %spec.select.i = icmp ult i32 %63, -2
   br i1 %spec.select.i, label %.critedge, label %.noexc
 
-.critedge:                                        ; preds = %57, %55, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit
+.critedge:                                        ; preds = %57, %54, %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %65
@@ -1257,7 +1257,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %57
 .noexc:                                           ; preds = %_ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit
   store i32 0, ptr %39, align 4
   store i32 32, ptr %38, align 8
-  %69 = load float, ptr %50, align 16
+  %69 = load float, ptr %55, align 16
   %70 = fneg contract float %69
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 212
   %72 = load float, ptr %71, align 4
@@ -1289,9 +1289,9 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %57
   %95 = load i32, ptr %2, align 4
   %96 = icmp eq i32 %95, 0
   %97 = bitcast <4 x float> %76 to <4 x i32>
-  %.val424 = load <4 x i32>, ptr %50, align 16
+  %.val424 = load <4 x i32>, ptr %55, align 16
   %.sroa.0386.0.copyload = select i1 %96, <4 x i32> %97, <4 x i32> %.val424
-  %98 = select i1 %96, ptr %50, ptr %22
+  %98 = select i1 %96, ptr %55, ptr %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %24, ptr noundef nonnull align 16 dereferenceable(16) %98, i64 16, i1 false)
   %bc = bitcast <4 x i32> %.sroa.0386.0.copyload to <4 x float>
   %99 = shufflevector <4 x float> %bc, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
@@ -5196,23 +5196,23 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_string
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm4EEEEENSt3__15tupleIJN5drjit7ComplexIT_EES8_S7_S8_S8_EEES7_S8_(ptr dead_on_unwind noalias writable sret(%"class.std::__1::tuple.96") align 16 %0, <4 x float> %1, ptr noundef byval(%"struct.drjit::Complex") align 16 %2) local_unnamed_addr #4 comdat {
 .critedge:
-  %3 = fcmp contract oge <4 x float> %1, zeroinitializer
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %5 = load <4 x i32>, ptr %4, align 16, !noalias !133
-  %6 = xor <4 x i32> %5, splat (i32 -2147483648)
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %4 = load <4 x i32>, ptr %3, align 16, !noalias !133
+  %5 = xor <4 x i32> %4, splat (i32 -2147483648)
   %.sroa.0841.0.copyload = load <4 x float>, ptr %2, align 16
-  %.sroa.028.0.copyload.cast = bitcast <4 x i32> %5 to <4 x float>
-  %7 = fcmp contract ogt <4 x float> %.sroa.028.0.copyload.cast, zeroinitializer
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %9 = load <4 x float>, ptr %8, align 16, !noalias !136
-  %10 = bitcast <4 x i32> %6 to <4 x float>
-  %11 = select contract <4 x i1> %7, <4 x float> %10, <4 x float> %9
+  %.sroa.028.0.copyload.cast = bitcast <4 x i32> %4 to <4 x float>
+  %6 = fcmp contract ogt <4 x float> %.sroa.028.0.copyload.cast, zeroinitializer
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %8 = load <4 x float>, ptr %7, align 16, !noalias !136
+  %9 = bitcast <4 x i32> %5 to <4 x float>
+  %10 = select contract <4 x i1> %6, <4 x float> %9, <4 x float> %8
+  %11 = fcmp contract oge <4 x float> %1, zeroinitializer
   store <4 x float> %.sroa.0841.0.copyload, ptr %2, align 16
   %.sroa.2847.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store <4 x float> %11, ptr %.sroa.2847.0..sroa_idx, align 16
-  %12 = fneg <4 x float> %11
+  store <4 x float> %10, ptr %.sroa.2847.0..sroa_idx, align 16
+  %12 = fneg <4 x float> %10
   %13 = fmul contract <4 x float> %.sroa.0841.0.copyload, %.sroa.0841.0.copyload
-  %14 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %11, <4 x float> %11, <4 x float> %13)
+  %14 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %10, <4 x float> %10, <4 x float> %13)
   %15 = tail call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> %14, <4 x float> zeroinitializer, i8 -1)
   %16 = fadd contract <4 x float> %15, %15
   %17 = fneg contract <4 x float> %14
@@ -5222,12 +5222,12 @@ define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm
   %21 = fmul contract <4 x float> %.sroa.0841.0.copyload, %20
   %22 = fmul contract <4 x float> %20, %12
   %23 = load <4 x float>, ptr %2, align 16, !noalias !139
-  %24 = select contract <4 x i1> %3, <4 x float> %23, <4 x float> %21
+  %24 = select contract <4 x i1> %11, <4 x float> %23, <4 x float> %21
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load <4 x float>, ptr %25, align 16, !noalias !139
-  %27 = select contract <4 x i1> %3, <4 x float> %26, <4 x float> %22
-  %28 = select contract <4 x i1> %3, <4 x float> %21, <4 x float> %23
-  %29 = select contract <4 x i1> %3, <4 x float> %22, <4 x float> %26
+  %27 = select contract <4 x i1> %11, <4 x float> %26, <4 x float> %22
+  %28 = select contract <4 x i1> %11, <4 x float> %21, <4 x float> %23
+  %29 = select contract <4 x i1> %11, <4 x float> %22, <4 x float> %26
   %30 = fneg contract <4 x float> %29
   %31 = fmul contract <4 x float> %29, %30
   %32 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %28, <4 x float> %28, <4 x float> %31)
@@ -5311,9 +5311,9 @@ define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm
   %108 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %91, <4 x float> %104, <4 x float> %107)
   %109 = fmul contract <4 x float> %92, %104
   %110 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %91, <4 x float> %105, <4 x float> %109)
-  %111 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %11, <4 x float> %11, <4 x float> %13)
+  %111 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %10, <4 x float> %10, <4 x float> %13)
   %112 = fcmp contract oeq <4 x float> %111, splat (float 1.000000e+00)
-  %113 = fcmp contract oeq <4 x float> %11, zeroinitializer
+  %113 = fcmp contract oeq <4 x float> %10, zeroinitializer
   %114 = and <4 x i1> %113, %112
   %115 = fcmp contract oeq <4 x float> %111, zeroinitializer
   %116 = or <4 x i1> %115, %114
@@ -5332,7 +5332,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17fresnel_polarizedINS_8SpectrumIfLm
   %125 = select contract <4 x i1> %124, <4 x float> zeroinitializer, <4 x float> %108
   %126 = select contract <4 x i1> %116, <4 x float> zeroinitializer, <4 x float> %110
   %127 = fneg <4 x float> %.sroa.0720.0..sroa.0720.0.copyload.cast
-  %128 = select contract <4 x i1> %3, <4 x float> %127, <4 x float> %.sroa.0720.0..sroa.0720.0.copyload.cast
+  %128 = select contract <4 x i1> %11, <4 x float> %127, <4 x float> %.sroa.0720.0..sroa.0720.0.copyload.cast
   %129 = select contract <4 x i1> %52, <4 x float> %128, <4 x float> zeroinitializer
   store <4 x float> %121, ptr %0, align 16
   %.sroa.2855.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

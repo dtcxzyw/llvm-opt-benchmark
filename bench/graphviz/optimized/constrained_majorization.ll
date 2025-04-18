@@ -407,27 +407,27 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br label %.lr.ph640.preheader
 
 .loopexit590:                                     ; preds = %.lr.ph640
-  %173 = add nsw i64 %177, %174
+  %173 = add nsw i64 %177, 1
+  %174 = add nsw i64 %173, %175
   %indvars.iv.next794 = add i32 %indvars.iv793, -1
-  %exitcond797.not = icmp eq i32 %175, %147
+  %exitcond797.not = icmp eq i32 %176, %147
   br i1 %exitcond797.not, label %._crit_edge648, label %.lr.ph640.preheader, !llvm.loop !34
 
 .lr.ph640.preheader:                              ; preds = %.loopexit590, %.lr.ph647.preheader
   %indvars.iv793 = phi i32 [ %172, %.lr.ph647.preheader ], [ %indvars.iv.next794, %.loopexit590 ]
-  %.0434645 = phi i64 [ 0, %.lr.ph647.preheader ], [ %173, %.loopexit590 ]
+  %.0434645 = phi i64 [ 0, %.lr.ph647.preheader ], [ %174, %.loopexit590 ]
   %.0438644 = phi double [ 0.000000e+00, %.lr.ph647.preheader ], [ %183, %.loopexit590 ]
-  %.6643 = phi i32 [ 0, %.lr.ph647.preheader ], [ %175, %.loopexit590 ]
-  %174 = zext i32 %indvars.iv793 to i64
-  %175 = add nuw nsw i32 %.6643, 1
+  %.6643 = phi i32 [ 0, %.lr.ph647.preheader ], [ %176, %.loopexit590 ]
+  %175 = zext i32 %indvars.iv793 to i64
+  %176 = add nuw nsw i32 %.6643, 1
   %.1435635 = shl i64 %.0434645, 32
   %sext = add i64 %.1435635, 4294967296
-  %176 = ashr exact i64 %sext, 32
-  %177 = add nsw i64 %176, 1
+  %177 = ashr exact i64 %sext, 32
   br label %.lr.ph640
 
 .lr.ph640:                                        ; preds = %.lr.ph640.preheader, %.lr.ph640
-  %indvars.iv791 = phi i64 [ %176, %.lr.ph640.preheader ], [ %indvars.iv.next792, %.lr.ph640 ]
-  %.0433637 = phi i32 [ %175, %.lr.ph640.preheader ], [ %184, %.lr.ph640 ]
+  %indvars.iv791 = phi i64 [ %177, %.lr.ph640.preheader ], [ %indvars.iv.next792, %.lr.ph640 ]
+  %.0433637 = phi i32 [ %176, %.lr.ph640.preheader ], [ %184, %.lr.ph640 ]
   %.1439636 = phi double [ %.0438644, %.lr.ph640.preheader ], [ %183, %.lr.ph640 ]
   %178 = call double @distance_kD(ptr noundef %2, i32 noundef %4, i32 noundef %.6643, i32 noundef %.0433637) #11
   %179 = getelementptr inbounds float, ptr %.1477, i64 %indvars.iv791

@@ -833,43 +833,43 @@ define dso_local void @_ZN9Stockfish6Search6Worker19iterative_deepeningEv(ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(14336) %4, i8 0, i64 14336, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 392
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 34816
-  br label %34
+  br label %32
 
-.preheader363:                                    ; preds = %34
-  %32 = icmp eq i64 %21, 0
-  %33 = select i1 %32, ptr %23, ptr null
+.preheader363:                                    ; preds = %32
   %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 408
-  br label %40
+  br label %38
 
-34:                                               ; preds = %1, %34
-  %indvars.iv = phi i64 [ 7, %1 ], [ %indvars.iv.next, %34 ]
-  %35 = sub nsw i64 0, %indvars.iv
-  %36 = getelementptr inbounds %"struct.Stockfish::Search::Stack", ptr %30, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %31, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 28
-  store i32 32002, ptr %38, align 4
+32:                                               ; preds = %1, %32
+  %indvars.iv = phi i64 [ 7, %1 ], [ %indvars.iv.next, %32 ]
+  %33 = sub nsw i64 0, %indvars.iv
+  %34 = getelementptr inbounds %"struct.Stockfish::Search::Stack", ptr %30, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store ptr %31, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 28
+  store i32 32002, ptr %36, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %39 = icmp ugt i64 %indvars.iv, 1
-  br i1 %39, label %34, label %.preheader363, !llvm.loop !9
+  %37 = icmp ugt i64 %indvars.iv, 1
+  br i1 %37, label %32, label %.preheader363, !llvm.loop !9
 
-40:                                               ; preds = %.preheader363, %40
-  %indvars.iv458 = phi i64 [ 0, %.preheader363 ], [ %indvars.iv.next459, %40 ]
-  %41 = mul nuw nsw i64 %indvars.iv458, 56
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %41
-  %42 = trunc nuw nsw i64 %indvars.iv458 to i32
-  store i32 %42, ptr %gep, align 8
+38:                                               ; preds = %.preheader363, %38
+  %indvars.iv458 = phi i64 [ 0, %.preheader363 ], [ %indvars.iv.next459, %38 ]
+  %39 = mul nuw nsw i64 %indvars.iv458, 56
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %39
+  %40 = trunc nuw nsw i64 %indvars.iv458 to i32
+  store i32 %40, ptr %gep, align 8
   %indvars.iv.next459 = add nuw nsw i64 %indvars.iv458, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next459, 249
-  br i1 %exitcond.not, label %43, label %40, !llvm.loop !10
+  br i1 %exitcond.not, label %41, label %38, !llvm.loop !10
 
-43:                                               ; preds = %40
+41:                                               ; preds = %38
+  %42 = icmp eq i64 %21, 0
+  %43 = select i1 %42, ptr %23, ptr null
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 9570472
   store ptr %2, ptr %30, align 8
-  %45 = icmp ne ptr %33, null
+  %45 = icmp ne ptr %43, null
   br i1 %45, label %46, label %_ZNSt5arrayIiLm4EE4fillERKi.exit
 
-46:                                               ; preds = %43
+46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, 32001
@@ -888,7 +888,7 @@ _ZNSt5arrayIiLm4EE4fillERKi.exit.loopexit:        ; preds = %46
   %.not.i.i.i.i.i187 = icmp eq i64 %.06.i.i.i.i.add.i186, 16
   br i1 %.not.i.i.i.i.i187, label %_ZNSt5arrayIiLm4EE4fillERKi.exit, label %.lr.ph.i.i.i.i.i183, !llvm.loop !11
 
-_ZNSt5arrayIiLm4EE4fillERKi.exit:                 ; preds = %.lr.ph.i.i.i.i.i183, %_ZNSt5arrayIiLm4EE4fillERKi.exit.loopexit, %43
+_ZNSt5arrayIiLm4EE4fillERKi.exit:                 ; preds = %.lr.ph.i.i.i.i.i183, %_ZNSt5arrayIiLm4EE4fillERKi.exit.loopexit, %41
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 9583752
   %52 = load ptr, ptr %51, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
@@ -1065,14 +1065,14 @@ _ZN9Stockfish6OptionD2Ev.exit195:                 ; preds = %_ZN9Stockfish6Optio
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 9570392
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 9570328
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 9570336
-  %138 = getelementptr inbounds nuw i8, ptr %33, i64 88
+  %138 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 9537536
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 9570432
   %141 = getelementptr inbounds nuw i8, ptr %23, i64 84
   %142 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %143 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %144 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %145 = getelementptr inbounds nuw i8, ptr %33, i64 52
+  %144 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %43, i64 52
   br label %.outer
 
 .outer:                                           ; preds = %685, %_ZN9Stockfish6OptionD2Ev.exit195

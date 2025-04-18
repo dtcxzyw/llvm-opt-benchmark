@@ -879,7 +879,6 @@ _mean_gaussian.exit:                              ; preds = %._crit_edge, %169
   %.idx258 = shl i64 %.0383, 4
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx258
   call void @llvm.assume(i1 true) [ "align"(ptr %175, i64 16) ]
-  %.idx259 = shl i64 %.0383, 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   br label %176
@@ -944,6 +943,7 @@ dot_product.exit:                                 ; preds = %scalar_product.exit
   br label %244
 
 xyY_to_dt_UCS_UV.exit.critedge:                   ; preds = %244
+  %.idx259 = shl i64 %.0383, 3
   %211 = getelementptr inbounds nuw i8, ptr %165, i64 %.idx259
   %212 = load float, ptr %166, align 8, !tbaa !6
   %213 = fcmp reassoc nsz arcp contract afn ult float %212, 0.000000e+00

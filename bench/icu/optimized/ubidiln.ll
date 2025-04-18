@@ -2618,26 +2618,26 @@ ubidi_countRuns_77.exit:                          ; preds = %11, %15
   %40 = and i32 %31, 2147483647
   %41 = sub i32 %33, %.0121172
   %42 = add nsw i32 %41, %40
-  %43 = add i32 %.0121172, 1
-  br label %44
+  br label %43
 
-44:                                               ; preds = %44, %39
-  %.2133 = phi ptr [ %.0131171, %39 ], [ %46, %44 ]
-  %.2 = phi i32 [ %.0121172, %39 ], [ %47, %44 ]
-  %.1 = phi i32 [ %42, %39 ], [ %45, %44 ]
-  %45 = add nsw i32 %.1, -1
-  %46 = getelementptr inbounds nuw i8, ptr %.2133, i64 4
-  store i32 %45, ptr %.2133, align 4, !tbaa !53
-  %47 = add nsw i32 %.2, 1
-  %48 = icmp slt i32 %47, %33
-  br i1 %48, label %44, label %.loopexit165.loopexit215, !llvm.loop !109
+43:                                               ; preds = %43, %39
+  %.2133 = phi ptr [ %.0131171, %39 ], [ %45, %43 ]
+  %.2 = phi i32 [ %.0121172, %39 ], [ %46, %43 ]
+  %.1 = phi i32 [ %42, %39 ], [ %44, %43 ]
+  %44 = add nsw i32 %.1, -1
+  %45 = getelementptr inbounds nuw i8, ptr %.2133, i64 4
+  store i32 %44, ptr %.2133, align 4, !tbaa !53
+  %46 = add nsw i32 %.2, 1
+  %47 = icmp slt i32 %46, %33
+  br i1 %47, label %43, label %.loopexit165.loopexit215, !llvm.loop !109
 
-.loopexit165.loopexit215:                         ; preds = %44
-  %smax = tail call i32 @llvm.smax.i32(i32 %33, i32 %43)
+.loopexit165.loopexit215:                         ; preds = %43
+  %48 = add i32 %.0121172, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %33, i32 %48)
   br label %.loopexit165
 
 .loopexit165:                                     ; preds = %.preheader164, %.loopexit165.loopexit215
-  %.3134 = phi ptr [ %46, %.loopexit165.loopexit215 ], [ %37, %.preheader164 ]
+  %.3134 = phi ptr [ %45, %.loopexit165.loopexit215 ], [ %37, %.preheader164 ]
   %.3 = phi i32 [ %smax, %.loopexit165.loopexit215 ], [ %smax221, %.preheader164 ]
   %49 = getelementptr inbounds nuw i8, ptr %.0173, i64 12
   %50 = icmp ult ptr %49, %26

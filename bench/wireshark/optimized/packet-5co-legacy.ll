@@ -460,30 +460,30 @@ define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph.i:                                         ; preds = %96
   %wide.trip.count.i = zext i16 %97 to i32
-  %98 = trunc i16 %32 to i1
-  br label %99
+  br label %98
 
-99:                                               ; preds = %99, %.lr.ph.i
-  %indvars.iv.i = phi i32 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %99 ]
-  %.01520.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %99 ]
+98:                                               ; preds = %98, %.lr.ph.i
+  %indvars.iv.i = phi i32 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %98 ]
+  %.01520.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %98 ]
   %indvars555 = trunc i32 %indvars.iv.i to i1
-  %100 = add nuw nsw i32 %indvars.iv.i, %23
-  %101 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %100, i64 noundef 1)
-  %102 = load i8, ptr %5, align 1
-  %103 = zext i8 %102 to i32
-  %104 = shl nuw nsw i32 %103, 8
-  %105 = xor i32 %104, 65280
-  %106 = xor i8 %102, -1
-  %107 = zext i8 %106 to i32
-  %.pn.i = select i1 %indvars555, i32 %107, i32 %105
+  %99 = add nuw nsw i32 %indvars.iv.i, %23
+  %100 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %99, i64 noundef 1)
+  %101 = load i8, ptr %5, align 1
+  %102 = zext i8 %101 to i32
+  %103 = shl nuw nsw i32 %102, 8
+  %104 = xor i32 %103, 65280
+  %105 = xor i8 %101, -1
+  %106 = zext i8 %105 to i32
+  %.pn.i = select i1 %indvars555, i32 %106, i32 %104
   %.1.i = add i32 %.pn.i, %.01520.i
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %99, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %98, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %99
+._crit_edge.i:                                    ; preds = %98
+  %107 = trunc i16 %32 to i1
   %108 = add i32 %.1.i, 255
-  %spec.select.i = select i1 %98, i32 %108, i32 %.1.i
+  %spec.select.i = select i1 %107, i32 %108, i32 %.1.i
   br label %checksum_fiveco.exit
 
 checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i

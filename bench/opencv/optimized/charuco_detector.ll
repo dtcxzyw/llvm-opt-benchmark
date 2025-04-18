@@ -4137,10 +4137,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
           to label %_ZN2cv7Scalar_IdEC2ERKS1_.exit unwind label %263
 
 _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %257, %269
-  %270 = add i64 %208, 5
-  %.sroa.0.0.insert.ext.i113 = and i64 %270, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa !151
+  %270 = add i64 %208, 5
   %.sroa.2.0.insert.shift.i112 = add i64 %210, -21474836480
+  %.sroa.0.0.insert.ext.i113 = and i64 %270, 4294967295
   %.sroa.0.0.insert.insert.i114 = or disjoint i64 %.sroa.2.0.insert.shift.i112, %.sroa.0.0.insert.ext.i113
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 %.sroa.0.0.insert.insert.i114, i32 noundef 0, double noundef 5.000000e-01, ptr noundef nonnull %20, i32 noundef 2, i32 noundef 8, i1 noundef zeroext false)
           to label %271 unwind label %292
@@ -5067,11 +5067,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
           to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit unwind label %345
 
 _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds = %351, %339
-  %.sroa.0.0.insert.ext = zext i32 %283 to i64
   store double %93, ptr %20, align 8, !tbaa !151
   store double %91, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !151
   store double %96, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !151
   store double %99, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !151
+  %.sroa.0.0.insert.ext = zext i32 %283 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 %.sroa.0.0.insert.insert, i32 noundef 0, double noundef 5.000000e-01, ptr noundef nonnull %20, i32 noundef 2, i32 noundef 8, i1 noundef zeroext false)
           to label %352 unwind label %373

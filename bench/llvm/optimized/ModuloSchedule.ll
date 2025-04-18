@@ -16773,22 +16773,22 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   %1024 = load ptr, ptr %1023, align 8, !tbaa !110
   %1025 = getelementptr inbounds nuw i8, ptr %1024, i64 48
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %1025, align 8
-  %.sroa.0331.0.in605 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
   %1026 = call ptr @_ZN4llvm17MachineBasicBlock14getFirstNonPHIEv(ptr noundef nonnull align 8 dereferenceable(288) %1024) #20
-  %.0.copyload.i.i.i.i.i.i.i.i.i217606 = load i64, ptr %1026, align 8
-  %1027 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i217606, -8
-  %.not374607 = icmp eq i64 %.sroa.0331.0.in605, %1027
+  %.0.copyload.i.i.i.i.i.i.i.i.i217605 = load i64, ptr %1026, align 8
+  %1027 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i217605, -8
+  %.sroa.0331.0.in606 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -8
+  %.not374607 = icmp eq i64 %.sroa.0331.0.in606, %1027
   br i1 %.not374607, label %.loopexit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph458, %.preheader.i.i.i
-  %.sroa.0331.0.in608 = phi i64 [ %.sroa.0331.0.in, %.preheader.i.i.i ], [ %.sroa.0331.0.in605, %.lr.ph458 ]
+  %.sroa.0331.0.in608 = phi i64 [ %.sroa.0331.0.in, %.preheader.i.i.i ], [ %.sroa.0331.0.in606, %.lr.ph458 ]
   %.sroa.0331.0 = inttoptr i64 %.sroa.0331.0.in608 to ptr
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.sroa.0331.0, align 8
   call void @_ZN4llvm29PeelingModuloScheduleExpander13rewriteUsesOfEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull %.sroa.0331.0)
-  %.sroa.0331.0.in = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %1028 = call ptr @_ZN4llvm17MachineBasicBlock14getFirstNonPHIEv(ptr noundef nonnull align 8 dereferenceable(288) %1024) #20
   %.0.copyload.i.i.i.i.i.i.i.i.i217 = load i64, ptr %1028, align 8
   %1029 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i217, -8
+  %.sroa.0331.0.in = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %.not374 = icmp eq i64 %.sroa.0331.0.in, %1029
   br i1 %.not374, label %.loopexit, label %.preheader.i.i.i, !llvm.loop !702
 

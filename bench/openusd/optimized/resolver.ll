@@ -22653,9 +22653,9 @@ define linkonce_odr void @_ZN3tbb6detail2d219concurrent_hash_mapINSt7__cxx1112ba
 
 25:                                               ; preds = %._crit_edge
   %26 = load atomic i64, ptr %10 monotonic, align 8
-  %27 = icmp ne i64 %.038, 1
-  %28 = icmp ult i64 %.038, 8
-  %.not.i = and i1 %28, %27
+  %27 = icmp ult i64 %.038, 8
+  %28 = icmp ne i64 %.038, 1
+  %.not.i = and i1 %27, %28
   br i1 %.not.i, label %30, label %29
 
 29:                                               ; preds = %25

@@ -1541,10 +1541,10 @@ define internal fastcc noundef ptr @brin_range_deserialize(i32 noundef %0, ptr n
   %32 = add nsw i32 %9, -1
   %33 = zext nneg i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 3
-  %35 = lshr i32 %narrow, 3
-  %36 = zext nneg i32 %35 to i64
-  %37 = add nuw nsw i64 %34, 8
-  %38 = mul nuw nsw i64 %37, %36
+  %35 = add nuw nsw i64 %34, 8
+  %36 = lshr i32 %narrow, 3
+  %37 = zext nneg i32 %36 to i64
+  %38 = mul nuw nsw i64 %35, %37
   br label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph

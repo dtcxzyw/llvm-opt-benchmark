@@ -14376,11 +14376,11 @@ define linkonce_odr void @_ZN5Eigen8internal13gemm_pack_rhsIdlNS0_16blas_data_ma
   %smax = tail call i64 @llvm.smax.i64(i64 %9, i64 4)
   %49 = add nsw i64 %smax, -1
   %50 = lshr i64 %49, 2
-  %51 = shl i64 %5, 2
-  %52 = shl i64 %3, 2
-  %53 = mul i64 %50, %invariant.op
-  %54 = add i64 %53, %51
-  %55 = sub i64 %54, %52
+  %51 = mul i64 %50, %invariant.op
+  %52 = shl i64 %5, 2
+  %53 = add i64 %51, %52
+  %54 = shl i64 %3, 2
+  %55 = sub i64 %53, %54
   br label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge.us, %.lr.ph78.split, %7

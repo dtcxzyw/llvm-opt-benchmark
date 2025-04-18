@@ -3169,7 +3169,6 @@ define internal fastcc noundef ptr @_ZL15CloneLoopBlocksPN4llvm4LoopEPNS_5ValueE
   %44 = load ptr, ptr %0, align 8, !tbaa !92
   store ptr %44, ptr %18, align 8, !tbaa !198
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %19) #19
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 1, ptr %19, align 8
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 0, ptr %45, align 4, !tbaa !412
@@ -3185,6 +3184,7 @@ define internal fastcc noundef ptr @_ZL15CloneLoopBlocksPN4llvm4LoopEPNS_5ValueE
 
 _ZN4llvm13SmallDenseMapIPKNS_4LoopEPS1_Lj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
   %.str.22..str.23 = select i1 %2, ptr @.str.22, ptr @.str.23
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_4LoopEPS2_Lj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(8) %18)
   store ptr %44, ptr %46, align 8, !tbaa !198

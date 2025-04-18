@@ -3743,57 +3743,57 @@ opj_dwt_encode_step2.exit.i:                      ; preds = %73, %.loopexit.i.i
   store float %89, ptr %15, align 4, !tbaa !162
   %90 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %91 = icmp samesign ugt i32 %83, 4
-  br i1 %91, label %.lr.ph.i53.i, label %.preheader.i43.i
+  br i1 %91, label %.lr.ph.i52.i, label %.preheader.i43.i
 
-.preheader.loopexit.i56.i:                        ; preds = %.lr.ph.i53.i
+.preheader.loopexit.i55.i:                        ; preds = %.lr.ph.i52.i
   %92 = add nsw i32 %83, -5
   %93 = and i32 %92, -4
   %94 = add nuw nsw i32 %93, 5
   br label %.preheader.i43.i
 
-.preheader.i43.i:                                 ; preds = %.preheader.loopexit.i56.i, %84
-  %.040.lcssa.i44.i = phi i32 [ 1, %84 ], [ %94, %.preheader.loopexit.i56.i ]
-  %.1.lcssa.i45.i = phi ptr [ %90, %84 ], [ %121, %.preheader.loopexit.i56.i ]
+.preheader.i43.i:                                 ; preds = %.preheader.loopexit.i55.i, %84
+  %.040.lcssa.i44.i = phi i32 [ 1, %84 ], [ %94, %.preheader.loopexit.i55.i ]
+  %.1.lcssa.i45.i = phi ptr [ %90, %84 ], [ %121, %.preheader.loopexit.i55.i ]
   %95 = icmp samesign ult i32 %.040.lcssa.i44.i, %83
   br i1 %95, label %.lr.ph48.i48.i, label %.loopexit.i46.i
 
-.lr.ph.i53.i:                                     ; preds = %84, %.lr.ph.i53.i
-  %.144.i54.i = phi ptr [ %121, %.lr.ph.i53.i ], [ %90, %84 ]
-  %.04043.i55.i = phi i32 [ %122, %.lr.ph.i53.i ], [ 1, %84 ]
-  %96 = getelementptr inbounds i8, ptr %.144.i54.i, i64 -8
+.lr.ph.i52.i:                                     ; preds = %84, %.lr.ph.i52.i
+  %.144.i53.i = phi ptr [ %121, %.lr.ph.i52.i ], [ %90, %84 ]
+  %.04043.i54.i = phi i32 [ %122, %.lr.ph.i52.i ], [ 1, %84 ]
+  %96 = getelementptr inbounds i8, ptr %.144.i53.i, i64 -8
   %97 = load float, ptr %96, align 4, !tbaa !162
-  %98 = load float, ptr %.144.i54.i, align 4, !tbaa !162
+  %98 = load float, ptr %.144.i53.i, align 4, !tbaa !162
   %99 = fadd float %97, %98
-  %100 = getelementptr inbounds i8, ptr %.144.i54.i, i64 -4
+  %100 = getelementptr inbounds i8, ptr %.144.i53.i, i64 -4
   %101 = load float, ptr %100, align 4, !tbaa !162
   %102 = tail call float @llvm.fmuladd.f32(float %99, float 0xBFAB2035C0000000, float %101)
   store float %102, ptr %100, align 4, !tbaa !162
-  %103 = getelementptr inbounds nuw i8, ptr %.144.i54.i, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.144.i53.i, i64 8
   %104 = load float, ptr %103, align 4, !tbaa !162
   %105 = fadd float %98, %104
-  %106 = getelementptr inbounds nuw i8, ptr %.144.i54.i, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %.144.i53.i, i64 4
   %107 = load float, ptr %106, align 4, !tbaa !162
   %108 = tail call float @llvm.fmuladd.f32(float %105, float 0xBFAB2035C0000000, float %107)
   store float %108, ptr %106, align 4, !tbaa !162
-  %109 = getelementptr inbounds nuw i8, ptr %.144.i54.i, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.144.i53.i, i64 16
   %110 = load float, ptr %109, align 4, !tbaa !162
   %111 = fadd float %104, %110
-  %112 = getelementptr inbounds nuw i8, ptr %.144.i54.i, i64 12
+  %112 = getelementptr inbounds nuw i8, ptr %.144.i53.i, i64 12
   %113 = load float, ptr %112, align 4, !tbaa !162
   %114 = tail call float @llvm.fmuladd.f32(float %111, float 0xBFAB2035C0000000, float %113)
   store float %114, ptr %112, align 4, !tbaa !162
-  %115 = getelementptr inbounds nuw i8, ptr %.144.i54.i, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %.144.i53.i, i64 24
   %116 = load float, ptr %115, align 4, !tbaa !162
   %117 = fadd float %110, %116
-  %118 = getelementptr inbounds nuw i8, ptr %.144.i54.i, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %.144.i53.i, i64 20
   %119 = load float, ptr %118, align 4, !tbaa !162
   %120 = tail call float @llvm.fmuladd.f32(float %117, float 0xBFAB2035C0000000, float %119)
   store float %120, ptr %118, align 4, !tbaa !162
-  %121 = getelementptr inbounds nuw i8, ptr %.144.i54.i, i64 32
-  %122 = add nuw nsw i32 %.04043.i55.i, 4
-  %123 = add nuw i32 %.04043.i55.i, 7
+  %121 = getelementptr inbounds nuw i8, ptr %.144.i53.i, i64 32
+  %122 = add nuw nsw i32 %.04043.i54.i, 4
+  %123 = add nuw i32 %.04043.i54.i, 7
   %124 = icmp ult i32 %123, %83
-  br i1 %124, label %.lr.ph.i53.i, label %.preheader.loopexit.i56.i, !llvm.loop !163
+  br i1 %124, label %.lr.ph.i52.i, label %.preheader.loopexit.i55.i, !llvm.loop !163
 
 .lr.ph48.i48.i:                                   ; preds = %.preheader.i43.i, %.lr.ph48.i48.i
   %.247.i49.i = phi ptr [ %132, %.lr.ph48.i48.i ], [ %.1.lcssa.i45.i, %.preheader.i43.i ]
@@ -3814,7 +3814,7 @@ opj_dwt_encode_step2.exit.i:                      ; preds = %73, %.loopexit.i.i
 .loopexit.i46.i:                                  ; preds = %.lr.ph48.i48.i, %.preheader.i43.i, %opj_dwt_encode_step2.exit.i
   %.0.i47.i = phi ptr [ %80, %opj_dwt_encode_step2.exit.i ], [ %.1.lcssa.i45.i, %.preheader.i43.i ], [ %132, %.lr.ph48.i48.i ]
   %134 = icmp ult i32 %82, %9
-  br i1 %134, label %135, label %opj_dwt_encode_step2.exit57.i
+  br i1 %134, label %135, label %opj_dwt_encode_step2.exit56.i
 
 135:                                              ; preds = %.loopexit.i46.i
   %136 = getelementptr inbounds i8, ptr %.0.i47.i, i64 -8
@@ -3824,12 +3824,12 @@ opj_dwt_encode_step2.exit.i:                      ; preds = %73, %.loopexit.i.i
   %140 = load float, ptr %139, align 4, !tbaa !162
   %141 = tail call float @llvm.fmuladd.f32(float %138, float 0xBFAB2035C0000000, float %140)
   store float %141, ptr %139, align 4, !tbaa !162
-  br label %opj_dwt_encode_step2.exit57.i
+  br label %opj_dwt_encode_step2.exit56.i
 
-opj_dwt_encode_step2.exit57.i:                    ; preds = %135, %.loopexit.i46.i
-  br i1 %.not.i.i, label %.loopexit.i62.i, label %142
+opj_dwt_encode_step2.exit56.i:                    ; preds = %135, %.loopexit.i46.i
+  br i1 %.not.i.i, label %.loopexit.i61.i, label %142
 
-142:                                              ; preds = %opj_dwt_encode_step2.exit57.i
+142:                                              ; preds = %opj_dwt_encode_step2.exit56.i
   %143 = load float, ptr %15, align 4, !tbaa !162
   %144 = load float, ptr %18, align 4, !tbaa !162
   %145 = fadd float %143, %144
@@ -3838,92 +3838,92 @@ opj_dwt_encode_step2.exit57.i:                    ; preds = %135, %.loopexit.i46
   store float %147, ptr %17, align 4, !tbaa !162
   %148 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %149 = icmp ugt i32 %21, 4
-  br i1 %149, label %.lr.ph.i69.i, label %.preheader.i59.i
+  br i1 %149, label %.lr.ph.i67.i, label %.preheader.i58.i
 
-.preheader.loopexit.i72.i:                        ; preds = %.lr.ph.i69.i
+.preheader.loopexit.i70.i:                        ; preds = %.lr.ph.i67.i
   %150 = add i32 %21, -5
   %151 = and i32 %150, -4
   %152 = add nuw i32 %151, 5
-  br label %.preheader.i59.i
+  br label %.preheader.i58.i
 
-.preheader.i59.i:                                 ; preds = %.preheader.loopexit.i72.i, %142
-  %.040.lcssa.i60.i = phi i32 [ 1, %142 ], [ %152, %.preheader.loopexit.i72.i ]
-  %.1.lcssa.i61.i = phi ptr [ %148, %142 ], [ %179, %.preheader.loopexit.i72.i ]
-  %153 = icmp ult i32 %.040.lcssa.i60.i, %21
-  br i1 %153, label %.lr.ph48.i64.i, label %.loopexit.i62.i
+.preheader.i58.i:                                 ; preds = %.preheader.loopexit.i70.i, %142
+  %.040.lcssa.i59.i = phi i32 [ 1, %142 ], [ %152, %.preheader.loopexit.i70.i ]
+  %.1.lcssa.i60.i = phi ptr [ %148, %142 ], [ %179, %.preheader.loopexit.i70.i ]
+  %153 = icmp ult i32 %.040.lcssa.i59.i, %21
+  br i1 %153, label %.lr.ph48.i63.i, label %.loopexit.i61.i
 
-.lr.ph.i69.i:                                     ; preds = %142, %.lr.ph.i69.i
-  %.144.i70.i = phi ptr [ %179, %.lr.ph.i69.i ], [ %148, %142 ]
-  %.04043.i71.i = phi i32 [ %180, %.lr.ph.i69.i ], [ 1, %142 ]
-  %154 = getelementptr inbounds i8, ptr %.144.i70.i, i64 -8
+.lr.ph.i67.i:                                     ; preds = %142, %.lr.ph.i67.i
+  %.144.i68.i = phi ptr [ %179, %.lr.ph.i67.i ], [ %148, %142 ]
+  %.04043.i69.i = phi i32 [ %180, %.lr.ph.i67.i ], [ 1, %142 ]
+  %154 = getelementptr inbounds i8, ptr %.144.i68.i, i64 -8
   %155 = load float, ptr %154, align 4, !tbaa !162
-  %156 = load float, ptr %.144.i70.i, align 4, !tbaa !162
+  %156 = load float, ptr %.144.i68.i, align 4, !tbaa !162
   %157 = fadd float %155, %156
-  %158 = getelementptr inbounds i8, ptr %.144.i70.i, i64 -4
+  %158 = getelementptr inbounds i8, ptr %.144.i68.i, i64 -4
   %159 = load float, ptr %158, align 4, !tbaa !162
   %160 = tail call float @llvm.fmuladd.f32(float %157, float 0x3FEC40CEC0000000, float %159)
   store float %160, ptr %158, align 4, !tbaa !162
-  %161 = getelementptr inbounds nuw i8, ptr %.144.i70.i, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.144.i68.i, i64 8
   %162 = load float, ptr %161, align 4, !tbaa !162
   %163 = fadd float %156, %162
-  %164 = getelementptr inbounds nuw i8, ptr %.144.i70.i, i64 4
+  %164 = getelementptr inbounds nuw i8, ptr %.144.i68.i, i64 4
   %165 = load float, ptr %164, align 4, !tbaa !162
   %166 = tail call float @llvm.fmuladd.f32(float %163, float 0x3FEC40CEC0000000, float %165)
   store float %166, ptr %164, align 4, !tbaa !162
-  %167 = getelementptr inbounds nuw i8, ptr %.144.i70.i, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %.144.i68.i, i64 16
   %168 = load float, ptr %167, align 4, !tbaa !162
   %169 = fadd float %162, %168
-  %170 = getelementptr inbounds nuw i8, ptr %.144.i70.i, i64 12
+  %170 = getelementptr inbounds nuw i8, ptr %.144.i68.i, i64 12
   %171 = load float, ptr %170, align 4, !tbaa !162
   %172 = tail call float @llvm.fmuladd.f32(float %169, float 0x3FEC40CEC0000000, float %171)
   store float %172, ptr %170, align 4, !tbaa !162
-  %173 = getelementptr inbounds nuw i8, ptr %.144.i70.i, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %.144.i68.i, i64 24
   %174 = load float, ptr %173, align 4, !tbaa !162
   %175 = fadd float %168, %174
-  %176 = getelementptr inbounds nuw i8, ptr %.144.i70.i, i64 20
+  %176 = getelementptr inbounds nuw i8, ptr %.144.i68.i, i64 20
   %177 = load float, ptr %176, align 4, !tbaa !162
   %178 = tail call float @llvm.fmuladd.f32(float %175, float 0x3FEC40CEC0000000, float %177)
   store float %178, ptr %176, align 4, !tbaa !162
-  %179 = getelementptr inbounds nuw i8, ptr %.144.i70.i, i64 32
-  %180 = add nuw i32 %.04043.i71.i, 4
-  %181 = add nuw i32 %.04043.i71.i, 7
+  %179 = getelementptr inbounds nuw i8, ptr %.144.i68.i, i64 32
+  %180 = add nuw i32 %.04043.i69.i, 4
+  %181 = add nuw i32 %.04043.i69.i, 7
   %182 = icmp ult i32 %181, %21
-  br i1 %182, label %.lr.ph.i69.i, label %.preheader.loopexit.i72.i, !llvm.loop !163
+  br i1 %182, label %.lr.ph.i67.i, label %.preheader.loopexit.i70.i, !llvm.loop !163
 
-.lr.ph48.i64.i:                                   ; preds = %.preheader.i59.i, %.lr.ph48.i64.i
-  %.247.i65.i = phi ptr [ %190, %.lr.ph48.i64.i ], [ %.1.lcssa.i61.i, %.preheader.i59.i ]
-  %.14146.i66.i = phi i32 [ %191, %.lr.ph48.i64.i ], [ %.040.lcssa.i60.i, %.preheader.i59.i ]
-  %183 = getelementptr inbounds i8, ptr %.247.i65.i, i64 -8
+.lr.ph48.i63.i:                                   ; preds = %.preheader.i58.i, %.lr.ph48.i63.i
+  %.247.i64.i = phi ptr [ %190, %.lr.ph48.i63.i ], [ %.1.lcssa.i60.i, %.preheader.i58.i ]
+  %.14146.i65.i = phi i32 [ %191, %.lr.ph48.i63.i ], [ %.040.lcssa.i59.i, %.preheader.i58.i ]
+  %183 = getelementptr inbounds i8, ptr %.247.i64.i, i64 -8
   %184 = load float, ptr %183, align 4, !tbaa !162
-  %185 = load float, ptr %.247.i65.i, align 4, !tbaa !162
+  %185 = load float, ptr %.247.i64.i, align 4, !tbaa !162
   %186 = fadd float %184, %185
-  %187 = getelementptr inbounds i8, ptr %.247.i65.i, i64 -4
+  %187 = getelementptr inbounds i8, ptr %.247.i64.i, i64 -4
   %188 = load float, ptr %187, align 4, !tbaa !162
   %189 = tail call float @llvm.fmuladd.f32(float %186, float 0x3FEC40CEC0000000, float %188)
   store float %189, ptr %187, align 4, !tbaa !162
-  %190 = getelementptr inbounds nuw i8, ptr %.247.i65.i, i64 8
-  %191 = add nuw i32 %.14146.i66.i, 1
-  %exitcond.not.i67.i = icmp eq i32 %191, %21
-  br i1 %exitcond.not.i67.i, label %.loopexit.i62.i, label %.lr.ph48.i64.i, !llvm.loop !164
+  %190 = getelementptr inbounds nuw i8, ptr %.247.i64.i, i64 8
+  %191 = add nuw i32 %.14146.i65.i, 1
+  %exitcond.not.i66.i = icmp eq i32 %191, %21
+  br i1 %exitcond.not.i66.i, label %.loopexit.i61.i, label %.lr.ph48.i63.i, !llvm.loop !164
 
-.loopexit.i62.i:                                  ; preds = %.lr.ph48.i64.i, %.preheader.i59.i, %opj_dwt_encode_step2.exit57.i
-  %.0.i63.i = phi ptr [ %18, %opj_dwt_encode_step2.exit57.i ], [ %.1.lcssa.i61.i, %.preheader.i59.i ], [ %190, %.lr.ph48.i64.i ]
-  br i1 %72, label %192, label %opj_dwt_encode_step2.exit73.i
+.loopexit.i61.i:                                  ; preds = %.lr.ph48.i63.i, %.preheader.i58.i, %opj_dwt_encode_step2.exit56.i
+  %.0.i62.i = phi ptr [ %18, %opj_dwt_encode_step2.exit56.i ], [ %.1.lcssa.i60.i, %.preheader.i58.i ], [ %190, %.lr.ph48.i63.i ]
+  br i1 %72, label %192, label %opj_dwt_encode_step2.exit71.i
 
-192:                                              ; preds = %.loopexit.i62.i
-  %193 = getelementptr inbounds i8, ptr %.0.i63.i, i64 -8
+192:                                              ; preds = %.loopexit.i61.i
+  %193 = getelementptr inbounds i8, ptr %.0.i62.i, i64 -8
   %194 = load float, ptr %193, align 4, !tbaa !162
   %195 = fmul float %194, 2.000000e+00
-  %196 = getelementptr inbounds i8, ptr %.0.i63.i, i64 -4
+  %196 = getelementptr inbounds i8, ptr %.0.i62.i, i64 -4
   %197 = load float, ptr %196, align 4, !tbaa !162
   %198 = tail call float @llvm.fmuladd.f32(float %195, float 0x3FEC40CEC0000000, float %197)
   store float %198, ptr %196, align 4, !tbaa !162
-  br label %opj_dwt_encode_step2.exit73.i
+  br label %opj_dwt_encode_step2.exit71.i
 
-opj_dwt_encode_step2.exit73.i:                    ; preds = %192, %.loopexit.i62.i
-  br i1 %.not.i42.i, label %.loopexit.i78.i, label %199
+opj_dwt_encode_step2.exit71.i:                    ; preds = %192, %.loopexit.i61.i
+  br i1 %.not.i42.i, label %.loopexit.i76.i, label %199
 
-199:                                              ; preds = %opj_dwt_encode_step2.exit73.i
+199:                                              ; preds = %opj_dwt_encode_step2.exit71.i
   %200 = load float, ptr %17, align 4, !tbaa !162
   %201 = load float, ptr %80, align 4, !tbaa !162
   %202 = fadd float %200, %201
@@ -3932,109 +3932,109 @@ opj_dwt_encode_step2.exit73.i:                    ; preds = %192, %.loopexit.i62
   store float %204, ptr %15, align 4, !tbaa !162
   %205 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %206 = icmp samesign ugt i32 %83, 4
-  br i1 %206, label %.lr.ph.i85.i, label %.preheader.i75.i
+  br i1 %206, label %.lr.ph.i82.i, label %.preheader.i73.i
 
-.preheader.loopexit.i88.i:                        ; preds = %.lr.ph.i85.i
+.preheader.loopexit.i85.i:                        ; preds = %.lr.ph.i82.i
   %207 = add nsw i32 %83, -5
   %208 = and i32 %207, -4
   %209 = add nuw nsw i32 %208, 5
-  br label %.preheader.i75.i
+  br label %.preheader.i73.i
 
-.preheader.i75.i:                                 ; preds = %.preheader.loopexit.i88.i, %199
-  %.040.lcssa.i76.i = phi i32 [ 1, %199 ], [ %209, %.preheader.loopexit.i88.i ]
-  %.1.lcssa.i77.i = phi ptr [ %205, %199 ], [ %236, %.preheader.loopexit.i88.i ]
-  %210 = icmp samesign ult i32 %.040.lcssa.i76.i, %83
-  br i1 %210, label %.lr.ph48.i80.i, label %.loopexit.i78.i
+.preheader.i73.i:                                 ; preds = %.preheader.loopexit.i85.i, %199
+  %.040.lcssa.i74.i = phi i32 [ 1, %199 ], [ %209, %.preheader.loopexit.i85.i ]
+  %.1.lcssa.i75.i = phi ptr [ %205, %199 ], [ %236, %.preheader.loopexit.i85.i ]
+  %210 = icmp samesign ult i32 %.040.lcssa.i74.i, %83
+  br i1 %210, label %.lr.ph48.i78.i, label %.loopexit.i76.i
 
-.lr.ph.i85.i:                                     ; preds = %199, %.lr.ph.i85.i
-  %.144.i86.i = phi ptr [ %236, %.lr.ph.i85.i ], [ %205, %199 ]
-  %.04043.i87.i = phi i32 [ %237, %.lr.ph.i85.i ], [ 1, %199 ]
-  %211 = getelementptr inbounds i8, ptr %.144.i86.i, i64 -8
+.lr.ph.i82.i:                                     ; preds = %199, %.lr.ph.i82.i
+  %.144.i83.i = phi ptr [ %236, %.lr.ph.i82.i ], [ %205, %199 ]
+  %.04043.i84.i = phi i32 [ %237, %.lr.ph.i82.i ], [ 1, %199 ]
+  %211 = getelementptr inbounds i8, ptr %.144.i83.i, i64 -8
   %212 = load float, ptr %211, align 4, !tbaa !162
-  %213 = load float, ptr %.144.i86.i, align 4, !tbaa !162
+  %213 = load float, ptr %.144.i83.i, align 4, !tbaa !162
   %214 = fadd float %212, %213
-  %215 = getelementptr inbounds i8, ptr %.144.i86.i, i64 -4
+  %215 = getelementptr inbounds i8, ptr %.144.i83.i, i64 -4
   %216 = load float, ptr %215, align 4, !tbaa !162
   %217 = tail call float @llvm.fmuladd.f32(float %214, float 0x3FDC626AA0000000, float %216)
   store float %217, ptr %215, align 4, !tbaa !162
-  %218 = getelementptr inbounds nuw i8, ptr %.144.i86.i, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %.144.i83.i, i64 8
   %219 = load float, ptr %218, align 4, !tbaa !162
   %220 = fadd float %213, %219
-  %221 = getelementptr inbounds nuw i8, ptr %.144.i86.i, i64 4
+  %221 = getelementptr inbounds nuw i8, ptr %.144.i83.i, i64 4
   %222 = load float, ptr %221, align 4, !tbaa !162
   %223 = tail call float @llvm.fmuladd.f32(float %220, float 0x3FDC626AA0000000, float %222)
   store float %223, ptr %221, align 4, !tbaa !162
-  %224 = getelementptr inbounds nuw i8, ptr %.144.i86.i, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %.144.i83.i, i64 16
   %225 = load float, ptr %224, align 4, !tbaa !162
   %226 = fadd float %219, %225
-  %227 = getelementptr inbounds nuw i8, ptr %.144.i86.i, i64 12
+  %227 = getelementptr inbounds nuw i8, ptr %.144.i83.i, i64 12
   %228 = load float, ptr %227, align 4, !tbaa !162
   %229 = tail call float @llvm.fmuladd.f32(float %226, float 0x3FDC626AA0000000, float %228)
   store float %229, ptr %227, align 4, !tbaa !162
-  %230 = getelementptr inbounds nuw i8, ptr %.144.i86.i, i64 24
+  %230 = getelementptr inbounds nuw i8, ptr %.144.i83.i, i64 24
   %231 = load float, ptr %230, align 4, !tbaa !162
   %232 = fadd float %225, %231
-  %233 = getelementptr inbounds nuw i8, ptr %.144.i86.i, i64 20
+  %233 = getelementptr inbounds nuw i8, ptr %.144.i83.i, i64 20
   %234 = load float, ptr %233, align 4, !tbaa !162
   %235 = tail call float @llvm.fmuladd.f32(float %232, float 0x3FDC626AA0000000, float %234)
   store float %235, ptr %233, align 4, !tbaa !162
-  %236 = getelementptr inbounds nuw i8, ptr %.144.i86.i, i64 32
-  %237 = add nuw nsw i32 %.04043.i87.i, 4
-  %238 = add nuw i32 %.04043.i87.i, 7
+  %236 = getelementptr inbounds nuw i8, ptr %.144.i83.i, i64 32
+  %237 = add nuw nsw i32 %.04043.i84.i, 4
+  %238 = add nuw i32 %.04043.i84.i, 7
   %239 = icmp ult i32 %238, %83
-  br i1 %239, label %.lr.ph.i85.i, label %.preheader.loopexit.i88.i, !llvm.loop !163
+  br i1 %239, label %.lr.ph.i82.i, label %.preheader.loopexit.i85.i, !llvm.loop !163
 
-.lr.ph48.i80.i:                                   ; preds = %.preheader.i75.i, %.lr.ph48.i80.i
-  %.247.i81.i = phi ptr [ %247, %.lr.ph48.i80.i ], [ %.1.lcssa.i77.i, %.preheader.i75.i ]
-  %.14146.i82.i = phi i32 [ %248, %.lr.ph48.i80.i ], [ %.040.lcssa.i76.i, %.preheader.i75.i ]
-  %240 = getelementptr inbounds i8, ptr %.247.i81.i, i64 -8
+.lr.ph48.i78.i:                                   ; preds = %.preheader.i73.i, %.lr.ph48.i78.i
+  %.247.i79.i = phi ptr [ %247, %.lr.ph48.i78.i ], [ %.1.lcssa.i75.i, %.preheader.i73.i ]
+  %.14146.i80.i = phi i32 [ %248, %.lr.ph48.i78.i ], [ %.040.lcssa.i74.i, %.preheader.i73.i ]
+  %240 = getelementptr inbounds i8, ptr %.247.i79.i, i64 -8
   %241 = load float, ptr %240, align 4, !tbaa !162
-  %242 = load float, ptr %.247.i81.i, align 4, !tbaa !162
+  %242 = load float, ptr %.247.i79.i, align 4, !tbaa !162
   %243 = fadd float %241, %242
-  %244 = getelementptr inbounds i8, ptr %.247.i81.i, i64 -4
+  %244 = getelementptr inbounds i8, ptr %.247.i79.i, i64 -4
   %245 = load float, ptr %244, align 4, !tbaa !162
   %246 = tail call float @llvm.fmuladd.f32(float %243, float 0x3FDC626AA0000000, float %245)
   store float %246, ptr %244, align 4, !tbaa !162
-  %247 = getelementptr inbounds nuw i8, ptr %.247.i81.i, i64 8
-  %248 = add nuw i32 %.14146.i82.i, 1
-  %exitcond.not.i83.i = icmp eq i32 %248, %83
-  br i1 %exitcond.not.i83.i, label %.loopexit.i78.i, label %.lr.ph48.i80.i, !llvm.loop !164
+  %247 = getelementptr inbounds nuw i8, ptr %.247.i79.i, i64 8
+  %248 = add nuw i32 %.14146.i80.i, 1
+  %exitcond.not.i81.i = icmp eq i32 %248, %83
+  br i1 %exitcond.not.i81.i, label %.loopexit.i76.i, label %.lr.ph48.i78.i, !llvm.loop !164
 
-.loopexit.i78.i:                                  ; preds = %.lr.ph48.i80.i, %.preheader.i75.i, %opj_dwt_encode_step2.exit73.i
-  %.0.i79.i = phi ptr [ %80, %opj_dwt_encode_step2.exit73.i ], [ %.1.lcssa.i77.i, %.preheader.i75.i ], [ %247, %.lr.ph48.i80.i ]
-  br i1 %134, label %249, label %opj_dwt_encode_step2.exit89.i
+.loopexit.i76.i:                                  ; preds = %.lr.ph48.i78.i, %.preheader.i73.i, %opj_dwt_encode_step2.exit71.i
+  %.0.i77.i = phi ptr [ %80, %opj_dwt_encode_step2.exit71.i ], [ %.1.lcssa.i75.i, %.preheader.i73.i ], [ %247, %.lr.ph48.i78.i ]
+  br i1 %134, label %249, label %opj_dwt_encode_step2.exit86.i
 
-249:                                              ; preds = %.loopexit.i78.i
-  %250 = getelementptr inbounds i8, ptr %.0.i79.i, i64 -8
+249:                                              ; preds = %.loopexit.i76.i
+  %250 = getelementptr inbounds i8, ptr %.0.i77.i, i64 -8
   %251 = load float, ptr %250, align 4, !tbaa !162
   %252 = fmul float %251, 2.000000e+00
-  %253 = getelementptr inbounds i8, ptr %.0.i79.i, i64 -4
+  %253 = getelementptr inbounds i8, ptr %.0.i77.i, i64 -4
   %254 = load float, ptr %253, align 4, !tbaa !162
   %255 = tail call float @llvm.fmuladd.f32(float %252, float 0x3FDC626AA0000000, float %254)
   store float %255, ptr %253, align 4, !tbaa !162
-  br label %opj_dwt_encode_step2.exit89.i
+  br label %opj_dwt_encode_step2.exit86.i
 
-opj_dwt_encode_step2.exit89.i:                    ; preds = %249, %.loopexit.i78.i
+opj_dwt_encode_step2.exit86.i:                    ; preds = %249, %.loopexit.i76.i
   %256 = tail call noundef i32 @llvm.umin.i32(i32 range(i32 0, -2147483648) %9, i32 %10)
   %257 = icmp samesign ugt i32 %256, 3
   br i1 %.not, label %258, label %287
 
-258:                                              ; preds = %opj_dwt_encode_step2.exit89.i
-  br i1 %257, label %.lr.ph.i93.i, label %.preheader.i90.i
+258:                                              ; preds = %opj_dwt_encode_step2.exit86.i
+  br i1 %257, label %.lr.ph.i90.i, label %.preheader.i87.i
 
-.preheader.i90.loopexit.i:                        ; preds = %.lr.ph.i93.i
+.preheader.loopexit.i91.i:                        ; preds = %.lr.ph.i90.i
   %259 = and i32 %256, 2147483644
-  br label %.preheader.i90.i
+  br label %.preheader.i87.i
 
-.preheader.i90.i:                                 ; preds = %.preheader.i90.loopexit.i, %258
-  %.031.lcssa.i.i = phi i32 [ 0, %258 ], [ %259, %.preheader.i90.loopexit.i ]
-  %.0.lcssa.i.i = phi ptr [ %1, %258 ], [ %266, %.preheader.i90.loopexit.i ]
+.preheader.i87.i:                                 ; preds = %.preheader.loopexit.i91.i, %258
+  %.031.lcssa.i.i = phi i32 [ 0, %258 ], [ %259, %.preheader.loopexit.i91.i ]
+  %.0.lcssa.i.i = phi ptr [ %1, %258 ], [ %266, %.preheader.loopexit.i91.i ]
   %260 = icmp samesign ult i32 %.031.lcssa.i.i, %256
   br i1 %260, label %.lr.ph38.i.i, label %._crit_edge.i.i
 
-.lr.ph.i93.i:                                     ; preds = %258, %.lr.ph.i93.i
-  %.034.i.i = phi ptr [ %266, %.lr.ph.i93.i ], [ %1, %258 ]
-  %.03133.i.i = phi i32 [ %267, %.lr.ph.i93.i ], [ 0, %258 ]
+.lr.ph.i90.i:                                     ; preds = %258, %.lr.ph.i90.i
+  %.034.i.i = phi ptr [ %266, %.lr.ph.i90.i ], [ %1, %258 ]
+  %.03133.i.i = phi i32 [ %267, %.lr.ph.i90.i ], [ 0, %258 ]
   %261 = load <4 x float>, ptr %.034.i.i, align 16, !tbaa !57
   %262 = fmul <4 x float> %261, <float 0x3FEA033860000000, float 0x3FF3AECB00000000, float 0x3FEA033860000000, float 0x3FF3AECB00000000>
   store <4 x float> %262, ptr %.034.i.i, align 16, !tbaa !57
@@ -4046,11 +4046,11 @@ opj_dwt_encode_step2.exit89.i:                    ; preds = %249, %.loopexit.i78
   %267 = add nuw nsw i32 %.03133.i.i, 4
   %268 = or disjoint i32 %267, 3
   %269 = icmp samesign ult i32 %268, %256
-  br i1 %269, label %.lr.ph.i93.i, label %.preheader.i90.loopexit.i, !llvm.loop !165
+  br i1 %269, label %.lr.ph.i90.i, label %.preheader.loopexit.i91.i, !llvm.loop !165
 
-.lr.ph38.i.i:                                     ; preds = %.preheader.i90.i, %.lr.ph38.i.i
-  %.137.i.i = phi ptr [ %275, %.lr.ph38.i.i ], [ %.0.lcssa.i.i, %.preheader.i90.i ]
-  %.13236.i.i = phi i32 [ %276, %.lr.ph38.i.i ], [ %.031.lcssa.i.i, %.preheader.i90.i ]
+.lr.ph38.i.i:                                     ; preds = %.preheader.i87.i, %.lr.ph38.i.i
+  %.137.i.i = phi ptr [ %275, %.lr.ph38.i.i ], [ %.0.lcssa.i.i, %.preheader.i87.i ]
+  %.13236.i.i = phi i32 [ %276, %.lr.ph38.i.i ], [ %.031.lcssa.i.i, %.preheader.i87.i ]
   %270 = load float, ptr %.137.i.i, align 4, !tbaa !162
   %271 = fmul float %270, 0x3FEA033860000000
   store float %271, ptr %.137.i.i, align 4, !tbaa !162
@@ -4060,19 +4060,19 @@ opj_dwt_encode_step2.exit89.i:                    ; preds = %249, %.loopexit.i78
   store float %274, ptr %272, align 4, !tbaa !162
   %275 = getelementptr inbounds nuw i8, ptr %.137.i.i, i64 8
   %276 = add nuw i32 %.13236.i.i, 1
-  %exitcond.not.i92.i = icmp eq i32 %276, %256
-  br i1 %exitcond.not.i92.i, label %._crit_edge.i.i, label %.lr.ph38.i.i, !llvm.loop !166
+  %exitcond.not.i89.i = icmp eq i32 %276, %256
+  br i1 %exitcond.not.i89.i, label %._crit_edge.i.i, label %.lr.ph38.i.i, !llvm.loop !166
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph38.i.i, %.preheader.i90.i
-  %.132.lcssa.i.i = phi i32 [ %.031.lcssa.i.i, %.preheader.i90.i ], [ %256, %.lr.ph38.i.i ]
-  %.1.lcssa.i91.i = phi ptr [ %.0.lcssa.i.i, %.preheader.i90.i ], [ %275, %.lr.ph38.i.i ]
+._crit_edge.i.i:                                  ; preds = %.lr.ph38.i.i, %.preheader.i87.i
+  %.132.lcssa.i.i = phi i32 [ %.031.lcssa.i.i, %.preheader.i87.i ], [ %256, %.lr.ph38.i.i ]
+  %.1.lcssa.i88.i = phi ptr [ %.0.lcssa.i.i, %.preheader.i87.i ], [ %275, %.lr.ph38.i.i ]
   %277 = icmp samesign ult i32 %.132.lcssa.i.i, %9
   br i1 %277, label %278, label %281
 
 278:                                              ; preds = %._crit_edge.i.i
-  %279 = load float, ptr %.1.lcssa.i91.i, align 4, !tbaa !162
+  %279 = load float, ptr %.1.lcssa.i88.i, align 4, !tbaa !162
   %280 = fmul float %279, 0x3FEA033860000000
-  store float %280, ptr %.1.lcssa.i91.i, align 4, !tbaa !162
+  store float %280, ptr %.1.lcssa.i88.i, align 4, !tbaa !162
   br label %.lr.ph.i.preheader
 
 281:                                              ; preds = %._crit_edge.i.i
@@ -4080,74 +4080,74 @@ opj_dwt_encode_step2.exit89.i:                    ; preds = %249, %.loopexit.i78
   br i1 %282, label %283, label %opj_dwt_encode_1_real.exit
 
 283:                                              ; preds = %281
-  %284 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i91.i, i64 4
+  %284 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i88.i, i64 4
   %285 = load float, ptr %284, align 4, !tbaa !162
   %286 = fmul float %285, 0x3FF3AECB00000000
   store float %286, ptr %284, align 4, !tbaa !162
   br label %opj_dwt_encode_1_real.exit
 
-287:                                              ; preds = %opj_dwt_encode_step2.exit89.i
-  br i1 %257, label %.lr.ph.i104.i, label %.preheader.i94.i
+287:                                              ; preds = %opj_dwt_encode_step2.exit86.i
+  br i1 %257, label %.lr.ph.i102.i, label %.preheader.i92.i
 
-.preheader.i94.loopexit.i:                        ; preds = %.lr.ph.i104.i
+.preheader.loopexit.i105.i:                       ; preds = %.lr.ph.i102.i
   %288 = and i32 %256, 2147483644
-  br label %.preheader.i94.i
+  br label %.preheader.i92.i
 
-.preheader.i94.i:                                 ; preds = %.preheader.i94.loopexit.i, %287
-  %.031.lcssa.i95.i = phi i32 [ 0, %287 ], [ %288, %.preheader.i94.loopexit.i ]
-  %.0.lcssa.i96.i = phi ptr [ %1, %287 ], [ %295, %.preheader.i94.loopexit.i ]
-  %289 = icmp samesign ult i32 %.031.lcssa.i95.i, %256
-  br i1 %289, label %.lr.ph38.i100.i, label %._crit_edge.i97.i
+.preheader.i92.i:                                 ; preds = %.preheader.loopexit.i105.i, %287
+  %.031.lcssa.i93.i = phi i32 [ 0, %287 ], [ %288, %.preheader.loopexit.i105.i ]
+  %.0.lcssa.i94.i = phi ptr [ %1, %287 ], [ %295, %.preheader.loopexit.i105.i ]
+  %289 = icmp samesign ult i32 %.031.lcssa.i93.i, %256
+  br i1 %289, label %.lr.ph38.i98.i, label %._crit_edge.i95.i
 
-.lr.ph.i104.i:                                    ; preds = %287, %.lr.ph.i104.i
-  %.034.i105.i = phi ptr [ %295, %.lr.ph.i104.i ], [ %1, %287 ]
-  %.03133.i106.i = phi i32 [ %296, %.lr.ph.i104.i ], [ 0, %287 ]
-  %290 = load <4 x float>, ptr %.034.i105.i, align 16, !tbaa !57
+.lr.ph.i102.i:                                    ; preds = %287, %.lr.ph.i102.i
+  %.034.i103.i = phi ptr [ %295, %.lr.ph.i102.i ], [ %1, %287 ]
+  %.03133.i104.i = phi i32 [ %296, %.lr.ph.i102.i ], [ 0, %287 ]
+  %290 = load <4 x float>, ptr %.034.i103.i, align 16, !tbaa !57
   %291 = fmul <4 x float> %290, <float 0x3FF3AECB00000000, float 0x3FEA033860000000, float 0x3FF3AECB00000000, float 0x3FEA033860000000>
-  store <4 x float> %291, ptr %.034.i105.i, align 16, !tbaa !57
-  %292 = getelementptr inbounds nuw i8, ptr %.034.i105.i, i64 16
+  store <4 x float> %291, ptr %.034.i103.i, align 16, !tbaa !57
+  %292 = getelementptr inbounds nuw i8, ptr %.034.i103.i, i64 16
   %293 = load <4 x float>, ptr %292, align 16, !tbaa !57
   %294 = fmul <4 x float> %293, <float 0x3FF3AECB00000000, float 0x3FEA033860000000, float 0x3FF3AECB00000000, float 0x3FEA033860000000>
   store <4 x float> %294, ptr %292, align 16, !tbaa !57
-  %295 = getelementptr inbounds nuw i8, ptr %.034.i105.i, i64 32
-  %296 = add nuw nsw i32 %.03133.i106.i, 4
+  %295 = getelementptr inbounds nuw i8, ptr %.034.i103.i, i64 32
+  %296 = add nuw nsw i32 %.03133.i104.i, 4
   %297 = or disjoint i32 %296, 3
   %298 = icmp samesign ult i32 %297, %256
-  br i1 %298, label %.lr.ph.i104.i, label %.preheader.i94.loopexit.i, !llvm.loop !165
+  br i1 %298, label %.lr.ph.i102.i, label %.preheader.loopexit.i105.i, !llvm.loop !165
 
-.lr.ph38.i100.i:                                  ; preds = %.preheader.i94.i, %.lr.ph38.i100.i
-  %.137.i101.i = phi ptr [ %304, %.lr.ph38.i100.i ], [ %.0.lcssa.i96.i, %.preheader.i94.i ]
-  %.13236.i102.i = phi i32 [ %305, %.lr.ph38.i100.i ], [ %.031.lcssa.i95.i, %.preheader.i94.i ]
-  %299 = load float, ptr %.137.i101.i, align 4, !tbaa !162
+.lr.ph38.i98.i:                                   ; preds = %.preheader.i92.i, %.lr.ph38.i98.i
+  %.137.i99.i = phi ptr [ %304, %.lr.ph38.i98.i ], [ %.0.lcssa.i94.i, %.preheader.i92.i ]
+  %.13236.i100.i = phi i32 [ %305, %.lr.ph38.i98.i ], [ %.031.lcssa.i93.i, %.preheader.i92.i ]
+  %299 = load float, ptr %.137.i99.i, align 4, !tbaa !162
   %300 = fmul float %299, 0x3FF3AECB00000000
-  store float %300, ptr %.137.i101.i, align 4, !tbaa !162
-  %301 = getelementptr inbounds nuw i8, ptr %.137.i101.i, i64 4
+  store float %300, ptr %.137.i99.i, align 4, !tbaa !162
+  %301 = getelementptr inbounds nuw i8, ptr %.137.i99.i, i64 4
   %302 = load float, ptr %301, align 4, !tbaa !162
   %303 = fmul float %302, 0x3FEA033860000000
   store float %303, ptr %301, align 4, !tbaa !162
-  %304 = getelementptr inbounds nuw i8, ptr %.137.i101.i, i64 8
-  %305 = add nuw i32 %.13236.i102.i, 1
-  %exitcond.not.i103.i = icmp eq i32 %305, %256
-  br i1 %exitcond.not.i103.i, label %._crit_edge.i97.i, label %.lr.ph38.i100.i, !llvm.loop !166
+  %304 = getelementptr inbounds nuw i8, ptr %.137.i99.i, i64 8
+  %305 = add nuw i32 %.13236.i100.i, 1
+  %exitcond.not.i101.i = icmp eq i32 %305, %256
+  br i1 %exitcond.not.i101.i, label %._crit_edge.i95.i, label %.lr.ph38.i98.i, !llvm.loop !166
 
-._crit_edge.i97.i:                                ; preds = %.lr.ph38.i100.i, %.preheader.i94.i
-  %.132.lcssa.i98.i = phi i32 [ %.031.lcssa.i95.i, %.preheader.i94.i ], [ %256, %.lr.ph38.i100.i ]
-  %.1.lcssa.i99.i = phi ptr [ %.0.lcssa.i96.i, %.preheader.i94.i ], [ %304, %.lr.ph38.i100.i ]
-  %306 = icmp ult i32 %.132.lcssa.i98.i, %10
+._crit_edge.i95.i:                                ; preds = %.lr.ph38.i98.i, %.preheader.i92.i
+  %.132.lcssa.i96.i = phi i32 [ %.031.lcssa.i93.i, %.preheader.i92.i ], [ %256, %.lr.ph38.i98.i ]
+  %.1.lcssa.i97.i = phi ptr [ %.0.lcssa.i94.i, %.preheader.i92.i ], [ %304, %.lr.ph38.i98.i ]
+  %306 = icmp ult i32 %.132.lcssa.i96.i, %10
   br i1 %306, label %307, label %310
 
-307:                                              ; preds = %._crit_edge.i97.i
-  %308 = load float, ptr %.1.lcssa.i99.i, align 4, !tbaa !162
+307:                                              ; preds = %._crit_edge.i95.i
+  %308 = load float, ptr %.1.lcssa.i97.i, align 4, !tbaa !162
   %309 = fmul float %308, 0x3FF3AECB00000000
-  store float %309, ptr %.1.lcssa.i99.i, align 4, !tbaa !162
+  store float %309, ptr %.1.lcssa.i97.i, align 4, !tbaa !162
   br label %opj_dwt_encode_1_real.exit
 
-310:                                              ; preds = %._crit_edge.i97.i
-  %311 = icmp samesign ult i32 %.132.lcssa.i98.i, %9
+310:                                              ; preds = %._crit_edge.i95.i
+  %311 = icmp samesign ult i32 %.132.lcssa.i96.i, %9
   br i1 %311, label %312, label %opj_dwt_encode_1_real.exit
 
 312:                                              ; preds = %310
-  %313 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i99.i, i64 4
+  %313 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i97.i, i64 4
   %314 = load float, ptr %313, align 4, !tbaa !162
   %315 = fmul float %314, 0x3FEA033860000000
   store float %315, ptr %313, align 4, !tbaa !162

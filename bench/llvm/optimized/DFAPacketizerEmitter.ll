@@ -3330,8 +3330,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit169.i:            ; preds = %1181, %1179
   %.06.i.i.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %1184, i64 24
   %1185 = call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #21
   store ptr %1185, ptr %.06.i.i.i.i.ptr.i, align 8, !tbaa !216
-  %1186 = getelementptr inbounds nuw i8, ptr %1185, i64 512
   store i64 0, ptr %1185, align 8, !tbaa !9
+  %1186 = getelementptr inbounds nuw i8, ptr %1185, i64 512
   %1187 = getelementptr inbounds nuw i8, ptr %1185, i64 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %26) #18
   store i32 0, ptr %175, align 8, !tbaa !17

@@ -428,32 +428,32 @@ blas_quickdivide.exit371:                         ; preds = %blas_quickdivide.ex
   %231 = call i32 @exec_blas_async(i64 noundef 0, ptr noundef nonnull %14) #6
   call fastcc void @inner_basic_thread(ptr noundef %12, i64 0, i64 %.1314, ptr noundef %3, ptr noundef %60)
   %232 = call i32 @dgetrf_single(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %11, ptr noundef %3, ptr noundef %60, i64 noundef 0) #6
-  %233 = icmp ne i32 %.1320390, 0
-  %234 = trunc i64 %75 to i32
-  %235 = add i32 %232, %234
   br label %.preheader378
 
-.preheader378:                                    ; preds = %226, %240
-  %.1308388 = phi i64 [ 0, %226 ], [ %241, %240 ]
-  %236 = shl nsw i64 %.1308388, 3
-  %237 = getelementptr inbounds nuw [128 x i64], ptr %18, i64 0, i64 %236
-  br label %238
+.preheader378:                                    ; preds = %226, %237
+  %.1308388 = phi i64 [ 0, %226 ], [ %238, %237 ]
+  %233 = shl nsw i64 %.1308388, 3
+  %234 = getelementptr inbounds nuw [128 x i64], ptr %18, i64 0, i64 %233
+  br label %235
 
-238:                                              ; preds = %.preheader378, %238
-  %239 = load atomic volatile i64, ptr %237 monotonic, align 64
-  %.not350 = icmp eq i64 %239, 0
-  br i1 %.not350, label %240, label %238, !llvm.loop !37
+235:                                              ; preds = %.preheader378, %235
+  %236 = load atomic volatile i64, ptr %234 monotonic, align 64
+  %.not350 = icmp eq i64 %236, 0
+  br i1 %.not350, label %237, label %235, !llvm.loop !37
 
-240:                                              ; preds = %238
+237:                                              ; preds = %235
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !38
-  %241 = add nuw i64 %.1308388, 1
-  %exitcond401.not = icmp eq i64 %241, %.pre-phi406
-  br i1 %exitcond401.not, label %242, label %.preheader378, !llvm.loop !39
+  %238 = add nuw i64 %.1308388, 1
+  %exitcond401.not = icmp eq i64 %238, %.pre-phi406
+  br i1 %exitcond401.not, label %239, label %.preheader378, !llvm.loop !39
 
-242:                                              ; preds = %240
-  %243 = icmp eq i32 %232, 0
-  %or.cond5 = select i1 %243, i1 true, i1 %233
-  %.2321 = select i1 %or.cond5, i32 %.1320390, i32 %235
+239:                                              ; preds = %237
+  %240 = icmp eq i32 %232, 0
+  %241 = icmp ne i32 %.1320390, 0
+  %or.cond5 = select i1 %240, i1 true, i1 %241
+  %242 = trunc i64 %75 to i32
+  %243 = add i32 %232, %242
+  %.2321 = select i1 %or.cond5, i32 %.1320390, i32 %243
   %244 = mul i64 %75, %62
   %245 = getelementptr inbounds double, ptr %.0318, i64 %244
   %246 = call i32 @dtrsm_iltucopy(i64 noundef %spec.select356, i64 noundef %spec.select356, ptr noundef %245, i64 noundef %25, i64 noundef 0, ptr noundef %4) #6
@@ -464,10 +464,10 @@ blas_quickdivide.exit371:                         ; preds = %blas_quickdivide.ex
   %249 = add i32 %217, %248
   br label %250
 
-250:                                              ; preds = %.thread, %247, %242
-  %.1.lcssa413 = phi i64 [ %.pre-phi406, %242 ], [ 0, %.thread ], [ 0, %247 ]
-  %spec.select356375 = phi i64 [ %spec.select356, %242 ], [ %spec.select356374, %.thread ], [ %spec.select356374, %247 ]
-  %.3322 = phi i32 [ %.2321, %242 ], [ %.1320390, %.thread ], [ %249, %247 ]
+250:                                              ; preds = %.thread, %247, %239
+  %.1.lcssa413 = phi i64 [ %.pre-phi406, %239 ], [ 0, %.thread ], [ 0, %247 ]
+  %spec.select356375 = phi i64 [ %spec.select356, %239 ], [ %spec.select356374, %.thread ], [ %spec.select356374, %247 ]
+  %.3322 = phi i32 [ %.2321, %239 ], [ %.1320390, %.thread ], [ %249, %247 ]
   %251 = icmp slt i64 %75, %43
   br i1 %251, label %73, label %.lr.ph399, !llvm.loop !40
 

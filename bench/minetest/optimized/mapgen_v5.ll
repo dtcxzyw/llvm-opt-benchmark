@@ -3931,7 +3931,6 @@ vector.scevcheck:                                 ; preds = %for.body38.lr.ph.sp
 
 vector.ph:                                        ; preds = %vector.scevcheck
   %n.vec = and i32 %23, 131064
-  %.cast = trunc i32 %n.vec to i16
   %29 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %index2d.0173, i64 0
   %broadcast.splatinsert = insertelement <4 x i32> poison, i32 %20, i64 0
   %broadcast.splat = shufflevector <4 x i32> %broadcast.splatinsert, <4 x i32> poison, <4 x i32> zeroinitializer
@@ -3948,6 +3947,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %32, label %middle.block, label %vector.body, !llvm.loop !128
 
 middle.block:                                     ; preds = %vector.body
+  %.cast = trunc i32 %n.vec to i16
   %ind.end = add i16 %sub29, %.cast
   %bin.rdx = add <4 x i32> %31, %30
   %33 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx)

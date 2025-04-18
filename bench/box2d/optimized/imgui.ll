@@ -26914,25 +26914,25 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit: ; preds = %26, %35
   %38 = phi i1 [ true, %_ZN5ImGui20GetTopMostPopupModalEv.exit ], [ true, %28 ], [ false, %0 ], [ true, %.lr.ph.i105 ], [ true, %35 ], [ false, %26 ]
   %.0.not = phi i1 [ true, %_ZN5ImGui20GetTopMostPopupModalEv.exit ], [ true, %28 ], [ true, %0 ], [ %34, %.lr.ph.i105 ], [ %34, %35 ], [ true, %26 ]
   %39 = load i32, ptr %2, align 8, !tbaa !835
-  %40 = and i32 %39, 16
-  %.not93 = icmp eq i32 %40, 0
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 7728
-  %42 = load i32, ptr %41, align 8, !tbaa !807
-  %43 = icmp sgt i32 %42, 0
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 2816
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %46 = icmp ne ptr %10, null
-  %47 = select i1 %46, i1 true, i1 %43
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 2851
-  %49 = zext i1 %47 to i8
-  %50 = or i1 %46, %38
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 2856
-  %52 = zext i1 %50 to i8
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 2846
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 2776
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 7728
+  %41 = load i32, ptr %40, align 8, !tbaa !807
+  %42 = icmp sgt i32 %41, 0
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 2816
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %45 = icmp ne ptr %10, null
+  %46 = select i1 %45, i1 true, i1 %42
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 2851
+  %48 = zext i1 %46 to i8
+  %49 = or i1 %45, %38
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 2856
+  %51 = zext i1 %49 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 2846
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 2776
   br label %57
 
-55:                                               ; preds = %86
+54:                                               ; preds = %86
+  %55 = and i32 %39, 16
+  %.not93 = icmp eq i32 %55, 0
   %spec.select99.not109 = and i1 %.0.not, %.not93
   %56 = icmp eq i32 %.185, -1
   br i1 %56, label %.thread, label %87
@@ -26941,20 +26941,20 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit: ; preds = %26, %35
   %indvars.iv = phi i64 [ 0, %_ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit ], [ %indvars.iv.next, %86 ]
   %.084115 = phi i32 [ -1, %_ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit ], [ %.185, %86 ]
   %.086114 = phi i1 [ false, %_ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit ], [ %70, %86 ]
-  %58 = getelementptr inbounds nuw [5 x i8], ptr %44, i64 0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [5 x i8], ptr %43, i64 0, i64 %indvars.iv
   %59 = load i8, ptr %58, align 1, !tbaa !228, !range !91, !noundef !220
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw [5 x i8], ptr %48, i64 0, i64 %indvars.iv
-  store i8 %49, ptr %62, align 1, !tbaa !228
-  %63 = getelementptr inbounds nuw [5 x i8], ptr %51, i64 0, i64 %indvars.iv
-  store i8 %52, ptr %63, align 1, !tbaa !228
+  %62 = getelementptr inbounds nuw [5 x i8], ptr %47, i64 0, i64 %indvars.iv
+  store i8 %48, ptr %62, align 1, !tbaa !228
+  %63 = getelementptr inbounds nuw [5 x i8], ptr %50, i64 0, i64 %indvars.iv
+  store i8 %51, ptr %63, align 1, !tbaa !228
   br label %64
 
 64:                                               ; preds = %61, %57
-  %65 = getelementptr inbounds nuw [5 x i8], ptr %45, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [5 x i8], ptr %44, i64 0, i64 %indvars.iv
   %66 = load i8, ptr %65, align 1, !tbaa !228, !range !91, !noundef !220
   %67 = trunc nuw i8 %66 to i1
   %68 = zext i1 %.086114 to i8
@@ -26963,7 +26963,7 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit: ; preds = %26, %35
   br i1 %67, label %75, label %71
 
 71:                                               ; preds = %64
-  %72 = getelementptr inbounds nuw [5 x i8], ptr %53, i64 0, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [5 x i8], ptr %52, i64 0, i64 %indvars.iv
   %73 = load i8, ptr %72, align 1, !tbaa !228, !range !91, !noundef !220
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %75, label %86
@@ -26973,10 +26973,10 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit: ; preds = %26, %35
   br i1 %76, label %84, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw [5 x double], ptr %54, i64 0, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [5 x double], ptr %53, i64 0, i64 %indvars.iv
   %79 = load double, ptr %78, align 8, !tbaa !836
   %80 = sext i32 %.084115 to i64
-  %81 = getelementptr inbounds [5 x double], ptr %54, i64 0, i64 %80
+  %81 = getelementptr inbounds [5 x double], ptr %53, i64 0, i64 %80
   %82 = load double, ptr %81, align 8, !tbaa !836
   %83 = fcmp olt double %79, %82
   br i1 %83, label %84, label %86
@@ -26989,21 +26989,21 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit: ; preds = %26, %35
   %.185 = phi i32 [ %85, %84 ], [ %.084115, %77 ], [ %.084115, %71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %55, label %57, !llvm.loop !837
+  br i1 %exitcond.not, label %54, label %57, !llvm.loop !837
 
-87:                                               ; preds = %55
+87:                                               ; preds = %54
   %88 = sext i32 %.185 to i64
-  %89 = getelementptr inbounds [5 x i8], ptr %48, i64 0, i64 %88
+  %89 = getelementptr inbounds [5 x i8], ptr %47, i64 0, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !228, !range !91, !noundef !220
   %91 = trunc nuw i8 %90 to i1
-  %92 = getelementptr inbounds [5 x i8], ptr %51, i64 0, i64 %88
+  %92 = getelementptr inbounds [5 x i8], ptr %50, i64 0, i64 %88
   %93 = load i8, ptr %92, align 1, !tbaa !228, !range !91, !noundef !220
   %94 = trunc nuw i8 %93 to i1
   br label %.thread
 
-.thread:                                          ; preds = %55, %87
-  %95 = phi i1 [ %91, %87 ], [ true, %55 ]
-  %96 = phi i1 [ %94, %87 ], [ true, %55 ]
+.thread:                                          ; preds = %54, %87
+  %95 = phi i1 [ %91, %87 ], [ true, %54 ]
+  %96 = phi i1 [ %94, %87 ], [ true, %54 ]
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 8332
   %98 = load i8, ptr %97, align 4, !tbaa !790, !range !91, !noundef !220
   %99 = trunc nuw i8 %98 to i1
@@ -27046,7 +27046,7 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit: ; preds = %26, %35
   %118 = icmp ne ptr %109, null
   %or.cond3 = select i1 %118, i1 true, i1 %70
   %or.cond122 = select i1 %95, i1 %or.cond3, i1 false
-  %narrow124 = select i1 %or.cond122, i1 true, i1 %43
+  %narrow124 = select i1 %or.cond122, i1 true, i1 %42
   %119 = zext i1 %narrow124 to i8
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store i8 %119, ptr %120, align 8, !tbaa !839
@@ -77221,9 +77221,9 @@ _ZN5ImGui8SameLineEff.exit:                       ; preds = %46, %50
 .preheader.us.i.thread:                           ; preds = %.lr.ph.split.us.i
   %216 = load ptr, ptr %99, align 8, !tbaa !1453
   %217 = load i32, ptr %163, align 8, !tbaa !1454
-  %218 = zext i32 %217 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !tbaa !81
+  %218 = zext i32 %217 to i64
   %219 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %216, i64 %218
   br label %_ZN6ImRect3AddERK6ImVec2.exit.us.i.us.preheader
 
@@ -77231,9 +77231,9 @@ _ZN5ImGui8SameLineEff.exit:                       ; preds = %46, %50
   %220 = load ptr, ptr %98, align 8, !tbaa !1452
   %221 = load ptr, ptr %99, align 8, !tbaa !1453
   %222 = load i32, ptr %163, align 8, !tbaa !1454
-  %223 = zext i32 %222 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !tbaa !81
+  %223 = zext i32 %222 to i64
   %224 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %221, i64 %223
   %.not.us.i = icmp eq ptr %220, null
   br i1 %.not.us.i, label %_ZN6ImRect3AddERK6ImVec2.exit.us.i.us.preheader, label %_ZN6ImRect3AddERK6ImVec2.exit.us.i
@@ -78956,9 +78956,9 @@ define dso_local void @_ZN5ImGui38DebugNodeDrawCmdShowMeshAndBoundingBoxEP10ImDr
   %35 = phi ptr [ %34, %33 ], [ null, %.lr.ph.split.us ]
   %36 = load ptr, ptr %29, align 8, !tbaa !1453
   %37 = load i32, ptr %30, align 8, !tbaa !1454
-  %38 = zext i32 %37 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false), !tbaa !81
+  %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %36, i64 %38
   %.not.us = icmp eq ptr %35, null
   br label %42

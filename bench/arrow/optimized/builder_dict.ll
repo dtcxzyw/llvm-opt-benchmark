@@ -22615,36 +22615,36 @@ declare void @llvm.assume(i1 noundef) #19
 ; Function Attrs: mustprogress nofree noinline nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noalias noundef readonly captures(none) %0, i64 noundef range(i64 129, 241) %1) unnamed_addr #20 {
   %3 = mul i64 %1, -7046029288634856825
-  %4 = trunc nuw nsw i64 %1 to i32
-  br label %5
+  br label %4
 
-5:                                                ; preds = %2, %5
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %.0321 = phi i64 [ %3, %2 ], [ %19, %5 ]
-  %6 = shl nuw nsw i64 %indvars.iv, 4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %6
-  %.val45 = load i64, ptr %7, align 1, !tbaa !129
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.val44 = load i64, ptr %9, align 1, !tbaa !129
-  %.val43 = load i64, ptr %8, align 16, !tbaa !129
-  %10 = xor i64 %.val43, %.val45
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val42 = load i64, ptr %11, align 8, !tbaa !129
-  %12 = xor i64 %.val42, %.val44
-  %13 = zext i64 %10 to i128
-  %14 = zext i64 %12 to i128
-  %15 = mul nuw i128 %14, %13
-  %16 = lshr i128 %15, 64
-  %17 = xor i128 %16, %15
-  %18 = trunc i128 %17 to i64
-  %19 = add i64 %.0321, %18
+4:                                                ; preds = %2, %4
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
+  %.0321 = phi i64 [ %3, %2 ], [ %18, %4 ]
+  %5 = shl nuw nsw i64 %indvars.iv, 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %5
+  %.val45 = load i64, ptr %6, align 1, !tbaa !129
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.val44 = load i64, ptr %8, align 1, !tbaa !129
+  %.val43 = load i64, ptr %7, align 16, !tbaa !129
+  %9 = xor i64 %.val43, %.val45
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.val42 = load i64, ptr %10, align 8, !tbaa !129
+  %11 = xor i64 %.val42, %.val44
+  %12 = zext i64 %9 to i128
+  %13 = zext i64 %11 to i128
+  %14 = mul nuw i128 %13, %12
+  %15 = lshr i128 %14, 64
+  %16 = xor i128 %15, %14
+  %17 = trunc i128 %16 to i64
+  %18 = add i64 %.0321, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %20, label %5, !llvm.loop !2229
+  br i1 %exitcond.not, label %19, label %4, !llvm.loop !2229
 
-20:                                               ; preds = %5
-  %21 = lshr i32 %4, 4
+19:                                               ; preds = %4
+  %20 = trunc nuw nsw i64 %1 to i32
+  %21 = lshr i32 %20, 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   %.val41 = load i64, ptr %23, align 1, !tbaa !129
@@ -22658,15 +22658,15 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noal
   %30 = lshr i128 %29, 64
   %31 = xor i128 %30, %29
   %32 = trunc i128 %31 to i64
-  %33 = lshr i64 %19, 37
-  %34 = xor i64 %33, %19
+  %33 = lshr i64 %18, 37
+  %34 = xor i64 %33, %18
   %35 = mul i64 %34, 1609587791953885689
   %36 = lshr i64 %35, 32
   %37 = xor i64 %36, %35
   %.not = icmp eq i32 %21, 8
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %20
+.lr.ph.preheader:                                 ; preds = %19
   %wide.trip.count = zext nneg i32 %21 to i64
   br label %.lr.ph
 
@@ -22698,9 +22698,9 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noal
   %exitcond13.not = icmp eq i64 %indvars.iv.next11, %wide.trip.count
   br i1 %exitcond13.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2231
 
-._crit_edge:                                      ; preds = %.lr.ph, %20
-  %.034.lcssa = phi i64 [ %32, %20 ], [ %53, %.lr.ph ]
-  %.133.lcssa = phi i64 [ %37, %20 ], [ %38, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %19
+  %.034.lcssa = phi i64 [ %32, %19 ], [ %53, %.lr.ph ]
+  %.133.lcssa = phi i64 [ %37, %19 ], [ %38, %.lr.ph ]
   %54 = add i64 %.133.lcssa, %.034.lcssa
   %55 = lshr i64 %54, 37
   %56 = xor i64 %55, %54

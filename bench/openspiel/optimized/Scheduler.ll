@@ -707,104 +707,104 @@ define void @_ZN9Scheduler10MakeGroupsERK6boards(ptr noundef nonnull align 8 cap
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %17 = load i32, ptr %16, align 4
-  %18 = xor i32 %17, %14
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %20 = load i32, ptr %19, align 4
-  %21 = xor i32 %18, %20
-  %22 = getelementptr inbounds nuw i8, ptr %11, i64 92
-  %23 = load i32, ptr %22, align 4
-  %24 = xor i32 %21, %23
-  %25 = lshr i32 %24, 2
-  %26 = lshr i32 %24, 6
-  %27 = xor i32 %25, %26
-  %28 = load i32, ptr %15, align 4
-  %29 = shl i32 %28, 17
-  %30 = getelementptr inbounds nuw i8, ptr %11, i64 68
-  %31 = load i32, ptr %30, align 4
-  %32 = shl i32 %31, 11
-  %33 = xor i32 %32, %29
-  %34 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %35 = load i32, ptr %34, align 4
-  %36 = shl i32 %35, 5
-  %37 = xor i32 %33, %36
-  %38 = getelementptr inbounds nuw i8, ptr %11, i64 44
-  %39 = load i32, ptr %38, align 4
-  %40 = lshr i32 %39, 2
-  %41 = xor i32 %37, %40
-  %42 = getelementptr inbounds nuw [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %indvars.iv65
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store i32 %41, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %19 = load i32, ptr %18, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 92
+  %21 = load i32, ptr %20, align 4
+  %22 = load i32, ptr %15, align 4
+  %23 = shl i32 %22, 17
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 68
+  %25 = load i32, ptr %24, align 4
+  %26 = shl i32 %25, 11
+  %27 = xor i32 %26, %23
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  %29 = load i32, ptr %28, align 4
+  %30 = shl i32 %29, 5
+  %31 = xor i32 %27, %30
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 44
+  %33 = load i32, ptr %32, align 4
+  %34 = lshr i32 %33, 2
+  %35 = xor i32 %31, %34
+  %36 = getelementptr inbounds nuw [200 x %"struct.Scheduler::handType"], ptr %0, i64 0, i64 %indvars.iv65
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  store i32 %35, ptr %37, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   br label %.preheader
 
-.preheader:                                       ; preds = %10, %49
-  %indvars.iv61 = phi i64 [ 0, %10 ], [ %indvars.iv.next62, %49 ]
-  br label %45
+.preheader:                                       ; preds = %10, %43
+  %indvars.iv61 = phi i64 [ 0, %10 ], [ %indvars.iv.next62, %43 ]
+  br label %39
 
-45:                                               ; preds = %.preheader, %45
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %13, i64 0, i64 %indvars.iv61, i64 %indvars.iv
-  %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %44, i64 0, i64 %indvars.iv61, i64 %indvars.iv
-  store i32 %47, ptr %48, align 4
+39:                                               ; preds = %.preheader, %39
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %39 ]
+  %40 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %13, i64 0, i64 %indvars.iv61, i64 %indvars.iv
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %38, i64 0, i64 %indvars.iv61, i64 %indvars.iv
+  store i32 %41, ptr %42, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %49, label %45, !llvm.loop !12
+  br i1 %exitcond.not, label %43, label %39, !llvm.loop !12
 
-49:                                               ; preds = %45
+43:                                               ; preds = %39
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 4
-  br i1 %exitcond64.not, label %50, label %.preheader, !llvm.loop !13
+  br i1 %exitcond64.not, label %44, label %.preheader, !llvm.loop !13
 
-50:                                               ; preds = %49
-  %51 = icmp eq i32 %12, 4
-  %52 = zext i1 %51 to i32
-  %53 = getelementptr inbounds nuw i8, ptr %42, i64 72
-  store i32 %52, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %42, i64 76
-  store i32 %55, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %42, i64 80
-  store i32 %12, ptr %57, align 8
+44:                                               ; preds = %43
+  %45 = icmp eq i32 %12, 4
+  %46 = zext i1 %45 to i32
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 72
+  store i32 %46, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 76
+  store i32 %49, ptr %50, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 80
+  store i32 %12, ptr %51, align 8
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %69, %50
-  %indvars.iv27.i = phi i64 [ 0, %50 ], [ %indvars.iv.next28.i, %69 ]
-  %.01723.i = phi i32 [ 0, %50 ], [ %72, %69 ]
-  br label %58
+.preheader.i:                                     ; preds = %63, %44
+  %indvars.iv27.i = phi i64 [ 0, %44 ], [ %indvars.iv.next28.i, %63 ]
+  %.01723.i = phi i32 [ 0, %44 ], [ %66, %63 ]
+  br label %52
 
-58:                                               ; preds = %58, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %58 ]
-  %.01821.i = phi i32 [ 0, %.preheader.i ], [ %spec.select.i, %58 ]
-  %.01920.i = phi i32 [ 0, %.preheader.i ], [ %66, %58 ]
-  %59 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %13, i64 0, i64 %indvars.iv27.i, i64 %indvars.iv.i
-  %60 = load i32, ptr %59, align 4
-  %61 = lshr i32 %60, 2
-  %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %62
-  %64 = load i32, ptr %63, align 4
-  %65 = add i32 %.01920.i, 1
-  %66 = add i32 %65, %64
-  %67 = icmp ult i32 %60, 4
-  %68 = zext i1 %67 to i32
-  %spec.select.i = add nuw nsw i32 %.01821.i, %68
+52:                                               ; preds = %52, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %52 ]
+  %.01821.i = phi i32 [ 0, %.preheader.i ], [ %spec.select.i, %52 ]
+  %.01920.i = phi i32 [ 0, %.preheader.i ], [ %60, %52 ]
+  %53 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %13, i64 0, i64 %indvars.iv27.i, i64 %indvars.iv.i
+  %54 = load i32, ptr %53, align 4
+  %55 = lshr i32 %54, 2
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr inbounds nuw [8192 x %struct.moveGroupType], ptr @groupData, i64 0, i64 %56
+  %58 = load i32, ptr %57, align 4
+  %59 = add i32 %.01920.i, 1
+  %60 = add i32 %59, %58
+  %61 = icmp ult i32 %54, 4
+  %62 = zext i1 %61 to i32
+  %spec.select.i = add nuw nsw i32 %.01821.i, %62
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %69, label %58, !llvm.loop !14
+  br i1 %exitcond.not.i, label %63, label %52, !llvm.loop !14
 
-69:                                               ; preds = %58
-  %70 = add nuw i32 %spec.select.i, 1
-  %71 = mul i32 %70, %66
-  %72 = add nsw i32 %71, %.01723.i
+63:                                               ; preds = %52
+  %64 = add nuw i32 %spec.select.i, 1
+  %65 = mul i32 %64, %60
+  %66 = add nsw i32 %65, %.01723.i
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next28.i, 4
   br i1 %exitcond30.not.i, label %_ZNK9Scheduler6FanoutERK4deal.exit, label %.preheader.i, !llvm.loop !15
 
-_ZNK9Scheduler6FanoutERK4deal.exit:               ; preds = %69
-  %73 = and i32 %27, 127
-  %74 = getelementptr inbounds nuw i8, ptr %42, i64 96
-  store i32 %72, ptr %74, align 8
+_ZNK9Scheduler6FanoutERK4deal.exit:               ; preds = %63
+  %67 = xor i32 %17, %14
+  %68 = xor i32 %67, %19
+  %69 = xor i32 %68, %21
+  %70 = lshr i32 %69, 2
+  %71 = lshr i32 %69, 6
+  %72 = xor i32 %70, %71
+  %73 = and i32 %72, 127
+  %74 = getelementptr inbounds nuw i8, ptr %36, i64 96
+  store i32 %66, ptr %74, align 8
   %75 = sext i32 %12 to i64
   %76 = zext nneg i32 %73 to i64
   %77 = getelementptr inbounds [6 x [200 x %"struct.Scheduler::listType"]], ptr %7, i64 0, i64 %75, i64 %76

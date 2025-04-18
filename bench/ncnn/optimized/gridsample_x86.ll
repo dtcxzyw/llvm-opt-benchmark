@@ -12419,10 +12419,10 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 %.reass147.us
   br label %41
 
-41:                                               ; preds = %.noexc84.us, %78
-  %.057141.us = phi ptr [ %40, %.noexc84.us ], [ %94, %78 ]
-  %.058140.us = phi ptr [ %31, %.noexc84.us ], [ %95, %78 ]
-  %.059139.us = phi i32 [ 0, %.noexc84.us ], [ %96, %78 ]
+41:                                               ; preds = %.noexc84.us, %64
+  %.057141.us = phi ptr [ %40, %.noexc84.us ], [ %94, %64 ]
+  %.058140.us = phi ptr [ %31, %.noexc84.us ], [ %95, %64 ]
+  %.059139.us = phi i32 [ 0, %.noexc84.us ], [ %96, %64 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #9
   %42 = load float, ptr %.058140.us, align 4, !tbaa !59
   %43 = fadd fast float %42, 1.000000e+00
@@ -12448,38 +12448,38 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
   %60 = fadd fast float %59, %50
   %61 = getelementptr inbounds nuw i8, ptr %.058140.us, i64 4
   %62 = load float, ptr %61, align 4, !tbaa !59
-  %63 = fadd fast float %62, 1.000000e+00
-  %64 = fsub fast float 1.000000e+00, %62
-  %65 = fmul fast float %63, 7.500000e-01
-  %66 = fmul fast float %63, 6.000000e+00
-  %67 = fsub fast float 3.750000e+00, %65
-  %68 = fsub fast float 3.000000e+00, %66
-  %69 = fmul fast float %62, %62
-  %70 = fmul fast float %62, 1.250000e+00
-  %reass.add26.i86.us = fadd fast float %70, -2.250000e+00
-  %reass.mul27.i87.us = fmul fast float %69, %reass.add26.i86.us
-  %71 = fadd fast float %reass.mul27.i87.us, 1.000000e+00
-  %72 = fmul fast float %64, %64
-  %73 = fmul fast float %64, 1.250000e+00
-  %74 = fadd fast float %73, -2.250000e+00
-  %75 = fmul fast float %72, %74
-  %76 = fadd fast float %71, %75
-  %77 = getelementptr inbounds nuw i8, ptr %.058140.us, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.058140.us, i64 8
   br label %97
 
-78:                                               ; preds = %131
-  %79 = fmul fast float %63, %63
-  %reass.mul.i85.us = fmul fast float %79, %67
-  %80 = fadd fast float %reass.mul.i85.us, %68
-  %81 = fadd fast float %75, 1.000000e+00
-  %82 = fadd fast float %76, %80
+64:                                               ; preds = %131
+  %65 = fadd fast float %62, 1.000000e+00
+  %66 = fsub fast float 1.000000e+00, %62
+  %67 = fmul fast float %65, %65
+  %68 = fmul fast float %65, 7.500000e-01
+  %69 = fmul fast float %65, 6.000000e+00
+  %70 = fsub fast float 3.750000e+00, %68
+  %reass.mul.i85.us = fmul fast float %67, %70
+  %71 = fsub fast float 3.000000e+00, %69
+  %72 = fadd fast float %reass.mul.i85.us, %71
+  %73 = fmul fast float %62, %62
+  %74 = fmul fast float %62, 1.250000e+00
+  %reass.add26.i86.us = fadd fast float %74, -2.250000e+00
+  %reass.mul27.i87.us = fmul fast float %73, %reass.add26.i86.us
+  %75 = fadd fast float %reass.mul27.i87.us, 1.000000e+00
+  %76 = fmul fast float %66, %66
+  %77 = fmul fast float %66, 1.250000e+00
+  %78 = fadd fast float %77, -2.250000e+00
+  %79 = fmul fast float %76, %78
+  %80 = fadd fast float %79, 1.000000e+00
+  %81 = fadd fast float %75, %79
+  %82 = fadd fast float %81, %72
   %83 = load float, ptr %12, align 16, !tbaa !59
-  %84 = fmul fast float %83, %80
+  %84 = fmul fast float %83, %72
   %85 = load float, ptr %34, align 4, !tbaa !59
-  %86 = fmul fast float %85, %71
+  %86 = fmul fast float %85, %75
   %87 = fadd fast float %86, %84
   %88 = load float, ptr %35, align 8, !tbaa !59
-  %89 = fmul fast float %88, %81
+  %89 = fmul fast float %88, %80
   %90 = fadd fast float %87, %89
   %91 = load float, ptr %36, align 4, !tbaa !59
   %92 = fmul fast float %82, %91
@@ -12494,7 +12494,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
 
 97:                                               ; preds = %131, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %131 ], [ 0, %41 ]
-  %.061137.us = phi ptr [ %141, %131 ], [ %77, %41 ]
+  %.061137.us = phi ptr [ %141, %131 ], [ %63, %41 ]
   %98 = load i32, ptr %.061137.us, align 4, !tbaa !50
   %99 = icmp sgt i32 %98, -1
   br i1 %99, label %100, label %104
@@ -12558,9 +12558,9 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
   %141 = getelementptr inbounds nuw i8, ptr %.061137.us, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %78, label %97, !llvm.loop !597
+  br i1 %exitcond.not, label %64, label %97, !llvm.loop !597
 
-._crit_edge.us:                                   ; preds = %78
+._crit_edge.us:                                   ; preds = %64
   %indvars.iv.next152 = add nsw i64 %indvars.iv151, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next152 to i32
   %exitcond154.not = icmp eq i32 %38, %lftr.wideiv

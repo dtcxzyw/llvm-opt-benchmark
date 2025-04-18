@@ -20893,11 +20893,11 @@ select.unfold.i.i.backedge:                       ; preds = %_ZNSt23mersenne_twi
 
 _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit: ; preds = %19, %88
   %.016.i.i = phi float [ %89, %88 ], [ %20, %19 ]
-  %90 = fmul float %.016.i.i, 2.000000e+00
   br label %select.unfold.i.i19
 
-91:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit40
-  %92 = fadd float %90, -1.000000e+00
+90:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit40
+  %91 = fmul float %.016.i.i, 2.000000e+00
+  %92 = fadd float %91, -1.000000e+00
   %93 = fdiv float %158, %159
   %94 = fcmp ult float %93, 1.000000e+00
   br i1 %94, label %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit25, label %161, !prof !351
@@ -21002,14 +21002,14 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %159 = fmul float %.01422.i.i21, 0x41F0000000000000
   %160 = add i64 %.023.i.i20, -1
   %.not.i.i23 = icmp eq i64 %160, 0
-  br i1 %.not.i.i23, label %91, label %select.unfold.i.i19, !llvm.loop !534
+  br i1 %.not.i.i23, label %90, label %select.unfold.i.i19, !llvm.loop !534
 
-161:                                              ; preds = %91
+161:                                              ; preds = %90
   %162 = tail call noundef float @nextafterf(float noundef 1.000000e+00, float noundef 0.000000e+00) #30, !tbaa !141
   br label %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit25
 
-_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit25: ; preds = %91, %161
-  %.016.i.i24 = phi float [ %162, %161 ], [ %93, %91 ]
+_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEfEclEv.exit25: ; preds = %90, %161
+  %.016.i.i24 = phi float [ %162, %161 ], [ %93, %90 ]
   %163 = fmul float %.016.i.i24, 2.000000e+00
   %164 = fadd float %163, -1.000000e+00
   %165 = fmul float %164, %164

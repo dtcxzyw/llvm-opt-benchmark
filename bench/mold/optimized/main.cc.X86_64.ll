@@ -4861,9 +4861,9 @@ _ZN3tbb6detail2d113segment_tableISt10unique_ptrIN4mold13MergedSectionINS4_6X86_6
 
 229:                                              ; preds = %._crit_edge.i.i
   %230 = load atomic i64, ptr %226 monotonic, align 8
-  %231 = icmp ne i64 %.019.i.i, 1
-  %232 = icmp ult i64 %.019.i.i, 8
-  %.not.i.i.i75 = and i1 %232, %231
+  %231 = icmp ult i64 %.019.i.i, 8
+  %232 = icmp ne i64 %.019.i.i, 1
+  %.not.i.i.i75 = and i1 %231, %232
   br i1 %.not.i.i.i75, label %234, label %233
 
 233:                                              ; preds = %229
@@ -4926,9 +4926,9 @@ _ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcE
 
 257:                                              ; preds = %._crit_edge.i.i79
   %258 = load atomic i64, ptr %254 monotonic, align 8
-  %259 = icmp ne i64 %.019.i.i76, 1
-  %260 = icmp ult i64 %.019.i.i76, 8
-  %.not.i.i.i81 = and i1 %260, %259
+  %259 = icmp ult i64 %.019.i.i76, 8
+  %260 = icmp ne i64 %.019.i.i76, 1
+  %.not.i.i.i81 = and i1 %259, %260
   br i1 %.not.i.i.i81, label %262, label %261
 
 261:                                              ; preds = %257
@@ -6941,9 +6941,9 @@ define linkonce_odr dso_local void @_ZN3tbb6detail2d219concurrent_hash_mapIPN4mo
 
 13:                                               ; preds = %._crit_edge
   %14 = load atomic i64, ptr %10 monotonic, align 8
-  %15 = icmp ne i64 %.019, 1
-  %16 = icmp ult i64 %.019, 8
-  %.not.i = and i1 %16, %15
+  %15 = icmp ult i64 %.019, 8
+  %16 = icmp ne i64 %.019, 1
+  %.not.i = and i1 %15, %16
   br i1 %.not.i, label %18, label %17
 
 17:                                               ; preds = %13

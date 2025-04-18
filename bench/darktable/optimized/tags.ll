@@ -4815,15 +4815,15 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   %.not99122 = icmp eq ptr %68, null
   br i1 %.not99122, label %.loopexit, label %.lr.ph124
 
-.lr.ph124:                                        ; preds = %.preheader, %72
-  %69 = phi ptr [ %75, %72 ], [ %68, %.preheader ]
-  %.071123 = phi ptr [ %74, %72 ], [ %67, %.preheader ]
+.lr.ph124:                                        ; preds = %.preheader, %71
+  %69 = phi ptr [ %75, %71 ], [ %68, %.preheader ]
+  %.071123 = phi ptr [ %74, %71 ], [ %67, %.preheader ]
   %70 = load i8, ptr %69, align 1, !tbaa !6
-  %71 = icmp eq i8 %70, 32
-  %spec.select.idx = zext i1 %71 to i64
   br label %76
 
-72:                                               ; preds = %76
+71:                                               ; preds = %76
+  %72 = icmp eq i8 %70, 32
+  %spec.select.idx = zext i1 %72 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %69, i64 %spec.select.idx
   %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.65, ptr noundef nonnull %spec.select) #11
   %74 = getelementptr inbounds nuw i8, ptr %.071123, i64 8
@@ -4836,9 +4836,9 @@ dt_tag_free_result.exit:                          ; preds = %._crit_edge142, %31
   %77 = tail call i32 @fputc(i32 noundef 9, ptr noundef nonnull %3)
   %78 = add nuw i32 %.0121, 1
   %exitcond154.not = icmp eq i32 %.0121, %indvars.iv152.in166
-  br i1 %exitcond154.not, label %72, label %76
+  br i1 %exitcond154.not, label %71, label %76
 
-.loopexit:                                        ; preds = %72, %.preheader, %66
+.loopexit:                                        ; preds = %71, %.preheader, %66
   tail call void @g_strfreev(ptr noundef %67) #11
   br label %82
 

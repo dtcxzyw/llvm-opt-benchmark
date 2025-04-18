@@ -229,9 +229,7 @@ define hidden void @_fill_box_values(ptr noundef readonly captures(none) %0) loc
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %..i
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.11.i
   %.sink.in.i = load double, ptr %12, align 8, !tbaa !68
-  %.sink.i = fptrunc double %.sink.in.i to float
   %storemerge.in.i = load double, ptr %13, align 8, !tbaa !68
-  %storemerge.i = fptrunc double %storemerge.in.i to float
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %15 = load float, ptr %14, align 8, !tbaa !69
   %16 = getelementptr i8, ptr %0, i64 3336
@@ -239,43 +237,45 @@ define hidden void @_fill_box_values(ptr noundef readonly captures(none) %0) loc
   %17 = zext i32 %.val to i64
   %18 = getelementptr inbounds nuw [3 x float], ptr @units, i64 0, i64 %17
   %19 = load float, ptr %18, align 4, !tbaa !73
-  %20 = fmul reassoc nsz arcp contract afn float %19, %.sink.i
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  %22 = load float, ptr %21, align 4, !tbaa !74
-  %23 = fmul reassoc nsz arcp contract afn float %19, %storemerge.i
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %25 = load float, ptr %24, align 8, !tbaa !75
-  %26 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  %27 = load float, ptr %26, align 4, !tbaa !76
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %29 = tail call i64 @gtk_toggle_button_get_type() #19
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %21 = load float, ptr %20, align 4, !tbaa !74
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %23 = load float, ptr %22, align 8, !tbaa !75
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 52
+  %25 = load float, ptr %24, align 4, !tbaa !76
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %27 = tail call i64 @gtk_toggle_button_get_type() #19
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre39, i64 96
   %.pre38 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !62
-  %31 = add nsw i32 %.pre38, 1
+  %29 = add nsw i32 %.pre38, 1
   br label %41
 
-32:                                               ; preds = %41
-  %33 = fmul reassoc nsz arcp contract afn float %20, %15
-  %34 = fmul reassoc nsz arcp contract afn float %23, %22
-  %35 = fmul reassoc nsz arcp contract afn float %20, %25
-  %36 = fmul reassoc nsz arcp contract afn float %23, %27
-  %37 = fpext reassoc nsz arcp contract afn float %33 to double
+30:                                               ; preds = %41
+  %.sink.i = fptrunc double %.sink.in.i to float
+  %storemerge.i = fptrunc double %storemerge.in.i to float
+  %31 = fmul reassoc nsz arcp contract afn float %19, %.sink.i
+  %32 = fmul reassoc nsz arcp contract afn float %31, %15
+  %33 = fmul reassoc nsz arcp contract afn float %19, %storemerge.i
+  %34 = fmul reassoc nsz arcp contract afn float %33, %21
+  %35 = fmul reassoc nsz arcp contract afn float %31, %23
+  %36 = fmul reassoc nsz arcp contract afn float %33, %25
+  %37 = fpext reassoc nsz arcp contract afn float %32 to double
   %38 = fpext reassoc nsz arcp contract afn float %34 to double
   %39 = fpext reassoc nsz arcp contract afn float %35 to double
   %40 = fpext reassoc nsz arcp contract afn float %36 to double
   br label %56
 
 41:                                               ; preds = %5, %41
-  %42 = phi i32 [ %31, %5 ], [ %54, %41 ]
+  %42 = phi i32 [ %29, %5 ], [ %54, %41 ]
   %43 = phi ptr [ %.pre39, %5 ], [ %52, %41 ]
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %41 ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   store i32 %42, ptr %44, align 8, !tbaa !62
-  %45 = getelementptr inbounds nuw [9 x ptr], ptr %28, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [9 x ptr], ptr %26, i64 0, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !77
-  %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %29) #18
-  %48 = load i32, ptr %30, align 4, !tbaa !79
+  %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %27) #18
+  %48 = load i32, ptr %28, align 4, !tbaa !79
   %49 = zext i32 %48 to i64
   %50 = icmp eq i64 %indvars.iv, %49
   %51 = zext i1 %50 to i32
@@ -287,15 +287,15 @@ define hidden void @_fill_box_values(ptr noundef readonly captures(none) %0) loc
   store i32 %55, ptr %53, align 8, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %32, label %41
+  br i1 %exitcond.not, label %30, label %41
 
-56:                                               ; preds = %._crit_edge, %32
-  %57 = phi i32 [ %54, %32 ], [ %4, %._crit_edge ]
-  %58 = phi ptr [ %52, %32 ], [ %.pre39, %._crit_edge ]
-  %.028 = phi double [ %38, %32 ], [ 0.000000e+00, %._crit_edge ]
-  %.027 = phi double [ %39, %32 ], [ 0.000000e+00, %._crit_edge ]
-  %.026 = phi double [ %40, %32 ], [ 0.000000e+00, %._crit_edge ]
-  %.025 = phi double [ %37, %32 ], [ 0.000000e+00, %._crit_edge ]
+56:                                               ; preds = %._crit_edge, %30
+  %57 = phi i32 [ %54, %30 ], [ %4, %._crit_edge ]
+  %58 = phi ptr [ %52, %30 ], [ %.pre39, %._crit_edge ]
+  %.028 = phi double [ %38, %30 ], [ 0.000000e+00, %._crit_edge ]
+  %.027 = phi double [ %39, %30 ], [ 0.000000e+00, %._crit_edge ]
+  %.026 = phi double [ %40, %30 ], [ 0.000000e+00, %._crit_edge ]
+  %.025 = phi double [ %37, %30 ], [ 0.000000e+00, %._crit_edge ]
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 96
   store i32 %57, ptr %59, align 8, !tbaa !62
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 112

@@ -809,7 +809,6 @@ zbee_get_bit_field.exit275.i:                     ; preds = %.lr.ph.i271.i
   br i1 %.not.i279.i, label %.lr.ph.i276.i, label %zbee_get_bit_field.exit280.i, !llvm.loop !6
 
 zbee_get_bit_field.exit280.i:                     ; preds = %.lr.ph.i276.i
-  %.not389.i = icmp eq i32 %63, 0
   %74 = and i32 %.0711.i278.i, 2
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %.lobit391.i = lshr exact i32 %74, 1
@@ -827,7 +826,6 @@ zbee_get_bit_field.exit280.i:                     ; preds = %.lr.ph.i276.i
   br i1 %.not.i284.i, label %.lr.ph.i281.i, label %zbee_get_bit_field.exit285.i, !llvm.loop !6
 
 zbee_get_bit_field.exit285.i:                     ; preds = %.lr.ph.i281.i
-  %.not421.i = icmp eq i32 %68, 0
   %80 = and i32 %.0711.i283.i, 2
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.lobit392.i = lshr exact i32 %80, 1
@@ -845,6 +843,8 @@ zbee_get_bit_field.exit285.i:                     ; preds = %.lr.ph.i281.i
   br i1 %.not.i289.i, label %.lr.ph.i286.i, label %zbee_get_bit_field.exit290.i, !llvm.loop !6
 
 zbee_get_bit_field.exit290.i:                     ; preds = %.lr.ph.i286.i
+  %.not389.i = icmp eq i32 %63, 0
+  %.not421.i = icmp eq i32 %68, 0
   %.not422.i = icmp eq i32 %74, 0
   %86 = icmp ne i32 %80, 0
   %87 = and i32 %.0711.i288.i, 2

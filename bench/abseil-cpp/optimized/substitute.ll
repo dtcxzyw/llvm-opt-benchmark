@@ -393,7 +393,6 @@ define dso_local void @_ZN4absl19substitute_internal3ArgC2EPKv(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3HexE(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 %1, i64 %2) unnamed_addr #3 align 2 {
-  %.sroa.418.8.extract.shift = lshr i64 %2, 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %5
 
@@ -410,6 +409,7 @@ define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3HexE(ptr noundef 
   br i1 %.not, label %11, label %5, !llvm.loop !24
 
 11:                                               ; preds = %5
+  %.sroa.418.8.extract.shift = lshr i64 %2, 8
   %.sroa.418.8.extract.trunc = trunc i64 %.sroa.418.8.extract.shift to i8
   %12 = ptrtoint ptr %4 to i64
   %13 = ptrtoint ptr %9 to i64

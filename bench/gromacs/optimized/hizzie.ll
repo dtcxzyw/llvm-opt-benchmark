@@ -686,69 +686,69 @@ define internal fastcc noundef zeroext i1 @_ZL10chk_hbondsiP7t_atomsPA3_fPKbPbPf
   %47 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv
   %48 = load float, ptr %47, align 4, !tbaa !46
   %49 = load float, ptr %20, align 4, !tbaa !46
-  %50 = fsub float %48, %49
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  %52 = load float, ptr %51, align 4, !tbaa !46
-  %53 = load float, ptr %21, align 4, !tbaa !46
-  %54 = fsub float %52, %53
-  %55 = fmul float %54, %54
-  %56 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %57 = load float, ptr %56, align 4, !tbaa !46
-  %58 = load float, ptr %22, align 4, !tbaa !46
-  %59 = fsub float %57, %58
-  %60 = fmul float %59, %59
-  %61 = load float, ptr %5, align 4, !tbaa !46
-  %62 = fsub float %49, %61
-  %63 = load float, ptr %23, align 4, !tbaa !46
-  %64 = fsub float %53, %63
-  %65 = load float, ptr %24, align 4, !tbaa !46
-  %66 = fsub float %58, %65
-  store float %62, ptr %9, align 4, !tbaa !46
-  store float %64, ptr %25, align 4, !tbaa !46
-  store float %66, ptr %26, align 4, !tbaa !46
-  %67 = fsub float %48, %61
-  %68 = fsub float %52, %63
-  %69 = fsub float %57, %65
-  store float %67, ptr %10, align 4, !tbaa !46
-  store float %68, ptr %27, align 4, !tbaa !46
-  store float %69, ptr %28, align 4, !tbaa !46
-  br label %70
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %51 = load float, ptr %50, align 4, !tbaa !46
+  %52 = load float, ptr %21, align 4, !tbaa !46
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %54 = load float, ptr %53, align 4, !tbaa !46
+  %55 = load float, ptr %22, align 4, !tbaa !46
+  %56 = load float, ptr %5, align 4, !tbaa !46
+  %57 = fsub float %49, %56
+  %58 = load float, ptr %23, align 4, !tbaa !46
+  %59 = fsub float %52, %58
+  %60 = load float, ptr %24, align 4, !tbaa !46
+  %61 = fsub float %55, %60
+  store float %57, ptr %9, align 4, !tbaa !46
+  store float %59, ptr %25, align 4, !tbaa !46
+  store float %61, ptr %26, align 4, !tbaa !46
+  %62 = fsub float %48, %56
+  %63 = fsub float %51, %58
+  %64 = fsub float %54, %60
+  store float %62, ptr %10, align 4, !tbaa !46
+  store float %63, ptr %27, align 4, !tbaa !46
+  store float %64, ptr %28, align 4, !tbaa !46
+  br label %65
 
-70:                                               ; preds = %70, %46
-  %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %70 ]
-  %.02333.i = phi double [ 0.000000e+00, %46 ], [ %79, %70 ]
-  %.02432.i = phi double [ 0.000000e+00, %46 ], [ %78, %70 ]
-  %.02531.i = phi double [ 0.000000e+00, %46 ], [ %77, %70 ]
-  %71 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
-  %72 = load float, ptr %71, align 4, !tbaa !46
-  %73 = fpext float %72 to double
-  %74 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
-  %75 = load float, ptr %74, align 4, !tbaa !46
-  %76 = fpext float %75 to double
-  %77 = tail call double @llvm.fmuladd.f64(double %73, double %76, double %.02531.i)
-  %78 = tail call double @llvm.fmuladd.f64(double %73, double %73, double %.02432.i)
-  %79 = tail call double @llvm.fmuladd.f64(double %76, double %76, double %.02333.i)
+65:                                               ; preds = %65, %46
+  %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %65 ]
+  %.02333.i = phi double [ 0.000000e+00, %46 ], [ %74, %65 ]
+  %.02432.i = phi double [ 0.000000e+00, %46 ], [ %73, %65 ]
+  %.02531.i = phi double [ 0.000000e+00, %46 ], [ %72, %65 ]
+  %66 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  %67 = load float, ptr %66, align 4, !tbaa !46
+  %68 = fpext float %67 to double
+  %69 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %70 = load float, ptr %69, align 4, !tbaa !46
+  %71 = fpext float %70 to double
+  %72 = tail call double @llvm.fmuladd.f64(double %68, double %71, double %.02531.i)
+  %73 = tail call double @llvm.fmuladd.f64(double %68, double %68, double %.02432.i)
+  %74 = tail call double @llvm.fmuladd.f64(double %71, double %71, double %.02333.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %80, label %70, !llvm.loop !55
+  br i1 %exitcond.not.i, label %75, label %65, !llvm.loop !55
 
-80:                                               ; preds = %70
-  %81 = fmul float %50, %50
-  %82 = fadd float %81, %55
-  %83 = fadd float %82, %60
-  %84 = fmul double %78, %79
+75:                                               ; preds = %65
+  %76 = fsub float %48, %49
+  %77 = fmul float %76, %76
+  %78 = fsub float %51, %52
+  %79 = fmul float %78, %78
+  %80 = fadd float %77, %79
+  %81 = fsub float %54, %55
+  %82 = fmul float %81, %81
+  %83 = fadd float %80, %82
+  %84 = fmul double %73, %74
   %85 = fcmp ogt double %84, 0.000000e+00
   br i1 %85, label %86, label %_ZL9cos_anglePKfS0_.exit
 
-86:                                               ; preds = %80
+86:                                               ; preds = %75
   %87 = tail call double @sqrt(double noundef %84) #16, !tbaa !43
   %88 = fdiv double 1.000000e+00, %87
-  %89 = fmul double %77, %88
+  %89 = fmul double %72, %88
   %90 = fptrunc double %89 to float
   br label %_ZL9cos_anglePKfS0_.exit
 
-_ZL9cos_anglePKfS0_.exit:                         ; preds = %80, %86
-  %.026.i = phi float [ %90, %86 ], [ 1.000000e+00, %80 ]
+_ZL9cos_anglePKfS0_.exit:                         ; preds = %75, %86
+  %.026.i = phi float [ %90, %86 ], [ 1.000000e+00, %75 ]
   %91 = fcmp ogt float %.026.i, 1.000000e+00
   %92 = fcmp olt float %.026.i, -1.000000e+00
   %..026.i = select i1 %92, float -1.000000e+00, float %.026.i

@@ -12809,7 +12809,6 @@ entry:
   store x86_fp80 %div3, ptr %terms, align 16, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %workspace) #30
   %sub = fsub x86_fp80 %b, %a
-  %mul4 = fmul x86_fp80 %sub, %sub
   %fneg6 = fneg x86_fp80 %sub
   %mul7 = fmul x86_fp80 %sqrt, %fneg6
   %div8 = fmul x86_fp80 %mul7, 0xK3FFE8000000000000000
@@ -12841,6 +12840,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %cmp4.not.i, label %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit, label %for.body.i, !llvm.loop !145
 
 _ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit: ; preds = %for.body.i
+  %mul4 = fmul x86_fp80 %sub, %sub
   %2 = getelementptr inbounds nuw i8, ptr %workspace, i64 80
   %arrayidx22 = getelementptr inbounds nuw i8, ptr %terms, i64 16
   store x86_fp80 %add.i, ptr %arrayidx22, align 16, !tbaa !50
@@ -13026,11 +13026,6 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %terms, i8 0, i64 64, i1 false)
   store x86_fp80 %div3, ptr %terms, align 16, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %workspace) #30
-  %mul6 = fmul x86_fp80 %call.i76, %call.i77
-  %mul7 = fmul x86_fp80 %mul6, %mul6
-  %mul8 = fmul x86_fp80 %mul6, %mul7
-  %mul9 = fmul x86_fp80 %mul7, %mul7
-  %mul11 = fmul x86_fp80 %mul8, %mul8
   %mul13 = fmul x86_fp80 %call.i76, 0xK40008000000000000000
   %2 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul13, x86_fp80 %call.i76, x86_fp80 0xKBFFF8000000000000000)
   %mul15 = fmul x86_fp80 %call.i76, 0xK4000C000000000000000
@@ -13053,7 +13048,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %cmp5.not.i.i, label %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit, label %for.body.i.i, !llvm.loop !147
 
 _ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit: ; preds = %for.body.i.i
-  %mul10 = fmul x86_fp80 %mul7, %mul8
+  %mul6 = fmul x86_fp80 %call.i76, %call.i77
+  %mul7 = fmul x86_fp80 %mul6, %mul6
   %fneg19 = fneg x86_fp80 %add.i.i
   %mul20 = fmul x86_fp80 %mul7, 0xK40049000000000000000
   %div21 = fdiv x86_fp80 %fneg19, %mul20
@@ -13074,6 +13070,7 @@ for.body.i.i79:                                   ; preds = %for.body.i.i79, %_Z
   br i1 %cmp5.not.i.i87, label %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit88, label %for.body.i.i79, !llvm.loop !147
 
 _ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit88: ; preds = %for.body.i.i79
+  %mul8 = fmul x86_fp80 %mul6, %mul7
   %mul24 = fmul x86_fp80 %mul8, 0xK4009CA80000000000000
   %div25 = fdiv x86_fp80 %add.i.i85, %mul24
   %arrayidx26 = getelementptr inbounds nuw i8, ptr %workspace, i64 32
@@ -13093,6 +13090,7 @@ for.body.i.i90:                                   ; preds = %for.body.i.i90, %_Z
   br i1 %cmp5.not.i.i98, label %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit99, label %for.body.i.i90, !llvm.loop !147
 
 _ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit99: ; preds = %for.body.i.i90
+  %mul9 = fmul x86_fp80 %mul7, %mul7
   %fneg28 = fneg x86_fp80 %add.i.i96
   %mul29 = fmul x86_fp80 %mul9, 0xK400BCA80000000000000
   %div30 = fdiv x86_fp80 %fneg28, %mul29
@@ -13113,6 +13111,7 @@ for.body.i.i101:                                  ; preds = %for.body.i.i101, %_
   br i1 %cmp5.not.i.i109, label %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit110, label %for.body.i.i101, !llvm.loop !147
 
 _ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit110: ; preds = %for.body.i.i101
+  %mul10 = fmul x86_fp80 %mul7, %mul8
   %mul33 = fmul x86_fp80 %mul10, 0xK400FB130000000000000
   %div34 = fdiv x86_fp80 %add.i.i107, %mul33
   %arrayidx35 = getelementptr inbounds nuw i8, ptr %workspace, i64 64
@@ -13131,7 +13130,6 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN5bo
   br i1 %cmp4.not.i, label %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit, label %for.body.i, !llvm.loop !145
 
 _ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit: ; preds = %for.body.i
-  %mul12 = fmul x86_fp80 %mul9, %mul8
   %arrayidx37 = getelementptr inbounds nuw i8, ptr %terms, i64 16
   store x86_fp80 %add.i, ptr %arrayidx37, align 16, !tbaa !50
   br label %for.body.i.i113
@@ -13205,6 +13203,7 @@ for.body.i.i146:                                  ; preds = %for.body.i.i146, %_
   br i1 %cmp5.not.i.i154, label %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit155, label %for.body.i.i146, !llvm.loop !147
 
 _ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit155: ; preds = %for.body.i.i146
+  %mul11 = fmul x86_fp80 %mul8, %mul8
   %fneg53 = fneg x86_fp80 %add.i.i152
   %mul54 = fmul x86_fp80 %mul11, 0xK40148025000000000000
   %div55 = fdiv x86_fp80 %fneg53, %mul54
@@ -13277,6 +13276,7 @@ for.body.i.i189:                                  ; preds = %for.body.i.i189, %_
   br i1 %cmp5.not.i.i197, label %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit198, label %for.body.i.i189, !llvm.loop !147
 
 _ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit198: ; preds = %for.body.i.i189
+  %mul12 = fmul x86_fp80 %mul9, %mul8
   %mul70 = fmul x86_fp80 %mul12, 0xK40188C28780000000000
   %div71 = fdiv x86_fp80 %add.i.i195, %mul70
   store x86_fp80 %div71, ptr %arrayidx26, align 16, !tbaa !50

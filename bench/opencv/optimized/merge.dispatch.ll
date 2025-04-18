@@ -1532,7 +1532,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %125
 
 190:                                              ; preds = %_ZNK2cv3Mat8elemSizeEv.exit
   %191 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %187) #18
-          to label %.noexc168 unwind label %202
+          to label %.noexc168 unwind label %196
 
 .noexc168:                                        ; preds = %190
   store ptr %191, ptr %16, align 8, !tbaa !76
@@ -1540,38 +1540,38 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %125
 
 _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc168, %_ZNK2cv3Mat8elemSizeEv.exit
   %192 = phi ptr [ %191, %.noexc168 ], [ %188, %_ZNK2cv3Mat8elemSizeEv.exit ]
-  %193 = zext nneg i32 %85 to i64
-  %194 = getelementptr inbounds nuw ptr, ptr %192, i64 %193
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  %196 = ptrtoint ptr %195 to i64
-  %197 = add i64 %196, 15
-  %198 = and i64 %197, -16
   store ptr %13, ptr %192, align 8, !tbaa !79
   %umax217 = call i32 @llvm.umax.i32(i32 %85, i32 1)
   %wide.trip.count218 = zext i32 %umax217 to i64
-  br label %199
+  br label %193
 
-199:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit, %199
-  %indvars.iv214 = phi i64 [ 0, %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit ], [ %indvars.iv.next215, %199 ]
-  %200 = getelementptr inbounds nuw %"class.cv::Mat", ptr %0, i64 %indvars.iv214
+193:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit, %193
+  %indvars.iv214 = phi i64 [ 0, %_ZN2cv10AutoBufferIhLm1032EEC2Em.exit ], [ %indvars.iv.next215, %193 ]
+  %194 = getelementptr inbounds nuw %"class.cv::Mat", ptr %0, i64 %indvars.iv214
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
-  %201 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv.next215
-  store ptr %200, ptr %201, align 8, !tbaa !79
+  %195 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv.next215
+  store ptr %194, ptr %195, align 8, !tbaa !79
   %exitcond219.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count218
-  br i1 %exitcond219.not, label %204, label %199, !llvm.loop !81
+  br i1 %exitcond219.not, label %198, label %193, !llvm.loop !81
 
-202:                                              ; preds = %190
-  %203 = landingpad { ptr, i32 }
+196:                                              ; preds = %190
+  %197 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit173
 
-204:                                              ; preds = %199
-  %205 = inttoptr i64 %198 to ptr
+198:                                              ; preds = %193
+  %199 = zext nneg i32 %85 to i64
+  %200 = getelementptr inbounds nuw ptr, ptr %192, i64 %199
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  %202 = ptrtoint ptr %201 to i64
+  %203 = add i64 %202, 15
+  %204 = and i64 %203, -16
+  %205 = inttoptr i64 %204 to ptr
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %17) #14
   invoke void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPPhi(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull %192, ptr noundef %205, i32 noundef %185)
           to label %206 unwind label %241
 
-206:                                              ; preds = %204
+206:                                              ; preds = %198
   %207 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %208 = load i64, ptr %207, align 8, !tbaa !82
   %.fr = freeze i64 %208
@@ -1655,7 +1655,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc168, %_ZNK2cv
   %240 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
           to label %.split unwind label %.split203, !llvm.loop !89
 
-241:                                              ; preds = %204
+241:                                              ; preds = %198
   %242 = landingpad { ptr, i32 }
           cleanup
   br label %254
@@ -1717,8 +1717,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %247, %250
   call void @_ZdaPv(ptr noundef nonnull %255) #17
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit173
 
-_ZN2cv10AutoBufferIhLm1032EED2Ev.exit173:         ; preds = %257, %254, %202
-  %.pn134.pn.pn = phi { ptr, i32 } [ %203, %202 ], [ %.pn134.pn, %254 ], [ %.pn134.pn, %257 ]
+_ZN2cv10AutoBufferIhLm1032EED2Ev.exit173:         ; preds = %257, %254, %196
+  %.pn134.pn.pn = phi { ptr, i32 } [ %197, %196 ], [ %.pn134.pn, %254 ], [ %.pn134.pn, %257 ]
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %16) #14
   br label %258
 

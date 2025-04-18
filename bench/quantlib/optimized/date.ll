@@ -2110,20 +2110,20 @@ _ZNK8QuantLib4Date5monthEv.exit:                  ; preds = %while.cond5.i, %whi
   br i1 %cmp327, label %while.body.preheader, label %while.cond10.preheader
 
 while.body.preheader:                             ; preds = %_ZNK8QuantLib4Date5monthEv.exit
-  %22 = tail call i32 @llvm.usub.sat.i32(i32 %add, i32 24)
-  %23 = add nuw i32 %22, 11
-  %24 = udiv i32 %23, 12
-  %.neg = mul nsw i32 %24, -12
-  %25 = add nuw nsw i32 %spec.select.v.i, %24
-  %26 = add i32 %25, %20
-  %27 = add nsw i32 %add, -12
-  %28 = add nsw i32 %.neg, %27
-  %29 = add i32 %26, 1
+  %22 = add nsw i32 %add, -12
+  %23 = tail call i32 @llvm.usub.sat.i32(i32 %add, i32 24)
+  %24 = add nuw i32 %23, 11
+  %25 = udiv i32 %24, 12
+  %.neg = mul nsw i32 %25, -12
+  %26 = add nsw i32 %.neg, %22
+  %27 = add nuw nsw i32 %spec.select.v.i, %25
+  %28 = add i32 %27, %20
+  %29 = add i32 %28, 1
   br label %while.cond10.preheader
 
 while.cond10.preheader:                           ; preds = %while.body.preheader, %_ZNK8QuantLib4Date5monthEv.exit
   %y.0.lcssa = phi i32 [ %spec.select.i, %_ZNK8QuantLib4Date5monthEv.exit ], [ %29, %while.body.preheader ]
-  %m.0.lcssa = phi i32 [ %add, %_ZNK8QuantLib4Date5monthEv.exit ], [ %28, %while.body.preheader ]
+  %m.0.lcssa = phi i32 [ %add, %_ZNK8QuantLib4Date5monthEv.exit ], [ %26, %while.body.preheader ]
   %cmp11331 = icmp slt i32 %m.0.lcssa, 1
   br i1 %cmp11331, label %while.body12.preheader, label %do.body
 

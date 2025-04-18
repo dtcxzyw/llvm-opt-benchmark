@@ -503,14 +503,14 @@ _ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit.i: ; preds = %15
   %narrow868.i = add nuw nsw i32 %209, 1
   %210 = zext nneg i32 %narrow868.i to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %183, i8 -1, i64 %210, i1 false), !tbaa !3
+  %scevgep.i = getelementptr i8, ptr %.1415.i, i64 2
   %smin858.i = tail call i32 @llvm.smin.i32(i32 %indvars.iv856.i, i32 509)
   %211 = sub i32 %indvars.iv.i, %smin858.i
   %.fr.i = freeze i32 %211
   %212 = udiv i32 %.fr.i, 255
   %213 = zext nneg i32 %212 to i64
-  %214 = urem i32 %.fr.i, 255
-  %scevgep.i = getelementptr i8, ptr %.1415.i, i64 2
   %scevgep859.i = getelementptr i8, ptr %scevgep.i, i64 %213
+  %214 = urem i32 %.fr.i, 255
   %.neg.i = sub i32 %indvars.iv860.i, %.fr.i
   %215 = add i32 %.neg.i, %214
   br label %._crit_edge.i
@@ -1030,8 +1030,8 @@ _ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i: ; preds = %.prehead
   %447 = zext nneg i32 %446 to i64
   %448 = add nuw nsw i64 %447, 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep862.i, i8 -1, i64 %448, i1 false), !tbaa !3
-  %449 = urem i32 %444, 1020
   %scevgep864.i = getelementptr i8, ptr %scevgep862.i, i64 %447
+  %449 = urem i32 %444, 1020
   br label %._crit_edge779.i
 
 ._crit_edge779.i:                                 ; preds = %.lr.ph778.preheader.i, %440

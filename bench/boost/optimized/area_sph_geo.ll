@@ -184013,95 +184013,95 @@ _ZN5boost8geometry4math21normalize_unit_vectorIdEEvRT_S4_.exit130: ; preds = %12
   br i1 %.not.i, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit, label %173, !llvm.loop !3112
 
 _ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit: ; preds = %173
-  %187 = fmul double %166, 2.000000e+00
-  %188 = fmul double %165, %187
-  %189 = load double, ptr %14, align 8, !tbaa !1480
-  %190 = load double, ptr %13, align 8, !tbaa !1480
-  %191 = fsub double %189, %190
-  %192 = fmul double %191, 2.000000e+00
-  %193 = fadd double %189, %190
-  %194 = fmul double %193, %192
-  br label %195
+  %187 = load double, ptr %14, align 8, !tbaa !1480
+  %188 = load double, ptr %13, align 8, !tbaa !1480
+  %189 = fsub double %187, %188
+  %190 = fmul double %189, 2.000000e+00
+  %191 = fadd double %187, %188
+  %192 = fmul double %191, %190
+  br label %193
 
-195:                                              ; preds = %195, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit
-  %.029.i132 = phi double [ 0.000000e+00, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit ], [ %202, %195 ]
-  %.02328.i133 = phi double [ %172, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit ], [ %208, %195 ]
-  %.02427.i134 = phi i64 [ 3, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit ], [ %196, %195 ]
-  %.126.i135 = phi i64 [ 7, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit ], [ %205, %195 ]
-  %196 = add nsw i64 %.02427.i134, -1
-  %197 = fneg double %.029.i132
-  %198 = call double @llvm.fmuladd.f64(double %194, double %.02328.i133, double %197)
-  %199 = add nsw i64 %.126.i135, -1
-  %200 = getelementptr inbounds nuw [8 x double], ptr %27, i64 0, i64 %199
-  %201 = load double, ptr %200, align 8, !tbaa !1480
-  %202 = fadd double %198, %201
-  %203 = fneg double %.02328.i133
-  %204 = call double @llvm.fmuladd.f64(double %194, double %202, double %203)
-  %205 = add nsw i64 %.126.i135, -2
-  %206 = getelementptr inbounds nuw [8 x double], ptr %27, i64 0, i64 %205
-  %207 = load double, ptr %206, align 8, !tbaa !1480
-  %208 = fadd double %207, %204
-  %.not.i136 = icmp eq i64 %196, 0
-  br i1 %.not.i136, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit137, label %195, !llvm.loop !3112
+193:                                              ; preds = %193, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit
+  %.029.i132 = phi double [ 0.000000e+00, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit ], [ %200, %193 ]
+  %.02328.i133 = phi double [ %172, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit ], [ %206, %193 ]
+  %.02427.i134 = phi i64 [ 3, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit ], [ %194, %193 ]
+  %.126.i135 = phi i64 [ 7, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit ], [ %203, %193 ]
+  %194 = add nsw i64 %.02427.i134, -1
+  %195 = fneg double %.029.i132
+  %196 = call double @llvm.fmuladd.f64(double %192, double %.02328.i133, double %195)
+  %197 = add nsw i64 %.126.i135, -1
+  %198 = getelementptr inbounds nuw [8 x double], ptr %27, i64 0, i64 %197
+  %199 = load double, ptr %198, align 8, !tbaa !1480
+  %200 = fadd double %196, %199
+  %201 = fneg double %.02328.i133
+  %202 = call double @llvm.fmuladd.f64(double %192, double %200, double %201)
+  %203 = add nsw i64 %.126.i135, -2
+  %204 = getelementptr inbounds nuw [8 x double], ptr %27, i64 0, i64 %203
+  %205 = load double, ptr %204, align 8, !tbaa !1480
+  %206 = fadd double %205, %202
+  %.not.i136 = icmp eq i64 %194, 0
+  br i1 %.not.i136, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit137, label %193, !llvm.loop !3112
 
-_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit137: ; preds = %195
-  %209 = fmul double %190, 2.000000e+00
-  %210 = fmul double %189, %209
-  %211 = fmul double %210, %208
+_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit137: ; preds = %193
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %28) #57
   store double 1.000000e+00, ptr %28, align 8, !tbaa !1480
-  %212 = load double, ptr %22, align 8, !tbaa !1480
-  %213 = fadd double %212, -1.000000e+00
-  %214 = fmul double %213, 5.000000e-01
-  %215 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store double %214, ptr %215, align 8, !tbaa !1480
-  %216 = call double @llvm.fmuladd.f64(double %212, double 3.000000e+00, double -1.000000e+00)
-  %217 = call double @llvm.fmuladd.f64(double %212, double %216, double -2.000000e+00)
-  %218 = fmul double %217, 1.250000e-01
-  %219 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %207 = load double, ptr %22, align 8, !tbaa !1480
+  %208 = fadd double %207, -1.000000e+00
+  %209 = fmul double %208, 5.000000e-01
+  %210 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store double %209, ptr %210, align 8, !tbaa !1480
+  %211 = call double @llvm.fmuladd.f64(double %207, double 3.000000e+00, double -1.000000e+00)
+  %212 = call double @llvm.fmuladd.f64(double %207, double %211, double -2.000000e+00)
+  %213 = fmul double %212, 1.250000e-01
+  %214 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store double %213, ptr %214, align 8, !tbaa !1480
+  %215 = call double @llvm.fmuladd.f64(double %207, double 5.000000e+00, double -1.000000e+00)
+  %216 = call double @llvm.fmuladd.f64(double %207, double %215, double -3.000000e+00)
+  %217 = call double @llvm.fmuladd.f64(double %207, double %216, double -1.000000e+00)
+  %218 = fmul double %217, 6.250000e-02
+  %219 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store double %218, ptr %219, align 8, !tbaa !1480
-  %220 = call double @llvm.fmuladd.f64(double %212, double 5.000000e+00, double -1.000000e+00)
-  %221 = call double @llvm.fmuladd.f64(double %212, double %220, double -3.000000e+00)
-  %222 = call double @llvm.fmuladd.f64(double %212, double %221, double -1.000000e+00)
-  %223 = fmul double %222, 6.250000e-02
-  %224 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %220 = call double @llvm.fmuladd.f64(double %207, double -5.000000e+00, double -2.000000e+01)
+  %221 = call double @llvm.fmuladd.f64(double %220, double %207, double -4.000000e+00)
+  %222 = call double @llvm.fmuladd.f64(double %207, double %221, double -6.000000e+00)
+  %223 = fmul double %222, 7.812500e-03
+  %224 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store double %223, ptr %224, align 8, !tbaa !1480
-  %225 = call double @llvm.fmuladd.f64(double %212, double -5.000000e+00, double -2.000000e+01)
-  %226 = call double @llvm.fmuladd.f64(double %225, double %212, double -4.000000e+00)
-  %227 = call double @llvm.fmuladd.f64(double %212, double %226, double -6.000000e+00)
-  %228 = fmul double %227, 7.812500e-03
-  %229 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store double %228, ptr %229, align 8, !tbaa !1480
-  %230 = call double @llvm.fmuladd.f64(double %212, double -5.000000e+00, double -1.000000e+01)
-  %231 = call double @llvm.fmuladd.f64(double %230, double %212, double -6.000000e+00)
-  %232 = fmul double %231, 3.906250e-03
-  %233 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  store double %232, ptr %233, align 8, !tbaa !1480
-  %234 = call double @llvm.fmuladd.f64(double %212, double -1.500000e+01, double -2.000000e+01)
-  %235 = fmul double %234, 0x3F50000000000000
-  %236 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store double %235, ptr %236, align 8, !tbaa !1480
-  %237 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  store double 0xBF89000000000000, ptr %237, align 8, !tbaa !1480
-  %238 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  %239 = load double, ptr %17, align 8, !tbaa !1480
-  br label %240
+  %225 = call double @llvm.fmuladd.f64(double %207, double -5.000000e+00, double -1.000000e+01)
+  %226 = call double @llvm.fmuladd.f64(double %225, double %207, double -6.000000e+00)
+  %227 = fmul double %226, 3.906250e-03
+  %228 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store double %227, ptr %228, align 8, !tbaa !1480
+  %229 = call double @llvm.fmuladd.f64(double %207, double -1.500000e+01, double -2.000000e+01)
+  %230 = fmul double %229, 0x3F50000000000000
+  %231 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  store double %230, ptr %231, align 8, !tbaa !1480
+  %232 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  store double 0xBF89000000000000, ptr %232, align 8, !tbaa !1480
+  %233 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  %234 = load double, ptr %17, align 8, !tbaa !1480
+  br label %235
 
-240:                                              ; preds = %240, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit137
-  %.07.i = phi double [ 0.000000e+00, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit137 ], [ %243, %240 ]
-  %.0.i = phi ptr [ %238, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit137 ], [ %241, %240 ]
-  %241 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  %242 = load double, ptr %241, align 8, !tbaa !1480
-  %243 = call double @llvm.fmuladd.f64(double %.07.i, double %239, double %242)
-  %.not.i138 = icmp eq ptr %241, %28
-  br i1 %.not.i138, label %_ZN5boost8geometry4math15horner_evaluateIdPKdEET_RKS5_T0_S8_.exit, label %240, !llvm.loop !3111
+235:                                              ; preds = %235, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit137
+  %.07.i = phi double [ 0.000000e+00, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit137 ], [ %238, %235 ]
+  %.0.i = phi ptr [ %233, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_RKS5_S7_RKT0_.exit137 ], [ %236, %235 ]
+  %236 = getelementptr inbounds i8, ptr %.0.i, i64 -8
+  %237 = load double, ptr %236, align 8, !tbaa !1480
+  %238 = call double @llvm.fmuladd.f64(double %.07.i, double %234, double %237)
+  %.not.i138 = icmp eq ptr %236, %28
+  br i1 %.not.i138, label %_ZN5boost8geometry4math15horner_evaluateIdPKdEET_RKS5_T0_S8_.exit, label %235, !llvm.loop !3111
 
-_ZN5boost8geometry4math15horner_evaluateIdPKdEET_RKS5_T0_S8_.exit: ; preds = %240
-  %244 = fmul double %188, %186
-  %245 = fsub double %244, %211
+_ZN5boost8geometry4math15horner_evaluateIdPKdEET_RKS5_T0_S8_.exit: ; preds = %235
+  %239 = fmul double %166, 2.000000e+00
+  %240 = fmul double %165, %239
+  %241 = fmul double %240, %186
+  %242 = fmul double %188, 2.000000e+00
+  %243 = fmul double %187, %242
+  %244 = fmul double %243, %206
+  %245 = fsub double %241, %244
   %246 = load double, ptr %21, align 8, !tbaa !1480
   %247 = fneg double %246
-  %248 = fmul double %243, %247
+  %248 = fmul double %238, %247
   %249 = fmul double %38, %248
   %250 = load double, ptr %12, align 8, !tbaa !1480
   %251 = fadd double %245, %250
@@ -193173,95 +193173,95 @@ _ZN5boost8geometry4math21normalize_unit_vectorIeEEvRT_S4_.exit139: ; preds = %12
   br i1 %.not.i, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit, label %185, !llvm.loop !3178
 
 _ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit: ; preds = %185
-  %199 = fmul x86_fp80 %178, 0xK40008000000000000000
-  %200 = fmul x86_fp80 %177, %199
-  %201 = load x86_fp80, ptr %14, align 16, !tbaa !2884
-  %202 = load x86_fp80, ptr %13, align 16, !tbaa !2884
-  %203 = fsub x86_fp80 %201, %202
-  %204 = fmul x86_fp80 %203, 0xK40008000000000000000
-  %205 = fadd x86_fp80 %201, %202
-  %206 = fmul x86_fp80 %205, %204
-  br label %207
+  %199 = load x86_fp80, ptr %14, align 16, !tbaa !2884
+  %200 = load x86_fp80, ptr %13, align 16, !tbaa !2884
+  %201 = fsub x86_fp80 %199, %200
+  %202 = fmul x86_fp80 %201, 0xK40008000000000000000
+  %203 = fadd x86_fp80 %199, %200
+  %204 = fmul x86_fp80 %203, %202
+  br label %205
 
-207:                                              ; preds = %207, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit
-  %.029.i141 = phi x86_fp80 [ 0xK00000000000000000000, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit ], [ %214, %207 ]
-  %.02328.i142 = phi i64 [ 3, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit ], [ %208, %207 ]
-  %.02427.i143 = phi x86_fp80 [ %184, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit ], [ %220, %207 ]
-  %.126.i144 = phi i64 [ 7, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit ], [ %217, %207 ]
-  %208 = add nsw i64 %.02328.i142, -1
-  %209 = fneg x86_fp80 %.029.i141
-  %210 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %206, x86_fp80 %.02427.i143, x86_fp80 %209)
-  %211 = add nsw i64 %.126.i144, -1
-  %212 = getelementptr inbounds nuw [8 x x86_fp80], ptr %27, i64 0, i64 %211
-  %213 = load x86_fp80, ptr %212, align 16, !tbaa !2884
-  %214 = fadd x86_fp80 %210, %213
-  %215 = fneg x86_fp80 %.02427.i143
-  %216 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %206, x86_fp80 %214, x86_fp80 %215)
-  %217 = add nsw i64 %.126.i144, -2
-  %218 = getelementptr inbounds nuw [8 x x86_fp80], ptr %27, i64 0, i64 %217
-  %219 = load x86_fp80, ptr %218, align 16, !tbaa !2884
-  %220 = fadd x86_fp80 %219, %216
-  %.not.i145 = icmp eq i64 %208, 0
-  br i1 %.not.i145, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146, label %207, !llvm.loop !3178
+205:                                              ; preds = %205, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit
+  %.029.i141 = phi x86_fp80 [ 0xK00000000000000000000, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit ], [ %212, %205 ]
+  %.02328.i142 = phi i64 [ 3, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit ], [ %206, %205 ]
+  %.02427.i143 = phi x86_fp80 [ %184, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit ], [ %218, %205 ]
+  %.126.i144 = phi i64 [ 7, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit ], [ %215, %205 ]
+  %206 = add nsw i64 %.02328.i142, -1
+  %207 = fneg x86_fp80 %.029.i141
+  %208 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %204, x86_fp80 %.02427.i143, x86_fp80 %207)
+  %209 = add nsw i64 %.126.i144, -1
+  %210 = getelementptr inbounds nuw [8 x x86_fp80], ptr %27, i64 0, i64 %209
+  %211 = load x86_fp80, ptr %210, align 16, !tbaa !2884
+  %212 = fadd x86_fp80 %208, %211
+  %213 = fneg x86_fp80 %.02427.i143
+  %214 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %204, x86_fp80 %212, x86_fp80 %213)
+  %215 = add nsw i64 %.126.i144, -2
+  %216 = getelementptr inbounds nuw [8 x x86_fp80], ptr %27, i64 0, i64 %215
+  %217 = load x86_fp80, ptr %216, align 16, !tbaa !2884
+  %218 = fadd x86_fp80 %217, %214
+  %.not.i145 = icmp eq i64 %206, 0
+  br i1 %.not.i145, label %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146, label %205, !llvm.loop !3178
 
-_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146: ; preds = %207
-  %221 = fmul x86_fp80 %202, 0xK40008000000000000000
-  %222 = fmul x86_fp80 %201, %221
-  %223 = fmul x86_fp80 %222, %220
+_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146: ; preds = %205
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %28) #57
   store x86_fp80 0xK3FFF8000000000000000, ptr %28, align 16, !tbaa !2884
-  %224 = load x86_fp80, ptr %22, align 16, !tbaa !2884
-  %225 = fadd x86_fp80 %224, 0xKBFFF8000000000000000
-  %226 = fmul x86_fp80 %225, 0xK3FFE8000000000000000
-  %227 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store x86_fp80 %226, ptr %227, align 16, !tbaa !2884
-  %228 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %224, x86_fp80 0xK4000C000000000000000, x86_fp80 0xKBFFF8000000000000000)
-  %229 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %224, x86_fp80 %228, x86_fp80 0xKC0008000000000000000)
-  %230 = fmul x86_fp80 %229, 0xK3FFC8000000000000000
-  %231 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %219 = load x86_fp80, ptr %22, align 16, !tbaa !2884
+  %220 = fadd x86_fp80 %219, 0xKBFFF8000000000000000
+  %221 = fmul x86_fp80 %220, 0xK3FFE8000000000000000
+  %222 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store x86_fp80 %221, ptr %222, align 16, !tbaa !2884
+  %223 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %219, x86_fp80 0xK4000C000000000000000, x86_fp80 0xKBFFF8000000000000000)
+  %224 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %219, x86_fp80 %223, x86_fp80 0xKC0008000000000000000)
+  %225 = fmul x86_fp80 %224, 0xK3FFC8000000000000000
+  %226 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store x86_fp80 %225, ptr %226, align 16, !tbaa !2884
+  %227 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %219, x86_fp80 0xK4001A000000000000000, x86_fp80 0xKBFFF8000000000000000)
+  %228 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %219, x86_fp80 %227, x86_fp80 0xKC000C000000000000000)
+  %229 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %219, x86_fp80 %228, x86_fp80 0xKBFFF8000000000000000)
+  %230 = fmul x86_fp80 %229, 0xK3FFB8000000000000000
+  %231 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store x86_fp80 %230, ptr %231, align 16, !tbaa !2884
-  %232 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %224, x86_fp80 0xK4001A000000000000000, x86_fp80 0xKBFFF8000000000000000)
-  %233 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %224, x86_fp80 %232, x86_fp80 0xKC000C000000000000000)
-  %234 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %224, x86_fp80 %233, x86_fp80 0xKBFFF8000000000000000)
-  %235 = fmul x86_fp80 %234, 0xK3FFB8000000000000000
-  %236 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  %232 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %219, x86_fp80 0xKC001A000000000000000, x86_fp80 0xKC003A000000000000000)
+  %233 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %232, x86_fp80 %219, x86_fp80 0xKC0018000000000000000)
+  %234 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %219, x86_fp80 %233, x86_fp80 0xKC001C000000000000000)
+  %235 = fmul x86_fp80 %234, 0xK3FF88000000000000000
+  %236 = getelementptr inbounds nuw i8, ptr %28, i64 64
   store x86_fp80 %235, ptr %236, align 16, !tbaa !2884
-  %237 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %224, x86_fp80 0xKC001A000000000000000, x86_fp80 0xKC003A000000000000000)
-  %238 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %237, x86_fp80 %224, x86_fp80 0xKC0018000000000000000)
-  %239 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %224, x86_fp80 %238, x86_fp80 0xKC001C000000000000000)
-  %240 = fmul x86_fp80 %239, 0xK3FF88000000000000000
-  %241 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  store x86_fp80 %240, ptr %241, align 16, !tbaa !2884
-  %242 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %224, x86_fp80 0xKC001A000000000000000, x86_fp80 0xKC002A000000000000000)
-  %243 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %242, x86_fp80 %224, x86_fp80 0xKC001C000000000000000)
-  %244 = fmul x86_fp80 %243, 0xK3FF78000000000000000
-  %245 = getelementptr inbounds nuw i8, ptr %28, i64 80
-  store x86_fp80 %244, ptr %245, align 16, !tbaa !2884
-  %246 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %224, x86_fp80 0xKC002F000000000000000, x86_fp80 0xKC003A000000000000000)
-  %247 = fmul x86_fp80 %246, 0xK3FF58000000000000000
-  %248 = getelementptr inbounds nuw i8, ptr %28, i64 96
-  store x86_fp80 %247, ptr %248, align 16, !tbaa !2884
-  %249 = getelementptr inbounds nuw i8, ptr %28, i64 112
-  store x86_fp80 0xKBFF8C800000000000000, ptr %249, align 16, !tbaa !2884
-  %250 = getelementptr inbounds nuw i8, ptr %28, i64 128
-  %251 = load x86_fp80, ptr %17, align 16, !tbaa !2884
-  br label %252
+  %237 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %219, x86_fp80 0xKC001A000000000000000, x86_fp80 0xKC002A000000000000000)
+  %238 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %237, x86_fp80 %219, x86_fp80 0xKC001C000000000000000)
+  %239 = fmul x86_fp80 %238, 0xK3FF78000000000000000
+  %240 = getelementptr inbounds nuw i8, ptr %28, i64 80
+  store x86_fp80 %239, ptr %240, align 16, !tbaa !2884
+  %241 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %219, x86_fp80 0xKC002F000000000000000, x86_fp80 0xKC003A000000000000000)
+  %242 = fmul x86_fp80 %241, 0xK3FF58000000000000000
+  %243 = getelementptr inbounds nuw i8, ptr %28, i64 96
+  store x86_fp80 %242, ptr %243, align 16, !tbaa !2884
+  %244 = getelementptr inbounds nuw i8, ptr %28, i64 112
+  store x86_fp80 0xKBFF8C800000000000000, ptr %244, align 16, !tbaa !2884
+  %245 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %246 = load x86_fp80, ptr %17, align 16, !tbaa !2884
+  br label %247
 
-252:                                              ; preds = %252, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146
-  %.07.i = phi x86_fp80 [ 0xK00000000000000000000, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146 ], [ %255, %252 ]
-  %.0.i = phi ptr [ %250, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146 ], [ %253, %252 ]
-  %253 = getelementptr inbounds i8, ptr %.0.i, i64 -16
-  %254 = load x86_fp80, ptr %253, align 16, !tbaa !2884
-  %255 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.07.i, x86_fp80 %251, x86_fp80 %254)
-  %.not.i147 = icmp eq ptr %253, %28
-  br i1 %.not.i147, label %_ZN5boost8geometry4math15horner_evaluateIePKeEET_RKS5_T0_S8_.exit, label %252, !llvm.loop !3177
+247:                                              ; preds = %247, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146
+  %.07.i = phi x86_fp80 [ 0xK00000000000000000000, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146 ], [ %250, %247 ]
+  %.0.i = phi ptr [ %245, %_ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_RKS5_S7_RKT0_.exit146 ], [ %248, %247 ]
+  %248 = getelementptr inbounds i8, ptr %.0.i, i64 -16
+  %249 = load x86_fp80, ptr %248, align 16, !tbaa !2884
+  %250 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %.07.i, x86_fp80 %246, x86_fp80 %249)
+  %.not.i147 = icmp eq ptr %248, %28
+  br i1 %.not.i147, label %_ZN5boost8geometry4math15horner_evaluateIePKeEET_RKS5_T0_S8_.exit, label %247, !llvm.loop !3177
 
-_ZN5boost8geometry4math15horner_evaluateIePKeEET_RKS5_T0_S8_.exit: ; preds = %252
-  %256 = fmul x86_fp80 %200, %198
-  %257 = fsub x86_fp80 %256, %223
+_ZN5boost8geometry4math15horner_evaluateIePKeEET_RKS5_T0_S8_.exit: ; preds = %247
+  %251 = fmul x86_fp80 %178, 0xK40008000000000000000
+  %252 = fmul x86_fp80 %177, %251
+  %253 = fmul x86_fp80 %252, %198
+  %254 = fmul x86_fp80 %200, 0xK40008000000000000000
+  %255 = fmul x86_fp80 %199, %254
+  %256 = fmul x86_fp80 %255, %218
+  %257 = fsub x86_fp80 %253, %256
   %258 = load x86_fp80, ptr %21, align 16, !tbaa !2884
   %259 = fneg x86_fp80 %258
-  %260 = fmul x86_fp80 %255, %259
+  %260 = fmul x86_fp80 %250, %259
   %261 = fmul x86_fp80 %38, %260
   %262 = load x86_fp80, ptr %12, align 16, !tbaa !2884
   %263 = fadd x86_fp80 %257, %262

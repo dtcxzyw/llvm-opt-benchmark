@@ -10725,23 +10725,23 @@ _ZN7rocksdb13PerfStepTimer5StartEv.exit:          ; preds = %_ZN7rocksdb13PerfSt
   %84 = load ptr, ptr %83, align 8, !tbaa !338
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %86 = load i8, ptr %85, align 16, !range !82
-  %87 = trunc nuw i8 %86 to i1
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %7) #35
-  br label %88
+  br label %87
 
-88:                                               ; preds = %88, %82
-  %.idx.i = phi i64 [ 0, %82 ], [ %.add.i, %88 ]
+87:                                               ; preds = %87, %82
+  %.idx.i = phi i64 [ 0, %82 ], [ %.add.i, %87 ]
   %.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
   store ptr @.str, ptr %.ptr.i, align 8, !tbaa !4
-  %89 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
-  store i64 0, ptr %89, align 8, !tbaa !11
+  %88 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
+  store i64 0, ptr %88, align 8, !tbaa !11
   %.add.i = add nuw nsw i64 %.idx.i, 16
-  %90 = icmp eq i64 %.add.i, 512
-  br i1 %90, label %_ZNSt5arrayIN7rocksdb5SliceELm32EEC2Ev.exit, label %88
+  %89 = icmp eq i64 %.add.i, 512
+  br i1 %89, label %_ZNSt5arrayIN7rocksdb5SliceELm32EEC2Ev.exit, label %87
 
-_ZNSt5arrayIN7rocksdb5SliceELm32EEC2Ev.exit:      ; preds = %88
+_ZNSt5arrayIN7rocksdb5SliceELm32EEC2Ev.exit:      ; preds = %87
   %.not55 = icmp eq ptr %84, null
-  %91 = select i1 %.not55, i1 true, i1 %87
+  %90 = trunc nuw i8 %86 to i1
+  %91 = select i1 %.not55, i1 true, i1 %90
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #35
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #35
   %92 = icmp ult i64 %.sink.i, %.sroa.2.0.copyload.sink.i

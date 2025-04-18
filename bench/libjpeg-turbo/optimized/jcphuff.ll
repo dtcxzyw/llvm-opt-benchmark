@@ -558,9 +558,9 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   %73 = lshr i32 %72, 4
   %74 = zext nneg i32 %73 to i64
   %75 = add i64 %70, %74
-  %76 = and i32 %72, 112
-  %77 = add nsw i32 %55, -16
-  %78 = sub nsw i32 %77, %76
+  %76 = add nsw i32 %55, -16
+  %77 = and i32 %72, 112
+  %78 = sub nsw i32 %76, %77
   store i64 %75, ptr %69, align 8, !tbaa !78
   br label %._crit_edge
 

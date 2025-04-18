@@ -6718,14 +6718,14 @@ define hidden void @_ZN4ncnn40gemm_transB_packed_tile_int8_avxvnniint8ERKNS_3Mat
   %.01188301.i = phi i32 [ 0, %.preheader53.lr.ph.i ], [ %390, %._crit_edge299.i ]
   br i1 %11, label %.lr.ph193.i, label %.preheader52.i
 
-.preheader41.i.loopexit:                          ; preds = %._crit_edge299.i
+.preheader41.loopexit.i:                          ; preds = %._crit_edge299.i
   %18 = and i32 %4, 2147483640
   br label %.preheader41.i
 
-.preheader41.i:                                   ; preds = %.preheader41.i.loopexit, %9
-  %.01188.lcssa.i = phi i32 [ 0, %9 ], [ %18, %.preheader41.i.loopexit ]
-  %.01184.lcssa.i = phi ptr [ %.val9, %9 ], [ %.4.lcssa.i, %.preheader41.i.loopexit ]
-  %.01180.lcssa.i = phi ptr [ %.val, %9 ], [ %389, %.preheader41.i.loopexit ]
+.preheader41.i:                                   ; preds = %.preheader41.loopexit.i, %9
+  %.01188.lcssa.i = phi i32 [ 0, %9 ], [ %18, %.preheader41.loopexit.i ]
+  %.01184.lcssa.i = phi ptr [ %.val9, %9 ], [ %.4.lcssa.i, %.preheader41.loopexit.i ]
+  %.01180.lcssa.i = phi ptr [ %.val, %9 ], [ %389, %.preheader41.loopexit.i ]
   %19 = or disjoint i32 %.01188.lcssa.i, 3
   %20 = icmp slt i32 %19, %4
   br i1 %20, label %.preheader40.lr.ph.i, label %.preheader28.i
@@ -7366,7 +7366,7 @@ define hidden void @_ZN4ncnn40gemm_transB_packed_tile_int8_avxvnniint8ERKNS_3Mat
   %390 = add nuw nsw i32 %.01188301.i, 8
   %391 = or disjoint i32 %390, 7
   %392 = icmp slt i32 %391, %4
-  br i1 %392, label %.preheader53.i, label %.preheader41.i.loopexit, !llvm.loop !195
+  br i1 %392, label %.preheader53.i, label %.preheader41.loopexit.i, !llvm.loop !195
 
 .preheader40.i:                                   ; preds = %._crit_edge449.i, %.preheader40.lr.ph.i
   %.11181453.i = phi ptr [ %.01180.lcssa.i, %.preheader40.lr.ph.i ], [ %722, %._crit_edge449.i ]

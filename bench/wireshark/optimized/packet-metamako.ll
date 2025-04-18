@@ -332,13 +332,13 @@ validate_metamako_timestamp.exit.i:               ; preds = %46, %43, %20
   %66 = add nsw i32 %.0204.i, -1
   %umin.i = tail call i32 @llvm.umin.i32(i32 %65, i32 %66)
   %67 = shl nuw nsw i32 %umin.i, 2
-  %68 = add i32 %.2198.i, 8
-  %69 = sub i32 %64, %67
-  %70 = add i32 %68, %67
+  %68 = sub i32 %64, %67
+  %69 = add i32 %.2198.i, 8
+  %70 = add i32 %69, %67
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %51
-  %.2195.lcssa.i = phi i32 [ %52, %51 ], [ %69, %.lr.ph.preheader.i ]
+  %.2195.lcssa.i = phi i32 [ %52, %51 ], [ %68, %.lr.ph.preheader.i ]
   %.3199.lcssa.i = phi i32 [ %.31996.i, %51 ], [ %70, %.lr.ph.preheader.i ]
   %71 = and i32 %53, 32
   %.not228.i = icmp eq i32 %71, 0

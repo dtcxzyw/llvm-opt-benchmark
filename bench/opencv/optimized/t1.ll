@@ -3542,15 +3542,15 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1224
   %1620 = and i32 %841, -4
   %1621 = add i32 %1620, -1
   %1622 = and i32 %1621, -4
-  %1623 = lshr i32 %1621, 2
-  %1624 = zext nneg i32 %1623 to i64
-  %1625 = shl nuw nsw i64 %1624, 2
-  %1626 = add nuw nsw i64 %1625, 4
-  %1627 = mul nuw nsw i64 %1626, %1243
-  %1628 = shl nuw nsw i64 %1624, 3
-  %1629 = add nuw i32 %1622, 4
-  %scevgep.i.i.i = getelementptr i8, ptr %843, i64 %1627
-  %1630 = getelementptr i8, ptr %844, i64 %1628
+  %1623 = add nuw i32 %1622, 4
+  %1624 = lshr i32 %1621, 2
+  %1625 = zext nneg i32 %1624 to i64
+  %1626 = shl nuw nsw i64 %1625, 2
+  %1627 = add nuw nsw i64 %1626, 4
+  %1628 = mul nuw nsw i64 %1627, %1243
+  %scevgep.i.i.i = getelementptr i8, ptr %843, i64 %1628
+  %1629 = shl nuw nsw i64 %1625, 3
+  %1630 = getelementptr i8, ptr %844, i64 %1629
   %scevgep601.i.i.i = getelementptr i8, ptr %1630, i64 20
   br label %._crit_edge542.i.i.i
 
@@ -3561,7 +3561,7 @@ opj_t1_dec_refpass_mqc_64x64.exit.i.i:            ; preds = %1224
   %.0338.lcssa.i.i.i = phi ptr [ %1232, %._crit_edge.i198.i ], [ %1232, %.preheader497.lr.ph.split.i.i.i ], [ %.2340.us.i.i.i, %._crit_edge.us.i.i.i ]
   %.0335.lcssa.i.i.i = phi ptr [ %1231, %._crit_edge.i198.i ], [ %scevgep601.i.i.i, %.preheader497.lr.ph.split.i.i.i ], [ %1616, %._crit_edge.us.i.i.i ]
   %.0333.lcssa.i.i.i = phi ptr [ %843, %._crit_edge.i198.i ], [ %scevgep.i.i.i, %.preheader497.lr.ph.split.i.i.i ], [ %1615, %._crit_edge.us.i.i.i ]
-  %.0332.lcssa.i.i.i = phi i32 [ 0, %._crit_edge.i198.i ], [ %1629, %.preheader497.lr.ph.split.i.i.i ], [ %1614, %._crit_edge.us.i.i.i ]
+  %.0332.lcssa.i.i.i = phi i32 [ 0, %._crit_edge.i198.i ], [ %1623, %.preheader497.lr.ph.split.i.i.i ], [ %1614, %._crit_edge.us.i.i.i ]
   %.lcssa521.i.i.i = phi i32 [ %841, %._crit_edge.i198.i ], [ %841, %.preheader497.lr.ph.split.i.i.i ], [ %1617, %._crit_edge.us.i.i.i ]
   store ptr %.0338.lcssa.i.i.i, ptr %202, align 8, !tbaa !117
   store i32 %.0341.lcssa.i.i.i, ptr %.0254, align 8, !tbaa !107
@@ -4107,14 +4107,11 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %181, 
   %1898 = shufflevector <4 x float> %1897, <4 x float> poison, <4 x i32> zeroinitializer
   %1899 = and i32 %1886, -16
   %.not396 = icmp eq i32 %1899, 0
-  br i1 %.not396, label %.preheader288, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %1893
-  %1900 = add i32 %1899, -1
-  %1901 = and i32 %1900, -16
-  br label %.lr.ph
+  br i1 %.not396, label %.preheader288, label %.lr.ph
 
 .preheader288.loopexit:                           ; preds = %.lr.ph
+  %1900 = add i32 %1899, -1
+  %1901 = and i32 %1900, -16
   %1902 = add nuw i32 %1901, 16
   br label %.preheader288
 
@@ -4124,9 +4121,9 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %181, 
   %1903 = icmp ult i32 %.3249.lcssa, %1886
   br i1 %1903, label %.lr.ph374, label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0370 = phi ptr [ %1919, %.lr.ph ], [ %1853, %.lr.ph.preheader ]
-  %.3249369 = phi i32 [ %1920, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %1893, %.lr.ph
+  %.0370 = phi ptr [ %1919, %.lr.ph ], [ %1853, %1893 ]
+  %.3249369 = phi i32 [ %1920, %.lr.ph ], [ 0, %1893 ]
   %1904 = load <4 x i32>, ptr %.0370, align 16, !tbaa !47
   %1905 = sitofp <4 x i32> %1904 to <4 x float>
   %1906 = getelementptr inbounds nuw i8, ptr %.0370, i64 16
@@ -5121,11 +5118,11 @@ opj_t1_create.exit:                               ; preds = %32, %34
   %331 = and i32 %318, -4
   %332 = add i32 %331, -1
   %333 = and i32 %332, -4
-  %334 = lshr i32 %332, 2
-  %335 = zext nneg i32 %334 to i64
-  %336 = shl nuw nsw i64 %335, 3
-  %337 = add nuw i32 %333, 4
-  %338 = getelementptr i8, ptr %320, i64 %336
+  %334 = add nuw i32 %333, 4
+  %335 = lshr i32 %332, 2
+  %336 = zext nneg i32 %335 to i64
+  %337 = shl nuw nsw i64 %336, 3
+  %338 = getelementptr i8, ptr %320, i64 %337
   %scevgep.i.i = getelementptr i8, ptr %338, i64 20
   br label %._crit_edge1142.i.i
 
@@ -6515,7 +6512,7 @@ opj_t1_update_flags.exit.i.i:                     ; preds = %517, %.loopexit1095
   %.0752.lcssa.i.i = phi i32 [ %326, %319 ], [ %326, %.lr.ph1141.split.us.i.i ], [ %.1753.lcssa.i.i, %._crit_edge.i.i ]
   %.0749.lcssa.i.i = phi ptr [ %325, %319 ], [ %325, %.lr.ph1141.split.us.i.i ], [ %.1750.lcssa.i.i, %._crit_edge.i.i ]
   %.0747.lcssa.i.i = phi ptr [ %324, %319 ], [ %scevgep.i.i, %.lr.ph1141.split.us.i.i ], [ %1097, %._crit_edge.i.i ]
-  %.0746.lcssa.i.i = phi i32 [ 0, %319 ], [ %337, %.lr.ph1141.split.us.i.i ], [ %1096, %._crit_edge.i.i ]
+  %.0746.lcssa.i.i = phi i32 [ 0, %319 ], [ %334, %.lr.ph1141.split.us.i.i ], [ %1096, %._crit_edge.i.i ]
   %.lcssa1118.i.i = phi i32 [ %318, %319 ], [ %318, %.lr.ph1141.split.us.i.i ], [ %1095, %._crit_edge.i.i ]
   %1100 = icmp ult i32 %.0746.lcssa.i.i, %.lcssa1118.i.i
   br i1 %1100, label %.preheader1081.i.i, label %opj_t1_enc_sigpass.exit.i
@@ -9864,7 +9861,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %51 = icmp ult i32 %47, %46
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !123
-  %.not843.i = icmp eq i32 %53, 0
   %.sink.i = select i1 %51, i64 8, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 %.sink.i
   %storemerge844.i = load ptr, ptr %54, align 8, !tbaa !119
@@ -9930,7 +9926,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %87 = icmp ult i32 %47, %46
   %88 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !123
-  %.not842.i = icmp eq i32 %89, 0
   %.sink1085.i = select i1 %87, i64 16, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %45, i64 %.sink1085.i
   %storemerge.i = load ptr, ptr %90, align 8, !tbaa !119
@@ -9991,11 +9986,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit912.i
 
 .loopexit912.i.loopexit:                          ; preds = %76
+  %.not843.i = icmp eq i32 %53, 0
   %120 = zext i1 %.not843.i to i32
   %.0744.i = select i1 %51, i32 %53, i32 %120
   br label %.loopexit912.i
 
 .loopexit912.i.loopexit476:                       ; preds = %112
+  %.not842.i = icmp eq i32 %89, 0
   %121 = zext i1 %.not842.i to i32
   %.2746.i = select i1 %87, i32 %121, i32 %89
   br label %.loopexit912.i
@@ -10045,7 +10042,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %151 = icmp ult i32 %147, %146
   %152 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %153 = load i32, ptr %152, align 4, !tbaa !123
-  %.not848.i = icmp eq i32 %153, 0
   %.sink1086.i = select i1 %151, i64 8, i64 16
   %154 = getelementptr inbounds nuw i8, ptr %145, i64 %.sink1086.i
   %storemerge849.i = load ptr, ptr %154, align 8, !tbaa !119
@@ -10111,7 +10107,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %187 = icmp ult i32 %147, %146
   %188 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %189 = load i32, ptr %188, align 4, !tbaa !123
-  %.not847.i = icmp eq i32 %189, 0
   %.sink1087.i = select i1 %187, i64 16, i64 8
   %190 = getelementptr inbounds nuw i8, ptr %145, i64 %.sink1087.i
   %storemerge846.i = load ptr, ptr %190, align 8, !tbaa !119
@@ -10172,11 +10167,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit910.i
 
 .loopexit910.i.loopexit:                          ; preds = %176
+  %.not848.i = icmp eq i32 %153, 0
   %220 = zext i1 %.not848.i to i32
   %.3747.i = select i1 %151, i32 %153, i32 %220
   br label %.loopexit910.i
 
 .loopexit910.i.loopexit475:                       ; preds = %212
+  %.not847.i = icmp eq i32 %189, 0
   %221 = zext i1 %.not847.i to i32
   %.5749.i = select i1 %187, i32 %221, i32 %189
   br label %.loopexit910.i
@@ -10243,7 +10240,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %251 = icmp ult i32 %247, %246
   %252 = getelementptr inbounds nuw i8, ptr %245, i64 4
   %253 = load i32, ptr %252, align 4, !tbaa !123
-  %.not854.i = icmp eq i32 %253, 0
   %.sink1088.i = select i1 %251, i64 8, i64 16
   %254 = getelementptr inbounds nuw i8, ptr %245, i64 %.sink1088.i
   %storemerge855.i = load ptr, ptr %254, align 8, !tbaa !119
@@ -10309,7 +10305,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %287 = icmp ult i32 %247, %246
   %288 = getelementptr inbounds nuw i8, ptr %245, i64 4
   %289 = load i32, ptr %288, align 4, !tbaa !123
-  %.not853.i = icmp eq i32 %289, 0
   %.sink1089.i = select i1 %287, i64 16, i64 8
   %290 = getelementptr inbounds nuw i8, ptr %245, i64 %.sink1089.i
   %storemerge852.i = load ptr, ptr %290, align 8, !tbaa !119
@@ -10370,11 +10365,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit908.i
 
 .loopexit908.i.loopexit:                          ; preds = %276
+  %.not854.i = icmp eq i32 %253, 0
   %320 = zext i1 %.not854.i to i32
   %.6750.i = select i1 %251, i32 %253, i32 %320
   br label %.loopexit908.i
 
 .loopexit908.i.loopexit474:                       ; preds = %312
+  %.not853.i = icmp eq i32 %289, 0
   %321 = zext i1 %.not853.i to i32
   %.8752.i = select i1 %287, i32 %321, i32 %289
   br label %.loopexit908.i
@@ -10424,7 +10421,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %351 = icmp ult i32 %347, %346
   %352 = getelementptr inbounds nuw i8, ptr %345, i64 4
   %353 = load i32, ptr %352, align 4, !tbaa !123
-  %.not859.i = icmp eq i32 %353, 0
   %.sink1090.i = select i1 %351, i64 8, i64 16
   %354 = getelementptr inbounds nuw i8, ptr %345, i64 %.sink1090.i
   %storemerge860.i = load ptr, ptr %354, align 8, !tbaa !119
@@ -10490,7 +10486,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %387 = icmp ult i32 %347, %346
   %388 = getelementptr inbounds nuw i8, ptr %345, i64 4
   %389 = load i32, ptr %388, align 4, !tbaa !123
-  %.not858.i = icmp eq i32 %389, 0
   %.sink1091.i = select i1 %387, i64 16, i64 8
   %390 = getelementptr inbounds nuw i8, ptr %345, i64 %.sink1091.i
   %storemerge857.i = load ptr, ptr %390, align 8, !tbaa !119
@@ -10551,11 +10546,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit906.i
 
 .loopexit906.i.loopexit:                          ; preds = %376
+  %.not859.i = icmp eq i32 %353, 0
   %420 = zext i1 %.not859.i to i32
   %.9753.i = select i1 %351, i32 %353, i32 %420
   br label %.loopexit906.i
 
 .loopexit906.i.loopexit473:                       ; preds = %412
+  %.not858.i = icmp eq i32 %389, 0
   %421 = zext i1 %.not858.i to i32
   %.11755.i = select i1 %387, i32 %421, i32 %389
   br label %.loopexit906.i
@@ -10623,7 +10620,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %452 = icmp ult i32 %448, %447
   %453 = getelementptr inbounds nuw i8, ptr %446, i64 4
   %454 = load i32, ptr %453, align 4, !tbaa !123
-  %.not865.i = icmp eq i32 %454, 0
   %.sink1092.i = select i1 %452, i64 8, i64 16
   %455 = getelementptr inbounds nuw i8, ptr %446, i64 %.sink1092.i
   %storemerge866.i = load ptr, ptr %455, align 8, !tbaa !119
@@ -10689,7 +10685,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %488 = icmp ult i32 %448, %447
   %489 = getelementptr inbounds nuw i8, ptr %446, i64 4
   %490 = load i32, ptr %489, align 4, !tbaa !123
-  %.not864.i = icmp eq i32 %490, 0
   %.sink1093.i = select i1 %488, i64 16, i64 8
   %491 = getelementptr inbounds nuw i8, ptr %446, i64 %.sink1093.i
   %storemerge863.i = load ptr, ptr %491, align 8, !tbaa !119
@@ -10750,11 +10745,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit904.i
 
 .loopexit904.i.loopexit:                          ; preds = %477
+  %.not865.i = icmp eq i32 %454, 0
   %521 = zext i1 %.not865.i to i32
   %.12756.i = select i1 %452, i32 %454, i32 %521
   br label %.loopexit904.i
 
 .loopexit904.i.loopexit472:                       ; preds = %513
+  %.not864.i = icmp eq i32 %490, 0
   %522 = zext i1 %.not864.i to i32
   %.14758.i = select i1 %488, i32 %522, i32 %490
   br label %.loopexit904.i
@@ -10804,7 +10801,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %552 = icmp ult i32 %548, %547
   %553 = getelementptr inbounds nuw i8, ptr %546, i64 4
   %554 = load i32, ptr %553, align 4, !tbaa !123
-  %.not870.i = icmp eq i32 %554, 0
   %.sink1094.i = select i1 %552, i64 8, i64 16
   %555 = getelementptr inbounds nuw i8, ptr %546, i64 %.sink1094.i
   %storemerge871.i = load ptr, ptr %555, align 8, !tbaa !119
@@ -10870,7 +10866,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %588 = icmp ult i32 %548, %547
   %589 = getelementptr inbounds nuw i8, ptr %546, i64 4
   %590 = load i32, ptr %589, align 4, !tbaa !123
-  %.not869.i = icmp eq i32 %590, 0
   %.sink1095.i = select i1 %588, i64 16, i64 8
   %591 = getelementptr inbounds nuw i8, ptr %546, i64 %.sink1095.i
   %storemerge868.i = load ptr, ptr %591, align 8, !tbaa !119
@@ -10931,11 +10926,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit902.i
 
 .loopexit902.i.loopexit:                          ; preds = %577
+  %.not870.i = icmp eq i32 %554, 0
   %621 = zext i1 %.not870.i to i32
   %.15759.i = select i1 %552, i32 %554, i32 %621
   br label %.loopexit902.i
 
 .loopexit902.i.loopexit471:                       ; preds = %613
+  %.not869.i = icmp eq i32 %590, 0
   %622 = zext i1 %.not869.i to i32
   %.17761.i = select i1 %588, i32 %622, i32 %590
   br label %.loopexit902.i
@@ -11003,7 +11000,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %653 = icmp ult i32 %649, %648
   %654 = getelementptr inbounds nuw i8, ptr %647, i64 4
   %655 = load i32, ptr %654, align 4, !tbaa !123
-  %.not876.i = icmp eq i32 %655, 0
   %.sink1096.i = select i1 %653, i64 8, i64 16
   %656 = getelementptr inbounds nuw i8, ptr %647, i64 %.sink1096.i
   %storemerge877.i = load ptr, ptr %656, align 8, !tbaa !119
@@ -11069,7 +11065,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %689 = icmp ult i32 %649, %648
   %690 = getelementptr inbounds nuw i8, ptr %647, i64 4
   %691 = load i32, ptr %690, align 4, !tbaa !123
-  %.not875.i = icmp eq i32 %691, 0
   %.sink1097.i = select i1 %689, i64 16, i64 8
   %692 = getelementptr inbounds nuw i8, ptr %647, i64 %.sink1097.i
   %storemerge874.i = load ptr, ptr %692, align 8, !tbaa !119
@@ -11130,11 +11125,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit900.i
 
 .loopexit900.i.loopexit:                          ; preds = %678
+  %.not876.i = icmp eq i32 %655, 0
   %722 = zext i1 %.not876.i to i32
   %.18762.i = select i1 %653, i32 %655, i32 %722
   br label %.loopexit900.i
 
 .loopexit900.i.loopexit470:                       ; preds = %714
+  %.not875.i = icmp eq i32 %691, 0
   %723 = zext i1 %.not875.i to i32
   %.20764.i = select i1 %689, i32 %723, i32 %691
   br label %.loopexit900.i
@@ -11184,7 +11181,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %753 = icmp ult i32 %749, %748
   %754 = getelementptr inbounds nuw i8, ptr %747, i64 4
   %755 = load i32, ptr %754, align 4, !tbaa !123
-  %.not881.i = icmp eq i32 %755, 0
   %.sink1098.i = select i1 %753, i64 8, i64 16
   %756 = getelementptr inbounds nuw i8, ptr %747, i64 %.sink1098.i
   %storemerge882.i = load ptr, ptr %756, align 8, !tbaa !119
@@ -11250,7 +11246,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %789 = icmp ult i32 %749, %748
   %790 = getelementptr inbounds nuw i8, ptr %747, i64 4
   %791 = load i32, ptr %790, align 4, !tbaa !123
-  %.not880.i = icmp eq i32 %791, 0
   %.sink1099.i = select i1 %789, i64 16, i64 8
   %792 = getelementptr inbounds nuw i8, ptr %747, i64 %.sink1099.i
   %storemerge879.i = load ptr, ptr %792, align 8, !tbaa !119
@@ -11311,11 +11306,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit.i
 
 .loopexit.i.loopexit:                             ; preds = %778
+  %.not881.i = icmp eq i32 %755, 0
   %822 = zext i1 %.not881.i to i32
   %.21765.i = select i1 %753, i32 %755, i32 %822
   br label %.loopexit.i
 
 .loopexit.i.loopexit469:                          ; preds = %814
+  %.not880.i = icmp eq i32 %791, 0
   %823 = zext i1 %.not880.i to i32
   %.23767.i = select i1 %789, i32 %823, i32 %791
   br label %.loopexit.i
@@ -11439,7 +11436,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %875 = icmp ult i32 %871, %870
   %876 = getelementptr inbounds nuw i8, ptr %869, i64 4
   %877 = load i32, ptr %876, align 4, !tbaa !123
-  %.not848.i105 = icmp eq i32 %877, 0
   %.sink.i106 = select i1 %875, i64 8, i64 16
   %878 = getelementptr inbounds nuw i8, ptr %869, i64 %.sink.i106
   %storemerge849.i107 = load ptr, ptr %878, align 8, !tbaa !119
@@ -11505,7 +11501,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %911 = icmp ult i32 %871, %870
   %912 = getelementptr inbounds nuw i8, ptr %869, i64 4
   %913 = load i32, ptr %912, align 4, !tbaa !123
-  %.not847.i102 = icmp eq i32 %913, 0
   %.sink1090.i103 = select i1 %911, i64 16, i64 8
   %914 = getelementptr inbounds nuw i8, ptr %869, i64 %.sink1090.i103
   %storemerge.i104 = load ptr, ptr %914, align 8, !tbaa !119
@@ -11566,11 +11561,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit917.i
 
 .loopexit917.i.loopexit:                          ; preds = %900
+  %.not848.i105 = icmp eq i32 %877, 0
   %944 = zext i1 %.not848.i105 to i32
   %.0749.i = select i1 %875, i32 %877, i32 %944
   br label %.loopexit917.i
 
 .loopexit917.i.loopexit468:                       ; preds = %936
+  %.not847.i102 = icmp eq i32 %913, 0
   %945 = zext i1 %.not847.i102 to i32
   %.2751.i = select i1 %911, i32 %945, i32 %913
   br label %.loopexit917.i
@@ -11620,7 +11617,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %975 = icmp ult i32 %971, %970
   %976 = getelementptr inbounds nuw i8, ptr %969, i64 4
   %977 = load i32, ptr %976, align 4, !tbaa !123
-  %.not853.i98 = icmp eq i32 %977, 0
   %.sink1091.i99 = select i1 %975, i64 8, i64 16
   %978 = getelementptr inbounds nuw i8, ptr %969, i64 %.sink1091.i99
   %storemerge854.i = load ptr, ptr %978, align 8, !tbaa !119
@@ -11686,7 +11682,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1011 = icmp ult i32 %971, %970
   %1012 = getelementptr inbounds nuw i8, ptr %969, i64 4
   %1013 = load i32, ptr %1012, align 4, !tbaa !123
-  %.not852.i = icmp eq i32 %1013, 0
   %.sink1092.i95 = select i1 %1011, i64 16, i64 8
   %1014 = getelementptr inbounds nuw i8, ptr %969, i64 %.sink1092.i95
   %storemerge851.i = load ptr, ptr %1014, align 8, !tbaa !119
@@ -11747,11 +11742,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit915.i
 
 .loopexit915.i.loopexit:                          ; preds = %1000
+  %.not853.i98 = icmp eq i32 %977, 0
   %1044 = zext i1 %.not853.i98 to i32
   %.3752.i = select i1 %975, i32 %977, i32 %1044
   br label %.loopexit915.i
 
 .loopexit915.i.loopexit467:                       ; preds = %1036
+  %.not852.i = icmp eq i32 %1013, 0
   %1045 = zext i1 %.not852.i to i32
   %.5754.i = select i1 %1011, i32 %1045, i32 %1013
   br label %.loopexit915.i
@@ -11832,7 +11829,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1086 = icmp ult i32 %1082, %1081
   %1087 = getelementptr inbounds nuw i8, ptr %1080, i64 4
   %1088 = load i32, ptr %1087, align 4, !tbaa !123
-  %.not859.i90 = icmp eq i32 %1088, 0
   %.sink1093.i91 = select i1 %1086, i64 8, i64 16
   %1089 = getelementptr inbounds nuw i8, ptr %1080, i64 %.sink1093.i91
   %storemerge860.i92 = load ptr, ptr %1089, align 8, !tbaa !119
@@ -11898,7 +11894,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1122 = icmp ult i32 %1082, %1081
   %1123 = getelementptr inbounds nuw i8, ptr %1080, i64 4
   %1124 = load i32, ptr %1123, align 4, !tbaa !123
-  %.not858.i85 = icmp eq i32 %1124, 0
   %.sink1094.i86 = select i1 %1122, i64 16, i64 8
   %1125 = getelementptr inbounds nuw i8, ptr %1080, i64 %.sink1094.i86
   %storemerge857.i87 = load ptr, ptr %1125, align 8, !tbaa !119
@@ -11959,11 +11954,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit913.i
 
 .loopexit913.i.loopexit:                          ; preds = %1111
+  %.not859.i90 = icmp eq i32 %1088, 0
   %1155 = zext i1 %.not859.i90 to i32
   %.6755.i = select i1 %1086, i32 %1088, i32 %1155
   br label %.loopexit913.i
 
 .loopexit913.i.loopexit466:                       ; preds = %1147
+  %.not858.i85 = icmp eq i32 %1124, 0
   %1156 = zext i1 %.not858.i85 to i32
   %.8757.i = select i1 %1122, i32 %1156, i32 %1124
   br label %.loopexit913.i
@@ -12013,7 +12010,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1186 = icmp ult i32 %1182, %1181
   %1187 = getelementptr inbounds nuw i8, ptr %1180, i64 4
   %1188 = load i32, ptr %1187, align 4, !tbaa !123
-  %.not864.i81 = icmp eq i32 %1188, 0
   %.sink1095.i82 = select i1 %1186, i64 8, i64 16
   %1189 = getelementptr inbounds nuw i8, ptr %1180, i64 %.sink1095.i82
   %storemerge865.i = load ptr, ptr %1189, align 8, !tbaa !119
@@ -12079,7 +12075,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1222 = icmp ult i32 %1182, %1181
   %1223 = getelementptr inbounds nuw i8, ptr %1180, i64 4
   %1224 = load i32, ptr %1223, align 4, !tbaa !123
-  %.not863.i = icmp eq i32 %1224, 0
   %.sink1096.i78 = select i1 %1222, i64 16, i64 8
   %1225 = getelementptr inbounds nuw i8, ptr %1180, i64 %.sink1096.i78
   %storemerge862.i = load ptr, ptr %1225, align 8, !tbaa !119
@@ -12140,11 +12135,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit911.i
 
 .loopexit911.i.loopexit:                          ; preds = %1211
+  %.not864.i81 = icmp eq i32 %1188, 0
   %1255 = zext i1 %.not864.i81 to i32
   %.9758.i = select i1 %1186, i32 %1188, i32 %1255
   br label %.loopexit911.i
 
 .loopexit911.i.loopexit465:                       ; preds = %1247
+  %.not863.i = icmp eq i32 %1224, 0
   %1256 = zext i1 %.not863.i to i32
   %.11760.i = select i1 %1222, i32 %1256, i32 %1224
   br label %.loopexit911.i
@@ -12212,7 +12209,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1287 = icmp ult i32 %1283, %1282
   %1288 = getelementptr inbounds nuw i8, ptr %1281, i64 4
   %1289 = load i32, ptr %1288, align 4, !tbaa !123
-  %.not870.i73 = icmp eq i32 %1289, 0
   %.sink1097.i74 = select i1 %1287, i64 8, i64 16
   %1290 = getelementptr inbounds nuw i8, ptr %1281, i64 %.sink1097.i74
   %storemerge871.i75 = load ptr, ptr %1290, align 8, !tbaa !119
@@ -12278,7 +12274,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1323 = icmp ult i32 %1283, %1282
   %1324 = getelementptr inbounds nuw i8, ptr %1281, i64 4
   %1325 = load i32, ptr %1324, align 4, !tbaa !123
-  %.not869.i68 = icmp eq i32 %1325, 0
   %.sink1098.i69 = select i1 %1323, i64 16, i64 8
   %1326 = getelementptr inbounds nuw i8, ptr %1281, i64 %.sink1098.i69
   %storemerge868.i70 = load ptr, ptr %1326, align 8, !tbaa !119
@@ -12339,11 +12334,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit909.i
 
 .loopexit909.i.loopexit:                          ; preds = %1312
+  %.not870.i73 = icmp eq i32 %1289, 0
   %1356 = zext i1 %.not870.i73 to i32
   %.12761.i = select i1 %1287, i32 %1289, i32 %1356
   br label %.loopexit909.i
 
 .loopexit909.i.loopexit464:                       ; preds = %1348
+  %.not869.i68 = icmp eq i32 %1325, 0
   %1357 = zext i1 %.not869.i68 to i32
   %.14763.i = select i1 %1323, i32 %1357, i32 %1325
   br label %.loopexit909.i
@@ -12393,7 +12390,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1387 = icmp ult i32 %1383, %1382
   %1388 = getelementptr inbounds nuw i8, ptr %1381, i64 4
   %1389 = load i32, ptr %1388, align 4, !tbaa !123
-  %.not875.i64 = icmp eq i32 %1389, 0
   %.sink1099.i65 = select i1 %1387, i64 8, i64 16
   %1390 = getelementptr inbounds nuw i8, ptr %1381, i64 %.sink1099.i65
   %storemerge876.i = load ptr, ptr %1390, align 8, !tbaa !119
@@ -12459,7 +12455,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1423 = icmp ult i32 %1383, %1382
   %1424 = getelementptr inbounds nuw i8, ptr %1381, i64 4
   %1425 = load i32, ptr %1424, align 4, !tbaa !123
-  %.not874.i = icmp eq i32 %1425, 0
   %.sink1100.i = select i1 %1423, i64 16, i64 8
   %1426 = getelementptr inbounds nuw i8, ptr %1381, i64 %.sink1100.i
   %storemerge873.i = load ptr, ptr %1426, align 8, !tbaa !119
@@ -12520,11 +12515,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit907.i
 
 .loopexit907.i.loopexit:                          ; preds = %1412
+  %.not875.i64 = icmp eq i32 %1389, 0
   %1456 = zext i1 %.not875.i64 to i32
   %.15764.i = select i1 %1387, i32 %1389, i32 %1456
   br label %.loopexit907.i
 
 .loopexit907.i.loopexit463:                       ; preds = %1448
+  %.not874.i = icmp eq i32 %1425, 0
   %1457 = zext i1 %.not874.i to i32
   %.17766.i = select i1 %1423, i32 %1457, i32 %1425
   br label %.loopexit907.i
@@ -12592,7 +12589,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1488 = icmp ult i32 %1484, %1483
   %1489 = getelementptr inbounds nuw i8, ptr %1482, i64 4
   %1490 = load i32, ptr %1489, align 4, !tbaa !123
-  %.not881.i58 = icmp eq i32 %1490, 0
   %.sink1101.i = select i1 %1488, i64 8, i64 16
   %1491 = getelementptr inbounds nuw i8, ptr %1482, i64 %.sink1101.i
   %storemerge882.i59 = load ptr, ptr %1491, align 8, !tbaa !119
@@ -12658,7 +12654,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1524 = icmp ult i32 %1484, %1483
   %1525 = getelementptr inbounds nuw i8, ptr %1482, i64 4
   %1526 = load i32, ptr %1525, align 4, !tbaa !123
-  %.not880.i54 = icmp eq i32 %1526, 0
   %.sink1102.i = select i1 %1524, i64 16, i64 8
   %1527 = getelementptr inbounds nuw i8, ptr %1482, i64 %.sink1102.i
   %storemerge879.i55 = load ptr, ptr %1527, align 8, !tbaa !119
@@ -12719,11 +12714,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit905.i
 
 .loopexit905.i.loopexit:                          ; preds = %1513
+  %.not881.i58 = icmp eq i32 %1490, 0
   %1557 = zext i1 %.not881.i58 to i32
   %.18767.i = select i1 %1488, i32 %1490, i32 %1557
   br label %.loopexit905.i
 
 .loopexit905.i.loopexit462:                       ; preds = %1549
+  %.not880.i54 = icmp eq i32 %1526, 0
   %1558 = zext i1 %.not880.i54 to i32
   %.20769.i = select i1 %1524, i32 %1558, i32 %1526
   br label %.loopexit905.i
@@ -12773,7 +12770,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1588 = icmp ult i32 %1584, %1583
   %1589 = getelementptr inbounds nuw i8, ptr %1582, i64 4
   %1590 = load i32, ptr %1589, align 4, !tbaa !123
-  %.not886.i = icmp eq i32 %1590, 0
   %.sink1103.i = select i1 %1588, i64 8, i64 16
   %1591 = getelementptr inbounds nuw i8, ptr %1582, i64 %.sink1103.i
   %storemerge887.i = load ptr, ptr %1591, align 8, !tbaa !119
@@ -12839,7 +12835,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1624 = icmp ult i32 %1584, %1583
   %1625 = getelementptr inbounds nuw i8, ptr %1582, i64 4
   %1626 = load i32, ptr %1625, align 4, !tbaa !123
-  %.not885.i = icmp eq i32 %1626, 0
   %.sink1104.i = select i1 %1624, i64 16, i64 8
   %1627 = getelementptr inbounds nuw i8, ptr %1582, i64 %.sink1104.i
   %storemerge884.i = load ptr, ptr %1627, align 8, !tbaa !119
@@ -12900,11 +12895,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br label %.loopexit.i43
 
 .loopexit.i43.loopexit:                           ; preds = %1613
+  %.not886.i = icmp eq i32 %1590, 0
   %1657 = zext i1 %.not886.i to i32
   %.21770.i = select i1 %1588, i32 %1590, i32 %1657
   br label %.loopexit.i43
 
 .loopexit.i43.loopexit461:                        ; preds = %1649
+  %.not885.i = icmp eq i32 %1626, 0
   %1658 = zext i1 %.not885.i to i32
   %.23772.i = select i1 %1624, i32 %1658, i32 %1626
   br label %.loopexit.i43
@@ -13082,7 +13079,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1750 = icmp ult i32 %1738, %1737
   %1751 = getelementptr inbounds nuw i8, ptr %1736, i64 4
   %1752 = load i32, ptr %1751, align 4, !tbaa !123
-  %.not860.us.i = icmp eq i32 %1752, 0
   %.sink.i113 = select i1 %1750, i64 16, i64 8
   %1753 = getelementptr inbounds nuw i8, ptr %1736, i64 %.sink.i113
   %storemerge.us.i = load ptr, ptr %1753, align 8, !tbaa !119
@@ -13141,7 +13137,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1781 = icmp ult i32 %1738, %1737
   %1782 = getelementptr inbounds nuw i8, ptr %1736, i64 4
   %1783 = load i32, ptr %1782, align 4, !tbaa !123
-  %.not861.us.i = icmp eq i32 %1783, 0
   %.sink1153.i = select i1 %1781, i64 8, i64 16
   %1784 = getelementptr inbounds nuw i8, ptr %1736, i64 %.sink1153.i
   %storemerge862.us.i = load ptr, ptr %1784, align 8, !tbaa !119
@@ -13197,11 +13192,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %1810, label %1785, label %.loopexit932.us.i.loopexit, !llvm.loop !342
 
 .loopexit932.us.i.loopexit:                       ; preds = %1806
+  %.not861.us.i = icmp eq i32 %1783, 0
   %1811 = zext i1 %.not861.us.i to i32
   %.0759.us.i = select i1 %1781, i32 %1783, i32 %1811
   br label %.loopexit932.us.i
 
 .loopexit932.us.i.loopexit493:                    ; preds = %1775
+  %.not860.us.i = icmp eq i32 %1752, 0
   %1812 = zext i1 %.not860.us.i to i32
   %.2761.us.i = select i1 %1750, i32 %1812, i32 %1752
   br label %.loopexit932.us.i
@@ -13263,7 +13260,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1850 = icmp ult i32 %1838, %1837
   %1851 = getelementptr inbounds nuw i8, ptr %1836, i64 4
   %1852 = load i32, ptr %1851, align 4, !tbaa !123
-  %.not865.us.i = icmp eq i32 %1852, 0
   %.sink1154.i = select i1 %1850, i64 16, i64 8
   %1853 = getelementptr inbounds nuw i8, ptr %1836, i64 %.sink1154.i
   %storemerge864.us.i = load ptr, ptr %1853, align 8, !tbaa !119
@@ -13322,7 +13318,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1881 = icmp ult i32 %1838, %1837
   %1882 = getelementptr inbounds nuw i8, ptr %1836, i64 4
   %1883 = load i32, ptr %1882, align 4, !tbaa !123
-  %.not866.us.i = icmp eq i32 %1883, 0
   %.sink1155.i = select i1 %1881, i64 8, i64 16
   %1884 = getelementptr inbounds nuw i8, ptr %1836, i64 %.sink1155.i
   %storemerge867.us.i = load ptr, ptr %1884, align 8, !tbaa !119
@@ -13378,11 +13373,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %1910, label %1885, label %.loopexit930.us.i.loopexit, !llvm.loop !344
 
 .loopexit930.us.i.loopexit:                       ; preds = %1906
+  %.not866.us.i = icmp eq i32 %1883, 0
   %1911 = zext i1 %.not866.us.i to i32
   %.3762.us.i = select i1 %1881, i32 %1883, i32 %1911
   br label %.loopexit930.us.i
 
 .loopexit930.us.i.loopexit492:                    ; preds = %1875
+  %.not865.us.i = icmp eq i32 %1852, 0
   %1912 = zext i1 %.not865.us.i to i32
   %.5764.us.i = select i1 %1850, i32 %1912, i32 %1852
   br label %.loopexit930.us.i
@@ -13461,7 +13458,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1950 = icmp ult i32 %1938, %1937
   %1951 = getelementptr inbounds nuw i8, ptr %1936, i64 4
   %1952 = load i32, ptr %1951, align 4, !tbaa !123
-  %.not871.us.i = icmp eq i32 %1952, 0
   %.sink1156.i = select i1 %1950, i64 16, i64 8
   %1953 = getelementptr inbounds nuw i8, ptr %1936, i64 %.sink1156.i
   %storemerge870.us.i = load ptr, ptr %1953, align 8, !tbaa !119
@@ -13520,7 +13516,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %1981 = icmp ult i32 %1938, %1937
   %1982 = getelementptr inbounds nuw i8, ptr %1936, i64 4
   %1983 = load i32, ptr %1982, align 4, !tbaa !123
-  %.not872.us.i = icmp eq i32 %1983, 0
   %.sink1157.i = select i1 %1981, i64 8, i64 16
   %1984 = getelementptr inbounds nuw i8, ptr %1936, i64 %.sink1157.i
   %storemerge873.us.i = load ptr, ptr %1984, align 8, !tbaa !119
@@ -13576,11 +13571,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %2010, label %1985, label %.loopexit928.us.i.loopexit, !llvm.loop !346
 
 .loopexit928.us.i.loopexit:                       ; preds = %2006
+  %.not872.us.i = icmp eq i32 %1983, 0
   %2011 = zext i1 %.not872.us.i to i32
   %.6765.us.i = select i1 %1981, i32 %1983, i32 %2011
   br label %.loopexit928.us.i
 
 .loopexit928.us.i.loopexit491:                    ; preds = %1975
+  %.not871.us.i = icmp eq i32 %1952, 0
   %2012 = zext i1 %.not871.us.i to i32
   %.8767.us.i = select i1 %1950, i32 %2012, i32 %1952
   br label %.loopexit928.us.i
@@ -13642,7 +13639,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2050 = icmp ult i32 %2038, %2037
   %2051 = getelementptr inbounds nuw i8, ptr %2036, i64 4
   %2052 = load i32, ptr %2051, align 4, !tbaa !123
-  %.not876.us.i = icmp eq i32 %2052, 0
   %.sink1158.i = select i1 %2050, i64 16, i64 8
   %2053 = getelementptr inbounds nuw i8, ptr %2036, i64 %.sink1158.i
   %storemerge875.us.i = load ptr, ptr %2053, align 8, !tbaa !119
@@ -13701,7 +13697,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2081 = icmp ult i32 %2038, %2037
   %2082 = getelementptr inbounds nuw i8, ptr %2036, i64 4
   %2083 = load i32, ptr %2082, align 4, !tbaa !123
-  %.not877.us.i = icmp eq i32 %2083, 0
   %.sink1159.i = select i1 %2081, i64 8, i64 16
   %2084 = getelementptr inbounds nuw i8, ptr %2036, i64 %.sink1159.i
   %storemerge878.us.i = load ptr, ptr %2084, align 8, !tbaa !119
@@ -13757,11 +13752,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %2110, label %2085, label %.loopexit926.us.i.loopexit, !llvm.loop !348
 
 .loopexit926.us.i.loopexit:                       ; preds = %2106
+  %.not877.us.i = icmp eq i32 %2083, 0
   %2111 = zext i1 %.not877.us.i to i32
   %.9768.us.i = select i1 %2081, i32 %2083, i32 %2111
   br label %.loopexit926.us.i
 
 .loopexit926.us.i.loopexit490:                    ; preds = %2075
+  %.not876.us.i = icmp eq i32 %2052, 0
   %2112 = zext i1 %.not876.us.i to i32
   %.11770.us.i = select i1 %2050, i32 %2112, i32 %2052
   br label %.loopexit926.us.i
@@ -13841,7 +13838,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2151 = icmp ult i32 %2139, %2138
   %2152 = getelementptr inbounds nuw i8, ptr %2137, i64 4
   %2153 = load i32, ptr %2152, align 4, !tbaa !123
-  %.not882.us.i = icmp eq i32 %2153, 0
   %.sink1160.i = select i1 %2151, i64 16, i64 8
   %2154 = getelementptr inbounds nuw i8, ptr %2137, i64 %.sink1160.i
   %storemerge881.us.i = load ptr, ptr %2154, align 8, !tbaa !119
@@ -13900,7 +13896,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2182 = icmp ult i32 %2139, %2138
   %2183 = getelementptr inbounds nuw i8, ptr %2137, i64 4
   %2184 = load i32, ptr %2183, align 4, !tbaa !123
-  %.not883.us.i = icmp eq i32 %2184, 0
   %.sink1161.i = select i1 %2182, i64 8, i64 16
   %2185 = getelementptr inbounds nuw i8, ptr %2137, i64 %.sink1161.i
   %storemerge884.us.i = load ptr, ptr %2185, align 8, !tbaa !119
@@ -13956,11 +13951,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %2211, label %2186, label %.loopexit924.us.i.loopexit, !llvm.loop !350
 
 .loopexit924.us.i.loopexit:                       ; preds = %2207
+  %.not883.us.i = icmp eq i32 %2184, 0
   %2212 = zext i1 %.not883.us.i to i32
   %.12771.us.i = select i1 %2182, i32 %2184, i32 %2212
   br label %.loopexit924.us.i
 
 .loopexit924.us.i.loopexit489:                    ; preds = %2176
+  %.not882.us.i = icmp eq i32 %2153, 0
   %2213 = zext i1 %.not882.us.i to i32
   %.14773.us.i = select i1 %2151, i32 %2213, i32 %2153
   br label %.loopexit924.us.i
@@ -14022,7 +14019,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2251 = icmp ult i32 %2239, %2238
   %2252 = getelementptr inbounds nuw i8, ptr %2237, i64 4
   %2253 = load i32, ptr %2252, align 4, !tbaa !123
-  %.not887.us.i = icmp eq i32 %2253, 0
   %.sink1162.i = select i1 %2251, i64 16, i64 8
   %2254 = getelementptr inbounds nuw i8, ptr %2237, i64 %.sink1162.i
   %storemerge886.us.i = load ptr, ptr %2254, align 8, !tbaa !119
@@ -14081,7 +14077,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2282 = icmp ult i32 %2239, %2238
   %2283 = getelementptr inbounds nuw i8, ptr %2237, i64 4
   %2284 = load i32, ptr %2283, align 4, !tbaa !123
-  %.not888.us.i = icmp eq i32 %2284, 0
   %.sink1163.i = select i1 %2282, i64 8, i64 16
   %2285 = getelementptr inbounds nuw i8, ptr %2237, i64 %.sink1163.i
   %storemerge889.us.i = load ptr, ptr %2285, align 8, !tbaa !119
@@ -14137,11 +14132,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %2311, label %2286, label %.loopexit922.us.i.loopexit, !llvm.loop !352
 
 .loopexit922.us.i.loopexit:                       ; preds = %2307
+  %.not888.us.i = icmp eq i32 %2284, 0
   %2312 = zext i1 %.not888.us.i to i32
   %.15774.us.i = select i1 %2282, i32 %2284, i32 %2312
   br label %.loopexit922.us.i
 
 .loopexit922.us.i.loopexit488:                    ; preds = %2276
+  %.not887.us.i = icmp eq i32 %2253, 0
   %2313 = zext i1 %.not887.us.i to i32
   %.17776.us.i = select i1 %2251, i32 %2313, i32 %2253
   br label %.loopexit922.us.i
@@ -14221,7 +14218,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2352 = icmp ult i32 %2340, %2339
   %2353 = getelementptr inbounds nuw i8, ptr %2338, i64 4
   %2354 = load i32, ptr %2353, align 4, !tbaa !123
-  %.not893.us.i = icmp eq i32 %2354, 0
   %.sink1164.i = select i1 %2352, i64 16, i64 8
   %2355 = getelementptr inbounds nuw i8, ptr %2338, i64 %.sink1164.i
   %storemerge892.us.i = load ptr, ptr %2355, align 8, !tbaa !119
@@ -14280,7 +14276,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2383 = icmp ult i32 %2340, %2339
   %2384 = getelementptr inbounds nuw i8, ptr %2338, i64 4
   %2385 = load i32, ptr %2384, align 4, !tbaa !123
-  %.not894.us.i = icmp eq i32 %2385, 0
   %.sink1165.i = select i1 %2383, i64 8, i64 16
   %2386 = getelementptr inbounds nuw i8, ptr %2338, i64 %.sink1165.i
   %storemerge895.us.i = load ptr, ptr %2386, align 8, !tbaa !119
@@ -14336,11 +14331,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %2412, label %2387, label %.loopexit920.us.i.loopexit, !llvm.loop !354
 
 .loopexit920.us.i.loopexit:                       ; preds = %2408
+  %.not894.us.i = icmp eq i32 %2385, 0
   %2413 = zext i1 %.not894.us.i to i32
   %.18777.us.i = select i1 %2383, i32 %2385, i32 %2413
   br label %.loopexit920.us.i
 
 .loopexit920.us.i.loopexit487:                    ; preds = %2377
+  %.not893.us.i = icmp eq i32 %2354, 0
   %2414 = zext i1 %.not893.us.i to i32
   %.20779.us.i = select i1 %2352, i32 %2414, i32 %2354
   br label %.loopexit920.us.i
@@ -14402,7 +14399,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2452 = icmp ult i32 %2440, %2439
   %2453 = getelementptr inbounds nuw i8, ptr %2438, i64 4
   %2454 = load i32, ptr %2453, align 4, !tbaa !123
-  %.not898.us.i = icmp eq i32 %2454, 0
   %.sink1166.i = select i1 %2452, i64 16, i64 8
   %2455 = getelementptr inbounds nuw i8, ptr %2438, i64 %.sink1166.i
   %storemerge897.us.i = load ptr, ptr %2455, align 8, !tbaa !119
@@ -14461,7 +14457,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2483 = icmp ult i32 %2440, %2439
   %2484 = getelementptr inbounds nuw i8, ptr %2438, i64 4
   %2485 = load i32, ptr %2484, align 4, !tbaa !123
-  %.not899.us.i = icmp eq i32 %2485, 0
   %.sink1167.i = select i1 %2483, i64 8, i64 16
   %2486 = getelementptr inbounds nuw i8, ptr %2438, i64 %.sink1167.i
   %storemerge900.us.i = load ptr, ptr %2486, align 8, !tbaa !119
@@ -14517,11 +14512,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %2512, label %2487, label %.loopexit918.us.i.loopexit, !llvm.loop !356
 
 .loopexit918.us.i.loopexit:                       ; preds = %2508
+  %.not899.us.i = icmp eq i32 %2485, 0
   %2513 = zext i1 %.not899.us.i to i32
   %.21780.us.i = select i1 %2483, i32 %2485, i32 %2513
   br label %.loopexit918.us.i
 
 .loopexit918.us.i.loopexit486:                    ; preds = %2477
+  %.not898.us.i = icmp eq i32 %2454, 0
   %2514 = zext i1 %.not898.us.i to i32
   %.23782.us.i = select i1 %2452, i32 %2514, i32 %2454
   br label %.loopexit918.us.i
@@ -14606,15 +14603,15 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2552 = and i32 %1712, -4
   %2553 = add i32 %2552, -1
   %2554 = and i32 %2553, -4
-  %2555 = lshr i32 %2553, 2
-  %2556 = zext nneg i32 %2555 to i64
-  %2557 = shl nuw nsw i64 %2556, 2
-  %2558 = add nuw nsw i64 %2557, 4
-  %2559 = mul nuw nsw i64 %2558, %1723
-  %2560 = shl nuw nsw i64 %2556, 3
-  %2561 = add nuw i32 %2554, 4
-  %scevgep.i = getelementptr i8, ptr %1695, i64 %2559
-  %2562 = getelementptr i8, ptr %1697, i64 %2560
+  %2555 = add nuw i32 %2554, 4
+  %2556 = lshr i32 %2553, 2
+  %2557 = zext nneg i32 %2556 to i64
+  %2558 = shl nuw nsw i64 %2557, 2
+  %2559 = add nuw nsw i64 %2558, 4
+  %2560 = mul nuw nsw i64 %2559, %1723
+  %scevgep.i = getelementptr i8, ptr %1695, i64 %2560
+  %2561 = shl nuw nsw i64 %2557, 3
+  %2562 = getelementptr i8, ptr %1697, i64 %2561
   %scevgep1089.i = getelementptr i8, ptr %2562, i64 20
   br label %._crit_edge1003.i
 
@@ -14625,7 +14622,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.0635.lcssa.i = phi ptr [ %1702, %1713 ], [ %1702, %.preheader934.lr.ph.split.i ], [ %.2637.us.i, %._crit_edge.us.i ]
   %.0632.lcssa.i = phi ptr [ %1700, %1713 ], [ %scevgep1089.i, %.preheader934.lr.ph.split.i ], [ %2548, %._crit_edge.us.i ]
   %.0630.lcssa.i = phi ptr [ %1695, %1713 ], [ %scevgep.i, %.preheader934.lr.ph.split.i ], [ %2547, %._crit_edge.us.i ]
-  %.0629.lcssa.i = phi i32 [ 0, %1713 ], [ %2561, %.preheader934.lr.ph.split.i ], [ %2546, %._crit_edge.us.i ]
+  %.0629.lcssa.i = phi i32 [ 0, %1713 ], [ %2555, %.preheader934.lr.ph.split.i ], [ %2546, %._crit_edge.us.i ]
   %.lcssa982.i = phi i32 [ %1712, %1713 ], [ %1712, %.preheader934.lr.ph.split.i ], [ %2549, %._crit_edge.us.i ]
   store ptr %.0635.lcssa.i, ptr %1701, align 8, !tbaa !117
   store i32 %.0638.lcssa.i, ptr %0, align 8, !tbaa !107
@@ -14745,7 +14742,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2617 = icmp ult i32 %2605, %2604
   %2618 = getelementptr inbounds nuw i8, ptr %2603, i64 4
   %2619 = load i32, ptr %2618, align 4, !tbaa !123
-  %.not866.us.i220 = icmp eq i32 %2619, 0
   %.sink.i221 = select i1 %2617, i64 16, i64 8
   %2620 = getelementptr inbounds nuw i8, ptr %2603, i64 %.sink.i221
   %storemerge.us.i222 = load ptr, ptr %2620, align 8, !tbaa !119
@@ -14804,7 +14800,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2648 = icmp ult i32 %2605, %2604
   %2649 = getelementptr inbounds nuw i8, ptr %2603, i64 4
   %2650 = load i32, ptr %2649, align 4, !tbaa !123
-  %.not867.us.i = icmp eq i32 %2650, 0
   %.sink1159.i223 = select i1 %2648, i64 8, i64 16
   %2651 = getelementptr inbounds nuw i8, ptr %2603, i64 %.sink1159.i223
   %storemerge868.us.i = load ptr, ptr %2651, align 8, !tbaa !119
@@ -14860,11 +14855,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %2677, label %2652, label %.loopexit938.us.i.loopexit, !llvm.loop !362
 
 .loopexit938.us.i.loopexit:                       ; preds = %2673
+  %.not867.us.i = icmp eq i32 %2650, 0
   %2678 = zext i1 %.not867.us.i to i32
   %.0765.us.i = select i1 %2648, i32 %2650, i32 %2678
   br label %.loopexit938.us.i
 
 .loopexit938.us.i.loopexit484:                    ; preds = %2642
+  %.not866.us.i220 = icmp eq i32 %2619, 0
   %2679 = zext i1 %.not866.us.i220 to i32
   %.2767.us.i = select i1 %2617, i32 %2679, i32 %2619
   br label %.loopexit938.us.i
@@ -14926,7 +14923,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2717 = icmp ult i32 %2705, %2704
   %2718 = getelementptr inbounds nuw i8, ptr %2703, i64 4
   %2719 = load i32, ptr %2718, align 4, !tbaa !123
-  %.not871.us.i210 = icmp eq i32 %2719, 0
   %.sink1160.i211 = select i1 %2717, i64 16, i64 8
   %2720 = getelementptr inbounds nuw i8, ptr %2703, i64 %.sink1160.i211
   %storemerge870.us.i212 = load ptr, ptr %2720, align 8, !tbaa !119
@@ -14985,7 +14981,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2748 = icmp ult i32 %2705, %2704
   %2749 = getelementptr inbounds nuw i8, ptr %2703, i64 4
   %2750 = load i32, ptr %2749, align 4, !tbaa !123
-  %.not872.us.i215 = icmp eq i32 %2750, 0
   %.sink1161.i216 = select i1 %2748, i64 8, i64 16
   %2751 = getelementptr inbounds nuw i8, ptr %2703, i64 %.sink1161.i216
   %storemerge873.us.i217 = load ptr, ptr %2751, align 8, !tbaa !119
@@ -15041,11 +15036,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %2777, label %2752, label %.loopexit936.us.i.loopexit, !llvm.loop !364
 
 .loopexit936.us.i.loopexit:                       ; preds = %2773
+  %.not872.us.i215 = icmp eq i32 %2750, 0
   %2778 = zext i1 %.not872.us.i215 to i32
   %.3768.us.i = select i1 %2748, i32 %2750, i32 %2778
   br label %.loopexit936.us.i
 
 .loopexit936.us.i.loopexit483:                    ; preds = %2742
+  %.not871.us.i210 = icmp eq i32 %2719, 0
   %2779 = zext i1 %.not871.us.i210 to i32
   %.5770.us.i = select i1 %2717, i32 %2779, i32 %2719
   br label %.loopexit936.us.i
@@ -15142,7 +15139,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2832 = icmp ult i32 %2820, %2819
   %2833 = getelementptr inbounds nuw i8, ptr %2818, i64 4
   %2834 = load i32, ptr %2833, align 4, !tbaa !123
-  %.not877.us.i203 = icmp eq i32 %2834, 0
   %.sink1162.i204 = select i1 %2832, i64 16, i64 8
   %2835 = getelementptr inbounds nuw i8, ptr %2818, i64 %.sink1162.i204
   %storemerge876.us.i = load ptr, ptr %2835, align 8, !tbaa !119
@@ -15201,7 +15197,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2863 = icmp ult i32 %2820, %2819
   %2864 = getelementptr inbounds nuw i8, ptr %2818, i64 4
   %2865 = load i32, ptr %2864, align 4, !tbaa !123
-  %.not878.us.i = icmp eq i32 %2865, 0
   %.sink1163.i207 = select i1 %2863, i64 8, i64 16
   %2866 = getelementptr inbounds nuw i8, ptr %2818, i64 %.sink1163.i207
   %storemerge879.us.i = load ptr, ptr %2866, align 8, !tbaa !119
@@ -15257,11 +15252,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %2892, label %2867, label %.loopexit934.us.i.loopexit, !llvm.loop !366
 
 .loopexit934.us.i.loopexit:                       ; preds = %2888
+  %.not878.us.i = icmp eq i32 %2865, 0
   %2893 = zext i1 %.not878.us.i to i32
   %.6771.us.i = select i1 %2863, i32 %2865, i32 %2893
   br label %.loopexit934.us.i
 
 .loopexit934.us.i.loopexit482:                    ; preds = %2857
+  %.not877.us.i203 = icmp eq i32 %2834, 0
   %2894 = zext i1 %.not877.us.i203 to i32
   %.8773.us.i = select i1 %2832, i32 %2894, i32 %2834
   br label %.loopexit934.us.i
@@ -15323,7 +15320,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2932 = icmp ult i32 %2920, %2919
   %2933 = getelementptr inbounds nuw i8, ptr %2918, i64 4
   %2934 = load i32, ptr %2933, align 4, !tbaa !123
-  %.not882.us.i193 = icmp eq i32 %2934, 0
   %.sink1164.i194 = select i1 %2932, i64 16, i64 8
   %2935 = getelementptr inbounds nuw i8, ptr %2918, i64 %.sink1164.i194
   %storemerge881.us.i195 = load ptr, ptr %2935, align 8, !tbaa !119
@@ -15382,7 +15378,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %2963 = icmp ult i32 %2920, %2919
   %2964 = getelementptr inbounds nuw i8, ptr %2918, i64 4
   %2965 = load i32, ptr %2964, align 4, !tbaa !123
-  %.not883.us.i198 = icmp eq i32 %2965, 0
   %.sink1165.i199 = select i1 %2963, i64 8, i64 16
   %2966 = getelementptr inbounds nuw i8, ptr %2918, i64 %.sink1165.i199
   %storemerge884.us.i200 = load ptr, ptr %2966, align 8, !tbaa !119
@@ -15438,11 +15433,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %2992, label %2967, label %.loopexit932.us.i133.loopexit, !llvm.loop !368
 
 .loopexit932.us.i133.loopexit:                    ; preds = %2988
+  %.not883.us.i198 = icmp eq i32 %2965, 0
   %2993 = zext i1 %.not883.us.i198 to i32
   %.9774.us.i = select i1 %2963, i32 %2965, i32 %2993
   br label %.loopexit932.us.i133
 
 .loopexit932.us.i133.loopexit481:                 ; preds = %2957
+  %.not882.us.i193 = icmp eq i32 %2934, 0
   %2994 = zext i1 %.not882.us.i193 to i32
   %.11776.us.i = select i1 %2932, i32 %2994, i32 %2934
   br label %.loopexit932.us.i133
@@ -15522,7 +15519,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3033 = icmp ult i32 %3021, %3020
   %3034 = getelementptr inbounds nuw i8, ptr %3019, i64 4
   %3035 = load i32, ptr %3034, align 4, !tbaa !123
-  %.not888.us.i186 = icmp eq i32 %3035, 0
   %.sink1166.i187 = select i1 %3033, i64 16, i64 8
   %3036 = getelementptr inbounds nuw i8, ptr %3019, i64 %.sink1166.i187
   %storemerge887.us.i = load ptr, ptr %3036, align 8, !tbaa !119
@@ -15581,7 +15577,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3064 = icmp ult i32 %3021, %3020
   %3065 = getelementptr inbounds nuw i8, ptr %3019, i64 4
   %3066 = load i32, ptr %3065, align 4, !tbaa !123
-  %.not889.us.i = icmp eq i32 %3066, 0
   %.sink1167.i190 = select i1 %3064, i64 8, i64 16
   %3067 = getelementptr inbounds nuw i8, ptr %3019, i64 %.sink1167.i190
   %storemerge890.us.i = load ptr, ptr %3067, align 8, !tbaa !119
@@ -15637,11 +15632,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %3093, label %3068, label %.loopexit930.us.i140.loopexit, !llvm.loop !370
 
 .loopexit930.us.i140.loopexit:                    ; preds = %3089
+  %.not889.us.i = icmp eq i32 %3066, 0
   %3094 = zext i1 %.not889.us.i to i32
   %.12777.us.i = select i1 %3064, i32 %3066, i32 %3094
   br label %.loopexit930.us.i140
 
 .loopexit930.us.i140.loopexit480:                 ; preds = %3058
+  %.not888.us.i186 = icmp eq i32 %3035, 0
   %3095 = zext i1 %.not888.us.i186 to i32
   %.14779.us.i = select i1 %3033, i32 %3095, i32 %3035
   br label %.loopexit930.us.i140
@@ -15703,7 +15700,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3133 = icmp ult i32 %3121, %3120
   %3134 = getelementptr inbounds nuw i8, ptr %3119, i64 4
   %3135 = load i32, ptr %3134, align 4, !tbaa !123
-  %.not893.us.i178 = icmp eq i32 %3135, 0
   %.sink1168.i = select i1 %3133, i64 16, i64 8
   %3136 = getelementptr inbounds nuw i8, ptr %3119, i64 %.sink1168.i
   %storemerge892.us.i179 = load ptr, ptr %3136, align 8, !tbaa !119
@@ -15762,7 +15758,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3164 = icmp ult i32 %3121, %3120
   %3165 = getelementptr inbounds nuw i8, ptr %3119, i64 4
   %3166 = load i32, ptr %3165, align 4, !tbaa !123
-  %.not894.us.i182 = icmp eq i32 %3166, 0
   %.sink1169.i = select i1 %3164, i64 8, i64 16
   %3167 = getelementptr inbounds nuw i8, ptr %3119, i64 %.sink1169.i
   %storemerge895.us.i183 = load ptr, ptr %3167, align 8, !tbaa !119
@@ -15818,11 +15813,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %3193, label %3168, label %.loopexit928.us.i143.loopexit, !llvm.loop !372
 
 .loopexit928.us.i143.loopexit:                    ; preds = %3189
+  %.not894.us.i182 = icmp eq i32 %3166, 0
   %3194 = zext i1 %.not894.us.i182 to i32
   %.15780.us.i = select i1 %3164, i32 %3166, i32 %3194
   br label %.loopexit928.us.i143
 
 .loopexit928.us.i143.loopexit479:                 ; preds = %3158
+  %.not893.us.i178 = icmp eq i32 %3135, 0
   %3195 = zext i1 %.not893.us.i178 to i32
   %.17782.us.i = select i1 %3133, i32 %3195, i32 %3135
   br label %.loopexit928.us.i143
@@ -15902,7 +15899,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3234 = icmp ult i32 %3222, %3221
   %3235 = getelementptr inbounds nuw i8, ptr %3220, i64 4
   %3236 = load i32, ptr %3235, align 4, !tbaa !123
-  %.not899.us.i173 = icmp eq i32 %3236, 0
   %.sink1170.i = select i1 %3234, i64 16, i64 8
   %3237 = getelementptr inbounds nuw i8, ptr %3220, i64 %.sink1170.i
   %storemerge898.us.i = load ptr, ptr %3237, align 8, !tbaa !119
@@ -15961,7 +15957,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3265 = icmp ult i32 %3222, %3221
   %3266 = getelementptr inbounds nuw i8, ptr %3220, i64 4
   %3267 = load i32, ptr %3266, align 4, !tbaa !123
-  %.not900.us.i = icmp eq i32 %3267, 0
   %.sink1171.i = select i1 %3265, i64 8, i64 16
   %3268 = getelementptr inbounds nuw i8, ptr %3220, i64 %.sink1171.i
   %storemerge901.us.i = load ptr, ptr %3268, align 8, !tbaa !119
@@ -16017,11 +16012,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %3294, label %3269, label %.loopexit926.us.i150.loopexit, !llvm.loop !374
 
 .loopexit926.us.i150.loopexit:                    ; preds = %3290
+  %.not900.us.i = icmp eq i32 %3267, 0
   %3295 = zext i1 %.not900.us.i to i32
   %.18783.us.i = select i1 %3265, i32 %3267, i32 %3295
   br label %.loopexit926.us.i150
 
 .loopexit926.us.i150.loopexit478:                 ; preds = %3259
+  %.not899.us.i173 = icmp eq i32 %3236, 0
   %3296 = zext i1 %.not899.us.i173 to i32
   %.20785.us.i = select i1 %3234, i32 %3296, i32 %3236
   br label %.loopexit926.us.i150
@@ -16083,7 +16080,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3334 = icmp ult i32 %3322, %3321
   %3335 = getelementptr inbounds nuw i8, ptr %3320, i64 4
   %3336 = load i32, ptr %3335, align 4, !tbaa !123
-  %.not904.us.i = icmp eq i32 %3336, 0
   %.sink1172.i = select i1 %3334, i64 16, i64 8
   %3337 = getelementptr inbounds nuw i8, ptr %3320, i64 %.sink1172.i
   %storemerge903.us.i = load ptr, ptr %3337, align 8, !tbaa !119
@@ -16142,7 +16138,6 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3365 = icmp ult i32 %3322, %3321
   %3366 = getelementptr inbounds nuw i8, ptr %3320, i64 4
   %3367 = load i32, ptr %3366, align 4, !tbaa !123
-  %.not905.us.i = icmp eq i32 %3367, 0
   %.sink1173.i = select i1 %3365, i64 8, i64 16
   %3368 = getelementptr inbounds nuw i8, ptr %3320, i64 %.sink1173.i
   %storemerge906.us.i = load ptr, ptr %3368, align 8, !tbaa !119
@@ -16198,11 +16193,13 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   br i1 %3394, label %3369, label %.loopexit924.us.i152.loopexit, !llvm.loop !376
 
 .loopexit924.us.i152.loopexit:                    ; preds = %3390
+  %.not905.us.i = icmp eq i32 %3367, 0
   %3395 = zext i1 %.not905.us.i to i32
   %.21786.us.i = select i1 %3365, i32 %3367, i32 %3395
   br label %.loopexit924.us.i152
 
 .loopexit924.us.i152.loopexit477:                 ; preds = %3359
+  %.not904.us.i = icmp eq i32 %3336, 0
   %3396 = zext i1 %.not904.us.i to i32
   %.23788.us.i = select i1 %3334, i32 %3396, i32 %3336
   br label %.loopexit924.us.i152
@@ -16287,15 +16284,15 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %3434 = and i32 %1712, -4
   %3435 = add i32 %3434, -1
   %3436 = and i32 %3435, -4
-  %3437 = lshr i32 %3435, 2
-  %3438 = zext nneg i32 %3437 to i64
-  %3439 = shl nuw nsw i64 %3438, 2
-  %3440 = add nuw nsw i64 %3439, 4
-  %3441 = mul nuw nsw i64 %3440, %2590
-  %3442 = shl nuw nsw i64 %3438, 3
-  %3443 = add nuw i32 %3436, 4
-  %scevgep.i224 = getelementptr i8, ptr %1695, i64 %3441
-  %3444 = getelementptr i8, ptr %1697, i64 %3442
+  %3437 = add nuw i32 %3436, 4
+  %3438 = lshr i32 %3435, 2
+  %3439 = zext nneg i32 %3438 to i64
+  %3440 = shl nuw nsw i64 %3439, 2
+  %3441 = add nuw nsw i64 %3440, 4
+  %3442 = mul nuw nsw i64 %3441, %2590
+  %scevgep.i224 = getelementptr i8, ptr %1695, i64 %3442
+  %3443 = shl nuw nsw i64 %3439, 3
+  %3444 = getelementptr i8, ptr %1697, i64 %3443
   %scevgep1095.i = getelementptr i8, ptr %3444, i64 20
   br label %._crit_edge1009.i
 
@@ -16306,7 +16303,7 @@ define internal fastcc void @opj_t1_dec_sigpass_mqc(ptr noundef nonnull %0, i32 
   %.0641.lcssa.i = phi ptr [ %1702, %2580 ], [ %1702, %.preheader940.lr.ph.split.i ], [ %.2643.us.i, %._crit_edge.us.i159 ]
   %.0638.lcssa.i160 = phi ptr [ %1700, %2580 ], [ %scevgep1095.i, %.preheader940.lr.ph.split.i ], [ %3430, %._crit_edge.us.i159 ]
   %.0636.lcssa.i = phi ptr [ %1695, %2580 ], [ %scevgep.i224, %.preheader940.lr.ph.split.i ], [ %3429, %._crit_edge.us.i159 ]
-  %.0635.lcssa.i161 = phi i32 [ 0, %2580 ], [ %3443, %.preheader940.lr.ph.split.i ], [ %3428, %._crit_edge.us.i159 ]
+  %.0635.lcssa.i161 = phi i32 [ 0, %2580 ], [ %3437, %.preheader940.lr.ph.split.i ], [ %3428, %._crit_edge.us.i159 ]
   %.lcssa988.i = phi i32 [ %1712, %2580 ], [ %1712, %.preheader940.lr.ph.split.i ], [ %3431, %._crit_edge.us.i159 ]
   store ptr %.0641.lcssa.i, ptr %1701, align 8, !tbaa !117
   store i32 %.0644.lcssa.i, ptr %0, align 8, !tbaa !107
@@ -16438,7 +16435,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %45 = icmp ult i32 %41, %40
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !123
-  %.not1792.i = icmp eq i32 %47, 0
   %.sink.i = select i1 %45, i64 8, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 %.sink.i
   %storemerge1793.i = load ptr, ptr %48, align 8, !tbaa !119
@@ -16504,7 +16500,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %81 = icmp ult i32 %41, %40
   %82 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !123
-  %.not1791.i = icmp eq i32 %83, 0
   %.sink2315.i = select i1 %81, i64 16, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %39, i64 %.sink2315.i
   %storemerge1790.i = load ptr, ptr %84, align 8, !tbaa !119
@@ -16565,11 +16560,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1923.i
 
 .loopexit1923.i.loopexit:                         ; preds = %70
+  %.not1792.i = icmp eq i32 %47, 0
   %114 = zext i1 %.not1792.i to i32
   %.01529.i = select i1 %45, i32 %47, i32 %114
   br label %.loopexit1923.i
 
 .loopexit1923.i.loopexit955:                      ; preds = %106
+  %.not1791.i = icmp eq i32 %83, 0
   %115 = zext i1 %.not1791.i to i32
   %.21531.i = select i1 %81, i32 %115, i32 %83
   br label %.loopexit1923.i
@@ -16594,7 +16591,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %123 = icmp ult i32 %119, %118
   %124 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %125 = load i32, ptr %124, align 4, !tbaa !123
-  %.not1797.i = icmp eq i32 %125, 0
   %.sink2316.i = select i1 %123, i64 8, i64 16
   %126 = getelementptr inbounds nuw i8, ptr %117, i64 %.sink2316.i
   %storemerge1798.i = load ptr, ptr %126, align 8, !tbaa !119
@@ -16660,7 +16656,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %159 = icmp ult i32 %119, %118
   %160 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %161 = load i32, ptr %160, align 4, !tbaa !123
-  %.not1796.i = icmp eq i32 %161, 0
   %.sink2317.i = select i1 %159, i64 16, i64 8
   %162 = getelementptr inbounds nuw i8, ptr %117, i64 %.sink2317.i
   %storemerge1795.i = load ptr, ptr %162, align 8, !tbaa !119
@@ -16721,11 +16716,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1921.i
 
 .loopexit1921.i.loopexit:                         ; preds = %148
+  %.not1797.i = icmp eq i32 %125, 0
   %192 = zext i1 %.not1797.i to i32
   %.0.i = select i1 %123, i32 %125, i32 %192
   br label %.loopexit1921.i
 
 .loopexit1921.i.loopexit954:                      ; preds = %184
+  %.not1796.i = icmp eq i32 %161, 0
   %193 = zext i1 %.not1796.i to i32
   %.2.i = select i1 %159, i32 %193, i32 %161
   br label %.loopexit1921.i
@@ -16746,7 +16743,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %200 = icmp ult i32 %196, %195
   %201 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %202 = load i32, ptr %201, align 4, !tbaa !123
-  %.not1801.i = icmp eq i32 %202, 0
   %.sink2318.i = select i1 %200, i64 8, i64 16
   %203 = getelementptr inbounds nuw i8, ptr %194, i64 %.sink2318.i
   %storemerge1802.i = load ptr, ptr %203, align 8, !tbaa !119
@@ -16812,7 +16808,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %236 = icmp ult i32 %196, %195
   %237 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %238 = load i32, ptr %237, align 4, !tbaa !123
-  %.not1800.i = icmp eq i32 %238, 0
   %.sink2319.i = select i1 %236, i64 16, i64 8
   %239 = getelementptr inbounds nuw i8, ptr %194, i64 %.sink2319.i
   %storemerge1799.i = load ptr, ptr %239, align 8, !tbaa !119
@@ -16873,11 +16868,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1919.i
 
 .loopexit1919.i.loopexit:                         ; preds = %225
+  %.not1801.i = icmp eq i32 %202, 0
   %269 = zext i1 %.not1801.i to i32
   %.31532.i = select i1 %200, i32 %202, i32 %269
   br label %.loopexit1919.i
 
 .loopexit1919.i.loopexit953:                      ; preds = %261
+  %.not1800.i = icmp eq i32 %238, 0
   %270 = zext i1 %.not1800.i to i32
   %.51534.i = select i1 %236, i32 %270, i32 %238
   br label %.loopexit1919.i
@@ -16922,7 +16919,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %294 = icmp ult i32 %290, %289
   %295 = getelementptr inbounds nuw i8, ptr %288, i64 4
   %296 = load i32, ptr %295, align 4, !tbaa !123
-  %.not1805.i = icmp eq i32 %296, 0
   %.sink2320.i = select i1 %294, i64 8, i64 16
   %297 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink2320.i
   %storemerge1806.i = load ptr, ptr %297, align 8, !tbaa !119
@@ -16988,7 +16984,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %330 = icmp ult i32 %290, %289
   %331 = getelementptr inbounds nuw i8, ptr %288, i64 4
   %332 = load i32, ptr %331, align 4, !tbaa !123
-  %.not1804.i = icmp eq i32 %332, 0
   %.sink2321.i = select i1 %330, i64 16, i64 8
   %333 = getelementptr inbounds nuw i8, ptr %288, i64 %.sink2321.i
   %storemerge1803.i = load ptr, ptr %333, align 8, !tbaa !119
@@ -17049,11 +17044,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1917.i
 
 .loopexit1917.i.loopexit:                         ; preds = %319
+  %.not1805.i = icmp eq i32 %296, 0
   %363 = zext i1 %.not1805.i to i32
   %.61535.i = select i1 %294, i32 %296, i32 %363
   br label %.loopexit1917.i
 
 .loopexit1917.i.loopexit952:                      ; preds = %355
+  %.not1804.i = icmp eq i32 %332, 0
   %364 = zext i1 %.not1804.i to i32
   %.81537.i = select i1 %330, i32 %364, i32 %332
   br label %.loopexit1917.i
@@ -17094,7 +17091,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %386 = icmp ult i32 %382, %381
   %387 = getelementptr inbounds nuw i8, ptr %380, i64 4
   %388 = load i32, ptr %387, align 4, !tbaa !123
-  %.not1811.i = icmp eq i32 %388, 0
   %.sink2322.i = select i1 %386, i64 8, i64 16
   %389 = getelementptr inbounds nuw i8, ptr %380, i64 %.sink2322.i
   %storemerge1812.i = load ptr, ptr %389, align 8, !tbaa !119
@@ -17160,7 +17156,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %422 = icmp ult i32 %382, %381
   %423 = getelementptr inbounds nuw i8, ptr %380, i64 4
   %424 = load i32, ptr %423, align 4, !tbaa !123
-  %.not1810.i = icmp eq i32 %424, 0
   %.sink2323.i = select i1 %422, i64 16, i64 8
   %425 = getelementptr inbounds nuw i8, ptr %380, i64 %.sink2323.i
   %storemerge1809.i = load ptr, ptr %425, align 8, !tbaa !119
@@ -17221,11 +17216,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1915.i
 
 .loopexit1915.i.loopexit:                         ; preds = %411
+  %.not1811.i = icmp eq i32 %388, 0
   %455 = zext i1 %.not1811.i to i32
   %.91538.i = select i1 %386, i32 %388, i32 %455
   br label %.loopexit1915.i
 
 .loopexit1915.i.loopexit951:                      ; preds = %447
+  %.not1810.i = icmp eq i32 %424, 0
   %456 = zext i1 %.not1810.i to i32
   %.111540.i = select i1 %422, i32 %456, i32 %424
   br label %.loopexit1915.i
@@ -17277,7 +17274,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %483 = icmp ult i32 %479, %478
   %484 = getelementptr inbounds nuw i8, ptr %477, i64 4
   %485 = load i32, ptr %484, align 4, !tbaa !123
-  %.not1816.i = icmp eq i32 %485, 0
   %.sink2324.i = select i1 %483, i64 8, i64 16
   %486 = getelementptr inbounds nuw i8, ptr %477, i64 %.sink2324.i
   %storemerge1817.i = load ptr, ptr %486, align 8, !tbaa !119
@@ -17343,7 +17339,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %519 = icmp ult i32 %479, %478
   %520 = getelementptr inbounds nuw i8, ptr %477, i64 4
   %521 = load i32, ptr %520, align 4, !tbaa !123
-  %.not1815.i = icmp eq i32 %521, 0
   %.sink2325.i = select i1 %519, i64 16, i64 8
   %522 = getelementptr inbounds nuw i8, ptr %477, i64 %.sink2325.i
   %storemerge1814.i = load ptr, ptr %522, align 8, !tbaa !119
@@ -17404,11 +17399,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1913.i
 
 .loopexit1913.i.loopexit:                         ; preds = %508
+  %.not1816.i = icmp eq i32 %485, 0
   %552 = zext i1 %.not1816.i to i32
   %.121541.i = select i1 %483, i32 %485, i32 %552
   br label %.loopexit1913.i
 
 .loopexit1913.i.loopexit950:                      ; preds = %544
+  %.not1815.i = icmp eq i32 %521, 0
   %553 = zext i1 %.not1815.i to i32
   %.141543.i = select i1 %519, i32 %553, i32 %521
   br label %.loopexit1913.i
@@ -17462,7 +17459,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %581 = icmp ult i32 %577, %576
   %582 = getelementptr inbounds nuw i8, ptr %575, i64 4
   %583 = load i32, ptr %582, align 4, !tbaa !123
-  %.not1822.i = icmp eq i32 %583, 0
   %.sink2326.i = select i1 %581, i64 8, i64 16
   %584 = getelementptr inbounds nuw i8, ptr %575, i64 %.sink2326.i
   %storemerge1823.i = load ptr, ptr %584, align 8, !tbaa !119
@@ -17528,7 +17524,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %617 = icmp ult i32 %577, %576
   %618 = getelementptr inbounds nuw i8, ptr %575, i64 4
   %619 = load i32, ptr %618, align 4, !tbaa !123
-  %.not1821.i = icmp eq i32 %619, 0
   %.sink2327.i = select i1 %617, i64 16, i64 8
   %620 = getelementptr inbounds nuw i8, ptr %575, i64 %.sink2327.i
   %storemerge1820.i = load ptr, ptr %620, align 8, !tbaa !119
@@ -17589,11 +17584,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1911.i
 
 .loopexit1911.i.loopexit:                         ; preds = %606
+  %.not1822.i = icmp eq i32 %583, 0
   %650 = zext i1 %.not1822.i to i32
   %.151544.i = select i1 %581, i32 %583, i32 %650
   br label %.loopexit1911.i
 
 .loopexit1911.i.loopexit949:                      ; preds = %642
+  %.not1821.i = icmp eq i32 %619, 0
   %651 = zext i1 %.not1821.i to i32
   %.171546.i = select i1 %617, i32 %651, i32 %619
   br label %.loopexit1911.i
@@ -17645,7 +17642,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %678 = icmp ult i32 %674, %673
   %679 = getelementptr inbounds nuw i8, ptr %672, i64 4
   %680 = load i32, ptr %679, align 4, !tbaa !123
-  %.not1827.i = icmp eq i32 %680, 0
   %.sink2328.i = select i1 %678, i64 8, i64 16
   %681 = getelementptr inbounds nuw i8, ptr %672, i64 %.sink2328.i
   %storemerge1828.i = load ptr, ptr %681, align 8, !tbaa !119
@@ -17711,7 +17707,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %714 = icmp ult i32 %674, %673
   %715 = getelementptr inbounds nuw i8, ptr %672, i64 4
   %716 = load i32, ptr %715, align 4, !tbaa !123
-  %.not1826.i = icmp eq i32 %716, 0
   %.sink2329.i = select i1 %714, i64 16, i64 8
   %717 = getelementptr inbounds nuw i8, ptr %672, i64 %.sink2329.i
   %storemerge1825.i = load ptr, ptr %717, align 8, !tbaa !119
@@ -17772,11 +17767,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1909.i
 
 .loopexit1909.i.loopexit:                         ; preds = %703
+  %.not1827.i = icmp eq i32 %680, 0
   %747 = zext i1 %.not1827.i to i32
   %.181547.i = select i1 %678, i32 %680, i32 %747
   br label %.loopexit1909.i
 
 .loopexit1909.i.loopexit948:                      ; preds = %739
+  %.not1826.i = icmp eq i32 %716, 0
   %748 = zext i1 %.not1826.i to i32
   %.201549.i = select i1 %714, i32 %748, i32 %716
   br label %.loopexit1909.i
@@ -17830,7 +17827,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %776 = icmp ult i32 %772, %771
   %777 = getelementptr inbounds nuw i8, ptr %770, i64 4
   %778 = load i32, ptr %777, align 4, !tbaa !123
-  %.not1833.i = icmp eq i32 %778, 0
   %.sink2330.i = select i1 %776, i64 8, i64 16
   %779 = getelementptr inbounds nuw i8, ptr %770, i64 %.sink2330.i
   %storemerge1834.i = load ptr, ptr %779, align 8, !tbaa !119
@@ -17896,7 +17892,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %812 = icmp ult i32 %772, %771
   %813 = getelementptr inbounds nuw i8, ptr %770, i64 4
   %814 = load i32, ptr %813, align 4, !tbaa !123
-  %.not1832.i = icmp eq i32 %814, 0
   %.sink2331.i = select i1 %812, i64 16, i64 8
   %815 = getelementptr inbounds nuw i8, ptr %770, i64 %.sink2331.i
   %storemerge1831.i = load ptr, ptr %815, align 8, !tbaa !119
@@ -17957,11 +17952,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1907.i
 
 .loopexit1907.i.loopexit:                         ; preds = %801
+  %.not1833.i = icmp eq i32 %778, 0
   %845 = zext i1 %.not1833.i to i32
   %.211550.i = select i1 %776, i32 %778, i32 %845
   br label %.loopexit1907.i
 
 .loopexit1907.i.loopexit947:                      ; preds = %837
+  %.not1832.i = icmp eq i32 %814, 0
   %846 = zext i1 %.not1832.i to i32
   %.231552.i = select i1 %812, i32 %846, i32 %814
   br label %.loopexit1907.i
@@ -18013,7 +18010,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %873 = icmp ult i32 %869, %868
   %874 = getelementptr inbounds nuw i8, ptr %867, i64 4
   %875 = load i32, ptr %874, align 4, !tbaa !123
-  %.not1838.i = icmp eq i32 %875, 0
   %.sink2332.i = select i1 %873, i64 8, i64 16
   %876 = getelementptr inbounds nuw i8, ptr %867, i64 %.sink2332.i
   %storemerge1839.i = load ptr, ptr %876, align 8, !tbaa !119
@@ -18079,7 +18075,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %909 = icmp ult i32 %869, %868
   %910 = getelementptr inbounds nuw i8, ptr %867, i64 4
   %911 = load i32, ptr %910, align 4, !tbaa !123
-  %.not1837.i = icmp eq i32 %911, 0
   %.sink2333.i = select i1 %909, i64 16, i64 8
   %912 = getelementptr inbounds nuw i8, ptr %867, i64 %.sink2333.i
   %storemerge1836.i = load ptr, ptr %912, align 8, !tbaa !119
@@ -18140,11 +18135,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit.i
 
 .loopexit.i.loopexit:                             ; preds = %898
+  %.not1838.i = icmp eq i32 %875, 0
   %942 = zext i1 %.not1838.i to i32
   %.241553.i = select i1 %873, i32 %875, i32 %942
   br label %.loopexit.i
 
 .loopexit.i.loopexit946:                          ; preds = %934
+  %.not1837.i = icmp eq i32 %911, 0
   %943 = zext i1 %.not1837.i to i32
   %.261555.i = select i1 %909, i32 %943, i32 %911
   br label %.loopexit.i
@@ -18196,7 +18193,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %971 = icmp ult i32 %967, %966
   %972 = getelementptr inbounds nuw i8, ptr %965, i64 4
   %973 = load i32, ptr %972, align 4, !tbaa !123
-  %.not1749.i = icmp eq i32 %973, 0
   %.sink2334.i = select i1 %971, i64 8, i64 16
   %974 = getelementptr inbounds nuw i8, ptr %965, i64 %.sink2334.i
   %storemerge1750.i = load ptr, ptr %974, align 8, !tbaa !119
@@ -18262,7 +18258,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1007 = icmp ult i32 %967, %966
   %1008 = getelementptr inbounds nuw i8, ptr %965, i64 4
   %1009 = load i32, ptr %1008, align 4, !tbaa !123
-  %.not1748.i = icmp eq i32 %1009, 0
   %.sink2335.i = select i1 %1007, i64 16, i64 8
   %1010 = getelementptr inbounds nuw i8, ptr %965, i64 %.sink2335.i
   %storemerge.i = load ptr, ptr %1010, align 8, !tbaa !119
@@ -18323,11 +18318,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1939.i
 
 .loopexit1939.i.loopexit:                         ; preds = %996
+  %.not1749.i = icmp eq i32 %973, 0
   %1040 = zext i1 %.not1749.i to i32
   %.271556.i = select i1 %971, i32 %973, i32 %1040
   br label %.loopexit1939.i
 
 .loopexit1939.i.loopexit963:                      ; preds = %1032
+  %.not1748.i = icmp eq i32 %1009, 0
   %1041 = zext i1 %.not1748.i to i32
   %.291558.i = select i1 %1007, i32 %1041, i32 %1009
   br label %.loopexit1939.i
@@ -18374,7 +18371,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1068 = icmp ult i32 %1064, %1063
   %1069 = getelementptr inbounds nuw i8, ptr %1062, i64 4
   %1070 = load i32, ptr %1069, align 4, !tbaa !123
-  %.not1754.i = icmp eq i32 %1070, 0
   %.sink2336.i = select i1 %1068, i64 8, i64 16
   %1071 = getelementptr inbounds nuw i8, ptr %1062, i64 %.sink2336.i
   %storemerge1755.i = load ptr, ptr %1071, align 8, !tbaa !119
@@ -18440,7 +18436,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1104 = icmp ult i32 %1064, %1063
   %1105 = getelementptr inbounds nuw i8, ptr %1062, i64 4
   %1106 = load i32, ptr %1105, align 4, !tbaa !123
-  %.not1753.i = icmp eq i32 %1106, 0
   %.sink2337.i = select i1 %1104, i64 16, i64 8
   %1107 = getelementptr inbounds nuw i8, ptr %1062, i64 %.sink2337.i
   %storemerge1752.i = load ptr, ptr %1107, align 8, !tbaa !119
@@ -18501,11 +18496,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1937.i
 
 .loopexit1937.i.loopexit:                         ; preds = %1093
+  %.not1754.i = icmp eq i32 %1070, 0
   %1137 = zext i1 %.not1754.i to i32
   %.301559.i = select i1 %1068, i32 %1070, i32 %1137
   br label %.loopexit1937.i
 
 .loopexit1937.i.loopexit962:                      ; preds = %1129
+  %.not1753.i = icmp eq i32 %1106, 0
   %1138 = zext i1 %.not1753.i to i32
   %.321561.i = select i1 %1104, i32 %1138, i32 %1106
   br label %.loopexit1937.i
@@ -18563,7 +18560,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1167 = icmp ult i32 %1163, %1162
   %1168 = getelementptr inbounds nuw i8, ptr %1161, i64 4
   %1169 = load i32, ptr %1168, align 4, !tbaa !123
-  %.not1760.i = icmp eq i32 %1169, 0
   %.sink2338.i = select i1 %1167, i64 8, i64 16
   %1170 = getelementptr inbounds nuw i8, ptr %1161, i64 %.sink2338.i
   %storemerge1761.i = load ptr, ptr %1170, align 8, !tbaa !119
@@ -18629,7 +18625,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1203 = icmp ult i32 %1163, %1162
   %1204 = getelementptr inbounds nuw i8, ptr %1161, i64 4
   %1205 = load i32, ptr %1204, align 4, !tbaa !123
-  %.not1759.i = icmp eq i32 %1205, 0
   %.sink2339.i = select i1 %1203, i64 16, i64 8
   %1206 = getelementptr inbounds nuw i8, ptr %1161, i64 %.sink2339.i
   %storemerge1758.i = load ptr, ptr %1206, align 8, !tbaa !119
@@ -18690,11 +18685,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1935.i
 
 .loopexit1935.i.loopexit:                         ; preds = %1192
+  %.not1760.i = icmp eq i32 %1169, 0
   %1236 = zext i1 %.not1760.i to i32
   %.331562.i = select i1 %1167, i32 %1169, i32 %1236
   br label %.loopexit1935.i
 
 .loopexit1935.i.loopexit961:                      ; preds = %1228
+  %.not1759.i = icmp eq i32 %1205, 0
   %1237 = zext i1 %.not1759.i to i32
   %.351564.i = select i1 %1203, i32 %1237, i32 %1205
   br label %.loopexit1935.i
@@ -18741,7 +18738,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1264 = icmp ult i32 %1260, %1259
   %1265 = getelementptr inbounds nuw i8, ptr %1258, i64 4
   %1266 = load i32, ptr %1265, align 4, !tbaa !123
-  %.not1765.i = icmp eq i32 %1266, 0
   %.sink2340.i = select i1 %1264, i64 8, i64 16
   %1267 = getelementptr inbounds nuw i8, ptr %1258, i64 %.sink2340.i
   %storemerge1766.i = load ptr, ptr %1267, align 8, !tbaa !119
@@ -18807,7 +18803,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1300 = icmp ult i32 %1260, %1259
   %1301 = getelementptr inbounds nuw i8, ptr %1258, i64 4
   %1302 = load i32, ptr %1301, align 4, !tbaa !123
-  %.not1764.i = icmp eq i32 %1302, 0
   %.sink2341.i = select i1 %1300, i64 16, i64 8
   %1303 = getelementptr inbounds nuw i8, ptr %1258, i64 %.sink2341.i
   %storemerge1763.i = load ptr, ptr %1303, align 8, !tbaa !119
@@ -18868,11 +18863,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1933.i
 
 .loopexit1933.i.loopexit:                         ; preds = %1289
+  %.not1765.i = icmp eq i32 %1266, 0
   %1333 = zext i1 %.not1765.i to i32
   %.361565.i = select i1 %1264, i32 %1266, i32 %1333
   br label %.loopexit1933.i
 
 .loopexit1933.i.loopexit960:                      ; preds = %1325
+  %.not1764.i = icmp eq i32 %1302, 0
   %1334 = zext i1 %.not1764.i to i32
   %.381567.i = select i1 %1300, i32 %1334, i32 %1302
   br label %.loopexit1933.i
@@ -18931,7 +18928,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1364 = icmp ult i32 %1360, %1359
   %1365 = getelementptr inbounds nuw i8, ptr %1358, i64 4
   %1366 = load i32, ptr %1365, align 4, !tbaa !123
-  %.not1771.i = icmp eq i32 %1366, 0
   %.sink2342.i = select i1 %1364, i64 8, i64 16
   %1367 = getelementptr inbounds nuw i8, ptr %1358, i64 %.sink2342.i
   %storemerge1772.i = load ptr, ptr %1367, align 8, !tbaa !119
@@ -18997,7 +18993,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1400 = icmp ult i32 %1360, %1359
   %1401 = getelementptr inbounds nuw i8, ptr %1358, i64 4
   %1402 = load i32, ptr %1401, align 4, !tbaa !123
-  %.not1770.i = icmp eq i32 %1402, 0
   %.sink2343.i = select i1 %1400, i64 16, i64 8
   %1403 = getelementptr inbounds nuw i8, ptr %1358, i64 %.sink2343.i
   %storemerge1769.i = load ptr, ptr %1403, align 8, !tbaa !119
@@ -19058,11 +19053,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1931.i
 
 .loopexit1931.i.loopexit:                         ; preds = %1389
+  %.not1771.i = icmp eq i32 %1366, 0
   %1433 = zext i1 %.not1771.i to i32
   %.391568.i = select i1 %1364, i32 %1366, i32 %1433
   br label %.loopexit1931.i
 
 .loopexit1931.i.loopexit959:                      ; preds = %1425
+  %.not1770.i = icmp eq i32 %1402, 0
   %1434 = zext i1 %.not1770.i to i32
   %.411570.i = select i1 %1400, i32 %1434, i32 %1402
   br label %.loopexit1931.i
@@ -19109,7 +19106,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1461 = icmp ult i32 %1457, %1456
   %1462 = getelementptr inbounds nuw i8, ptr %1455, i64 4
   %1463 = load i32, ptr %1462, align 4, !tbaa !123
-  %.not1776.i = icmp eq i32 %1463, 0
   %.sink2344.i = select i1 %1461, i64 8, i64 16
   %1464 = getelementptr inbounds nuw i8, ptr %1455, i64 %.sink2344.i
   %storemerge1777.i = load ptr, ptr %1464, align 8, !tbaa !119
@@ -19175,7 +19171,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1497 = icmp ult i32 %1457, %1456
   %1498 = getelementptr inbounds nuw i8, ptr %1455, i64 4
   %1499 = load i32, ptr %1498, align 4, !tbaa !123
-  %.not1775.i = icmp eq i32 %1499, 0
   %.sink2345.i = select i1 %1497, i64 16, i64 8
   %1500 = getelementptr inbounds nuw i8, ptr %1455, i64 %.sink2345.i
   %storemerge1774.i = load ptr, ptr %1500, align 8, !tbaa !119
@@ -19236,11 +19231,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1929.i
 
 .loopexit1929.i.loopexit:                         ; preds = %1486
+  %.not1776.i = icmp eq i32 %1463, 0
   %1530 = zext i1 %.not1776.i to i32
   %.421571.i = select i1 %1461, i32 %1463, i32 %1530
   br label %.loopexit1929.i
 
 .loopexit1929.i.loopexit958:                      ; preds = %1522
+  %.not1775.i = icmp eq i32 %1499, 0
   %1531 = zext i1 %.not1775.i to i32
   %.441573.i = select i1 %1497, i32 %1531, i32 %1499
   br label %.loopexit1929.i
@@ -19299,7 +19296,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1561 = icmp ult i32 %1557, %1556
   %1562 = getelementptr inbounds nuw i8, ptr %1555, i64 4
   %1563 = load i32, ptr %1562, align 4, !tbaa !123
-  %.not1782.i = icmp eq i32 %1563, 0
   %.sink2346.i = select i1 %1561, i64 8, i64 16
   %1564 = getelementptr inbounds nuw i8, ptr %1555, i64 %.sink2346.i
   %storemerge1783.i = load ptr, ptr %1564, align 8, !tbaa !119
@@ -19365,7 +19361,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1597 = icmp ult i32 %1557, %1556
   %1598 = getelementptr inbounds nuw i8, ptr %1555, i64 4
   %1599 = load i32, ptr %1598, align 4, !tbaa !123
-  %.not1781.i = icmp eq i32 %1599, 0
   %.sink2347.i = select i1 %1597, i64 16, i64 8
   %1600 = getelementptr inbounds nuw i8, ptr %1555, i64 %.sink2347.i
   %storemerge1780.i = load ptr, ptr %1600, align 8, !tbaa !119
@@ -19426,11 +19421,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1927.i
 
 .loopexit1927.i.loopexit:                         ; preds = %1586
+  %.not1782.i = icmp eq i32 %1563, 0
   %1630 = zext i1 %.not1782.i to i32
   %.451574.i = select i1 %1561, i32 %1563, i32 %1630
   br label %.loopexit1927.i
 
 .loopexit1927.i.loopexit957:                      ; preds = %1622
+  %.not1781.i = icmp eq i32 %1599, 0
   %1631 = zext i1 %.not1781.i to i32
   %.471576.i = select i1 %1597, i32 %1631, i32 %1599
   br label %.loopexit1927.i
@@ -19477,7 +19474,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1658 = icmp ult i32 %1654, %1653
   %1659 = getelementptr inbounds nuw i8, ptr %1652, i64 4
   %1660 = load i32, ptr %1659, align 4, !tbaa !123
-  %.not1787.i = icmp eq i32 %1660, 0
   %.sink2348.i = select i1 %1658, i64 8, i64 16
   %1661 = getelementptr inbounds nuw i8, ptr %1652, i64 %.sink2348.i
   %storemerge1788.i = load ptr, ptr %1661, align 8, !tbaa !119
@@ -19543,7 +19539,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1694 = icmp ult i32 %1654, %1653
   %1695 = getelementptr inbounds nuw i8, ptr %1652, i64 4
   %1696 = load i32, ptr %1695, align 4, !tbaa !123
-  %.not1786.i = icmp eq i32 %1696, 0
   %.sink2349.i = select i1 %1694, i64 16, i64 8
   %1697 = getelementptr inbounds nuw i8, ptr %1652, i64 %.sink2349.i
   %storemerge1785.i = load ptr, ptr %1697, align 8, !tbaa !119
@@ -19604,11 +19599,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1925.i
 
 .loopexit1925.i.loopexit:                         ; preds = %1683
+  %.not1787.i = icmp eq i32 %1660, 0
   %1727 = zext i1 %.not1787.i to i32
   %.481577.i = select i1 %1658, i32 %1660, i32 %1727
   br label %.loopexit1925.i
 
 .loopexit1925.i.loopexit956:                      ; preds = %1719
+  %.not1786.i = icmp eq i32 %1696, 0
   %1728 = zext i1 %.not1786.i to i32
   %.501579.i = select i1 %1694, i32 %1728, i32 %1696
   br label %.loopexit1925.i
@@ -19722,7 +19719,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1772 = icmp ult i32 %1768, %1767
   %1773 = getelementptr inbounds nuw i8, ptr %1766, i64 4
   %1774 = load i32, ptr %1773, align 4, !tbaa !123
-  %.not1802.i = icmp eq i32 %1774, 0
   %.sink.i195 = select i1 %1772, i64 8, i64 16
   %1775 = getelementptr inbounds nuw i8, ptr %1766, i64 %.sink.i195
   %storemerge1803.i196 = load ptr, ptr %1775, align 8, !tbaa !119
@@ -19788,7 +19784,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1808 = icmp ult i32 %1768, %1767
   %1809 = getelementptr inbounds nuw i8, ptr %1766, i64 4
   %1810 = load i32, ptr %1809, align 4, !tbaa !123
-  %.not1801.i193 = icmp eq i32 %1810, 0
   %.sink2325.i194 = select i1 %1808, i64 16, i64 8
   %1811 = getelementptr inbounds nuw i8, ptr %1766, i64 %.sink2325.i194
   %storemerge1800.i = load ptr, ptr %1811, align 8, !tbaa !119
@@ -19849,11 +19844,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1933.i98
 
 .loopexit1933.i98.loopexit:                       ; preds = %1797
+  %.not1802.i = icmp eq i32 %1774, 0
   %1841 = zext i1 %.not1802.i to i32
   %.01539.i = select i1 %1772, i32 %1774, i32 %1841
   br label %.loopexit1933.i98
 
 .loopexit1933.i98.loopexit937:                    ; preds = %1833
+  %.not1801.i193 = icmp eq i32 %1810, 0
   %1842 = zext i1 %.not1801.i193 to i32
   %.21541.i = select i1 %1808, i32 %1842, i32 %1810
   br label %.loopexit1933.i98
@@ -19878,7 +19875,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1850 = icmp ult i32 %1846, %1845
   %1851 = getelementptr inbounds nuw i8, ptr %1844, i64 4
   %1852 = load i32, ptr %1851, align 4, !tbaa !123
-  %.not1807.i188 = icmp eq i32 %1852, 0
   %.sink2326.i189 = select i1 %1850, i64 8, i64 16
   %1853 = getelementptr inbounds nuw i8, ptr %1844, i64 %.sink2326.i189
   %storemerge1808.i = load ptr, ptr %1853, align 8, !tbaa !119
@@ -19944,7 +19940,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1886 = icmp ult i32 %1846, %1845
   %1887 = getelementptr inbounds nuw i8, ptr %1844, i64 4
   %1888 = load i32, ptr %1887, align 4, !tbaa !123
-  %.not1806.i = icmp eq i32 %1888, 0
   %.sink2327.i184 = select i1 %1886, i64 16, i64 8
   %1889 = getelementptr inbounds nuw i8, ptr %1844, i64 %.sink2327.i184
   %storemerge1805.i = load ptr, ptr %1889, align 8, !tbaa !119
@@ -20005,11 +20000,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1931.i99
 
 .loopexit1931.i99.loopexit:                       ; preds = %1875
+  %.not1807.i188 = icmp eq i32 %1852, 0
   %1919 = zext i1 %.not1807.i188 to i32
   %.0.i190 = select i1 %1850, i32 %1852, i32 %1919
   br label %.loopexit1931.i99
 
 .loopexit1931.i99.loopexit936:                    ; preds = %1911
+  %.not1806.i = icmp eq i32 %1888, 0
   %1920 = zext i1 %.not1806.i to i32
   %.2.i185 = select i1 %1886, i32 %1920, i32 %1888
   br label %.loopexit1931.i99
@@ -20030,7 +20027,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1927 = icmp ult i32 %1923, %1922
   %1928 = getelementptr inbounds nuw i8, ptr %1921, i64 4
   %1929 = load i32, ptr %1928, align 4, !tbaa !123
-  %.not1811.i179 = icmp eq i32 %1929, 0
   %.sink2328.i180 = select i1 %1927, i64 8, i64 16
   %1930 = getelementptr inbounds nuw i8, ptr %1921, i64 %.sink2328.i180
   %storemerge1812.i181 = load ptr, ptr %1930, align 8, !tbaa !119
@@ -20096,7 +20092,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %1963 = icmp ult i32 %1923, %1922
   %1964 = getelementptr inbounds nuw i8, ptr %1921, i64 4
   %1965 = load i32, ptr %1964, align 4, !tbaa !123
-  %.not1810.i174 = icmp eq i32 %1965, 0
   %.sink2329.i175 = select i1 %1963, i64 16, i64 8
   %1966 = getelementptr inbounds nuw i8, ptr %1921, i64 %.sink2329.i175
   %storemerge1809.i176 = load ptr, ptr %1966, align 8, !tbaa !119
@@ -20157,11 +20152,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1929.i102
 
 .loopexit1929.i102.loopexit:                      ; preds = %1952
+  %.not1811.i179 = icmp eq i32 %1929, 0
   %1996 = zext i1 %.not1811.i179 to i32
   %.31542.i = select i1 %1927, i32 %1929, i32 %1996
   br label %.loopexit1929.i102
 
 .loopexit1929.i102.loopexit935:                   ; preds = %1988
+  %.not1810.i174 = icmp eq i32 %1965, 0
   %1997 = zext i1 %.not1810.i174 to i32
   %.51544.i = select i1 %1963, i32 %1997, i32 %1965
   br label %.loopexit1929.i102
@@ -20206,7 +20203,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2021 = icmp ult i32 %2017, %2016
   %2022 = getelementptr inbounds nuw i8, ptr %2015, i64 4
   %2023 = load i32, ptr %2022, align 4, !tbaa !123
-  %.not1815.i170 = icmp eq i32 %2023, 0
   %.sink2330.i171 = select i1 %2021, i64 8, i64 16
   %2024 = getelementptr inbounds nuw i8, ptr %2015, i64 %.sink2330.i171
   %storemerge1816.i = load ptr, ptr %2024, align 8, !tbaa !119
@@ -20272,7 +20268,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2057 = icmp ult i32 %2017, %2016
   %2058 = getelementptr inbounds nuw i8, ptr %2015, i64 4
   %2059 = load i32, ptr %2058, align 4, !tbaa !123
-  %.not1814.i = icmp eq i32 %2059, 0
   %.sink2331.i167 = select i1 %2057, i64 16, i64 8
   %2060 = getelementptr inbounds nuw i8, ptr %2015, i64 %.sink2331.i167
   %storemerge1813.i = load ptr, ptr %2060, align 8, !tbaa !119
@@ -20333,11 +20328,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1927.i156
 
 .loopexit1927.i156.loopexit:                      ; preds = %2046
+  %.not1815.i170 = icmp eq i32 %2023, 0
   %2090 = zext i1 %.not1815.i170 to i32
   %.61545.i = select i1 %2021, i32 %2023, i32 %2090
   br label %.loopexit1927.i156
 
 .loopexit1927.i156.loopexit934:                   ; preds = %2082
+  %.not1814.i = icmp eq i32 %2059, 0
   %2091 = zext i1 %.not1814.i to i32
   %.81547.i = select i1 %2057, i32 %2091, i32 %2059
   br label %.loopexit1927.i156
@@ -20392,7 +20389,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2124 = icmp ult i32 %2120, %2119
   %2125 = getelementptr inbounds nuw i8, ptr %2118, i64 4
   %2126 = load i32, ptr %2125, align 4, !tbaa !123
-  %.not1821.i163 = icmp eq i32 %2126, 0
   %.sink2332.i164 = select i1 %2124, i64 8, i64 16
   %2127 = getelementptr inbounds nuw i8, ptr %2118, i64 %.sink2332.i164
   %storemerge1822.i = load ptr, ptr %2127, align 8, !tbaa !119
@@ -20458,7 +20454,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2160 = icmp ult i32 %2120, %2119
   %2161 = getelementptr inbounds nuw i8, ptr %2118, i64 4
   %2162 = load i32, ptr %2161, align 4, !tbaa !123
-  %.not1820.i = icmp eq i32 %2162, 0
   %.sink2333.i160 = select i1 %2160, i64 16, i64 8
   %2163 = getelementptr inbounds nuw i8, ptr %2118, i64 %.sink2333.i160
   %storemerge1819.i = load ptr, ptr %2163, align 8, !tbaa !119
@@ -20519,11 +20514,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1925.i158
 
 .loopexit1925.i158.loopexit:                      ; preds = %2149
+  %.not1821.i163 = icmp eq i32 %2126, 0
   %2193 = zext i1 %.not1821.i163 to i32
   %.91548.i = select i1 %2124, i32 %2126, i32 %2193
   br label %.loopexit1925.i158
 
 .loopexit1925.i158.loopexit933:                   ; preds = %2185
+  %.not1820.i = icmp eq i32 %2162, 0
   %2194 = zext i1 %.not1820.i to i32
   %.111550.i = select i1 %2160, i32 %2194, i32 %2162
   br label %.loopexit1925.i158
@@ -20575,7 +20572,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2221 = icmp ult i32 %2217, %2216
   %2222 = getelementptr inbounds nuw i8, ptr %2215, i64 4
   %2223 = load i32, ptr %2222, align 4, !tbaa !123
-  %.not1826.i152 = icmp eq i32 %2223, 0
   %.sink2334.i153 = select i1 %2221, i64 8, i64 16
   %2224 = getelementptr inbounds nuw i8, ptr %2215, i64 %.sink2334.i153
   %storemerge1827.i = load ptr, ptr %2224, align 8, !tbaa !119
@@ -20641,7 +20637,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2257 = icmp ult i32 %2217, %2216
   %2258 = getelementptr inbounds nuw i8, ptr %2215, i64 4
   %2259 = load i32, ptr %2258, align 4, !tbaa !123
-  %.not1825.i = icmp eq i32 %2259, 0
   %.sink2335.i149 = select i1 %2257, i64 16, i64 8
   %2260 = getelementptr inbounds nuw i8, ptr %2215, i64 %.sink2335.i149
   %storemerge1824.i = load ptr, ptr %2260, align 8, !tbaa !119
@@ -20702,11 +20697,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1923.i137
 
 .loopexit1923.i137.loopexit:                      ; preds = %2246
+  %.not1826.i152 = icmp eq i32 %2223, 0
   %2290 = zext i1 %.not1826.i152 to i32
   %.121551.i = select i1 %2221, i32 %2223, i32 %2290
   br label %.loopexit1923.i137
 
 .loopexit1923.i137.loopexit932:                   ; preds = %2282
+  %.not1825.i = icmp eq i32 %2259, 0
   %2291 = zext i1 %.not1825.i to i32
   %.141553.i = select i1 %2257, i32 %2291, i32 %2259
   br label %.loopexit1923.i137
@@ -20760,7 +20757,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2319 = icmp ult i32 %2315, %2314
   %2320 = getelementptr inbounds nuw i8, ptr %2313, i64 4
   %2321 = load i32, ptr %2320, align 4, !tbaa !123
-  %.not1832.i145 = icmp eq i32 %2321, 0
   %.sink2336.i146 = select i1 %2319, i64 8, i64 16
   %2322 = getelementptr inbounds nuw i8, ptr %2313, i64 %.sink2336.i146
   %storemerge1833.i = load ptr, ptr %2322, align 8, !tbaa !119
@@ -20826,7 +20822,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2355 = icmp ult i32 %2315, %2314
   %2356 = getelementptr inbounds nuw i8, ptr %2313, i64 4
   %2357 = load i32, ptr %2356, align 4, !tbaa !123
-  %.not1831.i = icmp eq i32 %2357, 0
   %.sink2337.i142 = select i1 %2355, i64 16, i64 8
   %2358 = getelementptr inbounds nuw i8, ptr %2313, i64 %.sink2337.i142
   %storemerge1830.i = load ptr, ptr %2358, align 8, !tbaa !119
@@ -20887,11 +20882,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1921.i140
 
 .loopexit1921.i140.loopexit:                      ; preds = %2344
+  %.not1832.i145 = icmp eq i32 %2321, 0
   %2388 = zext i1 %.not1832.i145 to i32
   %.151554.i = select i1 %2319, i32 %2321, i32 %2388
   br label %.loopexit1921.i140
 
 .loopexit1921.i140.loopexit931:                   ; preds = %2380
+  %.not1831.i = icmp eq i32 %2357, 0
   %2389 = zext i1 %.not1831.i to i32
   %.171556.i = select i1 %2355, i32 %2389, i32 %2357
   br label %.loopexit1921.i140
@@ -20943,7 +20940,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2416 = icmp ult i32 %2412, %2411
   %2417 = getelementptr inbounds nuw i8, ptr %2410, i64 4
   %2418 = load i32, ptr %2417, align 4, !tbaa !123
-  %.not1837.i128 = icmp eq i32 %2418, 0
   %.sink2338.i129 = select i1 %2416, i64 8, i64 16
   %2419 = getelementptr inbounds nuw i8, ptr %2410, i64 %.sink2338.i129
   %storemerge1838.i = load ptr, ptr %2419, align 8, !tbaa !119
@@ -21009,7 +21005,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2452 = icmp ult i32 %2412, %2411
   %2453 = getelementptr inbounds nuw i8, ptr %2410, i64 4
   %2454 = load i32, ptr %2453, align 4, !tbaa !123
-  %.not1836.i = icmp eq i32 %2454, 0
   %.sink2339.i125 = select i1 %2452, i64 16, i64 8
   %2455 = getelementptr inbounds nuw i8, ptr %2410, i64 %.sink2339.i125
   %storemerge1835.i = load ptr, ptr %2455, align 8, !tbaa !119
@@ -21070,11 +21065,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1919.i114
 
 .loopexit1919.i114.loopexit:                      ; preds = %2441
+  %.not1837.i128 = icmp eq i32 %2418, 0
   %2485 = zext i1 %.not1837.i128 to i32
   %.181557.i = select i1 %2416, i32 %2418, i32 %2485
   br label %.loopexit1919.i114
 
 .loopexit1919.i114.loopexit930:                   ; preds = %2477
+  %.not1836.i = icmp eq i32 %2454, 0
   %2486 = zext i1 %.not1836.i to i32
   %.201559.i = select i1 %2452, i32 %2486, i32 %2454
   br label %.loopexit1919.i114
@@ -21128,7 +21125,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2514 = icmp ult i32 %2510, %2509
   %2515 = getelementptr inbounds nuw i8, ptr %2508, i64 4
   %2516 = load i32, ptr %2515, align 4, !tbaa !123
-  %.not1843.i = icmp eq i32 %2516, 0
   %.sink2340.i122 = select i1 %2514, i64 8, i64 16
   %2517 = getelementptr inbounds nuw i8, ptr %2508, i64 %.sink2340.i122
   %storemerge1844.i = load ptr, ptr %2517, align 8, !tbaa !119
@@ -21194,7 +21190,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2550 = icmp ult i32 %2510, %2509
   %2551 = getelementptr inbounds nuw i8, ptr %2508, i64 4
   %2552 = load i32, ptr %2551, align 4, !tbaa !123
-  %.not1842.i = icmp eq i32 %2552, 0
   %.sink2341.i119 = select i1 %2550, i64 16, i64 8
   %2553 = getelementptr inbounds nuw i8, ptr %2508, i64 %.sink2341.i119
   %storemerge1841.i = load ptr, ptr %2553, align 8, !tbaa !119
@@ -21255,11 +21250,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1917.i117
 
 .loopexit1917.i117.loopexit:                      ; preds = %2539
+  %.not1843.i = icmp eq i32 %2516, 0
   %2583 = zext i1 %.not1843.i to i32
   %.211560.i = select i1 %2514, i32 %2516, i32 %2583
   br label %.loopexit1917.i117
 
 .loopexit1917.i117.loopexit929:                   ; preds = %2575
+  %.not1842.i = icmp eq i32 %2552, 0
   %2584 = zext i1 %.not1842.i to i32
   %.231562.i = select i1 %2550, i32 %2584, i32 %2552
   br label %.loopexit1917.i117
@@ -21311,7 +21308,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2611 = icmp ult i32 %2607, %2606
   %2612 = getelementptr inbounds nuw i8, ptr %2605, i64 4
   %2613 = load i32, ptr %2612, align 4, !tbaa !123
-  %.not1848.i = icmp eq i32 %2613, 0
   %.sink2342.i110 = select i1 %2611, i64 8, i64 16
   %2614 = getelementptr inbounds nuw i8, ptr %2605, i64 %.sink2342.i110
   %storemerge1849.i = load ptr, ptr %2614, align 8, !tbaa !119
@@ -21377,7 +21373,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2647 = icmp ult i32 %2607, %2606
   %2648 = getelementptr inbounds nuw i8, ptr %2605, i64 4
   %2649 = load i32, ptr %2648, align 4, !tbaa !123
-  %.not1847.i = icmp eq i32 %2649, 0
   %.sink2343.i107 = select i1 %2647, i64 16, i64 8
   %2650 = getelementptr inbounds nuw i8, ptr %2605, i64 %.sink2343.i107
   %storemerge1846.i = load ptr, ptr %2650, align 8, !tbaa !119
@@ -21438,11 +21433,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit.i105
 
 .loopexit.i105.loopexit:                          ; preds = %2636
+  %.not1848.i = icmp eq i32 %2613, 0
   %2680 = zext i1 %.not1848.i to i32
   %.241563.i = select i1 %2611, i32 %2613, i32 %2680
   br label %.loopexit.i105
 
 .loopexit.i105.loopexit928:                       ; preds = %2672
+  %.not1847.i = icmp eq i32 %2649, 0
   %2681 = zext i1 %.not1847.i to i32
   %.261565.i = select i1 %2647, i32 %2681, i32 %2649
   br label %.loopexit.i105
@@ -21494,7 +21491,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2709 = icmp ult i32 %2705, %2704
   %2710 = getelementptr inbounds nuw i8, ptr %2703, i64 4
   %2711 = load i32, ptr %2710, align 4, !tbaa !123
-  %.not1759.i94 = icmp eq i32 %2711, 0
   %.sink2344.i95 = select i1 %2709, i64 8, i64 16
   %2712 = getelementptr inbounds nuw i8, ptr %2703, i64 %.sink2344.i95
   %storemerge1760.i = load ptr, ptr %2712, align 8, !tbaa !119
@@ -21560,7 +21556,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2745 = icmp ult i32 %2705, %2704
   %2746 = getelementptr inbounds nuw i8, ptr %2703, i64 4
   %2747 = load i32, ptr %2746, align 4, !tbaa !123
-  %.not1758.i = icmp eq i32 %2747, 0
   %.sink2345.i90 = select i1 %2745, i64 16, i64 8
   %2748 = getelementptr inbounds nuw i8, ptr %2703, i64 %.sink2345.i90
   %storemerge.i91 = load ptr, ptr %2748, align 8, !tbaa !119
@@ -21621,11 +21616,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1949.i
 
 .loopexit1949.i.loopexit:                         ; preds = %2734
+  %.not1759.i94 = icmp eq i32 %2711, 0
   %2778 = zext i1 %.not1759.i94 to i32
   %.271566.i = select i1 %2709, i32 %2711, i32 %2778
   br label %.loopexit1949.i
 
 .loopexit1949.i.loopexit945:                      ; preds = %2770
+  %.not1758.i = icmp eq i32 %2747, 0
   %2779 = zext i1 %.not1758.i to i32
   %.291568.i = select i1 %2745, i32 %2779, i32 %2747
   br label %.loopexit1949.i
@@ -21672,7 +21669,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2806 = icmp ult i32 %2802, %2801
   %2807 = getelementptr inbounds nuw i8, ptr %2800, i64 4
   %2808 = load i32, ptr %2807, align 4, !tbaa !123
-  %.not1764.i86 = icmp eq i32 %2808, 0
   %.sink2346.i87 = select i1 %2806, i64 8, i64 16
   %2809 = getelementptr inbounds nuw i8, ptr %2800, i64 %.sink2346.i87
   %storemerge1765.i = load ptr, ptr %2809, align 8, !tbaa !119
@@ -21738,7 +21734,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2842 = icmp ult i32 %2802, %2801
   %2843 = getelementptr inbounds nuw i8, ptr %2800, i64 4
   %2844 = load i32, ptr %2843, align 4, !tbaa !123
-  %.not1763.i = icmp eq i32 %2844, 0
   %.sink2347.i83 = select i1 %2842, i64 16, i64 8
   %2845 = getelementptr inbounds nuw i8, ptr %2800, i64 %.sink2347.i83
   %storemerge1762.i = load ptr, ptr %2845, align 8, !tbaa !119
@@ -21799,11 +21794,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1947.i
 
 .loopexit1947.i.loopexit:                         ; preds = %2831
+  %.not1764.i86 = icmp eq i32 %2808, 0
   %2875 = zext i1 %.not1764.i86 to i32
   %.301569.i = select i1 %2806, i32 %2808, i32 %2875
   br label %.loopexit1947.i
 
 .loopexit1947.i.loopexit944:                      ; preds = %2867
+  %.not1763.i = icmp eq i32 %2844, 0
   %2876 = zext i1 %.not1763.i to i32
   %.321571.i = select i1 %2842, i32 %2876, i32 %2844
   br label %.loopexit1947.i
@@ -21875,7 +21872,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2916 = icmp ult i32 %2912, %2911
   %2917 = getelementptr inbounds nuw i8, ptr %2910, i64 4
   %2918 = load i32, ptr %2917, align 4, !tbaa !123
-  %.not1770.i77 = icmp eq i32 %2918, 0
   %.sink2348.i78 = select i1 %2916, i64 8, i64 16
   %2919 = getelementptr inbounds nuw i8, ptr %2910, i64 %.sink2348.i78
   %storemerge1771.i = load ptr, ptr %2919, align 8, !tbaa !119
@@ -21941,7 +21937,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %2952 = icmp ult i32 %2912, %2911
   %2953 = getelementptr inbounds nuw i8, ptr %2910, i64 4
   %2954 = load i32, ptr %2953, align 4, !tbaa !123
-  %.not1769.i = icmp eq i32 %2954, 0
   %.sink2349.i74 = select i1 %2952, i64 16, i64 8
   %2955 = getelementptr inbounds nuw i8, ptr %2910, i64 %.sink2349.i74
   %storemerge1768.i = load ptr, ptr %2955, align 8, !tbaa !119
@@ -22002,11 +21997,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1945.i
 
 .loopexit1945.i.loopexit:                         ; preds = %2941
+  %.not1770.i77 = icmp eq i32 %2918, 0
   %2985 = zext i1 %.not1770.i77 to i32
   %.331572.i = select i1 %2916, i32 %2918, i32 %2985
   br label %.loopexit1945.i
 
 .loopexit1945.i.loopexit943:                      ; preds = %2977
+  %.not1769.i = icmp eq i32 %2954, 0
   %2986 = zext i1 %.not1769.i to i32
   %.351574.i = select i1 %2952, i32 %2986, i32 %2954
   br label %.loopexit1945.i
@@ -22053,7 +22050,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3013 = icmp ult i32 %3009, %3008
   %3014 = getelementptr inbounds nuw i8, ptr %3007, i64 4
   %3015 = load i32, ptr %3014, align 4, !tbaa !123
-  %.not1775.i71 = icmp eq i32 %3015, 0
   %.sink2350.i = select i1 %3013, i64 8, i64 16
   %3016 = getelementptr inbounds nuw i8, ptr %3007, i64 %.sink2350.i
   %storemerge1776.i = load ptr, ptr %3016, align 8, !tbaa !119
@@ -22119,7 +22115,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3049 = icmp ult i32 %3009, %3008
   %3050 = getelementptr inbounds nuw i8, ptr %3007, i64 4
   %3051 = load i32, ptr %3050, align 4, !tbaa !123
-  %.not1774.i = icmp eq i32 %3051, 0
   %.sink2351.i = select i1 %3049, i64 16, i64 8
   %3052 = getelementptr inbounds nuw i8, ptr %3007, i64 %.sink2351.i
   %storemerge1773.i = load ptr, ptr %3052, align 8, !tbaa !119
@@ -22180,11 +22175,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1943.i
 
 .loopexit1943.i.loopexit:                         ; preds = %3038
+  %.not1775.i71 = icmp eq i32 %3015, 0
   %3082 = zext i1 %.not1775.i71 to i32
   %.361575.i = select i1 %3013, i32 %3015, i32 %3082
   br label %.loopexit1943.i
 
 .loopexit1943.i.loopexit942:                      ; preds = %3074
+  %.not1774.i = icmp eq i32 %3051, 0
   %3083 = zext i1 %.not1774.i to i32
   %.381577.i = select i1 %3049, i32 %3083, i32 %3051
   br label %.loopexit1943.i
@@ -22243,7 +22240,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3113 = icmp ult i32 %3109, %3108
   %3114 = getelementptr inbounds nuw i8, ptr %3107, i64 4
   %3115 = load i32, ptr %3114, align 4, !tbaa !123
-  %.not1781.i64 = icmp eq i32 %3115, 0
   %.sink2352.i = select i1 %3113, i64 8, i64 16
   %3116 = getelementptr inbounds nuw i8, ptr %3107, i64 %.sink2352.i
   %storemerge1782.i = load ptr, ptr %3116, align 8, !tbaa !119
@@ -22309,7 +22305,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3149 = icmp ult i32 %3109, %3108
   %3150 = getelementptr inbounds nuw i8, ptr %3107, i64 4
   %3151 = load i32, ptr %3150, align 4, !tbaa !123
-  %.not1780.i = icmp eq i32 %3151, 0
   %.sink2353.i = select i1 %3149, i64 16, i64 8
   %3152 = getelementptr inbounds nuw i8, ptr %3107, i64 %.sink2353.i
   %storemerge1779.i = load ptr, ptr %3152, align 8, !tbaa !119
@@ -22370,11 +22365,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1941.i
 
 .loopexit1941.i.loopexit:                         ; preds = %3138
+  %.not1781.i64 = icmp eq i32 %3115, 0
   %3182 = zext i1 %.not1781.i64 to i32
   %.391578.i = select i1 %3113, i32 %3115, i32 %3182
   br label %.loopexit1941.i
 
 .loopexit1941.i.loopexit941:                      ; preds = %3174
+  %.not1780.i = icmp eq i32 %3151, 0
   %3183 = zext i1 %.not1780.i to i32
   %.411580.i = select i1 %3149, i32 %3183, i32 %3151
   br label %.loopexit1941.i
@@ -22421,7 +22418,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3210 = icmp ult i32 %3206, %3205
   %3211 = getelementptr inbounds nuw i8, ptr %3204, i64 4
   %3212 = load i32, ptr %3211, align 4, !tbaa !123
-  %.not1786.i59 = icmp eq i32 %3212, 0
   %.sink2354.i = select i1 %3210, i64 8, i64 16
   %3213 = getelementptr inbounds nuw i8, ptr %3204, i64 %.sink2354.i
   %storemerge1787.i = load ptr, ptr %3213, align 8, !tbaa !119
@@ -22487,7 +22483,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3246 = icmp ult i32 %3206, %3205
   %3247 = getelementptr inbounds nuw i8, ptr %3204, i64 4
   %3248 = load i32, ptr %3247, align 4, !tbaa !123
-  %.not1785.i = icmp eq i32 %3248, 0
   %.sink2355.i = select i1 %3246, i64 16, i64 8
   %3249 = getelementptr inbounds nuw i8, ptr %3204, i64 %.sink2355.i
   %storemerge1784.i = load ptr, ptr %3249, align 8, !tbaa !119
@@ -22548,11 +22543,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1939.i55
 
 .loopexit1939.i55.loopexit:                       ; preds = %3235
+  %.not1786.i59 = icmp eq i32 %3212, 0
   %3279 = zext i1 %.not1786.i59 to i32
   %.421581.i = select i1 %3210, i32 %3212, i32 %3279
   br label %.loopexit1939.i55
 
 .loopexit1939.i55.loopexit940:                    ; preds = %3271
+  %.not1785.i = icmp eq i32 %3248, 0
   %3280 = zext i1 %.not1785.i to i32
   %.441583.i = select i1 %3246, i32 %3280, i32 %3248
   br label %.loopexit1939.i55
@@ -22611,7 +22608,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3310 = icmp ult i32 %3306, %3305
   %3311 = getelementptr inbounds nuw i8, ptr %3304, i64 4
   %3312 = load i32, ptr %3311, align 4, !tbaa !123
-  %.not1792.i50 = icmp eq i32 %3312, 0
   %.sink2356.i = select i1 %3310, i64 8, i64 16
   %3313 = getelementptr inbounds nuw i8, ptr %3304, i64 %.sink2356.i
   %storemerge1793.i51 = load ptr, ptr %3313, align 8, !tbaa !119
@@ -22677,7 +22673,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3346 = icmp ult i32 %3306, %3305
   %3347 = getelementptr inbounds nuw i8, ptr %3304, i64 4
   %3348 = load i32, ptr %3347, align 4, !tbaa !123
-  %.not1791.i46 = icmp eq i32 %3348, 0
   %.sink2357.i = select i1 %3346, i64 16, i64 8
   %3349 = getelementptr inbounds nuw i8, ptr %3304, i64 %.sink2357.i
   %storemerge1790.i47 = load ptr, ptr %3349, align 8, !tbaa !119
@@ -22738,11 +22733,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1937.i31
 
 .loopexit1937.i31.loopexit:                       ; preds = %3335
+  %.not1792.i50 = icmp eq i32 %3312, 0
   %3379 = zext i1 %.not1792.i50 to i32
   %.451584.i = select i1 %3310, i32 %3312, i32 %3379
   br label %.loopexit1937.i31
 
 .loopexit1937.i31.loopexit939:                    ; preds = %3371
+  %.not1791.i46 = icmp eq i32 %3348, 0
   %3380 = zext i1 %.not1791.i46 to i32
   %.471586.i = select i1 %3346, i32 %3380, i32 %3348
   br label %.loopexit1937.i31
@@ -22789,7 +22786,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3407 = icmp ult i32 %3403, %3402
   %3408 = getelementptr inbounds nuw i8, ptr %3401, i64 4
   %3409 = load i32, ptr %3408, align 4, !tbaa !123
-  %.not1797.i42 = icmp eq i32 %3409, 0
   %.sink2358.i = select i1 %3407, i64 8, i64 16
   %3410 = getelementptr inbounds nuw i8, ptr %3401, i64 %.sink2358.i
   %storemerge1798.i43 = load ptr, ptr %3410, align 8, !tbaa !119
@@ -22855,7 +22851,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3443 = icmp ult i32 %3403, %3402
   %3444 = getelementptr inbounds nuw i8, ptr %3401, i64 4
   %3445 = load i32, ptr %3444, align 4, !tbaa !123
-  %.not1796.i38 = icmp eq i32 %3445, 0
   %.sink2359.i = select i1 %3443, i64 16, i64 8
   %3446 = getelementptr inbounds nuw i8, ptr %3401, i64 %.sink2359.i
   %storemerge1795.i39 = load ptr, ptr %3446, align 8, !tbaa !119
@@ -22916,11 +22911,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br label %.loopexit1935.i33
 
 .loopexit1935.i33.loopexit:                       ; preds = %3432
+  %.not1797.i42 = icmp eq i32 %3409, 0
   %3476 = zext i1 %.not1797.i42 to i32
   %.481587.i = select i1 %3407, i32 %3409, i32 %3476
   br label %.loopexit1935.i33
 
 .loopexit1935.i33.loopexit938:                    ; preds = %3468
+  %.not1796.i38 = icmp eq i32 %3445, 0
   %3477 = zext i1 %.not1796.i38 to i32
   %.501589.i = select i1 %3443, i32 %3477, i32 %3445
   br label %.loopexit1935.i33
@@ -23102,7 +23099,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3571 = icmp ult i32 %3559, %3558
   %3572 = getelementptr inbounds nuw i8, ptr %3557, i64 4
   %3573 = load i32, ptr %3572, align 4, !tbaa !123
-  %.not1770.us.i = icmp eq i32 %3573, 0
   %.sink.i202 = select i1 %3571, i64 16, i64 8
   %3574 = getelementptr inbounds nuw i8, ptr %3557, i64 %.sink.i202
   %storemerge.us.i = load ptr, ptr %3574, align 8, !tbaa !119
@@ -23161,7 +23157,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3602 = icmp ult i32 %3559, %3558
   %3603 = getelementptr inbounds nuw i8, ptr %3557, i64 4
   %3604 = load i32, ptr %3603, align 4, !tbaa !123
-  %.not1771.us.i = icmp eq i32 %3604, 0
   %.sink2386.i = select i1 %3602, i64 8, i64 16
   %3605 = getelementptr inbounds nuw i8, ptr %3557, i64 %.sink2386.i
   %storemerge1772.us.i = load ptr, ptr %3605, align 8, !tbaa !119
@@ -23217,11 +23212,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %3631, label %3606, label %.loopexit1963.us.i.loopexit, !llvm.loop !458
 
 .loopexit1963.us.i.loopexit:                      ; preds = %3627
+  %.not1771.us.i = icmp eq i32 %3604, 0
   %3632 = zext i1 %.not1771.us.i to i32
   %.271575.us.i = select i1 %3602, i32 %3604, i32 %3632
   br label %.loopexit1963.us.i
 
 .loopexit1963.us.i.loopexit1000:                  ; preds = %3596
+  %.not1770.us.i = icmp eq i32 %3573, 0
   %3633 = zext i1 %.not1770.us.i to i32
   %.291577.us.i = select i1 %3571, i32 %3633, i32 %3573
   br label %.loopexit1963.us.i
@@ -23280,7 +23277,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3668 = icmp ult i32 %3656, %3655
   %3669 = getelementptr inbounds nuw i8, ptr %3654, i64 4
   %3670 = load i32, ptr %3669, align 4, !tbaa !123
-  %.not1775.us.i = icmp eq i32 %3670, 0
   %.sink2387.i = select i1 %3668, i64 16, i64 8
   %3671 = getelementptr inbounds nuw i8, ptr %3654, i64 %.sink2387.i
   %storemerge1774.us.i = load ptr, ptr %3671, align 8, !tbaa !119
@@ -23339,7 +23335,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3699 = icmp ult i32 %3656, %3655
   %3700 = getelementptr inbounds nuw i8, ptr %3654, i64 4
   %3701 = load i32, ptr %3700, align 4, !tbaa !123
-  %.not1776.us.i = icmp eq i32 %3701, 0
   %.sink2388.i = select i1 %3699, i64 8, i64 16
   %3702 = getelementptr inbounds nuw i8, ptr %3654, i64 %.sink2388.i
   %storemerge1777.us.i = load ptr, ptr %3702, align 8, !tbaa !119
@@ -23395,11 +23390,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %3728, label %3703, label %.loopexit1961.us.i.loopexit, !llvm.loop !460
 
 .loopexit1961.us.i.loopexit:                      ; preds = %3724
+  %.not1776.us.i = icmp eq i32 %3701, 0
   %3729 = zext i1 %.not1776.us.i to i32
   %.301578.us.i = select i1 %3699, i32 %3701, i32 %3729
   br label %.loopexit1961.us.i
 
 .loopexit1961.us.i.loopexit999:                   ; preds = %3693
+  %.not1775.us.i = icmp eq i32 %3670, 0
   %3730 = zext i1 %.not1775.us.i to i32
   %.321580.us.i = select i1 %3668, i32 %3730, i32 %3670
   br label %.loopexit1961.us.i
@@ -23469,7 +23466,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3767 = icmp ult i32 %3755, %3754
   %3768 = getelementptr inbounds nuw i8, ptr %3753, i64 4
   %3769 = load i32, ptr %3768, align 4, !tbaa !123
-  %.not1781.us.i = icmp eq i32 %3769, 0
   %.sink2389.i = select i1 %3767, i64 16, i64 8
   %3770 = getelementptr inbounds nuw i8, ptr %3753, i64 %.sink2389.i
   %storemerge1780.us.i = load ptr, ptr %3770, align 8, !tbaa !119
@@ -23528,7 +23524,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3798 = icmp ult i32 %3755, %3754
   %3799 = getelementptr inbounds nuw i8, ptr %3753, i64 4
   %3800 = load i32, ptr %3799, align 4, !tbaa !123
-  %.not1782.us.i = icmp eq i32 %3800, 0
   %.sink2390.i = select i1 %3798, i64 8, i64 16
   %3801 = getelementptr inbounds nuw i8, ptr %3753, i64 %.sink2390.i
   %storemerge1783.us.i = load ptr, ptr %3801, align 8, !tbaa !119
@@ -23584,11 +23579,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %3827, label %3802, label %.loopexit1959.us.i.loopexit, !llvm.loop !462
 
 .loopexit1959.us.i.loopexit:                      ; preds = %3823
+  %.not1782.us.i = icmp eq i32 %3800, 0
   %3828 = zext i1 %.not1782.us.i to i32
   %.331581.us.i = select i1 %3798, i32 %3800, i32 %3828
   br label %.loopexit1959.us.i
 
 .loopexit1959.us.i.loopexit998:                   ; preds = %3792
+  %.not1781.us.i = icmp eq i32 %3769, 0
   %3829 = zext i1 %.not1781.us.i to i32
   %.351583.us.i = select i1 %3767, i32 %3829, i32 %3769
   br label %.loopexit1959.us.i
@@ -23647,7 +23644,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3864 = icmp ult i32 %3852, %3851
   %3865 = getelementptr inbounds nuw i8, ptr %3850, i64 4
   %3866 = load i32, ptr %3865, align 4, !tbaa !123
-  %.not1786.us.i = icmp eq i32 %3866, 0
   %.sink2391.i = select i1 %3864, i64 16, i64 8
   %3867 = getelementptr inbounds nuw i8, ptr %3850, i64 %.sink2391.i
   %storemerge1785.us.i = load ptr, ptr %3867, align 8, !tbaa !119
@@ -23706,7 +23702,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3895 = icmp ult i32 %3852, %3851
   %3896 = getelementptr inbounds nuw i8, ptr %3850, i64 4
   %3897 = load i32, ptr %3896, align 4, !tbaa !123
-  %.not1787.us.i = icmp eq i32 %3897, 0
   %.sink2392.i = select i1 %3895, i64 8, i64 16
   %3898 = getelementptr inbounds nuw i8, ptr %3850, i64 %.sink2392.i
   %storemerge1788.us.i = load ptr, ptr %3898, align 8, !tbaa !119
@@ -23762,11 +23757,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %3924, label %3899, label %.loopexit1957.us.i.loopexit, !llvm.loop !464
 
 .loopexit1957.us.i.loopexit:                      ; preds = %3920
+  %.not1787.us.i = icmp eq i32 %3897, 0
   %3925 = zext i1 %.not1787.us.i to i32
   %.361584.us.i = select i1 %3895, i32 %3897, i32 %3925
   br label %.loopexit1957.us.i
 
 .loopexit1957.us.i.loopexit997:                   ; preds = %3889
+  %.not1786.us.i = icmp eq i32 %3866, 0
   %3926 = zext i1 %.not1786.us.i to i32
   %.381586.us.i = select i1 %3864, i32 %3926, i32 %3866
   br label %.loopexit1957.us.i
@@ -23837,7 +23834,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3964 = icmp ult i32 %3952, %3951
   %3965 = getelementptr inbounds nuw i8, ptr %3950, i64 4
   %3966 = load i32, ptr %3965, align 4, !tbaa !123
-  %.not1792.us.i = icmp eq i32 %3966, 0
   %.sink2393.i = select i1 %3964, i64 16, i64 8
   %3967 = getelementptr inbounds nuw i8, ptr %3950, i64 %.sink2393.i
   %storemerge1791.us.i = load ptr, ptr %3967, align 8, !tbaa !119
@@ -23896,7 +23892,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %3995 = icmp ult i32 %3952, %3951
   %3996 = getelementptr inbounds nuw i8, ptr %3950, i64 4
   %3997 = load i32, ptr %3996, align 4, !tbaa !123
-  %.not1793.us.i = icmp eq i32 %3997, 0
   %.sink2394.i = select i1 %3995, i64 8, i64 16
   %3998 = getelementptr inbounds nuw i8, ptr %3950, i64 %.sink2394.i
   %storemerge1794.us.i = load ptr, ptr %3998, align 8, !tbaa !119
@@ -23952,11 +23947,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %4024, label %3999, label %.loopexit1955.us.i.loopexit, !llvm.loop !466
 
 .loopexit1955.us.i.loopexit:                      ; preds = %4020
+  %.not1793.us.i = icmp eq i32 %3997, 0
   %4025 = zext i1 %.not1793.us.i to i32
   %.391587.us.i = select i1 %3995, i32 %3997, i32 %4025
   br label %.loopexit1955.us.i
 
 .loopexit1955.us.i.loopexit996:                   ; preds = %3989
+  %.not1792.us.i = icmp eq i32 %3966, 0
   %4026 = zext i1 %.not1792.us.i to i32
   %.411589.us.i = select i1 %3964, i32 %4026, i32 %3966
   br label %.loopexit1955.us.i
@@ -24015,7 +24012,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4061 = icmp ult i32 %4049, %4048
   %4062 = getelementptr inbounds nuw i8, ptr %4047, i64 4
   %4063 = load i32, ptr %4062, align 4, !tbaa !123
-  %.not1797.us.i = icmp eq i32 %4063, 0
   %.sink2395.i = select i1 %4061, i64 16, i64 8
   %4064 = getelementptr inbounds nuw i8, ptr %4047, i64 %.sink2395.i
   %storemerge1796.us.i = load ptr, ptr %4064, align 8, !tbaa !119
@@ -24074,7 +24070,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4092 = icmp ult i32 %4049, %4048
   %4093 = getelementptr inbounds nuw i8, ptr %4047, i64 4
   %4094 = load i32, ptr %4093, align 4, !tbaa !123
-  %.not1798.us.i = icmp eq i32 %4094, 0
   %.sink2396.i = select i1 %4092, i64 8, i64 16
   %4095 = getelementptr inbounds nuw i8, ptr %4047, i64 %.sink2396.i
   %storemerge1799.us.i = load ptr, ptr %4095, align 8, !tbaa !119
@@ -24130,11 +24125,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %4121, label %4096, label %.loopexit1953.us.i.loopexit, !llvm.loop !468
 
 .loopexit1953.us.i.loopexit:                      ; preds = %4117
+  %.not1798.us.i = icmp eq i32 %4094, 0
   %4122 = zext i1 %.not1798.us.i to i32
   %.421590.us.i = select i1 %4092, i32 %4094, i32 %4122
   br label %.loopexit1953.us.i
 
 .loopexit1953.us.i.loopexit995:                   ; preds = %4086
+  %.not1797.us.i = icmp eq i32 %4063, 0
   %4123 = zext i1 %.not1797.us.i to i32
   %.441592.us.i = select i1 %4061, i32 %4123, i32 %4063
   br label %.loopexit1953.us.i
@@ -24205,7 +24202,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4161 = icmp ult i32 %4149, %4148
   %4162 = getelementptr inbounds nuw i8, ptr %4147, i64 4
   %4163 = load i32, ptr %4162, align 4, !tbaa !123
-  %.not1803.us.i = icmp eq i32 %4163, 0
   %.sink2397.i = select i1 %4161, i64 16, i64 8
   %4164 = getelementptr inbounds nuw i8, ptr %4147, i64 %.sink2397.i
   %storemerge1802.us.i = load ptr, ptr %4164, align 8, !tbaa !119
@@ -24264,7 +24260,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4192 = icmp ult i32 %4149, %4148
   %4193 = getelementptr inbounds nuw i8, ptr %4147, i64 4
   %4194 = load i32, ptr %4193, align 4, !tbaa !123
-  %.not1804.us.i = icmp eq i32 %4194, 0
   %.sink2398.i = select i1 %4192, i64 8, i64 16
   %4195 = getelementptr inbounds nuw i8, ptr %4147, i64 %.sink2398.i
   %storemerge1805.us.i = load ptr, ptr %4195, align 8, !tbaa !119
@@ -24320,11 +24315,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %4221, label %4196, label %.loopexit1951.us.i.loopexit, !llvm.loop !470
 
 .loopexit1951.us.i.loopexit:                      ; preds = %4217
+  %.not1804.us.i = icmp eq i32 %4194, 0
   %4222 = zext i1 %.not1804.us.i to i32
   %.451593.us.i = select i1 %4192, i32 %4194, i32 %4222
   br label %.loopexit1951.us.i
 
 .loopexit1951.us.i.loopexit994:                   ; preds = %4186
+  %.not1803.us.i = icmp eq i32 %4163, 0
   %4223 = zext i1 %.not1803.us.i to i32
   %.471595.us.i = select i1 %4161, i32 %4223, i32 %4163
   br label %.loopexit1951.us.i
@@ -24383,7 +24380,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4258 = icmp ult i32 %4246, %4245
   %4259 = getelementptr inbounds nuw i8, ptr %4244, i64 4
   %4260 = load i32, ptr %4259, align 4, !tbaa !123
-  %.not1808.us.i = icmp eq i32 %4260, 0
   %.sink2399.i = select i1 %4258, i64 16, i64 8
   %4261 = getelementptr inbounds nuw i8, ptr %4244, i64 %.sink2399.i
   %storemerge1807.us.i = load ptr, ptr %4261, align 8, !tbaa !119
@@ -24442,7 +24438,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4289 = icmp ult i32 %4246, %4245
   %4290 = getelementptr inbounds nuw i8, ptr %4244, i64 4
   %4291 = load i32, ptr %4290, align 4, !tbaa !123
-  %.not1809.us.i = icmp eq i32 %4291, 0
   %.sink2400.i = select i1 %4289, i64 8, i64 16
   %4292 = getelementptr inbounds nuw i8, ptr %4244, i64 %.sink2400.i
   %storemerge1810.us.i = load ptr, ptr %4292, align 8, !tbaa !119
@@ -24498,11 +24493,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %4318, label %4293, label %.loopexit1949.us.i.loopexit, !llvm.loop !472
 
 .loopexit1949.us.i.loopexit:                      ; preds = %4314
+  %.not1809.us.i = icmp eq i32 %4291, 0
   %4319 = zext i1 %.not1809.us.i to i32
   %.481596.us.i = select i1 %4289, i32 %4291, i32 %4319
   br label %.loopexit1949.us.i
 
 .loopexit1949.us.i.loopexit993:                   ; preds = %4283
+  %.not1808.us.i = icmp eq i32 %4260, 0
   %4320 = zext i1 %.not1808.us.i to i32
   %.501598.us.i = select i1 %4258, i32 %4320, i32 %4260
   br label %.loopexit1949.us.i
@@ -24554,7 +24551,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4348 = icmp ult i32 %4336, %4335
   %4349 = getelementptr inbounds nuw i8, ptr %4334, i64 4
   %4350 = load i32, ptr %4349, align 4, !tbaa !123
-  %.not1813.us.i = icmp eq i32 %4350, 0
   %.sink2401.i = select i1 %4348, i64 16, i64 8
   %4351 = getelementptr inbounds nuw i8, ptr %4334, i64 %.sink2401.i
   %storemerge1812.us.i = load ptr, ptr %4351, align 8, !tbaa !119
@@ -24613,7 +24609,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4379 = icmp ult i32 %4336, %4335
   %4380 = getelementptr inbounds nuw i8, ptr %4334, i64 4
   %4381 = load i32, ptr %4380, align 4, !tbaa !123
-  %.not1814.us.i = icmp eq i32 %4381, 0
   %.sink2402.i = select i1 %4379, i64 8, i64 16
   %4382 = getelementptr inbounds nuw i8, ptr %4334, i64 %.sink2402.i
   %storemerge1815.us.i = load ptr, ptr %4382, align 8, !tbaa !119
@@ -24669,11 +24664,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %4408, label %4383, label %.loopexit1947.us.i.loopexit, !llvm.loop !474
 
 .loopexit1947.us.i.loopexit:                      ; preds = %4404
+  %.not1814.us.i = icmp eq i32 %4381, 0
   %4409 = zext i1 %.not1814.us.i to i32
   %.01548.us.i = select i1 %4379, i32 %4381, i32 %4409
   br label %.loopexit1947.us.i
 
 .loopexit1947.us.i.loopexit992:                   ; preds = %4373
+  %.not1813.us.i = icmp eq i32 %4350, 0
   %4410 = zext i1 %.not1813.us.i to i32
   %.21550.us.i = select i1 %4348, i32 %4410, i32 %4350
   br label %.loopexit1947.us.i
@@ -24710,7 +24707,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4426 = icmp ult i32 %4414, %4413
   %4427 = getelementptr inbounds nuw i8, ptr %4412, i64 4
   %4428 = load i32, ptr %4427, align 4, !tbaa !123
-  %.not1818.us.i = icmp eq i32 %4428, 0
   %.sink2403.i = select i1 %4426, i64 16, i64 8
   %4429 = getelementptr inbounds nuw i8, ptr %4412, i64 %.sink2403.i
   %storemerge1817.us.i = load ptr, ptr %4429, align 8, !tbaa !119
@@ -24769,7 +24765,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4457 = icmp ult i32 %4414, %4413
   %4458 = getelementptr inbounds nuw i8, ptr %4412, i64 4
   %4459 = load i32, ptr %4458, align 4, !tbaa !123
-  %.not1819.us.i = icmp eq i32 %4459, 0
   %.sink2404.i = select i1 %4457, i64 8, i64 16
   %4460 = getelementptr inbounds nuw i8, ptr %4412, i64 %.sink2404.i
   %storemerge1820.us.i = load ptr, ptr %4460, align 8, !tbaa !119
@@ -24825,11 +24820,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %4486, label %4461, label %.loopexit1945.us.i.loopexit, !llvm.loop !476
 
 .loopexit1945.us.i.loopexit:                      ; preds = %4482
+  %.not1819.us.i = icmp eq i32 %4459, 0
   %4487 = zext i1 %.not1819.us.i to i32
   %.0.us.i = select i1 %4457, i32 %4459, i32 %4487
   br label %.loopexit1945.us.i
 
 .loopexit1945.us.i.loopexit991:                   ; preds = %4451
+  %.not1818.us.i = icmp eq i32 %4428, 0
   %4488 = zext i1 %.not1818.us.i to i32
   %.2.us.i = select i1 %4426, i32 %4488, i32 %4428
   br label %.loopexit1945.us.i
@@ -24862,7 +24859,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4503 = icmp ult i32 %4491, %4490
   %4504 = getelementptr inbounds nuw i8, ptr %4489, i64 4
   %4505 = load i32, ptr %4504, align 4, !tbaa !123
-  %.not1822.us.i = icmp eq i32 %4505, 0
   %.sink2405.i = select i1 %4503, i64 16, i64 8
   %4506 = getelementptr inbounds nuw i8, ptr %4489, i64 %.sink2405.i
   %storemerge1821.us.i = load ptr, ptr %4506, align 8, !tbaa !119
@@ -24921,7 +24917,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4534 = icmp ult i32 %4491, %4490
   %4535 = getelementptr inbounds nuw i8, ptr %4489, i64 4
   %4536 = load i32, ptr %4535, align 4, !tbaa !123
-  %.not1823.us.i = icmp eq i32 %4536, 0
   %.sink2406.i = select i1 %4534, i64 8, i64 16
   %4537 = getelementptr inbounds nuw i8, ptr %4489, i64 %.sink2406.i
   %storemerge1824.us.i = load ptr, ptr %4537, align 8, !tbaa !119
@@ -24977,11 +24972,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %4563, label %4538, label %.loopexit1943.us.i.loopexit, !llvm.loop !478
 
 .loopexit1943.us.i.loopexit:                      ; preds = %4559
+  %.not1823.us.i = icmp eq i32 %4536, 0
   %4564 = zext i1 %.not1823.us.i to i32
   %.31551.us.i = select i1 %4534, i32 %4536, i32 %4564
   br label %.loopexit1943.us.i
 
 .loopexit1943.us.i.loopexit990:                   ; preds = %4528
+  %.not1822.us.i = icmp eq i32 %4505, 0
   %4565 = zext i1 %.not1822.us.i to i32
   %.51553.us.i = select i1 %4503, i32 %4565, i32 %4505
   br label %.loopexit1943.us.i
@@ -25038,7 +25035,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4597 = icmp ult i32 %4585, %4584
   %4598 = getelementptr inbounds nuw i8, ptr %4583, i64 4
   %4599 = load i32, ptr %4598, align 4, !tbaa !123
-  %.not1826.us.i = icmp eq i32 %4599, 0
   %.sink2407.i = select i1 %4597, i64 16, i64 8
   %4600 = getelementptr inbounds nuw i8, ptr %4583, i64 %.sink2407.i
   %storemerge1825.us.i = load ptr, ptr %4600, align 8, !tbaa !119
@@ -25097,7 +25093,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4628 = icmp ult i32 %4585, %4584
   %4629 = getelementptr inbounds nuw i8, ptr %4583, i64 4
   %4630 = load i32, ptr %4629, align 4, !tbaa !123
-  %.not1827.us.i = icmp eq i32 %4630, 0
   %.sink2408.i = select i1 %4628, i64 8, i64 16
   %4631 = getelementptr inbounds nuw i8, ptr %4583, i64 %.sink2408.i
   %storemerge1828.us.i = load ptr, ptr %4631, align 8, !tbaa !119
@@ -25153,11 +25148,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %4657, label %4632, label %.loopexit1941.us.i.loopexit, !llvm.loop !480
 
 .loopexit1941.us.i.loopexit:                      ; preds = %4653
+  %.not1827.us.i = icmp eq i32 %4630, 0
   %4658 = zext i1 %.not1827.us.i to i32
   %.61554.us.i = select i1 %4628, i32 %4630, i32 %4658
   br label %.loopexit1941.us.i
 
 .loopexit1941.us.i.loopexit989:                   ; preds = %4622
+  %.not1826.us.i = icmp eq i32 %4599, 0
   %4659 = zext i1 %.not1826.us.i to i32
   %.81556.us.i = select i1 %4597, i32 %4659, i32 %4599
   br label %.loopexit1941.us.i
@@ -25210,7 +25207,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4689 = icmp ult i32 %4677, %4676
   %4690 = getelementptr inbounds nuw i8, ptr %4675, i64 4
   %4691 = load i32, ptr %4690, align 4, !tbaa !123
-  %.not1832.us.i = icmp eq i32 %4691, 0
   %.sink2409.i = select i1 %4689, i64 16, i64 8
   %4692 = getelementptr inbounds nuw i8, ptr %4675, i64 %.sink2409.i
   %storemerge1831.us.i = load ptr, ptr %4692, align 8, !tbaa !119
@@ -25269,7 +25265,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4720 = icmp ult i32 %4677, %4676
   %4721 = getelementptr inbounds nuw i8, ptr %4675, i64 4
   %4722 = load i32, ptr %4721, align 4, !tbaa !123
-  %.not1833.us.i = icmp eq i32 %4722, 0
   %.sink2410.i = select i1 %4720, i64 8, i64 16
   %4723 = getelementptr inbounds nuw i8, ptr %4675, i64 %.sink2410.i
   %storemerge1834.us.i = load ptr, ptr %4723, align 8, !tbaa !119
@@ -25325,11 +25320,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %4749, label %4724, label %.loopexit1939.us.i.loopexit, !llvm.loop !482
 
 .loopexit1939.us.i.loopexit:                      ; preds = %4745
+  %.not1833.us.i = icmp eq i32 %4722, 0
   %4750 = zext i1 %.not1833.us.i to i32
   %.91557.us.i = select i1 %4720, i32 %4722, i32 %4750
   br label %.loopexit1939.us.i
 
 .loopexit1939.us.i.loopexit988:                   ; preds = %4714
+  %.not1832.us.i = icmp eq i32 %4691, 0
   %4751 = zext i1 %.not1832.us.i to i32
   %.111559.us.i = select i1 %4689, i32 %4751, i32 %4691
   br label %.loopexit1939.us.i
@@ -25393,7 +25390,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4786 = icmp ult i32 %4774, %4773
   %4787 = getelementptr inbounds nuw i8, ptr %4772, i64 4
   %4788 = load i32, ptr %4787, align 4, !tbaa !123
-  %.not1837.us.i = icmp eq i32 %4788, 0
   %.sink2411.i = select i1 %4786, i64 16, i64 8
   %4789 = getelementptr inbounds nuw i8, ptr %4772, i64 %.sink2411.i
   %storemerge1836.us.i = load ptr, ptr %4789, align 8, !tbaa !119
@@ -25452,7 +25448,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4817 = icmp ult i32 %4774, %4773
   %4818 = getelementptr inbounds nuw i8, ptr %4772, i64 4
   %4819 = load i32, ptr %4818, align 4, !tbaa !123
-  %.not1838.us.i = icmp eq i32 %4819, 0
   %.sink2412.i = select i1 %4817, i64 8, i64 16
   %4820 = getelementptr inbounds nuw i8, ptr %4772, i64 %.sink2412.i
   %storemerge1839.us.i = load ptr, ptr %4820, align 8, !tbaa !119
@@ -25508,11 +25503,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %4846, label %4821, label %.loopexit1937.us.i.loopexit, !llvm.loop !484
 
 .loopexit1937.us.i.loopexit:                      ; preds = %4842
+  %.not1838.us.i = icmp eq i32 %4819, 0
   %4847 = zext i1 %.not1838.us.i to i32
   %.121560.us.i = select i1 %4817, i32 %4819, i32 %4847
   br label %.loopexit1937.us.i
 
 .loopexit1937.us.i.loopexit987:                   ; preds = %4811
+  %.not1837.us.i = icmp eq i32 %4788, 0
   %4848 = zext i1 %.not1837.us.i to i32
   %.141562.us.i = select i1 %4786, i32 %4848, i32 %4788
   br label %.loopexit1937.us.i
@@ -25578,7 +25575,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4884 = icmp ult i32 %4872, %4871
   %4885 = getelementptr inbounds nuw i8, ptr %4870, i64 4
   %4886 = load i32, ptr %4885, align 4, !tbaa !123
-  %.not1843.us.i = icmp eq i32 %4886, 0
   %.sink2413.i = select i1 %4884, i64 16, i64 8
   %4887 = getelementptr inbounds nuw i8, ptr %4870, i64 %.sink2413.i
   %storemerge1842.us.i = load ptr, ptr %4887, align 8, !tbaa !119
@@ -25637,7 +25633,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4915 = icmp ult i32 %4872, %4871
   %4916 = getelementptr inbounds nuw i8, ptr %4870, i64 4
   %4917 = load i32, ptr %4916, align 4, !tbaa !123
-  %.not1844.us.i = icmp eq i32 %4917, 0
   %.sink2414.i = select i1 %4915, i64 8, i64 16
   %4918 = getelementptr inbounds nuw i8, ptr %4870, i64 %.sink2414.i
   %storemerge1845.us.i = load ptr, ptr %4918, align 8, !tbaa !119
@@ -25693,11 +25688,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %4944, label %4919, label %.loopexit1935.us.i.loopexit, !llvm.loop !486
 
 .loopexit1935.us.i.loopexit:                      ; preds = %4940
+  %.not1844.us.i = icmp eq i32 %4917, 0
   %4945 = zext i1 %.not1844.us.i to i32
   %.151563.us.i = select i1 %4915, i32 %4917, i32 %4945
   br label %.loopexit1935.us.i
 
 .loopexit1935.us.i.loopexit986:                   ; preds = %4909
+  %.not1843.us.i = icmp eq i32 %4886, 0
   %4946 = zext i1 %.not1843.us.i to i32
   %.171565.us.i = select i1 %4884, i32 %4946, i32 %4886
   br label %.loopexit1935.us.i
@@ -25761,7 +25758,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %4981 = icmp ult i32 %4969, %4968
   %4982 = getelementptr inbounds nuw i8, ptr %4967, i64 4
   %4983 = load i32, ptr %4982, align 4, !tbaa !123
-  %.not1848.us.i = icmp eq i32 %4983, 0
   %.sink2415.i = select i1 %4981, i64 16, i64 8
   %4984 = getelementptr inbounds nuw i8, ptr %4967, i64 %.sink2415.i
   %storemerge1847.us.i = load ptr, ptr %4984, align 8, !tbaa !119
@@ -25820,7 +25816,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5012 = icmp ult i32 %4969, %4968
   %5013 = getelementptr inbounds nuw i8, ptr %4967, i64 4
   %5014 = load i32, ptr %5013, align 4, !tbaa !123
-  %.not1849.us.i = icmp eq i32 %5014, 0
   %.sink2416.i = select i1 %5012, i64 8, i64 16
   %5015 = getelementptr inbounds nuw i8, ptr %4967, i64 %.sink2416.i
   %storemerge1850.us.i = load ptr, ptr %5015, align 8, !tbaa !119
@@ -25876,11 +25871,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %5041, label %5016, label %.loopexit1933.us.i.loopexit, !llvm.loop !488
 
 .loopexit1933.us.i.loopexit:                      ; preds = %5037
+  %.not1849.us.i = icmp eq i32 %5014, 0
   %5042 = zext i1 %.not1849.us.i to i32
   %.181566.us.i = select i1 %5012, i32 %5014, i32 %5042
   br label %.loopexit1933.us.i
 
 .loopexit1933.us.i.loopexit985:                   ; preds = %5006
+  %.not1848.us.i = icmp eq i32 %4983, 0
   %5043 = zext i1 %.not1848.us.i to i32
   %.201568.us.i = select i1 %4981, i32 %5043, i32 %4983
   br label %.loopexit1933.us.i
@@ -25946,7 +25943,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5079 = icmp ult i32 %5067, %5066
   %5080 = getelementptr inbounds nuw i8, ptr %5065, i64 4
   %5081 = load i32, ptr %5080, align 4, !tbaa !123
-  %.not1854.us.i = icmp eq i32 %5081, 0
   %.sink2417.i = select i1 %5079, i64 16, i64 8
   %5082 = getelementptr inbounds nuw i8, ptr %5065, i64 %.sink2417.i
   %storemerge1853.us.i = load ptr, ptr %5082, align 8, !tbaa !119
@@ -26005,7 +26001,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5110 = icmp ult i32 %5067, %5066
   %5111 = getelementptr inbounds nuw i8, ptr %5065, i64 4
   %5112 = load i32, ptr %5111, align 4, !tbaa !123
-  %.not1855.us.i = icmp eq i32 %5112, 0
   %.sink2418.i = select i1 %5110, i64 8, i64 16
   %5113 = getelementptr inbounds nuw i8, ptr %5065, i64 %.sink2418.i
   %storemerge1856.us.i = load ptr, ptr %5113, align 8, !tbaa !119
@@ -26061,11 +26056,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %5139, label %5114, label %.loopexit1931.us.i.loopexit, !llvm.loop !490
 
 .loopexit1931.us.i.loopexit:                      ; preds = %5135
+  %.not1855.us.i = icmp eq i32 %5112, 0
   %5140 = zext i1 %.not1855.us.i to i32
   %.211569.us.i = select i1 %5110, i32 %5112, i32 %5140
   br label %.loopexit1931.us.i
 
 .loopexit1931.us.i.loopexit984:                   ; preds = %5104
+  %.not1854.us.i = icmp eq i32 %5081, 0
   %5141 = zext i1 %.not1854.us.i to i32
   %.231571.us.i = select i1 %5079, i32 %5141, i32 %5081
   br label %.loopexit1931.us.i
@@ -26129,7 +26126,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5176 = icmp ult i32 %5164, %5163
   %5177 = getelementptr inbounds nuw i8, ptr %5162, i64 4
   %5178 = load i32, ptr %5177, align 4, !tbaa !123
-  %.not1859.us.i = icmp eq i32 %5178, 0
   %.sink2419.i = select i1 %5176, i64 16, i64 8
   %5179 = getelementptr inbounds nuw i8, ptr %5162, i64 %.sink2419.i
   %storemerge1858.us.i = load ptr, ptr %5179, align 8, !tbaa !119
@@ -26188,7 +26184,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5207 = icmp ult i32 %5164, %5163
   %5208 = getelementptr inbounds nuw i8, ptr %5162, i64 4
   %5209 = load i32, ptr %5208, align 4, !tbaa !123
-  %.not1860.us.i = icmp eq i32 %5209, 0
   %.sink2420.i = select i1 %5207, i64 8, i64 16
   %5210 = getelementptr inbounds nuw i8, ptr %5162, i64 %.sink2420.i
   %storemerge1861.us.i = load ptr, ptr %5210, align 8, !tbaa !119
@@ -26244,11 +26239,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %5236, label %5211, label %.loopexit1929.us.i.loopexit, !llvm.loop !492
 
 .loopexit1929.us.i.loopexit:                      ; preds = %5232
+  %.not1860.us.i = icmp eq i32 %5209, 0
   %5237 = zext i1 %.not1860.us.i to i32
   %.241572.us.i = select i1 %5207, i32 %5209, i32 %5237
   br label %.loopexit1929.us.i
 
 .loopexit1929.us.i.loopexit983:                   ; preds = %5201
+  %.not1859.us.i = icmp eq i32 %5178, 0
   %5238 = zext i1 %.not1859.us.i to i32
   %.261574.us.i = select i1 %5176, i32 %5238, i32 %5178
   br label %.loopexit1929.us.i
@@ -26337,15 +26334,15 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5276 = and i32 %3531, -4
   %5277 = add i32 %5276, -1
   %5278 = and i32 %5277, -4
-  %5279 = lshr i32 %5277, 2
-  %5280 = zext nneg i32 %5279 to i64
-  %5281 = shl nuw nsw i64 %5280, 2
-  %5282 = add nuw nsw i64 %5281, 4
-  %5283 = mul nuw nsw i64 %5282, %3542
-  %5284 = shl nuw nsw i64 %5280, 3
-  %5285 = add nuw i32 %5278, 4
-  %scevgep.i = getelementptr i8, ptr %3514, i64 %5283
-  %5286 = getelementptr i8, ptr %3516, i64 %5284
+  %5279 = add nuw i32 %5278, 4
+  %5280 = lshr i32 %5277, 2
+  %5281 = zext nneg i32 %5280 to i64
+  %5282 = shl nuw nsw i64 %5281, 2
+  %5283 = add nuw nsw i64 %5282, 4
+  %5284 = mul nuw nsw i64 %5283, %3542
+  %scevgep.i = getelementptr i8, ptr %3514, i64 %5284
+  %5285 = shl nuw nsw i64 %5281, 3
+  %5286 = getelementptr i8, ptr %3516, i64 %5285
   %scevgep2250.i = getelementptr i8, ptr %5286, i64 20
   br label %._crit_edge2094.i
 
@@ -26356,7 +26353,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.01304.lcssa.i = phi ptr [ %3521, %3532 ], [ %3521, %.preheader1965.lr.ph.split.i ], [ %.4.us.i, %._crit_edge.us.i ]
   %.01301.lcssa.i = phi ptr [ %3519, %3532 ], [ %scevgep2250.i, %.preheader1965.lr.ph.split.i ], [ %5272, %._crit_edge.us.i ]
   %.01298.lcssa.i = phi ptr [ %3514, %3532 ], [ %scevgep.i, %.preheader1965.lr.ph.split.i ], [ %5271, %._crit_edge.us.i ]
-  %.01297.lcssa.i = phi i32 [ 0, %3532 ], [ %5285, %.preheader1965.lr.ph.split.i ], [ %5270, %._crit_edge.us.i ]
+  %.01297.lcssa.i = phi i32 [ 0, %3532 ], [ %5279, %.preheader1965.lr.ph.split.i ], [ %5270, %._crit_edge.us.i ]
   %.lcssa2073.i = phi i32 [ %3531, %3532 ], [ %3531, %.preheader1965.lr.ph.split.i ], [ %5273, %._crit_edge.us.i ]
   store ptr %.01304.lcssa.i, ptr %3520, align 8, !tbaa !117
   store i32 %.01307.lcssa.i, ptr %0, align 8, !tbaa !107
@@ -26476,7 +26473,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5342 = icmp ult i32 %5330, %5329
   %5343 = getelementptr inbounds nuw i8, ptr %5328, i64 4
   %5344 = load i32, ptr %5343, align 4, !tbaa !123
-  %.not1782.us.i292 = icmp eq i32 %5344, 0
   %.sink.i293 = select i1 %5342, i64 16, i64 8
   %5345 = getelementptr inbounds nuw i8, ptr %5328, i64 %.sink.i293
   %storemerge.us.i294 = load ptr, ptr %5345, align 8, !tbaa !119
@@ -26535,7 +26531,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5373 = icmp ult i32 %5330, %5329
   %5374 = getelementptr inbounds nuw i8, ptr %5328, i64 4
   %5375 = load i32, ptr %5374, align 4, !tbaa !123
-  %.not1783.us.i = icmp eq i32 %5375, 0
   %.sink2398.i297 = select i1 %5373, i64 8, i64 16
   %5376 = getelementptr inbounds nuw i8, ptr %5328, i64 %.sink2398.i297
   %storemerge1784.us.i = load ptr, ptr %5376, align 8, !tbaa !119
@@ -26591,11 +26586,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %5402, label %5377, label %.loopexit1975.us.i.loopexit, !llvm.loop !498
 
 .loopexit1975.us.i.loopexit:                      ; preds = %5398
+  %.not1783.us.i = icmp eq i32 %5375, 0
   %5403 = zext i1 %.not1783.us.i to i32
   %.271587.us.i = select i1 %5373, i32 %5375, i32 %5403
   br label %.loopexit1975.us.i
 
 .loopexit1975.us.i.loopexit981:                   ; preds = %5367
+  %.not1782.us.i292 = icmp eq i32 %5344, 0
   %5404 = zext i1 %.not1782.us.i292 to i32
   %.291589.us.i = select i1 %5342, i32 %5404, i32 %5344
   br label %.loopexit1975.us.i
@@ -26654,7 +26651,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5439 = icmp ult i32 %5427, %5426
   %5440 = getelementptr inbounds nuw i8, ptr %5425, i64 4
   %5441 = load i32, ptr %5440, align 4, !tbaa !123
-  %.not1787.us.i285 = icmp eq i32 %5441, 0
   %.sink2399.i286 = select i1 %5439, i64 16, i64 8
   %5442 = getelementptr inbounds nuw i8, ptr %5425, i64 %.sink2399.i286
   %storemerge1786.us.i = load ptr, ptr %5442, align 8, !tbaa !119
@@ -26713,7 +26709,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5470 = icmp ult i32 %5427, %5426
   %5471 = getelementptr inbounds nuw i8, ptr %5425, i64 4
   %5472 = load i32, ptr %5471, align 4, !tbaa !123
-  %.not1788.us.i = icmp eq i32 %5472, 0
   %.sink2400.i289 = select i1 %5470, i64 8, i64 16
   %5473 = getelementptr inbounds nuw i8, ptr %5425, i64 %.sink2400.i289
   %storemerge1789.us.i = load ptr, ptr %5473, align 8, !tbaa !119
@@ -26769,11 +26764,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %5499, label %5474, label %.loopexit1973.us.i.loopexit, !llvm.loop !500
 
 .loopexit1973.us.i.loopexit:                      ; preds = %5495
+  %.not1788.us.i = icmp eq i32 %5472, 0
   %5500 = zext i1 %.not1788.us.i to i32
   %.301590.us.i = select i1 %5470, i32 %5472, i32 %5500
   br label %.loopexit1973.us.i
 
 .loopexit1973.us.i.loopexit980:                   ; preds = %5464
+  %.not1787.us.i285 = icmp eq i32 %5441, 0
   %5501 = zext i1 %.not1787.us.i285 to i32
   %.321592.us.i = select i1 %5439, i32 %5501, i32 %5441
   br label %.loopexit1973.us.i
@@ -26861,7 +26858,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5553 = icmp ult i32 %5541, %5540
   %5554 = getelementptr inbounds nuw i8, ptr %5539, i64 4
   %5555 = load i32, ptr %5554, align 4, !tbaa !123
-  %.not1793.us.i275 = icmp eq i32 %5555, 0
   %.sink2401.i276 = select i1 %5553, i64 16, i64 8
   %5556 = getelementptr inbounds nuw i8, ptr %5539, i64 %.sink2401.i276
   %storemerge1792.us.i = load ptr, ptr %5556, align 8, !tbaa !119
@@ -26920,7 +26916,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5584 = icmp ult i32 %5541, %5540
   %5585 = getelementptr inbounds nuw i8, ptr %5539, i64 4
   %5586 = load i32, ptr %5585, align 4, !tbaa !123
-  %.not1794.us.i = icmp eq i32 %5586, 0
   %.sink2402.i279 = select i1 %5584, i64 8, i64 16
   %5587 = getelementptr inbounds nuw i8, ptr %5539, i64 %.sink2402.i279
   %storemerge1795.us.i = load ptr, ptr %5587, align 8, !tbaa !119
@@ -26976,11 +26971,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %5613, label %5588, label %.loopexit1971.us.i.loopexit, !llvm.loop !502
 
 .loopexit1971.us.i.loopexit:                      ; preds = %5609
+  %.not1794.us.i = icmp eq i32 %5586, 0
   %5614 = zext i1 %.not1794.us.i to i32
   %.331593.us.i = select i1 %5584, i32 %5586, i32 %5614
   br label %.loopexit1971.us.i
 
 .loopexit1971.us.i.loopexit979:                   ; preds = %5578
+  %.not1793.us.i275 = icmp eq i32 %5555, 0
   %5615 = zext i1 %.not1793.us.i275 to i32
   %.351595.us.i = select i1 %5553, i32 %5615, i32 %5555
   br label %.loopexit1971.us.i
@@ -27039,7 +27036,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5650 = icmp ult i32 %5638, %5637
   %5651 = getelementptr inbounds nuw i8, ptr %5636, i64 4
   %5652 = load i32, ptr %5651, align 4, !tbaa !123
-  %.not1798.us.i268 = icmp eq i32 %5652, 0
   %.sink2403.i269 = select i1 %5650, i64 16, i64 8
   %5653 = getelementptr inbounds nuw i8, ptr %5636, i64 %.sink2403.i269
   %storemerge1797.us.i = load ptr, ptr %5653, align 8, !tbaa !119
@@ -27098,7 +27094,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5681 = icmp ult i32 %5638, %5637
   %5682 = getelementptr inbounds nuw i8, ptr %5636, i64 4
   %5683 = load i32, ptr %5682, align 4, !tbaa !123
-  %.not1799.us.i = icmp eq i32 %5683, 0
   %.sink2404.i272 = select i1 %5681, i64 8, i64 16
   %5684 = getelementptr inbounds nuw i8, ptr %5636, i64 %.sink2404.i272
   %storemerge1800.us.i = load ptr, ptr %5684, align 8, !tbaa !119
@@ -27154,11 +27149,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %5710, label %5685, label %.loopexit1969.us.i.loopexit, !llvm.loop !504
 
 .loopexit1969.us.i.loopexit:                      ; preds = %5706
+  %.not1799.us.i = icmp eq i32 %5683, 0
   %5711 = zext i1 %.not1799.us.i to i32
   %.361596.us.i = select i1 %5681, i32 %5683, i32 %5711
   br label %.loopexit1969.us.i
 
 .loopexit1969.us.i.loopexit978:                   ; preds = %5675
+  %.not1798.us.i268 = icmp eq i32 %5652, 0
   %5712 = zext i1 %.not1798.us.i268 to i32
   %.381598.us.i = select i1 %5650, i32 %5712, i32 %5652
   br label %.loopexit1969.us.i
@@ -27229,7 +27226,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5750 = icmp ult i32 %5738, %5737
   %5751 = getelementptr inbounds nuw i8, ptr %5736, i64 4
   %5752 = load i32, ptr %5751, align 4, !tbaa !123
-  %.not1804.us.i258 = icmp eq i32 %5752, 0
   %.sink2405.i259 = select i1 %5750, i64 16, i64 8
   %5753 = getelementptr inbounds nuw i8, ptr %5736, i64 %.sink2405.i259
   %storemerge1803.us.i = load ptr, ptr %5753, align 8, !tbaa !119
@@ -27288,7 +27284,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5781 = icmp ult i32 %5738, %5737
   %5782 = getelementptr inbounds nuw i8, ptr %5736, i64 4
   %5783 = load i32, ptr %5782, align 4, !tbaa !123
-  %.not1805.us.i = icmp eq i32 %5783, 0
   %.sink2406.i262 = select i1 %5781, i64 8, i64 16
   %5784 = getelementptr inbounds nuw i8, ptr %5736, i64 %.sink2406.i262
   %storemerge1806.us.i = load ptr, ptr %5784, align 8, !tbaa !119
@@ -27344,11 +27339,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %5810, label %5785, label %.loopexit1967.us.i.loopexit, !llvm.loop !506
 
 .loopexit1967.us.i.loopexit:                      ; preds = %5806
+  %.not1805.us.i = icmp eq i32 %5783, 0
   %5811 = zext i1 %.not1805.us.i to i32
   %.391599.us.i = select i1 %5781, i32 %5783, i32 %5811
   br label %.loopexit1967.us.i
 
 .loopexit1967.us.i.loopexit977:                   ; preds = %5775
+  %.not1804.us.i258 = icmp eq i32 %5752, 0
   %5812 = zext i1 %.not1804.us.i258 to i32
   %.411601.us.i = select i1 %5750, i32 %5812, i32 %5752
   br label %.loopexit1967.us.i
@@ -27407,7 +27404,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5847 = icmp ult i32 %5835, %5834
   %5848 = getelementptr inbounds nuw i8, ptr %5833, i64 4
   %5849 = load i32, ptr %5848, align 4, !tbaa !123
-  %.not1809.us.i251 = icmp eq i32 %5849, 0
   %.sink2407.i252 = select i1 %5847, i64 16, i64 8
   %5850 = getelementptr inbounds nuw i8, ptr %5833, i64 %.sink2407.i252
   %storemerge1808.us.i = load ptr, ptr %5850, align 8, !tbaa !119
@@ -27466,7 +27462,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5878 = icmp ult i32 %5835, %5834
   %5879 = getelementptr inbounds nuw i8, ptr %5833, i64 4
   %5880 = load i32, ptr %5879, align 4, !tbaa !123
-  %.not1810.us.i = icmp eq i32 %5880, 0
   %.sink2408.i255 = select i1 %5878, i64 8, i64 16
   %5881 = getelementptr inbounds nuw i8, ptr %5833, i64 %.sink2408.i255
   %storemerge1811.us.i = load ptr, ptr %5881, align 8, !tbaa !119
@@ -27522,11 +27517,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %5907, label %5882, label %.loopexit1965.us.i.loopexit, !llvm.loop !508
 
 .loopexit1965.us.i.loopexit:                      ; preds = %5903
+  %.not1810.us.i = icmp eq i32 %5880, 0
   %5908 = zext i1 %.not1810.us.i to i32
   %.421602.us.i = select i1 %5878, i32 %5880, i32 %5908
   br label %.loopexit1965.us.i
 
 .loopexit1965.us.i.loopexit976:                   ; preds = %5872
+  %.not1809.us.i251 = icmp eq i32 %5849, 0
   %5909 = zext i1 %.not1809.us.i251 to i32
   %.441604.us.i = select i1 %5847, i32 %5909, i32 %5849
   br label %.loopexit1965.us.i
@@ -27597,7 +27594,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5947 = icmp ult i32 %5935, %5934
   %5948 = getelementptr inbounds nuw i8, ptr %5933, i64 4
   %5949 = load i32, ptr %5948, align 4, !tbaa !123
-  %.not1815.us.i = icmp eq i32 %5949, 0
   %.sink2409.i242 = select i1 %5947, i64 16, i64 8
   %5950 = getelementptr inbounds nuw i8, ptr %5933, i64 %.sink2409.i242
   %storemerge1814.us.i = load ptr, ptr %5950, align 8, !tbaa !119
@@ -27656,7 +27652,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %5978 = icmp ult i32 %5935, %5934
   %5979 = getelementptr inbounds nuw i8, ptr %5933, i64 4
   %5980 = load i32, ptr %5979, align 4, !tbaa !123
-  %.not1816.us.i = icmp eq i32 %5980, 0
   %.sink2410.i245 = select i1 %5978, i64 8, i64 16
   %5981 = getelementptr inbounds nuw i8, ptr %5933, i64 %.sink2410.i245
   %storemerge1817.us.i246 = load ptr, ptr %5981, align 8, !tbaa !119
@@ -27712,11 +27707,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %6007, label %5982, label %.loopexit1963.us.i227.loopexit, !llvm.loop !510
 
 .loopexit1963.us.i227.loopexit:                   ; preds = %6003
+  %.not1816.us.i = icmp eq i32 %5980, 0
   %6008 = zext i1 %.not1816.us.i to i32
   %.451605.us.i = select i1 %5978, i32 %5980, i32 %6008
   br label %.loopexit1963.us.i227
 
 .loopexit1963.us.i227.loopexit975:                ; preds = %5972
+  %.not1815.us.i = icmp eq i32 %5949, 0
   %6009 = zext i1 %.not1815.us.i to i32
   %.471607.us.i = select i1 %5947, i32 %6009, i32 %5949
   br label %.loopexit1963.us.i227
@@ -27775,7 +27772,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6044 = icmp ult i32 %6032, %6031
   %6045 = getelementptr inbounds nuw i8, ptr %6030, i64 4
   %6046 = load i32, ptr %6045, align 4, !tbaa !123
-  %.not1820.us.i = icmp eq i32 %6046, 0
   %.sink2411.i236 = select i1 %6044, i64 16, i64 8
   %6047 = getelementptr inbounds nuw i8, ptr %6030, i64 %.sink2411.i236
   %storemerge1819.us.i = load ptr, ptr %6047, align 8, !tbaa !119
@@ -27834,7 +27830,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6075 = icmp ult i32 %6032, %6031
   %6076 = getelementptr inbounds nuw i8, ptr %6030, i64 4
   %6077 = load i32, ptr %6076, align 4, !tbaa !123
-  %.not1821.us.i = icmp eq i32 %6077, 0
   %.sink2412.i239 = select i1 %6075, i64 8, i64 16
   %6078 = getelementptr inbounds nuw i8, ptr %6030, i64 %.sink2412.i239
   %storemerge1822.us.i = load ptr, ptr %6078, align 8, !tbaa !119
@@ -27890,11 +27885,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %6104, label %6079, label %.loopexit1961.us.i230.loopexit, !llvm.loop !512
 
 .loopexit1961.us.i230.loopexit:                   ; preds = %6100
+  %.not1821.us.i = icmp eq i32 %6077, 0
   %6105 = zext i1 %.not1821.us.i to i32
   %.481608.us.i = select i1 %6075, i32 %6077, i32 %6105
   br label %.loopexit1961.us.i230
 
 .loopexit1961.us.i230.loopexit974:                ; preds = %6069
+  %.not1820.us.i = icmp eq i32 %6046, 0
   %6106 = zext i1 %.not1820.us.i to i32
   %.501610.us.i = select i1 %6044, i32 %6106, i32 %6046
   br label %.loopexit1961.us.i230
@@ -27946,7 +27943,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6134 = icmp ult i32 %6122, %6121
   %6135 = getelementptr inbounds nuw i8, ptr %6120, i64 4
   %6136 = load i32, ptr %6135, align 4, !tbaa !123
-  %.not1825.us.i = icmp eq i32 %6136, 0
   %.sink2413.i386 = select i1 %6134, i64 16, i64 8
   %6137 = getelementptr inbounds nuw i8, ptr %6120, i64 %.sink2413.i386
   %storemerge1824.us.i387 = load ptr, ptr %6137, align 8, !tbaa !119
@@ -28005,7 +28001,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6165 = icmp ult i32 %6122, %6121
   %6166 = getelementptr inbounds nuw i8, ptr %6120, i64 4
   %6167 = load i32, ptr %6166, align 4, !tbaa !123
-  %.not1826.us.i388 = icmp eq i32 %6167, 0
   %.sink2414.i389 = select i1 %6165, i64 8, i64 16
   %6168 = getelementptr inbounds nuw i8, ptr %6120, i64 %.sink2414.i389
   %storemerge1827.us.i = load ptr, ptr %6168, align 8, !tbaa !119
@@ -28061,11 +28056,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %6194, label %6169, label %.loopexit1959.us.i300.loopexit, !llvm.loop !514
 
 .loopexit1959.us.i300.loopexit:                   ; preds = %6190
+  %.not1826.us.i388 = icmp eq i32 %6167, 0
   %6195 = zext i1 %.not1826.us.i388 to i32
   %.01560.us.i = select i1 %6165, i32 %6167, i32 %6195
   br label %.loopexit1959.us.i300
 
 .loopexit1959.us.i300.loopexit973:                ; preds = %6159
+  %.not1825.us.i = icmp eq i32 %6136, 0
   %6196 = zext i1 %.not1825.us.i to i32
   %.21562.us.i = select i1 %6134, i32 %6196, i32 %6136
   br label %.loopexit1959.us.i300
@@ -28102,7 +28099,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6212 = icmp ult i32 %6200, %6199
   %6213 = getelementptr inbounds nuw i8, ptr %6198, i64 4
   %6214 = load i32, ptr %6213, align 4, !tbaa !123
-  %.not1830.us.i = icmp eq i32 %6214, 0
   %.sink2415.i378 = select i1 %6212, i64 16, i64 8
   %6215 = getelementptr inbounds nuw i8, ptr %6198, i64 %.sink2415.i378
   %storemerge1829.us.i = load ptr, ptr %6215, align 8, !tbaa !119
@@ -28161,7 +28157,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6243 = icmp ult i32 %6200, %6199
   %6244 = getelementptr inbounds nuw i8, ptr %6198, i64 4
   %6245 = load i32, ptr %6244, align 4, !tbaa !123
-  %.not1831.us.i = icmp eq i32 %6245, 0
   %.sink2416.i382 = select i1 %6243, i64 8, i64 16
   %6246 = getelementptr inbounds nuw i8, ptr %6198, i64 %.sink2416.i382
   %storemerge1832.us.i = load ptr, ptr %6246, align 8, !tbaa !119
@@ -28217,11 +28212,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %6272, label %6247, label %.loopexit1957.us.i301.loopexit, !llvm.loop !516
 
 .loopexit1957.us.i301.loopexit:                   ; preds = %6268
+  %.not1831.us.i = icmp eq i32 %6245, 0
   %6273 = zext i1 %.not1831.us.i to i32
   %.0.us.i383 = select i1 %6243, i32 %6245, i32 %6273
   br label %.loopexit1957.us.i301
 
 .loopexit1957.us.i301.loopexit972:                ; preds = %6237
+  %.not1830.us.i = icmp eq i32 %6214, 0
   %6274 = zext i1 %.not1830.us.i to i32
   %.2.us.i379 = select i1 %6212, i32 %6274, i32 %6214
   br label %.loopexit1957.us.i301
@@ -28254,7 +28251,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6289 = icmp ult i32 %6277, %6276
   %6290 = getelementptr inbounds nuw i8, ptr %6275, i64 4
   %6291 = load i32, ptr %6290, align 4, !tbaa !123
-  %.not1834.us.i = icmp eq i32 %6291, 0
   %.sink2417.i370 = select i1 %6289, i64 16, i64 8
   %6292 = getelementptr inbounds nuw i8, ptr %6275, i64 %.sink2417.i370
   %storemerge1833.us.i = load ptr, ptr %6292, align 8, !tbaa !119
@@ -28313,7 +28309,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6320 = icmp ult i32 %6277, %6276
   %6321 = getelementptr inbounds nuw i8, ptr %6275, i64 4
   %6322 = load i32, ptr %6321, align 4, !tbaa !123
-  %.not1835.us.i373 = icmp eq i32 %6322, 0
   %.sink2418.i374 = select i1 %6320, i64 8, i64 16
   %6323 = getelementptr inbounds nuw i8, ptr %6275, i64 %.sink2418.i374
   %storemerge1836.us.i375 = load ptr, ptr %6323, align 8, !tbaa !119
@@ -28369,11 +28364,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %6349, label %6324, label %.loopexit1955.us.i304.loopexit, !llvm.loop !518
 
 .loopexit1955.us.i304.loopexit:                   ; preds = %6345
+  %.not1835.us.i373 = icmp eq i32 %6322, 0
   %6350 = zext i1 %.not1835.us.i373 to i32
   %.31563.us.i = select i1 %6320, i32 %6322, i32 %6350
   br label %.loopexit1955.us.i304
 
 .loopexit1955.us.i304.loopexit971:                ; preds = %6314
+  %.not1834.us.i = icmp eq i32 %6291, 0
   %6351 = zext i1 %.not1834.us.i to i32
   %.51565.us.i = select i1 %6289, i32 %6351, i32 %6291
   br label %.loopexit1955.us.i304
@@ -28430,7 +28427,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6383 = icmp ult i32 %6371, %6370
   %6384 = getelementptr inbounds nuw i8, ptr %6369, i64 4
   %6385 = load i32, ptr %6384, align 4, !tbaa !123
-  %.not1838.us.i363 = icmp eq i32 %6385, 0
   %.sink2419.i364 = select i1 %6383, i64 16, i64 8
   %6386 = getelementptr inbounds nuw i8, ptr %6369, i64 %.sink2419.i364
   %storemerge1837.us.i = load ptr, ptr %6386, align 8, !tbaa !119
@@ -28489,7 +28485,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6414 = icmp ult i32 %6371, %6370
   %6415 = getelementptr inbounds nuw i8, ptr %6369, i64 4
   %6416 = load i32, ptr %6415, align 4, !tbaa !123
-  %.not1839.us.i = icmp eq i32 %6416, 0
   %.sink2420.i367 = select i1 %6414, i64 8, i64 16
   %6417 = getelementptr inbounds nuw i8, ptr %6369, i64 %.sink2420.i367
   %storemerge1840.us.i = load ptr, ptr %6417, align 8, !tbaa !119
@@ -28545,11 +28540,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %6443, label %6418, label %.loopexit1953.us.i354.loopexit, !llvm.loop !520
 
 .loopexit1953.us.i354.loopexit:                   ; preds = %6439
+  %.not1839.us.i = icmp eq i32 %6416, 0
   %6444 = zext i1 %.not1839.us.i to i32
   %.61566.us.i = select i1 %6414, i32 %6416, i32 %6444
   br label %.loopexit1953.us.i354
 
 .loopexit1953.us.i354.loopexit970:                ; preds = %6408
+  %.not1838.us.i363 = icmp eq i32 %6385, 0
   %6445 = zext i1 %.not1838.us.i363 to i32
   %.81568.us.i = select i1 %6383, i32 %6445, i32 %6385
   br label %.loopexit1953.us.i354
@@ -28620,7 +28617,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6490 = icmp ult i32 %6478, %6477
   %6491 = getelementptr inbounds nuw i8, ptr %6476, i64 4
   %6492 = load i32, ptr %6491, align 4, !tbaa !123
-  %.not1844.us.i358 = icmp eq i32 %6492, 0
   %.sink2421.i = select i1 %6490, i64 16, i64 8
   %6493 = getelementptr inbounds nuw i8, ptr %6476, i64 %.sink2421.i
   %storemerge1843.us.i = load ptr, ptr %6493, align 8, !tbaa !119
@@ -28679,7 +28675,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6521 = icmp ult i32 %6478, %6477
   %6522 = getelementptr inbounds nuw i8, ptr %6476, i64 4
   %6523 = load i32, ptr %6522, align 4, !tbaa !123
-  %.not1845.us.i = icmp eq i32 %6523, 0
   %.sink2422.i = select i1 %6521, i64 8, i64 16
   %6524 = getelementptr inbounds nuw i8, ptr %6476, i64 %.sink2422.i
   %storemerge1846.us.i = load ptr, ptr %6524, align 8, !tbaa !119
@@ -28735,11 +28730,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %6550, label %6525, label %.loopexit1951.us.i356.loopexit, !llvm.loop !522
 
 .loopexit1951.us.i356.loopexit:                   ; preds = %6546
+  %.not1845.us.i = icmp eq i32 %6523, 0
   %6551 = zext i1 %.not1845.us.i to i32
   %.91569.us.i = select i1 %6521, i32 %6523, i32 %6551
   br label %.loopexit1951.us.i356
 
 .loopexit1951.us.i356.loopexit969:                ; preds = %6515
+  %.not1844.us.i358 = icmp eq i32 %6492, 0
   %6552 = zext i1 %.not1844.us.i358 to i32
   %.111571.us.i = select i1 %6490, i32 %6552, i32 %6492
   br label %.loopexit1951.us.i356
@@ -28803,7 +28800,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6587 = icmp ult i32 %6575, %6574
   %6588 = getelementptr inbounds nuw i8, ptr %6573, i64 4
   %6589 = load i32, ptr %6588, align 4, !tbaa !123
-  %.not1849.us.i349 = icmp eq i32 %6589, 0
   %.sink2423.i = select i1 %6587, i64 16, i64 8
   %6590 = getelementptr inbounds nuw i8, ptr %6573, i64 %.sink2423.i
   %storemerge1848.us.i = load ptr, ptr %6590, align 8, !tbaa !119
@@ -28862,7 +28858,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6618 = icmp ult i32 %6575, %6574
   %6619 = getelementptr inbounds nuw i8, ptr %6573, i64 4
   %6620 = load i32, ptr %6619, align 4, !tbaa !123
-  %.not1850.us.i = icmp eq i32 %6620, 0
   %.sink2424.i = select i1 %6618, i64 8, i64 16
   %6621 = getelementptr inbounds nuw i8, ptr %6573, i64 %.sink2424.i
   %storemerge1851.us.i = load ptr, ptr %6621, align 8, !tbaa !119
@@ -28918,11 +28913,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %6647, label %6622, label %.loopexit1949.us.i339.loopexit, !llvm.loop !524
 
 .loopexit1949.us.i339.loopexit:                   ; preds = %6643
+  %.not1850.us.i = icmp eq i32 %6620, 0
   %6648 = zext i1 %.not1850.us.i to i32
   %.121572.us.i = select i1 %6618, i32 %6620, i32 %6648
   br label %.loopexit1949.us.i339
 
 .loopexit1949.us.i339.loopexit968:                ; preds = %6612
+  %.not1849.us.i349 = icmp eq i32 %6589, 0
   %6649 = zext i1 %.not1849.us.i349 to i32
   %.141574.us.i = select i1 %6587, i32 %6649, i32 %6589
   br label %.loopexit1949.us.i339
@@ -28988,7 +28985,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6685 = icmp ult i32 %6673, %6672
   %6686 = getelementptr inbounds nuw i8, ptr %6671, i64 4
   %6687 = load i32, ptr %6686, align 4, !tbaa !123
-  %.not1855.us.i344 = icmp eq i32 %6687, 0
   %.sink2425.i = select i1 %6685, i64 16, i64 8
   %6688 = getelementptr inbounds nuw i8, ptr %6671, i64 %.sink2425.i
   %storemerge1854.us.i = load ptr, ptr %6688, align 8, !tbaa !119
@@ -29047,7 +29043,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6716 = icmp ult i32 %6673, %6672
   %6717 = getelementptr inbounds nuw i8, ptr %6671, i64 4
   %6718 = load i32, ptr %6717, align 4, !tbaa !123
-  %.not1856.us.i = icmp eq i32 %6718, 0
   %.sink2426.i = select i1 %6716, i64 8, i64 16
   %6719 = getelementptr inbounds nuw i8, ptr %6671, i64 %.sink2426.i
   %storemerge1857.us.i = load ptr, ptr %6719, align 8, !tbaa !119
@@ -29103,11 +29098,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %6745, label %6720, label %.loopexit1947.us.i342.loopexit, !llvm.loop !526
 
 .loopexit1947.us.i342.loopexit:                   ; preds = %6741
+  %.not1856.us.i = icmp eq i32 %6718, 0
   %6746 = zext i1 %.not1856.us.i to i32
   %.151575.us.i = select i1 %6716, i32 %6718, i32 %6746
   br label %.loopexit1947.us.i342
 
 .loopexit1947.us.i342.loopexit967:                ; preds = %6710
+  %.not1855.us.i344 = icmp eq i32 %6687, 0
   %6747 = zext i1 %.not1855.us.i344 to i32
   %.171577.us.i = select i1 %6685, i32 %6747, i32 %6687
   br label %.loopexit1947.us.i342
@@ -29171,7 +29168,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6782 = icmp ult i32 %6770, %6769
   %6783 = getelementptr inbounds nuw i8, ptr %6768, i64 4
   %6784 = load i32, ptr %6783, align 4, !tbaa !123
-  %.not1860.us.i329 = icmp eq i32 %6784, 0
   %.sink2427.i = select i1 %6782, i64 16, i64 8
   %6785 = getelementptr inbounds nuw i8, ptr %6768, i64 %.sink2427.i
   %storemerge1859.us.i = load ptr, ptr %6785, align 8, !tbaa !119
@@ -29230,7 +29226,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6813 = icmp ult i32 %6770, %6769
   %6814 = getelementptr inbounds nuw i8, ptr %6768, i64 4
   %6815 = load i32, ptr %6814, align 4, !tbaa !123
-  %.not1861.us.i = icmp eq i32 %6815, 0
   %.sink2428.i = select i1 %6813, i64 8, i64 16
   %6816 = getelementptr inbounds nuw i8, ptr %6768, i64 %.sink2428.i
   %storemerge1862.us.i = load ptr, ptr %6816, align 8, !tbaa !119
@@ -29286,11 +29281,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %6842, label %6817, label %.loopexit1945.us.i320.loopexit, !llvm.loop !528
 
 .loopexit1945.us.i320.loopexit:                   ; preds = %6838
+  %.not1861.us.i = icmp eq i32 %6815, 0
   %6843 = zext i1 %.not1861.us.i to i32
   %.181578.us.i = select i1 %6813, i32 %6815, i32 %6843
   br label %.loopexit1945.us.i320
 
 .loopexit1945.us.i320.loopexit966:                ; preds = %6807
+  %.not1860.us.i329 = icmp eq i32 %6784, 0
   %6844 = zext i1 %.not1860.us.i329 to i32
   %.201580.us.i = select i1 %6782, i32 %6844, i32 %6784
   br label %.loopexit1945.us.i320
@@ -29356,7 +29353,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6880 = icmp ult i32 %6868, %6867
   %6881 = getelementptr inbounds nuw i8, ptr %6866, i64 4
   %6882 = load i32, ptr %6881, align 4, !tbaa !123
-  %.not1866.us.i = icmp eq i32 %6882, 0
   %.sink2429.i = select i1 %6880, i64 16, i64 8
   %6883 = getelementptr inbounds nuw i8, ptr %6866, i64 %.sink2429.i
   %storemerge1865.us.i = load ptr, ptr %6883, align 8, !tbaa !119
@@ -29415,7 +29411,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6911 = icmp ult i32 %6868, %6867
   %6912 = getelementptr inbounds nuw i8, ptr %6866, i64 4
   %6913 = load i32, ptr %6912, align 4, !tbaa !123
-  %.not1867.us.i = icmp eq i32 %6913, 0
   %.sink2430.i = select i1 %6911, i64 8, i64 16
   %6914 = getelementptr inbounds nuw i8, ptr %6866, i64 %.sink2430.i
   %storemerge1868.us.i = load ptr, ptr %6914, align 8, !tbaa !119
@@ -29471,11 +29466,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %6940, label %6915, label %.loopexit1943.us.i323.loopexit, !llvm.loop !530
 
 .loopexit1943.us.i323.loopexit:                   ; preds = %6936
+  %.not1867.us.i = icmp eq i32 %6913, 0
   %6941 = zext i1 %.not1867.us.i to i32
   %.211581.us.i = select i1 %6911, i32 %6913, i32 %6941
   br label %.loopexit1943.us.i323
 
 .loopexit1943.us.i323.loopexit965:                ; preds = %6905
+  %.not1866.us.i = icmp eq i32 %6882, 0
   %6942 = zext i1 %.not1866.us.i to i32
   %.231583.us.i = select i1 %6880, i32 %6942, i32 %6882
   br label %.loopexit1943.us.i323
@@ -29539,7 +29536,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %6977 = icmp ult i32 %6965, %6964
   %6978 = getelementptr inbounds nuw i8, ptr %6963, i64 4
   %6979 = load i32, ptr %6978, align 4, !tbaa !123
-  %.not1871.us.i = icmp eq i32 %6979, 0
   %.sink2431.i = select i1 %6977, i64 16, i64 8
   %6980 = getelementptr inbounds nuw i8, ptr %6963, i64 %.sink2431.i
   %storemerge1870.us.i = load ptr, ptr %6980, align 8, !tbaa !119
@@ -29598,7 +29594,6 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %7008 = icmp ult i32 %6965, %6964
   %7009 = getelementptr inbounds nuw i8, ptr %6963, i64 4
   %7010 = load i32, ptr %7009, align 4, !tbaa !123
-  %.not1872.us.i = icmp eq i32 %7010, 0
   %.sink2432.i = select i1 %7008, i64 8, i64 16
   %7011 = getelementptr inbounds nuw i8, ptr %6963, i64 %.sink2432.i
   %storemerge1873.us.i = load ptr, ptr %7011, align 8, !tbaa !119
@@ -29654,11 +29649,13 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   br i1 %7037, label %7012, label %.loopexit1941.us.i310.loopexit, !llvm.loop !532
 
 .loopexit1941.us.i310.loopexit:                   ; preds = %7033
+  %.not1872.us.i = icmp eq i32 %7010, 0
   %7038 = zext i1 %.not1872.us.i to i32
   %.241584.us.i = select i1 %7008, i32 %7010, i32 %7038
   br label %.loopexit1941.us.i310
 
 .loopexit1941.us.i310.loopexit964:                ; preds = %7002
+  %.not1871.us.i = icmp eq i32 %6979, 0
   %7039 = zext i1 %.not1871.us.i to i32
   %.261586.us.i = select i1 %6977, i32 %7039, i32 %6979
   br label %.loopexit1941.us.i310
@@ -29747,15 +29744,15 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %7077 = and i32 %3531, -4
   %7078 = add i32 %7077, -1
   %7079 = and i32 %7078, -4
-  %7080 = lshr i32 %7078, 2
-  %7081 = zext nneg i32 %7080 to i64
-  %7082 = shl nuw nsw i64 %7081, 2
-  %7083 = add nuw nsw i64 %7082, 4
-  %7084 = mul nuw nsw i64 %7083, %5313
-  %7085 = shl nuw nsw i64 %7081, 3
-  %7086 = add nuw i32 %7079, 4
-  %scevgep.i390 = getelementptr i8, ptr %3514, i64 %7084
-  %7087 = getelementptr i8, ptr %3516, i64 %7085
+  %7080 = add nuw i32 %7079, 4
+  %7081 = lshr i32 %7078, 2
+  %7082 = zext nneg i32 %7081 to i64
+  %7083 = shl nuw nsw i64 %7082, 2
+  %7084 = add nuw nsw i64 %7083, 4
+  %7085 = mul nuw nsw i64 %7084, %5313
+  %scevgep.i390 = getelementptr i8, ptr %3514, i64 %7085
+  %7086 = shl nuw nsw i64 %7082, 3
+  %7087 = getelementptr i8, ptr %3516, i64 %7086
   %scevgep2262.i = getelementptr i8, ptr %7087, i64 20
   br label %._crit_edge2106.i
 
@@ -29766,7 +29763,7 @@ define internal fastcc void @opj_t1_dec_clnpass(ptr noundef nonnull %0, i32 noun
   %.01316.lcssa.i218 = phi ptr [ %3521, %5303 ], [ %3521, %.preheader1977.lr.ph.split.i ], [ %.4.us.i215, %._crit_edge.us.i217 ]
   %.01313.lcssa.i = phi ptr [ %3519, %5303 ], [ %scevgep2262.i, %.preheader1977.lr.ph.split.i ], [ %7073, %._crit_edge.us.i217 ]
   %.01310.lcssa.i = phi ptr [ %3514, %5303 ], [ %scevgep.i390, %.preheader1977.lr.ph.split.i ], [ %7072, %._crit_edge.us.i217 ]
-  %.01309.lcssa.i = phi i32 [ 0, %5303 ], [ %7086, %.preheader1977.lr.ph.split.i ], [ %7071, %._crit_edge.us.i217 ]
+  %.01309.lcssa.i = phi i32 [ 0, %5303 ], [ %7080, %.preheader1977.lr.ph.split.i ], [ %7071, %._crit_edge.us.i217 ]
   %.lcssa2085.i = phi i32 [ %3531, %5303 ], [ %3531, %.preheader1977.lr.ph.split.i ], [ %7074, %._crit_edge.us.i217 ]
   store ptr %.01316.lcssa.i218, ptr %3520, align 8, !tbaa !117
   store i32 %.01319.lcssa.i, ptr %0, align 8, !tbaa !107

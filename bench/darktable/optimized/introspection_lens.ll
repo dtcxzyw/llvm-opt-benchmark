@@ -5650,11 +5650,11 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit432.us491.i.i: ; preds = %._crit_edg
   %.03443.i.i = phi i32 [ 0, %.lr.ph.i73.i ], [ %spec.select.i.i, %770 ]
   %747 = getelementptr inbounds nuw [16 x float], ptr %739, i64 0, i64 %indvars.iv50.i.i
   %748 = load float, ptr %747, align 4, !tbaa !52
-  %749 = fadd reassoc nsz arcp contract afn float %748, -1.000000e+00
   br label %758
 
-750:                                              ; preds = %758
-  %751 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %749)
+749:                                              ; preds = %758
+  %750 = fadd reassoc nsz arcp contract afn float %748, -1.000000e+00
+  %751 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %750)
   %752 = fcmp reassoc nsz arcp contract afn uge float %751, 0x3E7AD7F2A0000000
   %spec.select.i.i = select i1 %752, i32 1, i32 %.03443.i.i
   %753 = getelementptr inbounds nuw [16 x float], ptr %740, i64 0, i64 %indvars.iv50.i.i
@@ -5675,9 +5675,9 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit432.us491.i.i: ; preds = %._crit_edg
   %spec.select40.i.i = select i1 %763, i32 1, i32 %.13341.i.i
   %indvars.iv.next.i76.i = add nuw nsw i64 %indvars.iv.i75.i, 1
   %exitcond.not.i77.i = icmp eq i64 %indvars.iv.next.i76.i, 3
-  br i1 %exitcond.not.i77.i, label %750, label %758, !llvm.loop !403
+  br i1 %exitcond.not.i77.i, label %749, label %758, !llvm.loop !403
 
-764:                                              ; preds = %750
+764:                                              ; preds = %749
   %765 = getelementptr inbounds nuw [16 x float], ptr %742, i64 0, i64 %indvars.iv50.i.i
   %766 = load float, ptr %765, align 4, !tbaa !52
   %767 = fcmp reassoc nsz arcp contract afn une float %754, %766
@@ -5685,7 +5685,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit432.us491.i.i: ; preds = %._crit_edg
   %or.cond.i78.i = or i1 %767, %768
   br i1 %or.cond.i78.i, label %769, label %770
 
-769:                                              ; preds = %764, %750
+769:                                              ; preds = %764, %749
   br label %770
 
 770:                                              ; preds = %769, %764

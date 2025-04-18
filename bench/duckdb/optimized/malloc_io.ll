@@ -667,28 +667,28 @@ thread-pre-split719:                              ; preds = %thread-pre-split719
 
 173:                                              ; preds = %169, %157, %145, %133, %121, %109, %96
   %.0407 = phi i64 [ %171, %169 ], [ %159, %157 ], [ %147, %145 ], [ %135, %133 ], [ %123, %121 ], [ %111, %109 ], [ %99, %96 ]
-  %174 = select i1 %.0391.ph842, i8 32, i8 45
   %spec.select.i = call i64 @llvm.abs.i64(i64 %.0407, i1 true)
   store i8 0, ptr %17, align 16, !tbaa !3
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %173
-  %.030.i.i = phi i32 [ %175, %.preheader.i.i ], [ 64, %173 ]
-  %.0.i.i = phi i64 [ %181, %.preheader.i.i ], [ %spec.select.i, %173 ]
-  %175 = add i32 %.030.i.i, -1
-  %176 = urem i64 %.0.i.i, 10
-  %177 = getelementptr inbounds nuw [11 x i8], ptr @.str, i64 0, i64 %176
-  %178 = load i8, ptr %177, align 1, !tbaa !3
-  %179 = zext i32 %175 to i64
-  %180 = getelementptr inbounds nuw i8, ptr %6, i64 %179
-  store i8 %178, ptr %180, align 1, !tbaa !3
-  %181 = udiv i64 %.0.i.i, 10
+  %.030.i.i = phi i32 [ %174, %.preheader.i.i ], [ 64, %173 ]
+  %.0.i.i = phi i64 [ %180, %.preheader.i.i ], [ %spec.select.i, %173 ]
+  %174 = add i32 %.030.i.i, -1
+  %175 = urem i64 %.0.i.i, 10
+  %176 = getelementptr inbounds nuw [11 x i8], ptr @.str, i64 0, i64 %175
+  %177 = load i8, ptr %176, align 1, !tbaa !3
+  %178 = zext i32 %174 to i64
+  %179 = getelementptr inbounds nuw i8, ptr %6, i64 %178
+  store i8 %177, ptr %179, align 1, !tbaa !3
+  %180 = udiv i64 %.0.i.i, 10
   %.not33.i.i = icmp samesign ult i64 %.0.i.i, 10
   br i1 %.not33.i.i, label %u2s.exit.i, label %.preheader.i.i
 
 u2s.exit.i:                                       ; preds = %.preheader.i.i
-  %182 = getelementptr inbounds nuw i8, ptr %6, i64 %179
-  %183 = select i1 %.0394.ph, i8 43, i8 %174
+  %181 = getelementptr inbounds nuw i8, ptr %6, i64 %178
+  %182 = select i1 %.0391.ph842, i8 32, i8 45
+  %183 = select i1 %.0394.ph, i8 43, i8 %182
   %184 = icmp slt i64 %.0407, 0
   %185 = sub i32 65, %.030.i.i
   %186 = zext i32 %185 to i64
@@ -698,14 +698,14 @@ u2s.exit.i:                                       ; preds = %.preheader.i.i
   br i1 %brmerge.i, label %187, label %d2s.exit
 
 187:                                              ; preds = %u2s.exit.i
-  %188 = getelementptr inbounds i8, ptr %182, i64 -1
+  %188 = getelementptr inbounds i8, ptr %181, i64 -1
   %189 = add nuw nsw i64 %186, 1
   store i8 %.012.i, ptr %188, align 1, !tbaa !3
   br label %d2s.exit
 
 d2s.exit:                                         ; preds = %u2s.exit.i, %187
   %.0509 = phi i64 [ %189, %187 ], [ %186, %u2s.exit.i ]
-  %.013.i = phi ptr [ %188, %187 ], [ %182, %u2s.exit.i ]
+  %.013.i = phi ptr [ %188, %187 ], [ %181, %u2s.exit.i ]
   %190 = icmp eq i32 %.0399, -1
   br i1 %190, label %.thread, label %192
 

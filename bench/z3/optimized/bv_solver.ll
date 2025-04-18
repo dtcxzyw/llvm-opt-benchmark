@@ -6772,7 +6772,6 @@ _ZN6vectorIN2bv6solver16propagation_itemELb0EjE9push_backEOS2_.exit.us: ; preds 
 .lr.ph.split:                                     ; preds = %.lr.ph, %146
   %.sroa.033.046 = phi ptr [ %.sroa.033.0, %146 ], [ %.sroa.033.044, %.lr.ph ]
   %.sroa.0.0.copyload.i24 = load i64, ptr %.sroa.033.046, align 8
-  %.sroa.5.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i24, 32
   %.sroa.030.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i24 to i32
   %120 = load ptr, ptr %100, align 8, !tbaa !131
   br label %121
@@ -6794,6 +6793,7 @@ _ZNK2bv6solver4findEi.exit:                       ; preds = %121, %_ZNK2bv6solve
   br i1 %.not.i.i27, label %_ZNK2bv6solver4findEi.exit28, label %_ZNK2bv6solver4findEi.exit
 
 _ZNK2bv6solver4findEi.exit28:                     ; preds = %_ZNK2bv6solver4findEi.exit
+  %.sroa.5.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i24, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %.not19 = icmp eq i32 %.08.i.i, %.08.i.i26
   %.not20 = icmp eq i32 %4, %.sroa.5.0.extract.trunc

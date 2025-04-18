@@ -2991,11 +2991,11 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %1002, %_ZNSt7__cxx1
   store i64 0, ptr %621, align 8
   store i32 50397184, ptr %76, align 8, !tbaa !141
   store ptr %39, ptr %620, align 8, !tbaa !143
-  %.sroa.5.0.insert.ext = zext i32 %1010 to i64
-  %.sroa.0581.0.insert.ext = zext i32 %1005 to i64
   %. = select i1 %986, ptr %38, ptr %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %., i64 32, i1 false), !tbaa !125
+  %.sroa.5.0.insert.ext = zext i32 %1010 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
+  %.sroa.0581.0.insert.ext = zext i32 %1005 to i64
   %.sroa.0581.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.0581.0.insert.ext
   invoke void @_ZN2cv7putTextERKNS_17_InputOutputArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point_IiEEidNS_7Scalar_IdEEiib(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(32) %72, i64 %.sroa.0581.0.insert.insert, i32 noundef 1, double noundef 1.000000e+00, ptr noundef nonnull %77, i32 noundef 1, i32 noundef 8, i1 noundef zeroext false)
           to label %1102 unwind label %1107

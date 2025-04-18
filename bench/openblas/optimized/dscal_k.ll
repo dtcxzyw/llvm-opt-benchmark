@@ -95,11 +95,11 @@ dscal_kernel_8.exit:                              ; preds = %35, %29
 
 .lr.ph108:                                        ; preds = %47
   %50 = shl nsw i64 %5, 1
-  %51 = add nsw i64 %48, -1
-  %52 = and i64 %51, -2
   br label %55
 
 .preheader.loopexit:                              ; preds = %55
+  %51 = add nsw i64 %48, -1
+  %52 = and i64 %51, -2
   %53 = add i64 %52, 2
   br label %.preheader
 

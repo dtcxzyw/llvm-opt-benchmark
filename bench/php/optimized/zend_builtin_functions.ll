@@ -1238,71 +1238,68 @@ zend_forbid_dynamic_call.exit:                    ; preds = %16
   %.083 = phi i32 [ %53, %._crit_edge ], [ 0, %47 ]
   %.0 = phi ptr [ %103, %._crit_edge ], [ %65, %47 ]
   %105 = icmp ult i32 %.083, %46
-  br i1 %105, label %.lr.ph114.preheader, label %._crit_edge115
+  br i1 %105, label %.lr.ph114, label %._crit_edge115
 
-.lr.ph114.preheader:                              ; preds = %104
-  %106 = add i32 %.089, %46
-  br label %.lr.ph114
+.lr.ph114:                                        ; preds = %104, %128
+  %.2112 = phi ptr [ %131, %128 ], [ %.0, %104 ]
+  %.285111 = phi i32 [ %132, %128 ], [ %.083, %104 ]
+  %.288110 = phi ptr [ %130, %128 ], [ %.086, %104 ]
+  %106 = getelementptr inbounds nuw i8, ptr %.2112, i64 8
+  %107 = load i32, ptr %106, align 8
+  %.not97 = icmp eq i32 %107, 0
+  br i1 %.not97, label %128, label %108, !prof !62
 
-.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %129
-  %.2112 = phi ptr [ %132, %129 ], [ %.0, %.lr.ph114.preheader ]
-  %.285111 = phi i32 [ %133, %129 ], [ %.083, %.lr.ph114.preheader ]
-  %.288110 = phi ptr [ %131, %129 ], [ %.086, %.lr.ph114.preheader ]
-  %107 = getelementptr inbounds nuw i8, ptr %.2112, i64 8
-  %108 = load i32, ptr %107, align 8
-  %.not97 = icmp eq i32 %108, 0
-  br i1 %.not97, label %129, label %109, !prof !62
+108:                                              ; preds = %.lr.ph114
+  %109 = and i32 %107, 255
+  %110 = icmp eq i32 %109, 10
+  br i1 %110, label %111, label %114, !prof !62
 
-109:                                              ; preds = %.lr.ph114
-  %110 = and i32 %108, 255
-  %111 = icmp eq i32 %110, 10
-  br i1 %111, label %112, label %115, !prof !62
-
-112:                                              ; preds = %109
-  %113 = load ptr, ptr %.2112, align 8, !tbaa !28
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %113, i64 16
+111:                                              ; preds = %108
+  %112 = load ptr, ptr %.2112, align 8, !tbaa !28
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %.pre124 = load i32, ptr %.phi.trans.insert123, align 8, !tbaa !28
-  br label %115
+  br label %114
 
-115:                                              ; preds = %112, %109
-  %116 = phi i32 [ %.pre124, %112 ], [ %108, %109 ]
-  %.182 = phi ptr [ %114, %112 ], [ %.2112, %109 ]
-  %117 = and i32 %116, 65280
-  %.not98 = icmp eq i32 %117, 0
-  br i1 %.not98, label %126, label %118
+114:                                              ; preds = %111, %108
+  %115 = phi i32 [ %.pre124, %111 ], [ %107, %108 ]
+  %.182 = phi ptr [ %113, %111 ], [ %.2112, %108 ]
+  %116 = and i32 %115, 65280
+  %.not98 = icmp eq i32 %116, 0
+  br i1 %.not98, label %125, label %117
 
-118:                                              ; preds = %115
-  %119 = getelementptr inbounds nuw i8, ptr %.182, i64 8
-  %120 = getelementptr inbounds nuw i8, ptr %.182, i64 9
-  %121 = load i8, ptr %120, align 1, !tbaa !28
-  %122 = icmp ne i8 %121, 0
-  tail call void @llvm.assume(i1 %122)
-  %123 = load ptr, ptr %.182, align 8, !tbaa !28
-  %124 = load i32, ptr %123, align 4, !tbaa !30
-  %125 = add i32 %124, 1
-  store i32 %125, ptr %123, align 4, !tbaa !30
-  %.pre125 = load i32, ptr %119, align 8, !tbaa !28
-  br label %126
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds nuw i8, ptr %.182, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.182, i64 9
+  %120 = load i8, ptr %119, align 1, !tbaa !28
+  %121 = icmp ne i8 %120, 0
+  tail call void @llvm.assume(i1 %121)
+  %122 = load ptr, ptr %.182, align 8, !tbaa !28
+  %123 = load i32, ptr %122, align 4, !tbaa !30
+  %124 = add i32 %123, 1
+  store i32 %124, ptr %122, align 4, !tbaa !30
+  %.pre125 = load i32, ptr %118, align 8, !tbaa !28
+  br label %125
 
-126:                                              ; preds = %115, %118
-  %127 = phi i32 [ %116, %115 ], [ %.pre125, %118 ]
-  %128 = load ptr, ptr %.182, align 8, !tbaa !28
-  store ptr %128, ptr %.288110, align 8, !tbaa !28
-  br label %129
+125:                                              ; preds = %114, %117
+  %126 = phi i32 [ %115, %114 ], [ %.pre125, %117 ]
+  %127 = load ptr, ptr %.182, align 8, !tbaa !28
+  store ptr %127, ptr %.288110, align 8, !tbaa !28
+  br label %128
 
-129:                                              ; preds = %.lr.ph114, %126
-  %.sink127 = phi i32 [ %127, %126 ], [ 1, %.lr.ph114 ]
-  %130 = getelementptr inbounds nuw i8, ptr %.288110, i64 8
-  store i32 %.sink127, ptr %130, align 8, !tbaa !28
-  %131 = getelementptr inbounds nuw i8, ptr %.288110, i64 16
-  %132 = getelementptr inbounds nuw i8, ptr %.2112, i64 16
-  %133 = add nuw i32 %.285111, 1
-  %exitcond121.not = icmp eq i32 %133, %46
+128:                                              ; preds = %.lr.ph114, %125
+  %.sink127 = phi i32 [ %126, %125 ], [ 1, %.lr.ph114 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.288110, i64 8
+  store i32 %.sink127, ptr %129, align 8, !tbaa !28
+  %130 = getelementptr inbounds nuw i8, ptr %.288110, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %.2112, i64 16
+  %132 = add nuw i32 %.285111, 1
+  %exitcond121.not = icmp eq i32 %132, %46
   br i1 %exitcond121.not, label %._crit_edge115.loopexit, label %.lr.ph114
 
-._crit_edge115.loopexit:                          ; preds = %129
-  %134 = sub i32 %106, %.083
+._crit_edge115.loopexit:                          ; preds = %128
+  %133 = add i32 %.089, %46
+  %134 = sub i32 %133, %.083
   br label %._crit_edge115
 
 ._crit_edge115:                                   ; preds = %._crit_edge115.loopexit, %104

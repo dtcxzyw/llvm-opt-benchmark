@@ -1762,116 +1762,116 @@ define dso_local void @_ZNK9btMiniSDF15shape_function_ERK9btVector3P16btShapeGra
   %179 = fmul float %5, 1.800000e+01
   %180 = fmul float %7, 1.800000e+01
   %181 = fmul float %9, 1.800000e+01
-  %182 = tail call double @llvm.fmuladd.f64(double %166, double -9.000000e+00, double 3.000000e+00)
-  %183 = tail call double @llvm.fmuladd.f64(double %165, double -9.000000e+00, double 3.000000e+00)
-  %184 = tail call double @llvm.fmuladd.f64(double %164, double -9.000000e+00, double 3.000000e+00)
-  %185 = fptrunc double %184 to float
-  %186 = fmul float %7, 2.000000e+00
-  %187 = fsub float %179, %170
-  %188 = fadd float %179, %170
-  %189 = fsub float %180, %174
-  %190 = fadd float %180, %174
-  %191 = fsub float %181, %178
-  %192 = fadd float %181, %178
-  %193 = fmul float %42, %187
-  store float %193, ptr %3, align 4, !tbaa !4
-  %194 = fmul float %38, %189
-  %195 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float %194, ptr %195, align 4, !tbaa !4
-  %196 = fmul float %34, %191
-  %197 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float %196, ptr %197, align 4, !tbaa !4
-  %198 = fmul float %42, %188
-  %199 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store float %198, ptr %199, align 4, !tbaa !4
-  %200 = fmul float %40, %189
-  %201 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store float %200, ptr %201, align 4, !tbaa !4
-  %202 = fmul float %36, %191
-  %203 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store float %202, ptr %203, align 4, !tbaa !4
-  %204 = fmul float %44, %187
-  %205 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store float %204, ptr %205, align 4, !tbaa !4
-  %206 = fmul float %38, %190
-  %207 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store float %206, ptr %207, align 4, !tbaa !4
-  %208 = fmul float %35, %191
-  %209 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store float %208, ptr %209, align 4, !tbaa !4
-  %210 = fmul float %44, %188
-  %211 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store float %210, ptr %211, align 4, !tbaa !4
-  %212 = fmul float %40, %190
-  %213 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  store float %212, ptr %213, align 4, !tbaa !4
-  %214 = fmul float %37, %191
-  %215 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store float %214, ptr %215, align 4, !tbaa !4
-  %216 = fmul float %43, %187
-  %217 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store float %216, ptr %217, align 4, !tbaa !4
-  %218 = fmul float %39, %189
-  %219 = getelementptr inbounds nuw i8, ptr %3, i64 68
-  store float %218, ptr %219, align 4, !tbaa !4
-  %220 = fmul float %34, %192
-  %221 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store float %220, ptr %221, align 4, !tbaa !4
-  %222 = fmul float %43, %188
-  %223 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store float %222, ptr %223, align 4, !tbaa !4
-  %224 = fmul float %41, %189
-  %225 = getelementptr inbounds nuw i8, ptr %3, i64 84
-  store float %224, ptr %225, align 4, !tbaa !4
-  %226 = fmul float %36, %192
-  %227 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store float %226, ptr %227, align 4, !tbaa !4
-  %228 = fmul float %45, %187
-  %229 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store float %228, ptr %229, align 4, !tbaa !4
-  %230 = fmul float %39, %190
-  %231 = getelementptr inbounds nuw i8, ptr %3, i64 100
-  store float %230, ptr %231, align 4, !tbaa !4
-  %232 = fmul float %35, %192
-  %233 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store float %232, ptr %233, align 4, !tbaa !4
-  %234 = fmul float %45, %188
-  %235 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store float %234, ptr %235, align 4, !tbaa !4
-  %236 = fmul float %41, %190
-  %237 = getelementptr inbounds nuw i8, ptr %3, i64 116
-  store float %236, ptr %237, align 4, !tbaa !4
-  %238 = fmul float %37, %192
-  %239 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store float %238, ptr %239, align 4, !tbaa !4
-  br label %240
+  %182 = fsub float %179, %170
+  %183 = fadd float %179, %170
+  %184 = fsub float %180, %174
+  %185 = fadd float %180, %174
+  %186 = fsub float %181, %178
+  %187 = fadd float %181, %178
+  %188 = fmul float %42, %182
+  store float %188, ptr %3, align 4, !tbaa !4
+  %189 = fmul float %38, %184
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store float %189, ptr %190, align 4, !tbaa !4
+  %191 = fmul float %34, %186
+  %192 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store float %191, ptr %192, align 4, !tbaa !4
+  %193 = fmul float %42, %183
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store float %193, ptr %194, align 4, !tbaa !4
+  %195 = fmul float %40, %184
+  %196 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store float %195, ptr %196, align 4, !tbaa !4
+  %197 = fmul float %36, %186
+  %198 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store float %197, ptr %198, align 4, !tbaa !4
+  %199 = fmul float %44, %182
+  %200 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store float %199, ptr %200, align 4, !tbaa !4
+  %201 = fmul float %38, %185
+  %202 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  store float %201, ptr %202, align 4, !tbaa !4
+  %203 = fmul float %35, %186
+  %204 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store float %203, ptr %204, align 4, !tbaa !4
+  %205 = fmul float %44, %183
+  %206 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store float %205, ptr %206, align 4, !tbaa !4
+  %207 = fmul float %40, %185
+  %208 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  store float %207, ptr %208, align 4, !tbaa !4
+  %209 = fmul float %37, %186
+  %210 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store float %209, ptr %210, align 4, !tbaa !4
+  %211 = fmul float %43, %182
+  %212 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store float %211, ptr %212, align 4, !tbaa !4
+  %213 = fmul float %39, %184
+  %214 = getelementptr inbounds nuw i8, ptr %3, i64 68
+  store float %213, ptr %214, align 4, !tbaa !4
+  %215 = fmul float %34, %187
+  %216 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store float %215, ptr %216, align 4, !tbaa !4
+  %217 = fmul float %43, %183
+  %218 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store float %217, ptr %218, align 4, !tbaa !4
+  %219 = fmul float %41, %184
+  %220 = getelementptr inbounds nuw i8, ptr %3, i64 84
+  store float %219, ptr %220, align 4, !tbaa !4
+  %221 = fmul float %36, %187
+  %222 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  store float %221, ptr %222, align 4, !tbaa !4
+  %223 = fmul float %45, %182
+  %224 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store float %223, ptr %224, align 4, !tbaa !4
+  %225 = fmul float %39, %185
+  %226 = getelementptr inbounds nuw i8, ptr %3, i64 100
+  store float %225, ptr %226, align 4, !tbaa !4
+  %227 = fmul float %35, %187
+  %228 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  store float %227, ptr %228, align 4, !tbaa !4
+  %229 = fmul float %45, %183
+  %230 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  store float %229, ptr %230, align 4, !tbaa !4
+  %231 = fmul float %41, %185
+  %232 = getelementptr inbounds nuw i8, ptr %3, i64 116
+  store float %231, ptr %232, align 4, !tbaa !4
+  %233 = fmul float %37, %187
+  %234 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  store float %233, ptr %234, align 4, !tbaa !4
+  br label %235
 
-240:                                              ; preds = %240, %163
-  %indvars.iv.i = phi i64 [ 0, %163 ], [ %indvars.iv.next.i, %240 ]
-  %241 = getelementptr inbounds nuw [32 x %class.btVector3], ptr %3, i64 0, i64 %indvars.iv.i
-  %242 = load float, ptr %241, align 4, !tbaa !4
-  %243 = fmul float %242, 1.562500e-02
-  store float %243, ptr %241, align 4, !tbaa !4
-  %244 = getelementptr inbounds nuw i8, ptr %241, i64 4
-  %245 = load float, ptr %244, align 4, !tbaa !4
-  %246 = fmul float %245, 1.562500e-02
-  store float %246, ptr %244, align 4, !tbaa !4
-  %247 = getelementptr inbounds nuw i8, ptr %241, i64 8
-  %248 = load float, ptr %247, align 4, !tbaa !4
-  %249 = fmul float %248, 1.562500e-02
-  store float %249, ptr %247, align 4, !tbaa !4
+235:                                              ; preds = %235, %163
+  %indvars.iv.i = phi i64 [ 0, %163 ], [ %indvars.iv.next.i, %235 ]
+  %236 = getelementptr inbounds nuw [32 x %class.btVector3], ptr %3, i64 0, i64 %indvars.iv.i
+  %237 = load float, ptr %236, align 4, !tbaa !4
+  %238 = fmul float %237, 1.562500e-02
+  store float %238, ptr %236, align 4, !tbaa !4
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 4
+  %240 = load float, ptr %239, align 4, !tbaa !4
+  %241 = fmul float %240, 1.562500e-02
+  store float %241, ptr %239, align 4, !tbaa !4
+  %242 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  %243 = load float, ptr %242, align 4, !tbaa !4
+  %244 = fmul float %243, 1.562500e-02
+  store float %244, ptr %242, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %_ZN16btShapeGradients13topRowsDivideEid.exit, label %240, !llvm.loop !81
+  br i1 %exitcond.not.i, label %_ZN16btShapeGradients13topRowsDivideEid.exit, label %235, !llvm.loop !81
 
-_ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %240
-  %250 = fptrunc double %182 to float
-  %251 = fptrunc double %183 to float
-  %252 = fmul float %5, 2.000000e+00
+_ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %235
+  %245 = tail call double @llvm.fmuladd.f64(double %166, double -9.000000e+00, double 3.000000e+00)
+  %246 = fptrunc double %245 to float
+  %247 = tail call double @llvm.fmuladd.f64(double %165, double -9.000000e+00, double 3.000000e+00)
+  %248 = fptrunc double %247 to float
+  %249 = tail call double @llvm.fmuladd.f64(double %164, double -9.000000e+00, double 3.000000e+00)
+  %250 = fptrunc double %249 to float
+  %251 = fmul float %5, 2.000000e+00
+  %252 = fmul float %7, 2.000000e+00
   %253 = fmul float %9, 2.000000e+00
-  %254 = fneg float %250
-  %255 = fsub float %254, %252
-  %256 = fsub float %250, %252
+  %254 = fneg float %246
+  %255 = fsub float %254, %251
+  %256 = fsub float %246, %251
   %257 = fmul float %46, %23
   %258 = fmul float %46, %29
   %259 = fmul float %42, %255
@@ -1948,9 +1948,9 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %240
   %307 = fmul float %20, %258
   %308 = getelementptr inbounds nuw i8, ptr %3, i64 248
   store float %307, ptr %308, align 4, !tbaa !4
-  %309 = fneg float %251
-  %310 = fsub float %309, %186
-  %311 = fsub float %251, %186
+  %309 = fneg float %248
+  %310 = fsub float %309, %252
+  %311 = fsub float %248, %252
   %312 = fmul float %47, %25
   %313 = fmul float %47, %31
   %314 = fneg float %312
@@ -2027,9 +2027,9 @@ _ZN16btShapeGradients13topRowsDivideEid.exit:     ; preds = %240
   %362 = fmul float %19, %313
   %363 = getelementptr inbounds nuw i8, ptr %3, i64 376
   store float %362, ptr %363, align 4, !tbaa !4
-  %364 = fneg float %185
+  %364 = fneg float %250
   %365 = fsub float %364, %253
-  %366 = fsub float %185, %253
+  %366 = fsub float %250, %253
   %367 = fmul float %48, %27
   %368 = fmul float %48, %33
   %369 = fneg float %367

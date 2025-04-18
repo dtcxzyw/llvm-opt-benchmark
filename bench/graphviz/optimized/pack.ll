@@ -2638,13 +2638,13 @@ declare ptr @agnameof(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc range(i32 1, 0) i32 @computeStep(i64 noundef range(i64 1, 0) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #7 {
-  %4 = uitofp i64 %0 to double
-  %5 = shl i32 %2, 1
-  %6 = uitofp i32 %5 to double
+  %4 = shl i32 %2, 1
+  %5 = uitofp i32 %4 to double
   br label %20
 
-7:                                                ; preds = %20
-  %8 = tail call double @llvm.fmuladd.f64(double %4, double 1.000000e+02, double -1.000000e+00)
+6:                                                ; preds = %20
+  %7 = uitofp i64 %0 to double
+  %8 = tail call double @llvm.fmuladd.f64(double %7, double 1.000000e+02, double -1.000000e+00)
   %9 = fmul double %8, 4.000000e+00
   %10 = fneg double %29
   %11 = fmul double %9, %10
@@ -2672,18 +2672,18 @@ define internal fastcc range(i32 1, 0) i32 @computeStep(i64 noundef range(i64 1,
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 24
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !52
   %22 = fsub double %.sroa.5.0.copyload, %.sroa.0.0.copyload
-  %23 = fadd double %22, %6
+  %23 = fadd double %22, %5
   %24 = fsub double %.sroa.6.0.copyload, %.sroa.4.0.copyload
-  %25 = fadd double %24, %6
+  %25 = fadd double %24, %5
   %26 = fadd double %23, %25
   %27 = fsub double %.052, %26
   %28 = fneg double %23
   %29 = tail call double @llvm.fmuladd.f64(double %28, double %25, double %.04851)
   %30 = add nuw i64 %.04950, 1
   %exitcond.not = icmp eq i64 %30, %0
-  br i1 %exitcond.not, label %7, label %20, !llvm.loop !166
+  br i1 %exitcond.not, label %6, label %20, !llvm.loop !166
 
-31:                                               ; preds = %7
+31:                                               ; preds = %6
   %32 = fneg double %27
   %33 = fsub double %32, %13
   %34 = fdiv double %33, %15
@@ -2706,7 +2706,7 @@ define internal fastcc range(i32 1, 0) i32 @computeStep(i64 noundef range(i64 1,
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.22, double noundef %46, double noundef %50) #20
   br label %52
 
-52:                                               ; preds = %31, %7
+52:                                               ; preds = %31, %6
   ret i32 %spec.store.select
 }
 

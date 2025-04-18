@@ -2002,8 +2002,8 @@ define internal fastcc zeroext i8 @dissect_hpai(ptr noundef %0, ptr noundef %1, 
   %scevgep = getelementptr inbounds nuw i8, ptr %9, i64 1
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep)
   %84 = add i64 %strlen, 1
-  %85 = trunc i64 %strlen to i32
   %scevgep173 = getelementptr i8, ptr %9, i64 %84
+  %85 = trunc i64 %strlen to i32
   %86 = sub i32 79, %85
   %87 = icmp sgt i32 %86, 1
   br i1 %87, label %._crit_edge.thread, label %91
@@ -3911,8 +3911,8 @@ define internal fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef %1,
   %scevgep = getelementptr inbounds nuw i8, ptr %8, i64 2
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep)
   %51 = add i64 %strlen, 2
-  %52 = trunc i64 %strlen to i32
   %scevgep178 = getelementptr i8, ptr %8, i64 %51
+  %52 = trunc i64 %strlen to i32
   %53 = sub i32 98, %52
   br label %._crit_edge
 
@@ -3945,16 +3945,16 @@ define internal fastcc zeroext i8 @dissect_cnhdr(ptr noundef %0, ptr noundef %1,
   %scevgep179 = getelementptr i8, ptr %.0119.lcssa, i64 1
   %strlen180 = call i64 @strlen(ptr noundef %scevgep179)
   %68 = add i64 %strlen180, %.lcssa151
-  %69 = getelementptr i8, ptr %.0119.lcssa, i64 %strlen180
-  %scevgep181 = getelementptr i8, ptr %69, i64 1
-  %70 = trunc i64 %strlen180 to i32
-  %71 = add i64 %68, 1
-  %72 = xor i32 %70, -1
+  %69 = add i64 %68, 1
+  %70 = getelementptr i8, ptr %.0119.lcssa, i64 %strlen180
+  %scevgep181 = getelementptr i8, ptr %70, i64 1
+  %71 = trunc i64 %strlen180 to i32
+  %72 = xor i32 %71, -1
   %73 = add i32 %.0117.lcssa, %72
   br label %._crit_edge164
 
 ._crit_edge164:                                   ; preds = %.lr.ph163.preheader, %63
-  %.lcssa148 = phi i64 [ %.lcssa151, %63 ], [ %71, %.lr.ph163.preheader ]
+  %.lcssa148 = phi i64 [ %.lcssa151, %63 ], [ %69, %.lr.ph163.preheader ]
   %.1120.lcssa = phi ptr [ %.0119.lcssa, %63 ], [ %scevgep181, %.lr.ph163.preheader ]
   %.1118.lcssa = phi i32 [ %.0117.lcssa, %63 ], [ %73, %.lr.ph163.preheader ]
   %74 = load i32, ptr @hf_knxip_seq_counter, align 4
@@ -5511,13 +5511,13 @@ define internal fastcc void @knxip_tree_add_bit(ptr noundef %0, ptr noundef %1, 
   %32 = getelementptr i8, ptr %5, i64 %strlen
   %scevgep42 = getelementptr i8, ptr %32, i64 2
   %strlen43 = tail call i64 @strlen(ptr noundef %scevgep42)
-  %33 = add nsw i32 %6, -2
-  %34 = trunc i64 %strlen43 to i32
-  %35 = getelementptr i8, ptr %5, i64 %strlen43
-  %36 = getelementptr i8, ptr %35, i64 %strlen
-  %scevgep44 = getelementptr i8, ptr %36, i64 2
-  %37 = add i32 %26, %34
-  %38 = sub i32 %33, %37
+  %33 = getelementptr i8, ptr %5, i64 %strlen43
+  %34 = getelementptr i8, ptr %33, i64 %strlen
+  %scevgep44 = getelementptr i8, ptr %34, i64 2
+  %35 = add nsw i32 %6, -2
+  %36 = trunc i64 %strlen43 to i32
+  %37 = add i32 %26, %36
+  %38 = sub i32 %35, %37
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %.preheader.preheader, %23

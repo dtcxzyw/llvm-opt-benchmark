@@ -140,46 +140,46 @@ ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26
   br i1 %or.cond.i60, label %.lr.ph26.i67.preheader.us, label %.lr.ph.i62.preheader
 
 .lr.ph26.i67.preheader.us:                        ; preds = %.lr.ph, %ByteReverseWords.exit71.loopexit.us
-  %.175.us = phi ptr [ %46, %ByteReverseWords.exit71.loopexit.us ], [ %.050, %.lr.ph ]
+  %.175.us = phi ptr [ %49, %ByteReverseWords.exit71.loopexit.us ], [ %.050, %.lr.ph ]
   %.15274.us = phi i32 [ %50, %ByteReverseWords.exit71.loopexit.us ], [ %.051, %.lr.ph ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %22, ptr noundef nonnull align 1 dereferenceable(64) %.175.us, i64 64, i1 false)
-  %46 = getelementptr inbounds nuw i8, ptr %.175.us, i64 64
   br label %.lr.ph26.i67.us
 
 .lr.ph26.i67.us:                                  ; preds = %.lr.ph26.i67.preheader.us, %.lr.ph26.i67.us
   %indvars.iv30.i68.us = phi i64 [ %indvars.iv.next31.i69.us, %.lr.ph26.i67.us ], [ 0, %.lr.ph26.i67.preheader.us ]
-  %47 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv30.i68.us
-  %48 = load i32, ptr %47, align 4, !tbaa !9
-  %49 = tail call noundef i32 @llvm.bswap.i32(i32 %48)
-  store i32 %49, ptr %47, align 4, !tbaa !9
+  %46 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv30.i68.us
+  %47 = load i32, ptr %46, align 4, !tbaa !9
+  %48 = tail call noundef i32 @llvm.bswap.i32(i32 %47)
+  store i32 %48, ptr %46, align 4, !tbaa !9
   %indvars.iv.next31.i69.us = add nuw nsw i64 %indvars.iv30.i68.us, 1
   %exitcond.not.i70.us = icmp eq i64 %indvars.iv.next31.i69.us, 16
   br i1 %exitcond.not.i70.us, label %ByteReverseWords.exit71.loopexit.us, label %.lr.ph26.i67.us, !llvm.loop !13
 
 ByteReverseWords.exit71.loopexit.us:              ; preds = %.lr.ph26.i67.us
+  %49 = getelementptr inbounds nuw i8, ptr %.175.us, i64 64
   %50 = add i32 %.15274.us, -64
   tail call fastcc void @Transform(ptr noundef %0, ptr noundef %22)
   %51 = icmp ugt i32 %50, 63
   br i1 %51, label %.lr.ph26.i67.preheader.us, label %._crit_edge, !llvm.loop !16
 
 .lr.ph.i62.preheader:                             ; preds = %.lr.ph, %ByteReverseWords.exit71.loopexit72
-  %.175 = phi ptr [ %52, %ByteReverseWords.exit71.loopexit72 ], [ %.050, %.lr.ph ]
+  %.175 = phi ptr [ %55, %ByteReverseWords.exit71.loopexit72 ], [ %.050, %.lr.ph ]
   %.15274 = phi i32 [ %56, %ByteReverseWords.exit71.loopexit72 ], [ %.051, %.lr.ph ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %22, ptr noundef nonnull align 1 dereferenceable(64) %.175, i64 64, i1 false)
-  %52 = getelementptr inbounds nuw i8, ptr %.175, i64 64
   br label %.lr.ph.i62
 
 .lr.ph.i62:                                       ; preds = %.lr.ph.i62.preheader, %.lr.ph.i62
   %indvars.iv.i63 = phi i64 [ %indvars.iv.next.i65, %.lr.ph.i62 ], [ 0, %.lr.ph.i62.preheader ]
-  %53 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i63
-  %.0.copyload.i64 = load i32, ptr %53, align 1
-  %54 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i64)
-  store i32 %54, ptr %53, align 1
+  %52 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i63
+  %.0.copyload.i64 = load i32, ptr %52, align 1
+  %53 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i64)
+  store i32 %53, ptr %52, align 1
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i63, 4
-  %55 = icmp samesign ult i64 %indvars.iv.i63, 60
-  br i1 %55, label %.lr.ph.i62, label %ByteReverseWords.exit71.loopexit72, !llvm.loop !15
+  %54 = icmp samesign ult i64 %indvars.iv.i63, 60
+  br i1 %54, label %.lr.ph.i62, label %ByteReverseWords.exit71.loopexit72, !llvm.loop !15
 
 ByteReverseWords.exit71.loopexit72:               ; preds = %.lr.ph.i62
+  %55 = getelementptr inbounds nuw i8, ptr %.175, i64 64
   %56 = add i32 %.15274, -64
   tail call fastcc void @Transform(ptr noundef %0, ptr noundef %22)
   %57 = icmp ugt i32 %56, 63
@@ -187,7 +187,7 @@ ByteReverseWords.exit71.loopexit72:               ; preds = %.lr.ph.i62
 
 ._crit_edge:                                      ; preds = %ByteReverseWords.exit71.loopexit72, %ByteReverseWords.exit71.loopexit.us, %42
   %.152.lcssa = phi i32 [ %.051, %42 ], [ %50, %ByteReverseWords.exit71.loopexit.us ], [ %56, %ByteReverseWords.exit71.loopexit72 ]
-  %.1.lcssa = phi ptr [ %.050, %42 ], [ %46, %ByteReverseWords.exit71.loopexit.us ], [ %52, %ByteReverseWords.exit71.loopexit72 ]
+  %.1.lcssa = phi ptr [ %.050, %42 ], [ %49, %ByteReverseWords.exit71.loopexit.us ], [ %55, %ByteReverseWords.exit71.loopexit72 ]
   %.not59 = icmp eq i32 %.152.lcssa, 0
   br i1 %.not59, label %60, label %58
 

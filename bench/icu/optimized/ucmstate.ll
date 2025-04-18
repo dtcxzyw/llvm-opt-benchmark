@@ -85,26 +85,26 @@ define void @ucm_addState(ptr noundef captures(none) %0, ptr noundef %1) local_u
 10:                                               ; preds = %2
   %11 = sext i32 %5 to i64
   %12 = getelementptr inbounds [128 x [256 x i32]], ptr %0, i64 0, i64 %11
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 131072
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
-  br label %14
+  br label %13
 
-14:                                               ; preds = %14, %10
-  %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %14 ]
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i
-  store i32 -2140078081, ptr %15, align 4, !tbaa !11
+13:                                               ; preds = %13, %10
+  %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %13 ]
+  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i
+  store i32 -2140078081, ptr %14, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %16, label %14, !llvm.loop !12
+  br i1 %exitcond.not.i, label %15, label %13, !llvm.loop !12
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds [128 x i32], ptr %13, i64 0, i64 %11
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 131072
+  %17 = getelementptr inbounds [128 x i32], ptr %16, i64 0, i64 %11
   %18 = tail call ptr @u_skipWhitespace(ptr noundef %1)
   %19 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.52, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 7) #18
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %26
 
-21:                                               ; preds = %16
+21:                                               ; preds = %15
   store i32 1, ptr %17, align 4, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 7
   %23 = tail call ptr @u_skipWhitespace(ptr noundef nonnull %22)
@@ -113,7 +113,7 @@ define void @ucm_addState(ptr noundef captures(none) %0, ptr noundef %1) local_u
   %.not96.i = icmp eq i8 %25, 44
   br i1 %.not96.i, label %40, label %_ZL10parseStatePKcPiPj.exit.thread
 
-26:                                               ; preds = %16
+26:                                               ; preds = %15
   %27 = load i32, ptr %17, align 4, !tbaa !11
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %37

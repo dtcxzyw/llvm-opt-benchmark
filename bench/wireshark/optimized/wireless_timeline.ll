@@ -2159,35 +2159,35 @@ define void @_ZN16WirelessTimeline10paintEventEP11QPaintEvent(ptr noundef align 
           to label %30 unwind label %109
 
 30:                                               ; preds = %25
-  %31 = sitofp i32 %29 to double
-  %32 = fmul double %31, 0x3EF0000000000000
-  %33 = fptrunc double %32 to float
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load i32, ptr %34, align 4
-  %36 = sitofp i32 %35 to float
-  %37 = fmul float %33, %36
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %39 = load i32, ptr %38, align 4
-  %40 = sitofp i32 %39 to float
-  %41 = fmul float %33, %40
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %34 = load i32, ptr %33, align 4
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %9) #19
-  br label %42
+  br label %35
 
-42:                                               ; preds = %42, %30
-  %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %42 ]
-  %43 = getelementptr [3 x float], ptr %9, i64 %indvars.iv.i
-  %44 = getelementptr i8, ptr %43, i64 8
-  store float 1.000000e+00, ptr %44, align 4
-  %45 = getelementptr i8, ptr %43, i64 4
-  store float 1.000000e+00, ptr %45, align 4
-  store float 1.000000e+00, ptr %43, align 4
+35:                                               ; preds = %35, %30
+  %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %35 ]
+  %36 = getelementptr [3 x float], ptr %9, i64 %indvars.iv.i
+  %37 = getelementptr i8, ptr %36, i64 8
+  store float 1.000000e+00, ptr %37, align 4
+  %38 = getelementptr i8, ptr %36, i64 4
+  store float 1.000000e+00, ptr %38, align 4
+  store float 1.000000e+00, ptr %36, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %_ZL9reset_rgbPA3_f.exit, label %42, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_ZL9reset_rgbPA3_f.exit, label %35, !llvm.loop !14
 
-_ZL9reset_rgbPA3_f.exit:                          ; preds = %42
-  %46 = fptosi float %37 to i32
-  %47 = fptosi float %41 to i32
+_ZL9reset_rgbPA3_f.exit:                          ; preds = %35
+  %39 = sitofp i32 %29 to double
+  %40 = fmul double %39, 0x3EF0000000000000
+  %41 = fptrunc double %40 to float
+  %42 = sitofp i32 %32 to float
+  %43 = fmul float %41, %42
+  %44 = fptosi float %43 to i32
+  %45 = sitofp i32 %34 to float
+  %46 = fmul float %41, %45
+  %47 = fptosi float %46 to i32
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 20
@@ -2204,7 +2204,7 @@ _ZL9reset_rgbPA3_f.exit:                          ; preds = %42
   %61 = sub i64 %58, %60
   %62 = uitofp i64 %61 to double
   %63 = fdiv double %56, %62
-  %64 = fpext float %33 to double
+  %64 = fpext float %41 to double
   %65 = fmul double %63, %64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #19
   store i32 1, ptr %10, align 4
@@ -2425,12 +2425,12 @@ _ZN16WirelessTimeline8positionEmf.exit207:        ; preds = %171, %_ZN16Wireless
   %191 = phi i32 [ %161, %154 ], [ %190, %171 ], [ -100, %_ZN16WirelessTimeline14get_wlan_radioEj.exit204 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #19
   %192 = sitofp i32 %152 to float
-  %193 = fdiv float %192, %33
+  %193 = fdiv float %192, %41
   %194 = fpext float %193 to double
   %reass.sub = sub i32 %191, %152
   %195 = add i32 %reass.sub, 1
   %196 = sitofp i32 %195 to float
-  %197 = fdiv float %196, %33
+  %197 = fdiv float %196, %41
   %198 = fpext float %197 to double
   store double %194, ptr %15, align 8
   %199 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -2525,12 +2525,12 @@ _ZN16WirelessTimeline8positionEmf.exit214:        ; preds = %236, %_ZN16Wireless
   %.0.i213 = phi i32 [ %255, %236 ], [ -100, %_ZN16WirelessTimeline8positionEmf.exit211 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #19
   %256 = sitofp i32 %.0.i210 to float
-  %257 = fdiv float %256, %33
+  %257 = fdiv float %256, %41
   %258 = fpext float %257 to double
   %reass.sub289 = sub i32 %.0.i213, %.0.i210
   %259 = add i32 %reass.sub289, 1
   %260 = sitofp i32 %259 to float
-  %261 = fdiv float %260, %33
+  %261 = fdiv float %260, %41
   %262 = fpext float %261 to double
   store double %258, ptr %16, align 8
   %263 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -2584,7 +2584,7 @@ _ZN16WirelessTimeline8positionEmf.exit214:        ; preds = %236, %_ZN16Wireless
 278:                                              ; preds = %277
   %279 = load i64, ptr %59, align 8
   %280 = uitofp i64 %279 to double
-  %281 = sitofp i32 %46 to double
+  %281 = sitofp i32 %44 to double
   %282 = fdiv double %281, %65
   %283 = fadd double %282, %280
   %284 = fadd double %283, -4.000000e+04
@@ -2667,7 +2667,7 @@ _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %278, %.n
   %.0.i216296 = phi i32 [ %.0.i216, %_ZN16WirelessTimeline15find_packet_tsfEm.exit ], [ %286, %278 ]
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %315 = sitofp i32 %47 to float
-  %316 = sitofp i32 %46 to float
+  %316 = sitofp i32 %44 to float
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %318 = fcmp ult double %65, 1.000000e-02
   %319 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -2769,7 +2769,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   br i1 %or.cond203, label %378, label %375
 
 375:                                              ; preds = %367
-  invoke fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %.0153285, ptr noundef nonnull %9, float noundef %33)
+  invoke fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %.0153285, ptr noundef nonnull %9, float noundef %41)
           to label %378 unwind label %376
 
 376:                                              ; preds = %375
@@ -2852,11 +2852,11 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   %425 = shl i32 %.0152286, 1
   %426 = and i32 %425, 62
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #19
-  %427 = fdiv float %389, %33
+  %427 = fdiv float %389, %41
   %428 = fpext float %427 to double
   %429 = uitofp nneg i32 %426 to double
   %430 = uitofp nneg i32 %420 to float
-  %431 = fdiv float %430, %33
+  %431 = fdiv float %430, %41
   %432 = fpext float %431 to double
   store double %428, ptr %18, align 8
   store double %429, ptr %319, align 8
@@ -3000,7 +3000,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   br i1 %exitcond.not.i233, label %_ZL14accumulate_rgbPA3_fiiffff.exit234, label %.lr.ph.i230, !llvm.loop !15
 
 _ZL14accumulate_rgbPA3_fiiffff.exit234:           ; preds = %.lr.ph.i230
-  invoke fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %374, ptr noundef nonnull %9, float noundef %33)
+  invoke fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %374, ptr noundef nonnull %9, float noundef %41)
           to label %505 unwind label %549
 
 505:                                              ; preds = %_ZL14accumulate_rgbPA3_fiiffff.exit234
@@ -3017,11 +3017,11 @@ _ZL14accumulate_rgbPA3_fiiffff.exit234:           ; preds = %.lr.ph.i230
   %514 = zext nneg i16 %513 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #19
   %515 = sitofp i32 %510 to float
-  %516 = fdiv float %515, %33
+  %516 = fdiv float %515, %41
   %517 = fpext float %516 to double
   %518 = uitofp nneg i32 %narrow to double
   %519 = sitofp i32 %511 to float
-  %520 = fdiv float %519, %33
+  %520 = fdiv float %519, %41
   %521 = fpext float %520 to double
   %522 = shl nuw nsw i32 %spec.store.select4, %514
   %523 = uitofp nneg i32 %522 to double

@@ -1932,34 +1932,34 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_write(ptr noundef %0, 
 123:                                              ; preds = %119
   %124 = add i32 %120, -1
   %125 = tail call i32 @llvm.umin.i32(i32 %124, i32 3)
-  %126 = zext nneg i32 %125 to i64
-  br label %127
+  br label %126
 
-127:                                              ; preds = %127, %123
-  %128 = phi i32 [ %136, %127 ], [ 0, %123 ]
-  %129 = phi i32 [ %137, %127 ], [ 0, %123 ]
-  %130 = phi ptr [ %131, %127 ], [ %121, %123 ]
-  %131 = getelementptr i8, ptr %130, i64 1
-  %132 = load i8, ptr %130, align 1
-  %133 = zext i8 %132 to i32
-  %134 = shl i32 %129, 3
-  %135 = shl i32 %133, %134
-  %136 = or i32 %135, %128
-  %137 = add nuw nsw i32 %129, 1
-  %138 = icmp eq i32 %129, %125
-  br i1 %138, label %139, label %127, !llvm.loop !34
+126:                                              ; preds = %126, %123
+  %127 = phi i32 [ %135, %126 ], [ 0, %123 ]
+  %128 = phi i32 [ %136, %126 ], [ 0, %123 ]
+  %129 = phi ptr [ %130, %126 ], [ %121, %123 ]
+  %130 = getelementptr i8, ptr %129, i64 1
+  %131 = load i8, ptr %129, align 1
+  %132 = zext i8 %131 to i32
+  %133 = shl i32 %128, 3
+  %134 = shl i32 %132, %133
+  %135 = or i32 %134, %127
+  %136 = add nuw nsw i32 %128, 1
+  %137 = icmp eq i32 %128, %125
+  br i1 %137, label %138, label %126, !llvm.loop !34
 
-139:                                              ; preds = %127
-  %140 = getelementptr i8, ptr %121, i64 1
-  %141 = getelementptr i8, ptr %140, i64 %126
+138:                                              ; preds = %126
+  %139 = getelementptr i8, ptr %121, i64 1
+  %140 = zext nneg i32 %125 to i64
+  %141 = getelementptr i8, ptr %139, i64 %140
   %142 = sub i32 %124, %125
   %143 = load i32, ptr %10, align 8
   %144 = add i32 %143, 20748
-  %145 = zext i32 %136 to i64
+  %145 = zext i32 %135 to i64
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_reg_rw, i64 8), i32 2) #12
           to label %166 [label %146], !srcloc !7
 
-146:                                              ; preds = %139
+146:                                              ; preds = %138
   %147 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !8
   %148 = zext i32 %147 to i64
   %149 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %148) #12, !srcloc !9
@@ -1995,7 +1995,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_write(ptr noundef %0, 
   tail call void @llvm.write_register.i64(metadata !0, i64 %165)
   br label %166
 
-166:                                              ; preds = %163, %159, %146, %139
+166:                                              ; preds = %163, %159, %146, %138
   %167 = icmp ult i32 %144, 262144
   br i1 %167, label %168, label %171
 
@@ -2009,7 +2009,7 @@ define internal fastcc range(i32 -110, 1) i32 @gmbus_xfer_write(ptr noundef %0, 
   %173 = load ptr, ptr %12, align 8
   %174 = zext i32 %172 to i64
   %175 = getelementptr i8, ptr %173, i64 %174
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %136, ptr elementtype(i32) %175) #12, !srcloc !16
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %135, ptr elementtype(i32) %175) #12, !srcloc !16
   %176 = tail call fastcc i32 @gmbus_wait(ptr noundef %0, i32 noundef 2048, i32 noundef 1), !range !17
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %119, label %.loopexit, !llvm.loop !35

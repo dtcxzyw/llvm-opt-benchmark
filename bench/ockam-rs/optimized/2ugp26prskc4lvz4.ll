@@ -120680,13 +120680,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h88ac3f6b6a66
   %13 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds { i16, i16 }, ptr %13, i64 %12
   %15 = icmp ugt i64 %1, 1
-  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbb14c1c8a652c538E.exit"
-  %16 = add i64 %12, %1
-  br label %.lr.ph
+  br i1 %15, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.thread:                               ; preds = %.lr.ph
+  %16 = add i64 %12, %1
   %17 = add i64 %16, -1
   br label %19
 
@@ -120708,9 +120705,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h88ac3f6b6a66
   %21 = add i64 %storemerge.lcssa31, 1
   br label %18
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.025 = phi ptr [ %24, %.lr.ph ], [ %14, %.lr.ph.preheader ]
-  %.sroa.03.024 = phi i64 [ %22, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbb14c1c8a652c538E.exit", %.lr.ph
+  %.025 = phi ptr [ %24, %.lr.ph ], [ %14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbb14c1c8a652c538E.exit" ]
+  %.sroa.03.024 = phi i64 [ %22, %.lr.ph ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hbb14c1c8a652c538E.exit" ]
   %22 = add nuw i64 %.sroa.03.024, 1
   store i16 %2, ptr %.025, align 2
   %23 = getelementptr inbounds nuw i8, ptr %.025, i64 2
@@ -143727,27 +143724,27 @@ define hidden void @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$co
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.i = load ptr, ptr %11, align 8, !alias.scope !36027, !noalias !36030, !nonnull !4, !align !5, !noundef !4
   %.promoted = load i64, ptr %10, align 8, !alias.scope !36027, !noalias !36030
-  %12 = add i64 %.promoted, %7
-  br label %13
+  br label %12
 
-13:                                               ; preds = %13, %6
-  %.0 = phi i64 [ 0, %6 ], [ %18, %13 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 %.0
+12:                                               ; preds = %12, %6
+  %.0 = phi i64 [ 0, %6 ], [ %17, %12 ]
+  %13 = getelementptr inbounds i8, ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36027)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36030)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36032)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36035)
-  store i8 0, ptr %14, align 1, !alias.scope !36038, !noalias !36027
-  %15 = load ptr, ptr %.val.i, align 8, !noalias !36039, !nonnull !4, !align !5, !noundef !4
-  %16 = load i64, ptr %15, align 8, !noalias !36039, !noundef !4
-  %17 = add i64 %16, 1
-  store i64 %17, ptr %15, align 8, !noalias !36039
-  %18 = add nuw i64 %.0, 1
-  %19 = icmp eq i64 %18, %9
-  br i1 %19, label %.loopexit, label %13
+  store i8 0, ptr %13, align 1, !alias.scope !36038, !noalias !36027
+  %14 = load ptr, ptr %.val.i, align 8, !noalias !36039, !nonnull !4, !align !5, !noundef !4
+  %15 = load i64, ptr %14, align 8, !noalias !36039, !noundef !4
+  %16 = add i64 %15, 1
+  store i64 %16, ptr %14, align 8, !noalias !36039
+  %17 = add nuw i64 %.0, 1
+  %18 = icmp eq i64 %17, %9
+  br i1 %18, label %.loopexit, label %12
 
-.loopexit:                                        ; preds = %13
-  %20 = sub i64 %12, %8
+.loopexit:                                        ; preds = %12
+  %19 = add i64 %.promoted, %7
+  %20 = sub i64 %19, %8
   store i64 %20, ptr %10, align 8, !alias.scope !36027, !noalias !36030
   br label %21
 

@@ -2893,56 +2893,56 @@ define dso_local void @add_timer_on(ptr noundef %0, i32 noundef %1) #1 align 16 
   %11 = zext i32 %1 to i64
   %12 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %11
   %13 = load i64, ptr %12, align 8
-  %14 = and i32 %10, 524288
-  %15 = icmp eq i32 %14, 0
-  %16 = select i1 %15, i64 ptrtoint (ptr @timer_bases to i64), i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @timer_bases, i64 4736) to i64)
-  br label %17
+  br label %14
 
-17:                                               ; preds = %35, %8
-  %18 = load volatile i32, ptr %9, align 8
-  %19 = and i32 %18, 262144
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %35
+14:                                               ; preds = %32, %8
+  %15 = load volatile i32, ptr %9, align 8
+  %16 = and i32 %15, 262144
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %32
 
-21:                                               ; preds = %17
-  %22 = and i32 %18, 262143
-  %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %23
-  %25 = load i64, ptr %24, align 8
-  %26 = and i32 %18, 524288
-  %27 = icmp eq i32 %26, 0
-  %28 = select i1 %27, i64 ptrtoint (ptr @timer_bases to i64), i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @timer_bases, i64 4736) to i64)
-  %29 = add i64 %25, %28
-  %30 = inttoptr i64 %29 to ptr
-  %31 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %30) #16
-  %32 = load i32, ptr %9, align 8
-  %33 = icmp eq i32 %32, %18
-  br i1 %33, label %36, label %34
+18:                                               ; preds = %14
+  %19 = and i32 %15, 262143
+  %20 = zext nneg i32 %19 to i64
+  %21 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %20
+  %22 = load i64, ptr %21, align 8
+  %23 = and i32 %15, 524288
+  %24 = icmp eq i32 %23, 0
+  %25 = select i1 %24, i64 ptrtoint (ptr @timer_bases to i64), i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @timer_bases, i64 4736) to i64)
+  %26 = add i64 %22, %25
+  %27 = inttoptr i64 %26 to ptr
+  %28 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %27) #16
+  %29 = load i32, ptr %9, align 8
+  %30 = icmp eq i32 %29, %15
+  br i1 %30, label %33, label %31
 
-34:                                               ; preds = %21
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %30, i64 noundef %31) #16
-  br label %35
+31:                                               ; preds = %18
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %27, i64 noundef %28) #16
+  br label %32
 
-35:                                               ; preds = %17, %34
+32:                                               ; preds = %14, %31
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !53
-  br label %17
+  br label %14
 
-36:                                               ; preds = %21
-  %37 = add i64 %16, %13
+33:                                               ; preds = %18
+  %34 = and i32 %10, 524288
+  %35 = icmp eq i32 %34, 0
+  %36 = select i1 %35, i64 ptrtoint (ptr @timer_bases to i64), i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @timer_bases, i64 4736) to i64)
+  %37 = add i64 %36, %13
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %73, label %42
 
-42:                                               ; preds = %36
-  %43 = icmp eq i64 %29, %37
+42:                                               ; preds = %33
+  %43 = icmp eq i64 %26, %37
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %42
-  %45 = or disjoint i32 %18, 262144
+  %45 = or disjoint i32 %15, 262144
   store i32 %45, ptr %9, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %30) #16
+  tail call void @_raw_spin_unlock(ptr noundef %27) #16
   tail call void @_raw_spin_lock(ptr noundef %38) #16
   %46 = load i32, ptr %9, align 8
   %47 = and i32 %46, -524288
@@ -2951,7 +2951,7 @@ define dso_local void @add_timer_on(ptr noundef %0, i32 noundef %1) #1 align 16 
   br label %49
 
 49:                                               ; preds = %44, %42
-  %50 = phi ptr [ %38, %44 ], [ %30, %42 ]
+  %50 = phi ptr [ %38, %44 ], [ %27, %42 ]
   %51 = load volatile i64, ptr @jiffies, align 64
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %53 = load i64, ptr %52, align 16
@@ -2997,9 +2997,9 @@ define dso_local void @add_timer_on(ptr noundef %0, i32 noundef %1) #1 align 16 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   br label %73
 
-73:                                               ; preds = %67, %36
-  %74 = phi ptr [ %50, %67 ], [ %30, %36 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %74, i64 noundef %31) #16
+73:                                               ; preds = %67, %33
+  %74 = phi ptr [ %50, %67 ], [ %27, %33 ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %74, i64 noundef %28) #16
   br label %75
 
 75:                                               ; preds = %73, %7

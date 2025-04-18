@@ -2850,23 +2850,23 @@ _ZN9grpc_core7ExecCtxC2Ev.exit.i:                 ; preds = %487, %_ZN9grpc_core
           to label %489 unwind label %532
 
 489:                                              ; preds = %_ZN9grpc_core7ExecCtxC2Ev.exit.i
-  %490 = getelementptr inbounds nuw i8, ptr %488, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %488, i8 0, i64 240, i1 false)
-  br label %491
+  br label %490
 
-491:                                              ; preds = %491, %489
-  %.idx.i.i = phi i64 [ 128, %489 ], [ %.add.i.i, %491 ]
+490:                                              ; preds = %490, %489
+  %.idx.i.i = phi i64 [ 128, %489 ], [ %.add.i.i, %490 ]
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %488, i64 %.idx.i.i
   store i32 0, ptr %.ptr.i.i, align 8, !tbaa !116
-  %492 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
-  %493 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %492, i8 0, i64 28, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %493, i8 0, i64 16, i1 false)
+  %491 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
+  %492 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %491, i8 0, i64 28, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %492, i8 0, i64 16, i1 false)
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 56
-  %494 = icmp eq i64 %.add.i.i, 240
-  br i1 %494, label %_ZN15verifier_cb_ctxC2Ev.exit.i, label %491
+  %493 = icmp eq i64 %.add.i.i, 240
+  br i1 %493, label %_ZN15verifier_cb_ctxC2Ev.exit.i, label %490
 
-_ZN15verifier_cb_ctxC2Ev.exit.i:                  ; preds = %491
+_ZN15verifier_cb_ctxC2Ev.exit.i:                  ; preds = %490
+  %494 = getelementptr inbounds nuw i8, ptr %488, i64 8
   %495 = getelementptr inbounds nuw i8, ptr %488, i64 240
   store ptr null, ptr %495, align 8, !tbaa !120
   store ptr %0, ptr %488, align 8, !tbaa !121
@@ -2877,7 +2877,7 @@ _ZN15verifier_cb_ctxC2Ev.exit.i:                  ; preds = %491
   %498 = getelementptr inbounds nuw i8, ptr %488, i64 16
   %.fca.0.extract.i = extractvalue { ptr, i32 } %496, 0
   %.fca.1.extract.i = extractvalue { ptr, i32 } %496, 1
-  store ptr %.fca.0.extract.i, ptr %490, align 8, !tbaa !40
+  store ptr %.fca.0.extract.i, ptr %494, align 8, !tbaa !40
   store i32 %.fca.1.extract.i, ptr %498, align 8, !tbaa !122
   %499 = getelementptr inbounds nuw i8, ptr %488, i64 24
   store ptr %.0.i202, ptr %499, align 8, !tbaa !66
@@ -4133,7 +4133,7 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %981, %978, %975, 
 983:                                              ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i
   %984 = getelementptr inbounds nuw i8, ptr %488, i64 128
   %985 = getelementptr inbounds nuw [2 x %struct.grpc_http_response], ptr %984, i64 0, i64 %.151.i
-  invoke void @_ZN9grpc_core11HttpRequest3GetENS_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS_9TimestampEP12grpc_closureP18grpc_http_responseNS_13RefCountedPtrI24grpc_channel_credentialsEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.20") align 8 %26, ptr noundef nonnull %27, ptr noundef null, ptr noundef nonnull %490, ptr noundef nonnull %12, i64 %.0.i.i.i105, ptr noundef nonnull %.1.i, ptr noundef nonnull %985, ptr noundef nonnull %28)
+  invoke void @_ZN9grpc_core11HttpRequest3GetENS_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS_9TimestampEP12grpc_closureP18grpc_http_responseNS_13RefCountedPtrI24grpc_channel_credentialsEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.20") align 8 %26, ptr noundef nonnull %27, ptr noundef null, ptr noundef nonnull %494, ptr noundef nonnull %12, i64 %.0.i.i.i105, ptr noundef nonnull %.1.i, ptr noundef nonnull %985, ptr noundef nonnull %28)
           to label %986 unwind label %1016
 
 986:                                              ; preds = %983

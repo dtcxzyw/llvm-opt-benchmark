@@ -7239,7 +7239,6 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread: ; preds = %_ZNK
   %.sroa.71748.0..sroa_idx1749 = getelementptr inbounds nuw i8, ptr %81, i64 12
   store i32 %.sroa.71748.0.copyload, ptr %.sroa.71748.0..sroa_idx1749, align 4
   %924 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %923, i32 noundef 234, ptr noundef nonnull align 8 dereferenceable(12) %16, i16 %920, ptr %922, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %81) #19
-  %.fca.0.extract1697 = extractvalue { ptr, i32 } %924, 0
   %925 = load ptr, ptr %897, align 8, !tbaa !166
   %.sroa.01691.0.copyload = load i16, ptr %78, align 8, !tbaa !157
   %.sroa.21693.0.copyload = load ptr, ptr %921, align 8, !tbaa !177
@@ -7249,7 +7248,6 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread: ; preds = %_ZNK
   %.sroa.71735.0..sroa_idx1736 = getelementptr inbounds nuw i8, ptr %82, i64 12
   store i32 %.sroa.71735.0.copyload, ptr %.sroa.71735.0..sroa_idx1736, align 4
   %926 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %925, i32 noundef 234, ptr noundef nonnull align 8 dereferenceable(12) %16, i16 %.sroa.01691.0.copyload, ptr %.sroa.21693.0.copyload, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %82) #19
-  %.fca.0.extract1687 = extractvalue { ptr, i32 } %926, 0
   %927 = call noundef i32 @_ZNK4llvm3EVT20getVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %78)
   %928 = call noundef i32 @_ZNK4llvm3EVT20getVectorNumElementsEv(ptr noundef nonnull align 8 dereferenceable(16) %76)
   %929 = udiv i32 %927, %928
@@ -7311,7 +7309,9 @@ _ZNK4llvm3EVT20getVectorNumElementsEv.exit:       ; preds = %_ZNK4llvm3MVT20getV
   br i1 %950, label %953, label %951
 
 951:                                              ; preds = %_ZNK4llvm3EVT20getVectorNumElementsEv.exit
+  %.fca.0.extract1697 = extractvalue { ptr, i32 } %924, 0
   %.fca.1.extract1698 = extractvalue { ptr, i32 } %924, 1
+  %.fca.0.extract1687 = extractvalue { ptr, i32 } %926, 0
   %.fca.1.extract1688 = extractvalue { ptr, i32 } %926, 1
   %952 = load ptr, ptr %75, align 8, !tbaa !180
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !300

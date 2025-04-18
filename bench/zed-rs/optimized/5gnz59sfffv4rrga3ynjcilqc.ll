@@ -7890,27 +7890,24 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h80367c46c2b0
   %6 = load i64, ptr %0, align 8, !noundef !4
   %7 = sub i64 %6, %5
   %8 = icmp ugt i64 %1, %7
-  br i1 %8, label %16, label %9
+  br i1 %8, label %15, label %9
 
-9:                                                ; preds = %16, %3
-  %10 = phi i64 [ %.pre, %16 ], [ %5, %3 ]
+9:                                                ; preds = %15, %3
+  %10 = phi i64 [ %.pre, %15 ], [ %5, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds i64, ptr %12, i64 %10
   %14 = icmp ugt i64 %1, 1
-  br i1 %14, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %14, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %9
-  %15 = add i64 %10, %1
-  br label %.lr.ph
-
-16:                                               ; preds = %3
+15:                                               ; preds = %3
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h2be2dc097b4301f0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %5, i64 noundef %1)
   %.pre = load i64, ptr %4, align 8
   br label %9
 
 ._crit_edge.thread:                               ; preds = %.lr.ph
-  %17 = add i64 %15, -1
+  %16 = add i64 %10, %1
+  %17 = add i64 %16, -1
   br label %18
 
 ._crit_edge:                                      ; preds = %9
@@ -7929,9 +7926,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h80367c46c2b0
   store i64 %storemerge18, ptr %4, align 8, !noalias !4
   ret void
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.0.021 = phi ptr [ %22, %.lr.ph ], [ %13, %.lr.ph.preheader ]
-  %.sroa.03.020 = phi i64 [ %21, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %9, %.lr.ph
+  %.sroa.0.021 = phi ptr [ %22, %.lr.ph ], [ %13, %9 ]
+  %.sroa.03.020 = phi i64 [ %21, %.lr.ph ], [ 1, %9 ]
   %21 = add nuw i64 %.sroa.03.020, 1
   store i64 %2, ptr %.sroa.0.021, align 8
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.021, i64 8

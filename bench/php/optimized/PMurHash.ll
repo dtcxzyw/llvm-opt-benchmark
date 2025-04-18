@@ -15,51 +15,50 @@ define hidden void @PMurHash32_Process(ptr noundef captures(none) %0, ptr nounde
   %or.cond = or i1 %.not, %.not85
   br i1 %or.cond, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %4
-  %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr i8, ptr %2, i64 %10
-  br label %12
+.preheader:                                       ; preds = %4, %27
+  %.in = phi i32 [ %10, %27 ], [ %9, %4 ]
+  %.16491 = phi i32 [ %.265, %27 ], [ %5, %4 ]
+  %.16790 = phi i32 [ %.268, %27 ], [ %7, %4 ]
+  %.17289 = phi i32 [ %.273, %27 ], [ %6, %4 ]
+  %.17788 = phi ptr [ %11, %27 ], [ %2, %4 ]
+  %10 = add nsw i32 %.in, -1
+  %11 = getelementptr inbounds nuw i8, ptr %.17788, i64 1
+  %12 = load i8, ptr %.17788, align 1, !tbaa !8
+  %13 = zext i8 %12 to i32
+  %14 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %.17289, i32 24)
+  %15 = add nuw nsw i32 %.16790, 1
+  %16 = icmp eq i32 %15, 4
+  br i1 %16, label %17, label %27
 
-12:                                               ; preds = %.preheader, %30
-  %.in = phi i32 [ %9, %.preheader ], [ %13, %30 ]
-  %.16491 = phi i32 [ %5, %.preheader ], [ %.265, %30 ]
-  %.16790 = phi i32 [ %7, %.preheader ], [ %.268, %30 ]
-  %.17289 = phi i32 [ %6, %.preheader ], [ %.273, %30 ]
-  %.17788 = phi ptr [ %2, %.preheader ], [ %14, %30 ]
-  %13 = add nsw i32 %.in, -1
-  %14 = getelementptr inbounds nuw i8, ptr %.17788, i64 1
-  %15 = load i8, ptr %.17788, align 1, !tbaa !8
-  %16 = zext i8 %15 to i32
-  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %.17289, i32 24)
-  %18 = add nuw nsw i32 %.16790, 1
-  %19 = icmp eq i32 %18, 4
-  br i1 %19, label %20, label %30
+17:                                               ; preds = %.preheader
+  %18 = mul i32 %14, -862048943
+  %19 = mul i32 %14, 380141568
+  %20 = lshr i32 %18, 17
+  %21 = or disjoint i32 %20, %19
+  %22 = mul i32 %21, 461845907
+  %23 = xor i32 %22, %.16491
+  %24 = tail call i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 13)
+  %25 = mul i32 %24, 5
+  %26 = add i32 %25, -430675100
+  br label %27
 
-20:                                               ; preds = %12
-  %21 = mul i32 %17, -862048943
-  %22 = mul i32 %17, 380141568
-  %23 = lshr i32 %21, 17
-  %24 = or disjoint i32 %23, %22
-  %25 = mul i32 %24, 461845907
-  %26 = xor i32 %25, %.16491
-  %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 13)
-  %28 = mul i32 %27, 5
-  %29 = add i32 %28, -430675100
-  br label %30
+27:                                               ; preds = %17, %.preheader
+  %.273 = phi i32 [ %22, %17 ], [ %14, %.preheader ]
+  %.268 = phi i32 [ 0, %17 ], [ %15, %.preheader ]
+  %.265 = phi i32 [ %26, %17 ], [ %.16491, %.preheader ]
+  %.not86 = icmp eq i32 %10, 0
+  br i1 %.not86, label %.loopexit.loopexit, label %.preheader
 
-30:                                               ; preds = %20, %12
-  %.273 = phi i32 [ %25, %20 ], [ %17, %12 ]
-  %.268 = phi i32 [ 0, %20 ], [ %18, %12 ]
-  %.265 = phi i32 [ %29, %20 ], [ %.16491, %12 ]
-  %.not86 = icmp eq i32 %13, 0
-  br i1 %.not86, label %.loopexit.loopexit, label %12
-
-.loopexit.loopexit:                               ; preds = %30
+.loopexit.loopexit:                               ; preds = %27
+  %28 = add nsw i32 %9, -1
+  %29 = zext i32 %28 to i64
+  %30 = getelementptr i8, ptr %2, i64 %29
+  %scevgep = getelementptr i8, ptr %30, i64 1
   %31 = sub i32 %3, %9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
-  %.076 = phi ptr [ %2, %4 ], [ %11, %.loopexit.loopexit ]
+  %.076 = phi ptr [ %2, %4 ], [ %scevgep, %.loopexit.loopexit ]
   %.071 = phi i32 [ %6, %4 ], [ %.273, %.loopexit.loopexit ]
   %.066 = phi i32 [ %7, %4 ], [ %.268, %.loopexit.loopexit ]
   %.063 = phi i32 [ %5, %4 ], [ %.265, %.loopexit.loopexit ]

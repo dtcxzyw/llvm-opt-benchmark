@@ -12425,22 +12425,22 @@ _ZNK4llvm9StringRef11starts_withES0_.exit2695.thread: ; preds = %_ZNK4llvm9Strin
   %2062 = load ptr, ptr %2061, align 8, !tbaa !94
   %2063 = getelementptr inbounds nuw i8, ptr %2062, i64 32
   %2064 = load i32, ptr %2063, align 8, !tbaa !267
-  %2065 = udiv i32 %2060, %2064
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %135) #21
-  %2066 = zext i32 %2060 to i64
-  call void @_ZN4llvm11SmallVectorIiLj8EEC2Em(ptr noundef nonnull align 8 dereferenceable(48) %135, i64 noundef %2066)
-  %2067 = load ptr, ptr %135, align 8, !tbaa !25
+  %2065 = zext i32 %2060 to i64
+  call void @_ZN4llvm11SmallVectorIiLj8EEC2Em(ptr noundef nonnull align 8 dereferenceable(48) %135, i64 noundef %2065)
+  %2066 = load ptr, ptr %135, align 8, !tbaa !25
   br label %2070
 
 .preheader4599:                                   ; preds = %2070
-  %2068 = trunc i64 %.0.i.i2704 to i32
-  %2069 = urem i32 %2068, %2065
+  %2067 = trunc i64 %.0.i.i2704 to i32
+  %2068 = udiv i32 %2060, %2064
+  %2069 = urem i32 %2067, %2068
   %.not19604685 = icmp eq i32 %2064, %2060
   br i1 %.not19604685, label %._crit_edge4688, label %.lr.ph4687
 
 2070:                                             ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit2695.thread, %2070
   %indvars.iv4784 = phi i64 [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit2695.thread ], [ %indvars.iv.next4785, %2070 ]
-  %2071 = getelementptr inbounds nuw i32, ptr %2067, i64 %indvars.iv4784
+  %2071 = getelementptr inbounds nuw i32, ptr %2066, i64 %indvars.iv4784
   %2072 = trunc nuw i64 %indvars.iv4784 to i32
   store i32 %2072, ptr %2071, align 4, !tbaa !252
   %indvars.iv.next4785 = add nuw nsw i64 %indvars.iv4784, 1
@@ -12455,7 +12455,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit2695.thread: ; preds = %_ZNK4llvm9Strin
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %136) #21
   %2076 = getelementptr inbounds nuw i8, ptr %136, i64 32
   store i16 257, ptr %2076, align 8
-  %2077 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueENS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull %2049, ptr nonnull %2067, i64 %2075, ptr noundef nonnull align 8 dereferenceable(34) %136)
+  %2077 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueENS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull %2049, ptr nonnull %2066, i64 %2075, ptr noundef nonnull align 8 dereferenceable(34) %136)
   store ptr %2077, ptr %7, align 8, !tbaa !248
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %136) #21
   %.not19614689 = icmp eq i32 %2060, 0
@@ -12465,7 +12465,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit2695.thread: ; preds = %_ZNK4llvm9Strin
 .lr.ph4687:                                       ; preds = %.preheader4599, %.lr.ph4687
   %.018584686 = phi i32 [ %2080, %.lr.ph4687 ], [ %2064, %.preheader4599 ]
   %2078 = zext i32 %.018584686 to i64
-  %2079 = getelementptr inbounds nuw i32, ptr %2067, i64 %2078
+  %2079 = getelementptr inbounds nuw i32, ptr %2066, i64 %2078
   store i32 %2064, ptr %2079, align 4, !tbaa !252
   %2080 = add i32 %.018584686, 1
   %.not1960 = icmp eq i32 %2080, %2060
@@ -12481,7 +12481,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit2695.thread: ; preds = %_ZNK4llvm9Strin
   %2083 = trunc nuw i64 %indvars.iv4790 to i32
   store i32 %2083, ptr %2082, align 4, !tbaa !252
   %indvars.iv.next4791 = add nuw nsw i64 %indvars.iv4790, 1
-  %.not1961 = icmp eq i64 %indvars.iv.next4791, %2066
+  %.not1961 = icmp eq i64 %indvars.iv.next4791, %2065
   br i1 %.not1961, label %.preheader, label %.lr.ph4692, !llvm.loop !286
 
 2084:                                             ; preds = %2100

@@ -2135,36 +2135,36 @@ define internal void @_ZNK5faiss18IndexIVFPQFastScan11compute_LUTEmPKfRKNS_16Ind
 
 39:                                               ; preds = %29
   %40 = load i64, ptr %2, align 8, !tbaa !47
-  %41 = udiv i64 %.027, %40
-  %42 = load ptr, ptr %28, align 8, !tbaa !7
-  %43 = load ptr, ptr %8, align 8, !tbaa !7
-  %44 = mul i64 %37, %32
-  %45 = mul i64 %41, %32
+  %41 = load ptr, ptr %28, align 8, !tbaa !7
+  %42 = load ptr, ptr %8, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #18
-  br label %46
+  br label %43
 
-46:                                               ; preds = %46, %39
-  %indvars.iv.i.i.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i.i.i, %46 ]
-  %47 = getelementptr inbounds nuw [8 x float], ptr %10, i64 0, i64 %indvars.iv.i.i.i
-  store float -2.000000e+00, ptr %47, align 4, !tbaa !81
+43:                                               ; preds = %43, %39
+  %indvars.iv.i.i.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i.i.i, %43 ]
+  %44 = getelementptr inbounds nuw [8 x float], ptr %10, i64 0, i64 %indvars.iv.i.i.i
+  store float -2.000000e+00, ptr %44, align 4, !tbaa !81
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %_ZN5faiss12simd8float32C2Ef.exit.i, label %46, !llvm.loop !102
+  br i1 %exitcond.not.i.i.i, label %_ZN5faiss12simd8float32C2Ef.exit.i, label %43, !llvm.loop !102
 
-_ZN5faiss12simd8float32C2Ef.exit.i:               ; preds = %46
-  %48 = lshr i64 %32, 3
+_ZN5faiss12simd8float32C2Ef.exit.i:               ; preds = %43
+  %45 = lshr i64 %32, 3
   %.not.i = icmp ult i64 %32, 8
   br i1 %.not.i, label %_ZN5faiss14fvec_madd_simdEmPKffS1_Pf.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN5faiss12simd8float32C2Ef.exit.i
-  %49 = getelementptr inbounds nuw float, ptr %43, i64 %45
-  %50 = getelementptr inbounds nuw float, ptr %42, i64 %44
+  %46 = udiv i64 %.027, %40
+  %47 = mul i64 %46, %32
+  %48 = getelementptr inbounds nuw float, ptr %42, i64 %47
+  %49 = mul i64 %37, %32
+  %50 = getelementptr inbounds nuw float, ptr %41, i64 %49
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN5faiss5fmaddERKNS_12simd8float32ES2_S2_.exit.i
   %.016.i = phi i64 [ %63, %_ZN5faiss5fmaddERKNS_12simd8float32ES2_S2_.exit.i ], [ 0, %.lr.ph.i.preheader ]
   %.01015.i = phi ptr [ %60, %_ZN5faiss5fmaddERKNS_12simd8float32ES2_S2_.exit.i ], [ %34, %.lr.ph.i.preheader ]
-  %.01114.i = phi ptr [ %62, %_ZN5faiss5fmaddERKNS_12simd8float32ES2_S2_.exit.i ], [ %49, %.lr.ph.i.preheader ]
+  %.01114.i = phi ptr [ %62, %_ZN5faiss5fmaddERKNS_12simd8float32ES2_S2_.exit.i ], [ %48, %.lr.ph.i.preheader ]
   %.01213.i = phi ptr [ %61, %_ZN5faiss5fmaddERKNS_12simd8float32ES2_S2_.exit.i ], [ %50, %.lr.ph.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %11, ptr noundef nonnull align 1 dereferenceable(32) %.01213.i, i64 32, i1 false)
@@ -2198,7 +2198,7 @@ _ZN5faiss5fmaddERKNS_12simd8float32ES2_S2_.exit.i: ; preds = %51
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #18
   %63 = add nuw nsw i64 %.016.i, 1
-  %exitcond.not.i = icmp eq i64 %63, %48
+  %exitcond.not.i = icmp eq i64 %63, %45
   br i1 %exitcond.not.i, label %_ZN5faiss14fvec_madd_simdEmPKffS1_Pf.exit, label %.lr.ph.i, !llvm.loop !107
 
 _ZN5faiss14fvec_madd_simdEmPKffS1_Pf.exit:        ; preds = %_ZN5faiss5fmaddERKNS_12simd8float32ES2_S2_.exit.i, %_ZN5faiss12simd8float32C2Ef.exit.i

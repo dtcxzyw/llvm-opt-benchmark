@@ -5481,7 +5481,6 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
   %143 = load i64, ptr %142, align 8
-  %.not112 = icmp eq i64 %139, %143
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %17, i8 0, i64 9, i1 false), !alias.scope !65
   br label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i196
@@ -5584,6 +5583,7 @@ _ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i2
   br i1 %exitcond.not.i.i225, label %_ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit227.preheader, label %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i222, !llvm.loop !21
 
 _ZN3vcg20GLMeshAttributesInfo16InternalRendAttsC2ERKNS0_13RenderingAttsINS0_13INT_ATT_NAMESEEE.exit227.preheader: ; preds = %_ZN3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit.i.i222
+  %.not112 = icmp eq i64 %139, %143
   %spec.select342 = select i1 %.not112, i8 0, i8 %91
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 208

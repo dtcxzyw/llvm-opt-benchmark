@@ -12063,12 +12063,12 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit38.i.i.i.i:     ; preds = %238
   br i1 %exitcond.not.i.i41.i.i.i.i, label %_ZN4pbrt15SampledSpectrumC2Ef.exit42.preheader.i.i.i.i, label %240, !llvm.loop !720
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit42.preheader.i.i.i.i: ; preds = %240
-  %242 = fmul float %159, %175
-  %243 = fmul float %155, %175
-  %244 = fadd float %143, %243
-  %245 = fadd float %147, %242
-  %246 = fmul float %163, %175
-  %247 = fadd float %151, %246
+  %242 = fmul float %155, %175
+  %243 = fmul float %159, %175
+  %244 = fmul float %163, %175
+  %245 = fadd float %143, %242
+  %246 = fadd float %147, %243
+  %247 = fadd float %151, %244
   %248 = fcmp une float %155, 0.000000e+00
   %249 = fcmp une float %159, 0.000000e+00
   %or.cond.i308.i.i.i.i = select i1 %248, i1 true, i1 %249
@@ -15121,8 +15121,8 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEptEv.exit.i.i.i.i.i: ; preds = %_ZN
   %1455 = fmul float %1454, 5.000000e-01
   %1456 = fadd float %.sroa.7.0.copyload.i.i.i.i.i, %.sroa.8.0.copyload.i.i.i.i.i
   %1457 = fmul float %1456, 5.000000e-01
-  %1458 = fsub float %244, %1453
-  %1459 = fsub float %245, %1455
+  %1458 = fsub float %245, %1453
+  %1459 = fsub float %246, %1455
   %1460 = fsub float %247, %1457
   %.sroa.0.0.vec.insert.i.i.i.i.i.i.i.i = insertelement <2 x float> poison, float %1458, i64 0
   %.sroa.0.4.vec.insert.i.i.i.i.i.i.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i.i.i.i.i.i.i, float %1459, i64 1
@@ -23316,32 +23316,32 @@ _ZN4pbrt15InsideExclusiveIiEEbNS_6Point3IT_EERKNS_7Bounds3IS2_EE.exit.thread.i10
 _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit104: ; preds = %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point3IT_EERKNS_7Bounds3IS2_EE.exit.thread.i102, %110
   %.pn.i103 = phi { <2 x float>, <2 x float> } [ %119, %110 ], [ %109, %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point3IT_EERKNS_7Bounds3IS2_EE.exit.thread.i102 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %53)
-  %120 = extractvalue { <2 x float>, <2 x float> } %.pn.i103, 0
-  %121 = fsub float 1.000000e+00, %81
+  %120 = fsub float 1.000000e+00, %81
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49)
   store <2 x float> %99, ptr %49, align 8
   %.sroa.4493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   store <2 x float> %100, ptr %.sroa.4493.0..sroa_idx, align 8, !tbaa !109
-  br label %122
+  br label %121
 
-122:                                              ; preds = %122, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit104
-  %indvars.iv.i.i.i = phi i64 [ 0, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit104 ], [ %indvars.iv.next.i.i.i, %122 ]
-  %123 = getelementptr inbounds nuw [4 x float], ptr %49, i64 0, i64 %indvars.iv.i.i.i
-  %124 = load float, ptr %123, align 4, !tbaa !59
-  %125 = fmul float %121, %124
-  store float %125, ptr %123, align 4, !tbaa !59
+121:                                              ; preds = %121, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit104
+  %indvars.iv.i.i.i = phi i64 [ 0, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit104 ], [ %indvars.iv.next.i.i.i, %121 ]
+  %122 = getelementptr inbounds nuw [4 x float], ptr %49, i64 0, i64 %indvars.iv.i.i.i
+  %123 = load float, ptr %122, align 4, !tbaa !59
+  %124 = fmul float %120, %123
+  store float %124, ptr %122, align 4, !tbaa !59
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i, label %122, !llvm.loop !730
+  br i1 %exitcond.not.i.i.i, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i, label %121, !llvm.loop !730
 
-_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i:       ; preds = %122
+_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i:       ; preds = %121
+  %125 = extractvalue { <2 x float>, <2 x float> } %.pn.i103, 0
   %126 = extractvalue { <2 x float>, <2 x float> } %.pn.i103, 1
   %.fca.0.load.i.i.i = load <2 x float>, ptr %49, align 8
   %.fca.1.load.i.i.i = load <2 x float>, ptr %.sroa.4493.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48)
-  store <2 x float> %120, ptr %48, align 8
+  store <2 x float> %125, ptr %48, align 8
   %.sroa.4490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
   store <2 x float> %126, ptr %.sroa.4490.0..sroa_idx, align 8, !tbaa !109
   br label %127
@@ -23487,31 +23487,31 @@ _ZN4pbrt15InsideExclusiveIiEEbNS_6Point3IT_EERKNS_7Bounds3IS2_EE.exit.thread.i16
 _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit166: ; preds = %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point3IT_EERKNS_7Bounds3IS2_EE.exit.thread.i164, %167
   %.pn.i165 = phi { <2 x float>, <2 x float> } [ %176, %167 ], [ %166, %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point3IT_EERKNS_7Bounds3IS2_EE.exit.thread.i164 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %43)
-  %177 = extractvalue { <2 x float>, <2 x float> } %.pn.i165, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39)
   store <2 x float> %157, ptr %39, align 8
   %.sroa.4480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store <2 x float> %158, ptr %.sroa.4480.0..sroa_idx, align 8, !tbaa !109
-  br label %178
+  br label %177
 
-178:                                              ; preds = %178, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit166
-  %indvars.iv.i.i.i167 = phi i64 [ 0, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit166 ], [ %indvars.iv.next.i.i.i168, %178 ]
-  %179 = getelementptr inbounds nuw [4 x float], ptr %39, i64 0, i64 %indvars.iv.i.i.i167
-  %180 = load float, ptr %179, align 4, !tbaa !59
-  %181 = fmul float %121, %180
-  store float %181, ptr %179, align 4, !tbaa !59
+177:                                              ; preds = %177, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit166
+  %indvars.iv.i.i.i167 = phi i64 [ 0, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit166 ], [ %indvars.iv.next.i.i.i168, %177 ]
+  %178 = getelementptr inbounds nuw [4 x float], ptr %39, i64 0, i64 %indvars.iv.i.i.i167
+  %179 = load float, ptr %178, align 4, !tbaa !59
+  %180 = fmul float %120, %179
+  store float %180, ptr %178, align 4, !tbaa !59
   %indvars.iv.next.i.i.i168 = add nuw nsw i64 %indvars.iv.i.i.i167, 1
   %exitcond.not.i.i.i169 = icmp eq i64 %indvars.iv.next.i.i.i168, 4
-  br i1 %exitcond.not.i.i.i169, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i170, label %178, !llvm.loop !730
+  br i1 %exitcond.not.i.i.i169, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i170, label %177, !llvm.loop !730
 
-_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i170:    ; preds = %178
+_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i170:    ; preds = %177
+  %181 = extractvalue { <2 x float>, <2 x float> } %.pn.i165, 0
   %182 = extractvalue { <2 x float>, <2 x float> } %.pn.i165, 1
   %.fca.0.load.i.i.i171 = load <2 x float>, ptr %39, align 8
   %.fca.1.load.i.i.i173 = load <2 x float>, ptr %.sroa.4480.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38)
-  store <2 x float> %177, ptr %38, align 8
+  store <2 x float> %181, ptr %38, align 8
   %.sroa.4472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   store <2 x float> %182, ptr %.sroa.4472.0..sroa_idx, align 8, !tbaa !109
   br label %183
@@ -23657,31 +23657,31 @@ _ZN4pbrt15InsideExclusiveIiEEbNS_6Point3IT_EERKNS_7Bounds3IS2_EE.exit.thread.i24
 _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit251: ; preds = %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point3IT_EERKNS_7Bounds3IS2_EE.exit.thread.i249, %223
   %.pn.i250 = phi { <2 x float>, <2 x float> } [ %232, %223 ], [ %222, %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point3IT_EERKNS_7Bounds3IS2_EE.exit.thread.i249 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %33)
-  %233 = extractvalue { <2 x float>, <2 x float> } %.pn.i250, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
   store <2 x float> %213, ptr %29, align 8
   %.sroa.4462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   store <2 x float> %214, ptr %.sroa.4462.0..sroa_idx, align 8, !tbaa !109
-  br label %234
+  br label %233
 
-234:                                              ; preds = %234, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit251
-  %indvars.iv.i.i.i252 = phi i64 [ 0, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit251 ], [ %indvars.iv.next.i.i.i253, %234 ]
-  %235 = getelementptr inbounds nuw [4 x float], ptr %29, i64 0, i64 %indvars.iv.i.i.i252
-  %236 = load float, ptr %235, align 4, !tbaa !59
-  %237 = fmul float %121, %236
-  store float %237, ptr %235, align 4, !tbaa !59
+233:                                              ; preds = %233, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit251
+  %indvars.iv.i.i.i252 = phi i64 [ 0, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit251 ], [ %indvars.iv.next.i.i.i253, %233 ]
+  %234 = getelementptr inbounds nuw [4 x float], ptr %29, i64 0, i64 %indvars.iv.i.i.i252
+  %235 = load float, ptr %234, align 4, !tbaa !59
+  %236 = fmul float %120, %235
+  store float %236, ptr %234, align 4, !tbaa !59
   %indvars.iv.next.i.i.i253 = add nuw nsw i64 %indvars.iv.i.i.i252, 1
   %exitcond.not.i.i.i254 = icmp eq i64 %indvars.iv.next.i.i.i253, 4
-  br i1 %exitcond.not.i.i.i254, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i255, label %234, !llvm.loop !730
+  br i1 %exitcond.not.i.i.i254, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i255, label %233, !llvm.loop !730
 
-_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i255:    ; preds = %234
+_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i255:    ; preds = %233
+  %237 = extractvalue { <2 x float>, <2 x float> } %.pn.i250, 0
   %238 = extractvalue { <2 x float>, <2 x float> } %.pn.i250, 1
   %.fca.0.load.i.i.i256 = load <2 x float>, ptr %29, align 8
   %.fca.1.load.i.i.i258 = load <2 x float>, ptr %.sroa.4462.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
-  store <2 x float> %233, ptr %28, align 8
+  store <2 x float> %237, ptr %28, align 8
   %.sroa.4454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   store <2 x float> %238, ptr %.sroa.4454.0..sroa_idx, align 8, !tbaa !109
   br label %239
@@ -23826,31 +23826,31 @@ _ZN4pbrt15InsideExclusiveIiEEbNS_6Point3IT_EERKNS_7Bounds3IS2_EE.exit.thread.i33
 _ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit336: ; preds = %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point3IT_EERKNS_7Bounds3IS2_EE.exit.thread.i334, %278
   %.pn.i335 = phi { <2 x float>, <2 x float> } [ %287, %278 ], [ %277, %_ZN4pbrt15InsideExclusiveIiEEbNS_6Point3IT_EERKNS_7Bounds3IS2_EE.exit.thread.i334 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
-  %288 = extractvalue { <2 x float>, <2 x float> } %.pn.i335, 0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   store <2 x float> %268, ptr %19, align 8
   %.sroa.4444.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   store <2 x float> %269, ptr %.sroa.4444.0..sroa_idx, align 8, !tbaa !109
-  br label %289
+  br label %288
 
-289:                                              ; preds = %289, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit336
-  %indvars.iv.i.i.i337 = phi i64 [ 0, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit336 ], [ %indvars.iv.next.i.i.i338, %289 ]
-  %290 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %indvars.iv.i.i.i337
-  %291 = load float, ptr %290, align 4, !tbaa !59
-  %292 = fmul float %121, %291
-  store float %292, ptr %290, align 4, !tbaa !59
+288:                                              ; preds = %288, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit336
+  %indvars.iv.i.i.i337 = phi i64 [ 0, %_ZNK4pbrt11SampledGridINS_21RGBIlluminantSpectrumEE6LookupIZNKS_13RGBGridMedium11SamplePointENS_6Point3IfEERKNS_18SampledWavelengthsEEUlS1_E_EEDaRKNS5_IiEET_.exit336 ], [ %indvars.iv.next.i.i.i338, %288 ]
+  %289 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %indvars.iv.i.i.i337
+  %290 = load float, ptr %289, align 4, !tbaa !59
+  %291 = fmul float %120, %290
+  store float %291, ptr %289, align 4, !tbaa !59
   %indvars.iv.next.i.i.i338 = add nuw nsw i64 %indvars.iv.i.i.i337, 1
   %exitcond.not.i.i.i339 = icmp eq i64 %indvars.iv.next.i.i.i338, 4
-  br i1 %exitcond.not.i.i.i339, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i340, label %289, !llvm.loop !730
+  br i1 %exitcond.not.i.i.i339, label %_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i340, label %288, !llvm.loop !730
 
-_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i340:    ; preds = %289
+_ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit.i340:    ; preds = %288
+  %292 = extractvalue { <2 x float>, <2 x float> } %.pn.i335, 0
   %293 = extractvalue { <2 x float>, <2 x float> } %.pn.i335, 1
   %.fca.0.load.i.i.i341 = load <2 x float>, ptr %19, align 8
   %.fca.1.load.i.i.i343 = load <2 x float>, ptr %.sroa.4444.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
-  store <2 x float> %288, ptr %18, align 8
+  store <2 x float> %292, ptr %18, align 8
   %.sroa.4436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store <2 x float> %293, ptr %.sroa.4436.0..sroa_idx, align 8, !tbaa !109
   br label %294
@@ -24724,64 +24724,64 @@ _ZNK4pbrt9Transform12ApplyInverseIfEENS_6Point3IT_EES4_.exit: ; preds = %5
   br i1 %exitcond.not.i, label %_ZNK4pbrt11CloudMedium7DensityENS_6Point3IfEE.exit, label %98, !llvm.loop !950
 
 _ZNK4pbrt11CloudMedium7DensityENS_6Point3IfEE.exit: ; preds = %98
-  %108 = fsub float 1.000000e+00, %.sink.i
-  %109 = fmul float %108, 4.500000e+00
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %111 = load float, ptr %110, align 8, !tbaa !951
-  %112 = fmul float %109, %111
-  %113 = fmul float %104, %112
-  %114 = fcmp olt float %113, 0.000000e+00
-  %115 = fcmp ogt float %113, 1.000000e+00
-  %..i.i = select i1 %115, float 1.000000e+00, float %113
-  %.0.i.i = select i1 %114, float 0.000000e+00, float %..i.i
-  %116 = fsub float 5.000000e-01, %.sink.i
-  %117 = fcmp ogt float %116, 0.000000e+00
-  %.sroa.speculated.i = select i1 %117, float %116, float 0.000000e+00
-  %118 = fmul float %.sroa.speculated.i, 2.000000e+00
-  %119 = fadd float %118, %.0.i.i
-  %120 = fcmp ogt float %119, 1.000000e+00
-  %..i87.i = select i1 %120, float 1.000000e+00, float %119
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %109 = load float, ptr %108, align 8, !tbaa !951
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !tbaa !59
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %123 = load i64, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %125 = load ptr, ptr %124, align 8
-  br label %126
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %112 = load i64, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %114 = load ptr, ptr %113, align 8
+  br label %115
 
-126:                                              ; preds = %139, %_ZNK4pbrt11CloudMedium7DensityENS_6Point3IfEE.exit
-  %indvars.iv.i = phi i64 [ 0, %_ZNK4pbrt11CloudMedium7DensityENS_6Point3IfEE.exit ], [ %indvars.iv.next.i, %139 ]
-  %127 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
-  %128 = load float, ptr %127, align 4, !tbaa !59
-  %129 = tail call noundef i64 @lroundf(float noundef %128) #27, !tbaa !83
-  %130 = load i32, ptr %121, align 8, !tbaa !736
-  %131 = trunc i64 %129 to i32
-  %132 = sub i32 %131, %130
-  %133 = icmp slt i32 %132, 0
-  br i1 %133, label %139, label %134
+115:                                              ; preds = %128, %_ZNK4pbrt11CloudMedium7DensityENS_6Point3IfEE.exit
+  %indvars.iv.i = phi i64 [ 0, %_ZNK4pbrt11CloudMedium7DensityENS_6Point3IfEE.exit ], [ %indvars.iv.next.i, %128 ]
+  %116 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %117 = load float, ptr %116, align 4, !tbaa !59
+  %118 = tail call noundef i64 @lroundf(float noundef %117) #27, !tbaa !83
+  %119 = load i32, ptr %110, align 8, !tbaa !736
+  %120 = trunc i64 %118 to i32
+  %121 = sub i32 %120, %119
+  %122 = icmp slt i32 %121, 0
+  br i1 %122, label %128, label %123
 
-134:                                              ; preds = %126
-  %135 = zext nneg i32 %132 to i64
-  %.not.i = icmp ugt i64 %123, %135
-  br i1 %.not.i, label %136, label %139
+123:                                              ; preds = %115
+  %124 = zext nneg i32 %121 to i64
+  %.not.i = icmp ugt i64 %112, %124
+  br i1 %.not.i, label %125, label %128
 
-136:                                              ; preds = %134
-  %137 = getelementptr inbounds nuw float, ptr %125, i64 %135
-  %138 = load float, ptr %137, align 4, !tbaa !59
-  br label %139
+125:                                              ; preds = %123
+  %126 = getelementptr inbounds nuw float, ptr %114, i64 %124
+  %127 = load float, ptr %126, align 4, !tbaa !59
+  br label %128
 
-139:                                              ; preds = %136, %134, %126
-  %.sink.i20 = phi float [ %138, %136 ], [ 0.000000e+00, %134 ], [ 0.000000e+00, %126 ]
-  %140 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i
-  store float %.sink.i20, ptr %140, align 4, !tbaa !59
+128:                                              ; preds = %125, %123, %115
+  %.sink.i20 = phi float [ %127, %125 ], [ 0.000000e+00, %123 ], [ 0.000000e+00, %115 ]
+  %129 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %indvars.iv.i
+  store float %.sink.i20, ptr %129, align 4, !tbaa !59
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i21, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %126, !llvm.loop !738
+  br i1 %exitcond.not.i21, label %_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit, label %115, !llvm.loop !738
 
-_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %139
-  %141 = fcmp olt float %119, 0.000000e+00
-  %.0.i88.i = select i1 %141, float 0.000000e+00, float %..i87.i
+_ZNK4pbrt22DenselySampledSpectrum6SampleERKNS_18SampledWavelengthsE.exit: ; preds = %128
+  %130 = fsub float 1.000000e+00, %.sink.i
+  %131 = fmul float %130, 4.500000e+00
+  %132 = fmul float %131, %109
+  %133 = fmul float %104, %132
+  %134 = fcmp olt float %133, 0.000000e+00
+  %135 = fcmp ogt float %133, 1.000000e+00
+  %..i.i = select i1 %135, float 1.000000e+00, float %133
+  %.0.i.i = select i1 %134, float 0.000000e+00, float %..i.i
+  %136 = fsub float 5.000000e-01, %.sink.i
+  %137 = fcmp ogt float %136, 0.000000e+00
+  %.sroa.speculated.i = select i1 %137, float %136, float 0.000000e+00
+  %138 = fmul float %.sroa.speculated.i, 2.000000e+00
+  %139 = fadd float %138, %.0.i.i
+  %140 = fcmp olt float %139, 0.000000e+00
+  %141 = fcmp ogt float %139, 1.000000e+00
+  %..i87.i = select i1 %141, float 1.000000e+00, float %139
+  %.0.i88.i = select i1 %140, float 0.000000e+00, float %..i87.i
   %.fca.0.load.i = load <2 x float>, ptr %9, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.fca.1.load.i = load <2 x float>, ptr %.fca.1.gep.i, align 8

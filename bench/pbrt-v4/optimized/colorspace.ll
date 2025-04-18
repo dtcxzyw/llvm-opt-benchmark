@@ -701,20 +701,20 @@ _ZNK4pbrt13RGBColorSpaceeqERKS0_.exit:            ; preds = %28
   br i1 %exitcond.not.i, label %42, label %43, !llvm.loop !13
 
 _ZNK4pbrt13RGBColorSpaceeqERKS0_.exit.thread:     ; preds = %3, %10, %19, %28, %_ZNK4pbrt13RGBColorSpaceeqERKS0_.exit
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 108
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %48, %_ZNK4pbrt13RGBColorSpaceeqERKS0_.exit.thread
-  %indvars.iv12.i.i = phi i64 [ 0, %_ZNK4pbrt13RGBColorSpaceeqERKS0_.exit.thread ], [ %indvars.iv.next13.i.i, %48 ]
+.preheader.i.i:                                   ; preds = %47, %_ZNK4pbrt13RGBColorSpaceeqERKS0_.exit.thread
+  %indvars.iv12.i.i = phi i64 [ 0, %_ZNK4pbrt13RGBColorSpaceeqERKS0_.exit.thread ], [ %indvars.iv.next13.i.i, %47 ]
   br label %50
 
-48:                                               ; preds = %50
+47:                                               ; preds = %50
   %indvars.iv.next13.i.i = add nuw nsw i64 %indvars.iv12.i.i, 1
   %exitcond15.not.i.i = icmp eq i64 %indvars.iv.next13.i.i, 3
   br i1 %exitcond15.not.i.i, label %.preheader.i4.preheader, label %.preheader.i.i, !llvm.loop !9
 
-.preheader.i4.preheader:                          ; preds = %48
+.preheader.i4.preheader:                          ; preds = %47
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %.preheader.i4
 
@@ -726,12 +726,12 @@ _ZNK4pbrt13RGBColorSpaceeqERKS0_.exit.thread:     ; preds = %3, %10, %19, %28, %
   store float %52, ptr %53, align 4, !tbaa !11, !alias.scope !58
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %48, label %50, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %47, label %50, !llvm.loop !13
 
 .preheader.i4:                                    ; preds = %.preheader.i4.preheader, %_ZN4pbrt12SquareMatrixILi3EEC2Ev.exit.i
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %_ZN4pbrt12SquareMatrixILi3EEC2Ev.exit.i ], [ 0, %.preheader.i4.preheader ]
   %54 = getelementptr inbounds nuw [3 x [3 x float]], ptr %0, i64 0, i64 %indvars.iv43.i
-  %55 = getelementptr inbounds nuw [3 x [3 x float]], ptr %47, i64 0, i64 %indvars.iv43.i
+  %55 = getelementptr inbounds nuw [3 x [3 x float]], ptr %48, i64 0, i64 %indvars.iv43.i
   br label %56
 
 _ZN4pbrt12SquareMatrixILi3EEC2Ev.exit.i:          ; preds = %57

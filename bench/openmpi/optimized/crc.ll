@@ -1384,31 +1384,28 @@ define i64 @prte_csum_partial(ptr noundef %0, i64 noundef %1, ptr noundef captur
 33:                                               ; preds = %10
   %34 = lshr i64 %1, 3
   %.not228 = icmp ult i64 %1, 8
-  br i1 %.not228, label %._crit_edge221, label %.lr.ph220.preheader
+  br i1 %.not228, label %._crit_edge221, label %.lr.ph220
 
-.lr.ph220.preheader:                              ; preds = %33
-  %35 = and i64 %1, -8
-  br label %.lr.ph220
-
-.lr.ph220:                                        ; preds = %.lr.ph220.preheader, %.lr.ph220
-  %.1135218 = phi i64 [ %39, %.lr.ph220 ], [ 0, %.lr.ph220.preheader ]
-  %.1137217 = phi i64 [ %38, %.lr.ph220 ], [ 0, %.lr.ph220.preheader ]
-  %.1141216 = phi ptr [ %36, %.lr.ph220 ], [ %0, %.lr.ph220.preheader ]
-  %36 = getelementptr inbounds nuw i8, ptr %.1141216, i64 8
-  %37 = load i64, ptr %.1141216, align 8, !tbaa !3
-  %38 = add i64 %37, %.1137217
-  %39 = add nuw nsw i64 %.1135218, 1
-  %exitcond251.not = icmp eq i64 %39, %34
+.lr.ph220:                                        ; preds = %33, %.lr.ph220
+  %.1135218 = phi i64 [ %38, %.lr.ph220 ], [ 0, %33 ]
+  %.1137217 = phi i64 [ %37, %.lr.ph220 ], [ 0, %33 ]
+  %.1141216 = phi ptr [ %35, %.lr.ph220 ], [ %0, %33 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.1141216, i64 8
+  %36 = load i64, ptr %.1141216, align 8, !tbaa !3
+  %37 = add i64 %36, %.1137217
+  %38 = add nuw nsw i64 %.1135218, 1
+  %exitcond251.not = icmp eq i64 %38, %34
   br i1 %exitcond251.not, label %._crit_edge221.loopexit, label %.lr.ph220, !llvm.loop !37
 
 ._crit_edge221.loopexit:                          ; preds = %.lr.ph220
-  %scevgep = getelementptr i8, ptr %0, i64 %35
+  %39 = and i64 %1, -8
+  %scevgep = getelementptr i8, ptr %0, i64 %39
   %40 = and i64 %1, -8
   br label %._crit_edge221
 
 ._crit_edge221:                                   ; preds = %33, %._crit_edge221.loopexit
   %.1141.lcssa = phi ptr [ %scevgep, %._crit_edge221.loopexit ], [ %0, %33 ]
-  %.1137.lcssa = phi i64 [ %38, %._crit_edge221.loopexit ], [ 0, %33 ]
+  %.1137.lcssa = phi i64 [ %37, %._crit_edge221.loopexit ], [ 0, %33 ]
   %.1135.lcssa = phi i64 [ %40, %._crit_edge221.loopexit ], [ 0, %33 ]
   store i64 0, ptr %2, align 8, !tbaa !3
   store i64 0, ptr %3, align 8, !tbaa !3
@@ -1678,31 +1675,28 @@ define i32 @prte_uicsum_partial(ptr noundef %0, i64 noundef %1, ptr noundef capt
 32:                                               ; preds = %10
   %33 = lshr i64 %1, 2
   %.not228 = icmp ult i64 %1, 4
-  br i1 %.not228, label %._crit_edge221, label %.lr.ph220.preheader
+  br i1 %.not228, label %._crit_edge221, label %.lr.ph220
 
-.lr.ph220.preheader:                              ; preds = %32
-  %34 = and i64 %1, -4
-  br label %.lr.ph220
-
-.lr.ph220:                                        ; preds = %.lr.ph220.preheader, %.lr.ph220
-  %.1135218 = phi i64 [ %38, %.lr.ph220 ], [ 0, %.lr.ph220.preheader ]
-  %.1137217 = phi i32 [ %37, %.lr.ph220 ], [ 0, %.lr.ph220.preheader ]
-  %.1141216 = phi ptr [ %35, %.lr.ph220 ], [ %0, %.lr.ph220.preheader ]
-  %35 = getelementptr inbounds nuw i8, ptr %.1141216, i64 4
-  %36 = load i32, ptr %.1141216, align 4, !tbaa !21
-  %37 = add i32 %36, %.1137217
-  %38 = add nuw nsw i64 %.1135218, 1
-  %exitcond251.not = icmp eq i64 %38, %33
+.lr.ph220:                                        ; preds = %32, %.lr.ph220
+  %.1135218 = phi i64 [ %37, %.lr.ph220 ], [ 0, %32 ]
+  %.1137217 = phi i32 [ %36, %.lr.ph220 ], [ 0, %32 ]
+  %.1141216 = phi ptr [ %34, %.lr.ph220 ], [ %0, %32 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.1141216, i64 4
+  %35 = load i32, ptr %.1141216, align 4, !tbaa !21
+  %36 = add i32 %35, %.1137217
+  %37 = add nuw nsw i64 %.1135218, 1
+  %exitcond251.not = icmp eq i64 %37, %33
   br i1 %exitcond251.not, label %._crit_edge221.loopexit, label %.lr.ph220, !llvm.loop !42
 
 ._crit_edge221.loopexit:                          ; preds = %.lr.ph220
-  %scevgep = getelementptr i8, ptr %0, i64 %34
+  %38 = and i64 %1, -4
+  %scevgep = getelementptr i8, ptr %0, i64 %38
   %39 = and i64 %1, -4
   br label %._crit_edge221
 
 ._crit_edge221:                                   ; preds = %32, %._crit_edge221.loopexit
   %.1141.lcssa = phi ptr [ %scevgep, %._crit_edge221.loopexit ], [ %0, %32 ]
-  %.1137.lcssa = phi i32 [ %37, %._crit_edge221.loopexit ], [ 0, %32 ]
+  %.1137.lcssa = phi i32 [ %36, %._crit_edge221.loopexit ], [ 0, %32 ]
   %.1135.lcssa = phi i64 [ %39, %._crit_edge221.loopexit ], [ 0, %32 ]
   store i32 0, ptr %2, align 4, !tbaa !21
   store i64 0, ptr %3, align 8, !tbaa !3

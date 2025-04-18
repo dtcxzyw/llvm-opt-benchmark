@@ -1556,39 +1556,39 @@ mbedtls_mpi_core_bitlen.exit.i:                   ; preds = %13, %20
 exp_mod_calc_first_bit_optionally_safe.exit:      ; preds = %9, %mbedtls_mpi_core_bitlen.exit.i
   %.2 = phi i64 [ %24, %mbedtls_mpi_core_bitlen.exit.i ], [ %5, %9 ]
   %storemerge.i = phi i64 [ %25, %mbedtls_mpi_core_bitlen.exit.i ], [ 0, %9 ]
-  %26 = shl i64 %.2, 6
-  %27 = icmp ugt i64 %26, 79
-  %28 = select i1 %27, i64 3, i64 1
-  %29 = shl i64 %3, %28
-  %30 = getelementptr inbounds nuw i64, ptr %8, i64 %29
-  %31 = load i64, ptr %2, align 8, !tbaa !3
-  %32 = shl i64 %31, 1
-  %33 = add i64 %32, 4
-  %34 = and i64 %33, 8
-  %35 = add i64 %34, %31
-  br label %36
+  %26 = load i64, ptr %2, align 8, !tbaa !3
+  %27 = shl i64 %26, 1
+  %28 = add i64 %27, 4
+  %29 = and i64 %28, 8
+  %30 = add i64 %29, %26
+  br label %31
 
-36:                                               ; preds = %36, %exp_mod_calc_first_bit_optionally_safe.exit
-  %.010.i = phi i32 [ 64, %exp_mod_calc_first_bit_optionally_safe.exit ], [ %40, %36 ]
-  %.089.i = phi i64 [ %35, %exp_mod_calc_first_bit_optionally_safe.exit ], [ %39, %36 ]
-  %37 = mul i64 %.089.i, %31
-  %38 = sub i64 2, %37
-  %39 = mul i64 %38, %.089.i
-  %40 = lshr i32 %.010.i, 1
-  %41 = icmp samesign ugt i32 %.010.i, 15
-  br i1 %41, label %36, label %mbedtls_mpi_core_montmul_init.exit, !llvm.loop !37
+31:                                               ; preds = %31, %exp_mod_calc_first_bit_optionally_safe.exit
+  %.010.i = phi i32 [ 64, %exp_mod_calc_first_bit_optionally_safe.exit ], [ %35, %31 ]
+  %.089.i = phi i64 [ %30, %exp_mod_calc_first_bit_optionally_safe.exit ], [ %34, %31 ]
+  %32 = mul i64 %.089.i, %26
+  %33 = sub i64 2, %32
+  %34 = mul i64 %33, %.089.i
+  %35 = lshr i32 %.010.i, 1
+  %36 = icmp samesign ugt i32 %.010.i, 15
+  br i1 %36, label %31, label %mbedtls_mpi_core_montmul_init.exit, !llvm.loop !37
 
-mbedtls_mpi_core_montmul_init.exit:               ; preds = %36
-  %42 = shl nuw nsw i64 1, %28
-  %43 = getelementptr inbounds nuw i64, ptr %30, i64 %3
-  %44 = sub i64 0, %39
+mbedtls_mpi_core_montmul_init.exit:               ; preds = %31
+  %37 = shl i64 %.2, 6
+  %38 = icmp ugt i64 %37, 79
+  %39 = select i1 %38, i64 3, i64 1
+  %40 = shl nuw nsw i64 1, %39
+  %41 = shl i64 %3, %39
+  %42 = getelementptr inbounds nuw i64, ptr %8, i64 %41
+  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %3
+  %44 = sub i64 0, %34
   %45 = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %45, i1 false)
   store i64 1, ptr %8, align 8, !tbaa !3
   tail call void @mbedtls_mpi_core_montmul(ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef %7, i64 noundef %3, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %44, ptr noundef nonnull %43)
   %46 = getelementptr inbounds nuw i64, ptr %8, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr readonly align 8 %1, i64 %45, i1 false)
-  br i1 %27, label %.lr.ph.i, label %exp_mod_precompute_window.exit
+  br i1 %38, label %.lr.ph.i, label %exp_mod_precompute_window.exit
 
 .lr.ph.i:                                         ; preds = %mbedtls_mpi_core_montmul_init.exit, %.lr.ph.i
   %.032.i = phi ptr [ %47, %.lr.ph.i ], [ %46, %mbedtls_mpi_core_montmul_init.exit ]
@@ -1596,7 +1596,7 @@ mbedtls_mpi_core_montmul_init.exit:               ; preds = %36
   %47 = getelementptr inbounds nuw i64, ptr %.032.i, i64 %3
   tail call void @mbedtls_mpi_core_montmul(ptr noundef %47, ptr noundef %.032.i, ptr noundef nonnull %46, i64 noundef %3, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %44, ptr noundef nonnull %43)
   %48 = add nuw nsw i64 %.03031.i, 1
-  %exitcond.not.i = icmp eq i64 %48, %42
+  %exitcond.not.i = icmp eq i64 %48, %40
   br i1 %exitcond.not.i, label %exp_mod_precompute_window.exit, label %.lr.ph.i, !llvm.loop !45
 
 exp_mod_precompute_window.exit:                   ; preds = %.lr.ph.i, %mbedtls_mpi_core_montmul_init.exit
@@ -1622,7 +1622,7 @@ exp_mod_precompute_window.exit:                   ; preds = %.lr.ph.i, %mbedtls_
   %57 = lshr i64 %56, %storemerge
   %58 = and i64 %57, 1
   %59 = or disjoint i64 %58, %54
-  %60 = icmp eq i64 %53, %28
+  %60 = icmp eq i64 %53, %39
   %61 = or i64 %.167, %storemerge
   %or.cond = icmp eq i64 %61, 0
   %or.cond58 = or i1 %60, %or.cond
@@ -1634,7 +1634,7 @@ exp_mod_precompute_window.exit:                   ; preds = %.lr.ph.i, %mbedtls_
 63:                                               ; preds = %62
   %64 = mul i64 %59, %3
   %65 = getelementptr inbounds nuw i64, ptr %8, i64 %64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr nonnull readonly align 8 %65, i64 %45, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull readonly align 8 %65, i64 %45, i1 false)
   br label %exp_mod_table_lookup_optionally_safe.exit
 
 66:                                               ; preds = %62
@@ -1647,7 +1647,7 @@ mbedtls_mpi_core_cond_assign.exit.us.i.i:         ; preds = %66, %mbedtls_mpi_co
   %69 = xor i64 %68, %67
   %70 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %69) #10, !srcloc !12
   %71 = add nuw nsw i64 %.01011.us.i.i, 1
-  %exitcond17.not.i.i = icmp eq i64 %71, %42
+  %exitcond17.not.i.i = icmp eq i64 %71, %40
   br i1 %exitcond17.not.i.i, label %exp_mod_table_lookup_optionally_safe.exit, label %mbedtls_mpi_core_cond_assign.exit.us.i.i, !llvm.loop !46
 
 .split.i.i:                                       ; preds = %66, %mbedtls_mpi_core_cond_assign.exit.i.i
@@ -1658,14 +1658,14 @@ mbedtls_mpi_core_cond_assign.exit.us.i.i:         ; preds = %66, %mbedtls_mpi_co
   %74 = xor i64 %73, %72
   %75 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %74) #10, !srcloc !12
   %76 = xor i64 %75, -1
-  %.not15.i.i = icmp eq ptr %30, %.012.i.i
+  %.not15.i.i = icmp eq ptr %42, %.012.i.i
   br i1 %.not15.i.i, label %mbedtls_mpi_core_cond_assign.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.split.i.i, %.lr.ph.i.i.i
   %.013.i.i.i = phi i64 [ %83, %.lr.ph.i.i.i ], [ 0, %.split.i.i ]
   %77 = getelementptr inbounds nuw i64, ptr %.012.i.i, i64 %.013.i.i.i
   %78 = load i64, ptr %77, align 8, !tbaa !3
-  %79 = getelementptr inbounds nuw i64, ptr %30, i64 %.013.i.i.i
+  %79 = getelementptr inbounds nuw i64, ptr %42, i64 %.013.i.i.i
   %80 = load i64, ptr %79, align 8, !tbaa !3
   %81 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %76, i64 %78, i64 %80) #10, !srcloc !15
   %82 = extractvalue { i64, i64, i64 } %81, 2
@@ -1677,11 +1677,11 @@ mbedtls_mpi_core_cond_assign.exit.us.i.i:         ; preds = %66, %mbedtls_mpi_co
 mbedtls_mpi_core_cond_assign.exit.i.i:            ; preds = %.lr.ph.i.i.i, %.split.i.i
   %84 = add nuw nsw i64 %.01011.i.i, 1
   %85 = getelementptr inbounds nuw i64, ptr %.012.i.i, i64 %3
-  %exitcond.not.i.i = icmp eq i64 %84, %42
+  %exitcond.not.i.i = icmp eq i64 %84, %40
   br i1 %exitcond.not.i.i, label %exp_mod_table_lookup_optionally_safe.exit, label %.split.i.i, !llvm.loop !46
 
 exp_mod_table_lookup_optionally_safe.exit:        ; preds = %mbedtls_mpi_core_cond_assign.exit.i.i, %mbedtls_mpi_core_cond_assign.exit.us.i.i, %63
-  tail call void @mbedtls_mpi_core_montmul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %30, i64 noundef %3, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %44, ptr noundef nonnull %43)
+  tail call void @mbedtls_mpi_core_montmul(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %42, i64 noundef %3, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %44, ptr noundef nonnull %43)
   br label %86
 
 86:                                               ; preds = %49, %exp_mod_table_lookup_optionally_safe.exit

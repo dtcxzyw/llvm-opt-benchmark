@@ -16619,14 +16619,13 @@ define dso_local noundef ptr @_ZN5clang24TemplateDeclInstantiator22VisitClassTem
   %15 = alloca %"class.llvm::SmallVector.1371", align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load i32, ptr %16, align 4
-  %18 = and i32 %17, 25165824
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #26
-  %19 = load ptr, ptr %0, align 8, !tbaa !3
-  store ptr %19, ptr %9, align 8, !tbaa !937
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 1, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %21, align 4, !tbaa !1075
+  %18 = load ptr, ptr %0, align 8, !tbaa !3
+  store ptr %18, ptr %9, align 8, !tbaa !937
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 1, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 0, ptr %20, align 4, !tbaa !1075
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %2
@@ -16638,7 +16637,8 @@ define dso_local noundef ptr @_ZN5clang24TemplateDeclInstantiator22VisitClassTem
   br i1 %.not.i.i.i.i, label %_ZN5clang23LocalInstantiationScopeC2ERNS_4SemaEbb.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1077
 
 _ZN5clang23LocalInstantiationScopeC2ERNS_4SemaEbb.exit: ; preds = %.lr.ph.i.i.i.i
-  %.not.i = icmp eq i32 %18, 0
+  %21 = and i32 %17, 25165824
+  %.not.i = icmp eq i32 %21, 0
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store ptr %23, ptr %22, align 8, !tbaa !799
@@ -16647,7 +16647,7 @@ _ZN5clang23LocalInstantiationScopeC2ERNS_4SemaEbb.exit: ; preds = %.lr.ph.i.i.i.
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 92
   store i32 1, ptr %25, align 4, !tbaa !853
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 11344
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 11344
   %28 = load ptr, ptr %27, align 8, !tbaa !926
   store ptr %28, ptr %26, align 8, !tbaa !1081
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 112
@@ -18134,7 +18134,7 @@ _ZN5clang23LocalInstantiationScope4ExitEv.exit.i: ; preds = %._crit_edge.i.i, %7
   br label %_ZN4llvm11SmallVectorIPNS0_IPN5clang7VarDeclELj4EEELj1EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorIPNS0_IPN5clang7VarDeclELj4EEELj1EED2Ev.exit.i: ; preds = %742, %_ZN5clang23LocalInstantiationScope4ExitEv.exit.i
-  %743 = load i32, ptr %20, align 8
+  %743 = load i32, ptr %19, align 8
   %744 = and i32 %743, 1
   %.not.i.i.i182 = icmp eq i32 %744, 0
   br i1 %.not.i.i.i182, label %745, label %_ZN5clang23LocalInstantiationScopeD2Ev.exit

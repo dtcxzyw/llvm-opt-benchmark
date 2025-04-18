@@ -3905,8 +3905,8 @@ _ZL16addNoReturnAttrsRKN4llvm14SmallSetVectorIPNS_8FunctionELj8EEERNS_8SmallSetI
   br i1 %.not11.i61, label %_ZL15addNoUndefAttrsRKN4llvm14SmallSetVectorIPNS_8FunctionELj8EEERNS_8SmallSetIS2_Lj8ESt4lessIS2_EEE.exit, label %.lr.ph.i62
 
 .lr.ph.i62:                                       ; preds = %_ZL16addNoReturnAttrsRKN4llvm14SmallSetVectorIPNS_8FunctionELj8EEERNS_8SmallSetIS2_Lj8ESt4lessIS2_EEE.exit
-  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %530 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 16
   %531 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %532 = getelementptr inbounds nuw i8, ptr %41, i64 8

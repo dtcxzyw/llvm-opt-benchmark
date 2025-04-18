@@ -53,36 +53,36 @@ define double @intersection_angle(ptr noundef readonly captures(none) %0, ptr no
   %.sroa.5257.0..sroa.5257.8..val94 = load double, ptr %.sroa.5257, align 8, !tbaa !3
   %.sroa.0252.0..sroa.0252.0..val95 = load double, ptr %.sroa.0252, align 16, !tbaa !3
   %.sroa.5.0..sroa.5.8..val96 = load double, ptr %.sroa.5, align 8, !tbaa !3
-  %25 = fneg double %.sroa.0252.0..sroa.0252.0..val95
-  %26 = fmul double %.sroa.5257.0..sroa.5257.8..val94, %25
-  br label %27
+  br label %25
 
-27:                                               ; preds = %27, %23
-  %28 = phi i1 [ true, %23 ], [ false, %27 ]
-  %indvars.iv.i.i = phi i64 [ 0, %23 ], [ 1, %27 ]
-  %.05267.i.i = phi double [ 0.000000e+00, %23 ], [ %38, %27 ]
-  %.05466.i.i = phi double [ 0.000000e+00, %23 ], [ %37, %27 ]
-  %29 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i
+25:                                               ; preds = %25, %23
+  %26 = phi i1 [ true, %23 ], [ false, %25 ]
+  %indvars.iv.i.i = phi i64 [ 0, %23 ], [ 1, %25 ]
+  %.05267.i.i = phi double [ 0.000000e+00, %23 ], [ %36, %25 ]
+  %.05466.i.i = phi double [ 0.000000e+00, %23 ], [ %35, %25 ]
+  %27 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i
+  %28 = load double, ptr %27, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i.i
   %30 = load double, ptr %29, align 8, !tbaa !3
-  %31 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i.i
-  %32 = load double, ptr %31, align 8, !tbaa !3
-  %33 = fsub double %30, %32
-  %34 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i.i
-  %35 = load double, ptr %34, align 8, !tbaa !3
-  %36 = fsub double %35, %32
-  %37 = tail call double @llvm.fmuladd.f64(double %33, double %36, double %.05466.i.i)
-  %38 = tail call double @llvm.fmuladd.f64(double %36, double %36, double %.05267.i.i)
-  br i1 %28, label %27, label %39, !llvm.loop !12
+  %31 = fsub double %28, %30
+  %32 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i.i
+  %33 = load double, ptr %32, align 8, !tbaa !3
+  %34 = fsub double %33, %30
+  %35 = tail call double @llvm.fmuladd.f64(double %31, double %34, double %.05466.i.i)
+  %36 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %.05267.i.i)
+  br i1 %26, label %25, label %37, !llvm.loop !12
 
-39:                                               ; preds = %27
-  %40 = tail call double @llvm.fmuladd.f64(double %.sroa.0256.0..sroa.0256.0..val, double %.sroa.5.0..sroa.5.8..val96, double %26)
-  %41 = fcmp ugt double %38, 0x3C9CD2B297D889BC
+37:                                               ; preds = %25
+  %38 = fneg double %.sroa.0252.0..sroa.0252.0..val95
+  %39 = fmul double %.sroa.5257.0..sroa.5257.8..val94, %38
+  %40 = tail call double @llvm.fmuladd.f64(double %.sroa.0256.0..sroa.0256.0..val, double %.sroa.5.0..sroa.5.8..val96, double %39)
+  %41 = fcmp ugt double %36, 0x3C9CD2B297D889BC
   br i1 %41, label %50, label %.preheader63.i.i
 
-.preheader63.i.i:                                 ; preds = %39, %.preheader63.i.i
-  %42 = phi i1 [ false, %.preheader63.i.i ], [ true, %39 ]
-  %indvars.iv.i.i.i = phi i64 [ 1, %.preheader63.i.i ], [ 0, %39 ]
-  %.014.i.i.i = phi double [ %48, %.preheader63.i.i ], [ 0.000000e+00, %39 ]
+.preheader63.i.i:                                 ; preds = %37, %.preheader63.i.i
+  %42 = phi i1 [ false, %.preheader63.i.i ], [ true, %37 ]
+  %indvars.iv.i.i.i = phi i64 [ 1, %.preheader63.i.i ], [ 0, %37 ]
+  %.014.i.i.i = phi double [ %48, %.preheader63.i.i ], [ 0.000000e+00, %37 ]
   %43 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i.i
   %44 = load double, ptr %43, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv.i.i.i
@@ -95,8 +95,8 @@ dist.exit.i.i:                                    ; preds = %.preheader63.i.i
   %49 = tail call double @sqrt(double noundef %48) #4, !tbaa !9
   br label %point_line_distance.exit.i
 
-50:                                               ; preds = %39
-  %51 = fdiv double %37, %38
+50:                                               ; preds = %37
+  %51 = fdiv double %35, %36
   %52 = fcmp oge double %51, 0.000000e+00
   %53 = fcmp ole double %51, 1.000000e+00
   %or.cond.i.i = and i1 %52, %53
@@ -493,7 +493,7 @@ line_segments_distance.exit:                      ; preds = %dist.exit.i70.i, %2
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %281 = load double, ptr %280, align 8, !tbaa !3
   %282 = fsub double %279, %281
-  %283 = fmul double %282, %25
+  %283 = fmul double %282, %38
   %284 = tail call double @llvm.fmuladd.f64(double %277, double %.sroa.5.0..sroa.5.8..val96, double %283)
   %285 = fdiv double %284, %40
   %286 = fneg double %.sroa.0256.0..sroa.0256.0..val

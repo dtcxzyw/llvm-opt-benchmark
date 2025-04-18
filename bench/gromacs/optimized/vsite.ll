@@ -8185,15 +8185,15 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit75.i.i: ; preds = %1740, %1735
 
 1811:                                             ; preds = %1866
   %1812 = fmul float %1793, %1789
-  %1813 = fmul float %1782, %1812
-  %1814 = fmul float %1781, %1812
+  %1813 = fmul float %1781, %1812
+  %1814 = fmul float %1782, %1812
   %1815 = fmul float %1783, %1812
   %1816 = fadd float %1779, 1.000000e+00
   %1817 = load float, ptr %66, align 4, !tbaa !84
   %1818 = fsub float %1726, %1817
   %1819 = load float, ptr %67, align 4, !tbaa !84
   %1820 = call float @llvm.fmuladd.f32(float %1779, float %1819, float %1818)
-  %1821 = fadd float %1814, %1820
+  %1821 = fadd float %1813, %1820
   %1822 = getelementptr inbounds %"class.gmx::BasicVector", ptr %1, i64 %1733
   %1823 = load float, ptr %1822, align 4, !tbaa !84
   %1824 = fadd float %1823, %1821
@@ -8202,7 +8202,7 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit75.i.i: ; preds = %1740, %1735
   %1826 = fsub float %1728, %1825
   %1827 = load float, ptr %1215, align 4, !tbaa !84
   %1828 = call float @llvm.fmuladd.f32(float %1779, float %1827, float %1826)
-  %1829 = fadd float %1813, %1828
+  %1829 = fadd float %1814, %1828
   %1830 = getelementptr inbounds nuw i8, ptr %1822, i64 4
   %1831 = load float, ptr %1830, align 4, !tbaa !84
   %1832 = fadd float %1831, %1829
@@ -8218,13 +8218,13 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit75.i.i: ; preds = %1740, %1735
   store float %1840, ptr %1838, align 4, !tbaa !84
   %1841 = fneg float %1816
   %1842 = call float @llvm.fmuladd.f32(float %1841, float %1819, float %1817)
-  %1843 = fsub float %1842, %1814
+  %1843 = fsub float %1842, %1813
   %1844 = getelementptr inbounds %"class.gmx::BasicVector", ptr %1, i64 %1731
   %1845 = load float, ptr %1844, align 4, !tbaa !84
   %1846 = fadd float %1843, %1845
   store float %1846, ptr %1844, align 4, !tbaa !84
   %1847 = call float @llvm.fmuladd.f32(float %1841, float %1827, float %1825)
-  %1848 = fsub float %1847, %1813
+  %1848 = fsub float %1847, %1814
   %1849 = getelementptr inbounds nuw i8, ptr %1844, i64 4
   %1850 = load float, ptr %1849, align 4, !tbaa !84
   %1851 = fadd float %1848, %1850
@@ -8294,12 +8294,12 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit79.i.i: ; preds = %1811
   %1890 = fsub float 1.000000e+00, %1779
   %1891 = fneg float %1890
   %1892 = call float @llvm.fmuladd.f32(float %1891, float %1819, float %1818)
-  %1893 = fadd float %1814, %1892
+  %1893 = fadd float %1813, %1892
   %1894 = load float, ptr %1200, align 4, !tbaa !84
   %1895 = fadd float %1893, %1894
   store float %1895, ptr %1200, align 4, !tbaa !84
   %1896 = call float @llvm.fmuladd.f32(float %1891, float %1827, float %1826)
-  %1897 = fadd float %1813, %1896
+  %1897 = fadd float %1814, %1896
   %1898 = load float, ptr %1201, align 4, !tbaa !84
   %1899 = fadd float %1897, %1898
   store float %1899, ptr %1201, align 4, !tbaa !84
@@ -8309,14 +8309,14 @@ _ZN3gmxL12pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit79.i.i: ; preds = %1811
   %1903 = fadd float %1901, %1902
   store float %1903, ptr %1202, align 4, !tbaa !84
   %1904 = call float @llvm.fmuladd.f32(float %1780, float %1819, float %1817)
-  %1905 = fsub float %1904, %1814
+  %1905 = fsub float %1904, %1813
   %1906 = sext i32 %.0.i60.i.i to i64
   %1907 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.0.val, i64 %1906
   %1908 = load float, ptr %1907, align 4, !tbaa !84
   %1909 = fadd float %1905, %1908
   store float %1909, ptr %1907, align 4, !tbaa !84
   %1910 = call float @llvm.fmuladd.f32(float %1780, float %1827, float %1825)
-  %1911 = fsub float %1910, %1813
+  %1911 = fsub float %1910, %1814
   %1912 = getelementptr inbounds nuw i8, ptr %1907, i64 4
   %1913 = load float, ptr %1912, align 4, !tbaa !84
   %1914 = fadd float %1911, %1913

@@ -3437,45 +3437,45 @@ Balloc.exit61:                                    ; preds = %41, %51
   %56 = getelementptr inbounds nuw i8, ptr %.55, i64 20
   %57 = load i32, ptr %56, align 4, !tbaa !52
   %58 = getelementptr inbounds nuw i8, ptr %.55, i64 24
-  %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds nuw i8, ptr %.54, i64 20
-  %61 = load i32, ptr %60, align 4, !tbaa !52
-  %62 = getelementptr inbounds nuw i8, ptr %.54, i64 24
-  %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds i32, ptr %62, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %.0.i59, i64 24
-  br label %66
+  %59 = getelementptr inbounds nuw i8, ptr %.54, i64 20
+  %60 = load i32, ptr %59, align 4, !tbaa !52
+  %61 = getelementptr inbounds nuw i8, ptr %.54, i64 24
+  %62 = sext i32 %60 to i64
+  %63 = getelementptr inbounds i32, ptr %61, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i59, i64 24
+  br label %65
 
-66:                                               ; preds = %66, %Balloc.exit61
-  %.047 = phi ptr [ %58, %Balloc.exit61 ], [ %67, %66 ]
-  %.045 = phi ptr [ %62, %Balloc.exit61 ], [ %70, %66 ]
-  %.042 = phi ptr [ %65, %Balloc.exit61 ], [ %78, %66 ]
-  %.0 = phi i64 [ 0, %Balloc.exit61 ], [ %76, %66 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.047, i64 4
-  %68 = load i32, ptr %.047, align 4, !tbaa !51
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw i8, ptr %.045, i64 4
-  %71 = load i32, ptr %.045, align 4, !tbaa !51
-  %72 = zext i32 %71 to i64
-  %73 = add nuw nsw i64 %.0, %72
-  %74 = sub nsw i64 %69, %73
-  %75 = lshr i64 %74, 32
-  %76 = and i64 %75, 1
-  %77 = trunc i64 %74 to i32
-  %78 = getelementptr inbounds nuw i8, ptr %.042, i64 4
-  store i32 %77, ptr %.042, align 4, !tbaa !51
-  %79 = icmp ult ptr %70, %64
-  br i1 %79, label %66, label %.preheader66
+65:                                               ; preds = %65, %Balloc.exit61
+  %.047 = phi ptr [ %58, %Balloc.exit61 ], [ %66, %65 ]
+  %.045 = phi ptr [ %61, %Balloc.exit61 ], [ %69, %65 ]
+  %.042 = phi ptr [ %64, %Balloc.exit61 ], [ %77, %65 ]
+  %.0 = phi i64 [ 0, %Balloc.exit61 ], [ %75, %65 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.047, i64 4
+  %67 = load i32, ptr %.047, align 4, !tbaa !51
+  %68 = zext i32 %67 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %.045, i64 4
+  %70 = load i32, ptr %.045, align 4, !tbaa !51
+  %71 = zext i32 %70 to i64
+  %72 = add nuw nsw i64 %.0, %71
+  %73 = sub nsw i64 %68, %72
+  %74 = lshr i64 %73, 32
+  %75 = and i64 %74, 1
+  %76 = trunc i64 %73 to i32
+  %77 = getelementptr inbounds nuw i8, ptr %.042, i64 4
+  store i32 %76, ptr %.042, align 4, !tbaa !51
+  %78 = icmp ult ptr %69, %63
+  br i1 %78, label %65, label %.preheader66
 
-.preheader66:                                     ; preds = %66
-  %80 = getelementptr inbounds i32, ptr %58, i64 %59
-  %81 = icmp ult ptr %67, %80
+.preheader66:                                     ; preds = %65
+  %79 = sext i32 %57 to i64
+  %80 = getelementptr inbounds i32, ptr %58, i64 %79
+  %81 = icmp ult ptr %66, %80
   br i1 %81, label %.lr.ph, label %.preheader.preheader
 
 .lr.ph:                                           ; preds = %.preheader66, %.lr.ph
-  %.175 = phi i64 [ %87, %.lr.ph ], [ %76, %.preheader66 ]
-  %.14374 = phi ptr [ %89, %.lr.ph ], [ %78, %.preheader66 ]
-  %.14873 = phi ptr [ %82, %.lr.ph ], [ %67, %.preheader66 ]
+  %.175 = phi i64 [ %87, %.lr.ph ], [ %75, %.preheader66 ]
+  %.14374 = phi ptr [ %89, %.lr.ph ], [ %77, %.preheader66 ]
+  %.14873 = phi ptr [ %82, %.lr.ph ], [ %66, %.preheader66 ]
   %82 = getelementptr inbounds nuw i8, ptr %.14873, i64 4
   %83 = load i32, ptr %.14873, align 4, !tbaa !51
   %84 = zext i32 %83 to i64
@@ -3489,7 +3489,7 @@ Balloc.exit61:                                    ; preds = %41, %51
   br i1 %90, label %.lr.ph, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.lr.ph, %.preheader66
-  %.2.ph = phi ptr [ %78, %.preheader66 ], [ %89, %.lr.ph ]
+  %.2.ph = phi ptr [ %77, %.preheader66 ], [ %89, %.lr.ph ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader

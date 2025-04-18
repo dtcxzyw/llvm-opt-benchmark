@@ -4120,10 +4120,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit55: ; preds = %17
 
 _ZN9Imath_3_24modpEii.exit.i:                     ; preds = %36, %34
   %40 = phi i32 [ %35, %34 ], [ %39, %36 ]
-  %.neg.i = mul i32 %40, -29
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %4) #30
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(232) %4, ptr noundef nonnull align 8 dereferenceable(232) %41, i64 232, i1 false), !tbaa !41
+  %.neg.i = mul i32 %40, -29
   %42 = add i32 %.neg.i, %29
   br label %43
 
@@ -4161,10 +4161,10 @@ _ZN9Imath_3_24modpEii.exit.i:                     ; preds = %36, %34
 
 _ZN9Imath_3_24modpEii.exit.i56:                   ; preds = %56, %54
   %60 = phi i32 [ %55, %54 ], [ %59, %56 ]
-  %.neg.i57 = mul i32 %60, -3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #30
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 336
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false), !tbaa !41
+  %.neg.i57 = mul i32 %60, -3
   %62 = add i32 %.neg.i57, %29
   br label %63
 
@@ -4393,10 +4393,10 @@ define hidden void @_ZN7Imf_3_413RgbaInputFile7FromYca10rotateBuf1Ei(ptr noundef
 
 _ZN9Imath_3_24modpEii.exit:                       ; preds = %5, %7
   %11 = phi i32 [ %6, %5 ], [ %10, %7 ]
-  %.neg = mul i32 %11, -29
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %3) #30
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(232) %3, ptr noundef nonnull align 8 dereferenceable(232) %12, i64 232, i1 false), !tbaa !41
+  %.neg = mul i32 %11, -29
   %13 = add i32 %.neg, %1
   br label %15
 
@@ -4437,10 +4437,10 @@ define hidden void @_ZN7Imf_3_413RgbaInputFile7FromYca10rotateBuf2Ei(ptr noundef
 
 _ZN9Imath_3_24modpEii.exit:                       ; preds = %5, %7
   %11 = phi i32 [ %6, %5 ], [ %10, %7 ]
-  %.neg = mul i32 %11, -3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #30
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 336
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !tbaa !41
+  %.neg = mul i32 %11, -3
   %13 = add i32 %.neg, %1
   br label %15
 

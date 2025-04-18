@@ -211,32 +211,29 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   %spec.select177 = select i1 %133, i32 %134, i32 %132
   %135 = add nsw i32 %.5.lcssa, -2
   %136 = icmp sgt i32 %.5.lcssa, 1
-  br i1 %136, label %.lr.ph193.preheader, label %._crit_edge194
+  br i1 %136, label %.lr.ph193, label %._crit_edge194
 
-.lr.ph193.preheader:                              ; preds = %130
-  %137 = and i32 %135, -2
-  br label %.lr.ph193
-
-.lr.ph193:                                        ; preds = %.lr.ph193.preheader, %.lr.ph193
-  %138 = phi i32 [ %143, %.lr.ph193 ], [ %135, %.lr.ph193.preheader ]
-  %.10191 = phi i32 [ %142, %.lr.ph193 ], [ %spec.select177, %.lr.ph193.preheader ]
-  %.4154190 = phi ptr [ %139, %.lr.ph193 ], [ %.3153.lcssa, %.lr.ph193.preheader ]
-  %139 = getelementptr i8, ptr %.4154190, i64 2
-  %140 = load i16, ptr %.4154190, align 2
-  %141 = zext i16 %140 to i32
-  %142 = add i32 %.10191, %141
-  %143 = add nsw i32 %138, -2
-  %144 = icmp samesign ugt i32 %138, 1
-  br i1 %144, label %.lr.ph193, label %._crit_edge194.loopexit, !llvm.loop !9
+.lr.ph193:                                        ; preds = %130, %.lr.ph193
+  %137 = phi i32 [ %142, %.lr.ph193 ], [ %135, %130 ]
+  %.10191 = phi i32 [ %141, %.lr.ph193 ], [ %spec.select177, %130 ]
+  %.4154190 = phi ptr [ %138, %.lr.ph193 ], [ %.3153.lcssa, %130 ]
+  %138 = getelementptr i8, ptr %.4154190, i64 2
+  %139 = load i16, ptr %.4154190, align 2
+  %140 = zext i16 %139 to i32
+  %141 = add i32 %.10191, %140
+  %142 = add nsw i32 %137, -2
+  %143 = icmp samesign ugt i32 %137, 1
+  br i1 %143, label %.lr.ph193, label %._crit_edge194.loopexit, !llvm.loop !9
 
 ._crit_edge194.loopexit:                          ; preds = %.lr.ph193
-  %145 = add nsw i32 %.5.lcssa, -4
-  %146 = sub nsw i32 %145, %137
+  %144 = add nsw i32 %.5.lcssa, -4
+  %145 = and i32 %135, -2
+  %146 = sub nsw i32 %144, %145
   br label %._crit_edge194
 
 ._crit_edge194:                                   ; preds = %._crit_edge194.loopexit, %130
-  %.4154.lcssa = phi ptr [ %.3153.lcssa, %130 ], [ %139, %._crit_edge194.loopexit ]
-  %.10.lcssa = phi i32 [ %spec.select177, %130 ], [ %142, %._crit_edge194.loopexit ]
+  %.4154.lcssa = phi ptr [ %.3153.lcssa, %130 ], [ %138, %._crit_edge194.loopexit ]
+  %.10.lcssa = phi i32 [ %spec.select177, %130 ], [ %141, %._crit_edge194.loopexit ]
   %.lcssa = phi i32 [ %135, %130 ], [ %146, %._crit_edge194.loopexit ]
   br i1 %or.cond3.not, label %158, label %147
 

@@ -297,12 +297,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
   br i1 %8, label %.lr.ph.split, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt64Em.exit.us.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt64Em.exit.us.preheader: ; preds = %.lr.ph
-  %9 = tail call i32 @llvm.usub.sat.i32(i32 %1, i32 53)
-  %10 = add nuw i32 %9, 26
-  %11 = urem i32 %10, 27
-  %.neg = sub nsw i32 %11, %10
-  %12 = add nsw i32 %1, -27
-  %13 = add nsw i32 %.neg, %12
+  %9 = add nsw i32 %1, -27
+  %10 = tail call i32 @llvm.usub.sat.i32(i32 %1, i32 53)
+  %11 = add nuw i32 %10, 26
+  %12 = urem i32 %11, 27
+  %.neg = sub nsw i32 %12, %11
+  %13 = add nsw i32 %.neg, %9
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt64Em.exit, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt64Em.exit.us.preheader, %.preheader34
@@ -318,12 +318,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByU
   br i1 %17, label %.lr.ph45.split, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit.us.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit.us.preheader: ; preds = %.lr.ph45
-  %18 = tail call i32 @llvm.usub.sat.i32(i32 %.0.lcssa.fr, i32 25)
-  %19 = add nuw i32 %18, 12
-  %20 = urem i32 %19, 13
-  %.neg61 = sub i32 %20, %19
-  %21 = add nsw i32 %.0.lcssa.fr, -13
-  %22 = add i32 %.neg61, %21
+  %18 = add nsw i32 %.0.lcssa.fr, -13
+  %19 = tail call i32 @llvm.usub.sat.i32(i32 %.0.lcssa.fr, i32 25)
+  %20 = add nuw i32 %19, 12
+  %21 = urem i32 %20, 13
+  %.neg61 = sub i32 %21, %20
+  %22 = add i32 %.neg61, %18
   br label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt64Em.exit

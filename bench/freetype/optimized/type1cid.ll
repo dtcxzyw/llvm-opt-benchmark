@@ -1966,57 +1966,57 @@ cid_get_offset.exit:                              ; preds = %26, %._crit_edge.lo
   %.0.lcssa.i = phi ptr [ %28, %26 ], [ %scevgep.i, %._crit_edge.loopexit.i ]
   %37 = load i32, ptr %10, align 4, !tbaa !110
   %.not10.i52 = icmp eq i32 %37, 0
-  br i1 %.not10.i52, label %cid_get_offset.exit75, label %.lr.ph.i54
+  br i1 %.not10.i52, label %cid_get_offset.exit73, label %.lr.ph.i53
 
-.lr.ph.i54:                                       ; preds = %cid_get_offset.exit, %.lr.ph.i54
-  %.013.i55 = phi ptr [ %39, %.lr.ph.i54 ], [ %.0.lcssa.i, %cid_get_offset.exit ]
-  %.0812.i56 = phi i64 [ %42, %.lr.ph.i54 ], [ 0, %cid_get_offset.exit ]
-  %.0911.i57 = phi i32 [ %43, %.lr.ph.i54 ], [ %37, %cid_get_offset.exit ]
-  %38 = shl i64 %.0812.i56, 8
-  %39 = getelementptr inbounds nuw i8, ptr %.013.i55, i64 1
-  %40 = load i8, ptr %.013.i55, align 1, !tbaa !68
+.lr.ph.i53:                                       ; preds = %cid_get_offset.exit, %.lr.ph.i53
+  %.013.i54 = phi ptr [ %39, %.lr.ph.i53 ], [ %.0.lcssa.i, %cid_get_offset.exit ]
+  %.0812.i55 = phi i64 [ %42, %.lr.ph.i53 ], [ 0, %cid_get_offset.exit ]
+  %.0911.i56 = phi i32 [ %43, %.lr.ph.i53 ], [ %37, %cid_get_offset.exit ]
+  %38 = shl i64 %.0812.i55, 8
+  %39 = getelementptr inbounds nuw i8, ptr %.013.i54, i64 1
+  %40 = load i8, ptr %.013.i54, align 1, !tbaa !68
   %41 = zext i8 %40 to i64
   %42 = or disjoint i64 %38, %41
-  %43 = add i32 %.0911.i57, -1
-  %.not.i58 = icmp eq i32 %43, 0
-  br i1 %.not.i58, label %.lr.ph.preheader.i65, label %.lr.ph.i54, !llvm.loop !259
+  %43 = add i32 %.0911.i56, -1
+  %.not.i57 = icmp eq i32 %43, 0
+  br i1 %.not.i57, label %cid_get_offset.exit62, label %.lr.ph.i53, !llvm.loop !259
 
-.lr.ph.preheader.i65:                             ; preds = %.lr.ph.i54
+cid_get_offset.exit62:                            ; preds = %.lr.ph.i53
   %44 = zext i32 %37 to i64
-  %scevgep.i60 = getelementptr i8, ptr %.0.lcssa.i, i64 %44
+  %scevgep.i59 = getelementptr i8, ptr %.0.lcssa.i, i64 %44
   %45 = zext i32 %29 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %scevgep.i60, i64 %45
-  br label %.lr.ph.i66
+  %46 = getelementptr inbounds nuw i8, ptr %scevgep.i59, i64 %45
+  br label %.lr.ph.i64
 
-.lr.ph.i66:                                       ; preds = %.lr.ph.i66, %.lr.ph.preheader.i65
-  %.013.i67 = phi ptr [ %48, %.lr.ph.i66 ], [ %46, %.lr.ph.preheader.i65 ]
-  %.0812.i68 = phi i64 [ %51, %.lr.ph.i66 ], [ 0, %.lr.ph.preheader.i65 ]
-  %.0911.i69 = phi i32 [ %52, %.lr.ph.i66 ], [ %37, %.lr.ph.preheader.i65 ]
-  %47 = shl i64 %.0812.i68, 8
-  %48 = getelementptr inbounds nuw i8, ptr %.013.i67, i64 1
-  %49 = load i8, ptr %.013.i67, align 1, !tbaa !68
+.lr.ph.i64:                                       ; preds = %cid_get_offset.exit62, %.lr.ph.i64
+  %.013.i65 = phi ptr [ %48, %.lr.ph.i64 ], [ %46, %cid_get_offset.exit62 ]
+  %.0812.i66 = phi i64 [ %51, %.lr.ph.i64 ], [ 0, %cid_get_offset.exit62 ]
+  %.0911.i67 = phi i32 [ %52, %.lr.ph.i64 ], [ %37, %cid_get_offset.exit62 ]
+  %47 = shl i64 %.0812.i66, 8
+  %48 = getelementptr inbounds nuw i8, ptr %.013.i65, i64 1
+  %49 = load i8, ptr %.013.i65, align 1, !tbaa !68
   %50 = zext i8 %49 to i64
   %51 = or disjoint i64 %47, %50
-  %52 = add i32 %.0911.i69, -1
-  %.not.i70 = icmp eq i32 %52, 0
-  br i1 %.not.i70, label %cid_get_offset.exit75, label %.lr.ph.i66, !llvm.loop !259
+  %52 = add i32 %.0911.i67, -1
+  %.not.i68 = icmp eq i32 %52, 0
+  br i1 %.not.i68, label %cid_get_offset.exit73, label %.lr.ph.i64, !llvm.loop !259
 
-cid_get_offset.exit75:                            ; preds = %.lr.ph.i66, %cid_get_offset.exit
-  %.08.lcssa.i6181 = phi i64 [ 0, %cid_get_offset.exit ], [ %42, %.lr.ph.i66 ]
-  %.08.lcssa.i73 = phi i64 [ 0, %cid_get_offset.exit ], [ %51, %.lr.ph.i66 ]
+cid_get_offset.exit73:                            ; preds = %.lr.ph.i64, %cid_get_offset.exit
+  %.08.lcssa.i6079 = phi i64 [ 0, %cid_get_offset.exit ], [ %42, %.lr.ph.i64 ]
+  %.08.lcssa.i71 = phi i64 [ 0, %cid_get_offset.exit ], [ %51, %.lr.ph.i64 ]
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %54, label %53
 
-53:                                               ; preds = %cid_get_offset.exit75
+53:                                               ; preds = %cid_get_offset.exit73
   store i64 %.08.lcssa.i, ptr %2, align 8, !tbaa !104
   br label %54
 
-54:                                               ; preds = %53, %cid_get_offset.exit75
+54:                                               ; preds = %53, %cid_get_offset.exit73
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %56, label %55
 
 55:                                               ; preds = %54
-  store i64 %.08.lcssa.i6181, ptr %3, align 8, !tbaa !104
+  store i64 %.08.lcssa.i6079, ptr %3, align 8, !tbaa !104
   br label %56
 
 56:                                               ; preds = %55, %54
@@ -2024,7 +2024,7 @@ cid_get_offset.exit75:                            ; preds = %.lr.ph.i66, %cid_ge
   br i1 %.not49, label %58, label %57
 
 57:                                               ; preds = %56
-  store i64 %.08.lcssa.i73, ptr %4, align 8, !tbaa !104
+  store i64 %.08.lcssa.i71, ptr %4, align 8, !tbaa !104
   br label %58
 
 58:                                               ; preds = %57, %56
@@ -2037,11 +2037,11 @@ cid_get_offset.exit75:                            ; preds = %.lr.ph.i66, %cid_ge
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %64 = load i64, ptr %63, align 8, !tbaa !67
-  %65 = icmp ugt i64 %.08.lcssa.i73, %64
+  %65 = icmp ugt i64 %.08.lcssa.i71, %64
   br i1 %65, label %68, label %66
 
 66:                                               ; preds = %62
-  %67 = icmp ugt i64 %.08.lcssa.i6181, %.08.lcssa.i73
+  %67 = icmp ugt i64 %.08.lcssa.i6079, %.08.lcssa.i71
   %spec.select = select i1 %67, i32 9, i32 0
   br label %68
 
@@ -2051,8 +2051,8 @@ cid_get_offset.exit75:                            ; preds = %.lr.ph.i66, %cid_ge
   br label %69
 
 69:                                               ; preds = %22, %5, %68
-  %.085 = phi i32 [ %.0.ph, %68 ], [ %21, %5 ], [ %25, %22 ]
-  ret i32 %.085
+  %.083 = phi i32 [ %.0.ph, %68 ], [ %21, %5 ], [ %25, %22 ]
+  ret i32 %.083
 }
 
 declare hidden i32 @FT_Stream_Seek(ptr noundef, i64 noundef) local_unnamed_addr #5
@@ -2302,13 +2302,13 @@ define internal fastcc i32 @cid_read_subrs(ptr noundef captures(none) initialize
   %53 = load i32, ptr %47, align 8, !tbaa !122
   %.not10.i = icmp eq i32 %53, 0
   %54 = zext i32 %53 to i64
-  br i1 %.not10.i, label %cid_get_offset.exit.us.preheader, label %.lr.ph.preheader.i.preheader
+  br i1 %.not10.i, label %cid_get_offset.exit.us.preheader, label %.lr.ph.i.preheader.preheader
 
-.lr.ph.preheader.i.preheader:                     ; preds = %52
+.lr.ph.i.preheader.preheader:                     ; preds = %52
   %55 = load ptr, ptr %18, align 8, !tbaa !64
   %umax = call i32 @llvm.umax.i32(i32 %30, i32 1)
   %wide.trip.count = zext i32 %umax to i64
-  br label %.lr.ph.preheader.i
+  br label %.lr.ph.i.preheader
 
 cid_get_offset.exit.us.preheader:                 ; preds = %52
   %56 = call i32 @llvm.umax.i32(i32 %30, i32 1)
@@ -2317,15 +2317,15 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.2124, i8 0, i64 %57, i1 false), !tbaa !104
   br label %.lr.ph.preheader
 
-.lr.ph.preheader.i:                               ; preds = %.lr.ph.preheader.i.preheader, %._crit_edge.loopexit.i
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader.i.preheader ], [ %indvars.iv.next, %._crit_edge.loopexit.i ]
-  %.0150177 = phi ptr [ %55, %.lr.ph.preheader.i.preheader ], [ %scevgep.i, %._crit_edge.loopexit.i ]
+.lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.preheader, %._crit_edge.loopexit.i
+  %indvars.iv = phi i64 [ 0, %.lr.ph.i.preheader.preheader ], [ %indvars.iv.next, %._crit_edge.loopexit.i ]
+  %.0150177 = phi ptr [ %55, %.lr.ph.i.preheader.preheader ], [ %scevgep.i, %._crit_edge.loopexit.i ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.013.i = phi ptr [ %59, %.lr.ph.i ], [ %.0150177, %.lr.ph.preheader.i ]
-  %.0812.i = phi i64 [ %62, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.0911.i = phi i32 [ %63, %.lr.ph.i ], [ %53, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.013.i = phi ptr [ %59, %.lr.ph.i ], [ %.0150177, %.lr.ph.i.preheader ]
+  %.0812.i = phi i64 [ %62, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.0911.i = phi i32 [ %63, %.lr.ph.i ], [ %53, %.lr.ph.i.preheader ]
   %58 = shl i64 %.0812.i, 8
   %59 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
   %60 = load i8, ptr %.013.i, align 1, !tbaa !68
@@ -2341,7 +2341,7 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
   store i64 %62, ptr %64, align 8, !tbaa !104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.lr.ph.preheader, label %.lr.ph.preheader.i, !llvm.loop !262
+  br i1 %exitcond, label %.lr.ph.preheader, label %.lr.ph.i.preheader, !llvm.loop !262
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge.loopexit.i, %cid_get_offset.exit.us.preheader
   call void @FT_Stream_ExitFrame(ptr noundef %6) #13
@@ -2806,16 +2806,16 @@ define internal i32 @cid_load_glyph(ptr noundef %0, i32 noundef %1) #2 {
 
 36:                                               ; preds = %30
   %.not10.i = icmp eq i32 %34, 0
-  br i1 %.not10.i, label %cid_get_offset.exit, label %.lr.ph.preheader.i
+  br i1 %.not10.i, label %cid_get_offset.exit, label %.lr.ph.i.preheader
 
-.lr.ph.preheader.i:                               ; preds = %36
+.lr.ph.i.preheader:                               ; preds = %36
   %37 = load ptr, ptr %5, align 8, !tbaa !293
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.013.i = phi ptr [ %39, %.lr.ph.i ], [ %37, %.lr.ph.preheader.i ]
-  %.0812.i = phi i64 [ %42, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.0911.i = phi i32 [ %43, %.lr.ph.i ], [ %34, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.013.i = phi ptr [ %39, %.lr.ph.i ], [ %37, %.lr.ph.i.preheader ]
+  %.0812.i = phi i64 [ %42, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.0911.i = phi i32 [ %43, %.lr.ph.i ], [ %34, %.lr.ph.i.preheader ]
   %38 = shl i64 %.0812.i, 8
   %39 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
   %40 = load i8, ptr %.013.i, align 1, !tbaa !68

@@ -8911,47 +8911,47 @@ define i32 @Kit_DsdCofactoring(ptr noundef readonly captures(none) %0, i32 nound
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #27
   %9 = icmp slt i32 %1, 6
   %10 = add nsw i32 %1, -5
-  %11 = shl nuw i32 1, %10
-  %12 = shl i32 80, %10
-  %13 = select i1 %9, i32 80, i32 %12
-  %14 = sext i32 %13 to i64
-  %15 = shl nsw i64 %14, 2
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #26
-  store ptr %16, ptr %7, align 16, !tbaa !60
-  %17 = select i1 %9, i32 0, i32 %10
+  %11 = shl i32 80, %10
+  %12 = select i1 %9, i32 80, i32 %11
+  %13 = sext i32 %12 to i64
+  %14 = shl nsw i64 %13, 2
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #26
+  store ptr %15, ptr %7, align 16, !tbaa !60
+  %16 = select i1 %9, i32 0, i32 %10
   br label %.preheader240
 
-.preheader240:                                    ; preds = %5, %25
-  %indvars.iv270 = phi i64 [ 0, %5 ], [ %indvars.iv.next271, %25 ]
-  %.0139245 = phi i32 [ 0, %5 ], [ %20, %25 ]
-  br label %18
+.preheader240:                                    ; preds = %5, %24
+  %indvars.iv270 = phi i64 [ 0, %5 ], [ %indvars.iv.next271, %24 ]
+  %.0139245 = phi i32 [ 0, %5 ], [ %19, %24 ]
+  br label %17
 
-18:                                               ; preds = %.preheader240, %18
-  %indvars.iv = phi i64 [ 0, %.preheader240 ], [ %indvars.iv.next, %18 ]
-  %.1140243 = phi i32 [ %.0139245, %.preheader240 ], [ %20, %18 ]
-  %19 = load ptr, ptr %7, align 16, !tbaa !60
-  %20 = add nsw i32 %.1140243, 1
-  %21 = shl i32 %.1140243, %17
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %19, i64 %22
-  %24 = getelementptr inbounds nuw [5 x [16 x ptr]], ptr %7, i64 0, i64 %indvars.iv270, i64 %indvars.iv
-  store ptr %23, ptr %24, align 8, !tbaa !60
+17:                                               ; preds = %.preheader240, %17
+  %indvars.iv = phi i64 [ 0, %.preheader240 ], [ %indvars.iv.next, %17 ]
+  %.1140243 = phi i32 [ %.0139245, %.preheader240 ], [ %19, %17 ]
+  %18 = load ptr, ptr %7, align 16, !tbaa !60
+  %19 = add nsw i32 %.1140243, 1
+  %20 = shl i32 %.1140243, %16
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds i32, ptr %18, i64 %21
+  %23 = getelementptr inbounds nuw [5 x [16 x ptr]], ptr %7, i64 0, i64 %indvars.iv270, i64 %indvars.iv
+  store ptr %22, ptr %23, align 8, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %25, label %18, !llvm.loop !136
+  br i1 %exitcond.not, label %24, label %17, !llvm.loop !136
 
-25:                                               ; preds = %18
+24:                                               ; preds = %17
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next271, 5
-  br i1 %exitcond273.not, label %26, label %.preheader240, !llvm.loop !137
+  br i1 %exitcond273.not, label %25, label %.preheader240, !llvm.loop !137
 
-26:                                               ; preds = %25
-  %27 = select i1 %9, i32 1, i32 %11
+25:                                               ; preds = %24
+  %26 = shl nuw i32 1, %10
+  %27 = select i1 %9, i32 1, i32 %26
   %28 = load ptr, ptr %7, align 16, !tbaa !60
   %29 = icmp sgt i32 %27, 0
   br i1 %29, label %select.unfold.preheader.i, label %Kit_TruthCopy.exit
 
-select.unfold.preheader.i:                        ; preds = %26
+select.unfold.preheader.i:                        ; preds = %25
   %30 = zext nneg i32 %27 to i64
   br label %select.unfold.i
 
@@ -8965,7 +8965,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %34 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %34, label %select.unfold.i, label %Kit_TruthCopy.exit, !llvm.loop !56
 
-Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %26
+Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %25
   %35 = tail call noundef ptr @Kit_DsdDecomposeInt(ptr noundef %28, i32 noundef %1, i32 noundef 0)
   store ptr %35, ptr %6, align 16, !tbaa !130
   %.not = icmp eq i32 %4, 0
@@ -9691,47 +9691,47 @@ Kit_DsdPrint.exit:                                ; preds = %9, %15
   tail call void @Kit_DsdNtkFree(ptr noundef %8)
   %20 = icmp slt i32 %1, 6
   %21 = add nsw i32 %1, -5
-  %22 = shl nuw i32 1, %21
-  %23 = shl i32 80, %21
-  %24 = select i1 %20, i32 80, i32 %23
-  %25 = sext i32 %24 to i64
-  %26 = shl nsw i64 %25, 2
-  %27 = tail call noalias ptr @malloc(i64 noundef %26) #26
-  store ptr %27, ptr %5, align 16, !tbaa !60
-  %28 = select i1 %20, i32 0, i32 %21
+  %22 = shl i32 80, %21
+  %23 = select i1 %20, i32 80, i32 %22
+  %24 = sext i32 %23 to i64
+  %25 = shl nsw i64 %24, 2
+  %26 = tail call noalias ptr @malloc(i64 noundef %25) #26
+  store ptr %26, ptr %5, align 16, !tbaa !60
+  %27 = select i1 %20, i32 0, i32 %21
   br label %.preheader491
 
-.preheader491:                                    ; preds = %19, %36
-  %indvars.iv559 = phi i64 [ 0, %19 ], [ %indvars.iv.next560, %36 ]
-  %.0495 = phi i32 [ 0, %19 ], [ %31, %36 ]
-  br label %29
+.preheader491:                                    ; preds = %19, %35
+  %indvars.iv559 = phi i64 [ 0, %19 ], [ %indvars.iv.next560, %35 ]
+  %.0495 = phi i32 [ 0, %19 ], [ %30, %35 ]
+  br label %28
 
-29:                                               ; preds = %.preheader491, %29
-  %indvars.iv = phi i64 [ 0, %.preheader491 ], [ %indvars.iv.next, %29 ]
-  %.1493 = phi i32 [ %.0495, %.preheader491 ], [ %31, %29 ]
-  %30 = load ptr, ptr %5, align 16, !tbaa !60
-  %31 = add nsw i32 %.1493, 1
-  %32 = shl i32 %.1493, %28
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %30, i64 %33
-  %35 = getelementptr inbounds nuw [5 x [16 x ptr]], ptr %5, i64 0, i64 %indvars.iv559, i64 %indvars.iv
-  store ptr %34, ptr %35, align 8, !tbaa !60
+28:                                               ; preds = %.preheader491, %28
+  %indvars.iv = phi i64 [ 0, %.preheader491 ], [ %indvars.iv.next, %28 ]
+  %.1493 = phi i32 [ %.0495, %.preheader491 ], [ %30, %28 ]
+  %29 = load ptr, ptr %5, align 16, !tbaa !60
+  %30 = add nsw i32 %.1493, 1
+  %31 = shl i32 %.1493, %27
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i32, ptr %29, i64 %32
+  %34 = getelementptr inbounds nuw [5 x [16 x ptr]], ptr %5, i64 0, i64 %indvars.iv559, i64 %indvars.iv
+  store ptr %33, ptr %34, align 8, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %36, label %29, !llvm.loop !144
+  br i1 %exitcond.not, label %35, label %28, !llvm.loop !144
 
-36:                                               ; preds = %29
+35:                                               ; preds = %28
   %indvars.iv.next560 = add nuw nsw i64 %indvars.iv559, 1
   %exitcond562.not = icmp eq i64 %indvars.iv.next560, 5
-  br i1 %exitcond562.not, label %37, label %.preheader491, !llvm.loop !145
+  br i1 %exitcond562.not, label %36, label %.preheader491, !llvm.loop !145
 
-37:                                               ; preds = %36
-  %38 = select i1 %20, i32 1, i32 %22
+36:                                               ; preds = %35
+  %37 = shl nuw i32 1, %21
+  %38 = select i1 %20, i32 1, i32 %37
   %39 = load ptr, ptr %5, align 16, !tbaa !60
   %40 = icmp sgt i32 %38, 0
   br i1 %40, label %select.unfold.preheader.i, label %Kit_TruthCopy.exit
 
-select.unfold.preheader.i:                        ; preds = %37
+select.unfold.preheader.i:                        ; preds = %36
   %41 = zext nneg i32 %38 to i64
   br label %select.unfold.i
 
@@ -9745,7 +9745,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %45 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %45, label %select.unfold.i, label %Kit_TruthCopy.exit, !llvm.loop !56
 
-Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %37
+Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %36
   switch i32 %2, label %.loopexit480 [
     i32 1, label %.preheader490
     i32 2, label %128

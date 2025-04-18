@@ -221,36 +221,36 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
   %15 = mul i32 %13, %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i32, ptr %16, align 8
-  %18 = mul i32 %17, %14
-  br label %19
+  br label %18
 
-19:                                               ; preds = %.critedge, %8
-  %.045 = phi i32 [ 0, %8 ], [ %26, %.critedge ]
-  %.0 = phi i32 [ %15, %8 ], [ %27, %.critedge ]
-  %20 = icmp ugt i32 %.0, 9998
-  br i1 %20, label %.critedge, label %21
+18:                                               ; preds = %.critedge, %8
+  %.045 = phi i32 [ 0, %8 ], [ %25, %.critedge ]
+  %.0 = phi i32 [ %15, %8 ], [ %26, %.critedge ]
+  %19 = icmp ugt i32 %.0, 9998
+  br i1 %19, label %.critedge, label %20
 
-21:                                               ; preds = %19
-  %22 = and i32 %.0, 1023
-  %23 = icmp eq i32 %22, 0
-  %24 = icmp ne i32 %.0, 0
-  %25 = and i1 %24, %23
-  br i1 %25, label %.critedge, label %28
+20:                                               ; preds = %18
+  %21 = and i32 %.0, 1023
+  %22 = icmp eq i32 %21, 0
+  %23 = icmp ne i32 %.0, 0
+  %24 = and i1 %23, %22
+  br i1 %24, label %.critedge, label %27
 
-.critedge:                                        ; preds = %19, %21
-  %26 = add nuw nsw i32 %.045, 1
-  %27 = lshr i32 %.0, 10
-  br label %19, !llvm.loop !6
+.critedge:                                        ; preds = %18, %20
+  %25 = add nuw nsw i32 %.045, 1
+  %26 = lshr i32 %.0, 10
+  br label %18, !llvm.loop !6
 
-28:                                               ; preds = %21
+27:                                               ; preds = %20
+  %28 = mul i32 %17, %14
   %29 = zext nneg i32 %.045 to i64
   %30 = getelementptr inbounds nuw [5 x i8], ptr @usage_entry.labels, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   br label %32
 
-32:                                               ; preds = %.critedge2, %28
-  %.1 = phi i32 [ 0, %28 ], [ %39, %.critedge2 ]
-  %.044 = phi i32 [ %18, %28 ], [ %40, %.critedge2 ]
+32:                                               ; preds = %.critedge2, %27
+  %.1 = phi i32 [ 0, %27 ], [ %39, %.critedge2 ]
+  %.044 = phi i32 [ %28, %27 ], [ %40, %.critedge2 ]
   %33 = icmp ugt i32 %.044, 9998
   br i1 %33, label %.critedge2, label %34
 
@@ -267,7 +267,7 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
   br label %32, !llvm.loop !8
 
 41:                                               ; preds = %34
-  %42 = sub i32 %15, %18
+  %42 = sub i32 %15, %28
   %43 = zext nneg i32 %.1 to i64
   %44 = getelementptr inbounds nuw [5 x i8], ptr @usage_entry.labels, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1

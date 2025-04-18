@@ -2810,7 +2810,6 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %211, %213
   %.val1.i.i.i.i.i = load i32, ptr %240, align 4, !tbaa !100
   %243 = icmp sgt i32 %.val.i.i.i.i.i, %.val1.i.i.i.i.i
   %244 = load i64, ptr %.sroa.08.020.i.ptr.i.i.i, align 4
-  %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %244, 32
   br i1 %243, label %.lr.ph.i.i.i.i.i.preheader.i.i.i.i, label %255
 
 .lr.ph.i.i.i.i.i.preheader.i.i.i.i:               ; preds = %241
@@ -2836,13 +2835,15 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %211, %213
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %244 to i32
+  %.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %244, 32
   %.sroa.4.0.extract.trunc.i.i.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i.i to i32
   store i32 %.sroa.0.0.extract.trunc.i.i.i.i, ptr %.sroa.0137.2, align 4, !tbaa !98
   store i32 %.sroa.4.0.extract.trunc.i.i.i.i, ptr %240, align 4, !tbaa !100
   br label %264
 
 255:                                              ; preds = %241
-  %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i.i to i32
+  %.sroa.4.0.extract.shift.i.i.i.i.i = lshr i64 %244, 32
+  %.sroa.4.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i.i.i to i32
   %256 = getelementptr i8, ptr %.pn19.i.i.i.i, i64 4
   %.val2.i7.i.i.i.i.i = load i32, ptr %256, align 4, !tbaa !100
   %257 = icmp slt i32 %.val2.i7.i.i.i.i.i, %.sroa.4.0.extract.trunc.i.i.i.i.i
@@ -4485,13 +4486,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit734: ; preds = %_Z
   %93 = load ptr, ptr %92, align 8, !tbaa !168
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %95 = load i64, ptr %94, align 8, !tbaa !169
-  %96 = lshr i64 %95, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %4, i8 0, i64 1024, i1 false), !tbaa !76
-  %97 = trunc i64 %91 to i32
   br label %.preheader1071
 
 .preheader1070:                                   ; preds = %.preheader1071
-  %98 = trunc i64 %96 to i32
+  %96 = trunc i64 %91 to i32
+  %97 = lshr i64 %95, 2
+  %98 = trunc i64 %97 to i32
   %99 = add i32 %45, -1
   %100 = icmp sgt i32 %45, 2
   br i1 %100, label %.lr.ph1162, label %.preheader1069
@@ -4499,12 +4500,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit734: ; preds = %_Z
 .lr.ph1162:                                       ; preds = %.preheader1070
   %sext692 = shl i64 %91, 32
   %101 = ashr exact i64 %sext692, 32
-  %sext693 = shl i64 %96, 32
+  %sext693 = shl i64 %97, 32
   %102 = ashr exact i64 %sext693, 32
   %103 = add i32 %44, -1
   %104 = sext i32 %103 to i64
   %105 = icmp sgt i32 %44, 2
-  %.neg695 = mul i64 %96, -4294967296
+  %.neg695 = mul i64 %97, -4294967296
   %106 = ashr exact i64 %.neg695, 30
   %107 = sub nsw i64 0, %101
   br i1 %105, label %.lr.ph.us.preheader, label %.lr.ph1162.split
@@ -4527,7 +4528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit734: ; preds = %_Z
   %110 = getelementptr inbounds i32, ptr %109, i64 %104
   store i32 0, ptr %110, align 4, !tbaa !76
   store i32 0, ptr %109, align 4, !tbaa !76
-  %111 = mul i64 %indvars.iv1222, %96
+  %111 = mul i64 %indvars.iv1222, %97
   %112 = mul i64 %indvars.iv1222, %91
   %113 = trunc i64 %112 to i32
   br label %114
@@ -5253,12 +5254,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit749: ; preds = %_Z
   %467 = load ptr, ptr %92, align 8, !tbaa !168
   %468 = mul nsw i32 %99, %98
   %469 = mul nsw i32 %45, %98
-  %.neg = mul i64 %96, -4294967296
+  %.neg = mul i64 %97, -4294967296
   %470 = ashr exact i64 %.neg, 30
   %sext = shl i64 %91, 32
   %471 = ashr exact i64 %sext, 32
   %472 = sub nsw i64 0, %471
-  %sext661 = shl i64 %96, 32
+  %sext661 = shl i64 %97, 32
   %473 = ashr exact i64 %sext661, 30
   br label %_ZNSt6vectorIN2cv8ximgproc15ScanSegmentImpl6WSNodeESaIS3_EED2Ev.exit
 
@@ -6757,7 +6758,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %1242 = sub nsw i32 %497, %98
   %1243 = getelementptr inbounds nuw i8, ptr %1240, i64 4
   store i32 %1242, ptr %1243, align 4, !tbaa !175
-  %1244 = sub nsw i32 %499, %97
+  %1244 = sub nsw i32 %499, %96
   %1245 = getelementptr inbounds nuw i8, ptr %1240, i64 8
   store i32 %1244, ptr %1245, align 4, !tbaa !176
   %1246 = zext nneg i32 %1171 to i64
@@ -7032,7 +7033,7 @@ _ZN2cv8ximgproc15ScanSegmentImpl12allocWSNodesERSt6vectorINS1_6WSNodeESaIS3_EE.e
   %1372 = add nsw i32 %497, %98
   %1373 = getelementptr inbounds nuw i8, ptr %1370, i64 4
   store i32 %1372, ptr %1373, align 4, !tbaa !175
-  %1374 = add nsw i32 %499, %97
+  %1374 = add nsw i32 %499, %96
   %1375 = getelementptr inbounds nuw i8, ptr %1370, i64 8
   store i32 %1374, ptr %1375, align 4, !tbaa !176
   %1376 = zext nneg i32 %1301 to i64

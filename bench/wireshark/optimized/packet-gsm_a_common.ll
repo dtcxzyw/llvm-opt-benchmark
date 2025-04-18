@@ -5949,39 +5949,36 @@ define hidden noundef zeroext i16 @de_ps_domain_spec_sys_info(ptr noundef %0, pt
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden zeroext i16 @de_plmn_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) #1 {
   %8 = icmp ugt i32 %4, 2
-  br i1 %8, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %7
-  %9 = add i32 %4, -3
-  %10 = urem i32 %9, 3
-  %11 = sub nuw i32 %9, %10
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.042 = phi i32 [ %17, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %.03741 = phi i8 [ %18, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %12 = load i32, ptr @ett_gsm_a_plmn, align 4
-  %13 = zext i8 %.03741 to i32
-  %14 = add nuw nsw i32 %13, 1
-  %15 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.042, i32 noundef 3, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.82, i32 noundef %14)
-  %16 = tail call ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef %0, ptr noundef %2, ptr noundef %15, i32 noundef %.042, i32 noundef 0, i1 noundef zeroext true)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.83, ptr noundef %16)
-  %17 = add i32 %.042, 3
-  %18 = add i8 %.03741, 1
-  %.neg = sub i32 %3, %17
-  %19 = add i32 %.neg, %4
-  %20 = icmp ugt i32 %19, 2
-  br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
+.lr.ph:                                           ; preds = %7, %.lr.ph
+  %.042 = phi i32 [ %14, %.lr.ph ], [ %3, %7 ]
+  %.03741 = phi i8 [ %15, %.lr.ph ], [ 0, %7 ]
+  %9 = load i32, ptr @ett_gsm_a_plmn, align 4
+  %10 = zext i8 %.03741 to i32
+  %11 = add nuw nsw i32 %10, 1
+  %12 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.042, i32 noundef 3, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.82, i32 noundef %11)
+  %13 = tail call ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef %0, ptr noundef %2, ptr noundef %12, i32 noundef %.042, i32 noundef 0, i1 noundef zeroext true)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.83, ptr noundef %13)
+  %14 = add i32 %.042, 3
+  %15 = add i8 %.03741, 1
+  %.neg = sub i32 %3, %14
+  %16 = add i32 %.neg, %4
+  %17 = icmp ugt i32 %16, 2
+  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %21 = add nuw i32 %11, 3
+  %18 = add i32 %4, -3
+  %19 = urem i32 %18, 3
+  %20 = sub nuw i32 %18, %19
+  %21 = add nuw i32 %20, 3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
-  %.037.lcssa = phi i8 [ 0, %7 ], [ %18, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i32 [ %3, %7 ], [ %17, %._crit_edge.loopexit ]
+  %.037.lcssa = phi i8 [ 0, %7 ], [ %15, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ %3, %7 ], [ %14, %._crit_edge.loopexit ]
   %.lcssa40 = phi i32 [ 0, %7 ], [ %21, %._crit_edge.loopexit ]
-  %.lcssa = phi i32 [ %4, %7 ], [ %19, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ %4, %7 ], [ %16, %._crit_edge.loopexit ]
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %28, label %22
 

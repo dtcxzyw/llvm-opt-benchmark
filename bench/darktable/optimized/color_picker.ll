@@ -50,26 +50,26 @@ define void @dt_color_picker_backtransform_box(ptr noundef %0, i32 noundef %1, p
   %6 = load ptr, ptr %5, align 16, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %8 = load i32, ptr %7, align 16, !tbaa !46
-  %spec.select57 = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 148
   %10 = load i32, ptr %9, align 4, !tbaa !55
-  %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 156
-  %13 = load i32, ptr %12, align 4, !tbaa !56
-  %14 = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
-  %15 = uitofp nneg i32 %14 to float
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %17 = load i32, ptr %16, align 16, !tbaa !57
-  %18 = tail call i32 @llvm.smax.i32(i32 %17, i32 1)
-  %19 = uitofp nneg i32 %18 to float
-  %20 = icmp eq i32 %1, 2
-  %wide.trip.count = select i1 %20, i64 4, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 156
+  %12 = load i32, ptr %11, align 4, !tbaa !56
+  %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
+  %14 = uitofp nneg i32 %13 to float
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %16 = load i32, ptr %15, align 16, !tbaa !57
+  %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 1)
+  %18 = uitofp nneg i32 %17 to float
+  %19 = icmp eq i32 %1, 2
+  %wide.trip.count = select i1 %19, i64 4, i64 1
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %26
 
-21:                                               ; preds = %26
+20:                                               ; preds = %26
+  %spec.select57 = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
   %spec.select = uitofp nneg i32 %spec.select57 to float
-  %22 = uitofp nneg i32 %11 to float
+  %21 = tail call i32 @llvm.smax.i32(i32 %10, i32 1)
+  %22 = uitofp nneg i32 %21 to float
   %23 = tail call i32 @dt_dev_distort_backtransform(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %wide.trip.count) #14
   %24 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %spec.select
   %25 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %22
@@ -83,25 +83,25 @@ define void @dt_color_picker_backtransform_box(ptr noundef %0, i32 noundef %1, p
   %29 = select i1 %.not, i64 0, i64 2
   %30 = getelementptr inbounds nuw float, ptr %2, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !58
-  %32 = fmul reassoc nsz arcp contract afn float %31, %15
+  %32 = fmul reassoc nsz arcp contract afn float %31, %14
   %33 = shl nuw nsw i64 %indvars.iv, 1
   %34 = getelementptr inbounds nuw float, ptr %3, i64 %33
   store float %32, ptr %34, align 4, !tbaa !58
   %35 = and i64 %33, 2
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %35
   %36 = load float, ptr %gep, align 4, !tbaa !58
-  %37 = fmul reassoc nsz arcp contract afn float %36, %19
+  %37 = fmul reassoc nsz arcp contract afn float %36, %18
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store float %37, ptr %38, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %21, label %26
+  br i1 %exitcond.not, label %20, label %26
 
 39:                                               ; preds = %57
   ret void
 
-40:                                               ; preds = %21, %57
-  %indvars.iv61 = phi i64 [ 0, %21 ], [ %indvars.iv.next62, %57 ]
+40:                                               ; preds = %20, %57
+  %indvars.iv61 = phi i64 [ 0, %20 ], [ %indvars.iv.next62, %57 ]
   %.idx = shl nuw nsw i64 %indvars.iv61, 3
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %42 = load float, ptr %41, align 4, !tbaa !58

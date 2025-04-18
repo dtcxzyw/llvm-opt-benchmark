@@ -2169,7 +2169,6 @@ _ZN5ZXing14RegressionLineD2Ev.exit.i.i:           ; preds = %543, %539
 
 552:                                              ; preds = %550
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false)
-  %.neg = sext i1 %6 to i32
   %.sroa.08.0.copyload.i = load double, ptr %16, align 8, !tbaa !23
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.29.0.copyload.i = load double, ptr %.sroa.29.0..sroa_idx.i, align 8, !tbaa !23
@@ -2208,6 +2207,7 @@ _ZN5ZXing14RegressionLineD2Ev.exit.i.i:           ; preds = %543, %539
   br i1 %exitcond.not.i, label %566, label %558, !llvm.loop !91
 
 566:                                              ; preds = %558
+  %.neg = sext i1 %6 to i32
   %567 = add i32 %5, %.neg
   %568 = shl nsw i32 %567, 1
   %569 = sitofp i32 %568 to double

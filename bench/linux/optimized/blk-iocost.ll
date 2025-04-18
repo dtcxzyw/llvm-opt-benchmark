@@ -3664,79 +3664,79 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
 74:                                               ; preds = %72
   %75 = getelementptr i8, ptr %0, i64 -32
   %76 = load i32, ptr %75, align 8
-  %77 = zext i32 %76 to i64
-  %78 = mul nuw nsw i64 %77, 1000
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0236)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5237)
-  %79 = getelementptr i8, ptr %0, i64 -8
-  call void @_raw_spin_lock_irq(ptr noundef %79) #21
-  %80 = getelementptr i8, ptr %0, i64 -184
+  %77 = getelementptr i8, ptr %0, i64 -8
+  call void @_raw_spin_lock_irq(ptr noundef %77) #21
+  %78 = getelementptr i8, ptr %0, i64 -184
+  %79 = load i32, ptr %78, align 8
+  %80 = getelementptr i8, ptr %0, i64 -176
   %81 = load i32, ptr %80, align 8
-  %82 = getelementptr i8, ptr %0, i64 -176
-  %83 = load i32, ptr %82, align 8
-  %84 = call i64 @ktime_get() #21
-  store i64 %84, ptr %5, align 8
-  %85 = sdiv i64 %84, 1000
-  %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %85, ptr %86, align 8
-  %87 = getelementptr i8, ptr %0, i64 72
-  %88 = load volatile i64, ptr %87, align 8
-  %89 = getelementptr i8, ptr %0, i64 96
-  %90 = getelementptr i8, ptr %0, i64 112
-  %91 = getelementptr i8, ptr %0, i64 104
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %93
+  %82 = call i64 @ktime_get() #21
+  store i64 %82, ptr %5, align 8
+  %83 = sdiv i64 %82, 1000
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %83, ptr %84, align 8
+  %85 = getelementptr i8, ptr %0, i64 72
+  %86 = load volatile i64, ptr %85, align 8
+  %87 = getelementptr i8, ptr %0, i64 96
+  %88 = getelementptr i8, ptr %0, i64 112
+  %89 = getelementptr i8, ptr %0, i64 104
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  br label %91
 
-93:                                               ; preds = %.loopexit177, %74
-  %94 = load volatile i32, ptr %89, align 4
-  %95 = and i32 %94, 1
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %.loopexit177, label %.preheader176
+91:                                               ; preds = %.loopexit177, %74
+  %92 = load volatile i32, ptr %87, align 4
+  %93 = and i32 %92, 1
+  %94 = icmp eq i32 %93, 0
+  br i1 %94, label %.loopexit177, label %.preheader176
 
-.preheader176:                                    ; preds = %93, %.preheader176
+.preheader176:                                    ; preds = %91, %.preheader176
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !23
-  %97 = load volatile i32, ptr %89, align 4
-  %98 = and i32 %97, 1
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %.loopexit177, label %.preheader176, !llvm.loop !24
+  %95 = load volatile i32, ptr %87, align 4
+  %96 = and i32 %95, 1
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %.loopexit177, label %.preheader176, !llvm.loop !24
 
-.loopexit177:                                     ; preds = %.preheader176, %93
-  %100 = phi i32 [ %94, %93 ], [ %97, %.preheader176 ]
+.loopexit177:                                     ; preds = %.preheader176, %91
+  %98 = phi i32 [ %92, %91 ], [ %95, %.preheader176 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !25
-  %101 = load i64, ptr %90, align 8
-  %102 = load i64, ptr %86, align 8
-  %103 = load i64, ptr %91, align 8
-  %104 = sub i64 %102, %103
-  %105 = mul i64 %104, %88
-  %106 = add i64 %105, %101
-  store i64 %106, ptr %92, align 8
+  %99 = load i64, ptr %88, align 8
+  %100 = load i64, ptr %84, align 8
+  %101 = load i64, ptr %89, align 8
+  %102 = sub i64 %100, %101
+  %103 = mul i64 %102, %86
+  %104 = add i64 %103, %99
+  store i64 %104, ptr %90, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !26
-  %107 = load volatile i32, ptr %89, align 4
-  %108 = icmp eq i32 %107, %100
-  br i1 %108, label %109, label %93, !llvm.loop !27
+  %105 = load volatile i32, ptr %87, align 4
+  %106 = icmp eq i32 %105, %98
+  br i1 %106, label %107, label %91, !llvm.loop !27
 
-109:                                              ; preds = %.loopexit177
-  %110 = mul i64 %.lcssa307, 100
-  %111 = udiv i64 %110, %78
+107:                                              ; preds = %.loopexit177
+  %108 = mul i64 %.lcssa307, 100
+  %109 = zext i32 %76 to i64
+  %110 = mul nuw nsw i64 %109, 1000
+  %111 = udiv i64 %108, %110
   %112 = getelementptr i8, ptr %0, i64 -232
   %113 = trunc i64 %111 to i32
-  %114 = sub i32 1000000, %81
-  %115 = sub i32 1000000, %83
-  %116 = load i64, ptr %92, align 8
-  %117 = load i64, ptr %90, align 8
+  %114 = sub i32 1000000, %79
+  %115 = sub i32 1000000, %81
+  %116 = load i64, ptr %90, align 8
+  %117 = load i64, ptr %88, align 8
   %118 = sub i64 %116, %117
   %119 = icmp eq i64 %116, %117
   br i1 %119, label %120, label %121, !prof !16
 
-120:                                              ; preds = %109
+120:                                              ; preds = %107
   call void asm sideeffect "666: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 666b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 666) #21, !srcloc !49
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.50, i32 2255, i32 2307, i64 12) #21, !srcloc !50
   call void asm sideeffect "667: nop\0A\09.pushsection .discard.instr_end\0A\09.long 667b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 667) #21, !srcloc !51
   br label %1753
 
-121:                                              ; preds = %109
+121:                                              ; preds = %107
   %122 = getelementptr i8, ptr %0, i64 40
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, %122
@@ -3797,13 +3797,13 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br i1 %163, label %171, label %164
 
 164:                                              ; preds = %160
-  %165 = load i64, ptr %86, align 8
+  %165 = load i64, ptr %84, align 8
   %166 = sub i64 %165, %162
   %167 = getelementptr i8, ptr %131, i64 208
   %168 = load i64, ptr %167, align 8
   %169 = add i64 %166, %168
   store i64 %169, ptr %167, align 8
-  %170 = load i64, ptr %86, align 8
+  %170 = load i64, ptr %84, align 8
   store i64 %170, ptr %161, align 8
   br label %171
 
@@ -3814,13 +3814,13 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br i1 %174, label %182, label %175
 
 175:                                              ; preds = %171
-  %176 = load i64, ptr %86, align 8
+  %176 = load i64, ptr %84, align 8
   %177 = sub i64 %176, %173
   %178 = getelementptr i8, ptr %131, i64 216
   %179 = load i64, ptr %178, align 8
   %180 = add i64 %177, %179
   store i64 %180, ptr %178, align 8
-  %181 = load i64, ptr %86, align 8
+  %181 = load i64, ptr %84, align 8
   store i64 %181, ptr %172, align 8
   br label %182
 
@@ -3831,13 +3831,13 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br i1 %185, label %193, label %186
 
 186:                                              ; preds = %182
-  %187 = load i64, ptr %86, align 8
+  %187 = load i64, ptr %84, align 8
   %188 = sub i64 %187, %184
   %189 = getelementptr i8, ptr %131, i64 224
   %190 = load i64, ptr %189, align 8
   %191 = add i64 %188, %190
   store i64 %191, ptr %189, align 8
-  %192 = load i64, ptr %86, align 8
+  %192 = load i64, ptr %84, align 8
   store i64 %192, ptr %183, align 8
   br label %193
 
@@ -3895,7 +3895,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
 
 228:                                              ; preds = %222
   %229 = load volatile i64, ptr %225, align 8
-  %230 = load i64, ptr %92, align 8
+  %230 = load i64, ptr %90, align 8
   %231 = load i64, ptr %126, align 8
   %232 = add i64 %229, %231
   %233 = sub i64 %230, %232
@@ -4477,8 +4477,8 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br label %1443
 
 608:                                              ; preds = %.loopexit168
-  %609 = icmp ne i32 %81, 0
-  %610 = icmp ne i32 %83, 0
+  %609 = icmp ne i32 %79, 0
+  %610 = icmp ne i32 %81, 0
   %611 = select i1 %609, i1 true, i1 %610
   %612 = mul i64 %118, -10
   %613 = getelementptr i8, ptr %0, i64 -48
@@ -4605,7 +4605,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br i1 %698, label %699, label %710
 
 699:                                              ; preds = %691
-  %700 = load i64, ptr %92, align 8
+  %700 = load i64, ptr %90, align 8
   %701 = sub i64 %612, %624
   %702 = add i64 %701, %700
   %703 = icmp slt i64 %702, 0
@@ -4646,7 +4646,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br i1 %724, label %725, label %969
 
 725:                                              ; preds = %721
-  %726 = load i64, ptr %92, align 8
+  %726 = load i64, ptr %90, align 8
   %727 = load i64, ptr %613, align 8
   %728 = sub i64 %624, %726
   %729 = add i64 %728, %727
@@ -4672,12 +4672,12 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
 
 744:                                              ; preds = %733, %731
   %745 = phi i64 [ %743, %733 ], [ %713, %731 ]
-  %746 = load i64, ptr %91, align 8
+  %746 = load i64, ptr %89, align 8
   %747 = getelementptr i8, ptr %616, i64 184
   %748 = load i64, ptr %747, align 8
   %749 = sub i64 %746, %748
   %750 = icmp slt i64 %749, 0
-  %751 = load i64, ptr %86, align 8
+  %751 = load i64, ptr %84, align 8
   %752 = select i1 %750, i64 %748, i64 %746
   %753 = sub i64 %751, %752
   %754 = call i64 @llvm.umax.i64(i64 %753, i64 1)
@@ -4841,7 +4841,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br i1 %871, label %872, label %.thread113.thread
 
 872:                                              ; preds = %868
-  %873 = load i64, ptr %92, align 8
+  %873 = load i64, ptr %90, align 8
   %874 = getelementptr inbounds nuw i8, ptr %863, i64 176
   %875 = load i64, ptr %874, align 8
   %876 = add i64 %864, %875
@@ -4868,7 +4868,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %891 = load i64, ptr %890, align 8
   %892 = sub i64 %891, %889
   store i64 %892, ptr %890, align 8
-  %.pre254 = load i64, ptr %92, align 8
+  %.pre254 = load i64, ptr %90, align 8
   br label %893
 
 893:                                              ; preds = %885, %879
@@ -5981,7 +5981,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br i1 %424, label %1597, label %1601
 
 1597:                                             ; preds = %1594
-  %1598 = load i64, ptr %86, align 8
+  %1598 = load i64, ptr %84, align 8
   %1599 = getelementptr i8, ptr %0, i64 144
   store i64 %1598, ptr %1599, align 8
   %1600 = getelementptr i8, ptr %0, i64 152
@@ -6005,7 +6005,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %1611 = load i64, ptr %1610, align 8
   %1612 = add i64 %1611, %1609
   store i64 %1612, ptr %1610, align 8
-  %1613 = load i64, ptr %86, align 8
+  %1613 = load i64, ptr %84, align 8
   %1614 = getelementptr i8, ptr %0, i64 144
   %1615 = load i64, ptr %1614, align 8
   %1616 = add i64 %1613, -100000
@@ -6180,18 +6180,18 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br label %1710
 
 1710:                                             ; preds = %1709, %1707
-  %1711 = load i32, ptr %89, align 4
+  %1711 = load i32, ptr %87, align 4
   %1712 = add i32 %1711, 1
-  store i32 %1712, ptr %89, align 4
+  store i32 %1712, ptr %87, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !121
-  %1713 = load i64, ptr %86, align 8
-  store i64 %1713, ptr %91, align 8
-  %1714 = load i64, ptr %92, align 8
-  store i64 %1714, ptr %90, align 8
+  %1713 = load i64, ptr %84, align 8
+  store i64 %1713, ptr %89, align 8
+  %1714 = load i64, ptr %90, align 8
+  store i64 %1714, ptr %88, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !122
-  %1715 = load i32, ptr %89, align 4
+  %1715 = load i32, ptr %87, align 4
   %1716 = add i32 %1715, 1
-  store i32 %1716, ptr %89, align 4
+  store i32 %1716, ptr %87, align 4
   %1717 = load volatile i64, ptr @jiffies, align 64
   %1718 = load i32, ptr %75, align 8
   %1719 = call i64 @__usecs_to_jiffies(i32 noundef %1718) #21
@@ -6209,11 +6209,11 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br label %1724
 
 1724:                                             ; preds = %1722, %1710
-  %1725 = load i64, ptr %91, align 8
+  %1725 = load i64, ptr %89, align 8
   %1726 = load i32, ptr %75, align 8
   %1727 = zext i32 %1726 to i64
   %1728 = add i64 %1725, %1727
-  %1729 = load i64, ptr %86, align 8
+  %1729 = load i64, ptr %84, align 8
   %1730 = sub i64 %1728, %1729
   %1731 = load i64, ptr %1492, align 8
   %1732 = icmp slt i64 %1730, 1
@@ -6238,7 +6238,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %1743 = mul i64 %1742, %1730
   %1744 = add i64 %1743, %.pre266
   %1745 = add i64 %1742, %1731
-  store volatile i64 %1745, ptr %87, align 8
+  store volatile i64 %1745, ptr %85, align 8
   br label %._crit_edge264
 
 ._crit_edge264:                                   ; preds = %1724, %1741
@@ -6253,7 +6253,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   br label %1753
 
 1753:                                             ; preds = %._crit_edge264, %.loopexit, %120
-  call void @_raw_spin_unlock_irq(ptr noundef %79) #21
+  call void @_raw_spin_unlock_irq(ptr noundef %77) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #21

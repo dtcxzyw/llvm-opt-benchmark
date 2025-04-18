@@ -3005,7 +3005,6 @@ define dso_local noundef ptr @_ZN4llvm23ConstantFoldInstructionEPNS_11Instructio
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #18
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %9, align 4, !tbaa !99
@@ -3020,6 +3019,7 @@ define dso_local noundef ptr @_ZN4llvm23ConstantFoldInstructionEPNS_11Instructio
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !104
 
 _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
@@ -3237,7 +3237,6 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %46, %49
 
 "_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZNS_23ConstantFoldInstructionEPNS_11InstructionERKNS_10DataLayoutEPKNS_17TargetLibraryInfoEE3$_0EEbOT_T0_.exit.thread": ; preds = %._crit_edge.i.i.i.i.i, %81, %"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZNS_23ConstantFoldInstructionEPNS_11InstructionERKNS_10DataLayoutEPKNS_17TargetLibraryInfoEE3$_0EEbOT_T0_.exit"
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #18
-  %.phi.trans.insert.i.i63.ptr = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %5, align 8
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %87, align 4, !tbaa !99
@@ -3252,6 +3251,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %46, %49
   br i1 %.not.i.i.i69, label %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit70, label %.lr.ph.i.i.i67, !llvm.loop !104
 
 _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit70: ; preds = %.lr.ph.i.i.i67
+  %.phi.trans.insert.i.i63.ptr = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.phi.trans.insert3.i.i65 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #18
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -3577,7 +3577,6 @@ define dso_local noundef ptr @_ZN4llvm24ConstantFoldInstOperandsEPNS_11Instructi
 define dso_local noundef ptr @_ZN4llvm20ConstantFoldConstantEPKNS_8ConstantERKNS_10DataLayoutEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallDenseMap", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #18
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4, !tbaa !99
@@ -3600,6 +3599,7 @@ _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail1
 
 9:                                                ; preds = %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8, !tbaa !106
   %11 = load i32, ptr %.phi.trans.insert3.i.i, align 8, !tbaa !109
   %12 = zext i32 %11 to i64
@@ -13720,8 +13720,8 @@ _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail1
   br i1 %.not.i.i.i.i, label %20, label %_ZNK4llvm12TargetFolder4FoldEPNS_8ConstantE.exit
 
 20:                                               ; preds = %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.i.i
-  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i.i, align 8, !tbaa !106
   %22 = load i32, ptr %.phi.trans.insert3.i.i.i.i, align 8, !tbaa !109
   %23 = zext i32 %22 to i64
@@ -13785,8 +13785,8 @@ _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail1
   br i1 %.not.i.i.i.i, label %22, label %_ZNK4llvm12TargetFolder4FoldEPNS_8ConstantE.exit
 
 22:                                               ; preds = %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.i.i
-  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i.i, align 8, !tbaa !106
   %24 = load i32, ptr %.phi.trans.insert3.i.i.i.i, align 8, !tbaa !109
   %25 = zext i32 %24 to i64
@@ -13852,8 +13852,8 @@ _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail1
   br i1 %.not.i.i.i.i, label %23, label %_ZNK4llvm12TargetFolder4FoldEPNS_8ConstantE.exit
 
 23:                                               ; preds = %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.i.i
-  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i.i, align 8, !tbaa !106
   %25 = load i32, ptr %.phi.trans.insert3.i.i.i.i, align 8, !tbaa !109
   %26 = zext i32 %25 to i64
@@ -14066,8 +14066,8 @@ _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail1
   br i1 %.not.i.i.i.i, label %67, label %_ZNK4llvm12TargetFolder4FoldEPNS_8ConstantE.exit
 
 67:                                               ; preds = %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.i.i
-  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %68 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i.i, align 8, !tbaa !106
   %69 = load i32, ptr %.phi.trans.insert3.i.i.i.i, align 8, !tbaa !109
   %70 = zext i32 %69 to i64
@@ -14208,8 +14208,8 @@ _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail1
   br i1 %.not.i.i.i.i, label %17, label %_ZNK4llvm12TargetFolder4FoldEPNS_8ConstantE.exit
 
 17:                                               ; preds = %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.i.i
-  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i.i, align 8, !tbaa !106
   %19 = load i32, ptr %.phi.trans.insert3.i.i.i.i, align 8, !tbaa !109
   %20 = zext i32 %19 to i64
@@ -14265,8 +14265,8 @@ _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail1
   br i1 %.not.i.i.i.i, label %20, label %_ZNK4llvm12TargetFolder4FoldEPNS_8ConstantE.exit
 
 20:                                               ; preds = %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.i.i
-  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i.i, align 8, !tbaa !106
   %22 = load i32, ptr %.phi.trans.insert3.i.i.i.i, align 8, !tbaa !109
   %23 = zext i32 %22 to i64
@@ -14319,8 +14319,8 @@ _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail1
   br i1 %.not.i.i.i.i, label %19, label %_ZNK4llvm12TargetFolder4FoldEPNS_8ConstantE.exit
 
 19:                                               ; preds = %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.i.i
-  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i.i, align 8, !tbaa !106
   %21 = load i32, ptr %.phi.trans.insert3.i.i.i.i, align 8, !tbaa !109
   %22 = zext i32 %21 to i64
@@ -14428,8 +14428,8 @@ _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail1
   br i1 %.not.i.i.i.i, label %16, label %_ZNK4llvm12TargetFolder4FoldEPNS_8ConstantE.exit
 
 16:                                               ; preds = %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.i.i
-  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i.i, align 8, !tbaa !106
   %18 = load i32, ptr %.phi.trans.insert3.i.i.i.i, align 8, !tbaa !109
   %19 = zext i32 %18 to i64
@@ -14480,8 +14480,8 @@ _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail1
   br i1 %.not.i.i.i.i, label %16, label %_ZNK4llvm12TargetFolder4FoldEPNS_8ConstantE.exit
 
 16:                                               ; preds = %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.i.i
-  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.phi.trans.insert.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i.i, align 8, !tbaa !106
   %18 = load i32, ptr %.phi.trans.insert3.i.i.i.i, align 8, !tbaa !109
   %19 = zext i32 %18 to i64
@@ -15391,7 +15391,6 @@ _ZN4llvm5APIntD2Ev.exit.i.i.i.i.i:                ; preds = %116, %112, %108
 
 _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev.exit: ; preds = %_ZNSt8optionalIN4llvm13ConstantRangeEEC2ERKS2_.exit, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i, %120, %123
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9) #18
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %9, align 8
   %124 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %124, align 4, !tbaa !99
@@ -15414,6 +15413,7 @@ _ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail1
 
 128:                                              ; preds = %_ZN4llvm13SmallDenseMapIPNS_8ConstantES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %9, i64 8
   %129 = load ptr, ptr %.phi.trans.insert.i.i.ptr, align 8, !tbaa !106
   %130 = load i32, ptr %.phi.trans.insert3.i.i, align 8, !tbaa !109
   %131 = zext i32 %130 to i64

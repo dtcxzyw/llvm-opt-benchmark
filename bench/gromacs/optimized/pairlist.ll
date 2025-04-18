@@ -3143,8 +3143,8 @@ define void @_ZN3gmx11PairlistSet18constructPairlistsENS_19InteractionLocalityER
 
 _ZNSt6vectorISt5arrayImLm2EESaIS1_EE5clearEv.exit.i: ; preds = %69, %62
   %70 = phi ptr [ %68, %62 ], [ %66, %69 ]
-  %71 = add i32 %65, 15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #15
+  %71 = add i32 %65, 15
   %72 = sdiv i32 %71, 16
   %73 = sext i32 %72 to i64
   %74 = ptrtoint ptr %70 to i64
@@ -5295,8 +5295,8 @@ define internal void @_ZN3gmx11PairlistSet18constructPairlistsENS_19InteractionL
 
 _ZNSt6vectorISt5arrayImLm2EESaIS1_EE5clearEv.exit.i: ; preds = %164, %155
   %165 = phi ptr [ %163, %155 ], [ %161, %164 ]
-  %166 = add i32 %160, 15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #15
+  %166 = add i32 %160, 15
   %167 = sdiv i32 %166, 16
   %168 = sext i32 %167 to i64
   %169 = ptrtoint ptr %165 to i64

@@ -6112,8 +6112,8 @@ common.resume:                                    ; preds = %.loopexit, %"_ZN63_
   br i1 %178, label %.noexc182.thread.us, label %.split105.us.invoke, !prof !228
 
 .noexc182.thread.us:                              ; preds = %176
-  %179 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %2, i64 0, i64 %177
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %scevgep285, i8 0, i64 1024, i1 false)
+  %179 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %2, i64 0, i64 %177
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 1024
   store i64 0, ptr %180, align 8, !alias.scope !606
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 1032
@@ -6209,8 +6209,8 @@ common.resume:                                    ; preds = %.loopexit, %"_ZN63_
   br i1 %220, label %.noexc182.thread, label %.split105.us.invoke, !prof !228
 
 .noexc182.thread:                                 ; preds = %218
-  %221 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %2, i64 0, i64 %219
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %scevgep, i8 0, i64 1024, i1 false)
+  %221 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %2, i64 0, i64 %219
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 1024
   store i64 0, ptr %222, align 8, !alias.scope !606
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 1032
@@ -6303,8 +6303,8 @@ common.resume:                                    ; preds = %.loopexit, %"_ZN63_
   br i1 %268, label %.noexc.thread.us, label %.split105.us.invoke, !prof !228
 
 .noexc.thread.us:                                 ; preds = %261
-  %269 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %2, i64 0, i64 %267
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %scevgep291, i8 0, i64 1024, i1 false)
+  %269 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %2, i64 0, i64 %267
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 1024
   store i64 0, ptr %270, align 8, !alias.scope !616
   %271 = getelementptr inbounds nuw i8, ptr %269, i64 1032
@@ -6380,8 +6380,8 @@ common.resume:                                    ; preds = %.loopexit, %"_ZN63_
   br i1 %303, label %.noexc.thread, label %.split105.us.invoke, !prof !228
 
 .noexc.thread:                                    ; preds = %296
-  %304 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %2, i64 0, i64 %302
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %scevgep288, i8 0, i64 1024, i1 false)
+  %304 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %2, i64 0, i64 %302
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 1024
   store i64 0, ptr %305, align 8, !alias.scope !616
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 1032

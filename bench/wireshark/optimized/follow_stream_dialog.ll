@@ -12577,9 +12577,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i320:   ; preds = %309
   %355 = add i64 %354, %323
   %356 = sub i64 %355, %.1166.lcssa743
   call void @llvm.memset.p0.i64(ptr align 1 %.1166.lcssa, i8 32, i64 %356, i1 false)
+  %scevgep = getelementptr i8, ptr %.1166.lcssa, i64 51
   %357 = add i64 %.0165742, %323
   %358 = sub i64 %357, %.1166.lcssa743
-  %scevgep = getelementptr i8, ptr %.1166.lcssa, i64 51
   %scevgep744 = getelementptr i8, ptr %scevgep, i64 %358
   br label %.preheader.preheader
 

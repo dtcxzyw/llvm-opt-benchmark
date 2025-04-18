@@ -281,22 +281,22 @@ define hidden void @_ZN4Dict8doubhashEv(ptr noundef nonnull align 8 captures(non
   br i1 %.not, label %.loopexit, label %20
 
 20:                                               ; preds = %15
-  %21 = trunc nuw i64 %indvars.iv to i32
-  %22 = add i32 %3, %21
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %25 = load i32, ptr %24, align 4
-  %26 = load i32, ptr %17, align 8
-  br label %27
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %22 = load i32, ptr %21, align 4
+  %23 = load i32, ptr %17, align 8
+  br label %24
 
-27:                                               ; preds = %27, %20
-  %.053 = phi i32 [ %25, %20 ], [ %29, %27 ]
-  %28 = icmp ugt i32 %.053, %26
-  %29 = lshr i32 %.053, 1
-  br i1 %28, label %27, label %30, !llvm.loop !8
+24:                                               ; preds = %24, %20
+  %.053 = phi i32 [ %22, %20 ], [ %26, %24 ]
+  %25 = icmp ugt i32 %.053, %23
+  %26 = lshr i32 %.053, 1
+  br i1 %25, label %24, label %27, !llvm.loop !8
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw %class.bucket, ptr %16, i64 %23
+27:                                               ; preds = %24
+  %28 = trunc nuw i64 %indvars.iv to i32
+  %29 = add i32 %3, %28
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr inbounds nuw %class.bucket, ptr %16, i64 %30
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.053, i32 1)
   %32 = shl i32 %spec.store.select, 1
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
@@ -314,12 +314,12 @@ define hidden void @_ZN4Dict8doubhashEv(ptr noundef nonnull align 8 captures(non
   %.not.i.i = icmp ult i64 %43, %36
   br i1 %.not.i.i, label %46, label %44
 
-44:                                               ; preds = %30
+44:                                               ; preds = %27
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 %36
   store ptr %45, ptr %39, align 8
   br label %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
 
-46:                                               ; preds = %30
+46:                                               ; preds = %27
   %47 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %34, i64 noundef %36, i32 noundef 0) #11
   br label %_ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit
 

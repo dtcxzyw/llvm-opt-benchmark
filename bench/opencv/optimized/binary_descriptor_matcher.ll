@@ -6167,11 +6167,11 @@ _ZN2cv15line_descriptor23BinaryDescriptorMatcher15SparseHashtable5queryEmPi.exit
   %153 = sext i32 %152 to i64
   %154 = mul nsw i64 %153, %143
   %155 = getelementptr inbounds nuw i8, ptr %139, i64 %154
+  %156 = add i32 %152, -16
   %.not30.i = icmp slt i32 %152, 16
   br i1 %.not30.i, label %.preheader.i120, label %.lr.ph.preheader.i116
 
 .lr.ph.preheader.i116:                            ; preds = %150
-  %156 = add nsw i32 %152, -16
   %157 = zext nneg i32 %156 to i64
   br label %.lr.ph.i117
 

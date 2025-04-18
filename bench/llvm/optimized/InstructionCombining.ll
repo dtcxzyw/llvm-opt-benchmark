@@ -11285,7 +11285,6 @@ _ZN4llvm12InstCombiner10isBackEdgeEPKNS_10BasicBlockES3_.exit: ; preds = %408, %
 
 .critedge163:                                     ; preds = %426
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13) #29
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 1, ptr %13, align 8
   %428 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %428, align 4, !tbaa !395
@@ -11300,6 +11299,7 @@ _ZN4llvm12InstCombiner10isBackEdgeEPKNS_10BasicBlockES3_.exit: ; preds = %408, %
   br i1 %.not.i.i.i189, label %_ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_11InstructionELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !398
 
 _ZN4llvm13SmallDenseMapIPNS_10BasicBlockEPNS_11InstructionELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   %429 = load ptr, ptr %12, align 8, !tbaa !32
   %430 = load i32, ptr %70, align 8, !tbaa !33
@@ -32001,7 +32001,6 @@ _ZNSt17_Temporary_bufferIPPN4llvm17DbgVariableRecordES2_EC2ES3_l.exit.i.i.i: ; p
   %68 = phi ptr [ %39, %._crit_edge246 ], [ %39, %67 ], [ %36, %._crit_edge.thread ], [ %39, %._crit_edge ]
   %69 = phi ptr [ %40, %._crit_edge246 ], [ %40, %67 ], [ %37, %._crit_edge.thread ], [ %40, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %12) #29
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 1, ptr %12, align 8
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %70, align 4, !tbaa !818
@@ -32022,6 +32021,7 @@ _ZNSt17_Temporary_bufferIPPN4llvm17DbgVariableRecordES2_EC2ES3_l.exit.i.i.i: ; p
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapISt4pairIPKNS_11InstructionENS_13DebugVariableEEPNS_17DbgVariableRecordELj4ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !821
 
 _ZN4llvm13SmallDenseMapISt4pairIPKNS_11InstructionENS_13DebugVariableEEPNS_17DbgVariableRecordELj4ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %71 = load i32, ptr %69, align 8, !tbaa !33
   %72 = zext i32 %71 to i64
@@ -32067,7 +32067,6 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17DbgVariableRecordELb1EE9push_backES2_.ex
 
 92:                                               ; preds = %_ZN4llvm13SmallDenseMapISt4pairIPKNS_11InstructionENS_13DebugVariableEEPNS_17DbgVariableRecordELj4ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEC2Ej.exit
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %13) #29
-  %.phi.trans.insert.i.i88.ptr = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 1, ptr %13, align 8
   %93 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %93, align 4, !tbaa !822
@@ -32088,6 +32087,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17DbgVariableRecordELb1EE9push_backES2_.ex
   br i1 %.not.i.i.i97, label %.lr.ph249, label %.lr.ph.i.i.i92, !llvm.loop !825
 
 .lr.ph249:                                        ; preds = %.lr.ph.i.i.i92
+  %.phi.trans.insert.i.i88.ptr = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.phi.trans.insert3.i.i90 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %94 = load ptr, ptr %11, align 8, !tbaa !32
   %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %72

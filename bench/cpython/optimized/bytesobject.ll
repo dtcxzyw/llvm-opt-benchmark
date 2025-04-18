@@ -10434,8 +10434,8 @@ define internal ptr @stringlib_expandtabs(ptr noundef readonly captures(address)
   %84 = sub nsw i64 %75, %83
   %85 = add i64 %84, %.383.us.i
   call void @llvm.memset.p0.i64(ptr align 1 %.05682.us.i, i8 32, i64 %84, i1 false), !tbaa !9
-  %86 = sub nsw i64 0, %83
   %scevgep.i = getelementptr i8, ptr %.05682.us.i, i64 %75
+  %86 = sub nsw i64 0, %83
   %scevgep92.i = getelementptr i8, ptr %scevgep.i, i64 %86
   br label %.loopexit.us.i
 

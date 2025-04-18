@@ -661,51 +661,51 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %188 = getelementptr %struct.qtmd_modelsym, ptr %167, i64 %187
   %189 = getelementptr i8, ptr %188, i64 -4
   %190 = load i16, ptr %189, align 2, !tbaa !38
-  %191 = add nsw i32 %166, 1
-  %192 = getelementptr i8, ptr %188, i64 -2
-  %193 = load i16, ptr %192, align 2, !tbaa !40
-  %194 = zext i16 %193 to i32
-  %195 = mul i32 %191, %194
-  %196 = udiv i32 %195, %170
-  %197 = add i16 %.311222100, -1
-  %198 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %167, i64 %187, i32 1
-  %199 = load i16, ptr %198, align 2, !tbaa !40
-  %200 = zext i16 %199 to i32
-  %201 = mul i32 %191, %200
-  %202 = udiv i32 %201, %170
-  %203 = trunc i32 %202 to i16
-  %204 = sext i32 %.11073.lcssa to i64
-  br label %205
+  %191 = getelementptr i8, ptr %188, i64 -2
+  %192 = load i16, ptr %191, align 2, !tbaa !40
+  %193 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %167, i64 %187, i32 1
+  %194 = load i16, ptr %193, align 2, !tbaa !40
+  %195 = sext i32 %.11073.lcssa to i64
+  br label %196
 
-205:                                              ; preds = %205, %._crit_edge1917
-  %indvars.iv2369 = phi i64 [ %indvars.iv.next2370, %205 ], [ %204, %._crit_edge1917 ]
+196:                                              ; preds = %196, %._crit_edge1917
+  %indvars.iv2369 = phi i64 [ %indvars.iv.next2370, %196 ], [ %195, %._crit_edge1917 ]
   %indvars.iv.next2370 = add nsw i64 %indvars.iv2369, -1
-  %206 = getelementptr inbounds %struct.qtmd_modelsym, ptr %167, i64 %indvars.iv.next2370, i32 1
-  %207 = load i16, ptr %206, align 2, !tbaa !40
-  %208 = add i16 %207, 8
-  store i16 %208, ptr %206, align 2, !tbaa !40
-  %209 = icmp sgt i64 %indvars.iv2369, 1
-  br i1 %209, label %205, label %210
+  %197 = getelementptr inbounds %struct.qtmd_modelsym, ptr %167, i64 %indvars.iv.next2370, i32 1
+  %198 = load i16, ptr %197, align 2, !tbaa !40
+  %199 = add i16 %198, 8
+  store i16 %199, ptr %197, align 2, !tbaa !40
+  %200 = icmp sgt i64 %indvars.iv2369, 1
+  br i1 %200, label %196, label %201
 
-210:                                              ; preds = %205
-  %211 = trunc i32 %196 to i16
-  %212 = add i16 %197, %211
-  %213 = add i16 %.311222100, %203
+201:                                              ; preds = %196
+  %202 = add nsw i32 %166, 1
+  %203 = zext i16 %192 to i32
+  %204 = mul i32 %202, %203
+  %205 = udiv i32 %204, %170
+  %206 = trunc i32 %205 to i16
+  %207 = add i16 %.311222100, -1
+  %208 = add i16 %207, %206
+  %209 = zext i16 %194 to i32
+  %210 = mul i32 %202, %209
+  %211 = udiv i32 %210, %170
+  %212 = trunc i32 %211 to i16
+  %213 = add i16 %.311222100, %212
   %214 = load i16, ptr %168, align 2, !tbaa !40
   %215 = icmp ugt i16 %214, 3800
   br i1 %215, label %216, label %.preheader2826
 
-216:                                              ; preds = %210
+216:                                              ; preds = %201
   tail call fastcc void @qtmd_update_model(ptr noundef %67)
   br label %.preheader2826
 
-.preheader2826:                                   ; preds = %216, %210
+.preheader2826:                                   ; preds = %216, %201
   br label %217
 
 217:                                              ; preds = %.preheader2826, %._crit_edge1927
   %.51145 = phi i16 [ %294, %._crit_edge1927 ], [ %.311432099, %.preheader2826 ]
   %.51124 = phi i16 [ %229, %._crit_edge1927 ], [ %213, %.preheader2826 ]
-  %.51104 = phi i16 [ %231, %._crit_edge1927 ], [ %212, %.preheader2826 ]
+  %.51104 = phi i16 [ %231, %._crit_edge1927 ], [ %208, %.preheader2826 ]
   %.71002 = phi i32 [ %296, %._crit_edge1927 ], [ %.510002104, %.preheader2826 ]
   %.7952 = phi i32 [ %295, %._crit_edge1927 ], [ %.59502105, %.preheader2826 ]
   %.9882 = phi ptr [ %.10883.lcssa, %._crit_edge1927 ], [ %.78802106, %.preheader2826 ]
@@ -935,51 +935,51 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %330 = getelementptr %struct.qtmd_modelsym, ptr %308, i64 %329
   %331 = getelementptr i8, ptr %330, i64 -4
   %332 = load i16, ptr %331, align 2, !tbaa !38
-  %333 = add nsw i32 %306, 1
-  %334 = getelementptr i8, ptr %330, i64 -2
-  %335 = load i16, ptr %334, align 2, !tbaa !40
-  %336 = zext i16 %335 to i32
-  %337 = mul i32 %333, %336
-  %338 = udiv i32 %337, %311
-  %339 = add i16 %.51124, -1
-  %340 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %308, i64 %329, i32 1
-  %341 = load i16, ptr %340, align 2, !tbaa !40
-  %342 = zext i16 %341 to i32
-  %343 = mul i32 %333, %342
-  %344 = udiv i32 %343, %311
-  %345 = trunc i32 %344 to i16
-  %346 = sext i32 %.31075.lcssa to i64
-  br label %347
+  %333 = getelementptr i8, ptr %330, i64 -2
+  %334 = load i16, ptr %333, align 2, !tbaa !40
+  %335 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %308, i64 %329, i32 1
+  %336 = load i16, ptr %335, align 2, !tbaa !40
+  %337 = sext i32 %.31075.lcssa to i64
+  br label %338
 
-347:                                              ; preds = %347, %._crit_edge2084
-  %indvars.iv2409 = phi i64 [ %indvars.iv.next2410, %347 ], [ %346, %._crit_edge2084 ]
+338:                                              ; preds = %338, %._crit_edge2084
+  %indvars.iv2409 = phi i64 [ %indvars.iv.next2410, %338 ], [ %337, %._crit_edge2084 ]
   %indvars.iv.next2410 = add nsw i64 %indvars.iv2409, -1
-  %348 = getelementptr inbounds %struct.qtmd_modelsym, ptr %308, i64 %indvars.iv.next2410, i32 1
-  %349 = load i16, ptr %348, align 2, !tbaa !40
-  %350 = add i16 %349, 8
-  store i16 %350, ptr %348, align 2, !tbaa !40
-  %351 = icmp sgt i64 %indvars.iv2409, 1
-  br i1 %351, label %347, label %352
+  %339 = getelementptr inbounds %struct.qtmd_modelsym, ptr %308, i64 %indvars.iv.next2410, i32 1
+  %340 = load i16, ptr %339, align 2, !tbaa !40
+  %341 = add i16 %340, 8
+  store i16 %341, ptr %339, align 2, !tbaa !40
+  %342 = icmp sgt i64 %indvars.iv2409, 1
+  br i1 %342, label %338, label %343
 
-352:                                              ; preds = %347
-  %353 = trunc i32 %338 to i16
-  %354 = add i16 %339, %353
-  %355 = add i16 %.51124, %345
+343:                                              ; preds = %338
+  %344 = add nsw i32 %306, 1
+  %345 = zext i16 %334 to i32
+  %346 = mul i32 %344, %345
+  %347 = udiv i32 %346, %311
+  %348 = trunc i32 %347 to i16
+  %349 = add i16 %.51124, -1
+  %350 = add i16 %349, %348
+  %351 = zext i16 %336 to i32
+  %352 = mul i32 %344, %351
+  %353 = udiv i32 %352, %311
+  %354 = trunc i32 %353 to i16
+  %355 = add i16 %.51124, %354
   %356 = load i16, ptr %309, align 2, !tbaa !40
   %357 = icmp ugt i16 %356, 3800
   br i1 %357, label %358, label %.preheader2818
 
-358:                                              ; preds = %352
+358:                                              ; preds = %343
   tail call fastcc void @qtmd_update_model(ptr noundef %305)
   br label %.preheader2818
 
-.preheader2818:                                   ; preds = %358, %352
+.preheader2818:                                   ; preds = %358, %343
   br label %359
 
 359:                                              ; preds = %.preheader2818, %._crit_edge2094
   %.71147 = phi i16 [ %406, %._crit_edge2094 ], [ %.51145, %.preheader2818 ]
   %.71126 = phi i16 [ %371, %._crit_edge2094 ], [ %355, %.preheader2818 ]
-  %.71106 = phi i16 [ %373, %._crit_edge2094 ], [ %354, %.preheader2818 ]
+  %.71106 = phi i16 [ %373, %._crit_edge2094 ], [ %350, %.preheader2818 ]
   %.101005 = phi i32 [ %408, %._crit_edge2094 ], [ %.71002, %.preheader2818 ]
   %.10955 = phi i32 [ %407, %._crit_edge2094 ], [ %.7952, %.preheader2818 ]
   %.14887 = phi ptr [ %.15888.lcssa, %._crit_edge2094 ], [ %.9882, %.preheader2818 ]
@@ -1147,51 +1147,51 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %438 = getelementptr %struct.qtmd_modelsym, ptr %417, i64 %437
   %439 = getelementptr i8, ptr %438, i64 -4
   %440 = load i16, ptr %439, align 2, !tbaa !38
-  %441 = add nsw i32 %416, 1
-  %442 = getelementptr i8, ptr %438, i64 -2
-  %443 = load i16, ptr %442, align 2, !tbaa !40
-  %444 = zext i16 %443 to i32
-  %445 = mul i32 %441, %444
-  %446 = udiv i32 %445, %420
-  %447 = add i16 %.51124, -1
-  %448 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %417, i64 %437, i32 1
-  %449 = load i16, ptr %448, align 2, !tbaa !40
-  %450 = zext i16 %449 to i32
-  %451 = mul i32 %441, %450
-  %452 = udiv i32 %451, %420
-  %453 = trunc i32 %452 to i16
-  %454 = sext i32 %.51077.lcssa to i64
-  br label %455
+  %441 = getelementptr i8, ptr %438, i64 -2
+  %442 = load i16, ptr %441, align 2, !tbaa !40
+  %443 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %417, i64 %437, i32 1
+  %444 = load i16, ptr %443, align 2, !tbaa !40
+  %445 = sext i32 %.51077.lcssa to i64
+  br label %446
 
-455:                                              ; preds = %455, %._crit_edge2035
-  %indvars.iv2401 = phi i64 [ %indvars.iv.next2402, %455 ], [ %454, %._crit_edge2035 ]
+446:                                              ; preds = %446, %._crit_edge2035
+  %indvars.iv2401 = phi i64 [ %indvars.iv.next2402, %446 ], [ %445, %._crit_edge2035 ]
   %indvars.iv.next2402 = add nsw i64 %indvars.iv2401, -1
-  %456 = getelementptr inbounds %struct.qtmd_modelsym, ptr %417, i64 %indvars.iv.next2402, i32 1
-  %457 = load i16, ptr %456, align 2, !tbaa !40
-  %458 = add i16 %457, 8
-  store i16 %458, ptr %456, align 2, !tbaa !40
-  %459 = icmp sgt i64 %indvars.iv2401, 1
-  br i1 %459, label %455, label %460
+  %447 = getelementptr inbounds %struct.qtmd_modelsym, ptr %417, i64 %indvars.iv.next2402, i32 1
+  %448 = load i16, ptr %447, align 2, !tbaa !40
+  %449 = add i16 %448, 8
+  store i16 %449, ptr %447, align 2, !tbaa !40
+  %450 = icmp sgt i64 %indvars.iv2401, 1
+  br i1 %450, label %446, label %451
 
-460:                                              ; preds = %455
-  %461 = trunc i32 %446 to i16
-  %462 = add i16 %447, %461
-  %463 = add i16 %.51124, %453
+451:                                              ; preds = %446
+  %452 = add nsw i32 %416, 1
+  %453 = zext i16 %442 to i32
+  %454 = mul i32 %452, %453
+  %455 = udiv i32 %454, %420
+  %456 = trunc i32 %455 to i16
+  %457 = add i16 %.51124, -1
+  %458 = add i16 %457, %456
+  %459 = zext i16 %444 to i32
+  %460 = mul i32 %452, %459
+  %461 = udiv i32 %460, %420
+  %462 = trunc i32 %461 to i16
+  %463 = add i16 %.51124, %462
   %464 = load i16, ptr %418, align 2, !tbaa !40
   %465 = icmp ugt i16 %464, 3800
   br i1 %465, label %466, label %.preheader2820
 
-466:                                              ; preds = %460
+466:                                              ; preds = %451
   tail call fastcc void @qtmd_update_model(ptr noundef %79)
   br label %.preheader2820
 
-.preheader2820:                                   ; preds = %466, %460
+.preheader2820:                                   ; preds = %466, %451
   br label %467
 
 467:                                              ; preds = %.preheader2820, %._crit_edge2045
   %.111151 = phi i16 [ %514, %._crit_edge2045 ], [ %.51145, %.preheader2820 ]
   %.111130 = phi i16 [ %479, %._crit_edge2045 ], [ %463, %.preheader2820 ]
-  %.111110 = phi i16 [ %481, %._crit_edge2045 ], [ %462, %.preheader2820 ]
+  %.111110 = phi i16 [ %481, %._crit_edge2045 ], [ %458, %.preheader2820 ]
   %.151010 = phi i32 [ %516, %._crit_edge2045 ], [ %.71002, %.preheader2820 ]
   %.15960 = phi i32 [ %515, %._crit_edge2045 ], [ %.7952, %.preheader2820 ]
   %.21894 = phi ptr [ %.22895.lcssa, %._crit_edge2045 ], [ %.9882, %.preheader2820 ]
@@ -1437,51 +1437,51 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %586 = getelementptr %struct.qtmd_modelsym, ptr %565, i64 %585
   %587 = getelementptr i8, ptr %586, i64 -4
   %588 = load i16, ptr %587, align 2, !tbaa !38
-  %589 = add nsw i32 %564, 1
-  %590 = getelementptr i8, ptr %586, i64 -2
-  %591 = load i16, ptr %590, align 2, !tbaa !40
-  %592 = zext i16 %591 to i32
-  %593 = mul i32 %589, %592
-  %594 = udiv i32 %593, %568
-  %595 = add i16 %.51124, -1
-  %596 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %565, i64 %585, i32 1
-  %597 = load i16, ptr %596, align 2, !tbaa !40
-  %598 = zext i16 %597 to i32
-  %599 = mul i32 %589, %598
-  %600 = udiv i32 %599, %568
-  %601 = trunc i32 %600 to i16
-  %602 = sext i32 %.71079.lcssa to i64
-  br label %603
+  %589 = getelementptr i8, ptr %586, i64 -2
+  %590 = load i16, ptr %589, align 2, !tbaa !40
+  %591 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %565, i64 %585, i32 1
+  %592 = load i16, ptr %591, align 2, !tbaa !40
+  %593 = sext i32 %.71079.lcssa to i64
+  br label %594
 
-603:                                              ; preds = %603, %._crit_edge2002
-  %indvars.iv2393 = phi i64 [ %indvars.iv.next2394, %603 ], [ %602, %._crit_edge2002 ]
+594:                                              ; preds = %594, %._crit_edge2002
+  %indvars.iv2393 = phi i64 [ %indvars.iv.next2394, %594 ], [ %593, %._crit_edge2002 ]
   %indvars.iv.next2394 = add nsw i64 %indvars.iv2393, -1
-  %604 = getelementptr inbounds %struct.qtmd_modelsym, ptr %565, i64 %indvars.iv.next2394, i32 1
-  %605 = load i16, ptr %604, align 2, !tbaa !40
-  %606 = add i16 %605, 8
-  store i16 %606, ptr %604, align 2, !tbaa !40
-  %607 = icmp sgt i64 %indvars.iv2393, 1
-  br i1 %607, label %603, label %608
+  %595 = getelementptr inbounds %struct.qtmd_modelsym, ptr %565, i64 %indvars.iv.next2394, i32 1
+  %596 = load i16, ptr %595, align 2, !tbaa !40
+  %597 = add i16 %596, 8
+  store i16 %597, ptr %595, align 2, !tbaa !40
+  %598 = icmp sgt i64 %indvars.iv2393, 1
+  br i1 %598, label %594, label %599
 
-608:                                              ; preds = %603
-  %609 = trunc i32 %594 to i16
-  %610 = add i16 %595, %609
-  %611 = add i16 %.51124, %601
+599:                                              ; preds = %594
+  %600 = add nsw i32 %564, 1
+  %601 = zext i16 %590 to i32
+  %602 = mul i32 %600, %601
+  %603 = udiv i32 %602, %568
+  %604 = trunc i32 %603 to i16
+  %605 = add i16 %.51124, -1
+  %606 = add i16 %605, %604
+  %607 = zext i16 %592 to i32
+  %608 = mul i32 %600, %607
+  %609 = udiv i32 %608, %568
+  %610 = trunc i32 %609 to i16
+  %611 = add i16 %.51124, %610
   %612 = load i16, ptr %566, align 2, !tbaa !40
   %613 = icmp ugt i16 %612, 3800
   br i1 %613, label %614, label %.preheader2822
 
-614:                                              ; preds = %608
+614:                                              ; preds = %599
   tail call fastcc void @qtmd_update_model(ptr noundef %76)
   br label %.preheader2822
 
-.preheader2822:                                   ; preds = %614, %608
+.preheader2822:                                   ; preds = %614, %599
   br label %615
 
 615:                                              ; preds = %.preheader2822, %._crit_edge2012
   %.141154 = phi i16 [ %662, %._crit_edge2012 ], [ %.51145, %.preheader2822 ]
   %.141133 = phi i16 [ %627, %._crit_edge2012 ], [ %611, %.preheader2822 ]
-  %.141113 = phi i16 [ %629, %._crit_edge2012 ], [ %610, %.preheader2822 ]
+  %.141113 = phi i16 [ %629, %._crit_edge2012 ], [ %606, %.preheader2822 ]
   %.231018 = phi i32 [ %664, %._crit_edge2012 ], [ %.71002, %.preheader2822 ]
   %.23968 = phi i32 [ %663, %._crit_edge2012 ], [ %.7952, %.preheader2822 ]
   %.33906 = phi ptr [ %.34907.lcssa, %._crit_edge2012 ], [ %.9882, %.preheader2822 ]
@@ -1727,51 +1727,51 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %734 = getelementptr %struct.qtmd_modelsym, ptr %713, i64 %733
   %735 = getelementptr i8, ptr %734, i64 -4
   %736 = load i16, ptr %735, align 2, !tbaa !38
-  %737 = add nsw i32 %712, 1
-  %738 = getelementptr i8, ptr %734, i64 -2
-  %739 = load i16, ptr %738, align 2, !tbaa !40
-  %740 = zext i16 %739 to i32
-  %741 = mul i32 %737, %740
-  %742 = udiv i32 %741, %716
-  %743 = add i16 %.51124, -1
-  %744 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %713, i64 %733, i32 1
-  %745 = load i16, ptr %744, align 2, !tbaa !40
-  %746 = zext i16 %745 to i32
-  %747 = mul i32 %737, %746
-  %748 = udiv i32 %747, %716
-  %749 = trunc i32 %748 to i16
-  %750 = sext i32 %.91081.lcssa to i64
-  br label %751
+  %737 = getelementptr i8, ptr %734, i64 -2
+  %738 = load i16, ptr %737, align 2, !tbaa !40
+  %739 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %713, i64 %733, i32 1
+  %740 = load i16, ptr %739, align 2, !tbaa !40
+  %741 = sext i32 %.91081.lcssa to i64
+  br label %742
 
-751:                                              ; preds = %751, %._crit_edge1936
-  %indvars.iv2377 = phi i64 [ %indvars.iv.next2378, %751 ], [ %750, %._crit_edge1936 ]
+742:                                              ; preds = %742, %._crit_edge1936
+  %indvars.iv2377 = phi i64 [ %indvars.iv.next2378, %742 ], [ %741, %._crit_edge1936 ]
   %indvars.iv.next2378 = add nsw i64 %indvars.iv2377, -1
-  %752 = getelementptr inbounds %struct.qtmd_modelsym, ptr %713, i64 %indvars.iv.next2378, i32 1
-  %753 = load i16, ptr %752, align 2, !tbaa !40
-  %754 = add i16 %753, 8
-  store i16 %754, ptr %752, align 2, !tbaa !40
-  %755 = icmp sgt i64 %indvars.iv2377, 1
-  br i1 %755, label %751, label %756
+  %743 = getelementptr inbounds %struct.qtmd_modelsym, ptr %713, i64 %indvars.iv.next2378, i32 1
+  %744 = load i16, ptr %743, align 2, !tbaa !40
+  %745 = add i16 %744, 8
+  store i16 %745, ptr %743, align 2, !tbaa !40
+  %746 = icmp sgt i64 %indvars.iv2377, 1
+  br i1 %746, label %742, label %747
 
-756:                                              ; preds = %751
-  %757 = trunc i32 %742 to i16
-  %758 = add i16 %743, %757
-  %759 = add i16 %.51124, %749
+747:                                              ; preds = %742
+  %748 = add nsw i32 %712, 1
+  %749 = zext i16 %738 to i32
+  %750 = mul i32 %748, %749
+  %751 = udiv i32 %750, %716
+  %752 = trunc i32 %751 to i16
+  %753 = add i16 %.51124, -1
+  %754 = add i16 %753, %752
+  %755 = zext i16 %740 to i32
+  %756 = mul i32 %748, %755
+  %757 = udiv i32 %756, %716
+  %758 = trunc i32 %757 to i16
+  %759 = add i16 %.51124, %758
   %760 = load i16, ptr %714, align 2, !tbaa !40
   %761 = icmp ugt i16 %760, 3800
   br i1 %761, label %762, label %.preheader2825
 
-762:                                              ; preds = %756
+762:                                              ; preds = %747
   tail call fastcc void @qtmd_update_model(ptr noundef %70)
   br label %.preheader2825
 
-.preheader2825:                                   ; preds = %762, %756
+.preheader2825:                                   ; preds = %762, %747
   br label %763
 
 763:                                              ; preds = %.preheader2825, %._crit_edge1946
   %.161156 = phi i16 [ %810, %._crit_edge1946 ], [ %.51145, %.preheader2825 ]
   %.161135 = phi i16 [ %775, %._crit_edge1946 ], [ %759, %.preheader2825 ]
-  %.161115 = phi i16 [ %777, %._crit_edge1946 ], [ %758, %.preheader2825 ]
+  %.161115 = phi i16 [ %777, %._crit_edge1946 ], [ %754, %.preheader2825 ]
   %.301025 = phi i32 [ %812, %._crit_edge1946 ], [ %.71002, %.preheader2825 ]
   %.30975 = phi i32 [ %811, %._crit_edge1946 ], [ %.7952, %.preheader2825 ]
   %.44917 = phi ptr [ %.45918.lcssa, %._crit_edge1946 ], [ %.9882, %.preheader2825 ]
@@ -2031,51 +2031,51 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %887 = getelementptr %struct.qtmd_modelsym, ptr %866, i64 %886
   %888 = getelementptr i8, ptr %887, i64 -4
   %889 = load i16, ptr %888, align 2, !tbaa !38
-  %890 = add nsw i32 %865, 1
-  %891 = getelementptr i8, ptr %887, i64 -2
-  %892 = load i16, ptr %891, align 2, !tbaa !40
-  %893 = zext i16 %892 to i32
-  %894 = mul i32 %890, %893
-  %895 = udiv i32 %894, %869
-  %896 = add i16 %.161135, -1
-  %897 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %866, i64 %886, i32 1
-  %898 = load i16, ptr %897, align 2, !tbaa !40
-  %899 = zext i16 %898 to i32
-  %900 = mul i32 %890, %899
-  %901 = udiv i32 %900, %869
-  %902 = trunc i32 %901 to i16
-  %903 = sext i32 %.111083.lcssa to i64
-  br label %904
+  %890 = getelementptr i8, ptr %887, i64 -2
+  %891 = load i16, ptr %890, align 2, !tbaa !40
+  %892 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %866, i64 %886, i32 1
+  %893 = load i16, ptr %892, align 2, !tbaa !40
+  %894 = sext i32 %.111083.lcssa to i64
+  br label %895
 
-904:                                              ; preds = %904, %._crit_edge1969
-  %indvars.iv2385 = phi i64 [ %indvars.iv.next2386, %904 ], [ %903, %._crit_edge1969 ]
+895:                                              ; preds = %895, %._crit_edge1969
+  %indvars.iv2385 = phi i64 [ %indvars.iv.next2386, %895 ], [ %894, %._crit_edge1969 ]
   %indvars.iv.next2386 = add nsw i64 %indvars.iv2385, -1
-  %905 = getelementptr inbounds %struct.qtmd_modelsym, ptr %866, i64 %indvars.iv.next2386, i32 1
-  %906 = load i16, ptr %905, align 2, !tbaa !40
-  %907 = add i16 %906, 8
-  store i16 %907, ptr %905, align 2, !tbaa !40
-  %908 = icmp sgt i64 %indvars.iv2385, 1
-  br i1 %908, label %904, label %909
+  %896 = getelementptr inbounds %struct.qtmd_modelsym, ptr %866, i64 %indvars.iv.next2386, i32 1
+  %897 = load i16, ptr %896, align 2, !tbaa !40
+  %898 = add i16 %897, 8
+  store i16 %898, ptr %896, align 2, !tbaa !40
+  %899 = icmp sgt i64 %indvars.iv2385, 1
+  br i1 %899, label %895, label %900
 
-909:                                              ; preds = %904
-  %910 = trunc i32 %895 to i16
-  %911 = add i16 %896, %910
-  %912 = add i16 %.161135, %902
+900:                                              ; preds = %895
+  %901 = add nsw i32 %865, 1
+  %902 = zext i16 %891 to i32
+  %903 = mul i32 %901, %902
+  %904 = udiv i32 %903, %869
+  %905 = trunc i32 %904 to i16
+  %906 = add i16 %.161135, -1
+  %907 = add i16 %906, %905
+  %908 = zext i16 %893 to i32
+  %909 = mul i32 %901, %908
+  %910 = udiv i32 %909, %869
+  %911 = trunc i32 %910 to i16
+  %912 = add i16 %.161135, %911
   %913 = load i16, ptr %867, align 2, !tbaa !40
   %914 = icmp ugt i16 %913, 3800
   br i1 %914, label %915, label %.preheader2824
 
-915:                                              ; preds = %909
+915:                                              ; preds = %900
   tail call fastcc void @qtmd_update_model(ptr noundef %73)
   br label %.preheader2824
 
-.preheader2824:                                   ; preds = %915, %909
+.preheader2824:                                   ; preds = %915, %900
   br label %916
 
 916:                                              ; preds = %.preheader2824, %._crit_edge1979
   %.181158 = phi i16 [ %963, %._crit_edge1979 ], [ %.161156, %.preheader2824 ]
   %.181137 = phi i16 [ %928, %._crit_edge1979 ], [ %912, %.preheader2824 ]
-  %.181117 = phi i16 [ %930, %._crit_edge1979 ], [ %911, %.preheader2824 ]
+  %.181117 = phi i16 [ %930, %._crit_edge1979 ], [ %907, %.preheader2824 ]
   %.371032 = phi i32 [ %965, %._crit_edge1979 ], [ %.331028.lcssa, %.preheader2824 ]
   %.37982 = phi i32 [ %964, %._crit_edge1979 ], [ %.33978.lcssa, %.preheader2824 ]
   %.55928 = phi ptr [ %.56929.lcssa, %._crit_edge1979 ], [ %.49922.lcssa, %.preheader2824 ]

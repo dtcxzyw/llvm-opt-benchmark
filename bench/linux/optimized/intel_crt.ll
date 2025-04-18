@@ -2138,36 +2138,36 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
 
 153:                                              ; preds = %126, %121
   %154 = phi i32 [ %139, %126 ], [ %122, %121 ]
-  %155 = sub nsw i32 %154, %49
-  %156 = sub nsw i32 %48, %50
-  %157 = icmp ult i32 %155, %156
-  %158 = add nuw nsw i32 %154, %49
-  %159 = add nuw nsw i32 %50, %48
-  %160 = select i1 %157, i32 %159, i32 %158
-  br label %161
+  br label %155
 
-161:                                              ; preds = %161, %153
-  %162 = load ptr, ptr %8, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 36
-  %164 = getelementptr [7 x i32], ptr %163, i64 0, i64 %11
-  %165 = load i32, ptr %164, align 4
-  %166 = load i32, ptr %163, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %162, i64 32
-  %168 = load i32, ptr %167, align 4
-  %169 = add i32 %165, 458752
-  %170 = sub i32 %169, %166
-  %171 = add i32 %170, %168
-  %172 = load ptr, ptr %21, align 8
-  %173 = tail call i32 %172(ptr noundef nonnull %20, i32 %171, i1 noundef zeroext true) #5
-  %174 = icmp ugt i32 %173, %49
-  br i1 %174, label %161, label %175, !llvm.loop !36
+155:                                              ; preds = %155, %153
+  %156 = load ptr, ptr %8, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 36
+  %158 = getelementptr [7 x i32], ptr %157, i64 0, i64 %11
+  %159 = load i32, ptr %158, align 4
+  %160 = load i32, ptr %157, align 4
+  %161 = getelementptr inbounds nuw i8, ptr %156, i64 32
+  %162 = load i32, ptr %161, align 4
+  %163 = add i32 %159, 458752
+  %164 = sub i32 %163, %160
+  %165 = add i32 %164, %162
+  %166 = load ptr, ptr %21, align 8
+  %167 = tail call i32 %166(ptr noundef nonnull %20, i32 %165, i1 noundef zeroext true) #5
+  %168 = icmp ugt i32 %167, %49
+  br i1 %168, label %155, label %169, !llvm.loop !36
 
-175:                                              ; preds = %161
-  %176 = add nuw nsw i32 %160, 2
+169:                                              ; preds = %155
+  %170 = sub nsw i32 %154, %49
+  %171 = sub nsw i32 %48, %50
+  %172 = icmp ult i32 %170, %171
+  %173 = add nuw nsw i32 %154, %49
+  %174 = add nuw nsw i32 %50, %48
+  %175 = select i1 %172, i32 %174, i32 %173
+  %176 = add nuw nsw i32 %175, 2
   %177 = lshr i32 %176, 1
   br label %178
 
-178:                                              ; preds = %178, %175
+178:                                              ; preds = %178, %169
   %179 = load ptr, ptr %8, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 36
   %181 = getelementptr [7 x i32], ptr %180, i64 0, i64 %11

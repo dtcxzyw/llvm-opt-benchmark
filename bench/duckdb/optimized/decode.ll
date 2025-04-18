@@ -1392,7 +1392,6 @@ _ZN13duckdb_brotliL30DetectTrivialLiteralBlockTypesEPNS_24BrotliDecoderStateStru
 
 527:                                              ; preds = %524
   %528 = sub nuw nsw i32 2147483644, %525
-  %notmask.i = shl nsw i32 -1, %517
   %529 = lshr i32 %528, %517
   %530 = add nuw i32 %529, 4
   br label %531
@@ -1419,6 +1418,7 @@ _ZN13duckdb_brotliL30DetectTrivialLiteralBlockTypesEPNS_24BrotliDecoderStateStru
   br label %549
 
 542:                                              ; preds = %533
+  %notmask.i = shl nsw i32 -1, %517
   %543 = xor i32 %notmask.i, -1
   %544 = add i32 %538, -1
   %545 = shl i32 %544, %517

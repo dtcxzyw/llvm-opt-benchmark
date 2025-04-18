@@ -633,20 +633,20 @@ init_arrays.exit:                                 ; preds = %._crit_edge117.i, %
   br label %184
 
 .preheader65.i:                                   ; preds = %203
-  %148 = add nsw i32 %143, 1
-  %149 = add nsw i32 %145, -1
-  %150 = shl nsw i32 %143, 1
-  %151 = mul nsw i32 %150, %148
-  %152 = shl nuw i32 1, %149
+  %148 = shl nsw i32 %143, 1
+  %149 = add nsw i32 %143, 1
+  %150 = mul nsw i32 %148, %149
+  %151 = add nsw i32 %145, -1
+  %152 = shl nuw i32 1, %151
   store i16 %195, ptr @random_register, align 2
-  %153 = icmp sgt i32 %151, 0
+  %153 = icmp sgt i32 %150, 0
   %154 = load i32, ptr @grain_min, align 4
   %155 = load i32, ptr @grain_max, align 4
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 300
   br i1 %153, label %.preheader64.us.preheader.i, label %.preheader64.i
 
 .preheader64.us.preheader.i:                      ; preds = %.preheader65.i
-  %wide.trip.count.i679 = zext nneg i32 %151 to i64
+  %wide.trip.count.i679 = zext nneg i32 %150 to i64
   br label %.preheader64.us.i
 
 .preheader64.us.i:                                ; preds = %.split.us.us.i, %.preheader64.us.preheader.i

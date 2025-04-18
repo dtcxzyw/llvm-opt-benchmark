@@ -526,13 +526,16 @@ define internal fastcc void @_ZN4ncnnL10requantizeEPKiPaRKNS_3MatES5_S5_iS5_ii(p
 .lr.ph757:                                        ; preds = %.preheader734
   %29 = load ptr, ptr %3, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %31 = and i32 %7, 2147483640
   br label %34
 
-.preheader733:                                    ; preds = %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit134, %.preheader734
-  %.0129.lcssa = phi i32 [ 0, %.preheader734 ], [ %31, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit134 ]
-  %.0118.lcssa = phi ptr [ %1, %.preheader734 ], [ %364, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit134 ]
-  %.0.lcssa = phi ptr [ %0, %.preheader734 ], [ %363, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit134 ]
+.preheader733.loopexit:                           ; preds = %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit134
+  %31 = and i32 %7, 2147483640
+  br label %.preheader733
+
+.preheader733:                                    ; preds = %.preheader733.loopexit, %.preheader734
+  %.0129.lcssa = phi i32 [ 0, %.preheader734 ], [ %31, %.preheader733.loopexit ]
+  %.0118.lcssa = phi ptr [ %1, %.preheader734 ], [ %364, %.preheader733.loopexit ]
+  %.0.lcssa = phi ptr [ %0, %.preheader734 ], [ %363, %.preheader733.loopexit ]
   %32 = or disjoint i32 %.0129.lcssa, 3
   %33 = icmp slt i32 %32, %7
   br i1 %33, label %.lr.ph764, label %.preheader
@@ -913,7 +916,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit134:   ; preds = %34, %_ZL14activatio
   %365 = add nuw nsw i32 %.0129754, 8
   %366 = or disjoint i32 %365, 7
   %367 = icmp slt i32 %366, %7
-  br i1 %367, label %34, label %.preheader733, !llvm.loop !48
+  br i1 %367, label %34, label %.preheader733.loopexit, !llvm.loop !48
 
 .preheader:                                       ; preds = %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit136, %.preheader733
   %.1130.lcssa = phi i32 [ %.0129.lcssa, %.preheader733 ], [ %561, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit136 ]
@@ -1274,13 +1277,16 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit:           ; preds = %596, %.lr.ph771, %5
 .lr.ph:                                           ; preds = %627
   %629 = load ptr, ptr %3, align 8
   %630 = getelementptr inbounds nuw i8, ptr %629, i64 4
-  %631 = and i32 %7, 2147483640
   br label %634
 
-.preheader737:                                    ; preds = %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit140, %627
-  %.0124.lcssa = phi i32 [ 0, %627 ], [ %631, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit140 ]
-  %.3121.lcssa = phi ptr [ %1, %627 ], [ %966, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit140 ]
-  %.3.lcssa = phi ptr [ %0, %627 ], [ %965, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit140 ]
+.preheader737.loopexit:                           ; preds = %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit140
+  %631 = and i32 %7, 2147483640
+  br label %.preheader737
+
+.preheader737:                                    ; preds = %.preheader737.loopexit, %627
+  %.0124.lcssa = phi i32 [ 0, %627 ], [ %631, %.preheader737.loopexit ]
+  %.3121.lcssa = phi ptr [ %1, %627 ], [ %966, %.preheader737.loopexit ]
+  %.3.lcssa = phi ptr [ %0, %627 ], [ %965, %.preheader737.loopexit ]
   %632 = or disjoint i32 %.0124.lcssa, 3
   %633 = icmp slt i32 %632, %7
   br i1 %633, label %.lr.ph746, label %.preheader735
@@ -1663,7 +1669,7 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit140:   ; preds = %634, %_ZL14activati
   %967 = add nuw nsw i32 %.0124738, 8
   %968 = or disjoint i32 %967, 7
   %969 = icmp slt i32 %968, %7
-  br i1 %969, label %634, label %.preheader737, !llvm.loop !52
+  br i1 %969, label %634, label %.preheader737.loopexit, !llvm.loop !52
 
 .preheader735:                                    ; preds = %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit142, %.preheader737
   %.1125.lcssa = phi i32 [ %.0124.lcssa, %.preheader737 ], [ %1164, %_ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit142 ]

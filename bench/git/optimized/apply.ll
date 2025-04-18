@@ -8159,68 +8159,65 @@ define internal fastcc ptr @find_name_common(ptr noundef readonly captures(none)
   %10 = and i32 %5, 1
   %.not.i = icmp eq i32 %10, 0
   %.not5.i = icmp samesign ult i32 %5, 2
-  br i1 %.not54, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+  br i1 %.not54, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %11 = sub i64 %8, %7
-  br label %.lr.ph.split
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %21
+  %.037162.us = phi ptr [ %22, %21 ], [ %1, %.lr.ph ]
+  %.041161.us = phi i32 [ %.142.us, %21 ], [ %3, %.lr.ph ]
+  %.145160.us = phi ptr [ %.3.us, %21 ], [ %spec.select, %.lr.ph ]
+  %11 = load i8, ptr %.037162.us, align 1, !tbaa !53
+  %12 = zext i8 %11 to i64
+  %13 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %12
+  %14 = load i8, ptr %13, align 1, !tbaa !53
+  %15 = and i8 %14, 1
+  %.not55.us = icmp eq i8 %15, 0
+  br i1 %.not55.us, label %21, label %16
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %22
-  %.037162.us = phi ptr [ %23, %22 ], [ %1, %.lr.ph ]
-  %.041161.us = phi i32 [ %.142.us, %22 ], [ %3, %.lr.ph ]
-  %.145160.us = phi ptr [ %.3.us, %22 ], [ %spec.select, %.lr.ph ]
-  %12 = load i8, ptr %.037162.us, align 1, !tbaa !53
-  %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !53
-  %16 = and i8 %15, 1
-  %.not55.us = icmp eq i8 %16, 0
-  br i1 %.not55.us, label %22, label %17
+16:                                               ; preds = %.lr.ph.split.us
+  %17 = icmp eq i8 %11, 10
+  br i1 %17, label %.thread, label %18
 
-17:                                               ; preds = %.lr.ph.split.us
-  %18 = icmp eq i8 %12, 10
-  br i1 %18, label %.thread, label %19
-
-19:                                               ; preds = %17
-  %20 = icmp eq i8 %12, 32
-  %or.cond.not.i.not156.us = and i1 %.not.i, %20
-  %21 = icmp eq i8 %12, 9
-  %or.cond6.not.i.not158.us = select i1 %21, i1 %.not5.i, i1 false
+18:                                               ; preds = %16
+  %19 = icmp eq i8 %11, 32
+  %or.cond.not.i.not156.us = and i1 %.not.i, %19
+  %20 = icmp eq i8 %11, 9
+  %or.cond6.not.i.not158.us = select i1 %20, i1 %.not5.i, i1 false
   %narrow.i.not.us = select i1 %or.cond.not.i.not156.us, i1 true, i1 %or.cond6.not.i.not158.us
-  br i1 %narrow.i.not.us, label %22, label %.thread
+  br i1 %narrow.i.not.us, label %21, label %.thread
 
-22:                                               ; preds = %19, %.lr.ph.split.us
-  %23 = getelementptr inbounds nuw i8, ptr %.037162.us, i64 1
-  %24 = icmp eq i8 %12, 47
-  %25 = add nsw i32 %.041161.us, -1
-  %.not57.us = icmp eq i32 %25, 0
-  %26 = select i1 %24, i1 %.not57.us, i1 false
-  %.3.us = select i1 %26, ptr %23, ptr %.145160.us
-  %.142.us = select i1 %24, i32 %25, i32 %.041161.us
+21:                                               ; preds = %18, %.lr.ph.split.us
+  %22 = getelementptr inbounds nuw i8, ptr %.037162.us, i64 1
+  %23 = icmp eq i8 %11, 47
+  %24 = add nsw i32 %.041161.us, -1
+  %.not57.us = icmp eq i32 %24, 0
+  %25 = select i1 %23, i1 %.not57.us, i1 false
+  %.3.us = select i1 %25, ptr %22, ptr %.145160.us
+  %.142.us = select i1 %23, i32 %24, i32 %.041161.us
   br label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
-  %.037162 = phi ptr [ %28, %.lr.ph.split ], [ %1, %.lr.ph.split.preheader ]
-  %.041161 = phi i32 [ %.142, %.lr.ph.split ], [ %3, %.lr.ph.split.preheader ]
-  %.145160 = phi ptr [ %.3, %.lr.ph.split ], [ %spec.select, %.lr.ph.split.preheader ]
-  %27 = load i8, ptr %.037162, align 1, !tbaa !53
-  %28 = getelementptr inbounds nuw i8, ptr %.037162, i64 1
-  %29 = icmp eq i8 %27, 47
-  %30 = add nsw i32 %.041161, -1
-  %.not57 = icmp eq i32 %30, 0
-  %31 = select i1 %29, i1 %.not57, i1 false
-  %.3 = select i1 %31, ptr %28, ptr %.145160
-  %.142 = select i1 %29, i32 %30, i32 %.041161
-  %.not = icmp eq ptr %28, %4
+.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
+  %.037162 = phi ptr [ %27, %.lr.ph.split ], [ %1, %.lr.ph ]
+  %.041161 = phi i32 [ %.142, %.lr.ph.split ], [ %3, %.lr.ph ]
+  %.145160 = phi ptr [ %.3, %.lr.ph.split ], [ %spec.select, %.lr.ph ]
+  %26 = load i8, ptr %.037162, align 1, !tbaa !53
+  %27 = getelementptr inbounds nuw i8, ptr %.037162, i64 1
+  %28 = icmp eq i8 %26, 47
+  %29 = add nsw i32 %.041161, -1
+  %.not57 = icmp eq i32 %29, 0
+  %30 = select i1 %28, i1 %.not57, i1 false
+  %.3 = select i1 %30, ptr %27, ptr %.145160
+  %.142 = select i1 %28, i32 %29, i32 %.041161
+  %.not = icmp eq ptr %27, %4
   br i1 %.not, label %.thread.loopexit175, label %.lr.ph.split
 
 .thread.loopexit175:                              ; preds = %.lr.ph.split
-  %scevgep = getelementptr i8, ptr %1, i64 %11
+  %31 = sub i64 %8, %7
+  %scevgep = getelementptr i8, ptr %1, i64 %31
   br label %.thread
 
-.thread:                                          ; preds = %17, %19, %.thread.loopexit175, %6
-  %.145.lcssa = phi ptr [ %spec.select, %6 ], [ %.3, %.thread.loopexit175 ], [ %.145160.us, %19 ], [ %.145160.us, %17 ]
-  %.037.lcssa = phi ptr [ %1, %6 ], [ %scevgep, %.thread.loopexit175 ], [ %.037162.us, %19 ], [ %.037162.us, %17 ]
+.thread:                                          ; preds = %16, %18, %.thread.loopexit175, %6
+  %.145.lcssa = phi ptr [ %spec.select, %6 ], [ %.3, %.thread.loopexit175 ], [ %.145160.us, %18 ], [ %.145160.us, %16 ]
+  %.037.lcssa = phi ptr [ %1, %6 ], [ %scevgep, %.thread.loopexit175 ], [ %.037162.us, %18 ], [ %.037162.us, %16 ]
   %.not58 = icmp eq ptr %.145.lcssa, null
   br i1 %.not58, label %32, label %49
 

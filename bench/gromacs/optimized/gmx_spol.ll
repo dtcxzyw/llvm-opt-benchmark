@@ -1063,54 +1063,54 @@ _ZL12calc_com_pbciPK10t_topologyPA3_fP5t_pbcPKiPf7PbcType.exit: ; preds = %._cri
   %403 = load float, ptr %209, align 4, !tbaa !135
   %404 = fmul float %403, 0x4048041A20000000
   store float %404, ptr %209, align 4, !tbaa !135
-  %405 = fmul float %402, %402
-  %406 = call float @llvm.fmuladd.f32(float %400, float %400, float %405)
-  %407 = call noundef float @llvm.fmuladd.f32(float %404, float %404, float %406)
-  %sqrt = call float @llvm.sqrt.f32(float %407)
-  %408 = fpext float %sqrt to double
-  %409 = fpext float %407 to double
-  %410 = load float, ptr @_ZZ8gmx_spoliPPcE6refdip, align 4, !tbaa !135
-  %411 = fneg float %410
-  br label %412
+  %405 = load float, ptr @_ZZ8gmx_spoliPPcE6refdip, align 4, !tbaa !135
+  %406 = fneg float %405
+  br label %407
 
-412:                                              ; preds = %388, %412
-  %indvars.iv389 = phi i64 [ 0, %388 ], [ %indvars.iv.next390, %412 ]
-  %.2130301 = phi double [ %.1129312, %388 ], [ %425, %412 ]
-  %.2134300 = phi double [ %.1133311, %388 ], [ %419, %412 ]
-  %413 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv389
-  %414 = load float, ptr %413, align 4, !tbaa !135
-  %415 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv389
+407:                                              ; preds = %388, %407
+  %indvars.iv389 = phi i64 [ 0, %388 ], [ %indvars.iv.next390, %407 ]
+  %.2130301 = phi double [ %.1129312, %388 ], [ %420, %407 ]
+  %.2134300 = phi double [ %.1133311, %388 ], [ %414, %407 ]
+  %408 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv389
+  %409 = load float, ptr %408, align 4, !tbaa !135
+  %410 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv389
+  %411 = load float, ptr %410, align 4, !tbaa !135
+  %412 = fmul float %409, %411
+  %413 = fpext float %412 to double
+  %414 = fadd double %.2134300, %413
+  %415 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv389
   %416 = load float, ptr %415, align 4, !tbaa !135
-  %417 = fmul float %414, %416
-  %418 = fpext float %417 to double
-  %419 = fadd double %.2134300, %418
-  %420 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv389
-  %421 = load float, ptr %420, align 4, !tbaa !135
-  %422 = call float @llvm.fmuladd.f32(float %411, float %421, float %416)
-  %423 = fmul float %414, %422
-  %424 = fpext float %423 to double
-  %425 = fadd double %.2130301, %424
+  %417 = call float @llvm.fmuladd.f32(float %406, float %416, float %411)
+  %418 = fmul float %409, %417
+  %419 = fpext float %418 to double
+  %420 = fadd double %.2130301, %419
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
   %exitcond392.not = icmp eq i64 %indvars.iv.next390, 3
-  br i1 %exitcond392.not, label %426, label %412, !llvm.loop !167
+  br i1 %exitcond392.not, label %421, label %407, !llvm.loop !167
 
-426:                                              ; preds = %412
-  %427 = fadd double %.1140309, %408
-  %428 = fadd double %.1137310, %409
+421:                                              ; preds = %407
+  %422 = fmul float %402, %402
+  %423 = call float @llvm.fmuladd.f32(float %400, float %400, float %422)
+  %424 = call noundef float @llvm.fmuladd.f32(float %404, float %404, float %423)
+  %sqrt = call float @llvm.sqrt.f32(float %424)
+  %425 = fpext float %sqrt to double
+  %426 = fadd double %.1140309, %425
+  %427 = fpext float %424 to double
+  %428 = fadd double %.1137310, %427
   %429 = add nsw i32 %.1152308, 1
   br label %430
 
-430:                                              ; preds = %343, %426
-  %.promoted322333 = phi float [ %353, %426 ], [ %.promoted322334, %343 ]
-  %.promoted328 = phi float [ %352, %426 ], [ %.promoted329, %343 ]
-  %431 = phi float [ %353, %426 ], [ %333, %343 ]
-  %432 = phi float [ %352, %426 ], [ %334, %343 ]
-  %.lcssa272304 = phi float [ %351, %426 ], [ %.lcssa272, %343 ]
-  %.2153 = phi i32 [ %429, %426 ], [ %.1152308, %343 ]
-  %.2141 = phi double [ %427, %426 ], [ %.1140309, %343 ]
-  %.2138 = phi double [ %428, %426 ], [ %.1137310, %343 ]
-  %.3135 = phi double [ %419, %426 ], [ %.1133311, %343 ]
-  %.3131 = phi double [ %425, %426 ], [ %.1129312, %343 ]
+430:                                              ; preds = %343, %421
+  %.promoted322333 = phi float [ %353, %421 ], [ %.promoted322334, %343 ]
+  %.promoted328 = phi float [ %352, %421 ], [ %.promoted329, %343 ]
+  %431 = phi float [ %353, %421 ], [ %333, %343 ]
+  %432 = phi float [ %352, %421 ], [ %334, %343 ]
+  %.lcssa272304 = phi float [ %351, %421 ], [ %.lcssa272, %343 ]
+  %.2153 = phi i32 [ %429, %421 ], [ %.1152308, %343 ]
+  %.2141 = phi double [ %426, %421 ], [ %.1140309, %343 ]
+  %.2138 = phi double [ %428, %421 ], [ %.1137310, %343 ]
+  %.3135 = phi double [ %414, %421 ], [ %.1133311, %343 ]
+  %.3131 = phi double [ %420, %421 ], [ %.1129312, %343 ]
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
   %433 = load i32, ptr %81, align 4, !tbaa !4
   %434 = sext i32 %433 to i64

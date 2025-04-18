@@ -1794,42 +1794,42 @@ _ZN2cv3VecIdLi3EEC2EPKd.exit.i:                   ; preds = %888, %942
   %913 = load double, ptr %388, align 8, !tbaa !26, !noalias !103
   %914 = load double, ptr %389, align 8, !tbaa !26, !noalias !103
   %915 = load double, ptr %390, align 8, !tbaa !26, !noalias !103
-  %916 = fneg double %915
-  %917 = load double, ptr %79, align 8, !tbaa !26, !noalias !103
-  %918 = load double, ptr %77, align 8, !tbaa !26, !noalias !103
-  %919 = fneg double %913
-  %920 = fneg double %917
-  br label %921
+  %916 = load double, ptr %79, align 8, !tbaa !26, !noalias !103
+  %917 = load double, ptr %77, align 8, !tbaa !26, !noalias !103
+  br label %918
 
-921:                                              ; preds = %921, %911
-  %indvars.iv.i.i = phi i64 [ 0, %911 ], [ %indvars.iv.next.i.i, %921 ]
-  %.078.i.i = phi double [ 0.000000e+00, %911 ], [ %926, %921 ]
-  %922 = getelementptr inbounds nuw [3 x double], ptr %80, i64 0, i64 %indvars.iv.i.i
-  %923 = load double, ptr %922, align 8, !tbaa !26
-  %924 = getelementptr inbounds nuw [3 x double], ptr %79, i64 0, i64 %indvars.iv.i.i
-  %925 = load double, ptr %924, align 8, !tbaa !26
-  %926 = call double @llvm.fmuladd.f64(double %923, double %925, double %.078.i.i)
+918:                                              ; preds = %918, %911
+  %indvars.iv.i.i = phi i64 [ 0, %911 ], [ %indvars.iv.next.i.i, %918 ]
+  %.078.i.i = phi double [ 0.000000e+00, %911 ], [ %923, %918 ]
+  %919 = getelementptr inbounds nuw [3 x double], ptr %80, i64 0, i64 %indvars.iv.i.i
+  %920 = load double, ptr %919, align 8, !tbaa !26
+  %921 = getelementptr inbounds nuw [3 x double], ptr %79, i64 0, i64 %indvars.iv.i.i
+  %922 = load double, ptr %921, align 8, !tbaa !26
+  %923 = call double @llvm.fmuladd.f64(double %920, double %922, double %.078.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %927, label %921, !llvm.loop !106
+  br i1 %exitcond.not.i.i, label %924, label %918, !llvm.loop !106
 
-927:                                              ; preds = %921
-  %928 = fmul double %914, %916
-  %929 = fmul double %918, %919
-  %930 = fmul double %912, %920
-  %931 = call double @llvm.fmuladd.f64(double %912, double %913, double %928)
-  %932 = call double @llvm.fmuladd.f64(double %914, double %917, double %929)
-  %933 = call double @llvm.fmuladd.f64(double %918, double %915, double %930)
+924:                                              ; preds = %918
+  %925 = fneg double %915
+  %926 = fmul double %914, %925
+  %927 = call double @llvm.fmuladd.f64(double %912, double %913, double %926)
+  %928 = fneg double %913
+  %929 = fmul double %917, %928
+  %930 = call double @llvm.fmuladd.f64(double %914, double %916, double %929)
+  %931 = fneg double %916
+  %932 = fmul double %912, %931
+  %933 = call double @llvm.fmuladd.f64(double %917, double %915, double %932)
   %934 = load ptr, ptr %391, align 8, !tbaa !19
   %935 = load ptr, ptr %392, align 8, !tbaa !20
   %936 = load i64, ptr %935, align 8, !tbaa !21
   %937 = mul i64 %936, %indvars.iv.i359
   %938 = getelementptr inbounds nuw i8, ptr %934, i64 %937
-  store double %926, ptr %938, align 8, !tbaa !26
+  store double %923, ptr %938, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %81) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %82) #21
-  store double %931, ptr %82, align 8
-  store double %932, ptr %.sroa.5.0..sroa_idx.i, align 8
+  store double %927, ptr %82, align 8
+  store double %930, ptr %.sroa.5.0..sroa_idx.i, align 8
   store double %933, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !53
   store i32 -1056833530, ptr %81, align 8, !tbaa !41
   store ptr %82, ptr %394, align 8, !tbaa !44
@@ -1853,7 +1853,7 @@ _ZN2cv3VecIdLi3EEC2EPKd.exit.i:                   ; preds = %888, %942
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96) %86, ptr noundef nonnull align 8 dereferenceable(96) %74, ptr noundef nonnull align 4 dereferenceable(8) %72, ptr noundef nonnull align 4 dereferenceable(8) %73)
           to label %941 unwind label %946
 
-941:                                              ; preds = %927
+941:                                              ; preds = %924
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %73) #21, !noalias !108
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %72) #21, !noalias !108
   store i64 0, ptr %399, align 8
@@ -1879,7 +1879,7 @@ _ZN2cv3VecIdLi3EEC2EPKd.exit.i:                   ; preds = %888, %942
   %945 = icmp slt i64 %indvars.iv.next.i360, %944
   br i1 %945, label %_ZN2cv3VecIdLi3EEC2EPKd.exit.i, label %._crit_edge.i, !llvm.loop !114
 
-946:                                              ; preds = %927
+946:                                              ; preds = %924
   %947 = landingpad { ptr, i32 }
           cleanup
   br label %950

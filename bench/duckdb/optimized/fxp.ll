@@ -150,10 +150,10 @@ define void @duckdb_je_fxp_print(i32 noundef %0, ptr noundef %1) local_unnamed_a
   %scevgep = getelementptr i8, ptr %1, i64 %17
   %18 = zext nneg i32 %.128 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %18, i1 false), !tbaa !3
-  %19 = add nsw i32 %.128, -1
-  %20 = zext i32 %19 to i64
-  %21 = add i64 %17, 1
-  %22 = add i64 %21, %20
+  %19 = add i64 %17, 1
+  %20 = add nsw i32 %.128, -1
+  %21 = zext i32 %20 to i64
+  %22 = add i64 %19, %21
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph39.preheader, %.critedge

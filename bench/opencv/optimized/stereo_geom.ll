@@ -2229,11 +2229,11 @@ _ZN2cv4Mat_IdEC2EONS_3MatE.exit403:               ; preds = %_ZNK2cv11_InputArra
 546:                                              ; preds = %473, %575
   %547 = phi i1 [ true, %473 ], [ false, %575 ]
   %indvars.iv587.sroa.phi = phi ptr [ %60, %473 ], [ %indvars.iv587.sroa.gep599, %575 ]
-  %.3 = select i1 %547, ptr %61, ptr %64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %73, i8 0, i64 32, i1 false), !tbaa !39
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %74) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %74, i8 0, i64 48, i1 false), !tbaa !39
+  %.3 = select i1 %547, ptr %61, ptr %64
   %548 = select i1 %547, ptr %67, ptr %68
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %75) #22
   invoke void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96) %75, i32 noundef 1, i32 noundef 4, i32 noundef 13, ptr noundef nonnull %73, i64 noundef 0)

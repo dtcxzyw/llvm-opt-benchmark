@@ -2935,16 +2935,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %60, label %_ZN2cv10AutoBufferIiLm264EE8allocateEm.exit, label %_ZNK2cv3Mat8elemSizeEv.exit.thread
 
 _ZN2cv10AutoBufferIiLm264EE8allocateEm.exit:      ; preds = %54
-  %61 = icmp samesign ult i32 %22, 2
-  %62 = select i1 %61, i32 8388608, i32 32768
-  %63 = zext nneg i32 %21 to i64
-  store i64 %63, ptr %59, align 8, !tbaa !112
-  %64 = shl nuw nsw i32 %19, 2
-  %65 = and i32 %64, 2044
-  %narrow = add nuw nsw i32 %65, 4
-  %66 = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %58, i8 0, i64 %66, i1 false), !tbaa !7
-  %67 = call i32 @llvm.umin.i32(i32 %62, i32 %57)
+  %61 = zext nneg i32 %21 to i64
+  store i64 %61, ptr %59, align 8, !tbaa !112
+  %62 = shl nuw nsw i32 %19, 2
+  %63 = and i32 %62, 2044
+  %narrow = add nuw nsw i32 %63, 4
+  %64 = zext nneg i32 %narrow to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %58, i8 0, i64 %64, i1 false), !tbaa !7
+  %65 = icmp samesign ult i32 %22, 2
+  %66 = select i1 %65, i32 8388608, i32 32768
+  %67 = call i32 @llvm.umin.i32(i32 %66, i32 %57)
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !113
   %70 = icmp sgt i32 %69, 0
@@ -2980,7 +2980,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.preheader:      ; preds = %_ZNK2cv3Mat8elemSiz
   br label %_ZNK2cv3Mat8elemSizeEv.exit.split
 
 _ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us.preheader: ; preds = %_ZNK2cv3Mat8elemSizeEv.exit
-  %invariant.op = sub nsw i32 %62, %67
+  %invariant.op = sub nsw i32 %66, %67
   %wide.trip.count = zext nneg i32 %21 to i64
   br label %_ZNK2cv3Mat8elemSizeEv.exit.split.us.split.us
 

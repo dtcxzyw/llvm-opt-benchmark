@@ -356,22 +356,19 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %156 = sub nuw nsw i32 %.0484, %153
   %157 = and i16 %.8449, 8
   %158 = icmp eq i16 %157, 0
-  br i1 %158, label %.preheader54.preheader, label %.loopexit55
+  br i1 %158, label %.preheader54, label %.loopexit55
 
-.preheader54.preheader:                           ; preds = %155
-  %159 = add i32 %.neg176, %.1452.ph
-  br label %.preheader54
-
-.preheader54:                                     ; preds = %.preheader54.preheader, %.preheader54
-  %.3487 = phi i32 [ %161, %.preheader54 ], [ %156, %.preheader54.preheader ]
-  %160 = load ptr, ptr %6, align 8
-  call void %160(ptr noundef %0, i32 noundef 32) #5
-  %161 = add nsw i32 %.3487, -1
-  %.not584 = icmp eq i32 %161, 0
+.preheader54:                                     ; preds = %155, %.preheader54
+  %.3487 = phi i32 [ %160, %.preheader54 ], [ %156, %155 ]
+  %159 = load ptr, ptr %6, align 8
+  call void %159(ptr noundef %0, i32 noundef 32) #5
+  %160 = add nsw i32 %.3487, -1
+  %.not584 = icmp eq i32 %160, 0
   br i1 %.not584, label %.loopexit55.loopexit, label %.preheader54, !llvm.loop !8
 
 .loopexit55.loopexit:                             ; preds = %.preheader54
-  %162 = add i32 %159, %.0484
+  %161 = add i32 %.neg176, %.1452.ph
+  %162 = add i32 %161, %.0484
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %.loopexit55.loopexit, %152, %155
@@ -490,22 +487,19 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %214 = icmp eq i32 %213, 0
   %215 = icmp ne i32 %212, 0
   %or.cond33 = select i1 %214, i1 %215, i1 false
-  br i1 %or.cond33, label %.preheader51.preheader, label %.loopexit52
+  br i1 %or.cond33, label %.preheader51, label %.loopexit52
 
-.preheader51.preheader:                           ; preds = %202
-  %216 = sub i32 %.1452.ph, %.2438
-  br label %.preheader51
-
-.preheader51:                                     ; preds = %.preheader51.preheader, %.preheader51
-  %.7491 = phi i32 [ %218, %.preheader51 ], [ %211, %.preheader51.preheader ]
-  %217 = load ptr, ptr %6, align 8
-  call void %217(ptr noundef %0, i32 noundef 32) #5
-  %218 = add nsw i32 %.7491, -1
-  %.old32.not = icmp eq i32 %218, 0
+.preheader51:                                     ; preds = %202, %.preheader51
+  %.7491 = phi i32 [ %217, %.preheader51 ], [ %211, %202 ]
+  %216 = load ptr, ptr %6, align 8
+  call void %216(ptr noundef %0, i32 noundef 32) #5
+  %217 = add nsw i32 %.7491, -1
+  %.old32.not = icmp eq i32 %217, 0
   br i1 %.old32.not, label %.loopexit52.loopexit, label %.preheader51
 
 .loopexit52.loopexit:                             ; preds = %.preheader51
-  %219 = add i32 %216, %.0484
+  %218 = sub i32 %.1452.ph, %.2438
+  %219 = add i32 %218, %.0484
   br label %.loopexit52
 
 .loopexit52:                                      ; preds = %.loopexit52.loopexit, %202
@@ -1355,13 +1349,10 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %.22 = phi i32 [ %606, %605 ], [ %602, %601 ], [ %615, %612 ], [ %.20, %610 ]
   %620 = zext i8 %.5418191 to i32
   %621 = icmp sgt i32 %.5481, %620
-  br i1 %621, label %.lr.ph109.preheader, label %.preheader
-
-.lr.ph109.preheader:                              ; preds = %619
-  %622 = add i32 %.22, %.5481
-  br label %.lr.ph109
+  br i1 %621, label %.lr.ph109, label %.preheader
 
 .preheader.loopexit:                              ; preds = %.lr.ph109
+  %622 = add i32 %.22, %.5481
   %623 = sub i32 %622, %620
   br label %.preheader
 
@@ -1374,8 +1365,8 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %624 = zext i8 %.5418191 to i64
   br label %.lr.ph114
 
-.lr.ph109:                                        ; preds = %.lr.ph109.preheader, %.lr.ph109
-  %.7483107 = phi i32 [ %626, %.lr.ph109 ], [ %.5481, %.lr.ph109.preheader ]
+.lr.ph109:                                        ; preds = %619, %.lr.ph109
+  %.7483107 = phi i32 [ %626, %.lr.ph109 ], [ %.5481, %619 ]
   %625 = load ptr, ptr %6, align 8
   call void %625(ptr noundef %0, i32 noundef 48) #5
   %626 = add nsw i32 %.7483107, -1

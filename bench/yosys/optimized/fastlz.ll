@@ -790,9 +790,9 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %190 = zext nneg i32 %189 to i64
   %191 = add nuw nsw i64 %190, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.3193255, i8 -1, i64 %191, i1 false), !tbaa !7
+  %scevgep302 = getelementptr i8, ptr %.3193255, i64 %190
   %192 = urem i32 %188, 255
   %scevgep303 = getelementptr i8, ptr %.2192, i64 2
-  %scevgep302 = getelementptr i8, ptr %.3193255, i64 %190
   %scevgep304 = getelementptr i8, ptr %scevgep303, i64 %190
   br label %._crit_edge260
 
@@ -845,9 +845,9 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %217 = zext nneg i32 %216 to i64
   %218 = add nuw nsw i64 %217, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.5248, i8 -1, i64 %218, i1 false), !tbaa !7
+  %scevgep298 = getelementptr i8, ptr %.5248, i64 %217
   %219 = urem i32 %215, 255
   %scevgep299 = getelementptr i8, ptr %.2192, i64 2
-  %scevgep298 = getelementptr i8, ptr %.5248, i64 %217
   %scevgep300 = getelementptr i8, ptr %scevgep299, i64 %217
   br label %._crit_edge
 
@@ -1295,9 +1295,9 @@ define i32 @fastlz_decompress(ptr noundef readonly captures(address) %0, i32 nou
 
 .lr.ph166.preheader.i:                            ; preds = %149
   tail call void @llvm.memset.p0.i64(ptr align 1 %151, i8 %147, i64 %132, i1 false), !tbaa !7
+  %scevgep.i18 = getelementptr i8, ptr %.0109.i, i64 4
   %152 = add i32 %.087.i, -1
   %153 = zext i32 %152 to i64
-  %scevgep.i18 = getelementptr i8, ptr %.0109.i, i64 4
   %scevgep174.i = getelementptr i8, ptr %scevgep.i18, i64 %153
   br label %.loopexit.i17
 

@@ -12,34 +12,34 @@ define hidden zeroext i16 @aom_read_primitive_quniform_(ptr noundef %0, i16 noun
   %4 = zext i16 %1 to i32
   %5 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 range(i32 2, 65536) %4, i1 true)
   %6 = xor i32 %5, 31
-  %7 = shl nuw nsw i32 2, %6
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %8
 
-9:                                                ; preds = %9, %.lr.ph.i
-  %.0.in8.i = phi i32 [ %6, %.lr.ph.i ], [ %.0.i, %9 ]
-  %.067.i = phi i32 [ 0, %.lr.ph.i ], [ %12, %9 ]
+8:                                                ; preds = %8, %.lr.ph.i
+  %.0.in8.i = phi i32 [ %6, %.lr.ph.i ], [ %.0.i, %8 ]
+  %.067.i = phi i32 [ 0, %.lr.ph.i ], [ %11, %8 ]
   %.0.i = add nsw i32 %.0.in8.i, -1
-  %10 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %8, i32 noundef 16384) #3
-  %11 = shl i32 %10, %.0.i
-  %12 = or i32 %11, %.067.i
-  %13 = icmp samesign ugt i32 %.0.in8.i, 1
-  br i1 %13, label %9, label %aom_read_literal_.exit, !llvm.loop !4
+  %9 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %7, i32 noundef 16384) #3
+  %10 = shl i32 %9, %.0.i
+  %11 = or i32 %10, %.067.i
+  %12 = icmp samesign ugt i32 %.0.in8.i, 1
+  br i1 %12, label %8, label %aom_read_literal_.exit, !llvm.loop !4
 
-aom_read_literal_.exit:                           ; preds = %9
-  %14 = sub nsw i32 %7, %4
-  %15 = icmp slt i32 %12, %14
+aom_read_literal_.exit:                           ; preds = %8
+  %13 = shl nuw nsw i32 2, %6
+  %14 = sub nsw i32 %13, %4
+  %15 = icmp slt i32 %11, %14
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %aom_read_literal_.exit
-  %17 = shl i32 %12, 1
+  %17 = shl i32 %11, 1
   %18 = sub i32 %17, %14
-  %19 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %8, i32 noundef 16384) #3
+  %19 = tail call i32 @od_ec_decode_bool_q15(ptr noundef nonnull %7, i32 noundef 16384) #3
   %20 = add nsw i32 %18, %19
   br label %21
 
 21:                                               ; preds = %aom_read_literal_.exit, %16
-  %22 = phi i32 [ %20, %16 ], [ %12, %aom_read_literal_.exit ]
+  %22 = phi i32 [ %20, %16 ], [ %11, %aom_read_literal_.exit ]
   %23 = trunc i32 %22 to i16
   br label %24
 

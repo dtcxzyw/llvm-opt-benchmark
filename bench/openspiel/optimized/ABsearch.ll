@@ -38,28 +38,28 @@ define noundef zeroext i1 @_Z8ABsearchP3posiiP10ThreadData(ptr noundef nonnull %
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
-  %11 = icmp eq i32 %10, 1
-  %12 = shl nsw i64 %5, 3
-  %13 = getelementptr i8, ptr %3, i64 %12
-  %scevgep = getelementptr i8, ptr %13, i64 1606
+  %11 = shl nsw i64 %5, 3
+  %12 = getelementptr i8, ptr %3, i64 %11
+  %scevgep = getelementptr i8, ptr %12, i64 1606
   store i64 0, ptr %scevgep, align 2
-  %14 = ashr i32 %2, 2
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 987992
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3324
-  %17 = getelementptr inbounds [50 x %struct.moveType], ptr %16, i64 0, i64 %5
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4124
-  %19 = getelementptr inbounds [50 x %struct.moveType], ptr %18, i64 0, i64 %5
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4944
-  %21 = tail call noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull align 8 dereferenceable(39992) %15, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(1544) %0, ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull %20)
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 3100
-  tail call void @_ZN5Moves5PurgeEiiPK8moveType(ptr noundef nonnull align 8 dereferenceable(39992) %15, i32 noundef %14, i32 noundef 0, ptr noundef nonnull %22)
-  %23 = getelementptr i8, ptr %0, i64 %12
-  %scevgep85 = getelementptr i8, ptr %23, i64 72
+  %13 = ashr i32 %2, 2
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 987992
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 3324
+  %16 = getelementptr inbounds [50 x %struct.moveType], ptr %15, i64 0, i64 %5
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4124
+  %18 = getelementptr inbounds [50 x %struct.moveType], ptr %17, i64 0, i64 %5
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4944
+  %20 = tail call noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull align 8 dereferenceable(39992) %14, i32 noundef %13, ptr noundef nonnull align 4 dereferenceable(1544) %0, ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull %19)
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 3100
+  tail call void @_ZN5Moves5PurgeEiiPK8moveType(ptr noundef nonnull align 8 dereferenceable(39992) %14, i32 noundef %13, i32 noundef 0, ptr noundef nonnull %21)
+  %22 = getelementptr i8, ptr %0, i64 %11
+  %scevgep85 = getelementptr i8, ptr %22, i64 72
   store i64 0, ptr %scevgep85, align 2
-  %24 = xor i1 %11, true
+  %23 = icmp eq i32 %10, 1
+  %24 = xor i1 %23, true
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = getelementptr inbounds [50 x [4 x i16]], ptr %25, i64 0, i64 %5
-  %27 = tail call noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %15, i32 noundef %14, i32 noundef 0, ptr noundef nonnull %26)
+  %27 = tail call noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %14, i32 noundef %13, i32 noundef 0, ptr noundef nonnull %26)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit70, label %.lr.ph
 
@@ -75,7 +75,7 @@ define noundef zeroext i1 @_Z8ABsearchP3posiiP10ThreadData(ptr noundef nonnull %
   br label %39
 
 .loopexit:                                        ; preds = %.preheader68
-  %37 = tail call noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %15, i32 noundef %14, i32 noundef 0, ptr noundef nonnull %26)
+  %37 = tail call noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %14, i32 noundef %13, i32 noundef 0, ptr noundef nonnull %26)
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.loopexit70, label %39, !llvm.loop !4
 
@@ -140,7 +140,7 @@ define noundef zeroext i1 @_Z8ABsearchP3posiiP10ThreadData(ptr noundef nonnull %
   %88 = load i8, ptr %87, align 1
   %89 = add i8 %88, 1
   store i8 %89, ptr %87, align 1
-  %90 = xor i1 %11, %66
+  %90 = xor i1 %23, %66
   br i1 %90, label %.preheader68, label %.preheader
 
 .preheader:                                       ; preds = %39, %.preheader
@@ -154,7 +154,7 @@ define noundef zeroext i1 @_Z8ABsearchP3posiiP10ThreadData(ptr noundef nonnull %
   br i1 %exitcond93.not, label %94, label %.preheader, !llvm.loop !6
 
 94:                                               ; preds = %.preheader
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %40, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %40, i64 16, i1 false)
   br label %.loopexit70
 
 .preheader68:                                     ; preds = %39, %.preheader68
@@ -678,22 +678,22 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
 
 .preheader233:                                    ; preds = %109, %98
   %147 = load i32, ptr %81, align 4
-  %148 = icmp eq i32 %147, 1
-  %149 = getelementptr i8, ptr %3, i64 %15
-  %scevgep264 = getelementptr i8, ptr %149, i64 1606
+  %148 = getelementptr i8, ptr %3, i64 %15
+  %scevgep264 = getelementptr i8, ptr %148, i64 1606
   store i64 0, ptr %scevgep264, align 2
-  %150 = getelementptr inbounds nuw i8, ptr %3, i64 987992
-  %151 = getelementptr inbounds nuw i8, ptr %3, i64 3324
-  %152 = getelementptr inbounds [50 x %struct.moveType], ptr %151, i64 0, i64 %12
-  %153 = getelementptr inbounds nuw i8, ptr %3, i64 4124
-  %154 = getelementptr inbounds [50 x %struct.moveType], ptr %153, i64 0, i64 %12
-  %155 = getelementptr inbounds nuw i8, ptr %3, i64 4944
-  %156 = call noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull align 8 dereferenceable(39992) %150, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(1544) %0, ptr noundef nonnull align 4 dereferenceable(16) %152, ptr noundef nonnull align 4 dereferenceable(16) %154, ptr noundef nonnull %155)
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 987992
+  %150 = getelementptr inbounds nuw i8, ptr %3, i64 3324
+  %151 = getelementptr inbounds [50 x %struct.moveType], ptr %150, i64 0, i64 %12
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 4124
+  %153 = getelementptr inbounds [50 x %struct.moveType], ptr %152, i64 0, i64 %12
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 4944
+  %155 = call noundef i32 @_ZN5Moves8MoveGen0EiRK3posRK8moveTypeS5_PK12relRanksType(ptr noundef nonnull align 8 dereferenceable(39992) %149, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(1544) %0, ptr noundef nonnull align 4 dereferenceable(16) %151, ptr noundef nonnull align 4 dereferenceable(16) %153, ptr noundef nonnull %154)
   store i64 0, ptr %scevgep, align 2
-  %157 = xor i1 %148, true
+  %156 = icmp eq i32 %147, 1
+  %157 = xor i1 %156, true
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %159 = getelementptr inbounds [50 x [4 x i16]], ptr %158, i64 0, i64 %12
-  %160 = call noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %150, i32 noundef %17, i32 noundef 0, ptr noundef nonnull %159)
+  %160 = call noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %149, i32 noundef %17, i32 noundef 0, ptr noundef nonnull %159)
   %161 = icmp eq ptr %160, null
   br i1 %161, label %._crit_edge, label %.lr.ph
 
@@ -709,7 +709,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   br label %172
 
 .loopexit232:                                     ; preds = %.preheader231
-  %170 = call noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %150, i32 noundef %17, i32 noundef 0, ptr noundef nonnull %159)
+  %170 = call noundef ptr @_ZN5Moves8MakeNextEiiPKt(ptr noundef nonnull align 8 dereferenceable(39992) %149, i32 noundef %17, i32 noundef 0, ptr noundef nonnull %159)
   %171 = icmp eq ptr %170, null
   br i1 %171, label %._crit_edge, label %172, !llvm.loop !13
 
@@ -774,7 +774,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   %221 = load i8, ptr %220, align 1
   %222 = add i8 %221, 1
   store i8 %222, ptr %220, align 1
-  %223 = xor i1 %148, %199
+  %223 = xor i1 %156, %199
   br i1 %223, label %.preheader231, label %.preheader
 
 .preheader:                                       ; preds = %172, %.preheader
@@ -788,7 +788,7 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   br i1 %exitcond281.not, label %227, label %.preheader, !llvm.loop !14
 
 227:                                              ; preds = %.preheader
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %152, ptr noundef nonnull align 4 dereferenceable(16) %173, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %151, ptr noundef nonnull align 4 dereferenceable(16) %173, i64 16, i1 false)
   br i1 %199, label %233, label %247
 
 .preheader231:                                    ; preds = %172, %.preheader231
@@ -857,11 +857,11 @@ define noundef zeroext i1 @_Z9ABsearch0P3posiiP10ThreadData(ptr noundef %0, i32 
   %.1224 = phi i1 [ false, %250 ], [ false, %255 ], [ true, %236 ], [ true, %242 ]
   %263 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %.sink, ptr %263, align 1
-  %264 = load i32, ptr %152, align 4
+  %264 = load i32, ptr %151, align 4
   %265 = trunc i32 %264 to i8
   %266 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 %265, ptr %266, align 1
-  %267 = getelementptr inbounds nuw i8, ptr %152, i64 4
+  %267 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %268 = load i32, ptr %267, align 4
   %269 = trunc i32 %268 to i8
   %270 = getelementptr inbounds nuw i8, ptr %8, i64 3
@@ -1091,14 +1091,14 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
-  %14 = icmp eq i32 %13, 1
-  %15 = add nsw i32 %2, 3
-  %16 = shl nsw i64 %6, 3
-  %17 = getelementptr i8, ptr %3, i64 %16
-  %scevgep = getelementptr i8, ptr %17, i64 1606
+  %14 = shl nsw i64 %6, 3
+  %15 = getelementptr i8, ptr %3, i64 %14
+  %scevgep = getelementptr i8, ptr %15, i64 1606
   store i64 0, ptr %scevgep, align 2
-  %18 = xor i1 %14, true
-  %19 = ashr i32 %15, 2
+  %16 = icmp eq i32 %13, 1
+  %17 = xor i1 %16, true
+  %18 = add nsw i32 %2, 3
+  %19 = ashr i32 %18, 2
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 987992
   %21 = tail call noundef i32 @_ZN5Moves10MoveGen123EiiRK3pos(ptr noundef nonnull align 8 dereferenceable(39992) %20, i32 noundef %19, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(1544) %0)
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1112,7 +1112,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   br label %.preheader66
 
 .preheader66:                                     ; preds = %25, %4
-  %27 = getelementptr i8, ptr %0, i64 %16
+  %27 = getelementptr i8, ptr %0, i64 %14
   %scevgep82 = getelementptr i8, ptr %27, i64 72
   store i64 0, ptr %scevgep82, align 2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1199,7 +1199,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   %93 = load i8, ptr %92, align 1
   %94 = add i8 %93, 1
   store i8 %94, ptr %92, align 1
-  %95 = xor i1 %14, %69
+  %95 = xor i1 %16, %69
   br i1 %95, label %.preheader65, label %.preheader
 
 .preheader:                                       ; preds = %40, %.preheader
@@ -1231,7 +1231,7 @@ define noundef zeroext i1 @_Z9ABsearch2P3posiiP10ThreadData(ptr noundef nonnull 
   br i1 %exitcond.not, label %.loopexit, label %.preheader65, !llvm.loop !21
 
 .loopexit67:                                      ; preds = %.loopexit, %.preheader66, %99
-  %.1 = phi i1 [ %69, %99 ], [ %18, %.preheader66 ], [ %69, %.loopexit ]
+  %.1 = phi i1 [ %69, %99 ], [ %17, %.preheader66 ], [ %69, %.loopexit ]
   ret i1 %.1
 }
 
@@ -1334,12 +1334,12 @@ define noundef zeroext i1 @_Z9ABsearch3P3posiiP10ThreadData(ptr noundef nonnull 
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
-  %15 = icmp eq i32 %14, 1
-  %16 = shl nsw i64 %7, 3
-  %17 = getelementptr i8, ptr %3, i64 %16
-  %scevgep = getelementptr i8, ptr %17, i64 1606
+  %15 = shl nsw i64 %7, 3
+  %16 = getelementptr i8, ptr %3, i64 %15
+  %scevgep = getelementptr i8, ptr %16, i64 1606
   store i64 0, ptr %scevgep, align 2
-  %18 = xor i1 %15, true
+  %17 = icmp eq i32 %14, 1
+  %18 = xor i1 %17, true
   %19 = add nsw i32 %2, 3
   %20 = ashr i32 %19, 2
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 987992
@@ -1355,7 +1355,7 @@ define noundef zeroext i1 @_Z9ABsearch3P3posiiP10ThreadData(ptr noundef nonnull 
   br label %.preheader79
 
 .preheader79:                                     ; preds = %26, %4
-  %28 = getelementptr i8, ptr %0, i64 %16
+  %28 = getelementptr i8, ptr %0, i64 %15
   %scevgep95 = getelementptr i8, ptr %28, i64 72
   store i64 0, ptr %scevgep95, align 2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1483,7 +1483,7 @@ _Z5Undo0P3posiRK8moveTypePK10ThreadData.exit:     ; preds = %.lr.ph.i, %61
   br label %117
 
 117:                                              ; preds = %114, %_Z5Undo0P3posiRK8moveTypePK10ThreadData.exit
-  %118 = xor i1 %15, %62
+  %118 = xor i1 %17, %62
   br i1 %118, label %.preheader78, label %.preheader
 
 .preheader:                                       ; preds = %117, %.preheader
@@ -1584,8 +1584,8 @@ define void @_Z5Make3P3posPtiPK8moveTypeP10ThreadData(ptr noundef captures(none)
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds [50 x i32], ptr %6, i64 0, i64 %19
   store i32 %17, ptr %20, align 4
-  %21 = add nsw i32 %9, 3
   store i64 0, ptr %1, align 2
+  %21 = add nsw i32 %9, 3
   %22 = and i32 %21, 3
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %24 = load i32, ptr %23, align 4

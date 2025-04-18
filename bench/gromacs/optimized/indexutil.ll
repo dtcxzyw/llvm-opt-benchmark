@@ -5637,55 +5637,55 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %28
   %46 = load i32, ptr %45, align 4, !tbaa !239
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %48 = load i32, ptr %47, align 8, !tbaa !240
-  %49 = mul nsw i32 %48, %37
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !222
-  %52 = sext i32 %.recomposed to i64
-  %53 = getelementptr inbounds %struct.t_atom, ptr %51, i64 %52, i32 7
-  %54 = load i32, ptr %53, align 4, !tbaa !227
-  br label %55
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %50 = load ptr, ptr %49, align 8, !tbaa !222
+  %51 = sext i32 %.recomposed to i64
+  %52 = getelementptr inbounds %struct.t_atom, ptr %50, i64 %51, i32 7
+  %53 = load i32, ptr %52, align 4, !tbaa !227
+  br label %54
 
-55:                                               ; preds = %64, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
-  %56 = phi i32 [ %26, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %.pre, %64 ]
-  %57 = phi i32 [ %.promoted.i.i11, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %67, %64 ]
-  %.026.i.i12 = phi i32 [ %19, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %.127.i.i15, %64 ]
-  %.0.i.i13 = phi i32 [ -1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %.1.i.i16, %64 ]
-  %58 = icmp slt i32 %6, %56
-  br i1 %58, label %64, label %59
+54:                                               ; preds = %63, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit
+  %55 = phi i32 [ %26, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %.pre, %63 ]
+  %56 = phi i32 [ %.promoted.i.i11, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %66, %63 ]
+  %.026.i.i12 = phi i32 [ %19, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %.127.i.i15, %63 ]
+  %.0.i.i13 = phi i32 [ -1, %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit ], [ %.1.i.i16, %63 ]
+  %57 = icmp slt i32 %6, %55
+  br i1 %57, label %63, label %58
 
-59:                                               ; preds = %55
-  %60 = sext i32 %57 to i64
-  %61 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %60
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %63 = load i32, ptr %62, align 4, !tbaa !212
-  %.not.i.i14 = icmp slt i32 %6, %63
-  br i1 %.not.i.i14, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit17, label %64
+58:                                               ; preds = %54
+  %59 = sext i32 %56 to i64
+  %60 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %62 = load i32, ptr %61, align 4, !tbaa !212
+  %.not.i.i14 = icmp slt i32 %6, %62
+  br i1 %.not.i.i14, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit17, label %63
 
-64:                                               ; preds = %59, %55
-  %.127.i.i15 = phi i32 [ %57, %55 ], [ %.026.i.i12, %59 ]
-  %.1.i.i16 = phi i32 [ %.0.i.i13, %55 ], [ %57, %59 ]
-  %65 = add i32 %.127.i.i15, 1
-  %66 = add i32 %65, %.1.i.i16
-  %67 = ashr i32 %66, 1
-  store i32 %67, ptr %2, align 4, !tbaa !36
-  %.phi.trans.insert = sext i32 %67 to i64
+63:                                               ; preds = %58, %54
+  %.127.i.i15 = phi i32 [ %56, %54 ], [ %.026.i.i12, %58 ]
+  %.1.i.i16 = phi i32 [ %.0.i.i13, %54 ], [ %56, %58 ]
+  %64 = add i32 %.127.i.i15, 1
+  %65 = add i32 %64, %.1.i.i16
+  %66 = ashr i32 %65, 1
+  store i32 %66, ptr %2, align 4, !tbaa !36
+  %.phi.trans.insert = sext i32 %66 to i64
   %.phi.trans.insert30 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %21, i64 %.phi.trans.insert, i32 1
   %.pre = load i32, ptr %.phi.trans.insert30, align 4, !tbaa !210
-  br label %55, !llvm.loop !236
+  br label %54, !llvm.loop !236
 
-_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit17: ; preds = %59
-  %68 = add nsw i32 %49, %46
-  %69 = add nsw i32 %68, %54
-  %70 = sub nsw i32 %6, %56
-  %71 = load i32, ptr %61, align 4, !tbaa !213
+_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit17: ; preds = %58
+  %67 = mul nsw i32 %48, %37
+  %68 = add nsw i32 %67, %46
+  %69 = add nsw i32 %68, %53
+  %70 = sub nsw i32 %6, %55
+  %71 = load i32, ptr %60, align 4, !tbaa !213
   %72 = sdiv i32 %70, %71
   %73 = mul nsw i32 %72, %71
   %.recomposed51 = srem i32 %70, %71
-  %74 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %60
+  %74 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %14, i64 %59
   %75 = load i32, ptr %74, align 8, !tbaa !214
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %43, i64 %76
-  %78 = getelementptr inbounds nuw i8, ptr %61, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %79 = load i32, ptr %78, align 4, !tbaa !239
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %81 = load i32, ptr %80, align 8, !tbaa !240

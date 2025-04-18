@@ -3560,19 +3560,19 @@ entry:
   %agg.tmp206 = alloca %"class.QuantLib::Interpolation", align 8
   %0 = load ptr, ptr %strikes, align 8, !tbaa !34
   %1 = load double, ptr %0, align 8, !tbaa !32
-  %mul = fmul double %1, 5.000000e-01
-  %cmp.i = fcmp olt double %mul, 1.000000e-05
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %strikes, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !34
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load double, ptr %add.ptr.i.i, align 8, !tbaa !32
+  %4 = load double, ptr %this, align 8, !tbaa !18
+  %mul = fmul double %1, 5.000000e-01
+  %cmp.i = fcmp olt double %mul, 1.000000e-05
+  %.sroa.speculated519 = select i1 %cmp.i, double %mul, double 1.000000e-05
   %mul7 = fmul double %3, 1.500000e+00
   %cmp.i34 = fcmp ogt double %mul7, 1.000000e-01
-  %4 = load double, ptr %this, align 8, !tbaa !18
+  %.sroa.speculated518 = select i1 %cmp.i34, double %mul7, double 1.000000e-01
   %mul9 = fmul double %4, 2.400000e+01
   %5 = tail call double @llvm.ceil.f64(double %mul9)
-  %.sroa.speculated519 = select i1 %cmp.i, double %mul, double 1.000000e-05
-  %.sroa.speculated518 = select i1 %cmp.i34, double %mul7, double 1.000000e-01
   %conv = fptoui double %5 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %layout) #28
   %call13 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #32

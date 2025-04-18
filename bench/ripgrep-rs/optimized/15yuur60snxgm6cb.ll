@@ -2641,44 +2641,44 @@ define void @_ZN6ignore4walk12WalkParallel5visit17ha194e14289eea450E(ptr noalias
           cleanup
   br label %.body78
 
-"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h84a40346983041eeE.exit": ; preds = %62, %92
-  %.pn26.pn = phi { ptr, i32 } [ %63, %62 ], [ %.pn24, %92 ]
+"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h84a40346983041eeE.exit": ; preds = %61, %92
+  %.pn26.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn24, %92 ]
   %49 = icmp ne ptr %64, null
   call void @llvm.assume(i1 %49)
-  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ignore..walk..ParallelVisitor$GT$$GT$17h1fb0230125b4a8a3E"(ptr %51, ptr nonnull %64) #19
+  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ignore..walk..ParallelVisitor$GT$$GT$17h1fb0230125b4a8a3E"(ptr %63, ptr nonnull %64) #19
           to label %.thread unwind label %315
 
 50:                                               ; preds = %3
-  %51 = extractvalue { ptr, ptr } %46, 0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38)
   store ptr inttoptr (i64 8 to ptr), ptr %38, align 8, !alias.scope !493, !noalias !496
-  %52 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i64 0, ptr %52, align 8, !alias.scope !493, !noalias !496
-  %53 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store i64 0, ptr %51, align 8, !alias.scope !493, !noalias !496
+  %52 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr inttoptr (i64 8 to ptr), ptr %52, align 8, !alias.scope !493, !noalias !496
+  %53 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr inttoptr (i64 8 to ptr), ptr %53, align 8, !alias.scope !493, !noalias !496
-  %54 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr inttoptr (i64 8 to ptr), ptr %54, align 8, !alias.scope !493, !noalias !496
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %56
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %55
 
-56:                                               ; preds = %56, %50
-  %.05.i = phi i64 [ 0, %50 ], [ %61, %56 ]
-  %57 = getelementptr inbounds nuw i64, ptr %38, i64 %.05.i
-  %58 = getelementptr inbounds nuw i64, ptr %55, i64 %.05.i
+55:                                               ; preds = %55, %50
+  %.05.i = phi i64 [ 0, %50 ], [ %60, %55 ]
+  %56 = getelementptr inbounds nuw i64, ptr %38, i64 %.05.i
+  %57 = getelementptr inbounds nuw i64, ptr %54, i64 %.05.i
+  %58 = load i64, ptr %56, align 8
   %59 = load i64, ptr %57, align 8
-  %60 = load i64, ptr %58, align 8
-  store i64 %60, ptr %57, align 8
-  store i64 %59, ptr %58, align 8
-  %61 = add nuw nsw i64 %.05.i, 1
-  %exitcond.not.i = icmp eq i64 %61, 4
-  br i1 %exitcond.not.i, label %_ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit, label %56
+  store i64 %59, ptr %56, align 8
+  store i64 %58, ptr %57, align 8
+  %60 = add nuw nsw i64 %.05.i, 1
+  %exitcond.not.i = icmp eq i64 %60, 4
+  br i1 %exitcond.not.i, label %_ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit, label %55
 
-62:                                               ; preds = %.loopexit, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a178cb979ea17caE.exit.thread"
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %.loopexit, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a178cb979ea17caE.exit.thread"
+  %62 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h84a40346983041eeE.exit"
 
-_ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
+_ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %55
+  %63 = extractvalue { ptr, ptr } %46, 0
   %64 = extractvalue { ptr, ptr } %46, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32, i1 false)
@@ -2760,7 +2760,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a178cb979ea17caE.exit.thread": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a178cb979ea17caE.exit", %.backedge, %_ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.990)
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha68ca0ca699c0f16E.llvm.12875954175451687458"(ptr noalias noundef nonnull align 8 dereferenceable(32) %37)
-          to label %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h84a40346983041eeE.exit48" unwind label %62
+          to label %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h84a40346983041eeE.exit48" unwind label %61
 
 98:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a178cb979ea17caE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
@@ -2896,7 +2896,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
   %137 = icmp ne ptr %64, null
   call void @llvm.assume(i1 %137)
   %138 = load ptr, ptr %64, align 8, !invariant.load !4, !nonnull !4
-  invoke void %138(ptr noundef nonnull align 1 %51)
+  invoke void %138(ptr noundef nonnull align 1 %63)
           to label %148 unwind label %139
 
 139:                                              ; preds = %136
@@ -2912,7 +2912,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
   br i1 %146, label %.thread, label %147
 
 147:                                              ; preds = %139
-  call void @__rust_dealloc(ptr noundef nonnull %51, i64 noundef range(i64 1, 0) %142, i64 noundef range(i64 0, -9223372036854775807) %144) #18
+  call void @__rust_dealloc(ptr noundef nonnull %63, i64 noundef range(i64 1, 0) %142, i64 noundef range(i64 0, -9223372036854775807) %144) #18
   br label %.thread
 
 148:                                              ; preds = %136
@@ -2926,7 +2926,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
   br i1 %154, label %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ignore..walk..ParallelVisitor$GT$$GT$17h1fb0230125b4a8a3E.exit", label %155
 
 155:                                              ; preds = %148
-  call void @__rust_dealloc(ptr noundef nonnull %51, i64 noundef range(i64 1, 0) %150, i64 noundef range(i64 0, -9223372036854775807) %152) #18
+  call void @__rust_dealloc(ptr noundef nonnull %63, i64 noundef range(i64 1, 0) %150, i64 noundef range(i64 0, -9223372036854775807) %152) #18
   br label %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ignore..walk..ParallelVisitor$GT$$GT$17h1fb0230125b4a8a3E.exit"
 
 156:                                              ; preds = %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h84a40346983041eeE.exit48", %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h84a40346983041eeE.exit76"
@@ -2934,7 +2934,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
   %157 = icmp ne ptr %64, null
   call void @llvm.assume(i1 %157)
   %158 = load ptr, ptr %64, align 8, !invariant.load !4, !nonnull !4
-  invoke void %158(ptr noundef nonnull align 1 %51)
+  invoke void %158(ptr noundef nonnull align 1 %63)
           to label %168 unwind label %159
 
 159:                                              ; preds = %156
@@ -2950,7 +2950,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
   br i1 %166, label %.thread, label %167
 
 167:                                              ; preds = %159
-  call void @__rust_dealloc(ptr noundef nonnull %51, i64 noundef range(i64 1, 0) %162, i64 noundef range(i64 0, -9223372036854775807) %164) #18
+  call void @__rust_dealloc(ptr noundef nonnull %63, i64 noundef range(i64 1, 0) %162, i64 noundef range(i64 0, -9223372036854775807) %164) #18
   br label %.thread
 
 168:                                              ; preds = %156
@@ -2964,7 +2964,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
   br i1 %174, label %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ignore..walk..ParallelVisitor$GT$$GT$17h1fb0230125b4a8a3E.exit56", label %175
 
 175:                                              ; preds = %168
-  call void @__rust_dealloc(ptr noundef nonnull %51, i64 noundef range(i64 1, 0) %170, i64 noundef range(i64 0, -9223372036854775807) %172) #18
+  call void @__rust_dealloc(ptr noundef nonnull %63, i64 noundef range(i64 1, 0) %170, i64 noundef range(i64 0, -9223372036854775807) %172) #18
   br label %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ignore..walk..ParallelVisitor$GT$$GT$17h1fb0230125b4a8a3E.exit56"
 
 "_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ignore..walk..ParallelVisitor$GT$$GT$17h1fb0230125b4a8a3E.exit": ; preds = %155, %148
@@ -3607,7 +3607,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
   call void @llvm.assume(i1 %83)
   store i64 3, ptr %29, align 8
   %337 = load ptr, ptr %85, align 8, !invariant.load !4, !nonnull !4
-  %338 = invoke noundef i8 %337(ptr noundef align 1 %51, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %29)
+  %338 = invoke noundef i8 %337(ptr noundef align 1 %63, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %29)
           to label %344 unwind label %318, !range !400
 
 339:                                              ; preds = %333
@@ -3649,7 +3649,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.990)
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha68ca0ca699c0f16E.llvm.12875954175451687458"(ptr noalias noundef nonnull align 8 dereferenceable(32) %37)
-          to label %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h84a40346983041eeE.exit76" unwind label %62
+          to label %"_ZN4core3ptr78drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$GT$17h84a40346983041eeE.exit76" unwind label %61
 
 349:                                              ; preds = %332
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
@@ -3659,7 +3659,7 @@ _ZN4core3ptr19swap_nonoverlapping17hd49428cb8846d893E.exit: ; preds = %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %88, ptr noundef nonnull align 8 dereferenceable(56) %35, i64 56, i1 false)
   store i64 3, ptr %32, align 8
   %350 = load ptr, ptr %85, align 8, !invariant.load !4, !nonnull !4
-  %351 = invoke noundef i8 %350(ptr noundef align 1 %51, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %32)
+  %351 = invoke noundef i8 %350(ptr noundef align 1 %63, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %32)
           to label %352 unwind label %318, !range !400
 
 352:                                              ; preds = %349

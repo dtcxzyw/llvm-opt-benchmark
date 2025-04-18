@@ -3885,9 +3885,7 @@ if.else:                                          ; preds = %if.end
 if.end10:                                         ; preds = %_ZN8facebook5velox12VectorFuzzer8coinTossEd.exit, %entry
   %rng_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %call9.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng_)
-  %conv = and i64 %call9.i.i.i.i, 4294967295
   %9 = load i64, ptr %this, align 8
-  %rem = urem i64 %conv, %9
   br label %for.cond85.i.i.i.i
 
 for.cond85.i.i.i.i:                               ; preds = %for.cond85.i.i.i.i, %if.end10
@@ -3896,6 +3894,8 @@ for.cond85.i.i.i.i:                               ; preds = %for.cond85.i.i.i.i,
   br i1 %cmp92.not.i.i.i.i, label %for.cond85.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit, !llvm.loop !10
 
 _ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit: ; preds = %for.cond85.i.i.i.i
+  %conv = and i64 %call9.i.i.i.i, 4294967295
+  %rem = urem i64 %conv, %9
   %add = add nuw nsw i64 %rem, 1
   %div90.i.i.i2.i = lshr i64 %call88.i.i.i.i, 1
   %rem16 = urem i64 %div90.i.i.i2.i, %add
@@ -5579,14 +5579,6 @@ call29.i.i.noexc.i.i.i:                           ; preds = %_ZNSt23mersenne_twi
   store i64 %inc.i.i396.i.i, ptr %_M_p.i.i387.i.i, align 8
   %arrayidx.i55.i.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_12.i.i, i64 0, i64 %168
   %169 = load i64, ptr %arrayidx.i55.i.i.i, align 8
-  %shr.i.i397.i.i = lshr i64 %169, 11
-  %and.i.i398.i.i = and i64 %shr.i.i397.i.i, 4294967295
-  %xor.i.i399.i.i = xor i64 %and.i.i398.i.i, %169
-  %shl.i.i400.i.i = shl i64 %xor.i.i399.i.i, 7
-  %and3.i.i401.i.i = and i64 %shl.i.i400.i.i, 2636928640
-  %xor4.i.i402.i.i = xor i64 %and3.i.i401.i.i, %xor.i.i399.i.i
-  %shl5.i.i403.i.i = shl i64 %xor4.i.i402.i.i, 15
-  %and6.i.i404.i.i = and i64 %shl5.i.i403.i.i, 4022730752
   br label %for.cond73.i.i.i.i
 
 for.cond73.i.i.i.i:                               ; preds = %call76.i.noexc.i.i.i, %call29.i.i.noexc.i.i.i
@@ -5685,6 +5677,14 @@ call76.i.noexc.i.i.i:                             ; preds = %_ZNSt23mersenne_twi
   br i1 %cmp79.not.i.i.i.i, label %for.cond73.i.i.i.i, label %if.end45.i.i.i.i.i, !llvm.loop !18
 
 if.end45.i.i.i.i.i:                               ; preds = %call76.i.noexc.i.i.i
+  %shr.i.i397.i.i = lshr i64 %169, 11
+  %and.i.i398.i.i = and i64 %shr.i.i397.i.i, 4294967295
+  %xor.i.i399.i.i = xor i64 %and.i.i398.i.i, %169
+  %shl.i.i400.i.i = shl i64 %xor.i.i399.i.i, 7
+  %and3.i.i401.i.i = and i64 %shl.i.i400.i.i, 2636928640
+  %xor4.i.i402.i.i = xor i64 %and3.i.i401.i.i, %xor.i.i399.i.i
+  %shl5.i.i403.i.i = shl i64 %xor4.i.i402.i.i, 15
+  %and6.i.i404.i.i = and i64 %shl5.i.i403.i.i, 4022730752
   %xor7.i.i405.i.i = xor i64 %and6.i.i404.i.i, %xor4.i.i402.i.i
   %shr8.i.i406.i.i = lshr i64 %xor7.i.i405.i.i, 18
   %xor9.i.i407.i.i = xor i64 %shr8.i.i406.i.i, %xor7.i.i405.i.i
@@ -5850,14 +5850,6 @@ while.cond.while.end_crit_edge.i.i.i.i:           ; preds = %_ZNSt23mersenne_twi
   store i64 %inc.i1007.i.i, ptr %_M_p.i.i387.i.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_12.i.i, i64 0, i64 %202
   %203 = load i64, ptr %arrayidx.i.i.i, align 8
-  %shr.i.i.i = lshr i64 %203, 11
-  %and.i.i.i = and i64 %shr.i.i.i, 4294967295
-  %xor.i.i.i = xor i64 %and.i.i.i, %203
-  %shl.i.i.i = shl i64 %xor.i.i.i, 7
-  %and3.i.i.i = and i64 %shl.i.i.i, 2636928640
-  %xor4.i.i.i = xor i64 %and3.i.i.i, %xor.i.i.i
-  %shl5.i.i.i = shl i64 %xor4.i.i.i, 15
-  %and6.i.i.i = and i64 %shl5.i.i.i, 4022730752
   br label %for.cond73.i.i.i
 
 for.cond73.i.i.i:                                 ; preds = %call76.i.noexc.i.i, %while.cond.while.end_crit_edge.i.i.i.i
@@ -5957,6 +5949,14 @@ call76.i.noexc.i.i:                               ; preds = %_ZNSt23mersenne_twi
   br i1 %cmp79.not.i.i.i, label %for.cond73.i.i.i, label %if.end45.i.i.i.i, !llvm.loop !18
 
 if.end45.i.i.i.i:                                 ; preds = %call76.i.noexc.i.i
+  %shr.i.i.i = lshr i64 %203, 11
+  %and.i.i.i = and i64 %shr.i.i.i, 4294967295
+  %xor.i.i.i = xor i64 %and.i.i.i, %203
+  %shl.i.i.i = shl i64 %xor.i.i.i, 7
+  %and3.i.i.i = and i64 %shl.i.i.i, 2636928640
+  %xor4.i.i.i = xor i64 %and3.i.i.i, %xor.i.i.i
+  %shl5.i.i.i = shl i64 %xor4.i.i.i, 15
+  %and6.i.i.i = and i64 %shl5.i.i.i, 4022730752
   %xor7.i.i.i = xor i64 %and6.i.i.i, %xor4.i.i.i
   %shr8.i.i.i = lshr i64 %xor7.i.i.i, 18
   %xor9.i.i.i = xor i64 %shr8.i.i.i, %xor7.i.i.i
@@ -6284,14 +6284,6 @@ call29.i.i.noexc.i542.i.i:                        ; preds = %_ZNSt23mersenne_twi
   store i64 %inc.i.i543.i.i, ptr %_M_p.i.i500.i.i, align 8
   %arrayidx.i58.i.i.i = getelementptr inbounds nuw [624 x i64], ptr %rng_15.i.i, i64 0, i64 %262
   %263 = load i64, ptr %arrayidx.i58.i.i.i, align 8
-  %shr.i.i544.i.i = lshr i64 %263, 11
-  %and.i.i545.i.i = and i64 %shr.i.i544.i.i, 4294967295
-  %xor.i.i546.i.i = xor i64 %and.i.i545.i.i, %263
-  %shl.i.i547.i.i = shl i64 %xor.i.i546.i.i, 7
-  %and3.i.i548.i.i = and i64 %shl.i.i547.i.i, 2636928640
-  %xor4.i.i549.i.i = xor i64 %and3.i.i548.i.i, %xor.i.i546.i.i
-  %shl5.i.i550.i.i = shl i64 %xor4.i.i549.i.i, 15
-  %and6.i.i551.i.i = and i64 %shl5.i.i550.i.i, 4022730752
   br label %for.cond73.i.i555.i.i
 
 for.cond73.i.i555.i.i:                            ; preds = %call76.i.noexc.i558.i.i, %call29.i.i.noexc.i542.i.i
@@ -6390,6 +6382,14 @@ call76.i.noexc.i558.i.i:                          ; preds = %_ZNSt23mersenne_twi
   br i1 %cmp79.not.i.i559.i.i, label %for.cond73.i.i555.i.i, label %if.end45.i.i.i560.i.i, !llvm.loop !18
 
 if.end45.i.i.i560.i.i:                            ; preds = %call76.i.noexc.i558.i.i
+  %shr.i.i544.i.i = lshr i64 %263, 11
+  %and.i.i545.i.i = and i64 %shr.i.i544.i.i, 4294967295
+  %xor.i.i546.i.i = xor i64 %and.i.i545.i.i, %263
+  %shl.i.i547.i.i = shl i64 %xor.i.i546.i.i, 7
+  %and3.i.i548.i.i = and i64 %shl.i.i547.i.i, 2636928640
+  %xor4.i.i549.i.i = xor i64 %and3.i.i548.i.i, %xor.i.i546.i.i
+  %shl5.i.i550.i.i = shl i64 %xor4.i.i549.i.i, 15
+  %and6.i.i551.i.i = and i64 %shl5.i.i550.i.i, 4022730752
   %xor7.i.i552.i.i = xor i64 %and6.i.i551.i.i, %xor4.i.i549.i.i
   %shr8.i.i553.i.i = lshr i64 %xor7.i.i552.i.i, 18
   %xor9.i.i554.i.i = xor i64 %shr8.i.i553.i.i, %xor7.i.i552.i.i
@@ -24286,16 +24286,6 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   store i64 %inc.i, ptr %_M_p.i, align 8
   %arrayidx.i = getelementptr inbounds nuw [624 x i64], ptr %rng, i64 0, i64 %15
   %16 = load i64, ptr %arrayidx.i, align 8
-  %shr.i = lshr i64 %16, 11
-  %and.i = and i64 %shr.i, 4294967295
-  %xor.i = xor i64 %and.i, %16
-  %shl.i = shl i64 %xor.i, 7
-  %and3.i = and i64 %shl.i, 2636928640
-  %xor4.i = xor i64 %and3.i, %xor.i
-  %shl5.i = shl i64 %xor4.i, 15
-  %and6.i = and i64 %shl5.i, 4022730752
-  %xor7.i = xor i64 %and6.i, %xor4.i
-  %shr8.i = lshr i64 %xor7.i, 18
   br label %for.cond73.i
 
 for.cond73.i:                                     ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit67, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit
@@ -24395,6 +24385,16 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   br i1 %cmp79.not.i, label %for.cond73.i, label %if.end45.i.i, !llvm.loop !18
 
 if.end45.i.i:                                     ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv.exit67
+  %shr.i = lshr i64 %16, 11
+  %and.i = and i64 %shr.i, 4294967295
+  %xor.i = xor i64 %and.i, %16
+  %shl.i = shl i64 %xor.i, 7
+  %and3.i = and i64 %shl.i, 2636928640
+  %xor4.i = xor i64 %and3.i, %xor.i
+  %shl5.i = shl i64 %xor4.i, 15
+  %and6.i = and i64 %shl5.i, 4022730752
+  %xor7.i = xor i64 %and6.i, %xor4.i
+  %shr8.i = lshr i64 %xor7.i, 18
   %xor9.i = xor i64 %shr8.i, %xor7.i
   %mul46.i.i = shl nuw nsw i64 %div78.i1, 32
   %add47.i.i = add i64 %mul46.i.i, %xor9.i

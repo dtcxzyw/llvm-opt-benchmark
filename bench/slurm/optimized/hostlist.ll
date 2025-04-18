@@ -2621,9 +2621,9 @@ _zero_padded.exit.thread.i.i.i.i:                 ; preds = %80
   br i1 %.not.i26.i.i.i.i, label %_zero_padded.exit28.loopexit.i.i.i.i, label %.lr.ph.i23.i.i.i.i, !llvm.loop !38
 
 _zero_padded.exit28.loopexit.i.i.i.i:             ; preds = %.lr.ph.i23.i.i.i.i
-  %87 = sub nsw i32 %77, %84
-  %88 = icmp sgt i32 %77, %84
-  %89 = select i1 %88, i32 %87, i32 0
+  %87 = icmp sgt i32 %77, %84
+  %88 = sub nsw i32 %77, %84
+  %89 = select i1 %87, i32 %88, i32 0
   br label %_zero_padded.exit28.i.i.i.i
 
 _zero_padded.exit28.i.i.i.i:                      ; preds = %_zero_padded.exit28.loopexit.i.i.i.i, %_zero_padded.exit.thread.i.i.i.i
@@ -2657,9 +2657,9 @@ _zero_padded.exit35.thread.i.i.i.i:               ; preds = %_zero_padded.exit28
   br i1 %.not.i40.i.i.i.i, label %_zero_padded.exit42.loopexit.i.i.i.i, label %.lr.ph.i37.i.i.i.i, !llvm.loop !38
 
 _zero_padded.exit42.loopexit.i.i.i.i:             ; preds = %.lr.ph.i37.i.i.i.i
-  %100 = sub nsw i32 %78, %97
-  %101 = icmp sgt i32 %78, %97
-  %102 = select i1 %101, i32 %100, i32 0
+  %100 = icmp sgt i32 %78, %97
+  %101 = sub nsw i32 %78, %97
+  %102 = select i1 %100, i32 %101, i32 0
   br label %_zero_padded.exit42.i.i.i.i
 
 _zero_padded.exit42.i.i.i.i:                      ; preds = %_zero_padded.exit42.loopexit.i.i.i.i, %_zero_padded.exit35.thread.i.i.i.i
@@ -3169,9 +3169,9 @@ _zero_padded.exit.thread.i.i.i117.i:              ; preds = %346
   br i1 %.not.i26.i.i.i96.i, label %_zero_padded.exit28.loopexit.i.i.i97.i, label %.lr.ph.i23.i.i.i93.i, !llvm.loop !38
 
 _zero_padded.exit28.loopexit.i.i.i97.i:           ; preds = %.lr.ph.i23.i.i.i93.i
-  %353 = sub nsw i32 %343, %350
-  %354 = icmp sgt i32 %343, %350
-  %355 = select i1 %354, i32 %353, i32 0
+  %353 = icmp sgt i32 %343, %350
+  %354 = sub nsw i32 %343, %350
+  %355 = select i1 %353, i32 %354, i32 0
   br label %_zero_padded.exit28.i.i.i98.i
 
 _zero_padded.exit28.i.i.i98.i:                    ; preds = %_zero_padded.exit28.loopexit.i.i.i97.i, %_zero_padded.exit.thread.i.i.i117.i
@@ -3205,9 +3205,9 @@ _zero_padded.exit35.thread.i.i.i116.i:            ; preds = %_zero_padded.exit28
   br i1 %.not.i40.i.i.i109.i, label %_zero_padded.exit42.loopexit.i.i.i110.i, label %.lr.ph.i37.i.i.i106.i, !llvm.loop !38
 
 _zero_padded.exit42.loopexit.i.i.i110.i:          ; preds = %.lr.ph.i37.i.i.i106.i
-  %366 = sub nsw i32 %344, %363
-  %367 = icmp sgt i32 %344, %363
-  %368 = select i1 %367, i32 %366, i32 0
+  %366 = icmp sgt i32 %344, %363
+  %367 = sub nsw i32 %344, %363
+  %368 = select i1 %366, i32 %367, i32 0
   br label %_zero_padded.exit42.i.i.i111.i
 
 _zero_padded.exit42.i.i.i111.i:                   ; preds = %_zero_padded.exit42.loopexit.i.i.i110.i, %_zero_padded.exit35.thread.i.i.i116.i
@@ -3616,9 +3616,9 @@ _zero_padded.exit.thread.i.i.i:                   ; preds = %70
   br i1 %.not.i26.i.i.i, label %_zero_padded.exit28.loopexit.i.i.i, label %.lr.ph.i23.i.i.i, !llvm.loop !38
 
 _zero_padded.exit28.loopexit.i.i.i:               ; preds = %.lr.ph.i23.i.i.i
-  %77 = sub nsw i32 %67, %74
-  %78 = icmp sgt i32 %67, %74
-  %79 = select i1 %78, i32 %77, i32 0
+  %77 = icmp sgt i32 %67, %74
+  %78 = sub nsw i32 %67, %74
+  %79 = select i1 %77, i32 %78, i32 0
   br label %_zero_padded.exit28.i.i.i
 
 _zero_padded.exit28.i.i.i:                        ; preds = %_zero_padded.exit28.loopexit.i.i.i, %_zero_padded.exit.thread.i.i.i
@@ -3652,9 +3652,9 @@ _zero_padded.exit35.thread.i.i.i:                 ; preds = %_zero_padded.exit28
   br i1 %.not.i40.i.i.i, label %_zero_padded.exit42.loopexit.i.i.i, label %.lr.ph.i37.i.i.i, !llvm.loop !38
 
 _zero_padded.exit42.loopexit.i.i.i:               ; preds = %.lr.ph.i37.i.i.i
-  %90 = sub nsw i32 %68, %87
-  %91 = icmp sgt i32 %68, %87
-  %92 = select i1 %91, i32 %90, i32 0
+  %90 = icmp sgt i32 %68, %87
+  %91 = sub nsw i32 %68, %87
+  %92 = select i1 %90, i32 %91, i32 0
   br label %_zero_padded.exit42.i.i.i
 
 _zero_padded.exit42.i.i.i:                        ; preds = %_zero_padded.exit42.loopexit.i.i.i, %_zero_padded.exit35.thread.i.i.i
@@ -4013,9 +4013,9 @@ _zero_padded.exit.thread.i.i:                     ; preds = %29
   br i1 %.not.i26.i.i, label %_zero_padded.exit28.loopexit.i.i, label %.lr.ph.i23.i.i, !llvm.loop !38
 
 _zero_padded.exit28.loopexit.i.i:                 ; preds = %.lr.ph.i23.i.i
-  %36 = sub nsw i32 %26, %33
-  %37 = icmp sgt i32 %26, %33
-  %38 = select i1 %37, i32 %36, i32 0
+  %36 = icmp sgt i32 %26, %33
+  %37 = sub nsw i32 %26, %33
+  %38 = select i1 %36, i32 %37, i32 0
   br label %_zero_padded.exit28.i.i
 
 _zero_padded.exit28.i.i:                          ; preds = %_zero_padded.exit28.loopexit.i.i, %_zero_padded.exit.thread.i.i
@@ -4049,9 +4049,9 @@ _zero_padded.exit35.thread.i.i:                   ; preds = %_zero_padded.exit28
   br i1 %.not.i40.i.i, label %_zero_padded.exit42.loopexit.i.i, label %.lr.ph.i37.i.i, !llvm.loop !38
 
 _zero_padded.exit42.loopexit.i.i:                 ; preds = %.lr.ph.i37.i.i
-  %49 = sub nsw i32 %27, %46
-  %50 = icmp sgt i32 %27, %46
-  %51 = select i1 %50, i32 %49, i32 0
+  %49 = icmp sgt i32 %27, %46
+  %50 = sub nsw i32 %27, %46
+  %51 = select i1 %49, i32 %50, i32 0
   br label %_zero_padded.exit42.i.i
 
 _zero_padded.exit42.i.i:                          ; preds = %_zero_padded.exit42.loopexit.i.i, %_zero_padded.exit35.thread.i.i
@@ -4411,9 +4411,9 @@ _zero_padded.exit.thread.i.i:                     ; preds = %54
   br i1 %.not.i26.i.i, label %_zero_padded.exit28.loopexit.i.i, label %.lr.ph.i23.i.i, !llvm.loop !38
 
 _zero_padded.exit28.loopexit.i.i:                 ; preds = %.lr.ph.i23.i.i
-  %61 = sub nsw i32 %51, %58
-  %62 = icmp sgt i32 %51, %58
-  %63 = select i1 %62, i32 %61, i32 0
+  %61 = icmp sgt i32 %51, %58
+  %62 = sub nsw i32 %51, %58
+  %63 = select i1 %61, i32 %62, i32 0
   br label %_zero_padded.exit28.i.i
 
 _zero_padded.exit28.i.i:                          ; preds = %_zero_padded.exit28.loopexit.i.i, %_zero_padded.exit.thread.i.i
@@ -4447,9 +4447,9 @@ _zero_padded.exit35.thread.i.i:                   ; preds = %_zero_padded.exit28
   br i1 %.not.i40.i.i, label %_zero_padded.exit42.loopexit.i.i, label %.lr.ph.i37.i.i, !llvm.loop !38
 
 _zero_padded.exit42.loopexit.i.i:                 ; preds = %.lr.ph.i37.i.i
-  %74 = sub nsw i32 %52, %71
-  %75 = icmp sgt i32 %52, %71
-  %76 = select i1 %75, i32 %74, i32 0
+  %74 = icmp sgt i32 %52, %71
+  %75 = sub nsw i32 %52, %71
+  %76 = select i1 %74, i32 %75, i32 0
   br label %_zero_padded.exit42.i.i
 
 _zero_padded.exit42.i.i:                          ; preds = %_zero_padded.exit42.loopexit.i.i, %_zero_padded.exit35.thread.i.i
@@ -5532,9 +5532,9 @@ _zero_padded.exit.thread.i:                       ; preds = %69
   br i1 %.not.i26.i, label %_zero_padded.exit28.loopexit.i, label %.lr.ph.i23.i, !llvm.loop !38
 
 _zero_padded.exit28.loopexit.i:                   ; preds = %.lr.ph.i23.i
-  %76 = sub nsw i32 %67, %73
-  %77 = icmp sgt i32 %67, %73
-  %78 = select i1 %77, i32 %76, i32 0
+  %76 = icmp sgt i32 %67, %73
+  %77 = sub nsw i32 %67, %73
+  %78 = select i1 %76, i32 %77, i32 0
   br label %_zero_padded.exit28.i
 
 _zero_padded.exit28.i:                            ; preds = %_zero_padded.exit28.loopexit.i, %_zero_padded.exit.thread.i
@@ -5568,9 +5568,9 @@ _zero_padded.exit35.thread.i:                     ; preds = %_zero_padded.exit28
   br i1 %.not.i40.i, label %_zero_padded.exit42.loopexit.i, label %.lr.ph.i37.i, !llvm.loop !38
 
 _zero_padded.exit42.loopexit.i:                   ; preds = %.lr.ph.i37.i
-  %89 = sub nsw i32 %64, %86
-  %90 = icmp slt i32 %86, %64
-  %91 = select i1 %90, i32 %89, i32 0
+  %89 = icmp slt i32 %86, %64
+  %90 = sub nsw i32 %64, %86
+  %91 = select i1 %89, i32 %90, i32 0
   br label %_zero_padded.exit42.i
 
 _zero_padded.exit42.i:                            ; preds = %_zero_padded.exit42.loopexit.i, %_zero_padded.exit35.thread.i
@@ -7501,9 +7501,9 @@ _zero_padded.exit.thread.i.i:                     ; preds = %25
   br i1 %.not.i26.i.i, label %_zero_padded.exit28.loopexit.i.i, label %.lr.ph.i23.i.i, !llvm.loop !38
 
 _zero_padded.exit28.loopexit.i.i:                 ; preds = %.lr.ph.i23.i.i
-  %32 = sub nsw i32 %22, %29
-  %33 = icmp sgt i32 %22, %29
-  %34 = select i1 %33, i32 %32, i32 0
+  %32 = icmp sgt i32 %22, %29
+  %33 = sub nsw i32 %22, %29
+  %34 = select i1 %32, i32 %33, i32 0
   br label %_zero_padded.exit28.i.i
 
 _zero_padded.exit28.i.i:                          ; preds = %_zero_padded.exit28.loopexit.i.i, %_zero_padded.exit.thread.i.i
@@ -7537,9 +7537,9 @@ _zero_padded.exit35.thread.i.i:                   ; preds = %_zero_padded.exit28
   br i1 %.not.i40.i.i, label %_zero_padded.exit42.loopexit.i.i, label %.lr.ph.i37.i.i, !llvm.loop !38
 
 _zero_padded.exit42.loopexit.i.i:                 ; preds = %.lr.ph.i37.i.i
-  %45 = sub nsw i32 %23, %42
-  %46 = icmp sgt i32 %23, %42
-  %47 = select i1 %46, i32 %45, i32 0
+  %45 = icmp sgt i32 %23, %42
+  %46 = sub nsw i32 %23, %42
+  %47 = select i1 %45, i32 %46, i32 0
   br label %_zero_padded.exit42.i.i
 
 _zero_padded.exit42.i.i:                          ; preds = %_zero_padded.exit42.loopexit.i.i, %_zero_padded.exit35.thread.i.i

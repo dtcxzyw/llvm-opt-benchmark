@@ -366,26 +366,26 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %27 = load ptr, ptr %26, align 8, !tbaa !16
   %28 = mul nsw i32 %21, %13
   %29 = icmp sgt i32 %28, 7
-  br i1 %29, label %.lr.ph.preheader, label %.preheader65
+  br i1 %29, label %.lr.ph, label %.preheader65
 
-.lr.ph.preheader:                                 ; preds = %22
+.preheader65.loopexit:                            ; preds = %.lr.ph
   %30 = and i32 %28, 2147483640
-  br label %.lr.ph
+  br label %.preheader65
 
-.preheader65:                                     ; preds = %.lr.ph, %22
-  %.056.lcssa = phi ptr [ %25, %22 ], [ %39, %.lr.ph ]
-  %.053.lcssa = phi ptr [ %27, %22 ], [ %40, %.lr.ph ]
-  %.050.lcssa = phi ptr [ %23, %22 ], [ %38, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %22 ], [ %30, %.lr.ph ]
+.preheader65:                                     ; preds = %.preheader65.loopexit, %22
+  %.056.lcssa = phi ptr [ %25, %22 ], [ %39, %.preheader65.loopexit ]
+  %.053.lcssa = phi ptr [ %27, %22 ], [ %40, %.preheader65.loopexit ]
+  %.050.lcssa = phi ptr [ %23, %22 ], [ %38, %.preheader65.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %22 ], [ %30, %.preheader65.loopexit ]
   %31 = or disjoint i32 %.0.lcssa, 3
   %32 = icmp slt i32 %31, %28
   br i1 %32, label %.lr.ph77, label %.preheader
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.069 = phi i32 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.05068 = phi ptr [ %38, %.lr.ph ], [ %23, %.lr.ph.preheader ]
-  %.05367 = phi ptr [ %40, %.lr.ph ], [ %27, %.lr.ph.preheader ]
-  %.05666 = phi ptr [ %39, %.lr.ph ], [ %25, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %22, %.lr.ph
+  %.069 = phi i32 [ %41, %.lr.ph ], [ 0, %22 ]
+  %.05068 = phi ptr [ %38, %.lr.ph ], [ %23, %22 ]
+  %.05367 = phi ptr [ %40, %.lr.ph ], [ %27, %22 ]
+  %.05666 = phi ptr [ %39, %.lr.ph ], [ %25, %22 ]
   %33 = load <8 x float>, ptr %.05068, align 1, !tbaa !25
   %34 = load <8 x float>, ptr %.05666, align 1, !tbaa !25
   %35 = load <8 x float>, ptr %.05367, align 1, !tbaa !25
@@ -398,7 +398,7 @@ define hidden noundef i32 @_ZNK4ncnn17BatchNorm_x86_avx15forward_inplaceERNS_3Ma
   %41 = add nuw nsw i32 %.069, 8
   %42 = or disjoint i32 %41, 7
   %43 = icmp slt i32 %42, %28
-  br i1 %43, label %.lr.ph, label %.preheader65, !llvm.loop !26
+  br i1 %43, label %.lr.ph, label %.preheader65.loopexit, !llvm.loop !26
 
 .preheader:                                       ; preds = %.lr.ph77, %.preheader65
   %.157.lcssa = phi ptr [ %.056.lcssa, %.preheader65 ], [ %51, %.lr.ph77 ]

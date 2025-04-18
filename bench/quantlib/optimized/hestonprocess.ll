@@ -7949,16 +7949,12 @@ for.body.i11:                                     ; preds = %for.body.i11, %if.e
   %add3.i20 = fadd double %d.08.i13, %9
   %mul4.i21 = fmul double %div, %add3.i20
   %cmp.i22 = icmp samesign ugt i64 %indvars.iv.i12, 1
-  br i1 %cmp.i22, label %for.body.i11, label %_ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit26, !llvm.loop !140
+  br i1 %cmp.i22, label %for.body.i11, label %for.body.i27, !llvm.loop !140
 
-_ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit26:  ; preds = %for.body.i11
-  %add5.i23 = fadd double %mul.i18, 1.000000e+00
-  br label %for.body.i27
-
-for.body.i27:                                     ; preds = %for.body.i27, %_ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit26
-  %indvars.iv.i28 = phi i64 [ 10, %_ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit26 ], [ %indvars.iv.next.i31, %for.body.i27 ]
-  %d.08.i29 = phi double [ 0.000000e+00, %_ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit26 ], [ %mul4.i37, %for.body.i27 ]
-  %n.07.i30 = phi double [ 0.000000e+00, %_ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit26 ], [ %mul.i34, %for.body.i27 ]
+for.body.i27:                                     ; preds = %for.body.i11, %for.body.i27
+  %indvars.iv.i28 = phi i64 [ %indvars.iv.next.i31, %for.body.i27 ], [ 10, %for.body.i11 ]
+  %d.08.i29 = phi double [ %mul4.i37, %for.body.i27 ], [ 0.000000e+00, %for.body.i11 ]
+  %n.07.i30 = phi double [ %mul.i34, %for.body.i27 ], [ 0.000000e+00, %for.body.i11 ]
   %indvars.iv.next.i31 = add nsw i64 %indvars.iv.i28, -1
   %arrayidx.i32 = getelementptr inbounds nuw double, ptr @__const._ZN8QuantLib12_GLOBAL__N_12SiEd.gn, i64 %indvars.iv.next.i31
   %10 = load double, ptr %arrayidx.i32, align 8, !tbaa !87
@@ -7972,6 +7968,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %_ZN8
   br i1 %cmp.i38, label %for.body.i27, label %_ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit42, !llvm.loop !140
 
 _ZN8QuantLib12_GLOBAL__N_14padeEdPKdS2_m.exit42:  ; preds = %for.body.i27
+  %add5.i23 = fadd double %mul.i18, 1.000000e+00
   %add6.i24 = fadd double %mul4.i21, 1.000000e+00
   %add5.i39 = fadd double %mul.i34, 1.000000e+00
   %add6.i40 = fadd double %mul4.i37, 1.000000e+00

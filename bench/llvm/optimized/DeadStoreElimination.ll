@@ -1878,41 +1878,41 @@ define dso_local void @_ZN4llvm7DSEPass3runERNS_8FunctionERNS_15AnalysisManagerI
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm11AAQueryInfoC2ERNS_9AAResultsEPNS_15CaptureAnalysisE.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !94
 
 _ZN4llvm11AAQueryInfoC2ERNS_9AAResultsEPNS_15CaptureAnalysisE.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %56 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %32, i64 432
-  store ptr %47, ptr %57, align 8, !tbaa !96
-  %58 = getelementptr inbounds nuw i8, ptr %32, i64 440
-  store i32 0, ptr %58, align 8, !tbaa !104
-  %59 = getelementptr inbounds nuw i8, ptr %32, i64 444
-  store i32 0, ptr %59, align 4, !tbaa !105
-  %60 = getelementptr inbounds nuw i8, ptr %32, i64 448
-  %61 = getelementptr inbounds nuw i8, ptr %32, i64 464
-  store ptr %61, ptr %60, align 8, !tbaa !32
-  %62 = getelementptr inbounds nuw i8, ptr %32, i64 456
-  store i32 0, ptr %62, align 8, !tbaa !33
-  %63 = getelementptr inbounds nuw i8, ptr %32, i64 460
-  store i32 4, ptr %63, align 4, !tbaa !34
-  %64 = getelementptr inbounds nuw i8, ptr %32, i64 592
-  store i8 0, ptr %64, align 8, !tbaa !106
-  %65 = getelementptr inbounds nuw i8, ptr %32, i64 593
-  store i8 1, ptr %65, align 1, !tbaa !107
-  %66 = getelementptr inbounds nuw i8, ptr %32, i64 600
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21SimpleCaptureAnalysisE, i64 16), ptr %66, align 8, !tbaa !15
-  %67 = getelementptr inbounds nuw i8, ptr %32, i64 608
-  store i32 1, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %32, i64 612
-  store i32 0, ptr %68, align 4, !tbaa !108
+  %56 = getelementptr inbounds nuw i8, ptr %32, i64 432
+  store ptr %47, ptr %56, align 8, !tbaa !96
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 440
+  store i32 0, ptr %57, align 8, !tbaa !104
+  %58 = getelementptr inbounds nuw i8, ptr %32, i64 444
+  store i32 0, ptr %58, align 4, !tbaa !105
+  %59 = getelementptr inbounds nuw i8, ptr %32, i64 448
+  %60 = getelementptr inbounds nuw i8, ptr %32, i64 464
+  store ptr %60, ptr %59, align 8, !tbaa !32
+  %61 = getelementptr inbounds nuw i8, ptr %32, i64 456
+  store i32 0, ptr %61, align 8, !tbaa !33
+  %62 = getelementptr inbounds nuw i8, ptr %32, i64 460
+  store i32 4, ptr %62, align 4, !tbaa !34
+  %63 = getelementptr inbounds nuw i8, ptr %32, i64 592
+  store i8 0, ptr %63, align 8, !tbaa !106
+  %64 = getelementptr inbounds nuw i8, ptr %32, i64 593
+  store i8 1, ptr %64, align 1, !tbaa !107
+  %65 = getelementptr inbounds nuw i8, ptr %32, i64 600
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm21SimpleCaptureAnalysisE, i64 16), ptr %65, align 8, !tbaa !15
+  %66 = getelementptr inbounds nuw i8, ptr %32, i64 608
+  store i32 1, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %32, i64 612
+  store i32 0, ptr %67, align 4, !tbaa !108
   br label %.lr.ph.i.i.i.i4.i.i.i
 
 .lr.ph.i.i.i.i4.i.i.i:                            ; preds = %.lr.ph.i.i.i.i4.i.i.i, %_ZN4llvm11AAQueryInfoC2ERNS_9AAResultsEPNS_15CaptureAnalysisE.exit.i.i.i
   %.07.i.i.i.idx.i.i.i.i = phi i64 [ %.07.i.i.i.add.i.i.i.i, %.lr.ph.i.i.i.i4.i.i.i ], [ 16, %_ZN4llvm11AAQueryInfoC2ERNS_9AAResultsEPNS_15CaptureAnalysisE.exit.i.i.i ]
-  %.07.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 %.07.i.i.i.idx.i.i.i.i
+  %.07.i.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %65, i64 %.07.i.i.i.idx.i.i.i.i
   store ptr inttoptr (i64 -4096 to ptr), ptr %.07.i.i.i.ptr.i.i.i.i, align 8, !tbaa !111
   %.07.i.i.i.add.i.i.i.i = add nuw nsw i64 %.07.i.i.i.idx.i.i.i.i, 16
   %.not.i.i.i.i5.i.i.i = icmp eq i64 %.07.i.i.i.add.i.i.i.i, 144
   br i1 %.not.i.i.i.i5.i.i.i, label %_ZN4llvm14BatchAAResultsC2ERNS_9AAResultsEPNS_15CaptureAnalysisE.exit.i.i, label %.lr.ph.i.i.i.i4.i.i.i, !llvm.loop !113
 
 _ZN4llvm14BatchAAResultsC2ERNS_9AAResultsEPNS_15CaptureAnalysisE.exit.i.i: ; preds = %.lr.ph.i.i.i.i4.i.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %32, i64 744
   store ptr %42, ptr %70, align 8, !tbaa !75
@@ -1921,7 +1921,7 @@ _ZN4llvm14BatchAAResultsC2ERNS_9AAResultsEPNS_15CaptureAnalysisE.exit.i.i: ; pre
   %72 = getelementptr inbounds nuw i8, ptr %32, i64 760
   store ptr %69, ptr %72, align 8, !tbaa !114
   %73 = getelementptr inbounds nuw i8, ptr %32, i64 768
-  store ptr %56, ptr %73, align 8, !tbaa !116
+  store ptr %68, ptr %73, align 8, !tbaa !116
   %74 = getelementptr inbounds nuw i8, ptr %32, i64 776
   %75 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %2) #19
   store ptr %75, ptr %74, align 8, !tbaa !118
@@ -4488,7 +4488,7 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit1.i.i:      ; preds = %1158, %_ZN4llvm19Sm
   br label %_ZN4llvm11SmallVectorIPNS_9MemoryDefELj64EED2Ev.exit.i.i
 
 _ZN4llvm11SmallVectorIPNS_9MemoryDefELj64EED2Ev.exit.i.i: ; preds = %1162, %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit1.i.i
-  %1163 = load i32, ptr %67, align 8
+  %1163 = load i32, ptr %66, align 8
   %1164 = and i32 %1163, 1
   %.not.i.i.i.i.i87.i = icmp eq i32 %1164, 0
   br i1 %.not.i.i.i.i.i87.i, label %1165, label %_ZN4llvm21SimpleCaptureAnalysisD2Ev.exit.i.i.i
@@ -4504,9 +4504,9 @@ _ZN4llvm11SmallVectorIPNS_9MemoryDefELj64EED2Ev.exit.i.i: ; preds = %1162, %_ZN4
   br label %_ZN4llvm21SimpleCaptureAnalysisD2Ev.exit.i.i.i
 
 _ZN4llvm21SimpleCaptureAnalysisD2Ev.exit.i.i.i:   ; preds = %1165, %_ZN4llvm11SmallVectorIPNS_9MemoryDefELj64EED2Ev.exit.i.i
-  call void @_ZN4llvm15CaptureAnalysisD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %66) #19
-  %1172 = load ptr, ptr %60, align 8, !tbaa !32
-  %1173 = icmp eq ptr %1172, %61
+  call void @_ZN4llvm15CaptureAnalysisD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %65) #19
+  %1172 = load ptr, ptr %59, align 8, !tbaa !32
+  %1173 = icmp eq ptr %1172, %60
   br i1 %1173, label %_ZN4llvm11SmallVectorISt4pairINS_10AACacheLocES2_ELj4EED2Ev.exit.i.i.i.i, label %1174
 
 1174:                                             ; preds = %_ZN4llvm21SimpleCaptureAnalysisD2Ev.exit.i.i.i

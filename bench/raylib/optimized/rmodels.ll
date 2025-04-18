@@ -2471,7 +2471,6 @@ parseRawTriple.exit.i:                            ; preds = %171, %171, %171, %1
   %.lcssa141143.i = phi ptr [ %147, %parseRawTriple.exit.loopexit128.i ], [ %214, %212 ], [ %214, %212 ], [ %214, %212 ], [ %214, %212 ], [ %214, %212 ], [ %192, %190 ], [ %192, %190 ], [ %192, %190 ], [ %192, %190 ], [ %173, %171 ], [ %173, %171 ], [ %173, %171 ], [ %173, %171 ], [ %173, %171 ]
   %.sroa.3.0.i.i = phi i32 [ -2147483648, %parseRawTriple.exit.loopexit128.i ], [ %189, %212 ], [ %189, %212 ], [ %189, %212 ], [ %189, %212 ], [ %189, %212 ], [ %189, %190 ], [ %189, %190 ], [ %189, %190 ], [ %189, %190 ], [ -2147483648, %171 ], [ -2147483648, %171 ], [ -2147483648, %171 ], [ -2147483648, %171 ], [ -2147483648, %171 ]
   %.sroa.5.0.i.i = phi i32 [ -2147483648, %parseRawTriple.exit.loopexit128.i ], [ %211, %212 ], [ %211, %212 ], [ %211, %212 ], [ %211, %212 ], [ %211, %212 ], [ -2147483648, %190 ], [ -2147483648, %190 ], [ -2147483648, %190 ], [ -2147483648, %190 ], [ %170, %171 ], [ %170, %171 ], [ %170, %171 ], [ %170, %171 ], [ %170, %171 ]
-  %.sroa.3.0.insert.ext.i.i = zext i32 %.sroa.3.0.i.i to i64
   br label %217
 
 217:                                              ; preds = %.critedge.i93.i, %parseRawTriple.exit.i
@@ -2489,8 +2488,9 @@ parseRawTriple.exit.i:                            ; preds = %171, %171, %171, %1
 
 skip_space_and_cr.exit.i:                         ; preds = %217
   %221 = mul nsw i32 %.011.lcssa.i.i.i, %.0.i.i.i
-  %.sroa.040.0.insert.ext.i.i = zext i32 %221 to i64
+  %.sroa.3.0.insert.ext.i.i = zext i32 %.sroa.3.0.i.i to i64
   %.sroa.3.0.insert.shift.i.i = shl nuw i64 %.sroa.3.0.insert.ext.i.i, 32
+  %.sroa.040.0.insert.ext.i.i = zext i32 %221 to i64
   %.sroa.040.0.insert.insert.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i, %.sroa.040.0.insert.ext.i.i
   store ptr %218, ptr %10, align 8
   %222 = zext i32 %.071.i to i64
@@ -12544,9 +12544,9 @@ _m3dstbi__zreceive.exit.i.i.i:                    ; preds = %100
   br label %114
 
 .preheader.i.i.i:                                 ; preds = %114
-  %109 = and i32 %106, -8
-  %110 = add nsw i32 %.pr.i.i.i, -8
-  %111 = sub nsw i32 %110, %109
+  %109 = add nsw i32 %.pr.i.i.i, -8
+  %110 = and i32 %106, -8
+  %111 = sub nsw i32 %109, %110
   store i32 %118, ptr %39, align 4
   store i32 %111, ptr %38, align 8
   %112 = icmp samesign ult i64 %indvars.iv.i.i.i, 3
@@ -13652,9 +13652,9 @@ _m3dstbi__zreceive.exit116.i.i.i:                 ; preds = %_m3dstbi__zget8.exi
   %679 = load i8, ptr %676, align 1
   %680 = zext i32 %.055.i.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.5.i.i.i, i8 %679, i64 %680, i1 false)
+  %scevgep.i.i.i = getelementptr i8, ptr %.5.i.i.i, i64 1
   %681 = add i32 %.055.i.i.i, -1
   %682 = zext i32 %681 to i64
-  %scevgep.i.i.i = getelementptr i8, ptr %.5.i.i.i, i64 1
   %scevgep173.i.i.i = getelementptr i8, ptr %scevgep.i.i.i, i64 %682
   br label %.loopexit.i.i.i.backedge
 

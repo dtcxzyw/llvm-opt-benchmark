@@ -1820,7 +1820,6 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit:    ; preds = %13, %20
 
 29:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %2) #27
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %2, align 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %30, align 4, !tbaa !1052
@@ -1836,7 +1835,6 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit:    ; preds = %13, %20
 
 _ZN4llvm13SmallDenseMapIPKN5clang9NamedDeclEjLj16ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %3) #27
-  %.phi.trans.insert.i.i103.ptr = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %3, align 8
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %31, align 4, !tbaa !1058
@@ -1851,7 +1849,9 @@ _ZN4llvm13SmallDenseMapIPKN5clang9NamedDeclEjLj16ENS_12DenseMapInfoIS4_vEENS_6de
   br i1 %.not.i.i.i108, label %_ZN4llvm13SmallDenseMapIN5clang8QualTypeEjLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEC2Ej.exit, label %.lr.ph.i.i.i107, !llvm.loop !1062
 
 _ZN4llvm13SmallDenseMapIN5clang8QualTypeEjLj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEC2Ej.exit: ; preds = %.lr.ph.i.i.i107
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.phi.trans.insert.i.i103.ptr = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.phi.trans.insert3.i.i105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #27
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -20887,7 +20887,6 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang4Sema19LookupQualifiedName
 
 21:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %7) #27
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %22, align 4, !tbaa !1797
@@ -20902,6 +20901,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang4Sema19LookupQualifiedName
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPKvbLj32ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_bEEEC2Ej.exit.preheader, label %.lr.ph.i.i.i, !llvm.loop !1800
 
 _ZN4llvm13SmallDenseMapIPKvbLj32ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_bEEEC2Ej.exit.preheader: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 248
   br label %24

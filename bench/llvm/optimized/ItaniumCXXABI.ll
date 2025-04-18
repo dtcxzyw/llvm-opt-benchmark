@@ -12242,7 +12242,6 @@ define internal void @_ZN12_GLOBAL__N_113ItaniumCXXABI24EmitThreadLocalInitFuncs
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 8, ptr %39, align 4, !tbaa !350
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14) #22
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 1, ptr %14, align 8
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 0, ptr %40, align 4, !tbaa !1620
@@ -12257,6 +12256,7 @@ define internal void @_ZN12_GLOBAL__N_113ItaniumCXXABI24EmitThreadLocalInitFuncs
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit.preheader, label %.lr.ph.i.i.i, !llvm.loop !1623
 
 _ZN4llvm13SmallDenseMapIPKN5clang7VarDeclEPNS_8FunctionELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEC2Ej.exit.preheader: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.not261 = icmp eq i64 %5, 0
   br i1 %.not261, label %_ZNK4llvm6Triple10isOSDarwinEv.exit, label %.lr.ph

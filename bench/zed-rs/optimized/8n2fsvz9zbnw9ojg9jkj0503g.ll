@@ -48442,7 +48442,6 @@ _ZN3cbc3xor17h0e06bd1eb252463aE.exit.i.i.preheader: ; preds = %54, %_ZN3cbc3xor1
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %"_ZN84_$LT$cbc..decrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17h61a501cf5deadc9aE.exit.i"
   %.sroa.01.0.i.i.i82 = phi i64 [ %82, %"_ZN84_$LT$cbc..decrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17h61a501cf5deadc9aE.exit.i" ], [ 0, %.lr.ph83.preheader ]
   %73 = getelementptr inbounds nuw { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %23, i64 %.sroa.01.0.i.i.i82
-  %74 = getelementptr inbounds nuw { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %24, i64 %.sroa.01.0.i.i.i82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %15, ptr noundef nonnull readonly align 1 dereferenceable(16) %73, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13), !noalias !11719
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %73, i64 16, i1 false)
@@ -48452,23 +48451,24 @@ _ZN3cbc3xor17h0e06bd1eb252463aE.exit.i.i.preheader: ; preds = %54, %_ZN3cbc3xor1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %14, ptr noundef nonnull align 1 dereferenceable(16) %12, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12), !noalias !11719
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13), !noalias !11719
-  br label %75
+  br label %74
 
-75:                                               ; preds = %.lr.ph83, %75
-  %.sroa.837.081 = phi i64 [ 0, %.lr.ph83 ], [ %76, %75 ]
-  %76 = add nuw nsw i64 %.sroa.837.081, 1
-  %77 = getelementptr inbounds nuw i8, ptr %14, i64 %.sroa.837.081
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.837.081
-  %79 = load i8, ptr %78, align 1, !noalias !11727, !noundef !4
-  %80 = load i8, ptr %77, align 1, !noundef !4
-  %81 = xor i8 %80, %79
-  store i8 %81, ptr %77, align 1
-  %exitcond87.not = icmp eq i64 %76, 16
-  br i1 %exitcond87.not, label %"_ZN84_$LT$cbc..decrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17h61a501cf5deadc9aE.exit.i", label %75
+74:                                               ; preds = %.lr.ph83, %74
+  %.sroa.837.081 = phi i64 [ 0, %.lr.ph83 ], [ %75, %74 ]
+  %75 = add nuw nsw i64 %.sroa.837.081, 1
+  %76 = getelementptr inbounds nuw i8, ptr %14, i64 %.sroa.837.081
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.837.081
+  %78 = load i8, ptr %77, align 1, !noalias !11727, !noundef !4
+  %79 = load i8, ptr %76, align 1, !noundef !4
+  %80 = xor i8 %79, %78
+  store i8 %80, ptr %76, align 1
+  %exitcond87.not = icmp eq i64 %75, 16
+  br i1 %exitcond87.not, label %"_ZN84_$LT$cbc..decrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17h61a501cf5deadc9aE.exit.i", label %74
 
-"_ZN84_$LT$cbc..decrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17h61a501cf5deadc9aE.exit.i": ; preds = %75
+"_ZN84_$LT$cbc..decrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17h61a501cf5deadc9aE.exit.i": ; preds = %74
+  %81 = getelementptr inbounds nuw { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %24, i64 %.sroa.01.0.i.i.i82
   %82 = add nuw nsw i64 %.sroa.01.0.i.i.i82, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %74, ptr noundef nonnull align 1 dereferenceable(16) %14, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %81, ptr noundef nonnull align 1 dereferenceable(16) %14, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.0.0.copyload, ptr noundef nonnull align 1 dereferenceable(16) %15, i64 16, i1 false)
   %83 = icmp eq i64 %22, %82
   br i1 %83, label %"_ZN84_$LT$cbc..decrypt..Closure$LT$BS$C$BC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h513ad5b029ef5784E.exit", label %.lr.ph83
@@ -48853,39 +48853,39 @@ _ZN3cbc3xor17h0e06bd1eb252463aE.exit.i.i.preheader: ; preds = %153, %_ZN3cbc3xor
 172:                                              ; preds = %.lr.ph84, %"_ZN84_$LT$cbc..decrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17hbad8d4ee752ff20dE.exit.i"
   %.sroa.01.0.i.i.i83 = phi i64 [ 0, %.lr.ph84 ], [ %193, %"_ZN84_$LT$cbc..decrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17hbad8d4ee752ff20dE.exit.i" ]
   %173 = getelementptr inbounds nuw { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %18, i64 %.sroa.01.0.i.i.i83
-  %174 = getelementptr inbounds nuw { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %19, i64 %.sroa.01.0.i.i.i83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %13, ptr noundef nonnull readonly align 1 dereferenceable(16) %173, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull readonly align 1 dereferenceable(16) %173, i64 16, i1 false)
   %.sroa.0.0.copyload.i.i15 = load <2 x i64>, ptr %12, align 16
-  %175 = xor <2 x i64> %63, %.sroa.0.0.copyload.i.i15
-  %176 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %175, <2 x i64> %65) #83
-  %177 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %176, <2 x i64> %67) #83
-  %178 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %177, <2 x i64> %69) #83
-  %179 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %178, <2 x i64> %71) #83
-  %180 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %179, <2 x i64> %73) #83
-  %181 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %180, <2 x i64> %75) #83
-  %182 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %181, <2 x i64> %77) #83
-  %183 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %182, <2 x i64> %79) #83
-  %184 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %183, <2 x i64> %81) #83
-  %185 = call <2 x i64> @llvm.x86.aesni.aesdeclast(<2 x i64> %184, <2 x i64> %82) #83
-  store <2 x i64> %185, ptr %12, align 16
-  br label %186
+  %174 = xor <2 x i64> %63, %.sroa.0.0.copyload.i.i15
+  %175 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %174, <2 x i64> %65) #83
+  %176 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %175, <2 x i64> %67) #83
+  %177 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %176, <2 x i64> %69) #83
+  %178 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %177, <2 x i64> %71) #83
+  %179 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %178, <2 x i64> %73) #83
+  %180 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %179, <2 x i64> %75) #83
+  %181 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %180, <2 x i64> %77) #83
+  %182 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %181, <2 x i64> %79) #83
+  %183 = call <2 x i64> @llvm.x86.aesni.aesdec(<2 x i64> %182, <2 x i64> %81) #83
+  %184 = call <2 x i64> @llvm.x86.aesni.aesdeclast(<2 x i64> %183, <2 x i64> %82) #83
+  store <2 x i64> %184, ptr %12, align 16
+  br label %185
 
-186:                                              ; preds = %172, %186
-  %.sroa.838.082 = phi i64 [ 0, %172 ], [ %187, %186 ]
-  %187 = add nuw nsw i64 %.sroa.838.082, 1
-  %188 = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.838.082
-  %189 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.838.082
-  %190 = load i8, ptr %189, align 1, !noalias !11858, !noundef !4
-  %191 = load i8, ptr %188, align 1, !noundef !4
-  %192 = xor i8 %191, %190
-  store i8 %192, ptr %188, align 1
-  %exitcond88.not = icmp eq i64 %187, 16
-  br i1 %exitcond88.not, label %"_ZN84_$LT$cbc..decrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17hbad8d4ee752ff20dE.exit.i", label %186
+185:                                              ; preds = %172, %185
+  %.sroa.838.082 = phi i64 [ 0, %172 ], [ %186, %185 ]
+  %186 = add nuw nsw i64 %.sroa.838.082, 1
+  %187 = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.838.082
+  %188 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.838.082
+  %189 = load i8, ptr %188, align 1, !noalias !11858, !noundef !4
+  %190 = load i8, ptr %187, align 1, !noundef !4
+  %191 = xor i8 %190, %189
+  store i8 %191, ptr %187, align 1
+  %exitcond88.not = icmp eq i64 %186, 16
+  br i1 %exitcond88.not, label %"_ZN84_$LT$cbc..decrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17hbad8d4ee752ff20dE.exit.i", label %185
 
-"_ZN84_$LT$cbc..decrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17hbad8d4ee752ff20dE.exit.i": ; preds = %186
+"_ZN84_$LT$cbc..decrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17hbad8d4ee752ff20dE.exit.i": ; preds = %185
+  %192 = getelementptr inbounds nuw { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %19, i64 %.sroa.01.0.i.i.i83
   %193 = add nuw nsw i64 %.sroa.01.0.i.i.i83, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %174, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %192, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.0.0.copyload, ptr noundef nonnull align 1 dereferenceable(16) %13, i64 16, i1 false)
   %194 = icmp eq i64 %17, %193
   br i1 %194, label %"_ZN84_$LT$cbc..decrypt..Closure$LT$BS$C$BC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17h407bdc28928995beE.exit", label %172
@@ -48934,23 +48934,23 @@ define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes128$u20$as$u20$ciphe
 26:                                               ; preds = %.lr.ph, %"_ZN84_$LT$cbc..encrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17h3321caa02f6b0d9dE.exit.i"
   %.sroa.01.0.i.i19 = phi i64 [ 0, %.lr.ph ], [ %36, %"_ZN84_$LT$cbc..encrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17h3321caa02f6b0d9dE.exit.i" ]
   %27 = getelementptr inbounds { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %.sroa.4.sroa.0.0.copyload, i64 %.sroa.01.0.i.i19
-  %28 = getelementptr inbounds { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %.sroa.4.sroa.4.0.copyload, i64 %.sroa.01.0.i.i19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull readonly align 1 dereferenceable(16) %27, i64 16, i1 false)
-  br label %29
+  br label %28
 
-29:                                               ; preds = %26, %29
-  %.sroa.814.018 = phi i64 [ 0, %26 ], [ %30, %29 ]
-  %30 = add nuw nsw i64 %.sroa.814.018, 1
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.814.018
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.814.018
-  %33 = load i8, ptr %32, align 1, !noalias !11871, !noundef !4
-  %34 = load i8, ptr %31, align 1, !noundef !4
-  %35 = xor i8 %34, %33
-  store i8 %35, ptr %31, align 1
-  %exitcond.not = icmp eq i64 %30, 16
-  br i1 %exitcond.not, label %"_ZN84_$LT$cbc..encrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17h3321caa02f6b0d9dE.exit.i", label %29
+28:                                               ; preds = %26, %28
+  %.sroa.814.018 = phi i64 [ 0, %26 ], [ %29, %28 ]
+  %29 = add nuw nsw i64 %.sroa.814.018, 1
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.814.018
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.814.018
+  %32 = load i8, ptr %31, align 1, !noalias !11871, !noundef !4
+  %33 = load i8, ptr %30, align 1, !noundef !4
+  %34 = xor i8 %33, %32
+  store i8 %34, ptr %30, align 1
+  %exitcond.not = icmp eq i64 %29, 16
+  br i1 %exitcond.not, label %"_ZN84_$LT$cbc..encrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17h3321caa02f6b0d9dE.exit.i", label %28
 
-"_ZN84_$LT$cbc..encrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17h3321caa02f6b0d9dE.exit.i": ; preds = %29
+"_ZN84_$LT$cbc..encrypt..Backend$LT$BS$C$BK$GT$$u20$as$u20$cipher..block..BlockBackend$GT$10proc_block17h3321caa02f6b0d9dE.exit.i": ; preds = %28
+  %35 = getelementptr inbounds { { { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, { { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, { { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, { { [0 x i8], [0 x i8], i8 }, { [0 x i8], [0 x i8], i8 }, {} }, {} }, {} }, {} } }, ptr %.sroa.4.sroa.4.0.copyload, i64 %.sroa.01.0.i.i19
   %36 = add nuw i64 %.sroa.01.0.i.i19, 1
   %.sroa.0.0.copyload.i.i = load <2 x i64>, ptr %3, align 16
   %37 = xor <2 x i64> %5, %.sroa.0.0.copyload.i.i
@@ -48966,7 +48966,7 @@ define internal fastcc void @"_ZN71_$LT$aes..autodetect..Aes128$u20$as$u20$ciphe
   %47 = tail call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %46, <2 x i64> %25) #83
   store <2 x i64> %47, ptr %3, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.0.0.copyload, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %28, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %35, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
   %48 = icmp eq i64 %.sroa.4.sroa.5.0.copyload, %36
   br i1 %48, label %"_ZN84_$LT$cbc..encrypt..Closure$LT$BS$C$BC$GT$$u20$as$u20$cipher..block..BlockClosure$GT$4call17he64d1c17d1b9263dE.exit", label %26
 

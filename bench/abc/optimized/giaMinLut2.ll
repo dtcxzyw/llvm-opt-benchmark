@@ -2654,10 +2654,10 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 ; Function Attrs: nounwind uwtable
 define ptr @Abc_TtMin(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((4, 8)) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %7 = add nsw i32 %2, -6
-  %8 = shl nuw i32 1, %7
-  %9 = icmp slt i32 %2, 7
-  %10 = select i1 %9, i32 1, i32 %8
+  %7 = icmp slt i32 %2, 7
+  %8 = add nsw i32 %2, -6
+  %9 = shl nuw i32 1, %8
+  %10 = select i1 %7, i32 1, i32 %9
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %11, align 4, !tbaa !61
   %12 = load i32, ptr %3, align 8, !tbaa !63
@@ -2837,12 +2837,12 @@ Vec_WrdGrow.exit:                                 ; preds = %33, %35
   %44 = shl nuw nsw i32 %.083.us, 1
   %45 = shl i32 %44, %10
   %46 = sext i32 %45 to i64
-  %47 = or disjoint i32 %44, 1
-  %48 = shl i32 %47, %10
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i64, ptr %0, i64 %46
-  %51 = getelementptr inbounds i64, ptr %0, i64 %49
-  %52 = tail call ptr @Abc_TtMin_rec(ptr noundef %50, ptr noundef nonnull %51, i32 noundef %2, ptr noundef nonnull %16, ptr noundef nonnull %20, ptr noundef nonnull %25)
+  %47 = getelementptr inbounds i64, ptr %0, i64 %46
+  %48 = or disjoint i32 %44, 1
+  %49 = shl i32 %48, %10
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i64, ptr %0, i64 %50
+  %52 = tail call ptr @Abc_TtMin_rec(ptr noundef %47, ptr noundef nonnull %51, i32 noundef %2, ptr noundef nonnull %16, ptr noundef nonnull %20, ptr noundef nonnull %25)
   tail call void @llvm.assume(i1 %42)
   %53 = add nuw nsw i32 %.083.us, 1
   %exitcond88.not = icmp eq i32 %53, %38
@@ -2853,12 +2853,12 @@ Vec_WrdGrow.exit:                                 ; preds = %33, %35
   %54 = shl nuw nsw i32 %.083, 1
   %55 = shl i32 %54, %10
   %56 = sext i32 %55 to i64
-  %57 = or disjoint i32 %54, 1
-  %58 = shl i32 %57, %10
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i64, ptr %0, i64 %56
-  %61 = getelementptr inbounds i64, ptr %0, i64 %59
-  %62 = tail call ptr @Abc_TtMin_rec(ptr noundef %60, ptr noundef nonnull %61, i32 noundef %2, ptr noundef nonnull %16, ptr noundef nonnull %20, ptr noundef nonnull %25)
+  %57 = getelementptr inbounds i64, ptr %0, i64 %56
+  %58 = or disjoint i32 %54, 1
+  %59 = shl i32 %58, %10
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds i64, ptr %0, i64 %60
+  %62 = tail call ptr @Abc_TtMin_rec(ptr noundef %57, ptr noundef nonnull %61, i32 noundef %2, ptr noundef nonnull %16, ptr noundef nonnull %20, ptr noundef nonnull %25)
   br i1 %41, label %.lr.ph18.i.preheader, label %Abc_TtClear.exit
 
 .lr.ph18.i.preheader:                             ; preds = %.lr.ph.split
@@ -5231,12 +5231,12 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph104, %Abc_TtC
   %38 = shl nuw nsw i32 %.0102, 1
   %39 = shl i32 %38, %37
   %40 = sext i32 %39 to i64
-  %41 = or disjoint i32 %38, 1
-  %42 = shl i32 %41, %37
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i64, ptr %0, i64 %40
-  %45 = getelementptr inbounds i64, ptr %0, i64 %43
-  %46 = call ptr @Abc_TtGiaMin_rec(ptr noundef nonnull %30, ptr noundef %44, ptr noundef nonnull %45, i32 noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %17, ptr noundef nonnull %7, ptr noundef %5)
+  %41 = getelementptr inbounds i64, ptr %0, i64 %40
+  %42 = or disjoint i32 %38, 1
+  %43 = shl i32 %42, %37
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i64, ptr %0, i64 %44
+  %46 = call ptr @Abc_TtGiaMin_rec(ptr noundef nonnull %30, ptr noundef %41, ptr noundef nonnull %45, i32 noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %17, ptr noundef nonnull %7, ptr noundef %5)
   %47 = load i32, ptr %7, align 4, !tbaa !4
   tail call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %30, i32 noundef %47)
   %48 = add nuw nsw i32 %.0102, 1

@@ -3741,38 +3741,38 @@ define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) 
   %6 = alloca %struct.FT_Vector_, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i64, ptr %7, align 8, !tbaa !28
-  %9 = zext nneg i32 %1 to i64
-  %10 = load i64, ptr %0, align 8, !tbaa !45
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !42
-  %13 = tail call i64 @FT_Angle_Diff(i64 noundef %10, i64 noundef %12) #10
-  %14 = icmp eq i64 %13, 11796480
-  %.neg16 = mul nuw nsw i64 %9, 23592960
-  %15 = add nsw i64 %.neg16, -11796480
-  %.0 = select i1 %14, i64 %15, i64 %13
-  %.neg = mul nuw nsw i64 %9, -11796480
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %17 = getelementptr inbounds nuw %struct.FT_StrokeBorderRec_, ptr %16, i64 %9
-  %18 = load i64, ptr %0, align 8, !tbaa !45
+  %9 = load i64, ptr %0, align 8, !tbaa !45
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load i64, ptr %10, align 8, !tbaa !42
+  %12 = tail call i64 @FT_Angle_Diff(i64 noundef %9, i64 noundef %11) #10
+  %13 = load i64, ptr %0, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
+  %14 = zext nneg i32 %1 to i64
+  %15 = icmp eq i64 %12, 11796480
+  %.neg16 = mul nuw nsw i64 %14, 23592960
+  %16 = add nsw i64 %.neg16, -11796480
+  %.0 = select i1 %15, i64 %16, i64 %12
+  %.neg = mul nuw nsw i64 %14, -11796480
+  %17 = add nsw i64 %.neg, 5898240
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw %struct.FT_StrokeBorderRec_, ptr %18, i64 %14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = add nsw i64 %17, %13
   %smax = tail call i64 @llvm.abs.i64(i64 %.0, i1 false)
   %smax17 = tail call i64 @llvm.smax.i64(i64 %smax, i64 5898240)
-  %19 = add nsw i64 %smax17, -1
-  %20 = udiv i64 %19, 5898240
-  %21 = add nsw i64 %.neg, 5898240
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = add nsw i64 %21, %18
-  %24 = add nuw nsw i64 %20, 1
+  %22 = add nsw i64 %smax17, -1
+  %23 = udiv i64 %22, 5898240
+  %24 = add nuw nsw i64 %23, 1
   %25 = shl nuw nsw i64 %24, 2
   %26 = and i64 %25, 4294967292
   %27 = sdiv i64 %.0, %26
   %28 = tail call i64 @FT_Tan(i64 noundef %27) #10
   %29 = sdiv i64 %28, 3
   %30 = add nsw i64 %29, %28
-  call void @FT_Vector_From_Polar(ptr noundef nonnull %3, i64 noundef %8, i64 noundef %23) #10
+  call void @FT_Vector_From_Polar(ptr noundef nonnull %3, i64 noundef %8, i64 noundef %21) #10
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !39
   %.neg.i = mul i64 %32, -4294967296
@@ -3795,7 +3795,7 @@ define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) 
   %47 = shl i64 %46, 16
   %48 = ashr i64 %47, 32
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %50 = load i64, ptr %22, align 8, !tbaa !37
+  %50 = load i64, ptr %20, align 8, !tbaa !37
   %51 = add nsw i64 %50, %41
   store i64 %51, ptr %3, align 8, !tbaa !37
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3816,7 +3816,7 @@ define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) 
   %indvars.iv50.i = phi i64 [ 1, %2 ], [ %indvars.iv.next51.i, %87 ]
   %61 = mul nsw i64 %indvars.iv50.i, %.0
   %62 = sdiv i64 %61, %24
-  %63 = add nsw i64 %62, %23
+  %63 = add nsw i64 %62, %21
   call void @FT_Vector_From_Polar(ptr noundef nonnull %6, i64 noundef %8, i64 noundef %63) #10
   %64 = load i64, ptr %57, align 8, !tbaa !39
   %sext40.i = shl i64 %64, 32
@@ -3836,7 +3836,7 @@ define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) 
   %77 = add nsw i64 %76, %75
   %78 = shl i64 %77, 16
   %79 = ashr i64 %78, 32
-  %80 = load i64, ptr %22, align 8, !tbaa !37
+  %80 = load i64, ptr %20, align 8, !tbaa !37
   %81 = add nsw i64 %80, %72
   store i64 %81, ptr %6, align 8, !tbaa !37
   %82 = load i64, ptr %52, align 8, !tbaa !39
@@ -3846,7 +3846,7 @@ define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) 
   store i64 %84, ptr %5, align 8, !tbaa !37
   %85 = add nsw i64 %79, %83
   store i64 %85, ptr %58, align 8, !tbaa !39
-  %86 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull %17, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %86 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull %19, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %.not35.i = icmp eq i32 %86, 0
   br i1 %.not35.i, label %87, label %ft_stroke_border_arcto.exit
 
@@ -3868,7 +3868,7 @@ ft_stroke_border_arcto.exit:                      ; preds = %60, %87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
-  %92 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i8 0, ptr %92, align 8, !tbaa !50
   ret i32 %86
 }

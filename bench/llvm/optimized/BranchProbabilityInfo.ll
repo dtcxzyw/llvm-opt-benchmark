@@ -4817,7 +4817,6 @@ define dso_local void @_ZN4llvm21BranchProbabilityInfo27computeEestimateBlockWei
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 8, ptr %21, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %11) #23
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 1, ptr %11, align 8
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %22, align 4, !tbaa !324
@@ -4834,6 +4833,7 @@ define dso_local void @_ZN4llvm21BranchProbabilityInfo27computeEestimateBlockWei
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapISt4pairIPNS_4LoopEiENS_11SmallVectorIPNS_10BasicBlockELj4EEELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !327
 
 _ZN4llvm13SmallDenseMapISt4pairIPNS_4LoopEiENS_11SmallVectorIPNS_10BasicBlockELj4EEELj4ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %12) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #23

@@ -2998,11 +2998,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingGeomModelSchema13B
   %12 = alloca [10 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 16
   %13 = alloca [10 x %"class.std::shared_ptr.12"], align 16
   %14 = alloca %"class.std::shared_ptr.15", align 8
-  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %12, i8 0, i64 80, i1 false)
-  %.0.sroa.gep309 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %13, i8 0, i64 160, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  %.0.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.0.sroa.gep309 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %17 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %17, null

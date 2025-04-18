@@ -247,39 +247,39 @@ define internal fastcc void @_ZN12_GLOBAL__N_12spERN7Imf_3_47Array2DINS0_4RgbaEE
   br i1 %51, label %52, label %319
 
 52:                                               ; preds = %45
-  %53 = fmul float %4, %sqrt
-  %54 = fneg float %sqrt
-  %55 = tail call float @llvm.fmuladd.f32(float %54, float %4, float %4)
-  %56 = tail call float @llvm.fmuladd.f32(float %54, float %sqrt, float 1.000000e+00)
-  %57 = tail call noundef float @sqrtf(float noundef %56) #13, !tbaa !10
-  %58 = fpext float %49 to double
-  %59 = tail call double @llvm.fmuladd.f64(double %58, double 4.242600e-01, double %41)
-  %60 = fpext float %57 to double
-  %61 = tail call double @llvm.fmuladd.f64(double %60, double 7.071000e-01, double %59)
-  %62 = fptrunc double %61 to float
-  %63 = fcmp olt float %62, 0.000000e+00
-  %64 = fpext float %62 to double
-  %65 = fmul double %64, -1.000000e-01
-  %66 = fptrunc double %65 to float
-  %.077 = select i1 %63, float %66, float %62
-  br label %67
+  %53 = fneg float %sqrt
+  %54 = tail call float @llvm.fmuladd.f32(float %53, float %sqrt, float 1.000000e+00)
+  %55 = tail call noundef float @sqrtf(float noundef %54) #13, !tbaa !10
+  %56 = fpext float %49 to double
+  %57 = tail call double @llvm.fmuladd.f64(double %56, double 4.242600e-01, double %41)
+  %58 = fpext float %55 to double
+  %59 = tail call double @llvm.fmuladd.f64(double %58, double 7.071000e-01, double %57)
+  %60 = fptrunc double %59 to float
+  %61 = fcmp olt float %60, 0.000000e+00
+  %62 = fpext float %60 to double
+  %63 = fmul double %62, -1.000000e-01
+  %64 = fptrunc double %63 to float
+  %.077 = select i1 %61, float %64, float %60
+  br label %65
 
-67:                                               ; preds = %67, %52
-  %.012.i = phi float [ 1.000000e+00, %52 ], [ %.1.i, %67 ]
-  %.0711.i = phi i32 [ 50, %52 ], [ %71, %67 ]
-  %.0810.i = phi float [ %.077, %52 ], [ %70, %67 ]
-  %68 = and i32 %.0711.i, 1
-  %.not9.i = icmp eq i32 %68, 0
-  %69 = fmul float %.012.i, %.0810.i
-  %.1.i = select i1 %.not9.i, float %.012.i, float %69
-  %70 = fmul float %.0810.i, %.0810.i
-  %71 = lshr i32 %.0711.i, 1
+65:                                               ; preds = %65, %52
+  %.012.i = phi float [ 1.000000e+00, %52 ], [ %.1.i, %65 ]
+  %.0711.i = phi i32 [ 50, %52 ], [ %69, %65 ]
+  %.0810.i = phi float [ %.077, %52 ], [ %68, %65 ]
+  %66 = and i32 %.0711.i, 1
+  %.not9.i = icmp eq i32 %66, 0
+  %67 = fmul float %.012.i, %.0810.i
+  %.1.i = select i1 %.not9.i, float %.012.i, float %67
+  %68 = fmul float %.0810.i, %.0810.i
+  %69 = lshr i32 %.0711.i, 1
   %.not.i = icmp samesign ult i32 %.0711.i, 2
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_12pwEfi.exit, label %67, !llvm.loop !14
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_12pwEfi.exit, label %65, !llvm.loop !14
 
-_ZN12_GLOBAL__N_12pwEfi.exit:                     ; preds = %67
-  %72 = fcmp ogt float %53, %30
-  %.076 = select i1 %72, float %55, float 1.000000e+00
+_ZN12_GLOBAL__N_12pwEfi.exit:                     ; preds = %65
+  %70 = fmul float %4, %sqrt
+  %71 = fcmp ogt float %70, %30
+  %72 = tail call float @llvm.fmuladd.f32(float %53, float %4, float %4)
+  %.076 = select i1 %71, float %72, float 1.000000e+00
   %73 = fmul float %.1.i, 4.000000e+00
   %74 = fadd float %.077, %73
   %75 = fmul float %5, %74

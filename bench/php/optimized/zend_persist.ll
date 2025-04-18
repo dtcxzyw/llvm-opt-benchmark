@@ -3900,72 +3900,72 @@ define internal fastcc void @zend_hash_persist(ptr noundef captures(none) initia
 85:                                               ; preds = %78
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %87 = load ptr, ptr %86, align 8, !tbaa !16
-  %88 = zext i32 %82 to i64
-  %.neg = mul nsw i64 %88, -4
-  br label %89
+  br label %88
 
-89:                                               ; preds = %89, %85
-  %.098 = phi i32 [ %82, %85 ], [ %92, %89 ]
-  %90 = lshr i32 %.098, 2
-  %91 = icmp samesign ugt i32 %90, %33
-  %92 = lshr i32 %.098, 1
-  br i1 %91, label %89, label %93
+88:                                               ; preds = %88, %85
+  %.098 = phi i32 [ %82, %85 ], [ %91, %88 ]
+  %89 = lshr i32 %.098, 2
+  %90 = icmp samesign ugt i32 %89, %33
+  %91 = lshr i32 %.098, 1
+  br i1 %90, label %88, label %92
 
-93:                                               ; preds = %89
-  %94 = sub nsw i32 0, %.098
-  store i32 %94, ptr %80, align 4, !tbaa !152
-  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8, !tbaa !153
-  %96 = ptrtoint ptr %95 to i64
-  %97 = and i64 %96, 7
-  %98 = icmp eq i64 %97, 0
-  tail call void @llvm.assume(i1 %98)
-  %99 = zext i32 %.098 to i64
-  %100 = shl nuw nsw i64 %99, 2
-  %101 = getelementptr inbounds nuw i8, ptr %95, i64 %100
-  store ptr %101, ptr %86, align 8, !tbaa !16
-  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8, !tbaa !153
-  %103 = zext nneg i32 %33 to i64
-  %104 = shl nuw nsw i64 %103, 5
-  %105 = getelementptr inbounds nuw i8, ptr %102, i64 %100
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 %104
-  store ptr %106, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8, !tbaa !153
-  %107 = load ptr, ptr %86, align 8, !tbaa !16
-  %108 = sext i32 %94 to i64
-  %109 = getelementptr inbounds i32, ptr %107, i64 %108
-  %110 = icmp ne i32 %.098, 0
-  tail call void @llvm.assume(i1 %110)
-  %111 = and i64 %99, 15
-  %112 = icmp eq i64 %111, 0
-  tail call void @llvm.assume(i1 %112)
-  br label %113
+92:                                               ; preds = %88
+  %93 = sub nsw i32 0, %.098
+  store i32 %93, ptr %80, align 4, !tbaa !152
+  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8, !tbaa !153
+  %95 = ptrtoint ptr %94 to i64
+  %96 = and i64 %95, 7
+  %97 = icmp eq i64 %96, 0
+  tail call void @llvm.assume(i1 %97)
+  %98 = zext i32 %.098 to i64
+  %99 = shl nuw nsw i64 %98, 2
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 %99
+  store ptr %100, ptr %86, align 8, !tbaa !16
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8, !tbaa !153
+  %102 = zext nneg i32 %33 to i64
+  %103 = shl nuw nsw i64 %102, 5
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 %99
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %103
+  store ptr %105, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8, !tbaa !153
+  %106 = load ptr, ptr %86, align 8, !tbaa !16
+  %107 = sext i32 %93 to i64
+  %108 = getelementptr inbounds i32, ptr %106, i64 %107
+  %109 = icmp ne i32 %.098, 0
+  tail call void @llvm.assume(i1 %109)
+  %110 = and i64 %98, 15
+  %111 = icmp eq i64 %110, 0
+  tail call void @llvm.assume(i1 %111)
+  br label %112
 
-113:                                              ; preds = %113, %93
-  %.097 = phi ptr [ %109, %93 ], [ %114, %113 ]
-  %.096 = phi i64 [ %100, %93 ], [ %115, %113 ]
-  %114 = getelementptr inbounds nuw i8, ptr %.097, i64 64
-  %115 = add i64 %.096, -64
-  %.not103 = icmp eq i64 %115, 0
+112:                                              ; preds = %112, %92
+  %.097 = phi ptr [ %108, %92 ], [ %113, %112 ]
+  %.096 = phi i64 [ %99, %92 ], [ %114, %112 ]
+  %113 = getelementptr inbounds nuw i8, ptr %.097, i64 64
+  %114 = add i64 %.096, -64
+  %.not103 = icmp eq i64 %114, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.097, i8 -1, i64 64, i1 false)
-  br i1 %.not103, label %116, label %113
+  br i1 %.not103, label %115, label %112
 
-116:                                              ; preds = %113
-  %117 = load ptr, ptr %86, align 8, !tbaa !16
-  %118 = load i32, ptr %32, align 8, !tbaa !90
-  %119 = zext i32 %118 to i64
-  %120 = shl nuw nsw i64 %119, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %117, ptr align 8 %87, i64 %120, i1 false)
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %122 = load i32, ptr %121, align 4, !tbaa !16
-  %123 = and i32 %122, 64
-  %.not104 = icmp eq i32 %123, 0
-  br i1 %.not104, label %124, label %126
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %86, align 8, !tbaa !16
+  %117 = load i32, ptr %32, align 8, !tbaa !90
+  %118 = zext i32 %117 to i64
+  %119 = shl nuw nsw i64 %118, 5
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %116, ptr align 8 %87, i64 %119, i1 false)
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %121 = load i32, ptr %120, align 4, !tbaa !16
+  %122 = and i32 %121, 64
+  %.not104 = icmp eq i32 %122, 0
+  br i1 %.not104, label %123, label %126
 
-124:                                              ; preds = %116
+123:                                              ; preds = %115
+  %124 = zext i32 %82 to i64
+  %.neg = mul nsw i64 %124, -4
   %125 = getelementptr inbounds i8, ptr %87, i64 %.neg
   tail call void @_efree(ptr noundef %125) #7
   br label %126
 
-126:                                              ; preds = %124, %116
+126:                                              ; preds = %123, %115
   %127 = load i32, ptr %32, align 8, !tbaa !90
   %.not109 = icmp eq i32 %127, 0
   br i1 %.not109, label %.loopexit, label %.lr.ph

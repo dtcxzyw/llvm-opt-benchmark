@@ -29,64 +29,64 @@ define noundef double @_Z20gmx_cycles_calibrated(double noundef %0) local_unname
   %15 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #4
   %16 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #4
   %17 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
-  %18 = extractvalue { i32, i32 } %17, 1
-  %.neg27 = sub i32 0, %18
-  %.neg27.z = zext i32 %.neg27 to i64
-  %19 = load i64, ptr %2, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %22 = load i64, ptr %21, align 8
-  br label %34
+  %18 = load i64, ptr %2, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = load i64, ptr %20, align 8
+  br label %33
 
-23:                                               ; preds = %34
-  %24 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #4
-  %25 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
-  %26 = load i64, ptr %3, align 8, !tbaa !7
-  %27 = sub nsw i64 %26, %19
-  %28 = sitofp i64 %27 to double
-  %29 = load i64, ptr %20, align 8, !tbaa !12
-  %30 = sub nsw i64 %29, %22
-  %31 = sitofp i64 %30 to double
-  %32 = tail call double @llvm.fmuladd.f64(double %31, double 0x3EB0C6F7A0B5ED8D, double %28)
-  %33 = fcmp olt double %32, %0
-  br i1 %33, label %.backedge, label %38
+22:                                               ; preds = %33
+  %23 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #4
+  %24 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
+  %25 = load i64, ptr %3, align 8, !tbaa !7
+  %26 = sub nsw i64 %25, %18
+  %27 = sitofp i64 %26 to double
+  %28 = load i64, ptr %19, align 8, !tbaa !12
+  %29 = sub nsw i64 %28, %21
+  %30 = sitofp i64 %29 to double
+  %31 = tail call double @llvm.fmuladd.f64(double %30, double 0x3EB0C6F7A0B5ED8D, double %27)
+  %32 = fcmp olt double %31, %0
+  br i1 %32, label %.backedge, label %37
 
-34:                                               ; preds = %.backedge, %14
+33:                                               ; preds = %.backedge, %14
   %.025 = phi i32 [ 0, %14 ], [ %.025.be, %.backedge ]
-  %.124 = phi double [ 1.000000e-01, %14 ], [ %37, %.backedge ]
-  %35 = add nuw nsw i32 %.025, 1
-  %36 = uitofp nneg i32 %35 to double
-  %37 = fdiv double %.124, %36
-  %exitcond.not = icmp eq i32 %35, 10000
-  br i1 %exitcond.not, label %23, label %.backedge
+  %.124 = phi double [ 1.000000e-01, %14 ], [ %36, %.backedge ]
+  %34 = add nuw nsw i32 %.025, 1
+  %35 = uitofp nneg i32 %34 to double
+  %36 = fdiv double %.124, %35
+  %exitcond.not = icmp eq i32 %34, 10000
+  br i1 %exitcond.not, label %22, label %.backedge
 
-.backedge:                                        ; preds = %34, %23
-  %.025.be = phi i32 [ %35, %34 ], [ 0, %23 ]
-  br label %34, !llvm.loop !13
+.backedge:                                        ; preds = %33, %22
+  %.025.be = phi i32 [ %34, %33 ], [ 0, %22 ]
+  br label %33, !llvm.loop !13
 
-38:                                               ; preds = %23
-  %39 = extractvalue { i32, i32 } %17, 0
-  %40 = zext i32 %39 to i64
+37:                                               ; preds = %22
+  %38 = extractvalue { i32, i32 } %17, 0
+  %39 = extractvalue { i32, i32 } %17, 1
+  %40 = zext i32 %38 to i64
+  %.neg27 = sub i32 0, %39
+  %.neg27.z = zext i32 %.neg27 to i64
   %.neg26 = shl nuw i64 %.neg27.z, 32
-  %41 = extractvalue { i32, i32 } %25, 1
+  %41 = extractvalue { i32, i32 } %24, 1
   %42 = zext i32 %41 to i64
   %43 = shl nuw i64 %42, 32
-  %44 = extractvalue { i32, i32 } %25, 0
+  %44 = extractvalue { i32, i32 } %24, 0
   %45 = zext i32 %44 to i64
   %.neg22 = sub i64 %.neg26, %40
   %46 = add i64 %.neg22, %45
   %47 = add i64 %46, %43
   %48 = uitofp i64 %47 to double
-  %49 = fcmp olt double %37, 1.000000e-30
-  %50 = fadd double %37, %32
-  %.019 = select i1 %49, double %50, double %32
+  %49 = fcmp olt double %36, 1.000000e-30
+  %50 = fadd double %36, %31
+  %.019 = select i1 %49, double %50, double %31
   %51 = fdiv double %.019, %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #4
   br label %52
 
-52:                                               ; preds = %38, %7
-  %.017 = phi double [ %13, %7 ], [ %51, %38 ]
+52:                                               ; preds = %37, %7
+  %.017 = phi double [ %13, %7 ], [ %51, %37 ]
   ret double %.017
 }
 

@@ -883,27 +883,27 @@ define hidden void @WebPInitSamplersSSE2() local_unnamed_addr #3 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @YuvToRgbRow_SSE2(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly captures(none) %3, i32 noundef %4) #0 {
   %.not129 = icmp slt i32 %4, 32
-  br i1 %.not129, label %.preheader, label %.lr.ph.preheader
+  br i1 %.not129, label %.preheader, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %5
+.preheader.loopexit:                              ; preds = %.lr.ph
   %6 = and i32 %4, 2147483616
-  br label %.lr.ph
+  br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %5
-  %.038.lcssa = phi ptr [ %1, %5 ], [ %262, %.lr.ph ]
-  %.036.lcssa = phi ptr [ %2, %5 ], [ %263, %.lr.ph ]
-  %.034.lcssa = phi ptr [ %3, %5 ], [ %264, %.lr.ph ]
-  %.032.lcssa = phi ptr [ %0, %5 ], [ %261, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %6, %.lr.ph ]
+.preheader:                                       ; preds = %.preheader.loopexit, %5
+  %.038.lcssa = phi ptr [ %1, %5 ], [ %262, %.preheader.loopexit ]
+  %.036.lcssa = phi ptr [ %2, %5 ], [ %263, %.preheader.loopexit ]
+  %.034.lcssa = phi ptr [ %3, %5 ], [ %264, %.preheader.loopexit ]
+  %.032.lcssa = phi ptr [ %0, %5 ], [ %261, %.preheader.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %6, %.preheader.loopexit ]
   %7 = icmp slt i32 %.0.lcssa, %4
   br i1 %7, label %.lr.ph143, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %8 = phi i32 [ %265, %.lr.ph ], [ 32, %.lr.ph.preheader ]
-  %.032133 = phi ptr [ %261, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.034132 = phi ptr [ %264, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %.036131 = phi ptr [ %263, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %.038130 = phi ptr [ %262, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %5, %.lr.ph
+  %8 = phi i32 [ %265, %.lr.ph ], [ 32, %5 ]
+  %.032133 = phi ptr [ %261, %.lr.ph ], [ %0, %5 ]
+  %.034132 = phi ptr [ %264, %.lr.ph ], [ %3, %5 ]
+  %.036131 = phi ptr [ %263, %.lr.ph ], [ %2, %5 ]
+  %.038130 = phi ptr [ %262, %.lr.ph ], [ %1, %5 ]
   %.032.val = load i64, ptr %.032133, align 1, !tbaa !3
   %.038.val = load i32, ptr %.038130, align 1
   %.036.val = load i32, ptr %.036131, align 1
@@ -1184,7 +1184,7 @@ define internal void @YuvToRgbRow_SSE2(ptr noalias noundef readonly captures(non
   %264 = getelementptr inbounds nuw i8, ptr %.034132, i64 96
   %265 = add nuw nsw i32 %8, 32
   %.not = icmp sgt i32 %265, %4
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !38
 
 .lr.ph143:                                        ; preds = %.preheader, %.lr.ph143
   %.1142 = phi i32 [ %315, %.lr.ph143 ], [ %.0.lcssa, %.preheader ]
@@ -1255,27 +1255,27 @@ define internal void @YuvToRgbRow_SSE2(ptr noalias noundef readonly captures(non
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @YuvToRgbaRow_SSE2(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly captures(none) %3, i32 noundef %4) #0 {
   %.not49 = icmp slt i32 %4, 8
-  br i1 %.not49, label %.preheader, label %.lr.ph.preheader
+  br i1 %.not49, label %.preheader, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %5
+.preheader.loopexit:                              ; preds = %.lr.ph
   %6 = and i32 %4, 2147483640
-  br label %.lr.ph
+  br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %5
-  %.029.lcssa = phi ptr [ %1, %5 ], [ %47, %.lr.ph ]
-  %.027.lcssa = phi ptr [ %2, %5 ], [ %48, %.lr.ph ]
-  %.025.lcssa = phi ptr [ %3, %5 ], [ %49, %.lr.ph ]
-  %.023.lcssa = phi ptr [ %0, %5 ], [ %46, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %6, %.lr.ph ]
+.preheader:                                       ; preds = %.preheader.loopexit, %5
+  %.029.lcssa = phi ptr [ %1, %5 ], [ %47, %.preheader.loopexit ]
+  %.027.lcssa = phi ptr [ %2, %5 ], [ %48, %.preheader.loopexit ]
+  %.025.lcssa = phi ptr [ %3, %5 ], [ %49, %.preheader.loopexit ]
+  %.023.lcssa = phi ptr [ %0, %5 ], [ %46, %.preheader.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %6, %.preheader.loopexit ]
   %7 = icmp slt i32 %.0.lcssa, %4
   br i1 %7, label %.lr.ph63, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %8 = phi i32 [ %50, %.lr.ph ], [ 8, %.lr.ph.preheader ]
-  %.02353 = phi ptr [ %46, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.02552 = phi ptr [ %49, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %.02751 = phi ptr [ %48, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %.02950 = phi ptr [ %47, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %5, %.lr.ph
+  %8 = phi i32 [ %50, %.lr.ph ], [ 8, %5 ]
+  %.02353 = phi ptr [ %46, %.lr.ph ], [ %0, %5 ]
+  %.02552 = phi ptr [ %49, %.lr.ph ], [ %3, %5 ]
+  %.02751 = phi ptr [ %48, %.lr.ph ], [ %2, %5 ]
+  %.02950 = phi ptr [ %47, %.lr.ph ], [ %1, %5 ]
   %.023.val = load i64, ptr %.02353, align 1, !tbaa !3
   %.029.val = load i32, ptr %.02950, align 1
   %.027.val = load i32, ptr %.02751, align 1
@@ -1325,7 +1325,7 @@ define internal void @YuvToRgbaRow_SSE2(ptr noalias noundef readonly captures(no
   %49 = getelementptr inbounds nuw i8, ptr %.02552, i64 32
   %50 = add nuw nsw i32 %8, 8
   %.not = icmp sgt i32 %50, %4
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !43
 
 .lr.ph63:                                         ; preds = %.preheader, %.lr.ph63
   %.162 = phi i32 [ %101, %.lr.ph63 ], [ %.0.lcssa, %.preheader ]
@@ -1398,27 +1398,27 @@ define internal void @YuvToRgbaRow_SSE2(ptr noalias noundef readonly captures(no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @YuvToBgrRow_SSE2(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly captures(none) %3, i32 noundef %4) #0 {
   %.not129 = icmp slt i32 %4, 32
-  br i1 %.not129, label %.preheader, label %.lr.ph.preheader
+  br i1 %.not129, label %.preheader, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %5
+.preheader.loopexit:                              ; preds = %.lr.ph
   %6 = and i32 %4, 2147483616
-  br label %.lr.ph
+  br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %5
-  %.038.lcssa = phi ptr [ %1, %5 ], [ %262, %.lr.ph ]
-  %.036.lcssa = phi ptr [ %2, %5 ], [ %263, %.lr.ph ]
-  %.034.lcssa = phi ptr [ %3, %5 ], [ %264, %.lr.ph ]
-  %.032.lcssa = phi ptr [ %0, %5 ], [ %261, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %6, %.lr.ph ]
+.preheader:                                       ; preds = %.preheader.loopexit, %5
+  %.038.lcssa = phi ptr [ %1, %5 ], [ %262, %.preheader.loopexit ]
+  %.036.lcssa = phi ptr [ %2, %5 ], [ %263, %.preheader.loopexit ]
+  %.034.lcssa = phi ptr [ %3, %5 ], [ %264, %.preheader.loopexit ]
+  %.032.lcssa = phi ptr [ %0, %5 ], [ %261, %.preheader.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %6, %.preheader.loopexit ]
   %7 = icmp slt i32 %.0.lcssa, %4
   br i1 %7, label %.lr.ph143, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %8 = phi i32 [ %265, %.lr.ph ], [ 32, %.lr.ph.preheader ]
-  %.032133 = phi ptr [ %261, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.034132 = phi ptr [ %264, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %.036131 = phi ptr [ %263, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %.038130 = phi ptr [ %262, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %5, %.lr.ph
+  %8 = phi i32 [ %265, %.lr.ph ], [ 32, %5 ]
+  %.032133 = phi ptr [ %261, %.lr.ph ], [ %0, %5 ]
+  %.034132 = phi ptr [ %264, %.lr.ph ], [ %3, %5 ]
+  %.036131 = phi ptr [ %263, %.lr.ph ], [ %2, %5 ]
+  %.038130 = phi ptr [ %262, %.lr.ph ], [ %1, %5 ]
   %.032.val = load i64, ptr %.032133, align 1, !tbaa !3
   %.038.val = load i32, ptr %.038130, align 1
   %.036.val = load i32, ptr %.036131, align 1
@@ -1699,7 +1699,7 @@ define internal void @YuvToBgrRow_SSE2(ptr noalias noundef readonly captures(non
   %264 = getelementptr inbounds nuw i8, ptr %.034132, i64 96
   %265 = add nuw nsw i32 %8, 32
   %.not = icmp sgt i32 %265, %4
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !48
+  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !48
 
 .lr.ph143:                                        ; preds = %.preheader, %.lr.ph143
   %.1142 = phi i32 [ %315, %.lr.ph143 ], [ %.0.lcssa, %.preheader ]
@@ -1770,27 +1770,27 @@ define internal void @YuvToBgrRow_SSE2(ptr noalias noundef readonly captures(non
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @YuvToBgraRow_SSE2(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly captures(none) %3, i32 noundef %4) #0 {
   %.not49 = icmp slt i32 %4, 8
-  br i1 %.not49, label %.preheader, label %.lr.ph.preheader
+  br i1 %.not49, label %.preheader, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %5
+.preheader.loopexit:                              ; preds = %.lr.ph
   %6 = and i32 %4, 2147483640
-  br label %.lr.ph
+  br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %5
-  %.029.lcssa = phi ptr [ %1, %5 ], [ %47, %.lr.ph ]
-  %.027.lcssa = phi ptr [ %2, %5 ], [ %48, %.lr.ph ]
-  %.025.lcssa = phi ptr [ %3, %5 ], [ %49, %.lr.ph ]
-  %.023.lcssa = phi ptr [ %0, %5 ], [ %46, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %6, %.lr.ph ]
+.preheader:                                       ; preds = %.preheader.loopexit, %5
+  %.029.lcssa = phi ptr [ %1, %5 ], [ %47, %.preheader.loopexit ]
+  %.027.lcssa = phi ptr [ %2, %5 ], [ %48, %.preheader.loopexit ]
+  %.025.lcssa = phi ptr [ %3, %5 ], [ %49, %.preheader.loopexit ]
+  %.023.lcssa = phi ptr [ %0, %5 ], [ %46, %.preheader.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %6, %.preheader.loopexit ]
   %7 = icmp slt i32 %.0.lcssa, %4
   br i1 %7, label %.lr.ph63, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %8 = phi i32 [ %50, %.lr.ph ], [ 8, %.lr.ph.preheader ]
-  %.02353 = phi ptr [ %46, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.02552 = phi ptr [ %49, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %.02751 = phi ptr [ %48, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %.02950 = phi ptr [ %47, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %5, %.lr.ph
+  %8 = phi i32 [ %50, %.lr.ph ], [ 8, %5 ]
+  %.02353 = phi ptr [ %46, %.lr.ph ], [ %0, %5 ]
+  %.02552 = phi ptr [ %49, %.lr.ph ], [ %3, %5 ]
+  %.02751 = phi ptr [ %48, %.lr.ph ], [ %2, %5 ]
+  %.02950 = phi ptr [ %47, %.lr.ph ], [ %1, %5 ]
   %.023.val = load i64, ptr %.02353, align 1, !tbaa !3
   %.029.val = load i32, ptr %.02950, align 1
   %.027.val = load i32, ptr %.02751, align 1
@@ -1840,7 +1840,7 @@ define internal void @YuvToBgraRow_SSE2(ptr noalias noundef readonly captures(no
   %49 = getelementptr inbounds nuw i8, ptr %.02552, i64 32
   %50 = add nuw nsw i32 %8, 8
   %.not = icmp sgt i32 %50, %4
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !53
 
 .lr.ph63:                                         ; preds = %.preheader, %.lr.ph63
   %.162 = phi i32 [ %101, %.lr.ph63 ], [ %.0.lcssa, %.preheader ]
@@ -1913,27 +1913,27 @@ define internal void @YuvToBgraRow_SSE2(ptr noalias noundef readonly captures(no
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @YuvToArgbRow_SSE2(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly captures(none) %3, i32 noundef %4) #0 {
   %.not49 = icmp slt i32 %4, 8
-  br i1 %.not49, label %.preheader, label %.lr.ph.preheader
+  br i1 %.not49, label %.preheader, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %5
+.preheader.loopexit:                              ; preds = %.lr.ph
   %6 = and i32 %4, 2147483640
-  br label %.lr.ph
+  br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph, %5
-  %.029.lcssa = phi ptr [ %1, %5 ], [ %47, %.lr.ph ]
-  %.027.lcssa = phi ptr [ %2, %5 ], [ %48, %.lr.ph ]
-  %.025.lcssa = phi ptr [ %3, %5 ], [ %49, %.lr.ph ]
-  %.023.lcssa = phi ptr [ %0, %5 ], [ %46, %.lr.ph ]
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %6, %.lr.ph ]
+.preheader:                                       ; preds = %.preheader.loopexit, %5
+  %.029.lcssa = phi ptr [ %1, %5 ], [ %47, %.preheader.loopexit ]
+  %.027.lcssa = phi ptr [ %2, %5 ], [ %48, %.preheader.loopexit ]
+  %.025.lcssa = phi ptr [ %3, %5 ], [ %49, %.preheader.loopexit ]
+  %.023.lcssa = phi ptr [ %0, %5 ], [ %46, %.preheader.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %6, %.preheader.loopexit ]
   %7 = icmp slt i32 %.0.lcssa, %4
   br i1 %7, label %.lr.ph63, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %8 = phi i32 [ %50, %.lr.ph ], [ 8, %.lr.ph.preheader ]
-  %.02353 = phi ptr [ %46, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.02552 = phi ptr [ %49, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %.02751 = phi ptr [ %48, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %.02950 = phi ptr [ %47, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %5, %.lr.ph
+  %8 = phi i32 [ %50, %.lr.ph ], [ 8, %5 ]
+  %.02353 = phi ptr [ %46, %.lr.ph ], [ %0, %5 ]
+  %.02552 = phi ptr [ %49, %.lr.ph ], [ %3, %5 ]
+  %.02751 = phi ptr [ %48, %.lr.ph ], [ %2, %5 ]
+  %.02950 = phi ptr [ %47, %.lr.ph ], [ %1, %5 ]
   %.023.val = load i64, ptr %.02353, align 1, !tbaa !3
   %.029.val = load i32, ptr %.02950, align 1
   %.027.val = load i32, ptr %.02751, align 1
@@ -1983,7 +1983,7 @@ define internal void @YuvToArgbRow_SSE2(ptr noalias noundef readonly captures(no
   %49 = getelementptr inbounds nuw i8, ptr %.02552, i64 32
   %50 = add nuw nsw i32 %8, 8
   %.not = icmp sgt i32 %50, %4
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !58
+  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !58
 
 .lr.ph63:                                         ; preds = %.preheader, %.lr.ph63
   %.162 = phi i32 [ %101, %.lr.ph63 ], [ %.0.lcssa, %.preheader ]

@@ -22601,7 +22601,6 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %44, %46
 
 67:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6) #30
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %6, align 8
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %68, align 4, !tbaa !585
@@ -22616,6 +22615,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %44, %46
   br i1 %.not.i.i.i48, label %_ZN4llvm13SmallDenseMapIllLj8ENS_12DenseMapInfoIlvEENS_6detail12DenseMapPairIllEEEC2Ej.exit, label %.lr.ph.i.i.i, !llvm.loop !598
 
 _ZN4llvm13SmallDenseMapIllLj8ENS_12DenseMapInfoIlvEENS_6detail12DenseMapPairIllEEEC2Ej.exit: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #30
   call void @_ZNK4llvm14CombinerHelper31findLoadOffsetsForLoadOrCombineERNS_13SmallDenseMapIllLj8ENS_12DenseMapInfoIlvEENS_6detail12DenseMapPairIllEEEERKNS_11SmallVectorINS_8RegisterELj8EEEj(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.566") align 8 %7, ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(136) %6, ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %65)
@@ -23319,7 +23319,6 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %21, %2
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 8, ptr %35, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %8) #30
-  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %8, align 8
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %36, align 4, !tbaa !648
@@ -23334,6 +23333,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %21, %2
   br i1 %.not.i.i.i, label %_ZN4llvm13SmallDenseMapIPNS_12MachineInstrES2_Lj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.preheader, label %.lr.ph.i.i.i, !llvm.loop !651
 
 _ZN4llvm13SmallDenseMapIPNS_12MachineInstrES2_Lj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEC2Ej.exit.preheader: ; preds = %.lr.ph.i.i.i
+  %.phi.trans.insert.i.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.phi.trans.insert3.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %38 = load i24, ptr %37, align 8

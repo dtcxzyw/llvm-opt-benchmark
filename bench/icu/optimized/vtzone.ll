@@ -8487,25 +8487,25 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit45: ; preds = %.lr.ph.
   %81 = load i32, ptr %24, align 4, !tbaa !42
   %82 = sdiv i32 %81, 3600000
   %83 = srem i32 %81, 3600000
-  %84 = srem i32 %83, 60000
-  %85 = sdiv i32 %83, 60000
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #16
   %spec.select.i46 = call i32 @llvm.abs.i32(i32 %82, i1 true)
   br label %.preheader32.i47
 
 .preheader32.i47:                                 ; preds = %.preheader32.i47, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit45
   %indvars.iv.i48 = phi i64 [ 0, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit45 ], [ %indvars.iv.next.i50, %.preheader32.i47 ]
-  %.22633.i49 = phi i32 [ %spec.select.i46, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit45 ], [ %88, %.preheader32.i47 ]
-  %86 = urem i32 %.22633.i49, 10
-  %87 = getelementptr inbounds nuw [10 x i32], ptr %12, i64 0, i64 %indvars.iv.i48
-  store i32 %86, ptr %87, align 4, !tbaa !42
-  %88 = udiv i32 %.22633.i49, 10
+  %.22633.i49 = phi i32 [ %spec.select.i46, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit45 ], [ %86, %.preheader32.i47 ]
+  %84 = urem i32 %.22633.i49, 10
+  %85 = getelementptr inbounds nuw [10 x i32], ptr %12, i64 0, i64 %indvars.iv.i48
+  store i32 %84, ptr %85, align 4, !tbaa !42
+  %86 = udiv i32 %.22633.i49, 10
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 2
   br i1 %exitcond.not.i51, label %.loopexit.i52, label %.preheader32.i47, !llvm.loop !78
 
 .loopexit.i52:                                    ; preds = %.preheader32.i47
-  %89 = sdiv i32 %84, 1000
+  %87 = sdiv i32 %83, 60000
+  %88 = srem i32 %83, 60000
+  %89 = sdiv i32 %88, 1000
   %90 = icmp sgt i32 %81, -3600000
   br i1 %90, label %.lr.ph.i53.preheader, label %91
 
@@ -8536,7 +8536,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit45: ; preds = %.lr.ph.
 _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit56: ; preds = %.lr.ph.i53
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #16
-  %spec.select.i57 = call i32 @llvm.abs.i32(i32 %85, i1 true)
+  %spec.select.i57 = call i32 @llvm.abs.i32(i32 %87, i1 true)
   br label %.preheader32.i58
 
 .preheader32.i58:                                 ; preds = %.preheader32.i58, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit56
@@ -8596,7 +8596,7 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit67: ; preds = %.lr.ph.
   br i1 %exitcond.not.i73, label %.loopexit.i74, label %.preheader32.i69, !llvm.loop !78
 
 .loopexit.i74:                                    ; preds = %.preheader32.i69
-  %114 = icmp sgt i32 %84, -1000
+  %114 = icmp sgt i32 %88, -1000
   br i1 %114, label %.lr.ph.i75.preheader, label %115
 
 115:                                              ; preds = %.loopexit.i74
@@ -9664,56 +9664,51 @@ define internal fastcc void @_ZN6icu_77L14millisToOffsetEiRNS_13UnicodeStringE(i
 
 21:                                               ; preds = %18, %16
   %.0 = phi i32 [ %0, %16 ], [ %20, %18 ]
-  %22 = udiv i32 %.0, 1000
-  %23 = udiv i32 %.0, 60000
-  %.lhs.trunc = trunc nuw i32 %23 to i16
-  %24 = urem i16 %.lhs.trunc, 60
-  %25 = udiv i32 %.0, 3600000
+  %22 = udiv i32 %.0, 3600000
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #16
   br label %.preheader32.i
 
 .preheader32.i:                                   ; preds = %.preheader32.i, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %.preheader32.i ]
-  %.22633.i = phi i32 [ %25, %21 ], [ %28, %.preheader32.i ]
-  %26 = urem i32 %.22633.i, 10
-  %27 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv.i
-  store i32 %26, ptr %27, align 4, !tbaa !42
-  %28 = udiv i32 %.22633.i, 10
+  %.22633.i = phi i32 [ %22, %21 ], [ %25, %.preheader32.i ]
+  %23 = urem i32 %.22633.i, 10
+  %24 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv.i
+  store i32 %23, ptr %24, align 4, !tbaa !42
+  %25 = udiv i32 %.22633.i, 10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond.not.i, label %.lr.ph.i.preheader, label %.preheader32.i, !llvm.loop !78
+  br i1 %exitcond.not.i, label %.lr.ph.i, label %.preheader32.i, !llvm.loop !78
 
-.lr.ph.i.preheader:                               ; preds = %.preheader32.i
-  %29 = urem i32 %22, 60
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %.lr.ph.i ], [ 2, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.preheader32.i, %.lr.ph.i
+  %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %.lr.ph.i ], [ 2, %.preheader32.i ]
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, -1
-  %30 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv.next42.i
-  %31 = load i32, ptr %30, align 4, !tbaa !42
-  %32 = trunc i32 %31 to i16
-  %33 = add i16 %32, 48
+  %26 = getelementptr inbounds nuw [10 x i32], ptr %8, i64 0, i64 %indvars.iv.next42.i
+  %27 = load i32, ptr %26, align 4, !tbaa !42
+  %28 = trunc i32 %27 to i16
+  %29 = add i16 %28, 48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
-  store i16 %33, ptr %7, align 2, !tbaa !10
-  %34 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1)
+  store i16 %29, ptr %7, align 2, !tbaa !10
+  %30 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
-  %35 = icmp samesign ugt i64 %indvars.iv41.i, 1
-  br i1 %35, label %.lr.ph.i, label %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit, !llvm.loop !77
+  %31 = icmp samesign ugt i64 %indvars.iv41.i, 1
+  br i1 %31, label %.lr.ph.i, label %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit, !llvm.loop !77
 
 _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit: ; preds = %.lr.ph.i
-  %.zext = zext nneg i16 %24 to i32
+  %32 = udiv i32 %.0, 60000
+  %.lhs.trunc = trunc nuw i32 %32 to i16
+  %33 = urem i16 %.lhs.trunc, 60
+  %.zext = zext nneg i16 %33 to i32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
   br label %.preheader32.i18
 
 .preheader32.i18:                                 ; preds = %.preheader32.i18, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit
   %indvars.iv.i19 = phi i64 [ 0, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit ], [ %indvars.iv.next.i21, %.preheader32.i18 ]
-  %.22633.i20 = phi i32 [ %.zext, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit ], [ %38, %.preheader32.i18 ]
-  %36 = urem i32 %.22633.i20, 10
-  %37 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv.i19
-  store i32 %36, ptr %37, align 4, !tbaa !42
-  %38 = udiv i32 %.22633.i20, 10
+  %.22633.i20 = phi i32 [ %.zext, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit ], [ %36, %.preheader32.i18 ]
+  %34 = urem i32 %.22633.i20, 10
+  %35 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv.i19
+  store i32 %34, ptr %35, align 4, !tbaa !42
+  %36 = udiv i32 %.22633.i20, 10
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 2
   br i1 %exitcond.not.i22, label %.lr.ph.i24, label %.preheader32.i18, !llvm.loop !78
@@ -9721,25 +9716,27 @@ _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit: ; preds = %.lr.ph.i
 .lr.ph.i24:                                       ; preds = %.preheader32.i18, %.lr.ph.i24
   %indvars.iv41.i25 = phi i64 [ %indvars.iv.next42.i26, %.lr.ph.i24 ], [ 2, %.preheader32.i18 ]
   %indvars.iv.next42.i26 = add nsw i64 %indvars.iv41.i25, -1
-  %39 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv.next42.i26
-  %40 = load i32, ptr %39, align 4, !tbaa !42
-  %41 = trunc i32 %40 to i16
-  %42 = add i16 %41, 48
+  %37 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv.next42.i26
+  %38 = load i32, ptr %37, align 4, !tbaa !42
+  %39 = trunc i32 %38 to i16
+  %40 = add i16 %39, 48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  store i16 %42, ptr %5, align 2, !tbaa !10
-  %43 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1)
+  store i16 %40, ptr %5, align 2, !tbaa !10
+  %41 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  %44 = icmp samesign ugt i64 %indvars.iv41.i25, 1
-  br i1 %44, label %.lr.ph.i24, label %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit27, !llvm.loop !77
+  %42 = icmp samesign ugt i64 %indvars.iv41.i25, 1
+  br i1 %42, label %.lr.ph.i24, label %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit27, !llvm.loop !77
 
 _ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit27: ; preds = %.lr.ph.i24
+  %43 = udiv i32 %.0, 1000
+  %44 = urem i32 %43, 60
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
   br label %.preheader32.i29
 
 .preheader32.i29:                                 ; preds = %.preheader32.i29, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit27
   %indvars.iv.i30 = phi i64 [ 0, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit27 ], [ %indvars.iv.next.i32, %.preheader32.i29 ]
-  %.22633.i31 = phi i32 [ %29, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit27 ], [ %47, %.preheader32.i29 ]
+  %.22633.i31 = phi i32 [ %44, %_ZN6icu_77L17appendAsciiDigitsEihRNS_13UnicodeStringE.exit27 ], [ %47, %.preheader32.i29 ]
   %45 = urem i32 %.22633.i31, 10
   %46 = getelementptr inbounds nuw [10 x i32], ptr %4, i64 0, i64 %indvars.iv.i30
   store i32 %45, ptr %46, align 4, !tbaa !42

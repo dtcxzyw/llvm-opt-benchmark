@@ -58,21 +58,21 @@ thread-pre-split:                                 ; preds = %.preheader192, %thr
   %scevgep242 = getelementptr i8, ptr %21, i64 1
   %22 = tail call i64 @strtol(ptr noundef nonnull captures(none) %scevgep242, ptr noundef null, i32 noundef 10) #9
   %strlen243 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep242)
-  %23 = trunc i64 %20 to i32
-  %24 = getelementptr i8, ptr %.lcssa201, i64 %strlen241
-  %25 = getelementptr i8, ptr %24, i64 %strlen243
-  %scevgep244 = getelementptr i8, ptr %25, i64 2
-  %26 = tail call i64 @strtol(ptr noundef nonnull captures(none) %scevgep244, ptr noundef null, i32 noundef 10) #9
+  %23 = getelementptr i8, ptr %.lcssa201, i64 %strlen241
+  %24 = getelementptr i8, ptr %23, i64 %strlen243
+  %scevgep244 = getelementptr i8, ptr %24, i64 2
+  %25 = tail call i64 @strtol(ptr noundef nonnull captures(none) %scevgep244, ptr noundef null, i32 noundef 10) #9
   %strlen245 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep244)
-  %27 = trunc i64 %22 to i32
-  %28 = getelementptr i8, ptr %.lcssa201, i64 %strlen241
-  %29 = getelementptr i8, ptr %28, i64 %strlen245
-  %30 = getelementptr i8, ptr %29, i64 %strlen243
-  %scevgep246 = getelementptr i8, ptr %30, i64 3
-  %31 = tail call i64 @strtol(ptr noundef nonnull captures(none) %scevgep246, ptr noundef null, i32 noundef 10) #9
+  %26 = getelementptr i8, ptr %.lcssa201, i64 %strlen241
+  %27 = getelementptr i8, ptr %26, i64 %strlen245
+  %28 = getelementptr i8, ptr %27, i64 %strlen243
+  %scevgep246 = getelementptr i8, ptr %28, i64 3
+  %29 = tail call i64 @strtol(ptr noundef nonnull captures(none) %scevgep246, ptr noundef null, i32 noundef 10) #9
   %strlen247 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep246)
-  %32 = trunc i64 %26 to i32
-  %33 = trunc i64 %31 to i32
+  %30 = trunc i64 %20 to i32
+  %31 = trunc i64 %22 to i32
+  %32 = trunc i64 %25 to i32
+  %33 = trunc i64 %29 to i32
   %34 = getelementptr i8, ptr %.lcssa201, i64 %strlen241
   %35 = getelementptr i8, ptr %34, i64 %strlen247
   %36 = getelementptr i8, ptr %35, i64 %strlen243
@@ -85,7 +85,7 @@ thread-pre-split:                                 ; preds = %.preheader192, %thr
   %41 = tail call ptr @Extra_UtilStrsav(ptr noundef %0) #9
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %41, ptr %42, align 8, !tbaa !29
-  %43 = add nsw i32 %23, 1
+  %43 = add nsw i32 %30, 1
   %44 = add nsw i32 %43, %32
   %45 = add nsw i32 %44, %33
   %46 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
@@ -120,12 +120,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %59 = phi ptr [ %51, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %56, %Vec_PtrGrow.exit.i ]
   store i32 1, ptr %48, align 4, !tbaa !33
   store ptr %57, ptr %59, align 8, !tbaa !34
-  %60 = icmp sgt i32 %23, 0
+  %60 = icmp sgt i32 %30, 0
   br i1 %60, label %.lr.ph, label %.preheader190
 
 .preheader190:                                    ; preds = %Vec_PtrPush.exit168, %Vec_PtrPush.exit
   %.7.lcssa = phi ptr [ %scevgep248, %Vec_PtrPush.exit ], [ %scevgep251, %Vec_PtrPush.exit168 ]
-  %61 = icmp sgt i32 %27, 0
+  %61 = icmp sgt i32 %31, 0
   br i1 %61, label %.lr.ph213, label %.preheader
 
 .lr.ph:                                           ; preds = %Vec_PtrPush.exit, %Vec_PtrPush.exit168
@@ -198,7 +198,7 @@ Vec_PtrPush.exit168:                              ; preds = %.Vec_PtrGrow.exit11
   %90 = getelementptr inbounds ptr, ptr %87, i64 %89
   store ptr %62, ptr %90, align 8, !tbaa !34
   %91 = add nuw nsw i32 %.0124208, 1
-  %exitcond.not = icmp eq i32 %91, %23
+  %exitcond.not = icmp eq i32 %91, %30
   br i1 %exitcond.not, label %.preheader190, label %.lr.ph, !llvm.loop !35
 
 .preheader:                                       ; preds = %.lr.ph213, %.preheader190
@@ -215,7 +215,7 @@ Vec_PtrPush.exit168:                              ; preds = %.Vec_PtrGrow.exit11
   %scevgep253 = getelementptr i8, ptr %.9212, i64 1
   %scevgep254 = getelementptr i8, ptr %scevgep253, i64 %strlen252
   %95 = add nuw nsw i32 %.1125211, 1
-  %exitcond255.not = icmp eq i32 %95, %27
+  %exitcond255.not = icmp eq i32 %95, %31
   br i1 %exitcond255.not, label %.preheader, label %.lr.ph213, !llvm.loop !36
 
 .lr.ph217:                                        ; preds = %.preheader, %Vec_PtrPush.exit175
@@ -309,7 +309,7 @@ Vec_PtrPush.exit175:                              ; preds = %.Vec_PtrGrow.exit11
 ._crit_edge218:                                   ; preds = %Vec_PtrPush.exit175, %.preheader
   %.11.lcssa = phi ptr [ %.9.lcssa, %.preheader ], [ %scevgep264, %Vec_PtrPush.exit175 ]
   %133 = shl nsw i32 %33, 1
-  %134 = add i32 %32, %27
+  %134 = add i32 %32, %31
   %135 = add i32 %134, %133
   %136 = sext i32 %135 to i64
   %137 = shl nsw i64 %136, 2
@@ -343,7 +343,7 @@ Vec_PtrFree.exit:                                 ; preds = %140, %142
 .lr.ph222:                                        ; preds = %143
   %.not.i177 = icmp eq ptr %145, null
   %147 = getelementptr inbounds nuw i8, ptr %38, i64 256
-  %wide.trip.count = and i64 %31, 2147483647
+  %wide.trip.count = and i64 %29, 2147483647
   br label %148
 
 148:                                              ; preds = %.lr.ph222, %Vec_PtrPush.exit184

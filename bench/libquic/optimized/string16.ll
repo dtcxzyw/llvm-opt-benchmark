@@ -7238,62 +7238,59 @@ define weak_odr noundef i32 @_ZNKSt7__cxx1112basic_stringItN4base20string16_char
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i64 noundef %1, i64 noundef %6) #19
   unreachable
 
-_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4
-  %9 = sub nuw i64 %6, %1
-  br label %10
+_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit: ; preds = %4, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
+  %.0.i.i = phi ptr [ %10, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit ], [ %3, %4 ]
+  %9 = load i16, ptr %.0.i.i, align 2, !tbaa !3
+  %.not.i.i = icmp eq i16 %9, 0
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
+  br i1 %.not.i.i, label %_ZN4base20string16_char_traits6lengthEPKt.exit, label %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit, !llvm.loop !9
 
-10:                                               ; preds = %10, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
-  %.0.i.i = phi ptr [ %3, %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit ], [ %12, %10 ]
-  %11 = load i16, ptr %.0.i.i, align 2, !tbaa !3
-  %.not.i.i = icmp eq i16 %11, 0
-  %12 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
-  br i1 %.not.i.i, label %_ZN4base20string16_char_traits6lengthEPKt.exit, label %10, !llvm.loop !9
-
-_ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %10
-  %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %9)
-  %13 = ptrtoint ptr %.0.i.i to i64
-  %14 = ptrtoint ptr %3 to i64
-  %15 = sub i64 %13, %14
-  %16 = ashr exact i64 %15, 1
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %16, i64 %spec.select.i)
+_ZN4base20string16_char_traits6lengthEPKt.exit:   ; preds = %_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE8_M_checkEmPKc.exit
+  %11 = sub nuw i64 %6, %1
+  %spec.select.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %11)
+  %12 = ptrtoint ptr %.0.i.i to i64
+  %13 = ptrtoint ptr %3 to i64
+  %14 = sub i64 %12, %13
+  %15 = ashr exact i64 %14, 1
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %15, i64 %spec.select.i)
   %.not14.i.i = icmp eq i64 %.sroa.speculated, 0
   br i1 %.not14.i.i, label %_ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZN4base20string16_char_traits6lengthEPKt.exit
-  %17 = load ptr, ptr %0, align 8, !tbaa !12
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %1
+  %16 = load ptr, ptr %0, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw i16, ptr %16, i64 %1
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %21
-  %.in.i.i = phi i64 [ %22, %21 ], [ %.sroa.speculated, %.lr.ph.i.i.preheader ]
-  %.0716.i.i = phi ptr [ %24, %21 ], [ %3, %.lr.ph.i.i.preheader ]
-  %.0815.i.i = phi ptr [ %23, %21 ], [ %18, %.lr.ph.i.i.preheader ]
-  %19 = load i16, ptr %.0815.i.i, align 2, !tbaa !3
-  %20 = load i16, ptr %.0716.i.i, align 2, !tbaa !3
-  %.not12.i.i = icmp eq i16 %19, %20
-  br i1 %.not12.i.i, label %21, label %_ZN4base20string16_char_traits7compareEPKtS2_m.exit
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %20
+  %.in.i.i = phi i64 [ %21, %20 ], [ %.sroa.speculated, %.lr.ph.i.i.preheader ]
+  %.0716.i.i = phi ptr [ %23, %20 ], [ %3, %.lr.ph.i.i.preheader ]
+  %.0815.i.i = phi ptr [ %22, %20 ], [ %17, %.lr.ph.i.i.preheader ]
+  %18 = load i16, ptr %.0815.i.i, align 2, !tbaa !3
+  %19 = load i16, ptr %.0716.i.i, align 2, !tbaa !3
+  %.not12.i.i = icmp eq i16 %18, %19
+  br i1 %.not12.i.i, label %20, label %_ZN4base20string16_char_traits7compareEPKtS2_m.exit
 
-21:                                               ; preds = %.lr.ph.i.i
-  %22 = add i64 %.in.i.i, -1
-  %23 = getelementptr inbounds nuw i8, ptr %.0815.i.i, i64 2
-  %24 = getelementptr inbounds nuw i8, ptr %.0716.i.i, i64 2
-  %.not.i.i9 = icmp eq i64 %22, 0
+20:                                               ; preds = %.lr.ph.i.i
+  %21 = add i64 %.in.i.i, -1
+  %22 = getelementptr inbounds nuw i8, ptr %.0815.i.i, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.0716.i.i, i64 2
+  %.not.i.i9 = icmp eq i64 %21, 0
   br i1 %.not.i.i9, label %_ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread, label %.lr.ph.i.i, !llvm.loop !7
 
 _ZN4base20string16_char_traits7compareEPKtS2_m.exit: ; preds = %.lr.ph.i.i
-  %25 = icmp ult i16 %19, %20
-  %26 = select i1 %25, i32 -1, i32 1
-  br label %28
+  %24 = icmp ult i16 %18, %19
+  %25 = select i1 %24, i32 -1, i32 1
+  br label %27
 
-_ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread: ; preds = %21, %_ZN4base20string16_char_traits6lengthEPKt.exit
-  %27 = sub i64 %spec.select.i, %16
-  %spec.select7.i = tail call i64 @llvm.smax.i64(i64 %27, i64 -2147483648)
+_ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread: ; preds = %20, %_ZN4base20string16_char_traits6lengthEPKt.exit
+  %26 = sub i64 %spec.select.i, %15
+  %spec.select7.i = tail call i64 @llvm.smax.i64(i64 %26, i64 -2147483648)
   %.08.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i, i64 2147483647)
   %.0.i = trunc nsw i64 %.08.i to i32
-  br label %28
+  br label %27
 
-28:                                               ; preds = %_ZN4base20string16_char_traits7compareEPKtS2_m.exit, %_ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread
-  %.0 = phi i32 [ %26, %_ZN4base20string16_char_traits7compareEPKtS2_m.exit ], [ %.0.i, %_ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread ]
+27:                                               ; preds = %_ZN4base20string16_char_traits7compareEPKtS2_m.exit, %_ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread
+  %.0 = phi i32 [ %25, %_ZN4base20string16_char_traits7compareEPKtS2_m.exit ], [ %.0.i, %_ZN4base20string16_char_traits7compareEPKtS2_m.exit.thread ]
   ret i32 %.0
 }
 

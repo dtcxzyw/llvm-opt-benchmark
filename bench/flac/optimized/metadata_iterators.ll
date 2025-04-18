@@ -8370,61 +8370,61 @@ define internal fastcc range(i32 0, 2) i32 @chain_read_cb_(ptr noundef captures(
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #33
   %155 = call i64 %2(ptr noundef nonnull %14, i64 noundef 1, i64 noundef 4, ptr noundef %1) #33
   %.not.i58 = icmp eq i64 %155, 4
-  br i1 %.not.i58, label %156, label %165
+  br i1 %.not.i58, label %156, label %164
 
 156:                                              ; preds = %154
   %157 = load i8, ptr %14, align 1, !tbaa !8
-  %.lobit.i = lshr i8 %157, 7
-  %158 = and i8 %157, 127
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %156
-  %.09.i.i = phi i32 [ %164, %.lr.ph.i.i ], [ 0, %156 ]
-  %.058.i.i = phi i32 [ %163, %.lr.ph.i.i ], [ 0, %156 ]
-  %.067.i.i = phi ptr [ %160, %.lr.ph.i.i ], [ %56, %156 ]
-  %159 = shl i32 %.058.i.i, 8
-  %160 = getelementptr inbounds nuw i8, ptr %.067.i.i, i64 1
-  %161 = load i8, ptr %.067.i.i, align 1, !tbaa !8
-  %162 = zext i8 %161 to i32
-  %163 = or disjoint i32 %159, %162
-  %164 = add nuw nsw i32 %.09.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %164, 3
-  br i1 %exitcond.not.i.i, label %168, label %.lr.ph.i.i, !llvm.loop !32
+  %.09.i.i = phi i32 [ %163, %.lr.ph.i.i ], [ 0, %156 ]
+  %.058.i.i = phi i32 [ %162, %.lr.ph.i.i ], [ 0, %156 ]
+  %.067.i.i = phi ptr [ %159, %.lr.ph.i.i ], [ %56, %156 ]
+  %158 = shl i32 %.058.i.i, 8
+  %159 = getelementptr inbounds nuw i8, ptr %.067.i.i, i64 1
+  %160 = load i8, ptr %.067.i.i, align 1, !tbaa !8
+  %161 = zext i8 %160 to i32
+  %162 = or disjoint i32 %158, %161
+  %163 = add nuw nsw i32 %.09.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %163, 3
+  br i1 %exitcond.not.i.i, label %167, label %.lr.ph.i.i, !llvm.loop !32
 
-165:                                              ; preds = %154
+164:                                              ; preds = %154
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
-  %166 = load ptr, ptr %151, align 8, !tbaa !105
-  %.not.i59 = icmp eq ptr %166, null
-  br i1 %.not.i59, label %node_delete_.exit, label %167
+  %165 = load ptr, ptr %151, align 8, !tbaa !105
+  %.not.i59 = icmp eq ptr %165, null
+  br i1 %.not.i59, label %node_delete_.exit, label %166
 
-167:                                              ; preds = %165
-  call void @FLAC__metadata_object_delete(ptr noundef nonnull %166) #33
+166:                                              ; preds = %164
+  call void @FLAC__metadata_object_delete(ptr noundef nonnull %165) #33
   br label %node_delete_.exit
 
-node_delete_.exit:                                ; preds = %165, %167
+node_delete_.exit:                                ; preds = %164, %166
   call void @free(ptr noundef nonnull %151) #33
   store i32 6, ptr %146, align 4, !tbaa !108
   br label %.critedge
 
-168:                                              ; preds = %.lr.ph.i.i
-  %169 = zext nneg i8 %158 to i32
+167:                                              ; preds = %.lr.ph.i.i
+  %168 = and i8 %157, 127
+  %169 = zext nneg i8 %168 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #33
   %170 = call ptr @FLAC__metadata_object_new(i32 noundef %169) #33
   store ptr %170, ptr %151, align 8, !tbaa !105
   %171 = icmp eq ptr %170, null
   br i1 %171, label %node_delete_.exit61, label %172
 
-node_delete_.exit61:                              ; preds = %168
+node_delete_.exit61:                              ; preds = %167
   call void @free(ptr noundef nonnull %151) #33
   store i32 11, ptr %146, align 4, !tbaa !108
   br label %.critedge
 
-172:                                              ; preds = %168
+172:                                              ; preds = %167
+  %.lobit.i = lshr i8 %157, 7
   %173 = zext nneg i8 %.lobit.i to i32
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 4
   store i32 %173, ptr %174, align 4, !tbaa !35
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  store i32 %163, ptr %175, align 8, !tbaa !37
+  store i32 %162, ptr %175, align 8, !tbaa !37
   %176 = load i32, ptr %170, align 8, !tbaa !38
   switch i32 %176, label %548 [
     i32 0, label %177
@@ -8582,7 +8582,7 @@ read_metadata_block_data_streaminfo_cb_.exit.i:   ; preds = %unpack_uint64_.exit
   br label %read_metadata_block_data_cb_.exit
 
 242:                                              ; preds = %172
-  %243 = zext i32 %163 to i64
+  %243 = zext i32 %162 to i64
   %244 = call i32 %3(ptr noundef %1, i64 noundef %243, i32 noundef 1) #33
   %.not.i31.i = icmp eq i32 %244, 0
   br i1 %.not.i31.i, label %read_metadata_block_data_cb_.exit.thread, label %.loopexit
@@ -8591,12 +8591,12 @@ read_metadata_block_data_streaminfo_cb_.exit.i:   ; preds = %unpack_uint64_.exit
   %246 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %247 = call i64 %2(ptr noundef nonnull %246, i64 noundef 1, i64 noundef %137, ptr noundef %1) #33
   %.not.i32.i = icmp ne i64 %247, %137
-  %248 = icmp ult i32 %163, %136
+  %248 = icmp ult i32 %162, %136
   %or.cond.i.i = or i1 %248, %.not.i32.i
   br i1 %or.cond.i.i, label %.loopexit, label %249
 
 249:                                              ; preds = %245
-  %250 = icmp eq i32 %163, %136
+  %250 = icmp eq i32 %162, %136
   br i1 %250, label %251, label %253
 
 251:                                              ; preds = %249
@@ -8605,7 +8605,7 @@ read_metadata_block_data_streaminfo_cb_.exit.i:   ; preds = %unpack_uint64_.exit
   br label %read_metadata_block_data_cb_.exit.thread
 
 253:                                              ; preds = %249
-  %254 = sub nuw i32 %163, %136
+  %254 = sub nuw i32 %162, %136
   %255 = zext i32 %254 to i64
   %256 = call noalias ptr @malloc(i64 noundef %255) #36
   %257 = getelementptr inbounds nuw i8, ptr %170, i64 24
@@ -8621,14 +8621,14 @@ read_metadata_block_data_streaminfo_cb_.exit.i:   ; preds = %unpack_uint64_.exit
 261:                                              ; preds = %172
   %262 = getelementptr inbounds nuw i8, ptr %170, i64 16
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %12) #33
-  %263 = urem i32 %163, 18
-  %264 = udiv i32 %163, 18
+  %263 = urem i32 %162, 18
+  %264 = udiv i32 %162, 18
   %.not.i34.i = icmp eq i32 %263, 0
   br i1 %.not.i34.i, label %265, label %read_metadata_block_data_seektable_cb_.exit.i
 
 265:                                              ; preds = %261
   store i32 %264, ptr %262, align 8, !tbaa !51
-  %266 = icmp ult i32 %163, 18
+  %266 = icmp ult i32 %162, 18
   br i1 %266, label %267, label %269
 
 267:                                              ; preds = %265
@@ -8730,10 +8730,10 @@ read_metadata_block_data_seektable_cb_.exit.i:    ; preds = %unpack_uint32_.exit
 304:                                              ; preds = %172
   %305 = getelementptr inbounds nuw i8, ptr %170, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #33
-  %306 = call fastcc i32 @read_metadata_block_data_vorbis_comment_entry_cb_(ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull %305, i32 noundef %163)
-  %307 = icmp ugt i32 %163, 3
-  %308 = add i32 %163, -4
-  %spec.select.i.i = select i1 %307, i32 %308, i32 %163
+  %306 = call fastcc i32 @read_metadata_block_data_vorbis_comment_entry_cb_(ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull %305, i32 noundef %162)
+  %307 = icmp ugt i32 %162, 3
+  %308 = add i32 %162, -4
+  %spec.select.i.i = select i1 %307, i32 %308, i32 %162
   switch i32 %306, label %read_metadata_block_data_vorbis_comment_cb_.exit.i [
     i32 5, label %.loopexit.i.i
     i32 0, label %309
@@ -9371,7 +9371,7 @@ read_metadata_block_data_picture_cb_.exit.i:      ; preds = %unpack_uint32_.exit
 
 548:                                              ; preds = %172
   %549 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %550 = icmp eq i32 %163, 0
+  %550 = icmp eq i32 %162, 0
   br i1 %550, label %551, label %552
 
 551:                                              ; preds = %548
@@ -9379,7 +9379,7 @@ read_metadata_block_data_picture_cb_.exit.i:      ; preds = %unpack_uint32_.exit
   br label %read_metadata_block_data_cb_.exit.thread
 
 552:                                              ; preds = %548
-  %553 = zext i32 %163 to i64
+  %553 = zext i32 %162 to i64
   %554 = call noalias ptr @malloc(i64 noundef %553) #36
   store ptr %554, ptr %549, align 8, !tbaa !90
   %555 = icmp eq ptr %554, null

@@ -1782,81 +1782,81 @@ GetPredictionCostCrossColorRed.exit62.i:          ; preds = %124, %121
 
 GetBestGreenToRed.exit:                           ; preds = %GetPredictionCostCrossColorRed.exit.i, %._crit_edge73.loopexit.i
   %.0.lcssa.i = phi i8 [ 0, %GetPredictionCostCrossColorRed.exit.i ], [ %138, %._crit_edge73.loopexit.i ]
-  %139 = icmp samesign ugt i32 %5, 50
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %12, i8 0, i64 1024, i1 false)
-  %140 = load ptr, ptr @VP8LCollectColorBlueTransforms, align 8, !tbaa !26
-  call void %140(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12) #11
-  %141 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8, !tbaa !26
-  %142 = call i64 %141(ptr noundef nonnull %12, ptr noundef nonnull %9) #11
-  %143 = load i32, ptr %12, align 16, !tbaa !3
-  %144 = zext i32 %143 to i64
-  %145 = mul nuw nsw i64 %144, 25165824
-  br label %146
+  %139 = load ptr, ptr @VP8LCollectColorBlueTransforms, align 8, !tbaa !26
+  call void %139(ptr noundef %29, i32 noundef %6, i32 noundef %23, i32 noundef %24, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %12) #11
+  %140 = load ptr, ptr @VP8LCombinedShannonEntropy, align 8, !tbaa !26
+  %141 = call i64 %140(ptr noundef nonnull %12, ptr noundef nonnull %9) #11
+  %142 = load i32, ptr %12, align 16, !tbaa !3
+  %143 = zext i32 %142 to i64
+  %144 = mul nuw nsw i64 %143, 25165824
+  br label %145
 
-146:                                              ; preds = %DivRound.exit16.i.i.i, %GetBestGreenToRed.exit
+145:                                              ; preds = %DivRound.exit16.i.i.i, %GetBestGreenToRed.exit
   %indvars.iv.i.i.i = phi i64 [ 1, %GetBestGreenToRed.exit ], [ %indvars.iv.next.i.i.i, %DivRound.exit16.i.i.i ]
-  %.01221.i.i.i = phi i64 [ %145, %GetBestGreenToRed.exit ], [ %162, %DivRound.exit16.i.i.i ]
-  %.01320.i.i.i = phi i64 [ 2013265920, %GetBestGreenToRed.exit ], [ %170, %DivRound.exit16.i.i.i ]
-  %147 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i
-  %148 = load i32, ptr %147, align 4, !tbaa !3
-  %149 = sub nuw nsw i64 256, %indvars.iv.i.i.i
-  %150 = getelementptr inbounds nuw i32, ptr %12, i64 %149
-  %151 = load i32, ptr %150, align 4, !tbaa !3
-  %152 = add i32 %151, %148
-  %153 = zext i32 %152 to i64
-  %154 = mul i64 %.01320.i.i.i, %153
-  %155 = icmp sgt i64 %154, -1
-  br i1 %155, label %156, label %159
+  %.01221.i.i.i = phi i64 [ %144, %GetBestGreenToRed.exit ], [ %161, %DivRound.exit16.i.i.i ]
+  %.01320.i.i.i = phi i64 [ 2013265920, %GetBestGreenToRed.exit ], [ %169, %DivRound.exit16.i.i.i ]
+  %146 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i
+  %147 = load i32, ptr %146, align 4, !tbaa !3
+  %148 = sub nuw nsw i64 256, %indvars.iv.i.i.i
+  %149 = getelementptr inbounds nuw i32, ptr %12, i64 %148
+  %150 = load i32, ptr %149, align 4, !tbaa !3
+  %151 = add i32 %150, %147
+  %152 = zext i32 %151 to i64
+  %153 = mul i64 %.01320.i.i.i, %152
+  %154 = icmp sgt i64 %153, -1
+  br i1 %154, label %155, label %158
 
-156:                                              ; preds = %146
-  %157 = add nuw nsw i64 %154, 50
-  %158 = udiv i64 %157, 100
+155:                                              ; preds = %145
+  %156 = add nuw nsw i64 %153, 50
+  %157 = udiv i64 %156, 100
   br label %DivRound.exit.i.i.i
 
-159:                                              ; preds = %146
-  %.neg8.i.i.i.i = sub i64 50, %154
-  %160 = udiv i64 %.neg8.i.i.i.i, 100
-  %.neg.i.i.i.i = sub nsw i64 0, %160
+158:                                              ; preds = %145
+  %.neg8.i.i.i.i = sub i64 50, %153
+  %159 = udiv i64 %.neg8.i.i.i.i, 100
+  %.neg.i.i.i.i = sub nsw i64 0, %159
   br label %DivRound.exit.i.i.i
 
-DivRound.exit.i.i.i:                              ; preds = %159, %156
-  %161 = phi i64 [ %158, %156 ], [ %.neg.i.i.i.i, %159 ]
-  %162 = add i64 %161, %.01221.i.i.i
-  %163 = mul i64 %.01320.i.i.i, 6
-  %164 = icmp sgt i64 %163, -1
-  br i1 %164, label %165, label %168
+DivRound.exit.i.i.i:                              ; preds = %158, %155
+  %160 = phi i64 [ %157, %155 ], [ %.neg.i.i.i.i, %158 ]
+  %161 = add i64 %160, %.01221.i.i.i
+  %162 = mul i64 %.01320.i.i.i, 6
+  %163 = icmp sgt i64 %162, -1
+  br i1 %163, label %164, label %167
 
-165:                                              ; preds = %DivRound.exit.i.i.i
-  %166 = add nuw nsw i64 %163, 5
-  %167 = udiv i64 %166, 10
+164:                                              ; preds = %DivRound.exit.i.i.i
+  %165 = add nuw nsw i64 %162, 5
+  %166 = udiv i64 %165, 10
   br label %DivRound.exit16.i.i.i
 
-168:                                              ; preds = %DivRound.exit.i.i.i
-  %.neg8.i14.i.i.i = sub i64 4, %163
-  %169 = udiv i64 %.neg8.i14.i.i.i, 10
-  %.neg.i15.i.i.i = sub nsw i64 0, %169
+167:                                              ; preds = %DivRound.exit.i.i.i
+  %.neg8.i14.i.i.i = sub i64 4, %162
+  %168 = udiv i64 %.neg8.i14.i.i.i, 10
+  %.neg.i15.i.i.i = sub nsw i64 0, %168
   br label %DivRound.exit16.i.i.i
 
-DivRound.exit16.i.i.i:                            ; preds = %168, %165
-  %170 = phi i64 [ %167, %165 ], [ %.neg.i15.i.i.i, %168 ]
+DivRound.exit16.i.i.i:                            ; preds = %167, %164
+  %169 = phi i64 [ %166, %164 ], [ %.neg.i15.i.i.i, %167 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16
-  br i1 %exitcond.not.i.i.i, label %171, label %146, !llvm.loop !25
+  br i1 %exitcond.not.i.i.i, label %170, label %145, !llvm.loop !25
 
-171:                                              ; preds = %DivRound.exit16.i.i.i
-  %172 = icmp sgt i32 %5, 24
-  %173 = select i1 %139, i64 7, i64 4
-  %174 = icmp sgt i64 %162, -1
+170:                                              ; preds = %DivRound.exit16.i.i.i
+  %171 = icmp sgt i32 %5, 24
+  %172 = icmp samesign ugt i32 %5, 50
+  %173 = select i1 %172, i64 7, i64 4
+  %174 = icmp sgt i64 %161, -1
   br i1 %174, label %175, label %178
 
-175:                                              ; preds = %171
-  %176 = add nuw nsw i64 %162, 5
+175:                                              ; preds = %170
+  %176 = add nuw nsw i64 %161, 5
   %177 = udiv i64 %176, 10
   br label %GetPredictionCostCrossColorBlue.exit
 
-178:                                              ; preds = %171
-  %.neg8.i17.i.i.i = sub i64 5, %162
+178:                                              ; preds = %170
+  %.neg8.i17.i.i.i = sub i64 5, %161
   %179 = udiv i64 %.neg8.i17.i.i.i, 10
   %.neg.i18.i.i.i = sub nsw i64 0, %179
   br label %GetPredictionCostCrossColorBlue.exit
@@ -1869,7 +1869,7 @@ GetPredictionCostCrossColorBlue.exit:             ; preds = %175, %178
   %.sroa.221.0.extract.shift.i = lshr i24 %3, 16
   %.sroa.221.0.extract.trunc.i = zext nneg i24 %.sroa.221.0.extract.shift.i to i32
   %.sroa.120.0.extract.shift.i = lshr i24 %3, 8
-  %181 = sub nsw i64 %142, %180
+  %181 = sub nsw i64 %141, %180
   %182 = and i24 %.sroa.120.0.extract.shift.i, 255
   %183 = zext nneg i24 %182 to i32
   %184 = icmp eq i24 %182, 0
@@ -1893,7 +1893,7 @@ GetPredictionCostCrossColorBlue.exit:             ; preds = %175, %178
 195:                                              ; preds = %270
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %196 = icmp samesign ugt i64 %173, %indvars.iv.next85.i
-  %197 = select i1 %172, i1 %196, i1 false
+  %197 = select i1 %171, i1 %196, i1 false
   br i1 %197, label %198, label %GetBestGreenRedToBlue.exit, !llvm.loop !41
 
 198:                                              ; preds = %195, %GetPredictionCostCrossColorBlue.exit
@@ -1905,7 +1905,7 @@ GetPredictionCostCrossColorBlue.exit:             ; preds = %175, %178
   %200 = load i8, ptr %199, align 1, !tbaa !42
   %201 = sext i8 %200 to i32
   %202 = icmp ne i64 %indvars.iv84.i, 4
-  %or.cond.not82.i = or i1 %172, %202
+  %or.cond.not82.i = or i1 %171, %202
   br label %203
 
 203:                                              ; preds = %GetPredictionCostCrossColorBlue.exit.i, %198

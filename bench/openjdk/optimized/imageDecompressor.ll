@@ -565,223 +565,223 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit146: ; preds = %_ZN24Share
   %151 = zext i32 %.1.i125 to i64
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 %151
   %153 = icmp sgt i32 %.1.i136, 0
-  br i1 %153, label %154, label %270
+  br i1 %153, label %154, label %269
 
 154:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit146
-  %155 = zext nneg i32 %.1.i136 to i64
-  %156 = load i8, ptr %152, align 1
-  br label %157
+  %155 = load i8, ptr %152, align 1
+  br label %156
 
-157:                                              ; preds = %267, %154
-  %.0183 = phi ptr [ %148, %154 ], [ %.1184, %267 ]
-  %.0116 = phi i8 [ %156, %154 ], [ %269, %267 ]
-  %.0115 = phi ptr [ %152, %154 ], [ %268, %267 ]
-  %.0111 = phi i32 [ 0, %154 ], [ %.1112, %267 ]
-  %.1 = phi ptr [ %149, %154 ], [ %.2, %267 ]
+156:                                              ; preds = %266, %154
+  %.0183 = phi ptr [ %148, %154 ], [ %.1184, %266 ]
+  %.0116 = phi i8 [ %155, %154 ], [ %268, %266 ]
+  %.0115 = phi ptr [ %152, %154 ], [ %267, %266 ]
+  %.0111 = phi i32 [ 0, %154 ], [ %.1112, %266 ]
+  %.1 = phi ptr [ %149, %154 ], [ %.2, %266 ]
   store i8 %.0116, ptr %.1, align 1
-  %158 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %159 = add nsw i32 %.0111, 1
-  %160 = icmp eq i8 %.0116, 76
-  br i1 %160, label %161, label %267
+  %157 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  %158 = add nsw i32 %.0111, 1
+  %159 = icmp eq i8 %.0116, 76
+  br i1 %159, label %160, label %266
 
-161:                                              ; preds = %157
-  %162 = load i8, ptr %.0183, align 1
-  %163 = icmp slt i8 %162, 0
-  br i1 %163, label %164, label %184
+160:                                              ; preds = %156
+  %161 = load i8, ptr %.0183, align 1
+  %162 = icmp slt i8 %161, 0
+  br i1 %162, label %163, label %183
 
-164:                                              ; preds = %161
-  %165 = lshr i8 %162, 5
-  %166 = and i8 %165, 3
-  %167 = zext nneg i8 %166 to i32
-  %168 = and i8 %162, 31
-  %169 = icmp eq i8 %166, 1
-  %170 = zext nneg i8 %168 to i32
-  br i1 %169, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157, label %171
+163:                                              ; preds = %160
+  %164 = lshr i8 %161, 5
+  %165 = and i8 %164, 3
+  %166 = zext nneg i8 %165 to i32
+  %167 = and i8 %161, 31
+  %168 = icmp eq i8 %165, 1
+  %169 = zext nneg i8 %167 to i32
+  br i1 %168, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157, label %170
 
-171:                                              ; preds = %164
-  %172 = shl nuw nsw i32 %167, 3
-  %173 = add nsw i32 %172, -8
-  %174 = shl nuw nsw i32 %170, %173
-  %.not.i149 = icmp eq i8 %166, 0
+170:                                              ; preds = %163
+  %171 = shl nuw nsw i32 %166, 3
+  %172 = add nsw i32 %171, -8
+  %173 = shl nuw nsw i32 %169, %172
+  %.not.i149 = icmp eq i8 %165, 0
   br i1 %.not.i149, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157, label %.lr.ph.preheader.i150
 
-.lr.ph.preheader.i150:                            ; preds = %171
-  %wide.trip.count.i151 = zext nneg i8 %166 to i64
+.lr.ph.preheader.i150:                            ; preds = %170
+  %wide.trip.count.i151 = zext nneg i8 %165 to i64
   br label %.lr.ph.i152
 
 .lr.ph.i152:                                      ; preds = %.lr.ph.i152, %.lr.ph.preheader.i150
   %indvars.iv.i153 = phi i64 [ 1, %.lr.ph.preheader.i150 ], [ %indvars.iv.next.i155, %.lr.ph.i152 ]
-  %.02326.i154 = phi i32 [ %174, %.lr.ph.preheader.i150 ], [ %183, %.lr.ph.i152 ]
-  %175 = getelementptr inbounds nuw i8, ptr %.0183, i64 %indvars.iv.i153
-  %176 = load i8, ptr %175, align 1
-  %177 = zext i8 %176 to i32
-  %178 = trunc nuw nsw i64 %indvars.iv.i153 to i32
-  %179 = xor i32 %178, -1
-  %180 = add nsw i32 %179, %167
-  %181 = shl nsw i32 %180, 3
-  %182 = shl i32 %177, %181
-  %183 = or i32 %182, %.02326.i154
+  %.02326.i154 = phi i32 [ %173, %.lr.ph.preheader.i150 ], [ %182, %.lr.ph.i152 ]
+  %174 = getelementptr inbounds nuw i8, ptr %.0183, i64 %indvars.iv.i153
+  %175 = load i8, ptr %174, align 1
+  %176 = zext i8 %175 to i32
+  %177 = trunc nuw nsw i64 %indvars.iv.i153 to i32
+  %178 = xor i32 %177, -1
+  %179 = add nsw i32 %178, %166
+  %180 = shl nsw i32 %179, 3
+  %181 = shl i32 %176, %180
+  %182 = or i32 %181, %.02326.i154
   %indvars.iv.next.i155 = add nuw nsw i64 %indvars.iv.i153, 1
   %exitcond.not.i156 = icmp eq i64 %indvars.iv.next.i155, %wide.trip.count.i151
   br i1 %exitcond.not.i156, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit, label %.lr.ph.i152, !llvm.loop !9
 
-184:                                              ; preds = %161
-  %185 = zext nneg i8 %162 to i32
-  %186 = shl nuw nsw i32 %185, 24
-  %187 = getelementptr inbounds nuw i8, ptr %.0183, i64 1
-  %188 = load i8, ptr %187, align 1
-  %189 = zext i8 %188 to i32
-  %190 = shl nuw nsw i32 %189, 16
-  %191 = or disjoint i32 %190, %186
-  %192 = getelementptr inbounds nuw i8, ptr %.0183, i64 2
-  %193 = load i8, ptr %192, align 1
-  %194 = zext i8 %193 to i32
-  %195 = shl nuw nsw i32 %194, 8
-  %196 = or disjoint i32 %191, %195
-  %197 = getelementptr inbounds nuw i8, ptr %.0183, i64 3
-  %198 = load i8, ptr %197, align 1
-  %199 = zext i8 %198 to i32
-  %200 = or disjoint i32 %196, %199
+183:                                              ; preds = %160
+  %184 = zext nneg i8 %161 to i32
+  %185 = shl nuw nsw i32 %184, 24
+  %186 = getelementptr inbounds nuw i8, ptr %.0183, i64 1
+  %187 = load i8, ptr %186, align 1
+  %188 = zext i8 %187 to i32
+  %189 = shl nuw nsw i32 %188, 16
+  %190 = or disjoint i32 %189, %185
+  %191 = getelementptr inbounds nuw i8, ptr %.0183, i64 2
+  %192 = load i8, ptr %191, align 1
+  %193 = zext i8 %192 to i32
+  %194 = shl nuw nsw i32 %193, 8
+  %195 = or disjoint i32 %190, %194
+  %196 = getelementptr inbounds nuw i8, ptr %.0183, i64 3
+  %197 = load i8, ptr %196, align 1
+  %198 = zext i8 %197 to i32
+  %199 = or disjoint i32 %195, %198
   br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157
 
 _ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit: ; preds = %.lr.ph.i152
-  %201 = zext nneg i8 %166 to i64
+  %200 = zext nneg i8 %165 to i64
   br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit157
 
-_ZN24SharedStringDecompressor14decompress_intERPh.exit157: ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit, %164, %171, %184
-  %.1.i147 = phi i32 [ %200, %184 ], [ %174, %171 ], [ %170, %164 ], [ %183, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit ]
-  %.022.i148 = phi i64 [ 4, %184 ], [ 0, %171 ], [ 1, %164 ], [ %201, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit ]
-  %202 = getelementptr inbounds nuw i8, ptr %.0183, i64 %.022.i148
-  %203 = load ptr, ptr %4, align 8
-  %204 = zext i32 %.1.i147 to i64
-  %205 = getelementptr inbounds nuw i8, ptr %203, i64 %204
-  %206 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %205) #14
-  %207 = trunc i64 %206 to i32
-  %208 = icmp sgt i32 %207, 0
-  br i1 %208, label %209, label %217
+_ZN24SharedStringDecompressor14decompress_intERPh.exit157: ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit, %163, %170, %183
+  %.1.i147 = phi i32 [ %199, %183 ], [ %173, %170 ], [ %169, %163 ], [ %182, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit ]
+  %.022.i148 = phi i64 [ 4, %183 ], [ 0, %170 ], [ 1, %163 ], [ %200, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157.loopexit ]
+  %201 = getelementptr inbounds nuw i8, ptr %.0183, i64 %.022.i148
+  %202 = load ptr, ptr %4, align 8
+  %203 = zext i32 %.1.i147 to i64
+  %204 = getelementptr inbounds nuw i8, ptr %202, i64 %203
+  %205 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %204) #14
+  %206 = trunc i64 %205 to i32
+  %207 = icmp sgt i32 %206, 0
+  br i1 %207, label %208, label %216
 
-209:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit157
-  %210 = add nuw nsw i32 %207, 1
-  %211 = zext nneg i32 %210 to i64
-  %212 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %211) #12
-  %213 = and i64 %206, 2147483647
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %212, ptr nonnull align 1 %205, i64 %213, i1 false)
-  %214 = getelementptr inbounds nuw i8, ptr %212, i64 %213
-  store i8 47, ptr %214, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %158, ptr noundef nonnull align 1 dereferenceable(1) %212, i64 %211, i1 false)
-  %215 = getelementptr inbounds nuw i8, ptr %158, i64 %211
-  tail call void @_ZdaPv(ptr noundef nonnull %212) #13
-  %216 = add nsw i32 %210, %159
-  br label %217
+208:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit157
+  %209 = add nuw nsw i32 %206, 1
+  %210 = zext nneg i32 %209 to i64
+  %211 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %210) #12
+  %212 = and i64 %205, 2147483647
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %211, ptr nonnull align 1 %204, i64 %212, i1 false)
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 %212
+  store i8 47, ptr %213, align 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %157, ptr noundef nonnull align 1 dereferenceable(1) %211, i64 %210, i1 false)
+  %214 = getelementptr inbounds nuw i8, ptr %157, i64 %210
+  tail call void @_ZdaPv(ptr noundef nonnull %211) #13
+  %215 = add nsw i32 %209, %158
+  br label %216
 
-217:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit157, %209
-  %.2113 = phi i32 [ %216, %209 ], [ %159, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157 ]
-  %.3 = phi ptr [ %215, %209 ], [ %158, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157 ]
-  %218 = load i8, ptr %202, align 1
-  %219 = icmp slt i8 %218, 0
-  br i1 %219, label %220, label %240
+216:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit157, %208
+  %.2113 = phi i32 [ %215, %208 ], [ %158, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157 ]
+  %.3 = phi ptr [ %214, %208 ], [ %157, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157 ]
+  %217 = load i8, ptr %201, align 1
+  %218 = icmp slt i8 %217, 0
+  br i1 %218, label %219, label %239
 
-220:                                              ; preds = %217
-  %221 = lshr i8 %218, 5
-  %222 = and i8 %221, 3
-  %223 = zext nneg i8 %222 to i32
-  %224 = and i8 %218, 31
-  %225 = icmp eq i8 %222, 1
-  %226 = zext nneg i8 %224 to i32
-  br i1 %225, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168, label %227
+219:                                              ; preds = %216
+  %220 = lshr i8 %217, 5
+  %221 = and i8 %220, 3
+  %222 = zext nneg i8 %221 to i32
+  %223 = and i8 %217, 31
+  %224 = icmp eq i8 %221, 1
+  %225 = zext nneg i8 %223 to i32
+  br i1 %224, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168, label %226
 
-227:                                              ; preds = %220
-  %228 = shl nuw nsw i32 %223, 3
-  %229 = add nsw i32 %228, -8
-  %230 = shl nuw nsw i32 %226, %229
-  %.not.i160 = icmp eq i8 %222, 0
+226:                                              ; preds = %219
+  %227 = shl nuw nsw i32 %222, 3
+  %228 = add nsw i32 %227, -8
+  %229 = shl nuw nsw i32 %225, %228
+  %.not.i160 = icmp eq i8 %221, 0
   br i1 %.not.i160, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168, label %.lr.ph.preheader.i161
 
-.lr.ph.preheader.i161:                            ; preds = %227
-  %wide.trip.count.i162 = zext nneg i8 %222 to i64
+.lr.ph.preheader.i161:                            ; preds = %226
+  %wide.trip.count.i162 = zext nneg i8 %221 to i64
   br label %.lr.ph.i163
 
 .lr.ph.i163:                                      ; preds = %.lr.ph.i163, %.lr.ph.preheader.i161
   %indvars.iv.i164 = phi i64 [ 1, %.lr.ph.preheader.i161 ], [ %indvars.iv.next.i166, %.lr.ph.i163 ]
-  %.02326.i165 = phi i32 [ %230, %.lr.ph.preheader.i161 ], [ %239, %.lr.ph.i163 ]
-  %231 = getelementptr inbounds nuw i8, ptr %202, i64 %indvars.iv.i164
-  %232 = load i8, ptr %231, align 1
-  %233 = zext i8 %232 to i32
-  %234 = trunc nuw nsw i64 %indvars.iv.i164 to i32
-  %235 = xor i32 %234, -1
-  %236 = add nsw i32 %235, %223
-  %237 = shl nsw i32 %236, 3
-  %238 = shl i32 %233, %237
-  %239 = or i32 %238, %.02326.i165
+  %.02326.i165 = phi i32 [ %229, %.lr.ph.preheader.i161 ], [ %238, %.lr.ph.i163 ]
+  %230 = getelementptr inbounds nuw i8, ptr %201, i64 %indvars.iv.i164
+  %231 = load i8, ptr %230, align 1
+  %232 = zext i8 %231 to i32
+  %233 = trunc nuw nsw i64 %indvars.iv.i164 to i32
+  %234 = xor i32 %233, -1
+  %235 = add nsw i32 %234, %222
+  %236 = shl nsw i32 %235, 3
+  %237 = shl i32 %232, %236
+  %238 = or i32 %237, %.02326.i165
   %indvars.iv.next.i166 = add nuw nsw i64 %indvars.iv.i164, 1
   %exitcond.not.i167 = icmp eq i64 %indvars.iv.next.i166, %wide.trip.count.i162
   br i1 %exitcond.not.i167, label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit, label %.lr.ph.i163, !llvm.loop !9
 
-240:                                              ; preds = %217
-  %241 = zext nneg i8 %218 to i32
-  %242 = shl nuw nsw i32 %241, 24
-  %243 = getelementptr inbounds nuw i8, ptr %202, i64 1
-  %244 = load i8, ptr %243, align 1
-  %245 = zext i8 %244 to i32
-  %246 = shl nuw nsw i32 %245, 16
-  %247 = or disjoint i32 %246, %242
-  %248 = getelementptr inbounds nuw i8, ptr %202, i64 2
-  %249 = load i8, ptr %248, align 1
-  %250 = zext i8 %249 to i32
-  %251 = shl nuw nsw i32 %250, 8
-  %252 = or disjoint i32 %247, %251
-  %253 = getelementptr inbounds nuw i8, ptr %202, i64 3
-  %254 = load i8, ptr %253, align 1
-  %255 = zext i8 %254 to i32
-  %256 = or disjoint i32 %252, %255
+239:                                              ; preds = %216
+  %240 = zext nneg i8 %217 to i32
+  %241 = shl nuw nsw i32 %240, 24
+  %242 = getelementptr inbounds nuw i8, ptr %201, i64 1
+  %243 = load i8, ptr %242, align 1
+  %244 = zext i8 %243 to i32
+  %245 = shl nuw nsw i32 %244, 16
+  %246 = or disjoint i32 %245, %241
+  %247 = getelementptr inbounds nuw i8, ptr %201, i64 2
+  %248 = load i8, ptr %247, align 1
+  %249 = zext i8 %248 to i32
+  %250 = shl nuw nsw i32 %249, 8
+  %251 = or disjoint i32 %246, %250
+  %252 = getelementptr inbounds nuw i8, ptr %201, i64 3
+  %253 = load i8, ptr %252, align 1
+  %254 = zext i8 %253 to i32
+  %255 = or disjoint i32 %251, %254
   br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168
 
 _ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit: ; preds = %.lr.ph.i163
-  %257 = zext nneg i8 %222 to i64
+  %256 = zext nneg i8 %221 to i64
   br label %_ZN24SharedStringDecompressor14decompress_intERPh.exit168
 
-_ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit, %220, %227, %240
-  %.1.i158 = phi i32 [ %256, %240 ], [ %230, %227 ], [ %226, %220 ], [ %239, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit ]
-  %.022.i159 = phi i64 [ 4, %240 ], [ 0, %227 ], [ 1, %220 ], [ %257, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit ]
-  %258 = getelementptr inbounds nuw i8, ptr %202, i64 %.022.i159
-  %259 = load ptr, ptr %4, align 8
-  %260 = zext i32 %.1.i158 to i64
-  %261 = getelementptr inbounds nuw i8, ptr %259, i64 %260
-  %262 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %261) #14
-  %263 = trunc i64 %262 to i32
-  %sext122 = shl i64 %262, 32
-  %264 = ashr exact i64 %sext122, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.3, ptr nonnull align 1 %261, i64 %264, i1 false)
-  %265 = getelementptr inbounds i8, ptr %.3, i64 %264
-  %266 = add nsw i32 %.2113, %263
-  br label %267
+_ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit, %219, %226, %239
+  %.1.i158 = phi i32 [ %255, %239 ], [ %229, %226 ], [ %225, %219 ], [ %238, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit ]
+  %.022.i159 = phi i64 [ 4, %239 ], [ 0, %226 ], [ 1, %219 ], [ %256, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168.loopexit ]
+  %257 = getelementptr inbounds nuw i8, ptr %201, i64 %.022.i159
+  %258 = load ptr, ptr %4, align 8
+  %259 = zext i32 %.1.i158 to i64
+  %260 = getelementptr inbounds nuw i8, ptr %258, i64 %259
+  %261 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %260) #14
+  %262 = trunc i64 %261 to i32
+  %sext122 = shl i64 %261, 32
+  %263 = ashr exact i64 %sext122, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.3, ptr nonnull align 1 %260, i64 %263, i1 false)
+  %264 = getelementptr inbounds i8, ptr %.3, i64 %263
+  %265 = add nsw i32 %.2113, %262
+  br label %266
 
-267:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit168, %157
-  %.1184 = phi ptr [ %258, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %.0183, %157 ]
-  %.1112 = phi i32 [ %266, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %159, %157 ]
-  %.2 = phi ptr [ %265, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %158, %157 ]
-  %268 = getelementptr inbounds nuw i8, ptr %.0115, i64 1
-  %269 = load i8, ptr %268, align 1
-  %.not123 = icmp eq i8 %269, 0
-  br i1 %.not123, label %.loopexit.loopexit, label %157, !llvm.loop !10
+266:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit168, %156
+  %.1184 = phi ptr [ %257, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %.0183, %156 ]
+  %.1112 = phi i32 [ %265, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %158, %156 ]
+  %.2 = phi ptr [ %264, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %157, %156 ]
+  %267 = getelementptr inbounds nuw i8, ptr %.0115, i64 1
+  %268 = load i8, ptr %267, align 1
+  %.not123 = icmp eq i8 %268, 0
+  br i1 %.not123, label %.loopexit.loopexit, label %156, !llvm.loop !10
 
-270:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit146
-  %271 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %152) #14
-  %272 = trunc i64 %271 to i32
-  %sext121 = shl i64 %271, 32
-  %273 = ashr exact i64 %sext121, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %149, ptr nonnull align 1 %152, i64 %273, i1 false)
-  %274 = getelementptr inbounds i8, ptr %149, i64 %273
+269:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit146
+  %270 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %152) #14
+  %271 = trunc i64 %270 to i32
+  %sext121 = shl i64 %270, 32
+  %272 = ashr exact i64 %sext121, 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %149, ptr nonnull align 1 %152, i64 %272, i1 false)
+  %273 = getelementptr inbounds i8, ptr %149, i64 %272
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %267
-  %275 = getelementptr inbounds nuw i8, ptr %148, i64 %155
+.loopexit.loopexit:                               ; preds = %266
+  %274 = zext nneg i32 %.1.i136 to i64
+  %275 = getelementptr inbounds nuw i8, ptr %148, i64 %274
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %270
-  %.1186 = phi ptr [ %148, %270 ], [ %275, %.loopexit.loopexit ]
-  %.3114 = phi i32 [ %272, %270 ], [ %.1112, %.loopexit.loopexit ]
-  %.4 = phi ptr [ %274, %270 ], [ %.2, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %269
+  %.1186 = phi ptr [ %148, %269 ], [ %275, %.loopexit.loopexit ]
+  %.3114 = phi i32 [ %271, %269 ], [ %.1112, %.loopexit.loopexit ]
+  %.4 = phi ptr [ %273, %269 ], [ %.2, %.loopexit.loopexit ]
   %276 = trunc i32 %.3114 to i16
   tail call void @_ZN6Endian8set_javaEPht(ptr noundef nonnull %66, i16 noundef zeroext %276)
   br label %294

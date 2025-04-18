@@ -12740,8 +12740,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal32TypeEvE9VisitVoidIZNS_
 
 .lr.ph45.i.i.i.i.i:                               ; preds = %.preheader37.i.i.i.i.i802
   %2125 = mul nsw i64 %.sroa.0.0.insert.insert.i.i796, %2048
-  %2126 = add i64 %.1.i771, %.sroa.0.0.insert.insert.i.i796
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.promoted2124.i.i.i.i, i64 %2125
+  %2126 = add i64 %.1.i771, %.sroa.0.0.insert.insert.i.i796
   %2127 = add i64 %.02452.i.i.i.i.i, %.sroa.0.0.insert.insert.i.i796
   br label %.loopexit.i.i.i.i.i776
 
@@ -13035,8 +13035,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Decimal64TypeEvE9VisitVoidIZNS_
 
 .lr.ph45.i.i.i.i.i863:                            ; preds = %.preheader37.i.i.i.i.i862
   %2264 = mul nsw i64 %.sroa.0.0.insert.insert.i.i847, %2187
-  %2265 = add i64 %.1.i814, %.sroa.0.0.insert.insert.i.i847
   %scevgep.i.i.i.i.i864 = getelementptr i8, ptr %.promoted2124.i.i.i.i815, i64 %2264
+  %2265 = add i64 %.1.i814, %.sroa.0.0.insert.insert.i.i847
   %2266 = add i64 %.02452.i.i.i.i.i816, %.sroa.0.0.insert.insert.i.i847
   br label %.loopexit.i.i.i.i.i822
 
@@ -13341,8 +13341,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal128TypeEvE9VisitVoidIZNS
 
 .lr.ph47.i.i.i.i.i906:                            ; preds = %.preheader39.i.i.i.i.i905
   %2407 = mul nsw i64 %.sroa.0.0.insert.insert.i.i896, %2328
-  %2408 = add i64 %.1.i870, %.sroa.0.0.insert.insert.i.i896
   %scevgep.i.i.i.i.i907 = getelementptr i8, ptr %.promoted2124.i.i.i.i871, i64 %2407
+  %2408 = add i64 %.1.i870, %.sroa.0.0.insert.insert.i.i896
   %2409 = add i64 %.02454.i.i.i.i.i, %.sroa.0.0.insert.insert.i.i896
   br label %.loopexit.i.i.i.i.i876
 
@@ -13648,8 +13648,8 @@ _ZZN5arrow8internal22ArraySpanInlineVisitorINS_14Decimal256TypeEvE9VisitVoidIZNS
 
 .lr.ph45.i.i.i.i.i962:                            ; preds = %.preheader37.i.i.i.i.i961
   %2546 = mul nsw i64 %.sroa.0.0.insert.insert.i.i949, %2469
-  %2547 = add i64 %.1.i919, %.sroa.0.0.insert.insert.i.i949
   %scevgep.i.i.i.i.i963 = getelementptr i8, ptr %.lcssa24.i.i.i.i, i64 %2546
+  %2547 = add i64 %.1.i919, %.sroa.0.0.insert.insert.i.i949
   %2548 = add i64 %.02452.i.i.i.i.i920, %.sroa.0.0.insert.insert.i.i949
   br label %.loopexit.i.i.i.i.i926
 

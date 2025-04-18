@@ -6740,11 +6740,15 @@ define internal fastcc void @cvAdjustOrder(ptr noundef nonnull %0, i32 noundef %
   br label %.lr.ph62.preheader.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph62.i.i
-  %80 = fdiv double %87, %78
-  %81 = fdiv double 1.000000e+00, %80
-  %82 = fmul double %.15563.i.i, %80
-  %83 = fsub double %.14967.i.i, %90
-  %84 = fadd double %.15364.i.i, %81
+  %80 = fadd double %.05066.i.i, %90
+  %81 = fdiv double %80, %78
+  %82 = fmul double %.15563.i.i, %81
+  %83 = trunc nuw nsw i64 %indvars.iv.next76.i.i to i32
+  %84 = uitofp nneg i32 %83 to double
+  %85 = fdiv double 1.000000e+00, %84
+  %86 = fsub double %.14967.i.i, %85
+  %87 = fdiv double 1.000000e+00, %81
+  %88 = fadd double %.15364.i.i, %87
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next76.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.loopexit57.i.i, label %.lr.ph62.preheader.i.i
@@ -6752,18 +6756,14 @@ define internal fastcc void @cvAdjustOrder(ptr noundef nonnull %0, i32 noundef %
 .lr.ph62.preheader.i.i:                           ; preds = %.loopexit.i.i, %76
   %indvars.iv75.i.i = phi i64 [ 1, %76 ], [ %indvars.iv.next76.i.i, %.loopexit.i.i ]
   %indvars.iv.i.i = phi i64 [ 3, %76 ], [ %indvars.iv.next.i.i, %.loopexit.i.i ]
-  %.14967.i.i = phi double [ -1.000000e+00, %76 ], [ %83, %.loopexit.i.i ]
-  %.05066.i.i = phi double [ %78, %76 ], [ %87, %.loopexit.i.i ]
-  %.05165.i.i = phi double [ 1.000000e+00, %76 ], [ %80, %.loopexit.i.i ]
-  %.15364.i.i = phi double [ 1.000000e+00, %76 ], [ %84, %.loopexit.i.i ]
+  %.14967.i.i = phi double [ -1.000000e+00, %76 ], [ %86, %.loopexit.i.i ]
+  %.05066.i.i = phi double [ %78, %76 ], [ %80, %.loopexit.i.i ]
+  %.05165.i.i = phi double [ 1.000000e+00, %76 ], [ %81, %.loopexit.i.i ]
+  %.15364.i.i = phi double [ 1.000000e+00, %76 ], [ %88, %.loopexit.i.i ]
   %.15563.i.i = phi double [ 1.000000e+00, %76 ], [ %82, %.loopexit.i.i ]
   %indvars.iv.next76.i.i = add nuw nsw i64 %indvars.iv75.i.i, 1
-  %85 = getelementptr inbounds nuw [14 x double], ptr %79, i64 0, i64 %indvars.iv.next76.i.i
-  %86 = load double, ptr %85, align 8, !tbaa !96
-  %87 = fadd double %.05066.i.i, %86
-  %88 = trunc nuw nsw i64 %indvars.iv.next76.i.i to i32
-  %89 = uitofp nneg i32 %88 to double
-  %90 = fdiv double 1.000000e+00, %89
+  %89 = getelementptr inbounds nuw [14 x double], ptr %79, i64 0, i64 %indvars.iv.next76.i.i
+  %90 = load double, ptr %89, align 8, !tbaa !96
   %.phi.trans.insert.i.i = getelementptr inbounds nuw [13 x double], ptr %73, i64 0, i64 %indvars.iv.i.i
   %.pre.i.i = load double, ptr %.phi.trans.insert.i.i, align 8, !tbaa !96
   br label %.lr.ph62.i.i
@@ -6783,8 +6783,8 @@ define internal fastcc void @cvAdjustOrder(ptr noundef nonnull %0, i32 noundef %
 
 .loopexit57.i.i:                                  ; preds = %.loopexit.i.i, %._crit_edge.i.i
   %.054.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ %82, %.loopexit.i.i ]
-  %.052.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ %84, %.loopexit.i.i ]
-  %.048.i.i = phi double [ -1.000000e+00, %._crit_edge.i.i ], [ %83, %.loopexit.i.i ]
+  %.052.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ %88, %.loopexit.i.i ]
+  %.048.i.i = phi double [ -1.000000e+00, %._crit_edge.i.i ], [ %86, %.loopexit.i.i ]
   %98 = fneg double %.048.i.i
   %99 = fsub double %98, %.052.i.i
   %100 = fdiv double %99, %.054.i.i

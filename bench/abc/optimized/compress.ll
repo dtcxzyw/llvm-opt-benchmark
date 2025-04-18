@@ -1051,10 +1051,10 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   %538 = phi i32 [ %1488, %.loopexit1971.i ], [ %537, %.loopexit1976.i ]
   %.114702144.i = phi i32 [ %1487, %.loopexit1971.i ], [ 0, %.loopexit1976.i ]
   %.014762143.i = phi i32 [ %1170, %.loopexit1971.i ], [ 0, %.loopexit1976.i ]
-  %539 = add nsw i32 %.114702144.i, 49
-  %540 = add nsw i32 %538, -1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %3, i8 0, i64 %458, i1 false), !tbaa !35
+  %539 = add nsw i32 %.114702144.i, 49
   %.not1511.i = icmp slt i32 %539, %538
+  %540 = add nsw i32 %538, -1
   %spec.select.i128 = select i1 %.not1511.i, i32 %539, i32 %540
   %541 = sub nsw i32 %spec.select.i128, %.114702144.i
   %542 = icmp eq i32 %541, 49

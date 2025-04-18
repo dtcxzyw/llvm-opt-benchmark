@@ -3268,8 +3268,8 @@ ltos.exit.i.i:                                    ; preds = %.lr.ph.preheader.i.
   br i1 %exitcond.not.i.i, label %383, label %357, !llvm.loop !12
 
 383:                                              ; preds = %382
-  %384 = trunc nuw i8 %333 to i1
   %.0113.i.i = select i1 %cond2.i.i, i8 16, i8 10
+  %384 = trunc nuw i8 %333 to i1
   %.0112.i.i = select i1 %384, i8 48, i8 32
   store i8 0, ptr %.1118.i.i, align 1
   %385 = load ptr, ptr %172, align 8

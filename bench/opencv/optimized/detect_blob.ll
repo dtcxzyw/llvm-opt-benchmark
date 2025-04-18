@@ -6205,43 +6205,43 @@ _ZNSt12__shared_ptrIN2cv18SimpleBlobDetectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   store i32 50397184, ptr %83, align 8, !tbaa !276
   store ptr %75, ptr %590, align 8, !tbaa !278
   %2015 = load float, ptr %.sroa.0428.01325, align 4, !tbaa !286
-  %2016 = insertelement <4 x float> poison, float %2015, i64 0
-  %2017 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %2016)
-  %2018 = getelementptr inbounds nuw i8, ptr %.sroa.0428.01325, i64 4
-  %2019 = load float, ptr %2018, align 4, !tbaa !288
-  %2020 = insertelement <4 x float> poison, float %2019, i64 0
-  %2021 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %2020)
-  %.sroa.2.0.insert.ext.i = zext i32 %2021 to i64
-  %.sroa.0.0.insert.ext.i = zext i32 %2017 to i64
-  %2022 = getelementptr inbounds nuw i8, ptr %.sroa.0428.01325, i64 8
-  %2023 = load float, ptr %2022, align 4, !tbaa !289
+  %2016 = getelementptr inbounds nuw i8, ptr %.sroa.0428.01325, i64 4
+  %2017 = load float, ptr %2016, align 4, !tbaa !288
+  %2018 = getelementptr inbounds nuw i8, ptr %.sroa.0428.01325, i64 8
+  %2019 = load float, ptr %2018, align 4, !tbaa !289
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84) #25
-  %2024 = and i32 %.0201326, 65535
-  %2025 = zext nneg i32 %2024 to i64
-  %2026 = getelementptr inbounds nuw %"class.cv::Vec", ptr %.sroa.0454.1, i64 %2025
+  %2020 = and i32 %.0201326, 65535
+  %2021 = zext nneg i32 %2020 to i64
+  %2022 = getelementptr inbounds nuw %"class.cv::Vec", ptr %.sroa.0454.1, i64 %2021
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, i8 0, i64 32, i1 false), !tbaa !279
-  br label %2027
+  br label %2023
 
-2027:                                             ; preds = %2027, %.lr.ph
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %2027 ]
-  %2028 = getelementptr inbounds nuw [3 x i8], ptr %2026, i64 0, i64 %indvars.iv.i
-  %2029 = load i8, ptr %2028, align 1, !tbaa !13
-  %2030 = uitofp i8 %2029 to double
-  %2031 = getelementptr inbounds nuw [4 x double], ptr %84, i64 0, i64 %indvars.iv.i
-  store double %2030, ptr %2031, align 8, !tbaa !279
+2023:                                             ; preds = %2023, %.lr.ph
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %2023 ]
+  %2024 = getelementptr inbounds nuw [3 x i8], ptr %2022, i64 0, i64 %indvars.iv.i
+  %2025 = load i8, ptr %2024, align 1, !tbaa !13
+  %2026 = uitofp i8 %2025 to double
+  %2027 = getelementptr inbounds nuw [4 x double], ptr %84, i64 0, i64 %indvars.iv.i
+  store double %2026, ptr %2027, align 8, !tbaa !279
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %2032, label %2027, !llvm.loop !291
+  br i1 %exitcond.not.i, label %2028, label %2023, !llvm.loop !291
 
-2032:                                             ; preds = %2027
+2028:                                             ; preds = %2023
+  %2029 = insertelement <4 x float> poison, float %2015, i64 0
+  %2030 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %2029)
+  %2031 = insertelement <4 x float> poison, float %2017, i64 0
+  %2032 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %2031)
+  %.sroa.2.0.insert.ext.i = zext i32 %2032 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
+  %.sroa.0.0.insert.ext.i = zext i32 %2030 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   store double 0.000000e+00, ptr %592, align 8, !tbaa !279
-  %2033 = fptosi float %2023 to i32
+  %2033 = fptosi float %2019 to i32
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %83, i64 %.sroa.0.0.insert.insert.i, i32 noundef %2033, ptr noundef nonnull align 8 dereferenceable(32) %84, i32 noundef 1, i32 noundef 8, i32 noundef 0)
           to label %2034 unwind label %2038
 
-2034:                                             ; preds = %2032
+2034:                                             ; preds = %2028
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %84) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %83) #25
   %2035 = getelementptr inbounds nuw i8, ptr %.sroa.0428.01325, i64 28
@@ -6250,7 +6250,7 @@ _ZNSt12__shared_ptrIN2cv18SimpleBlobDetectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   %.not513 = icmp eq ptr %2035, %2037
   br i1 %.not513, label %._crit_edge, label %.lr.ph, !llvm.loop !292
 
-2038:                                             ; preds = %2032
+2038:                                             ; preds = %2028
   %2039 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN2cv9ExceptionE

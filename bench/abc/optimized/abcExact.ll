@@ -9557,40 +9557,40 @@ Vec_IntPush.exit805.i.us:                         ; preds = %.preheader833.i.spl
 
 .lr.ph.i795.i.preheader:                          ; preds = %.preheader833.i.split
   %1763 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #27
-  %1764 = getelementptr inbounds nuw i8, ptr %1763, i64 4
   %.val490.i = load i32, ptr %44, align 4, !tbaa !96
   %.val491.i = load i32, ptr %72, align 8, !tbaa !229
-  %1765 = add nsw i32 %.val490.i, %.111016.i
+  %1764 = add nsw i32 %.val490.i, %.111016.i
   br label %.lr.ph.i795.i
 
 .lr.ph.i795.i:                                    ; preds = %.lr.ph.i795.i.preheader, %.lr.ph.i795.i
-  %.02.i796.i = phi i32 [ %1769, %.lr.ph.i795.i ], [ %.val491.i, %.lr.ph.i795.i.preheader ]
-  %.0151.i797.i = phi i32 [ %1770, %.lr.ph.i795.i ], [ %.val490.i, %.lr.ph.i795.i.preheader ]
-  %1766 = add nsw i32 %.0151.i797.i, -1
-  %1767 = mul nsw i32 %1766, %.0151.i797.i
-  %1768 = sdiv i32 %1767, 2
-  %1769 = add nsw i32 %1768, %.02.i796.i
-  %1770 = add nsw i32 %.0151.i797.i, 1
-  %1771 = icmp slt i32 %1770, %1765
-  br i1 %1771, label %.lr.ph.i795.i, label %Vec_IntPush.exit805.i.loopexit, !llvm.loop !233
+  %.02.i796.i = phi i32 [ %1768, %.lr.ph.i795.i ], [ %.val491.i, %.lr.ph.i795.i.preheader ]
+  %.0151.i797.i = phi i32 [ %1769, %.lr.ph.i795.i ], [ %.val490.i, %.lr.ph.i795.i.preheader ]
+  %1765 = add nsw i32 %.0151.i797.i, -1
+  %1766 = mul nsw i32 %1765, %.0151.i797.i
+  %1767 = sdiv i32 %1766, 2
+  %1768 = add nsw i32 %1767, %.02.i796.i
+  %1769 = add nsw i32 %.0151.i797.i, 1
+  %1770 = icmp slt i32 %1769, %1764
+  br i1 %1770, label %.lr.ph.i795.i, label %Vec_IntPush.exit805.i.loopexit, !llvm.loop !233
 
 Vec_IntPush.exit805.i.loopexit:                   ; preds = %.lr.ph.i795.i
+  %1771 = getelementptr inbounds nuw i8, ptr %1763, i64 4
   %1772 = getelementptr inbounds nuw i8, ptr %1763, i64 8
   %1773 = trunc nuw nsw i64 %indvars.iv202 to i32
   %.neg18.i792.i = xor i32 %1773, -1
-  %1774 = shl nsw i32 %1765, 1
+  %1774 = shl nsw i32 %1764, 1
   %.neg.i793.i = add i32 %1774, %.neg18.i792.i
   %.neg17.i794.i = mul i32 %.neg.i793.i, %1773
   %1775 = sdiv i32 %.neg17.i794.i, 2
   %1776 = add nsw i32 %.neg18.i792.i, %1728
   %1777 = add i32 %1776, %1775
-  %1778 = add i32 %1777, %1769
+  %1778 = add i32 %1777, %1768
   %1779 = shl nsw i32 %1778, 1
   %1780 = or disjoint i32 %1779, 1
   %1781 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #27
   store ptr %1781, ptr %1772, align 8, !tbaa !44
   store i32 16, ptr %1763, align 8, !tbaa !43
-  store i32 1, ptr %1764, align 4, !tbaa !40
+  store i32 1, ptr %1771, align 4, !tbaa !40
   store i32 %1780, ptr %1781, align 4, !tbaa !7
   br label %.preheader832.i
 
@@ -9649,7 +9649,7 @@ Ses_ManSelectVar.exit813.i:                       ; preds = %.lr.ph.i810.i, %179
   %1802 = add i32 %1801, %1800
   %1803 = add i32 %1802, %.0.lcssa.i806.i
   %1804 = shl nsw i32 %1803, 1
-  %1805 = load i32, ptr %1764, align 4, !tbaa !40
+  %1805 = load i32, ptr %1771, align 4, !tbaa !40
   %1806 = load i32, ptr %1763, align 8, !tbaa !43
   %1807 = icmp eq i32 %1805, %1806
   br i1 %1807, label %1808, label %Vec_IntPush.exit820.i
@@ -9695,7 +9695,7 @@ Vec_IntPush.exit820.sink.split.i:                 ; preds = %1821, %1819, %1813,
 Vec_IntPush.exit820.i:                            ; preds = %Vec_IntPush.exit820.sink.split.i, %Ses_ManSelectVar.exit813.i
   %.pre.i8161117.i = phi ptr [ %1788, %Ses_ManSelectVar.exit813.i ], [ %.sink1204.i, %Vec_IntPush.exit820.sink.split.i ]
   %1823 = add nsw i32 %1805, 1
-  store i32 %1823, ptr %1764, align 4, !tbaa !40
+  store i32 %1823, ptr %1771, align 4, !tbaa !40
   %1824 = sext i32 %1805 to i64
   %1825 = getelementptr inbounds i32, ptr %.pre.i8161117.i, i64 %1824
   store i32 %1804, ptr %1825, align 4, !tbaa !7
@@ -9723,7 +9723,7 @@ Vec_IntPush.exit820.i:                            ; preds = %Vec_IntPush.exit820
   br i1 %exitcond1084.not.i, label %._crit_edge1014.i, label %.preheader832.i, !llvm.loop !297
 
 ._crit_edge1014.i:                                ; preds = %._crit_edge1012.i
-  %.val504.pre.i = load i32, ptr %1764, align 4, !tbaa !40
+  %.val504.pre.i = load i32, ptr %1771, align 4, !tbaa !40
   %1834 = sext i32 %.val504.pre.i to i64
   %1835 = load ptr, ptr %0, align 8, !tbaa !91
   %1836 = getelementptr inbounds i32, ptr %.pre.i8161113.i, i64 %1834

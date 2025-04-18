@@ -7280,8 +7280,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4872 = icmp ult i64 %4871, 16
   br i1 %4872, label %.preheader, label %4873
 
-.preheader:                                       ; preds = %4915, %4897, %4870
-  %.ph = phi ptr [ %4916, %4915 ], [ %4899, %4897 ], [ %4596, %4870 ]
+.preheader:                                       ; preds = %4914, %4897, %4870
+  %.ph = phi ptr [ %4916, %4914 ], [ %4899, %4897 ], [ %4596, %4870 ]
   br label %4936
 
 4873:                                             ; preds = %4870
@@ -7330,23 +7330,23 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 4902:                                             ; preds = %4897, %4873
   %4903 = phi i64 [ %4876, %4897 ], [ 0, %4873 ]
   %4904 = and i64 %4871, -16
-  %4905 = sub i64 0, %4904
-  br label %4906
+  br label %4905
 
-4906:                                             ; preds = %4906, %4902
-  %4907 = phi i64 [ %4903, %4902 ], [ %4913, %4906 ]
-  %4908 = sub i64 0, %4907
-  %4909 = getelementptr i8, ptr %4596, i64 %4908
-  %4910 = getelementptr inbounds i8, ptr %4909, i64 -16
-  %4911 = load <16 x i8>, ptr %4910, align 1, !tbaa !51
-  %4912 = getelementptr i8, ptr %4909, i64 -15
-  store <16 x i8> %4911, ptr %4912, align 1, !tbaa !51
-  %4913 = add nuw i64 %4907, 16
-  %4914 = icmp eq i64 %4913, %4904
-  br i1 %4914, label %4915, label %4906, !llvm.loop !114
+4905:                                             ; preds = %4905, %4902
+  %4906 = phi i64 [ %4903, %4902 ], [ %4912, %4905 ]
+  %4907 = sub i64 0, %4906
+  %4908 = getelementptr i8, ptr %4596, i64 %4907
+  %4909 = getelementptr inbounds i8, ptr %4908, i64 -16
+  %4910 = load <16 x i8>, ptr %4909, align 1, !tbaa !51
+  %4911 = getelementptr i8, ptr %4908, i64 -15
+  store <16 x i8> %4910, ptr %4911, align 1, !tbaa !51
+  %4912 = add nuw i64 %4906, 16
+  %4913 = icmp eq i64 %4912, %4904
+  br i1 %4913, label %4914, label %4905, !llvm.loop !114
 
-4915:                                             ; preds = %4906
-  %4916 = getelementptr i8, ptr %4596, i64 %4905
+4914:                                             ; preds = %4905
+  %4915 = sub i64 0, %4904
+  %4916 = getelementptr i8, ptr %4596, i64 %4915
   %4917 = icmp eq i64 %4871, %4904
   br i1 %4917, label %.loopexit, label %.preheader
 
@@ -7388,8 +7388,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4940 = icmp eq ptr %4938, %4603
   br i1 %4940, label %.loopexit, label %4936, !llvm.loop !115
 
-.loopexit:                                        ; preds = %4936, %4915, %4895, %4868
-  %4941 = phi ptr [ %4596, %4868 ], [ %4603, %4915 ], [ %4603, %4895 ], [ %4603, %4936 ]
+.loopexit:                                        ; preds = %4936, %4914, %4895, %4868
+  %4941 = phi ptr [ %4596, %4868 ], [ %4603, %4914 ], [ %4603, %4895 ], [ %4603, %4936 ]
   store i8 103, ptr %4941, align 1, !tbaa !51
   %4942 = getelementptr inbounds nuw i8, ptr %4596, i64 1
   br label %4943
@@ -9052,29 +9052,29 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5alignENS0_9Alig
   %73 = getelementptr [9 x [9 x i8]], ptr @_ZZN6asmjit9_abi_1_103x869Assembler5alignENS0_9AlignModeEjE7nopData, i64 0, i64 %72
   %74 = and i32 %70, 7
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %.loopexit10, label %.preheader9.preheader
+  br i1 %75, label %.loopexit10, label %.preheader9
 
-.preheader9.preheader:                            ; preds = %.preheader11
-  %76 = and i32 %70, 8
-  br label %.preheader9
+.preheader9:                                      ; preds = %.preheader11, %.preheader9
+  %76 = phi ptr [ %81, %.preheader9 ], [ %68, %.preheader11 ]
+  %77 = phi ptr [ %79, %.preheader9 ], [ %73, %.preheader11 ]
+  %78 = phi i32 [ %82, %.preheader9 ], [ 0, %.preheader11 ]
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 1
+  %80 = load i8, ptr %77, align 1, !tbaa !51
+  store i8 %80, ptr %76, align 1, !tbaa !51
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 1
+  %82 = add nuw nsw i32 %78, 1
+  %83 = icmp eq i32 %82, %74
+  br i1 %83, label %.loopexit10.loopexit, label %.preheader9, !llvm.loop !136
 
-.preheader9:                                      ; preds = %.preheader9.preheader, %.preheader9
-  %77 = phi ptr [ %82, %.preheader9 ], [ %68, %.preheader9.preheader ]
-  %78 = phi ptr [ %80, %.preheader9 ], [ %73, %.preheader9.preheader ]
-  %79 = phi i32 [ %83, %.preheader9 ], [ 0, %.preheader9.preheader ]
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 1
-  %81 = load i8, ptr %78, align 1, !tbaa !51
-  store i8 %81, ptr %77, align 1, !tbaa !51
-  %82 = getelementptr inbounds nuw i8, ptr %77, i64 1
-  %83 = add nuw nsw i32 %79, 1
-  %84 = icmp eq i32 %83, %74
-  br i1 %84, label %.loopexit10, label %.preheader9, !llvm.loop !136
+.loopexit10.loopexit:                             ; preds = %.preheader9
+  %84 = and i32 %70, 8
+  br label %.loopexit10
 
-.loopexit10:                                      ; preds = %.preheader9, %.preheader11
-  %85 = phi ptr [ undef, %.preheader11 ], [ %82, %.preheader9 ]
-  %86 = phi ptr [ %68, %.preheader11 ], [ %82, %.preheader9 ]
-  %87 = phi i32 [ %70, %.preheader11 ], [ %76, %.preheader9 ]
-  %88 = phi ptr [ %73, %.preheader11 ], [ %80, %.preheader9 ]
+.loopexit10:                                      ; preds = %.loopexit10.loopexit, %.preheader11
+  %85 = phi ptr [ undef, %.preheader11 ], [ %81, %.loopexit10.loopexit ]
+  %86 = phi ptr [ %68, %.preheader11 ], [ %81, %.loopexit10.loopexit ]
+  %87 = phi i32 [ %70, %.preheader11 ], [ %84, %.loopexit10.loopexit ]
+  %88 = phi ptr [ %73, %.preheader11 ], [ %79, %.loopexit10.loopexit ]
   %89 = icmp ult i32 %69, 8
   br i1 %89, label %.loopexit, label %.preheader
 

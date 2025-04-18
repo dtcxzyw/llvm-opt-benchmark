@@ -8402,8 +8402,8 @@ _ZNK17QArrayDataPointerIcE11needsDetachEv.exit.thread.i.i.i361: ; preds = %_ZNK1
   call void @llvm.memset.p0.i64(ptr align 1 %.0130.lcssa, i8 32, i64 %586, i1 false)
   %587 = add i64 %537, %.lcssa
   %588 = sub i64 %587, %.0130.lcssa596
-  %589 = sub i64 0, %.0130.lcssa596
   %scevgep = getelementptr i8, ptr %.0130.lcssa, i64 %537
+  %589 = sub i64 0, %.0130.lcssa596
   %scevgep597 = getelementptr i8, ptr %scevgep, i64 %589
   br label %.preheader.preheader
 

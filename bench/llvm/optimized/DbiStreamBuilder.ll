@@ -907,9 +907,9 @@ _ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit.i.i: ; preds = %.prehea
   br label %.lr.ph.i2.i
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.i.i: ; preds = %.critedge.i.i.i.i
-  %29 = add i32 %.010.i.i, 1
-  %30 = trunc i64 %33 to i32
-  %31 = add i32 %29, %30
+  %29 = trunc i64 %33 to i32
+  %30 = add i32 %.010.i.i, 1
+  %31 = add i32 %30, %29
   %.not.i3.i = icmp eq ptr %storemerge.i.i.i, %28
   br i1 %.not.i3.i, label %_ZNK4llvm3pdb16DbiStreamBuilder30calculateFileInfoSubstreamSizeEv.exit, label %.lr.ph.i2.i
 
@@ -1077,9 +1077,9 @@ _ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit.i: ; preds = %.preheade
   br label %.lr.ph.i2
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.i: ; preds = %.critedge.i.i.i
-  %29 = add i32 %.010.i, 1
-  %30 = trunc i64 %33 to i32
-  %31 = add i32 %29, %30
+  %29 = trunc i64 %33 to i32
+  %30 = add i32 %.010.i, 1
+  %31 = add i32 %30, %29
   %.not.i3 = icmp eq ptr %storemerge.i.i, %28
   br i1 %.not.i3, label %_ZNK4llvm3pdb16DbiStreamBuilder24calculateNamesBufferSizeEv.exit, label %.lr.ph.i2
 
@@ -1452,21 +1452,21 @@ _ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit: ; preds = %.preheader.
   br label %.lr.ph
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit: ; preds = %.critedge.i.i
-  %11 = trunc i64 %14 to i32
-  %12 = add i32 %15, %11
+  %11 = trunc i64 %15 to i32
+  %12 = add i32 %.010, 1
+  %13 = add i32 %12, %11
   %.not = icmp eq ptr %storemerge.i, %10
   br i1 %.not, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge, label %.lr.ph
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit._crit_edge: ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit, %_ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit
-  %.0.lcssa = phi i32 [ 0, %_ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit ], [ %12, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %_ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit ], [ %13, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ]
   ret i32 %.0.lcssa
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit
-  %13 = phi ptr [ %16, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ], [ %.pre, %.lr.ph.preheader ]
-  %.010 = phi i32 [ %12, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ], [ 0, %.lr.ph.preheader ]
+  %14 = phi ptr [ %16, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ], [ %.pre, %.lr.ph.preheader ]
+  %.010 = phi i32 [ %13, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ], [ 0, %.lr.ph.preheader ]
   %.sroa.05.09 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit ], [ %.sroa.0.1.i, %.lr.ph.preheader ]
-  %14 = load i64, ptr %13, align 8, !tbaa !127
-  %15 = add i32 %.010, 1
+  %15 = load i64, ptr %14, align 8, !tbaa !127
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %.lr.ph
@@ -1566,9 +1566,9 @@ _ZNK4llvm9StringMapIjNS_15MallocAllocatorEE5beginEv.exit.i.i: ; preds = %.prehea
   br label %.lr.ph.i2.i
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIjEEKNS_14StringMapEntryIjEEEppEv.exit.loopexit.i.i: ; preds = %.critedge.i.i.i.i
-  %44 = add i32 %.010.i.i, 1
-  %45 = trunc i64 %48 to i32
-  %46 = add i32 %44, %45
+  %44 = trunc i64 %48 to i32
+  %45 = add i32 %.010.i.i, 1
+  %46 = add i32 %45, %44
   %.not.i3.i = icmp eq ptr %storemerge.i.i.i, %43
   br i1 %.not.i3.i, label %_ZNK4llvm3pdb16DbiStreamBuilder30calculateFileInfoSubstreamSizeEv.exit, label %.lr.ph.i2.i
 

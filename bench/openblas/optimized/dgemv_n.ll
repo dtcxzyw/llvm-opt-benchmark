@@ -381,14 +381,11 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
 .preheader394:                                    ; preds = %204
   %207 = and i64 %1, 9223372036854775804
   %.not522 = icmp eq i64 %207, 0
-  br i1 %.not522, label %.preheader, label %.lr.ph498.preheader
-
-.lr.ph498.preheader:                              ; preds = %.preheader394
-  %208 = add nsw i64 %207, -1
-  %209 = and i64 %208, -4
-  br label %.lr.ph498
+  br i1 %.not522, label %.preheader, label %.lr.ph498
 
 .preheader.loopexit:                              ; preds = %.lr.ph498
+  %208 = add nsw i64 %207, -1
+  %209 = and i64 %208, -4
   %210 = add nuw nsw i64 %209, 4
   br label %.preheader
 
@@ -402,13 +399,13 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   %211 = icmp slt i64 %.3321.lcssa, %1
   br i1 %211, label %.lr.ph511, label %.loopexit
 
-.lr.ph498:                                        ; preds = %.lr.ph498.preheader, %.lr.ph498
-  %.0299497 = phi double [ %259, %.lr.ph498 ], [ 0.000000e+00, %.lr.ph498.preheader ]
-  %.0303496 = phi double [ %252, %.lr.ph498 ], [ 0.000000e+00, %.lr.ph498.preheader ]
-  %.0307495 = phi double [ %245, %.lr.ph498 ], [ 0.000000e+00, %.lr.ph498.preheader ]
-  %.3321494 = phi i64 [ %262, %.lr.ph498 ], [ 0, %.lr.ph498.preheader ]
-  %.4326493 = phi ptr [ %260, %.lr.ph498 ], [ %.0317.lcssa, %.lr.ph498.preheader ]
-  %.4338492 = phi ptr [ %261, %.lr.ph498 ], [ %6, %.lr.ph498.preheader ]
+.lr.ph498:                                        ; preds = %.preheader394, %.lr.ph498
+  %.0299497 = phi double [ %259, %.lr.ph498 ], [ 0.000000e+00, %.preheader394 ]
+  %.0303496 = phi double [ %252, %.lr.ph498 ], [ 0.000000e+00, %.preheader394 ]
+  %.0307495 = phi double [ %245, %.lr.ph498 ], [ 0.000000e+00, %.preheader394 ]
+  %.3321494 = phi i64 [ %262, %.lr.ph498 ], [ 0, %.preheader394 ]
+  %.4326493 = phi ptr [ %260, %.lr.ph498 ], [ %.0317.lcssa, %.preheader394 ]
+  %.4338492 = phi ptr [ %261, %.lr.ph498 ], [ %6, %.preheader394 ]
   %212 = load double, ptr %.4326493, align 8, !tbaa !3
   %213 = load double, ptr %.4338492, align 8, !tbaa !3
   %214 = getelementptr inbounds nuw i8, ptr %.4326493, i64 24
@@ -537,14 +534,11 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
 .preheader399:                                    ; preds = %297
   %300 = and i64 %1, 9223372036854775804
   %.not521 = icmp eq i64 %300, 0
-  br i1 %.not521, label %.preheader397, label %.lr.ph468.preheader
-
-.lr.ph468.preheader:                              ; preds = %.preheader399
-  %301 = add nsw i64 %300, -1
-  %302 = and i64 %301, -4
-  br label %.lr.ph468
+  br i1 %.not521, label %.preheader397, label %.lr.ph468
 
 .preheader397.loopexit:                           ; preds = %.lr.ph468
+  %301 = add nsw i64 %300, -1
+  %302 = and i64 %301, -4
   %303 = add nuw nsw i64 %302, 4
   br label %.preheader397
 
@@ -557,12 +551,12 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   %304 = icmp slt i64 %.6.lcssa, %1
   br i1 %304, label %.lr.ph479, label %.loopexit398
 
-.lr.ph468:                                        ; preds = %.lr.ph468.preheader, %.lr.ph468
-  %.0291467 = phi double [ %338, %.lr.ph468 ], [ 0.000000e+00, %.lr.ph468.preheader ]
-  %.0295466 = phi double [ %331, %.lr.ph468 ], [ 0.000000e+00, %.lr.ph468.preheader ]
-  %.6465 = phi i64 [ %341, %.lr.ph468 ], [ 0, %.lr.ph468.preheader ]
-  %.7329464 = phi ptr [ %339, %.lr.ph468 ], [ %.0317.lcssa, %.lr.ph468.preheader ]
-  %.7341463 = phi ptr [ %340, %.lr.ph468 ], [ %6, %.lr.ph468.preheader ]
+.lr.ph468:                                        ; preds = %.preheader399, %.lr.ph468
+  %.0291467 = phi double [ %338, %.lr.ph468 ], [ 0.000000e+00, %.preheader399 ]
+  %.0295466 = phi double [ %331, %.lr.ph468 ], [ 0.000000e+00, %.preheader399 ]
+  %.6465 = phi i64 [ %341, %.lr.ph468 ], [ 0, %.preheader399 ]
+  %.7329464 = phi ptr [ %339, %.lr.ph468 ], [ %.0317.lcssa, %.preheader399 ]
+  %.7341463 = phi ptr [ %340, %.lr.ph468 ], [ %6, %.preheader399 ]
   %305 = load double, ptr %.7329464, align 8, !tbaa !3
   %306 = load double, ptr %.7341463, align 8, !tbaa !3
   %307 = getelementptr inbounds nuw i8, ptr %.7329464, i64 16
@@ -667,14 +661,11 @@ default.unreachable:                              ; preds = %203
 .preheader404:                                    ; preds = %367
   %370 = and i64 %1, 9223372036854775804
   %.not520 = icmp eq i64 %370, 0
-  br i1 %.not520, label %.preheader402, label %.lr.ph448.preheader
-
-.lr.ph448.preheader:                              ; preds = %.preheader404
-  %371 = add nsw i64 %370, -1
-  %372 = and i64 %371, -4
-  br label %.lr.ph448
+  br i1 %.not520, label %.preheader402, label %.lr.ph448
 
 .preheader402.loopexit:                           ; preds = %.lr.ph448
+  %371 = add nsw i64 %370, -1
+  %372 = and i64 %371, -4
   %373 = add nuw nsw i64 %372, 4
   br label %.preheader402
 
@@ -684,9 +675,9 @@ default.unreachable:                              ; preds = %203
   %374 = icmp slt i64 %.9.lcssa, %1
   br i1 %374, label %.lr.ph453, label %.loopexit403
 
-.lr.ph448:                                        ; preds = %.lr.ph448.preheader, %.lr.ph448
-  %.0447 = phi double [ %398, %.lr.ph448 ], [ 0.000000e+00, %.lr.ph448.preheader ]
-  %.9446 = phi i64 [ %399, %.lr.ph448 ], [ 0, %.lr.ph448.preheader ]
+.lr.ph448:                                        ; preds = %.preheader404, %.lr.ph448
+  %.0447 = phi double [ %398, %.lr.ph448 ], [ 0.000000e+00, %.preheader404 ]
+  %.9446 = phi i64 [ %399, %.lr.ph448 ], [ 0, %.preheader404 ]
   %375 = getelementptr inbounds nuw double, ptr %.0317.lcssa, i64 %.9446
   %376 = load double, ptr %375, align 8, !tbaa !3
   %377 = getelementptr inbounds nuw double, ptr %6, i64 %.9446

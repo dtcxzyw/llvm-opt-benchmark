@@ -2210,8 +2210,8 @@ define void @Gia_ManPrintPackingStats(ptr noundef readonly captures(none) %0) lo
   %15 = load i32, ptr %14, align 4, !tbaa !48
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 4, !tbaa !48
-  %smax = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
   %17 = add nsw i32 %.03843, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
   %18 = add i32 %17, %smax
   %19 = add nuw nsw i32 %.03744, 1
   %20 = icmp slt i32 %18, %.val42

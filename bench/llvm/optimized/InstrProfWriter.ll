@@ -563,45 +563,45 @@ $_ZSt19piecewise_construct = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm15InstrProfWriterC2EbmmbNS_7memprof14IndexedVersionEbbj(ptr noundef nonnull align 8 dereferenceable(5306) initializes((0, 1), (8, 56)) %0, i1 noundef zeroext %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i64 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8) unnamed_addr #0 align 2 {
   %10 = zext i1 %1 to i8
-  %11 = zext i1 %6 to i8
   store i8 %10, ptr %0, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 20, i1 false)
-  store i32 272, ptr %13, align 4, !tbaa !49
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %3, ptr %14, align 8, !tbaa !50
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %2, ptr %15, align 8, !tbaa !51
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 0, ptr %16, align 8, !tbaa !52
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %18, ptr %17, align 8, !tbaa !53
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %19, align 8, !tbaa !54
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 1, ptr %20, align 4, !tbaa !55
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 5489, ptr %21, align 8, !tbaa !56
-  br label %22
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 20, i1 false)
+  store i32 272, ptr %12, align 4, !tbaa !49
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %3, ptr %13, align 8, !tbaa !50
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %2, ptr %14, align 8, !tbaa !51
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 0, ptr %15, align 8, !tbaa !52
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %17, ptr %16, align 8, !tbaa !53
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 0, ptr %18, align 8, !tbaa !54
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 1, ptr %19, align 4, !tbaa !55
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 5489, ptr %20, align 8, !tbaa !56
+  br label %21
 
-22:                                               ; preds = %22, %9
-  %23 = phi i64 [ 5489, %9 ], [ %28, %22 ]
-  %.011.i.i.i = phi i64 [ 1, %9 ], [ %30, %22 ]
-  %24 = lshr i64 %23, 30
-  %25 = xor i64 %24, %23
-  %26 = mul nuw nsw i64 %25, 1812433253
-  %27 = add nuw i64 %26, %.011.i.i.i
-  %28 = and i64 %27, 4294967295
-  %29 = getelementptr inbounds nuw [624 x i64], ptr %21, i64 0, i64 %.011.i.i.i
-  store i64 %28, ptr %29, align 8, !tbaa !56
-  %30 = add nuw nsw i64 %.011.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %30, 624
-  br i1 %exitcond.not.i.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit, label %22, !llvm.loop !57
+21:                                               ; preds = %21, %9
+  %22 = phi i64 [ 5489, %9 ], [ %27, %21 ]
+  %.011.i.i.i = phi i64 [ 1, %9 ], [ %29, %21 ]
+  %23 = lshr i64 %22, 30
+  %24 = xor i64 %23, %22
+  %25 = mul nuw nsw i64 %24, 1812433253
+  %26 = add nuw i64 %25, %.011.i.i.i
+  %27 = and i64 %26, 4294967295
+  %28 = getelementptr inbounds nuw [624 x i64], ptr %20, i64 0, i64 %.011.i.i.i
+  store i64 %27, ptr %28, align 8, !tbaa !56
+  %29 = add nuw nsw i64 %.011.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %29, 624
+  br i1 %exitcond.not.i.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit, label %21, !llvm.loop !57
 
-_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit: ; preds = %22
-  %31 = zext i1 %4 to i8
+_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit: ; preds = %21
+  %30 = zext i1 %4 to i8
+  %31 = zext i1 %6 to i8
   %32 = zext i1 %7 to i8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   store i64 624, ptr %33, align 8, !tbaa !59
@@ -632,11 +632,11 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   store i32 1, ptr %47, align 8, !tbaa !61
   store ptr %47, ptr %46, align 8, !tbaa !65
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 5288
-  store i8 %31, ptr %48, align 8, !tbaa !66
+  store i8 %30, ptr %48, align 8, !tbaa !66
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 5296
   store i64 %5, ptr %49, align 8, !tbaa !67
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 5304
-  store i8 %11, ptr %50, align 8, !tbaa !68
+  store i8 %31, ptr %50, align 8, !tbaa !68
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 5305
   store i8 %32, ptr %51, align 1, !tbaa !69
   br i1 %7, label %52, label %84

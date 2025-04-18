@@ -2091,12 +2091,12 @@ _ZN12_GLOBAL__N_15int2DEii.exit348.i:             ; preds = %830
 854:                                              ; preds = %._crit_edge446.i, %.lr.ph448.i
   %indvars.iv488.i = phi i64 [ 0, %.lr.ph448.i ], [ %indvars.iv.next489.i, %._crit_edge446.i ]
   %indvars.iv460.i = phi i32 [ %529, %.lr.ph448.i ], [ %indvars.iv.next461.i, %._crit_edge446.i ]
-  %smax479.i = call i32 @llvm.smax.i32(i32 %indvars.iv460.i, i32 0)
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %821, i8 0, i64 %520, i1 false)
   call void @llvm.memset.p0.i64(ptr align 4 %.pre.i, i8 0, i64 %522, i1 false)
   br label %870
 
 855:                                              ; preds = %870
+  %smax479.i = call i32 @llvm.smax.i32(i32 %indvars.iv460.i, i32 0)
   %856 = zext nneg i32 %smax479.i to i64
   store i32 0, ptr %835, align 4, !tbaa !48
   store i32 0, ptr %833, align 4, !tbaa !48

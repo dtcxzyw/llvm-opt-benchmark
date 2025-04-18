@@ -4883,8 +4883,8 @@ _ZNK2cv11_InputArray6getMatEi.exit89:             ; preds = %74, %77
           to label %109 unwind label %140
 
 109:                                              ; preds = %102
-  %.ptr63 = getelementptr inbounds nuw i8, ptr %11, i64 288
-  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr63) #29
+  %.ptr = getelementptr inbounds nuw i8, ptr %11, i64 288
+  call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr) #29
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 384
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12) #29
   %111 = load ptr, ptr %83, align 8, !tbaa !172
@@ -4899,7 +4899,7 @@ _ZNK2cv11_InputArray6getMatEi.exit89:             ; preds = %74, %77
           to label %115 unwind label %146
 
 115:                                              ; preds = %109
-  %116 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %.ptr63, ptr noundef nonnull align 8 dereferenceable(96) %12)
+  %116 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %.ptr, ptr noundef nonnull align 8 dereferenceable(96) %12)
           to label %117 unwind label %148
 
 117:                                              ; preds = %115

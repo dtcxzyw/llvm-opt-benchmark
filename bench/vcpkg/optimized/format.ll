@@ -14762,16 +14762,16 @@ _ZN3fmt3v116detail6bufferIcE10try_resizeEm.exit:  ; preds = %25, %30
 _ZN3fmt3v116detail12count_digitsILi1EoEEiT0_.exit: ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #32
   %37 = bitcast x86_fp80 %0 to i80
-  %38 = lshr i80 %37, 64
-  %.sroa.2.0.extract.trunc.i.i.i = trunc nuw nsw i80 %38 to i32
-  %.sroa.0.0.extract.trunc.i.mask.i.i = and i80 %37, 18446744073709551615
+  %.sroa.0.0.extract.trunc.mask = and i80 %37, 18446744073709551615
+  %.sroa.0.0.insert.ext.i.i = zext nneg i80 %.sroa.0.0.extract.trunc.mask to i128
+  %38 = lshr i128 %.sroa.0.0.insert.ext.i.i, 1
+  %39 = tail call range(i128 65, 129) i128 @llvm.ctlz.i128(i128 %38, i1 false)
+  %40 = trunc nuw nsw i128 %39 to i32
+  %41 = lshr i80 %37, 64
+  %.sroa.2.0.extract.trunc.i.i.i = trunc nuw nsw i80 %41 to i32
   %.sroa.25.0.insert.shift89.i.i = and i32 %.sroa.2.0.extract.trunc.i.i.i, 32767
   %spec.store.select.i.i = tail call i32 @llvm.umax.i32(i32 %.sroa.25.0.insert.shift89.i.i, i32 1)
-  %.sroa.0.0.insert.ext.i.i = zext nneg i80 %.sroa.0.0.extract.trunc.i.mask.i.i to i128
-  %39 = lshr i128 %.sroa.0.0.insert.ext.i.i, 1
-  %40 = tail call range(i128 65, 129) i128 @llvm.ctlz.i128(i128 %39, i1 false)
-  %41 = trunc nuw nsw i128 %40 to i32
-  %42 = sub nsw i32 %spec.store.select.i.i, %41
+  %42 = sub nsw i32 %spec.store.select.i.i, %40
   %43 = add nsw i32 %42, -16318
   %44 = sitofp i32 %43 to double
   %45 = tail call double @llvm.fmuladd.f64(double %44, double 0x3FD34413509F79FF, double -1.000000e-10)
@@ -14804,7 +14804,7 @@ _ZN3fmt3v116detail12count_digitsILi1EoEEiT0_.exit: ; preds = %4
 
 64:                                               ; preds = %_ZN3fmt3v116detail12count_digitsILi1EoEEiT0_.exit
   %65 = add nsw i32 %spec.store.select.i.i, -16446
-  %66 = icmp eq i80 %.sroa.0.0.extract.trunc.i.mask.i.i, 0
+  %66 = icmp eq i80 %.sroa.0.0.extract.trunc.mask, 0
   %67 = icmp samesign ugt i32 %.sroa.25.0.insert.shift89.i.i, 1
   %68 = and i1 %66, %67
   br label %69

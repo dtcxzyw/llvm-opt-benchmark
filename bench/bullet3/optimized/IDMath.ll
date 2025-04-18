@@ -209,7 +209,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3x
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !19
   %.not = icmp eq i32 %5, %7
-  br i1 %.not, label %.preheader, label %26
+  br i1 %.not, label %.preheader, label %25
 
 .preheader:                                       ; preds = %3
   %8 = icmp sgt i32 %5, 0
@@ -233,20 +233,20 @@ define dso_local void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3x
   %.promoted = load i32, ptr %20, align 8, !tbaa !26
   %23 = zext nneg i32 %13 to i64
   %24 = zext nneg i32 %5 to i64
-  %25 = mul i32 %5, 3
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %31
 
-26:                                               ; preds = %3
+25:                                               ; preds = %3
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 102)
-  %27 = load i32, ptr %4, align 4, !tbaa !19
-  %28 = load i32, ptr %6, align 4, !tbaa !19
-  tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.2, i32 noundef %27, i32 noundef %28)
+  %26 = load i32, ptr %4, align 4, !tbaa !19
+  %27 = load i32, ptr %6, align 4, !tbaa !19
+  tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.2, i32 noundef %26, i32 noundef %27)
   tail call void @abort() #14
   unreachable
 
 ._crit_edge:                                      ; preds = %31
-  %29 = add i32 %.promoted, %25
+  %28 = mul i32 %5, 3
+  %29 = add i32 %.promoted, %28
   store i32 %29, ptr %20, align 8, !tbaa !26
   br label %30
 
@@ -307,7 +307,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !19
   %.not = icmp eq i32 %5, %7
-  br i1 %.not, label %.preheader18, label %21
+  br i1 %.not, label %.preheader18, label %20
 
 .preheader18:                                     ; preds = %3
   %8 = icmp sgt i32 %5, 0
@@ -326,15 +326,14 @@ define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr
   %.promoted21 = load i32, ptr %13, align 8, !tbaa !26
   %18 = sext i32 %15 to i64
   %19 = zext nneg i32 %5 to i64
-  %20 = mul i32 %5, 3
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.preheader
 
-21:                                               ; preds = %3
+20:                                               ; preds = %3
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 121)
-  %22 = load i32, ptr %4, align 4, !tbaa !19
-  %23 = load i32, ptr %6, align 4, !tbaa !19
-  tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.3, i32 noundef %22, i32 noundef %23)
+  %21 = load i32, ptr %4, align 4, !tbaa !19
+  %22 = load i32, ptr %6, align 4, !tbaa !19
+  tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.3, i32 noundef %21, i32 noundef %22)
   tail call void @abort() #14
   unreachable
 
@@ -344,7 +343,8 @@ define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr
   br label %27
 
 ._crit_edge:                                      ; preds = %26
-  %24 = add i32 %.promoted21, %20
+  %23 = mul i32 %5, 3
+  %24 = add i32 %.promoted21, %23
   store i32 %24, ptr %13, align 8, !tbaa !26
   br label %25
 
@@ -380,7 +380,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !19
   %.not = icmp eq i32 %5, %7
-  br i1 %.not, label %.preheader18, label %21
+  br i1 %.not, label %.preheader18, label %20
 
 .preheader18:                                     ; preds = %3
   %8 = icmp sgt i32 %5, 0
@@ -399,15 +399,14 @@ define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr
   %.promoted21 = load i32, ptr %13, align 8, !tbaa !26
   %18 = sext i32 %15 to i64
   %19 = zext nneg i32 %5 to i64
-  %20 = mul i32 %5, 3
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.preheader
 
-21:                                               ; preds = %3
+20:                                               ; preds = %3
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 137)
-  %22 = load i32, ptr %4, align 4, !tbaa !19
-  %23 = load i32, ptr %6, align 4, !tbaa !19
-  tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.3, i32 noundef %22, i32 noundef %23)
+  %21 = load i32, ptr %4, align 4, !tbaa !19
+  %22 = load i32, ptr %6, align 4, !tbaa !19
+  tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.3, i32 noundef %21, i32 noundef %22)
   tail call void @abort() #14
   unreachable
 
@@ -417,7 +416,8 @@ define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr
   br label %27
 
 ._crit_edge:                                      ; preds = %26
-  %24 = add i32 %.promoted21, %20
+  %23 = mul i32 %5, 3
+  %24 = add i32 %.promoted21, %23
   store i32 %24, ptr %13, align 8, !tbaa !26
   br label %25
 

@@ -2243,94 +2243,94 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   br label %679
 
 60:                                               ; preds = %55
-  %61 = and i32 %2, 16384
-  %.not509 = icmp eq i32 %61, 0
-  %62 = and i32 %28, -2
-  %spec.select557 = select i1 %.not509, i32 %28, i32 %62
-  %63 = and i32 %2, 32768
-  %.not510 = icmp eq i32 %63, 0
-  %64 = and i32 %spec.select557, -3
-  %.1400 = select i1 %.not510, i32 %spec.select557, i32 %64
-  %65 = and i32 %2, 65536
-  %66 = and i32 %.1400, -5
-  %67 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 40
-  %68 = load ptr, ptr %67, align 8, !tbaa !35
-  %.not512 = icmp eq ptr %68, null
-  %69 = select i1 %.not512, ptr @_pcre2_default_tables_8, ptr %68
-  %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %69, ptr %70, align 8, !tbaa !36
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 256
-  %72 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %71, ptr %72, align 8, !tbaa !37
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 512
-  %74 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %73, ptr %74, align 8, !tbaa !38
-  %75 = getelementptr inbounds nuw i8, ptr %69, i64 832
-  %76 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %75, ptr %76, align 8, !tbaa !39
-  %77 = getelementptr inbounds nuw i8, ptr %8, i64 214
-  store i16 0, ptr %77, align 2, !tbaa !40
-  %78 = getelementptr inbounds nuw i8, ptr %8, i64 236
-  store i32 0, ptr %78, align 4, !tbaa !41
+  %61 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 40
+  %62 = load ptr, ptr %61, align 8, !tbaa !35
+  %.not512 = icmp eq ptr %62, null
+  %63 = select i1 %.not512, ptr @_pcre2_default_tables_8, ptr %62
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %63, ptr %64, align 8, !tbaa !36
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 256
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %65, ptr %66, align 8, !tbaa !37
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 512
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %67, ptr %68, align 8, !tbaa !38
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 832
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr %69, ptr %70, align 8, !tbaa !39
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 214
+  store i16 0, ptr %71, align 2, !tbaa !40
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 236
+  store i32 0, ptr %72, align 4, !tbaa !41
   store ptr %spec.store.select, ptr %8, align 8, !tbaa !42
-  %79 = getelementptr inbounds nuw i8, ptr %8, i64 332
-  store i32 0, ptr %79, align 4, !tbaa !43
-  %80 = getelementptr inbounds nuw i8, ptr %.0357, i64 %.0358
-  %81 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store ptr %80, ptr %81, align 8, !tbaa !44
-  %82 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  store i64 0, ptr %82, align 8, !tbaa !45
-  %83 = getelementptr inbounds nuw i8, ptr %8, i64 232
-  store i32 0, ptr %83, align 8, !tbaa !25
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 228
-  store i32 %spec.select, ptr %84, align 4, !tbaa !46
-  %85 = getelementptr inbounds nuw i8, ptr %8, i64 264
-  store ptr %17, ptr %85, align 8, !tbaa !47
-  %86 = getelementptr inbounds nuw i8, ptr %8, i64 328
-  store i32 0, ptr %86, align 8, !tbaa !48
-  %87 = getelementptr inbounds nuw i8, ptr %8, i64 240
-  store i32 0, ptr %87, align 8, !tbaa !49
-  %88 = getelementptr inbounds nuw i8, ptr %8, i64 316
-  store i32 0, ptr %88, align 4, !tbaa !50
-  %89 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 76
-  %90 = load i32, ptr %89, align 4, !tbaa !51
-  %91 = getelementptr inbounds nuw i8, ptr %8, i64 312
-  store i32 %90, ptr %91, align 8, !tbaa !52
-  %92 = getelementptr inbounds nuw i8, ptr %8, i64 210
-  store i16 0, ptr %92, align 2, !tbaa !53
-  %93 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr null, ptr %93, align 8, !tbaa !54
-  %94 = getelementptr inbounds nuw i8, ptr %8, i64 216
-  store ptr %19, ptr %94, align 8, !tbaa !55
-  %95 = getelementptr inbounds nuw i8, ptr %8, i64 224
-  store i32 20, ptr %95, align 8, !tbaa !56
-  %96 = getelementptr inbounds nuw i8, ptr %8, i64 208
-  store i16 0, ptr %96, align 8, !tbaa !57
-  %97 = getelementptr inbounds nuw i8, ptr %8, i64 212
-  store i16 0, ptr %97, align 4, !tbaa !58
-  %98 = getelementptr inbounds nuw i8, ptr %8, i64 248
-  store ptr %18, ptr %98, align 8, !tbaa !59
-  %99 = getelementptr inbounds nuw i8, ptr %8, i64 308
-  store i32 0, ptr %99, align 4, !tbaa !60
-  %100 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %20, ptr %100, align 8, !tbaa !61
-  %101 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store ptr %.0357, ptr %101, align 8, !tbaa !62
-  %102 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr %20, ptr %102, align 8, !tbaa !63
-  %103 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i64 6000, ptr %103, align 8, !tbaa !64
-  %104 = getelementptr inbounds nuw i8, ptr %8, i64 336
-  %105 = getelementptr inbounds nuw i8, ptr %8, i64 352
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 272
-  store i32 0, ptr %106, align 8, !tbaa !65
-  %107 = getelementptr inbounds nuw i8, ptr %8, i64 276
-  store i32 0, ptr %107, align 4, !tbaa !66
-  %108 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %108, i8 -1, i64 80, i1 false), !tbaa !19
-  %.not511 = icmp eq i32 %65, 0
-  %.2401 = select i1 %.not511, i32 %.1400, i32 %66
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 332
+  store i32 0, ptr %73, align 4, !tbaa !43
+  %74 = getelementptr inbounds nuw i8, ptr %.0357, i64 %.0358
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  store ptr %74, ptr %75, align 8, !tbaa !44
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 168
+  store i64 0, ptr %76, align 8, !tbaa !45
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 232
+  store i32 0, ptr %77, align 8, !tbaa !25
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 228
+  store i32 %spec.select, ptr %78, align 4, !tbaa !46
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 264
+  store ptr %17, ptr %79, align 8, !tbaa !47
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 328
+  store i32 0, ptr %80, align 8, !tbaa !48
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 240
+  store i32 0, ptr %81, align 8, !tbaa !49
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 316
+  store i32 0, ptr %82, align 4, !tbaa !50
+  %83 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 76
+  %84 = load i32, ptr %83, align 4, !tbaa !51
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 312
+  store i32 %84, ptr %85, align 8, !tbaa !52
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 210
+  store i16 0, ptr %86, align 2, !tbaa !53
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  store ptr null, ptr %87, align 8, !tbaa !54
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 216
+  store ptr %19, ptr %88, align 8, !tbaa !55
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 224
+  store i32 20, ptr %89, align 8, !tbaa !56
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 208
+  store i16 0, ptr %90, align 8, !tbaa !57
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 212
+  store i16 0, ptr %91, align 4, !tbaa !58
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 248
+  store ptr %18, ptr %92, align 8, !tbaa !59
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 308
+  store i32 0, ptr %93, align 4, !tbaa !60
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store ptr %20, ptr %94, align 8, !tbaa !61
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store ptr %.0357, ptr %95, align 8, !tbaa !62
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store ptr %20, ptr %96, align 8, !tbaa !63
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store i64 6000, ptr %97, align 8, !tbaa !64
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 336
+  %99 = getelementptr inbounds nuw i8, ptr %8, i64 352
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 272
+  store i32 0, ptr %100, align 8, !tbaa !65
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 276
+  store i32 0, ptr %101, align 4, !tbaa !66
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %102, i8 -1, i64 80, i1 false), !tbaa !19
+  %103 = and i32 %2, 16384
+  %.not509 = icmp eq i32 %103, 0
+  %104 = and i32 %28, -2
+  %spec.select557 = select i1 %.not509, i32 %28, i32 %104
+  %105 = and i32 %2, 32768
+  %.not510 = icmp eq i32 %105, 0
+  %106 = and i32 %spec.select557, -3
+  %.1400 = select i1 %.not510, i32 %spec.select557, i32 %106
+  %107 = and i32 %2, 65536
+  %.not511 = icmp eq i32 %107, 0
+  %108 = and i32 %.1400, -5
+  %.2401 = select i1 %.not511, i32 %.1400, i32 %108
   %109 = load i32, ptr %41, align 8, !tbaa !33
   br i1 %.not506, label %.preheader668, label %.critedge
 
@@ -2409,9 +2409,9 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
 140:                                              ; preds = %134
   %141 = getelementptr inbounds nuw i8, ptr %126, i64 12
   %142 = load i32, ptr %141, align 4, !tbaa !71
-  %143 = load i32, ptr %84, align 4, !tbaa !46
+  %143 = load i32, ptr %78, align 4, !tbaa !46
   %144 = or i32 %143, %142
-  store i32 %144, ptr %84, align 4, !tbaa !46
+  store i32 %144, ptr %78, align 4, !tbaa !46
   br label %204
 
 145:                                              ; preds = %134
@@ -2514,21 +2514,21 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   ]
 
 193:                                              ; preds = %188
-  %194 = load i32, ptr %84, align 4, !tbaa !46
+  %194 = load i32, ptr %78, align 4, !tbaa !46
   %195 = or i32 %194, 16384
-  store i32 %195, ptr %84, align 4, !tbaa !46
+  store i32 %195, ptr %78, align 4, !tbaa !46
   br label %204
 
 196:                                              ; preds = %188
-  %197 = load i32, ptr %84, align 4, !tbaa !46
+  %197 = load i32, ptr %78, align 4, !tbaa !46
   %198 = or i32 %197, 32768
-  store i32 %198, ptr %84, align 4, !tbaa !46
+  store i32 %198, ptr %78, align 4, !tbaa !46
   br label %204
 
 199:                                              ; preds = %188
-  %200 = load i32, ptr %84, align 4, !tbaa !46
+  %200 = load i32, ptr %78, align 4, !tbaa !46
   %201 = or i32 %200, 65536
-  store i32 %201, ptr %84, align 4, !tbaa !46
+  store i32 %201, ptr %78, align 4, !tbaa !46
   br label %204
 
 .critedge3.thread:                                ; preds = %161, %.critedge3, %180
@@ -2569,7 +2569,7 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   %.3402 = phi i32 [ %.2401, %60 ], [ %.2401, %.preheader668 ], [ %.4403715, %203 ], [ %.4403715, %117 ], [ %.9.ph, %204 ], [ %.4403715, %112 ]
   %208 = zext i32 %.0457 to i64
   %209 = getelementptr inbounds nuw i8, ptr %.0357, i64 %208
-  %210 = load i32, ptr %84, align 4, !tbaa !46
+  %210 = load i32, ptr %78, align 4, !tbaa !46
   %211 = and i32 %210, 524288
   %212 = icmp ne i32 %211, 0
   %.lobit = lshr exact i32 %211, 19
@@ -2596,7 +2596,7 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %.not517, label %._crit_edge, label %.thread645
 
 ._crit_edge:                                      ; preds = %219
-  %.pre = load i32, ptr %84, align 4, !tbaa !46
+  %.pre = load i32, ptr %78, align 4, !tbaa !46
   br label %221
 
 .thread645:                                       ; preds = %219
@@ -2722,7 +2722,7 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   br label %.thread649
 
 266:                                              ; preds = %264, %263, %259, %256, %253, %250
-  %267 = load ptr, ptr %81, align 8, !tbaa !44
+  %267 = load ptr, ptr %75, align 8, !tbaa !44
   %268 = ptrtoint ptr %267 to i64
   %269 = ptrtoint ptr %209 to i64
   %270 = sub i64 %268, %269
@@ -2742,7 +2742,7 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %278, label %279, label %._crit_edge791
 
 ._crit_edge791:                                   ; preds = %266
-  %.pre792 = load ptr, ptr %98, align 8, !tbaa !59
+  %.pre792 = load ptr, ptr %92, align 8, !tbaa !59
   br label %287
 
 279:                                              ; preds = %266
@@ -2755,8 +2755,8 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %285, label %286, label %.thread612
 
 .thread612:                                       ; preds = %279
-  store ptr %284, ptr %98, align 8, !tbaa !59
-  %.pre793 = load i32, ptr %84, align 4, !tbaa !46
+  store ptr %284, ptr %92, align 8, !tbaa !59
+  %.pre793 = load i32, ptr %78, align 4, !tbaa !46
   br label %287
 
 286:                                              ; preds = %279
@@ -2782,12 +2782,12 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
 295:                                              ; preds = %293
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #15
   store i32 0, ptr %21, align 4, !tbaa !22
-  %296 = load i32, ptr %78, align 4, !tbaa !41
+  %296 = load i32, ptr %72, align 4, !tbaa !41
   %297 = icmp ugt i32 %296, 127
   br i1 %297, label %298, label %._crit_edge794
 
 ._crit_edge794:                                   ; preds = %295
-  %.pre795 = load ptr, ptr %85, align 8, !tbaa !47
+  %.pre795 = load ptr, ptr %79, align 8, !tbaa !47
   br label %309
 
 298:                                              ; preds = %295
@@ -2799,17 +2799,17 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   %304 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 16
   %305 = load ptr, ptr %304, align 8, !tbaa !77
   %306 = call ptr %299(i64 noundef %303, ptr noundef %305) #15
-  store ptr %306, ptr %85, align 8, !tbaa !47
+  store ptr %306, ptr %79, align 8, !tbaa !47
   %307 = icmp eq ptr %306, null
   br i1 %307, label %308, label %._crit_edge796
 
 ._crit_edge796:                                   ; preds = %298
-  %.pre797 = load i32, ptr %78, align 4, !tbaa !41
+  %.pre797 = load i32, ptr %72, align 4, !tbaa !41
   br label %309
 
 308:                                              ; preds = %298
   store i32 121, ptr %16, align 4, !tbaa !22
-  store i64 0, ptr %82, align 8, !tbaa !45
+  store i64 0, ptr %76, align 8, !tbaa !45
   br label %.thread615
 
 309:                                              ; preds = %._crit_edge796, %._crit_edge794
@@ -2820,7 +2820,7 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   %314 = zext i32 %313 to i64
   %315 = shl nuw nsw i64 %314, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %311, i8 0, i64 %315, i1 false)
-  %316 = load ptr, ptr %98, align 8, !tbaa !59
+  %316 = load ptr, ptr %92, align 8, !tbaa !59
   %317 = call fastcc i32 @check_lookbehinds(ptr noundef %316, ptr noundef null, ptr noundef null, ptr noundef %8, ptr noundef %21)
   store i32 %317, ptr %16, align 4, !tbaa !22
   %.not526 = icmp eq i32 %317, 0
@@ -2836,12 +2836,12 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   br label %320
 
 320:                                              ; preds = %319, %293
-  store i64 %.0358, ptr %82, align 8, !tbaa !45
-  %321 = load ptr, ptr %98, align 8, !tbaa !59
+  store i64 %.0358, ptr %76, align 8, !tbaa !45
+  %321 = load ptr, ptr %92, align 8, !tbaa !59
   store ptr %321, ptr %10, align 8, !tbaa !79
   store ptr %20, ptr %9, align 8, !tbaa !21
   store i8 -119, ptr %20, align 16, !tbaa !23
-  %322 = load i32, ptr %84, align 4, !tbaa !46
+  %322 = load i32, ptr %78, align 4, !tbaa !46
   %323 = call fastcc i32 @compile_regex(i32 noundef %322, i32 noundef %.0464, ptr noundef %9, ptr noundef %10, ptr noundef %16, i32 noundef 0, ptr noundef %14, ptr noundef %12, ptr noundef %15, ptr noundef %13, ptr noundef null, ptr noundef null, ptr noundef %8, ptr noundef nonnull %11)
   %324 = load i32, ptr %16, align 4, !tbaa !22
   %.not527 = icmp eq i32 %324, 0
@@ -2854,7 +2854,7 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
 
 328:                                              ; preds = %325
   %329 = sub nuw nsw i64 65536, %326
-  %330 = load i64, ptr %105, align 8, !tbaa !80
+  %330 = load i64, ptr %99, align 8, !tbaa !80
   %331 = icmp ult i64 %329, %330
   br i1 %331, label %332, label %333
 
@@ -2863,9 +2863,9 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   br label %.thread654
 
 333:                                              ; preds = %328
-  %334 = load i16, ptr %96, align 8, !tbaa !57
+  %334 = load i16, ptr %90, align 8, !tbaa !57
   %335 = zext i16 %334 to i64
-  %336 = load i16, ptr %92, align 2, !tbaa !53
+  %336 = load i16, ptr %86, align 2, !tbaa !53
   %337 = zext i16 %336 to i64
   %338 = mul nuw nsw i64 %337, %335
   %.not528 = icmp eq i64 %330, 0
@@ -2902,7 +2902,7 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   store i64 0, ptr %357, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %352, ptr noundef nonnull align 8 dereferenceable(24) %spec.store.select, i64 24, i1 false), !tbaa.struct !82
   %358 = getelementptr inbounds nuw i8, ptr %352, i64 24
-  store ptr %69, ptr %358, align 8, !tbaa !18
+  store ptr %63, ptr %358, align 8, !tbaa !18
   %359 = getelementptr inbounds nuw i8, ptr %352, i64 32
   %360 = getelementptr inbounds nuw i8, ptr %352, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %359, i8 0, i64 40, i1 false)
@@ -2914,12 +2914,12 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   store i32 1346589253, ptr %363, align 8, !tbaa !85
   %364 = getelementptr inbounds nuw i8, ptr %352, i64 92
   store i32 %spec.select, ptr %364, align 4, !tbaa !86
-  %365 = load i32, ptr %84, align 4, !tbaa !46
+  %365 = load i32, ptr %78, align 4, !tbaa !46
   %366 = getelementptr inbounds nuw i8, ptr %352, i64 96
   store i32 %365, ptr %366, align 8, !tbaa !87
   %367 = getelementptr inbounds nuw i8, ptr %352, i64 100
   store i32 %.0464, ptr %367, align 4, !tbaa !88
-  %368 = load i32, ptr %83, align 8, !tbaa !25
+  %368 = load i32, ptr %77, align 8, !tbaa !25
   %369 = or i32 %.0410, %368
   %370 = or i32 %369, 1
   %371 = getelementptr inbounds nuw i8, ptr %352, i64 104
@@ -2945,30 +2945,30 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   %383 = getelementptr inbounds nuw i8, ptr %352, i64 136
   %384 = getelementptr inbounds nuw i8, ptr %352, i64 138
   store i64 0, ptr %381, align 4
-  %385 = load i16, ptr %92, align 2, !tbaa !53
+  %385 = load i16, ptr %86, align 2, !tbaa !53
   %386 = getelementptr inbounds nuw i8, ptr %352, i64 140
   store i16 %385, ptr %386, align 4, !tbaa !96
-  %387 = load i16, ptr %96, align 8, !tbaa !57
+  %387 = load i16, ptr %90, align 8, !tbaa !57
   %388 = getelementptr inbounds nuw i8, ptr %352, i64 142
   store i16 %387, ptr %388, align 2, !tbaa !97
   store i32 %.3402, ptr %357, align 8, !tbaa !98
   %389 = getelementptr inbounds nuw i8, ptr %352, i64 %361
-  store i16 0, ptr %97, align 4, !tbaa !58
-  store i16 0, ptr %77, align 2, !tbaa !40
-  store i32 0, ptr %87, align 8, !tbaa !49
-  store ptr %356, ptr %93, align 8, !tbaa !54
-  store ptr %389, ptr %100, align 8, !tbaa !61
-  store i32 0, ptr %99, align 4, !tbaa !60
+  store i16 0, ptr %91, align 4, !tbaa !58
+  store i16 0, ptr %71, align 2, !tbaa !40
+  store i32 0, ptr %81, align 8, !tbaa !49
+  store ptr %356, ptr %87, align 8, !tbaa !54
+  store ptr %389, ptr %94, align 8, !tbaa !61
+  store i32 0, ptr %93, align 4, !tbaa !60
   %390 = getelementptr inbounds nuw i8, ptr %8, i64 320
   store i32 0, ptr %390, align 8, !tbaa !99
   %391 = getelementptr inbounds nuw i8, ptr %8, i64 324
   store i32 0, ptr %391, align 4, !tbaa !100
-  store i64 0, ptr %105, align 8, !tbaa !80
+  store i64 0, ptr %99, align 8, !tbaa !80
   %.not529 = icmp eq i16 %387, 0
   br i1 %.not529, label %.loopexit666, label %.lr.ph748.preheader
 
 .lr.ph748.preheader:                              ; preds = %355
-  %392 = load ptr, ptr %94, align 8, !tbaa !55
+  %392 = load ptr, ptr %88, align 8, !tbaa !55
   br label %.lr.ph748
 
 .lr.ph748:                                        ; preds = %.lr.ph748.preheader, %.lr.ph748
@@ -2983,13 +2983,13 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   call fastcc void @add_name_to_table(ptr noundef %8, ptr noundef %393, i32 noundef %396, i32 noundef %398, i32 noundef %.2408746)
   %399 = add nuw nsw i32 %.2408746, 1
   %400 = getelementptr inbounds nuw i8, ptr %.0381747, i64 16
-  %401 = load i16, ptr %96, align 8, !tbaa !57
+  %401 = load i16, ptr %90, align 8, !tbaa !57
   %402 = zext i16 %401 to i32
   %403 = icmp samesign ult i32 %399, %402
   br i1 %403, label %.lr.ph748, label %.loopexit666
 
 .loopexit666:                                     ; preds = %.lr.ph748, %355
-  %404 = load ptr, ptr %98, align 8, !tbaa !59
+  %404 = load ptr, ptr %92, align 8, !tbaa !59
   store ptr %404, ptr %10, align 8, !tbaa !79
   store ptr %389, ptr %9, align 8, !tbaa !21
   store i8 -119, ptr %389, align 1, !tbaa !23
@@ -3006,13 +3006,13 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   br label %412
 
 412:                                              ; preds = %409, %.loopexit666
-  %413 = load i32, ptr %78, align 4, !tbaa !41
+  %413 = load i32, ptr %72, align 4, !tbaa !41
   %414 = trunc i32 %413 to i16
   store i16 %414, ptr %383, align 8, !tbaa !105
-  %415 = load i32, ptr %106, align 8, !tbaa !65
+  %415 = load i32, ptr %100, align 8, !tbaa !65
   %416 = trunc i32 %415 to i16
   store i16 %416, ptr %384, align 2, !tbaa !106
-  %417 = load i32, ptr %88, align 4, !tbaa !50
+  %417 = load i32, ptr %82, align 4, !tbaa !50
   %418 = trunc i32 %417 to i16
   store i16 %418, ptr %381, align 4, !tbaa !107
   %419 = load i32, ptr %390, align 8, !tbaa !99
@@ -3045,7 +3045,7 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   store i64 %432, ptr %360, align 8, !tbaa !14
   %.pre798 = load i32, ptr %16, align 4, !tbaa !22
   %433 = icmp eq i32 %.pre798, 0
-  %434 = load i32, ptr %86, align 8
+  %434 = load i32, ptr %80, align 8
   %435 = icmp ne i32 %434, 0
   %or.cond8 = select i1 %433, i1 %435, i1 false
   br i1 %or.cond8, label %436, label %481
@@ -3186,7 +3186,7 @@ thread-pre-split:                                 ; preds = %485
 492:                                              ; preds = %489
   %493 = lshr i32 %.3402, 1
   %.lobit535 = and i32 %493, 1
-  %.val = load i32, ptr %107, align 4
+  %.val = load i32, ptr %101, align 4
   %.val564 = load i32, ptr %391, align 4
   %494 = call fastcc i32 @is_anchored(ptr noundef %389, i32 noundef 0, i32 %.val, i32 %.val564, i32 noundef 0, i32 noundef 0, i32 noundef %.lobit535)
   %.not536 = icmp eq i32 %494, 0
@@ -3249,7 +3249,7 @@ thread-pre-split640:                              ; preds = %499
   br i1 %or.cond13, label %518, label %526
 
 518:                                              ; preds = %515, %513
-  %519 = load ptr, ptr %72, align 8, !tbaa !37
+  %519 = load ptr, ptr %66, align 8, !tbaa !37
   %520 = zext nneg i32 %508 to i64
   %521 = getelementptr inbounds nuw i8, ptr %519, i64 %520
   %522 = load i8, ptr %521, align 1, !tbaa !23
@@ -3296,7 +3296,7 @@ thread-pre-split640:                              ; preds = %499
 547:                                              ; preds = %544
   %548 = lshr i32 %.3402, 1
   %.lobit539 = and i32 %548, 1
-  %.val565 = load i32, ptr %107, align 4
+  %.val565 = load i32, ptr %101, align 4
   %.val566 = load i32, ptr %391, align 4
   %549 = call fastcc i32 @is_startline(ptr noundef %389, i32 noundef 0, i32 %.val565, i32 %.val566, i32 noundef 0, i32 noundef 0, i32 noundef %.lobit539)
   %.not540 = icmp eq i32 %549, 0
@@ -3375,7 +3375,7 @@ thread-pre-split640:                              ; preds = %499
   br i1 %or.cond21, label %585, label %591
 
 585:                                              ; preds = %582, %580
-  %586 = load ptr, ptr %72, align 8, !tbaa !37
+  %586 = load ptr, ptr %66, align 8, !tbaa !37
   %587 = zext nneg i32 %576 to i64
   %588 = getelementptr inbounds nuw i8, ptr %586, i64 %587
   %589 = load i8, ptr %588, align 1, !tbaa !23
@@ -3435,7 +3435,7 @@ thread-pre-split640:                              ; preds = %499
 
 .thread643:                                       ; preds = %.preheader, %610, %618, %286, %php_pcre2_code_free.exit, %497
   %.1364 = phi ptr [ null, %php_pcre2_code_free.exit ], [ null, %286 ], [ %352, %497 ], [ %352, %618 ], [ %352, %610 ], [ null, %.preheader ]
-  %620 = load ptr, ptr %98, align 8, !tbaa !59
+  %620 = load ptr, ptr %92, align 8, !tbaa !59
   %.not554 = icmp eq ptr %620, %18
   br i1 %.not554, label %626, label %621
 
@@ -3448,21 +3448,21 @@ thread-pre-split640:                              ; preds = %499
   br label %626
 
 626:                                              ; preds = %621, %.thread643
-  %627 = load i32, ptr %95, align 8, !tbaa !56
+  %627 = load i32, ptr %89, align 8, !tbaa !56
   %628 = icmp ugt i32 %627, 20
   br i1 %628, label %629, label %635
 
 629:                                              ; preds = %626
   %630 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 8
   %631 = load ptr, ptr %630, align 8, !tbaa !114
-  %632 = load ptr, ptr %94, align 8, !tbaa !55
+  %632 = load ptr, ptr %88, align 8, !tbaa !55
   %633 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 16
   %634 = load ptr, ptr %633, align 8, !tbaa !77
   call void %631(ptr noundef %632, ptr noundef %634) #15
   br label %635
 
 635:                                              ; preds = %629, %626
-  %636 = load ptr, ptr %85, align 8, !tbaa !47
+  %636 = load ptr, ptr %79, align 8, !tbaa !47
   %.not555 = icmp eq ptr %636, %17
   br i1 %.not555, label %679, label %637
 
@@ -3486,7 +3486,7 @@ thread-pre-split640:                              ; preds = %499
 
 .thread654:                                       ; preds = %287, %320, %332, %346, %354, %.thread615
   %646 = phi i32 [ %292, %287 ], [ %324, %320 ], [ 120, %332 ], [ 201, %346 ], [ 121, %354 ], [ %318, %.thread615 ]
-  %647 = load i64, ptr %82, align 8, !tbaa !45
+  %647 = load i64, ptr %76, align 8, !tbaa !45
   store i64 %647, ptr %4, align 8, !tbaa !19
   store i32 %646, ptr %3, align 4, !tbaa !22
   br label %php_pcre2_code_free.exit
@@ -3498,7 +3498,7 @@ thread-pre-split640:                              ; preds = %499
 
 648:                                              ; preds = %.sink.split841, %487
   %storemerge762 = phi i32 [ %488, %487 ], [ %.sink842, %.sink.split841 ]
-  %649 = load i64, ptr %82, align 8, !tbaa !45
+  %649 = load i64, ptr %76, align 8, !tbaa !45
   store i64 %649, ptr %4, align 8, !tbaa !19
   store i32 %storemerge762, ptr %3, align 4, !tbaa !22
   %650 = load ptr, ptr %359, align 8, !tbaa !16
@@ -3545,7 +3545,7 @@ thread-pre-split640:                              ; preds = %499
   br label %php_pcre2_code_free.exit
 
 php_pcre2_code_free.exit:                         ; preds = %.thread654, %.thread649, %.thread645, %667
-  %672 = load ptr, ptr %104, align 8, !tbaa !115
+  %672 = load ptr, ptr %98, align 8, !tbaa !115
   %.not552 = icmp eq ptr %672, null
   br i1 %.not552, label %.thread643, label %.preheader
 

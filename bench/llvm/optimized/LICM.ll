@@ -4804,8 +4804,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm10sinkRegionEPNS_15DomTreeNodeBaseI
   %95 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %96 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %97 = getelementptr inbounds nuw i8, ptr %23, i64 96
-  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %98 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %.phi.trans.insert.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.phi.trans.insert3.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 16
   %99 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %100 = getelementptr inbounds nuw i8, ptr %32, i64 40

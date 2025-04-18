@@ -151,9 +151,9 @@ define void @_ZN2cv11minAreaRectERKNS_11_InputArrayE(ptr dead_on_unwind noalias 
 
 _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i:           ; preds = %.noexc, %39
   %47 = phi ptr [ %42, %39 ], [ %46, %.noexc ]
-  %48 = zext nneg i32 %34 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
+  %48 = zext nneg i32 %34 to i64
   %49 = getelementptr inbounds nuw float, ptr %47, i64 %48
   %.sroa.0102.0.copyload.i = load float, ptr %37, align 4, !tbaa !26
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 4

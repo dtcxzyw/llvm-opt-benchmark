@@ -28316,26 +28316,26 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_6theory11quan
 
 .lr.ph.i.i.i.i:                                   ; preds = %48, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_6theory11quantifiers15BoundedIntegers13BoundInstTrieEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS5_.exit.i.i
   %.sroa.0.0.i.i.ph = phi ptr [ %spec.select.i.i, %48 ], [ %38, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_6theory11quantifiers15BoundedIntegers13BoundInstTrieEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS5_.exit.i.i ]
-  %54 = icmp eq ptr %.sroa.0.0.i.i.ph, %38
-  br label %55
+  br label %54
 
-55:                                               ; preds = %55, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %55 ]
-  %.0811.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %55 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %57 = load ptr, ptr %56, align 8, !tbaa !6
-  %58 = load i64, ptr %57, align 8
-  %59 = and i64 %58, 1099511627775
-  %60 = icmp samesign ult i64 %59, %40
-  %.19.i.i.i.i = select i1 %60, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %60, i64 24, i64 16
+54:                                               ; preds = %54, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %54 ]
+  %.0811.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %54 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %56 = load ptr, ptr %55, align 8, !tbaa !6
+  %57 = load i64, ptr %56, align 8
+  %58 = and i64 %57, 1099511627775
+  %59 = icmp samesign ult i64 %58, %40
+  %.19.i.i.i.i = select i1 %59, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %59, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !370
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers15BoundedIntegers13BoundInstTrieESt4lessIS3_ESaISt4pairIKS3_S7_EEE11lower_boundERSB_.exit.i, label %55, !llvm.loop !697
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers15BoundedIntegers13BoundInstTrieESt4lessIS3_ESaISt4pairIKS3_S7_EEE11lower_boundERSB_.exit.i, label %54, !llvm.loop !697
 
-_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers15BoundedIntegers13BoundInstTrieESt4lessIS3_ESaISt4pairIKS3_S7_EEE11lower_boundERSB_.exit.i: ; preds = %55
-  %spec.select18 = or i1 %3, %54
+_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers15BoundedIntegers13BoundInstTrieESt4lessIS3_ESaISt4pairIKS3_S7_EEE11lower_boundERSB_.exit.i: ; preds = %54
+  %60 = icmp eq ptr %.sroa.0.0.i.i.ph, %38
+  %spec.select18 = or i1 %3, %60
   %61 = icmp eq ptr %.19.i.i.i.i, %38
   br i1 %61, label %.critedge.i, label %62
 

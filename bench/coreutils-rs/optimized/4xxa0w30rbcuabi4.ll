@@ -3515,10 +3515,8 @@ common.resume:                                    ; preds = %.body, %.body.i, %5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52)
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %67 = load i16, ptr %66, align 8, !range !853, !noundef !12
-  %.not = icmp eq i16 %67, 0
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 34
   %69 = load i16, ptr %68, align 2
-  %.0 = select i1 %.not, i16 %65, i16 %69
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36), !noalias !854
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %35), !noalias !854
   store i64 0, ptr %35, align 8, !noalias !854
@@ -3568,6 +3566,8 @@ common.resume:                                    ; preds = %.body, %.body.i, %5
   br label %.body.i
 
 74:                                               ; preds = %70
+  %.not = icmp eq i16 %67, 0
+  %.0 = select i1 %.not, i16 %65, i16 %69
   %75 = zext i16 %63 to i64
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %35), !noalias !854
   %76 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h66b0a1faa6ee6961E"(i64 noundef %.0.i.i, i1 noundef zeroext false), !noalias !858

@@ -18001,33 +18001,33 @@ define linkonce_odr noundef i64 @_ZN6duckdb17AlpRDFinalAnalyzeIfEEmRNS_12Analyze
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !953
   %9 = load ptr, ptr %6, align 8, !tbaa !951
-  %10 = ptrtoint ptr %8 to i64
-  %11 = ptrtoint ptr %9 to i64
-  %12 = sub i64 %10, %11
-  %13 = ashr exact i64 %12, 2
-  %14 = uitofp i64 %13 to double
-  %15 = uitofp i64 %3 to double
-  %16 = fdiv double %14, %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %18
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  br label %11
 
-18:                                               ; preds = %18, %5
-  %.019.i = phi i8 [ 0, %5 ], [ %.1.i, %18 ]
-  %.01318.i = phi double [ 0x41DFFFFFFFC00000, %5 ], [ %.114.i, %18 ]
-  %.01517.i = phi i64 [ 1, %5 ], [ %23, %18 ]
-  %19 = trunc nuw i64 %.01517.i to i8
-  %20 = sub nuw nsw i8 32, %19
-  %21 = tail call noundef double @_ZN6duckdb3alp16AlpRDCompressionIfLb1EE24BuildLeftPartsDictionaryILb0EEEdRKNS_6vectorIjLb1EEEhRNS0_21AlpRDCompressionStateIfLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef zeroext %20, ptr noundef nonnull align 8 dereferenceable(20577) %17)
-  %22 = fcmp ugt double %21, %.01318.i
-  %.114.i = select i1 %22, double %.01318.i, double %21
-  %.1.i = select i1 %22, i8 %.019.i, i8 %20
-  %23 = add nuw nsw i64 %.01517.i, 1
-  %exitcond.not.i = icmp eq i64 %23, 17
-  br i1 %exitcond.not.i, label %_ZN6duckdb3alp16AlpRDCompressionIfLb1EE18FindBestDictionaryERKNS_6vectorIjLb1EEERNS0_21AlpRDCompressionStateIfLb1EEE.exit, label %18, !llvm.loop !959
+11:                                               ; preds = %11, %5
+  %.019.i = phi i8 [ 0, %5 ], [ %.1.i, %11 ]
+  %.01318.i = phi double [ 0x41DFFFFFFFC00000, %5 ], [ %.114.i, %11 ]
+  %.01517.i = phi i64 [ 1, %5 ], [ %16, %11 ]
+  %12 = trunc nuw i64 %.01517.i to i8
+  %13 = sub nuw nsw i8 32, %12
+  %14 = tail call noundef double @_ZN6duckdb3alp16AlpRDCompressionIfLb1EE24BuildLeftPartsDictionaryILb0EEEdRKNS_6vectorIjLb1EEEhRNS0_21AlpRDCompressionStateIfLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef zeroext %13, ptr noundef nonnull align 8 dereferenceable(20577) %10)
+  %15 = fcmp ugt double %14, %.01318.i
+  %.114.i = select i1 %15, double %.01318.i, double %14
+  %.1.i = select i1 %15, i8 %.019.i, i8 %13
+  %16 = add nuw nsw i64 %.01517.i, 1
+  %exitcond.not.i = icmp eq i64 %16, 17
+  br i1 %exitcond.not.i, label %_ZN6duckdb3alp16AlpRDCompressionIfLb1EE18FindBestDictionaryERKNS_6vectorIjLb1EEERNS0_21AlpRDCompressionStateIfLb1EEE.exit, label %11, !llvm.loop !959
 
-_ZN6duckdb3alp16AlpRDCompressionIfLb1EE18FindBestDictionaryERKNS_6vectorIjLb1EEERNS0_21AlpRDCompressionStateIfLb1EEE.exit: ; preds = %18
-  %24 = fdiv double 1.000000e+00, %16
-  %25 = tail call noundef double @_ZN6duckdb3alp16AlpRDCompressionIfLb1EE24BuildLeftPartsDictionaryILb1EEEdRKNS_6vectorIjLb1EEEhRNS0_21AlpRDCompressionStateIfLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef zeroext %.1.i, ptr noundef nonnull align 8 dereferenceable(20577) %17)
+_ZN6duckdb3alp16AlpRDCompressionIfLb1EE18FindBestDictionaryERKNS_6vectorIjLb1EEERNS0_21AlpRDCompressionStateIfLb1EEE.exit: ; preds = %11
+  %17 = ptrtoint ptr %8 to i64
+  %18 = ptrtoint ptr %9 to i64
+  %19 = sub i64 %17, %18
+  %20 = ashr exact i64 %19, 2
+  %21 = uitofp i64 %20 to double
+  %22 = uitofp i64 %3 to double
+  %23 = fdiv double %21, %22
+  %24 = fdiv double 1.000000e+00, %23
+  %25 = tail call noundef double @_ZN6duckdb3alp16AlpRDCompressionIfLb1EE24BuildLeftPartsDictionaryILb1EEEdRKNS_6vectorIjLb1EEEhRNS0_21AlpRDCompressionStateIfLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef zeroext %.1.i, ptr noundef nonnull align 8 dereferenceable(20577) %10)
   %26 = load ptr, ptr %7, align 8, !tbaa !953
   %27 = load ptr, ptr %6, align 8, !tbaa !951
   %28 = ptrtoint ptr %26 to i64
@@ -19201,33 +19201,33 @@ define linkonce_odr noundef i64 @_ZN6duckdb17AlpRDFinalAnalyzeIdEEmRNS_12Analyze
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !992
   %9 = load ptr, ptr %6, align 8, !tbaa !990
-  %10 = ptrtoint ptr %8 to i64
-  %11 = ptrtoint ptr %9 to i64
-  %12 = sub i64 %10, %11
-  %13 = ashr exact i64 %12, 3
-  %14 = uitofp i64 %13 to double
-  %15 = uitofp i64 %3 to double
-  %16 = fdiv double %14, %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %18
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  br label %11
 
-18:                                               ; preds = %18, %5
-  %.019.i = phi i8 [ 0, %5 ], [ %.1.i, %18 ]
-  %.01318.i = phi double [ 0x41DFFFFFFFC00000, %5 ], [ %.114.i, %18 ]
-  %.01517.i = phi i64 [ 1, %5 ], [ %23, %18 ]
-  %19 = trunc nuw i64 %.01517.i to i8
-  %20 = sub nuw nsw i8 64, %19
-  %21 = tail call noundef double @_ZN6duckdb3alp16AlpRDCompressionIdLb1EE24BuildLeftPartsDictionaryILb0EEEdRKNS_6vectorImLb1EEEhRNS0_21AlpRDCompressionStateIdLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef zeroext %20, ptr noundef nonnull align 8 dereferenceable(20577) %17)
-  %22 = fcmp ugt double %21, %.01318.i
-  %.114.i = select i1 %22, double %.01318.i, double %21
-  %.1.i = select i1 %22, i8 %.019.i, i8 %20
-  %23 = add nuw nsw i64 %.01517.i, 1
-  %exitcond.not.i = icmp eq i64 %23, 17
-  br i1 %exitcond.not.i, label %_ZN6duckdb3alp16AlpRDCompressionIdLb1EE18FindBestDictionaryERKNS_6vectorImLb1EEERNS0_21AlpRDCompressionStateIdLb1EEE.exit, label %18, !llvm.loop !997
+11:                                               ; preds = %11, %5
+  %.019.i = phi i8 [ 0, %5 ], [ %.1.i, %11 ]
+  %.01318.i = phi double [ 0x41DFFFFFFFC00000, %5 ], [ %.114.i, %11 ]
+  %.01517.i = phi i64 [ 1, %5 ], [ %16, %11 ]
+  %12 = trunc nuw i64 %.01517.i to i8
+  %13 = sub nuw nsw i8 64, %12
+  %14 = tail call noundef double @_ZN6duckdb3alp16AlpRDCompressionIdLb1EE24BuildLeftPartsDictionaryILb0EEEdRKNS_6vectorImLb1EEEhRNS0_21AlpRDCompressionStateIdLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef zeroext %13, ptr noundef nonnull align 8 dereferenceable(20577) %10)
+  %15 = fcmp ugt double %14, %.01318.i
+  %.114.i = select i1 %15, double %.01318.i, double %14
+  %.1.i = select i1 %15, i8 %.019.i, i8 %13
+  %16 = add nuw nsw i64 %.01517.i, 1
+  %exitcond.not.i = icmp eq i64 %16, 17
+  br i1 %exitcond.not.i, label %_ZN6duckdb3alp16AlpRDCompressionIdLb1EE18FindBestDictionaryERKNS_6vectorImLb1EEERNS0_21AlpRDCompressionStateIdLb1EEE.exit, label %11, !llvm.loop !997
 
-_ZN6duckdb3alp16AlpRDCompressionIdLb1EE18FindBestDictionaryERKNS_6vectorImLb1EEERNS0_21AlpRDCompressionStateIdLb1EEE.exit: ; preds = %18
-  %24 = fdiv double 1.000000e+00, %16
-  %25 = tail call noundef double @_ZN6duckdb3alp16AlpRDCompressionIdLb1EE24BuildLeftPartsDictionaryILb1EEEdRKNS_6vectorImLb1EEEhRNS0_21AlpRDCompressionStateIdLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef zeroext %.1.i, ptr noundef nonnull align 8 dereferenceable(20577) %17)
+_ZN6duckdb3alp16AlpRDCompressionIdLb1EE18FindBestDictionaryERKNS_6vectorImLb1EEERNS0_21AlpRDCompressionStateIdLb1EEE.exit: ; preds = %11
+  %17 = ptrtoint ptr %8 to i64
+  %18 = ptrtoint ptr %9 to i64
+  %19 = sub i64 %17, %18
+  %20 = ashr exact i64 %19, 3
+  %21 = uitofp i64 %20 to double
+  %22 = uitofp i64 %3 to double
+  %23 = fdiv double %21, %22
+  %24 = fdiv double 1.000000e+00, %23
+  %25 = tail call noundef double @_ZN6duckdb3alp16AlpRDCompressionIdLb1EE24BuildLeftPartsDictionaryILb1EEEdRKNS_6vectorImLb1EEEhRNS0_21AlpRDCompressionStateIdLb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 noundef zeroext %.1.i, ptr noundef nonnull align 8 dereferenceable(20577) %10)
   %26 = load ptr, ptr %7, align 8, !tbaa !992
   %27 = load ptr, ptr %6, align 8, !tbaa !990
   %28 = ptrtoint ptr %26 to i64
@@ -74792,25 +74792,25 @@ define linkonce_odr void @_ZN6duckdb19BitpackingScanStateIaaE4SkipERNS_13ColumnS
   %38 = lshr i64 %37, 3
   %39 = sub nsw i64 0, %38
   %40 = getelementptr inbounds i8, ptr %36, i64 %39
-  %41 = sub nuw nsw i64 32, %30
-  %42 = zext i8 %32 to i32
-  br label %43
+  %41 = zext i8 %32 to i32
+  br label %42
 
-43:                                               ; preds = %43, %28
-  %indvars.iv9.i.i.i = phi i64 [ 0, %28 ], [ %indvars.iv.next10.i.i.i, %43 ]
-  %44 = trunc nuw nsw i64 %indvars.iv9.i.i.i to i32
-  %45 = mul i32 %44, %42
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 %46
-  %48 = shl nuw nsw i64 %indvars.iv9.i.i.i, 3
-  %49 = getelementptr inbounds nuw i8, ptr %22, i64 %48
-  tail call void @_ZN18duckdb_fastpforlib8internal18fastunpack_quarterEPKhPhj(ptr noundef %47, ptr noundef nonnull %49, i32 noundef %42)
+42:                                               ; preds = %42, %28
+  %indvars.iv9.i.i.i = phi i64 [ 0, %28 ], [ %indvars.iv.next10.i.i.i, %42 ]
+  %43 = trunc nuw nsw i64 %indvars.iv9.i.i.i to i32
+  %44 = mul i32 %43, %41
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 %45
+  %47 = shl nuw nsw i64 %indvars.iv9.i.i.i, 3
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 %47
+  tail call void @_ZN18duckdb_fastpforlib8internal18fastunpack_quarterEPKhPhj(ptr noundef %46, ptr noundef nonnull %48, i32 noundef %41)
   %indvars.iv.next10.i.i.i = add nuw nsw i64 %indvars.iv9.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next10.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN6duckdb20BitpackingPrimitives11UnPackBlockIaEEvPhS2_hb.exit, label %43, !llvm.loop !1942
+  br i1 %exitcond.not.i.i.i, label %_ZN6duckdb20BitpackingPrimitives11UnPackBlockIaEEvPhS2_hb.exit, label %42, !llvm.loop !1942
 
-_ZN6duckdb20BitpackingPrimitives11UnPackBlockIaEEvPhS2_hb.exit: ; preds = %43
-  %50 = tail call noundef i64 @llvm.umin.i64(i64 %.03238, i64 %41)
+_ZN6duckdb20BitpackingPrimitives11UnPackBlockIaEEvPhS2_hb.exit: ; preds = %42
+  %49 = sub nuw nsw i64 32, %30
+  %50 = tail call noundef i64 @llvm.umin.i64(i64 %.03238, i64 %49)
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 %30
   %52 = load i8, ptr %23, align 1, !tbaa !1938
   %.not.i = icmp ne i8 %52, 0
@@ -77134,21 +77134,21 @@ define linkonce_odr void @_ZN6duckdb21BitpackingScanPartialIsstEEvRNS_13ColumnSe
   ]
 
 .lr.ph.i.i.i.preheader:                           ; preds = %27
-  %31 = sub i64 2048, %28
-  %32 = getelementptr inbounds nuw i16, ptr %12, i64 %.0104
-  %33 = load i16, ptr %13, align 2, !tbaa !623
+  %31 = getelementptr inbounds nuw i16, ptr %12, i64 %.0104
+  %32 = load i16, ptr %13, align 2, !tbaa !623
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %32, %.lr.ph.i.i.i.preheader ]
-  store i16 %33, ptr %.06.i.i.i, align 2, !tbaa !623
-  %34 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 2
-  %.not.i.i.i = icmp eq ptr %34, %15
+  %.06.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %31, %.lr.ph.i.i.i.preheader ]
+  store i16 %32, ptr %.06.i.i.i, align 2, !tbaa !623
+  %33 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 2
+  %.not.i.i.i = icmp eq ptr %33, %15
   br i1 %.not.i.i.i, label %_ZSt4fillIPssEvT_S1_RKT0_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !2066
 
 _ZSt4fillIPssEvT_S1_RKT0_.exit.loopexit:          ; preds = %.lr.ph.i.i.i
-  %35 = sub i64 %2, %.0104
-  %36 = tail call noundef i64 @llvm.umin.i64(i64 %35, i64 %31)
+  %34 = sub i64 %2, %.0104
+  %35 = sub i64 2048, %28
+  %36 = tail call noundef i64 @llvm.umin.i64(i64 %34, i64 %35)
   %37 = add i64 %36, %28
   br label %120
 
@@ -80984,21 +80984,21 @@ define linkonce_odr void @_ZN6duckdb21BitpackingScanPartialIiijEEvRNS_13ColumnSe
   ]
 
 .lr.ph.i.i.i.preheader:                           ; preds = %26
-  %30 = sub i64 2048, %27
-  %31 = getelementptr inbounds nuw i32, ptr %12, i64 %.0104
-  %32 = load i32, ptr %13, align 4, !tbaa !215
+  %30 = getelementptr inbounds nuw i32, ptr %12, i64 %.0104
+  %31 = load i32, ptr %13, align 4, !tbaa !215
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %31, %.lr.ph.i.i.i.preheader ]
-  store i32 %32, ptr %.06.i.i.i, align 4, !tbaa !215
-  %33 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
-  %.not.i.i.i = icmp eq ptr %33, %15
+  %.06.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %30, %.lr.ph.i.i.i.preheader ]
+  store i32 %31, ptr %.06.i.i.i, align 4, !tbaa !215
+  %32 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
+  %.not.i.i.i = icmp eq ptr %32, %15
   br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !2140
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit.loopexit:          ; preds = %.lr.ph.i.i.i
-  %34 = sub i64 %2, %.0104
-  %35 = tail call noundef i64 @llvm.umin.i64(i64 %34, i64 %30)
+  %33 = sub i64 %2, %.0104
+  %34 = sub i64 2048, %27
+  %35 = tail call noundef i64 @llvm.umin.i64(i64 %33, i64 %34)
   %36 = add i64 %35, %27
   br label %117
 
@@ -84770,21 +84770,21 @@ define linkonce_odr void @_ZN6duckdb21BitpackingScanPartialIllmEEvRNS_13ColumnSe
   ]
 
 .lr.ph.i.i.i.preheader:                           ; preds = %26
-  %30 = sub i64 2048, %27
-  %31 = getelementptr inbounds nuw i64, ptr %12, i64 %.0104
-  %32 = load i64, ptr %13, align 8, !tbaa !19
+  %30 = getelementptr inbounds nuw i64, ptr %12, i64 %.0104
+  %31 = load i64, ptr %13, align 8, !tbaa !19
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %31, %.lr.ph.i.i.i.preheader ]
-  store i64 %32, ptr %.06.i.i.i, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %33, %15
+  %.06.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %30, %.lr.ph.i.i.i.preheader ]
+  store i64 %31, ptr %.06.i.i.i, align 8, !tbaa !19
+  %32 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %32, %15
   br i1 %.not.i.i.i, label %_ZSt4fillIPllEvT_S1_RKT0_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !2214
 
 _ZSt4fillIPllEvT_S1_RKT0_.exit.loopexit:          ; preds = %.lr.ph.i.i.i
-  %34 = sub i64 %2, %.0104
-  %35 = tail call noundef i64 @llvm.umin.i64(i64 %34, i64 %30)
+  %33 = sub i64 %2, %.0104
+  %34 = sub i64 2048, %27
+  %35 = tail call noundef i64 @llvm.umin.i64(i64 %33, i64 %34)
   %36 = load i64, ptr %10, align 8, !tbaa !2211
   %37 = add i64 %36, %35
   br label %119
@@ -92090,25 +92090,25 @@ define linkonce_odr void @_ZN6duckdb19BitpackingScanStateIhaE4SkipERNS_13ColumnS
   %38 = lshr i64 %37, 3
   %39 = sub nsw i64 0, %38
   %40 = getelementptr inbounds i8, ptr %36, i64 %39
-  %41 = sub nuw nsw i64 32, %30
-  %42 = zext i8 %32 to i32
-  br label %43
+  %41 = zext i8 %32 to i32
+  br label %42
 
-43:                                               ; preds = %43, %28
-  %indvars.iv9.i.i.i = phi i64 [ 0, %28 ], [ %indvars.iv.next10.i.i.i, %43 ]
-  %44 = trunc nuw nsw i64 %indvars.iv9.i.i.i to i32
-  %45 = mul i32 %44, %42
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i8, ptr %40, i64 %46
-  %48 = shl nuw nsw i64 %indvars.iv9.i.i.i, 3
-  %49 = getelementptr inbounds nuw i8, ptr %22, i64 %48
-  tail call void @_ZN18duckdb_fastpforlib8internal18fastunpack_quarterEPKhPhj(ptr noundef %47, ptr noundef nonnull %49, i32 noundef %42)
+42:                                               ; preds = %42, %28
+  %indvars.iv9.i.i.i = phi i64 [ 0, %28 ], [ %indvars.iv.next10.i.i.i, %42 ]
+  %43 = trunc nuw nsw i64 %indvars.iv9.i.i.i to i32
+  %44 = mul i32 %43, %41
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 %45
+  %47 = shl nuw nsw i64 %indvars.iv9.i.i.i, 3
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 %47
+  tail call void @_ZN18duckdb_fastpforlib8internal18fastunpack_quarterEPKhPhj(ptr noundef %46, ptr noundef nonnull %48, i32 noundef %41)
   %indvars.iv.next10.i.i.i = add nuw nsw i64 %indvars.iv9.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next10.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN6duckdb20BitpackingPrimitives11UnPackBlockIhEEvPhS2_hb.exit, label %43, !llvm.loop !1942
+  br i1 %exitcond.not.i.i.i, label %_ZN6duckdb20BitpackingPrimitives11UnPackBlockIhEEvPhS2_hb.exit, label %42, !llvm.loop !1942
 
-_ZN6duckdb20BitpackingPrimitives11UnPackBlockIhEEvPhS2_hb.exit: ; preds = %43
-  %50 = tail call noundef i64 @llvm.umin.i64(i64 %.03238, i64 %41)
+_ZN6duckdb20BitpackingPrimitives11UnPackBlockIhEEvPhS2_hb.exit: ; preds = %42
+  %49 = sub nuw nsw i64 32, %30
+  %50 = tail call noundef i64 @llvm.umin.i64(i64 %.03238, i64 %49)
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 %30
   %52 = load i8, ptr %23, align 1, !tbaa !2289
   %.not.i = icmp ne i8 %52, 0
@@ -92792,21 +92792,21 @@ define linkonce_odr void @_ZN6duckdb21BitpackingScanPartialItstEEvRNS_13ColumnSe
   ]
 
 .lr.ph.i.i.i.preheader:                           ; preds = %27
-  %31 = sub i64 2048, %28
-  %32 = getelementptr inbounds nuw i16, ptr %12, i64 %.0103
-  %33 = load i16, ptr %13, align 2, !tbaa !623
+  %31 = getelementptr inbounds nuw i16, ptr %12, i64 %.0103
+  %32 = load i16, ptr %13, align 2, !tbaa !623
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %32, %.lr.ph.i.i.i.preheader ]
-  store i16 %33, ptr %.06.i.i.i, align 2, !tbaa !623
-  %34 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 2
-  %.not.i.i.i = icmp eq ptr %34, %15
+  %.06.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %31, %.lr.ph.i.i.i.preheader ]
+  store i16 %32, ptr %.06.i.i.i, align 2, !tbaa !623
+  %33 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 2
+  %.not.i.i.i = icmp eq ptr %33, %15
   br i1 %.not.i.i.i, label %_ZSt4fillIPttEvT_S1_RKT0_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !2357
 
 _ZSt4fillIPttEvT_S1_RKT0_.exit.loopexit:          ; preds = %.lr.ph.i.i.i
-  %35 = sub i64 %2, %.0103
-  %36 = tail call noundef i64 @llvm.umin.i64(i64 %35, i64 %31)
+  %34 = sub i64 %2, %.0103
+  %35 = sub i64 2048, %28
+  %36 = tail call noundef i64 @llvm.umin.i64(i64 %34, i64 %35)
   %37 = add i64 %36, %28
   br label %120
 
@@ -96250,21 +96250,21 @@ define linkonce_odr void @_ZN6duckdb21BitpackingScanPartialIjijEEvRNS_13ColumnSe
   ]
 
 .lr.ph.i.i.i.preheader:                           ; preds = %26
-  %30 = sub i64 2048, %27
-  %31 = getelementptr inbounds nuw i32, ptr %12, i64 %.0103
-  %32 = load i32, ptr %13, align 4, !tbaa !215
+  %30 = getelementptr inbounds nuw i32, ptr %12, i64 %.0103
+  %31 = load i32, ptr %13, align 4, !tbaa !215
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %31, %.lr.ph.i.i.i.preheader ]
-  store i32 %32, ptr %.06.i.i.i, align 4, !tbaa !215
-  %33 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
-  %.not.i.i.i = icmp eq ptr %33, %15
+  %.06.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %30, %.lr.ph.i.i.i.preheader ]
+  store i32 %31, ptr %.06.i.i.i, align 4, !tbaa !215
+  %32 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
+  %.not.i.i.i = icmp eq ptr %32, %15
   br i1 %.not.i.i.i, label %_ZSt4fillIPjjEvT_S1_RKT0_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !2427
 
 _ZSt4fillIPjjEvT_S1_RKT0_.exit.loopexit:          ; preds = %.lr.ph.i.i.i
-  %34 = sub i64 %2, %.0103
-  %35 = tail call noundef i64 @llvm.umin.i64(i64 %34, i64 %30)
+  %33 = sub i64 %2, %.0103
+  %34 = sub i64 2048, %27
+  %35 = tail call noundef i64 @llvm.umin.i64(i64 %33, i64 %34)
   %36 = add i64 %35, %27
   br label %117
 
@@ -99675,21 +99675,21 @@ define linkonce_odr void @_ZN6duckdb21BitpackingScanPartialImlmEEvRNS_13ColumnSe
   ]
 
 .lr.ph.i.i.i.preheader:                           ; preds = %26
-  %30 = sub i64 2048, %27
-  %31 = getelementptr inbounds nuw i64, ptr %12, i64 %.0103
-  %32 = load i64, ptr %13, align 8, !tbaa !19
+  %30 = getelementptr inbounds nuw i64, ptr %12, i64 %.0103
+  %31 = load i64, ptr %13, align 8, !tbaa !19
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %31, %.lr.ph.i.i.i.preheader ]
-  store i64 %32, ptr %.06.i.i.i, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %33, %15
+  %.06.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i ], [ %30, %.lr.ph.i.i.i.preheader ]
+  store i64 %31, ptr %.06.i.i.i, align 8, !tbaa !19
+  %32 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %32, %15
   br i1 %.not.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !2496
 
 _ZSt4fillIPmmEvT_S1_RKT0_.exit.loopexit:          ; preds = %.lr.ph.i.i.i
-  %34 = sub i64 %2, %.0103
-  %35 = tail call noundef i64 @llvm.umin.i64(i64 %34, i64 %30)
+  %33 = sub i64 %2, %.0103
+  %34 = sub i64 2048, %27
+  %35 = tail call noundef i64 @llvm.umin.i64(i64 %33, i64 %34)
   %36 = load i64, ptr %10, align 8, !tbaa !2493
   %37 = add i64 %36, %35
   br label %119
@@ -103116,20 +103116,20 @@ define linkonce_odr void @_ZN6duckdb21BitpackingScanPartialINS_9hugeint_tES1_NS_
   ]
 
 .lr.ph.i.i.i.preheader:                           ; preds = %41
-  %45 = sub i64 2048, %42
-  %46 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %21, i64 %.0106
+  %45 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %21, i64 %.0106
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i ], [ %46, %.lr.ph.i.i.i.preheader ]
+  %.06.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i ], [ %45, %.lr.ph.i.i.i.preheader ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.06.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !571
-  %47 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %47, %28
+  %46 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %46, %28
   br i1 %.not.i.i.i, label %_ZSt4fillIPN6duckdb9hugeint_tES1_EvT_S3_RKT0_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !2551
 
 _ZSt4fillIPN6duckdb9hugeint_tES1_EvT_S3_RKT0_.exit.loopexit: ; preds = %.lr.ph.i.i.i
-  %48 = sub i64 %2, %.0106
-  %49 = call noundef i64 @llvm.umin.i64(i64 %48, i64 %45)
+  %47 = sub i64 %2, %.0106
+  %48 = sub i64 2048, %42
+  %49 = call noundef i64 @llvm.umin.i64(i64 %47, i64 %48)
   %50 = load i64, ptr %19, align 8, !tbaa !2548
   %51 = add i64 %50, %49
   br label %122
@@ -107307,20 +107307,20 @@ define linkonce_odr void @_ZN6duckdb21BitpackingScanPartialINS_10uhugeint_tENS_9
   ]
 
 .lr.ph.i.i.i.preheader:                           ; preds = %36
-  %40 = sub i64 2048, %37
-  %41 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %20, i64 %.0105
+  %40 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %20, i64 %.0105
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i ], [ %41, %.lr.ph.i.i.i.preheader ]
+  %.06.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %40, %.lr.ph.i.i.i.preheader ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.06.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !571
-  %42 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %42, %24
+  %41 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %41, %24
   br i1 %.not.i.i.i, label %_ZSt4fillIPN6duckdb10uhugeint_tES1_EvT_S3_RKT0_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !2621
 
 _ZSt4fillIPN6duckdb10uhugeint_tES1_EvT_S3_RKT0_.exit.loopexit: ; preds = %.lr.ph.i.i.i
-  %43 = sub i64 %2, %.0105
-  %44 = call noundef i64 @llvm.umin.i64(i64 %43, i64 %40)
+  %42 = sub i64 %2, %.0105
+  %43 = sub i64 2048, %37
+  %44 = call noundef i64 @llvm.umin.i64(i64 %42, i64 %43)
   %45 = load i64, ptr %18, align 8, !tbaa !2618
   %46 = add i64 %45, %44
   br label %111

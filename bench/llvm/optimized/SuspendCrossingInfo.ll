@@ -103,38 +103,35 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advan
   %.112.i.i.i.i = select i1 %12, i64 %15, i64 %9
   %.1.i.i.i.i = select i1 %12, ptr %13, ptr %.017.i.i.i.i
   %16 = icmp sgt i64 %.112.i.i.i.i, 0
-  br i1 %16, label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i, label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i6, !llvm.loop !12
+  br i1 %16, label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i, label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7, !llvm.loop !12
 
-_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i6: ; preds = %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i
-  %17 = ptrtoint ptr %.1.i.i.i.i to i64
-  %18 = ptrtoint ptr %4 to i64
-  %19 = sub i64 %17, %18
-  br label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7
-
-_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7: ; preds = %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i6
-  %.017.i.i.i.i8 = phi ptr [ %4, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i6 ], [ %.1.i.i.i.i13, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7 ]
-  %.01116.i.i.i.i9 = phi i64 [ %8, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i6 ], [ %.112.i.i.i.i12, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7 ]
-  %20 = lshr i64 %.01116.i.i.i.i9, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i8, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !10
-  %23 = icmp ult ptr %22, %2
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %25 = xor i64 %20, -1
-  %26 = add nsw i64 %.01116.i.i.i.i9, %25
-  %.112.i.i.i.i12 = select i1 %23, i64 %26, i64 %20
-  %.1.i.i.i.i13 = select i1 %23, ptr %24, ptr %.017.i.i.i.i8
-  %27 = icmp sgt i64 %.112.i.i.i.i12, 0
-  br i1 %27, label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7, label %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit15.loopexit, !llvm.loop !12
+_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7: ; preds = %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7
+  %.017.i.i.i.i8 = phi ptr [ %.1.i.i.i.i13, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7 ], [ %4, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
+  %.01116.i.i.i.i9 = phi i64 [ %.112.i.i.i.i12, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7 ], [ %8, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
+  %17 = lshr i64 %.01116.i.i.i.i9, 1
+  %18 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i8, i64 %17
+  %19 = load ptr, ptr %18, align 8, !tbaa !10
+  %20 = icmp ult ptr %19, %2
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %22 = xor i64 %17, -1
+  %23 = add nsw i64 %.01116.i.i.i.i9, %22
+  %.112.i.i.i.i12 = select i1 %20, i64 %23, i64 %17
+  %.1.i.i.i.i13 = select i1 %20, ptr %21, ptr %.017.i.i.i.i8
+  %24 = icmp sgt i64 %.112.i.i.i.i12, 0
+  br i1 %24, label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7, label %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit15.loopexit, !llvm.loop !12
 
 _ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit15.loopexit: ; preds = %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i7
-  %28 = ashr exact i64 %19, 3
+  %25 = ptrtoint ptr %.1.i.i.i.i to i64
+  %26 = ptrtoint ptr %4 to i64
+  %27 = sub i64 %25, %26
+  %28 = ashr exact i64 %27, 3
   %.pre = ptrtoint ptr %.1.i.i.i.i13 to i64
   br label %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit15
 
 _ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit15: ; preds = %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit15.loopexit, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit.thread
   %.pre-phi = phi i64 [ %.pre, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit15.loopexit ], [ %7, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit.thread ]
   %29 = phi i64 [ %28, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit15.loopexit ], [ 0, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit.thread ]
-  %30 = phi i64 [ %18, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit15.loopexit ], [ %7, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit.thread ]
+  %30 = phi i64 [ %26, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit15.loopexit ], [ %7, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit.thread ]
   %31 = sub i64 %.pre-phi, %30
   %32 = ashr exact i64 %31, 3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -187,38 +184,35 @@ _ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advan
   %.112.i.i.i.i = select i1 %12, i64 %15, i64 %9
   %.1.i.i.i.i = select i1 %12, ptr %13, ptr %.017.i.i.i.i
   %16 = icmp sgt i64 %.112.i.i.i.i, 0
-  br i1 %16, label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i, label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i9, !llvm.loop !12
+  br i1 %16, label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i, label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10, !llvm.loop !12
 
-_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i9: ; preds = %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i
-  %17 = ptrtoint ptr %.1.i.i.i.i to i64
-  %18 = ptrtoint ptr %4 to i64
-  %19 = sub i64 %17, %18
-  br label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10
-
-_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10: ; preds = %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i9
-  %.017.i.i.i.i11 = phi ptr [ %4, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i9 ], [ %.1.i.i.i.i16, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10 ]
-  %.01116.i.i.i.i12 = phi i64 [ %8, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.lr.ph.i.i.i.i9 ], [ %.112.i.i.i.i15, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10 ]
-  %20 = lshr i64 %.01116.i.i.i.i12, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i11, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !10
-  %23 = icmp ult ptr %22, %2
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %25 = xor i64 %20, -1
-  %26 = add nsw i64 %.01116.i.i.i.i12, %25
-  %.112.i.i.i.i15 = select i1 %23, i64 %26, i64 %20
-  %.1.i.i.i.i16 = select i1 %23, ptr %24, ptr %.017.i.i.i.i11
-  %27 = icmp sgt i64 %.112.i.i.i.i15, 0
-  br i1 %27, label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10, label %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit18.loopexit, !llvm.loop !12
+_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10: ; preds = %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10
+  %.017.i.i.i.i11 = phi ptr [ %.1.i.i.i.i16, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10 ], [ %4, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
+  %.01116.i.i.i.i12 = phi i64 [ %.112.i.i.i.i15, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10 ], [ %8, %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i ]
+  %17 = lshr i64 %.01116.i.i.i.i12, 1
+  %18 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i.i11, i64 %17
+  %19 = load ptr, ptr %18, align 8, !tbaa !10
+  %20 = icmp ult ptr %19, %2
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %22 = xor i64 %17, -1
+  %23 = add nsw i64 %.01116.i.i.i.i12, %22
+  %.112.i.i.i.i15 = select i1 %20, i64 %23, i64 %17
+  %.1.i.i.i.i16 = select i1 %20, ptr %21, ptr %.017.i.i.i.i11
+  %24 = icmp sgt i64 %.112.i.i.i.i15, 0
+  br i1 %24, label %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10, label %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit18.loopexit, !llvm.loop !12
 
 _ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit18.loopexit: ; preds = %_ZSt7advanceIPKPN4llvm10BasicBlockElEvRT_T0_.exit.i.i.i.i10
-  %28 = ashr exact i64 %19, 3
+  %25 = ptrtoint ptr %.1.i.i.i.i to i64
+  %26 = ptrtoint ptr %4 to i64
+  %27 = sub i64 %25, %26
+  %28 = ashr exact i64 %27, 3
   %.pre = ptrtoint ptr %.1.i.i.i.i16 to i64
   br label %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit18
 
 _ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit18: ; preds = %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit18.loopexit, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit.thread
   %.pre-phi = phi i64 [ %.pre, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit18.loopexit ], [ %7, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit.thread ]
   %29 = phi i64 [ %28, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit18.loopexit ], [ 0, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit.thread ]
-  %30 = phi i64 [ %18, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit18.loopexit ], [ %7, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit.thread ]
+  %30 = phi i64 [ %26, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit18.loopexit ], [ %7, %_ZNK4llvm19BlockToIndexMapping12blockToIndexEPKNS_10BasicBlockE.exit.thread ]
   %31 = sub i64 %.pre-phi, %30
   %32 = ashr exact i64 %31, 3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 272
