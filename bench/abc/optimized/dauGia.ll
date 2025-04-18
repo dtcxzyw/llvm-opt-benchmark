@@ -2474,100 +2474,100 @@ define internal fastcc i32 @Gia_ManAppendMux2(ptr noundef %0, i32 noundef %1, i3
 
 18:                                               ; preds = %16
   %19 = icmp eq i32 %3, %1
-  br i1 %19, label %Gia_ManAppendAnd2.exit.thread.thread, label %Gia_ManAppendAnd2.exit
+  br i1 %19, label %26, label %Gia_ManAppendAnd2.exit
 
 Gia_ManAppendAnd2.exit:                           ; preds = %4, %18
-  %20 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %0, i32 noundef %5, i32 noundef %3)
+  %21 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %0, i32 noundef %5, i32 noundef %3)
   %.pre = load i32, ptr %6, align 8, !tbaa !45
-  %21 = icmp eq i32 %.pre, 0
-  br i1 %21, label %Gia_ManAppendAnd2.exit.thread, label %Gia_ManAppendAnd2.exit12
+  %22 = icmp eq i32 %.pre, 0
+  br i1 %22, label %Gia_ManAppendAnd2.exit.thread, label %Gia_ManAppendAnd2.exit12
 
 Gia_ManAppendAnd2.exit.thread:                    ; preds = %16, %14, %10, %Gia_ManAppendAnd2.exit
-  %.0.i23 = phi i32 [ %20, %Gia_ManAppendAnd2.exit ], [ %3, %16 ], [ %15, %14 ], [ %11, %10 ]
-  %22 = icmp slt i32 %1, 2
-  br i1 %22, label %23, label %Gia_ManAppendAnd2.exit.thread.thread
+  %.0.i23 = phi i32 [ %21, %Gia_ManAppendAnd2.exit ], [ %3, %16 ], [ %15, %14 ], [ %11, %10 ]
+  %23 = icmp slt i32 %1, 2
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %Gia_ManAppendAnd2.exit.thread
+24:                                               ; preds = %Gia_ManAppendAnd2.exit.thread
   %.not19.i11 = icmp eq i32 %1, 0
-  %24 = select i1 %.not19.i11, i32 0, i32 %2
+  %25 = select i1 %.not19.i11, i32 0, i32 %2
   br label %Gia_ManAppendAnd2.exit12.thread
 
-Gia_ManAppendAnd2.exit.thread.thread:             ; preds = %18, %Gia_ManAppendAnd2.exit.thread
+26:                                               ; preds = %18, %Gia_ManAppendAnd2.exit.thread
   %.0.i2330 = phi i32 [ %.0.i23, %Gia_ManAppendAnd2.exit.thread ], [ 0, %18 ]
   %25 = icmp slt i32 %2, 2
   br i1 %25, label %26, label %28
 
-26:                                               ; preds = %Gia_ManAppendAnd2.exit.thread.thread
+28:                                               ; preds = %26
   %.not18.i10 = icmp eq i32 %2, 0
-  %27 = select i1 %.not18.i10, i32 0, i32 %1
+  %29 = select i1 %.not18.i10, i32 0, i32 %1
   br label %Gia_ManAppendAnd2.exit12.thread
 
-28:                                               ; preds = %Gia_ManAppendAnd2.exit.thread.thread
-  %29 = icmp eq i32 %1, %2
-  br i1 %29, label %Gia_ManAppendAnd2.exit12.thread, label %30
+30:                                               ; preds = %26
+  %31 = icmp eq i32 %1, %2
+  br i1 %31, label %Gia_ManAppendAnd2.exit12.thread, label %32
 
-30:                                               ; preds = %28
-  %31 = xor i32 %2, %1
-  %32 = icmp eq i32 %31, 1
-  br i1 %32, label %Gia_ManAppendAnd2.exit12.thread, label %Gia_ManAppendAnd2.exit12
+32:                                               ; preds = %30
+  %33 = xor i32 %2, %1
+  %34 = icmp eq i32 %33, 1
+  br i1 %34, label %Gia_ManAppendAnd2.exit12.thread, label %Gia_ManAppendAnd2.exit12
 
-Gia_ManAppendAnd2.exit12.thread:                  ; preds = %23, %26, %28, %30
-  %.0.i2331 = phi i32 [ %.0.i2330, %30 ], [ %.0.i2330, %28 ], [ %.0.i2330, %26 ], [ %.0.i23, %23 ]
+Gia_ManAppendAnd2.exit12.thread:                  ; preds = %24, %28, %30, %32
+  %.0.i9.ph = phi i32 [ %.0.i2332, %30 ], [ %.0.i2330, %28 ], [ %.0.i2330, %26 ], [ %.0.i23, %23 ]
   %.0.i9.ph = phi i32 [ 0, %30 ], [ %1, %28 ], [ %27, %26 ], [ %24, %23 ]
-  %33 = xor i32 %.0.i2331, 1
+  %36 = xor i32 %.0.i9.ph, 1
   %34 = xor i32 %.0.i9.ph, 1
   br label %39
 
-Gia_ManAppendAnd2.exit12:                         ; preds = %Gia_ManAppendAnd2.exit, %30
+Gia_ManAppendAnd2.exit12: ; preds = %Gia_ManAppendAnd2.exit, %30
   %.0.i21 = phi i32 [ %.0.i2330, %30 ], [ %20, %Gia_ManAppendAnd2.exit ]
   %35 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2)
   %.pre18 = load i32, ptr %6, align 8, !tbaa !45
-  %36 = icmp eq i32 %.pre18, 0
-  %37 = xor i32 %.0.i21, 1
-  %38 = xor i32 %35, 1
-  br i1 %36, label %39, label %54
+  %38 = icmp eq i32 %.pre18, 0
+  %39 = xor i32 %.0.i21, 1
+  %40 = xor i32 %35, 1
+  br i1 %38, label %41, label %56
 
-39:                                               ; preds = %Gia_ManAppendAnd2.exit12.thread, %Gia_ManAppendAnd2.exit12
-  %40 = phi i32 [ %34, %Gia_ManAppendAnd2.exit12.thread ], [ %38, %Gia_ManAppendAnd2.exit12 ]
-  %41 = phi i32 [ %33, %Gia_ManAppendAnd2.exit12.thread ], [ %37, %Gia_ManAppendAnd2.exit12 ]
+41:                                               ; preds = %Gia_ManAppendAnd2.exit12.thread, %Gia_ManAppendAnd2.exit12
+  %42 = phi i32 [ %34, %Gia_ManAppendAnd2.exit12.thread ], [ %40, %Gia_ManAppendAnd2.exit12 ]
+  %43 = phi i32 [ %33, %Gia_ManAppendAnd2.exit12.thread ], [ %39, %Gia_ManAppendAnd2.exit12 ]
   %.0.i928 = phi i32 [ %.0.i9.ph, %Gia_ManAppendAnd2.exit12.thread ], [ %35, %Gia_ManAppendAnd2.exit12 ]
   %.0.i2227 = phi i32 [ %.0.i2331, %Gia_ManAppendAnd2.exit12.thread ], [ %.0.i21, %Gia_ManAppendAnd2.exit12 ]
-  %42 = icmp slt i32 %41, 2
-  br i1 %42, label %43, label %45
+  %44 = icmp slt i32 %43, 2
+  br i1 %44, label %45, label %47
 
-43:                                               ; preds = %39
+45:                                               ; preds = %41
   %.not19.i16 = icmp eq i32 %.0.i2227, 1
-  %44 = select i1 %.not19.i16, i32 0, i32 %40
+  %46 = select i1 %.not19.i16, i32 0, i32 %42
   br label %Gia_ManAppendAnd2.exit17
 
-45:                                               ; preds = %39
-  %46 = icmp slt i32 %40, 2
-  br i1 %46, label %47, label %49
+47:                                               ; preds = %41
+  %48 = icmp slt i32 %42, 2
+  br i1 %48, label %49, label %51
 
-47:                                               ; preds = %45
+49:                                               ; preds = %47
   %.not18.i15 = icmp eq i32 %.0.i928, 1
-  %48 = select i1 %.not18.i15, i32 0, i32 %41
+  %50 = select i1 %.not18.i15, i32 0, i32 %43
   br label %Gia_ManAppendAnd2.exit17
 
-49:                                               ; preds = %45
-  %50 = icmp eq i32 %.0.i2227, %.0.i928
-  br i1 %50, label %Gia_ManAppendAnd2.exit17, label %51
+51:                                               ; preds = %47
+  %52 = icmp eq i32 %.0.i2227, %.0.i928
+  br i1 %52, label %Gia_ManAppendAnd2.exit17, label %53
 
-51:                                               ; preds = %49
-  %52 = xor i32 %.0.i928, %.0.i2227
-  %53 = icmp eq i32 %52, 1
-  br i1 %53, label %Gia_ManAppendAnd2.exit17, label %54
+53:                                               ; preds = %51
+  %54 = xor i32 %.0.i928, %.0.i2227
+  %55 = icmp eq i32 %54, 1
+  br i1 %55, label %Gia_ManAppendAnd2.exit17, label %56
 
-54:                                               ; preds = %51, %Gia_ManAppendAnd2.exit12
-  %55 = phi i32 [ %40, %51 ], [ %38, %Gia_ManAppendAnd2.exit12 ]
-  %56 = phi i32 [ %41, %51 ], [ %37, %Gia_ManAppendAnd2.exit12 ]
-  %57 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %0, i32 noundef %56, i32 noundef %55)
+56:                                               ; preds = %53, %Gia_ManAppendAnd2.exit12
+  %57 = phi i32 [ %42, %51 ], [ %40, %Gia_ManAppendAnd2.exit12 ]
+  %58 = phi i32 [ %43, %51 ], [ %39, %Gia_ManAppendAnd2.exit12 ]
+  %59 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %0, i32 noundef %58, i32 noundef %57)
   br label %Gia_ManAppendAnd2.exit17
 
-Gia_ManAppendAnd2.exit17:                         ; preds = %43, %47, %49, %51, %54
-  %.0.i14 = phi i32 [ %57, %54 ], [ %44, %43 ], [ %48, %47 ], [ %41, %49 ], [ 0, %51 ]
-  %58 = xor i32 %.0.i14, 1
-  ret i32 %58
+Gia_ManAppendAnd2.exit17:                         ; preds = %45, %49, %51, %53, %56
+  %.0.i14 = phi i32 [ %59, %54 ], [ %46, %43 ], [ %50, %47 ], [ %43, %49 ], [ 0, %51 ]
+  %60 = xor i32 %.0.i14, 1
+  ret i32 %60
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
