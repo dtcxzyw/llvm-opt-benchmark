@@ -639,39 +639,39 @@ define signext range(i8 0, 2) i8 @uhash_compareCaselessUnicodeString_77(ptr %0, 
   %spec.select14.i = tail call i32 @llvm.smin.i32(i32 %24, i32 0)
   %spec.select38.i.i = tail call i32 @llvm.smin.i32(i32 %16, i32 0)
   %.0.i.i = tail call i32 @llvm.smax.i32(i32 %16, i32 0)
-  %35 = icmp eq ptr %34, null
+  %37 = icmp eq ptr %34, null
   %36 = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
   %spec.select32.i.i = select i1 %35, i32 0, i32 %36
-  %37 = and i16 %10, 2
-  %.not.i.i.i = icmp eq i16 %37, 0
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load ptr, ptr %39, align 8
-  %41 = select i1 %.not.i.i.i, ptr %40, ptr %38
-  %42 = sext i32 %spec.select38.i.i to i64
-  %43 = getelementptr inbounds i16, ptr %41, i64 %42
-  %44 = sext i32 %spec.select14.i to i64
-  %45 = select i1 %35, i64 0, i64 %44
-  %46 = getelementptr inbounds i16, ptr %34, i64 %45
-  %.not29.i.i = icmp eq ptr %43, %46
-  br i1 %.not29.i.i, label %49, label %47
-
-47:                                               ; preds = %.sink.split.i.i.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  store i32 0, ptr %3, align 4, !tbaa !6
-  %48 = call i32 @u_strcmpFold_77(ptr noundef %43, i32 noundef %.0.i.i, ptr noundef %46, i32 noundef %spec.select32.i.i, i32 noundef 65536, ptr noundef nonnull %3)
-  %.not31.i.i = icmp eq i32 %48, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
-  br i1 %.not31.i.i, label %50, label %_ZNK6icu_7713UnicodeString13doCaseCompareEiiRKS0_iij.exit
+  %39 = and i16 %10, 2
+  %.not.i.i.i = icmp eq i16 %39, 0
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %42 = load ptr, ptr %41, align 8
+  %43 = select i1 %.not.i.i.i, ptr %42, ptr %40
+  %44 = sext i32 %spec.select38.i.i to i64
+  %45 = getelementptr inbounds i16, ptr %43, i64 %44
+  %46 = sext i32 %spec.select14.i to i64
+  %47 = select i1 %37, i64 0, i64 %46
+  %48 = getelementptr inbounds i16, ptr %34, i64 %47
+  %.not29.i.i = icmp eq ptr %45, %48
+  br i1 %.not29.i.i, label %53, label %49
 
 49:                                               ; preds = %.sink.split.i.i.i
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
+  store i32 0, ptr %3, align 4, !tbaa !6
+  %50 = call i32 @u_strcmpFold_77(ptr noundef %45, i32 noundef %.0.i.i, ptr noundef %48, i32 noundef %spec.select32.i.i, i32 noundef 65536, ptr noundef nonnull %3)
+  %.not31.i.i = icmp eq i32 %50, 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
+  br i1 %.not31.i.i, label %57, label %_ZNK6icu_7713UnicodeString13doCaseCompareEiiRKS0_iij.exit
+
+53:                                               ; preds = %.sink.split.i.i.i
   %.not30.i.i = icmp eq i32 %.0.i.i, %spec.select32.i.i
   br i1 %.not30.i.i, label %50, label %_ZNK6icu_7713UnicodeString13doCaseCompareEiiRKS0_iij.exit
 
-50:                                               ; preds = %49, %47
+57:                                               ; preds = %53, %49
   br label %_ZNK6icu_7713UnicodeString13doCaseCompareEiiRKS0_iij.exit
 
-_ZNK6icu_7713UnicodeString13doCaseCompareEiiRKS0_iij.exit: ; preds = %50, %47, %.sink.split.i.i, %26, %49, %5, %2
+_ZNK6icu_7713UnicodeString13doCaseCompareEiiRKS0_iij.exit: ; preds = %57, %49, %.sink.split.i.i, %26, %53, %5, %2
   %.0 = phi i8 [ 1, %2 ], [ 0, %5 ], [ %28, %26 ], [ 0, %.sink.split.i.i ], [ 1, %50 ], [ 0, %47 ], [ 0, %49 ]
   ret i8 %.0
 }

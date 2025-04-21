@@ -4458,16 +4458,16 @@ _ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit66: ; preds = %73, %.sink.split
   %140 = icmp slt i32 %3, 0
   %.phi.trans.insert.i67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i68 = load i16, ptr %.phi.trans.insert.i67, align 8, !tbaa !23
-  br i1 %.not48, label %141, label %167
+  br i1 %.not48, label %141, label %170
 
 141:                                              ; preds = %125
-  br i1 %140, label %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i76, label %142
+  br i1 %140, label %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i77, label %142
 
-._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i76: ; preds = %141
+._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i77: ; preds = %141
   %.phi.trans.insert5.i = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre6.i77 = load i32, ptr %.phi.trans.insert5.i, align 4
-  %.pre7.i78 = ashr i16 %.pre.i68, 5
-  %.pre8.i = sext i16 %.pre7.i78 to i32
+  %.pre6.i78 = load i32, ptr %.phi.trans.insert5.i, align 4
+  %.pre7.i79 = ashr i16 %.pre.i68, 5
+  %.pre8.i = sext i16 %.pre7.i79 to i32
   br label %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i70
 
 142:                                              ; preds = %141
@@ -4480,9 +4480,9 @@ _ZNK6icu_7713UnicodeString7compareEiiRKS0_ii.exit66: ; preds = %73, %.sink.split
   %spec.select.i69 = tail call i32 @llvm.smin.i32(i32 %3, i32 %148)
   br label %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i70
 
-_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i70:  ; preds = %142, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i76
+_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i70:  ; preds = %142, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i77
   %.pre-phi9.i = phi i32 [ %.pre8.i, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i76 ], [ %145, %142 ]
-  %149 = phi i32 [ %.pre6.i77, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i76 ], [ %147, %142 ]
+  %149 = phi i32 [ %.pre6.i78, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i76 ], [ %147, %142 ]
   %.0.i71 = phi i32 [ 0, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i76 ], [ %spec.select.i69, %142 ]
   %150 = load i16, ptr %132, align 8, !tbaa !23
   %151 = icmp slt i16 %150, 0
@@ -4509,36 +4509,36 @@ _ZNK6icu_7713UnicodeString8pinIndexERi.exit.i70:  ; preds = %142, %._ZNK6icu_771
   %166 = tail call noundef i32 @_ZNK6icu_7713UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %165, i32 noundef 0, i32 noundef %155, i32 noundef %.0.i71, i32 noundef %160)
   br label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit
 
-167:                                              ; preds = %125
-  br i1 %140, label %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i90, label %168
+170:                                              ; preds = %125
+  br i1 %140, label %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i93, label %171
 
-._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i90: ; preds = %167
-  %.phi.trans.insert5.i91 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre6.i92 = load i32, ptr %.phi.trans.insert5.i91, align 4
-  %.pre7.i93 = ashr i16 %.pre.i68, 5
-  %.pre8.i94 = sext i16 %.pre7.i93 to i32
-  br label %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i82
+._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i93: ; preds = %170
+  %.phi.trans.insert5.i94 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.pre6.i95 = load i32, ptr %.phi.trans.insert5.i94, align 4
+  %.pre7.i96 = ashr i16 %.pre.i68, 5
+  %.pre8.i97 = sext i16 %.pre7.i96 to i32
+  br label %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i83
 
-168:                                              ; preds = %167
-  %169 = icmp slt i16 %.pre.i68, 0
-  %170 = ashr i16 %.pre.i68, 5
-  %171 = sext i16 %170 to i32
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %173 = load i32, ptr %172, align 4
-  %174 = select i1 %169, i32 %173, i32 %171
-  %spec.select.i81 = tail call i32 @llvm.smin.i32(i32 %3, i32 %174)
-  br label %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i82
+171:                                              ; preds = %170
+  %172 = icmp slt i16 %.pre.i68, 0
+  %173 = ashr i16 %.pre.i68, 5
+  %174 = sext i16 %173 to i32
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %176 = load i32, ptr %175, align 4
+  %177 = select i1 %172, i32 %176, i32 %174
+  %spec.select.i82 = tail call i32 @llvm.smin.i32(i32 %3, i32 %177)
+  br label %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i83
 
-_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i82:  ; preds = %168, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i90
-  %.pre-phi9.i83 = phi i32 [ %.pre8.i94, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i90 ], [ %171, %168 ]
-  %175 = phi i32 [ %.pre6.i92, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i90 ], [ %173, %168 ]
-  %.0.i84 = phi i32 [ 0, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i90 ], [ %spec.select.i81, %168 ]
-  %176 = load i16, ptr %132, align 8, !tbaa !23
-  %177 = icmp slt i16 %176, 0
-  %178 = ashr i16 %176, 5
-  %179 = sext i16 %178 to i32
-  %180 = load i32, ptr %137, align 4
-  %181 = select i1 %177, i32 %180, i32 %179
+_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i83:  ; preds = %171, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i93
+  %.pre-phi9.i84 = phi i32 [ %.pre8.i97, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i90 ], [ %174, %168 ]
+  %178 = phi i32 [ %.pre6.i95, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i90 ], [ %176, %168 ]
+  %.0.i85 = phi i32 [ 0, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i90 ], [ %spec.select.i82, %168 ]
+  %179 = load i16, ptr %132, align 8, !tbaa !23
+  %180 = icmp slt i16 %179, 0
+  %181 = ashr i16 %179, 5
+  %182 = sext i16 %181 to i32
+  %183 = load i32, ptr %137, align 4
+  %184 = select i1 %180, i32 %183, i32 %182
   %182 = and i16 %176, 1
   %.not.i.i85 = icmp ne i16 %182, 0
   %or.cond.i88 = icmp slt i32 %181, 1
@@ -4559,7 +4559,7 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit95: ; preds = %_ZNK6icu_7713Unicod
   %192 = icmp sgt i32 %191, -1
   br i1 %192, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit95.thread
 
-_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit95.thread: ; preds = %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i82, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit95
+_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit95.thread:; preds = %_ZNK6icu_7713UnicodeString8pinIndexERi.exit.i82, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit95
   %193 = tail call noundef i32 @_ZNK6icu_776NFRule15findTextLenientERKNS_13UnicodeStringES3_iPi(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %3, ptr noundef nonnull %4)
   br label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit
 

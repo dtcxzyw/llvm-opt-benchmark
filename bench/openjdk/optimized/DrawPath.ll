@@ -302,11 +302,11 @@ define internal void @processLine(ptr noundef readonly captures(none) %0, i32 no
   %31 = icmp slt i32 %spec.store.select, %spec.select
   br i1 %31, label %32, label %92
 
-32:                                               ; preds = %25
-  %33 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %36 = load ptr, ptr %35, align 8
+32:; preds = %25
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %37 = load ptr, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = sub nsw i32 %spec.select, %spec.store.select
@@ -315,58 +315,58 @@ define internal void @processLine(ptr noundef readonly captures(none) %0, i32 no
   tail call void %36(ptr noundef nonnull %18, i32 noundef %spec.store.select, i32 noundef %2, i32 noundef %38, i32 noundef %39, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %34, ptr noundef %41) #4
   br label %92
 
-42:                                               ; preds = %5
+42: ; preds = %5
   %43 = icmp eq i32 %1, %3
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
   br i1 %43, label %47, label %71
 
-47:                                               ; preds = %42
-  %48 = load i32, ptr %46, align 8
-  %.not82 = icmp slt i32 %1, %48
-  br i1 %.not82, label %92, label %49
+46:                                               ; preds = %42
+  %47 = load i32, ptr %46, align 8
+  %.not82 = icmp slt i32 %1, %47
+  br i1 %.not82, label %92, label %48
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = icmp slt i32 %1, %51
-  br i1 %52, label %53, label %92
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp slt i32 %1, %50
+  br i1 %51, label %52, label %92
 
-53:                                               ; preds = %49
+52:                                               ; preds = %48
   %.86 = tail call i32 @llvm.smin.i32(i32 %2, i32 %4)
   %.87 = tail call i32 @llvm.smax.i32(i32 %2, i32 %4)
-  %54 = add nsw i32 %.87, 1
+  %53 = add nsw i32 %.87, 1
   %55 = icmp slt i32 %54, %.86
   %.1 = select i1 %55, i32 %.87, i32 %54
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %57 = load i32, ptr %56, align 4
-  %spec.store.select89 = tail call i32 @llvm.smax.i32(i32 %.86, i32 %57)
+  %spec.select88 = tail call i32 @llvm.smax.i32(i32 %.86, i32 %57)
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %59 = load i32, ptr %58, align 4
   %spec.select88 = tail call i32 @llvm.smin.i32(i32 %.1, i32 %59)
-  %60 = icmp slt i32 %spec.store.select89, %spec.select88
+  %60 = icmp slt i32 %spec.select88, %spec.select88
   br i1 %60, label %61, label %92
 
-61:                                               ; preds = %53
+61: ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %67 = load i32, ptr %66, align 8
-  %68 = sub nsw i32 %spec.select88, %spec.store.select89
+  %68 = sub nsw i32 %spec.select88, %spec.select88
   %69 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %70 = load ptr, ptr %69, align 8
   tail call void %65(ptr noundef nonnull %46, i32 noundef %1, i32 noundef %spec.store.select89, i32 noundef %67, i32 noundef %68, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %63, ptr noundef %70) #4
   br label %92
 
-71:                                               ; preds = %42
+71:; preds = %42
   %72 = call zeroext i8 @LineUtils_SetupBresenham(i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 0, ptr noundef %46, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %13) #4
   %.not = icmp eq i8 %72, 0
   br i1 %.not, label %92, label %73
 
-73:                                               ; preds = %71
+73: ; preds = %71
   %74 = load ptr, ptr %44, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8

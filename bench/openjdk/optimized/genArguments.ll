@@ -520,7 +520,7 @@ define hidden void @_ZN12GenArguments20initialize_size_infoEv(ptr noundef nonnul
   %.not = icmp eq i64 %75, %68
   br i1 %.not, label %98, label %76
 
-76:                                               ; preds = %61
+76:; preds = %61
   %77 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not47 = icmp eq ptr %77, null
   br i1 %.not47, label %79, label %78
@@ -528,94 +528,94 @@ define hidden void @_ZN12GenArguments20initialize_size_infoEv(ptr noundef nonnul
 78:                                               ; preds = %76
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.8)
   %.pre53 = load i64, ptr @InitialHeapSize, align 8
-  br label %79
+  br label %77
 
-79:                                               ; preds = %76, %78
-  %80 = phi i64 [ %68, %76 ], [ %.pre53, %78 ]
-  %81 = sub i64 %80, %74
-  %82 = icmp ult i64 %80, %74
-  br i1 %82, label %83, label %86
+77:                                               ; preds = %76, %78
+  %78 = phi i64 [ %68, %76 ], [ %.pre53, %78 ]
+  %79 = sub i64 %78, %74
+  %80 = icmp ult i64 %78, %74
+  br i1 %80, label %81, label %84
 
-83:                                               ; preds = %79
-  %84 = load i64, ptr @MinNewSize, align 8
-  %85 = sub i64 %80, %84
-  br label %94
+81:                                               ; preds = %77
+  %82 = load i64, ptr @MinNewSize, align 8
+  %83 = sub i64 %78, %82
+  br label %92
 
-86:                                               ; preds = %79
-  %87 = icmp ugt i64 %81, %.1
-  br i1 %87, label %88, label %90
+84:                                               ; preds = %77
+  %85 = icmp ugt i64 %79, %.1
+  br i1 %85, label %86, label %88
 
-88:                                               ; preds = %86
-  %89 = sub i64 %80, %.1
-  br label %94
+86:                                               ; preds = %84
+  %87 = sub i64 %78, %.1
+  br label %92
 
-90:                                               ; preds = %86
-  %91 = load i64, ptr @MinNewSize, align 8
-  %92 = icmp ult i64 %81, %91
-  %93 = sub i64 %80, %91
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %81, i64 %91)
-  %spec.select43 = select i1 %92, i64 %93, i64 %74
-  br label %94
+88:                                               ; preds = %84
+  %89 = load i64, ptr @MinNewSize, align 8
+  %90 = icmp ult i64 %79, %89
+  %91 = sub i64 %78, %89
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %79, i64 %89)
+  %spec.select43 = select i1 %90, i64 %91, i64 %74
+  br label %92
 
-94:                                               ; preds = %90, %88, %83
-  %.2 = phi i64 [ %84, %83 ], [ %.1, %88 ], [ %spec.select, %90 ]
-  %.132 = phi i64 [ %85, %83 ], [ %89, %88 ], [ %spec.select43, %90 ]
-  %95 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not48 = icmp eq ptr %95, null
-  br i1 %.not48, label %98, label %96
+92:                                               ; preds = %88, %86, %81
+  %.2 = phi i64 [ %82, %83 ], [ %.1, %88 ], [ %spec.select, %90 ]
+  %.132 = phi i64 [ %83, %83 ], [ %87, %88 ], [ %spec.select43, %90 ]
+  %93 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not48 = icmp eq ptr %93, null
+  br i1 %.not48, label %96, label %94
 
-96:                                               ; preds = %94
-  %97 = load i64, ptr @MinNewSize, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %97, i64 noundef %.2, i64 noundef %.1)
-  br label %98
+94:                                               ; preds = %92
+  %95 = load i64, ptr @MinNewSize, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %95, i64 noundef %.2, i64 noundef %.1)
+  br label %96
 
-98:                                               ; preds = %96, %94, %61
+96:                                               ; preds = %94, %92, %61
   %.134 = phi i64 [ %.2, %96 ], [ %.2, %94 ], [ %.033, %61 ]
   %.031 = phi i64 [ %.132, %96 ], [ %.132, %94 ], [ %74, %61 ]
-  %99 = load i64, ptr @NewSize, align 8
-  %.not40 = icmp eq i64 %99, %.134
-  br i1 %.not40, label %102, label %100
+  %97 = load i64, ptr @NewSize, align 8
+  %.not40 = icmp eq i64 %97, %.134
+  br i1 %.not40, label %100, label %98
 
-100:                                              ; preds = %98
+98:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %.134, ptr %3, align 8
-  %101 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1195, i32 noundef 6, ptr noundef nonnull %3, i32 noundef 5) #8
+  %99 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1195, i32 noundef 6, ptr noundef nonnull %3, i32 noundef 5) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %102
+  br label %100
 
-102:                                              ; preds = %100, %98
-  %103 = load i64, ptr @MaxNewSize, align 8
-  %.not41 = icmp eq i64 %103, %.1
-  br i1 %.not41, label %106, label %104
+100:                                              ; preds = %98, %96
+  %101 = load i64, ptr @MaxNewSize, align 8
+  %.not41 = icmp eq i64 %101, %.1
+  br i1 %.not41, label %104, label %102
 
-104:                                              ; preds = %102
+102:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 %.1, ptr %2, align 8
-  %105 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1196, i32 noundef 6, ptr noundef nonnull %2, i32 noundef 5) #8
+  %103 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 1196, i32 noundef 6, ptr noundef nonnull %2, i32 noundef 5) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br label %106
+  br label %104
 
-106:                                              ; preds = %104, %102
-  %107 = load i64, ptr @OldSize, align 8
-  %.not42 = icmp eq i64 %107, %.031
-  br i1 %.not42, label %109, label %108
+104:                                              ; preds = %102, %100
+  %105 = load i64, ptr @OldSize, align 8
+  %.not42 = icmp eq i64 %105, %.031
+  br i1 %.not42, label %107, label %106
 
-108:                                              ; preds = %106
+106:                                              ; preds = %104
   store i64 %.031, ptr @OldSize, align 8
-  br label %109
+  br label %107
 
-109:                                              ; preds = %108, %106
-  %110 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not49 = icmp eq ptr %110, null
-  br i1 %.not49, label %114, label %111
+107:                                              ; preds = %106, %104
+  %108 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not49 = icmp eq ptr %108, null
+  br i1 %.not49, label %112, label %109
 
-111:                                              ; preds = %109
-  %112 = load i64, ptr @MinOldSize, align 8
-  %113 = load i64, ptr @MaxOldSize, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %112, i64 noundef %.031, i64 noundef %113)
-  br label %114
+109:                                              ; preds = %107
+  %110 = load i64, ptr @MinOldSize, align 8
+  %111 = load i64, ptr @MaxOldSize, align 8
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, i64 noundef %110, i64 noundef %.031, i64 noundef %111)
+  br label %112
 
-114:                                              ; preds = %109, %111
+112:                                              ; preds = %107, %109
   ret void
 }
 

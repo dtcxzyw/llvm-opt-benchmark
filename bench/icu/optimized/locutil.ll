@@ -1355,7 +1355,7 @@ define noundef zeroext i1 @_ZN6icu_7713LocaleUtility12isFallbackOfERKNS_13Unicod
   %or.cond = select i1 %.not.i.i, i1 true, i1 %or.cond.i
   br i1 %or.cond, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
 
-_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %2
+_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:; preds = %2
   %14 = load i16, ptr %11, align 8, !tbaa !15
   %15 = icmp slt i16 %14, 0
   %16 = load i32, ptr %12, align 4
@@ -1372,7 +1372,7 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %2
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
 
-27:                                               ; preds = %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
+27:; preds = %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
   %28 = load i16, ptr %11, align 8, !tbaa !15
   %29 = icmp slt i16 %28, 0
   %30 = ashr i16 %28, 5
@@ -1388,17 +1388,17 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %2
   %40 = icmp eq i32 %33, %39
   br i1 %40, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread, label %41
 
-41:                                               ; preds = %27
-  %42 = icmp ult i32 %39, %33
-  br i1 %42, label %43, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
+41:; preds = %27
+  %38 = icmp ult i32 %39, %33
+  br i1 %38, label %43, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
 
-43:                                               ; preds = %41
+43:; preds = %41
   %44 = and i16 %28, 2
-  %.not.i.i.i7 = icmp eq i16 %44, 0
+  %43 = icmp eq i16 %44, 0
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %47 = load ptr, ptr %46, align 8
-  %48 = select i1 %.not.i.i.i7, ptr %47, ptr %45
+  %48 = select i1 %43, ptr %47, ptr %45
   %49 = sext i32 %39 to i64
   %50 = getelementptr inbounds i16, ptr %48, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !16
@@ -1406,8 +1406,8 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %2
   br label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
 
 _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread: ; preds = %43, %41, %2, %27, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
-  %53 = phi i1 [ false, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit ], [ true, %27 ], [ false, %2 ], [ %52, %43 ], [ false, %41 ]
-  ret i1 %53
+  %56 = phi i1 [ false, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit ], [ true, %27 ], [ false, %2 ], [ %52, %43 ], [ false, %41 ]
+  ret i1 %56
 }
 
 declare noundef i32 @_ZNK6icu_7713UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64), i16 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #9

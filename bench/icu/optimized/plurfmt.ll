@@ -2970,7 +2970,7 @@ define void @_ZNK6icu_7712PluralFormat9parseTypeERKNS_13UnicodeStringEPKNS_6NFRu
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -3018,73 +3018,73 @@ define void @_ZNK6icu_7712PluralFormat9parseTypeERKNS_13UnicodeStringEPKNS_6NFRu
           to label %56 unwind label %77
 
 56:                                               ; preds = %46
-  %57 = load i16, ptr %24, align 8, !tbaa !39
-  %58 = icmp slt i16 %57, 0
-  %59 = ashr i16 %57, 5
-  %60 = sext i16 %59 to i32
-  %61 = load i32, ptr %25, align 4
-  %62 = select i1 %58, i32 %61, i32 %60
-  %63 = and i16 %57, 1
+  %.pre.i72 = load i16, ptr %24, align 8, !tbaa !39
+  %57 = icmp slt i16 %.pre.i72, 0
+  %58 = ashr i16 %.pre.i72, 5
+  %59 = sext i16 %58 to i32
+  %60 = load i32, ptr %25, align 4
+  %61 = select i1 %57, i32 %60, i32 %59
+  %63 = and i16 %.pre.i72, 1
   %.not.i.i74 = icmp ne i16 %63, 0
-  %or.cond.i77 = icmp slt i32 %62, 1
-  %or.cond86 = select i1 %.not.i.i74, i1 true, i1 %or.cond.i77
+  %63 = icmp slt i32 %62, 1
+  %or.cond86 = select i1 %.not.i.i74, i1 true, i1 %63
   br i1 %.not63, label %85, label %64
 
-64:                                               ; preds = %56
+64:; preds = %56
   br i1 %or.cond86, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit.thread, label %65
 
-65:                                               ; preds = %64
+65:; preds = %64
   %.pre.i = load i16, ptr %.phi.trans.insert.i, align 8, !tbaa !39
   %66 = icmp slt i16 %.pre.i, 0
   %67 = load i32, ptr %26, align 4
   %68 = ashr i16 %.pre.i, 5
   %69 = sext i16 %68 to i32
   %70 = select i1 %66, i32 %67, i32 %69
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %spec.store.select, i32 %70)
+  %spec.select.i.i = call i32 @llvm.smin.i32(i32 %spec.store.select, i32 %70)
   %71 = sub nsw i32 %70, %spec.select.i
-  %72 = and i16 %57, 2
+  %72 = and i16 %.pre.i72, 2
   %.not.i.i.i = icmp eq i16 %72, 0
   %73 = load ptr, ptr %28, align 8
   %74 = select i1 %.not.i.i.i, ptr %73, ptr %27
   %75 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %74, i32 noundef 0, i32 noundef %62, i32 noundef %spec.select.i, i32 noundef %71)
-          to label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit unwind label %79
+          to label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit unwind label %82
 
 _ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit:   ; preds = %65
   %76 = icmp sgt i32 %75, -1
-  br i1 %76, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit.thread
+  br i1 %76, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit82, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit.thread
 
-77:                                               ; preds = %46
+77:; preds = %46
   %78 = landingpad { ptr, i32 }
           cleanup
   br label %130
 
-79:                                               ; preds = %65
-  %80 = landingpad { ptr, i32 }
+82:                                               ; preds = %65
+  %83 = landingpad { ptr, i32 }
           cleanup
   br label %129
 
 _ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit.thread: ; preds = %64, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #18
   store i32 -1, ptr %9, align 4, !tbaa !12
-  %81 = invoke noundef i32 @_ZNK6icu_776NFRule15findTextLenientERKNS_13UnicodeStringES3_iPi(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %spec.store.select, ptr noundef nonnull %9)
-          to label %82 unwind label %83
+  %84 = invoke noundef i32 @_ZNK6icu_776NFRule15findTextLenientERKNS_13UnicodeStringES3_iPi(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %spec.store.select, ptr noundef nonnull %9)
+          to label %82 unwind label %86
 
-82:                                               ; preds = %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit.thread
+85:                                               ; preds = %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #18
-  br label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80
+  br label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit82
 
-83:                                               ; preds = %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit.thread
-  %84 = landingpad { ptr, i32 }
+86:                                               ; preds = %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit.thread
+  %87 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #18
   br label %129
 
-85:                                               ; preds = %56
-  br i1 %or.cond86, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80.thread, label %86
+88:                                               ; preds = %56
+  br i1 %or.cond86, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit82.thread, label %86
 
-86:                                               ; preds = %85
+92:                                               ; preds = %85
   %.pre.i72 = load i16, ptr %.phi.trans.insert.i, align 8, !tbaa !39
-  %87 = icmp slt i16 %.pre.i72, 0
+  %.not.i.i.i80 = icmp slt i16 %.pre.i72, 0
   %88 = load i32, ptr %26, align 4
   %89 = ashr i16 %.pre.i72, 5
   %90 = sext i16 %89 to i32
@@ -3095,22 +3095,22 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit.thread: ; preds = %64, %_ZNK6icu_
   %.not.i.i.i78 = icmp eq i16 %93, 0
   %94 = load ptr, ptr %28, align 8
   %95 = select i1 %.not.i.i.i78, ptr %94, ptr %27
-  %96 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %95, i32 noundef 0, i32 noundef %62, i32 noundef %spec.select.i73, i32 noundef %92)
+  %96 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %95, i32 noundef 0, i32 noundef %61, i32 noundef %spec.select.i73, i32 noundef %92)
           to label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80 unwind label %97
 
-97:                                               ; preds = %86, %114
+97:                                               ; preds = %92, %114
   %98 = landingpad { ptr, i32 }
           cleanup
   br label %129
 
-_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80: ; preds = %86, %82, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit
-  %.145 = phi i32 [ %81, %82 ], [ %75, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit ], [ %96, %86 ]
+_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit82: ; preds = %92, %85, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit
+  %.145 = phi i32 [ %84, %82 ], [ %75, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit ], [ %96, %86 ]
   %99 = icmp slt i32 %.145, 0
   %.not65 = icmp slt i32 %.145, %.04992
   %or.cond = select i1 %99, i1 true, i1 %.not65
-  br i1 %or.cond, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80.thread, label %100
+  br i1 %or.cond, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit82.thread, label %100
 
-100:                                              ; preds = %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80
+100:                                              ; preds = %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit82
   %101 = load i16, ptr %24, align 8, !tbaa !39
   %102 = icmp slt i16 %101, 0
   %103 = ashr i16 %101, 5
@@ -3124,7 +3124,7 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80: ; preds = %86, %82, %_ZNK6icu_
   %111 = load i32, ptr %29, align 4
   %112 = select i1 %108, i32 %111, i32 %110
   %113 = icmp sgt i32 %106, %112
-  br i1 %113, label %114, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80.thread
+  br i1 %113, label %114, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit82.thread
 
 114:                                              ; preds = %100
   %115 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8)
@@ -3145,7 +3145,7 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80: ; preds = %86, %82, %_ZNK6icu_
   %124 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %10) #18
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #18
-  br label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80.thread
+  br label %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit82.thread
 
 125:                                              ; preds = %116
   %126 = landingpad { ptr, i32 }
@@ -3153,20 +3153,20 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80: ; preds = %86, %82, %_ZNK6icu_
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #18
   br label %129
 
-_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80.thread: ; preds = %85, %123, %100, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80
+_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit82.thread: ; preds = %88, %123, %100, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit82
   %.453 = phi i32 [ %.145, %123 ], [ %.04992, %100 ], [ %.04992, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80 ], [ %.04992, %85 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #18
   br label %127
 
-127:                                              ; preds = %36, %41, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80.thread, %30
+127:                                              ; preds = %36, %41, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit82.thread, %30
   %.150 = phi i32 [ %.04992, %30 ], [ %.04992, %36 ], [ %.453, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80.thread ], [ %.04992, %41 ]
   %.1 = phi i32 [ %31, %30 ], [ %37, %36 ], [ %42, %_ZNK6icu_7713UnicodeString7indexOfERKS0_i.exit80.thread ], [ %42, %41 ]
   %128 = icmp slt i32 %.1, %12
   br i1 %128, label %30, label %._crit_edge
 
-129:                                              ; preds = %79, %83, %125, %97
-  %.pn66 = phi { ptr, i32 } [ %126, %125 ], [ %98, %97 ], [ %84, %83 ], [ %80, %79 ]
+129:                                              ; preds = %82, %86, %125, %97
+  %.pn66 = phi { ptr, i32 } [ %126, %125 ], [ %98, %97 ], [ %87, %83 ], [ %83, %79 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #18
   br label %130
 

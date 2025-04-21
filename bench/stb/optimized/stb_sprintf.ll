@@ -3762,7 +3762,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   %136 = fsub double %.3, %135
   %137 = fmul double %124, %128
   %138 = fsub double %124, %131
-  %139 = fsub double %128, %134
+  %136 = fsub double %128, %134
   %140 = fneg double %137
   %141 = tail call double @llvm.fmuladd.f64(double %131, double %134, double %140)
   %142 = tail call double @llvm.fmuladd.f64(double %131, double %139, double %141)
@@ -3771,11 +3771,11 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   %145 = getelementptr inbounds nuw [13 x double], ptr @stbsp__toperr, i64 0, i64 %126
   %146 = load double, ptr %145, align 8, !tbaa !18
   %147 = fmul double %136, %128
-  %148 = tail call double @llvm.fmuladd.f64(double %124, double %146, double %147)
+  %145 = tail call double @llvm.fmuladd.f64(double %124, double %146, double %147)
   %149 = fadd double %144, %148
   br label %150
 
-150:                                              ; preds = %53, %51, %122, %5
+150:; preds = %53, %51, %122, %5
   %.0 = phi double [ %22, %5 ], [ %79, %53 ], [ %.1, %51 ], [ %149, %122 ]
   %151 = phi double [ %9, %5 ], [ %67, %53 ], [ %52, %51 ], [ %137, %122 ]
   %152 = fadd double %.0, %151

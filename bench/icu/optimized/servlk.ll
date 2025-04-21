@@ -990,7 +990,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779LocaleKey12isFallbackOfERK
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #14
   call void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %4 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713ICUServiceKey11parseSuffixERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %3)
-          to label %5 unwind label %59
+          to label %5 unwind label %62
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1009,7 +1009,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779LocaleKey12isFallbackOfERK
   %or.cond = select i1 %.not.i.i, i1 true, i1 %or.cond.i
   br i1 %or.cond, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread, label %17
 
-17:                                               ; preds = %5
+17:; preds = %5
   %18 = load i16, ptr %14, align 8, !tbaa !17
   %19 = icmp slt i16 %18, 0
   %20 = load i32, ptr %15, align 4
@@ -1025,11 +1025,11 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779LocaleKey12isFallbackOfERK
   %29 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %28, i32 noundef 0, i32 noundef %13, i32 noundef 0, i32 noundef %23)
           to label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit unwind label %59
 
-_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %17
-  %30 = icmp eq i32 %29, 0
+_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:; preds = %17
+  %.not.i.i.i = icmp eq i32 %29, 0
   br i1 %30, label %31, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
 
-31:                                               ; preds = %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
+31:; preds = %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
   %32 = load i16, ptr %14, align 8, !tbaa !17
   %33 = icmp slt i16 %32, 0
   %34 = ashr i16 %32, 5
@@ -1045,17 +1045,17 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %17
   %44 = icmp eq i32 %37, %43
   br i1 %44, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread, label %45
 
-45:                                               ; preds = %31
-  %46 = icmp ult i32 %43, %37
+45:; preds = %31
+  %42 = icmp ult i32 %43, %37
   br i1 %46, label %47, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
 
-47:                                               ; preds = %45
+47:; preds = %45
   %48 = and i16 %32, 2
-  %.not.i.i.i4 = icmp eq i16 %48, 0
+  %47 = icmp eq i16 %48, 0
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load ptr, ptr %50, align 8
-  %52 = select i1 %.not.i.i.i4, ptr %51, ptr %49
+  %52 = select i1 %47, ptr %51, ptr %49
   %53 = sext i32 %43 to i64
   %54 = getelementptr inbounds i16, ptr %52, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !24
@@ -1064,17 +1064,17 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %17
   br label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
 
 _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread: ; preds = %45, %47, %5, %31, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
-  %58 = phi i8 [ 0, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit ], [ 1, %31 ], [ 0, %5 ], [ %57, %47 ], [ 0, %45 ]
+  %61 = phi i8 [ 0, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit ], [ 1, %31 ], [ 0, %5 ], [ %57, %47 ], [ 0, %45 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #14
-  ret i8 %58
+  ret i8 %61
 
-59:                                               ; preds = %17, %2
-  %60 = landingpad { ptr, i32 }
+62:                                               ; preds = %17, %2
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #14
-  resume { ptr, i32 } %60
+  resume { ptr, i32 } %63
 }
 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713ICUServiceKey11parseSuffixERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #9
