@@ -2027,7 +2027,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 if.end13:                                         ; preds = %for.body
-  %sub.i = sub i64 %Buffer.coerce1, %i.038
+  %.sroa.speculated29 = call i64 @llvm.umin.i64(i64 %Buffer.coerce1, i64 %i.038)
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %Buffer.coerce0, i64 %.sroa.speculated29
+  %sub.i = sub i64 %Buffer.coerce1, %.sroa.speculated29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %BufferPrefix.i)
   %ExampleString.sroa.0.0.copyload.i = load ptr, ptr %FixedStr.i, align 8
   %ExampleString.sroa.3.0.copyload.i = load i64, ptr %ExampleString.sroa.3.0.FixedStr.sroa_idx.i, align 8
@@ -2043,7 +2045,7 @@ _ZNK4llvh16FileCheckPattern20ComputeMatchDistanceENS_9StringRefERKNS_9StringMapI
   %ExampleString.sroa.0.0.i = phi ptr [ %call.i14.i, %if.then.i ], [ %ExampleString.sroa.0.0.copyload.i, %if.end13 ]
   %ExampleString.sroa.3.0.i = phi i64 [ %call2.i.i, %if.then.i ], [ %ExampleString.sroa.3.0.copyload.i, %if.end13 ]
   %.sroa.speculated14.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %ExampleString.sroa.3.0.i)
-  store ptr %arrayidx.i, ptr %BufferPrefix.i, align 8
+  store ptr %add.ptr.i, ptr %BufferPrefix.i, align 8
   store i64 %.sroa.speculated14.i, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %Separator.addr.i.i)
   store i8 10, ptr %Separator.addr.i.i, align 1, !noalias !52

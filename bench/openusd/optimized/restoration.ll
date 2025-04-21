@@ -1276,7 +1276,7 @@ get_stripe_boundary_info.exit.lr.ph:              ; preds = %65
   br label %get_stripe_boundary_info.exit
 
 get_stripe_boundary_info.exit:                    ; preds = %get_stripe_boundary_info.exit.lr.ph, %restore_processing_stripe_boundary.exit
-  %.0112 = phi i32 [ 0, %get_stripe_boundary_info.exit.lr.ph ], [ %292, %restore_processing_stripe_boundary.exit ]
+  %.0112 = phi i32 [ 0, %get_stripe_boundary_info.exit.lr.ph ], [ %291, %restore_processing_stripe_boundary.exit ]
   %102 = load i32, ptr %20, align 4
   %103 = add nsw i32 %102, %.0112
   %104 = load i32, ptr %77, align 4
@@ -1614,24 +1614,20 @@ setup_processing_stripe_boundary.exit:            ; preds = %.split125.i, %.spli
 
 283:                                              ; preds = %282
   %284 = add nsw i32 %118, %103
-  %.not79.i = icmp sgt i32 %284, %19
-  br i1 %.not79.i, label %restore_processing_stripe_boundary.exit, label %285
-
-285:                                              ; preds = %283
-  %286 = mul nsw i32 %284, %11
-  %287 = sext i32 %286 to i64
-  %gep114 = getelementptr i8, ptr %invariant.gep113, i64 %287
-  %288 = ptrtoint ptr %gep114 to i64
-  %289 = shl i64 %288, 1
-  %290 = inttoptr i64 %289 to ptr
-  %291 = select i1 %.not119.i, ptr %gep114, ptr %290
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %291, ptr nonnull readonly align 2 %92, i64 %99, i1 false)
+  %285 = mul nsw i32 %284, %11
+  %286 = sext i32 %285 to i64
+  %gep114 = getelementptr i8, ptr %invariant.gep113, i64 %286
+  %287 = ptrtoint ptr %gep114 to i64
+  %288 = shl i64 %287, 1
+  %289 = inttoptr i64 %288 to ptr
+  %290 = select i1 %.not119.i, ptr %gep114, ptr %289
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %290, ptr nonnull readonly align 2 %92, i64 %99, i1 false)
   br label %restore_processing_stripe_boundary.exit
 
-restore_processing_stripe_boundary.exit:          ; preds = %.split84.i, %267, %.split84.us.i, %263, %.loopexit81.i.thread126, %.loopexit81.i.thread, %.loopexit81.i, %282, %283, %285
-  %292 = add nsw i32 %118, %.0112
-  %293 = icmp slt i32 %292, %22
-  br i1 %293, label %get_stripe_boundary_info.exit, label %copy_tile.exit, !llvm.loop !30
+restore_processing_stripe_boundary.exit:          ; preds = %.split84.i, %267, %.split84.us.i, %263, %.loopexit81.i.thread126, %.loopexit81.i.thread, %.loopexit81.i, %282, %283
+  %291 = add nsw i32 %118, %.0112
+  %292 = icmp slt i32 %291, %22
+  br i1 %292, label %get_stripe_boundary_info.exit, label %copy_tile.exit, !llvm.loop !30
 
 copy_tile.exit:                                   ; preds = %restore_processing_stripe_boundary.exit, %50, %60, %65, %55, %38
   ret void

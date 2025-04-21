@@ -1348,75 +1348,66 @@ define noundef zeroext i1 @_ZN6icu_7713LocaleUtility12isFallbackOfERKNS_13Unicod
   %9 = load i32, ptr %8, align 4
   %10 = select i1 %5, i32 %9, i32 %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i16, ptr %11, align 8, !tbaa !15
-  %13 = icmp slt i16 %12, 0
-  %14 = ashr i16 %12, 5
-  %15 = sext i16 %14 to i32
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %17 = load i32, ptr %16, align 4
-  %18 = select i1 %13, i32 %17, i32 %15
-  %19 = and i16 %4, 1
-  %.not.i.i = icmp eq i16 %19, 0
-  br i1 %.not.i.i, label %.sink.split.i.i.i, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %13 = and i16 %4, 1
+  %.not.i.i = icmp ne i16 %13, 0
+  %or.cond.i = icmp slt i32 %10, 1
+  %or.cond = select i1 %.not.i.i, i1 true, i1 %or.cond.i
+  br i1 %or.cond, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
 
-.sink.split.i.i.i:                                ; preds = %2
-  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 0)
-  %20 = icmp slt i32 %10, 0
-  br i1 %20, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread, label %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i
+_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %2
+  %14 = load i16, ptr %11, align 8, !tbaa !15
+  %15 = icmp slt i16 %14, 0
+  %16 = load i32, ptr %12, align 4
+  %17 = ashr i16 %14, 5
+  %18 = sext i16 %17 to i32
+  %19 = select i1 %15, i32 %16, i32 %18
+  %20 = and i16 %4, 2
+  %.not.i.i.i = icmp eq i16 %20, 0
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = select i1 %.not.i.i.i, ptr %23, ptr %21
+  %25 = tail call noundef i32 @_ZNK6icu_7713UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %24, i32 noundef 0, i32 noundef %10, i32 noundef 0, i32 noundef %19)
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
 
-_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i: ; preds = %.sink.split.i.i.i
-  %21 = sub nuw nsw i32 %10, %spec.select.i.i
-  %22 = tail call i32 @llvm.umin.i32(i32 %10, i32 %21)
-  %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
+27:                                               ; preds = %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
+  %28 = load i16, ptr %11, align 8, !tbaa !15
+  %29 = icmp slt i16 %28, 0
+  %30 = ashr i16 %28, 5
+  %31 = sext i16 %30 to i32
+  %32 = load i32, ptr %12, align 4
+  %33 = select i1 %29, i32 %32, i32 %31
+  %34 = load i16, ptr %3, align 8, !tbaa !15
+  %35 = icmp slt i16 %34, 0
+  %36 = ashr i16 %34, 5
+  %37 = sext i16 %36 to i32
+  %38 = load i32, ptr %8, align 4
+  %39 = select i1 %35, i32 %38, i32 %37
+  %40 = icmp eq i32 %33, %39
+  br i1 %40, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread, label %41
 
-_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i
-  %23 = and i16 %4, 2
-  %.not.i.i.i = icmp eq i16 %23, 0
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %27 = select i1 %.not.i.i.i, ptr %26, ptr %24
-  %28 = tail call noundef i32 @_ZNK6icu_7713UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %27, i32 noundef %spec.select.i.i, i32 noundef %22, i32 noundef 0, i32 noundef %18)
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
+41:                                               ; preds = %27
+  %42 = icmp ult i32 %39, %33
+  br i1 %42, label %43, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
 
-30:                                               ; preds = %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
-  %31 = load i16, ptr %11, align 8, !tbaa !15
-  %32 = icmp slt i16 %31, 0
-  %33 = ashr i16 %31, 5
-  %34 = sext i16 %33 to i32
-  %35 = load i32, ptr %16, align 4
-  %36 = select i1 %32, i32 %35, i32 %34
-  %37 = load i16, ptr %3, align 8, !tbaa !15
-  %38 = icmp slt i16 %37, 0
-  %39 = ashr i16 %37, 5
-  %40 = sext i16 %39 to i32
-  %41 = load i32, ptr %8, align 4
-  %42 = select i1 %38, i32 %41, i32 %40
-  %43 = icmp eq i32 %36, %42
-  br i1 %43, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread, label %44
-
-44:                                               ; preds = %30
-  %45 = icmp ult i32 %42, %36
-  br i1 %45, label %46, label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
-
-46:                                               ; preds = %44
-  %47 = and i16 %31, 2
-  %.not.i.i.i7 = icmp eq i16 %47, 0
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = select i1 %.not.i.i.i7, ptr %50, ptr %48
-  %52 = sext i32 %42 to i64
-  %53 = getelementptr inbounds i16, ptr %51, i64 %52
-  %54 = load i16, ptr %53, align 2, !tbaa !16
-  %55 = icmp eq i16 %54, 95
+43:                                               ; preds = %41
+  %44 = and i16 %28, 2
+  %.not.i.i.i7 = icmp eq i16 %44, 0
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %47 = load ptr, ptr %46, align 8
+  %48 = select i1 %.not.i.i.i7, ptr %47, ptr %45
+  %49 = sext i32 %39 to i64
+  %50 = getelementptr inbounds i16, ptr %48, i64 %49
+  %51 = load i16, ptr %50, align 2, !tbaa !16
+  %52 = icmp eq i16 %51, 95
   br label %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread
 
-_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread: ; preds = %46, %44, %.sink.split.i.i.i, %2, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i, %30, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
-  %56 = phi i1 [ false, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit ], [ true, %30 ], [ false, %_ZNK6icu_7713UnicodeString10pinIndicesERiS1_.exit.i.i ], [ false, %2 ], [ false, %.sink.split.i.i.i ], [ %55, %46 ], [ false, %44 ]
-  ret i1 %56
+_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread: ; preds = %43, %41, %2, %27, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit
+  %53 = phi i1 [ false, %_ZNK6icu_7713UnicodeString7indexOfERKS0_.exit ], [ true, %27 ], [ false, %2 ], [ %52, %43 ], [ false, %41 ]
+  ret i1 %53
 }
 
 declare noundef i32 @_ZNK6icu_7713UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64), i16 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #9
@@ -1493,9 +1484,6 @@ declare void @_ZN6icu_7711ReplaceableD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

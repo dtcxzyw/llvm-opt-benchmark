@@ -886,9 +886,7 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i235, %
 
 215:                                              ; preds = %203
   %216 = icmp sgt i32 %185, 0
-  %or.cond33 = or i1 %95, %216
-  %or.cond35 = or i1 %96, %or.cond33
-  br i1 %or.cond35, label %.thread, label %._crit_edge.i.i250
+  br i1 %216, label %.thread, label %._crit_edge.i.i250
 
 ._crit_edge.i.i250:                               ; preds = %215
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 16

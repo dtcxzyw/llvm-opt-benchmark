@@ -5103,7 +5103,8 @@ _ZNK4llvm9StringRef9ends_withES0_.exit.i11:       ; preds = %_ZNK4llvm9StringRef
 
 43:                                               ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i11
   %44 = add i64 %.0.i.i, -14
-  store i64 %44, ptr %7, align 8, !tbaa !65
+  %.sroa.speculated.i.i14 = call i64 @llvm.umin.i64(i64 %28, i64 %44)
+  store i64 %.sroa.speculated.i.i14, ptr %7, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #16
   %45 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %35, i64 %36, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %1) #16
   br i1 %45, label %48, label %46

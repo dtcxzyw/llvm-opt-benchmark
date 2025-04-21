@@ -731,7 +731,7 @@ define void @Java_sun_java2d_loops_DrawLine_DrawLine(ptr noundef %0, ptr noundef
   %19 = tail call i32 @GrPrim_Sg2dGetPixel(ptr noundef %0, ptr noundef %2) #4
   %20 = tail call ptr @GetNativePrim(ptr noundef %0, ptr noundef %1) #4
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %118, label %22
+  br i1 %21, label %120, label %22
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -748,7 +748,7 @@ define void @Java_sun_java2d_loops_DrawLine_DrawLine(ptr noundef %0, ptr noundef
 28:                                               ; preds = %27, %22
   %29 = call ptr @SurfaceData_GetOps(ptr noundef %0, ptr noundef %3) #4
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %118, label %31
+  br i1 %30, label %120, label %31
 
 31:                                               ; preds = %28
   call void @GrPrim_Sg2dGetClip(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %9) #4
@@ -802,19 +802,19 @@ RefineBounds.exit:                                ; preds = %47, %51
   %54 = load i32, ptr %53, align 4
   %55 = call i32 %52(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %9, i32 noundef %54) #4
   %.not100 = icmp eq i32 %55, 0
-  br i1 %.not100, label %56, label %118
+  br i1 %.not100, label %56, label %120
 
 56:                                               ; preds = %RefineBounds.exit
   %57 = load i32, ptr %37, align 8
   %58 = load i32, ptr %9, align 8
   %59 = icmp sgt i32 %57, %58
-  br i1 %59, label %60, label %114
+  br i1 %59, label %60, label %116
 
 60:                                               ; preds = %56
   %61 = load i32, ptr %48, align 4
   %62 = load i32, ptr %43, align 4
   %63 = icmp sgt i32 %61, %62
-  br i1 %63, label %64, label %114
+  br i1 %63, label %64, label %116
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -823,11 +823,11 @@ RefineBounds.exit:                                ; preds = %47, %51
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %68 = load ptr, ptr %67, align 8
   %.not101 = icmp eq ptr %68, null
-  br i1 %.not101, label %110, label %69
+  br i1 %.not101, label %112, label %69
 
 69:                                               ; preds = %64
   %70 = icmp eq i32 %5, %7
-  br i1 %70, label %71, label %83
+  br i1 %70, label %71, label %84
 
 71:                                               ; preds = %69
   %72 = load i32, ptr %43, align 4
@@ -835,90 +835,94 @@ RefineBounds.exit:                                ; preds = %47, %51
   %73 = load i32, ptr %48, align 4
   %74 = icmp slt i32 %5, %73
   %or.cond = select i1 %.not104, i1 %74, i1 false
-  br i1 %or.cond, label %75, label %110
+  br i1 %or.cond, label %75, label %112
 
 75:                                               ; preds = %71
-  %76 = load i32, ptr %9, align 8
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %..i, i32 %76)
-  %77 = load i32, ptr %37, align 8
-  %spec.select = call i32 @llvm.smin.i32(i32 %32, i32 %77)
-  %78 = icmp slt i32 %spec.store.select, %spec.select
-  br i1 %78, label %79, label %110
+  %76 = icmp slt i32 %32, %..i
+  %.178 = select i1 %76, i32 %.48.i, i32 %32
+  %77 = load i32, ptr %9, align 8
+  %spec.store.select = call i32 @llvm.smax.i32(i32 %..i, i32 %77)
+  %78 = load i32, ptr %37, align 8
+  %spec.select = call i32 @llvm.smin.i32(i32 %.178, i32 %78)
+  %79 = icmp slt i32 %spec.store.select, %spec.select
+  br i1 %79, label %80, label %112
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %81 = load ptr, ptr %80, align 8
-  %82 = sub nsw i32 %spec.select, %spec.store.select
-  call void %81(ptr noundef nonnull %9, i32 noundef %spec.store.select, i32 noundef %5, i32 noundef %19, i32 noundef %82, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %20, ptr noundef nonnull %10) #4
-  br label %110
+80:                                               ; preds = %75
+  %81 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %82 = load ptr, ptr %81, align 8
+  %83 = sub nsw i32 %spec.select, %spec.store.select
+  call void %82(ptr noundef nonnull %9, i32 noundef %spec.store.select, i32 noundef %5, i32 noundef %19, i32 noundef %83, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %20, ptr noundef nonnull %10) #4
+  br label %112
 
-83:                                               ; preds = %69
-  %84 = icmp eq i32 %4, %6
-  br i1 %84, label %85, label %97
+84:                                               ; preds = %69
+  %85 = icmp eq i32 %4, %6
+  br i1 %85, label %86, label %99
 
-85:                                               ; preds = %83
-  %86 = load i32, ptr %9, align 8
-  %.not103 = icmp sge i32 %4, %86
-  %87 = load i32, ptr %37, align 8
-  %88 = icmp slt i32 %4, %87
-  %or.cond111 = select i1 %.not103, i1 %88, i1 false
-  br i1 %or.cond111, label %89, label %110
+86:                                               ; preds = %84
+  %87 = load i32, ptr %9, align 8
+  %.not103 = icmp sge i32 %4, %87
+  %88 = load i32, ptr %37, align 8
+  %89 = icmp slt i32 %4, %88
+  %or.cond111 = select i1 %.not103, i1 %89, i1 false
+  br i1 %or.cond111, label %90, label %112
 
-89:                                               ; preds = %85
-  %90 = load i32, ptr %43, align 4
-  %spec.store.select115 = call i32 @llvm.smax.i32(i32 %.49.i, i32 %90)
-  %91 = load i32, ptr %48, align 4
-  %spec.select114 = call i32 @llvm.smin.i32(i32 %42, i32 %91)
-  %92 = icmp slt i32 %spec.store.select115, %spec.select114
-  br i1 %92, label %93, label %110
+90:                                               ; preds = %86
+  %91 = icmp slt i32 %42, %.49.i
+  %.1 = select i1 %91, i32 %.50.i, i32 %42
+  %92 = load i32, ptr %43, align 4
+  %spec.store.select115 = call i32 @llvm.smax.i32(i32 %.49.i, i32 %92)
+  %93 = load i32, ptr %48, align 4
+  %spec.select114 = call i32 @llvm.smin.i32(i32 %.1, i32 %93)
+  %94 = icmp slt i32 %spec.store.select115, %spec.select114
+  br i1 %94, label %95, label %112
 
-93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %95 = load ptr, ptr %94, align 8
-  %96 = sub nsw i32 %spec.select114, %spec.store.select115
-  call void %95(ptr noundef nonnull %9, i32 noundef %4, i32 noundef %spec.store.select115, i32 noundef %19, i32 noundef %96, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %20, ptr noundef nonnull %10) #4
-  br label %110
+95:                                               ; preds = %90
+  %96 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %97 = load ptr, ptr %96, align 8
+  %98 = sub nsw i32 %spec.select114, %spec.store.select115
+  call void %97(ptr noundef nonnull %9, i32 noundef %4, i32 noundef %spec.store.select115, i32 noundef %19, i32 noundef %98, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %20, ptr noundef nonnull %10) #4
+  br label %112
 
-97:                                               ; preds = %83
-  %98 = call zeroext i8 @LineUtils_SetupBresenham(i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef nonnull %16, ptr noundef nonnull %18)
-  %.not102 = icmp eq i8 %98, 0
-  br i1 %.not102, label %110, label %99
+99:                                               ; preds = %84
+  %100 = call zeroext i8 @LineUtils_SetupBresenham(i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef nonnull %16, ptr noundef nonnull %18)
+  %.not102 = icmp eq i8 %100, 0
+  br i1 %.not102, label %112, label %101
 
-99:                                               ; preds = %97
-  %100 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %101 = load ptr, ptr %100, align 8
-  %102 = load i32, ptr %11, align 4
-  %103 = load i32, ptr %12, align 4
-  %104 = load i32, ptr %13, align 4
-  %105 = load i32, ptr %14, align 4
-  %106 = load i32, ptr %17, align 4
-  %107 = load i32, ptr %15, align 4
-  %108 = load i32, ptr %18, align 4
-  %109 = load i32, ptr %16, align 4
-  call void %101(ptr noundef nonnull %9, i32 noundef %102, i32 noundef %103, i32 noundef %19, i32 noundef %104, i32 noundef %105, i32 noundef %106, i32 noundef %107, i32 noundef %108, i32 noundef %109, ptr noundef nonnull %20, ptr noundef nonnull %10) #4
-  br label %110
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %103 = load ptr, ptr %102, align 8
+  %104 = load i32, ptr %11, align 4
+  %105 = load i32, ptr %12, align 4
+  %106 = load i32, ptr %13, align 4
+  %107 = load i32, ptr %14, align 4
+  %108 = load i32, ptr %17, align 4
+  %109 = load i32, ptr %15, align 4
+  %110 = load i32, ptr %18, align 4
+  %111 = load i32, ptr %16, align 4
+  call void %103(ptr noundef nonnull %9, i32 noundef %104, i32 noundef %105, i32 noundef %19, i32 noundef %106, i32 noundef %107, i32 noundef %108, i32 noundef %109, i32 noundef %110, i32 noundef %111, ptr noundef nonnull %20, ptr noundef nonnull %10) #4
+  br label %112
 
-110:                                              ; preds = %64, %75, %79, %71, %97, %99, %85, %93, %89
-  %111 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %112 = load ptr, ptr %111, align 8
-  %.not106 = icmp eq ptr %112, null
-  br i1 %.not106, label %114, label %113
+112:                                              ; preds = %64, %75, %80, %71, %99, %101, %86, %95, %90
+  %113 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %114 = load ptr, ptr %113, align 8
+  %.not106 = icmp eq ptr %114, null
+  br i1 %.not106, label %116, label %115
 
-113:                                              ; preds = %110
-  call void %112(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %9) #4
-  br label %114
+115:                                              ; preds = %112
+  call void %114(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %9) #4
+  br label %116
 
-114:                                              ; preds = %56, %60, %110, %113
-  %115 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %116 = load ptr, ptr %115, align 8
-  %.not107 = icmp eq ptr %116, null
-  br i1 %.not107, label %118, label %117
+116:                                              ; preds = %56, %60, %112, %115
+  %117 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %118 = load ptr, ptr %117, align 8
+  %.not107 = icmp eq ptr %118, null
+  br i1 %.not107, label %120, label %119
 
-117:                                              ; preds = %114
-  call void %116(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %9) #4
-  br label %118
+119:                                              ; preds = %116
+  call void %118(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %9) #4
+  br label %120
 
-118:                                              ; preds = %114, %117, %RefineBounds.exit, %28, %8
+120:                                              ; preds = %116, %119, %RefineBounds.exit, %28, %8
   ret void
 }
 

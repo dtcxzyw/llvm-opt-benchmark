@@ -809,7 +809,7 @@ define void @_ZN6icu_7714MessagePattern8preParseERKNS_13UnicodeStringEP11UParseE
 define noundef i32 @_ZN6icu_7714MessagePattern12parseMessageEiii22UMessagePatternArgTypeP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %6) local_unnamed_addr #2 align 2 {
   %8 = load i32, ptr %6, align 4, !tbaa !20
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206
+  br i1 %9, label %10, label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197
 
 10:                                               ; preds = %7
   %11 = icmp sgt i32 %3, 1023
@@ -817,7 +817,7 @@ define noundef i32 @_ZN6icu_7714MessagePattern12parseMessageEiii22UMessagePatter
 
 12:                                               ; preds = %10
   store i32 8, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206
+  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -844,9 +844,8 @@ define noundef i32 @_ZN6icu_7714MessagePattern12parseMessageEiii22UMessagePatter
 28:                                               ; preds = %24
   %29 = load i32, ptr %18, align 8, !tbaa !25
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %15, i32 %29)
-  %.1.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %22)
   %30 = load ptr, ptr %17, align 8, !tbaa !23
-  %31 = sext i32 %.1.i.i.i to i64
+  %31 = sext i32 %spec.select.i.i.i to i64
   %32 = shl nsw i64 %31, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %27, ptr align 4 %30, i64 %32, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 12
@@ -869,7 +868,7 @@ _ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i: 
 
 _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread: ; preds = %21, %24
   store i32 7, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206
+  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197
 
 _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit: ; preds = %13, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i
   %.pre = phi i32 [ %.pre.pre, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i ], [ %8, %13 ]
@@ -892,7 +891,7 @@ _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exi
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 0, ptr %47, align 4, !tbaa !51
   %48 = icmp slt i32 %.pre, 1
-  br i1 %48, label %.lr.ph, label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206
+  br i1 %48, label %.lr.ph, label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197
 
 .lr.ph:                                           ; preds = %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit
   %49 = add nsw i32 %2, %1
@@ -910,28 +909,28 @@ _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exi
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 126
   br label %61
 
-61:                                               ; preds = %.lr.ph, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136
-  %.0102236 = phi i32 [ %49, %.lr.ph ], [ %.3105.ph, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136 ]
+61:                                               ; preds = %.lr.ph, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134
+  %.0102227 = phi i32 [ %49, %.lr.ph ], [ %.3105.ph, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134 ]
   %62 = load i16, ptr %51, align 8, !tbaa !19
   %63 = icmp slt i16 %62, 0
   %64 = ashr i16 %62, 5
   %65 = sext i16 %64 to i32
   %66 = load i32, ptr %52, align 4
   %67 = select i1 %63, i32 %66, i32 %65
-  %.not113 = icmp slt i32 %.0102236, %67
+  %.not113 = icmp slt i32 %.0102227, %67
   br i1 %.not113, label %68, label %439
 
 68:                                               ; preds = %61
-  %69 = add nsw i32 %.0102236, 1
-  %70 = icmp ult i32 %.0102236, %67
-  br i1 %70, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136
+  %69 = add nsw i32 %.0102227, 1
+  %70 = icmp ult i32 %.0102227, %67
+  br i1 %70, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %68
   %71 = and i16 %62, 2
   %.not.i.i.i115 = icmp eq i16 %71, 0
   %72 = load ptr, ptr %54, align 8
   %73 = select i1 %.not.i.i.i115, ptr %72, ptr %53
-  %74 = sext i32 %.0102236 to i64
+  %74 = sext i32 %.0102227 to i64
   %75 = getelementptr inbounds i16, ptr %73, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !30
   %77 = icmp eq i16 %76, 39
@@ -947,7 +946,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %68
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !25
   %85 = icmp sgt i32 %84, %82
-  br i1 %85, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i123, label %86
+  br i1 %85, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i122, label %86
 
 86:                                               ; preds = %80
   %87 = shl nsw i32 %82, 1
@@ -964,35 +963,34 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %68
 93:                                               ; preds = %89
   %94 = load i32, ptr %83, align 8, !tbaa !25
   %spec.select.i.i.i117 = tail call i32 @llvm.smin.i32(i32 %82, i32 %94)
-  %.1.i.i.i118 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i117, i32 %87)
   %95 = load ptr, ptr %81, align 8, !tbaa !23
-  %96 = sext i32 %.1.i.i.i118 to i64
+  %96 = sext i32 %spec.select.i.i.i117 to i64
   %97 = shl nsw i64 %96, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %92, ptr align 4 %95, i64 %97, i1 false)
   %98 = getelementptr inbounds nuw i8, ptr %81, i64 12
   %99 = load i8, ptr %98, align 4, !tbaa !41
-  %.not.i.i.i.i119 = icmp eq i8 %99, 0
-  br i1 %.not.i.i.i.i119, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i120, label %100
+  %.not.i.i.i.i118 = icmp eq i8 %99, 0
+  br i1 %.not.i.i.i.i118, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i119, label %100
 
 100:                                              ; preds = %93
   tail call void @uprv_free_77(ptr noundef %95)
-  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i120
+  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i119
 
-_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i120: ; preds = %100, %93
+_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i119: ; preds = %100, %93
   store ptr %92, ptr %81, align 8, !tbaa !23
   store i32 %87, ptr %83, align 8, !tbaa !25
   store i8 1, ptr %98, align 4, !tbaa !41
-  %.pre.i121 = load ptr, ptr %16, align 8, !tbaa !22
-  %.pre12.i122 = load i32, ptr %14, align 8, !tbaa !32
-  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i123
+  %.pre.i120 = load ptr, ptr %16, align 8, !tbaa !22
+  %.pre12.i121 = load i32, ptr %14, align 8, !tbaa !32
+  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i122
 
 101:                                              ; preds = %89, %86
   store i32 7, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit124
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit123
 
-_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i123: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i120, %80
-  %102 = phi i32 [ %.pre12.i122, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i120 ], [ %82, %80 ]
-  %103 = phi ptr [ %.pre.i121, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i120 ], [ %81, %80 ]
+_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i122: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i119, %80
+  %102 = phi i32 [ %.pre12.i121, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i119 ], [ %82, %80 ]
+  %103 = phi ptr [ %.pre.i120, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i119 ], [ %81, %80 ]
   %104 = add nsw i32 %102, 1
   store i32 %104, ptr %14, align 8, !tbaa !32
   %105 = sext i32 %102 to i64
@@ -1007,31 +1005,31 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i16 39, ptr %110, align 2, !tbaa !50
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 12
   store i32 0, ptr %111, align 4, !tbaa !51
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit124
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit123
 
-_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit124: ; preds = %101, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i123
+_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit123: ; preds = %101, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i122
   store i8 1, ptr %60, align 2, !tbaa !39
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134
 
 112:                                              ; preds = %78
   %113 = icmp ult i32 %69, %67
-  br i1 %113, label %_ZNK6icu_7713UnicodeString6charAtEi.exit127, label %_ZNK6icu_7713UnicodeString6charAtEi.exit127.thread
+  br i1 %113, label %_ZNK6icu_7713UnicodeString6charAtEi.exit126, label %_ZNK6icu_7713UnicodeString6charAtEi.exit126.thread
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit127:      ; preds = %112
+_ZNK6icu_7713UnicodeString6charAtEi.exit126:      ; preds = %112
   %114 = sext i32 %69 to i64
   %115 = getelementptr inbounds i16, ptr %73, i64 %114
   %116 = load i16, ptr %115, align 2, !tbaa !30
   %117 = icmp eq i16 %116, 39
-  br i1 %117, label %118, label %_ZNK6icu_7713UnicodeString6charAtEi.exit127.thread
+  br i1 %117, label %118, label %_ZNK6icu_7713UnicodeString6charAtEi.exit126.thread
 
-118:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit127
-  %119 = add nuw nsw i32 %.0102236, 2
+118:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit126
+  %119 = add nuw nsw i32 %.0102227, 2
   %120 = load ptr, ptr %16, align 8, !tbaa !22
   %121 = load i32, ptr %14, align 8, !tbaa !32
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %123 = load i32, ptr %122, align 8, !tbaa !25
   %124 = icmp sgt i32 %123, %121
-  br i1 %124, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i135, label %125
+  br i1 %124, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i133, label %125
 
 125:                                              ; preds = %118
   %126 = shl nsw i32 %121, 1
@@ -1042,41 +1040,40 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit127:      ; preds = %112
   %129 = zext nneg i32 %126 to i64
   %130 = shl nuw nsw i64 %129, 4
   %131 = tail call noalias ptr @uprv_malloc_77(i64 noundef %130) #19
-  %.not.i.i.i128 = icmp eq ptr %131, null
-  br i1 %.not.i.i.i128, label %140, label %132
+  %.not.i.i.i127 = icmp eq ptr %131, null
+  br i1 %.not.i.i.i127, label %140, label %132
 
 132:                                              ; preds = %128
   %133 = load i32, ptr %122, align 8, !tbaa !25
-  %spec.select.i.i.i129 = tail call i32 @llvm.smin.i32(i32 %121, i32 %133)
-  %.1.i.i.i130 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i129, i32 %126)
+  %spec.select.i.i.i128 = tail call i32 @llvm.smin.i32(i32 %121, i32 %133)
   %134 = load ptr, ptr %120, align 8, !tbaa !23
-  %135 = sext i32 %.1.i.i.i130 to i64
+  %135 = sext i32 %spec.select.i.i.i128 to i64
   %136 = shl nsw i64 %135, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %131, ptr align 4 %134, i64 %136, i1 false)
   %137 = getelementptr inbounds nuw i8, ptr %120, i64 12
   %138 = load i8, ptr %137, align 4, !tbaa !41
-  %.not.i.i.i.i131 = icmp eq i8 %138, 0
-  br i1 %.not.i.i.i.i131, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i132, label %139
+  %.not.i.i.i.i129 = icmp eq i8 %138, 0
+  br i1 %.not.i.i.i.i129, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i130, label %139
 
 139:                                              ; preds = %132
   tail call void @uprv_free_77(ptr noundef %134)
-  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i132
+  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i130
 
-_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i132: ; preds = %139, %132
+_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i130: ; preds = %139, %132
   store ptr %131, ptr %120, align 8, !tbaa !23
   store i32 %126, ptr %122, align 8, !tbaa !25
   store i8 1, ptr %137, align 4, !tbaa !41
-  %.pre.i133 = load ptr, ptr %16, align 8, !tbaa !22
-  %.pre12.i134 = load i32, ptr %14, align 8, !tbaa !32
-  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i135
+  %.pre.i131 = load ptr, ptr %16, align 8, !tbaa !22
+  %.pre12.i132 = load i32, ptr %14, align 8, !tbaa !32
+  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i133
 
 140:                                              ; preds = %128, %125
   store i32 7, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206
+  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197
 
-_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i135: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i132, %118
-  %141 = phi i32 [ %.pre12.i134, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i132 ], [ %121, %118 ]
-  %142 = phi ptr [ %.pre.i133, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i132 ], [ %120, %118 ]
+_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i133: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i130, %118
+  %141 = phi i32 [ %.pre12.i132, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i130 ], [ %121, %118 ]
+  %142 = phi ptr [ %.pre.i131, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i130 ], [ %120, %118 ]
   %143 = add nsw i32 %141, 1
   store i32 %143, ptr %14, align 8, !tbaa !32
   %144 = sext i32 %141 to i64
@@ -1091,36 +1088,36 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i16 0, ptr %149, align 2, !tbaa !50
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 12
   store i32 0, ptr %150, align 4, !tbaa !51
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit127.thread: ; preds = %112, %_ZNK6icu_7713UnicodeString6charAtEi.exit127
-  %.0.i.i125210 = phi i16 [ %116, %_ZNK6icu_7713UnicodeString6charAtEi.exit127 ], [ -1, %112 ]
+_ZNK6icu_7713UnicodeString6charAtEi.exit126.thread: ; preds = %112, %_ZNK6icu_7713UnicodeString6charAtEi.exit126
+  %.0.i.i124201 = phi i16 [ %116, %_ZNK6icu_7713UnicodeString6charAtEi.exit126 ], [ -1, %112 ]
   %151 = load i32, ptr %59, align 8, !tbaa !6
   %.fr = freeze i32 %151
   %152 = icmp eq i32 %.fr, 1
   br i1 %152, label %156, label %switch.early.test
 
-switch.early.test:                                ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit127.thread
-  switch i16 %.0.i.i125210, label %153 [
+switch.early.test:                                ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit126.thread
+  switch i16 %.0.i.i124201, label %153 [
     i16 125, label %156
     i16 123, label %156
   ]
 
 153:                                              ; preds = %switch.early.test
-  %154 = icmp eq i16 %.0.i.i125210, 124
+  %154 = icmp eq i16 %.0.i.i124201, 124
   %or.cond8 = and i1 %58, %154
-  %155 = icmp eq i16 %.0.i.i125210, 35
+  %155 = icmp eq i16 %.0.i.i124201, 35
   %or.cond13 = and i1 %or.cond15, %155
   %or.cond = or i1 %or.cond8, %or.cond13
   br i1 %or.cond, label %156, label %328
 
-156:                                              ; preds = %switch.early.test, %switch.early.test, %_ZNK6icu_7713UnicodeString6charAtEi.exit127.thread, %153
+156:                                              ; preds = %switch.early.test, %switch.early.test, %_ZNK6icu_7713UnicodeString6charAtEi.exit126.thread, %153
   %157 = load ptr, ptr %16, align 8, !tbaa !22
   %158 = load i32, ptr %14, align 8, !tbaa !32
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %160 = load i32, ptr %159, align 8, !tbaa !25
   %161 = icmp sgt i32 %160, %158
-  br i1 %161, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i144, label %162
+  br i1 %161, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i141, label %162
 
 162:                                              ; preds = %156
   %163 = shl nsw i32 %158, 1
@@ -1131,41 +1128,40 @@ switch.early.test:                                ; preds = %_ZNK6icu_7713Unicod
   %166 = zext nneg i32 %163 to i64
   %167 = shl nuw nsw i64 %166, 4
   %168 = tail call noalias ptr @uprv_malloc_77(i64 noundef %167) #19
-  %.not.i.i.i137 = icmp eq ptr %168, null
-  br i1 %.not.i.i.i137, label %177, label %169
+  %.not.i.i.i135 = icmp eq ptr %168, null
+  br i1 %.not.i.i.i135, label %177, label %169
 
 169:                                              ; preds = %165
   %170 = load i32, ptr %159, align 8, !tbaa !25
-  %spec.select.i.i.i138 = tail call i32 @llvm.smin.i32(i32 %158, i32 %170)
-  %.1.i.i.i139 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i138, i32 %163)
+  %spec.select.i.i.i136 = tail call i32 @llvm.smin.i32(i32 %158, i32 %170)
   %171 = load ptr, ptr %157, align 8, !tbaa !23
-  %172 = sext i32 %.1.i.i.i139 to i64
+  %172 = sext i32 %spec.select.i.i.i136 to i64
   %173 = shl nsw i64 %172, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %168, ptr align 4 %171, i64 %173, i1 false)
   %174 = getelementptr inbounds nuw i8, ptr %157, i64 12
   %175 = load i8, ptr %174, align 4, !tbaa !41
-  %.not.i.i.i.i140 = icmp eq i8 %175, 0
-  br i1 %.not.i.i.i.i140, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i141, label %176
+  %.not.i.i.i.i137 = icmp eq i8 %175, 0
+  br i1 %.not.i.i.i.i137, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i138, label %176
 
 176:                                              ; preds = %169
   tail call void @uprv_free_77(ptr noundef %171)
-  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i141
+  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i138
 
-_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i141: ; preds = %176, %169
+_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i138: ; preds = %176, %169
   store ptr %168, ptr %157, align 8, !tbaa !23
   store i32 %163, ptr %159, align 8, !tbaa !25
   store i8 1, ptr %174, align 4, !tbaa !41
-  %.pre.i142 = load ptr, ptr %16, align 8, !tbaa !22
-  %.pre12.i143 = load i32, ptr %14, align 8, !tbaa !32
-  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i144
+  %.pre.i139 = load ptr, ptr %16, align 8, !tbaa !22
+  %.pre12.i140 = load i32, ptr %14, align 8, !tbaa !32
+  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i141
 
 177:                                              ; preds = %165, %162
   store i32 7, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145.preheader
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142.preheader
 
-_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i144: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i141, %156
-  %178 = phi i32 [ %.pre12.i143, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i141 ], [ %158, %156 ]
-  %179 = phi ptr [ %.pre.i142, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i141 ], [ %157, %156 ]
+_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i141: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i138, %156
+  %178 = phi i32 [ %.pre12.i140, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i138 ], [ %158, %156 ]
+  %179 = phi ptr [ %.pre.i139, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i138 ], [ %157, %156 ]
   %180 = add nsw i32 %178, 1
   store i32 %180, ptr %14, align 8, !tbaa !32
   %181 = sext i32 %178 to i64
@@ -1173,34 +1169,34 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %183 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %182, i64 %181
   store i32 2, ptr %183, align 4, !tbaa !44
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 4
-  store i32 %.0102236, ptr %184, align 4, !tbaa !48
+  store i32 %.0102227, ptr %184, align 4, !tbaa !48
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i16 1, ptr %185, align 4, !tbaa !49
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 10
   store i16 0, ptr %186, align 2, !tbaa !50
   %187 = getelementptr inbounds nuw i8, ptr %183, i64 12
   store i32 0, ptr %187, align 4, !tbaa !51
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145.preheader
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142.preheader
 
-_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145.preheader: ; preds = %177, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i144
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145
+_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142.preheader: ; preds = %177, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i141
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142
 
-_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145: ; preds = %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145.backedge, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145.preheader
-  %.1103 = phi i32 [ %69, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145.preheader ], [ %203, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145.backedge ]
+_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142: ; preds = %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142.backedge, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142.preheader
+  %.1103 = phi i32 [ %69, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142.preheader ], [ %203, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142.backedge ]
   %188 = icmp slt i32 %.1103, -1
-  %.pre.i146 = load i16, ptr %51, align 8, !tbaa !19
+  %.pre.i143 = load i16, ptr %51, align 8, !tbaa !19
   br i1 %188, label %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i, label %189
 
-._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i: ; preds = %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145
+._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i: ; preds = %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142
   %.pre4.i = load i32, ptr %52, align 4
-  %.pre5.i = ashr i16 %.pre.i146, 5
+  %.pre5.i = ashr i16 %.pre.i143, 5
   %.pre6.i = sext i16 %.pre5.i to i32
   br label %_ZNK6icu_7713UnicodeString7indexOfEDsi.exit
 
-189:                                              ; preds = %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145
+189:                                              ; preds = %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142
   %190 = add nsw i32 %.1103, 1
-  %191 = icmp slt i16 %.pre.i146, 0
-  %192 = ashr i16 %.pre.i146, 5
+  %191 = icmp slt i16 %.pre.i143, 0
+  %192 = ashr i16 %.pre.i143, 5
   %193 = sext i16 %192 to i32
   %194 = load i32, ptr %52, align 4
   %195 = select i1 %191, i32 %194, i32 %193
@@ -1211,7 +1207,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit:      ; preds = %._ZNK6icu_7713Unico
   %.pre-phi7.i = phi i32 [ %.pre6.i, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i ], [ %193, %189 ]
   %196 = phi i32 [ %.pre4.i, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i ], [ %194, %189 ]
   %.0.i = phi i32 [ 0, %._ZNK6icu_7713UnicodeString8pinIndexERi.exit_crit_edge.i ], [ %spec.select.i, %189 ]
-  %197 = icmp slt i16 %.pre.i146, 0
+  %197 = icmp slt i16 %.pre.i143, 0
   %198 = select i1 %197, i32 %196, i32 %.pre-phi7.i
   %199 = sub nsw i32 %198, %.0.i
   %200 = tail call noundef i32 @_ZNK6icu_7713UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %50, i16 noundef zeroext 39, i32 noundef %.0.i, i32 noundef %199)
@@ -1227,34 +1223,34 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit:      ; preds = %._ZNK6icu_7713Unico
   %208 = load i32, ptr %52, align 4
   %209 = select i1 %205, i32 %208, i32 %207
   %210 = icmp ult i32 %203, %209
-  br i1 %210, label %_ZNK6icu_7713UnicodeString6charAtEi.exit149, label %_ZNK6icu_7713UnicodeString6charAtEi.exit149.thread
+  br i1 %210, label %_ZNK6icu_7713UnicodeString6charAtEi.exit146, label %_ZNK6icu_7713UnicodeString6charAtEi.exit146.thread
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit149:      ; preds = %202
+_ZNK6icu_7713UnicodeString6charAtEi.exit146:      ; preds = %202
   %211 = and i16 %204, 2
-  %.not.i.i.i148 = icmp eq i16 %211, 0
+  %.not.i.i.i145 = icmp eq i16 %211, 0
   %212 = load ptr, ptr %54, align 8
-  %213 = select i1 %.not.i.i.i148, ptr %212, ptr %53
+  %213 = select i1 %.not.i.i.i145, ptr %212, ptr %53
   %214 = zext nneg i32 %203 to i64
   %215 = getelementptr inbounds nuw i16, ptr %213, i64 %214
   %216 = load i16, ptr %215, align 2, !tbaa !30
   %217 = icmp eq i16 %216, 39
-  br i1 %217, label %218, label %_ZNK6icu_7713UnicodeString6charAtEi.exit149.thread
+  br i1 %217, label %218, label %_ZNK6icu_7713UnicodeString6charAtEi.exit146.thread
 
-218:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit149
+218:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit146
   %219 = load ptr, ptr %16, align 8, !tbaa !22
   %220 = load i32, ptr %14, align 8, !tbaa !32
   %221 = load i32, ptr %6, align 4, !tbaa !20
   %222 = icmp slt i32 %221, 1
-  br i1 %222, label %223, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145.backedge
+  br i1 %222, label %223, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142.backedge
 
-_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145.backedge: ; preds = %218, %242, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i157
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145, !llvm.loop !52
+_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142.backedge: ; preds = %218, %242, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i153
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142, !llvm.loop !52
 
 223:                                              ; preds = %218
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %225 = load i32, ptr %224, align 8, !tbaa !25
   %226 = icmp sgt i32 %225, %220
-  br i1 %226, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i157, label %227
+  br i1 %226, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i153, label %227
 
 227:                                              ; preds = %223
   %228 = shl nsw i32 %220, 1
@@ -1265,41 +1261,40 @@ _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exi
   %231 = zext nneg i32 %228 to i64
   %232 = shl nuw nsw i64 %231, 4
   %233 = tail call noalias ptr @uprv_malloc_77(i64 noundef %232) #19
-  %.not.i.i.i150 = icmp eq ptr %233, null
-  br i1 %.not.i.i.i150, label %242, label %234
+  %.not.i.i.i147 = icmp eq ptr %233, null
+  br i1 %.not.i.i.i147, label %242, label %234
 
 234:                                              ; preds = %230
   %235 = load i32, ptr %224, align 8, !tbaa !25
-  %spec.select.i.i.i151 = tail call i32 @llvm.smin.i32(i32 %220, i32 %235)
-  %.1.i.i.i152 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i151, i32 %228)
+  %spec.select.i.i.i148 = tail call i32 @llvm.smin.i32(i32 %220, i32 %235)
   %236 = load ptr, ptr %219, align 8, !tbaa !23
-  %237 = sext i32 %.1.i.i.i152 to i64
+  %237 = sext i32 %spec.select.i.i.i148 to i64
   %238 = shl nsw i64 %237, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %233, ptr align 4 %236, i64 %238, i1 false)
   %239 = getelementptr inbounds nuw i8, ptr %219, i64 12
   %240 = load i8, ptr %239, align 4, !tbaa !41
-  %.not.i.i.i.i153 = icmp eq i8 %240, 0
-  br i1 %.not.i.i.i.i153, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i154, label %241
+  %.not.i.i.i.i149 = icmp eq i8 %240, 0
+  br i1 %.not.i.i.i.i149, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i150, label %241
 
 241:                                              ; preds = %234
   tail call void @uprv_free_77(ptr noundef %236)
-  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i154
+  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i150
 
-_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i154: ; preds = %241, %234
+_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i150: ; preds = %241, %234
   store ptr %233, ptr %219, align 8, !tbaa !23
   store i32 %228, ptr %224, align 8, !tbaa !25
   store i8 1, ptr %239, align 4, !tbaa !41
-  %.pre.i155 = load ptr, ptr %16, align 8, !tbaa !22
-  %.pre12.i156 = load i32, ptr %14, align 8, !tbaa !32
-  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i157
+  %.pre.i151 = load ptr, ptr %16, align 8, !tbaa !22
+  %.pre12.i152 = load i32, ptr %14, align 8, !tbaa !32
+  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i153
 
 242:                                              ; preds = %230, %227
   store i32 7, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145.backedge
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142.backedge
 
-_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i157: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i154, %223
-  %243 = phi i32 [ %.pre12.i156, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i154 ], [ %220, %223 ]
-  %244 = phi ptr [ %.pre.i155, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i154 ], [ %219, %223 ]
+_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i153: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i150, %223
+  %243 = phi i32 [ %.pre12.i152, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i150 ], [ %220, %223 ]
+  %244 = phi ptr [ %.pre.i151, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i150 ], [ %219, %223 ]
   %245 = add nsw i32 %243, 1
   store i32 %245, ptr %14, align 8, !tbaa !32
   %246 = sext i32 %243 to i64
@@ -1314,20 +1309,20 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i16 0, ptr %251, align 2, !tbaa !50
   %252 = getelementptr inbounds nuw i8, ptr %248, i64 12
   store i32 0, ptr %252, align 4, !tbaa !51
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit145.backedge
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit142.backedge
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit149.thread: ; preds = %202, %_ZNK6icu_7713UnicodeString6charAtEi.exit149
+_ZNK6icu_7713UnicodeString6charAtEi.exit146.thread: ; preds = %202, %_ZNK6icu_7713UnicodeString6charAtEi.exit146
   %253 = load ptr, ptr %16, align 8, !tbaa !22
   %254 = load i32, ptr %14, align 8, !tbaa !32
   %255 = load i32, ptr %6, align 4, !tbaa !20
   %256 = icmp slt i32 %255, 1
-  br i1 %256, label %257, label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206
+  br i1 %256, label %257, label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197
 
-257:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit149.thread
+257:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit146.thread
   %258 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %259 = load i32, ptr %258, align 8, !tbaa !25
   %260 = icmp sgt i32 %259, %254
-  br i1 %260, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i166, label %261
+  br i1 %260, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i161, label %261
 
 261:                                              ; preds = %257
   %262 = shl nsw i32 %254, 1
@@ -1338,41 +1333,40 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit149.thread: ; preds = %202, %_ZNK6icu_77
   %265 = zext nneg i32 %262 to i64
   %266 = shl nuw nsw i64 %265, 4
   %267 = tail call noalias ptr @uprv_malloc_77(i64 noundef %266) #19
-  %.not.i.i.i159 = icmp eq ptr %267, null
-  br i1 %.not.i.i.i159, label %276, label %268
+  %.not.i.i.i155 = icmp eq ptr %267, null
+  br i1 %.not.i.i.i155, label %276, label %268
 
 268:                                              ; preds = %264
   %269 = load i32, ptr %258, align 8, !tbaa !25
-  %spec.select.i.i.i160 = tail call i32 @llvm.smin.i32(i32 %254, i32 %269)
-  %.1.i.i.i161 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i160, i32 %262)
+  %spec.select.i.i.i156 = tail call i32 @llvm.smin.i32(i32 %254, i32 %269)
   %270 = load ptr, ptr %253, align 8, !tbaa !23
-  %271 = sext i32 %.1.i.i.i161 to i64
+  %271 = sext i32 %spec.select.i.i.i156 to i64
   %272 = shl nsw i64 %271, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %267, ptr align 4 %270, i64 %272, i1 false)
   %273 = getelementptr inbounds nuw i8, ptr %253, i64 12
   %274 = load i8, ptr %273, align 4, !tbaa !41
-  %.not.i.i.i.i162 = icmp eq i8 %274, 0
-  br i1 %.not.i.i.i.i162, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i163, label %275
+  %.not.i.i.i.i157 = icmp eq i8 %274, 0
+  br i1 %.not.i.i.i.i157, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i158, label %275
 
 275:                                              ; preds = %268
   tail call void @uprv_free_77(ptr noundef %270)
-  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i163
+  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i158
 
-_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i163: ; preds = %275, %268
+_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i158: ; preds = %275, %268
   store ptr %267, ptr %253, align 8, !tbaa !23
   store i32 %262, ptr %258, align 8, !tbaa !25
   store i8 1, ptr %273, align 4, !tbaa !41
-  %.pre.i164 = load ptr, ptr %16, align 8, !tbaa !22
-  %.pre12.i165 = load i32, ptr %14, align 8, !tbaa !32
-  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i166
+  %.pre.i159 = load ptr, ptr %16, align 8, !tbaa !22
+  %.pre12.i160 = load i32, ptr %14, align 8, !tbaa !32
+  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i161
 
 276:                                              ; preds = %264, %261
   store i32 7, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206
+  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197
 
-_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i166: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i163, %257
-  %277 = phi i32 [ %.pre12.i165, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i163 ], [ %254, %257 ]
-  %278 = phi ptr [ %.pre.i164, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i163 ], [ %253, %257 ]
+_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i161: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i158, %257
+  %277 = phi i32 [ %.pre12.i160, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i158 ], [ %254, %257 ]
+  %278 = phi ptr [ %.pre.i159, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i158 ], [ %253, %257 ]
   %279 = add nsw i32 %277, 1
   store i32 %279, ptr %14, align 8, !tbaa !32
   %280 = sext i32 %277 to i64
@@ -1387,7 +1381,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i16 0, ptr %285, align 2, !tbaa !50
   %286 = getelementptr inbounds nuw i8, ptr %282, i64 12
   store i32 0, ptr %286, align 4, !tbaa !51
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134
 
 287:                                              ; preds = %_ZNK6icu_7713UnicodeString7indexOfEDsi.exit
   %288 = load i16, ptr %51, align 8, !tbaa !19
@@ -1400,13 +1394,13 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %295 = load i32, ptr %14, align 8, !tbaa !32
   %296 = load i32, ptr %6, align 4, !tbaa !20
   %297 = icmp slt i32 %296, 1
-  br i1 %297, label %298, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit176
+  br i1 %297, label %298, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit170
 
 298:                                              ; preds = %287
   %299 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %300 = load i32, ptr %299, align 8, !tbaa !25
   %301 = icmp sgt i32 %300, %295
-  br i1 %301, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i175, label %302
+  br i1 %301, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i169, label %302
 
 302:                                              ; preds = %298
   %303 = shl nsw i32 %295, 1
@@ -1417,41 +1411,40 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %306 = zext nneg i32 %303 to i64
   %307 = shl nuw nsw i64 %306, 4
   %308 = tail call noalias ptr @uprv_malloc_77(i64 noundef %307) #19
-  %.not.i.i.i168 = icmp eq ptr %308, null
-  br i1 %.not.i.i.i168, label %317, label %309
+  %.not.i.i.i163 = icmp eq ptr %308, null
+  br i1 %.not.i.i.i163, label %317, label %309
 
 309:                                              ; preds = %305
   %310 = load i32, ptr %299, align 8, !tbaa !25
-  %spec.select.i.i.i169 = tail call i32 @llvm.smin.i32(i32 %295, i32 %310)
-  %.1.i.i.i170 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i169, i32 %303)
+  %spec.select.i.i.i164 = tail call i32 @llvm.smin.i32(i32 %295, i32 %310)
   %311 = load ptr, ptr %294, align 8, !tbaa !23
-  %312 = sext i32 %.1.i.i.i170 to i64
+  %312 = sext i32 %spec.select.i.i.i164 to i64
   %313 = shl nsw i64 %312, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %308, ptr align 4 %311, i64 %313, i1 false)
   %314 = getelementptr inbounds nuw i8, ptr %294, i64 12
   %315 = load i8, ptr %314, align 4, !tbaa !41
-  %.not.i.i.i.i171 = icmp eq i8 %315, 0
-  br i1 %.not.i.i.i.i171, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i172, label %316
+  %.not.i.i.i.i165 = icmp eq i8 %315, 0
+  br i1 %.not.i.i.i.i165, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i166, label %316
 
 316:                                              ; preds = %309
   tail call void @uprv_free_77(ptr noundef %311)
-  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i172
+  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i166
 
-_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i172: ; preds = %316, %309
+_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i166: ; preds = %316, %309
   store ptr %308, ptr %294, align 8, !tbaa !23
   store i32 %303, ptr %299, align 8, !tbaa !25
   store i8 1, ptr %314, align 4, !tbaa !41
-  %.pre.i173 = load ptr, ptr %16, align 8, !tbaa !22
-  %.pre12.i174 = load i32, ptr %14, align 8, !tbaa !32
-  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i175
+  %.pre.i167 = load ptr, ptr %16, align 8, !tbaa !22
+  %.pre12.i168 = load i32, ptr %14, align 8, !tbaa !32
+  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i169
 
 317:                                              ; preds = %305, %302
   store i32 7, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit176
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit170
 
-_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i175: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i172, %298
-  %318 = phi i32 [ %.pre12.i174, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i172 ], [ %295, %298 ]
-  %319 = phi ptr [ %.pre.i173, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i172 ], [ %294, %298 ]
+_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i169: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i166, %298
+  %318 = phi i32 [ %.pre12.i168, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i166 ], [ %295, %298 ]
+  %319 = phi ptr [ %.pre.i167, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i166 ], [ %294, %298 ]
   %320 = add nsw i32 %318, 1
   store i32 %320, ptr %14, align 8, !tbaa !32
   %321 = sext i32 %318 to i64
@@ -1466,11 +1459,11 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i16 39, ptr %326, align 2, !tbaa !50
   %327 = getelementptr inbounds nuw i8, ptr %323, i64 12
   store i32 0, ptr %327, align 4, !tbaa !51
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit176
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit170
 
-_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit176: ; preds = %287, %317, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i175
+_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit170: ; preds = %287, %317, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i169
   store i8 1, ptr %60, align 2, !tbaa !39
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134
 
 328:                                              ; preds = %153
   %329 = load ptr, ptr %16, align 8, !tbaa !22
@@ -1478,7 +1471,7 @@ _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exi
   %331 = getelementptr inbounds nuw i8, ptr %329, i64 8
   %332 = load i32, ptr %331, align 8, !tbaa !25
   %333 = icmp sgt i32 %332, %330
-  br i1 %333, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i184, label %334
+  br i1 %333, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i177, label %334
 
 334:                                              ; preds = %328
   %335 = shl nsw i32 %330, 1
@@ -1489,41 +1482,40 @@ _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exi
   %338 = zext nneg i32 %335 to i64
   %339 = shl nuw nsw i64 %338, 4
   %340 = tail call noalias ptr @uprv_malloc_77(i64 noundef %339) #19
-  %.not.i.i.i177 = icmp eq ptr %340, null
-  br i1 %.not.i.i.i177, label %349, label %341
+  %.not.i.i.i171 = icmp eq ptr %340, null
+  br i1 %.not.i.i.i171, label %349, label %341
 
 341:                                              ; preds = %337
   %342 = load i32, ptr %331, align 8, !tbaa !25
-  %spec.select.i.i.i178 = tail call i32 @llvm.smin.i32(i32 %330, i32 %342)
-  %.1.i.i.i179 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i178, i32 %335)
+  %spec.select.i.i.i172 = tail call i32 @llvm.smin.i32(i32 %330, i32 %342)
   %343 = load ptr, ptr %329, align 8, !tbaa !23
-  %344 = sext i32 %.1.i.i.i179 to i64
+  %344 = sext i32 %spec.select.i.i.i172 to i64
   %345 = shl nsw i64 %344, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %340, ptr align 4 %343, i64 %345, i1 false)
   %346 = getelementptr inbounds nuw i8, ptr %329, i64 12
   %347 = load i8, ptr %346, align 4, !tbaa !41
-  %.not.i.i.i.i180 = icmp eq i8 %347, 0
-  br i1 %.not.i.i.i.i180, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i181, label %348
+  %.not.i.i.i.i173 = icmp eq i8 %347, 0
+  br i1 %.not.i.i.i.i173, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i174, label %348
 
 348:                                              ; preds = %341
   tail call void @uprv_free_77(ptr noundef %343)
-  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i181
+  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i174
 
-_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i181: ; preds = %348, %341
+_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i174: ; preds = %348, %341
   store ptr %340, ptr %329, align 8, !tbaa !23
   store i32 %335, ptr %331, align 8, !tbaa !25
   store i8 1, ptr %346, align 4, !tbaa !41
-  %.pre.i182 = load ptr, ptr %16, align 8, !tbaa !22
-  %.pre12.i183 = load i32, ptr %14, align 8, !tbaa !32
-  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i184
+  %.pre.i175 = load ptr, ptr %16, align 8, !tbaa !22
+  %.pre12.i176 = load i32, ptr %14, align 8, !tbaa !32
+  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i177
 
 349:                                              ; preds = %337, %334
   store i32 7, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit185
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit178
 
-_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i184: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i181, %328
-  %350 = phi i32 [ %.pre12.i183, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i181 ], [ %330, %328 ]
-  %351 = phi ptr [ %.pre.i182, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i181 ], [ %329, %328 ]
+_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i177: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i174, %328
+  %350 = phi i32 [ %.pre12.i176, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i174 ], [ %330, %328 ]
+  %351 = phi ptr [ %.pre.i175, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i174 ], [ %329, %328 ]
   %352 = add nsw i32 %350, 1
   store i32 %352, ptr %14, align 8, !tbaa !32
   %353 = sext i32 %350 to i64
@@ -1538,11 +1530,11 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i16 39, ptr %358, align 2, !tbaa !50
   %359 = getelementptr inbounds nuw i8, ptr %355, i64 12
   store i32 0, ptr %359, align 4, !tbaa !51
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit185
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit178
 
-_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit185: ; preds = %349, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i184
+_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit178: ; preds = %349, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i177
   store i8 1, ptr %60, align 2, !tbaa !39
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134
 
 360:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
   %361 = icmp eq i16 %76, 35
@@ -1555,7 +1547,7 @@ _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exi
   %365 = getelementptr inbounds nuw i8, ptr %363, i64 8
   %366 = load i32, ptr %365, align 8, !tbaa !25
   %367 = icmp sgt i32 %366, %364
-  br i1 %367, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i193, label %368
+  br i1 %367, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i185, label %368
 
 368:                                              ; preds = %362
   %369 = shl nsw i32 %364, 1
@@ -1566,41 +1558,40 @@ _ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exi
   %372 = zext nneg i32 %369 to i64
   %373 = shl nuw nsw i64 %372, 4
   %374 = tail call noalias ptr @uprv_malloc_77(i64 noundef %373) #19
-  %.not.i.i.i186 = icmp eq ptr %374, null
-  br i1 %.not.i.i.i186, label %383, label %375
+  %.not.i.i.i179 = icmp eq ptr %374, null
+  br i1 %.not.i.i.i179, label %383, label %375
 
 375:                                              ; preds = %371
   %376 = load i32, ptr %365, align 8, !tbaa !25
-  %spec.select.i.i.i187 = tail call i32 @llvm.smin.i32(i32 %364, i32 %376)
-  %.1.i.i.i188 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i187, i32 %369)
+  %spec.select.i.i.i180 = tail call i32 @llvm.smin.i32(i32 %364, i32 %376)
   %377 = load ptr, ptr %363, align 8, !tbaa !23
-  %378 = sext i32 %.1.i.i.i188 to i64
+  %378 = sext i32 %spec.select.i.i.i180 to i64
   %379 = shl nsw i64 %378, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %374, ptr align 4 %377, i64 %379, i1 false)
   %380 = getelementptr inbounds nuw i8, ptr %363, i64 12
   %381 = load i8, ptr %380, align 4, !tbaa !41
-  %.not.i.i.i.i189 = icmp eq i8 %381, 0
-  br i1 %.not.i.i.i.i189, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i190, label %382
+  %.not.i.i.i.i181 = icmp eq i8 %381, 0
+  br i1 %.not.i.i.i.i181, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i182, label %382
 
 382:                                              ; preds = %375
   tail call void @uprv_free_77(ptr noundef %377)
-  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i190
+  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i182
 
-_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i190: ; preds = %382, %375
+_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i182: ; preds = %382, %375
   store ptr %374, ptr %363, align 8, !tbaa !23
   store i32 %369, ptr %365, align 8, !tbaa !25
   store i8 1, ptr %380, align 4, !tbaa !41
-  %.pre.i191 = load ptr, ptr %16, align 8, !tbaa !22
-  %.pre12.i192 = load i32, ptr %14, align 8, !tbaa !32
-  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i193
+  %.pre.i183 = load ptr, ptr %16, align 8, !tbaa !22
+  %.pre12.i184 = load i32, ptr %14, align 8, !tbaa !32
+  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i185
 
 383:                                              ; preds = %371, %368
   store i32 7, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206
+  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197
 
-_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i193: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i190, %362
-  %384 = phi i32 [ %.pre12.i192, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i190 ], [ %364, %362 ]
-  %385 = phi ptr [ %.pre.i191, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i190 ], [ %363, %362 ]
+_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i185: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i182, %362
+  %384 = phi i32 [ %.pre12.i184, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i182 ], [ %364, %362 ]
+  %385 = phi ptr [ %.pre.i183, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i182 ], [ %363, %362 ]
   %386 = add nsw i32 %384, 1
   store i32 %386, ptr %14, align 8, !tbaa !32
   %387 = sext i32 %384 to i64
@@ -1608,30 +1599,30 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %389 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %388, i64 %387
   store i32 4, ptr %389, align 4, !tbaa !44
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 4
-  store i32 %.0102236, ptr %390, align 4, !tbaa !48
+  store i32 %.0102227, ptr %390, align 4, !tbaa !48
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 8
   store i16 1, ptr %391, align 4, !tbaa !49
   %392 = getelementptr inbounds nuw i8, ptr %389, i64 10
   store i16 0, ptr %392, align 2, !tbaa !50
   %393 = getelementptr inbounds nuw i8, ptr %389, i64 12
   store i32 0, ptr %393, align 4, !tbaa !51
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134
 
 394:                                              ; preds = %360
   %395 = icmp eq i16 %76, 123
   br i1 %395, label %396, label %398
 
 396:                                              ; preds = %394
-  %397 = tail call noundef i32 @_ZN6icu_7714MessagePattern8parseArgEiiiP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %.0102236, i32 noundef 1, i32 noundef %3, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136
+  %397 = tail call noundef i32 @_ZN6icu_7714MessagePattern8parseArgEiiiP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %.0102227, i32 noundef 1, i32 noundef %3, ptr noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134
 
 398:                                              ; preds = %394
   %399 = icmp eq i16 %76, 125
   %or.cond21 = and i1 %57, %399
   %400 = icmp eq i16 %76, 124
   %or.cond24 = and i1 %58, %400
-  %or.cond237 = or i1 %or.cond21, %or.cond24
-  br i1 %or.cond237, label %401, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136
+  %or.cond228 = or i1 %or.cond21, %or.cond24
+  br i1 %or.cond228, label %401, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134
 
 401:                                              ; preds = %398
   %402 = and i1 %58, %399
@@ -1656,15 +1647,14 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %415 = zext nneg i32 %412 to i64
   %416 = shl nuw nsw i64 %415, 4
   %417 = tail call noalias ptr @uprv_malloc_77(i64 noundef %416) #19
-  %.not.i.i.i.i195 = icmp eq ptr %417, null
-  br i1 %.not.i.i.i.i195, label %426, label %418
+  %.not.i.i.i.i187 = icmp eq ptr %417, null
+  br i1 %.not.i.i.i.i187, label %426, label %418
 
 418:                                              ; preds = %414
   %419 = load i32, ptr %408, align 8, !tbaa !25
   %spec.select.i.i.i.i = tail call i32 @llvm.smin.i32(i32 %403, i32 %419)
-  %.1.i.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i.i, i32 %412)
   %420 = load ptr, ptr %404, align 8, !tbaa !23
-  %421 = sext i32 %.1.i.i.i.i to i64
+  %421 = sext i32 %spec.select.i.i.i.i to i64
   %422 = shl nsw i64 %421, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %417, ptr align 4 %420, i64 %422, i1 false)
   %423 = getelementptr inbounds nuw i8, ptr %404, i64 12
@@ -1682,15 +1672,15 @@ _ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i
   store i8 1, ptr %423, align 4, !tbaa !41
   %.pre.i.i = load ptr, ptr %16, align 8, !tbaa !22
   %.pre12.i.i = load i32, ptr %14, align 8, !tbaa !32
-  %.pre.i196 = load ptr, ptr %.pre.i.i, align 8, !tbaa !23
+  %.pre.i188 = load ptr, ptr %.pre.i.i, align 8, !tbaa !23
   br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i
 
 426:                                              ; preds = %414, %411
   store i32 7, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136.thread
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134.thread
 
 _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i, %401
-  %427 = phi ptr [ %.pre.i196, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i ], [ %406, %401 ]
+  %427 = phi ptr [ %.pre.i188, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i ], [ %406, %401 ]
   %428 = phi i32 [ %.pre12.i.i, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i ], [ %403, %401 ]
   %429 = add nsw i32 %428, 1
   store i32 %429, ptr %14, align 8, !tbaa !32
@@ -1698,7 +1688,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %431 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %427, i64 %430
   store i32 1, ptr %431, align 4, !tbaa !44
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 4
-  store i32 %.0102236, ptr %432, align 4, !tbaa !48
+  store i32 %.0102227, ptr %432, align 4, !tbaa !48
   %433 = zext i1 %not. to i16
   %434 = getelementptr inbounds nuw i8, ptr %431, i64 8
   store i16 %433, ptr %434, align 4, !tbaa !49
@@ -1707,24 +1697,24 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i16 %435, ptr %436, align 2, !tbaa !50
   %437 = getelementptr inbounds nuw i8, ptr %431, i64 12
   store i32 0, ptr %437, align 4, !tbaa !51
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136.thread
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134.thread
 
-_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136.thread: ; preds = %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i, %426
-  %.0102. = select i1 %58, i32 %.0102236, i32 %69
-  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206
+_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134.thread: ; preds = %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i, %426
+  %.0102. = select i1 %58, i32 %.0102227, i32 %69
+  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197
 
-_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136: ; preds = %398, %68, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i193, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i166, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i135, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit176, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit185, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit124, %396
-  %.3105.ph = phi i32 [ %69, %398 ], [ %69, %68 ], [ %69, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i193 ], [ %203, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i166 ], [ %119, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i135 ], [ %397, %396 ], [ %69, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit185 ], [ %293, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit176 ], [ %67, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit124 ]
+_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134: ; preds = %398, %68, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i185, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i161, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i133, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit170, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit178, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit123, %396
+  %.3105.ph = phi i32 [ %69, %398 ], [ %69, %68 ], [ %69, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i185 ], [ %203, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i161 ], [ %119, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i133 ], [ %397, %396 ], [ %69, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit178 ], [ %293, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit170 ], [ %67, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit123 ]
   %.pr = load i32, ptr %6, align 4, !tbaa !20
   %438 = icmp slt i32 %.pr, 1
-  br i1 %438, label %61, label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206, !llvm.loop !54
+  br i1 %438, label %61, label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197, !llvm.loop !54
 
 439:                                              ; preds = %61
   br i1 %57, label %440, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %439
-  %.pre244 = load ptr, ptr %16, align 8, !tbaa !22
-  %.pre245 = load ptr, ptr %.pre244, align 8, !tbaa !23
+  %.pre235 = load ptr, ptr %16, align 8, !tbaa !22
+  %.pre236 = load ptr, ptr %.pre235, align 8, !tbaa !23
   br label %445
 
 440:                                              ; preds = %439
@@ -1742,11 +1732,11 @@ _ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.ex
 _ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.exit.thread: ; preds = %440, %_ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.exit
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %5, i32 noundef 0)
   store i32 65801, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206
+  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197
 
 445:                                              ; preds = %._crit_edge, %_ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.exit
-  %446 = phi ptr [ %.pre245, %._crit_edge ], [ %443, %_ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.exit ]
-  %447 = phi ptr [ %.pre244, %._crit_edge ], [ %442, %_ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.exit ]
+  %446 = phi ptr [ %.pre236, %._crit_edge ], [ %443, %_ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.exit ]
+  %447 = phi ptr [ %.pre235, %._crit_edge ], [ %442, %_ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.exit ]
   %448 = load i32, ptr %14, align 8, !tbaa !32
   %449 = sext i32 %15 to i64
   %450 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %446, i64 %449, i32 4
@@ -1754,7 +1744,7 @@ _ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.ex
   %451 = getelementptr inbounds nuw i8, ptr %447, i64 8
   %452 = load i32, ptr %451, align 8, !tbaa !25
   %453 = icmp sgt i32 %452, %448
-  br i1 %453, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i205, label %454
+  br i1 %453, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i196, label %454
 
 454:                                              ; preds = %445
   %455 = shl nsw i32 %448, 1
@@ -1765,49 +1755,48 @@ _ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.ex
   %458 = zext nneg i32 %455 to i64
   %459 = shl nuw nsw i64 %458, 4
   %460 = tail call noalias ptr @uprv_malloc_77(i64 noundef %459) #19
-  %.not.i.i.i.i197 = icmp eq ptr %460, null
-  br i1 %.not.i.i.i.i197, label %469, label %461
+  %.not.i.i.i.i189 = icmp eq ptr %460, null
+  br i1 %.not.i.i.i.i189, label %469, label %461
 
 461:                                              ; preds = %457
   %462 = load i32, ptr %451, align 8, !tbaa !25
-  %spec.select.i.i.i.i198 = tail call i32 @llvm.smin.i32(i32 %448, i32 %462)
-  %.1.i.i.i.i199 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i.i198, i32 %455)
+  %spec.select.i.i.i.i190 = tail call i32 @llvm.smin.i32(i32 %448, i32 %462)
   %463 = load ptr, ptr %447, align 8, !tbaa !23
-  %464 = sext i32 %.1.i.i.i.i199 to i64
+  %464 = sext i32 %spec.select.i.i.i.i190 to i64
   %465 = shl nsw i64 %464, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %460, ptr align 4 %463, i64 %465, i1 false)
   %466 = getelementptr inbounds nuw i8, ptr %447, i64 12
   %467 = load i8, ptr %466, align 4, !tbaa !41
-  %.not.i.i.i.i.i200 = icmp eq i8 %467, 0
-  br i1 %.not.i.i.i.i.i200, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i201, label %468
+  %.not.i.i.i.i.i191 = icmp eq i8 %467, 0
+  br i1 %.not.i.i.i.i.i191, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i192, label %468
 
 468:                                              ; preds = %461
   tail call void @uprv_free_77(ptr noundef %463)
-  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i201
+  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i192
 
-_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i201: ; preds = %468, %461
+_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i192: ; preds = %468, %461
   store ptr %460, ptr %447, align 8, !tbaa !23
   store i32 %455, ptr %451, align 8, !tbaa !25
   store i8 1, ptr %466, align 4, !tbaa !41
-  %.pre.i.i202 = load ptr, ptr %16, align 8, !tbaa !22
-  %.pre12.i.i203 = load i32, ptr %14, align 8, !tbaa !32
-  %.pre.i204 = load ptr, ptr %.pre.i.i202, align 8, !tbaa !23
-  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i205
+  %.pre.i.i193 = load ptr, ptr %16, align 8, !tbaa !22
+  %.pre12.i.i194 = load i32, ptr %14, align 8, !tbaa !32
+  %.pre.i195 = load ptr, ptr %.pre.i.i193, align 8, !tbaa !23
+  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i196
 
 469:                                              ; preds = %457, %454
   store i32 7, ptr %6, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206
+  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197
 
-_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i205: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i201, %445
-  %470 = phi ptr [ %.pre.i204, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i201 ], [ %446, %445 ]
-  %471 = phi i32 [ %.pre12.i.i203, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i201 ], [ %448, %445 ]
+_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i196: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i192, %445
+  %470 = phi ptr [ %.pre.i195, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i192 ], [ %446, %445 ]
+  %471 = phi i32 [ %.pre12.i.i194, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i.i192 ], [ %448, %445 ]
   %472 = add nsw i32 %471, 1
   store i32 %472, ptr %14, align 8, !tbaa !32
   %473 = sext i32 %471 to i64
   %474 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %470, i64 %473
   store i32 1, ptr %474, align 4, !tbaa !44
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 4
-  store i32 %.0102236, ptr %475, align 4, !tbaa !48
+  store i32 %.0102227, ptr %475, align 4, !tbaa !48
   %476 = getelementptr inbounds nuw i8, ptr %474, i64 8
   store i16 0, ptr %476, align 4, !tbaa !49
   %477 = trunc i32 %3 to i16
@@ -1815,10 +1804,10 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i16 %477, ptr %478, align 2, !tbaa !50
   %479 = getelementptr inbounds nuw i8, ptr %474, i64 12
   store i32 0, ptr %479, align 4, !tbaa !51
-  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206
+  br label %_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197
 
-_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit206: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit149.thread, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136, %140, %276, %383, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i205, %469, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136.thread, %_ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.exit.thread, %7, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %7 ], [ 0, %_ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.exit.thread ], [ %.0102., %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136.thread ], [ %.0102236, %469 ], [ %.0102236, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i205 ], [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit ], [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread ], [ 0, %383 ], [ 0, %276 ], [ 0, %140 ], [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit136 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit149.thread ]
+_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode.exit197: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit146.thread, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134, %140, %276, %383, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i196, %469, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134.thread, %_ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.exit.thread, %7, %12
+  %.0 = phi i32 [ 0, %12 ], [ 0, %7 ], [ 0, %_ZN6icu_7714MessagePattern23inTopLevelChoiceMessageEi22UMessagePatternArgType.exit.thread ], [ %.0102., %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134.thread ], [ %.0102227, %469 ], [ %.0102227, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i.i196 ], [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit ], [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread ], [ 0, %383 ], [ 0, %276 ], [ 0, %140 ], [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit134 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit146.thread ]
   ret i32 %.0
 }
 
@@ -2223,9 +2212,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit80.thread: ; preds = %141, %_ZNK6icu_771
 165:                                              ; preds = %161
   %166 = load i32, ptr %155, align 8, !tbaa !25
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %151, i32 %166)
-  %.1.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %159)
   %167 = load ptr, ptr %150, align 8, !tbaa !23
-  %168 = sext i32 %.1.i.i.i to i64
+  %168 = sext i32 %spec.select.i.i.i to i64
   %169 = shl nsw i64 %168, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %164, ptr align 4 %167, i64 %169, i1 false)
   %170 = getelementptr inbounds nuw i8, ptr %150, i64 12
@@ -2401,7 +2389,7 @@ _ZN6icu_7714MessagePattern9postParseEv.exit:      ; preds = %23, %26
 define noundef i32 @_ZN6icu_7714MessagePattern24parsePluralOrSelectStyleE22UMessagePatternArgTypeiiP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = load i32, ptr %5, align 4, !tbaa !20
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %.preheader, label %.thread201
+  br i1 %8, label %.preheader, label %.thread200
 
 .preheader:                                       ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2432,8 +2420,8 @@ _ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit: ; preds = %_ZN6icu_7714Messag
   %21 = and i16 %19, 2
   %.not2.i.i = icmp eq i16 %21, 0
   %22 = load ptr, ptr %12, align 8
-  %spec.select282 = select i1 %.not2.i.i, ptr %22, ptr %11
-  %.0.i.i = select i1 %.not.i.i, ptr %spec.select282, ptr null
+  %spec.select281 = select i1 %.not2.i.i, ptr %22, ptr %11
+  %.0.i.i = select i1 %.not.i.i, ptr %spec.select281, ptr null
   %23 = icmp slt i16 %19, 0
   %24 = ashr i16 %19, 5
   %25 = sext i16 %24 to i32
@@ -2493,15 +2481,15 @@ _ZN6icu_7714MessagePattern22inMessageFormatPatternEi.exit: ; preds = %53, %55
 
 64:                                               ; preds = %_ZN6icu_7714MessagePattern22inMessageFormatPatternEi.exit
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %2)
-  br label %.thread201.sink.split
+  br label %.thread200.sink.split
 
 65:                                               ; preds = %_ZN6icu_7714MessagePattern22inMessageFormatPatternEi.exit
   %.not136 = icmp eq i8 %.0113.ph, 0
-  br i1 %.not136, label %66, label %.thread201
+  br i1 %.not136, label %66, label %.thread200
 
 66:                                               ; preds = %65
   %67 = icmp eq ptr %4, null
-  br i1 %67, label %.thread201.sink.split, label %68
+  br i1 %67, label %.thread200.sink.split, label %68
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2551,7 +2539,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i: ; preds = %_ZNK6i
   %90 = sext i32 %.1.i to i64
   %91 = getelementptr inbounds [16 x i16], ptr %89, i64 0, i64 %90
   store i16 0, ptr %91, align 2, !tbaa !30
-  br label %.thread201.sink.split
+  br label %.thread200.sink.split
 
 92:                                               ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i
   %93 = landingpad { ptr, i32 }
@@ -2574,15 +2562,15 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread._ZNK6icu_7713UnicodeString6charA
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit142.thread
 
 95:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
-  %.pre320 = load ptr, ptr %12, align 8
+  %.pre319 = load ptr, ptr %12, align 8
   br i1 %45, label %_ZNK6icu_7713UnicodeString6charAtEi.exit142, label %_ZNK6icu_7713UnicodeString6charAtEi.exit142.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit142:      ; preds = %95
   %96 = and i16 %37, 2
   %.not.i.i.i141 = icmp eq i16 %96, 0
-  %97 = select i1 %.not.i.i.i141, ptr %.pre320, ptr %11
-  %sext214 = shl i64 %34, 31
-  %98 = ashr i64 %sext214, 32
+  %97 = select i1 %.not.i.i.i141, ptr %.pre319, ptr %11
+  %sext213 = shl i64 %34, 31
+  %98 = ashr i64 %sext213, 32
   %99 = getelementptr inbounds i16, ptr %97, i64 %98
   %100 = load i16, ptr %99, align 2, !tbaa !30
   %101 = icmp eq i16 %100, 61
@@ -2649,7 +2637,7 @@ _ZN6icu_7714MessagePattern10skipDoubleEi.exit:    ; preds = %.thread39.i, %102, 
 
 120:                                              ; preds = %_ZN6icu_7714MessagePattern10skipDoubleEi.exit
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %2)
-  br label %.thread201.sink.split
+  br label %.thread200.sink.split
 
 121:                                              ; preds = %_ZN6icu_7714MessagePattern10skipDoubleEi.exit
   %122 = icmp sgt i32 %118, 65535
@@ -2657,7 +2645,7 @@ _ZN6icu_7714MessagePattern10skipDoubleEi.exit:    ; preds = %.thread39.i, %102, 
 
 123:                                              ; preds = %121
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %36)
-  br label %.thread201.sink.split
+  br label %.thread200.sink.split
 
 124:                                              ; preds = %121
   %125 = load ptr, ptr %16, align 8, !tbaa !22
@@ -2687,9 +2675,8 @@ _ZN6icu_7714MessagePattern10skipDoubleEi.exit:    ; preds = %.thread39.i, %102, 
 140:                                              ; preds = %136
   %141 = load i32, ptr %130, align 8, !tbaa !25
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %126, i32 %141)
-  %.1.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %134)
   %142 = load ptr, ptr %125, align 8, !tbaa !23
-  %143 = sext i32 %.1.i.i.i to i64
+  %143 = sext i32 %spec.select.i.i.i to i64
   %144 = shl nsw i64 %143, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %139, ptr align 4 %142, i64 %144, i1 false)
   %145 = getelementptr inbounds nuw i8, ptr %125, i64 12
@@ -2738,15 +2725,15 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   br label %282
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit142.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread._ZNK6icu_7713UnicodeString6charAtEi.exit142.thread_crit_edge, %95, %_ZNK6icu_7713UnicodeString6charAtEi.exit142
-  %161 = phi ptr [ %.pre, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread._ZNK6icu_7713UnicodeString6charAtEi.exit142.thread_crit_edge ], [ %.pre320, %95 ], [ %.pre320, %_ZNK6icu_7713UnicodeString6charAtEi.exit142 ]
+  %161 = phi ptr [ %.pre, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread._ZNK6icu_7713UnicodeString6charAtEi.exit142.thread_crit_edge ], [ %.pre319, %95 ], [ %.pre319, %_ZNK6icu_7713UnicodeString6charAtEi.exit142 ]
   %162 = and i16 %37, 17
   %.not.i.i145 = icmp eq i16 %162, 0
   %163 = and i16 %37, 2
   %.not2.i.i147 = icmp eq i16 %163, 0
-  %spec.select283 = select i1 %.not2.i.i147, ptr %161, ptr %11
-  %.0.i.i146 = select i1 %.not.i.i145, ptr %spec.select283, ptr null
-  %sext215 = shl i64 %34, 31
-  %164 = ashr i64 %sext215, 32
+  %spec.select282 = select i1 %.not2.i.i147, ptr %161, ptr %11
+  %.0.i.i146 = select i1 %.not.i.i145, ptr %spec.select282, ptr null
+  %sext214 = shl i64 %34, 31
+  %164 = ashr i64 %sext214, 32
   %165 = getelementptr inbounds i16, ptr %.0.i.i146, i64 %164
   %166 = sub nsw i32 %42, %36
   %167 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipIdentifierEPKDsi(ptr noundef %165, i32 noundef %166)
@@ -2761,7 +2748,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit142.thread: ; preds = %_ZNK6icu_7713Unic
 
 175:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit142.thread
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %2)
-  br label %.thread201.sink.split
+  br label %.thread200.sink.split
 
 176:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit142.thread
   %177 = icmp eq i32 %173, 6
@@ -2776,19 +2763,19 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit142.thread: ; preds = %_ZNK6icu_7713Unic
   %183 = load i32, ptr %10, align 4
   %184 = select i1 %180, i32 %183, i32 %182
   %185 = icmp sgt i32 %184, %172
-  br i1 %185, label %186, label %.thread189
+  br i1 %185, label %186, label %.thread188
 
 186:                                              ; preds = %178
   %187 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %13, i32 noundef %36, i32 noundef 7, ptr noundef nonnull @_ZN6icu_77L12kOffsetColonE, i32 noundef 0, i32 noundef 7)
   %188 = icmp eq i8 %187, 0
-  br i1 %188, label %189, label %.thread189
+  br i1 %188, label %189, label %.thread188
 
 189:                                              ; preds = %186
   br i1 %.not131, label %190, label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit151
 
 190:                                              ; preds = %189
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %2)
-  br label %.thread201.sink.split
+  br label %.thread200.sink.split
 
 _ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit151: ; preds = %189
   %191 = add nsw i32 %172, 1
@@ -2798,8 +2785,8 @@ _ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit151: ; preds = %189
   %194 = and i16 %192, 2
   %.not2.i.i150 = icmp eq i16 %194, 0
   %195 = load ptr, ptr %12, align 8
-  %spec.select284 = select i1 %.not2.i.i150, ptr %195, ptr %11
-  %.0.i.i149 = select i1 %.not.i.i148, ptr %spec.select284, ptr null
+  %spec.select283 = select i1 %.not2.i.i150, ptr %195, ptr %11
+  %.0.i.i149 = select i1 %.not.i.i148, ptr %spec.select283, ptr null
   %196 = icmp slt i16 %192, 0
   %197 = ashr i16 %192, 5
   %198 = sext i16 %197 to i32
@@ -2830,8 +2817,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph.i154: ; preds = %_ZN6icu_7714Mess
   %.not.i.i.i.i155 = icmp eq i16 %218, 0
   %219 = load ptr, ptr %12, align 8
   %220 = select i1 %.not.i.i.i.i155, ptr %219, ptr %11
-  %sext217 = shl i64 %207, 31
-  %221 = ashr i64 %sext217, 32
+  %sext216 = shl i64 %207, 31
+  %221 = ashr i64 %sext216, 32
   %222 = sext i32 %215 to i64
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i156
 
@@ -2883,7 +2870,7 @@ _ZN6icu_7714MessagePattern10skipDoubleEi.exit165: ; preds = %.thread39.i158, %.t
 
 _ZN6icu_7714MessagePattern10skipDoubleEi.exit165.thread: ; preds = %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit151, %_ZN6icu_7714MessagePattern10skipDoubleEi.exit165
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %2)
-  br label %.thread201.sink.split
+  br label %.thread200.sink.split
 
 234:                                              ; preds = %_ZN6icu_7714MessagePattern10skipDoubleEi.exit165
   %235 = sub nsw i32 %.031.lcssa.i153, %209
@@ -2892,34 +2879,34 @@ _ZN6icu_7714MessagePattern10skipDoubleEi.exit165.thread: ; preds = %_ZN6icu_7714
 
 237:                                              ; preds = %234
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %209)
-  br label %.thread201.sink.split
+  br label %.thread200.sink.split
 
 238:                                              ; preds = %234
   tail call void @_ZN6icu_7714MessagePattern11parseDoubleEiiaP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %209, i32 noundef %.031.lcssa.i153, i8 noundef signext 0, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %239 = load i32, ptr %5, align 4, !tbaa !20
   %240 = icmp slt i32 %239, 1
-  br i1 %240, label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit, label %.thread201, !llvm.loop !57
+  br i1 %240, label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit, label %.thread200, !llvm.loop !57
 
 241:                                              ; preds = %176
   %242 = icmp sgt i32 %173, 65535
-  br i1 %242, label %243, label %.thread189
+  br i1 %242, label %243, label %.thread188
 
 243:                                              ; preds = %241
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %36)
-  br label %.thread201.sink.split
+  br label %.thread200.sink.split
 
-.thread189:                                       ; preds = %178, %186, %241
+.thread188:                                       ; preds = %178, %186, %241
   %244 = load ptr, ptr %16, align 8, !tbaa !22
   %245 = load i32, ptr %17, align 8, !tbaa !32
   %246 = load i32, ptr %5, align 4, !tbaa !20
   %247 = icmp slt i32 %246, 1
   br i1 %247, label %248, label %279
 
-248:                                              ; preds = %.thread189
+248:                                              ; preds = %.thread188
   %249 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %250 = load i32, ptr %249, align 8, !tbaa !25
   %251 = icmp sgt i32 %250, %245
-  br i1 %251, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i173, label %252
+  br i1 %251, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i172, label %252
 
 252:                                              ; preds = %248
   %253 = shl nsw i32 %245, 1
@@ -2936,35 +2923,34 @@ _ZN6icu_7714MessagePattern10skipDoubleEi.exit165.thread: ; preds = %_ZN6icu_7714
 259:                                              ; preds = %255
   %260 = load i32, ptr %249, align 8, !tbaa !25
   %spec.select.i.i.i167 = tail call i32 @llvm.smin.i32(i32 %245, i32 %260)
-  %.1.i.i.i168 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i167, i32 %253)
   %261 = load ptr, ptr %244, align 8, !tbaa !23
-  %262 = sext i32 %.1.i.i.i168 to i64
+  %262 = sext i32 %spec.select.i.i.i167 to i64
   %263 = shl nsw i64 %262, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %258, ptr align 4 %261, i64 %263, i1 false)
   %264 = getelementptr inbounds nuw i8, ptr %244, i64 12
   %265 = load i8, ptr %264, align 4, !tbaa !41
-  %.not.i.i.i.i169 = icmp eq i8 %265, 0
-  br i1 %.not.i.i.i.i169, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i170, label %266
+  %.not.i.i.i.i168 = icmp eq i8 %265, 0
+  br i1 %.not.i.i.i.i168, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i169, label %266
 
 266:                                              ; preds = %259
   tail call void @uprv_free_77(ptr noundef %261)
-  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i170
+  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i169
 
-_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i170: ; preds = %266, %259
+_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i169: ; preds = %266, %259
   store ptr %258, ptr %244, align 8, !tbaa !23
   store i32 %253, ptr %249, align 8, !tbaa !25
   store i8 1, ptr %264, align 4, !tbaa !41
-  %.pre.i171 = load ptr, ptr %16, align 8, !tbaa !22
-  %.pre12.i172 = load i32, ptr %17, align 8, !tbaa !32
-  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i173
+  %.pre.i170 = load ptr, ptr %16, align 8, !tbaa !22
+  %.pre12.i171 = load i32, ptr %17, align 8, !tbaa !32
+  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i172
 
 267:                                              ; preds = %255, %252
   store i32 7, ptr %5, align 4, !tbaa !20
   br label %279
 
-_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i173: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i170, %248
-  %268 = phi i32 [ %.pre12.i172, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i170 ], [ %245, %248 ]
-  %269 = phi ptr [ %.pre.i171, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i170 ], [ %244, %248 ]
+_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i172: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i169, %248
+  %268 = phi i32 [ %.pre12.i171, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i169 ], [ %245, %248 ]
+  %269 = phi ptr [ %.pre.i170, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i169 ], [ %244, %248 ]
   %270 = add nsw i32 %268, 1
   store i32 %270, ptr %17, align 8, !tbaa !32
   %271 = sext i32 %268 to i64
@@ -2982,7 +2968,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   store i32 0, ptr %278, align 4, !tbaa !51
   br label %279
 
-279:                                              ; preds = %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i173, %267, %.thread189
+279:                                              ; preds = %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i172, %267, %.thread188
   %280 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %13, i32 noundef %36, i32 noundef %173, ptr noundef nonnull @_ZN6icu_77L6kOtherE, i32 noundef 0, i32 noundef 5)
   %281 = icmp eq i8 %280, 0
   %spec.select = select i1 %281, i8 1, i8 %.0113.ph
@@ -2993,28 +2979,28 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %.3105 = phi i32 [ %.031.lcssa.i, %160 ], [ %172, %279 ]
   %283 = load i32, ptr %5, align 4, !tbaa !20
   %284 = icmp slt i32 %283, 1
-  br i1 %284, label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit178, label %.thread201
+  br i1 %284, label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit177, label %.thread200
 
-_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit178: ; preds = %282
+_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit177: ; preds = %282
   %285 = load i16, ptr %9, align 8, !tbaa !19
   %286 = and i16 %285, 17
-  %.not.i.i175 = icmp eq i16 %286, 0
+  %.not.i.i174 = icmp eq i16 %286, 0
   %287 = and i16 %285, 2
-  %.not2.i.i177 = icmp eq i16 %287, 0
+  %.not2.i.i176 = icmp eq i16 %287, 0
   %288 = load ptr, ptr %12, align 8
-  %spec.select285 = select i1 %.not2.i.i177, ptr %288, ptr %11
-  %.0.i.i176 = select i1 %.not.i.i175, ptr %spec.select285, ptr null
+  %spec.select284 = select i1 %.not2.i.i176, ptr %288, ptr %11
+  %.0.i.i175 = select i1 %.not.i.i174, ptr %spec.select284, ptr null
   %289 = icmp slt i16 %285, 0
   %290 = ashr i16 %285, 5
   %291 = sext i16 %290 to i32
   %292 = load i32, ptr %10, align 4
   %293 = select i1 %289, i32 %292, i32 %291
   %294 = sext i32 %.3105 to i64
-  %295 = getelementptr inbounds i16, ptr %.0.i.i176, i64 %294
+  %295 = getelementptr inbounds i16, ptr %.0.i.i175, i64 %294
   %296 = sub nsw i32 %293, %.3105
   %297 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef %295, i32 noundef %296)
   %298 = ptrtoint ptr %297 to i64
-  %299 = ptrtoint ptr %.0.i.i176 to i64
+  %299 = ptrtoint ptr %.0.i.i175 to i64
   %300 = sub i64 %298, %299
   %301 = lshr exact i64 %300, 1
   %302 = trunc i64 %301 to i32
@@ -3025,37 +3011,37 @@ _ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit178: ; preds = %282
   %307 = load i32, ptr %10, align 4
   %308 = select i1 %304, i32 %307, i32 %306
   %309 = icmp ugt i32 %308, %302
-  br i1 %309, label %_ZNK6icu_7713UnicodeString6charAtEi.exit181, label %_ZNK6icu_7713UnicodeString6charAtEi.exit181.thread
+  br i1 %309, label %_ZNK6icu_7713UnicodeString6charAtEi.exit180, label %_ZNK6icu_7713UnicodeString6charAtEi.exit180.thread
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit181:      ; preds = %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit178
+_ZNK6icu_7713UnicodeString6charAtEi.exit180:      ; preds = %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit177
   %310 = and i16 %303, 2
-  %.not.i.i.i180 = icmp eq i16 %310, 0
+  %.not.i.i.i179 = icmp eq i16 %310, 0
   %311 = load ptr, ptr %12, align 8
-  %312 = select i1 %.not.i.i.i180, ptr %311, ptr %11
-  %sext216 = shl i64 %300, 31
-  %313 = ashr i64 %sext216, 32
+  %312 = select i1 %.not.i.i.i179, ptr %311, ptr %11
+  %sext215 = shl i64 %300, 31
+  %313 = ashr i64 %sext215, 32
   %314 = getelementptr inbounds i16, ptr %312, i64 %313
   %315 = load i16, ptr %314, align 2, !tbaa !30
   %.not134 = icmp eq i16 %315, 123
-  br i1 %.not134, label %316, label %_ZNK6icu_7713UnicodeString6charAtEi.exit181.thread
+  br i1 %.not134, label %316, label %_ZNK6icu_7713UnicodeString6charAtEi.exit180.thread
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit181.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit181, %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit178
+_ZNK6icu_7713UnicodeString6charAtEi.exit180.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit180, %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit177
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %36)
-  br label %.thread201.sink.split
+  br label %.thread200.sink.split
 
-316:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit181
+316:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit180
   %317 = tail call noundef i32 @_ZN6icu_7714MessagePattern12parseMessageEiii22UMessagePatternArgTypeP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %302, i32 noundef 1, i32 noundef %18, i32 noundef %1, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %318 = load i32, ptr %5, align 4, !tbaa !20
   %319 = icmp slt i32 %318, 1
-  br i1 %319, label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit.outer, label %.thread201
+  br i1 %319, label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit.outer, label %.thread200
 
-.thread201.sink.split:                            ; preds = %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i, %66, %64, %_ZNK6icu_7713UnicodeString6charAtEi.exit181.thread, %120, %123, %237, %_ZN6icu_7714MessagePattern10skipDoubleEi.exit165.thread, %243, %190, %175
-  %.sink = phi i32 [ 65799, %175 ], [ 65799, %190 ], [ 8, %243 ], [ 65799, %_ZN6icu_7714MessagePattern10skipDoubleEi.exit165.thread ], [ 8, %237 ], [ 8, %123 ], [ 65799, %120 ], [ 65799, %_ZNK6icu_7713UnicodeString6charAtEi.exit181.thread ], [ 65799, %64 ], [ 65807, %66 ], [ 65807, %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i ]
+.thread200.sink.split:                            ; preds = %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i, %66, %64, %_ZNK6icu_7713UnicodeString6charAtEi.exit180.thread, %120, %123, %237, %_ZN6icu_7714MessagePattern10skipDoubleEi.exit165.thread, %243, %190, %175
+  %.sink = phi i32 [ 65799, %175 ], [ 65799, %190 ], [ 8, %243 ], [ 65799, %_ZN6icu_7714MessagePattern10skipDoubleEi.exit165.thread ], [ 8, %237 ], [ 8, %123 ], [ 65799, %120 ], [ 65799, %_ZNK6icu_7713UnicodeString6charAtEi.exit180.thread ], [ 65799, %64 ], [ 65807, %66 ], [ 65807, %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i ]
   store i32 %.sink, ptr %5, align 4, !tbaa !20
-  br label %.thread201
+  br label %.thread200
 
-.thread201:                                       ; preds = %238, %316, %282, %.thread201.sink.split, %65, %6
-  %.0 = phi i32 [ 0, %6 ], [ %36, %65 ], [ 0, %.thread201.sink.split ], [ 0, %282 ], [ 0, %316 ], [ 0, %238 ]
+.thread200:                                       ; preds = %238, %316, %282, %.thread200.sink.split, %65, %6
+  %.0 = phi i32 [ 0, %6 ], [ %36, %65 ], [ 0, %.thread200.sink.split ], [ 0, %282 ], [ 0, %316 ], [ 0, %238 ]
   ret i32 %.0
 }
 
@@ -3715,9 +3701,8 @@ define void @_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10U
 24:                                               ; preds = %20
   %25 = load i32, ptr %14, align 8, !tbaa !25
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %25)
-  %.1.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i, i32 %18)
   %26 = load ptr, ptr %8, align 8, !tbaa !23
-  %27 = sext i32 %.1.i.i to i64
+  %27 = sext i32 %spec.select.i.i to i64
   %28 = shl nsw i64 %27, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %26, i64 %28, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -3797,9 +3782,8 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7714MessagePatte
 24:                                               ; preds = %20
   %25 = load i32, ptr %14, align 8, !tbaa !25
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %8, i32 %25)
-  %.1.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %18)
   %26 = load ptr, ptr %10, align 8, !tbaa !23
-  %27 = sext i32 %.1.i.i.i to i64
+  %27 = sext i32 %spec.select.i.i.i to i64
   %28 = shl nsw i64 %27, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %26, i64 %28, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 12
@@ -3997,7 +3981,7 @@ _ZN6icu_7714MessagePattern14skipIdentifierEi.exit: ; preds = %110, %114, %116
   %126 = lshr exact i64 %125, 1
   %127 = trunc i64 %126 to i32
   %.not.i.i151 = icmp slt i32 %71, %127
-  br i1 %.not.i.i151, label %128, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread218
+  br i1 %.not.i.i151, label %128, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread217
 
 128:                                              ; preds = %_ZN6icu_7714MessagePattern14skipIdentifierEi.exit
   %129 = add nsw i32 %71, 1
@@ -4025,7 +4009,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i.i:     ; preds = %128
 
 146:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i.i
   %147 = icmp eq i32 %129, %127
-  br i1 %147, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread183, label %152
+  br i1 %147, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread182, label %152
 
 148:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i.i
   %149 = add i16 %143, -49
@@ -4077,34 +4061,34 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit38.i.i:   ; preds = %155
   %.127.lcssa.i.i = phi i32 [ %.026.i.i, %152 ], [ %166, %161 ]
   %.1.lcssa.i.i = phi i8 [ %.0.i.i152, %152 ], [ %spec.select.i.i, %161 ]
   %.not35.i.i = icmp eq i8 %.1.lcssa.i.i, 0
-  br i1 %.not35.i.i, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread218
+  br i1 %.not35.i.i, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread217
 
 _ZN6icu_7714MessagePattern14parseArgNumberEii.exit: ; preds = %._crit_edge.i.i
   %167 = icmp sgt i32 %.127.lcssa.i.i, -1
-  br i1 %167, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread183, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread
+  br i1 %167, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread182, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread
 
-_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread183: ; preds = %146, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit
-  %.028.i.i185 = phi i32 [ %.127.lcssa.i.i, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit ], [ 0, %146 ]
+_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread182: ; preds = %146, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit
+  %.028.i.i184 = phi i32 [ %.127.lcssa.i.i, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit ], [ 0, %146 ]
   %168 = sub nsw i32 %127, %71
   %169 = icmp slt i32 %168, 65536
-  %170 = icmp samesign ult i32 %.028.i.i185, 32768
+  %170 = icmp samesign ult i32 %.028.i.i184, 32768
   %or.cond.not = and i1 %169, %170
-  br i1 %or.cond.not, label %171, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit161
+  br i1 %or.cond.not, label %171, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit160
 
-171:                                              ; preds = %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread183
+171:                                              ; preds = %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread182
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 125
   store i8 1, ptr %172, align 1, !tbaa !38
   %173 = load ptr, ptr %9, align 8, !tbaa !22
   %174 = load i32, ptr %7, align 8, !tbaa !32
   %175 = load i32, ptr %5, align 4, !tbaa !20
   %176 = icmp slt i32 %175, 1
-  br i1 %176, label %177, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit161.thread
+  br i1 %176, label %177, label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit160.thread
 
 177:                                              ; preds = %171
   %178 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %179 = load i32, ptr %178, align 8, !tbaa !25
   %180 = icmp sgt i32 %179, %174
-  br i1 %180, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i160, label %181
+  br i1 %180, label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i159, label %181
 
 181:                                              ; preds = %177
   %182 = shl nsw i32 %174, 1
@@ -4121,35 +4105,34 @@ _ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread183: ; preds = %146, %_
 188:                                              ; preds = %184
   %189 = load i32, ptr %178, align 8, !tbaa !25
   %spec.select.i.i.i154 = tail call i32 @llvm.smin.i32(i32 %174, i32 %189)
-  %.1.i.i.i155 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i154, i32 %182)
   %190 = load ptr, ptr %173, align 8, !tbaa !23
-  %191 = sext i32 %.1.i.i.i155 to i64
+  %191 = sext i32 %spec.select.i.i.i154 to i64
   %192 = shl nsw i64 %191, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %187, ptr align 4 %190, i64 %192, i1 false)
   %193 = getelementptr inbounds nuw i8, ptr %173, i64 12
   %194 = load i8, ptr %193, align 4, !tbaa !41
-  %.not.i.i.i.i156 = icmp eq i8 %194, 0
-  br i1 %.not.i.i.i.i156, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i157, label %195
+  %.not.i.i.i.i155 = icmp eq i8 %194, 0
+  br i1 %.not.i.i.i.i155, label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i156, label %195
 
 195:                                              ; preds = %188
   tail call void @uprv_free_77(ptr noundef %190)
-  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i157
+  br label %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i156
 
-_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i157: ; preds = %195, %188
+_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i156: ; preds = %195, %188
   store ptr %187, ptr %173, align 8, !tbaa !23
   store i32 %182, ptr %178, align 8, !tbaa !25
   store i8 1, ptr %193, align 4, !tbaa !41
-  %.pre.i158 = load ptr, ptr %9, align 8, !tbaa !22
-  %.pre12.i159 = load i32, ptr %7, align 8, !tbaa !32
-  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i160
+  %.pre.i157 = load ptr, ptr %9, align 8, !tbaa !22
+  %.pre12.i158 = load i32, ptr %7, align 8, !tbaa !32
+  br label %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i159
 
 196:                                              ; preds = %184, %181
   store i32 7, ptr %5, align 4, !tbaa !20
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit161.thread
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit160.thread
 
-_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i160: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i157, %177
-  %197 = phi i32 [ %.pre12.i159, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i157 ], [ %174, %177 ]
-  %198 = phi ptr [ %.pre.i158, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i157 ], [ %173, %177 ]
+_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i159: ; preds = %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i156, %177
+  %197 = phi i32 [ %.pre12.i158, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i156 ], [ %174, %177 ]
+  %198 = phi ptr [ %.pre.i157, %_ZN6icu_7715MaybeStackArrayINS_14MessagePattern4PartELi32EE6resizeEii.exit.i.i156 ], [ %173, %177 ]
   %199 = add nsw i32 %197, 1
   store i32 %199, ptr %7, align 8, !tbaa !32
   %200 = sext i32 %197 to i64
@@ -4161,21 +4144,21 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %204 = trunc i32 %168 to i16
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i16 %204, ptr %205, align 4, !tbaa !49
-  %206 = trunc nuw nsw i32 %.028.i.i185 to i16
+  %206 = trunc nuw nsw i32 %.028.i.i184 to i16
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 10
   store i16 %206, ptr %207, align 2, !tbaa !50
   %208 = getelementptr inbounds nuw i8, ptr %202, i64 12
   store i32 0, ptr %208, align 4, !tbaa !51
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit161.thread
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit160.thread
 
-_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit161: ; preds = %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread183
+_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit160: ; preds = %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread182
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %71)
   store i32 8, ptr %5, align 4, !tbaa !20
   br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread
 
 _ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread: ; preds = %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit
   %209 = icmp eq i32 %.127.lcssa.i.i, -1
-  br i1 %209, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread218
+  br i1 %209, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread, label %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread217
 
 _ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit38.i.i, %155, %148, %128, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread
   %210 = sub nsw i32 %127, %71
@@ -4186,52 +4169,52 @@ _ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread: ; preds = %_ZN
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i8 1, ptr %212, align 4, !tbaa !37
   tail call void @_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef 8, i32 noundef %71, i32 noundef %210, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit161.thread
+  br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit160.thread
 
 213:                                              ; preds = %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %71)
   store i32 8, ptr %5, align 4, !tbaa !20
   br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread
 
-_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread218: ; preds = %_ZN6icu_7714MessagePattern14skipIdentifierEi.exit, %._crit_edge.i.i, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread
+_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread217: ; preds = %_ZN6icu_7714MessagePattern14skipIdentifierEi.exit, %._crit_edge.i.i, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %71)
   store i32 65799, ptr %5, align 4, !tbaa !20
   br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread
 
-_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit161.thread: ; preds = %171, %196, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i160, %.thread
+_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit160.thread: ; preds = %171, %196, %_ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityForOneMoreEiR10UErrorCode.exit.i159, %.thread
   %214 = load i16, ptr %47, align 8, !tbaa !19
   %215 = and i16 %214, 17
-  %.not.i.i162 = icmp eq i16 %215, 0
-  br i1 %.not.i.i162, label %216, label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit165
+  %.not.i.i161 = icmp eq i16 %215, 0
+  br i1 %.not.i.i161, label %216, label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit164
 
-216:                                              ; preds = %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit161.thread
+216:                                              ; preds = %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit160.thread
   %217 = and i16 %214, 2
-  %.not2.i.i164 = icmp eq i16 %217, 0
-  br i1 %.not2.i.i164, label %220, label %218
+  %.not2.i.i163 = icmp eq i16 %217, 0
+  br i1 %.not2.i.i163, label %220, label %218
 
 218:                                              ; preds = %216
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  br label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit165
+  br label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit164
 
 220:                                              ; preds = %216
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %222 = load ptr, ptr %221, align 8, !tbaa !19
-  br label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit165
+  br label %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit164
 
-_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit165: ; preds = %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit161.thread, %218, %220
-  %.0.i.i163 = phi ptr [ %219, %218 ], [ %222, %220 ], [ null, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit161.thread ]
+_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit164: ; preds = %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit160.thread, %218, %220
+  %.0.i.i162 = phi ptr [ %219, %218 ], [ %222, %220 ], [ null, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit160.thread ]
   %223 = icmp slt i16 %214, 0
   %224 = ashr i16 %214, 5
   %225 = sext i16 %224 to i32
   %226 = load i32, ptr %60, align 4
   %227 = select i1 %223, i32 %226, i32 %225
-  %sext228 = shl i64 %125, 31
-  %228 = ashr i64 %sext228, 32
-  %229 = getelementptr inbounds i16, ptr %.0.i.i163, i64 %228
+  %sext227 = shl i64 %125, 31
+  %228 = ashr i64 %sext227, 32
+  %229 = getelementptr inbounds i16, ptr %.0.i.i162, i64 %228
   %230 = sub nsw i32 %227, %127
   %231 = tail call noundef ptr @_ZN6icu_7712PatternProps14skipWhiteSpaceEPKDsi(ptr noundef %229, i32 noundef %230)
   %232 = ptrtoint ptr %231 to i64
-  %233 = ptrtoint ptr %.0.i.i163 to i64
+  %233 = ptrtoint ptr %.0.i.i162 to i64
   %234 = sub i64 %232, %233
   %235 = lshr exact i64 %234, 1
   %236 = trunc i64 %235 to i32
@@ -4244,18 +4227,18 @@ _ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit165: ; preds = %_ZN6icu_7714Mes
   %243 = icmp eq i32 %242, %236
   br i1 %243, label %244, label %274
 
-244:                                              ; preds = %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit165
+244:                                              ; preds = %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit164
   %245 = icmp eq ptr %4, null
-  br i1 %245, label %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit172, label %246
+  br i1 %245, label %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit171, label %246
 
 246:                                              ; preds = %244
   %247 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %247, align 4, !tbaa !29
   %248 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNK6icu_7713UnicodeString9doExtractEiiPDsi(ptr noundef nonnull align 8 dereferenceable(64) %72, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %248, i32 noundef 0)
-          to label %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit.i167 unwind label %267
+          to label %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit.i166 unwind label %267
 
-_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit.i167: ; preds = %246
+_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit.i166: ; preds = %246
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %248) #18, !srcloc !55
   store i16 0, ptr %248, align 2, !tbaa !30
   %249 = load i16, ptr %47, align 8, !tbaa !19
@@ -4265,21 +4248,21 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit.i167: ; preds = %246
   %253 = load i32, ptr %60, align 4
   %254 = select i1 %250, i32 %253, i32 %252
   %255 = icmp sgt i32 %254, 15
-  br i1 %255, label %256, label %_ZNK6icu_7713UnicodeStringixEi.exit38.i168
+  br i1 %255, label %256, label %_ZNK6icu_7713UnicodeStringixEi.exit38.i167
 
-256:                                              ; preds = %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit.i167
+256:                                              ; preds = %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit.i166
   %257 = and i16 %249, 2
-  %.not.i.i.i37.i171 = icmp eq i16 %257, 0
+  %.not.i.i.i37.i170 = icmp eq i16 %257, 0
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %260 = load ptr, ptr %259, align 8
-  %261 = select i1 %.not.i.i.i37.i171, ptr %260, ptr %258
+  %261 = select i1 %.not.i.i.i37.i170, ptr %260, ptr %258
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 28
   %263 = load i16, ptr %262, align 2, !tbaa !30
   %264 = and i16 %263, -1024
   %265 = icmp eq i16 %264, -10240
   %266 = select i1 %265, i32 14, i32 15
-  br label %_ZNK6icu_7713UnicodeStringixEi.exit38.i168
+  br label %_ZNK6icu_7713UnicodeStringixEi.exit38.i167
 
 267:                                              ; preds = %246
   %268 = landingpad { ptr, i32 }
@@ -4287,46 +4270,46 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit.i167: ; preds = %246
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %248) #18, !srcloc !55
   br label %common.resume
 
-_ZNK6icu_7713UnicodeStringixEi.exit38.i168:       ; preds = %256, %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit.i167
-  %.1.i169 = phi i32 [ %254, %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit.i167 ], [ %266, %256 ]
+_ZNK6icu_7713UnicodeStringixEi.exit38.i167:       ; preds = %256, %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit.i166
+  %.1.i168 = phi i32 [ %254, %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit.i166 ], [ %266, %256 ]
   %269 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  invoke void @_ZNK6icu_7713UnicodeString9doExtractEiiPDsi(ptr noundef nonnull align 8 dereferenceable(64) %72, i32 noundef 0, i32 noundef %.1.i169, ptr noundef nonnull %269, i32 noundef 0)
-          to label %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i170 unwind label %272
+  invoke void @_ZNK6icu_7713UnicodeString9doExtractEiiPDsi(ptr noundef nonnull align 8 dereferenceable(64) %72, i32 noundef 0, i32 noundef %.1.i168, ptr noundef nonnull %269, i32 noundef 0)
+          to label %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i169 unwind label %272
 
-_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i170: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i168
+_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i169: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i167
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %269) #18, !srcloc !55
-  %270 = sext i32 %.1.i169 to i64
+  %270 = sext i32 %.1.i168 to i64
   %271 = getelementptr inbounds [16 x i16], ptr %269, i64 0, i64 %270
   store i16 0, ptr %271, align 2, !tbaa !30
-  br label %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit172
+  br label %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit171
 
-272:                                              ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i168
+272:                                              ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit38.i167
   %273 = landingpad { ptr, i32 }
           cleanup
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %269) #18, !srcloc !55
   br label %common.resume
 
-_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit172: ; preds = %244, %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i170
+_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit171: ; preds = %244, %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit39.i169
   store i32 65801, ptr %5, align 4, !tbaa !20
   br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread
 
-274:                                              ; preds = %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit165
+274:                                              ; preds = %_ZN6icu_7714MessagePattern14skipWhiteSpaceEi.exit164
   %275 = icmp ugt i32 %242, %236
   br i1 %275, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %274
   %276 = and i16 %237, 2
-  %.not.i.i.i174 = icmp eq i16 %276, 0
+  %.not.i.i.i173 = icmp eq i16 %276, 0
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %279 = load ptr, ptr %278, align 8
-  %280 = select i1 %.not.i.i.i174, ptr %279, ptr %277
-  %sext229 = shl i64 %234, 31
-  %281 = ashr i64 %sext229, 32
+  %280 = select i1 %.not.i.i.i173, ptr %279, ptr %277
+  %sext228 = shl i64 %234, 31
+  %281 = ashr i64 %sext228, 32
   %282 = getelementptr inbounds i16, ptr %280, i64 %281
   %283 = load i16, ptr %282, align 2, !tbaa !30
   switch i16 %283, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread [
-    i16 125, label %.thread212
+    i16 125, label %.thread211
     i16 44, label %284
   ]
 
@@ -4346,41 +4329,41 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.thread:  ; preds = %274, %_ZNK6icu_7713
   %292 = select i1 %288, i32 %291, i32 %290
   %293 = icmp slt i32 %286, %292
   %294 = icmp ult i32 %286, %292
-  %or.cond230 = and i1 %293, %294
-  br i1 %or.cond230, label %_ZNK6icu_7713UnicodeString6charAtEi.exit177.lr.ph, label %.critedge
+  %or.cond229 = and i1 %293, %294
+  br i1 %or.cond229, label %_ZNK6icu_7713UnicodeString6charAtEi.exit176.lr.ph, label %.critedge
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit177.lr.ph: ; preds = %284
+_ZNK6icu_7713UnicodeString6charAtEi.exit176.lr.ph: ; preds = %284
   %295 = and i16 %287, 2
-  %.not.i.i.i176 = icmp eq i16 %295, 0
+  %.not.i.i.i175 = icmp eq i16 %295, 0
   %296 = load ptr, ptr %278, align 8
-  %297 = select i1 %.not.i.i.i176, ptr %296, ptr %277
+  %297 = select i1 %.not.i.i.i175, ptr %296, ptr %277
   %298 = sext i32 %286 to i64
   %299 = sext i32 %292 to i64
-  br label %_ZNK6icu_7713UnicodeString6charAtEi.exit177
+  br label %_ZNK6icu_7713UnicodeString6charAtEi.exit176
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit177:      ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit177.lr.ph, %304
-  %indvars.iv = phi i64 [ %298, %_ZNK6icu_7713UnicodeString6charAtEi.exit177.lr.ph ], [ %indvars.iv.next, %304 ]
+_ZNK6icu_7713UnicodeString6charAtEi.exit176:      ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit176.lr.ph, %304
+  %indvars.iv = phi i64 [ %298, %_ZNK6icu_7713UnicodeString6charAtEi.exit176.lr.ph ], [ %indvars.iv.next, %304 ]
   %300 = getelementptr inbounds i16, ptr %297, i64 %indvars.iv
   %301 = load i16, ptr %300, align 2, !tbaa !30
   %302 = and i16 %301, -33
   %303 = add i16 %302, -91
   %narrow.i = icmp ult i16 %303, -26
-  br i1 %narrow.i, label %.critedge.loopexit.split.loop.exit244, label %304
+  br i1 %narrow.i, label %.critedge.loopexit.split.loop.exit243, label %304
 
-304:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit177
+304:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit176
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %305 = icmp slt i64 %indvars.iv.next, %299
   %306 = trunc nsw i64 %indvars.iv.next to i32
   %307 = icmp ugt i32 %292, %306
   %or.cond = and i1 %305, %307
-  br i1 %or.cond, label %_ZNK6icu_7713UnicodeString6charAtEi.exit177, label %.critedge, !llvm.loop !64
+  br i1 %or.cond, label %_ZNK6icu_7713UnicodeString6charAtEi.exit176, label %.critedge, !llvm.loop !64
 
-.critedge.loopexit.split.loop.exit244:            ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit177
+.critedge.loopexit.split.loop.exit243:            ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit176
   %308 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %304, %.critedge.loopexit.split.loop.exit244, %284
-  %.1117.lcssa = phi i32 [ %286, %284 ], [ %308, %.critedge.loopexit.split.loop.exit244 ], [ %292, %304 ]
+.critedge:                                        ; preds = %304, %.critedge.loopexit.split.loop.exit243, %284
+  %.1117.lcssa = phi i32 [ %286, %284 ], [ %308, %.critedge.loopexit.split.loop.exit243 ], [ %292, %304 ]
   %309 = sub nsw i32 %.1117.lcssa, %286
   %310 = tail call noundef i32 @_ZN6icu_7714MessagePattern14skipWhiteSpaceEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %.1117.lcssa)
   %311 = load i16, ptr %47, align 8, !tbaa !19
@@ -4400,28 +4383,28 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit177:      ; preds = %_ZNK6icu_7713Unicod
 319:                                              ; preds = %.critedge
   %320 = icmp ne i32 %.1117.lcssa, %286
   %321 = icmp ult i32 %310, %316
-  %or.cond227 = and i1 %320, %321
-  br i1 %or.cond227, label %_ZNK6icu_7713UnicodeString6charAtEi.exit180, label %_ZNK6icu_7713UnicodeString6charAtEi.exit180.thread
+  %or.cond226 = and i1 %320, %321
+  br i1 %or.cond226, label %_ZNK6icu_7713UnicodeString6charAtEi.exit179, label %_ZNK6icu_7713UnicodeString6charAtEi.exit179.thread
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit180:      ; preds = %319
+_ZNK6icu_7713UnicodeString6charAtEi.exit179:      ; preds = %319
   %322 = and i16 %311, 2
-  %.not.i.i.i179 = icmp eq i16 %322, 0
+  %.not.i.i.i178 = icmp eq i16 %322, 0
   %323 = load ptr, ptr %278, align 8
-  %324 = select i1 %.not.i.i.i179, ptr %323, ptr %277
+  %324 = select i1 %.not.i.i.i178, ptr %323, ptr %277
   %325 = sext i32 %310 to i64
   %326 = getelementptr inbounds i16, ptr %324, i64 %325
   %327 = load i16, ptr %326, align 2, !tbaa !30
-  switch i16 %327, label %_ZNK6icu_7713UnicodeString6charAtEi.exit180.thread [
+  switch i16 %327, label %_ZNK6icu_7713UnicodeString6charAtEi.exit179.thread [
     i16 125, label %328
     i16 44, label %328
   ]
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit180.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit180, %319
+_ZNK6icu_7713UnicodeString6charAtEi.exit179.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit179, %319
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %71)
   store i32 65799, ptr %5, align 4, !tbaa !20
   br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread
 
-328:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit180, %_ZNK6icu_7713UnicodeString6charAtEi.exit180
+328:                                              ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit179, %_ZNK6icu_7713UnicodeString6charAtEi.exit179
   %329 = icmp sgt i32 %309, 65535
   br i1 %329, label %330, label %331
 
@@ -4431,7 +4414,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit180.thread: ; preds = %_ZNK6icu_7713Unic
   br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread
 
 331:                                              ; preds = %328
-  switch i32 %309, label %.thread191 [
+  switch i32 %309, label %.thread190 [
     i32 6, label %332
     i32 13, label %343
   ]
@@ -4439,12 +4422,12 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit180.thread: ; preds = %_ZNK6icu_7713Unic
 332:                                              ; preds = %331
   %333 = tail call noundef signext i8 @_ZN6icu_7714MessagePattern8isChoiceEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %286)
   %.not141 = icmp eq i8 %333, 0
-  br i1 %.not141, label %334, label %.thread198
+  br i1 %.not141, label %334, label %.thread197
 
 334:                                              ; preds = %332
   %335 = tail call noundef signext i8 @_ZN6icu_7714MessagePattern8isPluralEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %286)
   %.not142 = icmp eq i8 %335, 0
-  br i1 %.not142, label %336, label %.thread198.thread
+  br i1 %.not142, label %336, label %.thread197.thread
 
 336:                                              ; preds = %334
   %337 = tail call noundef signext i8 @_ZN6icu_7714MessagePattern8isSelectEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %286)
@@ -4455,20 +4438,20 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit180.thread: ; preds = %_ZNK6icu_7713Unic
   %341 = load ptr, ptr %339, align 8, !tbaa !23
   %342 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %341, i64 %340, i32 3
   store i16 %338, ptr %342, align 2, !tbaa !50
-  br i1 %.not143, label %.thread235, label %357
+  br i1 %.not143, label %.thread234, label %357
 
 343:                                              ; preds = %331
   %344 = tail call noundef signext i8 @_ZN6icu_7714MessagePattern8isSelectEi(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %286)
   %.not139 = icmp eq i8 %344, 0
-  br i1 %.not139, label %.thread191, label %349
+  br i1 %.not139, label %.thread190, label %349
 
-.thread191:                                       ; preds = %343, %331
+.thread190:                                       ; preds = %343, %331
   %345 = load ptr, ptr %9, align 8, !tbaa !22
   %346 = sext i32 %8 to i64
   %347 = load ptr, ptr %345, align 8, !tbaa !23
   %348 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %347, i64 %346, i32 3
   store i16 1, ptr %348, align 2, !tbaa !50
-  br label %.thread235
+  br label %.thread234
 
 349:                                              ; preds = %343
   %350 = add nsw i32 %286, 6
@@ -4480,66 +4463,66 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit180.thread: ; preds = %_ZNK6icu_7713Unic
   %355 = load ptr, ptr %353, align 8, !tbaa !23
   %356 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %355, i64 %354, i32 3
   store i16 %352, ptr %356, align 2, !tbaa !50
-  br i1 %.not140, label %.thread235, label %357
+  br i1 %.not140, label %.thread234, label %357
 
 357:                                              ; preds = %336, %349
-  %.2122193 = phi i32 [ 5, %349 ], [ 4, %336 ]
+  %.2122192 = phi i32 [ 5, %349 ], [ 4, %336 ]
   %358 = icmp eq i16 %327, 125
-  br i1 %358, label %.thread202, label %.thread208
+  br i1 %358, label %.thread201, label %.thread207
 
-.thread235:                                       ; preds = %349, %.thread191, %336
+.thread234:                                       ; preds = %349, %.thread190, %336
   tail call void @_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef 9, i32 noundef %286, i32 noundef %309, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %359 = icmp eq i16 %327, 125
-  br i1 %359, label %.thread212, label %370
+  br i1 %359, label %.thread211, label %370
 
-.thread198:                                       ; preds = %332
+.thread197:                                       ; preds = %332
   %360 = load ptr, ptr %9, align 8, !tbaa !22
   %361 = sext i32 %8 to i64
   %362 = load ptr, ptr %360, align 8, !tbaa !23
   %363 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %362, i64 %361, i32 3
   store i16 2, ptr %363, align 2, !tbaa !50
   %364 = icmp eq i16 %327, 125
-  br i1 %364, label %.thread202, label %373
+  br i1 %364, label %.thread201, label %373
 
-.thread198.thread:                                ; preds = %334
+.thread197.thread:                                ; preds = %334
   %365 = load ptr, ptr %9, align 8, !tbaa !22
   %366 = sext i32 %8 to i64
   %367 = load ptr, ptr %365, align 8, !tbaa !23
   %368 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %367, i64 %366, i32 3
   store i16 3, ptr %368, align 2, !tbaa !50
   %369 = icmp eq i16 %327, 125
-  br i1 %369, label %.thread202, label %.thread208
+  br i1 %369, label %.thread201, label %.thread207
 
-.thread202:                                       ; preds = %357, %.thread198.thread, %.thread198
+.thread201:                                       ; preds = %357, %.thread197.thread, %.thread197
   tail call void @_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef %4, i32 noundef %71)
   store i32 65799, ptr %5, align 4, !tbaa !20
   br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread
 
-370:                                              ; preds = %.thread235
+370:                                              ; preds = %.thread234
   %371 = add nuw nsw i32 %310, 1
   %372 = tail call noundef i32 @_ZN6icu_7714MessagePattern16parseSimpleStyleEiP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %371, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %.thread212
+  br label %.thread211
 
-373:                                              ; preds = %.thread198
+373:                                              ; preds = %.thread197
   %374 = add nuw nsw i32 %310, 1
   %375 = tail call noundef i32 @_ZN6icu_7714MessagePattern16parseChoiceStyleEiiP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %374, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %.thread212
+  br label %.thread211
 
-.thread208:                                       ; preds = %357, %.thread198.thread
-  %.2122193200207210 = phi i32 [ 3, %.thread198.thread ], [ %.2122193, %357 ]
+.thread207:                                       ; preds = %357, %.thread197.thread
+  %.2122192199206209 = phi i32 [ 3, %.thread197.thread ], [ %.2122192, %357 ]
   %376 = add nuw nsw i32 %310, 1
-  %377 = tail call noundef i32 @_ZN6icu_7714MessagePattern24parsePluralOrSelectStyleE22UMessagePatternArgTypeiiP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %.2122193200207210, i32 noundef %376, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %.thread212
+  %377 = tail call noundef i32 @_ZN6icu_7714MessagePattern24parsePluralOrSelectStyleE22UMessagePatternArgTypeiiP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %.2122192199206209, i32 noundef %376, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %.thread211
 
-.thread212:                                       ; preds = %.thread235, %373, %.thread208, %370, %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %.0120 = phi i32 [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 2, %373 ], [ %.2122193200207210, %.thread208 ], [ 1, %370 ], [ 1, %.thread235 ]
-  %.0116 = phi i32 [ %236, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %375, %373 ], [ %377, %.thread208 ], [ %372, %370 ], [ %310, %.thread235 ]
+.thread211:                                       ; preds = %.thread234, %373, %.thread207, %370, %_ZNK6icu_7713UnicodeString6charAtEi.exit
+  %.0120 = phi i32 [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 2, %373 ], [ %.2122192199206209, %.thread207 ], [ 1, %370 ], [ 1, %.thread234 ]
+  %.0116 = phi i32 [ %236, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %375, %373 ], [ %377, %.thread207 ], [ %372, %370 ], [ %310, %.thread234 ]
   tail call void @_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartTypeiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(127) %0, i32 noundef %8, i32 noundef 6, i32 noundef %.0116, i32 noundef 1, i32 noundef %.0120, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %378 = add nsw i32 %.0116, 1
   br label %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread
 
-_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread: ; preds = %33, %6, %318, %_ZNK6icu_7713UnicodeString6charAtEi.exit180.thread, %330, %.thread202, %213, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit161, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %.thread212, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit172, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread218, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit
-  %.0 = phi i32 [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit ], [ 0, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit ], [ 0, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit172 ], [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit161 ], [ 0, %213 ], [ 0, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread218 ], [ %378, %.thread212 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ 0, %.thread202 ], [ 0, %330 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit180.thread ], [ 0, %318 ], [ 0, %6 ], [ 0, %33 ]
+_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit.thread: ; preds = %33, %6, %318, %_ZNK6icu_7713UnicodeString6charAtEi.exit179.thread, %330, %.thread201, %213, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit160, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread, %.thread211, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit171, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread217, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit
+  %.0 = phi i32 [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit ], [ 0, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit ], [ 0, %_ZN6icu_7714MessagePattern13setParseErrorEP11UParseErrori.exit171 ], [ 0, %_ZN6icu_7714MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit160 ], [ 0, %213 ], [ 0, %_ZN6icu_7714MessagePattern14parseArgNumberEii.exit.thread.thread217 ], [ %378, %.thread211 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ], [ 0, %.thread201 ], [ 0, %330 ], [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit179.thread ], [ 0, %318 ], [ 0, %6 ], [ 0, %33 ]
   ret i32 %.0
 }
 
@@ -4578,9 +4561,8 @@ define void @_ZN6icu_7714MessagePattern12addLimitPartEi23UMessagePatternPartType
 28:                                               ; preds = %24
   %29 = load i32, ptr %18, align 8, !tbaa !25
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %9, i32 %29)
-  %.1.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %22)
   %30 = load ptr, ptr %11, align 8, !tbaa !23
-  %31 = sext i32 %.1.i.i.i to i64
+  %31 = sext i32 %spec.select.i.i.i to i64
   %32 = shl nsw i64 %31, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %27, ptr align 4 %30, i64 %32, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -5387,9 +5369,8 @@ _ZNK6icu_7713UnicodeString7indexOfEDsi.exit:      ; preds = %_ZNK6icu_7713Unicod
 69:                                               ; preds = %65
   %70 = load i32, ptr %59, align 8, !tbaa !25
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %55, i32 %70)
-  %.1.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %63)
   %71 = load ptr, ptr %53, align 8, !tbaa !23
-  %72 = sext i32 %.1.i.i.i to i64
+  %72 = sext i32 %spec.select.i.i.i to i64
   %73 = shl nsw i64 %72, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %68, ptr align 4 %71, i64 %73, i1 false)
   %74 = getelementptr inbounds nuw i8, ptr %53, i64 12
@@ -5735,9 +5716,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit76:       ; preds = %_ZNK6icu_7713Unicod
 84:                                               ; preds = %80
   %85 = load i32, ptr %74, align 8, !tbaa !25
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %73, i32 %85)
-  %.1.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %78)
   %86 = load ptr, ptr %71, align 8, !tbaa !23
-  %87 = sext i32 %.1.i.i.i to i64
+  %87 = sext i32 %spec.select.i.i.i to i64
   %88 = shl nsw i64 %87, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %83, ptr align 4 %86, i64 %88, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %71, i64 12
@@ -5916,9 +5896,8 @@ define void @_ZN6icu_7714MessagePattern16addArgDoublePartEdiiR10UErrorCode(ptr n
 33:                                               ; preds = %29
   %34 = load i32, ptr %23, align 8, !tbaa !42
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %34)
-  %.1.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i, i32 %27)
   %35 = load ptr, ptr %12, align 8, !tbaa !34
-  %36 = sext i32 %.1.i.i to i64
+  %36 = sext i32 %spec.select.i.i to i64
   %37 = shl nsw i64 %36, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 8 %35, i64 %37, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -5990,9 +5969,8 @@ _ZN6icu_7718MessagePatternListIdLi8EE24ensureCapacityForOneMoreEiR10UErrorCode.e
 67:                                               ; preds = %63
   %68 = load i32, ptr %57, align 8, !tbaa !25
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %53, i32 %68)
-  %.1.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %61)
   %69 = load ptr, ptr %51, align 8, !tbaa !23
-  %70 = sext i32 %.1.i.i.i to i64
+  %70 = sext i32 %spec.select.i.i.i to i64
   %71 = shl nsw i64 %70, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %66, ptr align 4 %69, i64 %71, i1 false)
   %72 = getelementptr inbounds nuw i8, ptr %51, i64 12

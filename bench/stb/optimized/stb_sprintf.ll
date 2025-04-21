@@ -3619,7 +3619,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   %20 = tail call double @llvm.fmuladd.f64(double %12, double %17, double %19)
   %21 = tail call double @llvm.fmuladd.f64(double %16, double %15, double %20)
   %22 = tail call double @llvm.fmuladd.f64(double %16, double %17, double %21)
-  br label %151
+  br label %150
 
 23:                                               ; preds = %4
   %24 = icmp slt i32 %3, 0
@@ -3663,7 +3663,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   %.1 = phi double [ %50, %29 ], [ 0.000000e+00, %28 ]
   %52 = phi double [ %34, %29 ], [ %2, %28 ]
   %.not236 = icmp samesign ult i32 %spec.select, 23
-  br i1 %.not236, label %151, label %53
+  br i1 %.not236, label %150, label %53
 
 53:                                               ; preds = %51
   %54 = fadd double %.1, %52
@@ -3692,7 +3692,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   %77 = fmul double %66, %58
   %78 = tail call double @llvm.fmuladd.f64(double %54, double %76, double %77)
   %79 = fadd double %74, %78
-  br label %151
+  br label %150
 
 80:                                               ; preds = %23
   br i1 %.not235, label %122, label %81
@@ -3744,49 +3744,45 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   %121 = tail call double @llvm.fmuladd.f64(double %104, double %112, double %120)
   br label %122
 
-122:                                              ; preds = %81, %99, %80
+122:                                              ; preds = %80, %99, %81
   %.3 = phi double [ %121, %99 ], [ %98, %81 ], [ 0.000000e+00, %80 ]
   %123 = phi double [ %113, %99 ], [ %85, %81 ], [ %2, %80 ]
-  %.not234 = icmp samesign ult i32 %spec.select, 23
-  br i1 %.not234, label %151, label %124
+  %124 = fadd double %.3, %123
+  %125 = add nsw i32 %spec.store.select, -1
+  %126 = zext nneg i32 %125 to i64
+  %127 = getelementptr inbounds nuw [13 x double], ptr @stbsp__top, i64 0, i64 %126
+  %128 = load double, ptr %127, align 8
+  %129 = bitcast double %124 to i64
+  %130 = and i64 %129, -134217728
+  %131 = bitcast i64 %130 to double
+  %132 = bitcast double %128 to i64
+  %133 = and i64 %132, -134217728
+  %134 = bitcast i64 %133 to double
+  %135 = fsub double %124, %123
+  %136 = fsub double %.3, %135
+  %137 = fmul double %124, %128
+  %138 = fsub double %124, %131
+  %139 = fsub double %128, %134
+  %140 = fneg double %137
+  %141 = tail call double @llvm.fmuladd.f64(double %131, double %134, double %140)
+  %142 = tail call double @llvm.fmuladd.f64(double %131, double %139, double %141)
+  %143 = tail call double @llvm.fmuladd.f64(double %138, double %134, double %142)
+  %144 = tail call double @llvm.fmuladd.f64(double %138, double %139, double %143)
+  %145 = getelementptr inbounds nuw [13 x double], ptr @stbsp__toperr, i64 0, i64 %126
+  %146 = load double, ptr %145, align 8, !tbaa !18
+  %147 = fmul double %136, %128
+  %148 = tail call double @llvm.fmuladd.f64(double %124, double %146, double %147)
+  %149 = fadd double %144, %148
+  br label %150
 
-124:                                              ; preds = %122
-  %125 = fadd double %.3, %123
-  %126 = add nsw i32 %spec.store.select, -1
-  %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw [13 x double], ptr @stbsp__top, i64 0, i64 %127
-  %129 = load double, ptr %128, align 8
-  %130 = bitcast double %125 to i64
-  %131 = and i64 %130, -134217728
-  %132 = bitcast i64 %131 to double
-  %133 = bitcast double %129 to i64
-  %134 = and i64 %133, -134217728
-  %135 = bitcast i64 %134 to double
-  %136 = fsub double %125, %123
-  %137 = fsub double %.3, %136
-  %138 = fmul double %125, %129
-  %139 = fsub double %125, %132
-  %140 = fsub double %129, %135
-  %141 = fneg double %138
-  %142 = tail call double @llvm.fmuladd.f64(double %132, double %135, double %141)
-  %143 = tail call double @llvm.fmuladd.f64(double %132, double %140, double %142)
-  %144 = tail call double @llvm.fmuladd.f64(double %139, double %135, double %143)
-  %145 = tail call double @llvm.fmuladd.f64(double %139, double %140, double %144)
-  %146 = getelementptr inbounds nuw [13 x double], ptr @stbsp__toperr, i64 0, i64 %127
-  %147 = load double, ptr %146, align 8, !tbaa !18
-  %148 = fmul double %137, %129
-  %149 = tail call double @llvm.fmuladd.f64(double %125, double %147, double %148)
-  %150 = fadd double %145, %149
-  br label %151
-
-151:                                              ; preds = %53, %51, %124, %122, %5
-  %.0 = phi double [ %22, %5 ], [ %79, %53 ], [ %.1, %51 ], [ %150, %124 ], [ %.3, %122 ]
-  %152 = phi double [ %9, %5 ], [ %67, %53 ], [ %52, %51 ], [ %138, %124 ], [ %123, %122 ]
-  %153 = fadd double %.0, %152
-  %154 = fsub double %153, %152
-  %155 = fsub double %.0, %154
-  store double %153, ptr %0, align 8, !tbaa !18
-  store double %155, ptr %1, align 8, !tbaa !18
+150:                                              ; preds = %53, %51, %122, %5
+  %.0 = phi double [ %22, %5 ], [ %79, %53 ], [ %.1, %51 ], [ %149, %122 ]
+  %151 = phi double [ %9, %5 ], [ %67, %53 ], [ %52, %51 ], [ %137, %122 ]
+  %152 = fadd double %.0, %151
+  %153 = fsub double %152, %151
+  %154 = fsub double %.0, %153
+  store double %152, ptr %0, align 8, !tbaa !18
+  store double %154, ptr %1, align 8, !tbaa !18
   ret void
 }
 
