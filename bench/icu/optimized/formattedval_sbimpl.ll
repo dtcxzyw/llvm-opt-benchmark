@@ -1385,9 +1385,8 @@ define void @_ZN6icu_7731FormattedValueStringBuilderImpl14appendSpanInfoE14UFiel
 23:                                               ; preds = %19
   %24 = load i32, ptr %11, align 8, !tbaa !21
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %12, i32 %24)
-  %.1.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %17)
   %25 = load ptr, ptr %10, align 8, !tbaa !18
-  %26 = sext i32 %.1.i to i64
+  %26 = sext i32 %spec.select.i to i64
   %27 = shl nsw i64 %26, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %22, ptr align 4 %25, i64 %27, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -1461,9 +1460,8 @@ define void @_ZN6icu_7731FormattedValueStringBuilderImpl15prependSpanInfoE14UFie
 23:                                               ; preds = %19
   %24 = load i32, ptr %11, align 8, !tbaa !21
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %12, i32 %24)
-  %.1.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %17)
   %25 = load ptr, ptr %10, align 8, !tbaa !18
-  %26 = sext i32 %.1.i to i64
+  %26 = sext i32 %spec.select.i to i64
   %27 = shl nsw i64 %26, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %22, ptr align 4 %25, i64 %27, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 164

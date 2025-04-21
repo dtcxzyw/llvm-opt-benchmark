@@ -2252,7 +2252,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712PluralFormat
   %10 = alloca %"class.icu_77::UnicodeString", align 8
   %11 = load i32, ptr %5, align 4, !tbaa !13
   %12 = icmp slt i32 %11, 1
-  br i1 %12, label %13, label %172
+  br i1 %12, label %13, label %180
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2299,11 +2299,11 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712PluralFormat
   %.pre = load ptr, ptr %16, align 8, !tbaa !55
   br label %39
 
-39:                                               ; preds = %164, %27
-  %40 = phi ptr [ %.pre, %27 ], [ %165, %164 ]
-  %.157 = phi i32 [ %.056, %27 ], [ %168, %164 ]
-  %.047 = phi i8 [ 0, %27 ], [ %.249, %164 ]
-  %.044 = phi i32 [ 0, %27 ], [ %.246, %164 ]
+39:                                               ; preds = %172, %27
+  %40 = phi ptr [ %.pre, %27 ], [ %173, %172 ]
+  %.157 = phi i32 [ %.056, %27 ], [ %176, %172 ]
+  %.047 = phi i8 [ 0, %27 ], [ %.249, %172 ]
+  %.044 = phi i32 [ 0, %27 ], [ %.246, %172 ]
   %41 = add nsw i32 %.157, 1
   %42 = sext i32 %.157 to i64
   %43 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %40, i64 %42
@@ -2316,20 +2316,20 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712PluralFormat
           cleanup
   %48 = load ptr, ptr %9, align 8, !tbaa !69
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %48) #18, !srcloc !72
-  br label %171
+  br label %179
 
-49:                                               ; preds = %.sink.split.i.i.i.i86, %.sink.split.i.i.i78, %.sink.split.i.i.i, %.sink.split.i.i.i.i, %56
+49:                                               ; preds = %.sink.split.i.i.i.i87, %.sink.split.i.i.i78, %.sink.split.i.i.i, %.sink.split.i.i.i.i, %56
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %170
+  br label %178
 
 51:                                               ; preds = %39
   %52 = sext i32 %41 to i64
   %53 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %40, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !60
   %55 = and i32 %54, -2
-  %.not108 = icmp eq i32 %55, 12
-  br i1 %.not108, label %56, label %61
+  %.not110 = icmp eq i32 %55, 12
+  br i1 %.not110, label %56, label %61
 
 56:                                               ; preds = %51
   %57 = invoke noundef double @_ZNK6icu_7714MessagePattern15getNumericValueERKNS0_4PartE(ptr noundef nonnull align 8 dereferenceable(127) %0, ptr noundef nonnull align 4 dereferenceable(16) %53)
@@ -2341,12 +2341,12 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712PluralFormat
   br i1 %60, label %.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %58
-  %.pre114 = sext i32 %59 to i64
-  br label %164
+  %.pre116 = sext i32 %59 to i64
+  br label %172
 
 61:                                               ; preds = %51
   %.not63 = icmp eq i8 %.047, 0
-  br i1 %.not63, label %62, label %164
+  br i1 %.not63, label %62, label %172
 
 62:                                               ; preds = %61
   %63 = load i16, ptr %29, align 8, !tbaa !39
@@ -2359,7 +2359,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712PluralFormat
   %67 = trunc i16 %66 to i8
   %68 = and i8 %67, 1
   %69 = xor i8 %68, 1
-  br label %84
+  br label %86
 
 .sink.split.i.i.i.i:                              ; preds = %62
   %70 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -2373,204 +2373,216 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712PluralFormat
   %78 = sext i16 %77 to i32
   %79 = select i1 %75, i32 %76, i32 %78
   %spec.select.i.i.i = call i32 @llvm.smin.i32(i32 %79, i32 0)
-  %.010.i.i.i = call i32 @llvm.smax.i32(i32 %79, i32 0)
-  %80 = and i16 %63, 2
-  %.not.i.i.i.i = icmp eq i16 %80, 0
-  %81 = load ptr, ptr %34, align 8
-  %82 = select i1 %.not.i.i.i.i, ptr %81, ptr %33
-  %83 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %31, i32 noundef %74, i32 noundef %72, ptr noundef %82, i32 noundef %spec.select.i.i.i, i32 noundef %.010.i.i.i)
-          to label %84 unwind label %49
+  %80 = icmp slt i32 %79, 0
+  %81 = sub nsw i32 %79, %spec.select.i.i.i
+  %spec.select13.i.i.i = call i32 @llvm.smin.i32(i32 %79, i32 %81)
+  %.010.i.i.i = select i1 %80, i32 0, i32 %spec.select13.i.i.i
+  %82 = and i16 %63, 2
+  %.not.i.i.i.i = icmp eq i16 %82, 0
+  %83 = load ptr, ptr %34, align 8
+  %84 = select i1 %.not.i.i.i.i, ptr %83, ptr %33
+  %85 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %31, i32 noundef %74, i32 noundef %72, ptr noundef %84, i32 noundef %spec.select.i.i.i, i32 noundef %.010.i.i.i)
+          to label %86 unwind label %49
 
-84:                                               ; preds = %65, %.sink.split.i.i.i.i
-  %.0.i.i.i = phi i8 [ %69, %65 ], [ %83, %.sink.split.i.i.i.i ]
-  %.not109 = icmp eq i8 %.0.i.i.i, 0
-  br i1 %.not109, label %85, label %110
+86:                                               ; preds = %65, %.sink.split.i.i.i.i
+  %.0.i.i.i = phi i8 [ %69, %65 ], [ %85, %.sink.split.i.i.i.i ]
+  %.not111 = icmp eq i8 %.0.i.i.i, 0
+  br i1 %.not111, label %87, label %114
 
-85:                                               ; preds = %84
-  %86 = icmp eq i32 %.044, 0
-  br i1 %86, label %87, label %164
+87:                                               ; preds = %86
+  %88 = icmp eq i32 %.044, 0
+  br i1 %88, label %89, label %172
 
-87:                                               ; preds = %85
-  %88 = load i16, ptr %26, align 8, !tbaa !39
-  %89 = load i16, ptr %29, align 8, !tbaa !39
-  %90 = and i16 %89, 1
-  %.not.i.i = icmp eq i16 %90, 0
-  br i1 %.not.i.i, label %.sink.split.i.i.i, label %91
+89:                                               ; preds = %87
+  %90 = load i16, ptr %26, align 8, !tbaa !39
+  %91 = load i16, ptr %29, align 8, !tbaa !39
+  %92 = and i16 %91, 1
+  %.not.i.i = icmp eq i16 %92, 0
+  br i1 %.not.i.i, label %.sink.split.i.i.i, label %93
 
-91:                                               ; preds = %87
-  %92 = trunc i16 %88 to i8
-  %93 = and i8 %92, 1
-  %94 = xor i8 %93, 1
+93:                                               ; preds = %89
+  %94 = trunc i16 %90 to i8
+  %95 = and i8 %94, 1
+  %96 = xor i8 %95, 1
   br label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit
 
-.sink.split.i.i.i:                                ; preds = %87
-  %95 = icmp slt i16 %89, 0
-  %96 = load i32, ptr %32, align 4
-  %97 = ashr i16 %89, 5
-  %98 = sext i16 %97 to i32
-  %99 = select i1 %95, i32 %96, i32 %98
-  %100 = icmp slt i16 %88, 0
-  %101 = load i32, ptr %36, align 4
-  %102 = ashr i16 %88, 5
-  %103 = sext i16 %102 to i32
-  %104 = select i1 %100, i32 %101, i32 %103
-  %spec.select.i.i = call i32 @llvm.smin.i32(i32 %99, i32 0)
-  %.010.i.i = call i32 @llvm.smax.i32(i32 %99, i32 0)
-  %105 = and i16 %89, 2
-  %.not.i.i.i74 = icmp eq i16 %105, 0
-  %106 = load ptr, ptr %34, align 8
-  %107 = select i1 %.not.i.i.i74, ptr %106, ptr %33
-  %108 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef 0, i32 noundef %104, ptr noundef %107, i32 noundef %spec.select.i.i, i32 noundef %.010.i.i)
+.sink.split.i.i.i:                                ; preds = %89
+  %97 = icmp slt i16 %91, 0
+  %98 = load i32, ptr %32, align 4
+  %99 = ashr i16 %91, 5
+  %100 = sext i16 %99 to i32
+  %101 = select i1 %97, i32 %98, i32 %100
+  %102 = icmp slt i16 %90, 0
+  %103 = load i32, ptr %36, align 4
+  %104 = ashr i16 %90, 5
+  %105 = sext i16 %104 to i32
+  %106 = select i1 %102, i32 %103, i32 %105
+  %spec.select.i.i = call i32 @llvm.smin.i32(i32 %101, i32 0)
+  %107 = icmp slt i32 %101, 0
+  %108 = sub nsw i32 %101, %spec.select.i.i
+  %spec.select13.i.i = call i32 @llvm.smin.i32(i32 %101, i32 %108)
+  %.010.i.i = select i1 %107, i32 0, i32 %spec.select13.i.i
+  %109 = and i16 %91, 2
+  %.not.i.i.i74 = icmp eq i16 %109, 0
+  %110 = load ptr, ptr %34, align 8
+  %111 = select i1 %.not.i.i.i74, ptr %110, ptr %33
+  %112 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef 0, i32 noundef %106, ptr noundef %111, i32 noundef %spec.select.i.i, i32 noundef %.010.i.i)
           to label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit unwind label %49
 
-_ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %91, %.sink.split.i.i.i
-  %.0.i.i = phi i8 [ %94, %91 ], [ %108, %.sink.split.i.i.i ]
-  %109 = icmp eq i8 %.0.i.i, 0
-  %spec.select = zext i1 %109 to i8
-  br label %164
+_ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %93, %.sink.split.i.i.i
+  %.0.i.i = phi i8 [ %96, %93 ], [ %112, %.sink.split.i.i.i ]
+  %113 = icmp eq i8 %.0.i.i, 0
+  %spec.select = zext i1 %113 to i8
+  br label %172
 
-110:                                              ; preds = %84
-  %111 = load i16, ptr %26, align 8, !tbaa !39
-  %112 = icmp ugt i16 %111, 31
-  br i1 %112, label %.critedge, label %113
+114:                                              ; preds = %86
+  %115 = load i16, ptr %26, align 8, !tbaa !39
+  %116 = icmp ugt i16 %115, 31
+  br i1 %116, label %.critedge, label %117
 
-113:                                              ; preds = %110
+117:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #18
-  %114 = load ptr, ptr %2, align 8, !tbaa !15
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %116 = load ptr, ptr %115, align 8
-  invoke void %116(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, double noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %5)
-          to label %117 unwind label %140
+  %118 = load ptr, ptr %2, align 8, !tbaa !15
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %120 = load ptr, ptr %119, align 8
+  invoke void %120(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, double noundef %35, ptr noundef nonnull align 4 dereferenceable(4) %5)
+          to label %121 unwind label %146
 
-117:                                              ; preds = %113
-  %118 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %10) #18
+121:                                              ; preds = %117
+  %122 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %10) #18
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #18
   %.not66 = icmp eq i32 %.044, 0
-  %.pre113 = load i16, ptr %26, align 8, !tbaa !39
-  br i1 %.not66, label %.critedge, label %119
+  %.pre115 = load i16, ptr %26, align 8, !tbaa !39
+  br i1 %.not66, label %.critedge, label %123
 
-119:                                              ; preds = %117
-  %120 = load i16, ptr %29, align 8, !tbaa !39
-  %121 = and i16 %120, 1
-  %.not.i.i76 = icmp eq i16 %121, 0
-  br i1 %.not.i.i76, label %.sink.split.i.i.i78, label %122
+123:                                              ; preds = %121
+  %124 = load i16, ptr %29, align 8, !tbaa !39
+  %125 = and i16 %124, 1
+  %.not.i.i76 = icmp eq i16 %125, 0
+  br i1 %.not.i.i76, label %.sink.split.i.i.i78, label %126
 
-122:                                              ; preds = %119
-  %123 = trunc i16 %.pre113 to i8
-  %124 = and i8 %123, 1
-  %125 = xor i8 %124, 1
-  br label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83
+126:                                              ; preds = %123
+  %127 = trunc i16 %.pre115 to i8
+  %128 = and i8 %127, 1
+  %129 = xor i8 %128, 1
+  br label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit84
 
-.sink.split.i.i.i78:                              ; preds = %119
-  %126 = icmp slt i16 %120, 0
-  %127 = load i32, ptr %32, align 4
-  %128 = ashr i16 %120, 5
-  %129 = sext i16 %128 to i32
-  %130 = select i1 %126, i32 %127, i32 %129
-  %131 = icmp slt i16 %.pre113, 0
-  %132 = load i32, ptr %36, align 4
-  %133 = ashr i16 %.pre113, 5
-  %134 = sext i16 %133 to i32
-  %135 = select i1 %131, i32 %132, i32 %134
-  %spec.select.i.i79 = call i32 @llvm.smin.i32(i32 %130, i32 0)
-  %.010.i.i80 = call i32 @llvm.smax.i32(i32 %130, i32 0)
-  %136 = and i16 %120, 2
-  %.not.i.i.i81 = icmp eq i16 %136, 0
-  %137 = load ptr, ptr %34, align 8
-  %138 = select i1 %.not.i.i.i81, ptr %137, ptr %33
-  %139 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef 0, i32 noundef %135, ptr noundef %138, i32 noundef %spec.select.i.i79, i32 noundef %.010.i.i80)
-          to label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83 unwind label %49
+.sink.split.i.i.i78:                              ; preds = %123
+  %130 = icmp slt i16 %124, 0
+  %131 = load i32, ptr %32, align 4
+  %132 = ashr i16 %124, 5
+  %133 = sext i16 %132 to i32
+  %134 = select i1 %130, i32 %131, i32 %133
+  %135 = icmp slt i16 %.pre115, 0
+  %136 = load i32, ptr %36, align 4
+  %137 = ashr i16 %.pre115, 5
+  %138 = sext i16 %137 to i32
+  %139 = select i1 %135, i32 %136, i32 %138
+  %spec.select.i.i79 = call i32 @llvm.smin.i32(i32 %134, i32 0)
+  %140 = icmp slt i32 %134, 0
+  %141 = sub nsw i32 %134, %spec.select.i.i79
+  %spec.select13.i.i80 = call i32 @llvm.smin.i32(i32 %134, i32 %141)
+  %.010.i.i81 = select i1 %140, i32 0, i32 %spec.select13.i.i80
+  %142 = and i16 %124, 2
+  %.not.i.i.i82 = icmp eq i16 %142, 0
+  %143 = load ptr, ptr %34, align 8
+  %144 = select i1 %.not.i.i.i82, ptr %143, ptr %33
+  %145 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef 0, i32 noundef %139, ptr noundef %144, i32 noundef %spec.select.i.i79, i32 noundef %.010.i.i81)
+          to label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit84 unwind label %49
 
-_ZNK6icu_7713UnicodeString7compareERKS0_.exit83:  ; preds = %122, %.sink.split.i.i.i78
-  %.0.i.i77 = phi i8 [ %125, %122 ], [ %139, %.sink.split.i.i.i78 ]
-  %.not110 = icmp eq i8 %.0.i.i77, 0
-  br i1 %.not110, label %164, label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83..critedge_crit_edge
+_ZNK6icu_7713UnicodeString7compareERKS0_.exit84:  ; preds = %126, %.sink.split.i.i.i78
+  %.0.i.i77 = phi i8 [ %129, %126 ], [ %145, %.sink.split.i.i.i78 ]
+  %.not112 = icmp eq i8 %.0.i.i77, 0
+  br i1 %.not112, label %172, label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit84..critedge_crit_edge
 
-_ZNK6icu_7713UnicodeString7compareERKS0_.exit83..critedge_crit_edge: ; preds = %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83
-  %.pre112 = load i16, ptr %26, align 8, !tbaa !39
+_ZNK6icu_7713UnicodeString7compareERKS0_.exit84..critedge_crit_edge: ; preds = %_ZNK6icu_7713UnicodeString7compareERKS0_.exit84
+  %.pre114 = load i16, ptr %26, align 8, !tbaa !39
   br label %.critedge
 
-140:                                              ; preds = %113
-  %141 = landingpad { ptr, i32 }
+146:                                              ; preds = %117
+  %147 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #18
-  br label %170
+  br label %178
 
-.critedge:                                        ; preds = %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83..critedge_crit_edge, %117, %110
-  %142 = phi i16 [ %.pre112, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83..critedge_crit_edge ], [ %.pre113, %117 ], [ %111, %110 ]
-  %143 = and i16 %142, 1
-  %.not.i.i.i84 = icmp eq i16 %143, 0
-  br i1 %.not.i.i.i84, label %.sink.split.i.i.i.i86, label %144
+.critedge:                                        ; preds = %_ZNK6icu_7713UnicodeString7compareERKS0_.exit84..critedge_crit_edge, %121, %114
+  %148 = phi i16 [ %.pre114, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit84..critedge_crit_edge ], [ %.pre115, %121 ], [ %115, %114 ]
+  %149 = and i16 %148, 1
+  %.not.i.i.i85 = icmp eq i16 %149, 0
+  br i1 %.not.i.i.i85, label %.sink.split.i.i.i.i87, label %150
 
-144:                                              ; preds = %.critedge
-  %145 = load i16, ptr %30, align 8, !tbaa !39
-  %146 = trunc i16 %145 to i8
-  %147 = and i8 %146, 1
-  %148 = xor i8 %147, 1
-  br label %163
-
-.sink.split.i.i.i.i86:                            ; preds = %.critedge
-  %149 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %150 = load i16, ptr %149, align 4, !tbaa !59
-  %151 = zext i16 %150 to i32
-  %152 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %153 = load i32, ptr %152, align 4, !tbaa !56
-  %154 = icmp slt i16 %142, 0
-  %155 = load i32, ptr %36, align 4
-  %156 = ashr i16 %142, 5
-  %157 = sext i16 %156 to i32
-  %158 = select i1 %154, i32 %155, i32 %157
-  %spec.select.i.i.i87 = call i32 @llvm.smin.i32(i32 %158, i32 0)
-  %.010.i.i.i88 = call i32 @llvm.smax.i32(i32 %158, i32 0)
-  %159 = and i16 %142, 2
-  %.not.i.i.i.i89 = icmp eq i16 %159, 0
-  %160 = load ptr, ptr %38, align 8
-  %161 = select i1 %.not.i.i.i.i89, ptr %160, ptr %37
-  %162 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %31, i32 noundef %153, i32 noundef %151, ptr noundef %161, i32 noundef %spec.select.i.i.i87, i32 noundef %.010.i.i.i88)
-          to label %163 unwind label %49
-
-163:                                              ; preds = %144, %.sink.split.i.i.i.i86
-  %.0.i.i.i85 = phi i8 [ %148, %144 ], [ %162, %.sink.split.i.i.i.i86 ]
-  %.not111 = icmp eq i8 %.0.i.i.i85, 0
-  %spec.select72 = zext i1 %.not111 to i8
-  %spec.select73 = select i1 %.not111, i32 %41, i32 %.044
-  br label %164
-
-164:                                              ; preds = %._crit_edge, %85, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83, %61, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit, %163
-  %.pre-phi = phi i64 [ %.pre114, %._crit_edge ], [ %52, %85 ], [ %52, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83 ], [ %52, %61 ], [ %52, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ %52, %163 ]
-  %.359 = phi i32 [ %59, %._crit_edge ], [ %41, %85 ], [ %41, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83 ], [ %41, %61 ], [ %41, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ %41, %163 ]
-  %.249 = phi i8 [ %.047, %._crit_edge ], [ 0, %85 ], [ 1, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83 ], [ 1, %61 ], [ %spec.select, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ %spec.select72, %163 ]
-  %.246 = phi i32 [ %.044, %._crit_edge ], [ %.044, %85 ], [ %.044, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit83 ], [ %.044, %61 ], [ %41, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ %spec.select73, %163 ]
-  %165 = load ptr, ptr %16, align 8, !tbaa !55
-  %166 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %165, i64 %.pre-phi, i32 4
-  %167 = load i32, ptr %166, align 4, !tbaa !62
-  %..i = call noundef i32 @llvm.smax.i32(i32 %167, i32 %.359)
-  %168 = add nsw i32 %..i, 1
-  %169 = icmp slt i32 %168, %15
-  br i1 %169, label %39, label %.thread, !llvm.loop !73
-
-170:                                              ; preds = %140, %49
-  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %141, %140 ]
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #18
+150:                                              ; preds = %.critedge
+  %151 = load i16, ptr %30, align 8, !tbaa !39
+  %152 = trunc i16 %151 to i8
+  %153 = and i8 %152, 1
+  %154 = xor i8 %153, 1
   br label %171
 
-.thread:                                          ; preds = %58, %164, %39
-  %.3 = phi i32 [ %.246, %164 ], [ %.044, %39 ], [ %59, %58 ]
+.sink.split.i.i.i.i87:                            ; preds = %.critedge
+  %155 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %156 = load i16, ptr %155, align 4, !tbaa !59
+  %157 = zext i16 %156 to i32
+  %158 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %159 = load i32, ptr %158, align 4, !tbaa !56
+  %160 = icmp slt i16 %148, 0
+  %161 = load i32, ptr %36, align 4
+  %162 = ashr i16 %148, 5
+  %163 = sext i16 %162 to i32
+  %164 = select i1 %160, i32 %161, i32 %163
+  %spec.select.i.i.i88 = call i32 @llvm.smin.i32(i32 %164, i32 0)
+  %165 = icmp slt i32 %164, 0
+  %166 = sub nsw i32 %164, %spec.select.i.i.i88
+  %spec.select13.i.i.i89 = call i32 @llvm.smin.i32(i32 %164, i32 %166)
+  %.010.i.i.i90 = select i1 %165, i32 0, i32 %spec.select13.i.i.i89
+  %167 = and i16 %148, 2
+  %.not.i.i.i.i91 = icmp eq i16 %167, 0
+  %168 = load ptr, ptr %38, align 8
+  %169 = select i1 %.not.i.i.i.i91, ptr %168, ptr %37
+  %170 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %31, i32 noundef %159, i32 noundef %157, ptr noundef %169, i32 noundef %spec.select.i.i.i88, i32 noundef %.010.i.i.i90)
+          to label %171 unwind label %49
+
+171:                                              ; preds = %150, %.sink.split.i.i.i.i87
+  %.0.i.i.i86 = phi i8 [ %154, %150 ], [ %170, %.sink.split.i.i.i.i87 ]
+  %.not113 = icmp eq i8 %.0.i.i.i86, 0
+  %spec.select72 = zext i1 %.not113 to i8
+  %spec.select73 = select i1 %.not113, i32 %41, i32 %.044
+  br label %172
+
+172:                                              ; preds = %._crit_edge, %87, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit84, %61, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit, %171
+  %.pre-phi = phi i64 [ %.pre116, %._crit_edge ], [ %52, %87 ], [ %52, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit84 ], [ %52, %61 ], [ %52, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ %52, %171 ]
+  %.359 = phi i32 [ %59, %._crit_edge ], [ %41, %87 ], [ %41, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit84 ], [ %41, %61 ], [ %41, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ %41, %171 ]
+  %.249 = phi i8 [ %.047, %._crit_edge ], [ 0, %87 ], [ 1, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit84 ], [ 1, %61 ], [ %spec.select, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ %spec.select72, %171 ]
+  %.246 = phi i32 [ %.044, %._crit_edge ], [ %.044, %87 ], [ %.044, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit84 ], [ %.044, %61 ], [ %41, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ %spec.select73, %171 ]
+  %173 = load ptr, ptr %16, align 8, !tbaa !55
+  %174 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %173, i64 %.pre-phi, i32 4
+  %175 = load i32, ptr %174, align 4, !tbaa !62
+  %..i = call noundef i32 @llvm.smax.i32(i32 %175, i32 %.359)
+  %176 = add nsw i32 %..i, 1
+  %177 = icmp slt i32 %176, %15
+  br i1 %177, label %39, label %.thread, !llvm.loop !73
+
+178:                                              ; preds = %146, %49
+  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %147, %146 ]
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #18
+  br label %179
+
+.thread:                                          ; preds = %58, %172, %39
+  %.3 = phi i32 [ %.246, %172 ], [ %.044, %39 ], [ %59, %58 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #18
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
-  br label %172
+  br label %180
 
-171:                                              ; preds = %170, %46
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %170 ], [ %47, %46 ]
+179:                                              ; preds = %178, %46
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %178 ], [ %47, %46 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #18
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
   resume { ptr, i32 } %.pn.pn
 
-172:                                              ; preds = %6, %.thread
+180:                                              ; preds = %6, %.thread
   %.043 = phi i32 [ %.3, %.thread ], [ 0, %6 ]
   ret i32 %.043
 }

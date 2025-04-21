@@ -237,11 +237,11 @@ define internal noundef range(i32 -128, 128) i32 @_ZL16SPUStringCompare8UElement
   %19 = load i32, ptr %18, align 4
   %20 = select i1 %15, i32 %19, i32 %17
   %21 = icmp slt i32 %11, %20
-  br i1 %21, label %37, label %22
+  br i1 %21, label %39, label %22
 
 22:                                               ; preds = %2
   %23 = icmp sgt i32 %11, %20
-  br i1 %23, label %37, label %24
+  br i1 %23, label %39, label %24
 
 24:                                               ; preds = %22
   %25 = and i16 %14, 1
@@ -256,23 +256,26 @@ define internal noundef range(i32 -128, 128) i32 @_ZL16SPUStringCompare8UElement
 
 .sink.split.i.i.i:                                ; preds = %24
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %20, i32 0)
-  %.010.i.i = tail call i32 @llvm.smax.i32(i32 %20, i32 0)
-  %30 = and i16 %14, 2
-  %.not.i.i.i = icmp eq i16 %30, 0
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 10
-  %32 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = select i1 %.not.i.i.i, ptr %33, ptr %31
-  %35 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 0, i32 noundef %11, ptr noundef %34, i32 noundef %spec.select.i.i, i32 noundef %.010.i.i)
+  %30 = icmp slt i32 %20, 0
+  %31 = sub nsw i32 %20, %spec.select.i.i
+  %spec.select13.i.i = tail call i32 @llvm.smin.i32(i32 %20, i32 %31)
+  %.010.i.i = select i1 %30, i32 0, i32 %spec.select13.i.i
+  %32 = and i16 %14, 2
+  %.not.i.i.i = icmp eq i16 %32, 0
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 10
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %36 = select i1 %.not.i.i.i, ptr %35, ptr %33
+  %37 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 0, i32 noundef %11, ptr noundef %36, i32 noundef %spec.select.i.i, i32 noundef %.010.i.i)
   br label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit
 
 _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %26, %.sink.split.i.i.i
-  %.0.i.i = phi i8 [ %29, %26 ], [ %35, %.sink.split.i.i.i ]
-  %36 = sext i8 %.0.i.i to i32
-  br label %37
+  %.0.i.i = phi i8 [ %29, %26 ], [ %37, %.sink.split.i.i.i ]
+  %38 = sext i8 %.0.i.i to i32
+  br label %39
 
-37:                                               ; preds = %22, %2, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit
-  %.0 = phi i32 [ %36, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ -1, %2 ], [ 1, %22 ]
+39:                                               ; preds = %22, %2, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit
+  %.0 = phi i32 [ %38, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ -1, %2 ], [ 1, %22 ]
   ret i32 %.0
 }
 
@@ -1428,9 +1431,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

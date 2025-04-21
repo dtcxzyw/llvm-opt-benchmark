@@ -2534,7 +2534,7 @@ define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN6icu_77L17find
 18:                                               ; preds = %3
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %65
 
 20:                                               ; preds = %.preheader, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit
   %.032 = phi i32 [ %..032, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ %8, %.preheader ]
@@ -2557,13 +2557,13 @@ define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN6icu_77L17find
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %65
 
 31:                                               ; preds = %26
   store ptr %25, ptr %6, align 8, !tbaa !15
   %32 = load i32, ptr %5, align 4, !tbaa !12
   %33 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef %32)
-          to label %34 unwind label %58
+          to label %34 unwind label %60
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %6, align 8, !tbaa !15
@@ -2592,33 +2592,36 @@ define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN6icu_77L17find
   %51 = sext i16 %50 to i32
   %52 = select i1 %48, i32 %49, i32 %51
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %47, i32 0)
-  %.010.i.i = call i32 @llvm.smax.i32(i32 %47, i32 0)
-  %53 = and i16 %37, 2
-  %.not.i.i.i = icmp eq i16 %53, 0
-  %54 = load ptr, ptr %17, align 8
-  %55 = select i1 %.not.i.i.i, ptr %54, ptr %16
-  %56 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %52, ptr noundef %55, i32 noundef %spec.select.i.i, i32 noundef %.010.i.i)
-          to label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit unwind label %61
+  %53 = icmp slt i32 %47, 0
+  %54 = sub nsw i32 %47, %spec.select.i.i
+  %spec.select13.i.i = call i32 @llvm.smin.i32(i32 %47, i32 %54)
+  %.010.i.i = select i1 %53, i32 0, i32 %spec.select13.i.i
+  %55 = and i16 %37, 2
+  %.not.i.i.i = icmp eq i16 %55, 0
+  %56 = load ptr, ptr %17, align 8
+  %57 = select i1 %.not.i.i.i, ptr %56, ptr %16
+  %58 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %52, ptr noundef %57, i32 noundef %spec.select.i.i, i32 noundef %.010.i.i)
+          to label %_ZNK6icu_7713UnicodeString7compareERKS0_.exit unwind label %63
 
 _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %39, %.sink.split.i.i.i
-  %.0.i.i = phi i8 [ %42, %39 ], [ %56, %.sink.split.i.i.i ]
+  %.0.i.i = phi i8 [ %42, %39 ], [ %58, %.sink.split.i.i.i ]
   %.not40 = icmp eq i8 %.0.i.i, 0
-  %57 = icmp slt i8 %.0.i.i, 0
-  %..032 = select i1 %57, i32 %22, i32 %.032
-  %.025. = select i1 %57, i32 %.025, i32 %22
+  %59 = icmp slt i8 %.0.i.i, 0
+  %..032 = select i1 %59, i32 %22, i32 %.032
+  %.025. = select i1 %59, i32 %.025, i32 %22
   br i1 %.not40, label %.loopexit, label %20, !llvm.loop !47
 
-58:                                               ; preds = %31
-  %59 = landingpad { ptr, i32 }
+60:                                               ; preds = %31
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %60 = load ptr, ptr %6, align 8, !tbaa !15
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %60) #21, !srcloc !18
-  br label %63
+  %62 = load ptr, ptr %6, align 8, !tbaa !15
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %62) #21, !srcloc !18
+  br label %65
 
-61:                                               ; preds = %.sink.split.i.i.i
-  %62 = landingpad { ptr, i32 }
+63:                                               ; preds = %.sink.split.i.i.i
+  %64 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %65
 
 .loopexit:                                        ; preds = %20, %26, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit, %9
   %.0 = phi i32 [ -1, %9 ], [ -1, %20 ], [ -1, %26 ], [ %22, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ]
@@ -2627,8 +2630,8 @@ _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %39, %.sink.split.i.
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #21
   ret i32 %.0
 
-63:                                               ; preds = %29, %58, %61, %18
-  %.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %62, %61 ], [ %59, %58 ], [ %30, %29 ]
+65:                                               ; preds = %29, %60, %63, %18
+  %.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %64, %63 ], [ %61, %60 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #21
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #21
@@ -5280,9 +5283,6 @@ declare void @_ZN6icu_7711ReplaceableD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20

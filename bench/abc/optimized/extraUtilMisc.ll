@@ -4374,22 +4374,22 @@ define noundef i64 @Extra_Truth6MinimumHeuristic(i64 noundef %0) local_unnamed_a
   %23 = add nuw nsw i64 %22, %21
   %24 = trunc i64 %23 to i32
   %25 = icmp samesign ult i32 %24, 32
-  br i1 %25, label %.preheader.i, label %91
+  br i1 %25, label %.preheader.i, label %92
 
-26:                                               ; preds = %89
+26:                                               ; preds = %90
   %27 = add nuw nsw i32 %.01521.i, 1
   %exitcond.not.i = icmp eq i32 %27, 10
   br i1 %exitcond.not.i, label %Extra_Truth6MinimumRoundMany.exit, label %.preheader.i, !llvm.loop !98
 
 .preheader.i:                                     ; preds = %1, %26
   %.01521.i = phi i32 [ %27, %26 ], [ 0, %1 ]
-  %.01620.i = phi i64 [ %88, %26 ], [ %0, %1 ]
+  %.01620.i = phi i64 [ %89, %26 ], [ %0, %1 ]
   br label %28
 
 28:                                               ; preds = %28, %.preheader.i
   %29 = phi i64 [ -4294967296, %.preheader.i ], [ %31, %28 ]
   %indvars.iv.i = phi i64 [ 4, %.preheader.i ], [ %indvars.iv.next.i, %28 ]
-  %.219.i = phi i64 [ %.01620.i, %.preheader.i ], [ %88, %28 ]
+  %.219.i = phi i64 [ %.01620.i, %.preheader.i ], [ %89, %28 ]
   %30 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv.i
   %31 = load i64, ptr %30, align 8, !tbaa !93
   %32 = xor i64 %31, -1
@@ -4449,277 +4449,281 @@ define noundef i64 @Extra_Truth6MinimumHeuristic(i64 noundef %0) local_unnamed_a
   %86 = lshr i64 %85, %36
   %87 = or i64 %84, %86
   %88 = tail call noundef i64 @llvm.umin.i64(i64 %82, i64 %87)
+  %89 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i, i64 %88)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not.i, label %89, label %28, !llvm.loop !99
+  br i1 %.not.i, label %90, label %28, !llvm.loop !99
 
-89:                                               ; preds = %28
-  %90 = icmp eq i64 %.01620.i, %88
-  br i1 %90, label %Extra_Truth6MinimumRoundMany.exit, label %26
+90:                                               ; preds = %28
+  %91 = icmp eq i64 %.01620.i, %89
+  br i1 %91, label %Extra_Truth6MinimumRoundMany.exit, label %26
 
-91:                                               ; preds = %1
+92:                                               ; preds = %1
   %.not = icmp eq i32 %24, 32
-  br i1 %.not, label %.preheader.i21, label %92
+  br i1 %.not, label %.preheader.i21, label %93
 
-92:                                               ; preds = %91
-  %93 = xor i64 %0, -1
+93:                                               ; preds = %92
+  %94 = xor i64 %0, -1
   br label %.preheader.i11
 
-94:                                               ; preds = %157
-  %95 = add nuw nsw i32 %.01521.i12, 1
-  %exitcond.not.i18 = icmp eq i32 %95, 10
+95:                                               ; preds = %159
+  %96 = add nuw nsw i32 %.01521.i12, 1
+  %exitcond.not.i18 = icmp eq i32 %96, 10
   br i1 %exitcond.not.i18, label %Extra_Truth6MinimumRoundMany.exit, label %.preheader.i11, !llvm.loop !98
 
-.preheader.i11:                                   ; preds = %94, %92
-  %.01521.i12 = phi i32 [ 0, %92 ], [ %95, %94 ]
-  %.01620.i13 = phi i64 [ %93, %92 ], [ %156, %94 ]
-  br label %96
+.preheader.i11:                                   ; preds = %95, %93
+  %.01521.i12 = phi i32 [ 0, %93 ], [ %96, %95 ]
+  %.01620.i13 = phi i64 [ %94, %93 ], [ %158, %95 ]
+  br label %97
 
-96:                                               ; preds = %96, %.preheader.i11
-  %97 = phi i64 [ -4294967296, %.preheader.i11 ], [ %99, %96 ]
-  %indvars.iv.i14 = phi i64 [ 4, %.preheader.i11 ], [ %indvars.iv.next.i16, %96 ]
-  %.219.i15 = phi i64 [ %.01620.i13, %.preheader.i11 ], [ %156, %96 ]
-  %98 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv.i14
-  %99 = load i64, ptr %98, align 8, !tbaa !93
-  %100 = xor i64 %99, -1
-  %101 = and i64 %.219.i15, %100
-  %102 = trunc nuw nsw i64 %indvars.iv.i14 to i32
-  %103 = shl nuw i32 1, %102
-  %104 = zext i32 %103 to i64
-  %105 = shl i64 %101, %104
-  %106 = and i64 %99, %.219.i15
-  %107 = lshr i64 %106, %104
-  %108 = or i64 %105, %107
-  %109 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i15, i64 %108)
-  %110 = xor i64 %97, -1
-  %111 = and i64 %.219.i15, %110
-  %112 = shl nuw i32 2, %102
-  %113 = zext i32 %112 to i64
-  %114 = shl i64 %111, %113
-  %115 = and i64 %.219.i15, %97
-  %116 = lshr i64 %115, %113
-  %117 = or i64 %114, %116
-  %118 = tail call noundef i64 @llvm.umin.i64(i64 %109, i64 %117)
-  %119 = and i64 %117, %100
-  %120 = shl i64 %119, %104
-  %121 = and i64 %117, %99
-  %122 = lshr i64 %121, %104
-  %123 = or i64 %120, %122
-  %124 = tail call noundef i64 @llvm.umin.i64(i64 %118, i64 %123)
-  %125 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i14
-  %126 = load i64, ptr %125, align 8, !tbaa !93
-  %127 = and i64 %126, %.219.i15
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %129 = load i64, ptr %128, align 8, !tbaa !93
-  %130 = and i64 %129, %.219.i15
-  %131 = shl i64 %130, %104
-  %132 = or i64 %131, %127
-  %133 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %134 = load i64, ptr %133, align 8, !tbaa !93
-  %135 = and i64 %134, %.219.i15
-  %136 = lshr i64 %135, %104
-  %137 = or i64 %132, %136
-  %138 = tail call noundef i64 @llvm.umin.i64(i64 %124, i64 %137)
-  %139 = and i64 %137, %100
-  %140 = shl i64 %139, %104
-  %141 = and i64 %137, %99
-  %142 = lshr i64 %141, %104
-  %143 = or i64 %140, %142
-  %144 = tail call noundef i64 @llvm.umin.i64(i64 %138, i64 %143)
-  %145 = and i64 %137, %110
-  %146 = shl i64 %145, %113
-  %147 = and i64 %137, %97
-  %148 = lshr i64 %147, %113
-  %149 = or i64 %146, %148
-  %150 = tail call noundef i64 @llvm.umin.i64(i64 %144, i64 %149)
-  %151 = and i64 %149, %100
-  %152 = shl i64 %151, %104
-  %153 = and i64 %149, %99
-  %154 = lshr i64 %153, %104
-  %155 = or i64 %152, %154
-  %156 = tail call noundef i64 @llvm.umin.i64(i64 %150, i64 %155)
+97:                                               ; preds = %97, %.preheader.i11
+  %98 = phi i64 [ -4294967296, %.preheader.i11 ], [ %100, %97 ]
+  %indvars.iv.i14 = phi i64 [ 4, %.preheader.i11 ], [ %indvars.iv.next.i16, %97 ]
+  %.219.i15 = phi i64 [ %.01620.i13, %.preheader.i11 ], [ %158, %97 ]
+  %99 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv.i14
+  %100 = load i64, ptr %99, align 8, !tbaa !93
+  %101 = xor i64 %100, -1
+  %102 = and i64 %.219.i15, %101
+  %103 = trunc nuw nsw i64 %indvars.iv.i14 to i32
+  %104 = shl nuw i32 1, %103
+  %105 = zext i32 %104 to i64
+  %106 = shl i64 %102, %105
+  %107 = and i64 %100, %.219.i15
+  %108 = lshr i64 %107, %105
+  %109 = or i64 %106, %108
+  %110 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i15, i64 %109)
+  %111 = xor i64 %98, -1
+  %112 = and i64 %.219.i15, %111
+  %113 = shl nuw i32 2, %103
+  %114 = zext i32 %113 to i64
+  %115 = shl i64 %112, %114
+  %116 = and i64 %.219.i15, %98
+  %117 = lshr i64 %116, %114
+  %118 = or i64 %115, %117
+  %119 = tail call noundef i64 @llvm.umin.i64(i64 %110, i64 %118)
+  %120 = and i64 %118, %101
+  %121 = shl i64 %120, %105
+  %122 = and i64 %118, %100
+  %123 = lshr i64 %122, %105
+  %124 = or i64 %121, %123
+  %125 = tail call noundef i64 @llvm.umin.i64(i64 %119, i64 %124)
+  %126 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i14
+  %127 = load i64, ptr %126, align 8, !tbaa !93
+  %128 = and i64 %127, %.219.i15
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %130 = load i64, ptr %129, align 8, !tbaa !93
+  %131 = and i64 %130, %.219.i15
+  %132 = shl i64 %131, %105
+  %133 = or i64 %132, %128
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 16
+  %135 = load i64, ptr %134, align 8, !tbaa !93
+  %136 = and i64 %135, %.219.i15
+  %137 = lshr i64 %136, %105
+  %138 = or i64 %133, %137
+  %139 = tail call noundef i64 @llvm.umin.i64(i64 %125, i64 %138)
+  %140 = and i64 %138, %101
+  %141 = shl i64 %140, %105
+  %142 = and i64 %138, %100
+  %143 = lshr i64 %142, %105
+  %144 = or i64 %141, %143
+  %145 = tail call noundef i64 @llvm.umin.i64(i64 %139, i64 %144)
+  %146 = and i64 %138, %111
+  %147 = shl i64 %146, %114
+  %148 = and i64 %138, %98
+  %149 = lshr i64 %148, %114
+  %150 = or i64 %147, %149
+  %151 = tail call noundef i64 @llvm.umin.i64(i64 %145, i64 %150)
+  %152 = and i64 %150, %101
+  %153 = shl i64 %152, %105
+  %154 = and i64 %150, %100
+  %155 = lshr i64 %154, %105
+  %156 = or i64 %153, %155
+  %157 = tail call noundef i64 @llvm.umin.i64(i64 %151, i64 %156)
+  %158 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i15, i64 %157)
   %indvars.iv.next.i16 = add nsw i64 %indvars.iv.i14, -1
   %.not.i17 = icmp eq i64 %indvars.iv.i14, 0
-  br i1 %.not.i17, label %157, label %96, !llvm.loop !99
+  br i1 %.not.i17, label %159, label %97, !llvm.loop !99
 
-157:                                              ; preds = %96
-  %158 = icmp eq i64 %.01620.i13, %156
-  br i1 %158, label %Extra_Truth6MinimumRoundMany.exit, label %94
+159:                                              ; preds = %97
+  %160 = icmp eq i64 %.01620.i13, %158
+  br i1 %160, label %Extra_Truth6MinimumRoundMany.exit, label %95
 
-159:                                              ; preds = %222
-  %160 = add nuw nsw i32 %.01521.i22, 1
-  %exitcond.not.i28 = icmp eq i32 %160, 10
+161:                                              ; preds = %225
+  %162 = add nuw nsw i32 %.01521.i22, 1
+  %exitcond.not.i28 = icmp eq i32 %162, 10
   br i1 %exitcond.not.i28, label %Extra_Truth6MinimumRoundMany.exit30, label %.preheader.i21, !llvm.loop !98
 
-.preheader.i21:                                   ; preds = %91, %159
-  %.01521.i22 = phi i32 [ %160, %159 ], [ 0, %91 ]
-  %.01620.i23 = phi i64 [ %221, %159 ], [ %0, %91 ]
-  br label %161
+.preheader.i21:                                   ; preds = %92, %161
+  %.01521.i22 = phi i32 [ %162, %161 ], [ 0, %92 ]
+  %.01620.i23 = phi i64 [ %224, %161 ], [ %0, %92 ]
+  br label %163
 
-161:                                              ; preds = %161, %.preheader.i21
-  %162 = phi i64 [ -4294967296, %.preheader.i21 ], [ %164, %161 ]
-  %indvars.iv.i24 = phi i64 [ 4, %.preheader.i21 ], [ %indvars.iv.next.i26, %161 ]
-  %.219.i25 = phi i64 [ %.01620.i23, %.preheader.i21 ], [ %221, %161 ]
-  %163 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv.i24
-  %164 = load i64, ptr %163, align 8, !tbaa !93
-  %165 = xor i64 %164, -1
-  %166 = and i64 %.219.i25, %165
-  %167 = trunc nuw nsw i64 %indvars.iv.i24 to i32
-  %168 = shl nuw i32 1, %167
-  %169 = zext i32 %168 to i64
-  %170 = shl i64 %166, %169
-  %171 = and i64 %164, %.219.i25
-  %172 = lshr i64 %171, %169
-  %173 = or i64 %170, %172
-  %174 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i25, i64 %173)
-  %175 = xor i64 %162, -1
-  %176 = and i64 %.219.i25, %175
-  %177 = shl nuw i32 2, %167
-  %178 = zext i32 %177 to i64
-  %179 = shl i64 %176, %178
-  %180 = and i64 %.219.i25, %162
-  %181 = lshr i64 %180, %178
-  %182 = or i64 %179, %181
-  %183 = tail call noundef i64 @llvm.umin.i64(i64 %174, i64 %182)
-  %184 = and i64 %182, %165
-  %185 = shl i64 %184, %169
-  %186 = and i64 %182, %164
-  %187 = lshr i64 %186, %169
-  %188 = or i64 %185, %187
-  %189 = tail call noundef i64 @llvm.umin.i64(i64 %183, i64 %188)
-  %190 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i24
-  %191 = load i64, ptr %190, align 8, !tbaa !93
-  %192 = and i64 %191, %.219.i25
-  %193 = getelementptr inbounds nuw i8, ptr %190, i64 8
-  %194 = load i64, ptr %193, align 8, !tbaa !93
-  %195 = and i64 %194, %.219.i25
-  %196 = shl i64 %195, %169
-  %197 = or i64 %196, %192
-  %198 = getelementptr inbounds nuw i8, ptr %190, i64 16
-  %199 = load i64, ptr %198, align 8, !tbaa !93
-  %200 = and i64 %199, %.219.i25
-  %201 = lshr i64 %200, %169
-  %202 = or i64 %197, %201
-  %203 = tail call noundef i64 @llvm.umin.i64(i64 %189, i64 %202)
-  %204 = and i64 %202, %165
-  %205 = shl i64 %204, %169
-  %206 = and i64 %202, %164
-  %207 = lshr i64 %206, %169
-  %208 = or i64 %205, %207
-  %209 = tail call noundef i64 @llvm.umin.i64(i64 %203, i64 %208)
-  %210 = and i64 %202, %175
-  %211 = shl i64 %210, %178
-  %212 = and i64 %202, %162
-  %213 = lshr i64 %212, %178
-  %214 = or i64 %211, %213
-  %215 = tail call noundef i64 @llvm.umin.i64(i64 %209, i64 %214)
-  %216 = and i64 %214, %165
-  %217 = shl i64 %216, %169
-  %218 = and i64 %214, %164
-  %219 = lshr i64 %218, %169
-  %220 = or i64 %217, %219
-  %221 = tail call noundef i64 @llvm.umin.i64(i64 %215, i64 %220)
+163:                                              ; preds = %163, %.preheader.i21
+  %164 = phi i64 [ -4294967296, %.preheader.i21 ], [ %166, %163 ]
+  %indvars.iv.i24 = phi i64 [ 4, %.preheader.i21 ], [ %indvars.iv.next.i26, %163 ]
+  %.219.i25 = phi i64 [ %.01620.i23, %.preheader.i21 ], [ %224, %163 ]
+  %165 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv.i24
+  %166 = load i64, ptr %165, align 8, !tbaa !93
+  %167 = xor i64 %166, -1
+  %168 = and i64 %.219.i25, %167
+  %169 = trunc nuw nsw i64 %indvars.iv.i24 to i32
+  %170 = shl nuw i32 1, %169
+  %171 = zext i32 %170 to i64
+  %172 = shl i64 %168, %171
+  %173 = and i64 %166, %.219.i25
+  %174 = lshr i64 %173, %171
+  %175 = or i64 %172, %174
+  %176 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i25, i64 %175)
+  %177 = xor i64 %164, -1
+  %178 = and i64 %.219.i25, %177
+  %179 = shl nuw i32 2, %169
+  %180 = zext i32 %179 to i64
+  %181 = shl i64 %178, %180
+  %182 = and i64 %.219.i25, %164
+  %183 = lshr i64 %182, %180
+  %184 = or i64 %181, %183
+  %185 = tail call noundef i64 @llvm.umin.i64(i64 %176, i64 %184)
+  %186 = and i64 %184, %167
+  %187 = shl i64 %186, %171
+  %188 = and i64 %184, %166
+  %189 = lshr i64 %188, %171
+  %190 = or i64 %187, %189
+  %191 = tail call noundef i64 @llvm.umin.i64(i64 %185, i64 %190)
+  %192 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i24
+  %193 = load i64, ptr %192, align 8, !tbaa !93
+  %194 = and i64 %193, %.219.i25
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  %196 = load i64, ptr %195, align 8, !tbaa !93
+  %197 = and i64 %196, %.219.i25
+  %198 = shl i64 %197, %171
+  %199 = or i64 %198, %194
+  %200 = getelementptr inbounds nuw i8, ptr %192, i64 16
+  %201 = load i64, ptr %200, align 8, !tbaa !93
+  %202 = and i64 %201, %.219.i25
+  %203 = lshr i64 %202, %171
+  %204 = or i64 %199, %203
+  %205 = tail call noundef i64 @llvm.umin.i64(i64 %191, i64 %204)
+  %206 = and i64 %204, %167
+  %207 = shl i64 %206, %171
+  %208 = and i64 %204, %166
+  %209 = lshr i64 %208, %171
+  %210 = or i64 %207, %209
+  %211 = tail call noundef i64 @llvm.umin.i64(i64 %205, i64 %210)
+  %212 = and i64 %204, %177
+  %213 = shl i64 %212, %180
+  %214 = and i64 %204, %164
+  %215 = lshr i64 %214, %180
+  %216 = or i64 %213, %215
+  %217 = tail call noundef i64 @llvm.umin.i64(i64 %211, i64 %216)
+  %218 = and i64 %216, %167
+  %219 = shl i64 %218, %171
+  %220 = and i64 %216, %166
+  %221 = lshr i64 %220, %171
+  %222 = or i64 %219, %221
+  %223 = tail call noundef i64 @llvm.umin.i64(i64 %217, i64 %222)
+  %224 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i25, i64 %223)
   %indvars.iv.next.i26 = add nsw i64 %indvars.iv.i24, -1
   %.not.i27 = icmp eq i64 %indvars.iv.i24, 0
-  br i1 %.not.i27, label %222, label %161, !llvm.loop !99
+  br i1 %.not.i27, label %225, label %163, !llvm.loop !99
 
-222:                                              ; preds = %161
-  %223 = icmp eq i64 %.01620.i23, %221
-  br i1 %223, label %Extra_Truth6MinimumRoundMany.exit30, label %159
+225:                                              ; preds = %163
+  %226 = icmp eq i64 %.01620.i23, %224
+  br i1 %226, label %Extra_Truth6MinimumRoundMany.exit30, label %161
 
-Extra_Truth6MinimumRoundMany.exit30:              ; preds = %159, %222
-  %.lcssa.lcssa.i29 = phi i64 [ %.01620.i23, %222 ], [ %221, %159 ]
-  %224 = xor i64 %0, -1
+Extra_Truth6MinimumRoundMany.exit30:              ; preds = %161, %225
+  %.lcssa.lcssa.i29 = phi i64 [ %.01620.i23, %225 ], [ %224, %161 ]
+  %227 = xor i64 %0, -1
   br label %.preheader.i31
 
-225:                                              ; preds = %288
-  %226 = add nuw nsw i32 %.01521.i32, 1
-  %exitcond.not.i38 = icmp eq i32 %226, 10
+228:                                              ; preds = %292
+  %229 = add nuw nsw i32 %.01521.i32, 1
+  %exitcond.not.i38 = icmp eq i32 %229, 10
   br i1 %exitcond.not.i38, label %Extra_Truth6MinimumRoundMany.exit40, label %.preheader.i31, !llvm.loop !98
 
-.preheader.i31:                                   ; preds = %225, %Extra_Truth6MinimumRoundMany.exit30
-  %.01521.i32 = phi i32 [ 0, %Extra_Truth6MinimumRoundMany.exit30 ], [ %226, %225 ]
-  %.01620.i33 = phi i64 [ %224, %Extra_Truth6MinimumRoundMany.exit30 ], [ %287, %225 ]
-  br label %227
+.preheader.i31:                                   ; preds = %228, %Extra_Truth6MinimumRoundMany.exit30
+  %.01521.i32 = phi i32 [ 0, %Extra_Truth6MinimumRoundMany.exit30 ], [ %229, %228 ]
+  %.01620.i33 = phi i64 [ %227, %Extra_Truth6MinimumRoundMany.exit30 ], [ %291, %228 ]
+  br label %230
 
-227:                                              ; preds = %227, %.preheader.i31
-  %228 = phi i64 [ -4294967296, %.preheader.i31 ], [ %230, %227 ]
-  %indvars.iv.i34 = phi i64 [ 4, %.preheader.i31 ], [ %indvars.iv.next.i36, %227 ]
-  %.219.i35 = phi i64 [ %.01620.i33, %.preheader.i31 ], [ %287, %227 ]
-  %229 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv.i34
-  %230 = load i64, ptr %229, align 8, !tbaa !93
-  %231 = xor i64 %230, -1
-  %232 = and i64 %.219.i35, %231
-  %233 = trunc nuw nsw i64 %indvars.iv.i34 to i32
-  %234 = shl nuw i32 1, %233
-  %235 = zext i32 %234 to i64
-  %236 = shl i64 %232, %235
-  %237 = and i64 %230, %.219.i35
-  %238 = lshr i64 %237, %235
-  %239 = or i64 %236, %238
-  %240 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i35, i64 %239)
-  %241 = xor i64 %228, -1
-  %242 = and i64 %.219.i35, %241
-  %243 = shl nuw i32 2, %233
-  %244 = zext i32 %243 to i64
-  %245 = shl i64 %242, %244
-  %246 = and i64 %.219.i35, %228
-  %247 = lshr i64 %246, %244
-  %248 = or i64 %245, %247
-  %249 = tail call noundef i64 @llvm.umin.i64(i64 %240, i64 %248)
-  %250 = and i64 %248, %231
-  %251 = shl i64 %250, %235
-  %252 = and i64 %248, %230
-  %253 = lshr i64 %252, %235
-  %254 = or i64 %251, %253
-  %255 = tail call noundef i64 @llvm.umin.i64(i64 %249, i64 %254)
-  %256 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i34
-  %257 = load i64, ptr %256, align 8, !tbaa !93
-  %258 = and i64 %257, %.219.i35
-  %259 = getelementptr inbounds nuw i8, ptr %256, i64 8
+230:                                              ; preds = %230, %.preheader.i31
+  %231 = phi i64 [ -4294967296, %.preheader.i31 ], [ %233, %230 ]
+  %indvars.iv.i34 = phi i64 [ 4, %.preheader.i31 ], [ %indvars.iv.next.i36, %230 ]
+  %.219.i35 = phi i64 [ %.01620.i33, %.preheader.i31 ], [ %291, %230 ]
+  %232 = getelementptr inbounds nuw [6 x i64], ptr @Extra_Truth6ChangePhase.Truth6, i64 0, i64 %indvars.iv.i34
+  %233 = load i64, ptr %232, align 8, !tbaa !93
+  %234 = xor i64 %233, -1
+  %235 = and i64 %.219.i35, %234
+  %236 = trunc nuw nsw i64 %indvars.iv.i34 to i32
+  %237 = shl nuw i32 1, %236
+  %238 = zext i32 %237 to i64
+  %239 = shl i64 %235, %238
+  %240 = and i64 %233, %.219.i35
+  %241 = lshr i64 %240, %238
+  %242 = or i64 %239, %241
+  %243 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i35, i64 %242)
+  %244 = xor i64 %231, -1
+  %245 = and i64 %.219.i35, %244
+  %246 = shl nuw i32 2, %236
+  %247 = zext i32 %246 to i64
+  %248 = shl i64 %245, %247
+  %249 = and i64 %.219.i35, %231
+  %250 = lshr i64 %249, %247
+  %251 = or i64 %248, %250
+  %252 = tail call noundef i64 @llvm.umin.i64(i64 %243, i64 %251)
+  %253 = and i64 %251, %234
+  %254 = shl i64 %253, %238
+  %255 = and i64 %251, %233
+  %256 = lshr i64 %255, %238
+  %257 = or i64 %254, %256
+  %258 = tail call noundef i64 @llvm.umin.i64(i64 %252, i64 %257)
+  %259 = getelementptr inbounds nuw [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %indvars.iv.i34
   %260 = load i64, ptr %259, align 8, !tbaa !93
   %261 = and i64 %260, %.219.i35
-  %262 = shl i64 %261, %235
-  %263 = or i64 %262, %258
-  %264 = getelementptr inbounds nuw i8, ptr %256, i64 16
-  %265 = load i64, ptr %264, align 8, !tbaa !93
-  %266 = and i64 %265, %.219.i35
-  %267 = lshr i64 %266, %235
-  %268 = or i64 %263, %267
-  %269 = tail call noundef i64 @llvm.umin.i64(i64 %255, i64 %268)
-  %270 = and i64 %268, %231
-  %271 = shl i64 %270, %235
-  %272 = and i64 %268, %230
-  %273 = lshr i64 %272, %235
-  %274 = or i64 %271, %273
-  %275 = tail call noundef i64 @llvm.umin.i64(i64 %269, i64 %274)
-  %276 = and i64 %268, %241
-  %277 = shl i64 %276, %244
-  %278 = and i64 %268, %228
-  %279 = lshr i64 %278, %244
-  %280 = or i64 %277, %279
-  %281 = tail call noundef i64 @llvm.umin.i64(i64 %275, i64 %280)
-  %282 = and i64 %280, %231
-  %283 = shl i64 %282, %235
-  %284 = and i64 %280, %230
-  %285 = lshr i64 %284, %235
-  %286 = or i64 %283, %285
-  %287 = tail call noundef i64 @llvm.umin.i64(i64 %281, i64 %286)
+  %262 = getelementptr inbounds nuw i8, ptr %259, i64 8
+  %263 = load i64, ptr %262, align 8, !tbaa !93
+  %264 = and i64 %263, %.219.i35
+  %265 = shl i64 %264, %238
+  %266 = or i64 %265, %261
+  %267 = getelementptr inbounds nuw i8, ptr %259, i64 16
+  %268 = load i64, ptr %267, align 8, !tbaa !93
+  %269 = and i64 %268, %.219.i35
+  %270 = lshr i64 %269, %238
+  %271 = or i64 %266, %270
+  %272 = tail call noundef i64 @llvm.umin.i64(i64 %258, i64 %271)
+  %273 = and i64 %271, %234
+  %274 = shl i64 %273, %238
+  %275 = and i64 %271, %233
+  %276 = lshr i64 %275, %238
+  %277 = or i64 %274, %276
+  %278 = tail call noundef i64 @llvm.umin.i64(i64 %272, i64 %277)
+  %279 = and i64 %271, %244
+  %280 = shl i64 %279, %247
+  %281 = and i64 %271, %231
+  %282 = lshr i64 %281, %247
+  %283 = or i64 %280, %282
+  %284 = tail call noundef i64 @llvm.umin.i64(i64 %278, i64 %283)
+  %285 = and i64 %283, %234
+  %286 = shl i64 %285, %238
+  %287 = and i64 %283, %233
+  %288 = lshr i64 %287, %238
+  %289 = or i64 %286, %288
+  %290 = tail call noundef i64 @llvm.umin.i64(i64 %284, i64 %289)
+  %291 = tail call noundef i64 @llvm.umin.i64(i64 %.219.i35, i64 %290)
   %indvars.iv.next.i36 = add nsw i64 %indvars.iv.i34, -1
   %.not.i37 = icmp eq i64 %indvars.iv.i34, 0
-  br i1 %.not.i37, label %288, label %227, !llvm.loop !99
+  br i1 %.not.i37, label %292, label %230, !llvm.loop !99
 
-288:                                              ; preds = %227
-  %289 = icmp eq i64 %.01620.i33, %287
-  br i1 %289, label %Extra_Truth6MinimumRoundMany.exit40, label %225
+292:                                              ; preds = %230
+  %293 = icmp eq i64 %.01620.i33, %291
+  br i1 %293, label %Extra_Truth6MinimumRoundMany.exit40, label %228
 
-Extra_Truth6MinimumRoundMany.exit40:              ; preds = %225, %288
-  %.lcssa.lcssa.i39 = phi i64 [ %.01620.i33, %288 ], [ %287, %225 ]
-  %290 = tail call noundef i64 @llvm.umin.i64(i64 %.lcssa.lcssa.i29, i64 %.lcssa.lcssa.i39)
+Extra_Truth6MinimumRoundMany.exit40:              ; preds = %228, %292
+  %.lcssa.lcssa.i39 = phi i64 [ %.01620.i33, %292 ], [ %291, %228 ]
+  %294 = tail call noundef i64 @llvm.umin.i64(i64 %.lcssa.lcssa.i29, i64 %.lcssa.lcssa.i39)
   br label %Extra_Truth6MinimumRoundMany.exit
 
-Extra_Truth6MinimumRoundMany.exit:                ; preds = %157, %94, %89, %26, %Extra_Truth6MinimumRoundMany.exit40
-  %.0 = phi i64 [ %290, %Extra_Truth6MinimumRoundMany.exit40 ], [ %88, %26 ], [ %.01620.i, %89 ], [ %156, %94 ], [ %.01620.i13, %157 ]
+Extra_Truth6MinimumRoundMany.exit:                ; preds = %159, %95, %90, %26, %Extra_Truth6MinimumRoundMany.exit40
+  %.0 = phi i64 [ %294, %Extra_Truth6MinimumRoundMany.exit40 ], [ %89, %26 ], [ %.01620.i, %90 ], [ %158, %95 ], [ %.01620.i13, %159 ]
   ret i64 %.0
 }
 

@@ -26026,17 +26026,19 @@ GroupGenerator_next.exit.thread:                  ; preds = %20, %GroupGenerator
   %spec.select120 = tail call i64 @llvm.smax.i64(i64 %44, i64 1)
   %45 = sub i64 %spec.select120, %.0100
   %46 = tail call i64 @llvm.smax.i64(i64 %45, i64 0)
-  %47 = tail call i64 @llvm.smax.i64(i64 %.0100, i64 0)
-  %48 = select i1 %.not116, i64 0, i64 %.val
-  %49 = add i64 %48, %.0105
-  %50 = add i64 %49, %46
-  %51 = add i64 %50, %47
-  %52 = select i1 %.not116, ptr null, ptr %7
-  call fastcc void @InsertThousandsGrouping_fill(ptr noundef %0, ptr noundef %10, ptr noundef %2, ptr noundef %11, i64 noundef %47, i64 noundef %46, ptr noundef %52, i64 noundef %.val, ptr noundef %8)
+  %47 = icmp slt i64 %.0100, 0
+  %48 = tail call i64 @llvm.smin.i64(i64 %.0100, i64 %spec.select120)
+  %49 = select i1 %47, i64 0, i64 %48
+  %50 = select i1 %.not116, i64 0, i64 %.val
+  %51 = add i64 %50, %.0105
+  %52 = add i64 %51, %46
+  %53 = add i64 %52, %49
+  %54 = select i1 %.not116, ptr null, ptr %7
+  call fastcc void @InsertThousandsGrouping_fill(ptr noundef %0, ptr noundef %10, ptr noundef %2, ptr noundef %11, i64 noundef %49, i64 noundef %46, ptr noundef %54, i64 noundef %.val, ptr noundef %8)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %GroupGenerator_next.exit.thread
-  %.2 = phi i64 [ %51, %GroupGenerator_next.exit.thread ], [ %37, %26 ]
+  %.2 = phi i64 [ %53, %GroupGenerator_next.exit.thread ], [ %37, %26 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #41
   ret i64 %.2

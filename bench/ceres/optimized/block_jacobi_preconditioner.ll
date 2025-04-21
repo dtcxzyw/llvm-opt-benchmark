@@ -16066,8 +16066,9 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit: ; preds = %_ZN5Eigen8int
   %120 = mul nsw i64 %.sroa.speculated130.us, %77
   %121 = getelementptr inbounds double, ptr %67, i64 %120
   %122 = sub nsw i64 %0, %.sroa.speculated130.us
+  %.sroa.speculated.us = call i64 @llvm.smax.i64(i64 %122, i64 0)
   %123 = load double, ptr %9, align 8, !tbaa !139
-  invoke void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4ELi4ELb0ELb0EEclERKS3_PKdS8_llldllll(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull %47, ptr noundef nonnull %121, i64 noundef %82, i64 noundef %77, i64 noundef %122, double noundef %123, i64 noundef -1, i64 noundef -1, i64 noundef 0, i64 noundef 0)
+  invoke void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_data_mapperIdlLi0ELi0ELi1EEELi4ELi4ELb0ELb0EEclERKS3_PKdS8_llldllll(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull %47, ptr noundef nonnull %121, i64 noundef %82, i64 noundef %77, i64 noundef %.sroa.speculated.us, double noundef %123, i64 noundef -1, i64 noundef -1, i64 noundef 0, i64 noundef 0)
           to label %124 unwind label %.split185.us
 
 124:                                              ; preds = %.loopexit.us

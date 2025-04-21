@@ -403,7 +403,8 @@ _ZL19is_overlapped_wideniiii.exit.thread.us321:   ; preds = %.preheader.split.sp
 
 159:                                              ; preds = %.preheader.split.split.split
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %147, i32 %106)
-  %160 = sub nsw i32 %.sroa.speculated.i15.i, %146
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %105, i32 %146)
+  %160 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %161 = icmp slt i32 %160, %.pre32.i
   br i1 %161, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -1276,7 +1277,8 @@ _ZL19is_overlapped_wideniiii.exit.thread.us321:   ; preds = %.preheader.split.sp
 
 159:                                              ; preds = %.preheader.split.split.split
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %147, i32 %106)
-  %160 = sub nsw i32 %.sroa.speculated.i15.i, %146
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %105, i32 %146)
+  %160 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %161 = icmp slt i32 %160, %.pre32.i
   br i1 %161, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -2025,7 +2027,8 @@ _ZL19is_overlapped_wideniiii.exit.thread.us321:   ; preds = %.preheader.split.sp
 
 159:                                              ; preds = %.preheader.split.split.split
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %147, i32 %106)
-  %160 = sub nsw i32 %.sroa.speculated.i15.i, %146
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %105, i32 %146)
+  %160 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %161 = icmp slt i32 %160, %.pre32.i
   br i1 %161, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -2776,7 +2779,8 @@ _ZL19is_overlapped_wideniiii.exit.thread.us321:   ; preds = %.preheader.split.sp
 
 159:                                              ; preds = %.preheader.split.split.split
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %147, i32 %106)
-  %160 = sub nsw i32 %.sroa.speculated.i15.i, %146
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %105, i32 %146)
+  %160 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %161 = icmp slt i32 %160, %.pre32.i
   br i1 %161, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -3525,7 +3529,8 @@ _ZL19is_overlapped_wideniiii.exit.thread.us325:   ; preds = %.preheader.split.sp
 
 159:                                              ; preds = %.preheader.split.split.split
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %147, i32 %106)
-  %160 = sub nsw i32 %.sroa.speculated.i15.i, %146
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %105, i32 %146)
+  %160 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %161 = icmp slt i32 %160, %.pre32.i
   br i1 %161, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -4292,7 +4297,8 @@ _ZL19is_overlapped_wideniiii.exit.thread.us325:   ; preds = %.preheader.split.sp
 
 159:                                              ; preds = %.preheader.split.split.split
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %147, i32 %106)
-  %160 = sub nsw i32 %.sroa.speculated.i15.i, %146
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %105, i32 %146)
+  %160 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %161 = icmp slt i32 %160, %.pre32.i
   br i1 %161, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -5057,7 +5063,8 @@ _ZL19is_overlapped_wideniiii.exit.thread.us325:   ; preds = %.preheader.split.sp
 
 159:                                              ; preds = %.preheader.split.split.split
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %147, i32 %106)
-  %160 = sub nsw i32 %.sroa.speculated.i15.i, %146
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %105, i32 %146)
+  %160 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %161 = icmp slt i32 %160, %.pre32.i
   br i1 %161, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -5824,7 +5831,8 @@ _ZL19is_overlapped_wideniiii.exit.thread.us325:   ; preds = %.preheader.split.sp
 
 159:                                              ; preds = %.preheader.split.split.split
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %147, i32 %106)
-  %160 = sub nsw i32 %.sroa.speculated.i15.i, %146
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %105, i32 %146)
+  %160 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %161 = icmp slt i32 %160, %.pre32.i
   br i1 %161, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 

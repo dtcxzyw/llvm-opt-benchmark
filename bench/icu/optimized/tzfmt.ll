@@ -6068,7 +6068,7 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat23parseOffsetLocalizedGMTERKNS_13
   %19 = phi i32 [ %14, %16 ], [ %11, %9 ]
   %20 = add nsw i32 %19, %8
   store i32 %20, ptr %7, align 8, !tbaa !67
-  br label %72
+  br label %74
 
 21:                                               ; preds = %9
   %22 = call noundef i32 @_ZNK6icu_7714TimeZoneFormat30parseOffsetDefaultLocalizedGMTERKNS_13UnicodeStringEiRi(ptr noundef nonnull align 8 dereferenceable(1024) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -6091,7 +6091,7 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat23parseOffsetLocalizedGMTERKNS_13
   %31 = phi i32 [ %26, %28 ], [ %23, %21 ]
   %32 = add nsw i32 %31, %8
   store i32 %32, ptr %7, align 8, !tbaa !67
-  br label %72
+  br label %74
 
 33:                                               ; preds = %.thread50, %21
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 768
@@ -6116,58 +6116,61 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat23parseOffsetLocalizedGMTERKNS_13
   %47 = sext i16 %46 to i32
   %48 = select i1 %44, i32 %45, i32 %47
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %48, i32 0)
-  %.011.i.i = tail call i32 @llvm.smax.i32(i32 %48, i32 0)
-  %49 = and i16 %35, 2
-  %.not.i.i.i = icmp eq i16 %49, 0
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 770
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %52 = load ptr, ptr %51, align 8
-  %53 = select i1 %.not.i.i.i, ptr %52, ptr %50
-  %54 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %8, i32 noundef %48, ptr noundef %53, i32 noundef %spec.select.i.i, i32 noundef %.011.i.i, i32 noundef 0)
+  %49 = icmp slt i32 %48, 0
+  %50 = sub nsw i32 %48, %spec.select.i.i
+  %spec.select14.i.i = tail call i32 @llvm.smin.i32(i32 %48, i32 %50)
+  %.011.i.i = select i1 %49, i32 0, i32 %spec.select14.i.i
+  %51 = and i16 %35, 2
+  %.not.i.i.i = icmp eq i16 %51, 0
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 770
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %54 = load ptr, ptr %53, align 8
+  %55 = select i1 %.not.i.i.i, ptr %54, ptr %52
+  %56 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %8, i32 noundef %48, ptr noundef %55, i32 noundef %spec.select.i.i, i32 noundef %.011.i.i, i32 noundef 0)
   br label %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit
 
 _ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit: ; preds = %38, %.sink.split.i.i.i
-  %.0.i.i = phi i8 [ %43, %38 ], [ %54, %.sink.split.i.i.i ]
-  %55 = icmp eq i8 %.0.i.i, 0
-  br i1 %55, label %56, label %.critedge
+  %.0.i.i = phi i8 [ %43, %38 ], [ %56, %.sink.split.i.i.i ]
+  %57 = icmp eq i8 %.0.i.i, 0
+  br i1 %57, label %58, label %.critedge
 
-56:                                               ; preds = %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit
-  %57 = load i16, ptr %34, align 8, !tbaa !23
-  %58 = icmp slt i16 %57, 0
-  %59 = ashr i16 %57, 5
-  %60 = sext i16 %59 to i32
-  %61 = load i32, ptr %36, align 4
-  %62 = select i1 %58, i32 %61, i32 %60
-  %63 = add nsw i32 %62, %8
-  store i32 %63, ptr %7, align 8, !tbaa !67
-  br label %72
+58:                                               ; preds = %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit
+  %59 = load i16, ptr %34, align 8, !tbaa !23
+  %60 = icmp slt i16 %59, 0
+  %61 = ashr i16 %59, 5
+  %62 = sext i16 %61 to i32
+  %63 = load i32, ptr %36, align 4
+  %64 = select i1 %60, i32 %63, i32 %62
+  %65 = add nsw i32 %64, %8
+  store i32 %65, ptr %7, align 8, !tbaa !67
+  br label %74
 
-64:                                               ; preds = %.critedge
+66:                                               ; preds = %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds nuw [4 x [4 x i16]], ptr @_ZN6icu_77L15ALT_GMT_STRINGSE, i64 0, i64 %indvars.iv.next
+  %67 = getelementptr inbounds nuw [4 x [4 x i16]], ptr @_ZN6icu_77L15ALT_GMT_STRINGSE, i64 0, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond, label %.critedge48, label %.critedge, !llvm.loop !76
 
-.critedge:                                        ; preds = %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit, %64
-  %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit ]
-  %66 = phi ptr [ %65, %64 ], [ @_ZN6icu_77L15ALT_GMT_STRINGSE, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit ]
-  %67 = tail call i32 @u_strlen_77(ptr noundef nonnull %66)
-  %68 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %8, i32 noundef %67, ptr noundef nonnull %66, i32 noundef 0, i32 noundef %67, i32 noundef 0)
-  %.not46 = icmp eq i8 %68, 0
-  br i1 %.not46, label %69, label %64
+.critedge:                                        ; preds = %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit, %66
+  %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 0, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit ]
+  %68 = phi ptr [ %67, %66 ], [ @_ZN6icu_77L15ALT_GMT_STRINGSE, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit ]
+  %69 = tail call i32 @u_strlen_77(ptr noundef nonnull %68)
+  %70 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %8, i32 noundef %69, ptr noundef nonnull %68, i32 noundef 0, i32 noundef %69, i32 noundef 0)
+  %.not46 = icmp eq i8 %70, 0
+  br i1 %.not46, label %71, label %66
 
-69:                                               ; preds = %.critedge
-  %70 = add nsw i32 %67, %8
-  store i32 %70, ptr %7, align 8, !tbaa !67
-  br label %72
+71:                                               ; preds = %.critedge
+  %72 = add nsw i32 %69, %8
+  store i32 %72, ptr %7, align 8, !tbaa !67
+  br label %74
 
-.critedge48:                                      ; preds = %64
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %8, ptr %71, align 4, !tbaa !69
-  br label %72
+.critedge48:                                      ; preds = %66
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 %8, ptr %73, align 4, !tbaa !69
+  br label %74
 
-72:                                               ; preds = %69, %.critedge48, %56, %29, %17
-  %.0 = phi i32 [ %18, %17 ], [ %30, %29 ], [ 0, %56 ], [ 0, %.critedge48 ], [ 0, %69 ]
+74:                                               ; preds = %71, %.critedge48, %58, %29, %17
+  %.0 = phi i32 [ %18, %17 ], [ %30, %29 ], [ 0, %58 ], [ 0, %.critedge48 ], [ 0, %71 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
   ret i32 %.0
 }
@@ -8038,39 +8041,39 @@ _ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit: ; preds = %18, %.sink.spl
   %51 = trunc i16 %50 to i8
   %52 = and i8 %51, 1
   %53 = xor i8 %52, 1
-  br label %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit28
+  br label %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit29
 
 .sink.split.i.i.i24:                              ; preds = %46
   %54 = and i16 %38, 2
-  %.not.i.i.i27 = icmp eq i16 %54, 0
+  %.not.i.i.i28 = icmp eq i16 %54, 0
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 906
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %57 = load ptr, ptr %56, align 8
-  %58 = select i1 %.not.i.i.i27, ptr %57, ptr %55
+  %58 = select i1 %.not.i.i.i28, ptr %57, ptr %55
   %59 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %36, i32 noundef %44, ptr noundef %58, i32 noundef 0, i32 noundef %44, i32 noundef 0)
-  br label %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit28
+  br label %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit29
 
-_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit28: ; preds = %48, %.sink.split.i.i.i24
+_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit29: ; preds = %48, %.sink.split.i.i.i24
   %.0.i.i23 = phi i8 [ %53, %48 ], [ %59, %.sink.split.i.i.i24 ]
   %.not20 = icmp eq i8 %.0.i.i23, 0
   br i1 %.not20, label %60, label %63
 
-60:                                               ; preds = %35, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit28
+60:                                               ; preds = %35, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
   %61 = add i32 %33, %14
   %62 = add i32 %61, %44
   br label %64
 
-63:                                               ; preds = %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit, %30, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit28
-  %.015.ph = phi i32 [ %32, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit28 ], [ %32, %30 ], [ 0, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit ]
+63:                                               ; preds = %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit, %30, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit29
+  %.015.ph = phi i32 [ %32, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit29 ], [ %32, %30 ], [ 0, %_ZNK6icu_7713UnicodeString11caseCompareEiiRKS0_j.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
   br label %64
 
 64:                                               ; preds = %60, %63
-  %.01532 = phi i32 [ %.015.ph, %63 ], [ %32, %60 ]
+  %.01533 = phi i32 [ %.015.ph, %63 ], [ %32, %60 ]
   %65 = phi i32 [ 0, %63 ], [ %62, %60 ]
   store i32 %65, ptr %4, align 4, !tbaa !12
-  ret i32 %.01532
+  ret i32 %.01533
 }
 
 ; Function Attrs: mustprogress uwtable

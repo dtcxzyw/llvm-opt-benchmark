@@ -308,7 +308,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vfwadd_vfP
 128:                                              ; preds = %124
   %129 = add nsw i32 %111, %109
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %110, i32 %129)
-  %130 = sub nsw i32 %.sroa.speculated.i15.i, %69
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %111, i32 %69)
+  %130 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %131 = icmp slt i32 %130, %126
   br i1 %131, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -1062,7 +1063,8 @@ define noundef i64 @_Z20fast_rv64i_vfwadd_vfP11processor_t6insn_tm(ptr noundef %
 128:                                              ; preds = %124
   %129 = add nsw i32 %111, %109
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %110, i32 %129)
-  %130 = sub nsw i32 %.sroa.speculated.i15.i, %69
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %111, i32 %69)
+  %130 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %131 = icmp slt i32 %130, %126
   br i1 %131, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -1682,7 +1684,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vfwadd_v
 128:                                              ; preds = %124
   %129 = add nsw i32 %111, %109
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %110, i32 %129)
-  %130 = sub nsw i32 %.sroa.speculated.i15.i, %69
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %111, i32 %69)
+  %130 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %131 = icmp slt i32 %130, %126
   br i1 %131, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -2304,7 +2307,8 @@ define noundef i64 @_Z22logged_rv64i_vfwadd_vfP11processor_t6insn_tm(ptr noundef
 128:                                              ; preds = %124
   %129 = add nsw i32 %111, %109
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %110, i32 %129)
-  %130 = sub nsw i32 %.sroa.speculated.i15.i, %69
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %111, i32 %69)
+  %130 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %131 = icmp slt i32 %130, %126
   br i1 %131, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -2924,7 +2928,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vfwadd_vfP
 128:                                              ; preds = %124
   %129 = add nsw i32 %111, %109
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %110, i32 %129)
-  %130 = sub nsw i32 %.sroa.speculated.i15.i, %69
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %111, i32 %69)
+  %130 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %131 = icmp slt i32 %130, %126
   br i1 %131, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -3546,7 +3551,8 @@ define noundef i64 @_Z20fast_rv64e_vfwadd_vfP11processor_t6insn_tm(ptr noundef %
 128:                                              ; preds = %124
   %129 = add nsw i32 %111, %109
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %110, i32 %129)
-  %130 = sub nsw i32 %.sroa.speculated.i15.i, %69
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %111, i32 %69)
+  %130 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %131 = icmp slt i32 %130, %126
   br i1 %131, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -4166,7 +4172,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vfwadd_v
 128:                                              ; preds = %124
   %129 = add nsw i32 %111, %109
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %110, i32 %129)
-  %130 = sub nsw i32 %.sroa.speculated.i15.i, %69
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %111, i32 %69)
+  %130 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %131 = icmp slt i32 %130, %126
   br i1 %131, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -4788,7 +4795,8 @@ define noundef i64 @_Z22logged_rv64e_vfwadd_vfP11processor_t6insn_tm(ptr noundef
 128:                                              ; preds = %124
   %129 = add nsw i32 %111, %109
   %.sroa.speculated.i15.i = call i32 @llvm.smax.i32(i32 %110, i32 %129)
-  %130 = sub nsw i32 %.sroa.speculated.i15.i, %69
+  %.sroa.speculated13.i16.i = call i32 @llvm.smin.i32(i32 %111, i32 %69)
+  %130 = sub nsw i32 %.sroa.speculated.i15.i, %.sroa.speculated13.i16.i
   %131 = icmp slt i32 %130, %126
   br i1 %131, label %_ZL19is_overlapped_wideniiii.exit, label %_ZL19is_overlapped_wideniiii.exit.thread
 
@@ -5481,6 +5489,9 @@ declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16

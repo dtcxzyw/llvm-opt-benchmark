@@ -4029,9 +4029,8 @@ define void @_ZN6icu_778numparse4impl16NumberParserImpl10addMatcherERNS1_18Numbe
 15:                                               ; preds = %11
   %16 = load i32, ptr %6, align 8, !tbaa !179
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %4, i32 %16)
-  %.1.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %9)
   %17 = load ptr, ptr %5, align 8, !tbaa !178
-  %18 = sext i32 %.1.i to i64
+  %18 = sext i32 %spec.select.i to i64
   %19 = shl nsw i64 %18, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr align 8 %17, i64 %19, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
