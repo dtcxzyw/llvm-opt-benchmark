@@ -30820,7 +30820,7 @@ _ZN10duckdb_fmt2v68internal8copy_strIcPKcPcTnNSt9enable_ifIXsr16needs_conversion
 
 _ZSt6fill_nIPcicET_S1_T0_RKT1_.exit142.sink.split: ; preds = %_ZN10duckdb_fmt2v68internal8copy_strIcPKcPcTnNSt9enable_ifIXsr16needs_conversionIT0_T_EE5valueEiE4typeELi0EEET1_S7_S7_SB_.exit140, %86
   %storemerge228.sink = phi i32 [ %storemerge228, %86 ], [ %100, %_ZN10duckdb_fmt2v68internal8copy_strIcPKcPcTnNSt9enable_ifIXsr16needs_conversionIT0_T_EE5valueEiE4typeELi0EEET1_S7_S7_SB_.exit140 ]
-  %.3.sink273 = phi ptr [ %.3, %86 ], [ %98, %_ZN10duckdb_fmt2v68internal8copy_strIcPKcPcTnNSt9enable_ifIXsr16needs_conversionIT0_T_EE5valueEiE4typeELi0EEET1_S7_S7_SB_.exit140 ]
+  %storemerge228.sink = phi ptr [ %.3, %86 ], [ %98, %_ZN10duckdb_fmt2v68internal8copy_strIcPKcPcTnNSt9enable_ifIXsr16needs_conversionIT0_T_EE5valueEiE4typeELi0EEET1_S7_S7_SB_.exit140 ]
   %102 = zext nneg i32 %storemerge228.sink to i64
   %103 = getelementptr inbounds nuw i8, ptr %.3.sink273, i64 %102
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.3.sink273, i8 48, i64 %102, i1 false)

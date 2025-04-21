@@ -371,7 +371,7 @@ define internal noundef i32 @_ZL25u_sprintf_pad_and_justifyPvPK18u_printf_spec_i
   %.not = icmp ne i32 %8, -1
   %10 = icmp slt i32 %3, %8
   %or.cond = and i1 %.not, %10
-  br i1 %or.cond, label %69, label %11
+  br i1 %or.cond, label %72, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -389,7 +389,7 @@ define internal noundef i32 @_ZL25u_sprintf_pad_and_justifyPvPK18u_printf_spec_i
   %.not6577 = icmp ne i32 %8, -1
   %17 = icmp slt i32 %.76, %8
   %or.cond6778 = select i1 %.not6577, i1 %17, i1 false
-  br i1 %or.cond6778, label %18, label %58
+  br i1 %or.cond6778, label %18, label %61
 
 18:                                               ; preds = %.thread, %11
   %.79 = phi i32 [ %.76, %.thread ], [ %., %11 ]
@@ -405,10 +405,10 @@ define internal noundef i32 @_ZL25u_sprintf_pad_and_justifyPvPK18u_printf_spec_i
   %.not66 = icmp eq i8 %25, 0
   br i1 %.not66, label %40, label %26
 
-26:                                               ; preds = %18
-  br i1 %6, label %_ZL15u_sprintf_writePvPKDsi.exit, label %27
+26:; preds = %18
+  br i1 %6, label %_ZL15u_sprintf_writePvPKDsi.exit, label %29
 
-27:                                               ; preds = %26
+29:                                               ; preds = %26
   %28 = sext i32 %23 to i64
   %29 = getelementptr inbounds i16, ptr %5, i64 %28
   %30 = tail call ptr @u_strncpy_77(ptr noundef nonnull %29, ptr noundef %2, i32 noundef %.79)
@@ -419,70 +419,70 @@ define internal noundef i32 @_ZL25u_sprintf_pad_and_justifyPvPK18u_printf_spec_i
   br label %_ZL15u_sprintf_writePvPKDsi.exit
 
 _ZL15u_sprintf_writePvPKDsi.exit:                 ; preds = %26, %27
-  %33 = phi ptr [ null, %26 ], [ %.pre75, %27 ]
-  %34 = add nsw i32 %23, %.79
-  %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %33, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %38 = load i16, ptr %37, align 4, !tbaa !20
-  %39 = tail call ptr @u_memset_77(ptr noundef %36, i16 noundef zeroext %38, i32 noundef %.056)
+  %36 = phi ptr [ null, %26 ], [ %.pre75, %27 ]
+  %37 = add nsw i32 %23, %.79
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds i16, ptr %36, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %41 = load i16, ptr %40, align 4, !tbaa !20
+  %42 = tail call ptr @u_memset_77(ptr noundef %39, i16 noundef zeroext %41, i32 noundef %.056)
   br label %_ZL15u_sprintf_writePvPKDsi.exit71.sink.split
 
-40:                                               ; preds = %18
-  %41 = sext i32 %23 to i64
-  %42 = getelementptr inbounds i16, ptr %5, i64 %41
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %44 = load i16, ptr %43, align 4, !tbaa !20
-  %45 = tail call ptr @u_memset_77(ptr noundef %42, i16 noundef zeroext %44, i32 noundef %.056)
-  %46 = load i32, ptr %20, align 8, !tbaa !14
-  %47 = sub nsw i32 %46, %.056
-  store i32 %47, ptr %20, align 8, !tbaa !14
-  %48 = load ptr, ptr %0, align 8, !tbaa !7
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %_ZL15u_sprintf_writePvPKDsi.exit71, label %50
+43:                                               ; preds = %18
+  %44 = sext i32 %23 to i64
+  %45 = getelementptr inbounds i16, ptr %5, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %47 = load i16, ptr %46, align 4, !tbaa !20
+  %48 = tail call ptr @u_memset_77(ptr noundef %45, i16 noundef zeroext %47, i32 noundef %.056)
+  %49 = load i32, ptr %20, align 8, !tbaa !14
+  %50 = sub nsw i32 %49, %.056
+  store i32 %50, ptr %20, align 8, !tbaa !14
+  %51 = load ptr, ptr %0, align 8, !tbaa !7
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %_ZL15u_sprintf_writePvPKDsi.exit71, label %53
 
-50:                                               ; preds = %40
-  %..i69 = tail call i32 @llvm.smin.i32(i32 %.79, i32 %47)
-  %51 = load i32, ptr %21, align 4, !tbaa !13
-  %52 = sub nsw i32 %51, %47
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i16, ptr %48, i64 %53
-  %55 = tail call ptr @u_strncpy_77(ptr noundef nonnull %54, ptr noundef %2, i32 noundef %..i69)
+53:                                               ; preds = %43
+  %..i69 = tail call i32 @llvm.smin.i32(i32 %.79, i32 %50)
+  %54 = load i32, ptr %21, align 4, !tbaa !13
+  %55 = sub nsw i32 %54, %50
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds i16, ptr %51, i64 %56
+  %58 = tail call ptr @u_strncpy_77(ptr noundef nonnull %57, ptr noundef %2, i32 noundef %..i69)
   br label %_ZL15u_sprintf_writePvPKDsi.exit71.sink.split
 
-_ZL15u_sprintf_writePvPKDsi.exit71.sink.split:    ; preds = %_ZL15u_sprintf_writePvPKDsi.exit, %50
+_ZL15u_sprintf_writePvPKDsi.exit71.sink.split:    ; preds = %_ZL15u_sprintf_writePvPKDsi.exit, %53
   %..i69.sink = phi i32 [ %..i69, %50 ], [ %.056, %_ZL15u_sprintf_writePvPKDsi.exit ]
   %.pn.ph = phi i32 [ %..i69, %50 ], [ %.79, %_ZL15u_sprintf_writePvPKDsi.exit ]
-  %56 = load i32, ptr %20, align 8, !tbaa !14
-  %57 = sub nsw i32 %56, %..i69.sink
-  store i32 %57, ptr %20, align 8, !tbaa !14
+  %59 = load i32, ptr %20, align 8, !tbaa !14
+  %60 = sub nsw i32 %59, %..i69.sink
+  store i32 %60, ptr %20, align 8, !tbaa !14
   br label %_ZL15u_sprintf_writePvPKDsi.exit71
 
-_ZL15u_sprintf_writePvPKDsi.exit71:               ; preds = %_ZL15u_sprintf_writePvPKDsi.exit71.sink.split, %40
+_ZL15u_sprintf_writePvPKDsi.exit71:               ; preds = %_ZL15u_sprintf_writePvPKDsi.exit71.sink.split, %43
   %.pn = phi i32 [ %.79, %40 ], [ %.pn.ph, %_ZL15u_sprintf_writePvPKDsi.exit71.sink.split ]
   %.057 = add nsw i32 %.pn, %.056
   br label %_ZL15u_sprintf_writePvPKDsi.exit74
 
-58:                                               ; preds = %.thread
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %60 = load i32, ptr %59, align 4, !tbaa !13
-  %61 = sub nsw i32 %60, %16
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i16, ptr %5, i64 %62
-  %64 = tail call ptr @u_strncpy_77(ptr noundef nonnull %63, ptr noundef %2, i32 noundef %.76)
-  %65 = load i32, ptr %15, align 8, !tbaa !14
-  %66 = sub nsw i32 %65, %.76
-  store i32 %66, ptr %15, align 8, !tbaa !14
+61:                                               ; preds = %.thread
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %63 = load i32, ptr %62, align 4, !tbaa !13
+  %64 = sub nsw i32 %63, %16
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i16, ptr %5, i64 %65
+  %67 = tail call ptr @u_strncpy_77(ptr noundef nonnull %66, ptr noundef %2, i32 noundef %.76)
+  %68 = load i32, ptr %15, align 8, !tbaa !14
+  %69 = sub nsw i32 %68, %.76
+  store i32 %69, ptr %15, align 8, !tbaa !14
   br label %_ZL15u_sprintf_writePvPKDsi.exit74
 
-_ZL15u_sprintf_writePvPKDsi.exit74:               ; preds = %11, %58, %_ZL15u_sprintf_writePvPKDsi.exit71
+_ZL15u_sprintf_writePvPKDsi.exit74:               ; preds = %11, %61, %_ZL15u_sprintf_writePvPKDsi.exit71
   %.1 = phi i32 [ %.057, %_ZL15u_sprintf_writePvPKDsi.exit71 ], [ %.76, %58 ], [ %., %11 ]
-  %67 = tail call i32 @llvm.smax.i32(i32 %3, i32 %.1)
-  %68 = icmp slt i32 %.1, 0
-  %spec.select = select i1 %68, i32 %.1, i32 %67
-  br label %69
+  %70 = tail call i32 @llvm.smax.i32(i32 %3, i32 %.1)
+  %71 = icmp slt i32 %.1, 0
+  %spec.select = select i1 %71, i32 %.1, i32 %70
+  br label %72
 
-69:                                               ; preds = %_ZL15u_sprintf_writePvPKDsi.exit74, %9
+72:                                               ; preds = %_ZL15u_sprintf_writePvPKDsi.exit74, %9
   %.0 = phi i32 [ %8, %9 ], [ %spec.select, %_ZL15u_sprintf_writePvPKDsi.exit74 ]
   ret i32 %.0
 }

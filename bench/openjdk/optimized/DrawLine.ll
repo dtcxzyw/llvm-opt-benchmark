@@ -841,32 +841,32 @@ RefineBounds.exit:                                ; preds = %47, %51
   %76 = icmp slt i32 %32, %..i
   %.178 = select i1 %76, i32 %.48.i, i32 %32
   %77 = load i32, ptr %9, align 8
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %..i, i32 %77)
+  %spec.select = call i32 @llvm.smax.i32(i32 %..i, i32 %77)
   %78 = load i32, ptr %37, align 8
   %spec.select = call i32 @llvm.smin.i32(i32 %.178, i32 %78)
   %79 = icmp slt i32 %spec.store.select, %spec.select
   br i1 %79, label %80, label %112
 
-80:                                               ; preds = %75
+80:; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %82 = load ptr, ptr %81, align 8
-  %83 = sub nsw i32 %spec.select, %spec.store.select
+  %83 = sub nsw i32 %spec.select, %spec.select
   call void %82(ptr noundef nonnull %9, i32 noundef %spec.store.select, i32 noundef %5, i32 noundef %19, i32 noundef %83, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %20, ptr noundef nonnull %10) #4
   br label %112
 
-84:                                               ; preds = %69
+84:; preds = %69
   %85 = icmp eq i32 %4, %6
   br i1 %85, label %86, label %99
 
-86:                                               ; preds = %84
+86:; preds = %84
   %87 = load i32, ptr %9, align 8
-  %.not103 = icmp sge i32 %4, %87
+  %88 = icmp sge i32 %4, %87
   %88 = load i32, ptr %37, align 8
   %89 = icmp slt i32 %4, %88
   %or.cond111 = select i1 %.not103, i1 %89, i1 false
   br i1 %or.cond111, label %90, label %112
 
-90:                                               ; preds = %86
+90:; preds = %86
   %91 = icmp slt i32 %42, %.49.i
   %.1 = select i1 %91, i32 %.50.i, i32 %42
   %92 = load i32, ptr %43, align 4
@@ -876,7 +876,7 @@ RefineBounds.exit:                                ; preds = %47, %51
   %94 = icmp slt i32 %spec.store.select115, %spec.select114
   br i1 %94, label %95, label %112
 
-95:                                               ; preds = %90
+95:; preds = %90
   %96 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %97 = load ptr, ptr %96, align 8
   %98 = sub nsw i32 %spec.select114, %spec.store.select115
@@ -888,13 +888,13 @@ RefineBounds.exit:                                ; preds = %47, %51
   %.not102 = icmp eq i8 %100, 0
   br i1 %.not102, label %112, label %101
 
-101:                                              ; preds = %99
+101:; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %103 = load ptr, ptr %102, align 8
-  %104 = load i32, ptr %11, align 4
-  %105 = load i32, ptr %12, align 4
-  %106 = load i32, ptr %13, align 4
-  %107 = load i32, ptr %14, align 4
+  %105 = load ptr, ptr %102, align 8
+  %106 = load i32, ptr %11, align 4
+  %107 = load i32, ptr %12, align 4
+  %108 = load i32, ptr %13, align 4
+  %109 = load i32, ptr %14, align 4
   %108 = load i32, ptr %17, align 4
   %109 = load i32, ptr %15, align 4
   %110 = load i32, ptr %18, align 4
@@ -902,23 +902,23 @@ RefineBounds.exit:                                ; preds = %47, %51
   call void %103(ptr noundef nonnull %9, i32 noundef %104, i32 noundef %105, i32 noundef %19, i32 noundef %106, i32 noundef %107, i32 noundef %108, i32 noundef %109, i32 noundef %110, i32 noundef %111, ptr noundef nonnull %20, ptr noundef nonnull %10) #4
   br label %112
 
-112:                                              ; preds = %64, %75, %80, %71, %99, %101, %86, %95, %90
+112:; preds = %64, %75, %80, %71, %99, %101, %86, %95, %90
   %113 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %114 = load ptr, ptr %113, align 8
   %.not106 = icmp eq ptr %114, null
-  br i1 %.not106, label %116, label %115
+  br i1 %.not106, label %116, label %114
 
-115:                                              ; preds = %112
+114:                                              ; preds = %112
   call void %114(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %9) #4
   br label %116
 
-116:                                              ; preds = %56, %60, %112, %115
+116:; preds = %56, %60, %112, %115
   %117 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %118 = load ptr, ptr %117, align 8
   %.not107 = icmp eq ptr %118, null
-  br i1 %.not107, label %120, label %119
+  br i1 %.not107, label %120, label %118
 
-119:                                              ; preds = %116
+118:                                              ; preds = %116
   call void %118(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %9) #4
   br label %120
 

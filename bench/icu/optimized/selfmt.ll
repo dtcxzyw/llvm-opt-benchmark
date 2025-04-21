@@ -748,7 +748,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
   %6 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %7 = load i32, ptr %3, align 4, !tbaa !13
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %97
+  br i1 %8, label %9, label %93
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #14
@@ -776,7 +776,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
   br label %25
 
 25:                                               ; preds = %89, %10
-  %26 = phi ptr [ %.pre, %10 ], [ %90, %89 ]
+  %26 = phi ptr [ %.pre, %10 ], [ %89, %89 ]
   %.025 = phi i32 [ 0, %10 ], [ %.227, %89 ]
   %.023 = phi i32 [ %1, %10 ], [ %94, %89 ]
   %27 = add nsw i32 %.023, 1
@@ -791,13 +791,13 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
           cleanup
   %34 = load ptr, ptr %6, align 8, !tbaa !36
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #14, !srcloc !39
-  br label %96
+  br label %92
 
 35:                                               ; preds = %.sink.split.i.i.i.i36, %.sink.split.i.i.i.i
   %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #14
-  br label %96
+  br label %92
 
 37:                                               ; preds = %25
   %38 = load i16, ptr %15, align 8, !tbaa !17
@@ -838,38 +838,38 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
 61:                                               ; preds = %40, %.sink.split.i.i.i.i
   %.0.i.i.i = phi i8 [ %44, %40 ], [ %60, %.sink.split.i.i.i.i ]
   %.not = icmp eq i8 %.0.i.i.i, 0
-  br i1 %.not, label %.thread, label %62
+  br i1 %.not, label %.thread, label %60
 
-62:                                               ; preds = %61
-  %63 = icmp eq i32 %.025, 0
-  br i1 %63, label %64, label %89
+60:                                               ; preds = %61
+  %61 = icmp eq i32 %.025, 0
+  br i1 %61, label %62, label %89
 
-64:                                               ; preds = %62
-  %65 = load i16, ptr %21, align 8, !tbaa !17
-  %66 = and i16 %65, 1
-  %.not.i.i.i34 = icmp eq i16 %66, 0
-  br i1 %.not.i.i.i34, label %.sink.split.i.i.i.i36, label %67
+62:                                               ; preds = %60
+  %63 = load i16, ptr %21, align 8, !tbaa !17
+  %64 = and i16 %63, 1
+  %.not.i.i.i34 = icmp eq i16 %64, 0
+  br i1 %.not.i.i.i34, label %.sink.split.i.i.i.i36, label %65
 
-67:                                               ; preds = %64
-  %68 = load i16, ptr %16, align 8, !tbaa !17
-  %69 = trunc i16 %68 to i8
-  %70 = and i8 %69, 1
-  %71 = xor i8 %70, 1
+65:                                               ; preds = %62
+  %66 = load i16, ptr %16, align 8, !tbaa !17
+  %67 = trunc i16 %66 to i8
+  %68 = and i8 %67, 1
+  %69 = xor i8 %68, 1
   br label %88
 
-.sink.split.i.i.i.i36:                            ; preds = %64
-  %72 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %73 = load i16, ptr %72, align 4, !tbaa !34
-  %74 = zext i16 %73 to i32
-  %75 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !30
-  %77 = icmp slt i16 %65, 0
-  %78 = load i32, ptr %22, align 4
-  %79 = ashr i16 %65, 5
-  %80 = sext i16 %79 to i32
-  %81 = select i1 %77, i32 %78, i32 %80
-  %spec.select.i.i.i37 = call i32 @llvm.smin.i32(i32 %81, i32 0)
-  %82 = icmp slt i32 %81, 0
+.sink.split.i.i.i.i36:                            ; preds = %62
+  %70 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %71 = load i16, ptr %70, align 4, !tbaa !34
+  %72 = zext i16 %71 to i32
+  %73 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %74 = load i32, ptr %73, align 4, !tbaa !30
+  %75 = icmp slt i16 %63, 0
+  %76 = load i32, ptr %22, align 4
+  %77 = ashr i16 %63, 5
+  %78 = sext i16 %77 to i32
+  %79 = select i1 %75, i32 %76, i32 %78
+  %spec.select.i.i.i37 = call i32 @llvm.smin.i32(i32 %79, i32 0)
+  %82 = icmp slt i32 %79, 0
   %83 = sub nsw i32 %81, %spec.select.i.i.i37
   %spec.select13.i.i.i38 = call i32 @llvm.smin.i32(i32 %81, i32 %83)
   %.010.i.i.i39 = select i1 %82, i32 0, i32 %spec.select13.i.i.i38
@@ -880,15 +880,15 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
   %87 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef %76, i32 noundef %74, ptr noundef %86, i32 noundef %spec.select.i.i.i37, i32 noundef %.010.i.i.i39)
           to label %88 unwind label %35
 
-88:                                               ; preds = %67, %.sink.split.i.i.i.i36
+88:; preds = %67, %.sink.split.i.i.i.i36
   %.0.i.i.i35 = phi i8 [ %71, %67 ], [ %87, %.sink.split.i.i.i.i36 ]
   %.not56 = icmp eq i8 %.0.i.i.i35, 0
   %spec.select = select i1 %.not56, i32 %27, i32 0
   br label %89
 
-89:                                               ; preds = %62, %88
+89:; preds = %62, %88
   %.227 = phi i32 [ %.025, %62 ], [ %spec.select, %88 ]
-  %90 = load ptr, ptr %14, align 8, !tbaa !29
+  %89 = load ptr, ptr %14, align 8, !tbaa !29
   %91 = sext i32 %27 to i64
   %92 = getelementptr inbounds %"class.icu_77::MessagePattern::Part", ptr %90, i64 %91, i32 4
   %93 = load i32, ptr %92, align 4, !tbaa !35
@@ -901,14 +901,14 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712SelectFormat
   %.3 = phi i32 [ %.227, %89 ], [ %.025, %25 ], [ %27, %61 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #14
-  br label %97
+  br label %93
 
-96:                                               ; preds = %35, %32
+92:                                               ; preds = %35, %32
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %33, %32 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #14
   resume { ptr, i32 } %.pn
 
-97:                                               ; preds = %4, %.thread
+93:                                               ; preds = %4, %.thread
   %.022 = phi i32 [ %.3, %.thread ], [ 0, %4 ]
   ret i32 %.022
 }
