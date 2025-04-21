@@ -30812,16 +30812,15 @@ _ZN10duckdb_fmt2v68internal14write_exponentIcPcEET0_iS4_.exit: ; preds = %41, %5
   br i1 %.not.i.i138, label %_ZN10duckdb_fmt2v68internal8copy_strIcPKcPcTnNSt9enable_ifIXsr16needs_conversionIT0_T_EE5valueEiE4typeELi0EEET1_S7_S7_SB_.exit140, label %.lr.ph.i.i135, !llvm.loop !19
 
 _ZN10duckdb_fmt2v68internal8copy_strIcPKcPcTnNSt9enable_ifIXsr16needs_conversionIT0_T_EE5valueEiE4typeELi0EEET1_S7_S7_SB_.exit140: ; preds = %.lr.ph.i.i135
-  %99 = icmp slt i32 %90, %storemerge228
-  br i1 %99, label %100, label %_ZSt6fill_nIPcicET_S1_T0_RKT1_.exit142
+  %99 = icmp sge i32 %90, %storemerge228
+  %100 = sub nsw i32 %storemerge228, %.sroa.speculated
+  %101 = icmp slt i32 %100, 1
+  %or.cond276 = select i1 %99, i1 true, i1 %101
+  br i1 %or.cond276, label %_ZSt6fill_nIPcicET_S1_T0_RKT1_.exit142, label %_ZSt6fill_nIPcicET_S1_T0_RKT1_.exit142.sink.split
 
-100:                                              ; preds = %_ZN10duckdb_fmt2v68internal8copy_strIcPKcPcTnNSt9enable_ifIXsr16needs_conversionIT0_T_EE5valueEiE4typeELi0EEET1_S7_S7_SB_.exit140
-  %101 = sub nsw i32 %storemerge228, %.sroa.speculated
-  br label %_ZSt6fill_nIPcicET_S1_T0_RKT1_.exit142.sink.split
-
-_ZSt6fill_nIPcicET_S1_T0_RKT1_.exit142.sink.split: ; preds = %86, %100
-  %storemerge228.sink = phi i32 [ %101, %100 ], [ %storemerge228, %86 ]
-  %.3.sink273 = phi ptr [ %98, %100 ], [ %.3, %86 ]
+_ZSt6fill_nIPcicET_S1_T0_RKT1_.exit142.sink.split: ; preds = %_ZN10duckdb_fmt2v68internal8copy_strIcPKcPcTnNSt9enable_ifIXsr16needs_conversionIT0_T_EE5valueEiE4typeELi0EEET1_S7_S7_SB_.exit140, %86
+  %storemerge228.sink = phi i32 [ %storemerge228, %86 ], [ %100, %_ZN10duckdb_fmt2v68internal8copy_strIcPKcPcTnNSt9enable_ifIXsr16needs_conversionIT0_T_EE5valueEiE4typeELi0EEET1_S7_S7_SB_.exit140 ]
+  %.3.sink273 = phi ptr [ %.3, %86 ], [ %98, %_ZN10duckdb_fmt2v68internal8copy_strIcPKcPcTnNSt9enable_ifIXsr16needs_conversionIT0_T_EE5valueEiE4typeELi0EEET1_S7_S7_SB_.exit140 ]
   %102 = zext nneg i32 %storemerge228.sink to i64
   %103 = getelementptr inbounds nuw i8, ptr %.3.sink273, i64 %102
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.3.sink273, i8 48, i64 %102, i1 false)

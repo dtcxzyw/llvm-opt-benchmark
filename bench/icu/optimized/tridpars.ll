@@ -3222,7 +3222,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
 
 18:                                               ; preds = %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
   %.not30 = icmp eq i8 %2, 0
-  br i1 %.not30, label %48, label %19
+  br i1 %.not30, label %50, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3253,131 +3253,134 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1
   %39 = sext i16 %38 to i32
   %40 = select i1 %35, i32 %37, i32 %39
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %34, i32 0)
-  %.011.i.i = tail call i32 @llvm.smax.i32(i32 %34, i32 0)
-  %41 = and i16 %23, 2
-  %.not.i.i.i = icmp eq i16 %41, 0
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %44 = load ptr, ptr %43, align 8
-  %45 = select i1 %.not.i.i.i, ptr %44, ptr %42
-  %46 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 0, i32 noundef %40, ptr noundef %45, i32 noundef %spec.select.i.i, i32 noundef %.011.i.i, i32 noundef 0)
+  %41 = icmp slt i32 %34, 0
+  %42 = sub nsw i32 %34, %spec.select.i.i
+  %spec.select14.i.i = tail call i32 @llvm.smin.i32(i32 %34, i32 %42)
+  %.011.i.i = select i1 %41, i32 0, i32 %spec.select14.i.i
+  %43 = and i16 %23, 2
+  %.not.i.i.i = icmp eq i16 %43, 0
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = select i1 %.not.i.i.i, ptr %46, ptr %44
+  %48 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 0, i32 noundef %40, ptr noundef %47, i32 noundef %spec.select.i.i, i32 noundef %.011.i.i, i32 noundef 0)
   br label %_ZNK6icu_7713UnicodeString11caseCompareERKS0_j.exit
 
 _ZNK6icu_7713UnicodeString11caseCompareERKS0_j.exit: ; preds = %25, %.sink.split.i.i.i
-  %.0.i.i = phi i8 [ %28, %25 ], [ %46, %.sink.split.i.i.i ]
-  %47 = icmp eq i8 %.0.i.i, 0
-  br label %48
+  %.0.i.i = phi i8 [ %28, %25 ], [ %48, %.sink.split.i.i.i ]
+  %49 = icmp eq i8 %.0.i.i, 0
+  br label %50
 
-48:                                               ; preds = %_ZNK6icu_7713UnicodeString11caseCompareERKS0_j.exit, %18
-  %.not31 = phi i1 [ true, %18 ], [ %47, %_ZNK6icu_7713UnicodeString11caseCompareERKS0_j.exit ]
+50:                                               ; preds = %_ZNK6icu_7713UnicodeString11caseCompareERKS0_j.exit, %18
+  %.not31 = phi i1 [ true, %18 ], [ %49, %_ZNK6icu_7713UnicodeString11caseCompareERKS0_j.exit ]
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZN6icu_77L4LOCKE)
-  %49 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #12
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35.sink.split, label %51
+  %51 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #12
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35.sink.split, label %53
 
-51:                                               ; preds = %48
-  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(64) %1)
-          to label %54 unwind label %52
+53:                                               ; preds = %50
+  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %51, ptr noundef nonnull align 8 dereferenceable(64) %1)
+          to label %56 unwind label %54
 
-52:                                               ; preds = %51
-  %53 = landingpad { ptr, i32 }
+54:                                               ; preds = %53
+  %55 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %49) #12
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %51) #12
   br label %.body
 
-54:                                               ; preds = %51
-  %55 = load ptr, ptr @_ZN6icu_77L16SPECIAL_INVERSESE, align 8, !tbaa !38
-  %56 = load ptr, ptr %55, align 8, !tbaa !40
-  %57 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #12
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %60, label %59
+56:                                               ; preds = %53
+  %57 = load ptr, ptr @_ZN6icu_77L16SPECIAL_INVERSESE, align 8, !tbaa !38
+  %58 = load ptr, ptr %57, align 8, !tbaa !40
+  %59 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #12
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %62, label %61
 
-59:                                               ; preds = %54
-  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull align 8 dereferenceable(64) %0)
-          to label %60 unwind label %62
+61:                                               ; preds = %56
+  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(64) %0)
+          to label %62 unwind label %64
 
-60:                                               ; preds = %59, %54
-  %61 = invoke noundef ptr @uhash_put_77(ptr noundef %56, ptr noundef %57, ptr noundef nonnull %49, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit unwind label %68
+62:                                               ; preds = %61, %56
+  %63 = invoke noundef ptr @uhash_put_77(ptr noundef %58, ptr noundef %59, ptr noundef nonnull %51, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit unwind label %70
 
-62:                                               ; preds = %59
-  %63 = landingpad { ptr, i32 }
+64:                                               ; preds = %61
+  %65 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %57) #12
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %59) #12
   br label %.body
 
-_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %60
-  br i1 %.not31, label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35, label %64
+_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %62
+  br i1 %.not31, label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35, label %66
 
-64:                                               ; preds = %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit
-  %65 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #12
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35.sink.split, label %67
+66:                                               ; preds = %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit
+  %67 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #12
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35.sink.split, label %69
 
-67:                                               ; preds = %64
-  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %65, ptr noundef nonnull align 8 dereferenceable(64) %0)
-          to label %72 unwind label %70
+69:                                               ; preds = %66
+  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %67, ptr noundef nonnull align 8 dereferenceable(64) %0)
+          to label %74 unwind label %72
 
-68:                                               ; preds = %78, %60
-  %69 = landingpad { ptr, i32 }
-          cleanup
-  br label %.body
-
-70:                                               ; preds = %67
+70:                                               ; preds = %80, %62
   %71 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %65) #12
   br label %.body
 
-72:                                               ; preds = %67
-  %73 = load ptr, ptr @_ZN6icu_77L16SPECIAL_INVERSESE, align 8, !tbaa !38
-  %74 = load ptr, ptr %73, align 8, !tbaa !40
-  %75 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #12
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %78, label %77
-
-77:                                               ; preds = %72
-  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %75, ptr noundef nonnull align 8 dereferenceable(64) %1)
-          to label %78 unwind label %80
-
-78:                                               ; preds = %77, %72
-  %79 = invoke noundef ptr @uhash_put_77(ptr noundef %74, ptr noundef %75, ptr noundef nonnull %65, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35 unwind label %68
-
-80:                                               ; preds = %77
-  %81 = landingpad { ptr, i32 }
+72:                                               ; preds = %69
+  %73 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %75) #12
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %67) #12
   br label %.body
 
-_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35.sink.split: ; preds = %64, %48
+74:                                               ; preds = %69
+  %75 = load ptr, ptr @_ZN6icu_77L16SPECIAL_INVERSESE, align 8, !tbaa !38
+  %76 = load ptr, ptr %75, align 8, !tbaa !40
+  %77 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #12
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %80, label %79
+
+79:                                               ; preds = %74
+  invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %77, ptr noundef nonnull align 8 dereferenceable(64) %1)
+          to label %80 unwind label %82
+
+80:                                               ; preds = %79, %74
+  %81 = invoke noundef ptr @uhash_put_77(ptr noundef %76, ptr noundef %77, ptr noundef nonnull %67, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35 unwind label %70
+
+82:                                               ; preds = %79
+  %83 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %77) #12
+  br label %.body
+
+_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35.sink.split: ; preds = %66, %50
   store i32 7, ptr %3, align 4, !tbaa !13
   br label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35
 
-_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35: ; preds = %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35.sink.split, %78, %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit
+_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35: ; preds = %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35.sink.split, %80, %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZN6icu_77L4LOCKE)
-          to label %_ZN6icu_775MutexD2Ev.exit unwind label %82
+          to label %_ZN6icu_775MutexD2Ev.exit unwind label %84
 
-82:                                               ; preds = %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35
-  %83 = landingpad { ptr, i32 }
+84:                                               ; preds = %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35
+  %85 = landingpad { ptr, i32 }
           catch ptr null
-  %84 = extractvalue { ptr, i32 } %83, 0
-  tail call void @__clang_call_terminate(ptr %84) #14
+  %86 = extractvalue { ptr, i32 } %85, 0
+  tail call void @__clang_call_terminate(ptr %86) #14
   unreachable
 
 _ZN6icu_775MutexD2Ev.exit:                        ; preds = %16, %4, %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit35, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
   ret void
 
-.body:                                            ; preds = %62, %80, %68, %70, %52
-  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %53, %52 ], [ %63, %62 ], [ %69, %68 ], [ %81, %80 ]
+.body:                                            ; preds = %64, %82, %70, %72, %54
+  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %55, %54 ], [ %65, %64 ], [ %71, %70 ], [ %83, %82 ]
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZN6icu_77L4LOCKE)
-          to label %_ZN6icu_775MutexD2Ev.exit36 unwind label %85
+          to label %_ZN6icu_775MutexD2Ev.exit36 unwind label %87
 
-85:                                               ; preds = %.body
-  %86 = landingpad { ptr, i32 }
+87:                                               ; preds = %.body
+  %88 = landingpad { ptr, i32 }
           catch ptr null
-  %87 = extractvalue { ptr, i32 } %86, 0
-  tail call void @__clang_call_terminate(ptr %87) #14
+  %89 = extractvalue { ptr, i32 } %88, 0
+  tail call void @__clang_call_terminate(ptr %89) #14
   unreachable
 
 _ZN6icu_775MutexD2Ev.exit36:                      ; preds = %.body
@@ -3517,9 +3520,6 @@ declare void @uhash_close_77(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

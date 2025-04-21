@@ -7841,18 +7841,21 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_7713UnicodeString7compareERKS0_
   %22 = sext i16 %21 to i32
   %23 = select i1 %18, i32 %20, i32 %22
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %17, i32 0)
-  %.010.i = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
-  %24 = and i16 %6, 2
-  %.not.i.i = icmp eq i16 %24, 0
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %27 = load ptr, ptr %26, align 8
-  %28 = select i1 %.not.i.i, ptr %27, ptr %25
-  %29 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 0, i32 noundef %23, ptr noundef %28, i32 noundef %spec.select.i, i32 noundef %.010.i)
+  %24 = icmp slt i32 %17, 0
+  %25 = sub nsw i32 %17, %spec.select.i
+  %spec.select13.i = tail call i32 @llvm.smin.i32(i32 %17, i32 %25)
+  %.010.i = select i1 %24, i32 0, i32 %spec.select13.i
+  %26 = and i16 %6, 2
+  %.not.i.i = icmp eq i16 %26, 0
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %29 = load ptr, ptr %28, align 8
+  %30 = select i1 %.not.i.i, ptr %29, ptr %27
+  %31 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 0, i32 noundef %23, ptr noundef %30, i32 noundef %spec.select.i, i32 noundef %.010.i)
   br label %_ZNK6icu_7713UnicodeString9doCompareEiiRKS0_ii.exit
 
 _ZNK6icu_7713UnicodeString9doCompareEiiRKS0_ii.exit: ; preds = %8, %.sink.split.i.i
-  %.0.i = phi i8 [ %11, %8 ], [ %29, %.sink.split.i.i ]
+  %.0.i = phi i8 [ %11, %8 ], [ %31, %.sink.split.i.i ]
   ret i8 %.0.i
 }
 

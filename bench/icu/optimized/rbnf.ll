@@ -5989,7 +5989,7 @@ _ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCo
 69:                                               ; preds = %67, %64
   %.pn20 = phi { ptr, i32 } [ %68, %67 ], [ %65, %64 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #21
-  br label %140
+  br label %142
 
 70:                                               ; preds = %14
   tail call void @_ZN6icu_7721RuleBasedNumberFormat18initDefaultRuleSetEv(ptr noundef nonnull align 8 dereferenceable(456) %0)
@@ -5999,7 +5999,7 @@ _ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCo
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #21
   store ptr @.str.7, ptr %7, align 8, !tbaa !100
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 noundef signext 1, ptr noundef nonnull %7, i32 noundef -1)
-          to label %72 unwind label %93
+          to label %72 unwind label %95
 
 72:                                               ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6021,142 +6021,145 @@ _ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCo
   br i1 %.not6.i.i, label %84, label %.critedge
 
 84:                                               ; preds = %.sink.split.i.i.i
+  %85 = icmp slt i32 %80, 0
   %spec.select12.i.i = call i32 @llvm.smin.i32(i32 %80, i32 0)
-  %.010.i.i = call i32 @llvm.smax.i32(i32 %80, i32 0)
-  %85 = and i16 %74, 2
-  %.not.i.i.i23 = icmp eq i16 %85, 0
-  %86 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %87 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %88 = load ptr, ptr %87, align 8
-  %89 = select i1 %.not.i.i.i23, ptr %88, ptr %86
-  %90 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %80, ptr noundef %89, i32 noundef %spec.select12.i.i, i32 noundef %.010.i.i)
-          to label %.noexc24 unwind label %95
+  %86 = sub nsw i32 %80, %spec.select12.i.i
+  %spec.select13.i.i = call i32 @llvm.smin.i32(i32 %80, i32 %86)
+  %.010.i.i = select i1 %85, i32 0, i32 %spec.select13.i.i
+  %87 = and i16 %74, 2
+  %.not.i.i.i23 = icmp eq i16 %87, 0
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %90 = load ptr, ptr %89, align 8
+  %91 = select i1 %.not.i.i.i23, ptr %90, ptr %88
+  %92 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %80, ptr noundef %91, i32 noundef %spec.select12.i.i, i32 noundef %.010.i.i)
+          to label %.noexc24 unwind label %97
 
 .noexc24:                                         ; preds = %84
-  %.not = icmp eq i8 %90, 0
+  %.not = icmp eq i8 %92, 0
   br label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit
 
 _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit: ; preds = %72, %.noexc24
   %.0.i.i = phi i1 [ %.not, %.noexc24 ], [ %.not6.i.i, %72 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #21
-  %91 = load ptr, ptr %7, align 8, !tbaa !100
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %91) #21, !srcloc !102
+  %93 = load ptr, ptr %7, align 8, !tbaa !100
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %93) #21, !srcloc !102
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #21
-  br i1 %.0.i.i, label %100, label %92
+  br i1 %.0.i.i, label %102, label %94
 
-92:                                               ; preds = %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit
+94:                                               ; preds = %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit
   store i32 1, ptr %2, align 4, !tbaa !19
   br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread
 
-93:                                               ; preds = %71
-  %94 = landingpad { ptr, i32 }
-          cleanup
-  br label %97
-
-95:                                               ; preds = %84
+95:                                               ; preds = %71
   %96 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #21
-  br label %97
+  br label %99
 
-97:                                               ; preds = %95, %93
-  %.pn = phi { ptr, i32 } [ %96, %95 ], [ %94, %93 ]
-  %98 = load ptr, ptr %7, align 8, !tbaa !100
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %98) #21, !srcloc !102
+97:                                               ; preds = %84
+  %98 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #21
+  br label %99
+
+99:                                               ; preds = %97, %95
+  %.pn = phi { ptr, i32 } [ %98, %97 ], [ %96, %95 ]
+  %100 = load ptr, ptr %7, align 8, !tbaa !100
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %100) #21, !srcloc !102
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #21
-  br label %140
+  br label %142
 
 .critedge:                                        ; preds = %.sink.split.i.i.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #21
-  %99 = load ptr, ptr %7, align 8, !tbaa !100
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %99) #21, !srcloc !102
+  %101 = load ptr, ptr %7, align 8, !tbaa !100
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %101) #21, !srcloc !102
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #21
-  br label %100
+  br label %102
 
-100:                                              ; preds = %.critedge, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit
-  %101 = load i32, ptr %2, align 4, !tbaa !19
-  %102 = icmp sgt i32 %101, 0
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %104 = load ptr, ptr %103, align 8
-  %.not16.i25 = icmp eq ptr %104, null
-  %or.cond.i26 = select i1 %102, i1 true, i1 %.not16.i25
+102:                                              ; preds = %.critedge, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit
+  %103 = load i32, ptr %2, align 4, !tbaa !19
+  %104 = icmp sgt i32 %103, 0
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %106 = load ptr, ptr %105, align 8
+  %.not16.i25 = icmp eq ptr %106, null
+  %or.cond.i26 = select i1 %104, i1 true, i1 %.not16.i25
   br i1 %or.cond.i26, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread, label %.preheader.i27
 
-.preheader.i27:                                   ; preds = %100
-  %105 = load ptr, ptr %104, align 8, !tbaa !96
-  %.not1729.i28 = icmp eq ptr %105, null
+.preheader.i27:                                   ; preds = %102
+  %107 = load ptr, ptr %106, align 8, !tbaa !96
+  %.not1729.i28 = icmp eq ptr %107, null
   br i1 %.not1729.i28, label %._crit_edge.i36, label %.lr.ph.i29
 
 .lr.ph.i29:                                       ; preds = %.preheader.i27
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br label %109
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  br label %111
 
-109:                                              ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34, %.lr.ph.i29
-  %110 = phi ptr [ %105, %.lr.ph.i29 ], [ %138, %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34 ]
-  %.01330.i30 = phi ptr [ %104, %.lr.ph.i29 ], [ %137, %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34 ]
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %113 = load i16, ptr %112, align 8, !tbaa !55
-  %114 = and i16 %113, 1
-  %.not.i.i.i31 = icmp eq i16 %114, 0
-  br i1 %.not.i.i.i31, label %118, label %115
+111:                                              ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34, %.lr.ph.i29
+  %112 = phi ptr [ %107, %.lr.ph.i29 ], [ %140, %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34 ]
+  %.01330.i30 = phi ptr [ %106, %.lr.ph.i29 ], [ %139, %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34 ]
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %115 = load i16, ptr %114, align 8, !tbaa !55
+  %116 = and i16 %115, 1
+  %.not.i.i.i31 = icmp eq i16 %116, 0
+  br i1 %.not.i.i.i31, label %120, label %117
 
-115:                                              ; preds = %109
-  %116 = load i16, ptr %11, align 8, !tbaa !55
-  %117 = and i16 %116, 1
-  %.not.i32 = icmp eq i16 %117, 0
+117:                                              ; preds = %111
+  %118 = load i16, ptr %11, align 8, !tbaa !55
+  %119 = and i16 %118, 1
+  %.not.i32 = icmp eq i16 %119, 0
   br i1 %.not.i32, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42
 
-118:                                              ; preds = %109
-  %119 = icmp slt i16 %113, 0
-  %120 = ashr i16 %113, 5
-  %121 = sext i16 %120 to i32
-  %122 = getelementptr inbounds nuw i8, ptr %110, i64 20
-  %123 = load i32, ptr %122, align 4
-  %124 = select i1 %119, i32 %123, i32 %121
-  %125 = load i16, ptr %11, align 8, !tbaa !55
-  %126 = icmp slt i16 %125, 0
-  %127 = ashr i16 %125, 5
-  %128 = sext i16 %127 to i32
-  %129 = load i32, ptr %106, align 4
-  %130 = select i1 %126, i32 %129, i32 %128
-  %131 = and i16 %125, 1
-  %.not9.i.i.i37 = icmp eq i16 %131, 0
-  %132 = icmp eq i32 %124, %130
-  %or.cond.i.i.i38 = and i1 %.not9.i.i.i37, %132
+120:                                              ; preds = %111
+  %121 = icmp slt i16 %115, 0
+  %122 = ashr i16 %115, 5
+  %123 = sext i16 %122 to i32
+  %124 = getelementptr inbounds nuw i8, ptr %112, i64 20
+  %125 = load i32, ptr %124, align 4
+  %126 = select i1 %121, i32 %125, i32 %123
+  %127 = load i16, ptr %11, align 8, !tbaa !55
+  %128 = icmp slt i16 %127, 0
+  %129 = ashr i16 %127, 5
+  %130 = sext i16 %129 to i32
+  %131 = load i32, ptr %108, align 4
+  %132 = select i1 %128, i32 %131, i32 %130
+  %133 = and i16 %127, 1
+  %.not9.i.i.i37 = icmp eq i16 %133, 0
+  %134 = icmp eq i32 %126, %132
+  %or.cond.i.i.i38 = and i1 %.not9.i.i.i37, %134
   br i1 %or.cond.i.i.i38, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i39, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34
 
-_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i39: ; preds = %118
-  %133 = and i16 %125, 2
-  %.not.i.i.i.i.i40 = icmp eq i16 %133, 0
-  %134 = load ptr, ptr %108, align 8
-  %135 = select i1 %.not.i.i.i.i.i40, ptr %134, ptr %107
-  %136 = call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %111, ptr noundef %135, i32 noundef %124)
-  %.not33.i41 = icmp eq i8 %136, 0
+_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i39: ; preds = %120
+  %135 = and i16 %127, 2
+  %.not.i.i.i.i.i40 = icmp eq i16 %135, 0
+  %136 = load ptr, ptr %110, align 8
+  %137 = select i1 %.not.i.i.i.i.i40, ptr %136, ptr %109
+  %138 = call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %113, ptr noundef %137, i32 noundef %126)
+  %.not33.i41 = icmp eq i8 %138, 0
   br i1 %.not33.i41, label %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34, label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42
 
-_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34: ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i39, %118, %115
-  %137 = getelementptr inbounds nuw i8, ptr %.01330.i30, i64 8
-  %138 = load ptr, ptr %137, align 8, !tbaa !96
-  %.not17.i35 = icmp eq ptr %138, null
-  br i1 %.not17.i35, label %._crit_edge.i36, label %109, !llvm.loop !103
+_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34: ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i39, %120, %117
+  %139 = getelementptr inbounds nuw i8, ptr %.01330.i30, i64 8
+  %140 = load ptr, ptr %139, align 8, !tbaa !96
+  %.not17.i35 = icmp eq ptr %140, null
+  br i1 %.not17.i35, label %._crit_edge.i36, label %111, !llvm.loop !103
 
 ._crit_edge.i36:                                  ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.thread.i34, %.preheader.i27
   store i32 1, ptr %2, align 4, !tbaa !19
   br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread
 
-_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42: ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i39, %115
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %110, ptr %139, align 8, !tbaa !64
+_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42: ; preds = %_ZNK6icu_779NFRuleSet7isNamedERKNS_13UnicodeStringE.exit.i39, %117
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %112, ptr %141, align 8, !tbaa !64
   br label %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread
 
-_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread: ; preds = %100, %._crit_edge.i36, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42, %70, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %92, %3
+_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42.thread: ; preds = %102, %._crit_edge.i36, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit42, %70, %_ZNK6icu_7721RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode.exit, %94, %3
   ret void
 
-140:                                              ; preds = %97, %69
-  %.pn20.pn = phi { ptr, i32 } [ %.pn20, %69 ], [ %.pn, %97 ]
+142:                                              ; preds = %99, %69
+  %.pn20.pn = phi { ptr, i32 } [ %.pn20, %69 ], [ %.pn, %99 ]
   resume { ptr, i32 } %.pn20.pn
 }
 

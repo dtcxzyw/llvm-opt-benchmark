@@ -549,13 +549,13 @@ define void @_ZN6icu_775units11UnitsRouter24parseSkeletonToPrecisionENS_13Unicod
   store i32 0, ptr %0, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %10, align 8, !tbaa !19
-  br label %44
+  br label %46
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #14
   store ptr @.str, ptr %5, align 8, !tbaa !20
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 noundef signext 1, ptr noundef nonnull %5, i32 noundef -1)
-          to label %12 unwind label %36
+          to label %12 unwind label %38
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -578,73 +578,76 @@ define void @_ZN6icu_775units11UnitsRouter24parseSkeletonToPrecisionENS_13Unicod
   br i1 %.not6.i.i, label %25, label %.critedge
 
 25:                                               ; preds = %.sink.split.i.i.i
+  %26 = icmp slt i32 %20, 0
   %spec.select12.i.i = call i32 @llvm.smin.i32(i32 %20, i32 0)
-  %.010.i.i = call i32 @llvm.smax.i32(i32 %20, i32 0)
-  %26 = and i16 %14, 2
-  %.not.i.i.i = icmp eq i16 %26, 0
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %29 = load ptr, ptr %28, align 8
-  %30 = select i1 %.not.i.i.i, ptr %29, ptr %27
-  %31 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %20, ptr noundef %30, i32 noundef %spec.select12.i.i, i32 noundef %.010.i.i)
-          to label %.noexc unwind label %38
+  %27 = sub nsw i32 %20, %spec.select12.i.i
+  %spec.select13.i.i = call i32 @llvm.smin.i32(i32 %20, i32 %27)
+  %.010.i.i = select i1 %26, i32 0, i32 %spec.select13.i.i
+  %28 = and i16 %14, 2
+  %.not.i.i.i = icmp eq i16 %28, 0
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %31 = load ptr, ptr %30, align 8
+  %32 = select i1 %.not.i.i.i, ptr %31, ptr %29
+  %33 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString17doEqualsSubstringEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %20, ptr noundef %32, i32 noundef %spec.select12.i.i, i32 noundef %.010.i.i)
+          to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %25
-  %.not = icmp eq i8 %31, 0
+  %.not = icmp eq i8 %33, 0
   br label %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit
 
 _ZNK6icu_7713UnicodeString10startsWithERKS0_.exit: ; preds = %12, %.noexc
   %.0.i.i = phi i1 [ %.not, %.noexc ], [ %.not6.i.i, %12 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #14
-  %32 = load ptr, ptr %5, align 8, !tbaa !20
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %32) #14, !srcloc !24
+  %34 = load ptr, ptr %5, align 8, !tbaa !20
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #14, !srcloc !24
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #14
-  br i1 %.0.i.i, label %34, label %42
+  br i1 %.0.i.i, label %36, label %44
 
 .critedge:                                        ; preds = %.sink.split.i.i.i
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #14
-  %33 = load ptr, ptr %5, align 8, !tbaa !20
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %33) #14, !srcloc !24
+  %35 = load ptr, ptr %5, align 8, !tbaa !20
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %35) #14, !srcloc !24
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #14
-  br label %34
+  br label %36
 
-34:                                               ; preds = %.critedge, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit
+36:                                               ; preds = %.critedge, %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit
   store i32 3, ptr %2, align 4, !tbaa !13
   store i32 0, ptr %0, align 8, !tbaa !15
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %35, align 8, !tbaa !19
-  br label %44
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %37, align 8, !tbaa !19
+  br label %46
 
-36:                                               ; preds = %11
-  %37 = landingpad { ptr, i32 }
-          cleanup
-  br label %40
-
-38:                                               ; preds = %25
+38:                                               ; preds = %11
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #14
-  br label %40
+  br label %42
 
-40:                                               ; preds = %38, %36
-  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
-  %41 = load ptr, ptr %5, align 8, !tbaa !20
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %41) #14, !srcloc !24
+40:                                               ; preds = %25
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #14
+  br label %42
+
+42:                                               ; preds = %40, %38
+  %.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ]
+  %43 = load ptr, ptr %5, align 8, !tbaa !20
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %43) #14, !srcloc !24
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #14
   resume { ptr, i32 } %.pn
 
-42:                                               ; preds = %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit
+44:                                               ; preds = %_ZNK6icu_7713UnicodeString10startsWithERKS0_.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14
   call void @_ZN6icu_7713StringSegmentC1ERKNS_13UnicodeStringEb(ptr noundef nonnull align 8 dereferenceable(17) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext false)
   call void @_ZN6icu_7713StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %6, i32 noundef 20)
   store i32 0, ptr %0, align 8, !tbaa !15
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %43, align 8, !tbaa !19
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %45, align 8, !tbaa !19
   call void @_ZN6icu_776number4impl20parseIncrementOptionERKNS_13StringSegmentERNS0_9PrecisionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(17) %6, ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
-  br label %44
+  br label %46
 
-44:                                               ; preds = %34, %42, %9
+46:                                               ; preds = %36, %44, %9
   ret void
 }
 
@@ -2958,9 +2961,6 @@ declare void @_ZN6icu_7713UnicodeStringC1EOS0_(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

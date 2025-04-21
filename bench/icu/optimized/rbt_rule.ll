@@ -1097,80 +1097,83 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719TransliterationRule5masks
   %30 = sub nsw i32 %14, %12
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 0)
-  %.010.i.i = tail call i32 @llvm.smax.i32(i32 %10, i32 0)
-  %32 = and i16 %4, 2
-  %.not.i.i.i = icmp eq i16 %32, 0
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %35 = load ptr, ptr %34, align 8
-  %36 = select i1 %.not.i.i.i, ptr %35, ptr %33
-  %37 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %31, i32 noundef %30, i32 noundef %10, ptr noundef %36, i32 noundef %spec.select.i.i, i32 noundef %.010.i.i)
+  %32 = icmp slt i32 %10, 0
+  %33 = sub nsw i32 %10, %spec.select.i.i
+  %spec.select13.i.i = tail call i32 @llvm.smin.i32(i32 %10, i32 %33)
+  %.010.i.i = select i1 %32, i32 0, i32 %spec.select13.i.i
+  %34 = and i16 %4, 2
+  %.not.i.i.i = icmp eq i16 %34, 0
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %37 = load ptr, ptr %36, align 8
+  %38 = select i1 %.not.i.i.i, ptr %37, ptr %35
+  %39 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString9doCompareEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %31, i32 noundef %30, i32 noundef %10, ptr noundef %38, i32 noundef %spec.select.i.i, i32 noundef %.010.i.i)
   br label %_ZNK6icu_7713UnicodeString7compareEiiRKS0_.exit
 
 _ZNK6icu_7713UnicodeString7compareEiiRKS0_.exit:  ; preds = %26, %.sink.split.i.i.i
-  %.0.i.i = phi i8 [ %29, %26 ], [ %37, %.sink.split.i.i.i ]
-  %38 = icmp eq i32 %12, %14
-  %39 = icmp eq i32 %15, %24
-  %or.cond35 = select i1 %38, i1 %39, i1 false
-  br i1 %or.cond35, label %40, label %58
+  %.0.i.i = phi i8 [ %29, %26 ], [ %39, %.sink.split.i.i.i ]
+  %40 = icmp eq i32 %12, %14
+  %41 = icmp eq i32 %15, %24
+  %or.cond35 = select i1 %40, i1 %41, i1 false
+  br i1 %or.cond35, label %42, label %60
 
-40:                                               ; preds = %_ZNK6icu_7713UnicodeString7compareEiiRKS0_.exit
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %42 = load i32, ptr %41, align 8, !tbaa !30
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 120
+42:                                               ; preds = %_ZNK6icu_7713UnicodeString7compareEiiRKS0_.exit
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %44 = load i32, ptr %43, align 8, !tbaa !30
-  %45 = icmp sle i32 %42, %44
-  %46 = icmp eq i8 %.0.i.i, 0
-  %or.cond = and i1 %46, %45
-  br i1 %or.cond, label %47, label %58
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %46 = load i32, ptr %45, align 8, !tbaa !30
+  %47 = icmp sle i32 %44, %46
+  %48 = icmp eq i8 %.0.i.i, 0
+  %or.cond = and i1 %48, %47
+  br i1 %or.cond, label %49, label %60
 
-47:                                               ; preds = %40
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %49 = load i8, ptr %48, align 4, !tbaa !32
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 124
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %51 = load i8, ptr %50, align 4, !tbaa !32
-  %52 = icmp eq i8 %49, %51
-  %53 = and i8 %49, 3
-  %or.cond36 = icmp eq i8 %53, 0
-  %or.cond37 = or i1 %52, %or.cond36
-  br i1 %or.cond37, label %70, label %54
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %53 = load i8, ptr %52, align 4, !tbaa !32
+  %54 = icmp eq i8 %51, %53
+  %55 = and i8 %51, 3
+  %or.cond36 = icmp eq i8 %55, 0
+  %or.cond37 = or i1 %54, %or.cond36
+  br i1 %or.cond37, label %72, label %56
 
-54:                                               ; preds = %47
-  %55 = and i8 %51, 1
-  %.not34 = icmp eq i8 %55, 0
-  br i1 %.not34, label %70, label %56
+56:                                               ; preds = %49
+  %57 = and i8 %53, 1
+  %.not34 = icmp eq i8 %57, 0
+  br i1 %.not34, label %72, label %58
 
-56:                                               ; preds = %54
-  %57 = lshr i8 %51, 1
-  %.lobit = and i8 %57, 1
-  br label %70
+58:                                               ; preds = %56
+  %59 = lshr i8 %53, 1
+  %.lobit = and i8 %59, 1
+  br label %72
 
-58:                                               ; preds = %40, %_ZNK6icu_7713UnicodeString7compareEiiRKS0_.exit
+60:                                               ; preds = %42, %_ZNK6icu_7713UnicodeString7compareEiiRKS0_.exit
   %.not = icmp sgt i32 %12, %14
-  br i1 %.not, label %70, label %59
+  br i1 %.not, label %72, label %61
 
-59:                                               ; preds = %58
-  %60 = icmp slt i32 %15, %24
-  br i1 %60, label %67, label %61
+61:                                               ; preds = %60
+  %62 = icmp slt i32 %15, %24
+  br i1 %62, label %69, label %63
 
-61:                                               ; preds = %59
-  br i1 %39, label %62, label %70
+63:                                               ; preds = %61
+  br i1 %41, label %64, label %72
 
-62:                                               ; preds = %61
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %64 = load i32, ptr %63, align 8, !tbaa !30
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 120
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %66 = load i32, ptr %65, align 8, !tbaa !30
-  %.not31 = icmp sgt i32 %64, %66
-  br i1 %.not31, label %70, label %67
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %68 = load i32, ptr %67, align 8, !tbaa !30
+  %.not31 = icmp sgt i32 %66, %68
+  br i1 %.not31, label %72, label %69
 
-67:                                               ; preds = %62, %59
-  %68 = icmp eq i8 %.0.i.i, 0
-  %69 = zext i1 %68 to i8
-  br label %70
+69:                                               ; preds = %64, %61
+  %70 = icmp eq i8 %.0.i.i, 0
+  %71 = zext i1 %70 to i8
+  br label %72
 
-70:                                               ; preds = %58, %61, %62, %67, %47, %56, %54
-  %.0 = phi i8 [ 1, %47 ], [ 0, %54 ], [ %.lobit, %56 ], [ 0, %62 ], [ 0, %61 ], [ 0, %58 ], [ %69, %67 ]
+72:                                               ; preds = %60, %63, %64, %69, %49, %58, %56
+  %.0 = phi i8 [ 1, %49 ], [ 0, %56 ], [ %.lobit, %58 ], [ 0, %64 ], [ 0, %63 ], [ 0, %60 ], [ %71, %69 ]
   ret i8 %.0
 }
 
@@ -1701,9 +1704,6 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStri
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13

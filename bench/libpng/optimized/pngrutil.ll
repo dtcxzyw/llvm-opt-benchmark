@@ -1996,12 +1996,12 @@ define void @png_read_IDAT_data(ptr noalias noundef initializes((344, 356)) %0, 
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 368
   br label %33
 
-33:                                               ; preds = %166, %3
-  %.1 = phi i64 [ %spec.select, %3 ], [ %.3, %166 ]
+33:                                               ; preds = %168, %3
+  %.1 = phi i64 [ %spec.select, %3 ], [ %.3, %168 ]
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #12
   %34 = load i32, ptr %11, align 8, !tbaa !39
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %.preheader.preheader, label %134
+  br i1 %35, label %.preheader.preheader, label %136
 
 .preheader.preheader:                             ; preds = %33
   %.pre = load i32, ptr %12, align 8, !tbaa !87
@@ -2171,160 +2171,164 @@ png_read_chunk_header.exit:                       ; preds = %97
   %.171 = call i32 @llvm.umin.i32(i32 %36, i32 %spec.select82)
   %121 = zext i32 %.171 to i64
   %122 = load ptr, ptr %29, align 8, !tbaa !104, !alias.scope !105
+  %123 = icmp ult i64 %120, %121
+  br i1 %123, label %132, label %124
+
+124:                                              ; preds = %117
   %.not.i84 = icmp eq ptr %122, null
-  br i1 %.not.i84, label %127, label %123
+  br i1 %.not.i84, label %129, label %125
 
-123:                                              ; preds = %117
-  %124 = load i64, ptr %30, align 8, !tbaa !108, !alias.scope !105
-  %125 = icmp ult i64 %124, %121
-  br i1 %125, label %126, label %png_crc_read.exit
+125:                                              ; preds = %124
+  %126 = load i64, ptr %30, align 8, !tbaa !108, !alias.scope !105
+  %127 = icmp ult i64 %126, %121
+  br i1 %127, label %128, label %png_crc_read.exit
 
-126:                                              ; preds = %123
+128:                                              ; preds = %125
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !105
   call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %122) #12
-  br label %127
+  br label %129
 
-127:                                              ; preds = %126, %117
-  %128 = call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %121) #12
-  %.not27.i = icmp eq ptr %128, null
-  br i1 %.not27.i, label %130, label %129
+129:                                              ; preds = %128, %124
+  %130 = call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %121) #12
+  %.not27.i = icmp eq ptr %130, null
+  br i1 %.not27.i, label %132, label %131
 
-129:                                              ; preds = %127
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %128, i8 0, i64 range(i64 0, 4294967296) %121, i1 false)
-  store ptr %128, ptr %29, align 8, !tbaa !104, !alias.scope !105
+131:                                              ; preds = %129
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %130, i8 0, i64 range(i64 0, 4294967296) %121, i1 false)
+  store ptr %130, ptr %29, align 8, !tbaa !104, !alias.scope !105
   store i64 %121, ptr %30, align 8, !tbaa !108, !alias.scope !105
   br label %png_crc_read.exit
 
-130:                                              ; preds = %127
+132:                                              ; preds = %117, %129
   call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #11
   unreachable
 
-png_crc_read.exit:                                ; preds = %129, %123
-  %.021.i = phi ptr [ %128, %129 ], [ %122, %123 ]
+png_crc_read.exit:                                ; preds = %131, %125
+  %.021.i = phi ptr [ %130, %131 ], [ %122, %125 ]
   call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %121) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %.021.i, i64 noundef %121) #12
-  %131 = load i32, ptr %12, align 8, !tbaa !87
-  %132 = sub i32 %131, %.171
-  store i32 %132, ptr %12, align 8, !tbaa !87
+  %133 = load i32, ptr %12, align 8, !tbaa !87
+  %134 = sub i32 %133, %.171
+  store i32 %134, ptr %12, align 8, !tbaa !87
   store ptr %.021.i, ptr %7, align 8, !tbaa !40
   store i32 %.171, ptr %11, align 8, !tbaa !39
-  %133 = icmp eq i64 %spec.select8291, 0
-  br label %134
+  %135 = icmp eq i64 %spec.select8291, 0
+  br label %136
 
-134:                                              ; preds = %png_crc_read.exit, %33
-  %.not7.i = phi i1 [ %133, %png_crc_read.exit ], [ false, %33 ]
-  br i1 %10, label %137, label %135
+136:                                              ; preds = %png_crc_read.exit, %33
+  %.not7.i = phi i1 [ %135, %png_crc_read.exit ], [ false, %33 ]
+  br i1 %10, label %139, label %137
 
-135:                                              ; preds = %134
+137:                                              ; preds = %136
   %spec.select8392 = call i64 @llvm.umin.i64(i64 %.1, i64 4294967295)
   %spec.select83 = trunc nuw i64 %spec.select8392 to i32
-  %136 = sub i64 %.1, %spec.select8392
-  br label %138
+  %138 = sub i64 %.1, %spec.select8392
+  br label %140
 
-137:                                              ; preds = %134
+139:                                              ; preds = %136
   store ptr %6, ptr %8, align 8, !tbaa !85
-  br label %138
+  br label %140
 
-138:                                              ; preds = %137, %135
-  %storemerge = phi i32 [ 1024, %137 ], [ %spec.select83, %135 ]
-  %.2 = phi i64 [ %.1, %137 ], [ %136, %135 ]
+140:                                              ; preds = %139, %137
+  %storemerge = phi i32 [ 1024, %139 ], [ %spec.select83, %137 ]
+  %.2 = phi i64 [ %.1, %139 ], [ %138, %137 ]
   store i32 %storemerge, ptr %9, align 8, !tbaa !86
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
-  %139 = load i8, ptr %31, align 8, !tbaa !38, !alias.scope !109
-  %.not.i85 = icmp eq i8 %139, 0
-  %brmerge = select i1 %.not.i85, i1 true, i1 %.not7.i
-  br i1 %brmerge, label %146, label %140
+  %141 = load i8, ptr %31, align 8, !tbaa !38, !alias.scope !109
+  %.not.i85 = icmp eq i8 %141, 0
+  %brmerge = or i1 %.not.i85, %.not7.i
+  br i1 %brmerge, label %148, label %142
 
-140:                                              ; preds = %138
-  %141 = load ptr, ptr %7, align 8, !tbaa !40, !alias.scope !109
-  %142 = load i8, ptr %141, align 1, !tbaa !3, !noalias !109
-  %143 = icmp slt i8 %142, 0
-  br i1 %143, label %144, label %145
+142:                                              ; preds = %140
+  %143 = load ptr, ptr %7, align 8, !tbaa !40, !alias.scope !109
+  %144 = load i8, ptr %143, align 1, !tbaa !3, !noalias !109
+  %145 = icmp slt i8 %144, 0
+  br i1 %145, label %146, label %147
 
-144:                                              ; preds = %140
+146:                                              ; preds = %142
   store ptr @.str.5, ptr %32, align 8, !tbaa !41, !alias.scope !109
   br label %png_zlib_inflate.exit
 
-145:                                              ; preds = %140
+147:                                              ; preds = %142
   store i8 0, ptr %31, align 8, !tbaa !38, !alias.scope !109
-  br label %146
+  br label %148
 
-146:                                              ; preds = %138, %145
-  %147 = call i32 @inflate(ptr noundef nonnull %7, i32 noundef 0) #12
+148:                                              ; preds = %140, %147
+  %149 = call i32 @inflate(ptr noundef nonnull %7, i32 noundef 0) #12
   br label %png_zlib_inflate.exit
 
-png_zlib_inflate.exit:                            ; preds = %144, %146
-  %.0.i = phi i32 [ -3, %144 ], [ %147, %146 ]
-  %148 = load i32, ptr %9, align 8, !tbaa !86
-  %149 = zext i32 %148 to i64
-  %150 = add i64 %.2, %149
+png_zlib_inflate.exit:                            ; preds = %146, %148
+  %.0.i = phi i32 [ -3, %146 ], [ %149, %148 ]
+  %150 = load i32, ptr %9, align 8, !tbaa !86
+  %151 = zext i32 %150 to i64
+  %152 = add i64 %.2, %151
   %reass.sub = add i64 %.2, 1024
-  %151 = sub i64 %reass.sub, %149
-  %.3 = select i1 %10, i64 %151, i64 %150
+  %153 = sub i64 %reass.sub, %151
+  %.3 = select i1 %10, i64 %153, i64 %152
   store i32 0, ptr %9, align 8, !tbaa !86
-  switch i32 %.0.i, label %162 [
-    i32 1, label %152
-    i32 0, label %166
+  switch i32 %.0.i, label %164 [
+    i32 1, label %154
+    i32 0, label %168
   ]
 
-152:                                              ; preds = %png_zlib_inflate.exit
+154:                                              ; preds = %png_zlib_inflate.exit
   store ptr null, ptr %8, align 8, !tbaa !85
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %154 = load i32, ptr %153, align 4, !tbaa !24
-  %155 = or i32 %154, 8
-  store i32 %155, ptr %153, align 4, !tbaa !24
-  %156 = load i32, ptr %14, align 8, !tbaa !31
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 300
+  %156 = load i32, ptr %155, align 4, !tbaa !24
   %157 = or i32 %156, 8
-  store i32 %157, ptr %14, align 8, !tbaa !31
-  %158 = load i32, ptr %11, align 8, !tbaa !39
-  %.not77 = icmp eq i32 %158, 0
-  br i1 %.not77, label %159, label %161
+  store i32 %157, ptr %155, align 4, !tbaa !24
+  %158 = load i32, ptr %14, align 8, !tbaa !31
+  %159 = or i32 %158, 8
+  store i32 %159, ptr %14, align 8, !tbaa !31
+  %160 = load i32, ptr %11, align 8, !tbaa !39
+  %.not77 = icmp eq i32 %160, 0
+  br i1 %.not77, label %161, label %163
 
-159:                                              ; preds = %152
-  %160 = load i32, ptr %12, align 8, !tbaa !87
-  %.not78 = icmp eq i32 %160, 0
-  br i1 %.not78, label %167, label %161
+161:                                              ; preds = %154
+  %162 = load i32, ptr %12, align 8, !tbaa !87
+  %.not78 = icmp eq i32 %162, 0
+  br i1 %.not78, label %169, label %163
 
-161:                                              ; preds = %159, %152
+163:                                              ; preds = %161, %154
   call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #12
-  br label %167
+  br label %169
 
-162:                                              ; preds = %png_zlib_inflate.exit
+164:                                              ; preds = %png_zlib_inflate.exit
   call void @png_zstream_error(ptr noundef nonnull %0, i32 noundef %.0.i) #12
-  %163 = load ptr, ptr %32, align 8, !tbaa !41
-  br i1 %10, label %165, label %164
+  %165 = load ptr, ptr %32, align 8, !tbaa !41
+  br i1 %10, label %167, label %166
 
-164:                                              ; preds = %162
-  call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %163) #11
+166:                                              ; preds = %164
+  call void @png_chunk_error(ptr noundef nonnull %0, ptr noundef %165) #11
   unreachable
 
-165:                                              ; preds = %162
-  call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef %163) #12
+167:                                              ; preds = %164
+  call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef %165) #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #12
   br label %.loopexit
 
-166:                                              ; preds = %png_zlib_inflate.exit
+168:                                              ; preds = %png_zlib_inflate.exit
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #12
   %cond = icmp eq i64 %.3, 0
   br i1 %cond, label %.loopexit, label %33
 
-167:                                              ; preds = %161, %159
+169:                                              ; preds = %163, %161
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6) #12
   %.not80 = icmp eq i64 %.3, 0
-  br i1 %.not80, label %.loopexit, label %168
+  br i1 %.not80, label %.loopexit, label %170
 
-168:                                              ; preds = %167
-  br i1 %10, label %170, label %169
+170:                                              ; preds = %169
+  br i1 %10, label %172, label %171
 
-169:                                              ; preds = %168
+171:                                              ; preds = %170
   call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.21) #11
   unreachable
 
-170:                                              ; preds = %168
+172:                                              ; preds = %170
   call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %166, %165, %170, %167
+.loopexit:                                        ; preds = %168, %167, %172, %169
   ret void
 }
 
