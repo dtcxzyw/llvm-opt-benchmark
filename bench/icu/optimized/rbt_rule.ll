@@ -1112,13 +1112,13 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719TransliterationRule5masks
 
 _ZNK6icu_7713UnicodeString7compareEiiRKS0_.exit:  ; preds = %26, %.sink.split.i.i.i
   %.0.i.i = phi i8 [ %29, %26 ], [ %39, %.sink.split.i.i.i ]
-  %40 = icmp eq i32 %12, %14
-  %41 = icmp eq i32 %15, %24
-  %or.cond35 = select i1 %40, i1 %41, i1 false
-  br i1 %or.cond35, label %42, label %60
+  %38 = icmp eq i32 %12, %14
+  %39 = icmp eq i32 %15, %24
+  %or.cond35 = select i1 %38, i1 %39, i1 false
+  br i1 %or.cond35, label %40, label %60
 
-42:                                               ; preds = %_ZNK6icu_7713UnicodeString7compareEiiRKS0_.exit
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
+40:                                               ; preds = %_ZNK6icu_7713UnicodeString7compareEiiRKS0_.exit
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %44 = load i32, ptr %43, align 8, !tbaa !30
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %46 = load i32, ptr %45, align 8, !tbaa !30
@@ -1127,47 +1127,47 @@ _ZNK6icu_7713UnicodeString7compareEiiRKS0_.exit:  ; preds = %26, %.sink.split.i.
   %or.cond = and i1 %48, %47
   br i1 %or.cond, label %49, label %60
 
-49:                                               ; preds = %42
+49:; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %51 = load i8, ptr %50, align 4, !tbaa !32
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %53 = load i8, ptr %52, align 4, !tbaa !32
-  %54 = icmp eq i8 %51, %53
+  %or.cond36 = icmp eq i8 %51, %53
   %55 = and i8 %51, 3
   %or.cond36 = icmp eq i8 %55, 0
   %or.cond37 = or i1 %54, %or.cond36
   br i1 %or.cond37, label %72, label %56
 
-56:                                               ; preds = %49
+56:; preds = %49
   %57 = and i8 %53, 1
   %.not34 = icmp eq i8 %57, 0
   br i1 %.not34, label %72, label %58
 
-58:                                               ; preds = %56
+58:; preds = %56
   %59 = lshr i8 %53, 1
   %.lobit = and i8 %59, 1
   br label %72
 
 60:                                               ; preds = %42, %_ZNK6icu_7713UnicodeString7compareEiiRKS0_.exit
   %.not = icmp sgt i32 %12, %14
-  br i1 %.not, label %72, label %61
+  br i1 %.not, label %72, label %59
 
-61:                                               ; preds = %60
-  %62 = icmp slt i32 %15, %24
-  br i1 %62, label %69, label %63
+59:                                               ; preds = %60
+  %60 = icmp slt i32 %15, %24
+  br i1 %60, label %69, label %61
 
-63:                                               ; preds = %61
-  br i1 %41, label %64, label %72
+61:                                               ; preds = %59
+  br i1 %39, label %62, label %72
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
+62:                                               ; preds = %61
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %66 = load i32, ptr %65, align 8, !tbaa !30
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %68 = load i32, ptr %67, align 8, !tbaa !30
   %.not31 = icmp sgt i32 %66, %68
   br i1 %.not31, label %72, label %69
 
-69:                                               ; preds = %64, %61
+69:; preds = %64, %61
   %70 = icmp eq i8 %.0.i.i, 0
   %71 = zext i1 %70 to i8
   br label %72

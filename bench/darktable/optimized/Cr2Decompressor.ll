@@ -551,7 +551,7 @@ define weak_odr hidden void @_ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDec
 40:                                               ; preds = %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread183, %48, %38
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %218
+  br label %216
 
 42:                                               ; preds = %8
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 584
@@ -650,7 +650,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
 83:                                               ; preds = %.invoke, %._crit_edge240
   %84 = landingpad { ptr, i32 }
           cleanup
-  br label %218
+  br label %216
 
 85:                                               ; preds = %80
   store i32 %82, ptr %22, align 4, !tbaa !125
@@ -731,7 +731,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
 119:                                              ; preds = %117
   %120 = landingpad { ptr, i32 }
           cleanup
-  br label %218
+  br label %216
 
 121:                                              ; preds = %109
   %122 = load ptr, ptr %28, align 8, !tbaa !53
@@ -778,7 +778,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
 140:                                              ; preds = %138
   %141 = landingpad { ptr, i32 }
           cleanup
-  br label %218
+  br label %216
 
 142:                                              ; preds = %167
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #20
@@ -820,7 +820,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   %166 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #20
-  br label %218
+  br label %216
 
 167:                                              ; preds = %158
   store i32 %162, ptr %159, align 4, !tbaa !13
@@ -896,7 +896,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
 189:                                              ; preds = %.invoke267
   %190 = landingpad { ptr, i32 }
           cleanup
-  br label %218
+  br label %216
 
 _ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exit.thread: ; preds = %.critedge.i, %180, %.lr.ph219
   %191 = add nsw i32 %.0.i.i.i5.i, %.sroa.17106.sroa.0.0213
@@ -906,7 +906,7 @@ _ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exi
   %194 = select i1 %.not.i62, i1 %193, i1 false
   br i1 %194, label %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit, label %195
 
-195:                                              ; preds = %_ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exit.thread
+195:; preds = %_ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exit.thread
   %196 = icmp slt i32 %.sroa.17106.sroa.0.0213, %150
   %197 = icmp slt i32 %.sroa.17106.sroa.8.0214, %153
   %198 = and i1 %196, %197
@@ -925,72 +925,72 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:     ; preds = %_ZN8rawspeed12_GLOB
   %.sroa.073.sroa.8.0.insert.shift87 = shl nuw i64 %.sroa.073.sroa.8.0.insert.ext86, 32
   %.sroa.073.sroa.0.0.insert.ext79 = zext i32 %.sroa.17106.sroa.0.0213 to i64
   %.sroa.073.sroa.0.0.insert.insert81 = or disjoint i64 %.sroa.073.sroa.8.0.insert.shift87, %.sroa.073.sroa.0.0.insert.ext79
-  %200 = add nsw i32 %.sroa.speculated.i, %.sroa.22.0212
-  %201 = icmp sgt i32 %200, -1
-  tail call void @llvm.assume(i1 %201)
-  %202 = icmp sle i32 %200, %146
-  tail call void @llvm.assume(i1 %202)
-  %203 = icmp eq i32 %200, %146
-  %spec.select = select i1 %203, i32 %174, i32 %.sroa.13.0211
-  %spec.select194 = select i1 %203, i32 0, i32 %200
-  %204 = icmp eq i32 %192, %153
-  %205 = select i1 %204, i32 %.0.i.i.i5.i, i32 0
-  %.sroa.17106.sroa.0.1 = add nsw i32 %205, %.sroa.17106.sroa.0.0213
-  %.sroa.17106.sroa.8.1 = select i1 %204, i32 0, i32 %192
-  %206 = icmp eq i32 %spec.select, %170
-  %207 = icmp eq i32 %spec.select194, 0
-  %208 = and i1 %206, %207
-  br i1 %208, label %.loopexit.thread, label %.lr.ph219
+  %198 = add nsw i32 %.sroa.speculated.i, %.sroa.22.0212
+  %199 = icmp sgt i32 %198, -1
+  tail call void @llvm.assume(i1 %199)
+  %200 = icmp sle i32 %198, %146
+  tail call void @llvm.assume(i1 %200)
+  %201 = icmp eq i32 %198, %146
+  %spec.select = select i1 %201, i32 %174, i32 %.sroa.13.0211
+  %spec.select194 = select i1 %201, i32 0, i32 %198
+  %202 = icmp eq i32 %192, %153
+  %203 = select i1 %202, i32 %.0.i.i.i5.i, i32 0
+  %.sroa.17106.sroa.0.1 = add nsw i32 %203, %.sroa.17106.sroa.0.0213
+  %.sroa.17106.sroa.8.1 = select i1 %202, i32 0, i32 %192
+  %204 = icmp eq i32 %spec.select, %170
+  %205 = icmp eq i32 %spec.select194, 0
+  %206 = and i1 %204, %205
+  br i1 %206, label %.loopexit.thread, label %.lr.ph219
 
 .loopexit:                                        ; preds = %195
   br i1 %.sroa.14.0217, label %.loopexit.thread, label %.invoke269
 
-209:                                              ; preds = %.invoke269
-  %210 = landingpad { ptr, i32 }
+207:                                              ; preds = %.invoke269
+  %208 = landingpad { ptr, i32 }
           cleanup
-  br label %218
+  br label %216
 
 .loopexit.thread:                                 ; preds = %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit, %.loopexit
   %.sroa.8.0201248 = phi i64 [ %.sroa.8.0216, %.loopexit ], [ %.sroa.3.8.insert.insert.i, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ]
   %.sroa.0126.0204247 = phi i64 [ %.sroa.0126.0215, %.loopexit ], [ %.sroa.073.sroa.0.0.insert.insert81, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ]
-  %211 = add i64 %.sroa.8.0201248, %.sroa.0126.0204247
+  %209 = add i64 %.sroa.8.0201248, %.sroa.0126.0204247
   %.sroa.0126.4.extract.shift130 = lshr i64 %.sroa.0126.0204247, 32
   %.sroa.0126.4.extract.trunc131 = trunc nuw i64 %.sroa.0126.4.extract.shift130 to i32
   %.sroa.8.12.extract.shift137 = lshr i64 %.sroa.8.0201248, 32
   %.sroa.8.12.extract.trunc138 = trunc nuw i64 %.sroa.8.12.extract.shift137 to i32
-  %212 = add nsw i32 %.sroa.8.12.extract.trunc138, %.sroa.0126.4.extract.trunc131
-  %.sroa.0.0.extract.trunc = trunc i64 %211 to i32
-  %213 = icmp eq i32 %150, %.sroa.0.0.extract.trunc
-  %214 = icmp eq i32 %212, %153
-  %215 = select i1 %213, i1 %214, i1 false
-  br i1 %215, label %217, label %.invoke269
+  %210 = add nsw i32 %.sroa.8.12.extract.trunc138, %.sroa.0126.4.extract.trunc131
+  %.sroa.0.0.extract.trunc = trunc i64 %209 to i32
+  %211 = icmp eq i32 %150, %.sroa.0.0.extract.trunc
+  %212 = icmp eq i32 %210, %153
+  %213 = select i1 %211, i1 %212, i1 false
+  br i1 %213, label %215, label %.invoke269
 
 .invoke269:                                       ; preds = %.loopexit, %169, %.loopexit.thread
-  %216 = phi ptr [ @.str.16, %.loopexit.thread ], [ @.str.15, %169 ], [ @.str.15, %.loopexit ]
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %216, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE) #14
-          to label %.cont270 unwind label %209
+  %214 = phi ptr [ @.str.16, %.loopexit.thread ], [ @.str.15, %169 ], [ @.str.15, %.loopexit ]
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %214, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE) #14
+          to label %.cont270 unwind label %207
 
 .cont270:                                         ; preds = %.invoke269
   unreachable
 
-217:                                              ; preds = %.loopexit.thread
+215:                                              ; preds = %.loopexit.thread
   ret void
 
-218:                                              ; preds = %209, %189, %83, %119, %140, %165, %40
-  %.pn56 = phi { ptr, i32 } [ %41, %40 ], [ %84, %83 ], [ %120, %119 ], [ %141, %140 ], [ %166, %165 ], [ %210, %209 ], [ %190, %189 ]
-  %219 = load ptr, ptr %26, align 8, !tbaa !50
-  %.not.i.i.i = icmp eq ptr %219, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EED2Ev.exit, label %220
+216:                                              ; preds = %207, %189, %83, %119, %140, %165, %40
+  %.pn56 = phi { ptr, i32 } [ %41, %40 ], [ %84, %83 ], [ %120, %119 ], [ %141, %140 ], [ %166, %165 ], [ %208, %209 ], [ %190, %189 ]
+  %217 = load ptr, ptr %26, align 8, !tbaa !50
+  %.not.i.i.i = icmp eq ptr %217, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EED2Ev.exit, label %218
 
-220:                                              ; preds = %218
-  %221 = load ptr, ptr %31, align 8, !tbaa !54
-  %222 = ptrtoint ptr %221 to i64
-  %223 = ptrtoint ptr %219 to i64
-  %224 = sub i64 %222, %223
-  tail call void @_ZdlPvm(ptr noundef nonnull %219, i64 noundef %224) #21
+218:                                              ; preds = %216
+  %219 = load ptr, ptr %31, align 8, !tbaa !54
+  %220 = ptrtoint ptr %219 to i64
+  %221 = ptrtoint ptr %217 to i64
+  %222 = sub i64 %220, %221
+  tail call void @_ZdlPvm(ptr noundef nonnull %217, i64 noundef %222) #21
   br label %_ZNSt6vectorIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EED2Ev.exit
 
-_ZNSt6vectorIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EED2Ev.exit: ; preds = %218, %220
+_ZNSt6vectorIN8rawspeed15Cr2DecompressorINS0_20PrefixCodeLUTDecoderINS0_15BaselineCodeTagENS0_23PrefixCodeLookupDecoderIS3_EEEEE18PerComponentRecipeESaIS8_EED2Ev.exit: ; preds = %216, %218
   tail call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   resume { ptr, i32 } %.pn56
 }

@@ -4901,8 +4901,8 @@ define internal noundef range(i32 -128, 128) i32 @_ZN6icu_77L20compareUnicodeStr
 
 _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %8, %.sink.split.i.i.i
   %.0.i.i = phi i8 [ %11, %8 ], [ %31, %.sink.split.i.i.i ]
-  %32 = sext i8 %.0.i.i to i32
-  ret i32 %32
+  %30 = sext i8 %.0.i.i to i32
+  ret i32 %30
 }
 
 ; Function Attrs: mustprogress uwtable

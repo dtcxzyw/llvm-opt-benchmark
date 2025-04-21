@@ -237,11 +237,11 @@ define internal noundef range(i32 -128, 128) i32 @_ZL16SPUStringCompare8UElement
   %19 = load i32, ptr %18, align 4
   %20 = select i1 %15, i32 %19, i32 %17
   %21 = icmp slt i32 %11, %20
-  br i1 %21, label %39, label %22
+  br i1 %21, label %37, label %22
 
 22:                                               ; preds = %2
   %23 = icmp sgt i32 %11, %20
-  br i1 %23, label %39, label %24
+  br i1 %23, label %37, label %24
 
 24:                                               ; preds = %22
   %25 = and i16 %14, 1
@@ -271,11 +271,11 @@ define internal noundef range(i32 -128, 128) i32 @_ZL16SPUStringCompare8UElement
 
 _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %26, %.sink.split.i.i.i
   %.0.i.i = phi i8 [ %29, %26 ], [ %37, %.sink.split.i.i.i ]
-  %38 = sext i8 %.0.i.i to i32
-  br label %39
+  %36 = sext i8 %.0.i.i to i32
+  br label %37
 
-39:                                               ; preds = %22, %2, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit
-  %.0 = phi i32 [ %38, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ -1, %2 ], [ 1, %22 ]
+37:                                               ; preds = %22, %2, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit
+  %.0 = phi i32 [ %36, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ -1, %2 ], [ 1, %22 ]
   ret i32 %.0
 }
 

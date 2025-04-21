@@ -2619,83 +2619,83 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
   %112 = lshr i32 %111, 14
   br label %get_mv_projection.exit.us.us
 
-113:                                              ; preds = %105
-  %114 = sub i32 8192, %108
-  %115 = lshr i32 %114, 14
-  %116 = sub nsw i32 0, %115
+114:                                              ; preds = %105
+  %115 = sub i32 8192, %108
+  %116 = lshr i32 %115, 14
+  %117 = sub nsw i32 0, %116
   br label %get_mv_projection.exit.us.us
 
-get_mv_projection.exit.us.us:                     ; preds = %113, %110
-  %117 = phi i32 [ %116, %113 ], [ %112, %110 ]
-  %118 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %106, i32 16383)
-  %119 = tail call i32 @llvm.smax.i32(i32 %118, i32 -16383)
-  %120 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %117, i32 16383)
-  %121 = tail call i32 @llvm.smax.i32(i32 %120, i32 -16383)
-  %122 = trunc nuw nsw i64 %indvars.iv116 to i32
-  %123 = and i32 %122, 2147483640
-  %124 = lshr i32 %119, 6
-  %125 = sub nsw i32 0, %119
-  %126 = lshr i32 %125, 6
-  %127 = sub nsw i32 0, %126
-  %128 = icmp slt i32 %106, 0
-  %129 = select i1 %128, i32 %127, i32 %124
-  %130 = lshr i32 %121, 6
-  %131 = sub nsw i32 0, %121
-  %132 = lshr i32 %131, 6
-  %133 = sub nsw i32 0, %132
-  %134 = icmp slt i32 %117, 0
-  %135 = select i1 %134, i32 %133, i32 %130
-  %136 = sub nsw i32 0, %129
-  %.p.i.us.us = select i1 %.not.i78, i32 %129, i32 %136
-  %137 = add i32 %.p.i.us.us, %76
-  %138 = sub nsw i32 0, %135
-  %.p49.i.us.us = select i1 %.not.i78, i32 %135, i32 %138
-  %139 = add i32 %.p49.i.us.us, %122
-  %140 = icmp slt i32 %137, 0
-  br i1 %140, label %.thread89.us105.us, label %141
+get_mv_projection.exit.us.us:                     ; preds = %114, %110
+  %118 = phi i32 [ %117, %113 ], [ %112, %110 ]
+  %119 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %106, i32 16383)
+  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 -16383)
+  %121 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %118, i32 16383)
+  %122 = tail call i32 @llvm.smax.i32(i32 %121, i32 -16383)
+  %123 = trunc nuw nsw i64 %indvars.iv116 to i32
+  %124 = and i32 %123, 2147483640
+  %125 = lshr i32 %120, 6
+  %126 = sub nsw i32 0, %120
+  %127 = lshr i32 %126, 6
+  %128 = sub nsw i32 0, %127
+  %129 = icmp slt i32 %106, 0
+  %130 = select i1 %129, i32 %128, i32 %125
+  %131 = lshr i32 %122, 6
+  %132 = sub nsw i32 0, %122
+  %133 = lshr i32 %132, 6
+  %134 = sub nsw i32 0, %133
+  %135 = icmp slt i32 %118, 0
+  %136 = select i1 %135, i32 %134, i32 %131
+  %137 = sub nsw i32 0, %130
+  %.p.i.us.us = select i1 %.not.i78, i32 %130, i32 %137
+  %138 = add i32 %.p.i.us.us, %76
+  %139 = sub nsw i32 0, %136
+  %.p49.i.us.us = select i1 %.not.i78, i32 %136, i32 %139
+  %140 = add i32 %.p49.i.us.us, %123
+  %141 = icmp slt i32 %138, 0
+  br i1 %141, label %.thread89.us105.us, label %142
 
-141:                                              ; preds = %get_mv_projection.exit.us.us
-  %142 = load i32, ptr %23, align 4
-  %143 = ashr i32 %142, 1
-  %144 = icmp sge i32 %137, %143
-  %145 = icmp slt i32 %139, 0
-  %or.cond.i.us.us = select i1 %144, i1 true, i1 %145
-  br i1 %or.cond.i.us.us, label %.thread89.us105.us, label %146
+142:                                              ; preds = %get_mv_projection.exit.us.us
+  %143 = load i32, ptr %23, align 4
+  %144 = ashr i32 %143, 1
+  %145 = icmp sge i32 %138, %144
+  %146 = icmp slt i32 %140, 0
+  %or.cond.i.us.us = select i1 %145, i1 true, i1 %146
+  br i1 %or.cond.i.us.us, label %.thread89.us105.us, label %147
 
-146:                                              ; preds = %141
-  %147 = load i32, ptr %28, align 8
-  %148 = ashr i32 %147, 1
-  %.not42.i.us.us = icmp slt i32 %139, %148
-  br i1 %.not42.i.us.us, label %149, label %.thread89.us105.us
+147:                                              ; preds = %142
+  %148 = load i32, ptr %28, align 8
+  %149 = ashr i32 %148, 1
+  %.not42.i.us.us = icmp slt i32 %140, %149
+  br i1 %.not42.i.us.us, label %150, label %.thread89.us105.us
 
-149:                                              ; preds = %146
-  %150 = icmp sge i32 %137, %77
-  %.not43.i.us.us = icmp slt i32 %137, %78
-  %or.cond45.not51.not55.i.us.us = select i1 %150, i1 %.not43.i.us.us, i1 false
-  %151 = add nsw i32 %123, -8
-  %152 = icmp sge i32 %139, %151
-  %or.cond47.not53.i.us.us = select i1 %or.cond45.not51.not55.i.us.us, i1 %152, i1 false
-  %153 = add nuw nsw i32 %123, 16
-  %.not44.i.us.us = icmp samesign ult i32 %139, %153
+150:                                              ; preds = %147
+  %151 = icmp sge i32 %138, %77
+  %.not43.i.us.us = icmp slt i32 %138, %78
+  %or.cond45.not51.not55.i.us.us = select i1 %151, i1 %.not43.i.us.us, i1 false
+  %152 = add nsw i32 %124, -8
+  %153 = icmp sge i32 %140, %152
+  %or.cond47.not53.i.us.us = select i1 %or.cond45.not51.not55.i.us.us, i1 %153, i1 false
+  %154 = add nuw nsw i32 %124, 16
+  %.not44.i.us.us = icmp samesign ult i32 %140, %154
   %or.cond48.i.us.us = select i1 %or.cond47.not53.i.us.us, i1 %.not44.i.us.us, i1 false
-  br i1 %or.cond48.i.us.us, label %154, label %.thread89.us105.us
+  br i1 %or.cond48.i.us.us, label %155, label %.thread89.us105.us
 
-154:                                              ; preds = %149
-  %155 = load i32, ptr %66, align 4
-  %156 = ashr i32 %155, 1
-  %157 = mul nsw i32 %156, %137
-  %158 = add nsw i32 %157, %139
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds %struct.TPL_MV_REF, ptr %5, i64 %159
-  store i16 %.sroa.0.0.copyload.us.us, ptr %160, align 4
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 2
-  store i16 %.sroa.3.0.copyload.us.us, ptr %161, align 2
-  %162 = trunc i32 %86 to i8
-  %163 = getelementptr inbounds nuw i8, ptr %160, i64 4
-  store i8 %162, ptr %163, align 4
+155:                                              ; preds = %150
+  %156 = load i32, ptr %66, align 4
+  %157 = ashr i32 %156, 1
+  %158 = mul nsw i32 %157, %138
+  %159 = add nsw i32 %158, %140
+  %160 = sext i32 %159 to i64
+  %161 = getelementptr inbounds %struct.TPL_MV_REF, ptr %5, i64 %160
+  store i16 %.sroa.0.0.copyload.us.us, ptr %161, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 2
+  store i16 %.sroa.3.0.copyload.us.us, ptr %162, align 2
+  %163 = trunc i32 %86 to i8
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 4
+  store i8 %163, ptr %164, align 4
   br label %.thread89.us105.us
 
-.thread89.us105.us:                               ; preds = %154, %149, %146, %141, %get_mv_projection.exit.us.us, %83, %79
+.thread89.us105.us:                               ; preds = %155, %150, %147, %142, %get_mv_projection.exit.us.us, %83, %79
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, %74
   br i1 %exitcond119.not, label %._crit_edge.split.us106.us, label %79, !llvm.loop !41

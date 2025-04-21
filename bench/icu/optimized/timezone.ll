@@ -2534,7 +2534,7 @@ define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN6icu_77L17find
 18:                                               ; preds = %3
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %63
 
 20:                                               ; preds = %.preheader, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit
   %.032 = phi i32 [ %..032, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ], [ %8, %.preheader ]
@@ -2557,13 +2557,13 @@ define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN6icu_77L17find
 29:                                               ; preds = %24
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %63
 
 31:                                               ; preds = %26
   store ptr %25, ptr %6, align 8, !tbaa !15
   %32 = load i32, ptr %5, align 4, !tbaa !12
   %33 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef %32)
-          to label %34 unwind label %60
+          to label %34 unwind label %58
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %6, align 8, !tbaa !15
@@ -2606,22 +2606,22 @@ define internal fastcc noundef range(i32 -1, -2147483648) i32 @_ZN6icu_77L17find
 _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %39, %.sink.split.i.i.i
   %.0.i.i = phi i8 [ %42, %39 ], [ %58, %.sink.split.i.i.i ]
   %.not40 = icmp eq i8 %.0.i.i, 0
-  %59 = icmp slt i8 %.0.i.i, 0
-  %..032 = select i1 %59, i32 %22, i32 %.032
-  %.025. = select i1 %59, i32 %.025, i32 %22
+  %57 = icmp slt i8 %.0.i.i, 0
+  %..032 = select i1 %57, i32 %22, i32 %.032
+  %.025. = select i1 %57, i32 %.025, i32 %22
   br i1 %.not40, label %.loopexit, label %20, !llvm.loop !47
 
-60:                                               ; preds = %31
-  %61 = landingpad { ptr, i32 }
+58:                                               ; preds = %31
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %62 = load ptr, ptr %6, align 8, !tbaa !15
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %62) #21, !srcloc !18
-  br label %65
+  %60 = load ptr, ptr %6, align 8, !tbaa !15
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %60) #21, !srcloc !18
+  br label %63
 
-63:                                               ; preds = %.sink.split.i.i.i
-  %64 = landingpad { ptr, i32 }
+61:                                               ; preds = %.sink.split.i.i.i
+  %62 = landingpad { ptr, i32 }
           cleanup
-  br label %65
+  br label %63
 
 .loopexit:                                        ; preds = %20, %26, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit, %9
   %.0 = phi i32 [ -1, %9 ], [ -1, %20 ], [ -1, %26 ], [ %22, %_ZNK6icu_7713UnicodeString7compareERKS0_.exit ]
@@ -2630,8 +2630,8 @@ _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %39, %.sink.split.i.
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #21
   ret i32 %.0
 
-65:                                               ; preds = %29, %60, %63, %18
-  %.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %64, %63 ], [ %61, %60 ], [ %30, %29 ]
+63:                                               ; preds = %29, %58, %61, %18
+  %.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %62, %63 ], [ %59, %60 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #21
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #21

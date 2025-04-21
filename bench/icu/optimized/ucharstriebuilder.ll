@@ -161,7 +161,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit.i:            ; preds = %35, %_ZNK6icu_7717U
   %.0.i.i.i7 = phi i32 [ %44, %35 ], [ 65535, %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit ]
   %45 = add nsw i32 %27, 1
   invoke void @_ZNK6icu_7713UnicodeString13tempSubStringEii(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %5, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %45, i32 noundef %.0.i.i.i7)
-          to label %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit9 unwind label %76
+          to label %_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit9 unwind label %74
 
 _ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit9: ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -207,26 +207,26 @@ _ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit9: ; preds = 
 
 _ZNK6icu_7713UnicodeString7compareERKS0_.exit:    ; preds = %51, %.sink.split.i.i.i
   %.0.i.i = phi i8 [ %54, %51 ], [ %74, %.sink.split.i.i.i ]
-  %75 = sext i8 %.0.i.i to i32
+  %73 = sext i8 %.0.i.i to i32
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #13
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #13
-  ret i32 %75
+  ret i32 %73
 
-76:                                               ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit.i
+74:                                               ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit.i
+  %75 = landingpad { ptr, i32 }
+          cleanup
+  br label %78
+
+76:                                               ; preds = %.sink.split.i.i.i
   %77 = landingpad { ptr, i32 }
           cleanup
-  br label %80
-
-78:                                               ; preds = %.sink.split.i.i.i
-  %79 = landingpad { ptr, i32 }
-          cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13
-  br label %80
+  br label %78
 
-80:                                               ; preds = %78, %76
-  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %77, %76 ]
+78:                                               ; preds = %76, %74
+  %.pn = phi { ptr, i32 } [ %77, %78 ], [ %75, %76 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #13
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #13

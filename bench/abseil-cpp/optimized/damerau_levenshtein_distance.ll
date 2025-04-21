@@ -28,223 +28,223 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
   %14 = icmp ult i64 %13, %.sroa.0.0
   %15 = icmp ugt i64 %.sroa.0.0, 100
   %or.cond89 = or i1 %15, %14
-  br i1 %or.cond89, label %117, label %16
+  br i1 %or.cond89, label %115, label %16
 
 16:                                               ; preds = %11
   %17 = icmp eq i64 %.sroa.080.0, 0
-  br i1 %17, label %18, label %20
+  br i1 %17, label %18, label %.lr.ph.i.preheader
 
 18:                                               ; preds = %16
   %19 = trunc nuw nsw i64 %.sroa.0.0 to i8
-  br label %117
+  br label %115
 
-20:                                               ; preds = %16
+.lr.ph.i.preheader:                               ; preds = %16
   %.neg = sub i64 %.sroa.080.0, %.sroa.0.0
   %.neg63 = trunc i64 %.neg to i8
   %21 = add i8 %.sroa.speculated, %.neg63
   call void @llvm.lifetime.start.p0(i64 10404, ptr nonnull %6) #3
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 %12
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %12
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %.not6.i = icmp eq ptr %6, %23
   br i1 %.not6.i, label %.lr.ph96, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %20, %.lr.ph.i
+.lr.ph.i: ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.08.i = phi i8 [ %24, %.lr.ph.i ], [ 0, %20 ]
   %.057.i = phi ptr [ %25, %.lr.ph.i ], [ %6, %20 ]
   store i8 %.08.i, ptr %.057.i, align 1, !tbaa !4
-  %24 = add nuw nsw i8 %.08.i, 1
-  %25 = getelementptr inbounds nuw i8, ptr %.057.i, i64 1
-  %.not.i = icmp eq ptr %.057.i, %22
+  %21 = add nuw nsw i8 %.08.i, 1
+  %22 = getelementptr inbounds nuw i8, ptr %.057.i, i64 1
+  %.not.i = icmp eq ptr %.057.i, %20
   br i1 %.not.i, label %.lr.ph96, label %.lr.ph.i, !llvm.loop !7
 
 .lr.ph96:                                         ; preds = %.lr.ph.i, %20
-  %26 = zext nneg i8 %8 to i64
-  %27 = getelementptr inbounds nuw [102 x i8], ptr %6, i64 0, i64 %26
-  store i8 %8, ptr %27, align 1, !tbaa !4
+  %23 = zext nneg i8 %8 to i64
+  %24 = getelementptr inbounds nuw [102 x i8], ptr %6, i64 0, i64 %23
+  store i8 %8, ptr %24, align 1, !tbaa !4
   %28 = zext i8 %21 to i64
   %.ptr91 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  br label %35
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  br label %33
 
 ._crit_edge97:                                    ; preds = %._crit_edge
-  %32 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.sroa.080.0
-  %33 = getelementptr inbounds nuw [102 x i8], ptr %32, i64 0, i64 %.sroa.0.0
-  %34 = load i8, ptr %33, align 1, !tbaa !4
+  %30 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.sroa.080.0
+  %31 = getelementptr inbounds nuw [102 x i8], ptr %30, i64 0, i64 %.sroa.0.0
+  %32 = load i8, ptr %31, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 10404, ptr nonnull %6) #3
-  br label %117
+  br label %115
 
-35:                                               ; preds = %.lr.ph96, %._crit_edge
-  %.05795 = phi i64 [ 1, %.lr.ph96 ], [ %81, %._crit_edge ]
-  %36 = icmp ugt i64 %.05795, %28
-  %37 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
-  br i1 %36, label %38, label %42
+33:                                               ; preds = %.lr.ph96, %._crit_edge
+  %.05795 = phi i64 [ 1, %.lr.ph96 ], [ %79, %._crit_edge ]
+  %34 = icmp ugt i64 %.05795, %28
+  %35 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
+  br i1 %34, label %36, label %40
 
-38:                                               ; preds = %35
-  %39 = sub nuw i64 %.05795, %28
-  %40 = add i64 %39, -1
-  %41 = getelementptr inbounds nuw [102 x i8], ptr %37, i64 0, i64 %40
-  store i8 %8, ptr %41, align 1, !tbaa !4
-  br label %44
+36:                                               ; preds = %33
+  %37 = sub nuw i64 %.05795, %28
+  %38 = add i64 %37, -1
+  %39 = getelementptr inbounds nuw [102 x i8], ptr %35, i64 0, i64 %38
+  store i8 %8, ptr %39, align 1, !tbaa !4
+  br label %42
 
-42:                                               ; preds = %35
-  %43 = trunc nuw i64 %.05795 to i8
-  store i8 %43, ptr %37, align 1, !tbaa !4
-  br label %44
+40:                                               ; preds = %33
+  %41 = trunc nuw i64 %.05795 to i8
+  store i8 %41, ptr %35, align 1, !tbaa !4
+  br label %42
 
-44:                                               ; preds = %42, %38
-  %.058 = phi i64 [ %39, %38 ], [ 1, %42 ]
-  %45 = add i64 %.05795, %12
-  %46 = icmp ugt i64 %45, %.sroa.0.0
-  br i1 %46, label %51, label %47
+42:                                               ; preds = %40, %36
+  %.058 = phi i64 [ %37, %38 ], [ 1, %42 ]
+  %43 = add i64 %.05795, %12
+  %44 = icmp ugt i64 %43, %.sroa.0.0
+  br i1 %44, label %49, label %45
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
-  %49 = add i64 %45, 1
-  %50 = getelementptr inbounds nuw [102 x i8], ptr %48, i64 0, i64 %49
-  store i8 %8, ptr %50, align 1, !tbaa !4
-  br label %51
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
+  %47 = add i64 %43, 1
+  %48 = getelementptr inbounds nuw [102 x i8], ptr %46, i64 0, i64 %47
+  store i8 %8, ptr %48, align 1, !tbaa !4
+  br label %49
 
-51:                                               ; preds = %44, %47
-  %.059 = phi i64 [ %45, %47 ], [ %.sroa.0.0, %44 ]
+49:                                               ; preds = %42, %45
+  %.059 = phi i64 [ %43, %47 ], [ %.sroa.0.0, %44 ]
   %.not6492 = icmp ugt i64 %.058, %.059
   br i1 %.not6492, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %51
-  %52 = add i64 %.05795, -1
-  %53 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %52
-  %54 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.9.0, i64 %52
-  %56 = icmp ugt i64 %.05795, 1
-  %57 = add i64 %.05795, -2
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.9.0, i64 %57
-  %59 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %57
-  %.pre99 = load i8, ptr %55, align 1, !tbaa !4
-  br i1 %56, label %.lr.ph.split, label %.lr.ph.split.us
+.lr.ph:                                           ; preds = %49
+  %50 = add i64 %.05795, -1
+  %51 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %50
+  %52 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %.05795
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.9.0, i64 %50
+  %54 = icmp ugt i64 %.05795, 1
+  %55 = add i64 %.05795, -2
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.9.0, i64 %55
+  %57 = getelementptr inbounds nuw [102 x %"struct.std::array.0"], ptr %6, i64 0, i64 %55
+  %.pre99 = load i8, ptr %53, align 1, !tbaa !4
+  br i1 %54, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSt3minIhET_St16initializer_listIS0_E.exit.us
-  %.06093.us = phi i64 [ %80, %_ZSt3minIhET_St16initializer_listIS0_E.exit.us ], [ %.058, %.lr.ph ]
-  %60 = getelementptr inbounds nuw [102 x i8], ptr %53, i64 0, i64 %.06093.us
-  %61 = load i8, ptr %60, align 1, !tbaa !4
-  %62 = add i8 %61, 1
-  %63 = add i64 %.06093.us, -1
-  %64 = getelementptr inbounds nuw [102 x i8], ptr %54, i64 0, i64 %63
-  %65 = load i8, ptr %64, align 1, !tbaa !4
-  %66 = add i8 %65, 1
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 %63
-  %68 = load i8, ptr %67, align 1, !tbaa !4
-  %69 = icmp ne i8 %.pre99, %68
-  %70 = getelementptr inbounds nuw [102 x i8], ptr %53, i64 0, i64 %63
-  %71 = load i8, ptr %70, align 1, !tbaa !4
-  %72 = zext i1 %69 to i8
-  %73 = add i8 %71, %72
+  %.06093.us = phi i64 [ %78, %_ZSt3minIhET_St16initializer_listIS0_E.exit.us ], [ %.058, %.lr.ph ]
+  %58 = getelementptr inbounds nuw [102 x i8], ptr %51, i64 0, i64 %.06093.us
+  %59 = load i8, ptr %58, align 1, !tbaa !4
+  %60 = add i8 %59, 1
+  %61 = add i64 %.06093.us, -1
+  %62 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %61
+  %63 = load i8, ptr %62, align 1, !tbaa !4
+  %64 = add i8 %63, 1
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 %61
+  %66 = load i8, ptr %65, align 1, !tbaa !4
+  %67 = icmp ne i8 %.pre99, %66
+  %68 = getelementptr inbounds nuw [102 x i8], ptr %51, i64 0, i64 %61
+  %69 = load i8, ptr %68, align 1, !tbaa !4
+  %70 = zext i1 %67 to i8
+  %71 = add i8 %69, %70
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %7) #3
   store i8 %8, ptr %7, align 1, !tbaa !4
-  store i8 %62, ptr %.ptr91, align 1, !tbaa !4
-  store i8 %66, ptr %29, align 1, !tbaa !4
-  store i8 %73, ptr %30, align 1, !tbaa !4
-  store i8 %8, ptr %31, align 1, !tbaa !4
+  store i8 %60, ptr %.ptr91, align 1, !tbaa !4
+  store i8 %64, ptr %27, align 1, !tbaa !4
+  store i8 %71, ptr %28, align 1, !tbaa !4
+  store i8 %8, ptr %29, align 1, !tbaa !4
   br label %.lr.ph.i.i.us
 
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph.i.i.us, %.lr.ph.split.us
-  %74 = phi i8 [ %77, %.lr.ph.i.i.us ], [ %8, %.lr.ph.split.us ]
+  %72 = phi i8 [ %75, %.lr.ph.i.i.us ], [ %8, %.lr.ph.split.us ]
   %.idx.us = phi i64 [ %.add.us, %.lr.ph.i.i.us ], [ 1, %.lr.ph.split.us ]
   %.018.i.i.us = phi ptr [ %spec.select.i.i.us, %.lr.ph.i.i.us ], [ %7, %.lr.ph.split.us ]
   %.ptr.us = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.us
-  %75 = load i8, ptr %.ptr.us, align 1, !tbaa !4
-  %76 = icmp ult i8 %75, %74
-  %77 = call i8 @llvm.umin.i8(i8 %75, i8 %74)
-  %spec.select.i.i.us = select i1 %76, ptr %.ptr.us, ptr %.018.i.i.us
+  %73 = load i8, ptr %.ptr.us, align 1, !tbaa !4
+  %74 = icmp ult i8 %73, %72
+  %75 = call i8 @llvm.umin.i8(i8 %73, i8 %72)
+  %spec.select.i.i.us = select i1 %74, ptr %.ptr.us, ptr %.018.i.i.us
   %.add.us = add nuw nsw i64 %.idx.us, 1
   %.not.i.i.us = icmp eq i64 %.add.us, 5
   br i1 %.not.i.i.us, label %_ZSt3minIhET_St16initializer_listIS0_E.exit.us, label %.lr.ph.i.i.us, !llvm.loop !9
 
 _ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
-  %78 = load i8, ptr %spec.select.i.i.us, align 1, !tbaa !4
-  %79 = getelementptr inbounds nuw [102 x i8], ptr %54, i64 0, i64 %.06093.us
-  store i8 %78, ptr %79, align 1, !tbaa !4
+  %76 = load i8, ptr %spec.select.i.i.us, align 1, !tbaa !4
+  %77 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %.06093.us
+  store i8 %76, ptr %77, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #3
-  %80 = add i64 %.06093.us, 1
-  %.not64.us = icmp ugt i64 %80, %.059
+  %78 = add i64 %.06093.us, 1
+  %.not64.us = icmp ugt i64 %78, %.059
   br i1 %.not64.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %_ZSt3minIhET_St16initializer_listIS0_E.exit.us, %_ZSt3minIhET_St16initializer_listIS0_E.exit, %51
-  %81 = add i64 %.05795, 1
-  %.not = icmp ugt i64 %81, %.sroa.080.0
-  br i1 %.not, label %._crit_edge97, label %35, !llvm.loop !11
+._crit_edge:                                      ; preds = %_ZSt3minIhET_St16initializer_listIS0_E.exit.us, %_ZSt3minIhET_St16initializer_listIS0_E.exit, %49
+  %79 = add i64 %.05795, 1
+  %.not.not = icmp ugt i64 %79, %.sroa.080.0
+  br i1 %.not.not, label %._crit_edge97, label %35, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZSt3minIhET_St16initializer_listIS0_E.exit
-  %.06093 = phi i64 [ %116, %_ZSt3minIhET_St16initializer_listIS0_E.exit ], [ %.058, %.lr.ph ]
-  %82 = getelementptr inbounds nuw [102 x i8], ptr %53, i64 0, i64 %.06093
-  %83 = load i8, ptr %82, align 1, !tbaa !4
-  %84 = add i8 %83, 1
-  %85 = add i64 %.06093, -1
-  %86 = getelementptr inbounds nuw [102 x i8], ptr %54, i64 0, i64 %85
-  %87 = load i8, ptr %86, align 1, !tbaa !4
-  %88 = add i8 %87, 1
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 %85
-  %90 = load i8, ptr %89, align 1, !tbaa !4
-  %91 = icmp ne i8 %.pre99, %90
-  %92 = getelementptr inbounds nuw [102 x i8], ptr %53, i64 0, i64 %85
-  %93 = load i8, ptr %92, align 1, !tbaa !4
-  %94 = zext i1 %91 to i8
-  %95 = add i8 %93, %94
-  %96 = icmp ugt i64 %.06093, 1
-  br i1 %96, label %97, label %109
+  %.06093 = phi i64 [ %114, %_ZSt3minIhET_St16initializer_listIS0_E.exit ], [ %.058, %.lr.ph ]
+  %80 = getelementptr inbounds nuw [102 x i8], ptr %51, i64 0, i64 %.06093
+  %81 = load i8, ptr %80, align 1, !tbaa !4
+  %82 = add i8 %81, 1
+  %83 = add i64 %.06093, -1
+  %84 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %83
+  %85 = load i8, ptr %84, align 1, !tbaa !4
+  %86 = add i8 %85, 1
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 %83
+  %88 = load i8, ptr %87, align 1, !tbaa !4
+  %89 = icmp ne i8 %.pre99, %88
+  %90 = getelementptr inbounds nuw [102 x i8], ptr %51, i64 0, i64 %83
+  %91 = load i8, ptr %90, align 1, !tbaa !4
+  %92 = zext i1 %89 to i8
+  %93 = add i8 %91, %92
+  %94 = icmp ugt i64 %.06093, 1
+  br i1 %94, label %95, label %107
 
-97:                                               ; preds = %.lr.ph.split
-  %98 = add i64 %.06093, -2
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 %98
-  %100 = load i8, ptr %99, align 1, !tbaa !4
-  %101 = icmp eq i8 %.pre99, %100
-  br i1 %101, label %102, label %109
+95:                                               ; preds = %.lr.ph.split
+  %96 = add i64 %.06093, -2
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 %96
+  %98 = load i8, ptr %97, align 1, !tbaa !4
+  %99 = icmp eq i8 %.pre99, %98
+  br i1 %99, label %100, label %107
 
-102:                                              ; preds = %97
-  %103 = load i8, ptr %58, align 1, !tbaa !4
-  %104 = icmp eq i8 %103, %90
-  br i1 %104, label %105, label %109
+100:                                              ; preds = %95
+  %101 = load i8, ptr %56, align 1, !tbaa !4
+  %102 = icmp eq i8 %101, %88
+  br i1 %102, label %103, label %107
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw [102 x i8], ptr %59, i64 0, i64 %98
-  %107 = load i8, ptr %106, align 1, !tbaa !4
-  %108 = add i8 %107, 1
-  br label %109
+103:                                              ; preds = %100
+  %104 = getelementptr inbounds nuw [102 x i8], ptr %57, i64 0, i64 %96
+  %105 = load i8, ptr %104, align 1, !tbaa !4
+  %106 = add i8 %105, 1
+  br label %107
 
-109:                                              ; preds = %105, %102, %97, %.lr.ph.split
-  %.056 = phi i8 [ %108, %105 ], [ %8, %102 ], [ %8, %97 ], [ %8, %.lr.ph.split ]
+107:                                              ; preds = %103, %100, %95, %.lr.ph.split
+  %.056 = phi i8 [ %106, %105 ], [ %8, %102 ], [ %8, %97 ], [ %8, %.lr.ph.split ]
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %7) #3
   store i8 %8, ptr %7, align 1, !tbaa !4
-  store i8 %84, ptr %.ptr91, align 1, !tbaa !4
-  store i8 %88, ptr %29, align 1, !tbaa !4
-  store i8 %95, ptr %30, align 1, !tbaa !4
-  store i8 %.056, ptr %31, align 1, !tbaa !4
+  store i8 %82, ptr %.ptr91, align 1, !tbaa !4
+  store i8 %86, ptr %27, align 1, !tbaa !4
+  store i8 %93, ptr %28, align 1, !tbaa !4
+  store i8 %.056, ptr %29, align 1, !tbaa !4
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %109
-  %110 = phi i8 [ %113, %.lr.ph.i.i ], [ %8, %109 ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %107
+  %108 = phi i8 [ %111, %.lr.ph.i.i ], [ %8, %109 ]
   %.idx = phi i64 [ %.add, %.lr.ph.i.i ], [ 1, %109 ]
   %.018.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %7, %109 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %111 = load i8, ptr %.ptr, align 1, !tbaa !4
-  %112 = icmp ult i8 %111, %110
-  %113 = call i8 @llvm.umin.i8(i8 %111, i8 %110)
-  %spec.select.i.i = select i1 %112, ptr %.ptr, ptr %.018.i.i
+  %109 = load i8, ptr %.ptr, align 1, !tbaa !4
+  %110 = icmp ult i8 %109, %108
+  %111 = call i8 @llvm.umin.i8(i8 %109, i8 %108)
+  %spec.select.i.i = select i1 %110, ptr %.ptr, ptr %.018.i.i
   %.add = add nuw nsw i64 %.idx, 1
   %.not.i.i = icmp eq i64 %.add, 5
   br i1 %.not.i.i, label %_ZSt3minIhET_St16initializer_listIS0_E.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 _ZSt3minIhET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
-  %114 = load i8, ptr %spec.select.i.i, align 1, !tbaa !4
-  %115 = getelementptr inbounds nuw [102 x i8], ptr %54, i64 0, i64 %.06093
-  store i8 %114, ptr %115, align 1, !tbaa !4
+  %112 = load i8, ptr %spec.select.i.i, align 1, !tbaa !4
+  %113 = getelementptr inbounds nuw [102 x i8], ptr %52, i64 0, i64 %.06093
+  store i8 %112, ptr %113, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #3
-  %116 = add i64 %.06093, 1
-  %.not64 = icmp ugt i64 %116, %.059
+  %114 = add i64 %.06093, 1
+  %.not64 = icmp ugt i64 %114, %.059
   br i1 %.not64, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
-117:                                              ; preds = %11, %._crit_edge97, %18
-  %.0 = phi i8 [ %19, %18 ], [ %34, %._crit_edge97 ], [ %8, %11 ]
+115:                                              ; preds = %11, %._crit_edge97, %18
+  %.0 = phi i8 [ %19, %18 ], [ %32, %._crit_edge97 ], [ %8, %11 ]
   ret i8 %.0
 }
 
