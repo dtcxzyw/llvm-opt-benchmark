@@ -942,92 +942,92 @@ define i16 @_ZN7Imf_3_410round12logEN9Imath_3_24halfE(i16 %0) local_unnamed_addr
   %12 = fdiv double %11, 0x3FE62E42FEFA39EF
   %13 = fadd double %12, 2.000500e+03
   %14 = fptosi double %13 to i32
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %14, i32 4095)
-  %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 1)
-  %15 = add nsw i32 %spec.store.select1, -2000
-  %16 = sitofp i32 %15 to double
-  %17 = fdiv double %16, 2.000000e+02
-  %exp2 = tail call double @exp2(double %17)
-  %18 = fmul double %exp2, 0x3FC6A09E60000000
-  %19 = fptrunc double %18 to float
-  %20 = bitcast float %19 to i32
-  %21 = tail call float @llvm.fabs.f32(float %19)
+  %15 = tail call i32 @llvm.smax.i32(i32 %14, i32 1)
+  %16 = tail call i32 @llvm.umin.i32(i32 %15, i32 4095)
+  %17 = add nsw i32 %16, -2000
+  %18 = sitofp i32 %17 to double
+  %19 = fdiv double %18, 2.000000e+02
+  %exp2 = tail call double @exp2(double %19)
+  %20 = fmul double %exp2, 0x3FC6A09E60000000
+  %21 = fptrunc double %20 to float
   %22 = bitcast float %21 to i32
-  %23 = lshr i32 %20, 16
-  %24 = trunc nuw i32 %23 to i16
-  %25 = and i16 %24, -32768
-  %26 = icmp samesign ugt i32 %22, 947912703
-  br i1 %26, label %27, label %53
+  %23 = tail call float @llvm.fabs.f32(float %21)
+  %24 = bitcast float %23 to i32
+  %25 = lshr i32 %22, 16
+  %26 = trunc nuw i32 %25 to i16
+  %27 = and i16 %26, -32768
+  %28 = icmp samesign ugt i32 %24, 947912703
+  br i1 %28, label %29, label %55
 
-27:                                               ; preds = %7
-  %28 = icmp samesign ugt i32 %22, 2139095039
-  br i1 %28, label %29, label %40, !prof !43
+29:                                               ; preds = %7
+  %30 = icmp samesign ugt i32 %24, 2139095039
+  br i1 %30, label %31, label %42, !prof !43
 
-29:                                               ; preds = %27
-  %30 = or disjoint i16 %25, 31744
-  %31 = icmp eq i32 %22, 2139095040
-  br i1 %31, label %_ZN9Imath_3_24halfC2Ef.exit, label %32
+31:                                               ; preds = %29
+  %32 = or disjoint i16 %27, 31744
+  %33 = icmp eq i32 %24, 2139095040
+  br i1 %33, label %_ZN9Imath_3_24halfC2Ef.exit, label %34
 
-32:                                               ; preds = %29
-  %33 = lshr i32 %22, 13
-  %34 = and i32 %33, 1023
-  %35 = icmp eq i32 %34, 0
-  %36 = zext i1 %35 to i16
-  %37 = trunc nuw nsw i32 %34 to i16
-  %38 = or i16 %37, %36
-  %39 = or disjoint i16 %38, %30
+34:                                               ; preds = %31
+  %35 = lshr i32 %24, 13
+  %36 = and i32 %35, 1023
+  %37 = icmp eq i32 %36, 0
+  %38 = zext i1 %37 to i16
+  %39 = trunc nuw nsw i32 %36 to i16
+  %40 = or i16 %39, %38
+  %41 = or disjoint i16 %40, %32
   br label %_ZN9Imath_3_24halfC2Ef.exit
 
-40:                                               ; preds = %27
-  %41 = icmp samesign ugt i32 %22, 1199566847
-  br i1 %41, label %42, label %44, !prof !43
+42:                                               ; preds = %29
+  %43 = icmp samesign ugt i32 %24, 1199566847
+  br i1 %43, label %44, label %46, !prof !43
 
-42:                                               ; preds = %40
-  %43 = or disjoint i16 %25, 31744
+44:                                               ; preds = %42
+  %45 = or disjoint i16 %27, 31744
   br label %_ZN9Imath_3_24halfC2Ef.exit
 
-44:                                               ; preds = %40
-  %45 = add nuw nsw i32 %22, 134221823
-  %46 = lshr i32 %22, 13
-  %47 = and i32 %46, 1
-  %48 = add nuw nsw i32 %45, %47
-  %49 = lshr i32 %48, 13
-  %50 = and i32 %23, 32768
-  %51 = or i32 %49, %50
-  %52 = trunc i32 %51 to i16
+46:                                               ; preds = %42
+  %47 = add nuw nsw i32 %24, 134221823
+  %48 = lshr i32 %24, 13
+  %49 = and i32 %48, 1
+  %50 = add nuw nsw i32 %47, %49
+  %51 = lshr i32 %50, 13
+  %52 = and i32 %25, 32768
+  %53 = or i32 %51, %52
+  %54 = trunc i32 %53 to i16
   br label %_ZN9Imath_3_24halfC2Ef.exit
 
-53:                                               ; preds = %7
-  %54 = icmp samesign ult i32 %22, 855638017
-  br i1 %54, label %_ZN9Imath_3_24halfC2Ef.exit, label %55
+55:                                               ; preds = %7
+  %56 = icmp samesign ult i32 %24, 855638017
+  br i1 %56, label %_ZN9Imath_3_24halfC2Ef.exit, label %57
 
-55:                                               ; preds = %53
-  %56 = lshr i32 %22, 23
-  %57 = sub nuw nsw i32 126, %56
-  %58 = and i32 %22, 8388607
-  %59 = or disjoint i32 %58, 8388608
-  %60 = add nsw i32 %56, -94
-  %61 = shl i32 %59, %60
-  %62 = lshr i32 %59, %57
-  %63 = and i32 %23, 32768
-  %64 = or i32 %62, %63
-  %65 = trunc nuw i32 %64 to i16
-  %66 = icmp ugt i32 %61, -2147483648
-  br i1 %66, label %70, label %67
+57:                                               ; preds = %55
+  %58 = lshr i32 %24, 23
+  %59 = sub nuw nsw i32 126, %58
+  %60 = and i32 %24, 8388607
+  %61 = or disjoint i32 %60, 8388608
+  %62 = add nsw i32 %58, -94
+  %63 = shl i32 %61, %62
+  %64 = lshr i32 %61, %59
+  %65 = and i32 %25, 32768
+  %66 = or i32 %64, %65
+  %67 = trunc nuw i32 %66 to i16
+  %68 = icmp ugt i32 %63, -2147483648
+  br i1 %68, label %72, label %69
 
-67:                                               ; preds = %55
-  %68 = icmp ne i32 %61, -2147483648
-  %69 = and i32 %62, 1
-  %.not.i.i = icmp eq i32 %69, 0
-  %or.cond.i.i = select i1 %68, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i.i, label %_ZN9Imath_3_24halfC2Ef.exit, label %70
+69:                                               ; preds = %57
+  %70 = icmp ne i32 %63, -2147483648
+  %71 = and i32 %64, 1
+  %.not.i.i = icmp eq i32 %71, 0
+  %or.cond.i.i = select i1 %70, i1 true, i1 %.not.i.i
+  br i1 %or.cond.i.i, label %_ZN9Imath_3_24halfC2Ef.exit, label %72
 
-70:                                               ; preds = %67, %55
-  %71 = add nuw i16 %65, 1
+72:                                               ; preds = %69, %57
+  %73 = add nuw i16 %67, 1
   br label %_ZN9Imath_3_24halfC2Ef.exit
 
-_ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %70, %67, %53, %44, %42, %32, %29, %1
-  %.sroa.06.0 = phi i16 [ 0, %1 ], [ %39, %32 ], [ %43, %42 ], [ %52, %44 ], [ %30, %29 ], [ %25, %53 ], [ %71, %70 ], [ %65, %67 ]
+_ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %72, %69, %55, %46, %44, %34, %31, %1
+  %.sroa.06.0 = phi i16 [ 0, %1 ], [ %41, %34 ], [ %45, %44 ], [ %54, %46 ], [ %32, %31 ], [ %27, %55 ], [ %73, %72 ], [ %67, %69 ]
   ret i16 %.sroa.06.0
 }
 
@@ -1044,15 +1044,15 @@ define internal void @_GLOBAL__sub_I_ImfLut.cpp() #7 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 declare double @exp2(double) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

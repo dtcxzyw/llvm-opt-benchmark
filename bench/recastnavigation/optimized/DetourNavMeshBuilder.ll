@@ -1243,16 +1243,16 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %61 = fsub float %.sroa.0117.0.lcssa, %60
   %62 = fmul float %6, %61
   %63 = fptosi float %62 to i32
-  %64 = tail call i32 @llvm.smin.i32(i32 %63, i32 65535)
-  %65 = tail call i32 @llvm.smax.i32(i32 %64, i32 0)
+  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 65535)
   %66 = trunc nuw i32 %65 to i16
   store i16 %66, ptr %23, align 4
   %67 = load float, ptr %17, align 4
   %68 = fsub float %.sroa.4119.0.lcssa, %67
   %69 = fmul float %6, %68
   %70 = fptosi float %69 to i32
-  %71 = tail call i32 @llvm.smin.i32(i32 %70, i32 65535)
-  %72 = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
+  %71 = tail call i32 @llvm.smax.i32(i32 %70, i32 0)
+  %72 = tail call i32 @llvm.umin.i32(i32 %71, i32 65535)
   %73 = trunc nuw i32 %72 to i16
   %74 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i16 %73, ptr %74, align 2
@@ -1260,8 +1260,8 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %76 = fsub float %.sroa.8121.0.lcssa, %75
   %77 = fmul float %6, %76
   %78 = fptosi float %77 to i32
-  %79 = tail call i32 @llvm.smin.i32(i32 %78, i32 65535)
-  %80 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
+  %79 = tail call i32 @llvm.smax.i32(i32 %78, i32 0)
+  %80 = tail call i32 @llvm.umin.i32(i32 %79, i32 65535)
   %81 = trunc nuw i32 %80 to i16
   %82 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i16 %81, ptr %82, align 4
@@ -1269,8 +1269,8 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %84 = fsub float %.sroa.0.0.lcssa, %83
   %85 = fmul float %6, %84
   %86 = fptosi float %85 to i32
-  %87 = tail call i32 @llvm.smin.i32(i32 %86, i32 65535)
-  %88 = tail call i32 @llvm.smax.i32(i32 %87, i32 0)
+  %87 = tail call i32 @llvm.smax.i32(i32 %86, i32 0)
+  %88 = tail call i32 @llvm.umin.i32(i32 %87, i32 65535)
   %89 = trunc nuw i32 %88 to i16
   %90 = getelementptr inbounds nuw i8, ptr %23, i64 6
   store i16 %89, ptr %90, align 2
@@ -1278,8 +1278,8 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %92 = fsub float %.sroa.4.0.lcssa, %91
   %93 = fmul float %6, %92
   %94 = fptosi float %93 to i32
-  %95 = tail call i32 @llvm.smin.i32(i32 %94, i32 65535)
-  %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
+  %95 = tail call i32 @llvm.smax.i32(i32 %94, i32 0)
+  %96 = tail call i32 @llvm.umin.i32(i32 %95, i32 65535)
   %97 = trunc nuw i32 %96 to i16
   %98 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i16 %97, ptr %98, align 2
@@ -1287,8 +1287,8 @@ define internal fastcc void @_ZL12createBVTreeP21dtNavMeshCreateParamsP8dtBVNode
   %100 = fsub float %.sroa.8.0.lcssa, %99
   %101 = fmul float %6, %100
   %102 = fptosi float %101 to i32
-  %103 = tail call i32 @llvm.smin.i32(i32 %102, i32 65535)
-  %104 = tail call i32 @llvm.smax.i32(i32 %103, i32 0)
+  %103 = tail call i32 @llvm.smax.i32(i32 %102, i32 0)
+  %104 = tail call i32 @llvm.umin.i32(i32 %103, i32 65535)
   %105 = trunc nuw i32 %104 to i16
   %106 = getelementptr inbounds nuw i8, ptr %23, i64 10
   store i16 %105, ptr %106, align 2
@@ -2302,9 +2302,6 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12compareItemZPKvS0_(ptr nounde
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2312,6 +2309,9 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i16(i16, i16) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1944,8 +1944,8 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %129, %199, %200, %_
   %489 = uitofp i16 %488 to float
   %490 = fmul reassoc nsz arcp contract afn float %483, %489
   %491 = fptosi float %490 to i32
-  %492 = call i32 @llvm.smin.i32(i32 %491, i32 65535)
-  %493 = call i32 @llvm.smax.i32(i32 %492, i32 0)
+  %492 = call i32 @llvm.smax.i32(i32 %491, i32 0)
+  %493 = call i32 @llvm.umin.i32(i32 %492, i32 65535)
   %494 = trunc nuw i32 %493 to i16
   store i16 %494, ptr %487, align 2, !tbaa !74
   %495 = add nuw nsw i32 %storemerge316692, 1
@@ -2658,8 +2658,8 @@ _ZN6LibRaw27phase_one_fix_col_pixel_avgEjj.exit:  ; preds = %634, %656
   %801 = fadd reassoc nsz arcp contract afn float %800, %751
   %802 = fmul reassoc nsz arcp contract afn float %801, 2.000000e+00
   %803 = fptosi float %802 to i32
-  %804 = call i32 @llvm.smin.i32(i32 %803, i32 65535)
-  %805 = call i32 @llvm.smax.i32(i32 %804, i32 0)
+  %804 = call i32 @llvm.smax.i32(i32 %803, i32 0)
+  %805 = call i32 @llvm.umin.i32(i32 %804, i32 65535)
   %806 = trunc nuw i32 %805 to i16
   store i16 %806, ptr %747, align 2, !tbaa !74
   %807 = add nuw nsw i32 %storemerge745.us.us, 1
@@ -2748,8 +2748,8 @@ _ZN6LibRaw27phase_one_fix_col_pixel_avgEjj.exit:  ; preds = %634, %656
   %851 = fadd reassoc nsz arcp contract afn float %850, %844
   %852 = fmul reassoc nsz arcp contract afn float %851, 2.000000e+00
   %853 = fptosi float %852 to i32
-  %854 = call i32 @llvm.smin.i32(i32 %853, i32 65535)
-  %855 = call i32 @llvm.smax.i32(i32 %854, i32 0)
+  %854 = call i32 @llvm.smax.i32(i32 %853, i32 0)
+  %855 = call i32 @llvm.umin.i32(i32 %854, i32 65535)
   %856 = trunc nuw i32 %855 to i16
   store i16 %856, ptr %835, align 2, !tbaa !74
   %857 = add nuw nsw i32 %storemerge745, 1
@@ -4935,9 +4935,6 @@ declare i32 @llvm.umin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #17

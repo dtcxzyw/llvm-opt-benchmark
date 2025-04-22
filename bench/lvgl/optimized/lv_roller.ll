@@ -817,7 +817,7 @@ define void @lv_roller_set_options(ptr noundef %0, ptr noundef %1, i32 noundef %
 26:                                               ; preds = %20
   store i8 %25, ptr %23, align 8
   tail call void @lv_label_set_text(ptr noundef %6, ptr noundef nonnull %1) #6
-  br label %60
+  br label %61
 
 27:                                               ; preds = %20
   %28 = or disjoint i8 %25, 1
@@ -831,56 +831,56 @@ define void @lv_roller_set_options(ptr noundef %0, ptr noundef %1, i32 noundef %
   %34 = add nsw i32 %31, %.sroa.0.0.extract.trunc.i
   %35 = mul i32 %34, %30
   %36 = sdiv i32 1000, %35
-  %spec.select67 = tail call i32 @llvm.smin.i32(i32 %36, i32 15)
-  %37 = tail call i32 @llvm.smax.i32(i32 %spec.select67, i32 3)
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %spec.select68 = or i32 %37, 1
-  store i32 %spec.select68, ptr %38, align 4, !tbaa !42
-  %39 = tail call i64 @lv_strlen(ptr noundef nonnull %1) #6
-  %40 = add i64 %39, 1
-  %41 = load i32, ptr %38, align 4, !tbaa !42
-  %42 = zext i32 %41 to i64
-  %43 = mul i64 %40, %42
-  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %43, i64 1)
-  %44 = tail call ptr @lv_malloc(i64 noundef %spec.store.select) #6
-  %invariant.gep = getelementptr i8, ptr %44, i64 -1
-  %45 = load i32, ptr %38, align 4, !tbaa !42
-  %.not71 = icmp eq i32 %45, 0
+  %37 = tail call i32 @llvm.smax.i32(i32 %36, i32 3)
+  %38 = tail call i32 @llvm.umin.i32(i32 %37, i32 15)
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %spec.select68 = or i32 %38, 1
+  store i32 %spec.select68, ptr %39, align 4, !tbaa !42
+  %40 = tail call i64 @lv_strlen(ptr noundef nonnull %1) #6
+  %41 = add i64 %40, 1
+  %42 = load i32, ptr %39, align 4, !tbaa !42
+  %43 = zext i32 %42 to i64
+  %44 = mul i64 %41, %43
+  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %44, i64 1)
+  %45 = tail call ptr @lv_malloc(i64 noundef %spec.store.select) #6
+  %invariant.gep = getelementptr i8, ptr %45, i64 -1
+  %46 = load i32, ptr %39, align 4, !tbaa !42
+  %.not71 = icmp eq i32 %46, 0
   br i1 %.not71, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %27 ]
-  %46 = mul i64 %40, %indvars.iv
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %46
-  %48 = tail call ptr @lv_strcpy(ptr noundef %47, ptr noundef nonnull %1) #6
+  %47 = mul i64 %41, %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 %47
+  %49 = tail call ptr @lv_strcpy(ptr noundef %48, ptr noundef nonnull %1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %49 = mul i64 %40, %indvars.iv.next
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %49
+  %50 = mul i64 %41, %indvars.iv.next
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %50
   store i8 10, ptr %gep, align 1, !tbaa !18
-  %50 = load i32, ptr %38, align 4, !tbaa !42
-  %51 = zext i32 %50 to i64
-  %52 = icmp samesign ult i64 %indvars.iv.next, %51
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !59
+  %51 = load i32, ptr %39, align 4, !tbaa !42
+  %52 = zext i32 %51 to i64
+  %53 = icmp samesign ult i64 %indvars.iv.next, %52
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
-  %53 = getelementptr i8, ptr %44, i64 %spec.store.select
-  %54 = getelementptr i8, ptr %53, i64 -1
-  store i8 0, ptr %54, align 1, !tbaa !18
-  tail call void @lv_label_set_text(ptr noundef %6, ptr noundef %44) #6
-  tail call void @lv_free(ptr noundef %44) #6
-  %55 = load i32, ptr %38, align 4, !tbaa !42
-  %56 = lshr i32 %55, 1
-  %57 = load i32, ptr %9, align 8, !tbaa !3
-  %58 = mul i32 %56, %57
-  store i32 %58, ptr %7, align 4, !tbaa !16
-  %59 = mul i32 %57, %55
-  store i32 %59, ptr %9, align 8, !tbaa !3
+  %54 = getelementptr i8, ptr %45, i64 %spec.store.select
+  %55 = getelementptr i8, ptr %54, i64 -1
+  store i8 0, ptr %55, align 1, !tbaa !18
+  tail call void @lv_label_set_text(ptr noundef %6, ptr noundef %45) #6
+  tail call void @lv_free(ptr noundef %45) #6
+  %56 = load i32, ptr %39, align 4, !tbaa !42
+  %57 = lshr i32 %56, 1
+  %58 = load i32, ptr %9, align 8, !tbaa !3
+  %59 = mul i32 %57, %58
+  store i32 %59, ptr %7, align 4, !tbaa !16
+  %60 = mul i32 %58, %56
+  store i32 %60, ptr %9, align 8, !tbaa !3
   tail call fastcc void @inf_normalize(ptr noundef nonnull %0)
-  br label %60
+  br label %61
 
-60:                                               ; preds = %._crit_edge, %26
-  %61 = load i32, ptr %7, align 4, !tbaa !16
-  store i32 %61, ptr %8, align 8, !tbaa !17
+61:                                               ; preds = %._crit_edge, %26
+  %62 = load i32, ptr %7, align 4, !tbaa !16
+  store i32 %62, ptr %8, align 8, !tbaa !17
   tail call void @lv_obj_refresh_ext_draw_size(ptr noundef %6) #6
   ret void
 }
@@ -1826,6 +1826,9 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

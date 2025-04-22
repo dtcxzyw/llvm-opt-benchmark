@@ -87,7 +87,7 @@ define noundef zeroext i1 @_ZN3net15HybridSlowStart19ShouldExitSlowStartENS_8Qui
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !15
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %40
+  br i1 %.not, label %18, label %42
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -118,24 +118,24 @@ define noundef zeroext i1 @_ZN3net15HybridSlowStart19ShouldExitSlowStartENS_8Qui
 
 32:                                               ; preds = %30
   %33 = ashr i64 %4, 3
-  %.sroa.speculated18 = tail call i64 @llvm.smin.i64(i64 %33, i64 16000)
-  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %.sroa.speculated18, i64 4000)
-  %34 = add nsw i64 %.sroa.speculated, %4
-  %35 = icmp slt i64 %34, %.sroa.26.0.copyload
-  br i1 %35, label %36, label %.thread
+  %34 = tail call i64 @llvm.smax.i64(i64 %33, i64 4000)
+  %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 16000)
+  %36 = add nsw i64 %35, %4
+  %37 = icmp slt i64 %36, %.sroa.26.0.copyload
+  br i1 %37, label %38, label %.thread
 
-36:                                               ; preds = %32
+38:                                               ; preds = %32
   store i32 1, ptr %16, align 4, !tbaa !15
   br label %.thread
 
-.thread:                                          ; preds = %18, %32, %36, %30
-  %37 = phi i1 [ false, %18 ], [ false, %32 ], [ true, %36 ], [ false, %30 ]
-  %38 = icmp ugt i64 %5, 15
-  %39 = and i1 %38, %37
-  br label %40
+.thread:                                          ; preds = %18, %32, %38, %30
+  %39 = phi i1 [ false, %18 ], [ false, %32 ], [ true, %38 ], [ false, %30 ]
+  %40 = icmp ugt i64 %5, 15
+  %41 = and i1 %40, %39
+  br label %42
 
-40:                                               ; preds = %15, %.thread
-  %.0 = phi i1 [ %39, %.thread ], [ true, %15 ]
+42:                                               ; preds = %15, %.thread
+  %.0 = phi i1 [ %41, %.thread ], [ true, %15 ]
   ret i1 %.0
 }
 
@@ -143,10 +143,10 @@ define noundef zeroext i1 @_ZN3net15HybridSlowStart19ShouldExitSlowStartENS_8Qui
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #4
+declare i64 @llvm.smax.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #4
+declare i64 @llvm.umin.i64(i64, i64) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

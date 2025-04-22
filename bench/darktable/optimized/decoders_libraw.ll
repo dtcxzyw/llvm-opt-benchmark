@@ -3535,8 +3535,8 @@ _ZN15iiq_bitstream_t3getEc.exit94:                ; preds = %_ZN15iiq_bitstream_
   %.sroa.0.5 = phi i64 [ %.pre.i.i.i85155, %_ZN15iiq_bitstream_t3getEc.exit87 ], [ %.sroa.0.20, %_ZN15iiq_bitstream_t3getEc.exit94 ]
   %.045 = phi i32 [ %165, %_ZN15iiq_bitstream_t3getEc.exit87 ], [ %200, %_ZN15iiq_bitstream_t3getEc.exit94 ]
   %202 = shl i32 %.045, 2
-  %203 = tail call i32 @llvm.smin.i32(i32 %202, i32 65535)
-  %204 = tail call i32 @llvm.smax.i32(i32 %203, i32 0)
+  %203 = tail call i32 @llvm.smax.i32(i32 %202, i32 0)
+  %204 = tail call i32 @llvm.umin.i32(i32 %203, i32 65535)
   %205 = trunc nuw i32 %204 to i16
   %206 = getelementptr inbounds nuw i16, ptr %.1177, i64 %indvars.iv
   store i16 %205, ptr %206, align 2, !tbaa !80
@@ -4354,9 +4354,6 @@ declare i32 @llvm.bswap.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #12

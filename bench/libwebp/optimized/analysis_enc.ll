@@ -715,13 +715,13 @@ SmoothSegmentMap.exit.i:                          ; preds = %._crit_edge70.i.i, 
   %367 = sub nsw i32 %363, %.060.i.i
   %368 = mul nsw i32 %367, 255
   %369 = sdiv i32 %368, %359
-  %370 = call i32 @llvm.smin.i32(i32 %366, i32 127)
-  %371 = call i32 @llvm.smax.i32(i32 %370, i32 -127)
+  %370 = call i32 @llvm.smax.i32(i32 %366, i32 -127)
+  %371 = call i32 @llvm.smin.i32(i32 %370, i32 127)
   %372 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %360, i64 0, i64 %indvars.iv52.i.i
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 672
   store i32 %371, ptr %373, align 8, !tbaa !74
-  %374 = call i32 @llvm.smin.i32(i32 %369, i32 255)
-  %375 = call i32 @llvm.smax.i32(i32 %374, i32 0)
+  %374 = call i32 @llvm.smax.i32(i32 %369, i32 0)
+  %375 = call i32 @llvm.umin.i32(i32 %374, i32 255)
   %376 = getelementptr inbounds nuw i8, ptr %372, i64 676
   store i32 %375, ptr %376, align 4, !tbaa !77
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 1

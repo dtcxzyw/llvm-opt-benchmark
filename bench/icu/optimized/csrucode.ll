@@ -84,9 +84,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_UTF_16_BE5ma
   %10 = icmp sgt i32 %7, 1
   br i1 %10, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %3, %29
-  %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %3 ]
-  %.036 = phi i32 [ %.1.i, %29 ], [ 10, %3 ]
+.lr.ph:                                           ; preds = %3, %31
+  %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %3 ]
+  %.036 = phi i32 [ %30, %31 ], [ 10, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1, !tbaa !12
   %13 = zext i8 %12 to i16
@@ -119,29 +119,29 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_UTF_16_BE5ma
 
 _ZN6icu_77L16adjustConfidenceEDsi.exit:           ; preds = %23, %25
   %.0.i = phi i32 [ %24, %23 ], [ %spec.select.i, %25 ]
-  %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %.0.i, i32 100)
-  %.1.i = tail call noundef range(i32 0, 101) i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 0)
-  switch i32 %.1.i, label %29 [
+  %29 = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 0)
+  %30 = tail call noundef range(i32 0, 101) i32 @llvm.umin.i32(i32 %29, i32 100)
+  switch i32 %30, label %31 [
     i32 100, label %.thread
     i32 0, label %.thread
   ]
 
-29:                                               ; preds = %_ZN6icu_77L16adjustConfidenceEDsi.exit
+31:                                               ; preds = %_ZN6icu_77L16adjustConfidenceEDsi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %30 = trunc nuw i64 %indvars.iv.next to i32
-  %31 = icmp sgt i32 %9, %30
-  br i1 %31, label %.lr.ph, label %.thread, !llvm.loop !13
+  %32 = trunc nuw i64 %indvars.iv.next to i32
+  %33 = icmp sgt i32 %9, %32
+  br i1 %33, label %.lr.ph, label %.thread, !llvm.loop !13
 
-.thread:                                          ; preds = %29, %.lr.ph, %_ZN6icu_77L16adjustConfidenceEDsi.exit, %_ZN6icu_77L16adjustConfidenceEDsi.exit, %3
-  %.1 = phi i32 [ 10, %3 ], [ %.1.i, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ %.1.i, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ 100, %.lr.ph ], [ %.1.i, %29 ]
-  %32 = icmp slt i32 %7, 4
-  %33 = icmp samesign ult i32 %.1, 100
-  %or.cond6 = and i1 %32, %33
+.thread:                                          ; preds = %31, %.lr.ph, %_ZN6icu_77L16adjustConfidenceEDsi.exit, %_ZN6icu_77L16adjustConfidenceEDsi.exit, %3
+  %.1 = phi i32 [ 10, %3 ], [ %30, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ %30, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ 100, %.lr.ph ], [ %30, %31 ]
+  %34 = icmp slt i32 %7, 4
+  %35 = icmp samesign ult i32 %.1, 100
+  %or.cond6 = and i1 %34, %35
   %spec.store.select = select i1 %or.cond6, i32 0, i32 %.1
   tail call void @_ZN6icu_7712CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %1, ptr noundef nonnull %0, i32 noundef %spec.store.select, ptr noundef null, ptr noundef null)
-  %34 = icmp ne i32 %spec.store.select, 0
-  %35 = zext i1 %34 to i8
-  ret i8 %35
+  %36 = icmp ne i32 %spec.store.select, 0
+  %37 = zext i1 %36 to i8
+  ret i8 %37
 }
 
 declare void @_ZN6icu_7712CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
@@ -169,9 +169,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_UTF_16_LE5ma
   %10 = icmp sgt i32 %7, 1
   br i1 %10, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %3, %39
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %3 ]
-  %.039 = phi i32 [ %.1.i, %39 ], [ 10, %3 ]
+.lr.ph:                                           ; preds = %3, %41
+  %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %3 ]
+  %.039 = phi i32 [ %40, %41 ], [ 10, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1, !tbaa !12
   %13 = zext i8 %12 to i16
@@ -221,29 +221,29 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722CharsetRecog_UTF_16_LE5ma
 
 _ZN6icu_77L16adjustConfidenceEDsi.exit:           ; preds = %33, %35
   %.0.i = phi i32 [ %34, %33 ], [ %spec.select.i, %35 ]
-  %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %.0.i, i32 100)
-  %.1.i = tail call noundef range(i32 0, 101) i32 @llvm.smax.i32(i32 %spec.store.select.i, i32 0)
-  switch i32 %.1.i, label %39 [
+  %39 = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 0)
+  %40 = tail call noundef range(i32 0, 101) i32 @llvm.umin.i32(i32 %39, i32 100)
+  switch i32 %40, label %41 [
     i32 100, label %.thread
     i32 0, label %.thread
   ]
 
-39:                                               ; preds = %_ZN6icu_77L16adjustConfidenceEDsi.exit
+41:                                               ; preds = %_ZN6icu_77L16adjustConfidenceEDsi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %40 = trunc nuw i64 %indvars.iv.next to i32
-  %41 = icmp sgt i32 %9, %40
-  br i1 %41, label %.lr.ph, label %.thread, !llvm.loop !15
+  %42 = trunc nuw i64 %indvars.iv.next to i32
+  %43 = icmp sgt i32 %9, %42
+  br i1 %43, label %.lr.ph, label %.thread, !llvm.loop !15
 
-.thread:                                          ; preds = %39, %_ZN6icu_77L16adjustConfidenceEDsi.exit, %_ZN6icu_77L16adjustConfidenceEDsi.exit, %3, %21, %23, %27
-  %.1 = phi i32 [ %spec.select, %27 ], [ 100, %21 ], [ 100, %23 ], [ 10, %3 ], [ %.1.i, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ %.1.i, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ %.1.i, %39 ]
-  %42 = icmp slt i32 %7, 4
-  %43 = icmp samesign ult i32 %.1, 100
-  %or.cond6 = and i1 %42, %43
+.thread:                                          ; preds = %41, %_ZN6icu_77L16adjustConfidenceEDsi.exit, %_ZN6icu_77L16adjustConfidenceEDsi.exit, %3, %21, %23, %27
+  %.1 = phi i32 [ %spec.select, %27 ], [ 100, %21 ], [ 100, %23 ], [ 10, %3 ], [ %40, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ %40, %_ZN6icu_77L16adjustConfidenceEDsi.exit ], [ %40, %41 ]
+  %44 = icmp slt i32 %7, 4
+  %45 = icmp samesign ult i32 %.1, 100
+  %or.cond6 = and i1 %44, %45
   %spec.store.select = select i1 %or.cond6, i32 0, i32 %.1
   tail call void @_ZN6icu_7712CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %1, ptr noundef nonnull %0, i32 noundef %spec.store.select, ptr noundef null, ptr noundef null)
-  %44 = icmp ne i32 %spec.store.select, 0
-  %45 = zext i1 %44 to i8
-  ret i8 %45
+  %46 = icmp ne i32 %spec.store.select, 0
+  %47 = zext i1 %46 to i8
+  ret i8 %47
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
@@ -391,6 +391,9 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
