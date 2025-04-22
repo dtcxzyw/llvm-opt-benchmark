@@ -15399,8 +15399,7 @@ SanityCheckCipherText.exit.i:                     ; preds = %262
 .lr.ph.i:                                         ; preds = %277
   %290 = xor i32 %288, -1
   %291 = zext i8 %287 to i64
-  %invariant.umin.i = call i64 @llvm.umin.i64(i64 %285, i64 255)
-  %umax = call i64 @llvm.umax.i64(i64 %invariant.umin.i, i64 1)
+  %umax = call i64 @llvm.umin.i64(i64 %285, i64 255)
   br label %292
 
 292:                                              ; preds = %292, %.lr.ph.i
@@ -28019,9 +28018,6 @@ declare i8 @llvm.umin.i8(i8, i8) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #26
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #26

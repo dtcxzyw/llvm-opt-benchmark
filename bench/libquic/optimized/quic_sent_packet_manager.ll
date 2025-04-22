@@ -475,8 +475,8 @@ _ZN3net8RttStats18set_initial_rtt_usEl.exit73:    ; preds = %15
 
 .sink.split:                                      ; preds = %_ZN3net8RttStats18set_initial_rtt_usEl.exit, %_ZN3net8RttStats18set_initial_rtt_usEl.exit73
   %.sink113 = phi i32 [ %17, %_ZN3net8RttStats18set_initial_rtt_usEl.exit73 ], [ %12, %_ZN3net8RttStats18set_initial_rtt_usEl.exit ]
-  %18 = tail call i32 @llvm.umin.i32(i32 %.sink113, i32 15000000)
-  %19 = tail call i32 @llvm.umax.i32(i32 %18, i32 10000)
+  %18 = tail call i32 @llvm.umax.i32(i32 %.sink113, i32 10000)
+  %19 = tail call i32 @llvm.umin.i32(i32 %18, i32 15000000)
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i64 %20, ptr %21, align 8, !tbaa !92
@@ -929,8 +929,8 @@ _ZN3net8RttStats18set_initial_rtt_usEl.exit:      ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = load i32, ptr %7, align 8, !tbaa !105
   %9 = mul i32 %8, 1000
-  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 15000000)
-  %11 = tail call i32 @llvm.umax.i32(i32 %10, i32 10000)
+  %10 = tail call i32 @llvm.umax.i32(i32 %9, i32 10000)
+  %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 15000000)
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i64 %12, ptr %13, align 8, !tbaa !92

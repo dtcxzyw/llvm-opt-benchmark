@@ -33953,57 +33953,57 @@ define hidden range(i32 0, 2) i32 @msf_gif_frame(ptr noundef captures(none) %0, 
   br i1 %.not, label %582, label %12
 
 12:                                               ; preds = %5
-  %13 = tail call noundef i32 @llvm.smin.i32(i32 %3, i32 16)
-  %14 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %13, i32 1)
-  %15 = icmp eq i32 %4, 0
-  br i1 %15, label %16, label %._crit_edge
+  %13 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
+  %14 = icmp eq i32 %4, 0
+  br i1 %14, label %15, label %._crit_edge
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %18 = load i32, ptr %17, align 8
-  %19 = shl nsw i32 %18, 2
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %17 = load i32, ptr %16, align 8
+  %18 = shl nsw i32 %17, 2
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %16, %12
-  %.034 = phi i32 [ %19, %16 ], [ %4, %12 ]
-  %20 = icmp slt i32 %.034, 0
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %22 = load i32, ptr %21, align 4
-  %23 = add nsw i32 %22, -1
-  %24 = mul nsw i32 %23, %.034
-  %25 = sext i32 %24 to i64
-  %26 = sub nsw i64 0, %25
-  %.035.idx = select i1 %20, i64 %26, i64 0
+._crit_edge:                                      ; preds = %15, %12
+  %.034 = phi i32 [ %18, %15 ], [ %4, %12 ]
+  %19 = icmp slt i32 %.034, 0
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %21 = load i32, ptr %20, align 4
+  %22 = add nsw i32 %21, -1
+  %23 = mul nsw i32 %22, %.034
+  %24 = sext i32 %23 to i64
+  %25 = sub nsw i64 0, %24
+  %.035.idx = select i1 %19, i64 %25, i64 0
   %.035 = getelementptr inbounds i8, ptr %1, i64 %.035.idx
   call void @llvm.lifetime.start.p0(i64 65537, ptr nonnull %8) #60
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %34 = load i32, ptr %33, align 4
-  %35 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %34, i32 1)
-  %36 = udiv i32 160, %35
-  %37 = add nsw i32 %36, %32
-  %38 = tail call noundef i32 @llvm.smin.i32(i32 %14, i32 %37)
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %28 = load i32, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %31 = load i32, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %33 = load i32, ptr %32, align 4
+  %34 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %33, i32 1)
+  %35 = udiv i32 160, %34
+  %36 = add nsw i32 %35, %31
+  %37 = tail call i32 @llvm.smin.i32(i32 %13, i32 %36)
+  %38 = tail call i32 @llvm.smin.i32(i32 %37, i32 16)
   %39 = load i32, ptr @msf_gif_bgra_flag, align 4
   %.not.i = icmp eq i32 %39, 0
   %40 = select i1 %.not.i, ptr @msf_cook_frame.rdepthsArray, ptr @msf_cook_frame.bdepthsArray
   %41 = select i1 %.not.i, ptr @msf_cook_frame.bdepthsArray, ptr @msf_cook_frame.rdepthsArray
-  %42 = load ptr, ptr %27, align 8
-  %43 = icmp sgt i32 %22, 0
-  %44 = mul i32 %22, %29
+  %42 = load ptr, ptr %26, align 8
+  %43 = icmp sgt i32 %21, 0
+  %44 = mul i32 %21, %28
   %45 = icmp sgt i32 %44, 0
-  %46 = add nsw i32 %29, -3
-  %47 = icmp sgt i32 %29, 3
+  %46 = add nsw i32 %28, -3
+  %47 = icmp sgt i32 %28, 3
   %48 = sext i32 %46 to i64
   %49 = sext i32 %.034 to i64
-  %50 = sext i32 %29 to i64
+  %50 = sext i32 %28 to i64
   %51 = sext i32 %38 to i64
-  %wide.trip.count187.i = zext nneg i32 %22 to i64
-  %wide.trip.count.i = zext i32 %29 to i64
+  %wide.trip.count187.i = zext nneg i32 %21 to i64
+  %wide.trip.count.i = zext i32 %28 to i64
   %wide.trip.count192.i = zext nneg i32 %44 to i64
   br label %52
 
@@ -34117,7 +34117,7 @@ define hidden range(i32 0, 2) i32 @msf_gif_frame(ptr noundef captures(none) %0, 
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %114
   %.0149.lcssa.i = phi i32 [ 0, %114 ], [ %133, %.preheader.loopexit.i ]
-  %134 = icmp slt i32 %.0149.lcssa.i, %29
+  %134 = icmp slt i32 %.0149.lcssa.i, %28
   br i1 %134, label %.lr.ph167.i, label %._crit_edge.i
 
 .lr.ph167.i:                                      ; preds = %.preheader.i
@@ -34280,7 +34280,7 @@ msf_cook_frame.exit:                              ; preds = %216, %._crit_edge17
   %222 = load i32, ptr %221, align 4
   %223 = getelementptr inbounds i32, ptr %41, i64 %218
   %224 = load i32, ptr %223, align 4
-  store ptr %42, ptr %27, align 8
+  store ptr %42, ptr %26, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %.1.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -34293,8 +34293,8 @@ msf_cook_frame.exit:                              ; preds = %216, %._crit_edge17
   store i32 %224, ptr %.sroa.8.0..sroa_idx.i, align 8
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 0, ptr %.sroa.9.0..sroa_idx.i, align 4
-  %225 = load i32, ptr %28, align 8
-  %226 = load i32, ptr %30, align 4
+  %225 = load i32, ptr %27, align 8
+  %226 = load i32, ptr %29, align 4
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %228 = load ptr, ptr %227, align 8
   %.sroa.0.0.extract.trunc.i = trunc i32 %226 to i16
@@ -34864,7 +34864,7 @@ msf_compress_frame.exit.thread:                   ; preds = %msf_cook_frame.exit
   br label %566
 
 566:                                              ; preds = %565, %msf_compress_frame.exit.thread
-  %567 = load ptr, ptr %27, align 8
+  %567 = load ptr, ptr %26, align 8
   %.not15.i = icmp eq ptr %567, null
   br i1 %.not15.i, label %569, label %568
 
@@ -34906,8 +34906,8 @@ msf_free_gif_state.exit:                          ; preds = %.lr.ph.i48, %572
   store ptr %562, ptr %576, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %298, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %298, ptr noundef nonnull align 8 dereferenceable(32) %27, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %298, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   %578 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %579 = load i32, ptr %578, align 8
   %580 = add nsw i32 %579, 1

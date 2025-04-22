@@ -3080,17 +3080,17 @@ get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.l
   %.pn.us.i = mul nsw i32 %.0147.pn.us.i, %102
   br label %.lr.ph.split.us.us.i
 
-._crit_edge.us.i:                                 ; preds = %756, %.lr.ph.us.i
+._crit_edge.us.i:                                 ; preds = %758, %.lr.ph.us.i
   %indvars.iv.next271.i = add nsw i64 %indvars.iv270.i, 1
   %221 = icmp sgt i64 %207, %indvars.iv.next271.i
   br i1 %221, label %.lr.ph.us.i, label %._crit_edge229.i, !llvm.loop !162
 
-.lr.ph.split.us.us.i:                             ; preds = %756, %.lr.ph.split.us.us.preheader.i
-  %indvars.iv.i = phi i64 [ %212, %.lr.ph.split.us.us.preheader.i ], [ %indvars.iv.next.i, %756 ]
+.lr.ph.split.us.us.i:                             ; preds = %758, %.lr.ph.split.us.us.preheader.i
+  %indvars.iv.i = phi i64 [ %212, %.lr.ph.split.us.us.preheader.i ], [ %indvars.iv.next.i, %758 ]
   %222 = icmp sgt i64 %indvars.iv.i, -1
   %.not166.us.us.i = icmp slt i64 %indvars.iv.i, %117
   %or.cond170.us.us.i = and i1 %222, %.not166.us.us.i
-  br i1 %or.cond170.us.us.i, label %223, label %756
+  br i1 %or.cond170.us.us.i, label %223, label %758
 
 223:                                              ; preds = %.lr.ph.split.us.us.i
   %224 = shl nsw i64 %indvars.iv.i, 6
@@ -3427,7 +3427,7 @@ get_min_distance_cubic.exit.i.us.us.i:            ; preds = %449, %396
   %.sink.i36.i.us.us.i = phi i32 [ %472, %449 ], [ 65536, %396 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
-  br label %732
+  br label %734
 
 473:                                              ; preds = %223
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #11
@@ -3673,7 +3673,7 @@ get_min_distance_conic.exit.i.us.us.i:            ; preds = %623, %585
   %.sink.i21.i.us.us.i = phi i32 [ %646, %623 ], [ 65536, %585 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
-  br label %732
+  br label %734
 
 647:                                              ; preds = %223
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #11
@@ -3704,181 +3704,181 @@ get_min_distance_conic.exit.i.us.us.i:            ; preds = %623, %585
   %663 = ashr exact i64 %sext39.i.i.us.us.i, 32
   %664 = call i64 @FT_DivFix(i64 noundef %662, i64 noundef %663) #11
   %665 = trunc i64 %664 to i32
-  %spec.store.select.i.i.us.us.i = call i32 @llvm.smin.i32(i32 %665, i32 65536)
-  %spec.store.select4.i.i.us.us.i = call i32 @llvm.smax.i32(i32 %spec.store.select.i.i.us.us.i, i32 0)
+  %666 = call i32 @llvm.smax.i32(i32 %665, i32 0)
+  %667 = call i32 @llvm.umin.i32(i32 %666, i32 65536)
   %.tr.i.i.us.us.i = trunc i64 %648 to i32
-  %666 = shl i32 %.tr.i.i.us.us.i, 10
-  %667 = sext i32 %666 to i64
-  %668 = zext nneg i32 %spec.store.select4.i.i.us.us.i to i64
-  %669 = mul nsw i64 %668, %667
-  %670 = ashr i64 %669, 63
-  %671 = add nsw i64 %669, 32768
-  %672 = add nsw i64 %671, %670
-  %673 = ashr i64 %672, 16
+  %668 = shl i32 %.tr.i.i.us.us.i, 10
+  %669 = sext i32 %668 to i64
+  %670 = zext nneg i32 %667 to i64
+  %671 = mul nsw i64 %670, %669
+  %672 = ashr i64 %671, 63
+  %673 = add nsw i64 %671, 32768
+  %674 = add nsw i64 %673, %672
+  %675 = ashr i64 %674, 16
   %.tr40.i.i.us.us.i = trunc i64 %649 to i32
-  %674 = shl i32 %.tr40.i.i.us.us.i, 10
-  %675 = sext i32 %674 to i64
-  %676 = mul nsw i64 %668, %675
-  %677 = ashr i64 %676, 63
-  %678 = add nsw i64 %676, 32768
-  %679 = add nsw i64 %678, %677
-  %680 = ashr i64 %679, 16
-  %681 = sub i64 %.sroa.021.0.copyload.i.i.us.us.i, %225
-  %682 = shl i64 %681, 10
-  %683 = add i64 %673, %682
-  store i64 %683, ptr %13, align 8, !tbaa !52
-  %684 = sub i64 %.sroa.624.0.copyload.i.i.us.us.i, %216
-  %685 = shl i64 %684, 10
-  %686 = add i64 %680, %685
-  store i64 %686, ptr %114, align 8, !tbaa !53
-  %sext43.i.i.us.us.i = shl i64 %683, 32
-  %687 = ashr exact i64 %sext43.i.i.us.us.i, 32
+  %676 = shl i32 %.tr40.i.i.us.us.i, 10
+  %677 = sext i32 %676 to i64
+  %678 = mul nsw i64 %670, %677
+  %679 = ashr i64 %678, 63
+  %680 = add nsw i64 %678, 32768
+  %681 = add nsw i64 %680, %679
+  %682 = ashr i64 %681, 16
+  %683 = sub i64 %.sroa.021.0.copyload.i.i.us.us.i, %225
+  %684 = shl i64 %683, 10
+  %685 = add i64 %675, %684
+  store i64 %685, ptr %13, align 8, !tbaa !52
+  %686 = sub i64 %.sroa.624.0.copyload.i.i.us.us.i, %216
+  %687 = shl i64 %686, 10
+  %688 = add i64 %682, %687
+  store i64 %688, ptr %114, align 8, !tbaa !53
+  %sext43.i.i.us.us.i = shl i64 %685, 32
+  %689 = ashr exact i64 %sext43.i.i.us.us.i, 32
   %sext44.i.i.us.us.i = shl i64 %649, 32
-  %688 = ashr exact i64 %sext44.i.i.us.us.i, 32
-  %689 = mul nsw i64 %687, %688
-  %690 = ashr i64 %689, 63
-  %691 = add nsw i64 %689, 32768
-  %692 = add nsw i64 %691, %690
-  %693 = lshr i64 %692, 16
-  %694 = trunc i64 %693 to i32
-  %sext45.i.i.us.us.i = shl i64 %686, 32
-  %695 = ashr exact i64 %sext45.i.i.us.us.i, 32
+  %690 = ashr exact i64 %sext44.i.i.us.us.i, 32
+  %691 = mul nsw i64 %689, %690
+  %692 = ashr i64 %691, 63
+  %693 = add nsw i64 %691, 32768
+  %694 = add nsw i64 %693, %692
+  %695 = lshr i64 %694, 16
+  %696 = trunc i64 %695 to i32
+  %sext45.i.i.us.us.i = shl i64 %688, 32
+  %697 = ashr exact i64 %sext45.i.i.us.us.i, 32
   %sext46.i.i.us.us.i = shl i64 %648, 32
-  %696 = ashr exact i64 %sext46.i.i.us.us.i, 32
-  %697 = mul nsw i64 %695, %696
-  %698 = ashr i64 %697, 63
-  %699 = add nsw i64 %697, 32768
-  %700 = add nsw i64 %699, %698
-  %701 = lshr i64 %700, 16
-  %702 = trunc i64 %701 to i32
-  %703 = icmp slt i32 %694, %702
-  %704 = select i1 %703, i8 1, i8 -1
-  %705 = call i64 @FT_Vector_Length(ptr noundef nonnull %13) #11
-  %706 = trunc i64 %705 to i32
-  %707 = add i32 %665, -1
-  %or.cond3.i.i.us.us.i = icmp ult i32 %707, 65535
-  br i1 %or.cond3.i.i.us.us.i, label %get_min_distance_line.exit.i.us.us.i, label %708
+  %698 = ashr exact i64 %sext46.i.i.us.us.i, 32
+  %699 = mul nsw i64 %697, %698
+  %700 = ashr i64 %699, 63
+  %701 = add nsw i64 %699, 32768
+  %702 = add nsw i64 %701, %700
+  %703 = lshr i64 %702, 16
+  %704 = trunc i64 %703 to i32
+  %705 = icmp slt i32 %696, %704
+  %706 = select i1 %705, i8 1, i8 -1
+  %707 = call i64 @FT_Vector_Length(ptr noundef nonnull %13) #11
+  %708 = trunc i64 %707 to i32
+  %709 = add i32 %665, -1
+  %or.cond3.i.i.us.us.i = icmp ult i32 %709, 65535
+  br i1 %or.cond3.i.i.us.us.i, label %get_min_distance_line.exit.i.us.us.i, label %710
 
-708:                                              ; preds = %647
-  %709 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %12) #11
-  %710 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %13) #11
-  %711 = load i64, ptr %12, align 8, !tbaa !52
-  %712 = load i64, ptr %114, align 8, !tbaa !53
-  %sext47.i.i.us.us.i = shl i64 %711, 32
-  %713 = ashr exact i64 %sext47.i.i.us.us.i, 32
-  %sext48.i.i.us.us.i = shl i64 %712, 32
-  %714 = ashr exact i64 %sext48.i.i.us.us.i, 32
-  %715 = mul nsw i64 %714, %713
-  %716 = ashr i64 %715, 63
-  %717 = add nsw i64 %715, 32768
-  %718 = add nsw i64 %717, %716
-  %719 = lshr i64 %718, 16
-  %720 = trunc i64 %719 to i32
-  %721 = load i64, ptr %113, align 8, !tbaa !53
-  %722 = load i64, ptr %13, align 8, !tbaa !52
-  %sext49.i.i.us.us.i = shl i64 %721, 32
-  %723 = ashr exact i64 %sext49.i.i.us.us.i, 32
-  %sext50.i.i.us.us.i = shl i64 %722, 32
-  %724 = ashr exact i64 %sext50.i.i.us.us.i, 32
-  %725 = mul nsw i64 %724, %723
-  %726 = ashr i64 %725, 63
-  %727 = add nsw i64 %725, 32768
-  %728 = add nsw i64 %727, %726
-  %729 = lshr i64 %728, 16
-  %730 = trunc i64 %729 to i32
-  %731 = sub nsw i32 %720, %730
+710:                                              ; preds = %647
+  %711 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %12) #11
+  %712 = call i32 @FT_Vector_NormLen(ptr noundef nonnull %13) #11
+  %713 = load i64, ptr %12, align 8, !tbaa !52
+  %714 = load i64, ptr %114, align 8, !tbaa !53
+  %sext47.i.i.us.us.i = shl i64 %713, 32
+  %715 = ashr exact i64 %sext47.i.i.us.us.i, 32
+  %sext48.i.i.us.us.i = shl i64 %714, 32
+  %716 = ashr exact i64 %sext48.i.i.us.us.i, 32
+  %717 = mul nsw i64 %716, %715
+  %718 = ashr i64 %717, 63
+  %719 = add nsw i64 %717, 32768
+  %720 = add nsw i64 %719, %718
+  %721 = lshr i64 %720, 16
+  %722 = trunc i64 %721 to i32
+  %723 = load i64, ptr %113, align 8, !tbaa !53
+  %724 = load i64, ptr %13, align 8, !tbaa !52
+  %sext49.i.i.us.us.i = shl i64 %723, 32
+  %725 = ashr exact i64 %sext49.i.i.us.us.i, 32
+  %sext50.i.i.us.us.i = shl i64 %724, 32
+  %726 = ashr exact i64 %sext50.i.i.us.us.i, 32
+  %727 = mul nsw i64 %726, %725
+  %728 = ashr i64 %727, 63
+  %729 = add nsw i64 %727, 32768
+  %730 = add nsw i64 %729, %728
+  %731 = lshr i64 %730, 16
+  %732 = trunc i64 %731 to i32
+  %733 = sub nsw i32 %722, %732
   br label %get_min_distance_line.exit.i.us.us.i
 
-get_min_distance_line.exit.i.us.us.i:             ; preds = %708, %647
-  %.sink.i.i.us.us.i = phi i32 [ %731, %708 ], [ 65536, %647 ]
+get_min_distance_line.exit.i.us.us.i:             ; preds = %710, %647
+  %.sink.i.i.us.us.i = phi i32 [ %733, %710 ], [ 65536, %647 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #11
-  br label %732
+  br label %734
 
-732:                                              ; preds = %get_min_distance_line.exit.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i
+734:                                              ; preds = %get_min_distance_line.exit.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i
   %.sroa.0.sroa.12.0.ph.us.us.i = phi i32 [ %.sink.i.i.us.us.i, %get_min_distance_line.exit.i.us.us.i ], [ %.sink.i21.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i ], [ %.sink.i36.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i ]
-  %.sroa.0.sroa.0.0.ph.us.us.i = phi i32 [ %706, %get_min_distance_line.exit.i.us.us.i ], [ %.389.i.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i ], [ %.3121.i.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i ]
-  %.sroa.15.1.ph.us.us.i = phi i8 [ %704, %get_min_distance_line.exit.i.us.us.i ], [ %621, %get_min_distance_conic.exit.i.us.us.i ], [ %447, %get_min_distance_cubic.exit.i.us.us.i ]
+  %.sroa.0.sroa.0.0.ph.us.us.i = phi i32 [ %708, %get_min_distance_line.exit.i.us.us.i ], [ %.389.i.i.us.us.i, %get_min_distance_conic.exit.i.us.us.i ], [ %.3121.i.i.us.us.i, %get_min_distance_cubic.exit.i.us.us.i ]
+  %.sroa.15.1.ph.us.us.i = phi i8 [ %706, %get_min_distance_line.exit.i.us.us.i ], [ %621, %get_min_distance_conic.exit.i.us.us.i ], [ %447, %get_min_distance_cubic.exit.i.us.us.i ]
   store i32 0, ptr %14, align 4, !tbaa !21
-  %733 = sub nsw i8 0, %.sroa.15.1.ph.us.us.i
-  %spec.select221.us.us.i = select i1 %116, i8 %733, i8 %.sroa.15.1.ph.us.us.i
-  %734 = icmp sgt i32 %.sroa.0.sroa.0.0.ph.us.us.i, %87
-  br i1 %734, label %756, label %735
+  %735 = sub nsw i8 0, %.sroa.15.1.ph.us.us.i
+  %spec.select221.us.us.i = select i1 %116, i8 %735, i8 %.sroa.15.1.ph.us.us.i
+  %736 = icmp sgt i32 %.sroa.0.sroa.0.0.ph.us.us.i, %87
+  br i1 %736, label %758, label %737
 
-735:                                              ; preds = %732
-  %736 = trunc i64 %indvars.iv.i to i32
-  %737 = add i32 %.pn.us.i, %736
-  %738 = zext i32 %737 to i64
-  %739 = getelementptr inbounds nuw %struct.SDF_Signed_Distance_, ptr %99, i64 %738
-  %740 = getelementptr inbounds nuw i8, ptr %739, i64 8
-  %741 = load i8, ptr %740, align 4, !tbaa !157
-  %742 = icmp eq i8 %741, 0
-  br i1 %742, label %755, label %743
+737:                                              ; preds = %734
+  %738 = trunc i64 %indvars.iv.i to i32
+  %739 = add i32 %.pn.us.i, %738
+  %740 = zext i32 %739 to i64
+  %741 = getelementptr inbounds nuw %struct.SDF_Signed_Distance_, ptr %99, i64 %740
+  %742 = getelementptr inbounds nuw i8, ptr %741, i64 8
+  %743 = load i8, ptr %742, align 4, !tbaa !157
+  %744 = icmp eq i8 %743, 0
+  br i1 %744, label %757, label %745
 
-743:                                              ; preds = %735
-  %744 = load i32, ptr %739, align 4, !tbaa !159
-  %745 = sub nsw i32 %744, %.sroa.0.sroa.0.0.ph.us.us.i
-  %746 = call i32 @llvm.abs.i32(i32 %745, i1 true)
-  %747 = icmp samesign ult i32 %746, 33
-  br i1 %747, label %751, label %748
+745:                                              ; preds = %737
+  %746 = load i32, ptr %741, align 4, !tbaa !159
+  %747 = sub nsw i32 %746, %.sroa.0.sroa.0.0.ph.us.us.i
+  %748 = call i32 @llvm.abs.i32(i32 %747, i1 true)
+  %749 = icmp samesign ult i32 %748, 33
+  br i1 %749, label %753, label %750
 
-748:                                              ; preds = %743
-  %749 = icmp sgt i32 %744, %.sroa.0.sroa.0.0.ph.us.us.i
-  br i1 %749, label %750, label %756
+750:                                              ; preds = %745
+  %751 = icmp sgt i32 %746, %.sroa.0.sroa.0.0.ph.us.us.i
+  br i1 %751, label %752, label %758
 
-750:                                              ; preds = %748
+752:                                              ; preds = %750
   %.sroa.0.sroa.12.0.insert.ext193.us.us.i = zext i32 %.sroa.0.sroa.12.0.ph.us.us.i to i64
   %.sroa.0.sroa.12.0.insert.shift194.us.us.i = shl nuw i64 %.sroa.0.sroa.12.0.insert.ext193.us.us.i, 32
   %.sroa.0.sroa.0.0.insert.ext186.us.us.i = zext i32 %.sroa.0.sroa.0.0.ph.us.us.i to i64
   %.sroa.0.sroa.0.0.insert.insert188.us.us.i = or disjoint i64 %.sroa.0.sroa.12.0.insert.shift194.us.us.i, %.sroa.0.sroa.0.0.insert.ext186.us.us.i
-  store i64 %.sroa.0.sroa.0.0.insert.insert188.us.us.i, ptr %739, align 4
-  store i8 %spec.select221.us.us.i, ptr %740, align 4, !tbaa !77
-  %.sroa.21.0..sroa_idx182.us.us.i = getelementptr inbounds nuw i8, ptr %739, i64 9
+  store i64 %.sroa.0.sroa.0.0.insert.insert188.us.us.i, ptr %741, align 4
+  store i8 %spec.select221.us.us.i, ptr %742, align 4, !tbaa !77
+  %.sroa.21.0..sroa_idx182.us.us.i = getelementptr inbounds nuw i8, ptr %741, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.21.0..sroa_idx182.us.us.i, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @__const.sdf_generate_bounding_box.dist, i64 9), i64 3, i1 false), !tbaa.struct !167
-  br label %756
+  br label %758
 
-751:                                              ; preds = %743
-  %.sroa.018.0.copyload.us.us.i = load i64, ptr %739, align 4
+753:                                              ; preds = %745
+  %.sroa.018.0.copyload.us.us.i = load i64, ptr %741, align 4
   %.sroa.0.sroa.12.0.insert.ext.us.us.i = zext i32 %.sroa.0.sroa.12.0.ph.us.us.i to i64
   %.sroa.0.sroa.12.0.insert.shift.us.us.i = shl nuw i64 %.sroa.0.sroa.12.0.insert.ext.us.us.i, 32
   %.sroa.0.sroa.0.0.insert.ext.us.us.i = zext i32 %.sroa.0.sroa.0.0.ph.us.us.i to i64
   %.sroa.0.sroa.0.0.insert.insert.us.us.i = or disjoint i64 %.sroa.0.sroa.12.0.insert.shift.us.us.i, %.sroa.0.sroa.0.0.insert.ext.us.us.i
   %.sroa.012.sroa.2.0.extract.shift.i.us.us.i = lshr i64 %.sroa.018.0.copyload.us.us.i, 32
   %.sroa.012.sroa.2.0.extract.trunc.i.us.us.i = trunc nuw i64 %.sroa.012.sroa.2.0.extract.shift.i.us.us.i to i32
-  %752 = call i32 @llvm.abs.i32(i32 %.sroa.012.sroa.2.0.extract.trunc.i.us.us.i, i1 true)
-  %753 = call i32 @llvm.abs.i32(i32 %.sroa.0.sroa.12.0.ph.us.us.i, i1 true)
-  %754 = icmp samesign ugt i32 %752, %753
-  %..i.us.us.i = select i1 %754, i64 %.sroa.018.0.copyload.us.us.i, i64 %.sroa.0.sroa.0.0.insert.insert.us.us.i
-  %.22.i.us.us.i = select i1 %754, i8 %741, i8 %spec.select221.us.us.i
-  store i64 %..i.us.us.i, ptr %739, align 4
-  store i8 %.22.i.us.us.i, ptr %740, align 4, !tbaa !77
-  br label %756
+  %754 = call i32 @llvm.abs.i32(i32 %.sroa.012.sroa.2.0.extract.trunc.i.us.us.i, i1 true)
+  %755 = call i32 @llvm.abs.i32(i32 %.sroa.0.sroa.12.0.ph.us.us.i, i1 true)
+  %756 = icmp samesign ugt i32 %754, %755
+  %..i.us.us.i = select i1 %756, i64 %.sroa.018.0.copyload.us.us.i, i64 %.sroa.0.sroa.0.0.insert.insert.us.us.i
+  %.22.i.us.us.i = select i1 %756, i8 %743, i8 %spec.select221.us.us.i
+  store i64 %..i.us.us.i, ptr %741, align 4
+  store i8 %.22.i.us.us.i, ptr %742, align 4, !tbaa !77
+  br label %758
 
-755:                                              ; preds = %735
+757:                                              ; preds = %737
   %.sroa.0.sroa.12.0.insert.ext189.us.us.i = zext i32 %.sroa.0.sroa.12.0.ph.us.us.i to i64
   %.sroa.0.sroa.12.0.insert.shift190.us.us.i = shl nuw i64 %.sroa.0.sroa.12.0.insert.ext189.us.us.i, 32
   %.sroa.0.sroa.0.0.insert.ext183.us.us.i = zext i32 %.sroa.0.sroa.0.0.ph.us.us.i to i64
   %.sroa.0.sroa.0.0.insert.insert185.us.us.i = or disjoint i64 %.sroa.0.sroa.12.0.insert.shift190.us.us.i, %.sroa.0.sroa.0.0.insert.ext183.us.us.i
-  store i64 %.sroa.0.sroa.0.0.insert.insert185.us.us.i, ptr %739, align 4
-  store i8 %spec.select221.us.us.i, ptr %740, align 4, !tbaa !77
-  %.sroa.21.0..sroa_idx.us.us.i = getelementptr inbounds nuw i8, ptr %739, i64 9
+  store i64 %.sroa.0.sroa.0.0.insert.insert185.us.us.i, ptr %741, align 4
+  store i8 %spec.select221.us.us.i, ptr %742, align 4, !tbaa !77
+  %.sroa.21.0..sroa_idx.us.us.i = getelementptr inbounds nuw i8, ptr %741, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.21.0..sroa_idx.us.us.i, ptr noundef nonnull align 1 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @__const.sdf_generate_bounding_box.dist, i64 9), i64 3, i1 false), !tbaa.struct !167
-  br label %756
+  br label %758
 
-756:                                              ; preds = %755, %751, %750, %748, %732, %.lr.ph.split.us.us.i
+758:                                              ; preds = %757, %753, %752, %750, %734, %.lr.ph.split.us.us.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %757 = icmp sgt i64 %206, %indvars.iv.next.i
-  br i1 %757, label %.lr.ph.split.us.us.i, label %._crit_edge.us.i, !llvm.loop !168
+  %759 = icmp sgt i64 %206, %indvars.iv.next.i
+  br i1 %759, label %.lr.ph.split.us.us.i, label %._crit_edge.us.i, !llvm.loop !168
 
 ._crit_edge229.i:                                 ; preds = %._crit_edge.us.i, %.lr.ph228.i, %get_control_box.exit.i
-  %758 = getelementptr inbounds nuw i8, ptr %.0141237.i, i64 72
-  %.0141.i = load ptr, ptr %758, align 8, !tbaa !153
+  %760 = getelementptr inbounds nuw i8, ptr %.0141237.i, i64 72
+  %.0141.i = load ptr, ptr %760, align 8, !tbaa !153
   %.not165.i = icmp eq ptr %.0141.i, null
   br i1 %.not165.i, label %._crit_edge.i13, label %.lr.ph.i12, !llvm.loop !169
 
 ._crit_edge.i13:                                  ; preds = %._crit_edge229.i, %173
-  %759 = getelementptr inbounds nuw i8, ptr %.0138241.i, i64 24
-  %.0138.i = load ptr, ptr %759, align 8, !tbaa !134
+  %761 = getelementptr inbounds nuw i8, ptr %.0138241.i, i64 24
+  %.0138.i = load ptr, ptr %761, align 8, !tbaa !134
   %.not162.i = icmp eq ptr %.0138.i, null
   br i1 %.not162.i, label %.preheader.i, label %173
 
@@ -3893,12 +3893,12 @@ sdf_generate_bounding_box.exit:                   ; preds = %._crit_edge247.spli
   %.0140.i = phi ptr [ %99, %92 ], [ %99, %.preheader.i ], [ %99, %.lr.ph249.i ], [ %.0140.ph.i, %.loopexit.sink.split.i ], [ %99, %._crit_edge247.split.us.us.us.i ], [ %99, %._crit_edge247.split.us256.i ]
   %.0135.i = phi ptr [ %91, %92 ], [ %91, %.preheader.i ], [ %91, %.lr.ph249.i ], [ %.0135.ph.i, %.loopexit.sink.split.i ], [ %91, %._crit_edge247.split.us.us.us.i ], [ %91, %._crit_edge247.split.us256.i ]
   call void @ft_mem_free(ptr noundef %.0135.i, ptr noundef %.0140.i) #11
-  %760 = load i32, ptr %14, align 4, !tbaa !21
+  %762 = load i32, ptr %14, align 4, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #11
   br label %split_sdf_shape.exit.thread
 
 split_sdf_shape.exit.thread:                      ; preds = %.thread107.i, %5, %20, %sdf_generate_bounding_box.exit
-  %.0 = phi i32 [ %760, %sdf_generate_bounding_box.exit ], [ %.4.ph.i, %.thread107.i ], [ 6, %5 ], [ 6, %20 ]
+  %.0 = phi i32 [ %762, %sdf_generate_bounding_box.exit ], [ %.4.ph.i, %.thread107.i ], [ 6, %5 ], [ 6, %20 ]
   ret i32 %.0
 }
 

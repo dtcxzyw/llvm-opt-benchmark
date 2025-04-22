@@ -1168,14 +1168,14 @@ define i32 @nk_rgb_factor(i32 %0, float noundef %1) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @nk_rgba(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @llvm.smin.i32(i32 %0, i32 255)
-  %6 = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
-  %7 = tail call i32 @llvm.smin.i32(i32 %1, i32 255)
-  %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
-  %9 = tail call i32 @llvm.smin.i32(i32 %2, i32 255)
-  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
-  %11 = tail call i32 @llvm.smin.i32(i32 %3, i32 255)
-  %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 0)
+  %5 = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
+  %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 255)
+  %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 255)
+  %9 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 255)
+  %11 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
+  %12 = tail call i32 @llvm.umin.i32(i32 %11, i32 255)
   %.sroa.4.0.insert.shift = shl nuw i32 %12, 24
   %.sroa.3.0.insert.shift = shl nuw nsw i32 %10, 16
   %.sroa.3.0.insert.insert = or disjoint i32 %.sroa.4.0.insert.shift, %.sroa.3.0.insert.shift
@@ -1634,14 +1634,14 @@ define i32 @nk_rgba_iv(ptr noundef readonly captures(none) %0) local_unnamed_add
   %6 = load i32, ptr %5, align 4, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4, !tbaa !7
-  %9 = tail call i32 @llvm.smin.i32(i32 %2, i32 255)
-  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
-  %11 = tail call i32 @llvm.smin.i32(i32 %4, i32 255)
-  %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 0)
-  %13 = tail call i32 @llvm.smin.i32(i32 %6, i32 255)
-  %14 = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
-  %15 = tail call i32 @llvm.smin.i32(i32 %8, i32 255)
-  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
+  %9 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 255)
+  %11 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
+  %12 = tail call i32 @llvm.umin.i32(i32 %11, i32 255)
+  %13 = tail call i32 @llvm.smax.i32(i32 %6, i32 0)
+  %14 = tail call i32 @llvm.umin.i32(i32 %13, i32 255)
+  %15 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
+  %16 = tail call i32 @llvm.umin.i32(i32 %15, i32 255)
   %.sroa.4.0.insert.shift.i = shl nuw i32 %16, 24
   %.sroa.3.0.insert.shift.i = shl nuw nsw i32 %14, 16
   %.sroa.3.0.insert.insert.i = or disjoint i32 %.sroa.4.0.insert.shift.i, %.sroa.3.0.insert.shift.i
@@ -1659,12 +1659,12 @@ define i32 @nk_rgba_bv(ptr noundef readonly captures(none) %0) local_unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 -16777216, 0) i32 @nk_rgb(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @llvm.smin.i32(i32 %0, i32 255)
-  %5 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
-  %6 = tail call i32 @llvm.smin.i32(i32 %1, i32 255)
-  %7 = tail call i32 @llvm.smax.i32(i32 %6, i32 0)
-  %8 = tail call i32 @llvm.smin.i32(i32 %2, i32 255)
-  %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
+  %4 = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
+  %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 255)
+  %6 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %7 = tail call i32 @llvm.umin.i32(i32 %6, i32 255)
+  %8 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 255)
   %.sroa.3.0.insert.shift = shl nuw nsw i32 %9, 16
   %.sroa.2.0.insert.shift = shl nuw nsw i32 %7, 8
   %.sroa.3.0.insert.insert = or disjoint i32 %.sroa.3.0.insert.shift, %.sroa.2.0.insert.shift
@@ -1680,12 +1680,12 @@ define range(i32 -16777216, 0) i32 @nk_rgb_iv(ptr noundef readonly captures(none
   %4 = load i32, ptr %3, align 4, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4, !tbaa !7
-  %7 = tail call i32 @llvm.smin.i32(i32 %2, i32 255)
-  %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
-  %9 = tail call i32 @llvm.smin.i32(i32 %4, i32 255)
-  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
-  %11 = tail call i32 @llvm.smin.i32(i32 %6, i32 255)
-  %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 0)
+  %7 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 255)
+  %9 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
+  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 255)
+  %11 = tail call i32 @llvm.smax.i32(i32 %6, i32 0)
+  %12 = tail call i32 @llvm.umin.i32(i32 %11, i32 255)
   %.sroa.3.0.insert.shift.i = shl nuw nsw i32 %12, 16
   %.sroa.2.0.insert.shift.i = shl nuw nsw i32 %10, 8
   %.sroa.3.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.shift.i, %.sroa.2.0.insert.shift.i
@@ -1961,12 +1961,12 @@ nk_rgb_f.exit:                                    ; preds = %2, %6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 -16777216, 0) i32 @nk_hsv(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
-  %4 = tail call i32 @llvm.smin.i32(i32 %1, i32 255)
-  %5 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
+  %4 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 255)
   %6 = uitofp nneg i32 %5 to float
   %7 = fdiv float %6, 2.550000e+02
-  %8 = tail call i32 @llvm.smin.i32(i32 %2, i32 255)
-  %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
+  %8 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 255)
   %10 = uitofp nneg i32 %9 to float
   %11 = fdiv float %10, 2.550000e+02
   %12 = fcmp ugt float %7, 0.000000e+00
@@ -1978,8 +1978,8 @@ define range(i32 -16777216, 0) i32 @nk_hsv(i32 noundef %0, i32 noundef %1, i32 n
   br label %nk_hsva.exit
 
 14:                                               ; preds = %3
-  %15 = tail call i32 @llvm.smin.i32(i32 %0, i32 255)
-  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
+  %15 = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
+  %16 = tail call i32 @llvm.umin.i32(i32 %15, i32 255)
   %17 = uitofp nneg i32 %16 to float
   %18 = fdiv float %17, 2.550000e+02
   %19 = fdiv float %18, 0x3FC5555560000000
@@ -2063,12 +2063,12 @@ nk_hsva.exit:                                     ; preds = %13, %36
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @nk_hsva(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
-  %5 = tail call i32 @llvm.smin.i32(i32 %1, i32 255)
-  %6 = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
+  %5 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 255)
   %7 = uitofp nneg i32 %6 to float
   %8 = fdiv float %7, 2.550000e+02
-  %9 = tail call i32 @llvm.smin.i32(i32 %2, i32 255)
-  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
+  %9 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 255)
   %11 = uitofp nneg i32 %10 to float
   %12 = fdiv float %11, 2.550000e+02
   %13 = fcmp ugt float %8, 0.000000e+00
@@ -2080,8 +2080,8 @@ define i32 @nk_hsva(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 
   br label %nk_hsva_f.exit
 
 15:                                               ; preds = %4
-  %16 = tail call i32 @llvm.smin.i32(i32 %0, i32 255)
-  %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 0)
+  %16 = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
+  %17 = tail call i32 @llvm.umin.i32(i32 %16, i32 255)
   %18 = uitofp nneg i32 %17 to float
   %19 = fdiv float %18, 2.550000e+02
   %20 = fdiv float %19, 0x3FC5555560000000
@@ -2131,8 +2131,8 @@ define i32 @nk_hsva(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 
 nk_hsva_f.exit:                                   ; preds = %14, %37
   %.sroa.16.8.vec.insert73.sink.i.i = phi <2 x float> [ %.sroa.16.8.vec.insert73.i.i, %37 ], [ %.sroa.0.0.vec.insert.i.i, %14 ]
   %.sroa.0.0.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert60.i.i, %37 ], [ %.sroa.0.4.vec.insert.i.i, %14 ]
-  %38 = tail call i32 @llvm.smin.i32(i32 %3, i32 255)
-  %39 = tail call i32 @llvm.smax.i32(i32 %38, i32 0)
+  %38 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
+  %39 = tail call i32 @llvm.umin.i32(i32 %38, i32 255)
   %40 = uitofp nneg i32 %39 to float
   %41 = fdiv float %40, 2.550000e+02
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.i.i, i64 0
@@ -2181,12 +2181,12 @@ define range(i32 -16777216, 0) i32 @nk_hsv_iv(ptr noundef readonly captures(none
   %3 = load i32, ptr %2, align 4, !tbaa !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !7
-  %6 = tail call i32 @llvm.smin.i32(i32 %3, i32 255)
-  %7 = tail call i32 @llvm.smax.i32(i32 %6, i32 0)
+  %6 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
+  %7 = tail call i32 @llvm.umin.i32(i32 %6, i32 255)
   %8 = uitofp nneg i32 %7 to float
   %9 = fdiv float %8, 2.550000e+02
-  %10 = tail call i32 @llvm.smin.i32(i32 %5, i32 255)
-  %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 0)
+  %10 = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
+  %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 255)
   %12 = uitofp nneg i32 %11 to float
   %13 = fdiv float %12, 2.550000e+02
   %14 = fcmp ugt float %9, 0.000000e+00
@@ -2199,8 +2199,8 @@ define range(i32 -16777216, 0) i32 @nk_hsv_iv(ptr noundef readonly captures(none
 
 16:                                               ; preds = %1
   %17 = load i32, ptr %0, align 4, !tbaa !7
-  %18 = tail call i32 @llvm.smin.i32(i32 %17, i32 255)
-  %19 = tail call i32 @llvm.smax.i32(i32 %18, i32 0)
+  %18 = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
+  %19 = tail call i32 @llvm.umin.i32(i32 %18, i32 255)
   %20 = uitofp nneg i32 %19 to float
   %21 = fdiv float %20, 2.550000e+02
   %22 = fdiv float %21, 0x3FC5555560000000
@@ -2674,12 +2674,12 @@ define i32 @nk_hsva_iv(ptr noundef readonly captures(none) %0) local_unnamed_add
   %5 = load i32, ptr %4, align 4, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4, !tbaa !7
-  %8 = tail call i32 @llvm.smin.i32(i32 %3, i32 255)
-  %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
+  %8 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
+  %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 255)
   %10 = uitofp nneg i32 %9 to float
   %11 = fdiv float %10, 2.550000e+02
-  %12 = tail call i32 @llvm.smin.i32(i32 %5, i32 255)
-  %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
+  %12 = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
+  %13 = tail call i32 @llvm.umin.i32(i32 %12, i32 255)
   %14 = uitofp nneg i32 %13 to float
   %15 = fdiv float %14, 2.550000e+02
   %16 = fcmp ugt float %11, 0.000000e+00
@@ -2692,8 +2692,8 @@ define i32 @nk_hsva_iv(ptr noundef readonly captures(none) %0) local_unnamed_add
 
 18:                                               ; preds = %1
   %19 = load i32, ptr %0, align 4, !tbaa !7
-  %20 = tail call i32 @llvm.smin.i32(i32 %19, i32 255)
-  %21 = tail call i32 @llvm.smax.i32(i32 %20, i32 0)
+  %20 = tail call i32 @llvm.smax.i32(i32 %19, i32 0)
+  %21 = tail call i32 @llvm.umin.i32(i32 %20, i32 255)
   %22 = uitofp nneg i32 %21 to float
   %23 = fdiv float %22, 2.550000e+02
   %24 = fdiv float %23, 0x3FC5555560000000
@@ -2743,8 +2743,8 @@ define i32 @nk_hsva_iv(ptr noundef readonly captures(none) %0) local_unnamed_add
 nk_hsva.exit:                                     ; preds = %17, %41
   %.sroa.16.8.vec.insert73.sink.i.i.i = phi <2 x float> [ %.sroa.16.8.vec.insert73.i.i.i, %41 ], [ %.sroa.0.0.vec.insert.i.i.i, %17 ]
   %.sroa.0.0.i.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert60.i.i.i, %41 ], [ %.sroa.0.4.vec.insert.i.i.i, %17 ]
-  %42 = tail call i32 @llvm.smin.i32(i32 %7, i32 255)
-  %43 = tail call i32 @llvm.smax.i32(i32 %42, i32 0)
+  %42 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
+  %43 = tail call i32 @llvm.umin.i32(i32 %42, i32 255)
   %44 = uitofp nneg i32 %43 to float
   %45 = fdiv float %44, 2.550000e+02
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.0.0.i.i.i, i64 0

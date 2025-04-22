@@ -19301,32 +19301,32 @@ Vec_WrdStartTruthTables.exit:                     ; preds = %..loopexit28_crit_e
   %.val55.val = load i32, ptr %52, align 4, !tbaa !58
   %53 = shl nuw i32 1, %.val61.val
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.68, i32 noundef %.val61.val, i32 noundef 0, i32 noundef %.val55.val, i32 noundef %53) #39
-  %.val5884 = load ptr, ptr %8, align 8, !tbaa !57
-  %55 = getelementptr i8, ptr %.val5884, i64 4
-  %.val58.val85 = load i32, ptr %55, align 4, !tbaa !58
-  %56 = icmp sgt i32 %.val58.val85, 0
+  %.val5883 = load ptr, ptr %8, align 8, !tbaa !57
+  %55 = getelementptr i8, ptr %.val5883, i64 4
+  %.val58.val84 = load i32, ptr %55, align 4, !tbaa !58
+  %56 = icmp sgt i32 %.val58.val84, 0
   br i1 %56, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %Abc_TtPrintBinary1.exit, %Vec_WrdStartTruthTables.exit
-  %.val5490 = load ptr, ptr %51, align 8, !tbaa !62
-  %57 = getelementptr i8, ptr %.val5490, i64 4
-  %.val54.val91 = load i32, ptr %57, align 4, !tbaa !58
-  %.not97 = icmp eq i32 %.val54.val91, 31
-  br i1 %.not97, label %._crit_edge96, label %.lr.ph95
+  %.val5489 = load ptr, ptr %51, align 8, !tbaa !62
+  %57 = getelementptr i8, ptr %.val5489, i64 4
+  %.val54.val90 = load i32, ptr %57, align 4, !tbaa !58
+  %.not96 = icmp eq i32 %.val54.val90, 31
+  br i1 %.not96, label %._crit_edge95, label %.lr.ph94
 
-.lr.ph95:                                         ; preds = %.preheader
+.lr.ph94:                                         ; preds = %.preheader
   %58 = icmp sgt i32 %47, 0
   %59 = zext i32 %47 to i64
   %60 = shl nuw nsw i64 %59, 3
   %61 = getelementptr i8, ptr %45, i64 8
   br i1 %58, label %.lr.ph.preheader.i.us, label %Abc_TtFill.exit
 
-.lr.ph.preheader.i.us:                            ; preds = %.lr.ph95, %Abc_TtPrintBinary1.exit78.us
-  %.val54.val94.us = phi i32 [ %.val54.val.us, %Abc_TtPrintBinary1.exit78.us ], [ %.val54.val91, %.lr.ph95 ]
-  %.192.us = phi i32 [ %85, %Abc_TtPrintBinary1.exit78.us ], [ 0, %.lr.ph95 ]
+.lr.ph.preheader.i.us:                            ; preds = %.lr.ph94, %Abc_TtPrintBinary1.exit77.us
+  %.val54.val93.us = phi i32 [ %.val54.val.us, %Abc_TtPrintBinary1.exit77.us ], [ %.val54.val90, %.lr.ph94 ]
+  %.191.us = phi i32 [ %85, %Abc_TtPrintBinary1.exit77.us ], [ 0, %.lr.ph94 ]
   tail call void @llvm.memset.p0.i64(ptr align 8 %50, i8 -1, i64 %60, i1 false), !tbaa !205
-  %62 = icmp sgt i32 %.val54.val94.us, 0
-  br i1 %62, label %.lr.ph89.us, label %._crit_edge.split.us.us
+  %62 = icmp sgt i32 %.val54.val93.us, 0
+  br i1 %62, label %.lr.ph88.us, label %._crit_edge.split.us.us
 
 ._crit_edge.split.us.us:                          ; preds = %Abc_TtAndCompl.exit.us.us, %.lr.ph.preheader.i.us
   %.val56.us = load ptr, ptr %8, align 8, !tbaa !57
@@ -19341,58 +19341,58 @@ Vec_WrdStartTruthTables.exit:                     ; preds = %..loopexit28_crit_e
   %70 = icmp slt i32 %67, 1
   %.not.i69.us = icmp eq i32 %.val56.val.us, 31
   %or.cond.i70.us = or i1 %.not.i69.us, %70
-  br i1 %or.cond.i70.us, label %Abc_TtPrintBinary1.exit78.us, label %.preheader.us.preheader.i71.us
+  br i1 %or.cond.i70.us, label %Abc_TtPrintBinary1.exit77.us, label %.preheader.us.preheader.i71.us
 
 .preheader.us.preheader.i71.us:                   ; preds = %._crit_edge.split.us.us
   %71 = shl nuw nsw i32 1, %.val56.val.us
   %72 = tail call i32 @llvm.umin.i32(i32 %71, i32 64)
-  br label %.preheader.us.i73.us
+  br label %.preheader.us.i72.us
 
-.preheader.us.i73.us:                             ; preds = %._crit_edge.us.i77.us, %.preheader.us.preheader.i71.us
-  %.014.us.i74.us = phi ptr [ %83, %._crit_edge.us.i77.us ], [ %50, %.preheader.us.preheader.i71.us ]
+.preheader.us.i72.us:                             ; preds = %._crit_edge.us.i76.us, %.preheader.us.preheader.i71.us
+  %.014.us.i73.us = phi ptr [ %83, %._crit_edge.us.i76.us ], [ %50, %.preheader.us.preheader.i71.us ]
   br label %73
 
-73:                                               ; preds = %73, %.preheader.us.i73.us
-  %.01213.us.i75.us = phi i32 [ 0, %.preheader.us.i73.us ], [ %82, %73 ]
-  %74 = lshr i32 %.01213.us.i75.us, 5
+73:                                               ; preds = %73, %.preheader.us.i72.us
+  %.01213.us.i74.us = phi i32 [ 0, %.preheader.us.i72.us ], [ %82, %73 ]
+  %74 = lshr i32 %.01213.us.i74.us, 5
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %.014.us.i74.us, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr %.014.us.i73.us, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !3
-  %78 = and i32 %.01213.us.i75.us, 31
+  %78 = and i32 %.01213.us.i74.us, 31
   %79 = lshr i32 %77, %78
   %80 = and i32 %79, 1
   %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.100, i32 noundef %80) #39
-  %82 = add nuw nsw i32 %.01213.us.i75.us, 1
-  %exitcond.not.i76.us = icmp eq i32 %82, %72
-  br i1 %exitcond.not.i76.us, label %._crit_edge.us.i77.us, label %73, !llvm.loop !262
+  %82 = add nuw nsw i32 %.01213.us.i74.us, 1
+  %exitcond.not.i75.us = icmp eq i32 %82, %72
+  br i1 %exitcond.not.i75.us, label %._crit_edge.us.i76.us, label %73, !llvm.loop !262
 
-._crit_edge.us.i77.us:                            ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %.014.us.i74.us, i64 8
+._crit_edge.us.i76.us:                            ; preds = %73
+  %83 = getelementptr inbounds nuw i8, ptr %.014.us.i73.us, i64 8
   %84 = icmp ult ptr %83, %69
-  br i1 %84, label %.preheader.us.i73.us, label %Abc_TtPrintBinary1.exit78.us, !llvm.loop !263
+  br i1 %84, label %.preheader.us.i72.us, label %Abc_TtPrintBinary1.exit77.us, !llvm.loop !263
 
-Abc_TtPrintBinary1.exit78.us:                     ; preds = %._crit_edge.us.i77.us, %._crit_edge.split.us.us
+Abc_TtPrintBinary1.exit77.us:                     ; preds = %._crit_edge.us.i76.us, %._crit_edge.split.us.us
   %fputc.us = tail call i32 @fputc(i32 10, ptr nonnull %3)
-  %85 = add nuw nsw i32 %.192.us, 1
+  %85 = add nuw nsw i32 %.191.us, 1
   %.val54.us = load ptr, ptr %51, align 8, !tbaa !62
   %86 = getelementptr i8, ptr %.val54.us, i64 4
   %.val54.val.us = load i32, ptr %86, align 4, !tbaa !58
   %87 = shl nuw i32 1, %.val54.val.us
   %88 = icmp slt i32 %85, %87
-  br i1 %88, label %.lr.ph.preheader.i.us, label %._crit_edge96, !llvm.loop !264
+  br i1 %88, label %.lr.ph.preheader.i.us, label %._crit_edge95, !llvm.loop !264
 
-.lr.ph89.us:                                      ; preds = %.lr.ph.preheader.i.us
+.lr.ph88.us:                                      ; preds = %.lr.ph.preheader.i.us
   %.val63.us = load ptr, ptr %61, align 8, !tbaa !161
-  %wide.trip.count = zext nneg i32 %.val54.val94.us to i64
+  %wide.trip.count = zext nneg i32 %.val54.val93.us to i64
   br label %89
 
-89:                                               ; preds = %Abc_TtAndCompl.exit.us.us, %.lr.ph89.us
-  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %Abc_TtAndCompl.exit.us.us ], [ 0, %.lr.ph89.us ]
-  %90 = mul nuw nsw i64 %indvars.iv103, %59
+89:                                               ; preds = %Abc_TtAndCompl.exit.us.us, %.lr.ph88.us
+  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %Abc_TtAndCompl.exit.us.us ], [ 0, %.lr.ph88.us ]
+  %90 = mul nuw nsw i64 %indvars.iv102, %59
   %91 = getelementptr inbounds nuw i64, ptr %.val63.us, i64 %90
-  %92 = trunc nuw nsw i64 %indvars.iv103 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv102 to i32
   %93 = shl nuw i32 1, %92
-  %94 = and i32 %93, %.192.us
+  %94 = and i32 %93, %.191.us
   %.not.i66.not.us.us = icmp eq i32 %94, 0
   br i1 %.not.i66.not.us.us, label %.lr.ph.i.us.us, label %.lr.ph42.i.us.us
 
@@ -19422,29 +19422,29 @@ Abc_TtPrintBinary1.exit78.us:                     ; preds = %._crit_edge.us.i77.
   br i1 %exitcond.not.i68.us.us, label %Abc_TtAndCompl.exit.us.us, label %.lr.ph.i.us.us, !llvm.loop !266
 
 Abc_TtAndCompl.exit.us.us:                        ; preds = %.lr.ph42.i.us.us, %.lr.ph.i.us.us
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.split.us.us, label %89, !llvm.loop !267
 
 .lr.ph:                                           ; preds = %Vec_WrdStartTruthTables.exit, %Abc_TtPrintBinary1.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Abc_TtPrintBinary1.exit ], [ 0, %Vec_WrdStartTruthTables.exit ]
-  %.val58.val87 = phi i32 [ %.val58.val, %Abc_TtPrintBinary1.exit ], [ %.val58.val85, %Vec_WrdStartTruthTables.exit ]
+  %.val58.val86 = phi i32 [ %.val58.val, %Abc_TtPrintBinary1.exit ], [ %.val58.val84, %Vec_WrdStartTruthTables.exit ]
   %106 = mul nsw i64 %indvars.iv, %48
   %.val64 = load ptr, ptr %24, align 8, !tbaa !161
   %107 = getelementptr inbounds i64, ptr %.val64, i64 %106
-  %108 = icmp slt i32 %.val58.val87, 7
-  %109 = add nsw i32 %.val58.val87, -6
+  %108 = icmp slt i32 %.val58.val86, 7
+  %109 = add nsw i32 %.val58.val86, -6
   %110 = shl nuw i32 1, %109
   %111 = select i1 %108, i32 1, i32 %110
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds i64, ptr %107, i64 %112
   %114 = icmp slt i32 %111, 1
-  %.not.i = icmp eq i32 %.val58.val87, 31
+  %.not.i = icmp eq i32 %.val58.val86, 31
   %or.cond.i = or i1 %.not.i, %114
   br i1 %or.cond.i, label %Abc_TtPrintBinary1.exit, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.lr.ph
-  %115 = shl nuw nsw i32 1, %.val58.val87
+  %115 = shl nuw nsw i32 1, %.val58.val86
   %116 = tail call i32 @llvm.umin.i32(i32 %115, i32 64)
   br label %.preheader.us.i
 
@@ -19481,8 +19481,8 @@ Abc_TtPrintBinary1.exit:                          ; preds = %._crit_edge.us.i, %
   %131 = icmp slt i64 %indvars.iv.next, %130
   br i1 %131, label %.lr.ph, label %.preheader, !llvm.loop !268
 
-Abc_TtFill.exit:                                  ; preds = %.lr.ph95, %Abc_TtPrintBinary1.exit78
-  %.192 = phi i32 [ %154, %Abc_TtPrintBinary1.exit78 ], [ 0, %.lr.ph95 ]
+Abc_TtFill.exit:                                  ; preds = %.lr.ph94, %Abc_TtPrintBinary1.exit77
+  %.191 = phi i32 [ %154, %Abc_TtPrintBinary1.exit77 ], [ 0, %.lr.ph94 ]
   %.val56 = load ptr, ptr %8, align 8, !tbaa !57
   %132 = getelementptr i8, ptr %.val56, i64 4
   %.val56.val = load i32, ptr %132, align 4, !tbaa !58
@@ -19495,59 +19495,59 @@ Abc_TtFill.exit:                                  ; preds = %.lr.ph95, %Abc_TtPr
   %139 = icmp slt i32 %136, 1
   %.not.i69 = icmp eq i32 %.val56.val, 31
   %or.cond.i70 = or i1 %.not.i69, %139
-  br i1 %or.cond.i70, label %Abc_TtPrintBinary1.exit78, label %.preheader.us.preheader.i71
+  br i1 %or.cond.i70, label %Abc_TtPrintBinary1.exit77, label %.preheader.us.preheader.i71
 
 .preheader.us.preheader.i71:                      ; preds = %Abc_TtFill.exit
   %140 = shl nuw nsw i32 1, %.val56.val
   %141 = tail call i32 @llvm.umin.i32(i32 %140, i32 64)
-  br label %.preheader.us.i73
+  br label %.preheader.us.i72
 
-.preheader.us.i73:                                ; preds = %._crit_edge.us.i77, %.preheader.us.preheader.i71
-  %.014.us.i74 = phi ptr [ %152, %._crit_edge.us.i77 ], [ %50, %.preheader.us.preheader.i71 ]
+.preheader.us.i72:                                ; preds = %._crit_edge.us.i76, %.preheader.us.preheader.i71
+  %.014.us.i73 = phi ptr [ %152, %._crit_edge.us.i76 ], [ %50, %.preheader.us.preheader.i71 ]
   br label %142
 
-142:                                              ; preds = %142, %.preheader.us.i73
-  %.01213.us.i75 = phi i32 [ 0, %.preheader.us.i73 ], [ %151, %142 ]
-  %143 = lshr i32 %.01213.us.i75, 5
+142:                                              ; preds = %142, %.preheader.us.i72
+  %.01213.us.i74 = phi i32 [ 0, %.preheader.us.i72 ], [ %151, %142 ]
+  %143 = lshr i32 %.01213.us.i74, 5
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw i32, ptr %.014.us.i74, i64 %144
+  %145 = getelementptr inbounds nuw i32, ptr %.014.us.i73, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !3
-  %147 = and i32 %.01213.us.i75, 31
+  %147 = and i32 %.01213.us.i74, 31
   %148 = lshr i32 %146, %147
   %149 = and i32 %148, 1
   %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.100, i32 noundef %149) #39
-  %151 = add nuw nsw i32 %.01213.us.i75, 1
-  %exitcond.not.i76 = icmp eq i32 %151, %141
-  br i1 %exitcond.not.i76, label %._crit_edge.us.i77, label %142, !llvm.loop !262
+  %151 = add nuw nsw i32 %.01213.us.i74, 1
+  %exitcond.not.i75 = icmp eq i32 %151, %141
+  br i1 %exitcond.not.i75, label %._crit_edge.us.i76, label %142, !llvm.loop !262
 
-._crit_edge.us.i77:                               ; preds = %142
-  %152 = getelementptr inbounds nuw i8, ptr %.014.us.i74, i64 8
+._crit_edge.us.i76:                               ; preds = %142
+  %152 = getelementptr inbounds nuw i8, ptr %.014.us.i73, i64 8
   %153 = icmp ult ptr %152, %138
-  br i1 %153, label %.preheader.us.i73, label %Abc_TtPrintBinary1.exit78, !llvm.loop !263
+  br i1 %153, label %.preheader.us.i72, label %Abc_TtPrintBinary1.exit77, !llvm.loop !263
 
-Abc_TtPrintBinary1.exit78:                        ; preds = %._crit_edge.us.i77, %Abc_TtFill.exit
+Abc_TtPrintBinary1.exit77:                        ; preds = %._crit_edge.us.i76, %Abc_TtFill.exit
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %3)
-  %154 = add nuw nsw i32 %.192, 1
+  %154 = add nuw nsw i32 %.191, 1
   %.val54 = load ptr, ptr %51, align 8, !tbaa !62
   %155 = getelementptr i8, ptr %.val54, i64 4
   %.val54.val = load i32, ptr %155, align 4, !tbaa !58
   %156 = shl nuw i32 1, %.val54.val
   %157 = icmp slt i32 %154, %156
-  br i1 %157, label %Abc_TtFill.exit, label %._crit_edge96, !llvm.loop !264
+  br i1 %157, label %Abc_TtFill.exit, label %._crit_edge95, !llvm.loop !264
 
-._crit_edge96:                                    ; preds = %Abc_TtPrintBinary1.exit78, %Abc_TtPrintBinary1.exit78.us, %.preheader
+._crit_edge95:                                    ; preds = %Abc_TtPrintBinary1.exit77, %Abc_TtPrintBinary1.exit77.us, %.preheader
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %159, label %158
 
-158:                                              ; preds = %._crit_edge96
+158:                                              ; preds = %._crit_edge95
   tail call void @free(ptr noundef nonnull %50) #39
   br label %159
 
-159:                                              ; preds = %._crit_edge96, %158
+159:                                              ; preds = %._crit_edge95, %158
   %160 = tail call i32 @fclose(ptr noundef nonnull %3)
   %161 = load ptr, ptr %24, align 8, !tbaa !161
-  %.not.i79 = icmp eq ptr %161, null
-  br i1 %.not.i79, label %Vec_WrdFree.exit, label %162
+  %.not.i78 = icmp eq ptr %161, null
+  br i1 %.not.i78, label %Vec_WrdFree.exit, label %162
 
 162:                                              ; preds = %159
   tail call void @free(ptr noundef nonnull %161) #39
@@ -19557,20 +19557,20 @@ Vec_WrdFree.exit:                                 ; preds = %159, %162
   tail call void @free(ptr noundef nonnull %16) #39
   %163 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !161
-  %.not.i80 = icmp eq ptr %164, null
-  br i1 %.not.i80, label %Vec_WrdFree.exit81, label %165
+  %.not.i79 = icmp eq ptr %164, null
+  br i1 %.not.i79, label %Vec_WrdFree.exit80, label %165
 
 165:                                              ; preds = %Vec_WrdFree.exit
   tail call void @free(ptr noundef nonnull %164) #39
-  br label %Vec_WrdFree.exit81
+  br label %Vec_WrdFree.exit80
 
-Vec_WrdFree.exit81:                               ; preds = %Vec_WrdFree.exit, %165
+Vec_WrdFree.exit80:                               ; preds = %Vec_WrdFree.exit, %165
   tail call void @free(ptr noundef nonnull %45) #39
   %166 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.69, ptr noundef %1)
   tail call void @Gia_ManWriteSol(ptr noundef nonnull %0, ptr noundef %1)
   br label %167
 
-167:                                              ; preds = %Vec_WrdFree.exit81, %5
+167:                                              ; preds = %Vec_WrdFree.exit80, %5
   ret void
 }
 

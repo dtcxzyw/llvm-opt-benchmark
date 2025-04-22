@@ -447,13 +447,13 @@ positive_int.exit480:                             ; preds = %142, %145, %147
   %166 = load i32, ptr %34, align 4
   br label %167
 
-167:                                              ; preds = %.lr.ph747, %627
-  %.0378745 = phi i32 [ %119, %.lr.ph747 ], [ %.1379, %627 ]
-  %.0384744 = phi i32 [ 0, %.lr.ph747 ], [ %.1385, %627 ]
-  %.0388743 = phi i32 [ %23, %.lr.ph747 ], [ %.2390, %627 ]
-  %.0393742 = phi ptr [ %1, %.lr.ph747 ], [ %.2395, %627 ]
-  %.0400741 = phi i32 [ 0, %.lr.ph747 ], [ %.1401, %627 ]
-  %.0740 = phi i32 [ 0, %.lr.ph747 ], [ %.1628, %627 ]
+167:                                              ; preds = %.lr.ph747, %628
+  %.0378745 = phi i32 [ %119, %.lr.ph747 ], [ %.1379, %628 ]
+  %.0384744 = phi i32 [ 0, %.lr.ph747 ], [ %.1385, %628 ]
+  %.0388743 = phi i32 [ %23, %.lr.ph747 ], [ %.2390, %628 ]
+  %.0393742 = phi ptr [ %1, %.lr.ph747 ], [ %.2395, %628 ]
+  %.0400741 = phi i32 [ 0, %.lr.ph747 ], [ %.1401, %628 ]
+  %.0740 = phi i32 [ 0, %.lr.ph747 ], [ %.1628, %628 ]
   %168 = icmp slt i32 %.0388743, 0
   br i1 %168, label %169, label %172
 
@@ -604,7 +604,7 @@ buffer_large.exit:                                ; preds = %trajcoder_base_comp
   %.1394.lcssa = phi ptr [ %.0393742, %.preheader659 ], [ %219, %buffer_large.exit ]
   %.1389.lcssa = phi i32 [ 0, %.preheader659 ], [ %220, %buffer_large.exit ]
   call fastcc void @flush_large(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %223, ptr noundef %13, i32 noundef %.2.i, ptr noundef %21, ptr noundef %12)
-  br label %627
+  br label %628
 
 .lr.ph.i:                                         ; preds = %172
   %224 = load i32, ptr %19, align 4, !tbaa !3
@@ -1408,13 +1408,13 @@ Ptngc_find_magic_index.exit558:                   ; preds = %507
   %521 = add nsw i32 %.0355, 6
   %522 = icmp slt i32 %521, %.1377
   %or.cond444 = select i1 %or.cond442, i1 true, i1 %522
-  br i1 %or.cond444, label %523, label %627
+  br i1 %or.cond444, label %523, label %628
 
 523:                                              ; preds = %515, %513
   %524 = icmp ne i32 %.0357, %.0400741
   %.not428 = icmp ne i32 %.0355, %.0378745
   %or.cond446.not = select i1 %524, i1 true, i1 %.not428
-  br i1 %or.cond446.not, label %525, label %575
+  br i1 %or.cond446.not, label %525, label %576
 
 525:                                              ; preds = %523
   %526 = sub nsw i32 %.0355, %.0378745
@@ -1486,7 +1486,7 @@ Ptngc_find_magic_index.exit558:                   ; preds = %507
   %551 = icmp eq i32 %.1340.lcssa, -1
   %552 = icmp eq i32 %.0400741, %.0357
   %or.cond448 = select i1 %551, i1 %552, i1 false
-  br i1 %or.cond448, label %575, label %553
+  br i1 %or.cond448, label %576, label %553
 
 553:                                              ; preds = %.thread, %._crit_edge717
   %554 = phi i1 [ %550, %.thread ], [ %552, %._crit_edge717 ]
@@ -1505,179 +1505,179 @@ Ptngc_find_magic_index.exit558:                   ; preds = %507
   br i1 %or.cond954, label %.critedge, label %._crit_edge957
 
 .critedge:                                        ; preds = %553, %.critedge
-  %.6956 = phi i32 [ %560, %.critedge ], [ %.5, %553 ]
-  %.4382955 = phi i32 [ %561, %.critedge ], [ %.0378745, %553 ]
-  %spec.store.select10 = call i32 @llvm.smin.i32(i32 %.6956, i32 2)
-  %spec.store.select15 = call i32 @llvm.smax.i32(i32 %spec.store.select10, i32 -2)
-  %560 = sub nsw i32 %.6956, %spec.store.select15
-  %561 = add nsw i32 %spec.store.select15, %.4382955
-  %562 = icmp slt i32 %.6956, 0
-  %563 = sub nsw i32 0, %spec.store.select15
-  %spec.select450 = select i1 %562, i32 2, i32 0
-  %spec.select451 = select i1 %562, i32 %563, i32 %spec.store.select15
-  %564 = add nsw i32 %spec.select451, -1
-  %565 = or i32 %564, %spec.select450
+  %.6956 = phi i32 [ %561, %.critedge ], [ %.5, %553 ]
+  %.4382955 = phi i32 [ %562, %.critedge ], [ %.0378745, %553 ]
+  %560 = call i32 @llvm.smax.i32(i32 %.6956, i32 -2)
+  %spec.store.select15 = call i32 @llvm.smin.i32(i32 %560, i32 2)
+  %561 = sub nsw i32 %.6956, %spec.store.select15
+  %562 = add nsw i32 %spec.store.select15, %.4382955
+  %563 = icmp slt i32 %.6956, 0
+  %564 = sub nsw i32 0, %spec.store.select15
+  %spec.select450 = select i1 %563, i32 2, i32 0
+  %spec.select451 = select i1 %563, i32 %564, i32 %spec.store.select15
+  %565 = add nsw i32 %spec.select451, -1
+  %566 = or i32 %565, %spec.select450
   call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %12) #11
-  call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef %565, i32 noundef 2, ptr noundef nonnull %12) #11
-  %566 = add i32 %560, -2
-  %or.cond9 = icmp ult i32 %566, -3
-  %567 = icmp ne i32 %560, 0
-  %568 = and i1 %556, %567
-  %or.cond = select i1 %or.cond9, i1 true, i1 %568
+  call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef %566, i32 noundef 2, ptr noundef nonnull %12) #11
+  %567 = add i32 %561, -2
+  %or.cond9 = icmp ult i32 %567, -3
+  %568 = icmp ne i32 %561, 0
+  %569 = and i1 %556, %568
+  %or.cond = select i1 %or.cond9, i1 true, i1 %569
   br i1 %or.cond, label %.critedge, label %._crit_edge957, !llvm.loop !48
 
 ._crit_edge957:                                   ; preds = %.critedge, %553
-  %.4382.lcssa = phi i32 [ %.0378745, %553 ], [ %561, %.critedge ]
-  %.6.lcssa = phi i32 [ %.5, %553 ], [ %560, %.critedge ]
-  %.lcssa946 = phi i1 [ %558, %553 ], [ %567, %.critedge ]
+  %.4382.lcssa = phi i32 [ %.0378745, %553 ], [ %562, %.critedge ]
+  %.6.lcssa = phi i32 [ %.5, %553 ], [ %561, %.critedge ]
+  %.lcssa946 = phi i1 [ %558, %553 ], [ %568, %.critedge ]
   %or.cond12 = or i1 %524, %.lcssa946
-  br i1 %or.cond12, label %569, label %575
+  br i1 %or.cond12, label %570, label %576
 
-569:                                              ; preds = %._crit_edge957
-  %570 = add nsw i32 %.6.lcssa, 1
-  %571 = mul i32 %.0357, 3
-  %572 = add i32 %571, -3
-  %spec.select452 = select i1 %556, i32 0, i32 %570
-  %573 = add i32 %572, %spec.select452
-  %574 = add nsw i32 %.6.lcssa, %.4382.lcssa
+570:                                              ; preds = %._crit_edge957
+  %571 = add nsw i32 %.6.lcssa, 1
+  %572 = mul i32 %.0357, 3
+  %573 = add i32 %572, -3
+  %spec.select452 = select i1 %556, i32 0, i32 %571
+  %574 = add i32 %573, %spec.select452
+  %575 = add nsw i32 %.6.lcssa, %.4382.lcssa
   call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %12) #11
-  call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef %573, i32 noundef 4, ptr noundef nonnull %12) #11
-  br label %575
+  call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef %574, i32 noundef 4, ptr noundef nonnull %12) #11
+  br label %576
 
-575:                                              ; preds = %._crit_edge957, %569, %._crit_edge717, %523
-  %.2402 = phi i32 [ %.0400741, %523 ], [ %.0357, %569 ], [ %.0400741, %._crit_edge957 ], [ %.0400741, %._crit_edge717 ]
-  %.2380 = phi i32 [ %.0378745, %523 ], [ %574, %569 ], [ %.4382.lcssa, %._crit_edge957 ], [ %.0378745, %._crit_edge717 ]
-  %576 = load i32, ptr %17, align 4, !tbaa !3
-  %.not429 = icmp eq i32 %576, 0
-  br i1 %.not429, label %585, label %577
+576:                                              ; preds = %._crit_edge957, %570, %._crit_edge717, %523
+  %.2402 = phi i32 [ %.0400741, %523 ], [ %.0357, %570 ], [ %.0400741, %._crit_edge957 ], [ %.0400741, %._crit_edge717 ]
+  %.2380 = phi i32 [ %.0378745, %523 ], [ %575, %570 ], [ %.4382.lcssa, %._crit_edge957 ], [ %.0378745, %._crit_edge717 ]
+  %577 = load i32, ptr %17, align 4, !tbaa !3
+  %.not429 = icmp eq i32 %577, 0
+  br i1 %.not429, label %586, label %578
 
-577:                                              ; preds = %575
-  %578 = icmp eq i32 %.2629896, 0
-  %or.cond14 = or i1 %578, %.0398898
-  br i1 %or.cond14, label %580, label %579
+578:                                              ; preds = %576
+  %579 = icmp eq i32 %.2629896, 0
+  %or.cond14 = or i1 %579, %.0398898
+  br i1 %or.cond14, label %581, label %580
 
-579:                                              ; preds = %577
-  call fastcc void @flush_large(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %576, ptr noundef %13, i32 noundef %.2.i, ptr noundef %21, ptr noundef %12)
+580:                                              ; preds = %578
+  call fastcc void @flush_large(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %577, ptr noundef %13, i32 noundef %.2.i, ptr noundef %21, ptr noundef %12)
   call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %12) #11
-  br label %586
+  br label %587
 
-580:                                              ; preds = %577
-  %581 = icmp sgt i32 %576, 1
-  br i1 %581, label %582, label %584
+581:                                              ; preds = %578
+  %582 = icmp sgt i32 %577, 1
+  br i1 %582, label %583, label %585
 
-582:                                              ; preds = %580
-  %583 = add nsw i32 %576, -1
-  call fastcc void @flush_large(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %583, ptr noundef %13, i32 noundef %.2.i, ptr noundef %21, ptr noundef %12)
-  br label %584
+583:                                              ; preds = %581
+  %584 = add nsw i32 %577, -1
+  call fastcc void @flush_large(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %584, ptr noundef %13, i32 noundef %.2.i, ptr noundef %21, ptr noundef %12)
+  br label %585
 
-584:                                              ; preds = %582, %580
+585:                                              ; preds = %583, %581
   call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %12) #11
   call fastcc void @trajcoder_base_compress(ptr noundef nonnull readonly %18, i32 noundef 3, ptr noundef nonnull readonly %13, ptr noundef nonnull %21)
   call void @Ptngc_writemanybits(ptr noundef nonnull %0, ptr noundef nonnull %21, i32 noundef %.2.i, ptr noundef nonnull %12) #11
   store i32 0, ptr %17, align 4, !tbaa !3
-  br label %586
+  br label %587
 
-585:                                              ; preds = %575
+586:                                              ; preds = %576
   call void @Ptngc_writebits(ptr noundef nonnull %0, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %12) #11
-  br label %586
+  br label %587
 
-586:                                              ; preds = %579, %584, %585
-  %587 = sext i32 %.2380 to i64
-  %588 = add nsw i32 %.2402, -1
-  %589 = sext i32 %588 to i64
-  %590 = getelementptr inbounds [92 x [8 x i32]], ptr @magic_bits, i64 0, i64 %587, i64 %589
-  %591 = load i32, ptr %590, align 4, !tbaa !3
+587:                                              ; preds = %580, %585, %586
+  %588 = sext i32 %.2380 to i64
+  %589 = add nsw i32 %.2402, -1
+  %590 = sext i32 %589 to i64
+  %591 = getelementptr inbounds [92 x [8 x i32]], ptr @magic_bits, i64 0, i64 %588, i64 %590
+  %592 = load i32, ptr %591, align 4, !tbaa !3
   store i32 %.2380, ptr %14, align 4, !tbaa !3
   store i32 %.2380, ptr %160, align 4, !tbaa !3
   store i32 %.2380, ptr %161, align 4, !tbaa !3
-  %592 = mul nsw i32 %.2402, 3
-  call fastcc void @trajcoder_base_compress(ptr noundef %20, i32 noundef %592, ptr noundef %14, ptr noundef %21)
-  call void @Ptngc_writemanybits(ptr noundef nonnull %0, ptr noundef nonnull %21, i32 noundef %591, ptr noundef nonnull %12) #11
-  %593 = icmp sgt i32 %.2402, 0
-  br i1 %593, label %.lr.ph726.preheader, label %._crit_edge727
+  %593 = mul nsw i32 %.2402, 3
+  call fastcc void @trajcoder_base_compress(ptr noundef %20, i32 noundef %593, ptr noundef %14, ptr noundef %21)
+  call void @Ptngc_writemanybits(ptr noundef nonnull %0, ptr noundef nonnull %21, i32 noundef %592, ptr noundef nonnull %12) #11
+  %594 = icmp sgt i32 %.2402, 0
+  br i1 %594, label %.lr.ph726.preheader, label %._crit_edge727
 
-.lr.ph726.preheader:                              ; preds = %586
+.lr.ph726.preheader:                              ; preds = %587
   %wide.trip.count833 = zext nneg i32 %.2402 to i64
   br label %.lr.ph726
 
 .lr.ph726:                                        ; preds = %.lr.ph726.preheader, %.lr.ph726
   %indvars.iv830 = phi i64 [ 0, %.lr.ph726.preheader ], [ %indvars.iv.next831, %.lr.ph726 ]
-  %594 = phi i32 [ %.promoted892, %.lr.ph726.preheader ], [ %605, %.lr.ph726 ]
-  %595 = phi i32 [ %.promoted720890, %.lr.ph726.preheader ], [ %614, %.lr.ph726 ]
-  %596 = phi i32 [ %.promoted722888, %.lr.ph726.preheader ], [ %623, %.lr.ph726 ]
-  %597 = mul nuw nsw i64 %indvars.iv830, 3
-  %598 = getelementptr inbounds nuw [21 x i32], ptr %20, i64 0, i64 %597
-  %599 = load i32, ptr %598, align 4, !tbaa !3
-  %600 = add nsw i32 %599, 1
-  %601 = sdiv i32 %600, 2
-  %602 = and i32 %599, 1
-  %603 = icmp eq i32 %602, 0
-  %604 = sub nsw i32 0, %601
-  %spec.select.i = select i1 %603, i32 %604, i32 %601
-  %605 = add nsw i32 %spec.select.i, %594
-  %606 = add nuw nsw i64 %597, 1
-  %607 = getelementptr inbounds nuw [21 x i32], ptr %20, i64 0, i64 %606
-  %608 = load i32, ptr %607, align 4, !tbaa !3
-  %609 = add nsw i32 %608, 1
-  %610 = sdiv i32 %609, 2
-  %611 = and i32 %608, 1
-  %612 = icmp eq i32 %611, 0
-  %613 = sub nsw i32 0, %610
-  %spec.select.i559 = select i1 %612, i32 %613, i32 %610
-  %614 = add nsw i32 %spec.select.i559, %595
-  %615 = add nuw nsw i64 %597, 2
-  %616 = getelementptr inbounds nuw [21 x i32], ptr %20, i64 0, i64 %615
-  %617 = load i32, ptr %616, align 4, !tbaa !3
-  %618 = add nsw i32 %617, 1
-  %619 = sdiv i32 %618, 2
-  %620 = and i32 %617, 1
-  %621 = icmp eq i32 %620, 0
-  %622 = sub nsw i32 0, %619
-  %spec.select.i560 = select i1 %621, i32 %622, i32 %619
-  %623 = add nsw i32 %spec.select.i560, %596
+  %595 = phi i32 [ %.promoted892, %.lr.ph726.preheader ], [ %606, %.lr.ph726 ]
+  %596 = phi i32 [ %.promoted720890, %.lr.ph726.preheader ], [ %615, %.lr.ph726 ]
+  %597 = phi i32 [ %.promoted722888, %.lr.ph726.preheader ], [ %624, %.lr.ph726 ]
+  %598 = mul nuw nsw i64 %indvars.iv830, 3
+  %599 = getelementptr inbounds nuw [21 x i32], ptr %20, i64 0, i64 %598
+  %600 = load i32, ptr %599, align 4, !tbaa !3
+  %601 = add nsw i32 %600, 1
+  %602 = sdiv i32 %601, 2
+  %603 = and i32 %600, 1
+  %604 = icmp eq i32 %603, 0
+  %605 = sub nsw i32 0, %602
+  %spec.select.i = select i1 %604, i32 %605, i32 %602
+  %606 = add nsw i32 %spec.select.i, %595
+  %607 = add nuw nsw i64 %598, 1
+  %608 = getelementptr inbounds nuw [21 x i32], ptr %20, i64 0, i64 %607
+  %609 = load i32, ptr %608, align 4, !tbaa !3
+  %610 = add nsw i32 %609, 1
+  %611 = sdiv i32 %610, 2
+  %612 = and i32 %609, 1
+  %613 = icmp eq i32 %612, 0
+  %614 = sub nsw i32 0, %611
+  %spec.select.i559 = select i1 %613, i32 %614, i32 %611
+  %615 = add nsw i32 %spec.select.i559, %596
+  %616 = add nuw nsw i64 %598, 2
+  %617 = getelementptr inbounds nuw [21 x i32], ptr %20, i64 0, i64 %616
+  %618 = load i32, ptr %617, align 4, !tbaa !3
+  %619 = add nsw i32 %618, 1
+  %620 = sdiv i32 %619, 2
+  %621 = and i32 %618, 1
+  %622 = icmp eq i32 %621, 0
+  %623 = sub nsw i32 0, %620
+  %spec.select.i560 = select i1 %622, i32 %623, i32 %620
+  %624 = add nsw i32 %spec.select.i560, %597
   %indvars.iv.next831 = add nuw nsw i64 %indvars.iv830, 1
   %exitcond834.not = icmp eq i64 %indvars.iv.next831, %wide.trip.count833
   br i1 %exitcond834.not, label %._crit_edge727, label %.lr.ph726, !llvm.loop !49
 
-._crit_edge727:                                   ; preds = %.lr.ph726, %586
-  %.lcssa723 = phi i32 [ %.promoted722888, %586 ], [ %623, %.lr.ph726 ]
-  %.lcssa721 = phi i32 [ %.promoted720890, %586 ], [ %614, %.lr.ph726 ]
-  %.lcssa719 = phi i32 [ %.promoted892, %586 ], [ %605, %.lr.ph726 ]
+._crit_edge727:                                   ; preds = %.lr.ph726, %587
+  %.lcssa723 = phi i32 [ %.promoted722888, %587 ], [ %624, %.lr.ph726 ]
+  %.lcssa721 = phi i32 [ %.promoted720890, %587 ], [ %615, %.lr.ph726 ]
+  %.lcssa719 = phi i32 [ %.promoted892, %587 ], [ %606, %.lr.ph726 ]
   store i32 %.lcssa719, ptr %19, align 4
   store i32 %.lcssa721, ptr %151, align 4
   store i32 %.lcssa723, ptr %152, align 4
-  %624 = sext i32 %592 to i64
-  %625 = getelementptr inbounds i32, ptr %.3396900, i64 %624
-  %626 = sub nsw i32 %.3391902, %.2402
-  br label %627
+  %625 = sext i32 %593 to i64
+  %626 = getelementptr inbounds i32, ptr %.3396900, i64 %625
+  %627 = sub nsw i32 %.3391902, %.2402
+  br label %628
 
-627:                                              ; preds = %._crit_edge727, %515, %._crit_edge736
+628:                                              ; preds = %._crit_edge727, %515, %._crit_edge736
   %.1628 = phi i32 [ %.0740, %._crit_edge736 ], [ %.2629896, %._crit_edge727 ], [ %.2629896, %515 ]
   %.1401 = phi i32 [ %.0400741, %._crit_edge736 ], [ %.2402, %._crit_edge727 ], [ %.0400741, %515 ]
-  %.2395 = phi ptr [ %.1394.lcssa, %._crit_edge736 ], [ %625, %._crit_edge727 ], [ %.3396900, %515 ]
-  %.2390 = phi i32 [ %.1389.lcssa, %._crit_edge736 ], [ %626, %._crit_edge727 ], [ %.3391902, %515 ]
+  %.2395 = phi ptr [ %.1394.lcssa, %._crit_edge736 ], [ %626, %._crit_edge727 ], [ %.3396900, %515 ]
+  %.2390 = phi i32 [ %.1389.lcssa, %._crit_edge736 ], [ %627, %._crit_edge727 ], [ %.3391902, %515 ]
   %.1385 = phi i32 [ %.0384744, %._crit_edge736 ], [ 0, %._crit_edge727 ], [ 1, %515 ]
   %.1379 = phi i32 [ %.0378745, %._crit_edge736 ], [ %.2380, %._crit_edge727 ], [ %.0378745, %515 ]
   %.not = icmp eq i32 %.2390, 0
   br i1 %.not, label %._crit_edge748, label %167, !llvm.loop !50
 
-._crit_edge748:                                   ; preds = %627
+._crit_edge748:                                   ; preds = %628
   %.pre850 = load i32, ptr %17, align 4, !tbaa !3
   %.not421 = icmp eq i32 %.pre850, 0
-  br i1 %.not421, label %._crit_edge748.thread, label %628
+  br i1 %.not421, label %._crit_edge748.thread, label %629
 
-628:                                              ; preds = %._crit_edge748
+629:                                              ; preds = %._crit_edge748
   call fastcc void @flush_large(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %.pre850, ptr noundef %13, i32 noundef %.2.i, ptr noundef %21, ptr noundef %12)
   br label %._crit_edge748.thread
 
-._crit_edge748.thread:                            ; preds = %positive_int.exit480, %628, %._crit_edge748
+._crit_edge748.thread:                            ; preds = %positive_int.exit480, %629, %._crit_edge748
   call void @Ptngc_pack_flush(ptr noundef nonnull %0, ptr noundef nonnull %12) #11
-  %629 = load ptr, ptr %12, align 8, !tbaa !9
-  %630 = ptrtoint ptr %629 to i64
-  %631 = ptrtoint ptr %26 to i64
-  %632 = sub i64 %630, %631
-  %633 = trunc i64 %632 to i32
-  store i32 %633, ptr %2, align 4, !tbaa !3
+  %630 = load ptr, ptr %12, align 8, !tbaa !9
+  %631 = ptrtoint ptr %630 to i64
+  %632 = ptrtoint ptr %26 to i64
+  %633 = sub i64 %631, %632
+  %634 = trunc i64 %633 to i32
+  store i32 %634, ptr %2, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %21) #11
   call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %20) #11
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %19) #11

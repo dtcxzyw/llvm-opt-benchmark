@@ -8776,32 +8776,32 @@ _Z32ImParseFormatSanitizeForScanningPKcPcm.exit:  ; preds = %58, %24, %_Z20ImPar
 
 67:                                               ; preds = %66
   %68 = load i32, ptr %8, align 4, !tbaa !176
-  %69 = call i32 @llvm.smin.i32(i32 %68, i32 127)
-  %70 = call i32 @llvm.smax.i32(i32 %69, i32 -128)
+  %69 = call i32 @llvm.smax.i32(i32 %68, i32 -128)
+  %70 = call i32 @llvm.smin.i32(i32 %69, i32 127)
   %71 = trunc nsw i32 %70 to i8
   store i8 %71, ptr %2, align 1, !tbaa !338
   br label %87
 
 72:                                               ; preds = %66
   %73 = load i32, ptr %8, align 4, !tbaa !176
-  %74 = call i32 @llvm.smin.i32(i32 %73, i32 255)
-  %75 = call i32 @llvm.smax.i32(i32 %74, i32 0)
+  %74 = call i32 @llvm.smax.i32(i32 %73, i32 0)
+  %75 = call i32 @llvm.umin.i32(i32 %74, i32 255)
   %76 = trunc nuw i32 %75 to i8
   store i8 %76, ptr %2, align 1, !tbaa !338
   br label %87
 
 77:                                               ; preds = %66
   %78 = load i32, ptr %8, align 4, !tbaa !176
-  %79 = call i32 @llvm.smin.i32(i32 %78, i32 32767)
-  %80 = call i32 @llvm.smax.i32(i32 %79, i32 -32768)
+  %79 = call i32 @llvm.smax.i32(i32 %78, i32 -32768)
+  %80 = call i32 @llvm.smin.i32(i32 %79, i32 32767)
   %81 = trunc nsw i32 %80 to i16
   store i16 %81, ptr %2, align 2, !tbaa !189
   br label %87
 
 82:                                               ; preds = %66
   %83 = load i32, ptr %8, align 4, !tbaa !176
-  %84 = call i32 @llvm.smin.i32(i32 %83, i32 65535)
-  %85 = call i32 @llvm.smax.i32(i32 %84, i32 0)
+  %84 = call i32 @llvm.smax.i32(i32 %83, i32 0)
+  %85 = call i32 @llvm.umin.i32(i32 %84, i32 65535)
   %86 = trunc nuw i32 %85 to i16
   store i16 %86, ptr %2, align 2, !tbaa !189
   br label %87
@@ -27824,17 +27824,17 @@ _ZL18ColorEditRestoreHSPKfPfS1_S1_.exit:          ; preds = %142, %139, %.crited
 
 250:                                              ; preds = %248
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %13) #43
-  %251 = call i32 @llvm.smin.i32(i32 %150, i32 255)
-  %252 = call i32 @llvm.smax.i32(i32 %251, i32 0)
-  %253 = call i32 @llvm.smin.i32(i32 %157, i32 255)
-  %254 = call i32 @llvm.smax.i32(i32 %253, i32 0)
-  %255 = call i32 @llvm.smin.i32(i32 %164, i32 255)
-  %256 = call i32 @llvm.smax.i32(i32 %255, i32 0)
+  %251 = call i32 @llvm.smax.i32(i32 %150, i32 0)
+  %252 = call i32 @llvm.umin.i32(i32 %251, i32 255)
+  %253 = call i32 @llvm.smax.i32(i32 %157, i32 0)
+  %254 = call i32 @llvm.umin.i32(i32 %253, i32 255)
+  %255 = call i32 @llvm.smax.i32(i32 %164, i32 0)
+  %256 = call i32 @llvm.umin.i32(i32 %255, i32 255)
   br i1 %79, label %257, label %261
 
 257:                                              ; preds = %250
-  %258 = call i32 @llvm.smin.i32(i32 %171, i32 255)
-  %259 = call i32 @llvm.smax.i32(i32 %258, i32 0)
+  %258 = call i32 @llvm.smax.i32(i32 %171, i32 0)
+  %259 = call i32 @llvm.umin.i32(i32 %258, i32 255)
   %260 = call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %13, i64 noundef 64, ptr noundef nonnull @.str.55, i32 noundef %252, i32 noundef %254, i32 noundef %256, i32 noundef %259)
   br label %263
 

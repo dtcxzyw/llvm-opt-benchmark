@@ -5412,8 +5412,8 @@ define void @Gia_ManSifPrintTimes(ptr noundef readonly captures(none) %0, ptr no
   %21 = zext i1 %20 to i32
   %22 = add i32 %18, -65536
   %23 = add i32 %22, %21
-  %24 = tail call range(i32 -2147483648, 536870913) i32 @llvm.smin.i32(i32 %23, i32 255)
-  %25 = tail call noundef i32 @llvm.smax.i32(i32 %24, i32 -255)
+  %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 -255)
+  %25 = tail call i32 @llvm.smin.i32(i32 %24, i32 255)
   %26 = icmp sgt i32 %23, -1
   %27 = sub nsw i32 0, %25
   %.sink = select i1 %26, i32 %25, i32 %27

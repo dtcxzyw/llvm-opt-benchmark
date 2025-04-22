@@ -799,21 +799,21 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %158 = shl nuw nsw i64 %indvars.iv, 1
   %159 = getelementptr inbounds nuw <2 x i64>, ptr %154, i64 %158
   %160 = load <8 x i16>, ptr %159, align 16
-  %161 = call <8 x i16> @llvm.smin.v8i16(<8 x i16> %160, <8 x i16> splat (i16 127))
-  %162 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %161, <8 x i16> zeroinitializer)
+  %161 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %160, <8 x i16> zeroinitializer)
+  %162 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %161, <8 x i16> splat (i16 127))
   %163 = or disjoint i64 %158, 1
   %164 = getelementptr inbounds nuw <2 x i64>, ptr %154, i64 %163
   %165 = load <8 x i16>, ptr %164, align 16
-  %166 = call <8 x i16> @llvm.smin.v8i16(<8 x i16> %165, <8 x i16> splat (i16 127))
-  %167 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %166, <8 x i16> zeroinitializer)
+  %166 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %165, <8 x i16> zeroinitializer)
+  %167 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %166, <8 x i16> splat (i16 127))
   %168 = getelementptr inbounds nuw <2 x i64>, ptr %155, i64 %158
   %169 = load <8 x i16>, ptr %168, align 16
-  %170 = call <8 x i16> @llvm.smin.v8i16(<8 x i16> %169, <8 x i16> splat (i16 127))
-  %171 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %170, <8 x i16> zeroinitializer)
+  %170 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %169, <8 x i16> zeroinitializer)
+  %171 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %170, <8 x i16> splat (i16 127))
   %172 = getelementptr inbounds nuw <2 x i64>, ptr %155, i64 %163
   %173 = load <8 x i16>, ptr %172, align 16
-  %174 = call <8 x i16> @llvm.smin.v8i16(<8 x i16> %173, <8 x i16> splat (i16 127))
-  %175 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %174, <8 x i16> zeroinitializer)
+  %174 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %173, <8 x i16> zeroinitializer)
+  %175 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %174, <8 x i16> splat (i16 127))
   %176 = mul nuw nsw <8 x i16> %171, %162
   %177 = mul nuw nsw <8 x i16> %175, %167
   %178 = lshr <8 x i16> %176, splat (i16 7)
@@ -1423,21 +1423,21 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumula
   %154 = shl nuw nsw i64 %indvars.iv, 1
   %155 = getelementptr inbounds nuw <2 x i64>, ptr %150, i64 %154
   %156 = load <8 x i16>, ptr %155, align 16
-  %157 = call <8 x i16> @llvm.smin.v8i16(<8 x i16> %156, <8 x i16> splat (i16 127))
-  %158 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %157, <8 x i16> zeroinitializer)
+  %157 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %156, <8 x i16> zeroinitializer)
+  %158 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %157, <8 x i16> splat (i16 127))
   %159 = or disjoint i64 %154, 1
   %160 = getelementptr inbounds nuw <2 x i64>, ptr %150, i64 %159
   %161 = load <8 x i16>, ptr %160, align 16
-  %162 = call <8 x i16> @llvm.smin.v8i16(<8 x i16> %161, <8 x i16> splat (i16 127))
-  %163 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %162, <8 x i16> zeroinitializer)
+  %162 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %161, <8 x i16> zeroinitializer)
+  %163 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %162, <8 x i16> splat (i16 127))
   %164 = getelementptr inbounds nuw <2 x i64>, ptr %151, i64 %154
   %165 = load <8 x i16>, ptr %164, align 16
-  %166 = call <8 x i16> @llvm.smin.v8i16(<8 x i16> %165, <8 x i16> splat (i16 127))
-  %167 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %166, <8 x i16> zeroinitializer)
+  %166 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %165, <8 x i16> zeroinitializer)
+  %167 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %166, <8 x i16> splat (i16 127))
   %168 = getelementptr inbounds nuw <2 x i64>, ptr %151, i64 %159
   %169 = load <8 x i16>, ptr %168, align 16
-  %170 = call <8 x i16> @llvm.smin.v8i16(<8 x i16> %169, <8 x i16> splat (i16 127))
-  %171 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %170, <8 x i16> zeroinitializer)
+  %170 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %169, <8 x i16> zeroinitializer)
+  %171 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %170, <8 x i16> splat (i16 127))
   %172 = mul nuw nsw <8 x i16> %167, %158
   %173 = mul nuw nsw <8 x i16> %171, %163
   %174 = lshr <8 x i16> %172, splat (i16 7)
@@ -8619,9 +8619,6 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <8 x i16> @llvm.smax.v8i16(<8 x i16>, <8 x i16>) #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <8 x i16> @llvm.smin.v8i16(<8 x i16>, <8 x i16>) #4
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16>, <8 x i16>) #9
 
@@ -9608,11 +9605,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <8 x i16> @llvm.umin.v8i16(<8 x i16>, <8 x i16>) #13
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #13
+declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #14
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9627,8 +9627,8 @@ attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn nounwind }
 

@@ -5390,8 +5390,8 @@ ic_get_env.exit.thread8:                          ; preds = %1, %ic_get_env.exit
   %8 = phi ptr [ %.pre.i, %ic_get_env.exit ], [ %2, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load i64, ptr %9, align 8, !tbaa !163
-  %11 = tail call i64 @llvm.smin.i64(i64 %0, i64 5000)
-  %12 = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
+  %11 = tail call i64 @llvm.smax.i64(i64 %0, i64 0)
+  %12 = tail call i64 @llvm.umin.i64(i64 %11, i64 5000)
   store i64 %12, ptr %9, align 8, !tbaa !163
   br label %ic_get_env.exit.thread
 
@@ -5426,12 +5426,12 @@ ic_get_env.exit.thread5:                          ; preds = %2, %ic_get_env.exit
   br i1 %12, label %ic_get_env.exit.thread, label %13
 
 13:                                               ; preds = %ic_get_env.exit.thread5
-  %14 = tail call i64 @llvm.smin.i64(i64 %0, i64 1000)
-  %15 = tail call i64 @llvm.smax.i64(i64 %14, i64 0)
+  %14 = tail call i64 @llvm.smax.i64(i64 %0, i64 0)
+  %15 = tail call i64 @llvm.umin.i64(i64 %14, i64 1000)
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 192
   store i64 %15, ptr %16, align 8, !tbaa !164
-  %17 = tail call i64 @llvm.smin.i64(i64 %1, i64 1000)
-  %18 = tail call i64 @llvm.smax.i64(i64 %17, i64 0)
+  %17 = tail call i64 @llvm.smax.i64(i64 %1, i64 0)
+  %18 = tail call i64 @llvm.umin.i64(i64 %17, i64 1000)
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 200
   store i64 %18, ptr %19, align 8, !tbaa !165
   br label %ic_get_env.exit.thread
@@ -9430,15 +9430,15 @@ color_from_ansi256.exit:                          ; preds = %100, %105, %108
   %133 = load i64, ptr %6, align 8, !tbaa !57
   %134 = load i64, ptr %7, align 8, !tbaa !57
   %135 = load i64, ptr %8, align 8, !tbaa !57
-  %136 = call i64 @llvm.smin.i64(i64 %133, i64 255)
-  %137 = call i64 @llvm.smax.i64(i64 %136, i64 0)
+  %136 = call i64 @llvm.smax.i64(i64 %133, i64 0)
+  %137 = call i64 @llvm.umin.i64(i64 %136, i64 255)
   %138 = shl nuw nsw i64 %137, 16
-  %139 = call i64 @llvm.smin.i64(i64 %134, i64 255)
-  %140 = call i64 @llvm.smax.i64(i64 %139, i64 0)
+  %139 = call i64 @llvm.smax.i64(i64 %134, i64 0)
+  %140 = call i64 @llvm.umin.i64(i64 %139, i64 255)
   %141 = shl nuw nsw i64 %140, 8
   %142 = or disjoint i64 %141, %138
-  %143 = call i64 @llvm.smin.i64(i64 %135, i64 255)
-  %144 = call i64 @llvm.smax.i64(i64 %143, i64 0)
+  %143 = call i64 @llvm.smax.i64(i64 %135, i64 0)
+  %144 = call i64 @llvm.umin.i64(i64 %143, i64 255)
   %145 = or disjoint i64 %142, %144
   %146 = or disjoint i64 %145, 16777216
   %147 = load i64, ptr %4, align 8, !tbaa !57

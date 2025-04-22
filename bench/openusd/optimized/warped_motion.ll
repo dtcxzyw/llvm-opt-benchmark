@@ -17,13 +17,13 @@ define hidden range(i32 0, 2) i32 @av1_get_shear_params(ptr noundef captures(non
   br i1 %3, label %137, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @llvm.umin.i32(i32 %.val, i32 98303)
-  %6 = tail call i32 @llvm.umax.i32(i32 %5, i32 32768)
+  %5 = tail call i32 @llvm.umax.i32(i32 %.val, i32 32768)
+  %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 98303)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = tail call i32 @llvm.smin.i32(i32 %9, i32 32767)
-  %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 -32768)
+  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 -32768)
+  %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 32767)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 0, -2147483648) %.val, i1 true)
   %14 = xor i32 %13, 31
@@ -78,8 +78,8 @@ resolve_divisor_32.exit:                          ; preds = %17, %23
 48:                                               ; preds = %45, %41
   %49 = phi i64 [ %44, %41 ], [ %47, %45 ]
   %50 = trunc i64 %49 to i32
-  %51 = tail call i32 @llvm.smin.i32(i32 %50, i32 32767)
-  %52 = tail call i32 @llvm.smax.i32(i32 %51, i32 -32768)
+  %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 -32768)
+  %52 = tail call i32 @llvm.smin.i32(i32 %51, i32 32767)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %54 = sext i32 %9 to i64
   %55 = mul nsw i64 %35, %54
@@ -107,8 +107,8 @@ resolve_divisor_32.exit:                          ; preds = %17, %23
   %71 = phi i64 [ %66, %63 ], [ %69, %67 ]
   %72 = trunc i64 %71 to i32
   %73 = sub nsw i32 %58, %72
-  %74 = tail call i32 @llvm.smin.i32(i32 %73, i32 98303)
-  %75 = tail call i32 @llvm.smax.i32(i32 %74, i32 32768)
+  %74 = tail call i32 @llvm.smax.i32(i32 %73, i32 32768)
+  %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 98303)
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %sext = shl i32 %6, 16
   %77 = ashr exact i32 %sext, 16
@@ -1843,8 +1843,8 @@ resolve_divisor_64.exit.i:                        ; preds = %133, %123
 
 get_mult_shift_diag.exit.i:                       ; preds = %171, %167
   %174 = phi i64 [ %170, %167 ], [ %173, %171 ]
-  %175 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775807, -9223372036854775808) %174, i64 73727)
-  %176 = tail call i64 @llvm.smax.i64(i64 %175, i64 57345)
+  %175 = tail call i64 @llvm.smax.i64(i64 %174, i64 57345)
+  %176 = tail call i64 @llvm.umin.i64(i64 %175, i64 73727)
   %177 = trunc nuw nsw i64 %176 to i32
   %178 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %177, ptr %178, align 4
@@ -1865,8 +1865,8 @@ get_mult_shift_diag.exit.i:                       ; preds = %171, %167
 
 get_mult_shift_ndiag.exit.i:                      ; preds = %185, %181
   %188 = phi i64 [ %184, %181 ], [ %187, %185 ]
-  %189 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775807, -9223372036854775808) %188, i64 8191)
-  %190 = tail call i64 @llvm.smax.i64(i64 %189, i64 -8191)
+  %189 = tail call i64 @llvm.smax.i64(i64 %188, i64 -8191)
+  %190 = tail call i64 @llvm.smin.i64(i64 %189, i64 8191)
   %191 = trunc nsw i64 %190 to i32
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %191, ptr %192, align 4
@@ -1887,8 +1887,8 @@ get_mult_shift_ndiag.exit.i:                      ; preds = %185, %181
 
 get_mult_shift_ndiag.exit131.i:                   ; preds = %199, %195
   %202 = phi i64 [ %198, %195 ], [ %201, %199 ]
-  %203 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775807, -9223372036854775808) %202, i64 8191)
-  %204 = tail call i64 @llvm.smax.i64(i64 %203, i64 -8191)
+  %203 = tail call i64 @llvm.smax.i64(i64 %202, i64 -8191)
+  %204 = tail call i64 @llvm.smin.i64(i64 %203, i64 8191)
   %205 = trunc nsw i64 %204 to i32
   %206 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %205, ptr %206, align 4
@@ -1909,8 +1909,8 @@ get_mult_shift_ndiag.exit131.i:                   ; preds = %199, %195
 
 216:                                              ; preds = %209, %213
   %217 = phi i64 [ %212, %209 ], [ %215, %213 ]
-  %218 = tail call i64 @llvm.smin.i64(i64 range(i64 -9223372036854775807, -9223372036854775808) %217, i64 73727)
-  %219 = tail call i64 @llvm.smax.i64(i64 %218, i64 57345)
+  %218 = tail call i64 @llvm.smax.i64(i64 %217, i64 57345)
+  %219 = tail call i64 @llvm.umin.i64(i64 %218, i64 73727)
   %220 = trunc nuw nsw i64 %219 to i32
   %221 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %220, ptr %221, align 4
@@ -1930,11 +1930,11 @@ get_mult_shift_ndiag.exit131.i:                   ; preds = %199, %195
   %.neg140.neg.i = mul i32 %.neg.i, %223
   %reass.add142.neg.i = sub i32 %228, %.neg139.i
   %229 = add i32 %reass.add142.neg.i, %.neg140.neg.i
-  %230 = tail call i32 @llvm.smin.i32(i32 %227, i32 8388607)
-  %231 = tail call i32 @llvm.smax.i32(i32 %230, i32 -8388608)
+  %230 = tail call i32 @llvm.smax.i32(i32 %227, i32 -8388608)
+  %231 = tail call i32 @llvm.smin.i32(i32 %230, i32 8388607)
   store i32 %231, ptr %6, align 4
-  %232 = tail call i32 @llvm.smin.i32(i32 %229, i32 8388607)
-  %233 = tail call i32 @llvm.smax.i32(i32 %232, i32 -8388608)
+  %232 = tail call i32 @llvm.smax.i32(i32 %229, i32 -8388608)
+  %233 = tail call i32 @llvm.smin.i32(i32 %232, i32 8388607)
   %234 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %233, ptr %234, align 4
   %235 = getelementptr inbounds nuw i8, ptr %6, i64 28
@@ -1969,13 +1969,16 @@ declare i32 @llvm.smax.i32(i32, i32) #6
 declare i64 @llvm.smin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.usub.sat.i16(i16, i16) #6

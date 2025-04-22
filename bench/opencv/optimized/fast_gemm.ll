@@ -1459,8 +1459,8 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.thread: ; preds =
 .preheader70.us.i:                                ; preds = %._crit_edge.us.i, %.preheader70.lr.ph.i
   %indvars.iv28 = phi i32 [ %indvars.iv.next29, %._crit_edge.us.i ], [ %., %.preheader70.lr.ph.i ]
   %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %._crit_edge.us.i ], [ 0, %.preheader70.lr.ph.i ]
-  %332 = tail call i32 @llvm.smin.i32(i32 %indvars.iv28, i32 8)
-  %333 = tail call i32 @llvm.smax.i32(i32 %332, i32 1)
+  %332 = tail call i32 @llvm.smax.i32(i32 %indvars.iv28, i32 1)
+  %333 = tail call i32 @llvm.umin.i32(i32 %332, i32 8)
   %smax32 = zext nneg i32 %333 to i64
   %334 = trunc nuw nsw i64 %indvars.iv91.i to i32
   %factor.op.mul.reass.us.i = mul i32 %factor.op.mul76.i, %334
@@ -2246,8 +2246,8 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %.loope
 .preheader70.us.i:                                ; preds = %._crit_edge.us.i, %.preheader70.us.preheader.i
   %indvars.iv26 = phi i32 [ %indvars.iv.next27, %._crit_edge.us.i ], [ %., %.preheader70.us.preheader.i ]
   %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %._crit_edge.us.i ], [ 0, %.preheader70.us.preheader.i ]
-  %219 = tail call i32 @llvm.smin.i32(i32 %indvars.iv26, i32 8)
-  %220 = tail call i32 @llvm.smax.i32(i32 %219, i32 1)
+  %219 = tail call i32 @llvm.smax.i32(i32 %indvars.iv26, i32 1)
+  %220 = tail call i32 @llvm.umin.i32(i32 %219, i32 8)
   %smax30 = zext nneg i32 %220 to i64
   %221 = trunc nuw nsw i64 %indvars.iv91.i to i32
   %factor.op.mul.reass.us.i = mul i32 %factor.op.mul76.i, %221
@@ -6366,8 +6366,8 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.thread: ; preds =
 .preheader70.us.i:                                ; preds = %._crit_edge.us.i, %.preheader70.lr.ph.i
   %indvars.iv28 = phi i32 [ %indvars.iv.next29, %._crit_edge.us.i ], [ %., %.preheader70.lr.ph.i ]
   %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %._crit_edge.us.i ], [ 0, %.preheader70.lr.ph.i ]
-  %360 = tail call i32 @llvm.smin.i32(i32 %indvars.iv28, i32 8)
-  %361 = tail call i32 @llvm.smax.i32(i32 %360, i32 1)
+  %360 = tail call i32 @llvm.smax.i32(i32 %indvars.iv28, i32 1)
+  %361 = tail call i32 @llvm.umin.i32(i32 %360, i32 8)
   %smax32 = zext nneg i32 %361 to i64
   %362 = trunc nuw nsw i64 %indvars.iv91.i to i32
   %factor.op.mul.reass.us.i = mul i32 %factor.op.mul76.i, %362
@@ -7027,8 +7027,8 @@ _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %.loope
 .preheader70.us.i:                                ; preds = %._crit_edge.us.i, %.preheader70.us.preheader.i
   %indvars.iv26 = phi i32 [ %indvars.iv.next27, %._crit_edge.us.i ], [ %., %.preheader70.us.preheader.i ]
   %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %._crit_edge.us.i ], [ 0, %.preheader70.us.preheader.i ]
-  %247 = tail call i32 @llvm.smin.i32(i32 %indvars.iv26, i32 8)
-  %248 = tail call i32 @llvm.smax.i32(i32 %247, i32 1)
+  %247 = tail call i32 @llvm.smax.i32(i32 %indvars.iv26, i32 1)
+  %248 = tail call i32 @llvm.umin.i32(i32 %247, i32 8)
   %smax30 = zext nneg i32 %248 to i64
   %249 = trunc nuw nsw i64 %indvars.iv91.i to i32
   %factor.op.mul.reass.us.i = mul i32 %factor.op.mul76.i, %249
@@ -7321,6 +7321,9 @@ declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23

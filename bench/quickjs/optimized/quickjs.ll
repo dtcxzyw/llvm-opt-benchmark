@@ -80328,17 +80328,17 @@ define internal fastcc range(i32 -1, 1) i32 @JS_ToUint8ClampFree(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #41
   br label %7
 
-7:                                                ; preds = %41, %4
-  %8 = phi i64 [ %2, %4 ], [ %43, %41 ]
-  %.sroa.8.0 = phi i64 [ %3, %4 ], [ %44, %41 ]
+7:                                                ; preds = %43, %4
+  %8 = phi i64 [ %2, %4 ], [ %45, %43 ]
+  %.sroa.8.0 = phi i64 [ %3, %4 ], [ %46, %43 ]
   %9 = trunc i64 %.sroa.8.0 to i32
-  switch i32 %9, label %41 [
+  switch i32 %9, label %43 [
     i32 0, label %10
     i32 1, label %10
     i32 2, label %10
     i32 3, label %10
-    i32 7, label %13
-    i32 -9, label %19
+    i32 7, label %15
+    i32 -9, label %21
   ]
 
 10:                                               ; preds = %7, %7, %7, %7
@@ -80347,81 +80347,81 @@ define internal fastcc range(i32 -1, 1) i32 @JS_ToUint8ClampFree(ptr noundef %0,
 
 11:                                               ; preds = %JS_FreeValue.exit, %10
   %12 = phi i32 [ %.pre, %JS_FreeValue.exit ], [ %.sroa.015.sroa.0.0.extract.trunc43, %10 ]
-  %..i = call noundef i32 @llvm.smin.i32(i32 %12, i32 255)
-  %..i27 = call noundef i32 @llvm.smax.i32(i32 %..i, i32 0)
+  %13 = call i32 @llvm.smax.i32(i32 %12, i32 0)
+  %14 = call i32 @llvm.umin.i32(i32 %13, i32 255)
   br label %.loopexit
 
-13:                                               ; preds = %7
+15:                                               ; preds = %7
   %.sroa.015.0..sroa.015.0..sroa.015.0..cast = bitcast i64 %8 to double
   %or.cond = fcmp ult double %.sroa.015.0..sroa.015.0..sroa.015.0..cast, 0.000000e+00
-  br i1 %or.cond, label %.loopexit, label %14
+  br i1 %or.cond, label %.loopexit, label %16
 
-14:                                               ; preds = %13
-  %15 = fcmp ogt double %.sroa.015.0..sroa.015.0..sroa.015.0..cast, 2.550000e+02
-  br i1 %15, label %.loopexit, label %16
+16:                                               ; preds = %15
+  %17 = fcmp ogt double %.sroa.015.0..sroa.015.0..sroa.015.0..cast, 2.550000e+02
+  br i1 %17, label %.loopexit, label %18
 
-16:                                               ; preds = %14
-  %17 = tail call i64 @lrint(double noundef %.sroa.015.0..sroa.015.0..sroa.015.0..cast) #41, !tbaa !67
-  %18 = trunc i64 %17 to i32
+18:                                               ; preds = %16
+  %19 = tail call i64 @lrint(double noundef %.sroa.015.0..sroa.015.0..sroa.015.0..cast) #41, !tbaa !67
+  %20 = trunc i64 %19 to i32
   br label %.loopexit
 
-19:                                               ; preds = %7
+21:                                               ; preds = %7
   %.sroa.015.0..sroa.015.0..sroa.015.0.16.cast = inttoptr i64 %8 to ptr
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #41
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %21 = load ptr, ptr %20, align 8, !tbaa !201
-  call void @bf_init(ptr noundef %21, ptr noundef nonnull %6) #41
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.015.0..sroa.015.0..sroa.015.0.16.cast, i64 8
-  %23 = call i32 @bf_set(ptr noundef nonnull %6, ptr noundef nonnull %22) #41
-  %24 = call i32 @bf_rint(ptr noundef nonnull %6, i32 noundef 0) #41
-  %25 = call i32 @bf_get_int32(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0) #41
-  %26 = load ptr, ptr %6, align 8, !tbaa !272
-  %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %33, label %27
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %23 = load ptr, ptr %22, align 8, !tbaa !201
+  call void @bf_init(ptr noundef %23, ptr noundef nonnull %6) #41
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.015.0..sroa.015.0..sroa.015.0.16.cast, i64 8
+  %25 = call i32 @bf_set(ptr noundef nonnull %6, ptr noundef nonnull %24) #41
+  %26 = call i32 @bf_rint(ptr noundef nonnull %6, i32 noundef 0) #41
+  %27 = call i32 @bf_get_int32(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 0) #41
+  %28 = load ptr, ptr %6, align 8, !tbaa !272
+  %.not.i = icmp eq ptr %28, null
+  br i1 %.not.i, label %35, label %29
 
-27:                                               ; preds = %19
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !273
-  %.not6.i = icmp eq ptr %29, null
-  br i1 %.not6.i, label %33, label %30
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %31 = load ptr, ptr %30, align 8, !tbaa !273
+  %.not6.i = icmp eq ptr %31, null
+  br i1 %.not6.i, label %35, label %32
 
-30:                                               ; preds = %27
-  %.val.i = load ptr, ptr %26, align 8, !tbaa !274
-  %31 = getelementptr i8, ptr %26, i64 8
-  %.val7.i = load ptr, ptr %31, align 8, !tbaa !275
-  %32 = call ptr %.val7.i(ptr noundef %.val.i, ptr noundef nonnull %29, i64 noundef 0) #41
-  br label %33
+32:                                               ; preds = %29
+  %.val.i = load ptr, ptr %28, align 8, !tbaa !274
+  %33 = getelementptr i8, ptr %28, i64 8
+  %.val7.i = load ptr, ptr %33, align 8, !tbaa !275
+  %34 = call ptr %.val7.i(ptr noundef %.val.i, ptr noundef nonnull %31, i64 noundef 0) #41
+  br label %35
 
-33:                                               ; preds = %30, %27, %19
-  %34 = inttoptr i64 %8 to ptr
-  %35 = load i32, ptr %34, align 4, !tbaa !107
-  %36 = add i32 %35, -1
-  store i32 %36, ptr %34, align 4, !tbaa !107
-  %37 = icmp slt i32 %36, 1
-  br i1 %37, label %38, label %JS_FreeValue.exit
+35:                                               ; preds = %32, %29, %21
+  %36 = inttoptr i64 %8 to ptr
+  %37 = load i32, ptr %36, align 4, !tbaa !107
+  %38 = add i32 %37, -1
+  store i32 %38, ptr %36, align 4, !tbaa !107
+  %39 = icmp slt i32 %38, 1
+  br i1 %39, label %40, label %JS_FreeValue.exit
 
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !36
-  call void @__JS_FreeValueRT(ptr noundef %40, i64 %8, i64 %.sroa.8.0)
+40:                                               ; preds = %35
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !36
+  call void @__JS_FreeValueRT(ptr noundef %42, i64 %8, i64 %.sroa.8.0)
   br label %JS_FreeValue.exit
 
-JS_FreeValue.exit:                                ; preds = %33, %38
+JS_FreeValue.exit:                                ; preds = %35, %40
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #41
   %.pre = load i32, ptr %5, align 4, !tbaa !67
   br label %11
 
-41:                                               ; preds = %7
-  %42 = tail call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %0, i64 %8, i64 %.sroa.8.0, i32 noundef 0)
-  %43 = extractvalue { i64, i64 } %42, 0
-  %44 = extractvalue { i64, i64 } %42, 1
-  %45 = and i64 %44, 4294967295
-  %.not = icmp eq i64 %45, 6
+43:                                               ; preds = %7
+  %44 = tail call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %0, i64 %8, i64 %.sroa.8.0, i32 noundef 0)
+  %45 = extractvalue { i64, i64 } %44, 0
+  %46 = extractvalue { i64, i64 } %44, 1
+  %47 = and i64 %46, 4294967295
+  %.not = icmp eq i64 %47, 6
   br i1 %.not, label %.loopexit, label %7
 
-.loopexit:                                        ; preds = %41, %14, %13, %11, %16
-  %storemerge = phi i32 [ %18, %16 ], [ %..i27, %11 ], [ 0, %13 ], [ 255, %14 ], [ 0, %41 ]
-  %.0 = phi i32 [ 0, %16 ], [ 0, %11 ], [ 0, %13 ], [ 0, %14 ], [ -1, %41 ]
+.loopexit:                                        ; preds = %43, %16, %15, %11, %18
+  %storemerge = phi i32 [ %20, %18 ], [ %14, %11 ], [ 0, %15 ], [ 255, %16 ], [ 0, %43 ]
+  %.0 = phi i32 [ 0, %18 ], [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ -1, %43 ]
   store i32 %storemerge, ptr %1, align 4, !tbaa !67
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #41
   ret i32 %.0

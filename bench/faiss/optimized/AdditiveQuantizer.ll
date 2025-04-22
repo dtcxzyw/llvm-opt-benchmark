@@ -1858,8 +1858,8 @@ define noundef range(i64 0, 4294967296) i64 @_ZNK5faiss17AdditiveQuantizer11enco
   %20 = fmul float %19, 2.560000e+02
   %21 = tail call float @llvm.floor.f32(float %20)
   %22 = fptosi float %21 to i32
-  %23 = tail call i32 @llvm.smin.i32(i32 %22, i32 255)
-  %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 0)
+  %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 0)
+  %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 255)
   %25 = zext nneg i32 %24 to i64
   br label %48
 
@@ -1874,8 +1874,8 @@ define noundef range(i64 0, 4294967296) i64 @_ZNK5faiss17AdditiveQuantizer11enco
   %34 = fmul float %33, 1.600000e+01
   %35 = tail call float @llvm.floor.f32(float %34)
   %36 = fptosi float %35 to i32
-  %37 = tail call i32 @llvm.smin.i32(i32 %36, i32 15)
-  %38 = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
+  %37 = tail call i32 @llvm.smax.i32(i32 %36, i32 0)
+  %38 = tail call i32 @llvm.umin.i32(i32 %37, i32 15)
   %39 = zext nneg i32 %38 to i64
   br label %48
 
@@ -5478,9 +5478,6 @@ declare void @llvm.assume(i1 noundef) #23
 declare float @llvm.floor.f32(float) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -5491,6 +5488,9 @@ declare i64 @llvm.smin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #24
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
