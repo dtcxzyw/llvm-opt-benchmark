@@ -9702,134 +9702,134 @@ define internal fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 no
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.not61 = icmp eq ptr %5, null
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br i1 %or.cond, label %.split91.us, label %.split91
+  br i1 %or.cond, label %.split92.us, label %.split92
 
-.split91.us:                                      ; preds = %7, %.split91.us.backedge
+.split92.us:                                      ; preds = %7, %.split91.us.backedge
   %.045.us = phi i64 [ %.348.us, %.split91.us.backedge ], [ 0, %7 ]
   %.043.us = phi i32 [ %.3.us, %.split91.us.backedge ], [ 0, %7 ]
-  br i1 %10, label %29, label %18
+  br i1 %10, label %28, label %18
 
-18:                                               ; preds = %.split91.us
+18:                                               ; preds = %.split92.us
   %.val64.us = load i32, ptr %12, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
   %19 = icmp eq i32 %.val64.us, -1
-  br i1 %19, label %internal_select.exit71.us, label %20
+  br i1 %19, label %internal_select.exit72.us, label %20
 
 20:                                               ; preds = %18
   store i32 %.val64.us, ptr %8, align 4, !tbaa !196
   store i16 %spec.select.i67, ptr %14, align 4, !tbaa !198
   %21 = call i64 @_PyTime_AsMilliseconds(i64 noundef %6, i32 noundef 1) #13
-  %22 = call i64 @llvm.smax.i64(i64 %21, i64 -1)
-  %spec.store.select1.i68.us = call i64 @llvm.smin.i64(i64 %22, i64 2147483647)
-  %23 = call ptr @PyEval_SaveThread() #13
-  %24 = trunc nsw i64 %spec.store.select1.i68.us to i32
-  %25 = call i32 @poll(ptr noundef nonnull %8, i64 noundef 1, i32 noundef %24) #13
-  call void @PyEval_RestoreThread(ptr noundef %23) #13
-  %26 = icmp slt i32 %25, 0
-  br i1 %26, label %internal_select.exit71.us, label %27
+  %spec.store.select.i68.us = call i64 @llvm.smax.i64(i64 %21, i64 -1)
+  %spec.store.select1.i69.us = call i64 @llvm.smin.i64(i64 %spec.store.select.i68.us, i64 2147483647)
+  %22 = call ptr @PyEval_SaveThread() #13
+  %23 = trunc nsw i64 %spec.store.select1.i69.us to i32
+  %24 = call i32 @poll(ptr noundef nonnull %8, i64 noundef 1, i32 noundef %23) #13
+  call void @PyEval_RestoreThread(ptr noundef %22) #13
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %internal_select.exit72.us, label %26
 
-27:                                               ; preds = %20
-  %28 = icmp eq i32 %25, 0
-  %..i69.us = zext i1 %28 to i32
-  br label %internal_select.exit71.us
+26:                                               ; preds = %20
+  %27 = icmp eq i32 %24, 0
+  %..i70.us = zext i1 %27 to i32
+  br label %internal_select.exit72.us
 
-internal_select.exit71.us:                        ; preds = %27, %20, %18
-  %.0.i70.us = phi i32 [ 0, %18 ], [ -1, %20 ], [ %..i69.us, %27 ]
+internal_select.exit72.us:                        ; preds = %26, %20, %18
+  %.0.i71.us = phi i32 [ 0, %18 ], [ -1, %20 ], [ %..i70.us, %27 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #13
-  br label %45
+  br label %43
 
-29:                                               ; preds = %.split91.us
+28:                                               ; preds = %.split92.us
   %.not.us = icmp eq i32 %.043.us, 0
-  br i1 %.not.us, label %.thread.us, label %30
+  br i1 %.not.us, label %.thread.us, label %29
 
-30:                                               ; preds = %29
-  %31 = call i64 @_PyDeadline_Get(i64 noundef %.045.us) #13
-  %32 = icmp sgt i64 %31, -1
-  br i1 %32, label %34, label %.thread76
+29:                                               ; preds = %28
+  %30 = call i64 @_PyDeadline_Get(i64 noundef %.045.us) #13
+  %31 = icmp sgt i64 %30, -1
+  br i1 %31, label %33, label %.thread77
 
-.thread.us:                                       ; preds = %29
-  %33 = call i64 @_PyDeadline_Init(i64 noundef %6) #13
-  br label %34
+.thread.us:                                       ; preds = %28
+  %32 = call i64 @_PyDeadline_Init(i64 noundef %6) #13
+  br label %33
 
-34:                                               ; preds = %.thread.us, %30
-  %.04175.us = phi i64 [ %6, %.thread.us ], [ %31, %30 ]
-  %.24774.us = phi i64 [ %33, %.thread.us ], [ %.045.us, %30 ]
+33:                                               ; preds = %.thread.us, %29
+  %.04176.us = phi i64 [ %6, %.thread.us ], [ %30, %30 ]
+  %.24775.us = phi i64 [ %32, %.thread.us ], [ %.045.us, %30 ]
   %.val.us = load i32, ptr %12, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
-  %35 = icmp eq i32 %.val.us, -1
-  br i1 %35, label %internal_select.exit.us, label %36
+  %34 = icmp eq i32 %.val.us, -1
+  br i1 %34, label %internal_select.exit.us, label %35
 
-36:                                               ; preds = %34
+35:                                               ; preds = %33
   store i32 %.val.us, ptr %9, align 4, !tbaa !196
   store i16 %spec.select.i67, ptr %16, align 4, !tbaa !198
-  %37 = call i64 @_PyTime_AsMilliseconds(i64 noundef %.04175.us, i32 noundef 1) #13
-  %38 = call i64 @llvm.smax.i64(i64 %37, i64 -1)
-  %spec.store.select1.i.us = call i64 @llvm.smin.i64(i64 %38, i64 2147483647)
-  %39 = call ptr @PyEval_SaveThread() #13
-  %40 = trunc nsw i64 %spec.store.select1.i.us to i32
-  %41 = call i32 @poll(ptr noundef nonnull %9, i64 noundef 1, i32 noundef %40) #13
-  call void @PyEval_RestoreThread(ptr noundef %39) #13
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %internal_select.exit.us, label %43
+  %36 = call i64 @_PyTime_AsMilliseconds(i64 noundef %.04176.us, i32 noundef 1) #13
+  %spec.store.select.i.us = call i64 @llvm.smax.i64(i64 %36, i64 -1)
+  %spec.store.select1.i.us = call i64 @llvm.smin.i64(i64 %spec.store.select.i.us, i64 2147483647)
+  %37 = call ptr @PyEval_SaveThread() #13
+  %38 = trunc nsw i64 %spec.store.select1.i.us to i32
+  %39 = call i32 @poll(ptr noundef nonnull %9, i64 noundef 1, i32 noundef %38) #13
+  call void @PyEval_RestoreThread(ptr noundef %37) #13
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %internal_select.exit.us, label %41
 
-43:                                               ; preds = %36
-  %44 = icmp eq i32 %41, 0
-  %..i.us = zext i1 %44 to i32
+41:                                               ; preds = %35
+  %42 = icmp eq i32 %39, 0
+  %..i.us = zext i1 %42 to i32
   br label %internal_select.exit.us
 
-internal_select.exit.us:                          ; preds = %43, %36, %34
+internal_select.exit.us:                          ; preds = %41, %35, %33
   %.0.i.us = phi i32 [ 0, %34 ], [ -1, %36 ], [ %..i.us, %43 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  br label %45
+  br label %43
 
-45:                                               ; preds = %internal_select.exit.us, %internal_select.exit71.us
-  %.348.us = phi i64 [ %.045.us, %internal_select.exit71.us ], [ %.24774.us, %internal_select.exit.us ]
+43:                                               ; preds = %internal_select.exit.us, %internal_select.exit72.us
+  %.348.us = phi i64 [ %.045.us, %internal_select.exit71.us ], [ %.24775.us, %internal_select.exit.us ]
   %.3.us = phi i32 [ %.043.us, %internal_select.exit71.us ], [ 1, %internal_select.exit.us ]
-  %.1.us = phi i32 [ %.0.i70.us, %internal_select.exit71.us ], [ %.0.i.us, %internal_select.exit.us ]
+  %.1.us = phi i32 [ %.0.i71.us, %internal_select.exit71.us ], [ %.0.i.us, %internal_select.exit.us ]
   switch i32 %.1.us, label %53 [
-    i32 -1, label %46
-    i32 1, label %.thread76
+    i32 -1, label %44
+    i32 1, label %.thread77
   ]
 
-46:                                               ; preds = %45
+44:                                               ; preds = %43
   %.pre = tail call ptr @__errno_location() #14
-  br i1 %.not61, label %._crit_edge, label %47
+  br i1 %.not61, label %._crit_edge, label %45
 
-47:                                               ; preds = %46
-  %48 = load i32, ptr %.pre, align 4, !tbaa !35
-  store i32 %48, ptr %5, align 4, !tbaa !35
+45:                                               ; preds = %44
+  %46 = load i32, ptr %.pre, align 4, !tbaa !35
+  store i32 %46, ptr %5, align 4, !tbaa !35
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %46, %47
-  %49 = load i32, ptr %.pre, align 4, !tbaa !35
-  %50 = icmp eq i32 %49, 4
-  br i1 %50, label %51, label %.split98.us
+._crit_edge:                                      ; preds = %44, %45
+  %47 = load i32, ptr %.pre, align 4, !tbaa !35
+  %48 = icmp eq i32 %47, 4
+  br i1 %48, label %49, label %.split99.us
 
-51:                                               ; preds = %._crit_edge
-  %52 = call i32 @PyErr_CheckSignals() #13
-  %.not62.us = icmp eq i32 %52, 0
-  br i1 %.not62.us, label %.split91.us.backedge, label %.split100.us
+49:                                               ; preds = %._crit_edge
+  %50 = call i32 @PyErr_CheckSignals() #13
+  %.not62.us = icmp eq i32 %50, 0
+  br i1 %.not62.us, label %.split91.us.backedge, label %.split101.us
 
-53:                                               ; preds = %45
-  br i1 %.not61, label %.split.us.us, label %.split.us96
+51:                                               ; preds = %43
+  br i1 %.not61, label %.split.us.us, label %.split.us97
 
-.split.us96:                                      ; preds = %53, %60
-  %54 = call ptr @PyEval_SaveThread() #13
-  %55 = call i32 %2(ptr noundef %0, ptr noundef %3) #13
-  call void @PyEval_RestoreThread(ptr noundef %54) #13
-  %.not56.us92 = icmp eq i32 %55, 0
-  br i1 %.not56.us92, label %56, label %.split84.us.thread
+.split.us97:                                      ; preds = %51, %60
+  %52 = call ptr @PyEval_SaveThread() #13
+  %53 = call i32 %2(ptr noundef %0, ptr noundef %3) #13
+  call void @PyEval_RestoreThread(ptr noundef %52) #13
+  %.not56.us93 = icmp eq i32 %53, 0
+  br i1 %.not56.us93, label %54, label %.split85.us.thread
 
-56:                                               ; preds = %.split.us96
-  %57 = tail call ptr @__errno_location() #14
-  %58 = load i32, ptr %57, align 4, !tbaa !35
-  store i32 %58, ptr %5, align 4, !tbaa !35
-  %59 = icmp eq i32 %58, 4
-  br i1 %59, label %60, label %.split86.us93
+54:                                               ; preds = %.split.us97
+  %55 = tail call ptr @__errno_location() #14
+  %56 = load i32, ptr %55, align 4, !tbaa !35
+  store i32 %56, ptr %5, align 4, !tbaa !35
+  %57 = icmp eq i32 %56, 4
+  br i1 %57, label %60, label %.split86.us93
 
-60:                                               ; preds = %56
-  %61 = call i32 @PyErr_CheckSignals() #13
-  %.not58.us95 = icmp eq i32 %61, 0
+69:                                               ; preds = %56
+  %70 = call i32 @PyErr_CheckSignals() #13
+  %.not58.us.us = icmp eq i32 %70, 0
   br i1 %.not58.us95, label %.split.us96, label %.split89.us
 
 .split86.us93:                                    ; preds = %56, %67
@@ -9861,112 +9861,112 @@ internal_select.exit.us:                          ; preds = %43, %36, %34
   %.not58.us.us = icmp eq i32 %72, 0
   br i1 %.not58.us.us, label %.split.us.us, label %.critedge
 
-.split91:                                         ; preds = %7
-  br i1 %.not61, label %.split.us.us112, label %.split
+.split92:                                         ; preds = %7
+  br i1 %.not61, label %.split.us.us113, label %.split
 
-.split.us.us112:                                  ; preds = %.split91, %.split.us.us112.backedge
-  %73 = tail call ptr @PyEval_SaveThread() #13
-  %74 = tail call i32 %2(ptr noundef %0, ptr noundef %3) #13
-  tail call void @PyEval_RestoreThread(ptr noundef %73) #13
-  %.not56.us.us113 = icmp eq i32 %74, 0
-  br i1 %.not56.us.us113, label %75, label %.split84.us
+.split.us.us113:                                  ; preds = %.split92, %.split.us.us113.backedge
+  %71 = tail call ptr @PyEval_SaveThread() #13
+  %72 = tail call i32 %2(ptr noundef %0, ptr noundef %3) #13
+  tail call void @PyEval_RestoreThread(ptr noundef %71) #13
+  %.not56.us.us114 = icmp eq i32 %72, 0
+  br i1 %.not56.us.us114, label %73, label %.split85.us
 
-75:                                               ; preds = %.split.us.us112
-  %76 = tail call ptr @__errno_location() #14
-  %77 = load i32, ptr %76, align 4, !tbaa !35
-  %78 = icmp eq i32 %77, 4
-  br i1 %78, label %79, label %.split86.us.us115
+73:                                               ; preds = %.split.us.us113
+  %74 = tail call ptr @__errno_location() #14
+  %75 = load i32, ptr %74, align 4, !tbaa !35
+  %76 = icmp eq i32 %75, 4
+  br i1 %76, label %77, label %.split87.us.us116
 
-79:                                               ; preds = %75
-  %80 = tail call i32 @PyErr_CheckSignals() #13
-  %.not58.us.us114 = icmp eq i32 %80, 0
-  br i1 %.not58.us.us114, label %.split.us.us112.backedge, label %.critedge
+77:                                               ; preds = %73
+  %78 = tail call i32 @PyErr_CheckSignals() #13
+  %.not58.us.us115 = icmp eq i32 %78, 0
+  br i1 %.not58.us.us115, label %.split.us.us113.backedge, label %.critedge
 
-.split.us.us112.backedge:                         ; preds = %79, %.split86.us.us115
-  br label %.split.us.us112
+.split.us.us113.backedge:                         ; preds = %77, %.split87.us.us116
+  br label %.split.us.us113
 
-.split86.us.us115:                                ; preds = %75
-  %81 = load i64, ptr %17, align 8, !tbaa !90
-  %82 = icmp sgt i64 %81, 0
-  %83 = icmp eq i32 %77, 11
-  %or.cond63.us111 = and i1 %83, %82
-  br i1 %or.cond63.us111, label %.split.us.us112.backedge, label %.critedge121
+.split87.us.us116:                                ; preds = %73
+  %79 = load i64, ptr %17, align 8, !tbaa !90
+  %80 = icmp sgt i64 %79, 0
+  %81 = icmp eq i32 %75, 11
+  %or.cond63.us112 = and i1 %81, %80
+  br i1 %or.cond63.us112, label %.split.us.us113.backedge, label %.critedge122
 
-.split100.us:                                     ; preds = %51
-  br i1 %.not61, label %.critedge, label %84
+.split101.us:                                     ; preds = %49
+  br i1 %.not61, label %.critedge, label %82
 
-84:                                               ; preds = %.split100.us
+82:                                               ; preds = %.split101.us
   store i32 -1, ptr %5, align 4, !tbaa !35
   br label %.critedge
 
-.split98.us:                                      ; preds = %._crit_edge
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %86 = load ptr, ptr %85, align 8, !tbaa !89
-  %87 = call ptr %86() #13
+.split99.us:                                      ; preds = %._crit_edge
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %84 = load ptr, ptr %83, align 8, !tbaa !89
+  %85 = call ptr %86() #13
   br label %.critedge
 
-.thread76:                                        ; preds = %30, %45
-  br i1 %.not61, label %89, label %88
+.thread77:                                        ; preds = %29, %43
+  br i1 %.not61, label %87, label %86
 
-88:                                               ; preds = %.thread76
+86:                                               ; preds = %.thread77
   store i32 11, ptr %5, align 4, !tbaa !35
   br label %.critedge
 
-89:                                               ; preds = %.thread76
-  %90 = load ptr, ptr @PyExc_TimeoutError, align 8, !tbaa !19
-  call void @PyErr_SetString(ptr noundef %90, ptr noundef nonnull @.str.560) #13
+87:                                               ; preds = %.thread77
+  %88 = load ptr, ptr @PyExc_TimeoutError, align 8, !tbaa !19
+  call void @PyErr_SetString(ptr noundef %88, ptr noundef nonnull @.str.560) #13
   br label %.critedge
 
-.split:                                           ; preds = %.split91, %.split.backedge
-  %91 = tail call ptr @PyEval_SaveThread() #13
-  %92 = tail call i32 %2(ptr noundef %0, ptr noundef %3) #13
-  tail call void @PyEval_RestoreThread(ptr noundef %91) #13
-  %.not56 = icmp eq i32 %92, 0
-  br i1 %.not56, label %93, label %.split84.us.thread
+.split:                                           ; preds = %.split92, %.split.backedge
+  %89 = tail call ptr @PyEval_SaveThread() #13
+  %90 = tail call i32 %2(ptr noundef %0, ptr noundef %3) #13
+  tail call void @PyEval_RestoreThread(ptr noundef %89) #13
+  %.not56 = icmp eq i32 %90, 0
+  br i1 %.not56, label %91, label %.split85.us.thread
 
-.split84.us:                                      ; preds = %.split.us.us112, %.split.us.us
-  br i1 %.not61, label %.critedge, label %.split84.us.thread
+.split85.us:                                      ; preds = %.split.us.us113, %.split.us.us
+  br i1 %.not61, label %.critedge, label %.split85.us.thread
 
-.split84.us.thread:                               ; preds = %.split, %.split.us96, %.split84.us
+.split85.us.thread:                               ; preds = %.split, %.split.us97, %.split85.us
   store i32 0, ptr %5, align 4, !tbaa !35
   br label %.critedge
 
-93:                                               ; preds = %.split
-  %94 = tail call ptr @__errno_location() #14
-  %95 = load i32, ptr %94, align 4, !tbaa !35
-  store i32 %95, ptr %5, align 4, !tbaa !35
-  %96 = icmp eq i32 %95, 4
-  br i1 %96, label %97, label %.split86
+91:                                               ; preds = %.split
+  %92 = tail call ptr @__errno_location() #14
+  %93 = load i32, ptr %92, align 4, !tbaa !35
+  store i32 %93, ptr %5, align 4, !tbaa !35
+  %94 = icmp eq i32 %93, 4
+  br i1 %94, label %95, label %.split87
 
-97:                                               ; preds = %93
-  %98 = tail call i32 @PyErr_CheckSignals() #13
-  %.not58 = icmp eq i32 %98, 0
-  br i1 %.not58, label %.split.backedge, label %.split89.us
+95:                                               ; preds = %91
+  %96 = tail call i32 @PyErr_CheckSignals() #13
+  %.not58 = icmp eq i32 %96, 0
+  br i1 %.not58, label %.split.backedge, label %.split90.us
 
-.split.backedge:                                  ; preds = %97, %.split86
+.split.backedge:                                  ; preds = %95, %.split87
   br label %.split
 
-.split89.us:                                      ; preds = %97, %60
+.split90.us:                                      ; preds = %95, %60
   store i32 -1, ptr %5, align 4, !tbaa !35
   br label %.critedge
 
-.split86:                                         ; preds = %93
-  %99 = load i64, ptr %17, align 8, !tbaa !90
-  %100 = icmp sgt i64 %99, 0
-  %101 = icmp eq i32 %95, 11
-  %or.cond63 = and i1 %101, %100
+.split87:                                         ; preds = %91
+  %97 = load i64, ptr %17, align 8, !tbaa !90
+  %98 = icmp sgt i64 %97, 0
+  %99 = icmp eq i32 %93, 11
+  %or.cond63 = and i1 %99, %98
   br i1 %or.cond63, label %.split.backedge, label %.critedge
 
-.split105.us:                                     ; preds = %.split86.us93
-  br i1 %.not61, label %.critedge121, label %.critedge
+.split106.us:                                     ; preds = %.split86.us93
+  br i1 %.not61, label %.critedge122, label %.critedge
 
-.critedge121:                                     ; preds = %.split86.us.us115, %.split105.us
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %103 = load ptr, ptr %102, align 8, !tbaa !89
-  %104 = call ptr %103() #13
+.critedge122:                                     ; preds = %.split87.us.us116, %.split106.us
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %101 = load ptr, ptr %100, align 8, !tbaa !89
+  %102 = call ptr %103() #13
   br label %.critedge
 
-.critedge:                                        ; preds = %.split86, %79, %71, %.split105.us, %.critedge121, %.split89.us, %.split84.us, %.split84.us.thread, %88, %89, %.split100.us, %84, %.split98.us
+.critedge:                                        ; preds = %.split87, %77, %71, %.split106.us, %.critedge122, %.split90.us, %.split85.us, %.split85.us.thread, %86, %87, %.split101.us, %82, %.split99.us
   %.0 = phi i32 [ -1, %.split98.us ], [ -1, %84 ], [ -1, %.split100.us ], [ -1, %89 ], [ -1, %88 ], [ 0, %.split84.us.thread ], [ 0, %.split84.us ], [ -1, %.split89.us ], [ -1, %.critedge121 ], [ -1, %.split105.us ], [ -1, %71 ], [ -1, %79 ], [ -1, %.split86 ]
   ret i32 %.0
 }

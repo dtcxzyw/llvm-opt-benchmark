@@ -4841,20 +4841,20 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i64 8), align 8, !tbaa !231
   %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes, i64 16), align 8, !tbaa !232
   %16 = icmp sgt i64 %3, 1
-  br i1 %16, label %17, label %61
+  br i1 %16, label %17, label %59
 
 17:                                               ; preds = %_ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit
   %18 = add nsw i64 %13, -128
   %19 = sdiv i64 %18, 64
-  %20 = tail call i64 @llvm.smax.i64(i64 %19, i64 8)
-  %21 = tail call i64 @llvm.umin.i64(i64 %20, i64 320)
-  %22 = load i64, ptr %0, align 8, !tbaa !119
-  %23 = icmp slt i64 %21, %22
-  br i1 %23, label %24, label %26
+  %.sroa.speculated157 = tail call i64 @llvm.smax.i64(i64 %19, i64 8)
+  %.sroa.speculated163 = tail call i64 @llvm.umin.i64(i64 %.sroa.speculated157, i64 320)
+  %20 = load i64, ptr %0, align 8, !tbaa !119
+  %21 = icmp slt i64 %.sroa.speculated163, %20
+  br i1 %21, label %22, label %26
 
-24:                                               ; preds = %17
-  %25 = and i64 %21, 504
-  store i64 %25, ptr %0, align 8, !tbaa !119
+22:                                               ; preds = %17
+  %23 = and i64 %.sroa.speculated163, 504
+  store i64 %23, ptr %0, align 8, !tbaa !119
   br label %26
 
 26:                                               ; preds = %24, %17
@@ -4881,49 +4881,49 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %.sroa.speculated153 = tail call i64 @llvm.smin.i64(i64 %41, i64 %31)
   br label %42
 
-42:                                               ; preds = %38, %35
-  %storemerge184 = phi i64 [ %37, %35 ], [ %.sroa.speculated153, %38 ]
+24:                                               ; preds = %38, %35
+  %25 = phi i64 [ %37, %35 ], [ %.sroa.speculated153, %38 ]
   store i64 %storemerge184, ptr %2, align 8, !tbaa !119
-  %43 = icmp sgt i64 %15, %14
-  br i1 %43, label %44, label %.critedge116
+  %41 = icmp sgt i64 %15, %14
+  br i1 %41, label %42, label %.critedge116
 
-44:                                               ; preds = %42
-  %45 = sub nsw i64 %15, %14
-  %46 = load i64, ptr %0, align 8, !tbaa !119
-  %47 = shl i64 %3, 3
-  %48 = mul i64 %47, %46
-  %49 = udiv i64 %45, %48
-  %50 = load i64, ptr %1, align 8, !tbaa !119
-  %51 = add i64 %32, %50
-  %52 = sdiv i64 %51, %3
-  %53 = icmp slt i64 %49, %52
-  %54 = icmp sgt i64 %49, 3
-  %or.cond = and i1 %54, %53
-  br i1 %or.cond, label %55, label %57
+42:                                               ; preds = %42
+  %43 = sub nsw i64 %15, %14
+  %44 = load i64, ptr %0, align 8, !tbaa !119
+  %45 = shl i64 %3, 3
+  %46 = mul i64 %45, %44
+  %47 = udiv i64 %43, %46
+  %48 = load i64, ptr %1, align 8, !tbaa !119
+  %49 = add i64 %32, %48
+  %50 = sdiv i64 %49, %3
+  %51 = icmp slt i64 %47, %50
+  %52 = icmp sgt i64 %47, 3
+  %or.cond = and i1 %52, %51
+  br i1 %or.cond, label %53, label %55
 
-55:                                               ; preds = %44
-  %56 = and i64 %49, 9223372036854775804
-  store i64 %56, ptr %1, align 8, !tbaa !119
+53:                                               ; preds = %42
+  %54 = and i64 %47, 9223372036854775804
+  store i64 %54, ptr %1, align 8, !tbaa !119
   br label %.critedge116
 
-57:                                               ; preds = %44
-  %58 = add nsw i64 %52, 3
-  %59 = srem i64 %58, 4
-  %60 = sub nsw i64 %58, %59
-  %.sroa.speculated149 = tail call i64 @llvm.smin.i64(i64 %60, i64 %50)
+55:                                               ; preds = %42
+  %56 = add nsw i64 %50, 3
+  %57 = srem i64 %56, 4
+  %58 = sub nsw i64 %56, %57
+  %.sroa.speculated149 = tail call i64 @llvm.smin.i64(i64 %58, i64 %48)
   store i64 %.sroa.speculated149, ptr %1, align 8, !tbaa !119
   br label %.critedge116
 
-61:                                               ; preds = %_ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit
-  %62 = load i64, ptr %1, align 8, !tbaa !119
-  %63 = load i64, ptr %2, align 8, !tbaa !119
-  %64 = tail call i64 @llvm.smax.i64(i64 %62, i64 %63)
-  %65 = load i64, ptr %0, align 8, !tbaa !119
-  %.sroa.speculated145 = tail call i64 @llvm.smax.i64(i64 %65, i64 %64)
-  %66 = icmp slt i64 %.sroa.speculated145, 48
-  br i1 %66, label %.critedge116, label %67
+59:                                               ; preds = %_ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit
+  %60 = load i64, ptr %1, align 8, !tbaa !119
+  %61 = load i64, ptr %2, align 8, !tbaa !119
+  %62 = tail call i64 @llvm.smax.i64(i64 %60, i64 %61)
+  %63 = load i64, ptr %0, align 8, !tbaa !119
+  %.sroa.speculated145 = tail call i64 @llvm.smax.i64(i64 %63, i64 %62)
+  %64 = icmp slt i64 %.sroa.speculated145, 48
+  br i1 %64, label %.critedge116, label %67
 
-67:                                               ; preds = %61
+82:                                               ; preds = %61
   %68 = add nsw i64 %13, -128
   %69 = sdiv i64 %68, 64
   %70 = and i64 %69, -8
@@ -4953,9 +4953,9 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %.pre = load i64, ptr %1, align 8, !tbaa !119
   br label %86
 
-86:                                               ; preds = %84, %67
+122:                                              ; preds = %84, %67
   %87 = phi i64 [ %85, %84 ], [ %65, %67 ]
-  %88 = phi i64 [ %.pre, %84 ], [ %62, %67 ]
+  %88 = phi i64 [ %.pre, %84 ], [ %60, %67 ]
   %89 = shl i64 %88, 3
   %90 = mul i64 %89, %87
   %91 = sub nsw i64 %68, %90
@@ -4968,7 +4968,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %95 = udiv i64 %91, %94
   br label %99
 
-96:                                               ; preds = %86
+125:                                              ; preds = %122
   %97 = shl i64 %.sroa.speculated140, 5
   %98 = udiv i64 4718592, %97
   br label %99
@@ -5003,17 +5003,17 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   store i64 %117, ptr %2, align 8, !tbaa !119
   br label %.critedge116
 
-118:                                              ; preds = %99
+126:                                              ; preds = %99
   %119 = icmp eq i64 %65, %87
   br i1 %119, label %120, label %.critedge116
 
-120:                                              ; preds = %118
+120:; preds = %126
   %121 = shl i64 %65, 3
   %122 = mul i64 %121, %103
   %123 = icmp slt i64 %122, 1025
   br i1 %123, label %128, label %124
 
-124:                                              ; preds = %120
+124:; preds = %120
   %125 = icmp ne i64 %15, 0
   %126 = icmp samesign ult i64 %122, 32769
   %or.cond4 = and i1 %125, %126
@@ -5023,7 +5023,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %.sroa.speculated128 = tail call i64 @llvm.smin.i64(i64 %88, i64 576)
   br label %128
 
-128:                                              ; preds = %120, %124, %127
+128:; preds = %120, %124, %127
   %.0182 = phi i64 [ %.sroa.speculated128, %127 ], [ %88, %124 ], [ %88, %120 ]
   %.093 = phi i64 [ %14, %127 ], [ 1572864, %124 ], [ %13, %120 ]
   %129 = mul i64 %65, 24
@@ -5032,7 +5032,7 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   %131 = icmp sgt i64 %.sroa.speculated, 4
   br i1 %131, label %132, label %134
 
-132:                                              ; preds = %128
+132:; preds = %128
   %133 = and i64 %.sroa.speculated, 9223372036854775804
   br label %136
 
@@ -5057,11 +5057,11 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
   br label %.critedge
 
 .critedge:                                        ; preds = %136, %140
-  %147 = phi i64 [ %146, %140 ], [ %.0, %136 ]
-  store i64 %147, ptr %1, align 8, !tbaa !119
+  %145 = phi i64 [ %146, %140 ], [ %.0, %136 ]
+  store i64 %145, ptr %1, align 8, !tbaa !119
   br label %.critedge116
 
-.critedge116:                                     ; preds = %.critedge, %118, %116, %134, %55, %57, %42, %61
+.critedge116:                                     ; preds = %.critedge, %118, %116, %134, %53, %55, %42, %59
   ret void
 }
 

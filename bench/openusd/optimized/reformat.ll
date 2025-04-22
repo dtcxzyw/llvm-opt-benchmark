@@ -1584,66 +1584,66 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
 .thread:                                          ; preds = %116, %117, %108, %avifPrepareReformatState.exit
   %.075 = phi i32 [ 0, %avifPrepareReformatState.exit ], [ %spec.select, %108 ], [ %spec.select101, %117 ], [ %spec.select113, %116 ]
   %118 = load i32, ptr %9, align 8
-  %119 = call i32 @llvm.smax.i32(i32 %118, i32 1)
-  %120 = call i32 @llvm.umin.i32(i32 %119, i32 8)
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp eq i32 %122, 3
-  br i1 %123, label %124, label %127
+  %spec.select102 = call i32 @llvm.smax.i32(i32 %118, i32 1)
+  %119 = call i32 @llvm.umin.i32(i32 %spec.select102, i32 8)
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %121 = load i32, ptr %120, align 4
+  %122 = icmp eq i32 %121, 3
+  br i1 %122, label %123, label %126
 
-124:                                              ; preds = %.thread
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %126 = load i32, ptr %125, align 8
-  switch i32 %126, label %127 [
+123:                                              ; preds = %.thread
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %125 = load i32, ptr %124, align 8
+  switch i32 %125, label %127 [
     i32 0, label %.thread111
     i32 2, label %.thread111
     i32 4, label %.thread111
   ]
 
-127:                                              ; preds = %124, %.thread
-  %128 = icmp slt i32 %118, 2
-  br i1 %128, label %.thread111, label %129
+126:                                              ; preds = %123, %.thread
+  %127 = icmp slt i32 %118, 2
+  br i1 %127, label %.thread111, label %128
 
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %131 = load i32, ptr %130, align 4
-  %132 = lshr i32 %131, 1
-  %133 = icmp samesign ult i32 %132, %120
-  br i1 %133, label %.thread111, label %135
+128:                                              ; preds = %126
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %130 = load i32, ptr %129, align 4
+  %131 = lshr i32 %130, 1
+  %132 = icmp samesign ult i32 %131, %119
+  br i1 %132, label %.thread111, label %134
 
-.thread111:                                       ; preds = %124, %124, %124, %129, %127
-  %134 = call fastcc i32 @avifImageYUVToRGBImpl(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef %.075)
+.thread111:                                       ; preds = %123, %123, %123, %128, %126
+  %133 = call fastcc i32 @avifImageYUVToRGBImpl(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef %.075)
   br label %avifPrepareReformatState.exit.thread
 
-135:                                              ; preds = %129
-  %136 = call i32 @avifArrayCreate(ptr noundef nonnull %4, i32 noundef 296, i32 noundef %120) #10
-  %.not93 = icmp eq i32 %136, 0
-  br i1 %.not93, label %avifPrepareReformatState.exit.thread, label %137
+134:                                              ; preds = %128
+  %135 = call i32 @avifArrayCreate(ptr noundef nonnull %4, i32 noundef 296, i32 noundef %119) #10
+  %.not93 = icmp eq i32 %135, 0
+  br i1 %.not93, label %avifPrepareReformatState.exit.thread, label %136
 
-137:                                              ; preds = %135
-  %138 = load i32, ptr %130, align 4
-  %139 = udiv i32 %138, %120
-  %140 = and i32 %139, 1
-  %spec.select103 = add i32 %140, %139
-  %141 = add nsw i32 %120, -1
-  %142 = mul i32 %spec.select103, %141
-  %143 = sub i32 %138, %142
-  %144 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %145 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %146 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %148 = zext nneg i32 %141 to i64
+136:                                              ; preds = %134
+  %137 = load i32, ptr %129, align 4
+  %138 = udiv i32 %137, %119
+  %139 = and i32 %138, 1
+  %spec.select103 = add i32 %139, %138
+  %140 = add nsw i32 %119, -1
+  %141 = mul i32 %spec.select103, %140
+  %142 = sub i32 %137, %141
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %147 = zext nneg i32 %140 to i64
   %wide.trip.count = zext nneg i32 %120 to i64
-  %149 = zext i32 %spec.select103 to i64
-  br label %150
+  %148 = zext i32 %spec.select103 to i64
+  br label %149
 
-150:                                              ; preds = %137, %177
+149:                                              ; preds = %136, %176
   %indvars.iv128 = phi i64 [ 0, %137 ], [ %indvars.iv.next129, %177 ]
   %indvars.iv = phi i64 [ 0, %137 ], [ %indvars.iv.next, %177 ]
-  %151 = load ptr, ptr %4, align 8
-  %152 = getelementptr inbounds nuw %struct.YUVToRGBThreadData, ptr %151, i64 %indvars.iv
+  %150 = load ptr, ptr %4, align 8
+  %151 = getelementptr inbounds nuw %struct.YUVToRGBThreadData, ptr %150, i64 %indvars.iv
   store i32 0, ptr %5, align 4
-  %153 = trunc nuw i64 %indvars.iv128 to i32
+  %152 = trunc nuw i64 %indvars.iv128 to i32
   store i32 %153, ptr %144, align 4
   %154 = load i32, ptr %0, align 8
   store i32 %154, ptr %145, align 4
@@ -1655,49 +1655,49 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   %.not95 = icmp eq i32 %158, 0
   br i1 %.not95, label %159, label %.loopexit
 
-159:                                              ; preds = %150
+159:      ; preds = %150
   %160 = getelementptr inbounds nuw i8, ptr %152, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %160, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %161 = load i32, ptr %147, align 8
   %162 = zext i32 %161 to i64
   %163 = mul nuw nsw i64 %indvars.iv128, %162
-  %164 = getelementptr inbounds nuw i8, ptr %152, i64 256
+  %165 = getelementptr inbounds nuw i8, ptr %152, i64 256
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 %163
   store ptr %166, ptr %164, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %152, i64 12
-  %168 = load i32, ptr %167, align 4
-  %169 = getelementptr inbounds nuw i8, ptr %152, i64 212
+  %168 = getelementptr inbounds nuw i8, ptr %151, i64 12
+  %168 = load i32, ptr %168, align 4
+  %169 = getelementptr inbounds nuw i8, ptr %151, i64 212
   store i32 %168, ptr %169, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %152, i64 272
+  %170 = getelementptr inbounds nuw i8, ptr %151, i64 272
   store ptr %3, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %152, i64 280
   store i32 %.075, ptr %171, align 8
   %.not96 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not96, label %177, label %172
+  br i1 %.not96, label %176, label %171
 
-172:                                              ; preds = %159
-  %173 = call i32 @pthread_create(ptr noundef nonnull %152, ptr noundef null, ptr noundef nonnull @avifImageYUVToRGBThreadWorker, ptr noundef nonnull %152) #10
-  %174 = icmp eq i32 %173, 0
-  %175 = zext i1 %174 to i32
-  %176 = getelementptr inbounds nuw i8, ptr %152, i64 288
-  store i32 %175, ptr %176, align 8
-  br i1 %174, label %177, label %.loopexit
+171:                                              ; preds = %159
+  %172 = call i32 @pthread_create(ptr noundef nonnull %151, ptr noundef null, ptr noundef nonnull @avifImageYUVToRGBThreadWorker, ptr noundef nonnull %151) #10
+  %173 = icmp eq i32 %172, 0
+  %174 = zext i1 %173 to i32
+  %175 = getelementptr inbounds nuw i8, ptr %151, i64 288
+  store i32 %174, ptr %175, align 8
+  br i1 %173, label %176, label %.loopexit.sink.split
 
-177:                                              ; preds = %159, %172
+176:                                              ; preds = %159, %171
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, %149
+  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, %148
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %150, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit.thread, label %149, !llvm.loop !14
 
-.loopexit:                                        ; preds = %172, %150
-  %178 = trunc nuw nsw i64 %indvars.iv to i32
-  %179 = getelementptr inbounds nuw i8, ptr %152, i64 284
-  store i32 5, ptr %179, align 4
+.loopexit.sink.split:                             ; preds = %171, %149
+  %177 = trunc nuw nsw i64 %indvars.iv to i32
+  %178 = getelementptr inbounds nuw i8, ptr %151, i64 284
+  store i32 5, ptr %178, align 4
   %180 = icmp eq i32 %120, %178
   br i1 %180, label %.loopexit.thread, label %.preheader
 
-.loopexit.thread:                                 ; preds = %177, %.loopexit
+180:                                              ; preds = %177, %.loopexit
   %181 = load ptr, ptr %4, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = getelementptr inbounds nuw i8, ptr %181, i64 208
@@ -1723,29 +1723,29 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   %.not98 = icmp eq i32 %194, 0
   br i1 %.not98, label %197, label %195
 
-195:                                              ; preds = %190
+195:   ; preds = %190
   %.val = load i64, ptr %192, align 8
   %196 = call i32 @pthread_join(i64 noundef %.val, ptr noundef null) #10
   %.not114 = icmp eq i32 %196, 0
   %spec.select104 = select i1 %.not114, i32 %.074122, i32 5
-  br label %197
+  br label %198
 
-197:                                              ; preds = %195, %190
+198:                                              ; preds = %195, %190
   %.1 = phi i32 [ %.074122, %190 ], [ %spec.select104, %195 ]
-  %198 = getelementptr inbounds nuw i8, ptr %192, i64 284
-  %199 = load i32, ptr %198, align 4
-  %.not100 = icmp eq i32 %199, 0
-  %spec.select105 = select i1 %.not100, i32 %.1, i32 %199
+  %199 = getelementptr inbounds nuw i8, ptr %192, i64 284
+  %200 = load i32, ptr %199, align 4
+  %.not100 = icmp eq i32 %200, 0
+  %spec.select105 = select i1 %.not100, i32 %.1, i32 %200
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count
-  br i1 %exitcond135.not, label %200, label %190, !llvm.loop !15
+  br i1 %exitcond135.not, label %201, label %190, !llvm.loop !15
 
-200:                                              ; preds = %197
+201:                                              ; preds = %198
   call void @avifArrayDestroy(ptr noundef nonnull %4) #10
   br label %avifPrepareReformatState.exit.thread
 
-avifPrepareReformatState.exit.thread:             ; preds = %.thread.i, %.thread78.i, %27, %26, %18, %12, %83, %135, %2, %8, %200, %.thread111
-  %.0 = phi i32 [ %134, %.thread111 ], [ %spec.select105, %200 ], [ 5, %8 ], [ 5, %2 ], [ 26, %135 ], [ 5, %83 ], [ 5, %12 ], [ 5, %18 ], [ 5, %26 ], [ 5, %27 ], [ 5, %.thread78.i ], [ 5, %.thread.i ]
+avifPrepareReformatState.exit.thread:             ; preds = %.thread.i, %.thread78.i, %27, %26, %18, %12, %83, %134, %2, %8, %201, %.thread111
+  %.0 = phi i32 [ %133, %.thread111 ], [ %spec.select105, %200 ], [ 5, %8 ], [ 5, %2 ], [ 26, %135 ], [ 5, %83 ], [ 5, %12 ], [ 5, %18 ], [ 5, %26 ], [ 5, %27 ], [ 5, %.thread78.i ], [ 5, %.thread.i ]
   ret i32 %.0
 }
 

@@ -1135,17 +1135,17 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK9grpc_core6chttp220TransportFl
   %or.cond = select i1 %.not8, i1 %.not, i1 false
   %.not7 = icmp eq i64 %.pre, %8
   %or.cond9 = select i1 %or.cond, i1 true, i1 %.not7
-  br i1 %or.cond9, label %15, label %10
+  br i1 %or.cond9, label %13, label %10
 
 10:                                               ; preds = %2
   %11 = sub nsw i64 %8, %.pre
-  %12 = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
-  %13 = tail call i64 @llvm.umin.i64(i64 %12, i64 2147483647)
-  %14 = trunc nuw nsw i64 %13 to i32
-  br label %15
+  %..i = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
+  %.0.i = tail call i64 @llvm.umin.i64(i64 %..i, i64 2147483647)
+  %12 = trunc nuw nsw i64 %.0.i to i32
+  br label %13
 
-15:                                               ; preds = %2, %10
-  %.0 = phi i32 [ %14, %10 ], [ 0, %2 ]
+13:                                               ; preds = %2, %10
+  %.0 = phi i32 [ %12, %10 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -2182,10 +2182,10 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK9grpc_core6chttp217StreamFlowC
   %17 = phi i64 [ %.pre, %15 ], [ %.pre.i, %._crit_edge.i ], [ %12, %9 ]
   %.0.i = phi i64 [ %16, %15 ], [ %.pre.i, %._crit_edge.i ], [ %spec.select.i, %9 ]
   %18 = sub nsw i64 %.0.i, %17
-  %19 = tail call i64 @llvm.smax.i64(i64 %18, i64 0)
-  %20 = tail call i64 @llvm.umin.i64(i64 %19, i64 2147483647)
-  %21 = trunc nuw nsw i64 %20 to i32
-  ret i32 %21
+  %..i = tail call i64 @llvm.smax.i64(i64 %18, i64 0)
+  %.0.i1 = tail call i64 @llvm.umin.i64(i64 %..i, i64 2147483647)
+  %19 = trunc nuw nsw i64 %.0.i1 to i32
+  ret i32 %19
 }
 
 ; Function Attrs: cold

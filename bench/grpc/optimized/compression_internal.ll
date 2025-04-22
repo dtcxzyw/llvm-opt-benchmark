@@ -990,47 +990,47 @@ define void @_ZN9grpc_core33CompressionOptionsFromChannelArgsERKNS_11ChannelArgs
   %3 = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 30, ptr nonnull @.str.9)
   %4 = and i64 %3, 4294967296
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %10, label %5
+  br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
   %.sroa.015.0.extract.trunc = trunc i64 %3 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %6, align 4, !tbaa !79
-  %7 = tail call i32 @llvm.smax.i32(i32 %.sroa.015.0.extract.trunc, i32 0)
-  %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 3)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %8, ptr %9, align 4, !tbaa !85
-  br label %10
+  %..i = tail call i32 @llvm.smax.i32(i32 %.sroa.015.0.extract.trunc, i32 0)
+  %.0.i = tail call i32 @llvm.umin.i32(i32 %..i, i32 3)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.0.i, ptr %7, align 4, !tbaa !85
+  br label %8
 
-10:                                               ; preds = %5, %2
-  %11 = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 34, ptr nonnull @.str.8)
-  %12 = and i64 %11, 4294967296
-  %.not20 = icmp eq i64 %12, 0
-  br i1 %.not20, label %18, label %13
+8:                                                ; preds = %5, %2
+  %9 = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 34, ptr nonnull @.str.8)
+  %10 = and i64 %9, 4294967296
+  %.not20 = icmp eq i64 %10, 0
+  br i1 %.not20, label %14, label %11
 
-13:                                               ; preds = %10
-  %.sroa.08.0.extract.trunc = trunc i64 %11 to i32
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1, ptr %14, align 4, !tbaa !86
-  %15 = tail call i32 @llvm.smax.i32(i32 %.sroa.08.0.extract.trunc, i32 0)
-  %16 = tail call i32 @llvm.umin.i32(i32 %15, i32 2)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %16, ptr %17, align 4, !tbaa !87
-  br label %18
+11:                                               ; preds = %8
+  %.sroa.08.0.extract.trunc = trunc i64 %9 to i32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 1, ptr %12, align 4, !tbaa !86
+  %..i3 = tail call i32 @llvm.smax.i32(i32 %.sroa.08.0.extract.trunc, i32 0)
+  %.0.i4 = tail call i32 @llvm.umin.i32(i32 %..i3, i32 2)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.0.i4, ptr %13, align 4, !tbaa !87
+  br label %14
 
-18:                                               ; preds = %13, %10
-  %19 = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 42, ptr nonnull @.str.7)
-  %20 = and i64 %19, 4294967296
-  %.not21 = icmp eq i64 %20, 0
-  br i1 %.not21, label %23, label %21
+14:                                               ; preds = %11, %8
+  %15 = tail call i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 42, ptr nonnull @.str.7)
+  %16 = and i64 %15, 4294967296
+  %.not21 = icmp eq i64 %16, 0
+  br i1 %.not21, label %19, label %17
 
-21:                                               ; preds = %18
-  %.sroa.05.0.extract.trunc = trunc i64 %19 to i32
-  %22 = or i32 %.sroa.05.0.extract.trunc, 1
-  store i32 %22, ptr %0, align 4, !tbaa !88
-  br label %23
+17:                                               ; preds = %14
+  %.sroa.05.0.extract.trunc = trunc i64 %15 to i32
+  %18 = or i32 %.sroa.05.0.extract.trunc, 1
+  store i32 %18, ptr %0, align 4, !tbaa !88
+  br label %19
 
-23:                                               ; preds = %21, %18
+19:                                               ; preds = %17, %14
   ret void
 }
 

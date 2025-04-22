@@ -6392,7 +6392,7 @@ define dso_local range(i32 -1, 1) i32 @setOOMScoreAdj(i32 noundef %0) local_unna
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7580), align 4, !tbaa !362
   %.not28 = icmp eq i32 %9, 0
   %.b = load i1, ptr @setOOMScoreAdj.oom_score_adjusted_by_redis, align 4
-  br i1 %.not28, label %38, label %10
+  br i1 %.not28, label %37, label %10
 
 10:                                               ; preds = %8
   br i1 %.b, label %29, label %11
@@ -6422,7 +6422,7 @@ define dso_local range(i32 -1, 1) i32 @setOOMScoreAdj(i32 noundef %0) local_unna
 
 24:                                               ; preds = %17, %20
   %.not29 = icmp eq i32 %12, -1
-  br i1 %.not29, label %58, label %.sink.split
+  br i1 %.not29, label %57, label %.sink.split
 
 25:                                               ; preds = %14
   %26 = call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #43
@@ -6441,26 +6441,26 @@ define dso_local range(i32 -1, 1) i32 @setOOMScoreAdj(i32 noundef %0) local_unna
   %35 = load i32, ptr @setOOMScoreAdj.oom_score_adj_base, align 4
   %36 = select i1 %34, i32 %35, i32 0
   %.0 = add nsw i32 %36, %33
-  %37 = tail call i32 @llvm.smax.i32(i32 %.0, i32 -1000)
-  %spec.store.select1 = tail call i32 @llvm.smin.i32(i32 %37, i32 1000)
+  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %.0, i32 -1000)
+  %spec.store.select1 = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 1000)
   br label %41
 
-38:                                               ; preds = %8
-  br i1 %.b, label %39, label %58
+37:                                               ; preds = %8
+  br i1 %.b, label %38, label %57
 
-39:                                               ; preds = %38
+38:                                               ; preds = %37
   store i1 false, ptr @setOOMScoreAdj.oom_score_adjusted_by_redis, align 4
-  %40 = load i32, ptr @setOOMScoreAdj.oom_score_adj_base, align 4, !tbaa !50
+  %39 = load i32, ptr @setOOMScoreAdj.oom_score_adj_base, align 4, !tbaa !50
   br label %41
 
-41:                                               ; preds = %29, %39
+55:                                               ; preds = %29, %39
   %.1 = phi i32 [ %spec.store.select1, %29 ], [ %40, %39 ]
   %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 63, ptr noundef nonnull @.str.135, i32 noundef %.1) #43
   %43 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.133, i32 noundef 1) #43
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %49, label %45
 
-45:                                               ; preds = %41
+.sink.split:                                      ; preds = %55
   %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #44
   %47 = call i64 @write(i32 noundef %43, ptr noundef nonnull %2, i64 noundef %46) #43
   %48 = icmp slt i64 %47, 0
@@ -6488,7 +6488,7 @@ define dso_local range(i32 -1, 1) i32 @setOOMScoreAdj(i32 noundef %0) local_unna
   %57 = tail call i32 @close(i32 noundef %.sink) #43
   br label %58
 
-58:                                               ; preds = %.sink.split, %56, %38, %24
+57:                                               ; preds = %.sink.split, %56, %37, %24
   %.021 = phi i32 [ -1, %24 ], [ 0, %38 ], [ -1, %56 ], [ %.021.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #43
   ret i32 %.021

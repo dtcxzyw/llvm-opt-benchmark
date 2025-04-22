@@ -87,7 +87,7 @@ define noundef zeroext i1 @_ZN3net15HybridSlowStart19ShouldExitSlowStartENS_8Qui
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !15
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %42
+  br i1 %.not, label %18, label %40
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -118,24 +118,24 @@ define noundef zeroext i1 @_ZN3net15HybridSlowStart19ShouldExitSlowStartENS_8Qui
 
 32:                                               ; preds = %30
   %33 = ashr i64 %4, 3
-  %34 = tail call i64 @llvm.smax.i64(i64 %33, i64 4000)
-  %35 = tail call i64 @llvm.umin.i64(i64 %34, i64 16000)
-  %36 = add nsw i64 %35, %4
-  %37 = icmp slt i64 %36, %.sroa.26.0.copyload
-  br i1 %37, label %38, label %.thread
+  %.sroa.speculated18 = tail call i64 @llvm.smax.i64(i64 %33, i64 4000)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.sroa.speculated18, i64 16000)
+  %34 = add nsw i64 %.sroa.speculated, %4
+  %35 = icmp slt i64 %34, %.sroa.26.0.copyload
+  br i1 %35, label %36, label %.thread
 
-38:                                               ; preds = %32
+36:                                               ; preds = %32
   store i32 1, ptr %16, align 4, !tbaa !15
   br label %.thread
 
-.thread:                                          ; preds = %18, %32, %38, %30
-  %39 = phi i1 [ false, %18 ], [ false, %32 ], [ true, %38 ], [ false, %30 ]
-  %40 = icmp ugt i64 %5, 15
-  %41 = and i1 %40, %39
-  br label %42
+.thread:                                          ; preds = %18, %32, %36, %30
+  %37 = phi i1 [ false, %18 ], [ false, %32 ], [ true, %38 ], [ false, %30 ]
+  %38 = icmp ugt i64 %5, 15
+  %39 = and i1 %38, %37
+  br label %40
 
-42:                                               ; preds = %15, %.thread
-  %.0 = phi i1 [ %41, %.thread ], [ true, %15 ]
+40:                                               ; preds = %15, %.thread
+  %.0 = phi i1 [ %39, %.thread ], [ true, %15 ]
   ret i1 %.0
 }
 

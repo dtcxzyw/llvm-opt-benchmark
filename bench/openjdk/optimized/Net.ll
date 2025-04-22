@@ -1592,57 +1592,57 @@ define range(i32 -32768, 32768) i32 @Java_sun_nio_ch_Net_poll(ptr noundef %0, pt
   %8 = trunc i32 %3 to i16
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 %8, ptr %9, align 4
-  %10 = tail call i64 @llvm.smax.i64(i64 %4, i64 -1)
-  %.0811 = tail call i64 @llvm.smin.i64(i64 %10, i64 2147483647)
+  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %4, i64 -1)
+  %.0811 = tail call i64 @llvm.smin.i64(i64 %spec.store.select, i64 2147483647)
   %.08 = trunc nsw i64 %.0811 to i32
-  %11 = call i32 @poll(ptr noundef nonnull %6, i64 noundef 1, i32 noundef %.08) #8
-  %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %13, label %17
+  %10 = call i32 @poll(ptr noundef nonnull %6, i64 noundef 1, i32 noundef %.08) #8
+  %11 = icmp sgt i32 %10, -1
+  br i1 %11, label %12, label %16
 
-13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  %15 = load i16, ptr %14, align 2
-  %16 = sext i16 %15 to i32
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %14 = load i16, ptr %13, align 2
+  %15 = sext i16 %14 to i32
   br label %handleSocketError.exit
 
-17:                                               ; preds = %5
-  %18 = tail call ptr @__errno_location() #7
-  %19 = load i32, ptr %18, align 4
-  switch i32 %19, label %23 [
+16:                                               ; preds = %5
+  %17 = tail call ptr @__errno_location() #7
+  %18 = load i32, ptr %17, align 4
+  switch i32 %18, label %23 [
     i32 4, label %handleSocketError.exit
     i32 115, label %handleSocketError.exit.fold.split
-    i32 71, label %24
-    i32 111, label %20
-    i32 110, label %20
-    i32 107, label %20
-    i32 113, label %21
-    i32 98, label %22
-    i32 99, label %22
-    i32 13, label %22
+    i32 71, label %23
+    i32 111, label %19
+    i32 110, label %19
+    i32 107, label %19
+    i32 113, label %20
+    i32 98, label %21
+    i32 99, label %21
+    i32 13, label %21
   ]
 
-20:                                               ; preds = %17, %17, %17
-  br label %24
+19:                                               ; preds = %16, %16, %16
+  br label %23
 
-21:                                               ; preds = %17
-  br label %24
+20:                                               ; preds = %16
+  br label %23
 
-22:                                               ; preds = %17, %17, %17
-  br label %24
+21:                                               ; preds = %16, %16, %16
+  br label %23
 
-23:                                               ; preds = %17
-  br label %24
+22:                                               ; preds = %16
+  br label %23
 
-24:                                               ; preds = %17, %23, %22, %21, %20
-  %.0.i.i = phi ptr [ @.str.3, %23 ], [ @.str.17, %22 ], [ @.str.16, %21 ], [ @.str.15, %20 ], [ @.str.14, %17 ]
+23:                                               ; preds = %16, %22, %21, %20, %19
+  %.0.i.i = phi ptr [ @.str.3, %23 ], [ @.str.17, %22 ], [ @.str.16, %21 ], [ @.str.15, %20 ], [ @.str.14, %16 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
-handleSocketError.exit.fold.split:                ; preds = %17
+handleSocketError.exit.fold.split:                ; preds = %16
   br label %handleSocketError.exit
 
-handleSocketError.exit:                           ; preds = %17, %handleSocketError.exit.fold.split, %24, %13
-  %.0 = phi i32 [ %16, %13 ], [ 0, %17 ], [ -5, %24 ], [ -5, %handleSocketError.exit.fold.split ]
+handleSocketError.exit:                           ; preds = %16, %handleSocketError.exit.fold.split, %23, %12
+  %.0 = phi i32 [ %15, %12 ], [ 0, %16 ], [ -5, %24 ], [ -5, %handleSocketError.exit.fold.split ]
   ret i32 %.0
 }
 
@@ -1659,113 +1659,113 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0
   store i16 4, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 0, ptr %10, align 2
-  %11 = tail call i64 @llvm.smax.i64(i64 %3, i64 -1)
-  %.01424 = tail call i64 @llvm.smin.i64(i64 %11, i64 2147483647)
+  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %3, i64 -1)
+  %.01424 = tail call i64 @llvm.smin.i64(i64 %spec.store.select, i64 2147483647)
   %.014 = trunc nsw i64 %.01424 to i32
-  %12 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %.014) #8
-  %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %36
+  %11 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %.014) #8
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %13, label %35
 
-14:                                               ; preds = %4
+13:                                               ; preds = %4
   store i32 0, ptr %6, align 4
   store i32 4, ptr %7, align 4
-  %15 = tail call ptr @__errno_location() #7
-  store i32 0, ptr %15, align 4
-  %16 = call i32 @getsockopt(i32 noundef %8, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %25
+  %14 = tail call ptr @__errno_location() #7
+  store i32 0, ptr %14, align 4
+  %15 = call i32 @getsockopt(i32 noundef %8, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %17, label %24
 
-18:                                               ; preds = %14
-  %19 = load i32, ptr %15, align 4
-  switch i32 %19, label %23 [
+17:                                               ; preds = %13
+  %18 = load i32, ptr %14, align 4
+  switch i32 %18, label %23 [
     i32 115, label %handleSocketError.exit
-    i32 71, label %24
-    i32 111, label %20
-    i32 110, label %20
-    i32 107, label %20
-    i32 113, label %21
-    i32 98, label %22
-    i32 99, label %22
-    i32 13, label %22
+    i32 71, label %23
+    i32 111, label %19
+    i32 110, label %19
+    i32 107, label %19
+    i32 113, label %20
+    i32 98, label %21
+    i32 99, label %21
+    i32 13, label %21
   ]
 
-20:                                               ; preds = %18, %18, %18
-  br label %24
+19:                                               ; preds = %17, %17, %17
+  br label %23
 
-21:                                               ; preds = %18
-  br label %24
+20:                                               ; preds = %17
+  br label %23
 
-22:                                               ; preds = %18, %18, %18
-  br label %24
+21:                                               ; preds = %17, %17, %17
+  br label %23
 
-23:                                               ; preds = %18
-  br label %24
+22:                                               ; preds = %17
+  br label %23
 
-24:                                               ; preds = %23, %22, %21, %20, %18
-  %.0.i.i = phi ptr [ @.str.3, %23 ], [ @.str.17, %22 ], [ @.str.16, %21 ], [ @.str.15, %20 ], [ @.str.14, %18 ]
+23:                                               ; preds = %23, %22, %21, %20, %17
+  %.0.i.i = phi ptr [ @.str.3, %23 ], [ @.str.17, %22 ], [ @.str.16, %21 ], [ @.str.15, %20 ], [ @.str.14, %17 ]
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
-25:                                               ; preds = %14
-  %26 = load i32, ptr %6, align 4
-  switch i32 %26, label %30 [
-    i32 0, label %32
+24:                                               ; preds = %13
+  %25 = load i32, ptr %6, align 4
+  switch i32 %25, label %30 [
+    i32 0, label %31
     i32 115, label %handleSocketError.exit
-    i32 71, label %31
-    i32 111, label %27
-    i32 110, label %27
-    i32 107, label %27
-    i32 113, label %28
-    i32 98, label %29
-    i32 99, label %29
-    i32 13, label %29
+    i32 71, label %30
+    i32 111, label %26
+    i32 110, label %26
+    i32 107, label %26
+    i32 113, label %27
+    i32 98, label %28
+    i32 99, label %28
+    i32 13, label %28
   ]
 
-27:                                               ; preds = %25, %25, %25
-  br label %31
+26:                                               ; preds = %24, %24, %24
+  br label %30
 
-28:                                               ; preds = %25
-  br label %31
+27:                                               ; preds = %24
+  br label %30
 
-29:                                               ; preds = %25, %25, %25
-  br label %31
+28:                                               ; preds = %24, %24, %24
+  br label %30
 
-30:                                               ; preds = %25
-  br label %31
+29:                                               ; preds = %24
+  br label %30
 
-31:                                               ; preds = %25, %30, %29, %28, %27
+30:                                               ; preds = %24, %29, %28, %27, %26
   %.0.i.i19 = phi ptr [ @.str.3, %30 ], [ @.str.17, %29 ], [ @.str.16, %28 ], [ @.str.15, %27 ], [ @.str.14, %25 ]
-  store i32 %26, ptr %15, align 4
+  store i32 %25, ptr %14, align 4
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i19, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
-32:                                               ; preds = %25
-  %33 = load i16, ptr %10, align 2
-  %34 = and i16 %33, 16
-  %.not18 = icmp eq i16 %34, 0
-  br i1 %.not18, label %handleSocketError.exit, label %35
+31:                                               ; preds = %24
+  %32 = load i16, ptr %10, align 2
+  %33 = and i16 %32, 16
+  %.not18 = icmp eq i16 %33, 0
+  br i1 %.not18, label %handleSocketError.exit, label %34
 
-35:                                               ; preds = %32
-  store i32 107, ptr %15, align 4
+34:                                               ; preds = %31
+  store i32 107, ptr %14, align 4
   call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
-36:                                               ; preds = %4
-  %37 = icmp eq i32 %12, 0
-  br i1 %37, label %handleSocketError.exit, label %38
+35:                                               ; preds = %4
+  %36 = icmp eq i32 %11, 0
+  br i1 %36, label %handleSocketError.exit, label %37
 
-38:                                               ; preds = %36
-  %39 = tail call ptr @__errno_location() #7
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp eq i32 %40, 4
-  br i1 %41, label %handleSocketError.exit, label %42
+37:                                               ; preds = %35
+  %38 = tail call ptr @__errno_location() #7
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp eq i32 %39, 4
+  br i1 %40, label %handleSocketError.exit, label %41
 
-42:                                               ; preds = %38
+41:                                               ; preds = %37
   call void @JNU_ThrowIOExceptionWithLastError(ptr noundef %0, ptr noundef nonnull @.str.13) #8
   br label %handleSocketError.exit
 
-handleSocketError.exit:                           ; preds = %25, %31, %24, %18, %36, %38, %32, %42, %35
-  %.0 = phi i8 [ 0, %35 ], [ 0, %42 ], [ 1, %32 ], [ 0, %38 ], [ 0, %36 ], [ 0, %18 ], [ 0, %24 ], [ 0, %31 ], [ 0, %25 ]
+handleSocketError.exit:                           ; preds = %24, %30, %23, %17, %35, %37, %31, %41, %34
+  %.0 = phi i8 [ 0, %35 ], [ 0, %42 ], [ 1, %32 ], [ 0, %38 ], [ 0, %36 ], [ 0, %17 ], [ 0, %24 ], [ 0, %31 ], [ 0, %25 ]
   ret i8 %.0
 }
 

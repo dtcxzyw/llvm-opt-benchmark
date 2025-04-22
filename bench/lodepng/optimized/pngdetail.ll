@@ -2346,38 +2346,38 @@ define noundef signext range(i8 32, -128) i8 @_Z11RGBtoLetterhhhhjjbb(i8 noundef
   %14 = trunc nuw i16 %13 to i8
   %15 = zext i8 %1 to i32
   %16 = mul nuw nsw i32 %10, %15
-  %.lhs.trunc102 = trunc nuw i32 %16 to i16
-  %17 = udiv i16 %.lhs.trunc102, 255
+  %.lhs.trunc105 = trunc nuw i32 %16 to i16
+  %17 = udiv i16 %.lhs.trunc105, 255
   %18 = trunc nuw i16 %17 to i8
   %19 = zext i8 %2 to i32
   %20 = mul nuw nsw i32 %10, %19
-  %.lhs.trunc104 = trunc nuw i32 %20 to i16
-  %21 = udiv i16 %.lhs.trunc104, 255
+  %.lhs.trunc107 = trunc nuw i32 %20 to i16
+  %21 = udiv i16 %.lhs.trunc107, 255
   %22 = trunc nuw i16 %21 to i8
   br label %23
 
 23:                                               ; preds = %9, %8
-  %.0101 = phi i8 [ %1, %8 ], [ %18, %9 ]
-  %.0100 = phi i8 [ %2, %8 ], [ %22, %9 ]
-  %.098 = phi i8 [ %0, %8 ], [ %14, %9 ]
-  %24 = zext i8 %.098 to i32
-  %25 = zext i8 %.0101 to i32
-  %26 = zext i8 %.0100 to i32
-  %27 = tail call i8 @llvm.umax.i8(i8 %.0101, i8 %.0100)
-  %28 = tail call i8 @llvm.umax.i8(i8 %.098, i8 %27)
+  %.0104 = phi i8 [ %1, %8 ], [ %18, %9 ]
+  %.0103 = phi i8 [ %2, %8 ], [ %22, %9 ]
+  %.0101 = phi i8 [ %0, %8 ], [ %14, %9 ]
+  %24 = zext i8 %.0101 to i32
+  %25 = zext i8 %.0104 to i32
+  %26 = zext i8 %.0103 to i32
+  %27 = tail call i8 @llvm.umax.i8(i8 %.0104, i8 %.0103)
+  %28 = tail call i8 @llvm.umax.i8(i8 %.0101, i8 %27)
   br i1 %6, label %29, label %128
 
 29:                                               ; preds = %23
   %.sroa.speculated29.i = zext i8 %28 to i32
-  %30 = tail call i8 @llvm.umin.i8(i8 %.0100, i8 %.0101)
-  %31 = tail call i8 @llvm.umin.i8(i8 %30, i8 %.098)
+  %30 = tail call i8 @llvm.umin.i8(i8 %.0103, i8 %.0104)
+  %31 = tail call i8 @llvm.umin.i8(i8 %30, i8 %.0101)
   %.sroa.speculated.i = zext i8 %31 to i32
   %32 = icmp eq i8 %31, %28
   %.pre.i = sub nsw i32 %.sroa.speculated29.i, %.sroa.speculated.i
   br i1 %32, label %_Z8RGBtoHSLhhhPhS_S_.exit.i, label %33
 
 33:                                               ; preds = %29
-  %.not.i.i = icmp ult i8 %.098, %27
+  %.not.i.i = icmp ult i8 %.0101, %27
   br i1 %.not.i.i, label %38, label %34
 
 34:                                               ; preds = %33
@@ -2387,7 +2387,7 @@ define noundef signext range(i8 32, -128) i8 @_Z11RGBtoLetterhhhhjjbb(i8 noundef
   br label %50
 
 38:                                               ; preds = %33
-  %39 = icmp eq i8 %28, %.0101
+  %39 = icmp eq i8 %28, %.0104
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %38
@@ -2410,17 +2410,17 @@ define noundef signext range(i8 32, -128) i8 @_Z11RGBtoLetterhhhhjjbb(i8 noundef
   br label %_Z8RGBtoHSLhhhPhS_S_.exit.i
 
 _Z8RGBtoHSLhhhPhS_S_.exit.i:                      ; preds = %29, %50
-  %.099 = phi i32 [ %52, %50 ], [ 0, %29 ]
-  %.sroa.speculated75 = tail call i8 @llvm.umax.i8(i8 %.098, i8 %.0101)
-  %.sroa.speculated60 = tail call i8 @llvm.umax.i8(i8 %.sroa.speculated75, i8 %.0100)
-  %53 = zext i8 %.sroa.speculated60 to i32
-  %.sroa.speculated72 = tail call i8 @llvm.umin.i8(i8 %.0101, i8 %.098)
-  %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %.0100, i8 %.sroa.speculated72)
+  %.0102 = phi i32 [ %52, %50 ], [ 0, %29 ]
+  %.sroa.speculated78 = tail call i8 @llvm.umax.i8(i8 %.0101, i8 %.0104)
+  %.sroa.speculated63 = tail call i8 @llvm.umax.i8(i8 %.sroa.speculated78, i8 %.0103)
+  %53 = zext i8 %.sroa.speculated63 to i32
+  %.sroa.speculated75 = tail call i8 @llvm.umin.i8(i8 %.0104, i8 %.0101)
+  %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %.0103, i8 %.sroa.speculated75)
   %54 = zext i8 %.sroa.speculated to i32
   %55 = add nuw nsw i32 %53, %54
   %56 = lshr i32 %55, 1
   %57 = xor i32 %56, 255
-  %spec.select106 = select i1 %7, i32 %57, i32 %56
+  %spec.select109 = select i1 %7, i32 %57, i32 %56
   %58 = and i32 %.pre.i, 255
   %59 = and i32 %4, 3
   %60 = shl i32 %5, 2
@@ -2440,7 +2440,7 @@ _Z8RGBtoHSLhhhPhS_S_.exit.i:                      ; preds = %29, %50
 72:                                               ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit.i
   %73 = mul nsw i32 %67, 21
   %74 = sdiv i32 %73, 256
-  %75 = add nsw i32 %74, %.099
+  %75 = add nsw i32 %74, %.0102
   %76 = and i32 %75, 255
   %77 = add nsw i32 %76, -244
   %or.cond.i = icmp ult i32 %77, -233
@@ -2496,7 +2496,7 @@ _Z11HueToLetteri.exit:                            ; preds = %72, %78, %80, %82, 
   %102 = mul i32 %101, 1088
   %103 = add i32 %102, -8192
   %104 = sdiv i32 %103, 256
-  %105 = add nsw i32 %104, %spec.select106
+  %105 = add nsw i32 %104, %spec.select109
   %106 = icmp slt i32 %105, 80
   %107 = select i1 %106, i8 32, i8 0
   %108 = or disjoint i8 %107, %.0.i
@@ -2505,7 +2505,7 @@ _Z11HueToLetteri.exit:                            ; preds = %72, %78, %80, %82, 
 109:                                              ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit.i
   %110 = mul nsw i32 %67, 31
   %111 = sdiv i32 %110, 256
-  %112 = add nsw i32 %111, %spec.select106
+  %112 = add nsw i32 %111, %spec.select109
   %113 = icmp slt i32 %112, 16
   br i1 %113, label %_Z17lightnessToLetteri.exit, label %114
 
@@ -2535,25 +2535,25 @@ _Z11HueToLetteri.exit:                            ; preds = %72, %78, %80, %82, 
 
 126:                                              ; preds = %124
   %127 = icmp samesign ult i32 %112, 240
-  %..i38 = select i1 %127, i8 61, i8 35
+  %..i41 = select i1 %127, i8 61, i8 35
   br label %_Z17lightnessToLetteri.exit
 
 128:                                              ; preds = %23
-  %129 = tail call i8 @llvm.umin.i8(i8 %.0100, i8 %.0101)
-  %130 = tail call i8 @llvm.umin.i8(i8 %129, i8 %.098)
+  %129 = tail call i8 @llvm.umin.i8(i8 %.0103, i8 %.0104)
+  %130 = tail call i8 @llvm.umin.i8(i8 %129, i8 %.0101)
   %131 = icmp eq i8 %130, %28
-  br i1 %131, label %_Z11HueToLetteri.exit44.thread, label %133
+  br i1 %131, label %_Z11HueToLetteri.exit47.thread, label %133
 
-_Z11HueToLetteri.exit44.thread:                   ; preds = %128
+_Z11HueToLetteri.exit47.thread:                   ; preds = %128
   %132 = sext i1 %7 to i8
-  %spec.select107111 = xor i8 %.098, %132
+  %spec.select110114 = xor i8 %.0101, %132
   br label %186
 
 133:                                              ; preds = %128
   %.sroa.speculated50.i = zext i8 %28 to i32
-  %.sroa.speculated.i40 = zext i8 %130 to i32
-  %134 = add nuw nsw i32 %.sroa.speculated.i40, %.sroa.speculated50.i
-  %135 = sub nsw i32 %.sroa.speculated50.i, %.sroa.speculated.i40
+  %.sroa.speculated.i43 = zext i8 %130 to i32
+  %134 = add nuw nsw i32 %.sroa.speculated.i43, %.sroa.speculated50.i
+  %135 = sub nsw i32 %.sroa.speculated50.i, %.sroa.speculated.i43
   %136 = lshr i32 %134, 1
   %137 = trunc nuw i32 %136 to i8
   %138 = mul nsw i32 %135, 255
@@ -2561,7 +2561,7 @@ _Z11HueToLetteri.exit44.thread:                   ; preds = %128
   %139 = sub nuw nsw i32 512, %134
   %140 = select i1 %.not.not.i, i32 %134, i32 %139
   %141 = sdiv i32 %138, %140
-  %.not.i = icmp ult i8 %.098, %27
+  %.not.i = icmp ult i8 %.0101, %27
   br i1 %.not.i, label %146, label %142
 
 142:                                              ; preds = %133
@@ -2571,7 +2571,7 @@ _Z11HueToLetteri.exit44.thread:                   ; preds = %128
   br label %_Z8RGBtoHSLhhhPhS_S_.exit
 
 146:                                              ; preds = %133
-  %147 = icmp eq i8 %28, %.0101
+  %147 = icmp eq i8 %28, %.0104
   br i1 %147, label %148, label %153
 
 148:                                              ; preds = %146
@@ -2595,101 +2595,101 @@ _Z8RGBtoHSLhhhPhS_S_.exit:                        ; preds = %142, %148, %153
   %161 = and i32 %141, 192
   %162 = icmp eq i32 %161, 0
   %163 = sext i1 %7 to i8
-  %spec.select107 = xor i8 %137, %163
+  %spec.select110 = xor i8 %137, %163
   %164 = add nsw i32 %160, -244
-  %or.cond.i41 = icmp ult i32 %164, -233
-  br i1 %or.cond.i41, label %_Z11HueToLetteri.exit44, label %165
+  %or.cond.i44 = icmp ult i32 %164, -233
+  br i1 %or.cond.i44, label %_Z11HueToLetteri.exit47, label %165
 
 165:                                              ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit
   %166 = icmp samesign ult i32 %160, 32
-  br i1 %166, label %_Z11HueToLetteri.exit44, label %167
+  br i1 %166, label %_Z11HueToLetteri.exit47, label %167
 
 167:                                              ; preds = %165
   %168 = icmp samesign ult i32 %160, 53
-  br i1 %168, label %_Z11HueToLetteri.exit44, label %169
+  br i1 %168, label %_Z11HueToLetteri.exit47, label %169
 
 169:                                              ; preds = %167
   %170 = icmp samesign ult i32 %160, 74
-  br i1 %170, label %_Z11HueToLetteri.exit44, label %171
+  br i1 %170, label %_Z11HueToLetteri.exit47, label %171
 
 171:                                              ; preds = %169
   %172 = icmp samesign ult i32 %160, 96
-  br i1 %172, label %_Z11HueToLetteri.exit44, label %173
+  br i1 %172, label %_Z11HueToLetteri.exit47, label %173
 
 173:                                              ; preds = %171
   %174 = icmp samesign ult i32 %160, 117
-  br i1 %174, label %_Z11HueToLetteri.exit44, label %175
+  br i1 %174, label %_Z11HueToLetteri.exit47, label %175
 
 175:                                              ; preds = %173
   %176 = icmp samesign ult i32 %160, 138
-  br i1 %176, label %_Z11HueToLetteri.exit44, label %177
+  br i1 %176, label %_Z11HueToLetteri.exit47, label %177
 
 177:                                              ; preds = %175
   %178 = icmp samesign ult i32 %160, 159
-  br i1 %178, label %_Z11HueToLetteri.exit44, label %179
+  br i1 %178, label %_Z11HueToLetteri.exit47, label %179
 
 179:                                              ; preds = %177
   %180 = icmp samesign ult i32 %160, 181
-  br i1 %180, label %_Z11HueToLetteri.exit44, label %181
+  br i1 %180, label %_Z11HueToLetteri.exit47, label %181
 
 181:                                              ; preds = %179
   %182 = icmp samesign ult i32 %160, 202
-  br i1 %182, label %_Z11HueToLetteri.exit44, label %183
+  br i1 %182, label %_Z11HueToLetteri.exit47, label %183
 
 183:                                              ; preds = %181
   %184 = icmp samesign ult i32 %160, 223
-  %spec.select.i42 = select i1 %184, i8 77, i8 70
-  br label %_Z11HueToLetteri.exit44
+  %spec.select.i45 = select i1 %184, i8 77, i8 70
+  br label %_Z11HueToLetteri.exit47
 
-_Z11HueToLetteri.exit44:                          ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit, %165, %167, %169, %171, %173, %175, %177, %179, %181, %183
-  %.0.i43 = phi i8 [ 82, %_Z8RGBtoHSLhhhPhS_S_.exit ], [ 79, %165 ], [ 89, %167 ], [ 76, %169 ], [ 71, %171 ], [ 84, %173 ], [ 67, %175 ], [ 65, %177 ], [ 66, %179 ], [ 86, %181 ], [ %spec.select.i42, %183 ]
-  %185 = add i8 %spec.select107, 23
+_Z11HueToLetteri.exit47:                          ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit, %165, %167, %169, %171, %173, %175, %177, %179, %181, %183
+  %.0.i46 = phi i8 [ 82, %_Z8RGBtoHSLhhhPhS_S_.exit ], [ 79, %165 ], [ 89, %167 ], [ 76, %169 ], [ 71, %171 ], [ 84, %173 ], [ 67, %175 ], [ 65, %177 ], [ 66, %179 ], [ 86, %181 ], [ %spec.select.i45, %183 ]
+  %185 = add i8 %spec.select110, 23
   %or.cond = icmp ult i8 %185, 47
   %or.cond5 = select i1 %or.cond, i1 true, i1 %162
   br i1 %or.cond5, label %186, label %202
 
-186:                                              ; preds = %_Z11HueToLetteri.exit44.thread, %_Z11HueToLetteri.exit44
-  %spec.select107114120 = phi i8 [ %spec.select107111, %_Z11HueToLetteri.exit44.thread ], [ %spec.select107, %_Z11HueToLetteri.exit44 ]
-  %187 = icmp ult i8 %spec.select107114120, 16
+186:                                              ; preds = %_Z11HueToLetteri.exit47.thread, %_Z11HueToLetteri.exit47
+  %spec.select110117123 = phi i8 [ %spec.select110114, %_Z11HueToLetteri.exit44.thread ], [ %spec.select110, %_Z11HueToLetteri.exit44 ]
+  %187 = icmp ult i8 %spec.select110117123, 16
   br i1 %187, label %_Z17lightnessToLetteri.exit, label %188
 
 188:                                              ; preds = %186
-  %189 = icmp ult i8 %spec.select107114120, 48
+  %189 = icmp ult i8 %spec.select110117123, 48
   br i1 %189, label %_Z17lightnessToLetteri.exit, label %190
 
 190:                                              ; preds = %188
-  %191 = icmp ult i8 %spec.select107114120, 80
+  %191 = icmp ult i8 %spec.select110117123, 80
   br i1 %191, label %_Z17lightnessToLetteri.exit, label %192
 
 192:                                              ; preds = %190
-  %193 = icmp ult i8 %spec.select107114120, 112
+  %193 = icmp ult i8 %spec.select110117123, 112
   br i1 %193, label %_Z17lightnessToLetteri.exit, label %194
 
 194:                                              ; preds = %192
-  %195 = icmp ult i8 %spec.select107114120, -112
+  %195 = icmp ult i8 %spec.select110117123, -112
   br i1 %195, label %_Z17lightnessToLetteri.exit, label %196
 
 196:                                              ; preds = %194
-  %197 = icmp samesign ult i8 %spec.select107114120, -80
+  %197 = icmp samesign ult i8 %spec.select110117123, -80
   br i1 %197, label %_Z17lightnessToLetteri.exit, label %198
 
 198:                                              ; preds = %196
-  %199 = icmp samesign ult i8 %spec.select107114120, -48
+  %199 = icmp samesign ult i8 %spec.select110117123, -48
   br i1 %199, label %_Z17lightnessToLetteri.exit, label %200
 
 200:                                              ; preds = %198
-  %201 = icmp samesign ult i8 %spec.select107114120, -16
-  %..i45 = select i1 %201, i8 61, i8 35
+  %201 = icmp samesign ult i8 %spec.select110117123, -16
+  %..i48 = select i1 %201, i8 61, i8 35
   br label %_Z17lightnessToLetteri.exit
 
-202:                                              ; preds = %_Z11HueToLetteri.exit44
-  %203 = or disjoint i8 %.0.i43, 32
-  %204 = icmp slt i8 %spec.select107, 0
-  %spec.select = select i1 %204, i8 %.0.i43, i8 %203
+202:                                              ; preds = %_Z11HueToLetteri.exit47
+  %203 = or disjoint i8 %.0.i46, 32
+  %204 = icmp slt i8 %spec.select110, 0
+  %spec.select = select i1 %204, i8 %.0.i46, i8 %203
   br label %_Z17lightnessToLetteri.exit
 
 _Z17lightnessToLetteri.exit:                      ; preds = %202, %186, %188, %190, %192, %194, %196, %198, %200, %_Z11HueToLetteri.exit, %109, %114, %116, %118, %120, %122, %124, %126
-  %.1 = phi i8 [ %108, %_Z11HueToLetteri.exit ], [ 32, %109 ], [ 46, %114 ], [ 58, %116 ], [ 45, %118 ], [ 33, %120 ], [ 42, %122 ], [ 43, %124 ], [ %..i38, %126 ], [ %spec.select, %202 ], [ 32, %186 ], [ 46, %188 ], [ 58, %190 ], [ 45, %192 ], [ 33, %194 ], [ 42, %196 ], [ 43, %198 ], [ %..i45, %200 ]
+  %.1 = phi i8 [ %108, %_Z11HueToLetteri.exit ], [ 32, %109 ], [ 46, %114 ], [ 58, %116 ], [ 45, %118 ], [ 33, %120 ], [ 42, %122 ], [ 43, %124 ], [ %..i41, %126 ], [ %spec.select, %202 ], [ 32, %186 ], [ 46, %188 ], [ 58, %190 ], [ 45, %192 ], [ 33, %194 ], [ 42, %196 ], [ 43, %198 ], [ %..i48, %200 ]
   ret i8 %.1
 }
 
@@ -3431,35 +3431,35 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit96: ; preds = %_ZNSo
   %151 = trunc nuw i16 %150 to i8
   %152 = zext i8 %137 to i32
   %153 = mul nuw nsw i32 %147, %152
-  %.lhs.trunc102.i = trunc nuw i32 %153 to i16
-  %154 = udiv i16 %.lhs.trunc102.i, 255
+  %.lhs.trunc105.i = trunc nuw i32 %153 to i16
+  %154 = udiv i16 %.lhs.trunc105.i, 255
   %155 = trunc nuw i16 %154 to i8
   %156 = zext i8 %141 to i32
   %157 = mul nuw nsw i32 %147, %156
-  %.lhs.trunc104.i = trunc nuw i32 %157 to i16
-  %158 = udiv i16 %.lhs.trunc104.i, 255
+  %.lhs.trunc107.i = trunc nuw i32 %157 to i16
+  %158 = udiv i16 %.lhs.trunc107.i, 255
   %159 = trunc nuw i16 %158 to i8
   br label %160
 
 160:                                              ; preds = %146, %126
-  %.0101.i = phi i8 [ %137, %126 ], [ %155, %146 ]
-  %.0100.i = phi i8 [ %141, %126 ], [ %159, %146 ]
-  %.098.i = phi i8 [ %133, %126 ], [ %151, %146 ]
-  %161 = zext i8 %.098.i to i32
-  %162 = zext i8 %.0101.i to i32
-  %163 = zext i8 %.0100.i to i32
-  %164 = call i8 @llvm.umax.i8(i8 %.0101.i, i8 %.0100.i)
-  %165 = call i8 @llvm.umax.i8(i8 %.098.i, i8 %164)
+  %.0104.i = phi i8 [ %137, %126 ], [ %155, %146 ]
+  %.0103.i = phi i8 [ %141, %126 ], [ %159, %146 ]
+  %.0101.i = phi i8 [ %133, %126 ], [ %151, %146 ]
+  %161 = zext i8 %.0101.i to i32
+  %162 = zext i8 %.0104.i to i32
+  %163 = zext i8 %.0103.i to i32
+  %164 = call i8 @llvm.umax.i8(i8 %.0104.i, i8 %.0103.i)
+  %165 = call i8 @llvm.umax.i8(i8 %.0101.i, i8 %164)
   %.sroa.speculated29.i.i = zext i8 %165 to i32
-  %166 = call i8 @llvm.umin.i8(i8 %.0100.i, i8 %.0101.i)
-  %167 = call i8 @llvm.umin.i8(i8 %166, i8 %.098.i)
+  %166 = call i8 @llvm.umin.i8(i8 %.0103.i, i8 %.0104.i)
+  %167 = call i8 @llvm.umin.i8(i8 %166, i8 %.0101.i)
   %.sroa.speculated.i.i = zext i8 %167 to i32
   %168 = icmp eq i8 %167, %165
   %.pre.i.i = sub nsw i32 %.sroa.speculated29.i.i, %.sroa.speculated.i.i
   br i1 %168, label %_Z8RGBtoHSLhhhPhS_S_.exit.i.i, label %169
 
 169:                                              ; preds = %160
-  %.not.i.i.i100 = icmp ult i8 %.098.i, %164
+  %.not.i.i.i100 = icmp ult i8 %.0101.i, %164
   br i1 %.not.i.i.i100, label %174, label %170
 
 170:                                              ; preds = %169
@@ -3469,7 +3469,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit96: ; preds = %_ZNSo
   br label %186
 
 174:                                              ; preds = %169
-  %175 = icmp eq i8 %165, %.0101.i
+  %175 = icmp eq i8 %165, %.0104.i
   br i1 %175, label %176, label %181
 
 176:                                              ; preds = %174
@@ -3492,12 +3492,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit96: ; preds = %_ZNSo
   br label %_Z8RGBtoHSLhhhPhS_S_.exit.i.i
 
 _Z8RGBtoHSLhhhPhS_S_.exit.i.i:                    ; preds = %186, %160
-  %.099.i = phi i32 [ %188, %186 ], [ 0, %160 ]
-  %.sroa.speculated75.i = call i8 @llvm.umax.i8(i8 %.098.i, i8 %.0101.i)
-  %.sroa.speculated60.i = call i8 @llvm.umax.i8(i8 %.sroa.speculated75.i, i8 %.0100.i)
-  %189 = zext i8 %.sroa.speculated60.i to i32
-  %.sroa.speculated72.i = call i8 @llvm.umin.i8(i8 %.0101.i, i8 %.098.i)
-  %.sroa.speculated.i = call i8 @llvm.umin.i8(i8 %.0100.i, i8 %.sroa.speculated72.i)
+  %.0102.i = phi i32 [ %188, %186 ], [ 0, %160 ]
+  %.sroa.speculated78.i = call i8 @llvm.umax.i8(i8 %.0101.i, i8 %.0104.i)
+  %.sroa.speculated63.i = call i8 @llvm.umax.i8(i8 %.sroa.speculated78.i, i8 %.0103.i)
+  %189 = zext i8 %.sroa.speculated63.i to i32
+  %.sroa.speculated75.i = call i8 @llvm.umin.i8(i8 %.0104.i, i8 %.0101.i)
+  %.sroa.speculated.i = call i8 @llvm.umin.i8(i8 %.0103.i, i8 %.sroa.speculated75.i)
   %190 = zext i8 %.sroa.speculated.i to i32
   %191 = add nuw nsw i32 %189, %190
   %192 = lshr i32 %191, 1
@@ -3518,7 +3518,7 @@ _Z8RGBtoHSLhhhPhS_S_.exit.i.i:                    ; preds = %186, %160
 205:                                              ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit.i.i
   %206 = mul nsw i32 %200, 21
   %207 = sdiv i32 %206, 256
-  %208 = add nsw i32 %207, %.099.i
+  %208 = add nsw i32 %207, %.0102.i
   %209 = and i32 %208, 255
   %210 = add nsw i32 %209, -244
   %or.cond.i.i = icmp ult i32 %210, -233
@@ -3613,11 +3613,11 @@ _Z11HueToLetteri.exit.i:                          ; preds = %229, %227, %225, %2
 
 259:                                              ; preds = %257
   %260 = icmp samesign ult i32 %245, 240
-  %..i38.i = select i1 %260, i8 61, i8 35
+  %..i41.i = select i1 %260, i8 61, i8 35
   br label %_Z11RGBtoLetterhhhhjjbb.exit
 
 _Z11RGBtoLetterhhhhjjbb.exit:                     ; preds = %259, %257, %255, %253, %251, %249, %247, %242, %_Z11HueToLetteri.exit.i
-  %.1.i = phi i8 [ %241, %_Z11HueToLetteri.exit.i ], [ 32, %242 ], [ 46, %247 ], [ 58, %249 ], [ 45, %251 ], [ 33, %253 ], [ 42, %255 ], [ 43, %257 ], [ %..i38.i, %259 ]
+  %.1.i = phi i8 [ %241, %_Z11HueToLetteri.exit.i ], [ 32, %242 ], [ 46, %247 ], [ 58, %249 ], [ 45, %251 ], [ 33, %253 ], [ 42, %255 ], [ 43, %257 ], [ %..i41.i, %259 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   store i8 %.1.i, ptr %7, align 1, !tbaa !32
   %261 = load ptr, ptr @_ZSt4cout, align 8, !tbaa !3
