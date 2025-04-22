@@ -72465,7 +72465,7 @@ define hidden range(i48 100, 12884901888) i48 @_ZN5typst4text7variant17hf94498aa
 "_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$8delta_in17h7cfee5bbad88a5f8E.exit.thread": ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$10stretch_in17hed81f2f3b2af784bE.exit"
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6), !noalias !15817
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !15814
-  br label %59
+  br label %58
 
 "_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$8delta_in17h7cfee5bbad88a5f8E.exit": ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$10stretch_in17hed81f2f3b2af784bE.exit"
   %55 = load i64, ptr %53, align 8, !alias.scope !15825, !noalias !15822, !noundef !4
@@ -72477,13 +72477,13 @@ define hidden range(i48 100, 12884901888) i48 @_ZN5typst4text7variant17hf94498aa
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5), !noalias !15830
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6), !noalias !15817
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !15814
-  %57 = call i64 @llvm.smax.i64(i64 %56, i64 -32768)
-  %spec.select = call i64 @llvm.smin.i64(i64 %57, i64 32767)
-  %58 = trunc nsw i64 %spec.select to i16
-  br label %59
+  %.0.in.sroa.speculate.load.4.sroa.speculated.i = call i64 @llvm.smax.i64(i64 %56, i64 -32768)
+  %spec.select = call i64 @llvm.smin.i64(i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i, i64 32767)
+  %57 = trunc nsw i64 %spec.select to i16
+  br label %58
 
-59:                                               ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$8delta_in17h7cfee5bbad88a5f8E.exit", %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$8delta_in17h7cfee5bbad88a5f8E.exit.thread"
-  %60 = phi i16 [ 0, %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$8delta_in17h7cfee5bbad88a5f8E.exit.thread" ], [ %58, %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$8delta_in17h7cfee5bbad88a5f8E.exit" ]
+58:                                               ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$8delta_in17h7cfee5bbad88a5f8E.exit", %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$8delta_in17h7cfee5bbad88a5f8E.exit.thread"
+  %59 = phi i16 [ 0, %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$8delta_in17h7cfee5bbad88a5f8E.exit.thread" ], [ %57, %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$8delta_in17h7cfee5bbad88a5f8E.exit" ]
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2), !noalias !15837
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4), !noalias !15840
   %.sroa.7.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -72503,43 +72503,43 @@ define hidden range(i48 100, 12884901888) i48 @_ZN5typst4text7variant17hf94498aa
   store ptr @"_ZN5typst4text1_94_$LT$impl$u20$typst..foundations..element..NativeElement$u20$for$u20$typst..text..TextElem$GT$4data4DATA17h23ec8ea186ccda7fE.llvm.7325118056162354838", ptr %.sroa.102.0..sroa_idx.i.i27, align 8, !noalias !15840
   %.sroa.11.0..sroa_idx.i.i28 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i8 34, ptr %.sroa.11.0..sroa_idx.i.i28, align 8, !noalias !15840
-  %61 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h962ff1f076622999E.llvm.4930786928582598558(ptr noalias noundef nonnull align 8 dereferenceable(88) %4), !noalias !15845
-  %62 = call noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h82df3c7bdc25c235E.llvm.4930786928582598558"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %61, ptr noalias noundef nonnull align 8 dereferenceable(72) %.sroa.5.0..sroa_idx.i.i23), !noalias !15845
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit.thread", label %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit"
+  %60 = call noundef align 1 dereferenceable_or_null(1) ptr @_ZN4core4iter8adapters5chain17and_then_or_clear17h962ff1f076622999E.llvm.4930786928582598558(ptr noalias noundef nonnull align 8 dereferenceable(88) %4), !noalias !15845
+  %61 = call noundef align 1 dereferenceable_or_null(1) ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h82df3c7bdc25c235E.llvm.4930786928582598558"(ptr noalias noundef readonly align 1 dereferenceable_or_null(1) %60, ptr noalias noundef nonnull align 8 dereferenceable(72) %.sroa.5.0..sroa_idx.i.i23), !noalias !15845
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit.thread", label %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit"
 
-"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit.thread": ; preds = %59
+"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit.thread": ; preds = %58
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !15840
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !15837
-  br label %67
+  br label %66
 
-"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit": ; preds = %59
-  %64 = load i8, ptr %62, align 1, !range !1323, !alias.scope !15848, !noalias !15845, !noundef !4
-  %65 = trunc nuw i8 %64 to i1
+"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit": ; preds = %58
+  %63 = load i8, ptr %61, align 1, !range !1323, !alias.scope !15848, !noalias !15845, !noundef !4
+  %64 = trunc nuw i8 %63 to i1
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !15853
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false), !noalias !15857
   %.sroa.4.0..sroa_idx.i1.i.i29 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store ptr %2, ptr %.sroa.4.0..sroa_idx.i1.i.i29, align 8, !noalias !15858
-  %66 = call noundef zeroext i1 @"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8d85bed5766aab50E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %3, i1 noundef zeroext %65), !noalias !15859
+  %65 = call noundef zeroext i1 @"_ZN5typst11foundations6styles10StyleChain10get_folded4next28_$u7b$$u7b$closure$u7d$$u7d$17h8d85bed5766aab50E.llvm.4622153547959463051"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %3, i1 noundef zeroext %64), !noalias !15859
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3), !noalias !15853
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4), !noalias !15840
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !15837
   %switch = icmp eq i8 %23, 0
   %. = zext i1 %switch to i8
-  %spec.select36 = select i1 %66, i8 %., i8 %23
-  br label %67
+  %spec.select36 = select i1 %65, i8 %., i8 %23
+  br label %66
 
-67:                                               ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit", %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit.thread"
-  %68 = phi i8 [ %23, %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit.thread" ], [ %spec.select36, %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit" ]
-  %69 = call i16 @llvm.sadd.sat.i16(i16 %37, i16 %60)
-  %.0.sroa.speculated.i.i = call noundef i16 @llvm.smax.i16(i16 %69, i16 100)
-  %70 = call noundef i16 @llvm.umin.i16(i16 %.0.sroa.speculated.i.i, i16 900)
+66:                                               ; preds = %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit", %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit.thread"
+  %67 = phi i8 [ %23, %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit.thread" ], [ %spec.select36, %"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$7emph_in17h072236087e6504caE.exit" ]
+  %68 = call i16 @llvm.sadd.sat.i16(i16 %37, i16 %59)
+  %.0.sroa.speculated.i.i = call noundef i16 @llvm.smax.i16(i16 %68, i16 100)
+  %69 = call noundef i16 @llvm.umin.i16(i16 %.0.sroa.speculated.i.i, i16 900)
   %.sroa.2.0.insert.ext.i = zext i16 %51 to i48
   %.sroa.2.0.insert.shift.i = shl nuw nsw i48 %.sroa.2.0.insert.ext.i, 16
-  %.sroa.42.0.insert.ext = zext nneg i8 %68 to i48
+  %.sroa.42.0.insert.ext = zext nneg i8 %67 to i48
   %.sroa.42.0.insert.shift = shl nuw nsw i48 %.sroa.42.0.insert.ext, 32
   %.sroa.4.0.insert.insert = or disjoint i48 %.sroa.42.0.insert.shift, %.sroa.2.0.insert.shift.i
-  %.sroa.0.0.insert.ext = zext nneg i16 %70 to i48
+  %.sroa.0.0.insert.ext = zext nneg i16 %69 to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.4.0.insert.insert, %.sroa.0.0.insert.ext
   ret i48 %.sroa.0.0.insert.insert
 }

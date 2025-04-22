@@ -7509,15 +7509,15 @@ entry:
   %sub = fsub double %T, %t
   %mul = fmul double %sub, 3.650000e+02
   %conv = fptoui double %mul to i64
-  %0 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %0, i64 2000)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %.sroa.speculated, i64 2000)
   %mul6 = fmul double %sub, 5.000000e-01
   %conv7 = uitofp nneg i64 %spec.store.select to double
   %div = fdiv double %mul6, %conv7
   tail call void @_ZNK8QuantLib13Interpolation10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(32) %speed_, double noundef %t, i1 noundef zeroext false)
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 224
-  %1 = load ptr, ptr %impl_.i, align 8, !tbaa !102
-  %cmp.not.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %impl_.i, align 8, !tbaa !102
+  %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib13InterpolationclEdb.exit, !prof !44
 
 cond.false.i.i:                                   ; preds = %entry
@@ -7526,11 +7526,11 @@ cond.false.i.i:                                   ; preds = %entry
   br label %_ZNK8QuantLib13InterpolationclEdb.exit
 
 _ZNK8QuantLib13InterpolationclEdb.exit:           ; preds = %entry, %cond.false.i.i
-  %2 = phi ptr [ %1, %entry ], [ %.pre.i.i, %cond.false.i.i ]
-  %vtable.i = load ptr, ptr %2, align 8, !tbaa !35
+  %1 = phi ptr [ %0, %entry ], [ %.pre.i.i, %cond.false.i.i ]
+  %vtable.i = load ptr, ptr %1, align 8, !tbaa !35
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %3 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(8) %2, double noundef %t)
+  %2 = load ptr, ptr %vfn.i, align 8
+  %call2.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %t)
   %add = fadd double %t, %div
   %mul16 = fmul double %div, 0x3FD5555555555555
   %mul20 = fmul double %div, 2.000000e+00
@@ -7542,13 +7542,13 @@ for.cond.cleanup:                                 ; preds = %_ZNK8QuantLib13Inte
 
 for.body:                                         ; preds = %_ZNK8QuantLib13InterpolationclEdb.exit, %_ZNK8QuantLib13InterpolationclEdb.exit36
   %i.043 = phi i64 [ 0, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %inc, %_ZNK8QuantLib13InterpolationclEdb.exit36 ]
-  %total.042 = phi double [ 0.000000e+00, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %11, %_ZNK8QuantLib13InterpolationclEdb.exit36 ]
-  %_t.041 = phi double [ %add, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %12, %_ZNK8QuantLib13InterpolationclEdb.exit36 ]
+  %total.042 = phi double [ 0.000000e+00, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %10, %_ZNK8QuantLib13InterpolationclEdb.exit36 ]
+  %_t.041 = phi double [ %add, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %11, %_ZNK8QuantLib13InterpolationclEdb.exit36 ]
   %c.040 = phi double [ %call2.i, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %call2.i33, %_ZNK8QuantLib13InterpolationclEdb.exit36 ]
   %B.039 = phi double [ 0.000000e+00, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %add24, %_ZNK8QuantLib13InterpolationclEdb.exit36 ]
   tail call void @_ZNK8QuantLib13Interpolation10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(32) %speed_, double noundef %_t.041, i1 noundef zeroext false)
-  %4 = load ptr, ptr %impl_.i, align 8, !tbaa !102
-  %cmp.not.i.i22 = icmp eq ptr %4, null
+  %3 = load ptr, ptr %impl_.i, align 8, !tbaa !102
+  %cmp.not.i.i22 = icmp eq ptr %3, null
   br i1 %cmp.not.i.i22, label %cond.false.i.i26, label %_ZNK8QuantLib13InterpolationclEdb.exit28, !prof !44
 
 cond.false.i.i26:                                 ; preds = %for.body
@@ -7557,15 +7557,15 @@ cond.false.i.i26:                                 ; preds = %for.body
   br label %_ZNK8QuantLib13InterpolationclEdb.exit28
 
 _ZNK8QuantLib13InterpolationclEdb.exit28:         ; preds = %for.body, %cond.false.i.i26
-  %5 = phi ptr [ %4, %for.body ], [ %.pre.i.i27, %cond.false.i.i26 ]
-  %vtable.i23 = load ptr, ptr %5, align 8, !tbaa !35
+  %4 = phi ptr [ %3, %for.body ], [ %.pre.i.i27, %cond.false.i.i26 ]
+  %vtable.i23 = load ptr, ptr %4, align 8, !tbaa !35
   %vfn.i24 = getelementptr inbounds nuw i8, ptr %vtable.i23, i64 64
-  %6 = load ptr, ptr %vfn.i24, align 8
-  %call2.i25 = tail call noundef double %6(ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef %_t.041)
+  %5 = load ptr, ptr %vfn.i24, align 8
+  %call2.i25 = tail call noundef double %6(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %_t.041)
   %add14 = fadd double %div, %_t.041
   tail call void @_ZNK8QuantLib13Interpolation10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(32) %speed_, double noundef %add14, i1 noundef zeroext false)
-  %7 = load ptr, ptr %impl_.i, align 8, !tbaa !102
-  %cmp.not.i.i30 = icmp eq ptr %7, null
+  %6 = load ptr, ptr %impl_.i, align 8, !tbaa !102
+  %cmp.not.i.i30 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i30, label %cond.false.i.i34, label %_ZNK8QuantLib13InterpolationclEdb.exit36, !prof !44
 
 cond.false.i.i34:                                 ; preds = %_ZNK8QuantLib13InterpolationclEdb.exit28
@@ -7574,19 +7574,19 @@ cond.false.i.i34:                                 ; preds = %_ZNK8QuantLib13Inte
   br label %_ZNK8QuantLib13InterpolationclEdb.exit36
 
 _ZNK8QuantLib13InterpolationclEdb.exit36:         ; preds = %_ZNK8QuantLib13InterpolationclEdb.exit28, %cond.false.i.i34
-  %8 = phi ptr [ %7, %_ZNK8QuantLib13InterpolationclEdb.exit28 ], [ %.pre.i.i35, %cond.false.i.i34 ]
-  %vtable.i31 = load ptr, ptr %8, align 8, !tbaa !35
+  %7 = phi ptr [ %6, %_ZNK8QuantLib13InterpolationclEdb.exit28 ], [ %.pre.i.i35, %cond.false.i.i34 ]
+  %vtable.i31 = load ptr, ptr %7, align 8, !tbaa !35
   %vfn.i32 = getelementptr inbounds nuw i8, ptr %vtable.i31, i64 64
-  %9 = load ptr, ptr %vfn.i32, align 8
-  %call2.i33 = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef %add14)
-  %10 = tail call double @llvm.fmuladd.f64(double %call2.i25, double 4.000000e+00, double %c.040)
-  %add18 = fadd double %10, %call2.i33
-  %11 = tail call double @llvm.fmuladd.f64(double %mul16, double %add18, double %total.042)
-  %add21 = fadd double %call, %11
+  %8 = load ptr, ptr %vfn.i32, align 8
+  %call2.i33 = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef %add14)
+  %9 = tail call double @llvm.fmuladd.f64(double %call2.i25, double 4.000000e+00, double %c.040)
+  %add18 = fadd double %9, %call2.i33
+  %10 = tail call double @llvm.fmuladd.f64(double %mul16, double %add18, double %total.042)
+  %add21 = fadd double %call, %10
   %call22 = tail call double @exp(double noundef %add21) #28, !tbaa !137
   %div23 = fdiv double %mul20, %call22
   %add24 = fadd double %B.039, %div23
-  %12 = tail call double @llvm.fmuladd.f64(double %div, double 2.000000e+00, double %_t.041)
+  %11 = tail call double @llvm.fmuladd.f64(double %div, double 2.000000e+00, double %_t.041)
   %inc = add nuw nsw i64 %i.043, 1
   %exitcond.not = icmp eq i64 %inc, %spec.store.select
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !138
@@ -7701,16 +7701,16 @@ entry:
   %sub = fsub double %T, %t
   %mul = fmul double %sub, 3.650000e+02
   %conv = fptoui double %mul to i64
-  %0 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %0, i64 2000)
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %.sroa.speculated, i64 2000)
   %mul5 = fmul double %sub, 5.000000e-01
   %conv6 = uitofp nneg i64 %spec.store.select to double
   %div = fdiv double %mul5, %conv6
   %vol_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   tail call void @_ZNK8QuantLib13Interpolation10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(32) %vol_, double noundef %t, i1 noundef zeroext false)
   %impl_.i = getelementptr inbounds nuw i8, ptr %this, i64 256
-  %1 = load ptr, ptr %impl_.i, align 8, !tbaa !102
-  %cmp.not.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %impl_.i, align 8, !tbaa !102
+  %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib13InterpolationclEdb.exit, !prof !44
 
 cond.false.i.i:                                   ; preds = %entry
@@ -7719,11 +7719,11 @@ cond.false.i.i:                                   ; preds = %entry
   br label %_ZNK8QuantLib13InterpolationclEdb.exit
 
 _ZNK8QuantLib13InterpolationclEdb.exit:           ; preds = %entry, %cond.false.i.i
-  %2 = phi ptr [ %1, %entry ], [ %.pre.i.i, %cond.false.i.i ]
-  %vtable.i = load ptr, ptr %2, align 8, !tbaa !35
+  %1 = phi ptr [ %0, %entry ], [ %.pre.i.i, %cond.false.i.i ]
+  %vtable.i = load ptr, ptr %1, align 8, !tbaa !35
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %3 = load ptr, ptr %vfn.i, align 8
-  %call2.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(8) %2, double noundef %t)
+  %2 = load ptr, ptr %vfn.i, align 8
+  %call2.i = tail call noundef double %3(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %t)
   %call8 = tail call double @exp(double noundef %call) #28, !tbaa !137
   %mul9 = fmul double %call8, %call8
   %mul10 = fmul double %call2.i, %mul9
@@ -7734,18 +7734,18 @@ _ZNK8QuantLib13InterpolationclEdb.exit:           ; preds = %entry, %cond.false.
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZNK8QuantLib13InterpolationclEdb.exit69
-  %div39 = fdiv double %19, %mul30
+  %div39 = fdiv double %18, %mul30
   ret double %div39
 
 for.body:                                         ; preds = %_ZNK8QuantLib13InterpolationclEdb.exit, %_ZNK8QuantLib13InterpolationclEdb.exit69
   %i.076 = phi i64 [ 0, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %inc, %_ZNK8QuantLib13InterpolationclEdb.exit69 ]
-  %lnE.075 = phi double [ %call, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %17, %_ZNK8QuantLib13InterpolationclEdb.exit69 ]
-  %_t.074 = phi double [ %add, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %20, %_ZNK8QuantLib13InterpolationclEdb.exit69 ]
+  %lnE.075 = phi double [ %call, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %16, %_ZNK8QuantLib13InterpolationclEdb.exit69 ]
+  %_t.074 = phi double [ %add, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %19, %_ZNK8QuantLib13InterpolationclEdb.exit69 ]
   %c.073 = phi double [ %mul11, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %mul32, %_ZNK8QuantLib13InterpolationclEdb.exit69 ]
-  %V.072 = phi double [ 0.000000e+00, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %19, %_ZNK8QuantLib13InterpolationclEdb.exit69 ]
+  %V.072 = phi double [ 0.000000e+00, %_ZNK8QuantLib13InterpolationclEdb.exit ], [ %18, %_ZNK8QuantLib13InterpolationclEdb.exit69 ]
   tail call void @_ZNK8QuantLib13Interpolation10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(32) %vol_, double noundef %_t.074, i1 noundef zeroext false)
-  %4 = load ptr, ptr %impl_.i, align 8, !tbaa !102
-  %cmp.not.i.i39 = icmp eq ptr %4, null
+  %3 = load ptr, ptr %impl_.i, align 8, !tbaa !102
+  %cmp.not.i.i39 = icmp eq ptr %3, null
   br i1 %cmp.not.i.i39, label %cond.false.i.i43, label %_ZNK8QuantLib13InterpolationclEdb.exit45, !prof !44
 
 cond.false.i.i43:                                 ; preds = %for.body
@@ -7754,14 +7754,14 @@ cond.false.i.i43:                                 ; preds = %for.body
   br label %_ZNK8QuantLib13InterpolationclEdb.exit45
 
 _ZNK8QuantLib13InterpolationclEdb.exit45:         ; preds = %for.body, %cond.false.i.i43
-  %5 = phi ptr [ %4, %for.body ], [ %.pre.i.i44, %cond.false.i.i43 ]
-  %vtable.i40 = load ptr, ptr %5, align 8, !tbaa !35
+  %4 = phi ptr [ %3, %for.body ], [ %.pre.i.i44, %cond.false.i.i43 ]
+  %vtable.i40 = load ptr, ptr %4, align 8, !tbaa !35
   %vfn.i41 = getelementptr inbounds nuw i8, ptr %vtable.i40, i64 64
-  %6 = load ptr, ptr %vfn.i41, align 8
-  %call2.i42 = tail call noundef double %6(ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef %_t.074)
+  %5 = load ptr, ptr %vfn.i41, align 8
+  %call2.i42 = tail call noundef double %6(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %_t.074)
   tail call void @_ZNK8QuantLib13Interpolation10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(32) %speed_, double noundef %_t.074, i1 noundef zeroext false)
-  %7 = load ptr, ptr %impl_.i46, align 8, !tbaa !102
-  %cmp.not.i.i47 = icmp eq ptr %7, null
+  %6 = load ptr, ptr %impl_.i46, align 8, !tbaa !102
+  %cmp.not.i.i47 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i47, label %cond.false.i.i51, label %_ZNK8QuantLib13InterpolationclEdb.exit53, !prof !44
 
 cond.false.i.i51:                                 ; preds = %_ZNK8QuantLib13InterpolationclEdb.exit45
@@ -7770,20 +7770,20 @@ cond.false.i.i51:                                 ; preds = %_ZNK8QuantLib13Inte
   br label %_ZNK8QuantLib13InterpolationclEdb.exit53
 
 _ZNK8QuantLib13InterpolationclEdb.exit53:         ; preds = %_ZNK8QuantLib13InterpolationclEdb.exit45, %cond.false.i.i51
-  %8 = phi ptr [ %7, %_ZNK8QuantLib13InterpolationclEdb.exit45 ], [ %.pre.i.i52, %cond.false.i.i51 ]
-  %vtable.i48 = load ptr, ptr %8, align 8, !tbaa !35
+  %7 = phi ptr [ %6, %_ZNK8QuantLib13InterpolationclEdb.exit45 ], [ %.pre.i.i52, %cond.false.i.i51 ]
+  %vtable.i48 = load ptr, ptr %7, align 8, !tbaa !35
   %vfn.i49 = getelementptr inbounds nuw i8, ptr %vtable.i48, i64 64
-  %9 = load ptr, ptr %vfn.i49, align 8
-  %call2.i50 = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef %_t.074)
-  %10 = tail call double @llvm.fmuladd.f64(double %call2.i50, double %div, double %lnE.075)
-  %call18 = tail call double @exp(double noundef %10) #28, !tbaa !137
+  %8 = load ptr, ptr %vfn.i49, align 8
+  %call2.i50 = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(8) %7, double noundef %_t.074)
+  %9 = tail call double @llvm.fmuladd.f64(double %call2.i50, double %div, double %lnE.075)
+  %call18 = tail call double @exp(double noundef %9) #28, !tbaa !137
   %mul19 = fmul double %call18, %call18
   %mul20 = fmul double %call2.i42, %mul19
   %mul21 = fmul double %call2.i42, %mul20
   %add23 = fadd double %div, %_t.074
   tail call void @_ZNK8QuantLib13Interpolation10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(32) %vol_, double noundef %add23, i1 noundef zeroext false)
-  %11 = load ptr, ptr %impl_.i, align 8, !tbaa !102
-  %cmp.not.i.i55 = icmp eq ptr %11, null
+  %10 = load ptr, ptr %impl_.i, align 8, !tbaa !102
+  %cmp.not.i.i55 = icmp eq ptr %10, null
   br i1 %cmp.not.i.i55, label %cond.false.i.i59, label %_ZNK8QuantLib13InterpolationclEdb.exit61, !prof !44
 
 cond.false.i.i59:                                 ; preds = %_ZNK8QuantLib13InterpolationclEdb.exit53
@@ -7792,14 +7792,14 @@ cond.false.i.i59:                                 ; preds = %_ZNK8QuantLib13Inte
   br label %_ZNK8QuantLib13InterpolationclEdb.exit61
 
 _ZNK8QuantLib13InterpolationclEdb.exit61:         ; preds = %_ZNK8QuantLib13InterpolationclEdb.exit53, %cond.false.i.i59
-  %12 = phi ptr [ %11, %_ZNK8QuantLib13InterpolationclEdb.exit53 ], [ %.pre.i.i60, %cond.false.i.i59 ]
-  %vtable.i56 = load ptr, ptr %12, align 8, !tbaa !35
+  %11 = phi ptr [ %10, %_ZNK8QuantLib13InterpolationclEdb.exit53 ], [ %.pre.i.i60, %cond.false.i.i59 ]
+  %vtable.i56 = load ptr, ptr %11, align 8, !tbaa !35
   %vfn.i57 = getelementptr inbounds nuw i8, ptr %vtable.i56, i64 64
-  %13 = load ptr, ptr %vfn.i57, align 8
-  %call2.i58 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(8) %12, double noundef %add23)
+  %12 = load ptr, ptr %vfn.i57, align 8
+  %call2.i58 = tail call noundef double %13(ptr noundef nonnull align 8 dereferenceable(8) %11, double noundef %add23)
   tail call void @_ZNK8QuantLib13Interpolation10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(32) %speed_, double noundef %add23, i1 noundef zeroext false)
-  %14 = load ptr, ptr %impl_.i46, align 8, !tbaa !102
-  %cmp.not.i.i63 = icmp eq ptr %14, null
+  %13 = load ptr, ptr %impl_.i46, align 8, !tbaa !102
+  %cmp.not.i.i63 = icmp eq ptr %13, null
   br i1 %cmp.not.i.i63, label %cond.false.i.i67, label %_ZNK8QuantLib13InterpolationclEdb.exit69, !prof !44
 
 cond.false.i.i67:                                 ; preds = %_ZNK8QuantLib13InterpolationclEdb.exit61
@@ -7808,20 +7808,20 @@ cond.false.i.i67:                                 ; preds = %_ZNK8QuantLib13Inte
   br label %_ZNK8QuantLib13InterpolationclEdb.exit69
 
 _ZNK8QuantLib13InterpolationclEdb.exit69:         ; preds = %_ZNK8QuantLib13InterpolationclEdb.exit61, %cond.false.i.i67
-  %15 = phi ptr [ %14, %_ZNK8QuantLib13InterpolationclEdb.exit61 ], [ %.pre.i.i68, %cond.false.i.i67 ]
-  %vtable.i64 = load ptr, ptr %15, align 8, !tbaa !35
+  %14 = phi ptr [ %13, %_ZNK8QuantLib13InterpolationclEdb.exit61 ], [ %.pre.i.i68, %cond.false.i.i67 ]
+  %vtable.i64 = load ptr, ptr %14, align 8, !tbaa !35
   %vfn.i65 = getelementptr inbounds nuw i8, ptr %vtable.i64, i64 64
-  %16 = load ptr, ptr %vfn.i65, align 8
-  %call2.i66 = tail call noundef double %16(ptr noundef nonnull align 8 dereferenceable(8) %15, double noundef %add23)
-  %17 = tail call double @llvm.fmuladd.f64(double %call2.i66, double %div, double %10)
-  %call29 = tail call double @exp(double noundef %17) #28, !tbaa !137
+  %15 = load ptr, ptr %vfn.i65, align 8
+  %call2.i66 = tail call noundef double %16(ptr noundef nonnull align 8 dereferenceable(8) %14, double noundef %add23)
+  %16 = tail call double @llvm.fmuladd.f64(double %call2.i66, double %div, double %9)
+  %call29 = tail call double @exp(double noundef %16) #28, !tbaa !137
   %mul30 = fmul double %call29, %call29
   %mul31 = fmul double %call2.i58, %mul30
   %mul32 = fmul double %call2.i58, %mul31
-  %18 = tail call double @llvm.fmuladd.f64(double %mul21, double 4.000000e+00, double %c.073)
-  %add35 = fadd double %18, %mul32
-  %19 = tail call double @llvm.fmuladd.f64(double %mul33, double %add35, double %V.072)
-  %20 = tail call double @llvm.fmuladd.f64(double %div, double 2.000000e+00, double %_t.074)
+  %17 = tail call double @llvm.fmuladd.f64(double %mul21, double 4.000000e+00, double %c.073)
+  %add35 = fadd double %17, %mul32
+  %18 = tail call double @llvm.fmuladd.f64(double %mul33, double %add35, double %V.072)
+  %19 = tail call double @llvm.fmuladd.f64(double %div, double 2.000000e+00, double %_t.074)
   %inc = add nuw nsw i64 %i.076, 1
   %exitcond.not = icmp eq i64 %inc, %spec.store.select
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !139

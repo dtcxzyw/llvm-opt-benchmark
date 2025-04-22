@@ -57,8 +57,8 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E
     i32 1, label %23
     i32 0, label %21
     i32 4, label %.loopexit
-    i32 2, label %41
-    i32 3, label %43
+    i32 2, label %40
+    i32 3, label %42
   ]
 
 .split17.us:                                      ; preds = %.split, %.split.us
@@ -125,21 +125,21 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E
   %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bb5f6fba474e2bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h29211c0c85325dbaE.exit" unwind label %39
+          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h29211c0c85325dbaE.exit" unwind label %38
 
 36:                                               ; preds = %32
-  %37 = tail call i64 @llvm.umax.i64(i64 %33, i64 16)
-  %.0.in.sroa.speculated.i.i.i.i = tail call noundef range(i64 16, 129) i64 @llvm.umin.i64(i64 %37, i64 128)
+  %.0.in.sroa.speculate.load.4.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %33, i64 16)
+  %.0.in.sroa.speculated.i.i.i.i = tail call noundef range(i64 16, 129) i64 @llvm.umin.i64(i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i.i.i.i, i64 128)
   store i64 1, ptr %.val.i, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  store i64 %.0.in.sroa.speculated.i.i.i.i, ptr %38, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  store i64 %.0.in.sroa.speculated.i.i.i.i, ptr %37, align 8
   store i32 4, ptr %28, align 8
   call void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h30bb5f6fba474e2bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %.loopexit
 
-39:                                               ; preds = %34
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %34
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #9
   unreachable
@@ -147,19 +147,19 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E
 "_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h29211c0c85325dbaE.exit": ; preds = %34
   resume { ptr, i32 } %35
 
-41:                                               ; preds = %.split
-  %42 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %42, 1
-  %.sroa.07.0.i15 = extractvalue { i32, i1 } %42, 0
-  br i1 %.sroa.18.0.in.i12, label %43, label %.split.backedge
+40:                                               ; preds = %.split
+  %41 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
+  %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %41, 1
+  %.sroa.07.0.i15 = extractvalue { i32, i1 } %41, 0
+  br i1 %.sroa.18.0.in.i12, label %42, label %.split.backedge
 
-43:                                               ; preds = %.split, %41
-  %44 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h9d42f2bb88c1b75dE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
-  %45 = load atomic i32, ptr %0 acquire, align 4
+42:                                               ; preds = %.split, %40
+  %43 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h9d42f2bb88c1b75dE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %44 = load atomic i32, ptr %0 acquire, align 4
   br label %.split.backedge
 
-.split.backedge:                                  ; preds = %43, %21, %41
-  %.0.be = phi i32 [ %45, %43 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i15, %41 ]
+.split.backedge:                                  ; preds = %42, %21, %40
+  %.0.be = phi i32 [ %44, %43 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i15, %41 ]
   br label %.split
 }
 

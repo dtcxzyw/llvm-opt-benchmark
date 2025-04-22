@@ -13140,7 +13140,7 @@ define dso_local void @clusterUpdateState() local_unnamed_addr #3 {
   %20 = load i64, ptr @clusterUpdateState.first_call_time, align 8, !tbaa !229
   %21 = sub nsw i64 %19, %20
   %22 = icmp slt i64 %21, 2000
-  br i1 %22, label %91, label %._crit_edge43
+  br i1 %22, label %89, label %._crit_edge43
 
 ._crit_edge43:                                    ; preds = %18
   %.pre.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
@@ -13242,48 +13242,48 @@ define dso_local void @clusterUpdateState() local_unnamed_addr #3 {
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i32, ptr %66, align 8, !tbaa !113
   %.not34 = icmp eq i32 %.1, %67
-  br i1 %.not34, label %91, label %68
+  br i1 %.not34, label %89, label %68
 
 68:                                               ; preds = %64
   %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7896), align 8, !tbaa !142
-  %70 = tail call i64 @llvm.smax.i64(i64 %69, i64 500)
-  %71 = tail call i64 @llvm.umin.i64(i64 %70, i64 5000)
-  %72 = icmp eq i32 %.1, 0
-  br i1 %72, label %73, label %83
+  %spec.store.select = tail call i64 @llvm.smax.i64(i64 %69, i64 500)
+  %spec.store.select1 = tail call i64 @llvm.umin.i64(i64 %spec.store.select, i64 5000)
+  %70 = icmp eq i32 %.1, 0
+  br i1 %70, label %71, label %81
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr @myself, align 8, !tbaa !46
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 88
-  %76 = load i32, ptr %75, align 8, !tbaa !82
-  %77 = and i32 %76, 1
-  %.not35 = icmp eq i32 %77, 0
-  br i1 %.not35, label %83, label %78
+71:                                               ; preds = %68
+  %72 = load ptr, ptr @myself, align 8, !tbaa !46
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 88
+  %74 = load i32, ptr %73, align 8, !tbaa !82
+  %75 = and i32 %74, 1
+  %.not35 = icmp eq i32 %75, 0
+  br i1 %.not35, label %81, label %76
 
-78:                                               ; preds = %73
-  %79 = tail call i64 @mstime() #33
-  %80 = load i64, ptr @clusterUpdateState.among_minority_time, align 8, !tbaa !229
-  %81 = sub nsw i64 %79, %80
-  %82 = icmp slt i64 %81, %71
-  br i1 %82, label %91, label %83
+76:                                               ; preds = %71
+  %77 = tail call i64 @mstime() #33
+  %78 = load i64, ptr @clusterUpdateState.among_minority_time, align 8, !tbaa !229
+  %79 = sub nsw i64 %77, %78
+  %80 = icmp slt i64 %79, %spec.store.select1
+  br i1 %80, label %89, label %81
 
-83:                                               ; preds = %68, %73, %78
-  %84 = phi i32 [ 3, %68 ], [ 2, %73 ], [ 2, %78 ]
-  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
-  %86 = icmp slt i32 %84, %85
-  br i1 %86, label %.critedge, label %87
+81:                                               ; preds = %68, %71, %76
+  %82 = phi i32 [ 3, %68 ], [ 2, %73 ], [ 2, %78 ]
+  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !63
+  %84 = icmp slt i32 %82, %83
+  br i1 %84, label %.critedge, label %85
 
-87:                                               ; preds = %83
-  %88 = select i1 %72, ptr @.str.149, ptr @.str.22
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef %84, ptr noundef nonnull @.str.148, ptr noundef nonnull %88) #33
+85:                                               ; preds = %81
+  %86 = select i1 %70, ptr @.str.149, ptr @.str.22
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef %82, ptr noundef nonnull @.str.148, ptr noundef nonnull %86) #33
   br label %.critedge
 
-.critedge:                                        ; preds = %83, %87
-  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store i32 %.1, ptr %90, align 8, !tbaa !113
-  br label %91
+.critedge:                                        ; preds = %81, %85
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  store i32 %.1, ptr %88, align 8, !tbaa !113
+  br label %89
 
-91:                                               ; preds = %64, %.critedge, %78, %18
+89:                                               ; preds = %64, %.critedge, %76, %18
   ret void
 }
 

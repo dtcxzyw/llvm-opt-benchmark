@@ -25545,7 +25545,7 @@ io_shrink_read_string.exit:                       ; preds = %102, %95, %94
 .thread:                                          ; preds = %105, %io_shrink_read_string.exit
   %.0.i.i = phi ptr [ %106, %105 ], [ %.val75, %io_shrink_read_string.exit ]
   %107 = call i64 @rb_enc_associate(i64 noundef %104, ptr noundef %.0.i.i) #28
-  br label %226
+  br label %225
 
 108:                                              ; preds = %10
   %109 = getelementptr i8, ptr %0, i64 96
@@ -25750,8 +25750,8 @@ RSTRING_PTR.exit87:                               ; preds = %182, %188
   br i1 %203, label %204, label %.backedge
 
 204:                                              ; preds = %195
-  %205 = call i64 @llvm.umax.i64(i64 %198, i64 8192)
-  %.0 = call i64 @llvm.umin.i64(i64 %205, i64 8388608)
+  %spec.store.select4 = call i64 @llvm.umax.i64(i64 %198, i64 8192)
+  %.0 = call i64 @llvm.umin.i64(i64 %spec.store.select4, i64 8388608)
   call void @rb_str_modify_expand(i64 noundef %197, i64 noundef %.0) #28
   br label %.backedge
 
@@ -25760,48 +25760,48 @@ RSTRING_PTR.exit87:                               ; preds = %182, %188
 
 .loopexit:                                        ; preds = %193, %176
   %.pre106 = load i64, ptr %6, align 8, !tbaa !23
-  br i1 %.not95, label %206, label %io_shrink_read_string.exit88
+  br i1 %.not95, label %205, label %io_shrink_read_string.exit88
 
-206:                                              ; preds = %.loopexit
-  %207 = inttoptr i64 %.pre106 to ptr
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  %209 = load i64, ptr %208, align 8, !tbaa !65
-  %210 = call i64 @rb_str_capacity(i64 noundef %.pre106) #33
-  %211 = sub i64 %210, %209
-  %212 = icmp ugt i64 %211, 4096
-  br i1 %212, label %213, label %io_shrink_read_string.exit88
+205:                                              ; preds = %.loopexit
+  %206 = inttoptr i64 %.pre106 to ptr
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
+  %208 = load i64, ptr %207, align 8, !tbaa !65
+  %209 = call i64 @rb_str_capacity(i64 noundef %.pre106) #33
+  %210 = sub i64 %209, %208
+  %211 = icmp ugt i64 %210, 4096
+  br i1 %211, label %212, label %io_shrink_read_string.exit88
 
-213:                                              ; preds = %206
-  %214 = call i64 @rb_str_resize(i64 noundef %.pre106, i64 noundef %209) #28
+212:                                              ; preds = %205
+  %213 = call i64 @rb_str_resize(i64 noundef %.pre106, i64 noundef %208) #28
   %.pre105 = load i64, ptr %6, align 8, !tbaa !23
   br label %io_shrink_read_string.exit88
 
-io_shrink_read_string.exit88:                     ; preds = %213, %206, %.loopexit
-  %215 = phi i64 [ %.pre105, %213 ], [ %.pre106, %206 ], [ %.pre106, %.loopexit ]
+io_shrink_read_string.exit88:                     ; preds = %212, %205, %.loopexit
+  %214 = phi i64 [ %.pre105, %213 ], [ %.pre106, %206 ], [ %.pre106, %.loopexit ]
   %.val76 = load ptr, ptr %109, align 8, !tbaa !67
   %.not.i.i89 = icmp eq ptr %.val76, null
-  br i1 %.not.i.i89, label %216, label %io_enc_str.exit91
+  br i1 %.not.i.i89, label %215, label %io_enc_str.exit91
 
-216:                                              ; preds = %io_shrink_read_string.exit88
-  %217 = call ptr @rb_default_external_encoding() #28
+215:                                              ; preds = %io_shrink_read_string.exit88
+  %216 = call ptr @rb_default_external_encoding() #28
   br label %io_enc_str.exit91
 
-io_enc_str.exit91:                                ; preds = %io_shrink_read_string.exit88, %216
-  %.0.i.i90 = phi ptr [ %217, %216 ], [ %.val76, %io_shrink_read_string.exit88 ]
-  %218 = call i64 @rb_enc_associate(i64 noundef %215, ptr noundef %.0.i.i90) #28
-  store i64 %215, ptr %6, align 8, !tbaa !23
-  %219 = load i32, ptr %7, align 4, !tbaa !20
-  %220 = inttoptr i64 %215 to ptr
-  %221 = load i64, ptr %220, align 8, !tbaa !25
-  %222 = and i64 %221, -3145729
-  %223 = zext i32 %219 to i64
-  %224 = or i64 %222, %223
-  store i64 %224, ptr %220, align 8, !tbaa !25
-  %225 = load i64, ptr %6, align 8, !tbaa !23
-  br label %226
+io_enc_str.exit91:                                ; preds = %io_shrink_read_string.exit88, %215
+  %.0.i.i90 = phi ptr [ %216, %216 ], [ %.val76, %io_shrink_read_string.exit88 ]
+  %217 = call i64 @rb_enc_associate(i64 noundef %214, ptr noundef %.0.i.i90) #28
+  store i64 %214, ptr %6, align 8, !tbaa !23
+  %218 = load i32, ptr %7, align 4, !tbaa !20
+  %219 = inttoptr i64 %214 to ptr
+  %220 = load i64, ptr %219, align 8, !tbaa !25
+  %221 = and i64 %220, -3145729
+  %222 = zext i32 %218 to i64
+  %223 = or i64 %221, %222
+  store i64 %223, ptr %219, align 8, !tbaa !25
+  %224 = load i64, ptr %6, align 8, !tbaa !23
+  br label %225
 
-226:                                              ; preds = %.thread, %io_enc_str.exit91
-  %.2 = phi i64 [ %225, %io_enc_str.exit91 ], [ %104, %.thread ]
+225:                                              ; preds = %.thread, %io_enc_str.exit91
+  %.2 = phi i64 [ %224, %io_enc_str.exit91 ], [ %104, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
   ret i64 %.2
 }

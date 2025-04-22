@@ -3088,43 +3088,43 @@ define void @_ZN5folly6detail29insertThousandsGroupingUnsafeEPcPS1_(ptr noundef 
   store i8 0, ptr %15, align 1, !tbaa !47
   br label %16
 
-16:                                               ; preds = %28, %2
-  %.02145 = phi i32 [ %13, %2 ], [ %29, %28 ]
-  %.02443 = phi i32 [ %8, %2 ], [ %20, %28 ]
-  %.03842 = phi i32 [ %7, %2 ], [ %32, %28 ]
-  %17 = tail call i32 @llvm.umax.i32(i32 %.03842, i32 1)
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %17, i32 3)
-  br label %19
+16:                                               ; preds = %27, %2
+  %.02145 = phi i32 [ %13, %2 ], [ %28, %28 ]
+  %.02443 = phi i32 [ %8, %2 ], [ %19, %28 ]
+  %.03842 = phi i32 [ %7, %2 ], [ %31, %28 ]
+  %.sroa.speculated29 = tail call i32 @llvm.umax.i32(i32 %.03842, i32 1)
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated29, i32 3)
+  br label %18
 
-18:                                               ; preds = %19
+17:                                               ; preds = %18
   %.not = icmp eq i32 %.140, 0
-  br i1 %.not, label %33, label %28
+  br i1 %.not, label %32, label %27
 
-19:                                               ; preds = %16, %19
-  %.041 = phi i32 [ 0, %16 ], [ %27, %19 ]
-  %.140 = phi i32 [ %.02145, %16 ], [ %24, %19 ]
-  %.12539 = phi i32 [ %.02443, %16 ], [ %20, %19 ]
-  %20 = add i32 %.12539, -1
-  %21 = zext i32 %.12539 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !47
-  %24 = add i32 %.140, -1
-  %25 = zext i32 %.140 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %25
-  store i8 %23, ptr %26, align 1, !tbaa !47
-  %27 = add nuw nsw i32 %.041, 1
-  %exitcond.not = icmp eq i32 %27, %.sroa.speculated
-  br i1 %exitcond.not, label %18, label %19, !llvm.loop !149
+18:                                               ; preds = %16, %18
+  %.041 = phi i32 [ 0, %16 ], [ %26, %19 ]
+  %.140 = phi i32 [ %.02145, %16 ], [ %23, %19 ]
+  %.12539 = phi i32 [ %.02443, %16 ], [ %19, %19 ]
+  %19 = add i32 %.12539, -1
+  %20 = zext i32 %.12539 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !47
+  %23 = add i32 %.140, -1
+  %24 = zext i32 %.140 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
+  store i8 %22, ptr %25, align 1, !tbaa !47
+  %26 = add nuw nsw i32 %.041, 1
+  %exitcond.not = icmp eq i32 %26, %.sroa.speculated
+  br i1 %exitcond.not, label %17, label %18, !llvm.loop !149
 
-28:                                               ; preds = %18
-  %29 = add i32 %.140, -2
-  %30 = zext i32 %24 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %30
-  store i8 44, ptr %31, align 1, !tbaa !47
-  %32 = sub i32 %.03842, %.sroa.speculated
+27:                                               ; preds = %17
+  %28 = add i32 %.140, -2
+  %29 = zext i32 %23 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
+  store i8 44, ptr %30, align 1, !tbaa !47
+  %31 = sub i32 %.03842, %.sroa.speculated
   br label %16, !llvm.loop !150
 
-33:                                               ; preds = %18
+32:                                               ; preds = %17
   ret void
 }
 

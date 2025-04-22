@@ -159,7 +159,7 @@ define dso_local noundef range(i32 -1, 2) i32 @second_overflow(i64 noundef %0) l
 
 27:                                               ; preds = %24
   store i32 3, ptr @time_state, align 4
-  %28 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #10
+  %28 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str) #9
   br label %45
 
 29:                                               ; preds = %1
@@ -181,7 +181,7 @@ define dso_local noundef range(i32 -1, 2) i32 @second_overflow(i64 noundef %0) l
 37:                                               ; preds = %34
   store i64 9223372036854775807, ptr @ntp_next_leap_sec, align 8
   store i32 4, ptr @time_state, align 4
-  %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #10
+  %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #9
   br label %45
 
 39:                                               ; preds = %1
@@ -292,7 +292,7 @@ define dso_local void @ntp_notify_cmos_timer() local_unnamed_addr #3 align 16 {
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr @system_freezable_power_efficient_wq, align 8
-  %10 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %9, ptr noundef nonnull @sync_work) #11
+  %10 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %9, ptr noundef nonnull @sync_work) #10
   br label %11
 
 11:                                               ; preds = %8, %4, %0
@@ -401,7 +401,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr noundef captures(none) i
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %57
-  %64 = tail call i64 @__ktime_get_real_seconds() #11
+  %64 = tail call i64 @__ktime_get_real_seconds() #10
   store i64 %64, ptr @time_reftime, align 8
   %.pre = load i32, ptr @time_status, align 4
   %.pre7.pre = load i32, ptr %0, align 8
@@ -536,7 +536,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr noundef captures(none) i
   %141 = phi i64 [ %129, %132 ], [ %139, %137 ], [ 1000000000, %135 ]
   %142 = tail call i64 @llvm.smax.i64(i64 %141, i64 -500000000)
   %143 = tail call i64 @llvm.smin.i64(i64 %142, i64 500000000)
-  %144 = tail call i64 @__ktime_get_real_seconds() #11
+  %144 = tail call i64 @__ktime_get_real_seconds() #10
   %145 = load i64, ptr @time_reftime, align 8
   %146 = sub i64 %144, %145
   %147 = load i32, ptr @time_status, align 4
@@ -549,7 +549,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr noundef captures(none) i
 
 151:                                              ; preds = %150, %140
   %152 = phi i64 [ 0, %150 ], [ %146, %140 ]
-  %153 = tail call i64 @__ktime_get_real_seconds() #11
+  %153 = tail call i64 @__ktime_get_real_seconds() #10
   store i64 %153, ptr @time_reftime, align 8
   %154 = load i32, ptr @time_status, align 4
   %155 = and i32 %154, -16385
@@ -784,7 +784,7 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr noundef captures(none) i
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal range(i32 1, 0) i32 @ntp_tick_adj_setup(ptr noundef %0) #5 section ".init.text" align 16 {
-  %2 = tail call i32 @kstrtoll(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ntp_tick_adj) #11
+  %2 = tail call i32 @kstrtoll(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @ntp_tick_adj) #10
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %7
 
@@ -820,7 +820,7 @@ define dso_local void @ntp_init() local_unnamed_addr #5 section ".init.text" ali
   store i64 %9, ptr @tick_length, align 8
   store i64 0, ptr @time_offset, align 8
   store i64 9223372036854775807, ptr @ntp_next_leap_sec, align 8
-  tail call void @hrtimer_init(ptr noundef nonnull @sync_hrtimer, i32 noundef 0, i32 noundef 0) #11
+  tail call void @hrtimer_init(ptr noundef nonnull @sync_hrtimer, i32 noundef 0, i32 noundef 0) #10
   store ptr @sync_timer_callback, ptr getelementptr inbounds nuw (i8, ptr @sync_hrtimer, i64 40), align 8
   ret void
 }
@@ -833,7 +833,7 @@ define internal void @sync_hw_clock(ptr readnone captures(none) %0) #3 align 16 
   %2 = alloca %struct.rtc_time, align 4
   %3 = alloca %struct.timespec64, align 8
   %4 = alloca %struct.timespec64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   %5 = load i32, ptr @time_status, align 4
   %6 = and i32 %5, 64
   %7 = icmp eq i32 %6, 0
@@ -847,7 +847,7 @@ define internal void @sync_hw_clock(ptr readnone captures(none) %0) #3 align 16 
 
 12:                                               ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
-  call void @ktime_get_real_ts64(ptr noundef nonnull %4) #11
+  call void @ktime_get_real_ts64(ptr noundef nonnull %4) #10
   %13 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
   %14 = load i64, ptr %4, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -856,7 +856,7 @@ define internal void @sync_hw_clock(ptr readnone captures(none) %0) #3 align 16 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !7
   %17 = add i64 %14, -1
   %18 = add i64 %16, %13
-  call void @set_normalized_timespec64(ptr noundef nonnull %3, i64 noundef %17, i64 noundef %18) #11
+  call void @set_normalized_timespec64(ptr noundef nonnull %3, i64 noundef %17, i64 noundef %18) #10
   %19 = load i64, ptr %3, align 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8
@@ -886,14 +886,14 @@ define internal void @sync_hw_clock(ptr readnone captures(none) %0) #3 align 16 
   br i1 %36, label %37, label %56
 
 37:                                               ; preds = %27
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2) #11
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false), !annotation !7
-  %38 = call ptr @rtc_class_open(ptr noundef nonnull @.str.2) #11
+  %38 = call ptr @rtc_class_open(ptr noundef nonnull @.str.2) #10
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread6, label %40
 
 .thread6:                                         ; preds = %37
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #11
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #10
   br label %66
 
 40:                                               ; preds = %37
@@ -917,20 +917,20 @@ define internal void @sync_hw_clock(ptr readnone captures(none) %0) #3 align 16 
 
 .thread9:                                         ; preds = %48
   store i64 %51, ptr @sync_hw_clock.offset_nsec, align 8
-  call void @rtc_class_close(ptr noundef nonnull %38) #11
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #11
+  call void @rtc_class_close(ptr noundef nonnull %38) #10
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #10
   br label %56
 
 .thread8:                                         ; preds = %44, %40
-  call void @rtc_class_close(ptr noundef nonnull %38) #11
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #11
+  call void @rtc_class_close(ptr noundef nonnull %38) #10
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #10
   br label %66
 
 53:                                               ; preds = %48
-  call void @rtc_time64_to_tm(i64 noundef %34, ptr noundef nonnull %2) #11
-  %54 = call i32 @rtc_set_time(ptr noundef nonnull %38, ptr noundef nonnull %2) #11
-  call void @rtc_class_close(ptr noundef nonnull %38) #11
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #11
+  call void @rtc_time64_to_tm(i64 noundef %34, ptr noundef nonnull %2) #10
+  %54 = call i32 @rtc_set_time(ptr noundef nonnull %38, ptr noundef nonnull %2) #10
+  call void @rtc_class_close(ptr noundef nonnull %38) #10
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %2) #10
   %55 = icmp eq i32 %54, -19
   br i1 %55, label %66, label %56
 
@@ -939,18 +939,18 @@ define internal void @sync_hw_clock(ptr readnone captures(none) %0) #3 align 16 
   %58 = load i64, ptr @sync_hw_clock.offset_nsec, align 8
   %.fr = freeze i32 %57
   %59 = icmp eq i32 %.fr, 0
-  %60 = call i64 @ktime_get_real_seconds() #11
+  %60 = call i64 @ktime_get_real_seconds() #10
   %61 = icmp sgt i64 %60, 9223372035
   %62 = mul i64 %60, 1000000000
   %63 = select i1 %61, i64 9223372036854775807, i64 %62, !prof !5
   %spec.select = select i1 %59, i64 660000000000, i64 2000000000
   %64 = sub i64 %spec.select, %58
   %65 = add i64 %64, %63
-  call void @hrtimer_start_range_ns(ptr noundef nonnull @sync_hrtimer, i64 noundef %65, i64 noundef 0, i32 noundef 0) #11
+  call void @hrtimer_start_range_ns(ptr noundef nonnull @sync_hrtimer, i64 noundef %65, i64 noundef 0, i32 noundef 0) #10
   br label %66
 
 66:                                               ; preds = %.thread8, %.thread6, %56, %53, %8, %1
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   ret void
 }
 
@@ -993,7 +993,7 @@ declare dso_local void @hrtimer_init(ptr noundef, i32 noundef, i32 noundef) loca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @sync_timer_callback(ptr readnone captures(none) %0) #3 align 16 {
   %2 = load ptr, ptr @system_freezable_power_efficient_wq, align 8
-  %3 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %2, ptr noundef nonnull @sync_work) #11
+  %3 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %2, ptr noundef nonnull @sync_work) #10
   ret i32 0
 }
 

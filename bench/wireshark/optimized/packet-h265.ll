@@ -4643,33 +4643,33 @@ define internal fastcc i32 @dissect_h265_scaling_list_data(ptr noundef %0, ptr n
   %9 = icmp eq i32 %.035, 3
   %10 = select i1 %9, i32 3, i32 1
   %umax = tail call i32 @llvm.umin.i32(i32 %7, i32 64)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %.preheader, %.loopexit
+12:                                               ; preds = %.preheader, %.loopexit
   %.02934 = phi i32 [ 0, %.preheader ], [ %28, %.loopexit ]
-  %12 = load i32, ptr %5, align 4
-  %13 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %12, i32 noundef 1)
-  %.not = icmp eq i8 %13, 0
-  %14 = load i32, ptr @hf_h265_scaling_list_pred_mode_flag, align 4
-  %15 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %12, i32 noundef 1, i32 noundef 0)
-  %16 = add i32 %12, 1
-  store i32 %16, ptr %5, align 4
-  br i1 %.not, label %17, label %20
+  %13 = load i32, ptr %5, align 4
+  %14 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %1, i32 noundef %13, i32 noundef 1)
+  %.not = icmp eq i8 %14, 0
+  %15 = load i32, ptr @hf_h265_scaling_list_pred_mode_flag, align 4
+  %16 = tail call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %13, i32 noundef 1, i32 noundef 0)
+  %17 = add i32 %13, 1
+  store i32 %17, ptr %5, align 4
+  br i1 %.not, label %18, label %21
 
-17:                                               ; preds = %11
-  %18 = load i32, ptr @hf_h265_scaling_list_pred_matrix_id_delta, align 4
-  %19 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %18, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef 0)
+18:                                               ; preds = %12
+  %19 = load i32, ptr @hf_h265_scaling_list_pred_matrix_id_delta, align 4
+  %20 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %19, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef 0)
   br label %.loopexit
 
-20:                                               ; preds = %11
-  br i1 %8, label %21, label %.preheader37
+21:                                               ; preds = %12
+  br i1 %8, label %22, label %.preheader37
 
-21:                                               ; preds = %20
-  %22 = load i32, ptr @hf_h265_scaling_list_dc_coef_minus8, align 4
-  %23 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %22, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef 2)
+22:                                               ; preds = %21
+  %23 = load i32, ptr @hf_h265_scaling_list_dc_coef_minus8, align 4
+  %24 = call fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 noundef %23, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef 2)
   br label %.preheader37
 
-.preheader37:                                     ; preds = %21, %20
+.preheader37:                                     ; preds = %22, %21
   br label %24
 
 24:                                               ; preds = %.preheader37, %24
@@ -4685,12 +4685,12 @@ define internal fastcc i32 @dissect_h265_scaling_list_data(ptr noundef %0, ptr n
   %29 = icmp samesign ult i32 %28, 6
   br i1 %29, label %11, label %30, !llvm.loop !49
 
-30:                                               ; preds = %.loopexit
+25:                                               ; preds = %.loopexit
   %31 = add nuw nsw i32 %.035, 1
   %exitcond36.not = icmp eq i32 %31, 4
   br i1 %exitcond36.not, label %32, label %.preheader, !llvm.loop !50
 
-32:                                               ; preds = %30
+32:; preds = %25
   %33 = load i32, ptr %5, align 4
   ret i32 %33
 }

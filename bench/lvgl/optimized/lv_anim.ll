@@ -1289,14 +1289,14 @@ define i32 @lv_anim_path_bounce(ptr noundef readonly captures(none) %0) local_un
 38:                                               ; preds = %18, %29, %35, %33, %24, %13
   %.046 = phi i32 [ %11, %13 ], [ %21, %18 ], [ %26, %24 ], [ %32, %29 ], [ %37, %35 ], [ %11, %33 ]
   %.0 = phi i32 [ %narrow, %13 ], [ %20, %18 ], [ %25, %24 ], [ %31, %29 ], [ %36, %35 ], [ %6, %33 ]
-  %39 = tail call i32 @llvm.smax.i32(i32 %.0, i32 0)
-  %40 = tail call i32 @llvm.umin.i32(i32 %39, i32 1024)
-  %41 = tail call i32 @lv_bezier3(i32 noundef %40, i32 noundef 0, i32 noundef 500, i32 noundef 800, i32 noundef 1024) #10
-  %42 = mul nsw i32 %41, %.046
-  %43 = ashr i32 %42, 10
-  %44 = load i32, ptr %7, align 8, !tbaa !41
-  %45 = sub nsw i32 %44, %43
-  ret i32 %45
+  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %.0, i32 0)
+  %spec.store.select9 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 1024)
+  %39 = tail call i32 @lv_bezier3(i32 noundef %spec.store.select9, i32 noundef 0, i32 noundef 500, i32 noundef 800, i32 noundef 1024) #10
+  %40 = mul nsw i32 %39, %.046
+  %41 = ashr i32 %40, 10
+  %42 = load i32, ptr %7, align 8, !tbaa !41
+  %43 = sub nsw i32 %42, %41
+  ret i32 %43
 }
 
 declare i32 @lv_bezier3(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

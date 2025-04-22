@@ -175677,7 +175677,7 @@ define void @"_ZN94_$LT$typst..text..font..variant..FontWeight$u20$as$u20$typst.
 .thread149:                                       ; preds = %7, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit54", %2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit82", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit66", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit70", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit74", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit62", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit78"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   invoke void @_ZN5typst11foundations4cast7Reflect5error17h30242ddfe43d844bE(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-          to label %29 unwind label %41
+          to label %29 unwind label %39
 
 26:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -175714,35 +175714,35 @@ define void @"_ZN94_$LT$typst..text..font..variant..FontWeight$u20$as$u20$typst.
   br label %31
 
 34:                                               ; preds = %26
-  %35 = tail call i64 @llvm.smax.i64(i64 %.sroa.041.sroa.0.0.copyload, i64 0)
-  %36 = tail call i64 @llvm.umin.i64(i64 %35, i64 65535)
-  %37 = trunc nuw i64 %36 to i16
-  %.0.sroa.speculated.i.i = tail call noundef i16 @llvm.umax.i16(i16 %37, i16 100)
+  %.0.in.sroa.speculate.load.4.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %.sroa.041.sroa.0.0.copyload, i64 0)
+  %.0.in.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.0.in.sroa.speculate.load.4.sroa.speculated.i, i64 65535)
+  %35 = trunc nuw i64 %.0.in.sroa.speculated.i to i16
+  %.0.sroa.speculated.i.i = tail call noundef i16 @llvm.umax.i16(i16 %35, i16 100)
   %.0.sroa.speculated.i1.i = tail call noundef range(i16 100, 901) i16 @llvm.umin.i16(i16 %.0.sroa.speculated.i.i, i16 900)
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 %.0.sroa.speculated.i1.i, ptr %38, align 2
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i16 %.0.sroa.speculated.i1.i, ptr %36, align 2
   store i16 0, ptr %0, align 8
   br label %31
 
 .critedge:                                        ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit82", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit78", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit74", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit70", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit66", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit62", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit58", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit54", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit"
   %.sink = phi i16 [ 100, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit" ], [ 200, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit54" ], [ 300, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit58" ], [ 400, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit62" ], [ 500, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit66" ], [ 600, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit70" ], [ 700, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit74" ], [ 800, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit78" ], [ 900, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h45ed752b1ddb1024E.exit82" ]
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 %.sink, ptr %39, align 2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i16 %.sink, ptr %37, align 2
   store i16 0, ptr %0, align 8
   tail call void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.7889846851399105414"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   br label %31
 
-40:                                               ; preds = %41
-  resume { ptr, i32 } %42
+38:                                               ; preds = %39
+  resume { ptr, i32 } %40
 
-41:                                               ; preds = %.thread149
-  %42 = landingpad { ptr, i32 }
+39:                                               ; preds = %.thread149
+  %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr53drop_in_place$LT$typst..foundations..value..Value$GT$17h54cec887ca59b7d7E.llvm.7889846851399105414"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #52
-          to label %40 unwind label %43
+          to label %40 unwind label %41
 
-43:                                               ; preds = %41
-  %44 = landingpad { ptr, i32 }
+41:                                               ; preds = %39
+  %42 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #53
   unreachable

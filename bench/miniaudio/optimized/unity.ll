@@ -94461,7 +94461,7 @@ define internal fastcc i64 @ma_dr_wav_read_pcm_frames_s16__ima(ptr noundef nonnu
   %.not298 = icmp eq i16 %112, 0
   br i1 %.not298, label %.backedge, label %.lr.ph290
 
-.lr.ph290:                                        ; preds = %111, %195
+.lr.ph290:                                        ; preds = %111, %192
   %indvars.iv326 = phi i64 [ %indvars.iv.next327, %195 ], [ 0, %111 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #66
   %113 = load ptr, ptr %0, align 8, !tbaa !1141
@@ -94525,86 +94525,86 @@ define internal fastcc i64 @ma_dr_wav_read_pcm_frames_s16__ima(ptr noundef nonnu
   %149 = getelementptr inbounds nuw [16 x i32], ptr @ma_dr_wav_read_pcm_frames_s16__ima.indexTable, i64 0, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !3
   %151 = add nsw i32 %150, %129
-  %152 = call i32 @llvm.smax.i32(i32 %151, i32 0)
-  %153 = call i32 @llvm.umin.i32(i32 %152, i32 88)
-  store i32 %153, ptr %119, align 4, !tbaa !3
-  %154 = load i32, ptr %13, align 4, !tbaa !1894
-  %155 = mul i32 %154, %122
-  %156 = zext i32 %155 to i64
-  %157 = shl nuw nsw i64 %indvars.iv323, 1
-  %158 = mul nuw nsw i64 %157, %123
-  %159 = sub nsw i64 %reass.sub, %156
-  %160 = add nsw i64 %159, %158
-  %161 = getelementptr inbounds nuw [16 x i32], ptr %27, i64 0, i64 %160
-  store i32 %147, ptr %161, align 4, !tbaa !3
-  %162 = load i32, ptr %119, align 4, !tbaa !3
-  %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds [89 x i32], ptr @ma_dr_wav_read_pcm_frames_s16__ima.stepTable, i64 0, i64 %163
-  %165 = load i32, ptr %164, align 4, !tbaa !3
-  %166 = load i32, ptr %120, align 4, !tbaa !3
-  %167 = ashr i32 %165, 3
-  %168 = zext nneg i8 %128 to i32
-  %169 = and i32 %168, 1
-  %.not218 = icmp eq i32 %169, 0
-  %170 = ashr i32 %165, 2
-  %171 = select i1 %.not218, i32 0, i32 %170
-  %172 = and i32 %168, 2
-  %.not219 = icmp eq i32 %172, 0
-  %173 = ashr i32 %165, 1
-  %174 = select i1 %.not219, i32 0, i32 %173
-  %175 = and i32 %168, 4
-  %.not220 = icmp eq i32 %175, 0
-  %176 = select i1 %.not220, i32 0, i32 %165
-  %.4 = add i32 %176, %167
-  %.5 = add i32 %.4, %171
-  %.6 = add i32 %.5, %174
-  %177 = sub nsw i32 0, %.6
+  %spec.select = call i32 @llvm.smax.i32(i32 %151, i32 0)
+  %spec.select233 = call i32 @llvm.umin.i32(i32 %spec.select, i32 88)
+  store i32 %spec.select233, ptr %119, align 4, !tbaa !3
+  %152 = load i32, ptr %13, align 4, !tbaa !1894
+  %153 = mul i32 %152, %122
+  %154 = zext i32 %153 to i64
+  %155 = shl nuw nsw i64 %indvars.iv323, 1
+  %156 = mul nuw nsw i64 %155, %123
+  %157 = sub nsw i64 %reass.sub, %154
+  %158 = add nsw i64 %157, %156
+  %159 = getelementptr inbounds nuw [16 x i32], ptr %27, i64 0, i64 %158
+  store i32 %147, ptr %159, align 4, !tbaa !3
+  %160 = load i32, ptr %119, align 4, !tbaa !3
+  %161 = sext i32 %160 to i64
+  %162 = getelementptr inbounds [89 x i32], ptr @ma_dr_wav_read_pcm_frames_s16__ima.stepTable, i64 0, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !3
+  %164 = load i32, ptr %120, align 4, !tbaa !3
+  %165 = ashr i32 %163, 3
+  %166 = zext nneg i8 %128 to i32
+  %167 = and i32 %166, 1
+  %.not218 = icmp eq i32 %167, 0
+  %168 = ashr i32 %163, 2
+  %169 = select i1 %.not218, i32 0, i32 %168
+  %170 = and i32 %166, 2
+  %.not219 = icmp eq i32 %170, 0
+  %171 = ashr i32 %163, 1
+  %172 = select i1 %.not219, i32 0, i32 %171
+  %173 = and i32 %166, 4
+  %.not220 = icmp eq i32 %173, 0
+  %174 = select i1 %.not220, i32 0, i32 %163
+  %.4 = add i32 %174, %165
+  %.5 = add i32 %.4, %169
+  %.6 = add i32 %.5, %172
+  %175 = sub nsw i32 0, %.6
   %.not221234 = icmp slt i8 %126, 0
-  %.7 = select i1 %.not221234, i32 %177, i32 %.6
-  %178 = add nsw i32 %.7, %166
-  %179 = call i32 @llvm.smax.i32(i32 %178, i32 -32768)
-  %180 = call i32 @llvm.smin.i32(i32 %179, i32 32767)
-  store i32 %180, ptr %120, align 4, !tbaa !3
-  %181 = zext nneg i8 %128 to i64
-  %182 = getelementptr inbounds nuw [16 x i32], ptr @ma_dr_wav_read_pcm_frames_s16__ima.indexTable, i64 0, i64 %181
-  %183 = load i32, ptr %182, align 4, !tbaa !3
-  %184 = add nsw i32 %183, %162
-  %185 = call i32 @llvm.smax.i32(i32 %184, i32 0)
-  %186 = call i32 @llvm.umin.i32(i32 %185, i32 88)
-  store i32 %186, ptr %119, align 4, !tbaa !3
-  %187 = load i32, ptr %13, align 4, !tbaa !1894
-  %188 = mul i32 %187, %122
-  %189 = zext i32 %188 to i64
-  %190 = or disjoint i64 %157, 1
-  %191 = mul nuw nsw i64 %190, %123
-  %192 = add nuw nsw i64 %reass.sub, %191
-  %193 = sub nsw i64 %192, %189
-  %194 = getelementptr inbounds nuw [16 x i32], ptr %27, i64 0, i64 %193
-  store i32 %180, ptr %194, align 4, !tbaa !3
+  %.7 = select i1 %.not221234, i32 %175, i32 %.6
+  %176 = add nsw i32 %.7, %164
+  %177 = call i32 @llvm.smax.i32(i32 %176, i32 -32768)
+  %178 = call i32 @llvm.smin.i32(i32 %177, i32 32767)
+  store i32 %178, ptr %120, align 4, !tbaa !3
+  %179 = zext nneg i8 %128 to i64
+  %180 = getelementptr inbounds nuw [16 x i32], ptr @ma_dr_wav_read_pcm_frames_s16__ima.indexTable, i64 0, i64 %179
+  %181 = load i32, ptr %180, align 4, !tbaa !3
+  %182 = add nsw i32 %181, %160
+  %spec.select224 = call i32 @llvm.smax.i32(i32 %182, i32 0)
+  %183 = call i32 @llvm.umin.i32(i32 %spec.select224, i32 88)
+  store i32 %183, ptr %119, align 4, !tbaa !3
+  %184 = load i32, ptr %13, align 4, !tbaa !1894
+  %185 = mul i32 %184, %122
+  %186 = zext i32 %185 to i64
+  %187 = or disjoint i64 %155, 1
+  %188 = mul nuw nsw i64 %187, %123
+  %189 = add nuw nsw i64 %reass.sub, %188
+  %190 = sub nsw i64 %189, %186
+  %191 = getelementptr inbounds nuw [16 x i32], ptr %27, i64 0, i64 %190
+  store i32 %178, ptr %191, align 4, !tbaa !3
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next324, 4
-  br i1 %exitcond.not, label %195, label %124, !llvm.loop !1898
+  br i1 %exitcond.not, label %192, label %124, !llvm.loop !1898
 
-195:                                              ; preds = %124
+192:                                              ; preds = %124
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #66
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
-  %196 = icmp samesign ult i64 %indvars.iv.next327, %123
-  br i1 %196, label %.lr.ph290, label %.backedge, !llvm.loop !1899
+  %193 = icmp samesign ult i64 %indvars.iv.next327, %123
+  br i1 %193, label %.lr.ph290, label %.backedge, !llvm.loop !1899
 
-.backedge:                                        ; preds = %86, %195, %111, %108
+.backedge:                                        ; preds = %86, %192, %111, %108
   %.1189281310 = phi i64 [ %82, %111 ], [ %82, %108 ], [ %82, %195 ], [ %.1189281, %86 ]
   %.2198280307 = phi i64 [ %83, %111 ], [ %83, %108 ], [ %83, %195 ], [ %.2198280, %86 ]
-  %197 = load i64, ptr %7, align 8, !tbaa !1195
-  %198 = load i64, ptr %8, align 8, !tbaa !1194
-  %199 = icmp ult i64 %197, %198
-  br i1 %199, label %28, label %.loopexit, !llvm.loop !1900
+  %194 = load i64, ptr %7, align 8, !tbaa !1195
+  %195 = load i64, ptr %8, align 8, !tbaa !1194
+  %196 = icmp ult i64 %194, %195
+  br i1 %196, label %28, label %.loopexit, !llvm.loop !1900
 
 .loopexit.loopexit:                               ; preds = %._crit_edge
-  %200 = add i64 %.0188293, %.0196292
+  %197 = add i64 %.0188293, %.0196292
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %80, %.loopexit.loopexit, %3, %.thread231, %.thread228, %.thread
-  %.3183 = phi i64 [ %.0196292, %.thread ], [ %.0196292, %.thread228 ], [ %83, %.thread231 ], [ 0, %3 ], [ %200, %.loopexit.loopexit ], [ %.0196292, %80 ], [ %.2198280307, %.backedge ]
+  %.3183 = phi i64 [ %.0196292, %.thread ], [ %.0196292, %.thread228 ], [ %83, %.thread231 ], [ 0, %3 ], [ %197, %.loopexit.loopexit ], [ %.0196292, %80 ], [ %.2198280307, %.backedge ]
   ret i64 %.3183
 }
 

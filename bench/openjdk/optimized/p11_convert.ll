@@ -597,7 +597,7 @@ define hidden noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr noundef %1
   br i1 %.not142, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader130
-  %umax = tail call i64 @llvm.umin.i64(i64 %51, i64 4)
+  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %51, i64 4)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

@@ -18556,7 +18556,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #33
-  br label %145
+  br label %142
 
 24:                                               ; preds = %4, %4, %4, %4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -18587,11 +18587,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #33
   invoke void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPS1_i(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef -1)
-          to label %37 unwind label %130
+          to label %37 unwind label %127
 
 37:                                               ; preds = %35
   %38 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %8)
-          to label %39 unwind label %132
+          to label %39 unwind label %129
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -18657,7 +18657,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %39, %43
   br label %.loopexit
 
 .preheader.split.us.split:                        ; preds = %.preheader.split.us, %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit42.us
-  %.032.us = phi i64 [ %81, %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit42.us ], [ 0, %.preheader.split.us ]
+  %.032.us = phi i64 [ %80, %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit42.us ], [ 0, %.preheader.split.us ]
   %exitcond76.not = icmp eq i64 %.032.us, %53
   br i1 %exitcond76.not, label %.split.us, label %.preheader76.i.us
 
@@ -18668,37 +18668,37 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %39, %43
 
 .lr.ph97.preheader.i.us:                          ; preds = %.preheader76.i.us, %._crit_edge98.i.us
   %indvars.iv119.i.us = phi i64 [ %indvars.iv.next120.i.us, %._crit_edge98.i.us ], [ %51, %.preheader76.i.us ]
-  %.0101.i.us = phi ptr [ %79, %._crit_edge98.i.us ], [ %67, %.preheader76.i.us ]
-  %.063100.i.us = phi ptr [ %78, %._crit_edge98.i.us ], [ %68, %.preheader76.i.us ]
-  %.06699.i.us = phi i64 [ %77, %._crit_edge98.i.us ], [ 0, %.preheader76.i.us ]
-  %69 = call i64 @llvm.umax.i64(i64 %indvars.iv119.i.us, i64 1)
-  %umax122.i.us = call i64 @llvm.umin.i64(i64 %69, i64 96)
+  %.0101.i.us = phi ptr [ %78, %._crit_edge98.i.us ], [ %67, %.preheader76.i.us ]
+  %.063100.i.us = phi ptr [ %77, %._crit_edge98.i.us ], [ %68, %.preheader76.i.us ]
+  %.06699.i.us = phi i64 [ %76, %._crit_edge98.i.us ], [ 0, %.preheader76.i.us ]
+  %umin121.i.us = call i64 @llvm.umax.i64(i64 %indvars.iv119.i.us, i64 1)
+  %umax122.i.us = call i64 @llvm.umin.i64(i64 %umin121.i.us, i64 96)
   br label %.lr.ph97.i.us
 
 .lr.ph97.i.us:                                    ; preds = %.lr.ph97.i.us, %.lr.ph97.preheader.i.us
-  %.06995.i.us = phi i64 [ %76, %.lr.ph97.i.us ], [ 0, %.lr.ph97.preheader.i.us ]
-  %70 = getelementptr inbounds nuw i8, ptr %.0101.i.us, i64 %.06995.i.us
-  %71 = load i8, ptr %70, align 1, !tbaa !15
-  %72 = getelementptr inbounds nuw i8, ptr %10, i64 %.06995.i.us
-  %73 = load i8, ptr %72, align 1, !tbaa !15
-  %74 = and i8 %73, %71
-  %75 = getelementptr inbounds nuw i8, ptr %.063100.i.us, i64 %.06995.i.us
-  store i8 %74, ptr %75, align 1, !tbaa !15
-  %76 = add nuw nsw i64 %.06995.i.us, 1
-  %exitcond123.not.i.us = icmp eq i64 %76, %umax122.i.us
+  %.06995.i.us = phi i64 [ %75, %.lr.ph97.i.us ], [ 0, %.lr.ph97.preheader.i.us ]
+  %69 = getelementptr inbounds nuw i8, ptr %.0101.i.us, i64 %.06995.i.us
+  %70 = load i8, ptr %69, align 1, !tbaa !15
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 %.06995.i.us
+  %72 = load i8, ptr %71, align 1, !tbaa !15
+  %73 = and i8 %72, %70
+  %74 = getelementptr inbounds nuw i8, ptr %.063100.i.us, i64 %.06995.i.us
+  store i8 %73, ptr %74, align 1, !tbaa !15
+  %75 = add nuw nsw i64 %.06995.i.us, 1
+  %exitcond123.not.i.us = icmp eq i64 %75, %umax122.i.us
   br i1 %exitcond123.not.i.us, label %._crit_edge98.i.us, label %.lr.ph97.i.us, !llvm.loop !561
 
 ._crit_edge98.i.us:                               ; preds = %.lr.ph97.i.us
-  %77 = add i64 %.06699.i.us, 96
-  %78 = getelementptr inbounds nuw i8, ptr %.063100.i.us, i64 96
-  %79 = getelementptr inbounds nuw i8, ptr %.0101.i.us, i64 96
-  %80 = icmp ult i64 %77, %51
+  %76 = add i64 %.06699.i.us, 96
+  %77 = getelementptr inbounds nuw i8, ptr %.063100.i.us, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %.0101.i.us, i64 96
+  %79 = icmp ult i64 %76, %51
   %indvars.iv.next120.i.us = add i64 %indvars.iv119.i.us, -96
-  br i1 %80, label %.lr.ph97.preheader.i.us, label %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit42.us, !llvm.loop !562
+  br i1 %79, label %.lr.ph97.preheader.i.us, label %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit42.us, !llvm.loop !562
 
 _ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit42.us: ; preds = %._crit_edge98.i.us
-  %81 = add i64 %.032.us, 1
-  %82 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
+  %80 = add i64 %.032.us, 1
+  %81 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %.preheader.split.us.split unwind label %.loopexit.split.us.split, !llvm.loop !560
 
 .loopexit.split.us.split:                         ; preds = %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit42.us
@@ -18710,13 +18710,13 @@ _ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit42.us: ; preds = %._crit_edge98.i.
   br i1 %.not110.i, label %.preheader.split.us45.split.us, label %.preheader.split.us45.split
 
 .preheader.split.us45.split.us:                   ; preds = %.preheader.split.us45, %.preheader78.i.us.us
-  %.032.us46.us = phi i64 [ %83, %.preheader78.i.us.us ], [ 0, %.preheader.split.us45 ]
+  %.032.us46.us = phi i64 [ %82, %.preheader78.i.us.us ], [ 0, %.preheader.split.us45 ]
   %exitcond75.not = icmp eq i64 %.032.us46.us, %53
   br i1 %exitcond75.not, label %.split.us, label %.preheader78.i.us.us
 
 .preheader78.i.us.us:                             ; preds = %.preheader.split.us45.split.us
-  %83 = add i64 %.032.us46.us, 1
-  %84 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
+  %82 = add i64 %.032.us46.us, 1
+  %83 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %.preheader.split.us45.split.us unwind label %.loopexit.split.split.us.split.us, !llvm.loop !560
 
 .loopexit.split.split.us.split.us:                ; preds = %.preheader78.i.us.us
@@ -18725,27 +18725,27 @@ _ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit42.us: ; preds = %._crit_edge98.i.
   br label %.loopexit
 
 .preheader.split.us45.split:                      ; preds = %.preheader.split.us45, %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit43.us
-  %.032.us46 = phi i64 [ %99, %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit43.us ], [ 0, %.preheader.split.us45 ]
+  %.032.us46 = phi i64 [ %97, %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit43.us ], [ 0, %.preheader.split.us45 ]
   %exitcond74.not = icmp eq i64 %.032.us46, %53
   br i1 %exitcond74.not, label %.split.us, label %.preheader78.i.us
 
 .preheader78.i.us:                                ; preds = %.preheader.split.us45.split
-  %85 = load ptr, ptr %63, align 16, !tbaa !59
-  %86 = load ptr, ptr %64, align 16, !tbaa !59
+  %84 = load ptr, ptr %63, align 16, !tbaa !59
+  %85 = load ptr, ptr %64, align 16, !tbaa !59
   br label %.lr.ph89.preheader.i.us
 
 .lr.ph89.preheader.i.us:                          ; preds = %.preheader78.i.us, %._crit_edge90.i.us
   %indvars.iv114.i.us = phi i64 [ %indvars.iv.next115.i.us, %._crit_edge90.i.us ], [ %51, %.preheader78.i.us ]
-  %.193.i.us = phi ptr [ %97, %._crit_edge90.i.us ], [ %85, %.preheader78.i.us ]
-  %.16492.i.us = phi ptr [ %96, %._crit_edge90.i.us ], [ %86, %.preheader78.i.us ]
-  %.16791.i.us = phi i64 [ %95, %._crit_edge90.i.us ], [ 0, %.preheader78.i.us ]
-  %87 = call i64 @llvm.umax.i64(i64 %indvars.iv114.i.us, i64 1)
-  %umax117.i.us = call i64 @llvm.umin.i64(i64 %87, i64 96)
+  %.193.i.us = phi ptr [ %95, %._crit_edge90.i.us ], [ %84, %.preheader78.i.us ]
+  %.16492.i.us = phi ptr [ %94, %._crit_edge90.i.us ], [ %85, %.preheader78.i.us ]
+  %.16791.i.us = phi i64 [ %93, %._crit_edge90.i.us ], [ 0, %.preheader78.i.us ]
+  %umin116.i.us = call i64 @llvm.umax.i64(i64 %indvars.iv114.i.us, i64 1)
+  %umax117.i.us = call i64 @llvm.umin.i64(i64 %umin116.i.us, i64 96)
   br label %.lr.ph89.i.us
 
 .lr.ph89.i.us:                                    ; preds = %.lr.ph89.i.us, %.lr.ph89.preheader.i.us
   %.17087.i.us = phi i64 [ %94, %.lr.ph89.i.us ], [ 0, %.lr.ph89.preheader.i.us ]
-  %88 = getelementptr inbounds nuw i8, ptr %.193.i.us, i64 %.17087.i.us
+  %86 = getelementptr inbounds nuw i8, ptr %.193.i.us, i64 %.17087.i.us
   %89 = load i8, ptr %88, align 1, !tbaa !15
   %90 = getelementptr inbounds nuw i8, ptr %10, i64 %.17087.i.us
   %91 = load i8, ptr %90, align 1, !tbaa !15
@@ -18757,16 +18757,16 @@ _ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit42.us: ; preds = %._crit_edge98.i.
   br i1 %exitcond118.not.i.us, label %._crit_edge90.i.us, label %.lr.ph89.i.us, !llvm.loop !563
 
 ._crit_edge90.i.us:                               ; preds = %.lr.ph89.i.us
-  %95 = add i64 %.16791.i.us, 96
-  %96 = getelementptr inbounds nuw i8, ptr %.16492.i.us, i64 96
-  %97 = getelementptr inbounds nuw i8, ptr %.193.i.us, i64 96
-  %98 = icmp ult i64 %95, %51
+  %93 = add i64 %.16791.i.us, 96
+  %94 = getelementptr inbounds nuw i8, ptr %.16492.i.us, i64 96
+  %95 = getelementptr inbounds nuw i8, ptr %.193.i.us, i64 96
+  %96 = icmp ult i64 %93, %51
   %indvars.iv.next115.i.us = add i64 %indvars.iv114.i.us, -96
-  br i1 %98, label %.lr.ph89.preheader.i.us, label %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit43.us, !llvm.loop !564
+  br i1 %96, label %.lr.ph89.preheader.i.us, label %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit43.us, !llvm.loop !564
 
 _ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit43.us: ; preds = %._crit_edge90.i.us
-  %99 = add i64 %.032.us46, 1
-  %100 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
+  %97 = add i64 %.032.us46, 1
+  %98 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %.preheader.split.us45.split unwind label %.loopexit.split.split.us.split, !llvm.loop !560
 
 .loopexit.split.split.us.split:                   ; preds = %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit43.us
@@ -18778,13 +18778,13 @@ _ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit43.us: ; preds = %._crit_edge90.i.
   br i1 %.not110.i, label %.preheader.split.us50.split.us, label %.preheader.split.us50.split
 
 .preheader.split.us50.split.us:                   ; preds = %.preheader.split.us50, %.preheader80.i.us.us
-  %.032.us51.us = phi i64 [ %101, %.preheader80.i.us.us ], [ 0, %.preheader.split.us50 ]
+  %.032.us51.us = phi i64 [ %99, %.preheader80.i.us.us ], [ 0, %.preheader.split.us50 ]
   %exitcond73.not = icmp eq i64 %.032.us51.us, %53
   br i1 %exitcond73.not, label %.split.us, label %.preheader80.i.us.us
 
 .preheader80.i.us.us:                             ; preds = %.preheader.split.us50.split.us
-  %101 = add i64 %.032.us51.us, 1
-  %102 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
+  %99 = add i64 %.032.us51.us, 1
+  %100 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %.preheader.split.us50.split.us unwind label %.loopexit.split.split.split.us.split.us, !llvm.loop !560
 
 .loopexit.split.split.split.us.split.us:          ; preds = %.preheader80.i.us.us
@@ -18793,48 +18793,48 @@ _ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit43.us: ; preds = %._crit_edge90.i.
   br label %.loopexit
 
 .preheader.split.us50.split:                      ; preds = %.preheader.split.us50, %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit44.us
-  %.032.us51 = phi i64 [ %117, %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit44.us ], [ 0, %.preheader.split.us50 ]
+  %.032.us51 = phi i64 [ %114, %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit44.us ], [ 0, %.preheader.split.us50 ]
   %exitcond.not = icmp eq i64 %.032.us51, %53
   br i1 %exitcond.not, label %.split.us, label %.preheader80.i.us
 
 .preheader80.i.us:                                ; preds = %.preheader.split.us50.split
-  %103 = load ptr, ptr %63, align 16, !tbaa !59
-  %104 = load ptr, ptr %64, align 16, !tbaa !59
+  %101 = load ptr, ptr %63, align 16, !tbaa !59
+  %102 = load ptr, ptr %64, align 16, !tbaa !59
   br label %.lr.ph.preheader.i.us
 
 .lr.ph.preheader.i.us:                            ; preds = %.preheader80.i.us, %._crit_edge.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %._crit_edge.i.us ], [ %51, %.preheader80.i.us ]
-  %.285.i.us = phi ptr [ %115, %._crit_edge.i.us ], [ %103, %.preheader80.i.us ]
-  %.26584.i.us = phi ptr [ %114, %._crit_edge.i.us ], [ %104, %.preheader80.i.us ]
-  %.26883.i.us = phi i64 [ %113, %._crit_edge.i.us ], [ 0, %.preheader80.i.us ]
-  %105 = call i64 @llvm.umax.i64(i64 %indvars.iv.i.us, i64 1)
-  %umax.i.us = call i64 @llvm.umin.i64(i64 %105, i64 96)
+  %.285.i.us = phi ptr [ %112, %._crit_edge.i.us ], [ %101, %.preheader80.i.us ]
+  %.26584.i.us = phi ptr [ %111, %._crit_edge.i.us ], [ %102, %.preheader80.i.us ]
+  %.26883.i.us = phi i64 [ %110, %._crit_edge.i.us ], [ 0, %.preheader80.i.us ]
+  %umin.i.us = call i64 @llvm.umax.i64(i64 %indvars.iv.i.us, i64 1)
+  %umax.i.us = call i64 @llvm.umin.i64(i64 %umin.i.us, i64 96)
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us, %.lr.ph.preheader.i.us
-  %.27182.i.us = phi i64 [ %112, %.lr.ph.i.us ], [ 0, %.lr.ph.preheader.i.us ]
-  %106 = getelementptr inbounds nuw i8, ptr %.285.i.us, i64 %.27182.i.us
-  %107 = load i8, ptr %106, align 1, !tbaa !15
-  %108 = getelementptr inbounds nuw i8, ptr %10, i64 %.27182.i.us
-  %109 = load i8, ptr %108, align 1, !tbaa !15
-  %110 = xor i8 %109, %107
-  %111 = getelementptr inbounds nuw i8, ptr %.26584.i.us, i64 %.27182.i.us
-  store i8 %110, ptr %111, align 1, !tbaa !15
-  %112 = add nuw nsw i64 %.27182.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %112, %umax.i.us
+  %.27182.i.us = phi i64 [ %109, %.lr.ph.i.us ], [ 0, %.lr.ph.preheader.i.us ]
+  %103 = getelementptr inbounds nuw i8, ptr %.285.i.us, i64 %.27182.i.us
+  %104 = load i8, ptr %103, align 1, !tbaa !15
+  %105 = getelementptr inbounds nuw i8, ptr %10, i64 %.27182.i.us
+  %106 = load i8, ptr %105, align 1, !tbaa !15
+  %107 = xor i8 %106, %104
+  %108 = getelementptr inbounds nuw i8, ptr %.26584.i.us, i64 %.27182.i.us
+  store i8 %107, ptr %108, align 1, !tbaa !15
+  %109 = add nuw nsw i64 %.27182.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %109, %umax.i.us
   br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us, !llvm.loop !565
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
-  %113 = add i64 %.26883.i.us, 96
-  %114 = getelementptr inbounds nuw i8, ptr %.26584.i.us, i64 96
-  %115 = getelementptr inbounds nuw i8, ptr %.285.i.us, i64 96
-  %116 = icmp ult i64 %113, %51
+  %110 = add i64 %.26883.i.us, 96
+  %111 = getelementptr inbounds nuw i8, ptr %.26584.i.us, i64 96
+  %112 = getelementptr inbounds nuw i8, ptr %.285.i.us, i64 96
+  %113 = icmp ult i64 %110, %51
   %indvars.iv.next.i.us = add i64 %indvars.iv.i.us, -96
-  br i1 %116, label %.lr.ph.preheader.i.us, label %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit44.us, !llvm.loop !566
+  br i1 %113, label %.lr.ph.preheader.i.us, label %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit44.us, !llvm.loop !566
 
 _ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit44.us: ; preds = %._crit_edge.i.us
-  %117 = add i64 %.032.us51, 1
-  %118 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
+  %114 = add i64 %.032.us51, 1
+  %115 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %.preheader.split.us50.split unwind label %.loopexit.split.split.split.us.split, !llvm.loop !560
 
 .loopexit.split.split.split.us.split:             ; preds = %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit44.us
@@ -18846,13 +18846,13 @@ _ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit44.us: ; preds = %._crit_edge.i.us
   br i1 %.not110.i, label %.preheader.split.split.us, label %.preheader.split.split
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %.preheader.i.us
-  %.032.us55 = phi i64 [ %119, %.preheader.i.us ], [ 0, %.preheader.split ]
+  %.032.us55 = phi i64 [ %116, %.preheader.i.us ], [ 0, %.preheader.split ]
   %exitcond79.not = icmp eq i64 %.032.us55, %53
   br i1 %exitcond79.not, label %.split.us, label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %.preheader.split.split.us
-  %119 = add i64 %.032.us55, 1
-  %120 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
+  %116 = add i64 %.032.us55, 1
+  %117 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %.preheader.split.split.us unwind label %.loopexit.split.split.split.split.us, !llvm.loop !560
 
 .loopexit.split.split.split.split.us:             ; preds = %.preheader.i.us
@@ -18861,40 +18861,40 @@ _ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit44.us: ; preds = %._crit_edge.i.us
   br label %.loopexit
 
 .preheader.split.split:                           ; preds = %.preheader.split, %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit
-  %.032 = phi i64 [ %128, %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit ], [ 0, %.preheader.split ]
+  %.032 = phi i64 [ %125, %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit ], [ 0, %.preheader.split ]
   %exitcond78.not = icmp eq i64 %.032, %53
   br i1 %exitcond78.not, label %.split.us, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.split.split
-  %121 = load ptr, ptr %63, align 16, !tbaa !59
-  %122 = load ptr, ptr %64, align 16, !tbaa !59
+  %118 = load ptr, ptr %63, align 16, !tbaa !59
+  %119 = load ptr, ptr %64, align 16, !tbaa !59
   br label %.lr.ph104.i
 
 .lr.ph104.i:                                      ; preds = %.preheader.i, %.lr.ph104.i
-  %.3103.i = phi i64 [ %127, %.lr.ph104.i ], [ 0, %.preheader.i ]
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 %.3103.i
-  %124 = load i8, ptr %123, align 1, !tbaa !15
-  %125 = xor i8 %124, -1
-  %126 = getelementptr inbounds nuw i8, ptr %122, i64 %.3103.i
-  store i8 %125, ptr %126, align 1, !tbaa !15
-  %127 = add nuw i64 %.3103.i, 1
-  %exitcond124.not.i = icmp eq i64 %127, %51
+  %.3103.i = phi i64 [ %124, %.lr.ph104.i ], [ 0, %.preheader.i ]
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 %.3103.i
+  %121 = load i8, ptr %120, align 1, !tbaa !15
+  %122 = xor i8 %121, -1
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %.3103.i
+  store i8 %122, ptr %123, align 1, !tbaa !15
+  %124 = add nuw i64 %.3103.i, 1
+  %exitcond124.not.i = icmp eq i64 %124, %51
   br i1 %exitcond124.not.i, label %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit, label %.lr.ph104.i, !llvm.loop !567
 
 _ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit:   ; preds = %.lr.ph104.i
-  %128 = add i64 %.032, 1
-  %129 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
+  %125 = add i64 %.032, 1
+  %126 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %9)
           to label %.preheader.split.split unwind label %.loopexit.split.split.split.split, !llvm.loop !560
 
-130:                                              ; preds = %35
-  %131 = landingpad { ptr, i32 }
+127:                                              ; preds = %35
+  %128 = landingpad { ptr, i32 }
           cleanup
-  br label %139
+  br label %136
 
-132:                                              ; preds = %37
-  %133 = landingpad { ptr, i32 }
+129:                                              ; preds = %37
+  %130 = landingpad { ptr, i32 }
           cleanup
-  br label %139
+  br label %136
 
 .loopexit.split.split.split.split:                ; preds = %_ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -18909,43 +18909,43 @@ _ZN6cvtestL9logicOpS_EPKhS1_Phmc.exit.loopexit:   ; preds = %.lr.ph104.i
 .loopexit:                                        ; preds = %.loopexit.split.us.split.us, %.loopexit.split.us.split, %.loopexit.split.split.split.us.split.us, %.loopexit.split.split.split.us.split, %.loopexit.split.split.split.split.us, %.loopexit.split.split.split.split, %.loopexit.split.split.us.split, %.loopexit.split.split.us.split.us, %.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.us, %.loopexit.split.us.split ], [ %lpad.loopexit.us.us, %.loopexit.split.us.split.us ], [ %lpad.loopexit.us48, %.loopexit.split.split.us.split ], [ %lpad.loopexit.us48.us, %.loopexit.split.split.us.split.us ], [ %lpad.loopexit.us53, %.loopexit.split.split.split.us.split ], [ %lpad.loopexit.us53.us, %.loopexit.split.split.split.us.split.us ], [ %lpad.loopexit, %.loopexit.split.split.split.split ], [ %lpad.loopexit.us57, %.loopexit.split.split.split.split.us ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10) #33
-  br label %139
+  br label %136
 
 .split.us:                                        ; preds = %.preheader.split.us50.split, %.preheader.split.us50.split.us, %.preheader.split.us45.split, %.preheader.split.us45.split.us, %.preheader.split.us.split, %.preheader.split.us.split.us, %.preheader.split.split, %.preheader.split.split.us
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10) #33
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #33
-  br label %134
+  br label %131
 
-134:                                              ; preds = %134, %.split.us
-  %135 = phi ptr [ %36, %.split.us ], [ %136, %134 ]
-  %136 = getelementptr inbounds i8, ptr %135, i64 -96
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %136) #33
-  %137 = icmp eq ptr %136, %8
-  br i1 %137, label %138, label %134
+131:                                              ; preds = %131, %.split.us
+  %132 = phi ptr [ %36, %.split.us ], [ %133, %134 ]
+  %133 = getelementptr inbounds i8, ptr %132, i64 -96
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %133) #33
+  %134 = icmp eq ptr %133, %8
+  br i1 %134, label %135, label %131
 
-138:                                              ; preds = %134
+135:                                              ; preds = %131
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #33
   ret void
 
-139:                                              ; preds = %132, %.loopexit, %130
-  %.pn38.pn = phi { ptr, i32 } [ %131, %130 ], [ %lpad.phi, %.loopexit ], [ %133, %132 ]
+136:                                              ; preds = %129, %.loopexit, %127
+  %.pn38.pn = phi { ptr, i32 } [ %128, %130 ], [ %lpad.phi, %.loopexit ], [ %130, %132 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #33
-  br label %140
+  br label %137
 
-140:                                              ; preds = %140, %139
-  %141 = phi ptr [ %36, %139 ], [ %142, %140 ]
-  %142 = getelementptr inbounds i8, ptr %141, i64 -96
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %142) #33
-  %143 = icmp eq ptr %142, %8
-  br i1 %143, label %144, label %140
+137:                                              ; preds = %137, %136
+  %138 = phi ptr [ %36, %139 ], [ %139, %140 ]
+  %139 = getelementptr inbounds i8, ptr %138, i64 -96
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %139) #33
+  %140 = icmp eq ptr %139, %8
+  br i1 %140, label %141, label %137
 
-144:                                              ; preds = %140
+141:                                              ; preds = %137
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %8) #33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #33
-  br label %145
+  br label %142
 
-145:                                              ; preds = %144, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+142:                                              ; preds = %141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn38.pn.pn = phi { ptr, i32 } [ %.pn38.pn, %144 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %.pn38.pn.pn
 }

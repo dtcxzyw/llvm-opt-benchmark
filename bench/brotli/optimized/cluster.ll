@@ -1250,67 +1250,67 @@ define hidden void @BrotliClusterHistogramsLiteral(ptr noundef %0, ptr noundef %
 
 .lr.ph123:                                        ; preds = %.lr.ph121, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ %2, %.lr.ph121 ]
-  %.0108125 = phi i64 [ %37, %._crit_edge ], [ 0, %.lr.ph121 ]
-  %.2124 = phi i64 [ %38, %._crit_edge ], [ 0, %.lr.ph121 ]
-  %25 = tail call i64 @llvm.umax.i64(i64 %indvars.iv, i64 1)
-  %umax = tail call i64 @llvm.umin.i64(i64 %25, i64 64)
-  %26 = sub nuw i64 %2, %.2124
-  %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 64)
-  %28 = getelementptr i32, ptr %13, i64 %.0108125
-  br label %29
+  %.0108125 = phi i64 [ %36, %._crit_edge ], [ 0, %.lr.ph121 ]
+  %.2124 = phi i64 [ %37, %._crit_edge ], [ 0, %.lr.ph121 ]
+  %umin = tail call i64 @llvm.umax.i64(i64 %indvars.iv, i64 1)
+  %umax = tail call i64 @llvm.umin.i64(i64 %umin, i64 64)
+  %25 = sub nuw i64 %2, %.2124
+  %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 64)
+  %27 = getelementptr i32, ptr %13, i64 %.0108125
+  br label %28
 
-29:                                               ; preds = %.lr.ph123, %29
-  %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %33, %29 ]
-  %30 = add nuw nsw i64 %.0107122, %.2124
-  %31 = trunc i64 %30 to i32
-  %32 = getelementptr i32, ptr %28, i64 %.0107122
-  store i32 %31, ptr %32, align 4, !tbaa !3
-  %33 = add nuw nsw i64 %.0107122, 1
-  %exitcond133.not = icmp eq i64 %33, %umax
-  br i1 %exitcond133.not, label %._crit_edge, label %29, !llvm.loop !42
+28:                                               ; preds = %.lr.ph123, %28
+  %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %32, %29 ]
+  %29 = add nuw nsw i64 %.0107122, %.2124
+  %30 = trunc i64 %29 to i32
+  %31 = getelementptr i32, ptr %27, i64 %.0107122
+  store i32 %30, ptr %31, align 4, !tbaa !3
+  %32 = add nuw nsw i64 %.0107122, 1
+  %exitcond133.not = icmp eq i64 %32, %umax
+  br i1 %exitcond133.not, label %._crit_edge, label %28, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %29
-  %34 = getelementptr inbounds nuw i32, ptr %6, i64 %.2124
-  %35 = getelementptr inbounds nuw i32, ptr %13, i64 %.0108125
-  %36 = tail call i64 @BrotliHistogramCombineLiteral(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %34, ptr noundef %35, ptr noundef %14, i64 noundef %27, i64 noundef %27, i64 noundef %3, i64 noundef 2048)
-  %37 = add i64 %36, %.0108125
-  %38 = add i64 %.2124, 64
-  %39 = icmp ult i64 %38, %2
+._crit_edge:                                      ; preds = %28
+  %33 = getelementptr inbounds nuw i32, ptr %6, i64 %.2124
+  %34 = getelementptr inbounds nuw i32, ptr %13, i64 %.0108125
+  %35 = tail call i64 @BrotliHistogramCombineLiteral(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %33, ptr noundef %34, ptr noundef %14, i64 noundef %26, i64 noundef %26, i64 noundef %3, i64 noundef 2048)
+  %36 = add i64 %35, %.0108125
+  %37 = add i64 %.2124, 64
+  %38 = icmp ult i64 %37, %2
   %indvars.iv.next = add i64 %indvars.iv, -64
-  br i1 %39, label %.lr.ph123, label %._crit_edge127, !llvm.loop !43
+  br i1 %38, label %.lr.ph123, label %._crit_edge127, !llvm.loop !43
 
 ._crit_edge127:                                   ; preds = %._crit_edge, %.thread
-  %.0108.lcssa = phi i64 [ 0, %.thread ], [ %37, %._crit_edge ]
-  %40 = shl i64 %.0108.lcssa, 6
-  %41 = lshr i64 %.0108.lcssa, 1
-  %42 = mul i64 %41, %.0108.lcssa
-  %43 = tail call i64 @llvm.umin.i64(i64 %40, i64 %42)
-  %44 = icmp ugt i64 %43, 2047
-  br i1 %44, label %.preheader, label %49
+  %.0108.lcssa = phi i64 [ 0, %.thread ], [ %36, %._crit_edge ]
+  %39 = shl i64 %.0108.lcssa, 6
+  %40 = lshr i64 %.0108.lcssa, 1
+  %41 = mul i64 %40, %.0108.lcssa
+  %42 = tail call i64 @llvm.umin.i64(i64 %39, i64 %41)
+  %43 = icmp ugt i64 %42, 2047
+  br i1 %43, label %.preheader, label %48
 
 .preheader:                                       ; preds = %._crit_edge127, %.preheader
-  %.0 = phi i64 [ %45, %.preheader ], [ 2048, %._crit_edge127 ]
-  %.not116 = icmp ugt i64 %.0, %43
-  %45 = shl i64 %.0, 1
-  br i1 %.not116, label %46, label %.preheader, !llvm.loop !44
+  %.0 = phi i64 [ %44, %.preheader ], [ 2048, %._crit_edge127 ]
+  %.not116 = icmp ugt i64 %.0, %42
+  %44 = shl i64 %.0, 1
+  br i1 %.not116, label %45, label %.preheader, !llvm.loop !44
 
-46:                                               ; preds = %.preheader
-  %47 = mul i64 %.0, 24
-  %48 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %47) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49152) %48, ptr noundef nonnull align 8 dereferenceable(49152) %14, i64 49152, i1 false)
+45:                                               ; preds = %.preheader
+  %46 = mul i64 %.0, 24
+  %47 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %46) #8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49152) %47, ptr noundef nonnull align 8 dereferenceable(49152) %14, i64 49152, i1 false)
   tail call void @BrotliFree(ptr noundef %0, ptr noundef nonnull %14) #8
-  br label %49
+  br label %48
 
-49:                                               ; preds = %46, %._crit_edge127
-  %.0110 = phi ptr [ %48, %46 ], [ %14, %._crit_edge127 ]
-  %50 = tail call i64 @BrotliHistogramCombineLiteral(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %6, ptr noundef %13, ptr noundef %.0110, i64 noundef %.0108.lcssa, i64 noundef %2, i64 noundef %3, i64 noundef %43)
+48:                                               ; preds = %45, %._crit_edge127
+  %.0110 = phi ptr [ %47, %46 ], [ %14, %._crit_edge127 ]
+  %49 = tail call i64 @BrotliHistogramCombineLiteral(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %6, ptr noundef %13, ptr noundef %.0110, i64 noundef %.0108.lcssa, i64 noundef %2, i64 noundef %3, i64 noundef %42)
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %.0110) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %12) #8
-  tail call void @BrotliHistogramRemapLiteral(ptr noundef %1, i64 noundef %2, ptr noundef %13, i64 noundef %50, ptr noundef %4, ptr noundef %15, ptr noundef %6)
+  tail call void @BrotliHistogramRemapLiteral(ptr noundef %1, i64 noundef %2, ptr noundef %13, i64 noundef %49, ptr noundef %4, ptr noundef %15, ptr noundef %6)
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %15) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %13) #8
-  %51 = tail call i64 @BrotliHistogramReindexLiteral(ptr noundef %0, ptr noundef %4, ptr noundef %6, i64 noundef %2)
-  store i64 %51, ptr %5, align 8, !tbaa !13
+  %50 = tail call i64 @BrotliHistogramReindexLiteral(ptr noundef %0, ptr noundef %4, ptr noundef %6, i64 noundef %2)
+  store i64 %50, ptr %5, align 8, !tbaa !13
   ret void
 }
 
@@ -2538,67 +2538,67 @@ define hidden void @BrotliClusterHistogramsCommand(ptr noundef %0, ptr noundef %
 
 .lr.ph123:                                        ; preds = %.lr.ph121, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ %2, %.lr.ph121 ]
-  %.0108125 = phi i64 [ %37, %._crit_edge ], [ 0, %.lr.ph121 ]
-  %.2124 = phi i64 [ %38, %._crit_edge ], [ 0, %.lr.ph121 ]
-  %25 = tail call i64 @llvm.umax.i64(i64 %indvars.iv, i64 1)
-  %umax = tail call i64 @llvm.umin.i64(i64 %25, i64 64)
-  %26 = sub nuw i64 %2, %.2124
-  %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 64)
-  %28 = getelementptr i32, ptr %13, i64 %.0108125
-  br label %29
+  %.0108125 = phi i64 [ %36, %._crit_edge ], [ 0, %.lr.ph121 ]
+  %.2124 = phi i64 [ %37, %._crit_edge ], [ 0, %.lr.ph121 ]
+  %umin = tail call i64 @llvm.umax.i64(i64 %indvars.iv, i64 1)
+  %umax = tail call i64 @llvm.umin.i64(i64 %umin, i64 64)
+  %25 = sub nuw i64 %2, %.2124
+  %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 64)
+  %27 = getelementptr i32, ptr %13, i64 %.0108125
+  br label %28
 
-29:                                               ; preds = %.lr.ph123, %29
-  %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %33, %29 ]
-  %30 = add nuw nsw i64 %.0107122, %.2124
-  %31 = trunc i64 %30 to i32
-  %32 = getelementptr i32, ptr %28, i64 %.0107122
-  store i32 %31, ptr %32, align 4, !tbaa !3
-  %33 = add nuw nsw i64 %.0107122, 1
-  %exitcond133.not = icmp eq i64 %33, %umax
-  br i1 %exitcond133.not, label %._crit_edge, label %29, !llvm.loop !67
+28:                                               ; preds = %.lr.ph123, %28
+  %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %32, %29 ]
+  %29 = add nuw nsw i64 %.0107122, %.2124
+  %30 = trunc i64 %29 to i32
+  %31 = getelementptr i32, ptr %27, i64 %.0107122
+  store i32 %30, ptr %31, align 4, !tbaa !3
+  %32 = add nuw nsw i64 %.0107122, 1
+  %exitcond133.not = icmp eq i64 %32, %umax
+  br i1 %exitcond133.not, label %._crit_edge, label %28, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %29
-  %34 = getelementptr inbounds nuw i32, ptr %6, i64 %.2124
-  %35 = getelementptr inbounds nuw i32, ptr %13, i64 %.0108125
-  %36 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %34, ptr noundef %35, ptr noundef %14, i64 noundef %27, i64 noundef %27, i64 noundef %3, i64 noundef 2048)
-  %37 = add i64 %36, %.0108125
-  %38 = add i64 %.2124, 64
-  %39 = icmp ult i64 %38, %2
+._crit_edge:                                      ; preds = %28
+  %33 = getelementptr inbounds nuw i32, ptr %6, i64 %.2124
+  %34 = getelementptr inbounds nuw i32, ptr %13, i64 %.0108125
+  %35 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %33, ptr noundef %34, ptr noundef %14, i64 noundef %26, i64 noundef %26, i64 noundef %3, i64 noundef 2048)
+  %36 = add i64 %35, %.0108125
+  %37 = add i64 %.2124, 64
+  %38 = icmp ult i64 %37, %2
   %indvars.iv.next = add i64 %indvars.iv, -64
-  br i1 %39, label %.lr.ph123, label %._crit_edge127, !llvm.loop !68
+  br i1 %38, label %.lr.ph123, label %._crit_edge127, !llvm.loop !68
 
 ._crit_edge127:                                   ; preds = %._crit_edge, %.thread
-  %.0108.lcssa = phi i64 [ 0, %.thread ], [ %37, %._crit_edge ]
-  %40 = shl i64 %.0108.lcssa, 6
-  %41 = lshr i64 %.0108.lcssa, 1
-  %42 = mul i64 %41, %.0108.lcssa
-  %43 = tail call i64 @llvm.umin.i64(i64 %40, i64 %42)
-  %44 = icmp ugt i64 %43, 2047
-  br i1 %44, label %.preheader, label %49
+  %.0108.lcssa = phi i64 [ 0, %.thread ], [ %36, %._crit_edge ]
+  %39 = shl i64 %.0108.lcssa, 6
+  %40 = lshr i64 %.0108.lcssa, 1
+  %41 = mul i64 %40, %.0108.lcssa
+  %42 = tail call i64 @llvm.umin.i64(i64 %39, i64 %41)
+  %43 = icmp ugt i64 %42, 2047
+  br i1 %43, label %.preheader, label %48
 
 .preheader:                                       ; preds = %._crit_edge127, %.preheader
-  %.0 = phi i64 [ %45, %.preheader ], [ 2048, %._crit_edge127 ]
-  %.not116 = icmp ugt i64 %.0, %43
-  %45 = shl i64 %.0, 1
-  br i1 %.not116, label %46, label %.preheader, !llvm.loop !69
+  %.0 = phi i64 [ %44, %.preheader ], [ 2048, %._crit_edge127 ]
+  %.not116 = icmp ugt i64 %.0, %42
+  %44 = shl i64 %.0, 1
+  br i1 %.not116, label %45, label %.preheader, !llvm.loop !69
 
-46:                                               ; preds = %.preheader
-  %47 = mul i64 %.0, 24
-  %48 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %47) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49152) %48, ptr noundef nonnull align 8 dereferenceable(49152) %14, i64 49152, i1 false)
+45:                                               ; preds = %.preheader
+  %46 = mul i64 %.0, 24
+  %47 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %46) #8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49152) %47, ptr noundef nonnull align 8 dereferenceable(49152) %14, i64 49152, i1 false)
   tail call void @BrotliFree(ptr noundef %0, ptr noundef nonnull %14) #8
-  br label %49
+  br label %48
 
-49:                                               ; preds = %46, %._crit_edge127
-  %.0110 = phi ptr [ %48, %46 ], [ %14, %._crit_edge127 ]
-  %50 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %6, ptr noundef %13, ptr noundef %.0110, i64 noundef %.0108.lcssa, i64 noundef %2, i64 noundef %3, i64 noundef %43)
+48:                                               ; preds = %45, %._crit_edge127
+  %.0110 = phi ptr [ %47, %46 ], [ %14, %._crit_edge127 ]
+  %49 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %6, ptr noundef %13, ptr noundef %.0110, i64 noundef %.0108.lcssa, i64 noundef %2, i64 noundef %3, i64 noundef %42)
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %.0110) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %12) #8
-  tail call void @BrotliHistogramRemapCommand(ptr noundef %1, i64 noundef %2, ptr noundef %13, i64 noundef %50, ptr noundef %4, ptr noundef %15, ptr noundef %6)
+  tail call void @BrotliHistogramRemapCommand(ptr noundef %1, i64 noundef %2, ptr noundef %13, i64 noundef %49, ptr noundef %4, ptr noundef %15, ptr noundef %6)
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %15) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %13) #8
-  %51 = tail call i64 @BrotliHistogramReindexCommand(ptr noundef %0, ptr noundef %4, ptr noundef %6, i64 noundef %2)
-  store i64 %51, ptr %5, align 8, !tbaa !13
+  %50 = tail call i64 @BrotliHistogramReindexCommand(ptr noundef %0, ptr noundef %4, ptr noundef %6, i64 noundef %2)
+  store i64 %50, ptr %5, align 8, !tbaa !13
   ret void
 }
 
@@ -3826,67 +3826,67 @@ define hidden void @BrotliClusterHistogramsDistance(ptr noundef %0, ptr noundef 
 
 .lr.ph123:                                        ; preds = %.lr.ph121, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ %2, %.lr.ph121 ]
-  %.0108125 = phi i64 [ %37, %._crit_edge ], [ 0, %.lr.ph121 ]
-  %.2124 = phi i64 [ %38, %._crit_edge ], [ 0, %.lr.ph121 ]
-  %25 = tail call i64 @llvm.umax.i64(i64 %indvars.iv, i64 1)
-  %umax = tail call i64 @llvm.umin.i64(i64 %25, i64 64)
-  %26 = sub nuw i64 %2, %.2124
-  %27 = tail call i64 @llvm.umin.i64(i64 %26, i64 64)
-  %28 = getelementptr i32, ptr %13, i64 %.0108125
-  br label %29
+  %.0108125 = phi i64 [ %36, %._crit_edge ], [ 0, %.lr.ph121 ]
+  %.2124 = phi i64 [ %37, %._crit_edge ], [ 0, %.lr.ph121 ]
+  %umin = tail call i64 @llvm.umax.i64(i64 %indvars.iv, i64 1)
+  %umax = tail call i64 @llvm.umin.i64(i64 %umin, i64 64)
+  %25 = sub nuw i64 %2, %.2124
+  %26 = tail call i64 @llvm.umin.i64(i64 %25, i64 64)
+  %27 = getelementptr i32, ptr %13, i64 %.0108125
+  br label %28
 
-29:                                               ; preds = %.lr.ph123, %29
-  %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %33, %29 ]
-  %30 = add nuw nsw i64 %.0107122, %.2124
-  %31 = trunc i64 %30 to i32
-  %32 = getelementptr i32, ptr %28, i64 %.0107122
-  store i32 %31, ptr %32, align 4, !tbaa !3
-  %33 = add nuw nsw i64 %.0107122, 1
-  %exitcond133.not = icmp eq i64 %33, %umax
-  br i1 %exitcond133.not, label %._crit_edge, label %29, !llvm.loop !92
+28:                                               ; preds = %.lr.ph123, %28
+  %.0107122 = phi i64 [ 0, %.lr.ph123 ], [ %32, %29 ]
+  %29 = add nuw nsw i64 %.0107122, %.2124
+  %30 = trunc i64 %29 to i32
+  %31 = getelementptr i32, ptr %27, i64 %.0107122
+  store i32 %30, ptr %31, align 4, !tbaa !3
+  %32 = add nuw nsw i64 %.0107122, 1
+  %exitcond133.not = icmp eq i64 %32, %umax
+  br i1 %exitcond133.not, label %._crit_edge, label %28, !llvm.loop !92
 
-._crit_edge:                                      ; preds = %29
-  %34 = getelementptr inbounds nuw i32, ptr %6, i64 %.2124
-  %35 = getelementptr inbounds nuw i32, ptr %13, i64 %.0108125
-  %36 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %34, ptr noundef %35, ptr noundef %14, i64 noundef %27, i64 noundef %27, i64 noundef %3, i64 noundef 2048)
-  %37 = add i64 %36, %.0108125
-  %38 = add i64 %.2124, 64
-  %39 = icmp ult i64 %38, %2
+._crit_edge:                                      ; preds = %28
+  %33 = getelementptr inbounds nuw i32, ptr %6, i64 %.2124
+  %34 = getelementptr inbounds nuw i32, ptr %13, i64 %.0108125
+  %35 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %33, ptr noundef %34, ptr noundef %14, i64 noundef %26, i64 noundef %26, i64 noundef %3, i64 noundef 2048)
+  %36 = add i64 %35, %.0108125
+  %37 = add i64 %.2124, 64
+  %38 = icmp ult i64 %37, %2
   %indvars.iv.next = add i64 %indvars.iv, -64
-  br i1 %39, label %.lr.ph123, label %._crit_edge127, !llvm.loop !93
+  br i1 %38, label %.lr.ph123, label %._crit_edge127, !llvm.loop !93
 
 ._crit_edge127:                                   ; preds = %._crit_edge, %.thread
-  %.0108.lcssa = phi i64 [ 0, %.thread ], [ %37, %._crit_edge ]
-  %40 = shl i64 %.0108.lcssa, 6
-  %41 = lshr i64 %.0108.lcssa, 1
-  %42 = mul i64 %41, %.0108.lcssa
-  %43 = tail call i64 @llvm.umin.i64(i64 %40, i64 %42)
-  %44 = icmp ugt i64 %43, 2047
-  br i1 %44, label %.preheader, label %49
+  %.0108.lcssa = phi i64 [ 0, %.thread ], [ %36, %._crit_edge ]
+  %39 = shl i64 %.0108.lcssa, 6
+  %40 = lshr i64 %.0108.lcssa, 1
+  %41 = mul i64 %40, %.0108.lcssa
+  %42 = tail call i64 @llvm.umin.i64(i64 %39, i64 %41)
+  %43 = icmp ugt i64 %42, 2047
+  br i1 %43, label %.preheader, label %48
 
 .preheader:                                       ; preds = %._crit_edge127, %.preheader
-  %.0 = phi i64 [ %45, %.preheader ], [ 2048, %._crit_edge127 ]
-  %.not116 = icmp ugt i64 %.0, %43
-  %45 = shl i64 %.0, 1
-  br i1 %.not116, label %46, label %.preheader, !llvm.loop !94
+  %.0 = phi i64 [ %44, %.preheader ], [ 2048, %._crit_edge127 ]
+  %.not116 = icmp ugt i64 %.0, %42
+  %44 = shl i64 %.0, 1
+  br i1 %.not116, label %45, label %.preheader, !llvm.loop !94
 
-46:                                               ; preds = %.preheader
-  %47 = mul i64 %.0, 24
-  %48 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %47) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49152) %48, ptr noundef nonnull align 8 dereferenceable(49152) %14, i64 49152, i1 false)
+45:                                               ; preds = %.preheader
+  %46 = mul i64 %.0, 24
+  %47 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %46) #8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49152) %47, ptr noundef nonnull align 8 dereferenceable(49152) %14, i64 49152, i1 false)
   tail call void @BrotliFree(ptr noundef %0, ptr noundef nonnull %14) #8
-  br label %49
+  br label %48
 
-49:                                               ; preds = %46, %._crit_edge127
-  %.0110 = phi ptr [ %48, %46 ], [ %14, %._crit_edge127 ]
-  %50 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %6, ptr noundef %13, ptr noundef %.0110, i64 noundef %.0108.lcssa, i64 noundef %2, i64 noundef %3, i64 noundef %43)
+48:                                               ; preds = %45, %._crit_edge127
+  %.0110 = phi ptr [ %47, %46 ], [ %14, %._crit_edge127 ]
+  %49 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef %4, ptr noundef %15, ptr noundef %12, ptr noundef %6, ptr noundef %13, ptr noundef %.0110, i64 noundef %.0108.lcssa, i64 noundef %2, i64 noundef %3, i64 noundef %42)
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %.0110) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %12) #8
-  tail call void @BrotliHistogramRemapDistance(ptr noundef %1, i64 noundef %2, ptr noundef %13, i64 noundef %50, ptr noundef %4, ptr noundef %15, ptr noundef %6)
+  tail call void @BrotliHistogramRemapDistance(ptr noundef %1, i64 noundef %2, ptr noundef %13, i64 noundef %49, ptr noundef %4, ptr noundef %15, ptr noundef %6)
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %15) #8
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %13) #8
-  %51 = tail call i64 @BrotliHistogramReindexDistance(ptr noundef %0, ptr noundef %4, ptr noundef %6, i64 noundef %2)
-  store i64 %51, ptr %5, align 8, !tbaa !13
+  %50 = tail call i64 @BrotliHistogramReindexDistance(ptr noundef %0, ptr noundef %4, ptr noundef %6, i64 noundef %2)
+  store i64 %50, ptr %5, align 8, !tbaa !13
   ret void
 }
 

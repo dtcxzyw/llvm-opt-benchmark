@@ -1135,17 +1135,17 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK9grpc_core6chttp220TransportFl
   %or.cond = select i1 %.not8, i1 %.not, i1 false
   %.not7 = icmp eq i64 %.pre, %8
   %or.cond9 = select i1 %or.cond, i1 true, i1 %.not7
-  br i1 %or.cond9, label %15, label %10
+  br i1 %or.cond9, label %13, label %10
 
 10:                                               ; preds = %2
   %11 = sub nsw i64 %8, %.pre
-  %12 = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
-  %13 = tail call i64 @llvm.umin.i64(i64 %12, i64 2147483647)
-  %14 = trunc nuw nsw i64 %13 to i32
-  br label %15
+  %..i = tail call i64 @llvm.smax.i64(i64 %11, i64 0)
+  %.0.i = tail call i64 @llvm.umin.i64(i64 %..i, i64 2147483647)
+  %12 = trunc nuw nsw i64 %.0.i to i32
+  br label %13
 
-15:                                               ; preds = %2, %10
-  %.0 = phi i32 [ %14, %10 ], [ 0, %2 ]
+13:                                               ; preds = %2, %10
+  %.0 = phi i32 [ %12, %10 ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -1649,63 +1649,63 @@ _ZNK9grpc_core6chttp220TransportFlowControl50TargetInitialWindowSizeBasedOnMemor
   call void @_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingESt17basic_string_viewIcSt11char_traitsIcEEPljPNS0_17FlowControlActionEMS7_FRS7_NS7_7UrgencyEjE(i64 19, ptr nonnull @.str.34, ptr noundef nonnull %69, i32 noundef %.sroa.speculated, ptr noundef nonnull %4, ptr noundef nonnull byval({ i64, i64 }) align 8 %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #28
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %71 = call i32 @llvm.umax.i32(i32 %.0, i32 16384)
-  %.0.i12 = call i32 @llvm.umin.i32(i32 %71, i32 16777215)
+  %..i11 = call i32 @llvm.umax.i32(i32 %.0, i32 16384)
+  %.0.i12 = call i32 @llvm.umin.i32(i32 %..i11, i32 16777213)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #28
   store i64 ptrtoint (ptr @_ZN9grpc_core6chttp217FlowControlAction30set_send_max_frame_size_updateENS1_7UrgencyEj to i64), ptr %6, align 8, !tbaa !21
   %.fca.1.gep2 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %.fca.1.gep2, align 8, !tbaa !21
   call void @_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingESt17basic_string_viewIcSt11char_traitsIcEEPljPNS0_17FlowControlActionEMS7_FRS7_NS7_7UrgencyEjE(i64 14, ptr nonnull @.str.35, ptr noundef nonnull %70, i32 noundef %.0.i12, ptr noundef nonnull %4, ptr noundef nonnull byval({ i64, i64 }) align 8 %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #28
-  %72 = load atomic i64, ptr @_ZN9grpc_core15ExperimentFlags17experiment_flags_E monotonic, align 16
-  %73 = and i64 %72, 67108864
-  %.not.i.i.i = icmp eq i64 %73, 0
-  br i1 %.not.i.i.i, label %74, label %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread
+  %71 = load atomic i64, ptr @_ZN9grpc_core15ExperimentFlags17experiment_flags_E monotonic, align 16
+  %72 = and i64 %71, 67108864
+  %.not.i.i.i = icmp eq i64 %72, 0
+  br i1 %.not.i.i.i, label %73, label %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread
 
-74:                                               ; preds = %68
-  %.not4.i.i.i = icmp sgt i64 %72, -1
+73:                                               ; preds = %68
+  %.not4.i.i.i = icmp sgt i64 %71, -1
   br i1 %.not4.i.i.i, label %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit, label %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread25
 
-_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit: ; preds = %74
-  %75 = call noundef zeroext i1 @_ZN9grpc_core15ExperimentFlags17LoadFlagsAndCheckEm(i64 noundef 26)
-  br i1 %75, label %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread, label %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread25
+_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit: ; preds = %73
+  %74 = call noundef zeroext i1 @_ZN9grpc_core15ExperimentFlags17LoadFlagsAndCheckEm(i64 noundef 26)
+  br i1 %74, label %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread, label %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread25
 
 _ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread: ; preds = %68, %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %77 = load i64, ptr %70, align 8, !tbaa !62
-  %.tr = trunc i64 %77 to i32
-  %78 = shl i32 %.tr, 1
-  %79 = call i32 @llvm.umax.i32(i32 %78, i32 16384)
-  %.0.i14 = call i32 @llvm.umin.i32(i32 %79, i32 2147483647)
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %76 = load i64, ptr %70, align 8, !tbaa !62
+  %.tr = trunc i64 %76 to i32
+  %77 = shl i32 %.tr, 1
+  %..i13 = call i32 @llvm.umax.i32(i32 %77, i32 16384)
+  %.0.i14 = call i32 @llvm.umin.i32(i32 %..i13, i32 2147483647)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #28
   store i64 ptrtoint (ptr @_ZN9grpc_core6chttp217FlowControlAction41set_preferred_rx_crypto_frame_size_updateENS1_7UrgencyEj to i64), ptr %7, align 8, !tbaa !21
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %.fca.1.gep, align 8, !tbaa !21
-  call void @_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingESt17basic_string_viewIcSt11char_traitsIcEEPljPNS0_17FlowControlActionEMS7_FRS7_NS7_7UrgencyEjE(i64 35, ptr nonnull @.str.36, ptr noundef nonnull %76, i32 noundef %.0.i14, ptr noundef nonnull %4, ptr noundef nonnull byval({ i64, i64 }) align 8 %7)
+  call void @_ZN9grpc_core6chttp220TransportFlowControl13UpdateSettingESt17basic_string_viewIcSt11char_traitsIcEEPljPNS0_17FlowControlActionEMS7_FRS7_NS7_7UrgencyEjE(i64 35, ptr nonnull @.str.36, ptr noundef nonnull %75, i32 noundef %.0.i14, ptr noundef nonnull %4, ptr noundef nonnull byval({ i64, i64 }) align 8 %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #28
   br label %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread25
 
-_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread25: ; preds = %74, %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit, %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread, %2
+_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread25: ; preds = %73, %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit, %_ZN9grpc_core27IsTcpFrameSizeTuningEnabledEv.exit.thread, %2
   %.sroa.023.0.copyload = load i8, ptr %4, align 4, !tbaa !90
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 1, !tbaa !90
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 2
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.3.0..sroa_idx, i64 18, i1 false)
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %81 = load i64, ptr %80, align 8, !tbaa !58, !noalias !123
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %83 = load i64, ptr %82, align 8, !tbaa !67, !noalias !123
-  %.sroa.speculated.i.i = call i64 @llvm.smax.i64(i64 %83, i64 1)
-  %84 = add nsw i64 %.sroa.speculated.i.i, %81
-  %.sroa.speculated4.i.i = call i64 @llvm.smin.i64(i64 %84, i64 2147483647)
-  %85 = and i64 %.sroa.speculated4.i.i, 4294967295
-  %86 = add nuw nsw i64 %85, 1
-  %87 = lshr i64 %86, 1
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %89 = load i64, ptr %88, align 8, !tbaa !64, !noalias !123
-  %90 = icmp slt i64 %89, %87
-  %spec.select = select i1 %90, i8 1, i8 %.sroa.2.0.copyload
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %79 = load i64, ptr %78, align 8, !tbaa !58, !noalias !123
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %81 = load i64, ptr %80, align 8, !tbaa !67, !noalias !123
+  %.sroa.speculated.i.i = call i64 @llvm.smax.i64(i64 %81, i64 1)
+  %82 = add nsw i64 %.sroa.speculated.i.i, %79
+  %.sroa.speculated4.i.i = call i64 @llvm.smin.i64(i64 %82, i64 2147483647)
+  %83 = and i64 %.sroa.speculated4.i.i, 4294967295
+  %84 = add nuw nsw i64 %83, 1
+  %85 = lshr i64 %84, 1
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %87 = load i64, ptr %86, align 8, !tbaa !64, !noalias !123
+  %88 = icmp slt i64 %87, %85
+  %spec.select = select i1 %88, i8 1, i8 %.sroa.2.0.copyload
   store i8 %.sroa.023.0.copyload, ptr %0, align 4, !tbaa !90
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %spec.select, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !90
@@ -2182,10 +2182,10 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK9grpc_core6chttp217StreamFlowC
   %17 = phi i64 [ %.pre, %15 ], [ %.pre.i, %._crit_edge.i ], [ %12, %9 ]
   %.0.i = phi i64 [ %16, %15 ], [ %.pre.i, %._crit_edge.i ], [ %spec.select.i, %9 ]
   %18 = sub nsw i64 %.0.i, %17
-  %19 = tail call i64 @llvm.smax.i64(i64 %18, i64 0)
-  %20 = tail call i64 @llvm.umin.i64(i64 %19, i64 2147483647)
-  %21 = trunc nuw nsw i64 %20 to i32
-  ret i32 %21
+  %..i = tail call i64 @llvm.smax.i64(i64 %18, i64 0)
+  %.0.i1 = tail call i64 @llvm.umin.i64(i64 %..i, i64 2147483647)
+  %19 = trunc nuw nsw i64 %.0.i1 to i32
+  ret i32 %19
 }
 
 ; Function Attrs: cold

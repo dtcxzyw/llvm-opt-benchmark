@@ -2454,31 +2454,31 @@ define dso_local i32 @nghttp2_session_adjust_idle_stream(ptr noundef %0) local_u
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2832
   %4 = load i32, ptr %3, align 8, !tbaa !55
   %. = tail call i32 @llvm.umin.i32(i32 %2, i32 %4)
-  %5 = tail call i32 @llvm.umax.i32(i32 %., i32 16)
-  %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 100)
-  %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2664
-  %9 = load i64, ptr %8, align 8, !tbaa !127
-  %10 = icmp ugt i64 %9, %7
-  br i1 %10, label %.lr.ph, label %nghttp2_session_destroy_stream.exit.thread51
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %., i32 16)
+  %5 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 100)
+  %6 = zext nneg i32 %5 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2664
+  %8 = load i64, ptr %7, align 8, !tbaa !127
+  %9 = icmp ugt i64 %8, %6
+  br i1 %9, label %.lr.ph, label %nghttp2_session_destroy_stream.exit.thread51
 
 .lr.ph:                                           ; preds = %.thread46
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2592
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2528
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2600
-  %.pre = load ptr, ptr %11, align 8, !tbaa !125
-  br label %14
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2592
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2528
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2600
+  %.pre = load ptr, ptr %10, align 8, !tbaa !125
+  br label %13
 
-14:                                               ; preds = %.lr.ph, %nghttp2_session_destroy_stream.exit
-  %15 = phi ptr [ %.pre, %.lr.ph ], [ %17, %nghttp2_session_destroy_stream.exit ]
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 136
-  %17 = load ptr, ptr %16, align 8, !tbaa !124
-  %18 = tail call i32 @nghttp2_stream_in_dep_tree(ptr noundef %15) #20
-  %.not.i = icmp eq i32 %18, 0
+13:                                               ; preds = %.lr.ph, %nghttp2_session_destroy_stream.exit
+  %14 = phi ptr [ %.pre, %.lr.ph ], [ %16, %nghttp2_session_destroy_stream.exit ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 136
+  %16 = load ptr, ptr %15, align 8, !tbaa !124
+  %17 = tail call i32 @nghttp2_stream_in_dep_tree(ptr noundef %14) #20
+  %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %21, label %19
 
-19:                                               ; preds = %14
-  %20 = tail call i32 @nghttp2_stream_dep_remove(ptr noundef nonnull %15) #20
+24:                                               ; preds = %14
+  %20 = tail call i32 @nghttp2_stream_dep_remove(ptr noundef nonnull %14) #20
   %.not11.i = icmp eq i32 %20, 0
   br i1 %.not11.i, label %21, label %nghttp2_session_destroy_stream.exit.thread51
 
@@ -2497,16 +2497,16 @@ define dso_local i32 @nghttp2_session_adjust_idle_stream(ptr noundef %0) local_u
   store ptr null, ptr %26, align 8, !tbaa !123
   br label %nghttp2_session_destroy_stream.exit
 
-27:                                               ; preds = %21
-  store ptr null, ptr %13, align 8, !tbaa !126
+26:                                               ; preds = %21
+  store ptr null, ptr %12, align 8, !tbaa !126
   br label %nghttp2_session_destroy_stream.exit
 
-nghttp2_session_destroy_stream.exit:              ; preds = %25, %27
-  %28 = load i64, ptr %8, align 8, !tbaa !127
-  %29 = add i64 %28, -1
-  store i64 %29, ptr %8, align 8, !tbaa !127
-  %30 = icmp ugt i64 %29, %7
-  br i1 %30, label %14, label %nghttp2_session_destroy_stream.exit.thread51, !llvm.loop !159
+nghttp2_session_destroy_stream.exit:              ; preds = %25, %26
+  %27 = load i64, ptr %7, align 8, !tbaa !127
+  %28 = add i64 %27, -1
+  store i64 %28, ptr %7, align 8, !tbaa !127
+  %29 = icmp ugt i64 %28, %6
+  br i1 %29, label %13, label %nghttp2_session_destroy_stream.exit.thread51, !llvm.loop !159
 
 nghttp2_session_destroy_stream.exit.thread51:     ; preds = %nghttp2_session_destroy_stream.exit, %19, %.thread46
   %.2 = phi i32 [ 0, %.thread46 ], [ %20, %19 ], [ 0, %nghttp2_session_destroy_stream.exit ]

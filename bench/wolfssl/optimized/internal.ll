@@ -15399,7 +15399,7 @@ SanityCheckCipherText.exit.i:                     ; preds = %262
 .lr.ph.i:                                         ; preds = %277
   %290 = xor i32 %288, -1
   %291 = zext i8 %287 to i64
-  %umax = call i64 @llvm.umin.i64(i64 %285, i64 255)
+  %invariant.umin.i = call i64 @llvm.umin.i64(i64 %285, i64 255)
   br label %292
 
 292:                                              ; preds = %292, %.lr.ph.i

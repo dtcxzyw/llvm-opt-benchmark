@@ -635,52 +635,52 @@ avifValidateImageBasicProperties.exit:            ; preds = %27
 
 avifQualityToQuantizer.exit:                      ; preds = %66, %76
   %.0.i250 = phi i32 [ %75, %66 ], [ %.zext.i, %76 ]
-  %82 = load ptr, ptr %44, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
-  store i32 %.0.i250, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %85 = load i32, ptr %84, align 4
-  %86 = icmp eq i32 %85, -1
-  br i1 %86, label %87, label %97
+  %83 = load ptr, ptr %44, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 48
+  store i32 %.0.i250, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %86 = load i32, ptr %85, align 4
+  %87 = icmp eq i32 %86, -1
+  br i1 %87, label %88, label %98
 
-87:                                               ; preds = %avifQualityToQuantizer.exit
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %91 = load i32, ptr %90, align 8
-  %92 = add nsw i32 %91, %89
-  %93 = sdiv i32 %92, 2
-  %94 = icmp slt i32 %92, -1
-  %95 = tail call i32 @llvm.smin.i32(i32 %93, i32 63)
-  %96 = select i1 %94, i32 0, i32 %95
+88:                                               ; preds = %avifQualityToQuantizer.exit
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %90 = load i32, ptr %89, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %92 = load i32, ptr %91, align 8
+  %93 = add nsw i32 %92, %90
+  %94 = sdiv i32 %93, 2
+  %95 = icmp slt i32 %93, -1
+  %96 = tail call i32 @llvm.smin.i32(i32 %94, i32 63)
+  %97 = select i1 %95, i32 0, i32 %96
   br label %avifQualityToQuantizer.exit254
 
-97:                                               ; preds = %avifQualityToQuantizer.exit
-  %98 = tail call i32 @llvm.smax.i32(i32 %85, i32 0)
-  %99 = tail call i32 @llvm.usub.sat.i32(i32 100, i32 %98)
-  %100 = trunc nuw nsw i32 %99 to i16
+98:                                               ; preds = %avifQualityToQuantizer.exit
+  %99 = tail call i32 @llvm.smax.i32(i32 %86, i32 0)
+  %100 = tail call i32 @llvm.usub.sat.i32(i32 100, i32 %98)
+  %101 = trunc nuw nsw i32 %100 to i16
   %101 = mul nuw nsw i16 %100, 63
   %.lhs.trunc.i251 = add nuw nsw i16 %101, 50
   %102 = udiv i16 %.lhs.trunc.i251, 100
   %.zext.i252 = zext nneg i16 %102 to i32
   br label %avifQualityToQuantizer.exit254
 
-avifQualityToQuantizer.exit254:                   ; preds = %87, %97
-  %.0.i253 = phi i32 [ %96, %87 ], [ %.zext.i252, %97 ]
-  %103 = load ptr, ptr %44, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 52
-  store i32 %.0.i253, ptr %104, align 4
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %106 = load i32, ptr %105, align 8
-  %107 = tail call i32 @llvm.smax.i32(i32 %106, i32 0)
-  %108 = tail call i32 @llvm.umin.i32(i32 %107, i32 6)
-  %109 = load ptr, ptr %44, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 56
-  store i32 %108, ptr %110, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %112 = load i32, ptr %111, align 4
-  %113 = tail call i32 @llvm.smax.i32(i32 %112, i32 0)
-  %114 = tail call i32 @llvm.umin.i32(i32 %113, i32 6)
+avifQualityToQuantizer.exit254:                   ; preds = %88, %98
+  %.0.i253 = phi i32 [ %97, %87 ], [ %.zext.i252, %97 ]
+  %105 = load ptr, ptr %44, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 52
+  store i32 %.0.i253, ptr %106, align 4
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %108 = load i32, ptr %107, align 8
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %108, i32 0)
+  %109 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 6)
+  %110 = load ptr, ptr %44, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 56
+  store i32 %109, ptr %111, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %113 = load i32, ptr %112, align 4
+  %spec.select244 = tail call i32 @llvm.smax.i32(i32 %113, i32 0)
+  %114 = tail call i32 @llvm.umin.i32(i32 %spec.select244, i32 6)
   %115 = load ptr, ptr %44, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 60
   store i32 %114, ptr %116, align 4

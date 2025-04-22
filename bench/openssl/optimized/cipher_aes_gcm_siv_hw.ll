@@ -248,7 +248,7 @@ define internal range(i32 0, 2) i32 @aes_gcm_siv_cipher(ptr noundef %0, ptr noun
   %70 = and i8 %69, 1
   %.not = icmp eq i8 %70, 0
   %71 = icmp sgt i64 %3, 68719476736
-  br i1 %.not, label %144, label %72
+  br i1 %.not, label %143, label %72
 
 72:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #7
@@ -351,114 +351,114 @@ define internal range(i32 0, 2) i32 @aes_gcm_siv_cipher(ptr noundef %0, ptr noun
 
 .lr.ph.preheader.i.i:                             ; preds = %108, %._crit_edge.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ %3, %108 ]
-  %.025.i.i = phi i64 [ %132, %._crit_edge.i.i ], [ 0, %108 ]
-  %.01924.i.i = phi i32 [ %131, %._crit_edge.i.i ], [ 0, %108 ]
-  %117 = call i64 @llvm.umax.i64(i64 %indvars.iv.i.i, i64 1)
-  %umax.i.i = call i64 @llvm.umin.i64(i64 %117, i64 16)
+  %.025.i.i = phi i64 [ %131, %._crit_edge.i.i ], [ 0, %108 ]
+  %.01924.i.i = phi i32 [ %130, %._crit_edge.i.i ], [ 0, %108 ]
+  %umin.i.i = call i64 @llvm.umax.i64(i64 %indvars.iv.i.i, i64 1)
+  %umax.i.i = call i64 @llvm.umin.i64(i64 %umin.i.i, i64 16)
   store i32 16, ptr %13, align 4, !tbaa !18
-  %118 = load ptr, ptr %0, align 8, !tbaa !16
-  %119 = call i32 @EVP_EncryptUpdate(ptr noundef %118, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 16) #7
-  %120 = load i32, ptr %14, align 16, !tbaa !17
-  %121 = add i32 %120, 1
-  store i32 %121, ptr %14, align 16, !tbaa !17
+  %117 = load ptr, ptr %0, align 8, !tbaa !16
+  %118 = call i32 @EVP_EncryptUpdate(ptr noundef %117, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 16) #7
+  %119 = load i32, ptr %14, align 16, !tbaa !17
+  %120 = add i32 %119, 1
+  store i32 %120, ptr %14, align 16, !tbaa !17
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.02023.i.i = phi i64 [ %129, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
-  %122 = add nuw nsw i64 %.02023.i.i, %.025.i.i
-  %123 = getelementptr inbounds nuw i8, ptr %2, i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !17
-  %125 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 0, i64 %.02023.i.i
-  %126 = load i8, ptr %125, align 1, !tbaa !17
-  %127 = xor i8 %126, %124
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 %122
-  store i8 %127, ptr %128, align 1, !tbaa !17
-  %129 = add nuw nsw i64 %.02023.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %129, %umax.i.i
+  %.02023.i.i = phi i64 [ %128, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %121 = add nuw nsw i64 %.02023.i.i, %.025.i.i
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 %121
+  %123 = load i8, ptr %122, align 1, !tbaa !17
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 0, i64 %.02023.i.i
+  %125 = load i8, ptr %124, align 1, !tbaa !17
+  %126 = xor i8 %125, %123
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 %121
+  store i8 %126, ptr %127, align 1, !tbaa !17
+  %128 = add nuw nsw i64 %.02023.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %128, %umax.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !26
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %.not22.i.i = icmp eq i32 %119, 0
-  %130 = zext i1 %.not22.i.i to i32
-  %131 = or i32 %.01924.i.i, %130
-  %132 = add i64 %.025.i.i, 16
-  %133 = icmp ult i64 %132, %3
+  %.not22.i.i = icmp eq i32 %118, 0
+  %129 = zext i1 %.not22.i.i to i32
+  %130 = or i32 %.01924.i.i, %129
+  %131 = add i64 %.025.i.i, 16
+  %132 = icmp ult i64 %131, %3
   %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, -16
-  br i1 %133, label %.lr.ph.preheader.i.i, label %._crit_edge28.loopexit.i.i, !llvm.loop !27
+  br i1 %132, label %.lr.ph.preheader.i.i, label %._crit_edge28.loopexit.i.i, !llvm.loop !27
 
 ._crit_edge28.loopexit.i.i:                       ; preds = %._crit_edge.i.i
-  %134 = icmp ne i32 %131, 0
-  %135 = zext i1 %134 to i32
+  %133 = icmp ne i32 %130, 0
+  %134 = zext i1 %133 to i32
   br label %aes_gcm_siv_ctr32.exit.i
 
 aes_gcm_siv_ctr32.exit.i:                         ; preds = %._crit_edge28.loopexit.i.i, %108
-  %.019.lcssa.i.i = phi i32 [ 0, %108 ], [ %135, %._crit_edge28.loopexit.i.i ]
+  %.019.lcssa.i.i = phi i32 [ 0, %108 ], [ %134, %._crit_edge28.loopexit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #7
-  %136 = or i32 %.019.lcssa.i.i, %115
-  %137 = xor i32 %136, 1
-  %138 = trunc nuw nsw i32 %137 to i8
-  %139 = load i8, ptr %68, align 8
-  %140 = shl nuw nsw i8 %138, 2
-  %141 = and i8 %139, -13
-  %142 = or disjoint i8 %141, %140
-  %143 = or i8 %142, 8
-  store i8 %143, ptr %68, align 8
+  %135 = or i32 %.019.lcssa.i.i, %115
+  %136 = xor i32 %135, 1
+  %137 = trunc nuw nsw i32 %136 to i8
+  %138 = load i8, ptr %68, align 8
+  %139 = shl nuw nsw i8 %137, 2
+  %140 = and i8 %138, -13
+  %141 = or disjoint i8 %140, %139
+  %142 = or i8 %141, 8
+  store i8 %142, ptr %68, align 8
   br label %aes_gcm_siv_encrypt.exit
 
 aes_gcm_siv_encrypt.exit:                         ; preds = %72, %aes_gcm_siv_ctr32.exit.i
-  %.0.i19 = phi i32 [ %137, %aes_gcm_siv_ctr32.exit.i ], [ 0, %72 ]
+  %.0.i19 = phi i32 [ %136, %aes_gcm_siv_ctr32.exit.i ], [ 0, %72 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #7
   br label %aes_gcm_siv_finish.exit
 
-144:                                              ; preds = %67
+143:                                              ; preds = %67
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
-  %145 = and i8 %69, -6
-  store i8 %145, ptr %68, align 8
-  %146 = and i8 %69, 48
-  %or.cond.not55.i20 = icmp eq i8 %146, 16
+  %144 = and i8 %69, -6
+  store i8 %144, ptr %68, align 8
+  %145 = and i8 %69, 48
+  %or.cond.not55.i20 = icmp eq i8 %145, 16
   %or.cond52.i21 = or i1 %71, %or.cond.not55.i20
-  br i1 %or.cond52.i21, label %aes_gcm_siv_decrypt.exit, label %147
+  br i1 %or.cond52.i21, label %aes_gcm_siv_decrypt.exit, label %146
 
-147:                                              ; preds = %144
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 152
+146:                                              ; preds = %143
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 152
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(15) %7, ptr noundef nonnull align 8 dereferenceable(15) %148, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(15) %7, ptr noundef nonnull align 8 dereferenceable(15) %147, i64 15, i1 false)
   %.sroa.4.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %0, i64 167
   %.sroa.4.0.copyload.i23 = load i8, ptr %.sroa.4.0..sroa_idx.i22, align 1
-  %149 = or i8 %.sroa.4.0.copyload.i23, -128
+  %148 = or i8 %.sroa.4.0.copyload.i23, -128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
   %.sroa.4.0..sroa_idx53.i24 = getelementptr inbounds nuw i8, ptr %7, i64 15
-  store i8 %149, ptr %.sroa.4.0..sroa_idx53.i24, align 1
+  store i8 %148, ptr %.sroa.4.0..sroa_idx53.i24, align 1
   %.not29.i.i25 = icmp eq i64 %3, 0
   br i1 %.not29.i.i25, label %aes_gcm_siv_ctr32.exit.i38, label %.lr.ph.preheader.i.i26
 
-.lr.ph.preheader.i.i26:                           ; preds = %147, %._crit_edge.i.i34
+.lr.ph.preheader.i.i26:                           ; preds = %146, %._crit_edge.i.i34
   %indvars.iv.i.i27 = phi i64 [ %indvars.iv.next.i.i36, %._crit_edge.i.i34 ], [ %3, %147 ]
   %.025.i.i28 = phi i64 [ %165, %._crit_edge.i.i34 ], [ 0, %147 ]
   %.01924.i.i29 = phi i32 [ %164, %._crit_edge.i.i34 ], [ 0, %147 ]
-  %150 = call i64 @llvm.umax.i64(i64 %indvars.iv.i.i27, i64 1)
-  %umax.i.i30 = call i64 @llvm.umin.i64(i64 %150, i64 16)
+  %umin.i.i30 = call i64 @llvm.umax.i64(i64 %indvars.iv.i.i27, i64 1)
+  %umax.i.i31 = call i64 @llvm.umin.i64(i64 %umin.i.i30, i64 16)
   store i32 16, ptr %6, align 4, !tbaa !18
-  %151 = load ptr, ptr %0, align 8, !tbaa !16
-  %152 = call i32 @EVP_EncryptUpdate(ptr noundef %151, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 16) #7
-  %153 = load i32, ptr %7, align 16, !tbaa !17
-  %154 = add i32 %153, 1
-  store i32 %154, ptr %7, align 16, !tbaa !17
-  br label %.lr.ph.i.i31
+  %149 = load ptr, ptr %0, align 8, !tbaa !16
+  %150 = call i32 @EVP_EncryptUpdate(ptr noundef %149, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 16) #7
+  %151 = load i32, ptr %7, align 16, !tbaa !17
+  %152 = add i32 %151, 1
+  store i32 %152, ptr %7, align 16, !tbaa !17
+  br label %.lr.ph.i.i32
 
-.lr.ph.i.i31:                                     ; preds = %.lr.ph.i.i31, %.lr.ph.preheader.i.i26
-  %.02023.i.i32 = phi i64 [ %162, %.lr.ph.i.i31 ], [ 0, %.lr.ph.preheader.i.i26 ]
-  %155 = add nuw nsw i64 %.02023.i.i32, %.025.i.i28
-  %156 = getelementptr inbounds nuw i8, ptr %2, i64 %155
+.lr.ph.i.i32:                                     ; preds = %.lr.ph.i.i32, %.lr.ph.preheader.i.i26
+  %.02023.i.i33 = phi i64 [ %162, %.lr.ph.i.i31 ], [ 0, %.lr.ph.preheader.i.i26 ]
+  %153 = add nuw nsw i64 %.02023.i.i33, %.025.i.i28
+  %154 = getelementptr inbounds nuw i8, ptr %2, i64 %153
   %157 = load i8, ptr %156, align 1, !tbaa !17
   %158 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.02023.i.i32
   %159 = load i8, ptr %158, align 1, !tbaa !17
@@ -469,16 +469,16 @@ aes_gcm_siv_encrypt.exit:                         ; preds = %72, %aes_gcm_siv_ct
   %exitcond.not.i.i33 = icmp eq i64 %162, %umax.i.i30
   br i1 %exitcond.not.i.i33, label %._crit_edge.i.i34, label %.lr.ph.i.i31, !llvm.loop !26
 
-._crit_edge.i.i34:                                ; preds = %.lr.ph.i.i31
+._crit_edge.i.i34:; preds = %.lr.ph.i.i32
   %.not22.i.i35 = icmp eq i32 %152, 0
   %163 = zext i1 %.not22.i.i35 to i32
   %164 = or i32 %.01924.i.i29, %163
-  %165 = add i64 %.025.i.i28, 16
-  %166 = icmp ult i64 %165, %3
+  %indvars.iv.next.i.i37 = add i64 %.025.i.i28, 16
+  %166 = icmp ult i64 %indvars.iv.next.i.i37, %3
   %indvars.iv.next.i.i36 = add i64 %indvars.iv.i.i27, -16
   br i1 %166, label %.lr.ph.preheader.i.i26, label %._crit_edge28.loopexit.i.i37, !llvm.loop !27
 
-._crit_edge28.loopexit.i.i37:                     ; preds = %._crit_edge.i.i34
+._crit_edge28.loopexit.i.i37:; preds = %._crit_edge.i.i34
   %167 = icmp ne i32 %164, 0
   %168 = zext i1 %167 to i32
   br label %aes_gcm_siv_ctr32.exit.i38
@@ -488,50 +488,50 @@ aes_gcm_siv_ctr32.exit.i38:                       ; preds = %._crit_edge28.loope
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %170 = load i64, ptr %169, align 8, !tbaa !23
-  %171 = shl i64 %170, 3
-  store i64 %171, ptr %8, align 16, !tbaa !24
-  %172 = shl i64 %3, 3
-  %173 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %172, ptr %173, align 8, !tbaa !24
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %168 = load i64, ptr %167, align 8, !tbaa !23
+  %169 = shl i64 %168, 3
+  store i64 %169, ptr %8, align 16, !tbaa !24
+  %170 = shl i64 %3, 3
+  %171 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %170, ptr %171, align 8, !tbaa !24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @ossl_polyval_ghash_init(ptr noundef nonnull %174, ptr noundef nonnull %175) #7
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %177 = load ptr, ptr %176, align 8, !tbaa !22
-  %.not48.i40 = icmp eq ptr %177, null
-  br i1 %.not48.i40, label %182, label %178
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  call void @ossl_polyval_ghash_init(ptr noundef nonnull %172, ptr noundef nonnull %173) #7
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %175 = load ptr, ptr %174, align 8, !tbaa !22
+  %.not48.i41 = icmp eq ptr %175, null
+  br i1 %.not48.i41, label %180, label %176
 
-178:                                              ; preds = %aes_gcm_siv_ctr32.exit.i38
-  %179 = load i64, ptr %169, align 8, !tbaa !23
-  %180 = add i64 %179, 15
-  %181 = and i64 %180, -16
-  call void @ossl_polyval_ghash_hash(ptr noundef nonnull %174, ptr noundef nonnull %9, ptr noundef nonnull %177, i64 noundef %181) #7
-  br label %182
+176:                                              ; preds = %aes_gcm_siv_ctr32.exit.i38
+  %177 = load i64, ptr %167, align 8, !tbaa !23
+  %178 = add i64 %177, 15
+  %179 = and i64 %178, -16
+  call void @ossl_polyval_ghash_hash(ptr noundef nonnull %172, ptr noundef nonnull %9, ptr noundef nonnull %175, i64 noundef %179) #7
+  br label %180
 
-182:                                              ; preds = %178, %aes_gcm_siv_ctr32.exit.i38
-  %183 = and i64 %3, -16
-  %.not49.i41 = icmp eq i64 %183, 0
-  br i1 %.not49.i41, label %185, label %184
+180:                                              ; preds = %176, %aes_gcm_siv_ctr32.exit.i38
+  %181 = and i64 %3, -16
+  %.not49.i42 = icmp eq i64 %181, 0
+  br i1 %.not49.i42, label %183, label %182
 
-184:                                              ; preds = %182
-  call void @ossl_polyval_ghash_hash(ptr noundef nonnull %174, ptr noundef nonnull %9, ptr noundef nonnull %1, i64 noundef %183) #7
-  br label %185
+182:                                              ; preds = %180
+  call void @ossl_polyval_ghash_hash(ptr noundef nonnull %172, ptr noundef nonnull %9, ptr noundef nonnull %1, i64 noundef %181) #7
+  br label %183
 
-185:                                              ; preds = %184, %182
-  %186 = and i64 %3, 15
-  %187 = icmp eq i64 %186, 0
-  br i1 %187, label %192, label %188
+183:                                              ; preds = %182, %180
+  %184 = and i64 %3, 15
+  %185 = icmp eq i64 %184, 0
+  br i1 %185, label %192, label %186
 
-188:                                              ; preds = %185
-  %189 = getelementptr inbounds nuw i8, ptr %1, i64 %183
-  %190 = sub nuw nsw i64 16, %186
-  %191 = getelementptr i8, ptr %10, i64 %186
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %191, i8 0, i64 %190, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 1 %189, i64 %186, i1 false)
-  call void @ossl_polyval_ghash_hash(ptr noundef nonnull %174, ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef 16) #7
+186:                                              ; preds = %183
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 %181
+  %188 = sub nuw nsw i64 16, %184
+  %189 = getelementptr i8, ptr %10, i64 %184
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %189, i8 0, i64 %188, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 1 %187, i64 %184, i1 false)
+  call void @ossl_polyval_ghash_hash(ptr noundef nonnull %172, ptr noundef nonnull %9, ptr noundef nonnull %10, i64 noundef 16) #7
   br label %192
 
 192:                                              ; preds = %188, %185
@@ -551,30 +551,30 @@ aes_gcm_siv_ctr32.exit.i38:                       ; preds = %._crit_edge28.loope
   %exitcond.not.i43 = icmp eq i64 %200, 12
   br i1 %exitcond.not.i43, label %201, label %194, !llvm.loop !28
 
-201:                                              ; preds = %194
+201:; preds = %194
   %202 = getelementptr inbounds nuw i8, ptr %9, i64 15
   %203 = load i8, ptr %202, align 1, !tbaa !17
   %204 = and i8 %203, 127
   store i8 %204, ptr %202, align 1, !tbaa !17
   store i32 16, ptr %11, align 4, !tbaa !18
-  %205 = load ptr, ptr %0, align 8, !tbaa !16
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %207 = call i32 @EVP_EncryptUpdate(ptr noundef %205, ptr noundef nonnull %206, ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef 16) #7
-  %.not50.i = icmp eq i32 %207, 0
-  %208 = zext i1 %.not50.i to i32
-  %209 = or i32 %.019.lcssa.i.i39, %208
-  %210 = xor i32 %209, 1
-  %211 = trunc nuw nsw i32 %210 to i8
-  %212 = load i8, ptr %68, align 8
-  %213 = shl nuw nsw i8 %211, 2
-  %214 = and i8 %212, -21
-  %215 = or disjoint i8 %213, %214
-  %216 = or i8 %215, 16
-  store i8 %216, ptr %68, align 8
+  %203 = load ptr, ptr %0, align 8, !tbaa !16
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %205 = call i32 @EVP_EncryptUpdate(ptr noundef %203, ptr noundef nonnull %204, ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef 16) #7
+  %.not50.i = icmp eq i32 %205, 0
+  %206 = zext i1 %.not50.i to i32
+  %207 = or i32 %.019.lcssa.i.i39, %206
+  %208 = xor i32 %207, 1
+  %209 = trunc nuw nsw i32 %208 to i8
+  %210 = load i8, ptr %68, align 8
+  %211 = shl nuw nsw i8 %209, 2
+  %212 = and i8 %210, -21
+  %213 = or disjoint i8 %211, %212
+  %214 = or i8 %213, 16
+  store i8 %214, ptr %68, align 8
   br label %aes_gcm_siv_decrypt.exit
 
-aes_gcm_siv_decrypt.exit:                         ; preds = %144, %201
-  %.0.i44 = phi i32 [ %210, %201 ], [ 0, %144 ]
+aes_gcm_siv_decrypt.exit:                         ; preds = %143, %201
+  %.0.i45 = phi i32 [ %208, %201 ], [ 0, %144 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #7
@@ -582,7 +582,7 @@ aes_gcm_siv_decrypt.exit:                         ; preds = %144, %201
   br label %aes_gcm_siv_finish.exit
 
 aes_gcm_siv_finish.exit:                          ; preds = %63, %57, %52, %45, %41, %28, %24, %aes_gcm_siv_decrypt.exit, %aes_gcm_siv_encrypt.exit
-  %.0 = phi i32 [ %.0.i19, %aes_gcm_siv_encrypt.exit ], [ %.0.i44, %aes_gcm_siv_decrypt.exit ], [ %27, %24 ], [ %36, %28 ], [ 1, %41 ], [ 0, %45 ], [ 0, %52 ], [ 1, %63 ], [ 1, %57 ]
+  %.0 = phi i32 [ %.0.i19, %aes_gcm_siv_encrypt.exit ], [ %.0.i45, %aes_gcm_siv_decrypt.exit ], [ %27, %24 ], [ %36, %28 ], [ 1, %41 ], [ 0, %45 ], [ 0, %52 ], [ 1, %63 ], [ 1, %57 ]
   ret i32 %.0
 }
 

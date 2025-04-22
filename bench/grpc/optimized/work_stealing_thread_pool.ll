@@ -1679,80 +1679,80 @@ define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkS
   store i64 %1, ptr %3, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = invoke i32 @gpr_cpu_num_cores()
-          to label %.noexc unwind label %25
+          to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
-  %6 = tail call i32 @llvm.umax.i32(i32 %5, i32 2)
-  %.0.i.i = tail call i32 @llvm.umin.i32(i32 %6, i32 64)
-  %7 = zext nneg i32 %.0.i.i to i64
-  %8 = shl nuw nsw i64 %7, 6
-  %9 = invoke noalias noundef nonnull align 64 ptr @_ZnwmSt11align_val_t(i64 noundef %8, i64 noundef 64) #34
-          to label %10 unwind label %25
+  %..i.i = tail call i32 @llvm.umax.i32(i32 %5, i32 2)
+  %.0.i.i = tail call i32 @llvm.umin.i32(i32 %..i.i, i32 64)
+  %6 = zext nneg i32 %.0.i.i to i64
+  %7 = shl nuw nsw i64 %6, 6
+  %8 = invoke noalias noundef nonnull align 64 ptr @_ZnwmSt11align_val_t(i64 noundef %7, i64 noundef 64) #34
+          to label %10 unwind label %24
 
-10:                                               ; preds = %.noexc
-  call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 64) ]
-  store ptr %9, ptr %4, align 8, !tbaa !118
-  %11 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %9, i64 %7
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1) %9, i8 0, i64 %8, i1 false)
-  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %9, i64 %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %11, ptr %13, align 8, !tbaa !119
-  store ptr %scevgep.i.i.i.i.i.i, ptr %12, align 8, !tbaa !120
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 40, i1 false)
-  store i64 1, ptr %15, align 8
+9:                                                ; preds = %.noexc
+  call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 64) ]
+  store ptr %8, ptr %4, align 8, !tbaa !118
+  %10 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::BusyThreadCount::ShardedData", ptr %8, i64 %6
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(1) %8, i8 0, i64 %7, i1 false)
+  %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %8, i64 %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %10, ptr %12, align 8, !tbaa !119
+  store ptr %scevgep.i.i.i.i.i.i, ptr %11, align 8, !tbaa !120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
+  store i64 1, ptr %14, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  invoke void @_ZN17grpc_event_engine12experimental14BasicWorkQueueC1EPv(ptr noundef nonnull align 8 dereferenceable(104) %16, ptr noundef nonnull %0)
-          to label %17 unwind label %27
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  invoke void @_ZN17grpc_event_engine12experimental14BasicWorkQueueC1EPv(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull %0)
+          to label %17 unwind label %26
 
-17:                                               ; preds = %10
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i8 0, ptr %18, align 8, !tbaa !121
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 225
-  store i8 0, ptr %19, align 1, !tbaa !121
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 226
-  store i8 0, ptr %20, align 2, !tbaa !121
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i64 0, ptr %21, align 8, !tbaa !122
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i8 0, ptr %22, align 8, !tbaa !121
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, i8 0, i64 40, i1 false)
-  store i64 1, ptr %24, align 8
+16:                                               ; preds = %9
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store i8 0, ptr %17, align 8, !tbaa !121
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 225
+  store i8 0, ptr %18, align 1, !tbaa !121
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 226
+  store i8 0, ptr %19, align 2, !tbaa !121
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i64 0, ptr %20, align 8, !tbaa !122
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i8 0, ptr %21, align 8, !tbaa !121
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false)
+  store i64 1, ptr %23, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   ret void
 
-25:                                               ; preds = %.noexc, %2
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %.noexc, %2
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN17grpc_event_engine12experimental15BusyThreadCountD2Ev.exit
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+26:                                               ; preds = %9
+  %27 = landingpad { ptr, i32 }
           cleanup
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %29) #36
-  %30 = load ptr, ptr %4, align 8, !tbaa !118
-  %.not.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i.i.i, label %_ZN17grpc_event_engine12experimental15BusyThreadCountD2Ev.exit, label %31
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool13TheftRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %28) #36
+  %29 = load ptr, ptr %4, align 8, !tbaa !118
+  %.not.i.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i.i, label %_ZN17grpc_event_engine12experimental15BusyThreadCountD2Ev.exit, label %30
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %13, align 8, !tbaa !119
-  %33 = ptrtoint ptr %32 to i64
-  %34 = ptrtoint ptr %30 to i64
-  %35 = sub i64 %33, %34
-  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %30, i64 noundef %35, i64 noundef 64) #35
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %12, align 8, !tbaa !119
+  %32 = ptrtoint ptr %31 to i64
+  %33 = ptrtoint ptr %29 to i64
+  %34 = sub i64 %32, %33
+  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %29, i64 noundef %34, i64 noundef 64) #35
   br label %_ZN17grpc_event_engine12experimental15BusyThreadCountD2Ev.exit
 
-_ZN17grpc_event_engine12experimental15BusyThreadCountD2Ev.exit: ; preds = %31, %27, %25
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %28, %27 ], [ %28, %31 ]
+_ZN17grpc_event_engine12experimental15BusyThreadCountD2Ev.exit: ; preds = %30, %26, %24
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %25, %25 ], [ %27, %27 ], [ %27, %31 ]
   tail call void @_ZNSt23enable_shared_from_thisIN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #36
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
