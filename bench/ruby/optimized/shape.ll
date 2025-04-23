@@ -117,17 +117,16 @@ define dso_local i64 @rb_shape_depth(ptr noundef readonly captures(none) %0) loc
 .lr.ph:                                           ; preds = %1
   %4 = load ptr, ptr @rb_shape_tree_ptr, align 8, !tbaa !7
   %5 = load ptr, ptr %4, align 8, !tbaa !16
-  %invariant.gep = getelementptr i8, ptr %5, i64 28
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
-  %7 = phi i32 [ %3, %.lr.ph ], [ %10, %6 ]
+  %7 = phi i32 [ %3, %.lr.ph ], [ %11, %6 ]
   %.05 = phi i64 [ 1, %.lr.ph ], [ %8, %6 ]
   %8 = add i64 %.05, 1
   %9 = zext i32 %7 to i64
-  %gep = getelementptr %struct.rb_shape, ptr %invariant.gep, i64 %9
-  %10 = load i32, ptr %gep, align 4, !tbaa !20
-  %.not = icmp eq i32 %10, -1
+  %10 = getelementptr %struct.rb_shape, ptr %5, i64 %9, i32 6
+  %11 = load i32, ptr %10, align 4, !tbaa !20
+  %.not = icmp eq i32 %11, -1
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %6, %1

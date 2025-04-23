@@ -33836,14 +33836,10 @@ _ZN4cvc58internal4expr9NodeValue3incEv.exit:      ; preds = %28, %26, %21, %2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers10TermGenEnv13changeContextEb(ptr noundef nonnull align 8 dereferenceable(488) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br i1 %1, label %.preheader, label %.preheader15
 
-.preheader15:                                     ; preds = %2
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 264
-  br label %57
-
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %10
 
@@ -33852,7 +33848,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers10TermGenEnv13changeCon
   %8 = load i32, ptr %7, align 8, !tbaa !856
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !856
-  br label %68
+  br label %69
 
 10:                                               ; preds = %.preheader, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit
   %11 = phi i1 [ true, %.preheader ], [ false, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit ]
@@ -33988,32 +33984,33 @@ _ZNSt3mapIjN4cvc58internal6theory11quantifiers13TermGeneratorESt4lessIjESaISt4pa
   %.sroa.037.0.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjN4cvc58internal6theory11quantifiers13TermGeneratorEESt10_Select1stIS7_ESt4lessIjESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %38, %32 ], [ %.08.lcssa.i.i.i.i, %.lr.ph.i25.i.i.i ], [ %.123.i.i.i, %55 ]
   %.sroa.3.0.i.i.i = phi ptr [ %.02243.i.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjN4cvc58internal6theory11quantifiers13TermGeneratorEESt10_Select1stIS7_ESt4lessIjESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %38, %32 ], [ %.19.i28.i.i.i, %.lr.ph.i25.i.i.i ], [ %.123.i.i.i, %55 ]
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjN4cvc58internal6theory11quantifiers13TermGeneratorEESt10_Select1stIS7_ESt4lessIjESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr %.sroa.037.0.i.i.i, ptr %.sroa.3.0.i.i.i)
-  br label %68
+  br label %69
 
-57:                                               ; preds = %.preheader15, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit
-  %58 = phi i1 [ true, %.preheader15 ], [ false, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit ]
-  %indvars.iv = phi i64 [ 0, %.preheader15 ], [ 24, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit ]
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
-  %59 = load ptr, ptr %gep, align 8, !tbaa !311
-  %60 = getelementptr inbounds i8, ptr %59, i64 -24
-  store ptr %60, ptr %gep, align 8, !tbaa !311
-  %61 = load ptr, ptr %60, align 8, !tbaa !19
-  %.not.i.i.i.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit, label %62
+.preheader15:                                     ; preds = %2, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit
+  %57 = phi i1 [ false, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit ], [ true, %2 ]
+  %indvars.iv = phi i64 [ 24, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit ], [ 0, %2 ]
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !311
+  %61 = getelementptr inbounds i8, ptr %60, i64 -24
+  store ptr %61, ptr %59, align 8, !tbaa !311
+  %62 = load ptr, ptr %61, align 8, !tbaa !19
+  %.not.i.i.i.i.i.i = icmp eq ptr %62, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit, label %63
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %59, i64 -8
-  %64 = load ptr, ptr %63, align 8, !tbaa !18
-  %65 = ptrtoint ptr %64 to i64
-  %66 = ptrtoint ptr %61 to i64
-  %67 = sub i64 %65, %66
-  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %67) #33
+63:                                               ; preds = %.preheader15
+  %64 = getelementptr inbounds i8, ptr %60, i64 -8
+  %65 = load ptr, ptr %64, align 8, !tbaa !18
+  %66 = ptrtoint ptr %65 to i64
+  %67 = ptrtoint ptr %62 to i64
+  %68 = sub i64 %66, %67
+  tail call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #33
   br label %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit
 
-_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit: ; preds = %57, %62
-  br i1 %58, label %57, label %32, !llvm.loop !1042
+_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit: ; preds = %.preheader15, %63
+  br i1 %57, label %.preheader15, label %32, !llvm.loop !1042
 
-68:                                               ; preds = %_ZNSt3mapIjN4cvc58internal6theory11quantifiers13TermGeneratorESt4lessIjESaISt4pairIKjS4_EEE5eraseERS8_.exit, %6
+69:                                               ; preds = %_ZNSt3mapIjN4cvc58internal6theory11quantifiers13TermGeneratorESt4lessIjESaISt4pairIKjS4_EEE5eraseERS8_.exit, %6
   ret void
 }
 

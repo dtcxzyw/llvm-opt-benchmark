@@ -11064,11 +11064,10 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
 .preheader:                                       ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %110 = load i32, ptr %54, align 8, !tbaa !31
   %111 = icmp sgt i32 %110, 1
-  %.pre85 = load ptr, ptr %53, align 8, !tbaa !67
+  %.pre79 = load ptr, ptr %53, align 8, !tbaa !67
   br i1 %111, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.pre85, i64 4
   %wide.trip.count = zext nneg i32 %110 to i64
   br label %132
 
@@ -11083,7 +11082,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   %115 = sext i32 %114 to i64
   %116 = load ptr, ptr %58, align 8, !tbaa !66
   %117 = ptrtoint ptr %116 to i64
-  %118 = ptrtoint ptr %.pre85 to i64
+  %118 = ptrtoint ptr %.pre79 to i64
   %119 = sub i64 %117, %118
   %120 = ashr exact i64 %119, 2
   %121 = icmp ult i64 %120, %115
@@ -11092,7 +11091,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
 122:                                              ; preds = %._crit_edge
   %123 = sub nuw nsw i64 %115, %120
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %123)
-  %.pre87.pre = load i32, ptr %54, align 8, !tbaa !31
+  %.pre81.pre = load i32, ptr %54, align 8, !tbaa !31
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
 
 124:                                              ; preds = %._crit_edge
@@ -11100,7 +11099,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br i1 %125, label %126, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw float, ptr %.pre85, i64 %115
+  %127 = getelementptr inbounds nuw float, ptr %.pre79, i64 %115
   %.not.i.i50 = icmp eq ptr %116, %127
   br i1 %.not.i.i50, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51, label %128
 
@@ -11109,7 +11108,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit51:             ; preds = %122, %124, %126, %128
-  %.pre87 = phi i32 [ %.pre87.pre, %122 ], [ %110, %124 ], [ %110, %126 ], [ %110, %128 ]
+  %.pre81 = phi i32 [ %.pre81.pre, %122 ], [ %110, %124 ], [ %110, %126 ], [ %110, %128 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %130 = load i8, ptr %129, align 8, !tbaa !322, !range !13, !noundef !14
   %131 = trunc nuw i8 %130 to i1
@@ -11117,25 +11116,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit51:             ; preds = %122, %124, %126, %1
 
 132:                                              ; preds = %.lr.ph, %132
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %132 ]
-  %133 = shl nsw i64 %indvars.iv, 2
-  %134 = getelementptr inbounds nuw float, ptr %.pre85, i64 %133
-  %135 = load float, ptr %134, align 4, !tbaa !38
-  %136 = shl nuw nsw i64 %indvars.iv, 1
-  %137 = getelementptr inbounds nuw float, ptr %.pre85, i64 %136
-  store float %135, ptr %137, align 4, !tbaa !38
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %133
-  %138 = load float, ptr %gep, align 4, !tbaa !38
-  %gep66 = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %136
-  store float %138, ptr %gep66, align 4, !tbaa !38
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %133 = getelementptr inbounds nuw i8, ptr %.pre79, i64 %.idx
+  %134 = load float, ptr %133, align 4, !tbaa !38
+  %.idx83 = shl nuw nsw i64 %indvars.iv, 3
+  %135 = getelementptr inbounds nuw i8, ptr %.pre79, i64 %.idx83
+  store float %134, ptr %135, align 4, !tbaa !38
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 4
+  %137 = load float, ptr %136, align 4, !tbaa !38
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 4
+  store float %137, ptr %138, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %132, !llvm.loop !323
 
 139:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
-  %140 = shl nsw i32 %.pre87, 1
+  %140 = shl nsw i32 %.pre81, 1
   %141 = sext i32 %140 to i64
-  %.not.i = icmp eq i32 %.pre87, 0
-  br i1 %.not.i, label %._crit_edge69, label %.preheader.us.i.preheader
+  %.not.i = icmp eq i32 %.pre81, 0
+  br i1 %.not.i, label %._crit_edge67, label %.preheader.us.i.preheader
 
 .preheader.us.i.preheader:                        ; preds = %139
   %142 = load ptr, ptr %53, align 8, !tbaa !67
@@ -11166,23 +11165,22 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit51:             ; preds = %122, %124, %126, %1
   br i1 %exitcond27.not.i, label %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit, label %.preheader.us.i, !llvm.loop !98
 
 _ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit:   ; preds = %._crit_edge.us.i
-  %.pre86 = load i32, ptr %54, align 8, !tbaa !31
+  %.pre80 = load i32, ptr %54, align 8, !tbaa !31
   br label %_ZN5osgeo4projL10swap_wordsEPvmm.exit
 
 _ZN5osgeo4projL10swap_wordsEPvmm.exit:            ; preds = %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit, %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
-  %152 = phi i32 [ %.pre86, %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit ], [ %.pre87, %_ZNSt6vectorIfSaIfEE6resizeEm.exit51 ]
+  %152 = phi i32 [ %.pre80, %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit ], [ %.pre81, %_ZNSt6vectorIfSaIfEE6resizeEm.exit51 ]
   %153 = icmp sgt i32 %152, 1
-  br i1 %153, label %.lr.ph68, label %._crit_edge69
+  br i1 %153, label %.lr.ph66, label %._crit_edge67
 
-.lr.ph68:                                         ; preds = %_ZN5osgeo4projL10swap_wordsEPvmm.exit
+.lr.ph66:                                         ; preds = %_ZN5osgeo4projL10swap_wordsEPvmm.exit
   %154 = lshr i32 %152, 1
   %155 = load ptr, ptr %53, align 8, !tbaa !67
-  %invariant.gep70 = getelementptr i8, ptr %155, i64 4
   %156 = zext nneg i32 %152 to i64
-  %wide.trip.count83 = zext nneg i32 %154 to i64
+  %wide.trip.count77 = zext nneg i32 %154 to i64
   br label %162
 
-._crit_edge69:                                    ; preds = %162, %139, %_ZN5osgeo4projL10swap_wordsEPvmm.exit
+._crit_edge67:                                    ; preds = %162, %139, %_ZN5osgeo4projL10swap_wordsEPvmm.exit
   %157 = load ptr, ptr %8, align 8, !tbaa !315
   %158 = load i32, ptr %10, align 8, !tbaa !318
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #34
@@ -11193,33 +11191,33 @@ _ZN5osgeo4projL10swap_wordsEPvmm.exit:            ; preds = %_ZN5osgeo4projL10sw
   invoke void @_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6insertERSH_RKS5_(ptr noundef nonnull align 8 dereferenceable(112) %157, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %53)
           to label %_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit unwind label %173
 
-_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit: ; preds = %._crit_edge69
+_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit: ; preds = %._crit_edge67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
   br label %193
 
-162:                                              ; preds = %.lr.ph68, %162
-  %indvars.iv80 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next81, %162 ]
-  %163 = shl nuw nsw i64 %indvars.iv80, 1
-  %164 = getelementptr inbounds nuw float, ptr %155, i64 %163
-  %165 = xor i64 %indvars.iv80, -1
-  %166 = add nsw i64 %156, %165
-  %167 = shl nsw i64 %166, 1
-  %168 = getelementptr inbounds nuw float, ptr %155, i64 %167
-  %169 = load float, ptr %164, align 4, !tbaa !38
-  %170 = load float, ptr %168, align 4, !tbaa !38
-  store float %170, ptr %164, align 4, !tbaa !38
-  store float %169, ptr %168, align 4, !tbaa !38
-  %gep71 = getelementptr inbounds nuw float, ptr %invariant.gep70, i64 %163
-  %gep73 = getelementptr float, ptr %invariant.gep70, i64 %167
-  %171 = load float, ptr %gep71, align 4, !tbaa !38
-  %172 = load float, ptr %gep73, align 4, !tbaa !38
-  store float %172, ptr %gep71, align 4, !tbaa !38
-  store float %171, ptr %gep73, align 4, !tbaa !38
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge69, label %162, !llvm.loop !324
+162:                                              ; preds = %.lr.ph66, %162
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next75, %162 ]
+  %.idx84 = shl nuw nsw i64 %indvars.iv74, 3
+  %163 = getelementptr inbounds nuw i8, ptr %155, i64 %.idx84
+  %164 = xor i64 %indvars.iv74, -1
+  %165 = add nsw i64 %156, %164
+  %.idx85 = shl i64 %165, 3
+  %166 = getelementptr i8, ptr %155, i64 %.idx85
+  %167 = load float, ptr %163, align 4, !tbaa !38
+  %168 = load float, ptr %166, align 4, !tbaa !38
+  store float %168, ptr %163, align 4, !tbaa !38
+  store float %167, ptr %166, align 4, !tbaa !38
+  %169 = getelementptr inbounds nuw i8, ptr %163, i64 4
+  %170 = getelementptr i8, ptr %166, i64 4
+  %171 = load float, ptr %169, align 4, !tbaa !38
+  %172 = load float, ptr %170, align 4, !tbaa !38
+  store float %172, ptr %169, align 4, !tbaa !38
+  store float %171, ptr %170, align 4, !tbaa !38
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
+  br i1 %exitcond78.not, label %._crit_edge67, label %162, !llvm.loop !324
 
-173:                                              ; preds = %._crit_edge69
+173:                                              ; preds = %._crit_edge67
   %174 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception

@@ -354,12 +354,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   %tobool15.not = icmp eq ptr %palette, null
-  br i1 %tobool15.not, label %for.body.us.us.preheader, label %for.body.us.preheader
-
-for.body.us.preheader:                            ; preds = %for.body.lr.ph.split.us
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %palette, i64 2
-  %invariant.gep7 = getelementptr inbounds nuw i8, ptr %palette, i64 1
-  br label %for.body.us
+  br i1 %tobool15.not, label %for.body.us.us.preheader, label %for.body.us
 
 for.body.us.us.preheader:                         ; preds = %for.body.lr.ph.split.us
   %xtraiter = and i32 %height, 1
@@ -426,10 +421,10 @@ for.cond11.for.cond.cleanup13_crit_edge.split.us.us.us.1: ; preds = %for.body14.
   %niter.ncmp.1 = icmp eq i32 %niter.next.1, %unroll_iter
   br i1 %niter.ncmp.1, label %return.loopexit.unr-lcssa, label %for.body.us.us, !llvm.loop !18
 
-for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond11.for.cond.cleanup13_crit_edge.split.us115
-  %y.0108.us = phi i32 [ %inc.us, %for.cond11.for.cond.cleanup13_crit_edge.split.us115 ], [ 0, %for.body.us.preheader ]
-  %in.addr.0107.us = phi ptr [ %add.ptr59.us, %for.cond11.for.cond.cleanup13_crit_edge.split.us115 ], [ %in, %for.body.us.preheader ]
-  %out.addr.1106.us = phi ptr [ %out.addr.3.us, %for.cond11.for.cond.cleanup13_crit_edge.split.us115 ], [ %out.addr.0, %for.body.us.preheader ]
+for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.cond11.for.cond.cleanup13_crit_edge.split.us115
+  %y.0108.us = phi i32 [ %inc.us, %for.cond11.for.cond.cleanup13_crit_edge.split.us115 ], [ 0, %for.body.lr.ph.split.us ]
+  %in.addr.0107.us = phi ptr [ %add.ptr59.us, %for.cond11.for.cond.cleanup13_crit_edge.split.us115 ], [ %in, %for.body.lr.ph.split.us ]
+  %out.addr.1106.us = phi ptr [ %out.addr.3.us, %for.cond11.for.cond.cleanup13_crit_edge.split.us115 ], [ %out.addr.0, %for.body.lr.ph.split.us ]
   %out.addr.2.us = getelementptr inbounds i8, ptr %out.addr.1106.us, i64 %out.addr.2.idx
   %invariant.gep.us = getelementptr i8, ptr %out.addr.2.us, i64 1
   %invariant.gep96.us = getelementptr i8, ptr %out.addr.2.us, i64 2
@@ -441,24 +436,26 @@ for.body14.us109:                                 ; preds = %for.body14.us109, %
   %5 = load i8, ptr %in.addr.1103.us111, align 1, !tbaa !3
   %conv.us = zext i8 %5 to i64
   %shl.us = shl nuw nsw i64 %conv.us, 2
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %shl.us
-  %6 = load i8, ptr %gep, align 1, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %palette, i64 %shl.us
+  %arrayidx17.us = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %7 = load i8, ptr %arrayidx17.us, align 1, !tbaa !3
   %arrayidx20.us = getelementptr inbounds nuw i8, ptr %out.addr.2.us, i64 %indvars.iv
-  store i8 %6, ptr %arrayidx20.us, align 1, !tbaa !3
-  %7 = load i8, ptr %in.addr.1103.us111, align 1, !tbaa !3
-  %conv22.us = zext i8 %7 to i64
+  store i8 %7, ptr %arrayidx20.us, align 1, !tbaa !3
+  %8 = load i8, ptr %in.addr.1103.us111, align 1, !tbaa !3
+  %conv22.us = zext i8 %8 to i64
   %shl23.us = shl nuw nsw i64 %conv22.us, 2
-  %gep8 = getelementptr inbounds nuw i8, ptr %invariant.gep7, i64 %shl23.us
-  %8 = load i8, ptr %gep8, align 1, !tbaa !3
+  %9 = getelementptr inbounds nuw i8, ptr %palette, i64 %shl23.us
+  %arrayidx26.us = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %10 = load i8, ptr %arrayidx26.us, align 1, !tbaa !3
   %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %indvars.iv
-  store i8 %8, ptr %gep.us, align 1, !tbaa !3
-  %9 = load i8, ptr %in.addr.1103.us111, align 1, !tbaa !3
-  %conv31.us = zext i8 %9 to i64
+  store i8 %10, ptr %gep.us, align 1, !tbaa !3
+  %11 = load i8, ptr %in.addr.1103.us111, align 1, !tbaa !3
+  %conv31.us = zext i8 %11 to i64
   %shl32.us = shl nuw nsw i64 %conv31.us, 2
   %arrayidx35.us = getelementptr inbounds nuw i8, ptr %palette, i64 %shl32.us
-  %10 = load i8, ptr %arrayidx35.us, align 1, !tbaa !3
+  %12 = load i8, ptr %arrayidx35.us, align 1, !tbaa !3
   %gep97.us = getelementptr i8, ptr %invariant.gep96.us, i64 %indvars.iv
-  store i8 %10, ptr %gep97.us, align 1, !tbaa !3
+  store i8 %12, ptr %gep97.us, align 1, !tbaa !3
   %incdec.ptr.us112 = getelementptr inbounds nuw i8, ptr %in.addr.1103.us111, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %cmp12.us114 = icmp slt i64 %indvars.iv.next, %idx.ext8
@@ -486,14 +483,14 @@ for.body.us.us.epil:                              ; preds = %for.body.us.us.preh
 for.body14.us.us.us.epil:                         ; preds = %for.body14.us.us.us.epil, %for.body.us.us.epil
   %indvars.iv121.epil = phi i64 [ %indvars.iv.next122.epil, %for.body14.us.us.us.epil ], [ 0, %for.body.us.us.epil ]
   %in.addr.1103.us.us.us.epil = phi ptr [ %incdec.ptr.us.us.us.epil, %for.body14.us.us.us.epil ], [ %in.addr.0107.us.us.unr4, %for.body.us.us.epil ]
-  %11 = load i8, ptr %in.addr.1103.us.us.us.epil, align 1, !tbaa !3
+  %13 = load i8, ptr %in.addr.1103.us.us.us.epil, align 1, !tbaa !3
   %arrayidx42.us.us.us.epil = getelementptr inbounds nuw i8, ptr %out.addr.2.us.us.epil, i64 %indvars.iv121.epil
-  store i8 %11, ptr %arrayidx42.us.us.us.epil, align 1, !tbaa !3
+  store i8 %13, ptr %arrayidx42.us.us.us.epil, align 1, !tbaa !3
   %gep99.us.us.us.epil = getelementptr i8, ptr %invariant.gep98.us.us.epil, i64 %indvars.iv121.epil
-  store i8 %11, ptr %gep99.us.us.us.epil, align 1, !tbaa !3
-  %12 = load i8, ptr %in.addr.1103.us.us.us.epil, align 1, !tbaa !3
+  store i8 %13, ptr %gep99.us.us.us.epil, align 1, !tbaa !3
+  %14 = load i8, ptr %in.addr.1103.us.us.us.epil, align 1, !tbaa !3
   %gep101.us.us.us.epil = getelementptr i8, ptr %invariant.gep100.us.us.epil, i64 %indvars.iv121.epil
-  store i8 %12, ptr %gep101.us.us.us.epil, align 1, !tbaa !3
+  store i8 %14, ptr %gep101.us.us.us.epil, align 1, !tbaa !3
   %incdec.ptr.us.us.us.epil = getelementptr inbounds nuw i8, ptr %in.addr.1103.us.us.us.epil, i64 1
   %indvars.iv.next122.epil = add nuw nsw i64 %indvars.iv121.epil, 3
   %cmp12.us.us.us.epil = icmp slt i64 %indvars.iv.next122.epil, %idx.ext8

@@ -2061,7 +2061,7 @@ define internal fastcc void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef 
   %8 = and i32 %7, 65535
   %9 = add nsw i32 %8, -7
   %or.cond = icmp ult i32 %9, -6
-  br i1 %or.cond, label %90, label %10
+  br i1 %or.cond, label %94, label %10
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %4) #6
@@ -2077,11 +2077,11 @@ define internal fastcc void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef 
   %17 = add nsw i32 %8, -1
   br label %18
 
-18:                                               ; preds = %10, %82
-  %.05 = phi ptr [ %13, %10 ], [ %.3, %82 ]
-  %.0444 = phi i16 [ 0, %10 ], [ %.246, %82 ]
-  %.0473 = phi i32 [ 0, %10 ], [ %.148, %82 ]
-  %19 = icmp eq i32 %.0473, %8
+18:                                               ; preds = %10, %86
+  %.04 = phi ptr [ %13, %10 ], [ %.3, %86 ]
+  %.0443 = phi i16 [ 0, %10 ], [ %.246, %86 ]
+  %.0472 = phi i32 [ 0, %10 ], [ %.148, %86 ]
+  %19 = icmp eq i32 %.0472, %8
   br i1 %19, label %20, label %60
 
 20:                                               ; preds = %18
@@ -2172,11 +2172,11 @@ define internal fastcc void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef 
 
 pinyin_k9_is_valid_py.exit:                       ; preds = %48, %20, %20, %20, %20, %22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %82
+  br label %86
 
 .loopexit:                                        ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i, %.preheader.lr.ph.split.us.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %51 = zext i16 %.0444 to i32
+  %51 = zext i16 %.0443 to i32
   %.not52 = icmp ugt i32 %12, %51
   br i1 %.not52, label %55, label %52
 
@@ -2186,74 +2186,76 @@ pinyin_k9_is_valid_py.exit:                       ; preds = %48, %20, %20, %20, 
   br label %58
 
 55:                                               ; preds = %.loopexit
-  %56 = call ptr @lv_strcpy(ptr noundef %.05, ptr noundef nonnull %4) #6
-  %57 = call ptr @lv_ll_get_next(ptr noundef nonnull %11, ptr noundef %.05) #6
+  %56 = call ptr @lv_strcpy(ptr noundef %.04, ptr noundef nonnull %4) #6
+  %57 = call ptr @lv_ll_get_next(ptr noundef nonnull %11, ptr noundef %.04) #6
   br label %58
 
 58:                                               ; preds = %55, %52
   %.2 = phi ptr [ %53, %52 ], [ %57, %55 ]
-  %59 = add i16 %.0444, 1
-  br label %82
+  %59 = add i16 %.0443, 1
+  br label %86
 
 60:                                               ; preds = %18
-  %61 = sext i32 %.0473 to i64
+  %61 = sext i32 %.0472 to i64
   %62 = getelementptr inbounds [7 x i32], ptr %5, i64 0, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !35
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds i8, ptr %1, i64 %61
   %66 = load i8, ptr %65, align 1, !tbaa !8
   %67 = sext i8 %66 to i64
-  %gep = getelementptr ptr, ptr getelementptr (i8, ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 -400), i64 %67
-  %68 = load ptr, ptr %gep, align 8, !tbaa !3
-  %69 = call i64 @lv_strlen(ptr noundef %68) #6
-  %70 = icmp ugt i64 %69, %64
-  br i1 %70, label %71, label %80
+  %68 = getelementptr ptr, ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 %67
+  %69 = getelementptr i8, ptr %68, i64 -400
+  %70 = load ptr, ptr %69, align 8, !tbaa !3
+  %71 = call i64 @lv_strlen(ptr noundef %70) #6
+  %72 = icmp ugt i64 %71, %64
+  br i1 %72, label %73, label %84
 
-71:                                               ; preds = %60
-  %72 = load i8, ptr %65, align 1, !tbaa !8
-  %73 = sext i8 %72 to i64
-  %gep2 = getelementptr ptr, ptr getelementptr (i8, ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 -400), i64 %73
-  %74 = load ptr, ptr %gep2, align 8, !tbaa !3
-  %75 = getelementptr inbounds i8, ptr %74, i64 %64
-  %76 = load i8, ptr %75, align 1, !tbaa !8
-  %77 = getelementptr inbounds [7 x i8], ptr %4, i64 0, i64 %61
-  store i8 %76, ptr %77, align 1, !tbaa !8
-  %78 = add nsw i32 %63, 1
-  store i32 %78, ptr %62, align 4, !tbaa !35
-  %79 = add nuw nsw i32 %.0473, 1
-  br label %82
+73:                                               ; preds = %60
+  %74 = load i8, ptr %65, align 1, !tbaa !8
+  %75 = sext i8 %74 to i64
+  %76 = getelementptr ptr, ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 %75
+  %77 = getelementptr i8, ptr %76, i64 -400
+  %78 = load ptr, ptr %77, align 8, !tbaa !3
+  %79 = getelementptr inbounds i8, ptr %78, i64 %64
+  %80 = load i8, ptr %79, align 1, !tbaa !8
+  %81 = getelementptr inbounds [7 x i8], ptr %4, i64 0, i64 %61
+  store i8 %80, ptr %81, align 1, !tbaa !8
+  %82 = add nsw i32 %63, 1
+  store i32 %82, ptr %62, align 4, !tbaa !35
+  %83 = add nuw nsw i32 %.0472, 1
+  br label %86
 
-80:                                               ; preds = %60
+84:                                               ; preds = %60
   store i32 0, ptr %62, align 4, !tbaa !35
-  %81 = add nsw i32 %.0473, -1
-  br label %82
+  %85 = add nsw i32 %.0472, -1
+  br label %86
 
-82:                                               ; preds = %58, %pinyin_k9_is_valid_py.exit, %71, %80
-  %.148 = phi i32 [ %79, %71 ], [ %81, %80 ], [ %17, %pinyin_k9_is_valid_py.exit ], [ %17, %58 ]
-  %.246 = phi i16 [ %.0444, %71 ], [ %.0444, %80 ], [ %.0444, %pinyin_k9_is_valid_py.exit ], [ %59, %58 ]
-  %.3 = phi ptr [ %.05, %71 ], [ %.05, %80 ], [ %.05, %pinyin_k9_is_valid_py.exit ], [ %.2, %58 ]
+86:                                               ; preds = %58, %pinyin_k9_is_valid_py.exit, %73, %84
+  %.148 = phi i32 [ %83, %73 ], [ %85, %84 ], [ %17, %pinyin_k9_is_valid_py.exit ], [ %17, %58 ]
+  %.246 = phi i16 [ %.0443, %73 ], [ %.0443, %84 ], [ %.0443, %pinyin_k9_is_valid_py.exit ], [ %59, %58 ]
+  %.3 = phi ptr [ %.04, %73 ], [ %.04, %84 ], [ %.04, %pinyin_k9_is_valid_py.exit ], [ %.2, %58 ]
   %.not = icmp eq i32 %.148, -1
-  br i1 %.not, label %83, label %18, !llvm.loop !54
+  br i1 %.not, label %87, label %18, !llvm.loop !54
 
-83:                                               ; preds = %82
+87:                                               ; preds = %86
   %.not51 = icmp eq i16 %.246, 0
-  br i1 %.not51, label %89, label %84
+  br i1 %.not51, label %93, label %88
 
-84:                                               ; preds = %83
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 150
-  %86 = load i16, ptr %85, align 2, !tbaa !23
-  %87 = add i16 %86, 1
-  store i16 %87, ptr %85, align 2, !tbaa !23
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 146
-  store i16 %.246, ptr %88, align 2, !tbaa !33
-  br label %89
+88:                                               ; preds = %87
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 150
+  %90 = load i16, ptr %89, align 2, !tbaa !23
+  %91 = add i16 %90, 1
+  store i16 %91, ptr %89, align 2, !tbaa !23
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 146
+  store i16 %.246, ptr %92, align 2, !tbaa !33
+  br label %93
 
-89:                                               ; preds = %84, %83
+93:                                               ; preds = %88, %87
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #6
-  br label %90
+  br label %94
 
-90:                                               ; preds = %2, %89
+94:                                               ; preds = %2, %93
   ret void
 }
 

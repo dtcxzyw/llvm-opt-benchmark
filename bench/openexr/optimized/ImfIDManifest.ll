@@ -9964,7 +9964,6 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   %4 = load i64, ptr %3, align 8, !tbaa !15
   %5 = trunc i64 %4 to i32
   %6 = sdiv i32 %5, 16
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = icmp sgt i32 %5, 15
   br i1 %7, label %.lr.ph.preheader.i, label %._crit_edge.i
 
@@ -10002,13 +10001,13 @@ define noundef i64 @_ZN7Imf_3_410IDManifest12MurmurHash64ERKNSt7__cxx1112basic_s
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.096109.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %25, %.lr.ph.i ]
   %.098108.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %35, %.lr.ph.i ]
-  %12 = shl nuw nsw i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %12
-  %14 = load i64, ptr %13, align 8, !tbaa !24
-  %gep.i = getelementptr inbounds nuw i64, ptr %invariant.gep.i, i64 %12
-  %15 = load i64, ptr %gep.i, align 8, !tbaa !24
-  %16 = mul i64 %14, -8663945395140668459
-  %17 = mul i64 %14, -8601547726154366976
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
+  %13 = load i64, ptr %12, align 8, !tbaa !24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %15 = load i64, ptr %14, align 8, !tbaa !24
+  %16 = mul i64 %13, -8663945395140668459
+  %17 = mul i64 %13, -8601547726154366976
   %18 = lshr i64 %16, 33
   %19 = or disjoint i64 %18, %17
   %20 = mul i64 %19, 5545529020109919103

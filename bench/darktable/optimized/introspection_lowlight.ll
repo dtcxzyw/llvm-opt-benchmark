@@ -665,8 +665,9 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   %41 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %25, i64 0, i64 %indvars.iv20
   store float %38, ptr %41, align 8, !tbaa !47
   %.idx.i17 = shl nuw nsw i64 %indvars.iv20, 3
-  %gep = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i17
-  store float %40, ptr %gep, align 4, !tbaa !49
+  %42 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i17
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  store float %40, ptr %43, align 4, !tbaa !49
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -1049,8 +1050,9 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   %83 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %23, i64 0, i64 %indvars.iv49
   store float %80, ptr %83, align 8, !tbaa !47
   %.idx.i46 = shl nuw nsw i64 %indvars.iv49, 3
-  %gep = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i46
-  store float %82, ptr %gep, align 4, !tbaa !49
+  %84 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i46
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  store float %82, ptr %85, align 4, !tbaa !49
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

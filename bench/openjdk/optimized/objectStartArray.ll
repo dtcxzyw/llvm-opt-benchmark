@@ -184,36 +184,33 @@ define hidden void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImp
   %.not = icmp eq ptr %16, %26
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %3
-  %invariant.gep = getelementptr i8, ptr %16, i64 -1
-  br label %27
-
-27:                                               ; preds = %.preheader, %28
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %28 ]
-  %.pn = phi ptr [ %16, %.preheader ], [ %gep, %28 ]
+.preheader:                                       ; preds = %3, %27
+  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %3 ]
+  %.pn = phi ptr [ %31, %27 ], [ %16, %3 ]
   %exitcond.not = icmp eq i64 %indvars.iv, 14
-  br i1 %exitcond.not, label %.loopexit, label %28
+  br i1 %exitcond.not, label %.loopexit, label %27
 
-28:                                               ; preds = %27
+27:                                               ; preds = %.preheader
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = shl nuw nsw i64 %indvars.iv.next, 2
-  %30 = shl nuw nsw i64 1, %29
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %30
-  %31 = load i32, ptr @_ZN9CardTable19_card_size_in_wordsE, align 4
-  %32 = trunc nuw nsw i64 %indvars.iv to i32
-  %33 = add i32 %31, %32
-  %34 = trunc i32 %33 to i8
-  %35 = icmp ult ptr %gep, %26
-  %36 = select i1 %35, ptr %gep, ptr %26
-  %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %.0 to i64
-  %reass.sub = sub i64 %37, %38
-  %39 = add i64 %reass.sub, 1
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0, i8 %34, i64 %39, i1 false)
-  br i1 %35, label %27, label %.loopexit, !llvm.loop !6
+  %28 = shl nuw nsw i64 %indvars.iv.next, 2
+  %29 = shl nuw nsw i64 1, %28
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 %29
+  %31 = getelementptr inbounds i8, ptr %30, i64 -1
+  %32 = load i32, ptr @_ZN9CardTable19_card_size_in_wordsE, align 4
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
+  %34 = add i32 %32, %33
+  %35 = trunc i32 %34 to i8
+  %36 = icmp ult ptr %31, %26
+  %37 = select i1 %36, ptr %31, ptr %26
+  %38 = ptrtoint ptr %37 to i64
+  %39 = ptrtoint ptr %.0 to i64
+  %reass.sub = sub i64 %38, %39
+  %40 = add i64 %reass.sub, 1
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0, i8 %35, i64 %40, i1 false)
+  br i1 %36, label %.preheader, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %27, %28, %3
+.loopexit:                                        ; preds = %.preheader, %27, %3
   ret void
 }
 

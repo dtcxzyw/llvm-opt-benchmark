@@ -1468,26 +1468,23 @@ define internal fastcc void @_process_image(ptr noundef %0, i32 noundef range(i3
   %32 = call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #12
   %33 = load i32, ptr %18, align 4, !tbaa !74
   %.not = icmp eq i32 %33, %19
-  br i1 %.not, label %_get_slot_for_image.exit.thread36, label %34
+  br i1 %.not, label %_get_slot_for_image.exit.thread36, label %.preheader
 
-34:                                               ; preds = %2
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 52
-  br label %35
-
-35:                                               ; preds = %39, %34
-  %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %39 ]
-  %36 = mul nuw nsw i64 %indvars.iv.i, 40
-  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %36
-  %37 = load i32, ptr %gep.i, align 4, !tbaa !74
+.preheader:                                       ; preds = %2, %39
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %39 ], [ 0, %2 ]
+  %34 = mul nuw nsw i64 %indvars.iv.i, 40
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 28
+  %37 = load i32, ptr %36, align 4, !tbaa !74
   %38 = icmp eq i32 %37, %19
   br i1 %38, label %_get_slot_for_image.exit, label %39
 
-39:                                               ; preds = %35
+39:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i, label %_get_slot_for_image.exit.thread, label %35
+  br i1 %exitcond.not.i, label %_get_slot_for_image.exit.thread, label %.preheader
 
-_get_slot_for_image.exit:                         ; preds = %35
+_get_slot_for_image.exit:                         ; preds = %.preheader
   %40 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_get_slot_for_image.exit.thread36
 

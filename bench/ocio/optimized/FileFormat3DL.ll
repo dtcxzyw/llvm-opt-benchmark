@@ -2764,18 +2764,17 @@ cdce.end.preheader:                               ; preds = %_ZNSt6vectorIfSaIfE
   %102 = ptrtoint ptr %.sroa.0137.0 to i64
   %103 = sub i64 %101, %102
   %104 = ashr exact i64 %103, 2
-  %.not198 = icmp eq ptr %.0.i.i.i.i.i, %.sroa.0137.0
-  br i1 %.not198, label %cdce.end._crit_edge, label %.lr.ph
+  %.not196 = icmp eq ptr %.0.i.i.i.i.i, %.sroa.0137.0
+  br i1 %.not196, label %cdce.end._crit_edge, label %.lr.ph
 
 cdce.end._crit_edge:                              ; preds = %cdce.end, %cdce.end.preheader
   %105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.29, i64 noundef 1)
-          to label %cdce.end191.preheader unwind label %110
+          to label %cdce.end191.preheader.preheader unwind label %110
 
-cdce.end191.preheader:                            ; preds = %cdce.end._crit_edge
-  %invariant.gep195 = getelementptr inbounds nuw i8, ptr %55, i64 8
+cdce.end191.preheader.preheader:                  ; preds = %cdce.end._crit_edge
   %umax = call i32 @llvm.umax.i32(i32 %51, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
-  br label %135
+  br label %cdce.end191.preheader
 
 106:                                              ; preds = %94, %93
   %107 = landingpad { ptr, i32 }
@@ -2841,29 +2840,29 @@ cdce.end:                                         ; preds = %117
           cleanup
   br label %.thread
 
-135:                                              ; preds = %cdce.end191.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117
-  %indvars.iv = phi i64 [ 0, %cdce.end191.preheader ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117 ]
-  %136 = mul nuw nsw i64 %indvars.iv, 3
-  %137 = getelementptr inbounds nuw float, ptr %55, i64 %136
-  %138 = load float, ptr %137, align 4, !tbaa !116
-  %139 = fcmp ogt float %138, 0.000000e+00
-  %.sroa.speculated2.i106 = select i1 %139, float %138, float 0.000000e+00
-  %140 = fcmp ogt float %.sroa.speculated2.i106, 1.000000e+00
-  %.sroa.speculated.i107 = select i1 %140, float 1.000000e+00, float %.sroa.speculated2.i106
-  %141 = fmul float %.sroa.speculated.i107, 4.095000e+03
-  %142 = call float @llvm.round.f32(float %141)
-  %143 = fptosi float %142 to i32
-  %gep = getelementptr inbounds nuw float, ptr %59, i64 %136
-  %144 = load float, ptr %gep, align 4, !tbaa !116
-  %145 = fcmp ogt float %144, 0.000000e+00
-  %.sroa.speculated2.i108 = select i1 %145, float %144, float 0.000000e+00
-  %146 = fcmp ogt float %.sroa.speculated2.i108, 1.000000e+00
-  %.sroa.speculated.i109 = select i1 %146, float 1.000000e+00, float %.sroa.speculated2.i108
-  %147 = fmul float %.sroa.speculated.i109, 4.095000e+03
-  %148 = call float @llvm.round.f32(float %147)
-  %149 = fptosi float %148 to i32
-  %gep196 = getelementptr inbounds nuw float, ptr %invariant.gep195, i64 %136
-  %150 = load float, ptr %gep196, align 4, !tbaa !116
+cdce.end191.preheader:                            ; preds = %cdce.end191.preheader.preheader, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117
+  %indvars.iv = phi i64 [ 0, %cdce.end191.preheader.preheader ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117 ]
+  %.idx = mul nuw nsw i64 %indvars.iv, 12
+  %135 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx
+  %136 = load float, ptr %135, align 4, !tbaa !116
+  %137 = fcmp ogt float %136, 0.000000e+00
+  %.sroa.speculated2.i106 = select i1 %137, float %136, float 0.000000e+00
+  %138 = fcmp ogt float %.sroa.speculated2.i106, 1.000000e+00
+  %.sroa.speculated.i107 = select i1 %138, float 1.000000e+00, float %.sroa.speculated2.i106
+  %139 = fmul float %.sroa.speculated.i107, 4.095000e+03
+  %140 = call float @llvm.round.f32(float %139)
+  %141 = fptosi float %140 to i32
+  %142 = getelementptr inbounds nuw i8, ptr %135, i64 4
+  %143 = load float, ptr %142, align 4, !tbaa !116
+  %144 = fcmp ogt float %143, 0.000000e+00
+  %.sroa.speculated2.i108 = select i1 %144, float %143, float 0.000000e+00
+  %145 = fcmp ogt float %.sroa.speculated2.i108, 1.000000e+00
+  %.sroa.speculated.i109 = select i1 %145, float 1.000000e+00, float %.sroa.speculated2.i108
+  %146 = fmul float %.sroa.speculated.i109, 4.095000e+03
+  %147 = call float @llvm.round.f32(float %146)
+  %148 = fptosi float %147 to i32
+  %149 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  %150 = load float, ptr %149, align 4, !tbaa !116
   %151 = fcmp ogt float %150, 0.000000e+00
   %.sroa.speculated2.i110 = select i1 %151, float %150, float 0.000000e+00
   %152 = fcmp ogt float %.sroa.speculated2.i110, 1.000000e+00
@@ -2871,15 +2870,15 @@ cdce.end:                                         ; preds = %117
   %153 = fmul float %.sroa.speculated.i111, 4.095000e+03
   %154 = call float @llvm.round.f32(float %153)
   %155 = fptosi float %154 to i32
-  %156 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %143)
+  %156 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %141)
           to label %157 unwind label %165
 
-157:                                              ; preds = %135
+157:                                              ; preds = %cdce.end191.preheader
   %158 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull @.str.28, i64 noundef 1)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113 unwind label %165
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113: ; preds = %157
-  %159 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %156, i32 noundef %149)
+  %159 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %156, i32 noundef %148)
           to label %160 unwind label %165
 
 160:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113
@@ -2897,9 +2896,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115: ; preds = %160
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit117: ; preds = %163
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %131, label %135, !llvm.loop !137
+  br i1 %exitcond.not, label %131, label %cdce.end191.preheader, !llvm.loop !137
 
-165:                                              ; preds = %163, %160, %157, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113, %135
+165:                                              ; preds = %163, %160, %157, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit115, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit113, %cdce.end191.preheader
   %166 = landingpad { ptr, i32 }
           cleanup
   br label %.thread

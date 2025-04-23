@@ -1019,7 +1019,6 @@ define internal fastcc i32 @Ver_FormulaParserFindVar(ptr noundef %0, ptr noundef
   %20 = lshr i32 %.val, 1
   %21 = getelementptr i8, ptr %1, i64 8
   %.val71 = load ptr, ptr %21, align 8, !tbaa !25
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.val71, i64 8
   %sext69 = shl i64 %16, 32
   %22 = ashr exact i64 %sext69, 32
   %wide.trip.count = zext nneg i32 %20 to i64
@@ -1027,22 +1026,22 @@ define internal fastcc i32 @Ver_FormulaParserFindVar(ptr noundef %0, ptr noundef
 
 23:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %24 = shl nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds nuw ptr, ptr %.val71, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !26
-  %27 = ptrtoint ptr %26 to i64
-  %28 = trunc i64 %27 to i32
-  %.not68 = icmp eq i32 %28, %17
-  br i1 %.not68, label %29, label %32
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %24 = getelementptr inbounds nuw i8, ptr %.val71, i64 %.idx
+  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  %26 = ptrtoint ptr %25 to i64
+  %27 = trunc i64 %26 to i32
+  %.not68 = icmp eq i32 %27, %17
+  br i1 %.not68, label %28, label %32
 
-29:                                               ; preds = %23
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %24
-  %30 = load ptr, ptr %gep, align 8, !tbaa !26
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !26
   %31 = tail call i32 @strncmp(ptr noundef nonnull %.046, ptr noundef %30, i64 noundef %22) #8
   %.not70 = icmp eq i32 %31, 0
   br i1 %.not70, label %.loopexit.loopexit, label %32
 
-32:                                               ; preds = %29, %23
+32:                                               ; preds = %28, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !31
@@ -1181,7 +1180,7 @@ Vec_PtrPush.exit79:                               ; preds = %.Vec_PtrGrow.exit11
   store ptr %.046, ptr %91, align 8, !tbaa !26
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %29
+.loopexit.loopexit:                               ; preds = %28
   %92 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 

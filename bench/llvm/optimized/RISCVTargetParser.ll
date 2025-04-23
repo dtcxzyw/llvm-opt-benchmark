@@ -132,8 +132,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm5RISCV28hasFastScalarUnalignedAcces
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
   %.012.idx21.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 8), i64 %.012.idx21.i.us
-  %.sroa.22.0.copyload.i.us = load i64, ptr %gep, align 8, !tbaa !3
+  %.012.ptr22.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us, i64 8
+  %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !3
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
   br i1 %.not.i.i.us, label %.split9.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
 
@@ -191,8 +192,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm5RISCV28hasFastVectorUnalignedAcces
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
   %.012.idx21.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %2 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 8), i64 %.012.idx21.i.us
-  %.sroa.22.0.copyload.i.us = load i64, ptr %gep, align 8, !tbaa !3
+  %.012.ptr22.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us, i64 8
+  %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !3
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
   br i1 %.not.i.i.us, label %.split9.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
 
@@ -241,8 +243,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm5RISCV16hasValidCPUModelENS_9String
 
 .split.us.i:                                      ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i
   %.012.idx21.i.us.i = phi i64 [ %.012.add.i.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i ], [ 0, %2 ]
-  %gep.i = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 8), i64 %.012.idx21.i.us.i
-  %.sroa.22.0.copyload.i.us.i = load i64, ptr %gep.i, align 8, !tbaa !3, !noalias !20
+  %.012.ptr22.i.us.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.us.i
+  %.sroa.22.0..sroa_idx.i.us.i = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us.i, i64 8
+  %.sroa.22.0.copyload.i.us.i = load i64, ptr %.sroa.22.0..sroa_idx.i.us.i, align 8, !tbaa !3, !noalias !20
   %.not.i.i.us.i = icmp eq i64 %.sroa.22.0.copyload.i.us.i, 0
   br i1 %.not.i.i.us.i, label %_ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i
 
@@ -301,8 +304,9 @@ define dso_local void @_ZN4llvm5RISCV11getCPUModelENS_9StringRefE(ptr dead_on_un
 
 .split.us:                                        ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
   %.012.idx21.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %3 ]
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 8), i64 %.012.idx21.i.us
-  %.sroa.22.0.copyload.i.us = load i64, ptr %gep, align 8, !tbaa !3
+  %.012.ptr22.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us, i64 8
+  %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !3
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
   br i1 %.not.i.i.us, label %.split9.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
 

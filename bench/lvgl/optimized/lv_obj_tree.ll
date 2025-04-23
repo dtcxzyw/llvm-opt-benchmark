@@ -983,7 +983,7 @@ lv_obj_get_parent.exit:                           ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %.not41 = icmp eq ptr %4, null
-  br i1 %.not41, label %46, label %5
+  br i1 %.not41, label %47, label %5
 
 5:                                                ; preds = %lv_obj_get_parent.exit
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1037,7 +1037,7 @@ lv_obj_get_parent.exit:                           ; preds = %2
   %or.cond.not48 = select i1 %25, i1 true, i1 %.not42
   %26 = icmp eq i32 %spec.select, %22
   %or.cond43 = or i1 %or.cond.not48, %26
-  br i1 %or.cond43, label %46, label %27
+  br i1 %or.cond43, label %47, label %27
 
 27:                                               ; preds = %21
   %28 = icmp samesign ult i32 %spec.select, %22
@@ -1051,11 +1051,10 @@ lv_obj_get_parent.exit:                           ; preds = %2
 .lr.ph:                                           ; preds = %.preheader50
   %30 = and i64 %indvars.iv.i, 4294967295
   %wide.trip.count = zext nneg i32 %spec.select to i64
-  br label %38
+  br label %39
 
 .preheader49:                                     ; preds = %27
   %31 = load ptr, ptr %7, align 8, !tbaa !42
-  %invariant.gep = getelementptr i8, ptr %31, i64 -8
   %sext = shl i64 %indvars.iv.i, 32
   %32 = ashr exact i64 %sext, 32
   %33 = zext nneg i32 %spec.select to i64
@@ -1063,34 +1062,34 @@ lv_obj_get_parent.exit:                           ; preds = %2
 
 34:                                               ; preds = %.preheader49, %34
   %indvars.iv60 = phi i64 [ %32, %.preheader49 ], [ %indvars.iv.next61, %34 ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv60
-  %35 = load ptr, ptr %gep, align 8, !tbaa !33
-  %36 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv60
-  store ptr %35, ptr %36, align 8, !tbaa !33
+  %35 = getelementptr ptr, ptr %31, i64 %indvars.iv60
+  %36 = getelementptr i8, ptr %35, i64 -8
+  %37 = load ptr, ptr %36, align 8, !tbaa !33
+  store ptr %37, ptr %35, align 8, !tbaa !33
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, -1
-  %37 = icmp sgt i64 %indvars.iv.next61, %33
-  br i1 %37, label %34, label %.loopexit, !llvm.loop !66
+  %38 = icmp sgt i64 %indvars.iv.next61, %33
+  br i1 %38, label %34, label %.loopexit, !llvm.loop !66
 
-38:                                               ; preds = %.lr.ph, %38
-  %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %38 ]
+39:                                               ; preds = %.lr.ph, %39
+  %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.next
-  %40 = load ptr, ptr %39, align 8, !tbaa !33
-  %41 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
-  store ptr %40, ptr %41, align 8, !tbaa !33
+  %40 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.next
+  %41 = load ptr, ptr %40, align 8, !tbaa !33
+  %42 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  store ptr %41, ptr %42, align 8, !tbaa !33
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %38, !llvm.loop !67
+  br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !67
 
-.loopexit:                                        ; preds = %38, %34, %.preheader50
-  %42 = phi ptr [ %.pre, %.preheader50 ], [ %31, %34 ], [ %.pre, %38 ]
-  %43 = zext nneg i32 %spec.select to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
-  store ptr %0, ptr %44, align 8, !tbaa !33
-  %45 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %4, i32 noundef 42, ptr noundef null) #6
+.loopexit:                                        ; preds = %39, %34, %.preheader50
+  %43 = phi ptr [ %.pre, %.preheader50 ], [ %31, %34 ], [ %.pre, %39 ]
+  %44 = zext nneg i32 %spec.select to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  store ptr %0, ptr %45, align 8, !tbaa !33
+  %46 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %4, i32 noundef 42, ptr noundef null) #6
   tail call void @lv_obj_invalidate(ptr noundef nonnull %4) #6
-  br label %46
+  br label %47
 
-46:                                               ; preds = %.loopexit, %21, %lv_obj_get_parent.exit
+47:                                               ; preds = %.loopexit, %21, %lv_obj_get_parent.exit
   ret void
 }
 

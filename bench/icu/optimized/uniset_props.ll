@@ -3015,67 +3015,66 @@ define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_7712_GLOBAL__N_118num
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_7712_GLOBAL__N_113mungeCharNameEPcPKci(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #13 {
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %2 ]
   %.019.ph = phi ptr [ %.us-phi47, %.thread ], [ %1, %2 ]
   %3 = icmp eq i64 %indvars.iv, 0
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %4 = getelementptr i8, ptr %0, i64 %indvars.iv
+  %5 = getelementptr i8, ptr %4, i64 -1
   br i1 %3, label %.outer.split.split.us, label %.outer.split.split
 
 .outer.split.split.us:                            ; preds = %.outer, %.outer.split.split.us
-  %.019.us = phi ptr [ %4, %.outer.split.split.us ], [ %.019.ph, %.outer ]
-  %4 = getelementptr inbounds nuw i8, ptr %.019.us, i64 1
-  %5 = load i8, ptr %.019.us, align 1, !tbaa !17
-  switch i8 %5, label %.thread [
+  %.019.us = phi ptr [ %6, %.outer.split.split.us ], [ %.019.ph, %.outer ]
+  %6 = getelementptr inbounds nuw i8, ptr %.019.us, i64 1
+  %7 = load i8, ptr %.019.us, align 1, !tbaa !17
+  switch i8 %7, label %.thread [
     i8 0, label %.split29.us.thread
     i8 32, label %.outer.split.split.us
   ], !llvm.loop !67
 
-.outer.split.split:                               ; preds = %.outer, %8
-  %.019 = phi ptr [ %6, %8 ], [ %.019.ph, %.outer ]
-  %6 = getelementptr inbounds nuw i8, ptr %.019, i64 1
-  %7 = load i8, ptr %.019, align 1, !tbaa !17
-  switch i8 %7, label %.split.us [
+.outer.split.split:                               ; preds = %.outer, %10
+  %.019 = phi ptr [ %8, %10 ], [ %.019.ph, %.outer ]
+  %8 = getelementptr inbounds nuw i8, ptr %.019, i64 1
+  %9 = load i8, ptr %.019, align 1, !tbaa !17
+  switch i8 %9, label %.split.us [
     i8 0, label %.split29.us
-    i8 32, label %8
+    i8 32, label %10
   ]
 
-8:                                                ; preds = %.outer.split.split
-  %9 = load i8, ptr %gep, align 1, !tbaa !17
-  %10 = icmp eq i8 %9, 32
-  br i1 %10, label %.outer.split.split, label %.split.us, !llvm.loop !67
+10:                                               ; preds = %.outer.split.split
+  %11 = load i8, ptr %5, align 1, !tbaa !17
+  %12 = icmp eq i8 %11, 32
+  br i1 %12, label %.outer.split.split, label %.split.us, !llvm.loop !67
 
-.split.us:                                        ; preds = %8, %.outer.split.split
+.split.us:                                        ; preds = %10, %.outer.split.split
   %exitcond = icmp eq i64 %indvars.iv, 127
   br i1 %exitcond, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %.outer.split.split.us, %.split.us
-  %.us-phi2748 = phi i8 [ %7, %.split.us ], [ %5, %.outer.split.split.us ]
-  %.us-phi47 = phi ptr [ %6, %.split.us ], [ %4, %.outer.split.split.us ]
+  %.us-phi2748 = phi i8 [ %9, %.split.us ], [ %7, %.outer.split.split.us ]
+  %.us-phi47 = phi ptr [ %8, %.split.us ], [ %6, %.outer.split.split.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %.us-phi2748, ptr %11, align 1, !tbaa !17
+  store i8 %.us-phi2748, ptr %4, align 1, !tbaa !17
   br label %.outer, !llvm.loop !67
 
 .split29.us:                                      ; preds = %.outer.split.split
-  %12 = and i64 %indvars.iv, 4294967295
-  %13 = getelementptr i8, ptr %0, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 -1
-  %15 = load i8, ptr %14, align 1, !tbaa !17
-  %16 = icmp eq i8 %15, 32
-  %17 = sext i1 %16 to i64
-  %spec.select = add i64 %indvars.iv, %17
+  %13 = and i64 %indvars.iv, 4294967295
+  %14 = getelementptr i8, ptr %0, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 -1
+  %16 = load i8, ptr %15, align 1, !tbaa !17
+  %17 = icmp eq i8 %16, 32
+  %18 = sext i1 %17 to i64
+  %spec.select = add i64 %indvars.iv, %18
   %sext = shl i64 %spec.select, 32
-  %18 = ashr exact i64 %sext, 32
+  %19 = ashr exact i64 %sext, 32
   br label %.split29.us.thread
 
 .split29.us.thread:                               ; preds = %.outer.split.split.us, %.split29.us
-  %.1 = phi i64 [ %18, %.split29.us ], [ 0, %.outer.split.split.us ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 %.1
-  store i8 0, ptr %19, align 1, !tbaa !17
+  %.1 = phi i64 [ %19, %.split29.us ], [ 0, %.outer.split.split.us ]
+  %20 = getelementptr inbounds i8, ptr %0, i64 %.1
+  store i8 0, ptr %20, align 1, !tbaa !17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split.us, %.split29.us.thread

@@ -384,37 +384,36 @@ define dso_local i64 @bpchar_name(ptr noundef readonly captures(none) %0) local_
 29:                                               ; preds = %.thread, %27, %22
   %30 = phi ptr [ %25, %27 ], [ %25, %22 ], [ %9, %.thread ]
   %.0 = phi i32 [ %28, %27 ], [ %23, %22 ], [ %12, %.thread ]
-  %invariant.gep = getelementptr i8, ptr %30, i64 -1
   %31 = icmp sgt i32 %.0, 0
   br i1 %31, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.thread, %29
-  %invariant.gep37 = phi ptr [ %invariant.gep, %29 ], [ %5, %.thread ]
-  %.036 = phi i32 [ %.0, %29 ], [ 8, %.thread ]
+  %.035 = phi i32 [ %.0, %29 ], [ 8, %.thread ]
   %32 = phi ptr [ %30, %29 ], [ %9, %.thread ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %35
-  %.130 = phi i32 [ %36, %35 ], [ %.036, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %37
+  %.130 = phi i32 [ %38, %37 ], [ %.035, %.lr.ph.preheader ]
   %33 = zext nneg i32 %.130 to i64
-  %gep = getelementptr i8, ptr %invariant.gep37, i64 %33
-  %34 = load i8, ptr %gep, align 1
-  %.not26 = icmp eq i8 %34, 32
-  br i1 %.not26, label %35, label %._crit_edge
+  %34 = getelementptr i8, ptr %32, i64 %33
+  %35 = getelementptr i8, ptr %34, i64 -1
+  %36 = load i8, ptr %35, align 1
+  %.not26 = icmp eq i8 %36, 32
+  br i1 %.not26, label %37, label %._crit_edge
 
-35:                                               ; preds = %.lr.ph
-  %36 = add nsw i32 %.130, -1
-  %37 = icmp sgt i32 %.130, 1
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+37:                                               ; preds = %.lr.ph
+  %38 = add nsw i32 %.130, -1
+  %39 = icmp sgt i32 %.130, 1
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %35, %.lr.ph, %29
-  %38 = phi ptr [ %30, %29 ], [ %32, %.lr.ph ], [ %32, %35 ]
-  %.1.lcssa = phi i32 [ %.0, %29 ], [ 0, %35 ], [ %.130, %.lr.ph ]
-  %39 = tail call ptr @palloc0(i64 noundef 64) #13
-  %40 = sext i32 %.1.lcssa to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr nonnull align 1 %38, i64 %40, i1 false)
-  %41 = ptrtoint ptr %39 to i64
-  ret i64 %41
+._crit_edge:                                      ; preds = %37, %.lr.ph, %29
+  %40 = phi ptr [ %30, %29 ], [ %32, %.lr.ph ], [ %32, %37 ]
+  %.1.lcssa = phi i32 [ %.0, %29 ], [ 0, %37 ], [ %.130, %.lr.ph ]
+  %41 = tail call ptr @palloc0(i64 noundef 64) #13
+  %42 = sext i32 %.1.lcssa to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr nonnull align 1 %40, i64 %42, i1 false)
+  %43 = ptrtoint ptr %41 to i64
+  ret i64 %43
 }
 
 declare i32 @pg_mbcliplen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3

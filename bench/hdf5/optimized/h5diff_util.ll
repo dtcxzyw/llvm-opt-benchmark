@@ -478,45 +478,46 @@ declare i32 @H5Tequal(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define ptr @diff_basename(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %13, label %3
+  br i1 %2, label %17, label %3
 
 3:                                                ; preds = %1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
-  %invariant.gep = getelementptr i8, ptr %0, i64 -1
   %.not18 = icmp eq i64 %4, 0
   br i1 %.not18, label %.critedge2, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %7
-  %.019 = phi i64 [ %8, %7 ], [ %4, %3 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.019
-  %5 = load i8, ptr %gep, align 1, !tbaa !9
-  %6 = icmp eq i8 %5, 47
-  br i1 %6, label %7, label %.lr.ph26
+.lr.ph:                                           ; preds = %3, %9
+  %.019 = phi i64 [ %10, %9 ], [ %4, %3 ]
+  %5 = getelementptr i8, ptr %0, i64 %.019
+  %6 = getelementptr i8, ptr %5, i64 -1
+  %7 = load i8, ptr %6, align 1, !tbaa !9
+  %8 = icmp eq i8 %7, 47
+  br i1 %8, label %9, label %.lr.ph24
 
-7:                                                ; preds = %.lr.ph
-  %8 = add i64 %.019, -1
-  %.not = icmp eq i64 %8, 0
+9:                                                ; preds = %.lr.ph
+  %10 = add i64 %.019, -1
+  %.not = icmp eq i64 %10, 0
   br i1 %.not, label %.critedge2, label %.lr.ph, !llvm.loop !10
 
-.lr.ph26:                                         ; preds = %.lr.ph, %10
-  %.125 = phi i64 [ %11, %10 ], [ %.019, %.lr.ph ]
-  %gep23 = getelementptr i8, ptr %invariant.gep, i64 %.125
-  %9 = load i8, ptr %gep23, align 1, !tbaa !9
-  %.not17 = icmp eq i8 %9, 47
-  br i1 %.not17, label %.critedge2, label %10
+.lr.ph24:                                         ; preds = %.lr.ph, %14
+  %.123 = phi i64 [ %15, %14 ], [ %.019, %.lr.ph ]
+  %11 = getelementptr i8, ptr %0, i64 %.123
+  %12 = getelementptr i8, ptr %11, i64 -1
+  %13 = load i8, ptr %12, align 1, !tbaa !9
+  %.not17 = icmp eq i8 %13, 47
+  br i1 %.not17, label %.critedge2, label %14
 
-10:                                               ; preds = %.lr.ph26
-  %11 = add i64 %.125, -1
-  %.not16 = icmp eq i64 %11, 0
-  br i1 %.not16, label %.critedge2, label %.lr.ph26, !llvm.loop !11
+14:                                               ; preds = %.lr.ph24
+  %15 = add i64 %.123, -1
+  %.not16 = icmp eq i64 %15, 0
+  br i1 %.not16, label %.critedge2, label %.lr.ph24, !llvm.loop !11
 
-.critedge2:                                       ; preds = %7, %.lr.ph26, %10, %3
-  %.1.lcssa = phi i64 [ 0, %3 ], [ 0, %10 ], [ %.125, %.lr.ph26 ], [ 0, %7 ]
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.1.lcssa
-  br label %13
+.critedge2:                                       ; preds = %9, %.lr.ph24, %14, %3
+  %.1.lcssa = phi i64 [ 0, %3 ], [ 0, %14 ], [ %.123, %.lr.ph24 ], [ 0, %9 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.1.lcssa
+  br label %17
 
-13:                                               ; preds = %1, %.critedge2
-  %.014 = phi ptr [ %12, %.critedge2 ], [ null, %1 ]
+17:                                               ; preds = %1, %.critedge2
+  %.014 = phi ptr [ %16, %.critedge2 ], [ null, %1 ]
   ret ptr %.014
 }
 

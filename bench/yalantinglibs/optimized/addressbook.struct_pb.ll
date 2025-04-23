@@ -219,7 +219,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN8tutorial6Person11PhoneNumberEEEbRT_PKcmRNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(36) %t, ptr noundef %data, i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(24) %unknown_fields) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %pos = alloca i64, align 8
-  %invariant.gep = getelementptr i8, ptr %data, i64 1
   %cmp297.not = icmp eq i64 %size, 0
   br i1 %cmp297.not, label %return, label %land.lhs.true.i311.lr.ph
 
@@ -231,7 +230,7 @@ land.lhs.true.i311.lr.ph:                         ; preds = %entry
 
 land.lhs.true.i311:                               ; preds = %land.lhs.true.i311.lr.ph, %sw.epilog
   %pos.promoted = phi i64 [ 0, %land.lhs.true.i311.lr.ph ], [ %50, %sw.epilog ]
-  %arrayidx.i312 = getelementptr inbounds i8, ptr %data, i64 %pos.promoted
+  %arrayidx.i312 = getelementptr i8, ptr %data, i64 %pos.promoted
   %1 = load i8, ptr %arrayidx.i312, align 1
   %cmp1.i315 = icmp sgt i8 %1, -1
   br i1 %cmp1.i315, label %if.then.i316, label %if.end.i190
@@ -256,8 +255,8 @@ if.end12.i227:                                    ; preds = %if.end.i190
   %and9.i225 = zext nneg i8 %2 to i64
   %inc13.i228 = add i64 %pos.promoted, 2
   store i64 %inc13.i228, ptr %pos, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %pos.promoted
-  %3 = load i8, ptr %gep, align 1
+  %arrayidx14.i229 = getelementptr i8, ptr %arrayidx.i312, i64 1
+  %3 = load i8, ptr %arrayidx14.i229, align 1
   %conv15.i230 = sext i8 %3 to i64
   %and16.i231 = shl nsw i64 %conv15.i230, 7
   %shl.i232 = and i64 %and16.i231, 16256
@@ -1941,7 +1940,6 @@ entry:
   %unknown_fields.i = alloca %"struct.struct_pb::UnknownFields", align 8
   %ref.tmp.i.i.i.i.i = alloca %"class.std::allocator.0", align 1
   %pos = alloca i64, align 8
-  %invariant.gep = getelementptr i8, ptr %data, i64 1
   %cmp541.not = icmp eq i64 %size, 0
   br i1 %cmp541.not, label %return, label %land.lhs.true.i638.lr.ph
 
@@ -1959,7 +1957,7 @@ land.lhs.true.i638.lr.ph:                         ; preds = %entry
 
 land.lhs.true.i638:                               ; preds = %land.lhs.true.i638.lr.ph, %sw.epilog
   %pos.promoted = phi i64 [ 0, %land.lhs.true.i638.lr.ph ], [ %101, %sw.epilog ]
-  %arrayidx.i639 = getelementptr inbounds i8, ptr %data, i64 %pos.promoted
+  %arrayidx.i639 = getelementptr i8, ptr %data, i64 %pos.promoted
   %2 = load i8, ptr %arrayidx.i639, align 1
   %cmp1.i642 = icmp sgt i8 %2, -1
   br i1 %cmp1.i642, label %if.then.i643, label %if.end.i517
@@ -1984,8 +1982,8 @@ if.end12.i554:                                    ; preds = %if.end.i517
   %and9.i552 = zext nneg i8 %3 to i64
   %inc13.i555 = add i64 %pos.promoted, 2
   store i64 %inc13.i555, ptr %pos, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %pos.promoted
-  %4 = load i8, ptr %gep, align 1
+  %arrayidx14.i556 = getelementptr i8, ptr %arrayidx.i639, i64 1
+  %4 = load i8, ptr %arrayidx14.i556, align 1
   %conv15.i557 = sext i8 %4 to i64
   %and16.i558 = shl nsw i64 %conv15.i557, 7
   %shl.i559 = and i64 %and16.i558, 16256
@@ -3203,7 +3201,6 @@ define dso_local noundef zeroext i1 @_ZN9struct_pb8internal14deserialize_toIN8tu
 entry:
   %unknown_fields.i = alloca %"struct.struct_pb::UnknownFields", align 8
   %pos = alloca i64, align 8
-  %invariant.gep = getelementptr i8, ptr %data, i64 1
   %cmp200.not = icmp eq i64 %size, 0
   br i1 %cmp200.not, label %return, label %land.lhs.true.i160.lr.ph
 
@@ -3213,7 +3210,7 @@ land.lhs.true.i160.lr.ph:                         ; preds = %entry
 
 land.lhs.true.i160:                               ; preds = %land.lhs.true.i160.lr.ph, %if.end14
   %pos.promoted = phi i64 [ 0, %land.lhs.true.i160.lr.ph ], [ %add, %if.end14 ]
-  %arrayidx.i161 = getelementptr inbounds i8, ptr %data, i64 %pos.promoted
+  %arrayidx.i161 = getelementptr i8, ptr %data, i64 %pos.promoted
   %0 = load i8, ptr %arrayidx.i161, align 1
   %cmp1.i164 = icmp sgt i8 %0, -1
   br i1 %cmp1.i164, label %if.then.i165, label %if.end.i39
@@ -3238,8 +3235,8 @@ if.end12.i76:                                     ; preds = %if.end.i39
   %and9.i74 = zext nneg i8 %1 to i64
   %inc13.i77 = add i64 %pos.promoted, 2
   store i64 %inc13.i77, ptr %pos, align 8
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %pos.promoted
-  %2 = load i8, ptr %gep, align 1
+  %arrayidx14.i78 = getelementptr i8, ptr %arrayidx.i161, i64 1
+  %2 = load i8, ptr %arrayidx14.i78, align 1
   %conv15.i79 = sext i8 %2 to i64
   %and16.i80 = shl nsw i64 %conv15.i79, 7
   %shl.i81 = and i64 %and16.i80, 16256

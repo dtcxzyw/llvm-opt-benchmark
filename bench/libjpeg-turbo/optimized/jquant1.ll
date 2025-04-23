@@ -747,18 +747,19 @@ define internal fastcc void @create_colorindex(ptr noundef %0) unnamed_addr #0 {
   %52 = getelementptr inbounds i8, ptr %28, i64 %51
   store i8 %.pre78, ptr %52, align 1, !tbaa !34
   %53 = load i8, ptr %49, align 1, !tbaa !34
-  %gep = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv69
-  store i8 %53, ptr %gep, align 1, !tbaa !34
+  %54 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv69
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 255
+  store i8 %53, ptr %55, align 1, !tbaa !34
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next70, 256
   br i1 %exitcond72.not, label %.loopexit, label %50, !llvm.loop !87
 
 .loopexit:                                        ; preds = %50, %48
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %54 = load i32, ptr %11, align 8, !tbaa !51
-  %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %indvars.iv.next74, %55
-  br i1 %56, label %20, label %._crit_edge63, !llvm.loop !88
+  %56 = load i32, ptr %11, align 8, !tbaa !51
+  %57 = sext i32 %56 to i64
+  %58 = icmp slt i64 %indvars.iv.next74, %57
+  br i1 %58, label %20, label %._crit_edge63, !llvm.loop !88
 
 ._crit_edge63:                                    ; preds = %.loopexit, %1
   ret void

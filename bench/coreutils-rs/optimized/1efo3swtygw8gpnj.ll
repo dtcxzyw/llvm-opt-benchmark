@@ -5820,12 +5820,11 @@ define internal fastcc noundef align 1 dereferenceable_or_null(1) ptr @"_ZN9hash
   %40 = trunc nuw nsw i64 %39 to i8
   %.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %40, i64 0
   %.15.vec.insert.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %invariant.gep.i.i = getelementptr i8, ptr %.val, i64 -2
   br label %41
 
-41:                                               ; preds = %58, %8
-  %.sroa.9.0.i.i.i = phi i64 [ 0, %8 ], [ %59, %58 ]
-  %.pn.i.i.i = phi i64 [ %37, %8 ], [ %60, %58 ]
+41:                                               ; preds = %60, %8
+  %.sroa.9.0.i.i.i = phi i64 [ 0, %8 ], [ %61, %60 ]
+  %.pn.i.i.i = phi i64 [ %37, %8 ], [ %62, %60 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %.val5
   %42 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i33.i.i = load <16 x i8>, ptr %42, align 1, !noalias !1650
@@ -5842,7 +5841,7 @@ define internal fastcc noundef align 1 dereferenceable_or_null(1) ptr @"_ZN9hash
   %47 = icmp eq <16 x i8> %.0.copyload.i33.i.i, splat (i8 -1)
   %48 = bitcast <16 x i1> %47 to i16
   %.not.i.i.i = icmp eq i16 %48, 0
-  br i1 %.not.i.i.i, label %58, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17ha5686ecec3a657daE.exit"
+  br i1 %.not.i.i.i, label %60, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17ha5686ecec3a657daE.exit"
 
 49:                                               ; preds = %45
   %50 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.023.i.i, i1 true)
@@ -5852,22 +5851,19 @@ define internal fastcc noundef align 1 dereferenceable_or_null(1) ptr @"_ZN9hash
   %54 = add i64 %.sroa.01.0.i.i.i, %51
   %55 = and i64 %54, %.val5
   %56 = sub nsw i64 0, %55
-  %gep.i.i = getelementptr { i8, i8 }, ptr %invariant.gep.i.i, i64 %56
-  %.val4.i.i.i = load i8, ptr %gep.i.i, align 1, !alias.scope !1658, !noalias !1663, !noundef !4
-  %57 = icmp eq i8 %.0.val, %.val4.i.i.i
-  br i1 %57, label %61, label %45
+  %57 = getelementptr inbounds { i8, i8 }, ptr %.val, i64 %56
+  %58 = getelementptr inbounds i8, ptr %57, i64 -2
+  %.val4.i.i.i = load i8, ptr %58, align 1, !alias.scope !1658, !noalias !1663, !noundef !4
+  %59 = icmp eq i8 %.0.val, %.val4.i.i.i
+  br i1 %59, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17ha5686ecec3a657daE.exit", label %45
 
-58:                                               ; preds = %46
-  %59 = add i64 %.sroa.9.0.i.i.i, 16
-  %60 = add i64 %.sroa.01.0.i.i.i, %59
+60:                                               ; preds = %46
+  %61 = add i64 %.sroa.9.0.i.i.i, 16
+  %62 = add i64 %.sroa.01.0.i.i.i, %61
   br label %41
 
-61:                                               ; preds = %49
-  %62 = getelementptr inbounds { i8, i8 }, ptr %.val, i64 %56
-  br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17ha5686ecec3a657daE.exit"
-
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17ha5686ecec3a657daE.exit": ; preds = %46, %61
-  %.0.i.i = phi ptr [ %62, %61 ], [ null, %46 ]
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17ha5686ecec3a657daE.exit": ; preds = %46, %49
+  %.0.i.i = phi ptr [ %57, %49 ], [ null, %46 ]
   %63 = icmp eq ptr %.0.i.i, null
   %64 = getelementptr inbounds i8, ptr %.0.i.i, i64 -2
   %.0.i = select i1 %63, ptr null, ptr %64

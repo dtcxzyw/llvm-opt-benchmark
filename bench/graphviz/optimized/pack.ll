@@ -1351,8 +1351,8 @@ gv_calloc.exit186:                                ; preds = %96, %gv_calloc.exit
   %116 = getelementptr inbounds nuw ptr, ptr %97, i64 %.0150206
   store ptr %115, ptr %116, align 8, !tbaa !66
   %117 = add nuw i64 %.0150206, 1
-  %exitcond216.not = icmp eq i64 %117, %0
-  br i1 %exitcond216.not, label %112, label %gv_calloc.exit186, !llvm.loop !116
+  %exitcond214.not = icmp eq i64 %117, %0
+  br i1 %exitcond214.not, label %112, label %gv_calloc.exit186, !llvm.loop !116
 
 118:                                              ; preds = %112
   %119 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_compar)
@@ -1428,8 +1428,8 @@ gv_sort.exit:                                     ; preds = %118, %122
 
 INC.exit:                                         ; preds = %140, %143, %.sink.split.i
   %148 = add nuw i64 %.0149207, 1
-  %exitcond217.not = icmp eq i64 %148, %0
-  br i1 %exitcond217.not, label %.preheader203.preheader, label %128, !llvm.loop !118
+  %exitcond215.not = icmp eq i64 %148, %0
+  br i1 %exitcond215.not, label %.preheader203.preheader, label %128, !llvm.loop !118
 
 .preheader203.preheader:                          ; preds = %INC.exit
   %umax = tail call i64 @llvm.umax.i64(i64 %55, i64 1)
@@ -1447,8 +1447,8 @@ INC.exit:                                         ; preds = %140, %143, %.sink.s
   store double %.0154208, ptr %149, align 8, !tbaa !52
   %151 = fadd double %.0154208, %150
   %152 = add nuw i64 %.0148209, 1
-  %exitcond218 = icmp eq i64 %152, %umax
-  br i1 %exitcond218, label %.preheader, label %.preheader203, !llvm.loop !119
+  %exitcond216 = icmp eq i64 %152, %umax
+  br i1 %exitcond216, label %.preheader, label %.preheader203, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0156.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %161, %.lr.ph ]
@@ -1458,10 +1458,8 @@ INC.exit:                                         ; preds = %140, %143, %.sink.s
   %153 = load i32, ptr %18, align 8, !tbaa !106
   %154 = and i32 %153, 4
   %.not165 = icmp eq i32 %154, 0
-  %invariant.gep = getelementptr i8, ptr %68, i64 8
   %155 = and i32 %153, 16
   %.not167 = icmp eq i32 %155, 0
-  %invariant.gep213 = getelementptr i8, ptr %82, i64 8
   %156 = and i32 %153, 8
   %.not166 = icmp eq i32 %156, 0
   %157 = and i32 %153, 32
@@ -1490,8 +1488,8 @@ INC.exit:                                         ; preds = %140, %143, %.sink.s
   ret ptr %10
 
 164:                                              ; preds = %._crit_edge, %INC.exit190
-  %.0146215 = phi i64 [ 0, %._crit_edge ], [ %218, %INC.exit190 ]
-  %165 = getelementptr inbounds nuw ptr, ptr %97, i64 %.0146215
+  %.0146213 = phi i64 [ 0, %._crit_edge ], [ %218, %INC.exit190 ]
+  %165 = getelementptr inbounds nuw ptr, ptr %97, i64 %.0146213
   %166 = load ptr, ptr %165, align 8, !tbaa !66
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load i64, ptr %167, align 8, !tbaa !114
@@ -1504,27 +1502,26 @@ INC.exit:                                         ; preds = %140, %143, %.sink.s
   %.sroa.13.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %.sroa.13.0.copyload81 = load double, ptr %.sroa.13.0..sroa_idx80, align 8, !tbaa !52
   %.0..0..0.193 = load i64, ptr %5, align 8, !tbaa !117
-  br i1 %.not165, label %173, label %170
+  %170 = getelementptr double, ptr %68, i64 %.0..0..0.193
+  br i1 %.not165, label %173, label %171
 
-170:                                              ; preds = %164
-  %171 = getelementptr inbounds nuw double, ptr %68, i64 %.0..0..0.193
-  %172 = load double, ptr %171, align 8, !tbaa !52
+171:                                              ; preds = %164
+  %172 = load double, ptr %170, align 8, !tbaa !52
   br label %187
 
 173:                                              ; preds = %164
-  br i1 %.not166, label %178, label %174
+  br i1 %.not166, label %179, label %174
 
 174:                                              ; preds = %173
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.0..0..0.193
-  %175 = load double, ptr %gep, align 8, !tbaa !52
-  %176 = fsub double %.sroa.10.0.copyload77, %.sroa.0.0.copyload71
-  %177 = fsub double %175, %176
+  %175 = getelementptr i8, ptr %170, i64 8
+  %176 = load double, ptr %175, align 8, !tbaa !52
+  %177 = fsub double %.sroa.10.0.copyload77, %.sroa.0.0.copyload71
+  %178 = fsub double %176, %177
   br label %187
 
-178:                                              ; preds = %173
-  %179 = getelementptr inbounds nuw double, ptr %68, i64 %.0..0..0.193
-  %180 = load double, ptr %179, align 8, !tbaa !52
-  %181 = getelementptr i8, ptr %179, i64 8
+179:                                              ; preds = %173
+  %180 = load double, ptr %170, align 8, !tbaa !52
+  %181 = getelementptr i8, ptr %170, i64 8
   %182 = load double, ptr %181, align 8, !tbaa !52
   %183 = fadd double %180, %182
   %184 = fsub double %183, %.sroa.10.0.copyload77
@@ -1532,33 +1529,32 @@ INC.exit:                                         ; preds = %140, %143, %.sink.s
   %186 = fmul double %185, 5.000000e-01
   br label %187
 
-187:                                              ; preds = %174, %178, %170
-  %.sink224 = phi double [ %177, %174 ], [ %186, %178 ], [ %172, %170 ]
-  %188 = tail call double @llvm.round.f64(double %.sink224)
+187:                                              ; preds = %174, %179, %171
+  %.sink222 = phi double [ %178, %174 ], [ %186, %179 ], [ %172, %171 ]
+  %188 = tail call double @llvm.round.f64(double %.sink222)
   %189 = getelementptr inbounds nuw %struct.pointf_s, ptr %10, i64 %168
   store double %188, ptr %189, align 8, !tbaa !94
   %.0..0..0.199 = load i64, ptr %4, align 8, !tbaa !117
-  br i1 %.not167, label %195, label %190
+  %190 = getelementptr double, ptr %82, i64 %.0..0..0.199
+  br i1 %.not167, label %195, label %191
 
-190:                                              ; preds = %187
-  %191 = getelementptr inbounds nuw double, ptr %82, i64 %.0..0..0.199
-  %192 = load double, ptr %191, align 8, !tbaa !52
+191:                                              ; preds = %187
+  %192 = load double, ptr %190, align 8, !tbaa !52
   %193 = fsub double %.sroa.13.0.copyload81, %.sroa.7.0.copyload73
   %194 = fsub double %192, %193
   br label %207
 
 195:                                              ; preds = %187
-  br i1 %.not168, label %198, label %196
+  br i1 %.not168, label %199, label %196
 
 196:                                              ; preds = %195
-  %gep214 = getelementptr double, ptr %invariant.gep213, i64 %.0..0..0.199
-  %197 = load double, ptr %gep214, align 8, !tbaa !52
+  %197 = getelementptr i8, ptr %190, i64 8
+  %198 = load double, ptr %197, align 8, !tbaa !52
   br label %207
 
-198:                                              ; preds = %195
-  %199 = getelementptr inbounds nuw double, ptr %82, i64 %.0..0..0.199
-  %200 = load double, ptr %199, align 8, !tbaa !52
-  %201 = getelementptr i8, ptr %199, i64 8
+199:                                              ; preds = %195
+  %200 = load double, ptr %190, align 8, !tbaa !52
+  %201 = getelementptr i8, ptr %190, i64 8
   %202 = load double, ptr %201, align 8, !tbaa !52
   %203 = fadd double %200, %202
   %204 = fsub double %203, %.sroa.13.0.copyload81
@@ -1566,9 +1562,9 @@ INC.exit:                                         ; preds = %140, %143, %.sink.s
   %206 = fmul double %205, 5.000000e-01
   br label %207
 
-207:                                              ; preds = %196, %198, %190
-  %.sink226 = phi double [ %197, %196 ], [ %206, %198 ], [ %194, %190 ]
-  %208 = tail call double @llvm.round.f64(double %.sink226)
+207:                                              ; preds = %196, %199, %191
+  %.sink224 = phi double [ %198, %196 ], [ %206, %199 ], [ %194, %191 ]
+  %208 = tail call double @llvm.round.f64(double %.sink224)
   %209 = getelementptr inbounds nuw %struct.pointf_s, ptr %10, i64 %168, i32 1
   store double %208, ptr %209, align 8, !tbaa !95
   br i1 %.not, label %210, label %213
@@ -1595,9 +1591,9 @@ INC.exit:                                         ; preds = %140, %143, %.sink.s
   br label %INC.exit190
 
 INC.exit190:                                      ; preds = %210, %213, %.sink.split.i187
-  %218 = add nuw i64 %.0146215, 1
-  %exitcond219.not = icmp eq i64 %218, %0
-  br i1 %exitcond219.not, label %163, label %164, !llvm.loop !121
+  %218 = add nuw i64 %.0146213, 1
+  %exitcond217.not = icmp eq i64 %218, %0
+  br i1 %exitcond217.not, label %163, label %164, !llvm.loop !121
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

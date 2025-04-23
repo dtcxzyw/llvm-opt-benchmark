@@ -6328,21 +6328,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit877: ; preds = %
   %1996 = icmp eq i64 %.fr1853, 0
   br i1 %1996, label %.lr.ph.i933.split.us, label %.lr.ph.i933.split
 
-.lr.ph.i933.split.us:                             ; preds = %.lr.ph.i933
-  %invariant.gep = getelementptr i8, ptr %.val337, i64 8
-  br label %1997
-
-1997:                                             ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us, %.lr.ph.i933.split.us
-  %indvars.iv.i934.us = phi i64 [ %1995, %.lr.ph.i933.split.us ], [ %indvars.iv.next.i935.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us ]
+.lr.ph.i933.split.us:                             ; preds = %.lr.ph.i933, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us
+  %indvars.iv.i934.us = phi i64 [ %indvars.iv.next.i935.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us ], [ %1995, %.lr.ph.i933 ]
   %indvars.iv.next.i935.us = add nsw i64 %indvars.iv.i934.us, -1
-  %gep = getelementptr %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::CaffeImporter::BlobNote", ptr %invariant.gep, i64 %indvars.iv.next.i935.us
-  %1998 = load i64, ptr %gep, align 8, !tbaa !40
+  %1997 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::CaffeImporter::BlobNote", ptr %.val337, i64 %indvars.iv.next.i935.us, i32 0, i32 1
+  %1998 = load i64, ptr %1997, align 8, !tbaa !40
   %1999 = icmp eq i64 %1998, 0
   br i1 %1999, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i937, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us: ; preds = %1997
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us: ; preds = %.lr.ph.i933.split.us
   %2000 = icmp samesign ugt i64 %indvars.iv.i934.us, 1
-  br i1 %2000, label %1997, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit._crit_edge.i, !llvm.loop !171
+  br i1 %2000, label %.lr.ph.i933.split.us, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit._crit_edge.i, !llvm.loop !171
 
 .lr.ph.i933.split:                                ; preds = %.lr.ph.i933, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i
   %indvars.iv.i934 = phi i64 [ %indvars.iv.next.i935, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i ], [ %1995, %.lr.ph.i933 ]
@@ -6427,8 +6423,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22.i: ; preds = %_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
   br label %.body410
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i937: ; preds = %2005, %1997
-  %.us-phi = phi i64 [ %indvars.iv.next.i935.us, %1997 ], [ %indvars.iv.next.i935, %2005 ]
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i937: ; preds = %2005, %.lr.ph.i933.split.us
+  %.us-phi = phi i64 [ %indvars.iv.next.i935.us, %.lr.ph.i933.split.us ], [ %indvars.iv.next.i935, %2005 ]
   %2027 = and i64 %.us-phi, 4294967295
   %2028 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::CaffeImporter::BlobNote", ptr %.val337, i64 %2027
   %2029 = getelementptr inbounds nuw i8, ptr %2028, i64 32

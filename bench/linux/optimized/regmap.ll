@@ -8808,23 +8808,19 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   %116 = icmp eq ptr %115, null
   br i1 %116, label %.split.us, label %.lr.ph
 
-.split.us:                                        ; preds = %109
-  %invariant.gep = getelementptr i8, ptr %1, i64 8
-  br label %117
-
-117:                                              ; preds = %122, %.split.us
-  %118 = phi i64 [ 0, %.split.us ], [ %124, %122 ]
-  %119 = phi i32 [ 0, %.split.us ], [ %123, %122 ]
-  %gep = getelementptr %struct.reg_sequence, ptr %invariant.gep, i64 %118
-  %120 = load i32, ptr %gep, align 4
+.split.us:                                        ; preds = %109, %122
+  %117 = phi i64 [ %124, %122 ], [ 0, %109 ]
+  %118 = phi i32 [ %123, %122 ], [ 0, %109 ]
+  %119 = getelementptr %struct.reg_sequence, ptr %1, i64 %117, i32 2
+  %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %.loopexit34
 
-122:                                              ; preds = %117
-  %123 = add i32 %119, 1
+122:                                              ; preds = %.split.us
+  %123 = add i32 %118, 1
   %124 = sext i32 %123 to i64
   %125 = icmp ugt i64 %2, %124
-  br i1 %125, label %117, label %.split1, !llvm.loop !101
+  br i1 %125, label %.split.us, label %.split1, !llvm.loop !101
 
 126:                                              ; preds = %._crit_edge
   %127 = add i32 %132, 1
@@ -8869,7 +8865,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %126, label %.loopexit34
 
-.loopexit34:                                      ; preds = %._crit_edge, %140, %117
+.loopexit34:                                      ; preds = %._crit_edge, %140, %.split.us
   %152 = tail call ptr @kmemdup(ptr noundef %1, i64 noundef %111, i32 noundef 3264) #29
   %153 = icmp eq ptr %152, null
   br i1 %153, label %.thread31, label %.preheader

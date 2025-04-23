@@ -8536,25 +8536,20 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %26, %28, %30, %32
   %47 = sub i64 %45, %46
   %48 = lshr exact i64 %47, 2
   %49 = trunc i64 %48 to i32
-  br i1 %44, label %.lr.ph.split.us, label %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.preheader
-
-_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.preheader: ; preds = %.lr.ph
-  %wide.trip.count = and i64 %39, 2147483647
-  br label %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %35, i64 8
   %wide.trip.count16 = and i64 %39, 2147483647
+  br i1 %44, label %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us.preheader, label %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit
+
+_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us.preheader: ; preds = %.lr.ph
   %.pre = load i32, ptr %42, align 4, !tbaa !74
   br label %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us
 
-_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us: ; preds = %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us, %.lr.ph.split.us
-  %50 = phi i32 [ %51, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us ], [ %.pre, %.lr.ph.split.us ]
-  %indvars.iv13 = phi i64 [ %indvars.iv.next14, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us ], [ 0, %.lr.ph.split.us ]
-  %gep = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, unsigned int>::entry_t", ptr %invariant.gep, i64 %indvars.iv13
-  store i32 %50, ptr %gep, align 4, !tbaa !159
-  %51 = trunc nuw nsw i64 %indvars.iv13 to i32
-  store i32 %51, ptr %42, align 4, !tbaa !74
+_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us: ; preds = %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us.preheader, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us
+  %50 = phi i32 [ %.pre, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us.preheader ], [ %52, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us ]
+  %indvars.iv13 = phi i64 [ 0, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us.preheader ], [ %indvars.iv.next14, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us ]
+  %51 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, unsigned int>::entry_t", ptr %35, i64 %indvars.iv13, i32 1
+  store i32 %50, ptr %51, align 4, !tbaa !159
+  %52 = trunc nuw nsw i64 %indvars.iv13 to i32
+  store i32 %52, ptr %42, align 4, !tbaa !74
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next14, %wide.trip.count16
   br i1 %exitcond17.not, label %._crit_edge, label %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us, !llvm.loop !217
@@ -8562,30 +8557,30 @@ _ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us: ; preds = %_ZN
 ._crit_edge:                                      ; preds = %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.us, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
   ret void
 
-_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit: ; preds = %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.preheader, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit
-  %indvars.iv = phi i64 [ 0, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit.preheader ], [ %indvars.iv.next, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit ]
-  %52 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, unsigned int>::entry_t", ptr %35, i64 %indvars.iv
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i32, ptr %52, align 4, !tbaa !74
-  %55 = mul i32 %54, 33
-  %56 = load i32, ptr @_ZN5Yosys7hashlib11HasherDJB325fudgeE, align 4, !tbaa !74
-  %57 = xor i32 %56, %55
-  %58 = xor i32 %57, 5381
-  %59 = shl i32 %58, 13
-  %60 = xor i32 %59, %58
-  %61 = lshr i32 %60, 17
-  %62 = xor i32 %61, %60
-  %63 = shl i32 %62, 5
-  %64 = xor i32 %63, %62
-  %65 = urem i32 %64, %49
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %42, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !74
-  store i32 %68, ptr %53, align 4, !tbaa !159
-  %69 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %69, ptr %67, align 4, !tbaa !74
+_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit: ; preds = %.lr.ph, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit ], [ 0, %.lr.ph ]
+  %53 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<int, unsigned int>::entry_t", ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load i32, ptr %53, align 4, !tbaa !74
+  %56 = mul i32 %55, 33
+  %57 = load i32, ptr @_ZN5Yosys7hashlib11HasherDJB325fudgeE, align 4, !tbaa !74
+  %58 = xor i32 %57, %56
+  %59 = xor i32 %58, 5381
+  %60 = shl i32 %59, 13
+  %61 = xor i32 %60, %59
+  %62 = lshr i32 %61, 17
+  %63 = xor i32 %62, %61
+  %64 = shl i32 %63, 5
+  %65 = xor i32 %64, %63
+  %66 = urem i32 %65, %49
+  %67 = zext i32 %66 to i64
+  %68 = getelementptr inbounds nuw i32, ptr %42, i64 %67
+  %69 = load i32, ptr %68, align 4, !tbaa !74
+  store i32 %69, ptr %54, align 4, !tbaa !159
+  %70 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %70, ptr %68, align 4, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count16
   br i1 %exitcond.not, label %._crit_edge, label %_ZNK5Yosys7hashlib4dictIijNS0_8hash_opsIiEEE7do_hashERKi.exit, !llvm.loop !217
 }
 

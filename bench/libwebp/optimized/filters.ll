@@ -452,7 +452,7 @@ PredictLine_C.exit.thread.i:                      ; preds = %5
   %21 = phi i8 [ %22, %PredictLine_C.exit50._crit_edge.us.i ], [ %6, %.lr.ph57.i ]
   %.04456.us.pn.i = phi ptr [ %.04456.us.i, %PredictLine_C.exit50._crit_edge.us.i ], [ %4, %.lr.ph57.i ]
   %.055.us.pn.i = phi ptr [ %.055.us.i, %PredictLine_C.exit50._crit_edge.us.i ], [ %0, %.lr.ph57.i ]
-  %.04254.us.i = phi i32 [ %41, %PredictLine_C.exit50._crit_edge.us.i ], [ 1, %.lr.ph57.i ]
+  %.04254.us.i = phi i32 [ %42, %PredictLine_C.exit50._crit_edge.us.i ], [ 1, %.lr.ph57.i ]
   %.055.us.i = getelementptr i8, ptr %.055.us.pn.i, i64 %17
   %.04456.us.i = getelementptr inbounds i8, ptr %.04456.us.pn.i, i64 %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
@@ -460,53 +460,52 @@ PredictLine_C.exit.thread.i:                      ; preds = %5
   %22 = load i8, ptr %.055.us.i, align 1, !tbaa !7, !alias.scope !110, !noalias !111
   %23 = sub i8 %22, %21
   store i8 %23, ptr %.04456.us.i, align 1, !tbaa !7, !alias.scope !113, !noalias !114
-  %invariant.gep.us.i = getelementptr i8, ptr %.055.us.i, i64 -1
   br label %PredictLine_C.exit50.us.i
 
 PredictLine_C.exit50.us.i:                        ; preds = %PredictLine_C.exit50.us.i, %.lr.ph57.split.us.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph57.split.us.i ], [ %indvars.iv.next.i, %PredictLine_C.exit50.us.i ]
-  %gep.us.i = getelementptr i8, ptr %invariant.gep.us.i, i64 %indvars.iv.i
-  %24 = load i8, ptr %gep.us.i, align 1, !tbaa !7, !alias.scope !87, !noalias !90
-  %25 = getelementptr i8, ptr %.055.us.pn.i, i64 %indvars.iv.i
+  %24 = getelementptr i8, ptr %.055.us.i, i64 %indvars.iv.i
+  %25 = getelementptr i8, ptr %24, i64 -1
   %26 = load i8, ptr %25, align 1, !tbaa !7, !alias.scope !87, !noalias !90
-  %27 = getelementptr i8, ptr %25, i64 -1
+  %27 = getelementptr i8, ptr %.055.us.pn.i, i64 %indvars.iv.i
   %28 = load i8, ptr %27, align 1, !tbaa !7, !alias.scope !87, !noalias !90
-  %29 = zext i8 %24 to i32
-  %30 = zext i8 %26 to i32
-  %31 = add nuw nsw i32 %30, %29
+  %29 = getelementptr i8, ptr %27, i64 -1
+  %30 = load i8, ptr %29, align 1, !tbaa !7, !alias.scope !87, !noalias !90
+  %31 = zext i8 %26 to i32
   %32 = zext i8 %28 to i32
-  %33 = sub nsw i32 %31, %32
-  %34 = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
-  %35 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %34, i32 255)
-  %36 = getelementptr inbounds nuw i8, ptr %.055.us.i, i64 %indvars.iv.i
-  %37 = load i8, ptr %36, align 1, !tbaa !7, !alias.scope !87, !noalias !90
-  %38 = trunc nuw i32 %35 to i8
-  %39 = sub i8 %37, %38
-  %40 = getelementptr inbounds nuw i8, ptr %.04456.us.i, i64 %indvars.iv.i
-  store i8 %39, ptr %40, align 1, !tbaa !7, !alias.scope !90, !noalias !87
+  %33 = add nuw nsw i32 %32, %31
+  %34 = zext i8 %30 to i32
+  %35 = sub nsw i32 %33, %34
+  %36 = tail call i32 @llvm.smax.i32(i32 %35, i32 0)
+  %37 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %36, i32 255)
+  %38 = load i8, ptr %24, align 1, !tbaa !7, !alias.scope !87, !noalias !90
+  %39 = trunc nuw i32 %37 to i8
+  %40 = sub i8 %38, %39
+  %41 = getelementptr inbounds nuw i8, ptr %.04456.us.i, i64 %indvars.iv.i
+  store i8 %40, ptr %41, align 1, !tbaa !7, !alias.scope !90, !noalias !87
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond60.not.i, label %PredictLine_C.exit50._crit_edge.us.i, label %PredictLine_C.exit50.us.i, !llvm.loop !115
 
 PredictLine_C.exit50._crit_edge.us.i:             ; preds = %PredictLine_C.exit50.us.i
-  %41 = add nuw nsw i32 %.04254.us.i, 1
-  %exitcond61.not.i = icmp eq i32 %41, %2
+  %42 = add nuw nsw i32 %.04254.us.i, 1
+  %exitcond61.not.i = icmp eq i32 %42, %2
   br i1 %exitcond61.not.i, label %DoGradientFilter_C.exit, label %.lr.ph57.split.us.i, !llvm.loop !116
 
 .lr.ph57.split.i:                                 ; preds = %.lr.ph57.split.i, %.lr.ph57.thread.i
-  %42 = phi i8 [ %43, %.lr.ph57.split.i ], [ %6, %.lr.ph57.thread.i ]
+  %43 = phi i8 [ %44, %.lr.ph57.split.i ], [ %6, %.lr.ph57.thread.i ]
   %.04456.i.pn = phi ptr [ %.04456.i, %.lr.ph57.split.i ], [ %4, %.lr.ph57.thread.i ]
   %.055.i.pn = phi ptr [ %.055.i, %.lr.ph57.split.i ], [ %0, %.lr.ph57.thread.i ]
-  %.04254.i = phi i32 [ %45, %.lr.ph57.split.i ], [ 1, %.lr.ph57.thread.i ]
+  %.04254.i = phi i32 [ %46, %.lr.ph57.split.i ], [ 1, %.lr.ph57.thread.i ]
   %.055.i = getelementptr i8, ptr %.055.i.pn, i64 %20
   %.04456.i = getelementptr inbounds i8, ptr %.04456.i.pn, i64 %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  %43 = load i8, ptr %.055.i, align 1, !tbaa !7, !alias.scope !110, !noalias !111
-  %44 = sub i8 %43, %42
-  store i8 %44, ptr %.04456.i, align 1, !tbaa !7, !alias.scope !113, !noalias !114
-  %45 = add nuw nsw i32 %.04254.i, 1
-  %exitcond.not.i = icmp eq i32 %45, %2
+  %44 = load i8, ptr %.055.i, align 1, !tbaa !7, !alias.scope !110, !noalias !111
+  %45 = sub i8 %44, %43
+  store i8 %45, ptr %.04456.i, align 1, !tbaa !7, !alias.scope !113, !noalias !114
+  %46 = add nuw nsw i32 %.04254.i, 1
+  %exitcond.not.i = icmp eq i32 %46, %2
   br i1 %exitcond.not.i, label %DoGradientFilter_C.exit, label %.lr.ph57.split.i, !llvm.loop !116
 
 DoGradientFilter_C.exit:                          ; preds = %.lr.ph57.split.i, %PredictLine_C.exit50._crit_edge.us.i, %PredictLine_C.exit.i, %PredictLine_C.exit.thread.i

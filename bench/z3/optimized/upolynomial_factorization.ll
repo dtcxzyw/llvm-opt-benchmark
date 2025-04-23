@@ -12016,46 +12016,44 @@ _ZNK11upolynomial12core_manager7factors16distinct_factorsEv.exit: ; preds = %2, 
   br i1 %35, label %.lr.ph77, label %.loopexit
 
 .lr.ph77:                                         ; preds = %34
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %.pre105, i64 4
   %36 = load ptr, ptr %13, align 8
   %37 = zext nneg i32 %.033 to i64
   br label %38
 
 38:                                               ; preds = %.lr.ph77, %55
   %indvars.iv97 = phi i64 [ %37, %.lr.ph77 ], [ %indvars.iv.next98, %55 ]
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv97
-  %39 = load i32, ptr %gep, align 4, !tbaa !29
-  %40 = getelementptr inbounds nuw i32, ptr %.pre105, i64 %indvars.iv97
+  %39 = getelementptr inbounds nuw i32, ptr %.pre105, i64 %indvars.iv97
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !29
-  %42 = add nsw i32 %41, 1
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %39, i32 %42)
-  %43 = add nsw i32 %smax.i, -1
-  br label %44
+  %42 = load i32, ptr %39, align 4, !tbaa !29
+  %43 = add nsw i32 %42, 1
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %41, i32 %43)
+  %44 = add nsw i32 %smax.i, -1
+  br label %45
 
-44:                                               ; preds = %45, %38
-  %.0.in.i = phi i32 [ %41, %38 ], [ %.0.i, %45 ]
-  %exitcond.not = icmp eq i32 %.0.in.i, %43
-  br i1 %exitcond.not, label %_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEE4findEii.exit, label %45
+45:                                               ; preds = %46, %38
+  %.0.in.i = phi i32 [ %42, %38 ], [ %.0.i, %46 ]
+  %exitcond.not = icmp eq i32 %.0.in.i, %44
+  br i1 %exitcond.not, label %_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEE4findEii.exit, label %46
 
-45:                                               ; preds = %44
+46:                                               ; preds = %45
   %.0.i = add nsw i32 %.0.in.i, 1
-  %46 = zext i32 %.0.i to i64
-  %47 = getelementptr inbounds nuw i8, ptr %36, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !131, !range !42, !noundef !43
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEE4findEii.exit, label %44, !llvm.loop !135
+  %47 = zext i32 %.0.i to i64
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !131, !range !42, !noundef !43
+  %50 = trunc nuw i8 %49 to i1
+  br i1 %50, label %_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEE4findEii.exit, label %45, !llvm.loop !135
 
-_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEE4findEii.exit: ; preds = %44, %45
-  %.0.lcssa.i = phi i32 [ %smax.i, %44 ], [ %.0.i, %45 ]
-  %50 = icmp eq i32 %.0.lcssa.i, %39
-  %..0.i = select i1 %50, i32 -1, i32 %.0.lcssa.i
-  %51 = icmp sgt i32 %..0.i, -1
-  br i1 %51, label %52, label %55
+_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEE4findEii.exit: ; preds = %45, %46
+  %.0.lcssa.i = phi i32 [ %smax.i, %45 ], [ %.0.i, %46 ]
+  %51 = icmp eq i32 %.0.lcssa.i, %41
+  %..0.i = select i1 %51, i32 -1, i32 %.0.lcssa.i
+  %52 = icmp sgt i32 %..0.i, -1
+  br i1 %52, label %53, label %55
 
-52:                                               ; preds = %_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEE4findEii.exit
-  %53 = getelementptr inbounds nuw i32, ptr %.pre105, i64 %indvars.iv97
+53:                                               ; preds = %_ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7factorsEE4findEii.exit
   %54 = trunc nuw nsw i64 %indvars.iv97 to i32
-  store i32 %..0.i, ptr %53, align 4, !tbaa !29
+  store i32 %..0.i, ptr %39, align 4, !tbaa !29
   %.pre104 = load ptr, ptr %12, align 8
   br label %.loopexit
 
@@ -12064,10 +12062,10 @@ _ZN11upolynomial39factorization_combination_iterator_baseINS_12core_manager7fact
   %56 = icmp sgt i64 %indvars.iv97, 0
   br i1 %56, label %38, label %.loopexit, !llvm.loop !136
 
-.loopexit:                                        ; preds = %55, %34, %52
-  %57 = phi ptr [ %.pre104, %52 ], [ %.pre105, %34 ], [ %.pre105, %55 ]
-  %.23569 = phi i32 [ %54, %52 ], [ %.033, %34 ], [ -1, %55 ]
-  %.1 = phi i32 [ %.0.lcssa.i, %52 ], [ -1, %34 ], [ %..0.i, %55 ]
+.loopexit:                                        ; preds = %55, %34, %53
+  %57 = phi ptr [ %.pre104, %53 ], [ %.pre105, %34 ], [ %.pre105, %55 ]
+  %.23569 = phi i32 [ %54, %53 ], [ %.033, %34 ], [ -1, %55 ]
+  %.1 = phi i32 [ %.0.lcssa.i, %53 ], [ -1, %34 ], [ %..0.i, %55 ]
   %58 = icmp eq i32 %.1, -1
   br label %59
 
