@@ -1057,9 +1057,9 @@ _ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i: ; preds = %9
   %97 = load i8, ptr %51, align 1, !noalias !119, !noundef !4
   %98 = load i64, ptr %52, align 8, !noalias !119, !noundef !4
   %99 = icmp ugt i64 %98, 1
-  %100 = load i64, ptr %53, align 8, !noalias !119
+  %100 = load i64, ptr %53, align 8, !noalias !119, !noundef !4
   %101 = icmp ugt i64 %100, 32
-  %or.cond.i.i.i = select i1 %99, i1 %101, i1 false
+  %or.cond.i.i.i = and i1 %99, %101
   %102 = load i64, ptr %54, align 8, !noalias !119, !noundef !4
   %103 = and i8 %97, 63
   %104 = icmp eq i8 %103, 0
@@ -1488,7 +1488,7 @@ _ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit.i: ; preds = %.noexc3
   br i1 %.not.i.i.i, label %.thread836.i, label %.thread.loopexit616.i
 
 .thread.loopexit616.i:                            ; preds = %278, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h652563b291f947a7E.exit.i.i.i", %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i, %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i, %60
-  %.pre.i = load i64, ptr %53, align 8, !noalias !119
+  %.pre.i = load i64, ptr %53, align 8, !noalias !119, !noundef !4
   br label %.thread.i
 
 .thread.i:                                        ; preds = %119, %.thread.loopexit616.i
@@ -1706,10 +1706,9 @@ _ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i.i: ; preds =
 
 .thread836.i:                                     ; preds = %364, %278
   %368 = phi ptr [ %109, %364 ], [ %279, %278 ]
+  %.sroa.01.0.neg.i156.i = phi i64 [ 0, %364 ], [ -256, %278 ]
   %.sroa.7.0.i340838.i = phi i64 [ %367, %364 ], [ %282, %278 ]
   %..i154.i = sext i1 %104 to i64
-  %or.cond.i155.i = and i1 %99, %101
-  %.sroa.01.0.neg.i156.i = select i1 %or.cond.i155.i, i64 -256, i64 0
   %reass.sub.i = add i64 %102, -2
   %369 = add i64 %reass.sub.i, %..i154.i
   %370 = add i64 %369, %.sroa.01.0.neg.i156.i
@@ -1725,7 +1724,7 @@ _ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i.i: ; preds =
   br i1 %376, label %.noexc42.i, label %377
 
 377:                                              ; preds = %.noexc41.i
-  %378 = select i1 %or.cond.i155.i, i64 -257, i64 -1
+  %378 = select i1 %or.cond.i.i.i, i64 -257, i64 -1
   %379 = lshr i8 %373, 4
   %narrow.i162.i = add nuw nsw i8 %379, 1
   %380 = zext nneg i8 %narrow.i162.i to i64
@@ -1840,12 +1839,12 @@ _ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i.i: ; preds =
   br label %_ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit51.i
 
 .thread842.i:                                     ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h4da47cd52231f56bE.exit.i.i
-  %.pre806.pre.i.pre = load i64, ptr %54, align 8, !noalias !119
-  %.pre807.pre.i.pre = load i64, ptr %55, align 8, !noalias !119
+  %.pre806.pre.i.pre = load i64, ptr %54, align 8, !noalias !119, !noundef !4
+  %.pre807.pre.i.pre = load i64, ptr %55, align 8, !noalias !119, !noundef !4
   %430 = icmp eq i8 %81, 0
   %431 = add i64 %.pre806.pre.i.pre, -1
   %432 = icmp uge i64 %431, %.pre807.pre.i.pre
-  %or.cond1041.not.i = select i1 %430, i1 %432, i1 false
+  %or.cond1041.not.i = and i1 %430, %432
   br i1 %or.cond1041.not.i, label %.invoke1035.i, label %.noexc47.i, !prof !185
 
 .invoke1035.i:                                    ; preds = %.thread842.i, %423, %.thread836.i, %123, %83, %67, %358, %357, %331, %199, %190, %140

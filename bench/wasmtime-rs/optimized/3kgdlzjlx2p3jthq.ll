@@ -712,7 +712,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h098f641a5e3325acE(ptr
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %13, ptr %7, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  %.pr = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8, !range !7, !noundef !3
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %.loopexit, label %14
 
@@ -776,7 +776,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h6c85a7bb22328719E(ptr
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %12, ptr %6, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  %.pr = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8, !range !7, !noundef !3
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %.loopexit, label %13
 
@@ -909,7 +909,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hb36bdf793bfbc0c9E(ptr
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %12, ptr %6, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
-  %.pr = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8, !range !8, !noundef !3
   %.not = icmp eq i64 %.pr, 3
   br i1 %.not, label %.loopexit, label %13
 
@@ -1002,7 +1002,7 @@ define { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17ha7dbb05bc
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %23, ptr %13, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
-  %.pr = load i64, ptr %7, align 8
+  %.pr = load i64, ptr %7, align 8, !range !7, !noundef !3
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %.loopexit, label %24
 
@@ -1463,3 +1463,5 @@ attributes #17 = { cold noreturn nounwind }
 !4 = !{i64 1}
 !5 = !{i64 8}
 !6 = !{i64 0, i64 2}
+!7 = !{i64 0, i64 -9223372036854775807}
+!8 = !{i64 0, i64 4}

@@ -4066,7 +4066,7 @@ _ZL35textFileFormatYyensure_buffer_stackPv.exit:  ; preds = %10, %13, %24
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store i64 %44, ptr %49, align 8
-  %.pr.pre = load ptr, ptr %5, align 8
+  %.pr.pre = load ptr, ptr %5, align 8, !nonnull !12, !noundef !12
   %.pre32 = load i64, ptr %29, align 8
   %.phi.trans.insert33 = getelementptr inbounds ptr, ptr %.pr.pre, i64 %.pre32
   %.pre34 = load ptr, ptr %.phi.trans.insert33, align 8
@@ -4686,7 +4686,7 @@ _Z32textFileFormatYypop_buffer_statePv.exit:      ; preds = %26, %45, %49
   %60 = getelementptr inbounds ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.critedge, label %.thread.i, !llvm.loop !12
+  br i1 %62, label %.critedge, label %.thread.i, !llvm.loop !13
 
 .critedge:                                        ; preds = %_Z32textFileFormatYypop_buffer_statePv.exit, %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit, %42, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %42 ], [ null, %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit ], [ %58, %_Z32textFileFormatYypop_buffer_statePv.exit ]
@@ -5231,4 +5231,5 @@ attributes #37 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!12 = !{}
+!13 = distinct !{!13, !5}

@@ -37612,7 +37612,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noundef !4
   br label %11
 
 7:                                                ; preds = %2
@@ -37662,7 +37662,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noundef !4
   br label %11
 
 7:                                                ; preds = %2
@@ -37711,7 +37711,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noundef !4
   br label %11
 
 7:                                                ; preds = %2
@@ -37760,7 +37760,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noundef !4
   br label %11
 
 7:                                                ; preds = %2
@@ -37810,7 +37810,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noundef !4
   br label %11
 
 7:                                                ; preds = %2
@@ -37860,7 +37860,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noundef !4
   br label %11
 
 7:                                                ; preds = %2
@@ -37910,7 +37910,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noundef !4
   br label %11
 
 7:                                                ; preds = %2
@@ -37960,7 +37960,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noundef !4
   br label %11
 
 7:                                                ; preds = %2
@@ -38010,7 +38010,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noundef !4
   br label %11
 
 7:                                                ; preds = %2
@@ -38060,7 +38060,7 @@ define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..it
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !noundef !4
   br label %11
 
 7:                                                ; preds = %2

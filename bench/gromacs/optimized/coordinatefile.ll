@@ -2665,7 +2665,6 @@ define void @_ZN3gmx21TrajectoryFrameWriter20prepareAndWriteFrameEiRK10t_trxfram
 22:                                               ; preds = %6
   %23 = sub nuw nsw i64 %13, %20
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %23)
-  %.pre30.pre31.pre = load i32, ptr %8, align 8, !tbaa !234
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 24:                                               ; preds = %6
@@ -2682,17 +2681,17 @@ define void @_ZN3gmx21TrajectoryFrameWriter20prepareAndWriteFrameEiRK10t_trxfram
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %22, %24, %26, %28
-  %.pre30.pre31 = phi i32 [ %.pre30.pre31.pre, %22 ], [ %12, %24 ], [ %12, %26 ], [ %12, %28 ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %30 = load i8, ptr %29, align 8, !tbaa !237, !range !238, !noundef !239
   %31 = trunc nuw i8 %30 to i1
+  %.pre30.pre31 = load i32, ptr %8, align 8
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4200
   %34 = sext i32 %.pre30.pre31 to i64
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %34)
-  %.pre30.pre = load i32, ptr %8, align 8, !tbaa !234
+  %.pre30.pre = load i32, ptr %8, align 8
   br label %35
 
 35:                                               ; preds = %32, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
@@ -2706,8 +2705,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %22, %24, %26, %28
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4224
   %41 = sext i32 %.pre30 to i64
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %41)
-  %.pre = load i8, ptr %36, align 8, !tbaa !240, !range !238
-  %.pre29 = load i32, ptr %8, align 8, !tbaa !234
+  %.pre = load i8, ptr %36, align 8, !range !238
+  %.pre29 = load i32, ptr %8, align 8
   br label %42
 
 42:                                               ; preds = %39, %35

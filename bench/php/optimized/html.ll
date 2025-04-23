@@ -7073,7 +7073,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %38
   br i1 %cond.fr99, label %zend_parse_arg_bool_ex.exit..critedge_crit_edge, label %.thread109, !prof !68
 
 zend_parse_arg_bool_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_bool_ex.exit
-  %.pre = load i8, ptr %7, align 1, !tbaa !66, !range !72
+  %.pre = load i8, ptr %7, align 1, !tbaa !66, !range !72, !noundef !73
   br label %.critedge
 
 .thread109:                                       ; preds = %zend_parse_arg_bool_ex.exit, %zend_parse_arg_str_ex.exit, %zend_parse_arg_long_ex.exit, %zend_parse_arg_str_ex.exit94, %11
@@ -7167,7 +7167,7 @@ zend_parse_arg_long_ex.exit.thread:               ; preds = %18
 
 zend_parse_arg_long_ex.exit:                      ; preds = %18
   %24 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %19, ptr noundef nonnull %4, i32 noundef 2) #19
-  br i1 %24, label %zend_parse_arg_long_ex.exit..critedge_crit_edge, label %.thread70, !prof !73
+  br i1 %24, label %zend_parse_arg_long_ex.exit..critedge_crit_edge, label %.thread70, !prof !74
 
 zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long_ex.exit
   %.pre = load i64, ptr %4, align 8, !tbaa !4
@@ -8277,7 +8277,7 @@ define internal fastcc range(i32 -1, 1) i32 @map_from_unicode(i32 noundef %0, i3
   %24 = ashr exact i64 %23, 2
   %25 = sdiv i64 %24, 2
   %26 = getelementptr inbounds %struct.uni_to_enc, ptr %.01725.i, i64 %25
-  %27 = load i16, ptr %26, align 2, !tbaa !74
+  %27 = load i16, ptr %26, align 2, !tbaa !75
   %28 = zext i16 %27 to i32
   %29 = icmp slt i32 %0, %28
   br i1 %29, label %30, label %32
@@ -8302,7 +8302,7 @@ define internal fastcc range(i32 -1, 1) i32 @map_from_unicode(i32 noundef %0, i3
 
 unimap_bsearch.exit:                              ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 2
-  %38 = load i8, ptr %37, align 2, !tbaa !76
+  %38 = load i8, ptr %37, align 2, !tbaa !77
   %.not78 = icmp eq i8 %38, 0
   br i1 %.not78, label %unimap_bsearch.exit.thread, label %39
 
@@ -8330,7 +8330,7 @@ unimap_bsearch.exit:                              ; preds = %32
   %49 = ashr exact i64 %48, 2
   %50 = sdiv i64 %49, 2
   %51 = getelementptr inbounds %struct.uni_to_enc, ptr %.01725.i83, i64 %50
-  %52 = load i16, ptr %51, align 2, !tbaa !74
+  %52 = load i16, ptr %51, align 2, !tbaa !75
   %53 = zext i16 %52 to i32
   %54 = icmp slt i32 %0, %53
   br i1 %54, label %55, label %57
@@ -8355,7 +8355,7 @@ unimap_bsearch.exit:                              ; preds = %32
 
 unimap_bsearch.exit89:                            ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 2
-  %63 = load i8, ptr %62, align 2, !tbaa !76
+  %63 = load i8, ptr %62, align 2, !tbaa !77
   %.not77 = icmp eq i8 %63, 0
   br i1 %.not77, label %unimap_bsearch.exit.thread, label %64
 
@@ -8396,7 +8396,7 @@ unimap_bsearch.exit89:                            ; preds = %57
   %79 = ashr exact i64 %78, 2
   %80 = sdiv i64 %79, 2
   %81 = getelementptr inbounds %struct.uni_to_enc, ptr %.01725.i91, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !74
+  %82 = load i16, ptr %81, align 2, !tbaa !75
   %83 = zext i16 %82 to i32
   %84 = icmp slt i32 %0, %83
   br i1 %84, label %85, label %87
@@ -8421,7 +8421,7 @@ unimap_bsearch.exit89:                            ; preds = %57
 
 unimap_bsearch.exit97:                            ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %81, i64 2
-  %93 = load i8, ptr %92, align 2, !tbaa !76
+  %93 = load i8, ptr %92, align 2, !tbaa !77
   %.not = icmp eq i8 %93, 0
   br i1 %.not, label %unimap_bsearch.exit.thread, label %94
 
@@ -8583,7 +8583,8 @@ attributes #23 = { noreturn nounwind }
 !70 = !{!"branch_weights", i32 1, i32 4000, i32 1}
 !71 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
 !72 = !{i8 0, i8 2}
-!73 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!74 = !{!75, !22, i64 0}
-!75 = !{!"", !22, i64 0, !6, i64 2}
-!76 = !{!75, !6, i64 2}
+!73 = !{}
+!74 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!75 = !{!76, !22, i64 0}
+!76 = !{!"", !22, i64 0, !6, i64 2}
+!77 = !{!76, !6, i64 2}

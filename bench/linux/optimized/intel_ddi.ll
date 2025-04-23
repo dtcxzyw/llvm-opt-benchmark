@@ -448,9 +448,9 @@ define dso_local void @intel_ddi_set_dp_msa(ptr noundef %0, ptr noundef %1) loca
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.thread3, label %47, !prof !7
+  br i1 %45, label %.thread2, label %47, !prof !7
 
-.thread3:                                         ; preds = %42
+.thread2:                                         ; preds = %42
   %46 = or disjoint i32 %38, 8
   br label %61
 
@@ -476,17 +476,16 @@ define dso_local void @intel_ddi_set_dp_msa(ptr noundef %0, ptr noundef %1) loca
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 419, i32 2313, i64 12) #14, !srcloc !41
   tail call void asm sideeffect "939: nop\0A\09.pushsection .discard.instr_end\0A\09.long 939b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 939) #14, !srcloc !42
   tail call void asm sideeffect "940: nop\0A\09.pushsection .discard.instr_end\0A\09.long 940b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 940) #14, !srcloc !43
-  %.pre = load i8, ptr %39, align 4, !range !37
-  %.pre.fr = freeze i8 %.pre
-  %59 = icmp eq i8 %.pre.fr, 0
+  %.pre = load i8, ptr %39, align 4, !range !37, !noundef !38
+  %59 = icmp eq i8 %.pre, 0
   %60 = or disjoint i32 %38, 8
   br i1 %59, label %.thread, label %61
 
 .thread:                                          ; preds = %37, %57
   br label %61
 
-61:                                               ; preds = %.thread3, %57, %.thread
-  %62 = phi i32 [ %38, %.thread ], [ %60, %57 ], [ %46, %.thread3 ]
+61:                                               ; preds = %.thread2, %57, %.thread
+  %62 = phi i32 [ %38, %.thread ], [ %60, %57 ], [ %46, %.thread2 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 2

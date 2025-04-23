@@ -100,8 +100,8 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
           to label %.noexc3 unwind label %37
 
 .noexc3:                                          ; preds = %27
-  %.pre.i.i = load i64, ptr %20, align 8
-  %.pre = load ptr, ptr %10, align 8
+  %.pre.i.i = load i64, ptr %20, align 8, !noundef !3
+  %.pre = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2813d92712d12179E.exit.i"
 
 28:                                               ; preds = %.noexc
@@ -328,7 +328,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2813d92712d12179
 
 18:                                               ; preds = %9
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h55ac8100598f2ecdE"(ptr nonnull align 8 %0, i64 %13, i64 %11)
-  %.pre = load i64, ptr %12, align 8
+  %.pre = load i64, ptr %12, align 8, !noundef !3
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h8a219221f1f2d983E.exit": ; preds = %9, %18
@@ -388,7 +388,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h82cc00910141d6a4
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf651c1b5f921f230E.exit_crit_edge" unwind label %31
 
 "._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf651c1b5f921f230E.exit_crit_edge": ; preds = %19
-  %.pre = load i64, ptr %13, align 8
+  %.pre = load i64, ptr %13, align 8, !noundef !3
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf651c1b5f921f230E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf651c1b5f921f230E.exit": ; preds = %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf651c1b5f921f230E.exit_crit_edge", %10
@@ -466,7 +466,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hd60bade151dc9335
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha3346fd714ae426cE.exit_crit_edge" unwind label %31
 
 "._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha3346fd714ae426cE.exit_crit_edge": ; preds = %19
-  %.pre = load i64, ptr %13, align 8
+  %.pre = load i64, ptr %13, align 8, !noundef !3
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha3346fd714ae426cE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha3346fd714ae426cE.exit": ; preds = %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha3346fd714ae426cE.exit_crit_edge", %10
@@ -786,7 +786,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
 
 18:                                               ; preds = %9
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h55ac8100598f2ecdE"(ptr nonnull align 8 %0, i64 %13, i64 %11)
-  %.pre.i = load i64, ptr %12, align 8
+  %.pre.i = load i64, ptr %12, align 8, !noundef !3
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2813d92712d12179E.exit"
 
 19:                                               ; preds = %2

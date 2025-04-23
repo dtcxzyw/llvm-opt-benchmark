@@ -10658,9 +10658,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i64 %341, ptr %354, align 1
   %.pre645 = load ptr, ptr %251, align 8, !tbaa !869
   %.pre646 = load i64, ptr %252, align 8, !tbaa !870
-  %.pre647 = load i8, ptr %254, align 1, !tbaa !872, !range !352
-  %.pre647.fr = freeze i8 %.pre647
-  %355 = trunc i8 %.pre647.fr to i1
+  %.pre647 = load i8, ptr %254, align 1, !tbaa !872, !range !352, !noundef !353
+  %355 = trunc nuw i8 %.pre647 to i1
   store ptr %.pre645, ptr %24, align 8, !tbaa !386
   store i64 %.pre646, ptr %274, align 8, !tbaa !310
   %356 = add i64 %.pre646, -8
@@ -10722,9 +10721,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i64 %374, ptr %385, align 1
   %.pre648 = load ptr, ptr %263, align 8, !tbaa !869
   %.pre649 = load i64, ptr %264, align 8, !tbaa !870
-  %.pre650 = load i8, ptr %266, align 1, !tbaa !872, !range !352
-  %.pre650.fr = freeze i8 %.pre650
-  %386 = trunc i8 %.pre650.fr to i1
+  %.pre650 = load i8, ptr %266, align 1, !tbaa !872, !range !352, !noundef !353
+  %386 = trunc nuw i8 %.pre650 to i1
   store ptr %.pre648, ptr %25, align 8, !tbaa !386
   store i64 %.pre649, ptr %275, align 8, !tbaa !310
   %387 = add i64 %.pre649, -8
@@ -10734,7 +10732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 388:                                              ; preds = %376, %.thread664
   %389 = phi ptr [ %375, %.thread664 ], [ %.pre648, %376 ]
   %390 = phi i64 [ %363, %.thread664 ], [ %spec.select671, %376 ]
-  %.pre651.pre = load i8, ptr %243, align 8, !tbaa !435, !range !352
+  %.pre651.pre = load i8, ptr %243, align 8, !tbaa !435, !range !352, !noundef !353
   %391 = trunc nuw i8 %.pre651.pre to i1
   br label %392
 
@@ -24097,7 +24095,7 @@ _ZN7rocksdb11InternalKey24SetMinPossibleForUserKeyERKNS_5SliceE.exit: ; preds = 
 
 _ZN7rocksdb11InternalKey24SetMinPossibleForUserKeyERKNS_5SliceE.exit168: ; preds = %338
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #33
-  %.pre = load i8, ptr %335, align 8, !tbaa !435, !range !352
+  %.pre = load i8, ptr %335, align 8, !tbaa !435, !range !352, !noundef !353
   %.pre264 = trunc nuw i8 %.pre to i1
   %343 = select i1 %.pre264, ptr %26, ptr null
   br label %344
@@ -39804,7 +39802,7 @@ _ZN7rocksdb16ClippingIterator21EnforceUpperBoundImplENS_14IterBoundCheckE.exit.t
   br label %38
 
 _ZN7rocksdb16ClippingIterator21EnforceUpperBoundImplENS_14IterBoundCheckE.exit: ; preds = %21
-  %.pre = load i8, ptr %14, align 8, !tbaa !890, !range !352
+  %.pre = load i8, ptr %14, align 8, !tbaa !890, !range !352, !noundef !353
   %37 = trunc nuw i8 %.pre to i1
   br i1 %37, label %_ZN7rocksdb16ClippingIterator21EnforceUpperBoundImplENS_14IterBoundCheckE.exit.thread, label %38
 

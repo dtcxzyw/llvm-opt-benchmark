@@ -13353,8 +13353,8 @@ define hidden void @"_ZN81_$LT$alloc..vec..splice..Splice$LT$I$C$A$GT$$u20$as$u2
           to label %._crit_edge unwind label %37
 
 ._crit_edge:                                      ; preds = %75
-  %.pre = load ptr, ptr %42, align 8, !alias.scope !6578
-  %.pre11 = load ptr, ptr %43, align 8, !alias.scope !6581, !noalias !6586
+  %.pre = load ptr, ptr %42, align 8, !alias.scope !6578, !noundef !4
+  %.pre11 = load ptr, ptr %43, align 8, !alias.scope !6581, !noalias !6586, !noundef !4
   br label %44
 }
 

@@ -17871,10 +17871,12 @@ rb_obj_written.exit:                              ; preds = %251, %268
   %447 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %448 = load ptr, ptr %447, align 8, !tbaa !517
   tail call fastcc void @pm_compile_node(ptr noundef %0, ptr noundef %448, ptr noundef %2, i1 noundef zeroext false, ptr noundef %4)
+  %.pre2296 = load i32, ptr %6, align 8
+  %.pre2297 = load i32, ptr %31, align 4
   br i1 %3, label %455, label %449
 
 449:                                              ; preds = %446
-  %450 = tail call fastcc noundef ptr @new_insn_core(ptr noundef %0, i32 noundef %30, i32 noundef %33, i32 noundef 40, i32 noundef 0, ptr noundef null)
+  %450 = tail call fastcc noundef ptr @new_insn_core(ptr noundef %0, i32 noundef %.pre2296, i32 noundef %.pre2297, i32 noundef 40, i32 noundef 0, ptr noundef null)
   %451 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %452 = load ptr, ptr %451, align 8, !tbaa !7
   %453 = getelementptr inbounds nuw i8, ptr %450, i64 16
@@ -17890,7 +17892,7 @@ rb_obj_written.exit:                              ; preds = %251, %268
   %458 = tail call fastcc i64 @pm_constant_id_lookup(ptr noundef %4, i32 noundef %457)
   %459 = tail call i64 @rb_id2sym(i64 noundef %458) #38
   %460 = tail call fastcc i64 @get_cvar_ic_value(ptr noundef %0, i64 noundef %458)
-  %461 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %30, i32 noundef %33, i32 noundef 11, i32 noundef 2, i64 noundef %459, i64 noundef %460)
+  %461 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %.pre2296, i32 noundef %.pre2297, i32 noundef 11, i32 noundef 2, i64 noundef %459, i64 noundef %460)
   %462 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %463 = load ptr, ptr %462, align 8, !tbaa !7
   %464 = getelementptr inbounds nuw i8, ptr %461, i64 16
@@ -18790,10 +18792,12 @@ rb_obj_write.exit:                                ; preds = %754, %ISEQ_COMPILE_
   %932 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %933 = load ptr, ptr %932, align 8, !tbaa !550
   tail call fastcc void @pm_compile_node(ptr noundef %0, ptr noundef %933, ptr noundef %2, i1 noundef zeroext false, ptr noundef %4)
+  %.pre2294 = load i32, ptr %6, align 8
+  %.pre2295 = load i32, ptr %31, align 4
   br i1 %3, label %940, label %934
 
 934:                                              ; preds = %931
-  %935 = tail call fastcc noundef ptr @new_insn_core(ptr noundef %0, i32 noundef %30, i32 noundef %33, i32 noundef 40, i32 noundef 0, ptr noundef null)
+  %935 = tail call fastcc noundef ptr @new_insn_core(ptr noundef %0, i32 noundef %.pre2294, i32 noundef %.pre2295, i32 noundef 40, i32 noundef 0, ptr noundef null)
   %936 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %937 = load ptr, ptr %936, align 8, !tbaa !7
   %938 = getelementptr inbounds nuw i8, ptr %935, i64 16
@@ -18808,7 +18812,7 @@ rb_obj_write.exit:                                ; preds = %754, %ISEQ_COMPILE_
   %942 = load i32, ptr %941, align 8, !tbaa !552
   %943 = tail call fastcc i64 @pm_constant_id_lookup(ptr noundef %4, i32 noundef %942)
   %944 = tail call i64 @rb_id2sym(i64 noundef %943) #38
-  %945 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %30, i32 noundef %33, i32 noundef 16, i32 noundef 1, i64 noundef %944)
+  %945 = tail call ptr (ptr, i32, i32, i32, i32, ...) @new_insn_body(ptr noundef %0, i32 noundef %.pre2294, i32 noundef %.pre2295, i32 noundef 16, i32 noundef 1, i64 noundef %944)
   %946 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %947 = load ptr, ptr %946, align 8, !tbaa !7
   %948 = getelementptr inbounds nuw i8, ptr %945, i64 16
@@ -19335,8 +19339,8 @@ rb_obj_write.exit:                                ; preds = %754, %ISEQ_COMPILE_
   %1260 = getelementptr inbounds nuw i8, ptr %1258, i64 8
   store ptr %1257, ptr %1260, align 8, !tbaa !36
   store ptr %1257, ptr %1254, align 8, !tbaa !7
-  %.pre2330 = load i32, ptr %6, align 8, !tbaa !469
-  %.pre2331 = load i32, ptr %31, align 4, !tbaa !472
+  %.pre2330 = load i32, ptr %6, align 8
+  %.pre2331 = load i32, ptr %31, align 4
   br label %1263
 
 1261:                                             ; preds = %1250
@@ -20089,10 +20093,12 @@ rb_obj_written.exit2000:                          ; preds = %pm_scope_node_destr
   %1661 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %1662 = load ptr, ptr %1661, align 8, !tbaa !609
   tail call fastcc void @pm_compile_node(ptr noundef %0, ptr noundef %1662, ptr noundef %2, i1 noundef zeroext false, ptr noundef %4)
+  %.pre2285 = load i32, ptr %6, align 8
+  %.pre2286 = load i32, ptr %31, align 4
   br i1 %3, label %1669, label %1663
 
 1663:                                             ; preds = %1660
-  %1664 = tail call fastcc noundef ptr @new_insn_core(ptr noundef %0, i32 noundef %30, i32 noundef %33, i32 noundef 40, i32 noundef 0, ptr noundef null)
+  %1664 = tail call fastcc noundef ptr @new_insn_core(ptr noundef %0, i32 noundef %.pre2285, i32 noundef %.pre2286, i32 noundef 40, i32 noundef 0, ptr noundef null)
   %1665 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1666 = load ptr, ptr %1665, align 8, !tbaa !7
   %1667 = getelementptr inbounds nuw i8, ptr %1664, i64 16
@@ -20111,7 +20117,7 @@ rb_obj_written.exit2000:                          ; preds = %pm_scope_node_destr
   %.sroa.0171.0.extract.trunc = trunc i64 %1674 to i32
   %.sroa.4172.0.extract.shift = lshr i64 %1674, 32
   %.sroa.4172.0.extract.trunc = trunc nuw i64 %.sroa.4172.0.extract.shift to i32
-  tail call fastcc void @pm_iseq_add_setlocal(ptr noundef %0, ptr noundef %2, i32 noundef %30, i32 noundef %33, i32 noundef %.sroa.0171.0.extract.trunc, i32 noundef %.sroa.4172.0.extract.trunc)
+  tail call fastcc void @pm_iseq_add_setlocal(ptr noundef %0, ptr noundef %2, i32 noundef %.pre2285, i32 noundef %.pre2286, i32 noundef %.sroa.0171.0.extract.trunc, i32 noundef %.sroa.4172.0.extract.trunc)
   br label %.critedge1881
 
 1675:                                             ; preds = %107

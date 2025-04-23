@@ -131,7 +131,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce
   %.sroa.0.sroa.6.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.pre = load i64, ptr %2, align 8, !noalias !37
+  %.pre = load i64, ptr %2, align 8, !noalias !37, !noundef !16
   %.val.i.i.i = load ptr, ptr %1, align 8, !noalias !40, !nonnull !16, !align !17, !noundef !16
   %22 = getelementptr i8, ptr %.val.i.i.i, i64 8
   br label %23
@@ -163,9 +163,9 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hce
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !44
   %35 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %.pre.pre.i.i.i.i.i.i = load ptr, ptr %35, align 8, !alias.scope !47, !noalias !50
+  %.pre.pre.i.i.i.i.i.i = load ptr, ptr %35, align 8, !alias.scope !47, !noalias !50, !nonnull !16, !noundef !16
   %36 = getelementptr inbounds nuw i8, ptr %.pre.pre.i.i.i.i.i.i, i64 160
-  %37 = load ptr, ptr %36, align 8, !noalias !55
+  %37 = load ptr, ptr %36, align 8, !noalias !55, !nonnull !16, !noundef !16
   %38 = load i64, ptr %37, align 8, !range !56, !noalias !55, !noundef !16
   %trunc.i.i.i.i.i.i.i = trunc nuw i64 %38 to i1
   br i1 %trunc.i.i.i.i.i.i.i, label %39, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17hb263535dda5d37e3E.exit.thread.i.i.i.i.i.i
@@ -406,7 +406,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
           to label %._crit_edge.i.i.i.i.i.i.i.i unwind label %129, !noalias !97
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %128
-  %.pre.i.i.i.i.i.i.i.i = load i64, ptr %124, align 8, !alias.scope !94, !noalias !97
+  %.pre.i.i.i.i.i.i.i.i = load i64, ptr %124, align 8, !alias.scope !94, !noalias !97, !noundef !16
   br label %133
 
 129:                                              ; preds = %128
@@ -575,17 +575,16 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.12123109310310187846.exit
 
 "_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.i.i": ; preds = %.noexc7.i.i.i.i.i.i, %.noexc5.i.i.i.i.i.i, %150, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i.i.i.i.i.i, %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17ha7e34addecafb921E.exit.i.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !62
-  %.pre.i.i.i.i.i = load i64, ptr %10, align 8, !range !56, !noalias !44
-  %.pre.i.i.i.fr.i.i = freeze i64 %.pre.i.i.i.i.i
-  %.not.i.i = icmp eq i64 %.pre.i.i.i.fr.i.i, 0
+  %.pre.i.i.i.i.i = load i64, ptr %10, align 8, !range !56, !noalias !44, !noundef !16
+  %.not.i.i = icmp eq i64 %.pre.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !44
-  %.pre94 = load i64, ptr %2, align 8, !noalias !37
+  %.pre94 = load i64, ptr %2, align 8, !noalias !37, !noundef !16
   br i1 %.not.i.i, label %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.i.i._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h69165de91c83bcfbE.exit_crit_edge", label %179
 
 "_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.i.i._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h69165de91c83bcfbE.exit_crit_edge": ; preds = %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.i.i"
-  %.pre95 = load ptr, ptr %12, align 8, !alias.scope !34
-  %.pre96 = load ptr, ptr %0, align 8, !alias.scope !34
+  %.pre95 = load ptr, ptr %12, align 8, !alias.scope !34, !nonnull !16, !noundef !16
+  %.pre96 = load ptr, ptr %0, align 8, !alias.scope !34, !nonnull !16, !noundef !16
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h69165de91c83bcfbE.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h69165de91c83bcfbE.exit": ; preds = %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.i.i._ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h69165de91c83bcfbE.exit_crit_edge", %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.thread.i.i"

@@ -1301,7 +1301,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h1df388d751b6a139E(ptr no
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i.pre = load i64, ptr %5, align 8, !alias.scope !133, !noalias !136
+  %.val.i.pre = load i64, ptr %5, align 8, !alias.scope !133, !noalias !136, !noundef !7
   br label %7
 
 7:                                                ; preds = %.lr.ph, %20
@@ -1321,7 +1321,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h1df388d751b6a139E(ptr no
 
 11:                                               ; preds = %.lr.ph.split.us.i.i
   tail call void @_ZN5bytes9bytes_mut8BytesMut13reserve_inner17h32ec46cc31f523baE(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0.sroa.speculated.i.i), !noalias !144
-  %.pre.i.us.i.i = load i64, ptr %5, align 8, !alias.scope !139, !noalias !144
+  %.pre.i.us.i.i = load i64, ptr %5, align 8, !alias.scope !139, !noalias !144, !noundef !7
   br label %12
 
 12:                                               ; preds = %11, %.lr.ph.split.us.i.i
@@ -1370,7 +1370,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17h10b1225c49bd4acbE(ptr no
           to label %19 unwind label %17
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %5, align 8, !noundef !7
   %.not = icmp eq ptr %10, null
   br i1 %6, label %11, label %12
 
@@ -1430,7 +1430,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17hb8c286a7d630952bE(ptr no
           to label %19 unwind label %17
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %5, align 8, !noundef !7
   %.not = icmp eq ptr %10, null
   br i1 %6, label %11, label %12
 
@@ -5159,7 +5159,7 @@ define internal fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream11connect_mio28_
 
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !985, !noalias !990
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !985, !noalias !990, !nonnull !7, !align !25, !noundef !7
   br label %24
 
 default.unreachable37:                            ; preds = %3
@@ -14531,7 +14531,7 @@ common.ret:                                       ; preds = %297, %159, %85
 89:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.077)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !20, !noalias !2778
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !20, !noalias !2778, !noundef !7
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -14757,7 +14757,7 @@ common.ret:                                       ; preds = %297, %159, %85
 
 164:                                              ; preds = %3
   %.phi.trans.insert131 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.pre132 = load i8, ptr %.phi.trans.insert131, align 8, !range !236, !noalias !2825
+  %.pre132 = load i8, ptr %.phi.trans.insert131, align 8, !range !236, !noalias !2825, !noundef !7
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 88
   switch i8 %.pre132, label %default.unreachable133 [
@@ -14863,7 +14863,7 @@ common.ret:                                       ; preds = %297, %159, %85
 198:                                              ; preds = %164
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.0.sroa.8.i)
   %.phi.trans.insert99.i = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %.pre.i = load i8, ptr %.phi.trans.insert99.i, align 8, !range !20, !noalias !2837
+  %.pre.i = load i8, ptr %.phi.trans.insert99.i, align 8, !range !20, !noalias !2837, !noundef !7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !2825
   switch i8 %.pre.i, label %default.unreachable133 [
     i8 0, label %199
@@ -14977,7 +14977,7 @@ common.ret:                                       ; preds = %297, %159, %85
 .body.i:                                          ; preds = %.invoke.i
   %234 = landingpad { ptr, i32 }
           cleanup
-  %.pr.i = load i8, ptr %.phi.trans.insert99.i, align 8, !noalias !2825
+  %.pr.i = load i8, ptr %.phi.trans.insert99.i, align 8, !range !20, !noalias !2825, !noundef !7
   %cond.i40.i = icmp eq i8 %.pr.i, 3
   br i1 %cond.i40.i, label %287, label %"_ZN4core3ptr98drop_in_place$LT$tokio..net..tcp..stream..TcpStream..connect_addr..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha9c958c9f3a9146aE.exit42.i"
 
@@ -15328,7 +15328,7 @@ define hidden void @"_ZN95_$LT$awc..any_body..AnyBody$LT$B$GT$$u20$as$u20$actix_
     i64 2, label %14
   ]
 
-default.unreachable15:                            ; preds = %3
+default.unreachable15:                            ; preds = %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit", %3
   unreachable
 
 9:                                                ; preds = %3
@@ -15390,21 +15390,18 @@ default.unreachable13.i:                          ; preds = %14
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8, !invariant.load !7, !noalias !2893, !nonnull !7
   call void %27(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %4, ptr noundef nonnull align 1 %23, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !2878
-  %.pr.pre = load i64, ptr %4, align 8, !alias.scope !2894, !noalias !2897
+  %.pr.pre = load i64, ptr %4, align 8, !range !196, !alias.scope !2894, !noalias !2897, !noundef !7
   br label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
 
 "_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit": ; preds = %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i", %22
   %.pr = phi i64 [ %.pr14, %"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..result..Result$LT$T$C$E$GT$$GT$$GT$7map_err17h5932f6a338462a96E.exit.i" ], [ %.pr.pre, %22 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2897)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2894)
-  switch i64 %.pr, label %default.unreachable9.i [
+  switch i64 %.pr, label %default.unreachable15 [
     i64 2, label %28
     i64 0, label %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit.thread"
     i64 1, label %29
   ]
-
-default.unreachable9.i:                           ; preds = %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
-  unreachable
 
 28:                                               ; preds = %"_ZN96_$LT$actix_http..body..boxed..BoxBody$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb2260de9f08011aaE.exit"
   store i64 2, ptr %0, align 8, !alias.scope !2897, !noalias !2894

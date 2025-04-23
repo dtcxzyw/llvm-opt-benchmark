@@ -523,28 +523,27 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   unreachable
 
 .thread.i:                                        ; preds = %.noexc.i
-  %.pre.i.i = load i64, ptr %10, align 8, !alias.scope !76, !noalias !79
-  %.pre.i.fr.i = freeze i64 %.pre.i.i
-  %.pre67.i.i = tail call i64 @llvm.umax.i64(i64 %.pre.i.fr.i, i64 3)
-  %83 = icmp ugt i64 %.pre.i.fr.i, 3
+  %.pre.i.i = load i64, ptr %10, align 8, !alias.scope !76, !noalias !79, !noundef !4
+  %.pre67.i.i = tail call i64 @llvm.umax.i64(i64 %.pre.i.i, i64 3)
+  %83 = icmp ugt i64 %.pre.i.i, 3
   %84 = load ptr, ptr %74, align 8, !alias.scope !76, !noalias !79, !nonnull !4
-  %spec.select = select i1 %83, ptr %84, ptr %74
-  %spec.select26 = select i1 %83, ptr %.sroa.gep.i, ptr %10
-  %.pre = load i64, ptr %spec.select26, align 8, !alias.scope !73, !noalias !70
+  %spec.select.i = select i1 %83, ptr %84, ptr %74
+  %spec.select35.i = select i1 %83, ptr %.sroa.gep.i, ptr %10
+  %.pre = load i64, ptr %spec.select35.i, align 8, !alias.scope !73, !noalias !70, !noundef !4
   %85 = icmp ult i64 %.pre, %.pre67.i.i
   br i1 %85, label %.lr.ph.i.i.preheader, label %._crit_edge.i.i
 
 .lr.ph.i.i.preheader:                             ; preds = %68, %.thread.i
-  %86 = phi ptr [ %spec.select26, %.thread.i ], [ %10, %68 ]
-  %.sink.i.pre-phi.i2731.i40 = phi i64 [ %.pre67.i.i, %.thread.i ], [ 3, %68 ]
-  %87 = phi ptr [ %spec.select, %.thread.i ], [ %74, %68 ]
+  %86 = phi ptr [ %spec.select35.i, %.thread.i ], [ %10, %68 ]
+  %.sink.i.pre-phi.i2628.i39 = phi i64 [ %.pre67.i.i, %.thread.i ], [ 3, %68 ]
+  %87 = phi ptr [ %spec.select.i, %.thread.i ], [ %74, %68 ]
   %88 = phi i64 [ %.pre, %.thread.i ], [ 0, %68 ]
   br label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i", %.thread.i
-  %89 = phi ptr [ %spec.select26, %.thread.i ], [ %86, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
+  %89 = phi ptr [ %spec.select35.i, %.thread.i ], [ %86, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
   %.sroa.0.0.lcssa.i.i = phi ptr [ %70, %.thread.i ], [ %93, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
-  %storemerge.lcssa.i.i = phi i64 [ %.pre, %.thread.i ], [ %.sink.i.pre-phi.i2731.i40, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
+  %storemerge.lcssa.i.i = phi i64 [ %.pre, %.thread.i ], [ %.sink.i.pre-phi.i2628.i39, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
   store i64 %storemerge.lcssa.i.i, ptr %89, align 8, !alias.scope !73, !noalias !70
   %90 = icmp eq ptr %.sroa.0.0.lcssa.i.i, %73
   br i1 %90, label %.loopexit, label %.lr.ph59.i.i
@@ -625,7 +624,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
 
 .noexc7.i:                                        ; preds = %120
   %121 = load ptr, ptr %74, align 8, !alias.scope !96, !noalias !97, !nonnull !4, !noundef !4
-  %.pre.i.i.i = load i64, ptr %.sroa.gep.i, align 8, !alias.scope !96, !noalias !97
+  %.pre.i.i.i = load i64, ptr %.sroa.gep.i, align 8, !alias.scope !96, !noalias !97, !noundef !4
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17hea7531dbe75b9998E.exit.i.i"
 
 "_ZN8smallvec17SmallVec$LT$A$GT$4push17hea7531dbe75b9998E.exit.i.i": ; preds = %.noexc7.i, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit20.i.i"
@@ -644,7 +643,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   %127 = getelementptr inbounds ptr, ptr %87, i64 %storemerge55.i.i
   store ptr %94, ptr %127, align 8, !noalias !70
   %128 = add i64 %storemerge55.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %128, %.sink.i.pre-phi.i2731.i40
+  %exitcond.not.i.i = icmp eq i64 %128, %.sink.i.pre-phi.i2628.i39
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 129:                                              ; preds = %.lr.ph.i.i
@@ -1120,7 +1119,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
           to label %._crit_edge unwind label %80, !noalias !200
 
 ._crit_edge:                                      ; preds = %75
-  %.pre = load ptr, ptr %37, align 8, !alias.scope !197, !noalias !200
+  %.pre = load ptr, ptr %37, align 8, !alias.scope !197, !noalias !200, !nonnull !4, !noundef !4
   br label %76
 
 76:                                               ; preds = %._crit_edge, %.loopexit
@@ -1497,7 +1496,7 @@ common.resume:                                    ; preds = %9, %46, %21
 51:                                               ; preds = %41
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %42, ptr %52, align 8
-  %.pre = load ptr, ptr %35, align 8, !alias.scope !266
+  %.pre = load ptr, ptr %35, align 8, !alias.scope !266, !nonnull !4, !noundef !4
   br label %43
 
 53:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$serde_json..value..de..SeqDeserializer$GT$17hf81549cea9e4ab8fE.exit", %"_ZN4core3ptr59drop_in_place$LT$serde_json..value..de..SeqDeserializer$GT$17hf81549cea9e4ab8fE.exit6"
@@ -2523,7 +2522,7 @@ define internal void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !align !23, !noundef !4
   %4 = load ptr, ptr %3, align 8, !invariant.load !4
   %.not = icmp eq ptr %4, null
-  %.val.pre = load ptr, ptr %0, align 8
+  %.val.pre = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %1
@@ -7691,7 +7690,7 @@ _ZN10serde_json5value5Value3get17hf5fee1d1804b9f0bE.exit: ; preds = %138
   %290 = load ptr, ptr %113, align 8, !alias.scope !1063, !nonnull !4, !align !23, !noundef !4
   %291 = load ptr, ptr %290, align 8, !invariant.load !4, !noalias !1063
   %.not.i.i = icmp eq ptr %291, null
-  %.pre.i.i = load ptr, ptr %23, align 8, !alias.scope !1064
+  %.pre.i.i = load ptr, ptr %23, align 8, !alias.scope !1064, !nonnull !4, !noundef !4
   br i1 %.not.i.i, label %293, label %292
 
 292:                                              ; preds = %"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h1f34c016db5e33a4E.exit"

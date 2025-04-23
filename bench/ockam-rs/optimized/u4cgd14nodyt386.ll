@@ -1247,7 +1247,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %74
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %395, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !277
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.015.i, i64 24, i1 false), !noalias !281
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.015.i)
-  %.pr = load ptr, ptr %28, align 8, !alias.scope !282
+  %.pr = load ptr, ptr %28, align 8, !alias.scope !282, !noundef !4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
@@ -2450,7 +2450,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %78
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %399, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !561
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false), !noalias !565
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
-  %.pr = load ptr, ptr %32, align 8, !alias.scope !566
+  %.pr = load ptr, ptr %32, align 8, !alias.scope !566, !noundef !4
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
@@ -10021,7 +10021,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN72_$LT$ockam_co
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 368
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.sroa.4.0.i.ph.sink.i.ph.i.i
   %35 = add i64 %.sroa.3.0.i.i, -1
-  %.sroa.0.0.i.pre.i = load ptr, ptr %34, align 8, !noalias !1895
+  %.sroa.0.0.i.pre.i = load ptr, ptr %34, align 8, !noalias !1895, !nonnull !4, !noundef !4
   br label %11
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h45acae854d9f9f65E.llvm.3189713146689755573.exit": ; preds = %31, %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i.i", %2
@@ -10111,7 +10111,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN72_$LT$ockam_co
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 368
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.sroa.4.0.i.ph.sink.i.ph.i.i
   %35 = add i64 %.sroa.3.0.i.i, -1
-  %.sroa.0.0.i.pre.i = load ptr, ptr %34, align 8, !noalias !1925
+  %.sroa.0.0.i.pre.i = load ptr, ptr %34, align 8, !noalias !1925, !nonnull !4, !noundef !4
   br label %11
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hd97e0d95233fc6b0E.llvm.3189713146689755573.exit": ; preds = %31, %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i.i", %2
@@ -10201,7 +10201,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN72_$LT$ockam_co
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 368
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.sroa.4.0.i.ph.sink.i.ph.i.i
   %35 = add i64 %.sroa.3.0.i.i, -1
-  %.sroa.0.0.i.pre.i = load ptr, ptr %34, align 8, !noalias !1955
+  %.sroa.0.0.i.pre.i = load ptr, ptr %34, align 8, !noalias !1955, !nonnull !4, !noundef !4
   br label %11
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h916fe63a8ac4987cE.llvm.3189713146689755573.exit": ; preds = %31, %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i.i", %2
@@ -10279,7 +10279,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN72_$LT$ockam_co
   %.1.i.i.i.i.i = phi i8 [ %.0.i.i.i.i.i.i.i, %27 ], [ 1, %25 ]
   switch i8 %.1.i.i.i.i.i, label %default.unreachable.i.i.i.i [
     i8 -1, label %33
-    i8 0, label %38
+    i8 0, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h72f2260156d56018E.exit"
     i8 1, label %17
   ]
 
@@ -10292,15 +10292,11 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN72_$LT$ockam_co
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 1072
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.sroa.4.0.i.ph.sink.i.ph.i.i
   %37 = add i64 %.sroa.3.0.i.i, -1
-  %.sroa.0.0.i.pre.i = load ptr, ptr %36, align 8, !noalias !1985
+  %.sroa.0.0.i.pre.i = load ptr, ptr %36, align 8, !noalias !1985, !nonnull !4, !noundef !4
   br label %11
 
-38:                                               ; preds = %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i.i"
-  %39 = icmp ne ptr %.sroa.0.0.i.i, null
-  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h72f2260156d56018E.exit"
-
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h72f2260156d56018E.exit": ; preds = %33, %2, %38
-  %.0.i = phi i1 [ false, %2 ], [ %39, %38 ], [ false, %33 ]
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h72f2260156d56018E.exit": ; preds = %33, %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i.i", %2
+  %.0.i = phi i1 [ false, %2 ], [ true, %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i.i" ], [ false, %33 ]
   ret i1 %.0.i
 }
 
@@ -10357,7 +10353,7 @@ default.unreachable.i.i.i.i:                      ; preds = %18
   %.0.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i, i64 0)
   switch i8 %.0.i.i.i.i.i.i.i, label %default.unreachable.i.i.i.i [
     i8 -1, label %26
-    i8 0, label %31
+    i8 0, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hc370e61749646af7E.llvm.3189713146689755573.exit"
     i8 1, label %16
   ]
 
@@ -10370,15 +10366,11 @@ default.unreachable.i.i.i.i:                      ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 1512
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.sroa.4.0.i.ph.sink.i.ph.i.i
   %30 = add i64 %.sroa.3.0.i.i, -1
-  %.sroa.0.0.i.pre.i = load ptr, ptr %29, align 8, !noalias !2004
+  %.sroa.0.0.i.pre.i = load ptr, ptr %29, align 8, !noalias !2004, !nonnull !4, !noundef !4
   br label %10
 
-31:                                               ; preds = %18
-  %32 = icmp ne ptr %.sroa.0.0.i.i, null
-  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hc370e61749646af7E.llvm.3189713146689755573.exit"
-
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hc370e61749646af7E.llvm.3189713146689755573.exit": ; preds = %26, %2, %31
-  %.0.i = phi i1 [ false, %2 ], [ %32, %31 ], [ false, %26 ]
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hc370e61749646af7E.llvm.3189713146689755573.exit": ; preds = %26, %18, %2
+  %.0.i = phi i1 [ false, %2 ], [ true, %18 ], [ false, %26 ]
   ret i1 %.0.i
 }
 
@@ -10448,7 +10440,7 @@ default.unreachable.i.i.i.i:                      ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 1424
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.sroa.4.0.i.ph.sink.i.ph.i.i
   %30 = add i64 %.sroa.3.0.i.i, -1
-  %.sroa.0.0.i.pre.i = load ptr, ptr %29, align 8, !noalias !2023
+  %.sroa.0.0.i.pre.i = load ptr, ptr %29, align 8, !noalias !2023, !nonnull !4, !noundef !4
   br label %10
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hc01eb19b78fc0508E.llvm.3189713146689755573.exit": ; preds = %26, %18, %2
@@ -10523,7 +10515,7 @@ default.unreachable.i.i.i:                        ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 1512
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %41 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %40, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
   br label %19
 
 42:                                               ; preds = %4
@@ -10790,7 +10782,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 984
   %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %45 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %44, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
   br label %21
 
 46:                                               ; preds = %3
@@ -11033,7 +11025,7 @@ default.unreachable.i.i.i:                        ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 1424
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %41 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %40, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
   br label %19
 
 42:                                               ; preds = %4
@@ -11300,7 +11292,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 1072
   %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %47 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %46, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
   br label %21
 
 48:                                               ; preds = %3
@@ -11567,7 +11559,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 376
   %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %43 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %42, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %42, align 8, !nonnull !4, !noundef !4
   br label %19
 
 44:                                               ; preds = %3
@@ -12373,7 +12365,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 376
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %35 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %34, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   br label %11
 
 36:                                               ; preds = %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i"
@@ -12466,7 +12458,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 984
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %35 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %34, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   br label %11
 
 36:                                               ; preds = %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i"
@@ -12559,7 +12551,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 368
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %35 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %34, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   br label %11
 
 36:                                               ; preds = %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i"
@@ -12652,7 +12644,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 1072
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %37 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %36, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %36, align 8, !nonnull !4, !noundef !4
   br label %11
 
 38:                                               ; preds = %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i"
@@ -12722,7 +12714,7 @@ default.unreachable.i.i.i:                        ; preds = %17
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 544
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %31 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %30, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   br label %9
 
 32:                                               ; preds = %17
@@ -12793,7 +12785,7 @@ default.unreachable.i.i.i:                        ; preds = %17
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 1512
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %31 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %30, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   br label %9
 
 32:                                               ; preds = %17
@@ -12885,7 +12877,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 368
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %35 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %34, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   br label %11
 
 36:                                               ; preds = %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i"
@@ -12955,7 +12947,7 @@ default.unreachable.i.i.i:                        ; preds = %17
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 544
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %31 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %30, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   br label %9
 
 32:                                               ; preds = %17
@@ -13032,7 +13024,7 @@ default.unreachable.i.i.i:                        ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 1424
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %30 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %29, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   br label %10
 
 31:                                               ; preds = %18
@@ -13109,7 +13101,7 @@ default.unreachable.i.i.i:                        ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 1512
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %30 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %29, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   br label %10
 
 31:                                               ; preds = %18
@@ -13179,7 +13171,7 @@ default.unreachable.i.i.i:                        ; preds = %17
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 1424
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %31 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %30, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   br label %9
 
 32:                                               ; preds = %17
@@ -13272,7 +13264,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN72_$LT$ockam_co
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 368
   %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %35 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %34, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %34, align 8, !nonnull !4, !noundef !4
   br label %11
 
 36:                                               ; preds = %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i"
@@ -13349,7 +13341,7 @@ default.unreachable.i.i.i:                        ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 544
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %30 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %29, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   br label %10
 
 31:                                               ; preds = %18
@@ -17391,7 +17383,7 @@ default.unreachable.i.i.i:                        ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 544
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.sroa.4.0.i.ph.sink.i.ph.i
   %30 = add i64 %.sroa.3.0.i, -1
-  %.sroa.0.0.i.pre = load ptr, ptr %29, align 8
+  %.sroa.0.0.i.pre = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   br label %10
 
 31:                                               ; preds = %18
@@ -42466,7 +42458,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
 
 ._crit_edge164:                                   ; preds = %113
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %103, i64 362
-  %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !8933
+  %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !8933, !noundef !4
   %.pre170 = add nuw nsw i64 %121, 1
   %.pre172 = add nuw nsw i64 %.pre170, %101
   %138 = icmp samesign ult i64 %.pre172, 12
@@ -42986,7 +42978,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
 
 ._crit_edge161:                                   ; preds = %115
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %105, i64 978
-  %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !9028
+  %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !9028, !noundef !4
   %.pre167 = add nuw nsw i64 %123, 1
   %.pre169 = add nuw nsw i64 %.pre167, %103
   %140 = icmp samesign ult i64 %.pre169, 12
@@ -43508,7 +43500,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
 
 ._crit_edge161:                                   ; preds = %113
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %103, i64 1418
-  %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !9125
+  %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !9125, !noundef !4
   %.pre167 = add nuw nsw i64 %121, 1
   %.pre169 = add nuw nsw i64 %.pre167, %102
   %138 = icmp samesign ult i64 %.pre169, 12
@@ -44033,7 +44025,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
 
 ._crit_edge161:                                   ; preds = %115
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %105, i64 1506
-  %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !9222
+  %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !9222, !noundef !4
   %.pre167 = add nuw nsw i64 %123, 1
   %.pre169 = add nuw nsw i64 %.pre167, %103
   %140 = icmp samesign ult i64 %.pre169, 12
@@ -44557,7 +44549,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
 
 ._crit_edge161:                                   ; preds = %115
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %105, i64 1066
-  %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !9319
+  %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !9319, !noundef !4
   %.pre167 = add nuw nsw i64 %123, 1
   %.pre169 = add nuw nsw i64 %.pre167, %103
   %140 = icmp samesign ult i64 %.pre169, 12
@@ -46549,7 +46541,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc
 
 "._ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i_crit_edge": ; preds = %6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.0.080.i, i64 406
-  %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !9753
+  %.pre = load i16, ptr %.phi.trans.insert, align 2, !noalias !9753, !noundef !4
   %.pre212 = zext i16 %.pre to i64
   br label %"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$22find_upper_bound_index17hf5be7070d4c5c575E.exit.i"
 

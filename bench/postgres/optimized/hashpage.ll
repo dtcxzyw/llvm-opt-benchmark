@@ -1732,7 +1732,7 @@ BufferGetPage.exit158:                            ; preds = %33, %39
 
 70:                                               ; preds = %66
   %71 = call ptr @hash_search(ptr noundef nonnull %6, ptr noundef %69, i32 noundef 0, ptr noundef nonnull %13) #10
-  %.pre = load i8, ptr %13, align 1, !range !9
+  %.pre = load i8, ptr %13, align 1, !range !9, !noundef !10
   %72 = trunc nuw i8 %.pre to i1
   br i1 %72, label %147, label %.thread
 
@@ -1838,7 +1838,7 @@ log_split_page.exit:                              ; preds = %89, %99, %102, %Buf
   call void @pfree(ptr noundef %127) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %log_split_page.exit
   %128 = icmp eq i32 %.1129186, %5
@@ -1882,7 +1882,7 @@ BufferGetPage.exit160:                            ; preds = %137, %131, %76
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #10
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond206 = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
-  br i1 %exitcond206, label %._crit_edge190, label %60, !llvm.loop !11
+  br i1 %exitcond206, label %._crit_edge190, label %60, !llvm.loop !12
 
 ._crit_edge190:                                   ; preds = %147, %50
   %.1149.lcssa = phi i64 [ %.0148, %50 ], [ %.2150, %147 ]
@@ -1996,7 +1996,7 @@ log_split_page.exit163:                           ; preds = %154, %164, %167, %B
   call void @pfree(ptr noundef %196) #10
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next208, %wide.trip.count210
-  br i1 %exitcond211.not, label %._crit_edge197, label %.lr.ph196, !llvm.loop !12
+  br i1 %exitcond211.not, label %._crit_edge197, label %.lr.ph196, !llvm.loop !13
 
 _hash_getbuf.exit:                                ; preds = %153
   %197 = call i32 @ReadBuffer(ptr noundef %0, i32 noundef %149) #10
@@ -2474,6 +2474,7 @@ attributes #10 = { nounwind }
 !7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !8 = distinct !{!8, !6}
 !9 = !{i8 0, i8 2}
-!10 = distinct !{!10, !6}
+!10 = !{}
 !11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

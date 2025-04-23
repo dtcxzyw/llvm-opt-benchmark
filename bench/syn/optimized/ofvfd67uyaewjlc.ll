@@ -1867,7 +1867,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9c777569984e97c6E.ll
           to label %._crit_edge unwind label %15
 
 ._crit_edge:                                      ; preds = %7
-  %.pre = load i64, ptr %3, align 8
+  %.pre = load i64, ptr %3, align 8, !noundef !9
   br label %8
 
 8:                                                ; preds = %._crit_edge, %2
@@ -1910,7 +1910,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda47dacd8d7b1d66E.ll
           to label %._crit_edge unwind label %15
 
 ._crit_edge:                                      ; preds = %7
-  %.pre = load i64, ptr %3, align 8
+  %.pre = load i64, ptr %3, align 8, !noundef !9
   br label %8
 
 8:                                                ; preds = %._crit_edge, %2
@@ -2925,7 +2925,7 @@ common.resume:                                    ; preds = %.body16, %39
           to label %._crit_edge.i unwind label %53, !noalias !563
 
 ._crit_edge.i:                                    ; preds = %52
-  %.pre.i = load i64, ptr %15, align 8, !alias.scope !560, !noalias !563
+  %.pre.i = load i64, ptr %15, align 8, !alias.scope !560, !noalias !563, !noundef !9
   br label %86
 
 53:                                               ; preds = %52
@@ -2955,7 +2955,7 @@ common.resume:                                    ; preds = %.body16, %39
           to label %._crit_edge.i14 unwind label %62, !noalias !568
 
 ._crit_edge.i14:                                  ; preds = %61
-  %.pre.i15 = load i64, ptr %15, align 8, !alias.scope !565, !noalias !568
+  %.pre.i15 = load i64, ptr %15, align 8, !alias.scope !565, !noalias !568, !noundef !9
   br label %122
 
 62:                                               ; preds = %61
@@ -2984,7 +2984,7 @@ common.resume:                                    ; preds = %.body16, %39
           to label %._crit_edge.i19 unwind label %71, !noalias !573
 
 ._crit_edge.i19:                                  ; preds = %70
-  %.pre.i20 = load i64, ptr %15, align 8, !alias.scope !570, !noalias !573
+  %.pre.i20 = load i64, ptr %15, align 8, !alias.scope !570, !noalias !573, !noundef !9
   br label %128
 
 71:                                               ; preds = %70
@@ -3013,7 +3013,7 @@ common.resume:                                    ; preds = %.body16, %39
           to label %._crit_edge.i24 unwind label %80, !noalias !578
 
 ._crit_edge.i24:                                  ; preds = %79
-  %.pre.i25 = load i64, ptr %15, align 8, !alias.scope !575, !noalias !578
+  %.pre.i25 = load i64, ptr %15, align 8, !alias.scope !575, !noalias !578, !noundef !9
   br label %134
 
 80:                                               ; preds = %79
@@ -3066,7 +3066,7 @@ common.resume:                                    ; preds = %.body16, %39
           to label %._crit_edge.i29 unwind label %99, !noalias !583
 
 ._crit_edge.i29:                                  ; preds = %98
-  %.pre.i30 = load i64, ptr %15, align 8, !alias.scope !580, !noalias !583
+  %.pre.i30 = load i64, ptr %15, align 8, !alias.scope !580, !noalias !583, !noundef !9
   br label %103
 
 99:                                               ; preds = %98
@@ -3233,7 +3233,7 @@ define { ptr, i64 } @_ZN3syn6buffer11TokenBuffer4new217h48194ea9d898e805E(ptr no
           to label %._crit_edge.i unwind label %16, !noalias !589
 
 ._crit_edge.i:                                    ; preds = %15
-  %.pre.i = load i64, ptr %7, align 8, !alias.scope !586, !noalias !589
+  %.pre.i = load i64, ptr %7, align 8, !alias.scope !586, !noalias !589, !noundef !9
   br label %20
 
 16:                                               ; preds = %15
@@ -3430,7 +3430,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit: ; preds = %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit.i, %.lr.ph.i, %4
   %.sroa.0.0.ph = phi ptr [ %1, %4 ], [ %.0.i.i.i, %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit.i ], [ %.sroa.0.1, %.lr.ph.i ]
-  %.pr = load i32, ptr %.sroa.0.0.ph, align 8
+  %.pr = load i32, ptr %.sroa.0.0.ph, align 8, !range !233, !noundef !9
   %16 = icmp eq i32 %.pr, 0
   br i1 %16, label %17, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.thread
 
@@ -3658,7 +3658,7 @@ define void @_ZN3syn6buffer6Cursor5ident17he943c8405b28ecffE(ptr noalias noundef
   br i1 %8, label %.preheader.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge: ; preds = %.lr.ph.i
-  %.pr.pre = load i32, ptr %.sroa.03.0, align 8
+  %.pr.pre = load i32, ptr %.sroa.03.0, align 8, !range !233, !noundef !9
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
@@ -3770,7 +3770,7 @@ define void @_ZN3syn6buffer6Cursor5punct17h6386474329364b2bE(ptr noalias noundef
   br i1 %8, label %.preheader.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge: ; preds = %.lr.ph.i
-  %.pr.pre = load i32, ptr %.sroa.0.0, align 8
+  %.pr.pre = load i32, ptr %.sroa.0.0, align 8, !range !233, !noundef !9
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
@@ -3849,7 +3849,7 @@ define void @_ZN3syn6buffer6Cursor7literal17h56201320c761e7bfE(ptr noalias nound
   br i1 %8, label %.preheader.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge: ; preds = %.lr.ph.i
-  %.pr.pre = load i32, ptr %.sroa.03.0, align 8
+  %.pr.pre = load i32, ptr %.sroa.03.0, align 8, !range !233, !noundef !9
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
@@ -3973,7 +3973,7 @@ define void @_ZN3syn6buffer6Cursor8lifetime17h948d1028d054f195E(ptr noalias noun
   br i1 %8, label %.preheader.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge: ; preds = %.lr.ph.i
-  %.pr.pre = load i32, ptr %.sroa.0.025, align 8
+  %.pr.pre = load i32, ptr %.sroa.0.025, align 8, !range !233, !noundef !9
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
@@ -4032,7 +4032,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %30, label %.preheader.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !noalias !669
+  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !range !233, !noalias !669, !noundef !9
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -4186,7 +4186,7 @@ define void @_ZN3syn6buffer6Cursor12token_stream17h9818ff55ed48daccE(ptr noalias
           to label %._crit_edge.i unwind label %23, !noalias !691
 
 ._crit_edge.i:                                    ; preds = %22
-  %.pre.i = load i64, ptr %10, align 8, !alias.scope !688, !noalias !691
+  %.pre.i = load i64, ptr %10, align 8, !alias.scope !688, !noalias !691, !noundef !9
   br label %27
 
 23:                                               ; preds = %22
@@ -4606,13 +4606,13 @@ _ZN3syn6buffer15start_of_buffer17h3566870b5d6554ddE.llvm.1271834235494842624.exi
   br i1 %13, label %.outer, label %14
 
 thread-pre-split:                                 ; preds = %_ZN3syn6buffer15start_of_buffer17h3566870b5d6554ddE.llvm.1271834235494842624.exit
-  %.pr = load i32, ptr %0, align 8
+  %.pr = load i32, ptr %0, align 8, !range !233, !noundef !9
   br label %14
 
 14:                                               ; preds = %thread-pre-split, %10
   %15 = phi i32 [ %.pr, %thread-pre-split ], [ %12, %10 ]
   %.sroa.0.0 = phi ptr [ %0, %thread-pre-split ], [ %11, %10 ]
-  switch i32 %15, label %default.unreachable10.i [
+  switch i32 %15, label %default.unreachable27 [
     i32 0, label %16
     i32 1, label %21
     i32 2, label %27
@@ -4620,7 +4620,7 @@ thread-pre-split:                                 ; preds = %_ZN3syn6buffer15sta
     i32 4, label %36
   ]
 
-default.unreachable10.i:                          ; preds = %14
+default.unreachable27:                            ; preds = %.backedge, %14
   unreachable
 
 16:                                               ; preds = %14
@@ -4673,9 +4673,6 @@ default.unreachable10.i:                          ; preds = %14
 
 .backedge.backedge:                               ; preds = %.backedge, %.backedge, %.backedge
   br label %.backedge
-
-default.unreachable27:                            ; preds = %.backedge
-  unreachable
 
 40:                                               ; preds = %.backedge
   %41 = add i32 %.016.ph, -1
@@ -5439,7 +5436,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread: ; preds 
   %31 = load ptr, ptr %1, align 8, !noundef !9
   %32 = load ptr, ptr %24, align 8, !noundef !9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
-  %.pr.i.i = load i32, ptr %31, align 8, !noalias !865
+  %.pr.i.i = load i32, ptr %31, align 8, !range !233, !noalias !865, !noundef !9
   %33 = icmp eq i32 %.pr.i.i, 0
   br i1 %33, label %34, label %_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i
 
@@ -5646,7 +5643,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %119, label %.lr.ph.i.i.i.i, label %.loopexit
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i.i.pre.i = load i32, ptr %.sroa.0.1.i.i.i, align 8, !noalias !880
+  %.pr.i.i.pre.i = load i32, ptr %.sroa.0.1.i.i.i, align 8, !range !233, !noalias !880, !noundef !9
   %120 = icmp eq i32 %.pr.i.i.pre.i, 0
   br i1 %120, label %121, label %.loopexit
 
@@ -5748,12 +5745,12 @@ _ZN3syn6buffer6Cursor6create17h6f60e92346255650E.llvm.1271834235494842624.exit.i
   %.0 = phi i1 [ false, %282 ], [ true, %.invoke ]
   %151 = landingpad { ptr, i32 }
           cleanup
-  %.pr = load i64, ptr %20, align 8
+  %.pr = load i64, ptr %20, align 8, !range !148, !noundef !9
   %152 = icmp eq i64 %.pr, 10
   br i1 %152, label %307, label %308
 
 .thread:                                          ; preds = %306
-  %.pr206 = load i64, ptr %20, align 8
+  %.pr206 = load i64, ptr %20, align 8, !range !148, !noundef !9
   %153 = icmp eq i64 %.pr206, 10
   br i1 %153, label %.thread210, label %308
 
@@ -6977,7 +6974,7 @@ define hidden void @"_ZN3syn4path7parsing40_$LT$impl$u20$syn..path..PathSegment$
           to label %.thread78 unwind label %91
 
 80:                                               ; preds = %62
-  %.pr = load i64, ptr %5, align 8
+  %.pr = load i64, ptr %5, align 8, !range !247, !noundef !9
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.7.i)
   %81 = icmp eq i64 %.pr, -9223372036854775808
   br i1 %81, label %83, label %82
@@ -7894,7 +7891,7 @@ define void @"_ZN3syn4path8printing83_$LT$impl$u20$quote..to_tokens..ToTokens$u2
 "_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he730bea79b5c8608E.exit.i": ; preds = %45
   call void @llvm.experimental.noalias.scope.decl(metadata !1145)
   call void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0bd7fbea79f4e4bfE.llvm.14145919710250835280"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %44), !noalias !1146
-  %.pre.i = load i64, ptr %4, align 8, !range !545, !noalias !1130
+  %.pre.i = load i64, ptr %4, align 8, !range !545, !noalias !1130, !noundef !9
   %49 = trunc nuw i64 %.pre.i to i1
   br i1 %49, label %50, label %"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17hfd1bf7c2b1aab611E.exit"
 
@@ -8244,7 +8241,7 @@ define void @"_ZN3syn4path8printing78_$LT$impl$u20$quote..to_tokens..ToTokens$u2
 "_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he730bea79b5c8608E.exit.i": ; preds = %12
   call void @llvm.experimental.noalias.scope.decl(metadata !1231)
   call void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h0bd7fbea79f4e4bfE.llvm.14145919710250835280"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %11), !noalias !1232
-  %.pre.i = load i64, ptr %4, align 8, !range !545, !noalias !1216
+  %.pre.i = load i64, ptr %4, align 8, !range !545, !noalias !1216, !noundef !9
   %16 = trunc nuw i64 %.pre.i to i1
   br i1 %16, label %17, label %"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17hfd1bf7c2b1aab611E.exit"
 

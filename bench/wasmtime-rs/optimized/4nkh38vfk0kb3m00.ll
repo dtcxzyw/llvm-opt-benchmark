@@ -613,7 +613,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h1984568d7009a215E(ptr
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %12, ptr %6, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false)
-  %.pr = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8, !range !5, !noundef !3
   %.not = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not, label %.loopexit, label %13
 
@@ -691,7 +691,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h8eb6eab23af52047E(ptr
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store ptr %12, ptr %6, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 96, i1 false)
-  %.pr = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8, !range !6, !noundef !3
   %.not = icmp eq i64 %.pr, -9223372036854775807
   br i1 %.not, label %.loopexit, label %13
 
@@ -769,7 +769,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h90378c46cdcd587cE(ptr
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store ptr %12, ptr %6, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %9, i64 88, i1 false)
-  %.pr = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8, !range !7, !noundef !3
   %.not = icmp eq i64 %.pr, -9223372036854775799
   br i1 %.not, label %.loopexit, label %13
 
@@ -847,7 +847,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17he60e5c1b252bac5fE(ptr
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store ptr %12, ptr %6, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(88) %9, i64 88, i1 false)
-  %.pr = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8, !range !8, !noundef !3
   %.not = icmp eq i64 %.pr, -9223372036854775800
   br i1 %.not, label %.loopexit, label %13
 
@@ -1176,3 +1176,7 @@ attributes #13 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 8}
+!5 = !{i64 0, i64 -9223372036854775807}
+!6 = !{i64 0, i64 -9223372036854775806}
+!7 = !{i64 0, i64 -9223372036854775798}
+!8 = !{i64 0, i64 -9223372036854775799}

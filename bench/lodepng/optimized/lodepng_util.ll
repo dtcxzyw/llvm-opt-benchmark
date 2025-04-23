@@ -6151,12 +6151,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL7getChrmEPfS0_jP
   %.pre66.i = load float, ptr %.phi.trans.insert65.i, align 4, !tbaa !79
   %.pre67.i = load float, ptr %13, align 16, !tbaa !79
   %.phi.trans.insert68.i = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %.pre69.i = load float, ptr %.phi.trans.insert68.i, align 4, !tbaa !79
+  %.pre69.i = load float, ptr %.phi.trans.insert68.i, align 4
   %.phi.trans.insert70.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.pre71.i = load float, ptr %.phi.trans.insert70.i, align 8, !tbaa !79
+  %.pre71.i = load float, ptr %.phi.trans.insert70.i, align 8
   %.phi.trans.insert72.i = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %.pre73.i = load float, ptr %.phi.trans.insert72.i, align 4, !tbaa !79
-  %.pre74.i = load float, ptr %14, align 16, !tbaa !79
+  %.pre73.i = load float, ptr %.phi.trans.insert72.i, align 4
+  %.pre74.i = load float, ptr %14, align 16
   %.pre75.i = fpext float %.pre.i to double
   %.pre76.i = fpext float %.pre62.i to double
   %.pre78.i = fpext float %.pre64.i to double

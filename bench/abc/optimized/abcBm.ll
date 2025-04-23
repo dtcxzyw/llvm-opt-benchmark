@@ -11930,7 +11930,7 @@ Abc_Clock.exit367:                                ; preds = %Abc_Clock.exit365, 
   %215 = add nsw i32 %.0, 1
   %.1 = select i1 %or.cond, i32 0, i32 %215
   %.not303 = icmp eq i32 %211, %212
-  %.pre464.pre = load i32, ptr %8, align 4, !tbaa !34
+  %.pre464.pre = load i32, ptr %8, align 4
   br i1 %.not303, label %216, label %220
 
 216:                                              ; preds = %._crit_edge417

@@ -60,18 +60,18 @@ _ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i: ; preds = %11
   br i1 %20, label %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i, label %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i
 
 _ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i: ; preds = %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i
-  %.pre10.i.i.i = load i8, ptr %5, align 1, !tbaa !16, !range !18
+  %.pre10.i.i.i = load i8, ptr %5, align 1, !tbaa !16, !range !18, !noundef !19
   %21 = trunc nuw i8 %.pre10.i.i.i to i1
   br label %_ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit
 
 _ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i: ; preds = %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.i.i.i
-  %.pre.i.i.i = load double, ptr %4, align 8, !tbaa !19
+  %.pre.i.i.i = load double, ptr %4, align 8, !tbaa !20
   br label %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i
 
 _ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i: ; preds = %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i, %11
   %22 = phi double [ %.pre.i.i.i, %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread_crit_edge.i.i.i ], [ %16, %11 ]
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !20
+  %24 = load ptr, ptr %23, align 8, !tbaa !21
   br label %25
 
 25:                                               ; preds = %31, %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i
@@ -81,7 +81,7 @@ _ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i: ; preds
   %28 = call noundef i64 %24(i64 noundef %.pre)
   %29 = and i64 %28, 4294967295
   %.not.i.i.i.i.i = icmp eq i64 %29, %27
-  br i1 %.not.i.i.i.i.i, label %31, label %.thread.i.i.i.i.i, !prof !21
+  br i1 %.not.i.i.i.i.i, label %31, label %.thread.i.i.i.i.i, !prof !22
 
 .thread.i.i.i.i.i:                                ; preds = %25
   %30 = icmp ult i64 %29, %27
@@ -93,7 +93,7 @@ _ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i: ; preds
   %34 = fsub double %.013.i.i.i.i.i, %33
   %35 = fmul double %34, 0x41F0000000000000
   %36 = fcmp une double %35, 0.000000e+00
-  br i1 %36, label %25, label %_ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit, !llvm.loop !22
+  br i1 %36, label %25, label %_ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit, !llvm.loop !23
 
 _ZN4absl12lts_202407229BernoulliIRNS0_9BitGenRefEEEbOT_d.exit: ; preds = %31, %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i, %.thread.i.i.i.i.i
   %37 = phi i1 [ %21, %_ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit._crit_edge.i.i.i ], [ %30, %.thread.i.i.i.i.i ], [ false, %31 ]
@@ -156,8 +156,9 @@ attributes #7 = { nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"bool", !6, i64 0}
 !18 = !{i8 0, i8 2}
-!19 = !{!11, !11, i64 0}
-!20 = !{!13, !14, i64 16}
-!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.mustprogress"}
+!19 = !{}
+!20 = !{!11, !11, i64 0}
+!21 = !{!13, !14, i64 16}
+!22 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}

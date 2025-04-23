@@ -43976,7 +43976,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %4 = load ptr, ptr %3, align 8, !tbaa !403
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not10.i.i.i = icmp eq ptr %4, null
-  %.pre = load i64, ptr %1, align 8, !tbaa !10
+  %.pre = load i64, ptr %1, align 8
   br i1 %.not10.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2, %.lr.ph.i.i.i
@@ -44489,7 +44489,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIlSaIlEE16_M_push_back_auxIJRKlEE
 
 43:                                               ; preds = %34
   tail call void @_ZNSt5dequeIlSaIlEE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !672
+  %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt5dequeIlSaIlEE22_M_reserve_map_at_backEm.exit
 
 _ZNSt5dequeIlSaIlEE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
@@ -44679,7 +44679,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx
 
 43:                                               ; preds = %34
   tail call void @_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !498
+  %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit
 
 _ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
@@ -44871,7 +44871,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx
 
 43:                                               ; preds = %34
   tail call void @_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !498
+  %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit
 
 _ZNSt5dequeINSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEEEESaIS5_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
@@ -45797,7 +45797,7 @@ _ZNSt6vectorINSt7__cxx119sub_matchIPKcEESaIS4_EEC2EmRKS4_RKS5_.exit: ; preds = %
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !1019
   %.pre7.i.i.i.i = load ptr, ptr %30, align 8, !tbaa !1018
-  %.pre8.i.i.i.i = load i8, ptr %31, align 8, !tbaa !1015, !range !219
+  %.pre8.i.i.i.i = load i8, ptr %31, align 8, !tbaa !1015, !range !219, !noundef !220
   br label %32
 
 32:                                               ; preds = %32, %.lr.ph.i.i.i.i
@@ -45840,7 +45840,7 @@ _ZSt24__uninitialized_fill_n_aIPNSt7__cxx119sub_matchIPKcEEmS4_S4_ET_S6_T0_RKT1_
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre.i.i.i.i15 = load ptr, ptr %2, align 8, !tbaa !1019
   %.pre7.i.i.i.i16 = load ptr, ptr %42, align 8, !tbaa !1018
-  %.pre8.i.i.i.i17 = load i8, ptr %43, align 8, !tbaa !1015, !range !219
+  %.pre8.i.i.i.i17 = load i8, ptr %43, align 8, !tbaa !1015, !range !219, !noundef !220
   br label %44
 
 44:                                               ; preds = %44, %.lr.ph.i.i.i.i14
@@ -49980,7 +49980,7 @@ _ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic
 .lr.ph.i.i.i.i:                                   ; preds = %29
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.pre.i.i.i.i = load i8, ptr %31, align 8, !tbaa !1097, !range !219
+  %.pre.i.i.i.i = load i8, ptr %31, align 8, !tbaa !1097, !range !219, !noundef !220
   br label %32
 
 32:                                               ; preds = %32, %.lr.ph.i.i.i.i
@@ -50023,7 +50023,7 @@ _ZSt24__uninitialized_fill_n_aIPNSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iter
   %43 = getelementptr inbounds nuw %"class.std::__cxx11::sub_match", ptr %6, i64 %1
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.pre.i.i.i.i15 = load i8, ptr %45, align 8, !tbaa !1097, !range !219
+  %.pre.i.i.i.i15 = load i8, ptr %45, align 8, !tbaa !1097, !range !219, !noundef !220
   br label %46
 
 46:                                               ; preds = %46, %.lr.ph.i.i.i.i14

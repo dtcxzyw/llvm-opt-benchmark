@@ -1288,7 +1288,7 @@ find_func.exit:                                   ; preds = %28
   %54 = load ptr, ptr %4, align 8, !tbaa !25
   %55 = call zeroext i1 @equal(ptr noundef %54, ptr noundef nonnull @.str.25) #13
   %56 = zext i1 %55 to i8
-  %.pre64.pre = load i8, ptr %41, align 2, !tbaa !54, !range !58
+  %.pre64.pre = load i8, ptr %41, align 2, !tbaa !54, !range !58, !noundef !59
   br label %57
 
 57:                                               ; preds = %53, %50
@@ -1329,7 +1329,7 @@ find_func.exit:                                   ; preds = %28
   %77 = load i8, ptr %76, align 1, !tbaa !76, !range !58, !noundef !59
   %78 = trunc nuw i8 %77 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !78, !range !58
+  %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !78, !range !58, !noundef !59
   br i1 %78, label %._crit_edge, label %79
 
 79:                                               ; preds = %59
@@ -30909,7 +30909,7 @@ string_initializer.exit:                          ; preds = %80, %64, %48, %42, 
   %105 = tail call ptr @array_of(ptr noundef %104, i32 noundef %101) #13
   %106 = tail call fastcc ptr @new_initializer(ptr noundef %105, i1 noundef zeroext false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %106, i64 56, i1 false), !tbaa.struct !195
-  %.pre64 = load i8, ptr %96, align 8, !tbaa !191, !range !58
+  %.pre64 = load i8, ptr %96, align 8, !tbaa !191, !range !58, !noundef !59
   %107 = trunc nuw i8 %.pre64 to i1
   br i1 %107, label %108, label %.thread69
 

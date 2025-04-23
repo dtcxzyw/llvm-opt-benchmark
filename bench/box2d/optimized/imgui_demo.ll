@@ -3218,7 +3218,7 @@ _ZN8ImVectorIP10MyDocumentE9push_backERKS1_.exit.i: ; preds = %279, %._ZN8ImVect
 
 323:                                              ; preds = %319
   tail call void @_ZN5ImGui16SetTabItemClosedEPKc(ptr noundef nonnull %.013.i.i)
-  %.pre.i101.i = load i8, ptr %316, align 4, !tbaa !20, !range !11
+  %.pre.i101.i = load i8, ptr %316, align 4, !tbaa !20, !range !11, !noundef !12
   br label %324
 
 324:                                              ; preds = %323, %319, %.lr.ph.i.i
@@ -22750,7 +22750,7 @@ _ZN12_GLOBAL__N_16MyItem17SortWithSortSpecsEP19ImGuiTableSortSpecsPS0_i.exit664:
 
 1833:                                             ; preds = %1830
   call void @_ZN5ImGui21TableAngledHeadersRowEv()
-  %.pre958 = load i8, ptr @_ZZL20ShowDemoWindowTablesvE12show_headers_0, align 1, !tbaa !29, !range !11
+  %.pre958 = load i8, ptr @_ZZL20ShowDemoWindowTablesvE12show_headers_0, align 1, !tbaa !29, !range !11, !noundef !12
   %1834 = trunc nuw i8 %.pre958 to i1
   br i1 %1834, label %.thread966, label %.thread967
 
@@ -26415,7 +26415,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313: ; preds = %807, %_ZN16ImGui
   %815 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %816 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %817 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %.pre121 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11use_clipper, align 1, !tbaa !29, !range !11
+  %.pre121 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11use_clipper, align 1, !tbaa !29, !range !11, !noundef !12
   %sext = sext i32 %788 to i64
   br label %.backedge
 
@@ -26436,9 +26436,8 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313: ; preds = %807, %_ZN16ImGui
   br i1 %822, label %.critedge, label %1008
 
 .critedge:                                        ; preds = %823
-  %.pre122 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11use_clipper, align 1, !tbaa !29, !range !11
-  %.pre122.fr = freeze i8 %.pre122
-  %.pre127 = trunc i8 %.pre122.fr to i1
+  %.pre122 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11use_clipper, align 1, !tbaa !29, !range !11, !noundef !12
+  %.pre127 = trunc nuw i8 %.pre122 to i1
   %824 = load i32, ptr %810, align 8
   %825 = load i32, ptr %811, align 4
   br i1 %.pre127, label %828, label %826
@@ -26450,7 +26449,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313: ; preds = %807, %_ZN16ImGui
 828:                                              ; preds = %826, %.critedge, %.thread
   %829 = phi i32 [ 0, %.thread ], [ %824, %.critedge ], [ 0, %826 ]
   %.pre-phi135139 = phi i1 [ false, %.thread ], [ true, %.critedge ], [ false, %826 ]
-  %830 = phi i8 [ 0, %.thread ], [ %.pre122.fr, %.critedge ], [ %.pre122.fr, %826 ]
+  %830 = phi i8 [ 0, %.thread ], [ %.pre122, %.critedge ], [ %.pre122, %826 ]
   %831 = phi i32 [ %820, %.thread ], [ %825, %.critedge ], [ %827, %826 ]
   %832 = icmp slt i32 %829, %831
   br i1 %832, label %.lr.ph73.preheader, label %._crit_edge74
@@ -26460,7 +26459,7 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit313: ; preds = %807, %_ZN16ImGui
   br label %.lr.ph73
 
 ._crit_edge74.loopexit:                           ; preds = %1006
-  %.pre123 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11use_clipper, align 1, !tbaa !29, !range !11
+  %.pre123 = load i8, ptr @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataE11use_clipper, align 1, !tbaa !29, !range !11, !noundef !12
   %.pre128 = trunc nuw i8 %.pre123 to i1
   br i1 %.pre128, label %.backedge.backedge, label %1008
 

@@ -72,8 +72,8 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %1)
   %20 = extractvalue { i64, i1 } %19, 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8, !alias.scope !11
-  %23 = load ptr, ptr %0, align 8, !alias.scope !11
+  %22 = load ptr, ptr %21, align 8, !alias.scope !11, !nonnull !7, !noundef !7
+  %23 = load ptr, ptr %0, align 8, !alias.scope !11, !nonnull !7, !noundef !7
   %24 = ptrtoint ptr %22 to i64
   br i1 %20, label %26, label %._crit_edge.i.i
 
@@ -124,8 +124,8 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   %49 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %38, i64 %36)
   %50 = extractvalue { i64, i1 } %49, 1
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %52 = load ptr, ptr %51, align 8, !alias.scope !20
-  %53 = load ptr, ptr %0, align 8, !alias.scope !20
+  %52 = load ptr, ptr %51, align 8, !alias.scope !20, !nonnull !7, !noundef !7
+  %53 = load ptr, ptr %0, align 8, !alias.scope !20, !nonnull !7, !noundef !7
   %54 = ptrtoint ptr %52 to i64
   br i1 %50, label %56, label %._crit_edge.i4.i
 
@@ -165,9 +165,7 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread8": ; preds = %11
   %67 = getelementptr inbounds i8, ptr %14, i64 %1
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
-  store ptr %68, ptr %0, align 8, !alias.scope !11
-  br label %71
+  br label %69
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread5": ; preds = %11, %31
   %storemerge.i.sink.i.i.ph = phi ptr [ %22, %31 ], [ %13, %11 ]
@@ -175,23 +173,22 @@ define hidden { i1, i8 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit": ; preds = %31
-  %69 = getelementptr inbounds i8, ptr %32, i64 %.05.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
-  store ptr %70, ptr %0, align 8, !alias.scope !11
-  %.not = icmp eq ptr %32, null
-  br i1 %.not, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread", label %71
+  %68 = getelementptr inbounds i8, ptr %32, i64 %.05.i.i
+  br label %69
 
-71:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread8", %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit"
-  %.0.ph.i.i11 = phi ptr [ %67, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread8" ], [ %69, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit" ]
-  %72 = load i8, ptr %.0.ph.i.i11, align 1, !noundef !7
+69:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit", %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread8"
+  %.pn = phi ptr [ %68, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit" ], [ %67, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread8" ]
+  %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 1
+  store ptr %storemerge, ptr %0, align 8, !alias.scope !11
+  %70 = load i8, ptr %.pn, align 1, !noundef !7
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread"
 
-"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread": ; preds = %26, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1e484e2d243b49a8E.exit18.i", %6, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread5", %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit", %71
-  %73 = phi i1 [ true, %71 ], [ false, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit" ], [ false, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread5" ], [ false, %6 ], [ false, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1e484e2d243b49a8E.exit18.i" ], [ false, %26 ]
-  %.sroa.3.0 = phi i8 [ %72, %71 ], [ undef, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit" ], [ undef, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread5" ], [ undef, %6 ], [ undef, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1e484e2d243b49a8E.exit18.i" ], [ undef, %26 ]
-  %74 = insertvalue { i1, i8 } poison, i1 %73, 0
-  %75 = insertvalue { i1, i8 } %74, i8 %.sroa.3.0, 1
-  ret { i1, i8 } %75
+"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread": ; preds = %26, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1e484e2d243b49a8E.exit18.i", %6, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread5", %69
+  %71 = phi i1 [ true, %69 ], [ false, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread5" ], [ false, %6 ], [ false, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1e484e2d243b49a8E.exit18.i" ], [ false, %26 ]
+  %.sroa.3.0 = phi i8 [ %70, %69 ], [ undef, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h32a5d8e30e22e347E.exit.thread5" ], [ undef, %6 ], [ undef, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h1e484e2d243b49a8E.exit18.i" ], [ undef, %26 ]
+  %72 = insertvalue { i1, i8 } poison, i1 %71, 0
+  %73 = insertvalue { i1, i8 } %72, i8 %.sroa.3.0, 1
+  ret { i1, i8 } %73
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite) uwtable

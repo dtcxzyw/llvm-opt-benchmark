@@ -2306,9 +2306,8 @@ _ZN11t_tabledataD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
 .thread370.i:                                     ; preds = %_ZN11t_tabledataD2Ev.exit
   %.phi.trans.insert.i = sext i32 %330 to i64
   %.phi.trans.insert392.i = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.phi.trans.insert.i, i32 1
-  %.pre.i = load i8, ptr %.phi.trans.insert392.i, align 8, !tbaa !114, !range !95
-  %.pre.fr.i = freeze i8 %.pre.i
-  %.pre396.i = trunc i8 %.pre.fr.i to i1
+  %.pre.i = load i8, ptr %.phi.trans.insert392.i, align 8, !tbaa !114, !range !95, !noundef !96
+  %.pre396.i = trunc nuw i8 %.pre.i to i1
   %421 = load double, ptr %289, align 8, !tbaa !118
   %422 = getelementptr inbounds [18 x %struct.t_tab_props], ptr @_ZL6tprops, i64 0, i64 %.phi.trans.insert.i
   br i1 %.pre396.i, label %423, label %424

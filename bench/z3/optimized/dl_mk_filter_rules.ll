@@ -2432,7 +2432,7 @@ _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %_ZN7obj_mapIN7datal
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.pre = load i8, ptr %39, align 8, !tbaa !315, !range !319
+  %.pre = load i8, ptr %39, align 8, !tbaa !315, !range !319, !noundef !320
   %45 = trunc nuw i8 %.pre to i1
   br i1 %45, label %52, label %._crit_edge.thread
 
@@ -2440,11 +2440,11 @@ _ZNK7datalog8rule_set13get_num_rulesEv.exit:      ; preds = %_ZN7obj_mapIN7datal
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %46 = load ptr, ptr %40, align 8, !tbaa !318
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
-  %48 = load ptr, ptr %47, align 8, !tbaa !320
+  %48 = load ptr, ptr %47, align 8, !tbaa !321
   tail call void @_ZN7datalog15mk_filter_rules7processEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %48)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !321
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !322
 
 ._crit_edge.thread:                               ; preds = %_ZN7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE5resetEv.exit, %_ZNK7datalog8rule_set13get_num_rulesEv.exit, %._crit_edge
   %49 = load ptr, ptr %38, align 8, !tbaa !220
@@ -2509,7 +2509,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 12:                                               ; preds = %10
   %13 = add nuw i64 %8, 1
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !322
+  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !323
 
 .noexc11:                                         ; preds = %12
   tail call void @_ZSt17__throw_bad_allocv() #21
@@ -3032,7 +3032,7 @@ define linkonce_odr hidden void @_ZN7datalog15mk_filter_rules10filter_keyD2Ev(pt
 .lr.ph.i.i:                                       ; preds = %1, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i
   %.06.i.i = phi ptr [ %17, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i ], [ %4, %1 ]
   %9 = load ptr, ptr %.06.i.i, align 8, !tbaa !259
-  %10 = load ptr, ptr %2, align 8, !tbaa !323
+  %10 = load ptr, ptr %2, align 8, !tbaa !324
   %.not.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i, label %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i, label %11
 
@@ -3051,7 +3051,7 @@ define linkonce_odr hidden void @_ZN7datalog15mk_filter_rules10filter_keyD2Ev(pt
 _ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i: ; preds = %16, %11, %.lr.ph.i.i
   %17 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %18 = icmp ult ptr %17, %8
-  br i1 %18, label %.lr.ph.i.i, label %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE13dec_range_refEPKPS0_S7_.exit.loopexit.i, !llvm.loop !324
+  br i1 %18, label %.lr.ph.i.i, label %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE13dec_range_refEPKPS0_S7_.exit.loopexit.i, !llvm.loop !325
 
 _ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE13dec_range_refEPKPS0_S7_.exit.loopexit.i: ; preds = %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !277
@@ -3132,7 +3132,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapIN7d
   br label %15
 
 15:                                               ; preds = %14, %3
-  %16 = load ptr, ptr %1, align 8, !tbaa !325
+  %16 = load ptr, ptr %1, align 8, !tbaa !326
   %17 = load ptr, ptr %16, align 8, !tbaa !276
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4, !tbaa !250
@@ -3157,7 +3157,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapIN7d
   %29 = xor i32 %28, %.056.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK14core_hashtableIN7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8get_hashERKS9_.exit, label %24, !llvm.loop !326
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK14core_hashtableIN7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8get_hashERKS9_.exit, label %24, !llvm.loop !327
 
 _ZNK14core_hashtableIN7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8get_hashERKS9_.exit: ; preds = %24, %15
   %.05.lcssa.i.i.i.i = phi i32 [ %19, %15 ], [ %29, %24 ]
@@ -3212,7 +3212,7 @@ _ZNK14core_hashtableIN7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_dec
   %52 = xor i32 %51, %.056.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit, label %47, !llvm.loop !326
+  br i1 %exitcond.not.i.i.i, label %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit, label %47, !llvm.loop !327
 
 _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit: ; preds = %47, %39
   %.05.lcssa.i.i.i = phi i32 [ %42, %39 ], [ %52, %47 ]
@@ -3237,7 +3237,7 @@ _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8
 
 60:                                               ; preds = %56, %57
   %.048 = phi ptr [ %.04982, %57 ], [ %.05081, %56 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.048, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !327
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.048, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !328
   %61 = load i32, ptr %4, align 4, !tbaa !218
   %62 = add i32 %61, 1
   store i32 %62, ptr %4, align 4, !tbaa !218
@@ -3248,7 +3248,7 @@ _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8
   %.1 = phi ptr [ %.04982, %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit ], [ %.05081, %.lr.ph ]
   %64 = getelementptr inbounds nuw i8, ptr %.05081, i64 16
   %.not = icmp eq ptr %64, %37
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !328
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !329
 
 .lr.ph86:                                         ; preds = %.preheader, %90
   %.285 = phi ptr [ %.3, %90 ], [ %.049.lcssa, %.preheader ]
@@ -3285,7 +3285,7 @@ _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8
   %79 = xor i32 %78, %.056.i.i.i62
   %indvars.iv.next.i.i.i63 = add nuw nsw i64 %indvars.iv.i.i.i61, 1
   %exitcond.not.i.i.i64 = icmp eq i64 %indvars.iv.next.i.i.i63, %wide.trip.count.i.i.i60
-  br i1 %exitcond.not.i.i.i64, label %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit66, label %74, !llvm.loop !326
+  br i1 %exitcond.not.i.i.i64, label %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit66, label %74, !llvm.loop !327
 
 _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit66: ; preds = %74, %66
   %.05.lcssa.i.i.i65 = phi i32 [ %69, %66 ], [ %79, %74 ]
@@ -3310,7 +3310,7 @@ _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8
 
 87:                                               ; preds = %83, %84
   %.0 = phi ptr [ %.285, %84 ], [ %.15184, %83 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !327
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !328
   %88 = load i32, ptr %4, align 4, !tbaa !218
   %89 = add i32 %88, 1
   store i32 %89, ptr %4, align 4, !tbaa !218
@@ -3321,7 +3321,7 @@ _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8
   %.3 = phi ptr [ %.285, %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit66 ], [ %.15184, %.lr.ph86 ]
   %91 = getelementptr inbounds nuw i8, ptr %.15184, i64 16
   %.not53 = icmp eq ptr %91, %35
-  br i1 %.not53, label %._crit_edge, label %.lr.ph86, !llvm.loop !329
+  br i1 %.not53, label %._crit_edge, label %.lr.ph86, !llvm.loop !330
 
 ._crit_edge:                                      ; preds = %90, %.preheader
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.4, i32 noundef 461, ptr noundef nonnull @.str.5)
@@ -3389,7 +3389,7 @@ _ZN14core_hashtableIN7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_decl
   %28 = xor i32 %27, %.056.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit.i, label %23, !llvm.loop !326
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit.i, label %23, !llvm.loop !327
 
 _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8get_hashEv.exit.i: ; preds = %23, %15
   %.05.lcssa.i.i.i.i = phi i32 [ %18, %15 ], [ %28, %23 ]
@@ -3410,13 +3410,13 @@ _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %.lr.ph.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.034.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !327
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.034.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !328
   br label %42
 
 35:                                               ; preds = %.lr.ph.i
   %36 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   %.not29.i = icmp eq ptr %36, %13
-  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !330
+  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !331
 
 .lr.ph37.i:                                       ; preds = %.preheader.i, %40
   %.136.i = phi ptr [ %41, %40 ], [ %7, %.preheader.i ]
@@ -3425,13 +3425,13 @@ _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %.lr.ph37.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.136.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !327
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.136.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !328
   br label %42
 
 40:                                               ; preds = %.lr.ph37.i
   %41 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
   %.not30.i = icmp eq ptr %41, %31
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !331
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !332
 
 ._crit_edge.i:                                    ; preds = %40, %.preheader.i
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.4, i32 noundef 213, ptr noundef nonnull @.str.5)
@@ -3441,7 +3441,7 @@ _ZNK7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entry8
 42:                                               ; preds = %._crit_edge.i, %39, %34, %.lr.ph41.i
   %43 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
   %.not.i = icmp eq ptr %43, %12
-  br i1 %.not.i, label %_ZN14core_hashtableIN7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE10move_tableEPS7_jSE_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !332
+  br i1 %.not.i, label %_ZN14core_hashtableIN7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE10move_tableEPS7_jSE_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !333
 
 _ZN14core_hashtableIN7obj_mapIN7datalog15mk_filter_rules10filter_keyEP9func_declE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE10move_tableEPS7_jSE_j.exit.loopexit: ; preds = %42
   %.pre = load ptr, ptr %0, align 8, !tbaa !214
@@ -3957,16 +3957,17 @@ attributes #22 = { builtin allocsize(0) }
 !317 = distinct !{!317, !234}
 !318 = !{!140, !141, i64 0}
 !319 = !{i8 0, i8 2}
-!320 = !{!132, !132, i64 0}
-!321 = distinct !{!321, !234}
-!322 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!323 = !{!48, !19, i64 0}
-!324 = distinct !{!324, !234}
-!325 = !{!231, !232, i64 0}
-!326 = distinct !{!326, !234}
-!327 = !{i64 0, i64 8, !236, i64 8, i64 8, !295}
-!328 = distinct !{!328, !234}
+!320 = !{}
+!321 = !{!132, !132, i64 0}
+!322 = distinct !{!322, !234}
+!323 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!324 = !{!48, !19, i64 0}
+!325 = distinct !{!325, !234}
+!326 = !{!231, !232, i64 0}
+!327 = distinct !{!327, !234}
+!328 = !{i64 0, i64 8, !236, i64 8, i64 8, !295}
 !329 = distinct !{!329, !234}
 !330 = distinct !{!330, !234}
 !331 = distinct !{!331, !234}
 !332 = distinct !{!332, !234}
+!333 = distinct !{!333, !234}

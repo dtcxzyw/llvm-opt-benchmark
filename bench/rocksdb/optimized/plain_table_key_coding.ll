@@ -622,7 +622,7 @@ _ZN7rocksdb6StatusD2Ev.exit113:                   ; preds = %.critedge92, %_ZNKS
   %156 = ptrtoint ptr %155 to i64
   %157 = ptrtoint ptr %14 to i64
   %158 = sub i64 %156, %157
-  %.pre = load i8, ptr %96, align 1, !tbaa !77, !range !78
+  %.pre = load i8, ptr %96, align 1, !tbaa !77, !range !78, !noundef !79
   %.pre166 = load i64, ptr %99, align 8
   %.pre170 = trunc nuw i8 %.pre to i1
   %.pre171 = add i64 %.pre166, -8
@@ -3031,11 +3031,10 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i117: ; preds = %279, %263
   %298 = load i64, ptr %233, align 8, !tbaa !17
   %299 = add i64 %298, 1
   call void @_ZdlPvm(ptr noundef %232, i64 noundef %299) #19
-  %.pre313.pre = load i8, ptr %225, align 1, !tbaa !77, !range !78
+  %.pre313.pre = load i8, ptr %225, align 1, !tbaa !77, !range !78, !noundef !79
   %.pre315.pre = load i64, ptr %197, align 8
   %.sroa.0.0.i123.pre.pre = load ptr, ptr %224, align 8, !tbaa !80
-  %.pre313.pre.fr = freeze i8 %.pre313.pre
-  %300 = trunc i8 %.pre313.pre.fr to i1
+  %300 = trunc nuw i8 %.pre313.pre to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #20
   %301 = add i64 %.pre315.pre, -8
   %spec.select = select i1 %300, i64 %.pre315.pre, i64 %301

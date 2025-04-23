@@ -465,9 +465,9 @@ define internal fastcc noundef align 8 dereferenceable_or_null(352) ptr @"_ZN21t
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !98
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
-  %.pre.pre.i.i.i.i.i = load ptr, ptr %42, align 8, !alias.scope !101, !noalias !104
+  %.pre.pre.i.i.i.i.i = load ptr, ptr %42, align 8, !alias.scope !101, !noalias !104, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %.pre.pre.i.i.i.i.i, i64 168
-  %44 = load ptr, ptr %43, align 8, !noalias !109
+  %44 = load ptr, ptr %43, align 8, !noalias !109, !nonnull !4, !align !5, !noundef !4
   %45 = load i64, ptr %44, align 8, !range !110, !noalias !109, !noundef !4
   %trunc.i.i.i.i.i.i = trunc nuw i64 %45 to i1
   br i1 %trunc.i.i.i.i.i.i, label %46, label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h98144260d607b035E.exit.thread.i.i.i.i.i
@@ -711,7 +711,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
           to label %._crit_edge.i.i.i.i.i.i.i unwind label %134, !noalias !152
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %133
-  %.pre.i.i.i.i.i.i.i = load i64, ptr %129, align 8, !alias.scope !149, !noalias !152
+  %.pre.i.i.i.i.i.i.i = load i64, ptr %129, align 8, !alias.scope !149, !noalias !152, !noundef !4
   br label %138
 
 134:                                              ; preds = %133
@@ -880,15 +880,14 @@ _ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.thread.i.i.i:
 
 _ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.i.i.i: ; preds = %.noexc7.i.i.i.i.i, %.noexc5.i.i.i.i.i, %155, %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i.i.i.i.i.i, %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17hf0b8e1b148db6443E.exit.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !116
-  %.pre.i.i.i.i = load i64, ptr %9, align 8, !range !110, !noalias !98
-  %.pre.i.fr.i.i.i = freeze i64 %.pre.i.i.i.i
-  %.not.i.i.i = icmp eq i64 %.pre.i.fr.i.i.i, 0
+  %.pre.i.i.i.i = load i64, ptr %9, align 8, !range !110, !noalias !98, !noundef !4
+  %.not.i.i.i = icmp eq i64 %.pre.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !98
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !98
   br i1 %.not.i.i.i, label %"_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.i.i._ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit_crit_edge.i", label %"_ZN107_$LT$std..collections..hash..map..Values$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he2c4c5351be44cb9E.exit.thread.split.loop.exit.i"
 
 "_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.i.i._ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit_crit_edge.i": ; preds = %_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.i.i.i
-  %.pre.i = load i64, ptr %.sroa.01.sroa.8.0..sroa_idx, align 8, !alias.scope !82, !noalias !89
+  %.pre.i = load i64, ptr %.sroa.01.sroa.8.0..sroa_idx, align 8, !alias.scope !82, !noalias !89, !noundef !4
   br label %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit.i"
 
 "_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit.i": ; preds = %"_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.i.i._ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h44bf2d24d146d5b0E.exit_crit_edge.i", %_ZN5regex5regex6string5Regex11is_match_at17h6180c9f417960939E.exit.thread.i.i.i, %36
@@ -1098,8 +1097,8 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17hc15
           to label %.noexc unwind label %27
 
 .noexc:                                           ; preds = %25
-  %.pre.i.i = load i64, ptr %.sroa.578.0..sroa_idx, align 8, !alias.scope !172, !noalias !177
-  %.pre = load ptr, ptr %.sroa.477.0..sroa_idx, align 8, !alias.scope !172, !noalias !177
+  %.pre.i.i = load i64, ptr %.sroa.578.0..sroa_idx, align 8, !alias.scope !172, !noalias !177, !noundef !4
+  %.pre = load ptr, ptr %.sroa.477.0..sroa_idx, align 8, !alias.scope !172, !noalias !177, !nonnull !4, !noundef !4
   br label %29
 
 26:                                               ; preds = %64, %.thread190, %27
@@ -1131,7 +1130,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17hc15
           to label %.noexc144 unwind label %27
 
 .noexc144:                                        ; preds = %38
-  %.pre.i.i143 = load i64, ptr %.sroa.578.0..sroa_idx, align 8, !alias.scope !188, !noalias !186
+  %.pre.i.i143 = load i64, ptr %.sroa.578.0..sroa_idx, align 8, !alias.scope !188, !noalias !186, !noundef !4
   br label %39
 
 39:                                               ; preds = %.noexc144, %29
@@ -1152,7 +1151,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17hc15
           to label %.noexc147 unwind label %27
 
 .noexc147:                                        ; preds = %48
-  %.pre.i.i146 = load i64, ptr %.sroa.578.0..sroa_idx, align 8, !alias.scope !198, !noalias !196
+  %.pre.i.i146 = load i64, ptr %.sroa.578.0..sroa_idx, align 8, !alias.scope !198, !noalias !196, !noundef !4
   br label %49
 
 49:                                               ; preds = %.noexc147, %39
@@ -2336,7 +2335,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
           to label %._crit_edge.i120 unwind label %202, !noalias !328
 
 ._crit_edge.i120:                                 ; preds = %201
-  %.pre.i = load i64, ptr %52, align 8, !alias.scope !325, !noalias !328
+  %.pre.i = load i64, ptr %52, align 8, !alias.scope !325, !noalias !328, !noundef !4
   br label %206
 
 202:                                              ; preds = %201
@@ -2441,7 +2440,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
           to label %.noexc127 unwind label %.loopexit.split-lp.loopexit
 
 .noexc127:                                        ; preds = %238
-  %.pre.i126 = load i64, ptr %234, align 8, !alias.scope !339, !noalias !342
+  %.pre.i126 = load i64, ptr %234, align 8, !alias.scope !339, !noalias !342, !noundef !4
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0e428065904d3132E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0e428065904d3132E.exit": ; preds = %233, %.noexc127
@@ -2460,7 +2459,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
   store i8 %227, ptr %246, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.73)
-  %.pre = load ptr, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !307, !noalias !312
+  %.pre = load ptr, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !307, !noalias !312, !noundef !4
   br label %150
 
 .thread48:                                        ; preds = %.loopexit.split-lp, %.thread56
@@ -2555,7 +2554,7 @@ define internal fastcc void @_ZN21tree_sitter_highlight18HighlightIterLayer3new1
           to label %._crit_edge.i134 unwind label %268, !noalias !357
 
 ._crit_edge.i134:                                 ; preds = %267
-  %.pre.i135 = load i64, ptr %50, align 8, !alias.scope !354, !noalias !357
+  %.pre.i135 = load i64, ptr %50, align 8, !alias.scope !354, !noalias !357, !noundef !4
   br label %272
 
 268:                                              ; preds = %267
@@ -2843,7 +2842,7 @@ define internal fastcc void @"_ZN21tree_sitter_highlight22HighlightIter$LT$F$GT$
           to label %._crit_edge.i unwind label %42
 
 ._crit_edge.i:                                    ; preds = %41
-  %.pre.i = load i64, ptr %17, align 8, !alias.scope !396
+  %.pre.i = load i64, ptr %17, align 8, !alias.scope !396, !noundef !4
   br label %65
 
 42:                                               ; preds = %41
@@ -3488,7 +3487,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   call void @llvm.assume(i1 %215)
   %216 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, i64 }, i8, [7 x i8] }, ptr %198, i64 %199
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(48) %216, i64 48, i1 false), !noalias !448
-  %.pr.i = load i64, ptr %44, align 8, !alias.scope !449, !noalias !430
+  %.pr.i = load i64, ptr %44, align 8, !range !55, !alias.scope !449, !noalias !430, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !449)
   %217 = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %217, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tree_sitter_highlight..LocalScope$GT$$GT$17hc2dcc86661d5b413E.exit.i", label %218
@@ -3511,7 +3510,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
 
 "_ZN4core3ptr54drop_in_place$LT$tree_sitter_highlight..LocalScope$GT$17hd3a8d36d13c6ecafE.exit.i.i": ; preds = %220, %.noexc56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35), !noalias !452
-  %.pre.i = load i64, ptr %183, align 8, !noalias !422
+  %.pre.i = load i64, ptr %183, align 8, !noalias !422, !noundef !4
   br label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tree_sitter_highlight..LocalScope$GT$$GT$17hc2dcc86661d5b413E.exit.i"
 
 "_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$tree_sitter_highlight..LocalScope$GT$$GT$17hc2dcc86661d5b413E.exit.i": ; preds = %"_ZN4core3ptr54drop_in_place$LT$tree_sitter_highlight..LocalScope$GT$17hd3a8d36d13c6ecafE.exit.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h315ab067247c5860E.exit.i"
@@ -3559,7 +3558,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   br i1 %238, label %239, label %"._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit296.i_crit_edge"
 
 "._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit296.i_crit_edge": ; preds = %236
-  %.pre1579 = load ptr, ptr %131, align 8, !noalias !422
+  %.pre1579 = load ptr, ptr %131, align 8, !noalias !422, !noundef !4
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit296.i"
 
 239:                                              ; preds = %236
@@ -3852,7 +3851,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
           to label %.noexc66 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc66:                                         ; preds = %318
-  %.pre.i.i = load i64, ptr %311, align 8, !alias.scope !479, !noalias !422
+  %.pre.i.i = load i64, ptr %311, align 8, !alias.scope !479, !noalias !422, !noundef !4
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4765894086c1dbecE.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4765894086c1dbecE.exit.i": ; preds = %.noexc66, %310
@@ -4120,7 +4119,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
           to label %.noexc76 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc76:                                         ; preds = %420
-  %.pre.i304.i = load i64, ptr %416, align 8, !alias.scope !508, !noalias !511
+  %.pre.i304.i = load i64, ptr %416, align 8, !alias.scope !508, !noalias !511, !noundef !4
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd71258b74fb417cdE.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd71258b74fb417cdE.exit.i": ; preds = %.noexc76, %413
@@ -4162,7 +4161,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   br i1 %432, label %433, label %".critedge267.i._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit307.i_crit_edge"
 
 ".critedge267.i._ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit307.i_crit_edge": ; preds = %.critedge267.i
-  %.pre = load ptr, ptr %131, align 8, !noalias !422
+  %.pre = load ptr, ptr %131, align 8, !noalias !422, !noundef !4
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit307.i"
 
 433:                                              ; preds = %.critedge267.i
@@ -4295,7 +4294,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
           to label %._crit_edge.i.i unwind label %469, !noalias !529
 
 ._crit_edge.i.i:                                  ; preds = %468
-  %.pre.i309.i = load i64, ptr %183, align 8, !alias.scope !526, !noalias !529
+  %.pre.i309.i = load i64, ptr %183, align 8, !alias.scope !526, !noalias !529, !noundef !4
   br label %473
 
 469:                                              ; preds = %468
@@ -4634,7 +4633,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
   br i1 %565, label %566, label %._crit_edge.i321.i._crit_edge
 
 ._crit_edge.i321.i._crit_edge:                    ; preds = %._crit_edge.i321.i
-  %.pre1580 = load i64, ptr %64, align 8, !alias.scope !563, !noalias !566
+  %.pre1580 = load i64, ptr %64, align 8, !alias.scope !563, !noalias !566, !noundef !4
   br label %575
 
 566:                                              ; preds = %._crit_edge.i321.i
@@ -4642,7 +4641,7 @@ define hidden noundef i8 @_ZN21tree_sitter_highlight12HtmlRenderer6render17h85f6
           to label %._crit_edge.i.i.i unwind label %567, !noalias !568
 
 ._crit_edge.i.i.i:                                ; preds = %566
-  %.pre.i.i.i = load i64, ptr %64, align 8, !alias.scope !563, !noalias !566
+  %.pre.i.i.i = load i64, ptr %64, align 8, !alias.scope !563, !noalias !566, !noundef !4
   br label %575
 
 567:                                              ; preds = %566
@@ -5109,7 +5108,7 @@ default.unreachable:                              ; preds = %658
           to label %.noexc96 unwind label %659
 
 .noexc96:                                         ; preds = %669
-  %.pre.i95 = load i64, ptr %99, align 8, !alias.scope !614
+  %.pre.i95 = load i64, ptr %99, align 8, !alias.scope !614, !noundef !4
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h64d9d89c978f6eaeE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h64d9d89c978f6eaeE.exit": ; preds = %.critedge, %.noexc96
@@ -5211,7 +5210,7 @@ default.unreachable:                              ; preds = %658
           to label %.noexc103 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc103:                                        ; preds = %710
-  %.pre.i102 = load i64, ptr %59, align 8, !alias.scope !627
+  %.pre.i102 = load i64, ptr %59, align 8, !alias.scope !627, !noundef !4
   br label %904
 
 711:                                              ; preds = %658
@@ -5364,7 +5363,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
           to label %.noexc118 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc118:                                        ; preds = %766
-  %.pre.i.i.i111 = load i64, ptr %99, align 8, !alias.scope !683, !noalias !676
+  %.pre.i.i.i111 = load i64, ptr %99, align 8, !alias.scope !683, !noalias !676, !noundef !4
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit.i.i"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit.i.i": ; preds = %.noexc118, %761
@@ -5385,7 +5384,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
           to label %.noexc119 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc119:                                        ; preds = %775
-  %.pre.i7.i.i = load i64, ptr %99, align 8, !alias.scope !689, !noalias !676
+  %.pre.i7.i.i = load i64, ptr %99, align 8, !alias.scope !689, !noalias !676, !noundef !4
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit8.i.i"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit8.i.i": ; preds = %.noexc119, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit.i.i"
@@ -5406,7 +5405,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
           to label %.noexc120 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc120:                                        ; preds = %784
-  %.pre.i9.i.i = load i64, ptr %99, align 8, !alias.scope !695, !noalias !676
+  %.pre.i9.i.i = load i64, ptr %99, align 8, !alias.scope !695, !noalias !676, !noundef !4
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit10.i.i"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit10.i.i": ; preds = %.noexc120, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit8.i.i"
@@ -5420,7 +5419,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
   br label %_ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690eE.exit.i
 
 .thread.i:                                        ; preds = %749, %_ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690eE.exit.i
-  %.pre.i108 = load i64, ptr %99, align 8, !alias.scope !696, !noalias !676
+  %.pre.i108 = load i64, ptr %99, align 8, !alias.scope !696, !noalias !676, !noundef !4
   br i1 %724, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h89124fc6c06bfd80E.exit.i", label %.lr.ph.i.i109
 
 .lr.ph.i.i109:                                    ; preds = %.thread.i, %"_ZN21tree_sitter_highlight12HtmlRenderer8add_text28_$u7b$$u7b$closure$u7d$$u7d$17hcd2efd32f9ba4f81E.exit.i.i"
@@ -5467,7 +5466,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
   unreachable
 
 .noexc121:                                        ; preds = %.noexc190
-  %.pre.i.i.i.i.i = load i64, ptr %99, align 8, !alias.scope !708, !noalias !676
+  %.pre.i.i.i.i.i = load i64, ptr %99, align 8, !alias.scope !708, !noalias !676, !noundef !4
   br label %"_ZN21tree_sitter_highlight12HtmlRenderer8add_text28_$u7b$$u7b$closure$u7d$$u7d$17hcd2efd32f9ba4f81E.exit.i.i"
 
 "_ZN21tree_sitter_highlight12HtmlRenderer8add_text28_$u7b$$u7b$closure$u7d$$u7d$17hcd2efd32f9ba4f81E.exit.i.i": ; preds = %.noexc121, %.lr.ph.i.i109
@@ -5492,7 +5491,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
           to label %.noexc122 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc122:                                        ; preds = %810
-  %.pre.i22.i = load i64, ptr %99, align 8, !alias.scope !696, !noalias !676
+  %.pre.i22.i = load i64, ptr %99, align 8, !alias.scope !696, !noalias !676, !noundef !4
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h64d9d89c978f6eaeE.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h64d9d89c978f6eaeE.exit.i": ; preds = %.noexc122, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h89124fc6c06bfd80E.exit.i"
@@ -5514,7 +5513,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
           to label %.noexc123 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc123:                                        ; preds = %820
-  %.pre.i23.i = load i64, ptr %109, align 8, !alias.scope !709, !noalias !676
+  %.pre.i23.i = load i64, ptr %109, align 8, !alias.scope !709, !noalias !676, !noundef !4
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdf63d8ee2d79b5a3E.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdf63d8ee2d79b5a3E.exit.i": ; preds = %.noexc123, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h64d9d89c978f6eaeE.exit.i"
@@ -5570,7 +5569,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
   ]
 
 .noexc125:                                        ; preds = %.noexc183
-  %.pre.i.i35.i = load i64, ptr %99, align 8, !alias.scope !727, !noalias !726
+  %.pre.i.i35.i = load i64, ptr %99, align 8, !alias.scope !727, !noalias !726, !noundef !4
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit.i34.i"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit.i34.i": ; preds = %.noexc125, %"_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h55c66078f223813cE.exit.i32.i"
@@ -5594,7 +5593,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
           to label %.noexc126 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc126:                                        ; preds = %851
-  %.pre.i10.i.i = load i64, ptr %99, align 8, !alias.scope !734, !noalias !726
+  %.pre.i10.i.i = load i64, ptr %99, align 8, !alias.scope !734, !noalias !726, !noundef !4
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit11.i.i"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit11.i.i": ; preds = %.noexc126, %848
@@ -5615,7 +5614,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
           to label %.noexc127 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc127:                                        ; preds = %860
-  %.pre.i12.i.i = load i64, ptr %99, align 8, !alias.scope !740, !noalias !726
+  %.pre.i12.i.i = load i64, ptr %99, align 8, !alias.scope !740, !noalias !726, !noundef !4
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit13.i.i"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit13.i.i": ; preds = %.noexc127, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit11.i.i"
@@ -5652,7 +5651,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690e
   ]
 
 .noexc128:                                        ; preds = %.noexc177
-  %.pre.i14.i.i = load i64, ptr %99, align 8, !alias.scope !746, !noalias !726
+  %.pre.i14.i.i = load i64, ptr %99, align 8, !alias.scope !746, !noalias !726, !noundef !4
   br label %_ZN21tree_sitter_highlight12HtmlRenderer15start_highlight17ha8eb6d22ec521af7E.exit.i
 
 _ZN21tree_sitter_highlight12HtmlRenderer15start_highlight17ha8eb6d22ec521af7E.exit.i: ; preds = %.noexc128, %866
@@ -5686,7 +5685,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer15start_highlight17ha8eb6d22ec521af7E.ex
   br label %.backedge.i107
 
 .backedge.i107:                                   ; preds = %_ZN21tree_sitter_highlight12HtmlRenderer15start_highlight17ha8eb6d22ec521af7E.exit.i, %.backedge.sink.split.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdf63d8ee2d79b5a3E.exit.i", %746
-  %.pr.i.pre.i = load ptr, ptr %27, align 8, !alias.scope !653, !noalias !638
+  %.pr.i.pre.i = load ptr, ptr %27, align 8, !alias.scope !653, !noalias !638, !noundef !4
   br label %725
 
 887:                                              ; preds = %884, %883, %882, %881, %_ZN21tree_sitter_highlight12HtmlRenderer19add_carriage_return17h253e4701b75d690eE.exit.i
@@ -5703,7 +5702,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer15start_highlight17ha8eb6d22ec521af7E.ex
           to label %.noexc129 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc129:                                        ; preds = %892
-  %.pre.i.i28.i = load i64, ptr %99, align 8, !alias.scope !756, !noalias !754
+  %.pre.i.i28.i = load i64, ptr %99, align 8, !alias.scope !756, !noalias !754, !noundef !4
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h60733569446dbec6E.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h60733569446dbec6E.exit.i": ; preds = %.noexc129, %887
@@ -5724,7 +5723,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer15start_highlight17ha8eb6d22ec521af7E.ex
           to label %.noexc130 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc130:                                        ; preds = %900
-  %.pre.i29.i = load i64, ptr %99, align 8, !alias.scope !757, !noalias !676
+  %.pre.i29.i = load i64, ptr %99, align 8, !alias.scope !757, !noalias !676, !noundef !4
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h64d9d89c978f6eaeE.exit30.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h64d9d89c978f6eaeE.exit30.i": ; preds = %.noexc130, %896
@@ -5778,7 +5777,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer8add_text17hdeea79352d0aaa8eE.exit: ; pr
           to label %.noexc133 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc133:                                        ; preds = %922
-  %.pre.i.i131 = load i64, ptr %99, align 8, !alias.scope !768
+  %.pre.i.i131 = load i64, ptr %99, align 8, !alias.scope !768, !noundef !4
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit.i"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit.i": ; preds = %.noexc133, %"_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight28_$u7b$$u7b$closure$u7d$$u7d$17h55c66078f223813cE.exit.i"
@@ -5802,7 +5801,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer8add_text17hdeea79352d0aaa8eE.exit: ; pr
           to label %.noexc134 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc134:                                        ; preds = %932
-  %.pre.i10.i = load i64, ptr %99, align 8, !alias.scope !774
+  %.pre.i10.i = load i64, ptr %99, align 8, !alias.scope !774, !noundef !4
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit11.i"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit11.i": ; preds = %.noexc134, %929
@@ -5823,7 +5822,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer8add_text17hdeea79352d0aaa8eE.exit: ; pr
           to label %.noexc135 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc135:                                        ; preds = %941
-  %.pre.i12.i = load i64, ptr %99, align 8, !alias.scope !780
+  %.pre.i12.i = load i64, ptr %99, align 8, !alias.scope !780, !noundef !4
   br label %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit13.i"
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit13.i": ; preds = %.noexc135, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit11.i"
@@ -5847,7 +5846,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer8add_text17hdeea79352d0aaa8eE.exit: ; pr
           to label %.noexc136 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc136:                                        ; preds = %951
-  %.pre.i14.i = load i64, ptr %99, align 8, !alias.scope !786
+  %.pre.i14.i = load i64, ptr %99, align 8, !alias.scope !786, !noundef !4
   br label %_ZN21tree_sitter_highlight12HtmlRenderer15start_highlight17ha8eb6d22ec521af7E.exit
 
 _ZN21tree_sitter_highlight12HtmlRenderer15start_highlight17ha8eb6d22ec521af7E.exit: ; preds = %947, %.noexc136
@@ -5872,7 +5871,7 @@ _ZN21tree_sitter_highlight12HtmlRenderer15start_highlight17ha8eb6d22ec521af7E.ex
           to label %.noexc139 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc139:                                        ; preds = %962
-  %.pre.i.i138 = load i64, ptr %99, align 8, !alias.scope !794
+  %.pre.i.i138 = load i64, ptr %99, align 8, !alias.scope !794, !noundef !4
   br label %_ZN21tree_sitter_highlight12HtmlRenderer13end_highlight17h7450f674b0b93beeE.exit
 
 _ZN21tree_sitter_highlight12HtmlRenderer13end_highlight17h7450f674b0b93beeE.exit: ; preds = %957, %.noexc139
