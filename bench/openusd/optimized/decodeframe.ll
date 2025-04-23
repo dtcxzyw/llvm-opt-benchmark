@@ -12216,8 +12216,8 @@ aom_read_literal_.exit.i328:                      ; preds = %.preheader384
 
 201:                                              ; preds = %190
   %202 = sub nsw i32 224, %198
-  %203 = call i32 @llvm.smin.i32(i32 %202, i32 95)
-  %204 = call i32 @llvm.smax.i32(i32 %203, i32 -32)
+  %203 = call i32 @llvm.smax.i32(i32 %202, i32 -32)
+  %204 = call i32 @llvm.smin.i32(i32 %203, i32 95)
   br label %read_sgrproj_filter.exit330
 
 205:                                              ; preds = %190
@@ -12480,8 +12480,8 @@ aom_read_literal_.exit.i:                         ; preds = %335
 
 364:                                              ; preds = %353
   %365 = sub nsw i32 224, %361
-  %366 = call i32 @llvm.smin.i32(i32 %365, i32 95)
-  %367 = call i32 @llvm.smax.i32(i32 %366, i32 -32)
+  %366 = call i32 @llvm.smax.i32(i32 %365, i32 -32)
+  %367 = call i32 @llvm.smin.i32(i32 %366, i32 95)
   br label %read_sgrproj_filter.exit
 
 368:                                              ; preds = %353

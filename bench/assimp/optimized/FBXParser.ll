@@ -619,8 +619,8 @@ _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE9push_backERKS4_.exit65: ; preds = %13
 
 163:                                              ; preds = %157
   %164 = shl i64 %161, 1
-  %165 = tail call i64 @llvm.umin.i64(i64 %164, i64 67108864)
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %165, i64 48)
+  %165 = tail call i64 @llvm.umax.i64(i64 %164, i64 48)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %165, i64 67108864)
   store i64 %.sroa.speculated.i, ptr %15, align 8
   %166 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i) #31
           to label %.noexc70 unwind label %.loopexit.split-lp
@@ -1311,8 +1311,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69: ; preds = %_ZN
 
 143:                                              ; preds = %138
   %144 = shl i64 %141, 1
-  %145 = call i64 @llvm.umin.i64(i64 %144, i64 67108864)
-  %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %145, i64 40)
+  %145 = call i64 @llvm.umax.i64(i64 %144, i64 40)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %145, i64 67108864)
   store i64 %.sroa.speculated.i, ptr %44, align 8
   %146 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i) #31
           to label %.noexc71 unwind label %.loopexit
@@ -1811,8 +1811,8 @@ define hidden void @_ZN6Assimp3FBX6ParserC2ERKSt6vectorIPKNS0_5TokenESaIS5_EERNS
 
 17:                                               ; preds = %4
   %18 = shl i64 %15, 1
-  %19 = tail call i64 @llvm.umin.i64(i64 %18, i64 67108864)
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %19, i64 48)
+  %19 = tail call i64 @llvm.umax.i64(i64 %18, i64 48)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %19, i64 67108864)
   store i64 %.sroa.speculated.i, ptr %2, align 8
   %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i) #31
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16

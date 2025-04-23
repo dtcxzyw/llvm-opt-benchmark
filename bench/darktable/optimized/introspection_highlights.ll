@@ -2603,8 +2603,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @dt_segmentation_init_struct(ptr noundef captures(none) initializes((0, 96)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
-  %6 = tail call i32 @llvm.smin.i32(i32 %4, i32 262142)
-  %7 = tail call i32 @llvm.smax.i32(i32 %6, i32 256)
+  %6 = tail call i32 @llvm.smax.i32(i32 %4, i32 256)
+  %7 = tail call i32 @llvm.umin.i32(i32 %6, i32 262142)
   %8 = sext i32 %1 to i64
   %9 = sext i32 %2 to i64
   %10 = shl nsw i64 %8, 2

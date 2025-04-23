@@ -156,8 +156,8 @@ _ZNSt10unique_ptrIN9grpc_core16GsecKeyInterfaceESt14default_deleteIS1_EED2Ev.exi
 
 41:                                               ; preds = %40
   %42 = load i64, ptr %4, align 8, !tbaa !10
-  %43 = call i64 @llvm.umin.i64(i64 %42, i64 16777216)
-  %44 = call i64 @llvm.umax.i64(i64 %43, i64 1024)
+  %43 = call i64 @llvm.umax.i64(i64 %42, i64 1024)
+  %44 = call i64 @llvm.umin.i64(i64 %43, i64 16777216)
   store i64 %44, ptr %4, align 8, !tbaa !10
   br label %57
 

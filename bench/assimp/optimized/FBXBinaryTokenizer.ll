@@ -1090,8 +1090,8 @@ _ZN6Assimp3FBX12_GLOBAL__N_18ReadWordEPKcRS3_S3_.exit184: ; preds = %187
 
 216:                                              ; preds = %208
   %217 = shl i64 %214, 1
-  %218 = tail call i64 @llvm.umin.i64(i64 %217, i64 67108864)
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %218, i64 40)
+  %218 = tail call i64 @llvm.umax.i64(i64 %217, i64 40)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %218, i64 67108864)
   store i64 %.sroa.speculated.i, ptr %1, align 8
   %219 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i) #26
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1902,8 +1902,8 @@ _ZN6Assimp3FBX12_GLOBAL__N_18ReadDataERPKcS4_S3_S4_S3_.exit: ; preds = %.thread.
 
 522:                                              ; preds = %_ZN6Assimp3FBX12_GLOBAL__N_18ReadDataERPKcS4_S3_S4_S3_.exit
   %523 = shl i64 %520, 1
-  %524 = tail call i64 @llvm.umin.i64(i64 %523, i64 67108864)
-  %.sroa.speculated.i198 = tail call i64 @llvm.umax.i64(i64 %524, i64 40)
+  %524 = tail call i64 @llvm.umax.i64(i64 %523, i64 40)
+  %.sroa.speculated.i198 = tail call i64 @llvm.umin.i64(i64 %524, i64 67108864)
   store i64 %.sroa.speculated.i198, ptr %1, align 8
   %525 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i198) #26
   %526 = load ptr, ptr %294, align 8
@@ -2062,8 +2062,8 @@ _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE9push_backEOS4_.exit214: ; preds = %56
 
 593:                                              ; preds = %588
   %594 = shl i64 %591, 1
-  %595 = tail call i64 @llvm.umin.i64(i64 %594, i64 67108864)
-  %.sroa.speculated.i217 = tail call i64 @llvm.umax.i64(i64 %595, i64 40)
+  %595 = tail call i64 @llvm.umax.i64(i64 %594, i64 40)
+  %.sroa.speculated.i217 = tail call i64 @llvm.umin.i64(i64 %595, i64 67108864)
   store i64 %.sroa.speculated.i217, ptr %1, align 8
   %596 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i217) #26
   %597 = load ptr, ptr %294, align 8
@@ -2329,8 +2329,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239: ; preds = %_Z
 
 707:                                              ; preds = %702
   %708 = shl i64 %705, 1
-  %709 = tail call i64 @llvm.umin.i64(i64 %708, i64 67108864)
-  %.sroa.speculated.i242 = tail call i64 @llvm.umax.i64(i64 %709, i64 40)
+  %709 = tail call i64 @llvm.umax.i64(i64 %708, i64 40)
+  %.sroa.speculated.i242 = tail call i64 @llvm.umin.i64(i64 %709, i64 67108864)
   store i64 %.sroa.speculated.i242, ptr %1, align 8
   %710 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i242) #26
   %711 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2511,8 +2511,8 @@ _ZNSt6vectorIPKN6Assimp3FBX5TokenESaIS4_EE9push_backEOS4_.exit258: ; preds = %75
 
 795:                                              ; preds = %._crit_edge336
   %796 = shl i64 %793, 1
-  %797 = tail call i64 @llvm.umin.i64(i64 %796, i64 67108864)
-  %.sroa.speculated.i261 = tail call i64 @llvm.umax.i64(i64 %797, i64 40)
+  %797 = tail call i64 @llvm.umax.i64(i64 %796, i64 40)
+  %.sroa.speculated.i261 = tail call i64 @llvm.umin.i64(i64 %797, i64 67108864)
   store i64 %.sroa.speculated.i261, ptr %1, align 8
   %798 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i261) #26
   %799 = getelementptr inbounds nuw i8, ptr %1, i64 16

@@ -6392,7 +6392,7 @@ define dso_local range(i32 -1, 1) i32 @setOOMScoreAdj(i32 noundef %0) local_unna
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7580), align 4, !tbaa !362
   %.not28 = icmp eq i32 %9, 0
   %.b = load i1, ptr @setOOMScoreAdj.oom_score_adjusted_by_redis, align 4
-  br i1 %.not28, label %37, label %10
+  br i1 %.not28, label %38, label %10
 
 10:                                               ; preds = %8
   br i1 %.b, label %29, label %11
@@ -6422,7 +6422,7 @@ define dso_local range(i32 -1, 1) i32 @setOOMScoreAdj(i32 noundef %0) local_unna
 
 24:                                               ; preds = %17, %20
   %.not29 = icmp eq i32 %12, -1
-  br i1 %.not29, label %57, label %.sink.split
+  br i1 %.not29, label %58, label %.sink.split
 
 25:                                               ; preds = %14
   %26 = call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #43
@@ -6441,55 +6441,55 @@ define dso_local range(i32 -1, 1) i32 @setOOMScoreAdj(i32 noundef %0) local_unna
   %35 = load i32, ptr @setOOMScoreAdj.oom_score_adj_base, align 4
   %36 = select i1 %34, i32 %35, i32 0
   %.0 = add nsw i32 %36, %33
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %.0, i32 1000)
-  %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 -1000)
-  br label %40
+  %37 = tail call i32 @llvm.smax.i32(i32 %.0, i32 -1000)
+  %spec.store.select1 = tail call i32 @llvm.smin.i32(i32 %37, i32 1000)
+  br label %41
 
-37:                                               ; preds = %8
-  br i1 %.b, label %38, label %57
+38:                                               ; preds = %8
+  br i1 %.b, label %39, label %58
 
-38:                                               ; preds = %37
+39:                                               ; preds = %38
   store i1 false, ptr @setOOMScoreAdj.oom_score_adjusted_by_redis, align 4
-  %39 = load i32, ptr @setOOMScoreAdj.oom_score_adj_base, align 4, !tbaa !50
-  br label %40
+  %40 = load i32, ptr @setOOMScoreAdj.oom_score_adj_base, align 4, !tbaa !50
+  br label %41
 
-40:                                               ; preds = %29, %38
-  %.1 = phi i32 [ %spec.store.select1, %29 ], [ %39, %38 ]
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 63, ptr noundef nonnull @.str.135, i32 noundef %.1) #43
-  %42 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.133, i32 noundef 1) #43
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %48, label %44
+41:                                               ; preds = %29, %39
+  %.1 = phi i32 [ %spec.store.select1, %29 ], [ %40, %39 ]
+  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 63, ptr noundef nonnull @.str.135, i32 noundef %.1) #43
+  %43 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.133, i32 noundef 1) #43
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %49, label %45
 
-44:                                               ; preds = %40
-  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #44
-  %46 = call i64 @write(i32 noundef %42, ptr noundef nonnull %2, i64 noundef %45) #43
-  %47 = icmp slt i64 %46, 0
-  br i1 %47, label %48, label %.sink.split
+45:                                               ; preds = %41
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #44
+  %47 = call i64 @write(i32 noundef %43, ptr noundef nonnull %2, i64 noundef %46) #43
+  %48 = icmp slt i64 %47, 0
+  br i1 %48, label %49, label %.sink.split
 
-48:                                               ; preds = %40, %44
-  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !39
-  %50 = icmp sgt i32 %49, 3
-  br i1 %50, label %55, label %51
+49:                                               ; preds = %41, %45
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !39
+  %51 = icmp sgt i32 %50, 3
+  br i1 %51, label %56, label %52
 
-51:                                               ; preds = %48
-  %52 = tail call ptr @__errno_location() #46
-  %53 = load i32, ptr %52, align 4, !tbaa !50
-  %54 = tail call ptr @strerror(i32 noundef %53) #43
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.136, ptr noundef %54)
-  br label %55
+52:                                               ; preds = %49
+  %53 = tail call ptr @__errno_location() #46
+  %54 = load i32, ptr %53, align 4, !tbaa !50
+  %55 = tail call ptr @strerror(i32 noundef %54) #43
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.136, ptr noundef %55)
+  br label %56
 
-55:                                               ; preds = %48, %51
-  %.not30 = icmp eq i32 %42, -1
-  br i1 %.not30, label %57, label %.sink.split
+56:                                               ; preds = %49, %52
+  %.not30 = icmp eq i32 %43, -1
+  br i1 %.not30, label %58, label %.sink.split
 
-.sink.split:                                      ; preds = %44, %55, %24
-  %.sink = phi i32 [ %12, %24 ], [ %42, %55 ], [ %42, %44 ]
-  %.021.ph = phi i32 [ -1, %24 ], [ -1, %55 ], [ 0, %44 ]
-  %56 = tail call i32 @close(i32 noundef %.sink) #43
-  br label %57
+.sink.split:                                      ; preds = %45, %56, %24
+  %.sink = phi i32 [ %12, %24 ], [ %43, %56 ], [ %43, %45 ]
+  %.021.ph = phi i32 [ -1, %24 ], [ -1, %56 ], [ 0, %45 ]
+  %57 = tail call i32 @close(i32 noundef %.sink) #43
+  br label %58
 
-57:                                               ; preds = %.sink.split, %55, %37, %24
-  %.021 = phi i32 [ -1, %24 ], [ 0, %37 ], [ -1, %55 ], [ %.021.ph, %.sink.split ]
+58:                                               ; preds = %.sink.split, %56, %38, %24
+  %.021 = phi i32 [ -1, %24 ], [ 0, %38 ], [ -1, %56 ], [ %.021.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #43
   ret i32 %.021
 }

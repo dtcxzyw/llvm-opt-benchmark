@@ -497,8 +497,8 @@ define dso_local void @_ZN4llvm6object5SliceC2ERKNS0_15MachOObjectFileE(ptr noun
 
 _ZL22calculateFileAlignmentRKN4llvm6object15MachOObjectFileE.exit.i: ; preds = %60, %43, %13
   %.061.lcssa.i.i = phi i32 [ 15, %13 ], [ %.162.i.us.i, %43 ], [ %.162.i.i, %60 ]
-  %.sroa.speculated45.i.i = call i32 @llvm.umin.i32(i32 %.061.lcssa.i.i, i32 15)
-  %.sroa.speculated.i.i = call noundef range(i32 2, 16) i32 @llvm.umax.i32(i32 %.sroa.speculated45.i.i, i32 2)
+  %62 = call i32 @llvm.umax.i32(i32 %.061.lcssa.i.i, i32 2)
+  %.sroa.speculated.i.i = call noundef range(i32 2, 16) i32 @llvm.umin.i32(i32 %62, i32 15)
   br label %_ZL18calculateAlignmentRKN4llvm6object15MachOObjectFileE.exit
 
 _ZL18calculateAlignmentRKN4llvm6object15MachOObjectFileE.exit: ; preds = %2, %2, %2, %2, %12, %_ZL22calculateFileAlignmentRKN4llvm6object15MachOObjectFileE.exit.i

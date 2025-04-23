@@ -5026,8 +5026,8 @@ define internal i64 @gen11_dsi_host_transfer(ptr noundef readonly captures(none)
   %52 = phi i32 [ %25, %35 ], [ %50, %42 ]
   %53 = phi ptr [ %37, %35 ], [ %46, %42 ]
   %54 = phi i32 [ 0, %35 ], [ %48, %42 ]
-  %55 = call i32 @llvm.umin.i32(i32 %52, i32 4)
-  %56 = call i32 @llvm.umax.i32(i32 %55, i32 1)
+  %55 = call i32 @llvm.umax.i32(i32 %52, i32 1)
+  %56 = call i32 @llvm.umin.i32(i32 %55, i32 4)
   %57 = call fastcc zeroext i1 @wait_for_payload_credits(ptr noundef %18, i32 noundef %22, i32 noundef 1)
   br i1 %57, label %.preheader, label %.thread7
 

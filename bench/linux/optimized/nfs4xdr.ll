@@ -13991,9 +13991,9 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr noundef capt
   br i1 %77, label %.thread25, label %78
 
 78:                                               ; preds = %76
-  %79 = tail call i32 @llvm.umin.i32(i32 %69, i32 3)
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 276
-  %81 = tail call i32 @llvm.umax.i32(i32 %79, i32 1)
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 276
+  %80 = tail call i32 @llvm.umax.i32(i32 %69, i32 1)
+  %81 = tail call i32 @llvm.umin.i32(i32 %80, i32 3)
   %82 = zext nneg i32 %81 to i64
   br label %91
 
@@ -14018,7 +14018,7 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr noundef capt
   %94 = getelementptr i8, ptr %93, i64 4
   %95 = load i32, ptr %93, align 4
   %96 = tail call i32 @llvm.bswap.i32(i32 %95)
-  %97 = getelementptr [3 x i32], ptr %80, i64 0, i64 %92
+  %97 = getelementptr [3 x i32], ptr %79, i64 0, i64 %92
   store i32 %96, ptr %97, align 4
   %98 = add nuw nsw i64 %92, 1
   %99 = icmp eq i64 %98, %82

@@ -47,12 +47,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @awt_color_matchTC(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 {
-  %5 = tail call i32 @llvm.smin.i32(i32 %0, i32 255)
-  %6 = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
-  %7 = tail call i32 @llvm.smin.i32(i32 %1, i32 255)
-  %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
-  %9 = tail call i32 @llvm.smin.i32(i32 %2, i32 255)
-  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
+  %5 = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
+  %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 255)
+  %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 255)
+  %9 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 255)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 36
@@ -80,12 +80,12 @@ define hidden i32 @awt_color_matchTC(i32 noundef %0, i32 noundef %1, i32 noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 256) i32 @awt_color_matchGS(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 {
-  %5 = tail call i32 @llvm.smin.i32(i32 %0, i32 255)
-  %6 = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
-  %7 = tail call i32 @llvm.smin.i32(i32 %1, i32 255)
-  %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
-  %9 = tail call i32 @llvm.smin.i32(i32 %2, i32 255)
-  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
+  %5 = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
+  %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 255)
+  %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 255)
+  %9 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 255)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -113,12 +113,12 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @llvm.smin.i32(i32 %0, i32 255)
-  %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
-  %10 = tail call i32 @llvm.smin.i32(i32 %1, i32 255)
-  %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 0)
-  %12 = tail call i32 @llvm.smin.i32(i32 %2, i32 255)
-  %13 = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
+  %8 = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
+  %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 255)
+  %10 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 255)
+  %12 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %13 = tail call i32 @llvm.umin.i32(i32 %12, i32 255)
   %14 = icmp eq i32 %9, %11
   %15 = icmp eq i32 %11, %13
   %or.cond = and i1 %14, %15
@@ -2599,10 +2599,10 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #13
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.abs.i32(i32, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

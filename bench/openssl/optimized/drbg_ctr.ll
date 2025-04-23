@@ -1012,8 +1012,7 @@ ctr_df.exit:                                      ; preds = %135, %137
 .lr.ph33.i:                                       ; preds = %._crit_edge.i
   %invariant.gep.i = getelementptr i8, ptr %146, i64 %151
   %158 = sub nuw i64 %148, %151
-  %spec.store.select.i = call i64 @llvm.umin.i64(i64 %158, i64 16)
-  %umax.i = call i64 @llvm.umax.i64(i64 %spec.store.select.i, i64 1)
+  %umax.i = call i64 @llvm.umin.i64(i64 %158, i64 16)
   br label %159
 
 159:                                              ; preds = %159, %.lr.ph33.i
@@ -1032,7 +1031,7 @@ ctr_df.exit:                                      ; preds = %135, %137
   %166 = icmp eq ptr %1, null
   %167 = icmp eq i64 %2, 0
   %or.cond.i58 = or i1 %166, %167
-  br i1 %or.cond.i58, label %ctr_XOR.exit73, label %168
+  br i1 %or.cond.i58, label %ctr_XOR.exit72, label %168
 
 168:                                              ; preds = %165
   %..i59 = call i64 @llvm.umin.i64(i64 %2, i64 %43)
@@ -1053,74 +1052,72 @@ ctr_df.exit:                                      ; preds = %135, %137
 
 ._crit_edge.i64:                                  ; preds = %.lr.ph.i61, %168
   %.not.i65 = icmp ugt i64 %2, %43
-  br i1 %.not.i65, label %.lr.ph33.i66, label %ctr_XOR.exit73
+  br i1 %.not.i65, label %.lr.ph33.i66, label %ctr_XOR.exit72
 
 .lr.ph33.i66:                                     ; preds = %._crit_edge.i64
   %invariant.gep.i67 = getelementptr i8, ptr %1, i64 %43
   %175 = sub nuw i64 %2, %43
-  %spec.store.select.i68 = call i64 @llvm.umin.i64(i64 %175, i64 16)
-  %umax.i69 = call i64 @llvm.umax.i64(i64 %spec.store.select.i68, i64 1)
+  %umax.i68 = call i64 @llvm.umin.i64(i64 %175, i64 16)
   br label %176
 
 176:                                              ; preds = %176, %.lr.ph33.i66
-  %.131.i70 = phi i64 [ 0, %.lr.ph33.i66 ], [ %181, %176 ]
-  %gep.i71 = getelementptr i8, ptr %invariant.gep.i67, i64 %.131.i70
-  %177 = load i8, ptr %gep.i71, align 1, !tbaa !26
-  %178 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 0, i64 %.131.i70
+  %.131.i69 = phi i64 [ 0, %.lr.ph33.i66 ], [ %181, %176 ]
+  %gep.i70 = getelementptr i8, ptr %invariant.gep.i67, i64 %.131.i69
+  %177 = load i8, ptr %gep.i70, align 1, !tbaa !26
+  %178 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 0, i64 %.131.i69
   %179 = load i8, ptr %178, align 1, !tbaa !26
   %180 = xor i8 %179, %177
   store i8 %180, ptr %178, align 1, !tbaa !26
-  %181 = add nuw nsw i64 %.131.i70, 1
-  %exitcond36.not.i72 = icmp eq i64 %181, %umax.i69
-  br i1 %exitcond36.not.i72, label %ctr_XOR.exit73, label %176, !llvm.loop !46
+  %181 = add nuw nsw i64 %.131.i69, 1
+  %exitcond36.not.i71 = icmp eq i64 %181, %umax.i68
+  br i1 %exitcond36.not.i71, label %ctr_XOR.exit72, label %176, !llvm.loop !46
 
-ctr_XOR.exit73:                                   ; preds = %176, %165, %._crit_edge.i64
+ctr_XOR.exit72:                                   ; preds = %176, %165, %._crit_edge.i64
   %182 = icmp eq ptr %3, null
   %183 = icmp eq i64 %4, 0
-  %or.cond.i74 = or i1 %182, %183
-  br i1 %or.cond.i74, label %ctr_XOR.exit, label %184
+  %or.cond.i73 = or i1 %182, %183
+  br i1 %or.cond.i73, label %ctr_XOR.exit, label %184
 
-184:                                              ; preds = %ctr_XOR.exit73
-  %..i75 = call i64 @llvm.umin.i64(i64 %4, i64 %43)
-  %.not34.i76 = icmp eq i64 %43, 0
-  br i1 %.not34.i76, label %._crit_edge.i80, label %.lr.ph.i77
+184:                                              ; preds = %ctr_XOR.exit72
+  %..i74 = call i64 @llvm.umin.i64(i64 %4, i64 %43)
+  %.not34.i75 = icmp eq i64 %43, 0
+  br i1 %.not34.i75, label %._crit_edge.i79, label %.lr.ph.i76
 
-.lr.ph.i77:                                       ; preds = %184, %.lr.ph.i77
-  %.030.i78 = phi i64 [ %190, %.lr.ph.i77 ], [ 0, %184 ]
-  %185 = getelementptr inbounds nuw i8, ptr %3, i64 %.030.i78
+.lr.ph.i76:                                       ; preds = %184, %.lr.ph.i76
+  %.030.i77 = phi i64 [ %190, %.lr.ph.i76 ], [ 0, %184 ]
+  %185 = getelementptr inbounds nuw i8, ptr %3, i64 %.030.i77
   %186 = load i8, ptr %185, align 1, !tbaa !26
-  %187 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 0, i64 %.030.i78
+  %187 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 0, i64 %.030.i77
   %188 = load i8, ptr %187, align 1, !tbaa !26
   %189 = xor i8 %188, %186
   store i8 %189, ptr %187, align 1, !tbaa !26
-  %190 = add nuw i64 %.030.i78, 1
-  %exitcond.not.i79 = icmp eq i64 %190, %..i75
-  br i1 %exitcond.not.i79, label %._crit_edge.i80, label %.lr.ph.i77, !llvm.loop !45
+  %190 = add nuw i64 %.030.i77, 1
+  %exitcond.not.i78 = icmp eq i64 %190, %..i74
+  br i1 %exitcond.not.i78, label %._crit_edge.i79, label %.lr.ph.i76, !llvm.loop !45
 
-._crit_edge.i80:                                  ; preds = %.lr.ph.i77, %184
-  %.not.i81 = icmp ugt i64 %4, %43
-  br i1 %.not.i81, label %.lr.ph33.i82, label %ctr_XOR.exit
+._crit_edge.i79:                                  ; preds = %.lr.ph.i76, %184
+  %.not.i80 = icmp ugt i64 %4, %43
+  br i1 %.not.i80, label %.lr.ph33.i81, label %ctr_XOR.exit
 
-.lr.ph33.i82:                                     ; preds = %._crit_edge.i80
-  %invariant.gep.i83 = getelementptr i8, ptr %3, i64 %43
+.lr.ph33.i81:                                     ; preds = %._crit_edge.i79
+  %invariant.gep.i82 = getelementptr i8, ptr %3, i64 %43
   %191 = sub nuw i64 %4, %43
-  %spec.store.select.i84 = call i64 @llvm.umin.i64(i64 %191, i64 16)
-  %umax.i85 = call i64 @llvm.umax.i64(i64 %spec.store.select.i84, i64 1)
+  %umax.i83 = call i64 @llvm.umin.i64(i64 %191, i64 16)
   br label %192
 
-192:                                              ; preds = %192, %.lr.ph33.i82
-  %.131.i86 = phi i64 [ 0, %.lr.ph33.i82 ], [ %197, %192 ]
-  %gep.i87 = getelementptr i8, ptr %invariant.gep.i83, i64 %.131.i86
-  %193 = load i8, ptr %gep.i87, align 1, !tbaa !26
-  %194 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 0, i64 %.131.i86
+192:                                              ; preds = %192, %.lr.ph33.i81
+  %.131.i84 = phi i64 [ 0, %.lr.ph33.i81 ], [ %197, %192 ]
+  %gep.i85 = getelementptr i8, ptr %invariant.gep.i82, i64 %.131.i84
+  %193 = load i8, ptr %gep.i85, align 1, !tbaa !26
+  %194 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 0, i64 %.131.i84
   %195 = load i8, ptr %194, align 1, !tbaa !26
   %196 = xor i8 %195, %193
   store i8 %196, ptr %194, align 1, !tbaa !26
-  %197 = add nuw nsw i64 %.131.i86, 1
-  %exitcond36.not.i88 = icmp eq i64 %197, %umax.i85
-  br i1 %exitcond36.not.i88, label %ctr_XOR.exit, label %192, !llvm.loop !46
+  %197 = add nuw nsw i64 %.131.i84, 1
+  %exitcond36.not.i86 = icmp eq i64 %197, %umax.i83
+  br i1 %exitcond36.not.i86, label %ctr_XOR.exit, label %192, !llvm.loop !46
 
-ctr_XOR.exit:                                     ; preds = %159, %192, %._crit_edge.i80, %ctr_XOR.exit73, %._crit_edge.i, %145, %144
+ctr_XOR.exit:                                     ; preds = %159, %192, %._crit_edge.i79, %ctr_XOR.exit72, %._crit_edge.i, %145, %144
   %198 = load ptr, ptr %17, align 8, !tbaa !12
   %199 = call i32 @EVP_CipherInit_ex(ptr noundef %198, ptr noundef null, ptr noundef null, ptr noundef nonnull %42, ptr noundef null, i32 noundef -1) #7
   %.not47 = icmp eq i32 %199, 0
@@ -1741,9 +1738,6 @@ declare i32 @ossl_drbg_get_ctx_params(ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

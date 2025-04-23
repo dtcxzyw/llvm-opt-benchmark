@@ -324,8 +324,8 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread:      ; preds = %56, %_ZN6icu_77L12b
 
 86:                                               ; preds = %78, %76
   %.sink = phi i32 [ %85, %78 ], [ %77, %76 ]
-  %87 = call i32 @llvm.smin.i32(i32 %.sink, i32 100)
-  %spec.store.select4 = call i32 @llvm.smax.i32(i32 %87, i32 0)
+  %87 = call i32 @llvm.smax.i32(i32 %.sink, i32 0)
+  %spec.store.select4 = call i32 @llvm.smin.i32(i32 %87, i32 100)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN6icu_77L12binarySearchEPKtit.exit.thread, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us70, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us, %72, %86, %69

@@ -60235,8 +60235,8 @@ if.then.i.i48:                                    ; preds = %invoke.cont11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %if.then.i.i48, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i49
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp6) #34
-  %12 = call i16 @llvm.umin.i16(i16 %call, i16 44)
-  %13 = call i16 @llvm.umax.i16(i16 %12, i16 37)
+  %12 = call i16 @llvm.umax.i16(i16 %call, i16 37)
+  %13 = call i16 @llvm.umin.i16(i16 %12, i16 44)
   %narrow = select i1 %call12, i16 44, i16 %13
   ret i16 %narrow
 

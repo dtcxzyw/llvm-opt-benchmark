@@ -6455,8 +6455,8 @@ read_delta_qindex.exit:                           ; preds = %24, %28, %81, %82
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 10724
   %90 = load i32, ptr %89, align 4
   %91 = add nsw i32 %90, %88
-  %92 = tail call i32 @llvm.smin.i32(i32 %91, i32 255)
-  %93 = tail call i32 @llvm.smax.i32(i32 %92, i32 1)
+  %92 = tail call i32 @llvm.smax.i32(i32 %91, i32 1)
+  %93 = tail call i32 @llvm.umin.i32(i32 %92, i32 255)
   store i32 %93, ptr %89, align 4
   %94 = load ptr, ptr %22, align 8
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24820
@@ -6495,8 +6495,8 @@ read_delta_qindex.exit:                           ; preds = %24, %28, %81, %82
   %114 = load i32, ptr %106, align 4
   %115 = mul nsw i32 %114, %113
   %116 = add nsw i32 %115, %111
-  %117 = tail call i32 @llvm.smin.i32(i32 %116, i32 63)
-  %118 = tail call i32 @llvm.smax.i32(i32 %117, i32 -63)
+  %117 = tail call i32 @llvm.smax.i32(i32 %116, i32 -63)
+  %118 = tail call i32 @llvm.smin.i32(i32 %117, i32 63)
   %119 = trunc nsw i32 %118 to i8
   store i8 %119, ptr %109, align 1
   %120 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 0, i64 %indvars.iv
@@ -6517,8 +6517,8 @@ read_delta_qindex.exit:                           ; preds = %24, %28, %81, %82
   %128 = load i32, ptr %127, align 4
   %129 = mul nsw i32 %128, %126
   %130 = add nsw i32 %129, %124
-  %131 = tail call i32 @llvm.smin.i32(i32 %130, i32 63)
-  %132 = tail call i32 @llvm.smax.i32(i32 %131, i32 -63)
+  %131 = tail call i32 @llvm.smax.i32(i32 %130, i32 -63)
+  %132 = tail call i32 @llvm.smin.i32(i32 %131, i32 63)
   %133 = trunc nsw i32 %132 to i8
   store i8 %133, ptr %122, align 16
   %134 = getelementptr inbounds nuw i8, ptr %9, i64 170

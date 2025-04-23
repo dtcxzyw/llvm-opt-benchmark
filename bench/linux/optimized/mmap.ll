@@ -140,8 +140,8 @@ define dso_local void @arch_pick_mmap_layout(ptr noundef writeonly captures(none
   %44 = add i64 %43, %38
   %45 = add i64 %44, %42
   %46 = tail call i64 @llvm.umax.i64(i64 %45, i64 %38)
-  %47 = tail call i64 @llvm.umin.i64(i64 %46, i64 117281240292690)
-  %48 = tail call i64 @llvm.umax.i64(i64 %47, i64 134217728)
+  %47 = tail call i64 @llvm.umax.i64(i64 %46, i64 134217728)
+  %48 = tail call i64 @llvm.umin.i64(i64 %47, i64 117281240292690)
   %49 = add i64 %30, %48
   %50 = sub i64 140737488355327, %49
   %51 = and i64 %50, -4096

@@ -1010,310 +1010,310 @@ define internal { double, double } @_ZL14isea_s_inverse5PJ_XYP8PJconsts(double %
 
 73:                                               ; preds = %67
   %74 = fptosi double %.099.i to i32
-  %75 = tail call i32 @llvm.smin.i32(i32 %74, i32 4)
-  %.sroa.speculated14.i = tail call i32 @llvm.smax.i32(i32 %75, i32 0)
-  %76 = fptosi double %.0100.i to i32
-  %77 = tail call i32 @llvm.smin.i32(i32 %76, i32 5)
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
-  %78 = icmp eq i32 %.sroa.speculated.i, %.sroa.speculated14.i
-  %79 = add nuw nsw i32 %.sroa.speculated14.i, 1
-  %80 = icmp eq i32 %77, %79
-  %or.cond108.i = select i1 %78, i1 true, i1 %80
-  br i1 %or.cond108.i, label %81, label %_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit
+  %75 = tail call i32 @llvm.smax.i32(i32 %74, i32 0)
+  %76 = tail call i32 @llvm.umin.i32(i32 %75, i32 4)
+  %77 = fptosi double %.0100.i to i32
+  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 5)
+  %80 = icmp eq i32 %78, %76
+  %81 = add nuw nsw i32 %76, 1
+  %82 = icmp eq i32 %79, %81
+  %or.cond108.i = select i1 %80, i1 true, i1 %82
+  br i1 %or.cond108.i, label %83, label %_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit
 
-81:                                               ; preds = %73
-  %82 = add nuw nsw i32 %.sroa.speculated.i, %.sroa.speculated14.i
-  %83 = uitofp nneg i32 %.sroa.speculated14.i to double
-  %84 = fsub double %.099.i, %83
-  %85 = uitofp nneg i32 %.sroa.speculated.i to double
-  %86 = fsub double %.0100.i, %85
-  %87 = fcmp ogt double %84, %86
-  switch i32 %82, label %default.unreachable [
-    i32 0, label %88
-    i32 2, label %90
-    i32 4, label %92
-    i32 6, label %94
-    i32 8, label %96
-    i32 1, label %97
-    i32 3, label %99
-    i32 5, label %101
-    i32 7, label %103
-    i32 9, label %105
+83:                                               ; preds = %73
+  %84 = add nuw nsw i32 %79, %76
+  %85 = uitofp nneg i32 %76 to double
+  %86 = fsub double %.099.i, %85
+  %87 = uitofp nneg i32 %79 to double
+  %88 = fsub double %.0100.i, %87
+  %89 = fcmp ogt double %86, %88
+  switch i32 %84, label %default.unreachable [
+    i32 0, label %90
+    i32 2, label %92
+    i32 4, label %94
+    i32 6, label %96
+    i32 8, label %98
+    i32 1, label %99
+    i32 3, label %101
+    i32 5, label %103
+    i32 7, label %105
+    i32 9, label %107
   ]
 
-88:                                               ; preds = %81
-  %89 = select i1 %87, i32 0, i32 5
+90:                                               ; preds = %83
+  %91 = select i1 %89, i32 0, i32 5
   br label %.thread.i
 
-90:                                               ; preds = %81
-  %91 = select i1 %87, i32 1, i32 6
+92:                                               ; preds = %83
+  %93 = select i1 %89, i32 1, i32 6
   br label %.thread.i
 
-92:                                               ; preds = %81
-  %93 = select i1 %87, i32 2, i32 7
+94:                                               ; preds = %83
+  %95 = select i1 %89, i32 2, i32 7
   br label %.thread.i
 
-94:                                               ; preds = %81
-  %95 = select i1 %87, i32 3, i32 8
+96:                                               ; preds = %83
+  %97 = select i1 %89, i32 3, i32 8
   br label %.thread.i
 
-96:                                               ; preds = %81
-  br i1 %87, label %select.unfold.i, label %.thread.i
+98:                                               ; preds = %83
+  br i1 %89, label %select.unfold.i, label %.thread.i
 
-97:                                               ; preds = %81
-  %98 = select i1 %87, i32 10, i32 15
-  br label %108
+99:                                               ; preds = %83
+  %100 = select i1 %89, i32 10, i32 15
+  br label %110
 
-99:                                               ; preds = %81
-  %100 = select i1 %87, i32 11, i32 16
-  br label %108
+101:                                              ; preds = %83
+  %102 = select i1 %89, i32 11, i32 16
+  br label %110
 
-101:                                              ; preds = %81
-  %102 = select i1 %87, i32 12, i32 17
-  br label %108
+103:                                              ; preds = %83
+  %104 = select i1 %89, i32 12, i32 17
+  br label %110
 
-103:                                              ; preds = %81
-  %104 = select i1 %87, i32 13, i32 18
-  br label %108
+105:                                              ; preds = %83
+  %106 = select i1 %89, i32 13, i32 18
+  br label %110
 
-105:                                              ; preds = %81
-  %106 = select i1 %87, i32 14, i32 19
-  br label %108
+107:                                              ; preds = %83
+  %108 = select i1 %89, i32 14, i32 19
+  br label %110
 
-select.unfold.i:                                  ; preds = %96
+select.unfold.i:                                  ; preds = %98
   br label %.thread.i
 
-.thread.i:                                        ; preds = %select.unfold.i, %96, %94, %92, %90, %88
-  %.2.ph.i = phi i32 [ 4, %select.unfold.i ], [ %89, %88 ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ 9, %96 ]
+.thread.i:                                        ; preds = %select.unfold.i, %98, %96, %94, %92, %90
+  %.2.ph.i = phi i32 [ 4, %select.unfold.i ], [ %91, %90 ], [ %93, %92 ], [ %95, %94 ], [ %97, %96 ], [ 9, %98 ]
   %.cmp.i = icmp samesign ugt i32 %.2.ph.i, 4
-  %107 = zext i1 %.cmp.i to i8
-  br label %110
+  %109 = zext i1 %.cmp.i to i8
+  br label %112
 
-108:                                              ; preds = %105, %103, %101, %99, %97
-  %.2.i = phi i32 [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ], [ %98, %97 ]
+110:                                              ; preds = %107, %105, %103, %101, %99
+  %.2.i = phi i32 [ %108, %107 ], [ %106, %105 ], [ %104, %103 ], [ %102, %101 ], [ %100, %99 ]
   %.lhs.trunc.i = trunc nuw nsw i32 %.2.i to i8
-  %109 = udiv i8 %.lhs.trunc.i, 5
-  br label %110
+  %111 = udiv i8 %.lhs.trunc.i, 5
+  br label %112
 
-110:                                              ; preds = %108, %.thread.i
-  %.sink.i = phi i8 [ %107, %.thread.i ], [ %109, %108 ]
-  %.2.ph.sink.i = phi i32 [ %.2.ph.i, %.thread.i ], [ %.2.i, %108 ]
-  %111 = phi i32 [ 1, %.thread.i ], [ 2, %108 ]
+112:                                              ; preds = %110, %.thread.i
+  %.sink.i = phi i8 [ %109, %.thread.i ], [ %111, %110 ]
+  %.2.ph.sink.i = phi i32 [ %.2.ph.i, %.thread.i ], [ %.2.i, %110 ]
+  %113 = phi i32 [ 1, %.thread.i ], [ 2, %110 ]
   %.zext34.i = zext nneg i8 %.sink.i to i32
   %.neg35.i = mul nsw i32 %.zext34.i, -5
-  %112 = add nsw i32 %.neg35.i, %.2.ph.sink.i
-  %113 = shl nsw i32 %112, 1
-  %114 = add nsw i32 %113, %111
-  %115 = sitofp i32 %114 to double
-  %116 = fmul double %.pre.i, %115
-  %117 = fmul double %116, 5.000000e-01
-  %118 = fsub double %.sroa.070.0.i, %117
-  %119 = getelementptr inbounds nuw i8, ptr %5, i64 432
-  %120 = zext nneg i8 %.sink.i to i64
-  %121 = getelementptr inbounds nuw [4 x double], ptr %119, i64 0, i64 %120
-  %122 = load double, ptr %121, align 8, !tbaa !72
-  %123 = getelementptr inbounds nuw i8, ptr %5, i64 416
-  %124 = load double, ptr %123, align 8, !tbaa !69
-  %125 = tail call double @llvm.fmuladd.f64(double %124, double 3.000000e+00, double %122)
-  %126 = fsub double %16, %125
-  %127 = tail call double @atan2(double noundef %118, double noundef %126) #18, !tbaa !51
-  %128 = fmul double %126, %126
-  %129 = tail call double @llvm.fmuladd.f64(double %118, double %118, double %128)
-  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %129)
-  %130 = icmp samesign ult i32 %.2.ph.sink.i, 5
-  br i1 %130, label %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i, label %131
+  %114 = add nsw i32 %.neg35.i, %.2.ph.sink.i
+  %115 = shl nsw i32 %114, 1
+  %116 = add nsw i32 %115, %113
+  %117 = sitofp i32 %116 to double
+  %118 = fmul double %.pre.i, %117
+  %119 = fmul double %118, 5.000000e-01
+  %120 = fsub double %.sroa.070.0.i, %119
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 432
+  %122 = zext nneg i8 %.sink.i to i64
+  %123 = getelementptr inbounds nuw [4 x double], ptr %121, i64 0, i64 %122
+  %124 = load double, ptr %123, align 8, !tbaa !72
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 416
+  %126 = load double, ptr %125, align 8, !tbaa !69
+  %127 = tail call double @llvm.fmuladd.f64(double %126, double 3.000000e+00, double %124)
+  %128 = fsub double %16, %127
+  %129 = tail call double @atan2(double noundef %120, double noundef %128) #18, !tbaa !51
+  %130 = fmul double %128, %128
+  %131 = tail call double @llvm.fmuladd.f64(double %120, double %120, double %130)
+  %sqrt.i.i = tail call double @llvm.sqrt.f64(double %131)
+  %132 = icmp samesign ult i32 %.2.ph.sink.i, 5
+  br i1 %132, label %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i, label %133
 
-131:                                              ; preds = %110
-  %132 = add nsw i32 %.2.ph.sink.i, -10
-  %133 = icmp ult i32 %132, 5
-  %134 = select i1 %133, double 0.000000e+00, double 0x400921FB54442D18
+133:                                              ; preds = %112
+  %134 = add nsw i32 %.2.ph.sink.i, -10
+  %135 = icmp ult i32 %134, 5
+  %136 = select i1 %135, double 0.000000e+00, double 0x400921FB54442D18
   br label %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i
 
-_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i: ; preds = %131, %110
-  %135 = phi double [ 0.000000e+00, %110 ], [ %134, %131 ]
-  %136 = fadd double %127, %135
-  %137 = fcmp olt double %136, 0.000000e+00
-  br i1 %137, label %.lr.ph.i.i, label %.preheader.i.i
+_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i: ; preds = %133, %112
+  %137 = phi double [ 0.000000e+00, %112 ], [ %136, %133 ]
+  %138 = fadd double %129, %137
+  %139 = fcmp olt double %138, 0.000000e+00
+  br i1 %139, label %.lr.ph.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i
-  %.082.lcssa.i.i = phi double [ %135, %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i ], [ %139, %.lr.ph.i.i ]
-  %.081.lcssa.i.i = phi double [ %136, %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i ], [ %140, %.lr.ph.i.i ]
-  %138 = fcmp ogt double %.081.lcssa.i.i, 0x4000C152382D7365
-  br i1 %138, label %.lr.ph93.i.i, label %._crit_edge.i.i
+  %.082.lcssa.i.i = phi double [ %137, %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i ], [ %141, %.lr.ph.i.i ]
+  %.081.lcssa.i.i = phi double [ %138, %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i ], [ %142, %.lr.ph.i.i ]
+  %140 = fcmp ogt double %.081.lcssa.i.i, 0x4000C152382D7365
+  br i1 %140, label %.lr.ph93.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i, %.lr.ph.i.i
-  %.08189.i.i = phi double [ %140, %.lr.ph.i.i ], [ %136, %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i ]
-  %.08288.i.i = phi double [ %139, %.lr.ph.i.i ], [ %135, %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i ]
-  %139 = fadd double %.08288.i.i, 0x4000C152382D7365
-  %140 = fadd double %.08189.i.i, 0x4000C152382D7365
-  %141 = fcmp olt double %140, 0.000000e+00
-  br i1 %141, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !94
+  %.08189.i.i = phi double [ %142, %.lr.ph.i.i ], [ %138, %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i ]
+  %.08288.i.i = phi double [ %141, %.lr.ph.i.i ], [ %137, %_ZN12_GLOBAL__N_120ISEAPlanarProjection15faceOrientationEi.exit.i.i ]
+  %141 = fadd double %.08288.i.i, 0x4000C152382D7365
+  %142 = fadd double %.08189.i.i, 0x4000C152382D7365
+  %143 = fcmp olt double %142, 0.000000e+00
+  br i1 %143, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !94
 
 .lr.ph93.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph93.i.i
-  %.192.i.i = phi double [ %143, %.lr.ph93.i.i ], [ %.081.lcssa.i.i, %.preheader.i.i ]
-  %.18391.i.i = phi double [ %142, %.lr.ph93.i.i ], [ %.082.lcssa.i.i, %.preheader.i.i ]
-  %142 = fadd double %.18391.i.i, 0xC000C152382D7365
-  %143 = fadd double %.192.i.i, 0xC000C152382D7365
-  %144 = fcmp ogt double %143, 0x4000C152382D7365
-  br i1 %144, label %.lr.ph93.i.i, label %._crit_edge.i.i, !llvm.loop !95
+  %.192.i.i = phi double [ %145, %.lr.ph93.i.i ], [ %.081.lcssa.i.i, %.preheader.i.i ]
+  %.18391.i.i = phi double [ %144, %.lr.ph93.i.i ], [ %.082.lcssa.i.i, %.preheader.i.i ]
+  %144 = fadd double %.18391.i.i, 0xC000C152382D7365
+  %145 = fadd double %.192.i.i, 0xC000C152382D7365
+  %146 = fcmp ogt double %145, 0x4000C152382D7365
+  br i1 %146, label %.lr.ph93.i.i, label %._crit_edge.i.i, !llvm.loop !95
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph93.i.i, %.preheader.i.i
-  %.183.lcssa.i.i = phi double [ %.082.lcssa.i.i, %.preheader.i.i ], [ %142, %.lr.ph93.i.i ]
-  %.1.lcssa.i.i = phi double [ %.081.lcssa.i.i, %.preheader.i.i ], [ %143, %.lr.ph93.i.i ]
-  %145 = tail call double @sin(double noundef %.1.lcssa.i.i) #18, !tbaa !51
-  %146 = tail call double @cos(double noundef %.1.lcssa.i.i) #18, !tbaa !51
-  %147 = fdiv double %146, %145
-  %148 = getelementptr inbounds nuw i8, ptr %5, i64 400
-  %149 = load double, ptr %148, align 8, !tbaa !71
-  %150 = fadd double %147, 0x3FFBB67AE8584CAB
-  %151 = fmul double %150, 2.000000e+00
-  %152 = fdiv double %149, %151
-  %153 = getelementptr inbounds nuw i8, ptr %5, i64 368
-  %154 = load double, ptr %153, align 8, !tbaa !65
-  %155 = fdiv double %152, %154
-  %156 = fadd double %155, 0x40041B2F769CF0E0
-  br label %157
+  %.183.lcssa.i.i = phi double [ %.082.lcssa.i.i, %.preheader.i.i ], [ %144, %.lr.ph93.i.i ]
+  %.1.lcssa.i.i = phi double [ %.081.lcssa.i.i, %.preheader.i.i ], [ %145, %.lr.ph93.i.i ]
+  %147 = tail call double @sin(double noundef %.1.lcssa.i.i) #18, !tbaa !51
+  %148 = tail call double @cos(double noundef %.1.lcssa.i.i) #18, !tbaa !51
+  %149 = fdiv double %148, %147
+  %150 = getelementptr inbounds nuw i8, ptr %5, i64 400
+  %151 = load double, ptr %150, align 8, !tbaa !71
+  %152 = fadd double %149, 0x3FFBB67AE8584CAB
+  %153 = fmul double %152, 2.000000e+00
+  %154 = fdiv double %151, %153
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 368
+  %156 = load double, ptr %155, align 8, !tbaa !65
+  %157 = fdiv double %154, %156
+  %158 = fadd double %157, 0x40041B2F769CF0E0
+  br label %159
 
-157:                                              ; preds = %157, %._crit_edge.i.i
-  %.08596.i.i = phi double [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %172, %157 ]
-  %158 = tail call double @sin(double noundef %.08596.i.i) #18, !tbaa !51
-  %159 = tail call double @cos(double noundef %.08596.i.i) #18, !tbaa !51
-  %160 = fmul double %159, 0xBFE9E3779B97F4A8
-  %161 = tail call double @llvm.fmuladd.f64(double %158, double 0x3FDDE4BD6E524E1F, double %160)
-  %162 = tail call double @acos(double noundef %161) #18, !tbaa !51
-  %163 = fsub double %156, %162
-  %164 = fsub double %163, %.08596.i.i
-  %165 = fmul double %158, 0x3FE9E3779B97F4A8
-  %166 = tail call double @llvm.fmuladd.f64(double %159, double 0x3FDDE4BD6E524E1F, double %165)
-  %167 = tail call double @sin(double noundef %162) #18, !tbaa !51
-  %168 = fdiv double %166, %167
-  %169 = fadd double %168, -1.000000e+00
-  %170 = fneg double %164
-  %171 = fdiv double %170, %169
-  %172 = fadd double %.08596.i.i, %171
-  %173 = tail call double @llvm.fabs.f64(double %171)
-  %174 = fcmp ogt double %173, 0x3D4890361A0F3B4B
-  br i1 %174, label %157, label %175, !llvm.loop !96
+159:                                              ; preds = %159, %._crit_edge.i.i
+  %.08596.i.i = phi double [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %174, %159 ]
+  %160 = tail call double @sin(double noundef %.08596.i.i) #18, !tbaa !51
+  %161 = tail call double @cos(double noundef %.08596.i.i) #18, !tbaa !51
+  %162 = fmul double %161, 0xBFE9E3779B97F4A8
+  %163 = tail call double @llvm.fmuladd.f64(double %160, double 0x3FDDE4BD6E524E1F, double %162)
+  %164 = tail call double @acos(double noundef %163) #18, !tbaa !51
+  %165 = fsub double %158, %164
+  %166 = fsub double %165, %.08596.i.i
+  %167 = fmul double %160, 0x3FE9E3779B97F4A8
+  %168 = tail call double @llvm.fmuladd.f64(double %161, double 0x3FDDE4BD6E524E1F, double %167)
+  %169 = tail call double @sin(double noundef %164) #18, !tbaa !51
+  %170 = fdiv double %168, %169
+  %171 = fadd double %170, -1.000000e+00
+  %172 = fneg double %166
+  %173 = fdiv double %172, %171
+  %174 = fadd double %.08596.i.i, %173
+  %175 = tail call double @llvm.fabs.f64(double %173)
+  %176 = fcmp ogt double %175, 0x3D4890361A0F3B4B
+  br i1 %176, label %159, label %177, !llvm.loop !96
 
-175:                                              ; preds = %157
-  %176 = tail call double @sin(double noundef %172) #18, !tbaa !51
-  %177 = tail call double @cos(double noundef %172) #18, !tbaa !51
-  %178 = tail call double @llvm.fmuladd.f64(double %176, double 0x3FFBB67AE8584CAB, double %177)
-  %179 = tail call double @atan2(double noundef 0x3FE8722191A02D61, double noundef %178) #18, !tbaa !51
-  %180 = getelementptr inbounds nuw i8, ptr %5, i64 392
-  %181 = load double, ptr %180, align 8, !tbaa !68
-  %182 = tail call double @llvm.fmuladd.f64(double %145, double 0x3FFBB67AE8584CAB, double %146)
-  %183 = fdiv double %181, %182
-  %184 = getelementptr inbounds nuw i8, ptr %5, i64 384
-  %185 = load double, ptr %184, align 8, !tbaa !67
-  %186 = fmul double %179, 5.000000e-01
-  %187 = tail call double @sin(double noundef %186) #18, !tbaa !51
-  %188 = fmul double %185, %187
-  %189 = fdiv double %183, %188
-  %190 = fmul double %185, %189
-  %191 = fdiv double %sqrt.i.i, %190
-  %192 = tail call double @asin(double noundef %191) #18, !tbaa !51
-  %193 = fmul double %192, 2.000000e+00
-  %194 = fsub double %172, %.183.lcssa.i.i
-  %195 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %196 = zext nneg i32 %.2.ph.sink.i to i64
-  %197 = getelementptr inbounds nuw [20 x %"struct.(anonymous namespace)::isea_sincos"], ptr %195, i64 0, i64 %196
-  %198 = load double, ptr %197, align 8, !tbaa !52
-  %199 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %200 = load double, ptr %199, align 8, !tbaa !54
-  %201 = tail call double @sin(double noundef %193) #18, !tbaa !51
-  %202 = tail call double @cos(double noundef %193) #18, !tbaa !51
-  %203 = fmul double %200, %201
-  %204 = tail call double @cos(double noundef %194) #18, !tbaa !51
-  %205 = fmul double %203, %204
-  %206 = tail call double @llvm.fmuladd.f64(double %198, double %202, double %205)
-  %207 = tail call double @llvm.fabs.f64(double %206)
-  %208 = fcmp olt double %207, 1.000000e-15
-  br i1 %208, label %_ZL10safeArcSind.exit.i.i, label %209
+177:                                              ; preds = %159
+  %178 = tail call double @sin(double noundef %174) #18, !tbaa !51
+  %179 = tail call double @cos(double noundef %174) #18, !tbaa !51
+  %180 = tail call double @llvm.fmuladd.f64(double %178, double 0x3FFBB67AE8584CAB, double %179)
+  %181 = tail call double @atan2(double noundef 0x3FE8722191A02D61, double noundef %180) #18, !tbaa !51
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 392
+  %183 = load double, ptr %182, align 8, !tbaa !68
+  %184 = tail call double @llvm.fmuladd.f64(double %147, double 0x3FFBB67AE8584CAB, double %148)
+  %185 = fdiv double %183, %184
+  %186 = getelementptr inbounds nuw i8, ptr %5, i64 384
+  %187 = load double, ptr %186, align 8, !tbaa !67
+  %188 = fmul double %181, 5.000000e-01
+  %189 = tail call double @sin(double noundef %188) #18, !tbaa !51
+  %190 = fmul double %187, %189
+  %191 = fdiv double %185, %190
+  %192 = fmul double %187, %191
+  %193 = fdiv double %sqrt.i.i, %192
+  %194 = tail call double @asin(double noundef %193) #18, !tbaa !51
+  %195 = fmul double %194, 2.000000e+00
+  %196 = fsub double %174, %.183.lcssa.i.i
+  %197 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %198 = zext nneg i32 %.2.ph.sink.i to i64
+  %199 = getelementptr inbounds nuw [20 x %"struct.(anonymous namespace)::isea_sincos"], ptr %197, i64 0, i64 %198
+  %200 = load double, ptr %199, align 8, !tbaa !52
+  %201 = getelementptr inbounds nuw i8, ptr %199, i64 8
+  %202 = load double, ptr %201, align 8, !tbaa !54
+  %203 = tail call double @sin(double noundef %195) #18, !tbaa !51
+  %204 = tail call double @cos(double noundef %195) #18, !tbaa !51
+  %205 = fmul double %202, %203
+  %206 = tail call double @cos(double noundef %196) #18, !tbaa !51
+  %207 = fmul double %205, %206
+  %208 = tail call double @llvm.fmuladd.f64(double %200, double %204, double %207)
+  %209 = tail call double @llvm.fabs.f64(double %208)
+  %210 = fcmp olt double %209, 1.000000e-15
+  br i1 %210, label %_ZL10safeArcSind.exit.i.i, label %211
 
-209:                                              ; preds = %175
-  %210 = fadd double %206, -1.000000e+00
-  %211 = tail call double @llvm.fabs.f64(double %210)
-  %212 = fcmp olt double %211, 1.000000e-15
-  br i1 %212, label %_ZL10safeArcSind.exit.i.i, label %213
+211:                                              ; preds = %177
+  %212 = fadd double %208, -1.000000e+00
+  %213 = tail call double @llvm.fabs.f64(double %212)
+  %214 = fcmp olt double %213, 1.000000e-15
+  br i1 %214, label %_ZL10safeArcSind.exit.i.i, label %215
 
-213:                                              ; preds = %209
-  %214 = fadd double %206, 1.000000e+00
-  %215 = tail call double @llvm.fabs.f64(double %214)
-  %216 = fcmp olt double %215, 1.000000e-15
-  br i1 %216, label %_ZL10safeArcSind.exit.i.i, label %217
+215:                                              ; preds = %211
+  %216 = fadd double %208, 1.000000e+00
+  %217 = tail call double @llvm.fabs.f64(double %216)
+  %218 = fcmp olt double %217, 1.000000e-15
+  br i1 %218, label %_ZL10safeArcSind.exit.i.i, label %219
 
-217:                                              ; preds = %213
-  %218 = tail call double @asin(double noundef %206) #18, !tbaa !51
+219:                                              ; preds = %215
+  %220 = tail call double @asin(double noundef %208) #18, !tbaa !51
   br label %_ZL10safeArcSind.exit.i.i
 
-_ZL10safeArcSind.exit.i.i:                        ; preds = %217, %213, %209, %175
-  %219 = phi double [ 0.000000e+00, %175 ], [ 0x3FF921FB54442D18, %209 ], [ %218, %217 ], [ 0xBFF921FB54442D18, %213 ]
-  %220 = getelementptr inbounds nuw [20 x %"struct.(anonymous namespace)::GeoPoint"], ptr @_ZL31facesCenterDodecahedronVertices, i64 0, i64 %196, i32 1
-  %221 = load double, ptr %220, align 8, !tbaa !81
-  %222 = tail call double @sin(double noundef %194) #18, !tbaa !51
-  %223 = fmul double %203, %222
-  %224 = tail call double @sin(double noundef %219) #18, !tbaa !51
-  %225 = fneg double %198
-  %226 = tail call double @llvm.fmuladd.f64(double %225, double %224, double %202)
-  %227 = tail call double @atan2(double noundef %223, double noundef %226) #18, !tbaa !51
-  %228 = fadd double %221, %227
-  %229 = tail call double @llvm.fabs.f64(double %219)
-  %or.cond.i.i.i = fcmp ogt double %229, 0x3FF921FB256A5D67
-  %230 = select i1 %or.cond.i.i.i, double 0.000000e+00, double %228
-  %231 = load double, ptr %7, align 8, !tbaa !97
-  %232 = fcmp une double %231, 0.000000e+00
-  %233 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %234 = load double, ptr %233, align 8
-  %235 = fcmp une double %234, 0.000000e+00
-  %or.cond24.i.i.i = select i1 %232, i1 true, i1 %235
-  br i1 %or.cond24.i.i.i, label %236, label %_ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i
+_ZL10safeArcSind.exit.i.i:                        ; preds = %219, %215, %211, %177
+  %221 = phi double [ 0.000000e+00, %177 ], [ 0x3FF921FB54442D18, %211 ], [ %220, %219 ], [ 0xBFF921FB54442D18, %215 ]
+  %222 = getelementptr inbounds nuw [20 x %"struct.(anonymous namespace)::GeoPoint"], ptr @_ZL31facesCenterDodecahedronVertices, i64 0, i64 %198, i32 1
+  %223 = load double, ptr %222, align 8, !tbaa !81
+  %224 = tail call double @sin(double noundef %196) #18, !tbaa !51
+  %225 = fmul double %205, %224
+  %226 = tail call double @sin(double noundef %221) #18, !tbaa !51
+  %227 = fneg double %200
+  %228 = tail call double @llvm.fmuladd.f64(double %227, double %226, double %204)
+  %229 = tail call double @atan2(double noundef %225, double noundef %228) #18, !tbaa !51
+  %230 = fadd double %223, %229
+  %231 = tail call double @llvm.fabs.f64(double %221)
+  %or.cond.i.i.i = fcmp ogt double %231, 0x3FF921FB256A5D67
+  %232 = select i1 %or.cond.i.i.i, double 0.000000e+00, double %230
+  %233 = load double, ptr %7, align 8, !tbaa !97
+  %234 = fcmp une double %233, 0.000000e+00
+  %235 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %236 = load double, ptr %235, align 8
+  %237 = fcmp une double %236, 0.000000e+00
+  %or.cond24.i.i.i = select i1 %234, i1 true, i1 %237
+  br i1 %or.cond24.i.i.i, label %238, label %_ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i
 
-236:                                              ; preds = %_ZL10safeArcSind.exit.i.i
-  %237 = tail call double @sin(double noundef %219) #18, !tbaa !51
-  %238 = tail call double @cos(double noundef %219) #18, !tbaa !51
-  %239 = tail call double @sin(double noundef %230) #18, !tbaa !51
-  %240 = tail call double @cos(double noundef %230) #18, !tbaa !51
-  %241 = fmul double %238, %240
-  %242 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %243 = load double, ptr %242, align 8, !tbaa !99
-  %244 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %245 = load double, ptr %244, align 8, !tbaa !100
-  %246 = fneg double %245
-  %247 = fmul double %241, %246
-  %248 = tail call double @llvm.fmuladd.f64(double %237, double %243, double %247)
-  %249 = tail call double @asin(double noundef %248) #18, !tbaa !51
-  %250 = fmul double %238, %239
-  %251 = fmul double %237, %245
-  %252 = tail call double @llvm.fmuladd.f64(double %241, double %243, double %251)
-  %253 = tail call double @atan2(double noundef %250, double noundef %252) #18, !tbaa !51
-  %254 = fsub double %253, %234
+238:                                              ; preds = %_ZL10safeArcSind.exit.i.i
+  %239 = tail call double @sin(double noundef %221) #18, !tbaa !51
+  %240 = tail call double @cos(double noundef %221) #18, !tbaa !51
+  %241 = tail call double @sin(double noundef %232) #18, !tbaa !51
+  %242 = tail call double @cos(double noundef %232) #18, !tbaa !51
+  %243 = fmul double %240, %242
+  %244 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %245 = load double, ptr %244, align 8, !tbaa !99
+  %246 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %247 = load double, ptr %246, align 8, !tbaa !100
+  %248 = fneg double %247
+  %249 = fmul double %243, %248
+  %250 = tail call double @llvm.fmuladd.f64(double %239, double %245, double %249)
+  %251 = tail call double @asin(double noundef %250) #18, !tbaa !51
+  %252 = fmul double %240, %241
+  %253 = fmul double %239, %247
+  %254 = tail call double @llvm.fmuladd.f64(double %243, double %245, double %253)
+  %255 = tail call double @atan2(double noundef %252, double noundef %254) #18, !tbaa !51
+  %256 = fsub double %255, %236
   br label %_ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i
 
-_ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i: ; preds = %236, %_ZL10safeArcSind.exit.i.i
-  %.sink105.i.i = phi double [ %249, %236 ], [ %219, %_ZL10safeArcSind.exit.i.i ]
-  %.sink.i.i = phi double [ %254, %236 ], [ %230, %_ZL10safeArcSind.exit.i.i ]
-  %255 = fcmp olt double %.sink.i.i, 0xC00921FB5444850E
-  br i1 %255, label %256, label %258
-
-256:                                              ; preds = %_ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i
-  %257 = fadd double %.sink.i.i, 0x401921FB54442D18
-  br label %_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit
+_ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i: ; preds = %238, %_ZL10safeArcSind.exit.i.i
+  %.sink105.i.i = phi double [ %251, %238 ], [ %221, %_ZL10safeArcSind.exit.i.i ]
+  %.sink.i.i = phi double [ %256, %238 ], [ %232, %_ZL10safeArcSind.exit.i.i ]
+  %257 = fcmp olt double %.sink.i.i, 0xC00921FB5444850E
+  br i1 %257, label %258, label %260
 
 258:                                              ; preds = %_ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i
-  %259 = fcmp ogt double %.sink.i.i, 0x400921FB5444850E
-  br i1 %259, label %260, label %_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit
-
-260:                                              ; preds = %258
-  %261 = fadd double %.sink.i.i, 0xC01921FB54442D18
+  %259 = fadd double %.sink.i.i, 0x401921FB54442D18
   br label %_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit
 
-default.unreachable:                              ; preds = %81
+260:                                              ; preds = %_ZN12_GLOBAL__N_120ISEAPlanarProjection19icosahedronToSphereERKNS_13ISEAFacePointEPKNS_12pj_isea_dataERNS_8GeoPointE.exit.i
+  %261 = fcmp ogt double %.sink.i.i, 0x400921FB5444850E
+  br i1 %261, label %262, label %_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit
+
+262:                                              ; preds = %260
+  %263 = fadd double %.sink.i.i, 0xC01921FB54442D18
+  br label %_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit
+
+default.unreachable:                              ; preds = %83
   unreachable
 
-_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit: ; preds = %3, %260, %258, %256, %73, %67
-  %.sroa.09.1 = phi double [ %.sink.i.i, %258 ], [ %261, %260 ], [ %257, %256 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
-  %.sroa.4.1 = phi double [ %.sink105.i.i, %258 ], [ %.sink105.i.i, %260 ], [ %.sink105.i.i, %256 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
+_ZN12_GLOBAL__N_120ISEAPlanarProjection14cartesianToGeoERK5PJ_XYPKNS_12pj_isea_dataERNS_8GeoPointE.exit: ; preds = %3, %262, %260, %258, %73, %67
+  %.sroa.09.1 = phi double [ %.sink.i.i, %260 ], [ %263, %262 ], [ %259, %258 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
+  %.sroa.4.1 = phi double [ %.sink105.i.i, %260 ], [ %.sink105.i.i, %262 ], [ %.sink105.i.i, %258 ], [ 0x7FF0000000000000, %73 ], [ 0x7FF0000000000000, %67 ], [ 0x7FF0000000000000, %3 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.09.1, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.1, 1
   ret { double, double } %.fca.1.insert
@@ -1791,10 +1791,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare double @llvm.sqrt.f64(double) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
+declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #16

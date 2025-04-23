@@ -2286,8 +2286,8 @@ sane_qsort.exit:                                  ; preds = %3
 
 25:                                               ; preds = %20
   %26 = add i32 %.1, -20000
-  %27 = tail call i32 @llvm.umin.i32(i32 %26, i32 5000)
-  %28 = tail call i32 @llvm.umax.i32(i32 %27, i32 100)
+  %27 = tail call i32 @llvm.umax.i32(i32 %26, i32 100)
+  %28 = tail call i32 @llvm.umin.i32(i32 %27, i32 5000)
   br label %next_commit_index.exit
 
 next_commit_index.exit:                           ; preds = %22, %25

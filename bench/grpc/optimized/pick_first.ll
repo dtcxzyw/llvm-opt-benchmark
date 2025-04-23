@@ -1244,8 +1244,8 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i.i: ; preds = %58, %_ZN9__gnu_
   %.sroa.036.0.extract.trunc.i.i = trunc i64 %70 to i32
   %73 = and i64 %70, 4294967296
   %.not.i.i = icmp eq i64 %73, 0
-  %74 = call i32 @llvm.smin.i32(i32 %.sroa.036.0.extract.trunc.i.i, i32 2000)
-  %75 = call i32 @llvm.smax.i32(i32 %74, i32 100)
+  %74 = call i32 @llvm.smax.i32(i32 %.sroa.036.0.extract.trunc.i.i, i32 100)
+  %75 = call i32 @llvm.umin.i32(i32 %74, i32 2000)
   %76 = zext nneg i32 %75 to i64
   %77 = select i1 %.not.i.i, i64 250, i64 %76
   store i64 %77, ptr %72, align 8, !noalias !38
@@ -1634,8 +1634,8 @@ _ZN9grpc_core19LoadBalancingPolicy4ArgsD2Ev.exit.i.i12: ; preds = %209, %_ZN9__g
   %.sroa.036.0.extract.trunc.i.i17 = trunc i64 %221 to i32
   %224 = and i64 %221, 4294967296
   %.not.i.i18 = icmp eq i64 %224, 0
-  %225 = call i32 @llvm.smin.i32(i32 %.sroa.036.0.extract.trunc.i.i17, i32 2000)
-  %226 = call i32 @llvm.smax.i32(i32 %225, i32 100)
+  %225 = call i32 @llvm.smax.i32(i32 %.sroa.036.0.extract.trunc.i.i17, i32 100)
+  %226 = call i32 @llvm.umin.i32(i32 %225, i32 2000)
   %227 = zext nneg i32 %226 to i64
   %228 = select i1 %.not.i.i18, i64 250, i64 %227
   store i64 %228, ptr %223, align 8, !noalias !109
@@ -24447,9 +24447,6 @@ declare void @llvm.assume(i1 noundef) #32
 declare void @llvm.experimental.noalias.scope.decl(metadata) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #34
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -24466,6 +24463,9 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #34
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -771,8 +771,8 @@ define void @libraw_set_user_mul(ptr noundef readonly captures(address_is_null) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 381392
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 5256
-  %8 = tail call i32 @llvm.smin.i32(i32 %1, i32 3)
-  %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
+  %8 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %9 = tail call i32 @llvm.umin.i32(i32 %8, i32 3)
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %10
   store float %2, ptr %11, align 4, !tbaa !88
@@ -792,8 +792,8 @@ define void @libraw_set_gamma(ptr noundef readonly captures(address_is_null) %0,
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = fpext reassoc nsz arcp contract afn float %2 to double
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 5208
-  %9 = tail call i32 @llvm.smin.i32(i32 %1, i32 5)
-  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
+  %9 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 5)
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw [6 x double], ptr %8, i64 0, i64 %11
   store double %7, ptr %12, align 8, !tbaa !89
@@ -938,8 +938,8 @@ define float @libraw_get_cam_mul(ptr noundef readonly captures(address_is_null) 
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 153168
-  %5 = tail call i32 @llvm.smin.i32(i32 %1, i32 3)
-  %6 = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
+  %5 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 3)
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %7
   %9 = load float, ptr %8, align 4, !tbaa !88
@@ -957,8 +957,8 @@ define float @libraw_get_pre_mul(ptr noundef readonly captures(address_is_null) 
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 153184
-  %5 = tail call i32 @llvm.smin.i32(i32 %1, i32 3)
-  %6 = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
+  %5 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 3)
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %7
   %9 = load float, ptr %8, align 4, !tbaa !88
@@ -976,11 +976,11 @@ define float @libraw_get_rgb_cam(ptr noundef readonly captures(address_is_null) 
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 153296
-  %6 = tail call i32 @llvm.smin.i32(i32 %1, i32 2)
-  %7 = tail call i32 @llvm.smax.i32(i32 %6, i32 0)
+  %6 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %7 = tail call i32 @llvm.umin.i32(i32 %6, i32 2)
   %8 = zext nneg i32 %7 to i64
-  %9 = tail call i32 @llvm.smin.i32(i32 %2, i32 3)
-  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
+  %9 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
+  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 3)
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw [3 x [4 x float]], ptr %5, i64 0, i64 %8, i64 %11
   %13 = load float, ptr %12, align 4, !tbaa !88
@@ -1009,10 +1009,10 @@ define i32 @libraw_get_color_maximum(ptr noundef readonly captures(address_is_nu
 declare noundef i32 @_ZN6LibRaw4fcolEii(ptr noundef nonnull align 8 dereferenceable(767680), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { nobuiltin allocsize(0) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }

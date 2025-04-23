@@ -170,8 +170,8 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
   %77 = load i32, ptr %76, align 4, !tbaa !73
   %78 = add i32 %75, %77
   %79 = sub i32 %63, %78
-  %80 = tail call i32 @llvm.smin.i32(i32 %79, i32 65535)
-  %81 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
+  %80 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
+  %81 = tail call i32 @llvm.umin.i32(i32 %80, i32 65535)
   %82 = trunc nuw i32 %81 to i16
   store i16 %82, ptr %61, align 2, !tbaa !81
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.16797, i32 %79)
@@ -208,8 +208,8 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
   %91 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %indvars.iv119
   %92 = load i32, ptr %91, align 4, !tbaa !73
   %93 = sub nsw i32 %90, %92
-  %94 = tail call i32 @llvm.smin.i32(i32 %93, i32 65535)
-  %95 = tail call i32 @llvm.smax.i32(i32 %94, i32 0)
+  %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 0)
+  %95 = tail call i32 @llvm.umin.i32(i32 %94, i32 65535)
   %96 = trunc nuw i32 %95 to i16
   store i16 %96, ptr %88, align 2, !tbaa !81
   %spec.select89 = tail call i32 @llvm.smax.i32(i32 %.5101, i32 %93)
@@ -339,10 +339,10 @@ declare void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(7
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5

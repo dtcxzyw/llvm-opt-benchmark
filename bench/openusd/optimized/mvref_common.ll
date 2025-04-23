@@ -2628,10 +2628,10 @@ get_relative_dist.exit76:                         ; preds = %get_relative_dist.e
 
 get_mv_projection.exit.us.us:                     ; preds = %114, %111
   %118 = phi i32 [ %117, %114 ], [ %113, %111 ]
-  %119 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %107, i32 16383)
-  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 -16383)
-  %121 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %118, i32 16383)
-  %122 = tail call i32 @llvm.smax.i32(i32 %121, i32 -16383)
+  %119 = tail call i32 @llvm.smax.i32(i32 %107, i32 -16383)
+  %120 = tail call i32 @llvm.smin.i32(i32 %119, i32 16383)
+  %121 = tail call i32 @llvm.smax.i32(i32 %118, i32 -16383)
+  %122 = tail call i32 @llvm.smin.i32(i32 %121, i32 16383)
   %123 = trunc nuw nsw i64 %indvars.iv116 to i32
   %124 = and i32 %123, 2147483640
   %125 = lshr i32 %120, 6
@@ -2719,8 +2719,8 @@ define hidden zeroext range(i8 1, 0) i8 @av1_selectSamples(ptr noundef readonly 
   %9 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %6
   %10 = load i8, ptr %9, align 1
   %11 = tail call i8 @llvm.umax.i8(i8 %8, i8 %10)
-  %12 = tail call i8 @llvm.umin.i8(i8 %11, i8 112)
-  %13 = tail call i8 @llvm.umax.i8(i8 %12, i8 16)
+  %12 = tail call i8 @llvm.umax.i8(i8 %11, i8 16)
+  %13 = tail call i8 @llvm.umin.i8(i8 %12, i8 112)
   %14 = zext nneg i8 %13 to i32
   %15 = icmp sgt i32 %3, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
@@ -4374,11 +4374,11 @@ get_relative_dist.exit:                           ; preds = %av1_set_ref_frame.e
 
 get_mv_projection.exit:                           ; preds = %119, %123
   %126 = phi i32 [ %122, %119 ], [ %125, %123 ]
-  %127 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %115, i32 16383)
-  %128 = tail call i32 @llvm.smax.i32(i32 %127, i32 -16383)
+  %127 = tail call i32 @llvm.smax.i32(i32 %115, i32 -16383)
+  %128 = tail call i32 @llvm.smin.i32(i32 %127, i32 16383)
   %129 = trunc nsw i32 %128 to i16
-  %130 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %126, i32 16383)
-  %131 = tail call i32 @llvm.smax.i32(i32 %130, i32 -16383)
+  %130 = tail call i32 @llvm.smax.i32(i32 %126, i32 -16383)
+  %131 = tail call i32 @llvm.smin.i32(i32 %130, i32 16383)
   %132 = trunc nsw i32 %131 to i16
   %.not.i101 = icmp eq i8 %89, 0
   br i1 %.not.i101, label %149, label %133
@@ -4609,11 +4609,11 @@ get_relative_dist.exit108.thread:                 ; preds = %get_ref_frame_map_i
 
 get_mv_projection.exit110:                        ; preds = %242, %246
   %249 = phi i32 [ %245, %242 ], [ %248, %246 ]
-  %250 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %239, i32 16383)
-  %251 = tail call i32 @llvm.smax.i32(i32 %250, i32 -16383)
+  %250 = tail call i32 @llvm.smax.i32(i32 %239, i32 -16383)
+  %251 = tail call i32 @llvm.smin.i32(i32 %250, i32 16383)
   %252 = trunc nsw i32 %251 to i16
-  %253 = tail call i32 @llvm.smin.i32(i32 range(i32 -131071, 131072) %249, i32 16383)
-  %254 = tail call i32 @llvm.smax.i32(i32 %253, i32 -16383)
+  %253 = tail call i32 @llvm.smax.i32(i32 %249, i32 -16383)
+  %254 = tail call i32 @llvm.smin.i32(i32 %253, i32 16383)
   %255 = trunc nsw i32 %254 to i16
   br i1 %.not.i101, label %272, label %256
 

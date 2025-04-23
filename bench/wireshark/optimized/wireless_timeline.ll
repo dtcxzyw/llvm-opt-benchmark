@@ -2742,8 +2742,8 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   %356 = sext i8 %355 to i16
   %.lhs.trunc = add nsw i16 %356, 100
   %357 = sdiv i16 %.lhs.trunc, 2
-  %358 = call i16 @llvm.umin.i16(i16 %357, i16 26)
-  %359 = call i16 @llvm.umax.i16(i16 %358, i16 2)
+  %358 = call i16 @llvm.umax.i16(i16 %357, i16 2)
+  %359 = call i16 @llvm.umin.i16(i16 %358, i16 26)
   %spec.store.select4 = zext nneg i16 %359 to i32
   %360 = getelementptr inbounds nuw i8, ptr %343, i64 16
   %361 = load i64, ptr %360, align 8
@@ -3596,10 +3596,10 @@ _ZN9QtPrivate15FunctionPointerIM16WirelessTimelineFvvEE4callINS_4ListIJEEEvEEvS3
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #18
+declare i16 @llvm.umax.i16(i16, i16) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #18
+declare i16 @llvm.umin.i16(i16, i16) #18
 
 attributes #0 = { mustprogress null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

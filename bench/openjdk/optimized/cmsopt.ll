@@ -3543,12 +3543,12 @@ define internal void @MatShaperEval16(ptr noundef readonly captures(none) %0, pt
   %69 = add i32 %68, %64
   %70 = add i32 %69, %66
   %71 = ashr i32 %70, 14
-  %72 = tail call i32 @llvm.smin.i32(i32 %39, i32 16384)
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 0)
-  %74 = tail call i32 @llvm.smin.i32(i32 %55, i32 16384)
-  %75 = tail call i32 @llvm.smax.i32(i32 %74, i32 0)
-  %76 = tail call i32 @llvm.smin.i32(i32 %71, i32 16384)
-  %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %72 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
+  %73 = tail call i32 @llvm.umin.i32(i32 %72, i32 16384)
+  %74 = tail call i32 @llvm.smax.i32(i32 %55, i32 0)
+  %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 16384)
+  %76 = tail call i32 @llvm.smax.i32(i32 %71, i32 0)
+  %77 = tail call i32 @llvm.umin.i32(i32 %76, i32 16384)
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 3128
   %79 = zext nneg i32 %73 to i64
   %80 = getelementptr inbounds nuw [16385 x i16], ptr %78, i64 0, i64 %79
@@ -4113,9 +4113,6 @@ define internal ptr @Prelin8dup(ptr noundef %0, ptr noundef %1) #0 {
 declare i32 @cmsIsToneCurveDescending(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -4123,6 +4120,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

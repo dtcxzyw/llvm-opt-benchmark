@@ -11331,8 +11331,8 @@ define internal fastcc noundef range(i32 -28, 2) i32 @pin_guc_id(ptr noundef %0,
   %101 = sub nsw i64 3, %17
   %102 = shl i64 %100, %101
   %103 = trunc i64 %102 to i32
-  %104 = tail call i32 @llvm.umin.i32(i32 %103, i32 100)
-  %105 = tail call i32 @llvm.umax.i32(i32 %104, i32 1)
+  %104 = tail call i32 @llvm.umax.i32(i32 %103, i32 1)
+  %105 = tail call i32 @llvm.umin.i32(i32 %104, i32 100)
   tail call void @msleep(i32 noundef %105) #20
   br label %106
 

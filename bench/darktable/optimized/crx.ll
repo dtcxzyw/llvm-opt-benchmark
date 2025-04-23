@@ -17274,8 +17274,8 @@ _Z13getSubbandRowP10CrxSubbandi.exit:             ; preds = %29, %47, %50
   %81 = mul i32 %80, %79
   %82 = lshr i32 %81, 3
   %83 = add i32 %82, %78
-  %84 = tail call i32 @llvm.smin.i32(i32 %83, i32 1474560)
-  %85 = tail call i32 @llvm.smax.i32(i32 %84, i32 1)
+  %84 = tail call i32 @llvm.smax.i32(i32 %83, i32 1)
+  %85 = tail call i32 @llvm.umin.i32(i32 %84, i32 1474560)
   %86 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4, !tbaa !19
   %88 = mul nsw i32 %85, %87
@@ -17320,8 +17320,8 @@ _Z13getSubbandRowP10CrxSubbandi.exit:             ; preds = %29, %47, %50
   %115 = mul i32 %114, %113
   %116 = lshr i32 %115, 3
   %117 = add i32 %116, %107
-  %118 = tail call i32 @llvm.smin.i32(i32 %117, i32 1474560)
-  %119 = tail call i32 @llvm.smax.i32(i32 %118, i32 1)
+  %118 = tail call i32 @llvm.smax.i32(i32 %117, i32 1)
+  %119 = tail call i32 @llvm.umin.i32(i32 %118, i32 1474560)
   %120 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv105
   %121 = load i32, ptr %120, align 4, !tbaa !19
   %122 = mul nsw i32 %119, %121
@@ -17338,8 +17338,8 @@ _Z13getSubbandRowP10CrxSubbandi.exit:             ; preds = %29, %47, %50
   %128 = mul i32 %127, %126
   %129 = lshr i32 %128, 3
   %130 = add i32 %129, %125
-  %131 = tail call i32 @llvm.smin.i32(i32 %130, i32 1474560)
-  %132 = tail call i32 @llvm.smax.i32(i32 %131, i32 1)
+  %131 = tail call i32 @llvm.smax.i32(i32 %130, i32 1)
+  %132 = tail call i32 @llvm.umin.i32(i32 %131, i32 1474560)
   %133 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv108
   %134 = load i32, ptr %133, align 4, !tbaa !19
   %135 = mul nsw i32 %132, %134
@@ -23651,6 +23651,9 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #20

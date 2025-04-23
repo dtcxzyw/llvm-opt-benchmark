@@ -112,8 +112,8 @@ define dso_local void @tcp_initialize_rcv_mss(ptr noundef captures(none) initial
   %9 = load i32, ptr %8, align 32
   %10 = lshr i32 %9, 1
   %11 = tail call i32 @llvm.umin.i32(i32 %7, i32 %10)
-  %12 = tail call i32 @llvm.umin.i32(i32 %11, i32 536)
-  %13 = tail call i32 @llvm.umax.i32(i32 %12, i32 88)
+  %12 = tail call i32 @llvm.umax.i32(i32 %11, i32 88)
+  %13 = tail call i32 @llvm.umin.i32(i32 %12, i32 536)
   %14 = trunc nuw nsw i32 %13 to i16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1238
   store i16 %14, ptr %15, align 2
@@ -9723,8 +9723,8 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_rcv_state_process(ptr noundef 
   %191 = load i32, ptr %190, align 32
   %192 = lshr i32 %191, 1
   %193 = call i32 @llvm.umin.i32(i32 %189, i32 %192)
-  %194 = call i32 @llvm.umin.i32(i32 %193, i32 536)
-  %195 = call i32 @llvm.umax.i32(i32 %194, i32 88)
+  %194 = call i32 @llvm.umax.i32(i32 %193, i32 88)
+  %195 = call i32 @llvm.umin.i32(i32 %194, i32 536)
   %196 = trunc nuw nsw i32 %195 to i16
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 1238
   store i16 %196, ptr %197, align 2
@@ -9942,8 +9942,8 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_rcv_state_process(ptr noundef 
   %337 = load i32, ptr %336, align 32
   %338 = lshr i32 %337, 1
   %339 = call i32 @llvm.umin.i32(i32 %335, i32 %338)
-  %340 = call i32 @llvm.umin.i32(i32 %339, i32 536)
-  %341 = call i32 @llvm.umax.i32(i32 %340, i32 88)
+  %340 = call i32 @llvm.umax.i32(i32 %339, i32 88)
+  %341 = call i32 @llvm.umin.i32(i32 %340, i32 536)
   %342 = trunc nuw nsw i32 %341 to i16
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 1238
   store i16 %342, ptr %343, align 2
@@ -10210,8 +10210,8 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_rcv_state_process(ptr noundef 
   %487 = load i32, ptr %486, align 32
   %488 = lshr i32 %487, 1
   %489 = call i32 @llvm.umin.i32(i32 %485, i32 %488)
-  %490 = call i32 @llvm.umin.i32(i32 %489, i32 536)
-  %491 = call i32 @llvm.umax.i32(i32 %490, i32 88)
+  %490 = call i32 @llvm.umax.i32(i32 %489, i32 88)
+  %491 = call i32 @llvm.umin.i32(i32 %490, i32 536)
   %492 = trunc nuw nsw i32 %491 to i16
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 1238
   store i16 %492, ptr %493, align 2

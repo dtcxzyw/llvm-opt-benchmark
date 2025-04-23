@@ -7782,10 +7782,10 @@ define dso_local void @update_log_levels(i32 noundef %0, i32 noundef %1) local_u
 
 9:                                                ; preds = %._crit_edge, %4
   %10 = phi i32 [ %.pre, %._crit_edge ], [ %6, %4 ]
-  %11 = tail call i32 @llvm.smin.i32(i32 %0, i32 9)
-  %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 0)
-  %13 = tail call i32 @llvm.smin.i32(i32 %1, i32 9)
-  %14 = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
+  %11 = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
+  %12 = tail call i32 @llvm.umin.i32(i32 %11, i32 9)
+  %13 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
+  %14 = tail call i32 @llvm.umin.i32(i32 %13, i32 9)
   %.b15 = load i1, ptr @daemonize, align 1
   %. = select i1 %.b15, i32 %12, i32 0
   store i32 %., ptr %3, align 8
@@ -9499,6 +9499,9 @@ declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -104,17 +104,17 @@ define void @_ZN3net19TcpCubicSenderBytes38SetCongestionWindowFromBandwidthAndRt
   %11 = load i64, ptr %10, align 8, !tbaa !35
   %12 = call i64 @llvm.umin.i64(i64 %6, i64 292000)
   %13 = call i64 @llvm.umax.i64(i64 %11, i64 %12)
-  br label %15
+  br label %16
 
 14:                                               ; preds = %4
-  %.sroa.speculated7 = call i64 @llvm.umin.i64(i64 %6, i64 292000)
-  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %.sroa.speculated7, i64 14600)
-  br label %15
+  %15 = call i64 @llvm.umax.i64(i64 %6, i64 14600)
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %15, i64 292000)
+  br label %16
 
-15:                                               ; preds = %14, %9
+16:                                               ; preds = %14, %9
   %.sroa.speculated.sink = phi i64 [ %13, %9 ], [ %.sroa.speculated, %14 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 %.sroa.speculated.sink, ptr %16, align 8, !tbaa !25
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i64 %.sroa.speculated.sink, ptr %17, align 8, !tbaa !25
   ret void
 }
 

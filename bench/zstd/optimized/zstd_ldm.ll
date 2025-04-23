@@ -51,43 +51,43 @@ define void @ZSTD_ldm_adjustParameters(ptr noundef captures(none) initializes((2
   %21 = phi i32 [ %18, %.thread48 ], [ %6, %19 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = sub i32 %3, %21
-  %spec.select43 = tail call i32 @llvm.umin.i32(i32 %23, i32 30)
-  %spec.select46 = tail call i32 @llvm.umax.i32(i32 %spec.select43, i32 6)
+  %24 = tail call i32 @llvm.umax.i32(i32 %23, i32 6)
+  %spec.select46 = tail call i32 @llvm.umin.i32(i32 %24, i32 30)
   store i32 %spec.select46, ptr %22, align 4, !tbaa !11
   br label %.thread
 
 .thread:                                          ; preds = %11, %13, %20, %19
-  %24 = phi i32 [ %spec.select46, %20 ], [ %9, %19 ], [ %9, %13 ], [ %9, %11 ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !13
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %32
+  %25 = phi i32 [ %spec.select46, %20 ], [ %9, %19 ], [ %9, %13 ], [ %9, %11 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %27 = load i32, ptr %26, align 4, !tbaa !13
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %33
 
-28:                                               ; preds = %.thread
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = load i32, ptr %29, align 4, !tbaa !12
-  %31 = icmp ugt i32 %30, 7
-  %spec.store.select = select i1 %31, i32 32, i32 64
-  store i32 %spec.store.select, ptr %25, align 4
-  br label %32
+29:                                               ; preds = %.thread
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %31 = load i32, ptr %30, align 4, !tbaa !12
+  %32 = icmp ugt i32 %31, 7
+  %spec.store.select = select i1 %32, i32 32, i32 64
+  store i32 %spec.store.select, ptr %26, align 4
+  br label %33
 
-32:                                               ; preds = %28, %.thread
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i32, ptr %33, align 4, !tbaa !14
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %39
+33:                                               ; preds = %29, %.thread
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load i32, ptr %34, align 4, !tbaa !14
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %41
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %38 = load i32, ptr %37, align 4, !tbaa !12
-  %spec.select45 = tail call i32 @llvm.umin.i32(i32 %38, i32 8)
-  %spec.select47 = tail call i32 @llvm.umax.i32(i32 %spec.select45, i32 4)
-  br label %39
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %39 = load i32, ptr %38, align 4, !tbaa !12
+  %40 = tail call i32 @llvm.umax.i32(i32 %39, i32 4)
+  %spec.select47 = tail call i32 @llvm.umin.i32(i32 %40, i32 8)
+  br label %41
 
-39:                                               ; preds = %36, %32
-  %40 = phi i32 [ %spec.select47, %36 ], [ %34, %32 ]
-  %. = tail call i32 @llvm.umin.i32(i32 %40, i32 %24)
-  store i32 %., ptr %33, align 4, !tbaa !14
+41:                                               ; preds = %37, %33
+  %42 = phi i32 [ %spec.select47, %37 ], [ %35, %33 ]
+  %. = tail call i32 @llvm.umin.i32(i32 %42, i32 %25)
+  store i32 %., ptr %34, align 4, !tbaa !14
   ret void
 }
 

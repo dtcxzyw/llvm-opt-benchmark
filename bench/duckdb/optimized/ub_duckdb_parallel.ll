@@ -18397,8 +18397,8 @@ define noundef zeroext i1 @_ZN6duckdb8Pipeline11GetProgressERNS_12ProgressDataE(
   %6 = load ptr, ptr %5, align 8, !tbaa !401
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load i64, ptr %7, align 8, !tbaa !651
-  %9 = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 281474976710656)
-  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
+  %9 = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %9, i64 281474976710656)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %11 = load atomic i8, ptr %10 seq_cst, align 1
   %12 = trunc i8 %11 to i1

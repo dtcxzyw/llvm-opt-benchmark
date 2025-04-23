@@ -16582,8 +16582,8 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %207 = load ptr, ptr %206, align 8
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %209 = load ptr, ptr %208, align 8
-  %210 = call i64 @llvm.umin.i64(i64 %118, i64 65536)
-  %211 = call i64 @llvm.umax.i64(i64 %210, i64 32)
+  %210 = call i64 @llvm.umax.i64(i64 %118, i64 32)
+  %211 = call i64 @llvm.umin.i64(i64 %210, i64 65536)
   %212 = call ptr %207(ptr noundef %209, i64 noundef 1, i64 noundef %211) #31
   %213 = icmp eq ptr %212, null
   br i1 %213, label %215, label %.preheader

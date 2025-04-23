@@ -351,18 +351,18 @@ define void @_ZN6LibRaw19convert_to_rgb_loopEPA4_f(ptr noundef nonnull readonly 
   %97 = fmul reassoc nsz arcp contract afn float %74, %86
   %98 = fadd reassoc nsz arcp contract afn float %96, %97
   %99 = fptosi float %88 to i32
-  %100 = tail call i32 @llvm.smin.i32(i32 %99, i32 65535)
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %100 = tail call i32 @llvm.smax.i32(i32 %99, i32 0)
+  %101 = tail call i32 @llvm.umin.i32(i32 %100, i32 65535)
   %102 = trunc nuw i32 %101 to i16
   store i16 %102, ptr %.3132, align 2, !tbaa !6
   %103 = fptosi float %93 to i32
-  %104 = tail call i32 @llvm.smin.i32(i32 %103, i32 65535)
-  %105 = tail call i32 @llvm.smax.i32(i32 %104, i32 0)
+  %104 = tail call i32 @llvm.smax.i32(i32 %103, i32 0)
+  %105 = tail call i32 @llvm.umin.i32(i32 %104, i32 65535)
   %106 = trunc nuw i32 %105 to i16
   store i16 %106, ptr %79, align 2, !tbaa !6
   %107 = fptosi float %98 to i32
-  %108 = tail call i32 @llvm.smin.i32(i32 %107, i32 65535)
-  %109 = tail call i32 @llvm.smax.i32(i32 %108, i32 0)
+  %108 = tail call i32 @llvm.smax.i32(i32 %107, i32 0)
+  %109 = tail call i32 @llvm.umin.i32(i32 %108, i32 65535)
   %110 = trunc nuw i32 %109 to i16
   store i16 %110, ptr %84, align 2, !tbaa !6
   %111 = lshr i16 %102, 3
@@ -489,18 +489,18 @@ define void @_ZN6LibRaw19convert_to_rgb_loopEPA4_f(ptr noundef nonnull readonly 
   %201 = fmul reassoc nsz arcp contract afn float %169, %186
   %202 = fadd reassoc nsz arcp contract afn float %200, %201
   %203 = fptosi float %188 to i32
-  %204 = tail call i32 @llvm.smin.i32(i32 %203, i32 65535)
-  %205 = tail call i32 @llvm.smax.i32(i32 %204, i32 0)
+  %204 = tail call i32 @llvm.smax.i32(i32 %203, i32 0)
+  %205 = tail call i32 @llvm.umin.i32(i32 %204, i32 65535)
   %206 = trunc nuw i32 %205 to i16
   store i16 %206, ptr %.5128, align 2, !tbaa !6
   %207 = fptosi float %195 to i32
-  %208 = tail call i32 @llvm.smin.i32(i32 %207, i32 65535)
-  %209 = tail call i32 @llvm.smax.i32(i32 %208, i32 0)
+  %208 = tail call i32 @llvm.smax.i32(i32 %207, i32 0)
+  %209 = tail call i32 @llvm.umin.i32(i32 %208, i32 65535)
   %210 = trunc nuw i32 %209 to i16
   store i16 %210, ptr %174, align 2, !tbaa !6
   %211 = fptosi float %202 to i32
-  %212 = tail call i32 @llvm.smin.i32(i32 %211, i32 65535)
-  %213 = tail call i32 @llvm.smax.i32(i32 %212, i32 0)
+  %212 = tail call i32 @llvm.smax.i32(i32 %211, i32 0)
+  %213 = tail call i32 @llvm.umin.i32(i32 %212, i32 65535)
   %214 = trunc nuw i32 %213 to i16
   store i16 %214, ptr %179, align 2, !tbaa !6
   %215 = lshr i16 %206, 3
@@ -625,8 +625,8 @@ define void @_ZN6LibRaw17scale_colors_loopEPf(ptr noundef nonnull readonly align
   %43 = sitofp i32 %40 to float
   %44 = fmul reassoc nsz arcp contract afn float %42, %43
   %45 = fptosi float %44 to i32
-  %46 = tail call i32 @llvm.smin.i32(i32 %45, i32 65535)
-  %47 = tail call i32 @llvm.smax.i32(i32 %46, i32 0)
+  %46 = tail call i32 @llvm.smax.i32(i32 %45, i32 0)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 65535)
   %48 = trunc nuw i32 %47 to i16
   store i16 %48, ptr %21, align 2, !tbaa !6
   br label %49
@@ -696,8 +696,8 @@ define void @_ZN6LibRaw17scale_colors_loopEPf(ptr noundef nonnull readonly align
   %71 = sitofp i32 %68 to float
   %72 = fmul reassoc nsz arcp contract afn float %70, %71
   %73 = fptosi float %72 to i32
-  %74 = tail call i32 @llvm.smin.i32(i32 %73, i32 65535)
-  %75 = tail call i32 @llvm.smax.i32(i32 %74, i32 0)
+  %74 = tail call i32 @llvm.smax.i32(i32 %73, i32 0)
+  %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 65535)
   %76 = trunc nuw i32 %75 to i16
   store i16 %76, ptr %62, align 2, !tbaa !6
   br label %77
@@ -725,8 +725,8 @@ define void @_ZN6LibRaw17scale_colors_loopEPf(ptr noundef nonnull readonly align
   %84 = uitofp i16 %81 to float
   %85 = fmul reassoc nsz arcp contract afn float %83, %84
   %86 = fptosi float %85 to i32
-  %87 = tail call i32 @llvm.smin.i32(i32 %86, i32 65535)
-  %88 = tail call i32 @llvm.smax.i32(i32 %87, i32 0)
+  %87 = tail call i32 @llvm.smax.i32(i32 %86, i32 0)
+  %88 = tail call i32 @llvm.umin.i32(i32 %87, i32 65535)
   %89 = trunc nuw i32 %88 to i16
   store i16 %89, ptr %80, align 2, !tbaa !6
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
@@ -744,10 +744,10 @@ declare float @llvm.log.f32(float) #2
 declare float @llvm.exp2.f32(float) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }

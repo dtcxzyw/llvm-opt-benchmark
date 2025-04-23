@@ -1388,8 +1388,8 @@ define void @_ZN20ImDrawListSharedData29SetCircleTessellationMaxErrorEf(ptr noun
   %23 = add nsw i32 %22, 1
   %24 = sdiv i32 %23, 2
   %25 = shl nsw i32 %24, 1
-  %26 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483646, -2147483648) %25, i32 512)
-  %27 = tail call i32 @llvm.smax.i32(i32 %26, i32 4)
+  %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 4)
+  %27 = tail call i32 @llvm.umin.i32(i32 %26, i32 512)
   %28 = trunc i32 %27 to i8
   br label %29
 
@@ -3697,8 +3697,8 @@ define noundef range(i32 0, 513) i32 @_ZNK10ImDrawList27_CalcCircleAutoSegmentCo
   %24 = add nsw i32 %23, 1
   %25 = sdiv i32 %24, 2
   %26 = shl nsw i32 %25, 1
-  %27 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483646, -2147483648) %26, i32 512)
-  %28 = tail call i32 @llvm.smax.i32(i32 %27, i32 4)
+  %27 = tail call i32 @llvm.smax.i32(i32 %26, i32 4)
+  %28 = tail call i32 @llvm.umin.i32(i32 %27, i32 512)
   br label %29
 
 29:                                               ; preds = %13, %7
@@ -5668,8 +5668,8 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit:       ; preds = %._ZN8ImVectorI6ImVe
   %63 = add nsw i32 %62, 1
   %64 = sdiv i32 %63, 2
   %65 = shl nsw i32 %64, 1
-  %66 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483646, -2147483648) %65, i32 512)
-  %67 = tail call i32 @llvm.smax.i32(i32 %66, i32 4)
+  %66 = tail call i32 @llvm.smax.i32(i32 %65, i32 4)
+  %67 = tail call i32 @llvm.umin.i32(i32 %66, i32 512)
   br label %_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit
 
 _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %46, %52
@@ -6473,8 +6473,8 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit81:     ; preds = %._ZN8ImVectorI6ImVe
   %213 = add nsw i32 %212, 1
   %214 = sdiv i32 %213, 2
   %215 = shl nsw i32 %214, 1
-  %216 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483646, -2147483648) %215, i32 512)
-  %217 = tail call i32 @llvm.smax.i32(i32 %216, i32 4)
+  %216 = tail call i32 @llvm.smax.i32(i32 %215, i32 4)
+  %217 = tail call i32 @llvm.umin.i32(i32 %216, i32 512)
   br label %_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit
 
 _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %196, %202
@@ -6534,8 +6534,8 @@ define void @_ZN10ImDrawList19PathEllipticalArcToERK6ImVec2S2_fffi(ptr noundef n
   %36 = add nsw i32 %35, 1
   %37 = sdiv i32 %36, 2
   %38 = shl nsw i32 %37, 1
-  %39 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483646, -2147483648) %38, i32 512)
-  %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 4)
+  %39 = tail call i32 @llvm.smax.i32(i32 %38, i32 4)
+  %40 = tail call i32 @llvm.umin.i32(i32 %39, i32 512)
   br label %_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit
 
 _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %25, %19, %7
@@ -9157,8 +9157,8 @@ define void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8
   br label %25
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @llvm.umin.i32(i32 %4, i32 512)
-  %18 = tail call i32 @llvm.umax.i32(i32 %17, i32 3)
+  %17 = tail call i32 @llvm.umax.i32(i32 %4, i32 3)
+  %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 512)
   %19 = uitofp nneg i32 %18 to float
   %20 = add nsw i32 %18, -1
   %21 = uitofp nneg i32 %20 to float
@@ -9203,8 +9203,8 @@ define void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef nonnull a
   br label %22
 
 14:                                               ; preds = %8
-  %15 = tail call i32 @llvm.umin.i32(i32 %4, i32 512)
-  %16 = tail call i32 @llvm.umax.i32(i32 %15, i32 3)
+  %15 = tail call i32 @llvm.umax.i32(i32 %4, i32 3)
+  %16 = tail call i32 @llvm.umin.i32(i32 %15, i32 512)
   %17 = uitofp nneg i32 %16 to float
   %18 = add nsw i32 %16, -1
   %19 = uitofp nneg i32 %18 to float
@@ -9325,8 +9325,8 @@ define void @_ZN10ImDrawList10AddEllipseERK6ImVec2S2_jfif(ptr noundef nonnull al
   %38 = add nsw i32 %37, 1
   %39 = sdiv i32 %38, 2
   %40 = shl nsw i32 %39, 1
-  %41 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483646, -2147483648) %40, i32 512)
-  %42 = tail call i32 @llvm.smax.i32(i32 %41, i32 4)
+  %41 = tail call i32 @llvm.smax.i32(i32 %40, i32 4)
+  %42 = tail call i32 @llvm.umin.i32(i32 %41, i32 512)
   br label %_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit
 
 _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %27, %21, %9
@@ -9393,8 +9393,8 @@ define void @_ZN10ImDrawList16AddEllipseFilledERK6ImVec2S2_jfi(ptr noundef nonnu
   %37 = add nsw i32 %36, 1
   %38 = sdiv i32 %37, 2
   %39 = shl nsw i32 %38, 1
-  %40 = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483646, -2147483648) %39, i32 512)
-  %41 = tail call i32 @llvm.smax.i32(i32 %40, i32 4)
+  %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 4)
+  %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 512)
   br label %_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit
 
 _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %26, %20, %8

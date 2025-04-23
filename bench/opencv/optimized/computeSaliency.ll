@@ -1436,15 +1436,15 @@ _ZNSolsEPFRSoS_E.exit249:                         ; preds = %457
   br i1 %459, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %460 = call i32 @llvm.umin.i32(i32 %454, i32 7)
-  %461 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %462 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %463 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %464 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %465 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %466 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %467 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %wide.trip.count = zext nneg i32 %460 to i64
+  %460 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %462 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %463 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %465 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %467 = call i32 @llvm.umin.i32(i32 %454, i32 7)
+  %wide.trip.count = zext nneg i32 %467 to i64
   br label %488
 
 ._crit_edge:                                      ; preds = %522, %.preheader
@@ -1533,9 +1533,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_Z
   %494 = xor i32 %492, 255
   %495 = uitofp nneg i32 %494 to double
   store double %493, ptr %49, align 8, !tbaa !81
-  store double 5.000000e+01, ptr %461, align 8, !tbaa !81
-  store double %495, ptr %462, align 8, !tbaa !81
-  store double 0.000000e+00, ptr %463, align 8, !tbaa !81
+  store double 5.000000e+01, ptr %460, align 8, !tbaa !81
+  store double %495, ptr %461, align 8, !tbaa !81
+  store double 0.000000e+00, ptr %462, align 8, !tbaa !81
   %496 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv()
           to label %497 unwind label %523
 
@@ -1563,9 +1563,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_Z
   %514 = urem i32 %513, 18
   %515 = add nsw i32 %514, -9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50) #21
-  store i64 0, ptr %465, align 8
+  store i64 0, ptr %464, align 8
   store i32 50397184, ptr %50, align 8, !tbaa !51
-  store ptr %48, ptr %464, align 8, !tbaa !54
+  store ptr %48, ptr %463, align 8, !tbaa !54
   %516 = add nsw i32 %.sroa.0.0.copyload, %507
   %517 = add nsw i32 %.sroa.5.0.copyload, %515
   %518 = add nsw i32 %.sroa.6.0.copyload, %507
@@ -1584,9 +1584,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_Z
 520:                                              ; preds = %504
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %51) #21
-  store i64 0, ptr %467, align 8
+  store i64 0, ptr %466, align 8
   store i32 50397184, ptr %51, align 8, !tbaa !51
-  store ptr %48, ptr %466, align 8, !tbaa !54
+  store ptr %48, ptr %465, align 8, !tbaa !54
   %521 = mul i64 %indvars.iv, 42949672960
   %.sroa.0310.0.insert.insert = add i64 %521, 85899345940
   invoke void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_5Rect_IiEERKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 %.sroa.0310.0.insert.insert, i64 42949672970, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef -1, i32 noundef 8, i32 noundef 0)

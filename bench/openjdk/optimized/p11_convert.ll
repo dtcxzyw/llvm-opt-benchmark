@@ -597,8 +597,7 @@ define hidden noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr noundef %1
   br i1 %.not142, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader130
-  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %51, i64 4)
-  %umax = tail call i64 @llvm.umax.i64(i64 %invariant.umin, i64 1)
+  %umax = tail call i64 @llvm.umin.i64(i64 %51, i64 4)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -655,8 +654,7 @@ define hidden noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr noundef %1
 
 .lr.ph135:                                        ; preds = %.preheader129
   %88 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %.not149 = icmp eq i32 %76, 1
-  %umax145 = select i1 %.not149, i64 1, i64 2
+  %umax145 = tail call i64 @llvm.umin.i64(i64 %77, i64 2)
   br label %89
 
 89:                                               ; preds = %.lr.ph135, %89
@@ -713,8 +711,7 @@ define hidden noundef ptr @jDateObjectToCKDatePtr(ptr noundef %0, ptr noundef %1
 
 .lr.ph140:                                        ; preds = %.preheader
   %116 = getelementptr inbounds nuw i8, ptr %41, i64 6
-  %.not150 = icmp eq i32 %104, 1
-  %umax147 = select i1 %.not150, i64 1, i64 2
+  %umax147 = tail call i64 @llvm.umin.i64(i64 %105, i64 2)
   br label %117
 
 117:                                              ; preds = %.lr.ph140, %117
@@ -3630,9 +3627,6 @@ define hidden void @copyBackPBEInitializationVector(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7

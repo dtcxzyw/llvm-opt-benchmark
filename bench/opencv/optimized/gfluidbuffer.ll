@@ -4748,14 +4748,14 @@ _ZN2cv4gapi3ownL8saturateIsivEET_T0_.exit.us:     ; preds = %.preheader.us, %_ZN
   %15 = load double, ptr %14, align 8, !tbaa !11
   %16 = tail call noundef double @llvm.round.f64(double %15)
   %17 = fptosi double %16 to i32
-  %spec.select36 = tail call i32 @llvm.smin.i32(i32 %17, i32 32767)
-  %.sink37 = tail call i32 @llvm.smax.i32(i32 %spec.select36, i32 -32768)
+  %18 = tail call i32 @llvm.smax.i32(i32 %17, i32 -32768)
+  %.sink37 = tail call i32 @llvm.smin.i32(i32 %18, i32 32767)
   %.sink = trunc nsw i32 %.sink37 to i16
-  %18 = add nuw nsw i64 %indvars.iv, %13
-  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %18
-  store i16 %.sink, ptr %19, align 2, !tbaa !207
-  %20 = getelementptr inbounds nuw i16, ptr %9, i64 %18
+  %19 = add nuw nsw i64 %indvars.iv, %13
+  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %19
   store i16 %.sink, ptr %20, align 2, !tbaa !207
+  %21 = getelementptr inbounds nuw i16, ptr %9, i64 %19
+  store i16 %.sink, ptr %21, align 2, !tbaa !207
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond.not, label %._crit_edge.us, label %_ZN2cv4gapi3ownL8saturateIsivEET_T0_.exit.us, !llvm.loop !209

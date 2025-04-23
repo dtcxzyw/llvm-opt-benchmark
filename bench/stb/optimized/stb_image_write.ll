@@ -5509,8 +5509,8 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   %.not = icmp eq i32 %5, 0
   %46 = select i1 %.not, i32 90, i32 %5
   %47 = icmp slt i32 %46, 91
-  %48 = tail call i32 @llvm.smin.i32(i32 %46, i32 100)
-  %49 = tail call i32 @llvm.smax.i32(i32 %48, i32 1)
+  %48 = tail call i32 @llvm.smax.i32(i32 %46, i32 1)
+  %49 = tail call i32 @llvm.umin.i32(i32 %48, i32 100)
   %50 = icmp slt i32 %46, 50
   br i1 %50, label %51, label %53
 
@@ -5536,8 +5536,8 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   %61 = mul nsw i32 %60, %57
   %62 = add nsw i32 %61, 50
   %63 = sdiv i32 %62, 100
-  %64 = tail call i32 @llvm.smin.i32(i32 %63, i32 255)
-  %65 = tail call i32 @llvm.smax.i32(i32 %64, i32 1)
+  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 1)
+  %65 = tail call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = trunc nuw i32 %65 to i8
   %67 = getelementptr inbounds nuw [64 x i8], ptr @stbiw__jpg_ZigZag, i64 0, i64 %indvars.iv
   %68 = load i8, ptr %67, align 1, !tbaa !11
@@ -5549,8 +5549,8 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   %73 = mul nsw i32 %72, %57
   %74 = add nsw i32 %73, 50
   %75 = sdiv i32 %74, 100
-  %76 = tail call i32 @llvm.smin.i32(i32 %75, i32 255)
-  %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 1)
+  %76 = tail call i32 @llvm.smax.i32(i32 %75, i32 1)
+  %77 = tail call i32 @llvm.umin.i32(i32 %76, i32 255)
   %78 = trunc nuw i32 %77 to i8
   %79 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 0, i64 %69
   store i8 %78, ptr %79, align 1, !tbaa !11
@@ -6204,6 +6204,9 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #24
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

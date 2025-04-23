@@ -753,8 +753,8 @@ define internal i32 @kmmpd(ptr noundef %0) #0 align 16 {
   %100 = phi i32 [ 0, %97 ], [ %51, %68 ]
   %101 = shl i64 %70, 1
   %102 = udiv i64 %101, 1000
-  %103 = tail call i64 @llvm.umin.i64(i64 %102, i64 300)
-  %104 = tail call i64 @llvm.umax.i64(i64 %103, i64 5)
+  %103 = tail call i64 @llvm.umax.i64(i64 %102, i64 5)
+  %104 = tail call i64 @llvm.umin.i64(i64 %103, i64 300)
   %105 = trunc nuw nsw i64 %104 to i16
   store i16 %105, ptr %21, align 8
   %106 = tail call zeroext i1 @kthread_should_stop() #10

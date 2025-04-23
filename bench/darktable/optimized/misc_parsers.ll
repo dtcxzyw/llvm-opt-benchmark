@@ -389,8 +389,8 @@ define void @_ZN6LibRaw10parse_cineEv(ptr noundef nonnull align 8 dereferenceabl
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 153184
   store float %90, ptr %91, align 8, !tbaa !91
   %92 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %93 = tail call i32 @llvm.umin.i32(i32 %92, i32 31)
-  %94 = tail call i32 @llvm.umax.i32(i32 %93, i32 1)
+  %93 = tail call i32 @llvm.umax.i32(i32 %92, i32 1)
+  %94 = tail call i32 @llvm.umin.i32(i32 %93, i32 31)
   %95 = shl nsw i32 -1, %94
   %96 = xor i32 %95, -1
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 153000

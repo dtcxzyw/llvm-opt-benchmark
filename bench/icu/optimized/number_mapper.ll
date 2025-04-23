@@ -1007,8 +1007,8 @@ _ZNK6icu_7720DecimalFormatSymbols9getLocaleEv.exit: ; preds = %6
   br i1 %121, label %188, label %201
 
 188:                                              ; preds = %187
-  %189 = call i32 @llvm.smin.i32(i32 %105, i32 999)
-  %190 = call i32 @llvm.smax.i32(i32 %189, i32 1)
+  %189 = call i32 @llvm.smax.i32(i32 %105, i32 1)
+  %190 = call i32 @llvm.umin.i32(i32 %189, i32 999)
   %191 = icmp slt i32 %107, 0
   br i1 %191, label %196, label %192
 

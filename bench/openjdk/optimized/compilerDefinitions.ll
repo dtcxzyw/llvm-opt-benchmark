@@ -476,8 +476,8 @@ define hidden noundef range(i64 0, 2147483648) i64 @_ZN14CompilerConfig32jvmflag
 _ZN14CompilerConfig24scaled_compile_thresholdEl.exit: ; preds = %1, %6, %11
   %.0.i.i = phi i64 [ %0, %1 ], [ 9223372036854775807, %6 ], [ %spec.select.i.i, %11 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %16 = tail call noundef i64 @llvm.smin.i64(i64 %.0.i.i, i64 2147483647)
-  %17 = tail call noundef i64 @llvm.smax.i64(i64 %16, i64 0)
+  %16 = tail call i64 @llvm.smax.i64(i64 %.0.i.i, i64 0)
+  %17 = tail call i64 @llvm.umin.i64(i64 %16, i64 2147483647)
   ret i64 %17
 }
 
@@ -532,8 +532,8 @@ _ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i: ; preds = %15
 
 _ZN14CompilerConfig15scaled_freq_logEl.exit:      ; preds = %1, %6, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i, %21
   %.0.i.i = phi i64 [ %26, %21 ], [ %0, %1 ], [ 0, %6 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i ]
-  %27 = tail call noundef i64 @llvm.smin.i64(i64 %.0.i.i, i64 30)
-  %28 = tail call noundef i64 @llvm.smax.i64(i64 %27, i64 0)
+  %27 = tail call i64 @llvm.smax.i64(i64 %.0.i.i, i64 0)
+  %28 = tail call i64 @llvm.umin.i64(i64 %27, i64 30)
   ret i64 %28
 }
 
@@ -1249,8 +1249,8 @@ _ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i: ; preds = %129
 
 _ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit: ; preds = %118, %121, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i, %135
   %.0.i.i.i = phi i64 [ %140, %135 ], [ %119, %118 ], [ 0, %121 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i ]
-  %141 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i, i64 30)
-  %142 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %141, i64 0)
+  %141 = call i64 @llvm.smax.i64(i64 %.0.i.i.i, i64 0)
+  %142 = call noundef range(i64 0, 31) i64 @llvm.umin.i64(i64 %141, i64 30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   store i64 %142, ptr %29, align 8
   %143 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 392, i32 noundef 3, ptr noundef nonnull %29, i32 noundef 5) #11
@@ -1304,8 +1304,8 @@ _ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i10: ; preds = %157
 
 _ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit, %148, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i10, %163
   %.0.i.i.i12 = phi i64 [ %168, %163 ], [ %144, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit ], [ 0, %148 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i10 ]
-  %169 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i12, i64 30)
-  %170 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %169, i64 0)
+  %169 = call i64 @llvm.smax.i64(i64 %.0.i.i.i12, i64 0)
+  %170 = call noundef range(i64 0, 31) i64 @llvm.umin.i64(i64 %169, i64 30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   store i64 %170, ptr %27, align 8
   %171 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 396, i32 noundef 3, ptr noundef nonnull %27, i32 noundef 5) #11
@@ -1336,8 +1336,8 @@ _ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14: ; preds = %_ZN14CompilerC
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14, %176, %181
   %.0.i.i.i16 = phi i64 [ %172, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit14 ], [ 9223372036854775807, %176 ], [ %spec.select.i.i.i, %181 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
-  %186 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i16, i64 2147483647)
-  %187 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %186, i64 0)
+  %186 = call i64 @llvm.smax.i64(i64 %.0.i.i.i16, i64 0)
+  %187 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %186, i64 2147483647)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   store i64 %187, ptr %25, align 8
   %188 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 401, i32 noundef 3, ptr noundef nonnull %25, i32 noundef 5) #11
@@ -1368,8 +1368,8 @@ _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit: ; preds = %_ZN14Co
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit, %193, %198
   %.0.i.i.i19 = phi i64 [ %189, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit ], [ 9223372036854775807, %193 ], [ %spec.select.i.i.i18, %198 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
-  %203 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i19, i64 2147483647)
-  %204 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %203, i64 0)
+  %203 = call i64 @llvm.smax.i64(i64 %.0.i.i.i19, i64 0)
+  %204 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %203, i64 2147483647)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store i64 %204, ptr %23, align 8
   %205 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 402, i32 noundef 3, ptr noundef nonnull %23, i32 noundef 5) #11
@@ -1400,8 +1400,8 @@ _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20: ; preds = %_ZN14
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20, %210, %215
   %.0.i.i.i23 = phi i64 [ %206, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit20 ], [ 9223372036854775807, %210 ], [ %spec.select.i.i.i22, %215 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  %220 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i23, i64 2147483647)
-  %221 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %220, i64 0)
+  %220 = call i64 @llvm.smax.i64(i64 %.0.i.i.i23, i64 0)
+  %221 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %220, i64 2147483647)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   store i64 %221, ptr %21, align 8
   %222 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 403, i32 noundef 3, ptr noundef nonnull %21, i32 noundef 5) #11
@@ -1432,8 +1432,8 @@ _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24: ; preds = %_ZN14
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit28: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24, %227, %232
   %.0.i.i.i27 = phi i64 [ %223, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit24 ], [ 9223372036854775807, %227 ], [ %spec.select.i.i.i26, %232 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
-  %237 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i27, i64 2147483647)
-  %238 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %237, i64 0)
+  %237 = call i64 @llvm.smax.i64(i64 %.0.i.i.i27, i64 0)
+  %238 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %237, i64 2147483647)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store i64 %238, ptr %19, align 8
   %239 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 404, i32 noundef 3, ptr noundef nonnull %19, i32 noundef 5) #11
@@ -1487,8 +1487,8 @@ _ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i31: ; preds = %253
 
 _ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit35: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit28, %244, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i31, %259
   %.0.i.i.i33 = phi i64 [ %264, %259 ], [ %240, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit28 ], [ 0, %244 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i31 ]
-  %265 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i33, i64 30)
-  %266 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %265, i64 0)
+  %265 = call i64 @llvm.smax.i64(i64 %.0.i.i.i33, i64 0)
+  %266 = call noundef range(i64 0, 31) i64 @llvm.umin.i64(i64 %265, i64 30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store i64 %266, ptr %17, align 8
   %267 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 393, i32 noundef 3, ptr noundef nonnull %17, i32 noundef 5) #11
@@ -1542,8 +1542,8 @@ _ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i38: ; preds = %281
 
 _ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit42: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit35, %272, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i38, %287
   %.0.i.i.i40 = phi i64 [ %292, %287 ], [ %268, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit35 ], [ 0, %272 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i38 ]
-  %293 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i40, i64 30)
-  %294 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %293, i64 0)
+  %293 = call i64 @llvm.smax.i64(i64 %.0.i.i.i40, i64 0)
+  %294 = call noundef range(i64 0, 31) i64 @llvm.umin.i64(i64 %293, i64 30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store i64 %294, ptr %15, align 8
   %295 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 397, i32 noundef 3, ptr noundef nonnull %15, i32 noundef 5) #11
@@ -1597,8 +1597,8 @@ _ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i45: ; preds = %309
 
 _ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit49: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit42, %300, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i45, %315
   %.0.i.i.i47 = phi i64 [ %320, %315 ], [ %296, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit42 ], [ 0, %300 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i45 ]
-  %321 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i47, i64 30)
-  %322 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %321, i64 0)
+  %321 = call i64 @llvm.smax.i64(i64 %.0.i.i.i47, i64 0)
+  %322 = call noundef range(i64 0, 31) i64 @llvm.umin.i64(i64 %321, i64 30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store i64 %322, ptr %13, align 8
   %323 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 394, i32 noundef 3, ptr noundef nonnull %13, i32 noundef 5) #11
@@ -1652,8 +1652,8 @@ _ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52: ; preds = %337
 
 _ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit49, %328, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52, %343
   %.0.i.i.i54 = phi i64 [ %348, %343 ], [ %324, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit49 ], [ 0, %328 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i52 ]
-  %349 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i54, i64 30)
-  %350 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %349, i64 0)
+  %349 = call i64 @llvm.smax.i64(i64 %.0.i.i.i54, i64 0)
+  %350 = call noundef range(i64 0, 31) i64 @llvm.umin.i64(i64 %349, i64 30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %350, ptr %11, align 8
   %351 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 398, i32 noundef 3, ptr noundef nonnull %11, i32 noundef 5) #11
@@ -1707,8 +1707,8 @@ _ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i59: ; preds = %365
 
 _ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56, %356, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i59, %371
   %.0.i.i.i61 = phi i64 [ %376, %371 ], [ %352, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit56 ], [ 0, %356 ], [ 0, %_ZN14CompilerConfig24scaled_compile_thresholdEld.exit.i.i.i59 ]
-  %377 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i61, i64 30)
-  %378 = call noundef range(i64 0, 31) i64 @llvm.smax.i64(i64 %377, i64 0)
+  %377 = call i64 @llvm.smax.i64(i64 %.0.i.i.i61, i64 0)
+  %378 = call noundef range(i64 0, 31) i64 @llvm.umin.i64(i64 %377, i64 30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 %378, ptr %9, align 8
   %379 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 395, i32 noundef 3, ptr noundef nonnull %9, i32 noundef 5) #11
@@ -1739,8 +1739,8 @@ _ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63: ; preds = %_ZN14CompilerC
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67: ; preds = %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63, %384, %389
   %.0.i.i.i66 = phi i64 [ %380, %_ZN14CompilerConfig23jvmflag_scaled_freq_logEl.exit63 ], [ 9223372036854775807, %384 ], [ %spec.select.i.i.i65, %389 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %394 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i66, i64 2147483647)
-  %395 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %394, i64 0)
+  %394 = call i64 @llvm.smax.i64(i64 %.0.i.i.i66, i64 0)
+  %395 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %394, i64 2147483647)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %395, ptr %7, align 8
   %396 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 405, i32 noundef 3, ptr noundef nonnull %7, i32 noundef 5) #11
@@ -1771,8 +1771,8 @@ _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67: ; preds = %_ZN14
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67, %401, %406
   %.0.i.i.i70 = phi i64 [ %397, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit67 ], [ 9223372036854775807, %401 ], [ %spec.select.i.i.i69, %406 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %411 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i70, i64 2147483647)
-  %412 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %411, i64 0)
+  %411 = call i64 @llvm.smax.i64(i64 %.0.i.i.i70, i64 0)
+  %412 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %411, i64 2147483647)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %412, ptr %5, align 8
   %413 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 406, i32 noundef 3, ptr noundef nonnull %5, i32 noundef 5) #11
@@ -1803,8 +1803,8 @@ _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71: ; preds = %_ZN14
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71, %418, %423
   %.0.i.i.i74 = phi i64 [ %414, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit71 ], [ 9223372036854775807, %418 ], [ %spec.select.i.i.i73, %423 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %428 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i74, i64 2147483647)
-  %429 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %428, i64 0)
+  %428 = call i64 @llvm.smax.i64(i64 %.0.i.i.i74, i64 0)
+  %429 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %428, i64 2147483647)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %429, ptr %3, align 8
   %430 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 407, i32 noundef 3, ptr noundef nonnull %3, i32 noundef 5) #11
@@ -1835,8 +1835,8 @@ _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75: ; preds = %_ZN14
 _ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit79: ; preds = %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75, %435, %440
   %.0.i.i.i78 = phi i64 [ %431, %_ZN14CompilerConfig32jvmflag_scaled_compile_thresholdEl.exit75 ], [ 9223372036854775807, %435 ], [ %spec.select.i.i.i77, %440 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %445 = call noundef i64 @llvm.smin.i64(i64 %.0.i.i.i78, i64 2147483647)
-  %446 = call noundef range(i64 0, 2147483648) i64 @llvm.smax.i64(i64 %445, i64 0)
+  %445 = call i64 @llvm.smax.i64(i64 %.0.i.i.i78, i64 0)
+  %446 = call noundef range(i64 0, 2147483648) i64 @llvm.umin.i64(i64 %445, i64 2147483647)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 %446, ptr %1, align 8
   %447 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 408, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 5) #11
@@ -2427,9 +2427,6 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

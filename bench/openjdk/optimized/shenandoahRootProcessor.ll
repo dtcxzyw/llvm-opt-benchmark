@@ -457,8 +457,8 @@ define hidden void @_ZN24ShenandoahSTWRootScannerC2EN22ShenandoahPhaseTimings5Ph
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = lshr i32 %20, 1
-  %22 = tail call noundef i32 @llvm.umin.i32(i32 %21, i32 127)
-  %23 = tail call noundef i32 @llvm.umax.i32(i32 %22, i32 1)
+  %22 = tail call i32 @llvm.umax.i32(i32 %21, i32 1)
+  %23 = tail call noundef i32 @llvm.umin.i32(i32 %22, i32 127)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %25 = trunc nuw nsw i32 %23 to i8
   %26 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %25, ptr nonnull %24) #12, !srcloc !10
@@ -543,8 +543,8 @@ define hidden void @_ZN31ShenandoahConcurrentRootScannerC2EjN22ShenandoahPhaseTi
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 %2, ptr %26, align 8
   %27 = lshr i32 %1, 1
-  %28 = tail call noundef i32 @llvm.umin.i32(i32 %27, i32 127)
-  %29 = tail call noundef i32 @llvm.umax.i32(i32 %28, i32 1)
+  %28 = tail call i32 @llvm.umax.i32(i32 %27, i32 1)
+  %29 = tail call noundef i32 @llvm.umin.i32(i32 %28, i32 127)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %31 = trunc nuw nsw i32 %29 to i8
   %32 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %31, ptr nonnull %30) #12, !srcloc !10
@@ -960,8 +960,8 @@ define hidden void @_ZN21ShenandoahRootUpdaterC2EjN22ShenandoahPhaseTimings5Phas
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 %2, ptr %12, align 8
   %13 = lshr i32 %1, 1
-  %14 = tail call noundef i32 @llvm.umin.i32(i32 %13, i32 127)
-  %15 = tail call noundef i32 @llvm.umax.i32(i32 %14, i32 1)
+  %14 = tail call i32 @llvm.umax.i32(i32 %13, i32 1)
+  %15 = tail call noundef i32 @llvm.umin.i32(i32 %14, i32 127)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %17 = trunc nuw nsw i32 %15 to i8
   %18 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %17, ptr nonnull %16) #12, !srcloc !10
@@ -1007,8 +1007,8 @@ define hidden void @_ZN22ShenandoahRootAdjusterC2EjN22ShenandoahPhaseTimings5Pha
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 %2, ptr %12, align 8
   %13 = lshr i32 %1, 1
-  %14 = tail call noundef i32 @llvm.umin.i32(i32 %13, i32 127)
-  %15 = tail call noundef i32 @llvm.umax.i32(i32 %14, i32 1)
+  %14 = tail call i32 @llvm.umax.i32(i32 %13, i32 1)
+  %15 = tail call noundef i32 @llvm.umin.i32(i32 %14, i32 127)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %17 = trunc nuw nsw i32 %15 to i8
   %18 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %17, ptr nonnull %16) #12, !srcloc !10
@@ -1234,8 +1234,8 @@ define hidden void @_ZN34ShenandoahHeapIterationRootScannerC2Ej(ptr noundef nonn
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 305, ptr %13, align 8
   %14 = lshr i32 %1, 1
-  %15 = tail call noundef i32 @llvm.umin.i32(i32 %14, i32 127)
-  %16 = tail call noundef i32 @llvm.umax.i32(i32 %15, i32 1)
+  %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
+  %16 = tail call noundef i32 @llvm.umin.i32(i32 %15, i32 127)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %18 = trunc nuw nsw i32 %16 to i8
   %19 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %18, ptr nonnull %17) #12, !srcloc !10

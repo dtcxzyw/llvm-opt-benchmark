@@ -29,8 +29,8 @@ define dso_local noundef ptr @tbm_create(i64 noundef %0, ptr noundef %1) local_u
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %6, align 8
   %7 = lshr i64 %0, 6
-  %8 = tail call i64 @llvm.umin.i64(i64 %7, i64 2147483646)
-  %9 = tail call i64 @llvm.umax.i64(i64 %8, i64 16)
+  %8 = tail call i64 @llvm.umax.i64(i64 %7, i64 16)
+  %9 = tail call i64 @llvm.umin.i64(i64 %8, i64 2147483646)
   %10 = trunc nuw nsw i64 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %10, ptr %11, align 4
@@ -49,8 +49,8 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i32 16, 2147483647) i32 @tbm_calculate_entries(i64 noundef %0) local_unnamed_addr #2 {
   %2 = lshr i64 %0, 6
-  %3 = tail call i64 @llvm.umin.i64(i64 %2, i64 2147483646)
-  %4 = tail call i64 @llvm.umax.i64(i64 %3, i64 16)
+  %3 = tail call i64 @llvm.umax.i64(i64 %2, i64 16)
+  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2147483646)
   %5 = trunc nuw nsw i64 %4 to i32
   ret i32 %5
 }

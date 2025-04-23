@@ -21440,8 +21440,8 @@ define dso_local void @nvgArc(ptr noundef captures(none) %0, float noundef %1, f
   %29 = fdiv float %28, 0x3FF921FB60000000
   %30 = fadd float %29, 5.000000e-01
   %31 = fptosi float %30 to i32
-  %32 = tail call noundef range(i32 -2147483648, 6) i32 @llvm.smin.i32(i32 %31, i32 5)
-  %33 = tail call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %32, i32 1)
+  %32 = tail call i32 @llvm.smax.i32(i32 %31, i32 1)
+  %33 = tail call i32 @llvm.umin.i32(i32 %32, i32 5)
   %34 = uitofp nneg i32 %33 to float
   %35 = fdiv float %.168, %34
   %36 = fmul float %35, 5.000000e-01

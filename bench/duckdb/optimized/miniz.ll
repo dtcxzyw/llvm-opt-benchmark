@@ -15043,8 +15043,8 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %222 = load ptr, ptr %221, align 8, !tbaa !210
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %224 = load ptr, ptr %223, align 8, !tbaa !214
-  %225 = call i64 @llvm.umin.i64(i64 %135, i64 65536)
-  %226 = call i64 @llvm.umax.i64(i64 %225, i64 32)
+  %225 = call i64 @llvm.umax.i64(i64 %135, i64 32)
+  %226 = call i64 @llvm.umin.i64(i64 %225, i64 65536)
   %227 = call noundef ptr %222(ptr noundef %224, i64 noundef 1, i64 noundef %226)
   %228 = icmp eq ptr %227, null
   br i1 %228, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit397, label %.preheader

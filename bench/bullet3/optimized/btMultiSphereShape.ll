@@ -377,8 +377,8 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK18btMultiSphereShape37localGe
   %.026100 = phi i32 [ 0, %.lr.ph105 ], [ %82, %81 ]
   %.sroa.4.099 = phi <2 x float> [ zeroinitializer, %.lr.ph105 ], [ %.sroa.4.1, %81 ]
   %.sroa.089.098 = phi <2 x float> [ zeroinitializer, %.lr.ph105 ], [ %.sroa.089.1, %81 ]
-  %25 = tail call i32 @llvm.smin.i32(i32 %indvars.iv, i32 128)
-  %26 = tail call i32 @llvm.smax.i32(i32 %25, i32 1)
+  %25 = tail call i32 @llvm.smax.i32(i32 %indvars.iv, i32 1)
+  %26 = tail call i32 @llvm.umin.i32(i32 %25, i32 128)
   %smax = zext nneg i32 %26 to i64
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %3) #14
   %27 = sub nsw i32 %15, %.026100
@@ -538,8 +538,8 @@ define dso_local void @_ZNK18btMultiSphereShape49batchedUnitVectorGetSupportingV
   %.03081 = phi ptr [ %19, %.lr.ph84 ], [ %.131.lcssa, %90 ]
   %.03280 = phi i32 [ 0, %.lr.ph84 ], [ %91, %90 ]
   %.03379 = phi ptr [ %18, %.lr.ph84 ], [ %.134.lcssa, %90 ]
-  %24 = tail call i32 @llvm.smin.i32(i32 %indvars.iv, i32 128)
-  %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 1)
+  %24 = tail call i32 @llvm.smax.i32(i32 %indvars.iv, i32 1)
+  %25 = tail call i32 @llvm.umin.i32(i32 %24, i32 128)
   %smax = zext nneg i32 %25 to i64
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #14
   %26 = sub nsw i32 %15, %.03280
@@ -1037,6 +1037,9 @@ declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #13

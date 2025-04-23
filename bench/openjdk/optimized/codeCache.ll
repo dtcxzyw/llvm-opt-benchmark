@@ -2461,8 +2461,8 @@ _ZN9CodeCache12max_capacityEv.exit:               ; preds = %27, %7, %_ZN9CodeCa
   %69 = fdiv double %66, %68
   %70 = fdiv double %69, %62
   %71 = fptoui double %70 to i64
-  %72 = tail call noundef i64 @llvm.umin.i64(i64 %71, i64 2147483647)
-  %73 = tail call noundef i64 @llvm.umax.i64(i64 %72, i64 2)
+  %72 = tail call i64 @llvm.umax.i64(i64 %71, i64 2)
+  %73 = tail call i64 @llvm.umin.i64(i64 %72, i64 2147483647)
   store i64 %73, ptr @_ZN9CodeCache14_cold_gc_countE, align 8
   %74 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE19ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not51 = icmp eq ptr %74, null

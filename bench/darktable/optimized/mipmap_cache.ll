@@ -378,8 +378,8 @@ _dead_image_f.exit:                               ; preds = %_mipmap_cache_get_f
   br i1 %.not72, label %.preheader, label %56
 
 63:                                               ; preds = %99
-  %64 = call i64 @llvm.umin.i64(i64 %38, i64 8589934592)
-  %65 = call i64 @llvm.umax.i64(i64 %64, i64 104857600)
+  %64 = call i64 @llvm.umax.i64(i64 %38, i64 104857600)
+  %65 = call i64 @llvm.umin.i64(i64 %64, i64 8589934592)
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 440

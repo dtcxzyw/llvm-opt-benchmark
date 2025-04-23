@@ -5627,8 +5627,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZN
 
 71:                                               ; preds = %63
   %72 = shl i64 %69, 1
-  %73 = call i64 @llvm.umin.i64(i64 %72, i64 67108864)
-  %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %73, i64 40)
+  %73 = call i64 @llvm.umax.i64(i64 %72, i64 40)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %73, i64 67108864)
   store i64 %.sroa.speculated.i, ptr %65, align 8
   %74 = call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i) #30
   %75 = getelementptr inbounds nuw i8, ptr %65, i64 16
@@ -6028,8 +6028,8 @@ _ZNSt3mapImPN6Assimp3FBX10LazyObjectESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exi
 
 231:                                              ; preds = %_ZNSt3mapImPN6Assimp3FBX10LazyObjectESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread
   %232 = shl i64 %229, 1
-  %233 = call i64 @llvm.umin.i64(i64 %232, i64 67108864)
-  %.sroa.speculated.i77 = call i64 @llvm.umax.i64(i64 %233, i64 40)
+  %233 = call i64 @llvm.umax.i64(i64 %232, i64 40)
+  %.sroa.speculated.i77 = call i64 @llvm.umin.i64(i64 %233, i64 67108864)
   store i64 %.sroa.speculated.i77, ptr %65, align 8
   %234 = call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i77) #30
   %235 = load ptr, ptr %121, align 8
@@ -6709,8 +6709,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
 
 188:                                              ; preds = %183
   %189 = shl i64 %186, 1
-  %190 = call i64 @llvm.umin.i64(i64 %189, i64 67108864)
-  %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %190, i64 64)
+  %190 = call i64 @llvm.umax.i64(i64 %189, i64 64)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %190, i64 67108864)
   store i64 %.sroa.speculated.i, ptr %15, align 8
   %191 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated.i) #30
           to label %.noexc114 unwind label %.loopexit

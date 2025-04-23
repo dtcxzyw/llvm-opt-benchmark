@@ -169,8 +169,8 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
   %4 = load i32, ptr %3, align 4, !tbaa !81
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 384080
-  %7 = tail call i32 @llvm.smin.i32(i32 %4, i32 19)
-  %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
+  %7 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
+  %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 19)
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds nuw [20 x i32], ptr %6, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !82
@@ -899,8 +899,8 @@ define void @_ZN6LibRaw19packed_dng_load_rawEv(ptr noundef nonnull align 8 deref
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5460
   %8 = load i32, ptr %7, align 4, !tbaa !81
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 384080
-  %10 = tail call i32 @llvm.smin.i32(i32 %8, i32 19)
-  %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 0)
+  %10 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
+  %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 19)
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw [20 x i32], ptr %9, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !82
@@ -1694,13 +1694,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.powi.f64.i32(double, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #12
 
 attributes #0 = { cold mustprogress noreturn uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { cold noreturn }

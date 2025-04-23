@@ -544,8 +544,8 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   %75 = add i32 %74, %72
   %76 = add i32 %75, %73
   %77 = ashr i32 %76, 16
-  %78 = tail call i32 @llvm.smin.i32(i32 %77, i32 255)
-  %79 = tail call i32 @llvm.smax.i32(i32 %78, i32 0)
+  %78 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
+  %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 255)
   %80 = mul nsw i32 %79, %43
   %81 = sdiv i32 %80, 255
   %82 = mul nsw i32 %45, %66
@@ -555,8 +555,8 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   %86 = add i32 %85, %83
   %87 = add i32 %86, %84
   %88 = ashr i32 %87, 16
-  %89 = tail call i32 @llvm.smin.i32(i32 %88, i32 255)
-  %90 = tail call i32 @llvm.smax.i32(i32 %89, i32 0)
+  %89 = tail call i32 @llvm.smax.i32(i32 %88, i32 0)
+  %90 = tail call i32 @llvm.umin.i32(i32 %89, i32 255)
   %91 = mul nsw i32 %90, %43
   %92 = sdiv i32 %91, 255
   %93 = mul nsw i32 %53, %66
@@ -566,8 +566,8 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   %97 = add i32 %96, %94
   %98 = add i32 %97, %95
   %99 = ashr i32 %98, 16
-  %100 = tail call i32 @llvm.smin.i32(i32 %99, i32 255)
-  %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
+  %100 = tail call i32 @llvm.smax.i32(i32 %99, i32 0)
+  %101 = tail call i32 @llvm.umin.i32(i32 %100, i32 255)
   %102 = mul nsw i32 %101, %43
   %103 = sdiv i32 %102, 255
   %104 = mul i32 %103, %25
@@ -621,8 +621,8 @@ SharpYuvRowToYuvSharpnessIndex.exit.preheader.i:  ; preds = %64
   %127 = add i32 %126, %124
   %128 = add i32 %127, %125
   %129 = ashr i32 %128, 16
-  %130 = tail call i32 @llvm.smin.i32(i32 %129, i32 255)
-  %131 = tail call i32 @llvm.smax.i32(i32 %130, i32 0)
+  %130 = tail call i32 @llvm.smax.i32(i32 %129, i32 0)
+  %131 = tail call i32 @llvm.umin.i32(i32 %130, i32 255)
   %132 = mul nsw i32 %131, %43
   %133 = sdiv i32 %132, 255
   %134 = mul nsw i32 %45, %118
@@ -632,8 +632,8 @@ SharpYuvRowToYuvSharpnessIndex.exit.preheader.i:  ; preds = %64
   %138 = add i32 %137, %135
   %139 = add i32 %138, %136
   %140 = ashr i32 %139, 16
-  %141 = tail call i32 @llvm.smin.i32(i32 %140, i32 255)
-  %142 = tail call i32 @llvm.smax.i32(i32 %141, i32 0)
+  %141 = tail call i32 @llvm.smax.i32(i32 %140, i32 0)
+  %142 = tail call i32 @llvm.umin.i32(i32 %141, i32 255)
   %143 = mul nsw i32 %142, %43
   %144 = sdiv i32 %143, 255
   %145 = mul nsw i32 %53, %118
@@ -643,8 +643,8 @@ SharpYuvRowToYuvSharpnessIndex.exit.preheader.i:  ; preds = %64
   %149 = add i32 %148, %146
   %150 = add i32 %149, %147
   %151 = ashr i32 %150, 16
-  %152 = tail call i32 @llvm.smin.i32(i32 %151, i32 255)
-  %153 = tail call i32 @llvm.smax.i32(i32 %152, i32 0)
+  %152 = tail call i32 @llvm.smax.i32(i32 %151, i32 0)
+  %153 = tail call i32 @llvm.umin.i32(i32 %152, i32 255)
   %154 = mul nsw i32 %153, %43
   %155 = sdiv i32 %154, 255
   %156 = mul i32 %155, %25
@@ -741,10 +741,10 @@ declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @WebPFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

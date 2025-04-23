@@ -12758,7 +12758,7 @@ define noundef i32 @_ZNK5Yosys5RTLIL5Const6as_intEb(ptr noundef nonnull align 8 
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %invariant.umin = tail call i64 @llvm.umin.i64(i64 %9, i64 32)
+  %umax = tail call i64 @llvm.umin.i64(i64 %9, i64 32)
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -12776,7 +12776,7 @@ define noundef i32 @_ZNK5Yosys5RTLIL5Const6as_intEb(ptr noundef nonnull align 8 
   %15 = select i1 %12, i32 %14, i32 0
   %.1 = or i32 %15, %.01719
   %16 = add nuw nsw i64 %.01620, 1
-  %exitcond.not = icmp eq i64 %16, %invariant.umin
+  %exitcond.not = icmp eq i64 %16, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 17:                                               ; preds = %._crit_edge
@@ -148584,7 +148584,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKSt6vectorINS0_5StateESaIS3_EE.exit: ; preds = %.thread
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.noexc
-  %invariant.umin.i = call i64 @llvm.umin.i64(i64 %33, i64 32)
+  %umax.i = call i64 @llvm.umin.i64(i64 %33, i64 32)
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.noexc
@@ -148602,7 +148602,7 @@ _ZN5Yosys5RTLIL5ConstC2ERKSt6vectorINS0_5StateESaIS3_EE.exit: ; preds = %.thread
   %39 = select i1 %36, i32 %38, i32 0
   %.1.i = or i32 %39, %.01719.i
   %40 = add nuw nsw i64 %.01620.i, 1
-  %exitcond.not.i = icmp eq i64 %40, %invariant.umin.i
+  %exitcond.not.i = icmp eq i64 %40, %umax.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !89
 
 41:                                               ; preds = %._crit_edge.i

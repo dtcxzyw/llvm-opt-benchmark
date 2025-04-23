@@ -1201,8 +1201,8 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit:      ; preds = %.lr.ph518, %395, %3
   %550 = fadd fast <4 x float> %549, %548
   %551 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %550)
   %552 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %551, <4 x i32> %551)
-  %553 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %552, <8 x i16> splat (i16 127))
-  %554 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %553, <8 x i16> splat (i16 -127))
+  %553 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %552, <8 x i16> splat (i16 -127))
+  %554 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %553, <8 x i16> splat (i16 127))
   %555 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %554, <8 x i16> poison)
   %556 = extractelement <16 x i8> %555, i64 0
   store i8 %556, ptr %.2140516, align 1, !tbaa !46
@@ -1981,8 +1981,8 @@ _ZL14activation_sseDv4_fiRKN4ncnn3MatE.exit169:   ; preds = %.lr.ph493, %995, %9
   %1150 = fadd fast <4 x float> %1149, %1148
   %1151 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %1150)
   %1152 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %1151, <4 x i32> %1151)
-  %1153 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %1152, <8 x i16> splat (i16 127))
-  %1154 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %1153, <8 x i16> splat (i16 -127))
+  %1153 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %1152, <8 x i16> splat (i16 -127))
+  %1154 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %1153, <8 x i16> splat (i16 127))
   %1155 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %1154, <8 x i16> poison)
   %1156 = extractelement <16 x i8> %1155, i64 0
   store i8 %1156, ptr %.6144491, align 1, !tbaa !46

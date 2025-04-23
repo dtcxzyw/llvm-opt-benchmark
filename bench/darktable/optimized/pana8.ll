@@ -1619,112 +1619,112 @@ define noundef i32 @_ZN13pana8_param_t10gammaCurveEj(ptr noundef nonnull readonl
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !136
   %8 = add i32 %spec.select, %7
-  %9 = tail call i32 @llvm.smin.i32(i32 %8, i32 65535)
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !96
-  %13 = and i32 %12, 65535
-  %.not = icmp samesign ult i32 %spec.store.select, %13
-  br i1 %.not, label %36, label %14
+  %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
+  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 65535)
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %13 = load i32, ptr %12, align 4, !tbaa !96
+  %14 = and i32 %13, 65535
+  %.not = icmp samesign ult i32 %9, %14
+  br i1 %.not, label %37, label %15
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !96
-  %17 = and i32 %16, 65535
-  %.not48 = icmp samesign ult i32 %spec.store.select, %17
-  br i1 %.not48, label %36, label %18
+15:                                               ; preds = %2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load i32, ptr %16, align 8, !tbaa !96
+  %18 = and i32 %17, 65535
+  %.not48 = icmp samesign ult i32 %9, %18
+  br i1 %.not48, label %37, label %19
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !96
-  %21 = and i32 %20, 65535
-  %.not49 = icmp samesign ult i32 %spec.store.select, %21
-  br i1 %.not49, label %36, label %22
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %21 = load i32, ptr %20, align 4, !tbaa !96
+  %22 = and i32 %21, 65535
+  %.not49 = icmp samesign ult i32 %9, %22
+  br i1 %.not49, label %37, label %23
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !96
-  %25 = and i32 %24, 65535
-  %.not50 = icmp samesign ult i32 %spec.store.select, %25
-  br i1 %.not50, label %36, label %26
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = load i32, ptr %24, align 8, !tbaa !96
+  %26 = and i32 %25, 65535
+  %.not50 = icmp samesign ult i32 %9, %26
+  br i1 %.not50, label %37, label %27
 
-26:                                               ; preds = %22
-  %27 = zext nneg i32 %spec.store.select to i64
-  %28 = or disjoint i64 %27, 21474836480
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %30 = load i32, ptr %29, align 4, !tbaa !96
-  %31 = and i32 %30, 65535
-  %32 = zext nneg i32 %31 to i64
-  %33 = sub nuw nsw i64 %28, %32
-  %34 = lshr i64 %33, 32
-  %35 = trunc nuw nsw i64 %34 to i32
-  br label %36
+27:                                               ; preds = %23
+  %28 = zext nneg i32 %10 to i64
+  %29 = or disjoint i64 %28, 21474836480
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %31 = load i32, ptr %30, align 4, !tbaa !96
+  %32 = and i32 %31, 65535
+  %33 = zext nneg i32 %32 to i64
+  %34 = sub nuw nsw i64 %29, %33
+  %35 = lshr i64 %34, 32
+  %36 = trunc nuw nsw i64 %35 to i32
+  br label %37
 
-36:                                               ; preds = %14, %22, %26, %18, %2
-  %.040 = phi i32 [ %35, %26 ], [ 3, %22 ], [ 2, %18 ], [ 1, %14 ], [ 0, %2 ]
-  %37 = zext nneg i32 %.040 to i64
-  %38 = getelementptr inbounds nuw [6 x i32], ptr %10, i64 0, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !96
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %41 = getelementptr inbounds nuw [6 x i32], ptr %40, i64 0, i64 %37
-  %42 = load i32, ptr %41, align 4, !tbaa !96
-  %43 = and i32 %39, 65535
-  %44 = sub nsw i32 %spec.store.select, %43
-  %45 = and i32 %42, 31
-  %46 = icmp eq i32 %45, 31
-  br i1 %46, label %47, label %55
+37:                                               ; preds = %15, %23, %27, %19, %2
+  %.040 = phi i32 [ %36, %27 ], [ 3, %23 ], [ 2, %19 ], [ 1, %15 ], [ 0, %2 ]
+  %38 = zext nneg i32 %.040 to i64
+  %39 = getelementptr inbounds nuw [6 x i32], ptr %11, i64 0, i64 %38
+  %40 = load i32, ptr %39, align 4, !tbaa !96
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw [6 x i32], ptr %41, i64 0, i64 %38
+  %43 = load i32, ptr %42, align 4, !tbaa !96
+  %44 = and i32 %40, 65535
+  %45 = sub nsw i32 %10, %44
+  %46 = and i32 %43, 31
+  %47 = icmp eq i32 %46, 31
+  br i1 %47, label %48, label %56
 
-47:                                               ; preds = %36
-  %48 = icmp eq i32 %.040, 5
-  br i1 %48, label %72, label %49
+48:                                               ; preds = %37
+  %49 = icmp eq i32 %.040, 5
+  br i1 %49, label %73, label %50
 
-49:                                               ; preds = %47
-  %50 = add nuw nsw i32 %.040, 1
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [6 x i32], ptr %10, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !96
-  %54 = lshr i32 %53, 16
-  br label %72
+50:                                               ; preds = %48
+  %51 = add nuw nsw i32 %.040, 1
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw [6 x i32], ptr %11, i64 0, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !96
+  %55 = lshr i32 %54, 16
+  br label %73
 
-55:                                               ; preds = %36
-  %56 = and i32 %42, 16
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %66
+56:                                               ; preds = %37
+  %57 = and i32 %43, 16
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %67
 
-58:                                               ; preds = %55
-  switch i32 %45, label %61 [
-    i32 15, label %59
-    i32 0, label %69
+59:                                               ; preds = %56
+  switch i32 %46, label %62 [
+    i32 15, label %60
+    i32 0, label %70
   ]
 
-59:                                               ; preds = %58
-  %60 = lshr i32 %39, 16
-  br label %72
+60:                                               ; preds = %59
+  %61 = lshr i32 %40, 16
+  br label %73
 
-61:                                               ; preds = %58
-  %62 = add nsw i32 %45, -1
-  %63 = shl nuw nsw i32 1, %62
-  %64 = add nsw i32 %63, %44
-  %65 = lshr i32 %64, %45
-  br label %69
+62:                                               ; preds = %59
+  %63 = add nsw i32 %46, -1
+  %64 = shl nuw nsw i32 1, %63
+  %65 = add nsw i32 %64, %45
+  %66 = lshr i32 %65, %46
+  br label %70
 
-66:                                               ; preds = %55
-  %67 = and i32 %42, 15
-  %68 = shl nsw i32 %44, %67
-  br label %69
+67:                                               ; preds = %56
+  %68 = and i32 %43, 15
+  %69 = shl nsw i32 %45, %68
+  br label %70
 
-69:                                               ; preds = %58, %61, %66
-  %.038 = phi i32 [ %65, %61 ], [ %68, %66 ], [ %44, %58 ]
-  %70 = lshr i32 %39, 16
-  %71 = add i32 %.038, %70
-  br label %72
+70:                                               ; preds = %59, %62, %67
+  %.038 = phi i32 [ %66, %62 ], [ %69, %67 ], [ %45, %59 ]
+  %71 = lshr i32 %40, 16
+  %72 = add i32 %.038, %71
+  br label %73
 
-72:                                               ; preds = %49, %47, %69, %59
-  %.sink = phi i32 [ %71, %69 ], [ %60, %59 ], [ %54, %49 ], [ 65535, %47 ]
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %74 = load i32, ptr %73, align 8, !tbaa !127
-  %.53 = tail call i32 @llvm.umin.i32(i32 %.sink, i32 %74)
+73:                                               ; preds = %50, %48, %70, %60
+  %.sink = phi i32 [ %72, %70 ], [ %61, %60 ], [ %55, %50 ], [ 65535, %48 ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %75 = load i32, ptr %74, align 8, !tbaa !127
+  %.53 = tail call i32 @llvm.umin.i32(i32 %.sink, i32 %75)
   ret i32 %.53
 }
 

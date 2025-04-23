@@ -96653,8 +96653,8 @@ _ZN7QStringD2Ev.exit159:                          ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not219, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN7QStringD2Ev.exit159
-  %spec.store.select = call i32 @llvm.umin.i32(i32 %296, i32 5)
-  %wide.trip.count = zext nneg i32 %spec.store.select to i64
+  %umax = call i32 @llvm.umin.i32(i32 %296, i32 5)
+  %wide.trip.count = zext nneg i32 %umax to i64
   br label %.lr.ph
 
 297:                                              ; preds = %277

@@ -249,8 +249,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi33EEERS2_RAT__Kc.exit: ; pr
 
 64:                                               ; preds = %63
   %65 = load i64, ptr %4, align 8, !tbaa !22
-  %66 = call i64 @llvm.umin.i64(i64 %65, i64 1048576)
-  %67 = call i64 @llvm.umax.i64(i64 %66, i64 1024)
+  %66 = call i64 @llvm.umax.i64(i64 %65, i64 1024)
+  %67 = call i64 @llvm.umin.i64(i64 %66, i64 1048576)
   store i64 %67, ptr %4, align 8, !tbaa !22
   br label %68
 

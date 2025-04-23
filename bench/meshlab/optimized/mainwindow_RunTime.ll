@@ -1264,9 +1264,9 @@ _ZN7QStringD2Ev.exit:                             ; preds = %40, %_ZN9QtPrivate8
   br i1 %51, label %.lr.ph, label %.lr.ph78
 
 .lr.ph:                                           ; preds = %_ZN7QStringD2Ev.exit
-  %52 = call i32 @llvm.umin.i32(i32 %50, i32 9)
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %wide.trip.count = zext nneg i32 %52 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %53 = call i32 @llvm.umin.i32(i32 %50, i32 9)
+  %wide.trip.count = zext nneg i32 %53 to i64
   br label %57
 
 .preheader:                                       ; preds = %_ZN7QStringD2Ev.exit69
@@ -1391,7 +1391,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i55:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit60
 
 _ZN7QStringD2Ev.exit60:                           ; preds = %_ZN7QStringD2Ev.exit54, %_ZN9QtPrivate8RefCount5derefEv.exit.i56, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i55
-  %87 = getelementptr inbounds nuw [9 x ptr], ptr %53, i64 0, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [9 x ptr], ptr %52, i64 0, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
   invoke void @_ZN7QAction7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %89 unwind label %133
@@ -2035,9 +2035,9 @@ _ZN7QStringD2Ev.exit:                             ; preds = %17, %_ZN9QtPrivate8
   br i1 %28, label %.lr.ph, label %.lr.ph70
 
 .lr.ph:                                           ; preds = %_ZN7QStringD2Ev.exit
-  %29 = call i32 @llvm.umin.i32(i32 %27, i32 9)
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %wide.trip.count = zext nneg i32 %29 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %30 = call i32 @llvm.umin.i32(i32 %27, i32 9)
+  %wide.trip.count = zext nneg i32 %30 to i64
   br label %34
 
 .preheader:                                       ; preds = %_ZN7QStringD2Ev.exit61
@@ -2162,7 +2162,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i47:  ; preds = %_ZN9QtPrivate8RefCo
   br label %_ZN7QStringD2Ev.exit52
 
 _ZN7QStringD2Ev.exit52:                           ; preds = %_ZN7QStringD2Ev.exit46, %_ZN9QtPrivate8RefCount5derefEv.exit.i48, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i47
-  %64 = getelementptr inbounds nuw [9 x ptr], ptr %30, i64 0, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [9 x ptr], ptr %29, i64 0, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8
   invoke void @_ZN7QAction7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %66 unwind label %108

@@ -414,8 +414,8 @@ define internal range(i32 -46, 1) i32 @pmix_mca_base_var_enum_verbose_vfs(ptr re
 
 19:                                               ; preds = %3
   %20 = trunc i64 %7 to i32
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %20, i32 100)
-  %.015 = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 -1)
+  %21 = tail call i32 @llvm.smax.i32(i32 %20, i32 -1)
+  %.015 = tail call i32 @llvm.smin.i32(i32 %21, i32 100)
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %19, %.lr.ph._crit_edge

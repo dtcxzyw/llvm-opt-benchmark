@@ -26,57 +26,57 @@ define void @dt_bilateral_grid_size(ptr noundef writeonly captures(none) initial
   %9 = fdiv reassoc nsz arcp contract afn float %8, %.0
   %10 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %9)
   %11 = fptosi float %10 to i32
-  %spec.select50 = tail call i32 @llvm.smin.i32(i32 %11, i32 3000)
-  %12 = tail call i32 @llvm.smax.i32(i32 %spec.select50, i32 4)
-  %13 = uitofp nneg i32 %12 to float
-  %14 = sitofp i32 %2 to float
-  %15 = fdiv reassoc nsz arcp contract afn float %14, %.0
-  %16 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %15)
-  %17 = fptosi float %16 to i32
-  %spec.select4851 = tail call i32 @llvm.smin.i32(i32 %17, i32 3000)
-  %18 = tail call i32 @llvm.smax.i32(i32 %spec.select4851, i32 4)
-  %19 = uitofp nneg i32 %18 to float
-  %20 = fdiv reassoc nsz arcp contract afn float %3, %5
-  %21 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %20)
-  %22 = fptosi float %21 to i32
-  %spec.select4952 = tail call i32 @llvm.smin.i32(i32 %22, i32 50)
-  %23 = tail call i32 @llvm.smax.i32(i32 %spec.select4952, i32 4)
-  %24 = uitofp nneg i32 %23 to float
-  %25 = fdiv reassoc nsz arcp contract afn float %14, %19
-  %26 = fdiv reassoc nsz arcp contract afn float %8, %13
-  %27 = fcmp reassoc nsz arcp contract afn ogt float %25, %26
-  %. = select reassoc nsz arcp contract afn i1 %27, float %25, float %26
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %., ptr %28, align 4, !tbaa !6
-  %29 = fdiv reassoc nsz arcp contract afn float %3, %24
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %29, ptr %30, align 16, !tbaa !15
-  %31 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %.
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %31, ptr %32, align 4, !tbaa !16
-  %33 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %29
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %33, ptr %34, align 8, !tbaa !17
-  %35 = fmul reassoc nsz arcp contract afn float %31, %8
-  %36 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %35)
-  %37 = fptosi float %36 to i32
-  %38 = add nsw i32 %37, 1
-  %39 = sext i32 %38 to i64
-  store i64 %39, ptr %0, align 64, !tbaa !18
-  %40 = fmul reassoc nsz arcp contract afn float %31, %14
-  %41 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %40)
-  %42 = fptosi float %41 to i32
-  %43 = add nsw i32 %42, 1
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %44, ptr %45, align 8, !tbaa !19
-  %46 = fmul reassoc nsz arcp contract afn float %33, %3
-  %47 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %46)
-  %48 = fptosi float %47 to i32
-  %49 = add nsw i32 %48, 1
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %50, ptr %51, align 16, !tbaa !20
+  %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 4)
+  %13 = tail call i32 @llvm.umin.i32(i32 %12, i32 3000)
+  %14 = uitofp nneg i32 %13 to float
+  %15 = sitofp i32 %2 to float
+  %16 = fdiv reassoc nsz arcp contract afn float %15, %.0
+  %17 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %16)
+  %18 = fptosi float %17 to i32
+  %19 = tail call i32 @llvm.smax.i32(i32 %18, i32 4)
+  %20 = tail call i32 @llvm.umin.i32(i32 %19, i32 3000)
+  %21 = uitofp nneg i32 %20 to float
+  %22 = fdiv reassoc nsz arcp contract afn float %3, %5
+  %23 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %22)
+  %24 = fptosi float %23 to i32
+  %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 4)
+  %26 = tail call i32 @llvm.umin.i32(i32 %25, i32 50)
+  %27 = uitofp nneg i32 %26 to float
+  %28 = fdiv reassoc nsz arcp contract afn float %15, %21
+  %29 = fdiv reassoc nsz arcp contract afn float %8, %14
+  %30 = fcmp reassoc nsz arcp contract afn ogt float %28, %29
+  %. = select reassoc nsz arcp contract afn i1 %30, float %28, float %29
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store float %., ptr %31, align 4, !tbaa !6
+  %32 = fdiv reassoc nsz arcp contract afn float %3, %27
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store float %32, ptr %33, align 16, !tbaa !15
+  %34 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %.
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store float %34, ptr %35, align 4, !tbaa !16
+  %36 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store float %36, ptr %37, align 8, !tbaa !17
+  %38 = fmul reassoc nsz arcp contract afn float %34, %8
+  %39 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %38)
+  %40 = fptosi float %39 to i32
+  %41 = add nsw i32 %40, 1
+  %42 = sext i32 %41 to i64
+  store i64 %42, ptr %0, align 64, !tbaa !18
+  %43 = fmul reassoc nsz arcp contract afn float %34, %15
+  %44 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %43)
+  %45 = fptosi float %44 to i32
+  %46 = add nsw i32 %45, 1
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %47, ptr %48, align 8, !tbaa !19
+  %49 = fmul reassoc nsz arcp contract afn float %36, %3
+  %50 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %49)
+  %51 = fptosi float %50 to i32
+  %52 = add nsw i32 %51, 1
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %53, ptr %54, align 16, !tbaa !20
   ret void
 }
 
@@ -100,42 +100,42 @@ define range(i64 0, -3) i64 @dt_bilateral_memory_use(i32 noundef %0, i32 noundef
   %7 = fdiv reassoc nsz arcp contract afn float %6, %.0.i
   %8 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %7)
   %9 = fptosi float %8 to i32
-  %spec.select50.i = tail call i32 @llvm.smin.i32(i32 %9, i32 3000)
-  %10 = tail call i32 @llvm.smax.i32(i32 %spec.select50.i, i32 4)
-  %11 = uitofp nneg i32 %10 to float
-  %12 = sitofp i32 %1 to float
-  %13 = fdiv reassoc nsz arcp contract afn float %12, %.0.i
-  %14 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %13)
-  %15 = fptosi float %14 to i32
-  %spec.select4851.i = tail call i32 @llvm.smin.i32(i32 %15, i32 3000)
-  %16 = tail call i32 @llvm.smax.i32(i32 %spec.select4851.i, i32 4)
-  %17 = uitofp nneg i32 %16 to float
-  %18 = fdiv reassoc nsz arcp contract afn float 1.000000e+02, %3
-  %19 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %18)
-  %20 = fptosi float %19 to i32
-  %spec.select4952.i = tail call i32 @llvm.smin.i32(i32 %20, i32 50)
-  %21 = tail call i32 @llvm.smax.i32(i32 %spec.select4952.i, i32 4)
-  %22 = fdiv reassoc nsz arcp contract afn float %12, %17
-  %23 = fdiv reassoc nsz arcp contract afn float %6, %11
-  %24 = fcmp reassoc nsz arcp contract afn ogt float %22, %23
-  %..i = select reassoc nsz arcp contract afn i1 %24, float %22, float %23
-  %25 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i
-  %26 = fmul reassoc nsz arcp contract afn float %25, %6
-  %27 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %26)
-  %28 = fptosi float %27 to i32
-  %29 = add nsw i32 %28, 1
-  %30 = sext i32 %29 to i64
-  %31 = fmul reassoc nsz arcp contract afn float %25, %12
-  %32 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %31)
-  %33 = fptosi float %32 to i32
-  %34 = sext i32 %33 to i64
-  %35 = add nsw i64 %34, 4
-  %36 = shl nuw nsw i32 %21, 2
-  %37 = add nuw nsw i32 %36, 4
-  %38 = zext nneg i32 %37 to i64
-  %39 = mul nsw i64 %38, %30
-  %40 = mul i64 %39, %35
-  ret i64 %40
+  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 4)
+  %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 3000)
+  %12 = uitofp nneg i32 %11 to float
+  %13 = sitofp i32 %1 to float
+  %14 = fdiv reassoc nsz arcp contract afn float %13, %.0.i
+  %15 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %14)
+  %16 = fptosi float %15 to i32
+  %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 4)
+  %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 3000)
+  %19 = uitofp nneg i32 %18 to float
+  %20 = fdiv reassoc nsz arcp contract afn float 1.000000e+02, %3
+  %21 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %20)
+  %22 = fptosi float %21 to i32
+  %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 4)
+  %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 50)
+  %25 = fdiv reassoc nsz arcp contract afn float %13, %19
+  %26 = fdiv reassoc nsz arcp contract afn float %6, %12
+  %27 = fcmp reassoc nsz arcp contract afn ogt float %25, %26
+  %..i = select reassoc nsz arcp contract afn i1 %27, float %25, float %26
+  %28 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i
+  %29 = fmul reassoc nsz arcp contract afn float %28, %6
+  %30 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %29)
+  %31 = fptosi float %30 to i32
+  %32 = add nsw i32 %31, 1
+  %33 = sext i32 %32 to i64
+  %34 = fmul reassoc nsz arcp contract afn float %28, %13
+  %35 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %34)
+  %36 = fptosi float %35 to i32
+  %37 = sext i32 %36 to i64
+  %38 = add nsw i64 %37, 4
+  %39 = shl nuw nsw i32 %24, 2
+  %40 = add nuw nsw i32 %39, 4
+  %41 = zext nneg i32 %40 to i64
+  %42 = mul nsw i64 %41, %33
+  %43 = mul i64 %42, %38
+  ret i64 %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -146,42 +146,42 @@ define i64 @dt_bilateral_memory_use2(i32 noundef %0, i32 noundef %1, float nound
   %7 = fdiv reassoc nsz arcp contract afn float %6, %.0.i.i
   %8 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %7)
   %9 = fptosi float %8 to i32
-  %spec.select50.i.i = tail call i32 @llvm.smin.i32(i32 %9, i32 3000)
-  %10 = tail call i32 @llvm.smax.i32(i32 %spec.select50.i.i, i32 4)
-  %11 = uitofp nneg i32 %10 to float
-  %12 = sitofp i32 %1 to float
-  %13 = fdiv reassoc nsz arcp contract afn float %12, %.0.i.i
-  %14 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %13)
-  %15 = fptosi float %14 to i32
-  %spec.select4851.i.i = tail call i32 @llvm.smin.i32(i32 %15, i32 3000)
-  %16 = tail call i32 @llvm.smax.i32(i32 %spec.select4851.i.i, i32 4)
-  %17 = uitofp nneg i32 %16 to float
-  %18 = fdiv reassoc nsz arcp contract afn float 1.000000e+02, %3
-  %19 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %18)
-  %20 = fptosi float %19 to i32
-  %spec.select4952.i.i = tail call i32 @llvm.smin.i32(i32 %20, i32 50)
-  %21 = tail call i32 @llvm.smax.i32(i32 %spec.select4952.i.i, i32 4)
-  %22 = fdiv reassoc nsz arcp contract afn float %12, %17
-  %23 = fdiv reassoc nsz arcp contract afn float %6, %11
-  %24 = fcmp reassoc nsz arcp contract afn ogt float %22, %23
-  %..i.i = select reassoc nsz arcp contract afn i1 %24, float %22, float %23
-  %25 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i.i
-  %26 = fmul reassoc nsz arcp contract afn float %25, %6
-  %27 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %26)
-  %28 = fptosi float %27 to i32
-  %29 = add nsw i32 %28, 1
-  %30 = sext i32 %29 to i64
-  %31 = fmul reassoc nsz arcp contract afn float %25, %12
-  %32 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %31)
-  %33 = fptosi float %32 to i32
-  %34 = sext i32 %33 to i64
-  %35 = add nsw i64 %34, 4
-  %36 = shl nuw nsw i32 %21, 2
-  %37 = add nuw nsw i32 %36, 4
-  %38 = zext nneg i32 %37 to i64
-  %39 = mul nsw i64 %30, %38
-  %40 = mul i64 %39, %35
-  ret i64 %40
+  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 4)
+  %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 3000)
+  %12 = uitofp nneg i32 %11 to float
+  %13 = sitofp i32 %1 to float
+  %14 = fdiv reassoc nsz arcp contract afn float %13, %.0.i.i
+  %15 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %14)
+  %16 = fptosi float %15 to i32
+  %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 4)
+  %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 3000)
+  %19 = uitofp nneg i32 %18 to float
+  %20 = fdiv reassoc nsz arcp contract afn float 1.000000e+02, %3
+  %21 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %20)
+  %22 = fptosi float %21 to i32
+  %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 4)
+  %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 50)
+  %25 = fdiv reassoc nsz arcp contract afn float %13, %19
+  %26 = fdiv reassoc nsz arcp contract afn float %6, %12
+  %27 = fcmp reassoc nsz arcp contract afn ogt float %25, %26
+  %..i.i = select reassoc nsz arcp contract afn i1 %27, float %25, float %26
+  %28 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i.i
+  %29 = fmul reassoc nsz arcp contract afn float %28, %6
+  %30 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %29)
+  %31 = fptosi float %30 to i32
+  %32 = add nsw i32 %31, 1
+  %33 = sext i32 %32 to i64
+  %34 = fmul reassoc nsz arcp contract afn float %28, %13
+  %35 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %34)
+  %36 = fptosi float %35 to i32
+  %37 = sext i32 %36 to i64
+  %38 = add nsw i64 %37, 4
+  %39 = shl nuw nsw i32 %24, 2
+  %40 = add nuw nsw i32 %39, 4
+  %41 = zext nneg i32 %40 to i64
+  %42 = mul nsw i64 %33, %41
+  %43 = mul i64 %42, %38
+  ret i64 %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -192,42 +192,42 @@ define range(i64 0, -3) i64 @dt_bilateral_singlebuffer_size(i32 noundef %0, i32 
   %7 = fdiv reassoc nsz arcp contract afn float %6, %.0.i
   %8 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %7)
   %9 = fptosi float %8 to i32
-  %spec.select50.i = tail call i32 @llvm.smin.i32(i32 %9, i32 3000)
-  %10 = tail call i32 @llvm.smax.i32(i32 %spec.select50.i, i32 4)
-  %11 = uitofp nneg i32 %10 to float
-  %12 = sitofp i32 %1 to float
-  %13 = fdiv reassoc nsz arcp contract afn float %12, %.0.i
-  %14 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %13)
-  %15 = fptosi float %14 to i32
-  %spec.select4851.i = tail call i32 @llvm.smin.i32(i32 %15, i32 3000)
-  %16 = tail call i32 @llvm.smax.i32(i32 %spec.select4851.i, i32 4)
-  %17 = uitofp nneg i32 %16 to float
-  %18 = fdiv reassoc nsz arcp contract afn float 1.000000e+02, %3
-  %19 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %18)
-  %20 = fptosi float %19 to i32
-  %spec.select4952.i = tail call i32 @llvm.smin.i32(i32 %20, i32 50)
-  %21 = tail call i32 @llvm.smax.i32(i32 %spec.select4952.i, i32 4)
-  %22 = fdiv reassoc nsz arcp contract afn float %12, %17
-  %23 = fdiv reassoc nsz arcp contract afn float %6, %11
-  %24 = fcmp reassoc nsz arcp contract afn ogt float %22, %23
-  %..i = select reassoc nsz arcp contract afn i1 %24, float %22, float %23
-  %25 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i
-  %26 = fmul reassoc nsz arcp contract afn float %25, %6
-  %27 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %26)
-  %28 = fptosi float %27 to i32
-  %29 = add nsw i32 %28, 1
-  %30 = sext i32 %29 to i64
-  %31 = fmul reassoc nsz arcp contract afn float %25, %12
-  %32 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %31)
-  %33 = fptosi float %32 to i32
-  %34 = sext i32 %33 to i64
-  %35 = add nsw i64 %34, 4
-  %36 = shl nuw nsw i32 %21, 2
-  %37 = add nuw nsw i32 %36, 4
-  %38 = zext nneg i32 %37 to i64
-  %39 = mul nsw i64 %38, %30
-  %40 = mul i64 %39, %35
-  ret i64 %40
+  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 4)
+  %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 3000)
+  %12 = uitofp nneg i32 %11 to float
+  %13 = sitofp i32 %1 to float
+  %14 = fdiv reassoc nsz arcp contract afn float %13, %.0.i
+  %15 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %14)
+  %16 = fptosi float %15 to i32
+  %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 4)
+  %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 3000)
+  %19 = uitofp nneg i32 %18 to float
+  %20 = fdiv reassoc nsz arcp contract afn float 1.000000e+02, %3
+  %21 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %20)
+  %22 = fptosi float %21 to i32
+  %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 4)
+  %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 50)
+  %25 = fdiv reassoc nsz arcp contract afn float %13, %19
+  %26 = fdiv reassoc nsz arcp contract afn float %6, %12
+  %27 = fcmp reassoc nsz arcp contract afn ogt float %25, %26
+  %..i = select reassoc nsz arcp contract afn i1 %27, float %25, float %26
+  %28 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i
+  %29 = fmul reassoc nsz arcp contract afn float %28, %6
+  %30 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %29)
+  %31 = fptosi float %30 to i32
+  %32 = add nsw i32 %31, 1
+  %33 = sext i32 %32 to i64
+  %34 = fmul reassoc nsz arcp contract afn float %28, %13
+  %35 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %34)
+  %36 = fptosi float %35 to i32
+  %37 = sext i32 %36 to i64
+  %38 = add nsw i64 %37, 4
+  %39 = shl nuw nsw i32 %24, 2
+  %40 = add nuw nsw i32 %39, 4
+  %41 = zext nneg i32 %40 to i64
+  %42 = mul nsw i64 %41, %33
+  %43 = mul i64 %42, %38
+  ret i64 %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -238,49 +238,49 @@ define i64 @dt_bilateral_singlebuffer_size2(i32 noundef %0, i32 noundef %1, floa
   %7 = fdiv reassoc nsz arcp contract afn float %6, %.0.i.i
   %8 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %7)
   %9 = fptosi float %8 to i32
-  %spec.select50.i.i = tail call i32 @llvm.smin.i32(i32 %9, i32 3000)
-  %10 = tail call i32 @llvm.smax.i32(i32 %spec.select50.i.i, i32 4)
-  %11 = uitofp nneg i32 %10 to float
-  %12 = sitofp i32 %1 to float
-  %13 = fdiv reassoc nsz arcp contract afn float %12, %.0.i.i
-  %14 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %13)
-  %15 = fptosi float %14 to i32
-  %spec.select4851.i.i = tail call i32 @llvm.smin.i32(i32 %15, i32 3000)
-  %16 = tail call i32 @llvm.smax.i32(i32 %spec.select4851.i.i, i32 4)
-  %17 = uitofp nneg i32 %16 to float
-  %18 = fdiv reassoc nsz arcp contract afn float 1.000000e+02, %3
-  %19 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %18)
-  %20 = fptosi float %19 to i32
-  %spec.select4952.i.i = tail call i32 @llvm.smin.i32(i32 %20, i32 50)
-  %21 = tail call i32 @llvm.smax.i32(i32 %spec.select4952.i.i, i32 4)
-  %22 = fdiv reassoc nsz arcp contract afn float %12, %17
-  %23 = fdiv reassoc nsz arcp contract afn float %6, %11
-  %24 = fcmp reassoc nsz arcp contract afn ogt float %22, %23
-  %..i.i = select reassoc nsz arcp contract afn i1 %24, float %22, float %23
-  %25 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i.i
-  %26 = fmul reassoc nsz arcp contract afn float %25, %6
-  %27 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %26)
-  %28 = fptosi float %27 to i32
-  %29 = add nsw i32 %28, 1
-  %30 = sext i32 %29 to i64
-  %31 = fmul reassoc nsz arcp contract afn float %25, %12
-  %32 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %31)
-  %33 = fptosi float %32 to i32
-  %34 = sext i32 %33 to i64
-  %35 = add nsw i64 %34, 4
-  %36 = shl nuw nsw i32 %21, 2
-  %37 = add nuw nsw i32 %36, 4
-  %38 = zext nneg i32 %37 to i64
-  %39 = mul nsw i64 %30, %38
-  %40 = mul i64 %39, %35
-  ret i64 %40
+  %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 4)
+  %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 3000)
+  %12 = uitofp nneg i32 %11 to float
+  %13 = sitofp i32 %1 to float
+  %14 = fdiv reassoc nsz arcp contract afn float %13, %.0.i.i
+  %15 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %14)
+  %16 = fptosi float %15 to i32
+  %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 4)
+  %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 3000)
+  %19 = uitofp nneg i32 %18 to float
+  %20 = fdiv reassoc nsz arcp contract afn float 1.000000e+02, %3
+  %21 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %20)
+  %22 = fptosi float %21 to i32
+  %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 4)
+  %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 50)
+  %25 = fdiv reassoc nsz arcp contract afn float %13, %19
+  %26 = fdiv reassoc nsz arcp contract afn float %6, %12
+  %27 = fcmp reassoc nsz arcp contract afn ogt float %25, %26
+  %..i.i = select reassoc nsz arcp contract afn i1 %27, float %25, float %26
+  %28 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i.i
+  %29 = fmul reassoc nsz arcp contract afn float %28, %6
+  %30 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %29)
+  %31 = fptosi float %30 to i32
+  %32 = add nsw i32 %31, 1
+  %33 = sext i32 %32 to i64
+  %34 = fmul reassoc nsz arcp contract afn float %28, %13
+  %35 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %34)
+  %36 = fptosi float %35 to i32
+  %37 = sext i32 %36 to i64
+  %38 = add nsw i64 %37, 4
+  %39 = shl nuw nsw i32 %24, 2
+  %40 = add nuw nsw i32 %39, 4
+  %41 = zext nneg i32 %40 to i64
+  %42 = mul nsw i64 %33, %41
+  %43 = mul i64 %42, %38
+  ret i64 %43
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @dt_bilateral_init(i32 noundef %0, i32 noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #4 {
   %5 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #16
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %73, label %6
+  br i1 %.not, label %76, label %6
 
 6:                                                ; preds = %4
   %7 = fcmp reassoc nsz arcp contract afn olt float %2, 5.000000e-01
@@ -289,103 +289,103 @@ define noalias noundef ptr @dt_bilateral_init(i32 noundef %0, i32 noundef %1, fl
   %9 = fdiv reassoc nsz arcp contract afn float %8, %.0.i
   %10 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %9)
   %11 = fptosi float %10 to i32
-  %spec.select50.i = tail call i32 @llvm.smin.i32(i32 %11, i32 3000)
-  %12 = tail call i32 @llvm.smax.i32(i32 %spec.select50.i, i32 4)
-  %13 = uitofp nneg i32 %12 to float
-  %14 = sitofp i32 %1 to float
-  %15 = fdiv reassoc nsz arcp contract afn float %14, %.0.i
-  %16 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %15)
-  %17 = fptosi float %16 to i32
-  %spec.select4851.i = tail call i32 @llvm.smin.i32(i32 %17, i32 3000)
-  %18 = tail call i32 @llvm.smax.i32(i32 %spec.select4851.i, i32 4)
-  %19 = uitofp nneg i32 %18 to float
-  %20 = fdiv reassoc nsz arcp contract afn float 1.000000e+02, %3
-  %21 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %20)
-  %22 = fptosi float %21 to i32
-  %spec.select4952.i = tail call i32 @llvm.smin.i32(i32 %22, i32 50)
-  %23 = tail call i32 @llvm.smax.i32(i32 %spec.select4952.i, i32 4)
-  %24 = uitofp nneg i32 %23 to float
-  %25 = fdiv reassoc nsz arcp contract afn float %14, %19
-  %26 = fdiv reassoc nsz arcp contract afn float %8, %13
-  %27 = fcmp reassoc nsz arcp contract afn ogt float %25, %26
-  %..i = select reassoc nsz arcp contract afn i1 %27, float %25, float %26
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store float %..i, ptr %28, align 4, !tbaa !6
-  %29 = fdiv reassoc nsz arcp contract afn float 1.000000e+02, %24
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store float %29, ptr %30, align 16, !tbaa !15
-  %31 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  store float %31, ptr %32, align 4, !tbaa !16
-  %33 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %29
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store float %33, ptr %34, align 8, !tbaa !17
-  %35 = fmul reassoc nsz arcp contract afn float %31, %8
-  %36 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %35)
-  %37 = fptosi float %36 to i32
-  %38 = add nsw i32 %37, 1
-  %39 = sext i32 %38 to i64
-  store i64 %39, ptr %5, align 64, !tbaa !18
-  %40 = fmul reassoc nsz arcp contract afn float %31, %14
-  %41 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %40)
-  %42 = fptosi float %41 to i32
-  %43 = add nsw i32 %42, 1
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %44, ptr %45, align 8, !tbaa !19
-  %46 = fmul reassoc nsz arcp contract afn float %33, 1.000000e+02
-  %47 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %46)
-  %48 = fptosi float %47 to i32
-  %49 = add nsw i32 %48, 1
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %50, ptr %51, align 16, !tbaa !20
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %0, ptr %52, align 8, !tbaa !21
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 %1, ptr %53, align 4, !tbaa !22
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 1, ptr %54, align 32, !tbaa !23
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 %1, ptr %55, align 4, !tbaa !24
-  %56 = add i32 %42, 3
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 %56, ptr %57, align 8, !tbaa !25
-  %58 = sext i32 %56 to i64
-  %59 = shl nsw i64 %50, 2
-  %60 = mul i64 %59, %39
-  %61 = mul i64 %60, %58
-  %62 = tail call ptr @dt_alloc_aligned(i64 noundef %61) #17
-  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 64) ]
-  %.not.i = icmp eq ptr %62, null
-  br i1 %.not.i, label %63, label %64
+  %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 4)
+  %13 = tail call i32 @llvm.umin.i32(i32 %12, i32 3000)
+  %14 = uitofp nneg i32 %13 to float
+  %15 = sitofp i32 %1 to float
+  %16 = fdiv reassoc nsz arcp contract afn float %15, %.0.i
+  %17 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %16)
+  %18 = fptosi float %17 to i32
+  %19 = tail call i32 @llvm.smax.i32(i32 %18, i32 4)
+  %20 = tail call i32 @llvm.umin.i32(i32 %19, i32 3000)
+  %21 = uitofp nneg i32 %20 to float
+  %22 = fdiv reassoc nsz arcp contract afn float 1.000000e+02, %3
+  %23 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %22)
+  %24 = fptosi float %23 to i32
+  %25 = tail call i32 @llvm.smax.i32(i32 %24, i32 4)
+  %26 = tail call i32 @llvm.umin.i32(i32 %25, i32 50)
+  %27 = uitofp nneg i32 %26 to float
+  %28 = fdiv reassoc nsz arcp contract afn float %15, %21
+  %29 = fdiv reassoc nsz arcp contract afn float %8, %14
+  %30 = fcmp reassoc nsz arcp contract afn ogt float %28, %29
+  %..i = select reassoc nsz arcp contract afn i1 %30, float %28, float %29
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  store float %..i, ptr %31, align 4, !tbaa !6
+  %32 = fdiv reassoc nsz arcp contract afn float 1.000000e+02, %27
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store float %32, ptr %33, align 16, !tbaa !15
+  %34 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %..i
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  store float %34, ptr %35, align 4, !tbaa !16
+  %36 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %32
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store float %36, ptr %37, align 8, !tbaa !17
+  %38 = fmul reassoc nsz arcp contract afn float %34, %8
+  %39 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %38)
+  %40 = fptosi float %39 to i32
+  %41 = add nsw i32 %40, 1
+  %42 = sext i32 %41 to i64
+  store i64 %42, ptr %5, align 64, !tbaa !18
+  %43 = fmul reassoc nsz arcp contract afn float %34, %15
+  %44 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %43)
+  %45 = fptosi float %44 to i32
+  %46 = add nsw i32 %45, 1
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %47, ptr %48, align 8, !tbaa !19
+  %49 = fmul reassoc nsz arcp contract afn float %36, 1.000000e+02
+  %50 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %49)
+  %51 = fptosi float %50 to i32
+  %52 = add nsw i32 %51, 1
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %53, ptr %54, align 16, !tbaa !20
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i32 %0, ptr %55, align 8, !tbaa !21
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  store i32 %1, ptr %56, align 4, !tbaa !22
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i32 1, ptr %57, align 32, !tbaa !23
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i32 %1, ptr %58, align 4, !tbaa !24
+  %59 = add i32 %45, 3
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i32 %59, ptr %60, align 8, !tbaa !25
+  %61 = sext i32 %59 to i64
+  %62 = shl nsw i64 %53, 2
+  %63 = mul i64 %62, %42
+  %64 = mul i64 %63, %61
+  %65 = tail call ptr @dt_alloc_aligned(i64 noundef %64) #17
+  call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 64) ]
+  %.not.i = icmp eq ptr %65, null
+  br i1 %.not.i, label %66, label %67
 
-63:                                               ; preds = %6
+66:                                               ; preds = %6
   call void @llvm.assume(i1 true) [ "align"(ptr null, i64 64) ]
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, i64 noundef %39, i64 noundef %44, i64 noundef %50) #17
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str, i64 noundef %42, i64 noundef %47, i64 noundef %53) #17
   tail call void @free(ptr noundef nonnull %5) #17
-  br label %73
+  br label %76
 
-64:                                               ; preds = %6
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %62, i8 0, i64 %61, i1 false)
-  call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 64) ]
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %62, ptr %65, align 64, !tbaa !26
-  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !27
-  %67 = and i32 %66, 4
-  %.not39 = icmp eq i32 %67, 0
-  br i1 %.not39, label %73, label %68
+67:                                               ; preds = %6
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %65, i8 0, i64 %64, i1 false)
+  call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 64) ]
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %65, ptr %68, align 64, !tbaa !26
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !27
+  %70 = and i32 %69, 4
+  %.not39 = icmp eq i32 %70, 0
+  br i1 %.not39, label %76, label %71
 
-68:                                               ; preds = %64
-  %69 = fpext reassoc nsz arcp contract afn float %..i to double
-  %70 = fpext reassoc nsz arcp contract afn float %2 to double
-  %71 = fpext reassoc nsz arcp contract afn float %29 to double
-  %72 = fpext reassoc nsz arcp contract afn float %3 to double
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, i64 noundef %39, i64 noundef %44, i64 noundef %50, double noundef %69, double noundef %70, double noundef %71, double noundef %72) #17
-  br label %73
+71:                                               ; preds = %67
+  %72 = fpext reassoc nsz arcp contract afn float %..i to double
+  %73 = fpext reassoc nsz arcp contract afn float %2 to double
+  %74 = fpext reassoc nsz arcp contract afn float %32 to double
+  %75 = fpext reassoc nsz arcp contract afn float %3 to double
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, i64 noundef %42, i64 noundef %47, i64 noundef %53, double noundef %72, double noundef %73, double noundef %74, double noundef %75) #17
+  br label %76
 
-73:                                               ; preds = %64, %68, %4, %63
-  %.0 = phi ptr [ null, %63 ], [ null, %4 ], [ %5, %68 ], [ %5, %64 ]
+76:                                               ; preds = %67, %71, %4, %66
+  %.0 = phi ptr [ null, %66 ], [ null, %4 ], [ %5, %71 ], [ %5, %67 ]
   ret ptr %.0
 }
 
@@ -1369,6 +1369,9 @@ declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15

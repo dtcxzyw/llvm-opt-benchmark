@@ -9293,8 +9293,8 @@ define internal i32 @tt_face_load_kern(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not144, label %._crit_edge133, label %.lr.ph132.preheader
 
 .lr.ph132.preheader:                              ; preds = %13
-  %spec.store.select = call i32 @llvm.umin.i32(i32 %25, i32 32)
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %umax = call i32 @llvm.umin.i32(i32 %25, i32 32)
   br label %.lr.ph132
 
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.loopexit
@@ -9423,13 +9423,13 @@ define internal i32 @tt_face_load_kern(ptr noundef %0, ptr noundef %1) #0 {
   %.296.ph = phi i32 [ %110, %._crit_edge ], [ %.094127, %51 ], [ %.094127, %40 ], [ %.094127, %.lr.ph ]
   %.291.ph = phi i32 [ %67, %._crit_edge ], [ %67, %51 ], [ %.089128, %40 ], [ %67, %.lr.ph ]
   %111 = add nuw nsw i32 %.088129, 1
-  %exitcond.not = icmp eq i32 %111, %spec.store.select
+  %exitcond.not = icmp eq i32 %111, %umax
   br i1 %exitcond.not, label %._crit_edge133, label %.lr.ph132, !llvm.loop !416
 
 ._crit_edge133:                                   ; preds = %.loopexit, %30, %.lr.ph132, %13
   %.094.lcssa = phi i32 [ 0, %13 ], [ %.094127, %.lr.ph132 ], [ %.094127, %30 ], [ %.296.ph, %.loopexit ]
   %.089.lcssa = phi i32 [ 0, %13 ], [ %.089128, %.lr.ph132 ], [ %.089128, %30 ], [ %.291.ph, %.loopexit ]
-  %.088.lcssa = phi i32 [ 0, %13 ], [ %.088129, %.lr.ph132 ], [ %.088129, %30 ], [ %spec.store.select, %.loopexit ]
+  %.088.lcssa = phi i32 [ 0, %13 ], [ %.088129, %.lr.ph132 ], [ %.088129, %30 ], [ %umax, %.loopexit ]
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   store i32 %.088.lcssa, ptr %112, align 8, !tbaa !417
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 1380

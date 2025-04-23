@@ -6130,8 +6130,8 @@ if.else:                                          ; preds = %_ZNSt11unique_lockI
 
 if.end20:                                         ; preds = %if.else
   %6 = load i16, ptr %m_window_size, align 8, !tbaa !188
-  %7 = tail call i16 @llvm.umin.i16(i16 %6, i16 -32758)
-  %8 = tail call i16 @llvm.umax.i16(i16 %7, i16 74)
+  %7 = tail call i16 @llvm.umax.i16(i16 %6, i16 74)
+  %8 = tail call i16 @llvm.umin.i16(i16 %7, i16 -32758)
   %conv.i = add i16 %8, -10
   br label %if.end60.sink.split
 
@@ -6150,8 +6150,8 @@ if.then25:                                        ; preds = %if.then23
 
 if.then43:                                        ; preds = %if.then21
   %11 = load i16, ptr %m_window_size, align 8, !tbaa !188
-  %12 = tail call i16 @llvm.umin.i16(i16 %11, i16 -32668)
-  %13 = tail call i16 @llvm.umax.i16(i16 %12, i16 164)
+  %12 = tail call i16 @llvm.umax.i16(i16 %11, i16 164)
+  %13 = tail call i16 @llvm.umin.i16(i16 %12, i16 -32668)
   %conv.i167 = add i16 %13, -100
   br label %if.end60.sink.split
 

@@ -6673,9 +6673,9 @@ _ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit: ; pr
   br i1 %.not.i55, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %104
-  %invariant.umin.i = call i64 @llvm.umin.i64(i64 %128, i64 8)
   %129 = lshr i32 %103, 6
   %130 = zext nneg i32 %129 to i64
+  %umax.i = call i64 @llvm.umin.i64(i64 %128, i64 8)
   br label %168
 
 .preheader47.i:                                   ; preds = %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i
@@ -6687,7 +6687,7 @@ _ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit: ; pr
   br i1 %132, label %.lr.ph.i.preheader.us.i, label %_ZN7rocksdb18FastLocalBloomImpl15AddHashPreparedEjiPc.exit.i
 
 .lr.ph.i.preheader.us.i:                          ; preds = %.lr.ph59.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit36.us.i
-  %.158.us.i = phi i64 [ %155, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit36.us.i ], [ %invariant.umin.i, %.lr.ph59.i ]
+  %.158.us.i = phi i64 [ %155, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit36.us.i ], [ %umax.i, %.lr.ph59.i ]
   %.sroa.0.157.us.i = phi ptr [ %.sroa.0.3.us.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit36.us.i ], [ %.sroa.0.2.i, %.lr.ph59.i ]
   %.sroa.14.156.us.i = phi ptr [ %.sroa.14.3.us.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit36.us.i ], [ %.sroa.14.2.i, %.lr.ph59.i ]
   %.sroa.19.155.us.i = phi ptr [ %.sroa.19.3.us.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit36.us.i ], [ %.sroa.19.2.i, %.lr.ph59.i ]
@@ -6789,7 +6789,7 @@ _ZNSt15_Deque_iteratorImRmPmEppEv.exit.i:         ; preds = %182, %168
   %.sroa.14.2.i = phi ptr [ %185, %182 ], [ %.sroa.14.049.i, %168 ]
   %.sroa.0.2.i = phi ptr [ %184, %182 ], [ %180, %168 ]
   %186 = add nuw nsw i64 %.051.i, 1
-  %exitcond.not.i = icmp eq i64 %186, %invariant.umin.i
+  %exitcond.not.i = icmp eq i64 %186, %umax.i
   br i1 %exitcond.not.i, label %.preheader47.i, label %168, !llvm.loop !354
 
 .preheader.i:                                     ; preds = %.preheader47.i
@@ -6831,11 +6831,11 @@ _ZNSt15_Deque_iteratorImRmPmEppEv.exit.i:         ; preds = %182, %168
 
 _ZN7rocksdb18FastLocalBloomImpl15AddHashPreparedEjiPc.exit41.loopexit.us.i: ; preds = %.lr.ph.i37.us.i
   %204 = add nuw nsw i64 %.261.us.i, 1
-  %exitcond67.not.i = icmp eq i64 %204, %invariant.umin.i
+  %exitcond67.not.i = icmp eq i64 %204, %umax.i
   br i1 %exitcond67.not.i, label %.loopexit, label %.lr.ph.i37.preheader.us.i, !llvm.loop !355
 
 _ZN7rocksdb18FastLocalBloomImpl15AddHashPreparedEjiPc.exit.i: ; preds = %.lr.ph59.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit36.i
-  %.158.i = phi i64 [ %223, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit36.i ], [ %invariant.umin.i, %.lr.ph59.i ]
+  %.158.i = phi i64 [ %223, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit36.i ], [ %umax.i, %.lr.ph59.i ]
   %.sroa.0.157.i = phi ptr [ %.sroa.0.3.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit36.i ], [ %.sroa.0.2.i, %.lr.ph59.i ]
   %.sroa.14.156.i = phi ptr [ %.sroa.14.3.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit36.i ], [ %.sroa.14.2.i, %.lr.ph59.i ]
   %.sroa.19.155.i = phi ptr [ %.sroa.19.3.i, %_ZNSt15_Deque_iteratorImRmPmEppEv.exit36.i ], [ %.sroa.19.2.i, %.lr.ph59.i ]

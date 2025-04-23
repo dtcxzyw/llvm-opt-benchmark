@@ -1990,8 +1990,8 @@ mi_segments_try_abandon.exit.i:                   ; preds = %128, %segment_count
 
 mi_segment_get_reclaim_tries.exit.i.i:            ; preds = %141, %138
   %144 = phi i64 [ %140, %138 ], [ %143, %141 ]
-  %145 = tail call i64 @llvm.umin.i64(i64 %144, i64 1024)
-  %146 = tail call i64 @llvm.umax.i64(i64 %145, i64 1)
+  %145 = tail call i64 @llvm.umax.i64(i64 %144, i64 1)
+  %146 = tail call i64 @llvm.umin.i64(i64 %145, i64 1024)
   %147 = icmp ult i64 %144, 8
   %148 = icmp ugt i64 %134, 8
   %or.cond.i.i.i = and i1 %148, %147

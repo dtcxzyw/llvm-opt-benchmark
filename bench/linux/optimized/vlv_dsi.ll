@@ -3791,8 +3791,8 @@ define internal i64 @intel_dsi_host_transfer(ptr noundef readonly captures(none)
   %60 = phi i32 [ %53, %55 ], [ %85, %77 ]
   %61 = phi ptr [ %57, %55 ], [ %81, %77 ]
   %62 = phi i32 [ 0, %55 ], [ %83, %77 ]
-  %63 = call i32 @llvm.umin.i32(i32 %60, i32 4)
-  %64 = call i32 @llvm.umax.i32(i32 %63, i32 1)
+  %63 = call i32 @llvm.umax.i32(i32 %60, i32 1)
+  %64 = call i32 @llvm.umin.i32(i32 %63, i32 4)
   br label %65
 
 65:                                               ; preds = %65, %59
@@ -3914,8 +3914,8 @@ define internal i64 @intel_dsi_host_transfer(ptr noundef readonly captures(none)
   %143 = phi i32 [ %136, %138 ], [ %162, %159 ]
   %144 = phi ptr [ %140, %138 ], [ %156, %159 ]
   %145 = phi i32 [ 0, %138 ], [ %160, %159 ]
-  %146 = call i32 @llvm.umin.i32(i32 %143, i32 4)
-  %147 = call i32 @llvm.umax.i32(i32 %146, i32 1)
+  %146 = call i32 @llvm.umax.i32(i32 %143, i32 1)
+  %147 = call i32 @llvm.umin.i32(i32 %146, i32 4)
   %148 = load ptr, ptr %141, align 8
   %149 = call i32 %148(ptr noundef nonnull %99, i32 %33, i1 noundef zeroext true) #9
   br label %150

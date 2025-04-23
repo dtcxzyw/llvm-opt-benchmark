@@ -22941,8 +22941,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19s
   %.not = icmp eq i32 %5, 0
   %36 = select i1 %.not, i32 90, i32 %5
   %37 = icmp slt i32 %36, 91
-  %38 = tail call i32 @llvm.smin.i32(i32 %36, i32 100)
-  %39 = tail call i32 @llvm.smax.i32(i32 %38, i32 1)
+  %38 = tail call i32 @llvm.smax.i32(i32 %36, i32 1)
+  %39 = tail call i32 @llvm.umin.i32(i32 %38, i32 100)
   %40 = icmp slt i32 %36, 50
   br i1 %40, label %41, label %43
 
@@ -22968,8 +22968,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19s
   %51 = mul nsw i32 %50, %47
   %52 = add nsw i32 %51, 50
   %53 = sdiv i32 %52, 100
-  %54 = tail call i32 @llvm.smin.i32(i32 %53, i32 255)
-  %55 = tail call i32 @llvm.smax.i32(i32 %54, i32 1)
+  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 1)
+  %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 255)
   %56 = trunc nuw i32 %55 to i8
   %57 = getelementptr inbounds nuw [64 x i8], ptr @_ZL17stbiw__jpg_ZigZag, i64 0, i64 %indvars.iv
   %58 = load i8, ptr %57, align 1, !tbaa !23
@@ -22981,8 +22981,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19s
   %63 = mul nsw i32 %62, %47
   %64 = add nsw i32 %63, 50
   %65 = sdiv i32 %64, 100
-  %66 = tail call i32 @llvm.smin.i32(i32 %65, i32 255)
-  %67 = tail call i32 @llvm.smax.i32(i32 %66, i32 1)
+  %66 = tail call i32 @llvm.smax.i32(i32 %65, i32 1)
+  %67 = tail call i32 @llvm.umin.i32(i32 %66, i32 255)
   %68 = trunc nuw i32 %67 to i8
   %69 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 0, i64 %59
   store i8 %68, ptr %69, align 1, !tbaa !23

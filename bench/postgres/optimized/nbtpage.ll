@@ -4053,8 +4053,8 @@ define dso_local void @_bt_pendingfsm_init(ptr noundef readnone captures(none) %
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 6
   %9 = and i64 %8, 1152921504606846912
-  %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 67108863)
-  %11 = tail call i64 @llvm.umax.i64(i64 %10, i64 256)
+  %10 = tail call i64 @llvm.umax.i64(i64 %9, i64 256)
+  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 67108863)
   %12 = trunc nuw nsw i64 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %12, ptr %13, align 4

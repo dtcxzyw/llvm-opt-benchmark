@@ -2579,11 +2579,11 @@ define void @_ZN8LightGBM18MultiValBinWrapper9InitTrainERKSt6vectorIiSaIiEERKS1_
   %37 = fadd double %32, 0x38AA95A5C0000000
   %38 = fdiv double %36, %37
   %39 = fptosi double %38 to i32
-  %40 = tail call i32 @llvm.smin.i32(i32 %39, i32 1023)
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %42 = tail call i32 @llvm.smax.i32(i32 %40, i32 31)
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %41 = tail call i32 @llvm.smax.i32(i32 %39, i32 31)
+  %42 = tail call i32 @llvm.umin.i32(i32 %41, i32 1023)
   %.sroa.speculated = add nuw nsw i32 %42, 1
-  store i32 %.sroa.speculated, ptr %41, align 4, !tbaa !95
+  store i32 %.sroa.speculated, ptr %40, align 4, !tbaa !95
   br label %43
 
 43:                                               ; preds = %9, %19, %6
@@ -7266,6 +7266,9 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #21
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

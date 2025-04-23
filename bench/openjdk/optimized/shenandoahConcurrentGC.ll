@@ -2331,8 +2331,8 @@ define linkonce_odr hidden void @_ZN43ShenandoahConcurrentWeakRootsEvacUpdateTas
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = lshr i32 %13, 1
-  %15 = tail call noundef i32 @llvm.umin.i32(i32 %14, i32 127)
-  %16 = tail call noundef i32 @llvm.umax.i32(i32 %15, i32 1)
+  %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
+  %16 = tail call noundef i32 @llvm.umin.i32(i32 %15, i32 127)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %18 = trunc nuw nsw i32 %16 to i8
   %19 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %18, ptr nonnull %17) #14, !srcloc !8
@@ -2445,8 +2445,8 @@ define linkonce_odr hidden void @_ZN39ShenandoahConcurrentRootsEvacUpdateTaskC2E
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = lshr i32 %18, 1
-  %20 = tail call noundef i32 @llvm.umin.i32(i32 %19, i32 127)
-  %21 = tail call noundef i32 @llvm.umax.i32(i32 %20, i32 1)
+  %20 = tail call i32 @llvm.umax.i32(i32 %19, i32 1)
+  %21 = tail call noundef i32 @llvm.umin.i32(i32 %20, i32 127)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %23 = trunc nuw nsw i32 %21 to i8
   %24 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %23, ptr nonnull %22) #14, !srcloc !8

@@ -3419,63 +3419,63 @@ define noundef double @_ZN6duckdb19ParquetDecimalUtils16ReadDecimalValueIdEET_PK
   br label %.lr.ph
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %3
-  %.028.lcssa = phi double [ 0.000000e+00, %3 ], [ %10, %._crit_edge ]
-  br i1 %6, label %20, label %28
+  %.028.lcssa = phi double [ 0.000000e+00, %3 ], [ %11, %._crit_edge ]
+  br i1 %6, label %21, label %29
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph35
   %indvars.iv = phi i64 [ %1, %.lr.ph35 ], [ %indvars.iv.next, %._crit_edge ]
-  %.02833 = phi double [ 0.000000e+00, %.lr.ph35 ], [ %10, %._crit_edge ]
-  %.02932 = phi i64 [ 0, %.lr.ph35 ], [ %11, %._crit_edge ]
-  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv, i64 8)
-  %umax = tail call i64 @llvm.umax.i64(i64 %umin, i64 1)
+  %.02833 = phi double [ 0.000000e+00, %.lr.ph35 ], [ %11, %._crit_edge ]
+  %.02932 = phi i64 [ 0, %.lr.ph35 ], [ %12, %._crit_edge ]
+  %7 = tail call i64 @llvm.umax.i64(i64 %indvars.iv, i64 1)
+  %umax = tail call i64 @llvm.umin.i64(i64 %7, i64 8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
   store i64 0, ptr %4, align 8, !tbaa !216
-  %7 = getelementptr i8, ptr %0, i64 %.02932
-  br label %13
+  %8 = getelementptr i8, ptr %0, i64 %.02932
+  br label %14
 
-._crit_edge:                                      ; preds = %13
+._crit_edge:                                      ; preds = %14
   %.pre = load i64, ptr %4, align 8, !tbaa !216
-  %8 = fmul double %.02833, 0x43F0000000000000
-  %9 = uitofp i64 %.pre to double
-  %10 = fadd double %8, %9
+  %9 = fmul double %.02833, 0x43F0000000000000
+  %10 = uitofp i64 %.pre to double
+  %11 = fadd double %9, %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
-  %11 = add i64 %.02932, 8
-  %12 = icmp ult i64 %11, %1
+  %12 = add i64 %.02932, 8
+  %13 = icmp ult i64 %12, %1
   %indvars.iv.next = add i64 %indvars.iv, -8
-  br i1 %12, label %.lr.ph, label %._crit_edge36, !llvm.loop !217
+  br i1 %13, label %.lr.ph, label %._crit_edge36, !llvm.loop !217
 
-13:                                               ; preds = %.lr.ph, %13
-  %.02731 = phi i64 [ 0, %.lr.ph ], [ %19, %13 ]
-  %14 = getelementptr i8, ptr %7, i64 %.02731
-  %15 = load i8, ptr %14, align 1, !tbaa !191
-  %16 = xor i8 %15, %.lobit
-  %17 = sub nuw nsw i64 7, %.02731
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
-  store i8 %16, ptr %18, align 1, !tbaa !191
-  %19 = add nuw nsw i64 %.02731, 1
-  %exitcond.not = icmp eq i64 %19, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !218
+14:                                               ; preds = %.lr.ph, %14
+  %.02731 = phi i64 [ 0, %.lr.ph ], [ %20, %14 ]
+  %15 = getelementptr i8, ptr %8, i64 %.02731
+  %16 = load i8, ptr %15, align 1, !tbaa !191
+  %17 = xor i8 %16, %.lobit
+  %18 = sub nuw nsw i64 7, %.02731
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %18
+  store i8 %17, ptr %19, align 1, !tbaa !191
+  %20 = add nuw nsw i64 %.02731, 1
+  %exitcond.not = icmp eq i64 %20, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !218
 
-20:                                               ; preds = %._crit_edge36
-  %21 = fadd double %.028.lcssa, 1.000000e+00
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 108
-  %23 = load i32, ptr %22, align 4, !tbaa !219
-  %24 = uitofp i32 %23 to double
-  %25 = tail call double @pow(double noundef 1.000000e+01, double noundef %24) #25, !tbaa !220
-  %26 = fneg double %21
-  %27 = fdiv double %26, %25
-  br label %34
+21:                                               ; preds = %._crit_edge36
+  %22 = fadd double %.028.lcssa, 1.000000e+00
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 108
+  %24 = load i32, ptr %23, align 4, !tbaa !219
+  %25 = uitofp i32 %24 to double
+  %26 = tail call double @pow(double noundef 1.000000e+01, double noundef %25) #25, !tbaa !220
+  %27 = fneg double %22
+  %28 = fdiv double %27, %26
+  br label %35
 
-28:                                               ; preds = %._crit_edge36
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 108
-  %30 = load i32, ptr %29, align 4, !tbaa !219
-  %31 = uitofp i32 %30 to double
-  %32 = tail call double @pow(double noundef 1.000000e+01, double noundef %31) #25, !tbaa !220
-  %33 = fdiv double %.028.lcssa, %32
-  br label %34
+29:                                               ; preds = %._crit_edge36
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 108
+  %31 = load i32, ptr %30, align 4, !tbaa !219
+  %32 = uitofp i32 %31 to double
+  %33 = tail call double @pow(double noundef 1.000000e+01, double noundef %32) #25, !tbaa !220
+  %34 = fdiv double %.028.lcssa, %33
+  br label %35
 
-34:                                               ; preds = %28, %20
-  %.0 = phi double [ %33, %28 ], [ %27, %20 ]
+35:                                               ; preds = %29, %21
+  %.0 = phi double [ %34, %29 ], [ %28, %21 ]
   ret double %.0
 }
 
@@ -15493,67 +15493,67 @@ _ZNK6duckdb10ByteBuffer9availableEm.exit:         ; preds = %2
   br label %.lr.ph.i
 
 ._crit_edge36.i:                                  ; preds = %._crit_edge.i, %_ZNK6duckdb10ByteBuffer9availableEm.exit
-  %.028.lcssa.i = phi double [ 0.000000e+00, %_ZNK6duckdb10ByteBuffer9availableEm.exit ], [ %22, %._crit_edge.i ]
-  br i1 %18, label %32, label %40
+  %.028.lcssa.i = phi double [ 0.000000e+00, %_ZNK6duckdb10ByteBuffer9availableEm.exit ], [ %23, %._crit_edge.i ]
+  br i1 %18, label %33, label %41
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph35.i
   %indvars.iv.i = phi i64 [ %8, %.lr.ph35.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %.02833.i = phi double [ 0.000000e+00, %.lr.ph35.i ], [ %22, %._crit_edge.i ]
-  %.02932.i = phi i64 [ 0, %.lr.ph35.i ], [ %23, %._crit_edge.i ]
-  %umin.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i, i64 8)
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %umin.i, i64 1)
+  %.02833.i = phi double [ 0.000000e+00, %.lr.ph35.i ], [ %23, %._crit_edge.i ]
+  %.02932.i = phi i64 [ 0, %.lr.ph35.i ], [ %24, %._crit_edge.i ]
+  %19 = tail call i64 @llvm.umax.i64(i64 %indvars.iv.i, i64 1)
+  %umax.i = tail call i64 @llvm.umin.i64(i64 %19, i64 8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
   store i64 0, ptr %3, align 8, !tbaa !216
-  %19 = getelementptr i8, ptr %16, i64 %.02932.i
-  br label %25
+  %20 = getelementptr i8, ptr %16, i64 %.02932.i
+  br label %26
 
-._crit_edge.i:                                    ; preds = %25
+._crit_edge.i:                                    ; preds = %26
   %.pre.i = load i64, ptr %3, align 8, !tbaa !216
-  %20 = fmul double %.02833.i, 0x43F0000000000000
-  %21 = uitofp i64 %.pre.i to double
-  %22 = fadd double %20, %21
+  %21 = fmul double %.02833.i, 0x43F0000000000000
+  %22 = uitofp i64 %.pre.i to double
+  %23 = fadd double %21, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
-  %23 = add nuw nsw i64 %.02932.i, 8
-  %24 = icmp samesign ult i64 %23, %8
+  %24 = add nuw nsw i64 %.02932.i, 8
+  %25 = icmp samesign ult i64 %24, %8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -8
-  br i1 %24, label %.lr.ph.i, label %._crit_edge36.i, !llvm.loop !217
+  br i1 %25, label %.lr.ph.i, label %._crit_edge36.i, !llvm.loop !217
 
-25:                                               ; preds = %25, %.lr.ph.i
-  %.02731.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %25 ]
-  %26 = getelementptr i8, ptr %19, i64 %.02731.i
-  %27 = load i8, ptr %26, align 1, !tbaa !191
-  %28 = xor i8 %27, %.lobit.i
-  %29 = sub nuw nsw i64 7, %.02731.i
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %29
-  store i8 %28, ptr %30, align 1, !tbaa !191
-  %31 = add nuw nsw i64 %.02731.i, 1
-  %exitcond.not.i = icmp eq i64 %31, %umax.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %25, !llvm.loop !218
+26:                                               ; preds = %26, %.lr.ph.i
+  %.02731.i = phi i64 [ 0, %.lr.ph.i ], [ %32, %26 ]
+  %27 = getelementptr i8, ptr %20, i64 %.02731.i
+  %28 = load i8, ptr %27, align 1, !tbaa !191
+  %29 = xor i8 %28, %.lobit.i
+  %30 = sub nuw nsw i64 7, %.02731.i
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %30
+  store i8 %29, ptr %31, align 1, !tbaa !191
+  %32 = add nuw nsw i64 %.02731.i, 1
+  %exitcond.not.i = icmp eq i64 %32, %umax.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %26, !llvm.loop !218
 
-32:                                               ; preds = %._crit_edge36.i
-  %33 = fadd double %.028.lcssa.i, 1.000000e+00
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 108
-  %35 = load i32, ptr %34, align 4, !tbaa !219
-  %36 = uitofp i32 %35 to double
-  %37 = tail call double @pow(double noundef 1.000000e+01, double noundef %36) #25, !tbaa !220
-  %38 = fneg double %33
-  %39 = fdiv double %38, %37
+33:                                               ; preds = %._crit_edge36.i
+  %34 = fadd double %.028.lcssa.i, 1.000000e+00
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 108
+  %36 = load i32, ptr %35, align 4, !tbaa !219
+  %37 = uitofp i32 %36 to double
+  %38 = tail call double @pow(double noundef 1.000000e+01, double noundef %37) #25, !tbaa !220
+  %39 = fneg double %34
+  %40 = fdiv double %39, %38
   br label %_ZN6duckdb10ByteBuffer3incEm.exit
 
-40:                                               ; preds = %._crit_edge36.i
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 108
-  %42 = load i32, ptr %41, align 4, !tbaa !219
-  %43 = uitofp i32 %42 to double
-  %44 = tail call double @pow(double noundef 1.000000e+01, double noundef %43) #25, !tbaa !220
-  %45 = fdiv double %.028.lcssa.i, %44
+41:                                               ; preds = %._crit_edge36.i
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 108
+  %43 = load i32, ptr %42, align 4, !tbaa !219
+  %44 = uitofp i32 %43 to double
+  %45 = tail call double @pow(double noundef 1.000000e+01, double noundef %44) #25, !tbaa !220
+  %46 = fdiv double %.028.lcssa.i, %45
   br label %_ZN6duckdb10ByteBuffer3incEm.exit
 
-_ZN6duckdb10ByteBuffer3incEm.exit:                ; preds = %40, %32
-  %.0.i = phi double [ %45, %40 ], [ %39, %32 ]
-  %46 = sub nuw i64 %10, %8
-  store i64 %46, ptr %9, align 8, !tbaa !306
-  %47 = getelementptr inbounds nuw i8, ptr %16, i64 %8
-  store ptr %47, ptr %0, align 8, !tbaa !305
+_ZN6duckdb10ByteBuffer3incEm.exit:                ; preds = %41, %33
+  %.0.i = phi double [ %46, %41 ], [ %40, %33 ]
+  %47 = sub nuw i64 %10, %8
+  store i64 %47, ptr %9, align 8, !tbaa !306
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 %8
+  store ptr %48, ptr %0, align 8, !tbaa !305
   ret double %.0.i
 }
 
@@ -17893,67 +17893,67 @@ _ZNK6duckdb10ByteBuffer9availableEm.exit:         ; preds = %_ZN6duckdb10ByteBuf
   br label %.lr.ph.i
 
 ._crit_edge36.i:                                  ; preds = %._crit_edge.i, %_ZNK6duckdb10ByteBuffer9availableEm.exit
-  %.028.lcssa.i = phi double [ 0.000000e+00, %_ZNK6duckdb10ByteBuffer9availableEm.exit ], [ %27, %._crit_edge.i ]
-  br i1 %23, label %37, label %45
+  %.028.lcssa.i = phi double [ 0.000000e+00, %_ZNK6duckdb10ByteBuffer9availableEm.exit ], [ %28, %._crit_edge.i ]
+  br i1 %23, label %38, label %46
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph35.i
   %indvars.iv.i = phi i64 [ %14, %.lr.ph35.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %.02833.i = phi double [ 0.000000e+00, %.lr.ph35.i ], [ %27, %._crit_edge.i ]
-  %.02932.i = phi i64 [ 0, %.lr.ph35.i ], [ %28, %._crit_edge.i ]
-  %umin.i = tail call i64 @llvm.umin.i64(i64 %indvars.iv.i, i64 8)
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %umin.i, i64 1)
+  %.02833.i = phi double [ 0.000000e+00, %.lr.ph35.i ], [ %28, %._crit_edge.i ]
+  %.02932.i = phi i64 [ 0, %.lr.ph35.i ], [ %29, %._crit_edge.i ]
+  %24 = tail call i64 @llvm.umax.i64(i64 %indvars.iv.i, i64 1)
+  %umax.i = tail call i64 @llvm.umin.i64(i64 %24, i64 8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
   store i64 0, ptr %3, align 8, !tbaa !216
-  %24 = getelementptr i8, ptr %13, i64 %.02932.i
-  br label %30
+  %25 = getelementptr i8, ptr %13, i64 %.02932.i
+  br label %31
 
-._crit_edge.i:                                    ; preds = %30
+._crit_edge.i:                                    ; preds = %31
   %.pre.i = load i64, ptr %3, align 8, !tbaa !216
-  %25 = fmul double %.02833.i, 0x43F0000000000000
-  %26 = uitofp i64 %.pre.i to double
-  %27 = fadd double %25, %26
+  %26 = fmul double %.02833.i, 0x43F0000000000000
+  %27 = uitofp i64 %.pre.i to double
+  %28 = fadd double %26, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #25
-  %28 = add nuw nsw i64 %.02932.i, 8
-  %29 = icmp samesign ult i64 %28, %14
+  %29 = add nuw nsw i64 %.02932.i, 8
+  %30 = icmp samesign ult i64 %29, %14
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -8
-  br i1 %29, label %.lr.ph.i, label %._crit_edge36.i, !llvm.loop !217
+  br i1 %30, label %.lr.ph.i, label %._crit_edge36.i, !llvm.loop !217
 
-30:                                               ; preds = %30, %.lr.ph.i
-  %.02731.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %30 ]
-  %31 = getelementptr i8, ptr %24, i64 %.02731.i
-  %32 = load i8, ptr %31, align 1, !tbaa !191
-  %33 = xor i8 %32, %.lobit.i
-  %34 = sub nuw nsw i64 7, %.02731.i
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 %34
-  store i8 %33, ptr %35, align 1, !tbaa !191
-  %36 = add nuw nsw i64 %.02731.i, 1
-  %exitcond.not.i = icmp eq i64 %36, %umax.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %30, !llvm.loop !218
+31:                                               ; preds = %31, %.lr.ph.i
+  %.02731.i = phi i64 [ 0, %.lr.ph.i ], [ %37, %31 ]
+  %32 = getelementptr i8, ptr %25, i64 %.02731.i
+  %33 = load i8, ptr %32, align 1, !tbaa !191
+  %34 = xor i8 %33, %.lobit.i
+  %35 = sub nuw nsw i64 7, %.02731.i
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 %35
+  store i8 %34, ptr %36, align 1, !tbaa !191
+  %37 = add nuw nsw i64 %.02731.i, 1
+  %exitcond.not.i = icmp eq i64 %37, %umax.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !218
 
-37:                                               ; preds = %._crit_edge36.i
-  %38 = fadd double %.028.lcssa.i, 1.000000e+00
-  %39 = getelementptr inbounds nuw i8, ptr %21, i64 108
-  %40 = load i32, ptr %39, align 4, !tbaa !219
-  %41 = uitofp i32 %40 to double
-  %42 = tail call double @pow(double noundef 1.000000e+01, double noundef %41) #25, !tbaa !220
-  %43 = fneg double %38
-  %44 = fdiv double %43, %42
+38:                                               ; preds = %._crit_edge36.i
+  %39 = fadd double %.028.lcssa.i, 1.000000e+00
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 108
+  %41 = load i32, ptr %40, align 4, !tbaa !219
+  %42 = uitofp i32 %41 to double
+  %43 = tail call double @pow(double noundef 1.000000e+01, double noundef %42) #25, !tbaa !220
+  %44 = fneg double %39
+  %45 = fdiv double %44, %43
   br label %_ZN6duckdb10ByteBuffer3incEm.exit
 
-45:                                               ; preds = %._crit_edge36.i
-  %46 = getelementptr inbounds nuw i8, ptr %21, i64 108
-  %47 = load i32, ptr %46, align 4, !tbaa !219
-  %48 = uitofp i32 %47 to double
-  %49 = tail call double @pow(double noundef 1.000000e+01, double noundef %48) #25, !tbaa !220
-  %50 = fdiv double %.028.lcssa.i, %49
+46:                                               ; preds = %._crit_edge36.i
+  %47 = getelementptr inbounds nuw i8, ptr %21, i64 108
+  %48 = load i32, ptr %47, align 4, !tbaa !219
+  %49 = uitofp i32 %48 to double
+  %50 = tail call double @pow(double noundef 1.000000e+01, double noundef %49) #25, !tbaa !220
+  %51 = fdiv double %.028.lcssa.i, %50
   br label %_ZN6duckdb10ByteBuffer3incEm.exit
 
-_ZN6duckdb10ByteBuffer3incEm.exit:                ; preds = %45, %37
-  %.0.i = phi double [ %50, %45 ], [ %44, %37 ]
-  %51 = sub nuw i64 %12, %14
-  store i64 %51, ptr %4, align 8, !tbaa !306
-  %52 = getelementptr inbounds nuw i8, ptr %13, i64 %14
-  store ptr %52, ptr %0, align 8, !tbaa !305
+_ZN6duckdb10ByteBuffer3incEm.exit:                ; preds = %46, %38
+  %.0.i = phi double [ %51, %46 ], [ %45, %38 ]
+  %52 = sub nuw i64 %12, %14
+  store i64 %52, ptr %4, align 8, !tbaa !306
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 %14
+  store ptr %53, ptr %0, align 8, !tbaa !305
   ret double %.0.i
 }
 

@@ -10590,8 +10590,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
 
 566:                                              ; preds = %.sink.split.i, %.lr.ph.split.us.i
   %.051.us.i = phi i32 [ %560, %.lr.ph.split.us.i ], [ %565, %.sink.split.i ]
-  %567 = tail call i32 @llvm.smin.i32(i32 %.051.us.i, i32 255)
-  %568 = tail call i32 @llvm.smax.i32(i32 %567, i32 0)
+  %567 = tail call i32 @llvm.smax.i32(i32 %.051.us.i, i32 0)
+  %568 = tail call i32 @llvm.umin.i32(i32 %567, i32 255)
   %569 = trunc nuw i32 %568 to i8
   %570 = getelementptr inbounds nuw i8, ptr %.25760.us.i, i64 1
   store i8 %569, ptr %.25760.us.i, align 1, !tbaa !37
@@ -10647,8 +10647,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i20
 
 605:                                              ; preds = %595, %590, %.lr.ph.split.i
   %.051.i = phi i32 [ %586, %.lr.ph.split.i ], [ %594, %590 ], [ %604, %595 ]
-  %606 = tail call i32 @llvm.smin.i32(i32 %.051.i, i32 255)
-  %607 = tail call i32 @llvm.smax.i32(i32 %606, i32 0)
+  %606 = tail call i32 @llvm.smax.i32(i32 %.051.i, i32 0)
+  %607 = tail call i32 @llvm.umin.i32(i32 %606, i32 255)
   %608 = trunc nuw i32 %607 to i8
   %609 = getelementptr inbounds nuw i8, ptr %.25760.i, i64 1
   store i8 %608, ptr %.25760.i, align 1, !tbaa !37
@@ -15336,9 +15336,6 @@ declare i64 @llvm.umax.i64(i64, i64) #27
 declare i8 @llvm.fshl.i8(i8, i8, i8) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #27
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -15346,6 +15343,9 @@ declare i64 @llvm.umin.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #27
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

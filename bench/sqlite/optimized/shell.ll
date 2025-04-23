@@ -16369,7 +16369,7 @@ verify_uninitialized.exit:                        ; preds = %main_init.exit, %61
 
 70:                                               ; preds = %.lr.ph, %cmdline_option_value.exit
   %.0291620 = phi ptr [ null, %.lr.ph ], [ %.2293.ph, %cmdline_option_value.exit ]
-  %.0295619 = phi i32 [ 1, %.lr.ph ], [ %296, %cmdline_option_value.exit ]
+  %.0295619 = phi i32 [ 1, %.lr.ph ], [ %298, %cmdline_option_value.exit ]
   %.0308618 = phi i32 [ 1, %.lr.ph ], [ %.3311.ph, %cmdline_option_value.exit ]
   %.0315617 = phi i32 [ 0, %.lr.ph ], [ %.3318.ph, %cmdline_option_value.exit ]
   %.0323616 = phi ptr [ null, %.lr.ph ], [ %.2325.ph, %cmdline_option_value.exit ]
@@ -16534,266 +16534,266 @@ cmdline_option_value.exit397:                     ; preds = %121
 159:                                              ; preds = %153
   %160 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(11) @.str.77) #44
   %161 = icmp eq i32 %160, 0
-  br i1 %161, label %162, label %183
+  br i1 %161, label %162, label %185
 
 162:                                              ; preds = %159
   %163 = add nsw i32 %.0295619, 1
   %164 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %163)
   %165 = call fastcc i64 @integerValue(ptr noundef %164)
-  %spec.store.select = call i64 @llvm.smin.i64(i64 %165, i64 70000)
-  %spec.store.select11 = call i64 @llvm.smax.i64(i64 %spec.store.select, i64 0)
-  %166 = add nsw i32 %.0295619, 2
-  %167 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %166)
-  %168 = call fastcc i64 @integerValue(ptr noundef %167)
-  %169 = icmp sgt i64 %165, 0
-  %170 = icmp sgt i64 %168, 0
-  %or.cond = select i1 %169, i1 %170, i1 false
-  br i1 %or.cond, label %171, label %173
+  %166 = call i64 @llvm.smax.i64(i64 %165, i64 0)
+  %167 = call i64 @llvm.umin.i64(i64 %166, i64 70000)
+  %168 = add nsw i32 %.0295619, 2
+  %169 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %168)
+  %170 = call fastcc i64 @integerValue(ptr noundef %169)
+  %171 = icmp sgt i64 %165, 0
+  %172 = icmp sgt i64 %170, 0
+  %or.cond = select i1 %171, i1 %172, i1 false
+  br i1 %or.cond, label %173, label %175
 
-171:                                              ; preds = %162
-  %172 = udiv i64 281474976710655, %spec.store.select11
-  %spec.select388 = call i64 @llvm.umin.i64(i64 %172, i64 %168)
-  br label %173
+173:                                              ; preds = %162
+  %174 = udiv i64 281474976710655, %167
+  %spec.select388 = call i64 @llvm.umin.i64(i64 %174, i64 %170)
+  br label %175
 
-173:                                              ; preds = %171, %162
-  %.0319 = phi i64 [ %168, %162 ], [ %spec.select388, %171 ]
+175:                                              ; preds = %173, %162
+  %.0319 = phi i64 [ %170, %162 ], [ %spec.select388, %173 ]
   call fastcc void @verify_uninitialized()
-  %174 = icmp sgt i64 %.0319, 0
-  %or.cond3 = and i1 %169, %174
-  br i1 %or.cond3, label %175, label %178
+  %176 = icmp sgt i64 %.0319, 0
+  %or.cond3 = and i1 %171, %176
+  br i1 %or.cond3, label %177, label %180
 
-175:                                              ; preds = %173
-  %176 = mul nuw nsw i64 %.0319, %spec.store.select11
-  %177 = call noalias ptr @malloc(i64 noundef %176) #49
-  br label %178
+177:                                              ; preds = %175
+  %178 = mul nuw nsw i64 %.0319, %167
+  %179 = call noalias ptr @malloc(i64 noundef %178) #49
+  br label %180
 
-178:                                              ; preds = %173, %175
-  %179 = phi ptr [ %177, %175 ], [ null, %173 ]
-  %180 = call i32 (i32, ...) @sqlite3_config(i32 noundef 7, ptr noundef %179, i64 noundef %spec.store.select11, i64 noundef %.0319) #43
-  %181 = load i32, ptr %47, align 4, !tbaa !454
-  %182 = or i32 %181, 1
-  store i32 %182, ptr %47, align 4, !tbaa !454
+180:                                              ; preds = %175, %177
+  %181 = phi ptr [ %179, %177 ], [ null, %175 ]
+  %182 = call i32 (i32, ...) @sqlite3_config(i32 noundef 7, ptr noundef %181, i64 noundef %167, i64 noundef %.0319) #43
+  %183 = load i32, ptr %47, align 4, !tbaa !454
+  %184 = or i32 %183, 1
+  store i32 %184, ptr %47, align 4, !tbaa !454
   br label %cmdline_option_value.exit
 
-183:                                              ; preds = %159
-  %184 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(11) @.str.78) #44
-  %185 = icmp eq i32 %184, 0
-  br i1 %185, label %186, label %201
+185:                                              ; preds = %159
+  %186 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(11) @.str.78) #44
+  %187 = icmp eq i32 %186, 0
+  br i1 %187, label %188, label %203
 
-186:                                              ; preds = %183
-  %187 = add nsw i32 %.0295619, 1
-  %188 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %187)
-  %189 = call fastcc i64 @integerValue(ptr noundef %188)
-  %190 = trunc i64 %189 to i32
-  %spec.store.select4 = call i32 @llvm.smax.i32(i32 %190, i32 0)
-  %191 = add nsw i32 %.0295619, 2
-  %192 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %191)
-  %193 = call fastcc i64 @integerValue(ptr noundef %192)
-  %194 = trunc i64 %193 to i32
-  %spec.store.select12 = call i32 @llvm.smax.i32(i32 %194, i32 0)
+188:                                              ; preds = %185
+  %189 = add nsw i32 %.0295619, 1
+  %190 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %189)
+  %191 = call fastcc i64 @integerValue(ptr noundef %190)
+  %192 = trunc i64 %191 to i32
+  %spec.store.select4 = call i32 @llvm.smax.i32(i32 %192, i32 0)
+  %193 = add nsw i32 %.0295619, 2
+  %194 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %193)
+  %195 = call fastcc i64 @integerValue(ptr noundef %194)
+  %196 = trunc i64 %195 to i32
+  %spec.store.select12 = call i32 @llvm.smax.i32(i32 %196, i32 0)
   call fastcc void @verify_uninitialized()
-  %195 = call i32 (i32, ...) @sqlite3_config(i32 noundef 13, i32 noundef %spec.store.select4, i32 noundef %spec.store.select12) #43
-  %196 = mul nuw nsw i32 %spec.store.select12, %spec.store.select4
-  %197 = icmp eq i32 %196, 0
-  br i1 %197, label %198, label %cmdline_option_value.exit
+  %197 = call i32 (i32, ...) @sqlite3_config(i32 noundef 13, i32 noundef %spec.store.select4, i32 noundef %spec.store.select12) #43
+  %198 = mul nuw nsw i32 %spec.store.select12, %spec.store.select4
+  %199 = icmp eq i32 %198, 0
+  br i1 %199, label %200, label %cmdline_option_value.exit
 
-198:                                              ; preds = %186
-  %199 = load i32, ptr %47, align 4, !tbaa !454
-  %200 = and i32 %199, -3
-  store i32 %200, ptr %47, align 4, !tbaa !454
+200:                                              ; preds = %188
+  %201 = load i32, ptr %47, align 4, !tbaa !454
+  %202 = and i32 %201, -3
+  store i32 %202, ptr %47, align 4, !tbaa !454
   br label %cmdline_option_value.exit
 
-201:                                              ; preds = %183
-  %202 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(12) @.str.79) #44
-  %203 = icmp eq i32 %202, 0
-  br i1 %203, label %204, label %215
+203:                                              ; preds = %185
+  %204 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(12) @.str.79) #44
+  %205 = icmp eq i32 %204, 0
+  br i1 %205, label %206, label %217
 
-204:                                              ; preds = %201
-  %205 = add nsw i32 %.0295619, 1
-  %206 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %205)
-  %207 = call fastcc i64 @integerValue(ptr noundef %206)
-  %208 = trunc i64 %207 to i32
+206:                                              ; preds = %203
+  %207 = add nsw i32 %.0295619, 1
+  %208 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %207)
+  %209 = call fastcc i64 @integerValue(ptr noundef %208)
+  %210 = trunc i64 %209 to i32
   call fastcc void @verify_uninitialized()
-  switch i32 %208, label %213 [
-    i32 0, label %209
-    i32 2, label %211
+  switch i32 %210, label %215 [
+    i32 0, label %211
+    i32 2, label %213
   ]
 
-209:                                              ; preds = %204
-  %210 = call i32 (i32, ...) @sqlite3_config(i32 noundef 1) #43
+211:                                              ; preds = %206
+  %212 = call i32 (i32, ...) @sqlite3_config(i32 noundef 1) #43
   br label %cmdline_option_value.exit
 
-211:                                              ; preds = %204
-  %212 = call i32 (i32, ...) @sqlite3_config(i32 noundef 2) #43
+213:                                              ; preds = %206
+  %214 = call i32 (i32, ...) @sqlite3_config(i32 noundef 2) #43
   br label %cmdline_option_value.exit
 
-213:                                              ; preds = %204
-  %214 = call i32 (i32, ...) @sqlite3_config(i32 noundef 3) #43
+215:                                              ; preds = %206
+  %216 = call i32 (i32, ...) @sqlite3_config(i32 noundef 3) #43
   br label %cmdline_option_value.exit
 
-215:                                              ; preds = %201
-  %216 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(10) @.str.80) #44
-  %217 = icmp eq i32 %216, 0
-  br i1 %217, label %cmdline_option_value.exit, label %218
+217:                                              ; preds = %203
+  %218 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(10) @.str.80) #44
+  %219 = icmp eq i32 %218, 0
+  br i1 %219, label %cmdline_option_value.exit, label %220
 
-218:                                              ; preds = %215
-  %219 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(6) @.str.81) #44
-  %220 = icmp eq i32 %219, 0
-  br i1 %220, label %221, label %226
+220:                                              ; preds = %217
+  %221 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(6) @.str.81) #44
+  %222 = icmp eq i32 %221, 0
+  br i1 %222, label %223, label %228
 
-221:                                              ; preds = %218
-  %222 = add nsw i32 %.0295619, 1
-  %223 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %222)
-  %224 = call fastcc i64 @integerValue(ptr noundef %223)
+223:                                              ; preds = %220
+  %224 = add nsw i32 %.0295619, 1
+  %225 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %224)
+  %226 = call fastcc i64 @integerValue(ptr noundef %225)
   call fastcc void @verify_uninitialized()
-  %225 = call i32 (i32, ...) @sqlite3_config(i32 noundef 22, i64 noundef %224, i64 noundef %224) #43
+  %227 = call i32 (i32, ...) @sqlite3_config(i32 noundef 22, i64 noundef %226, i64 noundef %226) #43
   br label %cmdline_option_value.exit
 
-226:                                              ; preds = %218
-  %227 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(5) @.str.82) #44
-  %228 = icmp eq i32 %227, 0
-  br i1 %228, label %229, label %232
+228:                                              ; preds = %220
+  %229 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(5) @.str.82) #44
+  %230 = icmp eq i32 %229, 0
+  br i1 %230, label %231, label %234
 
-229:                                              ; preds = %226
-  %230 = add nsw i32 %.0295619, 1
-  %231 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %230)
+231:                                              ; preds = %228
+  %232 = add nsw i32 %.0295619, 1
+  %233 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %232)
   br label %cmdline_option_value.exit
 
-232:                                              ; preds = %226
-  %233 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(5) @.str.83) #44
-  %234 = icmp eq i32 %233, 0
-  br i1 %234, label %235, label %236
+234:                                              ; preds = %228
+  %235 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(5) @.str.83) #44
+  %236 = icmp eq i32 %235, 0
+  br i1 %236, label %237, label %238
 
-235:                                              ; preds = %232
+237:                                              ; preds = %234
   store i8 3, ptr %67, align 1, !tbaa !457
   br label %cmdline_option_value.exit
 
-236:                                              ; preds = %232
-  %237 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(8) @.str.84) #44
-  %238 = icmp eq i32 %237, 0
-  br i1 %238, label %239, label %240
+238:                                              ; preds = %234
+  %239 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(8) @.str.84) #44
+  %240 = icmp eq i32 %239, 0
+  br i1 %240, label %241, label %242
 
-239:                                              ; preds = %236
+241:                                              ; preds = %238
   store i8 2, ptr %67, align 1, !tbaa !457
   br label %cmdline_option_value.exit
 
-240:                                              ; preds = %236
-  %241 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(13) @.str.85) #44
-  %242 = icmp eq i32 %241, 0
-  br i1 %242, label %243, label %244
+242:                                              ; preds = %238
+  %243 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(13) @.str.85) #44
+  %244 = icmp eq i32 %243, 0
+  br i1 %244, label %245, label %246
 
-243:                                              ; preds = %240
+245:                                              ; preds = %242
   store i8 5, ptr %67, align 1, !tbaa !457
   br label %cmdline_option_value.exit
 
-244:                                              ; preds = %240
-  %245 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(9) @.str.86) #44
-  %246 = icmp eq i32 %245, 0
-  br i1 %246, label %247, label %255
+246:                                              ; preds = %242
+  %247 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(9) @.str.86) #44
+  %248 = icmp eq i32 %247, 0
+  br i1 %248, label %249, label %257
 
-247:                                              ; preds = %244
-  %248 = add nsw i32 %.0295619, 1
-  %249 = icmp slt i32 %248, %0
-  br i1 %249, label %250, label %255
+249:                                              ; preds = %246
+  %250 = add nsw i32 %.0295619, 1
+  %251 = icmp slt i32 %250, %0
+  br i1 %251, label %252, label %257
 
-250:                                              ; preds = %247
-  %251 = sext i32 %248 to i64
-  %252 = getelementptr inbounds ptr, ptr %1, i64 %251
-  %253 = load ptr, ptr %252, align 8, !tbaa !29
-  %254 = call fastcc i64 @integerValue(ptr noundef %253)
-  store i64 %254, ptr %68, align 8, !tbaa !458
+252:                                              ; preds = %249
+  %253 = sext i32 %250 to i64
+  %254 = getelementptr inbounds ptr, ptr %1, i64 %253
+  %255 = load ptr, ptr %254, align 8, !tbaa !29
+  %256 = call fastcc i64 @integerValue(ptr noundef %255)
+  store i64 %256, ptr %68, align 8, !tbaa !458
   br label %cmdline_option_value.exit
 
-255:                                              ; preds = %247, %244
-  %256 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(10) @.str.87) #44
-  %257 = icmp eq i32 %256, 0
-  br i1 %257, label %258, label %259
+257:                                              ; preds = %249, %246
+  %258 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(10) @.str.87) #44
+  %259 = icmp eq i32 %258, 0
+  br i1 %259, label %260, label %261
 
-258:                                              ; preds = %255
+260:                                              ; preds = %257
   store i8 4, ptr %67, align 1, !tbaa !457
   br label %cmdline_option_value.exit
 
-259:                                              ; preds = %255
-  %260 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(10) @.str.88) #44
-  %261 = icmp eq i32 %260, 0
-  br i1 %261, label %262, label %.tail544
+261:                                              ; preds = %257
+  %262 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(10) @.str.88) #44
+  %263 = icmp eq i32 %262, 0
+  br i1 %263, label %264, label %.tail544
 
-262:                                              ; preds = %259
+264:                                              ; preds = %261
   store i32 16777216, ptr %66, align 8, !tbaa !459
   br label %cmdline_option_value.exit
 
-.tail544:                                         ; preds = %259
-  %263 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
-  %264 = load i8, ptr %263, align 1
-  %265 = icmp eq i8 %264, 65
-  br i1 %265, label %.tail544._crit_edge, label %266
+.tail544:                                         ; preds = %261
+  %265 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
+  %266 = load i8, ptr %265, align 1
+  %267 = icmp eq i8 %266, 65
+  br i1 %267, label %.tail544._crit_edge, label %268
 
-266:                                              ; preds = %.tail544
-  %267 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(10) @.str.90) #44
-  %268 = icmp eq i32 %267, 0
-  br i1 %268, label %269, label %272
+268:                                              ; preds = %.tail544
+  %269 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(10) @.str.90) #44
+  %270 = icmp eq i32 %269, 0
+  br i1 %270, label %271, label %274
 
-269:                                              ; preds = %266
-  %270 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %271 = call i32 @sqlite3MemTraceActivate(ptr noundef %270)
+271:                                              ; preds = %268
+  %272 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %273 = call i32 @sqlite3MemTraceActivate(ptr noundef %272)
   br label %cmdline_option_value.exit
 
-272:                                              ; preds = %266
-  %273 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(13) @.str.91) #44
-  %274 = icmp eq i32 %273, 0
-  br i1 %274, label %275, label %278
+274:                                              ; preds = %268
+  %275 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(13) @.str.91) #44
+  %276 = icmp eq i32 %275, 0
+  br i1 %276, label %277, label %280
 
-275:                                              ; preds = %272
-  %276 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %277 = call i32 @sqlite3PcacheTraceActivate(ptr noundef %276)
+277:                                              ; preds = %274
+  %278 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %279 = call i32 @sqlite3PcacheTraceActivate(ptr noundef %278)
   br label %cmdline_option_value.exit
 
-278:                                              ; preds = %272
-  %279 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(6) @.str.92) #44
-  %280 = icmp eq i32 %279, 0
-  br i1 %280, label %281, label %282
+280:                                              ; preds = %274
+  %281 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(6) @.str.92) #44
+  %282 = icmp eq i32 %281, 0
+  br i1 %282, label %283, label %284
 
-281:                                              ; preds = %278
+283:                                              ; preds = %280
   store i32 1, ptr @bail_on_error, align 4, !tbaa !36
   br label %cmdline_option_value.exit
 
-282:                                              ; preds = %278
-  %283 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(7) @.str.93) #44
-  %284 = icmp eq i32 %283, 0
-  br i1 %284, label %285, label %290
+284:                                              ; preds = %280
+  %285 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(7) @.str.93) #44
+  %286 = icmp eq i32 %285, 0
+  br i1 %286, label %287, label %292
 
-285:                                              ; preds = %282
-  %286 = load ptr, ptr %65, align 8, !tbaa !460
-  call void @free(ptr noundef %286) #43
-  %287 = add nsw i32 %.0295619, 1
-  %288 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %287)
-  %289 = call noalias ptr @strdup(ptr noundef %288) #43
-  store ptr %289, ptr %65, align 8, !tbaa !460
+287:                                              ; preds = %284
+  %288 = load ptr, ptr %65, align 8, !tbaa !460
+  call void @free(ptr noundef %288) #43
+  %289 = add nsw i32 %.0295619, 1
+  %290 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %289)
+  %291 = call noalias ptr @strdup(ptr noundef %290) #43
+  store ptr %291, ptr %65, align 8, !tbaa !460
   br label %cmdline_option_value.exit
 
-290:                                              ; preds = %282
-  %291 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(16) @.str.94) #44
-  %292 = icmp eq i32 %291, 0
-  br i1 %292, label %293, label %cmdline_option_value.exit
+292:                                              ; preds = %284
+  %293 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(16) @.str.94) #44
+  %294 = icmp eq i32 %293, 0
+  br i1 %294, label %295, label %cmdline_option_value.exit
 
-293:                                              ; preds = %290
-  %294 = load i32, ptr %47, align 4, !tbaa !454
-  %295 = or i32 %294, 1024
-  store i32 %295, ptr %47, align 4, !tbaa !454
+295:                                              ; preds = %292
+  %296 = load i32, ptr %47, align 4, !tbaa !454
+  %297 = or i32 %296, 1024
+  store i32 %297, ptr %47, align 4, !tbaa !454
   br label %cmdline_option_value.exit
 
-cmdline_option_value.exit:                        ; preds = %107, %shell_check_oom.exit, %79, %.tail, %215, %209, %211, %213, %186, %198, %135, %142, %151, %178, %221, %235, %243, %258, %275, %285, %293, %281, %269, %262, %250, %239, %229, %156, %145, %141, %cmdline_option_value.exit397, %290
-  %.2337.ph = phi i32 [ %.0335613, %290 ], [ %.0335613, %cmdline_option_value.exit397 ], [ %.0335613, %141 ], [ %.0335613, %145 ], [ %.0335613, %156 ], [ %.0335613, %229 ], [ %.0335613, %239 ], [ %.0335613, %250 ], [ %.0335613, %262 ], [ %.0335613, %269 ], [ %.0335613, %281 ], [ %.0335613, %293 ], [ %.0335613, %285 ], [ %.0335613, %275 ], [ %.0335613, %258 ], [ %.0335613, %243 ], [ %.0335613, %235 ], [ %.0335613, %221 ], [ %.0335613, %178 ], [ %.0335613, %151 ], [ %.0335613, %142 ], [ %.0335613, %135 ], [ %.0335613, %198 ], [ %.0335613, %186 ], [ %.0335613, %213 ], [ %.0335613, %211 ], [ %.0335613, %209 ], [ %.0335613, %215 ], [ %.0295619, %.tail ], [ %.0335613, %79 ], [ %.0335613, %shell_check_oom.exit ], [ %.0335613, %107 ]
-  %.2333.ph = phi i32 [ %.0331614, %290 ], [ %.0331614, %cmdline_option_value.exit397 ], [ %.0331614, %141 ], [ %.0331614, %145 ], [ %.0331614, %156 ], [ %.0331614, %229 ], [ %.0331614, %239 ], [ %.0331614, %250 ], [ %.0331614, %262 ], [ %.0331614, %269 ], [ %.0331614, %281 ], [ %.0331614, %293 ], [ %.0331614, %285 ], [ %.0331614, %275 ], [ %.0331614, %258 ], [ %.0331614, %243 ], [ %.0331614, %235 ], [ %.0331614, %221 ], [ %.0331614, %178 ], [ %.0331614, %151 ], [ %.0331614, %142 ], [ %.0331614, %135 ], [ %.0331614, %198 ], [ %.0331614, %186 ], [ %.0331614, %213 ], [ %.0331614, %211 ], [ %.0331614, %209 ], [ 1, %215 ], [ %.0331614, %.tail ], [ %.0331614, %79 ], [ %.0331614, %shell_check_oom.exit ], [ %.0331614, %107 ]
-  %.3330.ph = phi ptr [ %.0327615, %290 ], [ %.0327615, %cmdline_option_value.exit397 ], [ %.0327615, %141 ], [ %.0327615, %145 ], [ %.0327615, %156 ], [ %.0327615, %229 ], [ %.0327615, %239 ], [ %.0327615, %250 ], [ %.0327615, %262 ], [ %.0327615, %269 ], [ %.0327615, %281 ], [ %.0327615, %293 ], [ %.0327615, %285 ], [ %.0327615, %275 ], [ %.0327615, %258 ], [ %.0327615, %243 ], [ %.0327615, %235 ], [ %.0327615, %221 ], [ %.0327615, %178 ], [ %.0327615, %151 ], [ %.0327615, %142 ], [ %.0327615, %135 ], [ %.0327615, %198 ], [ %.0327615, %186 ], [ %.0327615, %213 ], [ %.0327615, %211 ], [ %.0327615, %209 ], [ %.0327615, %215 ], [ %.0327615, %.tail ], [ %.0327615, %79 ], [ %84, %shell_check_oom.exit ], [ %.0327615, %107 ]
-  %.2325.ph = phi ptr [ %.0323616, %290 ], [ %.0323616, %cmdline_option_value.exit397 ], [ %.0323616, %141 ], [ %.0323616, %145 ], [ %.0323616, %156 ], [ %231, %229 ], [ %.0323616, %239 ], [ %.0323616, %250 ], [ %.0323616, %262 ], [ %.0323616, %269 ], [ %.0323616, %281 ], [ %.0323616, %293 ], [ %.0323616, %285 ], [ %.0323616, %275 ], [ %.0323616, %258 ], [ %.0323616, %243 ], [ %.0323616, %235 ], [ %.0323616, %221 ], [ %.0323616, %178 ], [ %.0323616, %151 ], [ %.0323616, %142 ], [ %.0323616, %135 ], [ %.0323616, %198 ], [ %.0323616, %186 ], [ %.0323616, %213 ], [ %.0323616, %211 ], [ %.0323616, %209 ], [ %.0323616, %215 ], [ %.0323616, %.tail ], [ %.0323616, %79 ], [ %.0323616, %shell_check_oom.exit ], [ %.0323616, %107 ]
-  %.3318.ph = phi i32 [ %.0315617, %290 ], [ %.0315617, %cmdline_option_value.exit397 ], [ %.0315617, %141 ], [ %.0315617, %145 ], [ %.0315617, %156 ], [ %.0315617, %229 ], [ %.0315617, %239 ], [ %.0315617, %250 ], [ %.0315617, %262 ], [ %.0315617, %269 ], [ %.0315617, %281 ], [ %.0315617, %293 ], [ %.0315617, %285 ], [ %.0315617, %275 ], [ %.0315617, %258 ], [ %.0315617, %243 ], [ %.0315617, %235 ], [ %.0315617, %221 ], [ %.0315617, %178 ], [ %.0315617, %151 ], [ %.0315617, %142 ], [ %.0315617, %135 ], [ %.0315617, %198 ], [ %.0315617, %186 ], [ %.0315617, %213 ], [ %.0315617, %211 ], [ %.0315617, %209 ], [ %.0315617, %215 ], [ %.0315617, %.tail ], [ %.0315617, %79 ], [ %81, %shell_check_oom.exit ], [ %.0315617, %107 ]
-  %.3311.ph = phi i32 [ %.0308618, %290 ], [ %.0308618, %cmdline_option_value.exit397 ], [ %.0308618, %141 ], [ %.0308618, %145 ], [ %.0308618, %156 ], [ %.0308618, %229 ], [ %.0308618, %239 ], [ %.0308618, %250 ], [ %.0308618, %262 ], [ %.0308618, %269 ], [ %.0308618, %281 ], [ %.0308618, %293 ], [ %.0308618, %285 ], [ %.0308618, %275 ], [ %.0308618, %258 ], [ %.0308618, %243 ], [ %.0308618, %235 ], [ %.0308618, %221 ], [ %.0308618, %178 ], [ %.0308618, %151 ], [ %.0308618, %142 ], [ %.0308618, %135 ], [ %.0308618, %198 ], [ %.0308618, %186 ], [ %.0308618, %213 ], [ %.0308618, %211 ], [ %.0308618, %209 ], [ %.0308618, %215 ], [ %.0308618, %.tail ], [ %.0308618, %79 ], [ 0, %shell_check_oom.exit ], [ %.0308618, %107 ]
-  %.1296.ph = phi i32 [ %.0295619, %290 ], [ %122, %cmdline_option_value.exit397 ], [ %.0295619, %141 ], [ %.0295619, %145 ], [ %157, %156 ], [ %230, %229 ], [ %.0295619, %239 ], [ %248, %250 ], [ %.0295619, %262 ], [ %.0295619, %269 ], [ %.0295619, %281 ], [ %.0295619, %293 ], [ %287, %285 ], [ %.0295619, %275 ], [ %.0295619, %258 ], [ %.0295619, %243 ], [ %.0295619, %235 ], [ %222, %221 ], [ %166, %178 ], [ %.0295619, %151 ], [ %.0295619, %142 ], [ %.0295619, %135 ], [ %191, %198 ], [ %191, %186 ], [ %205, %213 ], [ %205, %211 ], [ %205, %209 ], [ %.0295619, %215 ], [ %.0295619, %.tail ], [ %.0295619, %79 ], [ %.0295619, %shell_check_oom.exit ], [ %108, %107 ]
-  %.2293.ph = phi ptr [ %.0291620, %290 ], [ %134, %cmdline_option_value.exit397 ], [ %.0291620, %141 ], [ %.0291620, %145 ], [ %.0291620, %156 ], [ %.0291620, %229 ], [ %.0291620, %239 ], [ %.0291620, %250 ], [ %.0291620, %262 ], [ %.0291620, %269 ], [ %.0291620, %281 ], [ %.0291620, %293 ], [ %.0291620, %285 ], [ %.0291620, %275 ], [ %.0291620, %258 ], [ %.0291620, %243 ], [ %.0291620, %235 ], [ %.0291620, %221 ], [ %.0291620, %178 ], [ %.0291620, %151 ], [ %.0291620, %142 ], [ %.0291620, %135 ], [ %.0291620, %198 ], [ %.0291620, %186 ], [ %.0291620, %213 ], [ %.0291620, %211 ], [ %.0291620, %209 ], [ %.0291620, %215 ], [ %.0291620, %.tail ], [ %.0291620, %79 ], [ %.0291620, %shell_check_oom.exit ], [ %.0291620, %107 ]
-  %296 = add nsw i32 %.1296.ph, 1
-  %297 = icmp slt i32 %296, %0
-  br i1 %297, label %70, label %.tail544._crit_edge, !llvm.loop !461
+cmdline_option_value.exit:                        ; preds = %107, %shell_check_oom.exit, %79, %.tail, %217, %211, %213, %215, %188, %200, %135, %142, %151, %180, %223, %237, %245, %260, %277, %287, %295, %283, %271, %264, %252, %241, %231, %156, %145, %141, %cmdline_option_value.exit397, %292
+  %.2337.ph = phi i32 [ %.0335613, %292 ], [ %.0335613, %cmdline_option_value.exit397 ], [ %.0335613, %141 ], [ %.0335613, %145 ], [ %.0335613, %156 ], [ %.0335613, %231 ], [ %.0335613, %241 ], [ %.0335613, %252 ], [ %.0335613, %264 ], [ %.0335613, %271 ], [ %.0335613, %283 ], [ %.0335613, %295 ], [ %.0335613, %287 ], [ %.0335613, %277 ], [ %.0335613, %260 ], [ %.0335613, %245 ], [ %.0335613, %237 ], [ %.0335613, %223 ], [ %.0335613, %180 ], [ %.0335613, %151 ], [ %.0335613, %142 ], [ %.0335613, %135 ], [ %.0335613, %200 ], [ %.0335613, %188 ], [ %.0335613, %215 ], [ %.0335613, %213 ], [ %.0335613, %211 ], [ %.0335613, %217 ], [ %.0295619, %.tail ], [ %.0335613, %79 ], [ %.0335613, %shell_check_oom.exit ], [ %.0335613, %107 ]
+  %.2333.ph = phi i32 [ %.0331614, %292 ], [ %.0331614, %cmdline_option_value.exit397 ], [ %.0331614, %141 ], [ %.0331614, %145 ], [ %.0331614, %156 ], [ %.0331614, %231 ], [ %.0331614, %241 ], [ %.0331614, %252 ], [ %.0331614, %264 ], [ %.0331614, %271 ], [ %.0331614, %283 ], [ %.0331614, %295 ], [ %.0331614, %287 ], [ %.0331614, %277 ], [ %.0331614, %260 ], [ %.0331614, %245 ], [ %.0331614, %237 ], [ %.0331614, %223 ], [ %.0331614, %180 ], [ %.0331614, %151 ], [ %.0331614, %142 ], [ %.0331614, %135 ], [ %.0331614, %200 ], [ %.0331614, %188 ], [ %.0331614, %215 ], [ %.0331614, %213 ], [ %.0331614, %211 ], [ 1, %217 ], [ %.0331614, %.tail ], [ %.0331614, %79 ], [ %.0331614, %shell_check_oom.exit ], [ %.0331614, %107 ]
+  %.3330.ph = phi ptr [ %.0327615, %292 ], [ %.0327615, %cmdline_option_value.exit397 ], [ %.0327615, %141 ], [ %.0327615, %145 ], [ %.0327615, %156 ], [ %.0327615, %231 ], [ %.0327615, %241 ], [ %.0327615, %252 ], [ %.0327615, %264 ], [ %.0327615, %271 ], [ %.0327615, %283 ], [ %.0327615, %295 ], [ %.0327615, %287 ], [ %.0327615, %277 ], [ %.0327615, %260 ], [ %.0327615, %245 ], [ %.0327615, %237 ], [ %.0327615, %223 ], [ %.0327615, %180 ], [ %.0327615, %151 ], [ %.0327615, %142 ], [ %.0327615, %135 ], [ %.0327615, %200 ], [ %.0327615, %188 ], [ %.0327615, %215 ], [ %.0327615, %213 ], [ %.0327615, %211 ], [ %.0327615, %217 ], [ %.0327615, %.tail ], [ %.0327615, %79 ], [ %84, %shell_check_oom.exit ], [ %.0327615, %107 ]
+  %.2325.ph = phi ptr [ %.0323616, %292 ], [ %.0323616, %cmdline_option_value.exit397 ], [ %.0323616, %141 ], [ %.0323616, %145 ], [ %.0323616, %156 ], [ %233, %231 ], [ %.0323616, %241 ], [ %.0323616, %252 ], [ %.0323616, %264 ], [ %.0323616, %271 ], [ %.0323616, %283 ], [ %.0323616, %295 ], [ %.0323616, %287 ], [ %.0323616, %277 ], [ %.0323616, %260 ], [ %.0323616, %245 ], [ %.0323616, %237 ], [ %.0323616, %223 ], [ %.0323616, %180 ], [ %.0323616, %151 ], [ %.0323616, %142 ], [ %.0323616, %135 ], [ %.0323616, %200 ], [ %.0323616, %188 ], [ %.0323616, %215 ], [ %.0323616, %213 ], [ %.0323616, %211 ], [ %.0323616, %217 ], [ %.0323616, %.tail ], [ %.0323616, %79 ], [ %.0323616, %shell_check_oom.exit ], [ %.0323616, %107 ]
+  %.3318.ph = phi i32 [ %.0315617, %292 ], [ %.0315617, %cmdline_option_value.exit397 ], [ %.0315617, %141 ], [ %.0315617, %145 ], [ %.0315617, %156 ], [ %.0315617, %231 ], [ %.0315617, %241 ], [ %.0315617, %252 ], [ %.0315617, %264 ], [ %.0315617, %271 ], [ %.0315617, %283 ], [ %.0315617, %295 ], [ %.0315617, %287 ], [ %.0315617, %277 ], [ %.0315617, %260 ], [ %.0315617, %245 ], [ %.0315617, %237 ], [ %.0315617, %223 ], [ %.0315617, %180 ], [ %.0315617, %151 ], [ %.0315617, %142 ], [ %.0315617, %135 ], [ %.0315617, %200 ], [ %.0315617, %188 ], [ %.0315617, %215 ], [ %.0315617, %213 ], [ %.0315617, %211 ], [ %.0315617, %217 ], [ %.0315617, %.tail ], [ %.0315617, %79 ], [ %81, %shell_check_oom.exit ], [ %.0315617, %107 ]
+  %.3311.ph = phi i32 [ %.0308618, %292 ], [ %.0308618, %cmdline_option_value.exit397 ], [ %.0308618, %141 ], [ %.0308618, %145 ], [ %.0308618, %156 ], [ %.0308618, %231 ], [ %.0308618, %241 ], [ %.0308618, %252 ], [ %.0308618, %264 ], [ %.0308618, %271 ], [ %.0308618, %283 ], [ %.0308618, %295 ], [ %.0308618, %287 ], [ %.0308618, %277 ], [ %.0308618, %260 ], [ %.0308618, %245 ], [ %.0308618, %237 ], [ %.0308618, %223 ], [ %.0308618, %180 ], [ %.0308618, %151 ], [ %.0308618, %142 ], [ %.0308618, %135 ], [ %.0308618, %200 ], [ %.0308618, %188 ], [ %.0308618, %215 ], [ %.0308618, %213 ], [ %.0308618, %211 ], [ %.0308618, %217 ], [ %.0308618, %.tail ], [ %.0308618, %79 ], [ 0, %shell_check_oom.exit ], [ %.0308618, %107 ]
+  %.1296.ph = phi i32 [ %.0295619, %292 ], [ %122, %cmdline_option_value.exit397 ], [ %.0295619, %141 ], [ %.0295619, %145 ], [ %157, %156 ], [ %232, %231 ], [ %.0295619, %241 ], [ %250, %252 ], [ %.0295619, %264 ], [ %.0295619, %271 ], [ %.0295619, %283 ], [ %.0295619, %295 ], [ %289, %287 ], [ %.0295619, %277 ], [ %.0295619, %260 ], [ %.0295619, %245 ], [ %.0295619, %237 ], [ %224, %223 ], [ %168, %180 ], [ %.0295619, %151 ], [ %.0295619, %142 ], [ %.0295619, %135 ], [ %193, %200 ], [ %193, %188 ], [ %207, %215 ], [ %207, %213 ], [ %207, %211 ], [ %.0295619, %217 ], [ %.0295619, %.tail ], [ %.0295619, %79 ], [ %.0295619, %shell_check_oom.exit ], [ %108, %107 ]
+  %.2293.ph = phi ptr [ %.0291620, %292 ], [ %134, %cmdline_option_value.exit397 ], [ %.0291620, %141 ], [ %.0291620, %145 ], [ %.0291620, %156 ], [ %.0291620, %231 ], [ %.0291620, %241 ], [ %.0291620, %252 ], [ %.0291620, %264 ], [ %.0291620, %271 ], [ %.0291620, %283 ], [ %.0291620, %295 ], [ %.0291620, %287 ], [ %.0291620, %277 ], [ %.0291620, %260 ], [ %.0291620, %245 ], [ %.0291620, %237 ], [ %.0291620, %223 ], [ %.0291620, %180 ], [ %.0291620, %151 ], [ %.0291620, %142 ], [ %.0291620, %135 ], [ %.0291620, %200 ], [ %.0291620, %188 ], [ %.0291620, %215 ], [ %.0291620, %213 ], [ %.0291620, %211 ], [ %.0291620, %217 ], [ %.0291620, %.tail ], [ %.0291620, %79 ], [ %.0291620, %shell_check_oom.exit ], [ %.0291620, %107 ]
+  %298 = add nsw i32 %.1296.ph, 1
+  %299 = icmp slt i32 %298, %0
+  br i1 %299, label %70, label %.tail544._crit_edge, !llvm.loop !461
 
 .tail544._crit_edge:                              ; preds = %cmdline_option_value.exit, %.tail544
   %.0335.lcssa.ph = phi i32 [ %.2337.ph, %cmdline_option_value.exit ], [ %.0335613, %.tail544 ]
@@ -16803,8 +16803,8 @@ cmdline_option_value.exit:                        ; preds = %107, %shell_check_o
   %.0315.lcssa.ph = phi i32 [ %.3318.ph, %cmdline_option_value.exit ], [ %.0315617, %.tail544 ]
   %.0308.lcssa.ph = phi i32 [ %.3311.ph, %cmdline_option_value.exit ], [ %.0308618, %.tail544 ]
   %.0291.lcssa.ph = phi ptr [ %.2293.ph, %cmdline_option_value.exit ], [ %.0291620, %.tail544 ]
-  %298 = icmp eq i32 %.0331.lcssa.ph, 0
-  br i1 %298, label %.tail544._crit_edge.thread, label %verify_uninitialized.exit423
+  %300 = icmp eq i32 %.0331.lcssa.ph, 0
+  br i1 %300, label %.tail544._crit_edge.thread, label %verify_uninitialized.exit423
 
 .tail544._crit_edge.thread:                       ; preds = %verify_uninitialized.exit, %.tail544._crit_edge
   %.0291.lcssa713 = phi ptr [ %.0291.lcssa.ph, %.tail544._crit_edge ], [ null, %verify_uninitialized.exit ]
@@ -16813,175 +16813,175 @@ cmdline_option_value.exit:                        ; preds = %107, %shell_check_o
   %.0323.lcssa706 = phi ptr [ %.0323.lcssa.ph, %.tail544._crit_edge ], [ null, %verify_uninitialized.exit ]
   %.0327.lcssa704 = phi ptr [ %.0327.lcssa.ph, %.tail544._crit_edge ], [ null, %verify_uninitialized.exit ]
   %.0335.lcssa700 = phi i32 [ %.0335.lcssa.ph, %.tail544._crit_edge ], [ %0, %verify_uninitialized.exit ]
-  %299 = call i32 (i32, ...) @sqlite3_config(i32 noundef -1) #43
-  %300 = icmp eq i32 %299, 21
-  br i1 %300, label %301, label %verify_uninitialized.exit423
+  %301 = call i32 (i32, ...) @sqlite3_config(i32 noundef -1) #43
+  %302 = icmp eq i32 %301, 21
+  br i1 %302, label %303, label %verify_uninitialized.exit423
 
-301:                                              ; preds = %.tail544._crit_edge.thread
-  %302 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %303 = call i64 @fwrite(ptr nonnull @.str.625, i64 59, i64 1, ptr %302)
+303:                                              ; preds = %.tail544._crit_edge.thread
+  %304 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %305 = call i64 @fwrite(ptr nonnull @.str.625, i64 59, i64 1, ptr %304)
   br label %verify_uninitialized.exit423
 
-verify_uninitialized.exit423:                     ; preds = %301, %.tail544._crit_edge.thread, %.tail544._crit_edge
-  %.0291.lcssa712 = phi ptr [ %.0291.lcssa713, %301 ], [ %.0291.lcssa713, %.tail544._crit_edge.thread ], [ %.0291.lcssa.ph, %.tail544._crit_edge ]
-  %.0308.lcssa710 = phi i32 [ %.0308.lcssa711, %301 ], [ %.0308.lcssa711, %.tail544._crit_edge.thread ], [ %.0308.lcssa.ph, %.tail544._crit_edge ]
-  %.0315.lcssa707 = phi i32 [ %.0315.lcssa708, %301 ], [ %.0315.lcssa708, %.tail544._crit_edge.thread ], [ %.0315.lcssa.ph, %.tail544._crit_edge ]
-  %.0323.lcssa705 = phi ptr [ %.0323.lcssa706, %301 ], [ %.0323.lcssa706, %.tail544._crit_edge.thread ], [ %.0323.lcssa.ph, %.tail544._crit_edge ]
-  %.0327.lcssa703 = phi ptr [ %.0327.lcssa704, %301 ], [ %.0327.lcssa704, %.tail544._crit_edge.thread ], [ %.0327.lcssa.ph, %.tail544._crit_edge ]
-  %.0331.lcssa701 = phi i1 [ true, %301 ], [ true, %.tail544._crit_edge.thread ], [ false, %.tail544._crit_edge ]
-  %.0335.lcssa699 = phi i32 [ %.0335.lcssa700, %301 ], [ %.0335.lcssa700, %.tail544._crit_edge.thread ], [ %.0335.lcssa.ph, %.tail544._crit_edge ]
-  %304 = call i32 @sqlite3_initialize() #43
+verify_uninitialized.exit423:                     ; preds = %303, %.tail544._crit_edge.thread, %.tail544._crit_edge
+  %.0291.lcssa712 = phi ptr [ %.0291.lcssa713, %303 ], [ %.0291.lcssa713, %.tail544._crit_edge.thread ], [ %.0291.lcssa.ph, %.tail544._crit_edge ]
+  %.0308.lcssa710 = phi i32 [ %.0308.lcssa711, %303 ], [ %.0308.lcssa711, %.tail544._crit_edge.thread ], [ %.0308.lcssa.ph, %.tail544._crit_edge ]
+  %.0315.lcssa707 = phi i32 [ %.0315.lcssa708, %303 ], [ %.0315.lcssa708, %.tail544._crit_edge.thread ], [ %.0315.lcssa.ph, %.tail544._crit_edge ]
+  %.0323.lcssa705 = phi ptr [ %.0323.lcssa706, %303 ], [ %.0323.lcssa706, %.tail544._crit_edge.thread ], [ %.0323.lcssa.ph, %.tail544._crit_edge ]
+  %.0327.lcssa703 = phi ptr [ %.0327.lcssa704, %303 ], [ %.0327.lcssa704, %.tail544._crit_edge.thread ], [ %.0327.lcssa.ph, %.tail544._crit_edge ]
+  %.0331.lcssa701 = phi i1 [ true, %303 ], [ true, %.tail544._crit_edge.thread ], [ false, %.tail544._crit_edge ]
+  %.0335.lcssa699 = phi i32 [ %.0335.lcssa700, %303 ], [ %.0335.lcssa700, %.tail544._crit_edge.thread ], [ %.0335.lcssa.ph, %.tail544._crit_edge ]
+  %306 = call i32 @sqlite3_initialize() #43
   %.not366 = icmp eq ptr %.0323.lcssa705, null
-  br i1 %.not366, label %312, label %305
+  br i1 %.not366, label %314, label %307
 
-305:                                              ; preds = %verify_uninitialized.exit423
-  %306 = call ptr @sqlite3_vfs_find(ptr noundef nonnull %.0323.lcssa705) #43
-  %.not367 = icmp eq ptr %306, null
-  br i1 %.not367, label %309, label %307
+307:                                              ; preds = %verify_uninitialized.exit423
+  %308 = call ptr @sqlite3_vfs_find(ptr noundef nonnull %.0323.lcssa705) #43
+  %.not367 = icmp eq ptr %308, null
+  br i1 %.not367, label %311, label %309
 
-307:                                              ; preds = %305
-  %308 = call i32 @sqlite3_vfs_register(ptr noundef nonnull %306, i32 noundef 1) #43
-  br label %312
+309:                                              ; preds = %307
+  %310 = call i32 @sqlite3_vfs_register(ptr noundef nonnull %308, i32 noundef 1) #43
+  br label %314
 
-309:                                              ; preds = %305
-  %310 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %311 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.96, ptr noundef nonnull %.0323.lcssa705) #46
+311:                                              ; preds = %307
+  %312 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %313 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %312, ptr noundef nonnull @.str.96, ptr noundef nonnull %.0323.lcssa705) #46
   call void @exit(i32 noundef 1) #47
   unreachable
 
-312:                                              ; preds = %307, %verify_uninitialized.exit423
-  %313 = load ptr, ptr %44, align 8, !tbaa !453
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
-  %315 = load ptr, ptr %314, align 8, !tbaa !455
-  %316 = icmp eq ptr %315, null
-  br i1 %316, label %317, label %319
+314:                                              ; preds = %309, %verify_uninitialized.exit423
+  %315 = load ptr, ptr %44, align 8, !tbaa !453
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
+  %317 = load ptr, ptr %316, align 8, !tbaa !455
+  %318 = icmp eq ptr %317, null
+  br i1 %318, label %319, label %321
 
-317:                                              ; preds = %312
-  store ptr @.str.39, ptr %314, align 8, !tbaa !455
-  %318 = icmp ne i32 %0, 1
-  br label %319
+319:                                              ; preds = %314
+  store ptr @.str.39, ptr %316, align 8, !tbaa !455
+  %320 = icmp ne i32 %0, 1
+  br label %321
 
-319:                                              ; preds = %317, %312
-  %.0307 = phi i1 [ %318, %317 ], [ true, %312 ]
-  %320 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %321 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %320, ptr %321, align 8, !tbaa !462
-  br i1 %.0331.lcssa701, label %324, label %322
+321:                                              ; preds = %319, %314
+  %.0307 = phi i1 [ %320, %319 ], [ true, %314 ]
+  %322 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %323 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  store ptr %322, ptr %323, align 8, !tbaa !462
+  br i1 %.0331.lcssa701, label %326, label %324
 
-322:                                              ; preds = %319
-  %323 = call i32 @vfstrace_register(ptr noundef nonnull @.str.97, ptr noundef null, ptr noundef nonnull @vfstraceOut, ptr noundef nonnull %4, i32 noundef 1)
-  br label %324
+324:                                              ; preds = %321
+  %325 = call i32 @vfstrace_register(ptr noundef nonnull @.str.97, ptr noundef null, ptr noundef nonnull @vfstraceOut, ptr noundef nonnull %4, i32 noundef 1)
+  br label %326
 
-324:                                              ; preds = %322, %319
-  %325 = call ptr @sqlite3_vfs_find(ptr noundef null) #43
-  %326 = icmp eq ptr %325, null
-  br i1 %326, label %sqlite3_appendvfs_init.exit, label %327
+326:                                              ; preds = %324, %321
+  %327 = call ptr @sqlite3_vfs_find(ptr noundef null) #43
+  %328 = icmp eq ptr %327, null
+  br i1 %328, label %sqlite3_appendvfs_init.exit, label %329
 
-327:                                              ; preds = %324
-  %328 = load i32, ptr %325, align 8, !tbaa !133
-  store i32 %328, ptr @apnd_vfs, align 8, !tbaa !133
-  store ptr %325, ptr getelementptr inbounds nuw (i8, ptr @apnd_vfs, i64 32), align 8, !tbaa !136
-  %329 = getelementptr inbounds nuw i8, ptr %325, i64 4
-  %330 = load i32, ptr %329, align 4, !tbaa !137
-  %331 = add i32 %330, 24
-  store i32 %331, ptr getelementptr inbounds nuw (i8, ptr @apnd_vfs, i64 4), align 4, !tbaa !137
-  %332 = call i32 @sqlite3_vfs_register(ptr noundef nonnull @apnd_vfs, i32 noundef 0) #43
+329:                                              ; preds = %326
+  %330 = load i32, ptr %327, align 8, !tbaa !133
+  store i32 %330, ptr @apnd_vfs, align 8, !tbaa !133
+  store ptr %327, ptr getelementptr inbounds nuw (i8, ptr @apnd_vfs, i64 32), align 8, !tbaa !136
+  %331 = getelementptr inbounds nuw i8, ptr %327, i64 4
+  %332 = load i32, ptr %331, align 4, !tbaa !137
+  %333 = add i32 %332, 24
+  store i32 %333, ptr getelementptr inbounds nuw (i8, ptr @apnd_vfs, i64 4), align 4, !tbaa !137
+  %334 = call i32 @sqlite3_vfs_register(ptr noundef nonnull @apnd_vfs, i32 noundef 0) #43
   br label %sqlite3_appendvfs_init.exit
 
-sqlite3_appendvfs_init.exit:                      ; preds = %324, %327
-  %333 = load ptr, ptr %44, align 8, !tbaa !453
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
-  %335 = load ptr, ptr %334, align 8, !tbaa !455
-  %336 = call i32 @access(ptr noundef %335, i32 noundef 0) #43
-  %337 = icmp eq i32 %336, 0
-  br i1 %337, label %338, label %339
+sqlite3_appendvfs_init.exit:                      ; preds = %326, %329
+  %335 = load ptr, ptr %44, align 8, !tbaa !453
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 8
+  %337 = load ptr, ptr %336, align 8, !tbaa !455
+  %338 = call i32 @access(ptr noundef %337, i32 noundef 0) #43
+  %339 = icmp eq i32 %338, 0
+  br i1 %339, label %340, label %341
 
-338:                                              ; preds = %sqlite3_appendvfs_init.exit
+340:                                              ; preds = %sqlite3_appendvfs_init.exit
   call fastcc void @open_db(ptr noundef %4, i32 noundef 0)
-  br label %339
+  br label %341
 
-339:                                              ; preds = %338, %sqlite3_appendvfs_init.exit
-  %340 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %341 = load ptr, ptr %340, align 8, !tbaa !463
-  %342 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  %343 = load i32, ptr %342, align 4, !tbaa !464
-  %344 = icmp eq ptr %.0291.lcssa712, null
-  br i1 %344, label %345, label %find_xdg_config.exit.thread37.i
+341:                                              ; preds = %340, %sqlite3_appendvfs_init.exit
+  %342 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %343 = load ptr, ptr %342, align 8, !tbaa !463
+  %344 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %345 = load i32, ptr %344, align 4, !tbaa !464
+  %346 = icmp eq ptr %.0291.lcssa712, null
+  br i1 %346, label %347, label %find_xdg_config.exit.thread37.i
 
-345:                                              ; preds = %339
-  %346 = call ptr @getenv(ptr noundef nonnull @.str.696) #43
-  %347 = icmp eq ptr %346, null
-  br i1 %347, label %348, label %352
+347:                                              ; preds = %341
+  %348 = call ptr @getenv(ptr noundef nonnull @.str.696) #43
+  %349 = icmp eq ptr %348, null
+  br i1 %349, label %350, label %354
 
-348:                                              ; preds = %345
-  %349 = call ptr @getenv(ptr noundef nonnull @.str.697) #43
-  %.not.i.i = icmp eq ptr %349, null
-  br i1 %.not.i.i, label %359, label %350
+350:                                              ; preds = %347
+  %351 = call ptr @getenv(ptr noundef nonnull @.str.697) #43
+  %.not.i.i = icmp eq ptr %351, null
+  br i1 %.not.i.i, label %361, label %352
 
-350:                                              ; preds = %348
-  %351 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.698, ptr noundef nonnull %349) #43
-  br label %354
+352:                                              ; preds = %350
+  %353 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.698, ptr noundef nonnull %351) #43
+  br label %356
 
-352:                                              ; preds = %345
-  %353 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.699, ptr noundef nonnull %346) #43
-  br label %354
+354:                                              ; preds = %347
+  %355 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.699, ptr noundef nonnull %348) #43
+  br label %356
 
-354:                                              ; preds = %352, %350
-  %.111.i.i = phi ptr [ %351, %350 ], [ %353, %352 ]
-  %355 = icmp eq ptr %.111.i.i, null
-  br i1 %355, label %356, label %shell_check_oom.exit.i.i
+356:                                              ; preds = %354, %352
+  %.111.i.i = phi ptr [ %353, %352 ], [ %355, %354 ]
+  %357 = icmp eq ptr %.111.i.i, null
+  br i1 %357, label %358, label %shell_check_oom.exit.i.i
 
-356:                                              ; preds = %354
+358:                                              ; preds = %356
   call fastcc void @shell_out_of_memory()
   unreachable
 
-shell_check_oom.exit.i.i:                         ; preds = %354
-  %357 = call i32 @access(ptr noundef nonnull %.111.i.i, i32 noundef 0) #43
-  %.not14.i.i = icmp eq i32 %357, 0
-  br i1 %.not14.i.i, label %find_xdg_config.exit.i, label %358
+shell_check_oom.exit.i.i:                         ; preds = %356
+  %359 = call i32 @access(ptr noundef nonnull %.111.i.i, i32 noundef 0) #43
+  %.not14.i.i = icmp eq i32 %359, 0
+  br i1 %.not14.i.i, label %find_xdg_config.exit.i, label %360
 
-358:                                              ; preds = %shell_check_oom.exit.i.i
+360:                                              ; preds = %shell_check_oom.exit.i.i
   call void @sqlite3_free(ptr noundef nonnull %.111.i.i) #43
-  br label %359
+  br label %361
 
-359:                                              ; preds = %358, %348
-  %360 = load ptr, ptr @find_home_dir.home_dir, align 8, !tbaa !29
-  %.not12.i.i = icmp eq ptr %360, null
-  br i1 %.not12.i.i, label %361, label %find_home_dir.exit.thread33.i
+361:                                              ; preds = %360, %350
+  %362 = load ptr, ptr @find_home_dir.home_dir, align 8, !tbaa !29
+  %.not12.i.i = icmp eq ptr %362, null
+  br i1 %.not12.i.i, label %363, label %find_home_dir.exit.thread33.i
 
-361:                                              ; preds = %359
-  %362 = call i32 @getuid() #43
-  %363 = call ptr @getpwuid(i32 noundef %362) #43
-  %.not13.i.i = icmp eq ptr %363, null
-  br i1 %.not13.i.i, label %thread-pre-split.i.i, label %364
+363:                                              ; preds = %361
+  %364 = call i32 @getuid() #43
+  %365 = call ptr @getpwuid(i32 noundef %364) #43
+  %.not13.i.i = icmp eq ptr %365, null
+  br i1 %.not13.i.i, label %thread-pre-split.i.i, label %366
 
-364:                                              ; preds = %361
-  %365 = getelementptr inbounds nuw i8, ptr %363, i64 32
-  %366 = load ptr, ptr %365, align 8, !tbaa !465
-  store ptr %366, ptr @find_home_dir.home_dir, align 8, !tbaa !29
-  br label %367
+366:                                              ; preds = %363
+  %367 = getelementptr inbounds nuw i8, ptr %365, i64 32
+  %368 = load ptr, ptr %367, align 8, !tbaa !465
+  store ptr %368, ptr @find_home_dir.home_dir, align 8, !tbaa !29
+  br label %369
 
-thread-pre-split.i.i:                             ; preds = %361
+thread-pre-split.i.i:                             ; preds = %363
   %.pr.i.i = load ptr, ptr @find_home_dir.home_dir, align 8, !tbaa !29
-  br label %367
+  br label %369
 
-367:                                              ; preds = %thread-pre-split.i.i, %364
-  %.pr18.i.i = phi ptr [ %.pr.i.i, %thread-pre-split.i.i ], [ %366, %364 ]
+369:                                              ; preds = %thread-pre-split.i.i, %366
+  %.pr18.i.i = phi ptr [ %.pr.i.i, %thread-pre-split.i.i ], [ %368, %366 ]
   %.not14.i29.i = icmp eq ptr %.pr18.i.i, null
   br i1 %.not14.i29.i, label %thread-pre-split17.i.i, label %thread-pre-split17.thread.i.i
 
-thread-pre-split17.i.i:                           ; preds = %367
-  %368 = call ptr @getenv(ptr noundef nonnull @.str.697) #43
-  store ptr %368, ptr @find_home_dir.home_dir, align 8, !tbaa !29
-  %.not15.i.i = icmp eq ptr %368, null
+thread-pre-split17.i.i:                           ; preds = %369
+  %370 = call ptr @getenv(ptr noundef nonnull @.str.697) #43
+  store ptr %370, ptr @find_home_dir.home_dir, align 8, !tbaa !29
+  %.not15.i.i = icmp eq ptr %370, null
   br i1 %.not15.i.i, label %find_home_dir.exit.thread.i, label %thread-pre-split17.thread.i.i
 
-thread-pre-split17.thread.i.i:                    ; preds = %thread-pre-split17.i.i, %367
-  %369 = phi ptr [ %368, %thread-pre-split17.i.i ], [ %.pr18.i.i, %367 ]
-  %370 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %369) #44
-  %371 = add i64 %370, 1
-  %372 = call noalias ptr @malloc(i64 noundef %371) #49
-  %.not16.i.i = icmp eq ptr %372, null
+thread-pre-split17.thread.i.i:                    ; preds = %thread-pre-split17.i.i, %369
+  %371 = phi ptr [ %370, %thread-pre-split17.i.i ], [ %.pr18.i.i, %369 ]
+  %372 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %371) #44
+  %373 = add i64 %372, 1
+  %374 = call noalias ptr @malloc(i64 noundef %373) #49
+  %.not16.i.i = icmp eq ptr %374, null
   br i1 %.not16.i.i, label %find_home_dir.exit.thread36.i, label %find_home_dir.exit.i
 
 find_home_dir.exit.thread36.i:                    ; preds = %thread-pre-split17.thread.i.i
@@ -16989,842 +16989,842 @@ find_home_dir.exit.thread36.i:                    ; preds = %thread-pre-split17.
   br label %find_home_dir.exit.thread.i
 
 find_home_dir.exit.i:                             ; preds = %thread-pre-split17.thread.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %372, ptr nonnull align 1 %369, i64 %371, i1 false)
-  store ptr %372, ptr @find_home_dir.home_dir, align 8, !tbaa !29
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %374, ptr nonnull align 1 %371, i64 %373, i1 false)
+  store ptr %374, ptr @find_home_dir.home_dir, align 8, !tbaa !29
   br label %find_home_dir.exit.thread33.i
 
 find_home_dir.exit.thread.i:                      ; preds = %find_home_dir.exit.thread36.i, %thread-pre-split17.i.i
-  %373 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %374 = call i64 @fwrite(ptr nonnull @.str.692, i64 64, i64 1, ptr %373) #50
+  %375 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %376 = call i64 @fwrite(ptr nonnull @.str.692, i64 64, i64 1, ptr %375) #50
   br label %process_sqliterc.exit
 
-find_home_dir.exit.thread33.i:                    ; preds = %find_home_dir.exit.i, %359
-  %.0.i35.i = phi ptr [ %372, %find_home_dir.exit.i ], [ %360, %359 ]
-  %375 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.693, ptr noundef nonnull %.0.i35.i) #43
-  %376 = icmp eq ptr %375, null
-  br i1 %376, label %377, label %find_xdg_config.exit.i
+find_home_dir.exit.thread33.i:                    ; preds = %find_home_dir.exit.i, %361
+  %.0.i35.i = phi ptr [ %374, %find_home_dir.exit.i ], [ %362, %361 ]
+  %377 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.693, ptr noundef nonnull %.0.i35.i) #43
+  %378 = icmp eq ptr %377, null
+  br i1 %378, label %379, label %find_xdg_config.exit.i
 
-377:                                              ; preds = %find_home_dir.exit.thread33.i
+379:                                              ; preds = %find_home_dir.exit.thread33.i
   call fastcc void @shell_out_of_memory()
   unreachable
 
 find_xdg_config.exit.i:                           ; preds = %find_home_dir.exit.thread33.i, %shell_check_oom.exit.i.i
-  %.123.i = phi ptr [ %.111.i.i, %shell_check_oom.exit.i.i ], [ %375, %find_home_dir.exit.thread33.i ]
-  %378 = call noalias ptr @fopen64(ptr noundef nonnull %.123.i, ptr noundef nonnull @.str.54)
-  store ptr %378, ptr %340, align 8, !tbaa !463
-  %.not.i = icmp eq ptr %378, null
-  br i1 %.not.i, label %398, label %380
+  %.123.i = phi ptr [ %.111.i.i, %shell_check_oom.exit.i.i ], [ %377, %find_home_dir.exit.thread33.i ]
+  %380 = call noalias ptr @fopen64(ptr noundef nonnull %.123.i, ptr noundef nonnull @.str.54)
+  store ptr %380, ptr %342, align 8, !tbaa !463
+  %.not.i = icmp eq ptr %380, null
+  br i1 %.not.i, label %400, label %382
 
-find_xdg_config.exit.thread37.i:                  ; preds = %339
-  %379 = call noalias ptr @fopen64(ptr noundef nonnull %.0291.lcssa712, ptr noundef nonnull @.str.54)
-  store ptr %379, ptr %340, align 8, !tbaa !463
-  %.not40.i = icmp eq ptr %379, null
-  br i1 %.not40.i, label %.thread.i, label %380
+find_xdg_config.exit.thread37.i:                  ; preds = %341
+  %381 = call noalias ptr @fopen64(ptr noundef nonnull %.0291.lcssa712, ptr noundef nonnull @.str.54)
+  store ptr %381, ptr %342, align 8, !tbaa !463
+  %.not40.i = icmp eq ptr %381, null
+  br i1 %.not40.i, label %.thread.i, label %382
 
-380:                                              ; preds = %find_xdg_config.exit.thread37.i, %find_xdg_config.exit.i
+382:                                              ; preds = %find_xdg_config.exit.thread37.i, %find_xdg_config.exit.i
   %.144.i = phi ptr [ %.0291.lcssa712, %find_xdg_config.exit.thread37.i ], [ %.123.i, %find_xdg_config.exit.i ]
   %.12342.i = phi ptr [ null, %find_xdg_config.exit.thread37.i ], [ %.123.i, %find_xdg_config.exit.i ]
-  %381 = load i32, ptr @stdin_is_interactive, align 4, !tbaa !36
-  %.not28.i = icmp eq i32 %381, 0
-  br i1 %.not28.i, label %385, label %382
+  %383 = load i32, ptr @stdin_is_interactive, align 4, !tbaa !36
+  %.not28.i = icmp eq i32 %383, 0
+  br i1 %.not28.i, label %387, label %384
 
-382:                                              ; preds = %380
-  %383 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %384 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %383, ptr noundef nonnull @.str.694, ptr noundef nonnull %.144.i) #46
-  br label %385
+384:                                              ; preds = %382
+  %385 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %386 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %385, ptr noundef nonnull @.str.694, ptr noundef nonnull %.144.i) #46
+  br label %387
 
-385:                                              ; preds = %382, %380
-  %386 = call fastcc i32 @process_input(ptr noundef nonnull %4)
-  %387 = icmp ne i32 %386, 0
-  %388 = load i32, ptr @bail_on_error, align 4
+387:                                              ; preds = %384, %382
+  %388 = call fastcc i32 @process_input(ptr noundef nonnull %4)
   %389 = icmp ne i32 %388, 0
-  %or.cond.i = select i1 %387, i1 %389, i1 false
-  br i1 %or.cond.i, label %390, label %391
+  %390 = load i32, ptr @bail_on_error, align 4
+  %391 = icmp ne i32 %390, 0
+  %or.cond.i = select i1 %389, i1 %391, i1 false
+  br i1 %or.cond.i, label %392, label %393
 
-390:                                              ; preds = %385
+392:                                              ; preds = %387
   call void @exit(i32 noundef 1) #47
   unreachable
 
-391:                                              ; preds = %385
-  %392 = load ptr, ptr %340, align 8, !tbaa !463
-  %393 = call i32 @fclose(ptr noundef %392)
-  br label %398
+393:                                              ; preds = %387
+  %394 = load ptr, ptr %342, align 8, !tbaa !463
+  %395 = call i32 @fclose(ptr noundef %394)
+  br label %400
 
 .thread.i:                                        ; preds = %find_xdg_config.exit.thread37.i
-  %394 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %395 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %394, ptr noundef nonnull @.str.695, ptr noundef nonnull %.0291.lcssa712) #46
-  %396 = load i32, ptr @bail_on_error, align 4, !tbaa !36
-  %.not27.i = icmp eq i32 %396, 0
-  br i1 %.not27.i, label %398, label %397
+  %396 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %397 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %396, ptr noundef nonnull @.str.695, ptr noundef nonnull %.0291.lcssa712) #46
+  %398 = load i32, ptr @bail_on_error, align 4, !tbaa !36
+  %.not27.i = icmp eq i32 %398, 0
+  br i1 %.not27.i, label %400, label %399
 
-397:                                              ; preds = %.thread.i
+399:                                              ; preds = %.thread.i
   call void @exit(i32 noundef 1) #47
   unreachable
 
-398:                                              ; preds = %.thread.i, %391, %find_xdg_config.exit.i
-  %.12341.i = phi ptr [ null, %.thread.i ], [ %.12342.i, %391 ], [ %.123.i, %find_xdg_config.exit.i ]
-  store ptr %341, ptr %340, align 8, !tbaa !463
-  store i32 %343, ptr %342, align 4, !tbaa !464
+400:                                              ; preds = %.thread.i, %393, %find_xdg_config.exit.i
+  %.12341.i = phi ptr [ null, %.thread.i ], [ %.12342.i, %393 ], [ %.123.i, %find_xdg_config.exit.i ]
+  store ptr %343, ptr %342, align 8, !tbaa !463
+  store i32 %345, ptr %344, align 4, !tbaa !464
   call void @sqlite3_free(ptr noundef %.12341.i) #43
   br label %process_sqliterc.exit
 
-process_sqliterc.exit:                            ; preds = %find_home_dir.exit.thread.i, %398
+process_sqliterc.exit:                            ; preds = %find_home_dir.exit.thread.i, %400
   br i1 %64, label %.lr.ph637, label %.thread515
 
 .lr.ph637:                                        ; preds = %process_sqliterc.exit
-  %399 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  %400 = getelementptr inbounds nuw i8, ptr %4, i64 17
-  %401 = add nsw i32 %0, -1
-  %402 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %403 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %404 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %405 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %406 = getelementptr inbounds nuw i8, ptr %4, i64 300
-  %407 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %408 = getelementptr inbounds nuw i8, ptr %4, i64 13
-  %409 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  br label %410
+  %401 = getelementptr inbounds nuw i8, ptr %4, i64 18
+  %402 = getelementptr inbounds nuw i8, ptr %4, i64 17
+  %403 = add nsw i32 %0, -1
+  %404 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %405 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %406 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %407 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %408 = getelementptr inbounds nuw i8, ptr %4, i64 300
+  %409 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %410 = getelementptr inbounds nuw i8, ptr %4, i64 13
+  %411 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  br label %412
 
-410:                                              ; preds = %.lr.ph637, %720
-  %.3298636 = phi i32 [ 1, %.lr.ph637 ], [ %721, %720 ]
-  %.0299635 = phi i32 [ 0, %.lr.ph637 ], [ %.2301, %720 ]
-  %411 = sext i32 %.3298636 to i64
-  %412 = getelementptr inbounds ptr, ptr %1, i64 %411
-  %413 = load ptr, ptr %412, align 8, !tbaa !29
-  %414 = load i8, ptr %413, align 1, !tbaa !25
-  %.not368 = icmp eq i8 %414, 45
+412:                                              ; preds = %.lr.ph637, %722
+  %.3298636 = phi i32 [ 1, %.lr.ph637 ], [ %723, %722 ]
+  %.0299635 = phi i32 [ 0, %.lr.ph637 ], [ %.2301, %722 ]
+  %413 = sext i32 %.3298636 to i64
+  %414 = getelementptr inbounds ptr, ptr %1, i64 %413
+  %415 = load ptr, ptr %414, align 8, !tbaa !29
+  %416 = load i8, ptr %415, align 1, !tbaa !25
+  %.not368 = icmp eq i8 %416, 45
   %.not369 = icmp slt i32 %.3298636, %.0335.lcssa699
   %or.cond389 = select i1 %.not368, i1 %.not369, i1 false
-  br i1 %or.cond389, label %415, label %720
+  br i1 %or.cond389, label %417, label %722
 
-415:                                              ; preds = %410
-  %416 = getelementptr inbounds nuw i8, ptr %413, i64 1
-  %417 = load i8, ptr %416, align 1, !tbaa !25
-  %418 = icmp eq i8 %417, 45
-  %spec.select390 = select i1 %418, ptr %416, ptr %413
-  %419 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.70) #44
-  %420 = icmp eq i32 %419, 0
-  br i1 %420, label %421, label %423
+417:                                              ; preds = %412
+  %418 = getelementptr inbounds nuw i8, ptr %415, i64 1
+  %419 = load i8, ptr %418, align 1, !tbaa !25
+  %420 = icmp eq i8 %419, 45
+  %spec.select390 = select i1 %420, ptr %418, ptr %415
+  %421 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.70) #44
+  %422 = icmp eq i32 %421, 0
+  br i1 %422, label %423, label %425
 
-421:                                              ; preds = %415
-  %422 = add nsw i32 %.3298636, 1
-  br label %718
+423:                                              ; preds = %417
+  %424 = add nsw i32 %.3298636, 1
+  br label %720
 
-423:                                              ; preds = %415
-  %424 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.98) #44
-  %425 = icmp eq i32 %424, 0
-  br i1 %425, label %426, label %427
+425:                                              ; preds = %417
+  %426 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.98) #44
+  %427 = icmp eq i32 %426, 0
+  br i1 %427, label %428, label %429
 
-426:                                              ; preds = %423
+428:                                              ; preds = %425
   store i32 4, ptr %39, align 4, !tbaa !442
-  br label %718
+  br label %720
 
-427:                                              ; preds = %423
-  %428 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.99) #44
-  %429 = icmp eq i32 %428, 0
-  br i1 %429, label %430, label %431
+429:                                              ; preds = %425
+  %430 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.99) #44
+  %431 = icmp eq i32 %430, 0
+  br i1 %431, label %432, label %433
 
-430:                                              ; preds = %427
+432:                                              ; preds = %429
   store i32 2, ptr %39, align 4, !tbaa !442
-  br label %718
+  br label %720
 
-431:                                              ; preds = %427
-  %432 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(7) @.str.100) #44
-  %433 = icmp eq i32 %432, 0
-  br i1 %433, label %434, label %437
+433:                                              ; preds = %429
+  %434 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(7) @.str.100) #44
+  %435 = icmp eq i32 %434, 0
+  br i1 %435, label %436, label %439
 
-434:                                              ; preds = %431
+436:                                              ; preds = %433
   store i32 6, ptr %39, align 4, !tbaa !442
-  %435 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %45, ptr noundef nonnull @.str.101) #43
-  %436 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %46, ptr noundef nonnull @.str.102) #43
-  br label %718
+  %437 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %45, ptr noundef nonnull @.str.101) #43
+  %438 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %46, ptr noundef nonnull @.str.102) #43
+  br label %720
 
-437:                                              ; preds = %431
-  %438 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.103) #44
-  %439 = icmp eq i32 %438, 0
-  br i1 %439, label %440, label %441
+439:                                              ; preds = %433
+  %440 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.103) #44
+  %441 = icmp eq i32 %440, 0
+  br i1 %441, label %442, label %443
 
-440:                                              ; preds = %437
+442:                                              ; preds = %439
   store i32 0, ptr %39, align 4, !tbaa !442
-  br label %718
+  br label %720
 
-441:                                              ; preds = %437
-  %442 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(8) @.str.104) #44
-  %443 = icmp eq i32 %442, 0
-  br i1 %443, label %444, label %445
+443:                                              ; preds = %439
+  %444 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(8) @.str.104) #44
+  %445 = icmp eq i32 %444, 0
+  br i1 %445, label %446, label %447
 
-444:                                              ; preds = %441
+446:                                              ; preds = %443
   store i32 1, ptr %39, align 4, !tbaa !442
-  br label %718
+  br label %720
 
-445:                                              ; preds = %441
-  %446 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.105) #44
-  %447 = icmp eq i32 %446, 0
-  br i1 %447, label %448, label %449
+447:                                              ; preds = %443
+  %448 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.105) #44
+  %449 = icmp eq i32 %448, 0
+  br i1 %449, label %450, label %451
 
-448:                                              ; preds = %445
+450:                                              ; preds = %447
   store i32 13, ptr %39, align 4, !tbaa !442
-  br label %718
+  br label %720
 
-449:                                              ; preds = %445
-  %450 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(10) @.str.106) #44
-  %451 = icmp eq i32 %450, 0
-  br i1 %451, label %452, label %453
+451:                                              ; preds = %447
+  %452 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(10) @.str.106) #44
+  %453 = icmp eq i32 %452, 0
+  br i1 %453, label %454, label %455
 
-452:                                              ; preds = %449
+454:                                              ; preds = %451
   store i32 14, ptr %39, align 4, !tbaa !442
-  br label %718
+  br label %720
 
-453:                                              ; preds = %449
-  %454 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(7) @.str.107) #44
-  %455 = icmp eq i32 %454, 0
-  br i1 %455, label %456, label %457
+455:                                              ; preds = %451
+  %456 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(7) @.str.107) #44
+  %457 = icmp eq i32 %456, 0
+  br i1 %457, label %458, label %459
 
-456:                                              ; preds = %453
+458:                                              ; preds = %455
   store i32 15, ptr %39, align 4, !tbaa !442
-  br label %718
+  br label %720
 
-457:                                              ; preds = %453
-  %458 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(5) @.str.108) #44
-  %459 = icmp eq i32 %458, 0
-  br i1 %459, label %460, label %461
+459:                                              ; preds = %455
+  %460 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(5) @.str.108) #44
+  %461 = icmp eq i32 %460, 0
+  br i1 %461, label %462, label %463
 
-460:                                              ; preds = %457
+462:                                              ; preds = %459
   store i32 16, ptr %39, align 4, !tbaa !442
-  br label %718
+  br label %720
 
-461:                                              ; preds = %457
-  %462 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(5) @.str.109) #44
-  %463 = icmp eq i32 %462, 0
-  br i1 %463, label %464, label %465
+463:                                              ; preds = %459
+  %464 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(5) @.str.109) #44
+  %465 = icmp eq i32 %464, 0
+  br i1 %465, label %466, label %467
 
-464:                                              ; preds = %461
+466:                                              ; preds = %463
   store i32 8, ptr %39, align 4, !tbaa !442
   store i16 44, ptr %45, align 2
-  br label %718
+  br label %720
 
-465:                                              ; preds = %461
-  %466 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(5) @.str.83) #44
-  %467 = icmp eq i32 %466, 0
-  br i1 %467, label %468, label %469
+467:                                              ; preds = %463
+  %468 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(5) @.str.83) #44
+  %469 = icmp eq i32 %468, 0
+  br i1 %469, label %470, label %471
 
-468:                                              ; preds = %465
-  store i8 3, ptr %408, align 1, !tbaa !457
-  br label %718
+470:                                              ; preds = %467
+  store i8 3, ptr %410, align 1, !tbaa !457
+  br label %720
 
-469:                                              ; preds = %465
-  %470 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(8) @.str.84) #44
-  %471 = icmp eq i32 %470, 0
-  br i1 %471, label %472, label %473
+471:                                              ; preds = %467
+  %472 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(8) @.str.84) #44
+  %473 = icmp eq i32 %472, 0
+  br i1 %473, label %474, label %475
 
-472:                                              ; preds = %469
-  store i8 2, ptr %408, align 1, !tbaa !457
-  br label %718
+474:                                              ; preds = %471
+  store i8 2, ptr %410, align 1, !tbaa !457
+  br label %720
 
-473:                                              ; preds = %469
-  %474 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(13) @.str.85) #44
-  %475 = icmp eq i32 %474, 0
-  br i1 %475, label %476, label %477
+475:                                              ; preds = %471
+  %476 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(13) @.str.85) #44
+  %477 = icmp eq i32 %476, 0
+  br i1 %477, label %478, label %479
 
-476:                                              ; preds = %473
-  store i8 5, ptr %408, align 1, !tbaa !457
-  br label %718
+478:                                              ; preds = %475
+  store i8 5, ptr %410, align 1, !tbaa !457
+  br label %720
 
-477:                                              ; preds = %473
-  %478 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(9) @.str.86) #44
-  %479 = icmp eq i32 %478, 0
-  br i1 %479, label %480, label %488
+479:                                              ; preds = %475
+  %480 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(9) @.str.86) #44
+  %481 = icmp eq i32 %480, 0
+  br i1 %481, label %482, label %490
 
-480:                                              ; preds = %477
-  %481 = add nsw i32 %.3298636, 1
-  %482 = icmp slt i32 %481, %0
-  br i1 %482, label %483, label %488
+482:                                              ; preds = %479
+  %483 = add nsw i32 %.3298636, 1
+  %484 = icmp slt i32 %483, %0
+  br i1 %484, label %485, label %490
 
-483:                                              ; preds = %480
-  %484 = sext i32 %481 to i64
-  %485 = getelementptr inbounds ptr, ptr %1, i64 %484
-  %486 = load ptr, ptr %485, align 8, !tbaa !29
-  %487 = call fastcc i64 @integerValue(ptr noundef %486)
-  store i64 %487, ptr %409, align 8, !tbaa !458
-  br label %718
+485:                                              ; preds = %482
+  %486 = sext i32 %483 to i64
+  %487 = getelementptr inbounds ptr, ptr %1, i64 %486
+  %488 = load ptr, ptr %487, align 8, !tbaa !29
+  %489 = call fastcc i64 @integerValue(ptr noundef %488)
+  store i64 %489, ptr %411, align 8, !tbaa !458
+  br label %720
 
-488:                                              ; preds = %480, %477
-  %489 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(10) @.str.87) #44
-  %490 = icmp eq i32 %489, 0
-  br i1 %490, label %491, label %492
+490:                                              ; preds = %482, %479
+  %491 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(10) @.str.87) #44
+  %492 = icmp eq i32 %491, 0
+  br i1 %492, label %493, label %494
 
-491:                                              ; preds = %488
-  store i8 4, ptr %408, align 1, !tbaa !457
-  br label %718
+493:                                              ; preds = %490
+  store i8 4, ptr %410, align 1, !tbaa !457
+  br label %720
 
-492:                                              ; preds = %488
-  %493 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(10) @.str.88) #44
-  %494 = icmp eq i32 %493, 0
-  br i1 %494, label %495, label %498
+494:                                              ; preds = %490
+  %495 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(10) @.str.88) #44
+  %496 = icmp eq i32 %495, 0
+  br i1 %496, label %497, label %500
 
-495:                                              ; preds = %492
-  %496 = load i32, ptr %407, align 8, !tbaa !459
-  %497 = or i32 %496, 16777216
-  store i32 %497, ptr %407, align 8, !tbaa !459
-  br label %718
+497:                                              ; preds = %494
+  %498 = load i32, ptr %409, align 8, !tbaa !459
+  %499 = or i32 %498, 16777216
+  store i32 %499, ptr %409, align 8, !tbaa !459
+  br label %720
 
-498:                                              ; preds = %492
-  %499 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(7) @.str.110) #44
-  %500 = icmp eq i32 %499, 0
-  br i1 %500, label %501, label %504
+500:                                              ; preds = %494
+  %501 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(7) @.str.110) #44
+  %502 = icmp eq i32 %501, 0
+  br i1 %502, label %503, label %506
 
-501:                                              ; preds = %498
+503:                                              ; preds = %500
   store i32 10, ptr %39, align 4, !tbaa !442
-  %502 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %45, ptr noundef nonnull @.str.111) #43
-  %503 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %46, ptr noundef nonnull @.str.112) #43
-  br label %718
+  %504 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %45, ptr noundef nonnull @.str.111) #43
+  %505 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %46, ptr noundef nonnull @.str.112) #43
+  br label %720
 
-504:                                              ; preds = %498
-  %505 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.113) #44
-  %506 = icmp eq i32 %505, 0
-  br i1 %506, label %507, label %510
+506:                                              ; preds = %500
+  %507 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.113) #44
+  %508 = icmp eq i32 %507, 0
+  br i1 %508, label %509, label %512
 
-507:                                              ; preds = %504
+509:                                              ; preds = %506
   store i32 2, ptr %39, align 4, !tbaa !442
-  %508 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %45, ptr noundef nonnull @.str.114) #43
-  %509 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %46, ptr noundef nonnull @.str.102) #43
-  br label %718
+  %510 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %45, ptr noundef nonnull @.str.114) #43
+  %511 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %46, ptr noundef nonnull @.str.102) #43
+  br label %720
 
-510:                                              ; preds = %504
-  %511 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(11) @.str.66) #44
-  %512 = icmp eq i32 %511, 0
-  br i1 %512, label %513, label %517
+512:                                              ; preds = %506
+  %513 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(11) @.str.66) #44
+  %514 = icmp eq i32 %513, 0
+  br i1 %514, label %515, label %519
 
-513:                                              ; preds = %510
-  %514 = add nsw i32 %.3298636, 1
-  %515 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %514)
-  %516 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %45, ptr noundef nonnull @.str.47, ptr noundef %515) #43
-  br label %718
+515:                                              ; preds = %512
+  %516 = add nsw i32 %.3298636, 1
+  %517 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %516)
+  %518 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %45, ptr noundef nonnull @.str.47, ptr noundef %517) #43
+  br label %720
 
-517:                                              ; preds = %510
-  %518 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(9) @.str.68) #44
-  %519 = icmp eq i32 %518, 0
-  br i1 %519, label %520, label %524
+519:                                              ; preds = %512
+  %520 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(9) @.str.68) #44
+  %521 = icmp eq i32 %520, 0
+  br i1 %521, label %522, label %526
 
-520:                                              ; preds = %517
-  %521 = add nsw i32 %.3298636, 1
-  %522 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %521)
-  %523 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %46, ptr noundef nonnull @.str.47, ptr noundef %522) #43
-  br label %718
+522:                                              ; preds = %519
+  %523 = add nsw i32 %.3298636, 1
+  %524 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %523)
+  %525 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %46, ptr noundef nonnull @.str.47, ptr noundef %524) #43
+  br label %720
 
-524:                                              ; preds = %517
-  %525 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(11) @.str.67) #44
-  %526 = icmp eq i32 %525, 0
-  br i1 %526, label %527, label %531
+526:                                              ; preds = %519
+  %527 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(11) @.str.67) #44
+  %528 = icmp eq i32 %527, 0
+  br i1 %528, label %529, label %533
 
-527:                                              ; preds = %524
-  %528 = add nsw i32 %.3298636, 1
-  %529 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %528)
-  %530 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %406, ptr noundef nonnull @.str.47, ptr noundef %529) #43
-  br label %718
+529:                                              ; preds = %526
+  %530 = add nsw i32 %.3298636, 1
+  %531 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %530)
+  %532 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %408, ptr noundef nonnull @.str.47, ptr noundef %531) #43
+  br label %720
 
-531:                                              ; preds = %524
-  %532 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(8) @.str.115) #44
-  %533 = icmp eq i32 %532, 0
-  br i1 %533, label %534, label %537
+533:                                              ; preds = %526
+  %534 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(8) @.str.115) #44
+  %535 = icmp eq i32 %534, 0
+  br i1 %535, label %536, label %539
 
-534:                                              ; preds = %531
-  store i32 1, ptr %405, align 8, !tbaa !467
-  %535 = load i32, ptr %47, align 4, !tbaa !454
-  %536 = or i32 %535, 128
-  store i32 %536, ptr %47, align 4, !tbaa !454
-  br label %718
+536:                                              ; preds = %533
+  store i32 1, ptr %407, align 8, !tbaa !467
+  %537 = load i32, ptr %47, align 4, !tbaa !454
+  %538 = or i32 %537, 128
+  store i32 %538, ptr %47, align 4, !tbaa !454
+  br label %720
 
-537:                                              ; preds = %531
-  %538 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(10) @.str.116) #44
-  %539 = icmp eq i32 %538, 0
-  br i1 %539, label %540, label %543
+539:                                              ; preds = %533
+  %540 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(10) @.str.116) #44
+  %541 = icmp eq i32 %540, 0
+  br i1 %541, label %542, label %545
 
-540:                                              ; preds = %537
-  store i32 0, ptr %405, align 8, !tbaa !467
-  %541 = load i32, ptr %47, align 4, !tbaa !454
-  %542 = or i32 %541, 128
-  store i32 %542, ptr %47, align 4, !tbaa !454
-  br label %718
+542:                                              ; preds = %539
+  store i32 0, ptr %407, align 8, !tbaa !467
+  %543 = load i32, ptr %47, align 4, !tbaa !454
+  %544 = or i32 %543, 128
+  store i32 %544, ptr %47, align 4, !tbaa !454
+  br label %720
 
-543:                                              ; preds = %537
-  %544 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.117) #44
-  %545 = icmp eq i32 %544, 0
-  br i1 %545, label %546, label %549
+545:                                              ; preds = %539
+  %546 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.117) #44
+  %547 = icmp eq i32 %546, 0
+  br i1 %547, label %548, label %551
 
-546:                                              ; preds = %543
-  %547 = load i32, ptr %47, align 4, !tbaa !454
-  %548 = or i32 %547, 64
-  store i32 %548, ptr %47, align 4, !tbaa !454
-  br label %718
+548:                                              ; preds = %545
+  %549 = load i32, ptr %47, align 4, !tbaa !454
+  %550 = or i32 %549, 64
+  store i32 %550, ptr %47, align 4, !tbaa !454
+  br label %720
 
-549:                                              ; preds = %543
-  %550 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(5) @.str.118) #44
-  %551 = icmp eq i32 %550, 0
-  br i1 %551, label %552, label %553
+551:                                              ; preds = %545
+  %552 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(5) @.str.118) #44
+  %553 = icmp eq i32 %552, 0
+  br i1 %553, label %554, label %555
 
-552:                                              ; preds = %549
-  store i8 1, ptr %404, align 1, !tbaa !468
-  br label %718
+554:                                              ; preds = %551
+  store i8 1, ptr %406, align 1, !tbaa !468
+  br label %720
 
-553:                                              ; preds = %549
-  %554 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(9) @.str.119) #44
-  %555 = icmp eq i32 %554, 0
-  br i1 %555, label %556, label %557
+555:                                              ; preds = %551
+  %556 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(9) @.str.119) #44
+  %557 = icmp eq i32 %556, 0
+  br i1 %557, label %558, label %559
 
-556:                                              ; preds = %553
-  store i8 3, ptr %404, align 1, !tbaa !468
-  br label %718
+558:                                              ; preds = %555
+  store i8 3, ptr %406, align 1, !tbaa !468
+  br label %720
 
-557:                                              ; preds = %553
-  %558 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(7) @.str.120) #44
-  %559 = icmp eq i32 %558, 0
-  br i1 %559, label %560, label %561
+559:                                              ; preds = %555
+  %560 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(7) @.str.120) #44
+  %561 = icmp eq i32 %560, 0
+  br i1 %561, label %562, label %563
 
-560:                                              ; preds = %557
-  store i32 1, ptr %403, align 8, !tbaa !469
-  br label %718
+562:                                              ; preds = %559
+  store i32 1, ptr %405, align 8, !tbaa !469
+  br label %720
 
-561:                                              ; preds = %557
-  %562 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(11) @.str.121) #44
-  %563 = icmp eq i32 %562, 0
-  br i1 %563, label %564, label %565
+563:                                              ; preds = %559
+  %564 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(11) @.str.121) #44
+  %565 = icmp eq i32 %564, 0
+  br i1 %565, label %566, label %567
 
-564:                                              ; preds = %561
-  store i8 1, ptr %402, align 4, !tbaa !470
-  br label %718
+566:                                              ; preds = %563
+  store i8 1, ptr %404, align 4, !tbaa !470
+  br label %720
 
-565:                                              ; preds = %561
-  %566 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(11) @.str.122) #44
-  %567 = icmp eq i32 %566, 0
-  br i1 %567, label %568, label %571
+567:                                              ; preds = %563
+  %568 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(11) @.str.122) #44
+  %569 = icmp eq i32 %568, 0
+  br i1 %569, label %570, label %573
 
-568:                                              ; preds = %565
-  %569 = load i32, ptr %47, align 4, !tbaa !454
-  %570 = or i32 %569, 4
-  store i32 %570, ptr %47, align 4, !tbaa !454
-  br label %718
+570:                                              ; preds = %567
+  %571 = load i32, ptr %47, align 4, !tbaa !454
+  %572 = or i32 %571, 4
+  store i32 %572, ptr %47, align 4, !tbaa !454
+  br label %720
 
-571:                                              ; preds = %565
-  %572 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.92) #44
-  %573 = icmp eq i32 %572, 0
-  br i1 %573, label %718, label %574
+573:                                              ; preds = %567
+  %574 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.92) #44
+  %575 = icmp eq i32 %574, 0
+  br i1 %575, label %720, label %576
 
-574:                                              ; preds = %571
-  %575 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(9) @.str.123) #44
-  %576 = icmp eq i32 %575, 0
-  br i1 %576, label %577, label %582
+576:                                              ; preds = %573
+  %577 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(9) @.str.123) #44
+  %578 = icmp eq i32 %577, 0
+  br i1 %578, label %579, label %584
 
-577:                                              ; preds = %574
-  %578 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %579 = call ptr @sqlite3_libversion() #43
-  %580 = call ptr @sqlite3_sourceid() #43
-  %581 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %578, ptr noundef nonnull @.str.124, ptr noundef %579, ptr noundef %580, i32 noundef 64) #43
+579:                                              ; preds = %576
+  %580 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %581 = call ptr @sqlite3_libversion() #43
+  %582 = call ptr @sqlite3_sourceid() #43
+  %583 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %580, ptr noundef nonnull @.str.124, ptr noundef %581, ptr noundef %582, i32 noundef 64) #43
   br label %vfstrace_unregister.exit
 
-582:                                              ; preds = %574
-  %583 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(13) @.str.71) #44
-  %584 = icmp eq i32 %583, 0
-  br i1 %584, label %585, label %586
+584:                                              ; preds = %576
+  %585 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(13) @.str.71) #44
+  %586 = icmp eq i32 %585, 0
+  br i1 %586, label %587, label %588
 
-585:                                              ; preds = %582
+587:                                              ; preds = %584
   store i32 1, ptr @stdin_is_interactive, align 4, !tbaa !36
-  br label %718
+  br label %720
 
-586:                                              ; preds = %582
-  %587 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(7) @.str.72) #44
-  %588 = icmp eq i32 %587, 0
-  br i1 %588, label %718, label %589
+588:                                              ; preds = %584
+  %589 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(7) @.str.72) #44
+  %590 = icmp eq i32 %589, 0
+  br i1 %590, label %720, label %591
 
-589:                                              ; preds = %586
-  %590 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.73) #44
-  %591 = icmp eq i32 %590, 0
-  br i1 %591, label %718, label %592
+591:                                              ; preds = %588
+  %592 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.73) #44
+  %593 = icmp eq i32 %592, 0
+  br i1 %593, label %720, label %594
 
-592:                                              ; preds = %589
-  %593 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(9) @.str.74) #44
-  %594 = icmp eq i32 %593, 0
-  br i1 %594, label %718, label %595
+594:                                              ; preds = %591
+  %595 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(9) @.str.74) #44
+  %596 = icmp eq i32 %595, 0
+  br i1 %596, label %720, label %597
 
-595:                                              ; preds = %592
-  %596 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(18) @.str.75) #44
-  %597 = icmp eq i32 %596, 0
-  br i1 %597, label %718, label %598
+597:                                              ; preds = %594
+  %598 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(18) @.str.75) #44
+  %599 = icmp eq i32 %598, 0
+  br i1 %599, label %720, label %600
 
-598:                                              ; preds = %595
-  %599 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.76) #44
-  %600 = icmp eq i32 %599, 0
-  br i1 %600, label %601, label %603
+600:                                              ; preds = %597
+  %601 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.76) #44
+  %602 = icmp eq i32 %601, 0
+  br i1 %602, label %603, label %605
 
-601:                                              ; preds = %598
-  %602 = add nsw i32 %.3298636, 1
-  br label %718
+603:                                              ; preds = %600
+  %604 = add nsw i32 %.3298636, 1
+  br label %720
 
-603:                                              ; preds = %598
-  %604 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(11) @.str.77) #44
-  %605 = icmp eq i32 %604, 0
-  br i1 %605, label %606, label %608
+605:                                              ; preds = %600
+  %606 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(11) @.str.77) #44
+  %607 = icmp eq i32 %606, 0
+  br i1 %607, label %608, label %610
 
-606:                                              ; preds = %603
-  %607 = add nsw i32 %.3298636, 2
-  br label %718
+608:                                              ; preds = %605
+  %609 = add nsw i32 %.3298636, 2
+  br label %720
 
-608:                                              ; preds = %603
-  %609 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(11) @.str.78) #44
-  %610 = icmp eq i32 %609, 0
-  br i1 %610, label %611, label %613
+610:                                              ; preds = %605
+  %611 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(11) @.str.78) #44
+  %612 = icmp eq i32 %611, 0
+  br i1 %612, label %613, label %615
 
-611:                                              ; preds = %608
-  %612 = add nsw i32 %.3298636, 2
-  br label %718
+613:                                              ; preds = %610
+  %614 = add nsw i32 %.3298636, 2
+  br label %720
 
-613:                                              ; preds = %608
-  %614 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(12) @.str.79) #44
-  %615 = icmp eq i32 %614, 0
-  br i1 %615, label %616, label %618
+615:                                              ; preds = %610
+  %616 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(12) @.str.79) #44
+  %617 = icmp eq i32 %616, 0
+  br i1 %617, label %618, label %620
 
-616:                                              ; preds = %613
-  %617 = add nsw i32 %.3298636, 2
-  br label %718
+618:                                              ; preds = %615
+  %619 = add nsw i32 %.3298636, 2
+  br label %720
 
-618:                                              ; preds = %613
-  %619 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(7) @.str.93) #44
-  %620 = icmp eq i32 %619, 0
-  br i1 %620, label %621, label %623
+620:                                              ; preds = %615
+  %621 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(7) @.str.93) #44
+  %622 = icmp eq i32 %621, 0
+  br i1 %622, label %623, label %625
 
-621:                                              ; preds = %618
-  %622 = add nsw i32 %.3298636, 2
-  br label %718
+623:                                              ; preds = %620
+  %624 = add nsw i32 %.3298636, 2
+  br label %720
 
-623:                                              ; preds = %618
-  %624 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.81) #44
-  %625 = icmp eq i32 %624, 0
-  br i1 %625, label %626, label %628
+625:                                              ; preds = %620
+  %626 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.81) #44
+  %627 = icmp eq i32 %626, 0
+  br i1 %627, label %628, label %630
 
-626:                                              ; preds = %623
-  %627 = add nsw i32 %.3298636, 1
-  br label %718
+628:                                              ; preds = %625
+  %629 = add nsw i32 %.3298636, 1
+  br label %720
 
-628:                                              ; preds = %623
-  %629 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(10) @.str.90) #44
-  %630 = icmp eq i32 %629, 0
-  br i1 %630, label %631, label %633
+630:                                              ; preds = %625
+  %631 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(10) @.str.90) #44
+  %632 = icmp eq i32 %631, 0
+  br i1 %632, label %633, label %635
 
-631:                                              ; preds = %628
-  %632 = add nsw i32 %.3298636, 1
-  br label %718
+633:                                              ; preds = %630
+  %634 = add nsw i32 %.3298636, 1
+  br label %720
 
-633:                                              ; preds = %628
-  %634 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(13) @.str.91) #44
-  %635 = icmp eq i32 %634, 0
-  br i1 %635, label %636, label %638
+635:                                              ; preds = %630
+  %636 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(13) @.str.91) #44
+  %637 = icmp eq i32 %636, 0
+  br i1 %637, label %638, label %640
 
-636:                                              ; preds = %633
-  %637 = add nsw i32 %.3298636, 1
-  br label %718
+638:                                              ; preds = %635
+  %639 = add nsw i32 %.3298636, 1
+  br label %720
 
-638:                                              ; preds = %633
-  %639 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(5) @.str.82) #44
-  %640 = icmp eq i32 %639, 0
-  br i1 %640, label %641, label %643
+640:                                              ; preds = %635
+  %641 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(5) @.str.82) #44
+  %642 = icmp eq i32 %641, 0
+  br i1 %642, label %643, label %645
 
-641:                                              ; preds = %638
-  %642 = add nsw i32 %.3298636, 1
-  br label %718
+643:                                              ; preds = %640
+  %644 = add nsw i32 %.3298636, 1
+  br label %720
 
-643:                                              ; preds = %638
-  %644 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(10) @.str.80) #44
-  %645 = icmp eq i32 %644, 0
-  br i1 %645, label %646, label %648
+645:                                              ; preds = %640
+  %646 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(10) @.str.80) #44
+  %647 = icmp eq i32 %646, 0
+  br i1 %647, label %648, label %650
 
-646:                                              ; preds = %643
-  %647 = add nsw i32 %.3298636, 1
-  br label %718
+648:                                              ; preds = %645
+  %649 = add nsw i32 %.3298636, 1
+  br label %720
 
-648:                                              ; preds = %643
-  %649 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.125) #44
-  %650 = icmp eq i32 %649, 0
-  br i1 %650, label %651, label %652
+650:                                              ; preds = %645
+  %651 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.125) #44
+  %652 = icmp eq i32 %651, 0
+  br i1 %652, label %653, label %654
 
-651:                                              ; preds = %648
+653:                                              ; preds = %650
   call fastcc void @usage()
   unreachable
 
-652:                                              ; preds = %648
-  %653 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(5) @.str.69) #44
-  %654 = icmp eq i32 %653, 0
-  br i1 %654, label %655, label %.tail548
+654:                                              ; preds = %650
+  %655 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(5) @.str.69) #44
+  %656 = icmp eq i32 %655, 0
+  br i1 %656, label %657, label %.tail548
 
-655:                                              ; preds = %652
-  %656 = icmp eq i32 %.3298636, %401
-  br i1 %656, label %.thread515, label %657
+657:                                              ; preds = %654
+  %658 = icmp eq i32 %.3298636, %403
+  br i1 %658, label %.thread515, label %659
 
-657:                                              ; preds = %655
-  %658 = add nsw i32 %.3298636, 1
-  %659 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %658)
-  %660 = load i8, ptr %659, align 1, !tbaa !25
-  %661 = icmp eq i8 %660, 46
-  br i1 %661, label %662, label %670
+659:                                              ; preds = %657
+  %660 = add nsw i32 %.3298636, 1
+  %661 = call fastcc ptr @cmdline_option_value(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %660)
+  %662 = load i8, ptr %661, align 1, !tbaa !25
+  %663 = icmp eq i8 %662, 46
+  br i1 %663, label %664, label %672
 
-662:                                              ; preds = %657
-  %663 = call fastcc i32 @do_meta_command(ptr noundef nonnull %659, ptr noundef %4)
-  %664 = icmp ne i32 %663, 0
-  %665 = load i32, ptr @bail_on_error, align 4
+664:                                              ; preds = %659
+  %665 = call fastcc i32 @do_meta_command(ptr noundef nonnull %661, ptr noundef %4)
   %666 = icmp ne i32 %665, 0
-  %or.cond6 = select i1 %664, i1 %666, i1 false
-  br i1 %or.cond6, label %667, label %718
+  %667 = load i32, ptr @bail_on_error, align 4
+  %668 = icmp ne i32 %667, 0
+  %or.cond6 = select i1 %666, i1 %668, i1 false
+  br i1 %or.cond6, label %669, label %720
 
-667:                                              ; preds = %662
-  %668 = icmp eq i32 %663, 2
-  %669 = select i1 %668, i32 0, i32 %663
+669:                                              ; preds = %664
+  %670 = icmp eq i32 %665, 2
+  %671 = select i1 %670, i32 0, i32 %665
   br label %vfstrace_unregister.exit
 
-670:                                              ; preds = %657
+672:                                              ; preds = %659
   call fastcc void @open_db(ptr noundef %4, i32 noundef 0)
-  %671 = call fastcc i32 @shell_exec(ptr noundef nonnull %4, ptr noundef nonnull %659, ptr noundef nonnull %3)
-  %672 = load ptr, ptr %3, align 8, !tbaa !29
-  %.not371 = icmp eq ptr %672, null
-  br i1 %.not371, label %679, label %673
+  %673 = call fastcc i32 @shell_exec(ptr noundef nonnull %4, ptr noundef nonnull %661, ptr noundef nonnull %3)
+  %674 = load ptr, ptr %3, align 8, !tbaa !29
+  %.not371 = icmp eq ptr %674, null
+  br i1 %.not371, label %681, label %675
 
-673:                                              ; preds = %670
-  %674 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %675 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %674, ptr noundef nonnull @.str.991, ptr noundef nonnull %672) #46
-  %676 = load i32, ptr @bail_on_error, align 4, !tbaa !36
-  %.not374 = icmp eq i32 %676, 0
-  br i1 %.not374, label %718, label %677
+675:                                              ; preds = %672
+  %676 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %677 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %676, ptr noundef nonnull @.str.991, ptr noundef nonnull %674) #46
+  %678 = load i32, ptr @bail_on_error, align 4, !tbaa !36
+  %.not374 = icmp eq i32 %678, 0
+  br i1 %.not374, label %720, label %679
 
-677:                                              ; preds = %673
-  %678 = call i32 @llvm.umax.i32(i32 %671, i32 1)
+679:                                              ; preds = %675
+  %680 = call i32 @llvm.umax.i32(i32 %673, i32 1)
   br label %vfstrace_unregister.exit
 
-679:                                              ; preds = %670
-  %.not372 = icmp eq i32 %671, 0
-  br i1 %.not372, label %718, label %680
+681:                                              ; preds = %672
+  %.not372 = icmp eq i32 %673, 0
+  br i1 %.not372, label %720, label %682
 
-680:                                              ; preds = %679
-  %681 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %682 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %681, ptr noundef nonnull @.str.126, ptr noundef nonnull %659) #46
-  %683 = load i32, ptr @bail_on_error, align 4, !tbaa !36
-  %.not373 = icmp eq i32 %683, 0
-  br i1 %.not373, label %718, label %vfstrace_unregister.exit
+682:                                              ; preds = %681
+  %683 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %684 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %683, ptr noundef nonnull @.str.126, ptr noundef nonnull %661) #46
+  %685 = load i32, ptr @bail_on_error, align 4, !tbaa !36
+  %.not373 = icmp eq i32 %685, 0
+  br i1 %.not373, label %720, label %vfstrace_unregister.exit
 
-.tail548:                                         ; preds = %652
-  %684 = getelementptr inbounds nuw i8, ptr %spec.select390, i64 1
-  %685 = load i8, ptr %684, align 1
-  %686 = icmp eq i8 %685, 65
-  br i1 %686, label %687, label %705
+.tail548:                                         ; preds = %654
+  %686 = getelementptr inbounds nuw i8, ptr %spec.select390, i64 1
+  %687 = load i8, ptr %686, align 1
+  %688 = icmp eq i8 %687, 65
+  br i1 %688, label %689, label %707
 
-687:                                              ; preds = %.tail548
-  %688 = getelementptr inbounds ptr, ptr %1, i64 %411
-  %689 = icmp sgt i32 %.0315.lcssa707, 0
-  br i1 %689, label %690, label %693
+689:                                              ; preds = %.tail548
+  %690 = getelementptr inbounds ptr, ptr %1, i64 %413
+  %691 = icmp sgt i32 %.0315.lcssa707, 0
+  br i1 %691, label %692, label %695
 
-690:                                              ; preds = %687
-  %691 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %692 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %691, ptr noundef nonnull @.str.127, ptr noundef nonnull %spec.select390) #46
+692:                                              ; preds = %689
+  %693 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %694 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %693, ptr noundef nonnull @.str.127, ptr noundef nonnull %spec.select390) #46
   br label %vfstrace_unregister.exit
 
-693:                                              ; preds = %687
+695:                                              ; preds = %689
   call fastcc void @open_db(ptr noundef %4, i32 noundef 2)
-  %694 = getelementptr inbounds nuw i8, ptr %spec.select390, i64 2
-  %695 = load i8, ptr %694, align 1, !tbaa !25
-  %.not370 = icmp eq i8 %695, 0
-  br i1 %.not370, label %702, label %696
+  %696 = getelementptr inbounds nuw i8, ptr %spec.select390, i64 2
+  %697 = load i8, ptr %696, align 1, !tbaa !25
+  %.not370 = icmp eq i8 %697, 0
+  br i1 %.not370, label %704, label %698
 
-696:                                              ; preds = %693
-  store ptr %694, ptr %688, align 8, !tbaa !29
-  %697 = add nsw i32 %.3298636, -1
-  %698 = sext i32 %697 to i64
-  %699 = getelementptr inbounds ptr, ptr %1, i64 %698
-  %700 = sub nsw i32 %0, %697
-  %701 = call fastcc i32 @arDotCommand(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %699, i32 noundef %700)
+698:                                              ; preds = %695
+  store ptr %696, ptr %690, align 8, !tbaa !29
+  %699 = add nsw i32 %.3298636, -1
+  %700 = sext i32 %699 to i64
+  %701 = getelementptr inbounds ptr, ptr %1, i64 %700
+  %702 = sub nsw i32 %0, %699
+  %703 = call fastcc i32 @arDotCommand(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %701, i32 noundef %702)
   br label %.loopexit
 
-702:                                              ; preds = %693
-  %703 = sub nsw i32 %0, %.3298636
-  %704 = call fastcc i32 @arDotCommand(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %688, i32 noundef %703)
+704:                                              ; preds = %695
+  %705 = sub nsw i32 %0, %.3298636
+  %706 = call fastcc i32 @arDotCommand(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %690, i32 noundef %705)
   br label %.loopexit
 
-705:                                              ; preds = %.tail548
-  %706 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.95) #44
-  %707 = icmp eq i32 %706, 0
-  br i1 %707, label %708, label %709
+707:                                              ; preds = %.tail548
+  %708 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(6) @.str.95) #44
+  %709 = icmp eq i32 %708, 0
+  br i1 %709, label %710, label %711
 
-708:                                              ; preds = %705
-  store i8 1, ptr %399, align 2, !tbaa !471
-  store i8 1, ptr %400, align 1, !tbaa !472
-  br label %718
-
-709:                                              ; preds = %705
-  %710 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(16) @.str.94) #44
-  %711 = icmp eq i32 %710, 0
-  br i1 %711, label %718, label %712
-
-712:                                              ; preds = %709
-  %713 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %714 = load ptr, ptr @Argv0, align 8, !tbaa !29
-  %715 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %713, ptr noundef nonnull @.str.128, ptr noundef %714, ptr noundef nonnull %spec.select390) #46
-  %716 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %717 = call i64 @fwrite(ptr nonnull @.str.129, i64 33, i64 1, ptr %716) #50
-  br label %vfstrace_unregister.exit
-
-718:                                              ; preds = %426, %434, %444, %452, %460, %468, %476, %491, %501, %513, %527, %540, %552, %560, %568, %586, %592, %601, %611, %621, %631, %641, %709, %708, %662, %679, %680, %673, %646, %636, %626, %616, %606, %595, %589, %585, %571, %564, %556, %546, %534, %520, %507, %495, %483, %472, %464, %456, %448, %440, %430, %421
-  %.3302 = phi i32 [ %.0299635, %421 ], [ %.0299635, %426 ], [ %.0299635, %430 ], [ %.0299635, %434 ], [ %.0299635, %440 ], [ %.0299635, %444 ], [ %.0299635, %448 ], [ %.0299635, %452 ], [ %.0299635, %456 ], [ %.0299635, %460 ], [ %.0299635, %464 ], [ %.0299635, %468 ], [ %.0299635, %472 ], [ %.0299635, %476 ], [ %.0299635, %483 ], [ %.0299635, %491 ], [ %.0299635, %495 ], [ %.0299635, %501 ], [ %.0299635, %507 ], [ %.0299635, %513 ], [ %.0299635, %520 ], [ %.0299635, %527 ], [ %.0299635, %534 ], [ %.0299635, %540 ], [ %.0299635, %546 ], [ %.0299635, %552 ], [ %.0299635, %556 ], [ %.0299635, %560 ], [ %.0299635, %564 ], [ %.0299635, %568 ], [ %.0299635, %571 ], [ %.0299635, %585 ], [ %.0299635, %586 ], [ %.0299635, %589 ], [ %.0299635, %592 ], [ %.0299635, %595 ], [ %.0299635, %601 ], [ %.0299635, %606 ], [ %.0299635, %611 ], [ %.0299635, %616 ], [ %.0299635, %621 ], [ %.0299635, %626 ], [ %.0299635, %631 ], [ %.0299635, %636 ], [ %.0299635, %641 ], [ %.0299635, %646 ], [ %663, %662 ], [ %671, %673 ], [ %671, %680 ], [ 0, %679 ], [ %.0299635, %708 ], [ %.0299635, %709 ]
-  %.5 = phi i32 [ %422, %421 ], [ %.3298636, %426 ], [ %.3298636, %430 ], [ %.3298636, %434 ], [ %.3298636, %440 ], [ %.3298636, %444 ], [ %.3298636, %448 ], [ %.3298636, %452 ], [ %.3298636, %456 ], [ %.3298636, %460 ], [ %.3298636, %464 ], [ %.3298636, %468 ], [ %.3298636, %472 ], [ %.3298636, %476 ], [ %481, %483 ], [ %.3298636, %491 ], [ %.3298636, %495 ], [ %.3298636, %501 ], [ %.3298636, %507 ], [ %514, %513 ], [ %521, %520 ], [ %528, %527 ], [ %.3298636, %534 ], [ %.3298636, %540 ], [ %.3298636, %546 ], [ %.3298636, %552 ], [ %.3298636, %556 ], [ %.3298636, %560 ], [ %.3298636, %564 ], [ %.3298636, %568 ], [ %.3298636, %571 ], [ %.3298636, %585 ], [ %.3298636, %586 ], [ %.3298636, %589 ], [ %.3298636, %592 ], [ %.3298636, %595 ], [ %602, %601 ], [ %607, %606 ], [ %612, %611 ], [ %617, %616 ], [ %622, %621 ], [ %627, %626 ], [ %632, %631 ], [ %637, %636 ], [ %642, %641 ], [ %647, %646 ], [ %658, %662 ], [ %658, %673 ], [ %658, %680 ], [ %658, %679 ], [ %.3298636, %708 ], [ %.3298636, %709 ]
-  %719 = load i32, ptr %39, align 4, !tbaa !442
-  store i32 %719, ptr %40, align 4, !tbaa !450
+710:                                              ; preds = %707
+  store i8 1, ptr %401, align 2, !tbaa !471
+  store i8 1, ptr %402, align 1, !tbaa !472
   br label %720
 
-720:                                              ; preds = %718, %410
-  %.2301 = phi i32 [ %.3302, %718 ], [ %.0299635, %410 ]
-  %.4 = phi i32 [ %.5, %718 ], [ %.3298636, %410 ]
-  %721 = add nsw i32 %.4, 1
-  %722 = icmp slt i32 %721, %0
-  br i1 %722, label %410, label %.thread515, !llvm.loop !473
+711:                                              ; preds = %707
+  %712 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select390, ptr noundef nonnull dereferenceable(16) @.str.94) #44
+  %713 = icmp eq i32 %712, 0
+  br i1 %713, label %720, label %714
 
-.thread515:                                       ; preds = %720, %655, %process_sqliterc.exit
-  %.0299575 = phi i32 [ 0, %process_sqliterc.exit ], [ %.2301, %720 ], [ %.0299635, %655 ]
+714:                                              ; preds = %711
+  %715 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %716 = load ptr, ptr @Argv0, align 8, !tbaa !29
+  %717 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %715, ptr noundef nonnull @.str.128, ptr noundef %716, ptr noundef nonnull %spec.select390) #46
+  %718 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %719 = call i64 @fwrite(ptr nonnull @.str.129, i64 33, i64 1, ptr %718) #50
+  br label %vfstrace_unregister.exit
+
+720:                                              ; preds = %428, %436, %446, %454, %462, %470, %478, %493, %503, %515, %529, %542, %554, %562, %570, %588, %594, %603, %613, %623, %633, %643, %711, %710, %664, %681, %682, %675, %648, %638, %628, %618, %608, %597, %591, %587, %573, %566, %558, %548, %536, %522, %509, %497, %485, %474, %466, %458, %450, %442, %432, %423
+  %.3302 = phi i32 [ %.0299635, %423 ], [ %.0299635, %428 ], [ %.0299635, %432 ], [ %.0299635, %436 ], [ %.0299635, %442 ], [ %.0299635, %446 ], [ %.0299635, %450 ], [ %.0299635, %454 ], [ %.0299635, %458 ], [ %.0299635, %462 ], [ %.0299635, %466 ], [ %.0299635, %470 ], [ %.0299635, %474 ], [ %.0299635, %478 ], [ %.0299635, %485 ], [ %.0299635, %493 ], [ %.0299635, %497 ], [ %.0299635, %503 ], [ %.0299635, %509 ], [ %.0299635, %515 ], [ %.0299635, %522 ], [ %.0299635, %529 ], [ %.0299635, %536 ], [ %.0299635, %542 ], [ %.0299635, %548 ], [ %.0299635, %554 ], [ %.0299635, %558 ], [ %.0299635, %562 ], [ %.0299635, %566 ], [ %.0299635, %570 ], [ %.0299635, %573 ], [ %.0299635, %587 ], [ %.0299635, %588 ], [ %.0299635, %591 ], [ %.0299635, %594 ], [ %.0299635, %597 ], [ %.0299635, %603 ], [ %.0299635, %608 ], [ %.0299635, %613 ], [ %.0299635, %618 ], [ %.0299635, %623 ], [ %.0299635, %628 ], [ %.0299635, %633 ], [ %.0299635, %638 ], [ %.0299635, %643 ], [ %.0299635, %648 ], [ %665, %664 ], [ %673, %675 ], [ %673, %682 ], [ 0, %681 ], [ %.0299635, %710 ], [ %.0299635, %711 ]
+  %.5 = phi i32 [ %424, %423 ], [ %.3298636, %428 ], [ %.3298636, %432 ], [ %.3298636, %436 ], [ %.3298636, %442 ], [ %.3298636, %446 ], [ %.3298636, %450 ], [ %.3298636, %454 ], [ %.3298636, %458 ], [ %.3298636, %462 ], [ %.3298636, %466 ], [ %.3298636, %470 ], [ %.3298636, %474 ], [ %.3298636, %478 ], [ %483, %485 ], [ %.3298636, %493 ], [ %.3298636, %497 ], [ %.3298636, %503 ], [ %.3298636, %509 ], [ %516, %515 ], [ %523, %522 ], [ %530, %529 ], [ %.3298636, %536 ], [ %.3298636, %542 ], [ %.3298636, %548 ], [ %.3298636, %554 ], [ %.3298636, %558 ], [ %.3298636, %562 ], [ %.3298636, %566 ], [ %.3298636, %570 ], [ %.3298636, %573 ], [ %.3298636, %587 ], [ %.3298636, %588 ], [ %.3298636, %591 ], [ %.3298636, %594 ], [ %.3298636, %597 ], [ %604, %603 ], [ %609, %608 ], [ %614, %613 ], [ %619, %618 ], [ %624, %623 ], [ %629, %628 ], [ %634, %633 ], [ %639, %638 ], [ %644, %643 ], [ %649, %648 ], [ %660, %664 ], [ %660, %675 ], [ %660, %682 ], [ %660, %681 ], [ %.3298636, %710 ], [ %.3298636, %711 ]
+  %721 = load i32, ptr %39, align 4, !tbaa !442
+  store i32 %721, ptr %40, align 4, !tbaa !450
+  br label %722
+
+722:                                              ; preds = %720, %412
+  %.2301 = phi i32 [ %.3302, %720 ], [ %.0299635, %412 ]
+  %.4 = phi i32 [ %.5, %720 ], [ %.3298636, %412 ]
+  %723 = add nsw i32 %.4, 1
+  %724 = icmp slt i32 %723, %0
+  br i1 %724, label %412, label %.thread515, !llvm.loop !473
+
+.thread515:                                       ; preds = %722, %657, %process_sqliterc.exit
+  %.0299575 = phi i32 [ 0, %process_sqliterc.exit ], [ %.2301, %722 ], [ %.0299635, %657 ]
   %.not376 = icmp eq i32 %.0308.lcssa710, 0
-  br i1 %.not376, label %.preheader, label %756
+  br i1 %.not376, label %.preheader, label %758
 
 .preheader:                                       ; preds = %.thread515
-  %723 = icmp sgt i32 %.0315.lcssa707, 0
-  br i1 %723, label %.lr.ph642.preheader, label %.loopexit
+  %725 = icmp sgt i32 %.0315.lcssa707, 0
+  br i1 %725, label %.lr.ph642.preheader, label %.loopexit
 
 .lr.ph642.preheader:                              ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %.0315.lcssa707 to i64
   br label %.lr.ph642
 
-.lr.ph642:                                        ; preds = %.lr.ph642.preheader, %755
-  %indvars.iv = phi i64 [ 0, %.lr.ph642.preheader ], [ %indvars.iv.next, %755 ]
-  %724 = getelementptr inbounds nuw ptr, ptr %.0327.lcssa703, i64 %indvars.iv
-  %725 = load ptr, ptr %724, align 8, !tbaa !29
-  %726 = load i8, ptr %725, align 1, !tbaa !25
-  %727 = icmp eq i8 %726, 46
-  br i1 %727, label %728, label %732
+.lr.ph642:                                        ; preds = %.lr.ph642.preheader, %757
+  %indvars.iv = phi i64 [ 0, %.lr.ph642.preheader ], [ %indvars.iv.next, %757 ]
+  %726 = getelementptr inbounds nuw ptr, ptr %.0327.lcssa703, i64 %indvars.iv
+  %727 = load ptr, ptr %726, align 8, !tbaa !29
+  %728 = load i8, ptr %727, align 1, !tbaa !25
+  %729 = icmp eq i8 %728, 46
+  br i1 %729, label %730, label %734
 
-728:                                              ; preds = %.lr.ph642
-  %729 = call fastcc i32 @do_meta_command(ptr noundef nonnull %725, ptr noundef %4)
-  %.not377 = icmp eq i32 %729, 0
-  br i1 %.not377, label %755, label %730
+730:                                              ; preds = %.lr.ph642
+  %731 = call fastcc i32 @do_meta_command(ptr noundef nonnull %727, ptr noundef %4)
+  %.not377 = icmp eq i32 %731, 0
+  br i1 %.not377, label %757, label %732
 
-730:                                              ; preds = %728
-  %731 = icmp eq i32 %729, 2
-  %spec.store.select7 = select i1 %731, i32 0, i32 %729
-  br label %805
+732:                                              ; preds = %730
+  %733 = icmp eq i32 %731, 2
+  %spec.store.select7 = select i1 %733, i32 0, i32 %731
+  br label %807
 
-732:                                              ; preds = %.lr.ph642
+734:                                              ; preds = %.lr.ph642
   call fastcc void @open_db(ptr noundef %4, i32 noundef 0)
-  %733 = load i32, ptr %47, align 4, !tbaa !454
-  %734 = and i32 %733, 64
-  %.not.i477 = icmp eq i32 %734, 0
-  br i1 %.not.i477, label %echo_group_input.exit, label %735
+  %735 = load i32, ptr %47, align 4, !tbaa !454
+  %736 = and i32 %735, 64
+  %.not.i477 = icmp eq i32 %736, 0
+  br i1 %.not.i477, label %echo_group_input.exit, label %737
 
-735:                                              ; preds = %732
-  %736 = load ptr, ptr %724, align 8, !tbaa !29
-  %737 = load ptr, ptr %321, align 8, !tbaa !462
-  %738 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %737, ptr noundef nonnull @.str.310, ptr noundef %736) #43
-  %739 = load ptr, ptr %321, align 8, !tbaa !462
-  %740 = call i32 @fflush(ptr noundef %739)
+737:                                              ; preds = %734
+  %738 = load ptr, ptr %726, align 8, !tbaa !29
+  %739 = load ptr, ptr %323, align 8, !tbaa !462
+  %740 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %739, ptr noundef nonnull @.str.310, ptr noundef %738) #43
+  %741 = load ptr, ptr %323, align 8, !tbaa !462
+  %742 = call i32 @fflush(ptr noundef %741)
   br label %echo_group_input.exit
 
-echo_group_input.exit:                            ; preds = %732, %735
-  %741 = load ptr, ptr %724, align 8, !tbaa !29
-  %742 = call fastcc i32 @shell_exec(ptr noundef nonnull %4, ptr noundef %741, ptr noundef nonnull %3)
-  %743 = load ptr, ptr %3, align 8, !tbaa !29
-  %744 = icmp ne ptr %743, null
-  %745 = icmp ne i32 %742, 0
-  %or.cond9 = select i1 %744, i1 true, i1 %745
-  br i1 %or.cond9, label %746, label %755
+echo_group_input.exit:                            ; preds = %734, %737
+  %743 = load ptr, ptr %726, align 8, !tbaa !29
+  %744 = call fastcc i32 @shell_exec(ptr noundef nonnull %4, ptr noundef %743, ptr noundef nonnull %3)
+  %745 = load ptr, ptr %3, align 8, !tbaa !29
+  %746 = icmp ne ptr %745, null
+  %747 = icmp ne i32 %744, 0
+  %or.cond9 = select i1 %746, i1 true, i1 %747
+  br i1 %or.cond9, label %748, label %757
 
-746:                                              ; preds = %echo_group_input.exit
-  %747 = load ptr, ptr @stderr, align 8, !tbaa !14
-  br i1 %744, label %748, label %750
+748:                                              ; preds = %echo_group_input.exit
+  %749 = load ptr, ptr @stderr, align 8, !tbaa !14
+  br i1 %746, label %750, label %752
 
-748:                                              ; preds = %746
-  %749 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %747, ptr noundef nonnull @.str.991, ptr noundef nonnull %743) #46
-  br label %753
+750:                                              ; preds = %748
+  %751 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %749, ptr noundef nonnull @.str.991, ptr noundef nonnull %745) #46
+  br label %755
 
-750:                                              ; preds = %746
-  %751 = load ptr, ptr %724, align 8, !tbaa !29
-  %752 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %747, ptr noundef nonnull @.str.130, ptr noundef %751) #46
-  br label %753
+752:                                              ; preds = %748
+  %753 = load ptr, ptr %726, align 8, !tbaa !29
+  %754 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %749, ptr noundef nonnull @.str.130, ptr noundef %753) #46
+  br label %755
 
-753:                                              ; preds = %750, %748
-  %754 = load ptr, ptr %3, align 8, !tbaa !29
-  call void @sqlite3_free(ptr noundef %754) #43
-  %spec.store.select10 = call i32 @llvm.umax.i32(i32 %742, i32 1)
-  br label %805
+755:                                              ; preds = %752, %750
+  %756 = load ptr, ptr %3, align 8, !tbaa !29
+  call void @sqlite3_free(ptr noundef %756) #43
+  %spec.store.select10 = call i32 @llvm.umax.i32(i32 %744, i32 1)
+  br label %807
 
-755:                                              ; preds = %728, %echo_group_input.exit
+757:                                              ; preds = %730, %echo_group_input.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph642, !llvm.loop !474
 
-756:                                              ; preds = %.thread515
-  %757 = load i32, ptr @stdin_is_interactive, align 4, !tbaa !36
-  %.not378 = icmp eq i32 %757, 0
-  br i1 %.not378, label %799, label %758
+758:                                              ; preds = %.thread515
+  %759 = load i32, ptr @stdin_is_interactive, align 4, !tbaa !36
+  %.not378 = icmp eq i32 %759, 0
+  br i1 %.not378, label %801, label %760
 
-758:                                              ; preds = %756
-  %759 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %760 = call ptr @sqlite3_libversion() #43
-  %761 = call ptr @sqlite3_sourceid() #43
-  %762 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %759, ptr noundef nonnull @.str.131, ptr noundef %760, ptr noundef %761) #43
-  br i1 %.0307, label %770, label %763
+760:                                              ; preds = %758
+  %761 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %762 = call ptr @sqlite3_libversion() #43
+  %763 = call ptr @sqlite3_sourceid() #43
+  %764 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %761, ptr noundef nonnull @.str.131, ptr noundef %762, ptr noundef %763) #43
+  br i1 %.0307, label %772, label %765
 
-763:                                              ; preds = %758
-  %764 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %765 = call i64 @fwrite(ptr nonnull @.str.132, i64 15, i64 1, ptr %764)
+765:                                              ; preds = %760
   %766 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %767 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %766, ptr noundef nonnull @.str.1869, ptr noundef nonnull @.str.133) #43
+  %767 = call i64 @fwrite(ptr nonnull @.str.132, i64 15, i64 1, ptr %766)
   %768 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %769 = call i64 @fwrite(ptr nonnull @.str.134, i64 59, i64 1, ptr %768)
-  br label %770
+  %769 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %768, ptr noundef nonnull @.str.1869, ptr noundef nonnull @.str.133) #43
+  %770 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %771 = call i64 @fwrite(ptr nonnull @.str.134, i64 59, i64 1, ptr %770)
+  br label %772
 
-770:                                              ; preds = %763, %758
-  %771 = call ptr @getenv(ptr noundef nonnull @.str.135) #43
-  %.not380 = icmp eq ptr %771, null
-  br i1 %.not380, label %772, label %792
-
-772:                                              ; preds = %770
-  %773 = load ptr, ptr @find_home_dir.home_dir, align 8, !tbaa !29
-  %.not12.i = icmp eq ptr %773, null
-  br i1 %.not12.i, label %774, label %find_home_dir.exit.thread523
+772:                                              ; preds = %765, %760
+  %773 = call ptr @getenv(ptr noundef nonnull @.str.135) #43
+  %.not380 = icmp eq ptr %773, null
+  br i1 %.not380, label %774, label %794
 
 774:                                              ; preds = %772
-  %775 = call i32 @getuid() #43
-  %776 = call ptr @getpwuid(i32 noundef %775) #43
-  %.not13.i = icmp eq ptr %776, null
-  br i1 %.not13.i, label %thread-pre-split.i, label %777
+  %775 = load ptr, ptr @find_home_dir.home_dir, align 8, !tbaa !29
+  %.not12.i = icmp eq ptr %775, null
+  br i1 %.not12.i, label %776, label %find_home_dir.exit.thread523
 
-777:                                              ; preds = %774
-  %778 = getelementptr inbounds nuw i8, ptr %776, i64 32
-  %779 = load ptr, ptr %778, align 8, !tbaa !465
-  store ptr %779, ptr @find_home_dir.home_dir, align 8, !tbaa !29
-  br label %780
+776:                                              ; preds = %774
+  %777 = call i32 @getuid() #43
+  %778 = call ptr @getpwuid(i32 noundef %777) #43
+  %.not13.i = icmp eq ptr %778, null
+  br i1 %.not13.i, label %thread-pre-split.i, label %779
 
-thread-pre-split.i:                               ; preds = %774
+779:                                              ; preds = %776
+  %780 = getelementptr inbounds nuw i8, ptr %778, i64 32
+  %781 = load ptr, ptr %780, align 8, !tbaa !465
+  store ptr %781, ptr @find_home_dir.home_dir, align 8, !tbaa !29
+  br label %782
+
+thread-pre-split.i:                               ; preds = %776
   %.pr.i = load ptr, ptr @find_home_dir.home_dir, align 8, !tbaa !29
-  br label %780
+  br label %782
 
-780:                                              ; preds = %thread-pre-split.i, %777
-  %.pr18.i = phi ptr [ %.pr.i, %thread-pre-split.i ], [ %779, %777 ]
+782:                                              ; preds = %thread-pre-split.i, %779
+  %.pr18.i = phi ptr [ %.pr.i, %thread-pre-split.i ], [ %781, %779 ]
   %.not14.i = icmp eq ptr %.pr18.i, null
   br i1 %.not14.i, label %thread-pre-split17.i, label %thread-pre-split17.thread.i
 
-thread-pre-split17.i:                             ; preds = %780
-  %781 = call ptr @getenv(ptr noundef nonnull @.str.697) #43
-  store ptr %781, ptr @find_home_dir.home_dir, align 8, !tbaa !29
-  %.not15.i = icmp eq ptr %781, null
+thread-pre-split17.i:                             ; preds = %782
+  %783 = call ptr @getenv(ptr noundef nonnull @.str.697) #43
+  store ptr %783, ptr @find_home_dir.home_dir, align 8, !tbaa !29
+  %.not15.i = icmp eq ptr %783, null
   br i1 %.not15.i, label %.thread541, label %thread-pre-split17.thread.i
 
-thread-pre-split17.thread.i:                      ; preds = %thread-pre-split17.i, %780
-  %782 = phi ptr [ %781, %thread-pre-split17.i ], [ %.pr18.i, %780 ]
-  %783 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %782) #44
-  %784 = add i64 %783, 1
-  %785 = call noalias ptr @malloc(i64 noundef %784) #49
-  %.not16.i = icmp eq ptr %785, null
+thread-pre-split17.thread.i:                      ; preds = %thread-pre-split17.i, %782
+  %784 = phi ptr [ %783, %thread-pre-split17.i ], [ %.pr18.i, %782 ]
+  %785 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %784) #44
+  %786 = add i64 %785, 1
+  %787 = call noalias ptr @malloc(i64 noundef %786) #49
+  %.not16.i = icmp eq ptr %787, null
   br i1 %.not16.i, label %find_home_dir.exit.thread527, label %find_home_dir.exit
 
 find_home_dir.exit.thread527:                     ; preds = %thread-pre-split17.thread.i
@@ -17832,174 +17832,174 @@ find_home_dir.exit.thread527:                     ; preds = %thread-pre-split17.
   br label %.thread541
 
 find_home_dir.exit:                               ; preds = %thread-pre-split17.thread.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %785, ptr nonnull align 1 %782, i64 %784, i1 false)
-  store ptr %785, ptr @find_home_dir.home_dir, align 8, !tbaa !29
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %787, ptr nonnull align 1 %784, i64 %786, i1 false)
+  store ptr %787, ptr @find_home_dir.home_dir, align 8, !tbaa !29
   br label %find_home_dir.exit.thread523
 
-find_home_dir.exit.thread523:                     ; preds = %772, %find_home_dir.exit
-  %.0.i478526 = phi ptr [ %785, %find_home_dir.exit ], [ %773, %772 ]
+find_home_dir.exit.thread523:                     ; preds = %774, %find_home_dir.exit
+  %.0.i478526 = phi ptr [ %787, %find_home_dir.exit ], [ %775, %774 ]
   %strlen.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %.0.i478526)
-  %786 = trunc i64 %strlen.i to i32
-  %787 = and i32 %786, 1073741823
-  %788 = add nuw nsw i32 %787, 20
-  %789 = zext nneg i32 %788 to i64
-  %790 = call noalias ptr @malloc(i64 noundef %789) #49
-  %.not382 = icmp eq ptr %790, null
+  %788 = trunc i64 %strlen.i to i32
+  %789 = and i32 %788, 1073741823
+  %790 = add nuw nsw i32 %789, 20
+  %791 = zext nneg i32 %790 to i64
+  %792 = call noalias ptr @malloc(i64 noundef %791) #49
+  %.not382 = icmp eq ptr %792, null
   br i1 %.not382, label %.thread541, label %.thread535
 
 .thread535:                                       ; preds = %find_home_dir.exit.thread523
-  %791 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef %788, ptr noundef nonnull %790, ptr noundef nonnull @.str.136, ptr noundef nonnull %.0.i478526) #43
-  br label %795
+  %793 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef %790, ptr noundef nonnull %792, ptr noundef nonnull @.str.136, ptr noundef nonnull %.0.i478526) #43
+  br label %797
 
-792:                                              ; preds = %770
-  %793 = call noalias ptr @strdup(ptr noundef nonnull %771) #43
-  %.not383 = icmp eq ptr %793, null
-  br i1 %.not383, label %.thread541, label %795
+794:                                              ; preds = %772
+  %795 = call noalias ptr @strdup(ptr noundef nonnull %773) #43
+  %.not383 = icmp eq ptr %795, null
+  br i1 %.not383, label %.thread541, label %797
 
-.thread541:                                       ; preds = %792, %find_home_dir.exit.thread523, %find_home_dir.exit.thread527, %thread-pre-split17.i
+.thread541:                                       ; preds = %794, %find_home_dir.exit.thread523, %find_home_dir.exit.thread527, %thread-pre-split17.i
   store ptr @readline_completion, ptr @rl_attempted_completion_function, align 8, !tbaa !388
-  store ptr null, ptr %340, align 8, !tbaa !463
-  %794 = call fastcc i32 @process_input(ptr noundef %4)
+  store ptr null, ptr %342, align 8, !tbaa !463
+  %796 = call fastcc i32 @process_input(ptr noundef %4)
   br label %.loopexit
 
-795:                                              ; preds = %792, %.thread535
-  %.0290538 = phi ptr [ %790, %.thread535 ], [ %793, %792 ]
-  %796 = call i32 @read_history(ptr noundef nonnull %.0290538) #43
+797:                                              ; preds = %794, %.thread535
+  %.0290538 = phi ptr [ %792, %.thread535 ], [ %795, %794 ]
+  %798 = call i32 @read_history(ptr noundef nonnull %.0290538) #43
   store ptr @readline_completion, ptr @rl_attempted_completion_function, align 8, !tbaa !388
-  store ptr null, ptr %340, align 8, !tbaa !463
-  %797 = call fastcc i32 @process_input(ptr noundef %4)
+  store ptr null, ptr %342, align 8, !tbaa !463
+  %799 = call fastcc i32 @process_input(ptr noundef %4)
   call void @stifle_history(i32 noundef 2000) #43
-  %798 = call i32 @write_history(ptr noundef nonnull %.0290538) #43
+  %800 = call i32 @write_history(ptr noundef nonnull %.0290538) #43
   call void @free(ptr noundef nonnull %.0290538) #43
   br label %.loopexit
 
-799:                                              ; preds = %756
-  %800 = load ptr, ptr @stdin, align 8, !tbaa !14
-  store ptr %800, ptr %340, align 8, !tbaa !463
-  %801 = call fastcc i32 @process_input(ptr noundef %4)
+801:                                              ; preds = %758
+  %802 = load ptr, ptr @stdin, align 8, !tbaa !14
+  store ptr %802, ptr %342, align 8, !tbaa !463
+  %803 = call fastcc i32 @process_input(ptr noundef %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %755, %696, %702, %.preheader, %.thread541, %795, %799
-  %.7306 = phi i32 [ %801, %799 ], [ %797, %795 ], [ %794, %.thread541 ], [ %.0299575, %.preheader ], [ %.0299635, %702 ], [ %.0299635, %696 ], [ 0, %755 ]
-  %802 = getelementptr inbounds nuw i8, ptr %4, i64 4704
-  %803 = load ptr, ptr %802, align 8, !tbaa !475
-  %.not384 = icmp eq ptr %803, null
-  br i1 %.not384, label %805, label %804
+.loopexit:                                        ; preds = %757, %698, %704, %.preheader, %.thread541, %797, %801
+  %.7306 = phi i32 [ %803, %801 ], [ %799, %797 ], [ %796, %.thread541 ], [ %.0299575, %.preheader ], [ %.0299635, %704 ], [ %.0299635, %698 ], [ 0, %757 ]
+  %804 = getelementptr inbounds nuw i8, ptr %4, i64 4704
+  %805 = load ptr, ptr %804, align 8, !tbaa !475
+  %.not384 = icmp eq ptr %805, null
+  br i1 %.not384, label %807, label %806
 
-804:                                              ; preds = %.loopexit
-  call void @sqlite3_expert_destroy(ptr noundef nonnull %803)
-  store ptr null, ptr %802, align 8, !tbaa !475
-  br label %805
+806:                                              ; preds = %.loopexit
+  call void @sqlite3_expert_destroy(ptr noundef nonnull %805)
+  store ptr null, ptr %804, align 8, !tbaa !475
+  br label %807
 
-805:                                              ; preds = %.loopexit, %804, %753, %730
-  %.5304 = phi i32 [ %.7306, %804 ], [ %.7306, %.loopexit ], [ %spec.store.select7, %730 ], [ %spec.store.select10, %753 ]
+807:                                              ; preds = %.loopexit, %806, %755, %732
+  %.5304 = phi i32 [ %.7306, %806 ], [ %.7306, %.loopexit ], [ %spec.store.select7, %732 ], [ %spec.store.select10, %755 ]
   call void @free(ptr noundef %.0327.lcssa703) #43
-  %806 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  %807 = load ptr, ptr %806, align 8, !tbaa !476
-  %.not.i480 = icmp eq ptr %807, null
-  br i1 %.not.i480, label %set_table_name.exit, label %808
+  %808 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %809 = load ptr, ptr %808, align 8, !tbaa !476
+  %.not.i480 = icmp eq ptr %809, null
+  br i1 %.not.i480, label %set_table_name.exit, label %810
 
-808:                                              ; preds = %805
-  call void @free(ptr noundef nonnull %807) #43
-  store ptr null, ptr %806, align 8, !tbaa !476
+810:                                              ; preds = %807
+  call void @free(ptr noundef nonnull %809) #43
+  store ptr null, ptr %808, align 8, !tbaa !476
   br label %set_table_name.exit
 
-set_table_name.exit:                              ; preds = %805, %808
-  %809 = load ptr, ptr %4, align 8, !tbaa !477
-  %.not385 = icmp eq ptr %809, null
-  br i1 %.not385, label %close_db.exit.preheader, label %810
+set_table_name.exit:                              ; preds = %807, %810
+  %811 = load ptr, ptr %4, align 8, !tbaa !477
+  %.not385 = icmp eq ptr %811, null
+  br i1 %.not385, label %close_db.exit.preheader, label %812
 
-810:                                              ; preds = %set_table_name.exit
-  %811 = call i32 @sqlite3_close(ptr noundef nonnull %809) #43
-  %.not.i481 = icmp eq i32 %811, 0
-  br i1 %.not.i481, label %close_db.exit.preheader, label %812
+812:                                              ; preds = %set_table_name.exit
+  %813 = call i32 @sqlite3_close(ptr noundef nonnull %811) #43
+  %.not.i481 = icmp eq i32 %813, 0
+  br i1 %.not.i481, label %close_db.exit.preheader, label %814
 
-812:                                              ; preds = %810
-  %813 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %814 = call ptr @sqlite3_errmsg(ptr noundef nonnull %809) #43
-  %815 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %813, ptr noundef nonnull @.str.58, i32 noundef %811, ptr noundef %814) #46
+814:                                              ; preds = %812
+  %815 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %816 = call ptr @sqlite3_errmsg(ptr noundef nonnull %811) #43
+  %817 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %815, ptr noundef nonnull @.str.58, i32 noundef %813, ptr noundef %816) #46
   br label %close_db.exit.preheader
 
-close_db.exit.preheader:                          ; preds = %812, %810, %set_table_name.exit
+close_db.exit.preheader:                          ; preds = %814, %812, %set_table_name.exit
   br label %close_db.exit
 
 close_db.exit:                                    ; preds = %close_db.exit.preheader, %close_db.exit483
   %indvars.iv688 = phi i64 [ %indvars.iv.next689, %close_db.exit483 ], [ 0, %close_db.exit.preheader ]
-  %816 = getelementptr inbounds nuw [5 x %struct.AuxDb], ptr %43, i64 0, i64 %indvars.iv688
-  %817 = getelementptr inbounds nuw i8, ptr %816, i64 16
-  %818 = load ptr, ptr %817, align 8, !tbaa !478
-  call void @sqlite3_free(ptr noundef %818) #43
-  %819 = load ptr, ptr %816, align 8, !tbaa !479
-  %.not386 = icmp eq ptr %819, null
-  br i1 %.not386, label %close_db.exit483, label %820
+  %818 = getelementptr inbounds nuw [5 x %struct.AuxDb], ptr %43, i64 0, i64 %indvars.iv688
+  %819 = getelementptr inbounds nuw i8, ptr %818, i64 16
+  %820 = load ptr, ptr %819, align 8, !tbaa !478
+  call void @sqlite3_free(ptr noundef %820) #43
+  %821 = load ptr, ptr %818, align 8, !tbaa !479
+  %.not386 = icmp eq ptr %821, null
+  br i1 %.not386, label %close_db.exit483, label %822
 
-820:                                              ; preds = %close_db.exit
-  %821 = call i32 @sqlite3_close(ptr noundef nonnull %819) #43
-  %.not.i482 = icmp eq i32 %821, 0
-  br i1 %.not.i482, label %close_db.exit483, label %822
+822:                                              ; preds = %close_db.exit
+  %823 = call i32 @sqlite3_close(ptr noundef nonnull %821) #43
+  %.not.i482 = icmp eq i32 %823, 0
+  br i1 %.not.i482, label %close_db.exit483, label %824
 
-822:                                              ; preds = %820
-  %823 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %824 = call ptr @sqlite3_errmsg(ptr noundef nonnull %819) #43
-  %825 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %823, ptr noundef nonnull @.str.58, i32 noundef %821, ptr noundef %824) #46
+824:                                              ; preds = %822
+  %825 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %826 = call ptr @sqlite3_errmsg(ptr noundef nonnull %821) #43
+  %827 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %825, ptr noundef nonnull @.str.58, i32 noundef %823, ptr noundef %826) #46
   br label %close_db.exit483
 
-close_db.exit483:                                 ; preds = %822, %820, %close_db.exit
+close_db.exit483:                                 ; preds = %824, %822, %close_db.exit
   %indvars.iv.next689 = add nuw nsw i64 %indvars.iv688, 1
   %exitcond691.not = icmp eq i64 %indvars.iv.next689, 5
-  br i1 %exitcond691.not, label %826, label %close_db.exit, !llvm.loop !480
+  br i1 %exitcond691.not, label %828, label %close_db.exit, !llvm.loop !480
 
-826:                                              ; preds = %close_db.exit483
-  %827 = load ptr, ptr @find_home_dir.home_dir, align 8, !tbaa !29
-  call void @free(ptr noundef %827) #43
+828:                                              ; preds = %close_db.exit483
+  %829 = load ptr, ptr @find_home_dir.home_dir, align 8, !tbaa !29
+  call void @free(ptr noundef %829) #43
   store ptr null, ptr @find_home_dir.home_dir, align 8, !tbaa !29
   call fastcc void @output_reset(ptr noundef %4)
-  %828 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  store i8 0, ptr %828, align 2, !tbaa !481
-  %829 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  %830 = load ptr, ptr %829, align 8, !tbaa !482
-  %831 = icmp eq ptr %830, null
-  br i1 %831, label %clearTempFile.exit, label %832
+  %830 = getelementptr inbounds nuw i8, ptr %4, i64 14
+  store i8 0, ptr %830, align 2, !tbaa !481
+  %831 = getelementptr inbounds nuw i8, ptr %4, i64 160
+  %832 = load ptr, ptr %831, align 8, !tbaa !482
+  %833 = icmp eq ptr %832, null
+  br i1 %833, label %clearTempFile.exit, label %834
 
-832:                                              ; preds = %826
-  %833 = call noundef i32 @unlink(ptr noundef nonnull readonly %830) #43
-  %.not5.i = icmp eq i32 %833, 0
-  br i1 %.not5.i, label %834, label %clearTempFile.exit
+834:                                              ; preds = %828
+  %835 = call noundef i32 @unlink(ptr noundef nonnull readonly %832) #43
+  %.not5.i = icmp eq i32 %835, 0
+  br i1 %.not5.i, label %836, label %clearTempFile.exit
 
-834:                                              ; preds = %832
-  %835 = load ptr, ptr %829, align 8, !tbaa !482
-  call void @sqlite3_free(ptr noundef %835) #43
-  store ptr null, ptr %829, align 8, !tbaa !482
+836:                                              ; preds = %834
+  %837 = load ptr, ptr %831, align 8, !tbaa !482
+  call void @sqlite3_free(ptr noundef %837) #43
+  store ptr null, ptr %831, align 8, !tbaa !482
   br label %clearTempFile.exit
 
-clearTempFile.exit:                               ; preds = %826, %832, %834
-  %836 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  %837 = load ptr, ptr %836, align 8, !tbaa !483
-  call void @free(ptr noundef %837) #43
-  %838 = getelementptr inbounds nuw i8, ptr %4, i64 4576
-  %839 = load ptr, ptr %838, align 8, !tbaa !460
+clearTempFile.exit:                               ; preds = %828, %834, %836
+  %838 = getelementptr inbounds nuw i8, ptr %4, i64 280
+  %839 = load ptr, ptr %838, align 8, !tbaa !483
   call void @free(ptr noundef %839) #43
+  %840 = getelementptr inbounds nuw i8, ptr %4, i64 4576
+  %841 = load ptr, ptr %840, align 8, !tbaa !460
+  call void @free(ptr noundef %841) #43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4720) %4, i8 0, i64 4720, i1 false)
-  br i1 %.0331.lcssa701, label %vfstrace_unregister.exit, label %840
+  br i1 %.0331.lcssa701, label %vfstrace_unregister.exit, label %842
 
-840:                                              ; preds = %clearTempFile.exit
-  %841 = call ptr @sqlite3_vfs_find(ptr noundef nonnull @.str.97) #43
-  %842 = icmp eq ptr %841, null
-  br i1 %842, label %vfstrace_unregister.exit, label %843
+842:                                              ; preds = %clearTempFile.exit
+  %843 = call ptr @sqlite3_vfs_find(ptr noundef nonnull @.str.97) #43
+  %844 = icmp eq ptr %843, null
+  br i1 %844, label %vfstrace_unregister.exit, label %845
 
-843:                                              ; preds = %840
-  %844 = getelementptr inbounds nuw i8, ptr %841, i64 40
-  %845 = load ptr, ptr %844, align 8, !tbaa !277
-  %.not.i487 = icmp eq ptr %845, @vfstraceOpen
-  br i1 %.not.i487, label %846, label %vfstrace_unregister.exit
+845:                                              ; preds = %842
+  %846 = getelementptr inbounds nuw i8, ptr %843, i64 40
+  %847 = load ptr, ptr %846, align 8, !tbaa !277
+  %.not.i487 = icmp eq ptr %847, @vfstraceOpen
+  br i1 %.not.i487, label %848, label %vfstrace_unregister.exit
 
-846:                                              ; preds = %843
-  %847 = call i32 @sqlite3_vfs_unregister(ptr noundef nonnull %841) #43
-  call void @sqlite3_free(ptr noundef nonnull %841) #43
+848:                                              ; preds = %845
+  %849 = call i32 @sqlite3_vfs_unregister(ptr noundef nonnull %843) #43
+  call void @sqlite3_free(ptr noundef nonnull %843) #43
   br label %vfstrace_unregister.exit
 
-vfstrace_unregister.exit:                         ; preds = %680, %712, %690, %677, %667, %577, %846, %843, %840, %clearTempFile.exit
-  %.2 = phi i32 [ %.5304, %clearTempFile.exit ], [ %.5304, %840 ], [ %.5304, %843 ], [ %.5304, %846 ], [ 1, %712 ], [ 1, %690 ], [ %678, %677 ], [ %669, %667 ], [ 0, %577 ], [ %671, %680 ]
+vfstrace_unregister.exit:                         ; preds = %682, %714, %692, %679, %669, %579, %848, %845, %842, %clearTempFile.exit
+  %.2 = phi i32 [ %.5304, %clearTempFile.exit ], [ %.5304, %842 ], [ %.5304, %845 ], [ %.5304, %848 ], [ 1, %714 ], [ 1, %692 ], [ %680, %679 ], [ %671, %669 ], [ 0, %579 ], [ %673, %682 ]
   call void @llvm.lifetime.end.p0(i64 4720, ptr nonnull %4) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #43
   ret i32 %.2

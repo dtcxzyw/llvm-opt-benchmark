@@ -2091,8 +2091,8 @@ _ZNK5folly5IOBuf11isSharedOneEv.exit:             ; preds = %36
 
 _ZNK5folly5IOBuf11isSharedOneEv.exit.thread:      ; preds = %36, %31, %43, %_ZNK5folly5IOBuf11isSharedOneEv.exit, %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
-  %57 = call i64 @llvm.umin.i64(i64 %.0, i64 8000)
-  %58 = call i64 @llvm.umax.i64(i64 %57, i64 2000)
+  %57 = call i64 @llvm.umax.i64(i64 %.0, i64 2000)
+  %58 = call i64 @llvm.umin.i64(i64 %57, i64 8000)
   invoke void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %5, i64 noundef %58)
           to label %59 unwind label %69
 

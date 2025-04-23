@@ -165,35 +165,35 @@ define void @_ZN6LibRaw6cielabEPtPs(ptr noundef nonnull readonly align 8 capture
   %.sroa.11.0.lcssa = phi i32 [ 0, %.preheader66.._crit_edge_crit_edge ], [ %74, %._crit_edge.loopexit ]
   %.sroa.0.0.lcssa = phi i32 [ 0, %.preheader66.._crit_edge_crit_edge ], [ %73, %._crit_edge.loopexit ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 21040
-  %78 = tail call i32 @llvm.smin.i32(i32 %.sroa.0.0.lcssa, i32 65535)
-  %narrow = tail call i32 @llvm.smax.i32(i32 %78, i32 0)
-  %79 = zext nneg i32 %narrow to i64
-  %80 = getelementptr inbounds nuw [65536 x float], ptr %77, i64 0, i64 %79
-  %81 = load float, ptr %80, align 4, !tbaa !72
-  %82 = tail call i32 @llvm.smin.i32(i32 %.sroa.11.0.lcssa, i32 65535)
-  %narrow62 = tail call i32 @llvm.smax.i32(i32 %82, i32 0)
-  %83 = zext nneg i32 %narrow62 to i64
-  %84 = getelementptr inbounds nuw [65536 x float], ptr %77, i64 0, i64 %83
-  %85 = load float, ptr %84, align 4, !tbaa !72
-  %86 = tail call i32 @llvm.smin.i32(i32 %.sroa.22.0.lcssa, i32 65535)
-  %narrow63 = tail call i32 @llvm.smax.i32(i32 %86, i32 0)
-  %87 = zext nneg i32 %narrow63 to i64
-  %88 = getelementptr inbounds nuw [65536 x float], ptr %77, i64 0, i64 %87
-  %89 = load float, ptr %88, align 4, !tbaa !72
-  %90 = fmul reassoc nsz arcp contract afn float %85, 7.424000e+03
-  %91 = fadd reassoc nsz arcp contract afn float %90, -1.024000e+03
-  %92 = fptosi float %91 to i16
-  store i16 %92, ptr %2, align 2, !tbaa !79
-  %93 = fsub reassoc nsz arcp contract afn float %81, %85
-  %94 = fmul reassoc nsz arcp contract afn float %93, 3.200000e+04
+  %78 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.lcssa, i32 0)
+  %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 65535)
+  %80 = zext nneg i32 %79 to i64
+  %81 = getelementptr inbounds nuw [65536 x float], ptr %77, i64 0, i64 %80
+  %82 = load float, ptr %81, align 4, !tbaa !72
+  %83 = tail call i32 @llvm.smax.i32(i32 %.sroa.11.0.lcssa, i32 0)
+  %84 = tail call i32 @llvm.umin.i32(i32 %83, i32 65535)
+  %85 = zext nneg i32 %84 to i64
+  %86 = getelementptr inbounds nuw [65536 x float], ptr %77, i64 0, i64 %85
+  %87 = load float, ptr %86, align 4, !tbaa !72
+  %88 = tail call i32 @llvm.smax.i32(i32 %.sroa.22.0.lcssa, i32 0)
+  %89 = tail call i32 @llvm.umin.i32(i32 %88, i32 65535)
+  %90 = zext nneg i32 %89 to i64
+  %91 = getelementptr inbounds nuw [65536 x float], ptr %77, i64 0, i64 %90
+  %92 = load float, ptr %91, align 4, !tbaa !72
+  %93 = fmul reassoc nsz arcp contract afn float %87, 7.424000e+03
+  %94 = fadd reassoc nsz arcp contract afn float %93, -1.024000e+03
   %95 = fptosi float %94 to i16
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %95, ptr %96, align 2, !tbaa !79
-  %97 = fsub reassoc nsz arcp contract afn float %85, %89
-  %98 = fmul reassoc nsz arcp contract afn float %97, 1.280000e+04
-  %99 = fptosi float %98 to i16
-  %100 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i16 %99, ptr %100, align 2, !tbaa !79
+  store i16 %95, ptr %2, align 2, !tbaa !79
+  %96 = fsub reassoc nsz arcp contract afn float %82, %87
+  %97 = fmul reassoc nsz arcp contract afn float %96, 3.200000e+04
+  %98 = fptosi float %97 to i16
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  store i16 %98, ptr %99, align 2, !tbaa !79
+  %100 = fsub reassoc nsz arcp contract afn float %87, %92
+  %101 = fmul reassoc nsz arcp contract afn float %100, 1.280000e+04
+  %102 = fptosi float %101 to i16
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i16 %102, ptr %103, align 2, !tbaa !79
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge77.us, %.loopexit65, %._crit_edge
@@ -537,8 +537,8 @@ define void @_ZN6LibRaw52ahd_interpolate_r_and_b_in_rgb_and_convert_to_cielabEii
   %126 = sub nsw i32 %.neg101.us, %125
   %127 = ashr i32 %126, 1
   %128 = add nsw i32 %127, %110
-  %129 = tail call i32 @llvm.smin.i32(i32 %128, i32 65535)
-  %130 = tail call i32 @llvm.smax.i32(i32 %129, i32 0)
+  %129 = tail call i32 @llvm.smax.i32(i32 %128, i32 0)
+  %130 = tail call i32 @llvm.umin.i32(i32 %129, i32 65535)
   %131 = trunc nuw i32 %130 to i16
   %132 = getelementptr inbounds [3 x i16], ptr %54, i64 0, i64 %111
   store i16 %131, ptr %132, align 2, !tbaa !79
@@ -567,8 +567,8 @@ define void @_ZN6LibRaw52ahd_interpolate_r_and_b_in_rgb_and_convert_to_cielabEii
 152:                                              ; preds = %102, %62
   %.084.us = phi i32 [ %151, %102 ], [ %101, %62 ]
   %.083.us = phi i32 [ %106, %102 ], [ %63, %62 ]
-  %153 = tail call i32 @llvm.smin.i32(i32 %.084.us, i32 65535)
-  %154 = tail call i32 @llvm.smax.i32(i32 %153, i32 0)
+  %153 = tail call i32 @llvm.smax.i32(i32 %.084.us, i32 0)
+  %154 = tail call i32 @llvm.umin.i32(i32 %153, i32 65535)
   %155 = trunc nuw i32 %154 to i16
   %156 = sext i32 %.083.us to i64
   %157 = getelementptr inbounds [3 x i16], ptr %54, i64 0, i64 %156
@@ -614,35 +614,35 @@ _ZN6LibRaw6cielabEPtPs.exit.us:                   ; preds = %152, %._crit_edge.l
   %.sroa.22.0.lcssa.i.us = phi i32 [ %179, %._crit_edge.loopexit.i.us ], [ 0, %152 ]
   %.sroa.11.0.lcssa.i.us = phi i32 [ %178, %._crit_edge.loopexit.i.us ], [ 0, %152 ]
   %.sroa.0.0.lcssa.i.us = phi i32 [ %177, %._crit_edge.loopexit.i.us ], [ 0, %152 ]
-  %180 = tail call i32 @llvm.smin.i32(i32 %.sroa.0.0.lcssa.i.us, i32 65535)
-  %narrow.i.us = tail call i32 @llvm.smax.i32(i32 %180, i32 0)
-  %181 = zext nneg i32 %narrow.i.us to i64
-  %182 = getelementptr inbounds nuw [65536 x float], ptr %49, i64 0, i64 %181
-  %183 = load float, ptr %182, align 4, !tbaa !72
-  %184 = tail call i32 @llvm.smin.i32(i32 %.sroa.11.0.lcssa.i.us, i32 65535)
-  %narrow62.i.us = tail call i32 @llvm.smax.i32(i32 %184, i32 0)
-  %185 = zext nneg i32 %narrow62.i.us to i64
-  %186 = getelementptr inbounds nuw [65536 x float], ptr %49, i64 0, i64 %185
-  %187 = load float, ptr %186, align 4, !tbaa !72
-  %188 = tail call i32 @llvm.smin.i32(i32 %.sroa.22.0.lcssa.i.us, i32 65535)
-  %narrow63.i.us = tail call i32 @llvm.smax.i32(i32 %188, i32 0)
-  %189 = zext nneg i32 %narrow63.i.us to i64
-  %190 = getelementptr inbounds nuw [65536 x float], ptr %49, i64 0, i64 %189
-  %191 = load float, ptr %190, align 4, !tbaa !72
-  %192 = fmul reassoc nsz arcp contract afn float %187, 7.424000e+03
-  %193 = fadd reassoc nsz arcp contract afn float %192, -1.024000e+03
-  %194 = fptosi float %193 to i16
-  store i16 %194, ptr %55, align 2, !tbaa !79
-  %195 = fsub reassoc nsz arcp contract afn float %183, %187
-  %196 = fmul reassoc nsz arcp contract afn float %195, 3.200000e+04
+  %180 = tail call i32 @llvm.smax.i32(i32 %.sroa.0.0.lcssa.i.us, i32 0)
+  %181 = tail call i32 @llvm.umin.i32(i32 %180, i32 65535)
+  %182 = zext nneg i32 %181 to i64
+  %183 = getelementptr inbounds nuw [65536 x float], ptr %49, i64 0, i64 %182
+  %184 = load float, ptr %183, align 4, !tbaa !72
+  %185 = tail call i32 @llvm.smax.i32(i32 %.sroa.11.0.lcssa.i.us, i32 0)
+  %186 = tail call i32 @llvm.umin.i32(i32 %185, i32 65535)
+  %187 = zext nneg i32 %186 to i64
+  %188 = getelementptr inbounds nuw [65536 x float], ptr %49, i64 0, i64 %187
+  %189 = load float, ptr %188, align 4, !tbaa !72
+  %190 = tail call i32 @llvm.smax.i32(i32 %.sroa.22.0.lcssa.i.us, i32 0)
+  %191 = tail call i32 @llvm.umin.i32(i32 %190, i32 65535)
+  %192 = zext nneg i32 %191 to i64
+  %193 = getelementptr inbounds nuw [65536 x float], ptr %49, i64 0, i64 %192
+  %194 = load float, ptr %193, align 4, !tbaa !72
+  %195 = fmul reassoc nsz arcp contract afn float %189, 7.424000e+03
+  %196 = fadd reassoc nsz arcp contract afn float %195, -1.024000e+03
   %197 = fptosi float %196 to i16
-  %198 = getelementptr inbounds nuw i8, ptr %.087108.us, i64 8
-  store i16 %197, ptr %198, align 2, !tbaa !79
-  %199 = fsub reassoc nsz arcp contract afn float %187, %191
-  %200 = fmul reassoc nsz arcp contract afn float %199, 1.280000e+04
-  %201 = fptosi float %200 to i16
-  %202 = getelementptr inbounds nuw i8, ptr %.087108.us, i64 10
-  store i16 %201, ptr %202, align 2, !tbaa !79
+  store i16 %197, ptr %55, align 2, !tbaa !79
+  %198 = fsub reassoc nsz arcp contract afn float %184, %189
+  %199 = fmul reassoc nsz arcp contract afn float %198, 3.200000e+04
+  %200 = fptosi float %199 to i16
+  %201 = getelementptr inbounds nuw i8, ptr %.087108.us, i64 8
+  store i16 %200, ptr %201, align 2, !tbaa !79
+  %202 = fsub reassoc nsz arcp contract afn float %189, %194
+  %203 = fmul reassoc nsz arcp contract afn float %202, 1.280000e+04
+  %204 = fptosi float %203 to i16
+  %205 = getelementptr inbounds nuw i8, ptr %.087108.us, i64 10
+  store i16 %204, ptr %205, align 2, !tbaa !79
   %.082.us = add nuw i32 %.082111.us, 1
   %exitcond.not = icmp eq i32 %.082.us, %18
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %50, !llvm.loop !87

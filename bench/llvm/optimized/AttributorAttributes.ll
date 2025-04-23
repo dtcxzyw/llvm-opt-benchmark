@@ -72968,8 +72968,8 @@ _ZNK4llvm10IRPosition16getCallSiteArgNoEv.exit.i: ; preds = %_ZNK4llvm10IRPositi
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %47 = load i64, ptr %46, align 8, !tbaa !482
-  %48 = call i64 @llvm.umin.i64(i64 %47, i64 4294967296)
-  %49 = call i64 @llvm.umax.i64(i64 %48, i64 1)
+  %48 = call i64 @llvm.umax.i64(i64 %47, i64 1)
+  %49 = call i64 @llvm.umin.i64(i64 %48, i64 4294967296)
   br label %_ZN12_GLOBAL__N_127clampCallSiteArgumentStatesIN4llvm7AAAlignENS1_15IncIntegerStateImLm4294967296ELm1EEELNS1_9Attribute8AttrKindE86EEEvRNS1_10AttributorERKT_RT0_.exit
 
 _ZN12_GLOBAL__N_127clampCallSiteArgumentStatesIN4llvm7AAAlignENS1_15IncIntegerStateImLm4294967296ELm1EEELNS1_9Attribute8AttrKindE86EEEvRNS1_10AttributorERKT_RT0_.exit: ; preds = %_ZNK4llvm10IRPosition16getCallSiteArgNoEv.exit.i, %42, %45
@@ -73601,8 +73601,8 @@ define internal noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_128AAReturnedFromRe
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load i64, ptr %20, align 8, !tbaa !482
-  %22 = call i64 @llvm.umin.i64(i64 %21, i64 4294967296)
-  %23 = call i64 @llvm.umax.i64(i64 %22, i64 1)
+  %22 = call i64 @llvm.umax.i64(i64 %21, i64 1)
+  %23 = call i64 @llvm.umin.i64(i64 %22, i64 4294967296)
   br label %_ZL24clampReturnedValueStatesIN4llvm7AAAlignENS0_15IncIntegerStateImLm4294967296ELm1EEELNS0_9Attribute8AttrKindE86ELb1EEvRNS0_10AttributorERKT_RT0_PKNS0_8CallBaseE.exit
 
 _ZL24clampReturnedValueStatesIN4llvm7AAAlignENS0_15IncIntegerStateImLm4294967296ELm1EEELNS0_9Attribute8AttrKindE86ELb1EEvRNS0_10AttributorERKT_RT0_PKNS0_8CallBaseE.exit: ; preds = %2, %16, %19

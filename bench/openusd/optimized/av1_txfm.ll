@@ -57,8 +57,8 @@ define hidden void @av1_round_shift_array_c(ptr noundef captures(none) %0, i32 n
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = shl i64 %24, %9
-  %26 = tail call i64 @llvm.smin.i64(i64 %25, i64 2147483647)
-  %27 = tail call range(i64 -2147483648, 2147483648) i64 @llvm.smax.i64(i64 %26, i64 -2147483648)
+  %26 = tail call i64 @llvm.smax.i64(i64 %25, i64 -2147483648)
+  %27 = tail call range(i64 -2147483648, 2147483648) i64 @llvm.smin.i64(i64 %26, i64 2147483647)
   %28 = trunc nsw i64 %27 to i32
   store i32 %28, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -687,8 +687,8 @@ define hidden void @_ZN7VMError18print_native_stackEP12outputStream5frameP6Threa
 13:                                               ; preds = %7
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.11) #21
   %14 = icmp eq i32 %4, -1
-  %15 = tail call i32 @llvm.smin.i32(i32 %4, i32 100)
-  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 0)
+  %15 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
+  %16 = tail call i32 @llvm.smin.i32(i32 %15, i32 100)
   %smax26 = select i1 %14, i32 100, i32 %16
   br i1 %3, label %.split.us, label %.split
 

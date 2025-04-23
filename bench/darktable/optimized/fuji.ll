@@ -3274,8 +3274,8 @@ define void @_ZN6LibRaw10parse_fujiEi(ptr noundef nonnull align 8 dereferenceabl
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 56
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef i32 %134(ptr noundef nonnull align 8 dereferenceable(8) %131)
-  %136 = call i32 @llvm.smin.i32(i32 %135, i32 2)
-  %137 = call i32 @llvm.smax.i32(i32 %136, i32 0)
+  %136 = call i32 @llvm.smax.i32(i32 %135, i32 0)
+  %137 = call i32 @llvm.umin.i32(i32 %136, i32 2)
   %138 = trunc nuw nsw i32 %137 to i8
   %139 = sub nuw nsw i64 35, %indvars.iv294
   %140 = getelementptr inbounds nuw i8, ptr %46, i64 %139
@@ -3902,9 +3902,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12

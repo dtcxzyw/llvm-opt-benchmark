@@ -1194,8 +1194,8 @@ define dso_local void @fork_init() local_unnamed_addr #6 section ".init.text" al
   %15 = icmp sgt i32 %14, 64
   %16 = lshr i64 %12, 5
   %17 = and i64 %16, 140737488355327
-  %18 = call i64 @llvm.umin.i64(i64 %17, i64 1073741823)
-  %19 = call i64 @llvm.umax.i64(i64 %18, i64 20)
+  %18 = call i64 @llvm.umax.i64(i64 %17, i64 20)
+  %19 = call i64 @llvm.umin.i64(i64 %18, i64 1073741823)
   %20 = trunc nuw nsw i64 %19 to i32
   %21 = select i1 %15, i32 1073741823, i32 %20
   store i32 %21, ptr @max_threads, align 4

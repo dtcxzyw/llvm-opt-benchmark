@@ -1305,8 +1305,8 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %205 = getelementptr inbounds %struct.rcCompactSpan, ptr %203, i64 %204
   store i16 %202, ptr %205, align 4
   %206 = sub nsw i32 %201, %194
-  %207 = tail call i32 @llvm.smin.i32(i32 %206, i32 255)
-  %208 = tail call i32 @llvm.smax.i32(i32 %207, i32 0)
+  %207 = tail call i32 @llvm.smax.i32(i32 %206, i32 0)
+  %208 = tail call i32 @llvm.umin.i32(i32 %207, i32 255)
   %209 = load ptr, ptr %85, align 8
   %210 = getelementptr inbounds %struct.rcCompactSpan, ptr %209, i64 %204, i32 2
   %211 = load i32, ptr %210, align 4
@@ -1423,9 +1423,6 @@ declare void @llvm.va_start.p0(ptr) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #18

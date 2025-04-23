@@ -830,8 +830,8 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   br i1 %.not, label %33, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %invariant.umin = tail call i32 @llvm.umin.i32(i32 %26, i32 4096)
-  %wide.trip.count = zext nneg i32 %invariant.umin to i64
+  %umax = tail call i32 @llvm.umin.i32(i32 %26, i32 4096)
+  %wide.trip.count = zext nneg i32 %umax to i64
   br label %28
 
 .critedge:                                        ; preds = %28

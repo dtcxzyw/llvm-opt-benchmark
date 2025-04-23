@@ -2275,8 +2275,8 @@ define dso_local i32 @kernel_execve(ptr noundef %0, ptr noundef readonly capture
   %78 = getelementptr inbounds nuw i8, ptr %18, i64 144
   %79 = load i64, ptr %78, align 8
   %80 = lshr i64 %79, 2
-  %81 = tail call i64 @llvm.umin.i64(i64 %80, i64 6291456)
-  %82 = tail call i64 @llvm.umax.i64(i64 %81, i64 131072)
+  %81 = tail call i64 @llvm.umax.i64(i64 %80, i64 131072)
+  %82 = tail call i64 @llvm.umin.i64(i64 %81, i64 6291456)
   %83 = tail call i32 @llvm.smax.i32(i32 %75, i32 1)
   %84 = add nuw i32 %83, %76
   %85 = sext i32 %84 to i64
@@ -3748,8 +3748,8 @@ define internal fastcc i32 @do_execveat_common(i32 noundef %0, ptr noundef %1, i
   %54 = getelementptr inbounds nuw i8, ptr %32, i64 144
   %55 = load i64, ptr %54, align 8
   %56 = lshr i64 %55, 2
-  %57 = tail call i64 @llvm.umin.i64(i64 %56, i64 6291456)
-  %58 = tail call i64 @llvm.umax.i64(i64 %57, i64 131072)
+  %57 = tail call i64 @llvm.umax.i64(i64 %56, i64 131072)
+  %58 = tail call i64 @llvm.umin.i64(i64 %57, i64 6291456)
   %59 = load i32, ptr %49, align 8
   %60 = tail call i32 @llvm.smax.i32(i32 %59, i32 1)
   %61 = add nuw i32 %60, %50

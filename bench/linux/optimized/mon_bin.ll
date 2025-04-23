@@ -1857,8 +1857,8 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
 18:                                               ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %20 = load i32, ptr %19, align 4
-  %21 = call i32 @llvm.smin.i32(i32 %20, i32 128)
-  %22 = call i32 @llvm.smax.i32(i32 %21, i32 0)
+  %21 = call i32 @llvm.smax.i32(i32 %20, i32 0)
+  %22 = call i32 @llvm.umin.i32(i32 %21, i32 128)
   %23 = icmp eq i8 %2, 67
   br i1 %23, label %24, label %.loopexit20
 
@@ -2387,9 +2387,6 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

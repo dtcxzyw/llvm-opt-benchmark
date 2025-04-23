@@ -8029,8 +8029,8 @@ mpd_seterror.exit45:                              ; preds = %55, %58, %70
   %89 = sub nsw i64 1, %88
   %90 = mul i64 %89, %45
   %91 = add i64 %90, %84
-  %92 = tail call i64 @llvm.smin.i64(i64 %91, i64 2000000000000000001)
-  %93 = tail call i64 @llvm.smax.i64(i64 %92, i64 -4000000000000000001)
+  %92 = tail call i64 @llvm.smax.i64(i64 %91, i64 -4000000000000000001)
+  %93 = tail call i64 @llvm.smin.i64(i64 %92, i64 2000000000000000001)
   %94 = tail call i32 @mpd_qcopy(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %93, ptr %95, align 8, !tbaa !7

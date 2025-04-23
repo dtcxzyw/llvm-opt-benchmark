@@ -5286,8 +5286,8 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %131, %142
   %.0.i.i16 = phi i64 [ %143, %142 ], [ %140, %131 ]
   %144 = trunc nsw i64 %.0.i.i16 to i32
   %145 = ashr i32 %144, 6
-  %146 = tail call i32 @llvm.smin.i32(i32 %145, i32 1024)
-  %147 = tail call i32 @llvm.smax.i32(i32 %146, i32 -1023)
+  %146 = tail call i32 @llvm.smax.i32(i32 %145, i32 -1023)
+  %147 = tail call i32 @llvm.smin.i32(i32 %146, i32 1024)
   %148 = add nsw i32 %147, 1023
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
   %149 = zext nneg i32 %148 to i64
@@ -5735,8 +5735,8 @@ _Z7cvRoundRKN2cv10softdoubleE.exit:               ; preds = %105, %116
   %.0.i.i.i = phi i64 [ %117, %116 ], [ %114, %105 ]
   %118 = trunc nsw i64 %.0.i.i.i to i32
   %119 = ashr i32 %118, 6
-  %120 = tail call i32 @llvm.smin.i32(i32 %119, i32 1024)
-  %121 = tail call i32 @llvm.smax.i32(i32 %120, i32 -1023)
+  %120 = tail call i32 @llvm.smax.i32(i32 %119, i32 -1023)
+  %121 = tail call i32 @llvm.smin.i32(i32 %120, i32 1024)
   %122 = add nsw i32 %121, 1023
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
   %123 = zext nneg i32 %122 to i64

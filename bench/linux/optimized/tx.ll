@@ -4148,8 +4148,8 @@ define internal fastcc noundef zeroext i1 @ieee80211_queue_skb(ptr noundef %0, p
   %258 = getelementptr inbounds nuw i8, ptr %254, i64 40
   %259 = load i32, ptr %258, align 8
   %260 = lshr i32 %259, 1
-  %261 = tail call i32 @llvm.umin.i32(i32 %260, i32 32)
-  %262 = tail call i32 @llvm.umax.i32(i32 %261, i32 1)
+  %261 = tail call i32 @llvm.umax.i32(i32 %260, i32 1)
+  %262 = tail call i32 @llvm.umin.i32(i32 %261, i32 32)
   br label %263
 
 263:                                              ; preds = %271, %256

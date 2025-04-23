@@ -6177,11 +6177,11 @@ define dso_local i32 @__kmem_cache_create(ptr noundef initializes((8, 12), (24, 
   %44 = load i32, ptr %3, align 8
   %45 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %44, i32 -1) #29, !srcloc !39
   %46 = sdiv i32 %45, 2
-  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 10)
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %49 = tail call i32 @llvm.umax.i32(i32 %47, i32 5)
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %48 = tail call i32 @llvm.umax.i32(i32 %46, i32 5)
+  %49 = tail call i32 @llvm.umin.i32(i32 %48, i32 10)
   %50 = zext nneg i32 %49 to i64
-  store i64 %50, ptr %48, align 8
+  store i64 %50, ptr %47, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @slub_debug_enabled, i32 2) #27
           to label %55 [label %51], !srcloc !6
 

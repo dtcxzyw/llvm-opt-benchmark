@@ -7124,18 +7124,18 @@ define hidden noundef i32 @_ZN5tokio7runtime9scheduler12multi_thread5stats5Stats
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !noundef !55
-  br label %12
+  br label %13
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load double, ptr %8, align 8, !noundef !55
   %10 = fdiv double 2.000000e+05, %9
   %11 = tail call i32 @llvm.fptoui.sat.i32.f64(double %10)
-  %.0.sroa.speculated.i = tail call noundef i32 @llvm.umin.i32(i32 %11, i32 127)
-  %.0.sroa.speculated.i1 = tail call noundef i32 @llvm.umax.i32(i32 %.0.sroa.speculated.i, i32 2)
-  br label %12
+  %12 = tail call i32 @llvm.umax.i32(i32 %11, i32 2)
+  %.0.sroa.speculated.i1 = tail call i32 @llvm.umin.i32(i32 %12, i32 127)
+  br label %13
 
-12:                                               ; preds = %7, %4
+13:                                               ; preds = %7, %4
   %.0 = phi i32 [ %6, %4 ], [ %.0.sroa.speculated.i1, %7 ]
   ret i32 %.0
 }

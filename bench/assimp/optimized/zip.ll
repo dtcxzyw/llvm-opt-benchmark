@@ -18235,8 +18235,8 @@ mz_zip_set_error.exit408:                         ; preds = %211
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %224 = load ptr, ptr %223, align 8
-  %225 = call i64 @llvm.umin.i64(i64 %135, i64 65536)
-  %226 = call i64 @llvm.umax.i64(i64 %225, i64 32)
+  %225 = call i64 @llvm.umax.i64(i64 %135, i64 32)
+  %226 = call i64 @llvm.umin.i64(i64 %225, i64 65536)
   %227 = call ptr %222(ptr noundef %224, i64 noundef 1, i64 noundef %226) #35
   %228 = icmp eq ptr %227, null
   br i1 %228, label %mz_zip_set_error.exit406, label %.preheader

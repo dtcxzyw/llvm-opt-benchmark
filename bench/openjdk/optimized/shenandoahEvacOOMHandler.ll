@@ -107,8 +107,8 @@ define hidden noundef zeroext i1 @_ZN24ShenandoahEvacOOMCounter13try_incrementEv
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24ShenandoahEvacOOMHandlerC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 4), (72, 80)) %0) unnamed_addr #1 align 2 {
   %2 = tail call noundef i32 @_ZN2os22active_processor_countEv() #8
-  %3 = tail call noundef i32 @llvm.smin.i32(i32 %2, i32 128)
-  %4 = tail call noundef i32 @llvm.smax.i32(i32 %3, i32 1)
+  %3 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
+  %4 = tail call i32 @llvm.umin.i32(i32 %3, i32 128)
   %5 = tail call range(i32 1, 9) i32 @llvm.ctpop.i32(i32 %4)
   %6 = icmp samesign ult i32 %5, 2
   %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %4, i1 true)
@@ -143,8 +143,8 @@ define hidden void @_ZN24ShenandoahEvacOOMHandlerC2Ev(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 1, 257) i32 @_ZN24ShenandoahEvacOOMHandler17calc_num_countersEv() local_unnamed_addr #1 align 2 {
   %1 = tail call noundef i32 @_ZN2os22active_processor_countEv() #8
-  %2 = tail call noundef i32 @llvm.smin.i32(i32 %1, i32 128)
-  %3 = tail call noundef i32 @llvm.smax.i32(i32 %2, i32 1)
+  %2 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
+  %3 = tail call i32 @llvm.umin.i32(i32 %2, i32 128)
   %4 = tail call range(i32 1, 9) i32 @llvm.ctpop.i32(i32 %3)
   %5 = icmp samesign ult i32 %4, 2
   %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
@@ -572,10 +572,10 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

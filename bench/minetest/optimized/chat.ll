@@ -10169,16 +10169,16 @@ if.then.i.i19:                                    ; preds = %invoke.cont4
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #27
-  %cond = call i32 @llvm.umin.i32(i32 %call, i32 20)
-  %cond11 = call i32 @llvm.umax.i32(i32 %cond, i32 2)
+  %6 = call i32 @llvm.umax.i32(i32 %call, i32 2)
+  %cond11 = call i32 @llvm.umin.i32(i32 %6, i32 20)
   %m_recent_buffer = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 %cond11, ptr %m_recent_buffer, align 8, !tbaa !4
   %m_unformatted.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %6 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !53
-  %7 = load ptr, ptr %m_unformatted.i, align 8, !tbaa !52
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
+  %7 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !53
+  %8 = load ptr, ptr %m_unformatted.i, align 8, !tbaa !52
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 168
   %conv.i = zext nneg i32 %cond11 to i64
@@ -10186,8 +10186,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   br i1 %cmp.i, label %if.then.i, label %_ZN10ChatBuffer6resizeEj.exit
 
 if.then.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %8 = trunc i64 %sub.ptr.div.i.i to i32
-  %conv7.i = sub i32 %8, %cond11
+  %9 = trunc i64 %sub.ptr.div.i.i to i32
+  %conv7.i = sub i32 %9, %cond11
   call void @_ZN10ChatBuffer12deleteOldestEj(ptr noundef nonnull align 8 dereferenceable(113) %m_recent_buffer, i32 noundef %conv7.i)
   br label %_ZN10ChatBuffer6resizeEj.exit
 
@@ -10195,25 +10195,25 @@ _ZN10ChatBuffer6resizeEj.exit:                    ; preds = %if.then.i, %_ZNSt7_
   ret void
 
 lpad3:                                            ; preds = %entry
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %10 = load ptr, ptr %ref.tmp, align 8, !tbaa !33
-  %cmp.i.i.i20 = icmp eq ptr %10, %1
+  %11 = load ptr, ptr %ref.tmp, align 8, !tbaa !33
+  %cmp.i.i.i20 = icmp eq ptr %11, %1
   br i1 %cmp.i.i.i20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22, label %if.then.i.i21
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22: ; preds = %lpad3
-  %11 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !36
-  %cmp3.i.i.i24 = icmp ult i64 %11, 16
+  %12 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !36
+  %cmp3.i.i.i24 = icmp ult i64 %12, 16
   call void @llvm.assume(i1 %cmp3.i.i.i24)
   br label %ehcleanup
 
 if.then.i.i21:                                    ; preds = %lpad3
-  call void @_ZdlPv(ptr noundef %10) #28
+  call void @_ZdlPv(ptr noundef %11) #28
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #27
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %10
 }
 
 declare noundef i32 @_ZNK8Settings6getU32ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0

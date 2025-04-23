@@ -16017,8 +16017,8 @@ _ZL55mz_zip_writer_compute_padding_needed_for_file_alignmentP18mz_zip_archive_ta
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %86 = load ptr, ptr %85, align 8
-  %87 = call i64 @llvm.umin.i64(i64 %82, i64 65536)
-  %88 = call i64 @llvm.umax.i64(i64 %87, i64 16)
+  %87 = call i64 @llvm.umax.i64(i64 %82, i64 16)
+  %88 = call i64 @llvm.umin.i64(i64 %87, i64 65536)
   %89 = call noundef ptr %84(ptr noundef %86, i64 noundef 1, i64 noundef %88)
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.critedge, label %.preheader

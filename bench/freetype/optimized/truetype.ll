@@ -15114,8 +15114,8 @@ define internal fastcc void @ft_var_to_normalized(ptr noundef readonly captures(
   %117 = shl i32 %116, 2
   %118 = sext i32 %117 to i64
   %119 = add nsw i64 %103, %118
-  %120 = call i64 @llvm.smin.i64(i64 %119, i64 65536)
-  %121 = call i64 @llvm.smax.i64(i64 %120, i64 -65536)
+  %120 = call i64 @llvm.smax.i64(i64 %119, i64 -65536)
+  %121 = call i64 @llvm.smin.i64(i64 %120, i64 65536)
   %122 = getelementptr inbounds nuw i64, ptr %91, i64 %indvars.iv198
   store i64 %121, ptr %122, align 8, !tbaa !223
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
