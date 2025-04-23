@@ -2182,7 +2182,7 @@ u2a.exit389.i:                                    ; preds = %.lr.ph49.i383.i, %.
   br i1 %.not310.i, label %.thread._crit_edge.i, label %774
 
 .thread._crit_edge.i:                             ; preds = %.thread.i37
-  %.pre572.i = load i32, ptr %485, align 8, !tbaa !53
+  %.pre572.i = load i32, ptr %485, align 8
   br label %780
 
 774:                                              ; preds = %.thread.i37
@@ -2345,7 +2345,7 @@ u2a.exit389.i:                                    ; preds = %.lr.ph49.i383.i, %.
   br i1 %.not346.not.i, label %.thread396.i, label %._crit_edge588.i
 
 ._crit_edge588.i:                                 ; preds = %829
-  %.pre585.pre.i = load ptr, ptr %821, align 8, !tbaa !59
+  %.pre585.pre.i = load ptr, ptr %821, align 8
   br label %833
 
 .thread396.i:                                     ; preds = %829
@@ -2368,7 +2368,7 @@ u2a.exit389.i:                                    ; preds = %.lr.ph49.i383.i, %.
 
 839:                                              ; preds = %835
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.515, ptr noundef %.pre585.i) #14
-  %.pre584.i = load ptr, ptr %821, align 8, !tbaa !59
+  %.pre584.i = load ptr, ptr %821, align 8
   br label %840
 
 840:                                              ; preds = %839, %835, %833
@@ -2431,7 +2431,7 @@ u2a.exit389.i:                                    ; preds = %.lr.ph49.i383.i, %.
   br i1 %.not342.not.i, label %.thread398.i, label %._crit_edge586.i
 
 ._crit_edge586.i:                                 ; preds = %871
-  %.pre583.pre.i = load ptr, ptr %863, align 8, !tbaa !59
+  %.pre583.pre.i = load ptr, ptr %863, align 8
   br label %875
 
 .thread398.i:                                     ; preds = %871
@@ -2454,7 +2454,7 @@ u2a.exit389.i:                                    ; preds = %.lr.ph49.i383.i, %.
 
 881:                                              ; preds = %877
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.519, ptr noundef %.pre583.i) #14
-  %.pre582.i = load ptr, ptr %863, align 8, !tbaa !59
+  %.pre582.i = load ptr, ptr %863, align 8
   br label %882
 
 882:                                              ; preds = %881, %877, %875
@@ -2497,9 +2497,9 @@ u2a.exit389.i:                                    ; preds = %.lr.ph49.i383.i, %.
   br i1 %.not339.i, label %904, label %..thread400_crit_edge.i
 
 ..thread400_crit_edge.i:                          ; preds = %900
-  %.pre579.i = load i32, ptr %486, align 8, !tbaa !55
-  %.pre580.i = load ptr, ptr %5, align 8, !tbaa !54
-  %.pre581.i = load i32, ptr %487, align 4, !tbaa !56
+  %.pre579.i = load i32, ptr %486, align 8
+  %.pre580.i = load ptr, ptr %5, align 8
+  %.pre581.i = load i32, ptr %487, align 4
   br label %.thread400.i
 
 904:                                              ; preds = %900
@@ -2553,9 +2553,9 @@ u2a.exit389.i:                                    ; preds = %.lr.ph49.i383.i, %.
   br i1 %.not336.not.i, label %.thread404.i, label %._crit_edge575.i
 
 ._crit_edge575.i:                                 ; preds = %926
-  %.pre576.i = load ptr, ptr %5, align 8, !tbaa !54
-  %.pre577.i = load i32, ptr %487, align 4, !tbaa !56
-  %.pre578.i = load i32, ptr %486, align 8, !tbaa !55
+  %.pre576.i = load ptr, ptr %5, align 8
+  %.pre577.i = load i32, ptr %487, align 4
+  %.pre578.i = load i32, ptr %486, align 8
   br label %930
 
 .thread404.i:                                     ; preds = %926
@@ -2860,7 +2860,7 @@ u2a.exit389.i:                                    ; preds = %.lr.ph49.i383.i, %.
   br i1 %.not323.i, label %1103, label %..thread412_crit_edge.i
 
 ..thread412_crit_edge.i:                          ; preds = %1099
-  %.pre574.i = load i32, ptr %486, align 8, !tbaa !55
+  %.pre574.i = load i32, ptr %486, align 8
   br label %.thread412.i
 
 1103:                                             ; preds = %1099
@@ -2900,7 +2900,7 @@ u2a.exit389.i:                                    ; preds = %.lr.ph49.i383.i, %.
   br i1 %.not321.i, label %1123, label %..thread416_crit_edge.i
 
 ..thread416_crit_edge.i:                          ; preds = %1119
-  %.pre573.i = load i32, ptr %486, align 8, !tbaa !55
+  %.pre573.i = load i32, ptr %486, align 8
   %.pre590.i = add i32 %.pre573.i, 1
   br label %.thread416.i
 
@@ -3128,6 +3128,7 @@ define internal fastcc void @MT_decrypt(ptr noundef captures(none) %0, i32 nound
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %5, ptr %4, align 8, !tbaa !62
   %.not16 = icmp eq i32 %1, 0
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
@@ -3145,20 +3146,20 @@ define internal fastcc void @MT_decrypt(ptr noundef captures(none) %0, i32 nound
   %20 = phi ptr [ %5, %.lr.ph ], [ %70, %MT_getnext.exit ]
   %21 = add i32 %.01317, -1
   %22 = add i32 %19, -1
-  store i32 %22, ptr %15, align 8, !tbaa !62
+  store i32 %22, ptr %15, align 8, !tbaa !65
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %._crit_edge58.i
 
 ._crit_edge58.i:                                  ; preds = %18
-  %.pre60.i = load i32, ptr %20, align 4, !tbaa !49
+  %.pre60.i = load i32, ptr %20, align 4
   br label %MT_getnext.exit
 
 23:                                               ; preds = %18
-  store i32 624, ptr %15, align 8, !tbaa !62
+  store i32 624, ptr %15, align 8, !tbaa !65
   br label %24
 
 .lr.ph.preheader.i:                               ; preds = %24
-  %.pre57.i = load i32, ptr %.phi.trans.insert.i, align 8, !tbaa !49
+  %.pre57.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %.lr.ph.i
 
 24:                                               ; preds = %24, %23
@@ -3227,6 +3228,7 @@ MT_getnext.exit:                                  ; preds = %._crit_edge58.i, %.
   %68 = phi i32 [ %.pre60.i, %._crit_edge58.i ], [ %56, %._crit_edge.i ]
   %69 = phi ptr [ %20, %._crit_edge58.i ], [ %5, %._crit_edge.i ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  store ptr %70, ptr %4, align 8, !tbaa !62
   %71 = lshr i32 %68, 11
   %72 = xor i32 %71, %68
   %73 = shl i32 %72, 7
@@ -3718,6 +3720,7 @@ attributes #15 = { nounwind willreturn memory(read) }
 !59 = !{!5, !5, i64 0}
 !60 = !{!61, !61, i64 0}
 !61 = !{!"double", !7, i64 0}
-!62 = !{!63, !14, i64 8}
+!62 = !{!63, !64, i64 0}
 !63 = !{!"MT", !64, i64 0, !14, i64 8, !7, i64 12}
 !64 = !{!"p1 int", !6, i64 0}
+!65 = !{!63, !14, i64 8}

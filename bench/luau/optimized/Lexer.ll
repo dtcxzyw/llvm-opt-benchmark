@@ -4016,7 +4016,7 @@ define dso_local void @_ZN4Luau5Lexer15readCommentBodyEv(ptr dead_on_unwind noal
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !59
   %13 = icmp ugt i64 %12, %10
-  %.pre.pre = load ptr, ptr %1, align 8, !tbaa !51
+  %.pre.pre = load ptr, ptr %1, align 8
   br i1 %13, label %_ZNK4Luau5Lexer6peekchEv.exit11, label %.critedge8
 
 _ZNK4Luau5Lexer6peekchEv.exit11:                  ; preds = %2
@@ -4303,7 +4303,7 @@ define dso_local void @_ZN4Luau5Lexer14readLongStringERKNS_8PositionEiNS_6Lexeme
 
 ._ZNK4Luau5Lexer6peekchEv.exit9.thread_crit_edge: ; preds = %6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !66
+  %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %_ZNK4Luau5Lexer6peekchEv.exit9.thread
 
 _ZNK4Luau5Lexer6peekchEv.exit9.lr.ph:             ; preds = %6
@@ -4599,7 +4599,7 @@ _ZNK4Luau5Lexer6peekchEv.exit3.thread:            ; preds = %_ZN4Luau5Lexer21rea
   br i1 %.not17, label %_ZNK4Luau5Lexer6peekchEv.exit3.thread..loopexit_crit_edge, label %_ZNK4Luau5Lexer6peekchEv.exit.thread
 
 _ZNK4Luau5Lexer6peekchEv.exit3.thread..loopexit_crit_edge: ; preds = %_ZNK4Luau5Lexer6peekchEv.exit3.thread
-  %.pre = load ptr, ptr %1, align 8, !tbaa !51
+  %.pre = load ptr, ptr %1, align 8
   br label %.loopexit
 
 _ZNK4Luau5Lexer6peekchEv.exit:                    ; preds = %_ZNK4Luau5Lexer6peekchEv.exit3
@@ -4803,7 +4803,7 @@ define dso_local void @_ZN4Luau5Lexer29readInterpolatedStringSectionENS_8Positio
 
 ._ZNK4Luau5Lexer6peekchEv.exit.thread_crit_edge:  ; preds = %5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.pre52 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !66
+  %.pre52 = load i32, ptr %.phi.trans.insert, align 4
   br label %_ZNK4Luau5Lexer6peekchEv.exit.thread
 
 _ZNK4Luau5Lexer6peekchEv.exit8.lr.ph:             ; preds = %5
@@ -5015,13 +5015,11 @@ _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.
 
 98:                                               ; preds = %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %81, i64 noundef %84) #29
-  %.pre.pre = load i32, ptr %6, align 8, !tbaa !60
-  %.pre50.pre = load i64, ptr %8, align 8, !tbaa !59
-  %.pre51.pre.pre = load ptr, ptr %1, align 8, !tbaa !51
+  %.pre.pre = load i32, ptr %6, align 8
+  %.pre50.pre = load i64, ptr %8, align 8
   br label %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %98, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  %.pre51.pre = phi ptr [ %.pre51.pre.pre, %98 ], [ %12, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i ]
   %.pre50 = phi i64 [ %.pre50.pre, %98 ], [ %9, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i ]
   %.pre = phi i32 [ %.pre.pre, %98 ], [ %17, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i ]
   store ptr %93, ptr %73, align 8, !tbaa !88
@@ -5031,32 +5029,32 @@ _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_
   br label %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit: ; preds = %78, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
-  %.pre51 = phi ptr [ %12, %78 ], [ %.pre51.pre, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   %100 = phi i64 [ %9, %78 ], [ %.pre50, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   %101 = phi i32 [ %17, %78 ], [ %.pre, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   %102 = add i32 %101, 1
   %103 = zext i32 %102 to i64
   %104 = icmp ugt i64 %100, %103
+  %.pre51 = load ptr, ptr %1, align 8
   br i1 %104, label %_ZNK4Luau5Lexer6peekchEj.exit10, label %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge
 
 _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge: ; preds = %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit
-  %.pre56 = load i32, ptr %13, align 4, !tbaa !66
-  %.pre58 = load i32, ptr %14, align 8, !tbaa !67
+  %.pre55 = load i32, ptr %13, align 4
+  %.pre57 = load i32, ptr %14, align 8
   br label %_ZNK4Luau5Lexer6peekchEj.exit10.thread
 
 _ZNK4Luau5Lexer6peekchEj.exit10:                  ; preds = %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit
   %105 = getelementptr inbounds nuw i8, ptr %.pre51, i64 %103
   %106 = load i8, ptr %105, align 1, !tbaa !15
   %107 = icmp eq i8 %106, 123
-  %.pre57 = load i32, ptr %13, align 4, !tbaa !66
-  %.pre59 = load i32, ptr %14, align 8, !tbaa !67
+  %.pre56 = load i32, ptr %13, align 4
+  %.pre58 = load i32, ptr %14, align 8
   br i1 %107, label %108, label %_ZNK4Luau5Lexer6peekchEj.exit10.thread
 
 108:                                              ; preds = %_ZNK4Luau5Lexer6peekchEj.exit10
-  %109 = sub i32 %101, %.pre59
+  %109 = sub i32 %101, %.pre58
   %.sroa.431.0.insert.ext = zext i32 %109 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
-  %.sroa.030.0.insert.ext = zext i32 %.pre57 to i64
+  %.sroa.030.0.insert.ext = zext i32 %.pre56 to i64
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %.sroa.030.0.insert.ext
   %110 = getelementptr inbounds nuw i8, ptr %.pre51, i64 %10
   %111 = sub i32 %101, %7
@@ -5074,8 +5072,8 @@ _ZNK4Luau5Lexer6peekchEj.exit10:                  ; preds = %_ZNSt6vectorIN4Luau
   br label %139
 
 _ZNK4Luau5Lexer6peekchEj.exit10.thread:           ; preds = %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge, %_ZNK4Luau5Lexer6peekchEj.exit10
-  %116 = phi i32 [ %.pre58, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge ], [ %.pre59, %_ZNK4Luau5Lexer6peekchEj.exit10 ]
-  %117 = phi i32 [ %.pre56, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge ], [ %.pre57, %_ZNK4Luau5Lexer6peekchEj.exit10 ]
+  %116 = phi i32 [ %.pre57, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge ], [ %.pre58, %_ZNK4Luau5Lexer6peekchEj.exit10 ]
+  %117 = phi i32 [ %.pre55, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge ], [ %.pre56, %_ZNK4Luau5Lexer6peekchEj.exit10 ]
   store i32 %102, ptr %6, align 8, !tbaa !60
   %118 = sub i32 %102, %116
   %.sroa.429.0.insert.ext = zext i32 %118 to i64
@@ -5217,7 +5215,7 @@ define dso_local void @_ZN4Luau5Lexer10readNumberERKNS_8PositionEj(ptr dead_on_u
   store i32 %8, ptr %5, align 8, !tbaa !60
   %9 = zext i32 %8 to i64
   %10 = icmp ugt i64 %7, %9
-  %.pre.pre.pre = load ptr, ptr %1, align 8, !tbaa !51
+  %.pre.pre.pre = load ptr, ptr %1, align 8
   br i1 %10, label %_ZNK4Luau5Lexer6peekchEv.exit13, label %_ZNK4Luau5Lexer6peekchEv.exit9.thread
 
 _ZNK4Luau5Lexer6peekchEv.exit13:                  ; preds = %4, %.backedge
@@ -6189,7 +6187,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableINS_12AstName
   br i1 %exitcond.not.i.i, label %_ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EEC2ERKS3_m.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !39
 
 _ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EEC2ERKS3_m.exit.loopexit: ; preds = %.lr.ph.i.i
-  %.pre = load i64, ptr %2, align 8, !tbaa !38
+  %.pre = load i64, ptr %2, align 8
   br label %_ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EEC2ERKS3_m.exit
 
 _ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EEC2ERKS3_m.exit: ; preds = %_ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EEC2ERKS3_m.exit.loopexit, %1
@@ -6201,11 +6199,11 @@ _ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfac
 .lr.ph:                                           ; preds = %_ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EEC2ERKS3_m.exit
   %13 = add i64 %spec.select, -1
   %14 = zext i32 %.sroa.20.24.copyload to i64
-  %.pre33 = load ptr, ptr %0, align 8, !tbaa !33
+  %.pre33 = load ptr, ptr %0, align 8
   br label %17
 
 ._crit_edge:                                      ; preds = %_ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EEC2ERKS3_m.exit
-  %.pre32 = load ptr, ptr %0, align 8, !tbaa !110
+  %.pre32 = load ptr, ptr %0, align 8
   store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !110
   store i64 %spec.select, ptr %2, align 8, !tbaa !23
   %.not.i11 = icmp eq ptr %.pre32, null

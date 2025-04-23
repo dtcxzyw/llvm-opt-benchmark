@@ -641,7 +641,7 @@ define hidden void @luaD_hook(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 
 44:                                               ; preds = %37
   %45 = tail call i32 @luaD_growstack(ptr noundef nonnull %0, i32 noundef 20, i32 noundef 1)
-  %.pre = load ptr, ptr %15, align 8, !tbaa !27
+  %.pre = load ptr, ptr %15, align 8
   br label %46
 
 46:                                               ; preds = %37, %44
@@ -768,7 +768,7 @@ define hidden void @luaD_hookcall(ptr noundef initializes((180, 184)) %0, ptr no
 
 60:                                               ; preds = %53
   %61 = tail call i32 @luaD_growstack(ptr noundef nonnull %0, i32 noundef 20, i32 noundef 1)
-  %.pre.i = load ptr, ptr %31, align 8, !tbaa !27
+  %.pre.i = load ptr, ptr %31, align 8
   br label %62
 
 62:                                               ; preds = %60, %53
@@ -799,7 +799,7 @@ define hidden void @luaD_hookcall(ptr noundef initializes((180, 184)) %0, ptr no
   %76 = and i32 %75, -1048577
   store i32 %76, ptr %46, align 4, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #13
-  %.pre = load ptr, ptr %17, align 8, !tbaa !27
+  %.pre = load ptr, ptr %17, align 8
   br label %luaD_hook.exit
 
 luaD_hook.exit:                                   ; preds = %8, %25, %68
@@ -1025,7 +1025,7 @@ define internal fastcc void @rethook(ptr noundef %0, ptr noundef captures(none) 
   %15 = load i32, ptr %14, align 4, !tbaa !43
   %16 = and i32 %15, 32768
   %.not20 = icmp eq i32 %16, 0
-  %.pre = load ptr, ptr %1, align 8, !tbaa !27
+  %.pre = load ptr, ptr %1, align 8
   br i1 %.not20, label %17, label %33
 
 17:                                               ; preds = %8
@@ -1120,7 +1120,7 @@ define internal fastcc void @rethook(ptr noundef %0, ptr noundef captures(none) 
 
 76:                                               ; preds = %69
   %77 = tail call i32 @luaD_growstack(ptr noundef nonnull %0, i32 noundef 20, i32 noundef 1)
-  %.pre.i = load ptr, ptr %9, align 8, !tbaa !27
+  %.pre.i = load ptr, ptr %9, align 8
   br label %78
 
 78:                                               ; preds = %76, %69
@@ -1151,7 +1151,7 @@ define internal fastcc void @rethook(ptr noundef %0, ptr noundef captures(none) 
   %92 = and i32 %91, -1048577
   store i32 %92, ptr %62, align 4, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #13
-  %.pre23 = load ptr, ptr %1, align 8, !tbaa !27
+  %.pre23 = load ptr, ptr %1, align 8
   br label %luaD_hook.exit
 
 luaD_hook.exit:                                   ; preds = %33, %42, %84
@@ -1200,7 +1200,7 @@ define hidden noundef i32 @luaD_pretailcall(ptr noundef %0, ptr noundef captures
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = sext i32 %3 to i64
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !27
+  %.pre = load i8, ptr %.phi.trans.insert, align 8
   br label %10
 
 10:                                               ; preds = %tryfuncTM.exit, %5
@@ -1236,7 +1236,7 @@ define hidden noundef i32 @luaD_pretailcall(ptr noundef %0, ptr noundef captures
   %28 = tail call i32 @luaD_growstack(ptr noundef nonnull %0, i32 noundef 20, i32 noundef 1)
   %29 = load ptr, ptr %8, align 8, !tbaa !27
   %30 = getelementptr inbounds i8, ptr %29, i64 %27
-  %.pre.i = load ptr, ptr %7, align 8, !tbaa !27
+  %.pre.i = load ptr, ptr %7, align 8
   br label %31
 
 31:                                               ; preds = %23, %13
@@ -1303,7 +1303,7 @@ precallC.exit:                                    ; preds = %prepCallInfo.exit.i
   %69 = tail call i32 @luaD_growstack(ptr noundef nonnull %0, i32 noundef 20, i32 noundef 1)
   %70 = load ptr, ptr %8, align 8, !tbaa !27
   %71 = getelementptr inbounds i8, ptr %70, i64 %68
-  %.pre.i72 = load ptr, ptr %7, align 8, !tbaa !27
+  %.pre.i72 = load ptr, ptr %7, align 8
   br label %72
 
 72:                                               ; preds = %64, %56
@@ -1413,7 +1413,7 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre122 = load ptr, ptr %1, align 8, !tbaa !27
+  %.pre122 = load ptr, ptr %1, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %123
@@ -1504,7 +1504,7 @@ precallC.exit73:                                  ; preds = %prepCallInfo.exit.i
   br i1 %181, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre.i74 = load ptr, ptr %7, align 8, !tbaa !27
+  %.pre.i74 = load ptr, ptr %7, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %173
@@ -1542,7 +1542,7 @@ define hidden noundef ptr @luaD_precall(ptr noundef %0, ptr noundef %1, i32 noun
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !27
+  %.pre = load i8, ptr %.phi.trans.insert, align 8
   br label %8
 
 8:                                                ; preds = %tryfuncTM.exit, %3
@@ -1576,7 +1576,7 @@ define hidden noundef ptr @luaD_precall(ptr noundef %0, ptr noundef %1, i32 noun
   %26 = tail call i32 @luaD_growstack(ptr noundef nonnull %0, i32 noundef 20, i32 noundef 1)
   %27 = load ptr, ptr %7, align 8, !tbaa !27
   %28 = getelementptr inbounds i8, ptr %27, i64 %25
-  %.pre.i = load ptr, ptr %6, align 8, !tbaa !27
+  %.pre.i = load ptr, ptr %6, align 8
   br label %29
 
 29:                                               ; preds = %21, %11
@@ -1627,7 +1627,7 @@ prepCallInfo.exit.i:                              ; preds = %37, %29
   %58 = tail call i32 @luaD_growstack(ptr noundef nonnull %0, i32 noundef 20, i32 noundef 1)
   %59 = load ptr, ptr %7, align 8, !tbaa !27
   %60 = getelementptr inbounds i8, ptr %59, i64 %57
-  %.pre.i54 = load ptr, ptr %6, align 8, !tbaa !27
+  %.pre.i54 = load ptr, ptr %6, align 8
   br label %61
 
 61:                                               ; preds = %53, %45
@@ -1785,7 +1785,7 @@ prepCallInfo.exit:                                ; preds = %106, %113
   br i1 %155, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre.i57 = load ptr, ptr %6, align 8, !tbaa !27
+  %.pre.i57 = load ptr, ptr %6, align 8
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %147
@@ -2137,7 +2137,7 @@ precover.exit.thread:                             ; preds = %findpcall.exit.i, %
 
 precover.exit.thread._crit_edge:                  ; preds = %precover.exit.thread
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !27
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %110
 
 105:                                              ; preds = %precover.exit.thread
@@ -2657,11 +2657,9 @@ define internal void @unroll(ptr noundef %0, ptr readnone captures(none) %1) #0 
   tail call void @luaD_shrinkstack(ptr noundef nonnull %0)
   %36 = load i32, ptr %12, align 4, !tbaa !43
   %37 = and i32 %36, -28673
-  %.pre.pre = load ptr, ptr %3, align 8, !tbaa !46
   br label %finishpcallk.exit.i
 
 finishpcallk.exit.i:                              ; preds = %26, %22
-  %.pre = phi ptr [ %.pre.pre, %26 ], [ %11, %22 ]
   %38 = phi i32 [ %37, %26 ], [ %13, %22 ]
   %.0.i.i = phi i32 [ %24, %26 ], [ 1, %22 ]
   %39 = and i32 %38, -2097153
@@ -2669,6 +2667,7 @@ finishpcallk.exit.i:                              ; preds = %26, %22
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %41 = load i64, ptr %40, align 8, !tbaa !27
   store i64 %41, ptr %8, align 8, !tbaa !82
+  %.pre = load ptr, ptr %3, align 8
   br label %42
 
 42:                                               ; preds = %finishpcallk.exit.i, %20

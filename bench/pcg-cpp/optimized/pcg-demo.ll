@@ -124,7 +124,7 @@ sub_1:                                            ; preds = %sub_0
 
 .thread:                                          ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre = load ptr, ptr %27, align 8, !tbaa !11
+  %.pre = load ptr, ptr %27, align 8
   %28 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.pre, ptr noundef null, i32 noundef 10) #16
   %29 = trunc i64 %28 to i32
   br label %.thread197
@@ -474,12 +474,11 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i65: ; preds = %166
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 48
   %175 = load ptr, ptr %174, align 8
   %176 = call noundef signext i8 %175(ptr noundef nonnull align 8 dereferenceable(570) %168, i8 noundef signext 32)
-  %.pre244.pre = load ptr, ptr @_ZSt4cout, align 8, !tbaa !27
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i67
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i67: ; preds = %172, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i65
-  %.pre244 = phi ptr [ %.pre244.pre, %172 ], [ %155, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i65 ]
   store i8 1, ptr %163, align 1, !tbaa !38
+  %.pre244 = load ptr, ptr @_ZSt4cout, align 8
   br label %_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E.exit68
 
 _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E.exit68: ; preds = %153, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i67
@@ -593,12 +592,11 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i70: ; preds = %231
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 48
   %240 = load ptr, ptr %239, align 8
   %241 = call noundef signext i8 %240(ptr noundef nonnull align 8 dereferenceable(570) %233, i8 noundef signext 32)
-  %.pre245.pre = load ptr, ptr @_ZSt4cout, align 8, !tbaa !27
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i72
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i72: ; preds = %237, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i70
-  %.pre245 = phi ptr [ %.pre245.pre, %237 ], [ %220, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i70 ]
   store i8 1, ptr %228, align 1, !tbaa !38
+  %.pre245 = load ptr, ptr @_ZSt4cout, align 8
   br label %_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E.exit73
 
 _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E.exit73: ; preds = %218, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i72
@@ -958,7 +956,7 @@ _ZSt4iotaIPciEvT_S1_T0_.exit113.preheader:        ; preds = %.lr.ph.i109
   br label %_ZSt4iotaIPciEvT_S1_T0_.exit113
 
 _ZSt4iotaIPciEvT_S1_T0_.exit113:                  ; preds = %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i
-  %.promoted.i.i115264 = phi i64 [ %405, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i ], [ %.promoted, %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader ]
+  %.promoted.i.i115262 = phi i64 [ %405, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i ], [ %.promoted, %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader ]
   %.012.i = phi ptr [ %416, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i ], [ %92, %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader ]
   %.0911.i = phi i64 [ %415, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i ], [ 52, %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader ]
   %399 = trunc i64 %.0911.i to i32
@@ -967,7 +965,7 @@ _ZSt4iotaIPciEvT_S1_T0_.exit113:                  ; preds = %_ZSt4iotaIPciEvT_S1
   br label %402
 
 402:                                              ; preds = %402, %_ZSt4iotaIPciEvT_S1_T0_.exit113
-  %403 = phi i64 [ %405, %402 ], [ %.promoted.i.i115264, %_ZSt4iotaIPciEvT_S1_T0_.exit113 ]
+  %403 = phi i64 [ %405, %402 ], [ %.promoted.i.i115262, %_ZSt4iotaIPciEvT_S1_T0_.exit113 ]
   %404 = mul i64 %403, 6364136223846793005
   %405 = add i64 %404, %.sroa.0.0.copyload176
   %406 = lshr i64 %403, 59
@@ -1359,7 +1357,7 @@ _ZNSt24uniform_int_distributionImE5_S_ndImN10pcg_detail6engineIjmNS2_12xsh_rr_mi
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %52
-  %.pre = load i64, ptr %2, align 8, !tbaa !64
+  %.pre = load i64, ptr %2, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %69, %_ZNSt24uniform_int_distributionImE5_S_ndImN10pcg_detail6engineIjmNS2_12xsh_rr_mixinIjmEELb1ENS2_15specific_streamImEENS2_18default_multiplierImEEEEjEET1_RT0_SB_.exit

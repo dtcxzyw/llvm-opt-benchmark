@@ -924,7 +924,7 @@ _ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMo
   br i1 %.not.i.i.i.i25, label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !68
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %10, align 8, !tbaa !70
+  %.pr.i = load ptr, ptr %10, align 8
   br label %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEES9_EvT_SB_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEES9_EvT_SB_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEES9_EvT_SB_RSaIT0_E.exitthread-pre-split.i, %77
@@ -934,7 +934,7 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointM
 
 106:                                              ; preds = %_ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEES9_EvT_SB_RSaIT0_E.exit.i
   %107 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %108 = load ptr, ptr %107, align 8, !tbaa !72
+  %108 = load ptr, ptr %107, align 8, !tbaa !70
   %109 = ptrtoint ptr %108 to i64
   %110 = ptrtoint ptr %105 to i64
   %111 = sub i64 %109, %110
@@ -1571,7 +1571,7 @@ define noundef double @_ZNK5osgeo4proj11coordinates18CoordinateMetadata28coordin
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load i8, ptr %4, align 8, !tbaa !20, !range !73, !noundef !74
+  %5 = load i8, ptr %4, align 8, !tbaa !20, !range !72, !noundef !73
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %13
 
@@ -1629,7 +1629,7 @@ define void @_ZNK5osgeo4proj11coordinates18CoordinateMetadata11promoteTo3DERKNSt
   call void @_ZNK5osgeo4proj3crs3CRS11promoteTo3DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn") align 8 %5, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %12 = load ptr, ptr %9, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load i8, ptr %13, align 8, !tbaa !20, !range !73, !noundef !74
+  %14 = load i8, ptr %13, align 8, !tbaa !20, !range !72, !noundef !73
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %43
 
@@ -2029,7 +2029,7 @@ define hidden void @_ZNK5osgeo4proj11coordinates18CoordinateMetadata12_exportToW
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %1)
   %15 = load ptr, ptr %8, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load i8, ptr %16, align 8, !tbaa !20, !range !73, !noundef !74
+  %17 = load i8, ptr %16, align 8, !tbaa !20, !range !72, !noundef !73
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %33
 
@@ -2037,7 +2037,7 @@ define hidden void @_ZNK5osgeo4proj11coordinates18CoordinateMetadata12_exportToW
   tail call void @_ZN5osgeo4proj2io12WKTFormatter9startNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants5EPOCHB5cxx11E, i1 noundef zeroext false)
   %20 = load ptr, ptr %8, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load i8, ptr %21, align 8, !tbaa !20, !range !73, !noundef !74
+  %22 = load i8, ptr %21, align 8, !tbaa !20, !range !72, !noundef !73
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %_ZNK5osgeo4proj11coordinates18CoordinateMetadata28coordinateEpochAsDecimalYearEv.exit
 
@@ -2141,7 +2141,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 23:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %24 = load ptr, ptr %16, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load i8, ptr %25, align 8, !tbaa !20, !range !73, !noundef !74
+  %26 = load i8, ptr %25, align 8, !tbaa !20, !range !72, !noundef !73
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %._crit_edge.i.i16, label %69
 
@@ -2178,7 +2178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
   %38 = load ptr, ptr %16, align 8, !tbaa !31
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load i8, ptr %39, align 8, !tbaa !20, !range !73, !noundef !74
+  %40 = load i8, ptr %39, align 8, !tbaa !20, !range !72, !noundef !73
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %_ZNK5osgeo4proj11coordinates18CoordinateMetadata28coordinateEpochAsDecimalYearEv.exit
 
@@ -2486,8 +2486,7 @@ attributes #27 = { nounwind willreturn memory(read) }
 !67 = !{!"p1 _ZTSN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEE", !12, i64 0}
 !68 = distinct !{!68, !69}
 !69 = !{!"llvm.loop.mustprogress"}
-!70 = !{!71, !67, i64 0}
+!70 = !{!71, !67, i64 16}
 !71 = !{!"_ZTSNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation20PointMotionOperationEEEESaIS9_EE17_Vector_impl_dataE", !67, i64 0, !67, i64 8, !67, i64 16}
-!72 = !{!71, !67, i64 16}
-!73 = !{i8 0, i8 2}
-!74 = !{}
+!72 = !{i8 0, i8 2}
+!73 = !{}

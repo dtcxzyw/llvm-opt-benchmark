@@ -271,7 +271,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt14default_deleteIN8BuildLog8LogEntryEEclEPS1_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef 56) #28
-  %.pre.i.i = load i32, ptr %17, align 8, !tbaa !29
+  %.pre.i.i = load i32, ptr %17, align 8
   br label %_ZNSt4pairI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS3_EEED2Ev.exit.i.i
 
 _ZNSt4pairI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS3_EEED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN8BuildLog8LogEntryEEclEPS1_.exit.i.i.i.i, %21
@@ -1070,7 +1070,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store ptr %52, ptr %35, align 8, !tbaa !10
   %58 = load i64, ptr %20, align 8, !tbaa !14
   store i64 %58, ptr %51, align 8, !tbaa !14
-  %.pre = load i64, ptr %21, align 8, !tbaa !13
+  %.pre = load i64, ptr %21, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -1262,9 +1262,9 @@ _ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_
 
 ._crit_edge.i:                                    ; preds = %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17check_expand_needEv.exit
   %.phi.trans.insert.i = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, std::unique_ptr<BuildLog::LogEntry>>::Index", ptr %22, i64 %23, i32 1
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !65
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %.phi.trans.insert13.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre14.i = load ptr, ptr %.phi.trans.insert13.i, align 8, !tbaa !36
+  %.pre14.i = load ptr, ptr %.phi.trans.insert13.i, align 8
   br label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE9do_insertIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EESC_INSG_8iteratorEbEOT_OT0_.exit
 
 27:                                               ; preds = %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE17check_expand_needEv.exit
@@ -1764,7 +1764,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.thread: ; pred
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %159
   %166 = load i64, ptr %66, align 8, !tbaa !14
   store i64 %166, ptr %70, align 8, !tbaa !14
-  %.pre = load i64, ptr %67, align 8, !tbaa !13
+  %.pre = load i64, ptr %67, align 8
   store ptr %66, ptr %12, align 8, !tbaa !10
   store i64 0, ptr %67, align 8, !tbaa !13
   store i8 0, ptr %66, align 8, !tbaa !14
@@ -2259,8 +2259,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 49:                                               ; preds = %._crit_edge.i.i.i, %.noexc97
   %50 = phi ptr [ %45, %.noexc97 ], [ %40, %._crit_edge.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %.pre = load i64, ptr %8, align 8, !tbaa !15, !noalias !87
-  %.pre147 = load ptr, ptr %13, align 8, !tbaa !10, !alias.scope !87
+  %.pre = load i64, ptr %8, align 8
+  %.pre147 = load ptr, ptr %13, align 8
   br label %_ZNK11StringPiece8AsStringB5cxx11Ev.exit
 
 _ZNK11StringPiece8AsStringB5cxx11Ev.exit.thread:  ; preds = %39
@@ -2278,10 +2278,9 @@ _ZNK11StringPiece8AsStringB5cxx11Ev.exit:         ; preds = %47, %49
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 %54
   store i8 0, ptr %56, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #27, !noalias !87
-  %.pre148 = load i64, ptr %55, align 8, !tbaa !13, !noalias !90
+  %.pre148 = load i64, ptr %55, align 8
   %57 = add i64 %.pre148, -4611686018427387897
   %58 = icmp ult i64 %57, 7
-  call void @llvm.experimental.noalias.scope.decl(metadata !90)
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br i1 %58, label %60, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
@@ -2319,7 +2318,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i98
   %72 = load i64, ptr %65, align 8, !tbaa !14
   store i64 %72, ptr %63, align 8, !tbaa !14, !alias.scope !90
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !13
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %73
 
 73:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i98, %67
@@ -2496,9 +2495,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   br label %._crit_edge.us.us
 
 ._crit_edge.us.us.loopexit:                       ; preds = %136
-  %.pre149 = load ptr, ptr %133, align 8, !tbaa !37
+  %.pre149 = load ptr, ptr %133, align 8
   %.phi.trans.insert150 = getelementptr inbounds nuw i8, ptr %.pre149, i64 48
-  %.pre151 = load i64, ptr %.phi.trans.insert150, align 8, !tbaa !21
+  %.pre151 = load i64, ptr %.phi.trans.insert150, align 8
   br label %._crit_edge.us.us
 
 ._crit_edge.us.us:                                ; preds = %._crit_edge.us.us.loopexit, %144
@@ -3031,7 +3030,7 @@ define linkonce_odr dso_local void @_ZN7emhash87HashMapI11StringPieceSt10unique_
   %31 = load i32, ptr %3, align 8, !tbaa !29
   %.not.i = icmp eq i32 %31, 0
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !36
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br i1 %.not.i, label %_ZN7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE7rebuildEj.exit, label %_ZNSt4pairI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS3_EEED2Ev.exit.lr.ph.i
 
 _ZNSt4pairI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS3_EEED2Ev.exit.lr.ph.i: ; preds = %14
@@ -3138,7 +3137,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceSt10
 
 26:                                               ; preds = %12
   %.not20 = icmp eq i32 %10, %6
-  %.pre = load ptr, ptr %0, align 8, !tbaa !41
+  %.pre = load ptr, ptr %0, align 8
   br i1 %.not20, label %_ZNK7emhash87HashMapI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS4_EESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S7_EENS_13DefaultPolicyEE16find_last_bucketEj.exit, label %27, !prof !79
 
 27:                                               ; preds = %26
@@ -3503,7 +3502,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceSt10
 ._ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread_crit_edge: ; preds = %16
   %.phi.trans.insert = zext i32 %19 to i64
   %.sroa.2.0..sroa_idx.i.i.phi.trans.insert = getelementptr inbounds nuw %"struct.std::pair", ptr %13, i64 %.phi.trans.insert, i32 0, i32 1
-  %.sroa.2.0.copyload.i.i.pre = load i64, ptr %.sroa.2.0..sroa_idx.i.i.phi.trans.insert, align 8, !tbaa !15
+  %.sroa.2.0.copyload.i.i.pre = load i64, ptr %.sroa.2.0..sroa_idx.i.i.phi.trans.insert, align 8
   br label %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread
 
 24:                                               ; preds = %16
@@ -4054,7 +4053,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt14default_deleteIN8BuildLog8LogEntryEEclEPS1_.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %96, i64 noundef 56) #28
-  %.pre = load ptr, ptr %0, align 8, !tbaa !41
+  %.pre = load ptr, ptr %0, align 8
   br label %_ZNSt4pairI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS3_EEED2Ev.exit
 
 _ZNSt4pairI11StringPieceSt10unique_ptrIN8BuildLog8LogEntryESt14default_deleteIS3_EEED2Ev.exit: ; preds = %91, %_ZNKSt14default_deleteIN8BuildLog8LogEntryEEclEPS1_.exit.i.i

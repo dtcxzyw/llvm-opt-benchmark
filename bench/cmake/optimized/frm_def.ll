@@ -95,7 +95,7 @@ Associate_Fields.exit:                            ; preds = %3
 
 Disconnect_Fields.exit.i:                         ; preds = %18
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !36
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.not9.i = icmp eq ptr %.pre.i, null
   br i1 %.not9.i, label %Disconnect_Fields.exit.thread.i, label %Disconnect_Fields.exit.thread.sink.split.i
 
@@ -188,7 +188,7 @@ define dso_local range(i32 -3, 1) i32 @free_form(ptr noundef captures(address) %
 
 Disconnect_Fields.exit:                           ; preds = %5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !36
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not9 = icmp eq ptr %.pre, null
   br i1 %.not9, label %Disconnect_Fields.exit.thread, label %Disconnect_Fields.exit.thread.sink.split
 
@@ -386,6 +386,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
 
 31:                                               ; preds = %27
   store i16 0, ptr %.080106, align 2, !tbaa !39
+  %.pre = load ptr, ptr %1, align 8
   br label %42
 
 32:                                               ; preds = %27
@@ -406,7 +407,7 @@ define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull 
   br label %42
 
 42:                                               ; preds = %32, %37, %31
-  %43 = phi ptr [ %6, %31 ], [ %34, %37 ], [ %34, %32 ]
+  %43 = phi ptr [ %.pre, %31 ], [ %34, %37 ], [ %34, %32 ]
   %.1 = phi ptr [ %.080106, %31 ], [ %41, %37 ], [ %.080106, %32 ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 6
   %45 = load i16, ptr %44, align 2, !tbaa !42

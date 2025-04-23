@@ -5125,25 +5125,29 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %28 = load ptr, ptr %27, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   store ptr null, ptr %29, align 8, !tbaa !22
-  %.pre = load i32, ptr %12, align 8, !tbaa !37
+  %.pre = load i32, ptr %12, align 8
   br label %30
 
 30:                                               ; preds = %.lr.ph, %25
-  %.pre110 = phi ptr [ %22, %.lr.ph ], [ %28, %25 ]
   %31 = phi i32 [ %19, %.lr.ph ], [ %.pre, %25 ]
   %32 = phi ptr [ %20, %.lr.ph ], [ %26, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = sext i32 %31 to i64
   %.not76.not = icmp slt i64 %indvars.iv, %33
-  br i1 %.not76.not, label %.lr.ph, label %._crit_edge
+  br i1 %.not76.not, label %.lr.ph, label %._crit_edge.loopexit
 
-._crit_edge:                                      ; preds = %30, %.preheader80
-  %34 = phi ptr [ %17, %.preheader80 ], [ %.pre110, %30 ]
-  tail call void @free(ptr noundef nonnull %34) #14
+._crit_edge.loopexit:                             ; preds = %30
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv98
+  %.pre110 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader80
+  %34 = phi ptr [ %.pre110, %._crit_edge.loopexit ], [ %17, %.preheader80 ]
+  tail call void @free(ptr noundef %34) #14
   %35 = load ptr, ptr %7, align 8, !tbaa !20
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv98
   store ptr null, ptr %36, align 8, !tbaa !21
-  %.pre111 = load i32, ptr %9, align 4, !tbaa !36
+  %.pre111 = load i32, ptr %9, align 4
   br label %37
 
 37:                                               ; preds = %13, %._crit_edge
@@ -5207,25 +5211,29 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %65 = load ptr, ptr %64, align 8, !tbaa !21
   %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv101
   store ptr null, ptr %66, align 8, !tbaa !22
-  %.pre112 = load i32, ptr %49, align 8, !tbaa !37
+  %.pre112 = load i32, ptr %49, align 8
   br label %67
 
 67:                                               ; preds = %.lr.ph89, %62
-  %.pre114 = phi ptr [ %59, %.lr.ph89 ], [ %65, %62 ]
   %68 = phi i32 [ %56, %.lr.ph89 ], [ %.pre112, %62 ]
   %69 = phi ptr [ %57, %.lr.ph89 ], [ %63, %62 ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %70 = sext i32 %68 to i64
   %.not73.not = icmp slt i64 %indvars.iv101, %70
-  br i1 %.not73.not, label %.lr.ph89, label %._crit_edge90
+  br i1 %.not73.not, label %.lr.ph89, label %._crit_edge90.loopexit
 
-._crit_edge90:                                    ; preds = %67, %.preheader78
-  %71 = phi ptr [ %54, %.preheader78 ], [ %.pre114, %67 ]
-  tail call void @free(ptr noundef nonnull %71) #14
+._crit_edge90.loopexit:                           ; preds = %67
+  %.phi.trans.insert113 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv104
+  %.pre114 = load ptr, ptr %.phi.trans.insert113, align 8
+  br label %._crit_edge90
+
+._crit_edge90:                                    ; preds = %._crit_edge90.loopexit, %.preheader78
+  %71 = phi ptr [ %.pre114, %._crit_edge90.loopexit ], [ %54, %.preheader78 ]
+  tail call void @free(ptr noundef %71) #14
   %72 = load ptr, ptr %44, align 8, !tbaa !23
   %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv104
   store ptr null, ptr %73, align 8, !tbaa !21
-  %.pre115 = load i32, ptr %46, align 4, !tbaa !36
+  %.pre115 = load i32, ptr %46, align 4
   br label %74
 
 74:                                               ; preds = %50, %._crit_edge90
@@ -5267,7 +5275,7 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %91 = load ptr, ptr %81, align 8, !tbaa !29
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv107
   store ptr null, ptr %92, align 8, !tbaa !30
-  %.pre116 = load i32, ptr %83, align 8, !tbaa !37
+  %.pre116 = load i32, ptr %83, align 8
   br label %93
 
 93:                                               ; preds = %.lr.ph95, %90
@@ -6316,7 +6324,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly captures(address_is_null
 
 153:                                              ; preds = %.lr.ph203
   %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.48, i32 noundef %151) #14
-  %.pre = load i32, ptr %66, align 8, !tbaa !37
+  %.pre = load i32, ptr %66, align 8
   br label %155
 
 155:                                              ; preds = %.lr.ph203, %153

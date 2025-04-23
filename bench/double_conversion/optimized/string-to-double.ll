@@ -55,7 +55,7 @@ define linkonce_odr noundef double @_ZNK17double_conversion23StringToDoubleConve
   br i1 %or.cond.not, label %._crit_edge533, label %.lr.ph.i
 
 ._crit_edge533:                                   ; preds = %25
-  %.pre = load i8, ptr %1, align 1, !tbaa !15
+  %.pre = load i8, ptr %1, align 1
   br label %41
 
 .lr.ph.i:                                         ; preds = %25, %33
@@ -216,7 +216,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit: ; preds 
   br i1 %82, label %83, label %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge
 
 _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge: ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit
-  %.pre535.pre = load ptr, ptr %6, align 8, !tbaa !3
+  %.pre535.pre = load ptr, ptr %6, align 8
   br label %112
 
 83:                                               ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit
@@ -339,7 +339,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260: ; pre
   br i1 %135, label %136, label %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260._crit_edge
 
 _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260._crit_edge: ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260
-  %.pre534 = load ptr, ptr %6, align 8, !tbaa !3
+  %.pre534 = load ptr, ptr %6, align 8
   br label %165
 
 136:                                              ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit260
@@ -436,7 +436,7 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i: ; preds = %169
   br i1 %179, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.threadthread-pre-split, label %180
 
 180:                                              ; preds = %177
-  %181 = load i8, ptr %174, align 1, !tbaa !15
+  %181 = load i8, ptr %174, align 1
   %182 = sext i8 %181 to i32
   %183 = icmp eq i32 %182, %172
   br i1 %183, label %184, label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread
@@ -461,7 +461,7 @@ _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread360: ; preds = %_ZN17
 
 _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.threadthread-pre-split: ; preds = %176, %177, %_ZN17double_conversionL7isDigitEii.exit30.thread.i, %184
   %.promoted443.ph = phi ptr [ %174, %176 ], [ %174, %177 ], [ %178, %_ZN17double_conversionL7isDigitEii.exit30.thread.i ], [ %174, %184 ]
-  %.pre536.pr = load i8, ptr %.promoted443.ph, align 1, !tbaa !15
+  %.pre536.pr = load i8, ptr %.promoted443.ph, align 1
   br label %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread
 
 _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.thread: ; preds = %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit.threadthread-pre-split, %180
@@ -604,7 +604,7 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i285: ; preds = %.lr.ph, %_ZN17do
 243:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i285
   %244 = getelementptr inbounds nuw i8, ptr %240, i64 2
   %245 = icmp ne ptr %244, %12
-  %.pre537 = load i8, ptr %241, align 1, !tbaa !15
+  %.pre537 = load i8, ptr %241, align 1
   %246 = sext i8 %.pre537 to i32
   %247 = icmp eq i32 %246, %172
   %or.cond582 = select i1 %245, i1 %247, i1 false
@@ -642,7 +642,7 @@ _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit289.thread: ; preds = %_ZN17
   store ptr %.lcssa444, ptr %6, align 8
   %262 = trunc i32 %190 to i8
   %263 = lshr i8 %262, 1
-  %.pre539 = load i8, ptr %.lcssa444, align 1, !tbaa !15
+  %.pre539 = load i8, ptr %.lcssa444, align 1
   br label %.critedge227
 
 .critedge227:                                     ; preds = %165, %._crit_edge
@@ -801,8 +801,8 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i294: ; preds = %299
   br label %.thread368
 
 336:                                              ; preds = %327
-  %.promoted467.pre = load ptr, ptr %6, align 8, !tbaa !3
-  %337 = load i8, ptr %.promoted467.pre, align 1, !tbaa !15
+  %.promoted467.pre = load ptr, ptr %6, align 8
+  %337 = load i8, ptr %.promoted467.pre, align 1
   %338 = icmp eq i8 %337, 48
   %or.cond583 = select i1 %319, i1 %338, i1 false
   br i1 %or.cond583, label %.lr.ph465, label %.loopexit
@@ -1318,7 +1318,7 @@ define linkonce_odr noundef double @_ZNK17double_conversion23StringToDoubleConve
   br i1 %or.cond.not, label %._crit_edge468, label %.lr.ph.i
 
 ._crit_edge468:                                   ; preds = %25
-  %.pre = load i16, ptr %1, align 2, !tbaa !40
+  %.pre = load i16, ptr %1, align 2
   br label %46
 
 .lr.ph.i:                                         ; preds = %25, %.loopexit.i
@@ -1509,7 +1509,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit: ; preds 
   br i1 %94, label %95, label %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge
 
 _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edge: ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit
-  %.pre474.pre = load ptr, ptr %6, align 8, !tbaa !38
+  %.pre474.pre = load ptr, ptr %6, align 8
   br label %121
 
 95:                                               ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit
@@ -1543,7 +1543,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit._crit_edg
   br i1 %109, label %110, label %._crit_edge469
 
 ._crit_edge469:                                   ; preds = %108
-  %.pre470 = load ptr, ptr %6, align 8, !tbaa !38
+  %.pre470 = load ptr, ptr %6, align 8
   br label %113
 
 110:                                              ; preds = %108
@@ -1619,7 +1619,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255: ; pre
   br i1 %145, label %146, label %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255._crit_edge
 
 _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255._crit_edge: ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255
-  %.pre473 = load ptr, ptr %6, align 8, !tbaa !38
+  %.pre473 = load ptr, ptr %6, align 8
   br label %172
 
 146:                                              ; preds = %_ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255
@@ -1653,7 +1653,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255._crit_
   br i1 %160, label %161, label %._crit_edge471
 
 ._crit_edge471:                                   ; preds = %159
-  %.pre472 = load ptr, ptr %6, align 8, !tbaa !38
+  %.pre472 = load ptr, ptr %6, align 8
   br label %164
 
 161:                                              ; preds = %159
@@ -1685,6 +1685,7 @@ _ZN17double_conversion12_GLOBAL__N_121ConsumeFirstCharacterEcPKcb.exit255._crit_
   %178 = load i16, ptr %177, align 8, !tbaa !27
   %179 = icmp eq i16 %178, 0
   %180 = getelementptr inbounds nuw i8, ptr %173, i64 2
+  store ptr %180, ptr %6, align 8, !tbaa !38
   %181 = icmp eq ptr %180, %12
   br i1 %179, label %182, label %_ZN17double_conversionL7isDigitEii.exit.thread.i
 
@@ -1700,7 +1701,7 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i: ; preds = %176
   br i1 %185, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split, label %186
 
 186:                                              ; preds = %183
-  %187 = load i16, ptr %180, align 2, !tbaa !40
+  %187 = load i16, ptr %180, align 2
   %188 = icmp eq i16 %187, %178
   br i1 %188, label %189, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread
 
@@ -1708,20 +1709,25 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i: ; preds = %176
   %190 = load i16, ptr %184, align 2, !tbaa !40
   %191 = add i16 %190, -48
   %or.cond19.i26.i = icmp ult i16 %191, 10
-  br i1 %or.cond19.i26.i, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split
+  br i1 %or.cond19.i26.i, label %_ZN17double_conversionL7isDigitEii.exit30.thread.i, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split
+
+_ZN17double_conversionL7isDigitEii.exit30.thread.i: ; preds = %189
+  store ptr %184, ptr %6, align 8, !tbaa !38
+  br label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split
 
 _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread314: ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i, %182
   store i32 %2, ptr %4, align 4, !tbaa !8
   %192 = select i1 %.0180, double -0.000000e+00, double 0.000000e+00
   br label %.thread
 
-_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split: ; preds = %182, %183, %189
-  %.pre475.pr = load i16, ptr %180, align 2, !tbaa !40
+_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split: ; preds = %182, %183, %_ZN17double_conversionL7isDigitEii.exit30.thread.i, %189
+  %.promoted393.ph = phi ptr [ %180, %182 ], [ %180, %183 ], [ %184, %_ZN17double_conversionL7isDigitEii.exit30.thread.i ], [ %180, %189 ]
+  %.pre475.pr = load i16, ptr %.promoted393.ph, align 2
   br label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread
 
-_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread: ; preds = %189, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split, %186
-  %.pre475 = phi i16 [ %.pre475.pr, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split ], [ %187, %186 ], [ %190, %189 ]
-  %.promoted393 = phi ptr [ %180, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split ], [ %180, %186 ], [ %184, %189 ]
+_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.thread: ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split, %186
+  %.pre475 = phi i16 [ %.pre475.pr, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split ], [ %187, %186 ]
+  %.promoted393 = phi ptr [ %.promoted393.ph, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit.threadthread-pre-split ], [ %180, %186 ]
   %193 = load i32, ptr %0, align 8, !tbaa !10
   %194 = and i32 %193, 128
   %.not218 = icmp eq i32 %194, 0
@@ -1836,7 +1842,7 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i260: ; preds = %.lr.ph, %_ZN17do
 239:                                              ; preds = %_ZN17double_conversionL7isDigitEii.exit.thread.i260
   %240 = getelementptr inbounds nuw i8, ptr %236, i64 4
   %241 = icmp ne ptr %240, %12
-  %.pre476 = load i16, ptr %237, align 2, !tbaa !40
+  %.pre476 = load i16, ptr %237, align 2
   %242 = icmp eq i16 %.pre476, %178
   %or.cond529 = select i1 %241, i1 %242, i1 false
   br i1 %or.cond529, label %243, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264
@@ -1871,7 +1877,7 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit264.thread: ; preds = %_ZN17
   store ptr %.lcssa394, ptr %6, align 8
   %256 = trunc i32 %193 to i8
   %257 = lshr i8 %256, 1
-  %.pre478 = load i16, ptr %.lcssa394, align 2, !tbaa !40
+  %.pre478 = load i16, ptr %.lcssa394, align 2
   br label %.critedge227
 
 .critedge227:                                     ; preds = %172, %._crit_edge
@@ -2023,8 +2029,8 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i269: ; preds = %293
   br label %.thread322
 
 325:                                              ; preds = %316
-  %.promoted417.pre = load ptr, ptr %6, align 8, !tbaa !38
-  %326 = load i16, ptr %.promoted417.pre, align 2, !tbaa !40
+  %.promoted417.pre = load ptr, ptr %6, align 8
+  %326 = load i16, ptr %.promoted417.pre, align 2
   %327 = icmp eq i16 %326, 48
   %or.cond530 = select i1 %308, i1 %327, i1 false
   br i1 %or.cond530, label %.lr.ph415, label %.loopexit
@@ -2349,7 +2355,7 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread: ; preds = %_ZN17
   br i1 %462, label %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_edge, label %476
 
 _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_edge: ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread
-  %.pre481 = load ptr, ptr %6, align 8, !tbaa !38
+  %.pre481 = load ptr, ptr %6, align 8
   br label %.thread332
 
 .thread332:                                       ; preds = %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit273.thread..thread332_crit_edge, %395, %315
@@ -3595,7 +3601,7 @@ _ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175: ; preds = %_ZN17double_
   %.1130 = phi i8 [ %.0129, %154 ], [ %.0129, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ], [ %.0129, %163 ], [ %.0129, %166 ], [ %.0129, %switch.early.test349 ], [ %.1130.ph, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split ]
   %.2124 = phi i32 [ %spec.select148, %154 ], [ %spec.select148, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ], [ %spec.select148, %163 ], [ %spec.select148, %166 ], [ %spec.select148, %switch.early.test349 ], [ %.2124.ph470, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split ]
   %.1117 = phi i64 [ %71, %154 ], [ %71, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit226 ], [ %71, %163 ], [ %71, %166 ], [ %71, %switch.early.test349 ], [ %.1117.ph471, %_ZN17double_conversionL7AdvanceIPKcEEbPT_tiRS3_.exit175.sink.split ]
-  %.pre = load i8, ptr %176, align 1, !tbaa !15
+  %.pre = load i8, ptr %176, align 1
   br label %42
 
 .thread314:                                       ; preds = %55, %55
@@ -5525,7 +5531,7 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177: ; preds = %_ZN17double_
   %.1130 = phi i8 [ %.0129, %148 ], [ %.0129, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233 ], [ %.0129, %156 ], [ %.0129, %159 ], [ %.0129, %switch.early.test355 ], [ %.1130.ph, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split ]
   %.2124 = phi i32 [ %spec.select150, %148 ], [ %spec.select150, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233 ], [ %spec.select150, %156 ], [ %spec.select150, %159 ], [ %spec.select150, %switch.early.test355 ], [ %.2124.ph505, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split ]
   %.1117 = phi i64 [ %70, %148 ], [ %70, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit233 ], [ %70, %156 ], [ %70, %159 ], [ %70, %switch.early.test355 ], [ %.1117.ph506, %_ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit177.sink.split ]
-  %.pre = load i16, ptr %165, align 2, !tbaa !40
+  %.pre = load i16, ptr %165, align 2
   br label %37
 
 .thread321:                                       ; preds = %47, %47

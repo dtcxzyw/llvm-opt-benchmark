@@ -441,14 +441,13 @@ _ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exi
 
 34:                                               ; preds = %.thread
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hfb6a5a84d68c598bE.llvm.12743913752286771008"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %.039, i8 noundef 0)
-  %.pre = load i64, ptr %6, align 8, !alias.scope !58
-  %.pre11 = load i64, ptr %8, align 8, !alias.scope !58
+  %.pre = load i64, ptr %6, align 8
+  %.pre11 = load i64, ptr %8, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha747805b17fd1d65E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha747805b17fd1d65E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8de0378bf96c9949E.llvm.12743913752286771008.exit.i", %34
   %35 = phi i64 [ %32, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8de0378bf96c9949E.llvm.12743913752286771008.exit.i" ], [ %.pre11, %34 ]
   %36 = phi i64 [ %7, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h8de0378bf96c9949E.llvm.12743913752286771008.exit.i" ], [ %.pre, %34 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %37 = icmp ugt i64 %36, %35
   br i1 %37, label %38, label %_ZN13grep_searcher11line_buffer10LineBuffer11free_buffer17h3180c133324235abE.exit6
 

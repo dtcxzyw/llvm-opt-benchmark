@@ -61,7 +61,7 @@ define range(i32 0, 2) i32 @Aig_ManSpeedupNode_rec(ptr noundef %0, ptr noundef %
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %21
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !27
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
 26:                                               ; preds = %21
@@ -750,7 +750,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i32, ptr %calloc, i64 %50
   store i32 %47, ptr %51, align 4, !tbaa !67
-  %.pre = load ptr, ptr %30, align 8, !tbaa !70
+  %.pre = load ptr, ptr %30, align 8
   br label %52
 
 52:                                               ; preds = %46, %40, %.lr.ph, %43
@@ -1102,7 +1102,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br i1 %226, label %227, label %.Vec_PtrGrow.exit11_crit_edge.i.i
 
 .Vec_PtrGrow.exit11_crit_edge.i.i:                ; preds = %._crit_edge.i
-  %.pre.i.i = load ptr, ptr %130, align 8, !tbaa !27
+  %.pre.i.i = load ptr, ptr %130, align 8
   br label %Vec_PtrPush.exit.i
 
 227:                                              ; preds = %._crit_edge.i
@@ -1158,7 +1158,7 @@ Vec_PtrPush.exit.i:                               ; preds = %245, %Vec_PtrGrow.e
   %250 = sext i32 %206 to i64
   %251 = getelementptr inbounds ptr, ptr %248, i64 %250
   store ptr %209, ptr %251, align 8, !tbaa !28
-  %.pre487 = load i32, ptr %199, align 4, !tbaa !57
+  %.pre487 = load i32, ptr %199, align 4
   br label %Vec_PtrPushUnique.exit
 
 Vec_PtrPushUnique.exit:                           ; preds = %222, %Vec_PtrPush.exit.i, %210
@@ -1173,7 +1173,7 @@ Vec_PtrPushUnique.exit:                           ; preds = %222, %Vec_PtrPush.e
 .critedge13.loopexit:                             ; preds = %Vec_PtrPushUnique.exit, %203
   %257 = phi i32 [ %253, %Vec_PtrPushUnique.exit ], [ %205, %203 ]
   %258 = phi i32 [ %254, %Vec_PtrPushUnique.exit ], [ %206, %203 ]
-  %.pre488 = load i32, ptr %154, align 4, !tbaa !57
+  %.pre488 = load i32, ptr %154, align 4
   br label %.critedge13
 
 .critedge13:                                      ; preds = %.critedge13.loopexit, %.preheader397, %187, %190
@@ -1252,7 +1252,7 @@ Vec_PtrPushUnique.exit:                           ; preds = %222, %Vec_PtrPush.e
   br i1 %293, label %294, label %.Vec_PtrGrow.exit11_crit_edge.i.i351
 
 .Vec_PtrGrow.exit11_crit_edge.i.i351:             ; preds = %._crit_edge.i350
-  %.pre.i.i353 = load ptr, ptr %134, align 8, !tbaa !27
+  %.pre.i.i353 = load ptr, ptr %134, align 8
   br label %Vec_PtrPush.exit.i354
 
 294:                                              ; preds = %._crit_edge.i350
@@ -1349,7 +1349,7 @@ Vec_PtrPush.exit.i354:                            ; preds = %312, %Vec_PtrGrow.e
   br i1 %335, label %336, label %.Vec_PtrGrow.exit11_crit_edge.i.i366
 
 .Vec_PtrGrow.exit11_crit_edge.i.i366:             ; preds = %._crit_edge.i365
-  %.pre.i.i368 = load ptr, ptr %134, align 8, !tbaa !27
+  %.pre.i.i368 = load ptr, ptr %134, align 8
   br label %Vec_PtrPush.exit.i369
 
 336:                                              ; preds = %._crit_edge.i365
@@ -1406,7 +1406,7 @@ Vec_PtrPush.exit.i369:                            ; preds = %354, %Vec_PtrGrow.e
   %360 = sext i32 %323 to i64
   %361 = getelementptr inbounds ptr, ptr %358, i64 %360
   store ptr %326, ptr %361, align 8, !tbaa !28
-  %.pre491 = load i32, ptr %282, align 4, !tbaa !57
+  %.pre491 = load i32, ptr %282, align 4
   br label %Vec_PtrPushUnique.exit379
 
 Vec_PtrPushUnique.exit379:                        ; preds = %331, %Vec_PtrPush.exit.i369
@@ -1519,10 +1519,11 @@ Vec_PtrPushUnique.exit379:                        ; preds = %331, %Vec_PtrPush.e
 423:                                              ; preds = %417
   store ptr %419, ptr %408, align 8, !tbaa !28
   store ptr %416, ptr %418, align 8, !tbaa !28
+  %.val334.pre = load float, ptr %421, align 8
   br label %424
 
 424:                                              ; preds = %423, %417
-  %.val334 = phi float [ %.val332, %423 ], [ %.val331, %417 ]
+  %.val334 = phi float [ %.val334.pre, %423 ], [ %.val331, %417 ]
   %425 = phi ptr [ %419, %423 ], [ %416, %417 ]
   %426 = getelementptr i8, ptr %415, i64 56
   %.val333 = load float, ptr %426, align 8, !tbaa !71
@@ -1553,7 +1554,7 @@ Vec_PtrPushUnique.exit379:                        ; preds = %331, %Vec_PtrPush.e
   br i1 %435, label %139, label %.critedge6.loopexit, !llvm.loop !84
 
 .critedge6.loopexit:                              ; preds = %.critedge11.thread
-  %.pre495 = load ptr, ptr %130, align 8, !tbaa !27
+  %.pre495 = load ptr, ptr %130, align 8
   br label %.critedge6
 
 .critedge6:                                       ; preds = %.critedge6.loopexit, %116

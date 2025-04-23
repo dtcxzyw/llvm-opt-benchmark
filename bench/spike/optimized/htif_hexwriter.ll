@@ -110,11 +110,10 @@ define void @_ZN16htif_hexwriter_t10read_chunkEmmPv(ptr noundef nonnull align 8 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre = load i64, ptr %17, align 8, !tbaa !21
+  %.pre = load i64, ptr %17, align 8
   br label %22
 
 22:                                               ; preds = %.lr.ph54, %._crit_edge
-  %.pre5967 = phi i64 [ %.pre, %.lr.ph54 ], [ %.pre5968, %._crit_edge ]
   %.pre6061 = phi i64 [ %.pre, %.lr.ph54 ], [ %.pre6062, %._crit_edge ]
   %.01452 = phi ptr [ %3, %.lr.ph54 ], [ %70, %._crit_edge ]
   %.01551 = phi i64 [ %15, %.lr.ph54 ], [ %69, %._crit_edge ]
@@ -157,11 +156,10 @@ _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit
   %33 = call ptr @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIcSaIcEEESt10_Select1stIS5_ESt4lessImESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOmEESG_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
-  %.pre60.pre = load i64, ptr %17, align 8, !tbaa !21
+  %.pre60.pre = load i64, ptr %17, align 8
   br label %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit
 
 _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit: ; preds = %29, %.critedge.i
-  %.pre5966 = phi i64 [ %.pre60.pre, %.critedge.i ], [ %.pre5967, %29 ]
   %.pre60 = phi i64 [ %.pre60.pre, %.critedge.i ], [ %.pre6061, %29 ]
   %.sroa.06.0.i = phi ptr [ %33, %.critedge.i ], [ %.19.i.i.i.i, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
@@ -211,11 +209,10 @@ _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit
   %50 = call ptr @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIcSaIcEEESt10_Select1stIS5_ESt4lessImESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOmEESG_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr %.08.lcssa.i.i.i11.i30, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
-  %.pre58 = load i64, ptr %17, align 8, !tbaa !21
+  %.pre58 = load i64, ptr %17, align 8
   br label %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit31
 
 _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit31: ; preds = %46, %.critedge.i29
-  %.pre5965 = phi i64 [ %.pre58, %.critedge.i29 ], [ %.pre5966, %46 ]
   %51 = phi i64 [ %.pre58, %.critedge.i29 ], [ %.pre60, %46 ]
   %.sroa.06.0.i28 = phi ptr [ %50, %.critedge.i29 ], [ %.19.i.i.i.i22, %46 ]
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i28, i64 40
@@ -233,7 +230,6 @@ _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit31: ; preds =
 60:                                               ; preds = %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit31
   %61 = sub nuw i64 %51, %58
   call void @_ZNSt6vectorIcSaIcEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPcS1_EEmRKc(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr %54, i64 noundef %61, ptr noundef nonnull align 1 dereferenceable(1) %12)
-  %.pre59.pre = load i64, ptr %17, align 8, !tbaa !21
   br label %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit
 
 62:                                               ; preds = %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit31
@@ -250,19 +246,17 @@ _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit31: ; preds =
   br label %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit
 
 _ZNSt6vectorIcSaIcEE6resizeEmRKc.exit:            ; preds = %60, %62, %64, %66
-  %.pre59 = phi i64 [ %.pre59.pre, %60 ], [ %.pre5965, %62 ], [ %.pre5965, %64 ], [ %.pre5965, %66 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #18
+  %.pre59 = load i64, ptr %17, align 8
   br label %67
 
 67:                                               ; preds = %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit, %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit
-  %.pre5969 = phi i64 [ %.pre59, %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit ], [ %.pre5966, %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit ]
   %.pre6063 = phi i64 [ %.pre59, %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit ], [ %.pre60, %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit ]
   %.not56 = icmp eq i64 %.pre6063, 0
   br i1 %.not56, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit45, %67
-  %.pre5968 = phi i64 [ %.pre5969, %67 ], [ %115, %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit45 ]
   %.pre6062 = phi i64 [ 0, %67 ], [ %115, %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit45 ]
   %68 = sub i64 %.01650, %.pre6062
   %69 = add i64 %.pre6062, %.01551
@@ -417,11 +411,10 @@ define void @_ZN16htif_hexwriter_t11write_chunkEmmPKv(ptr noundef nonnull align 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.pre = load i64, ptr %17, align 8, !tbaa !21
+  %.pre = load i64, ptr %17, align 8
   br label %22
 
 22:                                               ; preds = %.lr.ph51, %._crit_edge
-  %.pre5664 = phi i64 [ %.pre, %.lr.ph51 ], [ %.pre5665, %._crit_edge ]
   %.pre5758 = phi i64 [ %.pre, %.lr.ph51 ], [ %.pre5759, %._crit_edge ]
   %.01349 = phi i64 [ %15, %.lr.ph51 ], [ %69, %._crit_edge ]
   %.01448 = phi i64 [ %2, %.lr.ph51 ], [ %68, %._crit_edge ]
@@ -463,11 +456,10 @@ _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit
   %33 = call ptr @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIcSaIcEEESt10_Select1stIS5_ESt4lessImESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOmEESG_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
-  %.pre57.pre = load i64, ptr %17, align 8, !tbaa !21
+  %.pre57.pre = load i64, ptr %17, align 8
   br label %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit
 
 _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit: ; preds = %29, %.critedge.i
-  %.pre5663 = phi i64 [ %.pre57.pre, %.critedge.i ], [ %.pre5664, %29 ]
   %.pre57 = phi i64 [ %.pre57.pre, %.critedge.i ], [ %.pre5758, %29 ]
   %.sroa.06.0.i = phi ptr [ %33, %.critedge.i ], [ %.19.i.i.i.i, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
@@ -517,11 +509,10 @@ _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit
   %50 = call ptr @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIcSaIcEEESt10_Select1stIS5_ESt4lessImESaIS5_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOmEESG_IJEEEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr %.08.lcssa.i.i.i11.i28, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
-  %.pre55 = load i64, ptr %17, align 8, !tbaa !21
+  %.pre55 = load i64, ptr %17, align 8
   br label %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit29
 
 _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit29: ; preds = %46, %.critedge.i27
-  %.pre5662 = phi i64 [ %.pre55, %.critedge.i27 ], [ %.pre5663, %46 ]
   %51 = phi i64 [ %.pre55, %.critedge.i27 ], [ %.pre57, %46 ]
   %.sroa.06.0.i26 = phi ptr [ %50, %.critedge.i27 ], [ %.19.i.i.i.i20, %46 ]
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i26, i64 40
@@ -539,7 +530,6 @@ _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit29: ; preds =
 60:                                               ; preds = %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit29
   %61 = sub nuw i64 %51, %58
   call void @_ZNSt6vectorIcSaIcEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPcS1_EEmRKc(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr %54, i64 noundef %61, ptr noundef nonnull align 1 dereferenceable(1) %12)
-  %.pre56.pre = load i64, ptr %17, align 8, !tbaa !21
   br label %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit
 
 62:                                               ; preds = %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit29
@@ -556,19 +546,17 @@ _ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit29: ; preds =
   br label %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit
 
 _ZNSt6vectorIcSaIcEE6resizeEmRKc.exit:            ; preds = %60, %62, %64, %66
-  %.pre56 = phi i64 [ %.pre56.pre, %60 ], [ %.pre5662, %62 ], [ %.pre5662, %64 ], [ %.pre5662, %66 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #18
+  %.pre56 = load i64, ptr %17, align 8
   br label %67
 
 67:                                               ; preds = %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit, %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit
-  %.pre5666 = phi i64 [ %.pre56, %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit ], [ %.pre5663, %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit ]
   %.pre5760 = phi i64 [ %.pre56, %_ZNSt6vectorIcSaIcEE6resizeEmRKc.exit ], [ %.pre57, %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit ]
   %.not53 = icmp eq i64 %.pre5760, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit43, %67
-  %.pre5665 = phi i64 [ %.pre5666, %67 ], [ %114, %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit43 ]
   %.pre5759 = phi i64 [ 0, %67 ], [ %114, %_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEEixEOm.exit43 ]
   %68 = sub i64 %.01448, %.pre5759
   %69 = add i64 %.pre5759, %.01349
@@ -717,7 +705,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK16htif_hexwriter
   br label %23
 
 ._crit_edge.loopexit:                             ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  %.pre = load ptr, ptr %0, align 8, !tbaa !3
+  %.pre = load ptr, ptr %0, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
@@ -1257,8 +1245,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIcSaIcEEESt
 26:                                               ; preds = %._crit_edge.thread.i
   %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #23
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %.pre81 = load i64, ptr %.phi.trans.insert80, align 8, !tbaa !28
-  %.pre82 = load i64, ptr %2, align 8, !tbaa !28
+  %.pre81 = load i64, ptr %.phi.trans.insert80, align 8
+  %.pre82 = load i64, ptr %2, align 8
   br label %28
 
 28:                                               ; preds = %26, %._crit_edge.i
@@ -1327,7 +1315,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIcSaIcEEESt
 56:                                               ; preds = %._crit_edge.thread.i27
   %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #23
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %.pre79 = load i64, ptr %.phi.trans.insert78, align 8, !tbaa !28
+  %.pre79 = load i64, ptr %.phi.trans.insert78, align 8
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
@@ -1394,7 +1382,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmSt6vectorIcSaIcEEESt
 84:                                               ; preds = %._crit_edge.thread.i47
   %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #23
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !28
+  %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38

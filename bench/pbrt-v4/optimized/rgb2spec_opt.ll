@@ -375,9 +375,9 @@ define dso_local void @_Z8LUPSolvePPdPKiPKdiS_(ptr noundef readonly captures(non
 
 .preheader.._crit_edge49_crit_edge:               ; preds = %.preheader
   %.phi.trans.insert = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.next62
-  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !4
+  %.pre = load double, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert67 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next62
-  %.pre68 = load ptr, ptr %.phi.trans.insert67, align 8, !tbaa !13
+  %.pre68 = load ptr, ptr %.phi.trans.insert67, align 8
   br label %._crit_edge49
 
 .lr.ph48:                                         ; preds = %.preheader
@@ -1325,9 +1325,9 @@ _Z12LUPDecomposePPdidPi.exit:                     ; preds = %.loopexit.i
 
 .preheader.._crit_edge49_crit_edge.i:             ; preds = %.preheader.i46
   %.phi.trans.insert.i = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next62.i
-  %.pre.i = load double, ptr %.phi.trans.insert.i, align 8, !tbaa !4
+  %.pre.i = load double, ptr %.phi.trans.insert.i, align 8
   %.phi.trans.insert67.i = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next62.i
-  %.pre68.i = load ptr, ptr %.phi.trans.insert67.i, align 8, !tbaa !13
+  %.pre68.i = load ptr, ptr %.phi.trans.insert67.i, align 8
   br label %._crit_edge49.i
 
 .lr.ph48.i:                                       ; preds = %.preheader.i46
@@ -1624,7 +1624,7 @@ _ZNSt6vectorISt6threadSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorISt6t
   store ptr %52, ptr %8, align 8, !tbaa !39
   %54 = getelementptr inbounds nuw %"class.std::thread", ptr %46, i64 %44
   store ptr %54, ptr %9, align 8, !tbaa !56
-  %.sroa.0.0.copyload.i.i.pr = load i64, ptr %4, align 8, !tbaa !57
+  %.sroa.0.0.copyload.i.i.pr = load i64, ptr %4, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i.pr, 0
   br i1 %.not.i, label %_ZNSt6threadD2Ev.exit, label %55
 
@@ -1828,8 +1828,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %7
   br i1 %.not, label %thread-pre-split, label %.lr.ph
 
 thread-pre-split:                                 ; preds = %16
-  %.pr.pre = load ptr, ptr %2, align 8, !tbaa !42
-  %.pre.pre = load ptr, ptr %4, align 8, !tbaa !39
+  %.pr.pre = load ptr, ptr %2, align 8
+  %.pre.pre = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %.pr.pre, %.pre.pre
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i
 
@@ -3046,8 +3046,8 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9
 
 .lr.ph.preheader.i.i.i:                           ; preds = %22
   %31 = zext nneg i32 %29 to i64
-  %.pre.i.i.i = load ptr, ptr %17, align 8, !tbaa !143
-  %.pre78.i.i.i = load i32, ptr %.pre.i.i.i, align 4, !tbaa !8
+  %.pre.i.i.i = load ptr, ptr %17, align 8
+  %.pre78.i.i.i = load i32, ptr %.pre.i.i.i, align 4
   br label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %22
@@ -3055,20 +3055,19 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9
   br i1 %32, label %._crit_edge.i..lr.ph68.preheader.i_crit_edge.i.i, label %._crit_edge69.i.i.i
 
 ._crit_edge.i..lr.ph68.preheader.i_crit_edge.i.i: ; preds = %._crit_edge.i.i.i
-  %.pre79.i.pre.i.i = load ptr, ptr %17, align 8, !tbaa !143
-  %.pre80.i.pre.i.i = load i32, ptr %.pre79.i.pre.i.i, align 4, !tbaa !8
   %.pre.i.i = zext i32 %29 to i64
-  br label %.lr.ph68.i.i.i.preheader
+  br label %.lr.ph68.preheader.i.i.i
 
-.lr.ph68.i.i.i.preheader:                         ; preds = %._crit_edge.thread.i.i.i, %._crit_edge.i..lr.ph68.preheader.i_crit_edge.i.i
-  %.ph = phi i32 [ %55, %._crit_edge.thread.i.i.i ], [ %.pre80.i.pre.i.i, %._crit_edge.i..lr.ph68.preheader.i_crit_edge.i.i ]
-  %indvars.iv75.i.i.i.ph = phi i64 [ %31, %._crit_edge.thread.i.i.i ], [ %.pre.i.i, %._crit_edge.i..lr.ph68.preheader.i_crit_edge.i.i ]
+.lr.ph68.preheader.i.i.i:                         ; preds = %._crit_edge.thread.i.i.i, %._crit_edge.i..lr.ph68.preheader.i_crit_edge.i.i
+  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %._crit_edge.i..lr.ph68.preheader.i_crit_edge.i.i ], [ %31, %._crit_edge.thread.i.i.i ]
+  %.pre79.i.i.i = load ptr, ptr %17, align 8
+  %.pre80.i.i.i = load i32, ptr %.pre79.i.i.i, align 4
   br label %.lr.ph68.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %33 = phi i32 [ %.pre78.i.i.i, %.lr.ph.preheader.i.i.i ], [ %55, %.lr.ph.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ %31, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %34 = load ptr, ptr %16, align 8, !tbaa !144
+  %34 = load ptr, ptr %16, align 8, !tbaa !143
   %35 = load ptr, ptr %34, align 8, !tbaa !114
   %36 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i.i
   %37 = load float, ptr %36, align 4, !tbaa !116
@@ -3092,7 +3091,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9
   %51 = load double, ptr %3, align 16, !tbaa !4
   %52 = load double, ptr %18, align 8, !tbaa !4
   %53 = load double, ptr %19, align 16, !tbaa !4
-  %54 = load ptr, ptr %17, align 8, !tbaa !143
+  %54 = load ptr, ptr %17, align 8, !tbaa !144
   %55 = load i32, ptr %54, align 4, !tbaa !8
   %56 = load ptr, ptr %.val, align 8, !tbaa !141
   %57 = load i32, ptr %56, align 4, !tbaa !8
@@ -3134,7 +3133,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9
 
 ._crit_edge.thread.i.i.i:                         ; preds = %.lr.ph.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  br label %.lr.ph68.i.i.i.preheader
+  br label %.lr.ph68.preheader.i.i.i
 
 ._crit_edge69.i.i.i:                              ; preds = %.lr.ph68.i.i.i, %._crit_edge.i.i.i
   %88 = phi ptr [ %23, %._crit_edge.i.i.i ], [ %115, %.lr.ph68.i.i.i ]
@@ -3145,10 +3144,10 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9
   %91 = icmp slt i32 %89, %90
   br i1 %91, label %22, label %"_ZSt10__invoke_rIvRZ4mainE3$_0JlEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES3_E4typeEOS4_DpOS5_.exit", !llvm.loop !147
 
-.lr.ph68.i.i.i:                                   ; preds = %.lr.ph68.i.i.i.preheader, %.lr.ph68.i.i.i
-  %92 = phi i32 [ %114, %.lr.ph68.i.i.i ], [ %.ph, %.lr.ph68.i.i.i.preheader ]
-  %indvars.iv75.i.i.i = phi i64 [ %indvars.iv.next76.i.i.i, %.lr.ph68.i.i.i ], [ %indvars.iv75.i.i.i.ph, %.lr.ph68.i.i.i.preheader ]
-  %93 = load ptr, ptr %16, align 8, !tbaa !144
+.lr.ph68.i.i.i:                                   ; preds = %.lr.ph68.i.i.i, %.lr.ph68.preheader.i.i.i
+  %92 = phi i32 [ %.pre80.i.i.i, %.lr.ph68.preheader.i.i.i ], [ %114, %.lr.ph68.i.i.i ]
+  %indvars.iv75.i.i.i = phi i64 [ %.pre-phi.i.i, %.lr.ph68.preheader.i.i.i ], [ %indvars.iv.next76.i.i.i, %.lr.ph68.i.i.i ]
+  %93 = load ptr, ptr %16, align 8, !tbaa !143
   %94 = load ptr, ptr %93, align 8, !tbaa !114
   %95 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv75.i.i.i
   %96 = load float, ptr %95, align 4, !tbaa !116
@@ -3172,7 +3171,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9
   %110 = load double, ptr %3, align 16, !tbaa !4
   %111 = load double, ptr %18, align 8, !tbaa !4
   %112 = load double, ptr %19, align 16, !tbaa !4
-  %113 = load ptr, ptr %17, align 8, !tbaa !143
+  %113 = load ptr, ptr %17, align 8, !tbaa !144
   %114 = load i32, ptr %113, align 4, !tbaa !8
   %115 = load ptr, ptr %.val, align 8, !tbaa !141
   %116 = load i32, ptr %115, align 4, !tbaa !8
@@ -3483,8 +3482,8 @@ attributes #42 = { cold nounwind }
 !140 = !{!"p1 _ZTSSt9type_info", !15, i64 0}
 !141 = !{!142, !120, i64 0}
 !142 = !{!"_ZTSZ4mainE3$_0", !120, i64 0, !122, i64 8, !120, i64 16, !122, i64 24}
-!143 = !{!142, !120, i64 16}
-!144 = !{!142, !122, i64 8}
+!143 = !{!142, !122, i64 8}
+!144 = !{!142, !120, i64 16}
 !145 = !{!142, !122, i64 24}
 !146 = distinct !{!146, !11}
 !147 = distinct !{!147, !11}

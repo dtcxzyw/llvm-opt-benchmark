@@ -64,7 +64,6 @@ define void @_ZN8LightGBM8BruckMapC2Ei(ptr noundef nonnull align 8 captures(none
   ret void
 
 10:                                               ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit19
-  %.pre3133 = phi ptr [ null, %.lr.ph ], [ %.pre3134, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit19 ]
   %11 = phi ptr [ null, %.lr.ph ], [ %61, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit19 ]
   %12 = phi ptr [ null, %.lr.ph ], [ %62, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit19 ]
   %.0730 = phi i32 [ 0, %.lr.ph ], [ %63, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit19 ]
@@ -124,21 +123,19 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %33, %.no
 
 35:                                               ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %18) #16
-  %.pre.pre = load ptr, ptr %8, align 8, !tbaa !15
-  %.pre31.pre = load ptr, ptr %9, align 8, !tbaa !16
+  %.pre.pre = load ptr, ptr %8, align 8
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %35, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
-  %.pre31 = phi ptr [ %.pre31.pre, %35 ], [ %.pre3133, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i ]
   %.pre = phi ptr [ %.pre.pre, %35 ], [ %12, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i ]
   store ptr %30, ptr %3, align 8, !tbaa !18
   store ptr %34, ptr %6, align 8, !tbaa !15
   %36 = getelementptr inbounds nuw i32, ptr %30, i64 %28
   store ptr %36, ptr %7, align 8, !tbaa !16
+  %.pre31 = load ptr, ptr %9, align 8
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %15
-  %.pre3135 = phi ptr [ %.pre31, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.pre3133, %15 ]
   %37 = phi ptr [ %.pre31, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %11, %15 ]
   %38 = phi ptr [ %.pre, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %12, %15 ]
   %.not.i.i10 = icmp eq ptr %38, %37
@@ -205,7 +202,6 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit19
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit19:         ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i16, %39
-  %.pre3134 = phi ptr [ %60, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i16 ], [ %.pre3135, %39 ]
   %61 = phi ptr [ %60, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i16 ], [ %37, %39 ]
   %62 = phi ptr [ %58, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i16 ], [ %40, %39 ]
   %63 = add nuw nsw i32 %.0730, 1

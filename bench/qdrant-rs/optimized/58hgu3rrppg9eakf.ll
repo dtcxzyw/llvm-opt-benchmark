@@ -5263,21 +5263,20 @@ define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$L
           to label %"._ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$17h5bc326854ec283f0E.llvm.4482545766329047864.exit.i4_crit_edge" unwind label %23
 
 "._ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$17h5bc326854ec283f0E.llvm.4482545766329047864.exit.i4_crit_edge": ; preds = %22
-  %.pre = load ptr, ptr %16, align 8, !alias.scope !2290
+  %.pre = load ptr, ptr %16, align 8, !nonnull !4
   br label %"_ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$17h5bc326854ec283f0E.llvm.4482545766329047864.exit.i4"
 
 23:                                               ; preds = %22
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2293)
-  %25 = load ptr, ptr %16, align 8, !alias.scope !2293, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef 248, i64 noundef 8) #18, !noalias !2293
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2290)
+  %25 = load ptr, ptr %16, align 8, !alias.scope !2290, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef 248, i64 noundef 8) #18, !noalias !2290
   br label %.body5
 
 "_ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$17h5bc326854ec283f0E.llvm.4482545766329047864.exit.i4": ; preds = %"._ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$17h5bc326854ec283f0E.llvm.4482545766329047864.exit.i4_crit_edge", %19
   %26 = phi ptr [ %.pre, %"._ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$17h5bc326854ec283f0E.llvm.4482545766329047864.exit.i4_crit_edge" ], [ %17, %19 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2290)
-  tail call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef 248, i64 noundef 8) #18, !noalias !2290
+  tail call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef 248, i64 noundef 8) #18, !noalias !2293
   br label %"_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$$GT$17ha7b05df96cff4c0eE.llvm.4482545766329047864.exit7"
 
 .body5:                                           ; preds = %23, %.body12
@@ -5303,21 +5302,20 @@ define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$L
           to label %"._ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$17h5bc326854ec283f0E.llvm.4482545766329047864.exit.i_crit_edge" unwind label %35
 
 "._ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$17h5bc326854ec283f0E.llvm.4482545766329047864.exit.i_crit_edge": ; preds = %34
-  %.pre14 = load ptr, ptr %28, align 8, !alias.scope !2305
+  %.pre14 = load ptr, ptr %28, align 8, !nonnull !4
   br label %"_ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$17h5bc326854ec283f0E.llvm.4482545766329047864.exit.i"
 
 35:                                               ; preds = %34
   %36 = landingpad { ptr, i32 }
           cleanup
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2308)
-  %37 = load ptr, ptr %28, align 8, !alias.scope !2308, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef 248, i64 noundef 8) #18, !noalias !2308
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2305)
+  %37 = load ptr, ptr %28, align 8, !alias.scope !2305, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef 248, i64 noundef 8) #18, !noalias !2305
   br label %41
 
 "_ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$17h5bc326854ec283f0E.llvm.4482545766329047864.exit.i": ; preds = %"._ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$17h5bc326854ec283f0E.llvm.4482545766329047864.exit.i_crit_edge", %31
   %38 = phi ptr [ %.pre14, %"._ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..Schema$GT$$GT$17h5bc326854ec283f0E.llvm.4482545766329047864.exit.i_crit_edge" ], [ %29, %31 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2305)
-  tail call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef 248, i64 noundef 8) #18, !noalias !2305
+  tail call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef 248, i64 noundef 8) #18, !noalias !2308
   br label %"_ZN4core3ptr54drop_in_place$LT$schemars..schema..ArrayValidation$GT$17hed9ca4f6f1c1d5a0E.exit"
 
 39:                                               ; preds = %.body5, %.body12

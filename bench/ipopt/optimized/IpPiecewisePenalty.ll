@@ -123,7 +123,7 @@ define noundef zeroext i1 @_ZN5Ipopt16PiecewisePenalty10AcceptableEdd(ptr nounde
   br i1 %.not105111, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %65
-  %.pre = load double, ptr %.sroa.061.0110, align 8, !tbaa !21
+  %.pre = load double, ptr %.sroa.061.0110, align 8
   br label %.lr.ph
 
 66:                                               ; preds = %.lr.ph
@@ -279,14 +279,14 @@ _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5clearEv.exit: ; preds = %11
 
 36:                                               ; preds = %.lr.ph, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126
   %37 = phi ptr [ %20, %.lr.ph ], [ %227, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
-  %38 = phi ptr [ %7, %.lr.ph ], [ %.pre178, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
-  %39 = phi ptr [ %7, %.lr.ph ], [ %228, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
-  %40 = phi ptr [ %7, %.lr.ph ], [ %229, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
-  %41 = phi ptr [ %7, %.lr.ph ], [ %230, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
-  %42 = phi ptr [ %20, %.lr.ph ], [ %231, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
-  %43 = phi ptr [ %7, %.lr.ph ], [ %232, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
+  %38 = phi ptr [ %7, %.lr.ph ], [ %228, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
+  %39 = phi ptr [ %7, %.lr.ph ], [ %229, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
+  %40 = phi ptr [ %7, %.lr.ph ], [ %230, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
+  %41 = phi ptr [ %7, %.lr.ph ], [ %231, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
+  %42 = phi ptr [ %20, %.lr.ph ], [ %232, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
+  %43 = phi ptr [ %7, %.lr.ph ], [ %233, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
   %.0177 = phi double [ %28, %.lr.ph ], [ %54, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
-  %.sroa.0137.0176 = phi ptr [ %19, %.lr.ph ], [ %233, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
+  %.sroa.0137.0176 = phi ptr [ %19, %.lr.ph ], [ %234, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126 ]
   %44 = icmp ule ptr %.sroa.0137.0176, %34
   %or.cond167 = select i1 %33, i1 %44, i1 false
   br i1 %or.cond167, label %45, label %.critedge
@@ -476,7 +476,7 @@ _ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit66:  ; preds = %_ZNSt6vectorIN5Ipop
 
 113:                                              ; preds = %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit66
   %114 = fcmp ogt double %.0177, 0.000000e+00
-  %.pre = load ptr, ptr %35, align 8, !tbaa !29
+  %.pre = load ptr, ptr %35, align 8
   br i1 %114, label %115, label %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit81
 
 115:                                              ; preds = %113
@@ -771,31 +771,32 @@ _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9
 
 _ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126: ; preds = %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123, %222, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111, %218
   %227 = phi ptr [ %225, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %223, %222 ], [ %210, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %210, %218 ]
-  %.pre178 = phi ptr [ %224, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %211, %222 ], [ %211, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %211, %218 ]
-  %228 = phi ptr [ %224, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %211, %222 ], [ %212, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %211, %218 ]
-  %229 = phi ptr [ %224, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %211, %222 ], [ %213, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %211, %218 ]
-  %230 = phi ptr [ %224, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %211, %222 ], [ %214, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %211, %218 ]
-  %231 = phi ptr [ %225, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %223, %222 ], [ %215, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %210, %218 ]
-  %232 = phi ptr [ %224, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %211, %222 ], [ %216, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %211, %218 ]
-  %233 = getelementptr inbounds nuw i8, ptr %.sroa.0137.0176, i64 24
-  %.not168 = icmp ugt ptr %233, %17
+  %228 = phi ptr [ %224, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %211, %222 ], [ %211, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %211, %218 ]
+  %229 = phi ptr [ %224, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %211, %222 ], [ %212, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %211, %218 ]
+  %230 = phi ptr [ %224, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %211, %222 ], [ %213, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %211, %218 ]
+  %231 = phi ptr [ %224, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %211, %222 ], [ %214, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %211, %218 ]
+  %232 = phi ptr [ %225, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %223, %222 ], [ %215, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %210, %218 ]
+  %233 = phi ptr [ %224, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i123 ], [ %211, %222 ], [ %216, %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit111 ], [ %211, %218 ]
+  %234 = getelementptr inbounds nuw i8, ptr %.sroa.0137.0176, i64 24
+  %.not168 = icmp ugt ptr %234, %17
   br i1 %.not168, label %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev.exit128.loopexit, label %36, !llvm.loop !30
 
 _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev.exit128.loopexit: ; preds = %_ZN5Ipopt16PiecewisePenalty8AddEntryEddd.exit126
+  %.pre178 = load ptr, ptr %4, align 8
   %.pre179 = ptrtoint ptr %.pre178 to i64
   br label %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev.exit128
 
 _ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev.exit128: ; preds = %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5clearEv.exit, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev.exit128.loopexit
-  %234 = phi ptr [ %19, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev.exit128.loopexit ], [ %14, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5clearEv.exit ]
+  %235 = phi ptr [ %19, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev.exit128.loopexit ], [ %14, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5clearEv.exit ]
   %.pre-phi185 = phi i64 [ %31, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev.exit128.loopexit ], [ %10, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5clearEv.exit ]
   %.pre-phi = phi i64 [ %.pre179, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev.exit128.loopexit ], [ %9, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5clearEv.exit ]
-  %235 = phi ptr [ %227, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev.exit128.loopexit ], [ %7, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5clearEv.exit ]
-  %236 = ptrtoint ptr %235 to i64
-  %237 = sub i64 %236, %.pre-phi
-  %238 = sdiv exact i64 %237, 24
-  %239 = trunc i64 %238 to i32
-  store i32 %239, ptr %0, align 8, !tbaa !3
-  tail call void @_ZdlPvm(ptr noundef nonnull %234, i64 noundef %.pre-phi185) #17
+  %236 = phi ptr [ %227, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EED2Ev.exit128.loopexit ], [ %7, %_ZNSt6vectorIN5Ipopt17PiecewisePenEntryESaIS1_EE5clearEv.exit ]
+  %237 = ptrtoint ptr %236 to i64
+  %238 = sub i64 %237, %.pre-phi
+  %239 = sdiv exact i64 %238, 24
+  %240 = trunc i64 %239 to i32
+  store i32 %240, ptr %0, align 8, !tbaa !3
+  tail call void @_ZdlPvm(ptr noundef nonnull %235, i64 noundef %.pre-phi185) #17
   ret void
 }
 

@@ -421,7 +421,7 @@ define internal fastcc range(i32 0, 2) i32 @isremote() unnamed_addr #0 {
 49:                                               ; preds = %.lr.ph
   %50 = load i32, ptr %36, align 4, !tbaa !29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0253, i64 24
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !32
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
   switch i32 %50, label %._crit_edge9 [
     i32 2, label %._crit_edge9.sink.split
     i32 10, label %._crit_edge9.sink.split
@@ -429,12 +429,12 @@ define internal fastcc range(i32 0, 2) i32 @isremote() unnamed_addr #0 {
 
 ._crit_edge9.sink.split:                          ; preds = %49, %49
   %51 = getelementptr inbounds nuw i8, ptr %.pre, i64 2
-  store i16 0, ptr %51, align 2, !tbaa !33
+  store i16 0, ptr %51, align 2, !tbaa !32
   br label %._crit_edge9
 
 ._crit_edge9:                                     ; preds = %._crit_edge9.sink.split, %49
   %52 = getelementptr inbounds nuw i8, ptr %.0253, i64 16
-  %53 = load i32, ptr %52, align 8, !tbaa !34
+  %53 = load i32, ptr %52, align 8, !tbaa !33
   %54 = call i32 @bind(i32 noundef %42, ptr %.pre, i32 noundef %53) #15
   %.not36 = icmp eq i32 %54, 0
   br i1 %.not36, label %61, label %55
@@ -460,7 +460,7 @@ define internal fastcc range(i32 0, 2) i32 @isremote() unnamed_addr #0 {
   br i1 %.not35, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %63
-  %.pre10 = load ptr, ptr %3, align 8, !tbaa !27
+  %.pre10 = load ptr, ptr %3, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -618,7 +618,7 @@ define dso_local range(i32 0, 35) i32 @client(ptr noundef %0, ptr noundef %1, pt
 
 12:                                               ; preds = %9, %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !35
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
   %.not75 = icmp eq ptr %14, null
   br i1 %.not75, label %.tail.thread, label %15
 
@@ -646,7 +646,7 @@ sub_0:                                            ; preds = %15
   br i1 %.not78, label %25, label %.tail.thread
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr %13, align 8, !tbaa !35
+  %26 = load ptr, ptr %13, align 8, !tbaa !34
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %.not79 = icmp eq ptr %28, null
@@ -720,7 +720,7 @@ sub_0:                                            ; preds = %15
   %68 = tail call ptr @optget(ptr noundef %67, ptr noundef nonnull @.str.26) #15
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load i64, ptr %69, align 8, !tbaa !21
-  store i64 %70, ptr @maxstream, align 8, !tbaa !36
+  store i64 %70, ptr @maxstream, align 8, !tbaa !35
   %71 = load ptr, ptr @clamdopts, align 8, !tbaa !16
   %72 = tail call ptr @optget(ptr noundef %71, ptr noundef nonnull @.str.27) #15
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
@@ -746,7 +746,7 @@ sub_0:                                            ; preds = %15
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %86 = load i32, ptr %85, align 8, !tbaa !38
+  %86 = load i32, ptr %85, align 8, !tbaa !37
   %87 = load ptr, ptr @clamdopts, align 8, !tbaa !16
   %88 = tail call i32 @dconnect(ptr noundef %87) #15
   %89 = icmp sgt i32 %88, -1
@@ -778,7 +778,7 @@ sub_0:                                            ; preds = %15
   br label %.loopexit
 
 98:                                               ; preds = %81
-  %99 = load ptr, ptr %13, align 8, !tbaa !35
+  %99 = load ptr, ptr %13, align 8, !tbaa !34
   %100 = load ptr, ptr %99, align 8, !tbaa !4
   %101 = tail call ptr @__errno_location() #17
   %102 = load i32, ptr %101, align 4, !tbaa !31
@@ -789,7 +789,7 @@ sub_0:                                            ; preds = %15
   br label %.thread
 
 105:                                              ; preds = %61
-  %106 = load ptr, ptr %13, align 8, !tbaa !35
+  %106 = load ptr, ptr %13, align 8, !tbaa !34
   %.not86 = icmp eq ptr %106, null
   br i1 %.not86, label %107, label %.thread106
 
@@ -801,7 +801,7 @@ sub_0:                                            ; preds = %15
   br i1 %.not87, label %131, label %111
 
 111:                                              ; preds = %107
-  %.pr = load ptr, ptr %13, align 8, !tbaa !35
+  %.pr = load ptr, ptr %13, align 8, !tbaa !34
   %.not88 = icmp eq ptr %.pr, null
   br i1 %.not88, label %117, label %.thread106
 
@@ -1080,12 +1080,11 @@ attributes #18 = { nounwind allocsize(0) }
 !29 = !{!23, !12, i64 4}
 !30 = !{!23, !12, i64 12}
 !31 = !{!12, !12, i64 0}
-!32 = !{!23, !24, i64 24}
-!33 = !{!20, !20, i64 0}
-!34 = !{!23, !12, i64 16}
-!35 = !{!10, !14, i64 64}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"long", !7, i64 0}
-!38 = !{!39, !12, i64 24}
-!39 = !{!"stat", !37, i64 0, !37, i64 8, !37, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !37, i64 40, !37, i64 48, !37, i64 56, !37, i64 64, !40, i64 72, !40, i64 88, !40, i64 104, !7, i64 120}
-!40 = !{!"timespec", !37, i64 0, !37, i64 8}
+!32 = !{!20, !20, i64 0}
+!33 = !{!23, !12, i64 16}
+!34 = !{!10, !14, i64 64}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"long", !7, i64 0}
+!37 = !{!38, !12, i64 24}
+!38 = !{!"stat", !36, i64 0, !36, i64 8, !36, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !36, i64 40, !36, i64 48, !36, i64 56, !36, i64 64, !39, i64 72, !39, i64 88, !39, i64 104, !7, i64 120}
+!39 = !{!"timespec", !36, i64 0, !36, i64 8}

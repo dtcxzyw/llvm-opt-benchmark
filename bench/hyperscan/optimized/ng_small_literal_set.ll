@@ -1845,7 +1845,7 @@ _ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4le
   br i1 %or.cond42, label %_ZN3ue2L33checkLongMixedSensitivityLiteralsERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit, label %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit._ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread_crit_edge
 
 _ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit._ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread_crit_edge: ; preds = %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit
-  %.val.i.i.i.i33.pre = load ptr, ptr %21, align 8, !noalias !80
+  %.val.i.i.i.i33.pre = load ptr, ptr %21, align 8
   br label %_ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4lessIjESaIjEEES4_IS2_ESaISt4pairIKS2_S7_EEE.exit.thread
 
 686:                                              ; preds = %.lr.ph.i30
@@ -1894,7 +1894,7 @@ _ZN3ue2L10min_periodERKSt3mapINS_12_GLOBAL__N_111sls_literalENS_8flat_setIjSt4le
   %.1.i.i.i36 = select i1 %704, i1 %.021.i.i.i, i1 %..0.i.i.i
   %706 = add nuw i64 %.sroa.6.019.i.i.i, 1
   %.not.i.i.i37 = icmp eq i64 %706, %689
-  br i1 %.not.i.i.i37, label %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit.i, label %.lr.ph.split.i.i.i, !llvm.loop !85
+  br i1 %.not.i.i.i37, label %_ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit.i, label %.lr.ph.split.i.i.i, !llvm.loop !80
 
 _ZN3ue217mixed_sensitivityERKNS_11ue2_literalE.exit.i: ; preds = %.lr.ph.split.i.i.i
   %707 = select i1 %.13.i.i.i, i1 %.1.i.i.i36, i1 false
@@ -2032,7 +2032,7 @@ _ZNKSt4lessIN3ue212_GLOBAL__N_111sls_literalEEclERKS2_S5_.exit.i.i: ; preds = %2
   %26 = getelementptr i8, ptr %.02633.i.i, i64 %.sink.i.i
   %.026.i.i = load ptr, ptr %26, align 8
   %.not.i.i = icmp eq ptr %.026.i.i, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %7, !llvm.loop !86
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %7, !llvm.loop !81
 
 ._crit_edge.i.i:                                  ; preds = %_ZNKSt4lessIN3ue212_GLOBAL__N_111sls_literalEEclERKS2_S5_.exit.i.i
   br i1 %.0.i.i28.i.i, label %._crit_edge.thread.i.i, label %31
@@ -2284,7 +2284,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS2_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.02) #23
   %.not = icmp eq ptr %.0.val, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS2_E.exit, %1
   ret void
@@ -2695,7 +2695,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalESt4pairIKS2_NS0_8flat_setIjSt4lessIjESaIjEEEESt10_Select1stISA_ES6_IS2_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %.02) #23
   %.not = icmp eq ptr %.0.val, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalESt4pairIKS2_NS0_8flat_setIjSt4lessIjESaIjEEEESt10_Select1stISA_ES6_IS2_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, %1
   ret void
@@ -2825,12 +2825,7 @@ attributes #25 = { nounwind willreturn memory(read) }
 !77 = distinct !{!77, !"_ZN5boost12range_detailorISt3mapIN3ue212_GLOBAL__N_111sls_literalENS3_8flat_setIjSt4lessIjESaIjEEES7_IS5_ESaISt4pairIKS5_SA_EEENS0_12select_firstISG_EEEENS0_17transformed_rangeIT0_KT_EERSM_RKNS0_16transform_holderISK_EE"}
 !78 = distinct !{!78, !79, !"_ZN5boost12range_detailorISt3mapIN3ue212_GLOBAL__N_111sls_literalENS3_8flat_setIjSt4lessIjESaIjEEES7_IS5_ESaISt4pairIKS5_SA_EEEEENS0_18select_first_rangeIT_EERKSI_NS0_18map_keys_forwarderE: argument 0"}
 !79 = distinct !{!79, !"_ZN5boost12range_detailorISt3mapIN3ue212_GLOBAL__N_111sls_literalENS3_8flat_setIjSt4lessIjESaIjEEES7_IS5_ESaISt4pairIKS5_SA_EEEEENS0_18select_first_rangeIT_EERKSI_NS0_18map_keys_forwarderE"}
-!80 = !{!81, !83}
-!81 = distinct !{!81, !82, !"_ZN5boost12range_detailorISt3mapIN3ue212_GLOBAL__N_111sls_literalENS3_8flat_setIjSt4lessIjESaIjEEES7_IS5_ESaISt4pairIKS5_SA_EEENS0_12select_firstISG_EEEENS0_17transformed_rangeIT0_KT_EERSM_RKNS0_16transform_holderISK_EE: argument 0"}
-!82 = distinct !{!82, !"_ZN5boost12range_detailorISt3mapIN3ue212_GLOBAL__N_111sls_literalENS3_8flat_setIjSt4lessIjESaIjEEES7_IS5_ESaISt4pairIKS5_SA_EEENS0_12select_firstISG_EEEENS0_17transformed_rangeIT0_KT_EERSM_RKNS0_16transform_holderISK_EE"}
-!83 = distinct !{!83, !84, !"_ZN5boost12range_detailorISt3mapIN3ue212_GLOBAL__N_111sls_literalENS3_8flat_setIjSt4lessIjESaIjEEES7_IS5_ESaISt4pairIKS5_SA_EEEEENS0_18select_first_rangeIT_EERKSI_NS0_18map_keys_forwarderE: argument 0"}
-!84 = distinct !{!84, !"_ZN5boost12range_detailorISt3mapIN3ue212_GLOBAL__N_111sls_literalENS3_8flat_setIjSt4lessIjESaIjEEES7_IS5_ESaISt4pairIKS5_SA_EEEEENS0_18select_first_rangeIT_EERKSI_NS0_18map_keys_forwarderE"}
-!85 = distinct !{!85, !8}
-!86 = distinct !{!86, !8}
-!87 = distinct !{!87, !8}
-!88 = distinct !{!88, !8}
+!80 = distinct !{!80, !8}
+!81 = distinct !{!81, !8}
+!82 = distinct !{!82, !8}
+!83 = distinct !{!83, !8}

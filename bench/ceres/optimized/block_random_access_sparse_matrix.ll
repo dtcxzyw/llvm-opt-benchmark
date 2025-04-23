@@ -266,7 +266,7 @@ _ZN4absl12lts_2024011612log_internal12Check_LEImplImiEEPNSt7__cxx1112basic_strin
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit167
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.thread: ; preds = %47, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i, %.noexc114, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
-  %.0.i111346351 = phi i32 [ %53, %.noexc114 ], [ %53, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %53, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0, %47 ]
+  %.0.i111343348 = phi i32 [ %53, %.noexc114 ], [ %53, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %53, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0, %47 ]
   %76 = phi i64 [ %54, %.noexc114 ], [ %54, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %54, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0, %47 ]
   %77 = phi i32 [ %55, %.noexc114 ], [ %55, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %55, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0, %47 ]
   %78 = phi i64 [ %56, %.noexc114 ], [ %56, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i ], [ %56, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0, %47 ]
@@ -428,7 +428,7 @@ _ZSt8_DestroyIPN5ceres8internal14CompressedListES2_EvT_S4_RSaIT0_E.exit.i.i: ; p
   %159 = load ptr, ptr %2, align 8, !tbaa !53
   %160 = load ptr, ptr %159, align 8, !tbaa !59
   %wide.trip.count = and i64 %76, 2147483647
-  %.pre = load ptr, ptr %1, align 8, !tbaa !11
+  %.pre = load ptr, ptr %1, align 8
   br label %.lr.ph304
 
 ._crit_edge305:                                   ; preds = %.critedge, %157
@@ -548,7 +548,6 @@ _ZNSt6vectorIN5ceres8internal4CellESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_V
   br label %210
 
 210:                                              ; preds = %.lr.ph292, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsISt4pairIiiESt4lessIS6_ESaIS6_ELi256ELb0EEEEERKS6_PSD_EppEv.exit153
-  %.pre339341 = phi ptr [ %200, %.lr.ph292 ], [ %.pre339342, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsISt4pairIiiESt4lessIS6_ESaIS6_ELi256ELb0EEEEERKS6_PSD_EppEv.exit153 ]
   %211 = phi ptr [ %200, %.lr.ph292 ], [ %249, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsISt4pairIiiESt4lessIS6_ESaIS6_ELi256ELb0EEEEERKS6_PSD_EppEv.exit153 ]
   %212 = phi ptr [ %198, %.lr.ph292 ], [ %250, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsISt4pairIiiESt4lessIS6_ESaIS6_ELi256ELb0EEEEERKS6_PSD_EppEv.exit153 ]
   %213 = phi ptr [ %199, %.lr.ph292 ], [ %251, %_ZN4absl12lts_2024011618container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsISt4pairIiiESt4lessIS6_ESaIS6_ELi256ELb0EEEEERKS6_PSD_EppEv.exit153 ]
@@ -634,19 +633,17 @@ _ZNSt6vectorIN5ceres8internal4CellESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23.i
 
 247:                                              ; preds = %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %212, i64 noundef %231) #30
-  %.pre339.pre = load ptr, ptr %1, align 8, !tbaa !11
   br label %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN5ceres8internal4CellESaIS2_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %247, %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23.i.i
-  %.pre339 = phi ptr [ %.pre339.pre, %247 ], [ %.pre339341, %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23.i.i ]
   store ptr %240, ptr %171, align 8, !tbaa !69
   store ptr %246, ptr %209, align 8, !tbaa !77
   %248 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %240, i64 %238
   store ptr %248, ptr %178, align 8, !tbaa !72
+  %.pre339 = load ptr, ptr %1, align 8
   br label %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE12emplace_backIJRKiRiEEERS2_DpOT_.exit
 
 _ZNSt6vectorIN5ceres8internal4CellESaIS2_EE12emplace_backIJRKiRiEEERS2_DpOT_.exit: ; preds = %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %225
-  %.pre339342 = phi ptr [ %.pre339, %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.pre339341, %225 ]
   %249 = phi ptr [ %.pre339, %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %211, %225 ]
   %250 = phi ptr [ %240, %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %212, %225 ]
   %251 = phi ptr [ %248, %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %213, %225 ]
@@ -784,7 +781,7 @@ _ZN4absl12lts_2024011612log_internal8VLogSite9IsEnabledEi.exit: ; preds = %295
 
 _ZN4absl12lts_2024011612log_internal10LogMessagelsILi14EEERS2_RAT__Kc.exit: ; preds = %300
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  store i32 %.0.i111346351, ptr %8, align 4, !tbaa !47
+  store i32 %.0.i111343348, ptr %8, align 4, !tbaa !47
   %301 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %299, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %302 unwind label %320
 
@@ -795,7 +792,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi14EEERS2_RAT__Kc.exit: ; pr
 
 _ZN4absl12lts_2024011612log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit: ; preds = %302
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  store i32 %.0.i111346351, ptr %7, align 4, !tbaa !47
+  store i32 %.0.i111343348, ptr %7, align 4, !tbaa !47
   %303 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %301, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %304 unwind label %320
 
@@ -976,7 +973,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge314, %31
   br i1 %372, label %373, label %.noexc179._crit_edge
 
 .noexc179._crit_edge:                             ; preds = %.noexc179
-  %.pre340 = load ptr, ptr %32, align 8, !tbaa !41
+  %.pre340 = load ptr, ptr %32, align 8
   br label %414
 
 373:                                              ; preds = %.noexc179
@@ -1313,10 +1310,10 @@ _ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE13_M_deallocateEPS2_m.exit: ;
 
 35:                                               ; preds = %34
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %31, i1 false)
-  %.pre = load ptr, ptr %1, align 8, !tbaa !11
-  %.pre26 = load ptr, ptr %28, align 8, !tbaa !6
-  %.pre27 = load ptr, ptr %0, align 8, !tbaa !11
-  %.pre28 = load ptr, ptr %4, align 8, !tbaa !6
+  %.pre = load ptr, ptr %1, align 8
+  %.pre26 = load ptr, ptr %28, align 8
+  %.pre27 = load ptr, ptr %0, align 8
+  %.pre28 = load ptr, ptr %4, align 8
   %.pre29 = ptrtoint ptr %.pre26 to i64
   %.pre30 = ptrtoint ptr %.pre27 to i64
   %.pre32 = sub i64 %.pre29, %.pre30

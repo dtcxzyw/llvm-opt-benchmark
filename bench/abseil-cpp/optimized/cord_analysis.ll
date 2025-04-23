@@ -40,7 +40,7 @@ define dso_local noundef i64 @_ZN4absl13cord_internal23GetEstimatedMemoryUsageEP
 
 ._crit_edge.i:                                    ; preds = %6
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4, !tbaa !9
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
   br label %10
 
 10:                                               ; preds = %._crit_edge.i, %1
@@ -60,7 +60,7 @@ _ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i: ; preds = %13
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !21
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4, !tbaa !9
+  %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
   %16 = icmp ugt i8 %.pre.i.i, 4
   br i1 %16, label %17, label %_ZN4absl13cord_internal12_GLOBAL__N_117GetEstimatedUsageILNS1_4ModeE1EEEmPKNS0_7CordRepE.exit
 
@@ -100,7 +100,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_115AnalyzeDataEdgeILNS1_4ModeE1EEEvNS1_10Cor
 
 35:                                               ; preds = %13
   call fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112AnalyzeBtreeILNS1_4ModeE1EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE(ptr nonnull %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %.0.pre.i = load i64, ptr %2, align 8, !tbaa !4
+  %.0.pre.i = load i64, ptr %2, align 8
   br label %_ZN4absl13cord_internal12_GLOBAL__N_117GetEstimatedUsageILNS1_4ModeE1EEEmPKNS0_7CordRepE.exit
 
 _ZN4absl13cord_internal12_GLOBAL__N_117GetEstimatedUsageILNS1_4ModeE1EEEmPKNS0_7CordRepE.exit: ; preds = %6, %13, %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i, %_ZN4absl13cord_internal12_GLOBAL__N_115AnalyzeDataEdgeILNS1_4ModeE1EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE.exit.i, %35
@@ -142,7 +142,7 @@ define dso_local noundef i64 @_ZN4absl13cord_internal32GetEstimatedFairShareMemo
   %23 = uitofp i64 %22 to double
   %24 = fdiv double %8, %23
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4, !tbaa !9
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
   br label %25
 
 25:                                               ; preds = %18, %1
@@ -162,7 +162,7 @@ _ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i: ; preds = %27
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !21
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %29, i64 12
-  %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4, !tbaa !9
+  %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
   %30 = icmp ugt i8 %.pre.i.i, 4
   br i1 %30, label %31, label %_ZN4absl13cord_internal12_GLOBAL__N_117GetEstimatedUsageILNS1_4ModeE0EEEmPKNS0_7CordRepE.exit
 
@@ -178,7 +178,7 @@ _ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i: ; preds = %27
   %39 = uitofp i64 %37 to double
   %40 = fdiv double %.sroa.10.0.i, %39
   %41 = select i1 %38, double %.sroa.10.0.i, double %40
-  %.pre.i7.i = load i8, ptr %.phi.trans.insert.i.i, align 4, !tbaa !9
+  %.pre.i7.i = load i8, ptr %.phi.trans.insert.i.i, align 4
   br label %42
 
 42:                                               ; preds = %31, %25
@@ -281,7 +281,7 @@ define dso_local noundef i64 @_ZN4absl13cord_internal25GetMorePreciseMemoryUsage
 
 ._crit_edge.i:                                    ; preds = %24
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4, !tbaa !9
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
   br label %30
 
 28:                                               ; preds = %63, %56, %36, %18
@@ -307,7 +307,7 @@ _ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i: ; preds = %32
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !21
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %34, i64 12
-  %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4, !tbaa !9
+  %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4
   %35 = icmp ugt i8 %.pre.i.i, 4
   br i1 %35, label %36, label %.thread20.i
 
@@ -335,7 +335,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_18RawUsageILNS1_4ModeE2EE3AddEmNS1_10CordRep
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %42 = load ptr, ptr %33, align 8, !tbaa !21
   %.phi.trans.insert.i9.i = getelementptr inbounds nuw i8, ptr %42, i64 12
-  %.pre.i10.i = load i8, ptr %.phi.trans.insert.i9.i, align 4, !tbaa !9
+  %.pre.i10.i = load i8, ptr %.phi.trans.insert.i9.i, align 4
   br label %43
 
 43:                                               ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_18RawUsageILNS1_4ModeE2EE3AddEmNS1_10CordRepRefILS3_2EEE.exit.i.i, %30
@@ -484,10 +484,11 @@ define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112AnalyzeBtree
 
 27:                                               ; preds = %.lr.ph37
   %28 = add i64 %22, 32
+  store i64 %28, ptr %1, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !21
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %30, i64 12
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4, !tbaa !9
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
   br label %31
 
 31:                                               ; preds = %27, %.lr.ph37
@@ -518,15 +519,12 @@ define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112AnalyzeBtree
 _ZN4absl13cord_internal12_GLOBAL__N_115AnalyzeDataEdgeILNS1_4ModeE1EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE.exit: ; preds = %35, %42
   %45 = phi i64 [ %41, %35 ], [ %44, %42 ]
   %46 = add i64 %32, %45
+  store i64 %46, ptr %1, align 8, !tbaa !4
   %47 = getelementptr inbounds nuw i8, ptr %.02236, i64 8
   %.not = icmp eq ptr %47, %13
-  br i1 %.not, label %..loopexit_crit_edge, label %.lr.ph37
+  br i1 %.not, label %.loopexit, label %.lr.ph37
 
-..loopexit_crit_edge:                             ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_115AnalyzeDataEdgeILNS1_4ModeE1EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE.exit
-  store i64 %46, ptr %1, align 8, !tbaa !4
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.lr.ph, %14, %19, %..loopexit_crit_edge
+.loopexit:                                        ; preds = %.lr.ph, %_ZN4absl13cord_internal12_GLOBAL__N_115AnalyzeDataEdgeILNS1_4ModeE1EEEvNS1_10CordRepRefIXT_EEERNS1_8RawUsageIXT_EEE.exit, %14, %19
   ret void
 }
 
@@ -611,7 +609,7 @@ define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_112AnalyzeBtree
   %54 = fdiv double %39, %53
   %55 = select i1 %52, double %39, double %54
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %47, i64 12
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4, !tbaa !9
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
   br label %56
 
 56:                                               ; preds = %43, %.lr.ph44
@@ -764,7 +762,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_18RawUsageILNS1_4ModeE2EE3AddEmNS1_10CordRep
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !21
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %43, i64 12
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4, !tbaa !9
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 4
   br label %44
 
 44:                                               ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_18RawUsageILNS1_4ModeE2EE3AddEmNS1_10CordRepRefILS3_2EEE.exit.i, %.lr.ph37

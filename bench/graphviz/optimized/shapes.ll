@@ -3513,7 +3513,7 @@ gv_alloc.exit:                                    ; preds = %1
   br i1 %.not.i.i541, label %._crit_edge658, label %.thread
 
 ._crit_edge658:                                   ; preds = %201
-  %.sroa.3.0.copyload.pre = load double, ptr %171, align 8, !tbaa !4
+  %.sroa.3.0.copyload.pre = load double, ptr %171, align 8
   br label %239
 
 .thread:                                          ; preds = %193, %196, %200, %201
@@ -3553,6 +3553,7 @@ gv_alloc.exit:                                    ; preds = %1
   %225 = load double, ptr %4, align 8, !tbaa !16
   %226 = fmul double %224, %225
   store double %226, ptr %4, align 8, !tbaa !16
+  %.sroa.3.0.copyload.pre659.pre = load double, ptr %171, align 8
   br label %230
 
 227:                                              ; preds = %215
@@ -3563,7 +3564,7 @@ gv_alloc.exit:                                    ; preds = %1
   br label %230
 
 230:                                              ; preds = %227, %219
-  %.sroa.3.0.copyload.pre659 = phi double [ %217, %227 ], [ %216, %219 ]
+  %.sroa.3.0.copyload.pre659 = phi double [ %217, %227 ], [ %.sroa.3.0.copyload.pre659.pre, %219 ]
   %231 = phi double [ %229, %227 ], [ %226, %219 ]
   %232 = icmp ugt i64 %.1492, 2
   br i1 %232, label %233, label %239
@@ -4653,7 +4654,7 @@ define noundef ptr @bind_shape(ptr noundef readonly captures(none) %0, ptr nound
 .loopexit:                                        ; preds = %15, %8
   %18 = load ptr, ptr @UserShape, align 8, !tbaa !109
   %.not.i.i = icmp eq ptr %18, null
-  %.pre.i = load i64, ptr @N_UserShape, align 8, !tbaa !111
+  %.pre.i = load i64, ptr @N_UserShape, align 8
   br i1 %.not.i.i, label %.loopexit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.loopexit
@@ -4958,7 +4959,7 @@ default.unreachable.i:                            ; preds = %82
   br i1 %exitcond.not.i, label %closestSide.exit.loopexit, label %77, !llvm.loop !134
 
 closestSide.exit.loopexit:                        ; preds = %97
-  %.pre = load i8, ptr %50, align 1, !tbaa !129
+  %.pre = load i8, ptr %50, align 1
   br label %closestSide.exit
 
 closestSide.exit:                                 ; preds = %closestSide.exit.loopexit, %cvtPt.exit63.i, %cvtPt.exit63.i
@@ -5414,7 +5415,7 @@ define void @resolvePorts(ptr noundef readonly captures(none) %0) local_unnamed_
   call void @resolvePort(ptr dead_on_unwind nonnull writable sret(%struct.port) align 8 %2, ptr noundef %16, ptr noundef %20, ptr noundef nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false), !tbaa.struct !148
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #27
-  %.pre = load ptr, ptr %4, align 8, !tbaa !21
+  %.pre = load ptr, ptr %4, align 8
   br label %21
 
 21:                                               ; preds = %9, %1
@@ -5886,7 +5887,7 @@ gv_alloc.exit206:                                 ; preds = %112
   store ptr %145, ptr %146, align 8, !tbaa !162
   %147 = getelementptr inbounds nuw i8, ptr %.2133, i64 80
   store i8 1, ptr %147, align 8, !tbaa !153
-  %.pre = load ptr, ptr @reclblp, align 8, !tbaa !103
+  %.pre = load ptr, ptr @reclblp, align 8
   br label %148
 
 148:                                              ; preds = %138, %129
@@ -6034,7 +6035,7 @@ ISCTRL.exit.thread:                               ; preds = %156, %156, %156, %1
 200:                                              ; preds = %196, %190
   %201 = getelementptr inbounds nuw i8, ptr %.0157.ph246.ph, i64 1
   store i8 %191, ptr %.0157.ph246.ph, align 1, !tbaa !81
-  %.pre271.pre = load ptr, ptr @reclblp, align 8, !tbaa !103
+  %.pre271.pre = load ptr, ptr @reclblp, align 8
   br label %202
 
 202:                                              ; preds = %200, %196, %194
@@ -6335,12 +6336,12 @@ define internal fastcc void @pos_reclbl(ptr noundef captures(none) initializes((
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %19 = zext nneg i32 %15 to i64
   %wide.trip.count = zext nneg i32 %14 to i64
-  %.pre = load i8, ptr %16, align 8, !tbaa !153
+  %.pre = load i8, ptr %16, align 8
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %wide.trip.count55 = zext nneg i32 %14 to i64
-  %.pre57 = load ptr, ptr %18, align 8, !tbaa !152
+  %.pre57 = load ptr, ptr %18, align 8
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %34
@@ -6538,7 +6539,7 @@ define internal void @poly_port(ptr dead_on_unwind noalias writable writeonly sr
   br i1 %.not, label %._crit_edge, label %22
 
 ._crit_edge:                                      ; preds = %20
-  %.val.pre = load ptr, ptr %13, align 8, !tbaa !21
+  %.val.pre = load ptr, ptr %13, align 8
   br label %27
 
 22:                                               ; preds = %20
@@ -8082,7 +8083,7 @@ define internal zeroext i1 @point_inside(ptr noundef captures(address_is_null) %
 
 ._crit_edge:                                      ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !81
+  %.pre = load double, ptr %.phi.trans.insert, align 8
   br label %43
 
 18:                                               ; preds = %4
@@ -8680,11 +8681,11 @@ define internal noundef i32 @record_path(ptr noundef %0, ptr noundef readonly ca
   call void @flip_rec_boxf(ptr dead_on_unwind nonnull writable sret(%struct.boxf) align 8 %6, ptr noundef nonnull byval(%struct.boxf) align 8 %45, double %48, double %50) #27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !213
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #27
-  %.pre = load ptr, ptr %11, align 8, !tbaa !21
+  %.pre = load ptr, ptr %11, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 40
-  %.pre47 = load double, ptr %.phi.trans.insert, align 8, !tbaa !202
+  %.pre47 = load double, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert48 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
-  %.pre49 = load double, ptr %.phi.trans.insert48, align 8, !tbaa !132
+  %.pre49 = load double, ptr %.phi.trans.insert48, align 8
   %.pre50 = fmul double %.pre49, 5.000000e-01
   br label %65
 
@@ -9226,7 +9227,7 @@ define internal void @epsf_gencode(ptr noundef %0, ptr noundef readonly captures
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %25 = load ptr, ptr %24, align 8, !tbaa !198
   tail call void @gvrender_begin_anchor(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %21, ptr noundef %23, ptr noundef %25) #27
-  %.pre = load ptr, ptr %7, align 8, !tbaa !21
+  %.pre = load ptr, ptr %7, align 8
   br label %26
 
 26:                                               ; preds = %12, %.thread34, %19
@@ -9558,8 +9559,8 @@ define internal fastcc { double, double } @compassPoint(ptr noundef nonnull %0, 
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !226
   call void @bezier_clip(ptr noundef nonnull %0, ptr noundef %28, ptr noundef nonnull %4, i1 noundef zeroext true) #27
-  %.sroa.013.0.copyload.pre = load double, ptr %4, align 16, !tbaa !4
-  %.sroa.2.0.copyload.pre = load double, ptr %18, align 8, !tbaa !4
+  %.sroa.013.0.copyload.pre = load double, ptr %4, align 16
+  %.sroa.2.0.copyload.pre = load double, ptr %18, align 8
   br i1 %.not, label %34, label %29
 
 29:                                               ; preds = %17

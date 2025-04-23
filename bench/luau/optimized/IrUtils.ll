@@ -4270,8 +4270,6 @@ define dso_local void @_ZN4Luau7CodeGen16killUnusedBlocksERNS0_10IrFunctionE(ptr
   ret void
 
 10:                                               ; preds = %.lr.ph, %34
-  %.pre1014 = phi ptr [ %4, %.lr.ph ], [ %.pre1015, %34 ]
-  %.pre11 = phi ptr [ %3, %.lr.ph ], [ %.pre12, %34 ]
   %11 = phi ptr [ %4, %.lr.ph ], [ %35, %34 ]
   %12 = phi ptr [ %3, %.lr.ph ], [ %36, %34 ]
   %13 = phi i64 [ 1, %.lr.ph ], [ %38, %34 ]
@@ -4316,23 +4314,16 @@ define dso_local void @_ZN4Luau7CodeGen16killUnusedBlocksERNS0_10IrFunctionE(ptr
 33:                                               ; preds = %32, %27
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i.not.i = icmp sgt i64 %indvars.iv.i, %26
-  br i1 %.not.i.not.i, label %27, label %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.loopexit, !llvm.loop !33
+  br i1 %.not.i.not.i, label %27, label %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit, !llvm.loop !33
 
-_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.loopexit: ; preds = %33
-  %.pre.pre = load ptr, ptr %2, align 8, !tbaa !44
-  %.pre10.pre = load ptr, ptr %0, align 8, !tbaa !22
-  br label %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit
-
-_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit: ; preds = %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.loopexit, %20
-  %.pre10 = phi ptr [ %.pre10.pre, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.loopexit ], [ %.pre1014, %20 ]
-  %.pre = phi ptr [ %.pre.pre, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.loopexit ], [ %.pre11, %20 ]
+_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit: ; preds = %33, %20
   store i32 -1, ptr %21, align 4, !tbaa !30
   store i32 -1, ptr %23, align 4, !tbaa !31
+  %.pre = load ptr, ptr %2, align 8
+  %.pre10 = load ptr, ptr %0, align 8
   br label %34
 
 34:                                               ; preds = %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit, %16, %10
-  %.pre1015 = phi ptr [ %.pre10, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit ], [ %.pre1014, %16 ], [ %.pre1014, %10 ]
-  %.pre12 = phi ptr [ %.pre, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit ], [ %.pre11, %16 ], [ %.pre11, %10 ]
   %35 = phi ptr [ %.pre10, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit ], [ %11, %16 ], [ %11, %10 ]
   %36 = phi ptr [ %.pre, %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit ], [ %12, %16 ], [ %12, %10 ]
   %37 = add i32 %.09, 1
@@ -4364,8 +4355,8 @@ define dso_local void @_ZN4Luau7CodeGen19getSortedBlockOrderERNS0_10IrFunctionE(
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not42 = icmp eq ptr %4, %5
-  br i1 %.not42, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
+  %.not36 = icmp eq ptr %4, %5
+  br i1 %.not36, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4517,8 +4508,6 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEZN4Luau7CodeGen19getSortedBlockOrderERNS8_10IrFunctionEE3$_0EvT_SC_T0_.exit"
 
 75:                                               ; preds = %.lr.ph, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %.pre3539 = phi ptr [ %5, %.lr.ph ], [ %.pre3540, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %.pre36 = phi ptr [ %4, %.lr.ph ], [ %.pre37, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %76 = phi ptr [ %5, %.lr.ph ], [ %102, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %77 = phi ptr [ %4, %.lr.ph ], [ %103, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %78 = phi ptr [ %.promoted18, %.lr.ph ], [ %104, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
@@ -4580,20 +4569,16 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %98, %.noex
 
 100:                                              ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %86) #21
-  %.pre.pre = load ptr, ptr %3, align 8, !tbaa !44
-  %.pre35.pre = load ptr, ptr %1, align 8, !tbaa !22
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %100, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
-  %.pre35 = phi ptr [ %.pre35.pre, %100 ], [ %.pre3539, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
-  %.pre = phi ptr [ %.pre.pre, %100 ], [ %.pre36, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
   store ptr %99, ptr %17, align 8, !tbaa !49
   %101 = getelementptr inbounds nuw i32, ptr %95, i64 %93
+  %.pre = load ptr, ptr %3, align 8
+  %.pre35 = load ptr, ptr %1, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %81
-  %.pre3540 = phi ptr [ %.pre35, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.pre3539, %81 ]
-  %.pre37 = phi ptr [ %.pre, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.pre36, %81 ]
   %102 = phi ptr [ %.pre35, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %76, %81 ]
   %103 = phi ptr [ %.pre, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %77, %81 ]
   %104 = phi ptr [ %99, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %82, %81 ]

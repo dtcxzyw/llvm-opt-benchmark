@@ -267,7 +267,7 @@ define internal void @_ZNK4ncnn13GroupNorm_x8615forward_inplaceERNS_3MatERKNS_6O
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 220
-  %.pre = load i32, ptr %4, align 4, !tbaa !37
+  %.pre = load i32, ptr %4, align 4
   br label %26
 
 26:                                               ; preds = %.lr.ph229, %_ZN4ncnn3MatD2Ev.exit106
@@ -717,7 +717,7 @@ define internal void @_ZNK4ncnn13GroupNorm_x8615forward_inplaceERNS_3MatERKNS_6O
   br i1 %98, label %.lr.ph209.preheader, label %_ZN4ncnn3MatD2Ev.exit
 
 .lr.ph209.preheader:                              ; preds = %.preheader160
-  %.pre = load i32, ptr %6, align 4, !tbaa !37
+  %.pre = load i32, ptr %6, align 4
   br label %.lr.ph209
 
 .lr.ph209:                                        ; preds = %.lr.ph209.preheader, %._crit_edge203
@@ -879,12 +879,10 @@ define internal void @_ZNK4ncnn13GroupNorm_x8615forward_inplaceERNS_3MatERKNS_6O
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 220
-  %.pre = load i32, ptr %4, align 4, !tbaa !37
-  %.pre339.pre = load i32, ptr %5, align 4, !tbaa !37
+  %.pre = load i32, ptr %4, align 4
   br label %31
 
 31:                                               ; preds = %.lr.ph314, %_ZN4ncnn3MatD2Ev.exit
-  %.pre339 = phi i32 [ %.pre339.pre, %.lr.ph314 ], [ %.pre339340, %_ZN4ncnn3MatD2Ev.exit ]
   %32 = phi i32 [ %.pre, %.lr.ph314 ], [ %127, %_ZN4ncnn3MatD2Ev.exit ]
   %.087312 = phi i32 [ %19, %.lr.ph314 ], [ %128, %_ZN4ncnn3MatD2Ev.exit ]
   %33 = mul nsw i32 %32, %.087312
@@ -916,6 +914,7 @@ define internal void @_ZNK4ncnn13GroupNorm_x8615forward_inplaceERNS_3MatERKNS_6O
   %59 = mul i64 %58, %39
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 %59
   %61 = icmp sgt i32 %32, 0
+  %.pre339 = load i32, ptr %5, align 4
   br i1 %61, label %_ZN4ncnn3MatD2Ev.exit110.lr.ph, label %._crit_edge272.thread
 
 ._crit_edge272.thread:                            ; preds = %31
@@ -1062,14 +1061,12 @@ _ZN4ncnn3MatD2Ev.exit109:                         ; preds = %._crit_edge272, %._
   br i1 %exitcond333.not, label %._crit_edge293, label %_ZN4ncnn3MatD2Ev.exit109, !llvm.loop !101
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge305, %._crit_edge293
-  %.pre339340 = phi i32 [ %.pre339, %._crit_edge293 ], [ %.pre339341, %._crit_edge305 ]
   %127 = phi i32 [ %32, %._crit_edge293 ], [ %162, %._crit_edge305 ]
   %128 = add i32 %.087312, 1
   %exitcond338.not = icmp eq i32 %.087312, %18
   br i1 %exitcond338.not, label %._crit_edge315, label %31
 
 129:                                              ; preds = %.lr.ph310, %._crit_edge305
-  %.pre339342 = phi i32 [ %.pre339, %.lr.ph310 ], [ %.pre339341, %._crit_edge305 ]
   %130 = phi i32 [ %.pre339, %.lr.ph310 ], [ %145, %._crit_edge305 ]
   %indvars.iv335 = phi i64 [ 0, %.lr.ph310 ], [ %indvars.iv.next336, %._crit_edge305 ]
   %.085307 = phi ptr [ %60, %.lr.ph310 ], [ %161, %._crit_edge305 ]
@@ -1099,7 +1096,6 @@ _ZN4ncnn3MatD2Ev.exit108:                         ; preds = %132, %129
   br i1 %144, label %.lr.ph298, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph298, %_ZN4ncnn3MatD2Ev.exit108
-  %.pre339341 = phi i32 [ %.pre339342, %_ZN4ncnn3MatD2Ev.exit108 ], [ %153, %.lr.ph298 ]
   %145 = phi i32 [ %130, %_ZN4ncnn3MatD2Ev.exit108 ], [ %153, %.lr.ph298 ]
   %.080.lcssa = phi ptr [ %139, %_ZN4ncnn3MatD2Ev.exit108 ], [ %150, %.lr.ph298 ]
   %.0.lcssa = phi i32 [ 0, %_ZN4ncnn3MatD2Ev.exit108 ], [ %151, %.lr.ph298 ]

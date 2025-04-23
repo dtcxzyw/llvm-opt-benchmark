@@ -6061,7 +6061,7 @@ define noundef zeroext i1 @_ZN5Ipopt16FilterLSAcceptor7IsFtypeEd(ptr noundef non
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %2, %18
-  %.pr = load double, ptr %7, align 8, !tbaa !67
+  %.pr = load double, ptr %7, align 8
   br label %23
 
 23:                                               ; preds = %thread-pre-split, %14
@@ -6387,7 +6387,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %117, %103
-  %.pr.i = load double, ptr %106, align 8, !tbaa !67
+  %.pr.i = load double, ptr %106, align 8
   br label %122
 
 122:                                              ; preds = %thread-pre-split.i, %113
@@ -9843,7 +9843,7 @@ define noundef zeroext i1 @_ZN5Ipopt16FilterLSAcceptor12TryCorrectorEdRdRNS_8Sma
   %49 = load i8, ptr %48, align 1, !tbaa !182, !range !95, !noundef !96
   %50 = trunc nuw i8 %49 to i1
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !22
+  %52 = load ptr, ptr %51, align 8
   br i1 %50, label %53, label %._crit_edge
 
 53:                                               ; preds = %47
@@ -9919,7 +9919,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i354: ; preds = %_ZNK5Ipo
   %90 = load i32, ptr %89, align 8, !tbaa !3, !noalias !206
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %89, align 8, !tbaa !3, !noalias !206
-  %.pre1838 = load i32, ptr %80, align 8, !tbaa !3, !noalias !209
+  %.pre1838 = load i32, ptr %80, align 8
   br label %92
 
 92:                                               ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i357, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i354
@@ -9951,7 +9951,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i362: ; preds = %_ZNK5Ipo
   %107 = load i32, ptr %106, align 8, !tbaa !3, !noalias !217
   %108 = add nsw i32 %107, 1
   store i32 %108, ptr %106, align 8, !tbaa !3, !noalias !217
-  %.pre1839 = load i32, ptr %80, align 8, !tbaa !3, !noalias !220
+  %.pre1839 = load i32, ptr %80, align 8
   br label %109
 
 109:                                              ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i365, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i362
@@ -9978,7 +9978,7 @@ _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i373: ; preds = %109
   br i1 %.not3.i.i.i374, label %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i373._crit_edge, label %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i370
 
 _ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i373._crit_edge: ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i373
-  %.pre1840 = load i32, ptr inttoptr (i64 8 to ptr), align 8, !tbaa !3
+  %.pre1840 = load i32, ptr inttoptr (i64 8 to ptr), align 8
   %123 = add nsw i32 %.pre1840, -1
   br label %127
 
@@ -10547,12 +10547,11 @@ _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit: ; preds = %387, %382, %_ZN5Ip
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 8
   %402 = load ptr, ptr %401, align 8
   call void %402(ptr noundef nonnull align 8 dereferenceable(280) %393) #24
-  %.pre1841.pre = load ptr, ptr %57, align 8, !tbaa !22
   br label %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit423
 
 _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit423: ; preds = %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit, %394, %399
-  %.pre1841 = phi ptr [ %391, %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit ], [ %391, %394 ], [ %.pre1841.pre, %399 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
+  %.pre1841 = load ptr, ptr %57, align 8
   br label %544
 
 403:                                              ; preds = %.noexc718, %1474, %214
@@ -18049,13 +18048,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1442: ; preds = %_
           to label %_ZN5Ipopt9TimedTask3EndEv.exit.sink.split unwind label %3942
 
 _ZN5Ipopt9TimedTask3EndEv.exit.sink.split:        ; preds = %.noexc1444, %.noexc1394
-  %.sink1849 = phi ptr [ %3814, %.noexc1394 ], [ %4075, %.noexc1444 ]
+  %.sink1848 = phi ptr [ %3814, %.noexc1394 ], [ %4075, %.noexc1444 ]
   %.sink = phi double [ %3835, %.noexc1394 ], [ %4096, %.noexc1444 ]
   %.2.ph = phi i1 [ false, %.noexc1394 ], [ %.01681837, %.noexc1444 ]
-  %4097 = getelementptr inbounds nuw i8, ptr %.sink1849, i64 1440
+  %4097 = getelementptr inbounds nuw i8, ptr %.sink1848, i64 1440
   %4098 = load double, ptr %4097, align 8, !tbaa !236
   %4099 = fsub double %.sink, %4098
-  %4100 = getelementptr inbounds nuw i8, ptr %.sink1849, i64 1448
+  %4100 = getelementptr inbounds nuw i8, ptr %.sink1848, i64 1448
   %4101 = load double, ptr %4100, align 8, !tbaa !807
   %4102 = fadd double %4101, %4099
   store double %4102, ptr %4100, align 8, !tbaa !807
@@ -18183,12 +18182,12 @@ define noundef signext range(i8 102, 105) i8 @_ZN5Ipopt16FilterLSAcceptor22Updat
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, i32, i32, ptr, ...) %22(ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef 4, i32 noundef 8, ptr noundef nonnull @.str.68, double noundef 0xBCB0000000000000)
-  %.pre3.pre.pre = load double, ptr %5, align 8, !tbaa !62
+  %.pre3.pre.pre = load double, ptr %5, align 8
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %18, %2
   %.pre3.pre = phi double [ %.pre3.pre.pre, %18 ], [ %12, %2 ]
-  %.pr.i = load double, ptr %7, align 8, !tbaa !67
+  %.pr.i = load double, ptr %7, align 8
   br label %23
 
 23:                                               ; preds = %thread-pre-split.i, %14
@@ -18231,7 +18230,7 @@ _ZN5Ipopt16FilterLSAcceptor7IsFtypeEd.exit:       ; preds = %23
   br i1 %53, label %70, label %._ZN5Ipopt16FilterLSAcceptor7IsFtypeEd.exit.thread_crit_edge
 
 ._ZN5Ipopt16FilterLSAcceptor7IsFtypeEd.exit.thread_crit_edge: ; preds = %38
-  %.pre = load double, ptr %5, align 8, !tbaa !62
+  %.pre = load double, ptr %5, align 8
   br label %_ZN5Ipopt16FilterLSAcceptor7IsFtypeEd.exit.thread
 
 _ZN5Ipopt16FilterLSAcceptor7IsFtypeEd.exit.thread: ; preds = %._ZN5Ipopt16FilterLSAcceptor7IsFtypeEd.exit.thread_crit_edge, %23, %_ZN5Ipopt16FilterLSAcceptor7IsFtypeEd.exit

@@ -680,8 +680,8 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
   br i1 %253, label %312, label %.backedge389
 
 .backedge389:                                     ; preds = %251, %317
-  %.pre = load ptr, ptr %59, align 8
-  %.pre392 = load ptr, ptr %240, align 8
+  %.pre = load ptr, ptr %59, align 8, !nonnull !4, !align !13
+  %.pre392 = load ptr, ptr %240, align 8, !nonnull !4, !align !11
   br label %241
 
 254:                                              ; preds = %250
@@ -712,12 +712,12 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
   br i1 %268, label %269, label %272
 
 269:                                              ; preds = %267
-  %270 = load i64, ptr %.sroa.453.0310, align 8, !range !13, !noundef !4
+  %270 = load i64, ptr %.sroa.453.0310, align 8, !range !14, !noundef !4
   %271 = icmp eq i64 %270, 20
   br i1 %271, label %275, label %280
 
 272:                                              ; preds = %267
-  %273 = load i64, ptr %266, align 8, !range !13, !noundef !4
+  %273 = load i64, ptr %266, align 8, !range !14, !noundef !4
   %274 = icmp eq i64 %273, 18
   br i1 %274, label %304, label %.backedge383.backedge
 
@@ -736,7 +736,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
           to label %299 unwind label %.loopexit.split-lp
 
 281:                                              ; preds = %275
-  %282 = load i64, ptr %279, align 8, !range !14, !noundef !4
+  %282 = load i64, ptr %279, align 8, !range !15, !noundef !4
   %283 = icmp eq i64 %282, 29
   br i1 %283, label %285, label %280
 
@@ -1157,7 +1157,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
           to label %402 unwind label %399
 
 398:                                              ; preds = %402
-  %.pr = load i64, ptr %29, align 8
+  %.pr = load i64, ptr %29, align 8, !range !10
   %.not232 = icmp eq i64 %.pr, -9223372036854775808
   br i1 %.not232, label %.thread342, label %.backedge.backedge
 
@@ -1653,7 +1653,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   br i1 %60, label %64, label %63
 
 61:                                               ; preds = %56
-  %62 = load i64, ptr %54, align 8, !range !15, !noundef !4
+  %62 = load i64, ptr %54, align 8, !range !16, !noundef !4
   %.not = icmp eq i64 %62, 41
   br i1 %.not, label %120, label %116
 
@@ -1862,7 +1862,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 
 116:                                              ; preds = %61
   store ptr %54, ptr %39, align 8
-  %117 = load i64, ptr %54, align 8, !range !16, !noundef !4
+  %117 = load i64, ptr %54, align 8, !range !17, !noundef !4
   %118 = add nsw i64 %117, -39
   %switch = icmp ult i64 %118, 2
   %. = select i1 %switch, i64 8, i64 176
@@ -2548,7 +2548,8 @@ attributes #9 = { noreturn }
 !10 = !{i64 0, i64 -9223372036854775807}
 !11 = !{i64 8}
 !12 = !{i64 0, i64 17}
-!13 = !{i64 0, i64 22}
-!14 = !{i64 0, i64 39}
-!15 = !{i64 0, i64 42}
-!16 = !{i64 0, i64 41}
+!13 = !{i64 1}
+!14 = !{i64 0, i64 22}
+!15 = !{i64 0, i64 39}
+!16 = !{i64 0, i64 42}
+!17 = !{i64 0, i64 41}

@@ -1542,10 +1542,7 @@ define hidden noundef zeroext i1 @"_ZN3mbe8expander7matcher98_$LT$impl$u20$mbe..
     i64 2, label %37
   ]
 
-default.unreachable44:                            ; preds = %2
-  unreachable
-
-default.unreachable:                              ; preds = %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit"
+default.unreachable44:                            ; preds = %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit", %2
   unreachable
 
 15:                                               ; preds = %2
@@ -1603,8 +1600,8 @@ default.unreachable:                              ; preds = %"_ZN3mbe7tt_iter15T
   br label %.thread
 
 "_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit": ; preds = %23, %26
-  %.pr = load i32, ptr %10, align 8
-  switch i32 %.pr, label %default.unreachable [
+  %.pr = load i32, ptr %10, align 8, !range !44, !noundef !4
+  switch i32 %.pr, label %default.unreachable44 [
     i32 0, label %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$14expect_literal17hdf5ec70607ac4d5cE.exit.thread35"
     i32 1, label %.thread
     i32 2, label %42
@@ -1734,7 +1731,7 @@ default.unreachable:                              ; preds = %"_ZN3mbe7tt_iter15T
   br i1 %77, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %95
-  %.pre = load ptr, ptr %9, align 8
+  %.pre = load ptr, ptr %9, align 8, !nonnull !4
   %.pre43 = load ptr, ptr %13, align 8
   br label %99
 

@@ -482,15 +482,11 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i: ; preds = %45
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %53 = load ptr, ptr %52, align 8
   %54 = invoke noundef signext i8 %53(ptr noundef nonnull align 8 dereferenceable(570) %47, i8 noundef signext 32)
-          to label %.noexc42._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i_crit_edge unwind label %67
+          to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i unwind label %67
 
-.noexc42._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i_crit_edge: ; preds = %.noexc42
-  %.pre.pre = load ptr, ptr %3, align 8, !tbaa !10
-  br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i
-
-_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc42._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i_crit_edge, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i
-  %.pre = phi ptr [ %.pre.pre, %.noexc42._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i_crit_edge ], [ %33, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i ]
+_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc42, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i
   store i8 1, ptr %42, align 1, !tbaa !26
+  %.pre = load ptr, ptr %3, align 8
   br label %55
 
 55:                                               ; preds = %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i, %32
@@ -573,15 +569,11 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i51: ; preds = %86
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %94 = load ptr, ptr %93, align 8
   %95 = invoke noundef signext i8 %94(ptr noundef nonnull align 8 dereferenceable(570) %88, i8 noundef signext 32)
-          to label %.noexc55._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i53_crit_edge unwind label %67
+          to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i53 unwind label %67
 
-.noexc55._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i53_crit_edge: ; preds = %.noexc55
-  %.pre88.pre = load ptr, ptr %3, align 8, !tbaa !10
-  br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i53
-
-_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i53: ; preds = %.noexc55._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i53_crit_edge, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i51
-  %.pre88 = phi ptr [ %.pre88.pre, %.noexc55._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i53_crit_edge ], [ %74, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i51 ]
+_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i53: ; preds = %.noexc55, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i51
   store i8 1, ptr %83, align 1, !tbaa !26
+  %.pre88 = load ptr, ptr %3, align 8
   br label %96
 
 96:                                               ; preds = %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i53, %73
@@ -684,14 +676,14 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
 
 ._crit_edge.i:                                    ; preds = %146
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %142, i64 224
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !43
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke
 
 147:                                              ; preds = %146
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 240
   %149 = load ptr, ptr %148, align 8, !tbaa !36
   %.not.i.i.i = icmp eq ptr %149, null
-  br i1 %.not.i.i.i, label %.invoke95, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  br i1 %.not.i.i.i, label %.invoke93, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %147
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 56
@@ -716,7 +708,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %147
           to label %.noexc61._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i_crit_edge unwind label %161
 
 .noexc61._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i_crit_edge: ; preds = %.noexc61
-  %.pre89.pre = load i64, ptr %107, align 8, !tbaa !55
+  %.pre89.pre = load i64, ptr %107, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc61._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i_crit_edge, %152
@@ -727,7 +719,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc61._ZNKSt
   store i8 1, ptr %143, align 1, !tbaa !26
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke
 
-161:                                              ; preds = %.invoke95, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit, %.noexc73, %178, %.noexc61, %155
+161:                                              ; preds = %.invoke93, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit, %.noexc73, %178, %.noexc61, %155
   %162 = landingpad { ptr, i32 }
           cleanup
   %163 = load ptr, ptr %7, align 8, !tbaa !61
@@ -751,20 +743,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 ._crit_edge.i69:                                  ; preds = %169
   %.phi.trans.insert.i70 = getelementptr inbounds nuw i8, ptr %142, i64 224
-  %.pre.i71 = load i8, ptr %.phi.trans.insert.i70, align 8, !tbaa !43
+  %.pre.i71 = load i8, ptr %.phi.trans.insert.i70, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke
 
 170:                                              ; preds = %169
   %171 = getelementptr inbounds nuw i8, ptr %142, i64 240
   %172 = load ptr, ptr %171, align 8, !tbaa !36
   %.not.i.i.i64 = icmp eq ptr %172, null
-  br i1 %.not.i.i.i64, label %.invoke95, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i65
+  br i1 %.not.i.i.i64, label %.invoke93, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i65
 
-.invoke95:                                        ; preds = %147, %170
+.invoke93:                                        ; preds = %147, %170
   invoke void @_ZSt16__throw_bad_castv() #15
-          to label %.cont96 unwind label %161
+          to label %.cont94 unwind label %161
 
-.cont96:                                          ; preds = %.invoke95
+.cont94:                                          ; preds = %.invoke93
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i65: ; preds = %170

@@ -687,7 +687,7 @@ define internal ptr @time_gmtime(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %15, label %parse_time_t_args.exit.thread, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %13
-  %.pre.i = load i64, ptr %4, align 8, !tbaa !19
+  %.pre.i = load i64, ptr %4, align 8
   br label %16
 
 parse_time_t_args.exit.thread:                    ; preds = %2, %13
@@ -748,7 +748,7 @@ define internal ptr @time_localtime(ptr noundef readonly captures(none) %0, ptr 
   br i1 %15, label %parse_time_t_args.exit.thread, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %13
-  %.pre.i = load i64, ptr %4, align 8, !tbaa !19
+  %.pre.i = load i64, ptr %4, align 8
   br label %16
 
 parse_time_t_args.exit.thread:                    ; preds = %2, %13
@@ -870,7 +870,7 @@ define internal ptr @time_ctime(ptr readnone captures(none) %0, ptr noundef %1) 
   br i1 %15, label %parse_time_t_args.exit.thread, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %13
-  %.pre.i = load i64, ptr %4, align 8, !tbaa !19
+  %.pre.i = load i64, ptr %4, align 8
   br label %16
 
 parse_time_t_args.exit.thread:                    ; preds = %2, %13
@@ -1190,17 +1190,13 @@ time_strftime1.exit:                              ; preds = %83
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %92, %96, %99
-  br i1 %94, label %.thread118, label %Py_DECREF.exit._crit_edge
+  br i1 %94, label %.thread118, label %100
 
-Py_DECREF.exit._crit_edge:                        ; preds = %Py_DECREF.exit
-  %.pre.pre = load ptr, ptr %5, align 8, !tbaa !20
-  br label %100
-
-100:                                              ; preds = %Py_DECREF.exit._crit_edge, %74
-  %.pre = phi ptr [ %41, %74 ], [ %.pre.pre, %Py_DECREF.exit._crit_edge ]
-  %.2106 = phi ptr [ %.1105, %74 ], [ %81, %Py_DECREF.exit._crit_edge ]
-  %.1 = phi i64 [ %.0103, %74 ], [ %.2, %Py_DECREF.exit._crit_edge ]
+100:                                              ; preds = %Py_DECREF.exit, %74
+  %.2106 = phi ptr [ %.1105, %74 ], [ %81, %Py_DECREF.exit ]
+  %.1 = phi i64 [ %.0103, %74 ], [ %.2, %Py_DECREF.exit ]
   %101 = icmp slt i64 %.157.lcssa, %.val75
+  %.pre = load ptr, ptr %5, align 8
   br i1 %101, label %.lr.ph, label %PyUnicode_READ_CHAR.exit97._crit_edge
 
 .lr.ph:                                           ; preds = %100

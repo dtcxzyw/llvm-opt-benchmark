@@ -339,15 +339,11 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i: ; preds = %68
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %76 = load ptr, ptr %75, align 8
   %77 = invoke noundef signext i8 %76(ptr noundef nonnull align 8 dereferenceable(570) %70, i8 noundef signext 32)
-          to label %.noexc104._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i_crit_edge unwind label %87
+          to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i unwind label %87
 
-.noexc104._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i_crit_edge: ; preds = %.noexc104
-  %.pre.pre = load ptr, ptr %5, align 8, !tbaa !10
-  br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i
-
-_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc104._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i_crit_edge, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i
-  %.pre = phi ptr [ %.pre.pre, %.noexc104._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i_crit_edge ], [ %56, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i ]
+_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc104, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i
   store i8 1, ptr %65, align 1, !tbaa !25
+  %.pre = load ptr, ptr %5, align 8
   br label %78
 
 78:                                               ; preds = %55, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i
@@ -424,15 +420,11 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i113: ; preds = %104
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 48
   %112 = load ptr, ptr %111, align 8
   %113 = invoke noundef signext i8 %112(ptr noundef nonnull align 8 dereferenceable(570) %106, i8 noundef signext 32)
-          to label %.noexc117._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115_crit_edge unwind label %87
+          to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115 unwind label %87
 
-.noexc117._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115_crit_edge: ; preds = %.noexc117
-  %.pre148.pre = load ptr, ptr %5, align 8, !tbaa !10
-  br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115
-
-_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115: ; preds = %.noexc117._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115_crit_edge, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i113
-  %.pre148 = phi ptr [ %.pre148.pre, %.noexc117._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115_crit_edge ], [ %92, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i113 ]
+_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115: ; preds = %.noexc117, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i113
   store i8 1, ptr %101, align 1, !tbaa !25
+  %.pre148 = load ptr, ptr %5, align 8
   br label %114
 
 114:                                              ; preds = %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i115, %91
@@ -593,7 +585,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoN
 
 ._crit_edge.i:                                    ; preds = %23
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %25, i64 224
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !42
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit55.invoke
 
 29:                                               ; preds = %23
@@ -625,7 +617,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %29
           to label %.noexc27._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i_crit_edge unwind label %45
 
 .noexc27._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i_crit_edge: ; preds = %.noexc27
-  %.pre64.pre = load i64, ptr %17, align 8, !tbaa !54
+  %.pre64.pre = load i64, ptr %17, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc27._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i_crit_edge, %34
@@ -669,7 +661,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc27._ZNKSt
 
 ._crit_edge.i35:                                  ; preds = %50
   %.phi.trans.insert.i36 = getelementptr inbounds nuw i8, ptr %52, i64 224
-  %.pre.i37 = load i8, ptr %.phi.trans.insert.i36, align 8, !tbaa !42
+  %.pre.i37 = load i8, ptr %.phi.trans.insert.i36, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit41
 
 56:                                               ; preds = %50
@@ -701,7 +693,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i31: ; preds = %56
           to label %.noexc39._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i33_crit_edge unwind label %45
 
 .noexc39._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i33_crit_edge: ; preds = %.noexc39
-  %.pre.pre = load i64, ptr %17, align 8, !tbaa !54
+  %.pre.pre = load i64, ptr %17, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i33
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i33: ; preds = %.noexc39._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i33_crit_edge, %61
@@ -735,7 +727,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit41: ; preds = %_ZNKSt9basic_ios
 
 ._crit_edge.i49:                                  ; preds = %74
   %.phi.trans.insert.i50 = getelementptr inbounds nuw i8, ptr %76, i64 224
-  %.pre.i51 = load i8, ptr %.phi.trans.insert.i50, align 8, !tbaa !42
+  %.pre.i51 = load i8, ptr %.phi.trans.insert.i50, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit55.invoke
 
 80:                                               ; preds = %74
@@ -874,7 +866,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.thread: ; preds
   br label %41
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %7
-  %.sroa.2.0.copyload.pr = load i64, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !61
+  %.sroa.2.0.copyload.pr = load i64, ptr %.sroa.24.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
   %.sroa.0.0.copyload = load i64, ptr %1, align 16
   %11 = icmp slt i64 %.sroa.2.0.copyload.pr, 0
@@ -1178,7 +1170,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZN
 
 ._crit_edge.i:                                    ; preds = %76
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %78, i64 224
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !tbaa !42
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit97.invoke
 
 82:                                               ; preds = %76
@@ -1210,7 +1202,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %82
           to label %.noexc54._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i_crit_edge unwind label %74
 
 .noexc54._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i_crit_edge: ; preds = %.noexc54
-  %.pre111.pre = load i64, ptr %13, align 8, !tbaa !54
+  %.pre111.pre = load i64, ptr %13, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc54._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i_crit_edge, %87
@@ -1242,7 +1234,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc54._ZNKSt
 
 ._crit_edge.i62:                                  ; preds = %100
   %.phi.trans.insert.i63 = getelementptr inbounds nuw i8, ptr %102, i64 224
-  %.pre.i64 = load i8, ptr %.phi.trans.insert.i63, align 8, !tbaa !42
+  %.pre.i64 = load i8, ptr %.phi.trans.insert.i63, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit68
 
 106:                                              ; preds = %100
@@ -1274,7 +1266,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i58: ; preds = %106
           to label %.noexc66._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i60_crit_edge unwind label %74
 
 .noexc66._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i60_crit_edge: ; preds = %.noexc66
-  %.pre.pre = load i64, ptr %13, align 8, !tbaa !54
+  %.pre.pre = load i64, ptr %13, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i60
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i60: ; preds = %.noexc66._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i60_crit_edge, %111
@@ -1331,7 +1323,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit68: ; preds = %_ZNKSt9basic_ios
 
 ._crit_edge.i76:                                  ; preds = %133
   %.phi.trans.insert.i77 = getelementptr inbounds nuw i8, ptr %135, i64 224
-  %.pre.i78 = load i8, ptr %.phi.trans.insert.i77, align 8, !tbaa !42
+  %.pre.i78 = load i8, ptr %.phi.trans.insert.i77, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit97.invoke
 
 139:                                              ; preds = %133
@@ -1379,7 +1371,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i74: ; preds = %.noexc80, %14
 
 ._crit_edge.i91:                                  ; preds = %153
   %.phi.trans.insert.i92 = getelementptr inbounds nuw i8, ptr %155, i64 224
-  %.pre.i93 = load i8, ptr %.phi.trans.insert.i92, align 8, !tbaa !42
+  %.pre.i93 = load i8, ptr %.phi.trans.insert.i92, align 8
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit97.invoke
 
 159:                                              ; preds = %153

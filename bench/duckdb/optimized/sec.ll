@@ -812,7 +812,6 @@ malloc_mutex_lock.exit:                           ; preds = %17, %23
   br label %32
 
 32:                                               ; preds = %edata_list_active_concat.exit.i, %.lr.ph.i
-  %.pre13.i = phi i32 [ %30, %.lr.ph.i ], [ %.pre14.i, %edata_list_active_concat.exit.i ]
   %33 = phi i32 [ %30, %.lr.ph.i ], [ %65, %edata_list_active_concat.exit.i ]
   %34 = phi ptr [ null, %.lr.ph.i ], [ %66, %edata_list_active_concat.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %edata_list_active_concat.exit.i ]
@@ -858,17 +857,15 @@ malloc_mutex_lock.exit:                           ; preds = %17, %23
   %62 = load ptr, ptr %61, align 8, !tbaa !43
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   store ptr %60, ptr %63, align 8, !tbaa !43
-  %.pre.pre.i = load i32, ptr %8, align 8, !tbaa !33
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %44, %41
-  %.pre.i = phi i32 [ %.pre.pre.i, %44 ], [ %.pre13.i, %41 ]
   %64 = phi ptr [ %34, %44 ], [ %40, %41 ]
   store ptr null, ptr %38, align 8, !tbaa !53
+  %.pre.i = load i32, ptr %8, align 8
   br label %edata_list_active_concat.exit.i
 
 edata_list_active_concat.exit.i:                  ; preds = %.sink.split.i.i, %42
-  %.pre14.i = phi i32 [ %.pre13.i, %42 ], [ %.pre.i, %.sink.split.i.i ]
   %65 = phi i32 [ %33, %42 ], [ %.pre.i, %.sink.split.i.i ]
   %66 = phi ptr [ %34, %42 ], [ %64, %.sink.split.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -966,7 +963,6 @@ malloc_mutex_lock.exit:                           ; preds = %17, %23
   br label %33
 
 33:                                               ; preds = %edata_list_active_concat.exit.i, %.lr.ph.i
-  %.pre13.i = phi i32 [ %31, %.lr.ph.i ], [ %.pre14.i, %edata_list_active_concat.exit.i ]
   %34 = phi i32 [ %31, %.lr.ph.i ], [ %66, %edata_list_active_concat.exit.i ]
   %35 = phi ptr [ null, %.lr.ph.i ], [ %67, %edata_list_active_concat.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %edata_list_active_concat.exit.i ]
@@ -1012,17 +1008,15 @@ malloc_mutex_lock.exit:                           ; preds = %17, %23
   %63 = load ptr, ptr %62, align 8, !tbaa !43
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   store ptr %61, ptr %64, align 8, !tbaa !43
-  %.pre.pre.i = load i32, ptr %8, align 8, !tbaa !33
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %45, %42
-  %.pre.i = phi i32 [ %.pre.pre.i, %45 ], [ %.pre13.i, %42 ]
   %65 = phi ptr [ %35, %45 ], [ %41, %42 ]
   store ptr null, ptr %39, align 8, !tbaa !53
+  %.pre.i = load i32, ptr %8, align 8
   br label %edata_list_active_concat.exit.i
 
 edata_list_active_concat.exit.i:                  ; preds = %.sink.split.i.i, %43
-  %.pre14.i = phi i32 [ %.pre13.i, %43 ], [ %.pre.i, %.sink.split.i.i ]
   %66 = phi i32 [ %34, %43 ], [ %.pre.i, %.sink.split.i.i ]
   %67 = phi ptr [ %35, %43 ], [ %65, %.sink.split.i.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1396,13 +1390,12 @@ define internal fastcc void @sec_flush_some_and_unlock(ptr noundef %0, ptr nound
   %52 = load ptr, ptr %51, align 8, !tbaa !43
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   store ptr %50, ptr %53, align 8, !tbaa !43
-  %.pre.pre = load i64, ptr %6, align 8, !tbaa !28
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %34, %31
-  %.pre = phi i64 [ %.pre.pre, %34 ], [ %27, %31 ]
   %54 = phi ptr [ %16, %34 ], [ %30, %31 ]
   store ptr null, ptr %28, align 8, !tbaa !53
+  %.pre = load i64, ptr %6, align 8
   br label %edata_list_active_concat.exit
 
 edata_list_active_concat.exit:                    ; preds = %.sink.split.i, %32, %14

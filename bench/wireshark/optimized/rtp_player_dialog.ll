@@ -2577,11 +2577,11 @@ _ZN9QtPrivate17QForeachContainerI5QListI12QAudioDeviceEED2Ev.exit: ; preds = %._
           to label %._crit_edge616 unwind label %765
 
 ._crit_edge616:                                   ; preds = %758
-  %.pre617 = load ptr, ptr %88, align 8, !noalias !60
+  %.pre617 = load ptr, ptr %88, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %.pre618 = load ptr, ptr %.phi.trans.insert, align 8, !noalias !60
+  %.pre618 = load ptr, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert619 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %.pre620 = load i64, ptr %.phi.trans.insert619, align 8, !noalias !60
+  %.pre620 = load i64, ptr %.phi.trans.insert619, align 8
   br label %_ZN5QListI7QStringED2Ev.exit
 
 763:                                              ; preds = %755
@@ -3264,7 +3264,7 @@ _ZN7QStringD2Ev.exit433:                          ; preds = %951, %_ZN17QArrayDa
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i435 = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i435, label %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_bESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, label %967, !llvm.loop !63
+  br i1 %.not.i.i.i.i435, label %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_bESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, label %967, !llvm.loop !60
 
 _ZNKSt8_Rb_treeI7QStringSt4pairIKS0_bESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i: ; preds = %967
   %974 = icmp eq ptr %.19.i.i.i.i, %964
@@ -3391,9 +3391,9 @@ _ZNSt3mapI7QStringbSt4lessIS0_ESaISt4pairIKS0_bEEE11lower_boundERS4_.exit.i553: 
 .critedge.i558:                                   ; preds = %1015, %_ZNSt3mapI7QStringbSt4lessIS0_ESaISt4pairIKS0_bEEE11lower_boundERS4_.exit.i553, %_ZN4QMapI7QStringbE6detachEv.exit.i441
   %.08.lcssa.i.i.i16.i559 = phi ptr [ %.19.i.i.i.i548, %1015 ], [ %.19.i.i.i.i548, %_ZNSt3mapI7QStringbSt4lessIS0_ESaISt4pairIKS0_bEEE11lower_boundERS4_.exit.i553 ], [ %1004, %_ZN4QMapI7QStringbE6detachEv.exit.i441 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store ptr %85, ptr %5, align 8, !alias.scope !64
+  store ptr %85, ptr %5, align 8, !alias.scope !61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
-  store ptr %86, ptr %6, align 8, !alias.scope !67
+  store ptr %86, ptr %6, align 8, !alias.scope !64
   %1022 = invoke ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_bESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS2_EESE_IJRKbEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(48) %1001, ptr %.08.lcssa.i.i.i16.i559, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %.noexc560 unwind label %1037
 
@@ -3475,7 +3475,7 @@ _ZN7QStringD2Ev.exit459:                          ; preds = %1041, %_ZN17QArrayD
   store ptr %1045, ptr %734, align 8
   %.sroa.05.0.copyload = load ptr, ptr %735, align 8
   %.not = icmp eq ptr %1045, %.sroa.05.0.copyload
-  br i1 %.not, label %._crit_edge.loopexit, label %956, !llvm.loop !70
+  br i1 %.not, label %._crit_edge.loopexit, label %956, !llvm.loop !67
 
 1046:                                             ; preds = %_ZN7QStringD2Ev.exit459, %1033
   %.pn171.pn = phi { ptr, i32 } [ %.pn171, %_ZN7QStringD2Ev.exit459 ], [ %1034, %1033 ]
@@ -3497,19 +3497,18 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %_ZN9QtPrivate17QFor
   %1049 = phi i64 [ %.pre620, %._crit_edge616 ], [ 0, %_ZN9QtPrivate17QForeachContainerI5QListI12QAudioDeviceEED2Ev.exit ]
   %1050 = phi ptr [ %.pre618, %._crit_edge616 ], [ null, %_ZN9QtPrivate17QForeachContainerI5QListI12QAudioDeviceEED2Ev.exit ]
   %1051 = phi ptr [ %.pre617, %._crit_edge616 ], [ null, %_ZN9QtPrivate17QForeachContainerI5QListI12QAudioDeviceEED2Ev.exit ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  store ptr %1051, ptr %87, align 8, !alias.scope !60
+  store ptr %1051, ptr %87, align 8, !alias.scope !68
   %1052 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store ptr %1050, ptr %1052, align 8, !alias.scope !60
+  store ptr %1050, ptr %1052, align 8, !alias.scope !68
   %1053 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  store i64 %1049, ptr %1053, align 8, !alias.scope !60
+  store i64 %1049, ptr %1053, align 8, !alias.scope !68
   %1054 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  store ptr %1050, ptr %1054, align 8, !alias.scope !60
+  store ptr %1050, ptr %1054, align 8, !alias.scope !68
   %1055 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %1056 = getelementptr %class.QString, ptr %1050, i64 %1049
-  store ptr %1056, ptr %1055, align 8, !alias.scope !60
+  store ptr %1056, ptr %1055, align 8, !alias.scope !68
   %1057 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  store i32 1, ptr %1057, align 8, !alias.scope !60
+  store i32 1, ptr %1057, align 8, !alias.scope !68
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %88) #26
   %.idx = mul i64 %1049, 24
   %.not608613 = icmp eq i64 %.idx, 0
@@ -3655,7 +3654,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %1077, %1084
   %.1.in.i.i.i.i484 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i480, i64 %.1.in.v.i.i.i.i483
   %.1.i.i.i.i485 = load ptr, ptr %.1.in.i.i.i.i484, align 8
   %.not.i.i.i.i486 = icmp eq ptr %.1.i.i.i.i485, null
-  br i1 %.not.i.i.i.i486, label %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_bESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i487, label %1100, !llvm.loop !63
+  br i1 %.not.i.i.i.i486, label %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_bESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i487, label %1100, !llvm.loop !60
 
 _ZNKSt8_Rb_treeI7QStringSt4pairIKS0_bESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i487: ; preds = %1100
   %1107 = icmp eq ptr %.19.i.i.i.i482, %1097
@@ -31801,7 +31800,7 @@ _ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i: ;
           to label %77 unwind label %96
 
 77:                                               ; preds = %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.thread.i.i.i.i
-  %.pre = load ptr, ptr %6, align 8, !noalias !186
+  %.pre = load ptr, ptr %6, align 8
   %78 = load ptr, ptr %36, align 8
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 7488
@@ -50288,17 +50287,17 @@ attributes #33 = { cold noreturn }
 !57 = distinct !{!57, !58, !"_ZNK8QMapDataISt3mapI7QStringbSt4lessIS1_ESaISt4pairIKS1_bEEEE4keysEv: argument 0"}
 !58 = distinct !{!58, !"_ZNK8QMapDataISt3mapI7QStringbSt4lessIS1_ESaISt4pairIKS1_bEEEE4keysEv"}
 !59 = !{!57, !54}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN9QtPrivate21qMakeForeachContainerI5QListI7QStringEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_: argument 0"}
-!62 = distinct !{!62, !"_ZN9QtPrivate21qMakeForeachContainerI5QListI7QStringEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_"}
-!63 = distinct !{!63, !40}
+!60 = distinct !{!60, !40}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZSt16forward_as_tupleIJRK7QStringEESt5tupleIJDpOT_EES6_: argument 0"}
+!63 = distinct !{!63, !"_ZSt16forward_as_tupleIJRK7QStringEESt5tupleIJDpOT_EES6_"}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZSt16forward_as_tupleIJRK7QStringEESt5tupleIJDpOT_EES6_: argument 0"}
-!66 = distinct !{!66, !"_ZSt16forward_as_tupleIJRK7QStringEESt5tupleIJDpOT_EES6_"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZSt16forward_as_tupleIJRKbEESt5tupleIJDpOT_EES5_: argument 0"}
-!69 = distinct !{!69, !"_ZSt16forward_as_tupleIJRKbEESt5tupleIJDpOT_EES5_"}
-!70 = distinct !{!70, !40}
+!65 = distinct !{!65, !66, !"_ZSt16forward_as_tupleIJRKbEESt5tupleIJDpOT_EES5_: argument 0"}
+!66 = distinct !{!66, !"_ZSt16forward_as_tupleIJRKbEESt5tupleIJDpOT_EES5_"}
+!67 = distinct !{!67, !40}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZN9QtPrivate21qMakeForeachContainerI5QListI7QStringEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_: argument 0"}
+!70 = distinct !{!70, !"_ZN9QtPrivate21qMakeForeachContainerI5QListI7QStringEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_"}
 !71 = distinct !{!71, !40}
 !72 = distinct !{!72, !40}
 !73 = !{!74}

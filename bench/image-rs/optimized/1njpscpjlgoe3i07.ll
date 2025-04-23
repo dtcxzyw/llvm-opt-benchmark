@@ -515,9 +515,9 @@ default.unreachable2:                             ; preds = %5
 
 15:                                               ; preds = %8
   call void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$10write_cold17h44ddcdec382dda78E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4), !noalias !6
-  %.pre = load i64, ptr %6, align 8, !range !19, !alias.scope !20, !noalias !23
+  %.pre = load i64, ptr %6, align 8, !range !19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.pre1 = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !20, !noalias !23
+  %.pre1 = load ptr, ptr %.phi.trans.insert, align 8
   %16 = ptrtoint ptr %.pre1 to i64
   br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17hf0e9ec49d0ef6bf0E.llvm.98706352026558795.exit"
 
@@ -525,7 +525,7 @@ default.unreachable2:                             ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !13, !noalias !16, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %19, i64 %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !noalias !25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !noalias !20
   %21 = add i64 %12, %4
   store i64 %21, ptr %11, align 8, !alias.scope !13, !noalias !16
   br label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17hf0e9ec49d0ef6bf0E.llvm.98706352026558795.exit"
@@ -533,11 +533,9 @@ default.unreachable2:                             ; preds = %5
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$5write17hf0e9ec49d0ef6bf0E.llvm.98706352026558795.exit": ; preds = %15, %17
   %.sink.i = phi i64 [ %16, %15 ], [ %4, %17 ]
   %22 = phi i64 [ %.pre, %15 ], [ 0, %17 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i, ptr %23, align 8, !alias.scope !23, !noalias !20
-  store i64 %22, ptr %0, align 8, !alias.scope !23, !noalias !20
+  store i64 %.sink.i, ptr %23, align 8, !alias.scope !21, !noalias !24
+  store i64 %22, ptr %0, align 8, !alias.scope !21, !noalias !24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %30
 
@@ -1210,7 +1208,7 @@ define hidden noundef ptr @"_ZN3exr2io17Tracking$LT$T$GT$13seek_write_to17hb93f2
   call void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Seek$GT$4seek17h155d14e543025dc3E"(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull align 4 dereferenceable(4) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5)
   %.pre = load i64, ptr %6, align 8, !range !19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.pre22 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre22 = load ptr, ptr %.phi.trans.insert, align 8, !nonnull !5
   %17 = trunc nuw i64 %.pre to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -1685,7 +1683,7 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17hda6d87d1c6cd9aea
   %8 = tail call i64 @llvm.uadd.sat.i64(i64 %.promoted, i64 range(i64 1, 0) %2)
   %9 = load i64, ptr %0, align 8, !alias.scope !271, !noalias !274, !noundef !5
   %10 = icmp ugt i64 %8, %9
-  %.pre19 = load i64, ptr %6, align 8, !alias.scope !271, !noalias !274
+  %.pre19 = load i64, ptr %6, align 8
   br i1 %10, label %11, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4775764c3360a65dE.exit.i.i.i.us"
 
 11:                                               ; preds = %.lr.ph.split.us
@@ -1696,7 +1694,7 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17hda6d87d1c6cd9aea
 
 15:                                               ; preds = %11
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hf4ac459b374fe018E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.pre19, i64 noundef %12), !noalias !274
-  %.pre = load i64, ptr %6, align 8, !alias.scope !271, !noalias !274
+  %.pre = load i64, ptr %6, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4775764c3360a65dE.exit.i.i.i.us"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4775764c3360a65dE.exit.i.i.i.us": ; preds = %15, %11, %.lr.ph.split.us
@@ -34384,12 +34382,12 @@ attributes #38 = { cold }
 !17 = distinct !{!17, !15, !"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h0822b85f7b132acfE.llvm.98706352026558795: argument 0"}
 !18 = distinct !{!18, !15, !"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$5write17h0822b85f7b132acfE.llvm.98706352026558795: argument 2"}
 !19 = !{i64 0, i64 2}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha2ca90b6e9a1f4bbE.llvm.98706352026558795: argument 1"}
-!22 = distinct !{!22, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha2ca90b6e9a1f4bbE.llvm.98706352026558795"}
-!23 = !{!24}
-!24 = distinct !{!24, !22, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha2ca90b6e9a1f4bbE.llvm.98706352026558795: argument 0"}
-!25 = !{!17, !14, !10, !7}
+!20 = !{!17, !14, !10, !7}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha2ca90b6e9a1f4bbE.llvm.98706352026558795: argument 0"}
+!23 = distinct !{!23, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha2ca90b6e9a1f4bbE.llvm.98706352026558795"}
+!24 = !{!25}
+!25 = distinct !{!25, !23, !"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha2ca90b6e9a1f4bbE.llvm.98706352026558795: argument 1"}
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZN3std2io5impls69_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$$u5b$u8$u5d$$GT$5write17h606ec0cbd419965bE.llvm.98706352026558795: argument 1"}
 !28 = distinct !{!28, !"_ZN3std2io5impls69_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$$u5b$u8$u5d$$GT$5write17h606ec0cbd419965bE.llvm.98706352026558795"}

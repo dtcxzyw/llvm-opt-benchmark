@@ -4424,13 +4424,13 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Screen14keyboard_eventEiiii(ptr no
   br i1 %21, label %.loopexit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %17
-  %.pre = load ptr, ptr %6, align 8, !noalias !31
+  %.pre = load ptr, ptr %6, align 8
   br label %22
 
 22:                                               ; preds = %._crit_edge, %.lr.ph
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %11, %.lr.ph ]
   %.not8 = icmp eq ptr %12, %23
-  br i1 %.not8, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %.not8, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .loopexit:                                        ; preds = %17, %22, %5
   %.0 = phi i1 [ false, %5 ], [ true, %17 ], [ false, %22 ]
@@ -4467,13 +4467,13 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Screen24keyboard_character_eventEj
   br i1 %18, label %.loopexit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14
-  %.pre = load ptr, ptr %3, align 8, !noalias !35
+  %.pre = load ptr, ptr %3, align 8
   br label %19
 
 19:                                               ; preds = %._crit_edge, %.lr.ph
   %20 = phi ptr [ %.pre, %._crit_edge ], [ %8, %.lr.ph ]
   %.not5 = icmp eq ptr %9, %20
-  br i1 %.not5, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not5, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .loopexit:                                        ; preds = %14, %19, %2
   %.0 = phi i1 [ false, %2 ], [ true, %14 ], [ false, %19 ]
@@ -5156,10 +5156,10 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx
   %53 = getelementptr inbounds nuw i8, ptr %.02027, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not = icmp eq ptr %54, null
-  br i1 %.not, label %._crit_edge30.loopexit, label %23, !llvm.loop !39
+  br i1 %.not, label %._crit_edge30.loopexit, label %23, !llvm.loop !33
 
 ._crit_edge30.loopexit:                           ; preds = %49
-  %.pre37 = load ptr, ptr %3, align 8, !noalias !40
+  %.pre37 = load ptr, ptr %3, align 8
   br label %._crit_edge30
 
 ._crit_edge30:                                    ; preds = %._crit_edge30.loopexit, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE5clearEv.exit
@@ -5177,9 +5177,9 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 72
   %61 = load ptr, ptr %60, align 8
   %62 = tail call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(140) %58, i1 noundef zeroext true)
-  %63 = load ptr, ptr %3, align 8, !noalias !40
+  %63 = load ptr, ptr %3, align 8, !noalias !34
   %.not22 = icmp eq ptr %57, %63
-  br i1 %.not22, label %._crit_edge35, label %.lr.ph34, !llvm.loop !43
+  br i1 %.not22, label %._crit_edge35, label %.lr.ph34, !llvm.loop !37
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %._crit_edge30
   %.not8 = icmp eq ptr %.0.lcssa, null
@@ -5371,7 +5371,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %12 = add nsw i64 %.057.i.i.i.i.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !44
+  br i1 %.not.i.i.i.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !38
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i.i.i
   store ptr %13, ptr %9, align 8
@@ -5390,7 +5390,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5432,7 +5432,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #32
   %34 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i13 = icmp eq ptr %34, %33
-  br i1 %.not.i.i.i.i13, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !46
+  br i1 %.not.i.i.i.i13, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !40
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %4, align 8
@@ -5466,7 +5466,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #32
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !46
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !40
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -5637,7 +5637,7 @@ define hidden void @_ZN7nanogui6Screen21resize_callback_eventEii(ptr noundef non
   %12 = load i32, ptr %.07.i.sroa.phi, align 4
   %.not.i = icmp eq i32 %12, 0
   %or.cond.i = and i1 %.not8.i, %.not.i
-  br i1 %or.cond.i, label %11, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, !llvm.loop !47
+  br i1 %or.cond.i, label %11, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, !llvm.loop !41
 
 _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %11
   br i1 %.not.i, label %.critedge, label %.preheader
@@ -5648,7 +5648,7 @@ _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %11
   %13 = load i32, ptr %.07.i8.sroa.phi, align 4
   %.not.i9 = icmp eq i32 %13, 0
   %or.cond.i10 = and i1 %.not8.i7, %.not.i9
-  br i1 %or.cond.i10, label %.preheader, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit11, !llvm.loop !47
+  br i1 %or.cond.i10, label %.preheader, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit11, !llvm.loop !41
 
 _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit11:         ; preds = %.preheader
   br i1 %.not.i9, label %.critedge, label %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
@@ -5791,7 +5791,7 @@ define hidden void @_ZN7nanogui6Screen20move_window_to_frontEPNS_6WindowE(ptr no
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 32
   %30 = add nsw i64 %.052.i.i.i.i, -1
   %31 = icmp sgt i64 %.052.i.i.i.i, 1
-  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !48
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !42
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %28
   %.pre59.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
@@ -5870,7 +5870,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_Sa
   %.sroa.013.2.i.i = phi ptr [ %.sroa.013.128.i.i, %.lr.ph.i.i ], [ %51, %50 ]
   %.sroa.07.0.i.i = getelementptr inbounds nuw i8, ptr %.sroa.07.029.i.i, i64 8
   %.not.i.i = icmp eq ptr %.sroa.07.0.i.i, %6
-  br i1 %.not.i.i, label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !49
+  br i1 %.not.i.i, label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !43
 
 _ZSt6removeIN9__gnu_cxx17__normal_iteratorIPPN7nanogui6WidgetESt6vectorIS4_SaIS4_EEEEPNS2_6WindowEET_SC_SC_RKT0_.exit.loopexit: ; preds = %52
   %.pre = load ptr, ptr %5, align 8
@@ -5985,7 +5985,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit: ; preds = %62, %_ZN
   %spec.select = select i1 %94, i64 %.01644, i64 %.01743
   %95 = add nuw i64 %.01644, 1
   %exitcond.not = icmp eq i64 %95, %umax
-  br i1 %exitcond.not, label %.lr.ph48.preheader, label %.lr.ph, !llvm.loop !50
+  br i1 %exitcond.not, label %.lr.ph48.preheader, label %.lr.ph, !llvm.loop !44
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.thread
   %.01547 = phi i64 [ %111, %.thread ], [ 0, %.lr.ph48.preheader ]
@@ -6015,12 +6015,12 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit: ; preds = %62, %_ZN
   %109 = ptrtoint ptr %107 to i64
   %110 = sub i64 %108, %109
   %.not49 = icmp eq ptr %.pre58, %107
-  br i1 %.not49, label %.critedge, label %.lr.ph.preheader, !llvm.loop !51
+  br i1 %.not49, label %.critedge, label %.lr.ph.preheader, !llvm.loop !45
 
 .thread:                                          ; preds = %.lr.ph48, %99, %101
   %111 = add nuw i64 %.01547, 1
   %exitcond57.not = icmp eq i64 %111, %umax56
-  br i1 %exitcond57.not, label %.critedge, label %.lr.ph48, !llvm.loop !52
+  br i1 %exitcond57.not, label %.critedge, label %.lr.ph48, !llvm.loop !46
 
 .critedge:                                        ; preds = %106, %.thread, %_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit
   ret void
@@ -6073,7 +6073,7 @@ define hidden void @_ZN7nanogui6Screen14dispose_windowEPNS_6WindowE(ptr noundef 
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
   %30 = add nsw i64 %.052.i.i.i, -1
   %31 = icmp sgt i64 %.052.i.i.i, 1
-  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !48
+  br i1 %31, label %13, label %._crit_edge.loopexit.i.i.i, !llvm.loop !42
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %28
   %.pre59.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
@@ -6169,7 +6169,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %5, 0
   %or.cond.i = and i1 %.not8.i, %.not.i
-  br i1 %or.cond.i, label %3, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, !llvm.loop !47
+  br i1 %or.cond.i, label %3, label %_ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit, !llvm.loop !41
 
 _ZNK7nanogui5ArrayIiLm2EEeqERKS1_.exit:           ; preds = %3
   br i1 %.not.i, label %6, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
@@ -7124,7 +7124,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nano
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #34
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -7613,7 +7613,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !54
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !48
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -7685,7 +7685,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !54
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !48
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -7750,7 +7750,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !54
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !48
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -7855,7 +7855,7 @@ _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt
   %.1.in.i30.i = getelementptr inbounds nuw i8, ptr %.012.i26.i, i64 %.1.in.v.i29.i
   %.1.i31.i = load ptr, ptr %.1.in.i30.i, align 8
   %.not.i32.i = icmp eq ptr %.1.i31.i, null
-  br i1 %.not.i32.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE11equal_rangeERS3_.exit, label %.lr.ph.i25.i, !llvm.loop !55
+  br i1 %.not.i32.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE11equal_rangeERS3_.exit, label %.lr.ph.i25.i, !llvm.loop !49
 
 23:                                               ; preds = %10, %6
   %.sink.i = phi i64 [ 24, %6 ], [ 16, %10 ]
@@ -7863,7 +7863,7 @@ _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt
   %24 = getelementptr inbounds nuw i8, ptr %.044.i, i64 %.sink.i
   %.0.i = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE11equal_rangeERS3_.exit, label %6, !llvm.loop !56
+  br i1 %.not.i, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE11equal_rangeERS3_.exit, label %6, !llvm.loop !50
 
 _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE11equal_rangeERS3_.exit: ; preds = %23, %.lr.ph.i25.i, %2, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i
   %.sroa.037.0.i = phi ptr [ %.08.lcssa.i.i, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS3_.exit.i ], [ %4, %2 ], [ %.08.lcssa.i.i, %.lr.ph.i25.i ], [ %.123.i, %23 ]
@@ -7909,7 +7909,7 @@ _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt
   %39 = add i64 %38, -1
   store i64 %39, ptr %25, align 8
   %.not.i3 = icmp eq ptr %36, %.sroa.3.0.i
-  br i1 %.not.i3, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_.exit, label %.lr.ph.i2, !llvm.loop !57
+  br i1 %.not.i3, label %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_.exit, label %.lr.ph.i2, !llvm.loop !51
 
 _ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_.exit: ; preds = %.lr.ph.i2, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE5clearEv.exit.i, %.critedge.i
   %40 = phi i64 [ 0, %_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE5clearEv.exit.i ], [ %26, %.critedge.i ], [ %39, %.lr.ph.i2 ]
@@ -8051,18 +8051,18 @@ attributes #38 = { nounwind willreturn memory(read) }
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv: argument 0"}
-!33 = distinct !{!33, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv"}
-!34 = distinct !{!34, !6}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv: argument 0"}
-!37 = distinct !{!37, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv"}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv: argument 0"}
+!36 = distinct !{!36, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv"}
+!37 = distinct !{!37, !6}
 !38 = distinct !{!38, !6}
 !39 = distinct !{!39, !6}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv: argument 0"}
-!42 = distinct !{!42, !"_ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE4rendEv"}
+!40 = distinct !{!40, !6}
+!41 = distinct !{!41, !6}
+!42 = distinct !{!42, !6}
 !43 = distinct !{!43, !6}
 !44 = distinct !{!44, !6}
 !45 = distinct !{!45, !6}
@@ -8072,9 +8072,3 @@ attributes #38 = { nounwind willreturn memory(read) }
 !49 = distinct !{!49, !6}
 !50 = distinct !{!50, !6}
 !51 = distinct !{!51, !6}
-!52 = distinct !{!52, !6}
-!53 = distinct !{!53, !6}
-!54 = distinct !{!54, !6}
-!55 = distinct !{!55, !6}
-!56 = distinct !{!56, !6}
-!57 = distinct !{!57, !6}

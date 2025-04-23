@@ -3187,7 +3187,7 @@ define internal range(i32 0, 2) i32 @test_bn_output(i32 noundef %0) #0 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [4 x ptr], ptr @bn_output_tests, i64 0, i64 %3
   %.not = icmp eq i32 %0, 0
-  %.pre = load ptr, ptr %4, align 8, !tbaa !14
+  %.pre = load ptr, ptr %4, align 8
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %1
@@ -3199,7 +3199,7 @@ define internal range(i32 0, 2) i32 @test_bn_output(i32 noundef %0) #0 {
   br i1 %.not5, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5
-  %.pre6 = load ptr, ptr %2, align 8, !tbaa !12
+  %.pre6 = load ptr, ptr %2, align 8
   br label %10
 
 10:                                               ; preds = %._crit_edge, %1
@@ -3437,5 +3437,3 @@ attributes #6 = { cold nounwind }
 !11 = !{!7, !7, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 omnipotent char", !6, i64 0}

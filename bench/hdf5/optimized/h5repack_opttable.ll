@@ -230,7 +230,6 @@ thread-pre-split:                                 ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 840
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %wide.trip.count141 = zext i32 %1 to i64
-  %.pre.pre.pre = load ptr, ptr %14, align 8, !tbaa !27
   br label %.preheader103
 
 .preheader:                                       ; preds = %12
@@ -242,16 +241,16 @@ thread-pre-split:                                 ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 840
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %wide.trip.count148 = zext i32 %1 to i64
-  %.pre150 = load ptr, ptr %18, align 8, !tbaa !27
+  %.pre150 = load ptr, ptr %18, align 8
   br label %120
 
 .preheader103:                                    ; preds = %.preheader103.lr.ph, %aux_tblinsert_layout.exit86
-  %.pre.pre = phi ptr [ %.pre.pre.pre, %.preheader103.lr.ph ], [ %.pre.pre151, %aux_tblinsert_layout.exit86 ]
   %indvars.iv139 = phi i64 [ 0, %.preheader103.lr.ph ], [ %indvars.iv.next140, %aux_tblinsert_layout.exit86 ]
   %.068120 = phi i1 [ false, %.preheader103.lr.ph ], [ %.1100, %aux_tblinsert_layout.exit86 ]
   %.069119 = phi i32 [ 0, %.preheader103.lr.ph ], [ %.170, %aux_tblinsert_layout.exit86 ]
   %22 = load i32, ptr %5, align 4, !tbaa !26
   %.not127 = icmp eq i32 %22, 0
+  %.pre.pre = load ptr, ptr %14, align 8
   br i1 %.not127, label %aux_tblinsert_layout.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader103
@@ -454,7 +453,6 @@ aux_tblinsert_layout.exit.thread:                 ; preds = %64, %59, %57, %50, 
   br i1 %exitcond.not.i91, label %aux_tblinsert_layout.exit86, label %116, !llvm.loop !30
 
 aux_tblinsert_layout.exit86:                      ; preds = %89, %116, %111, %109, %97, %84, %82, %69, %aux_tblinsert_layout.exit.thread
-  %.pre.pre151 = phi ptr [ %.pre.pre, %aux_tblinsert_layout.exit.thread ], [ %.val78, %69 ], [ %.val78, %82 ], [ %.val78, %84 ], [ %.val79, %97 ], [ %.val79, %109 ], [ %.val79, %111 ], [ %.val79, %116 ], [ %.val78, %89 ]
   %.1100 = phi i1 [ true, %aux_tblinsert_layout.exit.thread ], [ false, %69 ], [ false, %82 ], [ false, %84 ], [ true, %97 ], [ true, %109 ], [ true, %111 ], [ true, %116 ], [ false, %89 ]
   %.170 = phi i32 [ %.069119, %aux_tblinsert_layout.exit.thread ], [ %71, %69 ], [ %71, %82 ], [ %71, %84 ], [ %99, %97 ], [ %99, %109 ], [ %99, %111 ], [ %99, %116 ], [ %71, %89 ]
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
@@ -673,7 +671,7 @@ thread-pre-split:                                 ; preds = %9
   %.05688 = phi i32 [ 0, %.preheader79.lr.ph ], [ %.157, %aux_tblinsert_filter.exit69 ]
   %16 = load i32, ptr %5, align 4, !tbaa !26
   %.not96 = icmp eq i32 %16, 0
-  %.pre115.pre = load ptr, ptr %14, align 8, !tbaa !27
+  %.pre115.pre = load ptr, ptr %14, align 8
   br i1 %.not96, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader79
@@ -731,7 +729,7 @@ thread-pre-split:                                 ; preds = %9
   br label %.thread
 
 .thread:                                          ; preds = %44, %40, %32, %27
-  %.pre = load ptr, ptr %14, align 8, !tbaa !27
+  %.pre = load ptr, ptr %14, align 8
   br label %81
 
 48:                                               ; preds = %18

@@ -201,7 +201,7 @@ _ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE9push_backERKS3_.exit: 
   br i1 %.not9, label %.critedge.thread, label %.critedge.thread37
 
 .critedge.thread37.loopexit:                      ; preds = %.lr.ph
-  %.pre = load ptr, ptr %13, align 8, !tbaa !14
+  %.pre = load ptr, ptr %13, align 8
   br label %.critedge.thread37
 
 .critedge.thread37:                               ; preds = %.critedge.thread37.loopexit, %.critedge
@@ -215,7 +215,7 @@ _ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE9push_backERKS3_.exit: 
   br label %46
 
 .critedge.thread.loopexit:                        ; preds = %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE9push_backERKS3_.exit
-  %.pre82 = load ptr, ptr %13, align 8, !tbaa !14
+  %.pre82 = load ptr, ptr %13, align 8
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %.preheader, %.critedge
@@ -473,8 +473,8 @@ _ZN4absl9MutexLockC2EPNS_5MutexE.exit:            ; preds = %_ZN4absl13cord_inte
   %.0.i.i = inttoptr i64 %7 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre = load ptr, ptr %8, align 8, !tbaa !21
-  %.pre24 = load ptr, ptr %9, align 8, !tbaa !24
+  %.pre = load ptr, ptr %8, align 8
+  %.pre24 = load ptr, ptr %9, align 8
   br label %15
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE9push_backERKS4_.exit, %_ZN4absl9MutexLockC2EPNS_5MutexE.exit
@@ -496,7 +496,7 @@ _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %._crit_edge
 13:                                               ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit
   %14 = landingpad { ptr, i32 }
           cleanup
-  %.pre25 = load ptr, ptr %0, align 8, !tbaa !25
+  %.pre25 = load ptr, ptr %0, align 8
   br label %_ZN4absl9MutexLockD2Ev.exit11
 
 15:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE9push_backERKS4_.exit
@@ -573,7 +573,7 @@ _ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE9push_backERKS4_.exit:
   %43 = getelementptr inbounds nuw i8, ptr %storemerge19, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !14
   %.not = icmp eq ptr %44, null
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !25
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -675,7 +675,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit: ; preds = %12, %15, %
   %24 = getelementptr inbounds nuw i8, ptr %.01221, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !14
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %22, %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit, %20
   %spec.select17 = phi i1 [ %21, %20 ], [ true, %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit ], [ true, %22 ]
@@ -749,7 +749,7 @@ _ZN4absl9MutexLockC2EPNS_5MutexE.exit._crit_edge: ; preds = %_ZNSt6vectorIPKN4ab
 17:                                               ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  %.pre = load ptr, ptr %0, align 8, !tbaa !25
+  %.pre = load ptr, ptr %0, align 8
   br label %_ZN4absl9MutexLockD2Ev.exit12
 
 19:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE9push_backERKS4_.exit
@@ -853,7 +853,7 @@ _ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE9push_backERKS4_.exit:
   %storemerge.in = getelementptr inbounds nuw i8, ptr %storemerge22, i64 24
   %storemerge = load ptr, ptr %storemerge.in, align 8, !tbaa !15
   %.not = icmp eq ptr %storemerge, null
-  br i1 %.not, label %_ZN4absl9MutexLockC2EPNS_5MutexE.exit._crit_edge, label %19, !llvm.loop !28
+  br i1 %.not, label %_ZN4absl9MutexLockC2EPNS_5MutexE.exit._crit_edge, label %19, !llvm.loop !27
 
 _ZN4absl9MutexLockD2Ev.exit12:                    ; preds = %17, %48
   %53 = phi ptr [ %.pre, %17 ], [ %20, %48 ]
@@ -955,7 +955,6 @@ attributes #18 = { builtin nounwind }
 !22 = !{!"_ZTSNSt12_Vector_baseIPKN4absl13cord_internal11CordzHandleESaIS4_EE17_Vector_impl_dataE", !23, i64 0, !23, i64 8, !23, i64 16}
 !23 = !{!"p2 _ZTSN4absl13cord_internal11CordzHandleE", !12, i64 0}
 !24 = !{!22, !23, i64 16}
-!25 = !{!22, !23, i64 0}
+!25 = distinct !{!25, !20}
 !26 = distinct !{!26, !20}
 !27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}

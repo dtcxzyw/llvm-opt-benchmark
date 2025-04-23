@@ -2905,7 +2905,7 @@ define hidden void @_ZN10ockam_core7routing5route12RouteBuilder7prepend17h505c41
           to label %._crit_edge.i unwind label %11, !noalias !406
 
 ._crit_edge.i:                                    ; preds = %10
-  %.pre.i = load i64, ptr %7, align 8, !alias.scope !408, !noalias !406
+  %.pre.i = load i64, ptr %7, align 8, !alias.scope !403, !noalias !406
   %.pre1.i = load i64, ptr %5, align 8, !alias.scope !403, !noalias !406
   br label %15
 
@@ -3494,6 +3494,3 @@ attributes #32 = { nounwind }
 !405 = distinct !{!405, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10push_front17hd40ff7c93482aab2E"}
 !406 = !{!407}
 !407 = distinct !{!407, !405, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$10push_front17hd40ff7c93482aab2E: argument 1"}
-!408 = !{!409, !404}
-!409 = distinct !{!409, !410, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8wrap_sub17h5fc800b89c4e4b79E.llvm.15130365213601569483: argument 0"}
-!410 = distinct !{!410, !"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$8wrap_sub17h5fc800b89c4e4b79E.llvm.15130365213601569483"}

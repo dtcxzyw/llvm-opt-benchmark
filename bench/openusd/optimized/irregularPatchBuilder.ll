@@ -5130,7 +5130,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
 
 .loopexit.loopexit:                               ; preds = %86
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %88, i64 136
-  %.pre89 = load i16, ptr %.phi.trans.insert, align 8, !noalias !46
+  %.pre89 = load i16, ptr %.phi.trans.insert, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit, %56
@@ -5283,7 +5283,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27removeDuplicateControlFacesE
   %.1 = phi i32 [ %11, %103 ], [ %.3, %150 ]
   %157 = load ptr, ptr %1, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 136
-  %159 = load i16, ptr %158, align 8, !noalias !49
+  %159 = load i16, ptr %158, align 8, !noalias !46
   %160 = and i16 %159, 1
   %.not82 = icmp eq i16 %160, 0
   br i1 %.not82, label %_ZNK10OpenSubdiv6v3_6_03Bfr21IrregularPatchBuilder27sharpenBoundaryControlEdgesEPiPfS3_.exit, label %161
@@ -5749,6 +5749,3 @@ attributes #24 = { nounwind willreturn memory(read) }
 !46 = !{!47}
 !47 = distinct !{!47, !48, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv: argument 0"}
 !48 = distinct !{!48, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv: argument 0"}
-!51 = distinct !{!51, !"_ZNK10OpenSubdiv6v3_6_03Bfr11FaceSurface6GetTagEv"}

@@ -72,7 +72,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE11ImportEntryESaIS3_EES3_N9__gnu_cxx17__
 
 ._crit_edge38:                                    ; preds = %34
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !32
+  %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %47
 
 41:                                               ; preds = %34
@@ -90,32 +90,32 @@ _ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE11ImportEntryESaIS3_EES3_N9__gnu_cxx17__
   %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.036
   %52 = load ptr, ptr %51, align 8, !tbaa !19
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i16 %49, ptr %53, align 8, !tbaa !37
+  store i16 %49, ptr %53, align 8, !tbaa !32
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store i64 %48, ptr %54, align 8, !tbaa !38
+  store i64 %48, ptr %54, align 8, !tbaa !33
   %55 = getelementptr inbounds nuw i8, ptr %19, i64 64
-  %56 = load i16, ptr %55, align 8, !tbaa !39
+  %56 = load i16, ptr %55, align 8, !tbaa !34
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  store i16 %56, ptr %57, align 8, !tbaa !40
+  store i16 %56, ptr %57, align 8, !tbaa !39
   %58 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %59 = load i64, ptr %58, align 8, !tbaa !41
+  %59 = load i64, ptr %58, align 8, !tbaa !40
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  store i64 %59, ptr %60, align 8, !tbaa !42
+  store i64 %59, ptr %60, align 8, !tbaa !41
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  store i64 %48, ptr %61, align 8, !tbaa !43
+  store i64 %48, ptr %61, align 8, !tbaa !42
   %62 = getelementptr inbounds nuw i8, ptr %19, i64 88
-  %63 = load i64, ptr %62, align 8, !tbaa !44
+  %63 = load i64, ptr %62, align 8, !tbaa !43
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 56
-  store i64 %63, ptr %64, align 8, !tbaa !45
+  store i64 %63, ptr %64, align 8, !tbaa !44
   %65 = add nuw i64 %.036, 1
   %66 = load ptr, ptr %5, align 8, !tbaa !11
-  %67 = load ptr, ptr %3, align 8, !tbaa !46
+  %67 = load ptr, ptr %3, align 8, !tbaa !45
   %68 = ptrtoint ptr %66 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
   %71 = sdiv exact i64 %70, 104
   %72 = icmp ult i64 %65, %71
-  br i1 %72, label %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE11ImportEntryESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit, label %._crit_edge, !llvm.loop !47
+  br i1 %72, label %_ZN4LIEF12ref_iteratorIRSt6vectorINS_2PE11ImportEntryESaIS3_EES3_N9__gnu_cxx17__normal_iteratorIPS3_S5_EEEixEm.exit, label %._crit_edge, !llvm.loop !46
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -132,7 +132,7 @@ define hidden void @_ZN4LIEF2PE22destroy_import_entriesEP11Pe_Import_t(ptr nound
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load ptr, ptr %2, align 8, !tbaa !13
+  %.pre = load ptr, ptr %2, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
@@ -148,7 +148,7 @@ define hidden void @_ZN4LIEF2PE22destroy_import_entriesEP11Pe_Import_t(ptr nound
   %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !49
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !48
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -195,21 +195,20 @@ attributes #5 = { nounwind }
 !29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !30, i64 0, !25, i64 8, !6, i64 16}
 !30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !15, i64 0}
 !31 = !{!22, !15, i64 8}
-!32 = !{!33, !25, i64 56}
-!33 = !{!"_ZTSN4LIEF2PE11ImportEntryE", !34, i64 0, !25, i64 56, !24, i64 64, !25, i64 72, !25, i64 80, !25, i64 88, !36, i64 96}
-!34 = !{!"_ZTSN4LIEF6SymbolE", !35, i64 0, !29, i64 8, !25, i64 40, !25, i64 48}
-!35 = !{!"_ZTSN4LIEF6ObjectE"}
-!36 = !{!"_ZTSN4LIEF2PE7PE_TYPEE", !6, i64 0}
-!37 = !{!22, !24, i64 16}
-!38 = !{!22, !25, i64 24}
-!39 = !{!33, !24, i64 64}
-!40 = !{!22, !24, i64 32}
-!41 = !{!33, !25, i64 72}
-!42 = !{!22, !25, i64 40}
-!43 = !{!22, !25, i64 48}
-!44 = !{!33, !25, i64 88}
-!45 = !{!22, !25, i64 56}
-!46 = !{!12, !4, i64 0}
-!47 = distinct !{!47, !48}
-!48 = !{!"llvm.loop.mustprogress"}
-!49 = distinct !{!49, !48}
+!32 = !{!22, !24, i64 16}
+!33 = !{!22, !25, i64 24}
+!34 = !{!35, !24, i64 64}
+!35 = !{!"_ZTSN4LIEF2PE11ImportEntryE", !36, i64 0, !25, i64 56, !24, i64 64, !25, i64 72, !25, i64 80, !25, i64 88, !38, i64 96}
+!36 = !{!"_ZTSN4LIEF6SymbolE", !37, i64 0, !29, i64 8, !25, i64 40, !25, i64 48}
+!37 = !{!"_ZTSN4LIEF6ObjectE"}
+!38 = !{!"_ZTSN4LIEF2PE7PE_TYPEE", !6, i64 0}
+!39 = !{!22, !24, i64 32}
+!40 = !{!35, !25, i64 72}
+!41 = !{!22, !25, i64 40}
+!42 = !{!22, !25, i64 48}
+!43 = !{!35, !25, i64 88}
+!44 = !{!22, !25, i64 56}
+!45 = !{!12, !4, i64 0}
+!46 = distinct !{!46, !47}
+!47 = !{!"llvm.loop.mustprogress"}
+!48 = distinct !{!48, !47}

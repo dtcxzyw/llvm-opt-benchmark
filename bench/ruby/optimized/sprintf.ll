@@ -4448,24 +4448,23 @@ define internal noundef i32 @BSD__sfvwrite(ptr noundef captures(none) %0, ptr no
 28:                                               ; preds = %24
   %spec.select = tail call i64 @llvm.umin.i64(i64 %.135.lcssa, i64 %25)
   %.not.i = icmp eq i64 %25, 0
-  %.pre45 = load ptr, ptr %0, align 8, !tbaa !118
+  %.pre45 = load ptr, ptr %0, align 8
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %29
 
 29:                                               ; preds = %28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.pre45, ptr noundef nonnull readonly align 1 %.133.lcssa, i64 noundef range(i64 1, 0) %spec.select, i1 noundef false) #21
-  %.pre = load i64, ptr %15, align 8, !tbaa !120
-  %.pre44 = load ptr, ptr %0, align 8, !tbaa !118
-  %.pre46.pre = load i64, ptr %3, align 8, !tbaa !149
+  %.pre = load i64, ptr %15, align 8
+  %.pre44 = load ptr, ptr %0, align 8
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %28, %29
-  %.pre46 = phi i64 [ %17, %28 ], [ %.pre46.pre, %29 ]
   %30 = phi ptr [ %.pre45, %28 ], [ %.pre44, %29 ]
   %31 = phi i64 [ 0, %28 ], [ %.pre, %29 ]
   %32 = sub i64 %31, %spec.select
   store i64 %32, ptr %15, align 8, !tbaa !120
   %33 = getelementptr i8, ptr %30, i64 %spec.select
   store ptr %33, ptr %0, align 8, !tbaa !118
+  %.pre46 = load i64, ptr %3, align 8
   br label %34
 
 34:                                               ; preds = %24, %ruby_nonempty_memcpy.exit
@@ -4928,7 +4927,7 @@ BSD__sprint.exit762:                              ; preds = %166
 
 189:                                              ; preds = %182
   %190 = icmp slt i32 %.1536, 0
-  %.pre1574 = load i64, ptr %12, align 8, !tbaa !7
+  %.pre1574 = load i64, ptr %12, align 8
   br i1 %190, label %721, label %191
 
 191:                                              ; preds = %189
@@ -5176,7 +5175,7 @@ ruby_nonempty_memcpy.exit.i:                      ; preds = %306, %301
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit..loopexit_crit_edge.i, label %310
 
 ruby_nonempty_memcpy.exit..loopexit_crit_edge.i:  ; preds = %ruby_nonempty_memcpy.exit.i
-  %.pre49.i = load ptr, ptr %7, align 8, !tbaa !164
+  %.pre49.i = load ptr, ptr %7, align 8
   br label %cvt.exit
 
 310:                                              ; preds = %ruby_nonempty_memcpy.exit.i
@@ -5192,7 +5191,7 @@ ruby_nonempty_memcpy.exit..loopexit_crit_edge.i:  ; preds = %ruby_nonempty_memcp
   br i1 %or.cond3.i, label %317, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %313
-  %.pre.i = load i32, ptr %9, align 4, !tbaa !25
+  %.pre.i = load i32, ptr %9, align 4
   br label %319
 
 317:                                              ; preds = %313
@@ -5403,7 +5402,7 @@ exponent.exit782:                                 ; preds = %389, %.lr.ph.prehea
 
 410:                                              ; preds = %375
   %411 = icmp eq i32 %.6500, 102
-  %.pre = load i32, ptr %9, align 4, !tbaa !25
+  %.pre = load i32, ptr %9, align 4
   br i1 %411, label %412, label %.thread914
 
 412:                                              ; preds = %410
@@ -5457,7 +5456,7 @@ exponent.exit782:                                 ; preds = %389, %.lr.ph.prehea
   br i1 %.sink.i, label %._crit_edge1599, label %430
 
 ._crit_edge1599:                                  ; preds = %429
-  %.pre1575.pre = load i8, ptr %8, align 1, !tbaa !21
+  %.pre1575.pre = load i8, ptr %8, align 1
   br label %717
 
 430:                                              ; preds = %429
@@ -6114,8 +6113,8 @@ BSD__ultoa.exit:                                  ; preds = %.preheader39.i, %69
 .preheader1065:                                   ; preds = %732
   %734 = trunc nsw i64 %730 to i32
   %735 = icmp ugt i64 %730, 16
-  %.pre1579 = load i64, ptr %27, align 8, !tbaa !149
-  %.pre1581 = load i32, ptr %28, align 8, !tbaa !159
+  %.pre1579 = load i64, ptr %27, align 8
+  %.pre1581 = load i32, ptr %28, align 8
   br i1 %735, label %.lr.ph1288, label %._crit_edge1289
 
 .lr.ph1288:                                       ; preds = %.preheader1065, %747
@@ -6283,8 +6282,8 @@ BSD__sprint.exit794:                              ; preds = %786
 .preheader1063:                                   ; preds = %796
   %798 = trunc nsw i64 %794 to i32
   %799 = icmp ugt i64 %794, 16
-  %.pre1585 = load i64, ptr %27, align 8, !tbaa !149
-  %.pre1587 = load i32, ptr %28, align 8, !tbaa !159
+  %.pre1585 = load i64, ptr %27, align 8
+  %.pre1587 = load i32, ptr %28, align 8
   br i1 %799, label %.lr.ph1294, label %._crit_edge1295
 
 .lr.ph1294:                                       ; preds = %.preheader1063, %811
@@ -6375,8 +6374,8 @@ BSD__sprint.exit798:                              ; preds = %822
 .preheader1061:                                   ; preds = %830
   %832 = trunc nsw i64 %828 to i32
   %833 = icmp ugt i64 %828, 16
-  %.pre1591 = load i64, ptr %27, align 8, !tbaa !149
-  %.pre1593 = load i32, ptr %28, align 8, !tbaa !159
+  %.pre1591 = load i64, ptr %27, align 8
+  %.pre1593 = load i32, ptr %28, align 8
   br i1 %833, label %.lr.ph1300, label %._crit_edge1301
 
 .lr.ph1300:                                       ; preds = %.preheader1061, %845
@@ -6905,7 +6904,7 @@ BSD__sprint.exit828:                              ; preds = %1062
   br i1 %.not705, label %BSD__sprint.exit828._crit_edge, label %.thread1010
 
 BSD__sprint.exit828._crit_edge:                   ; preds = %BSD__sprint.exit828
-  %.pre1597 = load i32, ptr %9, align 4, !tbaa !25
+  %.pre1597 = load i32, ptr %9, align 4
   br label %BSD__sprint.exit828.thread
 
 BSD__sprint.exit828.thread:                       ; preds = %1062, %BSD__sprint.exit828._crit_edge, %1054
@@ -7144,7 +7143,7 @@ BSD__sprint.exit840:                              ; preds = %1161
   br i1 %.not700, label %BSD__sprint.exit840._crit_edge, label %.thread1010
 
 BSD__sprint.exit840._crit_edge:                   ; preds = %BSD__sprint.exit840
-  %.pre1594 = load i32, ptr %9, align 4, !tbaa !25
+  %.pre1594 = load i32, ptr %9, align 4
   br label %1165
 
 1165:                                             ; preds = %BSD__sprint.exit840._crit_edge, %BSD__sprint.exit840.thread, %1154
@@ -7286,7 +7285,7 @@ BSD__sprint.exit848:                              ; preds = %1220
   br i1 %.not694, label %BSD__sprint.exit848._crit_edge, label %.thread1010
 
 BSD__sprint.exit848._crit_edge:                   ; preds = %BSD__sprint.exit848
-  %.pre1595 = load i32, ptr %9, align 4, !tbaa !25
+  %.pre1595 = load i32, ptr %9, align 4
   br label %BSD__sprint.exit848.thread
 
 BSD__sprint.exit848.thread:                       ; preds = %1220, %BSD__sprint.exit848._crit_edge, %1213
@@ -7318,7 +7317,7 @@ BSD__sprint.exit850:                              ; preds = %1234
   br i1 %.not695, label %BSD__sprint.exit850._crit_edge, label %.thread1010
 
 BSD__sprint.exit850._crit_edge:                   ; preds = %BSD__sprint.exit850
-  %.pre1596 = load i32, ptr %9, align 4, !tbaa !25
+  %.pre1596 = load i32, ptr %9, align 4
   br label %BSD__sprint.exit850.thread
 
 BSD__sprint.exit850.thread:                       ; preds = %1234, %BSD__sprint.exit850._crit_edge, %BSD__sprint.exit848.thread
@@ -8007,7 +8006,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %.lr.ph, %49
   br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !195
 
 ._crit_edge:                                      ; preds = %ruby_nonempty_memcpy.exit
-  %.pre = load i64, ptr %4, align 8, !tbaa !11, !noalias !196
+  %.pre = load i64, ptr %4, align 8
   store ptr %51, ptr %0, align 8, !tbaa !118
   %55 = and i64 %.pre, 8192
   %.not.i.i48 = icmp eq i64 %55, 0
@@ -8149,7 +8148,7 @@ RB_SYMBOL_P.exit.thread25:                        ; preds = %27, %RB_SYMBOL_P.ex
   %56 = call ptr @rb_string_value_cstr(ptr noundef nonnull %6) #21
   %57 = load i64, ptr %6, align 8, !tbaa !7
   %58 = inttoptr i64 %57 to ptr
-  %59 = load i64, ptr %58, align 8, !tbaa !11, !noalias !199
+  %59 = load i64, ptr %58, align 8, !tbaa !11, !noalias !196
   %60 = and i64 %59, 8192
   %.not.i = icmp eq i64 %60, 0
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 24
@@ -8446,6 +8445,3 @@ attributes #27 = { memory(none) }
 !196 = !{!197}
 !197 = distinct !{!197, !198, !"rbimpl_rstring_getmem: argument 0"}
 !198 = distinct !{!198, !"rbimpl_rstring_getmem"}
-!199 = !{!200}
-!200 = distinct !{!200, !201, !"rbimpl_rstring_getmem: argument 0"}
-!201 = distinct !{!201, !"rbimpl_rstring_getmem"}

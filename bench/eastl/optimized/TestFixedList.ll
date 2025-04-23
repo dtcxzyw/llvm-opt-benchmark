@@ -6287,12 +6287,11 @@ if.end.i1414:                                     ; preds = %_ZN5eastl4listIiNS_
   br i1 %cmp.i1.not.i, label %invoke.cont651.loopexit, label %while.body.i1411, !llvm.loop !335
 
 invoke.cont651.loopexit:                          ; preds = %if.end.i1414
-  %.pre2336 = load ptr, ptr %listA646, align 8, !noalias !336
+  %.pre2336 = load ptr, ptr %listA646, align 8
   br label %invoke.cont651
 
 invoke.cont651:                                   ; preds = %invoke.cont651.loopexit, %while.cond.preheader.i, %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1405
   %572 = phi ptr [ %.pre2336, %invoke.cont651.loopexit ], [ %559, %while.cond.preheader.i ], [ %559, %_ZN5eastl10fixed_listIiLm32ELb1ENS_9allocatorEEC2IPKiEET_S6_.exit1405 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !336)
   store ptr %572, ptr %agg.tmp652, align 8, !alias.scope !336
   store ptr %listA646, ptr %agg.tmp653, align 8, !alias.scope !339
   %call655 = invoke noundef zeroext i1 (ptr, ptr, i32, ptr, ...) @_Z14VerifySequenceIN5eastl12ListIteratorIiPiRiEEiEbT_S5_T0_PKcz(ptr noundef nonnull %agg.tmp652, ptr noundef nonnull %agg.tmp653, i32 noundef 0, ptr noundef nonnull @.str.49, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef 5, i32 noundef 9, i32 noundef -1)
@@ -7442,8 +7441,8 @@ if.else8.i.i.i.i.i.i.i.i1814:                     ; preds = %if.else.i.i.i.i.i.i
           to label %if.else8.i.i.i.i.i.i.i.i1814._ZN10TestObjectD2Ev.exit1824_crit_edge unwind label %_ZN10TestObjectD2Ev.exit2077
 
 if.else8.i.i.i.i.i.i.i.i1814._ZN10TestObjectD2Ev.exit1824_crit_edge: ; preds = %if.else8.i.i.i.i.i.i.i.i1814
-  %.pre2337 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !363
-  %.pre2338 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !363
+  %.pre2337 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %.pre2338 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   br label %_ZN10TestObjectD2Ev.exit1824
 
 _ZN10TestObjectD2Ev.exit1824:                     ; preds = %if.else8.i.i.i.i.i.i.i.i1814._ZN10TestObjectD2Ev.exit1824_crit_edge, %if.then.i.i.i.i.i.i.i.i1799, %if.then4.i.i.i.i.i.i.i.i1812
@@ -7539,8 +7538,8 @@ if.else8.i.i.i.i.i.i.i.i1858:                     ; preds = %if.else.i.i.i.i.i.i
           to label %if.else8.i.i.i.i.i.i.i.i1858._ZN10TestObjectD2Ev.exit1868_crit_edge unwind label %_ZN10TestObjectD2Ev.exit2085
 
 if.else8.i.i.i.i.i.i.i.i1858._ZN10TestObjectD2Ev.exit1868_crit_edge: ; preds = %if.else8.i.i.i.i.i.i.i.i1858
-  %.pre2339 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !366
-  %.pre2340 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !366
+  %.pre2339 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %.pre2340 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   br label %_ZN10TestObjectD2Ev.exit1868
 
 _ZN10TestObjectD2Ev.exit1868:                     ; preds = %if.else8.i.i.i.i.i.i.i.i1858._ZN10TestObjectD2Ev.exit1868_crit_edge, %if.then.i.i.i.i.i.i.i.i1835, %if.then4.i.i.i.i.i.i.i.i1856
@@ -7635,8 +7634,8 @@ if.else8.i.i.i.i.i.i.i.i1903:                     ; preds = %if.else.i.i.i.i.i.i
           to label %if.else8.i.i.i.i.i.i.i.i1903._ZN10TestObjectD2Ev.exit1913_crit_edge unwind label %_ZN10TestObjectD2Ev.exit2093
 
 if.else8.i.i.i.i.i.i.i.i1903._ZN10TestObjectD2Ev.exit1913_crit_edge: ; preds = %if.else8.i.i.i.i.i.i.i.i1903
-  %.pre2341 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !372
-  %.pre2342 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8, !noalias !372
+  %.pre2341 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
+  %.pre2342 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   br label %_ZN10TestObjectD2Ev.exit1913
 
 _ZN10TestObjectD2Ev.exit1913:                     ; preds = %if.else8.i.i.i.i.i.i.i.i1903._ZN10TestObjectD2Ev.exit1913_crit_edge, %if.then.i.i.i.i.i.i.i.i1880, %if.then4.i.i.i.i.i.i.i.i1901

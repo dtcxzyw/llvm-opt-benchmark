@@ -277,7 +277,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology23ResolveUnOrderedCornersEP
 
 15:                                               ; preds = %8
   tail call void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex21ConnectUnOrderedFacesEPKi(ptr noundef nonnull align 8 dereferenceable(224) %11, ptr noundef %.014)
-  %.pre = load i16, ptr %12, align 8, !noalias !15
+  %.pre = load i16, ptr %12, align 8
   %.0.copyload.i.i.pre = load i16, ptr %3, align 4
   %.pre18 = load i32, ptr %4, align 8
   br label %16
@@ -295,7 +295,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology23ResolveUnOrderedCornersEP
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = sext i32 %17 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %8, label %._crit_edge, !llvm.loop !18
+  br i1 %25, label %8, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %16, %2
   ret void
@@ -375,7 +375,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology5printEPKi(ptr noundef non
   %51 = load i16, ptr %50, align 2
   %52 = sext i16 %51 to i32
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 152
-  %54 = load i16, ptr %53, align 8, !noalias !19
+  %54 = load i16, ptr %53, align 8, !noalias !16
   %55 = and i16 %54, 1
   %56 = zext nneg i16 %55 to i32
   %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %52, i32 noundef %56)
@@ -429,7 +429,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit: ; preds = %66, %68
   %81 = add nuw nsw i32 %.045, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %81, %75
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %82 = trunc nsw i64 %indvars.iv.next to i32
@@ -442,7 +442,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit: ; preds = %66, %68
   %83 = load i16, ptr %50, align 2
   %84 = sext i16 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next57, %84
-  br i1 %85, label %62, label %._crit_edge50, !llvm.loop !23
+  br i1 %85, label %62, label %._crit_edge50, !llvm.loop !20
 
 ._crit_edge50:                                    ; preds = %._crit_edge, %45
   %86 = getelementptr inbounds nuw i8, ptr %49, i64 160
@@ -453,7 +453,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit: ; preds = %66, %68
   %90 = load i32, ptr %4, align 8
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next60, %91
-  br i1 %92, label %45, label %.loopexit, !llvm.loop !24
+  br i1 %92, label %45, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %._crit_edge50, %2
   ret void
@@ -496,13 +496,10 @@ attributes #9 = { allocsize(0) }
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
 !14 = distinct !{!14, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
-!17 = distinct !{!17, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
-!18 = distinct !{!18, !6}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
-!21 = distinct !{!21, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
+!15 = distinct !{!15, !6}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv: argument 0"}
+!18 = distinct !{!18, !"_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex6GetTagEv"}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}

@@ -1699,7 +1699,7 @@ for.body.lr.ph:                                   ; preds = %_ZN3irr4core5arrayI
   %_M_finish.i.i.i206 = getelementptr inbounds nuw i8, ptr %this, i64 3952
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 3968
   %.pre = load ptr, ptr %_M_finish.i.i.i206, align 8, !tbaa !135
-  %.pre12 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !162
+  %.pre12 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   br label %for.body
 
 for.cond115.preheader:                            ; preds = %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE9push_backEOS4_.exit, %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE10reallocateEjb.exit
@@ -1744,7 +1744,6 @@ for.cond115.preheader:                            ; preds = %_ZN3irr4core5arrayI
   br i1 %tobool127.not, label %if.end129, label %if.then128
 
 for.body:                                         ; preds = %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE9push_backEOS4_.exit, %for.body.lr.ph
-  %.pre1314 = phi i8 [ %82, %for.body.lr.ph ], [ %.pre1315, %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE9push_backEOS4_.exit ]
   %92 = phi i8 [ %82, %for.body.lr.ph ], [ %97, %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE9push_backEOS4_.exit ]
   %93 = phi ptr [ %.pre12, %for.body.lr.ph ], [ %98, %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE9push_backEOS4_.exit ]
   %94 = phi ptr [ %.pre, %for.body.lr.ph ], [ %99, %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE9push_backEOS4_.exit ]
@@ -1807,19 +1806,17 @@ _ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE11_S_relocateEPS
 
 if.then.i41.i.i.i.i:                              ; preds = %_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %95) #26
-  %.pre13.pre = load i8, ptr %MaxUserClipPlanes, align 4, !tbaa !154
   br label %_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i41.i.i.i.i, %_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.i
-  %.pre13 = phi i8 [ %.pre13.pre, %if.then.i41.i.i.i.i ], [ %.pre1314, %_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.i ]
   store ptr %call5.i.i.i.i.i.i.i, ptr %UserClipPlanes, align 8, !tbaa !163
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i206, align 8, !tbaa !164
   %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !162
+  %.pre13 = load i8, ptr %MaxUserClipPlanes, align 4
   br label %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE9push_backEOS4_.exit
 
 _ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE9push_backEOS4_.exit: ; preds = %_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, %if.then.i.i.i207
-  %.pre1315 = phi i8 [ %.pre1314, %if.then.i.i.i207 ], [ %.pre13, %_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ]
   %97 = phi i8 [ %92, %if.then.i.i.i207 ], [ %.pre13, %_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ]
   %98 = phi ptr [ %93, %if.then.i.i.i207 ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ]
   %99 = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i207 ], [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ]
@@ -13554,7 +13551,7 @@ if.then.i979:                                     ; preds = %if.end449
 for.cond.cleanup.i:                               ; preds = %for.body.i, %if.then.i979
   store i8 0, ptr %ColorMaskInvalid.i, align 8, !tbaa !426
   %bf.load454.pre = load i16, ptr %ColorMask, align 2
-  %.pre25 = load ptr, ptr %CacheHandler450, align 8, !tbaa !6
+  %.pre25 = load ptr, ptr %CacheHandler450, align 8
   br label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE12setColorMaskEh.exit
 
 for.body.i:                                       ; preds = %if.then.i979, %for.body.i
@@ -14436,7 +14433,7 @@ if.end606:                                        ; preds = %if.else604, %if.the
 
 if.end606.if.then611_crit_edge:                   ; preds = %if.end606
   %Thickness631.phi.trans.insert = getelementptr inbounds nuw i8, ptr %material, i64 156
-  %.pre26 = load float, ptr %Thickness631.phi.trans.insert, align 4, !tbaa !120
+  %.pre26 = load float, ptr %Thickness631.phi.trans.insert, align 4
   br label %if.then611
 
 lor.lhs.false608:                                 ; preds = %if.end606, %lor.lhs.false564
@@ -15338,7 +15335,7 @@ if.end182.sink.split:                             ; preds = %if.then170, %cond.e
   store i32 %.sink592, ptr %MinFilter179, align 4, !tbaa !438
   %MipMapStatus180 = getelementptr inbounds nuw i8, ptr %5, i64 236
   store i8 %.sink591, ptr %MipMapStatus180, align 4, !tbaa !439
-  %.pre580.pre = load i8, ptr %IsCached111, align 1, !tbaa !435, !range !131
+  %.pre580.pre = load i8, ptr %IsCached111, align 1, !range !131
   br label %if.end182
 
 if.end182:                                        ; preds = %if.end182.sink.split, %lor.lhs.false160, %lor.lhs.false132

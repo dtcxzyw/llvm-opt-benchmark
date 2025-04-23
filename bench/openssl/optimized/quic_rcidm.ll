@@ -856,27 +856,29 @@ define range(i32 0, 2) i32 @ossl_quic_rcidm_pop_retire_seq_num(ptr noundef captu
   %24 = load ptr, ptr %23, align 8, !tbaa !31
   %25 = icmp eq ptr %24, %.val.i
   %26 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !32
+  %27 = load ptr, ptr %26, align 8
   br i1 %25, label %28, label %._crit_edge.i.i.i
 
 28:                                               ; preds = %21
   store ptr %27, ptr %23, align 8, !tbaa !31
+  %.pre19.i.i.pre.i = load ptr, ptr %.val.i, align 8
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %28, %21
+  %.pre19.i.i.i = phi ptr [ %.pre19.i.i.pre.i, %28 ], [ %22, %21 ]
   %.not.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i, label %30, label %29
 
 29:                                               ; preds = %._crit_edge.i.i.i
-  store ptr %22, ptr %27, align 8, !tbaa !24
+  store ptr %.pre19.i.i.i, ptr %27, align 8, !tbaa !24
   br label %30
 
 30:                                               ; preds = %29, %._crit_edge.i.i.i
-  %.not18.i.i.i = icmp eq ptr %22, null
+  %.not18.i.i.i = icmp eq ptr %.pre19.i.i.i, null
   br i1 %.not18.i.i.i, label %ossl_list_retiring_remove.exit.i.i, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.pre19.i.i.i, i64 8
   store ptr %27, ptr %32, align 8, !tbaa !32
   br label %ossl_list_retiring_remove.exit.i.i
 

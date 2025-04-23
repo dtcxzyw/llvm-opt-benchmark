@@ -260,7 +260,7 @@ psh_compute_dir.exit128.i:                        ; preds = %119, %116, %113
   br i1 %.not125.i, label %131, label %._crit_edge186.i
 
 ._crit_edge186.i:                                 ; preds = %126
-  %.pre.i = load i32, ptr %71, align 8, !tbaa !47
+  %.pre.i = load i32, ptr %71, align 8
   br label %128
 
 128:                                              ; preds = %._crit_edge186.i, %125
@@ -401,9 +401,9 @@ psh_glyph_load_points.exit.i:                     ; preds = %.lr.ph.split.us.i.i
   %.068.i.i = phi ptr [ %.173.i.i, %.preheader83.i.i ], [ %201, %212 ]
   %.1.i.i = phi i32 [ 0, %.preheader83.i.i ], [ %spec.select.i.i, %212 ]
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.068.i.i, i64 48
-  %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !58
+  %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %.phi.trans.insert122.i.i = getelementptr inbounds nuw i8, ptr %.068.i.i, i64 56
-  %.pre123.i.i = load i64, ptr %.phi.trans.insert122.i.i, align 8, !tbaa !59
+  %.pre123.i.i = load i64, ptr %.phi.trans.insert122.i.i, align 8
   br label %197
 
 197:                                              ; preds = %197, %196
@@ -819,7 +819,7 @@ psh_glyph_compute_extrema.exit:                   ; preds = %.loopexit92.i
   br i1 %.not.i93, label %psh_hint_table_align_hints.exit.loopexit, label %.lr.ph.i92, !llvm.loop !92
 
 psh_hint_table_align_hints.exit.loopexit:         ; preds = %.lr.ph.i92
-  %.pre = load ptr, ptr %240, align 8, !tbaa !46
+  %.pre = load ptr, ptr %240, align 8
   br label %psh_hint_table_align_hints.exit
 
 psh_hint_table_align_hints.exit:                  ; preds = %psh_hint_table_align_hints.exit.loopexit, %psh_glyph_compute_extrema.exit
@@ -901,7 +901,7 @@ psh_hint_table_deactivate.exit.i.i:               ; preds = %.lr.ph.i.i.i, %428
 
 ._crit_edge.thread.i.i:                           ; preds = %psh_hint_table_deactivate.exit.i.i
   store i32 0, ptr %422, align 4, !tbaa !106
-  %.val73.pre.i = load ptr, ptr %421, align 8, !tbaa !107
+  %.val73.pre.i = load ptr, ptr %421, align 8
   br label %psh_hint_table_activate_mask.exit.i
 
 .lr.ph.i.i99:                                     ; preds = %psh_hint_table_deactivate.exit.i.i
@@ -1058,7 +1058,7 @@ psh_hint_table_deactivate.exit.i84.i:             ; preds = %.lr.ph.i.i80.i, %.t
   %498 = getelementptr inbounds nuw i8, ptr %398, i64 4
   store i32 0, ptr %498, align 4, !tbaa !106
   %.phi.trans.insert.i = getelementptr i8, ptr %398, i64 16
-  %.val75.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !107
+  %.val75.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %psh_hint_table_activate_mask.exit113.i
 
 .lr.ph.i86.i:                                     ; preds = %psh_hint_table_deactivate.exit.i84.i
@@ -1244,7 +1244,7 @@ psh_glyph_find_strong_points.exit:                ; preds = %551, %417, %.thread
   %570 = load i8, ptr %569, align 1, !tbaa !49
   %571 = or i8 %570, 32
   store i8 %571, ptr %569, align 1, !tbaa !49
-  %.pre26.i = load i32, ptr %6, align 8, !tbaa !29
+  %.pre26.i = load i32, ptr %6, align 8
   br label %572
 
 572:                                              ; preds = %568, %.lr.ph.split.us.i105
@@ -1447,7 +1447,7 @@ psh_glyph_find_blue_points.exit:                  ; preds = %.loopexit.i109, %.s
   %673 = load i8, ptr %672, align 1, !tbaa !49
   %674 = or i8 %673, 64
   store i8 %674, ptr %672, align 1, !tbaa !49
-  %.pre.i121 = load i32, ptr %6, align 8, !tbaa !29
+  %.pre.i121 = load i32, ptr %6, align 8
   br label %675
 
 675:                                              ; preds = %671, %.lr.ph.split.i118
@@ -2016,7 +2016,7 @@ define internal fastcc void @psh_glyph_interpolate_strong_points(ptr noundef non
   %76 = add nsw i64 %75, %58
   %77 = getelementptr inbounds nuw i8, ptr %.03752, i64 64
   store i64 %76, ptr %77, align 8, !tbaa !115
-  %.pre = load i32, ptr %18, align 4, !tbaa !56
+  %.pre = load i32, ptr %18, align 4
   br label %78
 
 78:                                               ; preds = %27, %61, %74, %41, %21
@@ -2330,7 +2330,7 @@ define internal fastcc void @psh_glyph_interpolate_normal_points(ptr noundef non
   %168 = add nsw i64 %167, %161
   %169 = getelementptr inbounds nuw i8, ptr %.2149, i64 64
   store i64 %168, ptr %169, align 8, !tbaa !115
-  %.pre = load i32, ptr %57, align 4, !tbaa !56
+  %.pre = load i32, ptr %57, align 4
   br label %170
 
 170:                                              ; preds = %147, %159, %155, %124, %._crit_edge145.thread
@@ -2528,7 +2528,7 @@ define internal fastcc void @psh_glyph_interpolate_other_points(ptr noundef nonn
   %89 = tail call i64 @FT_DivFix(i64 noundef %88, i64 noundef %.090) #12
   %sext124 = shl i64 %89, 32
   %90 = ashr exact i64 %sext124, 32
-  %.pre = load ptr, ptr %67, align 8, !tbaa !40
+  %.pre = load ptr, ptr %67, align 8
   br label %91
 
 91:                                               ; preds = %87, %83
@@ -3205,8 +3205,8 @@ psh_blues_snap_stem.exit:                         ; preds = %97, %95, %113, %108
 
 133:                                              ; preds = %129
   tail call fastcc void @psh_hint_align(ptr noundef nonnull %128, ptr noundef %1, i32 noundef %2, ptr noundef %3)
-  %.pre = load i32, ptr %0, align 8, !tbaa !110
-  %.pre180 = load i32, ptr %26, align 4, !tbaa !152
+  %.pre = load i32, ptr %0, align 8
+  %.pre180 = load i32, ptr %26, align 4
   br label %134
 
 134:                                              ; preds = %133, %129
@@ -3836,7 +3836,7 @@ psh_calc_max_height.exit106:                      ; preds = %.lr.ph.i100, %psh_c
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 808
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
-  %.pre = load i32, ptr %4, align 4, !tbaa !27
+  %.pre = load i32, ptr %4, align 4
   br label %104
 
 104:                                              ; preds = %psh_calc_max_height.exit106, %3
@@ -4093,9 +4093,9 @@ psh_blues_set_zones_0.exit140:                    ; preds = %69, %psh_blues_set_
   ]
 
 ._crit_edge183:                                   ; preds = %75
-  %.pre = load i32, ptr %.094, align 8, !tbaa !72
+  %.pre = load i32, ptr %.094, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.094, i64 4
-  %.pre184 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !142
+  %.pre184 = load i32, ptr %.phi.trans.insert, align 4
   br label %85
 
 76:                                               ; preds = %75
@@ -4144,9 +4144,9 @@ psh_blues_set_zones_0.exit140:                    ; preds = %69, %psh_blues_set_
   ]
 
 ._crit_edge185:                                   ; preds = %95
-  %.pre186 = load i32, ptr %.093, align 8, !tbaa !72
+  %.pre186 = load i32, ptr %.093, align 8
   %.phi.trans.insert187 = getelementptr inbounds nuw i8, ptr %.093, i64 4
-  %.pre188 = load i32, ptr %.phi.trans.insert187, align 4, !tbaa !142
+  %.pre188 = load i32, ptr %.phi.trans.insert187, align 4
   br label %105
 
 96:                                               ; preds = %95
@@ -4452,7 +4452,7 @@ ps_mask_test_bit.exit34.thread.i:                 ; preds = %ps_mask_test_bit.ex
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !94
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %90
 
 81:                                               ; preds = %._crit_edge.i
@@ -4494,12 +4494,11 @@ ps_mask_table_ensure.exit.thread.i.i:             ; preds = %81
   %101 = lshr i32 %97, 3
   %102 = zext nneg i32 %101 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %100, i8 0, i64 %102, i1 false)
-  %.pre.pre.i = load i32, ptr %94, align 8, !tbaa !100
   br label %ps_mask_table_alloc.exit.thread.i
 
 ps_mask_table_alloc.exit.thread.i:                ; preds = %98, %90
-  %.pre.i = phi i32 [ 0, %90 ], [ %.pre.pre.i, %98 ]
   store i32 %77, ptr %39, align 8, !tbaa !97
+  %.pre.i = load i32, ptr %94, align 8
   br label %.loopexit.i
 
 ps_mask_table_alloc.exit.i:                       ; preds = %81
@@ -4722,7 +4721,7 @@ ps_dimension_end_mask.exit.i:                     ; preds = %15, %12
 
 ._crit_edge.i.i:                                  ; preds = %ps_dimension_end_mask.exit.i
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !94
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %34
 
 25:                                               ; preds = %ps_dimension_end_mask.exit.i
@@ -4795,7 +4794,7 @@ ps_dimension_end_mask.exit.i22:                   ; preds = %50, %47
 
 ._crit_edge.i.i23:                                ; preds = %ps_dimension_end_mask.exit.i22
   %.phi.trans.insert.i.i24 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.pre.i.i25 = load ptr, ptr %.phi.trans.insert.i.i24, align 8, !tbaa !94
+  %.pre.i.i25 = load ptr, ptr %.phi.trans.insert.i.i24, align 8
   br label %69
 
 60:                                               ; preds = %ps_dimension_end_mask.exit.i22
@@ -5069,7 +5068,7 @@ ps_mask_table_test_intersect.exit.thread27.i:     ; preds = %ps_mask_table_test_
   %100 = getelementptr inbounds nuw %struct.PS_MaskRec_, ptr %57, i64 %98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !262
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %.pre.i.i = load i32, ptr %14, align 8, !tbaa !97
+  %.pre.i.i = load i32, ptr %14, align 8
   br label %101
 
 101:                                              ; preds = %96, %.thread.i.i
@@ -5198,7 +5197,7 @@ ps_hint_table_alloc.exit:                         ; preds = %28
 
 ._crit_edge.i.i:                                  ; preds = %45
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !94
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %54
 
 49:                                               ; preds = %45
@@ -5563,7 +5562,7 @@ ps_dimension_end_mask.exit.i:                     ; preds = %12, %6
 
 ._crit_edge.i.i:                                  ; preds = %ps_dimension_end_mask.exit.i
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !94
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %31
 
 22:                                               ; preds = %ps_dimension_end_mask.exit.i
@@ -5623,7 +5622,7 @@ ps_dimension_reset_mask.exit:                     ; preds = %22
 
 ._crit_edge.i.i.i:                                ; preds = %46
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !94
+  %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   br label %54
 
 49:                                               ; preds = %46
@@ -5689,7 +5688,7 @@ ps_mask_table_last.exit.i:                        ; preds = %49
 
 ._crit_edge.i:                                    ; preds = %70
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.08.i.ph.i, i64 8
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !101
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %88
 
 77:                                               ; preds = %70
@@ -5789,7 +5788,7 @@ define internal fastcc void @ps_dimension_done(ptr noundef captures(none) %0, pt
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !274
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %.pre.i = load ptr, ptr %6, align 8, !tbaa !94
+  %.pre.i = load ptr, ptr %6, align 8
   br label %ps_mask_table_done.exit
 
 ps_mask_table_done.exit:                          ; preds = %2, %._crit_edge.loopexit.i
@@ -5816,7 +5815,7 @@ ps_mask_table_done.exit:                          ; preds = %2, %._crit_edge.loo
   br i1 %.not.i10, label %._crit_edge.loopexit.i11, label %.lr.ph.i7, !llvm.loop !274
 
 ._crit_edge.loopexit.i11:                         ; preds = %.lr.ph.i7
-  %.pre.i12 = load ptr, ptr %15, align 8, !tbaa !94
+  %.pre.i12 = load ptr, ptr %15, align 8
   br label %ps_mask_table_done.exit13
 
 ps_mask_table_done.exit13:                        ; preds = %ps_mask_table_done.exit, %._crit_edge.loopexit.i11

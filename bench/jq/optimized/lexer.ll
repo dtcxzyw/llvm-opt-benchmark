@@ -1091,7 +1091,7 @@ jq_yy_create_buffer.exit:                         ; preds = %51
   br i1 %543, label %544, label %._crit_edge1116
 
 ._crit_edge1116:                                  ; preds = %534
-  %.pre = load i32, ptr %83, align 4, !tbaa !32
+  %.pre = load i32, ptr %83, align 4
   br label %548
 
 544:                                              ; preds = %534
@@ -1283,7 +1283,16 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i569, %612
 647:                                              ; preds = %641
   %648 = sub i64 %645, %646
   %649 = icmp eq i64 %648, 1
-  br i1 %649, label %yy_get_previous_state.exit590, label %yy_get_next_buffer.exit.thread607
+  br i1 %649, label %yy_get_previous_state.exit590, label %.yy_get_next_buffer.exit.thread607_crit_edge
+
+.yy_get_next_buffer.exit.thread607_crit_edge:     ; preds = %647
+  %.pre1118 = load ptr, ptr %81, align 8
+  %.pre1119 = load i64, ptr %82, align 8
+  %.phi.trans.insert1120 = getelementptr inbounds nuw ptr, ptr %.pre1118, i64 %.pre1119
+  %.pre1121 = load ptr, ptr %.phi.trans.insert1120, align 8
+  %.phi.trans.insert1122 = getelementptr inbounds nuw i8, ptr %.pre1121, i64 8
+  %.pre1123 = load ptr, ptr %.phi.trans.insert1122, align 8
+  br label %yy_get_next_buffer.exit.thread607
 
 650:                                              ; preds = %641
   %651 = xor i64 %646, -1
@@ -1305,12 +1314,12 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i569, %612
   br i1 %exitcond.not.i575, label %._crit_edge.loopexit.i, label %.lr.ph.i574, !llvm.loop !56
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i574
-  %.pre.i = load ptr, ptr %81, align 8, !tbaa !22
-  %.pre182.i = load i64, ptr %82, align 8, !tbaa !23
+  %.pre.i = load ptr, ptr %81, align 8
+  %.pre182.i = load i64, ptr %82, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.pre182.i
-  %.pre183.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !24
+  %.pre183.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre183.i, i64 56
-  %.pre1117 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !51
+  %.pre1117 = load i32, ptr %.phi.trans.insert, align 8
   br label %._crit_edge.i572
 
 ._crit_edge.i572:                                 ; preds = %._crit_edge.loopexit.i, %650
@@ -1332,7 +1341,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i569, %612
   br i1 %664, label %.lr.ph170.preheader.i, label %._crit_edge171.i
 
 .lr.ph170.preheader.i:                            ; preds = %662
-  %.pre184.i = load ptr, ptr %74, align 8, !tbaa !34
+  %.pre184.i = load ptr, ptr %74, align 8
   br label %.lr.ph170.i
 
 .lr.ph170.i:                                      ; preds = %684, %.lr.ph170.preheader.i
@@ -1559,11 +1568,11 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i569, %612
 777:                                              ; preds = %774
   %778 = load ptr, ptr %84, align 8, !tbaa !19
   tail call void @jq_yyrestart(ptr noundef %778, ptr noundef nonnull %2)
-  %.pre185.i = load i32, ptr %83, align 4, !tbaa !32
-  %.pre186.i = load ptr, ptr %81, align 8, !tbaa !22
-  %.pre187.i = load i64, ptr %82, align 8, !tbaa !23
+  %.pre185.i = load i32, ptr %83, align 4
+  %.pre186.i = load ptr, ptr %81, align 8
+  %.pre187.i = load i64, ptr %82, align 8
   %.phi.trans.insert188.i = getelementptr inbounds nuw ptr, ptr %.pre186.i, i64 %.pre187.i
-  %.pre189.i = load ptr, ptr %.phi.trans.insert188.i, align 8, !tbaa !24
+  %.pre189.i = load ptr, ptr %.phi.trans.insert188.i, align 8
   br label %781
 
 779:                                              ; preds = %774
@@ -1583,7 +1592,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i569, %612
 
 ._crit_edge191.i:                                 ; preds = %781
   %.phi.trans.insert192.i = getelementptr inbounds nuw i8, ptr %782, i64 8
-  %.pre193.i = load ptr, ptr %.phi.trans.insert192.i, align 8, !tbaa !29
+  %.pre193.i = load ptr, ptr %.phi.trans.insert192.i, align 8
   br label %yy_get_next_buffer.exit
 
 788:                                              ; preds = %781
@@ -1610,7 +1619,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i569, %612
   %802 = add nsw i32 %790, -2
   %803 = getelementptr inbounds nuw i8, ptr %798, i64 24
   store i32 %802, ptr %803, align 8, !tbaa !27
-  %.pre190.i = load i32, ptr %83, align 4, !tbaa !32
+  %.pre190.i = load i32, ptr %83, align 4
   %.pre194.i = add nsw i32 %.pre190.i, %653
   br label %yy_get_next_buffer.exit
 
@@ -1639,15 +1648,15 @@ yy_get_next_buffer.exit:                          ; preds = %._crit_edge191.i, %
   %821 = getelementptr inbounds nuw i8, ptr %820, i64 8
   %822 = load ptr, ptr %821, align 8, !tbaa !29
   store ptr %822, ptr %79, align 8, !tbaa !35
-  switch i32 %.0135.i, label %default.unreachable1120 [
+  switch i32 %.0135.i, label %default.unreachable1126 [
     i32 1, label %yy_get_previous_state.exit590
     i32 0, label %823
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge
   ]
 
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge: ; preds = %yy_get_next_buffer.exit
-  %.pre1118 = load i32, ptr %83, align 4, !tbaa !32
-  %.pre1119 = sext i32 %.pre1118 to i64
+  %.pre1124 = load i32, ptr %83, align 4
+  %.pre1125 = sext i32 %.pre1124 to i64
   br label %yy_get_next_buffer.exit.thread607
 
 823:                                              ; preds = %yy_get_next_buffer.exit
@@ -1656,8 +1665,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge: ; preds = %
   %826 = sub i64 %824, %825
   %827 = trunc i64 %826 to i32
   %828 = shl i64 %826, 32
-  %sext1227 = add i64 %828, -4294967296
-  %829 = ashr exact i64 %sext1227, 32
+  %sext1222 = add i64 %828, -4294967296
+  %829 = ashr exact i64 %sext1222, 32
   %830 = getelementptr inbounds i8, ptr %822, i64 %829
   store ptr %830, ptr %74, align 8, !tbaa !34
   %831 = load i32, ptr %76, align 4, !tbaa !18
@@ -1738,10 +1747,10 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge: ; preds = %
   %exitcond.not.i589 = icmp eq ptr %873, %830
   br i1 %exitcond.not.i589, label %.loopexit611.backedge, label %.lr.ph31.i577, !llvm.loop !53
 
-yy_get_next_buffer.exit.thread607:                ; preds = %647, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge
-  %.pre-phi = phi i64 [ %.pre1119, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge ], [ %554, %647 ]
-  %874 = phi ptr [ %822, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge ], [ %637, %647 ]
-  %875 = phi ptr [ %822, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge ], [ %553, %647 ]
+yy_get_next_buffer.exit.thread607:                ; preds = %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge, %.yy_get_next_buffer.exit.thread607_crit_edge
+  %.pre-phi = phi i64 [ %.pre1125, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge ], [ %554, %.yy_get_next_buffer.exit.thread607_crit_edge ]
+  %874 = phi ptr [ %822, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge ], [ %637, %.yy_get_next_buffer.exit.thread607_crit_edge ]
+  %875 = phi ptr [ %822, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge ], [ %.pre1123, %.yy_get_next_buffer.exit.thread607_crit_edge ]
   %876 = getelementptr inbounds i8, ptr %875, i64 %.pre-phi
   store ptr %876, ptr %74, align 8, !tbaa !34
   %877 = load i32, ptr %76, align 4, !tbaa !18
@@ -1828,7 +1837,7 @@ yy_get_next_buffer.exit.thread607:                ; preds = %647, %yy_get_next_b
   %exitcond.not.i604 = icmp eq ptr %919, %876
   br i1 %exitcond.not.i604, label %.preheader.outer.backedge, label %.lr.ph31.i592, !llvm.loop !53
 
-default.unreachable1120:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable1126:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit590:                    ; preds = %yy_get_next_buffer.exit, %647
@@ -1905,7 +1914,7 @@ define internal fastcc void @yy_push_state(i32 noundef range(i32 0, 7) %0, ptr n
 
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !65
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %19
 
 7:                                                ; preds = %2
@@ -1933,7 +1942,7 @@ define internal fastcc void @yy_push_state(i32 noundef range(i32 0, 7) %0, ptr n
   br i1 %.not21, label %18, label %._crit_edge22
 
 ._crit_edge22:                                    ; preds = %17
-  %.pre23 = load i32, ptr %3, align 4, !tbaa !63
+  %.pre23 = load i32, ptr %3, align 4
   br label %19
 
 18:                                               ; preds = %17
@@ -2016,7 +2025,7 @@ define internal fastcc noundef range(i32 -128, 300) i32 @enter(i32 noundef retur
 
 ._crit_edge.i:                                    ; preds = %7
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !65
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %yy_push_state.exit
 
 12:                                               ; preds = %7
@@ -2044,7 +2053,7 @@ define internal fastcc noundef range(i32 -128, 300) i32 @enter(i32 noundef retur
   br i1 %.not21.i, label %23, label %._crit_edge22.i
 
 ._crit_edge22.i:                                  ; preds = %22
-  %.pre23.i = load i32, ptr %8, align 4, !tbaa !63
+  %.pre23.i = load i32, ptr %8, align 4
   br label %yy_push_state.exit
 
 23:                                               ; preds = %22
@@ -2326,7 +2335,7 @@ jq_yy_flush_buffer.exit.thread:                   ; preds = %19, %25
 
 jq_yy_flush_buffer.exit:                          ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !22
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
   store ptr %1, ptr %0, align 8, !tbaa !36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %38, align 4, !tbaa !55
@@ -2658,7 +2667,7 @@ define dso_local void @jq_yypush_buffer_state(ptr noundef %0, ptr noundef captur
   %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 64, i1 false)
   store i64 %20, ptr %16, align 8, !tbaa !26
-  %.pre = load i64, ptr %14, align 8, !tbaa !23
+  %.pre = load i64, ptr %14, align 8
   br label %jq_yyensure_buffer_stack.exit
 
 jq_yyensure_buffer_stack.exit:                    ; preds = %10, %13, %24
@@ -2761,7 +2770,7 @@ jq_yy_delete_buffer.exit:                         ; preds = %.thread.i, %11
   %18 = add i64 %15, -1
   store i64 %18, ptr %5, align 8, !tbaa !23
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %14, i64 %18
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !24
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not23 = icmp eq ptr %.pre, null
   br i1 %.not23, label %.thread, label %19
 
@@ -3225,9 +3234,9 @@ define dso_local noundef i32 @jq_yylex_destroy(ptr noundef %0) local_unnamed_add
   br i1 %.not26, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %.pre = load i64, ptr %2, align 8, !tbaa !23
+  %.pre = load i64, ptr %2, align 8
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %4, i64 %.pre
-  %.pre31 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !24
+  %.pre31 = load ptr, ptr %.phi.trans.insert, align 8
   %5 = icmp eq ptr %.pre31, null
   br i1 %5, label %.critedge, label %.thread.i
 

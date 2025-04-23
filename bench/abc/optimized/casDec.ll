@@ -451,7 +451,7 @@ Abc_Clock.exit292:                                ; preds = %Abc_Clock.exit290, 
   br i1 %241, label %.lr.ph336.preheader, label %._crit_edge337
 
 .lr.ph336.preheader:                              ; preds = %._crit_edge333
-  %.pre = load ptr, ptr %237, align 8, !tbaa !22
+  %.pre = load ptr, ptr %237, align 8
   br label %.lr.ph336
 
 .lr.ph336:                                        ; preds = %.lr.ph336.preheader, %.lr.ph336
@@ -756,7 +756,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %17) #10
   %.not = icmp ne i64 %indvars.iv126, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !17
+  %.pre = load i32, ptr %.phi.trans.insert, align 4
   %19 = icmp sgt i32 %.pre, 0
   %or.cond = select i1 %.not, i1 %19, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
@@ -792,8 +792,8 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 .lr.ph91:                                         ; preds = %.loopexit
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  %.pre129 = load ptr, ptr %11, align 8, !tbaa !43
-  %.pre130 = load i32, ptr %38, align 4, !tbaa !20
+  %.pre129 = load ptr, ptr %11, align 8
+  %.pre130 = load i32, ptr %38, align 4
   br label %49
 
 .preheader87:                                     ; preds = %49, %.loopexit
@@ -918,7 +918,8 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 107:                                              ; preds = %.lr.ph100
   tail call void @free(ptr noundef nonnull %106) #10
-  %.pre131 = load i32, ptr %12, align 8, !tbaa !50
+  store ptr null, ptr %105, align 8, !tbaa !56
+  %.pre131 = load i32, ptr %12, align 8
   br label %108
 
 108:                                              ; preds = %107, %.lr.ph100
@@ -940,7 +941,7 @@ define void @WriteLUTSintoBLIFfile(ptr noundef %0, ptr noundef %1, ptr noundef r
 115:                                              ; preds = %.lr.ph102
   tail call void @free(ptr noundef nonnull %114) #10
   store ptr null, ptr %113, align 8, !tbaa !56
-  %.pre132 = load i32, ptr %39, align 4, !tbaa !19
+  %.pre132 = load i32, ptr %39, align 4
   br label %116
 
 116:                                              ; preds = %115, %.lr.ph102

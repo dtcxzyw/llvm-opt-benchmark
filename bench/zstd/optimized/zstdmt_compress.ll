@@ -473,7 +473,7 @@ ZSTD_customFree.exit:                             ; preds = %9, %14, %15
   br i1 %18, label %9, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %ZSTD_customFree.exit
-  %.pre = load ptr, ptr %3, align 8, !tbaa !54
+  %.pre = load ptr, ptr %3, align 8
   %19 = getelementptr i8, ptr %0, i64 64
   %.not.i19 = icmp eq ptr %.pre, null
   br i1 %.not.i19, label %23, label %._crit_edge.thread
@@ -547,7 +547,7 @@ define internal fastcc void @ZSTDMT_freeCCtxPool(ptr noundef %0) unnamed_addr #0
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.pre = load ptr, ptr %4, align 8, !tbaa !59
+  %.pre = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %19, label %._crit_edge.thread
 
@@ -1646,7 +1646,7 @@ ZSTD_customFree.exit64.i:                         ; preds = %385, %384, %382
 390:                                              ; preds = %388, %386
   %.0.i66.i = phi ptr [ %387, %386 ], [ %389, %388 ]
   store ptr %.0.i66.i, ptr %378, align 8, !tbaa !46
-  %.pre.i = load ptr, ptr %363, align 8, !tbaa !45
+  %.pre.i = load ptr, ptr %363, align 8
   %391 = icmp eq ptr %.0.i66.i, null
   %.not50.i = icmp eq ptr %.pre.i, null
   %brmerge.i = select i1 %.not50.i, i1 true, i1 %391
@@ -1675,9 +1675,9 @@ ZSTD_customFree.exit64.i:                         ; preds = %385, %384, %382
   br i1 %.not.i68.i, label %._crit_edge.i.i, label %400
 
 ._crit_edge.i.i:                                  ; preds = %397
-  %.pre.i.i = load ptr, ptr %360, align 8, !tbaa !119
-  %.pre46.i.i = load i32, ptr %362, align 4, !tbaa !121
-  %.pre48.i.i = load i32, ptr %361, align 8, !tbaa !120
+  %.pre.i.i = load ptr, ptr %360, align 8
+  %.pre46.i.i = load i32, ptr %362, align 4
+  %.pre48.i.i = load i32, ptr %361, align 8
   br label %412
 
 400:                                              ; preds = %397
@@ -1833,7 +1833,7 @@ define i64 @ZSTDMT_compressStream_generic(ptr noundef %0, ptr noundef captures(n
 .lr.ph.i.i:                                       ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 3024
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre.i.i = load ptr, ptr %37, align 8, !tbaa !35
+  %.pre.i.i = load ptr, ptr %37, align 8
   br label %40
 
 38:                                               ; preds = %40
@@ -2265,7 +2265,7 @@ findSynchronizationPoint.exit:                    ; preds = %232, %.lr.ph.i, %ZS
   %246 = load i32, ptr %10, align 8, !tbaa !81
   %.not60 = icmp eq i32 %246, 0
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %248 = load i64, ptr %247, align 8, !tbaa !76
+  %248 = load i64, ptr %247, align 8
   br i1 %.not60, label %249, label %._crit_edge
 
 249:                                              ; preds = %239
@@ -2308,7 +2308,7 @@ findSynchronizationPoint.exit:                    ; preds = %232, %.lr.ph.i, %ZS
 
 ..thread100_crit_edge.i:                          ; preds = %268
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !35
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %.pre102.i = zext i32 %261 to i64
   br label %.thread100.i
 
@@ -2484,7 +2484,7 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %355, %ZSTDMT_writeL
   br i1 %.056, label %..loopexit_crit_edge.i, label %366
 
 ..loopexit_crit_edge.i:                           ; preds = %ZSTDMT_createCompressionJob.exit
-  %.pre.i83 = load ptr, ptr %361, align 8, !tbaa !35
+  %.pre.i83 = load ptr, ptr %361, align 8
   br label %.loopexit.i
 
 366:                                              ; preds = %ZSTDMT_createCompressionJob.exit
@@ -2492,7 +2492,7 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %355, %ZSTDMT_writeL
   %368 = getelementptr inbounds nuw i8, ptr %0, i64 3032
   %369 = load i32, ptr %368, align 8, !tbaa !78
   %370 = icmp ult i32 %367, %369
-  %.pre124.i = load ptr, ptr %361, align 8, !tbaa !35
+  %.pre124.i = load ptr, ptr %361, align 8
   br i1 %370, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %366
@@ -2601,17 +2601,17 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
 
 441:                                              ; preds = %.loopexit.i
   %442 = icmp eq i64 %400, %402
-  %.pre128.pre.i = load ptr, ptr %361, align 8, !tbaa !35
+  %.pre128.pre129.i = load ptr, ptr %361, align 8
   br i1 %442, label %443, label %459
 
 443:                                              ; preds = %441
-  %444 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre.i, i64 %363
+  %444 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre129.i, i64 %363
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 448
   %446 = load i32, ptr %445, align 8, !tbaa !151
   %.not112.i = icmp eq i32 %446, 0
-  br i1 %.not112.i, label %459, label %.thread129.i
+  br i1 %.not112.i, label %459, label %.thread131.i
 
-.thread129.i:                                     ; preds = %443
+.thread131.i:                                     ; preds = %443
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 2776
   %448 = tail call i64 @ZSTD_XXH64_digest(ptr noundef nonnull captures(none) %447) #17
   %449 = trunc i64 %448 to i32
@@ -2622,22 +2622,24 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
   %454 = getelementptr inbounds nuw i8, ptr %451, i64 %453
   store i32 %449, ptr %454, align 1, !tbaa !3
   %455 = add nuw i64 %399, 4
-  %456 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre.i, i64 %363, i32 1
+  %456 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre129.i, i64 %363, i32 1
   %457 = add i64 %453, 4
   store i64 %457, ptr %456, align 8, !tbaa !83
-  %458 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre.i, i64 %363, i32 18
+  %458 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre129.i, i64 %363, i32 18
   store i32 0, ptr %458, align 8, !tbaa !151
+  %.pre128.pre.i = load ptr, ptr %361, align 8
   br label %460
 
 459:                                              ; preds = %443, %441
   %.not113.i = icmp eq i64 %399, 0
   br i1 %.not113.i, label %.thread, label %460
 
-460:                                              ; preds = %459, %.thread129.i
-  %.0104132.i = phi i64 [ %455, %.thread129.i ], [ %399, %459 ]
-  %461 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre.i, i64 %363, i32 17
+460:                                              ; preds = %459, %.thread131.i
+  %.0104136.i = phi i64 [ %455, %.thread131.i ], [ %399, %459 ]
+  %.pre128135.i = phi ptr [ %.pre128.pre.i, %.thread131.i ], [ %.pre128.pre129.i, %459 ]
+  %461 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128135.i, i64 %363, i32 17
   %462 = load i64, ptr %461, align 8, !tbaa !85
-  %463 = sub i64 %.0104132.i, %462
+  %463 = sub i64 %.0104136.i, %462
   %464 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %465 = load i64, ptr %464, align 8, !tbaa !154
   %466 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2650,26 +2652,26 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
 469:                                              ; preds = %460
   %470 = load ptr, ptr %1, align 8, !tbaa !157
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 %467
-  %472 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre.i, i64 %363, i32 8
+  %472 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128135.i, i64 %363, i32 8
   %473 = load ptr, ptr %472, align 8, !tbaa !153
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 %462
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %471, ptr align 1 %474, i64 %..i78, i1 false)
-  %.pre125.i = load i64, ptr %466, align 8, !tbaa !156
-  %.pre126.i = load ptr, ptr %361, align 8, !tbaa !35
+  %.pre125.i = load i64, ptr %466, align 8
+  %.pre126.i = load ptr, ptr %361, align 8
   %.phi.trans.insert.i79 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre126.i, i64 %363, i32 17
-  %.pre127.i = load i64, ptr %.phi.trans.insert.i79, align 8, !tbaa !85
+  %.pre127.i = load i64, ptr %.phi.trans.insert.i79, align 8
   br label %475
 
 475:                                              ; preds = %469, %460
   %476 = phi i64 [ %.pre127.i, %469 ], [ %462, %460 ]
-  %477 = phi ptr [ %.pre126.i, %469 ], [ %.pre128.pre.i, %460 ]
+  %477 = phi ptr [ %.pre126.i, %469 ], [ %.pre128135.i, %460 ]
   %478 = phi i64 [ %.pre125.i, %469 ], [ %467, %460 ]
   %479 = add i64 %478, %..i78
   store i64 %479, ptr %466, align 8, !tbaa !156
   %480 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %477, i64 %363, i32 17
   %481 = add i64 %476, %..i78
   store i64 %481, ptr %480, align 8, !tbaa !85
-  %482 = icmp eq i64 %481, %.0104132.i
+  %482 = icmp eq i64 %481, %.0104136.i
   %or.cond.i80 = select i1 %442, i1 %482, i1 false
   br i1 %or.cond.i80, label %483, label %524
 
@@ -2736,22 +2738,22 @@ ZSTDMT_releaseBuffer.exit.i:                      ; preds = %511, %509, %499, %4
   store i64 %518, ptr %516, align 8, !tbaa !75
   %519 = getelementptr inbounds nuw i8, ptr %0, i64 3064
   %520 = load i64, ptr %519, align 8, !tbaa !77
-  %521 = add i64 %520, %.0104132.i
+  %521 = add i64 %520, %.0104136.i
   store i64 %521, ptr %519, align 8, !tbaa !77
   %522 = load i32, ptr %356, align 4, !tbaa !82
   %523 = add i32 %522, 1
   store i32 %523, ptr %356, align 4, !tbaa !82
   %.phi.trans.insert111 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %514, i64 %363, i32 17
-  %.pre112 = load i64, ptr %.phi.trans.insert111, align 8, !tbaa !85
+  %.pre112 = load i64, ptr %.phi.trans.insert111, align 8
   br label %524
 
 524:                                              ; preds = %ZSTDMT_releaseBuffer.exit.i, %475
   %525 = phi i64 [ %481, %475 ], [ %.pre112, %ZSTDMT_releaseBuffer.exit.i ]
-  %526 = icmp ugt i64 %.0104132.i, %525
+  %526 = icmp ugt i64 %.0104136.i, %525
   br i1 %526, label %527, label %.thread
 
 527:                                              ; preds = %524
-  %528 = sub nuw i64 %.0104132.i, %525
+  %528 = sub nuw i64 %.0104136.i, %525
   br label %ZSTDMT_flushProduced.exit
 
 .thread:                                          ; preds = %459, %524
@@ -3292,11 +3294,11 @@ ZSTDMT_getSeq.exit:                               ; preds = %27, %28
 
 ._crit_edge.i.i:                                  ; preds = %98
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %76, i64 328
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !119
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
   %.phi.trans.insert45.i.i = getelementptr inbounds nuw i8, ptr %76, i64 340
-  %.pre46.i.i = load i32, ptr %.phi.trans.insert45.i.i, align 4, !tbaa !121
+  %.pre46.i.i = load i32, ptr %.phi.trans.insert45.i.i, align 4
   %.phi.trans.insert47.i.i = getelementptr inbounds nuw i8, ptr %76, i64 336
-  %.pre48.i.i = load i32, ptr %.phi.trans.insert47.i.i, align 8, !tbaa !120
+  %.pre48.i.i = load i32, ptr %.phi.trans.insert47.i.i, align 8
   br label %116
 
 100:                                              ; preds = %98

@@ -1915,7 +1915,7 @@ define void @_ZN5faiss11IndexRefineC2EPNS_5IndexES2_(ptr noundef nonnull align 8
 
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !29
+  %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %110
 
 22:                                               ; preds = %3
@@ -2254,7 +2254,7 @@ define internal void @_ZNK5faiss11IndexRefine6searchElPKflPfPlPKNS_16SearchParam
 19:                                               ; preds = %8
   %20 = load i64, ptr %3, align 8, !tbaa !30
   %21 = icmp sgt i64 %20, 0
-  %.pre = load i32, ptr %0, align 4, !tbaa !42
+  %.pre = load i32, ptr %0, align 4
   br i1 %21, label %22, label %58
 
 22:                                               ; preds = %19
@@ -2690,7 +2690,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
           to label %thread-pre-split unwind label %153
 
 thread-pre-split:                                 ; preds = %78
-  %.pr = load i64, ptr %4, align 8, !tbaa !30
+  %.pr = load i64, ptr %4, align 8
   br label %82
 
 82:                                               ; preds = %thread-pre-split, %_ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit
@@ -2724,7 +2724,7 @@ thread-pre-split:                                 ; preds = %78
   br i1 %97, label %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i.i, label %98
 
 .lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i.i: ; preds = %.lr.ph.i.i34
-  %.pre.i.i = load float, ptr %90, align 4, !tbaa !54
+  %.pre.i.i = load float, ptr %90, align 4
   br label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i40
 
 98:                                               ; preds = %.lr.ph.i.i34
@@ -2783,8 +2783,8 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i:          ; preds = %118
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit60.thread.loopexit.i.i: ; preds = %123, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i, %118, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i40
   %.0.lcssa.ph.i.i = phi i64 [ %.1.i.i, %123 ], [ %.062.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i ], [ %.062.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i ], [ %.062.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i40 ], [ %.062.i.i, %118 ]
-  %.pre68.i.i = load float, ptr %90, align 4, !tbaa !54
-  %.pre69.i.i = load i64, ptr %92, align 8, !tbaa !30
+  %.pre68.i.i = load float, ptr %90, align 4
+  %.pre69.i.i = load i64, ptr %92, align 8
   br label %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i
 
 _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.thread.loopexit.i.i, %86
@@ -2952,7 +2952,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.us: ;
   br i1 %39, label %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i, label %40
 
 .lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i: ; preds = %.lr.ph.i
-  %.pre.i = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !54
+  %.pre.i = load float, ptr %.phi.trans.insert.i, align 4
   br label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i
 
 40:                                               ; preds = %.lr.ph.i
@@ -3038,7 +3038,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   br i1 %81, label %.lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i38, label %82
 
 .lr.ph._ZN5faiss4CMaxIflE4cmp2Effll.exit.thread_crit_edge.i38: ; preds = %.lr.ph.i28
-  %.pre.i39 = load float, ptr %.phi.trans.insert.i27, align 4, !tbaa !54
+  %.pre.i39 = load float, ptr %.phi.trans.insert.i27, align 4
   br label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i36
 
 82:                                               ; preds = %.lr.ph.i28
@@ -3276,7 +3276,7 @@ _ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
           to label %thread-pre-split unwind label %153
 
 thread-pre-split:                                 ; preds = %78
-  %.pr = load i64, ptr %4, align 8, !tbaa !30
+  %.pr = load i64, ptr %4, align 8
   br label %82
 
 82:                                               ; preds = %thread-pre-split, %_ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit
@@ -3310,7 +3310,7 @@ thread-pre-split:                                 ; preds = %78
   br i1 %97, label %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i, label %98
 
 .lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i.i: ; preds = %.lr.ph.i.i34
-  %.pre.i.i = load float, ptr %90, align 4, !tbaa !54
+  %.pre.i.i = load float, ptr %90, align 4
   br label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i40
 
 98:                                               ; preds = %.lr.ph.i.i34
@@ -3369,8 +3369,8 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i:          ; preds = %118
 
 _ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i: ; preds = %123, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i, %118, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i40
   %.0.lcssa.ph.i.i = phi i64 [ %.1.i.i, %123 ], [ %.062.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i ], [ %.062.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i ], [ %.062.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i40 ], [ %.062.i.i, %118 ]
-  %.pre68.i.i = load float, ptr %90, align 4, !tbaa !54
-  %.pre69.i.i = load i64, ptr %92, align 8, !tbaa !30
+  %.pre68.i.i = load float, ptr %90, align 4
+  %.pre69.i.i = load i64, ptr %92, align 8
   br label %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i
 
 _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i, %86
@@ -3538,7 +3538,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit40.us: ;
   br i1 %39, label %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i, label %40
 
 .lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i: ; preds = %.lr.ph.i
-  %.pre.i = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !54
+  %.pre.i = load float, ptr %.phi.trans.insert.i, align 4
   br label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i
 
 40:                                               ; preds = %.lr.ph.i
@@ -3624,7 +3624,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.loopexi
   br i1 %81, label %.lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i38, label %82
 
 .lr.ph._ZN5faiss4CMinIflE4cmp2Effll.exit.thread_crit_edge.i38: ; preds = %.lr.ph.i28
-  %.pre.i39 = load float, ptr %.phi.trans.insert.i27, align 4, !tbaa !54
+  %.pre.i39 = load float, ptr %.phi.trans.insert.i27, align 4
   br label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i36
 
 82:                                               ; preds = %.lr.ph.i28
@@ -3726,7 +3726,7 @@ define internal void @_ZNK5faiss11IndexRefine12range_searchElPKffPNS_17RangeSear
 17:                                               ; preds = %6
   %18 = load i64, ptr %3, align 8, !tbaa !30
   %19 = icmp sgt i64 %18, 0
-  %.pre = load i32, ptr %0, align 4, !tbaa !42
+  %.pre = load i32, ptr %0, align 4
   br i1 %19, label %20, label %60
 
 20:                                               ; preds = %17
@@ -3973,6 +3973,7 @@ define void @_ZN5faiss15IndexRefineFlatC2EPNS_5IndexEPKf(ptr noundef nonnull ali
   store i32 %7, ptr %12, align 4, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 0.000000e+00, ptr %13, align 8, !tbaa !53
+  store ptr getelementptr inbounds nuw inrange(-16, 184) (i8, ptr @_ZTVN5faiss11IndexRefineE, i64 16), ptr %0, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %14, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3984,7 +3985,7 @@ define void @_ZN5faiss15IndexRefineFlatC2EPNS_5IndexEPKf(ptr noundef nonnull ali
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %18, align 8, !tbaa !49
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !29
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   store i64 %.pre.i, ptr %9, align 8, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 184) (i8, ptr @_ZTVN5faiss15IndexRefineFlatE, i64 16), ptr %0, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 25

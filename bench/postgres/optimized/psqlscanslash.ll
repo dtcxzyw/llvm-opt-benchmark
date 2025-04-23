@@ -2112,7 +2112,7 @@ slash_yyensure_buffer_stack.exit:                 ; preds = %10, %13, %24
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %44, ptr %49, align 4
-  %.pr.pre = load ptr, ptr %5, align 8
+  %.pr.pre = load ptr, ptr %5, align 8, !nonnull !12
   %.pre30 = load i64, ptr %29, align 8
   %.phi.trans.insert31 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %.pre30
   %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8
@@ -2757,7 +2757,7 @@ slash_yypop_buffer_state.exit:                    ; preds = %26, %44, %47
   %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.critedge, label %.thread.i, !llvm.loop !12
+  br i1 %60, label %.critedge, label %.thread.i, !llvm.loop !13
 
 .critedge:                                        ; preds = %slash_yypop_buffer_state.exit, %slash_yy_delete_buffer.exit, %41, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %41 ], [ null, %slash_yy_delete_buffer.exit ], [ %56, %slash_yypop_buffer_state.exit ]
@@ -2886,7 +2886,7 @@ define dso_local ptr @psql_scan_slash_option(ptr noundef initializes((8, 16)) %0
   %37 = load i64, ptr %19, align 8
   %38 = icmp ne i64 %37, 0
   %or.cond = select i1 %36, i1 %38, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !13
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %31, %.lr.ph, %.preheader, %18
   %39 = add i32 %1, -1
@@ -3013,7 +3013,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   %14 = getelementptr inbounds nuw i8, ptr %.1.us, i64 1
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1.us) #32
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.1.us, ptr nonnull align 1 %14, i64 %15, i1 false)
-  br label %.split.us.outer, !llvm.loop !14
+  br label %.split.us.outer, !llvm.loop !15
 
 .split.us.outer:                                  ; preds = %3, %13
   %.017.us.ph = phi i8 [ %.118.us, %13 ], [ 0, %3 ]
@@ -3024,7 +3024,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   %17 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.0.us, i32 noundef %2) #29
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %.0.us, i64 %18
-  br label %.split.us, !llvm.loop !14
+  br label %.split.us, !llvm.loop !15
 
 .split:                                           ; preds = %.split.outer, %36
   %.0 = phi ptr [ %39, %36 ], [ %.0.ph, %.split.outer ]
@@ -3054,7 +3054,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #32
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.1, ptr nonnull align 1 %30, i64 %31, i1 false)
-  br label %.split.outer, !llvm.loop !14
+  br label %.split.outer, !llvm.loop !15
 
 .split.outer:                                     ; preds = %3, %29
   %.017.ph = phi i8 [ %.118, %29 ], [ 0, %3 ]
@@ -3074,7 +3074,7 @@ define dso_local void @dequote_downcase_identifier(ptr noundef %0, i1 noundef ze
   %37 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.0, i32 noundef %2) #29
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr %.0, i64 %38
-  br label %.split, !llvm.loop !14
+  br label %.split, !llvm.loop !15
 
 .split23.us:                                      ; preds = %.split.us, %.split
   ret void
@@ -3218,6 +3218,7 @@ attributes #32 = { nounwind willreturn memory(read) }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!12 = !{}
 !13 = distinct !{!13, !5}
 !14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

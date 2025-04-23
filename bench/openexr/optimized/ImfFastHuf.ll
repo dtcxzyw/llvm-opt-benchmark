@@ -55,7 +55,7 @@ define hidden void @_ZN7Imf_3_414FastHufDecoderC2ERPKciiii(ptr noundef nonnull a
   br label %23
 
 .preheader166.loopexit:                           ; preds = %147
-  %.promoted.pre = load i32, ptr %11, align 4, !tbaa !11
+  %.promoted.pre = load i32, ptr %11, align 4
   br label %.preheader166
 
 .preheader166:                                    ; preds = %.preheader166.loopexit, %6
@@ -69,7 +69,6 @@ define hidden void @_ZN7Imf_3_414FastHufDecoderC2ERPKciiii(ptr noundef nonnull a
   br label %156
 
 23:                                               ; preds = %.lr.ph, %147
-  %.pre291 = phi i8 [ -1, %.lr.ph ], [ %.pre292, %147 ]
   %24 = phi i8 [ 0, %.lr.ph ], [ %148, %147 ]
   %25 = phi i8 [ -1, %.lr.ph ], [ %149, %147 ]
   %.078210 = phi i64 [ %17, %.lr.ph ], [ %150, %147 ]
@@ -309,16 +308,14 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %127, %.n
 
 128:                                              ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0148.0209, i64 noundef %115) #21
-  %.pre.pre = load i8, ptr %12, align 8, !tbaa !12
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %128, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
-  %.pre = phi i8 [ %.pre.pre, %128 ], [ %.pre291, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   %129 = getelementptr inbounds nuw i64, ptr %124, i64 %122
+  %.pre = load i8, ptr %12, align 8
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
 _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %111
-  %.pre294 = phi i8 [ %.pre, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.pre291, %111 ]
   %130 = phi i8 [ %.pre, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %25, %111 ]
   %.sroa.13.2 = phi ptr [ %129, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.sroa.13.0207, %111 ]
   %.pn = phi ptr [ %125, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.sroa.9.0208, %111 ]
@@ -344,7 +341,6 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   br label %246
 
 135:                                              ; preds = %133, %_ZNSt6vectorImSaImEE9push_backEOm.exit
-  %.pre293 = phi i8 [ %134, %133 ], [ %.pre294, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
   %136 = phi i8 [ %134, %133 ], [ %130, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
   %137 = load i8, ptr %13, align 1, !tbaa !13
   %138 = zext i8 %137 to i64
@@ -365,7 +361,6 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   br label %147
 
 147:                                              ; preds = %104, %142, %107, %87
-  %.pre292 = phi i8 [ %.pre291, %87 ], [ %.pre291, %104 ], [ %.pre291, %107 ], [ %.pre293, %142 ]
   %148 = phi i8 [ %24, %87 ], [ %24, %104 ], [ %24, %107 ], [ %143, %142 ]
   %149 = phi i8 [ %25, %87 ], [ %25, %104 ], [ %25, %107 ], [ %136, %142 ]
   %.1160 = phi ptr [ %.3162, %87 ], [ %.2161, %104 ], [ %.2161, %107 ], [ %.2161, %142 ]
@@ -1234,7 +1229,7 @@ _ZN7Imf_3_414FastHufDecoder6refillERmiS1_RiRPKhS2_.exit92: ; preds = %._ZN7Imf_3
 .lr.ph:                                           ; preds = %171
   %173 = zext nneg i32 %.059227 to i64
   %gep = getelementptr i16, ptr %invariant.gep, i64 %173
-  %.pre = load i16, ptr %gep, align 2, !tbaa !39
+  %.pre = load i16, ptr %gep, align 2
   %invariant.gep258 = getelementptr inbounds nuw i16, ptr %3, i64 %173
   br label %181
 

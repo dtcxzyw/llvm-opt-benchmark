@@ -273,7 +273,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextOSMesa(ptr noundef writeonl
   %46 = load i32, ptr %45, align 8, !tbaa !145
   %.not59 = icmp eq i32 %46, 1
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %48 = load i32, ptr %47, align 4, !tbaa !146
+  %48 = load i32, ptr %47, align 4
   %.not60 = icmp eq i32 %48, 0
   %or.cond = select i1 %.not59, i1 %.not60, i1 false
   br i1 %or.cond, label %61, label %._crit_edge
@@ -300,7 +300,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextOSMesa(ptr noundef writeonl
 61:                                               ; preds = %44, %._crit_edge
   %.1 = phi i32 [ %58, %._crit_edge ], [ %.0, %44 ]
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %63 = load i32, ptr %62, align 8, !tbaa !147
+  %63 = load i32, ptr %62, align 8, !tbaa !146
   %.not61 = icmp eq i32 %63, 0
   br i1 %.not61, label %.thread, label %71
 
@@ -355,17 +355,17 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextOSMesa(ptr noundef writeonl
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store ptr @makeContextCurrentOSMesa, ptr %89, align 8, !tbaa !148
+  store ptr @makeContextCurrentOSMesa, ptr %89, align 8, !tbaa !147
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store ptr @swapBuffersOSMesa, ptr %90, align 8, !tbaa !149
+  store ptr @swapBuffersOSMesa, ptr %90, align 8, !tbaa !148
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  store ptr @swapIntervalOSMesa, ptr %91, align 8, !tbaa !150
+  store ptr @swapIntervalOSMesa, ptr %91, align 8, !tbaa !149
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store ptr @extensionSupportedOSMesa, ptr %92, align 8, !tbaa !151
+  store ptr @extensionSupportedOSMesa, ptr %92, align 8, !tbaa !150
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store ptr @getProcAddressOSMesa, ptr %93, align 8, !tbaa !152
+  store ptr @getProcAddressOSMesa, ptr %93, align 8, !tbaa !151
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store ptr @destroyContextOSMesa, ptr %94, align 8, !tbaa !153
+  store ptr @destroyContextOSMesa, ptr %94, align 8, !tbaa !152
   br label %95
 
 95:                                               ; preds = %71, %88, %87, %75, %18
@@ -383,25 +383,25 @@ define internal void @makeContextCurrentOSMesa(ptr noundef %0) #0 {
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 352), align 8, !tbaa !154
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 352), align 8, !tbaa !153
   call void %5(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %8 = load ptr, ptr %7, align 8, !tbaa !155
+  %8 = load ptr, ptr %7, align 8, !tbaa !154
   %9 = icmp eq ptr %8, null
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %2, align 4, !tbaa !141
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %13 = load i32, ptr %12, align 8, !tbaa !156
+  %13 = load i32, ptr %12, align 8, !tbaa !155
   %.not13 = icmp eq i32 %11, %13
   br i1 %.not13, label %14, label %18
 
 14:                                               ; preds = %10
   %15 = load i32, ptr %3, align 4, !tbaa !141
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 692
-  %17 = load i32, ptr %16, align 4, !tbaa !157
+  %17 = load i32, ptr %16, align 4, !tbaa !156
   %.not14 = icmp eq i32 %15, %17
   br i1 %.not14, label %29, label %18
 
@@ -413,13 +413,13 @@ define internal void @makeContextCurrentOSMesa(ptr noundef %0) #0 {
   %22 = sext i32 %21 to i64
   %23 = mul nsw i64 %22, %20
   %24 = call ptr @_glfw_calloc(i64 noundef 4, i64 noundef %23) #4
-  store ptr %24, ptr %7, align 8, !tbaa !155
+  store ptr %24, ptr %7, align 8, !tbaa !154
   %25 = load i32, ptr %2, align 4, !tbaa !141
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store i32 %25, ptr %26, align 8, !tbaa !156
+  store i32 %25, ptr %26, align 8, !tbaa !155
   %27 = load i32, ptr %3, align 4, !tbaa !141
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 692
-  store i32 %27, ptr %28, align 4, !tbaa !157
+  store i32 %27, ptr %28, align 4, !tbaa !156
   br label %29
 
 29:                                               ; preds = %18, %14
@@ -488,16 +488,16 @@ define internal void @destroyContextOSMesa(ptr noundef captures(none) %0) #0 {
 
 6:                                                ; preds = %4, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %8 = load ptr, ptr %7, align 8, !tbaa !155
+  %8 = load ptr, ptr %7, align 8, !tbaa !154
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
 
 9:                                                ; preds = %6
   tail call void @_glfw_free(ptr noundef nonnull %8) #4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store i32 0, ptr %10, align 8, !tbaa !156
+  store i32 0, ptr %10, align 8, !tbaa !155
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 692
-  store i32 0, ptr %11, align 4, !tbaa !157
+  store i32 0, ptr %11, align 4, !tbaa !156
   br label %12
 
 12:                                               ; preds = %9, %6
@@ -514,7 +514,7 @@ define range(i32 0, 2) i32 @glfwGetOSMesaColorBuffer(ptr noundef readonly captur
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
-  %10 = load i32, ptr @_glfw, align 8, !tbaa !158
+  %10 = load i32, ptr @_glfw, align 8, !tbaa !157
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %12
 
@@ -524,7 +524,7 @@ define range(i32 0, 2) i32 @glfwGetOSMesaColorBuffer(ptr noundef readonly captur
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %14 = load i32, ptr %13, align 4, !tbaa !159
+  %14 = load i32, ptr %13, align 4, !tbaa !158
   %.not15 = icmp eq i32 %14, 221187
   br i1 %.not15, label %16, label %15
 
@@ -576,8 +576,8 @@ define range(i32 0, 2) i32 @glfwGetOSMesaColorBuffer(ptr noundef readonly captur
   br i1 %.not20, label %34, label %32
 
 32:                                               ; preds = %31
-  %33 = load ptr, ptr %6, align 8, !tbaa !160
-  store ptr %33, ptr %4, align 8, !tbaa !160
+  %33 = load ptr, ptr %6, align 8, !tbaa !159
+  store ptr %33, ptr %4, align 8, !tbaa !159
   br label %34
 
 34:                                               ; preds = %31, %32, %21, %15, %11
@@ -599,7 +599,7 @@ define range(i32 0, 2) i32 @glfwGetOSMesaDepthBuffer(ptr noundef readonly captur
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
-  %10 = load i32, ptr @_glfw, align 8, !tbaa !158
+  %10 = load i32, ptr @_glfw, align 8, !tbaa !157
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %12
 
@@ -609,7 +609,7 @@ define range(i32 0, 2) i32 @glfwGetOSMesaDepthBuffer(ptr noundef readonly captur
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %14 = load i32, ptr %13, align 4, !tbaa !159
+  %14 = load i32, ptr %13, align 4, !tbaa !158
   %.not15 = icmp eq i32 %14, 221187
   br i1 %.not15, label %16, label %15
 
@@ -661,8 +661,8 @@ define range(i32 0, 2) i32 @glfwGetOSMesaDepthBuffer(ptr noundef readonly captur
   br i1 %.not20, label %34, label %32
 
 32:                                               ; preds = %31
-  %33 = load ptr, ptr %6, align 8, !tbaa !160
-  store ptr %33, ptr %4, align 8, !tbaa !160
+  %33 = load ptr, ptr %6, align 8, !tbaa !159
+  store ptr %33, ptr %4, align 8, !tbaa !159
   br label %34
 
 34:                                               ; preds = %31, %32, %21, %15, %11
@@ -676,7 +676,7 @@ define range(i32 0, 2) i32 @glfwGetOSMesaDepthBuffer(ptr noundef readonly captur
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetOSMesaContext(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !158
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !157
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -686,7 +686,7 @@ define ptr @glfwGetOSMesaContext(ptr noundef readonly captures(none) %0) local_u
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %6 = load i32, ptr %5, align 4, !tbaa !159
+  %6 = load i32, ptr %5, align 4, !tbaa !158
   %.not4 = icmp eq i32 %6, 221187
   br i1 %.not4, label %8, label %7
 
@@ -864,18 +864,17 @@ attributes #4 = { nounwind }
 !143 = !{!15, !5, i64 20}
 !144 = !{!21, !5, i64 28}
 !145 = !{!21, !5, i64 8}
-!146 = !{!21, !5, i64 12}
-!147 = !{!21, !5, i64 16}
-!148 = !{!108, !9, i64 600}
-!149 = !{!108, !9, i64 608}
-!150 = !{!108, !9, i64 616}
-!151 = !{!108, !9, i64 624}
-!152 = !{!108, !9, i64 632}
-!153 = !{!108, !9, i64 640}
-!154 = !{!4, !9, i64 352}
-!155 = !{!108, !9, i64 696}
-!156 = !{!108, !5, i64 688}
-!157 = !{!108, !5, i64 692}
-!158 = !{!4, !5, i64 0}
-!159 = !{!108, !5, i64 532}
-!160 = !{!9, !9, i64 0}
+!146 = !{!21, !5, i64 16}
+!147 = !{!108, !9, i64 600}
+!148 = !{!108, !9, i64 608}
+!149 = !{!108, !9, i64 616}
+!150 = !{!108, !9, i64 624}
+!151 = !{!108, !9, i64 632}
+!152 = !{!108, !9, i64 640}
+!153 = !{!4, !9, i64 352}
+!154 = !{!108, !9, i64 696}
+!155 = !{!108, !5, i64 688}
+!156 = !{!108, !5, i64 692}
+!157 = !{!4, !5, i64 0}
+!158 = !{!108, !5, i64 532}
+!159 = !{!9, !9, i64 0}

@@ -80,7 +80,7 @@ gv_calloc.exit:                                   ; preds = %.thread
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.0.0.copyload = load double, ptr %2, align 8
   %33 = tail call double @llvm.minnum.f64(double %24, double %25)
-  %.pre183.i.pre24 = load i8, ptr @Verbose, align 1, !tbaa !12
+  %.pre183.i.pre24 = load i8, ptr @Verbose, align 1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %tailrecurse.outer.i, %.lr.ph.lr.ph.i
@@ -115,7 +115,7 @@ gv_calloc.exit:                                   ; preds = %.thread
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.2, double noundef %35, double noundef %38, double noundef %34, double noundef %37) #6
   %47 = load ptr, ptr @stderr, align 8, !tbaa !9
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.3, i64 noundef %indvars.iv.i) #6
-  %.pre.i = load i8, ptr @Verbose, align 1, !tbaa !12
+  %.pre.i = load i8, ptr @Verbose, align 1
   br label %49
 
 49:                                               ; preds = %44, %40
@@ -172,7 +172,7 @@ tailrecurse.backedge.i:                           ; preds = %61, %53
   %75 = load ptr, ptr @stderr, align 8, !tbaa !9
   %76 = fdiv double %.tr136156.i, %43
   %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.4, i64 noundef %indvars.iv.i, double noundef %.tr136156.i, double noundef %43, double noundef %76) #6
-  %.pre183.i.pre = load i8, ptr @Verbose, align 1, !tbaa !12
+  %.pre183.i.pre = load i8, ptr @Verbose, align 1
   br label %78
 
 78:                                               ; preds = %.thread.i._crit_edge, %74
@@ -213,7 +213,7 @@ tailrecurse.backedge.i:                           ; preds = %61, %53
   %99 = fadd double %.0114158.i, %95
   %100 = add nuw i64 %.0112159.i, 1
   %exitcond.not.i = icmp eq i64 %100, %indvars.iv.i
-  br i1 %exitcond.not.i, label %86, label %89, !llvm.loop !13
+  br i1 %exitcond.not.i, label %86, label %89, !llvm.loop !12
 
 101:                                              ; preds = %78
   %102 = fmul double %37, 5.000000e-01
@@ -246,7 +246,7 @@ tailrecurse.backedge.i:                           ; preds = %61, %53
   %119 = fsub double %.0113160.i, %114
   %120 = add nuw i64 %.0161.i, 1
   %exitcond182.not.i = icmp eq i64 %120, %indvars.iv.i
-  br i1 %exitcond182.not.i, label %106, label %109, !llvm.loop !14
+  br i1 %exitcond182.not.i, label %106, label %109, !llvm.loop !13
 
 tailrecurse.outer.i:                              ; preds = %106, %86
   %121 = phi double [ %37, %106 ], [ %88, %86 ]
@@ -314,6 +314,5 @@ attributes #9 = { cold noreturn nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
 !11 = !{!"any pointer", !5, i64 0}
-!12 = !{!5, !5, i64 0}
+!12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}

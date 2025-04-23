@@ -110,7 +110,7 @@ define hidden void @"_ZN112_$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..Backsh
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !4
   %.not = icmp eq i64 %3, 0
-  %.pre = load ptr, ptr %0, align 8
+  %.pre = load ptr, ptr %0, align 8, !nonnull !4, !align !5
   br i1 %.not, label %._crit_edge, label %4
 
 ._crit_edge:                                      ; preds = %1
@@ -1008,7 +1008,7 @@ define hidden void @"_ZN4core3ptr144drop_in_place$LT$alloc..vec..Vec$LT$T$C$A$GT
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !alias.scope !420, !noundef !4
   %.not.i = icmp eq i64 %3, 0
-  %.pre.i = load ptr, ptr %0, align 8, !alias.scope !420
+  %.pre.i = load ptr, ptr %0, align 8, !alias.scope !420, !nonnull !4, !align !5
   br i1 %.not.i, label %._crit_edge.i, label %4
 
 ._crit_edge.i:                                    ; preds = %1
@@ -9765,7 +9765,7 @@ default.unreachable70:                            ; preds = %65, %1
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68df1cbeac0eb367E.exit_crit_edge" unwind label %96
 
 "._ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68df1cbeac0eb367E.exit_crit_edge": ; preds = %95
-  %.pre69 = load i64, ptr %50, align 8, !alias.scope !3725
+  %.pre69 = load i64, ptr %50, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68df1cbeac0eb367E.exit"
 
 96:                                               ; preds = %95
@@ -9825,7 +9825,7 @@ default.unreachable70:                            ; preds = %65, %1
           to label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68df1cbeac0eb367E.exit22_crit_edge" unwind label %119
 
 "._ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68df1cbeac0eb367E.exit22_crit_edge": ; preds = %118
-  %.pre = load i64, ptr %50, align 8, !alias.scope !3728
+  %.pre = load i64, ptr %50, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68df1cbeac0eb367E.exit22"
 
 119:                                              ; preds = %118
@@ -9892,7 +9892,7 @@ default.unreachable70:                            ; preds = %65, %1
 
 146:                                              ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17ha359d9dc55360ae2E.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %.pr = load i64, ptr %50, align 8, !alias.scope !3712
+  %.pr = load i64, ptr %50, align 8
   %147 = icmp eq i64 %.pr, 0
   br i1 %147, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4b2009a03ed84f42E.llvm.15241997999693184539.exit.i", label %65
 
@@ -10141,8 +10141,8 @@ define void @"_ZN69_$LT$regex_syntax..ast..ClassSet$u20$as$u20$core..ops..drop..
           to label %._crit_edge101 unwind label %80, !noalias !3783
 
 ._crit_edge101:                                   ; preds = %79
-  %.pre102 = load i64, ptr %42, align 8, !alias.scope !3786, !noalias !3783
-  %.pre = load ptr, ptr %41, align 8, !alias.scope !3786, !noalias !3783
+  %.pre102 = load i64, ptr %42, align 8
+  %.pre = load ptr, ptr %41, align 8, !nonnull !4
   br label %84
 
 80:                                               ; preds = %79
@@ -10170,13 +10170,13 @@ define void @"_ZN69_$LT$regex_syntax..ast..ClassSet$u20$as$u20$core..ops..drop..
 89:                                               ; preds = %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17ha8bcc7af173a30efE.exit"
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.0)
-  %.pr = load i64, ptr %42, align 8, !alias.scope !3763, !noalias !3766
+  %.pr = load i64, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %.sroa.0)
   %90 = icmp eq i64 %.pr, 0
   br i1 %90, label %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha04a2440fa1b7961E.exit.thread_crit_edge", label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha04a2440fa1b7961E.exit"
 
 "._ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha04a2440fa1b7961E.exit.thread_crit_edge": ; preds = %89
-  %.pre106 = load ptr, ptr %41, align 8, !alias.scope !3788
+  %.pre106 = load ptr, ptr %41, align 8, !nonnull !4
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha04a2440fa1b7961E.exit.thread"
 
 91:                                               ; preds = %.body, %46
@@ -10189,7 +10189,6 @@ define void @"_ZN69_$LT$regex_syntax..ast..ClassSet$u20$as$u20$core..ops..drop..
   %93 = phi ptr [ %.pre106, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha04a2440fa1b7961E.exit.thread_crit_edge" ], [ %53, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha04a2440fa1b7961E.exit" ]
   %94 = phi i64 [ 0, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha04a2440fa1b7961E.exit.thread_crit_edge" ], [ %50, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha04a2440fa1b7961E.exit" ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.0)
-  call void @llvm.experimental.noalias.scope.decl(metadata !3788)
   br label %95
 
 95:                                               ; preds = %97, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha04a2440fa1b7961E.exit.thread"
@@ -10555,7 +10554,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %32
           to label %._crit_edge79 unwind label %96, !noalias !3830
 
 ._crit_edge79:                                    ; preds = %95
-  %.pre80 = load i64, ptr %45, align 8, !alias.scope !3827, !noalias !3830
+  %.pre80 = load i64, ptr %45, align 8
   br label %100
 
 96:                                               ; preds = %95
@@ -10612,7 +10611,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %32
           to label %._crit_edge unwind label %110, !noalias !3835
 
 ._crit_edge:                                      ; preds = %109
-  %.pre = load i64, ptr %45, align 8, !alias.scope !3832, !noalias !3835
+  %.pre = load i64, ptr %45, align 8
   br label %114
 
 110:                                              ; preds = %109
@@ -10680,7 +10679,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %32
   call void @__rust_dealloc(ptr noundef nonnull %135, i64 noundef 80, i64 noundef 8) #22, !noalias !3847
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.8)
-  %.pr = load i64, ptr %45, align 8, !alias.scope !3799, !noalias !3802
+  %.pr = load i64, ptr %45, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.8)
   %136 = icmp eq i64 %.pr, 0
   br i1 %136, label %.loopexit.thread, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17he0f62a51d725bdcaE.exit"

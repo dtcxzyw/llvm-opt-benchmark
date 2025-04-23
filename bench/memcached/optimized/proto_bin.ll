@@ -157,7 +157,7 @@ define dso_local void @complete_nread_binary(ptr noundef %0) local_unnamed_addr 
 74:                                               ; preds = %66
   %75 = load ptr, ptr %68, align 8, !tbaa !34
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %75, i64 28
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !32
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %76
 
 76:                                               ; preds = %74, %66
@@ -405,7 +405,7 @@ write_bin_error.exit:                             ; preds = %33, %37
 55:                                               ; preds = %39
   %56 = load ptr, ptr @stderr, align 8, !tbaa !58
   %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.20, ptr noundef nonnull %43, i32 noundef %18) #12
-  %.pre.pre = load ptr, ptr %19, align 8, !tbaa !26
+  %.pre.pre = load ptr, ptr %19, align 8
   br label %58
 
 58:                                               ; preds = %55, %39
@@ -516,7 +516,7 @@ write_bin_error.exit63:                           ; preds = %91, %95
 119:                                              ; preds = %103, %116, %109, %101
   %cond = phi i1 [ false, %103 ], [ false, %101 ], [ true, %109 ], [ true, %116 ]
   %.0.ph = phi i32 [ 1, %103 ], [ 1, %101 ], [ -1, %109 ], [ -1, %116 ]
-  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !57
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   %.not59 = icmp eq i32 %.pr, 0
   br i1 %.not59, label %123, label %120
 
@@ -541,7 +541,7 @@ write_bin_error.exit63:                           ; preds = %91, %95
 126:                                              ; preds = %124
   %127 = load ptr, ptr @stderr, align 8, !tbaa !58
   %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str.25, i32 noundef %.0.ph) #12
-  %.pr73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !57
+  %.pr73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   %129 = icmp sgt i32 %.pr73, 1
   br i1 %129, label %130, label %.thread74
 
@@ -1693,7 +1693,7 @@ switch.lookup:                                    ; preds = %109
 
 121:                                              ; preds = %117
   store i16 6, ptr %110, align 8, !tbaa !48
-  %.pre = load i16, ptr %102, align 2, !tbaa !31
+  %.pre = load i16, ptr %102, align 2
   br label %.critedge
 
 .critedge:                                        ; preds = %114, %121, %117
@@ -2969,7 +2969,7 @@ define internal fastcc void @bin_list_sasl_mechs(ptr noundef %0) unnamed_addr #0
   store i8 0, ptr %25, align 1, !tbaa !62
   %26 = load ptr, ptr %0, align 8, !tbaa !63
   %.not.i = icmp eq ptr %26, null
-  %.pre11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !57
+  %.pre11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   br i1 %.not.i, label %27, label %init_sasl_conn.exit
 
 27:                                               ; preds = %24
@@ -2979,12 +2979,11 @@ define internal fastcc void @bin_list_sasl_mechs(ptr noundef %0) unnamed_addr #0
 28:                                               ; preds = %27
   %29 = load ptr, ptr @stderr, align 8, !tbaa !58
   %30 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 32, i64 1, ptr %29) #13
-  %.pre.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !57
   br label %31
 
 31:                                               ; preds = %28, %27
-  %.pre = phi i32 [ %.pre.pre, %28 ], [ 0, %27 ]
   store ptr null, ptr %0, align 8, !tbaa !63
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   br label %init_sasl_conn.exit
 
 init_sasl_conn.exit:                              ; preds = %24, %31
@@ -2995,7 +2994,7 @@ init_sasl_conn.exit:                              ; preds = %24, %31
 33:                                               ; preds = %init_sasl_conn.exit
   %34 = load ptr, ptr @stderr, align 8, !tbaa !58
   %35 = tail call i64 @fwrite(ptr nonnull @.str.59, i64 32, i64 1, ptr %34) #13
-  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8, !tbaa !57
+  %.pr = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   %36 = icmp sgt i32 %.pr, 1
   br i1 %36, label %37, label %.thread
 

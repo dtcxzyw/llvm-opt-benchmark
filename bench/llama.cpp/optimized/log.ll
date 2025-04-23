@@ -261,7 +261,7 @@ _ZSt8_DestroyI16common_log_entryEvPT_.exit.i.i.i.i: ; preds = %22, %.lr.ph.i.i.i
   br i1 %.not.i.i.i.i1, label %_ZSt8_DestroyIP16common_log_entryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !41
 
 _ZSt8_DestroyIP16common_log_entryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyI16common_log_entryEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %16, align 8, !tbaa !39
+  %.pr.i = load ptr, ptr %16, align 8
   br label %_ZSt8_DestroyIP16common_log_entryS0_EvT_S2_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIP16common_log_entryS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIP16common_log_entryS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, %_ZN16common_log_entryD2Ev.exit
@@ -685,8 +685,8 @@ _ZN16common_log_entryaSEOS_.exit:                 ; preds = %81, %97
   br i1 %118, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %140
-  %.pre = load ptr, ptr %13, align 8, !tbaa !39
-  %.pre48 = load ptr, ptr %61, align 8, !tbaa !40
+  %.pre = load ptr, ptr %13, align 8
+  %.pre48 = load ptr, ptr %61, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %115
@@ -935,7 +935,7 @@ define linkonce_odr void @_ZN10common_logC2Em(ptr noundef nonnull align 8 derefe
           to label %._ZNSt6vectorI16common_log_entrySaIS0_EE6resizeEm.exit_crit_edge unwind label %37
 
 ._ZNSt6vectorI16common_log_entrySaIS0_EE6resizeEm.exit_crit_edge: ; preds = %19
-  %.pre = load ptr, ptr %11, align 8, !tbaa !70
+  %.pre = load ptr, ptr %11, align 8
   br label %_ZNSt6vectorI16common_log_entrySaIS0_EE6resizeEm.exit
 
 21:                                               ; preds = %2
@@ -1179,7 +1179,7 @@ _ZSt8_DestroyI16common_log_entryEvPT_.exit.i.i.i: ; preds = %7, %.lr.ph.i.i.i
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIP16common_log_entryS0_EvT_S2_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !41
 
 _ZSt8_DestroyIP16common_log_entryS0_EvT_S2_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyI16common_log_entryEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !39
+  %.pr = load ptr, ptr %0, align 8
   br label %_ZSt8_DestroyIP16common_log_entryS0_EvT_S2_RSaIT0_E.exit
 
 _ZSt8_DestroyIP16common_log_entryS0_EvT_S2_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIP16common_log_entryS0_EvT_S2_RSaIT0_E.exitthread-pre-split, %1
@@ -1450,7 +1450,7 @@ _ZNSt18condition_variable4waitIZZN10common_log6resumeEvENKUlvE_clEvEUlvE_EEvRSt1
 
 40:                                               ; preds = %38
   %41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %39) #24
-  %.pre = load i8, ptr %12, align 8, !tbaa !86, !range !46
+  %.pre = load i8, ptr %12, align 8, !range !46
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %24, %38, %40
@@ -1504,7 +1504,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit4:           ; preds = %44, %47, %49
   store i8 0, ptr %4, align 8, !tbaa !84
   %55 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #24
   %.not.i.i.i = icmp eq i32 %55, 0
-  br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %._crit_edge, !llvm.loop !87
+  br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %._crit_edge, !llvm.loop !86
 
 56:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit
   ret void
@@ -1513,7 +1513,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit4:           ; preds = %44, %47, %49
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK16common_log_entry5printEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef %1) local_unnamed_addr #5 comdat align 2 {
   %.not = icmp eq ptr %1, null
-  %.pre = load i32, ptr %0, align 8, !tbaa !58
+  %.pre = load i32, ptr %0, align 8
   br i1 %.not, label %3, label %10
 
 3:                                                ; preds = %2
@@ -1524,7 +1524,7 @@ define linkonce_odr void @_ZNK16common_log_entry5printEP8_IO_FILE(ptr noundef no
   br i1 %or.cond, label %66, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr @stdout, align 8, !tbaa !88
+  %8 = load ptr, ptr @stdout, align 8, !tbaa !87
   %.not15 = icmp eq i32 %.pre, 0
   %9 = load ptr, ptr @stderr, align 8
   %spec.select = select i1 %.not15, ptr %8, ptr %9
@@ -1565,7 +1565,7 @@ define linkonce_odr void @_ZNK16common_log_entry5printEP8_IO_FILE(ptr noundef no
   %31 = trunc nsw i64 %30 to i32
   %32 = load ptr, ptr %19, align 8, !tbaa !68
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0, ptr noundef nonnull @.str.2, ptr noundef %21, i32 noundef %24, i32 noundef %26, i32 noundef %29, i32 noundef %31, ptr noundef %32) #24
-  %.pre20 = load i32, ptr %0, align 8, !tbaa !58
+  %.pre20 = load i32, ptr %0, align 8
   br label %34
 
 34:                                               ; preds = %18, %15
@@ -1656,7 +1656,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 17:                                               ; preds = %3
   %18 = icmp slt i64 %9, 0
-  br i1 %18, label %19, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, !prof !89
+  br i1 %18, label %19, label %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i, !prof !88
 
 19:                                               ; preds = %17
   tail call void @_ZSt17__throw_bad_allocv() #26
@@ -1707,10 +1707,10 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %_ZNSt6vectorIcSa
 
 32:                                               ; preds = %31
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %12, ptr align 1 %6, i64 %28, i1 false)
-  %.pre = load ptr, ptr %1, align 8, !tbaa !37
-  %.pre26 = load ptr, ptr %25, align 8, !tbaa !57
-  %.pre27 = load ptr, ptr %0, align 8, !tbaa !37
-  %.pre28 = load ptr, ptr %4, align 8, !tbaa !57
+  %.pre = load ptr, ptr %1, align 8
+  %.pre26 = load ptr, ptr %25, align 8
+  %.pre27 = load ptr, ptr %0, align 8
+  %.pre28 = load ptr, ptr %4, align 8
   %.pre29 = ptrtoint ptr %.pre26 to i64
   %.pre30 = ptrtoint ptr %.pre27 to i64
   %.pre32 = sub i64 %.pre29, %.pre30
@@ -1902,7 +1902,6 @@ attributes #26 = { noreturn }
 !83 = !{!"p1 _ZTSSt5mutex", !11, i64 0}
 !84 = !{!82, !24, i64 8}
 !85 = distinct !{!85, !42}
-!86 = !{!15, !24, i64 200}
-!87 = distinct !{!87, !42}
-!88 = !{!23, !23, i64 0}
-!89 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!86 = distinct !{!86, !42}
+!87 = !{!23, !23, i64 0}
+!88 = !{!"branch_weights", !"expected", i32 1, i32 2000}

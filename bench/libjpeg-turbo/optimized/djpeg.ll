@@ -652,7 +652,7 @@ default.unreachable:                              ; preds = %96
 
 ._crit_edge232:                                   ; preds = %233
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 140
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !54
+  %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %253
 
 243:                                              ; preds = %233
@@ -1757,13 +1757,13 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   %194 = load i8, ptr %7, align 1, !tbaa !9
   %195 = and i8 %194, -33
   %or.cond = icmp eq i8 %195, 77
-  %.pre = load i64, ptr %6, align 8, !tbaa !95
+  %.pre = load i64, ptr %6, align 8
   %196 = mul nsw i64 %.pre, 1000
   %spec.select = select i1 %or.cond, i64 %196, i64 %.pre
   %197 = mul nsw i64 %spec.select, 1000
-  %198 = load ptr, ptr %26, align 8, !tbaa !96
+  %198 = load ptr, ptr %26, align 8, !tbaa !95
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 88
-  store i64 %197, ptr %199, align 8, !tbaa !97
+  store i64 %197, ptr %199, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   br label %299
@@ -2038,7 +2038,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   %.1 = phi i32 [ %.0232, %36 ], [ %.0232, %40 ], [ %50, %58 ], [ %63, %70 ], [ %63, %74 ], [ %63, %78 ], [ %83, %90 ], [ %83, %94 ], [ %83, %98 ], [ %.0232, %114 ], [ %.0232, %129 ], [ %.0232, %132 ], [ %.0232, %135 ], [ %.0232, %140 ], [ %.0232, %143 ], [ %.0232, %146 ], [ %150, %152 ], [ %159, %179 ], [ %159, %161 ], [ %184, %193 ], [ %203, %205 ], [ %.0232, %213 ], [ %.0232, %216 ], [ %.0232, %219 ], [ %223, %225 ], [ %.0232, %231 ], [ %.0232, %236 ], [ %.0232, %239 ], [ %243, %245 ], [ %254, %268 ], [ %272, %291 ], [ %.0232, %294 ], [ %.0232, %297 ]
   %300 = add nsw i32 %.1, 1
   %301 = icmp slt i32 %300, %1
-  br i1 %301, label %29, label %._crit_edge, !llvm.loop !99
+  br i1 %301, label %29, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %299, %34, %4
   %.0.lcssa = phi i32 [ 1, %4 ], [ %.0232, %34 ], [ %300, %299 ]
@@ -2048,7 +2048,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
 ; Function Attrs: nounwind uwtable
 define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #3 {
   %3 = icmp slt i32 %1, 0
-  %4 = load ptr, ptr %0, align 8, !tbaa !100
+  %4 = load ptr, ptr %0, align 8, !tbaa !99
   br i1 %3, label %.sink.split, label %5
 
 5:                                                ; preds = %2
@@ -2063,7 +2063,7 @@ define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #3 {
 
 .sink.split:                                      ; preds = %2, %8
   %.sink.in = phi ptr [ %9, %8 ], [ %4, %2 ]
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !102
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !101
   tail call void %.sink(ptr noundef nonnull %0) #12
   br label %10
 
@@ -2373,11 +2373,10 @@ attributes #18 = { nounwind willreturn memory(none) }
 !92 = !{!11, !15, i64 116}
 !93 = !{!11, !15, i64 100}
 !94 = !{!11, !15, i64 64}
-!95 = !{!35, !35, i64 0}
-!96 = !{!11, !13, i64 8}
-!97 = !{!98, !35, i64 88}
-!98 = !{!"jpeg_memory_mgr", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !35, i64 88, !35, i64 96}
-!99 = distinct !{!99, !47}
-!100 = !{!101, !12, i64 0}
-!101 = !{!"jpeg_common_struct", !12, i64 0, !13, i64 8, !14, i64 16, !6, i64 24, !15, i64 32, !15, i64 36}
-!102 = !{!6, !6, i64 0}
+!95 = !{!11, !13, i64 8}
+!96 = !{!97, !35, i64 88}
+!97 = !{!"jpeg_memory_mgr", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !35, i64 88, !35, i64 96}
+!98 = distinct !{!98, !47}
+!99 = !{!100, !12, i64 0}
+!100 = !{!"jpeg_common_struct", !12, i64 0, !13, i64 8, !14, i64 16, !6, i64 24, !15, i64 32, !15, i64 36}
+!101 = !{!6, !6, i64 0}

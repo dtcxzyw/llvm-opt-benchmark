@@ -1652,16 +1652,14 @@ do.end275:                                        ; preds = %do.body230
   br i1 %cmp279649.not, label %for.cond.cleanup, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %do.end275
-  %.pre = load ptr, ptr %_M_finish.i.i.i172, align 8, !tbaa !3
-  %.pre651 = load ptr, ptr %_M_end_of_storage.i.i.i174, align 8, !tbaa !10
+  %.pre = load ptr, ptr %_M_finish.i.i.i172, align 8
+  %.pre651 = load ptr, ptr %_M_end_of_storage.i.i.i174, align 8
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.inc, %do.end275
   ret void
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %.pre653657 = phi ptr [ %.pre653658, %for.inc ], [ %193, %for.body.preheader ]
-  %.pre652654 = phi ptr [ %.pre652655, %for.inc ], [ %192, %for.body.preheader ]
   %194 = phi ptr [ %203, %for.inc ], [ %193, %for.body.preheader ]
   %195 = phi ptr [ %204, %for.inc ], [ %192, %for.body.preheader ]
   %196 = phi ptr [ %205, %for.inc ], [ %.pre651, %for.body.preheader ]
@@ -1725,22 +1723,18 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
   call void @_ZdlPvm(ptr noundef nonnull %200, i64 noundef %sub.ptr.sub.i.i.i.i) #23
-  %.pre652.pre = load ptr, ptr %_M_finish.i.i.i148, align 8, !tbaa !3
-  %.pre653.pre = load ptr, ptr %paymentTimesFloating_, align 8, !tbaa !8
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
-  %.pre653 = phi ptr [ %.pre653.pre, %if.then.i18.i.i ], [ %.pre653657, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i ]
-  %.pre652 = phi ptr [ %.pre652.pre, %if.then.i18.i.i ], [ %.pre652654, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i ]
   store ptr %call5.i.i.i.i.i465, ptr %allPaymentTimes_, align 8, !tbaa !8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i172, align 8, !tbaa !3
   %add.ptr19.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i465, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i.i.i174, align 8, !tbaa !10
+  %.pre652 = load ptr, ptr %_M_finish.i.i.i148, align 8
+  %.pre653 = load ptr, ptr %paymentTimesFloating_, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i, %if.then.i
-  %.pre653658 = phi ptr [ %.pre653, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %.pre653657, %if.then.i ]
-  %.pre652655 = phi ptr [ %.pre652, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %.pre652654, %if.then.i ]
   %203 = phi ptr [ %.pre653, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %194, %if.then.i ]
   %204 = phi ptr [ %.pre652, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %195, %if.then.i ]
   %205 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %196, %if.then.i ]

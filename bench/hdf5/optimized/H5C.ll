@@ -573,14 +573,14 @@ define range(i32 -1, 1) i32 @H5C_dest(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %51, label %52, label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.pre = load ptr, ptr %44, align 8, !tbaa !26
+  %.pre = load ptr, ptr %44, align 8
   br label %63
 
 52:                                               ; preds = %.lr.ph
   %53 = getelementptr inbounds nuw i8, ptr %.sink104, i64 48
   %54 = load ptr, ptr %53, align 8, !tbaa !119
   %55 = icmp eq ptr %54, null
-  %.pre94 = load ptr, ptr %44, align 8, !tbaa !26
+  %.pre94 = load ptr, ptr %44, align 8
   br i1 %55, label %56, label %63
 
 56:                                               ; preds = %52
@@ -632,7 +632,7 @@ define range(i32 -1, 1) i32 @H5C_dest(ptr noundef %0) local_unnamed_addr #0 {
   %84 = phi ptr [ %76, %82 ], [ %64, %77 ]
   %.not81 = icmp eq ptr %76, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %.pre96 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !85
+  %.pre96 = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not81, label %._crit_edge95, label %85
 
 85:                                               ; preds = %83
@@ -672,7 +672,7 @@ define range(i32 -1, 1) i32 @H5C_dest(ptr noundef %0) local_unnamed_addr #0 {
   %109 = load ptr, ptr %108, align 8, !tbaa !128
   %.not82 = icmp eq ptr %109, null
   %.phi.trans.insert98 = getelementptr inbounds nuw i8, ptr %.sink104, i64 64
-  %.pre99 = load ptr, ptr %.phi.trans.insert98, align 8, !tbaa !127
+  %.pre99 = load ptr, ptr %.phi.trans.insert98, align 8
   br i1 %.not82, label %._crit_edge97, label %110
 
 110:                                              ; preds = %107
@@ -1149,7 +1149,7 @@ define range(i32 -1, 1) i32 @H5C_flush_to_min_clean(ptr noundef %0) local_unname
   br i1 %20, label %21, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18
-  %.pre = load i8, ptr %2, align 1, !tbaa !3, !range !7
+  %.pre = load i8, ptr %2, align 1, !range !7
   br label %28
 
 21:                                               ; preds = %18
@@ -1295,7 +1295,7 @@ define range(i32 -1, 1) i32 @H5C_set_cache_auto_resize_config(ptr noundef %0, pt
 
 ._crit_edge:                                      ; preds = %56
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !146
+  %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %88
 
 59:                                               ; preds = %.thread.i, %56
@@ -1542,7 +1542,7 @@ H5C_validate_resize_config.exit:                  ; preds = %78, %61
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 524888
   %198 = load i64, ptr %197, align 8, !tbaa !45
   %.phi.trans.insert99 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.pre100 = load i64, ptr %.phi.trans.insert99, align 8, !tbaa !32
+  %.pre100 = load i64, ptr %.phi.trans.insert99, align 8
   br label %211
 
 199:                                              ; preds = %189
@@ -2497,8 +2497,8 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr noundef captures(none) %0, i64 noundef
   store ptr %137, ptr %223, align 8, !tbaa !119
   store ptr %198, ptr %216, align 8, !tbaa !120
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %214, i64 8
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !123
-  %.pre700 = load ptr, ptr %214, align 8, !tbaa !90
+  %.pre = load i32, ptr %.phi.trans.insert, align 8
+  %.pre700 = load ptr, ptr %214, align 8
   br label %.critedge651
 
 .critedge651:                                     ; preds = %.critedge, %212
@@ -2675,6 +2675,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr noundef captures(none) %0, i64 noundef
   br label %.critedge655
 
 319:                                              ; preds = %253
+  store i32 %238, ptr %237, align 8, !tbaa !124
   store ptr %240, ptr %236, align 8, !tbaa !126
   %320 = load ptr, ptr %242, align 8, !tbaa !187
   %.not640 = icmp eq ptr %320, null
@@ -2683,7 +2684,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr noundef captures(none) %0, i64 noundef
 321:                                              ; preds = %319
   %322 = getelementptr inbounds nuw i8, ptr %320, i64 32
   store ptr %240, ptr %322, align 8, !tbaa !127
-  %.pre701 = load ptr, ptr %241, align 8, !tbaa !180
+  %.pre701 = load ptr, ptr %241, align 8
   br label %323
 
 323:                                              ; preds = %321, %319
@@ -2743,7 +2744,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr noundef captures(none) %0, i64 noundef
   %352 = phi ptr [ %349, %345 ], [ %342, %338 ]
   %.not646 = icmp eq ptr %352, null
   %.phi.trans.insert704 = getelementptr inbounds nuw i8, ptr %351, i64 32
-  %.pre705 = load ptr, ptr %.phi.trans.insert704, align 8, !tbaa !85
+  %.pre705 = load ptr, ptr %.phi.trans.insert704, align 8
   br i1 %.not646, label %._crit_edge703, label %353
 
 353:                                              ; preds = %350
@@ -2904,7 +2905,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr noundef captures(none) %0, i64 noundef
   %445 = phi ptr [ %437, %443 ], [ %29, %438 ]
   %.not626 = icmp eq ptr %437, null
   %.phi.trans.insert707 = getelementptr inbounds nuw i8, ptr %445, i64 32
-  %.pre708 = load ptr, ptr %.phi.trans.insert707, align 8, !tbaa !85
+  %.pre708 = load ptr, ptr %.phi.trans.insert707, align 8
   br i1 %.not626, label %._crit_edge706, label %446
 
 446:                                              ; preds = %444
@@ -2944,7 +2945,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr noundef captures(none) %0, i64 noundef
   %470 = load ptr, ptr %469, align 8, !tbaa !128
   %.not627 = icmp eq ptr %470, null
   %.phi.trans.insert710 = getelementptr inbounds nuw i8, ptr %.4, i64 64
-  %.pre711 = load ptr, ptr %.phi.trans.insert710, align 8, !tbaa !127
+  %.pre711 = load ptr, ptr %.phi.trans.insert710, align 8
   br i1 %.not627, label %._crit_edge709, label %471
 
 471:                                              ; preds = %468

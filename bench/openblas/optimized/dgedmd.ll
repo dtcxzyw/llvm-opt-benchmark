@@ -562,8 +562,8 @@ default.unreachable:                              ; preds = %142
   br i1 %.not959.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %294
-  %.pre = load i32, ptr %13, align 4, !tbaa !3
-  %.pre1183 = load i32, ptr %6, align 4, !tbaa !3
+  %.pre = load i32, ptr %13, align 4
+  %.pre1183 = load i32, ptr %6, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %253
@@ -655,7 +655,7 @@ default.unreachable:                              ; preds = %142
 
 .loopexit1058:                                    ; preds = %336, %302, %.thread1032
   %.0864 = phi i32 [ 0, %.thread1032 ], [ 0, %302 ], [ %.2866, %336 ]
-  %.pre1186 = load i32, ptr %6, align 4, !tbaa !3
+  %.pre1186 = load i32, ptr %6, align 4
   br i1 %84, label %339, label %.loopexit1057
 
 339:                                              ; preds = %.loopexit1058
@@ -743,7 +743,7 @@ default.unreachable:                              ; preds = %142
   br i1 %.not961.not, label %.lr.ph1077, label %._crit_edge1078, !llvm.loop !13
 
 ._crit_edge1078:                                  ; preds = %377
-  %.pre1184 = load i32, ptr %6, align 4, !tbaa !3
+  %.pre1184 = load i32, ptr %6, align 4
   store i32 %.pre1184, ptr %31, align 4, !tbaa !3
   %invariant.gep1079 = getelementptr i8, ptr %52, i64 8
   %.not9621085 = icmp slt i32 %.pre1184, 1
@@ -812,7 +812,7 @@ default.unreachable:                              ; preds = %142
   br i1 %.not962.not, label %.lr.ph1089, label %.loopexit1057.loopexit, !llvm.loop !14
 
 .loopexit1057.loopexit:                           ; preds = %410
-  %.pre1185 = load i32, ptr %6, align 4, !tbaa !3
+  %.pre1185 = load i32, ptr %6, align 4
   br label %.loopexit1057
 
 .loopexit1057:                                    ; preds = %339, %.loopexit1057.loopexit, %._crit_edge1078, %.loopexit1058
@@ -964,11 +964,12 @@ default.unreachable:                              ; preds = %142
 .lr.ph1094:                                       ; preds = %485
   %488 = load double, ptr %12, align 8, !tbaa !7
   %wide.trip.count = zext nneg i32 %486 to i64
+  %.pre1187 = load double, ptr %25, align 8
   br label %489
 
 489:                                              ; preds = %.lr.ph1094, %497
   %490 = phi i32 [ 1, %.lr.ph1094 ], [ %498, %497 ]
-  %491 = phi double [ %465, %.lr.ph1094 ], [ %493, %497 ]
+  %491 = phi double [ %.pre1187, %.lr.ph1094 ], [ %493, %497 ]
   %indvars.iv1152 = phi i64 [ 1, %.lr.ph1094 ], [ %indvars.iv.next1153, %497 ]
   %492 = getelementptr double, ptr %25, i64 %indvars.iv1152
   %493 = load double, ptr %492, align 8, !tbaa !7
@@ -1045,7 +1046,7 @@ default.unreachable:                              ; preds = %142
 
 520:                                              ; preds = %.loopexit1054
   %.not9671112 = icmp slt i32 %509, 1
-  %.pre1188 = load i32, ptr %6, align 4, !tbaa !3
+  %.pre1188 = load i32, ptr %6, align 4
   br i1 %.not9671112, label %._crit_edge1116, label %.lr.ph1115
 
 .lr.ph1115:                                       ; preds = %520

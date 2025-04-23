@@ -204,12 +204,11 @@ define linkonce_odr ptr @_ZNSt6vectorIPK19grpc_channel_filterSaIS2_EE6insertEN9_
   %27 = sub nsw i64 0, %26
   %28 = getelementptr inbounds ptr, ptr %9, i64 %27
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %18, i64 %25, i1 false)
-  %.pre.pre = load ptr, ptr %0, align 8, !tbaa !20
   br label %29
 
 29:                                               ; preds = %23, %17
-  %.pre = phi ptr [ %.pre.pre, %23 ], [ %4, %17 ]
   store ptr %19, ptr %18, align 8, !tbaa !11
+  %.pre = load ptr, ptr %0, align 8
   br label %54
 
 30:                                               ; preds = %3

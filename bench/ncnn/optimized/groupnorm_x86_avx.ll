@@ -267,7 +267,7 @@ define internal void @_ZNK4ncnn17GroupNorm_x86_avx15forward_inplaceERNS_3MatERKN
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 220
-  %.pre = load i32, ptr %4, align 4, !tbaa !37
+  %.pre = load i32, ptr %4, align 4
   br label %26
 
 26:                                               ; preds = %.lr.ph322, %_ZN4ncnn3MatD2Ev.exit146
@@ -899,7 +899,7 @@ define internal void @_ZNK4ncnn17GroupNorm_x86_avx15forward_inplaceERNS_3MatERKN
   br i1 %132, label %.lr.ph278.preheader, label %_ZN4ncnn3MatD2Ev.exit
 
 .lr.ph278.preheader:                              ; preds = %.preheader204
-  %.pre = load i32, ptr %6, align 4, !tbaa !37
+  %.pre = load i32, ptr %6, align 4
   br label %.lr.ph278
 
 .lr.ph278:                                        ; preds = %.lr.ph278.preheader, %._crit_edge272
@@ -1113,12 +1113,10 @@ define internal void @_ZNK4ncnn17GroupNorm_x86_avx15forward_inplaceERNS_3MatERKN
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 220
-  %.pre = load i32, ptr %4, align 4, !tbaa !37
-  %.pre408.pre = load i32, ptr %5, align 4, !tbaa !37
+  %.pre = load i32, ptr %4, align 4
   br label %31
 
 31:                                               ; preds = %.lr.ph375, %_ZN4ncnn3MatD2Ev.exit
-  %.pre408 = phi i32 [ %.pre408.pre, %.lr.ph375 ], [ %.pre408409, %_ZN4ncnn3MatD2Ev.exit ]
   %32 = phi i32 [ %.pre, %.lr.ph375 ], [ %165, %_ZN4ncnn3MatD2Ev.exit ]
   %.0109373 = phi i32 [ %19, %.lr.ph375 ], [ %166, %_ZN4ncnn3MatD2Ev.exit ]
   %33 = mul nsw i32 %32, %.0109373
@@ -1150,6 +1148,7 @@ define internal void @_ZNK4ncnn17GroupNorm_x86_avx15forward_inplaceERNS_3MatERKN
   %59 = mul i64 %58, %39
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 %59
   %61 = icmp sgt i32 %32, 0
+  %.pre408 = load i32, ptr %5, align 4
   br i1 %61, label %_ZN4ncnn3MatD2Ev.exit137.lr.ph, label %._crit_edge316.thread
 
 ._crit_edge316.thread:                            ; preds = %31
@@ -1358,14 +1357,12 @@ _ZN4ncnn3MatD2Ev.exit136:                         ; preds = %._crit_edge316, %._
   br i1 %exitcond402.not, label %._crit_edge346, label %_ZN4ncnn3MatD2Ev.exit136, !llvm.loop !111
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge366, %._crit_edge346
-  %.pre408409 = phi i32 [ %.pre408, %._crit_edge346 ], [ %.pre408410, %._crit_edge366 ]
   %165 = phi i32 [ %32, %._crit_edge346 ], [ %216, %._crit_edge366 ]
   %166 = add i32 %.0109373, 1
   %exitcond407.not = icmp eq i32 %.0109373, %18
   br i1 %exitcond407.not, label %._crit_edge376, label %31
 
 167:                                              ; preds = %.lr.ph371, %._crit_edge366
-  %.pre408412 = phi i32 [ %.pre408, %.lr.ph371 ], [ %.pre408410, %._crit_edge366 ]
   %168 = phi i32 [ %.pre408, %.lr.ph371 ], [ %199, %._crit_edge366 ]
   %indvars.iv404 = phi i64 [ 0, %.lr.ph371 ], [ %indvars.iv.next405, %._crit_edge366 ]
   %.0107368 = phi ptr [ %60, %.lr.ph371 ], [ %215, %._crit_edge366 ]
@@ -1409,7 +1406,6 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge366, %._
   br i1 %191, label %.lr.ph352, label %._crit_edge353, !llvm.loop !112
 
 ._crit_edge353:                                   ; preds = %.lr.ph352, %176
-  %.pre408411 = phi i32 [ %.pre408412, %176 ], [ %190, %.lr.ph352 ]
   %192 = phi i32 [ %168, %176 ], [ %190, %.lr.ph352 ]
   %.0101.lcssa = phi ptr [ %178, %176 ], [ %187, %.lr.ph352 ]
   %.0.lcssa = phi i32 [ 0, %176 ], [ %188, %.lr.ph352 ]
@@ -1422,7 +1418,6 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge366, %._
   br i1 %198, label %.lr.ph359, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph359, %._crit_edge353
-  %.pre408410 = phi i32 [ %.pre408411, %._crit_edge353 ], [ %207, %.lr.ph359 ]
   %199 = phi i32 [ %192, %._crit_edge353 ], [ %207, %.lr.ph359 ]
   %.1102.lcssa = phi ptr [ %.0101.lcssa, %._crit_edge353 ], [ %204, %.lr.ph359 ]
   %.1.lcssa = phi i32 [ %.0.lcssa, %._crit_edge353 ], [ %205, %.lr.ph359 ]

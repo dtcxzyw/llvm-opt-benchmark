@@ -598,7 +598,7 @@ for.body18.us:                                    ; preds = %for.cond14.preheade
 
 if.then.us:                                       ; preds = %for.body18.us
   store i16 -1, ptr %row.0162.us, align 2, !tbaa !42
-  %.pre26 = load i8, ptr %arrayidx.us, align 1, !tbaa !41
+  %.pre26 = load i8, ptr %arrayidx.us, align 1
   %.pre27 = zext i8 %.pre26 to i32
   br label %if.end.us
 
@@ -6145,6 +6145,7 @@ if.then.i762:                                     ; preds = %do.end
   call void @llvm.memset.p0.i64(ptr align 4 %174, i8 0, i64 %177, i1 false), !tbaa !30
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %174, i64 %177
   store ptr %scevgep.i.i.i.i.i, ptr %_M_finish.i.i753, align 8, !tbaa !220
+  %.pre72 = load ptr, ptr %tmp_positions, align 8
   br label %if.then.i.i.i.i.i.i
 
 _ZNKSt6vectorIN3irr4core8vector2dIiEESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.then.i762
@@ -6252,7 +6253,7 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont288, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %.noexc701.thread56, %.noexc701, %.noexc701.thread
-  %189 = phi ptr [ %call5.i.i.i.i.i771, %.noexc701.thread56 ], [ %175, %.noexc701 ], [ %175, %.noexc701.thread ]
+  %189 = phi ptr [ %call5.i.i.i.i.i771, %.noexc701.thread56 ], [ %175, %.noexc701 ], [ %.pre72, %.noexc701.thread ]
   %add.ptr.idx.i = shl nuw nsw i64 %conv.i698, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %189, ptr align 4 %add.ptr.i.i697, i64 %add.ptr.idx.i, i1 false)
   br label %invoke.cont288
@@ -11899,9 +11900,9 @@ if.then:                                          ; preds = %while.end, %entry
 if.else:                                          ; preds = %if.then
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa61) #31
   %_M_string_length.i.i.i.i.i27.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i, i64 40
-  %.pre = load i64, ptr %_M_string_length.i.i.i.i.i27.phi.trans.insert, align 8, !tbaa !101
+  %.pre = load i64, ptr %_M_string_length.i.i.i.i.i27.phi.trans.insert, align 8
   %_M_string_length.i10.i.i.i.i28.phi.trans.insert = getelementptr inbounds nuw i8, ptr %__k, i64 8
-  %.pre1 = load i64, ptr %_M_string_length.i10.i.i.i.i28.phi.trans.insert, align 8, !tbaa !101
+  %.pre1 = load i64, ptr %_M_string_length.i10.i.i.i.i28.phi.trans.insert, align 8
   %.pre2 = tail call i64 @llvm.umin.i64(i64 %.pre1, i64 %.pre)
   br label %if.end12
 

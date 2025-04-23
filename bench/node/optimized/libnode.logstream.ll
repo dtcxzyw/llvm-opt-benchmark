@@ -352,7 +352,7 @@ if.else:                                          ; preds = %while.body
   br i1 %cmp2.i, label %while.body.lr.ph.i, label %_ZN4node4quic9LogStream12ensure_spaceEm.exit
 
 while.body.lr.ph.i:                               ; preds = %if.else
-  %.pre.i = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !8
+  %.pre.i = load ptr, ptr %_M_start.i.i.i, align 8
   %.pre3.i = load ptr, ptr %_M_last.i.i, align 8
   br label %while.body.i
 
@@ -392,7 +392,7 @@ _ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE9pop_frontEv.exit.i: ; preds = %
   store ptr %storemerge.i.i, ptr %_M_start.i.i.i, align 8
   %add.i11 = add i64 %19, %10
   %cmp.i12 = icmp ugt i64 %add.i11, 10240
-  br i1 %cmp.i12, label %while.body.i, label %_ZN4node4quic9LogStream12ensure_spaceEm.exit.loopexit, !llvm.loop !11
+  br i1 %cmp.i12, label %while.body.i, label %_ZN4node4quic9LogStream12ensure_spaceEm.exit.loopexit, !llvm.loop !8
 
 _ZN4node4quic9LogStream12ensure_spaceEm.exit.loopexit: ; preds = %_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE9pop_frontEv.exit.i
   %.pre = load i64, ptr %1, align 8
@@ -423,7 +423,7 @@ if.else.i.i18:                                    ; preds = %_ZN4node4quic9LogSt
 
 if.end15:                                         ; preds = %if.else.i.i18, %if.then.i.i16, %_ZN4node14StreamResource8EmitReadElRK8uv_buf_t.exit
   %cmp3.not = icmp eq i64 %sub, 0
-  br i1 %cmp3.not, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %cmp3.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %if.end15, %if.end
   %ended_ = getelementptr inbounds nuw i8, ptr %this, i64 129
@@ -468,7 +468,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %_M_node.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %.pre = load ptr, ptr %_M_start.i.i, align 8, !noalias !14
+  %.pre = load ptr, ptr %_M_start.i.i, align 8
   %.pre3 = load ptr, ptr %_M_last.i, align 8
   br label %while.body
 
@@ -508,7 +508,7 @@ _ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE9pop_frontEv.exit: ; preds = %if
   store ptr %storemerge.i, ptr %_M_start.i.i, align 8
   %add = add i64 %8, %amt
   %cmp = icmp ugt i64 %add, 10240
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE9pop_frontEv.exit, %entry
   ret void
@@ -542,12 +542,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 152
-  %1 = load ptr, ptr %_M_start.i, align 8, !noalias !17
+  %1 = load ptr, ptr %_M_start.i, align 8, !noalias !11
   %_M_first3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %_M_last4.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %_M_node5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %2 = load ptr, ptr %_M_finish.i, align 8, !noalias !20
+  %2 = load ptr, ptr %_M_finish.i, align 8, !noalias !14
   %_M_first3.i.i4 = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_last4.i.i6 = getelementptr inbounds nuw i8, ptr %this, i64 200
   %_M_node5.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -555,8 +555,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.not17, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %3 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !17
-  %4 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !17
+  %3 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !11
+  %4 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !11
   %bytes_read_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %listener_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   br label %for.body
@@ -600,16 +600,16 @@ _ZNSt15_Deque_iteratorIN4node4quic9LogStream5ChunkERS3_PS3_EppEv.exit: ; preds =
   br i1 %cmp.i.i.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %_ZNSt15_Deque_iteratorIN4node4quic9LogStream5ChunkERS3_PS3_EppEv.exit
-  %.pre = load ptr, ptr %_M_start.i, align 8, !noalias !23
+  %.pre = load ptr, ptr %_M_start.i, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end
   %10 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %if.end ]
   %total_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i64 0, ptr %total_, align 8
-  %11 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !23
-  %12 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !23
-  %13 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !23
+  %11 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !17
+  %12 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !17
+  %13 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !17
   %14 = load ptr, ptr %_M_node5.i.i8, align 8
   %cmp3.i.i.i = icmp ult ptr %13, %14
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5clearEv.exit
@@ -620,7 +620,7 @@ for.body.i.i.i:                                   ; preds = %for.end, %for.body.
   %15 = load ptr, ptr %__n.04.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %15) #21
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %14
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5clearEv.exit, !llvm.loop !26
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5clearEv.exit, !llvm.loop !20
 
 _ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5clearEv.exit: ; preds = %for.body.i.i.i, %for.end
   store ptr %10, ptr %_M_finish.i, align 8
@@ -824,13 +824,13 @@ _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit.i.i
   %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 72
-  %7 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !27
+  %7 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !21
   %cmp.i.i.i1.i.i.i = icmp eq ptr %5, %7
   br i1 %cmp.i.i.i1.i.i.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i: ; preds = %if.end.i.i.i
   %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 88
-  %8 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !27
+  %8 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !21
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   %9 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 504
@@ -887,7 +887,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   tail call void @_ZdlPv(ptr noundef %3) #21
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i, i64 8
   %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %2
-  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN4node4quic9LogStream5ChunkESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !26
+  br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt11_Deque_baseIN4node4quic9LogStream5ChunkESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i, !llvm.loop !20
 
 _ZNSt11_Deque_baseIN4node4quic9LogStream5ChunkESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i: ; preds = %for.body.i.i.i
   %.pre.i.i = load ptr, ptr %buffer_, align 8
@@ -933,7 +933,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   tail call void @_ZdlPv(ptr noundef %3) #21
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %2
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4node4quic9LogStream5ChunkESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, !llvm.loop !26
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4node4quic9LogStream5ChunkESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, !llvm.loop !20
 
 _ZNSt11_Deque_baseIN4node4quic9LogStream5ChunkESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i: ; preds = %for.body.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %buffer_.i, align 8
@@ -1071,7 +1071,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   tail call void @_ZdlPv(ptr noundef %4) #21
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i.i, i64 8
   %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %3
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4node4quic9LogStream5ChunkESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, !llvm.loop !26
+  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4node4quic9LogStream5ChunkESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i, !llvm.loop !20
 
 _ZNSt11_Deque_baseIN4node4quic9LogStream5ChunkESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i: ; preds = %for.body.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %buffer_.i, align 8
@@ -1117,7 +1117,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %f
   tail call void @_ZdlPv(ptr noundef %4) #21
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i.i.i, i64 8
   %cmp.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i, %3
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node4quic9LogStream5ChunkESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i.i, !llvm.loop !26
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4node4quic9LogStream5ChunkESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i.i, !llvm.loop !20
 
 _ZNSt11_Deque_baseIN4node4quic9LogStream5ChunkESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.loopexit.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   %.pre.i.i.i.i = load ptr, ptr %buffer_.i.i, align 8
@@ -1607,25 +1607,19 @@ attributes #21 = { builtin nounwind }
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZN4node22MakeDetachedBaseObjectINS_4quic9LogStreamEJRPNS_11EnvironmentERN2v85LocalINS6_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb0EEEDpOT0_: %agg.result"}
 !7 = distinct !{!7, !"_ZN4node22MakeDetachedBaseObjectINS_4quic9LogStreamEJRPNS_11EnvironmentERN2v85LocalINS6_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb0EEEDpOT0_"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5beginEv: %agg.result"}
-!10 = distinct !{!10, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5beginEv"}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5beginEv: %agg.result"}
+!13 = distinct !{!13, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5beginEv"}
 !14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5beginEv: %agg.result"}
-!16 = distinct !{!16, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5beginEv"}
+!15 = distinct !{!15, !16, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE3endEv: %agg.result"}
+!16 = distinct !{!16, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE3endEv"}
 !17 = !{!18}
 !18 = distinct !{!18, !19, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5beginEv: %agg.result"}
 !19 = distinct !{!19, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5beginEv"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE3endEv: %agg.result"}
-!22 = distinct !{!22, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE3endEv"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5beginEv: %agg.result"}
-!25 = distinct !{!25, !"_ZNSt5dequeIN4node4quic9LogStream5ChunkESaIS3_EE5beginEv"}
-!26 = distinct !{!26, !12}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!29 = distinct !{!29, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!20 = distinct !{!20, !9}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!23 = distinct !{!23, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}

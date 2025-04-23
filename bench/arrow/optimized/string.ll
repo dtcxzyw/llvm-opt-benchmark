@@ -219,7 +219,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
           to label %.noexc30 unwind label %.loopexit
 
 .noexc30:                                         ; preds = %37
-  %.pre.i = load ptr, ptr %0, align 8, !tbaa !10
+  %.pre.i = load ptr, ptr %0, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %.noexc30
@@ -443,8 +443,7 @@ _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %.lr.ph
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %.lr.ph
   call void @_ZN5arrow6Status8FromArgsIJRA26_KcEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %5, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(26) @.str.6)
-  %.pr = load ptr, ptr %5, align 8, !tbaa !27, !noalias !36
-  call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  %.pr = load ptr, ptr %5, align 8
   store ptr %.pr, ptr %0, align 8, !tbaa !27, !alias.scope !36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
   %25 = icmp eq ptr %.pr, null
@@ -1006,7 +1005,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   store ptr %31, ptr %0, align 8, !tbaa !10
   %38 = load i64, ptr %32, align 8, !tbaa !9
   store i64 %38, ptr %30, align 8, !tbaa !9
-  %.pre = load i64, ptr %3, align 8, !tbaa !15
+  %.pre = load i64, ptr %3, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
@@ -1706,7 +1705,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %202 = load i64, ptr %195, align 8, !tbaa !9
   store i64 %202, ptr %193, align 8, !tbaa !9
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !15
+  %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %197, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i

@@ -38,7 +38,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h48fa2ec28aba1a87E(ptr
 
 "_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9a48f454f634e324E.exit": ; preds = %.noexc
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %.pr = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8, !range !3
   %.not = icmp eq i64 %.pr, -9223372036854775807
   br i1 %.not, label %.loopexit4, label %9
 
@@ -118,7 +118,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17h327144897aace8c7E
 
 "_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9a48f454f634e324E.exit.i": ; preds = %.noexc.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  %.pr.i = load i64, ptr %4, align 8
+  %.pr.i = load i64, ptr %4, align 8, !range !3
   %.not.i = icmp eq i64 %.pr.i, -9223372036854775807
   br i1 %.not.i, label %.loopexit4.i, label %10
 
@@ -236,3 +236,4 @@ attributes #7 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
+!3 = !{i64 0, i64 -9223372036854775806}

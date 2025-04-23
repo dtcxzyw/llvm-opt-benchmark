@@ -243,7 +243,7 @@ _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %74, %_ZNK20b3Ali
   store i8 1, ptr %71, align 8, !tbaa !21
   store ptr %.0.i18.i.i, ptr %69, align 8, !tbaa !25
   store i32 %.0.i.i, ptr %49, align 8, !tbaa !27
-  %.pre.i = load i32, ptr %47, align 4, !tbaa !26
+  %.pre.i = load i32, ptr %47, align 4
   br label %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit
 
 _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %30, %52, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i
@@ -309,7 +309,6 @@ _ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit15.i.i: ; preds = %_ZN20b3Aligned
   br label %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit.i.i
 
 _ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit.i.i: ; preds = %99, %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit15.i.i, %.split.i.i17
-  %.pre3.i = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit15.i.i ], [ %96, %.split.i.i17 ], [ %96, %99 ]
   %.0.i18.i.i18 = phi ptr [ null, %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit15.i.i ], [ %94, %.split.i.i17 ], [ %94, %99 ]
   %.0.i.i19 = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit15.i.i ], [ %89, %.split.i.i17 ], [ %89, %99 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -323,14 +322,13 @@ _ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit.i.i: ; preds = %99, %_ZNK20b3Ali
 
 109:                                              ; preds = %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit.i.i
   call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %105)
-  %.pre.pre.i = load i32, ptr %82, align 4, !tbaa !32
   br label %_ZN20b3AlignedObjectArrayIPvE10deallocateEv.exit.i.i
 
 _ZN20b3AlignedObjectArrayIPvE10deallocateEv.exit.i.i: ; preds = %109, %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit.i.i
-  %.pre.i22 = phi i32 [ %.pre.pre.i, %109 ], [ %.pre3.i, %_ZNK20b3AlignedObjectArrayIPvE4copyEiiPS0_.exit.i.i ]
   store i8 1, ptr %106, align 8, !tbaa !28
   store ptr %.0.i18.i.i18, ptr %104, align 8, !tbaa !31
   store i32 %.0.i.i19, ptr %84, align 8, !tbaa !33
+  %.pre.i22 = load i32, ptr %82, align 4
   br label %_ZN20b3AlignedObjectArrayIPvE9push_backERKS0_.exit
 
 _ZN20b3AlignedObjectArrayIPvE9push_backERKS0_.exit: ; preds = %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit, %87, %_ZN20b3AlignedObjectArrayIPvE10deallocateEv.exit.i.i
@@ -438,7 +436,7 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE10deallocate
   store i8 1, ptr %32, align 8, !tbaa !4
   store ptr %.0.i18.i, ptr %30, align 8, !tbaa !13
   store i32 %.0.i, ptr %5, align 8, !tbaa !14
-  %.pre = load i32, ptr %3, align 4, !tbaa !34
+  %.pre = load i32, ptr %3, align 4
   br label %36
 
 36:                                               ; preds = %2, %8, %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEE10deallocateEv.exit.i
@@ -548,7 +546,7 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE10deallocateEv.
   store i8 1, ptr %34, align 8, !tbaa !15
   store ptr %.0.i18.i, ptr %32, align 8, !tbaa !19
   store i32 %.0.i, ptr %5, align 8, !tbaa !20
-  %.pre = load i32, ptr %3, align 4, !tbaa !35
+  %.pre = load i32, ptr %3, align 4
   br label %38
 
 38:                                               ; preds = %2, %8, %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39JointDataEE10deallocateEv.exit.i
@@ -724,7 +722,7 @@ define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitC
 
 ..lr.ph.i_crit_edge:                              ; preds = %7
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !25
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.lr.ph.i
 
 11:                                               ; preds = %7
