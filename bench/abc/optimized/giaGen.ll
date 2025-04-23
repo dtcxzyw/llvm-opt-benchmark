@@ -7755,12 +7755,12 @@ Vec_IntPush.exit86:                               ; preds = %.Vec_IntGrow.exit10
 
 104:                                              ; preds = %.lr.ph101, %104
   %indvars.iv116 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next117, %104 ]
-  %.idx = shl nuw nsw i64 %indvars.iv116, 3
-  %105 = getelementptr inbounds nuw i8, ptr %.val71, i64 %.idx
-  %106 = load i32, ptr %105, align 4, !tbaa !19
-  %107 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %108 = load i32, ptr %107, align 4, !tbaa !19
-  %109 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %21, i32 noundef %106, i32 noundef %108) #21
+  %105 = shl nuw nsw i64 %indvars.iv116, 3
+  %106 = getelementptr inbounds nuw i8, ptr %.val71, i64 %105
+  %107 = load i32, ptr %106, align 4, !tbaa !19
+  %gep = getelementptr inbounds nuw i8, ptr %105, i64 4
+  %108 = load i32, ptr %gep, align 4, !tbaa !19
+  %109 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %21, i32 noundef %107, i32 noundef %108) #21
   %110 = getelementptr inbounds nuw i32, ptr %.val71, i64 %indvars.iv116
   store i32 %109, ptr %110, align 4, !tbaa !19
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1

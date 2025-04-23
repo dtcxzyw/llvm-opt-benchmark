@@ -33848,7 +33848,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers10TermGenEnv13changeCon
   %8 = load i32, ptr %7, align 8, !tbaa !856
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !856
-  br label %69
+  br label %68
 
 10:                                               ; preds = %.preheader, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit
   %11 = phi i1 [ true, %.preheader ], [ false, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit ]
@@ -33984,13 +33984,13 @@ _ZNSt3mapIjN4cvc58internal6theory11quantifiers13TermGeneratorESt4lessIjESaISt4pa
   %.sroa.037.0.i.i.i = phi ptr [ %.08.lcssa.i.i.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjN4cvc58internal6theory11quantifiers13TermGeneratorEESt10_Select1stIS7_ESt4lessIjESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %38, %32 ], [ %.08.lcssa.i.i.i.i, %.lr.ph.i25.i.i.i ], [ %.123.i.i.i, %55 ]
   %.sroa.3.0.i.i.i = phi ptr [ %.02243.i.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjN4cvc58internal6theory11quantifiers13TermGeneratorEESt10_Select1stIS7_ESt4lessIjESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %38, %32 ], [ %.19.i28.i.i.i, %.lr.ph.i25.i.i.i ], [ %.123.i.i.i, %55 ]
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjN4cvc58internal6theory11quantifiers13TermGeneratorEESt10_Select1stIS7_ESt4lessIjESaIS7_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS7_ESF_(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr %.sroa.037.0.i.i.i, ptr %.sroa.3.0.i.i.i)
-  br label %69
+  br label %68
 
-.preheader15:                                     ; preds = %2, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit
-  %57 = phi i1 [ false, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit ], [ true, %2 ]
+57:                                               ; preds = %2, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit
+  %58 = phi i1 [ false, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit ], [ true, %2 ]
   %indvars.iv = phi i64 [ 24, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit ], [ 0, %2 ]
-  %58 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %gep = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !311
   %61 = getelementptr inbounds i8, ptr %60, i64 -24
   store ptr %61, ptr %59, align 8, !tbaa !311
@@ -33998,7 +33998,7 @@ _ZNSt3mapIjN4cvc58internal6theory11quantifiers13TermGeneratorESt4lessIjESaISt4pa
   %.not.i.i.i.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit, label %63
 
-63:                                               ; preds = %.preheader15
+63: ; preds = %58
   %64 = getelementptr inbounds i8, ptr %60, i64 -8
   %65 = load ptr, ptr %64, align 8, !tbaa !18
   %66 = ptrtoint ptr %65 to i64
@@ -34007,10 +34007,10 @@ _ZNSt3mapIjN4cvc58internal6theory11quantifiers13TermGeneratorESt4lessIjESaISt4pa
   tail call void @_ZdlPvm(ptr noundef nonnull %62, i64 noundef %68) #33
   br label %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit
 
-_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit: ; preds = %.preheader15, %63
-  br i1 %57, label %.preheader15, label %32, !llvm.loop !1042
+_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb0EEESaIS3_EESaIS5_EE8pop_backEv.exit: ; preds = %57, %63
+  br i1 %58, label %57, label %32, !llvm.loop !1042
 
-69:                                               ; preds = %_ZNSt3mapIjN4cvc58internal6theory11quantifiers13TermGeneratorESt4lessIjESaISt4pairIKjS4_EEE5eraseERS8_.exit, %6
+68:                                               ; preds = %_ZNSt3mapIjN4cvc58internal6theory11quantifiers13TermGeneratorESt4lessIjESaISt4pairIKjS4_EEE5eraseERS8_.exit, %6
   ret void
 }
 

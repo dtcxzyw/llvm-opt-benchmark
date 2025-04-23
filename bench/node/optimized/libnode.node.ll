@@ -3474,8 +3474,8 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   %__begin2.0.ptr.i = getelementptr inbounds nuw i8, ptr @_ZN4nodeL5stdioE, i64 %__begin2.0.idx48.i
   %sub.ptr.div.i = udiv exact i64 %__begin2.0.idx48.i, 216
   %conv.i = trunc i64 %sub.ptr.div.i to i32
-  %stat.i = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr.i, i64 8
-  %call13.i = call i32 @fstat64(i32 noundef %conv.i, ptr noundef nonnull %stat.i) #22
+  %gep.i = getelementptr inbounds nuw i8, ptr %__begin2.0.ptr.i, i64 8
+  %call13.i = call i32 @fstat64(i32 noundef %conv.i, ptr noundef nonnull %gep.i) #22
   %cmp14.i = icmp eq i32 %call13.i, 0
   br i1 %cmp14.i, label %for.inc.i, label %if.end16.i
 
@@ -3529,7 +3529,7 @@ do.body48.i:                                      ; preds = %do.body41.i, %land.
   unreachable
 
 if.end54.i:                                       ; preds = %do.body41.i, %do.end29.i
-  %call56.i = call i32 @fstat64(i32 noundef %conv.i, ptr noundef nonnull %stat.i) #22
+  %call56.i = call i32 @fstat64(i32 noundef %conv.i, ptr noundef nonnull %gep.i) #22
   %cmp57.i = icmp slt i32 %call56.i, 0
   br i1 %cmp57.i, label %do.body59.i, label %for.inc.i
 

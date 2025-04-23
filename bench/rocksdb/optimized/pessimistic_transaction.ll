@@ -11659,7 +11659,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %67
   %.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ], [ %68, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i41 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #29
   %.not.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %101
+  br i1 %.not.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %98
 
 77:                                               ; preds = %.critedge, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i
   %.not27 = icmp eq ptr %2, null
@@ -11693,8 +11693,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %67
   %.045.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %99, %92 ]
   %93 = icmp ult i64 %.sroa.2.0.i.i.i.i, 8
   %94 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.sroa.2.0.i.i.i.i
-  %95 = getelementptr i64, ptr %84, i64 %.sroa.2.0.i.i.i.i
-  %96 = getelementptr i8, ptr %95, i64 -64
+  %.0.i.i.i.i.i.i.i = getelementptr i64, ptr %84, i64 %.sroa.2.0.i.i.i.i
+  %96 = getelementptr i8, ptr %.0.i.i.i.i.i.i.i, i64 -64
   %.0.i.i.i.i.i.i.i = select i1 %93, ptr %94, ptr %96
   %97 = load i64, ptr %.0.i.i.i.i.i.i.i, align 8, !tbaa !208
   store i64 %97, ptr %.045.i.i.i.i.i, align 8, !tbaa !208
@@ -11704,19 +11704,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %67
   br i1 %exitcond.not, label %.loopexit, label %92, !llvm.loop !483
 
 .loopexit:                                        ; preds = %92, %81
-  %100 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #29
+  %97 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #29
   ret void
 
-101:                                              ; preds = %.critedge33
-  %102 = ptrtoint ptr %31 to i64
-  %103 = ptrtoint ptr %32 to i64
-  %104 = sub i64 %102, %103
-  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %104) #28
+98:                                               ; preds = %.critedge33
+  %99 = ptrtoint ptr %31 to i64
+  %100 = ptrtoint ptr %32 to i64
+  %101 = sub i64 %99, %100
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %101) #28
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %101, %.critedge33, %63
+_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %98, %.critedge33, %63
   %.pn28.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn.pn, %.critedge33 ], [ %.pn.pn, %101 ]
-  %105 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #29
+  %102 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #29
   resume { ptr, i32 } %.pn28.pn.pn
 }
 

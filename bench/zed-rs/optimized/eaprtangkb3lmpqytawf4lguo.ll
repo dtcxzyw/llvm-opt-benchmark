@@ -11341,37 +11341,37 @@ define internal fastcc noundef align 8 dereferenceable_or_null(40) ptr @"_ZN9has
   %50 = add i64 %.sroa.01.0.i.i, %49
   %51 = and i64 %50, %41
   %52 = sub nsw i64 0, %51
-  %53 = getelementptr inbounds { i64, { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} } }, ptr %42, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 -40
+  %gep.i = getelementptr inbounds { i64, { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} } }, ptr %42, i64 %52
+  %54 = getelementptr inbounds i8, ptr %gep.i, i64 -40
   %.val3.i.i = load i64, ptr %54, align 8, !alias.scope !2202, !noalias !2207, !noundef !23
   %55 = icmp eq i64 %.0.val, %.val3.i.i
   br i1 %55, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h70a9db94c350167dE.exit", label %58
 
-._crit_edge.i:                                    ; preds = %58, %43
+._crit_edge.i:; preds = %58, %43
   %56 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i, splat (i8 -1)
   %57 = bitcast <16 x i1> %56 to i16
   %.not.i.i = icmp eq i16 %57, 0
   br i1 %.not.i.i, label %62, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h70a9db94c350167dE.exit"
 
-58:                                               ; preds = %.lr.ph.i
+58:; preds = %.lr.ph.i
   %59 = add i16 %.sroa.06.0.i26.i, -1
   %60 = and i16 %59, %.sroa.06.0.i26.i
   %61 = icmp eq i16 %60, 0
   br i1 %61, label %._crit_edge.i, label %.lr.ph.i
 
-62:                                               ; preds = %._crit_edge.i
-  %63 = add i64 %.sroa.9.0.i.i, 16
+62:; preds = %._crit_edge.i
+  %62 = add i64 %.sroa.9.0.i.i, 16
   %64 = add i64 %.sroa.01.0.i.i, %63
   br label %43
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h70a9db94c350167dE.exit": ; preds = %._crit_edge.i, %.lr.ph.i
+_ZN9hashbrown3raw13RawTableInner10find_inner17h1d7ee280cc3bcfc4E.exit.i: ; preds = %._crit_edge.i, %.lr.ph.i
   %65 = phi ptr [ %53, %.lr.ph.i ], [ null, %._crit_edge.i ]
   %66 = icmp eq ptr %65, null
   %67 = getelementptr inbounds i8, ptr %65, i64 -40
   %.sroa.0.1 = select i1 %66, ptr null, ptr %67
   br label %68
 
-68:                                               ; preds = %1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h70a9db94c350167dE.exit"
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h70a9db94c350167dE.exit": ; preds = %1, %_ZN9hashbrown3raw13RawTableInner10find_inner17h1d7ee280cc3bcfc4E.exit.i
   %.sroa.0.0 = phi ptr [ %.sroa.0.1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h70a9db94c350167dE.exit" ], [ null, %1 ]
   ret ptr %.sroa.0.0
 }

@@ -3882,11 +3882,11 @@ _ZN8LightGBM7Network9GlobalSumIdEESt6vectorIT_SaIS3_EEPS5_.exit: ; preds = %_ZNS
 
 103:                                              ; preds = %.lr.ph79, %140
   %indvars.iv85 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next86, %140 ]
-  %.idx91 = shl nuw nsw i64 %indvars.iv85, 4
-  %104 = getelementptr inbounds nuw i8, ptr %.sroa.068.0, i64 %.idx91
-  %105 = load double, ptr %104, align 8, !tbaa !31
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %107 = load double, ptr %106, align 8, !tbaa !31
+  %104 = shl nuw nsw i64 %indvars.iv85, 4
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.068.0, i64 %104
+  %106 = load double, ptr %105, align 8, !tbaa !31
+  %gep = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %107 = load double, ptr %gep, align 8, !tbaa !31
   %108 = load double, ptr %78, align 8, !tbaa !171
   %109 = load double, ptr %79, align 8, !tbaa !179
   %110 = load double, ptr %80, align 8, !tbaa !180
@@ -3911,13 +3911,13 @@ _ZN8LightGBM7Network9GlobalSumIdEESt6vectorIT_SaIS3_EEPS5_.exit: ; preds = %_ZNS
 
 117:                                              ; preds = %114
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %118 = call double @llvm.fabs.f64(double %105)
+  %118 = call double @llvm.fabs.f64(double %106)
   %119 = fsub double %118, %108
   %120 = fcmp ogt double %119, 0.000000e+00
   %.sroa.speculated.i.i = select i1 %120, double %119, double 0.000000e+00
-  %121 = fcmp ogt double %105, 0.000000e+00
+  %121 = fcmp ogt double %106, 0.000000e+00
   %122 = zext i1 %121 to i32
-  %123 = fcmp olt double %105, 0.000000e+00
+  %123 = fcmp olt double %106, 0.000000e+00
   %.neg.i.i.i = sext i1 %123 to i32
   %124 = add nsw i32 %.neg.i.i.i, %122
   %125 = sitofp i32 %124 to double

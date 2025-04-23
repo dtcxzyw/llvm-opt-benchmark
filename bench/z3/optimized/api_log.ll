@@ -522,28 +522,28 @@ define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN12_GLO
   %3 = alloca i8, align 1
   %4 = alloca [4 x i8], align 4
   %5 = load i8, ptr %.0.val, align 1, !tbaa !8
-  %.fr13 = freeze i8 %5
-  %.not4 = icmp eq i8 %.fr13, 0
-  br i1 %.not4, label %._crit_edge, label %.lr.ph
+  %.fr15 = freeze i8 %5
+  %.not6 = icmp eq i8 %.fr15, 0
+  br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   br label %8
 
-8:                                                ; preds = %.lr.ph, %44
-  %.fr16 = phi i8 [ %.fr13, %.lr.ph ], [ %.fr1, %44 ]
-  %.05 = phi ptr [ %.0.val, %.lr.ph ], [ %45, %44 ]
-  %9 = add i8 %.fr16, -48
+8:                                                ; preds = %.lr.ph, %40
+  %.fr18 = phi i8 [ %.fr15, %.lr.ph ], [ %.fr1, %44 ]
+  %.07 = phi ptr [ %.0.val, %.lr.ph ], [ %41, %44 ]
+  %9 = add i8 %.fr18, -48
   %or.cond = icmp ult i8 %9, 10
-  %10 = and i8 %.fr16, -33
+  %10 = and i8 %.fr18, -33
   %11 = add i8 %10, -65
   %12 = icmp ult i8 %11, 26
   %or.cond2 = or i1 %or.cond, %12
   br i1 %or.cond2, label %13, label %switch.early.test
 
 switch.early.test:                                ; preds = %8
-  switch i8 %.fr16, label %24 [
+  switch i8 %.fr18, label %24 [
     i8 126, label %13
     i8 95, label %13
     i8 94, label %13
@@ -566,36 +566,36 @@ switch.early.test:                                ; preds = %8
 
 13:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  store i8 %.fr16, ptr %3, align 1, !tbaa !8
+  store i8 %.fr18, ptr %3, align 1, !tbaa !8
   %14 = load ptr, ptr %0, align 8, !tbaa !9
   %15 = getelementptr i8, ptr %14, i64 -24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 %16
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %gep4 = getelementptr inbounds i8, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %gep4, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !11
   %.not.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i, label %22, label %20
 
+18:                                               ; preds = %13
+  %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i64 noundef 1)
+  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit
+
 20:                                               ; preds = %13
-  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i64 noundef 1)
+  %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %.fr18)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit
 
-22:                                               ; preds = %13
-  %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %.fr16)
-  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit
-
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit: ; preds = %20, %22
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit: ; preds = %18, %20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %44
+  br label %40
 
-24:                                               ; preds = %switch.early.test
+22:                                               ; preds = %switch.early.test
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
   store i32 3158064, ptr %4, align 4
-  %25 = urem i8 %.fr16, 10
-  %26 = or disjoint i8 %25, 48
-  store i8 %26, ptr %6, align 2, !tbaa !8
-  %27 = udiv i8 %.fr16, 10
-  %28 = urem i8 %27, 10
+  %23 = urem i8 %.fr18, 10
+  %24 = or disjoint i8 %23, 48
+  store i8 %24, ptr %6, align 2, !tbaa !8
+  %25 = udiv i8 %.fr18, 10
+  %26 = urem i8 %25, 10
   %29 = or disjoint i8 %28, 48
   store i8 %29, ptr %7, align 1, !tbaa !8
   %30 = udiv i8 %.fr16, 100
@@ -603,39 +603,39 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit: ; preds = %20, %22
   store i8 %31, ptr %4, align 4, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 92, ptr %2, align 1, !tbaa !8
-  %32 = load ptr, ptr %0, align 8, !tbaa !9
-  %33 = getelementptr i8, ptr %32, i64 -24
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %30 = load ptr, ptr %0, align 8, !tbaa !9
+  %31 = getelementptr i8, ptr %30, i64 -24
+  %32 = load i64, ptr %31, align 8
+  %gep = getelementptr inbounds i8, ptr %0, i64 %32
+  %36 = getelementptr inbounds nuw i8, ptr %gep, i64 16
   %37 = load i64, ptr %36, align 8, !tbaa !11
   %.not.i = icmp eq i64 %37, 0
   br i1 %.not.i, label %40, label %38
 
-38:                                               ; preds = %24
+38:; preds = %24
   %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, i64 noundef 1)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
 
-40:                                               ; preds = %24
-  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 92)
+36:                                               ; preds = %22
+  %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 92)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %38, %40
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %38, %36
   %.0.i = phi ptr [ %39, %38 ], [ %0, %40 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  %42 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
-  %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull %4, i64 noundef %42)
+  %38 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #12
+  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull %4, i64 noundef %38)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  br label %44
+  br label %40
 
-44:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit
-  %45 = getelementptr inbounds nuw i8, ptr %.05, i64 1
-  %46 = load i8, ptr %45, align 1, !tbaa !8
-  %.fr1 = freeze i8 %46
+40:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit
+  %41 = getelementptr inbounds nuw i8, ptr %.07, i64 1
+  %42 = load i8, ptr %41, align 1, !tbaa !8
+  %.fr1 = freeze i8 %42
   %.not = icmp eq i8 %.fr1, 0
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %44, %1
+._crit_edge:                                      ; preds = %40, %1
   ret ptr %0
 }
 

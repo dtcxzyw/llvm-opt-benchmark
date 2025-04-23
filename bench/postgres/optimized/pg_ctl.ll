@@ -2463,7 +2463,7 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
   store i32 0, ptr %1, align 4
   %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0, i32 noundef 0) #17
   %5 = icmp slt i32 %4, 0
-  br i1 %5, label %64, label %6
+  br i1 %5, label %63, label %6
 
 6:                                                ; preds = %2
   %7 = call i32 @fstat(i32 noundef %4, ptr noundef nonnull %3) #17
@@ -2472,7 +2472,7 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
 
 9:                                                ; preds = %6
   %10 = tail call i32 @close(i32 noundef %4) #17
-  br label %64
+  br label %63
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2484,7 +2484,7 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
   %16 = tail call i32 @close(i32 noundef %4) #17
   %17 = tail call ptr @pg_malloc(i64 noundef 8) #17
   store ptr null, ptr %17, align 8
-  br label %64
+  br label %63
 
 18:                                               ; preds = %11
   %19 = add i64 %13, 1
@@ -2507,7 +2507,7 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
 
 26:                                               ; preds = %18
   tail call void @free(ptr noundef %20) #17
-  br label %64
+  br label %63
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -2534,14 +2534,14 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
   %wide.trip.count80 = and i64 %21, 2147483647
   br label %.lr.ph73
 
-.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %61
+.lr.ph73:                                         ; preds = %.lr.ph73.preheader, %60
   %indvars.iv77 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next78, %61 ]
   %.05271 = phi i32 [ 0, %.lr.ph73.preheader ], [ %.153, %61 ]
   %.05669 = phi ptr [ %20, %.lr.ph73.preheader ], [ %.157, %61 ]
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv77
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 10
-  br i1 %37, label %38, label %61
+  br i1 %37, label %38, label %60
 
 38:                                               ; preds = %.lr.ph73
   %39 = ptrtoint ptr %35 to i64
@@ -2577,28 +2577,28 @@ define internal fastcc ptr @readfile(ptr noundef readonly captures(none) %0, ptr
   %58 = sext i32 %.05271 to i64
   %59 = getelementptr inbounds ptr, ptr %34, i64 %58
   store ptr %45, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  br label %61
+  %gep = getelementptr inbounds nuw i8, ptr %35, i64 1
+  br label %60
 
-61:                                               ; preds = %.lr.ph73, %55
-  %.157 = phi ptr [ %60, %55 ], [ %.05669, %.lr.ph73 ]
+60:                                               ; preds = %.lr.ph73, %55
+  %.157 = phi ptr [ %gep, %55 ], [ %.05669, %.lr.ph73 ]
   %.153 = phi i32 [ %57, %55 ], [ %.05271, %.lr.ph73 ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
   br i1 %exitcond81.not, label %._crit_edge74.loopexit, label %.lr.ph73, !llvm.loop !13
 
-._crit_edge74.loopexit:                           ; preds = %61
-  %62 = sext i32 %.153 to i64
+._crit_edge74.loopexit:                           ; preds = %60
+  %61 = sext i32 %.153 to i64
   br label %._crit_edge74
 
 ._crit_edge74:                                    ; preds = %._crit_edge74.loopexit, %._crit_edge
-  %.052.lcssa = phi i64 [ 0, %._crit_edge ], [ %62, %._crit_edge74.loopexit ]
-  %63 = getelementptr inbounds ptr, ptr %34, i64 %.052.lcssa
-  store ptr null, ptr %63, align 8
+  %.052.lcssa = phi i64 [ 0, %._crit_edge ], [ %61, %._crit_edge74.loopexit ]
+  %62 = getelementptr inbounds ptr, ptr %34, i64 %.052.lcssa
+  store ptr null, ptr %62, align 8
   tail call void @free(ptr noundef %20) #17
-  br label %64
+  br label %63
 
-64:                                               ; preds = %2, %._crit_edge74, %26, %15, %9
+63:                                               ; preds = %2, %._crit_edge74, %26, %15, %9
   %.0 = phi ptr [ null, %9 ], [ %17, %15 ], [ null, %26 ], [ %34, %._crit_edge74 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #17
   ret ptr %.0

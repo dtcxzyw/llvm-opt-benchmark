@@ -3786,20 +3786,20 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !38
   %wide.trip.count147 = zext nneg i16 %13 to i64
-  br i1 %.not.not, label %.lr.ph113.split, label %.lr.ph113.split.us
+  br i1 %.not.not, label %.lr.ph113.split, label %18
 
-.lr.ph113.split.us:                               ; preds = %.lr.ph113, %.thread.us
+18:                                               ; preds = %.lr.ph113, %.thread.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread.us ], [ 0, %.lr.ph113 ]
-  %18 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %17, i64 %indvars.iv, i32 1
-  %19 = load i32, ptr %18, align 8
+  %gep = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %17, i64 %indvars.iv, i32 1
+  %19 = load i32, ptr %gep, align 8
   %20 = and i32 %19, 33554432
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %._crit_edge.loopexit157, label %.thread.us
 
-.thread.us:                                       ; preds = %.lr.ph113.split.us
+.thread.us:                                       ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count147
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph113.split.us, !llvm.loop !115
+  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !115
 
 .lr.ph113.split:                                  ; preds = %.lr.ph113, %.thread
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %.thread ], [ 0, %.lr.ph113 ]
@@ -3895,7 +3895,7 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   %58 = trunc nuw nsw i64 %indvars.iv144 to i32
   br label %._crit_edge
 
-._crit_edge.loopexit157:                          ; preds = %.lr.ph113.split.us
+._crit_edge.loopexit157:                          ; preds = %18
   %59 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 

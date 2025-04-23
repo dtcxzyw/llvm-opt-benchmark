@@ -4289,13 +4289,13 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
   br label %45
 
 44:                                               ; preds = %45
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %exitcond98.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count
-  br i1 %exitcond98.not, label %.critedge, label %45, !llvm.loop !8
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %exitcond97.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count
+  br i1 %exitcond97.not, label %.critedge, label %45, !llvm.loop !8
 
 45:                                               ; preds = %.lr.ph, %44
-  %indvars.iv95 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next96, %44 ]
-  %.idx69 = shl nuw nsw i64 %indvars.iv95, 10
+  %indvars.iv94 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next95, %44 ]
+  %.idx69 = shl nuw nsw i64 %indvars.iv94, 10
   %46 = getelementptr i8, ptr %43, i64 %.idx69
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, %24
@@ -4329,20 +4329,20 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
 .lr.ph86:                                         ; preds = %57
   %.not71 = icmp eq i32 %59, 0
   %62 = zext i32 %59 to i64
-  %wide.trip.count107 = zext i32 %61 to i64
+  %wide.trip.count106 = zext i32 %61 to i64
   br i1 %.not71, label %.lr.ph86.split.us, label %.lr.ph86.split
 
 .lr.ph86.split.us:                                ; preds = %.lr.ph86, %.lr.ph86.split.us
-  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.lr.ph86.split.us ], [ 0, %.lr.ph86 ]
-  %.idx88 = mul nuw nsw i64 %indvars.iv104, 24
+  %indvars.iv103 = phi i64 [ %indvars.iv.next105, %.lr.ph86.split.us ], [ 0, %.lr.ph86 ]
+  %.idx88 = mul nuw nsw i64 %indvars.iv103, 24
   %63 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 %.idx88
   %64 = getelementptr i8, ptr %63, i64 8
   store i32 0, ptr %64, align 8
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
   br i1 %exitcond108.not, label %.critedge73, label %.lr.ph86.split.us, !llvm.loop !9
 
-.lr.ph86.split:                                   ; preds = %.lr.ph86, %68
+.lr.ph86.split:; preds = %.lr.ph86, %68
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %68 ], [ 0, %.lr.ph86 ]
   %65 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 0, i64 %indvars.iv99
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -4351,29 +4351,29 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
   %67 = icmp eq i32 %bcmp, 0
   br i1 %67, label %.thread, label %68
 
-68:                                               ; preds = %.lr.ph86.split
+68:; preds = %.lr.ph86.split
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count107
   br i1 %exitcond103.not, label %.critedge73, label %.lr.ph86.split, !llvm.loop !9
 
-.critedge73:                                      ; preds = %68, %.lr.ph86.split.us
+.critedge73:; preds = %68, %.lr.ph86.split.us
   %69 = icmp ult i32 %61, 5
   br i1 %69, label %.critedge73.thread, label %.thread
 
 .critedge73.thread:                               ; preds = %57, %.critedge73
-  %70 = zext nneg i32 %61 to i64
-  %.idx76.neg = mul nsw i64 %70, -24
-  %71 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 0, i64 %70
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i32 %59, ptr %72, align 8
-  %73 = zext i32 %59 to i64
-  %74 = add nsw i64 %.idx76.neg, 144
-  %75 = tail call ptr @__memcpy_chk(ptr noundef %71, ptr noundef nonnull %60, i64 noundef range(i64 0, 4294967296) %73, i64 noundef %74) #12, !alias.scope !10
-  %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store ptr %14, ptr %76, align 8
-  %77 = load i32, ptr @s_gnb_ran_functions_table, align 8
-  %78 = add i32 %77, 1
-  store i32 %78, ptr @s_gnb_ran_functions_table, align 8
+  %68 = zext nneg i32 %61 to i64
+  %.idx76.neg = mul nsw i64 %68, -24
+  %69 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 0, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store i32 %59, ptr %70, align 8
+  %71 = zext i32 %59 to i64
+  %72 = add nsw i64 %.idx76.neg, 144
+  %73 = tail call ptr @__memcpy_chk(ptr noundef %69, ptr noundef nonnull %60, i64 noundef range(i64 0, 4294967296) %71, i64 noundef %72) #12, !alias.scope !10
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  store ptr %14, ptr %74, align 8
+  %75 = load i32, ptr @s_gnb_ran_functions_table, align 8
+  %76 = add i32 %75, 1
+  store i32 %76, ptr @s_gnb_ran_functions_table, align 8
   br label %.thread
 
 .thread:                                          ; preds = %41, %45, %.lr.ph86.split, %.critedge73.thread, %.critedge73, %.critedge, %e2ap_get_private_data.exit, %20
@@ -8934,28 +8934,28 @@ e2ap_get_private_data.exit.i:                     ; preds = %32, %e2ap_get_priva
   %exitcond10.not.i = icmp eq i64 %indvars.iv.next7.i, %wide.trip.count9.i
   br i1 %exitcond10.not.i, label %update_conversation_from_gnb_id.exit, label %.lr.ph.split.us.i, !llvm.loop !19
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %73
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %73 ], [ 0, %.lr.ph.i ]
-  %66 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 0, i64 %indvars.iv.i
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i32 %60, ptr %67, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr %66, ptr nonnull %61, i64 %63)
-  %68 = icmp eq i32 %bcmp.i, 0
-  br i1 %68, label %69, label %73
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %71
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %71 ], [ 0, %.lr.ph.i ]
+  %64 = getelementptr [6 x %struct.anon.0], ptr getelementptr inbounds nuw (i8, ptr @s_gnb_ran_functions_table, i64 8), i64 0, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store i32 %60, ptr %65, align 8
+  %bcmp.i = tail call i32 @bcmp(ptr %64, ptr nonnull %61, i64 %63)
+  %66 = icmp eq i32 %bcmp.i, 0
+  br i1 %66, label %67, label %71
 
-69:                                               ; preds = %.lr.ph.split.i
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %71 = load ptr, ptr %70, align 8
-  %72 = load i32, ptr @proto_e2ap, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %55, i32 noundef %72, ptr noundef %71)
+67:                                               ; preds = %.lr.ph.split.i
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %69 = load ptr, ptr %68, align 8
+  %70 = load i32, ptr @proto_e2ap, align 4
+  tail call void @conversation_add_proto_data(ptr noundef %55, i32 noundef %70, ptr noundef %69)
   br label %update_conversation_from_gnb_id.exit
 
-73:                                               ; preds = %.lr.ph.split.i
+71:                                               ; preds = %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count9.i
   br i1 %exitcond.not.i, label %update_conversation_from_gnb_id.exit, label %.lr.ph.split.i, !llvm.loop !19
 
-update_conversation_from_gnb_id.exit:             ; preds = %73, %.lr.ph.split.us.i, %e2ap_get_private_data.exit.i, %49, %69
+update_conversation_from_gnb_id.exit:             ; preds = %71, %.lr.ph.split.us.i, %e2ap_get_private_data.exit.i, %49, %67
   ret i32 %7
 }
 

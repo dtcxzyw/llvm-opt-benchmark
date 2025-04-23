@@ -188,15 +188,15 @@ define hidden void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImp
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %3 ]
   %.pn = phi ptr [ %31, %27 ], [ %16, %3 ]
   %exitcond.not = icmp eq i64 %indvars.iv, 14
-  br i1 %exitcond.not, label %.loopexit, label %27
+  br i1 %exitcond.not, label %.loopexit, label %28
 
-27:                                               ; preds = %.preheader
+28:                                               ; preds = %.preheader
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = shl nuw nsw i64 %indvars.iv.next, 2
-  %29 = shl nuw nsw i64 1, %28
-  %30 = getelementptr inbounds nuw i8, ptr %16, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 -1
+  %29 = shl nuw nsw i64 %indvars.iv.next, 2
+  %30 = shl nuw nsw i64 1, %29
+  %gep = getelementptr inbounds nuw i8, ptr %16, i64 %30
+  %31 = getelementptr inbounds i8, ptr %gep, i64 -1
   %32 = load i32, ptr @_ZN9CardTable19_card_size_in_wordsE, align 4
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = add i32 %32, %33

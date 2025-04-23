@@ -1572,34 +1572,34 @@ mbedtls_sha1_update.exit42:                       ; preds = %mbedtls_sha1_update
   %54 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 0, i64 %53
   store i8 -128, ptr %54, align 1, !tbaa !4
   %55 = icmp samesign ult i32 %52, 56
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 1
-  br i1 %55, label %57, label %60
+  %gep = getelementptr inbounds nuw i8, ptr %54, i64 1
+  br i1 %55, label %56, label %59
 
-57:                                               ; preds = %mbedtls_sha1_update.exit42
-  %58 = sub nuw nsw i32 55, %52
-  %59 = zext nneg i32 %58 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %56, i8 0, i64 %59, i1 false)
+56:                                               ; preds = %mbedtls_sha1_update.exit42
+  %57 = sub nuw nsw i32 55, %52
+  %58 = zext nneg i32 %57 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %gep, i8 0, i64 %58, i1 false)
   br label %mbedtls_sha1_finish.exit
 
-60:                                               ; preds = %mbedtls_sha1_update.exit42
-  %61 = xor i32 %52, 63
-  %62 = zext nneg i32 %61 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %56, i8 0, i64 %62, i1 false)
-  %63 = call i32 @mbedtls_internal_sha1_process(ptr noundef nonnull %4, ptr noundef nonnull %11)
+59:                                               ; preds = %mbedtls_sha1_update.exit42
+  %60 = xor i32 %52, 63
+  %61 = zext nneg i32 %60 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %gep, i8 0, i64 %61, i1 false)
+  %62 = call i32 @mbedtls_internal_sha1_process(ptr noundef nonnull %4, ptr noundef nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %11, i8 0, i64 56, i1 false)
   %.pre.i = load i32, ptr %4, align 4, !tbaa !7
   br label %mbedtls_sha1_finish.exit
 
-mbedtls_sha1_finish.exit:                         ; preds = %57, %60
-  %64 = phi i32 [ %.pre.i, %60 ], [ %51, %57 ]
-  %65 = load i32, ptr %5, align 4, !tbaa !7
-  %66 = call i32 @llvm.fshl.i32(i32 %65, i32 %64, i32 3)
-  %67 = shl i32 %64, 3
+mbedtls_sha1_finish.exit:                         ; preds = %56, %59
+  %63 = phi i32 [ %.pre.i, %60 ], [ %51, %57 ]
+  %64 = load i32, ptr %5, align 4, !tbaa !7
+  %65 = call i32 @llvm.fshl.i32(i32 %64, i32 %63, i32 3)
+  %66 = shl i32 %63, 3
   %68 = call i32 @llvm.bswap.i32(i32 %66)
   store i32 %68, ptr %12, align 4
   %69 = call i32 @llvm.bswap.i32(i32 %67)
   store i32 %69, ptr %13, align 4
-  %70 = call i32 @mbedtls_internal_sha1_process(ptr noundef nonnull %4, ptr noundef nonnull %11)
+  %71 = call i32 @mbedtls_internal_sha1_process(ptr noundef nonnull %4, ptr noundef nonnull %11)
   %71 = load i32, ptr %6, align 4, !tbaa !7
   %72 = call i32 @llvm.bswap.i32(i32 %71)
   store i32 %72, ptr %3, align 16
@@ -1616,41 +1616,41 @@ mbedtls_sha1_finish.exit:                         ; preds = %57, %60
   %80 = call i32 @llvm.bswap.i32(i32 %79)
   store i32 %80, ptr %17, align 16
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 92) #12
-  %81 = getelementptr inbounds nuw [3 x [20 x i8]], ptr @sha1_test_sum, i64 0, i64 %indvars.iv
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %3, ptr noundef nonnull dereferenceable(20) %81, i64 20)
+  %80 = getelementptr inbounds nuw [3 x [20 x i8]], ptr @sha1_test_sum, i64 0, i64 %indvars.iv
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %3, ptr noundef nonnull dereferenceable(20) %80, i64 20)
   %.not25 = icmp eq i32 %bcmp, 0
-  br i1 %.not25, label %82, label %85
+  br i1 %.not25, label %81, label %84
 
-82:                                               ; preds = %mbedtls_sha1_finish.exit
-  br i1 %.not24, label %83, label %.thread
+81:                                               ; preds = %mbedtls_sha1_finish.exit
+  br i1 %.not24, label %82, label %.thread
 
-83:                                               ; preds = %82
+82:                                               ; preds = %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond53.not, label %.loopexit, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %83, %.thread
+.backedge.backedge:                               ; preds = %82, %.thread
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %83 ], [ %indvars.iv.next54, %.thread ]
   br label %.backedge, !llvm.loop !21
 
-.thread:                                          ; preds = %82
+.thread:                                          ; preds = %81
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv, 1
   %exitcond53.not55 = icmp eq i64 %indvars.iv.next54, 3
-  br i1 %exitcond53.not55, label %84, label %.backedge.backedge
+  br i1 %exitcond53.not55, label %83, label %.backedge.backedge
 
-84:                                               ; preds = %.thread
+83:                                               ; preds = %.thread
   %putchar = call i32 @putchar(i32 10)
   br label %.loopexit
 
-85:                                               ; preds = %mbedtls_sha1_finish.exit
-  br i1 %.not24, label %.loopexit, label %86
+84:                                               ; preds = %mbedtls_sha1_finish.exit
+  br i1 %.not24, label %.loopexit, label %85
 
-86:                                               ; preds = %85
+85:                                               ; preds = %84
   %puts26 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %83, %85, %86, %84
+.loopexit:                                        ; preds = %82, %84, %85, %83
   %.2 = phi i32 [ 1, %86 ], [ 1, %85 ], [ 0, %84 ], [ 0, %83 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 92) #12
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4) #12

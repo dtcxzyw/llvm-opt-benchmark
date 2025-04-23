@@ -861,9 +861,9 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   %270 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %271 = load i64, ptr %270, align 8, !noalias !38
   %272 = icmp eq i64 %271, 128
-  br i1 %272, label %.lr.ph.i.i.i.i.i.i.i, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.thread.i
+  br i1 %272, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.thread.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %268, %308
+.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %268, %308
   %.047.i.i.i.i.i.i.i = phi i64 [ %309, %308 ], [ 32, %268 ]
   %.02946.i.i.i.i.i.idx.i.i = phi i64 [ %.02946.i.i.i.i.i.add17.i.i, %308 ], [ 0, %268 ]
   %.02946.i.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %269, i64 %.02946.i.i.i.i.i.idx.i.i
@@ -878,8 +878,8 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   br i1 %280, label %281, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.i
 
 281:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.ptr.i.i, i64 1
-  %282 = load i8, ptr %.ptr.i.i, align 1, !tbaa !19
+  %gep.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.ptr.i.i, i64 1
+  %282 = load i8, ptr %gep.i.i, align 1, !tbaa !19
   %283 = sext i8 %282 to i32
   %284 = add nsw i32 %283, -48
   %285 = icmp ult i32 %284, 10
@@ -890,8 +890,8 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   br i1 %289, label %290, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.thread.i
 
 290:                                              ; preds = %281
-  %.ptr18.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.ptr.i.i, i64 2
-  %291 = load i8, ptr %.ptr18.i.i, align 1, !tbaa !19
+  %gep24.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.ptr.i.i, i64 2
+  %291 = load i8, ptr %gep24.i.i, align 1, !tbaa !19
   %292 = sext i8 %291 to i32
   %293 = add nsw i32 %292, -48
   %294 = icmp ult i32 %293, 10
@@ -902,8 +902,8 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   br i1 %298, label %299, label %_ZN5vcpkgL9is_sha512ENS_10StringViewE.exit.thread.i
 
 299:                                              ; preds = %290
-  %.ptr19.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.ptr.i.i, i64 3
-  %300 = load i8, ptr %.ptr19.i.i, align 1, !tbaa !19
+  %gep26.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.ptr.i.i, i64 3
+  %300 = load i8, ptr %gep26.i.i, align 1, !tbaa !19
   %301 = sext i8 %300 to i32
   %302 = add nsw i32 %301, -48
   %303 = icmp ult i32 %302, 10

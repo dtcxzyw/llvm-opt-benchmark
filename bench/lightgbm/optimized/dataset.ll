@@ -13083,7 +13083,7 @@ define internal void @_ZNK8LightGBM7Dataset24ConstructHistogramsInnerILb1ELb0ELb
   %16 = alloca i32, align 4
   %17 = load i32, ptr %2, align 4, !tbaa !104
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %19, label %86
+  br i1 %18, label %19, label %84
 
 19:                                               ; preds = %12
   %20 = add nsw i32 %17, -1
@@ -13174,7 +13174,7 @@ define internal void @_ZNK8LightGBM7Dataset24ConstructHistogramsInnerILb1ELb0ELb
   %74 = load ptr, ptr %73, align 8
   %75 = call noundef ptr %74(ptr noundef nonnull align 8 dereferenceable(8) %70) #20
   invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef %75)
-          to label %.invoke46 unwind label %87
+          to label %.invoke46 unwind label %85
 
 .loopexit:                                        ; preds = %78, %.invoke, %56
   %indvars.iv.next44 = add nsw i64 %indvars.iv43, 1
@@ -13185,11 +13185,11 @@ define internal void @_ZNK8LightGBM7Dataset24ConstructHistogramsInnerILb1ELb0ELb
 
 .invoke46:                                        ; preds = %64, %71
   invoke void @_ZN21ThreadExceptionHelper16CaptureExceptionEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %.invoke unwind label %87
+          to label %.invoke unwind label %85
 
 .invoke:                                          ; preds = %.invoke46
   invoke void @__cxa_end_catch()
-          to label %.loopexit unwind label %87
+          to label %.loopexit unwind label %85
 
 78:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
@@ -13201,8 +13201,8 @@ define internal void @_ZNK8LightGBM7Dataset24ConstructHistogramsInnerILb1ELb0ELb
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store double %82, ptr %84, align 8, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %85 = icmp samesign ult i64 %indvars.iv.next, %63
-  br i1 %85, label %78, label %.loopexit, !llvm.loop !242
+  %83 = icmp samesign ult i64 %indvars.iv.next, %63
+  br i1 %83, label %78, label %.loopexit, !llvm.loop !242
 
 ._crit_edge:                                      ; preds = %.loopexit, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %21)
@@ -13210,16 +13210,16 @@ define internal void @_ZNK8LightGBM7Dataset24ConstructHistogramsInnerILb1ELb0ELb
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #20
-  br label %86
+  br label %84
 
-86:                                               ; preds = %._crit_edge, %12
+84:                                               ; preds = %._crit_edge, %12
   ret void
 
-87:                                               ; preds = %.invoke46, %.invoke, %71
-  %88 = landingpad { ptr, i32 }
+85:                                               ; preds = %.invoke46, %.invoke, %71
+  %86 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #41
+  %87 = extractvalue { ptr, i32 } %86, 0
+  call void @__clang_call_terminate(ptr %87) #41
   unreachable
 }
 
@@ -14581,7 +14581,7 @@ define internal void @_ZNK8LightGBM7Dataset24ConstructHistogramsInnerILb0ELb0ELb
   %16 = alloca i32, align 4
   %17 = load i32, ptr %2, align 4, !tbaa !104
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %19, label %85
+  br i1 %18, label %19, label %83
 
 19:                                               ; preds = %12
   %20 = add nsw i32 %17, -1
@@ -14671,7 +14671,7 @@ define internal void @_ZNK8LightGBM7Dataset24ConstructHistogramsInnerILb0ELb0ELb
   %73 = load ptr, ptr %72, align 8
   %74 = call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(8) %69) #20
   invoke void (ptr, ...) @_ZN8LightGBM3Log7WarningEPKcz(ptr noundef %74)
-          to label %.invoke45 unwind label %86
+          to label %.invoke45 unwind label %84
 
 .loopexit:                                        ; preds = %77, %.invoke, %55
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, 1
@@ -14682,11 +14682,11 @@ define internal void @_ZNK8LightGBM7Dataset24ConstructHistogramsInnerILb0ELb0ELb
 
 .invoke45:                                        ; preds = %63, %70
   invoke void @_ZN21ThreadExceptionHelper16CaptureExceptionEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
-          to label %.invoke unwind label %86
+          to label %.invoke unwind label %84
 
 .invoke:                                          ; preds = %.invoke45
   invoke void @__cxa_end_catch()
-          to label %.loopexit unwind label %86
+          to label %.loopexit unwind label %84
 
 77:                                               ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
@@ -14698,8 +14698,8 @@ define internal void @_ZNK8LightGBM7Dataset24ConstructHistogramsInnerILb0ELb0ELb
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store double %81, ptr %83, align 8, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %84 = icmp samesign ult i64 %indvars.iv.next, %62
-  br i1 %84, label %77, label %.loopexit, !llvm.loop !243
+  %82 = icmp samesign ult i64 %indvars.iv.next, %62
+  br i1 %82, label %77, label %.loopexit, !llvm.loop !243
 
 ._crit_edge:                                      ; preds = %.loopexit, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %21)
@@ -14707,16 +14707,16 @@ define internal void @_ZNK8LightGBM7Dataset24ConstructHistogramsInnerILb0ELb0ELb
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #20
-  br label %85
+  br label %83
 
-85:                                               ; preds = %._crit_edge, %12
+83:                                               ; preds = %._crit_edge, %12
   ret void
 
-86:                                               ; preds = %.invoke45, %.invoke, %70
-  %87 = landingpad { ptr, i32 }
+84:                                               ; preds = %.invoke45, %.invoke, %70
+  %85 = landingpad { ptr, i32 }
           catch ptr null
-  %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #41
+  %86 = extractvalue { ptr, i32 } %85, 0
+  call void @__clang_call_terminate(ptr %86) #41
   unreachable
 }
 

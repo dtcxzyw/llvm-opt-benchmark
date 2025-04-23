@@ -6751,19 +6751,19 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map
   %58 = add i64 %.sroa.01.0.i.i.i, %55
   %59 = and i64 %58, %43
   %60 = sub nsw i64 0, %59
-  %61 = getelementptr inbounds { i64, ptr }, ptr %44, i64 %60
-  %62 = getelementptr inbounds i8, ptr %61, i64 -16
+  %gep.i.i = getelementptr inbounds { i64, ptr }, ptr %44, i64 %60
+  %62 = getelementptr inbounds i8, ptr %gep.i.i, i64 -16
   %.val4.i.i.i = load i64, ptr %62, align 8, !alias.scope !1809, !noalias !1814, !noundef !9
   %63 = icmp eq i64 %18, %.val4.i.i.i
   br i1 %63, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17he8a2fe4d61a31d53E.llvm.18239827628611957360.exit", label %49
 
-64:                                               ; preds = %50
-  %65 = add i64 %.sroa.9.0.i.i.i, 16
+64:; preds = %50
+  %64 = add i64 %.sroa.9.0.i.i.i, 16
   %66 = add i64 %.sroa.01.0.i.i.i, %65
   br label %45
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17he8a2fe4d61a31d53E.llvm.18239827628611957360.exit": ; preds = %50, %53
-  %.0.i.i = phi ptr [ %61, %53 ], [ null, %50 ]
+65:                                               ; preds = %50, %53
+  %.0.i.i = phi ptr [ %gep.i.i, %53 ], [ null, %50 ]
   %67 = icmp eq ptr %.0.i.i, null
   %68 = getelementptr inbounds i8, ptr %.0.i.i, i64 -16
   %.0.i = select i1 %67, ptr null, ptr %68
@@ -6793,7 +6793,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3ra
   br label %10
 
 10:                                               ; preds = %29, %3
-  %.sroa.9.0.i.i = phi i64 [ 0, %3 ], [ %30, %29 ]
+  %.sroa.9.0.i.i = phi i64 [ 0, %3 ], [ %29, %29 ]
   %.pn.i = phi i64 [ %1, %3 ], [ %31, %29 ]
   %.sroa.01.0.i.i = and i64 %.pn.i, %7
   %11 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i
@@ -6821,19 +6821,19 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3ra
   %23 = add i64 %.sroa.01.0.i.i, %20
   %24 = and i64 %23, %7
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i64, ptr }, ptr %8, i64 %25
-  %27 = getelementptr inbounds i8, ptr %26, i64 -16
+  %gep.i = getelementptr inbounds { i64, ptr }, ptr %8, i64 %25
+  %27 = getelementptr inbounds i8, ptr %gep.i, i64 -16
   %.val4.i.i = load i64, ptr %27, align 8, !alias.scope !1831, !noalias !1836, !noundef !9
   %28 = icmp eq i64 %9, %.val4.i.i
   br i1 %28, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h29f61f65ed5ab23dE.exit", label %14
 
-29:                                               ; preds = %15
-  %30 = add i64 %.sroa.9.0.i.i, 16
+29:; preds = %15
+  %29 = add i64 %.sroa.9.0.i.i, 16
   %31 = add i64 %.sroa.01.0.i.i, %30
   br label %10
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h29f61f65ed5ab23dE.exit": ; preds = %15, %18
-  %.0.i = phi ptr [ %26, %18 ], [ null, %15 ]
+30:                                               ; preds = %15, %18
+  %.0.i = phi ptr [ %gep.i, %18 ], [ null, %15 ]
   %32 = icmp eq ptr %.0.i, null
   %33 = getelementptr inbounds i8, ptr %.0.i, i64 -16
   %.0 = select i1 %32, ptr null, ptr %33

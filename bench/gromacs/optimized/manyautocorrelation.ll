@@ -797,11 +797,11 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit46:          ; preds = %62, %60, %58, %56
   %.03656 = phi i64 [ 0, %.lr.ph ], [ %92, %87 ]
   %88 = getelementptr inbounds nuw float, ptr %70, i64 %.03656
   %89 = load float, ptr %88, align 4, !tbaa !26
-  %.idx75 = shl i64 %.03656, 3
-  %90 = getelementptr inbounds nuw i8, ptr %.pre70, i64 %.idx75
-  store float %89, ptr %90, align 4, !tbaa !26
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  store float 0.000000e+00, ptr %91, align 4, !tbaa !26
+  %90 = shl i64 %.03656, 3
+  %91 = getelementptr inbounds nuw i8, ptr %.pre70, i64 %90
+  store float %89, ptr %91, align 4, !tbaa !26
+  %gep = getelementptr inbounds nuw i8, ptr %90, i64 4
+  store float 0.000000e+00, ptr %gep, align 4, !tbaa !26
   %92 = add nuw i64 %.03656, 1
   %exitcond.not = icmp eq i64 %92, %66
   br i1 %exitcond.not, label %._crit_edge, label %87, !llvm.loop !61

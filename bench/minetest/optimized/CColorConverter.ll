@@ -436,26 +436,26 @@ for.body14.us109:                                 ; preds = %for.body14.us109, %
   %5 = load i8, ptr %in.addr.1103.us111, align 1, !tbaa !3
   %conv.us = zext i8 %5 to i64
   %shl.us = shl nuw nsw i64 %conv.us, 2
-  %6 = getelementptr inbounds nuw i8, ptr %palette, i64 %shl.us
-  %arrayidx17.us = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %gep = getelementptr inbounds nuw i8, ptr %palette, i64 %shl.us
+  %arrayidx17.us = getelementptr inbounds nuw i8, ptr %gep, i64 2
   %7 = load i8, ptr %arrayidx17.us, align 1, !tbaa !3
   %arrayidx20.us = getelementptr inbounds nuw i8, ptr %out.addr.2.us, i64 %indvars.iv
   store i8 %7, ptr %arrayidx20.us, align 1, !tbaa !3
-  %8 = load i8, ptr %in.addr.1103.us111, align 1, !tbaa !3
-  %conv22.us = zext i8 %8 to i64
+  %7 = load i8, ptr %in.addr.1103.us111, align 1, !tbaa !3
+  %conv22.us = zext i8 %7 to i64
   %shl23.us = shl nuw nsw i64 %conv22.us, 2
-  %9 = getelementptr inbounds nuw i8, ptr %palette, i64 %shl23.us
-  %arrayidx26.us = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %gep8 = getelementptr inbounds nuw i8, ptr %palette, i64 %shl23.us
+  %arrayidx26.us = getelementptr inbounds nuw i8, ptr %gep8, i64 1
   %10 = load i8, ptr %arrayidx26.us, align 1, !tbaa !3
   %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %indvars.iv
   store i8 %10, ptr %gep.us, align 1, !tbaa !3
-  %11 = load i8, ptr %in.addr.1103.us111, align 1, !tbaa !3
-  %conv31.us = zext i8 %11 to i64
+  %9 = load i8, ptr %in.addr.1103.us111, align 1, !tbaa !3
+  %conv31.us = zext i8 %9 to i64
   %shl32.us = shl nuw nsw i64 %conv31.us, 2
   %arrayidx35.us = getelementptr inbounds nuw i8, ptr %palette, i64 %shl32.us
-  %12 = load i8, ptr %arrayidx35.us, align 1, !tbaa !3
+  %10 = load i8, ptr %arrayidx35.us, align 1, !tbaa !3
   %gep97.us = getelementptr i8, ptr %invariant.gep96.us, i64 %indvars.iv
-  store i8 %12, ptr %gep97.us, align 1, !tbaa !3
+  store i8 %10, ptr %gep97.us, align 1, !tbaa !3
   %incdec.ptr.us112 = getelementptr inbounds nuw i8, ptr %in.addr.1103.us111, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %cmp12.us114 = icmp slt i64 %indvars.iv.next, %idx.ext8
@@ -483,14 +483,14 @@ for.body.us.us.epil:                              ; preds = %for.body.us.us.preh
 for.body14.us.us.us.epil:                         ; preds = %for.body14.us.us.us.epil, %for.body.us.us.epil
   %indvars.iv121.epil = phi i64 [ %indvars.iv.next122.epil, %for.body14.us.us.us.epil ], [ 0, %for.body.us.us.epil ]
   %in.addr.1103.us.us.us.epil = phi ptr [ %incdec.ptr.us.us.us.epil, %for.body14.us.us.us.epil ], [ %in.addr.0107.us.us.unr4, %for.body.us.us.epil ]
-  %13 = load i8, ptr %in.addr.1103.us.us.us.epil, align 1, !tbaa !3
+  %11 = load i8, ptr %in.addr.1103.us.us.us.epil, align 1, !tbaa !3
   %arrayidx42.us.us.us.epil = getelementptr inbounds nuw i8, ptr %out.addr.2.us.us.epil, i64 %indvars.iv121.epil
-  store i8 %13, ptr %arrayidx42.us.us.us.epil, align 1, !tbaa !3
+  store i8 %11, ptr %arrayidx42.us.us.us.epil, align 1, !tbaa !3
   %gep99.us.us.us.epil = getelementptr i8, ptr %invariant.gep98.us.us.epil, i64 %indvars.iv121.epil
-  store i8 %13, ptr %gep99.us.us.us.epil, align 1, !tbaa !3
-  %14 = load i8, ptr %in.addr.1103.us.us.us.epil, align 1, !tbaa !3
+  store i8 %11, ptr %gep99.us.us.us.epil, align 1, !tbaa !3
+  %12 = load i8, ptr %in.addr.1103.us.us.us.epil, align 1, !tbaa !3
   %gep101.us.us.us.epil = getelementptr i8, ptr %invariant.gep100.us.us.epil, i64 %indvars.iv121.epil
-  store i8 %14, ptr %gep101.us.us.us.epil, align 1, !tbaa !3
+  store i8 %12, ptr %gep101.us.us.us.epil, align 1, !tbaa !3
   %incdec.ptr.us.us.us.epil = getelementptr inbounds nuw i8, ptr %in.addr.1103.us.us.us.epil, i64 1
   %indvars.iv.next122.epil = add nuw nsw i64 %indvars.iv121.epil, 3
   %cmp12.us.us.us.epil = icmp slt i64 %indvars.iv.next122.epil, %idx.ext8

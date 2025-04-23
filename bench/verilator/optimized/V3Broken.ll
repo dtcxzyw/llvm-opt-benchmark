@@ -2130,7 +2130,7 @@ define linkonce_odr dso_local void @_ZN10AllocTable13checkForLeaksEv(ptr noundef
   %2 = alloca [2 x i8], align 1
   %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 994), align 2, !tbaa !124, !range !99, !noundef !100
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %51
+  br i1 %4, label %5, label %49
 
 5:                                                ; preds = %1
   %6 = load i8, ptr @_ZL17s_brokenCntGlobal.0, align 1, !tbaa !35
@@ -2156,7 +2156,7 @@ _ZNK15BrokenCntGlobal3getEv.exit:                 ; preds = %5
 
 .split.us:                                        ; preds = %._crit_edge, %_ZNK15BrokenCntGlobal3getEv.exit
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #27
-  br label %51
+  br label %49
 
 _ZNK15BrokenCntGlobal3getEv.exit.splitthread-pre-split: ; preds = %._crit_edge
   %.sroa.019.025.pr = load ptr, ptr %12, align 8, !tbaa !16
@@ -2205,39 +2205,39 @@ _ZNK15BrokenCntGlobal3getEv.exit.split:           ; preds = %_ZNK15BrokenCntGlob
   %32 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !48
   %33 = getelementptr i8, ptr %32, i64 -24
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 240
+  %gep = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %gep, i64 240
   %37 = load ptr, ptr %36, align 8, !tbaa !129
   %.not.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i, label %38, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
-38:                                               ; preds = %29
+36:                                               ; preds = %29
   tail call void @_ZSt16__throw_bad_castv() #26
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %29
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  %40 = load i8, ptr %39, align 8, !tbaa !144
-  %.not.i1.i.i = icmp eq i8 %40, 0
-  br i1 %.not.i1.i.i, label %44, label %41
+  %37 = getelementptr inbounds nuw i8, ptr %37, i64 56
+  %38 = load i8, ptr %37, align 8, !tbaa !144
+  %.not.i1.i.i = icmp eq i8 %38, 0
+  br i1 %.not.i1.i.i, label %42, label %39
 
-41:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 67
-  %43 = load i8, ptr %42, align 1, !tbaa !34
+39:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 67
+  %41 = load i8, ptr %40, align 1, !tbaa !34
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
-44:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+42:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %37)
-  %45 = load ptr, ptr %37, align 8, !tbaa !48
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef signext i8 %47(ptr noundef nonnull align 8 dereferenceable(570) %37, i8 noundef signext 10)
+  %43 = load ptr, ptr %37, align 8, !tbaa !48
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call noundef signext i8 %47(ptr noundef nonnull align 8 dereferenceable(570) %37, i8 noundef signext 10)
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
-_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %41, %44
-  %.0.i.i.i = phi i8 [ %43, %41 ], [ %48, %44 ]
-  %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
-  %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %49)
+_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %39, %42
+  %.0.i.i.i = phi i8 [ %41, %41 ], [ %46, %44 ]
+  %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
+  %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %47)
   tail call void @_ZN7V3Error9incErrorsEv()
   br label %.critedge
 
@@ -2246,7 +2246,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %41, 
   %.not24 = icmp eq ptr %.sroa.019.0, null
   br i1 %.not24, label %._crit_edge, label %19
 
-51:                                               ; preds = %1, %.split.us
+49:                                               ; preds = %1, %.split.us
   ret void
 }
 

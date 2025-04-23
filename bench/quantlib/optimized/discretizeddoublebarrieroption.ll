@@ -2383,8 +2383,8 @@ if.else:                                          ; preds = %land.lhs.true, %for
   br i1 %cmp39, label %land.lhs.true40, label %for.inc
 
 land.lhs.true40:                                  ; preds = %if.else
-  %arrayidx.i98 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %18 = load double, ptr %arrayidx.i98, align 8, !tbaa !41
+  %gep175 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
+  %18 = load double, ptr %gep175, align 8, !tbaa !41
   %cmp43 = fcmp ult double %18, %1
   br i1 %cmp43, label %for.inc, label %if.then44
 
@@ -2402,18 +2402,18 @@ if.then44:                                        ; preds = %land.lhs.true40
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %if.then44, %if.then
-  %div.sink177 = phi double [ %div, %if.then ], [ %div66, %if.then44 ]
+  %div.sink179 = phi double [ %div, %if.then ], [ %div66, %if.then44 ]
   %add.sink = phi i64 [ %add, %if.then ], [ %j.0173, %if.then44 ]
-  %cmp.i = fcmp ogt double %div.sink177, 0.000000e+00
-  %.sroa.speculated150 = select i1 %cmp.i, double %div.sink177, double 0.000000e+00
+  %cmp.i = fcmp ogt double %div.sink179, 0.000000e+00
+  %.sroa.speculated150 = select i1 %cmp.i, double %div.sink179, double 0.000000e+00
   %arrayidx.i96 = getelementptr inbounds nuw double, ptr %12, i64 %add.sink
   store double %.sroa.speculated150, ptr %arrayidx.i96, align 8, !tbaa !41
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %land.lhs.true40, %if.else
   %inc = add nuw i64 %j.0173, 1
-  %exitcond175.not = icmp eq i64 %inc, %sub
-  br i1 %exitcond175.not, label %sw.epilog, label %for.body, !llvm.loop !71
+  %exitcond177.not = icmp eq i64 %inc, %sub
+  br i1 %exitcond177.not, label %sw.epilog, label %for.body, !llvm.loop !71
 
 for.body77:                                       ; preds = %for.body77.lr.ph, %for.inc139
   %j71.0171 = phi i64 [ 0, %for.body77.lr.ph ], [ %inc140, %for.inc139 ]
@@ -2446,8 +2446,8 @@ if.else106:                                       ; preds = %land.lhs.true80, %f
   br i1 %cmp108, label %land.lhs.true109, label %for.inc139
 
 land.lhs.true109:                                 ; preds = %if.else106
-  %arrayidx.i123 = getelementptr inbounds nuw i8, ptr %arrayidx.i111, i64 8
-  %25 = load double, ptr %arrayidx.i123, align 8, !tbaa !41
+  %gep = getelementptr inbounds nuw i8, ptr %arrayidx.i111, i64 8
+  %25 = load double, ptr %gep, align 8, !tbaa !41
   %cmp112 = fcmp ult double %25, %1
   br i1 %cmp112, label %for.inc139, label %if.then113
 
@@ -2464,10 +2464,10 @@ if.then113:                                       ; preds = %land.lhs.true109
   br label %for.inc139.sink.split
 
 for.inc139.sink.split:                            ; preds = %if.then113, %if.then84
-  %div102.sink178 = phi double [ %div102, %if.then84 ], [ %div134, %if.then113 ]
+  %div102.sink180 = phi double [ %div102, %if.then84 ], [ %div134, %if.then113 ]
   %add81.sink = phi i64 [ %add81, %if.then84 ], [ %j71.0171, %if.then113 ]
-  %cmp.i119 = fcmp ogt double %div102.sink178, 0.000000e+00
-  %.sroa.speculated148 = select i1 %cmp.i119, double %div102.sink178, double 0.000000e+00
+  %cmp.i119 = fcmp ogt double %div102.sink180, 0.000000e+00
+  %.sroa.speculated148 = select i1 %cmp.i119, double %div102.sink180, double 0.000000e+00
   %arrayidx.i121 = getelementptr inbounds nuw double, ptr %7, i64 %add81.sink
   store double %.sroa.speculated148, ptr %arrayidx.i121, align 8, !tbaa !41
   br label %for.inc139

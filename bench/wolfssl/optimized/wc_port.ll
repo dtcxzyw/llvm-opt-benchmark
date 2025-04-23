@@ -367,113 +367,113 @@ define range(i32 -244, 1) i32 @wc_ReadDirNext(ptr noundef %0, ptr noundef readon
   %16 = ashr exact i64 %sext, 32
   %17 = add nsw i64 %16, 1
   %18 = getelementptr inbounds [261 x i8], ptr %10, i64 0, i64 %16
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %gep = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %28
-  %22 = phi ptr [ %30, %28 ], [ %15, %.lr.ph ]
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 19
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #17
-  %25 = trunc i64 %24 to i32
-  %26 = add nsw i32 %25, %12
-  %27 = icmp sgt i32 %26, 258
-  br i1 %27, label %.thread51, label %31
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %27
+  %21 = phi ptr [ %29, %28 ], [ %15, %.lr.ph ]
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 19
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #17
+  %24 = trunc i64 %23 to i32
+  %25 = add nsw i32 %24, %12
+  %26 = icmp sgt i32 %25, 258
+  br i1 %26, label %.thread51, label %30
 
-28:                                               ; preds = %.thread63, %39
+27:                                               ; preds = %.thread63, %38
   %.231.us66 = phi i32 [ -244, %.thread63 ], [ -1, %39 ]
-  %29 = load ptr, ptr %13, align 8, !tbaa !18
-  %30 = tail call ptr @readdir(ptr noundef %29) #16
-  store ptr %30, ptr %0, align 8, !tbaa !19
-  %.not39.us = icmp eq ptr %30, null
+  %28 = load ptr, ptr %13, align 8, !tbaa !18
+  %29 = tail call ptr @readdir(ptr noundef %28) #16
+  store ptr %29, ptr %0, align 8, !tbaa !19
+  %.not39.us = icmp eq ptr %29, null
   br i1 %.not39.us, label %.thread51, label %.lr.ph.split.us
 
-31:                                               ; preds = %.lr.ph.split.us
-  %32 = tail call ptr @strncpy(ptr noundef nonnull %10, ptr noundef nonnull %1, i64 noundef %17) #16
+30:                                               ; preds = %.lr.ph.split.us
+  %31 = tail call ptr @strncpy(ptr noundef nonnull %10, ptr noundef nonnull %1, i64 noundef %17) #16
   store i8 47, ptr %18, align 1, !tbaa !20
-  %33 = load ptr, ptr %0, align 8, !tbaa !19
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 19
-  %sext40.us = shl i64 %24, 32
-  %35 = ashr exact i64 %sext40.us, 32
-  %36 = add nsw i64 %35, 1
-  %37 = tail call ptr @strncpy(ptr noundef nonnull %19, ptr noundef nonnull %34, i64 noundef %36) #16
+  %32 = load ptr, ptr %0, align 8, !tbaa !19
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 19
+  %sext40.us = shl i64 %23, 32
+  %34 = ashr exact i64 %sext40.us, 32
+  %35 = add nsw i64 %34, 1
+  %36 = tail call ptr @strncpy(ptr noundef nonnull %gep, ptr noundef nonnull %33, i64 noundef %35) #16
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
-  %38 = call i32 @stat(ptr noundef nonnull readonly %10, ptr noundef nonnull %20) #16
-  %.not.i.us = icmp eq i32 %38, 0
-  br i1 %.not.i.us, label %39, label %.thread63
+  %37 = call i32 @stat(ptr noundef nonnull readonly %10, ptr noundef nonnull %19) #16
+  %.not.i.us = icmp eq i32 %37, 0
+  br i1 %.not.i.us, label %38, label %.thread63
 
-.thread63:                                        ; preds = %31
+.thread63:                                        ; preds = %30
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #16
-  br label %28
+  br label %27
 
-39:                                               ; preds = %31
-  %40 = load i32, ptr %21, align 8, !tbaa !12
-  %41 = and i32 %40, 61440
-  %.not70 = icmp eq i32 %41, 32768
+38:                                               ; preds = %30
+  %39 = load i32, ptr %20, align 8, !tbaa !12
+  %40 = and i32 %39, 61440
+  %.not70 = icmp eq i32 %40, 32768
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #16
-  br i1 %.not70, label %wc_ReadDirClose.exit, label %28
+  br i1 %.not70, label %wc_ReadDirClose.exit, label %27
 
-42:                                               ; preds = %wc_FileExists.exit, %wc_FileExists.exit.thread
+41:                                               ; preds = %wc_FileExists.exit, %wc_FileExists.exit.thread
   %.231 = phi i32 [ -1, %wc_FileExists.exit ], [ -244, %wc_FileExists.exit.thread ]
-  %43 = load ptr, ptr %13, align 8, !tbaa !18
-  %44 = tail call ptr @readdir(ptr noundef %43) #16
-  store ptr %44, ptr %0, align 8, !tbaa !19
-  %.not39 = icmp eq ptr %44, null
+  %42 = load ptr, ptr %13, align 8, !tbaa !18
+  %43 = tail call ptr @readdir(ptr noundef %42) #16
+  store ptr %43, ptr %0, align 8, !tbaa !19
+  %.not39 = icmp eq ptr %43, null
   br i1 %.not39, label %.thread51, label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %42
-  %45 = phi ptr [ %44, %42 ], [ %15, %.lr.ph ]
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 19
-  %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #17
-  %48 = trunc i64 %47 to i32
-  %49 = add nsw i32 %48, %12
-  %50 = icmp sgt i32 %49, 258
-  br i1 %50, label %.thread51, label %51
+.lr.ph.split:                                     ; preds = %.lr.ph, %41
+  %44 = phi ptr [ %43, %42 ], [ %15, %.lr.ph ]
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 19
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #17
+  %47 = trunc i64 %46 to i32
+  %48 = add nsw i32 %47, %12
+  %49 = icmp sgt i32 %48, 258
+  br i1 %49, label %.thread51, label %50
 
-51:                                               ; preds = %.lr.ph.split
-  %52 = tail call ptr @strncpy(ptr noundef nonnull %10, ptr noundef nonnull %1, i64 noundef %17) #16
+50:                                               ; preds = %.lr.ph.split
+  %51 = tail call ptr @strncpy(ptr noundef nonnull %10, ptr noundef nonnull %1, i64 noundef %17) #16
   store i8 47, ptr %18, align 1, !tbaa !20
-  %53 = load ptr, ptr %0, align 8, !tbaa !19
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 19
-  %sext40 = shl i64 %47, 32
-  %55 = ashr exact i64 %sext40, 32
-  %56 = add nsw i64 %55, 1
-  %57 = tail call ptr @strncpy(ptr noundef nonnull %19, ptr noundef nonnull %54, i64 noundef %56) #16
+  %52 = load ptr, ptr %0, align 8, !tbaa !19
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 19
+  %sext40 = shl i64 %46, 32
+  %54 = ashr exact i64 %sext40, 32
+  %55 = add nsw i64 %54, 1
+  %56 = tail call ptr @strncpy(ptr noundef nonnull %gep, ptr noundef nonnull %53, i64 noundef %55) #16
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
-  %58 = call i32 @stat(ptr noundef nonnull readonly %10, ptr noundef nonnull %20) #16
-  %.not.i = icmp eq i32 %58, 0
+  %57 = call i32 @stat(ptr noundef nonnull readonly %10, ptr noundef nonnull %19) #16
+  %.not.i = icmp eq i32 %57, 0
   br i1 %.not.i, label %wc_FileExists.exit, label %wc_FileExists.exit.thread
 
-wc_FileExists.exit.thread:                        ; preds = %51
+wc_FileExists.exit.thread:                        ; preds = %50
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #16
-  br label %42
+  br label %41
 
-wc_FileExists.exit:                               ; preds = %51
-  %59 = load i32, ptr %21, align 8, !tbaa !12
-  %60 = and i32 %59, 61440
-  %.not69 = icmp eq i32 %60, 32768
+wc_FileExists.exit:                               ; preds = %50
+  %58 = load i32, ptr %20, align 8, !tbaa !12
+  %59 = and i32 %58, 61440
+  %.not69 = icmp eq i32 %59, 32768
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %4) #16
-  br i1 %.not69, label %.thread, label %42
+  br i1 %.not69, label %.thread, label %41
 
 .thread:                                          ; preds = %wc_FileExists.exit
   store ptr %10, ptr %2, align 8, !tbaa !7
   br label %wc_ReadDirClose.exit
 
-.thread51:                                        ; preds = %42, %.lr.ph.split, %28, %.lr.ph.split.us, %9
+.thread51:                                        ; preds = %41, %.lr.ph.split, %27, %.lr.ph.split.us, %9
   %.130 = phi i32 [ -1, %9 ], [ -244, %.lr.ph.split.us ], [ %.231.us66, %28 ], [ -244, %.lr.ph.split ], [ %.231, %42 ]
-  %61 = load ptr, ptr %13, align 8, !tbaa !18
-  %.not.i43 = icmp eq ptr %61, null
-  br i1 %.not.i43, label %wc_ReadDirClose.exit, label %62
+  %60 = load ptr, ptr %13, align 8, !tbaa !18
+  %.not.i43 = icmp eq ptr %60, null
+  br i1 %.not.i43, label %wc_ReadDirClose.exit, label %61
 
-62:                                               ; preds = %.thread51
-  %63 = tail call i32 @closedir(ptr noundef nonnull %61)
+61:                                               ; preds = %.thread51
+  %62 = tail call i32 @closedir(ptr noundef nonnull %60)
   store ptr null, ptr %13, align 8, !tbaa !18
   br label %wc_ReadDirClose.exit
 
-wc_ReadDirClose.exit:                             ; preds = %39, %62, %.thread51, %.thread, %6
+wc_ReadDirClose.exit:                             ; preds = %38, %61, %.thread51, %.thread, %6
   %.0 = phi i32 [ -173, %6 ], [ 0, %.thread ], [ %.130, %.thread51 ], [ %.130, %62 ], [ 0, %39 ]
   ret i32 %.0
 }

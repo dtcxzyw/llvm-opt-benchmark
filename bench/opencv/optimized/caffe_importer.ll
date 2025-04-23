@@ -6331,8 +6331,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit877: ; preds = %
 .lr.ph.i933.split.us:                             ; preds = %.lr.ph.i933, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us
   %indvars.iv.i934.us = phi i64 [ %indvars.iv.next.i935.us, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us ], [ %1995, %.lr.ph.i933 ]
   %indvars.iv.next.i935.us = add nsw i64 %indvars.iv.i934.us, -1
-  %1997 = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::CaffeImporter::BlobNote", ptr %.val337, i64 %indvars.iv.next.i935.us, i32 0, i32 1
-  %1998 = load i64, ptr %1997, align 8, !tbaa !40
+  %gep = getelementptr inbounds nuw %"struct.cv::dnn::dnn4_v20241223::(anonymous namespace)::CaffeImporter::BlobNote", ptr %.val337, i64 %indvars.iv.next.i935.us, i32 0, i32 1
+  %1998 = load i64, ptr %gep, align 8, !tbaa !40
   %1999 = icmp eq i64 %1998, 0
   br i1 %1999, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i937, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.backedge.i.us
 

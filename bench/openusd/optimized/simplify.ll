@@ -3183,32 +3183,32 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE5clearEv.ex
   %732 = add i64 %.0117.lcssa, -1
   %733 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %.val, i64 %732
   %734 = load double, ptr %733, align 8
-  %735 = getelementptr i8, ptr %720, i64 24
-  %736 = load double, ptr %735, align 8
+  %gep = getelementptr i8, ptr %720, i64 24
+  %735 = load double, ptr %gep, align 8
   store double %734, ptr %35, align 8
-  %737 = call double @llvm.fabs.f64(double %734)
-  %or.cond.i.i275 = fcmp une double %737, 0x7FF0000000000000
+  %736 = call double @llvm.fabs.f64(double %734)
+  %or.cond.i.i275 = fcmp une double %736, 0x7FF0000000000000
   %spec.store.select.i.i277 = zext i1 %or.cond.i.i275 to i8
   store i8 %spec.store.select.i.i277, ptr %700, align 8
-  store double %736, ptr %701, align 8
-  %738 = call double @llvm.fabs.f64(double %736)
-  %or.cond.i4.i = fcmp une double %738, 0x7FF0000000000000
+  store double %735, ptr %701, align 8
+  %737 = call double @llvm.fabs.f64(double %735)
+  %or.cond.i4.i = fcmp une double %737, 0x7FF0000000000000
   %spec.store.select.i6.i = zext i1 %or.cond.i4.i to i8
   store i8 %spec.store.select.i6.i, ptr %702, align 8
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_SimplifySpanEPNS_8TsSplineERKNS_10GfIntervalERKSt6vectorIdSaIdEES4_(ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %739 unwind label %.loopexit
 
-739:                                              ; preds = %731
+738:                                              ; preds = %731
   %.not.i.i279 = icmp eq ptr %735, %.val160
   br i1 %.not.i.i279, label %742, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i: ; preds = %739
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i: ; preds = %738
   %740 = ptrtoint ptr %735 to i64
   %741 = sub i64 %704, %740
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %720, ptr nonnull align 8 %735, i64 %741, i1 false)
   br label %742
 
-742:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i, %739
+742:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i.i, %738
   %743 = getelementptr inbounds i8, ptr %.val160, i64 -24
   store ptr %743, ptr %590, align 8
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInfoErrorIfKeyRemovedERSt6vectorINS_12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EEmPNS_8TsSplineERKS0_IdSaIdEERKNS_10GfIntervalE(ptr noundef nonnull align 8 dereferenceable(24) %33, i64 noundef %732, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(32) %13)

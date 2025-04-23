@@ -2276,10 +2276,10 @@ define noundef zeroext i1 @_ZNK10open_spiel9gin_rummy13GinRummyUtils13IsConsecut
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %2 ]
   %11 = getelementptr i32, ptr %5, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr i8, ptr %11, i64 -4
-  %14 = load i32, ptr %13, align 4
-  %15 = add nsw i32 %14, 1
-  %.not = icmp eq i32 %12, %15
+  %gep = getelementptr i8, ptr %11, i64 -4
+  %13 = load i32, ptr %gep, align 4
+  %14 = add nsw i32 %13, 1
+  %.not = icmp eq i32 %12, %14
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %9
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
@@ -2489,10 +2489,10 @@ _ZN4absl7debian26c_sortISt6vectorIiSaIiEEEEvRT_.exit: ; preds = %._crit_edge
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %_ZN4absl7debian26c_sortISt6vectorIiSaIiEEEEvRT_.exit ]
   %60 = getelementptr i32, ptr %.sroa.0.0.lcssa, i64 %indvars.iv.i
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr i8, ptr %60, i64 -4
-  %63 = load i32, ptr %62, align 4
-  %64 = add nsw i32 %63, 1
-  %.not.i = icmp eq i32 %61, %64
+  %gep.i = getelementptr i8, ptr %60, i64 -4
+  %62 = load i32, ptr %gep.i, align 4
+  %63 = add nsw i32 %62, 1
+  %.not.i = icmp eq i32 %61, %63
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %58
   %or.cond.not = select i1 %.not.i, i1 %exitcond.not.i, i1 false
@@ -2504,9 +2504,9 @@ _ZNK10open_spiel9gin_rummy13GinRummyUtils13IsConsecutiveERKSt6vectorIiSaIiEE.exi
 
 _ZNK10open_spiel9gin_rummy13GinRummyUtils13IsConsecutiveERKSt6vectorIiSaIiEE.exit.thread: ; preds = %.lr.ph.i, %_ZNK10open_spiel9gin_rummy13GinRummyUtils13IsConsecutiveERKSt6vectorIiSaIiEE.exit
   %.lcssa.i35 = phi i1 [ true, %_ZNK10open_spiel9gin_rummy13GinRummyUtils13IsConsecutiveERKSt6vectorIiSaIiEE.exit ], [ %.not.i, %.lr.ph.i ]
-  %65 = ptrtoint ptr %.sroa.13.0.lcssa to i64
-  %66 = sub i64 %65, %56
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.lcssa, i64 noundef %66) #27
+  %64 = ptrtoint ptr %.sroa.13.0.lcssa to i64
+  %65 = sub i64 %64, %56
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.lcssa, i64 noundef %65) #27
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit22
 
 _ZNSt6vectorIiSaIiEED2Ev.exit22:                  ; preds = %15, %_ZNK10open_spiel9gin_rummy13GinRummyUtils13IsConsecutiveERKSt6vectorIiSaIiEE.exit.thread, %_ZNK10open_spiel9gin_rummy13GinRummyUtils13IsConsecutiveERKSt6vectorIiSaIiEE.exit, %2

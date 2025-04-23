@@ -964,9 +964,9 @@ for.body.lr.ph:                                   ; preds = %entry
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load ptr, ptr %Values, align 8
   %cmp.i28 = icmp eq i64 %agg.tmp5.sroa.2.0.copyload.fr, 0
-  br i1 %cmp.i28, label %for.body.us, label %for.body
+  br i1 %cmp.i28, label %for.body.lr.ph.split.us, label %for.body
 
-for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
+for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph, %for.inc.us
   %i.011.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %4, i64 %i.011.us, i32 0, i32 0, i32 1
   %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8

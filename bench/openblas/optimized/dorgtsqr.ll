@@ -87,7 +87,7 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   store i32 %.sink, ptr %10, align 4, !tbaa !3
   store i32 %.neg, ptr %12, align 4, !tbaa !3
   %48 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %12, i32 noundef 8) #4
-  br label %74
+  br label %70
 
 49:                                               ; preds = %42
   br i1 %22, label %50, label %52
@@ -95,7 +95,7 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 50:                                               ; preds = %49
   %51 = uitofp nneg i32 %45 to double
   store double %51, ptr %8, align 8, !tbaa !7
-  br label %74
+  br label %70
 
 52:                                               ; preds = %49
   %53 = tail call i32 @llvm.umin.i32(i32 %23, i32 %26)
@@ -105,7 +105,7 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 55:                                               ; preds = %52
   %56 = uitofp nneg i32 %45 to double
   store double %56, ptr %8, align 8, !tbaa !7
-  br label %74
+  br label %70
 
 57:                                               ; preds = %52
   call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @c_b4, ptr noundef nonnull @c_b5, ptr noundef %8, ptr noundef nonnull %15) #4
@@ -128,7 +128,7 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %65 = load i32, ptr %15, align 4, !tbaa !3
   %66 = sext i32 %65 to i64
   %67 = mul nsw i64 %64, %66
-  %68 = getelementptr double, ptr %20, i64 %67
+  %gep = getelementptr double, ptr %20, i64 %67
   %69 = getelementptr i8, ptr %68, i64 8
   %70 = mul nsw i64 %indvars.iv, %62
   %71 = getelementptr double, ptr %19, i64 %70
@@ -139,11 +139,11 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br i1 %.not106.not, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %57
-  %73 = uitofp nneg i32 %45 to double
-  store double %73, ptr %8, align 8, !tbaa !7
-  br label %74
+  %69 = uitofp nneg i32 %45 to double
+  store double %69, ptr %8, align 8, !tbaa !7
+  br label %70
 
-74:                                               ; preds = %._crit_edge, %55, %50, %.thread
+70:                                               ; preds = %._crit_edge, %55, %50, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4

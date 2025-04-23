@@ -487,36 +487,36 @@ define ptr @diff_basename(ptr noundef readonly captures(address_is_null, ret: ad
 
 .lr.ph:                                           ; preds = %3, %9
   %.019 = phi i64 [ %10, %9 ], [ %4, %3 ]
-  %5 = getelementptr i8, ptr %0, i64 %.019
-  %6 = getelementptr i8, ptr %5, i64 -1
+  %gep = getelementptr i8, ptr %0, i64 %.019
+  %6 = getelementptr i8, ptr %gep, i64 -1
   %7 = load i8, ptr %6, align 1, !tbaa !9
   %8 = icmp eq i8 %7, 47
   br i1 %8, label %9, label %.lr.ph24
 
-9:                                                ; preds = %.lr.ph
+9:; preds = %.lr.ph
   %10 = add i64 %.019, -1
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %.critedge2, label %.lr.ph, !llvm.loop !10
 
-.lr.ph24:                                         ; preds = %.lr.ph, %14
-  %.123 = phi i64 [ %15, %14 ], [ %.019, %.lr.ph ]
-  %11 = getelementptr i8, ptr %0, i64 %.123
-  %12 = getelementptr i8, ptr %11, i64 -1
+.lr.ph26:                                         ; preds = %.lr.ph, %14
+  %.125 = phi i64 [ %15, %14 ], [ %.019, %.lr.ph ]
+  %gep23 = getelementptr i8, ptr %0, i64 %.125
+  %12 = getelementptr i8, ptr %gep23, i64 -1
   %13 = load i8, ptr %12, align 1, !tbaa !9
   %.not17 = icmp eq i8 %13, 47
   br i1 %.not17, label %.critedge2, label %14
 
-14:                                               ; preds = %.lr.ph24
+14:; preds = %.lr.ph24
   %15 = add i64 %.123, -1
   %.not16 = icmp eq i64 %15, 0
   br i1 %.not16, label %.critedge2, label %.lr.ph24, !llvm.loop !11
 
-.critedge2:                                       ; preds = %9, %.lr.ph24, %14, %3
+.critedge2:; preds = %9, %.lr.ph26, %14, %3
   %.1.lcssa = phi i64 [ 0, %3 ], [ 0, %14 ], [ %.123, %.lr.ph24 ], [ 0, %9 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.1.lcssa
   br label %17
 
-17:                                               ; preds = %1, %.critedge2
+17:; preds = %1, %.critedge2
   %.014 = phi ptr [ %16, %.critedge2 ], [ null, %1 ]
   ret ptr %.014
 }

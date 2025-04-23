@@ -33993,14 +33993,14 @@ invoke.cont46:                                    ; preds = %invoke.cont36
   %call49 = invoke noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr41, i8 noundef signext %call47)
           to label %for.body55 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-for.body55:                                       ; preds = %invoke.cont46, %for.inc80
+for.cond52.preheader:                             ; preds = %invoke.cont46, %for.inc80
   %i_data.0.idx51 = phi i64 [ %i_data.0.add, %for.inc80 ], [ 0, %invoke.cont46 ]
   %i_data.0.ptr = getelementptr inbounds nuw i8, ptr %u, i64 %i_data.0.idx51
   %vtable56 = load ptr, ptr %os, align 8
   %vbase.offset.ptr57 = getelementptr i8, ptr %vtable56, i64 -24
   %vbase.offset58 = load i64, ptr %vbase.offset.ptr57, align 8
-  %add.ptr59 = getelementptr inbounds i8, ptr %os, i64 %vbase.offset58
-  %_M_width.i35 = getelementptr inbounds nuw i8, ptr %add.ptr59, i64 16
+  %gep = getelementptr inbounds i8, ptr %os, i64 %vbase.offset58
+  %_M_width.i35 = getelementptr inbounds nuw i8, ptr %gep, i64 16
   store i64 2, ptr %_M_width.i35, align 8
   %5 = load i8, ptr %i_data.0.ptr, align 1
   %conv = zext i8 %5 to i32
@@ -36171,8 +36171,8 @@ arraydestroy.body.i.i.i.i.i.i:                    ; preds = %_ZNSt10shared_ptrIN
   %arraydestroy.elementPast.i.idx.i.i.i.i.i = phi i64 [ 168, %arraydestroy.body.i.i.i.i ], [ %arraydestroy.elementPast.i.add.i.i.i.i.i, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit.i.i.i.i.i.i ]
   %arraydestroy.elementPast.i.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.i.ptr.i.i.i, i64 %arraydestroy.elementPast.i.idx.i.i.i.i.i
   %arraydestroy.elementPast.i.add.i.i.i.i.i = add nsw i64 %arraydestroy.elementPast.i.idx.i.i.i.i.i, -16
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.ptr.i.i.i.i.i, i64 -8
-  %1 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
+  %gep.i.i.i.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i.ptr.i.i.i.i.i, i64 -8
+  %1 = load ptr, ptr %gep.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 

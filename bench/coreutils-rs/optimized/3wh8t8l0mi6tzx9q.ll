@@ -3256,18 +3256,18 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %54 = add i64 %.sroa.01.0.i.i, %51
   %55 = and i64 %54, %39
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %40, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 -192
+  %gep.i = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %40, i64 %56
+  %58 = getelementptr inbounds i8, ptr %gep.i, i64 -192
   %.val4.i.i = load i32, ptr %58, align 4, !noalias !329, !noundef !5
   %59 = icmp eq i32 %.val4.i.i, %2
   br i1 %59, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h342c2bccc1ff4df4E.llvm.6180704580393161520.exit", label %45
 
-60:                                               ; preds = %46
-  %61 = add i64 %.sroa.9.0.i.i, 16
+60:; preds = %46
+  %60 = add i64 %.sroa.9.0.i.i, 16
   %62 = add i64 %.sroa.01.0.i.i, %61
   br label %41
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h342c2bccc1ff4df4E.llvm.6180704580393161520.exit": ; preds = %49
+61:                                               ; preds = %49
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %63, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -3300,7 +3300,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   store i32 %2, ptr %.sroa.57.0..sroa_idx, align 8
   br label %73
 
-73:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h46ee5760b523da2eE.exit", %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h342c2bccc1ff4df4E.llvm.6180704580393161520.exit"
+73:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h46ee5760b523da2eE.exit", %61
   %storemerge = phi i64 [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h46ee5760b523da2eE.exit" ], [ 0, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h342c2bccc1ff4df4E.llvm.6180704580393161520.exit" ]
   store i64 %storemerge, ptr %0, align 8
   ret void
@@ -3415,19 +3415,19 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h342c
   %22 = add i64 %.sroa.01.0.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %8, i64 %24
-  %26 = getelementptr inbounds i8, ptr %25, i64 -192
+  %gep = getelementptr inbounds { i32, [1 x i32], { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, [1 x i64] }, i64, { {} }, {} } } }, ptr %8, i64 %24
+  %26 = getelementptr inbounds i8, ptr %gep, i64 -192
   %.val4.i = load i32, ptr %26, align 4, !noalias !348, !noundef !5
   %27 = icmp eq i32 %.val4.i, %.val1.i.i
   br i1 %27, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.6180704580393161520.exit.thread, label %13
 
-28:                                               ; preds = %14
-  %29 = add i64 %.sroa.9.0.i, 16
+28:; preds = %14
+  %28 = add i64 %.sroa.9.0.i, 16
   %30 = add i64 %.sroa.01.0.i, %29
   br label %9
 
-_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.6180704580393161520.exit.thread: ; preds = %14, %17
-  %.0 = phi ptr [ %25, %17 ], [ null, %14 ]
+29:                                               ; preds = %14, %17
+  %.0 = phi ptr [ %gep, %17 ], [ null, %14 ]
   ret ptr %.0
 }
 

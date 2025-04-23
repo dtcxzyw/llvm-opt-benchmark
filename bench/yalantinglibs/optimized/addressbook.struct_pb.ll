@@ -255,8 +255,8 @@ if.end12.i227:                                    ; preds = %if.end.i190
   %and9.i225 = zext nneg i8 %2 to i64
   %inc13.i228 = add i64 %pos.promoted, 2
   store i64 %inc13.i228, ptr %pos, align 8
-  %arrayidx14.i229 = getelementptr i8, ptr %arrayidx.i312, i64 1
-  %3 = load i8, ptr %arrayidx14.i229, align 1
+  %gep = getelementptr i8, ptr %arrayidx.i312, i64 1
+  %3 = load i8, ptr %gep, align 1
   %conv15.i230 = sext i8 %3 to i64
   %and16.i231 = shl nsw i64 %conv15.i230, 7
   %shl.i232 = and i64 %and16.i231, 16256
@@ -1982,8 +1982,8 @@ if.end12.i554:                                    ; preds = %if.end.i517
   %and9.i552 = zext nneg i8 %3 to i64
   %inc13.i555 = add i64 %pos.promoted, 2
   store i64 %inc13.i555, ptr %pos, align 8
-  %arrayidx14.i556 = getelementptr i8, ptr %arrayidx.i639, i64 1
-  %4 = load i8, ptr %arrayidx14.i556, align 1
+  %gep = getelementptr i8, ptr %arrayidx.i639, i64 1
+  %4 = load i8, ptr %gep, align 1
   %conv15.i557 = sext i8 %4 to i64
   %and16.i558 = shl nsw i64 %conv15.i557, 7
   %shl.i559 = and i64 %and16.i558, 16256
@@ -3235,8 +3235,8 @@ if.end12.i76:                                     ; preds = %if.end.i39
   %and9.i74 = zext nneg i8 %1 to i64
   %inc13.i77 = add i64 %pos.promoted, 2
   store i64 %inc13.i77, ptr %pos, align 8
-  %arrayidx14.i78 = getelementptr i8, ptr %arrayidx.i161, i64 1
-  %2 = load i8, ptr %arrayidx14.i78, align 1
+  %gep = getelementptr i8, ptr %arrayidx.i161, i64 1
+  %2 = load i8, ptr %gep, align 1
   %conv15.i79 = sext i8 %2 to i64
   %and16.i80 = shl nsw i64 %conv15.i79, 7
   %shl.i81 = and i64 %and16.i80, 16256

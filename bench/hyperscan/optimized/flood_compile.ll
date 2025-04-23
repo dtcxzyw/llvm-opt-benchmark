@@ -447,16 +447,16 @@ _ZN3ue2L8addFloodERSt6vectorI8FDRFloodSaIS1_EEhRKNS_11hwlmLiteralEj.exit218: ; p
   %.not289 = icmp eq ptr %204, %15
   br i1 %.not289, label %._crit_edge, label %.lr.ph326
 
-.preheader:                                       ; preds = %._crit_edge, %.preheader
+205:                                              ; preds = %._crit_edge, %205
   %.sroa.0232.0.idx327 = phi i64 [ %.sroa.0232.0.add, %.preheader ], [ 0, %._crit_edge ]
-  %.sroa.0232.0.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.0232.0.idx327
-  %205 = getelementptr inbounds nuw i8, ptr %.sroa.0232.0.ptr, i64 12
+  %gep = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.0232.0.idx327
+  %205 = getelementptr inbounds nuw i8, ptr %gep, i64 12
   store i16 16, ptr %205, align 4
   %.sroa.0232.0.add = add nuw nsw i64 %.sroa.0232.0.idx327, 208
   %.not290 = icmp eq i64 %.sroa.0232.0.add, 53248
-  br i1 %.not290, label %.loopexit, label %.preheader
+  br i1 %.not290, label %.loopexit, label %205
 
-.loopexit:                                        ; preds = %.preheader, %._crit_edge
+.loopexit:                                        ; preds = %205, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #17
   %206 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %206, align 8

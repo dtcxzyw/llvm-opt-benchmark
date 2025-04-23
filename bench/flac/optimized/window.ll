@@ -583,28 +583,28 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
 .preheader36:                                     ; preds = %2
   %10 = ashr exact i32 %1, 1
   %.not3245 = icmp slt i32 %10, 1
-  br i1 %.not3245, label %.preheader, label %.lr.ph47
+  br i1 %.not3245, label %.preheader, label %.lr.ph51
 
-.lr.ph47:                                         ; preds = %.preheader36
+.lr.ph51:                                         ; preds = %.preheader36
   %11 = uitofp nneg i32 %1 to float
   %12 = fadd reassoc nsz arcp float %11, 1.000000e+00
   %13 = add nuw nsw i32 %10, 1
-  %wide.trip.count63 = zext nneg i32 %13 to i64
+  %wide.trip.count69 = zext nneg i32 %13 to i64
   %14 = fdiv reassoc nsz arcp float 1.000000e+00, %12
   br label %40
 
 .preheader37:                                     ; preds = %19, %.preheader39
   %.0.lcssa = phi i32 [ 1, %.preheader39 ], [ %8, %19 ]
-  %.not3542 = icmp sgt i32 %.0.lcssa, %1
-  br i1 %.not3542, label %.loopexit, label %.lr.ph44
+  %.not3544 = icmp sgt i32 %.0.lcssa, %1
+  br i1 %.not3544, label %.loopexit, label %.lr.ph46
 
-.lr.ph44:                                         ; preds = %.preheader37
+.lr.ph46:                                         ; preds = %.preheader37
   %15 = uitofp nneg i32 %1 to float
   %16 = fadd reassoc nsz arcp float %15, 1.000000e+00
   %17 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count58 = zext nneg i32 %4 to i64
+  %wide.trip.count64 = zext nneg i32 %4 to i64
   %18 = fdiv reassoc nsz arcp float 1.000000e+00, %16
-  br label %26
+  br label %24
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %19 ]
@@ -612,34 +612,34 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   %21 = uitofp nneg i32 %20 to float
   %22 = fmul reassoc nsz arcp float %21, 2.000000e+00
   %23 = fmul reassoc nsz arcp float %22, %9
-  %24 = getelementptr float, ptr %0, i64 %indvars.iv
-  %25 = getelementptr i8, ptr %24, i64 -4
+  %gep = getelementptr float, ptr %0, i64 %indvars.iv
+  %25 = getelementptr i8, ptr %gep, i64 -4
   store float %23, ptr %25, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader37, label %19, !llvm.loop !25
 
-26:                                               ; preds = %.lr.ph44, %26
-  %indvars.iv55 = phi i64 [ %17, %.lr.ph44 ], [ %indvars.iv.next56, %26 ]
-  %27 = trunc i64 %indvars.iv55 to i32
-  %28 = sub i32 %1, %27
-  %29 = shl i32 %28, 1
-  %30 = add i32 %29, 2
-  %31 = sitofp i32 %30 to float
-  %32 = fmul reassoc nsz arcp float %31, %18
-  %33 = getelementptr float, ptr %0, i64 %indvars.iv55
-  %34 = getelementptr i8, ptr %33, i64 -4
+24:                                               ; preds = %.lr.ph46, %24
+  %indvars.iv61 = phi i64 [ %17, %.lr.ph44 ], [ %indvars.iv.next56, %26 ]
+  %25 = trunc i64 %indvars.iv61 to i32
+  %26 = sub i32 %1, %25
+  %27 = shl i32 %26, 1
+  %28 = add i32 %27, 2
+  %29 = sitofp i32 %28 to float
+  %30 = fmul reassoc nsz arcp float %29, %18
+  %gep43 = getelementptr float, ptr %0, i64 %indvars.iv61
+  %34 = getelementptr i8, ptr %gep43, i64 -4
   store float %32, ptr %34, align 4, !tbaa !3
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
   br i1 %exitcond59.not, label %.loopexit, label %26, !llvm.loop !26
 
-.preheader:                                       ; preds = %40, %.preheader36
+.preheader:; preds = %40, %.preheader36
   %.2.lcssa = phi i32 [ 1, %.preheader36 ], [ %13, %40 ]
   %.not3349 = icmp sgt i32 %.2.lcssa, %1
   br i1 %.not3349, label %.loopexit, label %.lr.ph51
 
-.lr.ph51:                                         ; preds = %.preheader
+.lr.ph51:; preds = %.preheader
   %35 = uitofp nneg i32 %1 to float
   %36 = fadd reassoc nsz arcp float %35, 1.000000e+00
   %37 = zext nneg i32 %.2.lcssa to i64
@@ -648,11 +648,11 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   %39 = fdiv reassoc nsz arcp float 1.000000e+00, %36
   br label %47
 
-40:                                               ; preds = %.lr.ph47, %40
+40: ; preds = %.lr.ph51, %40
   %indvars.iv60 = phi i64 [ 1, %.lr.ph47 ], [ %indvars.iv.next61, %40 ]
   %41 = trunc nuw nsw i64 %indvars.iv60 to i32
   %42 = uitofp nneg i32 %41 to float
-  %43 = fmul reassoc nsz arcp float %42, 2.000000e+00
+  %40 = fmul reassoc nsz arcp float %42, 2.000000e+00
   %44 = fmul reassoc nsz arcp float %43, %14
   %45 = getelementptr float, ptr %0, i64 %indvars.iv60
   %46 = getelementptr i8, ptr %45, i64 -4
@@ -661,7 +661,7 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
   br i1 %exitcond64.not, label %.preheader, label %40, !llvm.loop !27
 
-47:                                               ; preds = %.lr.ph51, %47
+47:; preds = %.lr.ph51, %47
   %indvars.iv65 = phi i64 [ %37, %.lr.ph51 ], [ %indvars.iv.next66, %47 ]
   %48 = trunc i64 %indvars.iv65 to i32
   %49 = sub i32 %1, %48

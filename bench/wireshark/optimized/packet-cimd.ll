@@ -772,58 +772,58 @@ define internal void @dissect_cimd_ud(ptr noundef %0, ptr noundef %1, i32 nounde
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %31
 
-31:                                               ; preds = %.lr.ph, %51
-  %.045 = phi i32 [ 0, %.lr.ph ], [ %52, %51 ]
+31:                                               ; preds = %.lr.ph, %50
+  %.045 = phi i32 [ 0, %.lr.ph ], [ %51, %51 ]
   %32 = sext i32 %.045 to i64
   %33 = getelementptr i8, ptr %21, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 95
-  br i1 %35, label %36, label %47
+  br i1 %35, label %36, label %46
 
 36:                                               ; preds = %31
   %37 = icmp slt i32 %.045, %27
-  br i1 %37, label %38, label %51
+  br i1 %37, label %38, label %50
 
 38:                                               ; preds = %36
   store i8 95, ptr %6, align 1
   %39 = add i32 %.045, 2
-  %40 = getelementptr i8, ptr %33, i64 1
-  %41 = load i8, ptr %40, align 1
-  store i8 %41, ptr %28, align 1
-  %42 = sext i32 %39 to i64
-  %43 = getelementptr i8, ptr %21, i64 %42
-  %44 = load i8, ptr %43, align 1
-  store i8 %44, ptr %29, align 1
+  %gep = getelementptr i8, ptr %33, i64 1
+  %40 = load i8, ptr %gep, align 1
+  store i8 %40, ptr %28, align 1
+  %41 = sext i32 %39 to i64
+  %42 = getelementptr i8, ptr %21, i64 %41
+  %43 = load i8, ptr %42, align 1
+  store i8 %43, ptr %29, align 1
   store i8 0, ptr %30, align 1
-  %45 = call i32 @str_to_val(ptr noundef nonnull %6, ptr noundef nonnull @dissect_cimd_ud.combining_mapping, i32 noundef 255)
-  %46 = trunc i32 %45 to i8
-  br label %51
+  %44 = call i32 @str_to_val(ptr noundef nonnull %6, ptr noundef nonnull @dissect_cimd_ud.combining_mapping, i32 noundef 255)
+  %45 = trunc i32 %44 to i8
+  br label %50
 
-47:                                               ; preds = %31
-  %48 = zext i8 %34 to i64
-  %49 = getelementptr [256 x i8], ptr @dissect_cimd_ud.latin_mapping, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1
-  br label %51
+46:                                               ; preds = %31
+  %47 = zext i8 %34 to i64
+  %48 = getelementptr [256 x i8], ptr @dissect_cimd_ud.latin_mapping, i64 0, i64 %47
+  %49 = load i8, ptr %48, align 1
+  br label %50
 
-51:                                               ; preds = %36, %47, %38
-  %.sink = phi i8 [ %50, %47 ], [ %46, %38 ], [ -1, %36 ]
+50:                                               ; preds = %36, %46, %38
+  %.sink = phi i8 [ %49, %47 ], [ %45, %38 ], [ -1, %36 ]
   %.1 = phi i32 [ %.045, %47 ], [ %39, %38 ], [ %.045, %36 ]
   call void @wmem_strbuf_append_c(ptr noundef %25, i8 noundef signext %.sink)
-  %52 = add i32 %.1, 1
-  %53 = icmp slt i32 %52, %20
-  br i1 %53, label %31, label %._crit_edge, !llvm.loop !10
+  %51 = add i32 %.1, 1
+  %52 = icmp slt i32 %51, %20
+  br i1 %52, label %31, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %51, %5
-  %54 = call ptr @wmem_packet_scope()
-  %55 = call ptr @wmem_strbuf_get_str(ptr noundef %25)
-  %56 = call i64 @wmem_strbuf_get_len(ptr noundef %25)
-  %57 = trunc i64 %56 to i32
-  %58 = call ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %54, ptr noundef %55, i32 noundef %57)
+._crit_edge:                                      ; preds = %50, %5
+  %53 = call ptr @wmem_packet_scope()
+  %54 = call ptr @wmem_strbuf_get_str(ptr noundef %25)
+  %55 = call i64 @wmem_strbuf_get_len(ptr noundef %25)
+  %56 = trunc i64 %55 to i32
+  %57 = call ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %53, ptr noundef %54, i32 noundef %56)
   call void @wmem_strbuf_destroy(ptr noundef %25)
-  %59 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = load i32, ptr %60, align 4
-  %62 = call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %61, ptr noundef %0, i32 noundef %19, i32 noundef %20, ptr noundef %58)
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = load i32, ptr %59, align 4
+  %61 = call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %60, ptr noundef %0, i32 noundef %19, i32 noundef %20, ptr noundef %57)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   ret void
 }

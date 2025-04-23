@@ -3106,7 +3106,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitposition(ptr noundef
   %40 = getelementptr inbounds i8, ptr %39, i64 -1
   %41 = and i32 %23, 255
   %42 = zext nneg i32 %25 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 %42
+  %gep = getelementptr inbounds nuw i8, ptr %5, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -1
   %45 = xor i32 %35, -1
   %46 = trunc i32 %35 to i8

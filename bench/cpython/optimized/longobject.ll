@@ -11975,14 +11975,14 @@ Py_DECREF.exit.us.i:                              ; preds = %._crit_edge.us.i, %
   store i32 %79, ptr %72, align 4, !tbaa !33
   %80 = shl nuw nsw i64 %73, 1
   %.081112.i = getelementptr i8, ptr %72, i64 4
-  %.080113.i = getelementptr i8, ptr %62, i64 4
+  %gep.i = getelementptr i8, ptr %62, i64 4
   %.082114.i = lshr i64 %77, 30
-  %81 = icmp ult ptr %.080113.i, %61
+  %81 = icmp ult ptr %gep.i, %61
   br i1 %81, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %71, %.lr.ph.i
   %.082117.i = phi i64 [ %.082.i, %.lr.ph.i ], [ %.082114.i, %71 ]
-  %.080116.i = phi ptr [ %.080.i, %.lr.ph.i ], [ %.080113.i, %71 ]
+  %.080116.i = phi ptr [ %.080.i, %.lr.ph.i ], [ %gep.i, %71 ]
   %.081115.i = phi ptr [ %.081.i, %.lr.ph.i ], [ %.081112.i, %71 ]
   %82 = load i32, ptr %.081115.i, align 4, !tbaa !33
   %83 = zext i32 %82 to i64

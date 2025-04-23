@@ -388,26 +388,26 @@ define dso_local i64 @bpchar_name(ptr noundef readonly captures(none) %0) local_
   br i1 %31, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.thread, %29
-  %.035 = phi i32 [ %.0, %29 ], [ 8, %.thread ]
+  %invariant.gep37 = phi i32 [ %.0, %29 ], [ 8, %.thread ]
   %32 = phi ptr [ %30, %29 ], [ %9, %.thread ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %.130 = phi i32 [ %38, %37 ], [ %.035, %.lr.ph.preheader ]
   %33 = zext nneg i32 %.130 to i64
-  %34 = getelementptr i8, ptr %32, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 -1
+  %gep = getelementptr i8, ptr %32, i64 %33
+  %35 = getelementptr i8, ptr %gep, i64 -1
   %36 = load i8, ptr %35, align 1
   %.not26 = icmp eq i8 %36, 32
   br i1 %.not26, label %37, label %._crit_edge
 
-37:                                               ; preds = %.lr.ph
+37:; preds = %.lr.ph
   %38 = add nsw i32 %.130, -1
   %39 = icmp sgt i32 %.130, 1
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %37, %.lr.ph, %29
-  %40 = phi ptr [ %30, %29 ], [ %32, %.lr.ph ], [ %32, %37 ]
+._crit_edge:; preds = %37, %.lr.ph, %29
+  %.1.lcssa = phi ptr [ %30, %29 ], [ %32, %.lr.ph ], [ %32, %37 ]
   %.1.lcssa = phi i32 [ %.0, %29 ], [ 0, %37 ], [ %.130, %.lr.ph ]
   %41 = tail call ptr @palloc0(i64 noundef 64) #13
   %42 = sext i32 %.1.lcssa to i64

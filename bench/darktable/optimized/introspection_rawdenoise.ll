@@ -1144,8 +1144,8 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   %33 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %24, i64 0, i64 %32
   store float %29, ptr %33, align 8, !tbaa !95
   %.idx.i = shl nuw nsw i64 %32, 3
-  %34 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %gep = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
+  %35 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   store float %31, ptr %35, align 4, !tbaa !97
   %36 = add i8 %27, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1374,8 +1374,8 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   %121 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %52, i64 0, i64 %indvars.iv78
   store float %118, ptr %121, align 8, !tbaa !95
   %.idx.i75 = shl nuw nsw i64 %indvars.iv78, 3
-  %122 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i75
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  %gep = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i75
+  %123 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   store float %120, ptr %123, align 4, !tbaa !97
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
