@@ -3112,9 +3112,9 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %invariant.gep55 = getelementptr i8, ptr %66, i64 -48
-  %.pre63 = load ptr, ptr %0, align 8, !alias.scope !721, !nonnull !4, !noundef !4
-  %invariant.gep70 = getelementptr i8, ptr %.pre63, i64 -48
+  %invariant.gep56 = getelementptr i8, ptr %66, i64 -48
+  %.pre64 = load ptr, ptr %0, align 8, !alias.scope !721, !nonnull !4, !noundef !4
+  %invariant.gep71 = getelementptr i8, ptr %.pre64, i64 -48
   br label %85
 
 "_ZN9hashbrown3raw22RawTableInner$LT$A$GT$14prepare_resize17hb82ff89b6e99af5eE.exit.thread": ; preds = %46, %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$17new_uninitialized17h442a81710c36f1a9E.exit.thread.i.i"
@@ -3130,15 +3130,15 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %common.resume
 
 85:                                               ; preds = %.lr.ph, %.backedge
-  %.sroa.011.0.i.i54 = phi i64 [ 0, %.lr.ph ], [ %86, %.backedge ]
-  %86 = add nuw i64 %.sroa.011.0.i.i54, 1
-  %87 = getelementptr inbounds i8, ptr %.pre63, i64 %.sroa.011.0.i.i54
+  %.sroa.011.0.i.i55 = phi i64 [ 0, %.lr.ph ], [ %86, %.backedge ]
+  %86 = add nuw i64 %.sroa.011.0.i.i55, 1
+  %87 = getelementptr inbounds i8, ptr %.pre64, i64 %.sroa.011.0.i.i55
   %88 = load i8, ptr %87, align 1, !noundef !4
   %89 = icmp sgt i8 %88, -1
   br i1 %89, label %102, label %.backedge
 
 .backedge:                                        ; preds = %85, %146
-  %exitcond.not = icmp eq i64 %.sroa.011.0.i.i54, %24
+  %exitcond.not = icmp eq i64 %.sroa.011.0.i.i55, %24
   br i1 %exitcond.not, label %._crit_edge, label %85
 
 ._crit_edge:                                      ; preds = %.backedge, %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$14prepare_resize17hb82ff89b6e99af5eE.exit"
@@ -3180,8 +3180,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$12resize_inner17h097555988d207dd2E.exit.i"
 
 102:                                              ; preds = %85
-  %103 = sub nsw i64 0, %.sroa.011.0.i.i54
-  %104 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %.pre63, i64 %103
+  %103 = sub nsw i64 0, %.sroa.011.0.i.i55
+  %104 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %.pre64, i64 %103
   %105 = getelementptr inbounds i8, ptr %104, i64 -48
   %.val3.i = load ptr, ptr %105, align 8, !alias.scope !743, !noalias !748, !nonnull !4, !noundef !4
   %106 = getelementptr i8, ptr %104, i64 -32
@@ -3292,11 +3292,11 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   store i8 %149, ptr %147, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %151
   store i8 %149, ptr %gep, align 1
-  %.neg.i.i = mul i64 %.sroa.011.0.i.i54, -48
-  %gep71 = getelementptr i8, ptr %invariant.gep70, i64 %.neg.i.i
+  %.neg.i.i = mul i64 %.sroa.011.0.i.i55, -48
+  %gep72 = getelementptr i8, ptr %invariant.gep71, i64 %.neg.i.i
   %.neg33.i.i = mul i64 %.0.i.i.i7, -48
-  %gep56 = getelementptr i8, ptr %invariant.gep55, i64 %.neg33.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %gep56, ptr noundef nonnull align 1 dereferenceable(48) %gep71, i64 48, i1 false)
+  %gep57 = getelementptr i8, ptr %invariant.gep56, i64 %.neg33.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %gep57, ptr noundef nonnull align 1 dereferenceable(48) %gep72, i64 48, i1 false)
   br label %.backedge
 
 common.resume:                                    ; preds = %179, %83

@@ -2029,12 +2029,12 @@ if.end536:                                        ; preds = %invoke.cont242, %if
   %h1_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %204 = load double, ptr %h1_, align 8
   %cmp544 = fcmp oeq double %99, %204
-  %or.cond650.not1185 = select i1 %or.cond649.not, i1 %cmp544, i1 false
+  %or.cond650.not1189 = select i1 %or.cond649.not, i1 %cmp544, i1 false
   %T_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   %205 = load i64, ptr %T_, align 8
   %cmp546.not = icmp eq i64 %call200, %205
-  %or.cond1184 = select i1 %or.cond650.not1185, i1 %cmp546.not, i1 false
-  br i1 %or.cond1184, label %if.else1087, label %if.then547
+  %or.cond1188 = select i1 %or.cond650.not1189, i1 %cmp546.not, i1 false
+  br i1 %or.cond1188, label %if.else1087, label %if.then547
 
 if.then547:                                       ; preds = %if.end536
   %m1_548 = getelementptr inbounds nuw i8, ptr %this, i64 424
@@ -2077,7 +2077,7 @@ for.cond589.preheader:                            ; preds = %invoke.cont562
   br i1 %cmp5901134.not, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit894, label %for.body591.lr.ph
 
 for.body591.lr.ph:                                ; preds = %for.body, %for.cond589.preheader
-  %invariant.gep11321182 = getelementptr i8, ptr %call557, i64 8
+  %invariant.gep11321186 = getelementptr i8, ptr %call557, i64 8
   %sub606 = fsub double 1.000000e+00, %206
   %mul609 = fmul double %100, %100
   %add610 = fadd double %206, 1.000000e+00
@@ -2240,7 +2240,7 @@ for.body729.lr.ph:                                ; preds = %for.body591
   %mul744 = fmul double %mul609, %226
   %mul771 = fmul double %mul624, %227
   %mul787 = fmul double %100, %227
-  %gep1133 = getelementptr double, ptr %invariant.gep11321182, i64 %i.11135
+  %gep1133 = getelementptr double, ptr %invariant.gep11321186, i64 %i.11135
   %sub886 = add i64 %sub726, -2
   %.pre1175 = load double, ptr %call557, align 8
   %.pre1176 = load double, ptr %call560, align 8
@@ -2537,13 +2537,13 @@ if.else1087:                                      ; preds = %if.end536
   %289 = load double, ptr %k4_1091, align 8, !tbaa !155
   %r_1092 = getelementptr inbounds nuw i8, ptr %this, i64 408
   %290 = load double, ptr %r_1092, align 8, !tbaa !156
-  %.pre1178 = uitofp i64 %call200 to double
-  %.pre1179 = fneg double %290
+  %.pre1182 = uitofp i64 %call200 to double
+  %.pre1183 = fneg double %290
   br label %invoke.cont1115
 
 invoke.cont1115:                                  ; preds = %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit894, %if.else1087
-  %neg1098.pre-phi = phi double [ %264, %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit894 ], [ %.pre1179, %if.else1087 ]
-  %conv1096.pre-phi = phi double [ %conv, %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit894 ], [ %.pre1178, %if.else1087 ]
+  %neg1098.pre-phi = phi double [ %264, %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit894 ], [ %.pre1183, %if.else1087 ]
+  %conv1096.pre-phi = phi double [ %conv, %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit894 ], [ %.pre1182, %if.else1087 ]
   %sigma.0 = phi double [ %280, %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit894 ], [ %287, %if.else1087 ]
   %k3.0 = phi double [ %div1074, %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit894 ], [ %288, %if.else1087 ]
   %k4.0 = phi double [ %div1077, %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit894 ], [ %289, %if.else1087 ]

@@ -4379,7 +4379,7 @@ _ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit.thread: ; preds = %58
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19)
   br label %162
 
-default.unreachable:                              ; preds = %297, %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit, %58
+default.unreachable66.i:                          ; preds = %297, %_ZN5uu_wc20compute_number_width17hf5545744421b0745E.exit, %58
   unreachable
 
 59:                                               ; preds = %58

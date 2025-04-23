@@ -527,23 +527,23 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   %.pre67.i.i = tail call i64 @llvm.umax.i64(i64 %.pre.i.i, i64 3)
   %83 = icmp ugt i64 %.pre.i.i, 3
   %84 = load ptr, ptr %74, align 8, !alias.scope !76, !noalias !79, !nonnull !4
-  %spec.select.i = select i1 %83, ptr %84, ptr %74
-  %spec.select35.i = select i1 %83, ptr %.sroa.gep.i, ptr %10
-  %.pre = load i64, ptr %spec.select35.i, align 8, !alias.scope !73, !noalias !70, !noundef !4
+  %spec.select = select i1 %83, ptr %84, ptr %74
+  %spec.select26 = select i1 %83, ptr %.sroa.gep.i, ptr %10
+  %.pre = load i64, ptr %spec.select26, align 8, !alias.scope !73, !noalias !70, !noundef !4
   %85 = icmp ult i64 %.pre, %.pre67.i.i
   br i1 %85, label %.lr.ph.i.i.preheader, label %._crit_edge.i.i
 
 .lr.ph.i.i.preheader:                             ; preds = %68, %.thread.i
-  %86 = phi ptr [ %spec.select35.i, %.thread.i ], [ %10, %68 ]
-  %.sink.i.pre-phi.i2628.i39 = phi i64 [ %.pre67.i.i, %.thread.i ], [ 3, %68 ]
-  %87 = phi ptr [ %spec.select.i, %.thread.i ], [ %74, %68 ]
+  %86 = phi ptr [ %spec.select26, %.thread.i ], [ %10, %68 ]
+  %.sink.i.pre-phi.i2731.i40 = phi i64 [ %.pre67.i.i, %.thread.i ], [ 3, %68 ]
+  %87 = phi ptr [ %spec.select, %.thread.i ], [ %74, %68 ]
   %88 = phi i64 [ %.pre, %.thread.i ], [ 0, %68 ]
   br label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i", %.thread.i
-  %89 = phi ptr [ %spec.select35.i, %.thread.i ], [ %86, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
+  %89 = phi ptr [ %spec.select26, %.thread.i ], [ %86, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
   %.sroa.0.0.lcssa.i.i = phi ptr [ %70, %.thread.i ], [ %93, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
-  %storemerge.lcssa.i.i = phi i64 [ %.pre, %.thread.i ], [ %.sink.i.pre-phi.i2628.i39, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
+  %storemerge.lcssa.i.i = phi i64 [ %.pre, %.thread.i ], [ %.sink.i.pre-phi.i2731.i40, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef1d0dac9ce0d1aE.exit.i.i" ]
   store i64 %storemerge.lcssa.i.i, ptr %89, align 8, !alias.scope !73, !noalias !70
   %90 = icmp eq ptr %.sroa.0.0.lcssa.i.i, %73
   br i1 %90, label %.loopexit, label %.lr.ph59.i.i
@@ -643,7 +643,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   %127 = getelementptr inbounds ptr, ptr %87, i64 %storemerge55.i.i
   store ptr %94, ptr %127, align 8, !noalias !70
   %128 = add i64 %storemerge55.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %128, %.sink.i.pre-phi.i2628.i39
+  %exitcond.not.i.i = icmp eq i64 %128, %.sink.i.pre-phi.i2731.i40
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 129:                                              ; preds = %.lr.ph.i.i

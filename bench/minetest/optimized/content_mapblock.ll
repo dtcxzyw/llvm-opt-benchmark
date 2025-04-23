@@ -8855,21 +8855,21 @@ if.end80:                                         ; preds = %for.inc77
   %and108260 = and i8 %.pre2, %.pre1
   %tobool125 = icmp ne i8 %.pre1, %.pre2
   %frombool126 = zext i1 %tobool125 to i8
-  %spec.select15 = select i1 %39, i8 %frombool126, i8 %and108260
-  %tobool128.not = icmp eq i8 %spec.select15, 0
+  %spec.select16 = select i1 %39, i8 %frombool126, i8 %and108260
+  %tobool128.not = icmp eq i8 %spec.select16, 0
   br i1 %tobool128.not, label %if.end130, label %cleanup
 
 if.end130:                                        ; preds = %.thread, %if.end80
   %40 = phi i8 [ 0, %.thread ], [ %.pre2, %if.end80 ]
   %41 = phi i8 [ 0, %.thread ], [ %.pre1, %if.end80 ]
-  %tile814 = phi ptr [ %tile4, %.thread ], [ %tile, %if.end80 ]
+  %tile915 = phi ptr [ %tile4, %.thread ], [ %tile, %if.end80 ]
   call void @_ZN21MapblockMeshGenerator21drawAutoLightedCuboidEN3irr4core8aabbox3dIfEEPKfP8TileSpecih(ptr noundef nonnull align 8 dereferenceable(660) %this, ptr noundef nonnull byval(%"class.irr::core::aabbox3d") align 8 @_ZZN21MapblockMeshGenerator23drawGlasslikeFramedNodeEvE11frame_edges, ptr noundef null, ptr noundef null, i32 noundef 0, i8 noundef zeroext 0)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end130, %if.end80
   %42 = phi i8 [ %40, %if.end130 ], [ %.pre2, %if.end80 ]
   %43 = phi i8 [ %41, %if.end130 ], [ %.pre1, %if.end80 ]
-  %tile813 = phi ptr [ %tile814, %if.end130 ], [ %tile, %if.end80 ]
+  %tile914 = phi ptr [ %tile915, %if.end130 ], [ %tile, %if.end80 ]
   %arrayidx91.1 = getelementptr inbounds nuw i8, ptr %nb, i64 6
   %44 = load i8, ptr %arrayidx91.1, align 2, !tbaa !64, !range !46, !noundef !47
   %tobool92.not.1 = icmp eq i8 %44, 0
@@ -9065,7 +9065,7 @@ for.body142:                                      ; preds = %for.inc179, %cleanu
 
 if.end147:                                        ; preds = %for.body142
   %arrayidx149 = getelementptr inbounds nuw [6 x %struct.TileSpec], ptr %glass_tiles, i64 0, i64 %indvars.iv446
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %tile813, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx149, i64 120, i1 false), !tbaa.struct !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %tile914, ptr noundef nonnull align 8 dereferenceable(120) %arrayidx149, i64 120, i1 false), !tbaa.struct !63
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %vertices) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %vertices, ptr noundef nonnull align 4 dereferenceable(48) @constinit.17, i64 48, i1 false), !tbaa.struct !163
   %60 = trunc i64 %indvars.iv446 to i32
@@ -9156,7 +9156,7 @@ if.then196:                                       ; preds = %land.lhs.true190
   %div = fdiv nsz float %conv198, 6.300000e+01
   %64 = call nsz float @llvm.fmuladd.f32(float %div, float 2.000000e+00, float -1.000000e+00)
   %special_tiles.i = getelementptr inbounds nuw i8, ptr %61, i64 720
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %tile813, ptr noundef nonnull align 8 dereferenceable(120) %special_tiles.i, i64 120, i1 false), !tbaa.struct !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %tile914, ptr noundef nonnull align 8 dereferenceable(120) %special_tiles.i, i64 120, i1 false), !tbaa.struct !63
   %texture_id.i = getelementptr inbounds nuw i8, ptr %this, i64 188
   %65 = load i32, ptr %texture_id.i, align 4, !tbaa !66
   %cmp3.i = icmp ne i32 %65, 0

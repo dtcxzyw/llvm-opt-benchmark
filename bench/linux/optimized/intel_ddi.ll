@@ -448,9 +448,9 @@ define dso_local void @intel_ddi_set_dp_msa(ptr noundef %0, ptr noundef %1) loca
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.thread2, label %47, !prof !7
+  br i1 %45, label %.thread3, label %47, !prof !7
 
-.thread2:                                         ; preds = %42
+.thread3:                                         ; preds = %42
   %46 = or disjoint i32 %38, 8
   br label %61
 
@@ -484,7 +484,7 @@ define dso_local void @intel_ddi_set_dp_msa(ptr noundef %0, ptr noundef %1) loca
 .thread:                                          ; preds = %37, %57
   br label %61
 
-61:                                               ; preds = %.thread2, %57, %.thread
+61:                                               ; preds = %.thread3, %57, %.thread
   %62 = phi i32 [ %38, %.thread ], [ %60, %57 ], [ %46, %.thread2 ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %64 = load i32, ptr %63, align 8

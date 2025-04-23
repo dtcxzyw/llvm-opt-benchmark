@@ -218,10 +218,10 @@ define hidden noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$13w
   br label %22
 
 22:                                               ; preds = %20, %.thread.i.i
-  %.sroa.01.05.i.i = phi i64 [ 1, %.thread.i.i ], [ %spec.select.i.i, %20 ]
+  %.sroa.01.06.i.i = phi i64 [ 1, %.thread.i.i ], [ %spec.select.i.i, %20 ]
   %23 = phi i64 [ 24, %.thread.i.i ], [ %spec.select7.i.i, %20 ]
   %.sroa.5.0.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i8, i64 %23
-  %24 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.05.i.i, ptr noundef %.sroa.5.0.i.i)
+  %24 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %0, i64 %1, i32 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.06.i.i, ptr noundef %.sroa.5.0.i.i)
           to label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hae1e727f446d3916E.llvm.6090777742988092048.exit" unwind label %25, !noalias !44
 
 25:                                               ; preds = %22, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$17h754773814dc1cd96E.exit.i.i.i"
@@ -1690,10 +1690,10 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN3std6thread5local17LocalKey$LT$T$GT
   br label %22
 
 22:                                               ; preds = %20, %.thread.i
-  %.sroa.01.05.i = phi i64 [ 1, %.thread.i ], [ %spec.select.i, %20 ]
+  %.sroa.01.06.i = phi i64 [ 1, %.thread.i ], [ %spec.select.i, %20 ]
   %23 = phi i64 [ 24, %.thread.i ], [ %spec.select7.i, %20 ]
   %.sroa.5.0.i = getelementptr inbounds nuw i8, ptr %6, i64 %23
-  %24 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %1, i64 %.val, i32 noundef %.val10, ptr noalias noundef readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.05.i, ptr noundef %.sroa.5.0.i)
+  %24 = invoke fastcc noundef zeroext i1 @"_ZN14event_listener21Listener$LT$T$C$B$GT$16wait_with_parker17hbf7079b0ab711b82E"(ptr noundef nonnull align 8 %1, i64 %.val, i32 noundef %.val10, ptr noalias noundef readonly align 8 dereferenceable(8) %13, i64 noundef %.sroa.01.06.i, ptr noundef %.sroa.5.0.i)
           to label %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal28_$u7b$$u7b$closure$u7d$$u7d$17h68dc7187a6a1a617E.exit" unwind label %25
 
 25:                                               ; preds = %22, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$17h754773814dc1cd96E.exit.i.i"

@@ -10279,7 +10279,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN72_$LT$ockam_co
   %.1.i.i.i.i.i = phi i8 [ %.0.i.i.i.i.i.i.i, %27 ], [ 1, %25 ]
   switch i8 %.1.i.i.i.i.i, label %default.unreachable.i.i.i.i [
     i8 -1, label %33
-    i8 0, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h72f2260156d56018E.exit"
+    i8 0, label %38
     i8 1, label %17
   ]
 
@@ -10295,7 +10295,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN72_$LT$ockam_co
   %.sroa.0.0.i.pre.i = load ptr, ptr %36, align 8, !noalias !1985, !nonnull !4, !noundef !4
   br label %11
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h72f2260156d56018E.exit": ; preds = %33, %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i.i", %2
+38:                                               ; preds = %33, %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i.i", %2
   %.0.i = phi i1 [ false, %2 ], [ true, %"_ZN72_$LT$ockam_core..routing..address..Address$u20$as$u20$core..cmp..Ord$GT$3cmp17h00cbb4d0338e8f6cE.exit.i.i.i.i" ], [ false, %33 ]
   ret i1 %.0.i
 }
@@ -10353,7 +10353,7 @@ default.unreachable.i.i.i.i:                      ; preds = %18
   %.0.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i, i64 0)
   switch i8 %.0.i.i.i.i.i.i.i, label %default.unreachable.i.i.i.i [
     i8 -1, label %26
-    i8 0, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hc370e61749646af7E.llvm.3189713146689755573.exit"
+    i8 0, label %31
     i8 1, label %16
   ]
 
@@ -10369,7 +10369,7 @@ default.unreachable.i.i.i.i:                      ; preds = %18
   %.sroa.0.0.i.pre.i = load ptr, ptr %29, align 8, !noalias !2004, !nonnull !4, !noundef !4
   br label %10
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hc370e61749646af7E.llvm.3189713146689755573.exit": ; preds = %26, %18, %2
+31:                                               ; preds = %26, %18, %2
   %.0.i = phi i1 [ false, %2 ], [ true, %18 ], [ false, %26 ]
   ret i1 %.0.i
 }
