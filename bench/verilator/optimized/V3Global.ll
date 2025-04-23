@@ -4710,7 +4710,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i: ; preds = %12
   %22 = invoke noundef signext i8 %21(ptr noundef nonnull align 8 dereferenceable(570) %14, i8 noundef signext 32)
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i unwind label %80
 
-_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc3, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i
+.noexc3._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i_crit_edge: ; preds = %.noexc3, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i
   store i8 1, ptr %9, align 1, !tbaa !208
   %.pre = load ptr, ptr %4, align 8
   br label %23

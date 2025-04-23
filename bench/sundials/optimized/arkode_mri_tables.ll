@@ -5134,9 +5134,9 @@ define void @MRIStepCoupling_Free(ptr noundef captures(address_is_null) %0) loca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = sext i32 %31 to i64
   %.not76.not = icmp slt i64 %indvars.iv, %33
-  br i1 %.not76.not, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %.not76.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge.loopexit:                             ; preds = %30
+._crit_edge:                                      ; preds = %30
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv98
   %.pre110 = load ptr, ptr %.phi.trans.insert, align 8
   br label %._crit_edge

@@ -1190,9 +1190,9 @@ time_strftime1.exit:                              ; preds = %83
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %92, %96, %99
-  br i1 %94, label %.thread118, label %100
+  br i1 %94, label %.thread118, label %Py_DECREF.exit._crit_edge
 
-100:                                              ; preds = %Py_DECREF.exit, %74
+Py_DECREF.exit._crit_edge:                        ; preds = %Py_DECREF.exit, %74
   %.2106 = phi ptr [ %.1105, %74 ], [ %81, %Py_DECREF.exit ]
   %.1 = phi i64 [ %.0103, %74 ], [ %.2, %Py_DECREF.exit ]
   %101 = icmp slt i64 %.157.lcssa, %.val75

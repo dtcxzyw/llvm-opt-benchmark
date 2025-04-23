@@ -5038,23 +5038,23 @@ _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit: ; preds = %78,
   br i1 %104, label %_ZNK4Luau5Lexer6peekchEj.exit10, label %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge
 
 _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge: ; preds = %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit
-  %.pre55 = load i32, ptr %13, align 4
-  %.pre57 = load i32, ptr %14, align 8
+  %.pre56 = load i32, ptr %13, align 4
+  %.pre58 = load i32, ptr %14, align 8
   br label %_ZNK4Luau5Lexer6peekchEj.exit10.thread
 
 _ZNK4Luau5Lexer6peekchEj.exit10:                  ; preds = %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit
   %105 = getelementptr inbounds nuw i8, ptr %.pre51, i64 %103
   %106 = load i8, ptr %105, align 1, !tbaa !15
   %107 = icmp eq i8 %106, 123
-  %.pre56 = load i32, ptr %13, align 4
-  %.pre58 = load i32, ptr %14, align 8
+  %.pre57 = load i32, ptr %13, align 4
+  %.pre59 = load i32, ptr %14, align 8
   br i1 %107, label %108, label %_ZNK4Luau5Lexer6peekchEj.exit10.thread
 
 108:                                              ; preds = %_ZNK4Luau5Lexer6peekchEj.exit10
-  %109 = sub i32 %101, %.pre58
+  %109 = sub i32 %101, %.pre59
   %.sroa.431.0.insert.ext = zext i32 %109 to i64
   %.sroa.431.0.insert.shift = shl nuw i64 %.sroa.431.0.insert.ext, 32
-  %.sroa.030.0.insert.ext = zext i32 %.pre56 to i64
+  %.sroa.030.0.insert.ext = zext i32 %.pre57 to i64
   %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.431.0.insert.shift, %.sroa.030.0.insert.ext
   %110 = getelementptr inbounds nuw i8, ptr %.pre51, i64 %10
   %111 = sub i32 %101, %7
@@ -5072,8 +5072,8 @@ _ZNK4Luau5Lexer6peekchEj.exit10:                  ; preds = %_ZNSt6vectorIN4Luau
   br label %139
 
 _ZNK4Luau5Lexer6peekchEj.exit10.thread:           ; preds = %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge, %_ZNK4Luau5Lexer6peekchEj.exit10
-  %116 = phi i32 [ %.pre57, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge ], [ %.pre58, %_ZNK4Luau5Lexer6peekchEj.exit10 ]
-  %117 = phi i32 [ %.pre55, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge ], [ %.pre56, %_ZNK4Luau5Lexer6peekchEj.exit10 ]
+  %116 = phi i32 [ %.pre58, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge ], [ %.pre59, %_ZNK4Luau5Lexer6peekchEj.exit10 ]
+  %117 = phi i32 [ %.pre56, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit._ZNK4Luau5Lexer6peekchEj.exit10.thread_crit_edge ], [ %.pre57, %_ZNK4Luau5Lexer6peekchEj.exit10 ]
   store i32 %102, ptr %6, align 8, !tbaa !60
   %118 = sub i32 %102, %116
   %.sroa.429.0.insert.ext = zext i32 %118 to i64

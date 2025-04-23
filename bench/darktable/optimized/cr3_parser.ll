@@ -1174,8 +1174,8 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
   %83 = getelementptr inbounds nuw i8, ptr %16, i64 7
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 381636
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 382104
-  %invariant.gep645 = getelementptr inbounds nuw i8, ptr %0, i64 382112
-  %invariant.gep647 = getelementptr inbounds nuw i8, ptr %0, i64 382056
+  %invariant.gep646 = getelementptr inbounds nuw i8, ptr %0, i64 382112
+  %invariant.gep648 = getelementptr inbounds nuw i8, ptr %0, i64 382056
   %invariant.gep649 = getelementptr inbounds nuw i8, ptr %0, i64 382080
   br label %85
 
@@ -2098,8 +2098,8 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
 
 .lr.ph500.preheader:                              ; preds = %579
   %.idx637 = shl nsw i64 %583, 7
-  %gep650 = getelementptr i8, ptr %invariant.gep649, i64 %.idx637
-  store i32 %577, ptr %gep650, align 8, !tbaa !17
+  %gep649 = getelementptr i8, ptr %invariant.gep649, i64 %.idx637
+  store i32 %577, ptr %gep649, align 8, !tbaa !17
   %wide.trip.count612 = zext nneg i32 %577 to i64
   br label %.lr.ph500
 
@@ -2244,8 +2244,8 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
 
 .lr.ph486.preheader:                              ; preds = %649
   %.idx635 = shl nsw i64 %654, 7
-  %gep644 = getelementptr i8, ptr %invariant.gep, i64 %.idx635
-  store i32 %647, ptr %gep644, align 8, !tbaa !15
+  %gep645 = getelementptr i8, ptr %invariant.gep, i64 %.idx635
+  store i32 %647, ptr %gep645, align 8, !tbaa !15
   %wide.trip.count602 = zext nneg i32 %647 to i64
   br label %.lr.ph486
 
@@ -2276,8 +2276,8 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
   store i32 %647, ptr %gep581, align 8, !tbaa !15
   %665 = load i64, ptr %.pre, align 8, !tbaa !19
   %.idx636 = shl nsw i64 %662, 7
-  %gep648 = getelementptr i8, ptr %invariant.gep647, i64 %.idx636
-  store i64 %665, ptr %gep648, align 8, !tbaa !28
+  %gep647 = getelementptr i8, ptr %invariant.gep647, i64 %.idx636
+  store i64 %665, ptr %gep647, align 8, !tbaa !28
   br label %.thread455thread-pre-split
 
 .thread455thread-pre-split:                       ; preds = %.lr.ph500, %398, %254, %429, %601, %637, %569, %455, %468, %_ZN6LibRaw5sgetnEiPh.exit, %457, %396, %.loopexit, %248, %260, %432, %276, %337, %349, %366, %._crit_edge, %438, %._crit_edge491, %615

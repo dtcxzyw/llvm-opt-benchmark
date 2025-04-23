@@ -84,8 +84,8 @@ define hidden void @_ZN5ceres8internal4TailERKSt6vectorINS0_5BlockESaIS2_EEi(ptr
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not54 = icmp eq i32 %2, 0
-  br i1 %.not54, label %._crit_edge, label %_ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE11_M_allocateEm.exit.i
+  %.not57 = icmp eq i32 %2, 0
+  br i1 %.not57, label %._crit_edge, label %_ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE11_M_allocateEm.exit.i: ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8

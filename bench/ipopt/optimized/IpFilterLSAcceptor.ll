@@ -18048,13 +18048,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1442: ; preds = %_
           to label %_ZN5Ipopt9TimedTask3EndEv.exit.sink.split unwind label %3942
 
 _ZN5Ipopt9TimedTask3EndEv.exit.sink.split:        ; preds = %.noexc1444, %.noexc1394
-  %.sink1848 = phi ptr [ %3814, %.noexc1394 ], [ %4075, %.noexc1444 ]
+  %.sink1849 = phi ptr [ %3814, %.noexc1394 ], [ %4075, %.noexc1444 ]
   %.sink = phi double [ %3835, %.noexc1394 ], [ %4096, %.noexc1444 ]
   %.2.ph = phi i1 [ false, %.noexc1394 ], [ %.01681837, %.noexc1444 ]
-  %4097 = getelementptr inbounds nuw i8, ptr %.sink1848, i64 1440
+  %4097 = getelementptr inbounds nuw i8, ptr %.sink1849, i64 1440
   %4098 = load double, ptr %4097, align 8, !tbaa !236
   %4099 = fsub double %.sink, %4098
-  %4100 = getelementptr inbounds nuw i8, ptr %.sink1848, i64 1448
+  %4100 = getelementptr inbounds nuw i8, ptr %.sink1849, i64 1448
   %4101 = load double, ptr %4100, align 8, !tbaa !807
   %4102 = fadd double %4101, %4099
   store double %4102, ptr %4100, align 8, !tbaa !807

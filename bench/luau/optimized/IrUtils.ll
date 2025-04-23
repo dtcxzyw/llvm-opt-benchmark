@@ -4314,9 +4314,9 @@ define dso_local void @_ZN4Luau7CodeGen16killUnusedBlocksERNS0_10IrFunctionE(ptr
 33:                                               ; preds = %32, %27
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i.not.i = icmp sgt i64 %indvars.iv.i, %26
-  br i1 %.not.i.not.i, label %27, label %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit, !llvm.loop !33
+  br i1 %.not.i.not.i, label %27, label %_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.loopexit, !llvm.loop !33
 
-_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit: ; preds = %33, %20
+_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit.loopexit: ; preds = %33, %20
   store i32 -1, ptr %21, align 4, !tbaa !30
   store i32 -1, ptr %23, align 4, !tbaa !31
   %.pre = load ptr, ptr %2, align 8
@@ -4355,8 +4355,8 @@ define dso_local void @_ZN4Luau7CodeGen19getSortedBlockOrderERNS0_10IrFunctionE(
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not36 = icmp eq ptr %4, %5
-  br i1 %.not36, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
+  %.not42 = icmp eq ptr %4, %5
+  br i1 %.not42, label %_ZNSt6vectorIjSaIjEE7reserveEm.exit, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8

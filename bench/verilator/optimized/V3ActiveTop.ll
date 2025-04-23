@@ -4688,7 +4688,7 @@ _ZZN16ActiveTopVisitor9isInitialEP7AstNodeENKUlPK9AstVarRefE_clES4_.exit.i: ; pr
   %31 = icmp ne i64 %30, 0
   %32 = select i1 %27, i1 %31, i1 false
   %cond.fr.i = freeze i1 %32
-  br i1 %cond.fr.i, label %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread64, label %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread
+  br i1 %cond.fr.i, label %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread64, label %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread.thread
 
 33:                                               ; preds = %13
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4753,11 +4753,11 @@ _ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlP
   br i1 %52, label %13, label %50, !llvm.loop !192
 
 _ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread64: ; preds = %_ZZN16ActiveTopVisitor9isInitialEP7AstNodeENKUlPK9AstVarRefE_clES4_.exit.thread.i, %_ZZN16ActiveTopVisitor9isInitialEP7AstNodeENKUlPK9AstVarRefE_clES4_.exit.i
-  br label %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread
+  br label %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread.thread
 
 _ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit: ; preds = %45
   %53 = icmp samesign ugt i64 %.idx51, 16
-  br i1 %53, label %.lr.ph.preheader, label %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread, !prof !193
+  br i1 %53, label %.lr.ph.preheader, label %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread.thread, !prof !193
 
 .lr.ph.preheader:                                 ; preds = %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread66, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit
   %.idx68 = phi i64 [ %.add, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread66 ], [ %.idx51, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit ]
@@ -4900,8 +4900,8 @@ _ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlP
   %123 = icmp ugt ptr %121, %122
   br i1 %123, label %.lr.ph, label %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread, !prof !194, !llvm.loop !195
 
-_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread: ; preds = %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit33, %_ZZN16ActiveTopVisitor9isInitialEP7AstNodeENKUlPK9AstVarRefE_clES4_.exit.i30, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread64, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit, %_ZZN16ActiveTopVisitor9isInitialEP7AstNodeENKUlPK9AstVarRefE_clES4_.exit.i
-  %.0 = phi i1 [ false, %_ZZN16ActiveTopVisitor9isInitialEP7AstNodeENKUlPK9AstVarRefE_clES4_.exit.i ], [ true, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit ], [ true, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread64 ], [ true, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit33 ], [ false, %_ZZN16ActiveTopVisitor9isInitialEP7AstNodeENKUlPK9AstVarRefE_clES4_.exit.i30 ]
+_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread.thread: ; preds = %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit33, %_ZZN16ActiveTopVisitor9isInitialEP7AstNodeENKUlPK9AstVarRefE_clES4_.exit.i30, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread64, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit, %_ZZN16ActiveTopVisitor9isInitialEP7AstNodeENKUlPK9AstVarRefE_clES4_.exit.i
+  %.0.ph69 = phi i1 [ false, %_ZZN16ActiveTopVisitor9isInitialEP7AstNodeENKUlPK9AstVarRefE_clES4_.exit.i ], [ true, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit ], [ true, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread64 ], [ true, %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit33 ], [ false, %_ZZN16ActiveTopVisitor9isInitialEP7AstNodeENKUlPK9AstVarRefE_clES4_.exit.i30 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
@@ -4910,7 +4910,7 @@ _ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlP
   %.not.i.i.i34 = icmp eq ptr %124, null
   br i1 %.not.i.i.i34, label %_ZNSt6vectorIP7AstNodeSaIS1_EED2Ev.exit, label %125
 
-125:                                              ; preds = %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread
+_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread: ; preds = %_ZZN7AstNode13predicateImplI9AstVarRefLb1EZN16ActiveTopVisitor9isInitialEPS_EUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlS3_E_clES3_.exit.thread
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !95
   %128 = ptrtoint ptr %127 to i64

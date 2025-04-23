@@ -2601,17 +2601,17 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
 
 441:                                              ; preds = %.loopexit.i
   %442 = icmp eq i64 %400, %402
-  %.pre128.pre129.i = load ptr, ptr %361, align 8
+  %.pre128.pre.i = load ptr, ptr %361, align 8
   br i1 %442, label %443, label %459
 
 443:                                              ; preds = %441
-  %444 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre129.i, i64 %363
+  %444 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre.i, i64 %363
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 448
   %446 = load i32, ptr %445, align 8, !tbaa !151
   %.not112.i = icmp eq i32 %446, 0
-  br i1 %.not112.i, label %459, label %.thread131.i
+  br i1 %.not112.i, label %459, label %.thread129.i
 
-.thread131.i:                                     ; preds = %443
+.thread129.i:                                     ; preds = %443
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 2776
   %448 = tail call i64 @ZSTD_XXH64_digest(ptr noundef nonnull captures(none) %447) #17
   %449 = trunc i64 %448 to i32
@@ -2622,10 +2622,10 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
   %454 = getelementptr inbounds nuw i8, ptr %451, i64 %453
   store i32 %449, ptr %454, align 1, !tbaa !3
   %455 = add nuw i64 %399, 4
-  %456 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre129.i, i64 %363, i32 1
+  %456 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre.i, i64 %363, i32 1
   %457 = add i64 %453, 4
   store i64 %457, ptr %456, align 8, !tbaa !83
-  %458 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre129.i, i64 %363, i32 18
+  %458 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128.pre.i, i64 %363, i32 18
   store i32 0, ptr %458, align 8, !tbaa !151
   %.pre128.pre.i = load ptr, ptr %361, align 8
   br label %460
@@ -2634,12 +2634,12 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
   %.not113.i = icmp eq i64 %399, 0
   br i1 %.not113.i, label %.thread, label %460
 
-460:                                              ; preds = %459, %.thread131.i
-  %.0104136.i = phi i64 [ %455, %.thread131.i ], [ %399, %459 ]
-  %.pre128135.i = phi ptr [ %.pre128.pre.i, %.thread131.i ], [ %.pre128.pre129.i, %459 ]
+460:                                              ; preds = %459, %.thread129.i
+  %.0104132.i = phi i64 [ %455, %.thread131.i ], [ %399, %459 ]
+  %.pre128135.i = phi ptr [ %.pre128.pre.i, %.thread131.i ], [ %.pre128.pre.i, %459 ]
   %461 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre128135.i, i64 %363, i32 17
   %462 = load i64, ptr %461, align 8, !tbaa !85
-  %463 = sub i64 %.0104136.i, %462
+  %463 = sub i64 %.0104132.i, %462
   %464 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %465 = load i64, ptr %464, align 8, !tbaa !154
   %466 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2671,7 +2671,7 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
   %480 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %477, i64 %363, i32 17
   %481 = add i64 %476, %..i78
   store i64 %481, ptr %480, align 8, !tbaa !85
-  %482 = icmp eq i64 %481, %.0104136.i
+  %482 = icmp eq i64 %481, %.0104132.i
   %or.cond.i80 = select i1 %442, i1 %482, i1 false
   br i1 %or.cond.i80, label %483, label %524
 
@@ -2738,7 +2738,7 @@ ZSTDMT_releaseBuffer.exit.i:                      ; preds = %511, %509, %499, %4
   store i64 %518, ptr %516, align 8, !tbaa !75
   %519 = getelementptr inbounds nuw i8, ptr %0, i64 3064
   %520 = load i64, ptr %519, align 8, !tbaa !77
-  %521 = add i64 %520, %.0104136.i
+  %521 = add i64 %520, %.0104132.i
   store i64 %521, ptr %519, align 8, !tbaa !77
   %522 = load i32, ptr %356, align 4, !tbaa !82
   %523 = add i32 %522, 1
@@ -2749,11 +2749,11 @@ ZSTDMT_releaseBuffer.exit.i:                      ; preds = %511, %509, %499, %4
 
 524:                                              ; preds = %ZSTDMT_releaseBuffer.exit.i, %475
   %525 = phi i64 [ %481, %475 ], [ %.pre112, %ZSTDMT_releaseBuffer.exit.i ]
-  %526 = icmp ugt i64 %.0104136.i, %525
+  %526 = icmp ugt i64 %.0104132.i, %525
   br i1 %526, label %527, label %.thread
 
 527:                                              ; preds = %524
-  %528 = sub nuw i64 %.0104136.i, %525
+  %528 = sub nuw i64 %.0104132.i, %525
   br label %ZSTDMT_flushProduced.exit
 
 .thread:                                          ; preds = %459, %524

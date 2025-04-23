@@ -3056,10 +3056,10 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9
 
 ._crit_edge.i..lr.ph68.preheader.i_crit_edge.i.i: ; preds = %._crit_edge.i.i.i
   %.pre.i.i = zext i32 %29 to i64
-  br label %.lr.ph68.preheader.i.i.i
+  br label %.lr.ph68.i.i.i.preheader
 
-.lr.ph68.preheader.i.i.i:                         ; preds = %._crit_edge.thread.i.i.i, %._crit_edge.i..lr.ph68.preheader.i_crit_edge.i.i
-  %.pre-phi.i.i = phi i64 [ %.pre.i.i, %._crit_edge.i..lr.ph68.preheader.i_crit_edge.i.i ], [ %31, %._crit_edge.thread.i.i.i ]
+.lr.ph68.i.i.i.preheader:                         ; preds = %._crit_edge.thread.i.i.i, %._crit_edge.i..lr.ph68.preheader.i_crit_edge.i.i
+  %.ph = phi i64 [ %.pre.i.i, %._crit_edge.i..lr.ph68.preheader.i_crit_edge.i.i ], [ %31, %._crit_edge.thread.i.i.i ]
   %.pre79.i.i.i = load ptr, ptr %17, align 8
   %.pre80.i.i.i = load i32, ptr %.pre79.i.i.i, align 4
   br label %.lr.ph68.i.i.i
@@ -3133,7 +3133,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9
 
 ._crit_edge.thread.i.i.i:                         ; preds = %.lr.ph.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  br label %.lr.ph68.preheader.i.i.i
+  br label %.lr.ph68.i.i.i.preheader
 
 ._crit_edge69.i.i.i:                              ; preds = %.lr.ph68.i.i.i, %._crit_edge.i.i.i
   %88 = phi ptr [ %23, %._crit_edge.i.i.i ], [ %115, %.lr.ph68.i.i.i ]
@@ -3146,7 +3146,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_0E9_M_invokeERKSt9
 
 .lr.ph68.i.i.i:                                   ; preds = %.lr.ph68.i.i.i, %.lr.ph68.preheader.i.i.i
   %92 = phi i32 [ %.pre80.i.i.i, %.lr.ph68.preheader.i.i.i ], [ %114, %.lr.ph68.i.i.i ]
-  %indvars.iv75.i.i.i = phi i64 [ %.pre-phi.i.i, %.lr.ph68.preheader.i.i.i ], [ %indvars.iv.next76.i.i.i, %.lr.ph68.i.i.i ]
+  %indvars.iv75.i.i.i = phi i64 [ %.ph, %.lr.ph68.preheader.i.i.i ], [ %indvars.iv.next76.i.i.i, %.lr.ph68.i.i.i ]
   %93 = load ptr, ptr %16, align 8, !tbaa !143
   %94 = load ptr, ptr %93, align 8, !tbaa !114
   %95 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv75.i.i.i

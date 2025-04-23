@@ -1655,8 +1655,8 @@ yy_get_next_buffer.exit:                          ; preds = %._crit_edge191.i, %
   ]
 
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge: ; preds = %yy_get_next_buffer.exit
-  %.pre1124 = load i32, ptr %83, align 4
-  %.pre1125 = sext i32 %.pre1124 to i64
+  %.pre1118 = load i32, ptr %83, align 4
+  %.pre1119 = sext i32 %.pre1118 to i64
   br label %yy_get_next_buffer.exit.thread607
 
 823:                                              ; preds = %yy_get_next_buffer.exit
@@ -1665,8 +1665,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge: ; preds = %
   %826 = sub i64 %824, %825
   %827 = trunc i64 %826 to i32
   %828 = shl i64 %826, 32
-  %sext1222 = add i64 %828, -4294967296
-  %829 = ashr exact i64 %sext1222, 32
+  %sext1227 = add i64 %828, -4294967296
+  %829 = ashr exact i64 %sext1227, 32
   %830 = getelementptr inbounds i8, ptr %822, i64 %829
   store ptr %830, ptr %74, align 8, !tbaa !34
   %831 = load i32, ptr %76, align 4, !tbaa !18
@@ -1748,7 +1748,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge: ; preds = %
   br i1 %exitcond.not.i589, label %.loopexit611.backedge, label %.lr.ph31.i577, !llvm.loop !53
 
 yy_get_next_buffer.exit.thread607:                ; preds = %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge, %.yy_get_next_buffer.exit.thread607_crit_edge
-  %.pre-phi = phi i64 [ %.pre1125, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge ], [ %554, %.yy_get_next_buffer.exit.thread607_crit_edge ]
+  %.pre-phi = phi i64 [ %.pre1119, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge ], [ %554, %.yy_get_next_buffer.exit.thread607_crit_edge ]
   %874 = phi ptr [ %822, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge ], [ %637, %.yy_get_next_buffer.exit.thread607_crit_edge ]
   %875 = phi ptr [ %822, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge ], [ %.pre1123, %.yy_get_next_buffer.exit.thread607_crit_edge ]
   %876 = getelementptr inbounds i8, ptr %875, i64 %.pre-phi
@@ -1837,7 +1837,7 @@ yy_get_next_buffer.exit.thread607:                ; preds = %yy_get_next_buffer.
   %exitcond.not.i604 = icmp eq ptr %919, %876
   br i1 %exitcond.not.i604, label %.preheader.outer.backedge, label %.lr.ph31.i592, !llvm.loop !53
 
-default.unreachable1126:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable1120:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit590:                    ; preds = %yy_get_next_buffer.exit, %647

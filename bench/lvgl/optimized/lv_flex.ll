@@ -1109,8 +1109,8 @@ get_next_item.exit:                               ; preds = %133, %146
   %169 = getelementptr inbounds nuw i8, ptr %.0203278, i64 62
   %170 = load i16, ptr %169, align 2
   %171 = and i16 %170, -3073
-  %.315 = select i1 %.not217, i16 1024, i16 2048
-  %172 = or disjoint i16 %171, %.315
+  %.319 = select i1 %.not217, i16 1024, i16 2048
+  %172 = or disjoint i16 %171, %.319
   store i16 %172, ptr %169, align 2
   %173 = getelementptr inbounds nuw i8, ptr %.0203278, i64 40
   %174 = call i32 %14(ptr noundef nonnull %173) #7, !callees !77

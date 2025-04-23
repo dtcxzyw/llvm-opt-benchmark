@@ -956,7 +956,7 @@ _ZSt4iotaIPciEvT_S1_T0_.exit113.preheader:        ; preds = %.lr.ph.i109
   br label %_ZSt4iotaIPciEvT_S1_T0_.exit113
 
 _ZSt4iotaIPciEvT_S1_T0_.exit113:                  ; preds = %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i
-  %.promoted.i.i115262 = phi i64 [ %405, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i ], [ %.promoted, %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader ]
+  %.promoted.i.i115264 = phi i64 [ %405, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i ], [ %.promoted, %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader ]
   %.012.i = phi ptr [ %416, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i ], [ %92, %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader ]
   %.0911.i = phi i64 [ %415, %_ZN10pcg_extras12bounded_randIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEEENT_11result_typeERSA_SB_.exit.i ], [ 52, %_ZSt4iotaIPciEvT_S1_T0_.exit113.preheader ]
   %399 = trunc i64 %.0911.i to i32
@@ -965,7 +965,7 @@ _ZSt4iotaIPciEvT_S1_T0_.exit113:                  ; preds = %_ZSt4iotaIPciEvT_S1
   br label %402
 
 402:                                              ; preds = %402, %_ZSt4iotaIPciEvT_S1_T0_.exit113
-  %403 = phi i64 [ %405, %402 ], [ %.promoted.i.i115262, %_ZSt4iotaIPciEvT_S1_T0_.exit113 ]
+  %403 = phi i64 [ %405, %402 ], [ %.promoted.i.i115264, %_ZSt4iotaIPciEvT_S1_T0_.exit113 ]
   %404 = mul i64 %403, 6364136223846793005
   %405 = add i64 %404, %.sroa.0.0.copyload176
   %406 = lshr i64 %403, 59

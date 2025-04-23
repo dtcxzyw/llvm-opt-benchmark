@@ -9637,7 +9637,7 @@ _ZN5boost6nowide3utf14convert_bufferIwcEEPT_S4_mPKT0_S7_.exit: ; preds = %.lr.ph
   %.02336.i18 = add i64 %.02336.in.i16, -1
   %29 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2)
   %30 = icmp eq i64 %.02336.i18, 0
-  br i1 %30, label %.thread.i, label %31
+  br i1 %30, label %.thread.i.loopexit, label %31
 
 31:                                               ; preds = %.lr.ph.i15
   %or.cond.i19 = icmp ugt i32 %29, -3
@@ -9646,10 +9646,10 @@ _ZN5boost6nowide3utf14convert_bufferIwcEEPT_S4_mPKT0_S7_.exit: ; preds = %.lr.ph
   store i32 %spec.store.select.i20, ptr %.02035.i17, align 4, !tbaa !76
   %33 = load ptr, ptr %4, align 8, !tbaa !7
   %.not.i21 = icmp eq ptr %33, %2
-  br i1 %.not.i21, label %.thread.i, label %.lr.ph.i15
+  br i1 %.not.i21, label %.thread.i.loopexit, label %.lr.ph.i15
 
-.thread.i:                                        ; preds = %31, %.lr.ph.i15, %.preheader.i
-  %.020.lcssa.i22 = phi ptr [ %27, %.preheader.i ], [ %32, %31 ], [ %.02035.i17, %.lr.ph.i15 ]
+.thread.i.loopexit:                               ; preds = %31, %.lr.ph.i15, %.preheader.i
+  %.020.lcssa.i22.ph = phi ptr [ %27, %.preheader.i ], [ %32, %31 ], [ %.02035.i17, %.lr.ph.i15 ]
   store i32 0, ptr %.020.lcssa.i22, align 4, !tbaa !76
   %.pre.pre = load ptr, ptr %6, align 8
   br label %_ZN5boost6nowide3utf14convert_bufferIwcEEPT_S4_mPKT0_S7_.exit24

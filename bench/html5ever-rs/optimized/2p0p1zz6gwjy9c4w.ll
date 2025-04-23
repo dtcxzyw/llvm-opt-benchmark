@@ -3842,7 +3842,7 @@ common.resume:                                    ; preds = %10
   %96 = icmp eq i64 %.val.i.i.pre, 0
   br i1 %96, label %"_ZN4core3ptr95drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hd17a675eb3f69549E.llvm.10022686776672290337.exit", label %97
 
-97:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hed298f06e372a7d7E.llvm.10022686776672290337.exit"
+97:; preds = %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$alloc..rc..Rc$LT$markup5ever_rcdom..Node$GT$$GT$$GT$17hed298f06e372a7d7E.llvm.10022686776672290337.exit"
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %99 = load ptr, ptr %98, align 8, !alias.scope !989, !nonnull !4, !noundef !4
   %100 = shl nuw i64 %.val.i.i.pre, 3

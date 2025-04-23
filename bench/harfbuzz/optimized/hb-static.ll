@@ -1696,11 +1696,11 @@ _ZNR9hb_iter_tIN2OT9glyf_impl19composite_iter_tmplINS1_20CompositeGlyphRecordEEE
   br i1 %.not.i.i.i, label %.critedgethread-pre-split, label %_ZNR9hb_iter_tIN2OT9glyf_impl19composite_iter_tmplINS1_20CompositeGlyphRecordEEERKS3_EppEv.exit
 
 .critedgethread-pre-split:                        ; preds = %126, %105, %111, %108, %98, %76, %80, %._crit_edge692
-  %.pr713 = load i32, ptr %.sroa.sel, align 4
+  %.pr714 = load i32, ptr %.sroa.sel, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedgethread-pre-split, %47
-  %129 = phi i32 [ %.pr713, %.critedgethread-pre-split ], [ %52, %47 ]
+  %129 = phi i32 [ %.pr714, %.critedgethread-pre-split ], [ %52, %47 ]
   %130 = add i32 %129, 4
   %131 = call i32 @llvm.smax.i32(i32 %130, i32 0)
   %132 = load i32, ptr %51, align 8, !tbaa !146
@@ -2486,10 +2486,10 @@ _ZN2OT9glyf_impl5GlyphC2E10hb_array_tIKcEj.exit.i: ; preds = %488
 
 _ZNK2OT18glyf_accelerator_t13glyph_for_gidEjb.exit: ; preds = %456, %.critedge.i, %_ZN2OT9glyf_impl5GlyphC2E10hb_array_tIKcEj.exit.i
   %_hb_NullPool.sink = phi ptr [ @_hb_NullPool, %456 ], [ @_hb_NullPool, %.critedge.i ], [ %spec.select.i.i24.i, %_ZN2OT9glyf_impl5GlyphC2E10hb_array_tIKcEj.exit.i ]
-  %.sink742 = phi i32 [ -1, %456 ], [ -1, %.critedge.i ], [ %454, %_ZN2OT9glyf_impl5GlyphC2E10hb_array_tIKcEj.exit.i ]
+  %.sink743 = phi i32 [ -1, %456 ], [ -1, %.critedge.i ], [ %454, %_ZN2OT9glyf_impl5GlyphC2E10hb_array_tIKcEj.exit.i ]
   %.sink = phi i32 [ 0, %456 ], [ 0, %.critedge.i ], [ %.sroa.7.0, %_ZN2OT9glyf_impl5GlyphC2E10hb_array_tIKcEj.exit.i ]
   store ptr %_hb_NullPool.sink, ptr %403, align 8
-  store i32 %.sink742, ptr %404, align 8
+  store i32 %.sink743, ptr %404, align 8
   store i32 %.sink, ptr %405, align 4
   %503 = call noundef zeroext i1 @_ZNK2OT9glyf_impl5Glyph10get_pointsINS_18glyf_accelerator_tEEEbP9hb_font_tRKT_R22contour_point_vector_tPS9_P16head_maxp_info_tPjbbb10hb_array_tIKiEP8hb_map_tjSE_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, ptr noundef nonnull byval(%struct.hb_array_t.161) align 8 %10, ptr noundef nonnull %spec.store.select5, i32 noundef %409, ptr noundef nonnull %spec.store.select)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #13
@@ -2523,11 +2523,11 @@ _ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit286: ; preds = %505, %508
   %.sroa.3.0.i279.in = phi i32 [ %storemerge.i283, %508 ], [ %506, %505 ]
   %.sroa.0.0.i280 = phi ptr [ %510, %508 ], [ %507, %505 ]
   %.sroa.3.0.i279 = zext i32 %.sroa.3.0.i279.in to i64
-  %.pre698.pre704 = load i16, ptr %.sroa.5424.0647, align 1
-  %511 = and i16 %.pre698.pre704, 2
+  %.pre698.pre705 = load i16, ptr %.sroa.5424.0647, align 1
+  %511 = and i16 %.pre698.pre705, 2
   %.not619 = icmp ne i16 %511, 0
-  %or.cond743.not = select i1 %8, i1 %.not619, i1 false
-  br i1 %or.cond743.not, label %.preheader, label %.loopexit624
+  %or.cond744.not = select i1 %8, i1 %.not619, i1 false
+  br i1 %or.cond744.not, label %.preheader, label %.loopexit624
 
 .preheader:                                       ; preds = %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit286
   %512 = add i32 %.sroa.3.0.i279.in, -4
@@ -2574,7 +2574,7 @@ _ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit292: ; preds = %520, 
   br label %.loopexit624
 
 .loopexit624:                                     ; preds = %.loopexit624.loopexit, %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit286
-  %.pre698 = phi i16 [ %.pre698.pre, %.loopexit624.loopexit ], [ %.pre698.pre704, %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit286 ]
+  %.pre698 = phi i16 [ %.pre698.pre, %.loopexit624.loopexit ], [ %.pre698.pre705, %_ZNK10hb_array_tI15contour_point_tE9sub_arrayEjPj.exit286 ]
   %.not620 = icmp eq i32 %.sroa.3.0.i279.in, 0
   br i1 %.not620, label %573, label %523
 
@@ -2823,9 +2823,9 @@ _ZN2OT9glyf_impl20CompositeGlyphRecord9translateERK15contour_point_t10hb_array_t
 645:                                              ; preds = %640
   %646 = load i32, ptr %3, align 8, !tbaa !146
   %.not22.i.i326 = icmp ugt i32 %637, %646
-  br i1 %.not22.i.i326, label %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i327, label %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i317
+  br i1 %.not22.i.i326, label %._ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i327_crit_edge, label %_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread.i317
 
-_ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i327: ; preds = %645, %.thread.i.i323
+._ZN11hb_vector_tI15contour_point_tLb0EE5allocEjb.exit.thread21.i327_crit_edge: ; preds = %645, %.thread.i.i323
   %.sink.i.ph.in.i328 = phi i32 [ %632, %.thread.i.i323 ], [ %646, %645 ]
   %.sink.i.ph.i329 = xor i32 %.sink.i.ph.in.i328, -1
   store i32 %.sink.i.ph.i329, ptr %3, align 8, !tbaa !146

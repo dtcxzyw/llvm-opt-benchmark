@@ -484,7 +484,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i: ; preds = %45
   %54 = invoke noundef signext i8 %53(ptr noundef nonnull align 8 dereferenceable(570) %47, i8 noundef signext 32)
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i unwind label %67
 
-_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc42, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i
+.noexc42._ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i_crit_edge: ; preds = %.noexc42, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i.i.i
   store i8 1, ptr %42, align 1, !tbaa !26
   %.pre = load ptr, ptr %3, align 8
   br label %55
@@ -683,7 +683,7 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 240
   %149 = load ptr, ptr %148, align 8, !tbaa !36
   %.not.i.i.i = icmp eq ptr %149, null
-  br i1 %.not.i.i.i, label %.invoke93, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  br i1 %.not.i.i.i, label %.invoke95, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %147
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 56
@@ -719,7 +719,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc61._ZNKSt
   store i8 1, ptr %143, align 1, !tbaa !26
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke
 
-161:                                              ; preds = %.invoke93, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit, %.noexc73, %178, %.noexc61, %155
+161:                                              ; preds = %.invoke95, %_ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit75.invoke, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit, %.noexc73, %178, %.noexc61, %155
   %162 = landingpad { ptr, i32 }
           cleanup
   %163 = load ptr, ptr %7, align 8, !tbaa !61
@@ -750,13 +750,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %171 = getelementptr inbounds nuw i8, ptr %142, i64 240
   %172 = load ptr, ptr %171, align 8, !tbaa !36
   %.not.i.i.i64 = icmp eq ptr %172, null
-  br i1 %.not.i.i.i64, label %.invoke93, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i65
+  br i1 %.not.i.i.i64, label %.invoke95, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i65
 
-.invoke93:                                        ; preds = %147, %170
+.invoke95:                                        ; preds = %147, %170
   invoke void @_ZSt16__throw_bad_castv() #15
           to label %.cont94 unwind label %161
 
-.cont94:                                          ; preds = %.invoke93
+.cont96:                                          ; preds = %.invoke95
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i65: ; preds = %170
