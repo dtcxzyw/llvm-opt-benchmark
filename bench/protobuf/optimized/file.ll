@@ -29175,8 +29175,8 @@ for.end:                                          ; preds = %for.body, %entry
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 1
   %9 = zext i1 %lnot.i.i to i8
-  %or1.i = or i8 %8, %9
-  store i8 %or1.i, ptr %6, align 1
+  %10 = or i8 %8, %9
+  store i8 %10, ptr %6, align 1
   ret void
 }
 

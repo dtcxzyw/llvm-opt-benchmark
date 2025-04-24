@@ -1832,7 +1832,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %12 = phi i64 [ %2, %for.body.lr.ph ], [ %32, %for.inc ]
+  %12 = phi i64 [ %2, %for.body.lr.ph ], [ %33, %for.inc ]
   %i.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %i.017
   %13 = load i8, ptr %arrayidx, align 1
@@ -1861,8 +1861,8 @@ if.then:                                          ; preds = %for.body
   %and.i.i.i = and i64 %15, %shl.i.i.i.i
   %cmp.i.i.i = icmp ne i64 %and.i.i.i, 0
   %cmp.i.i = icmp eq i64 %call3.i, 0
-  %or.cond13.i = or i1 %cmp.i.i, %cmp.i.i.i
-  br i1 %or.cond13.i, label %"_ZZN8proxygen10QPACKCodec10encodeHTTPERN5folly10IOBufQueueERKNS_11HTTPMessageEbmjRKNS1_8OptionalINS_11HTTPHeadersEEEENK3$_0clENS_14HTTPHeaderCodeENS1_5RangeIPKcEESH_.exit", label %lor.lhs.false4.i
+  %or.cond12.i = or i1 %cmp.i.i, %cmp.i.i.i
+  br i1 %or.cond12.i, label %"_ZZN8proxygen10QPACKCodec10encodeHTTPERN5folly10IOBufQueueERKNS_11HTTPMessageEbmjRKNS1_8OptionalINS_11HTTPHeadersEEEENK3$_0clENS_14HTTPHeaderCodeENS1_5RangeIPKcEESH_.exit", label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %if.then
   %16 = load i8, ptr %call.i, align 1
@@ -1948,8 +1948,8 @@ if.end93.i:                                       ; preds = %_ZN8proxygen15HPACK
   %29 = load i8, ptr %11, align 1
   %30 = and i8 %29, 1
   %31 = zext i1 %cmp95.i to i8
-  %or6.i = or i8 %30, %31
-  store i8 %or6.i, ptr %11, align 1
+  %32 = or i8 %30, %31
+  store i8 %32, ptr %11, align 1
   br label %"_ZZN8proxygen10QPACKCodec10encodeHTTPERN5folly10IOBufQueueERKNS_11HTTPMessageEbmjRKNS1_8OptionalINS_11HTTPHeadersEEEENK3$_0clENS_14HTTPHeaderCodeENS1_5RangeIPKcEESH_.exit"
 
 eh.resume.i:                                      ; preds = %lpad86.i, %lpad78.i
@@ -1965,9 +1965,9 @@ eh.resume.i:                                      ; preds = %lpad86.i, %lpad78.i
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %"_ZZN8proxygen10QPACKCodec10encodeHTTPERN5folly10IOBufQueueERKNS_11HTTPMessageEbmjRKNS1_8OptionalINS_11HTTPHeadersEEEENK3$_0clENS_14HTTPHeaderCodeENS1_5RangeIPKcEESH_.exit"
-  %32 = phi i64 [ %12, %for.body ], [ %.pre, %"_ZZN8proxygen10QPACKCodec10encodeHTTPERN5folly10IOBufQueueERKNS_11HTTPMessageEbmjRKNS1_8OptionalINS_11HTTPHeadersEEEENK3$_0clENS_14HTTPHeaderCodeENS1_5RangeIPKcEESH_.exit" ]
+  %33 = phi i64 [ %12, %for.body ], [ %.pre, %"_ZZN8proxygen10QPACKCodec10encodeHTTPERN5folly10IOBufQueueERKNS_11HTTPMessageEbmjRKNS1_8OptionalINS_11HTTPHeadersEEEENK3$_0clENS_14HTTPHeaderCodeENS1_5RangeIPKcEESH_.exit" ]
   %inc = add nuw i64 %i.017, 1
-  %cmp = icmp ult i64 %inc, %32
+  %cmp = icmp ult i64 %inc, %33
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %entry

@@ -9711,27 +9711,27 @@ _ZN12_GLOBAL__N_19Demangler28demanglePointerExtQualifiersER10StringView.exit: ; 
   store i8 %22, ptr %Quals.i.i5.i, align 4
   %23 = load ptr, ptr %MangledName, align 8
   %24 = load ptr, ptr %Last.i.i.i.i, align 8
-  %cmp.i.i.i.i17 = icmp eq ptr %23, %24
-  br i1 %cmp.i.i.i.i17, label %_ZL28demangleFunctionRefQualifierR10StringView.exit, label %_ZNK10StringView10startsWithEc.exit.i.i18
+  %cmp.i.i.i.i16 = icmp eq ptr %23, %24
+  br i1 %cmp.i.i.i.i16, label %_ZL28demangleFunctionRefQualifierR10StringView.exit, label %_ZNK10StringView10startsWithEc.exit.i.i17
 
-_ZNK10StringView10startsWithEc.exit.i.i18:        ; preds = %_ZN12_GLOBAL__N_19Demangler28demanglePointerExtQualifiersER10StringView.exit
+_ZNK10StringView10startsWithEc.exit.i.i17:        ; preds = %_ZN12_GLOBAL__N_19Demangler28demanglePointerExtQualifiersER10StringView.exit
   %25 = load i8, ptr %23, align 1
   switch i8 %25, label %_ZL28demangleFunctionRefQualifierR10StringView.exit [
     i8 71, label %return.sink.split.i
     i8 72, label %return.sink.split.i.fold.split
   ]
 
-return.sink.split.i.fold.split:                   ; preds = %_ZNK10StringView10startsWithEc.exit.i.i18
+return.sink.split.i.fold.split:                   ; preds = %_ZNK10StringView10startsWithEc.exit.i.i17
   br label %return.sink.split.i
 
-return.sink.split.i:                              ; preds = %_ZNK10StringView10startsWithEc.exit.i.i18, %return.sink.split.i.fold.split
+return.sink.split.i:                              ; preds = %_ZNK10StringView10startsWithEc.exit.i.i17, %return.sink.split.i.fold.split
   %retval.0.ph.i = phi i32 [ 1, %_ZNK10StringView10startsWithEc.exit.i.i18 ], [ 2, %return.sink.split.i.fold.split ]
   %add.ptr.i.i7.i = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %add.ptr.i.i7.i, ptr %MangledName, align 8
   %.pre = load i8, ptr %Quals.i.i5.i, align 4
   br label %_ZL28demangleFunctionRefQualifierR10StringView.exit
 
-_ZL28demangleFunctionRefQualifierR10StringView.exit: ; preds = %_ZNK10StringView10startsWithEc.exit.i.i18, %_ZN12_GLOBAL__N_19Demangler28demanglePointerExtQualifiersER10StringView.exit, %return.sink.split.i
+_ZL28demangleFunctionRefQualifierR10StringView.exit: ; preds = %_ZNK10StringView10startsWithEc.exit.i.i17, %_ZN12_GLOBAL__N_19Demangler28demanglePointerExtQualifiersER10StringView.exit, %return.sink.split.i
   %26 = phi i8 [ %22, %_ZN12_GLOBAL__N_19Demangler28demanglePointerExtQualifiersER10StringView.exit ], [ %.pre, %return.sink.split.i ], [ %22, %_ZNK10StringView10startsWithEc.exit.i.i18 ]
   %retval.0.i = phi i32 [ 0, %_ZN12_GLOBAL__N_19Demangler28demanglePointerExtQualifiersER10StringView.exit ], [ %retval.0.ph.i, %return.sink.split.i ], [ 0, %_ZNK10StringView10startsWithEc.exit.i.i18 ]
   store i32 %retval.0.i, ptr %RefQualifier.i9.i, align 8
@@ -9768,27 +9768,27 @@ _ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit: ; preds = %s
 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView.exit, %_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit
   %31 = load ptr, ptr %MangledName, align 8
-  %incdec.ptr.i.i20 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  store ptr %incdec.ptr.i.i20, ptr %MangledName, align 8
+  %incdec.ptr.i.i19 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  store ptr %incdec.ptr.i.i19, ptr %MangledName, align 8
   %32 = load i8, ptr %31, align 1
-  %switch.tableidx35 = add i8 %32, -65
-  %33 = icmp ult i8 %switch.tableidx35, 17
-  br i1 %33, label %switch.lookup34, label %_ZN12_GLOBAL__N_19Demangler25demangleCallingConventionER10StringView.exit
+  %switch.tableidx34 = add i8 %32, -65
+  %33 = icmp ult i8 %switch.tableidx34, 17
+  br i1 %33, label %switch.lookup33, label %_ZN12_GLOBAL__N_19Demangler25demangleCallingConventionER10StringView.exit
 
-switch.lookup34:                                  ; preds = %if.end
-  %34 = zext nneg i8 %switch.tableidx35 to i64
-  %switch.gep36 = getelementptr inbounds nuw [17 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb.8, i64 0, i64 %34
-  %switch.load37 = load i8, ptr %switch.gep36, align 1
+switch.lookup33:                                  ; preds = %if.end
+  %34 = zext nneg i8 %switch.tableidx34 to i64
+  %switch.gep35 = getelementptr inbounds nuw [17 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler20demangleFunctionTypeER10StringViewb.8, i64 0, i64 %34
+  %switch.load36 = load i8, ptr %switch.gep35, align 1
   br label %_ZN12_GLOBAL__N_19Demangler25demangleCallingConventionER10StringView.exit
 
-_ZN12_GLOBAL__N_19Demangler25demangleCallingConventionER10StringView.exit: ; preds = %if.end, %switch.lookup34
-  %retval.0.i22 = phi i8 [ %switch.load37, %switch.lookup34 ], [ 0, %if.end ]
-  store i8 %retval.0.i22, ptr %CallConvention.i7.i, align 4
+_ZN12_GLOBAL__N_19Demangler25demangleCallingConventionER10StringView.exit: ; preds = %if.end, %switch.lookup33
+  %retval.0.i21 = phi i8 [ %switch.load36, %switch.lookup34 ], [ 0, %if.end ]
+  store i8 %retval.0.i21, ptr %CallConvention.i7.i, align 4
   %35 = load ptr, ptr %MangledName, align 8
   %Last.i.i.i = getelementptr inbounds nuw i8, ptr %MangledName, i64 8
   %36 = load ptr, ptr %Last.i.i.i, align 8
-  %cmp.i.i.i25 = icmp eq ptr %35, %36
-  br i1 %cmp.i.i.i25, label %if.then13, label %_ZNK10StringView10startsWithEc.exit.i
+  %cmp.i.i.i24 = icmp eq ptr %35, %36
+  br i1 %cmp.i.i.i24, label %if.then13, label %_ZNK10StringView10startsWithEc.exit.i
 
 _ZNK10StringView10startsWithEc.exit.i:            ; preds = %_ZN12_GLOBAL__N_19Demangler25demangleCallingConventionER10StringView.exit
   %37 = load i8, ptr %35, align 1
@@ -9810,25 +9810,25 @@ if.end15:                                         ; preds = %_ZN10StringView12co
   store ptr %call16, ptr %Params.i12.i, align 8
   %38 = load ptr, ptr %MangledName, align 8
   %39 = load ptr, ptr %Last.i.i.i, align 8
-  %cmp.i.i.i.i28 = icmp eq ptr %38, %39
-  br i1 %cmp.i.i.i.i28, label %if.end.i31, label %_ZNK10StringView10startsWithEc.exit.i.i29
+  %cmp.i.i.i.i27 = icmp eq ptr %38, %39
+  br i1 %cmp.i.i.i.i27, label %if.end.i30, label %_ZNK10StringView10startsWithEc.exit.i.i28
 
-_ZNK10StringView10startsWithEc.exit.i.i29:        ; preds = %if.end15
+_ZNK10StringView10startsWithEc.exit.i.i28:        ; preds = %if.end15
   %40 = load i8, ptr %38, align 1
-  %cmp.i.i.i30 = icmp eq i8 %40, 90
-  br i1 %cmp.i.i.i30, label %_ZN10StringView12consumeFrontEc.exit.i, label %if.end.i31
+  %cmp.i.i.i29 = icmp eq i8 %40, 90
+  br i1 %cmp.i.i.i29, label %_ZN10StringView12consumeFrontEc.exit.i, label %if.end.i30
 
-_ZN10StringView12consumeFrontEc.exit.i:           ; preds = %_ZNK10StringView10startsWithEc.exit.i.i29
-  %add.ptr.i.i.i33 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  store ptr %add.ptr.i.i.i33, ptr %MangledName, align 8
+_ZN10StringView12consumeFrontEc.exit.i:           ; preds = %_ZNK10StringView10startsWithEc.exit.i.i28
+  %add.ptr.i.i.i32 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  store ptr %add.ptr.i.i.i32, ptr %MangledName, align 8
   br label %_ZN12_GLOBAL__N_19Demangler26demangleThrowSpecificationER10StringView.exit
 
-if.end.i31:                                       ; preds = %_ZNK10StringView10startsWithEc.exit.i.i29, %if.end15
-  %Error.i32 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i8 1, ptr %Error.i32, align 8
+if.end.i30:                                       ; preds = %_ZNK10StringView10startsWithEc.exit.i.i28, %if.end15
+  %Error.i31 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  store i8 1, ptr %Error.i31, align 8
   br label %_ZN12_GLOBAL__N_19Demangler26demangleThrowSpecificationER10StringView.exit
 
-_ZN12_GLOBAL__N_19Demangler26demangleThrowSpecificationER10StringView.exit: ; preds = %_ZN10StringView12consumeFrontEc.exit.i, %if.end.i31
+_ZN12_GLOBAL__N_19Demangler26demangleThrowSpecificationER10StringView.exit: ; preds = %_ZN10StringView12consumeFrontEc.exit.i, %if.end.i30
   ret ptr %call2.i.sink21.i
 }
 

@@ -1290,17 +1290,17 @@ entry:
   %2 = load i8, ptr %lazyFunctions_.i, align 4
   %3 = and i8 %2, 1
   %4 = zext i1 %cmp.i.i to i8
-  %or1.i = or i8 %3, %4
-  store i8 %or1.i, ptr %lazyFunctions_.i, align 4
+  %5 = or i8 %3, %4
+  store i8 %5, ptr %lazyFunctions_.i, align 4
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %F, i64 16
-  %5 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %5, -125
+  %6 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %6, -125
   %asyncFunctions_.i = getelementptr inbounds nuw i8, ptr %0, i64 957
-  %6 = load i8, ptr %asyncFunctions_.i, align 1
-  %7 = and i8 %6, 1
-  %8 = zext i1 %cmp.i.i.i.i.i.i.i.i to i8
-  %or82.i = or i8 %7, %8
-  store i8 %or82.i, ptr %asyncFunctions_.i, align 1
+  %7 = load i8, ptr %asyncFunctions_.i, align 1
+  %8 = and i8 %7, 1
+  %9 = zext i1 %cmp.i.i.i.i.i.i.i.i to i8
+  %10 = or i8 %8, %9
+  store i8 %10, ptr %asyncFunctions_.i, align 1
   %call11.i = tail call noundef i32 @_ZN6hermes3hbc15AllocationTableIPNS_8FunctionEE8allocateES3_(ptr noundef nonnull align 8 dereferenceable(964) %0, ptr noundef %F)
   ret i32 %call11.i
 }
@@ -1315,17 +1315,17 @@ entry:
   %1 = load i8, ptr %lazyFunctions_, align 4
   %2 = and i8 %1, 1
   %3 = zext i1 %cmp.i to i8
-  %or1 = or i8 %2, %3
-  store i8 %or1, ptr %lazyFunctions_, align 4
+  %4 = or i8 %2, %3
+  store i8 %4, ptr %lazyFunctions_, align 4
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %F, i64 16
-  %4 = load i8, ptr %add.ptr.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i8 %4, -125
+  %5 = load i8, ptr %add.ptr.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i = icmp eq i8 %5, -125
   %asyncFunctions_ = getelementptr inbounds nuw i8, ptr %this, i64 957
-  %5 = load i8, ptr %asyncFunctions_, align 1
-  %6 = and i8 %5, 1
-  %7 = zext i1 %cmp.i.i.i.i.i.i.i to i8
-  %or82 = or i8 %6, %7
-  store i8 %or82, ptr %asyncFunctions_, align 1
+  %6 = load i8, ptr %asyncFunctions_, align 1
+  %7 = and i8 %6, 1
+  %8 = zext i1 %cmp.i.i.i.i.i.i.i to i8
+  %9 = or i8 %7, %8
+  store i8 %9, ptr %asyncFunctions_, align 1
   %call11 = tail call noundef i32 @_ZN6hermes3hbc15AllocationTableIPNS_8FunctionEE8allocateES3_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %F)
   ret i32 %call11
 }

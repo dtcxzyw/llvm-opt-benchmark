@@ -5516,7 +5516,7 @@ define hidden noundef ptr @_ZN10MethodData17bci_to_extra_dataEiP6Methodb(ptr nou
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 4
   %.not23 = icmp eq i32 %9, 0
-  br i1 %.not23, label %10, label %42
+  br i1 %.not23, label %10, label %44
 
 10:                                               ; preds = %6, %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 292
@@ -5531,7 +5531,7 @@ define hidden noundef ptr @_ZN10MethodData17bci_to_extra_dataEiP6Methodb(ptr nou
   %19 = load i32, ptr %18, align 4
   %20 = call noundef ptr @_ZN10MethodData22bci_to_extra_data_findEiP6MethodRP10DataLayout(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %.not19 = icmp eq ptr %20, null
-  br i1 %.not19, label %21, label %42
+  br i1 %.not19, label %21, label %44
 
 21:                                               ; preds = %10
   %.not.i.i = icmp eq i32 %17, -2
@@ -5541,7 +5541,7 @@ define hidden noundef ptr @_ZN10MethodData17bci_to_extra_dataEiP6Methodb(ptr nou
   %23 = load ptr, ptr %5, align 8
   %.not20 = icmp ult ptr %23, %22
   %brmerge.not = and i1 %3, %.not20
-  br i1 %brmerge.not, label %24, label %42
+  br i1 %brmerge.not, label %24, label %44
 
 24:                                               ; preds = %21
   br i1 %.not, label %.critedge, label %25
@@ -5570,35 +5570,35 @@ _ZN10MethodData10next_extraEP10DataLayout.exit:   ; preds = %25, %25, %27
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 %.0.i
   %33 = load i8, ptr %32, align 8
   %.not21 = icmp eq i8 %33, 0
-  br i1 %.not21, label %_ZN10DataLayout10initializeEhti.exit, label %42
+  br i1 %.not21, label %_ZN10DataLayout10initializeEhti.exit, label %44
 
 _ZN10DataLayout10initializeEhti.exit:             ; preds = %_ZN10MethodData10next_extraEP10DataLayout.exit
   %34 = shl i32 %1, 16
-  %.sroa.0.0.insert.insert44 = or disjoint i32 %34, 13
-  %.sroa.0.0.insert.insert = zext i32 %.sroa.0.0.insert.insert44 to i64
+  %35 = or disjoint i32 %34, 13
+  %.sroa.0.0.insert.insert = zext i32 %35 to i64
   store i64 %.sroa.0.0.insert.insert, ptr %23, align 8
-  %35 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %23, ptr %36, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), ptr %35, align 8
-  %37 = ptrtoint ptr %2 to i64
-  %38 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i64 %37, ptr %38, align 8
-  br label %42
+  %36 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %23, ptr %37, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV19SpeculativeTrapData, i64 16), ptr %36, align 8
+  %38 = ptrtoint ptr %2 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i64 %38, ptr %39, align 8
+  br label %44
 
 .critedge:                                        ; preds = %24
-  %39 = shl i32 %1, 16
-  %.sroa.0.0.insert.insert2745 = or disjoint i32 %39, 1
-  %.sroa.0.0.insert.insert27 = zext i32 %.sroa.0.0.insert.insert2745 to i64
+  %40 = shl i32 %1, 16
+  %41 = or disjoint i32 %40, 1
+  %.sroa.0.0.insert.insert27 = zext i32 %41 to i64
   store i64 %.sroa.0.0.insert.insert27, ptr %23, align 8
-  %40 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %23, ptr %41, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %40, align 8
-  br label %42
+  %42 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store ptr %23, ptr %43, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV7BitData, i64 16), ptr %42, align 8
+  br label %44
 
-42:                                               ; preds = %21, %_ZN10MethodData10next_extraEP10DataLayout.exit, %10, %6, %_ZN10DataLayout10initializeEhti.exit, %.critedge
-  %.0 = phi ptr [ %40, %.critedge ], [ %35, %_ZN10DataLayout10initializeEhti.exit ], [ null, %6 ], [ null, %21 ], [ %20, %10 ], [ null, %_ZN10MethodData10next_extraEP10DataLayout.exit ]
+44:                                               ; preds = %21, %_ZN10MethodData10next_extraEP10DataLayout.exit, %10, %6, %_ZN10DataLayout10initializeEhti.exit, %.critedge
+  %.0 = phi ptr [ %42, %.critedge ], [ %36, %_ZN10DataLayout10initializeEhti.exit ], [ null, %6 ], [ null, %21 ], [ %20, %10 ], [ null, %_ZN10MethodData10next_extraEP10DataLayout.exit ]
   ret ptr %.0
 }
 

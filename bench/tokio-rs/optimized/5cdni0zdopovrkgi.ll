@@ -4658,8 +4658,8 @@ define hidden void @_ZN5tokio7runtime2io6driver6Driver4turn17h41c2eeeab8955e8cE.
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #29
   unreachable
 
-common.resume:                                    ; preds = %124, %.body.i
-  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %125, %124 ]
+common.resume:                                    ; preds = %125, %.body.i
+  %common.resume.op = phi { ptr, i32 } [ %eh.lpad-body.i, %.body.i ], [ %126, %124 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN5tokio7runtime2io6driver6Handle29release_pending_registrations17h6418311d12716971E.exit: ; preds = %4, %"_ZN4core3ptr114drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..io..registration_set..Synced$GT$$GT$17hed8cecc5aacc64b1E.exit.i"
@@ -4762,76 +4762,76 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread27: ; preds = %69, %7
   %94 = lshr i32 %92, 1
   %95 = and i32 %94, 2
   %96 = zext i1 %.09.not.i to i32
-  %.114.i = or disjoint i32 %95, %96
-  %.1.i = zext nneg i32 %.114.i to i64
-  %97 = and i32 %92, 16
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %100, label %.thread.i
+  %97 = or disjoint i32 %95, %96
+  %.1.i = zext nneg i32 %97 to i64
+  %98 = and i32 %92, 16
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %101, label %.thread.i
 
 .thread.i:                                        ; preds = %91
-  %99 = or disjoint i64 %.1.i, 4
+  %100 = or disjoint i64 %.1.i, 4
   br label %_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit
 
-100:                                              ; preds = %91
-  %101 = and i32 %92, 1
-  %.not.i18 = icmp eq i32 %101, 0
-  br i1 %.not.i18, label %_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit, label %102
+101:                                              ; preds = %91
+  %102 = and i32 %92, 1
+  %.not.i18 = icmp eq i32 %102, 0
+  br i1 %.not.i18, label %_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit, label %103
 
-102:                                              ; preds = %100
-  %103 = lshr i32 %92, 11
-  %104 = and i32 %103, 4
-  %spec.select16.i = or disjoint i32 %.114.i, %104
-  %spec.select.i = zext nneg i32 %spec.select16.i to i64
+103:                                              ; preds = %101
+  %104 = lshr i32 %92, 11
+  %105 = and i32 %104, 4
+  %spec.select15.i = or disjoint i32 %97, %105
+  %spec.select.i = zext nneg i32 %spec.select15.i to i64
   br label %_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit
 
-_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit: ; preds = %.thread.i, %100, %102
-  %105 = phi i64 [ %99, %.thread.i ], [ %.1.i, %100 ], [ %spec.select.i, %102 ]
-  %106 = call noundef zeroext i1 @_ZN3mio5event5event5Event15is_write_closed17ha817df7712a2e5e0E(ptr noalias noundef nonnull readonly align 1 dereferenceable(12) %84)
-  %107 = or i64 %105, 8
-  %.3.i = select i1 %106, i64 %107, i64 %105
-  %108 = shl i32 %92, 2
-  %109 = and i32 %108, 32
-  %110 = shl i32 %92, 3
-  %111 = and i32 %110, 16
-  %.417.i = or disjoint i32 %111, %109
-  %.4.i = zext nneg i32 %.417.i to i64
+_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit: ; preds = %.thread.i, %101, %103
+  %106 = phi i64 [ %100, %.thread.i ], [ %.1.i, %100 ], [ %spec.select.i, %102 ]
+  %107 = call noundef zeroext i1 @_ZN3mio5event5event5Event15is_write_closed17ha817df7712a2e5e0E(ptr noalias noundef nonnull readonly align 1 dereferenceable(12) %84)
+  %108 = or i64 %106, 8
+  %.3.i = select i1 %107, i64 %108, i64 %106
+  %109 = shl i32 %92, 2
+  %110 = and i32 %109, 32
+  %111 = shl i32 %92, 3
+  %112 = and i32 %111, 16
+  %.416.i = or disjoint i32 %112, %110
+  %.4.i = zext nneg i32 %.416.i to i64
   %.5.i = or i64 %.3.i, %.4.i
-  %112 = inttoptr i64 %86 to ptr
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  %114 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.18090272232049510573(ptr noundef nonnull %113, i8 noundef 2), !noalias !715
+  %113 = inttoptr i64 %86 to ptr
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %115 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.18090272232049510573(ptr noundef nonnull %114, i8 noundef 2), !noalias !715
   %.masked.i = and i64 %.5.i, -2147418113
   br label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.i
 
-_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.i: ; preds = %123, %_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit
-  %.0.fr20.i = phi i64 [ %.fca.1.extract.i, %123 ], [ %114, %_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit ]
+_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.i: ; preds = %124, %_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit
+  %.0.fr20.i = phi i64 [ %.fca.1.extract.i, %123 ], [ %115, %_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit ]
   %.sink.i = lshr i64 %.0.fr20.i, 16
-  %115 = and i64 %.sink.i, 32767
-  %.cmp.not.i = icmp eq i64 %115, 32767
-  %116 = and i64 %.0.fr20.i, 63
-  %117 = shl nuw nsw i64 %115, 16
-  %118 = add nuw nsw i64 %117, 65536
-  %119 = select i1 %.cmp.not.i, i64 0, i64 %118
-  %120 = or i64 %116, %.masked.i
-  %121 = or i64 %120, %119
-  %122 = call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.18090272232049510573(ptr noundef nonnull %113, i64 noundef %.0.fr20.i, i64 noundef %121, i8 noundef 3, i8 noundef 2), !noalias !715
-  %.fr.i = freeze { i64, i64 } %122
+  %116 = and i64 %.sink.i, 32767
+  %.cmp.not.i = icmp eq i64 %116, 32767
+  %117 = and i64 %.0.fr20.i, 63
+  %118 = shl nuw nsw i64 %116, 16
+  %119 = add nuw nsw i64 %118, 65536
+  %120 = select i1 %.cmp.not.i, i64 0, i64 %119
+  %121 = or i64 %117, %.masked.i
+  %122 = or i64 %121, %120
+  %123 = call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.18090272232049510573(ptr noundef nonnull %114, i64 noundef %.0.fr20.i, i64 noundef %122, i8 noundef 3, i8 noundef 2), !noalias !715
+  %.fr.i = freeze { i64, i64 } %123
   %.fca.0.extract.i = extractvalue { i64, i64 } %.fr.i, 0
   %switch11.i = icmp eq i64 %.fca.0.extract.i, 0
-  br i1 %switch11.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readiness17hbe2ae4c7d3abe00bE.exit, label %123
+  br i1 %switch11.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readiness17hbe2ae4c7d3abe00bE.exit, label %124
 
-123:                                              ; preds = %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.i
+124:                                              ; preds = %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.i
   %.fca.1.extract.i = extractvalue { i64, i64 } %.fr.i, 1
   br label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.i
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readiness17hbe2ae4c7d3abe00bE.exit: ; preds = %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.i
-  call void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo4wake17he2f3c8595b7aa85bE(ptr noundef nonnull align 128 %112, i64 noundef %.5.i)
+  call void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo4wake17he2f3c8595b7aa85bE(ptr noundef nonnull align 128 %113, i64 noundef %.5.i)
   br label %87
 
-124:                                              ; preds = %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread
-  %125 = landingpad { ptr, i32 }
+125:                                              ; preds = %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread
+  %126 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hf4c1b22f54d2edfcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %13) #28
-          to label %common.resume unwind label %132
+          to label %common.resume unwind label %133
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread: ; preds = %69, %70, %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
@@ -4839,25 +4839,25 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread: ; preds = %69, %70,
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   store ptr %13, ptr %11, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr @"_ZN58_$LT$std..io..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h6d10bf911b864f11E", ptr %126, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr @"_ZN58_$LT$std..io..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h6d10bf911b864f11E", ptr %127, align 8
   store ptr @anon.ba4985a049956e0df762c1765696dc31.90, ptr %12, align 8, !alias.scope !718, !noalias !721
-  %127 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 1, ptr %127, align 8, !alias.scope !718, !noalias !721
-  %128 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr null, ptr %128, align 8, !alias.scope !718, !noalias !721
-  %129 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %11, ptr %129, align 8, !alias.scope !718, !noalias !721
-  %130 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 1, ptr %130, align 8, !alias.scope !718, !noalias !721
+  %128 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 1, ptr %128, align 8, !alias.scope !718, !noalias !721
+  %129 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr null, ptr %129, align 8, !alias.scope !718, !noalias !721
+  %130 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %11, ptr %130, align 8, !alias.scope !718, !noalias !721
+  %131 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i64 1, ptr %131, align 8, !alias.scope !718, !noalias !721
   invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ba4985a049956e0df762c1765696dc31.91) #27
-          to label %131 unwind label %124
+          to label %131 unwind label %125
 
-131:                                              ; preds = %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread
+132:                                              ; preds = %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.exit.thread
   unreachable
 
-132:                                              ; preds = %124
-  %133 = landingpad { ptr, i32 }
+133:                                              ; preds = %125
+  %134 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #29
   unreachable

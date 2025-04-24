@@ -8699,13 +8699,13 @@ if.else:                                          ; preds = %_ZN4llvh12DenseMapB
   %12 = load i8, ptr %declared_.i6, align 8
   %13 = and i8 %12, 1
   %14 = zext i1 %declared to i8
-  %or1.i = or i8 %13, %14
-  store i8 %or1.i, ptr %declared_.i6, align 8
+  %15 = or i8 %13, %14
+  store i8 %15, ptr %declared_.i6, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt6vectorIPN6hermes20GlobalObjectPropertyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i, %if.else
-  %15 = load ptr, ptr %second.i, align 8
-  ret ptr %15
+  %16 = load ptr, ptr %second.i, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
