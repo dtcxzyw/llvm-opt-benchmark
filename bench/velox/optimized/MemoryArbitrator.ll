@@ -13155,14 +13155,14 @@ entry:
   %2 = load i8, ptr %1, align 1
   %3 = and i8 %2, 1
   %4 = zext i1 %call.i.i.i to i8
-  %5 = or i8 %3, %4
-  store i8 %5, ptr %1, align 1
-  %6 = load i64, ptr %poolReclaimableBytes.i.i.i, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %__functor, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i64, ptr %8, align 8
-  %add.i.i.i = add i64 %9, %6
-  store i64 %add.i.i.i, ptr %8, align 8
+  %or1.i.i.i = or i8 %3, %4
+  store i8 %or1.i.i.i, ptr %1, align 1
+  %5 = load i64, ptr %poolReclaimableBytes.i.i.i, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %__functor, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = load i64, ptr %7, align 8
+  %add.i.i.i = add i64 %8, %5
+  store i64 %add.i.i.i, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %poolReclaimableBytes.i.i.i)
   ret i1 true
 }
