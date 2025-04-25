@@ -1656,14 +1656,14 @@ if.end84.i:                                       ; preds = %if.end84.sink.split
   %15 = load i8, ptr %7, align 1
   %16 = and i8 %15, 1
   %17 = zext i1 %cmp86.i to i8
-  %18 = or i8 %16, %17
-  store i8 %18, ptr %7, align 1
+  %or10.i = or i8 %16, %17
+  store i8 %or10.i, ptr %7, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end84.i, %lor.lhs.false4.i, %lor.lhs.false.i, %if.then, %for.body
   %inc = add nuw i64 %i.011, 1
-  %19 = load i64, ptr %length_, align 8
-  %cmp = icmp ult i64 %inc, %19
+  %18 = load i64, ptr %length_, align 8
+  %cmp = icmp ult i64 %inc, %18
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %entry

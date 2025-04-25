@@ -375,8 +375,8 @@ entry:
   %report_newlines_ = getelementptr inbounds nuw i8, ptr %this, i64 191
   %0 = load i8, ptr %report_newlines_, align 1
   %1 = and i8 %0, 1
-  %tobool62 = icmp ne i8 %1, 0
-  %tobool6 = select i1 %report, i1 %tobool62, i1 false
+  %tobool63 = icmp ne i8 %1, 0
+  %tobool6 = select i1 %report, i1 %tobool63, i1 false
   %frombool7 = zext i1 %tobool6 to i8
   store i8 %frombool7, ptr %report_newlines_, align 1
   ret void
@@ -400,8 +400,8 @@ entry:
   %report_whitespace_ = getelementptr inbounds nuw i8, ptr %this, i64 190
   %0 = load i8, ptr %report_whitespace_, align 2
   %1 = and i8 %0, 1
-  %2 = or i8 %1, %frombool
-  store i8 %2, ptr %report_whitespace_, align 2
+  %or2 = or i8 %1, %frombool
+  store i8 %or2, ptr %report_whitespace_, align 2
   ret void
 }
 

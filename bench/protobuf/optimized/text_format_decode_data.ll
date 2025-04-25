@@ -476,8 +476,8 @@ if.end17.i.i:                                     ; preds = %if.else8.i.i, %if.e
   %29 = icmp ult i8 %28, 26
   %30 = load i8, ptr %is_all_upper_.i.i, align 1
   %31 = and i8 %30, 1
-  %tobool31.i.i.i = icmp ne i8 %31, 0
-  %tobool3.i.i.i = select i1 %29, i1 %tobool31.i.i.i, i1 false
+  %tobool32.i.i.i = icmp ne i8 %31, 0
+  %tobool3.i.i.i = select i1 %29, i1 %tobool32.i.i.i, i1 false
   br label %if.then100
 
 if.end5.i:                                        ; preds = %if.end95
@@ -497,8 +497,8 @@ if.then12.i:                                      ; preds = %if.then8.i
   store i32 %inc.i.i, ptr %segment_len_.i.i, align 4
   %35 = load i8, ptr %is_all_upper_.i.i, align 1
   %36 = and i8 %35, 1
-  %tobool31.i.i = icmp ne i8 %36, 0
-  %tobool3.i.i = select i1 %34, i1 %tobool31.i.i, i1 false
+  %tobool32.i.i = icmp ne i8 %36, 0
+  %tobool3.i.i = select i1 %34, i1 %tobool32.i.i, i1 false
   br label %if.then100
 
 _ZN6google8protobuf8compiler10objectivec12_GLOBAL__N_117DecodeDataBuilder8AddFirstEcc.exit42.i: ; preds = %if.then8.i

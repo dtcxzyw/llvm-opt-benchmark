@@ -56105,7 +56105,7 @@ define hidden range(i40 0, 65794) i40 @"_ZN75_$LT$citationberg..Date$u20$as$u20$
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i8, ptr %6, align 8, !range !7131, !noundef !4
   %.not = icmp eq i8 %7, 6
-  br i1 %.not, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread21", label %8
+  br i1 %.not, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread22", label %8
 
 8:                                                ; preds = %2
   %9 = trunc nuw i8 %5 to i1
@@ -56113,27 +56113,27 @@ define hidden range(i40 0, 65794) i40 @"_ZN75_$LT$citationberg..Date$u20$as$u20$
 
 10:                                               ; preds = %20, %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val18 = load i8, ptr %11, align 8, !range !11613, !noundef !4
+  %.val19 = load i8, ptr %11, align 8, !range !11613, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 645
-  %.val19 = load i8, ptr %12, align 1
-  %.not.i = icmp eq i8 %.val18, 7
+  %.val20 = load i8, ptr %12, align 1
+  %.not.i = icmp eq i8 %.val19, 7
   br i1 %.not.i, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread", label %13
 
 13:                                               ; preds = %10
-  %14 = add nsw i8 %.val18, -4
+  %14 = add nsw i8 %.val19, -4
   %15 = icmp ult i8 %14, 3
-  %16 = zext nneg i8 %.val18 to i64
+  %16 = zext nneg i8 %.val19 to i64
   %17 = add nsw i64 %16, -3
   %18 = select i1 %15, i64 %17, i64 0
   switch i64 %18, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread" [
-    i64 0, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread21"
+    i64 0, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread22"
     i64 1, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit"
     i64 2, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit"
   ]
 
 "_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit": ; preds = %13, %13
-  %19 = trunc nuw i8 %.val19 to i1
-  br i1 %19, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread", label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread21"
+  %19 = trunc nuw i8 %.val20 to i1
+  br i1 %19, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread", label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread22"
 
 20:                                               ; preds = %8
   store i8 1, ptr %4, align 1
@@ -56147,13 +56147,13 @@ define hidden range(i40 0, 65794) i40 @"_ZN75_$LT$citationberg..Date$u20$as$u20$
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.sroa.014.0.insert.insert = select i1 %22, i32 65792, i32 256
   %23 = zext i1 %22 to i32
-  br label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread21"
+  br label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread22"
 
-"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread21": ; preds = %13, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit", %2, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread"
+"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread22": ; preds = %13, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit", %2, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread"
   %.sroa.4.sroa.0.0 = phi i32 [ %.sroa.014.0.insert.insert, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread" ], [ 256, %2 ], [ 0, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit" ], [ 0, %13 ]
   %.sroa.0.0 = phi i32 [ %23, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread" ], [ 0, %2 ], [ 0, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit" ], [ 0, %13 ]
-  %24 = or disjoint i32 %.sroa.0.0, %.sroa.4.sroa.0.0
-  %.sroa.0.0.insert.insert = zext nneg i32 %24 to i40
+  %.sroa.0.0.insert.insert18 = or disjoint i32 %.sroa.0.0, %.sroa.4.sroa.0.0
+  %.sroa.0.0.insert.insert = zext nneg i32 %.sroa.0.0.insert.insert18 to i40
   ret i40 %.sroa.0.0.insert.insert
 }
 
@@ -61370,25 +61370,25 @@ define hidden range(i40 256, 65794) i40 @"_ZN77_$LT$citationberg..Number$u20$as$
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8, !range !9107, !noundef !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val9 = load i8, ptr %7, align 8, !range !11613, !noundef !4
-  %.not.i = icmp eq i8 %.val9, 7
+  %.val10 = load i8, ptr %7, align 8, !range !11613, !noundef !4
+  %.not.i = icmp eq i8 %.val10, 7
   br i1 %.not.i, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread", label %8
 
 8:                                                ; preds = %2
-  %9 = add nsw i8 %.val9, -4
+  %9 = add nsw i8 %.val10, -4
   %10 = icmp ult i8 %9, 3
-  %11 = zext nneg i8 %.val9 to i64
+  %11 = zext nneg i8 %.val10 to i64
   %12 = add nsw i64 %11, -3
   %13 = select i1 %10, i64 %12, i64 0
   switch i64 %13, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread" [
-    i64 0, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread11"
+    i64 0, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread12"
     i64 1, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit"
     i64 2, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit"
   ]
 
 "_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit": ; preds = %8, %8
   %14 = icmp eq i8 %6, 6
-  br i1 %14, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread", label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread11"
+  br i1 %14, label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread", label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread12"
 
 "_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread": ; preds = %8, %2, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit"
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 643
@@ -61397,61 +61397,61 @@ define hidden range(i40 256, 65794) i40 @"_ZN77_$LT$citationberg..Number$u20$as$
   store i8 0, ptr %15, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call fastcc void @"_ZN9hayagriva3csl16Context$LT$T$GT$23resolve_number_variable17h13cdfc6bf7272f70E"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %4, ptr noundef nonnull align 8 %1, i8 noundef %6)
-  br i1 %17, label %35, label %19
+  br i1 %17, label %34, label %18
 
-"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread11": ; preds = %8, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit"
-  %18 = phi i32 [ %34, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit" ], [ 256, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit" ], [ 256, %8 ]
-  %.sroa.0.0.insert.insert = zext nneg i32 %18 to i40
+"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread12": ; preds = %8, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit", %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit"
+  %.sroa.0.0.insert.insert9 = phi i32 [ %33, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit" ], [ 256, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit" ], [ 256, %8 ]
+  %.sroa.0.0.insert.insert = zext nneg i32 %.sroa.0.0.insert.insert9 to i40
   ret i40 %.sroa.0.0.insert.insert
 
-19:                                               ; preds = %35, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread"
-  %20 = load i64, ptr %4, align 8, !range !501, !noundef !4
-  %21 = icmp ne i64 %20, -9223372036854775804
-  %.sroa.03.0.insert.insert = select i1 %21, i32 65792, i32 256
-  switch i64 %20, label %22 [
+18:                                               ; preds = %34, %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread"
+  %19 = load i64, ptr %4, align 8, !range !501, !noundef !4
+  %20 = icmp ne i64 %19, -9223372036854775804
+  %.sroa.03.0.insert.insert = select i1 %20, i32 65792, i32 256
+  switch i64 %19, label %21 [
     i64 -9223372036854775804, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit"
     i64 -9223372036854775805, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit"
-    i64 -9223372036854775806, label %23
+    i64 -9223372036854775806, label %22
     i64 -9223372036854775807, label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit"
   ]
 
-22:                                               ; preds = %19
+21:                                               ; preds = %18
   call void @"_ZN4core3ptr55drop_in_place$LT$hayagriva..types..numeric..Numeric$GT$17h567c4760cfc77621E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
   br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit"
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !12516
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he34f37b9bfa2d460E.llvm.16845035774076767816"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %26 = load i64, ptr %25, align 8, !range !497, !noalias !12516, !noundef !4
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h91029dacccfeb0acE.exit.i.i.i", label %27
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he34f37b9bfa2d460E.llvm.16845035774076767816"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %25 = load i64, ptr %24, align 8, !range !497, !noalias !12516, !noundef !4
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %25, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h91029dacccfeb0acE.exit.i.i.i", label %26
 
-27:                                               ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %29 = load i64, ptr %28, align 8, !noalias !12516, !noundef !4
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h91029dacccfeb0acE.exit.i.i.i", label %31
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %28 = load i64, ptr %27, align 8, !noalias !12516, !noundef !4
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h91029dacccfeb0acE.exit.i.i.i", label %30
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %3, align 8, !noalias !12516, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %29, i64 noundef %26) #81
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %3, align 8, !noalias !12516, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef %28, i64 noundef %25) #81
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h91029dacccfeb0acE.exit.i.i.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h91029dacccfeb0acE.exit.i.i.i": ; preds = %31, %27, %23
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h91029dacccfeb0acE.exit.i.i.i": ; preds = %30, %26, %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !12516
   br label %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit"
 
-"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit": ; preds = %19, %19, %19, %22, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h91029dacccfeb0acE.exit.i.i.i"
+"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$hayagriva..csl..taxonomy..NumberVariableResult$GT$$GT$17h9e0a3df011ce7ce5E.exit": ; preds = %18, %18, %18, %21, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h91029dacccfeb0acE.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  %33 = zext i1 %21 to i32
-  %34 = or disjoint i32 %.sroa.03.0.insert.insert, %33
-  br label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread11"
+  %32 = zext i1 %20 to i32
+  %33 = or disjoint i32 %.sroa.03.0.insert.insert, %32
+  br label %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread12"
 
-35:                                               ; preds = %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread"
+34:                                               ; preds = %"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hf083e9bc532aa47fE.exit.thread"
   store i8 1, ptr %15, align 1
-  br label %19
+  br label %18
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -71052,11 +71052,11 @@ define hidden i40 @"_ZN93_$LT$citationberg..LayoutRenderingElement$u20$as$u20$ha
   switch i64 %6, label %default.unreachable19 [
     i64 0, label %7
     i64 1, label %10
-    i64 2, label %32
-    i64 3, label %35
-    i64 4, label %38
-    i64 5, label %41
-    i64 6, label %70
+    i64 2, label %31
+    i64 3, label %34
+    i64 4, label %37
+    i64 5, label %40
+    i64 6, label %69
   ]
 
 default.unreachable19:                            ; preds = %2
@@ -71065,7 +71065,7 @@ default.unreachable19:                            ; preds = %2
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call i40 @"_ZN75_$LT$citationberg..Text$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h33350066af18c9f2E.llvm.16978709814855407318"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %8, ptr noalias noundef nonnull align 8 dereferenceable(664) %1)
-  br label %73
+  br label %72
 
 10:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14598)
@@ -71084,16 +71084,16 @@ default.unreachable19:                            ; preds = %2
 
 17:                                               ; preds = %27, %15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %.val18.i = load i8, ptr %18, align 8, !range !11613, !alias.scope !14601, !noalias !14598, !noundef !4
+  %.val19.i = load i8, ptr %18, align 8, !range !11613, !alias.scope !14601, !noalias !14598, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 645
-  %.val19.i = load i8, ptr %19, align 1, !alias.scope !14601, !noalias !14598
-  %.not.i.i = icmp eq i8 %.val18.i, 7
+  %.val20.i = load i8, ptr %19, align 1, !alias.scope !14601, !noalias !14598
+  %.not.i.i = icmp eq i8 %.val19.i, 7
   br i1 %.not.i.i, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread.i", label %20
 
 20:                                               ; preds = %17
-  %21 = add nsw i8 %.val18.i, -4
+  %21 = add nsw i8 %.val19.i, -4
   %22 = icmp ult i8 %21, 3
-  %23 = zext nneg i8 %.val18.i to i64
+  %23 = zext nneg i8 %.val19.i to i64
   %24 = add nsw i64 %23, -3
   %25 = select i1 %22, i64 %24, i64 0
   switch i64 %25, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread.i" [
@@ -71103,7 +71103,7 @@ default.unreachable19:                            ; preds = %2
   ]
 
 "_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.i": ; preds = %20, %20
-  %26 = trunc nuw i8 %.val19.i to i1
+  %26 = trunc nuw i8 %.val20.i to i1
   br i1 %26, label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread.i", label %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17hd4eb81c7ac9f9cafE.llvm.16978709814855407318.exit"
 
 27:                                               ; preds = %15
@@ -71123,88 +71123,88 @@ default.unreachable19:                            ; preds = %2
 "_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17hd4eb81c7ac9f9cafE.llvm.16978709814855407318.exit": ; preds = %10, %20, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.i", %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread.i"
   %.sroa.4.sroa.0.0.i = phi i32 [ %.sroa.014.0.insert.insert.i, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread.i" ], [ 256, %10 ], [ 0, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.i" ], [ 0, %20 ]
   %.sroa.0.0.i = phi i32 [ %30, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.thread.i" ], [ 0, %10 ], [ 0, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$11will_render17hbb1d81b452613e35E.exit.i" ], [ 0, %20 ]
-  %31 = or disjoint i32 %.sroa.0.0.i, %.sroa.4.sroa.0.0.i
-  %.sroa.0.0.insert.insert.i = zext nneg i32 %31 to i40
-  br label %73
+  %.sroa.0.0.insert.insert18.i = or disjoint i32 %.sroa.0.0.i, %.sroa.4.sroa.0.0.i
+  %.sroa.0.0.insert.insert.i = zext nneg i32 %.sroa.0.0.insert.insert18.i to i40
+  br label %72
 
-32:                                               ; preds = %2
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = tail call i40 @"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h9a8a6456af70fd05E.llvm.16978709814855407318"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %33, ptr noalias noundef nonnull align 8 dereferenceable(664) %1)
-  br label %73
+31:                                               ; preds = %2
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = tail call i40 @"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h9a8a6456af70fd05E.llvm.16978709814855407318"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %32, ptr noalias noundef nonnull align 8 dereferenceable(664) %1)
+  br label %72
 
-35:                                               ; preds = %2
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = tail call i40 @"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$hayagriva..csl..rendering..RenderCsl$u20$for$u20$citationberg..Names$GT$14will_have_info17ha020eb8ae4ac43e7E.llvm.16978709814855407318"(ptr noalias noundef nonnull readonly align 8 dereferenceable(216) %36, ptr noalias noundef nonnull align 8 dereferenceable(664) %1)
-  br label %73
+34:                                               ; preds = %2
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = tail call i40 @"_ZN9hayagriva3csl9rendering5names86_$LT$impl$u20$hayagriva..csl..rendering..RenderCsl$u20$for$u20$citationberg..Names$GT$14will_have_info17ha020eb8ae4ac43e7E.llvm.16978709814855407318"(ptr noalias noundef nonnull readonly align 8 dereferenceable(216) %35, ptr noalias noundef nonnull align 8 dereferenceable(664) %1)
+  br label %72
 
-38:                                               ; preds = %2
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = tail call i40 @"_ZN76_$LT$citationberg..Label$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h56027b6e7aed6f85E.llvm.16978709814855407318"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %39, ptr noalias noundef nonnull align 8 dereferenceable(664) %1)
-  br label %73
+37:                                               ; preds = %2
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = tail call i40 @"_ZN76_$LT$citationberg..Label$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h56027b6e7aed6f85E.llvm.16978709814855407318"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %38, ptr noalias noundef nonnull align 8 dereferenceable(664) %1)
+  br label %72
 
-41:                                               ; preds = %2
+40:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14604)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i = load ptr, ptr %42, align 8, !alias.scope !14604, !noalias !14607, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val45.i = load i64, ptr %43, align 8, !alias.scope !14604, !noalias !14607, !noundef !4
-  %44 = getelementptr inbounds { i64, [30 x i64] }, ptr %.val.i, i64 %.val45.i
-  %45 = icmp eq i64 %.val45.i, 0
-  br i1 %45, label %"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit", label %.lr.ph.i
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i = load ptr, ptr %41, align 8, !alias.scope !14604, !noalias !14607, !nonnull !4, !noundef !4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val45.i = load i64, ptr %42, align 8, !alias.scope !14604, !noalias !14607, !noundef !4
+  %43 = getelementptr inbounds { i64, [30 x i64] }, ptr %.val.i, i64 %.val45.i
+  %44 = icmp eq i64 %.val45.i, 0
+  br i1 %44, label %"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %41, %.lr.ph.i
-  %.054.i = phi i1 [ %49, %.lr.ph.i ], [ false, %41 ]
-  %.sroa.04.053.i = phi i8 [ %.sroa.037.0.extract.trunc.i, %.lr.ph.i ], [ 0, %41 ]
-  %.sroa.7.052.i = phi i8 [ %.sroa.438.0.extract.trunc.i, %.lr.ph.i ], [ 0, %41 ]
-  %.sroa.9.051.i = phi i8 [ %.sroa.539.0.extract.trunc.i, %.lr.ph.i ], [ 0, %41 ]
-  %.sroa.11.050.i = phi i8 [ %spec.select.i, %.lr.ph.i ], [ 0, %41 ]
-  %.sroa.0.049.i = phi ptr [ %46, %.lr.ph.i ], [ %.val.i, %41 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.049.i, i64 248
-  %47 = tail call i40 @"_ZN93_$LT$citationberg..LayoutRenderingElement$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h184a256c22d46976E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %.sroa.0.049.i, ptr noalias noundef nonnull align 8 dereferenceable(664) %1), !noalias !14604
-  %.sroa.436.0.extract.shift.i = lshr i40 %47, 8
-  %48 = trunc i40 %47 to i1
-  %49 = or i1 %.054.i, %48
-  %50 = trunc nuw i8 %.sroa.04.053.i to i1
+.lr.ph.i:                                         ; preds = %40, %.lr.ph.i
+  %.054.i = phi i1 [ %48, %.lr.ph.i ], [ false, %40 ]
+  %.sroa.04.053.i = phi i8 [ %.sroa.037.0.extract.trunc.i, %.lr.ph.i ], [ 0, %40 ]
+  %.sroa.7.052.i = phi i8 [ %.sroa.438.0.extract.trunc.i, %.lr.ph.i ], [ 0, %40 ]
+  %.sroa.9.051.i = phi i8 [ %.sroa.539.0.extract.trunc.i, %.lr.ph.i ], [ 0, %40 ]
+  %.sroa.11.050.i = phi i8 [ %spec.select.i, %.lr.ph.i ], [ 0, %40 ]
+  %.sroa.0.049.i = phi ptr [ %45, %.lr.ph.i ], [ %.val.i, %40 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.049.i, i64 248
+  %46 = tail call i40 @"_ZN93_$LT$citationberg..LayoutRenderingElement$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h184a256c22d46976E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %.sroa.0.049.i, ptr noalias noundef nonnull align 8 dereferenceable(664) %1), !noalias !14604
+  %.sroa.436.0.extract.shift.i = lshr i40 %46, 8
+  %47 = trunc i40 %46 to i1
+  %48 = or i1 %.054.i, %47
+  %49 = trunc nuw i8 %.sroa.04.053.i to i1
   %.not.i.i15 = icmp eq i8 %.sroa.7.052.i, 0
   %.not21.i.i = icmp eq i8 %.sroa.9.051.i, 0
   %.not22.i.i = icmp eq i8 %.sroa.11.050.i, 0
-  %51 = trunc i40 %.sroa.436.0.extract.shift.i to i8
-  %52 = and i8 %51, 1
-  %.sroa.037.0.extract.trunc.i = select i1 %50, i8 1, i8 %52
-  %53 = lshr i40 %47, 16
-  %54 = trunc i40 %53 to i8
-  %55 = and i8 %54, 1
-  %.sroa.438.0.extract.trunc.i = select i1 %.not.i.i15, i8 %55, i8 1
-  %56 = lshr i40 %47, 24
-  %57 = trunc i40 %56 to i8
-  %58 = and i8 %57, 1
-  %.sroa.539.0.extract.trunc.i = select i1 %.not21.i.i, i8 %58, i8 1
-  %sum.shift.i = lshr i40 %47, 32
-  %59 = trunc nuw i40 %sum.shift.i to i8
-  %60 = and i8 %59, 1
-  %.sroa.640.0.extract.trunc.i = select i1 %.not22.i.i, i8 %60, i8 1
-  %61 = load i64, ptr %.sroa.0.049.i, align 8, !range !2467, !noalias !14604, !noundef !4
-  %62 = icmp eq i64 %61, -9223372036854775803
-  %brmerge.not.i = and i1 %62, %48
+  %50 = trunc i40 %.sroa.436.0.extract.shift.i to i8
+  %51 = and i8 %50, 1
+  %.sroa.037.0.extract.trunc.i = select i1 %49, i8 1, i8 %51
+  %52 = lshr i40 %46, 16
+  %53 = trunc i40 %52 to i8
+  %54 = and i8 %53, 1
+  %.sroa.438.0.extract.trunc.i = select i1 %.not.i.i15, i8 %54, i8 1
+  %55 = lshr i40 %46, 24
+  %56 = trunc i40 %55 to i8
+  %57 = and i8 %56, 1
+  %.sroa.539.0.extract.trunc.i = select i1 %.not21.i.i, i8 %57, i8 1
+  %sum.shift.i = lshr i40 %46, 32
+  %58 = trunc nuw i40 %sum.shift.i to i8
+  %59 = and i8 %58, 1
+  %.sroa.640.0.extract.trunc.i = select i1 %.not22.i.i, i8 %59, i8 1
+  %60 = load i64, ptr %.sroa.0.049.i, align 8, !range !2467, !noalias !14604, !noundef !4
+  %61 = icmp eq i64 %60, -9223372036854775803
+  %brmerge.not.i = and i1 %61, %47
   %spec.select.i = select i1 %brmerge.not.i, i8 1, i8 %.sroa.640.0.extract.trunc.i
-  %63 = icmp eq ptr %46, %44
-  br i1 %63, label %"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit", label %.lr.ph.i
+  %62 = icmp eq ptr %45, %43
+  br i1 %62, label %"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit", label %.lr.ph.i
 
-"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit": ; preds = %.lr.ph.i, %41
-  %.sroa.11.0.lcssa.i = phi i8 [ 0, %41 ], [ %spec.select.i, %.lr.ph.i ]
-  %.sroa.9.0.lcssa.i = phi i8 [ 0, %41 ], [ %.sroa.539.0.extract.trunc.i, %.lr.ph.i ]
-  %.sroa.7.0.lcssa.i = phi i8 [ 0, %41 ], [ %.sroa.438.0.extract.trunc.i, %.lr.ph.i ]
-  %.sroa.04.0.lcssa.i = phi i8 [ 0, %41 ], [ %.sroa.037.0.extract.trunc.i, %.lr.ph.i ]
-  %.0.lcssa.i = phi i1 [ false, %41 ], [ %49, %.lr.ph.i ]
-  %64 = trunc nuw i8 %.sroa.04.0.lcssa.i to i1
-  %.not.i16 = xor i1 %64, true
-  %65 = trunc nuw i8 %.sroa.7.0.lcssa.i to i1
-  %66 = trunc nuw i8 %.sroa.9.0.lcssa.i to i1
-  %67 = select i1 %.not.i16, i1 true, i1 %65
-  %or.cond43.i = select i1 %67, i1 true, i1 %66
-  %68 = trunc nuw i8 %.sroa.11.0.lcssa.i to i1
-  %spec.select44.i = select i1 %or.cond43.i, i1 true, i1 %68
-  %69 = and i1 %.0.lcssa.i, %spec.select44.i
+"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit": ; preds = %.lr.ph.i, %40
+  %.sroa.11.0.lcssa.i = phi i8 [ 0, %40 ], [ %spec.select.i, %.lr.ph.i ]
+  %.sroa.9.0.lcssa.i = phi i8 [ 0, %40 ], [ %.sroa.539.0.extract.trunc.i, %.lr.ph.i ]
+  %.sroa.7.0.lcssa.i = phi i8 [ 0, %40 ], [ %.sroa.438.0.extract.trunc.i, %.lr.ph.i ]
+  %.sroa.04.0.lcssa.i = phi i8 [ 0, %40 ], [ %.sroa.037.0.extract.trunc.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i1 [ false, %40 ], [ %48, %.lr.ph.i ]
+  %63 = trunc nuw i8 %.sroa.04.0.lcssa.i to i1
+  %.not.i16 = xor i1 %63, true
+  %64 = trunc nuw i8 %.sroa.7.0.lcssa.i to i1
+  %65 = trunc nuw i8 %.sroa.9.0.lcssa.i to i1
+  %66 = select i1 %.not.i16, i1 true, i1 %64
+  %or.cond43.i = select i1 %66, i1 true, i1 %65
+  %67 = trunc nuw i8 %.sroa.11.0.lcssa.i to i1
+  %spec.select44.i = select i1 %or.cond43.i, i1 true, i1 %67
+  %68 = and i1 %.0.lcssa.i, %spec.select44.i
   %.sroa.634.0.insert.ext.i = zext nneg i8 %.sroa.11.0.lcssa.i to i32
   %.sroa.634.0.insert.shift.i = shl nuw nsw i32 %.sroa.634.0.insert.ext.i, 24
   %.sroa.533.0.insert.ext.i = zext nneg i8 %.sroa.9.0.lcssa.i to i32
@@ -71217,23 +71217,23 @@ default.unreachable19:                            ; preds = %2
   %.sroa.031.0.insert.insert.i = or disjoint i32 %.sroa.432.0.insert.insert.i, %.sroa.031.0.insert.ext.i
   %.sroa.2.0.insert.ext.i = zext nneg i32 %.sroa.031.0.insert.insert.i to i40
   %.sroa.2.0.insert.shift.i = shl nuw nsw i40 %.sroa.2.0.insert.ext.i, 8
-  %.sroa.0.0.insert.ext.i17 = zext i1 %69 to i40
+  %.sroa.0.0.insert.ext.i17 = zext i1 %68 to i40
   %.sroa.0.0.insert.insert.i18 = or disjoint i40 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i17
-  br label %73
+  br label %72
 
-70:                                               ; preds = %2
-  %71 = tail call i40 @_ZN9hayagriva3csl9rendering15choose_children17h11ebc090ab14ca20E.llvm.16978709814855407318(ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %0, ptr noalias noundef nonnull align 8 dereferenceable(664) %1)
-  %.sroa.05.0.extract.trunc.i = trunc i40 %71 to i8
-  %72 = icmp eq i8 %.sroa.05.0.extract.trunc.i, 2
-  %.sroa.46.0.extract.shift.i = and i40 %71, -256
-  %.sroa.0.0.i13 = select i1 %72, i8 0, i8 %.sroa.05.0.extract.trunc.i
-  %.sroa.3.0.insert.ext.i = select i1 %72, i40 0, i40 %.sroa.46.0.extract.shift.i
+69:                                               ; preds = %2
+  %70 = tail call i40 @_ZN9hayagriva3csl9rendering15choose_children17h11ebc090ab14ca20E.llvm.16978709814855407318(ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %0, ptr noalias noundef nonnull align 8 dereferenceable(664) %1)
+  %.sroa.05.0.extract.trunc.i = trunc i40 %70 to i8
+  %71 = icmp eq i8 %.sroa.05.0.extract.trunc.i, 2
+  %.sroa.46.0.extract.shift.i = and i40 %70, -256
+  %.sroa.0.0.i13 = select i1 %71, i8 0, i8 %.sroa.05.0.extract.trunc.i
+  %.sroa.3.0.insert.ext.i = select i1 %71, i40 0, i40 %.sroa.46.0.extract.shift.i
   %.sroa.0.0.insert.ext.i = zext i8 %.sroa.0.0.i13 to i40
   %.sroa.0.0.insert.insert.i14 = or disjoint i40 %.sroa.3.0.insert.ext.i, %.sroa.0.0.insert.ext.i
-  br label %73
+  br label %72
 
-73:                                               ; preds = %70, %"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit", %38, %35, %32, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17hd4eb81c7ac9f9cafE.llvm.16978709814855407318.exit", %7
-  %.sroa.0.0 = phi i40 [ %.sroa.0.0.insert.insert.i14, %70 ], [ %.sroa.0.0.insert.insert.i18, %"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit" ], [ %40, %38 ], [ %37, %35 ], [ %34, %32 ], [ %.sroa.0.0.insert.insert.i, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17hd4eb81c7ac9f9cafE.llvm.16978709814855407318.exit" ], [ %9, %7 ]
+72:                                               ; preds = %69, %"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit", %37, %34, %31, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17hd4eb81c7ac9f9cafE.llvm.16978709814855407318.exit", %7
+  %.sroa.0.0 = phi i40 [ %.sroa.0.0.insert.insert.i14, %69 ], [ %.sroa.0.0.insert.insert.i18, %"_ZN76_$LT$citationberg..Group$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h507dac560e231a10E.llvm.16978709814855407318.exit" ], [ %39, %37 ], [ %36, %34 ], [ %33, %31 ], [ %.sroa.0.0.insert.insert.i, %"_ZN75_$LT$citationberg..Date$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17hd4eb81c7ac9f9cafE.llvm.16978709814855407318.exit" ], [ %9, %7 ]
   ret i40 %.sroa.0.0
 }
 
