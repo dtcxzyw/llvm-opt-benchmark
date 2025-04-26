@@ -6379,13 +6379,13 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
   call void @cairo_set_line_cap(ptr noundef %41, i32 noundef 1) #19
   %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !253
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 592
-  %.sroa.0170.0.copyload = load double, ptr %125, align 1
+  %.sroa.0170.0.copyload = load double, ptr %125, align 8
   %.sroa.4171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 600
-  %.sroa.4171.0.copyload = load double, ptr %.sroa.4171.0..sroa_idx, align 1
+  %.sroa.4171.0.copyload = load double, ptr %.sroa.4171.0..sroa_idx, align 8
   %.sroa.5172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 608
-  %.sroa.5172.0.copyload = load double, ptr %.sroa.5172.0..sroa_idx, align 1
+  %.sroa.5172.0.copyload = load double, ptr %.sroa.5172.0..sroa_idx, align 8
   %.sroa.6173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 616
-  %.sroa.6173.0.copyload = load double, ptr %.sroa.6173.0..sroa_idx, align 1
+  %.sroa.6173.0.copyload = load double, ptr %.sroa.6173.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %41, double noundef %.sroa.0170.0.copyload, double noundef %.sroa.4171.0.copyload, double noundef %.sroa.5172.0.copyload, double noundef %.sroa.6173.0.copyload) #19
   %126 = fpext reassoc nsz arcp contract afn float %67 to double
   call void @cairo_rectangle(ptr noundef %41, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %71, double noundef %126) #19

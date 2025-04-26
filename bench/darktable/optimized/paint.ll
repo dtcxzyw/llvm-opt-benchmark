@@ -3818,13 +3818,13 @@ define void @dtgtk_cairo_paint_label(ptr noundef %0, i32 noundef %1, i32 noundef
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 944
   %31 = zext nneg i32 %26 to i64
   %32 = getelementptr inbounds nuw [5 x %struct._GdkRGBA], ptr %30, i64 0, i64 %31
-  %.sroa.0.0.copyload = load double, ptr %32, align 1
+  %.sroa.0.0.copyload = load double, ptr %32, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %0, double noundef %.sroa.0.0.copyload, double noundef %.sroa.4.0.copyload, double noundef %.sroa.5.0.copyload, double noundef %.sroa.6.0.copyload) #9
   br label %34
 
@@ -3895,13 +3895,13 @@ define void @dtgtk_cairo_paint_label_sel(ptr noundef %0, i32 noundef %1, i32 nou
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 944
   %32 = zext nneg i32 %27 to i64
   %33 = getelementptr inbounds nuw [5 x %struct._GdkRGBA], ptr %31, i64 0, i64 %32
-  %.sroa.0.0.copyload = load double, ptr %33, align 1
+  %.sroa.0.0.copyload = load double, ptr %33, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %0, double noundef %.sroa.0.0.copyload, double noundef %.sroa.4.0.copyload, double noundef %.sroa.5.0.copyload, double noundef %.sroa.6.0.copyload) #9
   br label %35
 
@@ -4589,13 +4589,13 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
   call void @cairo_arc(ptr noundef %0, double noundef 1.800000e-01, double noundef 1.800000e-01, double noundef 1.800000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 944
-  %.sroa.0.0.copyload = load double, ptr %30, align 1
+  %.sroa.0.0.copyload = load double, ptr %30, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 952
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 960
-  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 968
-  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %0, double noundef %.sroa.0.0.copyload, double noundef %.sroa.4.0.copyload, double noundef %.sroa.5.0.copyload, double noundef %.sroa.6.0.copyload) #9
   call void @cairo_fill(ptr noundef %0) #9
   br label %31
@@ -4609,13 +4609,13 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
   call void @cairo_arc(ptr noundef %0, double noundef 0x3FEA3D70A3D70A3E, double noundef 1.800000e-01, double noundef 1.800000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 976
-  %.sroa.044.0.copyload = load double, ptr %35, align 1
+  %.sroa.044.0.copyload = load double, ptr %35, align 8
   %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 984
-  %.sroa.445.0.copyload = load double, ptr %.sroa.445.0..sroa_idx, align 1
+  %.sroa.445.0.copyload = load double, ptr %.sroa.445.0..sroa_idx, align 8
   %.sroa.546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 992
-  %.sroa.546.0.copyload = load double, ptr %.sroa.546.0..sroa_idx, align 1
+  %.sroa.546.0.copyload = load double, ptr %.sroa.546.0..sroa_idx, align 8
   %.sroa.647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 1000
-  %.sroa.647.0.copyload = load double, ptr %.sroa.647.0..sroa_idx, align 1
+  %.sroa.647.0.copyload = load double, ptr %.sroa.647.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %0, double noundef %.sroa.044.0.copyload, double noundef %.sroa.445.0.copyload, double noundef %.sroa.546.0.copyload, double noundef %.sroa.647.0.copyload) #9
   call void @cairo_fill(ptr noundef %0) #9
   br label %36
@@ -4629,13 +4629,13 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 1.800000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1008
-  %.sroa.048.0.copyload = load double, ptr %40, align 1
+  %.sroa.048.0.copyload = load double, ptr %40, align 8
   %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 1016
-  %.sroa.449.0.copyload = load double, ptr %.sroa.449.0..sroa_idx, align 1
+  %.sroa.449.0.copyload = load double, ptr %.sroa.449.0..sroa_idx, align 8
   %.sroa.550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 1024
-  %.sroa.550.0.copyload = load double, ptr %.sroa.550.0..sroa_idx, align 1
+  %.sroa.550.0.copyload = load double, ptr %.sroa.550.0..sroa_idx, align 8
   %.sroa.651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 1032
-  %.sroa.651.0.copyload = load double, ptr %.sroa.651.0..sroa_idx, align 1
+  %.sroa.651.0.copyload = load double, ptr %.sroa.651.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %0, double noundef %.sroa.048.0.copyload, double noundef %.sroa.449.0.copyload, double noundef %.sroa.550.0.copyload, double noundef %.sroa.651.0.copyload) #9
   call void @cairo_fill(ptr noundef %0) #9
   br label %41
@@ -4649,13 +4649,13 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
   call void @cairo_arc(ptr noundef %0, double noundef 1.800000e-01, double noundef 0x3FEA3D70A3D70A3E, double noundef 1.800000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1040
-  %.sroa.052.0.copyload = load double, ptr %45, align 1
+  %.sroa.052.0.copyload = load double, ptr %45, align 8
   %.sroa.453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 1048
-  %.sroa.453.0.copyload = load double, ptr %.sroa.453.0..sroa_idx, align 1
+  %.sroa.453.0.copyload = load double, ptr %.sroa.453.0..sroa_idx, align 8
   %.sroa.554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 1056
-  %.sroa.554.0.copyload = load double, ptr %.sroa.554.0..sroa_idx, align 1
+  %.sroa.554.0.copyload = load double, ptr %.sroa.554.0..sroa_idx, align 8
   %.sroa.655.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 1064
-  %.sroa.655.0.copyload = load double, ptr %.sroa.655.0..sroa_idx, align 1
+  %.sroa.655.0.copyload = load double, ptr %.sroa.655.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %0, double noundef %.sroa.052.0.copyload, double noundef %.sroa.453.0.copyload, double noundef %.sroa.554.0.copyload, double noundef %.sroa.655.0.copyload) #9
   call void @cairo_fill(ptr noundef %0) #9
   br label %46
@@ -4669,13 +4669,13 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
   call void @cairo_arc(ptr noundef %0, double noundef 0x3FEA3D70A3D70A3E, double noundef 0x3FEA3D70A3D70A3E, double noundef 1.800000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1072
-  %.sroa.056.0.copyload = load double, ptr %50, align 1
+  %.sroa.056.0.copyload = load double, ptr %50, align 8
   %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 1080
-  %.sroa.457.0.copyload = load double, ptr %.sroa.457.0..sroa_idx, align 1
+  %.sroa.457.0.copyload = load double, ptr %.sroa.457.0..sroa_idx, align 8
   %.sroa.558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 1088
-  %.sroa.558.0.copyload = load double, ptr %.sroa.558.0..sroa_idx, align 1
+  %.sroa.558.0.copyload = load double, ptr %.sroa.558.0..sroa_idx, align 8
   %.sroa.659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 1096
-  %.sroa.659.0.copyload = load double, ptr %.sroa.659.0..sroa_idx, align 1
+  %.sroa.659.0.copyload = load double, ptr %.sroa.659.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %0, double noundef %.sroa.056.0.copyload, double noundef %.sroa.457.0.copyload, double noundef %.sroa.558.0.copyload, double noundef %.sroa.659.0.copyload) #9
   call void @cairo_fill(ptr noundef %0) #9
   br label %51

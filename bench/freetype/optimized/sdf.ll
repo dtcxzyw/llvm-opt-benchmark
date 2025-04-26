@@ -2981,21 +2981,21 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
 
 .lr.ph.i12:                                       ; preds = %173, %._crit_edge229.i
   %.0141237.i = phi ptr [ %.0141.i, %._crit_edge229.i ], [ %.0141235.i, %173 ]
-  %.0141172.sroa.0.0.copyload.i = load i64, ptr %.0141237.i, align 1
+  %.0141172.sroa.0.0.copyload.i = load i64, ptr %.0141237.i, align 8
   %.0141172.sroa.5.0..0141.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0141237.i, i64 8
-  %.0141172.sroa.5.0.copyload.i = load i64, ptr %.0141172.sroa.5.0..0141.sroa_idx.i, align 1
+  %.0141172.sroa.5.0.copyload.i = load i64, ptr %.0141172.sroa.5.0..0141.sroa_idx.i, align 8
   %.0141172.sroa.7.0..0141.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0141237.i, i64 16
-  %.0141172.sroa.7.0.copyload.i = load i64, ptr %.0141172.sroa.7.0..0141.sroa_idx.i, align 1
+  %.0141172.sroa.7.0.copyload.i = load i64, ptr %.0141172.sroa.7.0..0141.sroa_idx.i, align 8
   %.0141172.sroa.8.0..0141.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0141237.i, i64 24
-  %.0141172.sroa.8.0.copyload.i = load i64, ptr %.0141172.sroa.8.0..0141.sroa_idx.i, align 1
+  %.0141172.sroa.8.0.copyload.i = load i64, ptr %.0141172.sroa.8.0..0141.sroa_idx.i, align 8
   %.0141172.sroa.9.0..0141.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0141237.i, i64 32
-  %.0141172.sroa.9.0.copyload.i = load i64, ptr %.0141172.sroa.9.0..0141.sroa_idx.i, align 1
+  %.0141172.sroa.9.0.copyload.i = load i64, ptr %.0141172.sroa.9.0..0141.sroa_idx.i, align 8
   %.0141172.sroa.11.0..0141.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0141237.i, i64 40
-  %.0141172.sroa.11.0.copyload.i = load i64, ptr %.0141172.sroa.11.0..0141.sroa_idx.i, align 1
+  %.0141172.sroa.11.0.copyload.i = load i64, ptr %.0141172.sroa.11.0..0141.sroa_idx.i, align 8
   %.0141172.sroa.13.0..0141.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0141237.i, i64 48
   %.0141172.sroa.14.0..0141.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0141237.i, i64 56
   %.0141172.sroa.15.0..0141.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0141237.i, i64 64
-  %.0141172.sroa.15.0.copyload.i = load i32, ptr %.0141172.sroa.15.0..0141.sroa_idx.i, align 1
+  %.0141172.sroa.15.0.copyload.i = load i32, ptr %.0141172.sroa.15.0..0141.sroa_idx.i, align 8
   switch i32 %.0141172.sroa.15.0.copyload.i, label %get_control_box.exit.i [
     i32 3, label %175
     i32 2, label %.critedge.i.i
@@ -3003,8 +3003,8 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
   ]
 
 175:                                              ; preds = %.lr.ph.i12
-  %.0141172.sroa.14.0.copyload.i = load i64, ptr %.0141172.sroa.14.0..0141.sroa_idx.i, align 1
-  %.0141172.sroa.13.0.copyload.i = load i64, ptr %.0141172.sroa.13.0..0141.sroa_idx.i, align 1
+  %.0141172.sroa.14.0.copyload.i = load i64, ptr %.0141172.sroa.14.0..0141.sroa_idx.i, align 8
+  %.0141172.sroa.13.0.copyload.i = load i64, ptr %.0141172.sroa.13.0..0141.sroa_idx.i, align 8
   %176 = call i64 @llvm.smin.i64(i64 %.0141172.sroa.9.0.copyload.i, i64 %.0141172.sroa.13.0.copyload.i)
   %177 = call i64 @llvm.smax.i64(i64 %.0141172.sroa.9.0.copyload.i, i64 %.0141172.sroa.13.0.copyload.i)
   %178 = call i64 @llvm.smin.i64(i64 %.0141172.sroa.11.0.copyload.i, i64 %.0141172.sroa.14.0.copyload.i)

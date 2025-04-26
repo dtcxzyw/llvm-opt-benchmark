@@ -38050,9 +38050,9 @@ define void @GetModelBoundingBox(ptr dead_on_unwind noalias writable sret(%struc
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8
-  %.sroa.058.0.copyload = load i32, ptr %8, align 1
+  %.sroa.058.0.copyload = load i32, ptr %8, align 8
   %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.460.0.copyload = load ptr, ptr %.sroa.460.0..sroa_idx, align 1
+  %.sroa.460.0.copyload = load ptr, ptr %.sroa.460.0..sroa_idx, align 8
   %.not.i = icmp eq ptr %.sroa.460.0.copyload, null
   br i1 %.not.i, label %GetMeshBoundingBox.exit, label %9
 
@@ -38132,9 +38132,9 @@ GetMeshBoundingBox.exit:                          ; preds = %.lr.ph.i, %6, %9
   %38 = phi float [ %28, %.lr.ph ], [ %66, %GetMeshBoundingBox.exit49 ]
   %39 = phi float [ %.sroa.8.0.i, %.lr.ph ], [ %70, %GetMeshBoundingBox.exit49 ]
   %40 = getelementptr inbounds nuw %struct.Mesh, ptr %8, i64 %indvars.iv
-  %.sroa.062.0.copyload = load i32, ptr %40, align 1
+  %.sroa.062.0.copyload = load i32, ptr %40, align 8
   %.sroa.464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.sroa.464.0.copyload = load ptr, ptr %.sroa.464.0..sroa_idx, align 1
+  %.sroa.464.0.copyload = load ptr, ptr %.sroa.464.0..sroa_idx, align 8
   %.not.i20 = icmp eq ptr %.sroa.464.0.copyload, null
   br i1 %.not.i20, label %GetMeshBoundingBox.exit49, label %41
 
@@ -44473,11 +44473,11 @@ define void @UnloadModelAnimations(ptr noundef captures(none) %0, i32 noundef %1
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %UnloadModelAnimation.exit ]
   %4 = getelementptr inbounds nuw %struct.ModelAnimation, ptr %0, i64 %indvars.iv
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 1
+  %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %5 = icmp sgt i32 %.sroa.3.0.copyload, 0
   br i1 %5, label %.lr.ph.i, label %UnloadModelAnimation.exit
 

@@ -300,11 +300,11 @@ define internal fastcc void @_draw_boxes(ptr noundef %0, ptr noundef %1, ptr nou
 
 15:                                               ; preds = %.lr.ph, %draw_box.exit
   %16 = load ptr, ptr %7, align 8, !tbaa !35
-  %.sroa.0.0.copyload = load i64, ptr %16, align 1
+  %.sroa.0.0.copyload = load i64, ptr %16, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
   store i64 %.sroa.0.0.copyload, ptr %11, align 8
   store i64 %.sroa.0.0.copyload, ptr %9, align 8

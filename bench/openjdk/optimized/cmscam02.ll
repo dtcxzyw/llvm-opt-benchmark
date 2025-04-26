@@ -123,9 +123,9 @@ switch.lookup:                                    ; preds = %7
   %71 = load double, ptr %44, align 8
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 328
   store double %71, ptr %72, align 8
-  %.sroa.0.0.copyload64 = load double, ptr %5, align 1
-  %.sroa.5.0.copyload66 = load double, ptr %12, align 1
-  %.sroa.6.0.copyload68 = load double, ptr %15, align 1
+  %.sroa.0.0.copyload64 = load double, ptr %5, align 8
+  %.sroa.5.0.copyload66 = load double, ptr %12, align 8
+  %.sroa.6.0.copyload68 = load double, ptr %15, align 8
   %.sroa.7.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.8.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.9.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -142,7 +142,7 @@ switch.lookup:                                    ; preds = %7
   store double %75, ptr %.sroa.7.0..sroa_idx69, align 8
   store double %78, ptr %.sroa.8.0..sroa_idx71, align 8
   store double %81, ptr %.sroa.9.0..sroa_idx73, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull align 1 dereferenceable(264) %5, i64 264, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %4, ptr noundef nonnull align 8 dereferenceable(264) %5, i64 264, i1 false)
   %82 = fsub double 1.000000e+00, %70
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -165,11 +165,11 @@ switch.lookup:                                    ; preds = %7
 
 ChromaticAdaptation.exit:                         ; preds = %85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %5, ptr noundef nonnull align 8 dereferenceable(264) %4, i64 264, i1 false)
-  %.sroa.481.0.copyload83 = load double, ptr %.sroa.10.0..sroa_idx75, align 1
+  %.sroa.481.0.copyload83 = load double, ptr %.sroa.10.0..sroa_idx75, align 8
   %.sroa.584.0..sroa_idx85 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %.sroa.584.0.copyload86 = load double, ptr %.sroa.584.0..sroa_idx85, align 1
+  %.sroa.584.0.copyload86 = load double, ptr %.sroa.584.0..sroa_idx85, align 8
   %.sroa.687.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %.sroa.687.0.copyload89 = load double, ptr %.sroa.687.0..sroa_idx88, align 1
+  %.sroa.687.0.copyload89 = load double, ptr %.sroa.687.0..sroa_idx88, align 8
   %.sroa.790.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %.sroa.893.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %.sroa.996.0..sroa_idx97 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -189,7 +189,7 @@ ChromaticAdaptation.exit:                         ; preds = %85
   store double %100, ptr %.sroa.893.0..sroa_idx94, align 8
   store double %103, ptr %.sroa.996.0..sroa_idx97, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.1099.0..sroa_idx100, ptr noundef nonnull align 8 dereferenceable(168) %94, i64 168, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull align 1 dereferenceable(264) %5, i64 264, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull align 8 dereferenceable(264) %5, i64 264, i1 false)
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 96
   br label %106

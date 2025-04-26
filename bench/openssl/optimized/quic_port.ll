@@ -1707,7 +1707,7 @@ define internal fastcc void @port_send_retry(ptr noundef readonly captures(none)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %4, ptr noundef nonnull align 1 dereferenceable(21) %18, i64 21, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %24, ptr noundef nonnull align 1 dereferenceable(21) %23, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %24, ptr noundef nonnull align 8 dereferenceable(21) %23, i64 21, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store i8 1, ptr %25, align 8, !tbaa !220
   %26 = call i64 @ossl_time_now() #11
@@ -2300,7 +2300,7 @@ define internal fastcc void @generate_new_token(ptr noundef captures(none) %0, p
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %3, ptr noundef nonnull align 8 dereferenceable(21) %4, i64 21, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %25, ptr noundef nonnull align 1 dereferenceable(21) %24, i64 21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %25, ptr noundef nonnull align 8 dereferenceable(21) %24, i64 21, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i8 0, ptr %26, align 8, !tbaa !220
   %27 = call i64 @ossl_time_now() #11

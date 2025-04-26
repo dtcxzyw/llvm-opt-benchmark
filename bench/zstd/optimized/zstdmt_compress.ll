@@ -1929,15 +1929,15 @@ ZSTDMT_isOverlapped.exit.thread.i:                ; preds = %ZSTDMT_isOverlapped
   br i1 %or.cond.i37.i, label %ZSTDMT_doesOverlapWindow.exit.thread.i.i, label %.split.split.split.i.i
 
 .split.split.split.i.i:                           ; preds = %80, %ZSTDMT_doesOverlapWindow.exit.thread8.i.i
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %83, align 1
-  %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 1
-  %.sroa.5.0.copyload.i.i = load ptr, ptr %.sroa.5.0..sroa_idx.i36.i, align 1
-  %.sroa.6.0.copyload.i.i = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 1
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %83, align 8
+  %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8
+  %.sroa.5.0.copyload.i.i = load ptr, ptr %.sroa.5.0..sroa_idx.i36.i, align 8
+  %.sroa.6.0.copyload.i.i = load i32, ptr %.sroa.6.0..sroa_idx.i.i, align 8
   %87 = icmp eq ptr %.sroa.5.0.copyload.i.i, null
   br i1 %87, label %ZSTDMT_isOverlapped.exit.thread.i.i.i, label %ZSTDMT_isOverlapped.exit.i.i.i
 
 ZSTDMT_isOverlapped.exit.i.i.i:                   ; preds = %.split.split.split.i.i
-  %.sroa.7.0.copyload.i.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i, align 1
+  %.sroa.7.0.copyload.i.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i, align 4
   %88 = zext i32 %.sroa.7.0.copyload.i.i to i64
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.copyload.i.i, i64 %88
   %90 = sub i32 %.sroa.6.0.copyload.i.i, %.sroa.7.0.copyload.i.i
@@ -2023,15 +2023,15 @@ ZSTDMT_isOverlapped.exit43.thread.i:              ; preds = %ZSTDMT_isOverlapped
   br i1 %or.cond.i50.i, label %ZSTDMT_doesOverlapWindow.exit.thread.i65.i, label %.split.split.split.i51.i
 
 .split.split.split.i51.i:                         ; preds = %120, %ZSTDMT_doesOverlapWindow.exit.thread8.i60.i
-  %.sroa.0.0.copyload.i52.i = load ptr, ptr %123, align 1
-  %.sroa.4.0.copyload.i53.i = load ptr, ptr %.sroa.4.0..sroa_idx.i46.i, align 1
-  %.sroa.5.0.copyload.i54.i = load ptr, ptr %.sroa.5.0..sroa_idx.i47.i, align 1
-  %.sroa.6.0.copyload.i55.i = load i32, ptr %.sroa.6.0..sroa_idx.i48.i, align 1
+  %.sroa.0.0.copyload.i52.i = load ptr, ptr %123, align 8
+  %.sroa.4.0.copyload.i53.i = load ptr, ptr %.sroa.4.0..sroa_idx.i46.i, align 8
+  %.sroa.5.0.copyload.i54.i = load ptr, ptr %.sroa.5.0..sroa_idx.i47.i, align 8
+  %.sroa.6.0.copyload.i55.i = load i32, ptr %.sroa.6.0..sroa_idx.i48.i, align 8
   %128 = icmp eq ptr %.sroa.5.0.copyload.i54.i, null
   br i1 %128, label %ZSTDMT_isOverlapped.exit.thread.i.i61.i, label %ZSTDMT_isOverlapped.exit.i.i56.i
 
 ZSTDMT_isOverlapped.exit.i.i56.i:                 ; preds = %.split.split.split.i51.i
-  %.sroa.7.0.copyload.i57.i = load i32, ptr %.sroa.7.0..sroa_idx.i49.i, align 1
+  %.sroa.7.0.copyload.i57.i = load i32, ptr %.sroa.7.0..sroa_idx.i49.i, align 4
   %129 = zext i32 %.sroa.7.0.copyload.i57.i to i64
   %130 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.copyload.i54.i, i64 %129
   %131 = sub i32 %.sroa.6.0.copyload.i55.i, %.sroa.7.0.copyload.i57.i
@@ -2084,15 +2084,15 @@ ZSTDMT_tryGetInputRange.exit:                     ; preds = %ZSTDMT_tryGetInputR
   br i1 %.not59, label %239, label %ZSTDMT_tryGetInputRange.exit.ZSTDMT_tryGetInputRange.exit.thread_crit_edge
 
 ZSTDMT_tryGetInputRange.exit.ZSTDMT_tryGetInputRange.exit.thread_crit_edge: ; preds = %ZSTDMT_tryGetInputRange.exit
-  %.sroa.4.0.copyload.pre = load i64, ptr %13, align 1
-  %.sroa.5.0.copyload.pre = load i64, ptr %15, align 1
+  %.sroa.4.0.copyload.pre = load i64, ptr %13, align 8
+  %.sroa.5.0.copyload.pre = load i64, ptr %15, align 8
   br label %ZSTDMT_tryGetInputRange.exit.thread
 
 ZSTDMT_tryGetInputRange.exit.thread:              ; preds = %ZSTDMT_tryGetInputRange.exit.ZSTDMT_tryGetInputRange.exit.thread_crit_edge, %18
   %.sroa.5.0.copyload = phi i64 [ %.sroa.5.0.copyload.pre, %ZSTDMT_tryGetInputRange.exit.ZSTDMT_tryGetInputRange.exit.thread_crit_edge ], [ %16, %18 ]
   %.sroa.4.0.copyload = phi i64 [ %.sroa.4.0.copyload.pre, %ZSTDMT_tryGetInputRange.exit.ZSTDMT_tryGetInputRange.exit.thread_crit_edge ], [ %14, %18 ]
   %147 = phi ptr [ %146, %ZSTDMT_tryGetInputRange.exit.ZSTDMT_tryGetInputRange.exit.thread_crit_edge ], [ %20, %18 ]
-  %.sroa.0.0.copyload = load ptr, ptr %2, align 1
+  %.sroa.0.0.copyload = load ptr, ptr %2, align 8
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.5.0.copyload
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 3016
   %150 = load i64, ptr %149, align 8, !tbaa !107

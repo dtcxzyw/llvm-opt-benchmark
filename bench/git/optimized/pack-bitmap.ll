@@ -1521,7 +1521,7 @@ _.exit72.i:                                       ; preds = %255, %253
 258:                                              ; preds = %nth_bitmap_object_oid.exit.i, %248
   %259 = load ptr, ptr %8, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 1 dereferenceable(36) %245, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(36) %245, i64 36, i1 false)
   %260 = load i32, ptr %259, align 8, !tbaa !78
   %.not.i73.i = icmp eq i32 %260, 0
   br i1 %.not.i73.i, label %kh_get_oid_map.exit.i, label %261
@@ -6619,7 +6619,7 @@ define internal fastcc noundef ptr @store_bitmap(ptr noundef readonly captures(n
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 1 dereferenceable(36) %8, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(36) %8, i64 36, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !301
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 12

@@ -15656,8 +15656,8 @@ _ZN12_GLOBAL__N_17FormulaC2ERKS0_.exit335:        ; preds = %565, %.sink.split.i
   store i8 %.val138.pre.i, ptr %.sroa.6154.0..sroa_idx.i, align 8
   %574 = load ptr, ptr %119, align 8, !tbaa !637
   %575 = load i32, ptr %433, align 8, !tbaa !864
-  %.sroa.0373.0.copyload = load ptr, ptr %438, align 1
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.0373.0.copyload = load ptr, ptr %438, align 8
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
   %576 = load ptr, ptr %37, align 8, !tbaa !859
   %577 = load i8, ptr %130, align 8, !tbaa !708, !range !50, !noundef !51
   %578 = trunc nuw i8 %577 to i1

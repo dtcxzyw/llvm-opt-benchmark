@@ -2263,13 +2263,13 @@ define range(i32 0, 2) i32 @packSubgraphs(i64 noundef %0, ptr noundef readonly c
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %.sroa.026.0.copyload = load double, ptr %28, align 1
+  %.sroa.026.0.copyload = load double, ptr %28, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.627.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 56
-  %.sroa.627.0.copyload = load double, ptr %.sroa.627.0..sroa_idx, align 1
+  %.sroa.627.0.copyload = load double, ptr %.sroa.627.0..sroa_idx, align 8
   %29 = tail call double @llvm.minnum.f64(double %.sroa.0.135, double %.sroa.026.0.copyload)
   %30 = tail call double @llvm.minnum.f64(double %.sroa.6.134, double %.sroa.4.0.copyload)
   %31 = tail call double @llvm.maxnum.f64(double %.sroa.8.133, double %.sroa.5.0.copyload)

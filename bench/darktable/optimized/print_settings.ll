@@ -6834,7 +6834,7 @@ _export_and_setup_pos.exit.thread:                ; preds = %63, %101
   %storemerge.in.i = load double, ptr %145, align 8, !tbaa !68
   %storemerge.i = fptrunc double %storemerge.in.i to float
   call void @llvm.lifetime.start.p0(i64 1992, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1992) %3, ptr noundef nonnull align 1 dereferenceable(1992) %129, i64 1992, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1992) %3, ptr noundef nonnull align 8 dereferenceable(1992) %129, i64 1992, i1 false)
   %146 = call ptr @dt_control_job_get_params(ptr noundef %0) #18
   %147 = fpext reassoc nsz arcp contract afn float %.sink.i to double
   %148 = fmul reassoc nsz arcp contract afn double %147, 0x4006AD5AB56AD5AB

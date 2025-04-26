@@ -3758,13 +3758,13 @@ define internal fastcc void @_init_drawing(ptr noalias noundef %0, ptr noundef %
   %119 = load ptr, ptr %27, align 8, !tbaa !432
   %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 688
-  %.sroa.0.0.copyload = load double, ptr %121, align 1
+  %.sroa.0.0.copyload = load double, ptr %121, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %120, i64 696
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %120, i64 704
-  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %120, i64 712
-  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %119, double noundef %.sroa.0.0.copyload, double noundef %.sroa.4.0.copyload, double noundef %.sroa.5.0.copyload, double noundef %.sroa.6.0.copyload) #28
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 2860
   br label %123
@@ -3871,13 +3871,13 @@ define internal fastcc void @_init_drawing(ptr noalias noundef %0, ptr noundef %
   %193 = load ptr, ptr %27, align 8, !tbaa !432
   %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 656
-  %.sroa.0151.0.copyload = load double, ptr %195, align 1
+  %.sroa.0151.0.copyload = load double, ptr %195, align 8
   %.sroa.4152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %194, i64 664
-  %.sroa.4152.0.copyload = load double, ptr %.sroa.4152.0..sroa_idx, align 1
+  %.sroa.4152.0.copyload = load double, ptr %.sroa.4152.0..sroa_idx, align 8
   %.sroa.5153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %194, i64 672
-  %.sroa.5153.0.copyload = load double, ptr %.sroa.5153.0..sroa_idx, align 1
+  %.sroa.5153.0.copyload = load double, ptr %.sroa.5153.0..sroa_idx, align 8
   %.sroa.6154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %194, i64 680
-  %.sroa.6154.0.copyload = load double, ptr %.sroa.6154.0..sroa_idx, align 1
+  %.sroa.6154.0.copyload = load double, ptr %.sroa.6154.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %193, double noundef %.sroa.0151.0.copyload, double noundef %.sroa.4152.0.copyload, double noundef %.sroa.5153.0.copyload, double noundef %.sroa.6154.0.copyload) #28
   %196 = load ptr, ptr %27, align 8, !tbaa !432
   %197 = load float, ptr %85, align 8, !tbaa !442
@@ -4714,13 +4714,13 @@ define internal range(i32 0, 2) i32 @area_draw(ptr noundef %0, ptr noundef %1, p
   %27 = load ptr, ptr %14, align 8, !tbaa !432
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 592
-  %.sroa.0.0.copyload = load double, ptr %29, align 1
+  %.sroa.0.0.copyload = load double, ptr %29, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 600
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 608
-  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 616
-  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
   tail call void @cairo_set_source_rgba(ptr noundef %27, double noundef %.sroa.0.0.copyload, double noundef %.sroa.4.0.copyload, double noundef %.sroa.5.0.copyload, double noundef %.sroa.6.0.copyload) #28
   %30 = load ptr, ptr %14, align 8, !tbaa !432
   tail call void @cairo_fill(ptr noundef %30) #28
@@ -4733,13 +4733,13 @@ define internal range(i32 0, 2) i32 @area_draw(ptr noundef %0, ptr noundef %1, p
   %36 = load ptr, ptr %14, align 8, !tbaa !432
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 656
-  %.sroa.0181.0.copyload = load double, ptr %38, align 1
+  %.sroa.0181.0.copyload = load double, ptr %38, align 8
   %.sroa.4182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 664
-  %.sroa.4182.0.copyload = load double, ptr %.sroa.4182.0..sroa_idx, align 1
+  %.sroa.4182.0.copyload = load double, ptr %.sroa.4182.0..sroa_idx, align 8
   %.sroa.5183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 672
-  %.sroa.5183.0.copyload = load double, ptr %.sroa.5183.0..sroa_idx, align 1
+  %.sroa.5183.0.copyload = load double, ptr %.sroa.5183.0..sroa_idx, align 8
   %.sroa.6184.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 680
-  %.sroa.6184.0.copyload = load double, ptr %.sroa.6184.0..sroa_idx, align 1
+  %.sroa.6184.0.copyload = load double, ptr %.sroa.6184.0..sroa_idx, align 8
   tail call void @cairo_set_source_rgba(ptr noundef %36, double noundef %.sroa.0181.0.copyload, double noundef %.sroa.4182.0.copyload, double noundef %.sroa.5183.0.copyload, double noundef %.sroa.6184.0.copyload) #28
   %39 = load ptr, ptr %14, align 8, !tbaa !432
   %40 = load float, ptr %21, align 8, !tbaa !442
@@ -4775,13 +4775,13 @@ dt_draw_grid.exit:                                ; preds = %48
   %53 = load ptr, ptr %14, align 8, !tbaa !432
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 688
-  %.sroa.0185.0.copyload = load double, ptr %55, align 1
+  %.sroa.0185.0.copyload = load double, ptr %55, align 8
   %.sroa.4186.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 696
-  %.sroa.4186.0.copyload = load double, ptr %.sroa.4186.0..sroa_idx, align 1
+  %.sroa.4186.0.copyload = load double, ptr %.sroa.4186.0..sroa_idx, align 8
   %.sroa.5187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 704
-  %.sroa.5187.0.copyload = load double, ptr %.sroa.5187.0..sroa_idx, align 1
+  %.sroa.5187.0.copyload = load double, ptr %.sroa.5187.0..sroa_idx, align 8
   %.sroa.6188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 712
-  %.sroa.6188.0.copyload = load double, ptr %.sroa.6188.0..sroa_idx, align 1
+  %.sroa.6188.0.copyload = load double, ptr %.sroa.6188.0..sroa_idx, align 8
   tail call void @cairo_set_source_rgba(ptr noundef %53, double noundef %.sroa.0185.0.copyload, double noundef %.sroa.4186.0.copyload, double noundef %.sroa.5187.0.copyload, double noundef %.sroa.6188.0.copyload) #28
   %56 = load ptr, ptr %14, align 8, !tbaa !432
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !322
@@ -4817,13 +4817,13 @@ dt_draw_grid.exit:                                ; preds = %48
   %77 = load ptr, ptr %14, align 8, !tbaa !432
   %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 816
-  %.sroa.0189.0.copyload = load double, ptr %79, align 1
+  %.sroa.0189.0.copyload = load double, ptr %79, align 8
   %.sroa.4190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 824
-  %.sroa.4190.0.copyload = load double, ptr %.sroa.4190.0..sroa_idx, align 1
+  %.sroa.4190.0.copyload = load double, ptr %.sroa.4190.0..sroa_idx, align 8
   %.sroa.5191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 832
-  %.sroa.5191.0.copyload = load double, ptr %.sroa.5191.0..sroa_idx, align 1
+  %.sroa.5191.0.copyload = load double, ptr %.sroa.5191.0..sroa_idx, align 8
   %.sroa.6192.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 840
-  %.sroa.6192.0.copyload = load double, ptr %.sroa.6192.0..sroa_idx, align 1
+  %.sroa.6192.0.copyload = load double, ptr %.sroa.6192.0..sroa_idx, align 8
   tail call void @cairo_set_source_rgba(ptr noundef %77, double noundef %.sroa.0189.0.copyload, double noundef %.sroa.4190.0.copyload, double noundef %.sroa.5191.0.copyload, double noundef %.sroa.6192.0.copyload) #28
   %80 = load ptr, ptr %14, align 8, !tbaa !432
   %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !322
@@ -4946,13 +4946,13 @@ dt_draw_grid.exit:                                ; preds = %48
   %165 = load ptr, ptr %14, align 8, !tbaa !432
   %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 688
-  %.sroa.0193.0.copyload = load double, ptr %167, align 1
+  %.sroa.0193.0.copyload = load double, ptr %167, align 8
   %.sroa.4194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 696
-  %.sroa.4194.0.copyload = load double, ptr %.sroa.4194.0..sroa_idx, align 1
+  %.sroa.4194.0.copyload = load double, ptr %.sroa.4194.0..sroa_idx, align 8
   %.sroa.5195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 704
-  %.sroa.5195.0.copyload = load double, ptr %.sroa.5195.0..sroa_idx, align 1
+  %.sroa.5195.0.copyload = load double, ptr %.sroa.5195.0..sroa_idx, align 8
   %.sroa.6196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %166, i64 712
-  %.sroa.6196.0.copyload = load double, ptr %.sroa.6196.0..sroa_idx, align 1
+  %.sroa.6196.0.copyload = load double, ptr %.sroa.6196.0..sroa_idx, align 8
   tail call void @cairo_set_source_rgba(ptr noundef %165, double noundef %.sroa.0193.0.copyload, double noundef %.sroa.4194.0.copyload, double noundef %.sroa.5195.0.copyload, double noundef %.sroa.6196.0.copyload) #28
   %168 = load ptr, ptr %14, align 8, !tbaa !432
   %169 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -5090,13 +5090,13 @@ init_nodes_y.exit:                                ; preds = %init_nodes_x.exit, 
   %244 = load ptr, ptr %14, align 8, !tbaa !432
   %245 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 560
-  %.sroa.0197.0.copyload = load double, ptr %246, align 1
+  %.sroa.0197.0.copyload = load double, ptr %246, align 8
   %.sroa.4198.0..sroa_idx = getelementptr inbounds nuw i8, ptr %245, i64 568
-  %.sroa.4198.0.copyload = load double, ptr %.sroa.4198.0..sroa_idx, align 1
+  %.sroa.4198.0.copyload = load double, ptr %.sroa.4198.0..sroa_idx, align 8
   %.sroa.5199.0..sroa_idx = getelementptr inbounds nuw i8, ptr %245, i64 576
-  %.sroa.5199.0.copyload = load double, ptr %.sroa.5199.0..sroa_idx, align 1
+  %.sroa.5199.0.copyload = load double, ptr %.sroa.5199.0..sroa_idx, align 8
   %.sroa.6200.0..sroa_idx = getelementptr inbounds nuw i8, ptr %245, i64 584
-  %.sroa.6200.0.copyload = load double, ptr %.sroa.6200.0..sroa_idx, align 1
+  %.sroa.6200.0.copyload = load double, ptr %.sroa.6200.0..sroa_idx, align 8
   tail call void @cairo_set_source_rgba(ptr noundef %244, double noundef %.sroa.0197.0.copyload, double noundef %.sroa.4198.0.copyload, double noundef %.sroa.5199.0.copyload, double noundef %.sroa.6200.0.copyload) #28
   %247 = load ptr, ptr %14, align 8, !tbaa !432
   %248 = fpext reassoc nsz arcp contract afn float %236 to double
@@ -5124,13 +5124,13 @@ init_nodes_y.exit:                                ; preds = %init_nodes_x.exit, 
   %265 = load ptr, ptr %14, align 8, !tbaa !432
   %266 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 688
-  %.sroa.0201.0.copyload = load double, ptr %267, align 1
+  %.sroa.0201.0.copyload = load double, ptr %267, align 8
   %.sroa.4202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %266, i64 696
-  %.sroa.4202.0.copyload = load double, ptr %.sroa.4202.0..sroa_idx, align 1
+  %.sroa.4202.0.copyload = load double, ptr %.sroa.4202.0..sroa_idx, align 8
   %.sroa.5203.0..sroa_idx = getelementptr inbounds nuw i8, ptr %266, i64 704
-  %.sroa.5203.0.copyload = load double, ptr %.sroa.5203.0..sroa_idx, align 1
+  %.sroa.5203.0.copyload = load double, ptr %.sroa.5203.0..sroa_idx, align 8
   %.sroa.6204.0..sroa_idx = getelementptr inbounds nuw i8, ptr %266, i64 712
-  %.sroa.6204.0.copyload = load double, ptr %.sroa.6204.0..sroa_idx, align 1
+  %.sroa.6204.0.copyload = load double, ptr %.sroa.6204.0..sroa_idx, align 8
   tail call void @cairo_set_source_rgba(ptr noundef %265, double noundef %.sroa.0201.0.copyload, double noundef %.sroa.4202.0.copyload, double noundef %.sroa.5203.0.copyload, double noundef %.sroa.6204.0.copyload) #28
   %268 = load ptr, ptr %14, align 8, !tbaa !432
   tail call void @cairo_stroke_preserve(ptr noundef %268) #28
@@ -5144,13 +5144,13 @@ init_nodes_y.exit:                                ; preds = %init_nodes_x.exit, 
   %.238 = select i1 %271, i64 704, i64 608
   %.239 = select i1 %271, i64 712, i64 616
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 %.
-  %.sroa.0209.0.copyload = load double, ptr %274, align 1
+  %.sroa.0209.0.copyload = load double, ptr %274, align 8
   %.sroa.4210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %273, i64 %.237
-  %.sroa.4210.0.copyload = load double, ptr %.sroa.4210.0..sroa_idx, align 1
+  %.sroa.4210.0.copyload = load double, ptr %.sroa.4210.0..sroa_idx, align 8
   %.sroa.5211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %273, i64 %.238
-  %.sroa.5211.0.copyload = load double, ptr %.sroa.5211.0..sroa_idx, align 1
+  %.sroa.5211.0.copyload = load double, ptr %.sroa.5211.0..sroa_idx, align 8
   %.sroa.6212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %273, i64 %.239
-  %.sroa.6212.0.copyload = load double, ptr %.sroa.6212.0..sroa_idx, align 1
+  %.sroa.6212.0.copyload = load double, ptr %.sroa.6212.0..sroa_idx, align 8
   tail call void @cairo_set_source_rgba(ptr noundef %272, double noundef %.sroa.0209.0.copyload, double noundef %.sroa.4210.0.copyload, double noundef %.sroa.5211.0.copyload, double noundef %.sroa.6212.0.copyload) #28
   %275 = load ptr, ptr %14, align 8, !tbaa !432
   tail call void @cairo_fill(ptr noundef %275) #28
@@ -5214,13 +5214,13 @@ init_nodes_y.exit:                                ; preds = %init_nodes_x.exit, 
   %314 = load ptr, ptr %14, align 8, !tbaa !432
   %315 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 688
-  %.sroa.0213.0.copyload = load double, ptr %316, align 1
+  %.sroa.0213.0.copyload = load double, ptr %316, align 8
   %.sroa.4214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %315, i64 696
-  %.sroa.4214.0.copyload = load double, ptr %.sroa.4214.0..sroa_idx, align 1
+  %.sroa.4214.0.copyload = load double, ptr %.sroa.4214.0..sroa_idx, align 8
   %.sroa.5215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %315, i64 704
-  %.sroa.5215.0.copyload = load double, ptr %.sroa.5215.0..sroa_idx, align 1
+  %.sroa.5215.0.copyload = load double, ptr %.sroa.5215.0..sroa_idx, align 8
   %.sroa.6216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %315, i64 712
-  %.sroa.6216.0.copyload = load double, ptr %.sroa.6216.0..sroa_idx, align 1
+  %.sroa.6216.0.copyload = load double, ptr %.sroa.6216.0..sroa_idx, align 8
   tail call void @cairo_set_source_rgba(ptr noundef %314, double noundef %.sroa.0213.0.copyload, double noundef %.sroa.4214.0.copyload, double noundef %.sroa.5215.0.copyload, double noundef %.sroa.6216.0.copyload) #28
   %317 = load ptr, ptr %14, align 8, !tbaa !432
   tail call void @cairo_stroke(ptr noundef %317) #28
@@ -5262,13 +5262,13 @@ init_nodes_y.exit:                                ; preds = %init_nodes_x.exit, 
 339:                                              ; preds = %321
   %340 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 688
-  %.sroa.0217.0.copyload = load double, ptr %341, align 1
+  %.sroa.0217.0.copyload = load double, ptr %341, align 8
   %.sroa.4218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %340, i64 696
-  %.sroa.4218.0.copyload = load double, ptr %.sroa.4218.0..sroa_idx, align 1
+  %.sroa.4218.0.copyload = load double, ptr %.sroa.4218.0..sroa_idx, align 8
   %.sroa.5219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %340, i64 704
-  %.sroa.5219.0.copyload = load double, ptr %.sroa.5219.0..sroa_idx, align 1
+  %.sroa.5219.0.copyload = load double, ptr %.sroa.5219.0..sroa_idx, align 8
   %.sroa.6220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %340, i64 712
-  %.sroa.6220.0.copyload = load double, ptr %.sroa.6220.0..sroa_idx, align 1
+  %.sroa.6220.0.copyload = load double, ptr %.sroa.6220.0..sroa_idx, align 8
   tail call void @cairo_set_source_rgba(ptr noundef %330, double noundef %.sroa.0217.0.copyload, double noundef %.sroa.4218.0.copyload, double noundef %.sroa.5219.0.copyload, double noundef %.sroa.6220.0.copyload) #28
   %342 = load ptr, ptr %14, align 8, !tbaa !432
   %343 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !322
@@ -5824,13 +5824,13 @@ define internal noundef i32 @dt_iop_toneequalizer_bar_draw(ptr noundef %0, ptr n
   %24 = call ptr @cairo_create(ptr noundef %20) #28
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 592
-  %.sroa.0.0.copyload = load double, ptr %26, align 1
+  %.sroa.0.0.copyload = load double, ptr %26, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 600
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 608
-  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 616
-  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %24, double noundef %.sroa.0.0.copyload, double noundef %.sroa.4.0.copyload, double noundef %.sroa.5.0.copyload, double noundef %.sroa.6.0.copyload) #28
   %27 = load i32, ptr %7, align 4, !tbaa !483
   %28 = sitofp i32 %27 to double
@@ -5857,13 +5857,13 @@ define internal noundef i32 @dt_iop_toneequalizer_bar_draw(ptr noundef %0, ptr n
   %43 = fsub reassoc nsz arcp contract afn float %42, %38
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 816
-  %.sroa.043.0.copyload = load double, ptr %45, align 1
+  %.sroa.043.0.copyload = load double, ptr %45, align 8
   %.sroa.444.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 824
-  %.sroa.444.0.copyload = load double, ptr %.sroa.444.0..sroa_idx, align 1
+  %.sroa.444.0.copyload = load double, ptr %.sroa.444.0..sroa_idx, align 8
   %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 832
-  %.sroa.545.0.copyload = load double, ptr %.sroa.545.0..sroa_idx, align 1
+  %.sroa.545.0.copyload = load double, ptr %.sroa.545.0..sroa_idx, align 8
   %.sroa.646.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 840
-  %.sroa.646.0.copyload = load double, ptr %.sroa.646.0..sroa_idx, align 1
+  %.sroa.646.0.copyload = load double, ptr %.sroa.646.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %24, double noundef %.sroa.043.0.copyload, double noundef %.sroa.444.0.copyload, double noundef %.sroa.545.0.copyload, double noundef %.sroa.646.0.copyload) #28
   %46 = load i32, ptr %7, align 4, !tbaa !483
   %47 = sitofp i32 %46 to float
@@ -5877,13 +5877,13 @@ define internal noundef i32 @dt_iop_toneequalizer_bar_draw(ptr noundef %0, ptr n
   call void @cairo_fill(ptr noundef %24) #28
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !416
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 688
-  %.sroa.047.0.copyload = load double, ptr %55, align 1
+  %.sroa.047.0.copyload = load double, ptr %55, align 8
   %.sroa.448.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 696
-  %.sroa.448.0.copyload = load double, ptr %.sroa.448.0..sroa_idx, align 1
+  %.sroa.448.0.copyload = load double, ptr %.sroa.448.0..sroa_idx, align 8
   %.sroa.549.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 704
-  %.sroa.549.0.copyload = load double, ptr %.sroa.549.0..sroa_idx, align 1
+  %.sroa.549.0.copyload = load double, ptr %.sroa.549.0..sroa_idx, align 8
   %.sroa.650.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 712
-  %.sroa.650.0.copyload = load double, ptr %.sroa.650.0..sroa_idx, align 1
+  %.sroa.650.0.copyload = load double, ptr %.sroa.650.0..sroa_idx, align 8
   call void @cairo_set_source_rgba(ptr noundef %24, double noundef %.sroa.047.0.copyload, double noundef %.sroa.448.0.copyload, double noundef %.sroa.549.0.copyload, double noundef %.sroa.650.0.copyload) #28
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !322
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1424

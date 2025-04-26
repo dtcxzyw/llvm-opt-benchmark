@@ -3366,11 +3366,11 @@ define dso_local range(i64 -64, 1) i64 @ZSTD_DCtx_refDDict(ptr noundef captures(
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 30128
-  %.sroa.0.0.copyload = load ptr, ptr %22, align 1
+  %.sroa.0.0.copyload = load ptr, ptr %22, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 30136
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 30144
-  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %.not.i.i = icmp eq ptr %.sroa.0.0.copyload, null
   br i1 %.not.i.i, label %ZSTD_customMalloc.exit.i, label %ZSTD_customMalloc.exit.thread.i
 
@@ -3430,11 +3430,11 @@ ZSTD_createDDictHashSet.exit.thread:              ; preds = %ZSTD_customMalloc.e
   %.pre42 = load i64, ptr %.phi.trans.insert41, align 8, !tbaa !112
   %35 = shl i64 %.pre, 2
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 30128
-  %.sroa.024.0.copyload = load ptr, ptr %36, align 1
+  %.sroa.024.0.copyload = load ptr, ptr %36, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 30136
-  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 1
+  %.sroa.425.0.copyload = load ptr, ptr %.sroa.425.0..sroa_idx, align 8
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 30144
-  %.sroa.526.0.copyload = load ptr, ptr %.sroa.526.0..sroa_idx, align 1
+  %.sroa.526.0.copyload = load ptr, ptr %.sroa.526.0..sroa_idx, align 8
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.not.i22 = icmp ugt i64 %.pre42, %35

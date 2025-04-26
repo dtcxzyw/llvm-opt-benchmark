@@ -18579,47 +18579,44 @@ declare float @llvm.ceil.f32(float) #15
 
 ; Function Attrs: nounwind uwtable
 define void @ImageAlphaCrop(ptr noundef captures(none) %0, float noundef %1) local_unnamed_addr #25 {
-  %3 = alloca %struct.Image, align 8
-  %4 = load ptr, ptr %0, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %48, label %6
+  %3 = load ptr, ptr %0, align 8
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %43, label %5
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, 0
-  br i1 %9, label %48, label %10
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %43, label %9
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %48, label %14
+9:                                                ; preds = %5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %43, label %13
 
-14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) %0, i64 24, i1 false)
-  %15 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %3)
-  %.not.i = icmp eq ptr %15, null
+13:                                               ; preds = %9
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
+  %14 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %0)
+  %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %GetImageAlphaBorder.exit, label %.preheader50.i
 
-.preheader50.i:                                   ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %17 = load i32, ptr %16, align 4
-  %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %.preheader.lr.ph.i, label %._crit_edge64.thread.i
+.preheader50.i:                                   ; preds = %13
+  %15 = icmp sgt i32 %.sroa.4.0.copyload, 0
+  br i1 %15, label %.preheader.lr.ph.i, label %._crit_edge64.thread.i
 
 .preheader.lr.ph.i:                               ; preds = %.preheader50.i
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp sgt i32 %20, 0
-  %22 = fmul float %1, 2.550000e+02
-  %23 = fptoui float %22 to i8
-  br i1 %21, label %.preheader.us.preheader.i, label %._crit_edge64.thread.i
+  %16 = icmp sgt i32 %.sroa.3.0.copyload, 0
+  %17 = fmul float %1, 2.550000e+02
+  %18 = fptoui float %17 to i8
+  br i1 %16, label %.preheader.us.preheader.i, label %._crit_edge64.thread.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
-  %24 = zext nneg i32 %20 to i64
-  %wide.trip.count77.i = zext nneg i32 %17 to i64
+  %19 = zext nneg i32 %.sroa.3.0.copyload to i64
+  %wide.trip.count77.i = zext nneg i32 %.sroa.4.0.copyload to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
@@ -18628,89 +18625,88 @@ define void @ImageAlphaCrop(ptr noundef captures(none) %0, float noundef %1) loc
   %.03462.us.i = phi i32 [ 0, %.preheader.us.preheader.i ], [ %.337.us.i, %._crit_edge.us.i ]
   %.04060.us.i = phi i32 [ 0, %.preheader.us.preheader.i ], [ %.242.us.i, %._crit_edge.us.i ]
   %.04359.us.i = phi i32 [ 65536, %.preheader.us.preheader.i ], [ %.346.us.i, %._crit_edge.us.i ]
-  %25 = mul nuw nsw i64 %indvars.iv74.i, %24
-  %26 = trunc nuw nsw i64 %indvars.iv74.i to i32
-  br label %27
+  %20 = mul nuw nsw i64 %indvars.iv74.i, %19
+  %21 = trunc nuw nsw i64 %indvars.iv74.i to i32
+  br label %22
 
-27:                                               ; preds = %34, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %34 ]
-  %.155.us.i = phi i32 [ %.063.us.i, %.preheader.us.i ], [ %.3.us.i, %34 ]
-  %.13554.us.i = phi i32 [ %.03462.us.i, %.preheader.us.i ], [ %.337.us.i, %34 ]
-  %.14152.us.i = phi i32 [ %.04060.us.i, %.preheader.us.i ], [ %.242.us.i, %34 ]
-  %.14451.us.i = phi i32 [ %.04359.us.i, %.preheader.us.i ], [ %.346.us.i, %34 ]
-  %28 = add nuw nsw i64 %indvars.iv.i, %25
-  %29 = getelementptr inbounds nuw %struct.Color, ptr %15, i64 %28, i32 3
-  %30 = load i8, ptr %29, align 1
-  %31 = icmp ugt i8 %30, %23
-  br i1 %31, label %32, label %34
+22:                                               ; preds = %29, %.preheader.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %29 ]
+  %.155.us.i = phi i32 [ %.063.us.i, %.preheader.us.i ], [ %.3.us.i, %29 ]
+  %.13554.us.i = phi i32 [ %.03462.us.i, %.preheader.us.i ], [ %.337.us.i, %29 ]
+  %.14152.us.i = phi i32 [ %.04060.us.i, %.preheader.us.i ], [ %.242.us.i, %29 ]
+  %.14451.us.i = phi i32 [ %.04359.us.i, %.preheader.us.i ], [ %.346.us.i, %29 ]
+  %23 = add nuw nsw i64 %indvars.iv.i, %20
+  %24 = getelementptr inbounds nuw %struct.Color, ptr %14, i64 %23, i32 3
+  %25 = load i8, ptr %24, align 1
+  %26 = icmp ugt i8 %25, %18
+  br i1 %26, label %27, label %29
 
-32:                                               ; preds = %27
-  %33 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %spec.select.us.i = tail call i32 @llvm.smin.i32(i32 %33, i32 %.155.us.i)
-  %.236.us.i = tail call i32 @llvm.smax.i32(i32 %33, i32 %.13554.us.i)
-  %.245.us.i = tail call i32 @llvm.smin.i32(i32 %26, i32 %.14451.us.i)
-  %spec.select49.us.i = tail call i32 @llvm.smax.i32(i32 %26, i32 %.14152.us.i)
-  br label %34
+27:                                               ; preds = %22
+  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %spec.select.us.i = tail call i32 @llvm.smin.i32(i32 %28, i32 %.155.us.i)
+  %.236.us.i = tail call i32 @llvm.smax.i32(i32 %28, i32 %.13554.us.i)
+  %.245.us.i = tail call i32 @llvm.smin.i32(i32 %21, i32 %.14451.us.i)
+  %spec.select49.us.i = tail call i32 @llvm.smax.i32(i32 %21, i32 %.14152.us.i)
+  br label %29
 
-34:                                               ; preds = %32, %27
-  %.346.us.i = phi i32 [ %.14451.us.i, %27 ], [ %.245.us.i, %32 ]
-  %.242.us.i = phi i32 [ %.14152.us.i, %27 ], [ %spec.select49.us.i, %32 ]
-  %.337.us.i = phi i32 [ %.13554.us.i, %27 ], [ %.236.us.i, %32 ]
-  %.3.us.i = phi i32 [ %.155.us.i, %27 ], [ %spec.select.us.i, %32 ]
+29:                                               ; preds = %27, %22
+  %.346.us.i = phi i32 [ %.14451.us.i, %22 ], [ %.245.us.i, %27 ]
+  %.242.us.i = phi i32 [ %.14152.us.i, %22 ], [ %spec.select49.us.i, %27 ]
+  %.337.us.i = phi i32 [ %.13554.us.i, %22 ], [ %.236.us.i, %27 ]
+  %.3.us.i = phi i32 [ %.155.us.i, %22 ], [ %spec.select.us.i, %27 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %24
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %27
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %19
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %22
 
-._crit_edge.us.i:                                 ; preds = %34
+._crit_edge.us.i:                                 ; preds = %29
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count77.i
   br i1 %exitcond78.not.i, label %._crit_edge64.i, label %.preheader.us.i
 
 ._crit_edge64.i:                                  ; preds = %._crit_edge.us.i
-  %35 = icmp ne i32 %.3.us.i, 65536
-  %36 = icmp ne i32 %.337.us.i, 65536
-  %or.cond.i = select i1 %35, i1 %36, i1 false
-  br i1 %or.cond.i, label %37, label %._crit_edge64.thread.i
+  %30 = icmp ne i32 %.3.us.i, 65536
+  %31 = icmp ne i32 %.337.us.i, 65536
+  %or.cond.i = select i1 %30, i1 %31, i1 false
+  br i1 %or.cond.i, label %32, label %._crit_edge64.thread.i
 
-37:                                               ; preds = %._crit_edge64.i
-  %38 = sitofp i32 %.3.us.i to float
-  %39 = sitofp i32 %.346.us.i to float
-  %40 = add nuw nsw i32 %.337.us.i, 1
-  %41 = sub i32 %40, %.3.us.i
-  %42 = sitofp i32 %41 to float
+32:                                               ; preds = %._crit_edge64.i
+  %33 = sitofp i32 %.3.us.i to float
+  %34 = sitofp i32 %.346.us.i to float
+  %35 = add nuw nsw i32 %.337.us.i, 1
+  %36 = sub i32 %35, %.3.us.i
+  %37 = sitofp i32 %36 to float
   %reass.sub = sub i32 %.242.us.i, %.346.us.i
-  %43 = add i32 %reass.sub, 1
-  %44 = sitofp i32 %43 to float
-  %.sroa.030.0.vec.insert.i = insertelement <2 x float> poison, float %38, i64 0
-  %.sroa.030.4.vec.insert.i = insertelement <2 x float> %.sroa.030.0.vec.insert.i, float %39, i64 1
-  %.sroa.432.8.vec.insert.i = insertelement <2 x float> poison, float %42, i64 0
-  %.sroa.432.12.vec.insert.i = insertelement <2 x float> %.sroa.432.8.vec.insert.i, float %44, i64 1
+  %38 = add i32 %reass.sub, 1
+  %39 = sitofp i32 %38 to float
+  %.sroa.030.0.vec.insert.i = insertelement <2 x float> poison, float %33, i64 0
+  %.sroa.030.4.vec.insert.i = insertelement <2 x float> %.sroa.030.0.vec.insert.i, float %34, i64 1
+  %.sroa.432.8.vec.insert.i = insertelement <2 x float> poison, float %37, i64 0
+  %.sroa.432.12.vec.insert.i = insertelement <2 x float> %.sroa.432.8.vec.insert.i, float %39, i64 1
   br label %._crit_edge64.thread.i
 
-._crit_edge64.thread.i:                           ; preds = %37, %._crit_edge64.i, %.preheader.lr.ph.i, %.preheader50.i
-  %.sroa.030.1.i = phi <2 x float> [ %.sroa.030.4.vec.insert.i, %37 ], [ zeroinitializer, %._crit_edge64.i ], [ zeroinitializer, %.preheader50.i ], [ zeroinitializer, %.preheader.lr.ph.i ]
-  %.sroa.432.1.i = phi <2 x float> [ %.sroa.432.12.vec.insert.i, %37 ], [ zeroinitializer, %._crit_edge64.i ], [ zeroinitializer, %.preheader50.i ], [ zeroinitializer, %.preheader.lr.ph.i ]
-  tail call void @free(ptr noundef nonnull %15) #54
+._crit_edge64.thread.i:                           ; preds = %32, %._crit_edge64.i, %.preheader.lr.ph.i, %.preheader50.i
+  %.sroa.030.1.i = phi <2 x float> [ %.sroa.030.4.vec.insert.i, %32 ], [ zeroinitializer, %._crit_edge64.i ], [ zeroinitializer, %.preheader50.i ], [ zeroinitializer, %.preheader.lr.ph.i ]
+  %.sroa.432.1.i = phi <2 x float> [ %.sroa.432.12.vec.insert.i, %32 ], [ zeroinitializer, %._crit_edge64.i ], [ zeroinitializer, %.preheader50.i ], [ zeroinitializer, %.preheader.lr.ph.i ]
+  tail call void @free(ptr noundef nonnull %14) #54
   br label %GetImageAlphaBorder.exit
 
-GetImageAlphaBorder.exit:                         ; preds = %14, %._crit_edge64.thread.i
-  %.sroa.030.0.i = phi <2 x float> [ %.sroa.030.1.i, %._crit_edge64.thread.i ], [ zeroinitializer, %14 ]
-  %.sroa.432.0.i = phi <2 x float> [ %.sroa.432.1.i, %._crit_edge64.thread.i ], [ zeroinitializer, %14 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
+GetImageAlphaBorder.exit:                         ; preds = %13, %._crit_edge64.thread.i
+  %.sroa.030.0.i = phi <2 x float> [ %.sroa.030.1.i, %._crit_edge64.thread.i ], [ zeroinitializer, %13 ]
+  %.sroa.432.0.i = phi <2 x float> [ %.sroa.432.1.i, %._crit_edge64.thread.i ], [ zeroinitializer, %13 ]
   %.sroa.4.8.vec.extract = extractelement <2 x float> %.sroa.432.0.i, i64 0
-  %45 = fptosi float %.sroa.4.8.vec.extract to i32
-  %.not = icmp eq i32 %45, 0
+  %40 = fptosi float %.sroa.4.8.vec.extract to i32
+  %.not = icmp eq i32 %40, 0
   %.sroa.4.12.vec.extract = extractelement <2 x float> %.sroa.432.0.i, i64 1
-  %46 = fptosi float %.sroa.4.12.vec.extract to i32
-  %.not7 = icmp eq i32 %46, 0
+  %41 = fptosi float %.sroa.4.12.vec.extract to i32
+  %.not7 = icmp eq i32 %41, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not7
-  br i1 %or.cond, label %48, label %47
+  br i1 %or.cond, label %43, label %42
 
-47:                                               ; preds = %GetImageAlphaBorder.exit
+42:                                               ; preds = %GetImageAlphaBorder.exit
   tail call void @ImageCrop(ptr noundef nonnull %0, <2 x float> %.sroa.030.0.i, <2 x float> %.sroa.432.0.i)
-  br label %48
+  br label %43
 
-48:                                               ; preds = %GetImageAlphaBorder.exit, %47, %2, %6, %10
+43:                                               ; preds = %GetImageAlphaBorder.exit, %42, %2, %5, %9
   ret void
 }
 

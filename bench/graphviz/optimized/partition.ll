@@ -526,13 +526,13 @@ store.exit.preheader:                             ; preds = %31
   %indvars.iv = phi i64 [ 5, %.lr.ph.preheader ], [ %indvars.iv.next, %store.exit29 ]
   %indvars44 = trunc i64 %indvars.iv to i32
   %40 = getelementptr inbounds nuw %struct.cell, ptr %0, i64 %indvars.iv42, i32 5
-  %.sroa.033.0.copyload = load double, ptr %40, align 1
+  %.sroa.033.0.copyload = load double, ptr %40, align 8
   %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.sroa.535.0.copyload = load double, ptr %.sroa.535.0..sroa_idx, align 1
+  %.sroa.535.0.copyload = load double, ptr %.sroa.535.0..sroa_idx, align 8
   %.sroa.638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %.sroa.638.0.copyload = load double, ptr %.sroa.638.0..sroa_idx, align 1
+  %.sroa.638.0.copyload = load double, ptr %.sroa.638.0..sroa_idx, align 8
   %.sroa.839.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %.sroa.839.0.copyload = load double, ptr %.sroa.839.0..sroa_idx, align 1
+  %.sroa.839.0.copyload = load double, ptr %.sroa.839.0..sroa_idx, align 8
   store double %.sroa.033.0.copyload, ptr %6, align 16, !tbaa !22
   store double %.sroa.535.0.copyload, ptr %.sroa.5.0..sroa_idx31, align 8, !tbaa !22
   store double %.sroa.638.0.copyload, ptr %7, align 16, !tbaa !22

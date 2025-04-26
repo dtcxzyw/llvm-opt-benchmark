@@ -13815,7 +13815,7 @@ RTYPEDDATA_GET_DATA.exit90:                       ; preds = %61, %67
 
 time_get_tm.exit:                                 ; preds = %75, %77, %79
   %81 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull align 1 dereferenceable(40) %81, i64 40, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull align 8 dereferenceable(40) %81, i64 40, i1 false)
   %82 = load i64, ptr %59, align 8, !tbaa !37
   %83 = icmp eq i64 %82, 0
   %84 = and i64 %82, 7

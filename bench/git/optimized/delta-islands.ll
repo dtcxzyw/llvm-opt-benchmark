@@ -591,7 +591,7 @@ _.exit:                                           ; preds = %41, %44
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %9) #17
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #17
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 1 dereferenceable(36) %54, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(36) %54, i64 36, i1 false)
   %55 = load i32, ptr %52, align 8, !tbaa !9
   %.not.i54 = icmp eq i32 %55, 0
   br i1 %.not.i54, label %kh_get_oid_map.exit, label %56
@@ -2890,7 +2890,7 @@ define dso_local range(i32 1, 3) i32 @compute_pack_layers(ptr noundef captures(n
   %15 = load ptr, ptr %10, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw %struct.object_entry, ptr %15, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 1 dereferenceable(36) %16, i64 36, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(36) %16, i64 36, i1 false)
   %17 = load i32, ptr %14, align 8, !tbaa !9
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %kh_get_oid_map.exit, label %18

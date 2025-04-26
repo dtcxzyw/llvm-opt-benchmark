@@ -4846,9 +4846,9 @@ thread-pre-split.i.i:                             ; preds = %335, %333, %331, %3
   br label %dissect_pfcp_message.exit
 
 351:                                              ; preds = %thread-pre-split.i.i
-  %.sroa.0.0.copyload.i.i = load i32, ptr %24, align 1
-  %.sroa.4.0.copyload.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i, align 1
-  %.sroa.5.0.copyload.i.i = load ptr, ptr %.sroa.5.0..sroa_idx.i.i, align 1
+  %.sroa.0.0.copyload.i.i = load i32, ptr %24, align 8
+  %.sroa.4.0.copyload.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i, align 4
+  %.sroa.5.0.copyload.i.i = load ptr, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
   store i64 %94, ptr %5, align 8
   store i32 %.sroa.0.0.copyload.i.i, ptr %25, align 8
@@ -7055,12 +7055,12 @@ pfcp_seid_exists.exit.thread:                     ; preds = %56, %pfcp_seid_exis
 73:                                               ; preds = %72
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %75 = load ptr, ptr %74, align 8
-  %.06874.sroa.0.0.copyload = load i32, ptr %.068, align 1
+  %.06874.sroa.0.0.copyload = load i32, ptr %.068, align 8
   %.06874.sroa.4.0..068.sroa_idx = getelementptr inbounds nuw i8, ptr %.068, i64 4
-  %.06874.sroa.4.0.copyload = load i32, ptr %.06874.sroa.4.0..068.sroa_idx, align 1
+  %.06874.sroa.4.0.copyload = load i32, ptr %.06874.sroa.4.0..068.sroa_idx, align 4
   %.06874.sroa.4.0.copyload.fr = freeze i32 %.06874.sroa.4.0.copyload
   %.06874.sroa.5.0..068.sroa_idx = getelementptr inbounds nuw i8, ptr %.068, i64 8
-  %.06874.sroa.5.0.copyload = load ptr, ptr %.06874.sroa.5.0..068.sroa_idx, align 1
+  %.06874.sroa.5.0.copyload = load ptr, ptr %.06874.sroa.5.0..068.sroa_idx, align 8
   %76 = call ptr @wmem_list_head(ptr noundef %75)
   %77 = icmp eq ptr %76, null
   br i1 %77, label %.loopexit89, label %.lr.ph.i75
@@ -7152,12 +7152,12 @@ copy_address_wmem.exit:                           ; preds = %.loopexit89, %109
 117:                                              ; preds = %116
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %119 = load ptr, ptr %118, align 8
-  %.06977.sroa.0.0.copyload = load i32, ptr %.069, align 1
+  %.06977.sroa.0.0.copyload = load i32, ptr %.069, align 8
   %.06977.sroa.4.0..069.sroa_idx = getelementptr inbounds nuw i8, ptr %.069, i64 4
-  %.06977.sroa.4.0.copyload = load i32, ptr %.06977.sroa.4.0..069.sroa_idx, align 1
+  %.06977.sroa.4.0.copyload = load i32, ptr %.06977.sroa.4.0..069.sroa_idx, align 4
   %.06977.sroa.4.0.copyload.fr = freeze i32 %.06977.sroa.4.0.copyload
   %.06977.sroa.5.0..069.sroa_idx = getelementptr inbounds nuw i8, ptr %.069, i64 8
-  %.06977.sroa.5.0.copyload = load ptr, ptr %.06977.sroa.5.0..069.sroa_idx, align 1
+  %.06977.sroa.5.0.copyload = load ptr, ptr %.06977.sroa.5.0..069.sroa_idx, align 8
   %120 = call ptr @wmem_list_head(ptr noundef %119)
   %121 = icmp eq ptr %120, null
   br i1 %121, label %.loopexit, label %.lr.ph.i78

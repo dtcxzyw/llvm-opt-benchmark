@@ -925,10 +925,10 @@ define i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeonly captur
 94:                                               ; preds = %91, %89
   %.0142 = phi ptr [ %93, %91 ], [ null, %89 ]
   call void @COVER_best_init(ptr noundef nonnull %7) #12
-  %.sroa.6175.0.copyload = load i32, ptr %9, align 1
+  %.sroa.6175.0.copyload = load i32, ptr %9, align 8
   %.sroa.8179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 36
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.sroa.4, ptr noundef nonnull align 1 dereferenceable(12) %95, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.sroa.4, ptr noundef nonnull align 4 dereferenceable(12) %95, i64 12, i1 false)
   %96 = zext nneg i32 %41 to i64
   %97 = getelementptr inbounds nuw [11 x %struct.FASTCOVER_accel_t], ptr @FASTCOVER_defaultAccelParameters, i64 0, i64 %96
   %.sroa.0.0.copyload = load i64, ptr %97, align 8

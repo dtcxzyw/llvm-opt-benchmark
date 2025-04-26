@@ -57,9 +57,9 @@ define hidden noundef zeroext i1 @_mi_arena_segment_clear_abandoned(ptr noundef 
   br label %25
 
 6:                                                ; preds = %1
-  %.sroa.0.0.copyload = load i64, ptr %0, align 1
+  %.sroa.0.0.copyload = load i64, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
   %7 = icmp slt i32 %.sroa.4.0.copyload, 1
   %8 = add nsw i32 %.sroa.4.0.copyload, -1
   %9 = select i1 %7, i32 132, i32 %8
@@ -219,9 +219,9 @@ define hidden void @_mi_arena_segment_mark_abandoned(ptr noundef %0) local_unnam
   br label %23
 
 6:                                                ; preds = %1
-  %.sroa.0.0.copyload = load i64, ptr %0, align 1
+  %.sroa.0.0.copyload = load i64, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
   %7 = icmp slt i32 %.sroa.4.0.copyload, 1
   %8 = add nsw i32 %.sroa.4.0.copyload, -1
   %9 = select i1 %7, i32 132, i32 %8
@@ -778,9 +778,9 @@ _mi_arena_field_cursor_init.exit:                 ; preds = %22, %24
   br label %_mi_arena_segment_mark_abandoned.exit
 
 33:                                               ; preds = %27
-  %.sroa.0.0.copyload.i = load i64, ptr %26, align 1
+  %.sroa.0.0.copyload.i = load i64, ptr %26, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 1
+  %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 8
   %34 = icmp slt i32 %.sroa.4.0.copyload.i, 1
   %35 = add nsw i32 %.sroa.4.0.copyload.i, -1
   %36 = select i1 %34, i32 132, i32 %35
@@ -1734,78 +1734,68 @@ define hidden void @_mi_arenas_collect(i1 noundef zeroext %0) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_arena_unsafe_destroy_all() local_unnamed_addr #0 {
-  %1 = alloca %struct.mi_memid_s, align 8
-  %2 = load atomic i64, ptr @mi_arena_count monotonic, align 64
-  %.not29.i = icmp eq i64 %2, 0
+  %1 = load atomic i64, ptr @mi_arena_count monotonic, align 64
+  %.not29.i = icmp eq i64 %1, 0
   br i1 %.not29.i, label %mi_arenas_unsafe_destroy.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %0
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  br label %4
+.lr.ph.i:                                         ; preds = %0, %_mi_arena_meta_free.exit.i
+  %.028.i = phi i64 [ %.1.i, %_mi_arena_meta_free.exit.i ], [ 0, %0 ]
+  %.02226.i = phi i64 [ %27, %_mi_arena_meta_free.exit.i ], [ 0, %0 ]
+  %2 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %.02226.i
+  %3 = load atomic i64, ptr %2 acquire, align 8
+  %4 = inttoptr i64 %3 to ptr
+  %.not.i = icmp eq i64 %3, 0
+  br i1 %.not.i, label %_mi_arena_meta_free.exit.i, label %5
 
-4:                                                ; preds = %31, %.lr.ph.i
-  %.028.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %31 ]
-  %.02226.i = phi i64 [ 0, %.lr.ph.i ], [ %32, %31 ]
-  %5 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %.02226.i
-  %6 = load atomic i64, ptr %5 acquire, align 8
-  %7 = inttoptr i64 %6 to ptr
-  %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %31, label %8
+5:                                                ; preds = %.lr.ph.i
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %6) #20
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %9 = load atomic ptr, ptr %8 seq_cst, align 8, !tbaa !49
+  %.not25.i = icmp eq ptr %9, null
+  br i1 %.not25.i, label %20, label %10
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %10 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %9) #20
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %12 = load atomic ptr, ptr %11 seq_cst, align 8, !tbaa !49
-  %.not25.i = icmp eq ptr %12, null
-  br i1 %.not25.i, label %23, label %13
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %12 = load i32, ptr %11, align 4, !tbaa !68
+  %13 = add i32 %12, -3
+  %14 = icmp ult i32 %13, 3
+  br i1 %14, label %15, label %20
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %15 = load i32, ptr %14, align 4, !tbaa !68
-  %16 = add i32 %15, -3
-  %17 = icmp ult i32 %16, 3
-  br i1 %17, label %18, label %23
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store atomic i64 0, ptr %2 release, align 8
+  %17 = load atomic ptr, ptr %8 seq_cst, align 8, !tbaa !49
+  %18 = getelementptr i8, ptr %4, i64 40
+  %.val.i = load i64, ptr %18, align 8, !tbaa !56
+  %19 = shl i64 %.val.i, 22
+  tail call void @_mi_os_free(ptr noundef %17, i64 noundef %19, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %16) #20
+  br label %20
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store atomic i64 0, ptr %5 release, align 8
-  %20 = load atomic ptr, ptr %11 seq_cst, align 8, !tbaa !49
-  %21 = getelementptr i8, ptr %7, i64 40
-  %.val.i = load i64, ptr %21, align 8, !tbaa !56
-  %22 = shl i64 %.val.i, 22
-  tail call void @_mi_os_free(ptr noundef %20, i64 noundef %22, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %19) #20
-  br label %23
+20:                                               ; preds = %15, %10, %5
+  %.2.i = phi i64 [ %.028.i, %15 ], [ %.02226.i, %10 ], [ %.02226.i, %5 ]
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 84
+  %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
+  %21 = add i32 %.sroa.3.0.copyload, -3
+  %22 = icmp ult i32 %21, 3
+  br i1 %22, label %23, label %_mi_arena_meta_free.exit.i
 
-23:                                               ; preds = %18, %13, %8
-  %.2.i = phi i64 [ %.028.i, %18 ], [ %.02226.i, %13 ], [ %.02226.i, %8 ]
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 56
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %26 = load i64, ptr %25, align 8, !tbaa !69
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 dereferenceable(24) %24, i64 24, i1 false)
-  %27 = load i32, ptr %3, align 4, !tbaa !46
-  %28 = add i32 %27, -3
-  %29 = icmp ult i32 %28, 3
-  br i1 %29, label %30, label %_mi_arena_meta_free.exit.i
-
-30:                                               ; preds = %23
-  tail call void @_mi_os_free(ptr noundef nonnull %7, i64 noundef %26, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %1) #20
+  tail call void @_mi_os_free(ptr noundef nonnull %4, i64 noundef %26, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %24) #20
   br label %_mi_arena_meta_free.exit.i
 
-_mi_arena_meta_free.exit.i:                       ; preds = %30, %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
-  br label %31
+_mi_arena_meta_free.exit.i:                       ; preds = %20, %23, %.lr.ph.i
+  %.1.i = phi i64 [ %.028.i, %.lr.ph.i ], [ %.2.i, %23 ], [ %.2.i, %20 ]
+  %27 = add nuw i64 %.02226.i, 1
+  %exitcond.not.i = icmp eq i64 %27, %1
+  br i1 %exitcond.not.i, label %mi_arenas_unsafe_destroy.exit, label %.lr.ph.i, !llvm.loop !70
 
-31:                                               ; preds = %_mi_arena_meta_free.exit.i, %4
-  %.1.i = phi i64 [ %.2.i, %_mi_arena_meta_free.exit.i ], [ %.028.i, %4 ]
-  %32 = add nuw i64 %.02226.i, 1
-  %exitcond.not.i = icmp eq i64 %32, %2
-  br i1 %exitcond.not.i, label %mi_arenas_unsafe_destroy.exit, label %4, !llvm.loop !70
-
-mi_arenas_unsafe_destroy.exit:                    ; preds = %31, %0
-  %.0.lcssa.i = phi i64 [ 0, %0 ], [ %.1.i, %31 ]
-  %33 = cmpxchg ptr @mi_arena_count, i64 %2, i64 %.0.lcssa.i acq_rel acquire, align 64
+mi_arenas_unsafe_destroy.exit:                    ; preds = %_mi_arena_meta_free.exit.i, %0
+  %.0.lcssa.i = phi i64 [ 0, %0 ], [ %.1.i, %_mi_arena_meta_free.exit.i ]
+  %28 = cmpxchg ptr @mi_arena_count, i64 %1, i64 %.0.lcssa.i acq_rel acquire, align 64
   tail call fastcc void @mi_arenas_try_purge(i1 noundef zeroext true, i1 noundef zeroext true) #19
   ret void
 }

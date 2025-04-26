@@ -149,9 +149,9 @@ tkgen_canvas.exit:                                ; preds = %19, %23
   %31 = load ptr, ptr %3, align 8, !tbaa !57
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %31) #6
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sroa.0.0.copyload = load ptr, ptr %32, align 1
+  %.sroa.0.0.copyload = load ptr, ptr %32, align 8
   %.sroa.834.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.sroa.834.0.copyload = load i32, ptr %.sroa.834.0..sroa_idx, align 1
+  %.sroa.834.0.copyload = load i32, ptr %.sroa.834.0..sroa_idx, align 8
   switch i32 %.sroa.834.0.copyload, label %47 [
     i32 4, label %33
     i32 1, label %35
@@ -290,9 +290,9 @@ tkgen_canvas.exit:                                ; preds = %8, %23
 
 30:                                               ; preds = %tkgen_canvas.exit
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %.sroa.0.0.copyload = load ptr, ptr %31, align 1
+  %.sroa.0.0.copyload = load ptr, ptr %31, align 8
   %.sroa.833.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %.sroa.833.0.copyload = load i32, ptr %.sroa.833.0..sroa_idx, align 1
+  %.sroa.833.0.copyload = load i32, ptr %.sroa.833.0..sroa_idx, align 8
   switch i32 %.sroa.833.0.copyload, label %46 [
     i32 4, label %32
     i32 1, label %34
@@ -357,9 +357,9 @@ tkgen_print_color.exit:                           ; preds = %40, %38, %32, %51, 
   tail call void @gvprintdouble(ptr noundef nonnull %0, double noundef %61) #6
   %62 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #6
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sroa.034.0.copyload = load ptr, ptr %63, align 1
+  %.sroa.034.0.copyload = load ptr, ptr %63, align 8
   %.sroa.837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %.sroa.837.0.copyload = load i32, ptr %.sroa.837.0..sroa_idx, align 1
+  %.sroa.837.0.copyload = load i32, ptr %.sroa.837.0..sroa_idx, align 8
   switch i32 %.sroa.837.0.copyload, label %78 [
     i32 4, label %64
     i32 1, label %66
@@ -476,9 +476,9 @@ tkgen_canvas.exit:                                ; preds = %9, %13
 
 20:                                               ; preds = %tkgen_canvas.exit
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %.sroa.0.0.copyload = load ptr, ptr %21, align 1
+  %.sroa.0.0.copyload = load ptr, ptr %21, align 8
   %.sroa.828.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %.sroa.828.0.copyload = load i32, ptr %.sroa.828.0..sroa_idx, align 1
+  %.sroa.828.0.copyload = load i32, ptr %.sroa.828.0..sroa_idx, align 8
   switch i32 %.sroa.828.0.copyload, label %36 [
     i32 4, label %22
     i32 1, label %24
@@ -543,9 +543,9 @@ tkgen_print_color.exit:                           ; preds = %30, %28, %22, %41, 
   tail call void @gvprintdouble(ptr noundef nonnull %0, double noundef %51) #6
   %52 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #6
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sroa.029.0.copyload = load ptr, ptr %53, align 1
+  %.sroa.029.0.copyload = load ptr, ptr %53, align 8
   %.sroa.832.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.sroa.832.0.copyload = load i32, ptr %.sroa.832.0..sroa_idx, align 1
+  %.sroa.832.0.copyload = load i32, ptr %.sroa.832.0..sroa_idx, align 8
   switch i32 %.sroa.832.0.copyload, label %68 [
     i32 4, label %54
     i32 1, label %56
@@ -658,9 +658,9 @@ tkgen_canvas.exit:                                ; preds = %9, %13
   tail call void @gvprintpointflist(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #6
   %19 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #6
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sroa.0.0.copyload = load ptr, ptr %20, align 1
+  %.sroa.0.0.copyload = load ptr, ptr %20, align 8
   %.sroa.820.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.sroa.820.0.copyload = load i32, ptr %.sroa.820.0..sroa_idx, align 1
+  %.sroa.820.0.copyload = load i32, ptr %.sroa.820.0..sroa_idx, align 8
   switch i32 %.sroa.820.0.copyload, label %35 [
     i32 4, label %21
     i32 1, label %23
@@ -778,9 +778,9 @@ tkgen_canvas.exit:                                ; preds = %8, %12
   tail call void @gvprintpointflist(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #6
   %18 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #6
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %.sroa.0.0.copyload = load ptr, ptr %19, align 1
+  %.sroa.0.0.copyload = load ptr, ptr %19, align 8
   %.sroa.816.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %.sroa.816.0.copyload = load i32, ptr %.sroa.816.0..sroa_idx, align 1
+  %.sroa.816.0.copyload = load i32, ptr %.sroa.816.0..sroa_idx, align 8
   switch i32 %.sroa.816.0.copyload, label %34 [
     i32 4, label %20
     i32 1, label %22

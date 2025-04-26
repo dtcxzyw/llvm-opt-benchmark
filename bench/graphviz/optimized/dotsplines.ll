@@ -1476,9 +1476,9 @@ getmainedge.exit456:                              ; preds = %.preheader.i453
   %743 = phi ptr [ %44, %722 ], [ %718, %717 ]
   %744 = phi ptr [ %.pre1076, %722 ], [ %691, %717 ]
   %.sroa.5541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %743, i64 56
-  %.sroa.5541.0.copyload = load i8, ptr %.sroa.5541.0..sroa_idx, align 1
+  %.sroa.5541.0.copyload = load i8, ptr %.sroa.5541.0..sroa_idx, align 8
   %.sroa.5537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %744, i64 56
-  %.sroa.5537.0.copyload = load i8, ptr %.sroa.5537.0..sroa_idx, align 1
+  %.sroa.5537.0.copyload = load i8, ptr %.sroa.5537.0..sroa_idx, align 8
   %745 = trunc nuw i8 %.sroa.5541.0.copyload to i1
   br i1 %745, label %748, label %746
 
@@ -1488,13 +1488,13 @@ getmainedge.exit456:                              ; preds = %.preheader.i453
 
 748:                                              ; preds = %742
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %744, i64 32
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %743, i64 32
-  %.sroa.4539.0.copyload = load double, ptr %.sroa.4539.0..sroa_idx, align 1
+  %.sroa.4539.0.copyload = load double, ptr %.sroa.4539.0..sroa_idx, align 8
   %749 = getelementptr inbounds nuw i8, ptr %744, i64 24
-  %.sroa.0.0.copyload536 = load double, ptr %749, align 1
+  %.sroa.0.0.copyload536 = load double, ptr %749, align 8
   %750 = getelementptr inbounds nuw i8, ptr %743, i64 24
-  %.sroa.0538.0.copyload = load double, ptr %750, align 1
+  %.sroa.0538.0.copyload = load double, ptr %750, align 8
   %751 = trunc nuw i8 %.sroa.5537.0.copyload to i1
   %752 = fcmp ueq double %.sroa.0.0.copyload536, %.sroa.0538.0.copyload
   %or.cond607.not = select i1 %751, i1 %752, i1 false
@@ -1504,9 +1504,9 @@ getmainedge.exit456:                              ; preds = %.preheader.i453
 
 754:                                              ; preds = %748, %746
   %.sroa.5551.0..sroa_idx = getelementptr inbounds nuw i8, ptr %743, i64 104
-  %.sroa.5551.0.copyload = load i8, ptr %.sroa.5551.0..sroa_idx, align 1
+  %.sroa.5551.0.copyload = load i8, ptr %.sroa.5551.0..sroa_idx, align 8
   %.sroa.5546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %744, i64 104
-  %.sroa.5546.0.copyload = load i8, ptr %.sroa.5546.0..sroa_idx, align 1
+  %.sroa.5546.0.copyload = load i8, ptr %.sroa.5546.0..sroa_idx, align 8
   %755 = trunc nuw i8 %.sroa.5551.0.copyload to i1
   br i1 %755, label %758, label %756
 
@@ -1516,13 +1516,13 @@ getmainedge.exit456:                              ; preds = %.preheader.i453
 
 758:                                              ; preds = %754
   %.sroa.4544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %744, i64 80
-  %.sroa.4544.0.copyload = load double, ptr %.sroa.4544.0..sroa_idx, align 1
+  %.sroa.4544.0.copyload = load double, ptr %.sroa.4544.0..sroa_idx, align 8
   %.sroa.4549.0..sroa_idx = getelementptr inbounds nuw i8, ptr %743, i64 80
-  %.sroa.4549.0.copyload = load double, ptr %.sroa.4549.0..sroa_idx, align 1
+  %.sroa.4549.0.copyload = load double, ptr %.sroa.4549.0..sroa_idx, align 8
   %759 = getelementptr inbounds nuw i8, ptr %744, i64 72
-  %.sroa.0543.0.copyload = load double, ptr %759, align 1
+  %.sroa.0543.0.copyload = load double, ptr %759, align 8
   %760 = getelementptr inbounds nuw i8, ptr %743, i64 72
-  %.sroa.0548.0.copyload = load double, ptr %760, align 1
+  %.sroa.0548.0.copyload = load double, ptr %760, align 8
   %761 = trunc nuw i8 %.sroa.5546.0.copyload to i1
   %762 = fcmp ueq double %.sroa.0543.0.copyload, %.sroa.0548.0.copyload
   %or.cond611.not = select i1 %761, i1 %762, i1 false
@@ -6429,16 +6429,16 @@ getmainedge.exit179:                              ; preds = %.preheader.i176
   %186 = phi ptr [ %.pre215, %160 ], [ %145, %154 ]
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 24
-  %.sroa.0185.0.copyload = load double, ptr %188, align 1
+  %.sroa.0185.0.copyload = load double, ptr %188, align 8
   %.sroa.4186.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 32
-  %.sroa.4186.0.copyload = load double, ptr %.sroa.4186.0..sroa_idx, align 1
+  %.sroa.4186.0.copyload = load double, ptr %.sroa.4186.0..sroa_idx, align 8
   %.sroa.5188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 56
-  %.sroa.5188.0.copyload = load i8, ptr %.sroa.5188.0..sroa_idx, align 1
-  %.sroa.0.0.copyload = load double, ptr %187, align 1
+  %.sroa.5188.0.copyload = load i8, ptr %.sroa.5188.0..sroa_idx, align 8
+  %.sroa.0.0.copyload = load double, ptr %187, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 32
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5184.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 56
-  %.sroa.5184.0.copyload = load i8, ptr %.sroa.5184.0..sroa_idx, align 1
+  %.sroa.5184.0.copyload = load i8, ptr %.sroa.5184.0..sroa_idx, align 8
   %189 = trunc nuw i8 %.sroa.5188.0.copyload to i1
   br i1 %189, label %192, label %190
 
@@ -6473,16 +6473,16 @@ portcmp.exit:                                     ; preds = %190, %199
 201:                                              ; preds = %portcmp.exit
   %202 = getelementptr inbounds nuw i8, ptr %186, i64 72
   %203 = getelementptr inbounds nuw i8, ptr %185, i64 72
-  %.sroa.0195.0.copyload = load double, ptr %203, align 1
+  %.sroa.0195.0.copyload = load double, ptr %203, align 8
   %.sroa.4196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 80
-  %.sroa.4196.0.copyload = load double, ptr %.sroa.4196.0..sroa_idx, align 1
+  %.sroa.4196.0.copyload = load double, ptr %.sroa.4196.0..sroa_idx, align 8
   %.sroa.5198.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 104
-  %.sroa.5198.0.copyload = load i8, ptr %.sroa.5198.0..sroa_idx, align 1
-  %.sroa.0190.0.copyload = load double, ptr %202, align 1
+  %.sroa.5198.0.copyload = load i8, ptr %.sroa.5198.0..sroa_idx, align 8
+  %.sroa.0190.0.copyload = load double, ptr %202, align 8
   %.sroa.4191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 80
-  %.sroa.4191.0.copyload = load double, ptr %.sroa.4191.0..sroa_idx, align 1
+  %.sroa.4191.0.copyload = load double, ptr %.sroa.4191.0..sroa_idx, align 8
   %.sroa.5193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %186, i64 104
-  %.sroa.5193.0.copyload = load i8, ptr %.sroa.5193.0..sroa_idx, align 1
+  %.sroa.5193.0.copyload = load i8, ptr %.sroa.5193.0..sroa_idx, align 8
   %204 = trunc nuw i8 %.sroa.5198.0.copyload to i1
   br i1 %204, label %207, label %205
 

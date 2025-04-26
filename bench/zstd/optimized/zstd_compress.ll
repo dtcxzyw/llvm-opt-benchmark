@@ -430,11 +430,11 @@ define i64 @ZSTD_sizeof_CCtx(ptr noundef readonly captures(address) %0) local_un
   %9 = ptrtoint ptr %.val7 to i64
   %10 = ptrtoint ptr %5 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 3688
-  %.sroa.0.0.copyload = load ptr, ptr %11, align 1
+  %.sroa.0.0.copyload = load ptr, ptr %11, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 3704
-  %.sroa.49.0.copyload = load i64, ptr %.sroa.49.0..sroa_idx, align 1
+  %.sroa.49.0.copyload = load i64, ptr %.sroa.49.0..sroa_idx, align 8
   %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 3720
-  %.sroa.510.0.copyload = load ptr, ptr %.sroa.510.0..sroa_idx, align 1
+  %.sroa.510.0.copyload = load ptr, ptr %.sroa.510.0..sroa_idx, align 8
   %12 = icmp eq ptr %.sroa.510.0.copyload, null
   br i1 %12, label %ZSTD_sizeof_localDict.exit, label %13
 
@@ -485,11 +485,11 @@ define i64 @ZSTD_sizeof_CStream(ptr noundef readonly captures(address) %0) local
   %9 = ptrtoint ptr %.val7.i to i64
   %10 = ptrtoint ptr %5 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 3688
-  %.sroa.0.0.copyload.i = load ptr, ptr %11, align 1
+  %.sroa.0.0.copyload.i = load ptr, ptr %11, align 8
   %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 3704
-  %.sroa.49.0.copyload.i = load i64, ptr %.sroa.49.0..sroa_idx.i, align 1
+  %.sroa.49.0.copyload.i = load i64, ptr %.sroa.49.0..sroa_idx.i, align 8
   %.sroa.510.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 3720
-  %.sroa.510.0.copyload.i = load ptr, ptr %.sroa.510.0..sroa_idx.i, align 1
+  %.sroa.510.0.copyload.i = load ptr, ptr %.sroa.510.0..sroa_idx.i, align 8
   %12 = icmp eq ptr %.sroa.510.0.copyload.i, null
   br i1 %12, label %ZSTD_sizeof_localDict.exit.i, label %13
 
@@ -5828,7 +5828,7 @@ ZSTD_shouldAttachDict.exit.i:                     ; preds = %51, %49
 
 ZSTD_shouldAttachDict.exit.thread17.i:            ; preds = %ZSTD_shouldAttachDict.exit.i, %38
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %11)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %11, ptr noundef nonnull readonly align 1 dereferenceable(224) %6, i64 224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %11, ptr noundef nonnull readonly align 8 dereferenceable(224) %6, i64 224, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %.sroa.0.sroa.0.0.copyload.i.i = load i32, ptr %56, align 8, !tbaa !48
@@ -5972,7 +5972,7 @@ ZSTD_resetCCtx_byAttachingCDict.exit.i:           ; preds = %114, %ZSTD_adjustCP
 
 ZSTD_shouldAttachDict.exit.thread.i:              ; preds = %ZSTD_shouldAttachDict.exit.i, %51, %49
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %10, ptr noundef nonnull readonly align 1 dereferenceable(224) %6, i64 224, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %10, ptr noundef nonnull readonly align 8 dereferenceable(224) %6, i64 224, i1 false)
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %124 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %125 = getelementptr inbounds nuw i8, ptr %10, i64 4

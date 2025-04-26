@@ -3461,7 +3461,7 @@ gv_calloc.exit.i:                                 ; preds = %.split72.i
 
 511:                                              ; preds = %507, %504
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(32) %212, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %212, i64 32, i1 false)
   %512 = load i32, ptr %8, align 8, !tbaa !60
   %513 = and i32 %512, 4259840
   %.not.i103 = icmp eq i32 %513, 0
@@ -3749,17 +3749,17 @@ checkClusterStyle.exit:                           ; preds = %checkClusterStyle.e
 
 616:                                              ; preds = %614, %614
   %617 = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 88
-  %.sroa.0107.0.copyload.i.i.i = load double, ptr %212, align 1
-  %.sroa.4108.0.copyload.i.i.i = load double, ptr %213, align 1
-  %.sroa.5109.0.copyload.i.i.i = load double, ptr %214, align 1
-  %.sroa.6110.0.copyload.i.i.i = load double, ptr %215, align 1
-  %.sroa.0.0.copyload.i.i.i = load double, ptr %617, align 1
+  %.sroa.0107.0.copyload.i.i.i = load double, ptr %212, align 8
+  %.sroa.4108.0.copyload.i.i.i = load double, ptr %213, align 8
+  %.sroa.5109.0.copyload.i.i.i = load double, ptr %214, align 8
+  %.sroa.6110.0.copyload.i.i.i = load double, ptr %215, align 8
+  %.sroa.0.0.copyload.i.i.i = load double, ptr %617, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 96
-  %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 1
+  %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 104
-  %.sroa.5.0.copyload.i.i.i = load double, ptr %.sroa.5.0..sroa_idx.i.i.i, align 1
+  %.sroa.5.0.copyload.i.i.i = load double, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 112
-  %.sroa.6.0.copyload.i.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i.i, align 1
+  %.sroa.6.0.copyload.i.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8
   %618 = fcmp oge double %.sroa.5.0.copyload.i.i.i, %.sroa.0107.0.copyload.i.i.i
   %619 = fcmp oge double %.sroa.5109.0.copyload.i.i.i, %.sroa.0.0.copyload.i.i.i
   %or.cond.not181.i.i.i = select i1 %618, i1 %619, i1 false
@@ -3795,17 +3795,17 @@ checkClusterStyle.exit:                           ; preds = %checkClusterStyle.e
 
 637:                                              ; preds = %614, %614
   %638 = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 88
-  %.sroa.0115.0.copyload.i.i.i = load double, ptr %212, align 1
-  %.sroa.4116.0.copyload.i.i.i = load double, ptr %213, align 1
-  %.sroa.5117.0.copyload.i.i.i = load double, ptr %214, align 1
-  %.sroa.6118.0.copyload.i.i.i = load double, ptr %215, align 1
-  %.sroa.0111.0.copyload.i.i.i = load double, ptr %638, align 1
+  %.sroa.0115.0.copyload.i.i.i = load double, ptr %212, align 8
+  %.sroa.4116.0.copyload.i.i.i = load double, ptr %213, align 8
+  %.sroa.5117.0.copyload.i.i.i = load double, ptr %214, align 8
+  %.sroa.6118.0.copyload.i.i.i = load double, ptr %215, align 8
+  %.sroa.0111.0.copyload.i.i.i = load double, ptr %638, align 8
   %.sroa.4112.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 96
-  %.sroa.4112.0.copyload.i.i.i = load double, ptr %.sroa.4112.0..sroa_idx.i.i.i, align 1
+  %.sroa.4112.0.copyload.i.i.i = load double, ptr %.sroa.4112.0..sroa_idx.i.i.i, align 8
   %.sroa.5113.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 104
-  %.sroa.5113.0.copyload.i.i.i = load double, ptr %.sroa.5113.0..sroa_idx.i.i.i, align 1
+  %.sroa.5113.0.copyload.i.i.i = load double, ptr %.sroa.5113.0..sroa_idx.i.i.i, align 8
   %.sroa.6114.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 112
-  %.sroa.6114.0.copyload.i.i.i = load double, ptr %.sroa.6114.0..sroa_idx.i.i.i, align 1
+  %.sroa.6114.0.copyload.i.i.i = load double, ptr %.sroa.6114.0..sroa_idx.i.i.i, align 8
   %639 = fcmp oge double %.sroa.5113.0.copyload.i.i.i, %.sroa.0115.0.copyload.i.i.i
   %640 = fcmp oge double %.sroa.5117.0.copyload.i.i.i, %.sroa.0111.0.copyload.i.i.i
   %or.cond145.not176.i.i.i = select i1 %639, i1 %640, i1 false
@@ -3878,17 +3878,17 @@ copyPts.exit99:                                   ; preds = %copyPts.exit99.loop
 
 671:                                              ; preds = %614, %614
   %672 = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 88
-  %.sroa.0123.0.copyload.i.i.i = load double, ptr %212, align 1
-  %.sroa.4124.0.copyload.i.i.i = load double, ptr %213, align 1
-  %.sroa.5125.0.copyload.i.i.i = load double, ptr %214, align 1
-  %.sroa.6126.0.copyload.i.i.i = load double, ptr %215, align 1
-  %.sroa.0119.0.copyload.i.i.i = load double, ptr %672, align 1
+  %.sroa.0123.0.copyload.i.i.i = load double, ptr %212, align 8
+  %.sroa.4124.0.copyload.i.i.i = load double, ptr %213, align 8
+  %.sroa.5125.0.copyload.i.i.i = load double, ptr %214, align 8
+  %.sroa.6126.0.copyload.i.i.i = load double, ptr %215, align 8
+  %.sroa.0119.0.copyload.i.i.i = load double, ptr %672, align 8
   %.sroa.4120.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 96
-  %.sroa.4120.0.copyload.i.i.i = load double, ptr %.sroa.4120.0..sroa_idx.i.i.i, align 1
+  %.sroa.4120.0.copyload.i.i.i = load double, ptr %.sroa.4120.0..sroa_idx.i.i.i, align 8
   %.sroa.5121.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 104
-  %.sroa.5121.0.copyload.i.i.i = load double, ptr %.sroa.5121.0..sroa_idx.i.i.i, align 1
+  %.sroa.5121.0.copyload.i.i.i = load double, ptr %.sroa.5121.0..sroa_idx.i.i.i, align 8
   %.sroa.6122.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 112
-  %.sroa.6122.0.copyload.i.i.i = load double, ptr %.sroa.6122.0..sroa_idx.i.i.i, align 1
+  %.sroa.6122.0.copyload.i.i.i = load double, ptr %.sroa.6122.0..sroa_idx.i.i.i, align 8
   %673 = fcmp oge double %.sroa.5121.0.copyload.i.i.i, %.sroa.0123.0.copyload.i.i.i
   %674 = fcmp oge double %.sroa.5125.0.copyload.i.i.i, %.sroa.0119.0.copyload.i.i.i
   %or.cond148.not171.i.i.i = select i1 %673, i1 %674, i1 false
@@ -3961,17 +3961,17 @@ copyPts.exit91:                                   ; preds = %copyPts.exit91.loop
 
 705:                                              ; preds = %614
   %706 = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 88
-  %.sroa.0131.0.copyload.i.i.i = load double, ptr %212, align 1
-  %.sroa.4132.0.copyload.i.i.i = load double, ptr %213, align 1
-  %.sroa.5133.0.copyload.i.i.i = load double, ptr %214, align 1
-  %.sroa.6134.0.copyload.i.i.i = load double, ptr %215, align 1
-  %.sroa.0127.0.copyload.i.i.i = load double, ptr %706, align 1
+  %.sroa.0131.0.copyload.i.i.i = load double, ptr %212, align 8
+  %.sroa.4132.0.copyload.i.i.i = load double, ptr %213, align 8
+  %.sroa.5133.0.copyload.i.i.i = load double, ptr %214, align 8
+  %.sroa.6134.0.copyload.i.i.i = load double, ptr %215, align 8
+  %.sroa.0127.0.copyload.i.i.i = load double, ptr %706, align 8
   %.sroa.4128.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 96
-  %.sroa.4128.0.copyload.i.i.i = load double, ptr %.sroa.4128.0..sroa_idx.i.i.i, align 1
+  %.sroa.4128.0.copyload.i.i.i = load double, ptr %.sroa.4128.0..sroa_idx.i.i.i, align 8
   %.sroa.5129.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 104
-  %.sroa.5129.0.copyload.i.i.i = load double, ptr %.sroa.5129.0..sroa_idx.i.i.i, align 1
+  %.sroa.5129.0.copyload.i.i.i = load double, ptr %.sroa.5129.0..sroa_idx.i.i.i, align 8
   %.sroa.6130.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 112
-  %.sroa.6130.0.copyload.i.i.i = load double, ptr %.sroa.6130.0..sroa_idx.i.i.i, align 1
+  %.sroa.6130.0.copyload.i.i.i = load double, ptr %.sroa.6130.0..sroa_idx.i.i.i, align 8
   %707 = fcmp oge double %.sroa.5129.0.copyload.i.i.i, %.sroa.0131.0.copyload.i.i.i
   %708 = fcmp oge double %.sroa.5133.0.copyload.i.i.i, %.sroa.0127.0.copyload.i.i.i
   %or.cond151.not166.i.i.i = select i1 %707, i1 %708, i1 false
@@ -4042,17 +4042,17 @@ copyPts.exit:                                     ; preds = %copyPts.exit.loopex
 
 737:                                              ; preds = %614
   %738 = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 88
-  %.sroa.0139.0.copyload.i.i.i = load double, ptr %212, align 1
-  %.sroa.4140.0.copyload.i.i.i = load double, ptr %213, align 1
-  %.sroa.5141.0.copyload.i.i.i = load double, ptr %214, align 1
-  %.sroa.6142.0.copyload.i.i.i = load double, ptr %215, align 1
-  %.sroa.0135.0.copyload.i.i.i = load double, ptr %738, align 1
+  %.sroa.0139.0.copyload.i.i.i = load double, ptr %212, align 8
+  %.sroa.4140.0.copyload.i.i.i = load double, ptr %213, align 8
+  %.sroa.5141.0.copyload.i.i.i = load double, ptr %214, align 8
+  %.sroa.6142.0.copyload.i.i.i = load double, ptr %215, align 8
+  %.sroa.0135.0.copyload.i.i.i = load double, ptr %738, align 8
   %.sroa.4136.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 96
-  %.sroa.4136.0.copyload.i.i.i = load double, ptr %.sroa.4136.0..sroa_idx.i.i.i, align 1
+  %.sroa.4136.0.copyload.i.i.i = load double, ptr %.sroa.4136.0..sroa_idx.i.i.i, align 8
   %.sroa.5137.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 104
-  %.sroa.5137.0.copyload.i.i.i = load double, ptr %.sroa.5137.0..sroa_idx.i.i.i, align 1
+  %.sroa.5137.0.copyload.i.i.i = load double, ptr %.sroa.5137.0..sroa_idx.i.i.i, align 8
   %.sroa.6138.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.095186.i.i.i, i64 112
-  %.sroa.6138.0.copyload.i.i.i = load double, ptr %.sroa.6138.0..sroa_idx.i.i.i, align 1
+  %.sroa.6138.0.copyload.i.i.i = load double, ptr %.sroa.6138.0..sroa_idx.i.i.i, align 8
   %739 = fcmp oge double %.sroa.5137.0.copyload.i.i.i, %.sroa.0139.0.copyload.i.i.i
   %740 = fcmp oge double %.sroa.5141.0.copyload.i.i.i, %.sroa.0135.0.copyload.i.i.i
   %or.cond154.not161.i.i.i = select i1 %739, i1 %740, i1 false
@@ -5536,17 +5536,17 @@ define internal fastcc void @emit_node(ptr noundef %0, ptr noundef %1) unnamed_a
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %.val = load ptr, ptr %4, align 8, !tbaa !76
-  %.sroa.0.0.copyload = load double, ptr %12, align 1
+  %.sroa.0.0.copyload = load double, ptr %12, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  %.sroa.0.0.copyload.i = load double, ptr %13, align 1
+  %.sroa.0.0.copyload.i = load double, ptr %13, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 80
-  %.sroa.5.0.copyload.i = load double, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.5.0.copyload.i = load double, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 88
-  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8
   %14 = fcmp ult double %.sroa.5.0.copyload.i, %.sroa.0.0.copyload
   %15 = fcmp ult double %.sroa.5.0.copyload, %.sroa.0.0.copyload.i
   %or.cond.i = select i1 %14, i1 true, i1 %15
@@ -5556,9 +5556,9 @@ define internal fastcc void @emit_node(ptr noundef %0, ptr noundef %1) unnamed_a
 
 node_in_box.exit:                                 ; preds = %11
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 72
-  %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 1
+  %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8
   %17 = fcmp ult double %.sroa.6.0.copyload, %.sroa.4.0.copyload.i
   br i1 %17, label %node_in_box.exit.thread, label %18
 
@@ -6150,7 +6150,7 @@ define internal fastcc void @emit_edge(ptr noundef %0, ptr noundef nonnull %1) u
   %15 = alloca %struct.agxbuf, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 384
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 1 dereferenceable(32) %16, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !76
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -6160,13 +6160,13 @@ define internal fastcc void @emit_edge(ptr noundef %0, ptr noundef nonnull %1) u
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %.sroa.0.0.copyload.i = load double, ptr %22, align 1
+  %.sroa.0.0.copyload.i = load double, ptr %22, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 1
+  %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %.sroa.5.0.copyload.i = load double, ptr %.sroa.5.0..sroa_idx.i, align 1
+  %.sroa.5.0.copyload.i = load double, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 1
+  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8
   %23 = load double, ptr %14, align 8, !tbaa !138
   %24 = fcmp oge double %.sroa.5.0.copyload.i, %23
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -6190,7 +6190,7 @@ boxf_overlap.exit.thread.i:                       ; preds = %21, %2
   br i1 %.not14.i, label %38, label %36
 
 36:                                               ; preds = %boxf_overlap.exit.thread.i
-  %37 = tail call zeroext i1 @overlap_label(ptr noundef nonnull %35, ptr noundef nonnull byval(%struct.boxf) align 8 %14) #27
+  %37 = tail call zeroext i1 @overlap_label(ptr noundef nonnull %35, ptr noundef nonnull byval(%struct.boxf) align 8 %16) #27
   br i1 %37, label %48, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %36

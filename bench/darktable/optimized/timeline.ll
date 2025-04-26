@@ -210,15 +210,15 @@ _time_read_bounds_from_collection.exit:           ; preds = %46, %50
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %60 = load i32, ptr %59, align 8, !tbaa !64
-  %.sroa.022.0.copyload.i = load i32, ptr %58, align 1
+  %.sroa.022.0.copyload.i = load i32, ptr %58, align 8
   %.sroa.423.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 60
-  %.sroa.423.0.copyload.i = load i32, ptr %.sroa.423.0..sroa_idx.i, align 1
+  %.sroa.423.0.copyload.i = load i32, ptr %.sroa.423.0..sroa_idx.i, align 4
   %.sroa.524.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.sroa.524.0.copyload.i = load i32, ptr %.sroa.524.0..sroa_idx.i, align 1
+  %.sroa.524.0.copyload.i = load i32, ptr %.sroa.524.0..sroa_idx.i, align 8
   %.sroa.625.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 68
-  %.sroa.625.0.copyload.i = load i32, ptr %.sroa.625.0..sroa_idx.i, align 1
+  %.sroa.625.0.copyload.i = load i32, ptr %.sroa.625.0..sroa_idx.i, align 4
   %.sroa.726.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %.sroa.726.0.copyload.i = load i32, ptr %.sroa.726.0..sroa_idx.i, align 1
+  %.sroa.726.0.copyload.i = load i32, ptr %.sroa.726.0..sroa_idx.i, align 8
   %.not.i.i = icmp eq i32 %.sroa.014.0.copyload, %.sroa.022.0.copyload.i
   br i1 %.not.i.i, label %63, label %61
 
@@ -433,15 +433,15 @@ define internal fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias non
   br i1 %.not26, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3
-  %.sroa.020.0.copyload = load i32, ptr %2, align 1
+  %.sroa.020.0.copyload = load i32, ptr %2, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %.sroa.421.0.copyload = load i32, ptr %.sroa.421.0..sroa_idx, align 1
+  %.sroa.421.0.copyload = load i32, ptr %.sroa.421.0..sroa_idx, align 4
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.522.0.copyload = load i32, ptr %.sroa.522.0..sroa_idx, align 1
+  %.sroa.522.0.copyload = load i32, ptr %.sroa.522.0..sroa_idx, align 8
   %.sroa.623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.sroa.623.0.copyload = load i32, ptr %.sroa.623.0..sroa_idx, align 1
+  %.sroa.623.0.copyload = load i32, ptr %.sroa.623.0..sroa_idx, align 4
   %.sroa.724.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.724.0.copyload = load i32, ptr %.sroa.724.0..sroa_idx, align 1
+  %.sroa.724.0.copyload = load i32, ptr %.sroa.724.0..sroa_idx, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -928,15 +928,15 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %.sroa.610.0.copyload.i = load i32, ptr %.sroa.610.0..sroa_idx.i, align 4, !tbaa !63
   %.sroa.711.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 164
   %.sroa.711.0.copyload.i = load i32, ptr %.sroa.711.0..sroa_idx.i, align 4, !tbaa !63
-  %.sroa.013.0.copyload.i = load i32, ptr %46, align 1
+  %.sroa.013.0.copyload.i = load i32, ptr %46, align 8
   %.sroa.414.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 60
-  %.sroa.414.0.copyload.i = load i32, ptr %.sroa.414.0..sroa_idx.i, align 1
+  %.sroa.414.0.copyload.i = load i32, ptr %.sroa.414.0..sroa_idx.i, align 4
   %.sroa.515.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  %.sroa.515.0.copyload.i = load i32, ptr %.sroa.515.0..sroa_idx.i, align 1
+  %.sroa.515.0.copyload.i = load i32, ptr %.sroa.515.0..sroa_idx.i, align 8
   %.sroa.616.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 68
-  %.sroa.616.0.copyload.i = load i32, ptr %.sroa.616.0..sroa_idx.i, align 1
+  %.sroa.616.0.copyload.i = load i32, ptr %.sroa.616.0..sroa_idx.i, align 4
   %.sroa.717.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 72
-  %.sroa.717.0.copyload.i = load i32, ptr %.sroa.717.0..sroa_idx.i, align 1
+  %.sroa.717.0.copyload.i = load i32, ptr %.sroa.717.0..sroa_idx.i, align 8
   %.not.i.i = icmp eq i32 %.sroa.07.0.copyload.i, %.sroa.013.0.copyload.i
   br i1 %.not.i.i, label %51, label %49
 
@@ -1021,15 +1021,15 @@ _time_compare_at_zoom.exit.i:                     ; preds = %76, %74, %67, %63, 
 
 _time_compare_at_zoom.exit.thread.i:              ; preds = %79, %_time_compare_at_zoom.exit.i, %76, %69, %65, %58, %54
   %81 = getelementptr inbounds nuw i8, ptr %.val, i64 176
-  %.sroa.019.0.copyload.i = load i32, ptr %81, align 1
+  %.sroa.019.0.copyload.i = load i32, ptr %81, align 8
   %.sroa.420.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 180
-  %.sroa.420.0.copyload.i = load i32, ptr %.sroa.420.0..sroa_idx.i, align 1
+  %.sroa.420.0.copyload.i = load i32, ptr %.sroa.420.0..sroa_idx.i, align 4
   %.sroa.521.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 184
-  %.sroa.521.0.copyload.i = load i32, ptr %.sroa.521.0..sroa_idx.i, align 1
+  %.sroa.521.0.copyload.i = load i32, ptr %.sroa.521.0..sroa_idx.i, align 8
   %.sroa.622.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 188
-  %.sroa.622.0.copyload.i = load i32, ptr %.sroa.622.0..sroa_idx.i, align 1
+  %.sroa.622.0.copyload.i = load i32, ptr %.sroa.622.0..sroa_idx.i, align 4
   %.sroa.723.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 192
-  %.sroa.723.0.copyload.i = load i32, ptr %.sroa.723.0..sroa_idx.i, align 1
+  %.sroa.723.0.copyload.i = load i32, ptr %.sroa.723.0..sroa_idx.i, align 8
   %.not.i111.i = icmp eq i32 %.sroa.019.0.copyload.i, %.sroa.013.0.copyload.i
   br i1 %.not.i111.i, label %84, label %82
 
@@ -1052,7 +1052,7 @@ _time_compare_at_zoom.exit.thread.i:              ; preds = %79, %_time_compare_
 _time_compare_at_zoom.exit122.thread.thread130.i: ; preds = %87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 1 dereferenceable(28) %46, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %46, i64 28, i1 false)
   br label %114
 
 88:                                               ; preds = %87
@@ -1111,7 +1111,7 @@ _time_compare_at_zoom.exit122.thread.thread130.i: ; preds = %87
 _time_compare_at_zoom.exit122.thread.thread131.i: ; preds = %109
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 1 dereferenceable(28) %46, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %46, i64 28, i1 false)
   br label %120
 
 _time_compare_at_zoom.exit122.i:                  ; preds = %109, %107, %100, %96, %89, %85, %82
@@ -1127,13 +1127,13 @@ _time_compare_at_zoom.exit122.i:                  ; preds = %109, %107, %100, %9
 _time_compare_at_zoom.exit122.thread.thread.i:    ; preds = %102, %98
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 1 dereferenceable(28) %46, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %46, i64 28, i1 false)
   br label %118
 
 _time_compare_at_zoom.exit122.thread.i:           ; preds = %112, %_time_compare_at_zoom.exit122.i, %91
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 1 dereferenceable(28) %46, i64 28, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %46, i64 28, i1 false)
   switch i32 %48, label %_time_format_for_db.exit.i [
     i32 0, label %114
     i32 1, label %116
@@ -1575,15 +1575,15 @@ _block_get_bar_width.exit139.i:                   ; preds = %_time_compare_at_zo
   br label %_time_compare_at_zoom.exit137.thread132.i
 
 _time_compare_at_zoom.exit137.thread132.i:        ; preds = %_block_get_bar_width.exit139.i, %_time_compare_at_zoom.exit137.i, %290, %287, %282, %278, %275, %.lr.ph120.i
-  %.sroa.031.0.copyload.i = load i32, ptr %81, align 1
-  %.sroa.533.0.copyload.i = load i32, ptr %.sroa.521.0..sroa_idx.i, align 1
-  %.sroa.634.0.copyload.i = load i32, ptr %.sroa.622.0..sroa_idx.i, align 1
-  %.sroa.735.0.copyload.i = load i32, ptr %.sroa.723.0..sroa_idx.i, align 1
+  %.sroa.031.0.copyload.i = load i32, ptr %81, align 8
+  %.sroa.533.0.copyload.i = load i32, ptr %.sroa.521.0..sroa_idx.i, align 8
+  %.sroa.634.0.copyload.i = load i32, ptr %.sroa.622.0..sroa_idx.i, align 4
+  %.sroa.735.0.copyload.i = load i32, ptr %.sroa.723.0..sroa_idx.i, align 8
   %.not.i140.i = icmp eq i32 %.sroa.031.0.copyload.i, %274
   br i1 %.not.i140.i, label %299, label %_time_compare_at_zoom.exit151.thread134.i
 
 299:                                              ; preds = %_time_compare_at_zoom.exit137.thread132.i
-  %.sroa.432.0.copyload.i = load i32, ptr %.sroa.420.0..sroa_idx.i, align 1
+  %.sroa.432.0.copyload.i = load i32, ptr %.sroa.420.0..sroa_idx.i, align 4
   %300 = load i32, ptr %177, align 4, !tbaa !72
   %.not22.i142.i = icmp eq i32 %.sroa.432.0.copyload.i, %300
   br i1 %.not22.i142.i, label %301, label %_time_compare_at_zoom.exit151.thread134.i
@@ -2180,11 +2180,11 @@ _time_compare_at_zoom.exit180.thread.i:           ; preds = %_time_compare_at_zo
   br label %522
 
 522:                                              ; preds = %_time_compare_at_zoom.exit180.thread.i, %_time_compare_at_zoom.exit180.i
-  %.sroa.037.0.copyload.i = load i32, ptr %81, align 1
-  %.sroa.438.0.copyload.i = load i32, ptr %.sroa.420.0..sroa_idx.i, align 1
-  %.sroa.539.0.copyload.i = load i32, ptr %.sroa.521.0..sroa_idx.i, align 1
-  %.sroa.640.0.copyload.i = load i32, ptr %.sroa.622.0..sroa_idx.i, align 1
-  %.sroa.741.0.copyload.i = load i32, ptr %.sroa.723.0..sroa_idx.i, align 1
+  %.sroa.037.0.copyload.i = load i32, ptr %81, align 8
+  %.sroa.438.0.copyload.i = load i32, ptr %.sroa.420.0..sroa_idx.i, align 4
+  %.sroa.539.0.copyload.i = load i32, ptr %.sroa.521.0..sroa_idx.i, align 8
+  %.sroa.640.0.copyload.i = load i32, ptr %.sroa.622.0..sroa_idx.i, align 4
+  %.sroa.741.0.copyload.i = load i32, ptr %.sroa.723.0..sroa_idx.i, align 8
   %.not.i181.i = icmp eq i32 %.sroa.037.0.copyload.i, %484
   br i1 %.not.i181.i, label %525, label %523
 
@@ -3078,15 +3078,15 @@ define internal range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr readnone 
   %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !63, !alias.scope !149
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !63, !alias.scope !149
-  %.sroa.026.0.copyload.i = load i32, ptr %9, align 1, !noalias !149
+  %.sroa.026.0.copyload.i = load i32, ptr %9, align 8, !noalias !149
   %.sroa.427.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.sroa.427.0.copyload.i = load i32, ptr %.sroa.427.0..sroa_idx.i, align 1, !noalias !149
+  %.sroa.427.0.copyload.i = load i32, ptr %.sroa.427.0..sroa_idx.i, align 4, !noalias !149
   %.sroa.528.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.528.0.copyload.i = load i32, ptr %.sroa.528.0..sroa_idx.i, align 1, !noalias !149
+  %.sroa.528.0.copyload.i = load i32, ptr %.sroa.528.0..sroa_idx.i, align 8, !noalias !149
   %.sroa.629.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %.sroa.629.0.copyload.i = load i32, ptr %.sroa.629.0..sroa_idx.i, align 1, !noalias !149
+  %.sroa.629.0.copyload.i = load i32, ptr %.sroa.629.0..sroa_idx.i, align 4, !noalias !149
   %.sroa.730.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sroa.730.0.copyload.i = load i32, ptr %.sroa.730.0..sroa_idx.i, align 1, !noalias !149
+  %.sroa.730.0.copyload.i = load i32, ptr %.sroa.730.0..sroa_idx.i, align 8, !noalias !149
   %.not.i.i = icmp eq i32 %.sroa.0.0.copyload.i, %.sroa.026.0.copyload.i
   br i1 %.not.i.i, label %51, label %49
 
@@ -5025,20 +5025,20 @@ define internal range(i32 0, 2) i32 @_block_autoscroll(ptr noundef readonly capt
   tail call fastcc void @_time_add(ptr noundef nonnull %20, i32 noundef %.025, i32 noundef %22)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #18
   call fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias writable align 4 %3, ptr noundef nonnull byval(%struct.dt_datetime_t) align 8 %20, ptr noundef nonnull %5)
-  %.sroa.0.0.copyload = load i32, ptr %20, align 1
+  %.sroa.0.0.copyload = load i32, ptr %20, align 8
   %23 = load i32, ptr %3, align 8, !tbaa !71
   %.not.i = icmp eq i32 %23, %.sroa.0.0.copyload
   br i1 %.not.i, label %24, label %.critedge
 
 24:                                               ; preds = %.thread
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 1
+  %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 68
-  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 1
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 1
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 60
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !72
   %.not11.i = icmp eq i32 %26, %.sroa.4.0.copyload

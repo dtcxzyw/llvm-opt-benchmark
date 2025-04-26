@@ -208,9 +208,9 @@ define ptr @EC_GROUP_new_by_curve_name_ex(ptr noundef %0, ptr noundef %1, i32 no
 
 ec_curve_nid2curve.exit:                          ; preds = %.preheader.i
   %.06.i8.sroa.611.0..06.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.06.i8.sroa.611.0.copyload = load ptr, ptr %.06.i8.sroa.611.0..06.i.sroa_idx, align 1
+  %.06.i8.sroa.611.0.copyload = load ptr, ptr %.06.i8.sroa.611.0..06.i.sroa_idx, align 8
   %.06.i8.sroa.7.0..06.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.06.i8.sroa.7.0.copyload = load ptr, ptr %.06.i8.sroa.7.0..06.i.sroa_idx, align 1
+  %.06.i8.sroa.7.0.copyload = load ptr, ptr %.06.i8.sroa.7.0..06.i.sroa_idx, align 8
   %10 = icmp eq ptr %.06.i8.sroa.611.0.copyload, null
   br i1 %10, label %11, label %17
 

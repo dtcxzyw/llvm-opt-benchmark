@@ -499,7 +499,7 @@ _msg_thr_create.exit:                             ; preds = %138, %174
   %199 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
   %200 = load ptr, ptr %199, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(24) %190, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %190, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %3) #14
   %201 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 744), align 8
   %202 = zext i16 %201 to i32

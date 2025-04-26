@@ -315,9 +315,9 @@ define hidden noundef signext i8 @nfaExecLimEx512_expandState(ptr noundef %0, pt
   %40 = load <4 x i64>, ptr %39, align 32, !noalias !40
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %42 = load <4 x i64>, ptr %41, align 32, !noalias !40
-  %.sroa.048.0.copyload = load <4 x i64>, ptr %1, align 1
+  %.sroa.048.0.copyload = load <4 x i64>, ptr %1, align 64
   %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.449.0.copyload = load <4 x i64>, ptr %.sroa.449.0..sroa_idx, align 1
+  %.sroa.449.0.copyload = load <4 x i64>, ptr %.sroa.449.0..sroa_idx, align 32
   %43 = or <4 x i64> %.sroa.048.0.copyload, %40
   %44 = or <4 x i64> %.sroa.449.0.copyload, %42
   store <4 x i64> %43, ptr %1, align 64
@@ -346,9 +346,9 @@ moNfaExpandState512.exit:                         ; preds = %13, %48
   %53 = load <4 x i64>, ptr %52, align 32, !noalias !43
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %55 = load <4 x i64>, ptr %54, align 32, !noalias !43
-  %.sroa.036.0.copyload = load <4 x i64>, ptr %1, align 1
+  %.sroa.036.0.copyload = load <4 x i64>, ptr %1, align 64
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.437.0.copyload = load <4 x i64>, ptr %.sroa.437.0..sroa_idx, align 1
+  %.sroa.437.0.copyload = load <4 x i64>, ptr %.sroa.437.0..sroa_idx, align 32
   %56 = and <4 x i64> %.sroa.036.0.copyload, %53
   %57 = and <4 x i64> %.sroa.437.0.copyload, %55
   %58 = or <4 x i64> %57, %56
@@ -1364,7 +1364,7 @@ lshift64_m256.exit97:                             ; preds = %lshift64_m256.exit1
   %.not1545 = icmp eq i64 %.045.i61605, 0
   %210 = add i64 %.045.i61605, %4
   %211 = select i1 %.not1545, i8 16, i8 1
-  %.sroa.01163.0.copyload1546 = load <32 x i8>, ptr %69, align 1
+  %.sroa.01163.0.copyload1546 = load <32 x i8>, ptr %69, align 64
   %212 = bitcast <4 x i64> %192 to <32 x i8>
   %213 = icmp ne <32 x i8> %.sroa.01163.0.copyload1546, %212
   %214 = bitcast <32 x i1> %213 to i32
@@ -1372,7 +1372,7 @@ lshift64_m256.exit97:                             ; preds = %lshift64_m256.exit1
   br i1 %.not1548, label %diff512.exit, label %diff512.exit.thread
 
 diff512.exit:                                     ; preds = %209
-  %.sroa.41164.0.copyload1547 = load <32 x i8>, ptr %.sroa.41164.0..sroa_idx, align 1
+  %.sroa.41164.0.copyload1547 = load <32 x i8>, ptr %.sroa.41164.0..sroa_idx, align 32
   %215 = bitcast <4 x i64> %193 to <32 x i8>
   %216 = icmp ne <32 x i8> %.sroa.41164.0.copyload1547, %215
   %217 = bitcast <32 x i1> %216 to i32
@@ -1380,8 +1380,8 @@ diff512.exit:                                     ; preds = %209
   br i1 %.not1549, label %218, label %diff512.exit.thread
 
 218:                                              ; preds = %diff512.exit
-  %.sroa.01147.0.copyload = load <4 x i64>, ptr %76, align 1
-  %.sroa.41148.0.copyload = load <4 x i64>, ptr %.sroa.41148.0..sroa_idx, align 1
+  %.sroa.01147.0.copyload = load <4 x i64>, ptr %76, align 64
+  %.sroa.41148.0.copyload = load <4 x i64>, ptr %.sroa.41148.0..sroa_idx, align 32
   %219 = or <4 x i64> %.sroa.01147.0.copyload, %.sroa.0793.1
   %220 = or <4 x i64> %.sroa.41148.0.copyload, %.sroa.27809.1
   %221 = load ptr, ptr %77, align 8
@@ -1703,8 +1703,8 @@ limexRunReports.exit.i172:                        ; preds = %354, %348
   %365 = load <4 x i64>, ptr %364, align 32, !noalias !130
   %366 = getelementptr inbounds nuw i8, ptr %264, i64 96
   %367 = load <4 x i64>, ptr %366, align 32, !noalias !130
-  %.sroa.01195.0.copyload = load <4 x i64>, ptr %70, align 1
-  %.sroa.41196.0.copyload = load <4 x i64>, ptr %.sroa.41136.0..sroa_idx, align 1
+  %.sroa.01195.0.copyload = load <4 x i64>, ptr %70, align 64
+  %.sroa.41196.0.copyload = load <4 x i64>, ptr %.sroa.41136.0..sroa_idx, align 32
   %368 = or <4 x i64> %.sroa.01195.0.copyload, %365
   %369 = or <4 x i64> %.sroa.41196.0.copyload, %367
   store <4 x i64> %368, ptr %70, align 64
@@ -1740,8 +1740,8 @@ repeatHasMatch.exit.thread:                       ; preds = %372, %310, %306, %3
   br i1 %.not58.i149, label %380, label %241
 
 380:                                              ; preds = %379
-  %.sroa.01143.0.copyload = load <4 x i64>, ptr %70, align 1
-  %.sroa.41144.0.copyload = load <4 x i64>, ptr %.sroa.41136.0..sroa_idx, align 1
+  %.sroa.01143.0.copyload = load <4 x i64>, ptr %70, align 64
+  %.sroa.41144.0.copyload = load <4 x i64>, ptr %.sroa.41136.0..sroa_idx, align 32
   %381 = or <4 x i64> %.sroa.01143.0.copyload, %.sroa.0793.14.ph
   %382 = or <4 x i64> %.sroa.41144.0.copyload, %.sroa.27809.14.ph
   switch i32 %.6.ph, label %processExceptional512.exit162.thread1336 [
@@ -2038,7 +2038,7 @@ lshift64_m256.exit65:                             ; preds = %lshift64_m256.exit6
   %.not1552 = icmp eq i64 %.045.i1619, 0
   %574 = add i64 %.045.i1619, %4
   %575 = select i1 %.not1552, i8 16, i8 1
-  %.sroa.01167.0.copyload1553 = load <32 x i8>, ptr %428, align 1
+  %.sroa.01167.0.copyload1553 = load <32 x i8>, ptr %428, align 64
   %576 = bitcast <4 x i64> %556 to <32 x i8>
   %577 = icmp ne <32 x i8> %.sroa.01167.0.copyload1553, %576
   %578 = bitcast <32 x i1> %577 to i32
@@ -2046,7 +2046,7 @@ lshift64_m256.exit65:                             ; preds = %lshift64_m256.exit6
   br i1 %.not1555, label %diff512.exit165, label %diff512.exit165.thread
 
 diff512.exit165:                                  ; preds = %573
-  %.sroa.41168.0.copyload1554 = load <32 x i8>, ptr %.sroa.41168.0..sroa_idx, align 1
+  %.sroa.41168.0.copyload1554 = load <32 x i8>, ptr %.sroa.41168.0..sroa_idx, align 32
   %579 = bitcast <4 x i64> %557 to <32 x i8>
   %580 = icmp ne <32 x i8> %.sroa.41168.0.copyload1554, %579
   %581 = bitcast <32 x i1> %580 to i32
@@ -2054,8 +2054,8 @@ diff512.exit165:                                  ; preds = %573
   br i1 %.not1556, label %582, label %diff512.exit165.thread
 
 582:                                              ; preds = %diff512.exit165
-  %.sroa.01119.0.copyload = load <4 x i64>, ptr %435, align 1
-  %.sroa.41120.0.copyload = load <4 x i64>, ptr %.sroa.41120.0..sroa_idx, align 1
+  %.sroa.01119.0.copyload = load <4 x i64>, ptr %435, align 64
+  %.sroa.41120.0.copyload = load <4 x i64>, ptr %.sroa.41120.0..sroa_idx, align 32
   %583 = or <4 x i64> %.sroa.01119.0.copyload, %.sroa.0584.1
   %584 = or <4 x i64> %.sroa.41120.0.copyload, %.sroa.27600.1
   %585 = load ptr, ptr %436, align 8
@@ -2377,8 +2377,8 @@ limexRunReports.exit.i186:                        ; preds = %718, %712
   %729 = load <4 x i64>, ptr %728, align 32, !noalias !169
   %730 = getelementptr inbounds nuw i8, ptr %628, i64 96
   %731 = load <4 x i64>, ptr %730, align 32, !noalias !169
-  %.sroa.01221.0.copyload = load <4 x i64>, ptr %429, align 1
-  %.sroa.41222.0.copyload = load <4 x i64>, ptr %.sroa.41108.0..sroa_idx, align 1
+  %.sroa.01221.0.copyload = load <4 x i64>, ptr %429, align 64
+  %.sroa.41222.0.copyload = load <4 x i64>, ptr %.sroa.41108.0..sroa_idx, align 32
   %732 = or <4 x i64> %.sroa.01221.0.copyload, %729
   %733 = or <4 x i64> %.sroa.41222.0.copyload, %731
   store <4 x i64> %732, ptr %429, align 64
@@ -2414,8 +2414,8 @@ repeatHasMatch.exit237.thread:                    ; preds = %736, %674, %670, %6
   br i1 %.not58.i130, label %744, label %605
 
 744:                                              ; preds = %743
-  %.sroa.01115.0.copyload = load <4 x i64>, ptr %429, align 1
-  %.sroa.41116.0.copyload = load <4 x i64>, ptr %.sroa.41108.0..sroa_idx, align 1
+  %.sroa.01115.0.copyload = load <4 x i64>, ptr %429, align 64
+  %.sroa.41116.0.copyload = load <4 x i64>, ptr %.sroa.41108.0..sroa_idx, align 32
   %745 = or <4 x i64> %.sroa.01115.0.copyload, %.sroa.0584.14.ph
   %746 = or <4 x i64> %.sroa.41116.0.copyload, %.sroa.27600.14.ph
   switch i32 %.61260.ph, label %processExceptional512.exit143.thread1422 [
@@ -2764,7 +2764,7 @@ lshift64_m256.exit33:                             ; preds = %lshift64_m256.exit3
   %.not1560 = icmp eq i64 %.112721636, 0
   %961 = add i64 %.112721636, %4
   %962 = select i1 %.not1560, i8 16, i8 1
-  %.sroa.01171.0.copyload1561 = load <32 x i8>, ptr %793, align 1
+  %.sroa.01171.0.copyload1561 = load <32 x i8>, ptr %793, align 64
   %963 = bitcast <4 x i64> %943 to <32 x i8>
   %964 = icmp ne <32 x i8> %.sroa.01171.0.copyload1561, %963
   %965 = bitcast <32 x i1> %964 to i32
@@ -2772,7 +2772,7 @@ lshift64_m256.exit33:                             ; preds = %lshift64_m256.exit3
   br i1 %.not1563, label %diff512.exit167, label %diff512.exit167.thread
 
 diff512.exit167:                                  ; preds = %960
-  %.sroa.41172.0.copyload1562 = load <32 x i8>, ptr %.sroa.41172.0..sroa_idx, align 1
+  %.sroa.41172.0.copyload1562 = load <32 x i8>, ptr %.sroa.41172.0..sroa_idx, align 32
   %966 = bitcast <4 x i64> %944 to <32 x i8>
   %967 = icmp ne <32 x i8> %.sroa.41172.0.copyload1562, %966
   %968 = bitcast <32 x i1> %967 to i32
@@ -2780,8 +2780,8 @@ diff512.exit167:                                  ; preds = %960
   br i1 %.not1564, label %969, label %diff512.exit167.thread
 
 969:                                              ; preds = %diff512.exit167
-  %.sroa.01091.0.copyload = load <4 x i64>, ptr %800, align 1
-  %.sroa.41092.0.copyload = load <4 x i64>, ptr %.sroa.41092.0..sroa_idx, align 1
+  %.sroa.01091.0.copyload = load <4 x i64>, ptr %800, align 64
+  %.sroa.41092.0.copyload = load <4 x i64>, ptr %.sroa.41092.0..sroa_idx, align 32
   %970 = or <4 x i64> %.sroa.01091.0.copyload, %.sroa.0321.1
   %971 = or <4 x i64> %.sroa.41092.0.copyload, %.sroa.27.1
   %972 = load ptr, ptr %801, align 8
@@ -3103,8 +3103,8 @@ limexRunReports.exit.i208:                        ; preds = %1105, %1099
   %1116 = load <4 x i64>, ptr %1115, align 32, !noalias !214
   %1117 = getelementptr inbounds nuw i8, ptr %1015, i64 96
   %1118 = load <4 x i64>, ptr %1117, align 32, !noalias !214
-  %.sroa.01247.0.copyload = load <4 x i64>, ptr %794, align 1
-  %.sroa.41248.0.copyload = load <4 x i64>, ptr %.sroa.41080.0..sroa_idx, align 1
+  %.sroa.01247.0.copyload = load <4 x i64>, ptr %794, align 64
+  %.sroa.41248.0.copyload = load <4 x i64>, ptr %.sroa.41080.0..sroa_idx, align 32
   %1119 = or <4 x i64> %.sroa.01247.0.copyload, %1116
   %1120 = or <4 x i64> %.sroa.41248.0.copyload, %1118
   store <4 x i64> %1119, ptr %794, align 64
@@ -3140,8 +3140,8 @@ repeatHasMatch.exit239.thread:                    ; preds = %1123, %1061, %1057,
   br i1 %.not58.i, label %1131, label %992
 
 1131:                                             ; preds = %1130
-  %.sroa.01087.0.copyload = load <4 x i64>, ptr %794, align 1
-  %.sroa.41088.0.copyload = load <4 x i64>, ptr %.sroa.41080.0..sroa_idx, align 1
+  %.sroa.01087.0.copyload = load <4 x i64>, ptr %794, align 64
+  %.sroa.41088.0.copyload = load <4 x i64>, ptr %.sroa.41080.0..sroa_idx, align 32
   %1132 = or <4 x i64> %.sroa.01087.0.copyload, %.sroa.0321.14.ph
   %1133 = or <4 x i64> %.sroa.41088.0.copyload, %.sroa.27.14.ph
   switch i32 %.61269.ph, label %processExceptional512.exit.thread1508 [
@@ -4064,7 +4064,7 @@ lshift64_m256.exit100:                            ; preds = %lshift64_m256.exit1
 
 .critedge.i15:                                    ; preds = %211, %209
   %220 = add i64 %.045.i71443, %4
-  %.sroa.01178.0.copyload1399 = load <32 x i8>, ptr %71, align 1
+  %.sroa.01178.0.copyload1399 = load <32 x i8>, ptr %71, align 64
   %221 = bitcast <4 x i64> %192 to <32 x i8>
   %222 = icmp ne <32 x i8> %.sroa.01178.0.copyload1399, %221
   %223 = bitcast <32 x i1> %222 to i32
@@ -4072,7 +4072,7 @@ lshift64_m256.exit100:                            ; preds = %lshift64_m256.exit1
   br i1 %.not1401, label %diff512.exit, label %diff512.exit.thread
 
 diff512.exit:                                     ; preds = %.critedge.i15
-  %.sroa.41179.0.copyload1400 = load <32 x i8>, ptr %.sroa.41179.0..sroa_idx, align 1
+  %.sroa.41179.0.copyload1400 = load <32 x i8>, ptr %.sroa.41179.0..sroa_idx, align 32
   %224 = bitcast <4 x i64> %193 to <32 x i8>
   %225 = icmp ne <32 x i8> %.sroa.41179.0.copyload1400, %224
   %226 = bitcast <32 x i1> %225 to i32
@@ -4080,8 +4080,8 @@ diff512.exit:                                     ; preds = %.critedge.i15
   br i1 %.not1402, label %227, label %diff512.exit.thread
 
 227:                                              ; preds = %diff512.exit
-  %.sroa.01162.0.copyload = load <4 x i64>, ptr %76, align 1
-  %.sroa.41163.0.copyload = load <4 x i64>, ptr %.sroa.41163.0..sroa_idx, align 1
+  %.sroa.01162.0.copyload = load <4 x i64>, ptr %76, align 64
+  %.sroa.41163.0.copyload = load <4 x i64>, ptr %.sroa.41163.0..sroa_idx, align 32
   %228 = or <4 x i64> %.sroa.01162.0.copyload, %.sroa.0766.1
   %229 = or <4 x i64> %.sroa.41163.0.copyload, %.sroa.27782.1
   br label %368
@@ -4326,8 +4326,8 @@ repeatHasMatch.exit.thread1295:                   ; preds = %319, %repeatHasMatc
   %344 = load <4 x i64>, ptr %343, align 32, !noalias !288
   %345 = getelementptr inbounds nuw i8, ptr %259, i64 96
   %346 = load <4 x i64>, ptr %345, align 32, !noalias !288
-  %.sroa.01210.0.copyload = load <4 x i64>, ptr %72, align 1
-  %.sroa.41211.0.copyload = load <4 x i64>, ptr %.sroa.41151.0..sroa_idx, align 1
+  %.sroa.01210.0.copyload = load <4 x i64>, ptr %72, align 64
+  %.sroa.41211.0.copyload = load <4 x i64>, ptr %.sroa.41151.0..sroa_idx, align 32
   %347 = or <4 x i64> %.sroa.01210.0.copyload, %344
   %348 = or <4 x i64> %.sroa.41211.0.copyload, %346
   store <4 x i64> %347, ptr %72, align 64
@@ -4363,8 +4363,8 @@ runException512.exit:                             ; preds = %351, %305, %301, %3
   br i1 %.not58.i146, label %360, label %.preheader1425
 
 360:                                              ; preds = %358
-  %.sroa.01158.0.copyload = load <4 x i64>, ptr %72, align 1
-  %.sroa.41159.0.copyload = load <4 x i64>, ptr %.sroa.41151.0..sroa_idx, align 1
+  %.sroa.01158.0.copyload = load <4 x i64>, ptr %72, align 64
+  %.sroa.41159.0.copyload = load <4 x i64>, ptr %.sroa.41151.0..sroa_idx, align 32
   %361 = or <4 x i64> %.sroa.01158.0.copyload, %.sroa.0766.14
   %362 = or <4 x i64> %.sroa.41159.0.copyload, %.sroa.27782.14
   switch i32 %.5, label %367 [
@@ -4674,7 +4674,7 @@ lshift64_m256.exit68:                             ; preds = %lshift64_m256.exit7
 
 .critedge.i21:                                    ; preds = %557, %555
   %566 = add i64 %.045.i1450, %4
-  %.sroa.01182.0.copyload1407 = load <32 x i8>, ptr %412, align 1
+  %.sroa.01182.0.copyload1407 = load <32 x i8>, ptr %412, align 64
   %567 = bitcast <4 x i64> %538 to <32 x i8>
   %568 = icmp ne <32 x i8> %.sroa.01182.0.copyload1407, %567
   %569 = bitcast <32 x i1> %568 to i32
@@ -4682,7 +4682,7 @@ lshift64_m256.exit68:                             ; preds = %lshift64_m256.exit7
   br i1 %.not1409, label %diff512.exit156, label %diff512.exit156.thread
 
 diff512.exit156:                                  ; preds = %.critedge.i21
-  %.sroa.41183.0.copyload1408 = load <32 x i8>, ptr %.sroa.41183.0..sroa_idx, align 1
+  %.sroa.41183.0.copyload1408 = load <32 x i8>, ptr %.sroa.41183.0..sroa_idx, align 32
   %570 = bitcast <4 x i64> %539 to <32 x i8>
   %571 = icmp ne <32 x i8> %.sroa.41183.0.copyload1408, %570
   %572 = bitcast <32 x i1> %571 to i32
@@ -4690,8 +4690,8 @@ diff512.exit156:                                  ; preds = %.critedge.i21
   br i1 %.not1410, label %573, label %diff512.exit156.thread
 
 573:                                              ; preds = %diff512.exit156
-  %.sroa.01136.0.copyload = load <4 x i64>, ptr %417, align 1
-  %.sroa.41137.0.copyload = load <4 x i64>, ptr %.sroa.41137.0..sroa_idx, align 1
+  %.sroa.01136.0.copyload = load <4 x i64>, ptr %417, align 64
+  %.sroa.41137.0.copyload = load <4 x i64>, ptr %.sroa.41137.0..sroa_idx, align 32
   %574 = or <4 x i64> %.sroa.01136.0.copyload, %.sroa.0557.1
   %575 = or <4 x i64> %.sroa.41137.0.copyload, %.sroa.27573.1
   br label %714
@@ -4936,8 +4936,8 @@ repeatHasMatch.exit205.thread1330:                ; preds = %665, %repeatHasMatc
   %690 = load <4 x i64>, ptr %689, align 32, !noalias !330
   %691 = getelementptr inbounds nuw i8, ptr %605, i64 96
   %692 = load <4 x i64>, ptr %691, align 32, !noalias !330
-  %.sroa.01236.0.copyload = load <4 x i64>, ptr %413, align 1
-  %.sroa.41237.0.copyload = load <4 x i64>, ptr %.sroa.41125.0..sroa_idx, align 1
+  %.sroa.01236.0.copyload = load <4 x i64>, ptr %413, align 64
+  %.sroa.41237.0.copyload = load <4 x i64>, ptr %.sroa.41125.0..sroa_idx, align 32
   %693 = or <4 x i64> %.sroa.01236.0.copyload, %690
   %694 = or <4 x i64> %.sroa.41237.0.copyload, %692
   store <4 x i64> %693, ptr %413, align 64
@@ -4973,8 +4973,8 @@ runException512.exit174:                          ; preds = %697, %651, %647, %6
   br i1 %.not58.i133, label %706, label %.preheader1424
 
 706:                                              ; preds = %704
-  %.sroa.01132.0.copyload = load <4 x i64>, ptr %413, align 1
-  %.sroa.41133.0.copyload = load <4 x i64>, ptr %.sroa.41125.0..sroa_idx, align 1
+  %.sroa.01132.0.copyload = load <4 x i64>, ptr %413, align 64
+  %.sroa.41133.0.copyload = load <4 x i64>, ptr %.sroa.41125.0..sroa_idx, align 32
   %707 = or <4 x i64> %.sroa.01132.0.copyload, %.sroa.0557.14
   %708 = or <4 x i64> %.sroa.41133.0.copyload, %.sroa.27573.14
   switch i32 %.51274, label %713 [
@@ -5336,7 +5336,7 @@ lshift64_m256.exit36:                             ; preds = %lshift64_m256.exit4
 
 .critedge.i28:                                    ; preds = %926, %924
   %935 = add i64 %.112851461, %4
-  %.sroa.01186.0.copyload1415 = load <32 x i8>, ptr %759, align 1
+  %.sroa.01186.0.copyload1415 = load <32 x i8>, ptr %759, align 64
   %936 = bitcast <4 x i64> %907 to <32 x i8>
   %937 = icmp ne <32 x i8> %.sroa.01186.0.copyload1415, %936
   %938 = bitcast <32 x i1> %937 to i32
@@ -5344,7 +5344,7 @@ lshift64_m256.exit36:                             ; preds = %lshift64_m256.exit4
   br i1 %.not1417, label %diff512.exit158, label %diff512.exit158.thread
 
 diff512.exit158:                                  ; preds = %.critedge.i28
-  %.sroa.41187.0.copyload1416 = load <32 x i8>, ptr %.sroa.41187.0..sroa_idx, align 1
+  %.sroa.41187.0.copyload1416 = load <32 x i8>, ptr %.sroa.41187.0..sroa_idx, align 32
   %939 = bitcast <4 x i64> %908 to <32 x i8>
   %940 = icmp ne <32 x i8> %.sroa.41187.0.copyload1416, %939
   %941 = bitcast <32 x i1> %940 to i32
@@ -5352,8 +5352,8 @@ diff512.exit158:                                  ; preds = %.critedge.i28
   br i1 %.not1418, label %942, label %diff512.exit158.thread
 
 942:                                              ; preds = %diff512.exit158
-  %.sroa.01110.0.copyload = load <4 x i64>, ptr %764, align 1
-  %.sroa.41111.0.copyload = load <4 x i64>, ptr %.sroa.41111.0..sroa_idx, align 1
+  %.sroa.01110.0.copyload = load <4 x i64>, ptr %764, align 64
+  %.sroa.41111.0.copyload = load <4 x i64>, ptr %.sroa.41111.0..sroa_idx, align 32
   %943 = or <4 x i64> %.sroa.01110.0.copyload, %.sroa.0291.1
   %944 = or <4 x i64> %.sroa.41111.0.copyload, %.sroa.27.1
   br label %1083
@@ -5598,8 +5598,8 @@ repeatHasMatch.exit207.thread1365:                ; preds = %1034, %repeatHasMat
   %1059 = load <4 x i64>, ptr %1058, align 32, !noalias !378
   %1060 = getelementptr inbounds nuw i8, ptr %974, i64 96
   %1061 = load <4 x i64>, ptr %1060, align 32, !noalias !378
-  %.sroa.01262.0.copyload = load <4 x i64>, ptr %760, align 1
-  %.sroa.41263.0.copyload = load <4 x i64>, ptr %.sroa.41099.0..sroa_idx, align 1
+  %.sroa.01262.0.copyload = load <4 x i64>, ptr %760, align 64
+  %.sroa.41263.0.copyload = load <4 x i64>, ptr %.sroa.41099.0..sroa_idx, align 32
   %1062 = or <4 x i64> %.sroa.01262.0.copyload, %1059
   %1063 = or <4 x i64> %.sroa.41263.0.copyload, %1061
   store <4 x i64> %1062, ptr %760, align 64
@@ -5635,8 +5635,8 @@ runException512.exit187:                          ; preds = %1066, %1020, %1016,
   br i1 %.not58.i, label %1075, label %.preheader
 
 1075:                                             ; preds = %1073
-  %.sroa.01106.0.copyload = load <4 x i64>, ptr %760, align 1
-  %.sroa.41107.0.copyload = load <4 x i64>, ptr %.sroa.41099.0..sroa_idx, align 1
+  %.sroa.01106.0.copyload = load <4 x i64>, ptr %760, align 64
+  %.sroa.41107.0.copyload = load <4 x i64>, ptr %.sroa.41099.0..sroa_idx, align 32
   %1076 = or <4 x i64> %.sroa.01106.0.copyload, %.sroa.0291.14
   %1077 = or <4 x i64> %.sroa.41107.0.copyload, %.sroa.27.14
   switch i32 %.51282, label %1082 [
@@ -6612,7 +6612,7 @@ lshift64_m256.exit97:                             ; preds = %lshift64_m256.exit1
 206:                                              ; preds = %186
   %207 = icmp eq i64 %.045.i61327, 0
   %208 = add i64 %.045.i61327, %4
-  %.sroa.01111.0.copyload1296 = load <32 x i8>, ptr %68, align 1
+  %.sroa.01111.0.copyload1296 = load <32 x i8>, ptr %68, align 64
   %209 = bitcast <4 x i64> %189 to <32 x i8>
   %210 = icmp ne <32 x i8> %.sroa.01111.0.copyload1296, %209
   %211 = bitcast <32 x i1> %210 to i32
@@ -6620,7 +6620,7 @@ lshift64_m256.exit97:                             ; preds = %lshift64_m256.exit1
   br i1 %.not, label %diff512.exit, label %diff512.exit.thread
 
 diff512.exit:                                     ; preds = %206
-  %.sroa.41112.0.copyload1297 = load <32 x i8>, ptr %.sroa.41112.0..sroa_idx, align 1
+  %.sroa.41112.0.copyload1297 = load <32 x i8>, ptr %.sroa.41112.0..sroa_idx, align 32
   %212 = bitcast <4 x i64> %190 to <32 x i8>
   %213 = icmp ne <32 x i8> %.sroa.41112.0.copyload1297, %212
   %214 = bitcast <32 x i1> %213 to i32
@@ -6628,8 +6628,8 @@ diff512.exit:                                     ; preds = %206
   br i1 %.not1298, label %215, label %diff512.exit.thread
 
 215:                                              ; preds = %diff512.exit
-  %.sroa.01095.0.copyload = load <4 x i64>, ptr %73, align 1
-  %.sroa.41096.0.copyload = load <4 x i64>, ptr %.sroa.41096.0..sroa_idx, align 1
+  %.sroa.01095.0.copyload = load <4 x i64>, ptr %73, align 64
+  %.sroa.41096.0.copyload = load <4 x i64>, ptr %.sroa.41096.0..sroa_idx, align 32
   %216 = or <4 x i64> %.sroa.01095.0.copyload, %.sroa.0748.1
   %217 = or <4 x i64> %.sroa.41096.0.copyload, %.sroa.27764.1
   br label %nfaExecLimEx512_Run_Exceptions.exit
@@ -6874,8 +6874,8 @@ repeatHasMatch.exit.thread1228:                   ; preds = %307, %repeatHasMatc
   %332 = load <4 x i64>, ptr %331, align 32, !noalias !449
   %333 = getelementptr inbounds nuw i8, ptr %247, i64 96
   %334 = load <4 x i64>, ptr %333, align 32, !noalias !449
-  %.sroa.01143.0.copyload = load <4 x i64>, ptr %69, align 1
-  %.sroa.41144.0.copyload = load <4 x i64>, ptr %.sroa.41084.0..sroa_idx, align 1
+  %.sroa.01143.0.copyload = load <4 x i64>, ptr %69, align 64
+  %.sroa.41144.0.copyload = load <4 x i64>, ptr %.sroa.41084.0..sroa_idx, align 32
   %335 = or <4 x i64> %.sroa.01143.0.copyload, %332
   %336 = or <4 x i64> %.sroa.41144.0.copyload, %334
   store <4 x i64> %335, ptr %69, align 64
@@ -6911,8 +6911,8 @@ runException512.exit:                             ; preds = %339, %293, %289, %3
   br i1 %.not58.i143, label %348, label %.preheader1318
 
 348:                                              ; preds = %346
-  %.sroa.01091.0.copyload = load <4 x i64>, ptr %69, align 1
-  %.sroa.41092.0.copyload = load <4 x i64>, ptr %.sroa.41084.0..sroa_idx, align 1
+  %.sroa.01091.0.copyload = load <4 x i64>, ptr %69, align 64
+  %.sroa.41092.0.copyload = load <4 x i64>, ptr %.sroa.41084.0..sroa_idx, align 32
   %349 = or <4 x i64> %.sroa.01091.0.copyload, %.sroa.0748.14
   %350 = or <4 x i64> %.sroa.41092.0.copyload, %.sroa.27764.14
   switch i32 %.5, label %355 [
@@ -7200,7 +7200,7 @@ lshift64_m256.exit65:                             ; preds = %lshift64_m256.exit6
 540:                                              ; preds = %520
   %541 = icmp eq i64 %.045.i1334, 0
   %542 = add i64 %.045.i1334, %4
-  %.sroa.01115.0.copyload1302 = load <32 x i8>, ptr %397, align 1
+  %.sroa.01115.0.copyload1302 = load <32 x i8>, ptr %397, align 64
   %543 = bitcast <4 x i64> %523 to <32 x i8>
   %544 = icmp ne <32 x i8> %.sroa.01115.0.copyload1302, %543
   %545 = bitcast <32 x i1> %544 to i32
@@ -7208,7 +7208,7 @@ lshift64_m256.exit65:                             ; preds = %lshift64_m256.exit6
   br i1 %.not1304, label %diff512.exit153, label %diff512.exit153.thread
 
 diff512.exit153:                                  ; preds = %540
-  %.sroa.41116.0.copyload1303 = load <32 x i8>, ptr %.sroa.41116.0..sroa_idx, align 1
+  %.sroa.41116.0.copyload1303 = load <32 x i8>, ptr %.sroa.41116.0..sroa_idx, align 32
   %546 = bitcast <4 x i64> %524 to <32 x i8>
   %547 = icmp ne <32 x i8> %.sroa.41116.0.copyload1303, %546
   %548 = bitcast <32 x i1> %547 to i32
@@ -7216,8 +7216,8 @@ diff512.exit153:                                  ; preds = %540
   br i1 %.not1305, label %549, label %diff512.exit153.thread
 
 549:                                              ; preds = %diff512.exit153
-  %.sroa.01069.0.copyload = load <4 x i64>, ptr %402, align 1
-  %.sroa.41070.0.copyload = load <4 x i64>, ptr %.sroa.41070.0..sroa_idx, align 1
+  %.sroa.01069.0.copyload = load <4 x i64>, ptr %402, align 64
+  %.sroa.41070.0.copyload = load <4 x i64>, ptr %.sroa.41070.0..sroa_idx, align 32
   %550 = or <4 x i64> %.sroa.01069.0.copyload, %.sroa.0539.1
   %551 = or <4 x i64> %.sroa.41070.0.copyload, %.sroa.27555.1
   br label %nfaExecLimEx512_Run_Exceptions.exit20
@@ -7462,8 +7462,8 @@ repeatHasMatch.exit202.thread1249:                ; preds = %641, %repeatHasMatc
   %666 = load <4 x i64>, ptr %665, align 32, !noalias !488
   %667 = getelementptr inbounds nuw i8, ptr %581, i64 96
   %668 = load <4 x i64>, ptr %667, align 32, !noalias !488
-  %.sroa.01169.0.copyload = load <4 x i64>, ptr %398, align 1
-  %.sroa.41170.0.copyload = load <4 x i64>, ptr %.sroa.41058.0..sroa_idx, align 1
+  %.sroa.01169.0.copyload = load <4 x i64>, ptr %398, align 64
+  %.sroa.41170.0.copyload = load <4 x i64>, ptr %.sroa.41058.0..sroa_idx, align 32
   %669 = or <4 x i64> %.sroa.01169.0.copyload, %666
   %670 = or <4 x i64> %.sroa.41170.0.copyload, %668
   store <4 x i64> %669, ptr %398, align 64
@@ -7499,8 +7499,8 @@ runException512.exit171:                          ; preds = %673, %627, %623, %6
   br i1 %.not58.i130, label %682, label %.preheader1317
 
 682:                                              ; preds = %680
-  %.sroa.01065.0.copyload = load <4 x i64>, ptr %398, align 1
-  %.sroa.41066.0.copyload = load <4 x i64>, ptr %.sroa.41058.0..sroa_idx, align 1
+  %.sroa.01065.0.copyload = load <4 x i64>, ptr %398, align 64
+  %.sroa.41066.0.copyload = load <4 x i64>, ptr %.sroa.41058.0..sroa_idx, align 32
   %683 = or <4 x i64> %.sroa.01065.0.copyload, %.sroa.0539.14
   %684 = or <4 x i64> %.sroa.41066.0.copyload, %.sroa.27555.14
   switch i32 %.51207, label %689 [
@@ -7840,7 +7840,7 @@ lshift64_m256.exit33:                             ; preds = %lshift64_m256.exit3
 897:                                              ; preds = %877
   %898 = icmp eq i64 %.112181345, 0
   %899 = add i64 %.112181345, %4
-  %.sroa.01119.0.copyload1309 = load <32 x i8>, ptr %732, align 1
+  %.sroa.01119.0.copyload1309 = load <32 x i8>, ptr %732, align 64
   %900 = bitcast <4 x i64> %880 to <32 x i8>
   %901 = icmp ne <32 x i8> %.sroa.01119.0.copyload1309, %900
   %902 = bitcast <32 x i1> %901 to i32
@@ -7848,7 +7848,7 @@ lshift64_m256.exit33:                             ; preds = %lshift64_m256.exit3
   br i1 %.not1311, label %diff512.exit155, label %diff512.exit155.thread
 
 diff512.exit155:                                  ; preds = %897
-  %.sroa.41120.0.copyload1310 = load <32 x i8>, ptr %.sroa.41120.0..sroa_idx, align 1
+  %.sroa.41120.0.copyload1310 = load <32 x i8>, ptr %.sroa.41120.0..sroa_idx, align 32
   %903 = bitcast <4 x i64> %881 to <32 x i8>
   %904 = icmp ne <32 x i8> %.sroa.41120.0.copyload1310, %903
   %905 = bitcast <32 x i1> %904 to i32
@@ -7856,8 +7856,8 @@ diff512.exit155:                                  ; preds = %897
   br i1 %.not1312, label %906, label %diff512.exit155.thread
 
 906:                                              ; preds = %diff512.exit155
-  %.sroa.01043.0.copyload = load <4 x i64>, ptr %737, align 1
-  %.sroa.41044.0.copyload = load <4 x i64>, ptr %.sroa.41044.0..sroa_idx, align 1
+  %.sroa.01043.0.copyload = load <4 x i64>, ptr %737, align 64
+  %.sroa.41044.0.copyload = load <4 x i64>, ptr %.sroa.41044.0..sroa_idx, align 32
   %907 = or <4 x i64> %.sroa.01043.0.copyload, %.sroa.0285.1
   %908 = or <4 x i64> %.sroa.41044.0.copyload, %.sroa.27.1
   br label %nfaExecLimEx512_Run_Exceptions.exit26
@@ -8102,8 +8102,8 @@ repeatHasMatch.exit204.thread1270:                ; preds = %998, %repeatHasMatc
   %1023 = load <4 x i64>, ptr %1022, align 32, !noalias !533
   %1024 = getelementptr inbounds nuw i8, ptr %938, i64 96
   %1025 = load <4 x i64>, ptr %1024, align 32, !noalias !533
-  %.sroa.01195.0.copyload = load <4 x i64>, ptr %733, align 1
-  %.sroa.41196.0.copyload = load <4 x i64>, ptr %.sroa.41032.0..sroa_idx, align 1
+  %.sroa.01195.0.copyload = load <4 x i64>, ptr %733, align 64
+  %.sroa.41196.0.copyload = load <4 x i64>, ptr %.sroa.41032.0..sroa_idx, align 32
   %1026 = or <4 x i64> %.sroa.01195.0.copyload, %1023
   %1027 = or <4 x i64> %.sroa.41196.0.copyload, %1025
   store <4 x i64> %1026, ptr %733, align 64
@@ -8139,8 +8139,8 @@ runException512.exit184:                          ; preds = %1030, %984, %980, %
   br i1 %.not58.i, label %1039, label %.preheader
 
 1039:                                             ; preds = %1037
-  %.sroa.01039.0.copyload = load <4 x i64>, ptr %733, align 1
-  %.sroa.41040.0.copyload = load <4 x i64>, ptr %.sroa.41032.0..sroa_idx, align 1
+  %.sroa.01039.0.copyload = load <4 x i64>, ptr %733, align 64
+  %.sroa.41040.0.copyload = load <4 x i64>, ptr %.sroa.41032.0..sroa_idx, align 32
   %1040 = or <4 x i64> %.sroa.01039.0.copyload, %.sroa.0285.14
   %1041 = or <4 x i64> %.sroa.41040.0.copyload, %.sroa.27.14
   switch i32 %.51215, label %1046 [
@@ -8224,9 +8224,9 @@ define hidden signext range(i8 0, 2) i8 @nfaExecLimEx512_testEOD(ptr noundef %0,
   %22 = load <4 x i64>, ptr %21, align 32, !noalias !542
   store <4 x i64> %22, ptr %20, align 32, !alias.scope !542
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #11
-  %.sroa.019.0.copyload = load <4 x i64>, ptr %1, align 1
+  %.sroa.019.0.copyload = load <4 x i64>, ptr %1, align 64
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.420.0.copyload = load <4 x i64>, ptr %.sroa.420.0..sroa_idx, align 1
+  %.sroa.420.0.copyload = load <4 x i64>, ptr %.sroa.420.0..sroa_idx, align 32
   %23 = and <4 x i64> %.sroa.019.0.copyload, %19
   store <4 x i64> %23, ptr %8, align 64, !alias.scope !545
   %24 = and <4 x i64> %.sroa.420.0.copyload, %22
@@ -8907,7 +8907,7 @@ lshift64_m256.exit65:                             ; preds = %lshift64_m256.exit6
 
 185:                                              ; preds = %165
   %186 = add i64 %.054493, %4
-  %.sroa.0392.0.copyload472 = load <32 x i8>, ptr %42, align 1
+  %.sroa.0392.0.copyload472 = load <32 x i8>, ptr %42, align 64
   %187 = bitcast <4 x i64> %168 to <32 x i8>
   %188 = icmp ne <32 x i8> %.sroa.0392.0.copyload472, %187
   %189 = bitcast <32 x i1> %188 to i32
@@ -8915,7 +8915,7 @@ lshift64_m256.exit65:                             ; preds = %lshift64_m256.exit6
   br i1 %.not474, label %diff512.exit, label %diff512.exit.thread
 
 diff512.exit:                                     ; preds = %185
-  %.sroa.4393.0.copyload473 = load <32 x i8>, ptr %.sroa.4393.0..sroa_idx, align 1
+  %.sroa.4393.0.copyload473 = load <32 x i8>, ptr %.sroa.4393.0..sroa_idx, align 32
   %190 = bitcast <4 x i64> %169 to <32 x i8>
   %191 = icmp ne <32 x i8> %.sroa.4393.0.copyload473, %190
   %192 = bitcast <32 x i1> %191 to i32
@@ -8923,8 +8923,8 @@ diff512.exit:                                     ; preds = %185
   br i1 %.not475, label %193, label %diff512.exit.thread
 
 193:                                              ; preds = %diff512.exit
-  %.sroa.0384.0.copyload = load <4 x i64>, ptr %47, align 1
-  %.sroa.4385.0.copyload = load <4 x i64>, ptr %.sroa.4385.0..sroa_idx, align 1
+  %.sroa.0384.0.copyload = load <4 x i64>, ptr %47, align 64
+  %.sroa.4385.0.copyload = load <4 x i64>, ptr %.sroa.4385.0..sroa_idx, align 32
   %194 = or <4 x i64> %.sroa.0384.0.copyload, %.sroa.0168.6
   %195 = or <4 x i64> %.sroa.4385.0.copyload, %.sroa.25.6
   %196 = load ptr, ptr %48, align 8
@@ -9059,8 +9059,8 @@ limexRunReports.exit.i98:                         ; preds = %245, %239
   %254 = load <4 x i64>, ptr %253, align 32, !noalias !590
   %255 = getelementptr inbounds nuw i8, ptr %236, i64 96
   %256 = load <4 x i64>, ptr %255, align 32, !noalias !590
-  %.sroa.0406.0.copyload = load <4 x i64>, ptr %43, align 1
-  %.sroa.4407.0.copyload = load <4 x i64>, ptr %.sroa.4373.0..sroa_idx, align 1
+  %.sroa.0406.0.copyload = load <4 x i64>, ptr %43, align 64
+  %.sroa.4407.0.copyload = load <4 x i64>, ptr %.sroa.4373.0..sroa_idx, align 32
   %257 = or <4 x i64> %.sroa.0406.0.copyload, %254
   %258 = or <4 x i64> %.sroa.4407.0.copyload, %256
   store <4 x i64> %257, ptr %43, align 64
@@ -9807,9 +9807,9 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAcceptsNoSquash512(pt
   %.sroa.014.0.copyload = load <4 x i64>, ptr %2, align 64
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.5.0.copyload = load <4 x i64>, ptr %.sroa.5.0..sroa_idx, align 32
-  %.sroa.010.0.copyload = load <4 x i64>, ptr %1, align 1
+  %.sroa.010.0.copyload = load <4 x i64>, ptr %1, align 64
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.411.0.copyload = load <4 x i64>, ptr %.sroa.411.0..sroa_idx, align 1
+  %.sroa.411.0.copyload = load <4 x i64>, ptr %.sroa.411.0..sroa_idx, align 32
   %10 = and <4 x i64> %.sroa.010.0.copyload, %.sroa.014.0.copyload
   %11 = and <4 x i64> %.sroa.411.0.copyload, %.sroa.5.0.copyload
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #11
@@ -9911,9 +9911,9 @@ define internal fastcc signext range(i8 0, 2) i8 @moProcessAccepts512(ptr nounde
   %.sroa.025.0.copyload = load <4 x i64>, ptr %2, align 64
   %.sroa.527.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.527.0.copyload = load <4 x i64>, ptr %.sroa.527.0..sroa_idx, align 32
-  %.sroa.021.0.copyload = load <4 x i64>, ptr %1, align 1
+  %.sroa.021.0.copyload = load <4 x i64>, ptr %1, align 64
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.422.0.copyload = load <4 x i64>, ptr %.sroa.422.0..sroa_idx, align 1
+  %.sroa.422.0.copyload = load <4 x i64>, ptr %.sroa.422.0..sroa_idx, align 32
   %10 = and <4 x i64> %.sroa.021.0.copyload, %.sroa.025.0.copyload
   %11 = and <4 x i64> %.sroa.422.0.copyload, %.sroa.527.0.copyload
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #11

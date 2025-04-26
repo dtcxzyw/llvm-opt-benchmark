@@ -1234,19 +1234,19 @@ define internal fastcc nonnull ptr @cliInitCommandHelpEntry(ptr noundef %0, ptr 
   %57 = trunc i64 %56 to i32
   store i32 %57, ptr %11, align 8, !tbaa !42
   tail call fastcc void @cliMakeCommandDocArgs(ptr noundef %51, ptr noundef %55)
-  %.sroa.461.0.copyload = load ptr, ptr %10, align 1
+  %.sroa.461.0.copyload = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.sroa.461.0.copyload, null
   br i1 %.not.i, label %61, label %58
 
 58:                                               ; preds = %49
-  %.sroa.3.0.copyload = load i32, ptr %11, align 1
+  %.sroa.3.0.copyload = load i32, ptr %11, align 8
   tail call fastcc void @clearMatchedArgs(ptr noundef nonnull %.sroa.461.0.copyload, i32 noundef %.sroa.3.0.copyload)
   %59 = tail call ptr @hi_sdsempty() #33
   %60 = tail call fastcc ptr @addHintForArguments(ptr noundef %59, ptr noundef nonnull %.sroa.461.0.copyload, i32 noundef %.sroa.3.0.copyload, ptr noundef nonnull @.str.140)
   br label %makeHint.exit
 
 61:                                               ; preds = %49
-  %.sroa.562.0.copyload = load ptr, ptr %.sroa.562.0..sroa_idx, align 1
+  %.sroa.562.0.copyload = load ptr, ptr %.sroa.562.0..sroa_idx, align 8
   %62 = tail call ptr @hi_sdsnew(ptr noundef %.sroa.562.0.copyload) #33
   br label %makeHint.exit
 
@@ -1435,13 +1435,13 @@ define internal fastcc nonnull ptr @cliLegacyInitCommandHelpEntry(ptr noundef %0
 
 31:                                               ; preds = %26
   tail call fastcc void @removeUnsupportedArgs(ptr noundef nonnull %25, ptr noundef nonnull %30, ptr noundef %5)
-  %.sroa.454.0.copyload.pre = load ptr, ptr %27, align 1
+  %.sroa.454.0.copyload.pre = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %.sroa.454.0.copyload.pre, null
   br i1 %.not.i, label %34, label %.thread
 
 .thread:                                          ; preds = %26, %31
   %.sroa.454.0.copyload67 = phi ptr [ %.sroa.454.0.copyload.pre, %31 ], [ %25, %26 ]
-  %.sroa.3.0.copyload = load i32, ptr %30, align 1
+  %.sroa.3.0.copyload = load i32, ptr %30, align 8
   tail call fastcc void @clearMatchedArgs(ptr noundef nonnull %.sroa.454.0.copyload67, i32 noundef %.sroa.3.0.copyload)
   %32 = tail call ptr @hi_sdsempty() #33
   %33 = tail call fastcc ptr @addHintForArguments(ptr noundef %32, ptr noundef nonnull %.sroa.454.0.copyload67, i32 noundef %.sroa.3.0.copyload, ptr noundef nonnull @.str.140)
@@ -1449,7 +1449,7 @@ define internal fastcc nonnull ptr @cliLegacyInitCommandHelpEntry(ptr noundef %0
 
 34:                                               ; preds = %31
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %.sroa.555.0.copyload = load ptr, ptr %.sroa.555.0..sroa_idx, align 1
+  %.sroa.555.0.copyload = load ptr, ptr %.sroa.555.0..sroa_idx, align 8
   %35 = tail call ptr @hi_sdsnew(ptr noundef %.sroa.555.0.copyload) #33
   br label %makeHint.exit
 
@@ -7830,11 +7830,11 @@ findHelpEntry.exit:                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %.1.i, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !217
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1.i, i64 56
-  %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 1
+  %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1.i, i64 64
-  %.sroa.421.0.copyload = load ptr, ptr %.sroa.421.0..sroa_idx, align 1
+  %.sroa.421.0.copyload = load ptr, ptr %.sroa.421.0..sroa_idx, align 8
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.1.i, i64 80
-  %.sroa.522.0.copyload = load ptr, ptr %.sroa.522.0..sroa_idx, align 1
+  %.sroa.522.0.copyload = load ptr, ptr %.sroa.522.0..sroa_idx, align 8
   %.not.i18 = icmp eq ptr %.sroa.421.0.copyload, null
   br i1 %.not.i18, label %61, label %48
 

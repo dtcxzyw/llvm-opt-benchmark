@@ -1213,11 +1213,11 @@ define internal fastcc void @emit_html_txt(ptr noundef %0, ptr noundef readonly 
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i8, ptr %31, align 8, !tbaa !134
-  %.sroa.0.0.copyload = load ptr, ptr %30, align 1
+  %.sroa.0.0.copyload = load ptr, ptr %30, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.sroa.517.0.copyload = load double, ptr %.sroa.517.0..sroa_idx, align 1
+  %.sroa.517.0.copyload = load double, ptr %.sroa.517.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #23
   %33 = fsub double %19, %15
