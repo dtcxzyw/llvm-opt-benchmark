@@ -1499,7 +1499,7 @@ define dso_local noundef range(i64 0, 1024) i64 @_ZNK4llvm18ModuleSummaryIndex8g
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 323
   %20 = load i8, ptr %19, align 1, !tbaa !159, !range !48, !noundef !49
   %21 = shl nuw i8 %20, 7
-  %.615 = or i8 %.514, %21
+  %.615 = or disjoint i8 %.514, %21
   %.6 = zext i8 %.615 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 325
   %23 = load i8, ptr %22, align 1, !tbaa !160, !range !48, !noundef !49
