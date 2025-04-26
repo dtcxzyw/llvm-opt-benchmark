@@ -121292,7 +121292,7 @@ define hidden { i64, ptr } @_ZN7calloop7sources4ping7eventfd10drain_ping17hebd1e
 
 8:                                                ; preds = %1
   %9 = icmp eq ptr %6, inttoptr (i64 8 to ptr)
-  br i1 %9, label %14, label %15
+  br i1 %9, label %15, label %17
 
 10:                                               ; preds = %1
   %11 = ptrtoint ptr %6 to i64
@@ -121302,21 +121302,21 @@ define hidden { i64, ptr } @_ZN7calloop7sources4ping7eventfd10drain_ping17hebd1e
   %13 = or disjoint i64 %.neg, 2
   br label %16
 
-14:                                               ; preds = %8
-  %.sroa.01.0.copyload = load i64, ptr %2, align 8
-  br label %16
-
 15:                                               ; preds = %8
+  %.sroa.01.0.copyload = load i64, ptr %2, align 8
+  br label %18
+
+17:                                               ; preds = %8
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.5d93e77cdbe08bb72370cd64257bce76.37.llvm.4362809659209244062, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5d93e77cdbe08bb72370cd64257bce76.944.llvm.4362809659209244062) #51
   unreachable
 
-16:                                               ; preds = %14, %10
+18:                                               ; preds = %15, %10
   %.sroa.3.0 = phi i64 [ %13, %10 ], [ %.sroa.01.0.copyload, %14 ]
   %.sroa.0.0 = phi i64 [ 1, %10 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %17 = inttoptr i64 %.sroa.3.0 to ptr
-  %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %19 = insertvalue { i64, ptr } %18, ptr %17, 1
+  %20 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %19 = insertvalue { i64, ptr } %20, ptr %17, 1
   ret { i64, ptr } %19
 }
 

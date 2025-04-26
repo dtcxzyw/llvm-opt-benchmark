@@ -485,23 +485,23 @@ _ZN21StackChunkFrameStreamIL11ChunkFrames1EE23initialize_register_mapEP11Registe
   br i1 %.not.i.i.i.i, label %_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit, label %_ZNK5frame20is_interpreted_frameEv.exit.i.i
 
 _ZNK5frame20is_interpreted_frameEv.exit.i.i:      ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE23initialize_register_mapEP11RegisterMap.exit
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %.not.i.i.i.i.i = icmp ule ptr %55, %53
-  %56 = getelementptr inbounds nuw i8, ptr %51, i64 20
-  %57 = load i32, ptr %56, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %55, i64 %58
-  %60 = icmp ult ptr %53, %59
-  %61 = select i1 %.not.i.i.i.i.i, i1 %60, i1 false
-  br i1 %61, label %62, label %_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %.not.i.i.i.i.i = icmp ule ptr %60, %58
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 20
+  %62 = load i32, ptr %61, align 4
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds i8, ptr %60, i64 %63
+  %65 = icmp ult ptr %58, %64
+  %66 = select i1 %.not.i.i.i.i.i, i1 %65, i1 false
+  br i1 %66, label %67, label %_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit
 
-62:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i.i
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i32, ptr %33, align 4
+67:                                               ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %69 = load ptr, ptr %68, align 8
+  %70 = load i32, ptr %33, align 4
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %46, %66
   %68 = lshr i64 %67, 3
@@ -510,7 +510,7 @@ _ZNK5frame20is_interpreted_frameEv.exit.i.i:      ; preds = %_ZN21StackChunkFram
   store i32 %70, ptr %63, align 8
   br label %_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit
 
-_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit: ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE23initialize_register_mapEP11RegisterMap.exit, %_ZNK5frame20is_interpreted_frameEv.exit.i.i, %62
+_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit: ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames1EE23initialize_register_mapEP11RegisterMap.exit, %_ZNK5frame20is_interpreted_frameEv.exit.i.i, %67
   ret void
 }
 
@@ -948,7 +948,7 @@ _ZN21StackChunkFrameStreamIL11ChunkFrames1EEC2EP17stackChunkOopDescRK5frame.exit
   %74 = load ptr, ptr %34, align 8
   %75 = load ptr, ptr %4, align 8
   %.not23 = icmp ult ptr %74, %75
-  br i1 %.not23, label %76, label %121
+  br i1 %.not23, label %76, label %129
 
 76:                                               ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames1EEC2EP17stackChunkOopDescRK5frame.exit
   call void @_ZNK21StackChunkFrameStreamIL11ChunkFrames1EE8to_frameEv(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %4)
@@ -983,23 +983,23 @@ _ZN21StackChunkFrameStreamIL11ChunkFrames1EEC2EP17stackChunkOopDescRK5frame.exit
   br i1 %.not.i.i.i.i7, label %_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit, label %_ZNK5frame20is_interpreted_frameEv.exit.i.i
 
 _ZNK5frame20is_interpreted_frameEv.exit.i.i:      ; preds = %76
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %105 = load ptr, ptr %104, align 8
-  %.not.i.i.i.i.i8 = icmp ule ptr %105, %103
-  %106 = getelementptr inbounds nuw i8, ptr %101, i64 20
-  %107 = load i32, ptr %106, align 4
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %105, i64 %108
-  %110 = icmp ult ptr %103, %109
-  %111 = select i1 %.not.i.i.i.i.i8, i1 %110, i1 false
-  br i1 %111, label %112, label %_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %110 = load ptr, ptr %109, align 8
+  %.not.i.i.i.i.i8 = icmp ule ptr %110, %108
+  %111 = getelementptr inbounds nuw i8, ptr %101, i64 20
+  %112 = load i32, ptr %111, align 4
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %110, i64 %113
+  %115 = icmp ult ptr %108, %114
+  %116 = select i1 %.not.i.i.i.i.i8, i1 %115, i1 false
+  br i1 %116, label %117, label %_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit
 
-112:                                              ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i.i
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %114 = load ptr, ptr %113, align 8
-  %115 = load i32, ptr %83, align 4
+117:                                              ; preds = %_ZNK5frame20is_interpreted_frameEv.exit.i.i
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %119 = load ptr, ptr %118, align 8
+  %120 = load i32, ptr %83, align 4
   %116 = ptrtoint ptr %114 to i64
   %117 = sub i64 %96, %116
   %118 = lshr i64 %117, 3
@@ -1008,27 +1008,27 @@ _ZNK5frame20is_interpreted_frameEv.exit.i.i:      ; preds = %76
   store i32 %120, ptr %113, align 8
   br label %_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit
 
-121:                                              ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames1EEC2EP17stackChunkOopDescRK5frame.exit
-  %122 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
-  %123 = sext i32 %122 to i64
-  %124 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %125 = call noundef ptr %124(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %123) #9
-  %.not = icmp eq ptr %125, null
-  br i1 %.not, label %131, label %126
+129:                                              ; preds = %_ZN21StackChunkFrameStreamIL11ChunkFrames1EEC2EP17stackChunkOopDescRK5frame.exit
+  %130 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
+  %131 = sext i32 %130 to i64
+  %132 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %133 = call noundef ptr %124(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %131) #9
+  %.not = icmp eq ptr %133, null
+  br i1 %.not, label %139, label %134
 
-126:                                              ; preds = %121
-  %127 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
-  %128 = sext i32 %127 to i64
-  %129 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %130 = call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %128) #9
-  call void @_ZN17stackChunkOopDesc9top_frameEP11RegisterMap(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef %3)
+134:                                              ; preds = %129
+  %135 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
+  %136 = sext i32 %135 to i64
+  %137 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %138 = call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %136) #9
+  call void @_ZN17stackChunkOopDesc9top_frameEP11RegisterMap(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef %3)
   br label %_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit
 
-131:                                              ; preds = %121
+139:                                              ; preds = %129
   call void @_ZN12Continuation25continuation_parent_frameEP11RegisterMap(ptr dead_on_unwind writable sret(%class.frame) align 8 %0, ptr noundef %3) #9
   br label %_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit
 
-_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit: ; preds = %112, %_ZNK5frame20is_interpreted_frameEv.exit.i.i, %76, %131, %126
+_ZNK17stackChunkOopDesc16relativize_frameER5frame.exit: ; preds = %117, %_ZNK5frame20is_interpreted_frameEv.exit.i.i, %76, %139, %134
   ret void
 }
 
