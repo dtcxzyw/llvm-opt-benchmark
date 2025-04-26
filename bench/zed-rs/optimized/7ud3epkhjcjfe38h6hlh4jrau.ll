@@ -121292,33 +121292,32 @@ define hidden { i64, ptr } @_ZN7calloop7sources4ping7eventfd10drain_ping17hebd1e
 
 8:                                                ; preds = %1
   %9 = icmp eq ptr %6, inttoptr (i64 8 to ptr)
-  br i1 %9, label %15, label %17
+  br i1 %9, label %14, label %15
 
 10:                                               ; preds = %1
   %11 = ptrtoint ptr %6 to i64
   %sext = shl i64 %11, 48
   %12 = ashr exact i64 %sext, 48
   %.neg = mul nsw i64 %12, -4294967296
-  %13 = getelementptr i8, ptr null, i64 %.neg
-  %14 = getelementptr i8, ptr %13, i64 2
-  br label %18
+  %13 = or disjoint i64 %.neg, 2
+  br label %16
+
+14:                                               ; preds = %8
+  %.sroa.01.0.copyload = load i64, ptr %2, align 8
+  br label %16
 
 15:                                               ; preds = %8
-  %.sroa.01.0.copyload = load i64, ptr %2, align 8
-  %16 = inttoptr i64 %.sroa.01.0.copyload to ptr
-  br label %18
-
-17:                                               ; preds = %8
   call void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.5d93e77cdbe08bb72370cd64257bce76.37.llvm.4362809659209244062, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5d93e77cdbe08bb72370cd64257bce76.944.llvm.4362809659209244062) #51
   unreachable
 
-18:                                               ; preds = %15, %10
-  %.sroa.3.0 = phi ptr [ %14, %10 ], [ %16, %15 ]
-  %.sroa.0.0 = phi i64 [ 1, %10 ], [ 0, %15 ]
+16:                                               ; preds = %14, %10
+  %.sroa.3.0 = phi i64 [ %13, %10 ], [ %.sroa.01.0.copyload, %14 ]
+  %.sroa.0.0 = phi i64 [ 1, %10 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %20 = insertvalue { i64, ptr } %19, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %20
+  %17 = inttoptr i64 %.sroa.3.0 to ptr
+  %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %19 = insertvalue { i64, ptr } %18, ptr %17, 1
+  ret { i64, ptr } %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -125542,9 +125541,9 @@ define hidden void @"_ZN93_$LT$calloop..sources..ping..eventfd..PingSource$u20$a
   %sext.i = shl i64 %23, 48
   %24 = ashr exact i64 %sext.i, 48
   %.neg.i = mul nsw i64 %24, -4294967296
-  %25 = getelementptr i8, ptr null, i64 %.neg.i
-  %26 = getelementptr i8, ptr %25, i64 2
+  %25 = or disjoint i64 %.neg.i, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %27, align 8
   br label %53
@@ -125666,9 +125665,9 @@ define hidden void @"_ZN93_$LT$calloop..sources..ping..eventfd..PingSource$u20$a
   %sext.i = shl i64 %20, 48
   %21 = ashr exact i64 %sext.i, 48
   %.neg.i = mul nsw i64 %21, -4294967296
-  %22 = getelementptr i8, ptr null, i64 %.neg.i
-  %23 = getelementptr i8, ptr %22, i64 2
+  %22 = or disjoint i64 %.neg.i, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   br label %43
@@ -125761,9 +125760,9 @@ define hidden void @"_ZN93_$LT$calloop..sources..ping..eventfd..PingSource$u20$a
   %sext.i = shl i64 %20, 48
   %21 = ashr exact i64 %sext.i, 48
   %.neg.i = mul nsw i64 %21, -4294967296
-  %22 = getelementptr i8, ptr null, i64 %.neg.i
-  %23 = getelementptr i8, ptr %22, i64 2
+  %22 = or disjoint i64 %.neg.i, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   br label %43
@@ -125861,9 +125860,9 @@ define hidden void @"_ZN93_$LT$calloop..sources..ping..eventfd..PingSource$u20$a
   %sext.i = shl i64 %23, 48
   %24 = ashr exact i64 %sext.i, 48
   %.neg.i = mul nsw i64 %24, -4294967296
-  %25 = getelementptr i8, ptr null, i64 %.neg.i
-  %26 = getelementptr i8, ptr %25, i64 2
+  %25 = or disjoint i64 %.neg.i, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %27, align 8
   br label %53
@@ -125985,9 +125984,9 @@ define hidden void @"_ZN93_$LT$calloop..sources..ping..eventfd..PingSource$u20$a
   %sext.i = shl i64 %20, 48
   %21 = ashr exact i64 %sext.i, 48
   %.neg.i = mul nsw i64 %21, -4294967296
-  %22 = getelementptr i8, ptr null, i64 %.neg.i
-  %23 = getelementptr i8, ptr %22, i64 2
+  %22 = or disjoint i64 %.neg.i, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %23, ptr %24, align 8
   br label %43
@@ -126081,9 +126080,9 @@ define hidden void @"_ZN93_$LT$calloop..sources..ping..eventfd..PingSource$u20$a
   %sext.i = shl i64 %19, 48
   %20 = ashr exact i64 %sext.i, 48
   %.neg.i = mul nsw i64 %20, -4294967296
-  %21 = getelementptr i8, ptr null, i64 %.neg.i
-  %22 = getelementptr i8, ptr %21, i64 2
+  %21 = or disjoint i64 %.neg.i, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %22, ptr %23, align 8
   br label %30
@@ -126777,9 +126776,9 @@ define hidden void @"_ZN97_$LT$calloop..sources..generic..Generic$LT$F$C$E$GT$$u
   %sext.i.i = shl i64 %38, 48
   %39 = ashr exact i64 %sext.i.i, 48
   %.neg.i.i = mul nsw i64 %39, -4294967296
-  %40 = getelementptr i8, ptr null, i64 %.neg.i.i
-  %41 = getelementptr i8, ptr %40, i64 2
+  %40 = or disjoint i64 %.neg.i.i, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !26857
+  %41 = inttoptr i64 %40 to ptr
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %41, ptr %42, align 8, !alias.scope !26852, !noalias !26864
   br label %"_ZN93_$LT$calloop..sources..ping..eventfd..PingSource$u20$as$u20$calloop..sources..EventSource$GT$14process_events28_$u7b$$u7b$closure$u7d$$u7d$17h6e2bff74b3c7b908E.llvm.4362809659209244062.exit"
@@ -126978,9 +126977,9 @@ define hidden void @"_ZN97_$LT$calloop..sources..generic..Generic$LT$F$C$E$GT$$u
   %sext.i.i = shl i64 %37, 48
   %38 = ashr exact i64 %sext.i.i, 48
   %.neg.i.i = mul nsw i64 %38, -4294967296
-  %39 = getelementptr i8, ptr null, i64 %.neg.i.i
-  %40 = getelementptr i8, ptr %39, i64 2
+  %39 = or disjoint i64 %.neg.i.i, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !26891
+  %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %40, ptr %41, align 8, !alias.scope !26886, !noalias !26898
   br label %"_ZN93_$LT$calloop..sources..ping..eventfd..PingSource$u20$as$u20$calloop..sources..EventSource$GT$14process_events28_$u7b$$u7b$closure$u7d$$u7d$17hcb553d344b2668f0E.llvm.4362809659209244062.exit"
