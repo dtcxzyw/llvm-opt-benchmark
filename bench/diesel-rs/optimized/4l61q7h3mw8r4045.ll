@@ -934,7 +934,7 @@ define internal fastcc void @"_ZN6diesel10type_impls6tuples94_$LT$impl$u20$diese
     i64 4, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h287e8d1d43732d6cE.exit"
   ]
 
-default.unreachable:                              ; preds = %23
+default.unreachable:                              ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit", %23
   unreachable
 
 25:                                               ; preds = %23
@@ -1027,7 +1027,7 @@ default.unreachable:                              ; preds = %23
   br i1 %21, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exitthread-pre-split", label %62
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exitthread-pre-split": ; preds = %48
-  %.pr = load i64, ptr %2, align 8, !alias.scope !270, !noalias !273
+  %.pr = load i64, ptr %2, align 8, !range !42, !alias.scope !270, !noalias !273, !noundef !14
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit"
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit": ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exitthread-pre-split", %62
@@ -1036,16 +1036,13 @@ default.unreachable:                              ; preds = %23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !273)
   call void @llvm.experimental.noalias.scope.decl(metadata !270)
-  switch i64 %49, label %default.unreachable1.i70 [
+  switch i64 %49, label %default.unreachable [
     i64 0, label %50
     i64 1, label %53
     i64 2, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h287e8d1d43732d6cE.exit71"
     i64 3, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h287e8d1d43732d6cE.exit71"
     i64 4, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17h287e8d1d43732d6cE.exit71"
   ]
-
-default.unreachable1.i70:                         ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit"
-  unreachable
 
 50:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit.thread", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h34a3355d66690e60E.exit"
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 16

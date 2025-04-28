@@ -609,7 +609,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i: ; preds = %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit.i.i, %.lr.ph.i.i, %4
   %.sroa.0.0.ph.i = phi ptr [ %7, %4 ], [ %.sroa.0.1.i, %.lr.ph.i.i ], [ %.0.i.i.i.i, %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit.i.i ]
-  %.pr.i = load i32, ptr %.sroa.0.0.ph.i, align 8, !noalias !105
+  %.pr.i = load i32, ptr %.sroa.0.0.ph.i, align 8, !range !104, !noalias !105, !noundef !4
   %21 = icmp eq i32 %.pr.i, 0
   br i1 %21, label %22, label %switch.lookup
 
@@ -742,7 +742,7 @@ define hidden void @"_ZN60_$LT$syn..token..Underscore$u20$as$u20$syn..parse..Par
   br i1 %15, label %.preheader.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !noalias !111
+  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !range !104, !noalias !111
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -954,7 +954,7 @@ _ZN3syn6buffer6Cursor5ident17he943c8405b28ecffE.exit: ; preds = %36
   br i1 %80, label %.preheader.i.i37, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i35
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i35: ; preds = %.lr.ph.i.i34
-  %.pr.pre.i36 = load i32, ptr %.sroa.0.0.i, align 8, !noalias !169
+  %.pr.pre.i36 = load i32, ptr %.sroa.0.0.i, align 8, !range !104, !noalias !169
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i26
 
 .preheader.i.i37:                                 ; preds = %.lr.ph.i.i34, %.preheader.i.i37
@@ -1055,7 +1055,7 @@ define hidden noundef zeroext i1 @_ZN3syn5token7parsing12peek_keyword17h298c6523
   br i1 %14, label %.preheader.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !noalias !176
+  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !range !104, !noalias !176
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -1304,7 +1304,7 @@ define noundef zeroext i1 @_ZN3syn5token7parsing10peek_punct17hb0dfc428ddeb4f9cE
   br i1 %52, label %.preheader.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.pr.pre.i = load i32, ptr %.sroa.0.0.i12, align 8, !noalias !222
+  %.pr.pre.i = load i32, ptr %.sroa.0.0.i12, align 8, !range !104, !noalias !222
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -2605,7 +2605,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i: ; preds = %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit.i.i, %.lr.ph.i.i, %3
   %.sroa.0.0.ph.i = phi ptr [ %5, %3 ], [ %.sroa.0.1.i, %.lr.ph.i.i ], [ %.0.i.i.i.i, %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit.i.i ]
-  %.pr.i = load i32, ptr %.sroa.0.0.ph.i, align 8, !noalias !381
+  %.pr.i = load i32, ptr %.sroa.0.0.ph.i, align 8, !range !104, !noalias !381, !noundef !4
   %19 = icmp eq i32 %.pr.i, 0
   br i1 %19, label %20, label %.loopexit
 
@@ -2665,7 +2665,7 @@ define hidden void @"_ZN57_$LT$proc_macro2..Ident$u20$as$u20$syn..ext..IdentExt$
   br i1 %11, label %.preheader.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !noalias !387
+  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !range !104, !noalias !387
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -2950,7 +2950,7 @@ define hidden void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$
   br i1 %16, label %.preheader.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !noalias !417
+  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !range !104, !noalias !417
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -3229,7 +3229,7 @@ define hidden void @"_ZN3syn3lit7parsing61_$LT$impl$u20$syn..parse..Parse$u20$fo
   br i1 %19, label %.preheader.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !noalias !466
+  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !range !104, !noalias !466
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -3318,7 +3318,7 @@ _ZN3syn6buffer6Cursor7literal17h56201320c761e7bfE.exit: ; preds = %33
   br i1 %42, label %.preheader.i.i42, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i40
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i40: ; preds = %.lr.ph.i.i38
-  %.pr.pre.i41 = load i32, ptr %.sroa.03.0.i39, align 8, !noalias !479
+  %.pr.pre.i41 = load i32, ptr %.sroa.03.0.i39, align 8, !range !104, !noalias !479
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i27
 
 .preheader.i.i42:                                 ; preds = %.lr.ph.i.i38, %.preheader.i.i42
@@ -3544,7 +3544,7 @@ _ZN3syn6buffer6Cursor5ident17he943c8405b28ecffE.exit: ; preds = %63
   br i1 %110, label %.preheader.i.i61, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i59
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i59: ; preds = %.lr.ph.i.i58
-  %.pr.pre.i60 = load i32, ptr %.sroa.0.0.i, align 8, !noalias !536
+  %.pr.pre.i60 = load i32, ptr %.sroa.0.0.i, align 8, !range !104, !noalias !536
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i50
 
 .preheader.i.i61:                                 ; preds = %.lr.ph.i.i58, %.preheader.i.i61
@@ -4440,7 +4440,7 @@ define hidden noundef ptr @_ZN3syn5parse10cell_clone17h473bafb9fd12db0eE(ptr nou
   unreachable
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5fffa741a97fbcacE.llvm.858133952616893155.exit": ; preds = %5
-  %.pr = load ptr, ptr %0, align 8
+  %.pr = load ptr, ptr %0, align 8, !noundef !4
   store ptr %3, ptr %2, align 8
   store ptr %3, ptr %0, align 8
   %11 = icmp eq ptr %.pr, null
@@ -4731,7 +4731,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i: ; preds = %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit.i.i.i, %.lr.ph.i.i.i, %3
   %.sroa.0.0.ph.i.i = phi ptr [ %5, %3 ], [ %.0.i.i.i.i.i, %_ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.1271834235494842624.exit.i.i.i ], [ %.sroa.0.1.i.i, %.lr.ph.i.i.i ]
-  %.pr.i.i = load i32, ptr %.sroa.0.0.ph.i.i, align 8, !noalias !670
+  %.pr.i.i = load i32, ptr %.sroa.0.0.ph.i.i, align 8, !range !104, !noalias !670, !noundef !4
   %19 = icmp eq i32 %.pr.i.i, 0
   br i1 %19, label %20, label %.loopexit
 
@@ -4789,7 +4789,7 @@ define hidden void @_ZN3syn5parse11ParseBuffer4step17h40b000af27158f69E(ptr noal
   br i1 %13, label %.preheader.i.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i: ; preds = %.lr.ph.i.i.i
-  %.pr.pre.i.i = load i32, ptr %.sroa.0.0.i.i, align 8, !noalias !676
+  %.pr.pre.i.i = load i32, ptr %.sroa.0.0.i.i, align 8, !range !104, !noalias !676
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
@@ -5085,7 +5085,7 @@ define hidden void @_ZN3syn5parse11ParseBuffer4step17h80f0ec66ce93d366E(ptr noal
   br i1 %13, label %.preheader.i.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i: ; preds = %.lr.ph.i.i.i
-  %.pr.pre.i.i = load i32, ptr %.sroa.03.0.i.i, align 8, !noalias !697
+  %.pr.pre.i.i = load i32, ptr %.sroa.03.0.i.i, align 8, !range !104, !noalias !697
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
@@ -5360,7 +5360,7 @@ define hidden void @_ZN3syn5parse11ParseBuffer4step17h98729fb9c4ee70d2E.llvm.858
   br i1 %21, label %.preheader.i.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i: ; preds = %.lr.ph.i.i.i
-  %.pr.pre.i.i = load i32, ptr %.sroa.03.0.i.i, align 8, !noalias !727
+  %.pr.pre.i.i = load i32, ptr %.sroa.03.0.i.i, align 8, !range !104, !noalias !727
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
@@ -5661,7 +5661,7 @@ define hidden void @_ZN3syn5parse11ParseBuffer4step17hc12c539cc564aa43E(ptr noal
   br i1 %13, label %.preheader.i.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i: ; preds = %.lr.ph.i.i.i
-  %.pr.pre.i.i = load i32, ptr %.sroa.03.0.i.i, align 8, !noalias !802
+  %.pr.pre.i.i = load i32, ptr %.sroa.03.0.i.i, align 8, !range !104, !noalias !802
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
@@ -5988,7 +5988,7 @@ define hidden void @_ZN3syn5parse11ParseBuffer4step17hc7eb6887829ee83fE.llvm.858
   br i1 %66, label %.preheader.i.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i: ; preds = %.lr.ph.i.i.i
-  %.pr.pre.i.i = load i32, ptr %.sroa.0.0.i18.i, align 8, !noalias !838
+  %.pr.pre.i.i = load i32, ptr %.sroa.0.0.i18.i, align 8, !range !104, !noalias !838
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
@@ -6410,7 +6410,7 @@ define hidden void @"_ZN56_$LT$proc_macro2..Punct$u20$as$u20$syn..parse..Parse$G
   br i1 %11, label %.preheader.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.pr.pre.i = load i32, ptr %.sroa.0.0.i, align 8, !noalias !885
+  %.pr.pre.i = load i32, ptr %.sroa.0.0.i, align 8, !range !104, !noalias !885
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -6501,7 +6501,7 @@ define hidden void @"_ZN58_$LT$proc_macro2..Literal$u20$as$u20$syn..parse..Parse
   br i1 %11, label %.preheader.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !noalias !891
+  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !range !104, !noalias !891
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -7052,7 +7052,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread2: ; preds
   %9 = load ptr, ptr %1, align 8, !noundef !4
   %10 = load ptr, ptr %5, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  %.pr.i.i = load i32, ptr %9, align 8, !noalias !984
+  %.pr.i.i = load i32, ptr %9, align 8, !range !104, !noalias !984, !noundef !4
   %11 = icmp eq i32 %.pr.i.i, 0
   br i1 %11, label %12, label %_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i
 
@@ -7317,7 +7317,7 @@ define noundef zeroext i1 @"_ZN3syn4expr7parsing2kw1_94_$LT$impl$u20$syn..token.
   br i1 %10, label %.preheader.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !noalias !1023
+  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !range !104, !noalias !1023
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -7496,7 +7496,7 @@ define void @"_ZN3syn4expr7parsing2kw1_79_$LT$impl$u20$syn..parse..Parse$u20$for
   br i1 %17, label %.preheader.i.i.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.pre.i.i.i = load i32, ptr %.sroa.03.0.i.i.i, align 8, !noalias !1065
+  %.pr.pre.i.i.i = load i32, ptr %.sroa.03.0.i.i.i, align 8, !range !104, !noalias !1065
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i, %.preheader.i.i.i.i
@@ -7744,7 +7744,7 @@ define noundef zeroext i1 @"_ZN3syn4expr7parsing2kw1_90_$LT$impl$u20$syn..token.
   br i1 %10, label %.preheader.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !noalias !1129
+  %.pr.pre.i = load i32, ptr %.sroa.03.0.i, align 8, !range !104, !noalias !1129
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
@@ -7923,7 +7923,7 @@ define void @"_ZN3syn4expr7parsing2kw1_75_$LT$impl$u20$syn..parse..Parse$u20$for
   br i1 %17, label %.preheader.i.i.i.i, label %.lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i.i
 
 .lr.ph.i._ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exitthread-pre-split_crit_edge.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.pre.i.i.i = load i32, ptr %.sroa.03.0.i.i.i, align 8, !noalias !1171
+  %.pr.pre.i.i.i = load i32, ptr %.sroa.03.0.i.i.i, align 8, !range !104, !noalias !1171
   br label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i, %.preheader.i.i.i.i

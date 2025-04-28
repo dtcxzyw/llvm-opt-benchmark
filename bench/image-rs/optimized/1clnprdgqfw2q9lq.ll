@@ -1561,7 +1561,7 @@ _ZN3exr2io4Data18read_i32_sized_vec17hed766ce4cb5f7a2fE.exit.thread42.i.i.i.i: ;
 _ZN3exr2io4Data18read_i32_sized_vec17hed766ce4cb5f7a2fE.exit.i.i.i.i: ; preds = %113
   %115 = zext nneg i32 %.sroa.521.024.ph.i.i.i.i.i to i64
   call fastcc void @_ZN3exr2io4Data8read_vec17hedeceae0006abddeE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %32, ptr noalias noundef nonnull align 8 dereferenceable(48) %45, i64 noundef %115, i64 noundef %93, i64 noundef 1, i64 %93, ptr noalias noundef nonnull readonly align 1 @anon.485243c0b6e0c52e847d698bbee735f0.70, i64 noundef 28), !noalias !431
-  %.pr.pre.i.i.i.i = load i64, ptr %32, align 8, !noalias !413
+  %.pr.pre.i.i.i.i = load i64, ptr %32, align 8, !range !87, !noalias !413
   %116 = icmp eq i64 %.pr.pre.i.i.i.i, 4
   br i1 %116, label %151, label %.sink.split.i.i.i.i
 
@@ -1913,7 +1913,7 @@ _ZN3exr2io4Data18read_i32_sized_vec17hed766ce4cb5f7a2fE.exit.thread20.i.i.i.i: ;
 _ZN3exr2io4Data18read_i32_sized_vec17hed766ce4cb5f7a2fE.exit.i156.i.i.i: ; preds = %163
   %165 = zext nneg i32 %.sroa.521.024.ph.i.i152.i.i.i to i64
   call fastcc void @_ZN3exr2io4Data8read_vec17hedeceae0006abddeE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(48) %45, i64 noundef %165, i64 noundef %93, i64 noundef 1, i64 %93, ptr noalias noundef nonnull readonly align 1 @anon.485243c0b6e0c52e847d698bbee735f0.65, i64 noundef 23), !noalias !485
-  %.pr.pre.i157.i.i.i = load i64, ptr %15, align 8, !noalias !481
+  %.pr.pre.i157.i.i.i = load i64, ptr %15, align 8, !range !87, !noalias !481
   %166 = icmp eq i64 %.pr.pre.i157.i.i.i, 4
   br i1 %166, label %_ZN3exr5block5chunk19CompressedTileBlock4read17h4b9ff22e55a11bf2E.exit.i.i.i, label %.sink.split.i150.i.i.i
 
@@ -2597,7 +2597,7 @@ _ZN3exr2io4Data18read_i32_sized_vec17ha9485ac5e36e5320E.exit.thread42.i.i.i.i: ;
 _ZN3exr2io4Data18read_i32_sized_vec17ha9485ac5e36e5320E.exit.i.i.i.i: ; preds = %113
   %115 = zext nneg i32 %.sroa.521.024.ph.i.i.i.i.i to i64
   call fastcc void @_ZN3exr2io4Data8read_vec17h19e3e6d15ff5f7a0E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %32, ptr noalias noundef nonnull align 8 dereferenceable(72) %45, i64 noundef %115, i64 noundef %93, i64 noundef 1, i64 %93, ptr noalias noundef nonnull readonly align 1 @anon.485243c0b6e0c52e847d698bbee735f0.70, i64 noundef 28), !noalias !657
-  %.pr.pre.i.i.i.i = load i64, ptr %32, align 8, !noalias !639
+  %.pr.pre.i.i.i.i = load i64, ptr %32, align 8, !range !87, !noalias !639
   %116 = icmp eq i64 %.pr.pre.i.i.i.i, 4
   br i1 %116, label %151, label %.sink.split.i.i.i.i
 
@@ -2949,7 +2949,7 @@ _ZN3exr2io4Data18read_i32_sized_vec17ha9485ac5e36e5320E.exit.thread20.i.i.i.i: ;
 _ZN3exr2io4Data18read_i32_sized_vec17ha9485ac5e36e5320E.exit.i156.i.i.i: ; preds = %163
   %165 = zext nneg i32 %.sroa.521.024.ph.i.i152.i.i.i to i64
   call fastcc void @_ZN3exr2io4Data8read_vec17h19e3e6d15ff5f7a0E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %15, ptr noalias noundef nonnull align 8 dereferenceable(72) %45, i64 noundef %165, i64 noundef %93, i64 noundef 1, i64 %93, ptr noalias noundef nonnull readonly align 1 @anon.485243c0b6e0c52e847d698bbee735f0.65, i64 noundef 23), !noalias !711
-  %.pr.pre.i157.i.i.i = load i64, ptr %15, align 8, !noalias !707
+  %.pr.pre.i157.i.i.i = load i64, ptr %15, align 8, !range !87, !noalias !707
   %166 = icmp eq i64 %.pr.pre.i157.i.i.i, 4
   br i1 %166, label %_ZN3exr5block5chunk19CompressedTileBlock4read17h40e3a023c65efb9cE.exit.i.i.i, label %.sink.split.i150.i.i.i
 
@@ -19572,7 +19572,7 @@ _ZN3exr5block6reader12ChunksReader21decompress_sequential17hf84dca89e4ae276fE.ex
 
 "_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$exr..block..chunk..Chunk$C$exr..error..Error$GT$$GT$$GT$17hba90d531d6ee3bbbE.exit.i": ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12), !noalias !4250
-  %.pr.i = load i64, ptr %.sroa.959.0..sroa_idx, align 8, !alias.scope !4247, !noalias !4252
+  %.pr.i = load i64, ptr %.sroa.959.0..sroa_idx, align 8, !alias.scope !4247, !noalias !4252, !noundef !4
   br label %.loopexit.i34
 
 202:                                              ; preds = %.noexc
@@ -20446,7 +20446,7 @@ _ZN3exr5block6reader12ChunksReader21decompress_sequential17h64c77acdbe5128bfE.ex
 
 "_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$exr..block..chunk..Chunk$C$exr..error..Error$GT$$GT$$GT$17hba90d531d6ee3bbbE.exit.i": ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12), !noalias !4424
-  %.pr.i = load i64, ptr %.sroa.959.0..sroa_idx, align 8, !alias.scope !4421, !noalias !4426
+  %.pr.i = load i64, ptr %.sroa.959.0..sroa_idx, align 8, !alias.scope !4421, !noalias !4426, !noundef !4
   br label %.loopexit.i34
 
 202:                                              ; preds = %.noexc
@@ -25320,7 +25320,7 @@ define internal fastcc void @"_ZN3exr5block6writer33ParallelBlocksCompressor$LT$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.735.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6, i64 56, i1 false)
   call fastcc void @"_ZN107_$LT$exr..block..writer..OnProgressChunkWriter$LT$W$C$F$GT$$u20$as$u20$exr..block..writer..ChunksWriter$GT$11write_chunk17h4500149ef07fcdd0E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %19, ptr noalias noundef align 8 dereferenceable(24) %114, i64 noundef %.sroa.427.0.copyload, ptr noalias noundef align 8 captures(none) dereferenceable(96) %15), !noalias !5175
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %15), !noalias !5145
-  %.pr = load i64, ptr %19, align 8
+  %.pr = load i64, ptr %19, align 8, !range !87, !noundef !4
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %12)
   %115 = icmp eq i64 %.pr, 4
   br i1 %115, label %117, label %121
@@ -26155,7 +26155,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 174:                                              ; preds = %72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !5276
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %13), !noalias !5276
-  %.pr.pre.i.i = load i64, ptr %19, align 8, !noalias !5275
+  %.pr.pre.i.i = load i64, ptr %19, align 8, !range !87, !noalias !5275
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %14), !noalias !5276
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10), !noalias !5275
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %18), !noalias !5275
@@ -26777,7 +26777,7 @@ define hidden void @"_ZN3exr5image5write34WriteImageWithOptions$LT$L$C$F$GT$11to
 171:                                              ; preds = %69
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !5369
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %13), !noalias !5369
-  %.pr.pre.i.i = load i64, ptr %19, align 8, !noalias !5368
+  %.pr.pre.i.i = load i64, ptr %19, align 8, !range !87, !noalias !5368
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %14), !noalias !5369
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10), !noalias !5368
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %18), !noalias !5368
@@ -27102,7 +27102,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h241f0bea3ffc2378E.llvm.69249
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3), !noalias !5468
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %40, i64 80, i1 false), !alias.scope !5475, !noalias !5476
-  %.pr.i.i = load i64, ptr %8, align 8, !alias.scope !5477, !noalias !5443
+  %.pr.i.i = load i64, ptr %8, align 8, !range !4276, !alias.scope !5477, !noalias !5443, !noundef !4
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7), !noalias !5452
   call void @llvm.experimental.noalias.scope.decl(metadata !5477)
   switch i64 %.pr.i.i, label %41 [
@@ -27636,7 +27636,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h7a6937e9deeb6b79E.llvm.69249
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3), !noalias !5629
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(80) %40, i64 80, i1 false), !alias.scope !5636, !noalias !5637
-  %.pr.i.i = load i64, ptr %8, align 8, !alias.scope !5638, !noalias !5604
+  %.pr.i.i = load i64, ptr %8, align 8, !range !4276, !alias.scope !5638, !noalias !5604, !noundef !4
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7), !noalias !5613
   call void @llvm.experimental.noalias.scope.decl(metadata !5638)
   switch i64 %.pr.i.i, label %41 [
@@ -32396,7 +32396,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i: ; preds = %31
   br label %"_ZN4tiff7decoder16Decoder$LT$R$GT$13result_buffer17hbb2739509665e430E.exit.thread"
 
 "_ZN4tiff7decoder16Decoder$LT$R$GT$13result_buffer17hbb2739509665e430E.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i, %47, %51, %55, %57, %61, %65, %69, %71, %73, %75
-  %.pr = load i16, ptr %7, align 8
+  %.pr = load i16, ptr %7, align 8, !range !6093, !noundef !4
   %77 = icmp eq i16 %.pr, 26
   br i1 %77, label %78, label %"_ZN4tiff7decoder16Decoder$LT$R$GT$13result_buffer17hbb2739509665e430E.exit.thread"
 
@@ -32811,7 +32811,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i: ; preds = %33
   br label %"_ZN4tiff7decoder16Decoder$LT$R$GT$13result_buffer17h8cde73bb94a8bd8aE.exit.thread"
 
 "_ZN4tiff7decoder16Decoder$LT$R$GT$13result_buffer17h8cde73bb94a8bd8aE.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i, %49, %53, %57, %59, %63, %67, %71, %73, %75, %77
-  %.pr = load i16, ptr %9, align 8
+  %.pr = load i16, ptr %9, align 8, !range !6093, !noundef !4
   %79 = icmp eq i16 %.pr, 26
   br i1 %79, label %80, label %"_ZN4tiff7decoder16Decoder$LT$R$GT$13result_buffer17h8cde73bb94a8bd8aE.exit.thread"
 

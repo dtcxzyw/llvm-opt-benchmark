@@ -1563,7 +1563,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %156, label %.lr.ph.i.i.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h22d28614e78c0002E.exit.thread"
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i.i.i.pre = load i32, ptr %.sroa.0.1.i.i.i, align 8, !noalias !203
+  %.pr.i.i.i.pre = load i32, ptr %.sroa.0.1.i.i.i, align 8, !range !202, !noalias !203
   %157 = icmp eq i32 %.pr.i.i.i.pre, 0
   br i1 %157, label %158, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h22d28614e78c0002E.exit.thread"
 
@@ -2058,7 +2058,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %296, label %.lr.ph.i.i.i.i301, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i303.thread
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i303: ; preds = %.lr.ph.i.i.i.i301
-  %.pr.i.i.i305.pre = load i32, ptr %.sroa.0.1.i.i.i302, align 8, !noalias !312
+  %.pr.i.i.i305.pre = load i32, ptr %.sroa.0.1.i.i.i302, align 8, !range !202, !noalias !312
   %297 = icmp eq i32 %.pr.i.i.i305.pre, 0
   br i1 %297, label %298, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i303.thread
 
@@ -2135,7 +2135,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %319, label %.lr.ph.i.i.i.i320, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i322.thread
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i322: ; preds = %.lr.ph.i.i.i.i320
-  %.pr.i.i.i324.pre = load i32, ptr %.sroa.0.1.i.i.i321, align 8, !noalias !326
+  %.pr.i.i.i324.pre = load i32, ptr %.sroa.0.1.i.i.i321, align 8, !range !202, !noalias !326
   %320 = icmp eq i32 %.pr.i.i.i324.pre, 0
   br i1 %320, label %321, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i322.thread
 
@@ -2197,7 +2197,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %340, label %.lr.ph.i.i.i.i339, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h22d28614e78c0002E.exit354.thread"
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i341: ; preds = %.lr.ph.i.i.i.i339
-  %.pr.i.i.i343.pre = load i32, ptr %.sroa.0.1.i.i.i340, align 8, !noalias !341
+  %.pr.i.i.i343.pre = load i32, ptr %.sroa.0.1.i.i.i340, align 8, !range !202, !noalias !341
   %341 = icmp eq i32 %.pr.i.i.i343.pre, 0
   br i1 %341, label %342, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h22d28614e78c0002E.exit354.thread"
 
@@ -2265,7 +2265,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %364, label %.lr.ph.i.i.i.i358, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i360.thread
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i360: ; preds = %.lr.ph.i.i.i.i358
-  %.pr.i.i.i362.pre = load i32, ptr %.sroa.0.1.i.i.i359, align 8, !noalias !357
+  %.pr.i.i.i362.pre = load i32, ptr %.sroa.0.1.i.i.i359, align 8, !range !202, !noalias !357
   %365 = icmp eq i32 %.pr.i.i.i362.pre, 0
   br i1 %365, label %366, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i360.thread
 
@@ -2647,7 +2647,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %467, label %.lr.ph.i.i.i.i399, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i401.thread
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i401: ; preds = %.lr.ph.i.i.i.i399
-  %.pr.i.i.i403.pre = load i32, ptr %.sroa.0.1.i.i.i400, align 8, !noalias !447
+  %.pr.i.i.i403.pre = load i32, ptr %.sroa.0.1.i.i.i400, align 8, !range !202, !noalias !447
   %468 = icmp eq i32 %.pr.i.i.i403.pre, 0
   br i1 %468, label %469, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i401.thread
 
@@ -2709,7 +2709,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %488, label %.lr.ph.i.i.i.i418, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i420.thread
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i420: ; preds = %.lr.ph.i.i.i.i418
-  %.pr.i.i.i422.pre = load i32, ptr %.sroa.0.1.i.i.i419, align 8, !noalias !461
+  %.pr.i.i.i422.pre = load i32, ptr %.sroa.0.1.i.i.i419, align 8, !range !202, !noalias !461
   %489 = icmp eq i32 %.pr.i.i.i422.pre, 0
   br i1 %489, label %490, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i420.thread
 
@@ -2771,7 +2771,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %509, label %.lr.ph.i.i.i.i437, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i439.thread
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i439: ; preds = %.lr.ph.i.i.i.i437
-  %.pr.i.i.i441.pre = load i32, ptr %.sroa.0.1.i.i.i438, align 8, !noalias !476
+  %.pr.i.i.i441.pre = load i32, ptr %.sroa.0.1.i.i.i438, align 8, !range !202, !noalias !476
   %510 = icmp eq i32 %.pr.i.i.i441.pre, 0
   br i1 %510, label %511, label %_ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i439.thread
 
@@ -2959,7 +2959,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %566, label %.lr.ph.i.i.i.i464, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h22d28614e78c0002E.exit479.thread"
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i466: ; preds = %.lr.ph.i.i.i.i464
-  %.pr.i.i.i468.pre = load i32, ptr %.sroa.0.1.i.i.i465, align 8, !noalias !518
+  %.pr.i.i.i468.pre = load i32, ptr %.sroa.0.1.i.i.i465, align 8, !range !202, !noalias !518
   %567 = icmp eq i32 %.pr.i.i.i468.pre, 0
   br i1 %567, label %568, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h22d28614e78c0002E.exit479.thread"
 
@@ -4048,7 +4048,7 @@ define { i32, i32 } @_ZN3syn5parse33span_of_unexpected_ignoring_nones17hd232c37a
 .preheader:                                       ; preds = %2, %22
   %.sroa.0.0 = phi ptr [ %.0.i4.i, %22 ], [ %0, %2 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  %.pr.i = load i32, ptr %.sroa.0.0, align 8, !noalias !592
+  %.pr.i = load i32, ptr %.sroa.0.0, align 8, !range !202, !noalias !592, !noundef !11
   %5 = icmp eq i32 %.pr.i, 0
   br i1 %5, label %6, label %25
 
@@ -4118,7 +4118,7 @@ define noundef zeroext i1 @_ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !11
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  %.pr.i = load i32, ptr %4, align 8, !noalias !595
+  %.pr.i = load i32, ptr %4, align 8, !range !202, !noalias !595, !noundef !11
   %7 = icmp eq i32 %.pr.i, 0
   br i1 %7, label %8, label %_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread
 
@@ -4271,7 +4271,7 @@ define noundef zeroext i1 @_ZN3syn5parse11ParseBuffer5peek35peek317h194d45fb11cd
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !11
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  %.pr.i = load i32, ptr %4, align 8, !noalias !611
+  %.pr.i = load i32, ptr %4, align 8, !range !202, !noalias !611, !noundef !11
   %7 = icmp eq i32 %.pr.i, 0
   br i1 %7, label %8, label %_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread
 
@@ -4840,7 +4840,7 @@ define void @"_ZN3syn11restriction7parsing76_$LT$impl$u20$syn..parse..Parse$u20$
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8, !noundef !11
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %26)
-  %.pr.i.i.i = load i32, ptr %29, align 8, !noalias !667
+  %.pr.i.i.i = load i32, ptr %29, align 8, !range !202, !noalias !667, !noundef !11
   %32 = icmp eq i32 %.pr.i.i.i, 0
   br i1 %32, label %33, label %"_ZN55_$LT$syn..token..Group$u20$as$u20$syn..token..Token$GT$4peek17h2950bcf6fd352bbcE.exit.thread"
 
@@ -5156,7 +5156,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %137, label %.lr.ph.i.i.i.i.i, label %"_ZN55_$LT$syn..token..Paren$u20$as$u20$syn..token..Token$GT$4peek17h8b18ef5b0b208f7aE.exit.thread.i"
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %.pr.i.i.pre.i.i = load i32, ptr %.sroa.0.1.i.i.i.i, align 8, !noalias !738
+  %.pr.i.i.pre.i.i = load i32, ptr %.sroa.0.1.i.i.i.i, align 8, !range !202, !noalias !738
   %138 = icmp eq i32 %.pr.i.i.pre.i.i, 0
   br i1 %138, label %139, label %"_ZN55_$LT$syn..token..Paren$u20$as$u20$syn..token..Token$GT$4peek17h8b18ef5b0b208f7aE.exit.thread.i"
 
@@ -6185,7 +6185,7 @@ common.resume:                                    ; preds = %1409, %1259, %103, 
   %115 = load ptr, ptr %1, align 8, !noundef !11
   %116 = load ptr, ptr %96, align 8, !noundef !11
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %21)
-  %.pr.i.i.i = load i32, ptr %115, align 8, !noalias !944
+  %.pr.i.i.i = load i32, ptr %115, align 8, !range !202, !noalias !944, !noundef !11
   %117 = icmp eq i32 %.pr.i.i.i, 0
   br i1 %117, label %118, label %133
 
@@ -6392,7 +6392,7 @@ _ZN3syn6buffer6Cursor17bump_ignore_group17h7d42b7a38641a99cE.llvm.12718342354948
   br i1 %184, label %.lr.ph.i.i.i.i, label %.loopexit1653
 
 _ZN3syn6buffer6Cursor11ignore_none17h8ff9d6e421d536b3E.llvm.1271834235494842624.exit.i.i.i: ; preds = %.noexc1180
-  %.pr.i.i.pre.i = load i32, ptr %.sroa.0.1.i.i.i, align 8, !noalias !982
+  %.pr.i.i.pre.i = load i32, ptr %.sroa.0.1.i.i.i, align 8, !range !202, !noalias !982
   %185 = icmp eq i32 %.pr.i.i.pre.i, 0
   br i1 %185, label %186, label %.loopexit1653
 
@@ -10144,7 +10144,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %1075, %
 
 1444:                                             ; preds = %"_ZN57_$LT$syn..token..PathSep$u20$as$u20$syn..token..Token$GT$4peek17h5b0bb7ea5e8f9d2aE.exit1155"
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15)
-  %.pr.i.i = load i32, ptr %.pre1721, align 8, !noalias !1568
+  %.pr.i.i = load i32, ptr %.pre1721, align 8, !range !202, !noalias !1568, !noundef !11
   %1445 = icmp eq i32 %.pr.i.i, 0
   br i1 %1445, label %1446, label %_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i
 
@@ -10602,7 +10602,7 @@ _ZN3syn5parse11ParseBuffer5peek35peek317h194d45fb11cd7496E.exit.thread: ; preds 
   br label %1569
 
 1620:                                             ; preds = %1611
-  %.pr = load i64, ptr %86, align 8
+  %.pr = load i64, ptr %86, align 8, !range !135, !noundef !11
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.7.i)
   %1621 = icmp eq i64 %.pr, -9223372036854775808
@@ -11027,7 +11027,7 @@ define hidden void @_ZN3syn2ty7parsing17parse_bare_fn_arg17h702975dc6f16fa18E(pt
   %60 = load ptr, ptr %1, align 8, !noundef !11
   %61 = load ptr, ptr %36, align 8, !noundef !11
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18)
-  %.pr.i.i = load i32, ptr %60, align 8, !noalias !1629
+  %.pr.i.i = load i32, ptr %60, align 8, !range !202, !noalias !1629, !noundef !11
   %62 = icmp eq i32 %.pr.i.i, 0
   br i1 %62, label %63, label %_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i
 
@@ -11230,7 +11230,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit.thread: ; preds 
   %143 = load ptr, ptr %1, align 8, !noundef !11
   %144 = load ptr, ptr %36, align 8, !noundef !11
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15)
-  %.pr.i.i179 = load i32, ptr %143, align 8, !noalias !1645
+  %.pr.i.i179 = load i32, ptr %143, align 8, !range !202, !noalias !1645, !noundef !11
   %145 = icmp eq i32 %.pr.i.i179, 0
   br i1 %145, label %146, label %_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i180
 
@@ -11412,7 +11412,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit203.thread: ; pre
   %224 = load ptr, ptr %1, align 8, !noundef !11
   %225 = load ptr, ptr %36, align 8, !noundef !11
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %14)
-  %.pr.i.i205 = load i32, ptr %224, align 8, !noalias !1654
+  %.pr.i.i205 = load i32, ptr %224, align 8, !range !202, !noalias !1654, !noundef !11
   %226 = icmp eq i32 %.pr.i.i205, 0
   br i1 %226, label %227, label %_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i206
 
@@ -11745,7 +11745,7 @@ _ZN3syn5parse11ParseBuffer5peek25peek217hd80a33a144a24c12E.exit263.thread359: ; 
   %342 = load ptr, ptr %1, align 8, !noundef !11
   %343 = load ptr, ptr %36, align 8, !noundef !11
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
-  %.pr.i.i239 = load i32, ptr %342, align 8, !noalias !1679
+  %.pr.i.i239 = load i32, ptr %342, align 8, !range !202, !noalias !1679, !noundef !11
   %344 = icmp eq i32 %.pr.i.i239, 0
   br i1 %344, label %345, label %_ZN3syn6buffer6Cursor5group17hf49abe5099716ab9E.exit.thread.i240
 

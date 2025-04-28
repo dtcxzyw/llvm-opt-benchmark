@@ -364,7 +364,7 @@ define hidden noundef range(i32 0, 1114113) i32 @"_ZN114_$LT$core..array..iter..
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19a364b06f9d22f1E"(ptr noalias noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.pr.i = load ptr, ptr %0, align 8, !alias.scope !27
+  %.pr.i = load ptr, ptr %0, align 8, !alias.scope !27, !noundef !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -582,7 +582,7 @@ _ZN4core3ops8function6FnOnce9call_once17hc771e4db658af5cfE.exit.thread.i10.i: ; 
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5df1dad524a155bE"(ptr noalias noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %.pr.i = load ptr, ptr %0, align 8, !alias.scope !115
+  %.pr.i = load ptr, ptr %0, align 8, !alias.scope !115, !noundef !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -892,7 +892,7 @@ default.unreachable18:                            ; preds = %2
 
 27:                                               ; preds = %.noexc
   %28 = extractvalue { i64, ptr } %20, 1
-  %.pr = load i64, ptr %13, align 8, !alias.scope !203
+  %.pr = load i64, ptr %13, align 8, !range !5, !alias.scope !203, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
   switch i64 %.pr, label %29 [
     i64 2, label %33
@@ -2279,7 +2279,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !333
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !333, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2349,7 +2349,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !355
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !355, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -3023,7 +3023,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !490
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !490, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3093,7 +3093,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !512
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !512, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -3767,7 +3767,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !646
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !646, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -3837,7 +3837,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !668
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !668, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -4511,7 +4511,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !802
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !802, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -4581,7 +4581,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !824
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !824, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -5255,7 +5255,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !958
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !958, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -5325,7 +5325,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !980
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !980, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -5999,7 +5999,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !1114
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !1114, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -6069,7 +6069,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !1136
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !1136, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -6743,7 +6743,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !1270
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !1270, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -6813,7 +6813,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !1292
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !1292, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -7487,7 +7487,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !1426
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !1426, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -7557,7 +7557,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !1448
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !1448, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -8231,7 +8231,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !1582
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !1582, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -8301,7 +8301,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !1604
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !1604, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -8975,7 +8975,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !1738
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !1738, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -9045,7 +9045,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !1760
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !1760, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -9719,7 +9719,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !1894
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !1894, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -9789,7 +9789,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !1916
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !1916, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -10463,7 +10463,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !2050
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !2050, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -10533,7 +10533,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !2072
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !2072, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -11207,7 +11207,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !2206
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !2206, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -11277,7 +11277,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !2228
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !2228, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -11951,7 +11951,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !2362
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !2362, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -12021,7 +12021,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !2384
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !2384, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -12695,7 +12695,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !2518
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !2518, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -12765,7 +12765,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !2540
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !2540, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -13439,7 +13439,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !2674
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !2674, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -13509,7 +13509,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !2696
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !2696, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -14251,7 +14251,7 @@ common.ret:                                       ; preds = %222, %190, %60
   br label %"_ZN4core3ptr88drop_in_place$LT$core..result..Result$LT$client..user..ChannelId$C$anyhow..Error$GT$$GT$17h1d32fda3c5faf3aeE.llvm.17897451826487304826.exit81"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr118drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$client..user..ChannelId$C$anyhow..Error$GT$$GT$$GT$17hea6e4a2588df8dbaE.exit.i", %47
-  %.pr = load i64, ptr %45, align 8, !alias.scope !2847
+  %.pr = load i64, ptr %45, align 8, !range !216, !alias.scope !2847, !noundef !4
   br label %63
 
 63:                                               ; preds = %thread-pre-split, %.thread, %42, %42
@@ -14941,7 +14941,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !2981
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !2981, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -15011,7 +15011,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !3003
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !3003, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -15685,7 +15685,7 @@ default.unreachable84:                            ; preds = %2
 
 41:                                               ; preds = %.noexc
   %42 = extractvalue { i64, ptr } %34, 1
-  %.pr88 = load i64, ptr %25, align 8, !alias.scope !3137
+  %.pr88 = load i64, ptr %25, align 8, !range !5, !alias.scope !3137, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 115
   store i8 1, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -15755,7 +15755,7 @@ common.ret:                                       ; preds = %.noexc, %"_ZN92_$LT
   br label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17he9ada805bd9416a1E.llvm.17897451826487304826.exit79"
 
 thread-pre-split:                                 ; preds = %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17ha94f344e7da1411eE.exit.i", %45, %48
-  %.pr = load ptr, ptr %44, align 8, !alias.scope !3159
+  %.pr = load ptr, ptr %44, align 8, !alias.scope !3159, !noundef !4
   br label %64
 
 64:                                               ; preds = %.thread, %thread-pre-split, %41
@@ -35875,7 +35875,7 @@ define hidden void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17h0506f8093f930527E
   br i1 %trunc, label %6, label %"_ZN4core3ptr57drop_in_place$LT$gpui..executor..Task$LT$$LP$$RP$$GT$$GT$17hb38b20076c9e42f0E.llvm.17897451826487304826.exit"
 
 4:                                                ; preds = %6
-  %.pr = load i8, ptr %0, align 8
+  %.pr = load i8, ptr %0, align 8, !range !388, !noundef !4
   %trunc1 = trunc nuw i8 %.pr to i1
   %5 = icmp eq i8 %.pr, 0
   %or.cond = or i1 %5, %trunc1
@@ -35941,7 +35941,7 @@ define hidden void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17h06f28d4ce70eb176E
   br i1 %3, label %6, label %.thread
 
 4:                                                ; preds = %6
-  %.pr = load i64, ptr %0, align 8
+  %.pr = load i64, ptr %0, align 8, !range !3937, !noundef !4
   %5 = icmp eq i64 %.pr, -9223372036854775806
   br i1 %5, label %"_ZN4core3ptr142drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$client..user..User$GT$$GT$$GT$$GT$$GT$17h191eb1222a3cf585E.llvm.17897451826487304826.exit", label %.thread
 
@@ -35995,7 +35995,7 @@ define hidden void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17h09ccb89a00ad65b2E
 .noexc:                                           ; preds = %13, %10
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.pr = load i64, ptr %0, align 8
+  %.pr = load i64, ptr %0, align 8, !range !5, !noundef !4
   %6 = icmp eq i64 %.pr, 2
   br i1 %6, label %"_ZN4core3ptr153drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..view..View$LT$collab_ui..channel_view..ChannelView$GT$$C$anyhow..Error$GT$$GT$$GT$17h7d42bbc2e2a968d1E.llvm.17897451826487304826.exit", label %.thread
 
@@ -36104,7 +36104,7 @@ define hidden void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17h1984518ea9779a24E
   br i1 %trunc, label %6, label %"_ZN4core3ptr85drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$$LP$$RP$$GT$$GT$$GT$17hefa79277982a8501E.llvm.17897451826487304826.exit"
 
 4:                                                ; preds = %6
-  %.pr = load i8, ptr %0, align 8
+  %.pr = load i8, ptr %0, align 8, !range !388, !noundef !4
   %trunc1 = trunc nuw i8 %.pr to i1
   %5 = icmp eq i8 %.pr, 0
   %or.cond = or i1 %5, %trunc1
@@ -36170,7 +36170,7 @@ define hidden void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17h491a7ec94fb587c1E
   br i1 %3, label %6, label %.thread
 
 4:                                                ; preds = %6
-  %.pr = load i64, ptr %0, align 8
+  %.pr = load i64, ptr %0, align 8, !range !5, !noundef !4
   %5 = icmp eq i64 %.pr, 2
   br i1 %5, label %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17hf40cc1e02f902889E.llvm.17897451826487304826.exit", label %.thread
 
@@ -36226,7 +36226,7 @@ define hidden void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17h87d1f6c3b49e093aE
   br i1 %3, label %6, label %.thread
 
 4:                                                ; preds = %6
-  %.pr = load i64, ptr %0, align 8
+  %.pr = load i64, ptr %0, align 8, !range !2825, !noundef !4
   %5 = icmp eq i64 %.pr, 3
   br i1 %5, label %"_ZN4core3ptr96drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$u64$C$anyhow..Error$GT$$GT$$GT$17hd63f8da31f681311E.llvm.17897451826487304826.exit", label %.thread
 
@@ -36281,7 +36281,7 @@ define hidden void @"_ZN4gpui8executor13Task$LT$T$GT$6detach17habc1b280d32963eaE
 .noexc:                                           ; preds = %13, %10
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.pr = load i64, ptr %0, align 8
+  %.pr = load i64, ptr %0, align 8, !range !5, !noundef !4
   %6 = icmp eq i64 %.pr, 2
   br i1 %6, label %"_ZN4core3ptr137drop_in_place$LT$gpui..executor..Task$LT$core..option..Option$LT$gpui..view..View$LT$collab_ui..channel_view..ChannelView$GT$$GT$$GT$$GT$17h0af8777ce6c5e027E.llvm.17897451826487304826.exit", label %.thread
 
@@ -50213,7 +50213,7 @@ _ZN4gpui8executor5Scope5spawn17ha94df7a1e5707ef6E.exit.i.i: ; preds = %214, %210
   %270 = getelementptr inbounds nuw i8, ptr %233, i64 16
   store ptr %270, ptr %269, align 8, !alias.scope !8876, !noalias !8898
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef nonnull align 8 dereferenceable(16) %233, i64 16, i1 false), !noalias !8876
-  %.pr.i = load i8, ptr %235, align 8, !noalias !8822
+  %.pr.i = load i8, ptr %235, align 8, !range !58, !noalias !8822, !noundef !4
   %271 = icmp eq i8 %.pr.i, 2
   br i1 %271, label %272, label %276
 
@@ -50918,7 +50918,7 @@ default.unreachable26:                            ; preds = %3
 
 "_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hd6cc4d97da694cb7E.exit": ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 24, i1 false), !alias.scope !9029
-  %.pr = load i64, ptr %15, align 8
+  %.pr = load i64, ptr %15, align 8, !range !3455, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %21 = icmp eq i64 %.pr, -9223372036854775805
   br i1 %21, label %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hd6cc4d97da694cb7E.exit._crit_edge", label %26
@@ -63654,7 +63654,7 @@ common.ret:                                       ; preds = %.noexc75, %"_ZN78_$
 
 "_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17h10ba76c9e88d2a50E.exit": ; preds = %163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !alias.scope !11655, !noalias !11657
-  %.pr = load i64, ptr %79, align 8
+  %.pr = load i64, ptr %79, align 8, !range !2825, !noundef !4
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 185
   store i8 1, ptr %174, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -63773,7 +63773,7 @@ common.ret:                                       ; preds = %.noexc75, %"_ZN78_$
 
 210:                                              ; preds = %.noexc75
   %211 = extractvalue { i64, ptr } %203, 1
-  %.pr121 = load i64, ptr %196, align 8, !alias.scope !11683
+  %.pr121 = load i64, ptr %196, align 8, !range !5, !alias.scope !11683, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !11683)
   switch i64 %.pr121, label %212 [
     i64 2, label %216
@@ -64596,7 +64596,7 @@ common.ret:                                       ; preds = %.noexc75, %"_ZN78_$
 
 "_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17h10ba76c9e88d2a50E.exit": ; preds = %163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !alias.scope !11839, !noalias !11841
-  %.pr = load i64, ptr %79, align 8
+  %.pr = load i64, ptr %79, align 8, !range !2825, !noundef !4
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 185
   store i8 1, ptr %174, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
@@ -64715,7 +64715,7 @@ common.ret:                                       ; preds = %.noexc75, %"_ZN78_$
 
 210:                                              ; preds = %.noexc75
   %211 = extractvalue { i64, ptr } %203, 1
-  %.pr121 = load i64, ptr %196, align 8, !alias.scope !11867
+  %.pr121 = load i64, ptr %196, align 8, !range !5, !alias.scope !11867, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !11867)
   switch i64 %.pr121, label %212 [
     i64 2, label %216
@@ -67059,7 +67059,7 @@ common.ret:                                       ; preds = %.noexc35, %"_ZN4cor
 
 117:                                              ; preds = %.noexc35
   %118 = extractvalue { i64, ptr } %110, 1
-  %.pr = load i64, ptr %103, align 8, !alias.scope !12189
+  %.pr = load i64, ptr %103, align 8, !range !5, !alias.scope !12189, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12189)
   switch i64 %.pr, label %119 [
     i64 2, label %123
@@ -68370,7 +68370,7 @@ default.unreachable41:                            ; preds = %26, %3
 .body:                                            ; preds = %60, %59
   %82 = landingpad { ptr, i32 }
           cleanup
-  %.pr = load i8, ptr %28, align 1
+  %.pr = load i8, ptr %28, align 1, !range !197, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.831)
   %cond.i18 = icmp eq i8 %.pr, 3
   br i1 %cond.i18, label %111, label %"_ZN4core3ptr222drop_in_place$LT$collab_ui..chat_panel..message_editor..MessageEditor..resolve_completions_for_candidates$LT$collab_ui..chat_panel..message_editor..MessageEditor..completion_for_mention$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h38d7ec79e7ab09e6E.exit20"
@@ -68739,7 +68739,7 @@ default.unreachable36:                            ; preds = %28, %3
 .body:                                            ; preds = %62, %61
   %84 = landingpad { ptr, i32 }
           cleanup
-  %.pr = load i8, ptr %30, align 1
+  %.pr = load i8, ptr %30, align 1, !range !197, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.826)
   %cond.i14 = icmp eq i8 %.pr, 3
   br i1 %cond.i14, label %107, label %"_ZN4core3ptr220drop_in_place$LT$collab_ui..chat_panel..message_editor..MessageEditor..resolve_completions_for_candidates$LT$collab_ui..chat_panel..message_editor..MessageEditor..completion_for_emoji$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdd6449ab90010462E.exit16"
@@ -72952,7 +72952,7 @@ default.unreachable36:                            ; preds = %2
 
 25:                                               ; preds = %.noexc
   %26 = extractvalue { i64, ptr } %18, 1
-  %.pr = load i64, ptr %11, align 8, !alias.scope !12985
+  %.pr = load i64, ptr %11, align 8, !range !5, !alias.scope !12985, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12985)
   switch i64 %.pr, label %27 [
     i64 2, label %31
@@ -73181,7 +73181,7 @@ default.unreachable36:                            ; preds = %2
 
 25:                                               ; preds = %.noexc
   %26 = extractvalue { i64, ptr } %18, 1
-  %.pr = load i64, ptr %11, align 8, !alias.scope !13012
+  %.pr = load i64, ptr %11, align 8, !range !5, !alias.scope !13012, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13012)
   switch i64 %.pr, label %27 [
     i64 2, label %31
@@ -73411,7 +73411,7 @@ default.unreachable43:                            ; preds = %2
 
 26:                                               ; preds = %.noexc
   %27 = extractvalue { i64, ptr } %19, 1
-  %.pr = load i64, ptr %12, align 8, !alias.scope !13039
+  %.pr = load i64, ptr %12, align 8, !range !5, !alias.scope !13039, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13039)
   switch i64 %.pr, label %28 [
     i64 2, label %32
@@ -73795,7 +73795,7 @@ define hidden { i64, ptr } @"_ZN9collab_ui12collab_panel11CollabPanel20confirm_c
     i8 3, label %7
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable46:                            ; preds = %27, %2
   unreachable
 
 7:                                                ; preds = %2
@@ -73862,17 +73862,14 @@ default.unreachable46:                            ; preds = %2
 
 27:                                               ; preds = %.noexc
   %28 = extractvalue { i64, ptr } %21, 1
-  %.pr = load i64, ptr %13, align 8, !alias.scope !13090
+  %.pr = load i64, ptr %13, align 8, !range !2825, !alias.scope !13090, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13090)
-  switch i64 %.pr, label %default.unreachable.i [
+  switch i64 %.pr, label %default.unreachable46 [
     i64 3, label %30
     i64 2, label %"_ZN4core3ptr116drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$client..user..ChannelId$C$anyhow..Error$GT$$GT$$GT$17h6820dfbc99311027E.llvm.17897451826487304826.exit"
     i64 0, label %"_ZN4core3ptr116drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$client..user..ChannelId$C$anyhow..Error$GT$$GT$$GT$17h6820dfbc99311027E.llvm.17897451826487304826.exit"
     i64 1, label %29
   ]
-
-default.unreachable.i:                            ; preds = %27
-  unreachable
 
 29:                                               ; preds = %27
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
@@ -74326,7 +74323,7 @@ common.ret:                                       ; preds = %"_ZN84_$LT$async_ta
 
 "_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h027754b55c090c84E.exit": ; preds = %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false), !alias.scope !13132
-  %.pr = load i64, ptr %14, align 8
+  %.pr = load i64, ptr %14, align 8, !range !2825, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %56 = icmp eq i64 %.pr, 3
   br i1 %56, label %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h027754b55c090c84E.exit._crit_edge", label %59
@@ -74442,7 +74439,7 @@ common.ret:                                       ; preds = %"_ZN84_$LT$async_ta
 
 87:                                               ; preds = %.noexc34
   %88 = extractvalue { i64, ptr } %80, 1
-  %.pr56 = load i64, ptr %73, align 8, !alias.scope !13138
+  %.pr56 = load i64, ptr %73, align 8, !range !5, !alias.scope !13138, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13138)
   switch i64 %.pr56, label %89 [
     i64 2, label %93
@@ -75256,7 +75253,7 @@ common.ret:                                       ; preds = %"_ZN84_$LT$async_ta
 
 "_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h027754b55c090c84E.exit": ; preds = %"_ZN4gpui3app10entity_map14Model$LT$T$GT$6update17h94effc32b0046d70E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, i64 16, i1 false), !alias.scope !13255
-  %.pr = load i64, ptr %14, align 8
+  %.pr = load i64, ptr %14, align 8, !range !2825, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %55 = icmp eq i64 %.pr, 3
   br i1 %55, label %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h027754b55c090c84E.exit._crit_edge", label %58
@@ -75388,7 +75385,7 @@ common.ret:                                       ; preds = %"_ZN84_$LT$async_ta
 
 91:                                               ; preds = %.noexc36
   %92 = extractvalue { i64, ptr } %84, 1
-  %.pr62 = load i64, ptr %77, align 8, !alias.scope !13261
+  %.pr62 = load i64, ptr %77, align 8, !range !5, !alias.scope !13261, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13261)
   switch i64 %.pr62, label %93 [
     i64 2, label %97
@@ -78603,7 +78600,7 @@ default.unreachable32:                            ; preds = %2
 
 33:                                               ; preds = %.noexc
   %34 = extractvalue { i64, ptr } %26, 1
-  %.pr = load i64, ptr %19, align 8, !alias.scope !13872
+  %.pr = load i64, ptr %19, align 8, !range !5, !alias.scope !13872, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13872)
   switch i64 %.pr, label %35 [
     i64 2, label %39

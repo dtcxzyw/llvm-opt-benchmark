@@ -13631,7 +13631,7 @@ default.unreachable:                              ; preds = %26
           to label %.body unwind label %124, !noalias !3755
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h71b75e57ee78dd90E.exit.i.i": ; preds = %.noexc, %118, %113
-  %.pr.i.i = load i8, ptr %5, align 8, !alias.scope !3756, !noalias !3667
+  %.pr.i.i = load i8, ptr %5, align 8, !range !818, !alias.scope !3756, !noalias !3667, !noundef !10
   call void @llvm.experimental.noalias.scope.decl(metadata !3756)
   %127 = icmp eq i8 %.pr.i.i, 26
   br i1 %127, label %134, label %128
@@ -17117,7 +17117,7 @@ common.resume:                                    ; preds = %72, %127, %15, %20
     i32 2, label %51
   ]
 
-default.unreachable:                              ; preds = %74
+default.unreachable:                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17h0f5535d9ac1a7040E.exit.i.i, %74
   unreachable
 
 default.unreachable.i:                            ; preds = %38
@@ -17309,19 +17309,16 @@ _ZN4core3ops8function5FnMut8call_mut17h0f5535d9ac1a7040E.exit.thread.i.i: ; pred
   br label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf3f05420bfecaf21E.exit.i"
 
 _ZN4core3ops8function5FnMut8call_mut17h0f5535d9ac1a7040E.exit.i.i: ; preds = %.noexc5.i.i
-  %.pr.i.i = load i64, ptr %6, align 8, !alias.scope !4913, !noalias !4822
+  %.pr.i.i = load i64, ptr %6, align 8, !range !4854, !alias.scope !4913, !noalias !4822, !noundef !10
   store i64 4, ptr %0, align 8, !alias.scope !4918, !noalias !4826
   call void @llvm.experimental.noalias.scope.decl(metadata !4921)
   call void @llvm.experimental.noalias.scope.decl(metadata !4922)
-  switch i64 %.pr.i.i, label %default.unreachable.i10.i.i [
+  switch i64 %.pr.i.i, label %default.unreachable [
     i64 0, label %109
     i64 1, label %115
     i64 2, label %121
     i64 3, label %103
   ]
-
-default.unreachable.i10.i.i:                      ; preds = %_ZN4core3ops8function5FnMut8call_mut17h0f5535d9ac1a7040E.exit.i.i
-  unreachable
 
 103:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17h0f5535d9ac1a7040E.exit.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !4923)
@@ -35435,7 +35432,7 @@ common.resume:                                    ; preds = %46, %38, %26
   br label %28
 
 thread-pre-split:                                 ; preds = %13
-  %.pr = load i32, ptr %6, align 8
+  %.pr = load i32, ptr %6, align 8, !range !521, !noundef !10
   br label %28
 
 28:                                               ; preds = %thread-pre-split, %"_ZN9itertools8adaptors13multi_product25MultiProductIter$LT$I$GT$7iterate17hec81daa74f4175f9E.exit"
@@ -35587,7 +35584,7 @@ define hidden noundef zeroext i1 @"_ZN9itertools8adaptors13multi_product21MultiP
   br label %27
 
 thread-pre-split:                                 ; preds = %13
-  %.pr = load i32, ptr %6, align 8
+  %.pr = load i32, ptr %6, align 8, !range !507, !noundef !10
   br label %27
 
 27:                                               ; preds = %thread-pre-split, %"_ZN9itertools8adaptors13multi_product25MultiProductIter$LT$I$GT$7iterate17h529f0ec9238c7a53E.exit"
@@ -48684,7 +48681,7 @@ define hidden { i64, ptr } @"_ZN11ide_assists8handlers24introduce_named_lifetime
           to label %"._ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Lifetime$GT$$GT$17hef93e231ae67afa5E.exitthread-pre-split_crit_edge" unwind label %21
 
 "._ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Lifetime$GT$$GT$17hef93e231ae67afa5E.exitthread-pre-split_crit_edge": ; preds = %36
-  %.pr.pre = load i64, ptr %3, align 8
+  %.pr.pre = load i64, ptr %3, align 8, !range !12838
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Lifetime$GT$$GT$17hef93e231ae67afa5E.exit"
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Lifetime$GT$$GT$17hef93e231ae67afa5E.exit": ; preds = %"._ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Lifetime$GT$$GT$17hef93e231ae67afa5E.exitthread-pre-split_crit_edge", %14

@@ -15195,31 +15195,28 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx.i, i64 56, i1 false), !noalias !4434
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !4428
-  br label %22
+  br label %20
 
 _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2aa568a9dE.exit: ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !4428
   call void @_ZN8zvariant10serialized4data4Data21deserialize_with_seed17hd2d0837b241fe077E.llvm.13033308200869021913(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %14), !noalias !4435
-  %.pr = load i64, ptr %5, align 8
+  %.pr = load i64, ptr %5, align 8, !range !3273, !noundef !4
   %15 = icmp eq i64 %.pr, 14
-  %16 = lshr i64 %.pr, 32
-  %17 = trunc nuw i64 %16 to i32
-  br i1 %15, label %18, label %22
+  br i1 %15, label %16, label %20
 
-18:                                               ; preds = %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2aa568a9dE.exit
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %20 = load i32, ptr %19, align 8, !range !4436, !noundef !4
+16:                                               ; preds = %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2aa568a9dE.exit
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = load i32, ptr %17, align 8, !range !4436, !noundef !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %20, ptr %21, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %18, ptr %19, align 8
   store i64 21, ptr %0, align 8
-  br label %23
+  br label %21
 
-22:                                               ; preds = %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2aa568a9dE.exit.thread, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2aa568a9dE.exit
-  %.sroa.521.0.copyload = phi i32 [ 0, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2aa568a9dE.exit.thread ], [ %17, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2aa568a9dE.exit ]
+20:                                               ; preds = %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2aa568a9dE.exit.thread, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2aa568a9dE.exit
   %.sroa.020.0.copyload.in = phi i64 [ %12, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2aa568a9dE.exit.thread ], [ %.pr, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2aa568a9dE.exit ]
-  %.sroa.020.0.copyload = trunc i64 %.sroa.020.0.copyload.in to i32
+  %.sroa.020.0.copyload = trunc nuw nsw i64 %.sroa.020.0.copyload.in to i32
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.622.0.copyload = load i64, ptr %.sroa.622.0..sroa_idx, align 8
   %.sroa.723.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -15230,12 +15227,12 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h228e93b2
   %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.020.0.copyload, ptr %.sroa.513.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.521.0.copyload, ptr %.sroa.6.0..sroa_idx, align 4
+  store i32 0, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.622.0.copyload, ptr %.sroa.714.0..sroa_idx, align 8
-  br label %23
+  br label %21
 
-23:                                               ; preds = %22, %18
+21:                                               ; preds = %20, %16
   ret void
 }
 
@@ -15283,7 +15280,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17hed7a9a06
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !4437
   call void @_ZN8zvariant10serialized4data4Data21deserialize_with_seed17h5da024916f518480E.llvm.13033308200869021913(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %14)
-  %.pr = load i64, ptr %5, align 8
+  %.pr = load i64, ptr %5, align 8, !range !3273, !noundef !4
   %15 = icmp eq i64 %.pr, 14
   br i1 %15, label %16, label %19
 
@@ -15351,7 +15348,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h4af9f818
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !4443
   call void @_ZN8zvariant10serialized4data4Data21deserialize_with_seed17h40464e31d66272faE.llvm.13033308200869021913(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %14), !noalias !4450
-  %.pr = load i64, ptr %5, align 8
+  %.pr = load i64, ptr %5, align 8, !range !3273, !noundef !4
   %15 = icmp eq i64 %.pr, 14
   br i1 %15, label %16, label %17
 
@@ -15413,31 +15410,28 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501f
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.0..sroa_idx.i, i64 56, i1 false), !noalias !4457
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !4451
-  br label %22
+  br label %20
 
 _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501fb97626dbE.exit: ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !4451
   call void @_ZN8zvariant10serialized4data4Data21deserialize_with_seed17ha6ca3bf3928b28d9E.llvm.13033308200869021913(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %14), !noalias !4458
-  %.pr = load i64, ptr %5, align 8
+  %.pr = load i64, ptr %5, align 8, !range !3273, !noundef !4
   %15 = icmp eq i64 %.pr, 14
-  %16 = lshr i64 %.pr, 32
-  %17 = trunc nuw i64 %16 to i32
-  br i1 %15, label %18, label %22
+  br i1 %15, label %16, label %20
 
-18:                                               ; preds = %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501fb97626dbE.exit
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %20 = load i32, ptr %19, align 8, !range !4459, !noundef !4
+16:                                               ; preds = %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501fb97626dbE.exit
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = load i32, ptr %17, align 8, !range !4459, !noundef !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %20, ptr %21, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %18, ptr %19, align 8
   store i64 21, ptr %0, align 8
-  br label %23
+  br label %21
 
-22:                                               ; preds = %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501fb97626dbE.exit.thread, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501fb97626dbE.exit
-  %.sroa.521.0.copyload = phi i32 [ 0, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501fb97626dbE.exit.thread ], [ %17, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501fb97626dbE.exit ]
+20:                                               ; preds = %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501fb97626dbE.exit.thread, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501fb97626dbE.exit
   %.sroa.020.0.copyload.in = phi i64 [ %12, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501fb97626dbE.exit.thread ], [ %.pr, %_ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501fb97626dbE.exit ]
-  %.sroa.020.0.copyload = trunc i64 %.sroa.020.0.copyload.in to i32
+  %.sroa.020.0.copyload = trunc nuw nsw i64 %.sroa.020.0.copyload.in to i32
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.622.0.copyload = load i64, ptr %.sroa.622.0..sroa_idx, align 8
   %.sroa.723.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -15448,12 +15442,12 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h1710501f
   %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.020.0.copyload, ptr %.sroa.513.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sroa.521.0.copyload, ptr %.sroa.6.0..sroa_idx, align 4
+  store i32 0, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.622.0.copyload, ptr %.sroa.714.0..sroa_idx, align 8
-  br label %23
+  br label %21
 
-23:                                               ; preds = %22, %18
+21:                                               ; preds = %20, %16
   ret void
 }
 
@@ -15508,7 +15502,7 @@ _ZN8zvariant10serialized4data4Data33deserialize_for_dynamic_signature17h028a4d77
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !4463
   call void @_ZN8zvariant10serialized4data4Data21deserialize_with_seed17hf8f56f129c64cd08E.llvm.13033308200869021913(ptr noalias noundef nonnull sret([152 x i8]) align 8 captures(none) dereferenceable(152) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %15), !noalias !4468
-  %.pr = load i64, ptr %5, align 8
+  %.pr = load i64, ptr %5, align 8, !range !3162, !noundef !4
   %16 = icmp eq i64 %.pr, 21
   br i1 %16, label %18, label %17
 
@@ -17566,7 +17560,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hd99d515d2f3f90
   br label %"_ZN4core3ptr42drop_in_place$LT$event_listener..Event$GT$17hd90ae802e7d85249E.exitthread-pre-split"
 
 "_ZN4core3ptr42drop_in_place$LT$event_listener..Event$GT$17hd90ae802e7d85249E.exitthread-pre-split": ; preds = %15, %11, %9, %5
-  %.pr = load ptr, ptr %0, align 8
+  %.pr = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   br label %"_ZN4core3ptr42drop_in_place$LT$event_listener..Event$GT$17hd90ae802e7d85249E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$event_listener..Event$GT$17hd90ae802e7d85249E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$event_listener..Event$GT$17hd90ae802e7d85249E.exitthread-pre-split", %1
@@ -21777,7 +21771,7 @@ define hidden { i64, ptr } @"_ZN88_$LT$async_tar..entry..EntryFields$LT$R$GT$$u2
   store i64 %21, ptr %6, align 8, !alias.scope !5806, !noalias !5809
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %.pr = load i64, ptr %0, align 8
+  %.pr = load i64, ptr %0, align 8, !range !1009, !noundef !4
   %23 = icmp eq i64 %.pr, 2
   br i1 %23, label %.loopexit, label %.thread26
 
@@ -22881,7 +22875,7 @@ define hidden void @"_ZN9async_tar5entry20EntryFields$LT$R$GT$9link_name17h54594
 "_ZN9async_tar5entry20EntryFields$LT$R$GT$15link_name_bytes17h3e5b0898a5eee5d8E.llvm.5114091958698501191.exit": ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @_ZN9async_tar6header6Header15link_name_bytes17he7019dfcaaaf2b23E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 dereferenceable(512) %17)
-  %.pr = load i64, ptr %3, align 8
+  %.pr = load i64, ptr %3, align 8, !range !3120, !noundef !4
   %18 = icmp eq i64 %.pr, -9223372036854775807
   br i1 %18, label %19, label %"_ZN9async_tar5entry20EntryFields$LT$R$GT$15link_name_bytes17h3e5b0898a5eee5d8E.llvm.5114091958698501191.exit._ZN9async_tar5entry20EntryFields$LT$R$GT$15link_name_bytes17h3e5b0898a5eee5d8E.llvm.5114091958698501191.exit.thread_crit_edge"
 
@@ -23139,7 +23133,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5114091958698501191.exit.
 define internal fastcc void @_ZN9async_tar7archive17poll_try_read_all17h0e947a6cfc0944ddE(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca [8 x i8], align 8
   store ptr %1, ptr %6, align 8
-  %.pr = load i64, ptr %4, align 8
+  %.pr = load i64, ptr %4, align 8, !noundef !4
   %7 = icmp ult i64 %.pr, 512
   br i1 %7, label %.lr.ph, label %._crit_edge
 

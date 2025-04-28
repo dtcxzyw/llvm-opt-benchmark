@@ -6317,7 +6317,7 @@ common.resume.i:                                  ; preds = %810, %499, %203
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !1893
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25), !noalias !1609
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7443.i)
-  %.pr.i.pre.i = load i64, ptr %26, align 8, !alias.scope !1810, !noalias !1811
+  %.pr.i.pre.i = load i64, ptr %26, align 8, !range !1824, !alias.scope !1810, !noalias !1811
   %.pre747.i = load ptr, ptr %.sroa.054.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1797, !noalias !1830
   %.pre748.i = load ptr, ptr %.sroa.054.sroa.4.sroa.4.0..sroa.054.sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1797, !noalias !1830
   %.promoted.i246.pre.i = load ptr, ptr %.sroa.054.sroa.4.sroa.3.0..sroa.054.sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1797, !noalias !1830
@@ -8014,7 +8014,7 @@ common.resume:                                    ; preds = %44, %390, %221
   %238 = add i64 %237, 1
   store i64 %238, ptr %136, align 8, !alias.scope !2293, !noalias !2296
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7231)
-  %.pr.i.pre = load i64, ptr %23, align 8, !alias.scope !2274, !noalias !2275
+  %.pr.i.pre = load i64, ptr %23, align 8, !range !1824, !alias.scope !2274, !noalias !2275
   %.pre378 = load ptr, ptr %.sroa.034.sroa.4.0..sroa_idx, align 8, !alias.scope !2261, !noalias !2258
   %.pre379 = load ptr, ptr %.sroa.034.sroa.4.sroa.4.0..sroa.034.sroa.4.0..sroa_idx.sroa_idx, align 8, !alias.scope !2261, !noalias !2258
   %.promoted.i.pre = load ptr, ptr %.sroa.034.sroa.4.sroa.3.0..sroa.034.sroa.4.0..sroa_idx.sroa_idx, align 8, !alias.scope !2261, !noalias !2258

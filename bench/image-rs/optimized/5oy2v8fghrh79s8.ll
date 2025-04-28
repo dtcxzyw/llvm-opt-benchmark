@@ -42932,7 +42932,7 @@ define hidden void @"_ZN71_$LT$png..encoder..Writer$LT$W$GT$$u20$as$u20$core..op
 
 "_ZN3png7encoder15Writer$LT$W$GT$11write_chunk17hc710c71509724b17E.exit": ; preds = %6
   call void @_ZN3png7encoder11write_chunk17hd33571827a23702bE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i32 1145980233, ptr noalias noundef nonnull readonly align 1 @anon.8554c8e21b8cbc9380508c54347b7519.3.llvm.9832446184049035033, i64 noundef 0)
-  %.pr = load i64, ptr %2, align 8, !alias.scope !18451
+  %.pr = load i64, ptr %2, align 8, !range !16391, !alias.scope !18451, !noundef !4
   %8 = icmp eq i64 %.pr, 6
   br i1 %8, label %"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$png..encoder..EncodingError$GT$$GT$17h0d958be48ef10a97E.llvm.9832446184049035033.exit", label %9
 
@@ -43025,7 +43025,7 @@ define hidden void @"_ZN71_$LT$png..encoder..Writer$LT$W$GT$$u20$as$u20$core..op
 
 "_ZN3png7encoder15Writer$LT$W$GT$11write_chunk17h9bf4450c842e9ca8E.exit": ; preds = %6
   call void @_ZN3png7encoder11write_chunk17h9f06041a88e8bbf7E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(80) %0, i32 1145980233, ptr noalias noundef nonnull readonly align 1 @anon.8554c8e21b8cbc9380508c54347b7519.3.llvm.9832446184049035033, i64 noundef 0)
-  %.pr = load i64, ptr %2, align 8, !alias.scope !18489
+  %.pr = load i64, ptr %2, align 8, !range !16391, !alias.scope !18489, !noundef !4
   %8 = icmp eq i64 %.pr, 6
   br i1 %8, label %"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$png..encoder..EncodingError$GT$$GT$17h0d958be48ef10a97E.llvm.9832446184049035033.exit", label %9
 
@@ -54449,7 +54449,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h7322fa5541e7919bE.llvm.98
   br label %67
 
 thread-pre-split.i.i:                             ; preds = %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$4read17h55b27b19ee1bffd1E.exit.i.i"
-  %.pr.i.i = load i64, ptr %36, align 8, !noalias !21083
+  %.pr.i.i = load i64, ptr %36, align 8, !noalias !21083, !noundef !4
   br label %64
 
 64:                                               ; preds = %thread-pre-split.i.i, %"_ZN3std2io5impls57_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$mut$u20$R$GT$4read17h55b27b19ee1bffd1E.exit.thread7.i.i"

@@ -954,7 +954,7 @@ common.resume:                                    ; preds = %83, %106, %121, %14
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i", label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfb5e87174b9e8c94E.exit"
 
-default.unreachable:                              ; preds = %93, %.loopexit.i.i, %.loopexit15
+default.unreachable:                              ; preds = %93, %127, %.loopexit.i.i, %69, %.loopexit15
   unreachable
 
 57:                                               ; preds = %.loopexit15
@@ -997,13 +997,14 @@ default.unreachable:                              ; preds = %93, %.loopexit.i.i,
   br i1 %68, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h36a09a4a653e9b50E.exit.sink.split", label %69
 
 69:                                               ; preds = %67
-  %.val26.pr.i.i = load i64, ptr %48, align 8, !alias.scope !282, !noalias !285
+  %.val26.pr.i.i = load i64, ptr %48, align 8, !range !225, !alias.scope !282, !noalias !285, !noundef !30
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val27.i.i = load ptr, ptr %70, align 8, !alias.scope !282, !noalias !285
-  switch i64 %.val26.pr.i.i, label %77 [
+  switch i64 %.val26.pr.i.i, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
     i64 2, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
     i64 0, label %71
+    i64 1, label %77
   ]
 
 71:                                               ; preds = %69
@@ -1159,13 +1160,14 @@ default.unreachable:                              ; preds = %93, %.loopexit.i.i,
   br i1 %126, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h36a09a4a653e9b50E.exit.sink.split", label %127
 
 127:                                              ; preds = %125
-  %.val.pr.i.i = load i64, ptr %123, align 8, !alias.scope !282, !noalias !285
+  %.val.pr.i.i = load i64, ptr %123, align 8, !range !225, !alias.scope !282, !noalias !285, !noundef !30
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val23.i.i = load ptr, ptr %128, align 8, !alias.scope !282, !noalias !285
-  switch i64 %.val.pr.i.i, label %135 [
+  switch i64 %.val.pr.i.i, label %default.unreachable [
     i64 3, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h7ad3a46cc386e869E.exit"
     i64 2, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h7ad3a46cc386e869E.exit"
     i64 0, label %129
+    i64 1, label %135
   ]
 
 129:                                              ; preds = %127
@@ -1369,7 +1371,7 @@ common.resume:                                    ; preds = %90, %114, %136, %40
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i", label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfb5e87174b9e8c94E.exit"
 
-default.unreachable:                              ; preds = %100, %.loopexit
+default.unreachable:                              ; preds = %121, %100, %75, %.loopexit
   unreachable
 
 59:                                               ; preds = %.loopexit
@@ -1432,13 +1434,14 @@ default.unreachable:                              ; preds = %100, %.loopexit
 
 75:                                               ; preds = %72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !465
-  %.val19.pr.i.i = load i64, ptr %50, align 8, !alias.scope !475, !noalias !469
+  %.val19.pr.i.i = load i64, ptr %50, align 8, !range !225, !alias.scope !475, !noalias !469, !noundef !30
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val20.i.i = load ptr, ptr %76, align 8, !alias.scope !475, !noalias !469
-  switch i64 %.val19.pr.i.i, label %83 [
+  switch i64 %.val19.pr.i.i, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
     i64 2, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
     i64 0, label %77
+    i64 1, label %83
   ]
 
 77:                                               ; preds = %75
@@ -1569,13 +1572,14 @@ default.unreachable:                              ; preds = %100, %.loopexit
 
 121:                                              ; preds = %118
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !465
-  %.val.pr.i.i = load i64, ptr %116, align 8, !alias.scope !475, !noalias !469
+  %.val.pr.i.i = load i64, ptr %116, align 8, !range !225, !alias.scope !475, !noalias !469, !noundef !30
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val16.i.i = load ptr, ptr %122, align 8, !alias.scope !475, !noalias !469
-  switch i64 %.val.pr.i.i, label %129 [
+  switch i64 %.val.pr.i.i, label %default.unreachable [
     i64 3, label %139
     i64 2, label %139
     i64 0, label %123
+    i64 1, label %129
   ]
 
 123:                                              ; preds = %121
@@ -1795,7 +1799,7 @@ common.resume:                                    ; preds = %88, %111, %126, %14
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i", label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfb5e87174b9e8c94E.exit"
 
-default.unreachable:                              ; preds = %98, %.loopexit.i.i, %.loopexit15
+default.unreachable:                              ; preds = %98, %132, %.loopexit.i.i, %74, %.loopexit15
   unreachable
 
 62:                                               ; preds = %.loopexit15
@@ -1838,13 +1842,14 @@ default.unreachable:                              ; preds = %98, %.loopexit.i.i,
   br i1 %73, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h435f0b8d233c5c14E.exit.sink.split", label %74
 
 74:                                               ; preds = %72
-  %.val26.pr.i.i = load i64, ptr %53, align 8, !alias.scope !653, !noalias !656
+  %.val26.pr.i.i = load i64, ptr %53, align 8, !range !225, !alias.scope !653, !noalias !656, !noundef !30
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val27.i.i = load ptr, ptr %75, align 8, !alias.scope !653, !noalias !656
-  switch i64 %.val26.pr.i.i, label %82 [
+  switch i64 %.val26.pr.i.i, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
     i64 2, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
     i64 0, label %76
+    i64 1, label %82
   ]
 
 76:                                               ; preds = %74
@@ -2000,13 +2005,14 @@ default.unreachable:                              ; preds = %98, %.loopexit.i.i,
   br i1 %131, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h435f0b8d233c5c14E.exit.sink.split", label %132
 
 132:                                              ; preds = %130
-  %.val.pr.i.i = load i64, ptr %128, align 8, !alias.scope !653, !noalias !656
+  %.val.pr.i.i = load i64, ptr %128, align 8, !range !225, !alias.scope !653, !noalias !656, !noundef !30
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val23.i.i = load ptr, ptr %133, align 8, !alias.scope !653, !noalias !656
-  switch i64 %.val.pr.i.i, label %140 [
+  switch i64 %.val.pr.i.i, label %default.unreachable [
     i64 3, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h49c667f7c72e91fdE.exit"
     i64 2, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h49c667f7c72e91fdE.exit"
     i64 0, label %134
+    i64 1, label %140
   ]
 
 134:                                              ; preds = %132
@@ -2205,7 +2211,7 @@ common.resume:                                    ; preds = %83, %106, %121, %14
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i", label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfb5e87174b9e8c94E.exit"
 
-default.unreachable:                              ; preds = %93, %.loopexit.i.i, %.loopexit15
+default.unreachable:                              ; preds = %93, %127, %.loopexit.i.i, %69, %.loopexit15
   unreachable
 
 57:                                               ; preds = %.loopexit15
@@ -2248,13 +2254,14 @@ default.unreachable:                              ; preds = %93, %.loopexit.i.i,
   br i1 %68, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h805150ae2a5ea81dE.exit.sink.split", label %69
 
 69:                                               ; preds = %67
-  %.val26.pr.i.i = load i64, ptr %48, align 8, !alias.scope !825, !noalias !828
+  %.val26.pr.i.i = load i64, ptr %48, align 8, !range !225, !alias.scope !825, !noalias !828, !noundef !30
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val27.i.i = load ptr, ptr %70, align 8, !alias.scope !825, !noalias !828
-  switch i64 %.val26.pr.i.i, label %77 [
+  switch i64 %.val26.pr.i.i, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
     i64 2, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
     i64 0, label %71
+    i64 1, label %77
   ]
 
 71:                                               ; preds = %69
@@ -2410,13 +2417,14 @@ default.unreachable:                              ; preds = %93, %.loopexit.i.i,
   br i1 %126, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h805150ae2a5ea81dE.exit.sink.split", label %127
 
 127:                                              ; preds = %125
-  %.val.pr.i.i = load i64, ptr %123, align 8, !alias.scope !825, !noalias !828
+  %.val.pr.i.i = load i64, ptr %123, align 8, !range !225, !alias.scope !825, !noalias !828, !noundef !30
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val23.i.i = load ptr, ptr %128, align 8, !alias.scope !825, !noalias !828
-  switch i64 %.val.pr.i.i, label %135 [
+  switch i64 %.val.pr.i.i, label %default.unreachable [
     i64 3, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h5753fa45f10bab0bE.exit"
     i64 2, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h5753fa45f10bab0bE.exit"
     i64 0, label %129
+    i64 1, label %135
   ]
 
 129:                                              ; preds = %127
@@ -2615,7 +2623,7 @@ common.resume:                                    ; preds = %83, %106, %121, %14
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i", label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfb5e87174b9e8c94E.exit"
 
-default.unreachable:                              ; preds = %93, %.loopexit.i.i, %.loopexit15
+default.unreachable:                              ; preds = %93, %127, %.loopexit.i.i, %69, %.loopexit15
   unreachable
 
 57:                                               ; preds = %.loopexit15
@@ -2658,13 +2666,14 @@ default.unreachable:                              ; preds = %93, %.loopexit.i.i,
   br i1 %68, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h579381a751e7b7e9E.exit.sink.split", label %69
 
 69:                                               ; preds = %67
-  %.val26.pr.i.i = load i64, ptr %48, align 8, !alias.scope !997, !noalias !1000
+  %.val26.pr.i.i = load i64, ptr %48, align 8, !range !225, !alias.scope !997, !noalias !1000, !noundef !30
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val27.i.i = load ptr, ptr %70, align 8, !alias.scope !997, !noalias !1000
-  switch i64 %.val26.pr.i.i, label %77 [
+  switch i64 %.val26.pr.i.i, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
     i64 2, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
     i64 0, label %71
+    i64 1, label %77
   ]
 
 71:                                               ; preds = %69
@@ -2820,13 +2829,14 @@ default.unreachable:                              ; preds = %93, %.loopexit.i.i,
   br i1 %126, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h579381a751e7b7e9E.exit.sink.split", label %127
 
 127:                                              ; preds = %125
-  %.val.pr.i.i = load i64, ptr %123, align 8, !alias.scope !997, !noalias !1000
+  %.val.pr.i.i = load i64, ptr %123, align 8, !range !225, !alias.scope !997, !noalias !1000, !noundef !30
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val23.i.i = load ptr, ptr %128, align 8, !alias.scope !997, !noalias !1000
-  switch i64 %.val.pr.i.i, label %135 [
+  switch i64 %.val.pr.i.i, label %default.unreachable [
     i64 3, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h87a52f36dfb10876E.exit"
     i64 2, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h87a52f36dfb10876E.exit"
     i64 0, label %129
+    i64 1, label %135
   ]
 
 129:                                              ; preds = %127
@@ -3025,7 +3035,7 @@ common.resume:                                    ; preds = %83, %106, %121, %14
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %"_ZN4core3ptr46drop_in_place$LT$rowan..cursor..SyntaxNode$GT$17h0f50e245e54b834dE.llvm.10606712881621943088.exit.sink.split.i.i.i.i.i.i.i", label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hfb5e87174b9e8c94E.exit"
 
-default.unreachable:                              ; preds = %93, %.loopexit.i.i, %.loopexit15
+default.unreachable:                              ; preds = %93, %127, %.loopexit.i.i, %69, %.loopexit15
   unreachable
 
 57:                                               ; preds = %.loopexit15
@@ -3068,13 +3078,14 @@ default.unreachable:                              ; preds = %93, %.loopexit.i.i,
   br i1 %68, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h32c6355e46482ea1E.exit.sink.split", label %69
 
 69:                                               ; preds = %67
-  %.val26.pr.i.i = load i64, ptr %48, align 8, !alias.scope !1169, !noalias !1172
+  %.val26.pr.i.i = load i64, ptr %48, align 8, !range !225, !alias.scope !1169, !noalias !1172, !noundef !30
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val27.i.i = load ptr, ptr %70, align 8, !alias.scope !1169, !noalias !1172
-  switch i64 %.val26.pr.i.i, label %77 [
+  switch i64 %.val26.pr.i.i, label %default.unreachable [
     i64 3, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
     i64 2, label %"_ZN4core3ptr199drop_in_place$LT$core..option..Option$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7241ee405c25d348E.exit.i.i"
     i64 0, label %71
+    i64 1, label %77
   ]
 
 71:                                               ; preds = %69
@@ -3230,13 +3241,14 @@ default.unreachable:                              ; preds = %93, %.loopexit.i.i,
   br i1 %126, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h32c6355e46482ea1E.exit.sink.split", label %127
 
 127:                                              ; preds = %125
-  %.val.pr.i.i = load i64, ptr %123, align 8, !alias.scope !1169, !noalias !1172
+  %.val.pr.i.i = load i64, ptr %123, align 8, !range !225, !alias.scope !1169, !noalias !1172, !noundef !30
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val23.i.i = load ptr, ptr %128, align 8, !alias.scope !1169, !noalias !1172
-  switch i64 %.val.pr.i.i, label %135 [
+  switch i64 %.val.pr.i.i, label %default.unreachable [
     i64 3, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2f676af3056c9419E.exit"
     i64 2, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2f676af3056c9419E.exit"
     i64 0, label %129
+    i64 1, label %135
   ]
 
 129:                                              ; preds = %127
@@ -6849,7 +6861,7 @@ define hidden void @"_ZN3mbe7tt_iter15TtIter$LT$S$GT$18expect_glued_punct17h4192
   br i1 %61, label %63, label %.thread221thread-pre-split
 
 .thread221thread-pre-split:                       ; preds = %47, %58, %48
-  %.pr = load i32, ptr %21, align 8
+  %.pr = load i32, ptr %21, align 8, !range !1612, !noundef !30
   %62 = icmp eq i32 %.pr, 1
   br i1 %62, label %.thread, label %.thread222
 
@@ -7207,7 +7219,7 @@ default.unreachable456:                           ; preds = %141, %123
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h366f5c03dec1fe27E.exit.thread": ; preds = %83, %31
   %.0333.lcssa = phi ptr [ %33, %31 ], [ %86, %83 ]
-  %.pr = load i64, ptr %.0333.lcssa, align 8
+  %.pr = load i64, ptr %.0333.lcssa, align 8, !range !1997, !noundef !30
   %.pre = add nsw i64 %.pr, -4
   %.pre454 = add nsw i64 %.pr, -3
   br label %.loopexit426
@@ -7382,7 +7394,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %.lr.ph
   br label %183
 
 92:                                               ; preds = %.loopexit426
-  %switch = icmp ult i64 %38, 2
+  %switch = icmp samesign ult i64 %38, 2
   br i1 %switch, label %138, label %141
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit353: ; preds = %.loopexit426
@@ -7920,7 +7932,7 @@ default.unreachable456:                           ; preds = %128, %122
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h366f5c03dec1fe27E.exit.thread": ; preds = %82, %30
   %.0333.lcssa = phi ptr [ %32, %30 ], [ %85, %82 ]
-  %.pr = load i64, ptr %.0333.lcssa, align 8
+  %.pr = load i64, ptr %.0333.lcssa, align 8, !range !1997, !noundef !30
   %.pre = add nsw i64 %.pr, -4
   %.pre454 = add nsw i64 %.pr, -3
   br label %.loopexit426
@@ -8095,7 +8107,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %.lr.ph
   br label %158
 
 91:                                               ; preds = %.loopexit426
-  %switch = icmp ult i64 %37, 2
+  %switch = icmp samesign ult i64 %37, 2
   br i1 %switch, label %125, label %128
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit353: ; preds = %.loopexit426
@@ -18712,7 +18724,7 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store ptr %41, ptr %6, align 8, !alias.scope !4504, !noalias !4507
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false), !noalias !4504
-  %.pr = load ptr, ptr %5, align 8
+  %.pr = load ptr, ptr %5, align 8, !noundef !30
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fafbafb96ed4788E.exit22.thread", label %42
 
@@ -18733,7 +18745,7 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %44, ptr %6, align 8, !alias.scope !4494, !noalias !4497
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false), !noalias !4494
-  %.pr37 = load ptr, ptr %4, align 8
+  %.pr37 = load ptr, ptr %4, align 8, !noundef !30
   %.not16 = icmp eq ptr %.pr37, null
   br i1 %.not16, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fafbafb96ed4788E.exit.thread", label %45
 
@@ -20857,7 +20869,7 @@ define noundef zeroext i1 @_ZN10hir_expand8mod_path7ModPath7is_Self17hc8505f488a
           to label %30 unwind label %28
 
 "_ZN63_$LT$hir_expand..name..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h43a633b5ab09c79dE.llvm.1819014470976533947.exit": ; preds = %17
-  %.pr.pre = load i8, ptr %2, align 8, !alias.scope !4943
+  %.pr.pre = load i8, ptr %2, align 8, !range !114, !alias.scope !4943
   call void @llvm.experimental.noalias.scope.decl(metadata !4948)
   call void @llvm.experimental.noalias.scope.decl(metadata !4949)
   %.not.i.i = icmp eq i8 %.pr.pre, 26

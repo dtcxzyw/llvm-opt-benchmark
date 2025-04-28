@@ -6320,7 +6320,7 @@ switch.early.test.i:                              ; preds = %323
 
 423:                                              ; preds = %420
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %68)
-  %.pr = load i8, ptr %417, align 8
+  %.pr = load i8, ptr %417, align 8, !range !737, !noundef !4
   br label %425
 
 424:                                              ; preds = %420
@@ -11524,7 +11524,7 @@ _ZN9byteorder2io12ReadBytesExt7read_u817h59daf0605c6a0b7dE.exit: ; preds = %"_ZN
 
 thread-pre-split:                                 ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.i39", %51
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !1752
-  %.pr = load i8, ptr %12, align 1
+  %.pr = load i8, ptr %12, align 1, !range !259, !noundef !4
   br label %48
 
 48:                                               ; preds = %thread-pre-split, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h90105e404d65b9eaE.llvm.3890463254259644073.exit38"
@@ -11781,7 +11781,7 @@ thread-pre-split:                                 ; preds = %"_ZN3std2io6cursor1
   %82 = add i64 %87, 1
   store i64 %82, ptr %20, align 8, !alias.scope !1834, !noalias !1839
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !1842
-  %.pr = load i8, ptr %17, align 1
+  %.pr = load i8, ptr %17, align 1, !range !259, !noundef !4
   br label %83
 
 83:                                               ; preds = %thread-pre-split, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h90105e404d65b9eaE.llvm.3890463254259644073.exit39"
@@ -26690,7 +26690,7 @@ switch.lookup:                                    ; preds = %7
 
 "_ZN3png7encoder15Writer$LT$W$GT$11write_chunk17h9bf4450c842e9ca8E.exit.i.i": ; preds = %45
   call void @_ZN3png7encoder11write_chunk17h9f06041a88e8bbf7E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(80) %15, i32 1145980233, ptr noalias noundef nonnull readonly align 1 @anon.8554c8e21b8cbc9380508c54347b7519.3.llvm.9832446184049035033, i64 noundef 0)
-  %.pr.i.i = load i64, ptr %9, align 8, !alias.scope !4262, !noalias !4256
+  %.pr.i.i = load i64, ptr %9, align 8, !range !105, !alias.scope !4262, !noalias !4256, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !4262)
   %47 = icmp eq i64 %.pr.i.i, 6
   br i1 %47, label %"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$png..encoder..EncodingError$GT$$GT$17h0d958be48ef10a97E.llvm.9832446184049035033.exit.i.i", label %48
@@ -26936,7 +26936,7 @@ switch.lookup:                                    ; preds = %7
 
 "_ZN3png7encoder15Writer$LT$W$GT$11write_chunk17hc710c71509724b17E.exit.i.i": ; preds = %45
   call void @_ZN3png7encoder11write_chunk17hd33571827a23702bE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(80) %15, i32 1145980233, ptr noalias noundef nonnull readonly align 1 @anon.8554c8e21b8cbc9380508c54347b7519.3.llvm.9832446184049035033, i64 noundef 0)
-  %.pr.i.i = load i64, ptr %9, align 8, !alias.scope !4309, !noalias !4303
+  %.pr.i.i = load i64, ptr %9, align 8, !range !105, !alias.scope !4309, !noalias !4303, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !4309)
   %47 = icmp eq i64 %.pr.i.i, 6
   br i1 %47, label %"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$png..encoder..EncodingError$GT$$GT$17h0d958be48ef10a97E.llvm.9832446184049035033.exit.i.i", label %48

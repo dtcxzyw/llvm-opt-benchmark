@@ -7055,7 +7055,7 @@ _ZN3std2io7BufRead9read_line17hba27610a2a524a51E.exit.i: ; preds = %18
 
 65:                                               ; preds = %63, %63, %63, %63, %63, %63
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !1056
-  %.pr.i = load i64, ptr %.sroa.524.0..sroa_idx.i, align 8, !noalias !1056
+  %.pr.i = load i64, ptr %.sroa.524.0..sroa_idx.i, align 8, !noalias !1056, !noundef !21
   br label %18
 
 66:                                               ; preds = %63
@@ -9844,7 +9844,7 @@ define hidden void @"_ZN4just6recipe15Recipe$LT$D$GT$7confirm17h9f6a35a99fa86363
   br label %27
 
 thread-pre-split:                                 ; preds = %39
-  %.pr = load i64, ptr %.sroa.12.0..sroa_idx, align 8, !alias.scope !1488
+  %.pr = load i64, ptr %.sroa.12.0..sroa_idx, align 8, !alias.scope !1488, !noundef !21
   %26 = icmp eq i64 %.pr, 0
   br i1 %26, label %._crit_edge, label %27
 
@@ -13628,7 +13628,7 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
   br label %.loopexit
 
 232:                                              ; preds = %77
-  %.pr = load i64, ptr %.sroa.12.0..sroa_idx, align 8, !alias.scope !2119
+  %.pr = load i64, ptr %.sroa.12.0..sroa_idx, align 8, !alias.scope !2119, !noundef !21
   %233 = icmp eq i64 %.pr, 0
   br i1 %233, label %._crit_edge, label %62
 
@@ -14194,7 +14194,7 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
   br label %.loopexit
 
 232:                                              ; preds = %77
-  %.pr = load i64, ptr %.sroa.12.0..sroa_idx, align 8, !alias.scope !2194
+  %.pr = load i64, ptr %.sroa.12.0..sroa_idx, align 8, !alias.scope !2194, !noundef !21
   %233 = icmp eq i64 %.pr, 0
   br i1 %233, label %._crit_edge, label %62
 

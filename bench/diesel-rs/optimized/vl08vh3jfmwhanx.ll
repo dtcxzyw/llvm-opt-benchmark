@@ -1771,7 +1771,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples94_$LT$impl$u20$diesel..query_
 
 "_ZN96_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hdb4c9c65e296e50cE.exit.i": ; preds = %3
   call void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h8377b18a4c43e2d3E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %7), !noalias !444
-  %.pr.i = load i64, ptr %8, align 8, !noalias !435
+  %.pr.i = load i64, ptr %8, align 8, !range !5, !noalias !435, !noundef !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !435
   %19 = icmp eq i64 %.pr.i, -9223372036854775798
   br i1 %19, label %20, label %22
@@ -1811,7 +1811,7 @@ define hidden void @"_ZN6diesel10type_impls6tuples94_$LT$impl$u20$diesel..query_
     i64 4, label %"_ZN96_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hdb4c9c65e296e50cE.exit"
   ]
 
-default.unreachable:                              ; preds = %23
+default.unreachable:                              ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exit", %23
   unreachable
 
 25:                                               ; preds = %23
@@ -1884,7 +1884,7 @@ default.unreachable:                              ; preds = %23
 
 "_ZN96_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h386c24570e0c4936E.exit.i": ; preds = %38
   call void @"_ZN138_$LT$diesel..query_builder..update_statement..changeset..Assign$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h073ff28741438ce4E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %40, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !462
-  %.pr.i61 = load i64, ptr %5, align 8, !noalias !453
+  %.pr.i61 = load i64, ptr %5, align 8, !range !5, !noalias !453, !noundef !4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !453
   %44 = icmp eq i64 %.pr.i61, -9223372036854775798
   br i1 %44, label %46, label %48
@@ -1917,7 +1917,7 @@ default.unreachable:                              ; preds = %23
   br i1 %39, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exitthread-pre-split", label %63
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exitthread-pre-split": ; preds = %49
-  %.pr = load i64, ptr %2, align 8, !alias.scope !463, !noalias !466
+  %.pr = load i64, ptr %2, align 8, !range !6, !alias.scope !463, !noalias !466, !noundef !4
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exit"
 
 "_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exit": ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exitthread-pre-split", %63
@@ -1926,16 +1926,13 @@ default.unreachable:                              ; preds = %23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !466)
   call void @llvm.experimental.noalias.scope.decl(metadata !463)
-  switch i64 %50, label %default.unreachable1.i72 [
+  switch i64 %50, label %default.unreachable [
     i64 0, label %51
     i64 1, label %54
     i64 2, label %"_ZN96_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h386c24570e0c4936E.exit"
     i64 3, label %"_ZN96_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h386c24570e0c4936E.exit"
     i64 4, label %"_ZN96_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h386c24570e0c4936E.exit"
   ]
-
-default.unreachable1.i72:                         ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exit"
-  unreachable
 
 51:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exit.thread", %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2c5939a20ea34722E.exit"
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 16

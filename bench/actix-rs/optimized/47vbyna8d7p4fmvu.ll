@@ -100,7 +100,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 34:                                               ; preds = %31
   %35 = getelementptr inbounds [0 x { [3 x i64] }], ptr %17, i64 0, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !noundef !4
   %36 = icmp eq i64 %.pr, 0
   br i1 %36, label %.thread, label %.lr.ph
 
@@ -196,3 +196,4 @@ attributes #8 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!4 = !{}

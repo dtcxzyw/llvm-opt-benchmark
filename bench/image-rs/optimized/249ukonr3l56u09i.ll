@@ -19850,7 +19850,7 @@ common.resume:                                    ; preds = %51, %.thread71, %49
   %64 = load ptr, ptr %63, align 8, !alias.scope !2260, !noalias !2257, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds { i64, [9 x i64] }, ptr %64, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull align 8 dereferenceable(80) %65, i64 80, i1 false), !noalias !2260
-  %.pr = load i64, ptr %30, align 8
+  %.pr = load i64, ptr %30, align 8, !range !624, !noundef !4
   %.not = icmp eq i64 %.pr, -9223372036854775807
   br i1 %.not, label %85, label %66
 
@@ -20963,7 +20963,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.9742654456972663382.exit.
 
 417:                                              ; preds = %"_ZN4core3ptr162drop_in_place$LT$std..sync..mutex..MutexGuard$LT$core..option..Option$LT$core..result..Result$LT$exr..block..UncompressedBlock$C$exr..error..Error$GT$$GT$$GT$$GT$17h9f093a1580ca9e47E.exit.i29.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %22, ptr noundef nonnull align 8 dereferenceable(80) %17, i64 80, i1 false), !noalias !2319
-  %.pr.i = load i64, ptr %22, align 8, !alias.scope !2458, !noalias !2461
+  %.pr.i = load i64, ptr %22, align 8, !range !624, !alias.scope !2458, !noalias !2461, !noundef !4
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %17), !noalias !2356
   call void @llvm.experimental.noalias.scope.decl(metadata !2458)
   %418 = icmp eq i64 %.pr.i, -9223372036854775807
@@ -27807,7 +27807,7 @@ _ZN5image6codecs3ico7decoder12read_entries17h77bd08d773e23071E.exit: ; preds = %
   store i16 %.val.i.i.i40.i, ptr %56, align 2, !noalias !3452
   store ptr %1, ptr %17, align 8, !noalias !3452
   call void @_ZN4core4iter8adapters11try_process17h7b59487c8ee11c46E(ptr noalias noundef nonnull sret({ i8, [63 x i8] }) align 8 captures(none) dereferenceable(64) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %17)
-  %.pr = load i8, ptr %20, align 8
+  %.pr = load i8, ptr %20, align 8, !range !3453, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   %57 = icmp eq i8 %.pr, 10
   br i1 %57, label %58, label %62
@@ -28192,7 +28192,7 @@ define hidden void @"_ZN5image6codecs3ico7decoder19IcoDecoder$LT$R$GT$3new17h852
   br label %.critedge
 
 39:                                               ; preds = %35
-  %.pr = load i8, ptr %21, align 8
+  %.pr = load i8, ptr %21, align 8, !range !3453, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   %40 = icmp eq i8 %.pr, 10
   br i1 %40, label %41, label %.critedge
@@ -31225,7 +31225,7 @@ define hidden void @_ZN5image6codecs4webp8extended13ExtendedImage20read_extended
 .body:                                            ; preds = %.loopexit515, %.loopexit.split-lp516, %.loopexit, %.loopexit.split-lp, %184, %173, %196, %146, %134, %.thread69.i, %.thread438
   %.2219.ph = phi i8 [ 1, %.loopexit515 ], [ 1, %.loopexit.split-lp516 ], [ %.1218.ph, %.loopexit.split-lp ], [ 1, %.loopexit ], [ 1, %184 ], [ 1, %173 ], [ 1, %196 ], [ 1, %.thread69.i ], [ 1, %134 ], [ 1, %146 ], [ 1, %.thread438 ]
   %.pn279.ph = phi { ptr, i32 } [ %lpad.loopexit517, %.loopexit515 ], [ %lpad.loopexit.split-lp518, %.loopexit.split-lp516 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %185, %184 ], [ %.pn.i299, %173 ], [ %.pn274, %196 ], [ %.pn39.i, %.thread69.i ], [ %lpad.thr_comm.split-lp.i, %134 ], [ %.pn39.i, %146 ], [ %.pn277432, %.thread438 ]
-  %.pr = load i64, ptr %50, align 8
+  %.pr = load i64, ptr %50, align 8, !range !768, !noundef !4
   %.not501 = icmp eq i64 %.pr, 3
   br i1 %.not501, label %.body.thread, label %452
 
@@ -33061,7 +33061,7 @@ define hidden void @_ZN5image6codecs4webp8extended13ExtendedImage20read_extended
 .body:                                            ; preds = %.loopexit515, %.loopexit.split-lp516, %.loopexit, %.loopexit.split-lp, %184, %173, %196, %146, %134, %.thread69.i, %.thread438
   %.2219.ph = phi i8 [ 1, %.loopexit515 ], [ 1, %.loopexit.split-lp516 ], [ %.1218.ph, %.loopexit.split-lp ], [ 1, %.loopexit ], [ 1, %184 ], [ 1, %173 ], [ 1, %196 ], [ 1, %.thread69.i ], [ 1, %134 ], [ 1, %146 ], [ 1, %.thread438 ]
   %.pn279.ph = phi { ptr, i32 } [ %lpad.loopexit517, %.loopexit515 ], [ %lpad.loopexit.split-lp518, %.loopexit.split-lp516 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %185, %184 ], [ %.pn.i299, %173 ], [ %.pn274, %196 ], [ %.pn39.i, %.thread69.i ], [ %lpad.thr_comm.split-lp.i, %134 ], [ %.pn39.i, %146 ], [ %.pn277432, %.thread438 ]
-  %.pr = load i64, ptr %50, align 8
+  %.pr = load i64, ptr %50, align 8, !range !768, !noundef !4
   %.not501 = icmp eq i64 %.pr, 3
   br i1 %.not501, label %.body.thread, label %452
 

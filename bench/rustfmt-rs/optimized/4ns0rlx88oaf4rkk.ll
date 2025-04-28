@@ -5982,7 +5982,7 @@ define hidden void @"_ZN4core3ptr1219drop_in_place$LT$core..iter..adapters..flat
           to label %.body2 unwind label %40
 
 "_ZN69_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1589568392ef118bE.llvm.17249484671449717553.exit.i.i.i.i.i": ; preds = %32
-  %.pr.i.i.i.i.i = load ptr, ptr %0, align 8, !alias.scope !1937
+  %.pr.i.i.i.i.i = load ptr, ptr %0, align 8, !alias.scope !1937, !nonnull !5, !noundef !5
   %38 = icmp eq ptr %.pr.i.i.i.i.i, @_RNvCsj4mk7jSHATF_8thin_vec12EMPTY_HEADER
   br i1 %38, label %"_ZN4core3ptr601drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..lists..ListItems$LT$core..iter..adapters..map..Map$LT$thin_vec..IntoIter$LT$rustc_ast..ast..NestedMetaItem$GT$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7a0c6cb885e1a605E.llvm.17249484671449717553.exit", label %39
 
@@ -6033,7 +6033,7 @@ define hidden void @"_ZN4core3ptr1219drop_in_place$LT$core..iter..adapters..flat
           to label %common.resume unwind label %59
 
 "_ZN69_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1589568392ef118bE.llvm.17249484671449717553.exit.i.i.i.i.i6": ; preds = %51
-  %.pr.i.i.i.i.i7 = load ptr, ptr %45, align 8, !alias.scope !1958
+  %.pr.i.i.i.i.i7 = load ptr, ptr %45, align 8, !alias.scope !1958, !nonnull !5, !noundef !5
   %57 = icmp eq ptr %.pr.i.i.i.i.i7, @_RNvCsj4mk7jSHATF_8thin_vec12EMPTY_HEADER
   br i1 %57, label %"_ZN4core3ptr601drop_in_place$LT$core..option..Option$LT$rustfmt_nightly..lists..ListItems$LT$core..iter..adapters..map..Map$LT$thin_vec..IntoIter$LT$rustc_ast..ast..NestedMetaItem$GT$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h7a0c6cb885e1a605E.llvm.17249484671449717553.exit8", label %58
 
@@ -10319,7 +10319,7 @@ _ZN3std4sync6poison4Flag4done17hd71f90e9b77aab89E.exit.i.i.i: ; preds = %52, %.n
           to label %common.resume unwind label %64
 
 59:                                               ; preds = %55, %_ZN3std4sync6poison4Flag4done17hd71f90e9b77aab89E.exit.i.i.i
-  %.val3.pr = load ptr, ptr %3, align 8
+  %.val3.pr = load ptr, ptr %3, align 8, !noundef !5
   %60 = icmp eq ptr %.val3.pr, null
   br i1 %60, label %"_ZN4core3ptr181drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$core..cell..RefCell$LT$regex..exec..ProgramCacheInner$GT$$GT$$GT$$GT$$GT$17h0533351565f60be9E.exit", label %61
 
@@ -13362,7 +13362,7 @@ define hidden void @"_ZN4core3ptr241drop_in_place$LT$core..iter..adapters..map..
           to label %"_ZN4core3ptr76drop_in_place$LT$thin_vec..ThinVec$LT$rustc_ast..ast..NestedMetaItem$GT$$GT$17h75016842bb8cddceE.llvm.17249484671449717553.exit.i" unwind label %12
 
 "_ZN69_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1589568392ef118bE.llvm.17249484671449717553.exit.i": ; preds = %4
-  %.pr.i = load ptr, ptr %0, align 8, !alias.scope !5483
+  %.pr.i = load ptr, ptr %0, align 8, !alias.scope !5483, !nonnull !5, !noundef !5
   %10 = icmp eq ptr %.pr.i, @_RNvCsj4mk7jSHATF_8thin_vec12EMPTY_HEADER
   br i1 %10, label %"_ZN4core3ptr77drop_in_place$LT$thin_vec..IntoIter$LT$rustc_ast..ast..NestedMetaItem$GT$$GT$17h8d0dafbc48955b07E.llvm.17249484671449717553.exit", label %11
 
@@ -13979,7 +13979,7 @@ define hidden void @"_ZN4core3ptr289drop_in_place$LT$core..iter..adapters..peeka
           to label %"_ZN4core3ptr76drop_in_place$LT$thin_vec..ThinVec$LT$rustc_ast..ast..NestedMetaItem$GT$$GT$17h75016842bb8cddceE.llvm.17249484671449717553.exit.i.i" unwind label %12
 
 "_ZN69_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1589568392ef118bE.llvm.17249484671449717553.exit.i.i": ; preds = %4
-  %.pr.i.i = load ptr, ptr %0, align 8, !alias.scope !5715
+  %.pr.i.i = load ptr, ptr %0, align 8, !alias.scope !5715, !nonnull !5, !noundef !5
   %10 = icmp eq ptr %.pr.i.i, @_RNvCsj4mk7jSHATF_8thin_vec12EMPTY_HEADER
   br i1 %10, label %"_ZN4core3ptr241drop_in_place$LT$core..iter..adapters..map..Map$LT$thin_vec..IntoIter$LT$rustc_ast..ast..NestedMetaItem$GT$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc0104f81e1c30ff8E.exit", label %11
 
@@ -32948,7 +32948,7 @@ define hidden void @"_ZN4core3ptr573drop_in_place$LT$rustfmt_nightly..lists..Lis
           to label %"_ZN4core3ptr76drop_in_place$LT$thin_vec..ThinVec$LT$rustc_ast..ast..NestedMetaItem$GT$$GT$17h75016842bb8cddceE.llvm.17249484671449717553.exit.i.i.i" unwind label %12
 
 "_ZN69_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1589568392ef118bE.llvm.17249484671449717553.exit.i.i.i": ; preds = %4
-  %.pr.i.i.i = load ptr, ptr %0, align 8, !alias.scope !14805
+  %.pr.i.i.i = load ptr, ptr %0, align 8, !alias.scope !14805, !nonnull !5, !noundef !5
   %10 = icmp eq ptr %.pr.i.i.i, @_RNvCsj4mk7jSHATF_8thin_vec12EMPTY_HEADER
   br i1 %10, label %"_ZN4core3ptr289drop_in_place$LT$core..iter..adapters..peekable..Peekable$LT$core..iter..adapters..map..Map$LT$thin_vec..IntoIter$LT$rustc_ast..ast..NestedMetaItem$GT$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h93ce2c7f2f29adcaE.llvm.17249484671449717553.exit", label %11
 
@@ -34166,7 +34166,7 @@ define hidden void @"_ZN4core3ptr583drop_in_place$LT$$u5b$rustfmt_nightly..lists
           to label %.body unwind label %16
 
 "_ZN69_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1589568392ef118bE.llvm.17249484671449717553.exit.i.i.i.i": ; preds = %8
-  %.pr.i.i.i.i = load ptr, ptr %4, align 8, !alias.scope !15448
+  %.pr.i.i.i.i = load ptr, ptr %4, align 8, !alias.scope !15448, !nonnull !5, !noundef !5
   %14 = icmp eq ptr %.pr.i.i.i.i, @_RNvCsj4mk7jSHATF_8thin_vec12EMPTY_HEADER
   br i1 %14, label %"_ZN4core3ptr573drop_in_place$LT$rustfmt_nightly..lists..ListItems$LT$core..iter..adapters..map..Map$LT$thin_vec..IntoIter$LT$rustc_ast..ast..NestedMetaItem$GT$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc9300c28c4c0340aE.exit", label %15
 
@@ -35954,7 +35954,7 @@ define hidden void @"_ZN4core3ptr601drop_in_place$LT$core..option..Option$LT$rus
           to label %"_ZN4core3ptr76drop_in_place$LT$thin_vec..ThinVec$LT$rustc_ast..ast..NestedMetaItem$GT$$GT$17h75016842bb8cddceE.llvm.17249484671449717553.exit.i.i.i.i" unwind label %15
 
 "_ZN69_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1589568392ef118bE.llvm.17249484671449717553.exit.i.i.i.i": ; preds = %7
-  %.pr.i.i.i.i = load ptr, ptr %0, align 8, !alias.scope !16464
+  %.pr.i.i.i.i = load ptr, ptr %0, align 8, !alias.scope !16464, !nonnull !5, !noundef !5
   %13 = icmp eq ptr %.pr.i.i.i.i, @_RNvCsj4mk7jSHATF_8thin_vec12EMPTY_HEADER
   br i1 %13, label %"_ZN4core3ptr573drop_in_place$LT$rustfmt_nightly..lists..ListItems$LT$core..iter..adapters..map..Map$LT$thin_vec..IntoIter$LT$rustc_ast..ast..NestedMetaItem$GT$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$rustfmt_nightly..attr..format_derive..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc9300c28c4c0340aE.exit", label %14
 
@@ -45999,7 +45999,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$thin_vec..IntoIter$LT$rustc_
           to label %"_ZN4core3ptr76drop_in_place$LT$thin_vec..ThinVec$LT$rustc_ast..ast..NestedMetaItem$GT$$GT$17h75016842bb8cddceE.llvm.17249484671449717553.exit" unwind label %12
 
 "_ZN69_$LT$thin_vec..IntoIter$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1589568392ef118bE.llvm.17249484671449717553.exit": ; preds = %4
-  %.pr = load ptr, ptr %0, align 8, !alias.scope !21524
+  %.pr = load ptr, ptr %0, align 8, !alias.scope !21524, !nonnull !5, !noundef !5
   %10 = icmp eq ptr %.pr, @_RNvCsj4mk7jSHATF_8thin_vec12EMPTY_HEADER
   br i1 %10, label %"_ZN4core3ptr76drop_in_place$LT$thin_vec..ThinVec$LT$rustc_ast..ast..NestedMetaItem$GT$$GT$17h75016842bb8cddceE.llvm.17249484671449717553.exit2", label %11
 
@@ -65875,7 +65875,7 @@ define hidden void @_ZN15rustfmt_nightly11ignore_path13IgnorePathSet16from_ignor
 
 61:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  %.pr = load i64, ptr %.sroa.842.0..sroa_idx, align 8, !alias.scope !28266
+  %.pr = load i64, ptr %.sroa.842.0..sroa_idx, align 8, !alias.scope !28266, !noundef !5
   %62 = icmp eq i64 %.pr, 0
   br i1 %62, label %.thread, label %.lr.ph
 
