@@ -55060,11 +55060,11 @@ _ZN3hir9semantics13SemanticsImpl6to_def17h6f3eeaefde48512dE.exit: ; preds = %3
   %131 = extractvalue { i64, ptr } %130, 0
   %132 = extractvalue { i64, ptr } %130, 1
   switch i64 %131, label %311 [
-    i64 14, label %.thread179
+    i64 14, label %.thread181
     i64 9, label %135
   ]
 
-.thread179:                                       ; preds = %.noexc40
+.thread181:                                       ; preds = %.noexc40
   store i64 -9223372036854775808, ptr %44, align 8, !alias.scope !14005, !noalias !14010
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40), !noalias !14008
   %133 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -55622,15 +55622,15 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit92.i: ; preds = %.noexc91.i
   %..val.i = load ptr, ptr %320, align 8, !alias.scope !14011, !nonnull !13
   %321 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %..val2.i = load i64, ptr %321, align 8, !alias.scope !14011
-  %spec.select212 = select i1 %319, ptr null, ptr %..val.i
+  %spec.select = select i1 %319, ptr null, ptr %..val.i
   br label %322
 
-322:                                              ; preds = %318, %.thread179
+322:                                              ; preds = %318, %.thread181
   %323 = phi i64 [ undef, %.thread179 ], [ %..val2.i, %318 ]
   %324 = phi i1 [ true, %.thread179 ], [ %319, %318 ]
-  %..val.i175184 = phi ptr [ %..val.i173, %.thread179 ], [ %..val.i, %318 ]
-  %..val2.i177182 = phi i64 [ %..val2.i174, %.thread179 ], [ %..val2.i, %318 ]
-  %325 = phi ptr [ null, %.thread179 ], [ %spec.select212, %318 ]
+  %..val.i176187 = phi ptr [ %..val.i173, %.thread179 ], [ %..val.i, %318 ]
+  %..val2.i178185 = phi i64 [ %..val2.i174, %.thread179 ], [ %..val2.i, %318 ]
+  %325 = phi ptr [ null, %.thread179 ], [ %spec.select, %318 ]
   %326 = load ptr, ptr %49, align 8, !nonnull !13, !align !384, !noundef !13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   %327 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -55670,9 +55670,9 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit92.i: ; preds = %.noexc91.i
   br i1 %324, label %340, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %337
-  store ptr %..val.i175184, ptr %28, align 8, !noalias !14225
+  store ptr %..val.i176187, ptr %28, align 8, !noalias !14225
   %338 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 %..val2.i177182, ptr %338, align 8, !noalias !14225
+  store i64 %..val2.i178185, ptr %338, align 8, !noalias !14225
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !14225
   store ptr %28, ptr %26, align 8, !noalias !14225
   %339 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -56285,9 +56285,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %337
           to label %.sink.split unwind label %363, !noalias !14265
 
 542:                                              ; preds = %539
-  store ptr %..val.i175184, ptr %20, align 8, !noalias !14265
+  store ptr %..val.i176187, ptr %20, align 8, !noalias !14265
   %543 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 %..val2.i177182, ptr %543, align 8, !noalias !14265
+  store i64 %..val2.i178185, ptr %543, align 8, !noalias !14265
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18), !noalias !14265
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !14265
   store ptr %21, ptr %17, align 8, !noalias !14265

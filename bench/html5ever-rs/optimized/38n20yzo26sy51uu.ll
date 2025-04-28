@@ -1220,9 +1220,9 @@ define void @_ZN8xml5ever9tokenizer13process_qname17h9fcb45af2807e1b5E(ptr noali
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %45 = load i32, ptr %44, align 4, !alias.scope !108
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
-  %switch.not.not = icmp eq i32 %.pr, 0
+  %switch = icmp eq i32 %.pr, 0
   %.pr79.pre = load i64, ptr %1, align 8, !range !49
-  br i1 %switch.not.not, label %.thread68, label %59
+  br i1 %switch, label %.thread68, label %59
 
 .thread68:                                        ; preds = %15, %.thread72, %43
   %.pr79 = phi i64 [ %13, %15 ], [ %13, %.thread72 ], [ %.pr79.pre, %43 ]

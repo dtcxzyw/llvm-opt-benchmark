@@ -4620,7 +4620,7 @@ thread-pre-split:                                 ; preds = %_ZN3syn6buffer15sta
     i32 4, label %36
   ]
 
-default.unreachable27:                            ; preds = %.backedge, %14
+default.unreachable10.i:                          ; preds = %.backedge, %14
   unreachable
 
 16:                                               ; preds = %14
