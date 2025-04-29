@@ -80,58 +80,56 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..Slic
 .lr.ph.i:                                         ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %0, align 8, !range !32, !alias.scope !33, !noalias !36, !noundef !11
-  %7 = add i64 %6, -9223372036854775807
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !alias.scope !29, !noalias !42
-  %10 = load ptr, ptr %5, align 8, !alias.scope !29, !noalias !42, !nonnull !11
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = load i64, ptr %7, align 8, !alias.scope !29, !noalias !42
+  %9 = load ptr, ptr %5, align 8, !alias.scope !29, !noalias !42, !nonnull !11
   %or.cond.i.i.i = icmp sgt i64 %6, -9223372036854775804
   br i1 %or.cond.i.i.i, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %.backedge.i.us
-  %11 = phi ptr [ %12, %.backedge.i.us ], [ %1, %.lr.ph.i ]
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %10 = phi ptr [ %11, %.backedge.i.us ], [ %1, %.lr.ph.i ]
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %13 = load i64, ptr %11, align 8, !range !32, !alias.scope !46, !noalias !47, !noundef !11
-  %14 = icmp sgt i64 %13, -9223372036854775804
-  br i1 %14, label %15, label %.backedge.i.us
+  %12 = load i64, ptr %10, align 8, !range !32, !alias.scope !46, !noalias !47, !noundef !11
+  %13 = icmp sgt i64 %12, -9223372036854775804
+  br i1 %13, label %14, label %.backedge.i.us
 
-15:                                               ; preds = %.lr.ph.i.split.us
+14:                                               ; preds = %.lr.ph.i.split.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %17 = load i64, ptr %16, align 8, !alias.scope !51, !noalias !52, !noundef !11
-  %.not.i.i.i.i.i.us = icmp eq i64 %17, %9
-  br i1 %.not.i.i.i.i.i.us, label %18, label %.backedge.i.us
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %16 = load i64, ptr %15, align 8, !alias.scope !51, !noalias !52, !noundef !11
+  %.not.i.i.i.i.i.us = icmp eq i64 %16, %8
+  br i1 %.not.i.i.i.i.i.us, label %17, label %.backedge.i.us
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %20 = load ptr, ptr %19, align 8, !alias.scope !51, !noalias !52, !nonnull !11, !noundef !11
-  %bcmp.i.i.i.i.i.us = tail call i32 @bcmp(ptr nonnull readonly align 1 %20, ptr nonnull readonly align 1 %10, i64 %9), !alias.scope !54, !noalias !58
-  %21 = icmp eq i32 %bcmp.i.i.i.i.i.us, 0
-  br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit", label %.backedge.i.us
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %19 = load ptr, ptr %18, align 8, !alias.scope !51, !noalias !52, !nonnull !11, !noundef !11
+  %bcmp.i.i.i.i.i.us = tail call i32 @bcmp(ptr nonnull readonly align 1 %19, ptr nonnull readonly align 1 %9, i64 %8), !alias.scope !54, !noalias !58
+  %20 = icmp eq i32 %bcmp.i.i.i.i.i.us, 0
+  br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit", label %.backedge.i.us
 
-.backedge.i.us:                                   ; preds = %18, %15, %.lr.ph.i.split.us
-  %.not16.i.us = icmp eq ptr %12, %4
+.backedge.i.us:                                   ; preds = %17, %14, %.lr.ph.i.split.us
+  %.not16.i.us = icmp eq ptr %11, %4
   br i1 %.not16.i.us, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit", label %.lr.ph.i.split.us
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %.lr.ph.i.split
-  %22 = phi ptr [ %28, %.lr.ph.i.split ], [ %1, %.lr.ph.i ]
+  %21 = phi ptr [ %26, %.lr.ph.i.split ], [ %1, %.lr.ph.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %23 = load i64, ptr %22, align 8, !range !32, !alias.scope !46, !noalias !47, !noundef !11
-  %24 = icmp slt i64 %23, -9223372036854775803
-  %25 = add i64 %23, -9223372036854775807
-  %26 = select i1 %24, i64 %25, i64 0
-  %27 = icmp eq i64 %26, %7
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %.not16.i = icmp eq ptr %28, %4
-  %or.cond = select i1 %27, i1 true, i1 %.not16.i
+  %22 = load i64, ptr %21, align 8, !range !32, !alias.scope !46, !noalias !47, !noundef !11
+  %23 = icmp slt i64 %22, -9223372036854775803
+  %24 = select i1 %23, i64 %22, i64 9223372036854775807
+  %25 = icmp eq i64 %24, %6
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %.not16.i = icmp eq ptr %26, %4
+  %or.cond = select i1 %25, i1 true, i1 %.not16.i
   br i1 %or.cond, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit", label %.lr.ph.i.split
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit": ; preds = %.lr.ph.i.split, %.backedge.i.us, %18, %3
-  %.lcssa.i = phi i1 [ false, %3 ], [ false, %.backedge.i.us ], [ true, %18 ], [ %27, %.lr.ph.i.split ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h5f33bc7db4a95074E.llvm.2822928188824460994.exit": ; preds = %.lr.ph.i.split, %.backedge.i.us, %17, %3
+  %.lcssa.i = phi i1 [ false, %3 ], [ false, %.backedge.i.us ], [ true, %17 ], [ %25, %.lr.ph.i.split ]
   ret i1 %.lcssa.i
 }
 

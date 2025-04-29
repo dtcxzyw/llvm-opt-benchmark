@@ -1709,9 +1709,7 @@ pw_cell_size.exit28.i:                            ; preds = %pw_cell_size.exit.t
 number_of_cells.exit102:                          ; preds = %45
   %49 = icmp samesign ult i32 %46, 48
   %50 = urem i32 %46, 48
-  %.neg39.i93 = sub nsw i32 %50, %46
-  %storemerge.i96 = sub i32 4, %.fr110
-  %51 = icmp ne i32 %.neg39.i93, %storemerge.i96
+  %51 = icmp ne i32 %50, 0
   %or.cond6 = or i1 %49, %51
   br i1 %or.cond6, label %.sink.split, label %53
 
