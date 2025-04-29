@@ -86871,7 +86871,7 @@ _ZN4llvm5SDLocD2Ev.exit579.i:                     ; preds = %232, %_ZN4llvm5SDLo
   %235 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %210, i1 true)
   %.fr.i = freeze i64 %235
   %236 = trunc i64 %.fr.i to i32
-  %237 = lshr i64 %210, %.fr.i
+  %237 = lshr exact i64 %210, %.fr.i
   %238 = add i32 %236, -1
   %or.cond20.i = icmp ult i32 %238, 3
   br i1 %or.cond20.i, label %.critedge559.split.i, label %.split.us.i

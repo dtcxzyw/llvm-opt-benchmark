@@ -157810,9 +157810,9 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7integer3gcdIiEET_RKS2_S4_(ptr 
 
 25:                                               ; preds = %23
   %26 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %21, i1 true)
-  %27 = lshr i32 %21, %26
+  %27 = lshr exact i32 %21, %26
   %28 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %20, i1 true)
-  %29 = lshr i32 %20, %28
+  %29 = lshr exact i32 %20, %28
   %..i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %26, i32 %28)
   %30 = icmp samesign ugt i32 %29, 1
   br i1 %30, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -157831,9 +157831,9 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7integer3gcdIiEET_RKS2_S4_(ptr 
 
 36:                                               ; preds = %.lr.ph.i.i
   %37 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %31, i1 true)
-  %38 = lshr i32 %31, %37
+  %38 = lshr exact i32 %31, %37
   %39 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %32, i1 true)
-  %40 = ashr i32 %32, %39
+  %40 = ashr exact i32 %32, %39
   %spec.select37.i.i = tail call i32 @llvm.smin.i32(i32 %38, i32 %40)
   %spec.select38.i.i = tail call i32 @llvm.smax.i32(i32 %38, i32 %40)
   %41 = icmp sgt i32 %spec.select37.i.i, 1

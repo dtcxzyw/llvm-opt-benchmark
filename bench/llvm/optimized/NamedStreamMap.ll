@@ -605,7 +605,7 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %49
   %76 = or disjoint i32 %75, %70
   store i32 %76, ptr %58, align 8, !tbaa !99, !alias.scope !86
   store i32 %71, ptr %60, align 4, !tbaa !100, !alias.scope !86
-  %77 = lshr i64 %69, %73
+  %77 = lshr exact i64 %69, %73
   store i64 %77, ptr %59, align 8, !tbaa !101, !alias.scope !86
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %79
@@ -3765,7 +3765,7 @@ _ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLN
   %65 = or disjoint i32 %64, %59
   store i32 %65, ptr %48, align 8, !tbaa !99, !alias.scope !235
   store i32 %60, ptr %50, align 4, !tbaa !100, !alias.scope !235
-  %66 = lshr i64 %58, %62
+  %66 = lshr exact i64 %58, %62
   store i64 %66, ptr %49, align 8, !tbaa !101, !alias.scope !235
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %138

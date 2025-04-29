@@ -9223,7 +9223,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %57
   br i1 %.not140157, label %.loopexit145, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN15RegMaskIteratorC2ERK7RegMask.exit
-  %67 = lshr i64 %61, %62
+  %67 = lshr exact i64 %61, %62
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN15RegMaskIterator4nextEv.exit
@@ -9241,7 +9241,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %57
 69:                                               ; preds = %.lr.ph
   %70 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.sroa.0135.0158, i1 true)
   %71 = trunc nuw nsw i64 %70 to i32
-  %72 = lshr i64 %.sroa.0135.0158, %70
+  %72 = lshr exact i64 %.sroa.0135.0158, %70
   %73 = add nsw i32 %.sroa.11137.0160, %71
   br label %_ZN15RegMaskIterator4nextEv.exit
 
@@ -9261,7 +9261,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %57
 79:                                               ; preds = %74
   %80 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %78, i1 true)
   %81 = trunc nuw nsw i64 %80 to i32
-  %82 = lshr i64 %78, %80
+  %82 = lshr exact i64 %78, %80
   %83 = shl i32 %75, 6
   %84 = add i32 %83, -64
   %85 = or disjoint i32 %84, %81
@@ -9374,7 +9374,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit105:        ; preds = %137
   br i1 %.not141161, label %.loopexit, label %.lr.ph165.preheader
 
 .lr.ph165.preheader:                              ; preds = %_ZN15RegMaskIteratorC2ERK7RegMask.exit105
-  %147 = lshr i64 %141, %142
+  %147 = lshr exact i64 %141, %142
   br label %.lr.ph165
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %_ZN15RegMaskIterator4nextEv.exit112
@@ -9392,7 +9392,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit105:        ; preds = %137
 149:                                              ; preds = %.lr.ph165
   %150 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.sroa.0.0164, i1 true)
   %151 = trunc nuw nsw i64 %150 to i32
-  %152 = lshr i64 %.sroa.0.0164, %150
+  %152 = lshr exact i64 %.sroa.0.0164, %150
   %153 = add nsw i32 %.sroa.11.0162, %151
   br label %_ZN15RegMaskIterator4nextEv.exit112
 
@@ -9416,7 +9416,7 @@ _ZN15RegMaskIterator4nextEv.exit112.thread:       ; preds = %.preheader.i108
 159:                                              ; preds = %154
   %160 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %158, i1 true)
   %161 = trunc nuw nsw i64 %160 to i32
-  %162 = lshr i64 %158, %160
+  %162 = lshr exact i64 %158, %160
   %163 = shl i32 %155, 6
   %164 = add i32 %163, -64
   %165 = or disjoint i32 %164, %161

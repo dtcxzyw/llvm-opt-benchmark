@@ -6753,7 +6753,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA6415i
   br i1 %or.cond, label %6, label %11
 
 6:                                                ; preds = %1
-  %7 = lshr i32 %0, %3
+  %7 = lshr exact i32 %0, %3
   %8 = sub nuw nsw i32 32, %4
   %notmask = shl nsw i32 -1, %8
   %9 = xor i32 %notmask, %7

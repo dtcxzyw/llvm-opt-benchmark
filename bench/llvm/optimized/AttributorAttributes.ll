@@ -71641,9 +71641,9 @@ _ZN4llvm32GetPointerBaseWithConstantOffsetEPNS_5ValueERlRKNS_10DataLayoutEb.exit
 
 126:                                              ; preds = %124
   %127 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %118, i1 true)
-  %128 = lshr i32 %119, %127
+  %128 = lshr exact i32 %119, %127
   %129 = zext nneg i8 %117 to i32
-  %130 = lshr i32 %122, %129
+  %130 = lshr exact i32 %122, %129
   %131 = call i32 @llvm.umin.i32(i32 %127, i32 %129)
   %spec.select3334.i.i.i = call i32 @llvm.umin.i32(i32 %128, i32 %130)
   %132 = icmp eq i32 %128, %130
@@ -71661,7 +71661,7 @@ _ZN4llvm32GetPointerBaseWithConstantOffsetEPNS_5ValueERlRKNS_10DataLayoutEb.exit
   %spec.select.i.i.i = call i32 @llvm.umax.i32(i32 %.02736.i.i.i, i32 %.02835.i.i.i)
   %134 = sub i32 %spec.select.i.i.i, %spec.select3337.i.i.i
   %135 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %134, i1 true)
-  %136 = lshr i32 %134, %135
+  %136 = lshr exact i32 %134, %135
   %spec.select33.i.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i, i32 %136)
   %137 = icmp eq i32 %spec.select3337.i.i.i, %136
   br i1 %137, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !1795
@@ -72470,9 +72470,9 @@ _ZN4llvm32GetPointerBaseWithConstantOffsetEPKNS_5ValueERlRKNS_10DataLayoutEb.exi
 
 243:                                              ; preds = %241
   %244 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %238, i1 true)
-  %245 = lshr i32 %239, %244
+  %245 = lshr exact i32 %239, %244
   %246 = zext nneg i8 %.sroa.084.2112.i.i to i32
-  %247 = lshr i32 %217, %246
+  %247 = lshr exact i32 %217, %246
   %248 = call i32 @llvm.umin.i32(i32 %244, i32 %246)
   %spec.select3334.i.i.i = call i32 @llvm.umin.i32(i32 %245, i32 %247)
   %249 = icmp eq i32 %245, %247
@@ -72490,7 +72490,7 @@ _ZN4llvm32GetPointerBaseWithConstantOffsetEPKNS_5ValueERlRKNS_10DataLayoutEb.exi
   %spec.select.i.i.i = call i32 @llvm.umax.i32(i32 %.02736.i.i.i, i32 %.02835.i.i.i)
   %251 = sub i32 %spec.select.i.i.i, %spec.select3337.i.i.i
   %252 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %251, i1 true)
-  %253 = lshr i32 %251, %252
+  %253 = lshr exact i32 %251, %252
   %spec.select33.i.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i, i32 %253)
   %254 = icmp eq i32 %spec.select3337.i.i.i, %253
   br i1 %254, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !1795

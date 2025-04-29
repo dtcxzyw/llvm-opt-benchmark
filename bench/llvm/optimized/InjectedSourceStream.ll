@@ -847,7 +847,7 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %64
   %91 = or disjoint i32 %90, %85
   store i32 %91, ptr %73, align 8, !tbaa !122, !alias.scope !113
   store i32 %86, ptr %75, align 4, !tbaa !123, !alias.scope !113
-  %92 = lshr i64 %84, %88
+  %92 = lshr exact i64 %84, %88
   store i64 %92, ptr %74, align 8, !tbaa !124, !alias.scope !113
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %94

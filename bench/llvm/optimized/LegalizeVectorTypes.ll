@@ -36171,9 +36171,9 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %_ZNK4llvm3EVT23getV
 
 158:                                              ; preds = %156
   %159 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0.0.extract.trunc.i160204206208, i1 true)
-  %160 = lshr i32 %.sroa.0.0.extract.trunc.i160204206208, %159
+  %160 = lshr exact i32 %.sroa.0.0.extract.trunc.i160204206208, %159
   %161 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0.0.extract.trunc.i, i1 true)
-  %162 = lshr i32 %.sroa.0.0.extract.trunc.i, %161
+  %162 = lshr exact i32 %.sroa.0.0.extract.trunc.i, %161
   %163 = call i32 @llvm.umin.i32(i32 %159, i32 %161)
   %spec.select3334.i.i = call i32 @llvm.umin.i32(i32 %160, i32 %162)
   %164 = icmp eq i32 %160, %162
@@ -36191,7 +36191,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %_ZNK4llvm3EVT23getV
   %spec.select.i.i163 = call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %166 = sub i32 %spec.select.i.i163, %spec.select3337.i.i
   %167 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %166, i1 true)
-  %168 = lshr i32 %166, %167
+  %168 = lshr exact i32 %166, %167
   %spec.select33.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %168)
   %169 = icmp eq i32 %spec.select3337.i.i, %168
   br i1 %169, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !513
@@ -40864,9 +40864,9 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %_ZNK4llvm3EVT23getV
 
 112:                                              ; preds = %110
   %113 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0.0.extract.trunc.i106125127, i1 true)
-  %114 = lshr i32 %.sroa.0.0.extract.trunc.i106125127, %113
+  %114 = lshr exact i32 %.sroa.0.0.extract.trunc.i106125127, %113
   %115 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0.0.extract.trunc.i, i1 true)
-  %116 = lshr i32 %.sroa.0.0.extract.trunc.i, %115
+  %116 = lshr exact i32 %.sroa.0.0.extract.trunc.i, %115
   %117 = call i32 @llvm.umin.i32(i32 %113, i32 %115)
   %spec.select3334.i.i = call i32 @llvm.umin.i32(i32 %114, i32 %116)
   %118 = icmp eq i32 %114, %116
@@ -40884,7 +40884,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %_ZNK4llvm3EVT23getV
   %spec.select.i.i109 = call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %120 = sub i32 %spec.select.i.i109, %spec.select3337.i.i
   %121 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %120, i1 true)
-  %122 = lshr i32 %120, %121
+  %122 = lshr exact i32 %120, %121
   %spec.select33.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %122)
   %123 = icmp eq i32 %spec.select3337.i.i, %122
   br i1 %123, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !513
@@ -63425,9 +63425,9 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %118, %_ZNK4llvm18Ta
 
 198:                                              ; preds = %196
   %199 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0.0.extract.trunc.i, i1 true)
-  %200 = lshr i32 %.sroa.0.0.extract.trunc.i, %199
+  %200 = lshr exact i32 %.sroa.0.0.extract.trunc.i, %199
   %201 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0.0.extract.trunc.i186, i1 true)
-  %202 = lshr i32 %.sroa.0.0.extract.trunc.i186, %201
+  %202 = lshr exact i32 %.sroa.0.0.extract.trunc.i186, %201
   %203 = call i32 @llvm.umin.i32(i32 %199, i32 %201)
   %spec.select3334.i.i = call i32 @llvm.umin.i32(i32 %200, i32 %202)
   %204 = icmp eq i32 %200, %202
@@ -63445,7 +63445,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %118, %_ZNK4llvm18Ta
   %spec.select.i.i207 = call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %206 = sub i32 %spec.select.i.i207, %spec.select3337.i.i
   %207 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %206, i1 true)
-  %208 = lshr i32 %206, %207
+  %208 = lshr exact i32 %206, %207
   %spec.select33.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %208)
   %209 = icmp eq i32 %spec.select3337.i.i, %208
   br i1 %209, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !513
@@ -63974,9 +63974,9 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %113, %_ZNK4llvm18Ta
 
 173:                                              ; preds = %171
   %174 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0.0.extract.trunc.i, i1 true)
-  %175 = lshr i32 %.sroa.0.0.extract.trunc.i, %174
+  %175 = lshr exact i32 %.sroa.0.0.extract.trunc.i, %174
   %176 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0.0.extract.trunc.i168, i1 true)
-  %177 = lshr i32 %.sroa.0.0.extract.trunc.i168, %176
+  %177 = lshr exact i32 %.sroa.0.0.extract.trunc.i168, %176
   %178 = call i32 @llvm.umin.i32(i32 %174, i32 %176)
   %spec.select3334.i.i = call i32 @llvm.umin.i32(i32 %175, i32 %177)
   %179 = icmp eq i32 %175, %177
@@ -63994,7 +63994,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %113, %_ZNK4llvm18Ta
   %spec.select.i.i186 = call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %181 = sub i32 %spec.select.i.i186, %spec.select3337.i.i
   %182 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %181, i1 true)
-  %183 = lshr i32 %181, %182
+  %183 = lshr exact i32 %181, %182
   %spec.select33.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %183)
   %184 = icmp eq i32 %spec.select3337.i.i, %183
   br i1 %184, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !513

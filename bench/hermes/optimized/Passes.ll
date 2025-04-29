@@ -3143,7 +3143,7 @@ if.end57:                                         ; preds = %if.end9.i.i.i47, %i
 
 for.body65.preheader:                             ; preds = %if.end57
   %52 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %call59, i1 true)
-  %shr.i.i = lshr i32 %call59, %52
+  %shr.i.i = lshr exact i32 %call59, %52
   br label %for.body65
 
 for.body65:                                       ; preds = %for.body65.preheader, %_ZN6hermes10WordBitSetIjE14const_iteratorppEv.exit
@@ -3207,7 +3207,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes11InstructionENS_12DenseMapInfoIjE
 _ZN6hermes10WordBitSetIjE14const_iteratorppEv.exit: ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIjPN6hermes11InstructionENS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E5eraseERKj.exit90
   %shr.i = lshr i32 %__begin4.sroa.0.0192, 1
   %63 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %shr.i, i1 true)
-  %shr5.i = lshr i32 %shr.i, %63
+  %shr5.i = lshr exact i32 %shr.i, %63
   %add.i = add i32 %__begin4.sroa.4.0191, 1
   %add6.i = add i32 %add.i, %63
   %cmp.i61.not = icmp eq i32 %add6.i, -1

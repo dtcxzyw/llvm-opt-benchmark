@@ -2379,7 +2379,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %472
   br i1 %.not142, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN15RegMaskIteratorC2ERK7RegMask.exit
-  %482 = lshr i64 %476, %477
+  %482 = lshr exact i64 %476, %477
   %483 = add i64 %482, -1
   %484 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %485 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2405,7 +2405,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %472
 494:                                              ; preds = %493
   %495 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.sroa.0120.0143, i1 true)
   %496 = trunc nuw nsw i64 %495 to i32
-  %497 = lshr i64 %.sroa.0120.0143, %495
+  %497 = lshr exact i64 %.sroa.0120.0143, %495
   %498 = add i64 %497, -1
   %499 = add nsw i32 %.sroa.11.0145, %496
   br label %_ZN15RegMaskIterator4nextEv.exit
@@ -2426,7 +2426,7 @@ _ZN15RegMaskIteratorC2ERK7RegMask.exit:           ; preds = %472
 505:                                              ; preds = %500
   %506 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %504, i1 true)
   %507 = trunc nuw nsw i64 %506 to i32
-  %508 = lshr i64 %504, %506
+  %508 = lshr exact i64 %504, %506
   %509 = add i64 %508, -1
   %510 = shl i32 %501, 6
   %511 = add i32 %510, -64

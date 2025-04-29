@@ -12521,10 +12521,10 @@ define linkonce_odr noundef i64 @_ZSt3gcdIllENSt11common_typeIJT_T0_EE4typeES1_S
 6:                                                ; preds = %4
   %7 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 true)
   %8 = trunc nuw nsw i64 %7 to i32
-  %9 = lshr i64 %.0.i, %7
+  %9 = lshr exact i64 %.0.i, %7
   %10 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 true)
   %11 = trunc nuw nsw i64 %10 to i32
-  %12 = lshr i64 %.0.i4, %10
+  %12 = lshr exact i64 %.0.i4, %10
   %13 = tail call i32 @llvm.umin.i32(i32 %8, i32 %11)
   %spec.select3334.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %12)
   %14 = icmp eq i64 %9, %12
@@ -12543,7 +12543,7 @@ define linkonce_odr noundef i64 @_ZSt3gcdIllENSt11common_typeIJT_T0_EE4typeES1_S
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %.02736.i, i64 %.02835.i)
   %17 = sub i64 %spec.select.i, %spec.select3337.i
   %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %17, i1 true)
-  %19 = lshr i64 %17, %18
+  %19 = lshr exact i64 %17, %18
   %spec.select33.i = tail call i64 @llvm.umin.i64(i64 %spec.select3337.i, i64 %19)
   %20 = icmp eq i64 %spec.select3337.i, %19
   br i1 %20, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !318

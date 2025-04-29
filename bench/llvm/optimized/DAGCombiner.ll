@@ -205454,7 +205454,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit:   ; preds = %48, %55
   br i1 %or.cond, label %.critedge2, label %67
 
 67:                                               ; preds = %62
-  %68 = lshr i64 %58, %63
+  %68 = lshr exact i64 %58, %63
   %69 = xor i64 %68, -1
   %70 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %69, i1 false)
   %71 = trunc nuw nsw i64 %70 to i32

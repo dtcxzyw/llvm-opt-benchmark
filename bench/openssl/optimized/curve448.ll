@@ -1725,7 +1725,7 @@ define void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef %0, ptr 
   %.257.i = phi i64 [ %.151.i, %.lr.ph.i ], [ %47, %39 ]
   %40 = trunc i64 %.257.i to i32
   %41 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %40, i1 true)
-  %42 = lshr i32 %40, %41
+  %42 = lshr exact i32 %40, %41
   %43 = and i32 %42, 63
   %44 = and i32 %42, 64
   %spec.select.i = sub nsw i32 %43, %44
@@ -1824,7 +1824,7 @@ recode_wnaf.exit:                                 ; preds = %.lr.ph65.i, %55
   %.257.i69 = phi i64 [ %.151.i65, %.lr.ph.i67 ], [ %95, %87 ]
   %88 = trunc i64 %.257.i69 to i32
   %89 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %88, i1 true)
-  %90 = lshr i32 %88, %89
+  %90 = lshr exact i32 %88, %89
   %91 = and i32 %90, 15
   %92 = and i32 %90, 16
   %spec.select.i71 = sub nsw i32 %91, %92

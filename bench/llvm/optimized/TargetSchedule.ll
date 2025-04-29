@@ -434,9 +434,9 @@ _ZN4llvm15SmallVectorImplIjE6resizeEm.exit:       ; preds = %2, %.sink.split.i.i
 
 48:                                               ; preds = %46
   %49 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %43, i1 true)
-  %50 = lshr i32 %43, %49
+  %50 = lshr exact i32 %43, %49
   %51 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %45, i1 true)
-  %52 = lshr i32 %45, %51
+  %52 = lshr exact i32 %45, %51
   %53 = tail call i32 @llvm.umin.i32(i32 %49, i32 %51)
   %spec.select3334.i.i = tail call i32 @llvm.umin.i32(i32 %50, i32 %52)
   %54 = icmp eq i32 %50, %52
@@ -449,7 +449,7 @@ _ZN4llvm15SmallVectorImplIjE6resizeEm.exit:       ; preds = %2, %.sink.split.i.i
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %55 = sub i32 %spec.select.i.i, %spec.select3337.i.i
   %56 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %55, i1 true)
-  %57 = lshr i32 %55, %56
+  %57 = lshr exact i32 %55, %56
   %spec.select33.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %57)
   %58 = icmp eq i32 %spec.select3337.i.i, %57
   br i1 %58, label %_ZNSt8__detail5__gcdIjEET_S1_S1_.exit.i, label %.lr.ph.i.i, !llvm.loop !110

@@ -4131,7 +4131,7 @@ _ZN4llvm16isShiftedMask_64Em.exit.i.i:            ; preds = %131
 
 141:                                              ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i
   %142 = trunc nuw nsw i64 %121 to i32
-  %143 = lshr i64 %135, %121
+  %143 = lshr exact i64 %135, %121
   %144 = xor i64 %143, -1
   %145 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %144, i1 true)
   %146 = trunc nuw nsw i64 %145 to i32
@@ -4295,7 +4295,7 @@ _ZN4llvm16isShiftedMask_64Em.exit.i.i105:         ; preds = %210
 
 220:                                              ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i105
   %221 = trunc nuw nsw i64 %199 to i32
-  %222 = lshr i64 %214, %199
+  %222 = lshr exact i64 %214, %199
   %223 = xor i64 %222, -1
   %224 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %223, i1 false)
   %225 = trunc nuw nsw i64 %224 to i32

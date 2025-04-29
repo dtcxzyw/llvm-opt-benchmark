@@ -3355,7 +3355,7 @@ tailrecurse.i.i.i:                                ; preds = %tailrecurse.i.i.i, 
   br i1 %24, label %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i, label %tailrecurse.i.i.i
 
 _ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i:   ; preds = %tailrecurse.i.i.i
-  %25 = lshr i64 %.0133.i, %12
+  %25 = lshr exact i64 %.0133.i, %12
   %26 = lshr i64 %25, 1
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.not.i = icmp samesign ult i64 %25, 2

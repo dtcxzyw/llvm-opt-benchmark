@@ -6627,7 +6627,7 @@ tailrecurse.i24.preheader.preheader:              ; preds = %110, %106
   %.050.i62 = phi i32 [ %126, %.lr.ph ], [ 3, %_ZN4llvm5APIntC2Ejmbb.exit ]
   %121 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.050.i62, i1 false)
   %122 = add i32 %.047.i63, %121
-  %123 = lshr i32 %.050.i62, %121
+  %123 = lshr exact i32 %.050.i62, %121
   %124 = zext i32 %123 to i64
   %125 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntmLEm(ptr noundef nonnull align 8 dereferenceable(12) %12, i64 noundef %124) #31
   %126 = add i32 %.050.i62, 1
@@ -62974,9 +62974,9 @@ _ZN4llvm15ScalarEvolution28getSmallConstantTripMultipleEPKNS_4LoopEPKNS_10BasicB
 
 35:                                               ; preds = %33
   %36 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select, i1 true)
-  %37 = lshr i32 %spec.select, %36
+  %37 = lshr exact i32 %spec.select, %36
   %38 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %31, i1 true)
-  %39 = lshr i32 %31, %38
+  %39 = lshr exact i32 %31, %38
   %40 = call i32 @llvm.umin.i32(i32 %36, i32 %38)
   %spec.select3334.i.i = call i32 @llvm.umin.i32(i32 %37, i32 %39)
   %41 = icmp eq i32 %37, %39
@@ -62994,7 +62994,7 @@ _ZN4llvm15ScalarEvolution28getSmallConstantTripMultipleEPKNS_4LoopEPKNS_10BasicB
   %spec.select.i.i = call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %43 = sub i32 %spec.select.i.i, %spec.select3337.i.i
   %44 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %43, i1 true)
-  %45 = lshr i32 %43, %44
+  %45 = lshr exact i32 %43, %44
   %spec.select33.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %45)
   %46 = icmp eq i32 %spec.select3337.i.i, %45
   br i1 %46, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !1282

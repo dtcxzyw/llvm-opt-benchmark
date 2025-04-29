@@ -7637,7 +7637,7 @@ define dso_local noundef i32 @_ZNK4llvm15CodeGenRegister9getWeightERKNS_14CodeGe
   %26 = or disjoint i32 %25, %20
   store i32 %26, ptr %8, align 8, !tbaa !452, !alias.scope !443
   store i32 %21, ptr %10, align 4, !tbaa !453, !alias.scope !443
-  %27 = lshr i64 %19, %23
+  %27 = lshr exact i64 %19, %23
   store i64 %27, ptr %9, align 8, !tbaa !454, !alias.scope !443
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 440
   br label %29
@@ -10394,7 +10394,7 @@ define dso_local noundef i32 @_ZNK4llvm20CodeGenRegisterClass9getWeightERKNS_14C
   %47 = or disjoint i32 %46, %41
   store i32 %47, ptr %29, align 8, !tbaa !452, !alias.scope !585
   store i32 %42, ptr %31, align 4, !tbaa !453, !alias.scope !585
-  %48 = lshr i64 %40, %44
+  %48 = lshr exact i64 %40, %44
   store i64 %48, ptr %30, align 8, !tbaa !454, !alias.scope !585
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 440
   br label %50
@@ -12730,7 +12730,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i.i.i: ; preds = 
   %31 = trunc nuw nsw i64 %30 to i32
   %32 = or disjoint i32 %29, %31
   %33 = or disjoint i32 %32, %27
-  %34 = lshr i64 %26, %30
+  %34 = lshr exact i64 %26, %30
   br label %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.i
 
 _ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.i: ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i.i.i, %14
@@ -12798,7 +12798,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i.i.i.i: ; preds 
   %56 = trunc nuw nsw i64 %55 to i32
   %57 = or disjoint i32 %54, %56
   %58 = or disjoint i32 %57, %52
-  %59 = lshr i64 %51, %55
+  %59 = lshr exact i64 %51, %55
   br label %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.i.i
 
 _ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.i.i: ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i.i.i.i, %39
@@ -13137,7 +13137,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i.i.i.i15: ; pred
   %181 = trunc nuw nsw i64 %180 to i32
   %182 = or disjoint i32 %179, %181
   %183 = or disjoint i32 %182, %177
-  %184 = lshr i64 %176, %180
+  %184 = lshr exact i64 %176, %180
   br label %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.i.i16
 
 _ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.i.i16: ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i.i.i.i15, %164
@@ -20206,7 +20206,7 @@ _ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.lr.ph: ; preds = %19, %34
   %42 = trunc nuw nsw i64 %41 to i32
   %43 = or disjoint i32 %40, %42
   %44 = or disjoint i32 %43, %38
-  %45 = lshr i64 %.lcssa148.sink169, %41
+  %45 = lshr exact i64 %.lcssa148.sink169, %41
   %46 = load ptr, ptr %2, align 8, !tbaa !54
   br label %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer
 
@@ -20436,7 +20436,7 @@ _ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.i.i53.thread: ; preds = %136
   %144 = trunc nuw nsw i64 %143 to i32
   %145 = or disjoint i32 %142, %144
   %146 = or disjoint i32 %145, %140
-  %147 = lshr i64 %139, %143
+  %147 = lshr exact i64 %139, %143
   br label %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.outer
 
 148:                                              ; preds = %_ZNK12_GLOBAL__N_115RegUnitIterator7isValidEv.exit.thread
@@ -20511,7 +20511,7 @@ _ZNK4llvm15SparseBitVectorILj128EE5countEv.exit:  ; preds = %_ZNK4llvm22SparseBi
   %178 = trunc nuw nsw i64 %177 to i32
   %179 = or disjoint i32 %176, %178
   %180 = or disjoint i32 %179, %174
-  %181 = lshr i64 %173, %177
+  %181 = lshr exact i64 %173, %177
   %182 = load ptr, ptr %2, align 8, !tbaa !54
   br label %.preheader.i71.outer
 
@@ -20942,7 +20942,7 @@ _ZN4llvm9BitVector6resizeEjb.exit:                ; preds = %_ZN4llvm15SmallVect
   %113 = or disjoint i32 %112, %107
   store i32 %113, ptr %95, align 8, !tbaa !452, !alias.scope !1008
   store i32 %108, ptr %97, align 4, !tbaa !453, !alias.scope !1008
-  %114 = lshr i64 %106, %110
+  %114 = lshr exact i64 %106, %110
   store i64 %114, ptr %96, align 8, !tbaa !454, !alias.scope !1008
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 440
   br label %116
@@ -24285,7 +24285,7 @@ _ZNSt15_Deque_iteratorIN4llvm15CodeGenRegisterERS1_PS1_EppEv.exit: ; preds = %_Z
   %92 = trunc nuw nsw i64 %91 to i32
   %93 = or disjoint i32 %90, %92
   %94 = or disjoint i32 %93, %88
-  %95 = lshr i64 %87, %91
+  %95 = lshr exact i64 %87, %91
   %96 = load ptr, ptr %15, align 8, !tbaa !281, !noalias !1065
   %97 = icmp eq ptr %96, %15
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
@@ -24328,7 +24328,7 @@ _ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZero
   %113 = trunc nuw nsw i64 %112 to i32
   %114 = or disjoint i32 %111, %113
   %115 = or disjoint i32 %114, %109
-  %116 = lshr i64 %108, %112
+  %116 = lshr exact i64 %108, %112
   %117 = load ptr, ptr %2, align 8
   br label %_ZN4llvm15SparseBitVectorILj128EE23SparseBitVectorIterator20AdvanceToNextNonZeroEv.exit68.outer
 

@@ -3436,7 +3436,7 @@ _ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineReg
   %187 = and i64 %170, 4294967296
   %.not.i = icmp eq i64 %187, 0
   %.sroa.0.0.extract.trunc43.i = trunc i64 %170 to i32
-  br i1 %.not.i, label %203, label %188
+  br i1 %.not.i, label %202, label %188
 
 188:                                              ; preds = %162
   %189 = select i1 %183, i32 3, i32 %182
@@ -3446,78 +3446,76 @@ _ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineReg
 
 192:                                              ; preds = %188
   %193 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %190, i1 true)
-  %194 = lshr i32 %190, %193
+  %194 = lshr exact i32 %190, %193
   %195 = tail call i32 @llvm.umin.i32(i32 %.sroa.0.0.i.ph, i32 %193)
-  %196 = icmp ne i32 %194, 0
-  %spec.select3334.i.i.i = zext i1 %196 to i32
-  %197 = icmp eq i32 %194, 1
-  br i1 %197, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %196 = icmp eq i32 %194, 1
+  br i1 %196, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %192
-  %spec.select33.lcssa.i.i.i = phi i32 [ %spec.select3334.i.i.i, %192 ], [ %spec.select33.i.i.i, %.lr.ph.i.i.i ]
-  %198 = shl nuw i32 %spec.select33.lcssa.i.i.i, %195
+  %spec.select33.lcssa.i.i.i = phi i32 [ 1, %192 ], [ %spec.select33.i.i.i, %.lr.ph.i.i.i ]
+  %197 = shl nuw i32 %spec.select33.lcssa.i.i.i, %195
   br label %_ZL31getEMULEqualsEEWDivSEWTimesLMULjRKN4llvm12MachineInstrE.exit
 
 .lr.ph.i.i.i:                                     ; preds = %192, %.lr.ph.i.i.i
-  %spec.select3337.i.i.i = phi i32 [ %spec.select33.i.i.i, %.lr.ph.i.i.i ], [ %spec.select3334.i.i.i, %192 ]
+  %spec.select3337.i.i.i = phi i32 [ %spec.select33.i.i.i, %.lr.ph.i.i.i ], [ 1, %192 ]
   %.02736.i.i.i = phi i32 [ %spec.select3337.i.i.i, %.lr.ph.i.i.i ], [ 1, %192 ]
-  %.02835.i.i.i = phi i32 [ %201, %.lr.ph.i.i.i ], [ %194, %192 ]
+  %.02835.i.i.i = phi i32 [ %200, %.lr.ph.i.i.i ], [ %194, %192 ]
   %spec.select.i.i.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i.i, i32 %.02835.i.i.i)
-  %199 = sub i32 %spec.select.i.i.i, %spec.select3337.i.i.i
-  %200 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %199, i1 true)
-  %201 = lshr i32 %199, %200
-  %spec.select33.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i, i32 %201)
-  %202 = icmp eq i32 %spec.select3337.i.i.i, %201
-  br i1 %202, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !483
+  %198 = sub i32 %spec.select.i.i.i, %spec.select3337.i.i.i
+  %199 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %198, i1 true)
+  %200 = lshr exact i32 %198, %199
+  %spec.select33.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i, i32 %200)
+  %201 = icmp eq i32 %spec.select3337.i.i.i, %200
+  br i1 %201, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !483
 
-203:                                              ; preds = %162
-  %204 = shl i32 %.sroa.0.0.extract.trunc43.i, %.sroa.0.0.i.ph
-  %205 = icmp eq i32 %204, 0
-  br i1 %205, label %._ZSt3gcdIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit_crit_edge.i, label %206
+202:                                              ; preds = %162
+  %203 = shl i32 %.sroa.0.0.extract.trunc43.i, %.sroa.0.0.i.ph
+  %204 = icmp eq i32 %203, 0
+  br i1 %204, label %._ZSt3gcdIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit_crit_edge.i, label %205
 
-._ZSt3gcdIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit_crit_edge.i: ; preds = %203
+._ZSt3gcdIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit_crit_edge.i: ; preds = %202
   %.pre.i = select i1 %183, i32 3, i32 %182
   br label %_ZL31getEMULEqualsEEWDivSEWTimesLMULjRKN4llvm12MachineInstrE.exit
 
-206:                                              ; preds = %203
-  %207 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %204, i1 true)
-  %208 = lshr i32 %204, %207
-  %209 = select i1 %183, i32 3, i32 %182
-  %210 = lshr i32 %185, %209
-  %211 = tail call i32 @llvm.umin.i32(i32 %207, i32 %209)
-  %spec.select3334.i.i21.i = tail call i32 @llvm.umin.i32(i32 %208, i32 %210)
-  %212 = icmp eq i32 %208, %210
-  br i1 %212, label %._crit_edge.i.i28.i, label %.lr.ph.i.i22.i
+205:                                              ; preds = %202
+  %206 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %203, i1 true)
+  %207 = lshr exact i32 %203, %206
+  %208 = select i1 %183, i32 3, i32 %182
+  %209 = lshr exact i32 %185, %208
+  %210 = tail call i32 @llvm.umin.i32(i32 %206, i32 %208)
+  %spec.select3334.i.i21.i = tail call i32 @llvm.umin.i32(i32 %207, i32 %209)
+  %211 = icmp eq i32 %207, %209
+  br i1 %211, label %._crit_edge.i.i28.i, label %.lr.ph.i.i22.i
 
-._crit_edge.i.i28.i:                              ; preds = %.lr.ph.i.i22.i, %206
-  %spec.select33.lcssa.i.i29.i = phi i32 [ %spec.select3334.i.i21.i, %206 ], [ %spec.select33.i.i27.i, %.lr.ph.i.i22.i ]
-  %213 = shl i32 %spec.select33.lcssa.i.i29.i, %211
+._crit_edge.i.i28.i:                              ; preds = %.lr.ph.i.i22.i, %205
+  %spec.select33.lcssa.i.i29.i = phi i32 [ %spec.select3334.i.i21.i, %205 ], [ %spec.select33.i.i27.i, %.lr.ph.i.i22.i ]
+  %212 = shl i32 %spec.select33.lcssa.i.i29.i, %210
   br label %_ZL31getEMULEqualsEEWDivSEWTimesLMULjRKN4llvm12MachineInstrE.exit
 
-.lr.ph.i.i22.i:                                   ; preds = %206, %.lr.ph.i.i22.i
-  %spec.select3337.i.i23.i = phi i32 [ %spec.select33.i.i27.i, %.lr.ph.i.i22.i ], [ %spec.select3334.i.i21.i, %206 ]
-  %.02736.i.i24.i = phi i32 [ %spec.select3337.i.i23.i, %.lr.ph.i.i22.i ], [ %208, %206 ]
-  %.02835.i.i25.i = phi i32 [ %216, %.lr.ph.i.i22.i ], [ %210, %206 ]
+.lr.ph.i.i22.i:                                   ; preds = %205, %.lr.ph.i.i22.i
+  %spec.select3337.i.i23.i = phi i32 [ %spec.select33.i.i27.i, %.lr.ph.i.i22.i ], [ %spec.select3334.i.i21.i, %205 ]
+  %.02736.i.i24.i = phi i32 [ %spec.select3337.i.i23.i, %.lr.ph.i.i22.i ], [ %207, %205 ]
+  %.02835.i.i25.i = phi i32 [ %215, %.lr.ph.i.i22.i ], [ %209, %205 ]
   %spec.select.i.i26.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i24.i, i32 %.02835.i.i25.i)
-  %214 = sub i32 %spec.select.i.i26.i, %spec.select3337.i.i23.i
-  %215 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %214, i1 true)
-  %216 = lshr i32 %214, %215
-  %spec.select33.i.i27.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i23.i, i32 %216)
-  %217 = icmp eq i32 %spec.select3337.i.i23.i, %216
-  br i1 %217, label %._crit_edge.i.i28.i, label %.lr.ph.i.i22.i, !llvm.loop !483
+  %213 = sub i32 %spec.select.i.i26.i, %spec.select3337.i.i23.i
+  %214 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %213, i1 true)
+  %215 = lshr exact i32 %213, %214
+  %spec.select33.i.i27.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i23.i, i32 %215)
+  %216 = icmp eq i32 %spec.select3337.i.i23.i, %215
+  br i1 %216, label %._crit_edge.i.i28.i, label %.lr.ph.i.i22.i, !llvm.loop !483
 
 _ZL31getEMULEqualsEEWDivSEWTimesLMULjRKN4llvm12MachineInstrE.exit: ; preds = %188, %._crit_edge.i.i.i, %._ZSt3gcdIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit_crit_edge.i, %._crit_edge.i.i28.i
-  %.pre-phi.i = phi i32 [ %.pre.i, %._ZSt3gcdIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit_crit_edge.i ], [ %209, %._crit_edge.i.i28.i ], [ %189, %._crit_edge.i.i.i ], [ %189, %188 ]
-  %218 = phi i32 [ %185, %._ZSt3gcdIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit_crit_edge.i ], [ %213, %._crit_edge.i.i28.i ], [ %198, %._crit_edge.i.i.i ], [ %186, %188 ]
-  %219 = shl i32 %.sroa.0.0.extract.trunc43.i, %.sroa.0.0.i.ph
-  %.pn.i = select i1 %.not.i, i32 %219, i32 %186
-  %220 = udiv i32 %.pn.i, %218
-  %221 = shl i32 %.sroa.0.0.extract.trunc43.i, %.pre-phi.i
-  %.pn19.i = select i1 %.not.i, i32 %185, i32 %221
-  %222 = udiv i32 %.pn19.i, %218
-  %223 = icmp ugt i32 %222, %220
-  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %220, i32 %222)
-  %.sroa.2.0.insert.shift.i.i = select i1 %223, i64 4294967296, i64 0
+  %.pre-phi.i = phi i32 [ %.pre.i, %._ZSt3gcdIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit_crit_edge.i ], [ %208, %._crit_edge.i.i28.i ], [ %189, %._crit_edge.i.i.i ], [ %189, %188 ]
+  %217 = phi i32 [ %185, %._ZSt3gcdIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit_crit_edge.i ], [ %212, %._crit_edge.i.i28.i ], [ %197, %._crit_edge.i.i.i ], [ %186, %188 ]
+  %218 = shl i32 %.sroa.0.0.extract.trunc43.i, %.sroa.0.0.i.ph
+  %.pn.i = select i1 %.not.i, i32 %218, i32 %186
+  %219 = udiv i32 %.pn.i, %217
+  %220 = shl i32 %.sroa.0.0.extract.trunc43.i, %.pre-phi.i
+  %.pn19.i = select i1 %.not.i, i32 %185, i32 %220
+  %221 = udiv i32 %.pn19.i, %217
+  %222 = icmp ugt i32 %221, %219
+  %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %219, i32 %221)
+  %.sroa.2.0.insert.shift.i.i = select i1 %222, i64 4294967296, i64 0
   %.sroa.0.0.insert.ext.i.i = zext i32 %.sroa.speculated.i to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, %.sroa.0.0.insert.ext.i.i
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %0, align 4
@@ -3533,8 +3531,8 @@ _ZL17getOperandLog2EEWRKN4llvm14MachineOperandEPKNS_19MachineRegisterInfoE.exit.
 
 _ZL17getOperandLog2EEWRKN4llvm14MachineOperandEPKNS_19MachineRegisterInfoE.exit: ; preds = %_ZL17getOperandLog2EEWRKN4llvm14MachineOperandEPKNS_19MachineRegisterInfoE.exit.sink.split, %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.thread.i
   %.sink = phi i8 [ 0, %_ZL13isMaskOperandRKN4llvm12MachineInstrERKNS_14MachineOperandEPKNS_19MachineRegisterInfoE.exit.thread.i ], [ 1, %_ZL17getOperandLog2EEWRKN4llvm14MachineOperandEPKNS_19MachineRegisterInfoE.exit.sink.split ]
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %224, align 4, !tbaa !351
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 %.sink, ptr %223, align 4, !tbaa !351
   ret void
 }
 

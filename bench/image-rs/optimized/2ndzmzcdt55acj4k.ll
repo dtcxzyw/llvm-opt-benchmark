@@ -28541,7 +28541,7 @@ define internal fastcc void @_ZN5image6codecs3bmp7decoder8Bitfield9from_mask17h2
 
 10:                                               ; preds = %3
   %11 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1, i1 true)
-  %12 = lshr i32 %1, %11
+  %12 = lshr exact i32 %1, %11
   %13 = xor i32 %12, -1
   %14 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %13, i1 false)
   %15 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1)

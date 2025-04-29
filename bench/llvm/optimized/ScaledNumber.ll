@@ -190,7 +190,7 @@ define dso_local { i64, i16 } @_ZN4llvm13ScaledNumbers8divide64Emm(i64 noundef %
   %3 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 false)
   %4 = trunc nuw nsw i64 %3 to i32
   %5 = sub nsw i32 0, %4
-  %6 = lshr i64 %1, %3
+  %6 = lshr exact i64 %1, %3
   %7 = icmp eq i64 %6, 1
   br i1 %7, label %8, label %10
 

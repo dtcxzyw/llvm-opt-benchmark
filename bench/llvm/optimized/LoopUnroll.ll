@@ -3314,9 +3314,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEZNS_10UnrollLoopEPNS_4LoopE
 
 165:                                              ; preds = %163
   %166 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %157, i1 true)
-  %167 = lshr i32 %157, %166
+  %167 = lshr exact i32 %157, %166
   %168 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %154, i1 true)
-  %169 = lshr i32 %154, %168
+  %169 = lshr exact i32 %154, %168
   %170 = call i32 @llvm.umin.i32(i32 %166, i32 %168)
   %spec.select3334.i.i = call i32 @llvm.umin.i32(i32 %167, i32 %169)
   %171 = icmp eq i32 %167, %169
@@ -3334,7 +3334,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10BasicBlockEZNS_10UnrollLoopEPNS_4LoopE
   %spec.select.i.i409 = call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %173 = sub i32 %spec.select.i.i409, %spec.select3337.i.i
   %174 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %173, i1 true)
-  %175 = lshr i32 %173, %174
+  %175 = lshr exact i32 %173, %174
   %spec.select33.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %175)
   %176 = icmp eq i32 %spec.select3337.i.i, %175
   br i1 %176, label %._crit_edge.i.i, label %.lr.ph.i.i408, !llvm.loop !334

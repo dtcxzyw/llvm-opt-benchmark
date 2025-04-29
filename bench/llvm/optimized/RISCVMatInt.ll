@@ -79,7 +79,7 @@ define dso_local void @_ZN4llvm11RISCVMatInt15generateInstSeqElRKNS_15MCSubtarge
 25:                                               ; preds = %3
   %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1, i1 false)
   %27 = trunc nuw nsw i64 %26 to i32
-  %28 = ashr i64 %1, %26
+  %28 = ashr exact i64 %1, %26
   %29 = add i64 %28, 32
   %30 = icmp ult i64 %29, 64
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 256
@@ -1359,7 +1359,7 @@ _ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJRjRlEEERS2_DpOT
   %77 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %73, i1 false)
   %78 = trunc nuw nsw i64 %77 to i32
   store i32 %78, ptr %5, align 4, !tbaa !20
-  %79 = ashr i64 %73, %77
+  %79 = ashr exact i64 %73, %77
   %80 = icmp samesign ult i64 %77, 13
   %81 = add i64 %79, 2048
   %82 = icmp ult i64 %81, 4096

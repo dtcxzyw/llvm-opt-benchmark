@@ -655,9 +655,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 
 233:                                              ; preds = %231
   %234 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %226, i1 true)
-  %235 = lshr i32 %.0.i.i, %234
+  %235 = lshr exact i32 %.0.i.i, %234
   %236 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %223, i1 true)
-  %237 = lshr i32 %.0.i4.i, %236
+  %237 = lshr exact i32 %.0.i4.i, %236
   %238 = call i32 @llvm.umin.i32(i32 %234, i32 %236)
   %spec.select3334.i.i = call i32 @llvm.umin.i32(i32 %235, i32 %237)
   %239 = icmp eq i32 %235, %237
@@ -675,7 +675,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
   %spec.select.i.i = call i32 @llvm.umax.i32(i32 %.02736.i.i, i32 %.02835.i.i)
   %241 = sub i32 %spec.select.i.i, %spec.select3337.i.i
   %242 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %241, i1 true)
-  %243 = lshr i32 %241, %242
+  %243 = lshr exact i32 %241, %242
   %spec.select33.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i, i32 %243)
   %244 = icmp eq i32 %spec.select3337.i.i, %243
   br i1 %244, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !64

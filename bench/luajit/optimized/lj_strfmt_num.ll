@@ -692,7 +692,7 @@ nd_mul2k.exit.thread:                             ; preds = %254
   br i1 %.not117.i, label %.thread.i, label %328
 
 .thread.i:                                        ; preds = %324
-  %326 = lshr i32 %322, %325
+  %326 = lshr exact i32 %322, %325
   store i32 %326, ptr %7, align 16, !tbaa !15
   %327 = sub nuw nsw i32 %323, %325
   br label %330

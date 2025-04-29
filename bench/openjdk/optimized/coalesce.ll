@@ -3413,7 +3413,7 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit:          ; preds = %5
 42:                                               ; preds = %40
   %43 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %41, i1 true)
   %44 = trunc nuw nsw i64 %43 to i32
-  %45 = lshr i64 %41, %43
+  %45 = lshr exact i64 %41, %43
   %46 = add i64 %45, -1
   store i64 %46, ptr %6, align 8
   %47 = load i32, ptr %19, align 8
@@ -3555,7 +3555,7 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit26:        ; preds = %_ZN16IndexSetIterat
 129:                                              ; preds = %127
   %130 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %128, i1 true)
   %131 = trunc nuw nsw i64 %130 to i32
-  %132 = lshr i64 %128, %130
+  %132 = lshr exact i64 %128, %130
   %133 = add i64 %132, -1
   store i64 %133, ptr %7, align 8
   %134 = load i32, ptr %107, align 8
@@ -3669,7 +3669,7 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit31.split.us: ; preds = %_ZN16IndexSetIter
 198:                                              ; preds = %_ZN16IndexSetIteratorC2EP8IndexSet.exit31.split.us
   %199 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %197, i1 true)
   %200 = trunc nuw nsw i64 %199 to i32
-  %201 = lshr i64 %197, %199
+  %201 = lshr exact i64 %197, %199
   %202 = add i64 %201, -1
   store i64 %202, ptr %8, align 8
   %203 = load i32, ptr %177, align 8
@@ -3705,7 +3705,7 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit31.split:  ; preds = %_ZN16IndexSetIterat
 215:                                              ; preds = %_ZN16IndexSetIteratorC2EP8IndexSet.exit31.split
   %216 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %214, i1 true)
   %217 = trunc nuw nsw i64 %216 to i32
-  %218 = lshr i64 %214, %216
+  %218 = lshr exact i64 %214, %216
   %219 = add i64 %218, -1
   store i64 %219, ptr %8, align 8
   %220 = load i32, ptr %177, align 8

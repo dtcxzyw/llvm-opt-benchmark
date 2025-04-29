@@ -5484,7 +5484,7 @@ _ZN4llvm6detail12DenseSetImplINS_14BasicBlockEdgeENS_8DenseMapIS2_NS0_13DenseSet
   %1590 = trunc nuw nsw i64 %1589 to i32
   %1591 = or disjoint i32 %1588, %1590
   %1592 = or disjoint i32 %1591, %1586
-  %1593 = lshr i64 %1585, %1589
+  %1593 = lshr exact i64 %1585, %1589
   br label %.lr.ph207.i.outer
 
 ._crit_edge208.i:                                 ; preds = %_ZNK4llvm22SparseBitVectorElementILj128EE9find_nextEj.exit.thread.i.i, %1574
@@ -46627,7 +46627,7 @@ _ZNK12_GLOBAL__N_16NewGVN15getMemoryAccessEPKN4llvm10BasicBlockE.exit.thread: ; 
   %224 = or disjoint i32 %223, %218
   store i32 %224, ptr %206, align 8, !tbaa !1431, !alias.scope !1423
   store i32 %219, ptr %208, align 4, !tbaa !1432, !alias.scope !1423
-  %225 = lshr i64 %217, %221
+  %225 = lshr exact i64 %217, %221
   store i64 %225, ptr %207, align 8, !tbaa !1433, !alias.scope !1423
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 2016
   br label %227

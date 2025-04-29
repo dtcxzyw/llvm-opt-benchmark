@@ -531,7 +531,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   %.07075 = phi i64 [ %41, %.lr.ph78 ], [ %199, %emit_symbol.exit66 ]
   %54 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.07075, i1 true)
   %55 = trunc nuw nsw i64 %54 to i32
-  %56 = lshr i64 %.07075, %54
+  %56 = lshr exact i64 %.07075, %54
   %57 = getelementptr inbounds nuw i16, ptr %.05976, i64 %54
   %58 = load i16, ptr %57, align 2, !tbaa !77
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 128
@@ -1066,7 +1066,7 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr noundef readonly captures(
   %.0166184 = phi i64 [ %43, %.lr.ph191 ], [ %.0166.be, %.backedge ]
   %59 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0166184, i1 true)
   %60 = trunc nuw nsw i64 %59 to i32
-  %61 = lshr i64 %.0166184, %59
+  %61 = lshr exact i64 %.0166184, %59
   %62 = add nsw i32 %.080187, %60
   %63 = getelementptr inbounds nuw i16, ptr %.079188, i64 %59
   %64 = lshr i64 %.0189, %59

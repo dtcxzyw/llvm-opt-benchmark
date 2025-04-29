@@ -1190,7 +1190,7 @@ _ZN4llvm20BitMaskClassIteratorC2EPKjRKNS_18TargetRegisterInfoE.exit: ; preds = %
   br i1 %.not2036, label %.loopexit, label %.lr.ph43.preheader
 
 .lr.ph43.preheader:                               ; preds = %_ZN4llvm20BitMaskClassIteratorC2EPKjRKNS_18TargetRegisterInfoE.exit
-  %27 = lshr i32 %.lcssa.i.i, %25
+  %27 = lshr exact i32 %.lcssa.i.i, %25
   br label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %_ZN4llvm20BitMaskClassIteratorppEv.exit
@@ -1238,7 +1238,7 @@ _ZN4llvm20BitMaskClassIteratorppEv.exit:          ; preds = %.lr.ph, %35
   %.lcssa.i.i14 = phi i32 [ %.sroa.26.041, %35 ], [ %40, %.lr.ph ]
   %42 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.lcssa.i.i14, i1 true)
   %43 = add i32 %42, %41
-  %44 = lshr i32 %.lcssa.i.i14, %42
+  %44 = lshr exact i32 %.lcssa.i.i14, %42
   %.not20 = icmp eq i32 %43, %19
   br i1 %.not20, label %.loopexit, label %.lr.ph43, !llvm.loop !282
 
@@ -2195,7 +2195,7 @@ _ZN4llvm20BitMaskClassIteratorC2EPKjRKNS_18TargetRegisterInfoE.exit.i: ; preds =
   br i1 %.not2036.i, label %_ZL22getAllocatableSetForRCRKN4llvm15MachineFunctionEPKNS_19TargetRegisterClassERNS_9BitVectorE.exit, label %.lr.ph43.i.preheader
 
 .lr.ph43.i.preheader:                             ; preds = %_ZN4llvm20BitMaskClassIteratorC2EPKjRKNS_18TargetRegisterInfoE.exit.i
-  %41 = lshr i32 %.lcssa.i.i.i, %39
+  %41 = lshr exact i32 %.lcssa.i.i.i, %39
   br label %.lr.ph43.i
 
 .lr.ph43.i:                                       ; preds = %.lr.ph43.i.preheader, %_ZN4llvm20BitMaskClassIteratorppEv.exit.i
@@ -2243,7 +2243,7 @@ _ZN4llvm20BitMaskClassIteratorppEv.exit.i:        ; preds = %.lr.ph.i, %49
   %.lcssa.i.i14.i = phi i32 [ %.sroa.26.041.i, %49 ], [ %54, %.lr.ph.i ]
   %56 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.lcssa.i.i14.i, i1 true)
   %57 = add i32 %56, %55
-  %58 = lshr i32 %.lcssa.i.i14.i, %56
+  %58 = lshr exact i32 %.lcssa.i.i14.i, %56
   %.not20.i = icmp eq i32 %57, %33
   br i1 %.not20.i, label %_ZL22getAllocatableSetForRCRKN4llvm15MachineFunctionEPKNS_19TargetRegisterClassERNS_9BitVectorE.exit, label %.lr.ph43.i, !llvm.loop !282
 

@@ -15907,7 +15907,7 @@ _ZN4llvm16isShiftedMask_64Em.exit.i.i:            ; preds = %230
 240:                                              ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i
   %241 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %234, i1 true)
   %242 = trunc nuw nsw i64 %241 to i32
-  %243 = lshr i64 %234, %241
+  %243 = lshr exact i64 %234, %241
   %244 = xor i64 %243, -1
   %245 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %244, i1 true)
   %246 = trunc nuw nsw i64 %245 to i32
@@ -16039,7 +16039,7 @@ _ZN4llvm16isShiftedMask_64Em.exit.i.i307:         ; preds = %304
 314:                                              ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i.i307
   %315 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %308, i1 true)
   %316 = trunc nuw nsw i64 %315 to i32
-  %317 = lshr i64 %308, %315
+  %317 = lshr exact i64 %308, %315
   %318 = xor i64 %317, -1
   %319 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %318, i1 false)
   %320 = trunc nuw nsw i64 %319 to i32
@@ -19055,7 +19055,7 @@ _ZN4llvm16isShiftedMask_64Em.exit.i.i.i:          ; preds = %410
   br i1 %.not.i61.i.i, label %_ZNK4llvm3EVTeqES0_.exit.i.i.i, label %.critedge.i.i.i
 
 _ZNK4llvm3EVTeqES0_.exit.i.i.i:                   ; preds = %436
-  %447 = lshr i64 %.0.i.i.i.i.i.i.i.i, %444
+  %447 = lshr exact i64 %.0.i.i.i.i.i.i.i.i, %444
   %448 = xor i64 %447, -1
   %449 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %448, i1 false)
   %450 = load i16, ptr %11, align 8, !tbaa !663
@@ -28090,7 +28090,7 @@ _ZL5WidenPN4llvm12SelectionDAGENS_7SDValueE.exit.i: ; preds = %121, %_ZN4llvm5SD
   %126 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i4952, i1 true)
   %127 = trunc nuw nsw i64 %126 to i32
   store i32 %127, ptr %5, align 4, !tbaa !20
-  %128 = lshr i64 %.0.i4952, %126
+  %128 = lshr exact i64 %.0.i4952, %126
   %129 = xor i64 %128, -1
   %130 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %129, i1 false)
   %131 = trunc nuw nsw i64 %130 to i32
@@ -28235,7 +28235,7 @@ _ZL33isSeveralBitsPositioningOpFromShlmN4llvm7SDValueERS0_RiS2_.exit.i: ; preds 
   %196 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0.i4952, i1 true)
   %197 = trunc nuw nsw i64 %196 to i32
   store i32 %197, ptr %5, align 4, !tbaa !20
-  %198 = lshr i64 %.0.i4952, %196
+  %198 = lshr exact i64 %.0.i4952, %196
   %199 = xor i64 %198, -1
   %200 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %199, i1 false)
   %201 = trunc nuw nsw i64 %200 to i32
@@ -39978,7 +39978,7 @@ _ZN4llvm16isShiftedMask_64Em.exit.i:              ; preds = %44
 54:                                               ; preds = %_ZN4llvm16isShiftedMask_64Em.exit.i
   %55 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %48, i1 true)
   %56 = trunc nuw nsw i64 %55 to i32
-  %57 = lshr i64 %48, %55
+  %57 = lshr exact i64 %48, %55
   %58 = xor i64 %57, -1
   %59 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %58, i1 false)
   %60 = trunc nuw nsw i64 %59 to i32

@@ -49569,7 +49569,7 @@ define linkonce_odr { i64, i64 } @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE7
   br label %.thread50
 
 _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = %6
-  %15 = lshr i64 %8, %9
+  %15 = lshr exact i64 %8, %9
   %16 = sub nsw i64 %12, %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !1472
@@ -49616,7 +49616,7 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
 
 .thread.i:                                        ; preds = %31
   %37 = trunc nuw nsw i64 %35 to i32
-  %38 = lshr i64 %.0.copyload.i.i, %35
+  %38 = lshr exact i64 %.0.copyload.i.i, %35
   store i64 %38, ptr %30, align 8, !tbaa !1475
   %39 = sub nuw nsw i32 64, %37
   store i32 %39, ptr %4, align 8, !tbaa !1476

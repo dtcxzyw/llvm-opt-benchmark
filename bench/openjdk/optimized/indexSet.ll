@@ -356,7 +356,7 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit:          ; preds = %_ZN8IndexSet5clearE
 68:                                               ; preds = %66
   %69 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %67, i1 true)
   %70 = trunc nuw nsw i64 %69 to i32
-  %71 = lshr i64 %67, %69
+  %71 = lshr exact i64 %67, %69
   %72 = add i64 %71, -1
   store i64 %72, ptr %7, align 8
   %73 = load i32, ptr %53, align 8
@@ -475,7 +475,7 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit59:        ; preds = %_ZN16IndexSetIterat
 130:                                              ; preds = %128
   %131 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %129, i1 true)
   %132 = trunc nuw nsw i64 %131 to i32
-  %133 = lshr i64 %129, %131
+  %133 = lshr exact i64 %129, %131
   %134 = add i64 %133, -1
   store i64 %134, ptr %8, align 8
   %135 = load i32, ptr %115, align 8
@@ -1072,7 +1072,7 @@ define hidden noundef i32 @_ZN16IndexSetIterator16advance_and_nextEv(ptr noundef
   store i32 %22, ptr %2, align 4
   %23 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %21, i1 true)
   %24 = trunc nuw nsw i64 %23 to i32
-  %25 = lshr i64 %21, %23
+  %25 = lshr exact i64 %21, %23
   %26 = add i64 %25, -1
   store i64 %26, ptr %0, align 8
   %27 = or disjoint i32 %19, %24
@@ -1136,7 +1136,7 @@ define hidden noundef i32 @_ZN16IndexSetIterator16advance_and_nextEv(ptr noundef
   store i32 %58, ptr %2, align 4
   %59 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %56, i1 true)
   %60 = trunc nuw nsw i64 %59 to i32
-  %61 = lshr i64 %56, %59
+  %61 = lshr exact i64 %56, %59
   %62 = add i64 %61, -1
   store i64 %62, ptr %0, align 8
   %63 = or disjoint i32 %54, %60

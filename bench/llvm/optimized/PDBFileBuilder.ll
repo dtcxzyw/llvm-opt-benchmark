@@ -5781,7 +5781,7 @@ _ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appe
   %66 = or disjoint i32 %65, %60
   store i32 %66, ptr %49, align 8, !tbaa !491, !alias.scope !483
   store i32 %61, ptr %51, align 4, !tbaa !492, !alias.scope !483
-  %67 = lshr i64 %59, %63
+  %67 = lshr exact i64 %59, %63
   store i64 %67, ptr %50, align 8, !tbaa !493, !alias.scope !483
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %138

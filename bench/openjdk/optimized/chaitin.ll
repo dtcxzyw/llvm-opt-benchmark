@@ -3363,7 +3363,7 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit:          ; preds = %_ZN8IndexSet6remove
 295:                                              ; preds = %293
   %296 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %294, i1 true)
   %297 = trunc nuw nsw i64 %296 to i32
-  %298 = lshr i64 %294, %296
+  %298 = lshr exact i64 %294, %296
   %299 = add i64 %298, -1
   store i64 %299, ptr %5, align 8
   %300 = load i32, ptr %38, align 8
@@ -3866,7 +3866,7 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit:          ; preds = %56, %59
 67:                                               ; preds = %65
   %68 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %66, i1 true)
   %69 = trunc nuw nsw i64 %68 to i32
-  %70 = lshr i64 %66, %68
+  %70 = lshr exact i64 %66, %68
   %71 = add i64 %70, -1
   store i64 %71, ptr %3, align 8
   %72 = load i32, ptr %10, align 8
@@ -3955,7 +3955,7 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit106:       ; preds = %94, %97
 105:                                              ; preds = %103
   %106 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %104, i1 true)
   %107 = trunc nuw nsw i64 %106 to i32
-  %108 = lshr i64 %104, %106
+  %108 = lshr exact i64 %104, %106
   %109 = add i64 %108, -1
   store i64 %109, ptr %4, align 8
   %110 = load i32, ptr %17, align 8
@@ -4355,7 +4355,7 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit:          ; preds = %43, %46
 55:                                               ; preds = %53
   %56 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %54, i1 true)
   %57 = trunc nuw nsw i64 %56 to i32
-  %58 = lshr i64 %54, %56
+  %58 = lshr exact i64 %54, %56
   %59 = add i64 %58, -1
   store i64 %59, ptr %3, align 8
   %60 = load i32, ptr %7, align 8
@@ -5259,7 +5259,7 @@ _ZN16IndexSetIteratorC2EP8IndexSet.exit:          ; preds = %30, %36
 51:                                               ; preds = %49
   %52 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %50, i1 true)
   %53 = trunc nuw nsw i64 %52 to i32
-  %54 = lshr i64 %50, %52
+  %54 = lshr exact i64 %50, %52
   %55 = add i64 %54, -1
   store i64 %55, ptr %6, align 8
   %56 = load i32, ptr %31, align 8

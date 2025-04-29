@@ -4608,9 +4608,9 @@ default.unreachable:                              ; preds = %2277
 
 1734:                                             ; preds = %1732
   %1735 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1725, i1 true)
-  %1736 = lshr i32 %.0.i.i.i.i, %1735
+  %1736 = lshr exact i32 %.0.i.i.i.i, %1735
   %1737 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1724, i1 true)
-  %1738 = lshr i32 %.0.i4.i.i.i, %1737
+  %1738 = lshr exact i32 %.0.i4.i.i.i, %1737
   %1739 = call i32 @llvm.umin.i32(i32 %1735, i32 %1737)
   %spec.select3334.i.i.i.i = call i32 @llvm.umin.i32(i32 %1736, i32 %1738)
   %1740 = icmp eq i32 %1736, %1738
@@ -4628,7 +4628,7 @@ default.unreachable:                              ; preds = %2277
   %spec.select.i.i.i.i = call i32 @llvm.umax.i32(i32 %.02736.i.i.i.i, i32 %.02835.i.i.i.i)
   %1742 = sub i32 %spec.select.i.i.i.i, %spec.select3337.i.i.i.i
   %1743 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %1742, i1 true)
-  %1744 = lshr i32 %1742, %1743
+  %1744 = lshr exact i32 %1742, %1743
   %spec.select33.i.i.i.i = call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i.i, i32 %1744)
   %1745 = icmp eq i32 %spec.select3337.i.i.i.i, %1744
   br i1 %1745, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !244

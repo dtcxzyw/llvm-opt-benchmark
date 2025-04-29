@@ -8879,7 +8879,7 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit.i.i.i.i: ; preds = 
   %857 = or disjoint i32 %854, %856
   %858 = or disjoint i32 %857, %852
   store i32 %853, ptr %245, align 4, !tbaa !520, !alias.scope !521
-  %859 = lshr i64 %851, %855
+  %859 = lshr exact i64 %851, %855
   %860 = lshr i64 %859, 1
   br label %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit.i
 

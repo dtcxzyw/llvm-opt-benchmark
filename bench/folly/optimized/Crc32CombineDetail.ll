@@ -45,7 +45,7 @@ tailrecurse.i.i.i:                                ; preds = %tailrecurse.i.i.i, 
   br i1 %17, label %_ZN5follyL14gf_multiply_swEjjj.exit.i, label %tailrecurse.i.i.i
 
 _ZN5follyL14gf_multiply_swEjjj.exit.i:            ; preds = %tailrecurse.i.i.i
-  %18 = lshr i64 %.0152.i, %5
+  %18 = lshr exact i64 %.0152.i, %5
   %19 = lshr i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.not.i = icmp samesign ult i64 %18, 2
@@ -106,7 +106,7 @@ tailrecurse.i.i.i:                                ; preds = %tailrecurse.i.i.i, 
   br i1 %17, label %_ZN5follyL14gf_multiply_swEjjj.exit.i, label %tailrecurse.i.i.i
 
 _ZN5follyL14gf_multiply_swEjjj.exit.i:            ; preds = %tailrecurse.i.i.i
-  %18 = lshr i64 %.0152.i, %5
+  %18 = lshr exact i64 %.0152.i, %5
   %19 = lshr i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.not.i = icmp samesign ult i64 %18, 2
